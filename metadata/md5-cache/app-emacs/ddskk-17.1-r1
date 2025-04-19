@@ -7,9 +7,9 @@ INHERIT=elisp ruby-single vcs-snapshot
 IUSE=ruby
 KEYWORDS=amd64 ppc ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-3+
-RDEPEND=|| ( app-i18n/skk-jisyo virtual/skkserv ) ruby? ( || ( ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ( dev-lang/ruby:3.1 virtual/rubygems[ruby_targets_ruby31(-)] ) ) ) >=app-editors/emacs-25.3:*
+RDEPEND=|| ( app-i18n/skk-jisyo virtual/skkserv ) ruby? ( || ( ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ) ) >=app-editors/emacs-25.3:*
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/skk-dev/ddskk/archive/ddskk-17.1_Neppu.tar.gz -> ddskk-17.1.tar.gz
-_eclasses_=elisp-common	4ee3453b022aae73f4d827a0f98920c2	elisp	8dfc7a00348fe9c91895014adc78a4a5	ruby-utils	a5d18cde09a96648a4d316ada2786cdb	ruby-single	d1b60f2dbb45623756c128d02b2d3497	vcs-snapshot	bd69bf57fd2c34e99964a03b1d968177
+_eclasses_=elisp-common	4ee3453b022aae73f4d827a0f98920c2	elisp	8dfc7a00348fe9c91895014adc78a4a5	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-single	d1b60f2dbb45623756c128d02b2d3497	vcs-snapshot	bd69bf57fd2c34e99964a03b1d968177
 _md5_=8201023e96441b17e7dedb4e6dc30397

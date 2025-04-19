@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig mruby? ( app-alternatives/yacc ) app-alternatives/ninja >=dev-build/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test unpack
-DEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs/libh2o sys-libs/libcap sys-libs/zlib libh2o? ( app-arch/brotli dev-libs/libuv ) mruby? ( || ( ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ( dev-lang/ruby:3.1 virtual/rubygems[ruby_targets_ruby31(-)] ) ( dev-lang/ruby:3.3 virtual/rubygems[ruby_targets_ruby33(-)] ) ) || ( dev-libs/onigmo dev-libs/oniguruma ) )
+DEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs/libh2o sys-libs/libcap sys-libs/zlib libh2o? ( app-arch/brotli dev-libs/libuv ) mruby? ( || ( ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ( dev-lang/ruby:3.3 virtual/rubygems[ruby_targets_ruby33(-)] ) ) || ( dev-libs/onigmo dev-libs/oniguruma ) )
 DESCRIPTION=H2O - the optimized HTTP/1, HTTP/2 server
 EAPI=8
 HOMEPAGE=https://h2o.examp1e.net/
@@ -11,5 +11,5 @@ LICENSE=MIT
 RDEPEND=acct-group/h2o acct-user/h2o dev-lang/perl dev-libs/openssl:0= !sci-libs/libh2o sys-libs/libcap sys-libs/zlib libh2o? ( app-arch/brotli dev-libs/libuv )
 SLOT=0
 SRC_URI=https://github.com/h2o/h2o/archive/26b116e9536be8cf07036185e3edf9d721c9bac2.tar.gz -> h2o-2.3.0_pre20250130.tar.gz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	ruby-utils	a5d18cde09a96648a4d316ada2786cdb	ruby-single	d1b60f2dbb45623756c128d02b2d3497	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26	systemd	54bd206bb5c4efac6ae28b6b006713b0	vcs-snapshot	bd69bf57fd2c34e99964a03b1d968177
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c0c9c21d01b8a96d2d736c554daedc57	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-single	d1b60f2dbb45623756c128d02b2d3497	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26	systemd	54bd206bb5c4efac6ae28b6b006713b0	vcs-snapshot	bd69bf57fd2c34e99964a03b1d968177
 _md5_=8bbc76383c612678ba086a2152378aa7

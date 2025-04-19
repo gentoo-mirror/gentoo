@@ -1,17 +1,17 @@
-BDEPEND=ruby_targets_ruby31? ( test? ( dev-ruby/test-unit:2[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/test-unit:2[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( test? ( dev-ruby/rake[ruby_targets_ruby31(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rake[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) test? ( ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ) virtual/pkgconfig
+BDEPEND=ruby_targets_ruby32? ( test? ( dev-ruby/test-unit:2[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rake[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) test? ( ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ) virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=dev-libs/openssl:0= ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+DEPEND=dev-libs/openssl:0= ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
 DESCRIPTION=EventMachine is a fast, simple event-processing library for Ruby programs
 EAPI=8
 HOMEPAGE=https://github.com/eventmachine/eventmachine
 INHERIT=ruby-fakegem
-IUSE=test ruby_targets_ruby31 ruby_targets_ruby32 doc test test
+IUSE=test ruby_targets_ruby32 doc test test
 KEYWORDS=amd64 ~arm64 ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=|| ( GPL-2 Ruby-BSD )
-RDEPEND=dev-libs/openssl:0= ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby31? ( virtual/rubygems[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
-REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 )
+RDEPEND=dev-libs/openssl:0= ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby32 )
 RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/eventmachine/eventmachine/archive/v1.2.7.tar.gz -> eventmachine-1.2.7.tar.gz https://dev.gentoo.org/~sam/distfiles/dev-ruby/eventmachine/eventmachine-1.2.7-openssl-patches.tar.bz2
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multilib	b2a329026f2e404e9e371097dda47f96	ruby-utils	a5d18cde09a96648a4d316ada2786cdb	ruby-ng	f0dedda0b5f19492ca5de91d98bc1708	ruby-fakegem	92ad9217e94825cb9c8ad831b513a7ec
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multilib	b2a329026f2e404e9e371097dda47f96	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	63f7c7b319d423d92374d431c1837094	ruby-fakegem	92ad9217e94825cb9c8ad831b513a7ec
 _md5_=e9a5c92afa582c8b57afa864fd2e2350

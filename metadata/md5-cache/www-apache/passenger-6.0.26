@@ -1,17 +1,17 @@
-BDEPEND=ruby_targets_ruby31? ( dev-ruby/rake[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( dev-ruby/rake[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( dev-ruby/rake[ruby_targets_ruby33(-)] ) test? ( ruby_targets_ruby31? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby31(-)] dev-ruby/rackup:2[ruby_targets_ruby31(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby32(-)] dev-ruby/rackup:2[ruby_targets_ruby32(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby33(-)] dev-ruby/rackup:2[ruby_targets_ruby33(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 )
+BDEPEND=ruby_targets_ruby32? ( dev-ruby/rake[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( dev-ruby/rake[ruby_targets_ruby33(-)] ) test? ( ruby_targets_ruby32? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby32(-)] dev-ruby/rackup:2[ruby_targets_ruby32(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby33(-)] dev-ruby/rackup:2[ruby_targets_ruby33(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 )
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
-DEPEND=>=dev-libs/libuv-1.8.0 net-misc/curl[ssl] apache2? ( www-servers/apache[apache2_modules_unixd(+)] ) apache2? ( =www-servers/apache-2* ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 )
+DEPEND=>=dev-libs/libuv-1.8.0 net-misc/curl[ssl] apache2? ( www-servers/apache[apache2_modules_unixd(+)] ) apache2? ( =www-servers/apache-2* ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 )
 DESCRIPTION=Passenger makes deployment of Ruby on Rails applications a breeze
 EAPI=8
 HOMEPAGE=https://www.phusionpassenger.com/
 INHERIT=apache-module flag-o-matic ruby-ng toolchain-funcs
-IUSE=apache2 debug test apache2 ruby_targets_ruby31 ruby_targets_ruby32 ruby_targets_ruby33
+IUSE=apache2 debug test apache2 ruby_targets_ruby32 ruby_targets_ruby33
 KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 x86
 LICENSE=Boost-1.0 MIT BSD
-RDEPEND=ruby_targets_ruby31? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby31(-)] dev-ruby/rackup:2[ruby_targets_ruby31(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby31(-)] ) ruby_targets_ruby32? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby32(-)] dev-ruby/rackup:2[ruby_targets_ruby32(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby33(-)] dev-ruby/rackup:2[ruby_targets_ruby33(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby33(-)] ) >=dev-libs/libuv-1.8.0 net-misc/curl[ssl] apache2? ( www-servers/apache[apache2_modules_unixd(+)] ) apache2? ( =www-servers/apache-2* ) ruby_targets_ruby31? ( dev-lang/ruby:3.1 ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 )
-REQUIRED_USE=|| ( ruby_targets_ruby31 ruby_targets_ruby32 ruby_targets_ruby33 )
+RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby32(-)] dev-ruby/rackup:2[ruby_targets_ruby32(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby33(-)] dev-ruby/rackup:2[ruby_targets_ruby33(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby33(-)] ) >=dev-libs/libuv-1.8.0 net-misc/curl[ssl] apache2? ( www-servers/apache[apache2_modules_unixd(+)] ) apache2? ( =www-servers/apache-2* ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 )
+REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://s3.amazonaws.com/phusion-passenger/releases/passenger-6.0.26.tar.gz
-_eclasses_=depend.apache	3b9c533be911d4550c8972e4dfb6434a	apache-module	2778fecd257078e9c921796782f6ede1	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multilib	b2a329026f2e404e9e371097dda47f96	ruby-utils	a5d18cde09a96648a4d316ada2786cdb	ruby-ng	f0dedda0b5f19492ca5de91d98bc1708
+_eclasses_=depend.apache	3b9c533be911d4550c8972e4dfb6434a	apache-module	2778fecd257078e9c921796782f6ede1	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multilib	b2a329026f2e404e9e371097dda47f96	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	63f7c7b319d423d92374d431c1837094
 _md5_=e7e900e7c839f293c1b184e8677fdfba

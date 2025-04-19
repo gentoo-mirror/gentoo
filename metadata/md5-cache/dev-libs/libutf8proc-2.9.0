@@ -1,4 +1,4 @@
-BDEPEND=test? ( =app-i18n/unicode-data-15.1* || ( ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ( dev-lang/ruby:3.1 virtual/rubygems[ruby_targets_ruby31(-)] ) ) )
+BDEPEND=test? ( =app-i18n/unicode-data-15.1* || ( ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ) )
 DEFINED_PHASES=compile install prepare test
 DESCRIPTION=A clean C Library for processing UTF-8 Unicode data
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=MIT
 RESTRICT=!test? ( test )
 SLOT=0/2.9.0
 SRC_URI=https://github.com/JuliaStrings/utf8proc/releases/download/v2.9.0/utf8proc-2.9.0.tar.gz -> libutf8proc-2.9.0.tar.gz cjk? ( https://dev.gentoo.org/~hattya/distfiles/libutf8proc-EastAsianWidth-15.1.0.xz )
-_eclasses_=ruby-utils	a5d18cde09a96648a4d316ada2786cdb	ruby-single	d1b60f2dbb45623756c128d02b2d3497	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169
+_eclasses_=ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-single	d1b60f2dbb45623756c128d02b2d3497	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169
 _md5_=3329f64787bc670b22a3e5fc767692d4
