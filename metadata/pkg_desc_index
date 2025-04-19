@@ -909,7 +909,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.38.23 1.38.28 1.38.33 1.38.34 1.38.35 1.38.36: Universal Command Line Environment for AWS
+app-admin/awscli 1.38.23 1.38.28 1.38.33 1.38.34 1.38.35 1.38.36 1.38.37: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2025.2.0 2025.2.1: Bitwarden password manager desktop client
 app-admin/btrfs-assistant 2.1.1: GUI management tool to make managing a Btrfs filesystem easier
@@ -6022,7 +6022,7 @@ dev-ml/lablgtk-sourceview 3.1.5: OCaml bindings to GTK-3
 dev-ml/labltk 8.06.7-r1 8.06.10-r1 8.06.11-r1 8.06.12-r2 8.06.15: OCaml interface to the Tcl/Tk GUI framework
 dev-ml/lambda-term 3.1.0 3.3.1-r1 3.3.2: Terminal manipulation library for OCaml
 dev-ml/libvirt-ocaml 0.6.1.7: OCaml language binding for libvirt native C API
-dev-ml/llvm 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: OCaml bindings for LLVM
+dev-ml/llvm 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: OCaml bindings for LLVM
 dev-ml/logs 0.7.0-r1: Logging infrastructure for OCaml
 dev-ml/luv 0.5.11-r2 0.5.14-r1: Binding to libuv: cross-platform asynchronous I/O
 dev-ml/lwt 5.7.0 5.9.0: Cooperative light-weight thread library for OCaml
@@ -8062,7 +8062,7 @@ dev-python/alembic 1.15.2: Database migrations tool, written by the author of SQ
 dev-python/allpairspy 2.5.1: Pairwise test combinations generator
 dev-python/amodem 1.15.6: Transmit data between two computers using audio
 dev-python/amqp 5.3.1: Low-level AMQP client for Python (fork of amqplib)
-dev-python/aniso8601 10.0.0: A library for parsing ISO 8601 strings
+dev-python/aniso8601 10.0.0 10.0.1: A library for parsing ISO 8601 strings
 dev-python/annotated-types 0.7.0: Reusable constraint types to use with typing.Annotated
 dev-python/ansi 0.3.7: ANSI cursor movement and graphics in Python
 dev-python/ansi2html 1.9.2: Convert text with ANSI color codes to HTML
@@ -8146,8 +8146,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.3.0 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 4.0 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.37.23 1.37.28 1.37.33 1.37.34 1.37.35 1.37.36: The AWS SDK for Python
-dev-python/botocore 1.37.23 1.37.28 1.37.33 1.37.34 1.37.35 1.37.36: Low-level, data-driven core of boto 3
+dev-python/boto3 1.37.23 1.37.28 1.37.33 1.37.34 1.37.35 1.37.36 1.37.37: The AWS SDK for Python
+dev-python/botocore 1.37.23 1.37.28 1.37.33 1.37.34 1.37.35 1.37.36 1.37.37: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8188,7 +8188,7 @@ dev-python/cheroot 10.0.1: High-performance, pure-Python HTTP server used by Che
 dev-python/cherrypy 18.10.0: CherryPy is a pythonic, object-oriented HTTP framework
 dev-python/chump 1.6.0-r2: API wrapper for Pushover
 dev-python/cjkwrap 2.2-r2: A library for wrapping and filling UTF-8 CJK text
-dev-python/clang 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: Python bindings for llvm-core/clang
+dev-python/clang 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: Python bindings for llvm-core/clang
 dev-python/cleo 2.1.0: Python tool for building testable command-line interfaces
 dev-python/cli-helpers 2.4.0 9999: Python helpers for common CLI tasks
 dev-python/cli-ui 0.18.0 0.19.0: Python library for better command line interfaces
@@ -8498,7 +8498,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.129.4 6.130.8 6.130.9 6.130.10 6.130.12 6.130.13 6.131.0 6.131.2: A library for property based testing
+dev-python/hypothesis 6.129.4 6.130.8 6.130.9 6.130.10 6.130.12 6.130.13 6.131.0 6.131.2 6.131.6: A library for property based testing
 dev-python/icalendar 6.1.3: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
 dev-python/identify 2.6.8: File identification library for Python
@@ -8653,7 +8653,7 @@ dev-python/license-expression 30.4.1: Parse, compare, simplify and normalize lic
 dev-python/line-profiler 4.1.3 4.2.0: Line-by-line profiler
 dev-python/linkify-it-py 2.0.3: Links recognition library with full unicode support
 dev-python/linode-metadata 0.3.0: Python bindings for the Linode Metadata Service
-dev-python/lit 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: A stand-alone install of the LLVM suite testing tool
+dev-python/lit 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: A stand-alone install of the LLVM suite testing tool
 dev-python/littleutils 0.2.4: Small personal collection of Python utility functions
 dev-python/livereload 2.7.1: livereload server in Python
 dev-python/llfuse 1.5.1: Python bindings for the low-level FUSE API
@@ -8875,7 +8875,7 @@ dev-python/pbkdf2 1.3-r2: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
 dev-python/pbr 6.1.1: Inject some useful and sensible default behaviors into setuptools
 dev-python/pbs-installer 2025.03.11 2025.03.17 2025.04.09: Installer for Python Build Standalone
 dev-python/pdfrw 0.4_p1-r1: PDF file reader/writer library
-dev-python/pdm 2.23.0 2.23.1: Python package and dependency manager supporting the latest PEP standards
+dev-python/pdm 2.23.0 2.23.1 2.24.0: Python package and dependency manager supporting the latest PEP standards
 dev-python/pdm-backend 2.4.3 2.4.4: A PEP 517 backend for PDM that supports PEP 621 metadata
 dev-python/pdoc3 0.11.5 0.11.6: Auto-generate API documentation for Python projects
 dev-python/peachpy 2022.11.13-r3: Portable Efficient Assembly Code-generator in Higher-level Python
@@ -12488,31 +12488,31 @@ kde-plasma/spectacle 6.3.4 24.12.3: Screenshot capture utility
 kde-plasma/systemsettings 6.2.5 6.3.4: Control Center to configure KDE Plasma desktop
 kde-plasma/wacomtablet 6.2.5 6.3.4: Wacom system settings module that supports different button/pen layout profiles
 kde-plasma/xdg-desktop-portal-kde 6.2.5 6.3.4: Backend implementation for xdg-desktop-portal that is using Qt/KDE Frameworks
-llvm-core/clang 15.0.7-r3 16.0.6 17.0.6 18.1.8-r6 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: C language family frontend for LLVM
-llvm-core/clang-common 15.0.7-r10 16.0.6-r6 17.0.6-r9 17.0.6-r10 18.1.8-r3 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: Common files shared between multiple slots of clang
-llvm-core/clang-runtime 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: Meta-ebuild for clang runtime libraries
+llvm-core/clang 15.0.7-r3 16.0.6 17.0.6 18.1.8-r6 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: C language family frontend for LLVM
+llvm-core/clang-common 15.0.7-r10 16.0.6-r6 17.0.6-r9 17.0.6-r10 18.1.8-r3 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: Common files shared between multiple slots of clang
+llvm-core/clang-runtime 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: Meta-ebuild for clang runtime libraries
 llvm-core/clang-toolchain-symlinks 15-r2 16-r2 17 18 19 20 21: Symlinks to use Clang on GCC-free system
-llvm-core/flang 21.0.0_pre20250405 21.0.0_pre20250415 21.0.0.9999: LLVM's Fortran frontend
-llvm-core/libclc 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: OpenCL C library
-llvm-core/lld 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: The LLVM linker (link editor)
+llvm-core/flang 21.0.0_pre20250415 21.0.0.9999: LLVM's Fortran frontend
+llvm-core/libclc 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: OpenCL C library
+llvm-core/lld 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: The LLVM linker (link editor)
 llvm-core/lld-toolchain-symlinks 15-r2 16-r2 17 18 19 20 21: Symlinks to use LLD on binutils-free system
-llvm-core/lldb 15.0.7 16.0.6-r1 17.0.6 18.1.8 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: The LLVM debugger
-llvm-core/llvm 15.0.7-r7 16.0.6-r5 17.0.6-r3 18.1.8-r6 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: Low Level Virtual Machine
-llvm-core/llvm-common 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: Common files shared between multiple slots of LLVM
+llvm-core/lldb 15.0.7 16.0.6-r1 17.0.6 18.1.8 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: The LLVM debugger
+llvm-core/llvm 15.0.7-r7 16.0.6-r5 17.0.6-r3 18.1.8-r6 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: Low Level Virtual Machine
+llvm-core/llvm-common 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: Common files shared between multiple slots of LLVM
 llvm-core/llvm-toolchain-symlinks 15-r1 16-r1 17-r1 18-r1 19 20-r1 21: Symlinks to use LLVM on binutils-free system
 llvm-core/llvmgold 15 16 17 18 19 20 21: LLVMgold plugin symlink for autoloading
-llvm-core/mlir 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: Multi-Level Intermediate Representation (library only)
-llvm-core/polly 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: Polyhedral optimizations for LLVM
-llvm-runtimes/compiler-rt 15.0.7-r1 15.0.7-r2 16.0.6-r5 16.0.6-r6 17.0.6-r1 17.0.6-r2 18.1.8-r1 18.1.8-r2 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: Compiler runtime library for clang (built-in part)
-llvm-runtimes/compiler-rt-sanitizers 15.0.7-r1 16.0.6-r1 17.0.6-r1 18.1.8-r6 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: Compiler runtime libraries for clang (sanitizers & xray)
-llvm-runtimes/flang-rt 21.0.0_pre20250405 21.0.0_pre20250415 21.0.0.9999: LLVM's Fortran runtime
+llvm-core/mlir 21.0.0_pre20250415 21.0.0.9999: Multi-Level Intermediate Representation (library only)
+llvm-core/polly 20.1.3 21.0.0_pre20250415 21.0.0.9999: Polyhedral optimizations for LLVM
+llvm-runtimes/compiler-rt 15.0.7-r1 15.0.7-r2 16.0.6-r5 16.0.6-r6 17.0.6-r1 17.0.6-r2 18.1.8-r1 18.1.8-r2 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: Compiler runtime library for clang (built-in part)
+llvm-runtimes/compiler-rt-sanitizers 15.0.7-r1 16.0.6-r1 17.0.6-r1 18.1.8-r6 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: Compiler runtime libraries for clang (sanitizers & xray)
+llvm-runtimes/flang-rt 21.0.0_pre20250415 21.0.0.9999: LLVM's Fortran runtime
 llvm-runtimes/libatomic-stub 0: Stub library which allows compiler-rt to replace libatomic
-llvm-runtimes/libcxx 15.0.7-r1 16.0.6 17.0.6 18.1.8 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: New implementation of the C++ standard library, targeting C++11
-llvm-runtimes/libcxxabi 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: Low level support for a standard C++ library
-llvm-runtimes/libgcc 19.1.7 19.1.7-r1 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: Compiler runtime library for clang, compatible with libgcc_s
-llvm-runtimes/libunwind 15.0.7 16.0.6-r1 17.0.6 18.1.8 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: C++ runtime stack unwinder from LLVM
-llvm-runtimes/offload 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: OpenMP offloading support
-llvm-runtimes/openmp 15.0.7-r6 16.0.6 17.0.6 18.1.8 19.1.7 20.1.2 20.1.3 21.0.0_pre20250405 21.0.0_pre20250412 21.0.0_pre20250415 21.0.0.9999: OpenMP runtime library for LLVM/clang compiler
+llvm-runtimes/libcxx 15.0.7-r1 16.0.6 17.0.6 18.1.8 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: New implementation of the C++ standard library, targeting C++11
+llvm-runtimes/libcxxabi 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: Low level support for a standard C++ library
+llvm-runtimes/libgcc 19.1.7 19.1.7-r1 20.1.3 21.0.0_pre20250415 21.0.0.9999: Compiler runtime library for clang, compatible with libgcc_s
+llvm-runtimes/libunwind 15.0.7 16.0.6-r1 17.0.6 18.1.8 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: C++ runtime stack unwinder from LLVM
+llvm-runtimes/offload 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: OpenMP offloading support
+llvm-runtimes/openmp 15.0.7-r6 16.0.6 17.0.6 18.1.8 19.1.7 20.1.3 21.0.0_pre20250415 21.0.0.9999: OpenMP runtime library for LLVM/clang compiler
 lxde-base/lxappearance 0.6.3-r3: LXDE GTK+ theme switcher
 lxde-base/lxappearance-obconf 0.2.3-r2: LXAppearance plugin for configuring OpenBox
 lxde-base/lxde-common 0.99.2-r1: LXDE Session default configuration files and nuoveXT2 iconset
