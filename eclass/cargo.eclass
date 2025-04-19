@@ -245,6 +245,16 @@ ECARGO_VENDOR="${ECARGO_HOME}/gentoo"
 # @DESCRIPTION:
 # List of URIs to put in SRC_URI created from CRATES variable.
 
+# @FUNCTION: _cargo_check_initialized
+# @INTERNAL
+# @DESCRIPTION:
+# Checks if rust_pkg_setup has been run.
+_cargo_check_initialized() {
+	if [[ -z "${CARGO}" ]]; then
+		die "CARGO is not set; was rust_pkg_setup run?"
+	fi
+}
+
 # @FUNCTION: _cargo_set_crate_uris
 # @USAGE: <crates>
 # @DESCRIPTION:
@@ -468,9 +478,7 @@ cargo_target_dir() {
 cargo_update_crates () {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ -z ${CARGO} ]]; then
-		die "CARGO is not set; was rust_pkg_setup run?"
-	fi
+	_cargo_check_initialized
 
 	local path=${1:-"${S}/Cargo.toml"}
 	if [[ $# -gt 1 ]]; then
@@ -552,6 +560,8 @@ cargo_live_src_unpack() {
 
 	[[ "${PV}" == *9999* ]] || die "${FUNCNAME} only allowed in live/9999 ebuilds"
 	[[ "${EBUILD_PHASE}" == unpack ]] || die "${FUNCNAME} only allowed in src_unpack"
+
+	_cargo_check_initialized
 
 	mkdir -p "${S}" || die
 	mkdir -p "${ECARGO_VENDOR}" || die
@@ -778,9 +788,7 @@ cargo_env() {
 cargo_src_compile() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ -z "${CARGO}" ]]; then
-		die "CARGO is not set; was rust_pkg_setup run?"
-	fi
+	_cargo_check_initialized
 
 	set -- "${CARGO}" build $(usex debug "" --release) ${ECARGO_ARGS[@]} "$@"
 	einfo "${@}"
@@ -796,9 +804,7 @@ cargo_src_compile() {
 cargo_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ -z "${CARGO}" ]]; then
-		die "CARGO is not set; was rust_pkg_setup run?"
-	fi
+	_cargo_check_initialized
 
 	set -- "${CARGO}" install $(has --path ${@} || echo --path ./) \
 		--root "${ED}/usr" \
@@ -818,9 +824,7 @@ cargo_src_install() {
 cargo_src_test() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	if [[ -z "${CARGO}" ]]; then
-		die "CARGO is not set; was rust_pkg_setup run?"
-	fi
+	_cargo_check_initialized
 
 	set -- "${CARGO}" test $(usex debug "" --release) ${ECARGO_ARGS[@]} "$@"
 	einfo "${@}"
