@@ -3785,6 +3785,7 @@ llvm-runtimes/libcxx:clang - Force building using installed clang (rather than t
 llvm-runtimes/libcxx:libcxxabi - Build on top of llvm-runtimes/libcxxabi instead of gcc's libsupc++ (avoids depending on gcc).
 llvm-runtimes/libcxxabi:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
 llvm-runtimes/libunwind:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
+llvm-runtimes/offload:clang - Force building using installed clang (rather than the default CC/CXX).
 llvm-runtimes/offload:ompt - Enable OpenMP Tools Interface support
 llvm-runtimes/openmp:gdb-plugin - Build OMPD GDB plugin
 llvm-runtimes/openmp:hwloc - Enable CPU affinity support via hwloc
