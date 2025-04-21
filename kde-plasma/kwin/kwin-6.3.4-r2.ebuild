@@ -115,6 +115,15 @@ BDEPEND="
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_sys_nice=ep usr/bin/kwin_wayland )
 
+PATCHES=(
+	"${FILESDIR}"/${P}-0001-drm-crash.patch
+	"${FILESDIR}"/${P}-0002-layer-shell.patch
+	"${FILESDIR}"/${P}-0003-renderloop-crash.patch
+	"${FILESDIR}"/${P}-0004-xwayland.patch
+	"${FILESDIR}"/${P}-0005-x11-crash.patch
+	"${FILESDIR}"/${P}-0006-gpu-reset-crash.patch
+)
+
 src_prepare() {
 	ecm_src_prepare
 
