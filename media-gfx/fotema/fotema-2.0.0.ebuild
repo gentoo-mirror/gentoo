@@ -12,17 +12,16 @@ declare -A GIT_CRATES=(
 
 inherit cargo gnome2-utils meson xdg-utils
 
-CRATE_P=${P/-/-v}
 DESCRIPTION="Photo gallery for Linux"
 HOMEPAGE="https://github.com/blissd/fotema"
 SRC_URI="
-	https://github.com/blissd/fotema/archive/v${PV}.tar.gz
+	https://github.com/blissd/fotema/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 	${CARGO_CRATE_URIS}
 "
 if [[ ${PKGBUMPING} != ${PVR} ]]; then
 	SRC_URI+="
-		https://github.com/gentoo-crate-dist/fotema/releases/download/v${PV}/${CRATE_P}-crates.tar.xz
+		https://github.com/gentoo-crate-dist/fotema/releases/download/${PV}/${P}-crates.tar.xz
 	"
 fi
 
