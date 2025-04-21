@@ -1,0 +1,15 @@
+BDEPEND=>=dev-ml/dune-3.11 dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-5 dev-ml/core:0/0.17[ocamlopt?] dev-ml/core_kernel:0/0.17[ocamlopt?] dev-ml/core_unix:0/0.17[ocamlopt?] dev-ml/ppx_jane:0/0.17[ocamlopt?] dev-ml/re:=[ocamlopt?] dev-ml/record_builder:0/0.17[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Extra components that are not as closely vetted or as stable as Core
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/core_extended
+INHERIT=dune
+IUSE=ocamlopt
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=dev-lang/ocaml-5 dev-ml/core:0/0.17[ocamlopt?] dev-ml/core_kernel:0/0.17[ocamlopt?] dev-ml/core_unix:0/0.17[ocamlopt?] dev-ml/ppx_jane:0/0.17[ocamlopt?] dev-ml/re:=[ocamlopt?] dev-ml/record_builder:0/0.17[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.17
+SRC_URI=https://github.com/janestreet/core_extended/archive/refs/tags/v0.17.0.tar.gz -> core_extended-0.17.0.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
+_md5_=7f5ee4df304a778fab63d90c80dadd77

@@ -3429,7 +3429,7 @@ app-text/xmlstarlet 1.6.1-r2: A set of tools to transform, query, validate, and 
 app-text/xmlto 0.0.28-r11: Script for converting XML and DocBook documents to a variety of output formats
 app-text/xmltoman 0.6 0.6-r1: Simple scripts for converting xml to groff or html
 app-text/xournalpp 1.2.3 1.2.5 9999: Handwriting notetaking software with PDF annotation support
-app-text/xpdf 4.05: The PDF viewer and tools
+app-text/xpdf 4.05-r1: PDF viewer and toolkit
 app-text/yamlfmt 0.13.0 0.14.0 0.15.0: An extensible command line tool or library to format yaml files
 app-text/yelp-tools 42.1: Collection of tools for building and converting documentation
 app-text/yodl 4.03.00: Your Own Document Language: a pre-document language and tools to process it
@@ -4047,7 +4047,7 @@ dev-debug/drgn 0.0.30-r1 0.0.31: Programmable debugger
 dev-debug/dtrace 2.0.1.1-r3 2.0.2-r1 9999: Dynamic BPF-based system-wide tracing tool
 dev-debug/duma 2.5.15-r3: DUMA (Detect Unintended Memory Access) is a memory debugging library
 dev-debug/edb-debugger 1.3.0-r1 9999: edb is a cross platform x86/x86-64 debugger, inspired by Ollydbg
-dev-debug/gdb 15.2-r100 15.2-r101 15.2-r103 16.2-r2 16.3 9999: GNU debugger
+dev-debug/gdb 15.2-r101 15.2-r103 16.2-r2 16.3 9999: GNU debugger
 dev-debug/gef 2023.08 2024.06 2025.01 9999: GDB Enhanced Features for exploit devs & reversers
 dev-debug/gfxreconstruct 1.4.309.0 9999: Graphics API Capture and Replay Tools
 dev-debug/gprofng-gui 1.1 2.0 9999: Full-fledged graphical interface to operate gprofng
@@ -5979,6 +5979,7 @@ dev-ml/cmdliner 1.1.1 1.2.0 1.3.0: Declarative definition of command line interf
 dev-ml/coq-menhirlib 20240715: A support library for verified Coq parsers produced by Menhir
 dev-ml/core 0.15.0 0.15.1-r3 0.16.1 0.17.1: Jane Street's alternative to the standard library
 dev-ml/core_bench 0.15.0 0.16.0: Micro-benchmarking library for OCaml
+dev-ml/core_extended 0.17.0: Extra components that are not as closely vetted or as stable as Core
 dev-ml/core_kernel 0.15.0 0.16.0 0.17.0: System-independent part of Core
 dev-ml/core_unix 0.15.2-r1 0.16.0-r1 0.17.0 0.17.1: Unix-specific portions of Core
 dev-ml/cppo 1.6.7-r1 1.6.8-r1 1.6.9-r1 1.7.0 1.8.0: An equivalent of the C preprocessor for OCaml programs
@@ -5987,6 +5988,7 @@ dev-ml/csexp 1.5.2-r1: Parsing and printing of S-expressions in Canonical form
 dev-ml/cstruct 6.2.0-r1: Access C-like structures directly from OCaml
 dev-ml/cudf 0.10-r1: Library to parse, pretty print, and evaluate CUDF documents
 dev-ml/curses 1.0.10 1.0.11: Bindings to ncurses
+dev-ml/delimited_parsing 0.17.0: Parsing of character (e.g., comma) separated and fixed-width values
 dev-ml/dose3 7.0.0-r1: Library to perform analysis on package repositories
 dev-ml/dune 2.9.3-r3 3.16.1 3.17.2 3.18.1: A composable build system for OCaml
 dev-ml/dune-build-info 2.9.3 3.16.0 3.16.1 3.18.1: Embed locations informations inside executable and libraries
@@ -6138,6 +6140,7 @@ dev-ml/re 1.11.0 1.12.0 1.13.0-r2 1.13.3-r2: Regular expression library for OCam
 dev-ml/react 1.2.1-r1 1.2.2-r1: OCaml module for functional reactive programming
 dev-ml/reactiveData 0.2.1: Functional reactive programming with incremental changes in data structures
 dev-ml/reason 3.14.0 3.15.0: Simple, fast & type safe language that leverages JavaScript and OCaml
+dev-ml/record_builder 0.17.0: A library which provides traversal of records with an applicative
 dev-ml/result 1.5: Compat result type
 dev-ml/rresult 0.6.0 0.7.0: Result value combinators for OCaml
 dev-ml/sedlex 3.3: An OCaml lexer generator for Unicode
@@ -10668,7 +10671,7 @@ dev-util/astyle 3.1-r2 3.4.9 3.4.9-r1 3.6.1 3.6.7: Artistic Style is a re-indent
 dev-util/autodia 2.140.0-r2: Parses source code, XML or data and produces an XML document in Dia format
 dev-util/autoproject 0.20_p15: Start a programming project using autotools and a command line parser generator
 dev-util/azuredatastudio 1.50.0-r1 1.51.1: Data management and development tool from Microsoft
-dev-util/babeltrace 1.5.11 2.0.5: A command-line tool and library to read and convert trace files
+dev-util/babeltrace 1.5.11 2.0.5-r1 2.0.6-r1 2.1.1-r1: Command-line tool and library to read and convert trace files
 dev-util/bats 1.11.1: Bats-core: Bash Automated Testing System
 dev-util/bbe 0.2.2-r1: Sed-like editor for binary files
 dev-util/bcc 0.29.1-r1 0.29.1-r2 0.30.0-r1 0.31.0-r2 0.32.0: Tools for BPF-based Linux IO analysis, networking, monitoring, and more
@@ -17697,7 +17700,7 @@ sys-libs/libixp 0.5_p20110208-r3: A stand-alone client/server 9P library includi
 sys-libs/libmodulemd 2.15.0-r1 9999: C Library for manipulating Fedora Modularity metadata files
 sys-libs/libnbd 1.18.1-r2: NBD client library in userspace
 sys-libs/libnvidia-container 1.17.2 1.17.3 1.17.4 1.17.5 9999: NVIDIA container runtime library
-sys-libs/libnvme 1.11.1 1.12 1.13: C Library for NVM Express on Linux
+sys-libs/libnvme 1.11.1-r1 1.12-r1 1.13-r1: C Library for NVM Express on Linux
 sys-libs/libosinfo 1.11.0 1.12.0: GObject library for managing information about real and virtual OSes
 sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 1394 bus
 sys-libs/librtas 2.0.2-r2 2.0.3: A set of libraries for userspace access to RTAS on the PowerPC platform(s)
@@ -18063,10 +18066,10 @@ www-apps/miniflux 2.2.4 2.2.7: Minimalist and opinionated feed reader
 www-apps/mirmon 2.11-r2: Simple webapp to monitor the status of mirrors
 www-apps/moodle 4.4.8 4.5.4 5.0: The Moodle Course Management System
 www-apps/mythweb 0.28.1-r2 34.0: PHP scripts intended to manage MythTV from a web browser
-www-apps/nanoc 4.12.21 4.13.0 4.13.1 4.13.3: nanoc is a simple but very flexible static site generator written in Ruby
+www-apps/nanoc 4.12.21 4.13.0 4.13.1 4.13.3 4.13.4: nanoc is a simple but very flexible static site generator written in Ruby
 www-apps/nanoc-checking 1.0.5 1.0.6: Provides checking functionality for Nanoc
-www-apps/nanoc-cli 4.12.21 4.13.0 4.13.1 4.13.3: nanoc is a simple but very flexible static site generator written in Ruby
-www-apps/nanoc-core 4.12.21 4.13.0 4.13.1 4.13.3: nanoc is a simple but very flexible static site generator written in Ruby
+www-apps/nanoc-cli 4.12.21 4.13.0 4.13.1 4.13.3 4.13.4: nanoc is a simple but very flexible static site generator written in Ruby
+www-apps/nanoc-core 4.12.21 4.13.0 4.13.1 4.13.3 4.13.4: nanoc is a simple but very flexible static site generator written in Ruby
 www-apps/nanoc-deploying 1.0.2-r1: Provides deploying functionality for Nanoc
 www-apps/nanoc-spec 0.0.2-r1: Provides Nanoc::Spec, containing functionality for writing tests for Nanoc
 www-apps/nextcloud 29.0.12-r1 29.0.14-r1 29.0.15 30.0.6-r1 30.0.8-r1 30.0.9 31.0.2-r1 31.0.3: Personal cloud that runs on your own server
