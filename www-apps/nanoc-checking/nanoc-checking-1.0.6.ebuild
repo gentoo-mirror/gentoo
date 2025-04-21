@@ -1,8 +1,8 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby31 ruby32"
+USE_RUBY="ruby32 ruby33"
 
 # Upstream has specs but they are not available in the gem and the
 # repository upstream is not tagged for this.
@@ -16,8 +16,8 @@ DESCRIPTION="Provides checking functionality for Nanoc"
 HOMEPAGE="https://nanoc.app/"
 LICENSE="MIT"
 
-KEYWORDS="~amd64 ~riscv"
 SLOT="$(ver_cut 1)"
+KEYWORDS="~amd64 ~riscv"
 
 ruby_add_rdepend "
 	>=www-apps/nanoc-cli-4.12.5:0
