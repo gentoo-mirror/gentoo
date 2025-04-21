@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,12 +11,35 @@ SRC_URI="https://github.com/Azure/${PN}/archive/refs/tags/v${PV}/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
+IUSE="dracut test"
+RESTRICT="!test? ( test )"
+
+DEPEND="
+	test? ( dev-util/cmocka )
+"
+RDEPEND="
+	dracut? ( sys-kernel/dracut )
+"
 
 src_configure() {
 	local mycmakeargs=(
+		-DDRACUT=$(usex dracut dracut "")
+		-DENABLE_TESTS=$(usex test)
+		-DINITRAMFS_TOOLS=
 		-DUDEV_RULES_INSTALL_DIR="$(get_udevdir)/rules.d"
+		-DVERSION="v${PV}"
 	)
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+
+	# Remove post-install test that only works on Azure.
+	rm -v \
+		"${ED}"/usr/sbin/azure-vm-utils-selftest \
+		"${ED}"/usr/share/man/man*/azure-vm-utils-selftest.* \
+		|| die
 }
 
 pkg_postinst() {
