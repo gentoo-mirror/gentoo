@@ -1,28 +1,32 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} pypy3 )
-inherit python-single-r1
+PYTHON_COMPAT=( python3_{10..13} )
+inherit flag-o-matic libtool python-single-r1
 
-DESCRIPTION="A command-line tool and library to read and convert trace files"
+DESCRIPTION="Command-line tool and library to read and convert trace files"
 HOMEPAGE="https://babeltrace.org/"
 SRC_URI="https://www.efficios.com/files/${PN}/${PN}$(ver_cut 1)-${PV}.tar.bz2"
 S="${WORKDIR}/${PN}$(ver_cut 1)-${PV}"
 
 LICENSE="GPL-2"
-SLOT="0/$(ver_cut 1)"
-KEYWORDS="~alpha amd64 arm arm64 ppc ppc64 ~riscv x86"
+SLOT="2/$(ver_cut 1)"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="doc +elfutils +man plugins python"
 REQUIRED_USE="plugins? ( python ) python? ( ${PYTHON_REQUIRED_USE} )"
 
-RDEPEND=">=dev-libs/glib-2.28:2
+DEPEND="
+	>=dev-libs/glib-2.28:2
 	elfutils? ( >=dev-libs/elfutils-0.154 )
 	python? ( ${PYTHON_DEPS} )
 "
-
-BDEPEND="${RDEPEND}
+RDEPEND="
+	${DEPEND}
+	!dev-util/babeltrace:0/2
+"
+BDEPEND="
 	>=sys-devel/bison-2.5
 	app-alternatives/lex
 	python? (
@@ -41,18 +45,33 @@ pkg_setup() {
 	use python && python-single-r1_pkg_setup
 }
 
+src_prepare() {
+	default
+
+	# Needed for LTO -Werror
+	elibtoolize
+}
+
 src_configure() {
+	# ODR violation in currentCtfScanner. Not yet reported upstream
+	# as bug tracker account is pending approval.
+	filter-lto
+
 	use python && export PYTHON_CONFIG="${EPYTHON}-config"
-	econf \
-		$(use_enable doc api-doc) \
-		$(use_enable elfutils debug-info) \
-		$(use_enable man man-pages) \
-		$(use_enable python python-bindings) \
-		$(usex python $(use_enable doc python-bindings-doc) --disable-python-bindings-doc) \
-		$(use_enable plugins python-plugins) \
-		--disable-built-in-plugins \
-		--disable-built-in-python-plugin-support \
+
+	local myeconfargs=(
+		$(use_enable doc api-doc)
+		$(use_enable elfutils debug-info)
+		$(use_enable man man-pages)
+		$(use_enable python python-bindings)
+		$(usex python $(use_enable doc python-bindings-doc) --disable-python-bindings-doc)
+		$(use_enable plugins python-plugins)
+		--disable-built-in-plugins
+		--disable-built-in-python-plugin-support
 		--disable-Werror
+	)
+
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {
