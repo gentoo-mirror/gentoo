@@ -706,6 +706,7 @@ app-emulation/wine-gecko:shared - Install pre-unpacked files which do not need t
 app-emulation/wine-mono:shared - Install pre-unpacked files which do not need to be copied into the Wine prefix (note that this requires the default top-level Z: drive to be kept for out-of-prefix files to be readable)
 app-emulation/wine-proton:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up and is mostly unsupported, try disabling if have issues)
 app-emulation/wine-proton:gecko - Enable mshtml support using app-emulation/wine-gecko
+app-emulation/wine-proton:mingw - Build PE files using dev-util/mingw64-toolchain (more tested) rather than llvm-core/clang (newer)
 app-emulation/wine-proton:mono - Enable .NET support using app-emulation/wine-mono
 app-emulation/wine-proton:perl - Install helpers that require perl (winedump/winemaker)
 app-emulation/wine-proton:sdl - Enable gamepad support using media-libs/libsdl2
@@ -714,7 +715,7 @@ app-emulation/wine-staging:capi - Enable ISDN support using net-libs/libcapi
 app-emulation/wine-staging:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up and is mostly unsupported, try disabling if have issues)
 app-emulation/wine-staging:dos - Pull in games-emulation/dosbox to run DOS applications
 app-emulation/wine-staging:gecko - Enable mshtml support using app-emulation/wine-gecko
-app-emulation/wine-staging:mingw - Build PE files using a MinGW toolchain for better compatibility
+app-emulation/wine-staging:mingw - Build PE files using dev-util/mingw64-toolchain (more tested) rather than llvm-core/clang (newer)
 app-emulation/wine-staging:mono - Enable .NET support using app-emulation/wine-mono
 app-emulation/wine-staging:netapi - Enable support for configuring remote shares using net-fs/samba
 app-emulation/wine-staging:pcap - Support packet capture software (e.g. wireshark)
@@ -726,7 +727,7 @@ app-emulation/wine-vanilla:capi - Enable ISDN support using net-libs/libcapi
 app-emulation/wine-vanilla:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up and is mostly unsupported, try disabling if have issues)
 app-emulation/wine-vanilla:dos - Pull in games-emulation/dosbox to run DOS applications
 app-emulation/wine-vanilla:gecko - Enable mshtml support using app-emulation/wine-gecko
-app-emulation/wine-vanilla:mingw - Build PE files using a MinGW toolchain for better compatibility
+app-emulation/wine-vanilla:mingw - Build PE files using dev-util/mingw64-toolchain (more tested) rather than llvm-core/clang (newer)
 app-emulation/wine-vanilla:mono - Enable .NET support using app-emulation/wine-mono
 app-emulation/wine-vanilla:netapi - Enable support for configuring remote shares using net-fs/samba
 app-emulation/wine-vanilla:pcap - Support packet capture software (e.g. wireshark)
