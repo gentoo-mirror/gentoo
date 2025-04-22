@@ -4097,20 +4097,20 @@ media-gfx/blender:color-management - Enable color management via media-libs/open
 media-gfx/blender:cuda - Build cycles renderer with nVidia CUDA support.
 media-gfx/blender:cycles - Enable the Cycles raytracing render engine.
 media-gfx/blender:cycles-bin-kernels - Precompile the cycles render kernels for the CUDA/HIP/OneAPI backends, if they are enabled, at compile time. This makes it so that the user doesn't have to wait for the kernels to compile when they are used for the first time in Blender. If this option is not on, they will be built as needed at runtime.
-media-gfx/blender:dds - Adds DDS textures support to Blender.
 media-gfx/blender:embree - Use embree to accelerate certain areas of the Cycles render engine.
-media-gfx/blender:experimental - Build Experimental Blender Modules
+media-gfx/blender:experimental - Enable experimental features
 media-gfx/blender:fluid - Adds fluid simulation support via the built-in Mantaflow library.
 media-gfx/blender:hip - Build cycles renderer with AMD HIP support.
 media-gfx/blender:nanovdb - Enable nanoVDB support in Cycles. Uses less memory than regular openVDB when rendering.
 media-gfx/blender:ndof - Enable NDOF input devices (SpaceNavigator and friends).
 media-gfx/blender:oidn - Enable OpenImageDenoiser Support
-media-gfx/blender:oneapi - Build OIDN with Intel oneAPI SyCL support
+media-gfx/blender:oneapi - Build cycles renderer with Intel oneAPI SyCL support
 media-gfx/blender:openpgl - Enable path guiding support in Cycles
 media-gfx/blender:opensubdiv - Add rendering support form OpenSubdiv from Dreamworks Animation through media-libs/opensubdiv.
 media-gfx/blender:openvdb - Enable openvdb for volumetric processing, like the voxel remesher. Also enables volumetric GPU preview rendering for Nvidia cards.
 media-gfx/blender:optix - Add support for NVIDIA's OptiX Raytracing Engine.
 media-gfx/blender:osl - Add support for OpenShadingLanguage scripting.
+media-gfx/blender:pipewire - Enable Pipewire for audio support on Linux
 media-gfx/blender:potrace - Add support for converting bitmaps into Grease pencil line using the potrace library.
 media-gfx/blender:pugixml - Enable PugiXML support (Used for OpenImageIO, Grease Pencil SVG export)
 media-gfx/blender:renderdoc - Build Blender with renderdoc support
@@ -4530,6 +4530,7 @@ media-libs/osl:partio - Use media-libs/partio
 media-libs/phonon:designer - Install plugin for dev-qt/designer
 media-libs/plutosvg:freetype - Enable media-libs/freetype integration
 media-libs/portmidi:test-programs - Install various example programs
+media-libs/qhull:tools - Build applications
 media-libs/quarter:designer - Install plugin for dev-qt/designer
 media-libs/quarter:qch - Install API documentation in QCH format
 media-libs/quirc:opencv - Build tools requiring media-libs/opencv (inspect-opencv,quirc-demo-opencv)
