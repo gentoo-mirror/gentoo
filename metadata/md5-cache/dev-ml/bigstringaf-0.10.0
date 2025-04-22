@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/dune-configurator test? ( dev-ml/alcotest ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Bigstring intrinsics and fast blits based on memcpy/memmove
+EAPI=8
+HOMEPAGE=https://github.com/inhabitedtype/bigstringaf
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/inhabitedtype/bigstringaf/archive/0.10.0.tar.gz -> bigstringaf-0.10.0.tar.gz
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
+_md5_=77e9b3f731b51e314c5dd5558069a487
