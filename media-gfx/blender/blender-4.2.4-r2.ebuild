@@ -5,7 +5,7 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{11..12} )
 # NOTE must match media-libs/osl
-LLVM_COMPAT=( {15..18} )
+LLVM_COMPAT=( {18..19} )
 LLVM_OPTIONAL=1
 
 inherit check-reqs cmake cuda flag-o-matic llvm-r1 pax-utils python-single-r1 toolchain-funcs xdg-utils
@@ -36,7 +36,7 @@ SLOT="${PV%.*}"
 IUSE="
 	alembic +bullet collada +color-management cuda +cycles +cycles-bin-kernels
 	debug doc +embree +ffmpeg +fftw +fluid +gmp gnome hip jack
-	jemalloc jpeg2k man +nanovdb ndof nls +oidn oneapi openal +openexr +openmp +openpgl
+	jemalloc jpeg2k man +nanovdb ndof nls +oidn openal +openexr +openmp +openpgl
 	+opensubdiv +openvdb optix osl +otf +pdf +potrace +pugixml pulseaudio
 	renderdoc sdl +sndfile +tbb test +tiff valgrind vulkan wayland +webp X
 "
@@ -96,11 +96,6 @@ RDEPEND="${PYTHON_DEPS}
 	nls? ( virtual/libiconv )
 	openal? ( media-libs/openal )
 	oidn? ( >=media-libs/oidn-2.1.0 )
-	oneapi? ( || (
-			dev-libs/intel-compute-runtime:0[l0]
-			dev-libs/intel-compute-runtime:legacy[l0]
-		)
-	)
 	openexr? (
 		>=dev-libs/imath-3.1.7:=
 		>=media-libs/openexr-3.2.1:0=
@@ -209,12 +204,6 @@ blender_get_version() {
 
 pkg_pretend() {
 	blender_check_requirements
-
-	if use oneapi; then
-		einfo "The Intel oneAPI support is rudimentary."
-		einfo ""
-		einfo "Please report any bugs you find to https://bugs.gentoo.org/"
-	fi
 }
 
 pkg_setup() {
@@ -235,10 +224,11 @@ src_unpack() {
 	else
 		default
 
-		if use test; then
-			mkdir -p "${S}/tests/data/" || die
-			mv blender-test-data/* "${S}/tests/data/" || die
-		fi
+		# BUG upstream returns LFS references instead of files
+		# if use test; then
+		# 	mkdir -p "${S}/tests/data/" || die
+		# 	mv blender-test-data/* "${S}/tests/data/" || die
+		# fi
 	fi
 }
 
@@ -324,9 +314,6 @@ src_configure() {
 
 		-DWITH_CYCLES_DEVICE_HIP="$(usex hip)"
 		-DWITH_CYCLES_HIP_BINARIES=$(usex hip $(usex cycles-bin-kernels))
-
-		-DWITH_CYCLES_DEVICE_ONEAPI="$(usex oneapi)"
-		-DWITH_CYCLES_ONEAPI_BINARIES="$(usex oneapi $(usex cycles-bin-kernels))"
 
 		-DWITH_CYCLES_HYDRA_RENDER_DELEGATE="no" # TODO: package Hydra
 		-DWITH_CYCLES_EMBREE="$(usex embree)"
@@ -512,6 +499,13 @@ src_install() {
 	pax-mark m "${BUILD_DIR}"/bin/blender
 
 	cmake_src_install
+
+	# X-KDE-RunOnDiscreteGpu is obsolete, so trim it
+	sed \
+		-e "s/=blender/=${P}/" \
+		-e "s/Name=Blender/Name=Blender Bin ${PV}/" \
+		-e "/X-KDE-RunOnDiscreteGpu.*/d" \
+		-i "${ED}/usr/share/applications/blender-${BV}.desktop" || die
 
 	if use man; then
 		# Slot the man page

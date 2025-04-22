@@ -44,14 +44,11 @@
 			This makes it so that the user doesn't have to wait for the kernels to compile when they are used for the first time in Blender.
 			If this option is not on, they will be built as needed at runtime.
 		</flag>
-		<flag name="dds">
-			Adds DDS textures support to Blender.
-		</flag>
 		<flag name="embree">
 			Use embree to accelerate certain areas of the Cycles render engine.
 		</flag>
 		<flag name="experimental">
-			Build Experimental Blender Modules
+			Enable experimental features
 		</flag>
 		<flag name="fluid">
 			Adds fluid simulation support via the built-in Mantaflow library.
@@ -63,7 +60,7 @@
 			Enable NDOF input devices (SpaceNavigator and friends).
 		</flag>
 		<flag name="oidn">Enable OpenImageDenoiser Support</flag>
-		<flag name="oneapi">Build OIDN with Intel oneAPI SyCL support</flag>
+		<flag name="oneapi">Build cycles renderer with Intel oneAPI SyCL support</flag>
 		<flag name="openpgl">Enable path guiding support in Cycles</flag>
 		<flag name="opensubdiv">
 			Add rendering support form OpenSubdiv from Dreamworks Animation
@@ -77,6 +74,9 @@
 		</flag>
 		<flag name="osl">
 			Add support for OpenShadingLanguage scripting.
+		</flag>
+		<flag name="pipewire">
+			Enable Pipewire for audio support on Linux
 		</flag>
 		<flag name="potrace">
 			Add support for converting bitmaps into Grease pencil line using the potrace library.
