@@ -1807,26 +1807,6 @@ dev-lang/ghc:gmp - Use dev-libs/gmp for integer operations (works faster, but an
 dev-lang/ghc:llvm - Pull in dependencies for the llvm-core/llvm codegen backend.
 dev-lang/ghc:numa - Enable NUMA thread balancing policy using sys-process/numactl.
 dev-lang/ghc:unregisterised - Create an unregisterised build in which only the C codegen backend will be available.
-dev-lang/gnat-gpl:ada - Build the ADA language (GNAT) frontend
-dev-lang/gnat-gpl:cet - Enable support for Intel Control Flow Enforcement Technology (CET)
-dev-lang/gnat-gpl:d - Enable support for the D programming language
-dev-lang/gnat-gpl:default-stack-clash-protection - Build packages with stack clash protection on by default
-dev-lang/gnat-gpl:default-znow - Request full relocation on start from ld.so by default
-dev-lang/gnat-gpl:fixed-point - Enable fixed-point arithmetic support for MIPS targets in gcc (Warning: significantly increases compile time!)
-dev-lang/gnat-gpl:go - Build the GCC Go language frontend.
-dev-lang/gnat-gpl:graphite - Add support for the framework for loop optimizations based on a polyhedral intermediate representation
-dev-lang/gnat-gpl:libssp - Build SSP support into a dedicated library rather than use the code in the C library (DO NOT ENABLE THIS IF YOU DON'T KNOW WHAT IT DOES)
-dev-lang/gnat-gpl:modula2 - Build the GCC Modula-2 language frontend.
-dev-lang/gnat-gpl:objc - Build support for the Objective C code language
-dev-lang/gnat-gpl:objc++ - Build support for the Objective C++ language
-dev-lang/gnat-gpl:objc-gc - Build support for the Objective C code language Garbage Collector
-dev-lang/gnat-gpl:pgo - Build GCC using Profile Guided Optimization (PGO)
-dev-lang/gnat-gpl:rust - Build support for the Rust language, installs gccrs.
-dev-lang/gnat-gpl:sanitize - Build support for various sanitizer functions (ASAN/TSAN/etc...)
-dev-lang/gnat-gpl:ssp - Build packages with stack smashing protector on by default
-dev-lang/gnat-gpl:system-bootstrap - Bootstrap using installed Ada compiler
-dev-lang/gnat-gpl:systemtap - enable systemtap static probe points
-dev-lang/gnat-gpl:vtv - Build support for virtual table verification (a C++ hardening feature)
 dev-lang/gnucobol:json - Enable support for JSON template formatting via dev-libs/json-c
 dev-lang/idris2:chez - build using dev-scheme/chez
 dev-lang/idris2:racket - build using dev-scheme/racket
@@ -8259,7 +8239,6 @@ sys-cluster/openmpi:cma - Enable the CMA (Cross Memory Attach) MCA
 sys-cluster/openmpi:libompitrace - Enable support for contributed package libompitrace
 sys-cluster/openmpi:peruse - Enable PERUSE interface
 sys-cluster/openmpi:romio - Build the ROMIO MPI-IO component
-sys-cluster/pacemaker:smtp - Enable SMTP support via net-libs/libesmtp
 sys-cluster/pmix:munge - Enable authentication via munge
 sys-cluster/pmix:pmi - Build PMI1 and PMI2 interface
 sys-cluster/rdma-core:lttng - Enable support for the LTTng tracer
