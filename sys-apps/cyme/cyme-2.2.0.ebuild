@@ -18,19 +18,12 @@ SRC_URI="
 	https://github.com/tuna-f1sh/cyme/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 	${CARGO_CRATE_URIS}
+	https://github.com/gentoo-crate-dist/cyme/releases/download/v${PV}/cyme-v${PV}-crates.tar.xz
 "
-if [[ ${PKGBUMPING} != ${PVR} ]]; then
-	SRC_URI+="
-		https://github.com/gentoo-crate-dist/cyme/releases/download/v${PV}/cyme-v${PV}-crates.tar.xz
-	"
-fi
 
 LICENSE="GPL-3+"
 # Dependent crate licenses
-LICENSE+="
-	LGPL-2+ MIT MPL-2.0 Unicode-3.0
-	|| ( Apache-2.0 Boost-1.0 )
-"
+LICENSE+=" Apache-2.0 LGPL-2+ MIT MPL-2.0 Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
