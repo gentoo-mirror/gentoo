@@ -909,7 +909,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.38.28 1.38.33 1.38.37: Universal Command Line Environment for AWS
+app-admin/awscli 1.38.28 1.38.33 1.38.37 1.38.38: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2025.2.0 2025.2.1: Bitwarden password manager desktop client
 app-admin/btrfs-assistant 2.1.1: GUI management tool to make managing a Btrfs filesystem easier
@@ -8044,7 +8044,7 @@ dev-python/aiocache 0.12.2 0.12.3: Asyncio cache manager
 dev-python/aiodns 3.2.0: Simple DNS resolver for asyncio
 dev-python/aiofiles 24.1.0: File support for asyncio
 dev-python/aiohappyeyeballs 2.6.1: Happy Eyeballs for pre-resolved hosts
-dev-python/aiohttp 3.11.14 3.11.15 3.11.16 3.11.17: HTTP client/server for asyncio
+dev-python/aiohttp 3.11.14 3.11.15 3.11.16 3.11.17 3.11.18: HTTP client/server for asyncio
 dev-python/aiohttp-cors 0.8.1: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
 dev-python/aiohttp-oauthlib 0.1.0: This project provides first-class OAuth library support for aiohttp
 dev-python/aiohttp-socks 0.10.1: SOCKS proxy connector for aiohttp
@@ -8149,9 +8149,9 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.3.0 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.37.28 1.37.33 1.37.37: The AWS SDK for Python
-dev-python/botocore 1.37.28 1.37.33 1.37.37: Low-level, data-driven core of boto 3
-dev-python/bottle 0.12.25-r1 0.13.2: A fast and simple micro-framework for small web-applications
+dev-python/boto3 1.37.28 1.37.33 1.37.37 1.37.38: The AWS SDK for Python
+dev-python/botocore 1.37.28 1.37.33 1.37.37 1.37.38: Low-level, data-driven core of boto 3
+dev-python/bottle 0.12.25-r1 0.13.2 0.13.3: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
 dev-python/bracex 2.5_p1: Bash style brace expansion for Python
@@ -8178,7 +8178,7 @@ dev-python/cerberus 1.3.7: A lightweight and extensible data-validation library 
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.17.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.32.4 1.33.2 1.34.0: CloudFormation Linter
+dev-python/cfn-lint 1.32.4 1.33.2 1.34.0 1.34.1: CloudFormation Linter
 dev-python/cftime 1.6.4_p1: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.6.0: Fast HTML/XML template compiler for Python
@@ -8570,7 +8570,7 @@ dev-python/jc 1.25.2 1.25.4: Converts the output of popular command-line tools a
 dev-python/jdcal 1.4.1-r1: Julian dates from proleptic Gregorian and Julian calendars
 dev-python/jedi 0.19.2: Autocompletion library for Python
 dev-python/jeepney 0.9.0: Low-level, pure Python DBus protocol wrapper
-dev-python/jellyfish 1.1.3 1.2.0: Python module for doing approximate and phonetic matching of strings
+dev-python/jellyfish 1.2.0: Python module for doing approximate and phonetic matching of strings
 dev-python/jinja2 3.1.6: A full-featured template engine for Python
 dev-python/jinja2-pluralize 0.3.0-r1: Jinja2 pluralize filters
 dev-python/jinja2-time 0.2.0-r1: Jinja2 Extension for Dates and Times
@@ -9310,7 +9310,7 @@ dev-python/readthedocs-sphinx-ext 2.2.5: Code specific for Read the Docs and Sph
 dev-python/readtime 3.0.0: Calculates the time some text takes the average human to read
 dev-python/rebulk 3.2.0: Python library that performs advanced searches in strings
 dev-python/recommonmark 0.7.1-r1: Python docutils-compatibility bridge to CommonMark
-dev-python/recurring-ical-events 3.6.0 3.6.1: Repeat ICalendar events by RRULE, RDATE and EXDATE
+dev-python/recurring-ical-events 3.6.1 3.7.0: Repeat ICalendar events by RRULE, RDATE and EXDATE
 dev-python/redis 5.2.1: Python client for Redis key-value store
 dev-python/reedsolo 2.1.1_beta1-r2: Python Reed Solomon encoder/decoder
 dev-python/referencing 0.36.2: Cross-specification JSON referencing (JSON Schema, OpenAPI...)
@@ -9503,11 +9503,11 @@ dev-python/starlette 0.46.1 0.46.2: The little ASGI framework that shines
 dev-python/statsd 4.0.1: A simple statsd client
 dev-python/statsmodels 0.14.4: Statistical computations and models for use with SciPy
 dev-python/stdio-mgr 1.0.1-r1: Context manager for mocking/wrapping stdin/stdout/stderr
-dev-python/stestr 4.1.0: A parallel Python test runner built around subunit
+dev-python/stestr 4.1.0 4.2.0: A parallel Python test runner built around subunit
 dev-python/stevedore 5.4.1: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.1.2: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 12.0.0: Stripe Python bindings
+dev-python/stripe 12.0.0 12.0.1: Stripe Python bindings
 dev-python/structlog 25.2.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.2: subprocess.run replacement with tee(1)-like output
 dev-python/suds-community 1.2.0: Lightweight SOAP client
@@ -9518,7 +9518,7 @@ dev-python/svglib 1.5.1: Pure-Python library for reading and converting SVG
 dev-python/svgwrite 1.4.3: Python Package to write SVG files
 dev-python/swagger-spec-validator 3.0.3 3.0.4: Validate Swagger specs against Swagger 1.1 or 2.0 specification
 dev-python/sybil 9.1.0: Automated testing for the examples in your documentation
-dev-python/symengine 0.11.0 0.13.0 0.14.0: Python wrappers to the symengine C++ library
+dev-python/symengine 0.11.0 0.13.0 0.14.0 0.14.1: Python wrappers to the symengine C++ library
 dev-python/sympy 1.13.3 1.14.0_rc1: Computer Algebra System in pure Python
 dev-python/tables 3.10.2: Hierarchical datasets for Python
 dev-python/tabulate 0.9.0-r1: Pretty-print tabular data
@@ -9609,7 +9609,7 @@ dev-python/uc-micro-py 1.0.3: Micro subset of unicode data files for linkify-it-
 dev-python/ujson 5.10.0: Ultra fast JSON encoder and decoder for Python
 dev-python/ukkonen 1.0.1-r1: Implementation of bounded Levenshtein distance (Ukkonen)
 dev-python/unasync 0.6.0-r1: The async transformation code
-dev-python/uncertainties 3.2.1 3.2.2: Python module for calculations with uncertainties
+dev-python/uncertainties 3.2.2 3.2.3: Python module for calculations with uncertainties
 dev-python/unearth 0.17.3 0.17.5: A utility to fetch and download python packages
 dev-python/unidecode 1.3.8: Module providing ASCII transliterations of Unicode text
 dev-python/unidiff 0.7.5: Unified diff parsing/metadata extraction library
@@ -15250,7 +15250,7 @@ net-misc/midentd 2.3.1-r3: ident daemon with masquerading and fake replies suppo
 net-misc/mikutter 5.0.5 9999: Simple, powerful and moeful twitter client
 net-misc/minidlna 1.3.3: DLNA/UPnP-AV compliant media server
 net-misc/minissdpd 1.5.20211105 1.6.0: MiniSSDP Daemon
-net-misc/miniupnpd 2.3.7 2.3.8: MiniUPnP IGD Daemon
+net-misc/miniupnpd 2.3.7 2.3.8 2.3.9: MiniUPnP IGD Daemon
 net-misc/mobile-broadband-provider-info 20230416 20240407: Database of mobile broadband service providers
 net-misc/modemmanager 1.18.12 1.20.6: Modem and mobile broadband management libraries
 net-misc/moonlight 6.1.0-r2 9999: NVIDIA GameStream (and Sunshine) client
@@ -16962,7 +16962,7 @@ sys-apps/cpu-x 5.1.3 5.2.0: A Free software that gathers information on CPU, mot
 sys-apps/cpuid 20250316: Linux tool to dump x86 CPUID information about the CPUs
 sys-apps/cracklib-words 2.10.2 2.10.3: Large set of crack/cracklib dictionaries
 sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
-sys-apps/cyme 2.1.2 2.1.3: List system USB buses and devices; a modern cross-platform `lsusb`
+sys-apps/cyme 2.1.3 2.2.0: List system USB buses and devices; a modern cross-platform `lsusb`
 sys-apps/daemonize 1.7.8: Runs a command as a Unix daemon
 sys-apps/daisydog 2014.05.30-r1 2024.07.12: A very simple /dev/watchdog daemon
 sys-apps/darwin-miscutils 12-r1: Miscellaneous commands used on macOS, High Sierra 10.13
@@ -19058,7 +19058,7 @@ xfce-base/xfdesktop 4.18.1 4.20.1: Desktop manager for the Xfce desktop environm
 xfce-base/xfwm4 4.18.0 4.20.0: Window manager for the Xfce desktop environment
 xfce-extra/thunar-archive-plugin 0.5.3: Archive plug-in for the Thunar filemanager
 xfce-extra/thunar-media-tags-plugin 0.5.0: Adds special features for media files to the Thunar File Manager
-xfce-extra/thunar-shares-plugin 0.3.2 0.4.0: Thunar plugin to share files using Samba
+xfce-extra/thunar-shares-plugin 0.4.0: Thunar plugin to share files using Samba
 xfce-extra/thunar-vcs-plugin 0.3.0: Adds Subversion and GIT actions to the context menu of thunar
 xfce-extra/xfce4-alsa-plugin 0.4.0: Simple ALSA volume control for xfce4-panel
 xfce-extra/xfce4-battery-plugin 1.1.6: A battery monitor panel plugin for the Xfce desktop environment
