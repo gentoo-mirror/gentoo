@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/containers/conmon
 INHERIT=toolchain-funcs
 IUSE=+seccomp systemd
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv
+KEYWORDS=~amd64 arm64 ~loong ~ppc64 ~riscv
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/glib:= seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/containers/conmon/archive/v2.1.13.tar.gz -> conmon-2.1.13.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169
-_md5_=930e045bbabf7d83e431ef125e895e78
+_md5_=490b718a79bff52446a4a4f1b4c7841e
