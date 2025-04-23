@@ -3,6 +3,7 @@
 
 EAPI=8
 
+CMAKE_REMOVE_MODULES_LIST=( FindGsl FindHDF5 )
 KDE_ORG_CATEGORY=graphics
 KDE_ORG_NAME=kst-plot
 KDE_ORG_COMMIT=16334f6f99613a1b60873d93835f9083dca258b2
@@ -45,7 +46,8 @@ DOCS=( AUTHORS README.kstScript )
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.0.8-getdata-drop-bogus-lib_debug.patch # bug #593848
-	"${FILESDIR}"/${P}-cmake{4,-findgsl}.patch # bug #884625; thx opensuse
+	"${FILESDIR}"/${P}-cmake4.patch # thx opensuse
+	"${FILESDIR}"/${P}-cmake-{findgsl,findhdf5}.patch # bugs #884625, #954233
 	"${FILESDIR}"/${P}-hdf5cxx.patch # thx opensuse
 )
 
