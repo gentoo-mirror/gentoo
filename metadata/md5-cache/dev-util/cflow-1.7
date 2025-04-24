@@ -4,12 +4,12 @@ DEPEND=nls? ( virtual/libintl virtual/libiconv )
 DESCRIPTION=C function call hierarchy analyzer
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/cflow/
-INHERIT=elisp-common
+INHERIT=elisp-common flag-o-matic
 IUSE=debug emacs nls
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-3
 RDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) nls? ( virtual/libintl virtual/libiconv )
 SLOT=0
 SRC_URI=mirror://gnu/cflow/cflow-1.7.tar.xz
-_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23
-_md5_=bde0f4e329e57c96e955943b70f421ce
+_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00
+_md5_=5a966cd4f492df7b79f61b4a0c55e723
