@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ S="${WORKDIR}/rbtools-release-${PV}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 RDEPEND="
@@ -24,6 +24,7 @@ RDEPEND="
 	>=dev-python/housekeeping-1.1[${PYTHON_USEDEP}]
 	=dev-python/housekeeping-1*[${PYTHON_USEDEP}]
 	>=dev-python/packaging-21.3[${PYTHON_USEDEP}]
+	dev-python/puremagic[${PYTHON_USEDEP}]
 	=dev-python/pydiffx-1.1*[${PYTHON_USEDEP}]
 	dev-python/texttable[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.3.0[${PYTHON_USEDEP}]
@@ -40,7 +41,7 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${P}-importlib-resources.patch" "${FILESDIR}/${P}-scmtool-crash.patch" )
+PATCHES=( "${FILESDIR}/${PN}-5.0-importlib-resources.patch" )
 
 DOCS=( AUTHORS NEWS README.md )
 
