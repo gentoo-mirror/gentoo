@@ -157,14 +157,18 @@ DEPEND="${RDEPEND}
 		x11-base/xorg-proto
 	)
 "
+
+CLC_DEPSTRING="
+	~dev-util/mesa_clc-${PV}
+	llvm-core/libclc[spirv(-)]
+"
 BDEPEND="
 	${PYTHON_DEPS}
 	opencl? (
-		>=dev-build/meson-1.7.0
 		>=dev-util/bindgen-0.71.0
 		${RUST_DEPEND}
 	)
-	>=dev-build/meson-1.4.1
+	>=dev-build/meson-1.7.0
 	app-alternatives/yacc
 	app-alternatives/lex
 	virtual/pkgconfig
@@ -173,18 +177,15 @@ BDEPEND="
 		dev-python/packaging[\${PYTHON_USEDEP}]
 		dev-python/pyyaml[\${PYTHON_USEDEP}]
 	")
-	video_cards_intel? (
-		~dev-util/mesa_clc-${PV}
-		llvm-core/libclc[spirv(-)]
-		$(python_gen_any_dep "dev-python/ply[\${PYTHON_USEDEP}]")
-	)
+	video_cards_intel? ( ${CLC_DEPSTRING} )
+	video_cards_panfrost? ( ${CLC_DEPSTRING} )
 	vulkan? (
 		dev-util/glslang
 		video_cards_nvk? (
-			>=dev-build/meson-1.7.0
 			>=dev-util/bindgen-0.71.0
 			>=dev-util/cbindgen-0.26.0
 			${RUST_DEPEND}
+			${CLC_DEPSTRING}
 		)
 	)
 	wayland? ( dev-util/wayland-scanner )
@@ -268,9 +269,6 @@ python_check_deps() {
 	python_has_version -b ">=dev-python/mako-0.8.0[${PYTHON_USEDEP}]" &&
 	python_has_version -b "dev-python/packaging[${PYTHON_USEDEP}]" &&
 	python_has_version -b "dev-python/pyyaml[${PYTHON_USEDEP}]" || return 1
-	if use llvm && use vulkan && use video_cards_intel && use amd64; then
-		python_has_version -b "dev-python/ply[${PYTHON_USEDEP}]" || return 1
-	fi
 }
 
 pkg_setup() {
@@ -437,6 +435,12 @@ multilib_src_configure() {
 		emesonargs+=($(meson_feature video_cards_intel intel-rt))
 	fi
 
+	if use video_cards_intel ||
+	   use video_cards_nvk ||
+	   use video_cards_panfrost; then
+	   emesonargs+=(-Dmesa-clc=system)
+	fi
+
 	use debug && EMESON_BUILDTYPE=debug
 
 	emesonargs+=(
@@ -454,7 +458,6 @@ multilib_src_configure() {
 		$(meson_feature unwind libunwind)
 		$(meson_feature zstd)
 		$(meson_use cpu_flags_x86_sse2 sse2)
-		-Dmesa-clc=$(usex video_cards_intel system auto)
 		-Dvalgrind=$(usex valgrind auto disabled)
 		-Dvideo-codecs=$(usex proprietary-codecs "all" "all_free")
 		-Dgallium-drivers=$(driver_list "${GALLIUM_DRIVERS[*]}")
