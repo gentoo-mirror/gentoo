@@ -1,8 +1,8 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby31 ruby32"
+USE_RUBY="ruby32 ruby33"
 
 RUBY_FAKEGEM_RECIPE_DOC="yard"
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
@@ -40,4 +40,7 @@ all_ruby_prepare() {
 	sed -e '/if RUBY_ENGINE/,/^end/ s:^:#: ; 1igem "webmock", "~>3.0"' \
 		-e '/pry/ s:^:#:' \
 		-i spec/spec_helper.rb || die
+
+	# Avoid specs using unpackaged faraday-http-cache
+	rm -f spec/octokit/client/repositories_spec.rb || die
 }
