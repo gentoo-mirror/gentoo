@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,9 +11,9 @@ DESCRIPTION="Statifier is a tool for creating portable, self-containing Linux ex
 HOMEPAGE="http://statifier.sourceforge.net"
 SRC_URI="https://sourceforge.net/projects/${PN}/files/${PN}/${PV}/${P}.tar.gz"
 
-KEYWORDS="amd64 x86"
-SLOT="0"
 LICENSE="GPL-2"
+SLOT="0"
+KEYWORDS="amd64 x86"
 
 RDEPEND="
 	app-shells/bash
@@ -24,6 +24,7 @@ RDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.7.4-clang.patch
 	"${FILESDIR}"/${PN}-1.7.4-fix-build-system.patch
+	"${FILESDIR}"/${PN}-1.7.4-man-pages.patch
 	"${FILESDIR}"/${PN}-1.7.4-musl.patch
 )
 
