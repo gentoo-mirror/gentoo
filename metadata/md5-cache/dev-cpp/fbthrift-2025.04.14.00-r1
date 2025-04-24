@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=~dev-cpp/fizz-2025.04.14.00:= ~dev-cpp/folly-2025.04.14.00:= ~dev-cpp/wangle-2025.04.14.00:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] dev-libs/boost:=[nls(+)] dev-libs/double-conversion:= dev-libs/libfmt:= dev-libs/openssl:= dev-libs/xxhash sys-libs/zlib:=
+DEPEND=~dev-cpp/fizz-2025.04.14.00:= ~dev-cpp/folly-2025.04.14.00:= ~dev-cpp/mvfst-2025.04.14.00:= ~dev-cpp/wangle-2025.04.14.00:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] dev-libs/boost:=[nls(+)] dev-libs/double-conversion:= dev-libs/libfmt:= dev-libs/openssl:= dev-libs/xxhash sys-libs/zlib:=
 DESCRIPTION=Facebook's branch of Apache Thrift (C++ bindings)
 EAPI=8
 HOMEPAGE=https://github.com/facebook/fbthrift
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=test
 KEYWORDS=~amd64 ~arm64
 LICENSE=Apache-2.0
-RDEPEND=~dev-cpp/fizz-2025.04.14.00:= ~dev-cpp/folly-2025.04.14.00:= ~dev-cpp/wangle-2025.04.14.00:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] dev-libs/boost:=[nls(+)] dev-libs/double-conversion:= dev-libs/libfmt:= dev-libs/openssl:= dev-libs/xxhash sys-libs/zlib:= test? ( dev-cpp/gtest )
+RDEPEND=~dev-cpp/fizz-2025.04.14.00:= ~dev-cpp/folly-2025.04.14.00:= ~dev-cpp/mvfst-2025.04.14.00:= ~dev-cpp/wangle-2025.04.14.00:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] dev-libs/boost:=[nls(+)] dev-libs/double-conversion:= dev-libs/libfmt:= dev-libs/openssl:= dev-libs/xxhash sys-libs/zlib:= test? ( dev-cpp/gtest )
 RESTRICT=test
 SLOT=0/2025.04.14.00
 SRC_URI=https://github.com/facebook/fbthrift/archive/refs/tags/v2025.04.14.00.tar.gz -> fbthrift-2025.04.14.00.gh.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=358fa5f405daf569976db7e65c6c8b90
+_md5_=089924c312acc7d674edcc9c36a3b0c4
