@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33"
+USE_RUBY="ruby32 ruby33"
 
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 RUBY_FAKEGEM_TASK_DOC=doc
@@ -32,6 +32,7 @@ ruby_add_bdepend "
 		dev-ruby/ansi
 		dev-ruby/elasticsearch
 		dev-ruby/elastic-transport
+		dev-ruby/jbuilder
 		dev-ruby/mocha:2
 		dev-ruby/patron
 		dev-ruby/pry
@@ -54,14 +55,13 @@ all_ruby_prepare() {
 
 	sed -i -e '/add_formatter/ s/documentation/progress/' spec/spec_helper.rb || die
 
-	# Avoid tests that require unpackaged jbuilder and jsonify
-	sed -e '/\(pry-\|jbuilder\|jsonify\)/ s:^:#:' \
+	# Avoid tests that require unpackaged jsonify
+	sed -e '/\(pry-\|jsonify\)/ s:^:#:' \
 		-e '/RspecJunitFormatter/ s:^:#:' \
 		-e '/ansi/arequire "patron"' \
 		-i spec/spec_helper.rb || die
-	rm -f spec/elasticsearch/api/actions/json_builders_spec.rb || die
-
-	sed -i -e '/uses the escape_utils gem/askip "unmaintained gem"' spec/elasticsearch/api/utils_spec.rb || die
+	sed -e '/context.*Jsonify/ s/context/xcontext/' \
+		-i spec/unit/actions/json_builders_spec.rb || die
 
 	# Create tmp directory required for tests
 	mkdir -p ../tmp/rest-api-spec/api || die
