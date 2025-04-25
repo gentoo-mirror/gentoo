@@ -42,7 +42,10 @@ DEPEND="
 		>=kde-frameworks/krunner-${KFMIN}:6
 		webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6[qml] )
 	)
-	pbf? ( dev-libs/protobuf:= )
+	pbf? (
+		dev-cpp/abseil-cpp:=
+		dev-libs/protobuf:=
+	)
 	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	shapefile? ( sci-libs/shapelib:= )
 	webengine? (

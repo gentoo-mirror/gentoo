@@ -5,10 +5,9 @@ EAPI=8
 
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-PYTHON_COMPAT=( python3_{10..12} )
 KFMIN=6.9.0
 QTMIN=6.7.2
-inherit python-single-r1 ecm gear.kde.org optfeature xdg
+inherit ecm gear.kde.org optfeature xdg
 
 DESCRIPTION="Localization tool for KDE software and other free and open source software"
 HOMEPAGE="https://apps.kde.org/lokalize/ https://l10n.kde.org/tools/"
@@ -18,10 +17,9 @@ SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE=""
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="test" # tests are broken, bug 739734
 
-DEPEND="${PYTHON_DEPS}
+DEPEND="
 	>=app-text/hunspell-1.2.8:=
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,sql,widgets,xml]
 	>=kde-frameworks/kcompletion-${KFMIN}:6
@@ -41,16 +39,12 @@ DEPEND="${PYTHON_DEPS}
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
 "
-RDEPEND="${DEPEND}
-	$(python_gen_cond_dep '
-		dev-python/translate-toolkit[${PYTHON_USEDEP}]
-	')
-"
+RDEPEND="${DEPEND}"
 
-src_install() {
-	ecm_src_install
-	rm "${ED}"/usr/share/lokalize/scripts/msgmerge.{py,rc} || die
-	python_fix_shebang "${ED}"/usr/share/${PN}
+src_prepare() {
+	ecm_src_prepare
+	# https://invent.kde.org/sdk/lokalize/-/commit/aaa29d78a81d2bc08c1d0efe715f819a0329e96e
+	cmake_comment_add_subdirectory scripts
 }
 
 pkg_postinst() {
