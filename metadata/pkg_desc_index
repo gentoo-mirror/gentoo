@@ -909,7 +909,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.38.28 1.38.33 1.38.37 1.38.38 1.39.0 1.40.0: Universal Command Line Environment for AWS
+app-admin/awscli 1.38.28 1.38.33 1.38.37 1.38.38 1.39.0 1.40.0 1.40.1: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2025.2.0 2025.2.1: Bitwarden password manager desktop client
 app-admin/btrfs-assistant 2.1.1: GUI management tool to make managing a Btrfs filesystem easier
@@ -8146,8 +8146,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 1.3.0 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.37.28 1.37.33 1.37.37 1.37.38 1.38.0 1.38.1: The AWS SDK for Python
-dev-python/botocore 1.37.28 1.37.33 1.37.37 1.37.38 1.38.0 1.38.1: Low-level, data-driven core of boto 3
+dev-python/boto3 1.37.28 1.37.33 1.37.37 1.37.38 1.38.0 1.38.1 1.38.2: The AWS SDK for Python
+dev-python/botocore 1.37.28 1.37.33 1.37.37 1.37.38 1.38.0 1.38.1 1.38.2: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2 0.13.3: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8175,7 +8175,7 @@ dev-python/cerberus 1.3.7: A lightweight and extensible data-validation library 
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.17.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.32.4 1.33.2 1.34.0 1.34.1: CloudFormation Linter
+dev-python/cfn-lint 1.32.4 1.33.2 1.34.0 1.34.1 1.34.2: CloudFormation Linter
 dev-python/cftime 1.6.4_p1: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.6.0: Fast HTML/XML template compiler for Python
@@ -8439,7 +8439,7 @@ dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gitpython 3.1.44: Library used to interact with Git repositories
 dev-python/gmpy2 2.2.1: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.24.2: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.166.0 2.167.0: Google API Client for Python
+dev-python/google-api-python-client 2.166.0 2.167.0 2.168.0: Google API Client for Python
 dev-python/google-auth 2.38.0-r1 2.39.0: Google Authentication Library
 dev-python/google-auth-httplib2 0.2.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.2.1 1.2.2: Google Authentication Library
@@ -8461,7 +8461,7 @@ dev-python/gsd 3.4.1 3.4.2: GSD - file format specification and a library to rea
 dev-python/gssapi 1.9.0: Low and high level wrappers around the GSSAPI C libraries
 dev-python/gst-python 1.22.11 1.22.12 1.24.10 1.24.11: A Python Interface to GStreamer
 dev-python/guessit 3.8.0: Python library for guessing information from video filenames
-dev-python/h11 0.14.0: A pure-Python implementation of HTTP/1.1 inspired by hyper-h2
+dev-python/h11 0.14.0 0.16.0: A pure-Python implementation of HTTP/1.1 inspired by hyper-h2
 dev-python/h2 4.2.0: HTTP/2 State-Machine based protocol implementation
 dev-python/h5py 3.13.0: Simple Python interface to HDF5 files
 dev-python/happybase 1.2.0-r1: A developer-friendly Python library to interact with Apache HBase
@@ -8484,7 +8484,7 @@ dev-python/html5lib 1.1-r2: HTML parser based on the HTML5 specification
 dev-python/httmock 1.4.0-r1: A mocking library for requests
 dev-python/httpauth 0.3-r1 0.4 0.4.1: A WSGI middleware that secures routes using HTTP Digest Authentication
 dev-python/httpbin 0.10.2-r1: HTTP Request and Response Service
-dev-python/httpcore 1.0.7 1.0.8: A minimal low-level HTTP client
+dev-python/httpcore 1.0.7 1.0.8 1.0.9: A minimal low-level HTTP client
 dev-python/httplib2 0.22.0: A comprehensive HTTP client library
 dev-python/httpretty 1.1.4-r3: HTTP client mock for Python
 dev-python/httptools 0.6.4: A collection of framework independent HTTP protocol utils
@@ -8816,7 +8816,7 @@ dev-python/openapi-spec-validator 0.7.1: OpenAPI 2.0 (aka Swagger) and OpenAPI 3
 dev-python/openapi3 1.8.2: Python OpenAPI 3 Specification client and validator
 dev-python/openpyxl 3.1.5: Pure python reader and writer of Excel OpenXML files
 dev-python/opensearch-py 2.3.0 2.7.1: Python client for OpenSearch
-dev-python/openstackdocstheme 3.4.1: Theme and extension support for Sphinx documentation
+dev-python/openstackdocstheme 3.4.1 3.5.0: Theme and extension support for Sphinx documentation
 dev-python/openstacksdk 4.4.0 4.5.0: A collection of libraries for building applications to work with OpenStack
 dev-python/opentelemetry-api 1.31.1 1.32.0 1.32.1: OpenTelemetry Python API
 dev-python/opentelemetry-sdk 1.31.1 1.32.0 1.32.1: OpenTelemetry Python SDK
@@ -9009,7 +9009,7 @@ dev-python/pygame 2.6.1: Python bindings for SDL multimedia library
 dev-python/pygccxml 3.0.2: A specialized XML reader to navigate C++ declarations
 dev-python/pygdbmi 0.11.0.0: Library to parse gdb mi output and interact with gdb subprocesses
 dev-python/pyghmi 1.5.77 1.6.0: A pure python implementation of IPMI protocol
-dev-python/pygit2 1.16.0 1.17.0: Python bindings for libgit2
+dev-python/pygit2 1.16.0 1.17.0 1.18.0: Python bindings for libgit2
 dev-python/pygithub 2.6.1: Python library to access the Github API v3
 dev-python/pyglet 2.1.3 2.1.4 2.1.5: Cross-platform windowing and multimedia library for Python
 dev-python/pygments 2.19.1: Pygments is a syntax highlighting package written in Python
@@ -9158,7 +9158,7 @@ dev-python/pytest-ordering 0.6-r1: pytest plugin to run your tests in a specific
 dev-python/pytest-param-files 0.6.0: Pytest parametrize decorators from external files.
 dev-python/pytest-plus 0.8.1: PyTest Plus Plugin - extends pytest functionality
 dev-python/pytest-qt 4.4.0: Pytest plugin for PyQt5 and PySide2 applications
-dev-python/pytest-recording 0.13.1 0.13.2: A pytest plugin to record network interactions via VCR.py
+dev-python/pytest-recording 0.13.2 0.13.3: A pytest plugin to record network interactions via VCR.py
 dev-python/pytest-regressions 2.7.0: Easy to use fixtures to write regression tests
 dev-python/pytest-repeat 0.9.3 0.9.4: pytest plugin for repeating tests
 dev-python/pytest-reraise 2.1.2: Make multi-threaded pytest test cases fail when they should
@@ -9481,7 +9481,7 @@ dev-python/spyder-notebook 0.6.1 0.6.2: Jupyter notebook integration with Spyder
 dev-python/spyder-unittest 0.7.0: Plugin for Spyder to run tests and view the results
 dev-python/sqlalchemy 1.4.54 2.0.40: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 1.2 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 26.15.0 26.16.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 26.15.0 26.16.0 26.16.2: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.3: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9601,7 +9601,7 @@ dev-python/ukkonen 1.0.1-r1: Implementation of bounded Levenshtein distance (Ukk
 dev-python/unasync 0.6.0-r1: The async transformation code
 dev-python/uncertainties 3.2.2 3.2.3: Python module for calculations with uncertainties
 dev-python/unearth 0.17.3 0.17.5: A utility to fetch and download python packages
-dev-python/unidecode 1.3.8: Module providing ASCII transliterations of Unicode text
+dev-python/unidecode 1.3.8 1.4.0: Module providing ASCII transliterations of Unicode text
 dev-python/unidiff 0.7.5: Unified diff parsing/metadata extraction library
 dev-python/unittest-mixins 1.6-r2: A set of mixin classes and other helpers for unittest test case classes
 dev-python/unittest-or-fail 2-r1: Run unittests or fail if no tests were found
@@ -9671,7 +9671,7 @@ dev-python/wurlitzer 3.1.1: Capture C-level stdout/stderr in Python
 dev-python/wxpython 4.2.0 4.2.1-r2 4.2.2 4.2.3-r1: A blending of the wxWindows C++ class library with Python
 dev-python/x-wr-timezone 1.0.1 2.0.0 2.0.1: Convert calendars using X-WR-TIMEZONE to standard ones
 dev-python/xarray 2025.3.1: N-D labeled arrays and datasets in Python
-dev-python/xcffib 1.7.1: A drop in replacement for xpyb, an XCB python binding
+dev-python/xcffib 1.7.1 1.8.0: A drop in replacement for xpyb, an XCB python binding
 dev-python/xdoctest 1.1.5 1.1.6 1.2.0: A rewrite of Python's builtin doctest module but without all the weirdness
 dev-python/xkbcommon 1.5.1: Python bindings for libxkbcommon using cffi
 dev-python/xlrd 2.0.1-r1: Library to extract data from Microsoft Excel spreadsheets
@@ -19070,7 +19070,7 @@ xfce-extra/xfce4-notes-plugin 1.11.0 1.11.1 1.11.2: Xfce4 panel sticky notes plu
 xfce-extra/xfce4-notifyd 0.9.7: Notification daemon for the Xfce desktop environment
 xfce-extra/xfce4-panel-profiles 1.0.15-r1: Simple application to manage Xfce panel layouts
 xfce-extra/xfce4-places-plugin 1.8.4: A panel plug-in to provide quick access to files, folders and removable media
-xfce-extra/xfce4-pulseaudio-plugin 0.4.8 0.4.9 0.5.0: A panel plug-in for PulseAudio volume control
+xfce-extra/xfce4-pulseaudio-plugin 0.4.8 0.4.9 0.5.0 0.5.1: A panel plug-in for PulseAudio volume control
 xfce-extra/xfce4-screensaver 4.18.4: Screen saver and locker (port of MATE screensaver)
 xfce-extra/xfce4-screenshooter 1.11.1: Xfce4 screenshooter application and panel plugin
 xfce-extra/xfce4-sensors-plugin 1.4.5: A panel plug-in for acpi, lm-sensors and hddtemp sensors
