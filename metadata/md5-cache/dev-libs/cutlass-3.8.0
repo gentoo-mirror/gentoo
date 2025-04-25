@@ -1,0 +1,12 @@
+BDEPEND=dev-util/nvidia-cuda-toolkit app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=CUDA Templates for Linear Algebra Subroutines
+EAPI=8
+HOMEPAGE=https://github.com/NVIDIA/cutlass
+INHERIT=cuda cmake
+KEYWORDS=~amd64
+LICENSE=BSD
+SLOT=0
+SRC_URI=https://github.com/NVIDIA/cutlass/archive/refs/tags/v3.8.0.tar.gz -> cutlass-3.8.0.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	cuda	283d0f298f6c196c755a0f8d50daca85	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=43356cc67d09d4f007d748fd59f2ec8d
