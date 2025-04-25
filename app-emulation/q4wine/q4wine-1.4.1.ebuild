@@ -27,8 +27,6 @@ BDEPEND="dev-qt/qttools:6[linguist]"
 
 DOCS=( {AUTHORS,Changelog,README}.md )
 
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DDEBUG=$(usex debug ON OFF)
