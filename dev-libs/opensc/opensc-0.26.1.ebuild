@@ -45,6 +45,10 @@ REQUIRED_USE="
 	ctapi? ( !pcsc-lite !openct )
 	|| ( pcsc-lite openct ctapi )"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.26.1-c23-tests.patch
+)
+
 src_prepare() {
 	# This test is known to fail, for a long time upstream has carried
 	# version-specific patches which they would update on every version bump.
