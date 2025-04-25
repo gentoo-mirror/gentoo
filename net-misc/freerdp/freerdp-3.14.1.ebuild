@@ -192,7 +192,9 @@ src_compile() {
 }
 
 src_test() {
-	local CMAKE_SKIP_TESTS=( TestBacktrace )
+	# TestBacktrace: bug 930636
+	# TestSynchCritical, TestSynchMultipleThreads: bug 951301
+	local CMAKE_SKIP_TESTS=( TestBacktrace TestSynchCritical TestSynchMultipleThreads )
 	if has network-sandbox ${FEATURES}; then
 		CMAKE_SKIP_TESTS+=( TestConnect )
 	fi
