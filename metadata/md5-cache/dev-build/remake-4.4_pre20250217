@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://bashdb.sourceforge.net/remake/
 INHERIT=guile-single flag-o-matic autotools
 IUSE=guile readline guile_single_target_2-2 guile_single_target_3-0
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86
 LICENSE=GPL-3
 RDEPEND=guile? ( guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 ) ) readline? ( sys-libs/readline:= )
 REQUIRED_USE=guile? ( ^^ ( guile_single_target_2-2 guile_single_target_3-0 ) )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/Trepan-Debuggers/remake/archive/4ad367fd62caec8fcaa4dc1cc481a1e4d8bf6a7d.tar.gz -> remake-4.4_pre20250217.gh.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	guile-utils	e45d014e2eb3f7fe4fdcd4e5eeafdb8b	guile-single	6e99296ff5eff20c16de5075dfe75616	flag-o-matic	e8de74bac929ba17427e740e95707d00	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2
-_md5_=617da191f760e9d8865c9a1cfaff1e8e
+_md5_=384dd162a351045831e81b14f0b7d8dd
