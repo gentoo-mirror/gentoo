@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.gnu.org/software/global/global.html
 INHERIT=autotools elisp-common flag-o-matic python-single-r1
 IUSE=doc emacs python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 ~ppc ~x86
+KEYWORDS=~amd64 ppc ~x86
 LICENSE=GPL-3+
 RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-libs/libltdl dev-db/sqlite sys-libs/ncurses python_single_target_python3_10? ( dev-python/pygments[python_targets_python3_10(-)] ) python_single_target_python3_11? ( dev-python/pygments[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygments[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygments[python_targets_python3_13(-)] ) emacs? ( >=app-editors/emacs-23.1:* )
 REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=0
 SRC_URI=mirror://gnu/global/global-6.6.14.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	elisp-common	fe05085d051330f15cf7201109b5cd23	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=4c8e2d8eb5756b7f94ddf1e4b9e9e547
+_md5_=917af920c9be6b815ab68fa50accf227
