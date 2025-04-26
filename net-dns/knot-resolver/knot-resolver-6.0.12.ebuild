@@ -8,13 +8,12 @@ DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 lua-single meson optfeature tmpfiles verify-sig
 
 DESCRIPTION="A scaleable caching DNS resolver"
 HOMEPAGE="https://www.knot-resolver.cz https://gitlab.nic.cz/knot/knot-resolver"
-
 SRC_URI="
 	https://knot-resolver.nic.cz/release/${P}.tar.xz
 	verify-sig? ( https://knot-resolver.nic.cz/release/${P}.tar.xz.asc )
@@ -177,7 +176,7 @@ pkg_postinst() {
 	elog ""
 	optfeature_header "Other packages may also be useful:"
 	use manager && optfeature "Prometheus metrics (need manager)" dev-python/prometheus-client
-	use manager && optfeature "auto-reload TLS certificate files (need manager)" dev-python/watchdog
+	use manager && optfeature "auto-reload TLS certificate files and RPZ files (need manager)" dev-python/watchdog
 	optfeature "legacy doh and webmgmt (metrics, tracking)" dev-lua/lua-http
 	optfeature "server map with geoIP database (webmgmt)" dev-lua/lua-mmdb
 }
