@@ -5,11 +5,13 @@ EAPI=8
 
 inherit cmake xdg
 
+COMMIT="948ae8a8a1526766ebdf9df2f207462c09c15c3b"
+
 DESCRIPTION="GPS mapping utility"
 HOMEPAGE="https://github.com/Maproom/qmapshack/wiki"
-COMMIT="23d6fe3e11bd251f123fdba1f1cf2ac8170d4f83"
 SRC_URI="https://github.com/Maproom/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}"/${PN}-${COMMIT}
+
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
@@ -17,9 +19,9 @@ IUSE="dbus"
 
 RDEPEND="
 	dev-db/sqlite
-	>=dev-libs/quazip-1.3:0=[qt6]
+	>=dev-libs/quazip-1.3-r2:=[qt6(+)]
 	dev-qt/qt5compat:6
-	dev-qt/qtbase:6[dbus,gui,network,sql,widgets,xml]
+	dev-qt/qtbase:6[dbus?,gui,network,sql,widgets,xml]
 	dev-qt/qtdeclarative:6
 	dev-qt/qttools:6[assistant,widgets]
 	dev-qt/qtwebengine:6[widgets]
@@ -40,7 +42,10 @@ src_install() {
 	docompress -x /usr/share/doc/${PF}/html
 	cmake_src_install
 	mv "${D}"/usr/share/doc/HTML "${D}"/usr/share/doc/${PF}/html || die "mv Qt help failed"
-	ewarn "An experimental Qt6 port"
-	ewarn "Translations and the help system are broken"
-	ewarn "Other bugs to https://github.com/Maproom/qmapshack/issues"
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+
+	ewarn "Qt6 port: help system is currently broken"
 }

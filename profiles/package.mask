@@ -36,6 +36,18 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-04-26)
+# Dead upstream, stuck on Qt5, blocking x11-libs/qscintilla[qt5] cleanup
+# Bug #947297; removal on 2025-05-26
+dev-db/sqliteman
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-04-26)
+# Dead upstream, last revdep on x11-libs/qwtplot3d and x11-libs/qwt:5
+# Bugs #948047, #942455; removal on 2025-05-26
+sci-visualization/scidavis
+x11-libs/qwtplot3d
+x11-libs/qwt:5
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-04-24)
 # A pain to maintain. No more revdeps. Bug #925718
 dev-qt/qtwebengine:5
@@ -306,18 +318,20 @@ dev-python/pyside6-tools
 =dev-cpp/cpp-httplib-0.18.6
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-01-23)
-# Qt5 package without any revdeps. Use dev-qt/qttools[qdbus] instead.
-dev-qt/qdbusviewer
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-01-23)
 # Qt5 packages without any revdeps.
 dev-qt/assistant
+dev-qt/linguist
 dev-qt/pixeltool
 dev-qt/qdbus
+dev-qt/qdbusviewer
 dev-qt/qdoc
 dev-qt/qtdiag
+dev-qt/qtpaths
+dev-qt/qt3d:5
+dev-qt/qtdatavis3d:5
 dev-qt/qtgamepad:5
 dev-qt/qtlocation:5
+dev-qt/qtnetworkauth:5
 dev-qt/qtplugininfo
 dev-qt/qtquicktimeline:5
 dev-qt/qtsensors:5
