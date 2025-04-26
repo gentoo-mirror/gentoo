@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.astro.caltech.edu/~tjp/pgplot/
 INHERIT=fortran-2 flag-o-matic toolchain-funcs
 IUSE=doc motif static-libs tk
-KEYWORDS=~amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ~ppc ~x86 ~amd64-linux ~x86-linux
 LICENSE=free-noncomm
 RDEPEND=media-libs/libpng:= x11-libs/libX11:= x11-libs/libXt:= motif? ( x11-libs/motif:= ) tk? ( dev-lang/tk:= ) virtual/fortran
 SLOT=0
 SRC_URI=ftp://ftp.astro.caltech.edu/pub/pgplot/pgplot522.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	fortran-2	54fcb693257134adae26819685891ecc	flag-o-matic	e8de74bac929ba17427e740e95707d00
-_md5_=b477f7583510b7341b548f58917bf66f
+_md5_=f789b40ca4cfd5b9a4a12917ac0dc5b3
