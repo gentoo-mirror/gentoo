@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33"
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_BINWRAP=""
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
@@ -22,20 +22,20 @@ SRC_URI="https://github.com/lostisland/faraday/archive/v${PV}.tar.gz -> ${P}.tar
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 ~arm ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="test"
 
-DEPEND+=" test? ( sys-process/lsof )"
+DEPEND="test? ( sys-process/lsof )"
 
 ruby_add_rdepend "
-	|| ( <dev-ruby/faraday-net_http-3.4:3 dev-ruby/faraday-net_http:2 )
+	|| ( <dev-ruby/faraday-net_http-3.5:3 dev-ruby/faraday-net_http:2 )
 	dev-ruby/json
 	dev-ruby/logger
 "
 ruby_add_bdepend "test? (
 		>=dev-ruby/test-unit-2.4
 		>=dev-ruby/connection_pool-2.2.2
-		dev-ruby/rack:3.0
+		|| ( dev-ruby/rack:3.1 dev-ruby/rack:3.0 )
 		dev-ruby/webmock
 	)"
 
@@ -54,8 +54,4 @@ all_ruby_prepare() {
 	sed -e '/git ls-files/ s:^:#:' \
 		-e "s:_relative ': './:" \
 		-i ${RUBY_FAKEGEM_GEMSPEC} || die
-}
-
-each_ruby_test() {
-	MT_NO_PLUGINS=true each_fakegem_test
 }
