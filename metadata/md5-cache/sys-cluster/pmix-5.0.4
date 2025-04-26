@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://openpmix.github.io/
 INHERIT=flag-o-matic libtool
 IUSE=debug +munge pmi
-KEYWORDS=~amd64 arm64 ~ppc64 -x86 ~amd64-linux
+KEYWORDS=~amd64 arm64 ppc64 -x86 ~amd64-linux
 LICENSE=BSD
 RDEPEND=dev-libs/libevent:= sys-apps/hwloc:= sys-cluster/ucx sys-libs/zlib:= munge? ( sys-auth/munge ) pmi? ( !sys-cluster/slurm )
 SLOT=0
 SRC_URI=https://github.com/openpmix/openpmix/releases/download/v5.0.4/pmix-5.0.4.tar.bz2
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	libtool	c81bd096be5f4c82f4e8f156ef112402
-_md5_=e6be1bfede46a73319ce1ba47590d09f
+_md5_=874e29b7475245766d937c800854ce39
