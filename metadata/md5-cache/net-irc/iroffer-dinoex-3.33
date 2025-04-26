@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://iroffer.net/
 INHERIT=plocale toolchain-funcs
 IUSE=+admin +blowfish +chroot curl debug geoip gnutls +http +memsave ruby ssl +telnet upnp
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=virtual/libcrypt:= acct-user/iroffer chroot? ( dev-libs/nss ) curl? ( net-misc/curl[ssl?] gnutls? ( net-misc/curl[curl_ssl_gnutls] ) !gnutls? ( ssl? ( net-misc/curl[curl_ssl_openssl] ) ) ) geoip? ( dev-libs/geoip ) gnutls? ( net-libs/gnutls ) ruby? ( dev-lang/ruby:* ) ssl? ( !gnutls? ( dev-libs/openssl:0= ) )
 REQUIRED_USE=admin? ( http ) gnutls? ( ssl )
 SLOT=0
 SRC_URI=https://iroffer.net/iroffer-dinoex-3.33.tar.gz https://iroffer.net/HISTORY/iroffer-dinoex-3.33.tar.gz
 _eclasses_=plocale	950fbaec7deeba41b5bcc0572cca99b9	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169
-_md5_=5375c0f7e74b258d1ef3045dbe3e70b0
+_md5_=23392b0d85338094c91460394eef808d

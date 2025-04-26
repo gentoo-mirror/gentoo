@@ -7,11 +7,11 @@ HOMEPAGE=https://getdnsapi.net/
 IDEPEND=filecaps? ( sys-libs/libcap )
 INHERIT=cmake fcaps systemd tmpfiles
 IUSE=doc examples +getdns-query +getdns-server-mon gnutls +idn libev libevent libuv minimal static-libs stubby test +unbound +filecaps
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=BSD
 RDEPEND=dev-libs/libbsd dev-libs/libyaml dev-libs/openssl:= idn? ( net-dns/libidn2:= ) gnutls? ( net-libs/gnutls:0=[dane,openssl] dev-libs/nettle:0= ) libev? ( dev-libs/libev:= ) libevent? ( dev-libs/libevent:= ) libuv? ( dev-libs/libuv:= ) test? ( dev-libs/check ) !minimal? ( >=net-dns/unbound-1.5.9:= ) stubby? ( acct-group/stubby acct-user/stubby sys-libs/libcap ) virtual/tmpfiles
 RESTRICT=test
 SLOT=0
 SRC_URI=https://getdnsapi.net/releases/getdns-1-7-3/getdns-1.7.3.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	fcaps	27152c9e4da035accb14a2d7879744ef	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
-_md5_=6be5bf12e6abaa79e0d435f904300594
+_md5_=195197ee731a504764989b3fe8e2adef
