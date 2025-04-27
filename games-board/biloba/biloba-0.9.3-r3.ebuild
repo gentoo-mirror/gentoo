@@ -1,7 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools desktop xdg
 
@@ -23,6 +23,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-not-windows.patch
 	"${FILESDIR}"/${P}-no-X11-dep.patch
 	"${FILESDIR}/${P}-gcc-10.patch"
+	"${FILESDIR}/${P}-gcc-15.patch"
 )
 
 src_prepare() {
