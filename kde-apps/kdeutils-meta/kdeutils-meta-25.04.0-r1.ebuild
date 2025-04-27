@@ -43,7 +43,10 @@ RDEPEND="
 "
 # Optional runtime deps: kde-apps/ark
 RDEPEND="${RDEPEND}
-	7zip? ( app-arch/p7zip )
+	7zip? ( || (
+		>=app-arch/7zip-24.09[symlink(+)]
+		app-arch/p7zip
+	) )
 	lrz? ( app-arch/lrzip )
 	rar? ( || (
 		app-arch/rar
