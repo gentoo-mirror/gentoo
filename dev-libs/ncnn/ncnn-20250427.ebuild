@@ -13,14 +13,15 @@ SRC_URI="
 "
 
 LICENSE="BSD ZLIB"
-SLOT="0/${PV}" # currently has unstable ABI that often requires rebuilds
-KEYWORDS="amd64 ~x86"
+SLOT="0/${PV}" # unstable ABI
+KEYWORDS="~amd64 ~x86"
 IUSE="openmp tools +vulkan"
 
 # Need the static library to run tests + skip vulkan / GPU:
 # -DNCNN_BUILD_TESTS=ON -DNCNN_SHARED_LIB=OFF -DNCNN_VULKAN=OFF
 RESTRICT="test"
 
+# dlopen: vulkan-loader
 RDEPEND="
 	tools? (
 		dev-cpp/abseil-cpp:=
@@ -28,6 +29,7 @@ RDEPEND="
 	)
 	vulkan? (
 		dev-util/glslang:=
+		dev-util/spirv-tools
 		media-libs/vulkan-loader
 	)
 "
@@ -40,6 +42,10 @@ BDEPEND="
 "
 
 DOCS=( README.md docs/. )
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-20241226-avx512.patch
+)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -55,7 +61,7 @@ src_configure() {
 		-DNCNN_BUILD_EXAMPLES=no
 		-DNCNN_BUILD_TOOLS=$(usex tools)
 		-DNCNN_OPENMP=$(usex openmp)
-		-DNCNN_PYTHON=no # todo if something needs it
+		-DNCNN_PYTHON=no # todo only if something needs it
 		-DNCNN_SHARED_LIB=yes
 		-DNCNN_SIMPLEVK=no
 		-DNCNN_SYSTEM_GLSLANG=yes
