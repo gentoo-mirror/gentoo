@@ -1,16 +1,16 @@
 BDEPEND=tools? ( dev-libs/protobuf[protoc(+)] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare pretend setup test
-DEPEND=tools? ( dev-cpp/abseil-cpp:= dev-libs/protobuf:= ) vulkan? ( dev-util/glslang:= media-libs/vulkan-loader ) vulkan? ( dev-util/vulkan-headers )
+DEPEND=tools? ( dev-cpp/abseil-cpp:= dev-libs/protobuf:= ) vulkan? ( dev-util/glslang:= dev-util/spirv-tools media-libs/vulkan-loader ) vulkan? ( dev-util/vulkan-headers )
 DESCRIPTION=High-performance neural network inference framework
 EAPI=8
 HOMEPAGE=https://github.com/Tencent/ncnn/
 INHERIT=cmake toolchain-funcs
 IUSE=openmp tools +vulkan
-KEYWORDS=amd64 ~x86
+KEYWORDS=~amd64 ~x86
 LICENSE=BSD ZLIB
-RDEPEND=tools? ( dev-cpp/abseil-cpp:= dev-libs/protobuf:= ) vulkan? ( dev-util/glslang:= media-libs/vulkan-loader )
+RDEPEND=tools? ( dev-cpp/abseil-cpp:= dev-libs/protobuf:= ) vulkan? ( dev-util/glslang:= dev-util/spirv-tools media-libs/vulkan-loader )
 RESTRICT=test
-SLOT=0/20240820
-SRC_URI=https://github.com/Tencent/ncnn/archive/refs/tags/20240820.tar.gz -> ncnn-20240820.tar.gz
+SLOT=0/20250427
+SRC_URI=https://github.com/Tencent/ncnn/archive/refs/tags/20250427.tar.gz -> ncnn-20250427.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=9af0bcd417a37577f0310586f24fdf60
+_md5_=ebbac6771c2b5f5f22edf53cd701f4ea
