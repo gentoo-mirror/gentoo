@@ -51,7 +51,7 @@ ADDONS_SRC=(
 	# not packaged in Gentoo, https://github.com/serge-sans-paille/frozen
 	"${ADDONS_URI}/frozen-1.2.0.tar.gz"
 	# not packaged in Gentoo, https://skia.org/
-	"${ADDONS_URI}/skia-m135-6c2dc3e74ea0bd464ba1c6679ded0b643101e682.tar.xz"
+	"${ADDONS_URI}/skia-m136-28685d899b0a35894743e2cedad4c9f525e90e1e.tar.xz"
 	# not packaged in Gentoo, https://github.com/tsyrogit/zxcvbn-c
 	"${ADDONS_URI}/zxcvbn-c-2.5.tar.gz"
 
@@ -345,8 +345,8 @@ src_unpack() {
 		branch="master"
 		mypv=${MY_PV/.9999}
 		[[ ${mypv} != ${MY_PV} ]] && branch="${PN}-${mypv/./-}"
-		git-r3_fetch "${base_uri}/${PN}/core" "refs/heads/${branch}"
-		git-r3_checkout "${base_uri}/${PN}/core"
+		git-r3_fetch "${base_uri}/core" "refs/heads/${branch}"
+		git-r3_checkout "${base_uri}/core"
 		LOCOREGIT_VERSION=${EGIT_VERSION}
 
 		git-r3_fetch "${base_uri}/${PN}/help" "refs/heads/master"
