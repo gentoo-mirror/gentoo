@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit python-r1 toolchain-funcs
 
@@ -14,13 +14,18 @@ DESCRIPTION="Jens Axboe's Flexible IO tester"
 HOMEPAGE="https://brick.kernel.dk/snaps/"
 SRC_URI="https://brick.kernel.dk/snaps/${MY_P}.tar.bz2"
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm ~arm64 ~loong ~ppc ppc64 ~riscv x86"
-IUSE="aio curl glusterfs gnuplot gtk io-uring nfs numa python rbd rdma static tcmalloc test valgrind zbc zlib"
+
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+
+IUSE="aio curl glusterfs gnuplot gtk io-uring nfs numa pandas python rbd rdma static tcmalloc test valgrind zbc zlib"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )
 	gnuplot? ( python )
 	io-uring? ( aio )"
+
 RESTRICT="!test? ( test )"
 
 BDEPEND="virtual/pkgconfig"
@@ -53,11 +58,9 @@ DEPEND="${RDEPEND}
 RDEPEND+="
 	python? (
 		${PYTHON_DEPS}
-		dev-python/pandas[${PYTHON_USEDEP}]
+		pandas? ( dev-python/pandas[${PYTHON_USEDEP}] )
 	)
 	gnuplot? ( sci-visualization/gnuplot )"
-
-S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
 	"${FILESDIR}"/fio-2.2.13-libmtd.patch
@@ -143,6 +146,7 @@ src_install() {
 	if use python ; then
 		sed -i 's:python2.7:python:g' "${python2_7_files[@]}" || die
 		python_replicate_script "${python2_7_files[@]}"
+		use pandas || rm -f "${ED}"/usr/bin/fiologparser_hist.py
 	else
 		rm "${python_files[@]}" || die
 	fi
