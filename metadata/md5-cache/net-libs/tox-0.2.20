@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://tox.chat https://github.com/TokTok/c-toxcore
 INHERIT=cmake systemd
 IUSE=+av debug daemon dht-node experimental ipv6 key-utils log-debug +log-error log-info log-trace log-warn test
-KEYWORDS=~amd64 ~arm x86
+KEYWORDS=amd64 ~arm x86
 LICENSE=GPL-3+
 RDEPEND=dev-libs/libsodium:=[asm,urandom,-minimal(-)] av? ( media-libs/libvpx:= media-libs/opus ) daemon? ( dev-libs/libconfig:= ) daemon? ( acct-group/tox acct-user/tox ) key-utils? ( || ( sys-devel/gcc[openmp] llvm-core/clang-runtime[openmp] ) )
 REQUIRED_USE=?? ( log-debug log-error log-info log-trace log-warn ) daemon? ( dht-node )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/0.2
 SRC_URI=https://github.com/TokTok/c-toxcore/releases/download/v0.2.20/c-toxcore-0.2.20.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=056649009156b0ce80c95031ea193f5d
+_md5_=2833646a430d09ed0b68f67997666264
