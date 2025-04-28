@@ -19,22 +19,25 @@ RESTRICT="test"
 
 RDEPEND="
 	>=dev-lisp/asdf-2.33-r3
-	virtual/libcrypt:=
-	virtual/libiconv
 	>=dev-libs/libsigsegv-2.10
 	>=dev-libs/ffcall-1.10
+	virtual/libcrypt:=
+	virtual/libiconv
 	dbus? ( sys-apps/dbus )
 	fastcgi? ( dev-libs/fcgi )
-	gdbm? ( sys-libs/gdbm:0= )
-	gtk? ( >=x11-libs/gtk+-2.10:2 >=gnome-base/libglade-2.6 )
+	gdbm? ( sys-libs/gdbm:= )
+	gtk? (
+		>=gnome-base/libglade-2.6
+		>=x11-libs/gtk+-2.10:2
+	)
 	postgres? ( >=dev-db/postgresql-8.0:* )
-	readline? ( >=sys-libs/readline-7.0:0= )
+	readline? ( >=sys-libs/readline-7.0:= )
 	pcre? ( dev-libs/libpcre:3 )
 	svm? ( sci-libs/libsvm )
 	zlib? ( sys-libs/zlib )
 	X? ( x11-libs/libXpm )
 	hyperspec? ( dev-lisp/hyperspec )
-	berkdb? ( sys-libs/db:4.8 )
+	berkdb? ( sys-libs/db:5.3 )
 "
 DEPEND="
 	${RDEPEND}
@@ -44,6 +47,7 @@ BDEPEND="X? ( x11-misc/imake )"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-after_glibc_cfree_bdb.patch
+	"${FILESDIR}"/${P}-gdbm_and_bdb5.3.patch
 )
 
 BUILDDIR="builddir"
@@ -83,17 +87,20 @@ src_configure() {
 	# Temporary workaround for bug #932564 with GCC 15
 	# This can be dropped with a new release.
 	strip-flags
-	append-flags -fno-tree-dce -fno-tree-dse -fno-tree-pta
+	tc-is-gcc && {
+		append-flags -fno-tree-dce -fno-tree-dse -fno-tree-pta
+	}
 
 	# -Werror=lto-type-mismatch
 	# https://bugs.gentoo.org/856103
 	# https://gitlab.com/gnu-clisp/clisp/-/issues/49
 	filter-lto
 
-	# We need this to build on alpha
 	if use alpha; then
+		# We need this to build on alpha
 		replace-flags -O? -O1
 	elif use x86; then
+		# bug #585182
 		append-flags -falign-functions=4
 	fi
 
@@ -130,7 +137,7 @@ src_configure() {
 	fi
 	if use berkdb; then
 		enable_modules berkeley-db
-		append-cppflags -I"${EPREFIX}"/usr/include/db4.8
+		append-cppflags -I"${EPREFIX}"/usr/include/db5.3
 	fi
 	use dbus && enable_modules dbus
 	use fastcgi && enable_modules fastcgi
