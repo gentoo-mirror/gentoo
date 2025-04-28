@@ -124,7 +124,7 @@ BDEPEND="${PYTHON_DEPS}
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-3.42.2-testReportDir.patch" )
+PATCHES=( "${FILESDIR}/${P}-testReportDir.patch" )
 
 src_prepare() {
 	cmake_src_prepare
