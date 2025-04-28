@@ -1114,7 +1114,7 @@ app-arch/atool 0.39.0-r1: Script for managing file archives of various types
 app-arch/brotli 1.0.9-r6 1.1.0 9999: Generic-purpose lossless compression algorithm
 app-arch/bsdsfv 1.18-r3: all-in-one SFV checksum utility
 app-arch/bzip2 1.0.8-r5 9999: A high-quality data compressor used extensively by Gentoo Linux
-app-arch/bzip3 1.5.1: A better and stronger spiritual successor to BZip2
+app-arch/bzip3 1.5.1 1.5.2: A better and stronger spiritual successor to BZip2
 app-arch/cabextract 1.11 9999: Extracts files from Microsoft cabinet archive files
 app-arch/cfv 3.0.0 3.1.0: Command-line File Verify - versatile file checksum creator and verifier
 app-arch/cksfv 1.3.15: SFV checksum utility (simple file verification)
@@ -1348,7 +1348,7 @@ app-containers/cri-o 1.31.2 1.31.4: OCI-based implementation of Kubernetes Conta
 app-containers/cri-tools 1.27.0 1.32.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.14.3 1.16 1.17 1.19.1 1.20: A fast and low-memory footprint OCI Container Runtime fully written in C
 app-containers/devcontainer 0.72.0 0.73.0 0.74.0 0.75.0: Reference implementation of the Development Containers specification
-app-containers/distrobox 1.8.1.2 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
+app-containers/distrobox 1.8.1.2-r1 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1 3.1 3.2: System container image builder for LXC and incus
 app-containers/docker 28.0.1 28.0.4 28.1.1: The core functions you need to create Docker images and run Docker containers
 app-containers/docker-bench-security 1.6.0 1.6.1: Test for best practices around deploying docker containers
@@ -1924,9 +1924,9 @@ app-emacs/company-math 1.5.1: Completion back-ends for for math unicode symbols 
 app-emacs/company-mode 1.0.2: In-buffer completion front-end
 app-emacs/company-quickhelp 2.3.0: Company documentation popups for completion candidates
 app-emacs/compat 30.0.2.0 30.1.0.0: Compatibility libraries for Emacs
-app-emacs/consult 2.0 2.1 2.2 9999: Consulting complete-read for GNU Emacs
+app-emacs/consult 2.1 2.2 2.3 9999: Consulting complete-read for GNU Emacs
 app-emacs/consult-flycheck 1.0: Consult integration for Flycheck
-app-emacs/corfu 1.7 2.0 9999: Completion Overlay Region FUnction
+app-emacs/corfu 1.7 2.0 2.1 9999: Completion Overlay Region FUnction
 app-emacs/counsel 0.14.2 0.15.0 0.15.1: Versions of common Emacs commands customized to make the best use of ivy
 app-emacs/crontab-mode 1.20: Mode for editing crontab files
 app-emacs/crux 0.4.0 0.5.0: Collection of Ridiculously Useful eXtensions for GNU Emacs
@@ -1938,7 +1938,7 @@ app-emacs/ctable 0.1.3: Table Component for Emacs Lisp
 app-emacs/cycle-buffer 2.16-r1: Select buffer by cycling through
 app-emacs/d-mode 2.0.12: Emacs major mode for editing D code
 app-emacs/dap-mode 0.8: Debug Adapter Protocol mode
-app-emacs/dape 0.22.0 0.23.0: Debug Adapter Protocol for Emacs
+app-emacs/dape 0.23.0 0.24.0: Debug Adapter Protocol for Emacs
 app-emacs/dash 2.19.1 2.20.0: A modern list library for Emacs
 app-emacs/dashboard 1.8.0 9999: Extensible Emacs dashboard, with sections like bookmarks, agenda and more
 app-emacs/ddskk 17.1-r1: One Japanese input methods on Emacs
@@ -2040,7 +2040,7 @@ app-emacs/fff 20050517: Fast file finder for Emacs
 app-emacs/filladapt 2.12.2: Filladapt enhances the behavior of Emacs' fill functions
 app-emacs/flashcard 2.3.3: An Emacs Lisp package for drilling on questions and answers
 app-emacs/flim 1.14.9_p20231218: A library to provide basic features about message representation or encoding
-app-emacs/flycheck 34.1: Modern on-the-fly syntax checking extension for GNU Emacs
+app-emacs/flycheck 34.1 35.0: Modern on-the-fly syntax checking extension for GNU Emacs
 app-emacs/flycheck-clang-tidy 0.3.0_p20201116: Flycheck syntax checker using clang-tidy
 app-emacs/flycheck-guile 0.5-r100: Flycheck checker for the GNU Guile Scheme implementation
 app-emacs/flycheck-inline 0_pre20200808: Display Flycheck errors inline
@@ -2087,7 +2087,7 @@ app-emacs/icicles 2018.02.13.23733 2018.10.15.23738: Minibuffer input completion
 app-emacs/igrep 2.113: An improved interface to "grep" and "find"
 app-emacs/indent-bars 0.8.2 0.8.3: Fast, configurable indentation guide-bars for Emacs
 app-emacs/inf-clojure 3.2.1: Major mode for Clojure code
-app-emacs/inform-mode 1.6.2: A major mode for editing Inform programs
+app-emacs/inform-mode 1.6.2 2.0.0: A major mode for editing Inform programs
 app-emacs/initsplit 1.8_pre20160919: Split customizations into different files
 app-emacs/ivy 0.14.2 0.15.0 0.15.1: Generic completion mechanism for Emacs
 app-emacs/ivy-rich 0.1.7: More friendly interface for ivy
@@ -2162,7 +2162,7 @@ app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
 app-emacs/orderless 1.3 1.4: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.1: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.5 0.6: Contributed packages to Org
-app-emacs/org-mode 9.7.25 9.7.26 9.7.27 9999: An Emacs mode for notes and project planning
+app-emacs/org-mode 9.7.26 9.7.27 9999: An Emacs mode for notes and project planning
 app-emacs/org-modern 1.6 1.7 9999: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r3 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.6.0 1.7.0 9999: Static site generator using Emacs's org-mode
@@ -2170,7 +2170,7 @@ app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mod
 app-emacs/osm 1.6 1.7 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
 app-emacs/package-build 4.0.0: Tools for assembling a package archive
-app-emacs/package-lint 0.24 0.25: Linting library for Emacs Lisp package metadata
+app-emacs/package-lint 0.24 0.25 0.26: Linting library for Emacs Lisp package metadata
 app-emacs/pandoc-mode 2.33 2.34.1: GNU Emacs minor mode for interacting with Pandoc
 app-emacs/paredit 26-r1: Minor mode for performing structured editing of S-expressions
 app-emacs/pariemacs 3.14-r1: sci-mathematics/pari emacs mode
@@ -5152,7 +5152,7 @@ dev-lang/dafny 4.8.0 4.8.1 4.9.0 4.9.1 4.10.0: Dafny is a verification-aware pro
 dev-lang/dafny-bin 4.10.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
-dev-lang/eisl 5.41 9999: Interpreter and compiler compatible with the ISLisp standard
+dev-lang/eisl 5.41 5.42 9999: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.14.5-r2 1.15.7 1.15.8 1.16.2 1.16.3 1.17.2 1.17.3 1.18.1 1.18.3: Elixir programming language
 dev-lang/elpi 1.19.6-r1 2.0.7: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 26.2.1 26.2.2 26.2.4 27.0 27.0.1 27.2: Erlang programming language, runtime environment and libraries (OTP)
@@ -5210,7 +5210,7 @@ dev-lang/nasm 2.16.03: groovy little assembler
 dev-lang/neko 2.4.0-r2: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
 dev-lang/nim 2.2.0 2.2.2: Compiled, garbage-collected systems programming language
-dev-lang/nprolog 3.88 3.98 4.00 4.05: Interpreter and compiler to be compatible with Arity/Prolog32
+dev-lang/nprolog 4.05 4.08: Interpreter and compiler to be compatible with Arity/Prolog32
 dev-lang/nqp 2024.10 2024.12 2025.01 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.09.0-r3 4.10.2-r3 4.11.2-r2 4.12.1 4.13.1 4.14.1 4.14.2 5.3.0-r1: Programming language supporting functional, imperative & object-oriented styles
 dev-lang/oorexx 5.1.0_beta12932: Open source implementation of Object Rexx
@@ -13027,7 +13027,7 @@ media-gfx/pencil 0.7.0: 2D animation and drawing program based on Qt
 media-gfx/photopc 3.07: Utility to control digital cameras based on Sierra Imaging firmware
 media-gfx/photoqt 4.7-r1 4.8.1: Simple but powerful Qt-based image viewer
 media-gfx/phototonic 3.0.0: Image viewer and organizer
-media-gfx/pinta 2.1.2: Pinta is a free, open source program for drawing and image editing
+media-gfx/pinta 2.1.2 3.0: Pinta is a free, open source program for drawing and image editing
 media-gfx/pixels2pgf 0.1-r1 9999: Convert pixel images (e.g. QRCode) to PGF/Tikz rectangles
 media-gfx/plantuml 1.2025.0 1.2025.2: Draw UML diagrams using a simple and human readable text description
 media-gfx/png2ico 2002.12.08: PNG to icon converter
@@ -15165,7 +15165,7 @@ net-misc/exabgp 4.2.23 4.2.25: The BGP swiss army knife of networking
 net-misc/fakeidentd 2.6-r1: A static, secure identd. One source file only!
 net-misc/freerdp 2.11.7 2.11.7-r1 2.9999 3.9.0-r1 3.14.0-r1 3.14.1 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 10.0.3 10.1.2 10.1.3 10.2.1 10.2.2 10.3: The FRRouting Protocol Suite
-net-misc/gallery-dl 1.29.0 1.29.2 1.29.3 1.29.4 9999: Download image galleries and collections from several image hosting sites
+net-misc/gallery-dl 1.29.2 1.29.3 1.29.4 1.29.5 9999: Download image galleries and collections from several image hosting sites
 net-misc/geckodriver 0.35.0-r1 0.36.0: Proxy for using WebDriver clients to interact with Gecko-based browsers
 net-misc/gensio 2.8.5: General Stream I/O
 net-misc/geoipupdate 6.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
