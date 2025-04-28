@@ -11,10 +11,10 @@ DESCRIPTION="Framework providing desktop-wide storage for passwords"
 
 LICENSE="LGPL-2+"
 KEYWORDS="amd64 arm64 ~loong ppc64 ~riscv ~x86"
-IUSE="gpg kf6compat +man"
+IUSE="+man"
 
 DEPEND="
-	>=app-crypt/qca-2.3.1:2[qt5(+)]
+	>=app-crypt/qca-2.3.9:2[qt5(-)]
 	dev-libs/libgcrypt:0=
 	>=dev-qt/qtdbus-${QTMIN}:5
 	>=dev-qt/qtgui-${QTMIN}:5
@@ -28,25 +28,18 @@ DEPEND="
 	=kde-frameworks/kservice-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5[X]
-	!kf6compat? ( gpg? ( >=app-crypt/gpgme-1.7.1:=[cxx,qt5] ) )
 "
 RDEPEND="${DEPEND}
-	kf6compat? ( kde-frameworks/kwallet:6 )
+	kde-frameworks/kwallet:6
 "
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${PVCUT}:5 )"
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_KWALLETD=$(usex !kf6compat)
-		-DBUILD_KWALLET_QUERY=$(usex !kf6compat)
+		-DBUILD_KWALLETD=OFF
+		-DBUILD_KWALLET_QUERY=OFF
 		$(cmake_use_find_package man KF5DocTools)
 	)
-	if ! use kf6compat; then
-		mycmakeargs+=(
-			$(cmake_use_find_package gpg Gpgmepp)
-		)
-	fi
-
 	ecm_src_configure
 }
 

@@ -29,7 +29,7 @@ DEPEND="
 	gpg? ( app-crypt/gpgme:=[qt6(-)] )
 "
 RDEPEND="${DEPEND}
-	!${CATEGORY}/${PN}:5[-kf6compat(-)]
+	!<kde-frameworks/kwallet-5.116.0-r2:5[-kf6compat(-)]
 "
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${KDE_CATV}:6 )"
 

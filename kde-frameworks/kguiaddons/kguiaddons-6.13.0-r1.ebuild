@@ -35,7 +35,7 @@ DEPEND="${COMMON_DEPEND}
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	!${CATEGORY}/${PN}:5[-kf6compat(-)]
+	!<kde-frameworks/kguiaddons-5.116.0-r2:5[-kf6compat(-)]
 "
 BDEPEND="
 	wayland? (

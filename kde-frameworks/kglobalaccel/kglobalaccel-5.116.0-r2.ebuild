@@ -11,7 +11,7 @@ DESCRIPTION="Framework to handle global shortcuts"
 
 LICENSE="LGPL-2+"
 KEYWORDS="amd64 arm64 ~loong ppc64 ~riscv ~x86"
-IUSE="kf6compat"
+IUSE=""
 
 RESTRICT="test" # requires installed instance
 
@@ -36,13 +36,13 @@ DEPEND="${COMMON_DEPEND}
 	)
 "
 RDEPEND="${COMMON_DEPEND}
-	kf6compat? ( kde-plasma/kglobalacceld:6 )
+	kde-plasma/kglobalacceld:6
 "
 BDEPEND=">=dev-qt/linguist-tools-${QTMIN}:5"
 
 src_configure() {
 	local mycmakeargs=(
-		-DKF6_COMPAT_BUILD=$(usex kf6compat)
+		-DKF6_COMPAT_BUILD=ON
 	)
 	ecm_src_configure
 }

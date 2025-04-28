@@ -37,7 +37,7 @@ DEPEND="
 	)
 "
 RDEPEND="${DEPEND}
-	!kde-frameworks/kglobalaccel:5[-kf6compat(-)]
+	!<kde-frameworks/kglobalaccel-5.116.0-r2:5[-kf6compat(-)]
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
