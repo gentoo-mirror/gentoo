@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,6 +19,7 @@ IUSE="+openpty sixel toolbar truetype unicode Xaw3d xinerama"
 DEPEND="
 	kernel_linux? ( sys-libs/libutempter )
 	media-libs/fontconfig:1.0
+	media-libs/freetype
 	>=sys-libs/ncurses-5.7-r7:=
 	x11-apps/xmessage
 	x11-libs/libICE
@@ -43,10 +44,6 @@ BDEPEND="
 
 DOCS=( README{,.i18n} ctlseqs.txt )
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-384-unconditional-gnusource.patch
-)
-
 src_configure() {
 	DEFAULTS_DIR="${EPREFIX}"/usr/share/X11/app-defaults
 
@@ -55,6 +52,10 @@ src_configure() {
 	# something sane like pkg-config or ncurses5-config and stops guessing libs
 	# Everything gets linked against ncurses anyways, so don't shout
 	append-libs $($(tc-getPKG_CONFIG) --libs ncurses)
+
+	# bug #953864
+	# Workaround for new fontconfig, can drop on next release after 398
+	append-libs -lfreetype
 
 	local myeconfargs=(
 		--disable-full-tgetent
