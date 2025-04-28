@@ -21,8 +21,8 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 # gles2-only: at least not before 2.6 for keyworded ebuild
-IUSE="aac benchmark experimental ffmpeg gles2-only keyfinder lv2 midi modplug mp3 mp4 opus"
-IUSE+=" qtkeychain rubberband shout test upower wavpack"
+IUSE="aac benchmark ffmpeg keyfinder lv2 midi modplug mp3 mp4 opus"
+IUSE+=" qtkeychain rubberband shout test upower wavpack +X"
 REQUIRED_USE="
 	benchmark? ( test )
 	qtkeychain? ( shout )
@@ -36,14 +36,14 @@ RDEPEND="
 	dev-libs/hidapi
 	dev-libs/protobuf:=
 	dev-qt/qt5compat:6
-	dev-qt/qtbase:6[concurrent,dbus,gles2-only=,gui,icu,network,opengl,sql,sqlite,ssl,widgets,xml,X]
+	dev-qt/qtbase:6[concurrent,dbus,-gles2-only,gui,icu,network,opengl,sql,sqlite,ssl,widgets,xml,X?]
 	dev-qt/qtdeclarative:6
 	dev-qt/qtshadertools:6
 	dev-qt/qtsvg:6
 	media-libs/chromaprint:=
 	media-libs/flac:=
 	media-libs/libebur128:=
-	media-libs/libglvnd[X]
+	media-libs/libglvnd[X?]
 	media-libs/libogg
 	media-libs/libsndfile
 	media-libs/libsoundtouch:=
@@ -53,7 +53,6 @@ RDEPEND="
 	media-sound/lame
 	virtual/libusb:1
 	virtual/udev
-	x11-libs/libX11
 	aac? (
 		media-libs/faad2
 		media-libs/libmp4v2
@@ -63,7 +62,6 @@ RDEPEND="
 		dev-cpp/gtest:=
 		dev-util/google-perftools:=
 	)
-	experimental? ( dev-qt/qt5compat:6[qml] )
 	ffmpeg? ( media-video/ffmpeg:= )
 	keyfinder? ( media-libs/libkeyfinder )
 	lv2? ( media-libs/lilv )
@@ -86,6 +84,7 @@ RDEPEND="
 		sys-power/upower:=
 	)
 	wavpack? ( media-sound/wavpack )
+	X? ( x11-libs/libX11 )
 "
 DEPEND="${RDEPEND}
 	dev-cpp/gtest
@@ -97,6 +96,9 @@ PATCHES=(
 	# Fix strict-aliasing violations in vendored katai_cpp_stl_runtime
 	# https://github.com/kaitai-io/kaitai_struct_cpp_stl_runtime/commit/c01f530.patch
 	"${FILESDIR}"/${PN}-2.5.0-fix-strict-aliasing-kaitai.patch
+	# Try OpenGL::OpenGL first for X11-less system
+	# Make libX11 optional as it's only required for screensaver.
+	"${FILESDIR}"/${PN}-2.5.1-x11_opt.patch
 )
 
 CMAKE_SKIP_TESTS=(
@@ -119,6 +121,7 @@ src_configure() {
 		-DBUILD_BENCH="$(usex benchmark)"
 		# prevent duplicate call
 		-DCCACHE_SUPPORT=OFF
+		-DCMAKE_DISABLE_FIND_PACKAGE_X11=$(usex !X)
 		-DENGINEPRIME=OFF
 		-DFAAD="$(usex aac)"
 		-DFFMPEG="$(usex ffmpeg)"
@@ -133,9 +136,8 @@ src_configure() {
 		-DOPTIMIZE=OFF
 		-DOPUS="$(usex opus)"
 		-DPORTMIDI="$(usex midi)"
-		-DQGLES2="$(usex gles2-only)"
 		# new QML-UI, experimental and not functionnal for now
-		-DQML=$(usex experimental)
+		-DQML=OFF
 		-DQTKEYCHAIN="$(usex qtkeychain)"
 		-DRUBBERBAND="$(usex rubberband)"
 		-DVINYLCONTROL=ON
