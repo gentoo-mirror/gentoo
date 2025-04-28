@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig doc? ( dev-python/furo dev-python/sphinx-inline-tabs ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=app-arch/zstd dev-db/mysql-connector-c:= dev-libs/glib:2 dev-libs/libpcre dev-libs/openssl:= sys-libs/zlib
+DESCRIPTION=A high-performance multi-threaded backup (and restore) toolset for MySQL
+EAPI=8
+HOMEPAGE=https://github.com/mydumper/mydumper
+INHERIT=cmake
+IUSE=doc
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-arch/zstd dev-db/mysql-connector-c:= dev-libs/glib:2 dev-libs/libpcre dev-libs/openssl:= sys-libs/zlib
+SLOT=0
+SRC_URI=https://github.com/mydumper/mydumper/archive/v0.18.2-7.tar.gz -> mydumper-0.18.2-7.tar.gz https://github.com/mydumper/mydumper_docs/archive/b260deb19d8cf88a5e57abc0d271673a4bea254d.tar.gz -> mydumper-0.18.2-7_docs.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=d10726eff6e04fe4d6be06354a1e2fea
