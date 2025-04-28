@@ -3,38 +3,29 @@
 
 EAPI=8
 
-inherit flag-o-matic libtool multilib-minimal
+inherit flag-o-matic multilib-minimal
 
 DESCRIPTION="Free lossless audio encoder and decoder"
 HOMEPAGE="https://xiph.org/flac/"
-SRC_URI="
-	https://github.com/xiph/flac/releases/download/${PV}/${P}.tar.xz
-	https://downloads.xiph.org/releases/${PN}/${P}.tar.xz
-"
+SRC_URI="https://downloads.xiph.org/releases/${PN/-compat}/${P/-compat}.tar.xz"
+S="${WORKDIR}/${P/-compat}"
 
 LICENSE="BSD FDL-1.2 GPL-2 LGPL-2.1"
-# <libFLAC SONAME>-<libFLAC++ SONAME>
-# On SONAME changes, please update media-libs/flac-compat too.
-SLOT="0/11-14"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris"
-IUSE="+cxx debug ogg cpu_flags_x86_avx2 cpu_flags_x86_avx static-libs"
-# AVX configure switch is for both AVX & AVX2
-REQUIRED_USE="
-	cpu_flags_x86_avx2? ( cpu_flags_x86_avx )
-"
+SLOT="12.1.0"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+IUSE="+cxx ogg cpu_flags_x86_avx"
 
-RDEPEND="ogg? ( media-libs/libogg[${MULTILIB_USEDEP}] )"
+RDEPEND="
+	!media-libs/flac:0/10-12
+	ogg? ( media-libs/libogg[${MULTILIB_USEDEP}] )
+"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	app-arch/xz-utils
 	sys-devel/gettext
 	virtual/pkgconfig
+	abi_x86_32? ( dev-lang/nasm )
 "
-
-src_prepare() {
-	default
-	elibtoolize
-}
 
 multilib_src_configure() {
 	# -fipa-pta exposes a test failure in replaygain_analysis (https://gcc.gnu.org/PR115533)
@@ -46,23 +37,20 @@ multilib_src_configure() {
 		--disable-examples
 		--disable-valgrind-testing
 		--disable-version-from-git
-		$([[ ${CHOST} == *-darwin* ]] && echo "--disable-asm-optimizations")
 
 		$(use_enable cpu_flags_x86_avx avx)
 		$(use_enable cxx cpplibs)
-		$(use_enable debug)
+		--disable-debug
 		$(use_enable ogg)
-		$(use_enable static-libs static)
 
-		$(multilib_native_enable programs)
+		--disable-programs
 
 		# cross-compile fix (bug #521446)
 		# no effect if ogg support is disabled
 		--with-ogg
 	)
 
-	# bash for https://github.com/xiph/flac/pull/803
-	CONFIG_SHELL="${BROOT}"/bin/bash ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
+	ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
 }
 
 multilib_src_test() {
@@ -78,6 +66,11 @@ multilib_src_test() {
 }
 
 multilib_src_install_all() {
-	einstalldocs
+	rm -r "${ED}"/usr/bin || die
+	rm -r "${ED}"/usr/include || die
+	rm -r "${ED}"/usr/share || die
+	rm -r "${ED}"/usr/lib*/pkgconfig || die
+	rm -r "${ED}"/usr/lib*/*.so || die
+
 	find "${ED}" -type f -name '*.la' -delete || die
 }
