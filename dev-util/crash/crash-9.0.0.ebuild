@@ -1,13 +1,13 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit flag-o-matic toolchain-funcs
 
-GDB_VERSION=10.2
+GDB_VERSION=16.2
 UPSTREAM_VER=
-EXTRA_VER=0
+EXTRA_VER=
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/crash-utility/crash.git"
@@ -50,7 +50,7 @@ src_prepare() {
 	fi
 
 	sed -i -e "s|ar -rs|\${AR} -rs|g" Makefile || die
-	ln -s "${DISTDIR}"/gdb-10.2.tar.gz . || die
+	ln -s "${DISTDIR}"/gdb-${GDB_VERSION}.tar.gz . || die
 }
 
 src_configure() {
