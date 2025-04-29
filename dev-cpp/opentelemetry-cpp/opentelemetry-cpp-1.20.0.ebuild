@@ -14,12 +14,11 @@ SRC_URI="https://github.com/open-telemetry/${PN}/archive/refs/tags/v${PV}.tar.gz
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
-IUSE="+jaeger prometheus test"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
+IUSE="prometheus test"
 
 RDEPEND="
 	net-misc/curl:=
-	dev-libs/thrift:=
 	dev-libs/boost:=
 "
 DEPEND="
@@ -37,7 +36,9 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	# remove tests the need network
-	"${FILESDIR}/opentelemetry-cpp-1.3.0-tests.patch"
+	"${FILESDIR}/${PN}-1.5.0-tests.patch"
+	"${FILESDIR}/${PN}-1.16.1-cstdint.patch"
+	"${FILESDIR}/${PN}-1.16.1-fix-clang-template.patch"
 )
 
 src_configure() {
@@ -45,7 +46,6 @@ src_configure() {
 		-DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
 		-DBUILD_SHARED_LIBS:BOOL=ON
 		-DBUILD_TESTING:BOOL=$(usex test)
-		-DWITH_JAEGER:BOOL=$(usex jaeger)
 		-DWITH_PROMETHEUS:BOOL=$(usex prometheus)
 	)
 
