@@ -13,34 +13,33 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3+ FDL-1.3+"
 SLOT="0/${PV}"
-KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
-IUSE="doc examples gtk ncurses nls perl postgres"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+IUSE="doc examples gui ncurses nls perl postgres"
 
 RDEPEND="
 	dev-libs/libxml2:2
-	sci-libs/gsl:0=
-	sys-devel/gettext
-	sys-libs/ncurses:0=
+	>=sci-libs/gsl-1.13:0=
 	sys-libs/readline:0=
 	sys-libs/zlib
 	virtual/libiconv
 	x11-libs/cairo[svg(+)]
 	x11-libs/pango
-	gtk? (
-		dev-util/glib-utils
-		x11-libs/gtk+:3
-		x11-libs/gtksourceview:4=
+	gui? (
+		>=dev-libs/glib-2.44:2
+		>=x11-libs/gtk+-3.22.0:3
+		>=x11-libs/gtksourceview-4.0:4
 		>=x11-libs/spread-sheet-widget-0.7
 	)
-	postgres? ( dev-db/postgresql:=[server] )"
+	postgres? ( dev-db/postgresql:=[server(+)] )
+"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
 	sys-devel/gettext
 	virtual/pkgconfig
-	doc? ( virtual/texi2dvi )"
-
-PATCHES=( "${FILESDIR}/pspp-1.6.2-underlinking.patch" )
+	doc? ( virtual/texi2dvi )
+	gui? ( dev-util/glib-utils )
+"
 
 pkg_pretend() {
 	ewarn "Starting with pspp-1.4.0 the pspp-mode emacs package is no longer"
@@ -51,7 +50,7 @@ pkg_pretend() {
 src_configure() {
 	econf \
 		$(use_enable nls) \
-		$(use_with gtk gui) \
+		$(use_with gui) \
 		$(use_with perl perl-module) \
 		$(use_with postgres libpq)
 }
@@ -67,10 +66,6 @@ src_compile() {
 
 src_install() {
 	default
-
-	# Mimic the upstream fix for bug 868618. Obsolete when v1.6.3 is
-	# released.
-	rm "${ED}/usr/bin/pspp-dump-sav" || die
 
 	use doc && dodoc doc/pspp{,-dev}.pdf
 	if use examples; then

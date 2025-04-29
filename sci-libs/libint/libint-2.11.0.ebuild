@@ -1,17 +1,17 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools fortran-2 toolchain-funcs
+inherit autotools flag-o-matic fortran-2 toolchain-funcs
 
 DESCRIPTION="Matrix elements (integrals) evaluation over Cartesian Gaussian functions"
 HOMEPAGE="https://github.com/evaleev/libint"
 SRC_URI="https://github.com/evaleev/libint/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-SLOT="2"
 LICENSE="GPL-2"
-KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
+SLOT="2"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="static-libs doc"
 
 DEPEND="
@@ -20,7 +20,12 @@ DEPEND="
 	doc? (
 		dev-texlive/texlive-latex
 		dev-tex/latex2html
-	)"
+	)
+"
+
+PATCHES=(
+	"${FILESDIR}"/libint-2.9.0-gcc15-include.patch
+)
 
 src_prepare() {
 	default
@@ -31,6 +36,10 @@ src_prepare() {
 }
 
 src_configure() {
+	# bug #862894
+	append-flags -fno-strict-aliasing
+	filter-lto
+
 	econf \
 		--with-cxx="$(tc-getCXX)" \
 		--with-cxx-optflags="${CXXFLAGS}" \
