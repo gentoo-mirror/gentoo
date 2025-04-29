@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/yacc app-alternatives/lex virtual/pkgconfig doc? ( app-text/doxygen[dot] app-text/xmltoman app-text/htmldoc dev-libs/libxslt ) test? ( dev-libs/cgreen ) app-alternatives/ninja >=dev-build/cmake-3.20.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=acct-user/gvm app-crypt/gpgme:1= dev-libs/libbsd >=dev-db/postgresql-9.6:=[uuid] >=dev-libs/cJSON-1.7.14 >=dev-libs/glib-2.42:2 >=dev-libs/libical-1.0.0:= >=net-analyzer/gvm-libs-22.19 >=net-libs/gnutls-3.2.15:=[tools]
+DESCRIPTION=Greenbone vulnerability manager, previously named openvas-manager
+EAPI=8
+HOMEPAGE=https://www.greenbone.net https://github.com/greenbone/gvmd/
+INHERIT=cmake systemd toolchain-funcs
+IUSE=doc test
+KEYWORDS=~amd64
+LICENSE=AGPL-3+
+RDEPEND=acct-user/gvm app-crypt/gpgme:1= dev-libs/libbsd >=dev-db/postgresql-9.6:=[uuid] >=dev-libs/cJSON-1.7.14 >=dev-libs/glib-2.42:2 >=dev-libs/libical-1.0.0:= >=net-analyzer/gvm-libs-22.19 >=net-libs/gnutls-3.2.15:=[tools] app-text/xmlstarlet dev-perl/XML-Twig dev-texlive/texlive-latexextra >=net-analyzer/ospd-openvas-22.4 >=dev-db/pg-gvm-22.4
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/greenbone/gvmd/archive/v25.2.1.tar.gz -> gvmd-25.2.1.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=079b64560af6c5c565d3dd3ace3e4bb1
