@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{10..13} pypy3 pypy3_11 )
 inherit cmake python-any-r1 toolchain-funcs
 
 TEST_UTILS="paho.mqtt.testing"
-TEST_COMMIT="a4dc694010217b291ee78ee13a6d1db812f9babd"
+TEST_COMMIT="9d7bb80bb8b9d9cfc0b52f8cb4c1916401281103"
 
 DESCRIPTION="An Eclipse Paho C client library for MQTT for Windows, Linux and MacOS."
 HOMEPAGE="https://eclipse.org/paho"
@@ -20,7 +20,7 @@ S="${WORKDIR}/paho.mqtt.c-${PV}"
 
 LICENSE="EPL-2.0"
 SLOT="1.3"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc examples +high-performance +ssl test"
 
 # Building samples needs ssl: #912262
