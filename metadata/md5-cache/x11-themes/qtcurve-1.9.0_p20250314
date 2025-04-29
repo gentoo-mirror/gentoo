@@ -1,11 +1,11 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) plasma? ( kde-frameworks/extra-cmake-modules:0 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=virtual/pkgconfig plasma? ( kde-frameworks/extra-cmake-modules:0 kde-frameworks/ki18n:6 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure info install nofetch prepare test unpack
 DEPEND=gtk? ( x11-libs/gtk+:2 ) plasma? ( kde-frameworks/frameworkintegration:6 kde-frameworks/karchive:6 kde-frameworks/kcolorscheme:6 kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[X] kde-frameworks/kxmlgui:6 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 X? ( dev-qt/qtx11extras:5 ) ) qt6? ( dev-qt/qtbase:6[dbus,gui,widgets] dev-qt/qtsvg:6 X? ( dev-qt/qtbase:6=[X] ) ) X? ( x11-libs/libX11 x11-libs/libxcb )
 DESCRIPTION=Widget styles for Qt and GTK2
 EAPI=8
 HOMEPAGE=https://invent.kde.org/system/qtcurve
 INHERIT=cmake kde.org
-IUSE=gtk nls plasma qt5 +qt6 test X
+IUSE=gtk plasma qt5 +qt6 test X
 KEYWORDS=~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86
 LICENSE=LGPL-2+
 RDEPEND=gtk? ( x11-libs/gtk+:2 ) plasma? ( kde-frameworks/frameworkintegration:6 kde-frameworks/karchive:6 kde-frameworks/kcolorscheme:6 kde-frameworks/kcompletion:6 kde-frameworks/kconfig:6 kde-frameworks/kconfigwidgets:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kguiaddons:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kio:6 kde-frameworks/kwidgetsaddons:6 kde-frameworks/kwindowsystem:6[X] kde-frameworks/kxmlgui:6 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 X? ( dev-qt/qtx11extras:5 ) ) qt6? ( dev-qt/qtbase:6[dbus,gui,widgets] dev-qt/qtsvg:6 X? ( dev-qt/qtbase:6=[X] ) ) X? ( x11-libs/libX11 x11-libs/libxcb )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=mirror://gentoo/qtcurve-1.9.0_p20250314-efb9e510.tar.gz https://invent.kde.org/kde/qtcurve/-/archive/efb9e510f50f8147f05054d77c3ef433a8b9390e/qtcurve-efb9e510f50f8147f05054d77c3ef433a8b9390e.tar.gz -> qtcurve-1.9.0_p20250314-efb9e510.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	kde.org	2eea56ed41440913be4caa3d255d2db3
-_md5_=30993667eebab478d585b906ba9217a0
+_md5_=36b145ed6f89099de16db1e97fef30dd
