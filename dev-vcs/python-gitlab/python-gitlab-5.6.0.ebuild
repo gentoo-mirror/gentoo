@@ -3,7 +3,7 @@
 
 EAPI=8
 MY_PN="${PN/-/_}"
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
 inherit distutils-r1
@@ -24,14 +24,20 @@ fi
 LICENSE="LGPL-3"
 SLOT="0"
 
-BDEPEND="test? (
+RDEPEND="
+	>=dev-python/requests-2.32.2[${PYTHON_USEDEP}]
+	>=dev-python/requests-toolbelt-1.0.0[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	test? (
+		dev-python/anyio[${PYTHON_USEDEP}]
 		>=dev-python/pytest-console-scripts-1.3.1[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-5.2[${PYTHON_USEDEP}]
 		dev-python/responses[${PYTHON_USEDEP}]
-		)"
-
-RDEPEND=">=dev-python/requests-2.32.2[${PYTHON_USEDEP}]
-	>=dev-python/requests-toolbelt-1.0.0[${PYTHON_USEDEP}]"
+		dev-python/respx[${PYTHON_USEDEP}]
+		dev-python/trio[${PYTHON_USEDEP}]
+	)
+"
 
 distutils_enable_tests pytest
 
@@ -41,6 +47,8 @@ EPYTEST_IGNORE=(
 	# Requires ability to run docker and pytest-docker
 	# https://bugs.gentoo.org/938085
 	"tests/functional"
+	# Requires unpackaged gql (Used optionally for graphql support at runtime)
+	"tests/unit/test_graphql.py"
 )
 
 python_install_all() {
