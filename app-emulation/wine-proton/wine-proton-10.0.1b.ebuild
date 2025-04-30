@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{10..13} )
 inherit optfeature python-any-r1 readme.gentoo-r1 toolchain-funcs wine
 
 WINE_GECKO=2.47.4
-WINE_MONO=10.0.0
+WINE_MONO=9.4.0
 WINE_PV=$(ver_rs 2 -)
 
 if [[ ${PV} == 9999 ]]; then
@@ -207,7 +207,6 @@ src_configure() {
 		$(use_with xinerama)
 
 		--without-piper # unpackaged, for tts but unusable without steam
-		--without-vosk # unpackaged, file a bug if you need this
 	)
 
 	wine_src_configure
