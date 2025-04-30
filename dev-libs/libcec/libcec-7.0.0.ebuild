@@ -1,13 +1,13 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{10..13} )
 MY_PV=${PV/_p/-}
 MY_P=${PN}-${MY_PV}
 
-inherit cmake linux-info python-single-r1 toolchain-funcs udev
+inherit cmake linux-info python-single-r1 udev
 
 DESCRIPTION="Library for communicating with the Pulse-Eight USB HDMI-CEC Adaptor"
 HOMEPAGE="https://libcec.pulse-eight.com"
@@ -16,13 +16,12 @@ S="${WORKDIR}/${PN}-${MY_P}"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
-IUSE="cubox exynos kernel-cec python raspberry-pi tools udev +xrandr"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
+IUSE="cubox exynos kernel-cec python tools udev +xrandr"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND=">=dev-libs/libplatform-2.0.0
 	python? ( ${PYTHON_DEPS} )
-	raspberry-pi? ( >=media-libs/raspberrypi-userland-0_pre20160305-r1 )
 	udev? ( virtual/udev )
 	xrandr? (
 		x11-libs/libX11
@@ -35,11 +34,6 @@ DEPEND="${RDEPEND}
 BDEPEND="virtual/pkgconfig"
 
 CONFIG_CHECK="~USB_ACM"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-4.0.7-no-override-udev.patch"
-	"${FILESDIR}/${PN}-6.0.2-musl-nullptr.patch"
-)
 
 pkg_pretend() {
 	use udev || CONFIG_CHECK+=" ~SYSFS"
@@ -56,11 +50,6 @@ pkg_setup() {
 src_prepare() {
 	cmake_src_prepare
 
-	# Do not hardcode the python libpath #577612
-	sed -i \
-		-e '/DESTINATION/s:"lib/python${PYTHON_VERSION}/${PYTHON_PKG_DIR}":${PYTHON_SITEDIR}:' \
-		src/libcec/cmake/CheckPlatformSupport.cmake || die
-
 	sed -Ee 's|[ ~]?#DIST#;?||g' debian/changelog.in > ChangeLog || die
 
 	(use tools && use python) || cmake_comment_add_subdirectory "src/pyCecClient"
@@ -75,24 +64,22 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DHAVE_LINUX_API=$(usex kernel-cec ON OFF)
-		-DHAVE_LIBUDEV=$(usex udev ON OFF)
-		-DSKIP_PYTHON_WRAPPER=$(usex python OFF ON)
-		-DHAVE_EXYNOS_API=$(usex exynos ON OFF)
-		-DHAVE_TDA995X_API=$(usex cubox ON OFF)
-		-DHAVE_RPI_API=$(usex raspberry-pi ON OFF)
+		-DSKIP_PYTHON_WRAPPER=$(usex !python)
+
+		# Same order as in src/libcec/cmake/CheckPlatformSupport.cmake
+		-DHAVE_DRM_EDID_PARSER=ON
+		-DHAVE_LIBUDEV=$(usex udev)
+		-DHAVE_RANDR=$(usex xrandr)
+		-DHAVE_RPI_API=OFF
+		-DHAVE_TDA995X_API=$(usex cubox)
+		-DHAVE_EXYNOS_API=$(usex exynos)
+		-DHAVE_LINUX_API=$(usex kernel-cec)
+
 	)
 
 	if linux_config_exists && linux_chkconfig_present SYSFS; then
 		mycmakeargs+=( -DHAVE_P8_USB_DETECT=ON )
 	fi
-
-	# raspberrypi-userland itself does not provide .pc file so using
-	# bcm_host.pc instead
-	use raspberry-pi && mycmakeargs+=(
-		-DRPI_INCLUDE_DIR=$( $(tc-getPKG_CONFIG) --variable=includedir bcm_host) \
-		-DRPI_LIB_DIR=$( $(tc-getPKG_CONFIG) --variable=libdir bcm_host)
-	)
 
 	cmake_src_configure
 }
