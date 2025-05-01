@@ -1,15 +1,15 @@
-BDEPEND=dev-util/gengetopt virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=dev-util/gengetopt sys-apps/help2man virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/openssl:= net-misc/curl dev-libs/libedit virtual/libusb:1 sys-apps/pcsc-lite
+DEPEND=dev-libs/openssl:= net-misc/curl dev-libs/libedit sys-apps/pcsc-lite virtual/libusb:1
 DESCRIPTION=Components used to interact with the YubiHSM 2
 EAPI=8
 HOMEPAGE=https://developers.yubico.com/yubihsm-shell/
 INHERIT=cmake
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=dev-libs/openssl:= net-misc/curl dev-libs/libedit virtual/libusb:1 sys-apps/pcsc-lite
+RDEPEND=dev-libs/openssl:= net-misc/curl dev-libs/libedit sys-apps/pcsc-lite virtual/libusb:1
 RESTRICT=test
 SLOT=0
-SRC_URI=https://developers.yubico.com/yubihsm-shell/Releases/yubihsm-shell-2.4.0.tar.gz
+SRC_URI=https://developers.yubico.com/yubihsm-shell/Releases/yubihsm-shell-2.6.0.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=fe6c4248802711ae026a0f04f22f7a12
+_md5_=f4a312c4b8e1eaec16defbc3ea4f4e54
