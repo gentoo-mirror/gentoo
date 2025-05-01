@@ -37,6 +37,12 @@
 #--- END OF EXAMPLES ---
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-05-01)
+# Package destabilisation mask. 1.0_p20241107 is in ~arch but as snapshot
+# with long-term pending Qt6 patches on top it will not be stabilised.
+# 1.0 release was almost 8 years old already.
+~media-gfx/fotowall-1.0
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-01)
 # No maintainer in Gentoo since 2016, current package is still Qt5 based;
 # upstream does not even bother making tags let alone releases; anyone who
 # wants to deal with that shall step up as permanent maintainer and cut
@@ -99,6 +105,11 @@ dev-python/python-poppler-qt5
 # Almost no one else keeps packaging this. Bug #947622
 # Removal on 2025-05-22.
 sci-visualization/zhu3d
+
+# Michał Górny <mgorny@gentoo.org> (2025-04-22)
+# Metapackage used for pypy3 target in the past.
+# Removal on 2025-05-22.
+dev-python/pypy3
 
 # Michał Górny <mgorny@gentoo.org> (2025-04-22)
 # This package was only really necessary for packages without
