@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup
-DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ssl? ( dev-libs/openssl:= )
+DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ssl? ( dev-libs/openssl:= )
 DESCRIPTION=A robust, high-performance CORBA 2 ORB
 EAPI=8
 HOMEPAGE=http://omniorb.sourceforge.net/
 INHERIT=python-single-r1
-IUSE=doc ipv6 ssl python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+IUSE=doc ipv6 ssl python_single_target_python3_11 python_single_target_python3_12
 KEYWORDS=amd64 ppc ppc64 ~sparc x86
 LICENSE=LGPL-2 GPL-2
-RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ssl? ( dev-libs/openssl:= )
-REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ssl? ( dev-libs/openssl:= )
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/omniorb/omniORB-4.3.0.tar.bz2
-_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
 _md5_=928023db711487041138e36652a18bb4

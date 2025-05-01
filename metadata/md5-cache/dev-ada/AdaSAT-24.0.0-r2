@@ -1,4 +1,4 @@
-BDEPEND=test? ( || ( ( dev-lang/python:3.12 dev-ada/e3-testsuite[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-ada/e3-testsuite[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-ada/e3-testsuite[python_targets_python3_10(-)] ) ) )
+BDEPEND=test? ( || ( ( dev-lang/python:3.12 dev-ada/e3-testsuite[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-ada/e3-testsuite[python_targets_python3_11(-)] ) ) )
 DEFINED_PHASES=compile install setup test
 DEPEND=dev-ada/gprbuild[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,-ada_target_gcc_14(-),-ada_target_gcc_15(-)]
 DESCRIPTION=Implementation of a DPLL-based SAT solver in Ada
@@ -12,5 +12,5 @@ REQUIRED_USE=^^ ( ada_target_gcc_12 ada_target_gcc_13 ) || ( shared static-libs 
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/AdaCore/AdaSAT/archive/refs/tags/v24.0.0.tar.gz -> AdaSAT-24.0.0.tar.gz
-_eclasses_=ada	02ff4ede51c5f676746b340a6406accf	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_eclasses_=ada	02ff4ede51c5f676746b340a6406accf	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-any-r1	891415dfe39ad9b41b461f2b86354af0
 _md5_=dbaaa2b3557aa4bee14492b8bcb83e25

@@ -1,4 +1,4 @@
-BDEPEND=|| ( ( dev-lang/python:3.13 dev-python/python-gnupg[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/python-gnupg[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/python-gnupg[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/python-gnupg[python_targets_python3_10(-)] ) ) >=sec-keys/openpgp-keys-gentoo-auth-20240703 test? ( app-crypt/gnupg sys-apps/grep[pcre] )
+BDEPEND=|| ( ( dev-lang/python:3.13 dev-python/python-gnupg[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/python-gnupg[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/python-gnupg[python_targets_python3_11(-)] ) ) >=sec-keys/openpgp-keys-gentoo-auth-20240703 test? ( app-crypt/gnupg sys-apps/grep[pcre] )
 DEFINED_PHASES=compile install setup test unpack
 DESCRIPTION=Gentoo Authority Keys (GLEP 79)
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=public-domain
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://qa-reports.gentoo.org/output/keys/active-devs-20250203.gpg -> openpgp-keys-gentoo-developers-20250203-active-devs.gpg
-_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-any-r1	891415dfe39ad9b41b461f2b86354af0
 _md5_=2616ac43869b081c83d06ff3b0cbec92

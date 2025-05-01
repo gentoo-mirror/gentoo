@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-arch/unzip dev-build/gn virtual/pkgconfig test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 ) app-arch/unzip dev-build/gn virtual/pkgconfig test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
 DEPEND=app-arch/libarchive:= app-text/cmark:= dev-libs/libfmt:= dev-libs/tinyxml media-libs/freetype media-libs/giflib:= media-libs/harfbuzz:=[truetype] media-libs/libjpeg-turbo:= media-libs/libpng:= net-misc/curl sys-libs/zlib:= virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libXi x11-libs/libxcb:= webp? ( media-libs/libwebp:= ) x11-base/xorg-proto
 DESCRIPTION=Animated sprite editor & pixel art tool
@@ -12,5 +12,5 @@ RDEPEND=app-arch/libarchive:= app-text/cmark:= dev-libs/libfmt:= dev-libs/tinyxm
 RESTRICT=bindist mirror !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/aseprite/aseprite/releases/download/v1.3.5/Aseprite-v1.3.5-Source.zip https://github.com/google/skia/archive/3338e90707323d2cd3a150276acb9f39933deee2.tar.gz -> skia-m102-3338e90707323d2cd3a150276acb9f39933deee2.gh.tar.gz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-any-r1	891415dfe39ad9b41b461f2b86354af0
 _md5_=acfed1bc43cb4b103e7d6d2896e56f9b

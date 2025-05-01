@@ -1,4 +1,4 @@
-BDEPEND=test? ( || ( ( dev-lang/python:3.13 dev-ada/e3-testsuite[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-ada/e3-testsuite[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-ada/e3-testsuite[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-ada/e3-testsuite[python_targets_python3_10(-)] ) ) )
+BDEPEND=test? ( || ( ( dev-lang/python:3.13 dev-ada/e3-testsuite[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-ada/e3-testsuite[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-ada/e3-testsuite[python_targets_python3_11(-)] ) ) )
 DEFINED_PHASES=compile install setup test
 DEPEND=ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) dev-ada/VSS:0/25.0.0[ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gcc_12(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] dev-ada/gnatcoll-core:0/25.0.0[ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gcc_12(-),-ada_target_gcc_15(-),shared?,static-libs?,static-pic?] dev-ada/gprbuild[ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,-ada_target_gcc_12(-),-ada_target_gcc_15(-)]
 DESCRIPTION=Port of the Prettier formatter to the Ada programming language
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( ada_target_gcc_13 ada_target_gcc_14 ) || ( shared static-libs 
 RESTRICT=!test? ( test )
 SLOT=0/25.0.0
 SRC_URI=https://github.com/AdaCore/prettier-ada/archive/refs/tags/v25.0.0.tar.gz -> prettier-ada-25.0.0.tar.gz
-_eclasses_=ada	02ff4ede51c5f676746b340a6406accf	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_eclasses_=ada	02ff4ede51c5f676746b340a6406accf	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-any-r1	891415dfe39ad9b41b461f2b86354af0
 _md5_=4c1c95024e6f620c694cd48ef49ad3fe

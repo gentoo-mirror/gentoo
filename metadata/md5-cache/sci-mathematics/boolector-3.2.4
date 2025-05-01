@@ -1,17 +1,17 @@
 BDEPEND=test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=sci-mathematics/btor2tools:= cryptominisat? ( sci-mathematics/cryptominisat:= ) gmp? ( dev-libs/gmp:= ) minisat? ( sci-mathematics/minisat:= ) picosat? ( sci-mathematics/picosat:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
+DEPEND=sci-mathematics/btor2tools:= cryptominisat? ( sci-mathematics/cryptominisat:= ) gmp? ( dev-libs/gmp:= ) minisat? ( sci-mathematics/minisat:= ) picosat? ( sci-mathematics/picosat:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
 DESCRIPTION=Fast SMT solver for bit-vectors, arrays and uninterpreted functions
 EAPI=8
 HOMEPAGE=https://boolector.github.io/ https://github.com/Boolector/boolector/
 INHERIT=python-single-r1 cmake
-IUSE=cryptominisat examples +gmp minisat +picosat python test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+IUSE=cryptominisat examples +gmp minisat +picosat python test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=sci-mathematics/btor2tools:= cryptominisat? ( sci-mathematics/cryptominisat:= ) gmp? ( dev-libs/gmp:= ) minisat? ( sci-mathematics/minisat:= ) picosat? ( sci-mathematics/picosat:= ) python? ( python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
-REQUIRED_USE=python? ( ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) ) || ( cryptominisat minisat picosat )
+RDEPEND=sci-mathematics/btor2tools:= cryptominisat? ( sci-mathematics/cryptominisat:= ) gmp? ( dev-libs/gmp:= ) minisat? ( sci-mathematics/minisat:= ) picosat? ( sci-mathematics/picosat:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) ) || ( cryptominisat minisat picosat )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Boolector/boolector/archive/3.2.4.tar.gz -> boolector-3.2.4.tar.gz
-_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	flag-o-matic	e8de74bac929ba17427e740e95707d00	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_eclasses_=xdg-utils	42869b3c8d86a70ef3cf75165a395e09	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	flag-o-matic	e8de74bac929ba17427e740e95707d00	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	cmake	b05c1b7b3c9213c155f128f4eadaa49f
 _md5_=eddcde438cedf5bbc0d46b345fbb2e16

@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] dev-lang/python:3.10[xml(+)] ) test? ( app-arch/unzip app-arch/zip ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=|| ( dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] ) test? ( app-arch/unzip app-arch/zip ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=sys-libs/zlib sdl? ( media-libs/libsdl2 )
 DESCRIPTION=Lightweight library for extracting data from files archived in a single zip file
@@ -12,5 +12,5 @@ RDEPEND=sys-libs/zlib sdl? ( media-libs/libsdl2 )
 RESTRICT=!test? ( test )
 SLOT=0/13
 SRC_URI=https://github.com/gdraheim/zziplib/archive/v0.13.79.tar.gz -> zziplib-0.13.79.tar.gz test? ( https://dev.gentoo.org/~sam/distfiles/dev-libs/zziplib/zziplib-0.13.74-testdata.tar.xz )
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-any-r1	891415dfe39ad9b41b461f2b86354af0
 _md5_=f3cd1ea8900dcf7ef785b9d9897d3b57

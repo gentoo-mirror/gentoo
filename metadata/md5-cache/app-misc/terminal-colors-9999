@@ -1,14 +1,14 @@
-BDEPEND=python_targets_python3_10? ( dev-lang/python:3.10[ncurses] ) python_targets_python3_11? ( dev-lang/python:3.11[ncurses] ) python_targets_python3_12? ( dev-lang/python:3.12[ncurses] ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=python_targets_python3_11? ( dev-lang/python:3.11[ncurses] ) python_targets_python3_12? ( dev-lang/python:3.12[ncurses] ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install unpack
 DESCRIPTION=A tool to display color charts for 8, 16, 88, and 256 color terminals
 EAPI=8
 HOMEPAGE=http://zhar.net/projects/shell/terminal-colors
 INHERIT=python-r1 git-r3
-IUSE=python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=python_targets_python3_11 python_targets_python3_12
 LICENSE=GPL-3+
 PROPERTIES=live
-RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10[ncurses] ) python_targets_python3_11? ( dev-lang/python:3.11[ncurses] ) python_targets_python3_12? ( dev-lang/python:3.12[ncurses] )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11[ncurses] ) python_targets_python3_12? ( dev-lang/python:3.12[ncurses] )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 )
 SLOT=0
-_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-r1	0e15b2ab9cfc87d7474678201d6bca38	git-r3	875eb471682d3e1f18da124be97dcc81
+_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-r1	0e15b2ab9cfc87d7474678201d6bca38	git-r3	875eb471682d3e1f18da124be97dcc81
 _md5_=831d8639ab21ae7be3187e274edfe751

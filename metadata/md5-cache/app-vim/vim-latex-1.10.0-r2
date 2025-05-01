@@ -4,12 +4,12 @@ DESCRIPTION=Comprehensive set of tools to view, edit and compile LaTeX documents
 EAPI=8
 HOMEPAGE=https://vim-latex.sourceforge.net/
 INHERIT=vim-plugin python-single-r1
-IUSE=python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+IUSE=python_single_target_python3_11 python_single_target_python3_12
 KEYWORDS=~alpha amd64 ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=vim
-RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) || ( app-editors/vim[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?] app-editors/gvim[python,python_single_target_python3_10(-)?,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?] ) virtual/latex-base !app-vim/vimtex || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
-REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) || ( app-editors/vim[python,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?] app-editors/gvim[python,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?] ) virtual/latex-base !app-vim/vimtex || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/vim-latex/vim-latex-1.10.0.tar.gz
-_eclasses_=vim-doc	bea02829eae182f569e6e9a5dc2fe08f	vim-plugin	4acc7611306b8fdbeac907d572ccac21	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_eclasses_=vim-doc	bea02829eae182f569e6e9a5dc2fe08f	vim-plugin	4acc7611306b8fdbeac907d572ccac21	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
 _md5_=2de8680f8a787f82167f65402ba2ea07

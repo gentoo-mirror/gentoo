@@ -1050,7 +1050,7 @@ app-admin/ryzen_monitor 1.0.6_pre20220901: Monitor power information of Ryzen pr
 app-admin/ryzen_smu 0.1.5: Kernel driver for AMD Ryzen's System Management Unit
 app-admin/sagan 2.0.2: Sagan is a multi-threaded, real time system and event log monitoring system
 app-admin/sagan-rules 20210208 99999999: Rules for Sagan log analyzer
-app-admin/salt 3005.5-r1 3006.5-r1 3006.7-r1 3006.9-r2 3007.0-r1 3007.1-r1 3007.1-r2: Salt is a remote execution and configuration manager
+app-admin/salt 3006.7-r1 3006.9-r2 3007.0-r1 3007.1-r1 3007.1-r2: Salt is a remote execution and configuration manager
 app-admin/selint 1.2.1 9999: Static code analysis of refpolicy style SELinux policy
 app-admin/serf 0.10.1-r1: Service orchestration and management tool
 app-admin/setools 4.5.1 9999: Policy Analysis Tools for SELinux
@@ -3513,7 +3513,7 @@ app-vim/increment 1.1-r2: vim plugin: easily create sequences of incremented val
 app-vim/indentpython 0.3-r1: vim plugin: Indent Python code according to PEP8
 app-vim/info 1.7-r3: vim plugin: GNU info documentation browser
 app-vim/iris 1.0.0-r1: vim plugin: mail client for vim
-app-vim/jedi 0.11.0 0.11.2: vim plugin: binding to the autocompletion library jedi
+app-vim/jedi 0.11.2: vim plugin: binding to the autocompletion library jedi
 app-vim/json 20150511: vim plugin: a better JSON for Vim
 app-vim/l9 1.1: vim plugin: library for vim scripts
 app-vim/languagetool 1.30: grammar checker for various languages
@@ -5221,10 +5221,10 @@ dev-lang/perl 5.40.0-r1 5.40.1 5.40.2: Larry Wall's Practical Extraction and Rep
 dev-lang/php 8.2.24 8.2.28 8.3.20 8.4.6: The PHP language runtime engine
 dev-lang/pico8 0.2.6b: Fantasy console for making and playing tiny games and other computer programs
 dev-lang/polyml 5.9-r2 5.9.1: Poly/ML is a full implementation of Standard ML
-dev-lang/pypy 2.7.7.3.19 3.10.7.3.19_p2 3.10.7.3.19_p3 3.11.7.3.19_p5-r1 3.11.7.3.19_p6-r1: A fast, compliant alternative implementation of the Python (3.11) language
+dev-lang/pypy 2.7.7.3.19 3.10.7.3.19_p2-r1 3.10.7.3.19_p3-r1 3.11.7.3.19_p5-r1 3.11.7.3.19_p6-r1: A fast, compliant alternative implementation of the Python (3.11) language
 dev-lang/pypy3-exe 3.11.7.3.19: PyPy3.11 executable (build from source)
 dev-lang/pypy3-exe-bin 3.11.7.3.19: PyPy3.11 executable (pre-built version)
-dev-lang/python 2.7.18_p16-r2 3.8.20_p7 3.9.22 3.10.17 3.11.12 3.12.10 3.13.3 3.13.3-r100 3.14.0_alpha7 3.14.0_alpha7-r100: Freethreading (no-GIL) version of Python programming language
+dev-lang/python 2.7.18_p16-r2 3.8.20_p7 3.9.22 3.10.17-r1 3.11.12 3.12.10 3.13.3 3.13.3-r100 3.14.0_alpha7 3.14.0_alpha7-r100: Freethreading (no-GIL) version of Python programming language
 dev-lang/python-exec 2.4.10: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
 dev-lang/qore 1.19.2: Qore, the embeddable multithreaded scripting language
@@ -8117,7 +8117,6 @@ dev-python/babel 2.17.0: Collection of tools for internationalizing Python appli
 dev-python/babelfish 0.6.1 9999: Python library to work with countries and languages
 dev-python/backoff 2.2.1: Function decoration for backoff and retry
 dev-python/backports-ssl-match-hostname 3.7.0.1: The ssl.match_hostname() function from Python 3.7
-dev-python/backports-strenum 1.3.1: Create enumerated constants that are also subclasses of str
 dev-python/backports-tarfile 1.2.0: Backport of CPython tarfile module (from Python 3.12)
 dev-python/backrefs 5.8: Wrapper around re or regex that adds additional back references
 dev-python/bandit 1.8.3: A security linter from OpenStack Security
@@ -9165,7 +9164,7 @@ dev-python/pytest-repeat 0.9.3 0.9.4: pytest plugin for repeating tests
 dev-python/pytest-reraise 2.1.2: Make multi-threaded pytest test cases fail when they should
 dev-python/pytest-rerunfailures 15.0: pytest plugin to re-run tests to eliminate flaky failures
 dev-python/pytest-reserial 0.4.3: Pytest plugin for recording and replaying serial port traffic during tests
-dev-python/pytest-salt-factories 1.0.0_rc20-r1 1.0.0_rc23 1.0.0_rc28 1.0.0_rc29 1.0.1: The new generation of the pytest-salt Plugin
+dev-python/pytest-salt-factories 1.0.0_rc29 1.0.1: The new generation of the pytest-salt Plugin
 dev-python/pytest-services 2.2.1-r1: Collection of fixtures and utility functions to run service processes for pytest
 dev-python/pytest-shell-utilities 1.9.7: pytest plugin: fixtures and code to help with running shell commands on tests
 dev-python/pytest-skip-markers 1.5.2: A Pytest plugin which implements a few useful skip markers
@@ -9238,7 +9237,7 @@ dev-python/python-stdnum 1.20: A module to handle standardized numbers and codes
 dev-python/python-subunit 1.4.4: A streaming protocol for test results
 dev-python/python-swiftclient 4.7.0: Python bindings to the OpenStack Object Storage API
 dev-python/python-systemd 235: Python module for native access to the systemd facilities
-dev-python/python-tests 3.10.17 3.11.12 3.12.10 3.13.3 3.13.3-r100: Test modules from dev-lang/python
+dev-python/python-tests 3.11.12 3.12.10 3.13.3 3.13.3-r100: Test modules from dev-lang/python
 dev-python/python-tlsh 4.8.2-r1: Fuzzy matching library - C++ extension for Python
 dev-python/python-utils 3.9.1: Collection of small Python functions & classes
 dev-python/python-vlc 3.0.20123 3.0.21203: Python ctypes-based bindings for libvlc
@@ -9515,7 +9514,6 @@ dev-python/tables 3.10.2: Hierarchical datasets for Python
 dev-python/tabulate 0.9.0-r1: Pretty-print tabular data
 dev-python/tagpy 2025.1-r1: Python Bindings for TagLib
 dev-python/tap-py 3.2.1: Test Anything Protocol (TAP) tools
-dev-python/taskgroup 0.2.2: Backport of asyncio.TaskGroup, asyncio.Runner and asyncio.timeout
 dev-python/tasklib 2.5.1: A Python library for interacting with taskwarrior databases
 dev-python/tavalidate 0.0.6-r1: Utities to validate Tavern responses
 dev-python/tavern 2.14.0 2.15.0: A tool, library, and Pytest plugin for testing RESTful APIs
@@ -11799,7 +11797,7 @@ games-sports/trigger 0.6.1-r1: Free OpenGL rally car racing game
 games-sports/trophy 2.0.4-r1: 2D Racing Game
 games-sports/ultimatestunts 0.7.7-r3: Remake of the famous Stunts game
 games-sports/xmoto 0.6.1-r100: A challenging 2D motocross platform game, where physics play an important role
-games-strategy/0ad 0.0.26_alpha-r2 0.27.0: A free, real-time strategy game
+games-strategy/0ad 0.27.0: A free, real-time strategy game
 games-strategy/augustus 3.1.0: Feature-enhanced open source re-implementation of Caesar III
 games-strategy/colobot 0.2.1_alpha 0.2.2_alpha 9999: A real-time strategy game, where you can program your bots
 games-strategy/colobot-data 0.2.1_alpha 0.2.2_alpha: Data package for colobot (Colonize with Bots)
@@ -12934,7 +12932,7 @@ media-gfx/fondu 20060102-r1: Utilities for converting between and manipulating m
 media-gfx/fontforge 20230101 20230101-r2: postscript font editor and converter
 media-gfx/fotema 1.20.1: Photo gallery for Linux
 media-gfx/fotocx 24.50 24.60 24.70 25.0: Program for improving image files made with a digital camera
-media-gfx/fotowall 1.0: Qt5 tool for creating wallpapers
+media-gfx/fotowall 1.0_p20241107: Qt tool for creating wallpapers
 media-gfx/freecad 1.0.0-r2 1.0.0-r3 9999: Qt based Computer Aided Design application
 media-gfx/freepv 0.3.0-r5: Panorama viewer (Quicktime, PangeaVR, GLPanoView formats)
 media-gfx/frogr 1.7 1.8.1: flickr applications for GNOME
@@ -15757,7 +15755,7 @@ sci-biology/bioperl-run 1.6.9-r1: Perl wrapper modules for key bioinformatics ap
 sci-biology/biopython 1.85: Python modules for computational molecular biology
 sci-biology/biosql 1.0.1-r2: A generic bioinformatics relational database model
 sci-biology/blat 34-r3: The BLAST-Like Alignment Tool, a fast genomic sequence aligner
-sci-biology/bowtie 2.4.4 2.5.1: Popular short read aligner for Next-generation sequencing data
+sci-biology/bowtie 2.5.1: Popular short read aligner for Next-generation sequencing data
 sci-biology/bwa 0.7.17: Burrows-Wheeler Alignment Tool, a fast short genomic sequence aligner
 sci-biology/cd-hit 4.6.6-r1: Clustering Database at High Identity with Tolerance
 sci-biology/clustal-omega 1.2.4-r1: Scalable multiple alignment of protein sequences
@@ -16339,7 +16337,7 @@ sci-mathematics/otter 3.3-r4: An Automated Deduction System
 sci-mathematics/palp 2.21: A Package for Analyzing Lattice Polytopes (PALP)
 sci-mathematics/pari 2.15.5 2.17.1: Computer-aided number theory C library and tools
 sci-mathematics/pari-data 20191216: Additional dataset packages for PARI
-sci-mathematics/petsc 3.16.0-r2 3.17.1-r2 3.18.2-r1 3.19.1-r1 3.19.2-r1 3.19.4-r1 3.20.5-r1 3.21.3 3.22.2: Portable, Extensible Toolkit for Scientific Computation
+sci-mathematics/petsc 3.18.2-r1 3.19.1-r1 3.19.2-r1 3.19.4-r1 3.20.5-r1 3.21.3 3.22.2: Portable, Extensible Toolkit for Scientific Computation
 sci-mathematics/picosat 965: SAT solver with proof and core support
 sci-mathematics/planarity 3.0.2.0 4.0.0.0: The edge addition planarity suite of graph algorithms
 sci-mathematics/plfit 0.9.5: Fit power-law distributions to empirical data
@@ -16356,7 +16354,7 @@ sci-mathematics/rngstreams 1.0.1: Multiple independent streams of pseudo-random 
 sci-mathematics/rw 0.9: Compute rank-width decompositions of graphs
 sci-mathematics/sha1-polyml 5.9: implementation of SHA1 is taken from the GNU coreutils package
 sci-mathematics/singular 4.4.0_p6: Computer algebra system for polynomial computations
-sci-mathematics/slepc 3.16.0 3.17.1 3.18.1 3.19.0 3.19.1 3.20.1 3.21.1 3.22.1: Scalable Library for Eigenvalue Problem Computations
+sci-mathematics/slepc 3.18.1 3.19.0 3.19.1 3.20.1 3.21.1 3.22.1: Scalable Library for Eigenvalue Problem Computations
 sci-mathematics/smtinterpol 2.5_p20211018-r1: Interpolating SMT-solver computing Craig interpolants for various theories
 sci-mathematics/spin 6.5.2-r1: An efficient logic-model checker for the verification of multi-threaded code
 sci-mathematics/stp 2.3.3-r3 2.3.4: Simple Theorem Prover, an efficient SMT solver for bitvectors
@@ -17419,7 +17417,7 @@ sys-cluster/prrte 3.0.6 3.0.7: PMIx Reference RunTime Environment
 sys-cluster/rdma-core 50.0 50.0-r1 53.1 9999: Userspace components for the Linux Kernel's drivers/infiniband subsystem
 sys-cluster/resource-agents 4.12.0 4.15.1: Resources pack for Heartbeat / Pacemaker
 sys-cluster/rocm-k8s-device-plugin 0.3.0 0.5.0: AMD GPU device plugin for kubernetes
-sys-cluster/sanlock 3.8.4-r1 3.8.5 3.8.5-r1: shared storage lock manager
+sys-cluster/sanlock 3.8.5 3.8.5-r1: shared storage lock manager
 sys-cluster/slurm 22.05.11-r1 24.05.3-r1: A Highly Scalable Resource Manager
 sys-cluster/spark-bin 3.1.2-r1: Lightning-fast unified analytics engine
 sys-cluster/torque 6.0.4-r4 6.0.4-r5 6.0.4-r6: Resource manager and queuing system based on OpenPBS
@@ -17657,7 +17655,7 @@ sys-kernel/vanilla-sources 5.4.292 5.10.236 5.15.180 6.1.135 6.6.88 6.12.25 6.13
 sys-kernel/virtme-ng 1.33: Quickly build and run kernels inside a virtualized snapshot of your live system
 sys-kernel/zen-sources 6.13.8: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
-sys-libs/basu 0.2.0 0.2.0-r1 0.2.1: The sd-bus library, extracted from systemd
+sys-libs/basu 0.2.1: The sd-bus library, extracted from systemd
 sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r2 2.43-r3 2.44 9999: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
 sys-libs/blocksruntime 0_pre20171027-r2: BlocksRuntime library needed for clang's -fblocks support
 sys-libs/cracklib 2.10.2 2.10.3: Password Checking Library
@@ -18369,7 +18367,7 @@ x11-libs/qwtplot3d 0.2_p20210828: 3D plotting library for Qt5
 x11-libs/spread-sheet-widget 0.8 0.10: GNU Spread Sheet Widget
 x11-libs/startup-notification 0.12-r2: Application startup notification and feedback library
 x11-libs/tslib 1.22: Touchscreen Access Library
-x11-libs/vte 0.68.0 0.76.3 0.78.3: Library providing a virtual terminal emulator widget
+x11-libs/vte 0.76.3 0.78.3: Library providing a virtual terminal emulator widget
 x11-libs/wxGTK 3.0.4-r5 3.0.4-r6 3.0.5.1-r1 3.0.5.1-r3 3.2.2.1-r5 3.2.5 3.2.5-r1 3.2.6-r1 3.2.7-r1: GTK version of wxWidgets, a cross-platform C++ GUI toolkit
 x11-libs/xapp 2.8.5-r1 2.8.8-r1: Cross-desktop libraries and common resources
 x11-libs/xbae 4.60.4-r1 4.60.4-r2: Motif-based widget to display a grid of cells as a spreadsheet

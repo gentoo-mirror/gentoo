@@ -1,16 +1,16 @@
 BDEPEND=qt6? ( dev-qt/qttools:6[linguist] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare setup test
-DEPEND=dev-libs/libxml2 dev-libs/libxslt dev-libs/xapian:= sys-libs/zlib virtual/libiconv chm? ( dev-libs/chmlib dev-python/pychm ) qt6? ( dev-qt/qtbase:6[gui,network,widgets] webengine? ( dev-qt/qtwebengine:6[widgets] ) ) session? ( inotify? ( x11-libs/libSM x11-libs/libICE x11-libs/libX11 ) ) spell? ( app-text/aspell ) systemd? ( sys-apps/systemd ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 )
+DEPEND=dev-libs/libxml2 dev-libs/libxslt dev-libs/xapian:= sys-libs/zlib virtual/libiconv chm? ( dev-libs/chmlib dev-python/pychm ) qt6? ( dev-qt/qtbase:6[gui,network,widgets] webengine? ( dev-qt/qtwebengine:6[widgets] ) ) session? ( inotify? ( x11-libs/libSM x11-libs/libICE x11-libs/libX11 ) ) spell? ( app-text/aspell ) systemd? ( sys-apps/systemd ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 )
 DESCRIPTION=Personal full text search package
 EAPI=8
 HOMEPAGE=https://www.recoll.org
 INHERIT=linux-info optfeature python-single-r1 qmake-utils meson systemd
-IUSE=camelcase chm +inotify qt6 session +spell systemd webengine python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12
+IUSE=camelcase chm +inotify qt6 session +spell systemd webengine python_single_target_python3_11 python_single_target_python3_12
 KEYWORDS=amd64 ~arm64 x86
 LICENSE=GPL-2+
-RDEPEND=dev-libs/libxml2 dev-libs/libxslt dev-libs/xapian:= sys-libs/zlib virtual/libiconv chm? ( dev-libs/chmlib dev-python/pychm ) qt6? ( dev-qt/qtbase:6[gui,network,widgets] webengine? ( dev-qt/qtwebengine:6[widgets] ) ) session? ( inotify? ( x11-libs/libSM x11-libs/libICE x11-libs/libX11 ) ) spell? ( app-text/aspell ) systemd? ( sys-apps/systemd ) python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) app-arch/unzip
-REQUIRED_USE=session? ( inotify ) webengine? ( qt6 ) ^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 )
+RDEPEND=dev-libs/libxml2 dev-libs/libxslt dev-libs/xapian:= sys-libs/zlib virtual/libiconv chm? ( dev-libs/chmlib dev-python/pychm ) qt6? ( dev-qt/qtbase:6[gui,network,widgets] webengine? ( dev-qt/qtwebengine:6[widgets] ) ) session? ( inotify? ( x11-libs/libSM x11-libs/libICE x11-libs/libX11 ) ) spell? ( app-text/aspell ) systemd? ( sys-apps/systemd ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) app-arch/unzip
+REQUIRED_USE=session? ( inotify ) webengine? ( qt6 ) ^^ ( python_single_target_python3_11 python_single_target_python3_12 )
 SLOT=0
 SRC_URI=https://www.recoll.org/recoll-1.40.3.tar.gz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	optfeature	538bce96e5589935b57e178e8635f301	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	flag-o-matic	e8de74bac929ba17427e740e95707d00	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	meson	99466844dd8d4fcfb07578a76f5a9922	systemd	a964c0cbe818b5729da1dbfcee5be861
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	optfeature	538bce96e5589935b57e178e8635f301	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	flag-o-matic	e8de74bac929ba17427e740e95707d00	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	meson	99466844dd8d4fcfb07578a76f5a9922	systemd	a964c0cbe818b5729da1dbfcee5be861
 _md5_=5761d1f38a6ebfad80a87e731292bcc5

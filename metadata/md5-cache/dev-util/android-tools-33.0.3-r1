@@ -5,12 +5,12 @@ DESCRIPTION=Android platform tools (adb, fastboot, and mkbootimg)
 EAPI=8
 HOMEPAGE=https://github.com/nmeum/android-tools/ https://developer.android.com/
 INHERIT=cmake python-r1
-IUSE=python udev python_targets_python3_10 python_targets_python3_11
+IUSE=python udev python_targets_python3_11
 KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=Apache-2.0 BSD-2
-RDEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-cpp/abseil-cpp:= dev-libs/libpcre2:= <dev-libs/protobuf-30:= sys-libs/zlib:= virtual/libusb:1= udev? ( dev-util/android-udev-rules ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) )
-REQUIRED_USE=python? ( || ( python_targets_python3_10 python_targets_python3_11 ) )
+RDEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-cpp/abseil-cpp:= dev-libs/libpcre2:= <dev-libs/protobuf-30:= sys-libs/zlib:= virtual/libusb:1= udev? ( dev-util/android-udev-rules ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_11 ) )
 SLOT=0
 SRC_URI=https://github.com/nmeum/android-tools/releases/download/33.0.3/android-tools-33.0.3.tar.xz https://dev.gentoo.org/~zmedico/dist/android-tools-31.0.3-no-gtest.patch
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-r1	0e15b2ab9cfc87d7474678201d6bca38
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-r1	0e15b2ab9cfc87d7474678201d6bca38
 _md5_=ac010f831ea4fe94005536f4fa2f53ee

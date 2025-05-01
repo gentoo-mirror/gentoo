@@ -1,17 +1,17 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 doc? ( >=app-text/doxygen-1.8.13-r1 ) doc? ( dev-qt/qthelp:5 ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-5.116:*
 DEFINED_PHASES=compile configure info install nofetch postinst postrm preinst prepare setup test unpack
-DEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-qt/qtdeclarative-5.15.9:5 sys-devel/gettext virtual/libintl test? ( >=dev-qt/qtconcurrent-5.15.9:5 ) test? ( dev-qt/qttest:5 ) doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
+DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-qt/qtdeclarative-5.15.9:5 sys-devel/gettext virtual/libintl test? ( >=dev-qt/qtconcurrent-5.15.9:5 ) test? ( dev-qt/qttest:5 ) doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
 DESCRIPTION=Framework based on Gettext for internationalizing user interface text
 EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
 INHERIT=ecm frameworks.kde.org python-single-r1
-IUSE=debug doc test python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+IUSE=debug doc test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=amd64 ~arm arm64 ~loong ppc64 ~riscv ~x86
 LICENSE=LGPL-2+
-RDEPEND=python_single_target_python3_10? ( dev-lang/python:3.10 ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-qt/qtdeclarative-5.15.9:5 sys-devel/gettext virtual/libintl app-text/iso-codes >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
-REQUIRED_USE=^^ ( python_single_target_python3_10 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-qt/qtdeclarative-5.15.9:5 sys-devel/gettext virtual/libintl app-text/iso-codes >=kde-frameworks/kf-env-4 doc? ( dev-qt/qt-docs:5 ) dev-qt/qtcore:5
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 RESTRICT=!test? ( test )
 SLOT=5/5.116
 SRC_URI=mirror://kde/stable/frameworks/5.116/ki18n-5.116.0.tar.xz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	486d192539fbcffdf4ef830e96f581cf	kde.org	2eea56ed41440913be4caa3d255d2db3	frameworks.kde.org	5c0c6e2dbfe1eb60271ec93601749b82	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	486d192539fbcffdf4ef830e96f581cf	kde.org	2eea56ed41440913be4caa3d255d2db3	frameworks.kde.org	5c0c6e2dbfe1eb60271ec93601749b82	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
 _md5_=88dcf1c0f20f23f7b80552cf55cb3cf0

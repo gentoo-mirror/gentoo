@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/yacc app-alternatives/lex || ( dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] dev-lang/python:3.10[xml(+)] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=app-alternatives/yacc app-alternatives/lex || ( dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=app-text/ghostscript-gpl dev-db/sqlite:3 dev-lang/perl dev-libs/libfmt:= dev-libs/spdlog:= virtual/libiconv clang? ( llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) ) dot? ( media-gfx/graphviz[freetype(+)] ) doc? ( dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric ) doxysearch? ( dev-libs/xapian:= ) gui? ( dev-qt/qtbase:6[gui,widgets,xml] )
 DESCRIPTION=Documentation system for most programming languages
@@ -13,5 +13,5 @@ REQUIRED_USE=clang? ( ^^ ( llvm_slot_18 llvm_slot_19 ) ) test? ( doc )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://doxygen.nl/files/doxygen-1.13.0.src.tar.gz https://downloads.sourceforge.net/doxygen/rel-1.13.0/doxygen-1.13.0.src.tar.gz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-any-r1	891415dfe39ad9b41b461f2b86354af0
 _md5_=dd065b0b3a1c2bfa5dc178aad842c759

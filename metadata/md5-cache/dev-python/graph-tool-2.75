@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare pretend setup
-DEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-libs/boost:=[context,python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-libs/expat dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/scipy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] sci-mathematics/cgal:= dev-python/matplotlib[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] cairo? ( dev-cpp/cairomm:0 dev-python/pycairo[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] x11-libs/cairo[X] ) dev-cpp/sparsehash
+DEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-libs/boost:=[context,python,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-libs/expat dev-python/numpy[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/scipy[python_targets_python3_11(-)?,python_targets_python3_12(-)?] sci-mathematics/cgal:= dev-python/matplotlib[python_targets_python3_11(-)?,python_targets_python3_12(-)?] cairo? ( dev-cpp/cairomm:0 dev-python/pycairo[python_targets_python3_11(-)?,python_targets_python3_12(-)?] x11-libs/cairo[X] ) dev-cpp/sparsehash
 DESCRIPTION=An efficient python module for manipulation and statistical analysis of graphs
 EAPI=8
 HOMEPAGE=https://graph-tool.skewed.de/
 INHERIT=check-reqs python-r1 toolchain-funcs
-IUSE=+cairo openmp python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=+cairo openmp python_targets_python3_11 python_targets_python3_12
 KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-libs/boost:=[context,python,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-libs/expat dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/scipy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] sci-mathematics/cgal:= dev-python/matplotlib[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] cairo? ( dev-cpp/cairomm:0 dev-python/pycairo[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] x11-libs/cairo[X] )
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-libs/boost:=[context,python,python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-libs/expat dev-python/numpy[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/scipy[python_targets_python3_11(-)?,python_targets_python3_12(-)?] sci-mathematics/cgal:= dev-python/matplotlib[python_targets_python3_11(-)?,python_targets_python3_12(-)?] cairo? ( dev-cpp/cairomm:0 dev-python/pycairo[python_targets_python3_11(-)?,python_targets_python3_12(-)?] x11-libs/cairo[X] )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 )
 SLOT=0
 SRC_URI=https://downloads.skewed.de/graph-tool/graph-tool-2.75.tar.xz
-_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-r1	0e15b2ab9cfc87d7474678201d6bca38
+_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-r1	0e15b2ab9cfc87d7474678201d6bca38
 _md5_=b9998978c2779f85fea9965655afcd6e

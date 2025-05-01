@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/perl test? ( || ( ( dev-lang/python:3.13 dev-python/passlib[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/passlib[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/passlib[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 dev-python/passlib[python_targets_python3_10(-)] ) ) )
+BDEPEND=dev-lang/perl test? ( || ( ( dev-lang/python:3.13 dev-python/passlib[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/passlib[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/passlib[python_targets_python3_11(-)] ) ) )
 DEFINED_PHASES=compile configure install preinst prepare pretend setup test
 DEPEND=system? ( elibc_glibc? ( sys-libs/glibc[-crypt(-)] !sys-libs/glibc[crypt(-)] ) elibc_musl? ( sys-libs/musl[-crypt(+)] !sys-libs/musl[crypt(+)] ) )
 DESCRIPTION=Extended crypt library for descrypt, md5crypt, bcrypt, and others
@@ -12,5 +12,5 @@ RDEPEND=system? ( elibc_glibc? ( sys-libs/glibc[-crypt(-)] !sys-libs/glibc[crypt
 RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://dev.gentoo.org/~sam/distfiles/sys-libs/libxcrypt/libxcrypt-4.4.36-autotools.tar.xz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	crossdev	f04338ff78f213a4a55c5c37b3c6563e	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-any-r1	891415dfe39ad9b41b461f2b86354af0	flag-o-matic	e8de74bac929ba17427e740e95707d00	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	crossdev	f04338ff78f213a4a55c5c37b3c6563e	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-any-r1	891415dfe39ad9b41b461f2b86354af0	flag-o-matic	e8de74bac929ba17427e740e95707d00	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
 _md5_=868f3aa421ec3cad42ad7d74b2c3dbbc

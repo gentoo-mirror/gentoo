@@ -1,16 +1,16 @@
 BDEPEND=virtual/latex-base >=sys-apps/texinfo-4.2-r5
 DEFINED_PHASES=compile install postinst postrm
-DEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-texlive/texlive-latexextra-2016 dev-tex/pgf
+DEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-texlive/texlive-latexextra-2016 dev-tex/pgf
 DESCRIPTION=Fast Access to Python from within LaTeX
 EAPI=7
 HOMEPAGE=https://github.com/gpoore/pythontex
 INHERIT=latex-package python-r1
-IUSE=doc highlighting python_targets_python3_10 python_targets_python3_11 python_targets_python3_12
+IUSE=doc highlighting python_targets_python3_11 python_targets_python3_12
 KEYWORDS=amd64 ppc ~riscv x86
 LICENSE=LPPL-1.3 BSD
-RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-texlive/texlive-latexextra-2016 dev-tex/pgf dev-python/pygments[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] virtual/latex-base
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-texlive/texlive-latexextra-2016 dev-tex/pgf dev-python/pygments[python_targets_python3_11(-)?,python_targets_python3_12(-)?] virtual/latex-base
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 )
 SLOT=0
 SRC_URI=https://github.com/gpoore/pythontex/archive/v0.18.tar.gz -> pythontex-0.18.tar.gz
-_eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	edo	367e103a74bf77e6a8da7894d999fa3c	latex-package	f6529cd874a632d3343b4d264a70a0bc	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-r1	0e15b2ab9cfc87d7474678201d6bca38
+_eclasses_=eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	edo	367e103a74bf77e6a8da7894d999fa3c	latex-package	f6529cd874a632d3343b4d264a70a0bc	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-r1	0e15b2ab9cfc87d7474678201d6bca38
 _md5_=d0d2ce802c320bf04d5414f33fcd0ffd

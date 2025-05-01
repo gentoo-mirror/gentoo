@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-cpp/tbb:= dev-lang/ispc cuda? ( dev-util/nvidia-cuda-toolkit ) hip? ( dev-util/hip ) openimageio? ( media-libs/openimageio:= ) llvm_slot_15? ( llvm-core/clang:15= llvm-core/llvm:15= ) llvm_slot_16? ( llvm-core/clang:16= llvm-core/llvm:16= ) llvm_slot_17? ( llvm-core/clang:17= llvm-core/llvm:17= ) llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= )
 DESCRIPTION=Intel® Open Image Denoise library
@@ -13,5 +13,5 @@ REQUIRED_USE=test? ( apps ) ^^ ( llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slo
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/RenderKit/oidn/releases/download/v2.3.0/oidn-2.3.0.src.tar.gz -> oidn-2.3.0.tar.gz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	cuda	283d0f298f6c196c755a0f8d50daca85	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-any-r1	891415dfe39ad9b41b461f2b86354af0	rocm	826765f795a41b937d1bfe8e709346cd
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	cuda	283d0f298f6c196c755a0f8d50daca85	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-any-r1	891415dfe39ad9b41b461f2b86354af0	rocm	826765f795a41b937d1bfe8e709346cd
 _md5_=9420f0db012daed7283f3dfb620c68fc

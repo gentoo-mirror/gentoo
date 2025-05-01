@@ -1,17 +1,17 @@
-BDEPEND=>=dev-python/pyqt-builder-1.10[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/sip-6.2[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-qt/qtbase:6
+BDEPEND=>=dev-python/pyqt-builder-1.10[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/sip-6.2[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-qt/qtbase:6
 DEFINED_PHASES=compile configure install prepare
-DEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) dev-python/pyqt6[gui,printsupport,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-qt/qtbase:6[gui,widgets] ~x11-libs/qscintilla-2.14.1:=[qt6(+)]
+DEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) dev-python/pyqt6[gui,printsupport,widgets,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-qt/qtbase:6[gui,widgets] ~x11-libs/qscintilla-2.14.1:=[qt6(+)]
 DESCRIPTION=Python bindings for QScintilla
 EAPI=8
 HOMEPAGE=https://www.riverbankcomputing.com/software/qscintilla/ https://pypi.org/project/QScintilla/
 INHERIT=python-r1 qmake-utils out-of-source-utils
-IUSE=debug python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+IUSE=debug python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
 KEYWORDS=amd64 ~arm64 ~ppc64 x86
 LICENSE=GPL-3
-RDEPEND=python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) dev-python/pyqt6[gui,printsupport,widgets,python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-qt/qtbase:6[gui,widgets] ~x11-libs/qscintilla-2.14.1:=[qt6(+)] !=x11-libs/qscintilla-2.14.1-r0 >=dev-python/pyqt6-sip-13.5:=[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
-REQUIRED_USE=|| ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) dev-python/pyqt6[gui,printsupport,widgets,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-qt/qtbase:6[gui,widgets] ~x11-libs/qscintilla-2.14.1:=[qt6(+)] !=x11-libs/qscintilla-2.14.1-r0 >=dev-python/pyqt6-sip-13.5:=[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.14.1/QScintilla_src-2.14.1.tar.gz
-_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-r1	0e15b2ab9cfc87d7474678201d6bca38	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-r1	0e15b2ab9cfc87d7474678201d6bca38	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
 _md5_=7a66356f19a431716bc328abbd993acd

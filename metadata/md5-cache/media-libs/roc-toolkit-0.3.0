@@ -1,4 +1,4 @@
-BDEPEND=dev-util/ragel virtual/pkgconfig test? ( dev-util/cpputest ) tools? ( dev-util/gengetopt ) || ( ( dev-lang/python:3.12 >=dev-build/scons-4.4.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-build/scons-4.4.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-build/scons-4.4.0[python_targets_python3_10(-)] ) )
+BDEPEND=dev-util/ragel virtual/pkgconfig test? ( dev-util/cpputest ) tools? ( dev-util/gengetopt ) || ( ( dev-lang/python:3.12 >=dev-build/scons-4.4.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-build/scons-4.4.0[python_targets_python3_11(-)] ) )
 DEFINED_PHASES=compile install prepare setup test
 DEPEND=dev-libs/libuv:= media-libs/openfec media-libs/speexdsp alsa? ( media-libs/alsa-lib ) pulseaudio? ( media-libs/libpulse ) sox? ( media-sound/sox ) ssl? ( dev-libs/openssl:= ) unwind? ( llvm-libunwind? ( llvm-runtimes/libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) )
 DESCRIPTION=Real-time audio streaming over the network
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/libuv:= media-libs/openfec media-libs/speexdsp alsa? ( media-li
 RESTRICT=!test? ( test )
 SLOT=0/3
 SRC_URI=https://github.com/roc-streaming/roc-toolkit/archive/refs/tags/v0.3.0.tar.gz -> roc-toolkit-0.3.0.tar.gz
-_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-any-r1	891415dfe39ad9b41b461f2b86354af0	scons-utils	87365f855ad8a7c4572ad0f0adcb8eee
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-any-r1	891415dfe39ad9b41b461f2b86354af0	scons-utils	87365f855ad8a7c4572ad0f0adcb8eee
 _md5_=68c90bc797339eb94b8f0f62a990a644

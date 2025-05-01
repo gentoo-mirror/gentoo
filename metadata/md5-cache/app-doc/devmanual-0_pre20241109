@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/libxslt gnome-base/librsvg media-fonts/open-sans !offline? ( || ( dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] dev-lang/python:3.10[xml(+)] ) ) test? ( >=dev-libs/libxml2-2.9.12 >=app-text/htmltidy-5.8.0 )
+BDEPEND=dev-libs/libxslt gnome-base/librsvg media-fonts/open-sans !offline? ( || ( dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] ) ) test? ( >=dev-libs/libxml2-2.9.12 >=app-text/htmltidy-5.8.0 )
 DEFINED_PHASES=compile install postinst setup
 DESCRIPTION=The Gentoo Development Guide
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=CC-BY-SA-4.0
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~ulm/distfiles/devmanual-0_pre20241109.tar.xz
-_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-any-r1	891415dfe39ad9b41b461f2b86354af0	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-any-r1	891415dfe39ad9b41b461f2b86354af0	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
 _md5_=57fbc43eb3871da99cae7d4a58b07b27

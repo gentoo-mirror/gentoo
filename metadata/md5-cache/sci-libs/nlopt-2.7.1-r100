@@ -1,17 +1,17 @@
 BDEPEND=python? ( dev-lang/swig ) app-alternatives/ninja >=dev-build/cmake-3.20.5 virtual/pkgconfig test? ( virtual/fortran )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=guile? ( guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 ) ) octave? ( >=sci-mathematics/octave-6:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] )
+DEPEND=guile? ( guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 ) ) octave? ( >=sci-mathematics/octave-6:= ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-python/numpy[python_targets_python3_11(-)?,python_targets_python3_12(-)?] )
 DESCRIPTION=Non-linear optimization library
 EAPI=8
 HOMEPAGE=https://github.com/stevengj/nlopt
 INHERIT=python-r1 cmake guile-single fortran-2
-IUSE=cxx guile octave python test python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 guile_single_target_2-2 guile_single_target_3-0
+IUSE=cxx guile octave python test python_targets_python3_11 python_targets_python3_12 guile_single_target_2-2 guile_single_target_3-0
 KEYWORDS=amd64 ~arm64 ~ppc ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2.1 MIT
-RDEPEND=guile? ( guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 ) ) octave? ( >=sci-mathematics/octave-6:= ) python? ( python_targets_python3_10? ( dev-lang/python:3.10 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-python/numpy[python_targets_python3_10(-)?,python_targets_python3_11(-)?,python_targets_python3_12(-)?] )
-REQUIRED_USE=guile? ( ^^ ( guile_single_target_2-2 guile_single_target_3-0 ) ) python? ( || ( python_targets_python3_10 python_targets_python3_11 python_targets_python3_12 ) )
+RDEPEND=guile? ( guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 ) ) octave? ( >=sci-mathematics/octave-6:= ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) dev-python/numpy[python_targets_python3_11(-)?,python_targets_python3_12(-)?] )
+REQUIRED_USE=guile? ( ^^ ( guile_single_target_2-2 guile_single_target_3-0 ) ) python? ( || ( python_targets_python3_11 python_targets_python3_12 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/stevengj/nlopt/archive/v2.7.1.tar.gz -> nlopt-2.7.1.tar.gz
-_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	974462533ec80cd68e5f366ad8a86002	python-r1	0e15b2ab9cfc87d7474678201d6bca38	flag-o-matic	e8de74bac929ba17427e740e95707d00	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	guile-utils	e45d014e2eb3f7fe4fdcd4e5eeafdb8b	guile-single	6e99296ff5eff20c16de5075dfe75616	fortran-2	54fcb693257134adae26819685891ecc
+_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-r1	0e15b2ab9cfc87d7474678201d6bca38	flag-o-matic	e8de74bac929ba17427e740e95707d00	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	guile-utils	e45d014e2eb3f7fe4fdcd4e5eeafdb8b	guile-single	6e99296ff5eff20c16de5075dfe75616	fortran-2	54fcb693257134adae26819685891ecc
 _md5_=46215cc9354fd212a00c69a2f424519e

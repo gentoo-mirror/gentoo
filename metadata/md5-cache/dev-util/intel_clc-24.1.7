@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.10 ) || ( ( dev-lang/python:3.12 >=dev-python/mako-0.8.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/mako-0.8.0[python_targets_python3_11(-)] ) ( dev-lang/python:3.10 >=dev-python/mako-0.8.0[python_targets_python3_10(-)] ) ) virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 ) || ( ( dev-lang/python:3.12 >=dev-python/mako-0.8.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/mako-0.8.0[python_targets_python3_11(-)] ) ) virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=llvm-core/libclc dev-util/spirv-tools >=sys-libs/zlib-1.2.8:= x11-libs/libdrm llvm_slot_16? ( dev-util/spirv-llvm-translator:16 llvm-core/clang:16 llvm-core/llvm:16 ) llvm_slot_17? ( dev-util/spirv-llvm-translator:17 llvm-core/clang:17 llvm-core/llvm:17 ) llvm_slot_18? ( dev-util/spirv-llvm-translator:18 llvm-core/clang:18 llvm-core/llvm:18 ) dev-libs/expat
 DESCRIPTION=intel_clc tool used for building OpenCL C to SPIR-V
@@ -12,5 +12,5 @@ RDEPEND=llvm-core/libclc dev-util/spirv-tools >=sys-libs/zlib-1.2.8:= x11-libs/l
 REQUIRED_USE=^^ ( llvm_slot_16 llvm_slot_17 llvm_slot_18 )
 SLOT=0
 SRC_URI=https://archive.mesa3d.org/mesa-24.1.7.tar.xz
-_eclasses_=llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	974462533ec80cd68e5f366ad8a86002	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0
 _md5_=2d7cbb78a924a485f085080c8250a1b4
