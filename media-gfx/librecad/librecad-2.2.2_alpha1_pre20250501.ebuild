@@ -3,6 +3,7 @@
 
 EAPI=8
 
+COMMIT=2f5b68f347ba50fd8d6c4fee437cfedff63848b4
 PLOCALES="ar ca cs da de el en en_au es es_ar es_bo es_cl es_co es_cr es_do es_ec es_gt es_hn es_mx es_ni es_pa es_pe es_pr es_py es_sv es_us es_uy es_ve et eu fi fr gl he hi hu id_ID it ja ka ko lv mk nl no pa pl pt_br pt_pt ro_ro ru sk sl sq_al sr sv ta th tr uk zh_cn zh_tw"
 inherit desktop edo plocale qmake-utils
 
@@ -13,9 +14,9 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/LibreCAD/LibreCAD.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/LibreCAD/LibreCAD/archive/v${PV/_/}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}/LibreCAD-${PV}"
-	KEYWORDS="~amd64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
+	SRC_URI="https://github.com/LibreCAD/LibreCAD/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
+	S="${WORKDIR}/LibreCAD-${COMMIT}"
+	# KEYWORDS="~amd64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 fi
 
 LICENSE="GPL-2"

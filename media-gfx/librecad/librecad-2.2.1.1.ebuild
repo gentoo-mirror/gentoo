@@ -25,22 +25,25 @@ IUSE="doc tools"
 RDEPEND="
 	dev-cpp/muParser
 	dev-libs/boost:=
-	dev-qt/qtbase:6[gui,network,widgets]
-	dev-qt/qtsvg:6
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtprintsupport:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
 	media-libs/freetype:2
 "
 DEPEND="${RDEPEND}
-	dev-qt/qtbase:6[xml]
-	dev-qt/qttools:6[assistant]
+	dev-qt/qthelp:5
+	dev-qt/qtxml:5
 "
 BDEPEND="
-	dev-qt/qttools:6[linguist]
+	dev-qt/linguist-tools:5
 "
 
 src_prepare() {
 	default
 
-	# Stock script doesn't work correctly on gentoo (see bug #847394)
+	# Stock script doesn't work correctly on Gentoo (see bug #847394)
 	# and also it compiles all translations regardles of selected locales.
 	# To avoid this just comment out locale building and do it manually
 	sed -i -e '/LRELEASE/s!^!# !' scripts/postprocess-unix.sh || die
@@ -49,14 +52,14 @@ src_prepare() {
 }
 
 src_configure() {
-	eqmake6 -r
+	eqmake5 -r
 }
 
 src_compile() {
 	default
 
 	build_locale() {
-		local lrelease="$(qt6_get_bindir)/lrelease"
+		local lrelease="$(qt5_get_bindir)/lrelease"
 		edo "${lrelease}" "librecad/ts/librecad_${1}.ts" \
 			-qm "unix/resources/qm/librecad_${1}.qm"
 		edo "${lrelease}" "plugins/ts/plugins_${1}.ts" \
@@ -77,6 +80,6 @@ src_install() {
 	use doc && docinto html && dodoc -r librecad/support/doc/*
 	insinto /usr/share/metainfo
 	doins unix/appdata/org.librecad.librecad.appdata.xml
-	doicon librecad/res/images/${PN}.png
+	doicon librecad/res/main/${PN}.png
 	make_desktop_entry ${PN} LibreCAD ${PN} Graphics
 }
