@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.kicad.org
 INHERIT=check-reqs cmake flag-o-matic optfeature python-single-r1 toolchain-funcs wxwidgets xdg-utils
 IUSE=doc examples nls openmp test python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-2+ GPL-3+ Boost-1.0 BSD BSD-2 Apache-2.0 ISC MIT ZLIB CC-BY-SA-4.0 CC0-1.0
 RDEPEND=app-crypt/libsecret dev-db/unixODBC dev-libs/boost:=[context,nls] dev-libs/libgit2:= >=dev-libs/protobuf-27.2:=[protobuf,protoc] >=dev-libs/nng-1.10.0:= media-libs/freeglut media-libs/glew:0= >=media-libs/glm-0.9.9.1 media-libs/mesa[X(+)] net-misc/curl >=sci-libs/opencascade-7.5.0:0= >=x11-libs/cairo-1.8.8:= >=x11-libs/pixman-0.30 >sci-electronics/ngspice-27[shared] sys-libs/zlib >=x11-libs/wxGTK-3.2.2.1-r3:3.2-gtk3[X,opengl] python_single_target_python3_11? ( dev-libs/boost:=[context,nls,python,python_targets_python3_11(-)] >=dev-python/wxpython-4.2.0:*[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-libs/boost:=[context,nls,python,python_targets_python3_12(-)] >=dev-python/wxpython-4.2.0:*[python_targets_python3_12(-)] ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) nls? ( sys-devel/gettext ) test? ( media-gfx/cairosvg ) sci-electronics/electronics-menu
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.com/kicad/code/kicad/-/archive/9.0.0/kicad-9.0.0.tar.bz2 https://gitlab.com/kicad/code/kicad/-/commit/5774338af2e22e1ff541ad9ab368e459e2a2add2.patch -> kicad-9.0.0-protobuf-30.patch
 _eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	optfeature	538bce96e5589935b57e178e8635f301	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	wxwidgets	7a7321e7cbcb73e7ae2a77500a09852e
-_md5_=5e64f652f5b21555656680b671f234ad
+_md5_=66280e684cd7cdee8f69a301b4d5c8b3

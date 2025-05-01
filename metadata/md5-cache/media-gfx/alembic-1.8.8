@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.alembic.io/
 INHERIT=cmake python-single-r1
 IUSE=examples hdf5 python test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=BSD
 RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-libs/imath-3.1.11-r1:= python? ( dev-libs/imath:=[python,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] ) hdf5? ( >=sci-libs/hdf5-1.10.2:=[zlib(+)] >=sys-libs/zlib-1.2.11-r1 ) python? ( python_single_target_python3_11? ( dev-libs/boost[python,python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-libs/boost[python,python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-libs/boost[python,python_targets_python3_13(-)] ) )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) examples? ( python )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/alembic/alembic/archive/1.8.8.tar.gz -> alembic-1.8.8.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=54ba53ecee69f947727b9fd394dd7db6
+_md5_=c246fe74d084ecf3130c888c3ba4b1db
