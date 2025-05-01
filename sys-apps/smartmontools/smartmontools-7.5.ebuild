@@ -1,7 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit flag-o-matic systemd
 if [[ ${PV} == 9999 ]] ; then
@@ -10,7 +10,7 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit autotools subversion
 else
 	SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 fi
 
 DESCRIPTION="Tools to monitor storage systems to provide advanced warning of disk degradation"
@@ -66,6 +66,7 @@ src_configure() {
 		--with-drivedbdir="${EPREFIX}/var/db/${PN}" #575292
 		--with-initscriptdir="${EPREFIX}/etc/init.d"
 		#--with-smartdscriptdir="${EPREFIX}/usr/share/${PN}"
+		--with-systemdenvfile=no
 		$(use_with caps libcap-ng)
 		$(use_with selinux)
 		$(use_with systemd libsystemd)
@@ -113,7 +114,7 @@ src_install() {
 	fi
 
 	# Make sure we never install drivedb.h into the db location
-	# of the acutal image so we don't record hashes because user
+	# of the actual image so we don't record hashes because user
 	# can modify that file
 	rm -f "${ED}${db_path}/drivedb.h" || die
 
