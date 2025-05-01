@@ -1,15 +1,16 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="Shared code used by several utilities written by Jody Bruchon"
-HOMEPAGE="https://github.com/jbruchon/libjodycode"
-SRC_URI="https://github.com/jbruchon/libjodycode/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://codeberg.org/jbruchon/libjodycode"
+SRC_URI="https://codeberg.org/jbruchon/libjodycode/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 
 # missing test script
 # https://github.com/jbruchon/jdupes/issues/191
