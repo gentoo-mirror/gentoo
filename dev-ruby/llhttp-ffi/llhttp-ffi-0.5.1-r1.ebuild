@@ -3,13 +3,13 @@
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33"
+USE_RUBY="ruby32 ruby33"
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.md"
 RUBY_FAKEGEM_GEMSPEC="${PN}.gemspec"
 
 inherit ruby-fakegem
 
-MY_PV="2023-03-29"
+MY_PV="2025-03-11"
 DESCRIPTION="Ruby FFI bindings for llhttp"
 HOMEPAGE="https://github.com/bryanp/llhttp"
 # Use -> ${MY_PV} in SRC_URI here to help spot forgotten MY_PV updates
@@ -30,10 +30,6 @@ ruby_add_bdepend "test? (
 )"
 
 DEPEND="test? ( net-misc/curl )"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.5.0-fix-rake-clean.patch
-)
 
 all_ruby_prepare() {
 	sed -i -e 's/gem "rake-compiler"//g' "Gemfile" || die
