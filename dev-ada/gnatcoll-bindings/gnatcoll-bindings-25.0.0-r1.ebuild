@@ -3,37 +3,39 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
-ADA_COMPAT=( gcc_12 gcc_13 gcc_14 )
+PYTHON_COMPAT=( python3_{11..13} )
+ADA_COMPAT=( gcc_{13..15} )
 inherit ada multiprocessing python-single-r1
 
 DESCRIPTION="GNAT Component Collection"
-HOMEPAGE="http://libre.adacore.com"
+HOMEPAGE="https://github.com/AdaCore/gnatcoll-bindings/"
 SRC_URI="https://github.com/AdaCore/${PN}/archive/refs/tags/v${PV}.tar.gz
 	-> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0/${PV}"
-KEYWORDS="amd64 x86"
-IUSE="gmp iconv lzma openmp python readline +shared static-libs static-pic syslog"
+KEYWORDS="amd64 ~arm64 x86"
+IUSE="doc gmp lzma openmp +shared static-libs static-pic"
 REQUIRED_USE="|| ( shared static-libs static-pic )
-	|| ( gmp iconv lzma openmp python readline syslog )
 	${PYTHON_REQUIRED_USE}
 	${ADA_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	${ADA_DEPS}
-	dev-ada/gnatcoll-core:=[${ADA_USEDEP},shared?,static-libs?,static-pic?]
+	dev-ada/gnatcoll-core:${SLOT}[${ADA_USEDEP},shared?,static-libs?,static-pic?]
 	gmp? ( dev-libs/gmp:* )
 	lzma? ( app-arch/xz-utils )
 	openmp? ( sys-devel/gcc:=[openmp] )
-	"
+	$(python_gen_cond_dep '
+		doc? (
+			dev-python/sphinx[${PYTHON_USEDEP}]
+			dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
+		)
+	')"
 DEPEND="${RDEPEND}
 	dev-ada/gprbuild[${ADA_USEDEP}]"
 
 QA_EXECSTACK=usr/lib/gnatcoll_readline.*/libgnatcoll_readline.*
-
-PATCHES=( "${FILESDIR}"/${PN}-23.0.0-py_3_11.patch )
 
 pkg_setup() {
 	python-single-r1_pkg_setup
@@ -60,16 +62,26 @@ src_compile() {
 		if use $kind; then
 			lib=${kind%-libs}
 			lib=${lib/shared/relocatable}
-			for dir in gmp iconv lzma python readline syslog ; do
-				if use $dir; then
-					build $dir $lib
-				fi
-			done
-			if use openmp; then
-				build omp $lib
-			fi
+			build cpp $lib
+			build iconv $lib
+			use gmp && build gmp $lib
+			use lzma && build lzma $lib
+			use openmp && build omp $lib
+			build python $lib
+			build syslog $lib
+			build readline $lib
+			build zlib $lib
 		fi
 	done
+	if use doc; then
+		emake -C iconv/docs html
+		emake -C readline/docs html
+		emake -C syslog/docs html
+		mkdir html
+		mv iconv/docs/_build/html html/iconv || die
+		mv readline/docs/_build/html html/readline || die
+		mv syslog/docs/_build/html html/syslog || die
+	fi
 }
 
 src_install() {
@@ -83,16 +95,19 @@ src_install() {
 		if use $kind; then
 			lib=${kind%-libs}
 			lib=${lib/shared/relocatable}
-			for dir in gmp iconv lzma python readline syslog ; do
-				if use $dir; then
-					build $dir $lib
-				fi
-			done
-			if use openmp; then
-				build omp $lib
-			fi
+			build cpp $lib
+			use gmp && build gmp $lib
+			build iconv $lib
+			use lzma && build lzma $lib
+			use openmp && build omp $lib
+			build python $lib
+			build syslog $lib
+			build readline $lib
+			use lzma && build lzma $lib
+			build zlib $lib
 		fi
 	done
 	rm -rf "${D}"/usr/share/gpr/manifests
+	use doc && HTML_DOCS=( html/* )
 	einstalldocs
 }
