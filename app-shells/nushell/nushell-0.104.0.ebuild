@@ -3,9 +3,9 @@
 
 EAPI=8
 
-CRATES=" "
+CRATES=""
 
-RUST_MIN_VER="1.81.0"
+RUST_MIN_VER="1.84.1"
 
 inherit cargo
 
@@ -14,7 +14,7 @@ HOMEPAGE="https://www.nushell.sh"
 SRC_URI="
 	https://github.com/nushell/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 "
-DEPS_URI="https://github.com/freijon/${PN}/releases/download/${PV}/vendor.tar.xz -> ${P}-deps.tar.xz"
+DEPS_URI="https://github.com/freijon/${PN}/releases/download/${PV}/${P}-crates.tar.xz"
 SRC_URI+=" ${DEPS_URI}"
 
 LICENSE="MIT"
@@ -24,7 +24,7 @@ LICENSE+="
 	Unicode-DFS-2016 ZLIB
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
 IUSE="plugins system-clipboard X"
 
 DEPEND="
@@ -50,8 +50,6 @@ BDEPEND="
 RESTRICT+=" test"
 
 QA_FLAGS_IGNORED="usr/bin/nu.*"
-
-ECARGO_VENDOR="${WORKDIR}/vendor"
 
 src_prepare() {
 	use plugins || eapply "${FILESDIR/${PN}-dont-build-plugins.patch}"
@@ -83,7 +81,7 @@ src_install() {
 		# Clear features to compile plugins
 		local myfeatures=()
 		cargo_src_configure
-		
+
 		cargo_src_install --path crates/nu_plugin_custom_values
 		cargo_src_install --path crates/nu_plugin_example
 		cargo_src_install --path crates/nu_plugin_formats
