@@ -1,11 +1,11 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-LLVM_COMPAT=( {15..19} )
+LLVM_COMPAT=( {15..20} )
 LLVM_OPTIONAL=1
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit bash-completion-r1 linux-info llvm-r1 python-any-r1 toolchain-funcs
 
@@ -24,7 +24,7 @@ else
 	# This allows us to quickly update the vendored lib with a revbump.
 	# Currently bpftool-x.y vendors libbpf-1.y; DO NOT mix different y versions.
 	# See the libbpf repo (https://github.com/libbpf/libbpf) for possible updates.
-	LIBBPF_VERSION=1.4.7
+	# LIBBPF_VERSION=1.5.0
 
 	if [[ ! -z ${LIBBPF_VERSION} ]] ; then
 		SRC_URI="https://github.com/libbpf/bpftool/archive/refs/tags/v${PV}.tar.gz -> bpftool-${PV}.tar.gz
@@ -36,12 +36,12 @@ else
 		S="${WORKDIR}/bpftool-libbpf-v${PV}-sources"
 	fi
 
-	KEYWORDS="amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+	KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv x86"
 fi
 
 LICENSE="|| ( GPL-2 BSD-2 )"
 SLOT="0"
-IUSE="caps llvm"
+IUSE="caps +clang llvm"
 REQUIRED_USE="llvm? ( ${LLVM_REQUIRED_USE} )"
 
 RDEPEND="
@@ -59,21 +59,13 @@ BDEPEND="
 	${PYTHON_DEPS}
 	app-arch/tar
 	dev-python/docutils
-	$(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}[llvm_targets_BPF]')
+	clang? ( $(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}[llvm_targets_BPF]') )
+	!clang? ( sys-devel/bpf-toolchain )
 "
 
 CONFIG_CHECK="~DEBUG_INFO_BTF"
 
-PATCHES=(
-	"${FILESDIR}"/7.4-001-mount-bpffs-on-provided-dir-instead-of-parent-dir.patch
-	"${FILESDIR}"/7.4-002-set-DESTDIR-to-empty-when-building-libbpf.patch
-	"${FILESDIR}"/7.4-003-fix-typo-in-usage-help.patch
-	"${FILESDIR}"/7.4-004-fix-the-wrong-format-specifier.patch
-	"${FILESDIR}"/7.4-005-fix-undefined-behavior-caused-by-shifting-into-the-sign-bit.patch
-	"${FILESDIR}"/7.4-006-fix-undefined-behavior-in-qsort.patch
-	"${FILESDIR}"/7.4-007-define-PACKAGE-at-build-time-when-trying-to-detect-libbfd.patch
-	"${FILESDIR}"/7.4-008-always-disable-unused-CLI-arguments-warning-for-feature-probe.patch
-)
+PATCHES=( "${FILESDIR}/7.5.0-setting-error-code-in-do_loader.patch" )
 
 pkg_setup() {
 	python-any-r1_pkg_setup
@@ -98,16 +90,36 @@ src_prepare() {
 	# remove hardcoded/unhelpful flags from bpftool
 	sed -i -e '/CFLAGS += -O2/d' -e 's/-W //g' -e 's/-Wextra //g' src/Makefile || die
 
+	# always build bpf bits with std=gnu11 for kernel compatibility (bug 955156)
+	sed -i 's/-fno-stack-protector/& -std=gnu11/g' src/Makefile || die
+
+	if ! use clang; then
+		# remove bpf target & add assembly annotations to fix CO-RE feature detection
+		sed -i -e 's/-target bpf/-dA/' src/Makefile.feature || die
+
+		# remove bpf target from skeleton build
+		sed -i -e 's/--target=bpf//g' src/Makefile || die
+	fi
+
 	# Use rst2man or rst2man.py depending on which one exists (#930076)
 	type -P rst2man >/dev/null || sed -i -e 's/rst2man/rst2man.py/g' docs/Makefile || die
 }
 
 bpftool_make() {
+	# which BPF compiler should we use?
+	if use clang; then
+		export CLANG="$(get_llvm_prefix -b)/bin/clang"
+		export LLVM_STRIP="$(get_llvm_prefix -b)/bin/llvm-strip"
+	else
+		# use bpf-toolchain
+		export CLANG="bpf-unknown-none-gcc"
+		export LLVM_STRIP="bpf-unknown-none-strip"
+	fi
+
 	tc-export AR CC LD
 
 	emake \
 		ARCH="$(tc-arch-kernel)" \
-		CLANG="$(get_llvm_prefix -b)/bin/clang" \
 		HOSTAR="$(tc-getBUILD_AR)" \
 		HOSTCC="$(tc-getBUILD_CC)" \
 		HOSTLD="$(tc-getBUILD_LD)" \
