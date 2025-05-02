@@ -5,11 +5,11 @@ DESCRIPTION=mesa_clc tool used for building OpenCL C to SPIR-V
 EAPI=8
 HOMEPAGE=https://mesa3d.org/
 INHERIT=llvm-r1 meson python-any-r1 git-r3
-IUSE=debug +llvm_slot_19 llvm_slot_18
+IUSE=video_cards_asahi video_cards_panfrost debug +llvm_slot_19 llvm_slot_18
 LICENSE=MIT
 PROPERTIES=live
 RDEPEND=dev-util/spirv-tools llvm_slot_18? ( dev-util/spirv-llvm-translator:18 llvm-core/clang:18= =llvm-core/libclc-18* llvm-core/llvm:18= ) llvm_slot_19? ( dev-util/spirv-llvm-translator:19 llvm-core/clang:19= =llvm-core/libclc-19* llvm-core/llvm:19= )
 REQUIRED_USE=^^ ( llvm_slot_18 llvm_slot_19 )
 SLOT=0
 _eclasses_=llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b6ad054ea5bb201ed2fec9cac7a8d12b	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=4ad61266c0de6e75a59d04e9cd4b9012
+_md5_=44074e84455f353c13f574e72fdf182e
