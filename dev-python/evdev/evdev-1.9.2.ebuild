@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} pypy3 )
+PYTHON_COMPAT=( python3_{11..13} pypy3_11 )
 
 inherit distutils-r1
 
@@ -24,23 +24,19 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 distutils_enable_tests pytest
 
-PATCHES=(
-	# upstream 27eb2ff11bb6b41fa0cfcff4f80d6c26d4b65742 (post 1.8.0)
-	"${FILESDIR}/${P}-test.patch"
-)
-
 EPYTEST_DESELECT=(
+	# these tests rely on being able to open /dev/uinput
 	tests/test_uinput.py
 )
 
 python_configure_all() {
 	esetup.py build_ecodes \
 		--evdev-headers \
-		"${ESYSROOT}/usr/include/linux/input.h:${ESYSROOT}/usr/include/linux/input-event-codes.h"
+		"${ESYSROOT}/usr/include/linux/input.h:${ESYSROOT}/usr/include/linux/input-event-codes.h:${ESYSROOT}:/usr/include/linux/uinput.h"
 }
 
 src_test() {
