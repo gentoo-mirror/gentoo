@@ -7,7 +7,7 @@ EAPI=8
 # please bump dev-python/ensurepip-setuptools along with this package!
 
 DISTUTILS_USE_PEP517=standalone
-PYTHON_TESTED=( python3_{10..13} pypy3 pypy3_11 )
+PYTHON_TESTED=( python3_{11..13} pypy3_11 )
 PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" python3_13t )
 PYTHON_REQ_USE="xml(+)"
 
@@ -34,9 +34,6 @@ RDEPEND="
 	>=dev-python/packaging-24.2[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-4.2.2[${PYTHON_USEDEP}]
 	>=dev-python/wheel-0.44.0[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '
-		>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
-	' 3.10)
 	!<=dev-libs/gobject-introspection-1.76.1-r0
 	!=dev-libs/gobject-introspection-1.78.1-r0
 	!=dev-libs/gobject-introspection-1.80.1-r1
