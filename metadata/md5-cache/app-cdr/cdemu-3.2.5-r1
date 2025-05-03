@@ -1,15 +1,15 @@
-BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) dev-util/desktop-file-utils >=dev-util/intltool-0.21 >=sys-devel/gettext-0.18 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-util/desktop-file-utils >=dev-util/intltool-0.21 >=sys-devel/gettext-0.18 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DESCRIPTION=Command-line tool for controlling cdemu-daemon
 EAPI=8
 HOMEPAGE=https://cdemu.sourceforge.io
 INHERIT=bash-completion-r1 cmake python-single-r1 xdg-utils
-IUSE=+cdemu-daemon python_single_target_python3_11 python_single_target_python3_12
+IUSE=+cdemu-daemon python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=amd64 x86
 LICENSE=GPL-2+
-RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] ) cdemu-daemon? ( app-cdr/cdemu-daemon:0/7 )
-REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 )
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygobject:3[python_targets_python3_13(-)] ) cdemu-daemon? ( app-cdr/cdemu-daemon:0/7 )
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=0
 SRC_URI=https://download.sourceforge.net/cdemu/cdemu-client/cdemu-client-3.2.5.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	bash-completion-r1	767861f3744f589ee5291c1698b1c082	flag-o-matic	e8de74bac929ba17427e740e95707d00	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	python-utils-r1	de71d9571aa267f353b9e8ab4666732e	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=75096e3d430c62227a9486da23c82d6e
+_md5_=6fc891fa768a698863396608f218f78e
