@@ -13,17 +13,17 @@ HOMEPAGE="https://github.com/bazelbuild/buildtools/"
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/bazelbuild/${REAL_PN}.git"
+	EGIT_REPO_URI="https://github.com/bazelbuild/${REAL_PN}"
 else
 	SRC_URI="https://github.com/bazelbuild/${REAL_PN}/archive/refs/tags/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${REAL_PN}-${PV}"
 
-	KEYWORDS="amd64 arm64 ~x86"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 SRC_URI+="
-	https://dev.gentoo.org/~xgqt/distfiles/deps/${PN}-8.0.0-deps.tar.xz
+	https://dev.gentoo.org/~xgqt/distfiles/deps/${PN}-8.2.0-deps.tar.xz
 "
 
 LICENSE="Apache-2.0"
@@ -51,7 +51,7 @@ src_compile() {
 
 src_install() {
 	exeinto /usr/bin
-	doexe ./bin/{buildifier{,2},buildozer}
+	doexe ./bin/{buildifier,buildozer}
 	newexe ./bin/generatetables bazel-generatetables
 	newexe ./bin/unused_deps bazel-unused_deps
 
