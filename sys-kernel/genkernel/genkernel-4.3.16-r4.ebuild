@@ -6,9 +6,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
-inherit bash-completion-r1 eapi9-ver python-single-r1
+inherit bash-completion-r1 python-single-r1
 
 # Whenever you bump a GKPKG, check if you have to move
 # or add new patches!
@@ -62,7 +62,7 @@ COMMON_URI="
 	https://www.kernel.org/pub/linux/utils/cryptsetup/v$(ver_cut 1-2 ${VERSION_CRYPTSETUP})/cryptsetup-${VERSION_CRYPTSETUP}.tar.xz
 	https://people.redhat.com/~heinzm/sw/dmraid/src/dmraid-${VERSION_DMRAID}.tar.bz2
 	https://matt.ucc.asn.au/dropbear/releases/dropbear-${VERSION_DROPBEAR}.tar.bz2
-	https://dev.gentoo.org/~blueness/eudev/eudev-${VERSION_EUDEV}.tar.gz
+	https://github.com/eudev-project/eudev/releases/download/v${VERSION_EUDEV}/eudev-${VERSION_EUDEV}.tar.gz
 	https://github.com/libexpat/libexpat/releases/download/R_${VERSION_EXPAT//\./_}/expat-${VERSION_EXPAT}.tar.xz
 	https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v${VERSION_E2FSPROGS}/e2fsprogs-${VERSION_E2FSPROGS}.tar.xz
 	https://github.com/libfuse/libfuse/releases/download/fuse-${VERSION_FUSE}/fuse-${VERSION_FUSE}.tar.gz
@@ -139,6 +139,8 @@ RDEPEND="${PYTHON_DEPS}
 
 PATCHES=(
 	"${FILESDIR}"/genkernel-4.3.16-globbing-workaround.patch
+	"${FILESDIR}"/${PN}-4.3.16-musl.patch
+	"${FILESDIR}"/${PN}-4.3.16-posix-shell.patch
 )
 
 src_unpack() {
@@ -217,15 +219,21 @@ pkg_postinst() {
 	#elog 'https://wiki.gentoo.org/wiki/Genkernel'
 	#echo
 
-	if ver_replacing -lt 4 ; then
-		# This is an upgrade which requires user review
+	local replacing_version
+	for replacing_version in ${REPLACING_VERSIONS} ; do
+		if ver_test "${replacing_version}" -lt 4 ; then
+			# This is an upgrade which requires user review
 
-		ewarn ""
-		ewarn "Genkernel v4.x is a new major release which touches"
-		ewarn "nearly everything. Be careful, read updated manpage"
-		ewarn "and pay special attention to program output regarding"
-		ewarn "changed kernel command-line parameters!"
-	fi
+			ewarn ""
+			ewarn "Genkernel v4.x is a new major release which touches"
+			ewarn "nearly everything. Be careful, read updated manpage"
+			ewarn "and pay special attention to program output regarding"
+			ewarn "changed kernel command-line parameters!"
+
+			# Show this elog only once
+			break
+		fi
+	done
 
 	if [[ $(find /boot -name 'kernel-genkernel-*' 2>/dev/null | wc -l) -gt 0 ]] ; then
 		ewarn ''
