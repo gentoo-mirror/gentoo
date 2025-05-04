@@ -1,30 +1,34 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools xdg
+PYTHON_COMPAT=( python3_{11..13} )
+
+inherit autotools python-single-r1 xdg
 
 DESCRIPTION="Fully featured yet light and fast cross platform word processor"
 HOMEPAGE="http://www.abisource.com/"
 SRC_URI="
-	http://www.abisource.com/downloads/${PN}/${PV}/source/${P}.tar.gz
-	https://dev.gentoo.org/~soap/distfiles/${PN}-3.0.4-patchset-r3.txz"
+	https://gitlab.gnome.org/World/AbiWord/-/archive/release-${PV}/AbiWord-release-${PV}.tar.bz2
+	https://dev.gentoo.org/~soap/distfiles/${PN}-3.0.6-patches.tar.xz"
+S="${WORKDIR}/AbiWord-release-${PV}"
 
 LICENSE="GPL-2"
 SLOT="2"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ppc ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 IUSE="calendar collab cups debug eds +goffice grammar +introspection latex map math +plugins readline redland spell wordperfect wmf thesaurus"
 # You need 'plugins' enabled if want to enable the extra plugins
 REQUIRED_USE="
 	collab? ( plugins )
 	grammar? ( plugins )
+	introspection? ( ${PYTHON_REQUIRED_USE} )
 	latex? ( plugins )
 	math? ( plugins )
 	readline? ( plugins )
 	thesaurus? ( plugins )
-	wordperfect? ( plugins )
-	wmf? ( plugins )"
+	wmf? ( plugins )
+	wordperfect? ( plugins )"
 
 RDEPEND="
 	>=app-text/wv-1.2
@@ -34,14 +38,17 @@ RDEPEND="
 	dev-libs/libxslt
 	>=gnome-base/librsvg-2.16:2
 	>=gnome-extra/libgsf-1.14.18:=
+	media-libs/libjpeg-turbo:=
 	>=media-libs/libpng-1.2:0=
-	virtual/jpeg:0
 	>=x11-libs/cairo-1.10
 	>=x11-libs/gtk+-3.0.8:3[cups?]
 	calendar? ( >=dev-libs/libical-0.46:= )
 	eds? ( >=gnome-extra/evolution-data-server-3.6.0:= )
 	goffice? ( >=x11-libs/goffice-0.10.2:0.10 )
-	introspection? ( >=dev-libs/gobject-introspection-1.0.0:= )
+	introspection? (
+		${PYTHON_DEPS}
+		>=dev-libs/gobject-introspection-1.0.0:=
+	)
 	map? ( >=media-libs/libchamplain-0.12:0.12[gtk] )
 	plugins? (
 		collab? (
@@ -64,8 +71,7 @@ RDEPEND="
 		>=dev-libs/redland-1.0.10
 		>=dev-libs/rasqal-0.9.17
 	)
-	spell? ( app-text/enchant:2 )
-	!<app-office/abiword-plugins-2.8"
+	spell? ( app-text/enchant:2 )"
 DEPEND="${RDEPEND}
 	dev-libs/boost
 	collab? ( dev-cpp/asio )"
@@ -73,20 +79,11 @@ BDEPEND="
 	dev-lang/perl
 	virtual/pkgconfig"
 
-PATCHES=(
-	"${WORKDIR}"/patches/${PN}-2.6.0-boolean.patch
-	"${WORKDIR}"/patches/${PN}-2.8.3-desktop.patch
-	"${WORKDIR}"/patches/${PN}-3.0.0-librevenge.patch
-	"${WORKDIR}"/patches/${PN}-3.0.2-explicit-python.patch
-	"${WORKDIR}"/patches/${PN}-3.0.4-enchant-2.patch # backport
-	"${WORKDIR}"/patches/${PN}-3.0.4-pygobject.patch
-	"${WORKDIR}"/patches/${PN}-3.0.4-asio-standalone-placeholders.patch
-	"${WORKDIR}"/patches/${PN}-3.0.4-c++17-dynamic-exception-specifications.patch
-	"${FILESDIR}"/${PN}-3.0.5-musl-lose-precision-fix.patch
-	"${FILESDIR}"/${PN}-3.0.5-libxml2-2.12.patch
-	# https://bugs.gentoo.org/922633
-	"${FILESDIR}"/${PN}-3.0.5-gcc14.patch
-)
+PATCHES=( "${WORKDIR}"/patches )
+
+pkg_setup() {
+	use introspection && python-single-r1_pkg_setup
+}
 
 src_prepare() {
 	default
@@ -111,22 +108,23 @@ src_configure() {
 		# inter7eps: eps.h
 		# libtidy: gsf + tidy.h
 		# paint: windows only ?
-		use collab && plugins+=(collab)
-		use goffice && plugins+=(goffice)
-		use latex && plugins+=(latex)
-		use math && plugins+=(mathview)
-		# psion: >=psiconv-0.9.4
-		use readline && plugins+=(command)
-		use thesaurus && plugins+=(aiksaurus)
-		use wmf && plugins+=(wmf)
-		# wordperfect: >=wpd-0.9 >=wpg-0.2
-		use wordperfect && plugins+=(wpg)
+		plugins+=(
+			$(usev collab)
+			$(usev goffice)
+			$(usev latex)
+			$(usev math mathview)
+			# psion: >=psiconv-0.9.4
+			$(usev readline command)
+			$(usev thesaurus aiksaurus)
+			$(usev wmf)
+			# wordperfect: >=wpd-0.9 >=wpg-0.2
+			$(usev wordperfect wpg)
+		)
 	fi
 
 	econf \
 		--disable-maintainer-mode \
 		--enable-plugins="${plugins[*]}" \
-		--disable-static \
 		--disable-default-plugins \
 		--disable-builtin-plugins \
 		--disable-collab-backend-telepathy \
