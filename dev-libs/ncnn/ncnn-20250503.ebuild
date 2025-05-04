@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake toolchain-funcs
+inherit cmake flag-o-matic toolchain-funcs
 
 DESCRIPTION="High-performance neural network inference framework"
 HOMEPAGE="https://github.com/Tencent/ncnn/"
@@ -56,6 +56,8 @@ pkg_setup() {
 }
 
 src_configure() {
+	filter-lto # -Werror=odr issues
+
 	local mycmakeargs=(
 		-DGLSLANG_TARGET_DIR="${ESYSROOT}"/usr/$(get_libdir)/cmake
 		-DNCNN_BUILD_EXAMPLES=no
