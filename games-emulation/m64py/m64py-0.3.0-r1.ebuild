@@ -1,10 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 qmake-utils xdg-utils
 
@@ -31,7 +31,10 @@ RDEPEND="
 	media-libs/libsdl2[joystick,video]
 	>=games-emulation/mupen64plus-core-2.5:0/2-sdl2
 	7z? (
-		app-arch/p7zip
+		|| (
+			app-arch/7zip[symlink(+)]
+			app-arch/p7zip
+		)
 	)
 	rar? (
 		|| (
@@ -61,8 +64,10 @@ python_compile() {
 
 pkg_postinst() {
 	xdg_desktop_database_update
+	xdg_icon_cache_update
 }
 
 pkg_postrm() {
 	xdg_desktop_database_update
+	xdg_icon_cache_update
 }
