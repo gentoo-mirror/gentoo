@@ -1,9 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..13} )
+DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 inherit desktop distutils-r1 qmake-utils virtualx xdg
 
@@ -18,15 +19,17 @@ IUSE="dbus hdf5"
 
 COMMON_DEPEND="
 	dev-python/numpy[${PYTHON_USEDEP}]
-	dev-python/pyqt5[widgets,svg,printsupport,${PYTHON_USEDEP}]
+	dev-python/pyqt5[gui,printsupport,svg,widgets,${PYTHON_USEDEP}]
 "
 RDEPEND="${COMMON_DEPEND}
 	dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
 	hdf5? ( dev-python/h5py[${PYTHON_USEDEP}] )
 "
-DEPEND="${COMMON_DEPEND}
+BDEPEND="${COMMON_DEPEND}
 	dev-python/sip:5[${PYTHON_USEDEP}]
 "
+
+PATCHES=( "${FILESDIR}"/tomli.patch )
 
 distutils_enable_sphinx Documents/manual-source \
 	dev-python/alabaster
