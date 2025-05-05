@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,10 +28,11 @@ DEPEND="
 	dev-libs/icu:=
 	>=dev-libs/json-glib-1.4.4[introspection]
 	>=dev-libs/libgee-0.8.5:0.8[introspection]
-	dev-libs/libxml2
+	dev-libs/libxml2:=
 	>=gui-libs/gtk-4.13.4:4[gstreamer,introspection]
-	>=gui-libs/libadwaita-1.5:1[introspection,vala]
+	>=gui-libs/libadwaita-1.6:1[introspection,vala]
 	>=gui-libs/gtksourceview-5.6.0:5[introspection,vala]
+	media-libs/gstreamer[introspection]
 	net-libs/libsoup:3.0[introspection,vala]
 "
 RDEPEND="
