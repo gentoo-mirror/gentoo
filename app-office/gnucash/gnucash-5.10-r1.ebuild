@@ -1,13 +1,13 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 GUILE_REQ_USE="regex"
 GUILE_COMPAT=( 2-2 3-0 )
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
-inherit cmake flag-o-matic gnome2-utils guile-single python-single-r1
+inherit cmake flag-o-matic gnome2 guile-single python-single-r1 xdg
 
 # Please bump with app-doc/gnucash-docs
 DESCRIPTION="Personal finance manager"
@@ -41,7 +41,7 @@ RDEPEND="
 	>=sys-libs/zlib-1.1.4
 	dev-libs/boost:=[icu,nls]
 	dev-libs/icu:=
-	dev-libs/libxml2:2
+	dev-libs/libxml2:2=
 	dev-libs/libxslt
 	aqbanking? (
 		>=net-libs/aqbanking-6[ofx?]
@@ -117,10 +117,9 @@ PATCHES=(
 	# This is only to prevent webkit2gtk-4 from being selected.
 	# https://bugs.gentoo.org/893676
 	"${FILESDIR}/${PN}-5.0-webkit2gtk-4.1.patch"
-	# GCC 15 backport
-	"${FILESDIR}/${PN}-5.8-gcc15.patch"
-	"${FILESDIR}/${PN}-5.8-boost-1.87.patch"
+	"${FILESDIR}/${P}-import-qif.patch"
 	"${FILESDIR}/${PN}-5.8-guile-load-path.patch"
+	"${FILESDIR}/${P}-swig-4.3.patch"
 )
 
 pkg_setup() {
@@ -138,18 +137,12 @@ src_prepare() {
 
 	# Fix tests writing to /tmp
 	local fixtestfiles=(
+		bindings/python/example_scripts/simple_session.py
+		bindings/python/sqlite3test.c
+		bindings/python/example_scripts/simple_test.py
 		gnucash/report/test/test-report-html.scm
-		gnucash/report/reports/standard/test/test-invoice.scm
-		gnucash/report/reports/standard/test/test-new-owner-report.scm
-		gnucash/report/reports/standard/test/test-owner-report.scm
-		gnucash/report/reports/standard/test/test-transaction.scm
-		gnucash/report/reports/standard/test/test-portfolios.scm
-		gnucash/report/reports/standard/test/test-charts.scm
-		gnucash/report/test/test-report.scm
-		gnucash/report/test/test-commodity-utils.scm
 		gnucash/report/test/test-report-extras.scm
 		libgnucash/backend/dbi/test/test-backend-dbi-basic.cpp
-		libgnucash/backend/xml/test/test-xml-pricedb.cpp
 	)
 	local x
 	for x in "${fixtestfiles[@]}"; do
@@ -230,20 +223,17 @@ src_install() {
 	fi
 }
 
+pkg_preinst() {
+	gnome2_pkg_preinst
+	xdg_pkg_preinst
+}
+
 pkg_postinst() {
-	if use gui ; then
-		xdg_icon_cache_update
-		gnome2_schemas_update
-	fi
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
+	gnome2_pkg_postinst
+	xdg_pkg_postinst
 }
 
 pkg_postrm() {
-	if use gui ; then
-		xdg_icon_cache_update
-		gnome2_schemas_update
-	fi
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
+	gnome2_pkg_postrm
+	xdg_pkg_postrm
 }

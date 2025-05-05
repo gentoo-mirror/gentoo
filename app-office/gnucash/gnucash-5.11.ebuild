@@ -5,9 +5,9 @@ EAPI=8
 
 GUILE_REQ_USE="regex"
 GUILE_COMPAT=( 2-2 3-0 )
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
-inherit cmake flag-o-matic gnome2-utils guile-single python-single-r1
+inherit cmake flag-o-matic gnome2 guile-single python-single-r1 xdg
 
 # Please bump with app-doc/gnucash-docs
 DESCRIPTION="Personal finance manager"
@@ -16,8 +16,8 @@ SRC_URI="https://github.com/Gnucash/gnucash/releases/download/${PV}/${P}.tar.bz2
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc ~ppc64 ~riscv x86"
-IUSE="aqbanking debug doc examples gnome-keyring +gui mysql nls ofx postgres python quotes smartcard sqlite test"
+KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+IUSE="aqbanking debug doc examples +gui mysql nls ofx postgres python quotes smartcard sqlite test"
 # Tests were previously restricted because guile would try to use installed,
 # not just-built modules. See https://bugs.gnucash.org/show_bug.cgi?id=799159#c1.
 # TODO: as of 5.10, the ebuild should handle this OK. If no issues come up,
@@ -37,18 +37,21 @@ REQUIRED_USE="
 # dependency, we just rely on that.
 RDEPEND="
 	${GUILE_DEPS}
+	>=app-crypt/libsecret-0.18
 	>=dev-libs/glib-2.56.1:2
 	>=sys-libs/zlib-1.1.4
 	dev-libs/boost:=[icu,nls]
 	dev-libs/icu:=
-	dev-libs/libxml2:2
+	dev-libs/libxml2:2=
 	dev-libs/libxslt
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
+	x11-libs/pango
 	aqbanking? (
 		>=net-libs/aqbanking-6[ofx?]
 		>=sys-libs/gwenhywfar-5.6.0:=
 		smartcard? ( sys-libs/libchipcard )
 	)
-	gnome-keyring? ( >=app-crypt/libsecret-0.18 )
 	gui? (
 		>=x11-libs/gtk+-3.22.30:3
 		gnome-base/dconf
@@ -95,6 +98,7 @@ DEPEND="
 BDEPEND="
 	dev-lang/swig
 	>=dev-build/cmake-3.10
+	dev-libs/libxslt
 	virtual/pkgconfig
 	python? (
 		$(python_gen_cond_dep '
@@ -117,9 +121,7 @@ PATCHES=(
 	# This is only to prevent webkit2gtk-4 from being selected.
 	# https://bugs.gentoo.org/893676
 	"${FILESDIR}/${PN}-5.0-webkit2gtk-4.1.patch"
-	"${FILESDIR}/${P}-import-qif.patch"
 	"${FILESDIR}/${PN}-5.8-guile-load-path.patch"
-	"${FILESDIR}/${P}-swig-4.3.patch"
 )
 
 pkg_setup() {
@@ -137,18 +139,12 @@ src_prepare() {
 
 	# Fix tests writing to /tmp
 	local fixtestfiles=(
+		bindings/python/example_scripts/simple_session.py
+		bindings/python/sqlite3test.c
+		bindings/python/example_scripts/simple_test.py
 		gnucash/report/test/test-report-html.scm
-		gnucash/report/reports/standard/test/test-invoice.scm
-		gnucash/report/reports/standard/test/test-new-owner-report.scm
-		gnucash/report/reports/standard/test/test-owner-report.scm
-		gnucash/report/reports/standard/test/test-transaction.scm
-		gnucash/report/reports/standard/test/test-portfolios.scm
-		gnucash/report/reports/standard/test/test-charts.scm
-		gnucash/report/test/test-report.scm
-		gnucash/report/test/test-commodity-utils.scm
 		gnucash/report/test/test-report-extras.scm
 		libgnucash/backend/dbi/test/test-backend-dbi-basic.cpp
-		libgnucash/backend/xml/test/test-xml-pricedb.cpp
 	)
 	local x
 	for x in "${fixtestfiles[@]}"; do
@@ -229,20 +225,17 @@ src_install() {
 	fi
 }
 
+pkg_preinst() {
+	gnome2_pkg_preinst
+	xdg_pkg_preinst
+}
+
 pkg_postinst() {
-	if use gui ; then
-		xdg_icon_cache_update
-		gnome2_schemas_update
-	fi
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
+	gnome2_pkg_postinst
+	xdg_pkg_postinst
 }
 
 pkg_postrm() {
-	if use gui ; then
-		xdg_icon_cache_update
-		gnome2_schemas_update
-	fi
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
+	gnome2_pkg_postrm
+	xdg_pkg_postrm
 }
