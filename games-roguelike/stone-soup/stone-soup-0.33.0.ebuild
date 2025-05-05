@@ -24,7 +24,7 @@ DESCRIPTION="Role-playing roguelike game of exploration and treasure-hunting in 
 HOMEPAGE="https://crawl.develz.org"
 
 # Leave empty string if not a _pre release
-COMMITSHA="f4463b9b3ae12cc503402cdba8e4a7e74a466649"
+COMMITSHA=""
 if [ -z "${COMMITSHA}" ]; then
 	# This is a tagged release
 	# Note the archive URI and file layout changed upstream between 0.29.0 and 0.29.1
