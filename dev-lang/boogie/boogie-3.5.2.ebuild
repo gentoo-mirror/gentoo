@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DOTNET_PKG_COMPAT="8.0"
+DOTNET_PKG_COMPAT="9.0"
 NUGETS="
 microsoft.bcl.asyncinterfaces@6.0.0
 microsoft.codecoverage@16.2.0
@@ -208,9 +208,9 @@ if [[ "${PV}" == *9999* ]] ; then
 	EGIT_REPO_URI="https://github.com/boogie-org/${PN}.git"
 else
 	SRC_URI="https://github.com/boogie-org/${PN}/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -254,19 +254,10 @@ src_unpack() {
 src_prepare() {
 	# Remove bad tests.
 	local -a bad_tests=(
-		civl/inductive-sequentialization/BroadcastConsensus.bpl
-		civl/inductive-sequentialization/ChangRoberts.bpl
-		civl/inductive-sequentialization/PingPong.bpl
-		civl/large-samples/GC.bpl
-		civl/large-samples/shared-vector.bpl
-		civl/large-samples/verified-ft.bpl
-		civl/paxos/is.sh
-		civl/samples/reserve.bpl
-		havoc0/MouCreateClassObject.bpl
-		havoc0/MouseClassFindMorePorts.bpl
-		inst/vector-generic.bpl
-		inst/vector.bpl
-		livevars/stack_overflow.bpl
+		civl
+		havoc0
+		inst
+		livevars
 		prover/cvc5-offline.bpl
 		prover/cvc5.bpl
 		prover/exitcode.bpl
@@ -278,14 +269,16 @@ src_prepare() {
 		test2/git-issue-366.bpl
 		test21/InterestingExamples4.bpl
 	)
-	local bad_test
+	local bad_test=""
 	for bad_test in "${bad_tests[@]}" ; do
-		rm "${S}/Test/${bad_test}" || ewarn "Failed to remove test: ${bad_test}"
+		rm -r "${S}/Test/${bad_test}" \
+			|| ewarn "Failed to remove test: ${bad_test}"
 	done
 
 	# Update the boogieBinary variable.
 	sed "/^boogieBinary/s|= .*|= '${DOTNET_PKG_OUTPUT}/BoogieDriver.dll'|" \
-		-i "${S}/Test/lit.site.cfg" || die "failed to update lit.site.cfg"
+		-i "${S}/Test/lit.site.cfg" \
+		|| die "failed to update lit.site.cfg"
 
 	dotnet-pkg_src_prepare
 }

@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{10,11,12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
-inherit flag-o-matic linux-info python-single-r1 systemd xdg-utils
+inherit autotools linux-info python-single-r1 xdg-utils
 
 DESCRIPTION="decode and send infra-red signals of many commonly used remote controls"
 HOMEPAGE="https://www.lirc.org/"
@@ -13,24 +13,28 @@ HOMEPAGE="https://www.lirc.org/"
 LIRC_DRIVER_DEVICE="/dev/lirc0"
 
 MY_P=${PN}-${PV/_/-}
+S="${WORKDIR}/${MY_P}"
 
-if [[ "${PV/_pre/}" = "${PV}" ]]; then
-	SRC_URI="https://downloads.sourceforge.net/lirc/${MY_P}.tar.bz2"
-else
+if [[ ${PV} == *_pre* ]] ; then
 	SRC_URI="https://www.lirc.org/software/snapshots/${MY_P}.tar.bz2"
+elif [[ ${PV} == *_p* ]] ; then
+	inherit autotools
+	SRC_URI="https://downloads.sourceforge.net/lirc/${PN}-$(ver_cut 1-3).tar.bz2"
+	SRC_URI+=" mirror://debian/pool/main/l/${PN}/${PN}_$(ver_cut 1-3)-$(ver_cut 5-).debian.tar.xz"
+	S="${WORKDIR}"/${PN}-$(ver_cut 1-3)
+else
+	SRC_URI="https://downloads.sourceforge.net/lirc/${MY_P}.tar.bz2"
 fi
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 ~riscv x86"
-IUSE="audio +devinput doc ftdi gtk inputlirc static-libs systemd +uinput usb X"
+KEYWORDS="amd64 ~arm ~arm64 ~loong ppc ppc64 ~riscv x86"
+IUSE="audio +devinput doc ftdi gtk inputlirc selinux static-libs systemd +uinput usb X"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	gtk? ( X )
 "
-
-S="${WORKDIR}/${MY_P}"
 
 COMMON_DEPEND="
 	${PYTHON_DEPS}
@@ -41,7 +45,7 @@ COMMON_DEPEND="
 	$(python_gen_cond_dep '
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 	')
-	ftdi? ( dev-embedded/libftdi:0 )
+	ftdi? ( dev-embedded/libftdi:1 )
 	systemd? ( sys-apps/systemd )
 	usb? ( virtual/libusb:0 )
 	X? (
@@ -71,11 +75,12 @@ RDEPEND="
 		')
 	)
 	inputlirc? ( app-misc/inputlircd )
+	selinux? ( sec-policy/selinux-lircd )
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-unsafe-load.patch"
-	"${FILESDIR}/${P}-runtimedirectory.patch"
+	"${FILESDIR}/${PN}-0.10.1-runtimedirectory.patch"
+	"${FILESDIR}/${PN}-0.10.2-fix-python-pkg.patch"
 )
 
 MAKEOPTS+=" -j1"
@@ -84,6 +89,20 @@ pkg_setup() {
 	use uinput && CONFIG_CHECK="~INPUT_UINPUT"
 	python-single-r1_pkg_setup
 	linux-info_pkg_setup
+}
+
+src_prepare() {
+	default
+
+	if [[ -d "${WORKDIR}"/debian/patches ]] ; then
+		eapply $(sed -e 's:^:../debian/patches/:' ../debian/patches/series || die)
+	fi
+
+	# https://bugs.gentoo.org/922209
+	sed -i -e "/^libpython / s|\$(libdir)/python\$(PYTHON_VERSION)|$(python_get_stdlib)|" Makefile.am || die
+	sed -i -e "/^libpython / s|\$(libdir)/python\$(PYTHON_VERSION)|$(python_get_stdlib)|" tools/Makefile.am || die
+
+	eautoreconf
 }
 
 src_configure() {
@@ -121,6 +140,9 @@ src_install() {
 	fi
 
 	find "${ED}" -name '*.la' -delete || die
+
+	# https://bugs.gentoo.org/830522
+	python_optimize
 
 	# Avoid QA notice
 	rm -d "${ED}"/var/run/lirc || die
