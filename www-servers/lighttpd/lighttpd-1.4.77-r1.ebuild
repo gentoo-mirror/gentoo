@@ -17,12 +17,13 @@ else
 		https://download.lighttpd.net/lighttpd/releases-1.4.x/${P}.tar.xz
 		verify-sig? ( https://download.lighttpd.net/lighttpd/releases-$(ver_cut 1-2).x/${P}.tar.xz.asc )
 	"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 fi
 
 LICENSE="BSD GPL-2"
 SLOT="0"
-IUSE="+brotli dbi gnutls kerberos ldap libdeflate +lua maxminddb mbedtls +nettle nss +pcre php sasl selinux ssl unwind webdav xattr +zlib zstd"
+IUSE="+brotli dbi gnutls kerberos ldap libdeflate +lua maxminddb mbedtls +nettle nss +pcre php sasl selinux ssl test unwind webdav xattr +zlib zstd"
+RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
@@ -70,7 +71,8 @@ RDEPEND="
 "
 BDEPEND="
 	virtual/pkgconfig
-	verify-sig? ( >=sec-keys/openpgp-keys-lighttpd-20250325 )
+	test? ( virtual/perl-Test-Harness )
+	verify-sig? ( sec-keys/openpgp-keys-lighttpd )
 "
 
 # update certain parts of lighttpd.conf based on conditionals
@@ -196,7 +198,7 @@ src_install() {
 	fowners lighttpd:lighttpd /var/l{ib,og}/lighttpd
 	fperms 0750 /var/l{ib,og}/lighttpd
 
-	systemd_newunit "${FILESDIR}"/${PN}.service-r3 ${PN}.service
+	systemd_newunit "${FILESDIR}"/${PN}.service-r2 ${PN}.service
 	newtmpfiles "${FILESDIR}"/${PN}.tmpfiles.conf ${PN}.conf
 }
 

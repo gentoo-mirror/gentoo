@@ -32,19 +32,17 @@ else
 		LIBABIGAIL_DOCS_USEFLAG="doc"
 	fi
 
-	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+	KEYWORDS="amd64 arm arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="Apache-2.0-with-LLVM-exceptions"
-SLOT="0/6"
+SLOT="0/4"
 IUSE="btf debug ${LIBABIGAIL_DOCS_USEFLAG} test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	app-arch/xz-utils
-	dev-libs/elfutils[lzma]
-	dev-libs/libxml2:2=[lzma(-)]
-	dev-libs/xxhash
+	dev-libs/elfutils
+	dev-libs/libxml2:2=
 	btf? ( dev-libs/libbpf:= )
 	elibc_musl? ( sys-libs/fts-standalone )
 "
@@ -76,6 +74,7 @@ my_src_configure() {
 		--disable-rpm
 		--disable-rpm415
 		--disable-ctf
+		--disable-debug-ct-propagation
 		# Don't try to run Valgrind on tests.
 		--disable-valgrind
 		--enable-bash-completion

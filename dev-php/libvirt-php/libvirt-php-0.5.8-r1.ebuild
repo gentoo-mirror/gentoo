@@ -8,15 +8,15 @@ PHP_EXT_SKIP_PHPIZE="yes"
 USE_PHP="php8-1 php8-2 php8-3"
 PHP_EXT_ECONF_ARGS=()
 
-inherit php-ext-source-r3 git-r3 autotools
+inherit php-ext-source-r3 autotools
 
 DESCRIPTION="PHP bindings for libvirt"
 HOMEPAGE="https://php.libvirt.org/"
-EGIT_REPO_URI="https://gitlab.com/libvirt/libvirt-php.git"
+SRC_URI="https://download.libvirt.org/php/${P}.tar.xz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="doc"
 
 RDEPEND="app-emulation/libvirt
@@ -29,11 +29,11 @@ DEPEND="${RDEPEND}
 DOCS=( ChangeLog NEWS README )
 
 src_unpack() {
-	git-r3_src_unpack
+	default
 
 	# create the default modules directory to be able
 	# to use the php-ext-source-r3 eclass to configure/build
-	ln -s src "${S}/modules"
+	ln -s src "${S}/modules" || die
 }
 
 src_prepare() {

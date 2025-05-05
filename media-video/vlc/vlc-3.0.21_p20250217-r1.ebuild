@@ -3,44 +3,28 @@
 
 EAPI=8
 
+COMMIT=ac807d2c8574c292a34c51e000c1554f372aa618
 LUA_COMPAT=( lua5-{1..2} )
-
-MY_PV="${PV/_/-}"
-MY_PV="${MY_PV/-beta/-test}"
-MY_P="${PN}-${MY_PV}"
-if [[ ${PV} = *9999* ]] ; then
-	if [[ ${PV%.9999} != ${PV} ]] ; then
-		EGIT_BRANCH="3.0.x"
-	fi
-	EGIT_REPO_URI="https://code.videolan.org/videolan/vlc.git"
-	inherit git-r3
-else
-	if [[ ${MY_P} = ${P} ]] ; then
-		SRC_URI="https://download.videolan.org/pub/videolan/${PN}/${PV}/${P}.tar.xz"
-	else
-		SRC_URI="https://download.videolan.org/pub/videolan/testing/${MY_P}/${MY_P}.tar.xz"
-	fi
-	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 -sparc ~x86"
-fi
-
 inherit autotools flag-o-matic lua-single toolchain-funcs virtualx xdg
 
 DESCRIPTION="Media player and framework with support for most multimedia files and streaming"
 HOMEPAGE="https://www.videolan.org/vlc/"
-S="${WORKDIR}/${MY_P}"
+SRC_URI="https://code.videolan.org/videolan/${PN}/-/archive/${COMMIT}/${PN}-${COMMIT}.tar.bz2 -> ${P}.tar.bz2"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="LGPL-2.1 GPL-2"
-SLOT="0/12-9" # vlc - vlccore
+SLOT="0/5-9" # vlc - vlccore
+KEYWORDS="amd64 ~arm arm64 ~loong ppc ppc64 ~riscv -sparc x86"
 
 IUSE="a52 alsa aom archive aribsub bidi bluray cddb chromaprint chromecast dav1d dbus
 	dc1394 debug directx dts +dvbpsi dvd +encode faad fdk +ffmpeg flac fluidsynth
-	fontconfig +gcrypt gme keyring gstreamer +gui ieee1394 jack jpeg kate kms
-	libass libcaca libnotify libplacebo +libsamplerate libtar libtiger linsys lirc live
-	loudness lua macosx-notifications mad matroska modplug mp3 mpeg mtp musepack ncurses
-	nfs ogg omxil optimisememory opus png projectm pulseaudio rdp run-as-root samba
-	sdl-image sftp shout sid skins soxr speex srt ssl svg taglib theora tremor truetype
-	twolame udev upnp vaapi v4l vdpau vnc vpx wayland +X x264 x265 xml zeroconf
-	zvbi cpu_flags_arm_neon cpu_flags_ppc_altivec cpu_flags_x86_mmx cpu_flags_x86_sse
+	fontconfig +gcrypt gme keyring gstreamer +gui ieee1394 jack jpeg kate
+	libass libcaca libnotify +libsamplerate libtar libtiger linsys lirc live lua
+	macosx-notifications mad matroska modplug mp3 mpeg mtp musepack ncurses nfs ogg
+	omxil optimisememory opus png projectm pulseaudio rdp run-as-root samba sdl-image
+	sftp shout sid skins soxr speex srt ssl svg taglib theora tremor truetype twolame
+	udev upnp vaapi v4l vdpau vnc vpx wayland +X x264 x265 xml zeroconf zvbi
+	cpu_flags_arm_neon cpu_flags_ppc_altivec cpu_flags_x86_mmx cpu_flags_x86_sse
 "
 REQUIRED_USE="
 	chromecast? ( encode )
@@ -50,14 +34,16 @@ REQUIRED_USE="
 	libtar? ( skins )
 	libtiger? ( kate )
 	lua? ( ${LUA_REQUIRED_USE} )
-	skins? ( gui truetype X xml )
+	skins? ( archive gui truetype X xml )
 	ssl? ( gcrypt )
 	vaapi? ( ffmpeg X )
 	vdpau? ( ffmpeg X )
 "
+# snapshots need bison+flex
 BDEPEND="
-	>=sys-devel/gettext-0.19.8
+	sys-devel/bison
 	sys-devel/flex
+	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 	lua? ( ${LUA_DEPS} )
 	amd64? ( dev-lang/yasm )
@@ -89,7 +75,7 @@ RDEPEND="
 		>=dev-libs/protobuf-2.5.0:=
 		>=net-libs/libmicrodns-0.1.2:=
 	)
-	dav1d? ( >=media-libs/dav1d-0.5.0:= )
+	dav1d? ( media-libs/dav1d:= )
 	dbus? ( sys-apps/dbus )
 	dc1394? (
 		media-libs/libdc1394:2
@@ -118,12 +104,14 @@ RDEPEND="
 	keyring? ( app-crypt/libsecret )
 	gstreamer? ( >=media-libs/gst-plugins-base-1.4.5:1.0 )
 	gui? (
-		dev-qt/qt5compat:6[qml]
-		dev-qt/qtbase:6=[gui,widgets]
-		dev-qt/qtdeclarative:6
-		dev-qt/qtsvg:6
-		kde-frameworks/kwindowsystem:6
-		X? ( x11-libs/libX11 )
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtsvg:5
+		dev-qt/qtwidgets:5
+		X? (
+			dev-qt/qtx11extras:5
+			x11-libs/libX11
+		)
 	)
 	ieee1394? (
 		sys-libs/libavc1394
@@ -132,7 +120,6 @@ RDEPEND="
 	jack? ( virtual/jack )
 	jpeg? ( media-libs/libjpeg-turbo:0 )
 	kate? ( media-libs/libkate )
-	kms? ( x11-libs/libdrm )
 	libass? (
 		media-libs/fontconfig:1.0
 		media-libs/libass:=
@@ -141,16 +128,15 @@ RDEPEND="
 	libnotify? (
 		dev-libs/glib:2
 		x11-libs/gdk-pixbuf:2
+		x11-libs/gtk+:3
 		x11-libs/libnotify
 	)
-	libplacebo? ( media-libs/libplacebo:= )
 	libsamplerate? ( media-libs/libsamplerate )
 	libtar? ( dev-libs/libtar )
 	libtiger? ( media-libs/libtiger )
 	linsys? ( media-libs/zvbi )
 	lirc? ( app-misc/lirc )
 	live? ( <media-plugins/live-2024.11.28:= )
-	loudness? ( >=media-libs/libebur128-1.2.4:= )
 	lua? ( ${LUA_DEPS} )
 	mad? ( media-libs/libmad )
 	matroska? (
@@ -212,13 +198,11 @@ RDEPEND="
 	vpx? ( media-libs/libvpx:= )
 	wayland? (
 		>=dev-libs/wayland-1.15
-		>=dev-libs/wayland-protocols-1.12
+		dev-libs/wayland-protocols
 	)
 	X? (
 		x11-libs/libX11
 		x11-libs/libxcb
-		x11-libs/libXcursor
-		x11-libs/libxkbcommon[X]
 		x11-libs/xcb-util
 		x11-libs/xcb-util-keysyms
 	)
@@ -233,11 +217,14 @@ DEPEND="${RDEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-9999-fix-libtremor-libs.patch # build system
-	"${FILESDIR}"/${PN}-9999-configure-lua-version.patch
+	"${FILESDIR}"/${PN}-2.1.0-fix-libtremor-libs.patch # build system
+	"${FILESDIR}"/${PN}-3.0.6-fdk-aac-2.0.0.patch # bug 672290
+	"${FILESDIR}"/${PN}-3.0.11.1-configure_lua_version.patch
+	"${FILESDIR}"/${PN}-3.0.18-drop-minizip-dep.patch
+	"${FILESDIR}"/${PN}-3.0.21-freerdp-2.patch # bug 919296, 590164
 )
 
-DOCS=( AUTHORS THANKS NEWS README.md doc/fortunes.txt )
+DOCS=( AUTHORS THANKS NEWS README doc/fortunes.txt )
 
 pkg_setup() {
 	if use lua; then
@@ -252,10 +239,10 @@ src_prepare() {
 	xdg_environment_reset
 
 	has_version 'net-libs/libupnp:1.8' && \
-		eapply "${FILESDIR}"/${P}-libupnp-slot-1.8.patch
+		eapply "${FILESDIR}"/${PN}-2.2.8-libupnp-slot-1.8.patch
 
 	# Bootstrap when we are on a git checkout.
-	if [[ ${PV} = *9999 ]] ; then
+	if [[ ${PV} == *9999* || ${PV} == *_p[0-9]* ]] ; then
 		./bootstrap
 	fi
 
@@ -284,12 +271,13 @@ src_prepare() {
 }
 
 src_configure() {
-	# bug #944778
-	unset LEX
+	# snapshots need bison+flex
+	unset LEX YACC
 
 	local -x BUILDCC="$(tc-getBUILD_CC)"
 
 	local myeconfargs=(
+		--disable-aa
 		--disable-amf-frc # DirectX specific
 		--disable-optimizations
 		--disable-rpath
@@ -347,18 +335,15 @@ src_configure() {
 		$(use_enable jack)
 		$(use_enable jpeg)
 		$(use_enable kate)
-		$(use_enable kms)
 		$(use_enable libass)
 		$(use_enable libcaca caca)
 		$(use_enable libnotify notify)
-		$(use_enable libplacebo)
 		$(use_enable libsamplerate samplerate)
 		$(use_enable libtar)
 		$(use_enable libtiger tiger)
 		$(use_enable linsys)
 		$(use_enable lirc)
 		$(use_enable live live555)
-		$(use_enable loudness ebur128)
 		$(use_enable lua)
 		$(use_enable macosx-notifications osx-notifications)
 		$(use_enable mad)
@@ -372,6 +357,7 @@ src_configure() {
 		$(use_enable nfs)
 		$(use_enable ogg)
 		$(use_enable omxil)
+		$(use_enable omxil omxil-vout)
 		$(use_enable optimisememory optimize-memory)
 		$(use_enable opus)
 		$(use_enable png)
@@ -405,6 +391,7 @@ src_configure() {
 		$(use_enable wayland)
 		$(use_with X x)
 		$(use_enable X xcb)
+		$(use_enable X xvideo)
 		$(use_enable x264)
 		$(use_enable x264 x26410b)
 		$(use_enable x265)
@@ -416,11 +403,13 @@ src_configure() {
 		--disable-asdcp
 		--disable-coverage
 		--disable-cprof
+		--disable-crystalhd
 		--disable-decklink
 		--disable-gles2
 		--disable-goom
 		--disable-kai
 		--disable-kva
+		--disable-libplacebo
 		--disable-maintainer-mode
 		--disable-merge-ffmpeg
 		--disable-mfx
@@ -435,6 +424,7 @@ src_configure() {
 		--disable-spatialaudio
 		--disable-vsxu
 		--disable-wasapi
+		--disable-wma-fixed
 	)
 	# ^ We don't have these disabled libraries in the Portage tree yet.
 
@@ -494,12 +484,12 @@ src_install() {
 }
 
 pkg_postinst() {
-	if [[ -z "${ROOT}" ]] && [[ -x "${EROOT}"/usr/libexec/vlc/vlc-cache-gen ]] ; then
-		einfo "Running ${EPREFIX}/usr/libexec/vlc/vlc-cache-gen on ${EROOT}/usr/$(get_libdir)/vlc/plugins/"
-		"${EPREFIX}"/usr/libexec/vlc/vlc-cache-gen "${EROOT}/usr/$(get_libdir)/vlc/plugins/"
+	if [[ -z "${ROOT}" ]] && [[ -x "${EROOT}/usr/$(get_libdir)/vlc/vlc-cache-gen" ]] ; then
+		einfo "Running ${EPREFIX}/usr/$(get_libdir)/vlc/vlc-cache-gen on ${EROOT}/usr/$(get_libdir)/vlc/plugins/"
+		"${EPREFIX}/usr/$(get_libdir)/vlc/vlc-cache-gen" "${EROOT}/usr/$(get_libdir)/vlc/plugins/"
 	else
 		ewarn "We cannot run vlc-cache-gen (most likely ROOT != /)"
-		ewarn "Please run ${EPREFIX}/usr/libexec/vlc/vlc-cache-gen manually"
+		ewarn "Please run ${EPREFIX}/usr/$(get_libdir)/vlc/vlc-cache-gen manually"
 		ewarn "If you do not do it, vlc will take a long time to load."
 	fi
 

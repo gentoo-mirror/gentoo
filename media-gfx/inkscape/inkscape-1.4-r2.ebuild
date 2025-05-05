@@ -20,7 +20,7 @@ if [[ ${PV} = 9999* ]]; then
 	EGIT_REPO_URI="https://gitlab.com/inkscape/inkscape.git"
 else
 	SRC_URI="https://media.inkscape.org/dl/resources/file/${MY_P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86"
 fi
 
 S="${WORKDIR}/${MY_P}"
@@ -111,6 +111,15 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 	test? ( dev-cpp/gtest )
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.4-gcc15.patch
+	"${FILESDIR}"/${PN}-1.4-poppler-24.10-fix-backport.patch
+	"${FILESDIR}"/${P}-poppler-24.11.0.patch # bug 943499
+	"${FILESDIR}"/${P}-poppler-24.12.0.patch # bug 946597
+	"${FILESDIR}"/${P}-poppler-25.02.0.patch # bug 949531
+	"${FILESDIR}"/${P}-cmake4.patch
+)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp

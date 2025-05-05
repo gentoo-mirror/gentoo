@@ -14,7 +14,7 @@ else
 	MY_PV="$(ver_rs 3 '-')"
 	MY_P="ImageMagick-${MY_PV}"
 	SRC_URI="mirror://imagemagick/${MY_P}.tar.xz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 fi
 
 S="${WORKDIR}/${MY_P}"
@@ -158,7 +158,6 @@ src_configure() {
 		$(use_with zip)
 		$(use_with zlib)
 		--without-autotrace
-		--with-uhdr
 		$(use_with postscript dps)
 		$(use_with djvu)
 		--with-dejavu-font-dir="${EPREFIX}"/usr/share/fonts/dejavu
@@ -230,7 +229,8 @@ src_install() {
 		DOCUMENTATION_PATH="${EPREFIX}"/usr/share/doc/${PF}/html \
 		install
 
-	einstalldocs
+	rm -f "${ED}"/usr/share/doc/${PF}/html/{ChangeLog,LICENSE,NEWS.txt}
+	dodoc {AUTHORS,README}.txt
 
 	if use perl; then
 		find "${ED}" -type f -name perllocal.pod -exec rm -f {} +

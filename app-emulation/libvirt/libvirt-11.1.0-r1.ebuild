@@ -21,7 +21,7 @@ if [[ ${PV} = *9999* ]]; then
 else
 	SRC_URI="https://download.libvirt.org/${P}.tar.xz
 		verify-sig? ( https://download.libvirt.org/${P}.tar.xz.asc )"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+	KEYWORDS="amd64 ~arm arm64 ppc64 x86"
 fi
 
 DESCRIPTION="C toolkit to manipulate virtual machines"
@@ -157,8 +157,8 @@ PDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-11.0.0-Fix-paths-in-libvirt-guests.sh.in.patch
-	"${FILESDIR}"/${PN}-11.3.0-do-not-use-sysconfig.patch
-	"${FILESDIR}"/${PN}-11.3.0-fix-paths-for-apparmor.patch
+	"${FILESDIR}"/${PN}-9.9.0-do-not-use-sysconfig.patch
+	"${FILESDIR}"/${PN}-10.7.0-fix-paths-for-apparmor.patch
 )
 
 python_check_deps() {
