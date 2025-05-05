@@ -1,6 +1,6 @@
 BDEPEND=dev-build/netsurf-buildsystem virtual/pkgconfig
 DEFINED_PHASES=compile install test
-DEPEND=dev-libs/libparserutils dev-libs/libwapcaplet net-libs/libhubbub xml? ( expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2 ) ) test? ( dev-perl/XML-XPath dev-perl/libxml-perl dev-perl/Switch )
+DEPEND=dev-libs/libparserutils dev-libs/libwapcaplet net-libs/libhubbub xml? ( expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:= ) ) test? ( dev-perl/XML-XPath dev-perl/libxml-perl dev-perl/Switch )
 DESCRIPTION=implementation of the W3C DOM, written in C
 EAPI=8
 HOMEPAGE=https://www.netsurf-browser.org/projects/libdom/
@@ -8,10 +8,10 @@ INHERIT=netsurf
 IUSE=expat test xml
 KEYWORDS=amd64 arm ~arm64 ppc ppc64 ~riscv sparc x86
 LICENSE=MIT
-RDEPEND=dev-libs/libparserutils dev-libs/libwapcaplet net-libs/libhubbub xml? ( expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2 ) )
+RDEPEND=dev-libs/libparserutils dev-libs/libwapcaplet net-libs/libhubbub xml? ( expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:= ) )
 REQUIRED_USE=test? ( xml )
 RESTRICT=!test? ( test )
 SLOT=0/0.4.3_pre20250301
 SRC_URI=https://download.netsurf-browser.org/libs/releases/libdom-0.4.2-src.tar.gz https://dev.gentoo.org/~mjo/distfiles/libdom-0.4.3_pre20250301.patch.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	netsurf	3a16932a52467058f19b48ced2e15c4a
-_md5_=b7954d3637dbfea6e241d52fa2378108
+_md5_=1db96f8fcee0d0d37eecdd4222325f6a

@@ -1,6 +1,6 @@
 BDEPEND=dev-build/netsurf-buildsystem virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install test unpack
-DEPEND=dev-libs/libparserutils dev-libs/libwapcaplet net-libs/libhubbub xml? ( expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2 ) ) test? ( dev-perl/XML-XPath dev-perl/libxml-perl dev-perl/Switch )
+DEPEND=dev-libs/libparserutils dev-libs/libwapcaplet net-libs/libhubbub xml? ( expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:= ) ) test? ( dev-perl/XML-XPath dev-perl/libxml-perl dev-perl/Switch )
 DESCRIPTION=implementation of the W3C DOM, written in C
 EAPI=8
 HOMEPAGE=https://www.netsurf-browser.org/projects/libdom/
@@ -8,9 +8,9 @@ INHERIT=git-r3 netsurf
 IUSE=expat test xml
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=dev-libs/libparserutils dev-libs/libwapcaplet net-libs/libhubbub xml? ( expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2 ) )
+RDEPEND=dev-libs/libparserutils dev-libs/libwapcaplet net-libs/libhubbub xml? ( expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:= ) )
 REQUIRED_USE=test? ( xml )
 RESTRICT=!test? ( test )
 SLOT=0/9999
 _eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	netsurf	3a16932a52467058f19b48ced2e15c4a
-_md5_=fdc987b98b3a6459a544098f72357a51
+_md5_=bdee0f2cedbf69460df503075f1520c7
