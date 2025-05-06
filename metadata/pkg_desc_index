@@ -950,7 +950,7 @@ app-admin/eselect 1.4.29 1.4.30 9999: Gentoo's multi-purpose configuration and m
 app-admin/evtxtools 1.1.1-r2: Read, decode and dump Windows Vista/2008/7 event log file
 app-admin/exo 1.84.0: Command-line tool for everything at Exoscale: compute, storage, dns
 app-admin/fam 2.7.0_p17_p3: FAM, the File Alteration Monitor
-app-admin/fetchlog 1.4-r2: Displays the last new messages of a logfile
+app-admin/fetchlog 1.4-r2 1.6: Displays the last new messages of a logfile
 app-admin/fifo-cronolog 1.2.3-r1: cronolog wrapper for use with dumb daemons like squid, varnish and so on
 app-admin/filebeat 7.17.16 7.17.25: Lightweight log shipper for Logstash and Elasticsearch
 app-admin/filewatcher 2.4.6-r1: File control configuration system and IDS
@@ -2349,7 +2349,7 @@ app-emulation/genymotion-bin 3.7.1: Complete set of tools that provide a virtual
 app-emulation/glean 1.23.0-r1 1.24.0: Simple program to write static config from config-drive
 app-emulation/grub-xen-host 1.0-r2: Grub2 built as a PV grub per the Xen PV Boot Protocol
 app-emulation/guestfs-tools 1.48.2-r1 1.52.3-r1 1.53.7-r1: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
-app-emulation/gxemul 0.6.2: A Machine Emulator, Mainly emulates MIPS, but supports other CPU types
+app-emulation/gxemul 0.6.2 0.6.3.1: A Machine Emulator, Mainly emulates MIPS, but supports other CPU types
 app-emulation/hercules 3.13-r1: Hercules System/370, ESA/390 and zArchitecture Mainframe Emulator
 app-emulation/hercules-sdl 4.7.0-r1: The SoftDevLabs (SDL) version of the Hercules 4.x Hyperion Emulator
 app-emulation/hercules-sdl-crypto 4.7.0 9999: Simple AES/DES encryption and SHA1/SHA2 hashing library
@@ -3868,7 +3868,7 @@ dev-cpp/eigen 3.4.0-r3 9999: C++ template library for linear algebra
 dev-cpp/elfio 3.12: ELF reader/producer header-only C++ library
 dev-cpp/expected 1.1.0: Single header implementation of std::expected with functional-style extensions
 dev-cpp/expected-lite 0.6.3: Expected objects in C++11 and later in a single-file header-only library
-dev-cpp/fast_float 7.0.0: Fast and exact implementation of the C++ from_chars functions for number types
+dev-cpp/fast_float 7.0.0 8.0.0: Fast and exact implementation of the C++ from_chars functions for number types
 dev-cpp/fb303 2024.11.04.00 2025.04.14.00: Core set of Thrift functions querying stats and other information from a service
 dev-cpp/fbthrift 2024.11.04.00-r1 2025.04.14.00-r2: Facebook's branch of Apache Thrift (C++ bindings)
 dev-cpp/fizz 2024.11.04.00 2025.04.14.00: C++14 implementation of the TLS-1.3 standard
@@ -10904,7 +10904,7 @@ dev-util/pahole 1.27-r1 1.29 1.30 9999: pahole (Poke-a-Hole) and other DWARF uti
 dev-util/patchelf 0.17.2 0.17.2-r1 0.18.0: Small utility to modify the dynamic linker and RPATH of ELF executables
 dev-util/patchutils 0.4.2: A collection of tools that operate on patch files
 dev-util/patdiff 0.15.0 0.17.0: Colored patience diffs with word-level refinement
-dev-util/peg 0.1.18: Recursive-descent parser generators for C
+dev-util/peg 0.1.18 0.1.19: Recursive-descent parser generators for C
 dev-util/perf 6.7 6.11.7-r1 6.12-r1 6.13.5 6.14: Userland tools for Linux Performance Counters
 dev-util/pixi 0.39.5 0.45.0 0.46.0: A package management and workflow tool
 dev-util/pkgcheck 0.10.33-r1 0.10.34 9999: pkgcore-based QA utility for ebuild repos
@@ -14754,7 +14754,7 @@ net-im/rocketchat-desktop-bin 3.9.10-r1 4.1.1-r1: The Ultimate Open Source Web C
 net-im/sendxmpp 1.24: A perl-script to send xmpp (jabber), similar to what mail(1) does for mail
 net-im/sendxmpp-scala 1.1.1-r1 9999: Send XMPP (Jabber) messages via command line
 net-im/signal-cli-bin 0.13.2-r1 0.13.9: Send and receive messages of Signal Messenger over a command line interface
-net-im/signal-desktop-bin 7.52.0: Allows you to send and receive messages of Signal Messenger on your computer
+net-im/signal-desktop-bin 7.53.0: Allows you to send and receive messages of Signal Messenger on your computer
 net-im/skypeforlinux 8.108.0.205 8.110.76.107: Instant messaging client, with support for audio and video
 net-im/slack 4.43.44 4.43.49 4.43.52: Team collaboration tool
 net-im/spectrum2 2.2.1: An open source instant messaging transport
@@ -15417,7 +15417,7 @@ net-nds/nsscache 0.49-r1: commandline tool to sync directory services to local c
 net-nds/openldap 2.5.19 2.6.8-r1 2.6.9: LDAP suite of application and development tools
 net-nds/phpldapadmin 1.2.6.6 1.2.6.7: phpLDAPadmin is a web-based tool for managing all aspects of your LDAP server
 net-nds/rpcbind 1.2.6 1.2.7 9999: portmap replacement which supports RPC over various protocols
-net-nds/shelldap 1.5.1: A handy shell-like interface for browsing LDAP servers and editing their content
+net-nds/shelldap 1.5.2: A handy shell-like interface for browsing LDAP servers and editing their content
 net-nds/smbldap-tools 0.9.10-r1 0.9.11-r1: Samba LDAP management tools
 net-nds/yp-tools 4.2.3-r1: Network Information Service tools
 net-news/alligator 24.12.3 25.04.0: Convergent RSS/Atom feed reader for Plasma
@@ -17444,7 +17444,7 @@ sys-devel/gnuconfig 20240728 99999999: Updated config.sub and config.guess file 
 sys-devel/icecream 1.4-r1: Distributed compiler with a central scheduler to share build load
 sys-devel/kgcc64 10.5.0 11.5.0 12.4.1_p20241219 13.3.1_p20241220 14.2.1_p20241221: 64bit kernel compiler
 sys-devel/m4 1.4.19-r2 1.4.19_p20250413 1.4.19_p20250419: GNU macro processor
-sys-devel/mold 2.1.0 2.35.1 2.36.0 2.37.1 2.38.1 2.38.1-r1 2.39.0 9999: A Modern Linker
+sys-devel/mold 2.37.1 2.38.1 2.38.1-r1 2.39.0 9999: A Modern Linker
 sys-devel/multilib-gcc-wrapper 0-r2: Wrappers for gcc tools to be used on non-native CHOSTs
 sys-devel/native-cctools 5-r1 5-r2: Host OS native assembler as and static linker ld
 sys-devel/nvptx-tools 0_pre20240809 9999: Collection of tools for use with nvptx-none GCC toolchains
@@ -18810,7 +18810,7 @@ x11-plugins/wmwifi 0.6-r1: wireless network interface monitor dockapp
 x11-plugins/wmwork 0.2.5-r1: a dockapp that lets you easily track time spent on different projects
 x11-plugins/wmxkb 1.2.2-r1: Dockable keyboard layout switcher for Window Maker
 x11-plugins/wmxres 1.2-r1 1.4: Dock application to select your display mode among those possible
-x11-terms/alacritty 0.14.0-r1 0.15.1 9999: GPU-accelerated terminal emulator
+x11-terms/alacritty 0.15.1 9999: GPU-accelerated terminal emulator
 x11-terms/cool-retro-term 1.2.0: Terminal emulator with an old school look and feel
 x11-terms/ghostty 1.1.2 1.1.3: Fast, feature-rich, and cross-platform terminal emulator
 x11-terms/ghostty-terminfo 1.1.2 1.1.3: Terminfo for ghostty, a fast, feature-rich, and cross-platform terminal emulator
