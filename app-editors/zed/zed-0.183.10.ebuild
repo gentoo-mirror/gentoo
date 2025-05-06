@@ -185,10 +185,6 @@ src_prepare() {
 	local CPAL_GIT="git = \"https://github.com/zed-industries/cpal\", rev = \"${CPAL_COMMIT}\""
 	local CPAL_PATH="path = \"${WORKDIR}/cpal-${CPAL_COMMIT}\""
 
-	local ASYNC_TLS_COMMIT="1e759a4b5e370f87dc15e40756ac4f8815b61d9d"
-	local ASYNC_TLS_GIT="git = \"https://github.com/zed-industries/async-tls\", rev = \"${ASYNC_TLS_COMMIT}\""
-	local ASYNC_TLS_PATH="path = \"${WORKDIR}/async-tls-${ASYNC_TLS_COMMIT}\""
-
 	local NOTIFY_COMMIT="bbb9ea5ae52b253e095737847e367c30653a2e96"
 	local NOTIFY_GIT="notify = { git = \"https://github.com/zed-industries/notify.git\", rev = \"${NOTIFY_COMMIT}\""
 	local NOTIFY_PATH="notify = \\{ path = \"${WORKDIR}/notify-${NOTIFY_COMMIT}/notify\""
@@ -196,7 +192,6 @@ src_prepare() {
 	local NOTIFY_TYPES_PATH="notify-types = \\{ path = \"${WORKDIR}/notify-${NOTIFY_COMMIT}/notify-types\""
 
 	sed -e "s#${CPAL_GIT}#${CPAL_PATH}#" \
-		-e "s#${ASYNC_TLS_GIT}#${ASYNC_TLS_PATH}#" \
 		-e "s#${NOTIFY_GIT}#${NOTIFY_PATH}#" \
 		-e "s#${NOTIFY_TYPES_GIT}#${NOTIFY_TYPES_PATH}#" \
 		-i "${S}/Cargo.toml" || die "Cargo fetch workaround failed"
