@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 GENTOO_DEPEND_ON_PERL=noslotop
 inherit perl-module
@@ -14,7 +14,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="+readline sasl +ssl"
+IUSE="+readline sasl"
 
 RDEPEND="dev-perl/Algorithm-Diff
 	sasl? ( dev-perl/Authen-SASL )
