@@ -232,7 +232,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 	)
 	xslt? (
 		dev-libs/libxslt
-		>=dev-libs/libxml2-2.9.4
+		>=dev-libs/libxml2-2.9.4:=
 	)
 	zeroconf? (
 		net-dns/avahi[dbus]
@@ -245,7 +245,7 @@ RDEPEND="
 DEPEND="
 	${COMMON_DEPEND}
 	${COMMON_TARGET_DEPEND}
-	>=dev-libs/rapidjson-1.0.2
+	>=dev-cpp/nlohmann_json-3.2.0
 	test? (
 		>=dev-cpp/gtest-1.10.0
 	)
@@ -404,10 +404,9 @@ src_configure() {
 		-DENABLE_INTERNAL_FSTRCMP=OFF
 		-DENABLE_INTERNAL_GTEST=OFF
 		-DENABLE_INTERNAL_PCRE2=OFF
-		-DENABLE_INTERNAL_RapidJSON=OFF
+		-DENABLE_INTERNAL_NLOHMANNJSON=OFF
 		-DENABLE_INTERNAL_SPDLOG=OFF
 		-DENABLE_INTERNAL_TAGLIB=OFF
-		-DENABLE_INTERNAL_UDFREAD=OFF
 
 		-DTARBALL_DIR="${DISTDIR}"
 		-Dlibdvdnav_URL="${DISTDIR}/libdvdnav-${LIBDVDNAV_VERSION}.tar.gz"

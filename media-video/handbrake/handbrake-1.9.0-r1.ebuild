@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit edo flag-o-matic multiprocessing python-any-r1 toolchain-funcs xdg
 
@@ -53,6 +53,7 @@ IUSE="amf +fdk gui libdovi numa nvenc qsv x265"
 
 REQUIRED_USE="numa? ( x265 )"
 
+# <media-libs/svt-av1-3.0.0: breaking change
 COMMON_DEPEND="
 	app-arch/bzip2
 	>=app-arch/xz-utils-5.2.6
@@ -68,6 +69,7 @@ COMMON_DEPEND="
 	>=media-libs/libvpx-1.12.0:=
 	media-libs/opus
 	>=media-libs/speex-1.2.1
+	<media-libs/svt-av1-3.0.0
 	>=media-libs/svt-av1-1.4.1:=
 	>=media-libs/x264-0.0.20220222:=
 	>=media-libs/zimg-3.0.4
@@ -78,7 +80,7 @@ COMMON_DEPEND="
 	gui? (
 		>=gui-libs/gtk-4.4:4[gstreamer]
 		dev-libs/glib:2
-		>=dev-libs/libxml2-2.10.3
+		>=dev-libs/libxml2-2.10.3:=
 		x11-libs/gdk-pixbuf:2
 		x11-libs/pango
 	)

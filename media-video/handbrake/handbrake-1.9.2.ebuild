@@ -25,12 +25,12 @@ declare -A BUNDLED=(
 	# Heavily patched in an incompatible way.
 	# Issues related to using system ffmpeg historically.
 	# See bug #829595 and #922828
-	[ffmpeg]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/ffmpeg-7.1.1.tar.bz2;"
+	[ffmpeg]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/ffmpeg-7.1.tar.bz2;"
 	# Patched in an incompatible way
-	[x265]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20250224-13212.tar.gz;x265"
-	[x265_8bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20250224-13212.tar.gz;x265"
-	[x265_10bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20250224-13212.tar.gz;x265"
-	[x265_12bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20250224-13212.tar.gz;x265"
+	[x265]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265_4.1.tar.gz;x265"
+	[x265_8bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265_4.1.tar.gz;x265"
+	[x265_10bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265_4.1.tar.gz;x265"
+	[x265_12bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265_4.1.tar.gz;x265"
 )
 
 bundle_src_uri() {
@@ -53,6 +53,7 @@ IUSE="amf +fdk gui libdovi numa nvenc qsv x265"
 
 REQUIRED_USE="numa? ( x265 )"
 
+# <media-libs/svt-av1-3.0.0: breaking change
 COMMON_DEPEND="
 	app-arch/bzip2
 	>=app-arch/xz-utils-5.2.6
@@ -68,7 +69,8 @@ COMMON_DEPEND="
 	>=media-libs/libvpx-1.12.0:=
 	media-libs/opus
 	>=media-libs/speex-1.2.1
-	>=media-libs/svt-av1-3.0.0:=
+	<media-libs/svt-av1-3.0.0
+	>=media-libs/svt-av1-1.4.1:=
 	>=media-libs/x264-0.0.20220222:=
 	>=media-libs/zimg-3.0.4
 	media-sound/lame
