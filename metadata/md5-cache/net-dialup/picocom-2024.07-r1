@@ -1,5 +1,5 @@
 BDEPEND=man? ( dev-go/go-md2man )
-DEFINED_PHASES=compile install
+DEFINED_PHASES=compile install prepare
 DESCRIPTION=minimal dumb-terminal emulation program
 EAPI=8
 HOMEPAGE=https://gitlab.com/wsakernel/picocom
@@ -8,6 +8,6 @@ IUSE=+man
 KEYWORDS=~amd64
 LICENSE=GPL-2+
 SLOT=0
-SRC_URI=https://gitlab.com/wsakernel/picocom/-/archive/2024-07/picocom-2024-07.tar.bz2
+SRC_URI=https://gitlab.com/wsakernel/picocom/-/archive/2024-07/picocom-2024-07.tar.bz2 !man? ( https://dev.gentoo.org/~ceamac/net-dialup/picocom/picocom-2024.07.1.bz2 )
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	bash-completion-r1	767861f3744f589ee5291c1698b1c082
-_md5_=5c366fca2ca9157d7679c0b892cbea82
+_md5_=aab0097398f11f5902f7debc7d44546a
