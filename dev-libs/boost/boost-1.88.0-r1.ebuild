@@ -49,8 +49,11 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.81.0-disable_icu_rpath.patch
 	"${FILESDIR}"/${PN}-1.79.0-build-auto_index-tool.patch
 	"${FILESDIR}"/${PN}-1.87.0-process-error-alpha.patch
+	"${FILESDIR}"/${PN}-1.88.0-algorithm-reverse_copy.patch
 	"${FILESDIR}"/${PN}-1.88.0-beast-network-sandbox.patch
 	"${FILESDIR}"/${PN}-1.88.0-bind-no-Werror.patch
+	"${FILESDIR}"/${PN}-1.88.0-mysql-cstdint.patch
+	"${FILESDIR}"/${PN}-1.88.0-range-any_iterator.patch
 	"${FILESDIR}"/${PN}-1.88.0-yap-cstdint.patch
 )
 
@@ -254,8 +257,6 @@ multilib_src_test() {
 
 	# The following libraries do not compile or fail their tests:
 	local libs_excluded=(
-		# fails to use std::reverse_copy
-		"algorithm"
 		# is_invocable.cpp:35:58: error: static assertion failed: (std::is_invocable<Callable, Args...>() == boost::callable_traits::is_invocable<Callable, Args...>())
 		"callable_traits"
 		# test output comparison failure
@@ -266,8 +267,6 @@ multilib_src_test() {
 		"math"
 		# assignment of read-only member 'gauss::laguerre::detail::laguerre_l_object<T>::order'
 		"multiprecision"
-		# uint8_t is not a member of std
-		"mysql"
 		# PyObject* boost::parameter::python::aux::unspecified_type():
 		#   /usr/include/python3.13/object.h:339:30: error: lvalue required as left operand of assignment
 		"parameter_python"
