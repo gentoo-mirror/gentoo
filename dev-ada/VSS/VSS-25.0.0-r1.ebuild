@@ -1,9 +1,9 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-ADA_COMPAT=( gcc_12 gcc_13 gcc_14 )
+ADA_COMPAT=( gcc_{13..15} )
 inherit ada multiprocessing
 
 DESCRIPTION="A high level string and text processing library"
@@ -13,10 +13,11 @@ SRC_URI="https://github.com/AdaCore/${PN}/archive/refs/tags/v${PV}.tar.gz
 
 LICENSE="GPL-3 gcc-runtime-library-exception-3.1"
 SLOT="0/${PV}"
-KEYWORDS="amd64 x86"
+KEYWORDS="amd64 ~arm64 x86"
 IUSE="+shared static-libs static-pic test"
 RESTRICT="!test? ( test )"
-REQUIRED_USE="${ADA_REQUIRED_USE}"
+REQUIRED_USE="${ADA_REQUIRED_USE}
+	test? ( static-libs )"
 
 RDEPEND="${ADA_DEPS}
 	dev-ada/xmlada:=[shared?,static-libs?,static-pic?,${ADA_USEDEP}]"
