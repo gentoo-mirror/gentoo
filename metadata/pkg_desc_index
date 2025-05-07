@@ -911,7 +911,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.38.37 1.40.2 1.40.7 1.40.8: Universal Command Line Environment for AWS
+app-admin/awscli 1.38.37 1.40.2 1.40.7 1.40.8 1.40.9: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2025.2.0 2025.2.1 2025.3.1: Bitwarden password manager desktop client
 app-admin/btrfs-assistant 2.1.1: GUI management tool to make managing a Btrfs filesystem easier
@@ -8126,7 +8126,7 @@ dev-python/betterproto 2.0.0_beta6 2.0.0_beta7: A better Protobuf / gRPC generat
 dev-python/bibtexparser 1.4.2 1.4.3: A BibTeX parser written in Python
 dev-python/binaryornot 0.4.4-r3: Ultra-lightweight pure Python package to guess whether a file is binary or text
 dev-python/bincopy 20.1.0: Mangling of various file formats that conveys binary information
-dev-python/bitarray 3.3.1 3.3.2: Efficient arrays of booleans -- C extension
+dev-python/bitarray 3.3.1 3.3.2 3.4.0: Efficient arrays of booleans -- C extension
 dev-python/bitstring 4.3.1: A pure Python module for creation and analysis of binary data
 dev-python/black 24.10.0 25.1.0: The uncompromising Python code formatter
 dev-python/blake3 1.0.4: Python bindings for the BLAKE3 cryptographic hash function
@@ -8138,8 +8138,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.37.37 1.38.3 1.38.8 1.38.9: The AWS SDK for Python
-dev-python/botocore 1.37.37 1.38.3 1.38.8 1.38.9: Low-level, data-driven core of boto 3
+dev-python/boto3 1.37.37 1.38.3 1.38.8 1.38.9 1.38.10: The AWS SDK for Python
+dev-python/botocore 1.37.37 1.38.3 1.38.8 1.38.9 1.38.10: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.2 0.13.3: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8356,7 +8356,7 @@ dev-python/expects 0.9.0-r1: Expressive and extensible TDD/BDD assertion library
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyed3 0.9.7-r1 0.9.8: Module for manipulating ID3 (v1 + v2) tags in Python
 dev-python/faker 37.1.0: A Python package that generates fake data for you
-dev-python/fakeredis 2.28.1: Fake implementation of redis API for testing purposes
+dev-python/fakeredis 2.28.1 2.29.0: Fake implementation of redis API for testing purposes
 dev-python/fastbencode 0.3.1: Implementation of bencode with optional fast C extensions
 dev-python/fasteners 0.19: Python package that provides useful locks
 dev-python/fastimport 0.9.14: Library for parsing the fastimport VCS serialization format
@@ -8490,7 +8490,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.130.13 6.131.9: A library for property based testing
+dev-python/hypothesis 6.130.13 6.131.9 6.131.12: A library for property based testing
 dev-python/icalendar 6.1.3: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
 dev-python/identify 2.6.8 2.6.10: File identification library for Python
@@ -8598,7 +8598,7 @@ dev-python/jupyter-server 2.15.0: Core services, APIs, and REST endpoints to Jup
 dev-python/jupyter-server-mathjax 0.2.6: MathJax resources as a Jupyter Server Extension
 dev-python/jupyter-server-proxy 4.4.0: Jupyter notebook server extension to proxy web services
 dev-python/jupyter-server-terminals 0.5.3: A Jupyter Server Extension Providing Terminals
-dev-python/jupyterlab 4.3.6 4.3.7: JupyterLab computational environment
+dev-python/jupyterlab 4.3.6 4.3.7 4.4.2: JupyterLab computational environment
 dev-python/jupyterlab-lsp 5.1.0: Coding assistance for JupyterLab with Language Server Protocol
 dev-python/jupyterlab-pygments 0.3.0: Pygments theme making use of JupyterLab CSS variables
 dev-python/jupyterlab-server 2.27.3: Server components for JupyterLab and JupyterLab like applications
@@ -8764,7 +8764,7 @@ dev-python/nanobind 2.7.0: Tiny and efficient C++/Python bindings
 dev-python/narwhals 1.37.1 1.38.0: Extremely lightweight compatibility layer between dataframe libraries
 dev-python/natsort 8.4.0: Natural sorting for Python
 dev-python/nautilus-python 4.0.1: Python bindings for the Nautilus file manager
-dev-python/nbclassic 1.2.0 1.3.0: Jupyter Notebook as a Jupyter Server Extension
+dev-python/nbclassic 1.2.0 1.3.0 1.3.1: Jupyter Notebook as a Jupyter Server Extension
 dev-python/nbclient 0.10.2: A client library for executing Jupyter notebooks
 dev-python/nbconvert 7.16.6: Converting Jupyter Notebooks
 dev-python/nbdime 4.0.2: Diff and merge of Jupyter Notebooks
@@ -8787,7 +8787,7 @@ dev-python/nodeenv 1.9.1: Node.js virtual environment builder
 dev-python/noiseprotocol 0.3.1: Implementation of Noise Protocol Framework. Compatible with revisions 32 and 33.
 dev-python/nose2 0.15.1: Unittest with plugins
 dev-python/noseofyeti 2.4.9-r1: A custom python codec that provides an RSpec style dsl for python
-dev-python/notebook 7.3.3: Jupyter Interactive Notebook
+dev-python/notebook 7.3.3 7.4.2: Jupyter Interactive Notebook
 dev-python/notebook-shim 0.2.4: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nox 2024.10.09 2025.05.01: Flexible test automation for Python
@@ -8817,7 +8817,7 @@ dev-python/opentelemetry-sdk 1.32.1: OpenTelemetry Python SDK
 dev-python/opentelemetry-semantic-conventions 1.32.1: OpenTelemetry Semantic Conventions
 dev-python/opt-einsum 3.4.0: Optimized Einsum: A tensor contraction order optimizer
 dev-python/ordered-set 4.1.0-r1: A mutable set that remembers the order of its entries
-dev-python/orderly-set 5.4.0: A package containing multiple implementations of Ordered Set
+dev-python/orderly-set 5.4.0 5.4.1: A package containing multiple implementations of Ordered Set
 dev-python/orjson 3.10.15 3.10.16 3.10.18: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/os-client-config 2.1.0-r2: OpenStack Client Configuation Library
 dev-python/os-service-types 1.7.0-r2: A library to handle official service types for OpenStack and it's aliases
@@ -8829,7 +8829,7 @@ dev-python/oslo-i18n 6.5.1: Oslo i18n library
 dev-python/oslo-log 7.1.0: OpenStack logging config library, configuration for all openstack projects
 dev-python/oslo-serialization 5.7.0: Oslo Serialization library
 dev-python/oslo-utils 8.2.0: Oslo Utility library
-dev-python/oslotest 5.0.0: Oslo test framework
+dev-python/oslotest 5.0.0 5.0.1: Oslo test framework
 dev-python/outcome 1.3.0_p0: Capture the outcome of Python function calls
 dev-python/outputcheck 0.4.2-r2: A tool for checking the output of console programs inspired by LLVM's FileCheck
 dev-python/overrides 7.7.0: A decorator to automatically detect mismatch when overriding a method.
@@ -8936,7 +8936,7 @@ dev-python/psutil 7.0.0: Retrieve information on running processes and system ut
 dev-python/psycopg 2.9.10 3.2.6 3.2.7: PostgreSQL database adapter for Python
 dev-python/ptyprocess 0.7.0-r1: Run a subprocess in a pseudo terminal
 dev-python/publicsuffix2 2.20191221-r2: Get a public suffix for a domain name using the Public Suffix List
-dev-python/pudb 2024.1.3: A full-screen, console-based Python debugger
+dev-python/pudb 2024.1.3 2025.1: A full-screen, console-based Python debugger
 dev-python/pulsectl 24.12.0: Python high-level interface and ctypes-based bindings for PulseAudio (libpulse)
 dev-python/pulsectl-asyncio 1.2.2: Asyncio frontend for pulsectl, Python bindings of libpulse
 dev-python/pure-eval 0.2.3: Safely evaluate AST nodes without side effects
@@ -9607,7 +9607,7 @@ dev-python/uritemplate 4.1.1: Python implementation of RFC6570, URI Template
 dev-python/uritools 4.0.3 5.0.0: RFC 3986-compliant URI parsing, classification and composition
 dev-python/url-normalize 2.2.0 2.2.1: URL normalization for Python
 dev-python/urllib3 2.4.0: HTTP library with thread-safe connection pooling, file post, and more
-dev-python/urwid 2.6.16: Curses-based user interface library for Python
+dev-python/urwid 2.6.16 3.0.0: Curses-based user interface library for Python
 dev-python/urwid-readline 0.15.1: Text input widget for urwid that supports readline shortcuts
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
@@ -12038,7 +12038,7 @@ gui-apps/liquidshell 1.10.0: Basic desktop shell using QtWidgets
 gui-apps/mako 1.8.0 1.9.0 9999: A lightweight notification daemon for Wayland. Works on Sway
 gui-apps/nm-tray 0.5.1: A simple Qt-based NetworkManager front-end
 gui-apps/qt6ct 0.10: Qt6 Configuration Tool (for DE/WM without Qt integration)
-gui-apps/railway 2.7.2 2.7.3: Travel with all your train information in one place
+gui-apps/railway 2.7.3: Travel with all your train information in one place
 gui-apps/slurp 1.5.0: Select a region in a Wayland compositor and print it to the standard output
 gui-apps/swappy 1.5.1 9999: A Wayland native snapshot and editor tool, inspired by Snappy on macOS
 gui-apps/swaybg 1.2.0 1.2.1 9999: A wallpaper utility for Wayland
@@ -15524,7 +15524,7 @@ net-proxy/hatop 0.8.2: Ncurses client and real-time monitoring and displaying of
 net-proxy/havp 0.92a-r3: HTTP AntiVirus Proxy
 net-proxy/lyrebird 0.5.0 0.6.0: An obfuscating proxy supporting Tor's pluggable transport protocol obfs4
 net-proxy/microsocks 1.0.2 1.0.3: Multithreaded, small, efficient SOCKS5 server
-net-proxy/mitmproxy 9.0.1 11.0.2 11.1.3 12.0.0: An interactive, SSL-capable, man-in-the-middle HTTP proxy
+net-proxy/mitmproxy 9.0.1 11.0.2 11.1.3 12.0.0 12.0.1: An interactive, SSL-capable, man-in-the-middle HTTP proxy
 net-proxy/mitmproxy-linux 0.11.5 0.12.0 0.12.3: mitmproxy's Rust bits
 net-proxy/mitmproxy-rs 0.11.1 0.11.5 0.12.0 0.12.3: mitmproxy's Rust bits
 net-proxy/nutcracker 0.4.1-r1 0.5.0: A fast, light-weight proxy for Memcached and Redis. (Twitter's Twemproxy)
@@ -16944,7 +16944,7 @@ sys-apps/cpu-x 5.1.3 5.2.0: A Free software that gathers information on CPU, mot
 sys-apps/cpuid 20250316 20250419: Linux tool to dump x86 CPUID information about the CPUs
 sys-apps/cracklib-words 2.10.2 2.10.3: Large set of crack/cracklib dictionaries
 sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
-sys-apps/cyme 2.1.3 2.2.0: List system USB buses and devices; a modern cross-platform `lsusb`
+sys-apps/cyme 2.2.0 2.2.1: List system USB buses and devices; a modern cross-platform `lsusb`
 sys-apps/daemonize 1.7.8: Runs a command as a Unix daemon
 sys-apps/daisydog 2014.05.30-r1 2024.07.12: A very simple /dev/watchdog daemon
 sys-apps/darwin-miscutils 12-r1: Miscellaneous commands used on macOS, High Sierra 10.13
