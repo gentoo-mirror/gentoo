@@ -1,0 +1,17 @@
+BDEPEND=dev-ada/gprbuild[ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,-ada_target_gcc_12(-)] test? ( app-i18n/unicode-data )
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) dev-ada/xmlada:=[shared?,static-libs?,static-pic?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,-ada_target_gcc_12(-)]
+DESCRIPTION=A high level string and text processing library
+EAPI=8
+HOMEPAGE=https://github.com/AdaCore/VSS
+INHERIT=ada multiprocessing
+IUSE=+shared static-libs static-pic test ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
+KEYWORDS=amd64 ~arm64 x86
+LICENSE=GPL-3 gcc-runtime-library-exception-3.1
+RDEPEND=ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) dev-ada/xmlada:=[shared?,static-libs?,static-pic?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,-ada_target_gcc_12(-)]
+REQUIRED_USE=^^ ( ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 ) test? ( static-libs )
+RESTRICT=!test? ( test )
+SLOT=0/25.0.0
+SRC_URI=https://github.com/AdaCore/VSS/archive/refs/tags/v25.0.0.tar.gz -> VSS-25.0.0.tar.gz
+_eclasses_=ada	02ff4ede51c5f676746b340a6406accf	multiprocessing	1e32df7deee68372153dca65f4a7c21f
+_md5_=ba9c739d71df406fed00b9d41407a1ca
