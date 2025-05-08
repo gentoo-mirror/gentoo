@@ -5,7 +5,7 @@ EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} luajit )
 
-inherit cmake eapi9-ver lua-single pax-utils systemd tmpfiles
+inherit cmake lua-single pax-utils systemd tmpfiles
 
 if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/rspamd/rspamd.git"
@@ -38,6 +38,7 @@ RDEPEND="
 	')
 	acct-group/rspamd
 	acct-user/rspamd
+	app-arch/libarchive:=
 	app-arch/zstd:=
 	dev-db/sqlite:3
 	dev-libs/glib:2
@@ -55,11 +56,10 @@ RDEPEND="
 	jemalloc? ( dev-libs/jemalloc:= )
 	selinux? ( sec-policy/selinux-spamassassin )
 "
-# <libfmt-11 https://github.com/rspamd/rspamd/pull/5034
 DEPEND="
 	${RDEPEND}
 	dev-cpp/doctest
-	<dev-libs/libfmt-11:=
+	dev-libs/libfmt:=
 	>=dev-libs/xxhash-0.8.0
 "
 BDEPEND="
@@ -69,9 +69,18 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/rspamd-3.6-cmake-lua-version.patch"
-	"${FILESDIR}/rspamd-3.6-unbundle-lua.patch"
-	"${FILESDIR}/rspamd-3.6-unbundle-snowball.patch"
+	"${FILESDIR}/${PN}-3.6-cmake-lua-version.patch"
+	"${FILESDIR}/${PN}-3.6-unbundle-lua.patch"
+	"${FILESDIR}/${PN}-3.6-unbundle-snowball.patch"
+
+	# backward compatibility with <dev-libs/libfmt-11
+	"${FILESDIR}/${PN}-3.9.0-older-libfmt.patch"
+
+	# compatibility for doctest-2.4.12, bug 955440
+	"${FILESDIR}/${PN}-3.11.1-doctest-compatibility.patch"
+
+	# upstream issue https://github.com/rspamd/rspamd/issues/5263
+	"${FILESDIR}/${PN}-3.11.1-punycode-icu-76.1.patch"
 )
 
 src_prepare() {
@@ -149,14 +158,4 @@ src_install() {
 
 pkg_postinst() {
 	tmpfiles_process "${PN}.conf"
-
-	if ver_replacing -eq "3.4"; then
-		elog "rspamd-3.4 is known to segfault when it is updated from older version due"
-		elog "to a page-alignment of hyperscan .unser files. The issue was patched in"
-		elog "rspamd-3.4-r1 ebuild revision. All possibly broken .unser files will be"
-		elog "automaticaly removed. See https://github.com/rspamd/rspamd/issues/4329 for"
-		elog "more information."
-
-		find "${EROOT}/var/lib/rspamd" -type f -name '*.unser' -delete
-	fi
 }
