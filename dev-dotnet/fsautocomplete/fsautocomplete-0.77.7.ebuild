@@ -11,7 +11,7 @@ DOTNET_PKG_COMPAT="9.0"
 NUGETS="
 dotnet-reportgenerator-globaltool@5.3.8
 fantomas@7.0.0
-fsharp-analyzers@0.28.0
+fsharp-analyzers@0.30.0
 paket@9.0.2
 telplin@0.9.6
 
@@ -32,7 +32,7 @@ expecto@10.2.1
 fantomas.client@0.9.1
 fparsec@1.1.1
 fsharp.analyzers.build@0.3.0
-fsharp.analyzers.sdk@0.29.0
+fsharp.analyzers.sdk@0.30.0
 fsharp.compiler.service@43.9.201
 fsharp.control.asyncseq@2.0.21
 fsharp.control.asyncseq@3.2.1
@@ -70,12 +70,12 @@ iced@1.17.0
 iced@1.21.0
 icedtasks@0.11.7
 icsharpcode.decompiler@8.2.0.7535
-ionide.analyzers@0.13.0
+ionide.analyzers@0.14.4
 ionide.keepachangelog.tasks@0.1.8
-ionide.languageserverprotocol@0.6.0
-ionide.projinfo.fcs@0.70.1
-ionide.projinfo.projectsystem@0.70.1
-ionide.projinfo@0.70.1
+ionide.languageserverprotocol@0.7.0
+ionide.projinfo.fcs@0.70.2
+ionide.projinfo.projectsystem@0.70.2
+ionide.projinfo@0.70.2
 linkdotnet.stringbuilder@1.18.0
 mcmaster.netcore.plugins@1.4.0
 messagepack.annotations@2.5.192
@@ -305,13 +305,13 @@ HOMEPAGE="https://github.com/ionide/FsAutoComplete/"
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/ionide/${APP_PN}.git"
+	EGIT_REPO_URI="https://github.com/ionide/${APP_PN}"
 else
 	SRC_URI="https://github.com/ionide/${APP_PN}/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${APP_PN}-${PV}"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "

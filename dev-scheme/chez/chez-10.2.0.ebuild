@@ -1,4 +1,4 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,18 +8,27 @@ inherit edo toolchain-funcs
 DESCRIPTION="A programming language based on R6RS"
 HOMEPAGE="https://cisco.github.io/ChezScheme/
 	https://github.com/cisco/ChezScheme/"
-SRC_URI="https://github.com/cisco/ChezScheme/releases/download/v${PV}/csv${PV//a}.tar.gz
-	-> ${P}.tar.gz"
-S="${WORKDIR}/csv${PV//a}"
+
+if [[ "${PV}" == *9999* ]] ; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://github.com/cisco/ChezScheme"
+else
+	SRC_URI="https://github.com/cisco/ChezScheme/releases/download/v${PV}/csv${PV//a}.tar.gz
+		-> ${P}.tar.gz"
+	S="${WORKDIR}/csv${PV//a}"
+
+	KEYWORDS="~amd64 ~arm ~x86"
+fi
 
 # Chez Scheme itself is Apache 2.0, but it vendors Nanopass and stex
 # which are both MIT licensed.
 LICENSE="Apache-2.0 MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64 ~arm ~x86"
 IUSE="X +ncurses +threads"
 
 # "some output differs from expected", needs in-depth investigation.
+# You may wish to investigate "make.out" test logfiles.
 RESTRICT="test"
 
 RDEPEND="
