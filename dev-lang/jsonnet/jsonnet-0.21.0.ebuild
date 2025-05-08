@@ -1,24 +1,25 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_OPTIONAL=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3 python3_{9..11} )
+DISTUTILS_EXT=1
+PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} python3_13t )
 
 inherit cmake toolchain-funcs flag-o-matic distutils-r1
 
 DESCRIPTION="A data templating language for app and tool developers"
 HOMEPAGE="https://jsonnet.org/"
 SRC_URI="https://github.com/google/jsonnet/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-IUSE="custom-optimization doc examples python test"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+IUSE="custom-optimization doc examples python test"
+
 RDEPEND="
-	dev-cpp/rapidyaml:=
 	dev-cpp/nlohmann_json:=
 	python? ( ${PYTHON_DEPS} )
 "
@@ -32,7 +33,7 @@ BDEPEND="
 	python? (
 		${PYTHON_DEPS}
 		${DISTUTILS_DEPS}
-		dev-python/setuptools[${PYTHON_USEDEP}]
+		>=dev-python/setuptools-72.2[${PYTHON_USEDEP}]
 	)
 "
 RESTRICT="!test? ( test )"
@@ -40,10 +41,8 @@ RESTRICT="!test? ( test )"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 PATCHES=(
-	"${FILESDIR}/jsonnet-0.12.1-dont-call-make-from-setuppy.patch"
 	"${FILESDIR}/jsonnet-0.16.0-libdir.patch"
 	"${FILESDIR}/jsonnet-0.16.0-cp-var.patch"
-	"${FILESDIR}/jsonnet-0.18.0-unbundle.patch"
 )
 
 distutils_enable_tests unittest
