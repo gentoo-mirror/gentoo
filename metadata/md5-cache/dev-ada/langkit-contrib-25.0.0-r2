@@ -1,0 +1,16 @@
+BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) dev-ada/langkit:0/25.0.0[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,static-libs?,static-pic?] python_single_target_python3_11? ( dev-ada/langkit[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-ada/langkit[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-ada/langkit[python_targets_python3_13(-)] ) dev-ada/e3-core python_single_target_python3_11? ( dev-ada/e3-core[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-ada/e3-core[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-ada/e3-core[python_targets_python3_13(-)] ) dev-ada/gprbuild[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?]
+DEFINED_PHASES=compile configure install setup
+DESCRIPTION=A Python framework to generate language parsers - Contrib
+EAPI=8
+HOMEPAGE=https://www.adacore.com/community
+INHERIT=python-single-r1 ada multiprocessing
+IUSE=static-libs static-pic python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
+KEYWORDS=amd64 ~arm64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) dev-ada/langkit:0/25.0.0[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,static-libs?,static-pic?] python_single_target_python3_11? ( dev-ada/langkit[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-ada/langkit[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-ada/langkit[python_targets_python3_13(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) ^^ ( ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 )
+RESTRICT=test
+SLOT=0/25.0.0
+SRC_URI=https://github.com/AdaCore/langkit/archive/refs/tags/v25.0.0.tar.gz -> langkit-25.0.0.tar.gz https://github.com/AdaCore/AdaSAT/archive/refs/tags/v25.0.0.tar.gz -> AdaSAT-25.0.0.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	de71d9571aa267f353b9e8ab4666732e	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	ada	02ff4ede51c5f676746b340a6406accf
+_md5_=3fd1a71c19f964349276b53f7c25d22c
