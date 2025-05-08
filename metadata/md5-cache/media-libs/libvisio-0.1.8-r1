@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/perl virtual/pkgconfig doc? ( app-text/doxygen )
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-libs/icu:= dev-libs/librevenge dev-libs/libxml2 dev-libs/boost dev-util/gperf dev-build/libtool test? ( dev-util/cppunit )
+DEPEND=dev-libs/icu:= dev-libs/librevenge dev-libs/libxml2:= dev-libs/boost dev-util/gperf dev-build/libtool test? ( dev-util/cppunit )
 DESCRIPTION=Library parsing the file format of MS Visio documents
 EAPI=8
 HOMEPAGE=https://wiki.documentfoundation.org/DLP/Libraries/libvisio
@@ -8,9 +8,9 @@ INHERIT=flag-o-matic
 IUSE=doc test tools
 KEYWORDS=amd64 ~arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86
 LICENSE=|| ( GPL-2+ LGPL-2.1 MPL-1.1 )
-RDEPEND=dev-libs/icu:= dev-libs/librevenge dev-libs/libxml2
+RDEPEND=dev-libs/icu:= dev-libs/librevenge dev-libs/libxml2:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.8.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
-_md5_=181251e70fc66a522434301df96100f1
+_md5_=825b0c98052008c5a06ac2d6b7c57695

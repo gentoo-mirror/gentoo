@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/libxml2 >=dev-libs/libzip-1.7.2:=
+DEPEND=dev-libs/libxml2:= >=dev-libs/libzip-1.7.2:=
 DESCRIPTION=Tools for accessing and converting various ebook file formats
 EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/ebook-tools/
@@ -8,8 +8,8 @@ INHERIT=cmake
 IUSE=+lit2epub
 KEYWORDS=~alpha amd64 ~arm arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv x86
 LICENSE=MIT
-RDEPEND=dev-libs/libxml2 >=dev-libs/libzip-1.7.2:= lit2epub? ( app-text/convertlit )
+RDEPEND=dev-libs/libxml2:= >=dev-libs/libzip-1.7.2:= lit2epub? ( app-text/convertlit )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/ebook-tools/ebook-tools-0.2.2.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=afa7a16debf7c2e62963ba1d2989706e
+_md5_=65a77598afe0b01d404e535fc68e93c5
