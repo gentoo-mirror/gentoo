@@ -1,9 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-
-MDDS_VER="3.0"
 
 if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://anongit.freedesktop.org/git/libreoffice/libetonyek.git"
@@ -25,7 +23,7 @@ RDEPEND="
 	app-text/liblangtag
 	dev-libs/librevenge
 	dev-libs/libxml2:=
-	dev-util/mdds:1/${MDDS_VER}
+	>=dev-util/mdds-2.1:1=
 	sys-libs/zlib
 "
 DEPEND="${RDEPEND}
@@ -39,6 +37,8 @@ BDEPEND="
 	doc? ( app-text/doxygen )
 "
 
+PATCHES=( "${FILESDIR}/${P}-missing-numbers-function-names.patch" )
+
 src_prepare() {
 	default
 	[[ -d m4 ]] || mkdir "m4" || die
@@ -48,10 +48,11 @@ src_prepare() {
 src_configure() {
 	local myeconfargs=(
 		--disable-werror
-		--with-mdds="${MDDS_VER}"
+		--with-mdds=2.1
 		$(use_with doc docs)
 		$(use_enable test tests)
 	)
+
 	econf "${myeconfargs[@]}"
 }
 
