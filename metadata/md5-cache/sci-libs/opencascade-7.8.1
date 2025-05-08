@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-text/doxygen[dot] ) inspector? ( dev-qt/linguist-tools:5 ) test? ( dev-tcltk/thread ) app-alternatives/ninja >=dev-build/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=doc? ( app-text/doxygen[dot] ) examples? ( dev-qt/linguist-tools:5 ) inspector? ( dev-qt/linguist-tools:5 ) test? ( dev-tcltk/thread ) app-alternatives/ninja >=dev-build/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=dev-lang/tcl:= tk? ( dev-lang/tk:= ) dev-libs/double-conversion freetype? ( media-libs/fontconfig media-libs/freetype:2 ) gles2-only? ( media-libs/libglvnd ) opengl? ( media-libs/libglvnd[X] ) X? ( x11-libs/libX11 ) examples? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) ffmpeg? ( <media-video/ffmpeg-5:= ) freeimage? ( media-libs/freeimage ) inspector? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtquickcontrols2:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 ) jemalloc? ( dev-libs/jemalloc ) tbb? ( dev-cpp/tbb:= ) vtk? ( dev-lang/tk:= sci-libs/vtk:=[rendering] tbb? ( sci-libs/vtk:=[tbb,-cuda] ) ) X? ( x11-base/xorg-proto ) json? ( dev-libs/rapidjson )
 DESCRIPTION=Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0/7.8
 SRC_URI=test? ( https://github.com/Open-Cascade-SAS/OCCT/releases/download/V7_8_0/opencascade-dataset-7.8.0.tar.xz ) https://github.com/Open-Cascade-SAS/OCCT/archive/refs/tags/V7_8_1.tar.gz -> opencascade-7.8.1.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=9b8bfb0de1c4bef485707907e6b86b2f
+_md5_=120bab7a527640035addbdf3601fea28

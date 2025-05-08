@@ -3977,7 +3977,7 @@ dev-db/mysql++ 3.3.0: C++ API interface to the MySQL database
 dev-db/mysql-connector-c 8.0.36 8.0.41: C client library for MariaDB/MySQL
 dev-db/mysql-connector-c++ 8.0.33-r1 9.2.0: MySQL database connector for C++ (mimics JDBC 4.0 API)
 dev-db/mysql-init-scripts 2.3-r8: Gentoo MySQL init scripts
-dev-db/mysql-workbench 8.0.38 8.0.40 8.0.41: MySQL Workbench
+dev-db/mysql-workbench 8.0.41 8.0.42: MySQL Workbench
 dev-db/mysqltuner 2.6.0: Makes recommendations for increased performance and stability for MySQL
 dev-db/mytop 1.9.1-r1: mytop - a top clone for mysql
 dev-db/ocp 0.3 9999: Oracle copy tool
@@ -5320,8 +5320,9 @@ dev-libs/crc32c 1.1.2-r2: CRC32C implementation with support for CPU-specific ac
 dev-libs/criterion 2.4.1 2.4.1-r1: Cross platform unit testing framework for C and C++
 dev-libs/crossguid 0.2.2_p20190529: Lightweight cross platform C++ GUID/UUID library
 dev-libs/crypto++ 8.9.0: C++ class library of cryptographic schemes
-dev-libs/cudnn 8.6.0.163 8.8.0.121: NVIDIA Accelerated Deep Learning on GPU library
-dev-libs/cutlass 3.4.1 3.5.1 3.8.0: CUDA Templates for Linear Algebra Subroutines
+dev-libs/cudnn 8.6.0.163 8.8.0.121 8.9.7.29 9.8.0.87: NVIDIA Accelerated Deep Learning on GPU library
+dev-libs/cusparselt 0.7.1.0: A High-Performance CUDA Library for Sparse Matrix-Matrix Multiplication
+dev-libs/cutlass 3.4.1 3.5.1 3.8.0 3.9.1: CUDA Templates for Linear Algebra Subroutines
 dev-libs/cvector 1.0.3.1: An ANSI C implementation of dynamic arrays (approximation of C++ vectors)
 dev-libs/cxxopts 3.0.0-r1 3.2.0-r1 3.2.1 3.2.1-r1: Lightweight C++ command line option parser
 dev-libs/cxxtools 3.0-r2 3.0-r3: Collection of general purpose C++-classes
@@ -5393,7 +5394,7 @@ dev-libs/icu-layoutex 76.1-r1: External layout part of International Components 
 dev-libs/icu-le-hb 1.2.3 2.0.0: ICU Layout Engine API on top of HarfBuzz shaping library
 dev-libs/igraph 0.10.11 0.10.12 0.10.15: Creating and manipulating undirected and directed graphs
 dev-libs/iksemel 1.4-r2: eXtensible Markup Language parser library designed for Jabber applications
-dev-libs/imath 3.1.11-r1 3.1.12: Imath basic math package
+dev-libs/imath 3.1.12-r1: Imath basic math package
 dev-libs/immer 0.8.1-r1: Library of persistent and immutable data structures written in C++
 dev-libs/inih 57-r1 58 59 60: inih (INI not invented here) simple .INI file parser
 dev-libs/iniparser 4.2.6: Free stand-alone ini file parsing library
@@ -5707,7 +5708,7 @@ dev-libs/opensc 0.25.1 0.26.0 0.26.1 9999: Libraries and applications to access 
 dev-libs/openspecfun 0.5.3 0.5.5: A collection of special mathematical functions
 dev-libs/openssl 1.0.2u-r1 1.1.1w 3.0.16 3.0.9999 3.1.8 3.1.9999 3.2.4 3.2.9999 3.3.3 3.3.9999 3.4.1 3.4.9999 3.5.0 3.5.9999: Robust, full-featured Open Source Toolkit for the Transport Layer Security (TLS)
 dev-libs/openssl-compat 1.0.2u-r2 1.1.1u: Full-strength general purpose cryptography library (including SSL and TLS)
-dev-libs/optix 7.4.0 7.5.0: NVIDIA Ray Tracing Engine
+dev-libs/optix 7.4.0 7.5.0 8.1.0 9.0.0: NVIDIA Ray Tracing Engine
 dev-libs/ossp-uuid 1.6.2-r7: An ISO-C:1999 API with CLI for generating DCE, ISO/IEC and RFC compliant UUID
 dev-libs/pakchois 0.4-r2: PaKChoiS - PKCS #11 wrapper library
 dev-libs/papi 6.0.0.1-r1 6.0.0.1-r2 7.1.0: Performance Application Programming Interface
@@ -12886,8 +12887,8 @@ media-gfx/arss 0.2.3-r1: Analysis & Resynthesis Sound Spectrograph
 media-gfx/asymptote 3.01 3.02: A vector graphics language that provides a framework for technical drawing
 media-gfx/autopano-sift-C 2.5.1-r1: SIFT algorithm for automatic panorama creation in C
 media-gfx/aview 1.3.0_rc1-r3: ASCII Image Viewer
-media-gfx/blender 4.2.4-r2 4.2.9 4.3.2-r3 4.4.1 9999: 3D Creation/Animation/Publishing System
-media-gfx/blender-bin 3.6.21 3.6.22 4.2.7 4.2.9 4.4.1 9999: 3D Creation/Animation/Publishing System
+media-gfx/blender 4.2.4-r2 4.2.9-r1 4.3.2-r4 4.4.1-r1 4.4.3 9999: 3D Creation/Animation/Publishing System
+media-gfx/blender-bin 3.6.21 3.6.22 4.2.7 4.2.9 4.4.1 4.4.3 9999: 3D Creation/Animation/Publishing System
 media-gfx/brscan4 0.4.11.1-r1: Brother scanner driver
 media-gfx/cairosvg 2.7.1: CLI and library to export SVG to PDF, PostScript, and PNG
 media-gfx/cellwriter 1.3.6 1.3.6-r1: Grid-entry natural handwriting input panel
@@ -12930,7 +12931,7 @@ media-gfx/fontforge 20230101 20230101-r2: postscript font editor and converter
 media-gfx/fotema 1.20.1: Photo gallery for Linux
 media-gfx/fotocx 24.50 24.60 24.70 25.0: Program for improving image files made with a digital camera
 media-gfx/fotowall 1.0_p20241107: Qt tool for creating wallpapers
-media-gfx/freecad 1.0.0-r2 1.0.0-r3 9999: Qt based Computer Aided Design application
+media-gfx/freecad 1.0.0-r2 1.0.0-r3 1.0.0-r4 9999: Qt based Computer Aided Design application
 media-gfx/freepv 0.3.0-r5: Panorama viewer (Quicktime, PangeaVR, GLPanoView formats)
 media-gfx/frogr 1.7 1.8.1: flickr applications for GNOME
 media-gfx/geeqie 2.4 2.5 9999: A lightweight GTK image viewer forked from GQview
@@ -13006,15 +13007,15 @@ media-gfx/monica 3.7-r2: Monica is a Monitor Calibration Tool
 media-gfx/mscgen 0.20: Message sequence chart generator
 media-gfx/mypaint 2.0.1-r4: Fast and easy graphics application for digital painters
 media-gfx/mypaint-brushes 2.0.2-r1: Default MyPaint brushes
-media-gfx/netgen 6.2.2302 6.2.2406: Automatic 3d tetrahedral mesh generator
+media-gfx/netgen 6.2.2406 6.2.2501: Automatic 3d tetrahedral mesh generator
 media-gfx/nomacs 3.19.1-r1 3.21.0: Qt-based image viewer
 media-gfx/nvidia-cg-toolkit 3.1.0013-r6: NVIDIA's C graphics compiler toolkit
 media-gfx/openclipart 0.20: Open Clip Art Library (openclipart.org)
-media-gfx/opencsg 1.6.0-r1: The Constructive Solid Geometry rendering library
+media-gfx/opencsg 1.6.0-r1 1.8.1: The Constructive Solid Geometry rendering library
 media-gfx/openmesh 11.0.0: Generic data structure to represent and manipulate polygonal meshes
-media-gfx/openscad 2024.11.14_pre 2024.12.30_pre 9999: The Programmers Solid 3D CAD Modeller
+media-gfx/openscad 2024.11.14_pre 2024.12.30_pre 2025.05.01_pre 9999: The Programmers Solid 3D CAD Modeller
 media-gfx/opentoonz 1.6.0: An open-source full-featured 2D animation creation software
-media-gfx/openvdb 11.0.0-r1: Library for the efficient manipulation of volumetric data
+media-gfx/openvdb 11.0.0-r1 12.0.1: Library for the efficient manipulation of volumetric data
 media-gfx/optipng 0.7.8: Compress PNG files without affecting image quality
 media-gfx/oxipng 8.0.0-r1 9.0.0-r1 9.1.2-r1 9.1.2-r2 9.1.3: Multithreaded lossless PNG compression optimizer written in Rust
 media-gfx/pablodraw 3.3.13_beta-r1: Ansi/Ascii text and RIPscrip vector graphic art editor/viewer
@@ -13116,7 +13117,7 @@ media-libs/amdgpu-pro-vulkan 22.40.6.1580631-r1 23.40.0.1741713 24.30.2111292: A
 media-libs/amf-headers 1.4.33 1.4.34 1.4.35 1.4.36: The Advanced Media Framework (AMF) SDK
 media-libs/ampache_browser 1.0.7-r1 1.0.8: Ampache desktop client library
 media-libs/aribb24 1.0.3-r2: Library for decoding ARIB STD-B24 subtitles
-media-libs/assimp 5.4.2 5.4.2-r1 5.4.3: Importer library to import assets from 3D files
+media-libs/assimp 5.4.3-r1: Importer library to import assets from 3D files
 media-libs/aubio 0.4.9-r4 0.4.9-r5: Library for audio labelling
 media-libs/audiofile 0.3.6-r6: An elegant API for accessing audio files
 media-libs/avidemux-core 2.8.1-r1: Core libraries for simple video cutting, filtering and encoding tasks
@@ -13142,7 +13143,7 @@ media-libs/devil 1.7.8-r6: DevIL image library
 media-libs/dssi 1.1.1-r2: Plugin API for software instruments with user interfaces
 media-libs/dumb 2.0.3: Module/tracker based music format parser and player library
 media-libs/elles_icc_profiles 20160501.0932-r1: Elle Stone's well-behaved RGB and grey ICC profiles
-media-libs/embree 3.13.4 3.13.5-r1 4.3.1-r1 4.3.3: Collection of high-performance ray tracing kernels
+media-libs/embree 3.13.4 3.13.5-r1 4.3.1-r1 4.3.3 4.4.0: Collection of high-performance ray tracing kernels
 media-libs/esdl 1.3.1-r1: Erlang bindings for the SDL library
 media-libs/exempi 2.6.5: Port of the Adobe XMP SDK to work on UNIX
 media-libs/exiftool 12.76 13.10: Read and write meta information in image, audio and video files
@@ -13219,7 +13220,7 @@ media-libs/lensfun 0.3.4_rc1 0.3.4 0.3.4-r1: Library for rectifying and simulati
 media-libs/leptonica 1.84.1-r2 1.85.0: C library for image processing and analysis
 media-libs/lerc 4.0.0: Limited Error Raster Compression
 media-libs/lib3ds 1.3.0-r2 2.0.0_rc1-r1: library for managing 3D-Studio Release 3 and 4 .3DS files
-media-libs/lib3mf 2.2.0-r1 2.3.2: Implementation of the 3D Manufacturing Format file standard
+media-libs/lib3mf 2.3.2 2.4.1: Implementation of the 3D Manufacturing Format file standard
 media-libs/libaacs 0.11.1-r1: Open implementation of the Advanced Access Content System (AACS) specification
 media-libs/libafterimage 1.20-r6: Afterstep's standalone generic image manipulation library
 media-libs/libao 1.2.2-r3: The Audio Output library
@@ -13408,27 +13409,27 @@ media-libs/netpbm 11.2.13 11.2.16 11.10.3 9999: A set of utilities for convertin
 media-libs/noise-suppression-for-voice 1.10-r2 9999: A real-time noise suppression plugin for voice
 media-libs/nv-codec-headers 12.1.14.0 12.2.72.0 13.0.19.0: FFmpeg version of headers required to interface with Nvidias codec APIs
 media-libs/nvidia-vaapi-driver 0.0.13: A VA-API implemention using NVIDIA's NVDEC
-media-libs/oidn 2.2.2 2.3.0 2.3.2: Intel® Open Image Denoise library
+media-libs/oidn 2.3.2-r1 2.3.3: Intel® Open Image Denoise library
 media-libs/oneVPL-cpu 2023.2.0-r2: oneAPI Video Processing Library CPU implementation
 media-libs/openal 1.24.2 1.24.3: Software implementation of the OpenAL 3D audio API
-media-libs/opencollada 1.6.68: Stream based read/write library for COLLADA files
-media-libs/opencolorio 2.4.1-r1: Color management framework for visual effects and animation
+media-libs/opencollada 1.6.68 1.6.68-r1: Stream based read/write library for COLLADA files
+media-libs/opencolorio 2.4.1-r1 2.4.2: Color management framework for visual effects and animation
 media-libs/opencore-amr 0.1.6: Implementation of Adaptive Multi Rate Narrowband and Wideband speech codec
 media-libs/openctm 1.0.3-r1: OpenCTM - the Open Compressed Triangle Mesh
-media-libs/opencv 4.10.0: A collection of algorithms and sample code for various computer vision problems
-media-libs/openexr 3.2.4-r2 3.3.2-r1: ILM's OpenEXR high dynamic-range image file format libraries
+media-libs/opencv 4.10.0 4.11.0: A collection of algorithms and sample code for various computer vision problems
+media-libs/openexr 3.3.2-r1 3.3.3: ILM's OpenEXR high dynamic-range image file format libraries
 media-libs/openfec 1.4.2.11-r1 1.4.2.12: Library of various AL-FEC codecs
 media-libs/openglide 0.09_rc9_p20191120: Glide to OpenGL wrapper
 media-libs/openh264 2.3.1-r3 2.5.0 2.6.0: Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages
-media-libs/openimageio 2.5.13.1 2.5.18.0: A library for reading and writing images
+media-libs/openimageio 2.5.13.1 2.5.18.0 3.0.6.1: A library for reading and writing images
 media-libs/openjpeg 2.5.0-r5 2.5.0-r6 2.5.2 2.5.3: Open-source JPEG 2000 library
-media-libs/openpgl 0.5.0-r1 0.6.0: Intel Open Path Guiding Library
-media-libs/opensubdiv 3.4.4-r3 3.5.0 3.5.1 3.6.0-r1 3.6.0-r2: An Open-Source subdivision surface library
+media-libs/openpgl 0.5.0-r1 0.6.0 0.7.0: Intel Open Path Guiding Library
+media-libs/opensubdiv 3.6.0-r2 3.6.0-r3: An Open-Source subdivision surface library
 media-libs/opentimelineio 0.17.0: Open Source API and interchange format for editorial timeline information
 media-libs/opus 1.5.2: Open codec for interactive speech and music transmission over the Internet
 media-libs/opusfile 0.12-r1: A high-level decoding and seeking API for .opus files
-media-libs/osl 1.13.10.0-r1 1.13.12.0-r1 9999: Advanced shading language for production GI renderers
-media-libs/partio 1.17.1 1.17.3: Library for particle IO and manipulation
+media-libs/osl 1.13.12.0-r2 1.14.5.1 9999: Advanced shading language for production GI renderers
+media-libs/partio 1.17.3 1.19.0: Library for particle IO and manipulation
 media-libs/pcaudiolib 1.2-r2: Portable C Audio Library
 media-libs/phat 0.4.1-r2: PHAT is a collection of GTK+ widgets geared toward pro-audio apps
 media-libs/phonon 4.12.0-r5: KDE multimedia abstraction library
@@ -14318,7 +14319,7 @@ media-video/vdrsync 0.1.3_pre050322-r2: converting vdr-recordings to mpeg2, dvd 
 media-video/vdrtools-genindex 0.1.3-r2: VDR: genindex Script
 media-video/vidcutter 6.0.5.1_p20230201-r1 9999: FFmpeg-based simple video cutter & joiner with a modern PyQt5 GUI
 media-video/videotrans 1.6.1-r2: A package to convert movies to DVD format and to build DVDs with
-media-video/vlc 3.0.21_p20250217-r1 3.0.9999 9999: Media player and framework with support for most multimedia files and streaming
+media-video/vlc 3.0.21_p20250217-r2 3.0.9999 9999: Media player and framework with support for most multimedia files and streaming
 media-video/vobcopy 1.2.1: Copies DVD .vob files to harddisk, decrypting them on the way
 media-video/webcamoid 9.2.3 9999: Full featured webcam capture application
 media-video/wireplumber 0.5.8-r2 9999: Replacement for pipewire-media-session
@@ -16083,7 +16084,7 @@ sci-libs/fcl 0.6.1-r1 9999: The Flexible Collision Library
 sci-libs/fetk 1.5: The Finite Element ToolKit - Meta package
 sci-libs/fflas-ffpack 2.5.0-r1: Library for dense linear algebra over word-size finite fields
 sci-libs/fftw 3.3.10 3.3.10-r1 9999: Fast C library for the Discrete Fourier Transform
-sci-libs/flann 1.9.1-r6 1.9.1-r7 1.9.2_p20221027: Fast approximate nearest neighbor searches in high dimensional spaces
+sci-libs/flann 1.9.2_p20221027 1.9.2_p20221027-r1: Fast approximate nearest neighbor searches in high dimensional spaces
 sci-libs/fplll 5.5.0: Implementations of the floating-point LLL reduction algorithm
 sci-libs/galib 2.4.7-r2: Library for genetic algorithms in C++ programs
 sci-libs/gamer 1.5-r2: Geometry-preserving Adaptive MeshER
@@ -16247,7 +16248,7 @@ sci-libs/ufconfig 3.7.1: Common configuration scripts for the SuiteSparse librar
 sci-libs/umfpack 5.7.9 5.7.9-r1 6.1.0: Unsymmetric multifrontal sparse LU factorization library
 sci-libs/volk 3.1.0 3.1.2 9999: vector optimized library of kernels
 sci-libs/voro++ 0.4.6-r1: 3D Voronoi cell software library
-sci-libs/vtk 9.3.1: The Visualization Toolkit
+sci-libs/vtk 9.3.1 9.3.1-r1 9.4.2: The Visualization Toolkit
 sci-libs/xdmf2 1.0_p141226-r4: eXtensible Data Model and Format
 sci-libs/xylib 1.6-r1: Experimental x-y data reading library
 sci-mathematics/4ti2 1.6.7-r1 1.6.10: Software package for algebraic, geometric and combinatorial problems
@@ -16263,7 +16264,7 @@ sci-mathematics/cadabra 2.4.5.4 2.4.5.6 2.4.5.7: Field-theory motivated approach
 sci-mathematics/cadical 1.9.5 2.0.0: Simplified Satisfiability Solver
 sci-mathematics/calc 2.13.0.1: Arbitrary precision C-like arithmetic system
 sci-mathematics/cgal 5.6 5.6.1 6.0 6.0.1: C++ library for geometric algorithms and data structures
-sci-mathematics/clipper2 1.4.0: Polygon Clipping and Offsetting
+sci-mathematics/clipper2 1.4.0 1.5.2: Polygon Clipping and Offsetting
 sci-mathematics/cliquer 1.22: C routines for finding cliques in an arbitrary weighted graph
 sci-mathematics/coq 8.17.1-r1 8.19.2-r1 8.20.0-r1 9.0.0: Coq/Rocq is a proof assistant written in O'Caml
 sci-mathematics/coq-mathcomp 1.19.0-r1: Mathematical Components for the Coq proof assistant
@@ -16312,7 +16313,7 @@ sci-mathematics/lean 4.11.0 4.14.0-r1: The Lean Theorem Prover
 sci-mathematics/libpoly 0.1.11: C library for manipulating polynomials
 sci-mathematics/lpsolve 5.5.2.11-r2: Mixed Integer Linear Programming (MILP) solver
 sci-mathematics/lrcalc 1.2 2.1: Littlewood-Richardson Calculator
-sci-mathematics/manifold 3.0.0_pre20241115 3.0.1: Geometry library for topological robustness
+sci-mathematics/manifold 3.0.1 3.0.2_pre20250330 9999: Geometry library for topological robustness
 sci-mathematics/mathematica 10.3.1-r1 10.3.1-r2 12.1.0 12.1.1-r1 12.2.0 13.0.0 13.0.1 13.1.0 13.2.1 13.3.1 14.0.0 14.1.0: Wolfram Mathematica
 sci-mathematics/mathmod 12.0: Plot parametric and implicit surfaces
 sci-mathematics/mathomatic 16.0.5-r1: Automatic algebraic manipulator
@@ -16387,7 +16388,7 @@ sci-ml/NNPACK 2020.12.22-r4: acceleration package for neural network computation
 sci-ml/XNNPACK 2024.02.29-r1 2024.11.08-r1: library of floating-point neural network inference operators
 sci-ml/accelerate 1.5.2-r3 1.6.0-r2: Run your *raw* PyTorch training script on any kind of device
 sci-ml/caffe2 2.4.1-r7 2.5.1-r11 2.6.0-r4 2.7.0-r1: A deep learning framework
-sci-ml/cudnn-frontend 1.6.1 1.8.0 1.10.0: A c++ wrapper for the cudnn backend API
+sci-ml/cudnn-frontend 1.6.1 1.8.0 1.10.0 1.11.0: A c++ wrapper for the cudnn backend API
 sci-ml/datasets 3.5.0: Access and share datasets for Audio, Computer Vision, and NLP tasks
 sci-ml/evaluate 0.4.3-r1: makes evaluating, comparing models and reporting their performance easier
 sci-ml/fastai 2.7.19: The fastai deep learning library

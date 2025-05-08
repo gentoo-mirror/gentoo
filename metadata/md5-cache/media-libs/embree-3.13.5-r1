@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=>=media-libs/glfw-3.2.1 virtual/opengl ispc? ( dev-lang/ispc ) tbb? ( dev-cpp/tbb:= ) tutorial? ( media-libs/libjpeg-turbo >=media-libs/libpng-1.6.34:0= >=media-libs/openimageio-1.8.7:0= )
 DESCRIPTION=Collection of high-performance ray tracing kernels
 EAPI=8
-HOMEPAGE=https://github.com/embree/embree
+HOMEPAGE=https://github.com/RenderKit/embree
 INHERIT=cmake flag-o-matic linux-info toolchain-funcs
 IUSE=+compact-polys ispc +raymask ssp +tbb tutorial cpu_flags_arm_neon cpu_flags_x86_sse2 cpu_flags_x86_sse4_2 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512dq
 KEYWORDS=-* amd64 ~arm64
@@ -11,6 +11,6 @@ LICENSE=Apache-2.0
 RDEPEND=>=media-libs/glfw-3.2.1 virtual/opengl ispc? ( dev-lang/ispc ) tbb? ( dev-cpp/tbb:= ) tutorial? ( media-libs/libjpeg-turbo >=media-libs/libpng-1.6.34:0= >=media-libs/openimageio-1.8.7:0= )
 REQUIRED_USE=|| ( cpu_flags_arm_neon cpu_flags_x86_sse2 cpu_flags_x86_sse4_2 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512dq )
 SLOT=3
-SRC_URI=https://github.com/embree/embree/archive/v3.13.5.tar.gz -> embree-3.13.5.tar.gz
+SRC_URI=https://github.com/RenderKit/embree/archive/v3.13.5.tar.gz -> embree-3.13.5.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	linux-info	ea4122ba1d8791a12b78e53f9510a2e3
-_md5_=716f7de1d18ddfed7091ef4d08610ebb
+_md5_=ee68ef72ce5ae5316247b20117d577dd

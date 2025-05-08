@@ -1949,6 +1949,16 @@ dev-libs/boost:tools - Build and install the boost tools (bcp, quickbook, inspec
 dev-libs/botan:boost - Use dev-libs/boost
 dev-libs/botan:tools - Install optional tools for e.g. hashing
 dev-libs/check:subunit - Enable support for the subunit unit test protocol
+dev-libs/cutlass:clang-cuda - Use clang for cuda units compilation
+dev-libs/cutlass:cublas - Enable cuBLAS usage for tests
+dev-libs/cutlass:cudnn - Enable cuDNN usage for tests
+dev-libs/cutlass:dot - Use dot to generate graphs in the doxygen documentation via media-gfx/graphviz
+dev-libs/cutlass:examples - Enable CUTLASS Examples
+dev-libs/cutlass:headers-only - Enable only the header library
+dev-libs/cutlass:jumbo-build - Enable combined source compilation
+dev-libs/cutlass:performance - Enable CUTLASS Performance
+dev-libs/cutlass:profiler - Enable CUTLASS Profiler
+dev-libs/cutlass:tools - Enable CUTLASS Tools
 dev-libs/cyberjack:tools - Build and install optional management tools.
 dev-libs/cyrus-sasl:authdaemond - Add Courier-IMAP authdaemond unix socket support (net-mail/courier-imap, mail-mta/courier)
 dev-libs/cyrus-sasl:ldapdb - Enable ldapdb plugin
@@ -4072,6 +4082,7 @@ media-gfx/blender:embree - Use embree to accelerate certain areas of the Cycles 
 media-gfx/blender:experimental - Enable experimental features
 media-gfx/blender:fluid - Adds fluid simulation support via the built-in Mantaflow library.
 media-gfx/blender:hip - Build cycles renderer with AMD HIP support.
+media-gfx/blender:manifold - Enable Manifold render backend via sci-mathematics/manifold
 media-gfx/blender:nanovdb - Enable nanoVDB support in Cycles. Uses less memory than regular openVDB when rendering.
 media-gfx/blender:ndof - Enable NDOF input devices (SpaceNavigator and friends).
 media-gfx/blender:oidn - Enable OpenImageDenoiser Support
@@ -4179,22 +4190,23 @@ media-gfx/librecad:tools - Build additional tool programs: tff2lff
 media-gfx/luminance-hdr:fits - Enable support for the FITS format
 media-gfx/mandelbulber:opencl - Enable GPU rendering support using OpenCL
 media-gfx/meshlab:double-precision - Use double type instead of float type for scalars
-media-gfx/netgen:logging - Enable logging through dev-libs/spdlog
 media-gfx/netgen:opencascade - Enable OpenCASCADE support
 media-gfx/nomacs:opencv - Build support for media-libs/opencv
 media-gfx/nomacs:plugins - Build officially support plugins
 media-gfx/openclipart:gzip - Compresses clip art using gzip
+media-gfx/openscad:cgal - Enable cgal render backend via sci-mathematics/cgal (old/slow)
 media-gfx/openscad:egl - Build using EGL instead of GLX
 media-gfx/openscad:experimental - Enable experimental features
 media-gfx/openscad:glx - Enable GLX to interface OpenGL and X11
 media-gfx/openscad:gui - Enable or disable building of the GUI
 media-gfx/openscad:hidapi - Build in support for HID-Class devices using dev-libs/hidapi
-media-gfx/openscad:manifold - Enable Manifold render backend via sci-mathematics/manifold
+media-gfx/openscad:manifold - Enable Manifold render backend via sci-mathematics/manifold (new/fast)
 media-gfx/openscad:mimalloc - Build using dev-libs/mimalloc as memory allocator
 media-gfx/openscad:spacenav - Add support for space navigator devices through dev-libs/libspnav
 media-gfx/openvdb:abi10-compat - Disables newer features to maintain compatibility with ABI10
 media-gfx/openvdb:abi11-compat - Disables newer features to maintain compatibility with ABI11
 media-gfx/openvdb:abi12-compat - Disables newer features to maintain compatibility with ABI12
+media-gfx/openvdb:abi13-compat - Disables newer features to maintain compatibility with ABI13
 media-gfx/openvdb:abi9-compat - Disables newer features to maintain compatibility with ABI9
 media-gfx/openvdb:alembic - Add support for Alembic through media-gfx/alembic.
 media-gfx/openvdb:ax - Build the OpenVDB AX module to perform custom manipulation of OpenVDB data via an expression language: AX
@@ -4202,6 +4214,7 @@ media-gfx/openvdb:blosc - Allow using blosc compression via dev-libs/c-blosc
 media-gfx/openvdb:cuda - Enable support for CUDA in NanoVDB
 media-gfx/openvdb:nanovdb - A lightweight, header only, and GPU friendly version of VDB
 media-gfx/openvdb:numpy - Build pyopenvdb with support for dev-python/numpy
+media-gfx/openvdb:pdal - Enable support for PDAL for point clouds via sci-libs/pdal
 media-gfx/openvdb:utils - Build utility binaries
 media-gfx/photoqt:barcode - Support for QR and barcodes detection using media-libs/zxing-cpp
 media-gfx/photoqt:chromecast - Enable Chromecast support using dev-python/pychromecast
@@ -4462,25 +4475,29 @@ media-libs/opencv:jasper - Use media-libs/jasper for jpeg2k support
 media-libs/opencv:mkl - Use sci-libs/mkl for blas, lapack and sparse blas routines
 media-libs/opencv:non-free - Enable non-free components
 media-libs/opencv:opencvapps - Enable compilation with opencvapps
+media-libs/opencv:openni - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI
+media-libs/opencv:openni2 - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI2 (should be preferred over openni)
 media-libs/opencv:quirc - Enable qrcode decoding via media-libs/quirc
+media-libs/opencv:spng - Use media-libs/libspng for png support
 media-libs/opencv:tbb - Enable multithreading with the Intel Threads Building Block (dev-cpp/tbb)
 media-libs/opencv:tesseract - Use Google's OCR Engine
 media-libs/opencv:testprograms - Build and install programs for testing OpenCV (performance)
 media-libs/opencv:truetype - Enable media-libs/freetype support for gapi module
 media-libs/opencv:video_cards_intel - Enable Video Acceleration API for hardware decoding for Intel cards
 media-libs/opencv:vtk - Build new 3D visualization module viz based on sci-libs/vtk
+media-libs/opencv:vulkan - Enable experimental Vulkan backend
 media-libs/openexr:large-stack - Enables code to take advantage of large stack support.
 media-libs/openexr:utils - Build several binary tools for verifying and manipulating EXR files.
 media-libs/openh264:plugin - Install the Gecko Media Plugin (GMP) for use with Mozilla packages
 media-libs/openh264:utils - Install the CLI encoder and decoder utilities
 media-libs/openimageio:dicom - Enable DICOM medical image file support via sci-libs/dcmtk
 media-libs/openimageio:fits - Enable support for NASA's sci-libs/cfitsio library
-media-libs/openimageio:gui - Build iv with dev-qt/qtbase
+media-libs/openimageio:gui - Build iv (with Qt5)
 media-libs/openimageio:opencv - Enable OpenCV support via media-libs/opencv
 media-libs/openimageio:openvdb - Enable OpenVDB support via media-gfx/openvdb
 media-libs/openimageio:ptex - Enable Ptex texture mapping system file support via media-libs/ptex
 media-libs/openimageio:tools - Build the command-line tools
-media-libs/opensubdiv:glew - Enable support for OpenGL Extension Wrangler Library (media-libs/glew)
+media-libs/openpgl:tools - Building Open PGL tools as well
 media-libs/opensubdiv:glfw - Build all example files that uses (media-libs/glfw)
 media-libs/opensubdiv:ptex - Adds support for faster per-face texture mapping through media-libs/ptex
 media-libs/opensubdiv:python - Use dev-lang/python to process source and documentation source files
@@ -4493,6 +4510,7 @@ media-libs/opus:osce - Enable Opus Speech Coding Enhancement (OSCE)
 media-libs/opusfile:fixed-point - Enable fixed-point arithmetic operations
 media-libs/opusfile:float - Enable floating point arithmetic operations
 media-libs/opusfile:http - Enable http connections
+media-libs/osl:clang-cuda - Use clang for cuda units compilation
 media-libs/osl:gui - Build the osltoy binary
 media-libs/osl:libcxx - Build against llvm-runtimes/libcxx when using clang
 media-libs/osl:nofma - Do not use Fuse-Multiply-Add operations
@@ -7685,6 +7703,7 @@ sci-ml/caffe2:openmp - Use OpenMP for parallel code
 sci-ml/caffe2:qnnpack - Use QNNPACK
 sci-ml/caffe2:rocm - Enable ROCm gpu computing support
 sci-ml/caffe2:xnnpack - Use sci-ml/XNNPACK
+sci-ml/cudnn-frontend:samples - Build samples during testing
 sci-ml/datasets:torch - Use pytorch
 sci-ml/datasets:vision - Support vision
 sci-ml/gloo:libuv - Enable libuv support
