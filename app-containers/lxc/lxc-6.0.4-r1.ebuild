@@ -72,6 +72,10 @@ VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/linuxcontainers.asc
 
 DOCS=( AUTHORS CONTRIBUTING MAINTAINERS README.md doc/FAQ.txt )
 
+PATCHES=(
+	"${FILESDIR}"/${P}-start-Re-introduce-first-SET_DUMPABLE-call.patch
+)
+
 pkg_setup() {
 	linux-info_pkg_setup
 }
