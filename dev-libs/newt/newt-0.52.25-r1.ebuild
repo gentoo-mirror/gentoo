@@ -16,16 +16,16 @@ SRC_URI="https://github.com/mlichvar/newt/archive/${MY_PV}.tar.gz -> ${P}.tar.gz
 LICENSE="LGPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE="gpm nls tcl"
+IUSE="gpm python nls tcl"
 RESTRICT="test"
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="
-	${PYTHON_DEPS}
 	>=dev-libs/popt-1.6
 	=sys-libs/slang-2*
 	gpm? ( sys-libs/gpm )
+	python? ( ${PYTHON_DEPS} )
 	tcl? ( >=dev-lang/tcl-8.5:0 )
 	"
 DEPEND="${RDEPEND}"
@@ -69,7 +69,7 @@ src_configure() {
 	python_foreach_impl getversions
 
 	econf \
-		--with-python="${versions}" \
+		$(use_with python '' "${EPYTHON}") \
 		$(use_with gpm gpm-support) \
 		$(use_with tcl) \
 		$(use_enable nls)
@@ -79,7 +79,7 @@ src_install() {
 	emake \
 		DESTDIR="${D}" \
 		install
-	python_foreach_impl python_optimize
+	use python && python_foreach_impl python_optimize
 
 	dodoc peanuts.py popcorn.py tutorial.sgml
 	doman whiptail.1

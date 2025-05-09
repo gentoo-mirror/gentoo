@@ -62,7 +62,7 @@ PATCHES=(
 	"${FILESDIR}"/netpbm-11.0.0-misc-deps.patch
 	"${FILESDIR}"/netpbm-11.1.0-fix-clang-O2.patch
 	"${FILESDIR}"/netpbm-11.6.1-incompatible-pointer-types.patch
-	"${FILESDIR}"/${P}-fix-pamdice-test.patch
+	"${FILESDIR}"/netpbm-11.10.3-fix-pamdice-test.patch
 )
 
 netpbm_libtype() {
