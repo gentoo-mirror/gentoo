@@ -1,0 +1,17 @@
+BDEPEND=dev-ada/gprbuild[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-)] test? ( dev-ada/aunit[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-)] )
+DEFINED_PHASES=compile install prepare setup test
+DEPEND=ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) dev-ada/templates-parser[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-),shared(+),static-libs?] >=dev-ada/VSS-24.0.0[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-),shared,static-libs?,static-pic?] dev-ada/libadalang:0/25.0.0[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-),static-libs?,static-pic?]
+DESCRIPTION=Libadalang-based tools: gnatpp, gnatmetric and gnatstub
+EAPI=8
+HOMEPAGE=https://www.adacore.com/community
+INHERIT=ada multiprocessing
+IUSE=static-libs static-pic test ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3
+RDEPEND=ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) dev-ada/templates-parser[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-),shared(+),static-libs?] >=dev-ada/VSS-24.0.0[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-),shared,static-libs?,static-pic?] dev-ada/libadalang:0/25.0.0[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-),static-libs?,static-pic?]
+REQUIRED_USE=^^ ( ada_target_gcc_14 ada_target_gcc_15 )
+RESTRICT=!test? ( test )
+SLOT=0/25.0.0
+SRC_URI=https://github.com/AdaCore/libadalang-tools/archive/refs/tags/v25.0.0.tar.gz -> libadalang-tools-25.0.0.tar.gz
+_eclasses_=ada	02ff4ede51c5f676746b340a6406accf	multiprocessing	1e32df7deee68372153dca65f4a7c21f
+_md5_=8ac1772d91fc670d4c0eca6363ea4d23
