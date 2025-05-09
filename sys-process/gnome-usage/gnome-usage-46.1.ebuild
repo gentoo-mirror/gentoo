@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,18 +6,18 @@ EAPI=8
 inherit gnome.org gnome2-utils meson vala xdg
 
 DESCRIPTION="A nice way to view information about use of system resources"
-HOMEPAGE="https://wiki.gnome.org/Apps/Usage"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-usage"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	>=dev-libs/libgee-0.8:0.8=
-	>=dev-libs/glib-2.44:2
+	>=dev-libs/glib-2.74:2
 	>=gui-libs/gtk-4.11.3:4
 	>=gnome-base/libgtop-2.34.0:2=
-	>=gui-libs/libadwaita-1.4:1
+	>=gui-libs/libadwaita-1.5:1
 	>=app-misc/tracker-3.0.3:3[vala(+)]
 "
 DEPEND="${RDEPEND}"
