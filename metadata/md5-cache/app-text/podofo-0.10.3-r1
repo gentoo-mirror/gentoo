@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig test? ( fontconfig? ( media-fonts/liberation-fonts ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=idn? ( net-dns/libidn:= ) dev-libs/openssl:= fontconfig? ( media-libs/fontconfig:= ) media-libs/freetype:2= jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) dev-libs/libxml2 tiff? ( media-libs/tiff:= ) sys-libs/zlib:=
+DEPEND=idn? ( net-dns/libidn:= ) dev-libs/openssl:= fontconfig? ( media-libs/fontconfig:= ) media-libs/freetype:2= jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) dev-libs/libxml2:= tiff? ( media-libs/tiff:= ) sys-libs/zlib:=
 DESCRIPTION=PoDoFo is a C++ library to work with the PDF file format
 EAPI=8
 HOMEPAGE=https://github.com/podofo/podofo
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=idn jpeg tiff png fontconfig test tools
 KEYWORDS=amd64 ~arm ~arm64 ~hppa ppc ppc64 ~sparc x86
 LICENSE=LGPL-2+ tools? ( GPL-2+ )
-RDEPEND=idn? ( net-dns/libidn:= ) dev-libs/openssl:= fontconfig? ( media-libs/fontconfig:= ) media-libs/freetype:2= jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) dev-libs/libxml2 tiff? ( media-libs/tiff:= ) sys-libs/zlib:=
+RDEPEND=idn? ( net-dns/libidn:= ) dev-libs/openssl:= fontconfig? ( media-libs/fontconfig:= ) media-libs/freetype:2= jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) dev-libs/libxml2:= tiff? ( media-libs/tiff:= ) sys-libs/zlib:=
 RESTRICT=!test? ( test )
 SLOT=0/2
 SRC_URI=https://github.com/podofo/podofo/archive/refs/tags/0.10.3.tar.gz -> podofo-0.10.3.tar.gz test? ( https://github.com/podofo/podofo-resources/archive/4afe5c3fdb543a4347681b2e52252f1b10f12f24.tar.gz -> podofo-0.10.1-test-resources.tar.gz )
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=5759adedccee151e33ec3e77ba61dcea
+_md5_=410a49ca48d8aba3764bc9c80ecf72ba
