@@ -30,6 +30,7 @@ BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
 		app-arch/unzip
+		dev-python/rarfile[${PYTHON_USEDEP}]
 		dev-python/sympy[${PYTHON_USEDEP}]
 		>=dev-python/vcrpy-1.6.1[${PYTHON_USEDEP}]
 	)
@@ -74,8 +75,9 @@ EPYTEST_DESELECT=(
 	tests/test_core.py::test_refine_video_metadata
 )
 
-PATCHES=(
-	"${FILESDIR}"/${P}-win32-tests.patch
+EPYTEST_IGNORE=(
+	# Needs pypandoc and irrelevant for us
+	scripts/generate-gh-release-notes.py
 )
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
