@@ -1882,6 +1882,7 @@ dev-lang/python:ensurepip - Install the ensurepip module that uses bundled wheel
 dev-lang/python:jit - Enable experimental Just-In-Time compilation support.
 dev-lang/python:libedit - Link readline extension against dev-libs/libedit instead of sys-libs/readline
 dev-lang/python:pgo - Optimize the build using Profile Guided Optimization (PGO) by running Python's test suite and collecting statistics based on its performance. This will take longer to build.
+dev-lang/python:tail-call-interp - Enable the tail call interpreter. May lead to better performance but is still new and dependent on latest toolchain versions (Clang 19, GCC 15).
 dev-lang/python:valgrind - Disable pymalloc when running under dev-debug/valgrind is detected (may incur minor performance penalty even when valgrind is not used)
 dev-lang/python:wininst - Install Windows executables required to create an executable installer for MS Windows
 dev-lang/python-exec:native-symlinks - Install generic symlinks like python and python3. If this flag is disabled, only versioned python3.X executables will be available to end users and ebuilds not using python eclasses.
@@ -5529,7 +5530,6 @@ net-analyzer/netdata:mongodb - Enable support for the mongodb backend
 net-analyzer/netdata:nfacct - Enable the nfacct plugin
 net-analyzer/netdata:nodejs - Enable use of nodejs (which some plugins use)
 net-analyzer/netdata:prometheus - Enable support for the Prometheus remote write backend
-net-analyzer/netdata:tor - Enable monitoring of tor
 net-analyzer/netdata:xen - Enable monitoring of xen
 net-analyzer/netperf:demo - Emit interim results during the run. May affect results
 net-analyzer/nfdump:ftconv - Build the flow-tools to nfdump converter
