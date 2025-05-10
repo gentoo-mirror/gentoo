@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1
 
@@ -37,6 +37,10 @@ BDEPEND="
 "
 
 DOCS=( CHANGES CREDITS README.md )
+
+PATCHES=(
+	"${FILESDIR}"/${P}-gcc15.patch
+)
 
 distutils_enable_tests pytest
 
