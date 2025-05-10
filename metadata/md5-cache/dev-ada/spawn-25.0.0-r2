@@ -1,0 +1,16 @@
+BDEPEND=dev-ada/gprbuild[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?]
+DEFINED_PHASES=compile install setup test
+DEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] )
+DESCRIPTION=Simple API to spawn processes
+EAPI=8
+HOMEPAGE=https://github.com/AdaCore/spawn
+INHERIT=ada multiprocessing
+IUSE=static-libs static-pic ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3 gcc-runtime-library-exception-3.1
+RDEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] )
+REQUIRED_USE=^^ ( ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 )
+SLOT=0/25.0.0
+SRC_URI=https://github.com/AdaCore/spawn/archive/refs/tags/v25.0.0.tar.gz -> spawn-25.0.0.tar.gz
+_eclasses_=ada	02ff4ede51c5f676746b340a6406accf	multiprocessing	1e32df7deee68372153dca65f4a7c21f
+_md5_=39741f03375f9abc23286a0846953319

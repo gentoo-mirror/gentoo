@@ -1,0 +1,16 @@
+BDEPEND=test? ( || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/python:3.13t ) )
+DEFINED_PHASES=compile prepare setup test
+DEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) dev-ada/gprbuild[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?] dev-ada/VSS[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?]
+DESCRIPTION=Provides a markdown parser written in Ada
+EAPI=8
+HOMEPAGE=https://github.com/AdaCore/markdown
+INHERIT=ada python-any-r1 multiprocessing
+IUSE=test ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) dev-ada/gprbuild[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?] dev-ada/VSS[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?]
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/AdaCore/markdown/archive/refs/tags/v25.0.0.tar.gz -> markdown-25.0.0.tar.gz https://github.com/AdaCore/markdown/commit/2bce1932841933fbe2dc31026fd68e5bc7a9c96d.patch test? ( https://github.com/commonmark/commonmark-spec/archive/refs/tags/0.31.2.tar.gz -> commonmark-spec-0.31.2.tar.gz )
+_eclasses_=ada	02ff4ede51c5f676746b340a6406accf	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=bfba37438f6c8a0f09a39efcb0c5f355
