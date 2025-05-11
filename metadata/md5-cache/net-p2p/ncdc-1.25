@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://dev.yorhel.nl/ncdc
 INHERIT=toolchain-funcs verify-sig
 IUSE=geoip verify-sig
-KEYWORDS=~amd64 ~ppc ~sparc ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~sparc ~x86
 LICENSE=MIT
 RDEPEND=app-arch/bzip2 dev-db/sqlite:3 >=dev-libs/glib-2.74:2 >=net-libs/gnutls-3:= sys-libs/ncurses:=[unicode(+)] sys-libs/zlib geoip? ( dev-libs/libmaxminddb:= )
 SLOT=0
 SRC_URI=https://dev.yorhel.nl/download/ncdc-1.25.tar.gz verify-sig? ( https://dev.yorhel.nl/download/ncdc-1.25.tar.gz.asc )
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
-_md5_=10258ab0c4dee5c00c0bedfe4481cacf
+_md5_=832e791503bef6c317f7c8fe32344dfe
