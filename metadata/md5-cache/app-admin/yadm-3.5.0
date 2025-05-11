@@ -1,0 +1,15 @@
+BDEPEND=test? ( app-crypt/gnupg app-shells/bash dev-vcs/git || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) || ( ( dev-lang/python:3.14 dev-python/pytest[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/pytest[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pytest[python_targets_python3_11(-)] ) ) dev-tcltk/expect )
+DEFINED_PHASES=compile install setup test
+DESCRIPTION=Git based tool for managing dotfiles
+EAPI=8
+HOMEPAGE=https://github.com/yadm-dev/yadm
+INHERIT=python-any-r1 shell-completion
+IUSE=test
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-crypt/gnupg app-shells/bash dev-vcs/git
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/yadm-dev/yadm/archive/3.5.0.tar.gz -> yadm-3.5.0.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-any-r1	891415dfe39ad9b41b461f2b86354af0	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16
+_md5_=7f136e0bad396345aa35a4d5f1914e9b
