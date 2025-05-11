@@ -1,13 +1,13 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 # Note: Please bump in sync with dev-libs/libxslt
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 PYTHON_REQ_USE="xml(+)"
-inherit flag-o-matic python-r1 multilib-minimal
+inherit autotools python-r1 multilib-minimal
 
 XSTS_HOME="http://www.w3.org/XML/2004/xml-schema-test-suite"
 XSTS_NAME_1="xmlschema2002-01-16"
@@ -22,11 +22,9 @@ if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/libxml2"
 	inherit git-r3
 else
-	inherit autotools gnome.org
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+	inherit gnome.org
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 fi
-
-inherit autotools
 
 SRC_URI+="
 	test? (
@@ -39,7 +37,7 @@ S="${WORKDIR}/${PN}-${PV%_rc*}"
 
 LICENSE="MIT"
 SLOT="2"
-IUSE="debug examples +ftp icu lzma +python readline static-libs test"
+IUSE="examples icu lzma +python readline static-libs test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -63,8 +61,7 @@ MULTILIB_CHOST_TOOLS=(
 )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.11.5-CVE-2023-45322.patch
-	"${FILESDIR}"/${PN}-2.11.9-icu-pkgconfig.patch
+	"${FILESDIR}"/${PN}-2.12.9-icu-pkgconfig.patch
 )
 
 src_unpack() {
@@ -104,22 +101,14 @@ src_prepare() {
 }
 
 multilib_src_configure() {
-	# Filter seemingly problematic CFLAGS (bug #26320)
-	filter-flags -fprefetch-loop-arrays -funroll-loops
-
-	# Notes:
-	# The meaning of the 'debug' USE flag does not apply to the --with-debug
-	# switch (enabling the libxml2 debug module). See bug #100898.
 	libxml2_configure() {
 		ECONF_SOURCE="${S}" econf \
-			--enable-ipv6 \
-			$(use_with ftp) \
-			$(use_with debug run-debug) \
 			$(use_with icu) \
 			$(use_with lzma) \
 			$(use_enable static-libs static) \
 			$(multilib_native_use_with readline) \
 			$(multilib_native_use_with readline history) \
+			--with-legacy \
 			"$@"
 	}
 
