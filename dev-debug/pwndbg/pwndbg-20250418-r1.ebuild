@@ -48,6 +48,10 @@ RDEPEND="
 # Tests are architectur-specific (precompiled binaries)
 RESTRICT="test"
 
+PATCHES=(
+	"${FILESDIR}/${P}-no-docs.patch"
+)
+
 src_install() {
 	distutils-r1_src_install
 
