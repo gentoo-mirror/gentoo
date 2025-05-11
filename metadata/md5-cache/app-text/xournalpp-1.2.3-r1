@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig sys-apps/lsb-release app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) app-text/poppler[cairo] >=dev-libs/glib-2.32.0 dev-libs/libxml2 >=dev-libs/libzip-1.0.1:= >=gnome-base/librsvg-2.40 >=media-libs/portaudio-12[cxx] >=media-libs/libsndfile-1.0.25 sys-libs/zlib:= >=x11-libs/gtk+-3.18.9:3
+DEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) app-text/poppler[cairo] >=dev-libs/glib-2.32.0 dev-libs/libxml2 >=dev-libs/libzip-1.0.1:= >=gnome-base/librsvg-2.40 >=media-libs/portaudio-12[cxx] >=media-libs/libsndfile-1.0.25 sys-libs/zlib:= >=x11-libs/gtk+-3.18.9:3 >=x11-libs/gtksourceview-4.0
 DESCRIPTION=Handwriting notetaking software with PDF annotation support
 EAPI=8
 HOMEPAGE=https://github.com/xournalpp/xournalpp
@@ -9,9 +9,9 @@ INHERIT=cmake lua-single xdg
 IUSE=lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=amd64 ~ppc64
 LICENSE=GPL-2
-RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) app-text/poppler[cairo] >=dev-libs/glib-2.32.0 dev-libs/libxml2 >=dev-libs/libzip-1.0.1:= >=gnome-base/librsvg-2.40 >=media-libs/portaudio-12[cxx] >=media-libs/libsndfile-1.0.25 sys-libs/zlib:= >=x11-libs/gtk+-3.18.9:3
+RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) app-text/poppler[cairo] >=dev-libs/glib-2.32.0 dev-libs/libxml2 >=dev-libs/libzip-1.0.1:= >=gnome-base/librsvg-2.40 >=media-libs/portaudio-12[cxx] >=media-libs/libsndfile-1.0.25 sys-libs/zlib:= >=x11-libs/gtk+-3.18.9:3 >=x11-libs/gtksourceview-4.0
 REQUIRED_USE=^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 )
 SLOT=0
 SRC_URI=https://github.com/xournalpp/xournalpp/archive/refs/tags/v1.2.3.tar.gz -> xournalpp-1.2.3.tgz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=e06cf0dd03af80b4eea817698362eb3c
+_md5_=984ddc5f60ea4a8d97578df148bea90d
