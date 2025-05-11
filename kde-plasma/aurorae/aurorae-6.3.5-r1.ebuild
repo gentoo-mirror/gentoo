@@ -10,8 +10,7 @@ inherit ecm plasma.kde.org
 
 DESCRIPTION="Themeable window decoration for KWin"
 HOMEPAGE="https://invent.kde.org/plasma/aurorae"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PN}.CMakeLists.txt.xz
-	https://dev.gentoo.org/~asturm/distfiles/${PN}-6.3.2-decouple-from-libkwin.patch.xz"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-decouple-from-libkwin.patch.xz"
 CMAKE_USE_DIR="${S}/src/plugins/kdecorations/aurorae/"
 
 LICENSE="GPL-2+ MIT"
@@ -40,13 +39,7 @@ RDEPEND="${DEPEND}
 
 DOCS=( README )
 
-PATCHES=( "${WORKDIR}/${PN}-6.3.2-decouple-from-libkwin.patch" )
-
-src_prepare() {
-	mv "${WORKDIR}"/${PN}.CMakeLists.txt \
-		src/plugins/kdecorations/aurorae/CMakeLists.txt || die
-	ecm_src_prepare
-}
+PATCHES=( "${WORKDIR}/${P}-decouple-from-libkwin.patch" )
 
 src_configure() {
 	local mycmakeargs=( -DPROJECT_VERSION=${PV} )
