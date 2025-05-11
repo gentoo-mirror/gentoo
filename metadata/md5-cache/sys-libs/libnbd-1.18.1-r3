@@ -1,0 +1,17 @@
+BDEPEND=dev-lang/perl
+DEFINED_PHASES=configure install prepare setup
+DEPEND=dev-libs/libxml2:= fuse? ( sys-fs/fuse:3= ) gnutls? ( net-libs/gnutls:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) go? ( dev-lang/go ) ocaml? ( >=dev-lang/ocaml-4.03:=[ocamlopt] ) test? ( sys-block/nbd[gnutls?] sys-block/nbdkit[gnutls?] )
+DESCRIPTION=NBD client library in userspace
+EAPI=8
+HOMEPAGE=https://gitlab.com/nbdkit/libnbd
+INHERIT=bash-completion-r1 python-single-r1
+IUSE=fuse gnutls go ocaml python test python_single_target_python3_11 python_single_target_python3_12
+KEYWORDS=amd64 ~ppc64 ~sparc ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=dev-libs/libxml2:= fuse? ( sys-fs/fuse:3= ) gnutls? ( net-libs/gnutls:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) go? ( dev-lang/go ) ocaml? ( >=dev-lang/ocaml-4.03:=[ocamlopt] )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://download.libguestfs.org/libnbd/1.18-stable/libnbd-1.18.1.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=54c6838bdac603836054c0420cf4bae8
