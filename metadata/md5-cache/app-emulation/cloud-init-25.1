@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://launchpad.net/cloud-init
 INHERIT=edo python-single-r1 udev
 IUSE=selinux test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 arm64 ~loong ~ppc64 ~x86
+KEYWORDS=amd64 arm64 ~loong ~ppc64 x86
 LICENSE=GPL-3
 RDEPEND=python_single_target_python3_11? ( dev-python/jinja2[python_targets_python3_11(-)] dev-python/oauthlib[python_targets_python3_11(-)] dev-python/pyserial[python_targets_python3_11(-)] >=dev-python/configobj-5.0.2[python_targets_python3_11(-)] dev-python/pyyaml[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] dev-python/jsonpatch[python_targets_python3_11(-)] dev-python/jsonschema[python_targets_python3_11(-)] dev-python/netifaces[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/jinja2[python_targets_python3_12(-)] dev-python/oauthlib[python_targets_python3_12(-)] dev-python/pyserial[python_targets_python3_12(-)] >=dev-python/configobj-5.0.2[python_targets_python3_12(-)] dev-python/pyyaml[python_targets_python3_12(-)] dev-python/requests[python_targets_python3_12(-)] dev-python/jsonpatch[python_targets_python3_12(-)] dev-python/jsonschema[python_targets_python3_12(-)] dev-python/netifaces[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/jinja2[python_targets_python3_13(-)] dev-python/oauthlib[python_targets_python3_13(-)] dev-python/pyserial[python_targets_python3_13(-)] >=dev-python/configobj-5.0.2[python_targets_python3_13(-)] dev-python/pyyaml[python_targets_python3_13(-)] dev-python/requests[python_targets_python3_13(-)] dev-python/jsonpatch[python_targets_python3_13(-)] dev-python/jsonschema[python_targets_python3_13(-)] dev-python/netifaces[python_targets_python3_13(-)] ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) net-analyzer/macchanger net-analyzer/openbsd-netcat sys-apps/iproute2 sys-fs/growpart virtual/logger selinux? ( sec-policy/selinux-cloudinit )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://launchpad.net/cloud-init/trunk/25.1/+download/cloud-init-25.1.tar.gz
 _eclasses_=edo	367e103a74bf77e6a8da7894d999fa3c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	udev	f3d9a4376ebd22131726a68e1a0a058f
-_md5_=5ae571f684157827abe2da3daf1244dd
+_md5_=12708b00888218ce855a074a26dedbfd
