@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/dropbear.asc
-inherit pam python-any-r1 savedconfig verify-sig
+inherit autotools pam python-any-r1 savedconfig verify-sig
 
 DESCRIPTION="Small SSH 2 client/server designed for small memory environments"
 HOMEPAGE="https://matt.ucc.asn.au/dropbear/dropbear.html"
@@ -69,6 +69,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2024.84-dbscp.patch
 	"${FILESDIR}"/${PN}-2024.86-tests.patch
 	"${FILESDIR}"/${PN}-2024.84-test-bg-sleep.patch
+	"${FILESDIR}"/${PN}-2025.88-remove-which.patch
 )
 
 set_options() {
@@ -106,6 +107,8 @@ pkg_setup() {
 
 src_prepare() {
 	default
+
+	eautoreconf
 
 	# dropbear does not accept -E if built w/o syslog support and fails the tests
 	if use syslog; then
@@ -184,7 +187,7 @@ src_install() {
 	set_options
 	emake "${makeopts[@]}" PROGRAMS="${progs[*]}" DESTDIR="${D}" install
 	doman manpages/*.8
-	newinitd "${FILESDIR}"/dropbear.init.d dropbear
+	newinitd "${FILESDIR}"/dropbear.init.d-r1 dropbear
 	newconfd "${FILESDIR}"/dropbear.conf.d dropbear
 	dodoc CHANGES README.md SMALL.md MULTI.md
 
