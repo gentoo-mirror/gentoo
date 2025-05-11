@@ -5,8 +5,8 @@ EAPI=8
 
 inherit flag-o-matic multilib-minimal toolchain-funcs
 
-FFMPEG_SOC_PATCH=
-FFMPEG_SUBSLOT=60.62.62 # avutil.avcodec.avformat SONAME
+FFMPEG_SOC_PATCH=ffmpeg-rpi-7.1.1.patch
+FFMPEG_SUBSLOT=59.61.61 # avutil.avcodec.avformat SONAME
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -24,7 +24,7 @@ else
 		"}
 	"
 	S=${WORKDIR}/ffmpeg-${PV} # avoid ${P} for ffmpeg-compat
-	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos"
+	KEYWORDS="amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos"
 fi
 
 DESCRIPTION="Complete solution to record/convert/stream audio and video"
@@ -94,6 +94,7 @@ FFMPEG_IUSE_MAP=(
 	openmpt:libopenmpt
 	openssl:openssl,!gnutls@v3ifgpl # still LGPL2.1+ if USE=-gpl
 	opus:libopus
+	+postproc # exposed as a USE for clarity with the GPL requirement
 	pulseaudio:libpulse
 	qrcode:libqrencode
 	qsv:libvpl
@@ -121,7 +122,7 @@ FFMPEG_IUSE_MAP=(
 	vmaf:libvmaf
 	vorbis:libvorbis
 	vpx:libvpx
-	vulkan:vulkan,vulkan-static # still uses shared, only means no dlopen()
+	vulkan
 	webp:libwebp
 	x264:libx264
 	x265:libx265
@@ -163,14 +164,14 @@ REQUIRED_USE="
 	npp? ( nvenc )
 	shaderc? ( vulkan )
 	libaribb24? ( gpl ) cdio? ( gpl ) dvd? ( gpl ) frei0r? ( gpl )
-	rubberband? ( gpl ) samba? ( gpl ) vidstab? ( gpl ) x264? ( gpl )
-	x265? ( gpl ) xvid? ( gpl )
+	postproc? ( gpl ) rubberband? ( gpl ) samba? ( gpl )
+	vidstab? ( gpl ) x264? ( gpl ) x265? ( gpl ) xvid? ( gpl )
 	${FFMPEG_UNSLOTTED:+chromium? ( opus )}
 	${FFMPEG_SOC_PATCH:+soc? ( drm )}
 "
 RESTRICT="gpl? ( fdk? ( bindist ) npp? ( bindist ) )"
 
-# dlopen: amdgpu-pro-amf
+# dlopen: amdgpu-pro-amf, vulkan-loader
 COMMON_DEPEND="
 	virtual/libiconv[${MULTILIB_USEDEP}]
 	X? (
@@ -306,7 +307,7 @@ RDEPEND="
 DEPEND="
 	${COMMON_DEPEND}
 	X? ( x11-base/xorg-proto )
-	amf? ( >=media-libs/amf-headers-1.4.35 )
+	amf? ( media-libs/amf-headers )
 	kernel_linux? ( >=sys-kernel/linux-headers-6 )
 	ladspa? ( media-libs/ladspa-sdk )
 	nvenc? ( >=media-libs/nv-codec-headers-12.1.14.0 )
@@ -316,7 +317,12 @@ DEPEND="
 BDEPEND="
 	app-alternatives/awk
 	virtual/pkgconfig
-	amd64? ( dev-lang/nasm )
+	amd64? (
+		|| (
+			dev-lang/nasm
+			dev-lang/yasm
+		)
+	)
 	cuda? ( llvm-core/clang:*[llvm_targets_NVPTX] )
 	${FFMPEG_UNSLOTTED:+"
 		dev-lang/perl
@@ -335,6 +341,7 @@ MULTILIB_WRAPPED_HEADERS=(
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-6.1-opencl-parallel-gmake-fix.patch
+	"${FILESDIR}"/${PN}-7.1.1-svt-av1-3.patch
 )
 
 pkg_pretend() {
@@ -450,7 +457,6 @@ multilib_src_configure() {
 		--disable-libklvanc
 		--disable-liblcevc-dec
 		--disable-libmysofa
-		--disable-liboapv
 		--disable-libopenvino
 		--disable-libshine
 		--disable-libtls

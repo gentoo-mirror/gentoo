@@ -4,9 +4,9 @@
 EAPI=8
 
 LUA_COMPAT=( lua5-{3..4} )
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{10..13} )
 
-inherit fcaps lua-single python-any-r1 qmake-utils toolchain-funcs xdg cmake
+inherit fcaps flag-o-matic lua-single python-any-r1 qmake-utils xdg cmake
 
 DESCRIPTION="Network protocol analyzer (sniffer)"
 HOMEPAGE="https://www.wireshark.org/"
@@ -23,7 +23,7 @@ else
 	S="${WORKDIR}/${P/_/}"
 
 	if [[ ${PV} != *_rc* ]] ; then
-		KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc64 ~riscv ~x86"
+		KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc64 ~riscv x86"
 	fi
 fi
 
@@ -33,7 +33,7 @@ IUSE="androiddump bcg729 brotli +capinfos +captype ciscodump +dftest doc dpauxmo
 IUSE+=" +dumpcap +editcap +gui http2 http3 ilbc kerberos libxml2 lua lz4 maxminddb"
 IUSE+=" +mergecap +minizip +netlink opus +plugins +pcap +randpkt"
 IUSE+=" +randpktdump +reordercap sbc selinux +sharkd smi snappy spandsp sshdump ssl"
-IUSE+=" sdjournal test +text2pcap +tshark +udpdump wifi zlib +zstd"
+IUSE+=" sdjournal test +text2pcap tfshark +tshark +udpdump wifi zlib +zstd"
 
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
@@ -86,6 +86,8 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
+# TODO: 4.0.0_rc1 release notes say:
+# "Perl is no longer required to build Wireshark, but may be required to build some source code files and run code analysis checks."
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-lang/perl
@@ -116,11 +118,6 @@ RDEPEND="
 if [[ ${PV} != *9999* ]] ; then
 	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-wireshark )"
 fi
-
-PATCHES=(
-	"${FILESDIR}/4.4.4-fix-skipping-rawshark-tests-on-big-endian.patch"
-	"${FILESDIR}/4.4.6-lto.patch"
-)
 
 python_check_deps() {
 	use test || return 0
@@ -157,6 +154,27 @@ src_configure() {
 
 	python_setup
 
+	# Workaround bug #213705. If krb5-config --libs has -lcrypto then pass
+	# --with-ssl to ./configure. (Mimics code from acinclude.m4).
+	if use kerberos ; then
+		case $(krb5-config --libs) in
+			*-lcrypto*)
+				ewarn "Kerberos was built with ssl support: linkage with openssl is enabled."
+				ewarn "Note there are annoying license incompatibilities between the OpenSSL"
+				ewarn "license and the GPL, so do your check before distributing such package."
+				mycmakeargs+=( -DENABLE_GNUTLS=$(usex ssl) )
+				;;
+		esac
+	fi
+
+	if use gui ; then
+		append-cxxflags -fPIC -DPIC
+	fi
+
+	# crashes at runtime
+	# https://bugs.gentoo.org/754021
+	filter-lto
+
 	mycmakeargs+=(
 		-DPython3_EXECUTABLE="${PYTHON}"
 		-DCMAKE_DISABLE_FIND_PACKAGE_{Asciidoctor,DOXYGEN}=$(usex !doc)
@@ -191,7 +209,7 @@ src_configure() {
 		-DBUILD_sharkd=$(usex sharkd)
 		-DBUILD_sshdump=$(usex sshdump)
 		-DBUILD_text2pcap=$(usex text2pcap)
-		-DBUILD_tfshark=OFF
+		-DBUILD_tfshark=$(usex tfshark)
 		-DBUILD_tshark=$(usex tshark)
 		-DBUILD_udpdump=$(usex udpdump)
 
@@ -206,11 +224,12 @@ src_configure() {
 		-DENABLE_ILBC=$(usex ilbc)
 		-DENABLE_KERBEROS=$(usex kerberos)
 		-DENABLE_LIBXML2=$(usex libxml2)
+		# only appends -flto
+		-DENABLE_LTO=OFF
 		-DENABLE_LUA=$(usex lua)
 		-DLUA_FIND_VERSIONS="${ELUA#lua}"
 		-DENABLE_LZ4=$(usex lz4)
 		-DENABLE_MINIZIP=$(usex minizip)
-		-DENABLE_MINIZIPNG=OFF
 		-DENABLE_NETLINK=$(usex netlink)
 		-DENABLE_NGHTTP2=$(usex http2)
 		-DENABLE_NGHTTP3=$(usex http3)
@@ -228,13 +247,16 @@ src_configure() {
 		-DENABLE_ZSTD=$(usex zstd)
 	)
 
-	tc-is-lto && mycmakeargs+=( -DENABLE_LTO=ON )
-
 	cmake_src_configure
 }
 
 src_test() {
 	cmake_build test-programs
+
+	EPYTEST_DESELECT=(
+		# https://gitlab.com/wireshark/wireshark/-/issues/20330
+		suite_sharkd.py::TestSharkd::test_sharkd_req_follow_http2
+	)
 
 	# https://www.wireshark.org/docs/wsdg_html_chunked/ChTestsRunPytest.html
 	epytest \

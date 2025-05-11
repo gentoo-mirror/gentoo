@@ -4,9 +4,9 @@
 EAPI=8
 
 LUA_COMPAT=( lua5-{3..4} )
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{10..13} )
 
-inherit fcaps lua-single python-any-r1 qmake-utils toolchain-funcs xdg cmake
+inherit fcaps flag-o-matic lua-single python-any-r1 qmake-utils xdg cmake
 
 DESCRIPTION="Network protocol analyzer (sniffer)"
 HOMEPAGE="https://www.wireshark.org/"
@@ -23,7 +23,7 @@ else
 	S="${WORKDIR}/${P/_/}"
 
 	if [[ ${PV} != *_rc* ]] ; then
-		KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc64 ~riscv ~x86"
+		KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc64 ~riscv x86"
 	fi
 fi
 
@@ -117,10 +117,7 @@ if [[ ${PV} != *9999* ]] ; then
 	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-wireshark )"
 fi
 
-PATCHES=(
-	"${FILESDIR}/4.4.4-fix-skipping-rawshark-tests-on-big-endian.patch"
-	"${FILESDIR}/4.4.6-lto.patch"
-)
+PATCHES=( "${FILESDIR}/4.4.4-fix-skipping-rawshark-tests-on-big-endian.patch" )
 
 python_check_deps() {
 	use test || return 0
@@ -156,6 +153,14 @@ src_configure() {
 	local mycmakeargs
 
 	python_setup
+
+	if use gui ; then
+		append-cxxflags -fPIC -DPIC
+	fi
+
+	# crashes at runtime
+	# https://bugs.gentoo.org/754021
+	filter-lto
 
 	mycmakeargs+=(
 		-DPython3_EXECUTABLE="${PYTHON}"
@@ -206,6 +211,8 @@ src_configure() {
 		-DENABLE_ILBC=$(usex ilbc)
 		-DENABLE_KERBEROS=$(usex kerberos)
 		-DENABLE_LIBXML2=$(usex libxml2)
+		# only appends -flto
+		-DENABLE_LTO=OFF
 		-DENABLE_LUA=$(usex lua)
 		-DLUA_FIND_VERSIONS="${ELUA#lua}"
 		-DENABLE_LZ4=$(usex lz4)
@@ -227,8 +234,6 @@ src_configure() {
 		-DENABLE_ZLIBNG=OFF
 		-DENABLE_ZSTD=$(usex zstd)
 	)
-
-	tc-is-lto && mycmakeargs+=( -DENABLE_LTO=ON )
 
 	cmake_src_configure
 }

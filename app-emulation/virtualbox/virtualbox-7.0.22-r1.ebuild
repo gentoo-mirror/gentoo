@@ -3,13 +3,6 @@
 
 EAPI=8
 
-# Important!
-# This compiles the latest svn version.
-# It also compiles the kernel modules.  Does not depend on virtualbox-modules.
-# It is not meant to be used, might be very unstable.
-#
-#
-#
 # To add a new Python here:
 # 1. Patch src/libs/xpcom18a4/python/Makefile.kmk (copy the previous impl's logic)
 #    Do NOT skip this part. It'll end up silently not-building the Python extension
@@ -22,27 +15,26 @@ EAPI=8
 #  trunk branch but not release branch.
 #
 #  See bug #785835, bug #856121.
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..11} )
 
-inherit desktop edo flag-o-matic java-pkg-opt-2 linux-mod-r1 multilib optfeature pax-utils \
-	python-single-r1 subversion tmpfiles toolchain-funcs udev xdg
+inherit desktop edo flag-o-matic java-pkg-opt-2 linux-info multilib optfeature pax-utils \
+	python-single-r1 tmpfiles toolchain-funcs udev xdg
 
 MY_PN="VirtualBox"
-BASE_PV=7.1.0
 MY_P=${MY_PN}-${PV}
-PATCHES_TAG=7.2.0_pre20250508
 
 DESCRIPTION="Family of powerful x86 virtualization products for enterprise and home use"
 HOMEPAGE="https://www.virtualbox.org/"
-ESVN_REPO_URI="https://www.virtualbox.org/svn/vbox/trunk"
 SRC_URI="
-	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-${PATCHES_TAG}.tar.bz2
-	gui? ( !doc? ( https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-help-${BASE_PV}.tar.xz ) )
+	https://download.virtualbox.org/virtualbox/${PV}/${MY_P}.tar.bz2
+	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.0.22-r1.tar.bz2
+	gui? ( !doc? ( https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-help-${PV}.tar.xz ) )
 "
-S="${WORKDIR}/trunk"
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-2+ GPL-3 LGPL-2.1 MIT dtrace? ( CDDL )"
 SLOT="0/$(ver_cut 1-2)"
+KEYWORDS="amd64"
 IUSE="alsa dbus debug doc dtrace +gui java lvm nls pam pch pulseaudio +opengl python +sdk +sdl test +udev vboxwebsrv vde +vmmraw vnc"
 RESTRICT="!test? ( test )"
 
@@ -50,7 +42,7 @@ unset WATCOM #856769
 
 COMMON_DEPEND="
 	acct-group/vboxusers
-	app-arch/xz-utils
+	~app-emulation/virtualbox-modules-${PV}
 	dev-libs/libtpms
 	dev-libs/libxml2:=
 	dev-libs/openssl:0=
@@ -60,11 +52,17 @@ COMMON_DEPEND="
 	sys-libs/zlib
 	dbus? ( sys-apps/dbus )
 	gui? (
-		dev-qt/qtbase:6[X,widgets]
-		dev-qt/qtscxml:6
-		dev-qt/qttools:6[assistant]
+		dev-qt/qtcore:5
+		dev-qt/qtdbus:5
+		dev-qt/qtgui:5
+		dev-qt/qthelp:5
+		dev-qt/qtprintsupport:5
+		dev-qt/qtwidgets:5
+		dev-qt/qtx11extras:5
+		dev-qt/qtxml:5
 		x11-libs/libX11
 		x11-libs/libXt
+		opengl? ( dev-qt/qtopengl:5 )
 	)
 	lvm? ( sys-fs/lvm2 )
 	opengl? (
@@ -78,6 +76,7 @@ COMMON_DEPEND="
 	sdl? (
 		media-libs/libsdl2[X,video]
 		x11-libs/libX11
+		x11-libs/libXcursor
 		x11-libs/libXt
 	)
 	vboxwebsrv? ( net-libs/gsoap[-gnutls(-),debug?] )
@@ -98,7 +97,6 @@ DEPEND="
 	${COMMON_DEPEND}
 	>=dev-libs/libxslt-1.1.19
 	virtual/libcrypt:=
-	x11-libs/libXt
 	alsa? ( >=media-libs/alsa-lib-1.0.13 )
 	gui? (
 		x11-base/xorg-proto
@@ -118,16 +116,12 @@ DEPEND="
 		x11-libs/libXrandr
 		virtual/glu
 	)
-	sdl? (
-		x11-libs/libXcursor
-		x11-libs/libXinerama
-	)
+	sdl? ( x11-libs/libXinerama )
 	pulseaudio? ( media-libs/libpulse )
 	udev? ( >=virtual/udev-171 )
 "
 RDEPEND="
 	${COMMON_DEPEND}
-	!app-emulation/virtualbox-modules
 	gui? ( x11-libs/libxcb:= )
 	java? ( virtual/jre:1.8 )
 "
@@ -136,14 +130,13 @@ BDEPEND="
 	>=dev-lang/yasm-0.6.2
 	dev-libs/libIDL
 	dev-util/glslang
-	>=dev-build/kbuild-0.1.9998.3660
+	>=dev-build/kbuild-0.1.9998.3592
 	sys-apps/which
 	sys-devel/bin86
 	sys-libs/libcap
 	sys-power/iasl
 	virtual/pkgconfig
 	doc? (
-		app-doc/dita-ot-bin
 		app-text/docbook-sgml-dtd:4.4
 		app-text/docbook-xsl-ns-stylesheets
 		dev-texlive/texlive-basic
@@ -152,11 +145,10 @@ BDEPEND="
 		dev-texlive/texlive-latexextra
 		dev-texlive/texlive-fontsrecommended
 		dev-texlive/texlive-fontsextra
-		dev-qt/qttools:6[assistant]
-		sys-libs/nss_wrapper
+		dev-qt/qthelp:5
 	)
-	gui? ( dev-qt/qttools:6[linguist] )
-	nls? ( dev-qt/qttools:6[linguist] )
+	gui? ( dev-qt/linguist-tools:5 )
+	nls? ( dev-qt/linguist-tools:5 )
 	java? ( virtual/jdk:1.8 )
 	python? (
 		${PYTHON_DEPS}
@@ -206,12 +198,8 @@ REQUIRED_USE="
 
 PATCHES=(
 	# Downloaded patchset
-	"${WORKDIR}"/virtualbox-patches-${PATCHES_TAG}/patches
+	"${WORKDIR}"/virtualbox-patches-7.0.22-r1/patches
 )
-
-DOCS=()	# Don't install the default README file during einstalldocs
-
-CONFIG_CHECK="~!SPINLOCK JUMP_LABEL"
 
 pkg_pretend() {
 	if ! use gui; then
@@ -240,12 +228,6 @@ pkg_pretend() {
 pkg_setup() {
 	java-pkg-opt-2_pkg_setup
 	use python && python-single-r1_pkg_setup
-	linux-mod-r1_pkg_setup
-}
-
-src_unpack() {
-	subversion_src_unpack
-	default
 }
 
 src_prepare() {
@@ -304,6 +286,13 @@ src_prepare() {
 		java-pkg-opt-2_src_prepare
 	fi
 
+	#856811 #864274
+	# cannot filter out only one flag, some combinations of these flags produce buggy executables
+	for i in abm avx avx2 bmi bmi2 fma fma4 popcnt; do
+		append-cflags $(test-flags-CC -mno-$i)
+		append-cxxflags $(test-flags-CXX -mno-$i)
+	done
+
 	# bug #940482
 	filter-flags -fno-plt
 
@@ -325,8 +314,11 @@ src_prepare() {
 	echo -e "\nVBOX_WITH_VBOX_IMG=1" >> LocalConfig.kmk || die
 
 	if tc-is-clang; then
+		# clang assembler chokes on comments starting with /
+		sed -i -e '/^\//d' src/libs/xpcom18a4/nsprpub/pr/src/md/unix/os_Linux_x86_64.s || die
+
 		# clang does not support this extension
-		eapply "${FILESDIR}"/${PN}-7.1.0-disable-rebuild-iPxeBiosBin.patch
+		eapply "${FILESDIR}"/${PN}-7.0.8-disable-rebuild-iPxeBiosBin.patch
 	fi
 
 	# fix doc generation
@@ -504,51 +496,19 @@ src_compile() {
 		)
 	fi
 
-	if use doc; then
-		# dita needs to write to ~/.fop and ~/.java
-		# but it ignores ${HOME} and tries to write to the real home of user portage
-		# resulting in a sandbox violation
-		# -Duser.home= does not work
-		# force using the temporary homedir with nss_wrapper
-		echo "${LOGNAME}::$(id -u):$(id -g):${USER}:${HOME}:/bin/bash" >> ~/passwd
-		echo "${LOGNAME}::$(id -g):" >> ~/group
-
-		local -x LD_PRELOAD=libnss_wrapper.so
-		local -x NSS_WRAPPER_PASSWD="${HOME}"/passwd
-		local -x NSS_WRAPPER_GROUP="${HOME}"/group
-	fi
-
 	MAKE="kmk" emake "${myemakeargs[@]}" all
-
-	local modlist=( {vboxdrv,vboxnetflt,vboxnetadp}=misc:"out/linux.${ARCH}/release/bin/src" )
-	local modargs=( KERN_DIR="${KV_OUT_DIR}" KERN_VER="${KV_FULL}" )
-	linux-mod-r1_src_compile
 }
 
 src_test() {
 	if use python; then
-		local -x VBOX_APP_HOME="${S}"/out/linux.${ARCH}/$(usex debug debug release)
-		local -x VBOX_INSTALL_PATH="${VBOX_APP_HOME}"
-		local -x VBOX_PROGRAM_PATH="${VBOX_APP_HOME}"/bin
+		local -x VBOX_PROGRAM_PATH="${S}"/out/linux.${ARCH}/$(usex debug debug release)/bin
 		local -x VBOX_SDK_PATH="${VBOX_PROGRAM_PATH}"/sdk
-		local -x PYTHONPATH="${VBOX_SDK_PATH}"/installer/python/vboxapi/src
-		einfo "VBOX_APP_HOME ${VBOX_APP_HOME}"
-		einfo "VBOX_PROGRAM_PATH ${VBOX_PROGRAM_PATH}"
-		einfo "VBOX_SDK_PATH ${VBOX_SDK_PATH}"
-		einfo "PYTHONPATH ${PYTHONPATH}"
+		local -x PYTHONPATH="${VBOX_SDK_PATH}"/installer
 		LD_LIBRARY_PATH="${VBOX_PROGRAM_PATH}" epytest test/
 	fi
 }
 
 src_install() {
-	linux-mod-r1_src_install
-	insinto /usr/lib/modules-load.d/
-	newins - virtualbox.conf <<-EOF
-		vboxdrv
-		vboxnetflt
-		vboxnetadp
-	EOF
-
 	cd "${S}"/out/linux.${ARCH}/$(usex debug debug release)/bin || die
 
 	local vbox_inst_path="/usr/$(get_libdir)/${PN}" each size ico icofile
@@ -586,7 +546,7 @@ src_install() {
 	insinto ${vbox_inst_path}
 	doins -r components
 
-	for each in VBox{Autostart,BalloonCtrl,BugReport,CpuReport,ExtPackHelperApp,Manage,SVC,VMMPreload} \
+	for each in VBox{Autostart,BalloonCtrl,BugReport,CpuReport,ExtPackHelperApp,Manage,SVC,VMMPreload,XPCOMIPCD} \
 		vboximg-mount vbox-img *so *r0; do
 		vbox_inst ${each}
 	done
@@ -597,7 +557,7 @@ src_install() {
 	done
 
 	# Install EFI Firmware files (bug #320757)
-	for each in VBoxEFI{-x86,-amd64}.fd ; do
+	for each in VBoxEFI{32,64}.fd ; do
 		vbox_inst ${each} 0644
 	done
 
@@ -642,6 +602,11 @@ src_install() {
 		for each in VirtualBox{,VM} ; do
 			pax-mark -m "${ED}"${vbox_inst_path}/${each}
 		done
+
+		if use opengl; then
+			vbox_inst VBoxTestOGL
+			pax-mark -m "${ED}"${vbox_inst_path}/VBoxTestOGL
+		fi
 
 		for each in virtualbox{,vm} VirtualBox{,VM} ; do
 			dosym ${vbox_inst_path}/VBox /usr/bin/${each}
@@ -733,7 +698,7 @@ src_install() {
 		dodoc UserManual.pdf UserManual.q{ch,hc}
 		docompress -x /usr/share/doc/${PF}
 	elif use gui; then
-		dodoc "${WORKDIR}"/${PN}-help-${BASE_PV}/UserManual.q{ch,hc}
+		dodoc "${WORKDIR}"/${PN}-help-${PV}/UserManual.q{ch,hc}
 		docompress -x /usr/share/doc/${PF}
 	fi
 
@@ -747,7 +712,7 @@ src_install() {
 		fi
 
 		# 378871
-		local installer_dir="${ED}/usr/$(get_libdir)/virtualbox/sdk/installer/python/vboxapi/src"
+		local installer_dir="${ED}/usr/$(get_libdir)/virtualbox/sdk/installer"
 		pushd "${installer_dir}" &> /dev/null || die
 		sed -e "s;%VBOX_INSTALL_PATH%;${vbox_inst_path};" \
 			-e "s;%VBOX_SDK_PATH%;${vbox_inst_path}/sdk;" \
@@ -756,22 +721,17 @@ src_install() {
 		find vboxapi -name \*.py -exec sed -e "1 i\#! ${PYTHON}" -i {} \+ || die
 		python_domodule vboxapi
 		popd &> /dev/null || die
-
-		# upstream added a /bin/sh stub here
-		# use /usr/bin/python3, python_doscript will take care of it
-		sed -e '1 i #! /usr/bin/python3' -i vboxshell.py
+		sed -e "1 i\#! ${PYTHON}" -i vboxshell.py || die
 		python_doscript vboxshell.py
 
 		# do not install the installer
-		rm -r "${installer_dir%vboxapi*}" || die
+		rm -r "${installer_dir}" || die
 	fi
 
 	newtmpfiles "${FILESDIR}"/${PN}-vboxusb_tmpfilesd ${PN}-vboxusb.conf
 }
 
 pkg_postinst() {
-	linux-mod-r1_pkg_postinst
-
 	xdg_pkg_postinst
 
 	if use udev; then
@@ -788,7 +748,7 @@ pkg_postinst() {
 	elog "You must be in the vboxusers group to use VirtualBox."
 	elog ""
 	elog "The latest user manual is available for download at:"
-	elog "https://download.virtualbox.org/virtualbox/${BASE_PV}/UserManual.pdf"
+	elog "https://download.virtualbox.org/virtualbox/${PV}/UserManual.pdf"
 	elog ""
 
 	optfeature "Advanced networking setups" net-misc/bridge-utils sys-apps/usermode-utilities

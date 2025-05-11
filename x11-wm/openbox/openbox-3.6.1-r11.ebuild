@@ -14,7 +14,7 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/Mikachu/openbox.git"
 else
 	SRC_URI="http://openbox.org/dist/openbox/${P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x86-linux"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86 ~x86-linux"
 fi
 
 SRC_URI+=" branding? ( https://dev.gentoo.org/~hwoarang/distfiles/surreal-gentoo.tar.gz )"
@@ -59,6 +59,10 @@ PATCHES=(
 	"${FILESDIR}/${PN}-3.5.2-gnome-session.patch"
 	# see https://github.com/danakj/openbox/pull/35
 	"${FILESDIR}/${PN}-3.6.1-py3-xdg.patch"
+	# https://bugs.gentoo.org/827227
+	"${FILESDIR}/${PN}-3.6.1-getgrent-to-getgroups.patch"
+	# https://bugs.gentoo.org/901777
+	"${FILESDIR}/${PN}-3.6.1-glib-2.76.patch"
 )
 
 pkg_setup() {

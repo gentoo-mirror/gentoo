@@ -3,18 +3,25 @@
 
 EAPI=8
 
-inherit flag-o-matic multilib subversion toolchain-funcs
+inherit flag-o-matic multilib toolchain-funcs
 
+# Upstream has 3 flavors of netpbm: super stable, stable and advanced.
+# They only provide a tarball for super stable, but super stable is a bit lagging.
+# So we package the stable branch of their svn (currently versions 11.2.xx) on SLOT "0/stable"
+# and the advanced branch of their svn (currently versions 11.9.yy) on SLOT "0/advanced".
+# The stable branch is stabilized according to usual Gentoo rules, while the
+# advanced branch will not be stabilized.
 # A detailed explanation is here https://netpbm.sourceforge.net/release.html
-# This is the development branch, used for testing only.  It does not contain the man pages.
 
 DESCRIPTION="A set of utilities for converting to/from the netpbm (and related) formats"
 HOMEPAGE="https://netpbm.sourceforge.net/"
-ESVN_REPO_URI="http://svn.code.sf.net/p/netpbm/code/trunk"
+SRC_URI="https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${P}.tar.xz"
 
 LICENSE="Artistic BSD GPL-2 IJG LGPL-2.1 MIT public-domain"
-SLOT="0/devel"
-IUSE="jbig jpeg png postscript rle cpu_flags_x86_sse2 static-libs svga tiff X xml"
+SLOT="0/advanced"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+IUSE="jbig jpeg png postscript rle cpu_flags_x86_sse2 static-libs svga test tiff X xml"
+RESTRICT="!test? ( test )"
 
 # app-text/ghostscript-gpl is really needed for postscript
 # some utilities execute /usr/bin/gs
@@ -45,6 +52,9 @@ BDEPEND="
 	app-arch/xz-utils
 	app-alternatives/lex
 	virtual/pkgconfig
+	test? (
+		dev-lang/perl
+	)
 "
 
 PATCHES=(
@@ -52,6 +62,7 @@ PATCHES=(
 	"${FILESDIR}"/netpbm-11.0.0-misc-deps.patch
 	"${FILESDIR}"/netpbm-11.1.0-fix-clang-O2.patch
 	"${FILESDIR}"/netpbm-11.6.1-incompatible-pointer-types.patch
+	"${FILESDIR}"/netpbm-11.10.3-fix-pamdice-test.patch
 )
 
 netpbm_libtype() {
@@ -241,9 +252,11 @@ src_install() {
 	dodir /usr/share
 	mv "${ED}"/usr/misc "${ED}"/usr/share/netpbm || die
 
+	doman userguide/*.[0-9]
 	dodoc README
 
 	cd doc || die
 	dodoc HISTORY USERDOC
 	docinto html
+	dodoc -r ../userguide/*.html
 }
