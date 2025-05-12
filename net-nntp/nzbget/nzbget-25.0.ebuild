@@ -19,20 +19,14 @@ SRC_URI="
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
-IUSE="gnutls ncurses +parcheck ssl test zlib"
+IUSE="ncurses +parcheck ssl test zlib"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-libs/boost:=
 	dev-libs/libxml2:=
 	ncurses? ( sys-libs/ncurses:0= )
-	ssl? (
-		gnutls? (
-			net-libs/gnutls:=
-			dev-libs/nettle:=
-		)
-		!gnutls? ( dev-libs/openssl:0=[-bindist(-)] )
-	)
+	ssl? ( dev-libs/openssl:0=[-bindist(-)] )
 	zlib? ( sys-libs/zlib:= )"
 RDEPEND="
 	${DEPEND}
@@ -82,8 +76,6 @@ src_configure() {
 		-DDISABLE_PARCHECK=$(usex !parcheck)
 		-DDISABLE_TLS=$(usex !ssl)
 		-DDISABLE_GZIP=$(usex !zlib)
-		-DUSE_OPENSSL=$(usex !gnutls)
-		-DUSE_GNUTLS=$(usex gnutls)
 		-DENABLE_TESTS=$(usex test)
 	)
 	cmake_src_configure
