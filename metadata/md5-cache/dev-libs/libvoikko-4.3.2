@@ -1,17 +1,17 @@
 BDEPEND=virtual/pkgconfig >=dev-build/autoconf-2.71 verify-sig? ( sec-keys/openpgp-keys-voikko ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install unpack
-DEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) hfst? ( >=dev-util/hfstospell-0.5.0 )
+DEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) hfst? ( >=dev-util/hfstospell-0.5.0 )
 DESCRIPTION=Spell checking, hyphenation and morphological analysis tool for Finnish language
 EAPI=8
 HOMEPAGE=https://voikko.puimula.org/
 INHERIT=python-r1 verify-sig
-IUSE=+expvfst +hfst verify-sig python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 verify-sig
+IUSE=+expvfst +hfst verify-sig python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 verify-sig
 KEYWORDS=amd64 ~loong ~riscv x86
 LICENSE=GPL-2+
-RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) hfst? ( >=dev-util/hfstospell-0.5.0 )
-REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) hfst? ( >=dev-util/hfstospell-0.5.0 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
 RESTRICT=test
 SLOT=0/1.16.2
 SRC_URI=https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.3.2.tar.gz verify-sig? ( https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.3.2.tar.gz.asc )
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
-_md5_=2e1ed7cba846f5e22c48837f234e5818
+_md5_=7faf34911c2444f886e2146b05a762ed
