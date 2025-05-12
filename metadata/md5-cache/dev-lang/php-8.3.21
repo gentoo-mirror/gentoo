@@ -13,6 +13,6 @@ RDEPEND=app-eselect/eselect-php[apache2?,fpm?] dev-libs/libpcre2[jit?,unicode] v
 REQUIRED_USE=|| ( cli cgi fpm apache2 embed phpdbg ) cli? ( ^^ ( readline libedit ) ) !cli? ( ?? ( readline libedit ) ) gd? ( zlib ) simplexml? ( xml ) soap? ( xml ) xmlreader? ( xml ) xmlwriter? ( xml ) xslt? ( xml ) ldap-sasl? ( ldap ) qdbm? ( !gdbm ) session-mm? ( session !threads ) mysql? ( || ( mysqli pdo ) ) mssql? ( pdo ) test? ( cli ) postgres? ( || ( postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15 ) )
 RESTRICT=!test? ( test )
 SLOT=8.3
-SRC_URI=https://www.php.net/distributions/php-8.3.20.tar.xz
+SRC_URI=https://www.php.net/distributions/php-8.3.21.tar.xz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multilib	b2a329026f2e404e9e371097dda47f96	postgres	aa74feb4d9c1e9af578d99aea36bbace	systemd	a964c0cbe818b5729da1dbfcee5be861
 _md5_=e4542ca458f5583ebb761e466c49b7e5
