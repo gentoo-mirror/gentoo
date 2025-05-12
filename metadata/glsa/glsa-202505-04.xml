@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202505-04">
+    <title>NVIDIA Drivers: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in NVIDIA Drivers, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">nvidia-drivers</product>
+    <announced>2025-05-12</announced>
+    <revised count="1">2025-05-12</revised>
+    <bug>954339</bug>
+    <access>local</access>
+    <affected>
+        <package name="x11-drivers/nvidia-drivers" auto="yes" arch="*">
+            <unaffected range="ge">535.247.01</unaffected>
+            <unaffected range="ge">550.163.01</unaffected>
+            <unaffected range="ge">570.133.07</unaffected>
+            <vulnerable range="lt">535.247.01</vulnerable>
+            <vulnerable range="lt">550.163.01</vulnerable>
+            <vulnerable range="lt">570.133.07</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>NVIDIA Drivers are NVIDIA&#39;s accelerated graphics driver.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in NVIDIA Drivers. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All NVIDIA Drivers 535 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-drivers/nvidia-drivers-535.247.01:0/535"
+        </code>
+        
+        <p>All NVIDIA Drivers 550 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-drivers/nvidia-drivers-550.163.01:0/550"
+        </code>
+        
+        <p>All NVIDIA Drivers 570 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-drivers/nvidia-drivers-570.133.07:0/570"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-23244">CVE-2025-23244</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-05-12T10:30:38.991890Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-05-12T10:30:38.996472Z">graaff</metadata>
+</glsa>
