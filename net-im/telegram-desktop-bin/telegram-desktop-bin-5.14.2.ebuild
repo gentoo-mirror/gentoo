@@ -50,7 +50,7 @@ src_install() {
 	for icon_size in 16 32 48 64 128 256 512; do
 		newicon -s "${icon_size}" \
 			"${WORKDIR}/tdesktop-${PV}/Telegram/Resources/art/icon${icon_size}.png" \
-			telegram.png
+			org.telegram.desktop.png
 	done
 
 	domenu "${WORKDIR}/tdesktop-${PV}"/lib/xdg/org.telegram.desktop.desktop
