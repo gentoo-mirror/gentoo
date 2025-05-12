@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202505-01">
+    <title>PAM: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in PAM, the worst of which could lead to password leakage.</synopsis>
+    <product type="ebuild">pam</product>
+    <announced>2025-05-12</announced>
+    <revised count="1">2025-05-12</revised>
+    <bug>922397</bug>
+    <bug>942075</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-libs/pam" auto="yes" arch="*">
+            <unaffected range="ge">1.7.0_p20241230</unaffected>
+            <vulnerable range="lt">1.7.0_p20241230</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>PAM (Pluggable Authentication Modules) is an architecture allowing the separation of the development of privilege granting software from the development of secure and appropriate authentication schemes.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in PAM. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All PAM users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-libs/pam-1.7.0_p20241230"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10041">CVE-2024-10041</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-05-12T06:55:41.605140Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-05-12T06:55:41.608795Z">graaff</metadata>
+</glsa>
