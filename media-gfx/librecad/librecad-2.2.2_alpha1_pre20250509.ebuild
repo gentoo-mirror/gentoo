@@ -3,7 +3,7 @@
 
 EAPI=8
 
-COMMIT=2f5b68f347ba50fd8d6c4fee437cfedff63848b4
+COMMIT=aea82babdc0e6e9dc8cc4580abe08a579aa52186
 inherit desktop qmake-utils
 
 DESCRIPTION="Generic 2D CAD program"
@@ -15,7 +15,7 @@ if [[ ${PV} == *9999* ]]; then
 else
 	SRC_URI="https://github.com/LibreCAD/LibreCAD/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 	S="${WORKDIR}/LibreCAD-${COMMIT}"
-	# KEYWORDS="~amd64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 fi
 
 LICENSE="GPL-2"
