@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 EPYTEST_XDIST=1
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 pypi
 
@@ -14,10 +14,11 @@ HOMEPAGE="https://wummel.github.io/patool/"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
 	test? (
+		app-arch/7zip
 		app-arch/arj
 		app-arch/bzip2
 		app-arch/bzip3
@@ -33,7 +34,6 @@ BDEPEND="
 		app-arch/lzip
 		app-arch/lzop
 		app-arch/ncompress
-		app-arch/p7zip
 		app-arch/pbzip2
 		app-arch/pdlzip
 		app-arch/pigz
@@ -58,9 +58,12 @@ BDEPEND="
 		sys-apps/diffutils
 		sys-apps/file
 		sys-apps/grep
+		|| (
+			>=app-arch/7zip-24.09[symlink(+)]
+			app-arch/p7zip
+		)
 		!elibc_musl? ( app-arch/rar )
 		!x86? (
-			app-arch/7zip
 			app-arch/clzip
 			app-arch/lrzip
 			app-arch/unar
@@ -76,7 +79,6 @@ BDEPEND="
 # app-arch/clzip is unkeyworded on x86
 # app-arch/lrzip bug #916317 on x86
 # app-arch/unar is unkeyworded on x86
-# app-arch/7zip is unkeyworded on x86
 
 # Unpackaged testable dependencies
 # archmage
@@ -92,6 +94,15 @@ BDEPEND="
 # uncompress.real
 
 distutils_enable_tests pytest
+
+python_prepare_all() {
+	distutils-r1_python_prepare_all
+
+	# Unpackaged and just wraps setuptools with SOURCE_DATE_EPOCH
+	sed -e 's/setuptools-reproducible/setuptools/' \
+		-e 's/setuptools_reproducible/setuptools.build_meta/' \
+		-i pyproject.toml || die
+}
 
 python_install_all() {
 	einstalldocs
@@ -110,7 +121,14 @@ python_test() {
 		# Error: 1002 (invalid input file)
 		"tests/archives/test_mac.py"
 	)
-	local EPYTEST_DESELECT=()
+	local EPYTEST_DESELECT=(
+		# Something changed in the upstream sdist creation between 4.0.0 and 4.0.1
+		# Test fails because the timestamp of the zip arhive is before 1980.
+		# This is due to the timestamps getting reset to the unix epoch in
+		# the unpacked tar archive.
+		# ValueError: ZIP does not support timestamps before 1980
+		"tests/archives/test_pyzipfile.py::TestPyzipfile::test_py_zipfile"
+	)
 
 	if use elibc_musl; then
 		EPYTEST_IGNORE+=(
