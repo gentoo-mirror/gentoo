@@ -5477,12 +5477,12 @@ dev-libs/libdynd 0.7.2-r1: C++ dynamic multi-dimensionnal array library with Pyt
 dev-libs/libebml 1.4.4 1.4.5: Extensible binary format library (kinda like XML)
 dev-libs/libedit 20240808.3.1: BSD replacement for libreadline
 dev-libs/libee 0.4.1: An Event Expression Library inspired by CEE
-dev-libs/libei 1.4.0 1.4.1: Library for Emulated Input, primarily aimed at the Wayland stack
+dev-libs/libei 1.4.1: Library for Emulated Input, primarily aimed at the Wayland stack
 dev-libs/libelf 0.8.13-r3 0.8.13-r4: ELF object file access library
 dev-libs/liberasurecode 1.6.3: Erasure Code API library written in C with pluggable Erasure Code backends
 dev-libs/libestr 0.1.11-r1: Library for some string essentials
 dev-libs/libev 4.33: A high-performance event loop/event model with lots of feature
-dev-libs/libevdev 1.13.3 1.13.4 9999: Handler library for evdev events
+dev-libs/libevdev 1.13.4 9999: Handler library for evdev events
 dev-libs/libevent 2.1.12-r1 2.2.1-r3 9999: Library to execute a function when a specific event occurs on a file descriptor
 dev-libs/libezV24 0.1.1-r3: Library that provides an easy API to Linux serial ports
 dev-libs/libf2c 20130927-r1 20240130: Library that converts FORTRAN to C source
@@ -5515,7 +5515,7 @@ dev-libs/libhid 0.2.17-r1: Provides a generic and flexible way to access and int
 dev-libs/libical 3.0.19 3.0.20-r1: Implementation of basic iCAL protocols
 dev-libs/libiconv 1.17 1.18: GNU charset conversion library for libc which doesn't implement it
 dev-libs/libindicate 12.10.1-r4: Library to raise flags on DBus for other components of the desktop
-dev-libs/libinput 1.27.1 1.28.1: Library to handle input devices in Wayland
+dev-libs/libinput 1.28.1: Library to handle input devices in Wayland
 dev-libs/libintl 0.21.1 0.22.5 0.23.1: the GNU international library (split out of gettext)
 dev-libs/libisoburn 1.5.6-r2: Creation/expansion of ISO-9660 filesystems on CD/DVD media supported by libburn
 dev-libs/libisofs 1.5.6_p1-r2: Open-source library for reading, mastering and writing optical discs
@@ -10888,7 +10888,7 @@ dev-util/maxcso 1.13.0 9999: Fast cso compressor
 dev-util/mdds 2.1.1-r1 3.0.0 9999: Collection of multi-dimensional data structure and indexing algorithm
 dev-util/meld 3.22.0-r2 3.22.1 3.22.2 3.22.2-r1: A graphical diff and merge tool
 dev-util/memprof 0.6.2-r2: Profiling and leak detection tool
-dev-util/mesa_clc 25.0.0 25.0.1 25.0.2 25.0.3 25.0.4 25.0.5 25.1.0_rc3 25.1.0 9999: mesa_clc tool used for building OpenCL C to SPIR-V
+dev-util/mesa_clc 25.0.5 25.1.0 9999: mesa_clc tool used for building OpenCL C to SPIR-V
 dev-util/min-cscope 16.1.0-r2: Interactively examine a C program
 dev-util/mingw64-runtime 12.0.0: Free Win64 runtime and import library definitions
 dev-util/mingw64-toolchain 12.0.0 12.0.0_p1: All-in-one mingw64 toolchain intended for building Wine without crossdev
@@ -13400,7 +13400,7 @@ media-libs/lilv 0.24.24 0.24.26: Library to make the use of LV2 plugins as simpl
 media-libs/lsp-plugins 1.2.3-r1 1.2.6 1.2.14 9999: Linux Studio Plugins
 media-libs/lv2 1.18.10-r1: A simple but extensible successor of LADSPA
 media-libs/lvtk 1.2.0-r2: A set of C++ wrappers around the LV2 C API
-media-libs/mesa 24.1.7-r1 24.3.4-r1 24.3.4-r2 25.0.0 25.0.1 25.0.2 25.0.3 25.0.4 25.0.4-r1 25.0.5 25.1.0_rc3 25.1.0 9999: OpenGL-like graphic library for Linux
+media-libs/mesa 24.1.7-r1 25.0.5 25.1.0 9999: OpenGL-like graphic library for Linux
 media-libs/mesa-amber 21.3.9-r1: OpenGL-like graphic library for Linux
 media-libs/mlt 7.30.0-r1 7.32.0: Open source multimedia framework for television broadcasting
 media-libs/mpvqt 1.0.1: libmpv wrapper for QtQuick2 and QML
@@ -14657,7 +14657,7 @@ net-dns/mdns-repeater 1.11: Multicast DNS repeater
 net-dns/ndu 0.4-r4: DNS serial number incrementer and reverse zone builder
 net-dns/nsd 4.10.1-r2 4.11.1 9999: An authoritative only, high performance, open source name server
 net-dns/opendnssec 2.1.13-r1: An open-source turn-key solution for DNSSEC
-net-dns/openresolv 3.12.0-r1 3.13.2-r1 3.14.1 3.16.2: A framework for managing DNS information
+net-dns/openresolv 3.12.0-r1 3.13.2-r1 3.14.1 3.16.2 3.16.3: A framework for managing DNS information
 net-dns/pdns 4.9.3 4.9.4 4.9.5: The PowerDNS Daemon
 net-dns/pdns-recursor 5.1.3-r1 5.1.4 5.2.2: The PowerDNS Recursor
 net-dns/pdnsd 1.2.9a-r2: Proxy DNS server with permanent caching
@@ -16946,7 +16946,7 @@ sys-apps/consolation 0.0.7: libinput based console mouse daemon
 sys-apps/conspy 1.16: Remote control for Linux virtual consoles
 sys-apps/coreutils 9.4 9.4-r1 9.5 9.6 9.7 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 sys-apps/cpint 2.5.3: Linux/390 Interface to z/VM's Control Program
-sys-apps/cpu-x 5.1.3 5.2.0: A Free software that gathers information on CPU, motherboard and more
+sys-apps/cpu-x 5.1.3 5.2.0 5.3.1: A Free software that gathers information on CPU, motherboard and more
 sys-apps/cpuid 20250316 20250419: Linux tool to dump x86 CPUID information about the CPUs
 sys-apps/cracklib-words 2.10.2 2.10.3: Large set of crack/cracklib dictionaries
 sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
@@ -18174,7 +18174,7 @@ x11-apps/fslsfonts 1.0.7: list fonts served by X font server
 x11-apps/fstobdf 1.0.7: generate BDF font from X font server
 x11-apps/iceauth 1.0.10: ICE authority file utility
 x11-apps/ico 1.0.6: animate an icosahedron or other polyhedron
-x11-apps/igt-gpu-tools 1.30 2.0 9999: Intel GPU userland tools
+x11-apps/igt-gpu-tools 2.0 9999: Intel GPU userland tools
 x11-apps/listres 1.0.6: list resources in widgets
 x11-apps/luit 20240910: Locale and ISO 2022 support for Unicode terminals
 x11-apps/mesa-progs 9.0.0 9999: Mesa's OpenGL utility and demo programs (glxgears and glxinfo)
@@ -18352,7 +18352,7 @@ x11-libs/libvdpau 1.5: VDPAU wrapper and trace libraries
 x11-libs/libwnck 43.0-r1: A window navigation construction kit
 x11-libs/libxcb 1.17.0: X C-language Bindings library
 x11-libs/libxcvt 0.1.3 9999: X.Org xcvt library and cvt program
-x11-libs/libxkbcommon 1.8.0-r1 1.8.1-r1 1.9.0-r1 1.9.1-r1 1.9.2: Keymap handling library for toolkits and window systems
+x11-libs/libxkbcommon 1.8.1-r1 1.9.2: Keymap handling library for toolkits and window systems
 x11-libs/libxkbfile 1.1.3: X.Org xkbfile library
 x11-libs/libxklavier 5.4-r1: A library for the X Keyboard Extension (high-level API)
 x11-libs/libxshmfence 1.3.3: Shared memory fences using futexes
@@ -19011,7 +19011,7 @@ x11-wm/spectrwm 3.5.1 3.6.0: Small dynamic tiling window manager for X11
 x11-wm/stumpwm 22.05_p20220818: A Window Manager written entirely in Common Lisp
 x11-wm/stumpwm-contrib 20180128-r1: Extension Modules for StumpWM
 x11-wm/treewm 0.4.5-r2: WindowManager that arranges the windows in a tree (not in a list)
-x11-wm/twm 1.0.12 1.0.13 1.0.13.1: X.Org Tab Window Manager
+x11-wm/twm 1.0.12 1.0.13.1: X.Org Tab Window Manager
 x11-wm/vtwm 5.4.7-r3: TWM descendant that implements a Virtual Desktop
 x11-wm/windowlab 1.40-r2: Small and simple window manager of novel design
 x11-wm/windowmaker 0.96.0 9999: The fast and light GNUstep window manager
