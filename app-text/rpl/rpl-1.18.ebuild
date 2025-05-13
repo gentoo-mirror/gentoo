@@ -32,6 +32,6 @@ BDEPEND="
 distutils_enable_tests pytest
 
 src_prepare() {
-	sed -i "s/VERSION = importlib.metadata.version('rpl')/VERSION = '${PV}'/" rpl/__init__.py || die
+	sed -i "s/VERSION = importlib.metadata.version(\"rpl\")/VERSION = '${PV}'/" rpl/__init__.py || die
 	distutils-r1_src_prepare
 }
