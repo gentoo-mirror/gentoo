@@ -911,7 +911,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.38.37 1.40.2 1.40.7 1.40.8 1.40.9 1.40.10 1.40.11 1.40.12: Universal Command Line Environment for AWS
+app-admin/awscli 1.38.37 1.40.2 1.40.7 1.40.8 1.40.9 1.40.10 1.40.11 1.40.12 1.40.13: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2025.2.0 2025.2.1 2025.3.1: Bitwarden password manager desktop client
 app-admin/btrfs-assistant 2.1.1: GUI management tool to make managing a Btrfs filesystem easier
@@ -1165,7 +1165,7 @@ app-arch/p7zip 16.02-r8 17.05-r1 17.05-r2: Port of 7-Zip archiver for Unix
 app-arch/pack 0.0.0.1: Haskell implementation of pack compression from the early 1980s
 app-arch/par2cmdline 0.8.1-r2: A PAR-2.0 file verification and repair tool
 app-arch/par2cmdline-turbo 1.2.0 9999: par2cmdline × ParPar: speed focused par2cmdline fork
-app-arch/patool 3.1.3 4.0.0: Portable archive file manager
+app-arch/patool 4.0.0 4.0.1: Portable archive file manager
 app-arch/pax 20201030: pax (Portable Archive eXchange) is the POSIX standard archive tool
 app-arch/pbzip2 1.1.13: Parallel bzip2 (de)compressor using libbz2
 app-arch/pdlzip 1.14: Public-domain version of lzip compressor
@@ -8071,7 +8071,7 @@ dev-python/anyio 4.8.0-r2: Compatibility layer for multiple asynchronous event l
 dev-python/anyioutils 0.7.3: Utility classes and functions for AnyIO
 dev-python/apache-libcloud 3.8.0-r1: Unified Interface to the Cloud - python support libs
 dev-python/apipkg 3.0.2: Namespace control and lazy-import mechanism
-dev-python/apispec 6.8.1: A pluggable API specification generator
+dev-python/apispec 6.8.1 6.8.2: A pluggable API specification generator
 dev-python/appdirs 1.4.4-r3: Module for determining appropriate platform-specific dirs
 dev-python/apprise 1.9.3: Push Notifications that work with just about every platform
 dev-python/apscheduler 3.11.0: In-process task scheduler with Cron-like capabilities
@@ -8141,10 +8141,10 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.37.37 1.38.3 1.38.8 1.38.9 1.38.10 1.38.11 1.38.12 1.38.13: The AWS SDK for Python
-dev-python/botocore 1.37.37 1.38.3 1.38.8 1.38.9 1.38.10 1.38.11 1.38.12 1.38.13: Low-level, data-driven core of boto 3
+dev-python/boto3 1.37.37 1.38.3 1.38.8 1.38.9 1.38.10 1.38.11 1.38.12 1.38.13 1.38.14: The AWS SDK for Python
+dev-python/botocore 1.37.37 1.38.3 1.38.8 1.38.9 1.38.10 1.38.11 1.38.12 1.38.13 1.38.14: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3: A fast and simple micro-framework for small web-applications
-dev-python/bottleneck 1.4.2: Fast NumPy array functions written in C
+dev-python/bottleneck 1.4.2 1.5.0_rc1: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
 dev-python/bracex 2.5_p1: Bash style brace expansion for Python
 dev-python/braintree 4.35.0: Braintree Python Library
@@ -8199,7 +8199,7 @@ dev-python/cliff 4.9.1: Command Line Interface Formulation Framework
 dev-python/clikit 0.6.2-r1: Group of utilities to build beautiful and testable command line interfaces
 dev-python/clint 0.5.1-r4: Python Command-line Application Tools
 dev-python/cloudpickle 3.1.1: Extended pickling support for Python objects
-dev-python/cloudscraper 1.2.69: A Python module to bypass Cloudflare's anti-bot page
+dev-python/cloudscraper 1.2.69-r1: A Python module to bypass Cloudflare's anti-bot page
 dev-python/clr-loader 0.2.7_p0: Generic pure Python loader for .NET runtimes
 dev-python/cmd2 2.5.11: Extra features for standard library's cmd module
 dev-python/colorama 0.4.6: ANSI escape character sequences for colored terminal text & cursor positioning
@@ -8361,7 +8361,7 @@ dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the s
 dev-python/eyed3 0.9.7-r1 0.9.8: Module for manipulating ID3 (v1 + v2) tags in Python
 dev-python/faker 37.1.0: A Python package that generates fake data for you
 dev-python/fakeredis 2.28.1 2.29.0: Fake implementation of redis API for testing purposes
-dev-python/fastbencode 0.3.1: Implementation of bencode with optional fast C extensions
+dev-python/fastbencode 0.3.1 0.3.2: Implementation of bencode with optional fast C extensions
 dev-python/fasteners 0.19: Python package that provides useful locks
 dev-python/fastimport 0.9.14: Library for parsing the fastimport VCS serialization format
 dev-python/fastjsonschema 2.21.1: Fast JSON schema validator for Python
@@ -8598,7 +8598,7 @@ dev-python/jupyter-events 0.12.0: Jupyter Event System library
 dev-python/jupyter-kernel-test 0.7.0: A tool for testing Jupyter kernels
 dev-python/jupyter-lsp 2.2.5: Multi-Language Server WebSocket proxy for Jupyter Notebook/Lab
 dev-python/jupyter-packaging 0.12.3: Tools to help build and install Jupyter Python packages
-dev-python/jupyter-server 2.15.0: Core services, APIs, and REST endpoints to Jupyter web applications
+dev-python/jupyter-server 2.15.0 2.16.0: Core services, APIs, and REST endpoints to Jupyter web applications
 dev-python/jupyter-server-mathjax 0.2.6: MathJax resources as a Jupyter Server Extension
 dev-python/jupyter-server-proxy 4.4.0: Jupyter notebook server extension to proxy web services
 dev-python/jupyter-server-terminals 0.5.3: A Jupyter Server Extension Providing Terminals
@@ -8765,7 +8765,7 @@ dev-python/mysqlclient 2.2.6 2.2.7: Python interface to MySQL
 dev-python/myst-parser 4.0.1 4.0.1-r1: Extended commonmark compliant parser, with bridges to Sphinx
 dev-python/nagiosplugin 1.3.3: A class library for writing nagios-compatible plugins
 dev-python/nanobind 2.7.0: Tiny and efficient C++/Python bindings
-dev-python/narwhals 1.37.1 1.38.0 1.38.2: Extremely lightweight compatibility layer between dataframe libraries
+dev-python/narwhals 1.38.2 1.39.0: Extremely lightweight compatibility layer between dataframe libraries
 dev-python/natsort 8.4.0: Natural sorting for Python
 dev-python/nautilus-python 4.0.1: Python bindings for the Nautilus file manager
 dev-python/nbclassic 1.2.0 1.3.0 1.3.1: Jupyter Notebook as a Jupyter Server Extension
@@ -9069,7 +9069,7 @@ dev-python/pypng 0.20220715.0: Pure Python PNG image encoder/decoder
 dev-python/pypresence 4.3.0: Complete Discord IPC and Rich Presence wrapper library in Python
 dev-python/pyprof2calltree 1.4.5-r1: Convert python profile data to kcachegrind calltree form
 dev-python/pyproj 3.7.1: Python interface to the PROJ library
-dev-python/pyproject-api 1.9.0: API to interact with the python pyproject.toml based projects
+dev-python/pyproject-api 1.9.0 1.9.1: API to interact with the python pyproject.toml based projects
 dev-python/pyproject-fmt 2.5.1: Format your pyproject.toml file
 dev-python/pyproject-hooks 1.2.0: Wrappers to build Python packages using PEP 517 hooks
 dev-python/pyproject-metadata 0.9.1: PEP 621 metadata parsing
@@ -9275,7 +9275,7 @@ dev-python/pyzbar 0.1.9: Read one-dimensional barcodes and QR codes from Python
 dev-python/pyzmq 26.4.0: Lightweight and super-fast messaging library built on top of the ZeroMQ library
 dev-python/pyzotero 1.6.11: A Python client for the Zotero API
 dev-python/qdarkstyle 3.2.3: A dark style sheet for QtWidgets application
-dev-python/qiskit 1.4.2 2.0.0_rc1 2.0.0_rc2 2.0.0: An open-source SDK for working with quantum computers
+dev-python/qiskit 1.4.2 1.4.3 2.0.0_rc1 2.0.0_rc2 2.0.0: An open-source SDK for working with quantum computers
 dev-python/qiskit-aer 0.17: High performance simulator for quantum circuits that includes noise models
 dev-python/qpageview 1.0.0: Page-based viewer widget for Qt5/PyQt5
 dev-python/qrcode 8.1 8.2: QR Code generator on top of PIL
@@ -9348,7 +9348,7 @@ dev-python/rpds-py 0.23.1 0.24.0: Python bindings to Rust's persistent data stru
 dev-python/rply 0.7.8-r1: Pure python parser generator that also works with RPython
 dev-python/rpy2 3.5.14: Python interface to the R language
 dev-python/rpyc 6.0.0: Remote Python Call (RPyC), a transparent and symmetric RPC library
-dev-python/rq 2.3.2 2.3.3: Simple, lightweight library for creating and processing background jobs
+dev-python/rq 2.3.2 2.3.3-r1: Simple, lightweight library for creating and processing background jobs
 dev-python/rsa 4.9: Pure-Python RSA implementation
 dev-python/rst-linker 2.6.0: Sphinx plugin to add links and timestamps to the changelog
 dev-python/rtimulib 7.2.1-r3: Python Binding for RTIMULib, a versatile IMU library
@@ -9629,7 +9629,7 @@ dev-python/vecrec 0.3.1-r1: 2D vector and rectangle classes
 dev-python/vector 1.6.2: Vector classes and utilities
 dev-python/verboselogs 1.7-r1: Verbose logging for Python's logging module
 dev-python/versioneer 0.29-r1: Easy VCS-based management of project version strings
-dev-python/versioningit 3.1.2-r1: A setuptools plugin for versioning based on git tags
+dev-python/versioningit 3.1.2-r1 3.1.3: A setuptools plugin for versioning based on git tags
 dev-python/vine 5.1.0: Python Promises
 dev-python/virtualenv 20.30.0 20.31.1 20.31.2: Virtual Python Environment builder
 dev-python/virtualenv-clone 0.5.7: A script for cloning a non-relocatable virtualenv
@@ -12894,7 +12894,7 @@ media-gfx/aview 1.3.0_rc1-r3: ASCII Image Viewer
 media-gfx/blender 4.2.4-r2 4.2.9-r1 4.3.2-r4 4.4.1-r1 4.4.3 9999: 3D Creation/Animation/Publishing System
 media-gfx/blender-bin 3.6.21 3.6.22 4.2.7 4.2.9 4.4.1 4.4.3 9999: 3D Creation/Animation/Publishing System
 media-gfx/brscan4 0.4.11.1-r1: Brother scanner driver
-media-gfx/cairosvg 2.7.1-r1: CLI and library to export SVG to PDF, PostScript, and PNG
+media-gfx/cairosvg 2.7.1-r1 2.8.0: CLI and library to export SVG to PDF, PostScript, and PNG
 media-gfx/cellwriter 1.3.6 1.3.6-r1: Grid-entry natural handwriting input panel
 media-gfx/chafa 1.12.5-r1 1.14.1 1.14.5: versatile and fast Unicode/ASCII/ANSI graphics renderer
 media-gfx/clockphoto 1.2-r1: Adjusts photo timestamps based on clock photos
@@ -12960,7 +12960,7 @@ media-gfx/gthumb 3.12.6: Image viewer and browser for Gnome
 media-gfx/gtkimageview 1.6.4: A simple image viewer widget for GTK
 media-gfx/hp2xx 3.4.4-r3 3.4.4-r4: Convert Hewlett-Packard's HP-GL plotter language to other graphics formats
 media-gfx/hugin 2024.0.1 2024.0.1-r1 9999: GUI for the creation & processing of panoramic images
-media-gfx/hydrus 565-r1 571 9999: A booru-like media organizer for the desktop
+media-gfx/hydrus 615 9999: A booru-like media organizer for the desktop
 media-gfx/icon-slicer 0.3-r1: Utility for generating icon themes and libXcursor cursor themes
 media-gfx/icoutils 0.32.3: Tools to extract and convert images in icon and cursor files (.ico, .cur)
 media-gfx/igal 3.2: Static HTML image gallery generator
@@ -19049,7 +19049,7 @@ xfce-extra/xfce4-clipman-plugin 1.6.7: A clipboard manager plug-in for the Xfce 
 xfce-extra/xfce4-cpufreq-plugin 1.2.9: A panel plugin for showing information about cpufreq settings
 xfce-extra/xfce4-cpugraph-plugin 1.2.11: A system load plug-in for the Xfce panel
 xfce-extra/xfce4-datetime-plugin 0.8.3: A panel plug-in with date, time and embedded calendar
-xfce-extra/xfce4-dict 0.8.8: A dict.org querying application and panel plug-in for the Xfce desktop
+xfce-extra/xfce4-dict 0.8.8 0.8.9: A dict.org querying application and panel plug-in for the Xfce desktop
 xfce-extra/xfce4-diskperf-plugin 2.7.1: A panel plug-in for disk usage and performance statistics
 xfce-extra/xfce4-docklike-plugin 0.4.3: A modern, minimalist docklike taskbar for Xfce
 xfce-extra/xfce4-eyes-plugin 4.6.2: A panel plug-in which adds classic eyes to your every step
