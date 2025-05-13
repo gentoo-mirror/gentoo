@@ -1,12 +1,14 @@
-BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
-DEFINED_PHASES=compile configure install prepare test
+BDEPEND=|| ( >=sys-devel/gcc-14:* >=llvm-core/clang-18:* ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=>=gui-libs/hyprutils-0.7.1:=
 DESCRIPTION=Official implementation library for the hypr config language
 EAPI=8
 HOMEPAGE=https://github.com/hyprwm/hyprlang
-INHERIT=cmake
-KEYWORDS=amd64 ~riscv
+INHERIT=cmake toolchain-funcs
+KEYWORDS=~amd64
 LICENSE=LGPL-3
+RDEPEND=>=gui-libs/hyprutils-0.7.1:=
 SLOT=0
-SRC_URI=https://github.com/hyprwm/hyprlang/archive/v0.5.2.tar.gz -> hyprlang-0.5.2.gh.tar.gz
+SRC_URI=https://github.com/hyprwm/hyprlang/archive/v0.6.3.tar.gz -> hyprlang-0.6.3.gh.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=4bddabfda569d3be771a498ad2adc6a6
+_md5_=fb4ca653b058b87ef2411a56988b54f6

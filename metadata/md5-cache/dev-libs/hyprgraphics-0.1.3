@@ -1,14 +1,14 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=gui-libs/hyprutils-0.1.1:= media-libs/libjpeg-turbo:= media-libs/libjxl:= media-libs/libwebp:= sys-apps/file x11-libs/cairo
+DEPEND=>=gui-libs/hyprutils-0.1.1:= media-libs/libjpeg-turbo:= media-libs/libjxl:= media-libs/libspng media-libs/libwebp:= sys-apps/file x11-libs/cairo
 DESCRIPTION=Hyprland graphics / resource utilities
 EAPI=8
 HOMEPAGE=https://github.com/hyprwm/hyprgraphics
 INHERIT=cmake
-KEYWORDS=amd64
+KEYWORDS=~amd64
 LICENSE=BSD
-RDEPEND=>=gui-libs/hyprutils-0.1.1:= media-libs/libjpeg-turbo:= media-libs/libjxl:= media-libs/libwebp:= sys-apps/file x11-libs/cairo
+RDEPEND=>=gui-libs/hyprutils-0.1.1:= media-libs/libjpeg-turbo:= media-libs/libjxl:= media-libs/libspng media-libs/libwebp:= sys-apps/file x11-libs/cairo
 SLOT=0
-SRC_URI=https://github.com/hyprwm/hyprgraphics/archive/v0.1.1.tar.gz -> hyprgraphics-0.1.1.gh.tar.gz
+SRC_URI=https://github.com/hyprwm/hyprgraphics/archive/v0.1.3.tar.gz -> hyprgraphics-0.1.3.gh.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=ff058e00dafe753752d82acfc7579ccc
+_md5_=5e597dc225855350f21660ba791d578f
