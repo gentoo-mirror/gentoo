@@ -1,16 +1,16 @@
-BDEPEND=test? ( >=app-text/htmltidy-5.0.0 >=dev-python/pytest-7.4.4[python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) doc? ( || ( ( dev-lang/python:3.12 >=dev-python/sphinx-8.1.3[python_targets_python3_12(-)] dev-python/furo[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/sphinx-8.1.3[python_targets_python3_11(-)] dev-python/furo[python_targets_python3_11(-)] ) ) ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+BDEPEND=test? ( >=app-text/htmltidy-5.0.0 >=dev-python/pytest-7.4.4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) doc? ( || ( ( dev-lang/python:3.14 >=dev-python/sphinx-8.1.3[python_targets_python3_14(-)] dev-python/furo[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 >=dev-python/sphinx-8.1.3[python_targets_python3_13(-)] dev-python/furo[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-python/sphinx-8.1.3[python_targets_python3_12(-)] dev-python/furo[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/sphinx-8.1.3[python_targets_python3_11(-)] dev-python/furo[python_targets_python3_11(-)] ) ) ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?]
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=TidyLib Python wrapper
 EAPI=8
 HOMEPAGE=https://cihar.com/software/utidylib/ https://github.com/nijel/utidylib/ https://pypi.org/project/uTidylib/
 INHERIT=distutils-r1
-IUSE=test doc python_targets_python3_11 python_targets_python3_12
+IUSE=test doc python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
 KEYWORDS=amd64 arm64 ppc ppc64 ~riscv x86
 LICENSE=MIT
-RDEPEND=>=app-text/htmltidy-5.0.0 python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
-REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=>=app-text/htmltidy-5.0.0 python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/nijel/utidylib/archive/v0.10.tar.gz -> utidylib-0.10.gh.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	0e08701ccfa3f73267c62f539b7ab456
-_md5_=a48edea0868922ca810d114af34ba696
+_md5_=80027197a74e90f7b071952dfa4b8f14
