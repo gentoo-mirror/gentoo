@@ -61,10 +61,8 @@ CRATES="
 	derive_builder_macro@0.20.2
 	digest@0.10.7
 	dirs-sys@0.3.7
-	dirs-sys@0.4.1
 	dirs@1.0.5
 	dirs@4.0.0
-	dirs@5.0.1
 	either@1.15.0
 	equivalent@1.0.2
 	errno@0.3.10
@@ -97,7 +95,7 @@ CRATES="
 	iced-x86@1.21.0
 	ident_case@1.0.1
 	indexmap@1.9.3
-	indexmap@2.8.0
+	indexmap@2.9.0
 	io-uring@0.6.4
 	ipnet@2.11.0
 	iprange@0.6.7
@@ -115,14 +113,15 @@ CRATES="
 	liboci-cli@0.5.3
 	libredox@0.1.3
 	libseccomp-sys@0.2.1
+	libseccomp-sys@0.3.0
 	libseccomp@0.3.0
+	libseccomp@0.4.0
 	linefeed@0.6.0
 	linux-raw-sys@0.4.15
 	linux-raw-sys@0.9.3
 	log@0.4.27
 	md5@0.7.0
 	memchr@2.7.4
-	memoffset@0.7.1
 	memoffset@0.9.1
 	minimal-lexical@0.2.1
 	miniz_oxide@0.8.5
@@ -138,7 +137,6 @@ CRATES="
 	object@0.36.7
 	oci-spec@0.7.1
 	once_cell@1.21.3
-	option-ext@0.2.0
 	overload@0.1.1
 	parse-size@1.0.0
 	phf@0.11.3
@@ -146,7 +144,6 @@ CRATES="
 	phf_generator@0.11.3
 	phf_shared@0.11.3
 	pin-project-lite@0.2.16
-	pin-utils@0.1.0
 	pkg-config@0.3.32
 	plain@0.2.3
 	portable-atomic@1.11.0
@@ -160,7 +157,6 @@ CRATES="
 	protobuf-parse@3.2.0
 	protobuf-support@3.2.0
 	protobuf@3.2.0
-	quick_cache@0.6.12
 	quote@1.0.38
 	r-efi@5.2.0
 	radium@0.7.0
@@ -192,7 +188,7 @@ CRATES="
 	sha1@0.10.6
 	sha3@0.10.8
 	sharded-slab@0.1.7
-	shellexpand@3.1.0
+	shellexpand@3.1.1
 	shlex@1.3.0
 	siphasher@1.0.1
 	smallstr@0.2.0
@@ -246,24 +242,15 @@ CRATES="
 	windows-link@0.1.0
 	windows-result@0.3.1
 	windows-strings@0.3.1
-	windows-sys@0.48.0
 	windows-sys@0.59.0
-	windows-targets@0.48.5
 	windows-targets@0.52.6
-	windows_aarch64_gnullvm@0.48.5
 	windows_aarch64_gnullvm@0.52.6
-	windows_aarch64_msvc@0.48.5
 	windows_aarch64_msvc@0.52.6
-	windows_i686_gnu@0.48.5
 	windows_i686_gnu@0.52.6
 	windows_i686_gnullvm@0.52.6
-	windows_i686_msvc@0.48.5
 	windows_i686_msvc@0.52.6
-	windows_x86_64_gnu@0.48.5
 	windows_x86_64_gnu@0.52.6
-	windows_x86_64_gnullvm@0.48.5
 	windows_x86_64_gnullvm@0.52.6
-	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
 	wit-bindgen-rt@0.39.0
 	wyz@0.5.1
