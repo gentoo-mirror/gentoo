@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://bird.network.cz
 IDEPEND=filecaps? ( sys-libs/libcap )
 INHERIT=autotools fcaps
-IUSE=+client debug libssh +filecaps
-KEYWORDS=~amd64 ~arm64 ~x86 ~x64-macos
+IUSE=+client custom-cflags debug libssh +filecaps
+KEYWORDS=~amd64 ~arm64 ~loong ~x86 ~x64-macos
 LICENSE=GPL-2
 RDEPEND=client? ( sys-libs/ncurses:= sys-libs/readline:= ) filecaps? ( acct-group/bird acct-user/bird ) libssh? ( net-libs/libssh:= )
 SLOT=0
-SRC_URI=https://bird.network.cz/download/bird-2.0.11.tar.gz
+SRC_URI=https://bird.network.cz/download/bird-2.17.1.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	fcaps	27152c9e4da035accb14a2d7879744ef
-_md5_=15b8930c09210c9a6d8d08a82c2d72f9
+_md5_=02db87d8b4523abb27d3d537561ddb85
