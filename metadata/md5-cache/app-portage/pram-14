@@ -1,0 +1,15 @@
+BDEPEND=test? ( dev-vcs/git net-misc/wget[ssl] virtual/editor app-crypt/gnupg >=dev-vcs/git-2.45.0 sys-apps/diffutils ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=Tool to ease merging Pull Requests and git patches
+EAPI=8
+HOMEPAGE=https://github.com/projg2/pram/
+INHERIT=meson
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86 ~x64-macos
+LICENSE=GPL-2+
+RDEPEND=dev-vcs/git net-misc/wget[ssl] virtual/editor
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/projg2/pram/archive/v14.tar.gz -> pram-14.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=893758856bc11e40372ef1d64e494612
