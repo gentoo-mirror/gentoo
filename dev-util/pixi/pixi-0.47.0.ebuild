@@ -58,6 +58,8 @@ declare -A GIT_CRATES=(
 	[version-ranges]='https://github.com/astral-sh/pubgrub;b70cf707aa43f21b32f3a61b8a0889b15032d5c4;pubgrub-%commit%/version-ranges'
 )
 
+RUST_MIN_VER="1.85.0"
+
 inherit cargo
 
 CRATE_P=${P}
@@ -91,11 +93,6 @@ RDEPEND="
 "
 
 src_prepare() {
-	local PATCHES=(
-		# https://github.com/prefix-dev/pixi/pull/3586
-		"${FILESDIR}/${P}-offline.patch"
-	)
-
 	default
 
 	local vr_dep=$(grep version-ranges "${ECARGO_HOME}"/config.toml || die)
