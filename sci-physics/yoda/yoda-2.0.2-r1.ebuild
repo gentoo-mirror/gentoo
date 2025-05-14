@@ -1,9 +1,9 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit bash-completion-r1 python-single-r1 optfeature
 
@@ -45,6 +45,12 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-yamlcpp.patch # 937405
+	# https://gitlab.com/hepcedar/yoda/-/merge_requests/287
+	"${FILESDIR}"/${P}-zstr.patch # 948090
+)
+
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
 }
@@ -68,7 +74,7 @@ src_test() {
 }
 
 src_install() {
-	emake install DESTDIR="${ED}"
+	default
 
 	if use python ; then
 		newbashcomp "${ED}"/etc/bash_completion.d/${PN}-completion ${PN}-config
