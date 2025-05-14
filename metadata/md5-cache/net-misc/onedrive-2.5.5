@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig || ( sys-devel/gcc:15[d] sys-devel/gcc:16[d] ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install setup
+DEPEND=>=dev-db/sqlite-3.7.15:3 net-misc/curl libnotify? ( x11-libs/libnotify )
+DESCRIPTION=Free Client for OneDrive on Linux
+EAPI=8
+HOMEPAGE=https://abraunegg.github.io/
+INHERIT=shell-completion systemd toolchain-funcs
+IUSE=libnotify
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=>=dev-db/sqlite-3.7.15:3 net-misc/curl libnotify? ( x11-libs/libnotify )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://codeload.github.com/abraunegg/onedrive/tar.gz/v2.5.5 -> onedrive-2.5.5.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=bf730491d1e1dda14597d5c22a98499b
