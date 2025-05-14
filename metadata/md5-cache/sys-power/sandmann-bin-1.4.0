@@ -1,0 +1,13 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare
+DESCRIPTION=An autosuspend and wakeup daemon
+EAPI=8
+HOMEPAGE=https://gitlab.com/flow/sandmann
+INHERIT=java-utils-2 systemd tmpfiles
+KEYWORDS=~amd64
+LICENSE=GPL-3+ LGPL-3
+RDEPEND=acct-user/sandmann >=dev-java/java-config-2.3.2 net-misc/socat sys-apps/systemd sys-auth/polkit >=virtual/jre-17 virtual/tmpfiles
+SLOT=0
+SRC_URI=https://geekplace.eu/projects/sandmann/archive/sandmann-1.4.0.tar.xz
+_eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_md5_=24c5e105b80d5732de66986a9e2c84dd
