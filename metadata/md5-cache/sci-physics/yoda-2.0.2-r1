@@ -1,0 +1,17 @@
+BDEPEND=python? ( python_single_target_python3_11? ( >=dev-python/cython-0.29.24[python_targets_python3_11(-)] ) python_single_target_python3_12? ( >=dev-python/cython-0.29.24[python_targets_python3_12(-)] ) python_single_target_python3_13? ( >=dev-python/cython-0.29.24[python_targets_python3_13(-)] ) test? ( python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] dev-python/matplotlib[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] dev-python/matplotlib[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/numpy[python_targets_python3_13(-)] dev-python/matplotlib[python_targets_python3_13(-)] ) ) )
+DEFINED_PHASES=configure install postinst setup test
+DEPEND=root? ( sci-physics/root:=[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) zlib? ( sys-libs/zlib )
+DESCRIPTION=Yet more Objects for (High Energy Physics) Data Analysis
+EAPI=8
+HOMEPAGE=https://yoda.hepforge.org/
+INHERIT=bash-completion-r1 python-single-r1 optfeature
+IUSE=root test +python +zlib python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=root? ( sci-physics/root:=[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) zlib? ( sys-libs/zlib )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) ) root? ( python )
+RESTRICT=!test? ( test )
+SLOT=0/2.0.2
+SRC_URI=https://yoda.hepforge.org/downloads?f=YODA-2.0.2.tar.bz2 -> YODA-2.0.2.tar.bz2
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	optfeature	538bce96e5589935b57e178e8635f301
+_md5_=65c6496c6b48ff6b4bbf2c4c9c0fec83
