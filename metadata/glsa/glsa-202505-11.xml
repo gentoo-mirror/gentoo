@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202505-11">
+    <title>Node.js: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Node.js, the worst of which could lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">nodejs</product>
+    <announced>2025-05-14</announced>
+    <revised count="1">2025-05-14</revised>
+    <bug>916513</bug>
+    <bug>924704</bug>
+    <bug>928532</bug>
+    <bug>936204</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="net-libs/nodejs" auto="yes" arch="*">
+            <unaffected range="ge">22.4.1</unaffected>
+            <vulnerable range="lt">22.4.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Node.js. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Node.js users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/nodejs-22.4.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38552">CVE-2023-38552</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39331">CVE-2023-39331</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39332">CVE-2023-39332</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39333">CVE-2023-39333</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-44487">CVE-2023-44487</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45143">CVE-2023-45143</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46809">CVE-2023-46809</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-21890">CVE-2024-21890</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-21891">CVE-2024-21891</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-21892">CVE-2024-21892</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-21896">CVE-2024-21896</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-22017">CVE-2024-22017</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-22018">CVE-2024-22018</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-22019">CVE-2024-22019</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-22020">CVE-2024-22020</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-22025">CVE-2024-22025</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-27982">CVE-2024-27982</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-27983">CVE-2024-27983</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-36137">CVE-2024-36137</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-37372">CVE-2024-37372</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-05-14T14:44:20.716963Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-05-14T14:44:20.721268Z">graaff</metadata>
+</glsa>

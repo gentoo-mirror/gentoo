@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202505-10">
+    <title>Tracker miners: Sandbox weakness</title>
+    <synopsis>A vulnerability has been discovered in Tracker miners, which can lead to a sandbox escape and execution of arbitrary code.</synopsis>
+    <product type="ebuild">tracker-miners</product>
+    <announced>2025-05-14</announced>
+    <revised count="1">2025-05-14</revised>
+    <bug>916378</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-misc/tracker-miners" auto="yes" arch="*">
+            <unaffected range="ge">3.5.3</unaffected>
+            <vulnerable range="lt">3.5.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The Tracker miners are a collection of data extractors for the GNOME Tracker.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Tracker minders. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Tracker miners users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-misc/tracker-miners-3.5.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5557">CVE-2023-5557</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-05-14T14:42:54.166696Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-05-14T14:42:54.170730Z">graaff</metadata>
+</glsa>
