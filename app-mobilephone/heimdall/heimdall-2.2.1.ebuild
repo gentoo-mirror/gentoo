@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -30,9 +30,7 @@ RDEPEND="
 	sys-libs/zlib
 	virtual/libusb:1=
 	gui? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
+		dev-qt/qtbase:6[gui,widgets]
 	)"
 
 DEPEND="${RDEPEND}"
