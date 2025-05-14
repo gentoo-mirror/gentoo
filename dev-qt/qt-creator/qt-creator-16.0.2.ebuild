@@ -29,7 +29,7 @@ else
 		cmdbridge-server? ( https://dev.gentoo.org/~ionen/distfiles/${QTC_P}-vendor.tar.xz )
 	"
 	S=${WORKDIR}/${QTC_P}
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Lightweight IDE for C++/QML development centering around Qt"
@@ -53,6 +53,7 @@ COMMON_DEPEND="
 	>=dev-qt/qt5compat-${QT_PV}
 	>=dev-qt/qtbase-${QT_PV}=[concurrent,dbus,gui,network,widgets,xml]
 	>=dev-qt/qtdeclarative-${QT_PV}=
+	sys-libs/zlib:=
 	clang? (
 		$(llvm_gen_dep '
 			llvm-core/clang:${LLVM_SLOT}=
