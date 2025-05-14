@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/linuxmint/xapp/
 INHERIT=gnome2-utils vala meson python-r1
 IUSE=gtk-doc introspection mate vala xfce python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=LGPL-3 xfce? ( GPL-3 )
 RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-libs/glib-2.44.0:2 dev-libs/libdbusmenu[gtk3] gnome-base/libgnomekbd:= x11-libs/cairo >=x11-libs/gdk-pixbuf-2.22.0:2[introspection?] >=x11-libs/gtk+-3.22.0:3[introspection?,X] x11-libs/libxkbfile x11-libs/libX11 x11-libs/pango introspection? ( dev-python/pygobject:3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) vala? ( introspection )
 SLOT=0
 SRC_URI=https://github.com/linuxmint/xapp/archive/2.8.8.tar.gz -> xapp-2.8.8.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	vala	e477903dbe0105930c51f170a592dc16	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-r1	0e15b2ab9cfc87d7474678201d6bca38
-_md5_=e0007b324d853b2f88dc5c2f651dcee5
+_md5_=9e20172055f8ef60835cbd325ae262cb

@@ -7,7 +7,7 @@ HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/n
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson flag-o-matic gnome2-utils python-single-r1 readme.gentoo-r1 virtualx xdg
 IUSE=exif gtk-doc +nls selinux test tracker wayland xmp python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 test
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+ LGPL-2+ LGPL-2.1+ FDL-1.1
 PDEPEND=>=gnome-base/gvfs-0.1.2
 RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=app-accessibility/at-spi2-core-2.46.0:2 >=dev-libs/glib-2.45.7:2[dbus] >=dev-libs/gobject-introspection-0.9.12:= >=dev-libs/json-glib-1.6.0 dev-libs/libxmlb:0/2[introspection] >=gnome-extra/cinnamon-desktop-6.4:0= gnome-extra/libgsf:= x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.24.41-r1:3[introspection,wayland?,X] x11-libs/libX11 >=x11-libs/pango-1.40.0 >=x11-libs/xapp-2.8.8[introspection] exif? ( >=media-libs/libexif-0.6.20 ) selinux? ( sys-libs/libselinux ) tracker? ( app-misc/tracker:3 ) xmp? ( >=media-libs/exempi-2.2.0:= ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygobject:3[python_targets_python3_13(-)] ) x11-themes/adwaita-icon-theme nls? ( >=gnome-extra/cinnamon-translations-6.4 )
@@ -16,4 +16,4 @@ RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/linuxmint/nemo/archive/6.4.5.tar.gz -> nemo-6.4.5.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=7e765ef2e642bd506161047c603e586f
+_md5_=c5b8a21d9a9bf90af2733a570170fab1

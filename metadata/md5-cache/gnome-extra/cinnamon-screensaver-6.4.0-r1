@@ -7,11 +7,11 @@ HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/c
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson python-single-r1 xdg
 IUSE=systemd xinerama python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+ LGPL-2+ MIT
 RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-libs/glib-2.37.3:2[dbus] >=gnome-extra/cinnamon-desktop-6.4 sys-libs/pam >=x11-libs/gtk+-3.22:3[introspection,X] x11-libs/cairo x11-libs/libX11 x11-libs/libXext x11-libs/libXrandr x11-libs/pango x11-misc/xdotool x11-themes/adwaita-icon-theme xinerama? ( x11-libs/libXinerama ) >=app-accessibility/caribou-0.3 sys-apps/accountsservice sys-process/procps x11-apps/xprop python_single_target_python3_11? ( dev-python/psutil[python_targets_python3_11(-)] dev-python/pygobject:3[python_targets_python3_11(-)] dev-python/setproctitle[python_targets_python3_11(-)] >=dev-python/python3-xapp-2.4.2[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/psutil[python_targets_python3_12(-)] dev-python/pygobject:3[python_targets_python3_12(-)] dev-python/setproctitle[python_targets_python3_12(-)] >=dev-python/python3-xapp-2.4.2[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/psutil[python_targets_python3_13(-)] dev-python/pygobject:3[python_targets_python3_13(-)] dev-python/setproctitle[python_targets_python3_13(-)] >=dev-python/python3-xapp-2.4.2[python_targets_python3_13(-)] ) systemd? ( >=sys-apps/systemd-31 ) !systemd? ( sys-auth/elogind )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=0
 SRC_URI=https://github.com/linuxmint/cinnamon-screensaver/archive/6.4.0.tar.gz -> cinnamon-screensaver-6.4.0.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=f06a1ee4a36a7248ea46820d381a8103
+_md5_=9a3057309a25ace9edbfaac661e8f3d7

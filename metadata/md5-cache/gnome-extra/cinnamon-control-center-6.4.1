@@ -7,7 +7,7 @@ HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/c
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson flag-o-matic gnome2-utils python-any-r1 xdg virtualx
 IUSE=+colord input_devices_wacom +networkmanager +modemmanager systemd test wayland test
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+ LGPL-2+ LGPL-2.1+ MIT
 RDEPEND=app-accessibility/at-spi2-core:2 >=dev-libs/glib-2.44.0:2 >=gnome-base/libgnomekbd-3.0.0:0= >=gnome-extra/cinnamon-desktop-6.4:0= >=gnome-extra/cinnamon-menus-6.4 media-libs/fontconfig >=sys-auth/polkit-0.103 >=sys-power/upower-0.99.8:= >=x11-libs/gdk-pixbuf-2.23.0:2 >=x11-libs/gtk+-3.24.41-r1:3[wayland?,X] >=dev-libs/libgudev-232 >=x11-libs/libnotify-0.7.3 x11-libs/cairo x11-libs/libX11 >=x11-libs/libxklavier-5.1:= x11-libs/pango colord? ( >=x11-misc/colord-0.1.14:0= ) input_devices_wacom? ( >=dev-libs/libwacom-0.7:= >=x11-libs/libXi-1.2 ) networkmanager? ( >=gnome-extra/nm-applet-1.2.0 >=net-libs/libnma-1.8.34 >=net-misc/networkmanager-1.2.0[modemmanager?] modemmanager? ( >=net-misc/modemmanager-0.7:= ) ) x11-themes/adwaita-icon-theme colord? ( >=gnome-extra/gnome-color-manager-3 ) input_devices_wacom? ( gnome-extra/cinnamon-settings-daemon[input_devices_wacom] ) systemd? ( >=sys-apps/systemd-31 ) !systemd? ( app-admin/openrc-settingsd )
 REQUIRED_USE=modemmanager? ( networkmanager )
@@ -15,4 +15,4 @@ RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/linuxmint/cinnamon-control-center/archive/6.4.1.tar.gz -> cinnamon-control-center-6.4.1.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	python-any-r1	891415dfe39ad9b41b461f2b86354af0	xdg	3ef49a87c52c8b77c476351195dfe575	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=298de43e44f2f16170a36750cae93eb2
+_md5_=0dcd786fc61b1e19ff1a66391b484079
