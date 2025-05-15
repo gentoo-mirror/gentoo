@@ -7,12 +7,10 @@ ECM_EXAMPLES="true"
 ECM_QTHELP="false"
 ECM_TEST="true"
 QTMIN=6.7.2
-PATCHSET="${P}-patchset"
 inherit ecm frameworks.kde.org toolchain-funcs
 
 DESCRIPTION="Lightweight user interface framework for mobile and convergent applications"
 HOMEPAGE="https://community.kde.org/Kirigami"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}.tar.xz"
 
 LICENSE="LGPL-2+"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
@@ -34,10 +32,6 @@ RDEPEND="${DEPEND}
 	)
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
-
-# See also:
-# https://mail.kde.org/pipermail/release-team/2025-May/013666.html
-PATCHES=( "${WORKDIR}/${PATCHSET}" )
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp

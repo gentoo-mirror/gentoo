@@ -37,7 +37,10 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${KDE_CATV}:6 )"
 
-PATCHES=( "${FILESDIR}/${PN}-6.14.0-stdalone.patch" )
+PATCHES=(
+	"${FILESDIR}/${P}-stdalone.patch"
+	"${FILESDIR}/${P}-no-hang-if-disabled.patch" # KDE-bug #504014
+)
 
 src_prepare() {
 	ecm_src_prepare
