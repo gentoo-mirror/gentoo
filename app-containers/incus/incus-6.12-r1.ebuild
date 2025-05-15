@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module linux-info optfeature systemd toolchain-funcs verify-sig
+inherit go-env go-module linux-info optfeature systemd toolchain-funcs verify-sig
 
 DESCRIPTION="Modern, secure and powerful system container and virtual machine manager"
 HOMEPAGE="https://linuxcontainers.org/incus/introduction/ https://github.com/lxc/incus"
@@ -39,6 +39,7 @@ RDEPEND="${DEPEND}
 	>=sys-fs/lxcfs-5.0.0
 	sys-fs/squashfs-tools[lzma]
 	virtual/acl
+	apparmor? ( sec-policy/apparmor-profiles )
 	qemu? (
 		app-cdr/cdrtools
 		app-emulation/qemu[spice,usbredir,virtfs]
@@ -154,7 +155,8 @@ src_test() {
 src_install() {
 	export GOPATH="${S}/_dist"
 
-	if tc-is-cross-compiler ; then
+	export GOHOSTARCH=$(go-env_goarch "${CBUILD}")
+	if [[ "${GOARCH}" != "${GOHOSTARCH}" ]]; then
 		local bindir="_dist/bin/linux_${GOARCH}"
 	else
 		local bindir="_dist/bin"
@@ -214,6 +216,7 @@ pkg_postinst() {
 	elog "  https://wiki.gentoo.org/wiki/Incus#Migrating_from_LXD"
 	elog
 	optfeature "OCI container images support" app-containers/skopeo app-containers/umoci
+	optfeature "support for ACME certificate issuance" app-crypt/lego
 	optfeature "btrfs storage backend" sys-fs/btrfs-progs
 	optfeature "ipv6 support" net-dns/dnsmasq[ipv6]
 	optfeature "full incus-migrate support" net-misc/rsync

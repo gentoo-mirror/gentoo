@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module linux-info optfeature systemd toolchain-funcs verify-sig
+inherit go-env go-module linux-info optfeature systemd toolchain-funcs verify-sig
 
 DESCRIPTION="Modern, secure and powerful system container and virtual machine manager"
 HOMEPAGE="https://linuxcontainers.org/incus/introduction/ https://github.com/lxc/incus"
@@ -11,7 +11,7 @@ SRC_URI="https://linuxcontainers.org/downloads/incus/${P}.tar.xz
 	verify-sig? ( https://linuxcontainers.org/downloads/incus/${P}.tar.xz.asc )"
 
 LICENSE="Apache-2.0 BSD LGPL-3 MIT"
-SLOT="0/stable"
+SLOT="0/lts"
 KEYWORDS="~amd64 ~arm64"
 IUSE="apparmor fuidshift nls qemu"
 
@@ -20,7 +20,7 @@ DEPEND="acct-group/incus
 	app-arch/xz-utils
 	>=app-containers/lxc-5.0.0:=[apparmor?,seccomp(+)]
 	dev-db/sqlite:3
-	>=dev-libs/cowsql-1.15.7
+	>=dev-libs/cowsql-1.15.6
 	dev-libs/lzo
 	>=dev-libs/raft-0.22.1:=[lz4]
 	>=dev-util/xdelta-3.0[lzma(+)]
@@ -30,10 +30,9 @@ DEPEND="acct-group/incus
 RDEPEND="${DEPEND}
 	|| (
 		net-firewall/iptables
-		net-firewall/nftables[json]
+		net-firewall/nftables
 	)
 	fuidshift? ( !app-containers/lxd )
-	net-firewall/ebtables
 	sys-apps/iproute2
 	sys-fs/fuse:*
 	>=sys-fs/lxcfs-5.0.0
@@ -154,7 +153,8 @@ src_test() {
 src_install() {
 	export GOPATH="${S}/_dist"
 
-	if tc-is-cross-compiler ; then
+	export GOHOSTARCH=$(go-env_goarch "${CBUILD}")
+	if [[ "${GOARCH}" != "${GOHOSTARCH}" ]]; then
 		local bindir="_dist/bin/linux_${GOARCH}"
 	else
 		local bindir="_dist/bin"
@@ -213,9 +213,8 @@ pkg_postinst() {
 	elog "  https://wiki.gentoo.org/wiki/Incus"
 	elog "  https://wiki.gentoo.org/wiki/Incus#Migrating_from_LXD"
 	elog
-	optfeature "OCI container images support" app-containers/skopeo app-containers/umoci
-	optfeature "support for ACME certificate issuance" app-crypt/lego
 	optfeature "btrfs storage backend" sys-fs/btrfs-progs
+	optfeature "support for ACME certificate issuance" app-crypt/lego
 	optfeature "ipv6 support" net-dns/dnsmasq[ipv6]
 	optfeature "full incus-migrate support" net-misc/rsync
 	optfeature "lvm2 storage backend" sys-fs/lvm2
