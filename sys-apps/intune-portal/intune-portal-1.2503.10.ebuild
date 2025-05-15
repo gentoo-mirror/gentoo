@@ -1,13 +1,13 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit desktop pam prefix systemd tmpfiles unpacker xdg
+inherit desktop pam prefix readme.gentoo-r1 systemd tmpfiles unpacker xdg
 
 DESCRIPTION="Microsoft Intune Company Portal to access a corporate environment"
 HOMEPAGE="https://learn.microsoft.com/mem/intune/"
-SRC_URI="https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/${PN:0:1}/${PN}/${PN}_${PV}-jammy_amd64.deb"
+SRC_URI="https://packages.microsoft.com/ubuntu/24.04/prod/pool/main/${PN:0:1}/${PN}/${PN}_${PV}-noble_amd64.deb"
 S="${WORKDIR}"
 LICENSE="all-rights-reserved"
 SLOT="0"
@@ -17,11 +17,12 @@ RESTRICT="bindist mirror"
 RDEPEND="
 	app-accessibility/at-spi2-core:2
 	app-crypt/libsecret
+	app-crypt/p11-kit
 	dev-db/sqlite:3
 	dev-libs/glib:2
 	dev-libs/openssl:0/3
-	net-libs/libsoup:2.4
-	net-libs/webkit-gtk:4/37
+	net-libs/libsoup:3.0
+	net-libs/webkit-gtk:4.1/0
 	net-misc/curl
 	sys-apps/bubblewrap
 	sys-apps/dbus
@@ -46,6 +47,9 @@ RDEPEND="
 
 QA_PREBUILT="*"
 DIR="/opt/microsoft/intune"
+
+DOC_CONTENTS="You should manually add an \"optional pam_intune.so\" line to the bottom of the auth, password, and \
+session entries in /etc/pam.d/system-auth. You may need to tailor this to your own PAM configuration."
 
 src_unpack() {
 	unpack_deb ${A}
@@ -74,10 +78,13 @@ src_install() {
 
 	domenu usr/share/applications/*.desktop
 	doicon -s 48 usr/share/icons/hicolor/48x48/*/*.png
+
+	readme.gentoo_create_doc
 }
 
 pkg_postinst() {
 	touch "${EROOT}"/etc/pam.d/common-password || die
 	tmpfiles_process intune.conf
 	xdg_pkg_postinst
+	readme.gentoo_print_elog
 }
