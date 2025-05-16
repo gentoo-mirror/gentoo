@@ -27,12 +27,11 @@ RDEPEND="
 	dev-libs/zziplib:=
 	media-libs/openal
 	media-libs/libpng
-	media-libs/libsdl2
-	media-libs/libsndfile
+	media-libs/libsdl2[joystick]
+	media-libs/libsndfile[-minimal]
 	media-libs/sdl2-image[png]
 	media-libs/sdl2-net
 	media-libs/sdl2-ttf
-	media-video/ffmpeg:=
 	sys-libs/zlib
 	virtual/opengl
 	virtual/glu
@@ -59,7 +58,7 @@ src_configure() {
 	filter-lto
 	my_econf=(
 		--enable-opengl
-		--with-ffmpeg
+		--without-ffmpeg
 		--with-png
 		--with-sdl_image
 		--with-zzip
@@ -89,4 +88,5 @@ pkg_postinst() {
 	optfeature "Marathon data files" games-fps/alephone-marathon
 	optfeature "Marathon 2 Durandal data files" games-fps/alephone-durandal
 	optfeature "Marathon: Infinity data files" games-fps/alephone-infinity
+	optfeature "Apotheosis X data files" games-fps/alephone-apotheosis-x
 }
