@@ -34,6 +34,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.6.63-pcre-fix.patch"
 	"${FILESDIR}/${PN}-1.6.68-gcc13.patch"
 	"${FILESDIR}/${PN}-1.6.68-werror.patch"
+	"${FILESDIR}/${PN}-1.6.68-cmake4.patch"
+	"${FILESDIR}/${PN}-1.6.68-unbundle-zlib.patch"
 )
 
 src_prepare() {
@@ -42,7 +44,7 @@ src_prepare() {
 	cmake_src_prepare
 
 	# Remove bundled depends that have portage equivalents
-	rm -rv Externals/{expat,lib3ds,LibXML,pcre,zziplib} || die
+	rm -rv Externals/{expat,lib3ds,LibXML,pcre,zlib,zziplib} || die
 
 	# Remove unused build systems
 	rm -v Makefile scripts/{unixbuild.sh,vcproj2cmake.rb} || die
