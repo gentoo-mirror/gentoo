@@ -85,6 +85,7 @@ BDEPEND="virtual/pkgconfig"
 PATCHES=(
 	"${FILESDIR}/${PN}-autoconf-lua-version-v3.patch"
 	"${FILESDIR}/${PN}-2.4.1-gssapi-regression.patch"
+	"${FILESDIR}/${PN}-2.4.1-fix-hardened-crash.patch"
 )
 
 pkg_setup() {
