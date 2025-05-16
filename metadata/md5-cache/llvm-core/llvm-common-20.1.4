@@ -1,4 +1,4 @@
-BDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-18.1.6 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-20.1.5 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile install postinst postrm prepare unpack
 DESCRIPTION=Common files shared between multiple slots of LLVM
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
 RDEPEND=!llvm-core/llvm:0
 SLOT=0
 SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.4/llvm-project-20.1.4.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.4/llvm-project-20.1.4.src.tar.xz.sig )
-_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	multiprocessing	1e32df7deee68372153dca65f4a7c21f	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53	llvm.org	a8a47981c26f510b294c3e7ff949bbf7
+_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	multiprocessing	1e32df7deee68372153dca65f4a7c21f	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53	llvm.org	eb8a47a20a70cdef0edb7a16445b1af2
 _md5_=66c34dcb72d1e333274666189a5324fc
