@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install prepare
+DEPEND=|| ( dev-lang/pypy3-exe:3.11.7.3.19[bzip2(+),ncurses?] dev-lang/pypy3-exe-bin:3.11.7.3.19 ) dev-lang/python-exec[python_targets_pypy3_11(-)] dev-libs/openssl:0= dev-python/gentoo-common ensurepip? ( dev-python/ensurepip-wheels ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) symlink? ( !dev-lang/pypy:3.10[symlink(-)] !<dev-python/pypy3-7.3.17-r100 )
+DESCRIPTION=A fast, compliant alternative implementation of the Python (3.11) language
+EAPI=8
+HOMEPAGE=https://pypy.org/ https://github.com/pypy/pypy/
+INHERIT=multiprocessing pax-utils python-utils-r1 toolchain-funcs
+IUSE=+ensurepip gdbm +jit ncurses sqlite symlink +test-install tk
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=MIT
+RDEPEND=|| ( dev-lang/pypy3-exe:3.11.7.3.19[bzip2(+),ncurses?] dev-lang/pypy3-exe-bin:3.11.7.3.19 ) dev-lang/python-exec[python_targets_pypy3_11(-)] dev-libs/openssl:0= dev-python/gentoo-common ensurepip? ( dev-python/ensurepip-wheels ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) symlink? ( !dev-lang/pypy:3.10[symlink(-)] !<dev-python/pypy3-7.3.17-r100 )
+RESTRICT=test
+SLOT=3.11/pypy311-pp73-416
+SRC_URI=https://downloads.python.org/pypy/pypy3.11-v7.3.19-src.tar.bz2 https://buildbot.pypy.org/pypy/pypy3.11-v7.3.19-src.tar.bz2 https://dev.gentoo.org/~mgorny/dist/python/pypy3.11-gentoo-patches-7.3.19_p7.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	pax-utils	5555f2e75744739fe100ee62c22d28fe	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64
+_md5_=b1c33f737a32a760527a5347cfacb0c7
