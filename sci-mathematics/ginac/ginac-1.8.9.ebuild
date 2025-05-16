@@ -29,8 +29,7 @@ BDEPEND="
 		virtual/texi2dvi
 	)"
 
-PATCHES=( "${FILESDIR}"/${PN}-1.8.2-pkgconfig.patch
-	"${FILESDIR}"/${PN}-1.8.8-gcc-15.patch )
+PATCHES=( "${FILESDIR}"/${PN}-1.8.2-pkgconfig.patch )
 
 src_configure() {
 	econf \
