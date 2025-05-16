@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 dev-vcs/subversion[http(+)] net-misc/rsync
 DEFINED_PHASES=compile configure install preinst prepare unpack
-DEPEND=media-libs/libgig media-libs/libsndfile[-minimal] alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) lv2? ( media-libs/lv2 ) sqlite? ( dev-db/sqlite ) media-libs/dssi media-libs/ladspa-sdk
+DEPEND=>=media-libs/libgig-4.4.0 media-libs/libsndfile[-minimal] alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) lv2? ( media-libs/lv2 ) sqlite? ( dev-db/sqlite ) media-libs/dssi media-libs/ladspa-sdk
 DESCRIPTION=Software audio sampler engine with professional grade features
 EAPI=8
 HOMEPAGE=https://www.linuxsampler.org/
-INHERIT=autotools subversion
+INHERIT=autotools flag-o-matic subversion
 IUSE=alsa doc jack lv2 sf2 sqlite
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=media-libs/libgig media-libs/libsndfile[-minimal] alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) lv2? ( media-libs/lv2 ) sqlite? ( dev-db/sqlite )
+RDEPEND=>=media-libs/libgig-4.4.0 media-libs/libsndfile[-minimal] alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) lv2? ( media-libs/lv2 ) sqlite? ( dev-db/sqlite )
 REQUIRED_USE=|| ( alsa jack )
 SLOT=0
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	estack	c61c368a76fdf3a82fdf8dbaebea3804	subversion	44c6a1cae0381c100a526e3b348622cd
-_md5_=5d7c9b3ebc4420e1444815f216dd159d
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	estack	c61c368a76fdf3a82fdf8dbaebea3804	subversion	44c6a1cae0381c100a526e3b348622cd
+_md5_=cf5bdc9ceef19e074333ebaf3cd1de4f
