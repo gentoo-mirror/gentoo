@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/rust-bin:9999 dev-lang/rust:9999 dev-lang/rust-bin:1.87.0 dev-lang/rust:1.87.0 dev-lang/rust-bin:1.86.0 dev-lang/rust:1.86.0 dev-lang/rust-bin:1.85.1 dev-lang/rust:1.85.1 dev-lang/rust-bin:1.85.0 dev-lang/rust:1.85.0 dev-lang/rust-bin:1.84.1 dev-lang/rust:1.84.1 dev-lang/rust-bin:1.84.0 dev-lang/rust:1.84.0 dev-lang/rust-bin:1.83.0 dev-lang/rust:1.83.0 dev-lang/rust-bin:1.82.0 dev-lang/rust:1.82.0 dev-lang/rust-bin:1.81.0 dev-lang/rust:1.81.0 dev-lang/rust-bin:1.80.1 dev-lang/rust:1.80.1 dev-lang/rust-bin:1.79.0 dev-lang/rust:1.79.0 dev-lang/rust-bin:1.78.0 dev-lang/rust:1.78.0 dev-lang/rust-bin:1.77.1 dev-lang/rust:1.77.1 dev-lang/rust-bin:1.76.0 dev-lang/rust:1.76.0 dev-lang/rust-bin:1.75.0 dev-lang/rust:1.75.0 dev-lang/rust-bin:1.74.1 dev-lang/rust:1.74.1 )
+BDEPEND=|| ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* )
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DESCRIPTION=A container-focused DNS server
 EAPI=8
@@ -9,5 +9,5 @@ KEYWORDS=amd64 arm64 ~loong ~ppc64 ~riscv
 LICENSE=Apache-2.0 0BSD Apache-2.0-with-LLVM-exceptions MIT Unlicense Unicode-DFS-2016 ZLIB
 SLOT=0
 SRC_URI=https://crates.io/api/v1/crates/aardvark-dns/1.14.0/download -> aardvark-dns-1.14.0.crate https://github.com/containers/aardvark-dns/releases/download/v1.14.0/aardvark-dns-v1.14.0-vendor.tar.gz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	a914aa3cce32424457bc09b5be2586ad	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	3b042096236a464b8bd9dd7a1120ad23	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a
 _md5_=9cb25a2276a8b5da150ad5c977721dd4
