@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 PYTHON_REQ_USE="threads(+),xml(+)"
 inherit python-single-r1 flag-o-matic waf-utils multilib-minimal linux-info systemd pam tmpfiles
 
@@ -27,11 +27,13 @@ IUSE+=" iprint json ldap llvm-libunwind lmdb pam profiling-data python quota"
 IUSE+=" +regedit selinux snapper spotlight syslog system-heimdal +system-mitkrb5"
 IUSE+=" systemd test unwind winbind zeroconf"
 
+# ldap needs ads (bug #941578)
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	addc? ( json python !system-mitkrb5 winbind )
 	ads? ( acl ldap python winbind )
 	cluster? ( ads )
 	gpg? ( addc )
+	ldap? ( ads )
 	spotlight? ( json )
 	test? ( python )
 	!ads? ( !addc )
