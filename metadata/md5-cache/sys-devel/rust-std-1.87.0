@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) ~dev-lang/rust-1.87.0_beta20250430:= verify-sig? ( sec-keys/openpgp-keys-rust ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) ~dev-lang/rust-1.87.0:= verify-sig? ( sec-keys/openpgp-keys-rust ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install prepare pretend setup test unpack
 DEPEND=|| ( >=sys-devel/gcc-4.7:* >=llvm-core/clang-3.5:* )
 DESCRIPTION=Rust standard library, standalone (for crossdev)
@@ -10,6 +10,6 @@ LICENSE=|| ( MIT Apache-2.0 ) BSD-1 BSD-2 BSD-4
 RDEPEND=|| ( >=sys-devel/gcc-4.7:* >=llvm-core/clang-3.5:* )
 RESTRICT=test
 SLOT=stable/1.87
-SRC_URI=https://static.rust-lang.org/dist/2025-04-30/rustc-beta-src.tar.xz -> rustc-1.87.0_beta20250430-src.tar.xz verify-sig? ( https://static.rust-lang.org/dist/2025-04-30/rustc-beta-src.tar.xz.asc -> rustc-1.87.0_beta20250430-src.tar.xz.asc )
+SRC_URI=https://static.rust-lang.org/dist/rustc-1.87.0-src.tar.xz verify-sig? ( https://static.rust-lang.org/dist/rustc-1.87.0-src.tar.xz.asc )
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-any-r1	891415dfe39ad9b41b461f2b86354af0	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
-_md5_=c24c751569d31ffc80926477f2018016
+_md5_=83e48c18b792e68e77b04353f2289cfc
