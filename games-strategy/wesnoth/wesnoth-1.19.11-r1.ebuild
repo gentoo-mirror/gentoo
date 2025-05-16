@@ -6,14 +6,13 @@ EAPI=8
 inherit cmake flag-o-matic xdg
 
 DESCRIPTION="Battle for Wesnoth - A fantasy turn-based strategy game"
-HOMEPAGE="http://www.wesnoth.org
-	https://github.com/wesnoth/wesnoth"
+HOMEPAGE="https://www.wesnoth.org"
 SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.bz2"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+ CC-BY-SA-4.0"
 SLOT="0"
 # uneven minor versions are development versions
-if [[ $(( $(ver_cut 2) % 2 )) == 0 ]] ; then
+if (( ($(ver_cut 2) % 2) == 0 )) ; then
 	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 fi
 IUSE="dbus dedicated doc nls server test"
@@ -52,13 +51,11 @@ src_prepare() {
 	cmake_src_prepare
 
 	if ! use doc ; then
-		sed -i \
-			-e '/manual/d' \
-			doc/CMakeLists.txt || die
+		sed -i '/manual/d' doc/CMakeLists.txt || die
 	fi
 
 	# respect LINGUAS (bug #483316)
-	if [[ ${LINGUAS+set} ]] ; then
+	if [[ ${LINGUAS+set} ]]; then
 		local lang langs=()
 		for lang in $(cat po/LINGUAS) ; do
 			has ${lang} ${LINGUAS} && langs+=( ${lang} )
@@ -70,7 +67,16 @@ src_prepare() {
 src_configure() {
 	filter-flags -ftracer -fomit-frame-pointer
 
-	local mycmakeargs=()
+	local mycmakeargs=(
+		-Wno-dev
+		-DENABLE_STRICT_COMPILATION="OFF"
+		-DHARDEN="OFF" #936527
+		-DENABLE_GAME="$(usex !dedicated)"
+		-DENABLE_DESKTOP_ENTRY="$(usex !dedicated)"
+		-DENABLE_NLS="$(usex nls)"
+		-DENABLE_NOTIFICATIONS="$(usex dbus)"
+		-DENABLE_TESTS="$(usex test)"
+	)
 
 	if use dedicated || use server ; then
 		mycmakeargs+=(
@@ -79,22 +85,14 @@ src_configure() {
 			-DSERVER_UID="${PN}"
 			-DSERVER_GID="${PN}"
 			-DFIFO_DIR="/run/wesnothd"
-			)
+		)
 	else
 		mycmakeargs+=(
 			-DENABLE_CAMPAIGN_SERVER="OFF"
 			-DENABLE_SERVER="OFF"
-			)
+		)
 	fi
-	mycmakeargs+=(
-		-Wno-dev
-		-DENABLE_GAME="$(usex !dedicated)"
-		-DENABLE_DESKTOP_ENTRY="$(usex !dedicated)"
-		-DENABLE_NLS="$(usex nls)"
-		-DENABLE_NOTIFICATIONS="$(usex dbus)"
-		-DENABLE_STRICT_COMPILATION="OFF"
-		-DENABLE_TESTS="$(usex test)"
-	)
+
 	cmake_src_configure
 }
 
