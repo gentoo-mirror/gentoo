@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	~dev-python/awkward-cpp-45[${PYTHON_USEDEP}]
+	~dev-python/awkward-cpp-46[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/importlib-metadata-4.13.0[${PYTHON_USEDEP}]
 	' 3.11)
