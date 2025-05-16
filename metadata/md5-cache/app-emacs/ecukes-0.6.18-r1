@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/ecukes/ecukes/
 INHERIT=elisp
 IUSE=test test
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-3+
 RDEPEND=app-emacs/ansi app-emacs/commander app-emacs/dash app-emacs/espuds app-emacs/f app-emacs/s >=app-editors/emacs-25.3:*
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ecukes/ecukes/archive/v0.6.18.tar.gz -> ecukes-0.6.18.tar.gz
 _eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5
-_md5_=4ddaa53ad523385a9ab005b1c3c60623
+_md5_=0137581e8a377f85891d27094ff8180c
