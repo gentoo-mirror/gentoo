@@ -3,14 +3,14 @@ DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=acct-group/wesnoth acct-user/wesnoth dev-libs/boost:=[bzip2,context,icu,nls] >=media-libs/libsdl2-2.0.18:0[joystick,video,X] !dedicated? ( dev-libs/glib:2 dev-libs/openssl:0= >=media-libs/fontconfig-2.4.1 >=media-libs/sdl2-image-2.0.0[jpeg,png,webp] >=media-libs/sdl2-mixer-2.0.0[vorbis] media-libs/libvorbis >=x11-libs/pango-1.22.0 >=x11-libs/cairo-1.10.0 sys-libs/readline:0= dbus? ( sys-apps/dbus ) ) x11-libs/libX11
 DESCRIPTION=Battle for Wesnoth - A fantasy turn-based strategy game
 EAPI=8
-HOMEPAGE=http://www.wesnoth.org https://github.com/wesnoth/wesnoth
+HOMEPAGE=https://www.wesnoth.org
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake flag-o-matic xdg
 IUSE=dbus dedicated doc nls server test
-LICENSE=GPL-2
+LICENSE=GPL-2+ CC-BY-SA-4.0
 RDEPEND=acct-group/wesnoth acct-user/wesnoth dev-libs/boost:=[bzip2,context,icu,nls] >=media-libs/libsdl2-2.0.18:0[joystick,video,X] !dedicated? ( dev-libs/glib:2 dev-libs/openssl:0= >=media-libs/fontconfig-2.4.1 >=media-libs/sdl2-image-2.0.0[jpeg,png,webp] >=media-libs/sdl2-mixer-2.0.0[vorbis] media-libs/libvorbis >=x11-libs/pango-1.22.0 >=x11-libs/cairo-1.10.0 sys-libs/readline:0= dbus? ( sys-apps/dbus ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/wesnoth/wesnoth-1.19.11.tar.bz2
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=a06f91d94f3c8e15fee7c20c4b920ec5
+_md5_=52239cb6aa57d5de2c4bede19ea7ca82
