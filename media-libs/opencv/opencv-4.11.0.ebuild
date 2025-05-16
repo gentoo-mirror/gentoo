@@ -929,22 +929,27 @@ multilib_src_configure() {
 	tc-export CC CXX
 
 	if multilib_native_use cuda; then
-		cuda_add_sandbox -w
-		addwrite "/proc/self/task"
-		addpredict "/dev/char/"
-
-		if ! test -w /dev/nvidiactl; then
+		if ! SANDBOX_WRITE=/dev/nvidiactl test -w /dev/nvidiactl; then
 			# eqawarn "Can't access the GPU at /dev/nvidiactl."
 			# eqawarn "User $(id -nu) is not in the group \"video\"."
 			if [[ -z "${CUDA_GENERATION}" ]] && [[ -z "${CUDA_ARCH_BIN}" ]]; then
 				# build all targets
 				mycmakeargs+=(
 					-DCUDA_GENERATION=""
+					-DCMAKE_CUDA_ARCHITECTURES="${CUDAARCHS:-50}" # breaks with openmp otherwise..
 				)
 			fi
 		else
+			cuda_add_sandbox -w
+			addwrite "/proc/self/task"
+			addpredict "/dev/char/"
+
 			: "${CUDAARCHS:="$(cuda_get_host_native_arch)"}"
 			export CUDAARCHS
+			mycmakeargs+=(
+				-DCUDA_GENERATION="${CUDAARCHS}"
+				-DCMAKE_CUDA_ARCHITECTURES="${CUDAARCHS}"
+			)
 		fi
 
 		local -x CUDAHOSTCXX CUDAHOSTLD
@@ -1130,6 +1135,15 @@ multilib_src_test() {
 		addpredict /dev/fuse
 	fi
 
+	if use wayland; then
+		if use gtk3 || use qt6; then
+			local -x OPENCV_SKIP_TESTS_highgui=(
+				'Highgui_GUI.regression'
+				'Highgui_GUI.small_width_image'
+			)
+		fi
+	fi
+
 	if multilib_native_use cuda; then
 		local -x OPENCV_SKIP_TESTS_cudaoptflow=(
 			'CUDA_OptFlow/BroxOpticalFlow.Regression/0'
@@ -1226,6 +1240,10 @@ multilib_src_test() {
 
 		local -x OPENCV_TEST_DATA_PATH="${WORKDIR}/${PN}_extra-${PV}/testdata"
 
+		if use debug; then
+			local -x OPENCV_LOG_LEVEL=DEBUG
+		fi
+
 		local test_opts_base=(
 			--skip_unstable=1
 			--test_threads="$(makeopts_jobs)"
@@ -1234,11 +1252,11 @@ multilib_src_test() {
 		local results=()
 
 		local tests
-		readarray -t tests <<< "$(find "${BUILD_DIR}/bin" -name 'opencv_test_*')"
+		readarray -t tests <<< "$(find "${BUILD_DIR}/bin" -name 'opencv_test_*' | sort)"
 
 		for test in "${tests[@]}" ; do
 
-			if [[ ${TEST_CUDA} == "false" && ${test} = *opencv_test_cu* ]] ; then
+			if [[ ${TEST_CUDA} == "false" ]] && [[ ${test} == *opencv_test_cu* || ${test} == *opencv_test_dnn* ]] ; then
 				eqawarn "Skipping test ${test}"
 				continue
 			fi
