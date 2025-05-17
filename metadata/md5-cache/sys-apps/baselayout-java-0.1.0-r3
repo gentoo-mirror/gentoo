@@ -1,0 +1,13 @@
+BDEPEND=app-crypt/p11-kit[trust(+)] app-misc/ca-certificates
+DEFINED_PHASES=install postinst postrm
+DESCRIPTION=Baselayout for Java
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Java
+INHERIT=xdg-utils
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=GPL-2
+RDEPEND=app-crypt/p11-kit[trust(+)] app-misc/ca-certificates
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~gyakovlev/distfiles/baselayout-java-0.1.0.tar.gz
+_eclasses_=xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_md5_=5d213d275118d37e136f05e1b2eaa828

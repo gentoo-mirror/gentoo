@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* dev-java/relaxng-datatype:0 dev-java/xerces:2 test? ( dev-java/jdom:2 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=dev-java/xerces:2 >=virtual/jdk-1.8:* dev-java/relaxng-datatype:0 test? ( dev-java/jdom:2 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=XML Schema datatypes library
 EAPI=8
 HOMEPAGE=https://github.com/xmlark/msv/tree/main/xsdlib
@@ -7,9 +7,9 @@ INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
 KEYWORDS=amd64 arm64 ppc64 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=BSD-1
-RDEPEND=>=virtual/jre-1.8:* dev-java/relaxng-datatype:0 dev-java/xerces:2 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RDEPEND=>=virtual/jre-1.8:* dev-java/relaxng-datatype:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/xmlark/msv/archive/msv-2022.7.tar.gz
 _eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e
-_md5_=5cb6b2b1b4a897d311bce266ec078f2b
+_md5_=19294cf0442cb37243e48ec41f334d54
