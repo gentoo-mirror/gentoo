@@ -4,7 +4,7 @@
 EAPI=8
 WX_GTK_VER="3.2-gtk3"
 
-inherit autotools eapi9-ver flag-o-matic wxwidgets xdg-utils
+inherit autotools flag-o-matic wxwidgets xdg-utils
 
 if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/amule-project/amule"
@@ -13,7 +13,7 @@ else
 	MY_P="${PN/m/M}-${PV}"
 	SRC_URI="https://download.sourceforge.net/${PN}/${MY_P}.tar.xz"
 	S="${WORKDIR}/${MY_P}"
-	KEYWORDS="~alpha ~amd64 ~arm ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~alpha amd64 ~arm ~mips ppc ppc64 ~riscv ~sparc x86"
 fi
 
 DESCRIPTION="aMule, the all-platform eMule p2p client"
@@ -52,9 +52,14 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-2.3.2-disable-version-check.patch"
 	"${FILESDIR}/${PN}-2.3.3-fix-exception.patch"
+	"${FILESDIR}/${P}-autoconf-2.70.patch"
 	"${FILESDIR}/${PN}-2.3.3-backport-pr368.patch"
-	"${FILESDIR}/${PN}-2.3.3-use-xdg-open-as-preview-default.patch"
+	"${FILESDIR}/${PN}-2.3.3-wx3.2.patch"
 )
+
+pkg_setup() {
+	setup-wxwidgets
+}
 
 src_prepare() {
 	default
@@ -68,8 +73,6 @@ src_prepare() {
 }
 
 src_configure() {
-	setup-wxwidgets
-
 	use debug || append-cppflags -DwxDEBUG_LEVEL=0
 	append-cxxflags -std=gnu++14
 
@@ -130,15 +133,23 @@ src_install() {
 }
 
 pkg_postinst() {
-	if use daemon || use remote && ver_replacing -lt "2.3.2-r4"; then
-		elog "Default user under which amuled and amuleweb daemons are started"
-		elog "have been changed from p2p to amule. Default home directory have been"
-		elog "changed as well."
-		echo
-		elog "If you want to preserve old download/share location, you can create"
-		elog "symlink /var/lib/amule/.aMule pointing to the old location and adjust"
-		elog "files ownership *or* restore AMULEUSER and AMULEHOME variables in"
-		elog "/etc/conf.d/{amuled,amuleweb} to the old values."
+	local ver
+
+	if use daemon || use remote; then
+		for ver in ${REPLACING_VERSIONS}; do
+			if ver_test ${ver} -lt "2.3.2-r4"; then
+				elog "Default user under which amuled and amuleweb daemons are started"
+				elog "have been changed from p2p to amule. Default home directory have been"
+				elog "changed as well."
+				echo
+				elog "If you want to preserve old download/share location, you can create"
+				elog "symlink /var/lib/amule/.aMule pointing to the old location and adjust"
+				elog "files ownership *or* restore AMULEUSER and AMULEHOME variables in"
+				elog "/etc/conf.d/{amuled,amuleweb} to the old values."
+
+				break
+			fi
+		done
 	fi
 
 	use X && xdg_desktop_database_update

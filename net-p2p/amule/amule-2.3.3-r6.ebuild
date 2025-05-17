@@ -13,7 +13,7 @@ else
 	MY_P="${PN/m/M}-${PV}"
 	SRC_URI="https://download.sourceforge.net/${PN}/${MY_P}.tar.xz"
 	S="${WORKDIR}/${MY_P}"
-	KEYWORDS="~alpha ~amd64 ~arm ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~alpha amd64 ~arm ~mips ~ppc ppc64 ~riscv ~sparc x86"
 fi
 
 DESCRIPTION="aMule, the all-platform eMule p2p client"
@@ -52,8 +52,11 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-2.3.2-disable-version-check.patch"
 	"${FILESDIR}/${PN}-2.3.3-fix-exception.patch"
+	"${FILESDIR}/${P}-autoconf-2.70.patch"
 	"${FILESDIR}/${PN}-2.3.3-backport-pr368.patch"
+	"${FILESDIR}/${PN}-2.3.3-wx3.2.patch"
 	"${FILESDIR}/${PN}-2.3.3-use-xdg-open-as-preview-default.patch"
+	"${FILESDIR}/${P}-boost-1.87.patch"
 )
 
 src_prepare() {
@@ -130,6 +133,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	local ver
+
 	if use daemon || use remote && ver_replacing -lt "2.3.2-r4"; then
 		elog "Default user under which amuled and amuleweb daemons are started"
 		elog "have been changed from p2p to amule. Default home directory have been"

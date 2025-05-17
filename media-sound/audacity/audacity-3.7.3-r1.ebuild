@@ -39,7 +39,9 @@ SLOT="0"
 IUSE="alsa audiocom ffmpeg +flac id3tag +ladspa +lv2 mpg123 +ogg
 	opus +portmixer sbsms test twolame vamp +vorbis wavpack"
 REQUIRED_USE="
+	audiocom? ( wavpack )
 	opus? ( ogg )
+	test? ( mpg123 )
 	vorbis? ( ogg )
 "
 RESTRICT="!test? ( test )"
@@ -119,22 +121,26 @@ BDEPEND="|| ( dev-lang/nasm dev-lang/yasm )
 	virtual/pkgconfig"
 
 PATCHES=(
-	# Equivalent to previous versions
-	"${FILESDIR}/audacity-3.2.3-disable-ccache.patch"
-	# From Debian
-	"${FILESDIR}/audacity-3.3.3-fix-rpaths.patch"
+	# fixes include path
+	"${FILESDIR}/audacity-3.7.0-portsmf.patch"
+
+	# disables ccache
+	"${FILESDIR}/audacity-3.7.0-disable-ccache.patch"
 
 	# Disables some header-based detection
-	"${FILESDIR}/audacity-3.2.3-allow-overriding-alsa-jack.patch"
+	"${FILESDIR}/audacity-3.7.0-allow-overriding-alsa-jack.patch"
 
 	# For has_networking
-	"${FILESDIR}/audacity-3.3.3-local-threadpool-libraries.patch"
+	"${FILESDIR}/audacity-3.7.0-local-threadpool-libraries.patch"
 
 	# Allows running tests without conan
 	"${FILESDIR}/audacity-3.3.3-remove-conan-test-dependency.patch"
 
 	# #920363
-	"${FILESDIR}/audacity-3.4.2-audiocom-std-string.patch"
+	"${FILESDIR}/audacity-3.7.0-audiocom-std-string.patch"
+
+	# 915041
+	"${FILESDIR}/audacity-3.7.0-do-not-include-template-on-unix-to-fix-clang-compile.patch"
 )
 
 src_prepare() {
@@ -154,14 +160,10 @@ src_prepare() {
 }
 
 src_configure() {
-	# -Werror=strict-aliasing
-	# Reportedly also -Werror=odr but I could not get that far.
-	# https://bugs.gentoo.org/915226
-	# https://github.com/audacity/audacity/issues/6096
-	append-flags -fno-strict-aliasing
-	filter-lto
-
 	setup-wxwidgets
+
+	# bug #944212
+	append-cflags -std=gnu17
 
 	# * always use system libraries if possible
 	# * USE_VST was omitted, it appears to no longer have dependencies

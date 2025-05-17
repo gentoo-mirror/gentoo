@@ -25,7 +25,7 @@ else
 		SRC_URI="https://github.com/${PN}/${PN}/archive/${MY_P}.tar.gz -> ${P}.tar.gz"
 		S="${WORKDIR}/${PN}-${MY_P}"
 	fi
-	KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+	KEYWORDS="amd64 ~arm ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 fi
 
 LICENSE="GPL-2"
@@ -68,6 +68,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.1.1_p2024-fix_pybind.patch
 	# prevent installation of examples in /usr/bin
 	"${FILESDIR}"/${PN}-3.1.1_p2024-fix_examples.patch
+	# cmake4-compat
+	"${FILESDIR}"/${PN}-3.1.1_p2024-cmake4.patch
 )
 
 pkg_pretend() {

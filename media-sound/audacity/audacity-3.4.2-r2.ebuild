@@ -5,7 +5,7 @@ EAPI=8
 
 WX_GTK_VER="3.2-gtk3"
 
-inherit cmake flag-o-matic wxwidgets xdg virtualx
+inherit cmake wxwidgets xdg virtualx
 
 DESCRIPTION="Free crossplatform audio editor"
 HOMEPAGE="https://www.audacityteam.org/"
@@ -20,7 +20,7 @@ if [[ ${PV} = 9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/audacity/audacity.git"
 else
-	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv x86"
 	MY_P="Audacity-${PV}"
 	S="${WORKDIR}/${PN}-sources-${PV}"
 	SRC_URI="https://github.com/audacity/audacity/releases/download/Audacity-${PV}/${PN}-sources-${PV}.tar.gz"
@@ -135,6 +135,12 @@ PATCHES=(
 
 	# #920363
 	"${FILESDIR}/audacity-3.4.2-audiocom-std-string.patch"
+
+	# Fix build with USE="-lv2"
+	"${FILESDIR}/audacity-3.4.2-fix-build-with-use-lv2-off.patch"
+
+	# Fix build with clang, undefined reference to `typeinfo for wxNavigationEnabled<wxWindow>'
+	"${FILESDIR}/audacity-3.4.2-do-not-include-template-for-clang-compiler.patch"
 )
 
 src_prepare() {
@@ -154,13 +160,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# -Werror=strict-aliasing
-	# Reportedly also -Werror=odr but I could not get that far.
-	# https://bugs.gentoo.org/915226
-	# https://github.com/audacity/audacity/issues/6096
-	append-flags -fno-strict-aliasing
-	filter-lto
-
 	setup-wxwidgets
 
 	# * always use system libraries if possible

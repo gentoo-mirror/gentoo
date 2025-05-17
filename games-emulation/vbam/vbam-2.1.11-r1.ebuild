@@ -4,7 +4,7 @@
 EAPI=8
 
 WX_GTK_VER="3.2-gtk3"
-inherit wxwidgets xdg cmake
+inherit flag-o-matic wxwidgets xdg cmake
 
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/visualboyadvance-m/visualboyadvance-m.git"
@@ -20,11 +20,10 @@ HOMEPAGE="https://github.com/visualboyadvance-m/visualboyadvance-m"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="ffmpeg link lirc nls openal +sdl wxwidgets"
+IUSE="ffmpeg link lirc nls +sdl wxwidgets"
 
 REQUIRED_USE="
 	ffmpeg? ( wxwidgets )
-	openal? ( wxwidgets )
 	|| ( sdl wxwidgets )
 "
 
@@ -34,12 +33,15 @@ RDEPEND="
 	sys-libs/zlib:=
 	virtual/glu
 	virtual/opengl
-	link? ( >=media-libs/libsfml-3.0:= )
+	link? (
+		<media-libs/libsfml-3.0
+		>=media-libs/libsfml-2.0:=
+	)
 	lirc? ( app-misc/lirc )
 	nls? ( virtual/libintl )
 	wxwidgets? (
 		ffmpeg? ( media-video/ffmpeg:= )
-		openal? ( media-libs/openal )
+		media-libs/openal
 		x11-libs/wxGTK:${WX_GTK_VER}=[X,opengl]
 	)
 "
@@ -55,7 +57,17 @@ BDEPEND="
 	nls? ( sys-devel/gettext )
 "
 
+src_prepare() {
+	cmake_src_prepare
+	sed -i 's/ -mtune=generic//g' CMakeLists.txt || die
+}
+
 src_configure() {
+	# -Werror=odr
+	# https://bugs.gentoo.org/926080
+	# https://github.com/visualboyadvance-m/visualboyadvance-m/issues/1260
+	filter-lto
+
 	use wxwidgets && setup-wxwidgets
 
 	local mycmakeargs=(
@@ -72,10 +84,6 @@ src_configure() {
 		-DENABLE_ONLINEUPDATES=OFF
 		-DDISABLE_MACOS_PACKAGE_MANAGERS=ON
 	)
-
-	if use wxwidgets; then
-		mycmakeargs+=( -DENABLE_OPENAL=$(usex openal) )
-	fi
 
 	cmake_src_configure
 }
