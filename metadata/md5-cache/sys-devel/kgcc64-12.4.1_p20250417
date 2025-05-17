@@ -1,0 +1,17 @@
+BDEPEND=hppa? ( sys-devel/binutils-hppa64 ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 app-alternatives/yacc sys-devel/binutils:* >=sys-devel/flex-2.5.4 nls? ( sys-devel/gettext ) test? ( >=dev-util/dejagnu-1.4.4 >=sys-devel/autogen-5.5.4 )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test unpack
+DEPEND=sys-libs/zlib virtual/libiconv nls? ( virtual/libintl ) >=dev-libs/gmp-4.3.2:0= >=dev-libs/mpfr-2.4.2:0= >=dev-libs/mpc-0.8.1:0=
+DESCRIPTION=64bit kernel compiler
+EAPI=8
+HOMEPAGE=https://gcc.gnu.org/
+INHERIT=toolchain
+IUSE=test vanilla +nls
+KEYWORDS=~hppa
+LICENSE=GPL-3+ LGPL-3+ || ( GPL-3+ libgcc libstdc++ gcc-runtime-library-exception-3.1 ) FDL-1.3+
+PDEPEND=>=sys-devel/gcc-config-2.11
+RDEPEND=sys-libs/zlib virtual/libiconv nls? ( virtual/libintl ) >=dev-libs/gmp-4.3.2:0= >=dev-libs/mpfr-2.4.2:0= >=dev-libs/mpc-0.8.1:0=
+RESTRICT=!test? ( test ) test
+SLOT=12
+SRC_URI=mirror://gcc/snapshots/12-20250417/gcc-12-20250417.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-12.4.0-patches-3.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-12.4.0-musl-patches-1.tar.xz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	multilib	b2a329026f2e404e9e371097dda47f96	pax-utils	5555f2e75744739fe100ee62c22d28fe	rust	3b042096236a464b8bd9dd7a1120ad23	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	toolchain	85a1307aa6beda4aa82f38a52fbf84c3
+_md5_=35ff39b4f5289d5da97a02c977bd17f1

@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gitlab.com/oauth-xx/oauth2
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 doc test test
-KEYWORDS=~amd64 ~arm64 ~ppc ~x86
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby32? ( || ( dev-ruby/faraday:2[ruby_targets_ruby32(-)] dev-ruby/faraday:1[ruby_targets_ruby32(-)] ) dev-ruby/jwt:2[ruby_targets_ruby32(-)] >=dev-ruby/logger-1.2.0:0[ruby_targets_ruby32(-)] >=dev-ruby/multi_xml-0.5:0[ruby_targets_ruby32(-)] >=dev-ruby/rack-1.2:*[ruby_targets_ruby32(-)] <dev-ruby/rack-4:*[ruby_targets_ruby32(-)] dev-ruby/snaky_hash:1[ruby_targets_ruby32(-)] >=dev-ruby/version_gem-1.1.8:1[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( || ( dev-ruby/faraday:2[ruby_targets_ruby33(-)] dev-ruby/faraday:1[ruby_targets_ruby33(-)] ) dev-ruby/jwt:2[ruby_targets_ruby33(-)] >=dev-ruby/logger-1.2.0:0[ruby_targets_ruby33(-)] >=dev-ruby/multi_xml-0.5:0[ruby_targets_ruby33(-)] >=dev-ruby/rack-1.2:*[ruby_targets_ruby33(-)] <dev-ruby/rack-4:*[ruby_targets_ruby33(-)] dev-ruby/snaky_hash:1[ruby_targets_ruby33(-)] >=dev-ruby/version_gem-1.1.8:1[ruby_targets_ruby33(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=2
 SRC_URI=https://gitlab.com/oauth-xx/oauth2/-/archive/v2.0.10/oauth2-2.0.10.tar.bz2
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multilib	b2a329026f2e404e9e371097dda47f96	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	ruby-fakegem	92ad9217e94825cb9c8ad831b513a7ec
-_md5_=3ea5ba447c2334d0d6aea5b1d9280461
+_md5_=daf13e7a2d571f7ca0bca200cf27d601
