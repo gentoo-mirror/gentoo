@@ -3832,7 +3832,7 @@ dev-build/remake 4.3.1.1.6-r100 4.4_pre20250217: Patched version of GNU Make wit
 dev-build/rocm-cmake 6.1.2 6.3.2 6.3.3: Radeon Open Compute CMake Modules
 dev-build/samurai 1.2-r3 9999: ninja-compatible build tool written in C
 dev-build/scons 4.8.1 4.9.0 4.9.1: Extensible Python-based build utility
-dev-build/slibtool 0.6.1 9999: A strong libtool implementation, written in C
+dev-build/slibtool 0.6.1 0.7.0 9999: A strong libtool implementation, written in C
 dev-build/tinycmmc 0.1.0 9999: Tiny CMake Module Collections
 dev-build/xfce4-dev-tools 4.18.1 4.20.0: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-cpp/ETL 1.4.1: Multi-platform class and template library
@@ -3972,7 +3972,7 @@ dev-db/mongodb-compass-bin 1.46.0 1.46.1: GUI for MongoDB
 dev-db/mycli 1.31.1: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.15.2.8-r1 0.16.11.2 0.18.1.1 0.18.2.7: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
-dev-db/mysql 5.7.41 8.0.40 8.0.41 8.0.42: A fast, multi-threaded, multi-user SQL database server
+dev-db/mysql 5.7.41 8.0.40 8.0.41 8.0.42 8.4.5: Fast, multi-threaded, multi-user SQL database server
 dev-db/mysql++ 3.3.0: C++ API interface to the MySQL database
 dev-db/mysql-connector-c 8.0.36 8.0.41: C client library for MariaDB/MySQL
 dev-db/mysql-connector-c++ 8.0.33-r1 9.2.0: MySQL database connector for C++ (mimics JDBC 4.0 API)
@@ -5768,6 +5768,7 @@ dev-libs/simde 0.8.2: Header-only library providing implementations of SIMD inst
 dev-libs/simdjson 3.10.1 3.11.0 3.11.2 3.11.5 3.12.1-r1: SIMD accelerated C++ JSON library
 dev-libs/skalibs 2.14.2.0 2.14.3.0 2.14.4.0: General-purpose libraries from skarnet.org
 dev-libs/sleef 3.7-r1 3.8: Implements vectorized versions of C standard math functions
+dev-libs/sltdl 0.5.0 9999: A surrogate ltdl implementation
 dev-libs/snowball-stemmer 2.1.0-r1 2.2.0: Snowball compiler and stemming algorithms
 dev-libs/softhsm 2.6.1-r3: A software PKCS#11 implementation
 dev-libs/sord 0.16.16-r1 0.16.18 9999: Library for storing RDF data in memory
@@ -9856,7 +9857,7 @@ dev-ruby/cgi 0.4.2: Support for the Common Gateway Interface protocol
 dev-ruby/charlock_holmes 0.7.9: Character encoding detecting library for Ruby using ICU
 dev-ruby/chef-utils 18.6.2 18.7.3 18.7.6: Basic utility functions for Core Chef Infra development
 dev-ruby/childlabor 0.0.3-r2: Gem that helps manage child processes
-dev-ruby/childprocess 4.1.0 5.0.0 5.1.0: Solution for controlling external programs running in the background
+dev-ruby/childprocess 5.0.0 5.1.0: Solution for controlling external programs running in the background
 dev-ruby/chronic 0.10.2-r1: Chronic is a natural language date/time parser written in pure Ruby
 dev-ruby/chunky_png 1.4.0-r1: Pure Ruby library that can read and write PNG images
 dev-ruby/climate_control 1.2.0: Easily manage your environment
@@ -16579,11 +16580,12 @@ sec-keys/openpgp-keys-llvm 20.1.5: OpenPGP keys used to sign LLVM releases
 sec-keys/openpgp-keys-m4 20220407: OpenPGP keys used by GNU m4
 sec-keys/openpgp-keys-madler 20220328: OpenPGP keys used by Mark Adler
 sec-keys/openpgp-keys-make 20220407: OpenPGP keys used by GNU make
-sec-keys/openpgp-keys-midipix 20240315: OpenPGP keys used to sign midipix releases
+sec-keys/openpgp-keys-midipix 20250517: OpenPGP keys used to sign midipix releases
 sec-keys/openpgp-keys-miniupnp 20201006: OpenPGP keys used to sign miniupnp* packages
 sec-keys/openpgp-keys-mkvtoolnix 20231119: OpenPGP keys used to sign mkvtoolnix releases
 sec-keys/openpgp-keys-mlichvar 20210513: OpenPGP keys used by Miroslav Lichvar
 sec-keys/openpgp-keys-musl 20220407: OpenPGP keys used to sign musl
+sec-keys/openpgp-keys-mysql 20231023: OpenPGP keys used to sign MySQL releases
 sec-keys/openpgp-keys-netfilter 20220326 20240415: OpenPGP keys used by the netfilter project
 sec-keys/openpgp-keys-nettle 20220603: OpenPGP keys used by Niels Möller (to sign nettle releases)
 sec-keys/openpgp-keys-nicholaswilson 20250209: OpenPGP keys used by Nicholas Wilson
