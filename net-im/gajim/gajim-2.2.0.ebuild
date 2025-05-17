@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 PYTHON_REQ_USE="sqlite,xml(+)"
 DISTUTILS_USE_PEP517=setuptools
 
@@ -16,8 +16,6 @@ SRC_URI="https://gajim.org/downloads/$(ver_cut 1-2)/${P/_p/-}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 
-# Rekeyword for ~long, ~x86 and ~riscv, when https://bugs.gentoo.org/937582 is fixed.
-# KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 IUSE="voice"
 
@@ -38,7 +36,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-python/emoji-2.6.0[${PYTHON_USEDEP}]
 	dev-python/keyring[${PYTHON_USEDEP}]
 	<dev-python/nbxmpp-7.0.0[${PYTHON_USEDEP}]
-	>=dev-python/nbxmpp-6.1.0[${PYTHON_USEDEP}]
+	>=dev-python/nbxmpp-6.2.0[${PYTHON_USEDEP}]
 	<dev-python/omemo-dr-2.0.0[${PYTHON_USEDEP}]
 	>=dev-python/omemo-dr-1.0.0[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
