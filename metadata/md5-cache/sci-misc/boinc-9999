@@ -1,6 +1,6 @@
 BDEPEND=app-text/docbook-xml-dtd:4.4 app-text/docbook2X sys-devel/gettext X? ( virtual/imagemagick-tools[png,tiff] ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst postrm prepare setup unpack
-DEPEND=acct-user/boinc app-misc/ca-certificates cuda? ( x11-drivers/nvidia-drivers ) opencl? ( virtual/opencl ) dev-libs/openssl:= net-misc/curl[curl_ssl_gnutls(-)=,curl_ssl_openssl(-)=,-curl_ssl_axtls(-),-curl_ssl_cyassl(-)] sys-apps/util-linux sys-libs/zlib X? ( dev-libs/glib:2 media-libs/freeglut media-libs/libjpeg-turbo:= x11-libs/gtk+:3 x11-libs/libnotify x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libxcb:= x11-libs/wxGTK:3.2-gtk3[X,opengl,webkit] x11-libs/xcb-util )
+DEPEND=acct-user/boinc app-misc/ca-certificates cuda? ( x11-drivers/nvidia-drivers ) opencl? ( virtual/opencl ) dev-libs/openssl:= net-misc/curl[curl_ssl_gnutls(-)=,curl_ssl_openssl(-)=,-curl_ssl_axtls(-),-curl_ssl_cyassl(-)] sys-apps/util-linux sys-libs/zlib X? ( dev-libs/glib:2 media-libs/freeglut media-libs/libjpeg-turbo:= x11-libs/gtk+:3 x11-libs/libnotify x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libxcb:= x11-libs/wxGTK:3.2-gtk3=[X,opengl,webkit] x11-libs/xcb-util )
 DESCRIPTION=The Berkeley Open Infrastructure for Network Computing
 EAPI=8
 HOMEPAGE=https://boinc.berkeley.edu/
@@ -8,9 +8,9 @@ INHERIT=autotools desktop flag-o-matic linux-info optfeature wxwidgets xdg-utils
 IUSE=X cuda curl_ssl_gnutls +curl_ssl_openssl opencl
 LICENSE=LGPL-3
 PROPERTIES=live
-RDEPEND=acct-user/boinc app-misc/ca-certificates cuda? ( x11-drivers/nvidia-drivers ) opencl? ( virtual/opencl ) dev-libs/openssl:= net-misc/curl[curl_ssl_gnutls(-)=,curl_ssl_openssl(-)=,-curl_ssl_axtls(-),-curl_ssl_cyassl(-)] sys-apps/util-linux sys-libs/zlib X? ( dev-libs/glib:2 media-libs/freeglut media-libs/libjpeg-turbo:= x11-libs/gtk+:3 x11-libs/libnotify x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libxcb:= x11-libs/wxGTK:3.2-gtk3[X,opengl,webkit] x11-libs/xcb-util ) sys-apps/util-linux !app-admin/quickswitch
+RDEPEND=acct-user/boinc app-misc/ca-certificates cuda? ( x11-drivers/nvidia-drivers ) opencl? ( virtual/opencl ) dev-libs/openssl:= net-misc/curl[curl_ssl_gnutls(-)=,curl_ssl_openssl(-)=,-curl_ssl_axtls(-),-curl_ssl_cyassl(-)] sys-apps/util-linux sys-libs/zlib X? ( dev-libs/glib:2 media-libs/freeglut media-libs/libjpeg-turbo:= x11-libs/gtk+:3 x11-libs/libnotify x11-libs/libX11 x11-libs/libXScrnSaver x11-libs/libxcb:= x11-libs/wxGTK:3.2-gtk3=[X,opengl,webkit] x11-libs/xcb-util ) sys-apps/util-linux !app-admin/quickswitch
 REQUIRED_USE=^^ ( curl_ssl_gnutls curl_ssl_openssl )
 SLOT=0
 SRC_URI=X? ( https://boinc.berkeley.edu/logo/boinc_glossy2_512_F.tif -> boinc.tif )
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	optfeature	538bce96e5589935b57e178e8635f301	wxwidgets	7a7321e7cbcb73e7ae2a77500a09852e	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=e5e92650aa1f58bb05b5826ba66b32f6
+_md5_=3242900fb67848a0f938c289dfd1c45e

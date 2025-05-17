@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip virtual/pkgconfig doc? ( app-text/doxygen[dot] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=!dev-games/openscenegraph dev-libs/glib:2 media-libs/fontconfig media-libs/mesa[egl(+)?] virtual/glu virtual/opengl x11-libs/libSM x11-libs/libXext collada? ( dev-libs/collada-dom:= ) curl? ( net-misc/curl ) examples? ( fltk? ( x11-libs/fltk:1=[opengl] ) fox? ( x11-libs/fox:1.6[opengl] ) sdl2? ( media-libs/libsdl2 ) wxwidgets? ( x11-libs/wxGTK:3.2-gtk3=[opengl,X] ) ) gdal? ( sci-libs/gdal:= ) gif? ( media-libs/giflib:= ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 ) jpeg? ( media-libs/libjpeg-turbo:= ) las? ( >=sci-geosciences/liblas-1.8.0 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) openexr? ( dev-libs/imath:= >=media-libs/openexr-3:= ) openinventor? ( media-libs/coin ) pdf? ( app-text/poppler:=[cairo] ) png? ( media-libs/libpng:0= ) sdl? ( media-libs/libsdl ) svg? ( gnome-base/librsvg:2 x11-libs/cairo ) tiff? ( media-libs/tiff:= ) truetype? ( media-libs/freetype:2 ) vnc? ( net-libs/libvncserver ) xrandr? ( x11-libs/libXrandr ) zlib? ( sys-libs/zlib ) x11-base/xorg-proto
+DESCRIPTION=OpenMW-specific fork of OpenSceneGraph
+EAPI=8
+HOMEPAGE=https://github.com/OpenMW/osg
+INHERIT=cmake flag-o-matic lua-single toolchain-funcs wxwidgets
+IUSE=+collada curl dicom debug doc egl examples fltk fox gdal gif gstreamer +jpeg las lua openexr openinventor osgapps pdf +png +sdl sdl2 +svg tiff +truetype vnc wxwidgets xrandr +zlib +lua_single_target_lua5-1
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=wxWinLL-3 LGPL-2.1
+RDEPEND=!dev-games/openscenegraph dev-libs/glib:2 media-libs/fontconfig media-libs/mesa[egl(+)?] virtual/glu virtual/opengl x11-libs/libSM x11-libs/libXext collada? ( dev-libs/collada-dom:= ) curl? ( net-misc/curl ) examples? ( fltk? ( x11-libs/fltk:1=[opengl] ) fox? ( x11-libs/fox:1.6[opengl] ) sdl2? ( media-libs/libsdl2 ) wxwidgets? ( x11-libs/wxGTK:3.2-gtk3=[opengl,X] ) ) gdal? ( sci-libs/gdal:= ) gif? ( media-libs/giflib:= ) gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 ) jpeg? ( media-libs/libjpeg-turbo:= ) las? ( >=sci-geosciences/liblas-1.8.0 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) openexr? ( dev-libs/imath:= >=media-libs/openexr-3:= ) openinventor? ( media-libs/coin ) pdf? ( app-text/poppler:=[cairo] ) png? ( media-libs/libpng:0= ) sdl? ( media-libs/libsdl ) svg? ( gnome-base/librsvg:2 x11-libs/cairo ) tiff? ( media-libs/tiff:= ) truetype? ( media-libs/freetype:2 ) vnc? ( net-libs/libvncserver ) xrandr? ( x11-libs/libXrandr ) zlib? ( sys-libs/zlib )
+REQUIRED_USE=dicom? ( zlib ) lua? ( ^^ ( lua_single_target_lua5-1 ) ) openexr? ( zlib ) sdl2? ( sdl )
+SLOT=0/162
+SRC_URI=https://github.com/OpenMW/osg/archive/69cfecebfb6dc703b42e8de39eed750a84a87489.tar.gz -> openscenegraph-openmw-3.6_p20221115.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	wxwidgets	7a7321e7cbcb73e7ae2a77500a09852e
+_md5_=22d815372550b02af3e82731ba51ec18

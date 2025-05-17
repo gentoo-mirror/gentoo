@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure
+DEPEND=app-text/poppler[cairo] dev-libs/glib x11-libs/cairo x11-libs/wxGTK:3.2-gtk3=[X]
+DESCRIPTION=A simple tool for visually comparing two PDF files
+EAPI=8
+HOMEPAGE=https://vslavik.github.io/diff-pdf/ https://github.com/vslavik/diff-pdf/
+INHERIT=wxwidgets
+KEYWORDS=amd64
+LICENSE=GPL-2+ LGPL-2+
+RDEPEND=app-text/poppler[cairo] dev-libs/glib x11-libs/cairo x11-libs/wxGTK:3.2-gtk3=[X]
+SLOT=0
+SRC_URI=https://github.com/vslavik/diff-pdf/releases/download/v0.5.1/diff-pdf-0.5.1.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	wxwidgets	7a7321e7cbcb73e7ae2a77500a09852e
+_md5_=f75cd00e030351df503aec4ebe61bab8

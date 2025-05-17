@@ -1,0 +1,17 @@
+BDEPEND=app-arch/zip virtual/pkgconfig wxwidgets? ( virtual/imagemagick-tools ) amd64? ( || ( dev-lang/nasm dev-lang/yasm ) ) x86? ( || ( dev-lang/nasm dev-lang/yasm ) ) nls? ( sys-devel/gettext ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=>=media-libs/libpng-1.4:= media-libs/libsdl2[joystick] sys-libs/zlib:= virtual/glu virtual/opengl link? ( <media-libs/libsfml-3.0 >=media-libs/libsfml-2.0:= ) lirc? ( app-misc/lirc ) nls? ( virtual/libintl ) wxwidgets? ( ffmpeg? ( media-video/ffmpeg:= ) media-libs/openal x11-libs/wxGTK:3.2-gtk3=[X,opengl] )
+DESCRIPTION=Game Boy, GBC, and GBA emulator forked from VisualBoyAdvance
+EAPI=8
+HOMEPAGE=https://github.com/visualboyadvance-m/visualboyadvance-m
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=flag-o-matic wxwidgets xdg cmake
+IUSE=ffmpeg link lirc nls +sdl wxwidgets
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=media-libs/libpng-1.4:= media-libs/libsdl2[joystick] sys-libs/zlib:= virtual/glu virtual/opengl link? ( <media-libs/libsfml-3.0 >=media-libs/libsfml-2.0:= ) lirc? ( app-misc/lirc ) nls? ( virtual/libintl ) wxwidgets? ( ffmpeg? ( media-video/ffmpeg:= ) media-libs/openal x11-libs/wxGTK:3.2-gtk3=[X,opengl] )
+REQUIRED_USE=ffmpeg? ( wxwidgets ) || ( sdl wxwidgets )
+SLOT=0
+SRC_URI=https://github.com/visualboyadvance-m/visualboyadvance-m/archive/v2.1.11.tar.gz -> vbam-2.1.11.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	wxwidgets	7a7321e7cbcb73e7ae2a77500a09852e	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=95d3473a512882c8bae2550e2c3e89bc
