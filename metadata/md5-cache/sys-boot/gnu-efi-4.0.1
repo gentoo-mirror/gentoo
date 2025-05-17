@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/binutils
+DEFINED_PHASES=compile install prepare pretend setup
+DESCRIPTION=Library for build EFI Applications
+EAPI=8
+HOMEPAGE=https://sourceforge.net/projects/gnu-efi/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=abi_x86_32 abi_x86_64 custom-cflags
+KEYWORDS=-* ~amd64 ~arm ~arm64 ~loong ~riscv ~x86
+LICENSE=GPL-2+ BSD BSD-2
+REQUIRED_USE=amd64? ( || ( abi_x86_32 abi_x86_64 ) ) x86? ( || ( abi_x86_32 abi_x86_64 ) )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://github.com/ncroxon/gnu-efi/archive/4.0.1.tar.gz -> gnu-efi-4.0.1.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
+_md5_=d263231714b20fe27d4d41a2095b491b
