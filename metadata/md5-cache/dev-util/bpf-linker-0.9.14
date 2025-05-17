@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/aya-rs/bpf-linker/
 INHERIT=cargo llvm-r2
 IUSE=test debug +llvm_slot_20 llvm_slot_21
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=|| ( MIT Apache-2.0 ) ISC MIT Unicode-3.0 Unicode-DFS-2016 || ( Apache-2.0 Boost-1.0 )
 RDEPEND=llvm_slot_20? ( llvm-core/llvm:20=[llvm_targets_BPF] ) llvm_slot_21? ( llvm-core/llvm:21=[llvm_targets_BPF] ) || ( dev-lang/rust-bin:1.86.0[llvm_targets_BPF(+),rust-src] dev-lang/rust:1.86.0[llvm_targets_BPF(+),rust-src] )
 REQUIRED_USE=^^ ( llvm_slot_20 llvm_slot_21 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/aya-rs/bpf-linker/archive/v0.9.14.tar.gz -> bpf-linker-0.9.14.gh.tar.gz https://github.com/gentoo-crate-dist/bpf-linker/releases/download/v0.9.14/bpf-linker-0.9.14-crates.tar.xz https://crates.io/api/v1/crates/compiler_builtins/0.1.146/download -> compiler_builtins-0.1.146.crate https://github.com/Manishearth/compiletest-rs/archive/cb121796a041255ae0afcd9c2766bee4ebfd54f0.tar.gz -> compiletest-rs-cb121796a041255ae0afcd9c2766bee4ebfd54f0.gh.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	3b042096236a464b8bd9dd7a1120ad23	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a	llvm-utils	846280a994c1843d9c21248c188bd147	multilib	b2a329026f2e404e9e371097dda47f96	llvm-r2	a5ef1fdf58800ef46a588e7780784437
-_md5_=b28a9d946458132b6927b97f490a5611
+_md5_=eb2b45dd27bf328ce27de1621e8e1396
