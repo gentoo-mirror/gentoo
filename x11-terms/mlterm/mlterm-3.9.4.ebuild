@@ -11,7 +11,7 @@ SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+X bidi brltty cairo debug fbcon fcitx gtk harfbuzz ibus libssh2 m17n-lib nls regis scim skk static-libs uim utempter wayland xft"
 REQUIRED_USE="|| ( X fbcon wayland )"
 
@@ -56,10 +56,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig
 	nls? ( sys-devel/gettext )"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-font.patch
-	"${FILESDIR}"/${PN}-clang-16.patch
-)
+PATCHES=( "${FILESDIR}"/${PN}-font.patch )
 DOCS=( doc/{en,ja} )
 
 src_prepare() {
