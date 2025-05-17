@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 CRATES="
 "
@@ -33,6 +33,7 @@ LICENSE+="
 	Unicode-3.0 ZLIB
 "
 SLOT="0"
+KEYWORDS="~amd64"
 IUSE="+visualization"
 
 RDEPEND="
@@ -46,9 +47,6 @@ RDEPEND="
 	<dev-python/symengine-0.14[${PYTHON_USEDEP}]
 	>=dev-python/symengine-0.11.0[${PYTHON_USEDEP}]
 	>=dev-python/sympy-1.3[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '
-		dev-python/typing-extensions[${PYTHON_USEDEP}]
-	' 3.10)
 	visualization? (
 		>=dev-python/matplotlib-3.3[${PYTHON_USEDEP}]
 		dev-python/pydot[${PYTHON_USEDEP}]
@@ -83,6 +81,11 @@ src_prepare() {
 
 	# strip forcing -Werror from tests that also leaks to other packages
 	sed -i -e '/filterwarnings.*error/d' test/utils/base.py || die
+
+	# sigh
+	find test -name '*.py' -exec \
+		sed -i -e 's:assertRaises(DeprecationWarning):assertWarns(DeprecationWarning):' \
+		{} + || die
 }
 
 python_test() {
