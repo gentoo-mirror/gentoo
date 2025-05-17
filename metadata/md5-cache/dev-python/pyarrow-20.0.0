@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://arrow.apache.org/ https://github.com/apache/arrow/ https://pypi.org/project/pyarrow/
 INHERIT=distutils-r1 multiprocessing
 IUSE=+parquet +snappy ssl test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug
-KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+KEYWORDS=~amd64 arm64 ~riscv ~x86
 LICENSE=Apache-2.0
 RDEPEND=~dev-libs/apache-arrow-20.0.0[compute,dataset,json,parquet?,re2,snappy?,ssl?] >=dev-python/numpy-1.16.6:=[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/arrow/arrow-20.0.0/apache-arrow-20.0.0.tar.gz test? ( https://github.com/apache/parquet-testing/archive/18d17540097fca7c40be3d42c167e6bfad90763c.tar.gz -> parquet-testing-18d17540097fca7c40be3d42c167e6bfad90763c.tar.gz https://github.com/apache/arrow-testing/archive/d2a13712303498963395318a4eb42872e66aead7.tar.gz -> arrow-testing-d2a13712303498963395318a4eb42872e66aead7.tar.gz )
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	0e08701ccfa3f73267c62f539b7ab456
-_md5_=96e046748bc741cb2050433e8964e011
+_md5_=bdaeb81f2372ccca8a2252f7cde82c99
