@@ -5,7 +5,7 @@
     <synopsis>Multiple vulnerabilities have been discovered in Node.js, the worst of which could lead to execution of arbitrary code.</synopsis>
     <product type="ebuild">nodejs</product>
     <announced>2025-05-14</announced>
-    <revised count="1">2025-05-14</revised>
+    <revised count="2">2025-05-17</revised>
     <bug>916513</bug>
     <bug>924704</bug>
     <bug>928532</bug>
@@ -13,7 +13,11 @@
     <access>local and remote</access>
     <affected>
         <package name="net-libs/nodejs" auto="yes" arch="*">
+            <unaffected range="ge">18.20.4</unaffected>
+            <unaffected range="ge">20.15.1</unaffected>
             <unaffected range="ge">22.4.1</unaffected>
+            <vulnerable range="lt">18.20.4</vulnerable>
+            <vulnerable range="lt">20.15.1</vulnerable>
             <vulnerable range="lt">22.4.1</vulnerable>
         </package>
     </affected>
