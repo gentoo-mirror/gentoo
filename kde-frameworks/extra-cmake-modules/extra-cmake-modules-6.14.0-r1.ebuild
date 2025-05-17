@@ -41,6 +41,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-5.245.0-disable-qmlplugindump.patch"
 	"${FILESDIR}/${PN}-6.5.0-disable-appstreamtest.patch"
 	"${FILESDIR}/${PN}-6.5.0-disable-git-commit-hooks.patch"
+	"${FILESDIR}/${P}-fix-ECMGenerateQDoc.patch" # in 6.15.0
 )
 
 python_check_deps() {
