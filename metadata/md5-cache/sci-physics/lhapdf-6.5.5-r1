@@ -1,0 +1,16 @@
+BDEPEND=python? ( python_single_target_python3_11? ( >=dev-python/cython-0.19[python_targets_python3_11(-)] ) python_single_target_python3_12? ( >=dev-python/cython-0.19[python_targets_python3_12(-)] ) python_single_target_python3_13? ( >=dev-python/cython-0.19[python_targets_python3_13(-)] ) ) doc? ( app-text/doxygen dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra )
+DEFINED_PHASES=compile configure install setup test
+DEPEND=dev-cpp/yaml-cpp python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
+DESCRIPTION=Les Houches Parton Density Function unified library
+EAPI=8
+HOMEPAGE=https://lhapdf.hepforge.org/
+INHERIT=python-single-r1 docs
+IUSE=examples +python python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 doc
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-cpp/yaml-cpp python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
+SLOT=0
+SRC_URI=https://www.hepforge.org/downloads/lhapdf/LHAPDF-6.5.5.tar.gz -> lhapdf-6.5.5.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	docs	006125f2158d2f16904ebd9114336058
+_md5_=75831396390433652d6cb64070b3dca4
