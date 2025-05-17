@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://xarray.pydata.org/ https://github.com/pydata/xarray/ https://pypi.org/project/xarray/
 INHERIT=distutils-r1 pypi
 IUSE=big-endian test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
-KEYWORDS=~amd64 arm64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ~riscv ~x86
 LICENSE=Apache-2.0
 RDEPEND=>=dev-python/numpy-1.24[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/pandas-2.1[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/packaging-23.2[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/x/xarray/xarray-2025.4.0.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	0e08701ccfa3f73267c62f539b7ab456	pypi	ad1b21f87d117ae9bb089bdb65b8f013
-_md5_=9ad3d19420d8e9c3a4a086e5f28908dc
+_md5_=9e6088c55787d4248e069cb2cf4f0989
