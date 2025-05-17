@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/astral-sh/uv/ https://pypi.org/project/uv/
 INHERIT=cargo check-reqs
 IUSE=test debug
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
 LICENSE=|| ( Apache-2.0 MIT ) 0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD Boost-1.0 ISC MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016 ZLIB openssl
 PROPERTIES=test_network
 RDEPEND=app-arch/bzip2:= app-arch/xz-utils:= app-arch/zstd:=
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/astral-sh/uv/archive/0.6.17.tar.gz -> uv-0.6.17.gh.tar.gz https://github.com/astral-sh/pubgrub/archive/a3b4db3abb1829ce889fb89fa6d157fef529ef7e.tar.gz -> pubgrub-a3b4db3abb1829ce889fb89fa6d157fef529ef7e.gh.tar.gz https://github.com/charliermarsh/rs-async-zip/archive/c909fda63fcafe4af496a07bfda28a5aae97e58d.tar.gz -> rs-async-zip-c909fda63fcafe4af496a07bfda28a5aae97e58d.gh.tar.gz https://github.com/astral-sh/tl/archive/6e25b2ee2513d75385101a8ff9f591ef51f314ec.tar.gz -> tl-6e25b2ee2513d75385101a8ff9f591ef51f314ec.gh.tar.gz https://github.com/astral-sh/pubgrub/archive/a3b4db3abb1829ce889fb89fa6d157fef529ef7e.tar.gz -> pubgrub-a3b4db3abb1829ce889fb89fa6d157fef529ef7e.gh.tar.gz https://github.com/gentoo-crate-dist/uv/releases/download/0.6.17/uv-0.6.17-crates.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	3b042096236a464b8bd9dd7a1120ad23	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a	check-reqs	2a9731073c152554078a9a8df8fc0f1b
-_md5_=05e58088fc488fffbe052e1e9922bf21
+_md5_=8b8497ca45b4257a4a7ebb3ff6fca04b
