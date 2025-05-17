@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.wxpython.org/ https://github.com/wxWidgets/Phoenix/ https://pypi.org/project/wxPython/
 INHERIT=distutils-r1 multilib multiprocessing virtualx wxwidgets pypi
 IUSE=test webkit test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug test
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~alpha amd64 arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=wxWinLL-3
 RDEPEND=>=x11-libs/wxGTK-3.2.7:3.2-gtk3=[gstreamer,libnotify,opengl,sdl,tiff,webkit?,X] media-libs/libpng:= media-libs/tiff:= media-libs/libjpeg-turbo:= python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=4.0
 SRC_URI=https://files.pythonhosted.org/packages/source/w/wxPython/wxPython-4.2.3.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	0e08701ccfa3f73267c62f539b7ab456	virtualx	9741d451eb64ea8bb9faee90d68a9b68	wxwidgets	7a7321e7cbcb73e7ae2a77500a09852e	pypi	ad1b21f87d117ae9bb089bdb65b8f013
-_md5_=e3f39d547553606ba3ae3fb60d5baaa4
+_md5_=164bf959cb8f0c7be932c4c998a795f3
