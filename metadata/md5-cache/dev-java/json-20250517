@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare pretend setup test
+DEPEND=>=virtual/jdk-1.8:* test? ( >=dev-java/asm-9.8:0 dev-java/json-path:0 >=dev-java/json-smart-2.5.2:0 dev-java/mockito:4 dev-java/slf4j-api:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=A reference implementation of a JSON package in Java
+EAPI=8
+HOMEPAGE=https://github.com/stleary/JSON-java
+INHERIT=java-pkg-2 java-pkg-simple check-reqs
+IUSE=doc source test
+KEYWORDS=~amd64
+LICENSE=JSON
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/stleary/JSON-java/archive/20250517.tar.gz -> json-20250517.tar.gz
+_eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e	check-reqs	2a9731073c152554078a9a8df8fc0f1b
+_md5_=a1354f91476db571cdb15db076a48c3c
