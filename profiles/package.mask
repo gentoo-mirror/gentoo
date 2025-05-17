@@ -36,6 +36,10 @@
 
 #--- END OF EXAMPLES ---
 
+# Alfred Wingate <parona@protonmail.com> (2025-05-17)
+# Masked for testing
+dev-db/mysql:8.4
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-05-15)
 # Very dead upstream, very many open bugs for years without anyone fixing.
 # Bugs #314835, #632432, #827131, #874429, #908830, #925513, #934808.
@@ -267,11 +271,6 @@ dev-ruby/pathutil
 # Package not needed anymore by the only consumer net-dns/hash-slinger.
 # Masked for removal on 2025-05-18. Bug #952341
 dev-python/ipaddr
-
-# Hans de Graaff <graaff@gentoo.org> (2025-04-14)
-# Obsolete slot that fails tests, bug 933189. EAPI 7.  Use the newer
-# slot instead. Masked for removal on 2025-05-14.
-dev-ruby/childprocess:2
 
 # Ionen Wolkens <ionen@gentoo.org> (2025-04-02)
 # Masked for testing the new .0 version and leave time for packages
