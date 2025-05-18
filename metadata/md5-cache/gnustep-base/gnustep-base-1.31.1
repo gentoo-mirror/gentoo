@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare setup
+DEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=gnustep-base/gnustep-make-2.9.3 gnutls? ( net-libs/gnutls:= ) iconv? ( virtual/libiconv ) icu? ( >=dev-libs/icu-49.0:= ) libdispatch? ( dev-libs/libdispatch ) libffi? ( dev-libs/libffi:= ) !libffi? ( dev-libs/ffcall gnustep-base/gnustep-make[-native-exceptions] ) >=dev-libs/libxml2-2.6 >=dev-libs/libxslt-1.1 >=dev-libs/gmp-4.1:= >=sys-libs/zlib-1.2 zeroconf? ( net-dns/avahi )
+DESCRIPTION=A library of general-purpose, non-graphical Objective C objects
+EAPI=8
+HOMEPAGE=https://gnustep.github.io
+INHERIT=gnustep-base toolchain-funcs
+IUSE=+gnutls +iconv +icu libdispatch +libffi zeroconf debug doc
+KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2 LGPL-2.1
+RDEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=gnustep-base/gnustep-make-2.9.3 gnutls? ( net-libs/gnutls:= ) iconv? ( virtual/libiconv ) icu? ( >=dev-libs/icu-49.0:= ) libdispatch? ( dev-libs/libdispatch ) libffi? ( dev-libs/libffi:= ) !libffi? ( dev-libs/ffcall gnustep-base/gnustep-make[-native-exceptions] ) >=dev-libs/libxml2-2.6 >=dev-libs/libxslt-1.1 >=dev-libs/gmp-4.1:= >=sys-libs/zlib-1.2 zeroconf? ( net-dns/avahi )
+SLOT=0/1.31
+SRC_URI=https://github.com/gnustep/libs-base/releases/download/base-1_31_1/gnustep-base-1.31.1.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	gnustep-base	2b9571bc4b56a107f4efee592fa2f2a8
+_md5_=4edaa506cad306abee688685703df9ce

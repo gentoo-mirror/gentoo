@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install postinst prepare setup
+DEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=dev-build/make-3.75 libobjc2? ( gnustep-base/libobjc2 llvm-core/clang:* ) !libobjc2? ( !!gnustep-base/libobjc2 || ( sys-devel/gcc:*[objc] llvm-core/clang:* ) )
+DESCRIPTION=GNUstep Makefile Package
+EAPI=8
+HOMEPAGE=https://gnustep.github.io
+INHERIT=flag-o-matic gnustep-base prefix toolchain-funcs
+IUSE=custom-cflags libobjc2 native-exceptions debug doc
+KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) >=dev-build/make-3.75 libobjc2? ( gnustep-base/libobjc2 llvm-core/clang:* ) !libobjc2? ( !!gnustep-base/libobjc2 || ( sys-devel/gcc:*[objc] llvm-core/clang:* ) )
+SLOT=0
+SRC_URI=ftp://ftp.gnustep.org/pub/gnustep/core/gnustep-make-2.9.3.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	gnustep-base	2b9571bc4b56a107f4efee592fa2f2a8	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
+_md5_=55b284922d3f4cb7c92547c9266eb2ba

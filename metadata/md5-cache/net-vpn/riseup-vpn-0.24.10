@@ -1,0 +1,19 @@
+BDEPEND=virtual/pkgconfig dev-qt/qttools[linguist] >=dev-lang/go-1.20:= app-arch/unzip test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DEPEND=dev-qt/qtbase:6[gui,widgets] dev-qt/qtdeclarative:6[widgets] dev-qt/qtsvg:6 media-libs/libglvnd
+DESCRIPTION=Anonymous encrypted VPN client powered by Bitmask
+EAPI=8
+HOMEPAGE=https://riseup.net/en/vpn https://0xacab.org/leap/bitmask-vpn https://bitmask.net
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop python-single-r1 go-module qmake-utils virtualx xdg
+IUSE=test python_single_target_pypy3_11 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 test
+KEYWORDS=~amd64
+LICENSE=GPL-3 BSD-2 CC0-1.0 MIT BSD
+PROPERTIES=test_network
+RDEPEND=dev-qt/qtbase:6[gui,widgets] dev-qt/qtdeclarative:6[widgets] dev-qt/qtsvg:6 media-libs/libglvnd python_single_target_pypy3_11? ( dev-lang/pypy:3.11= ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) net-vpn/openvpn sys-auth/polkit
+REQUIRED_USE=^^ ( python_single_target_pypy3_11 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+RESTRICT=test strip !test? ( test )
+SLOT=0
+SRC_URI=https://0xacab.org/leap/bitmask-vpn/-/archive/0.24.10/bitmask-vpn-0.24.10.tar.gz -> riseup-vpn-0.24.10.tar.gz https://dev.gentoo.org/~nowa/riseup-vpn-0.24.10-deps.tar.xz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	191a27261275fc3bff7dd7482361b5d6	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=5d0e082b08355b7c9f498ce0b64c6ef1
