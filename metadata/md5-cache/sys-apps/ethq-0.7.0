@@ -1,15 +1,15 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install prepare test unpack
+DEFINED_PHASES=install prepare test
 DEPEND=sys-libs/ncurses:=
 DESCRIPTION=Ethernet NIC Queue stats viewer
 EAPI=8
 HOMEPAGE=https://github.com/isc-projects/ethq
-INHERIT=edo git-r3
+INHERIT=edo
 IUSE=test
+KEYWORDS=~amd64 ~x86
 LICENSE=MPL-2.0
-PROPERTIES=live
 RDEPEND=sys-libs/ncurses:=
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	git-r3	875eb471682d3e1f18da124be97dcc81
+SRC_URI=https://github.com/isc-projects/ethq/archive/v0_7_0.tar.gz -> ethq-0_7_0.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2
 _md5_=a9f18f0b0d4766b3ea4e441f284a30dd
