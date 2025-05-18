@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.phusionpassenger.com/
 INHERIT=apache-module flag-o-matic ruby-ng toolchain-funcs
 IUSE=apache2 debug test apache2 ruby_targets_ruby32 ruby_targets_ruby33
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 x86
 LICENSE=Boost-1.0 MIT BSD
 RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby32(-)] dev-ruby/rackup:2[ruby_targets_ruby32(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby33(-)] dev-ruby/rackup:2[ruby_targets_ruby33(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby33(-)] ) >=dev-libs/libuv-1.8.0 net-misc/curl[ssl] apache2? ( www-servers/apache[apache2_modules_unixd(+)] ) apache2? ( =www-servers/apache-2* ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 )
 REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://s3.amazonaws.com/phusion-passenger/releases/passenger-6.0.27.tar.gz
 _eclasses_=depend.apache	3b9c533be911d4550c8972e4dfb6434a	apache-module	2778fecd257078e9c921796782f6ede1	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multilib	b2a329026f2e404e9e371097dda47f96	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d
-_md5_=6f31694bdf01acbc9ce6fc14203b337c
+_md5_=c8125842c4785a7ee2e12fb75327e850
