@@ -11,11 +11,10 @@ inherit ecm flag-o-matic plasma.kde.org toolchain-funcs xdg
 
 DESCRIPTION="Library and examples for creating an RDP server"
 HOMEPAGE+=" https://quantumproductions.info/articles/2023-08/remote-desktop-using-rdp-protocol-plasma-wayland"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-patchset.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
-# KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
 COMMON_DEPEND="
@@ -31,7 +30,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kstatusnotifieritem-${KFMIN}:6
 	>=kde-plasma/kpipewire-${KDE_CATV}:6
-	>=net-misc/freerdp-3.1:3[server]
+	>=net-misc/freerdp-2.10:2[server]
 	x11-libs/libxkbcommon
 "
 DEPEND="${COMMON_DEPEND}
@@ -41,8 +40,6 @@ RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
-
-PATCHES=( "${WORKDIR}/${P}-patchset" )
 
 src_configure() {
 	# std::jthread and std::stop_token are implemented as experimental in libcxx

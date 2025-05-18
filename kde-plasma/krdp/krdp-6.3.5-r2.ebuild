@@ -3,6 +3,8 @@
 
 EAPI=8
 
+# NOTE: Stabilise this *in sync with* the first KDE Gear 25.04.x release (kde-apps/krdc freerdp:3)
+
 PATCHSET="${PN}-6.3.4-patchset"
 ECM_EXAMPLES="true"
 ECM_TEST="true"
