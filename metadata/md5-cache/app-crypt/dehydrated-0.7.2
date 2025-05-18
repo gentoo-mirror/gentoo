@@ -1,0 +1,14 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-dehydrated ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 ) virtual/pkgconfig
+DEFINED_PHASES=configure install postinst unpack
+DESCRIPTION=A client for signing certificates with an ACME-server
+EAPI=8
+HOMEPAGE=https://dehydrated.io/
+INHERIT=verify-sig systemd
+IUSE=+cron verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=acct-group/dehydrated acct-user/dehydrated app-shells/bash net-misc/curl cron? ( virtual/cron )
+SLOT=0
+SRC_URI=https://github.com/dehydrated-io/dehydrated/releases/download/v0.7.2/dehydrated-0.7.2.tar.gz verify-sig? ( https://github.com/dehydrated-io/dehydrated/releases/download/v0.7.2/dehydrated-0.7.2.tar.gz.asc )
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=0ce86f8c460c054c6aaac955a890a2a2
