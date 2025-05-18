@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://dry-rb.org/gems/dry-logic/
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 doc test test
-KEYWORDS=~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=~amd64 ~arm64 ~hppa ppc ~ppc64 ~sparc x86
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby32? ( dev-ruby/bigdecimal[ruby_targets_ruby32(-)] dev-ruby/concurrent-ruby:1[ruby_targets_ruby32(-)] dev-ruby/dry-core:1[ruby_targets_ruby32(-)] >=dev-ruby/zeitwerk-2.6:2[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( dev-ruby/bigdecimal[ruby_targets_ruby33(-)] dev-ruby/concurrent-ruby:1[ruby_targets_ruby33(-)] dev-ruby/dry-core:1[ruby_targets_ruby33(-)] >=dev-ruby/zeitwerk-2.6:2[ruby_targets_ruby33(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=1
 SRC_URI=https://github.com/dry-rb/dry-logic/archive/v1.6.0.tar.gz -> dry-logic-1.6.0.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multilib	b2a329026f2e404e9e371097dda47f96	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	ruby-fakegem	92ad9217e94825cb9c8ad831b513a7ec
-_md5_=40825091a90362c2225d29bd71a5f7a0
+_md5_=73586e5eefc0f97c365c2aed6d77fffb
