@@ -1,8 +1,8 @@
-# Copyright 2018-2024 Gentoo Authors
+# Copyright 2018-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit edo ninja-utils python-any-r1 toolchain-funcs
 
@@ -14,7 +14,7 @@ if [[ ${PV} == 9999 ]]; then
 else
 	# The version number is derived from `git describe HEAD --abbrev=12`
 	SRC_URI="https://deps.gentoo.zip/dev-build/gn/${P}.tar.xz"
-	KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="BSD"
@@ -26,7 +26,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/gn-gen-r5.patch
+	"${FILESDIR}"/gn-gen-r8.patch
 )
 
 pkg_setup() {
@@ -36,10 +36,6 @@ pkg_setup() {
 src_configure() {
 	python_setup
 	tc-export AR CC CXX
-	if use elibc_musl ; then # bug 906362
-		export CC="${CC} -D_LARGEFILE64_SOURCE"
-		export CXX="${CXX} -D_LARGEFILE64_SOURCE"
-	fi
 	unset CFLAGS
 	set -- ${EPYTHON} build/gen.py --no-last-commit-position --no-strip --no-static-libstdc++ --allow-warnings
 	edo "$@"
