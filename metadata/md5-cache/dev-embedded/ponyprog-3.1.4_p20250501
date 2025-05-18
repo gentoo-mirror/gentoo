@@ -1,0 +1,14 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=>=app-editors/qhexedit2-0.8.10 <app-editors/qhexedit2-0.9.0 dev-embedded/libftdi:1[cxx] dev-qt/qtbase:6[gui,widgets] dev-qt/qtmultimedia:6 virtual/libusb:1
+DESCRIPTION=EEPROM and microcontroller programmer/flasher
+EAPI=8
+HOMEPAGE=https://github.com/lancos/ponyprog/
+INHERIT=cmake udev
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2
+RDEPEND=>=app-editors/qhexedit2-0.8.10 <app-editors/qhexedit2-0.9.0 dev-embedded/libftdi:1[cxx] dev-qt/qtbase:6[gui,widgets] dev-qt/qtmultimedia:6 virtual/libusb:1
+SLOT=0
+SRC_URI=https://github.com/lancos/ponyprog/archive/5a4ef795b297ed1eaf6b4d4e71b3ce7a1bb63481.tar.gz -> ponyprog-3.1.4_p20250501.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	udev	f3d9a4376ebd22131726a68e1a0a058f
+_md5_=671a35fb6d68a8d8cfb71b023398672c
