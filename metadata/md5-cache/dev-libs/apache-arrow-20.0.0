@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://arrow.apache.org/ https://github.com/apache/arrow/
 INHERIT=cmake
 IUSE=+brotli bzip2 compute dataset +json lz4 +parquet re2 +snappy ssl test zlib zstd
-KEYWORDS=~amd64 ~arm arm64 ~hppa ~loong ~riscv ~s390 x86
+KEYWORDS=amd64 ~arm arm64 ~hppa ~loong ~riscv ~s390 x86
 LICENSE=Apache-2.0
 RDEPEND=brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2:= ) compute? ( dev-libs/libutf8proc:= ) dataset? ( dev-libs/libutf8proc:= ) elibc_musl? ( sys-libs/timezone-data ) lz4? ( app-arch/lz4:= ) parquet? ( dev-libs/libutf8proc:= dev-libs/thrift:= ssl? ( dev-libs/openssl:= ) ) re2? ( dev-libs/re2:= ) snappy? ( app-arch/snappy:= ) zlib? ( sys-libs/zlib:= ) zstd? ( app-arch/zstd:= )
 REQUIRED_USE=test? ( json parquet? ( zstd ) ) ssl? ( json )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/20
 SRC_URI=mirror://apache/arrow/arrow-20.0.0/apache-arrow-20.0.0.tar.gz test? ( https://github.com/apache/parquet-testing/archive/18d17540097fca7c40be3d42c167e6bfad90763c.tar.gz -> parquet-testing-18d17540097fca7c40be3d42c167e6bfad90763c.tar.gz https://github.com/apache/arrow-testing/archive/d2a13712303498963395318a4eb42872e66aead7.tar.gz -> arrow-testing-d2a13712303498963395318a4eb42872e66aead7.tar.gz )
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=fc601f023fa970176622eba890da5305
+_md5_=ce9226655de5b92f81b741b729e9a2aa
