@@ -1,14 +1,25 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-EGIT_REPO_URI="https://github.com/isc-projects/${PN}.git"
+inherit edo
 
-inherit git-r3 flag-o-matic
+MY_PV=${PV//./_}
+MY_P=${PN}-${MY_PV}
 
 DESCRIPTION="Ethernet NIC Queue stats viewer"
 HOMEPAGE="https://github.com/isc-projects/ethq"
+
+if [[ ${PV} == 9999 ]] ; then
+	EGIT_REPO_URI="https://github.com/isc-projects/${PN}.git"
+	inherit git-r3
+else
+	SRC_URI="https://github.com/isc-projects/ethq/archive/v${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
+	S="${WORKDIR}/${MY_P}"
+
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="MPL-2.0"
 SLOT="0"
@@ -32,18 +43,10 @@ src_prepare() {
 	fi
 }
 
-src_configure() {
-	# https://github.com/isc-projects/ethq/issues/30 (bug #879893)
-	filter-lto
-
-	default
-}
-
 src_test() {
 	local driver
 	for driver in tests/* ; do
-		"${S}"/ethq_test "$(basename "${driver%%-*}")" "${driver}" \
-			|| die "test failed on ${driver}"
+		edo "${S}"/ethq_test "$(basename "${driver%%-*}")" "${driver}"
 	done
 }
 
