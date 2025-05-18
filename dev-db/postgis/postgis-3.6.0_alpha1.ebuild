@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ if [[ ${PV} = *9999* ]] ; then
 else
 	PGIS="$(ver_cut 1-2)"
 	SRC_URI="https://download.osgeo.org/postgis/source/${MY_P}.tar.gz"
-	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+	KEYWORDS=""
 fi
 
 DESCRIPTION="Geographic Objects for PostgreSQL"
@@ -54,9 +54,6 @@ DEPEND="${RDEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.0.3-try-other-cpp-names.patch"
-	"${FILESDIR}/${PN}-3.4.0-without-gui.patch"
-	# source: https://github.com/google/flatbuffers/pull/7897
-	#"${FILESDIR}/${PN}-3.3.2-flatbuffers-abseil-2023.patch" # bug 905378
 )
 
 src_prepare() {
