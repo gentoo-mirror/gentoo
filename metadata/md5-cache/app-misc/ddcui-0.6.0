@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-libs/glib >=app-misc/ddcutil-2.2.0:0/5 >=dev-qt/qtbase-6.1:6[gui,widgets]
+DESCRIPTION=Graphical user interface for ddcutil - control monitor settings
+EAPI=8
+HOMEPAGE=https://www.ddcutil.com/ddcui_main/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake xdg
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=dev-libs/glib >=app-misc/ddcutil-2.2.0:0/5 >=dev-qt/qtbase-6.1:6[gui,widgets]
+SLOT=0
+SRC_URI=https://github.com/rockowitz/ddcui/archive/v0.6.0.tar.gz -> ddcui-0.6.0.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=aee65b96ea8f262a7e6abc0493aacbc2
