@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -47,7 +47,11 @@ DEPEND="${RDEPEND}
 
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}"/${PN}-1.2.0_do-not-fortify-source.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.2.0_do-not-fortify-source.patch
+	# https://github.com/intel/libvpl-tools/pull/7
+	"${FILESDIR}"/${PN}-1.4.0-gcc15.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
