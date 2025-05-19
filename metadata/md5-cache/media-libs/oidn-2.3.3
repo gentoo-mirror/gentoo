@@ -1,7 +1,7 @@
 BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-cpp/tbb:= dev-lang/ispc cuda? ( dev-util/nvidia-cuda-toolkit:= dev-libs/cutlass ) hip? ( dev-util/hip:= sci-libs/composable-kernel ) openimageio? ( media-libs/openimageio:= )
-DESCRIPTION=Intel® Open Image Denoise library
+DESCRIPTION=Intel Open Image Denoise library
 EAPI=8
 HOMEPAGE=https://www.openimagedenoise.org https://github.com/RenderKit/oidn
 INHERIT=cmake cuda python-any-r1 rocm
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/2.3.3
 SRC_URI=https://github.com/RenderKit/oidn/releases/download/v2.3.3/oidn-2.3.3.src.tar.gz -> oidn-2.3.3.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	cuda	283d0f298f6c196c755a0f8d50daca85	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-any-r1	891415dfe39ad9b41b461f2b86354af0	rocm	826765f795a41b937d1bfe8e709346cd
-_md5_=445f6586e8740e7dc6e7f23ccf3e7e08
+_md5_=2b40b05b542999a76355e271a747da5d
