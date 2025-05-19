@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/go-1.21.6 >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DEPEND=acct-group/kube-controller-manager acct-user/kube-controller-manager
+DESCRIPTION=Kubernetes Controller Manager
+EAPI=8
+HOMEPAGE=https://kubernetes.io
+INHERIT=go-module
+IUSE=hardened
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0
+RDEPEND=acct-group/kube-controller-manager acct-user/kube-controller-manager
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/kubernetes/kubernetes/archive/v1.30.13.tar.gz -> kubernetes-1.30.13.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	191a27261275fc3bff7dd7482361b5d6
+_md5_=a353d543b1a91d6f6ae570ccd7a7a274
