@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,10 +26,10 @@ RDEPEND="dev-libs/libatomic_ops
 	dev-libs/libffi:=
 	dev-libs/mimalloc"
 DEPEND="${RDEPEND}
-	clang? ( >=llvm-core/clang-3.1 )
+	clang? ( llvm-core/clang )
 	dev-lang/perl"
 
-DOCS=( CREDITS README.markdown )
+DOCS=( CREDITS README.md )
 
 # Tests are conducted via nqp
 RESTRICT=test
