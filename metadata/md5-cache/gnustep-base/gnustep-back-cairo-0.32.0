@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install postinst prepare setup
+DEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) =gnustep-base/gnustep-gui-0.32* >=media-libs/freetype-2.1.9 >=x11-libs/cairo-1.2.0[X] x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXmu x11-libs/libXt x11-libs/libXft x11-libs/libXrender opengl? ( virtual/opengl virtual/glu ) !gnustep-base/gnustep-back-art !gnustep-base/gnustep-back-xlib virtual/pkgconfig x11-base/xorg-proto
+DESCRIPTION=Cairo back-end component for the GNUstep GUI Library
+EAPI=8
+HOMEPAGE=https://gnustep.github.io
+INHERIT=gnustep-base
+IUSE=opengl xim debug doc
+KEYWORDS=~amd64 ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=LGPL-2.1+
+RDEPEND=doc? ( virtual/texi2dvi dev-tex/latex2html app-text/texi2html ) =gnustep-base/gnustep-gui-0.32* >=media-libs/freetype-2.1.9 >=x11-libs/cairo-1.2.0[X] x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXmu x11-libs/libXt x11-libs/libXft x11-libs/libXrender opengl? ( virtual/opengl virtual/glu ) !gnustep-base/gnustep-back-art !gnustep-base/gnustep-back-xlib
+SLOT=0
+SRC_URI=https://ftp.gnustep.org/pub/gnustep/core/gnustep-back-0.32.0.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	gnustep-base	2b9571bc4b56a107f4efee592fa2f2a8
+_md5_=fec2b333612507a35ecd3cefe6e85572

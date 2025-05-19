@@ -1,15 +1,15 @@
-BDEPEND=app-arch/unzip python_targets_pypy3_11? ( dev-lang/pypy:3.11= ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+BDEPEND=app-arch/unzip python_targets_pypy3_11? ( dev-lang/pypy:3.11= ) python_targets_python3_13t? ( dev-lang/python:3.13t ) python_targets_python3_14t? ( dev-lang/python:3.14t ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=A lil' TOML parser
 EAPI=8
 HOMEPAGE=https://pypi.org/project/tomli/ https://github.com/hukkin/tomli/
 INHERIT=distutils-r1 pypi
-IUSE=python_targets_pypy3_11 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
+IUSE=python_targets_pypy3_11 python_targets_python3_13t python_targets_python3_14t python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
 KEYWORDS=~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=MIT
-RDEPEND=python_targets_pypy3_11? ( dev-lang/pypy:3.11= ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
-REQUIRED_USE=|| ( python_targets_pypy3_11 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+RDEPEND=python_targets_pypy3_11? ( dev-lang/pypy:3.11= ) python_targets_python3_13t? ( dev-lang/python:3.13t ) python_targets_python3_14t? ( dev-lang/python:3.14t ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=|| ( python_targets_pypy3_11 python_targets_python3_13t python_targets_python3_14t python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
 SLOT=0
 SRC_URI=https://github.com/hukkin/tomli/archive/2.2.1.tar.gz -> tomli-2.2.1.gh.tar.gz https://files.pythonhosted.org/packages/py3/t/tomli/tomli-2.2.1-py3-none-any.whl -> tomli-2.2.1-py3-none-any.whl.zip
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	0e08701ccfa3f73267c62f539b7ab456	pypi	ad1b21f87d117ae9bb089bdb65b8f013
-_md5_=61fe0626775b5c91f1fb421dc31eb8d9
+_md5_=21f72ad6501afa3affc035b5926bd5d0
