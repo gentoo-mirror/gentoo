@@ -24,23 +24,27 @@ DEPEND="
 	media-libs/rtmidi
 	net-libs/libslirp
 	sys-libs/zlib
-	qt6? ( x11-libs/libXi )
-	vde? ( net-misc/vde )
-"
-
-RDEPEND="
-	${DEPEND}
-	fluidsynth? ( media-sound/fluidsynth )
+	fluidsynth? ( media-sound/fluidsynth:= )
 	munt? ( media-libs/munt-mt32emu )
 	openal? ( media-libs/openal )
 	qt6? (
-		dev-qt/qtbase:6[gui,network,opengl,widgets]
-		dev-qt/qttranslations:6
-		kde-frameworks/extra-cmake-modules
+		dev-libs/wayland
+		dev-qt/qtbase:6=[gui,network,opengl,widgets]
+		x11-libs/libX11
+		x11-libs/libXi
+		x11-libs/libxkbcommon
 	)
 "
+RDEPEND="${DEPEND}
+	qt6? ( dev-qt/qttranslations:6 )
+	vde? ( net-misc/vde )
+"
+BDEPEND="
+	virtual/pkgconfig
+	qt6? ( kde-frameworks/extra-cmake-modules )
+"
 
-BDEPEND="virtual/pkgconfig"
+PATCHES=( "${FILESDIR}"/${P}-crashfix-{1,2,3}.patch ) # bug #953992, git master
 
 src_configure() {
 	# LTO needs to be filtered
