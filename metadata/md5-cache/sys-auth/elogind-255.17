@@ -1,0 +1,17 @@
+BDEPEND=app-text/docbook-xml-dtd:4.2 app-text/docbook-xml-dtd:4.5 app-text/docbook-xsl-stylesheets dev-util/gperf virtual/pkgconfig || ( ( dev-lang/python:3.13 dev-python/jinja2[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/jinja2[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/jinja2[python_targets_python3_11(-)] ) ) || ( ( dev-lang/python:3.13 dev-python/lxml[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/lxml[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/lxml[python_targets_python3_11(-)] ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=audit? ( sys-process/audit ) sys-apps/util-linux sys-libs/libcap virtual/libudev:= acl? ( sys-apps/acl ) pam? ( sys-libs/pam ) selinux? ( sys-libs/libselinux )
+DESCRIPTION=The systemd project's logind, extracted to a standalone package
+EAPI=8
+HOMEPAGE=https://github.com/elogind/elogind
+INHERIT=eapi9-ver linux-info meson pam python-any-r1 udev xdg-utils
+IUSE=+acl audit cgroup-hybrid debug doc +pam +policykit selinux test
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=CC0-1.0 LGPL-2.1+ public-domain
+PDEPEND=sys-apps/dbus policykit? ( sys-auth/polkit )
+RDEPEND=audit? ( sys-process/audit ) sys-apps/util-linux sys-libs/libcap virtual/libudev:= acl? ( sys-apps/acl ) pam? ( sys-libs/pam ) selinux? ( sys-libs/libselinux ) !sys-apps/systemd
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/elogind/elogind/archive/v255.17.tar.gz -> elogind-255.17.tar.gz
+_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922	pam	b56d0c9c20fc5b553f13c8ae165a10a5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	udev	f3d9a4376ebd22131726a68e1a0a058f	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_md5_=c9e44686b5acf3e4ddfcc57006ca720d
