@@ -1,0 +1,17 @@
+BDEPEND=dev-util/patchelf
+DEFINED_PHASES=install prepare unpack
+DEPEND=>=virtual/jdk-17:*
+DESCRIPTION=A complete toolset for web, mobile and enterprise development
+EAPI=8
+HOMEPAGE=https://www.jetbrains.com/idea
+INHERIT=desktop wrapper
+IUSE=experimental wayland
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 BSD BSD-2 CC0-1.0 CC-BY-2.5 CDDL-1.1 codehaus-classworlds CPL-1.0 EPL-1.0 EPL-2.0 GPL-2 GPL-2-with-classpath-exception ISC JDOM LGPL-2.1 LGPL-2.1+ LGPL-3-with-linking-exception MIT MPL-1.0 MPL-1.1 OFL-1.1 ZLIB
+RDEPEND=>=virtual/jdk-17:* sys-libs/glibc media-libs/harfbuzz dev-java/jansi-native sys-libs/zlib x11-libs/libX11 x11-libs/libXrender media-libs/freetype x11-libs/libXext dev-libs/wayland x11-libs/libXi x11-libs/libXtst x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXrandr media-libs/alsa-lib app-accessibility/at-spi2-core x11-libs/cairo net-print/cups x11-libs/libdrm media-libs/mesa dev-libs/nspr dev-libs/nss dev-libs/libdbusmenu x11-libs/libxkbcommon x11-libs/libXcursor x11-libs/pango
+REQUIRED_USE=experimental? ( wayland )
+RESTRICT=splitdebug
+SLOT=0
+SRC_URI=amd64? ( https://download.jetbrains.com/idea/ideaIC-2025.1.1.1.tar.gz -> idea-community-2025.1.1.1-amd64.tar.gz ) arm64? ( https://download.jetbrains.com/idea/ideaIC-2025.1.1.1-aarch64.tar.gz -> idea-community-2025.1.1.1-aarch64.tar.gz )
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	wrapper	11a2a3bd712784986679b60a0cab34a0
+_md5_=7c7e0abefda539b4d79964fec5af7b0c
