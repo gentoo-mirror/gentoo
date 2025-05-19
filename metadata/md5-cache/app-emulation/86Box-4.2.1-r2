@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig qt6? ( kde-frameworks/extra-cmake-modules ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=app-emulation/faudio dev-libs/libevdev media-libs/freetype:2= media-libs/libpng:= media-libs/libsdl2 media-libs/openal media-libs/rtmidi net-libs/libslirp sys-libs/zlib fluidsynth? ( media-sound/fluidsynth:= ) munt? ( media-libs/munt-mt32emu ) openal? ( media-libs/openal ) qt6? ( dev-libs/wayland dev-qt/qtbase:6=[gui,network,opengl,widgets] x11-libs/libX11 x11-libs/libXi x11-libs/libxkbcommon )
+DESCRIPTION=Emulator of x86-based machines based on PCem
+EAPI=8
+HOMEPAGE=https://github.com/86Box/86Box
+INHERIT=cmake flag-o-matic
+IUSE=experimental +fluidsynth +munt new-dynarec +openal +qt6 +threads vde
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=app-emulation/faudio dev-libs/libevdev media-libs/freetype:2= media-libs/libpng:= media-libs/libsdl2 media-libs/openal media-libs/rtmidi net-libs/libslirp sys-libs/zlib fluidsynth? ( media-sound/fluidsynth:= ) munt? ( media-libs/munt-mt32emu ) openal? ( media-libs/openal ) qt6? ( dev-libs/wayland dev-qt/qtbase:6=[gui,network,opengl,widgets] x11-libs/libX11 x11-libs/libXi x11-libs/libxkbcommon ) qt6? ( dev-qt/qttranslations:6 ) vde? ( net-misc/vde )
+SLOT=0
+SRC_URI=https://github.com/86Box/86Box/archive/refs/tags/v4.2.1.tar.gz -> 86Box-4.2.1.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=c9e95ce852e9434c0d4bdf411851715f
