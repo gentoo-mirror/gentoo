@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure
-DEPEND=dev-libs/libatomic_ops >=dev-libs/libuv-1.26:= dev-libs/libffi:= dev-libs/mimalloc clang? ( >=llvm-core/clang-3.1 ) dev-lang/perl
+DEPEND=dev-libs/libatomic_ops >=dev-libs/libuv-1.26:= dev-libs/libffi:= dev-libs/mimalloc clang? ( llvm-core/clang ) dev-lang/perl
 DESCRIPTION=A 6model-based VM for NQP and Raku
 EAPI=8
 HOMEPAGE=http://moarvm.org
@@ -9,5 +9,5 @@ LICENSE=Artistic-2
 RDEPEND=dev-libs/libatomic_ops >=dev-libs/libuv-1.26:= dev-libs/libffi:= dev-libs/mimalloc
 RESTRICT=test
 SLOT=0
-SRC_URI=http://moarvm.org/releases/MoarVM-2024.10.tar.gz
-_md5_=0c523e9a5e4a01e0779099223f5c0e6b
+SRC_URI=http://moarvm.org/releases/MoarVM-2025.05.tar.gz
+_md5_=0d857fee272a3a0e6d9b32799eb73ae8
