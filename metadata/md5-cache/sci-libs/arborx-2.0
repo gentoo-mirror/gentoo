@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/boost:= mpi? ( virtual/mpi[cxx] ) sci-libs/trilinos
+DESCRIPTION=Library for performance portable algorithms for geometric search
+EAPI=8
+HOMEPAGE=https://github.com/arborx/ArborX
+INHERIT=cmake
+IUSE=mpi
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=LGPL-2.1+
+RDEPEND=dev-libs/boost:= mpi? ( virtual/mpi[cxx] ) sci-libs/trilinos
+SLOT=0
+SRC_URI=https://github.com/arborx/ArborX/archive/refs/tags/v2.0.tar.gz -> arborx-2.0.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=f47bbf999eb38bb1448e2c1e5fc45adb
