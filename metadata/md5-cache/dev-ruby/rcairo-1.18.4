@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://cairographics.org/rcairo/
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 doc test
-KEYWORDS=~amd64 ~ppc ~riscv ~x86
+KEYWORDS=amd64 ~ppc ~riscv ~x86
 LICENSE=|| ( Ruby-BSD GPL-2 )
 RDEPEND=>=x11-libs/cairo-1.2.0[svg(+)] ruby_targets_ruby32? ( dev-ruby/red-colors[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( dev-ruby/red-colors[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( dev-ruby/red-colors[ruby_targets_ruby34(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/cairo-1.18.4.gem
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multilib	b2a329026f2e404e9e371097dda47f96	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	ruby-fakegem	92ad9217e94825cb9c8ad831b513a7ec
-_md5_=94ece4c2db22a824f4e5537a2c8f2a99
+_md5_=192688706a4b3f89a20034d350f900e7
