@@ -1,0 +1,14 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=dev-libs/boost:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib
+DESCRIPTION=Qt-based MP3 diagnosis and repair tool
+EAPI=8
+HOMEPAGE=https://mp3diags.sourceforge.net
+INHERIT=desktop cmake xdg-utils
+KEYWORDS=~amd64
+LICENSE=LGPL-3 GPL-2
+RDEPEND=dev-libs/boost:= dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtwidgets:5 dev-qt/qtxml:5 sys-libs/zlib dev-qt/qtsvg:5
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/mp3diags/unstable/mp3diags-src/MP3Diags-unstable-1.5.03.tar.gz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=d8f82da661d3867dd33c9e54b6ec662d

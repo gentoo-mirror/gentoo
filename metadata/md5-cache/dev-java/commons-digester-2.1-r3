@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://commons.apache.org/digester/
 INHERIT=java-pkg-2 java-pkg-simple verify-sig
 IUSE=log4j doc source test verify-sig
-KEYWORDS=~amd64 ~ppc64
+KEYWORDS=amd64 ~ppc64
 LICENSE=Apache-2.0
 RDEPEND=>=dev-java/commons-beanutils-1.10.1:0[log4j=] dev-java/commons-collections:0 >=dev-java/commons-logging-1.3.5:0[log4j=] dev-java/jakarta-servlet-api:4 dev-java/slf4j-api:0 log4j? ( dev-java/log4j-12-api:2 dev-java/log4j-api:2 ) >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=2.1
 SRC_URI=mirror://apache/commons/digester/source/commons-digester-2.1-src.tar.gz verify-sig? ( https://downloads.apache.org/commons/digester/source/commons-digester-2.1-src.tar.gz.asc )
 _eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
-_md5_=a3e3f2b74fb806007160140e89aa87c6
+_md5_=50541d73e729e7b91376642de7f1c2b3
