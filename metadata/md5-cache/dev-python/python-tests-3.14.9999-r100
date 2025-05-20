@@ -1,0 +1,15 @@
+BDEPEND=python_targets_python3_14t? ( dev-lang/python:3.14t ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install prepare unpack
+DESCRIPTION=Test modules from dev-lang/python
+EAPI=8
+HOMEPAGE=https://www.python.org/ https://github.com/python/cpython/
+INHERIT=git-r3 python-r1
+IUSE=python_targets_python3_14t
+LICENSE=PSF-2
+PROPERTIES=live
+RDEPEND=python_targets_python3_14t? ( dev-lang/python:3.14t ) ~dev-lang/python-3.14.9999:3.14t
+REQUIRED_USE=|| ( python_targets_python3_14t )
+SLOT=3.14t
+SRC_URI=https://dev.gentoo.org/~mgorny/dist/python/python-gentoo-patches-3.14.0b1.tar.xz
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38
+_md5_=c9d6645aee377cbb4468cea6fafbf5a8

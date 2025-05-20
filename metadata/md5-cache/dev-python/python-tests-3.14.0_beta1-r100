@@ -1,4 +1,4 @@
-BDEPEND=python_targets_python3_14t? ( dev-lang/python:3.14t ) ~dev-lang/python-3.14.0_beta1:3.14t verify-sig? ( dev-python/sigstore sec-keys/sigstore-trusted-root )
+BDEPEND=python_targets_python3_14t? ( dev-lang/python:3.14t ) verify-sig? ( dev-python/sigstore sec-keys/sigstore-trusted-root )
 DEFINED_PHASES=install prepare unpack
 DESCRIPTION=Test modules from dev-lang/python
 EAPI=8
@@ -12,4 +12,4 @@ REQUIRED_USE=|| ( python_targets_python3_14t )
 SLOT=3.14t
 SRC_URI=https://www.python.org/ftp/python/3.14.0/Python-3.14.0b1.tar.xz https://dev.gentoo.org/~mgorny/dist/python/python-gentoo-patches-3.14.0b1.tar.xz verify-sig? ( https://www.python.org/ftp/python/3.14.0/Python-3.14.0b1.tar.xz.sigstore )
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
-_md5_=25bf821a0db215879beee018365f7d16
+_md5_=1adeab2a3950b51b55004fe9c2084cee

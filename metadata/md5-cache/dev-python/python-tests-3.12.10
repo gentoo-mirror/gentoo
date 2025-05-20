@@ -1,4 +1,4 @@
-BDEPEND=python_targets_python3_12? ( dev-lang/python:3.12 ) ~dev-lang/python-3.12.10:3.12 !<dev-lang/python-3.12.5_p1-r1:3.12 verify-sig? ( >=sec-keys/openpgp-keys-python-20221025 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=python_targets_python3_12? ( dev-lang/python:3.12 ) verify-sig? ( >=sec-keys/openpgp-keys-python-20221025 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=install prepare unpack
 DESCRIPTION=Test modules from dev-lang/python
 EAPI=8
@@ -12,4 +12,4 @@ REQUIRED_USE=|| ( python_targets_python3_12 )
 SLOT=3.12
 SRC_URI=https://www.python.org/ftp/python/3.12.10/Python-3.12.10.tar.xz https://dev.gentoo.org/~mgorny/dist/python/python-gentoo-patches-3.12.10.tar.xz verify-sig? ( https://www.python.org/ftp/python/3.12.10/Python-3.12.10.tar.xz.asc )
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
-_md5_=e720c71417fec896aeb1edde4aa20732
+_md5_=1c7e09967e957ba0b0eba91b5a45cb62
