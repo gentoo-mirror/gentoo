@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/linuxdoc-tools app-text/openjade app-text/texlive-core dev-texlive/texlive-fontsrecommended virtual/latex-base ) verify-sig? ( sec-keys/openpgp-keys-netfilter ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install postinst prepare setup unpack
+DEPEND=|| ( net-firewall/iptables net-firewall/nftables ) >=net-libs/libnfnetlink-1.0.2 dbi? ( dev-db/libdbi ) json? ( dev-libs/jansson:= ) nfacct? ( >=net-libs/libmnl-1.0.5 >=net-libs/libnetfilter_acct-1.0.3 ) nfct? ( >=net-libs/libnetfilter_conntrack-1.1.0 ) nflog? ( >=net-libs/libnetfilter_log-1.0.1 ) mysql? ( dev-db/mysql-connector-c:= ) pcap? ( net-libs/libpcap ) postgres? ( dev-db/postgresql:= ) sqlite? ( dev-db/sqlite:3 )
+DESCRIPTION=Userspace logging daemon for netfilter/iptables related logging
+EAPI=8
+HOMEPAGE=https://netfilter.org/projects/ulogd/index.html
+INHERIT=flag-o-matic linux-info readme.gentoo-r1 systemd verify-sig
+IUSE=dbi doc json mysql nfacct +nfct +nflog pcap postgres selinux sqlite verify-sig
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=|| ( net-firewall/iptables net-firewall/nftables ) >=net-libs/libnfnetlink-1.0.2 dbi? ( dev-db/libdbi ) json? ( dev-libs/jansson:= ) nfacct? ( >=net-libs/libmnl-1.0.5 >=net-libs/libnetfilter_acct-1.0.3 ) nfct? ( >=net-libs/libnetfilter_conntrack-1.1.0 ) nflog? ( >=net-libs/libnetfilter_log-1.0.1 ) mysql? ( dev-db/mysql-connector-c:= ) pcap? ( net-libs/libpcap ) postgres? ( dev-db/postgresql:= ) sqlite? ( dev-db/sqlite:3 ) acct-user/ulogd acct-group/ulogd selinux? ( sec-policy/selinux-ulogd )
+SLOT=0
+SRC_URI=https://netfilter.org/projects/ulogd/files/ulogd-2.0.9.tar.xz verify-sig? ( https://netfilter.org/projects/ulogd/files/ulogd-2.0.9.tar.xz.sig )
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
+_md5_=456e3852c1c9db704b836629b255a84a

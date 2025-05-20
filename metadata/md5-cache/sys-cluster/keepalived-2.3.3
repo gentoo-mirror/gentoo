@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/libnl:= dev-libs/openssl:= dev-libs/popt net-libs/libnfnetlink sys-apps/iproute2 regex? ( >=dev-libs/libpcre2-8:= ) dbus? ( sys-apps/dbus dev-libs/glib:2 ) json? ( dev-libs/json-c:= ) snmp? ( net-analyzer/net-snmp:= ) systemd? ( sys-apps/systemd ) >=sys-kernel/linux-headers-4.4
+DESCRIPTION=A strong & robust keepalive facility to the Linux Virtual Server project
+EAPI=8
+HOMEPAGE=https://www.keepalived.org/
+INHERIT=autotools systemd
+IUSE=+bfd dbus json regex snmp systemd
+KEYWORDS=~alpha ~amd64 ~hppa ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/libnl:= dev-libs/openssl:= dev-libs/popt net-libs/libnfnetlink sys-apps/iproute2 regex? ( >=dev-libs/libpcre2-8:= ) dbus? ( sys-apps/dbus dev-libs/glib:2 ) json? ( dev-libs/json-c:= ) snmp? ( net-analyzer/net-snmp:= ) systemd? ( sys-apps/systemd )
+SLOT=0
+SRC_URI=https://www.keepalived.org/software/keepalived-2.3.3.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=ed5d47ced0ce82ed8c1cb031b8d31368

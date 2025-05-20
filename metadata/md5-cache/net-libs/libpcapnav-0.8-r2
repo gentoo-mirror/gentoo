@@ -1,16 +1,15 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
-DEFINED_PHASES=configure install prepare
+DEFINED_PHASES=configure install prepare test
 DEPEND=net-libs/libpcap
 DESCRIPTION=Libpcap wrapper library to navigate to arbitrary packets in a tcpdump trace file
-EAPI=7
+EAPI=8
 HOMEPAGE=http://netdude.sourceforge.net/
-INHERIT=autotools
+INHERIT=autotools edo
 IUSE=doc static-libs
 KEYWORDS=amd64 ~arm ~sparc x86
 LICENSE=BSD
 RDEPEND=net-libs/libpcap
-RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/netdude/libpcapnav-0.8.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2
-_md5_=6d9b06bedd4b271ddf4aafd6079944ca
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	edo	a5e294016aa84979fcb2459749eb80b2
+_md5_=116e3f34ca1e4524de591106dd56d715
