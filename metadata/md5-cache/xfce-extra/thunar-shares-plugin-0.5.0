@@ -1,0 +1,14 @@
+BDEPEND=>=sys-devel/gettext-0.19.8 virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/glib-2.66.0 >=x11-libs/gtk+-3.24.0:3 >=xfce-base/thunar-4.18.0:= >=xfce-base/xfconf-4.18.0:=
+DESCRIPTION=Thunar plugin to share files using Samba
+EAPI=8
+HOMEPAGE=https://goodies.xfce.org/projects/thunar-plugins/thunar-shares-plugin https://gitlab.xfce.org/thunar-plugins/thunar-shares-plugin/
+INHERIT=meson
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=>=dev-libs/glib-2.66.0 >=x11-libs/gtk+-3.24.0:3 >=xfce-base/thunar-4.18.0:= >=xfce-base/xfconf-4.18.0:=
+SLOT=0
+SRC_URI=https://archive.xfce.org/src/thunar-plugins/thunar-shares-plugin/0.5/thunar-shares-plugin-0.5.0.tar.xz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=27668acd7500b9233c11810d7207b1fd

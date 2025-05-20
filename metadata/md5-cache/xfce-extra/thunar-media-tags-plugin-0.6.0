@@ -1,0 +1,14 @@
+BDEPEND=>=sys-devel/gettext-0.19.8 virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=>=media-libs/taglib-1.4:= >=dev-libs/glib-2.66.0:2 >=x11-libs/gtk+-3.24.0:3 >=xfce-base/libxfce4util-4.18.0:= >=xfce-base/thunar-4.18.0:=
+DESCRIPTION=Adds special features for media files to the Thunar File Manager
+EAPI=8
+HOMEPAGE=https://docs.xfce.org/xfce/thunar/media-tags https://gitlab.xfce.org/thunar-plugins/thunar-media-tags-plugin/
+INHERIT=meson
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=>=media-libs/taglib-1.4:= >=dev-libs/glib-2.66.0:2 >=x11-libs/gtk+-3.24.0:3 >=xfce-base/libxfce4util-4.18.0:= >=xfce-base/thunar-4.18.0:=
+SLOT=0
+SRC_URI=https://archive.xfce.org/src/thunar-plugins/thunar-media-tags-plugin/0.6/thunar-media-tags-plugin-0.6.0.tar.xz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=828eb42b49c31210164e4ad966cadce4
