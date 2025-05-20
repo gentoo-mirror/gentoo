@@ -4,7 +4,7 @@ DEPEND=app-arch/bzip2 dev-libs/icu:= dev-libs/openssl:0= net-libs/libtirpc:= net
 DESCRIPTION=An IMAP and POP3 server written with security primarily in mind
 EAPI=8
 HOMEPAGE=https://www.dovecot.org/
-INHERIT=autotools flag-o-matic lua-single ssl-cert systemd toolchain-funcs
+INHERIT=autotools eapi9-ver flag-o-matic lua-single ssl-cert systemd toolchain-funcs
 IUSE=cdb kerberos ldap lua mysql pam postgres sqlite lz4 zstd solr stemmer textcat xapian argon2 managesieve selinux sieve static-libs suid systemd unwind lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=LGPL-2.1 MIT
@@ -12,5 +12,5 @@ RDEPEND=app-arch/bzip2 dev-libs/icu:= dev-libs/openssl:0= net-libs/libtirpc:= ne
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) sieve? ( ldap )
 SLOT=0/2.4.1
 SRC_URI=https://www.dovecot.org/releases/2.4/dovecot-2.4.1-4.tar.gz -> dovecot-2.4.1.tar.gz sieve? ( https://pigeonhole.dovecot.org/releases/2.4/dovecot-pigeonhole-2.4.1-4.tar.gz -> dovecot-pigeonhole-2.4.1.tar.gz ) managesieve? ( https://pigeonhole.dovecot.org/releases/2.4/dovecot-pigeonhole-2.4.1-4.tar.gz -> dovecot-pigeonhole-2.4.1.tar.gz )
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=667a4110634cc05f5e1997fca1e2aad1
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=f24aa9dd6fd634918662cad2b01d9d05
