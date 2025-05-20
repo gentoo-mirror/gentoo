@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/FasterXML/woodstox
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 arm64 ~ppc64
+KEYWORDS=amd64 arm64 ~ppc64
 LICENSE=Apache-2.0
 RDEPEND=dev-java/bnd-annotation:0 dev-java/msv:0 dev-java/osgi-core:0 dev-java/relaxng-datatype:0 dev-java/stax2-api:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/FasterXML/woodstox/archive/woodstox-core-7.1.0.tar.gz
 _eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e
-_md5_=e89332c0c4c64ebd3e7637ee36926018
+_md5_=d3cac9bff83291adeec06c9b5650b934
