@@ -3,14 +3,12 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_13t )
+PYTHON_COMPAT=( python3_14 )
 
-inherit python-r1 verify-sig
+inherit git-r3 python-r1
 
-MY_PV=${PV/_}
-MY_P="Python-${MY_PV%_p*}"
-PYVER=$(ver_cut 1-2)t
-PATCHSET="python-gentoo-patches-${MY_PV}"
+PYVER=$(ver_cut 1-2)
+PATCHSET="python-gentoo-patches-3.14.0b1"
 
 DESCRIPTION="Test modules from dev-lang/python"
 HOMEPAGE="
@@ -18,17 +16,14 @@ HOMEPAGE="
 	https://github.com/python/cpython/
 "
 SRC_URI="
-	https://www.python.org/ftp/python/${PV%%_*}/${MY_P}.tar.xz
 	https://dev.gentoo.org/~mgorny/dist/python/${PATCHSET}.tar.xz
-	verify-sig? (
-		https://www.python.org/ftp/python/${PV%%_*}/${MY_P}.tar.xz.asc
-	)
 "
-S="${WORKDIR}/${MY_P}/Lib"
+EGIT_REPO_URI="https://github.com/python/cpython.git"
+EGIT_BRANCH=${PYVER}
+S="${WORKDIR}/${P}/Lib"
 
 LICENSE="PSF-2"
 SLOT="${PYVER}"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
@@ -37,15 +32,10 @@ RDEPEND="
 "
 BDEPEND="
 	${PYTHON_DEPS}
-	verify-sig? ( >=sec-keys/openpgp-keys-python-20221025 )
 "
 
-VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/python.org.asc
-
 src_unpack() {
-	if use verify-sig; then
-		verify-sig_verify_detached "${DISTDIR}"/${MY_P}.tar.xz{,.asc}
-	fi
+	git-r3_src_unpack
 	default
 }
 
