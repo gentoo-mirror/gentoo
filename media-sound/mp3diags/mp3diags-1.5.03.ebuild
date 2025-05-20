@@ -1,16 +1,16 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit desktop qmake-utils xdg-utils
+inherit desktop cmake xdg-utils
 
 MY_PN=MP3Diags-unstable
 MY_P=${MY_PN}-${PV}
 
 DESCRIPTION="Qt-based MP3 diagnosis and repair tool"
-HOMEPAGE="http://mp3diags.sourceforge.net"
-SRC_URI="https://downloads.sourceforge.net/${PN}/${MY_P}.tar.gz"
+HOMEPAGE="https://mp3diags.sourceforge.net"
+SRC_URI="https://downloads.sourceforge.net/project/${PN}/unstable/${PN}-src/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="LGPL-3 GPL-2"
@@ -21,6 +21,7 @@ DEPEND="
 	dev-libs/boost:=
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
 	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	sys-libs/zlib
@@ -28,21 +29,10 @@ DEPEND="
 RDEPEND="${DEPEND}
 	dev-qt/qtsvg:5
 "
-
-src_prepare() {
-	# unused dependency - bug #711086
-	sed -i -e "/^network/d" src/src.pro || die
-
-	default
-}
-
-src_configure() {
-	eqmake5 ${PN}.pro
-}
+DOCS=( changelog.txt README.md )
 
 src_install() {
-	dobin bin/${MY_PN}
-	dodoc changelog.txt
+	cmake_src_install
 
 	local size
 	for size in 16 22 24 32 36 40 48; do
