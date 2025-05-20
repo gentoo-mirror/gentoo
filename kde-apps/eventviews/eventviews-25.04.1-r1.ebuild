@@ -42,3 +42,5 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-fix-todoview.patch" ) # in 25.04.2, KDE-bug #473847
