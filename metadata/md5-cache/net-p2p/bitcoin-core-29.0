@@ -7,7 +7,7 @@ HOMEPAGE=https://bitcoincore.org/
 IDEPEND=gui? ( dev-util/desktop-file-utils )
 INHERIT=bash-completion-r1 check-reqs cmake db-use desktop edo multiprocessing python-any-r1 systemd toolchain-funcs xdg-utils
 IUSE=asm +berkdb +cli +daemon dbus examples +external-signer gui qrcode +sqlite +system-libsecp256k1 systemtap test test-full zeromq
-KEYWORDS=~amd64 arm arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 arm arm64 ~ppc ~ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=>=dev-libs/boost-1.81.0:= >=dev-libs/libevent-2.1.12:= berkdb? ( >=sys-libs/db-4.8.30:4.8=[cxx] ) daemon? ( acct-group/bitcoin acct-user/bitcoin ) gui? ( >=dev-qt/qtbase-6.2:6[dbus?,gui,network,widgets] ) qrcode? ( >=media-gfx/qrencode-4.1.1:= ) sqlite? ( >=dev-db/sqlite-3.38.5:= ) system-libsecp256k1? ( >=dev-libs/libsecp256k1-0.6.0:=[asm=,ellswift,extrakeys,recovery,schnorr] ) zeromq? ( >=net-libs/zeromq-4.3.4:= ) !dev-util/bitcoin-tx cli? ( !net-p2p/bitcoin-cli ) daemon? ( !net-p2p/bitcoind ) gui? ( !net-p2p/bitcoin-qt )
 REQUIRED_USE=dbus? ( gui ) qrcode? ( gui ) test-full? ( test )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bitcoin/bitcoin/archive/v29.0.tar.gz -> bitcoin-core-29.0.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	bash-completion-r1	767861f3744f589ee5291c1698b1c082	check-reqs	2a9731073c152554078a9a8df8fc0f1b	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	multilib	b2a329026f2e404e9e371097dda47f96	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	edo	a5e294016aa84979fcb2459749eb80b2	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=51ebe13d876ed7ba48fa07eb7e7533cc
+_md5_=3a76066c12af138cb964637f12f3259c
