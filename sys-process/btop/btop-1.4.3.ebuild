@@ -21,6 +21,11 @@ BDEPEND="
 
 DOCS=( "README.md" "CHANGELOG.md" )
 
+PATCHES=(
+	# Can be removed after 1.4.4.
+	"${FILESDIR}/${P}-network-title.patch"
+)
+
 pkg_setup() {
 	if [[ "${MERGE_TYPE}" != "binary" ]]; then
 		if tc-is-clang ; then
@@ -41,7 +46,6 @@ src_configure() {
 		# These settings can be controlled in make.conf CFLAGS/CXXFLAGS
 		-DBTOP_LTO=false
 		-DBTOP_WERROR=false
-		-DBTOP_USE_MOLD=false
 	)
 	cmake_src_configure
 }
