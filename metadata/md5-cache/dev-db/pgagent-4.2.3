@@ -1,12 +1,14 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DESCRIPTION=Parsing Expressions with Strings, Complex Numbers, Vectors, Matrices and more
+DEPEND=acct-user/pgagent dev-db/postgresql:* dev-libs/boost
+DESCRIPTION=pgAgent is a job scheduler for PostgreSQL
 EAPI=8
-HOMEPAGE=https://beltoforion.de/en/muparser/
+HOMEPAGE=https://www.pgadmin.org/download/pgagent-source-code/
 INHERIT=cmake
-KEYWORDS=~amd64
-LICENSE=BSD-2
+KEYWORDS=~amd64 ~x86
+LICENSE=POSTGRESQL GPL-2
+RDEPEND=acct-user/pgagent dev-db/postgresql:* dev-libs/boost
 SLOT=0
-SRC_URI=https://github.com/beltoforion/muparserx/archive/refs/tags/v4.0.11.tar.gz -> muParserX-4.0.11.tar.gz
+SRC_URI=https://github.com/pgadmin-org/pgagent/archive/refs/tags/pgagent-4.2.3.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=f918031061d8b92e87820473740c8252
+_md5_=9ff4cd1dd780ede3ee58293796cdb171
