@@ -27,7 +27,7 @@ RDEPEND="
 FILECAPS=( cap_net_bind_service+ep usr/bin/dnscrypt-proxy )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.1.7-config-full-paths.patch
+	"${FILESDIR}"/${PN}-2.1.11-config-full-paths.patch
 )
 
 src_compile() {
