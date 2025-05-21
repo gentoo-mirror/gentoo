@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=test? ( dev-cpp/ut2-glaze dev-cpp/asio >=dev-cpp/eigen-3.4 )
+DESCRIPTION=Extremely fast, in memory, JSON and interface library for modern C++
+EAPI=8
+HOMEPAGE=https://github.com/stephenberry/glaze
+INHERIT=cmake
+IUSE=doc examples fuzzing test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=test? ( dev-cpp/ut2-glaze dev-cpp/asio >=dev-cpp/eigen-3.4 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/stephenberry/glaze/archive/refs/tags/v5.2.1.tar.gz -> glaze-5.2.1.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=e77416d30443e2ad1a88792562f78c7f
