@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen )
+DEFINED_PHASES=compile configure install
+DEPEND=expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:2= ) gnutls? ( net-libs/gnutls:0= ) !gnutls? ( dev-libs/openssl:0= )
+DESCRIPTION=A simple, lightweight C library for writing XMPP clients
+EAPI=8
+HOMEPAGE=https://strophe.im/libstrophe/
+INHERIT=flag-o-matic
+IUSE=doc expat gnutls
+KEYWORDS=~amd64 ~arm64
+LICENSE=|| ( MIT GPL-3 )
+RDEPEND=expat? ( dev-libs/expat ) !expat? ( dev-libs/libxml2:2= ) gnutls? ( net-libs/gnutls:0= ) !gnutls? ( dev-libs/openssl:0= )
+SLOT=0/0.1
+SRC_URI=https://github.com/strophe/libstrophe/releases/download/0.14.0/libstrophe-0.14.0.tar.xz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
+_md5_=bea6be835eb471eb4a5ff37d08837ee8

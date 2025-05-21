@@ -1,0 +1,17 @@
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-eduvpn-20240307 ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] doc? ( || ( ( dev-lang/python:3.13 dev-python/mkdocs[python_targets_python3_13(-)] dev-python/mkdocs-material[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/mkdocs[python_targets_python3_12(-)] dev-python/mkdocs-material[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/mkdocs[python_targets_python3_11(-)] dev-python/mkdocs-material[python_targets_python3_11(-)] ) ) ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DESCRIPTION=Linux client and Python client API for eduVPN
+EAPI=8
+HOMEPAGE=https://www.eduvpn.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=distutils-r1 docs xdg verify-sig
+IUSE=python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 doc verify-sig
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-python/requests[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/pygobject:3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] net-misc/networkmanager >=net-vpn/eduvpn-common-3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] <net-vpn/eduvpn-common-4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] x11-libs/libnotify python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://codeberg.org/eduVPN/linux-app/releases/download/4.5.1/linux-app-4.5.1.tar.xz -> eduvpn-client-4.5.1.tar.xz verify-sig? ( https://codeberg.org/eduVPN/linux-app/releases/download/4.5.1/linux-app-4.5.1.tar.xz.asc -> eduvpn-client-4.5.1.tar.xz.asc )
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	0e08701ccfa3f73267c62f539b7ab456	docs	006125f2158d2f16904ebd9114336058	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
+_md5_=a8496f7cb874bc68b908634fe60e8ba7
