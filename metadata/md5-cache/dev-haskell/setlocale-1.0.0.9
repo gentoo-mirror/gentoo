@@ -1,6 +1,6 @@
 BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
-DEPEND=>=dev-lang/ghc-7.6.1:= >=dev-haskell/cabal-1.16.0 hscolour? ( dev-haskell/hscolour )
+DEPEND=>=dev-lang/ghc-7.6.1:=[profile?] >=dev-haskell/cabal-1.16.0 hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Haskell bindings to setlocale
 EAPI=8
 HOMEPAGE=https://gitlab.com/Kritzefitz/haskell-setlocale
@@ -8,8 +8,8 @@ INHERIT=haskell-cabal
 IUSE=doc hscolour profile
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
-RDEPEND=>=dev-lang/ghc-7.6.1:= dev-lang/ghc:=[profile?]
+RDEPEND=>=dev-lang/ghc-7.6.1:=[profile?] dev-lang/ghc:=[profile?]
 SLOT=0/1.0.0.9
 SRC_URI=https://hackage.haskell.org/package/setlocale-1.0.0.9/setlocale-1.0.0.9.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	multilib	b2a329026f2e404e9e371097dda47f96	haskell-cabal	bad13a2329d86d55e2032a804a9d93a4
-_md5_=648007a7e642a9e1f8a7c651001d4e34
+_md5_=c411832c43f6f0a45e7812a1beee59a2
