@@ -177,6 +177,7 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 PATCHES=(
 	"${FILESDIR}/${PN}-prefix-4.patch"
 	"${FILESDIR}/${PN}-respect-cflags-3.patch"
+	"${FILESDIR}/${PN}-8.14.0-brew-not-found.patch"
 )
 
 src_prepare() {
