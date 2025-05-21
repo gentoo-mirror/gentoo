@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://kde.org/plasma-desktop
 INHERIT=ecm plasma.kde.org
 IUSE=gles2-only debug doc test
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 arm64 ~loong ppc64 ~riscv ~x86
 LICENSE=LGPL-2+
 RDEPEND=>=dev-qt/qtbase-6.8.1:6=[dbus,gles2-only=,gui,widgets,X] >=dev-qt/qtdeclarative-6.8.1:6 >=dev-qt/qtsvg-6.8.1:6 >=dev-libs/wayland-1.15.0 >=kde-frameworks/karchive-6.10.0:6 >=kde-frameworks/kcmutils-6.10.0:6 >=kde-frameworks/kconfig-6.10.0:6[qml] >=kde-frameworks/kcoreaddons-6.10.0:6 >=kde-frameworks/kglobalaccel-6.10.0:6 >=kde-frameworks/kguiaddons-6.10.0:6 >=kde-frameworks/ki18n-6.10.0:6 >=kde-frameworks/kiconthemes-6.10.0:6 >=kde-frameworks/kio-6.10.0:6 >=kde-frameworks/kirigami-6.10.0:6 >=kde-frameworks/knotifications-6.10.0:6 >=kde-frameworks/kpackage-6.10.0:6 >=kde-frameworks/ksvg-6.10.0:6 >=kde-frameworks/kwidgetsaddons-6.10.0:6 >=kde-frameworks/kwindowsystem-6.10.0:6[X] =kde-plasma/plasma-activities-6.3.5*:6 media-libs/libglvnd x11-libs/libX11 x11-libs/libxcb !gles2-only? ( media-libs/libglvnd[X] ) !kde-plasma/libplasma:5[-kf6compat(-)] || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6
 RESTRICT=test !test? ( test )
 SLOT=6
 SRC_URI=mirror://kde/stable/plasma/6.3.5/libplasma-6.3.5.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	486d192539fbcffdf4ef830e96f581cf	kde.org	2eea56ed41440913be4caa3d255d2db3	plasma.kde.org	7dce7e123b845b50045d250ddb278647
-_md5_=dd967fe03209c454b27d96338e8aa02f
+_md5_=e3047f160acdf47f0ae43c56f4d8daaf

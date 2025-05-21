@@ -7,7 +7,7 @@ HOMEPAGE=https://invent.kde.org/network/plasma-firewall
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=ecm plasma.kde.org python-single-r1 xdg
 IUSE=firewalld +ufw debug test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-qt/qtbase-6.8.1:6[dbus,gui,network,xml] >=dev-qt/qtdeclarative-6.8.1:6 >=kde-frameworks/kauth-6.10.0:6 >=kde-frameworks/kcmutils-6.10.0:6 >=kde-frameworks/kconfig-6.10.0:6 >=kde-frameworks/kcoreaddons-6.10.0:6 >=kde-frameworks/ki18n-6.10.0:6 python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) firewalld? ( net-firewall/firewalld ) ufw? ( net-firewall/ufw ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-plasma/plasma-firewall:5
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) || ( firewalld ufw )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=6
 SRC_URI=mirror://kde/stable/plasma/6.3.5/plasma-firewall-6.3.5.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	486d192539fbcffdf4ef830e96f581cf	kde.org	2eea56ed41440913be4caa3d255d2db3	plasma.kde.org	7dce7e123b845b50045d250ddb278647	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=0344bade98751f9341857b473e7692d4
+_md5_=2bc4b88f674347ed75c8376f4c610525
