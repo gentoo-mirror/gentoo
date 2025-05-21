@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install postinst prepare setup
+DEPEND=acct-group/dnsdist acct-user/dnsdist bpf? ( dev-libs/libbpf:= ) cdb? ( dev-db/tinycdb:= ) dev-libs/boost:= sys-libs/libcap dev-libs/libedit dev-libs/libsodium:= dnstap? ( dev-libs/fstrm ) doh? ( net-libs/nghttp2:= ) doh3? ( net-libs/quiche:= ) lmdb? ( dev-db/lmdb:= ) quic? ( net-libs/quiche ) regex? ( dev-libs/re2:= ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd:0= ) xdp? ( net-libs/xdp-tools ) lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+DESCRIPTION=A highly DNS-, DoS- and abuse-aware loadbalancer
+EAPI=8
+HOMEPAGE=https://www.dnsdist.org/index.html
+INHERIT=flag-o-matic lua-single
+IUSE=bpf cdb dnscrypt dnstap doh doh3 ipcipher lmdb quic regex snmp +ssl systemd test web xdp lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=acct-group/dnsdist acct-user/dnsdist bpf? ( dev-libs/libbpf:= ) cdb? ( dev-db/tinycdb:= ) dev-libs/boost:= sys-libs/libcap dev-libs/libedit dev-libs/libsodium:= dnstap? ( dev-libs/fstrm ) doh? ( net-libs/nghttp2:= ) doh3? ( net-libs/quiche:= ) lmdb? ( dev-db/lmdb:= ) quic? ( net-libs/quiche ) regex? ( dev-libs/re2:= ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd:0= ) xdp? ( net-libs/xdp-tools ) lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) dnscrypt? ( ssl ) doh? ( ssl ) doh3? ( ssl quic ) ipcipher? ( ssl ) quic? ( ssl )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://downloads.powerdns.com/releases/dnsdist-1.9.10.tar.bz2
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
+_md5_=2e089696121c1e13fded0b2574e05433

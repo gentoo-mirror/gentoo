@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare setup
+DEPEND=dev-libs/openssl:= dev-libs/libpcre2 lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+DESCRIPTION=An IMAP mail filtering utility
+EAPI=8
+HOMEPAGE=https://github.com/lefcha/imapfilter
+INHERIT=lua-single toolchain-funcs
+IUSE=lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/openssl:= dev-libs/libpcre2 lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 )
+SLOT=0
+SRC_URI=https://github.com/lefcha/imapfilter/archive/v2.8.3.tar.gz -> imapfilter-2.8.3.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
+_md5_=05742318e133971e31300140a81d5b91

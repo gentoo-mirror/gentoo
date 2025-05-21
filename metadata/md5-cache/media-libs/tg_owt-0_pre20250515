@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig X? ( x11-base/xorg-proto ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=>=dev-cpp/abseil-cpp-20240722.0:= dev-libs/openssl:= dev-libs/protobuf:= media-libs/libjpeg-turbo:= >=media-libs/libvpx-1.10.0:= media-libs/openh264:= media-libs/opus media-video/ffmpeg:= net-libs/libsrtp:2= dev-libs/crc32c screencast? ( dev-libs/glib:2 >=media-video/pipewire-1.0.7:= ) X? ( x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrender x11-libs/libXrandr x11-libs/libXtst ) screencast? ( media-libs/libglvnd[X] media-libs/mesa x11-libs/libdrm )
+DESCRIPTION=WebRTC build for Telegram
+EAPI=8
+HOMEPAGE=https://github.com/desktop-app/tg_owt
+INHERIT=cmake flag-o-matic
+IUSE=screencast +X
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv
+LICENSE=BSD
+RDEPEND=>=dev-cpp/abseil-cpp-20240722.0:= dev-libs/openssl:= dev-libs/protobuf:= media-libs/libjpeg-turbo:= >=media-libs/libvpx-1.10.0:= media-libs/openh264:= media-libs/opus media-video/ffmpeg:= net-libs/libsrtp:2= dev-libs/crc32c screencast? ( dev-libs/glib:2 >=media-video/pipewire-1.0.7:= ) X? ( x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXrender x11-libs/libXrandr x11-libs/libXtst )
+SLOT=0/20250515
+SRC_URI=https://github.com/desktop-app/tg_owt/archive/232ec410502e773024e8d83cfae83a52203306c0.tar.gz -> tg_owt-0_pre20250515.tar.gz https://gitlab.com/chromiumsrc/libyuv/-/archive/04821d1e7d60845525e8db55c7bcd41ef5be9406/libyuv-04821d1e7d60845525e8db55c7bcd41ef5be9406.tar.bz2
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=70386a5e1321d33249029b13b83002f5

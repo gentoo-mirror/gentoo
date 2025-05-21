@@ -2353,11 +2353,11 @@ app-emulation/grub-xen-host 1.0-r2: Grub2 built as a PV grub per the Xen PV Boot
 app-emulation/guestfs-tools 1.48.2-r1 1.52.3-r1 1.53.7-r1: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
 app-emulation/gxemul 0.6.2 0.6.3.1: A Machine Emulator, Mainly emulates MIPS, but supports other CPU types
 app-emulation/hercules 3.13-r1: Hercules System/370, ESA/390 and zArchitecture Mainframe Emulator
-app-emulation/hercules-sdl 4.7.0-r1: The SoftDevLabs (SDL) version of the Hercules 4.x Hyperion Emulator
-app-emulation/hercules-sdl-crypto 4.7.0 9999: Simple AES/DES encryption and SHA1/SHA2 hashing library
-app-emulation/hercules-sdl-decnumber 4.7.0 9999: ANSI C General Decimal Arithmetic Library
-app-emulation/hercules-sdl-softfloat 4.7.0 9999: Berkeley IEEE Binary Floating-Point Library
-app-emulation/hercules-sdl-telnet 4.7.0 9999: Simple RFC-complient TELNET implementation
+app-emulation/hercules-sdl 4.7.0-r1 4.8.0: The SoftDevLabs (SDL) version of the Hercules 4.x Hyperion Emulator
+app-emulation/hercules-sdl-crypto 4.7.0 4.8.0 9999: Simple AES/DES encryption and SHA1/SHA2 hashing library
+app-emulation/hercules-sdl-decnumber 4.7.0 4.8.0 9999: ANSI C General Decimal Arithmetic Library
+app-emulation/hercules-sdl-softfloat 4.7.0 4.8.0 9999: Berkeley IEEE Binary Floating-Point Library
+app-emulation/hercules-sdl-telnet 4.7.0 4.8.0 9999: Simple RFC-complient TELNET implementation
 app-emulation/libcacard 2.8.1: Virtual Common Access Card (CAC) library emulator
 app-emulation/libdsk 1.5.19 1.5.21: Library for accessing discs and disc image files
 app-emulation/libguestfs 1.48.6-r2 1.54.1-r1 1.55.6-r1: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
@@ -3838,7 +3838,7 @@ dev-build/tinycmmc 0.1.0 9999: Tiny CMake Module Collections
 dev-build/xfce4-dev-tools 4.18.1 4.20.0 4.21.0: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-cpp/ETL 1.4.1: Multi-platform class and template library
 dev-cpp/abseil-cpp 20211102.0-r2 20220623.1 20230125.2 20230125.3-r4 20230125.3-r5 20230802.0-r4 20230802.3 20240116.2-r4 20240116.3 20240722.0-r1 20240722.1 20250127.0 20250127.1: Abseil Common Libraries (C++), LTS Branch
-dev-cpp/ada 2.9.1: WHATWG-compliant and fast URL parser written in modern C++
+dev-cpp/ada 2.9.1 3.2.4: WHATWG-compliant and fast URL parser written in modern C++
 dev-cpp/aixlog 1.5.0-r1: Header-only C++ logging library
 dev-cpp/amqp-cpp 4.3.27: AMQP-CPP is a C++ library for communicating with a RabbitMQ message broker
 dev-cpp/antlr-cpp 2.7.7-r2 4.11.1 4.13.2-r1: The ANTLR 4 C++ Runtime
@@ -3859,7 +3859,7 @@ dev-cpp/clucene 2.3.3.4-r9 2.3.3.4-r10: High-performance, full-featured text sea
 dev-cpp/cpp-hocon 0.3.0-r1: Provides C++ support for the HOCON configuration file format
 dev-cpp/cpp-httplib 0.18.1 0.18.3 0.18.6 0.20.0-r1 0.20.1: C++ HTTP/HTTPS server and client library
 dev-cpp/cppdap 0_pre20230605-r1 0_pre20240802: C++ library for the Debug Adapter Protocol
-dev-cpp/cppgir 2.0_p20240928: GObject-Introspection C++ binding wrapper generator
+dev-cpp/cppgir 2.0_p20240928 2.0_p20250508: GObject-Introspection C++ binding wrapper generator
 dev-cpp/cpptoml 0.1.1-r1: Header-only library for parsing TOML
 dev-cpp/ctemplate 2.4: A simple but powerful template language for C++
 dev-cpp/curlpp 0.8.1-r1: C++ wrapper for libcURL
@@ -3868,7 +3868,7 @@ dev-cpp/edencommon 2023.06.19.00 2024.11.04.00 2025.04.14.00: Shared library for
 dev-cpp/eigen 3.4.0-r3 9999: C++ template library for linear algebra
 dev-cpp/elfio 3.12: ELF reader/producer header-only C++ library
 dev-cpp/expected 1.1.0: Single header implementation of std::expected with functional-style extensions
-dev-cpp/expected-lite 0.6.3: Expected objects in C++11 and later in a single-file header-only library
+dev-cpp/expected-lite 0.6.3 0.8.0: Expected objects in C++11 and later in a single-file header-only library
 dev-cpp/fast_float 7.0.0 8.0.0: Fast and exact implementation of the C++ from_chars functions for number types
 dev-cpp/fb303 2024.11.04.00 2025.04.14.00: Core set of Thrift functions querying stats and other information from a service
 dev-cpp/fbthrift 2024.11.04.00-r1 2025.04.14.00-r2: Facebook's branch of Apache Thrift (C++ bindings)
@@ -10954,7 +10954,7 @@ dev-util/regexxer 0.10-r2: An interactive tool for performing search and replace
 dev-util/rej 0.16-r1: A utility for solving diff/patch rejects
 dev-util/repolite 0.6.2-r1: Manage a small set of git repository dependencies with YAML
 dev-util/reuse 2.1.0 3.0.1 3.0.2 4.0.3 5.0.2: Manage license information according to the SPDX standard
-dev-util/rgbds 0.8.0 0.9.0 0.9.1 9999: Rednex Game Boy Development System
+dev-util/rgbds 0.8.0 0.9.1 0.9.2 9999: Rednex Game Boy Development System
 dev-util/rinstall 0.2.0-r1: Utility for declarative installation of programs
 dev-util/rizin 0.7.4: reverse engineering framework for binary analysis
 dev-util/rocm-smi 5.7.1-r3 6.1.1 6.3.2 6.3.3: ROCm System Management Interface Library
@@ -11112,7 +11112,7 @@ dev-vcs/svneverever 1.7.2-r1 1.7.2-r2: Tool collecting path entries across SVN h
 dev-vcs/tig 2.5.8 2.5.10 2.5.12 9999: text mode interface for git
 dev-vcs/tkcvs 9.3.2: Tcl/Tk-based graphical interface to CVS with Subversion support
 dev-vcs/topgit 0.19.13 0.19.14: A different patch queue manager
-dev-vcs/tortoisehg 6.9 6.9-r1 9999: Set of graphical tools for Mercurial
+dev-vcs/tortoisehg 6.9 6.9-r1 7.0.1 9999: Set of graphical tools for Mercurial
 dev-vcs/vcsh 1.20190621.4 2.0.4 2.0.8: Manage config files in $HOME via fake bare git repositories
 games-action/0verkill 0.16-r4: A bloody 2D action deathmatch-like game in ASCII-ART
 games-action/a-story-about-my-uncle 5188: First person platforming adventure about a boy who searches for his lost uncle
@@ -11377,8 +11377,8 @@ games-board/xskat 4.0-r2: Famous german card game
 games-emulation/advancemame 3.9-r1: GNU/Linux port of the MAME emulator with GUI menu
 games-emulation/advancescan 1.16-r1: A command line rom manager for MAME, MESS, AdvanceMAME, AdvanceMESS and Raine
 games-emulation/atari800 4.2.0-r1 5.0.0 5.1.0 5.2.0: Emulator of Atari 8-bit computer systems and 5200 game console
-games-emulation/bsnes-jg 2.0.0 2.0.1 9999: Jolly Good Fork of bsnes
-games-emulation/cega-jg 0.6.0 0.6.1 9999: Jolly Good SG-1000, SMS, and Game Gear Emulator
+games-emulation/bsnes-jg 2.0.1 9999: Jolly Good Fork of bsnes
+games-emulation/cega-jg 0.6.1 9999: Jolly Good SG-1000, SMS, and Game Gear Emulator
 games-emulation/desmume 0.9.13-r1: Nintendo DS emulator
 games-emulation/dgen-sdl 1.33-r1: Linux/SDL-Port of the famous DGen MegaDrive/Genesis-Emulator
 games-emulation/dolphin 2503 9999: Gamecube and Wii game emulator
@@ -11397,8 +11397,8 @@ games-emulation/gnuboy 1.0.3-r4: Gameboy emulator with multiple renderers
 games-emulation/hatari 2.5.0: Atari ST emulator
 games-emulation/higan 116_pre20210818-r2: Multi-system emulator focused on accuracy, preservation, and configurability
 games-emulation/jgemu 1.0.0: Meta ebuild for the Jolly Good API
-games-emulation/jgrf 1.2.0 1.2.1 9999: The Jolly Good Reference Frontend
-games-emulation/jollycv-jg 1.0.1 1.1.0 9999: Jolly Good ColecoVision Emulator
+games-emulation/jgrf 1.2.1 9999: The Jolly Good Reference Frontend
+games-emulation/jollycv-jg 1.1.0 9999: Jolly Good ColecoVision Emulator
 games-emulation/jrommanager 1.8_p27-r1: A Mame and Retrogaming Rom Manager, Java alternative to ClrMamePro
 games-emulation/libretro-bnes 0.0.1_pre20180723 9999: bNES libretro port
 games-emulation/libretro-dosbox 0.0.1_pre20180723 9999: DOSBox libretro port
@@ -11412,13 +11412,13 @@ games-emulation/m64py 0.3.0-r1: A frontend for Mupen64Plus
 games-emulation/mamory 0.2.25-r1: ROM management tools and library
 games-emulation/mastergear-bin 4.9-r1: SEGA Master System / Game Gear emulator
 games-emulation/mednafen 1.32.1: Argument-driven multi-system emulator utilizing OpenGL and SDL
-games-emulation/mednafen-jg 1.32.1-r1 1.32.1.1 9999: Jolly Good Port of Mednafen
+games-emulation/mednafen-jg 1.32.1.1 9999: Jolly Good Port of Mednafen
 games-emulation/mednaffe 0.9.3: Front-end (GUI) for mednafen emulator
 games-emulation/mekanix 070-r1: SG-1000, SC-3000, SF-7000, SSC, SMS, GG, COLECO, and OMV emulator
 games-emulation/melonds 1.0_rc 9999: Nintendo DS emulator, sorta
 games-emulation/melonds-jg 0.9.5 9999: Jolly Good Port of melonDS
 games-emulation/mgba 0.10.4 9999: Game Boy Advance Emulator
-games-emulation/mgba-jg 0.10.4 0.10.5 9999: Jolly Good Port of mGBA
+games-emulation/mgba-jg 0.10.5 9999: Jolly Good Port of mGBA
 games-emulation/mupen64plus 2.5.9 2.6.0: A fork of Mupen64 Nintendo 64 emulator, meta-package
 games-emulation/mupen64plus-audio-sdl 2.5.9 2.6.0: A fork of Mupen64 Nintendo 64 emulator, SDL audio plugin
 games-emulation/mupen64plus-core 2.5.9-r4 2.6.0: A fork of Mupen64 Nintendo 64 emulator, core library
@@ -11428,18 +11428,18 @@ games-emulation/mupen64plus-ui-console 2.5.9 2.6.0: A fork of Mupen64 Nintendo 6
 games-emulation/mupen64plus-video-glide64mk2 2.5.9-r2 2.6.0: A fork of Mupen64 Nintendo 64 emulator, glide64mk2 video plugin
 games-emulation/mupen64plus-video-rice 2.5.9-r2 2.6.0: A fork of Mupen64 Nintendo 64 emulator, rice video plugin
 games-emulation/nestopia 1.53.1: Portable Nintendo Entertainment System emulator written in C++
-games-emulation/nestopia-jg 1.53.0 1.53.1 9999: Jolly Good Fork of Nestopia
+games-emulation/nestopia-jg 1.53.1 9999: Jolly Good Fork of Nestopia
 games-emulation/openmsx 19.1 20.0: MSX emulator that aims for perfection
 games-emulation/pcsx2 2.2.0-r1 9999: PlayStation 2 emulator
 games-emulation/pcsx2_patches 0_p20241020 9999: Collection of game patches for use with PCSX2 (e.g. widescreen hacks)
 games-emulation/ppsspp 1.18.1-r2: A PSP emulator written in C++
-games-emulation/prosystem-jg 1.5.2 1.5.3 9999: Jolly Good Fork of ProSystem
-games-emulation/rmg 0.7.3 0.7.8 9999: Rosalie's Mupen GUI
-games-emulation/sameboy-jg 1.0.0 1.0.1 9999: Jolly Good Port of SameBoy
+games-emulation/prosystem-jg 1.5.3 9999: Jolly Good Fork of ProSystem
+games-emulation/rmg 0.7.8 0.7.9 9999: Rosalie's Mupen GUI
+games-emulation/sameboy-jg 1.0.1 9999: Jolly Good Port of SameBoy
 games-emulation/snes9x 1.62.3: Super Nintendo Entertainment System (SNES) emulator
 games-emulation/stella 7.0: Multi-platform Atari 2600 VCS Emulator
 games-emulation/vbam 2.1.11-r1 9999: Game Boy, GBC, and GBA emulator forked from VisualBoyAdvance
-games-emulation/vecx-jg 1.2.2 1.2.3 9999: Jolly Good Fork of vecx
+games-emulation/vecx-jg 1.2.3 9999: Jolly Good Fork of vecx
 games-emulation/vgba 4.8-r1: Gameboy Advance (GBA) emulator for Linux
 games-emulation/yabause 0.9.15: Sega Saturn emulator
 games-emulation/zinc 1.1-r1: An x86 binary-only emulator for Sony ZN-1, ZN-2, and Namco System 11 arcades
@@ -12583,7 +12583,7 @@ mail-filter/dkimproxy 1.4.1: An SMTP proxy server for adding DKIM headers
 mail-filter/exim-geoip 0.1-r1: This is an IPv4 and IPv6 capable GeoIP dlfunc library for Exim
 mail-filter/exim-p0f 0.1-r1: This is p0f version 3 dlfunc library for Exim
 mail-filter/gld 1.7-r4: Standalone anti-spam greylisting algorithm on top of Postfix
-mail-filter/imapfilter 2.8.2: An IMAP mail filtering utility
+mail-filter/imapfilter 2.8.2 2.8.3: An IMAP mail filtering utility
 mail-filter/libmilter 1.0.2_p3-r2 1.0.2_p3-r3 1.0.2_p4: The Sendmail Filter API (Milter)
 mail-filter/libopensmtpd 0.8: Library for creating OpenSMTPD filters
 mail-filter/libsieve 2.2.7: A library for parsing, sorting and filtering your mail
@@ -12951,7 +12951,7 @@ media-gfx/frogr 1.7-r1 1.8.1-r1: flickr applications for GNOME
 media-gfx/geeqie 2.4 2.5 9999: A lightweight GTK image viewer forked from GQview
 media-gfx/gif2png 2.5.14: Converts images from gif format to png format
 media-gfx/gifsicle 1.93 1.94 1.95: Create, manipulate, and optimize GIF images and animations
-media-gfx/gimp 2.10.38-r2 3.0.0-r1 3.0.2-r1 9999: GNU Image Manipulation Program
+media-gfx/gimp 2.10.38-r2 3.0.0-r1 3.0.2-r1 3.0.2-r2 3.0.4 9999: GNU Image Manipulation Program
 media-gfx/gimp-arrow-brushes 20190407: Brushes for GIMP with the styles arrow, handpointer, button arrow and cursor
 media-gfx/gnofract4d 4.3_p20240324 4.3_p20240821: A program for drawing beautiful mathematically-based images known as fractals
 media-gfx/gnome-font-viewer 46.0 47.0: Font viewer utility for GNOME
@@ -13136,7 +13136,7 @@ media-libs/aubio 0.4.9-r4 0.4.9-r5: Library for audio labelling
 media-libs/audiofile 0.3.6-r6: An elegant API for accessing audio files
 media-libs/avidemux-core 2.8.1-r1: Core libraries for simple video cutting, filtering and encoding tasks
 media-libs/avidemux-plugins 2.8.1-r2: Plugins for the video editor media-video/avidemux
-media-libs/babl 0.1.108 0.1.112 9999: A dynamic, any to any, pixel format conversion library
+media-libs/babl 0.1.108 0.1.112 0.1.114 9999: A dynamic, any to any, pixel format conversion library
 media-libs/bcg729 1.1.1 1.1.1-r1: Encoder and decoder of the ITU G729 Annex A/B speech codec
 media-libs/bio2jack 0.9-r2: Library for porting blocked I/O OSS/ALSA audio applications to JACK
 media-libs/blib 1.1.7-r3 1.1.7-r4: Library full of useful things to hack the Blinkenlights
@@ -13183,7 +13183,7 @@ media-libs/game-music-emu 0.6.3: Video game music file emulators
 media-libs/ganv 1.8.2: A GTK+ widget for interactive graph-like environments
 media-libs/gavl 1.4.0-r3: Library for handling uncompressed audio and video data
 media-libs/gd 2.3.2-r3 2.3.3-r3 2.3.3-r4: Graphics library for fast image creation
-media-libs/gegl 0.4.48 0.4.56 0.4.58 9999: A graph based image processing framework
+media-libs/gegl 0.4.48 0.4.56 0.4.58 0.4.62 9999: A graph based image processing framework
 media-libs/gexiv2 0.14.2 0.14.3: GObject-based wrapper around the Exiv2 library
 media-libs/giblib 1.2.4-r2: A graphics library built on top of imlib2
 media-libs/giflib 5.2.2: Library to handle, display and manipulate GIF images
@@ -13510,7 +13510,7 @@ media-libs/svt-av1 1.1.0 1.4.1 1.5.0-r1 2.1.2 9999: Scalable Video Technology fo
 media-libs/svt-hevc 1.5.1 1.5.1-r1 9999: Scalable Video Technology for HEVC (SVT-HEVC Encoder)
 media-libs/t1lib 5.1.2-r5: Type 1 Font Rasterizer Library for UNIX/X11
 media-libs/taglib 1.13.1 2.0.2: Library for reading and editing audio meta data
-media-libs/tg_owt 0_pre20241202: WebRTC build for Telegram
+media-libs/tg_owt 0_pre20241202 0_pre20250515: WebRTC build for Telegram
 media-libs/theoraplay 0_pre20180524-r1: Simple library to make decoding of Ogg Theora videos easier
 media-libs/tiff 4.5.1 4.6.0 4.6.0-r1 4.7.0 4.7.0-r1: Tag Image File Format (TIFF) library
 media-libs/tiff-compat 4.4.0-r1 4.4.0-r3: Tag Image File Format (TIFF) library (compat package for libtiff.so.5)
@@ -14609,7 +14609,7 @@ net-dialup/cutecom 0.60.0_rc1: A serial terminal, like minicom, written in Qt
 net-dialup/dial 1.2-r2: A simple client for DWUN
 net-dialup/dwun 0.96e-r6: Dialer Without a Useful Name (DWUN)
 net-dialup/freeradius 3.2.3 3.2.6: Highly configurable free RADIUS server
-net-dialup/freeradius-client 1.1.7-r3: FreeRADIUS Client framework
+net-dialup/freeradius-client 1.1.7-r3 1.1.8: FreeRADIUS Client framework
 net-dialup/isdn-firmware 2011.8.29.8.37: ISDN firmware for active ISDN cards (AVM, Eicon, etc.)
 net-dialup/kpnadsl4linux 1.11: ADSL4Linux, a PPTP start/stop/etc. program especially for Dutch users
 net-dialup/linux-atm 2.5.2-r1 2.5.2-r2: Tools for ATM
@@ -14643,7 +14643,7 @@ net-dns/djbdns 1.05-r40: Collection of DNS client/server software
 net-dns/dnrd 2.20.3-r3: A caching DNS proxy server
 net-dns/dnscap 1.10.3: Network capture utility designed specifically for DNS traffic
 net-dns/dnscrypt-proxy 2.1.5 2.1.7 2.1.8 9999: Flexible DNS proxy, with support for encrypted DNS protocols
-net-dns/dnsdist 1.9.9: A highly DNS-, DoS- and abuse-aware loadbalancer
+net-dns/dnsdist 1.9.9 1.9.10: A highly DNS-, DoS- and abuse-aware loadbalancer
 net-dns/dnsmasq 2.89-r1 2.90 2.90-r1 2.91: Small forwarding DNS server
 net-dns/dnssec-root 20210902: The DNSSEC root key(s)
 net-dns/dnssec-tools 2.2.3-r3: Tools to ease the deployment of DNSSEC related technologies
@@ -14690,7 +14690,7 @@ net-firewall/fwbuilder 6.0.0_rc1: A firewall management GUI for iptables, PF, Ci
 net-firewall/fwknop 2.6.11-r1: Single Packet Authorization and Port Knocking application
 net-firewall/ipkungfu 0.6.1-r2: A nice iptables firewall script
 net-firewall/ipset 7.23: IPset tool for iptables, successor to ippool
-net-firewall/ipt_netflow 2.6-r1 9999: Netflow iptables module
+net-firewall/ipt_netflow 2.6-r1 2.6_p20250317 9999: Netflow iptables module
 net-firewall/iptables 1.8.11 1.8.11-r1: Linux kernel (2.4+) firewall, NAT and packet mangling tools
 net-firewall/itval 1.2_p20121104-r1: Iptables policy testing and validation tool
 net-firewall/lutelwall 0.99-r1: IPTables firewall setup script
@@ -14777,7 +14777,7 @@ net-im/slack 4.43.52 4.44.59: Team collaboration tool
 net-im/spectrum2 2.2.1: An open source instant messaging transport
 net-im/swift 4.0.3-r2: An elegant, secure, adaptable and intuitive XMPP Client
 net-im/synapse 1.127.1 1.128.0 1.129.0 1.130.0: Reference implementation of Matrix homeserver
-net-im/telegram-desktop 5.12.3-r5 5.13.1-r2: Official desktop client for Telegram
+net-im/telegram-desktop 5.12.3-r5 5.13.1-r2 5.14.3: Official desktop client for Telegram
 net-im/telegram-desktop-bin 5.14.2 5.14.3: Official desktop client for Telegram (binary package)
 net-im/telepathy-logger 0.8.2-r1 0.8.2_p4: Daemon that centralizes the communication logging within the Telepathy framework
 net-im/telepathy-mission-control 5.16.6: An account manager and channel dispatcher for the Telepathy framework
@@ -14981,7 +14981,7 @@ net-libs/nghttp2 1.65.0-r2 9999: HTTP/2 C Library
 net-libs/nghttp3 1.8.0 1.8.0-r1 1.9.0 9999: HTTP/3 library written in C
 net-libs/ngtcp2 1.11.0 1.11.0-r1 1.12.0 9999: Implementation of the IETF QUIC Protocol
 net-libs/nodejs 20.18.2 20.18.3 20.19.0 20.19.1 22.13.1 22.14.0 22.15.0 99999999: A JavaScript runtime built on Chrome's V8 JavaScript engine
-net-libs/ntirpc 5.0 6.0.1: Transport Independent RPC library for nfs-ganesha
+net-libs/ntirpc 6.0.1: Transport Independent RPC library for nfs-ganesha
 net-libs/pacparser 1.4.3 1.4.5: Library to parse proxy auto-config files
 net-libs/paho-mqtt-c 1.3.13 1.3.14: An Eclipse Paho C client library for MQTT for Windows, Linux and MacOS.
 net-libs/phodav 3.0: WebDav server implementation using libsoup
@@ -15003,6 +15003,7 @@ net-libs/signond 8.61-r102: Signon daemon for libaccounts-glib
 net-libs/socket_wrapper 1.4.0 1.4.2: Library passing all socket communications through unix sockets
 net-libs/srt 1.5.1 1.5.3 1.5.4: Secure Reliable Transport (SRT) library and tools
 net-libs/stem 1.8.2: Stem is a Python controller library for Tor
+net-libs/tdlib 1.8.49_p20250510: Cross-platform library for building Telegram clients
 net-libs/telepathy-glib 0.24.2-r1: GLib bindings for the Telepathy D-Bus protocol
 net-libs/tox 0.2.19 0.2.20 9999: Encrypted P2P, messaging, and audio/video calling platform
 net-libs/tox_extension_messages 0.0.3: Tox Extension Messages
@@ -15014,7 +15015,7 @@ net-libs/wandio 4.2.3_p1-r1 4.2.3_p1-r2 4.2.4 4.2.6: C library for simple and ef
 net-libs/webkit-gtk 2.44.4 2.44.4-r410 2.44.4-r600 2.46.5 2.46.5-r410 2.46.5-r600: Open source web browser engine
 net-libs/wslay 1.1.1_p20210115: WebSocket library in C
 net-libs/wvstreams 4.6.1_p14-r2: A network programming library in C++
-net-libs/xdp-tools 1.4.3 1.5.0 1.5.3: The libxdp library and various tools for use with XDP
+net-libs/xdp-tools 1.5.3 1.5.4: The libxdp library and various tools for use with XDP
 net-libs/xrootd 5.8.0 5.8.1 5.8.2 9999: Extended ROOT remote file server
 net-libs/zeromq 4.3.5-r1: High-performance asynchronous messaging library
 net-libs/zmqpp 4.2.0-r1: ZeroMQ 'highlevel' C++ bindings
@@ -15113,7 +15114,7 @@ net-misc/aria2 1.37.0: A download utility with segmented downloading with BitTor
 net-misc/arpsponge 3.17.11-r1: Sweeps up stray ARP queries from a peering LAN
 net-misc/asahi-btsync 0.2.0-r1: Bluetooth pairing data handoff from macOS for Apple Silicon Macs
 net-misc/asahi-wifisync 0.2.0-r1: WiFi network handoff from macOS for Apple Silicon Macs
-net-misc/asterisk 18.25.0-r1 18.26.1 20.11.1 20.12.0 21.6.1 21.7.0 22.1.1 22.2.0: Asterisk: A Modular Open Source PBX System
+net-misc/asterisk 18.26.1-r1 20.12.0 20.13.0 21.7.0 21.8.0 22.2.0 22.3.0: Asterisk: A Modular Open Source PBX System
 net-misc/asterisk-base 1 2 3: Gentoo Asterisk init scripts
 net-misc/asterisk-core-sounds 1.6.1-r1: Core sounds for asterisk
 net-misc/asterisk-extra-sounds 1.5.2: Extra sounds for asterisk
@@ -17699,7 +17700,7 @@ sys-libs/libmodulemd 2.15.0-r1 9999: C Library for manipulating Fedora Modularit
 sys-libs/libnbd 1.18.1-r3: NBD client library in userspace
 sys-libs/libnvidia-container 1.17.2 1.17.3 1.17.4 1.17.5 1.17.6 9999: NVIDIA container runtime library
 sys-libs/libnvme 1.11.1-r1 1.12-r1 1.13-r1: C Library for NVM Express on Linux
-sys-libs/libosinfo 1.11.0 1.12.0: GObject library for managing information about real and virtual OSes
+sys-libs/libosinfo 1.11.0-r1 1.12.0-r1: GObject library for managing information about real and virtual OSes
 sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 1394 bus
 sys-libs/librtas 2.0.2-r2 2.0.3: A set of libraries for userspace access to RTAS on the PowerPC platform(s)
 sys-libs/libseccomp 2.5.5-r2 2.6.0 2.6.0-r2 9999: High level interface to Linux seccomp filter

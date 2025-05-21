@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-text/ronn-ng ) test? ( dev-libs/glib ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/boost:= dev-libs/libfmt:= dev-cpp/expected-lite
+DESCRIPTION=GObject-Introspection C++ binding wrapper generator
+EAPI=8
+HOMEPAGE=https://gitlab.com/mnauw/cppgir
+INHERIT=cmake flag-o-matic
+IUSE=doc test
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv
+LICENSE=MIT
+RDEPEND=dev-libs/boost:= dev-libs/libfmt:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.com/mnauw/cppgir/-/archive/2f8680bb8278b0940c7d2347213fed5bcc098923/cppgir-2f8680bb8278b0940c7d2347213fed5bcc098923.tar.bz2 -> cppgir-2.0_p20250508.tar.bz2
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=3784c4250fae21ebf52dd8703d1ba318
