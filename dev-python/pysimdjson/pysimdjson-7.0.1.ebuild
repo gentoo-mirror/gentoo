@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1
 
@@ -34,27 +34,18 @@ BDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
 "
 
-PATCHES=(
-	"${FILESDIR}/pysimdjson-6.0.2-system-lib.patch"
-)
-
 distutils_enable_tests pytest
 
 src_prepare() {
-	# force regen
-	rm simdjson/csimdjson.cpp || die
 	# unbundle
+	local PATCHES=(
+		"${FILESDIR}/pysimdjson-7.0.0-system-lib.patch"
+	)
+
 	rm simdjson/simdjson.cpp || die
 	echo "#include_next <simdjson.h>" > simdjson/simdjson.h || die
 
-	# regressions (new simdjson version?)
-	rm jsonexamples/test_parsing/i_number_very_big_negative_int.json || die
-	rm jsonexamples/test_parsing/i_number_too_big_pos_int.json || die
-	rm jsonexamples/test_parsing/i_number_too_big_neg_int.json || die
-
 	distutils-r1_src_prepare
-
-	export BUILD_WITH_CYTHON=1
 }
 
 python_test() {
