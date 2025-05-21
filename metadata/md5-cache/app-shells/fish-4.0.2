@@ -1,0 +1,15 @@
+BDEPEND=nls? ( sys-devel/gettext ) || ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
+DESCRIPTION=Friendly Interactive SHell
+EAPI=8
+HOMEPAGE=https://fishshell.com/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cargo cmake readme.gentoo-r1 xdg
+IUSE=+doc nls test debug
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+LICENSE=GPL-2 BSD BSD-2 CC0-1.0 GPL-2+ ISC LGPL-2+ MIT PSF-2 ZLIB MIT Unicode-DFS-2016 WTFPL-2 ZLIB
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/fish-shell/fish-shell/releases/download/4.0.2/fish-4.0.2.tar.xz https://github.com/gentoo-crate-dist/fish-shell/releases/download/4.0.2/fish-shell-4.0.2-crates.tar.xz https://github.com/fish-shell/rust-pcre2/archive/85b7afba1a9d9bd445779800e5bcafeb732e4421.tar.gz -> rust-pcre2-85b7afba1a9d9bd445779800e5bcafeb732e4421.gh.tar.gz https://github.com/fish-shell/rust-pcre2/archive/85b7afba1a9d9bd445779800e5bcafeb732e4421.tar.gz -> rust-pcre2-85b7afba1a9d9bd445779800e5bcafeb732e4421.gh.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	3b042096236a464b8bd9dd7a1120ad23	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=cd44953e6fafa042cc1c9dcfa5dd0a47
