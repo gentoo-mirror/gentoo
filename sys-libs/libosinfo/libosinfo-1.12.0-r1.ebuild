@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,18 +11,17 @@ SRC_URI="https://releases.pagure.org/libosinfo/${P}.tar.xz"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 IUSE="gtk-doc +introspection +vala test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="vala? ( introspection )"
 
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ppc64 ~riscv ~sparc x86"
-
 # Unsure about osinfo-db-tools rdep, but at least fedora does it too
 RDEPEND="
 	>=dev-libs/glib-2.44:2
 	net-libs/libsoup:3.0
-	>=dev-libs/libxml2-2.6.0
+	>=dev-libs/libxml2-2.6.0:=
 	>=dev-libs/libxslt-1.0.0
 	sys-apps/hwdata
 	sys-apps/osinfo-db-tools
@@ -44,7 +43,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PV}-osinfo-Make-xmlError-struct-constant-in-propagate_li.patch
+	"${FILESDIR}"/libosinfo-1.12.0-libxml2-2.14.patch
 )
 
 src_prepare() {
