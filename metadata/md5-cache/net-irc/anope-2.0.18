@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gettext app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=acct-group/anope acct-user/anope mysql? ( dev-db/mysql-connector-c:= ) ssl? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= dev-libs/libgcrypt:= ) ldap? ( net-nds/openldap:= ) pcre? ( dev-libs/libpcre2 ) sqlite? ( dev-db/sqlite:3 ) tre? ( dev-libs/tre ) virtual/libintl
+DESCRIPTION=Anope IRC Services
+EAPI=8
+HOMEPAGE=https://www.anope.org/ https://github.com/anope/anope/
+INHERIT=cmake eapi9-ver
+IUSE=gnutls ldap mysql pcre sql sqlite ssl tre
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-2
+RDEPEND=acct-group/anope acct-user/anope mysql? ( dev-db/mysql-connector-c:= ) ssl? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= dev-libs/libgcrypt:= ) ldap? ( net-nds/openldap:= ) pcre? ( dev-libs/libpcre2 ) sqlite? ( dev-db/sqlite:3 ) tre? ( dev-libs/tre ) virtual/libintl
+REQUIRED_USE=sql? ( || ( mysql sqlite ) )
+SLOT=0
+SRC_URI=https://github.com/anope/anope/archive/2.0.18.tar.gz -> anope-2.0.18.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0
+_md5_=914d5b54786e97f1043894050c4530b4
