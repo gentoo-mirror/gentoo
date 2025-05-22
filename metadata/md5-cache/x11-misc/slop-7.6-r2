@@ -1,0 +1,15 @@
+BDEPEND=x11-libs/libX11 x11-libs/libXext icu? ( dev-libs/icu:= ) opengl? ( media-libs/glew:0= media-libs/libglvnd virtual/opengl x11-libs/libXrender:= ) x11-base/xorg-proto app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=x11-libs/libX11 x11-libs/libXext icu? ( dev-libs/icu:= ) opengl? ( media-libs/glew:0= media-libs/libglvnd virtual/opengl x11-libs/libXrender:= ) media-libs/glm
+DESCRIPTION=Application that queries the user for a selection for printing
+EAPI=8
+HOMEPAGE=https://github.com/naelstrof/slop
+INHERIT=cmake
+IUSE=icu opengl
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=x11-libs/libX11 x11-libs/libXext icu? ( dev-libs/icu:= ) opengl? ( media-libs/glew:0= media-libs/libglvnd virtual/opengl x11-libs/libXrender:= )
+SLOT=0/7.6
+SRC_URI=https://github.com/naelstrof/slop/archive/v7.6.tar.gz -> slop-7.6.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=afdb52bb9bf33c3c4c768a3447dffd5d
