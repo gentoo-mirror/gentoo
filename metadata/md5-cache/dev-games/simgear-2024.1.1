@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=app-arch/xz-utils dev-libs/expat dev-games/openscenegraph media-libs/openal net-libs/udns net-misc/curl sys-libs/zlib virtual/opengl ffmpeg? ( media-video/ffmpeg:0 ) gdal? ( sci-libs/gdal:= ) dev-libs/boost
+DESCRIPTION=Development library for simulation games
+EAPI=8
+HOMEPAGE=https://www.flightgear.org/
+INHERIT=cmake
+IUSE=cpu_flags_x86_sse2 debug ffmpeg gdal subversion test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=app-arch/xz-utils dev-libs/expat dev-games/openscenegraph media-libs/openal net-libs/udns net-misc/curl sys-libs/zlib virtual/opengl ffmpeg? ( media-video/ffmpeg:0 ) gdal? ( sci-libs/gdal:= ) subversion? ( dev-vcs/subversion )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.com/flightgear/fgmeta/-/jobs/9264813015/artifacts/raw/sgbuild/simgear-2024.1.1.tar.bz2
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=47b27dd7209158bcfd37da9c2d6e2f4c

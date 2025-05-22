@@ -1,0 +1,16 @@
+BDEPEND=qt6? ( dev-qt/qttools:6 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-db/sqlite:3 >=dev-games/openscenegraph-3.6.0[jpeg,png] ~dev-games/simgear-2024.1.1[gdal=] media-libs/openal >=media-libs/plib-1.8.5 >=media-libs/speex-1.2.0:0 media-libs/speexdsp:0 media-sound/gsm sys-libs/zlib virtual/glu x11-libs/libX11 dbus? ( >=sys-apps/dbus-1.6.18-r1 ) gdal? ( >=sci-libs/gdal-2.0.0:= ) qt6? ( dev-qt/qtbase:6[gui,network,widgets] dev-qt/qtdeclarative:6 ) udev? ( virtual/udev ) utils? ( media-libs/freeglut media-libs/freetype:2 media-libs/glew:0 media-libs/libpng:0 virtual/opengl qt6? ( dev-qt/qtwebsockets:6 ) ) dev-libs/boost x11-base/xorg-proto utils? ( x11-libs/libXi x11-libs/libXmu )
+DESCRIPTION=Open Source Flight Simulator
+EAPI=8
+HOMEPAGE=https://www.flightgear.org/
+INHERIT=cmake flag-o-matic
+IUSE=cpu_flags_x86_sse2 dbus debug examples gdal qt6 +udev +utils
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-db/sqlite:3 >=dev-games/openscenegraph-3.6.0[jpeg,png] ~dev-games/simgear-2024.1.1[gdal=] media-libs/openal >=media-libs/plib-1.8.5 >=media-libs/speex-1.2.0:0 media-libs/speexdsp:0 media-sound/gsm sys-libs/zlib virtual/glu x11-libs/libX11 dbus? ( >=sys-apps/dbus-1.6.18-r1 ) gdal? ( >=sci-libs/gdal-2.0.0:= ) qt6? ( dev-qt/qtbase:6[gui,network,widgets] dev-qt/qtdeclarative:6 ) udev? ( virtual/udev ) utils? ( media-libs/freeglut media-libs/freetype:2 media-libs/glew:0 media-libs/libpng:0 virtual/opengl qt6? ( dev-qt/qtwebsockets:6 ) ) ~games-simulation/flightgear-data-2024.1.1
+RESTRICT=test
+SLOT=0
+SRC_URI=https://gitlab.com/flightgear/fgmeta/-/jobs/9264813015/artifacts/raw/fgbuild/flightgear-2024.1.1.tar.bz2
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=a217c218585adb466d66b4567d195fd7
