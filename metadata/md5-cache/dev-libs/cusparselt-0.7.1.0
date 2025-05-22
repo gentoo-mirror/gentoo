@@ -1,11 +1,10 @@
-DEFINED_PHASES=compile configure install prepare
+DEFINED_PHASES=compile configure install prepare setup
 DESCRIPTION=A High-Performance CUDA Library for Sparse Matrix-Matrix Multiplication
 EAPI=8
 HOMEPAGE=https://docs.nvidia.com/cuda/cusparselt/index.html
 KEYWORDS=~amd64 ~arm64 ~amd64-linux ~arm64-linux
-LICENSE=NVIDIA-SDK
-RDEPEND=dev-util/nvidia-cuda-toolkit
+LICENSE=NVIDIA-SDK-v2020.10.12 NVIDIA-cuSPARSELt-v2020.10.12
 RESTRICT=bindist mirror test
 SLOT=0
 SRC_URI=amd64? ( https://developer.download.nvidia.com/compute/cusparselt/redist/libcusparse_lt/linux-x86_64/libcusparse_lt-linux-x86_64-0.7.1.0-archive.tar.xz ) arm64? ( https://developer.download.nvidia.com/compute/cusparselt/redist/libcusparse_lt/linux-sbsa/libcusparse_lt-linux-sbsa-0.7.1.0-archive.tar.xz )
-_md5_=11a6dcc0795690e09c4d8705d2dd3a1e
+_md5_=8466e13295658b42f85fc71b3d15016d
