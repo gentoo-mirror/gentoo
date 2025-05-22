@@ -22,10 +22,10 @@ EAPI=8
 # new "Distro tarballs" and include binaries (etc) that are not useful for
 # downstream consumers (like distributions).
 
-GN_MIN_VER=0.2235
+GN_MIN_VER=0.2217
 # chromium-tools/get-chromium-toolchain-strings.py
 TEST_FONT=f26f29c9d3bfae588207bbc9762de8d142e58935c62a86f67332819b15203b35
-BUNDLED_CLANG_VER=llvmorg-21-init-9266-g09006611-2
+BUNDLED_CLANG_VER=llvmorg-21-init-9266-g09006611-1
 BUNDLED_RUST_VER=c8f94230282a8e8c1148f3e657f0199aad909228-1
 RUST_SHORT_HASH=${BUNDLED_RUST_VER:0:10}-${BUNDLED_RUST_VER##*-}
 NODE_VER=22.11.0
@@ -75,7 +75,7 @@ LICENSE+=" FFT2D FTL IJG ISC LGPL-2 LGPL-2.1 libpng libpng2 MIT MPL-1.1 MPL-2.0 
 LICENSE+=" SGI-B-2.0 SSLeay SunSoft Unicode-3.0 Unicode-DFS-2015 Unlicense UoI-NCSA X11-Lucent"
 LICENSE+=" rar? ( unRAR )"
 
-SLOT="0/dev"
+SLOT="0/stable"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
 if [[ ${SLOT} != "0/dev" ]]; then
@@ -420,9 +420,9 @@ src_prepare() {
 		"${FILESDIR}/chromium-134-bindgen-custom-toolchain.patch"
 		"${FILESDIR}/chromium-135-oauth2-client-switches.patch"
 		"${FILESDIR}/chromium-135-map_droppable-glibc.patch"
+		"${FILESDIR}/chromium-136-drop-nodejs-ver-check.patch"
 		"${FILESDIR}/chromium-137-openh264-include-path.patch"
 		"${FILESDIR}/chromium-137-pdfium-system-libpng.patch"
-		"${FILESDIR}/chromium-138-nodejs-version-check.patch"
 	)
 
 	if use bundled-toolchain; then
@@ -616,8 +616,8 @@ src_prepare() {
 		third_party/devtools-frontend/src/front_end/third_party/wasmparser
 		third_party/devtools-frontend/src/front_end/third_party/web-vitals
 		third_party/devtools-frontend/src/third_party
+		third_party/distributed_point_functions
 		third_party/dom_distiller_js
-		third_party/dragonbox
 		third_party/eigen3
 		third_party/emoji-segmenter
 		third_party/farmhash
@@ -780,6 +780,7 @@ src_prepare() {
 		third_party/webrtc/modules/third_party/fft
 		third_party/webrtc/modules/third_party/g711
 		third_party/webrtc/modules/third_party/g722
+		third_party/webrtc/rtc_base/third_party/base64
 		third_party/webrtc/rtc_base/third_party/sigslot
 		third_party/widevine
 		third_party/woff2
