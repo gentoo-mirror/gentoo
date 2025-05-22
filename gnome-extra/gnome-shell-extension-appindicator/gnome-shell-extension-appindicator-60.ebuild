@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ SRC_URI="https://github.com/ubuntu/gnome-shell-extension-appindicator/archive/v$
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
 RDEPEND="
 	app-eselect/eselect-gnome-shell-extensions
@@ -20,11 +20,11 @@ BDEPEND="
 	app-misc/jq
 "
 
-src_prepare() {
-	default
+#src_prepare() {
+#	default
 	# https://github.com/ubuntu/gnome-shell-extension-appindicator/issues/419
-	eapply -R "${FILESDIR}/${PN}-53-41a8e9c.patch"
-}
+#	eapply -R "${FILESDIR}/${PN}-53-41a8e9c.patch"
+#}
 
 src_install() {
 	meson_src_install
