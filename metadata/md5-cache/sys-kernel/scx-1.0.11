@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/sched-ext/scx
 INHERIT=llvm-r1 linux-info cargo rust-toolchain toolchain-funcs meson
 IUSE=systemd +llvm_slot_19 llvm_slot_16 llvm_slot_17 llvm_slot_18 debug
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-2 Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0 ZLIB
 RDEPEND=virtual/libelf:= sys-libs/zlib:= >=dev-libs/libbpf-1.5:=
 REQUIRED_USE=^^ ( llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 )
 SLOT=0
 SRC_URI=https://github.com/sched-ext/scx/archive/refs/tags/v1.0.11.tar.gz -> scx-1.0.11.tar.gz https://github.com/gentoo-crate-dist/scx/releases/download/v1.0.11/scx-1.0.11-crates.tar.xz
 _eclasses_=llvm-utils	846280a994c1843d9c21248c188bd147	llvm-r1	0bd586d3786517cd63802a520b404dda	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	3b042096236a464b8bd9dd7a1120ad23	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=2b81ec4a48fa8bb508288998f40682c7
+_md5_=b09b0a5aa25a38a29f1a7b76976b129f
