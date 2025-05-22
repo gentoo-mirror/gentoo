@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=test? ( dev-cpp/gtest )
+DESCRIPTION=Polygon Clipping and Offsetting
+EAPI=8
+HOMEPAGE=https://www.angusj.com/clipper2/Docs/Overview.htm
+INHERIT=cmake flag-o-matic
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=Boost-1.0
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/AngusJohnson/Clipper2/archive/refs/tags/Clipper2_1.5.3.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
+_md5_=dde64709092f7b9fac0367ec6e7cc03b
