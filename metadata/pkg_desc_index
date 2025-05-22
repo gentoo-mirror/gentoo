@@ -1815,7 +1815,7 @@ app-editors/kakoune 2022.10.31 2023.08.05 2024.05.18: Modal editor inspired by v
 app-editors/kile 2.9.94: Latex Editor and TeX shell based on KDE Frameworks
 app-editors/leafpad 0.8.18.1-r1: Simple GTK2 text editor
 app-editors/levee 4.0: Really tiny vi clone, for things like rescue disks
-app-editors/logseq-desktop-bin 0.10.8 0.10.9-r1: A privacy-first, open-source platform for knowledge sharing and management.
+app-editors/logseq-desktop-bin 0.10.8 0.10.9-r1 0.10.11: A privacy-first, open-source platform for knowledge sharing and management.
 app-editors/lpe 1.2.8_p20210401: A lightweight programmers editor
 app-editors/mg 20220614 20230501: MicroGnuEmacs, a port from the BSDs
 app-editors/micro 2.0.13-r1: Modern and intuitive terminal-based text editor
@@ -1942,7 +1942,7 @@ app-emacs/ctable 0.1.3: Table Component for Emacs Lisp
 app-emacs/cycle-buffer 2.16-r1: Select buffer by cycling through
 app-emacs/d-mode 2.0.12: Emacs major mode for editing D code
 app-emacs/dap-mode 0.8: Debug Adapter Protocol mode
-app-emacs/dape 0.23.0 0.24.0: Debug Adapter Protocol for Emacs
+app-emacs/dape 0.23.0 0.24.0 0.24.1: Debug Adapter Protocol for Emacs
 app-emacs/dash 2.19.1 2.20.0: A modern list library for Emacs
 app-emacs/dashboard 1.8.0 9999: Extensible Emacs dashboard, with sections like bookmarks, agenda and more
 app-emacs/ddskk 17.1-r1: One Japanese input methods on Emacs
@@ -3161,7 +3161,7 @@ app-text/bact 0.13-r2: Boosting Algorithm for Classification of Trees
 app-text/barcode 0.99-r1: barcode generator
 app-text/bdf2psf 1.230: Converter to generate console fonts from BDF source fonts
 app-text/bibclean 3.06: BibTeX bibliography prettyprinter and syntax checker
-app-text/bibletime 3.1.0 3.1.1: Qt Bible-study application using the SWORD library
+app-text/bibletime 3.1.1: Qt Bible-study application using the SWORD library
 app-text/bibutils 7.1: Interconverts between various bibliography formats using common XML intermediate
 app-text/binfind 0.0.3: Search files for a byte sequence specified on the command line
 app-text/blahtexml 1.0: TeX-to-MathML converter
@@ -5886,7 +5886,7 @@ dev-lua/basexx 0.4.1: A base2, base16, base32, base64 and base85 library for Lua
 dev-lua/binaryheap 0.4: Binary heap implementation in pure Lua
 dev-lua/busted 2.2.0: Elegant Lua unit testing
 dev-lua/busted-htest 1.0.0-r1: Pretty output handler for Busted
-dev-lua/compat53 0.14.3 0.14.4: Compatibility module providing Lua-5.3-style APIs for Lua 5.2 and 5.1
+dev-lua/compat53 0.14.4: Compatibility module providing Lua-5.3-style APIs for Lua 5.2 and 5.1
 dev-lua/cqueues 20200726_p20241204: Stackable Continuation Queues
 dev-lua/dkjson 2.8: David Kolf's JSON module for Lua
 dev-lua/fifo 0.2: Fifo library for Lua
@@ -12081,7 +12081,7 @@ gui-libs/egl-x11 1.0.1 1.0.2_pre20250502: NVIDIA X11/XCB EGL external platform l
 gui-libs/eglexternalplatform 1.2.1: EGL External Platform interface
 gui-libs/gdk-pixbuf-loader-webp 0.2.4 0.2.7: WebP GDK Pixbuf Loader library
 gui-libs/greetd 0.10.0-r1 0.10.3-r1: ipc based login daemon
-gui-libs/gtk 4.14.4-r1 4.16.12-r1 4.16.13: GTK is a multi-platform toolkit for creating graphical user interfaces
+gui-libs/gtk 4.14.4-r1 4.16.12-r1 4.16.13 4.18.5: GTK is a multi-platform toolkit for creating graphical user interfaces
 gui-libs/gtk-layer-shell 0.9.1 0.9.2: Library to create desktop components for Wayland using the Layer Shell protocol
 gui-libs/gtksourceview 5.12.1-r1 5.14.2: A text widget implementing syntax highlighting and other features
 gui-libs/hyprcursor 0.1.10-r1 0.1.11 0.1.12 9999: The hyprland cursor format, library and utilities
@@ -14661,8 +14661,8 @@ net-dns/hash-slinger 3.4: Various tools to generate DNS records like SSHFP, TLSA
 net-dns/https_dns_proxy 0_pre20200925 9999: A lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3-r2: Toolkit for Internationalized Domain Names (IDN)
 net-dns/inadyn 2.12.0-r2: Dynamic DNS client with multiple SSL/TLS library support
-net-dns/knot 3.4.4 3.4.5 3.4.6: High-performance authoritative-only DNS server
-net-dns/knot-resolver 5.7.4-r1 5.7.5 6.0.12: A scaleable caching DNS resolver
+net-dns/knot 3.4.4 3.4.6: High-performance authoritative-only DNS server
+net-dns/knot-resolver 5.7.5 6.0.12: A scaleable caching DNS resolver
 net-dns/libidn 1.42 1.43: Internationalized Domain Names (IDN) implementation
 net-dns/libidn2 2.3.7 2.3.8: An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892, 5893)
 net-dns/maradns 3.5.0036: A security-aware DNS server
@@ -18375,7 +18375,7 @@ x11-libs/libxklavier 5.4-r1: A library for the X Keyboard Extension (high-level 
 x11-libs/libxshmfence 1.3.3: Shared memory fences using futexes
 x11-libs/motif 2.3.8-r6: The Motif user interface component toolkit
 x11-libs/neXtaw 0.15.1-r5: Athena Widgets with N*XTSTEP appearance
-x11-libs/pango 1.52.2 1.54.0: Internationalized text layout and rendering library
+x11-libs/pango 1.52.2 1.54.0 1.56.3: Internationalized text layout and rendering library
 x11-libs/pixman 0.44.2 0.46.0 9999: Low-level pixel manipulation routines
 x11-libs/qscintilla 2.14.1-r1: Qt port of Neil Hodgson's Scintilla C++ editor control
 x11-libs/qtermwidget 2.0.1 2.1.0 2.2.0 9999: Qt terminal emulator widget
@@ -18854,7 +18854,7 @@ x11-terms/rxvt-unicode 9.31-r3: rxvt clone with xft and unicode support
 x11-terms/sakura 3.8.7: GTK/VTE based terminal emulator
 x11-terms/st 0.9 0.9.2 9999: Simple terminal implementation for X
 x11-terms/st-terminfo 0.9 0.9.2 9999: Terminfo for x11-terms/st
-x11-terms/terminator 2.1.4: Multiple GNOME terminals in one window
+x11-terms/terminator 2.1.4 2.1.5: Multiple GNOME terminals in one window
 x11-terms/terminology 1.13.0 1.14.0: Feature rich terminal emulator using the Enlightenment Foundation Libraries
 x11-terms/tilda 1.5.4 2.0.0: A drop down terminal, similar to the consoles found in first person shooters
 x11-terms/wezterm 20240203.110809-r2: A GPU-accelerated cross-platform terminal emulator and multiplexer
