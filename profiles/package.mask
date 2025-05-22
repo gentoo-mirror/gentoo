@@ -36,6 +36,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-22)
+# Package destabilisation mask. 0.4.4_p20250125 is in ~arch but as snapshot
+# with currently no Gentoo maintainer it will not be stabilised.
+# 0.4.4 release was more than 3 years old already. Bug #955653
+~media-video/simplescreenrecorder-0.4.4
+
 # Matt Turner <mattst88@gentoo.org> (2025-05-22)
 # Old slot depending on libsoup:2.4. All reverse dependencies migrated to a
 # newer slot supporting libsoup:3.0.
@@ -106,12 +112,6 @@ www-misc/htdig
 # gui-apps/input-leap - see also bugs #953262, #907118
 # Removal on 2025-06-12.
 x11-misc/synergy
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-13)
-# Package destabilisation mask. 1.5.1.2_p20241029 is in ~arch but as snapshot
-# with currently no Gentoo maintainer it will not be stabilised.
-# 5.1.2 release was more than 6 years old already. Bug #953259
-~x11-misc/qlipper-5.1.2
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-05-13)
 # No more revdeps, depends on Qt5. Bug #955654; removal on 2025-06-12.

@@ -3,19 +3,20 @@
 
 EAPI=8
 
-PKGNAME="ssr"
-inherit cmake-multilib ffmpeg-compat flag-o-matic xdg
+MY_PN="ssr"
+inherit cmake-multilib flag-o-matic xdg
 
-DESCRIPTION="A Simple Screen Recorder"
+DESCRIPTION="Simple Screen Recorder"
 HOMEPAGE="https://www.maartenbaert.be/simplescreenrecorder/"
-if [[ ${PV} = 9999 ]] ; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/MaartenBaert/${PKGNAME}.git"
+if [[ ${PV} == *9999* ]]; then
+	EGIT_REPO_URI="https://github.com/MaartenBaert/${MY_PN}.git"
 	EGIT_BOOTSTRAP=""
+	inherit git-r3
 else
-	SRC_URI="https://github.com/MaartenBaert/${PKGNAME}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 x86"
-	S="${WORKDIR}/${PKGNAME}-${PV}"
+	COMMIT="c50e83eea53f45eff503af58e6c86d0e928222f3"
+	SRC_URI="https://github.com/MaartenBaert/${MY_PN}/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
+	S="${WORKDIR}/${MY_PN}-${COMMIT}"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3"
@@ -25,12 +26,9 @@ IUSE="+asm jack mp3 opengl pulseaudio theora v4l vorbis vpx x264"
 REQUIRED_USE="abi_x86_32? ( opengl )"
 
 RDEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
+	dev-qt/qtbase:6[gui,widgets]
 	media-libs/alsa-lib:0=
-	media-video/ffmpeg-compat:6=[vorbis?,vpx?,x264?,theora?]
+	media-video/ffmpeg:=[theora?,vorbis?,vpx?,x264?]
 	x11-libs/libX11[${MULTILIB_USEDEP}]
 	x11-libs/libXext
 	x11-libs/libXfixes[${MULTILIB_USEDEP}]
@@ -38,15 +36,15 @@ RDEPEND="
 	x11-libs/libXinerama
 	virtual/glu[${MULTILIB_USEDEP}]
 	jack? ( virtual/jack )
-	mp3? ( media-video/ffmpeg-compat:6[lame(-)] )
+	mp3? ( media-video/ffmpeg[lame(-)] )
 	opengl? ( media-libs/libglvnd[${MULTILIB_USEDEP},X] )
 	pulseaudio? ( media-libs/libpulse )
 	v4l? ( media-libs/libv4l )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="dev-qt/linguist-tools:5"
+BDEPEND="dev-qt/qttools:6[linguist]"
 
-PATCHES=( "${FILESDIR}"/${P}-ffmpeg5.patch )
+PATCHES=( "${FILESDIR}"/${P}-cmake4.patch )
 
 pkg_pretend() {
 	if use amd64 && ! use abi_x86_32 ; then
@@ -85,14 +83,9 @@ multilib_src_configure() {
 	)
 
 	if multilib_is_native_abi ; then
-		# TODO: fix with >=ffmpeg-7 then drop compat (bug #948390)
-		ffmpeg_compat_setup 6
-		local -x CPPFLAGS=${CPPFLAGS} LDFLAGS=${LDFLAGS} # multilib preserve
-		ffmpeg_compat_add_flags
-
 		mycmakeargs+=(
 			-DENABLE_32BIT_GLINJECT="false"
-			-DWITH_QT5="true"
+			-DWITH_QT6=ON
 		)
 	else
 		mycmakeargs+=(
