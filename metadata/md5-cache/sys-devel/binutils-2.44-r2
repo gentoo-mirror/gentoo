@@ -1,0 +1,15 @@
+BDEPEND=doc? ( sys-apps/texinfo ) pgo? ( dev-util/dejagnu app-alternatives/bc ) test? ( dev-util/dejagnu app-alternatives/bc ) nls? ( sys-devel/gettext ) zstd? ( virtual/pkgconfig ) app-alternatives/lex app-alternatives/yacc >=app-portage/elt-patches-20250306 sys-devel/gnuconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
+DEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib debuginfod? ( dev-libs/elfutils[debuginfod(-)] ) zstd? ( app-arch/zstd:= ) xxhash? ( dev-libs/xxhash )
+DESCRIPTION=Tools necessary to build programs
+EAPI=8
+HOMEPAGE=https://sourceware.org/binutils/
+INHERIT=dot-a libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
+IUSE=cet debuginfod doc gprofng hardened multitarget +nls pgo +plugins static-libs test vanilla xxhash zstd
+LICENSE=GPL-3+
+RDEPEND=>=sys-devel/binutils-config-3 sys-libs/zlib debuginfod? ( dev-libs/elfutils[debuginfod(-)] ) zstd? ( app-arch/zstd:= )
+RESTRICT=!test? ( test )
+SLOT=2.44
+SRC_URI=mirror://gnu/binutils/binutils-2.44.tar.xz https://sourceware.org/pub/binutils/releases/binutils-2.44.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.44.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.44-patches-4.tar.xz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	dot-a	3ecbad0eb02f9cec7e76849b053ac3c5	libtool	c81bd096be5f4c82f4e8f156ef112402	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	strip-linguas	9d8d529d8082ec56dd495636df194d64
+_md5_=b7fcc122f57bf052fe2a685e4a2f6d3e
