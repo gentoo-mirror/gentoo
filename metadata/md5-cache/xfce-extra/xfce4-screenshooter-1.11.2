@@ -1,0 +1,16 @@
+BDEPEND=dev-util/glib-utils sys-apps/help2man sys-devel/gettext virtual/pkgconfig wayland? ( >=dev-util/wayland-scanner-1.20 ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm test
+DEPEND=>=dev-libs/glib-2.66.0 >=x11-libs/gtk+-3.24.0:3[X?,wayland?] >=x11-libs/pango-1.44.0 >=xfce-base/exo-4.18.0:= >=xfce-base/xfce4-panel-4.18.0:= >=xfce-base/libxfce4util-4.18.0:= >=xfce-base/libxfce4ui-4.18.0:= >=xfce-base/xfconf-4.18.0:= wayland? ( >=dev-libs/wayland-1.20 ) X? ( >=x11-libs/libX11-1.6.7 >=x11-libs/libXext-1.0.0 >=x11-libs/libXfixes-4.0.0 >=x11-libs/libXi-1.7.8 x11-libs/libXtst ) wayland? ( >=dev-libs/wayland-protocols-1.25 )
+DESCRIPTION=Xfce4 screenshooter application and panel plugin
+EAPI=8
+HOMEPAGE=https://docs.xfce.org/apps/xfce4-screenshooter/start https://gitlab.xfce.org/apps/xfce4-screenshooter/
+INHERIT=meson xdg-utils
+IUSE=X wayland
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2+
+RDEPEND=>=dev-libs/glib-2.66.0 >=x11-libs/gtk+-3.24.0:3[X?,wayland?] >=x11-libs/pango-1.44.0 >=xfce-base/exo-4.18.0:= >=xfce-base/xfce4-panel-4.18.0:= >=xfce-base/libxfce4util-4.18.0:= >=xfce-base/libxfce4ui-4.18.0:= >=xfce-base/xfconf-4.18.0:= wayland? ( >=dev-libs/wayland-1.20 ) X? ( >=x11-libs/libX11-1.6.7 >=x11-libs/libXext-1.0.0 >=x11-libs/libXfixes-4.0.0 >=x11-libs/libXi-1.7.8 x11-libs/libXtst )
+REQUIRED_USE=|| ( X wayland )
+SLOT=0
+SRC_URI=https://archive.xfce.org/src/apps/xfce4-screenshooter/1.11/xfce4-screenshooter-1.11.2.tar.xz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_md5_=2acb0c4a4bf66341ff62994fce35b216
