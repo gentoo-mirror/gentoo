@@ -10,16 +10,18 @@ SRC_URI="https://github.com/mhekkel/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-DEPEND="dev-libs/boost:="
+DEPEND=">=dev-cpp/catch-3.4.0:0"
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DENABLE_TESTING="$(usex test)"
+		 -DCPM_USE_LOCAL_PACKAGES=ON
+		-DBUILD_TESTING="$(usex test)"
+		-DBUILD_DOCUMENTATION=OFF
 	)
 	cmake_src_configure
 }

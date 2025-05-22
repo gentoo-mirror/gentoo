@@ -10,15 +10,15 @@ SRC_URI="https://github.com/PDB-REDO/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 # doc disabled as it only generates a PDF from the manpage for now
 # https://github.com/PDB-REDO/dssp/issues/64
 #IUSE="doc"
 
 CDEPEND="
 	dev-libs/boost:=[zlib]
-	>=dev-libs/libmcfp-1.2.2
-	>=sci-libs/libcifpp-7.0.3
+	>=dev-libs/libmcfp-1.4.2
+	>=sci-libs/libcifpp-8.0.1
 "
 BDEPEND="${CDEPEND}
 	dev-cpp/catch:0
@@ -39,17 +39,15 @@ RDEPEND="${CDEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
+		-DINSTALL_LIBRARY=YES
 		#-DBUILD_DOCUMENTATION=$(usex doc)
 		-DBUILD_DOCUMENTATION=NO
 	)
 	cmake_src_configure
 }
 
-pkg_postinst() {
-	if has_version "<=sci-chemistry/gromacs-2022"; then
-		ewarn "DSSP > 3.0.x is not compatible with gmx do_dssp:"
-		ewarn "https://gitlab.com/gromacs/gromacs/-/issues/4129"
-		ewarn
-		ewarn "Feel free to mask newer versions if needed."
-	fi
+src_install() {
+	cmake_src_install
+	# Collides with libcifpp provided file
+	rm -v "${ED}/usr/share/libcifpp/mmcif_pdbx.dic" || die
 }
