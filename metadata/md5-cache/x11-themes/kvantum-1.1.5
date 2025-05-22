@@ -1,6 +1,6 @@
 BDEPEND=dev-qt/qttools:6[linguist] qt5? ( dev-qt/linguist-tools:5 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=>=dev-qt/qtbase-6.2.0:6[gui,widgets,X] >=dev-qt/qtsvg-6.2.0:6 x11-libs/libX11 kde? ( >=kde-frameworks/kwindowsystem-6.0.0:6 ) qt5? ( >=dev-qt/qtcore-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtsvg-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 >=dev-qt/qtx11extras-5.15.9:5 kde? ( >=kde-frameworks/kwindowsystem-5.115.0:5 ) ) x11-base/xorg-proto
+DEPEND=>=dev-qt/qtbase-6.8.2:6[gui,widgets,X] >=dev-qt/qtsvg-6.8.2:6 x11-libs/libX11 kde? ( >=kde-frameworks/kwindowsystem-6.13.0:6 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 ) x11-base/xorg-proto
 DESCRIPTION=SVG-based theme engine for Qt, KDE Plasma and LXQt
 EAPI=8
 HOMEPAGE=https://github.com/tsujan/Kvantum
@@ -9,9 +9,9 @@ INHERIT=cmake multibuild xdg
 IUSE=kde qt5
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
 LICENSE=GPL-3
-RDEPEND=>=dev-qt/qtbase-6.2.0:6[gui,widgets,X] >=dev-qt/qtsvg-6.2.0:6 x11-libs/libX11 kde? ( >=kde-frameworks/kwindowsystem-6.0.0:6 ) qt5? ( >=dev-qt/qtcore-5.15.9:5 >=dev-qt/qtgui-5.15.9:5 >=dev-qt/qtsvg-5.15.9:5 >=dev-qt/qtwidgets-5.15.9:5 >=dev-qt/qtx11extras-5.15.9:5 kde? ( >=kde-frameworks/kwindowsystem-5.115.0:5 ) )
+RDEPEND=>=dev-qt/qtbase-6.8.2:6[gui,widgets,X] >=dev-qt/qtsvg-6.8.2:6 x11-libs/libX11 kde? ( >=kde-frameworks/kwindowsystem-6.13.0:6 ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/tsujan/Kvantum/archive/V1.1.2.tar.gz -> kvantum-1.1.2.tar.gz
+SRC_URI=https://github.com/tsujan/Kvantum/archive/V1.1.5.tar.gz -> kvantum-1.1.5.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=46125a50ecf3ea1f584556ab85653a2a
+_md5_=97e853282c42e504c39d7676b60e8bba
