@@ -1,13 +1,13 @@
-BDEPEND=dev-libs/boost:=[zlib] >=dev-libs/libmcfp-1.2.2 >=sci-libs/libcifpp-7.0.3 dev-cpp/catch:0 app-alternatives/ninja >=dev-build/cmake-3.20.5
-DEFINED_PHASES=compile configure install postinst prepare test
+BDEPEND=dev-libs/boost:=[zlib] >=dev-libs/libmcfp-1.4.2 >=sci-libs/libcifpp-8.0.1 dev-cpp/catch:0 app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=The protein secondary structure standard
 EAPI=8
 HOMEPAGE=https://swift.cmbi.umcn.nl/gv/dssp/ https://github.com/PDB-REDO/dssp
 INHERIT=cmake
-KEYWORDS=amd64 ~x86
+KEYWORDS=~amd64 ~x86
 LICENSE=BSD-2
-RDEPEND=dev-libs/boost:=[zlib] >=dev-libs/libmcfp-1.2.2 >=sci-libs/libcifpp-7.0.3
+RDEPEND=dev-libs/boost:=[zlib] >=dev-libs/libmcfp-1.4.2 >=sci-libs/libcifpp-8.0.1
 SLOT=0
-SRC_URI=https://github.com/PDB-REDO/dssp/archive/refs/tags/v4.4.10.tar.gz -> dssp-4.4.10.tar.gz
+SRC_URI=https://github.com/PDB-REDO/dssp/archive/refs/tags/v4.5.3.tar.gz -> dssp-4.5.3.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=3d0259a1ee3596025212638a5c9a8b2d
+_md5_=7193b57642e9791573139131a135dd95
