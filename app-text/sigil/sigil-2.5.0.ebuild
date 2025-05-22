@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit xdg cmake python-single-r1
 
@@ -18,7 +18,7 @@ S=${WORKDIR}/${P^}
 
 LICENSE="GPL-3+ Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="doc +plugins +system-mathjax"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -60,7 +60,6 @@ DOCS=( ChangeLog.txt README.md )
 
 src_configure() {
 	local mycmakeargs=(
-		-DTRY_NEWER_FINDPYTHON3=1
 		-DPython3_INCLUDE_DIR="$(python_get_includedir)"
 		-DPython3_LIBRARY="$(python_get_library_path)"
 		-DPython3_EXECUTABLE="${PYTHON}"
