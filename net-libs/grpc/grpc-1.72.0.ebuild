@@ -4,7 +4,7 @@
 EAPI=8
 
 CMAKE_IN_SOURCE_BUILD=1
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 inherit cmake flag-o-matic python-any-r1
 
 MY_PV="${PV//_pre/-pre}"
@@ -34,8 +34,8 @@ SRC_URI="
 S="${WORKDIR}/${PN}-${MY_PV}"
 LICENSE="Apache-2.0"
 # format is 0/${CORE_SOVERSION//./}.${CPP_SOVERSION//./} , check top level CMakeLists.txt
-SLOT="0/46.$(ver_rs 1-2 '' "$(ver_cut 1-2)")"
-KEYWORDS="~alpha ~amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~x86"
+SLOT="0/47.$(ver_rs 1-2 '' "$(ver_cut 1-2)")"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="doc examples test systemd"
 RESTRICT="!test? ( test )"
 
@@ -244,6 +244,7 @@ src_test() {
 		# 954185
 		'^server_test$'
 
+		# skipped via GTEST_FILTER
 		# '^xds_audit_logger_registry_test$'
 		# '^xds_common_types_test$'
 		# '^xds_lb_policy_registry_test$'
@@ -261,31 +262,43 @@ src_test() {
 		^tcp_posix_test$ # fails on alpha
 	)
 
+	# TODO make this test specific
 	local GTEST_SKIP_TESTS=(
+		# xds_lb_policy_registry_test
 		CustomPolicy.Basic
+
+		# xds_common_types_test
 		ExtractXdsExtensionTest.TypedStruct
 		ExtractXdsExtensionTest.TypedStructJsonConversion
 		ExtractXdsExtensionTest.TypedStructTypeUrlNoSlash
 		ExtractXdsExtensionTest.TypedStructTypeUrlNothingAfterSlash
 		ExtractXdsExtensionTest.TypedStructWithInvalidProtobufStruct
 		ExtractXdsExtensionTest.UdpaTypedStruct
+
+		# xds_route_config_resource_type_test
 		RlsTest.Basic
 		RlsTest.DuplicateClusterSpecifierPluginNames
 		RlsTest.InvalidGrpcLbPolicyConfig
 		RlsTest.NotUsedInAllVirtualHosts
 		RlsTest.PluginDefinedButNotUsed
+
+		# xds_audit_logger_registry_test
 		XdsAuditLoggerRegistryTest.ValidThirdPartyLogger
 		XdsAuditLoggerRegistryTest.InvalidThirdPartyLoggerConfig
 	)
 
 	local -x GTEST_FILTER
-	[[ -n ${GTEST_SKIP_TESTS} ]] && GTEST_FILTER+="-$( IFS=':'; echo "${GTEST_SKIP_TESTS[*]}")"
+	[[ -n ${GTEST_SKIP_TESTS[*]} ]] && GTEST_FILTER+="-$( IFS=':'; echo "${GTEST_SKIP_TESTS[*]}")"
 
 	# BUG this should be nonfatal and we kill the server even when tests fail
-	# nonfatal \
+	nonfatal \
 	cmake_src_test
+	local ret=$?
 
+	einfo "stopping start_port_server.py at PID ${port_server_pid}"
 	kill "${port_server_pid}" || die
+
+	[[ ${ret} -ne 0 ]] && die "cmake_src_test failed"
 }
 
 src_install() {
