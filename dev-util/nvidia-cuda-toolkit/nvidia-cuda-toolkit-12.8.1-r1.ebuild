@@ -9,9 +9,9 @@ PYTHON_COMPAT=( python3_{11..13} )
 inherit check-reqs edo toolchain-funcs
 inherit python-r1
 
-DRIVER_PV="560.35.05"
-GCC_MAX_VER="13"
-CLANG_MAX_VER="18"
+DRIVER_PV="570.124.06"
+GCC_MAX_VER="14"
+CLANG_MAX_VER="19"
 
 DESCRIPTION="NVIDIA CUDA Toolkit (compiler and friends)"
 HOMEPAGE="https://developer.nvidia.com/cuda-zone"
@@ -31,7 +31,7 @@ SLOT="0/${PV}" # UNSLOTTED
 # SLOT="${PV}" # SLOTTED
 
 KEYWORDS="-* ~amd64 ~arm64 ~amd64-linux ~arm64-linux"
-IUSE="debugger examples profiler rdma sanitizer"
+IUSE="clang debugger examples nsight profiler rdma sanitizer"
 RESTRICT="bindist mirror strip test"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -39,8 +39,10 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # since CUDA 11, the bundled toolkit driver (== ${DRIVER_PV}) and the
 # actual required minimum driver version are different.
 RDEPEND="
-	|| (
+	!clang? (
 		<sys-devel/gcc-$(( GCC_MAX_VER + 1 ))_pre[cxx]
+	)
+	clang? (
 		<llvm-core/clang-$(( CLANG_MAX_VER + 1 ))_pre
 	)
 	sys-process/numactl
@@ -51,7 +53,13 @@ RDEPEND="
 		media-libs/freeglut
 		media-libs/glu
 	)
-	rdma? ( sys-cluster/rdma-core )
+	nsight? (
+		dev-util/nsight-compute
+		dev-util/nsight-systems
+	)
+	rdma? (
+		sys-cluster/rdma-core
+	)
 "
 BDEPEND="
 	$(python_gen_any_dep '
@@ -69,9 +77,9 @@ python_check_deps() {
 
 cuda-toolkit_check_reqs() {
 	if use amd64; then
-		export CHECKREQS_DISK_BUILD="4908M"
+		export CHECKREQS_DISK_BUILD="6608M"
 	elif use arm64; then
-		export CHECKREQS_DISK_BUILD="4852M"
+		export CHECKREQS_DISK_BUILD="6354M"
 	fi
 
 	"check-reqs_pkg_${EBUILD_PHASE}"
@@ -217,7 +225,7 @@ src_install() {
 		[[ $# -eq 0 ]] && return
 
 		dodir "${CUDA_PATH}/pkgconfig"
-		cat > "${ED}${CUDA_PATH}/pkgconfig/${1}-${2}.pc" <<-EOF || die "dopcfile"
+		cat > "${ED}${CUDA_PATH}/pkgconfig/${1}.pc" <<-EOF || die "dopcfile"
 			cudaroot=${EPREFIX}${CUDA_PATH}
 			libdir=\${cudaroot}/targets/${narch}-linux/lib${4}
 			includedir=\${cudaroot}/targets/${narch}-linux/include
@@ -280,7 +288,7 @@ src_install() {
 
 	# Add include and lib symlinks
 	dosym -r "${CUDA_PATH}/targets/${narch}-linux/include" "${CUDA_PATH}/include"
-	dosym -r "${CUDA_PATH}/targets/${narch}-linux/lib" "${CUDA_PATH}/lib64"
+	dosym -r "${CUDA_PATH}/targets/${narch}-linux/lib" "${CUDA_PATH}/$(get_libdir)"
 
 	find "${ED}/${CUDA_PATH}" -empty -delete || die
 
@@ -293,7 +301,7 @@ src_install() {
 	newenvd - "99cuda${revord}" <<-EOF
 		PATH=${EPREFIX}${CUDA_PATH}/bin${pathextradirs}
 		PKG_CONFIG_PATH=${EPREFIX}${CUDA_PATH}/pkgconfig
-		LDPATH=${EPREFIX}${CUDA_PATH}/lib64:${EPREFIX}${CUDA_PATH}/nvvm/lib64${ldpathextradirs}
+		LDPATH=${EPREFIX}${CUDA_PATH}/$(get_libdir):${EPREFIX}${CUDA_PATH}/nvvm/lib64${ldpathextradirs}
 	EOF
 
 	# CUDA prepackages libraries, don't revdep-build on them
