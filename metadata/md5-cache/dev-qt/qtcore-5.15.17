@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test
+DEPEND=dev-libs/double-conversion:= dev-libs/glib:2 dev-libs/libpcre2[pcre16,unicode] sys-libs/zlib:= icu? ( dev-libs/icu:= ) !icu? ( virtual/libiconv ) test? ( =dev-qt/qttest-5.15.17* )
+DESCRIPTION=Cross-platform application development framework
+EAPI=8
+HOMEPAGE=https://www.qt.io/ https://invent.kde.org/qt/qt/qtbase https://community.kde.org/Qt5PatchCollection
+INHERIT=linux-info flag-o-matic toolchain-funcs qt5-build
+IUSE=icu old-kernel debug test
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
+RDEPEND=dev-libs/double-conversion:= dev-libs/glib:2 dev-libs/libpcre2[pcre16,unicode] sys-libs/zlib:= icu? ( dev-libs/icu:= ) !icu? ( virtual/libiconv ) !<dev-qt/designer-5.15.17:5 !<dev-qt/qt3d-5.15.17:5 !<dev-qt/qtbluetooth-5.15.17:5 !<dev-qt/qtcharts-5.15.17:5 !<dev-qt/qtconcurrent-5.15.17:5 !<dev-qt/qtdatavis3d-5.15.17:5 !<dev-qt/qtdbus-5.15.17:5 !<dev-qt/qtdeclarative-5.15.17:5 !<dev-qt/qtgamepad-5.15.17:5 !<dev-qt/qtgraphicaleffects-5.15.17:5 !<dev-qt/qtgui-5.15.17:5 !<dev-qt/qthelp-5.15.17:5 !<dev-qt/qtimageformats-5.15.17:5 !<dev-qt/qtlocation-5.15.17:5 !<dev-qt/qtmultimedia-5.15.17:5 !<dev-qt/qtnetwork-5.15.17:5 !<dev-qt/qtnetworkauth-5.15.17:5 !<dev-qt/qtopengl-5.15.17:5 !<dev-qt/qtpositioning-5.15.17:5 !<dev-qt/qtprintsupport-5.15.17:5 !<dev-qt/qtquickcontrols-5.15.17:5 !<dev-qt/qtquickcontrols2-5.15.17:5 !<dev-qt/qtquicktimeline-5.15.17:5 !<dev-qt/qtscript-5.15.17:5 !<dev-qt/qtscxml-5.15.17:5 !<dev-qt/qtsensors-5.15.17:5 !<dev-qt/qtserialbus-5.15.17:5 !<dev-qt/qtserialport-5.15.17:5 !<dev-qt/qtspeech-5.15.17:5 !<dev-qt/qtsql-5.15.17:5 !<dev-qt/qtsvg-5.15.17:5 !<dev-qt/qttest-5.15.17:5 !<dev-qt/qtvirtualkeyboard-5.15.17:5 !<dev-qt/qtwayland-5.15.17:5 !<dev-qt/qtwebchannel-5.15.17:5 !<dev-qt/qtwebengine-5.15.17:5 !<dev-qt/qtwebsockets-5.15.17:5 !<dev-qt/qtwebview-5.15.17:5 !<dev-qt/qtwidgets-5.15.17:5 !<dev-qt/qtx11extras-5.15.17:5 !<dev-qt/qtxml-5.15.17:5 !<dev-qt/qtxmlpatterns-5.15.17:5
+RESTRICT=test
+SLOT=5/5.15.17
+SRC_URI=https://download.qt.io/official_releases/qt/5.15/5.15.17/submodules/qtbase-everywhere-opensource-src-5.15.17.tar.xz https://dev.gentoo.org/~asturm/distfiles/qtbase-5.15.17-gentoo-kde-1.tar.xz https://dev.gentoo.org/~asturm/distfiles/qtbase-5.15-gentoo-patchset-6.tar.xz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	estack	c61c368a76fdf3a82fdf8dbaebea3804	virtualx	9741d451eb64ea8bb9faee90d68a9b68	qt5-build	b367ed4969ec2f8aadac993d3e60ab6c
+_md5_=c2d21ab03b6120446fd02154810f1f34

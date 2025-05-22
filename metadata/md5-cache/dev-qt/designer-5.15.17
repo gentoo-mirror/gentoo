@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND==dev-qt/qtcore-5.15.17*:5= =dev-qt/qtgui-5.15.17*:5=[png] =dev-qt/qtnetwork-5.15.17* =dev-qt/qtprintsupport-5.15.17* =dev-qt/qtwidgets-5.15.17* =dev-qt/qtxml-5.15.17* declarative? ( =dev-qt/qtdeclarative-5.15.17*[widgets] ) test? ( =dev-qt/qttest-5.15.17* )
+DESCRIPTION=WYSIWYG tool for designing and building graphical user interfaces with QtWidgets
+EAPI=8
+HOMEPAGE=https://www.qt.io/ https://invent.kde.org/qt/qt/qttools https://community.kde.org/Qt5PatchCollection
+INHERIT=desktop qt5-build xdg-utils
+IUSE=declarative debug test
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
+RDEPEND==dev-qt/qtcore-5.15.17*:5= =dev-qt/qtgui-5.15.17*:5=[png] =dev-qt/qtnetwork-5.15.17* =dev-qt/qtprintsupport-5.15.17* =dev-qt/qtwidgets-5.15.17* =dev-qt/qtxml-5.15.17* declarative? ( =dev-qt/qtdeclarative-5.15.17*[widgets] )
+RESTRICT=test
+SLOT=5/5.15
+SRC_URI=https://download.qt.io/official_releases/qt/5.15/5.15.17/submodules/qttools-everywhere-opensource-src-5.15.17.tar.xz https://dev.gentoo.org/~asturm/distfiles/qttools-5.15.17-gentoo-kde-1.tar.xz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	estack	c61c368a76fdf3a82fdf8dbaebea3804	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	virtualx	9741d451eb64ea8bb9faee90d68a9b68	qt5-build	b367ed4969ec2f8aadac993d3e60ab6c	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_md5_=47a5761d2a6c4098b425a492e599693b

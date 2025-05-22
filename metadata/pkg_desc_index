@@ -3430,7 +3430,7 @@ app-text/xmlstarlet 1.6.1-r2: A set of tools to transform, query, validate, and 
 app-text/xmlto 0.0.28-r11: Script for converting XML and DocBook documents to a variety of output formats
 app-text/xmltoman 0.6 0.6-r1: Simple scripts for converting xml to groff or html
 app-text/xournalpp 1.2.3-r1 1.2.5-r1 9999: Handwriting notetaking software with PDF annotation support
-app-text/xpdf 4.05-r1: PDF viewer and toolkit
+app-text/xpdf 4.05-r1 4.05-r2: PDF viewer and toolkit
 app-text/yamlfmt 0.13.0 0.14.0 0.15.0: An extensible command line tool or library to format yaml files
 app-text/yelp-tools 42.1: Collection of tools for building and converting documentation
 app-text/yodl 4.03.00: Your Own Document Language: a pre-document language and tools to process it
@@ -5146,7 +5146,7 @@ dev-lang/dafny-bin 4.10.0: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
 dev-lang/eisl 5.41 5.42 9999: Interpreter and compiler compatible with the ISLisp standard
-dev-lang/elixir 1.14.5-r2 1.15.7 1.15.8 1.16.2 1.16.3 1.17.2 1.17.3 1.18.1 1.18.3: Elixir programming language
+dev-lang/elixir 1.14.5-r2 1.15.7 1.15.8 1.16.2 1.16.3 1.17.2 1.17.3 1.18.3 1.18.4: Elixir programming language
 dev-lang/elpi 1.19.6-r1 2.0.7: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 26.2.1-r1 26.2.4-r1 27.2-r1 28.0: Erlang programming language, runtime environment and libraries (OTP)
 dev-lang/esco 0.513: Combine interpreter of esoteric languages
@@ -9720,9 +9720,9 @@ dev-python/zope-schema 7.0.1: Zope schema Architecture
 dev-python/zope-testing 5.1: Zope testing helpers
 dev-python/zstandard 0.23.0-r2 0.23.0-r3: Zstandard Bindings for Python
 dev-qt/assistant 5.15.16: Tool for viewing on-line documentation in Qt help file format
-dev-qt/designer 5.15.16: WYSIWYG tool for designing and building graphical user interfaces with QtWidgets
+dev-qt/designer 5.15.16 5.15.17: WYSIWYG tool for designing and building graphical user interfaces with QtWidgets
 dev-qt/linguist 5.15.16: Graphical tool for translating Qt applications
-dev-qt/linguist-tools 5.15.16: Tools for working with Qt translation data files
+dev-qt/linguist-tools 5.15.16 5.15.17: Tools for working with Qt translation data files
 dev-qt/pixeltool 5.15.16: Qt screen magnifier
 dev-qt/qdbus 5.15.16: Interface to Qt applications communicating over D-Bus
 dev-qt/qdbusviewer 5.15.16: Graphical tool that lets you introspect D-Bus objects and messages
@@ -9732,61 +9732,61 @@ dev-qt/qt-docs 5.15.2_p202011130614 6.8.2_p202501260838 6.8.3_p202503201334 6.9.
 dev-qt/qt3d 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: 3D rendering module for the Qt6 framework
 dev-qt/qt5compat 6.8.2-r1 6.8.3 6.9.0 6.9.9999 6.9999: Qt module containing the unsupported Qt 5 APIs
 dev-qt/qtbase 6.8.2-r2 6.8.3-r1 6.9.0-r1 6.9.9999 6.9999: Cross-platform application development framework
-dev-qt/qtcharts 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Chart component library for the Qt6 framework
+dev-qt/qtcharts 5.15.16 5.15.17 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Chart component library for the Qt6 framework
 dev-qt/qtchooser 66-r2: Tool to quickly switch between multiple Qt installations
-dev-qt/qtconcurrent 5.15.16: Multi-threading concurrence support library for the Qt5 framework
+dev-qt/qtconcurrent 5.15.16 5.15.17: Multi-threading concurrence support library for the Qt5 framework
 dev-qt/qtconnectivity 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Bluetooth and NFC support library for the Qt6 framework
-dev-qt/qtcore 5.15.16: Cross-platform application development framework
+dev-qt/qtcore 5.15.16 5.15.17: Cross-platform application development framework
 dev-qt/qtdatavis3d 5.15.16: 3D data visualization library for the Qt5 framework
-dev-qt/qtdbus 5.15.16: Qt5 module for inter-process communication over the D-Bus protocol
-dev-qt/qtdeclarative 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Qt Declarative (Quick 2)
+dev-qt/qtdbus 5.15.16 5.15.17: Qt5 module for inter-process communication over the D-Bus protocol
+dev-qt/qtdeclarative 5.15.16 5.15.17 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Qt Declarative (Quick 2)
 dev-qt/qtdiag 5.15.16: Tool for reporting diagnostic information about Qt and its environment
 dev-qt/qtgamepad 5.15.16: Qt module to support gamepad hardware
-dev-qt/qtgraphicaleffects 5.15.16: Set of QML types for adding visual effects to user interfaces
-dev-qt/qtgui 5.15.16: The GUI module and platform plugins for the Qt5 framework
-dev-qt/qthelp 5.15.16: Qt5 module for integrating online documentation into applications
+dev-qt/qtgraphicaleffects 5.15.16 5.15.17: Set of QML types for adding visual effects to user interfaces
+dev-qt/qtgui 5.15.16 5.15.17: The GUI module and platform plugins for the Qt5 framework
+dev-qt/qthelp 5.15.16 5.15.17: Qt5 module for integrating online documentation into applications
 dev-qt/qthttpserver 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: HTTP server functionality for the Qt6 framework
-dev-qt/qtimageformats 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Additional format plugins for the Qt image I/O system
+dev-qt/qtimageformats 5.15.16 5.15.17 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Additional format plugins for the Qt image I/O system
 dev-qt/qtlanguageserver 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Implementation of the Language Server Protocol for Qt
 dev-qt/qtlocation 5.15.16-r1 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Location (places, maps, navigation) library for the Qt6 framework
 dev-qt/qtlockedfile 2.4.1_p20171024: QFile extension with advisory locking functions
-dev-qt/qtmultimedia 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Multimedia (audio, video, radio, camera) library for the Qt6 framework
-dev-qt/qtnetwork 5.15.16: Network abstraction library for the Qt5 framework
+dev-qt/qtmultimedia 5.15.16 5.15.17 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Multimedia (audio, video, radio, camera) library for the Qt6 framework
+dev-qt/qtnetwork 5.15.16 5.15.17: Network abstraction library for the Qt5 framework
 dev-qt/qtnetworkauth 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Network authorization library for the Qt6 framework
-dev-qt/qtopengl 5.15.16: OpenGL support library for the Qt5 framework (deprecated)
+dev-qt/qtopengl 5.15.16 5.15.17: OpenGL support library for the Qt5 framework (deprecated)
 dev-qt/qtpaths 5.15.16: Command line client to QStandardPaths
 dev-qt/qtplugininfo 5.15.16: Qt5 plugin metadata dumper
-dev-qt/qtpositioning 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Physical position determination library for the Qt6 framework
-dev-qt/qtprintsupport 5.15.16: Printing support library for the Qt5 framework
+dev-qt/qtpositioning 5.15.16 5.15.17 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Physical position determination library for the Qt6 framework
+dev-qt/qtprintsupport 5.15.16 5.15.17: Printing support library for the Qt5 framework
 dev-qt/qtquick3d 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Qt module and API for defining 3D content in Qt QuickTools
-dev-qt/qtquickcontrols 5.15.16: Set of Qt Quick controls to create complete user interfaces (deprecated)
-dev-qt/qtquickcontrols2 5.15.16: Set of next generation Qt Quick controls for the Qt5 framework
+dev-qt/qtquickcontrols 5.15.16 5.15.17: Set of Qt Quick controls to create complete user interfaces (deprecated)
+dev-qt/qtquickcontrols2 5.15.16 5.15.17: Set of next generation Qt Quick controls for the Qt5 framework
 dev-qt/qtquicktimeline 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Qt module for keyframe-based timeline construction
 dev-qt/qtremoteobjects 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Inter-Process Communication (IPC) library for the Qt6 framework
-dev-qt/qtscript 5.15.16: Application scripting library for the Qt5 framework (deprecated)
-dev-qt/qtscxml 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: State Chart XML (SCXML) support library for the Qt6 framework
+dev-qt/qtscript 5.15.16 5.15.17: Application scripting library for the Qt5 framework (deprecated)
+dev-qt/qtscxml 5.15.16 5.15.17 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: State Chart XML (SCXML) support library for the Qt6 framework
 dev-qt/qtsensors 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Hardware sensor access library for the Qt6 framework
 dev-qt/qtserialbus 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Qt module to access CAN, ModBus, and other industrial serial buses and protocols
-dev-qt/qtserialport 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Serial port abstraction library for the Qt6 framework
+dev-qt/qtserialport 5.15.16 5.15.17 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Serial port abstraction library for the Qt6 framework
 dev-qt/qtshadertools 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Qt APIs and Tools for Graphics Pipelines
 dev-qt/qtsingleapplication 2.6.1_p20171024: Qt library to start applications only once per user
-dev-qt/qtspeech 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Text-to-speech library for the Qt6 framework
-dev-qt/qtsql 5.15.16: SQL abstraction library for the Qt5 framework
-dev-qt/qtsvg 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: SVG rendering library for the Qt6 framework
-dev-qt/qttest 5.15.16: Unit testing library for the Qt5 framework
+dev-qt/qtspeech 5.15.16 5.15.17 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Text-to-speech library for the Qt6 framework
+dev-qt/qtsql 5.15.16 5.15.17: SQL abstraction library for the Qt5 framework
+dev-qt/qtsvg 5.15.16 5.15.17 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: SVG rendering library for the Qt6 framework
+dev-qt/qttest 5.15.16 5.15.17: Unit testing library for the Qt5 framework
 dev-qt/qttools 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Qt Tools Collection
-dev-qt/qttranslations 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Translation files for the Qt6 framework
+dev-qt/qttranslations 5.15.16 5.15.17 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Translation files for the Qt6 framework
 dev-qt/qtvirtualkeyboard 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Customizable input framework and virtual keyboard for Qt
-dev-qt/qtwayland 5.15.16-r1 6.8.2-r1 6.8.3 6.9.0-r1 6.9.9999 6.9999: Wayland platform plugin for Qt
-dev-qt/qtwaylandscanner 5.15.16: Tool that generates certain boilerplate C++ code from Wayland protocol xml spec
+dev-qt/qtwayland 5.15.16-r1 5.15.17 6.8.2-r1 6.8.3 6.9.0-r1 6.9.9999 6.9999: Wayland platform plugin for Qt
+dev-qt/qtwaylandscanner 5.15.16 5.15.17: Tool that generates certain boilerplate C++ code from Wayland protocol xml spec
 dev-qt/qtwebchannel 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Qt WebChannel
 dev-qt/qtwebengine 6.8.2-r1 6.8.3 6.9.0-r1 6.9.9999 6.9999: Library for rendering dynamic web content in Qt6 C++ and QML applications
-dev-qt/qtwebsockets 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Implementation of the WebSocket protocol for the Qt6 framework
+dev-qt/qtwebsockets 5.15.16 5.15.17 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Implementation of the WebSocket protocol for the Qt6 framework
 dev-qt/qtwebview 5.15.16 6.8.2 6.8.3 6.9.0 6.9.9999 6.9999: Module for displaying web content in a QML application using the Qt6 framework
-dev-qt/qtwidgets 5.15.16: Set of components for creating classic desktop-style UIs for the Qt5 framework
-dev-qt/qtx11extras 5.15.16: Linux/X11-specific support library for the Qt5 framework
-dev-qt/qtxml 5.15.16-r1: Implementation of SAX and DOM for the Qt5 framework
-dev-qt/qtxmlpatterns 5.15.16: XPath, XQuery, XSLT, and XML Schema validation library for the Qt5 framework
+dev-qt/qtwidgets 5.15.16 5.15.17: Set of components for creating classic desktop-style UIs for the Qt5 framework
+dev-qt/qtx11extras 5.15.16 5.15.17: Linux/X11-specific support library for the Qt5 framework
+dev-qt/qtxml 5.15.16-r1 5.15.17: Implementation of SAX and DOM for the Qt5 framework
+dev-qt/qtxmlpatterns 5.15.16 5.15.17: XPath, XQuery, XSLT, and XML Schema validation library for the Qt5 framework
 dev-ruby/GeoRuby 2.5.2-r2: Ruby data holder for OGC Simple Features
 dev-ruby/abbrev 0.1.2: Calculates a set of unique abbreviations for a given set of strings
 dev-ruby/abstract 1.0.0-r5: Library which enable you to define abstract method in Ruby
@@ -12082,7 +12082,7 @@ gui-libs/eglexternalplatform 1.2.1: EGL External Platform interface
 gui-libs/gdk-pixbuf-loader-webp 0.2.4 0.2.7: WebP GDK Pixbuf Loader library
 gui-libs/greetd 0.10.0-r1 0.10.3-r1: ipc based login daemon
 gui-libs/gtk 4.14.4-r1 4.16.12-r1 4.16.13: GTK is a multi-platform toolkit for creating graphical user interfaces
-gui-libs/gtk-layer-shell 0.9.0 0.9.1: Library to create desktop components for Wayland using the Layer Shell protocol
+gui-libs/gtk-layer-shell 0.9.1 0.9.2: Library to create desktop components for Wayland using the Layer Shell protocol
 gui-libs/gtksourceview 5.12.1-r1 5.14.2: A text widget implementing syntax highlighting and other features
 gui-libs/hyprcursor 0.1.10-r1 0.1.11 0.1.12 9999: The hyprland cursor format, library and utilities
 gui-libs/hyprland-qt-support 0.1.0: QML style provider for hypr* Qt apps
@@ -17104,7 +17104,7 @@ sys-apps/net-tools 2.10 9999: Standard Linux networking tools
 sys-apps/netkit-base 0.17-r10: Old-style inetd
 sys-apps/netplug 1.2.9.2-r3: Brings up/down ethernet ports automatically with cable detection
 sys-apps/noexec 1.1.0-r2: Package for preventing processes from using exec system calls
-sys-apps/nosig 2: Block signals before running programs (a generic "nohup")
+sys-apps/nosig 2-r1: Block signals before running programs (a generic "nohup")
 sys-apps/nvme-cli 2.11 2.12 2.13: NVM-Express user space tooling for Linux
 sys-apps/onerng 3.7: Software for the Open Hardware Random Number Generator called OneRNG
 sys-apps/opal-utils 7.0: OPAL firmware utilities
