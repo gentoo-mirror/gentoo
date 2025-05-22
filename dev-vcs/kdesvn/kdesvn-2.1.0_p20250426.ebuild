@@ -4,14 +4,13 @@
 EAPI=8
 
 ECM_HANDBOOK="forceoptional"
-KDE_ORG_COMMIT="5d98288de13b7fa2a31a5d2bf42a28867de65b5f"
+KDE_ORG_COMMIT="7f7b50040972d4f10fae5c32d2a09b684d2d79e7"
 KFMIN=6.9.0
 QTMIN=6.7.2
 inherit ecm kde.org xdg
 
 DESCRIPTION="Frontend to the subversion vcs"
 HOMEPAGE="https://apps.kde.org/kdesvn/"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-kf6.patch.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
