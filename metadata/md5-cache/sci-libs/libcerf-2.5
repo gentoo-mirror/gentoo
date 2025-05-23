@@ -1,14 +1,12 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DESCRIPTION=Emulator, assembler, etc for XpertTeak, the DSP used by DSi/3DS
+DESCRIPTION=Efficient and accurate implementation of complex error functions
 EAPI=8
-HOMEPAGE=https://github.com/wwylele/teakra/
+HOMEPAGE=https://jugit.fz-juelich.de/mlz/libcerf
 INHERIT=cmake
-IUSE=test
-KEYWORDS=~amd64
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
 LICENSE=MIT
-RESTRICT=!test? ( test )
-SLOT=0
-SRC_URI=https://github.com/wwylele/teakra/archive/01db7cdd00aabcce559a8dddce8798dabb71949b.tar.gz -> teakra-20220224.tar.gz
+SLOT=0/2
+SRC_URI=https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v2.5/libcerf-v2.5.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=68b7038741886bec858cae545240b7f6
+_md5_=6634f6803d0da47bccdfbec19e5ac4e6
