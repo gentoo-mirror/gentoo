@@ -1,15 +1,16 @@
-BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=!dedicated? ( media-libs/freetype media-libs/libglvnd[X] media-libs/libsdl2[sound,opengl,video] media-libs/pnglite media-sound/wavpack ) dev-libs/openssl:= sys-libs/zlib:=
 DESCRIPTION=Online multi-player platform 2D shooter
 EAPI=8
 HOMEPAGE=https://www.teeworlds.com/
 INHERIT=cmake desktop flag-o-matic python-any-r1
-IUSE=dedicated
+IUSE=dedicated test
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=ZLIB
 RDEPEND=!dedicated? ( media-libs/freetype media-libs/libglvnd[X] media-libs/libsdl2[sound,opengl,video] media-libs/pnglite media-sound/wavpack ) dev-libs/openssl:= sys-libs/zlib:=
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/teeworlds/teeworlds/releases/download/0.7.5/teeworlds-0.7.5-src.tar.gz https://dev.gentoo.org/~ionen/distfiles/teeworlds.png
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=2014d3e70e3061911d1cd0bba868ea96
+_md5_=57be7396945c53eba1af2c3edc036282
