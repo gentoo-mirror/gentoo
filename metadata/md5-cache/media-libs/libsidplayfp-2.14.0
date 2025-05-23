@@ -1,0 +1,14 @@
+BDEPEND=test? ( dev-libs/unittest++ )
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/libgcrypt:=
+DESCRIPTION=Library for the sidplay2 fork with resid-fp
+EAPI=8
+HOMEPAGE=https://github.com/libsidplayfp/libsidplayfp
+IUSE=test
+KEYWORDS=~amd64 ~hppa ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/libgcrypt:=
+RESTRICT=!test? ( test )
+SLOT=0/6
+SRC_URI=https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.14.0/libsidplayfp-2.14.0.tar.gz
+_md5_=938fb34dc59ea92edcbe3350a35239c1
