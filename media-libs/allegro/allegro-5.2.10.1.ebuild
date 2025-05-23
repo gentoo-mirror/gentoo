@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/liballeg/allegro5/releases/download/${PV}/${P}.tar.g
 
 LICENSE="BSD ZLIB"
 SLOT="5"
-KEYWORDS="amd64 ~arm64 ~loong ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="alsa dumb flac gtk jpeg openal opengl opus oss physfs png pulseaudio test truetype vorbis webp X xinerama"
 
 # TODO: For tests, we need some extra deps.
@@ -27,7 +27,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	alsa? ( >=media-libs/alsa-lib-1.0.27.2[${MULTILIB_USEDEP}] )
-	dumb? ( >=media-libs/dumb-0.9.3-r2:=[${MULTILIB_USEDEP}] )
+	dumb? ( media-libs/libopenmpt[${MULTILIB_USEDEP}] )
 	flac? ( >=media-libs/flac-1.2.1-r5:=[${MULTILIB_USEDEP}] )
 	gtk? ( x11-libs/gtk+:3[${MULTILIB_USEDEP}] )
 	jpeg? ( media-libs/libjpeg-turbo:=[${MULTILIB_USEDEP}] )
@@ -58,19 +58,24 @@ BDEPEND="virtual/pkgconfig"
 
 MULTILIB_WRAPPED_HEADERS=( /usr/include/allegro5/allegro_native_dialog.h )
 
+PATCHES=(
+	"${FILESDIR}"/${P}-cmake4.patch # bug 951547
+)
+
 src_configure() {
 	# We forego freeimage for now because ebuild is not multilib
 	# No known consumers yet anyway
 	local mycmakeargs=(
-		-DWANT_ALSA=$(usex alsa)
+		-DMANDIR="${EPREFIX}"/usr/share/man
 		-DWANT_DEMO=OFF
 		-DWANT_EXAMPLES=OFF
-		-DWANT_FLAC=$(usex flac)
 		-DWANT_IMAGE_FREEIMAGE=OFF
+		-DWANT_ALSA=$(usex alsa)
+		-DWANT_FLAC=$(usex flac)
 		-DWANT_IMAGE_JPG=$(usex jpeg)
 		-DWANT_IMAGE_PNG=$(usex png)
 		-DWANT_IMAGE_WEBP=$(usex webp)
-		-DWANT_MODAUDIO=$(usex dumb)
+		-DWANT_OPENMPT=$(usex dumb)
 		-DWANT_NATIVE_DIALOG=$(usex gtk)
 		-DWANT_OGG_VIDEO=$(usex vorbis)
 		-DWANT_OPENAL=$(usex openal)
