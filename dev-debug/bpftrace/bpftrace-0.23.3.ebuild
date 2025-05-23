@@ -1,42 +1,48 @@
-# Copyright 2019-2024 Gentoo Authors
+# Copyright 2019-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-LLVM_MAX_SLOT=18
+LLVM_COMPAT=( {16..20} )
 
-inherit llvm linux-info cmake
+inherit cmake linux-info llvm-r1
 
 DESCRIPTION="High-level tracing language for eBPF"
 HOMEPAGE="https://github.com/bpftrace/bpftrace"
 MY_PV="${PV//_/}"
-SRC_URI="https://github.com/bpftrace/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
-SRC_URI+=" https://github.com/bpftrace/${PN}/releases/download/v${MY_PV}/man.tar.xz -> ${P}-man.gh.tar.xz"
+# the man page version may trail the release
+#MAN_V="0.22.0"
+SRC_URI="
+	https://github.com/bpftrace/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/bpftrace/${PN}/releases/download/v${MAN_V:-${PV}}/man.tar.xz -> ${PN}-${MAN_V:-${PV}}-man.tar.xz
+"
 S="${WORKDIR}/${PN}-${MY_PV:-${PV}}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 
-KEYWORDS="amd64 ~arm64 ~x86"
-IUSE="lldb test"
+KEYWORDS="~amd64 ~arm64"
+IUSE="pcap test systemd"
 
 # lots of fixing needed
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-libs/libbpf-1.1:=
+	>=dev-libs/blazesym_c-0.1.1
+	>=dev-libs/libbpf-1.5:=
 	>=dev-util/bcc-0.25.0:=
-	lldb? ( >=llvm-core/lldb-15 )
-	>=llvm-core/llvm-15[llvm_targets_BPF(+)]
-	>=llvm-core/clang-15
-	<llvm-core/clang-$((${LLVM_MAX_SLOT} + 1)):=
-	<llvm-core/llvm-$((${LLVM_MAX_SLOT} + 1)):=[llvm_targets_BPF(+)]
+	$(llvm_gen_dep '
+		llvm-core/clang:${LLVM_SLOT}=
+		llvm-core/llvm:${LLVM_SLOT}=[llvm_targets_BPF(+)]
+	')
 	sys-process/procps
 	sys-libs/binutils-libs:=
 	virtual/libelf:=
+	systemd? ( sys-apps/systemd:= )
+	pcap? ( net-libs/libpcap:= )
 "
 DEPEND="
-	${COMMON_DEPEND}
+	${RDEPEND}
 	dev-libs/cereal:=
 	test? ( dev-cpp/gtest )
 "
@@ -44,6 +50,7 @@ BDEPEND="
 	app-arch/xz-utils
 	app-alternatives/lex
 	app-alternatives/yacc
+	dev-libs/cereal
 	test? (
 		app-editors/vim-core
 		dev-util/pahole
@@ -52,8 +59,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/bpftrace-0.21.0-dont-compress-man.patch"
 	"${FILESDIR}/bpftrace-0.11.4-old-kernels.patch"
+	"${FILESDIR}/bpftrace-0.21.0-dont-compress-man.patch"
 )
 
 pkg_pretend() {
@@ -69,14 +76,17 @@ pkg_pretend() {
 	check_extra_config
 }
 
-pkg_setup() {
-	llvm_pkg_setup
+src_prepare() {
+	# 0.23 still has LLDB support, but apparently it's problematic,
+	# deprecated and already gone on master.
+	# Remove the configuration check.
+	sed -i "/find_package(LLDB)/d" CMakeLists.txt || die
+
+	cmake_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
-		# prevent automagic lldb use
-		$(cmake_use_find_package lldb LLDB)
 		# DO NOT build the internal libs as shared
 		-DBUILD_SHARED_LIBS=OFF
 		# DO dynamically link the bpftrace executable
@@ -85,6 +95,8 @@ src_configure() {
 		-DBUILD_TESTING:BOOL=$(usex test)
 		-DBUILD_FUZZ:BOOL=OFF
 		-DENABLE_MAN:BOOL=OFF
+		-DENABLE_SYSTEMD:BOOL=$(usex systemd)
+		-DENABLE_SKB_OUTPUT:BOOL=$(usex pcap)
 	)
 
 	cmake_src_configure
