@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake-multilib
 
@@ -15,30 +15,20 @@ KEYWORDS="~alpha amd64 ~arm64 ~loong ppc ppc64 ~riscv sparc x86"
 IUSE="allegro cpu_flags_x86_sse examples"
 
 RDEPEND="
-	allegro? (
-		media-libs/allegro:0[${MULTILIB_USEDEP}]
-		!media-libs/aldumb
-	)
+	allegro? ( media-libs/allegro:0[${MULTILIB_USEDEP}] )
 	examples? (
 		>=dev-libs/argtable-2
 		media-libs/libsdl2[sound]
 	)
 "
-
-DEPEND="
-	${RDEPEND}
-"
+DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-pkg-config.patch
+	"${FILESDIR}"/${P}-cmake4.patch
 )
 
-DOCS=(
-	CHANGELOG.md
-	DUMBFILE_SYSTEM.md
-	README.md
-	UPDATING_YOUR_PROJECTS.md
-)
+DOCS=( {CHANGELOG,DUMBFILE_SYSTEM,README,UPDATING_YOUR_PROJECTS}.md )
 
 multilib_src_configure() {
 	local mycmakeargs=(
