@@ -911,7 +911,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.40.7 1.40.12 1.40.17 1.40.18 1.40.19 1.40.20: Universal Command Line Environment for AWS
+app-admin/awscli 1.40.7 1.40.12 1.40.17 1.40.18 1.40.19 1.40.20 1.40.21: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-desktop-bin 2025.3.1 2025.4.2: Bitwarden password manager desktop client
 app-admin/btrfs-assistant 2.1.1: GUI management tool to make managing a Btrfs filesystem easier
@@ -2366,7 +2366,7 @@ app-emulation/libspectrum 1.5.0: Spectrum emulation library
 app-emulation/libvirt 10.10.0-r2 11.0.0-r1 11.1.0-r1 11.2.0-r1 9999: C toolkit to manipulate virtual machines
 app-emulation/libvirt-glib 4.0.0-r1 5.0.0-r1: GLib and GObject mappings for libvirt
 app-emulation/nemu 3.1.0 3.3.0: Ncurses interface for QEMU
-app-emulation/open-vm-tools 12.4.5 12.5.0 12.5.0-r1: Tools for VMware guests
+app-emulation/open-vm-tools 12.4.5 12.5.0 12.5.0-r1 12.5.0-r2: Tools for VMware guests
 app-emulation/pcem 17_p20241210-r2: A PC emulator that specializes in running old operating systems and software
 app-emulation/plus42 1.2.6 1.2.7 1.3.3: An Enhanced HP-42S Calculator Simulator
 app-emulation/protontricks 1.10.5-r1 1.12.0 1.12.1: app-emulation/winetricks wrapper for Proton (Steam Play) games
@@ -3993,7 +3993,7 @@ dev-db/pgLatLon 0.15: Spatial database extension for the PostgreSQL
 dev-db/pg_activity 3.5.1: Realtime PostgreSQL database server monitoring tool
 dev-db/pg_background 1.2: Postgres Background Worker
 dev-db/pg_top 4.1.1: 'top' for PostgreSQL
-dev-db/pgagent 4.2.1 4.2.3: pgAgent is a job scheduler for PostgreSQL
+dev-db/pgagent 4.2.1 4.2.3-r1: pgAgent is a job scheduler for PostgreSQL
 dev-db/pgbadger 12.4 13.1: pgBadger is a PostgreSQL log analyzer
 dev-db/pgbouncer 1.23.1 1.24.0: Lightweight connection pooler for PostgreSQL
 dev-db/pgcli 4.0.1-r1 4.1.0: CLI for Postgres with auto-completion and syntax highlighting
@@ -8039,7 +8039,7 @@ dev-python/aiocache 0.12.3: Asyncio cache manager
 dev-python/aiodns 3.3.0 3.4.0: Simple DNS resolver for asyncio
 dev-python/aiofiles 24.1.0: File support for asyncio
 dev-python/aiohappyeyeballs 2.6.1: Happy Eyeballs for pre-resolved hosts
-dev-python/aiohttp 3.11.14 3.11.18 3.12.0_beta0: HTTP client/server for asyncio
+dev-python/aiohttp 3.11.14 3.11.18 3.12.0_beta0 3.12.0_beta3: HTTP client/server for asyncio
 dev-python/aiohttp-cors 0.8.1: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
 dev-python/aiohttp-oauthlib 0.1.0: This project provides first-class OAuth library support for aiohttp
 dev-python/aiohttp-socks 0.10.1: SOCKS proxy connector for aiohttp
@@ -8144,8 +8144,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.38.8 1.38.13 1.38.18 1.38.19 1.38.20 1.38.21: The AWS SDK for Python
-dev-python/botocore 1.38.8 1.38.13 1.38.18 1.38.19 1.38.20 1.38.21: Low-level, data-driven core of boto 3
+dev-python/boto3 1.38.8 1.38.13 1.38.18 1.38.19 1.38.20 1.38.21 1.38.22: The AWS SDK for Python
+dev-python/botocore 1.38.8 1.38.13 1.38.18 1.38.19 1.38.20 1.38.21 1.38.22: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2 1.5.0_rc1 1.5.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8317,7 +8317,7 @@ dev-python/docker 6.1.3 7.0.0 7.1.0: Python client for Docker
 dev-python/dockerpty 0.4.1-r3: Python library to use the pseudo-tty of a docker container
 dev-python/docopt 0.6.2-r5: Pythonic argument parser, that will make you smile
 dev-python/docstring-to-markdown 0.17: On the fly conversion of Python docstrings to markdown
-dev-python/docutils 0.21.2: Python Documentation Utilities (reference reStructuredText impl.)
+dev-python/docutils 0.21.2 0.22_rc2: Python Documentation Utilities (reference reStructuredText impl.)
 dev-python/docutils-glep 1.5: Gentoo GLEP support for docutils
 dev-python/dogpile-cache 1.4.0: A locking API for expiring values while a single thread generates a new value
 dev-python/doit 0.36.0-r2: Automation tool
@@ -8345,7 +8345,7 @@ dev-python/ensurepip-wheel 0.45.1: Shared wheel wheel for use in pip tests
 dev-python/ensurepip-wheels 100: Shared wheels for ensurepip Python module
 dev-python/entrypoint2 1.1: Easy to use command-line interface for python modules
 dev-python/entrypoints 0.4: Discover and load entry points from installed packages
-dev-python/environs 14.1.1: Python library for simplified environment variable parsing
+dev-python/environs 14.1.1 14.2.0: Python library for simplified environment variable parsing
 dev-python/enzyme 0.5.2: Python video metadata parser
 dev-python/ephemeral-port-reserve 1.1.4: Bind to an ephemeral port, force it into the TIME_WAIT state, and unbind it
 dev-python/eradicate 2.3.0 3.0.0: Removes commented-out code from Python files
@@ -8442,7 +8442,7 @@ dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gitpython 3.1.44: Library used to interact with Git repositories
 dev-python/gmpy2 2.2.1: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.24.2: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.169.0: Google API Client for Python
+dev-python/google-api-python-client 2.169.0 2.170.0: Google API Client for Python
 dev-python/google-auth 2.39.0 2.40.0 2.40.1 2.40.2: Google Authentication Library
 dev-python/google-auth-httplib2 0.2.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.2.2: Google Authentication Library
@@ -8500,7 +8500,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.131.9 6.131.12 6.131.15 6.131.18 6.131.19 6.131.20 6.131.21: A library for property based testing
+dev-python/hypothesis 6.131.9 6.131.12 6.131.15 6.131.18 6.131.19 6.131.20 6.131.21 6.131.22: A library for property based testing
 dev-python/icalendar 6.1.3 6.2.0 6.3.0 6.3.1: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
 dev-python/identify 2.6.10: File identification library for Python
@@ -8879,7 +8879,7 @@ dev-python/pbkdf2 1.3-r2: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
 dev-python/pbr 6.1.1: Inject some useful and sensible default behaviors into setuptools
 dev-python/pbs-installer 2025.04.09 2025.05.17: Installer for Python Build Standalone
 dev-python/pdfrw 0.4_p1-r1: PDF file reader/writer library
-dev-python/pdm 2.24.1: Python package and dependency manager supporting the latest PEP standards
+dev-python/pdm 2.24.1 2.24.2: Python package and dependency manager supporting the latest PEP standards
 dev-python/pdm-backend 2.4.4: A PEP 517 backend for PDM that supports PEP 621 metadata
 dev-python/pdoc3 0.11.6: Auto-generate API documentation for Python projects
 dev-python/peachpy 2022.11.13-r3: Portable Efficient Assembly Code-generator in Higher-level Python
@@ -8991,7 +8991,7 @@ dev-python/pycups 2.0.4: Python bindings for the CUPS API
 dev-python/pycurl 7.45.6: Python bindings for curl/libcurl
 dev-python/pycurl-requests 0.5.0-r1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.8-r3: Set of facilities to extend Python with C++
-dev-python/pydantic 2.10.6 2.11.2 2.11.3 2.11.4: Data parsing and validation using Python type hints
+dev-python/pydantic 2.10.6 2.11.4 2.11.5: Data parsing and validation using Python type hints
 dev-python/pydantic-core 2.27.2 2.33.1 2.33.2 2.34.1: Core validation logic for pydantic written in Rust
 dev-python/pydata-sphinx-theme 0.16.0: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0-r1: Pythonic DBus library
@@ -9365,7 +9365,7 @@ dev-python/rtslib-fb 2.1.76 2.2.3: A Python object API for managing the Linux LI
 dev-python/ruamel-yaml 0.18.10: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.12: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/rustworkx 0.16.0: A high performance Python graph library implemented in Rust
-dev-python/s3transfer 0.12.0: An Amazon S3 Transfer Manager
+dev-python/s3transfer 0.12.0 0.13.0: An Amazon S3 Transfer Manager
 dev-python/sabctools 8.2.5: Module providing raw yEnc encoding/decoding for SABnzbd
 dev-python/sarge 0.1.7_p1: Wrapper for subprocess which provides command pipeline functionality
 dev-python/sarif-om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
@@ -9562,7 +9562,7 @@ dev-python/tomli-w 1.2.0: A lil' TOML writer
 dev-python/tomlkit 0.13.2: Style preserving TOML library
 dev-python/toolz 1.0.0: List processing tools and functional utilities
 dev-python/toposort 1.10: Implements a topological sort algorithm
-dev-python/tornado 6.4.2 6.5: Python web framework and asynchronous networking library
+dev-python/tornado 6.4.2 6.5 6.5.1: Python web framework and asynchronous networking library
 dev-python/towncrier 24.8.0: Building newsfiles for your project
 dev-python/tox 4.25.0 4.26.0: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.3.0-r1: Python bindings for TSS
@@ -13183,7 +13183,7 @@ media-libs/freeimage 3.18.0-r10 3.18.0-r11: Image library supporting many format
 media-libs/freetype 2.13.0 2.13.2 2.13.3 9999: High-quality and portable font engine
 media-libs/freeverb3 3.2.1-r3 3.2.1-r4: Reverb and Impulse Response Convolution plug-ins (Audacious/JACK)
 media-libs/ftgl 2.1.3_rc5-r1 2.1.3_rc5-r3: library to use arbitrary fonts in OpenGL applications
-media-libs/game-music-emu 0.6.3: Video game music file emulators
+media-libs/game-music-emu 0.6.3-r1: Video game music file emulators
 media-libs/ganv 1.8.2: A GTK+ widget for interactive graph-like environments
 media-libs/gavl 1.4.0-r3: Library for handling uncompressed audio and video data
 media-libs/gd 2.3.2-r3 2.3.3-r3 2.3.3-r4: Graphics library for fast image creation
@@ -15610,7 +15610,7 @@ net-vpn/ovpn-dco 0.2.20230426 0.2.20231117 0.2.20241216 9999: OpenVPN Data Chann
 net-vpn/pptpd 1.4.0-r4 1.4.0-r5: Linux Point-to-Point Tunnelling Protocol Server
 net-vpn/protonvpn-cli 2.2.11-r2: A VPN command-line tool from protonvpn - python rewrite
 net-vpn/riseup-vpn 0.24.5 0.24.8 0.24.10: Anonymous encrypted VPN client powered by Bitmask
-net-vpn/strongswan 5.9.13 5.9.14 5.9.14-r2 6.0.1: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
+net-vpn/strongswan 5.9.13 5.9.14 5.9.14-r2 6.0.1 6.0.1-r1: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
 net-vpn/tailscale 1.82.5: Tailscale vpn client
 net-vpn/tinc 1.0.36-r1 1.1_pre18-r2: tinc is an easy to configure VPN implementation
 net-vpn/tor 0.4.8.16 9999: Anonymizing overlay network for TCP
