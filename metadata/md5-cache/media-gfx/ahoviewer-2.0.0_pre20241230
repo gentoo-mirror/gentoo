@@ -1,0 +1,16 @@
+BDEPEND=>=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=dev-cpp/atkmm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/pangomm:1.4 dev-libs/glib:2 dev-libs/libconfig:=[cxx] dev-libs/libsigc++:2 dev-libs/libxml2:2 >=media-libs/libnsgif-1.0.0:= media-plugins/gst-plugins-gtk net-misc/curl x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 keyring? ( app-crypt/libsecret ) gstreamer? ( media-libs/gst-plugins-bad:1.0 media-libs/gstreamer:1.0 ) plugins? ( dev-libs/gobject-introspection dev-libs/libpeas:0 ) rar? ( app-arch/unrar:= ) ssl? ( gnutls? ( dev-libs/libgcrypt:= net-libs/gnutls:= net-misc/curl[curl_ssl_gnutls] ) !gnutls? ( dev-libs/openssl:= net-misc/curl[curl_ssl_openssl] ) ) zip? ( dev-libs/libzip:= ) x11-base/xorg-proto
+DESCRIPTION=A GTK image viewer, manga reader, and booru browser
+EAPI=8
+HOMEPAGE=https://github.com/ahodesuka/ahoviewer
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=meson xdg
+IUSE=keyring gnutls +gstreamer plugins +rar +ssl +zip
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-cpp/atkmm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/pangomm:1.4 dev-libs/glib:2 dev-libs/libconfig:=[cxx] dev-libs/libsigc++:2 dev-libs/libxml2:2 >=media-libs/libnsgif-1.0.0:= media-plugins/gst-plugins-gtk net-misc/curl x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 keyring? ( app-crypt/libsecret ) gstreamer? ( media-libs/gst-plugins-bad:1.0 media-libs/gstreamer:1.0 ) plugins? ( dev-libs/gobject-introspection dev-libs/libpeas:0 ) rar? ( app-arch/unrar:= ) ssl? ( gnutls? ( dev-libs/libgcrypt:= net-libs/gnutls:= net-misc/curl[curl_ssl_gnutls] ) !gnutls? ( dev-libs/openssl:= net-misc/curl[curl_ssl_openssl] ) ) zip? ( dev-libs/libzip:= ) gstreamer? ( media-libs/gst-plugins-base:1.0[X] media-libs/gst-plugins-good:1.0 || ( media-plugins/gst-plugins-vpx media-plugins/gst-plugins-libav ) )
+SLOT=0
+SRC_URI=https://github.com/ahodesuka/ahoviewer/archive/821576a249ae0258a2b69332770ca84a5310b62b.tar.gz -> ahoviewer-2.0.0_pre20241230.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=69faea62baf7b5c6c5c1bd78838fc219
