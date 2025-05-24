@@ -1,14 +1,14 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit desktop toolchain-funcs wrapper
 
-CTF_V="1.10"
-ROGUE_V="2.11"
-XATRIX_V="2.12"
-REF_VK_V="1.0.7"
+CTF_V="1.12"
+ROGUE_V="2.14"
+XATRIX_V="2.15"
+REF_VK_V="1.0.10"
 
 DESCRIPTION="Quake 2 engine focused on single player"
 HOMEPAGE="https://www.yamagi.org/quake2/"
@@ -24,6 +24,7 @@ S="${WORKDIR}/quake2-${PV}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+# TODO: there is also GLES1 renderer since 8.50
 IUSE="+client ctf dedicated gles openal +opengl rogue softrender vulkan xatrix"
 REQUIRED_USE="
 	|| ( client dedicated )
@@ -40,7 +41,7 @@ RDEPEND="
 		)
 		openal? ( media-libs/openal )
 		!openal? ( media-libs/libsdl2[sound] )
-		opengl? ( media-libs/libglvnd[X] )
+		opengl? ( media-libs/libglvnd )
 	)
 "
 DEPEND="${RDEPEND}
