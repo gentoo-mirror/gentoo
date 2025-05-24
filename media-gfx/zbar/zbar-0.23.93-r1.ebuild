@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..14} )
 inherit autotools flag-o-matic java-pkg-opt-2 multilib-minimal python-single-r1 qmake-utils virtualx
 
 DESCRIPTION="Library and tools for reading barcodes from images or video"
@@ -30,14 +30,15 @@ COMMON_DEPEND="
 	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	gtk? (
 		dev-libs/glib:2[${MULTILIB_USEDEP}]
-		x11-libs/gtk+:3[${MULTILIB_USEDEP}]
+		x11-libs/gdk-pixbuf:2[introspection?]
+		x11-libs/gtk+:3[${MULTILIB_USEDEP},introspection?]
 		introspection? ( dev-libs/gobject-introspection )
 	)
 	imagemagick? (
 		!graphicsmagick? ( media-gfx/imagemagick:=[png,jpeg?] )
 		graphicsmagick? ( media-gfx/graphicsmagick:=[png,jpeg?] )
 	)
-	jpeg? ( media-libs/libjpeg-turbo:0[${MULTILIB_USEDEP}] )
+	jpeg? ( media-libs/libjpeg-turbo:0=[${MULTILIB_USEDEP}] )
 	python? ( ${PYTHON_DEPS} )
 	qt5? (
 		dev-qt/qtcore:5

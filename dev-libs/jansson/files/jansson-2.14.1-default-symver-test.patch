@@ -1,4 +1,6 @@
-https://github.com/akheron/jansson/pull/666
+https://github.com/akheron/jansson/issues/715
+
+Modified https://github.com/akheron/jansson/pull/666 with lessons taken from https://github.com/akheron/jansson/pull/704.
 
 From https://github.com/akheron/jansson/pull/666/commits/1e2ac681e5f39fc7a7e8b8deb2162a93976d4622 Mon Sep 17 00:00:00 2001
 From: Violet Purcell <vimproved@inventati.org>
@@ -46,10 +48,13 @@ Signed-off-by: Violet Purcell <vimproved@inventati.org>
          src/Makefile
 --- /dev/null
 +++ b/jansson.sym.in
-@@ -0,0 +1,5 @@
+@@ -0,0 +1,8 @@
 +JANSSON_@jansson_soversion@ {
 +	global:
-+	*;
++		json_*;
++		jansson_*;
++	local:
++		*;
 +};
 +
 -- 
