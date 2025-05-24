@@ -1,36 +1,39 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit toolchain-funcs
 
-MY_TESTDATA_COMMIT="887fb7a3e006f32b4979e0d55f2543abe78a42f1"
+MY_TESTDATA_COMMIT="381b447563f9bef87b218ebbedde3159afdc3032"
 
 DESCRIPTION="Snowball compiler and stemming algorithms"
 HOMEPAGE="https://snowballstem.org/ https://github.com/snowballstem/snowball/"
 SRC_URI="https://github.com/snowballstem/snowball/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	test? ( https://github.com/snowballstem/snowball-data/archive/${MY_TESTDATA_COMMIT}.tar.gz -> snowball-data-${MY_TESTDATA_COMMIT}.tar.gz )"
+S="${WORKDIR}/snowball-${PV}"
 
 LICENSE="BSD"
 SLOT="0/$(ver_cut 1)"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~ppc-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~ppc-macos"
 IUSE="static-libs test"
 
 BDEPEND="dev-lang/perl
 	test? ( virtual/libiconv )"
-RESTRICT="!test? ( test )"
 
-S="${WORKDIR}/snowball-${PV}"
+RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/${P}-shared-library.patch"
 )
 
 src_compile() {
-	export CC="$(tc-getCC)"
-	export AR="$(tc-getAR)"
+	tc-export CC AR
 	default
+}
+
+src_test() {
+	emake -j1 STEMMING_DATA="${WORKDIR}/snowball-data-${MY_TESTDATA_COMMIT}" check
 }
 
 src_install() {
@@ -45,8 +48,4 @@ src_install() {
 	dolib.so libstemmer.so
 
 	use static-libs && dolib.a libstemmer.a
-}
-
-src_test() {
-	emake -j1 STEMMING_DATA="${WORKDIR}/snowball-data-${MY_TESTDATA_COMMIT}" check
 }
