@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://taku910.github.io/mecab/
 INHERIT=autotools flag-o-matic
 IUSE=static-libs unicode
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=|| ( BSD LGPL-2.1 GPL-2 )
 PDEPEND=|| ( app-dicts/mecab-ipadic[unicode=] app-dicts/mecab-naist-jdic[unicode=] )
 RDEPEND=virtual/libiconv
 SLOT=0
 SRC_URI=https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mecab/mecab-0.996.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
-_md5_=2093e85c58640b18c76882c0a7ff7569
+_md5_=ce1585bb0ff72ba17cdbecbeff6631b7
