@@ -1,10 +1,10 @@
-BDEPEND=test? ( dev-python/lit ) app-alternatives/ninja >=dev-build/cmake-3.20.5
-DEFINED_PHASES=compile configure install prepare test unpack
+BDEPEND=test? ( || ( ( dev-lang/python:3.13 dev-python/lit[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/lit[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/lit[python_targets_python3_11(-)] ) ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test unpack
 DEPEND=~llvm-core/clang-21.0.0_pre20250523[debug=] ~llvm-core/llvm-21.0.0_pre20250523[debug=] ~llvm-core/mlir-21.0.0_pre20250523[debug=]
 DESCRIPTION=LLVM's Fortran frontend
 EAPI=8
 HOMEPAGE=https://flang.llvm.org/
-INHERIT=cmake llvm.org
+INHERIT=cmake llvm.org python-any-r1
 IUSE=+debug test test
 LICENSE=Apache-2.0-with-LLVM-exceptions
 PDEPEND=>=llvm-runtimes/flang-rt-21.0.0_pre20250523:21
@@ -12,5 +12,5 @@ RDEPEND=~llvm-core/clang-21.0.0_pre20250523[debug=] ~llvm-core/llvm-21.0.0_pre20
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=21/21.0.0_pre20250523
 SRC_URI=https://github.com/llvm/llvm-project/archive/7dc7c155251c0008d5d59b84f0c9056365740f11.tar.gz -> llvm-project-7dc7c155251c0008d5d59b84f0c9056365740f11.tar.gz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	llvm.org	af41bf98fbadffcd19c21523bbd50a7c
-_md5_=3d0916b64f73b2c58aeef77dd974b8c9
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	llvm.org	af41bf98fbadffcd19c21523bbd50a7c	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=4b2c91b0b3a42c18621478e5bba1239f
