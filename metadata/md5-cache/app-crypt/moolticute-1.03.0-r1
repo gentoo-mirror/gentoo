@@ -1,5 +1,6 @@
-BDEPEND=>=dev-libs/libusb-1.0.20 dev-qt/qtdbus:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qttest:5 dev-qt/qtwebsockets:5 dev-qt/qtwidgets:5 virtual/libudev:= dev-qt/linguist-tools:5 virtual/pkgconfig virtual/pkgconfig
+BDEPEND=dev-qt/linguist-tools:5 virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=configure install postinst postrm prepare
+DEPEND=>=dev-libs/libusb-1.0.20 dev-qt/qtdbus:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qttest:5 dev-qt/qtwebsockets:5 dev-qt/qtwidgets:5 virtual/libudev:=
 DESCRIPTION=Mooltipass crossplatform daemon/tools
 EAPI=8
 HOMEPAGE=https://github.com/mooltipass/moolticute
@@ -10,4 +11,4 @@ RDEPEND=>=dev-libs/libusb-1.0.20 dev-qt/qtdbus:5 dev-qt/qtcore:5 dev-qt/qtgui:5 
 SLOT=0
 SRC_URI=https://github.com/mooltipass/moolticute/archive/refs/tags/v1.03.0.tar.gz -> moolticute-1.03.0.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	f3d9a4376ebd22131726a68e1a0a058f	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=ee8d8e7c562bdbffeee73d4f072f249b
+_md5_=361594043994453d001b1a78e8004022
