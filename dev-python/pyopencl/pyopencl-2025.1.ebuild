@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=scikit-build-core
 
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 ~riscv"
+KEYWORDS="~amd64 ~ppc64 ~riscv"
 IUSE="examples opengl"
 
 # Running tests on GPUs requires both appropriate hardware and additional permissions
@@ -45,7 +45,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/pyopencl-2024.2.7-nanobind-flags.patch
+	"${FILESDIR}"/pyopencl-2025.1-nanobind-flags.patch
 )
 
 distutils_enable_tests pytest
@@ -58,7 +58,7 @@ python_configure_all() {
 
 python_test() {
 	# Use dev-libs/pocl for testing; ignore any other OpenCL devices that might be present
-	local -x PYOPENCL_TEST="portable:pthread"
+	local -x PYOPENCL_TEST="portable:cpu"
 	# Set the number of threads to match MAKEOPTS
 	local -x POCL_MAX_PTHREAD_COUNT=$(makeopts_jobs)
 	# Change to the 'test' directory so that python does not try to import pyopencl from the source directory
