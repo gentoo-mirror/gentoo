@@ -100,11 +100,6 @@ src_prepare() {
 	sed -i '/SUPPORT_SUBDIRS/s:urt::' GNUmakefile || die
 	rm -r urt converter/other/jbig/libjbig converter/other/jpeg2000/libjasper || die
 
-	# fix typo in a test
-	sed -i \
-		-e 's:^o#! /bin/sh:#! /bin/sh:' \
-		test/stdin-ppm3.test || die
-
 	# take care of the importinc stuff ourselves by only doing it once
 	# at the top level and having all subdirs use that one set #149843
 	sed -i \
@@ -165,15 +160,18 @@ src_prepare() {
 
 	# pbmtext-iso88591 requires LC_ALL=en_US.iso88591, not available on musl
 	# pbmtext-utf8 requires locale, not available on musl
-	# ppmpat-random is broken on musl
 	# bug #907295
 	if use elibc_musl; then
 		sed \
 			-e 's:pbmtext-iso88591.*::' \
 			-e 's:pbmtext-utf8.*::' \
-			-e 's:ppmpat-random.*::' \
 			-i test/Test-Order || die
 	fi
+
+	# ppmpat-random is highly dependent on random number generator
+	sed \
+		-e 's:ppmpat-random.*::' \
+		-i test/Test-Order || die
 }
 
 src_configure() {
