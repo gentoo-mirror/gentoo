@@ -21,19 +21,14 @@ SLOT="0"
 
 RDEPEND="
 	>=dev-libs/libusb-1.0.20
-	dev-qt/qtdbus:5
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qttest:5
-	dev-qt/qtwebsockets:5
-	dev-qt/qtwidgets:5
+	dev-qt/qtbase:6[dbus,gui,network,widgets]
+	dev-qt/qtwebsockets:6
 	virtual/libudev:=
 "
 DEPEND="${RDEPEND}"
-BDEPEND="dev-qt/linguist-tools:5"
+BDEPEND="dev-qt/qttools:6[linguist]"
 
-PATCHES=( "${FILESDIR}"/${PN}-1.03.0-fix-return-type.patch )
+PATCHES=( "${FILESDIR}"/${P}-fix-return-type.patch ) # bug #916994
 
 src_prepare() {
 	default
@@ -45,7 +40,7 @@ src_prepare() {
 }
 
 src_configure() {
-	eqmake5 PREFIX="/usr" Moolticute.pro
+	eqmake6 PREFIX="/usr" Moolticute.pro
 }
 
 src_install() {
