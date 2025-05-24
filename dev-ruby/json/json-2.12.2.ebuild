@@ -1,8 +1,8 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby31 ruby32 ruby33 ruby34"
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGES.md README.md"
 RUBY_FAKEGEM_DOCDIR="doc"
@@ -37,10 +37,11 @@ all_ruby_prepare() {
 	# And use rdoc instead of sdoc which we don't have packaged
 	# And don't call git to list files. We're using the pregenerated spec anyway.
 	sed -i \
-		-e '/task :test/ s|:compile,||' \
+		-e '/task :test/ s|:compile||' \
 		-e 's| => :clean||' \
 		-e 's|sdoc|rdoc|' \
 		-e 's|`git ls-files`|""|' \
+		-e '/extensiontask/I s:^:#:' \
 		Rakefile || die "rakefile fix failed"
 
 	sed -e 's/__dir__/"."/' \
