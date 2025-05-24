@@ -1,0 +1,23 @@
+Title: nftables systemd service change
+Author: Mike Gilbert <floppym@gentoo.org>
+Posted: 2025-05-24
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: net-firewall/nftables
+
+net-firewall/nftables-1.1.1-r1 made some changes to the provided systemd
+units.
+
+Prior to this version, nftables-restore.service was responsible for both
+loading rules on system startup and for saving them on system shutdown.
+
+The service has now been split in two:
+
+nftables-load.service is responsible for loading rules at startup. Users
+who relied on nftables-restore.service to load firewall rules must now
+enable nftables-load.service instead.
+
+nftables-store.service may be used to save the current ruleset by
+starting it at any time. It may also be enabled to store the ruleset at
+shutdown. Use of this service is not mandatory if the user chooses to
+maintain the saved ruleset manually.
