@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 PYTHON_REQ_USE="ssl"
 inherit distutils-r1
 
@@ -14,9 +14,15 @@ HOMEPAGE="https://www.getmail6.org/ https://github.com/getmail6/getmail6"
 SRC_URI="https://github.com/getmail6/getmail6/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 S="${WORKDIR}/getmail6-${PV}"
 
-LICENSE="GPL-2"
+# getmail is under GPLv2
+# getmail-gmail-xoauth-tokens is under Apache 2.0
+LICENSE="GPL-2 Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-revert-doc-path.patch"
+)
 
 python_prepare_all() {
 	# Use gentoo version number (including revision) for doc dir and remove COPYING file
