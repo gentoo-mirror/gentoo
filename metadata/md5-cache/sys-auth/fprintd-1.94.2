@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/perl dev-util/gdbus-codegen virtual/pkgconfig doc? ( dev-libs/libxml2 dev-libs/libxslt dev-util/gtk-doc ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst setup test
-DEPEND=dev-libs/dbus-glib dev-libs/glib:2 >=sys-auth/libfprint-1.94.0:2 sys-auth/polkit pam? ( sys-libs/pam systemd? ( sys-apps/systemd:= ) !systemd? ( sys-auth/elogind:= ) ) test? ( || ( ( dev-lang/python:3.12 dev-python/python-dbusmock[python_targets_python3_12(-)] dev-python/dbus-python[python_targets_python3_12(-)] dev-python/pycairo[python_targets_python3_12(-)] pam? ( sys-libs/pam_wrapper[python_targets_python3_12(-)] ) ) ( dev-lang/python:3.11 dev-python/python-dbusmock[python_targets_python3_11(-)] dev-python/dbus-python[python_targets_python3_11(-)] dev-python/pycairo[python_targets_python3_11(-)] pam? ( sys-libs/pam_wrapper[python_targets_python3_11(-)] ) ) ) )
+DEPEND=dev-libs/dbus-glib dev-libs/glib:2 >=sys-auth/libfprint-1.94.0:2 sys-auth/polkit pam? ( sys-libs/pam systemd? ( sys-apps/systemd:= ) !systemd? ( sys-auth/elogind:= ) ) test? ( || ( ( dev-lang/python:3.13 dev-python/python-dbusmock[python_targets_python3_13(-)] dev-python/dbus-python[python_targets_python3_13(-)] dev-python/pycairo[python_targets_python3_13(-)] pam? ( sys-libs/pam_wrapper[python_targets_python3_13(-)] ) ) ( dev-lang/python:3.12 dev-python/python-dbusmock[python_targets_python3_12(-)] dev-python/dbus-python[python_targets_python3_12(-)] dev-python/pycairo[python_targets_python3_12(-)] pam? ( sys-libs/pam_wrapper[python_targets_python3_12(-)] ) ) ( dev-lang/python:3.11 dev-python/python-dbusmock[python_targets_python3_11(-)] dev-python/dbus-python[python_targets_python3_11(-)] dev-python/pycairo[python_targets_python3_11(-)] pam? ( sys-libs/pam_wrapper[python_targets_python3_11(-)] ) ) ) )
 DESCRIPTION=D-Bus service to access fingerprint readers
 EAPI=8
 HOMEPAGE=https://gitlab.freedesktop.org/libfprint/fprintd
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/libfprint/fprintd/-/archive/v1.94.2/fprintd-v1.94.2.tar.bz2
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	meson	99466844dd8d4fcfb07578a76f5a9922	pam	b56d0c9c20fc5b553f13c8ae165a10a5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=deaf9a2de11d02ead0051ca7149e13dd
+_md5_=6595e1b010c0aab4530b556c1dae1b03
