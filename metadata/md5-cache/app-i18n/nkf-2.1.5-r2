@@ -1,0 +1,17 @@
+BDEPEND=python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/pdm-backend-2.4.3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) test? ( python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) ) >=dev-python/pytest-7.4.4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DESCRIPTION=Network Kanji code conversion Filter with UTF-8/16 support
+EAPI=8
+HOMEPAGE=https://osdn.net/projects/nkf/
+INHERIT=distutils-r1 perl-module toolchain-funcs vcs-snapshot
+IUSE=perl python l10n_ja test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 debug perl_features_debug perl_features_ithreads perl_features_quadmath test
+KEYWORDS=~alpha ~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86
+LICENSE=ZLIB python? ( BSD )
+RDEPEND=python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
+REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 ) )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=mirror://sourceforge.jp/nkf/70406/nkf-2.1.5.tar.gz python? ( https://github.com/fumiyas/python-nkf/archive/6dcc796ce4fc0123fc1f7377583c56be8ff29a81.tar.gz -> python-nkf-1.0.4.tar.gz )
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	0e08701ccfa3f73267c62f539b7ab456	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	perl-module	25ca2ff8e7971cb7f817f0bda4be696d	vcs-snapshot	bd69bf57fd2c34e99964a03b1d968177
+_md5_=13ec03819ea32dc1468677c0900e7200
