@@ -29,6 +29,9 @@ else
 		verify-sig? ( https://github.com/mesonbuild/meson/releases/download/${MY_PV}/${MY_P}.tar.gz.asc )
 		https://github.com/mesonbuild/meson/releases/download/${MY_PV}/meson-reference.3 -> meson-reference-${MY_PV}.3
 	"
+	# Releases may be signed by those listed in Releasing.md. Jussi
+	# remains the default release manager.
+	# https://github.com/mesonbuild/meson/commit/c2d795735fa1c46c54d6aed4d4a30f36a1f853cb
 	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-jpakkane )"
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/jpakkane.gpg
 
@@ -99,6 +102,7 @@ RDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.2.1-python-path.patch
+	"${FILESDIR}"/unbreak-setuptools-test_installed.patch
 )
 
 src_unpack() {
@@ -115,6 +119,7 @@ python_prepare_all() {
 		# ASAN and sandbox both want control over LD_PRELOAD
 		# https://bugs.gentoo.org/673016
 		-e 's/test_generate_gir_with_address_sanitizer/_&/'
+		-e 's/test_env_cflags_ldflags/_&/'
 
 		# ASAN is unsupported on some targets
 		# https://bugs.gentoo.org/692822
