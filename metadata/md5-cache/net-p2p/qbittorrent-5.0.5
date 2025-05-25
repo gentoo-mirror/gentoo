@@ -1,18 +1,18 @@
 BDEPEND=verify-sig? ( sec-keys/openpgp-keys-qbittorrent ) >=dev-qt/qttools-6.5:6[linguist] virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5 virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
-DEPEND=>=dev-libs/openssl-3.0.2:= >=net-libs/libtorrent-rasterbar-1.2.19:= >=sys-libs/zlib-1.2.11 >=dev-qt/qtbase-6.5:6[network,ssl,sql,sqlite,xml] gui? ( >=dev-qt/qtbase-6.5:6[dbus?,gui,widgets] >=dev-qt/qtsvg-6.5:6 ) webui? ( acct-group/qbittorrent acct-user/qbittorrent ) >=dev-libs/boost-1.76
+DEPEND=>=dev-libs/openssl-3.0.2:= >=dev-qt/qtbase-6.5:6[network,ssl,sql,sqlite,xml] >=net-libs/libtorrent-rasterbar-2.0.10:= >=sys-libs/zlib-1.2.11 gui? ( >=dev-qt/qtbase-6.5:6[dbus?,gui,widgets] >=dev-qt/qtsvg-6.5:6 ) webui? ( acct-group/qbittorrent acct-user/qbittorrent ) >=dev-libs/boost-1.76
 DESCRIPTION=BitTorrent client in C++ and Qt
 EAPI=8
 HOMEPAGE=https://www.qbittorrent.org
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake edo multibuild optfeature systemd verify-sig xdg
-IUSE=+dbus +gui systemd test webui verify-sig
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
-LICENSE=GPL-2+ GPL-3+
-RDEPEND=>=dev-libs/openssl-3.0.2:= >=net-libs/libtorrent-rasterbar-1.2.19:= >=sys-libs/zlib-1.2.11 >=dev-qt/qtbase-6.5:6[network,ssl,sql,sqlite,xml] gui? ( >=dev-qt/qtbase-6.5:6[dbus?,gui,widgets] >=dev-qt/qtsvg-6.5:6 ) webui? ( acct-group/qbittorrent acct-user/qbittorrent )
+IUSE=+dbus +gui test webui verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=GPL-2+-with-openssl-exception GPL-3+-with-openssl-exception
+RDEPEND=>=dev-libs/openssl-3.0.2:= >=dev-qt/qtbase-6.5:6[network,ssl,sql,sqlite,xml] >=net-libs/libtorrent-rasterbar-2.0.10:= >=sys-libs/zlib-1.2.11 gui? ( >=dev-qt/qtbase-6.5:6[dbus?,gui,widgets] >=dev-qt/qtsvg-6.5:6 ) webui? ( acct-group/qbittorrent acct-user/qbittorrent )
 REQUIRED_USE=|| ( gui webui ) dbus? ( gui )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://downloads.sourceforge.net/qbittorrent/qbittorrent-5.0.2.tar.xz verify-sig? ( https://downloads.sourceforge.net/qbittorrent/qbittorrent-5.0.2.tar.xz.asc )
+SRC_URI=https://downloads.sourceforge.net/qbittorrent/qbittorrent-5.0.5.tar.xz verify-sig? ( https://downloads.sourceforge.net/qbittorrent/qbittorrent-5.0.5.tar.xz.asc )
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	edo	a5e294016aa84979fcb2459749eb80b2	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	optfeature	538bce96e5589935b57e178e8635f301	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=969942a3f913988bef4558c70407cd92
+_md5_=1db5db5f7e90216988dca6148cf4ec95
