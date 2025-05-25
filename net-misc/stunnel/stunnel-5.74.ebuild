@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit autotools python-any-r1 ssl-cert systemd tmpfiles
 
 DESCRIPTION="TLS/SSL - Port Wrapper"
@@ -15,7 +15,7 @@ SRC_URI="
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="selinux stunnel3 systemd tcpd test"
 RESTRICT="!test? ( test )"
 
@@ -34,13 +34,20 @@ RDEPEND="
 # autoconf-archive for F_S patch
 BDEPEND="
 	dev-build/autoconf-archive
-	test? ( ${PYTHON_DEPS} )
+	test? (
+		${PYTHON_DEPS}
+		$(python_gen_any_dep 'dev-python/cryptography[${PYTHON_USEDEP}]')
+	)
 "
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-5.71-dont-clobber-fortify-source.patch
 	"${FILESDIR}"/${PN}-5.71-respect-EPYTHON-for-tests.patch
 )
+
+python_check_deps() {
+	python_has_version "dev-python/cryptography[${PYTHON_USEDEP}]"
+}
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
