@@ -36,8 +36,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-default-symver.patch
-	"${FILESDIR}"/${P}-omagic-loop.patch
+	"${FILESDIR}"/${PN}-2.39.1-systemd-crash.patch
 )
 
 pkg_pretend() {
