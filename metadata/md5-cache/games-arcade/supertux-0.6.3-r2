@@ -1,15 +1,16 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
-DEFINED_PHASES=compile configure install prepare test
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=!=media-libs/libsdl2-2.0.14-r0 >=dev-games/physfs-3.0 dev-libs/boost:=[nls] media-libs/freetype media-libs/glew:= media-libs/libpng:0= >=media-libs/libsdl2-2.0.1[joystick,video] media-libs/libvorbis media-libs/openal >=media-libs/sdl2-image-2.0.0[png,jpeg] >=net-misc/curl-7.21.7 virtual/opengl media-libs/glm
 DESCRIPTION=A game similar to Super Mario Bros
 EAPI=8
 HOMEPAGE=https://www.supertux.org
-INHERIT=cmake
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake xdg
 IUSE=debug
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2+ GPL-3+ ZLIB MIT CC-BY-SA-2.0 CC-BY-SA-3.0
 RDEPEND=!=media-libs/libsdl2-2.0.14-r0 >=dev-games/physfs-3.0 dev-libs/boost:=[nls] media-libs/freetype media-libs/glew:= media-libs/libpng:0= >=media-libs/libsdl2-2.0.1[joystick,video] media-libs/libvorbis media-libs/openal >=media-libs/sdl2-image-2.0.0[png,jpeg] >=net-misc/curl-7.21.7 virtual/opengl
 SLOT=0
 SRC_URI=https://github.com/SuperTux/supertux/releases/download/v0.6.3/SuperTux-v0.6.3-Source.tar.gz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=f9891de0c3ae6e3515ade28fa6e85a82
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=ecac4a659eb9b78c4f50ef087361a9e6
