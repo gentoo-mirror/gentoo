@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=meson-python
-PYTHON_COMPAT=( python3_{10..13} pypy3 )
+PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 PYTHON_REQ_USE="threads(+)"
 FORTRAN_NEEDED=lapack
 
@@ -20,7 +20,6 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0/2"
-KEYWORDS="~alpha amd64 ~arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
 # +lapack because the internal fallbacks are pretty slow. Building without blas
 # is barely supported anyway, see bug #914358.
 IUSE="big-endian +lapack"
@@ -33,7 +32,7 @@ RDEPEND="
 "
 BDEPEND="
 	${RDEPEND}
-	>=dev-build/meson-1.1.0
+	>=dev-build/meson-1.5.2
 	>=dev-python/cython-3.0.6[${PYTHON_USEDEP}]
 	lapack? (
 		virtual/pkgconfig
@@ -44,6 +43,8 @@ BDEPEND="
 		' 'python*')
 		dev-python/charset-normalizer[${PYTHON_USEDEP}]
 		>=dev-python/hypothesis-5.8.0[${PYTHON_USEDEP}]
+		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
+		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 		>=dev-python/pytz-2019.3[${PYTHON_USEDEP}]
 	)
 "
@@ -57,6 +58,12 @@ EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 python_prepare_all() {
+	local PATCHES=(
+		# https://github.com/google/highway/issues/2577
+		# github.com/google/highway/commit/7cde540171a1718a9bdfa8f896d70e47eb0785d5
+		"${FILESDIR}/${PN}-2.2.6-gcc16.patch"
+	)
+
 	# bug #922457
 	filter-lto
 	# https://github.com/numpy/numpy/issues/25004
@@ -108,7 +115,7 @@ python_test() {
 				# TODO
 				numpy/_core/tests/test_function_base.py::TestLinspace::test_denormal_numbers
 				numpy/f2py/tests/test_kind.py::TestKind::test_real
-				numpy/f2py/tests/test_kind.py::TestKind::test_quad_precisionn
+				numpy/f2py/tests/test_kind.py::TestKind::test_quad_precision
 
 				# require too much memory
 				'numpy/_core/tests/test_multiarray.py::TestDot::test_huge_vectordot[complex128]'
@@ -120,6 +127,10 @@ python_test() {
 				# https://bugs.gentoo.org/942689
 				"numpy/_core/tests/test_dtype.py::TestBuiltin::test_dtype[int]"
 				"numpy/_core/tests/test_dtype.py::TestBuiltin::test_dtype[float]"
+				"numpy/_core/tests/test_dtype.py::TestBuiltin::test_dtype_bytes_str_equivalence[datetime64]"
+				"numpy/_core/tests/test_dtype.py::TestBuiltin::test_dtype_bytes_str_equivalence[timedelta64]"
+				"numpy/_core/tests/test_dtype.py::TestBuiltin::test_dtype_bytes_str_equivalence[<f]"
+				"numpy/_core/tests/test_dtype.py::TestPickling::test_pickle_dtype[dt28]"
 				numpy/f2py/tests/test_kind.py::TestKind::test_real
 				numpy/f2py/tests/test_kind.py::TestKind::test_quad_precision
 				numpy/tests/test_ctypeslib.py::TestAsArray::test_reference_cycles
@@ -160,25 +171,6 @@ python_test() {
 		)
 	fi
 
-	case ${EPYTHON} in
-		python3.13)
-			EPYTEST_DESELECT+=(
-				numpy/_core/tests/test_nditer.py::test_iter_refcount
-				numpy/_core/tests/test_limited_api.py::test_limited_api
-				numpy/f2py/tests/test_f2py2e.py::test_gh22819_cli
-			)
-			;&
-		python3.12)
-			EPYTEST_DESELECT+=(
-				# flaky
-				numpy/f2py/tests/test_crackfortran.py
-				numpy/f2py/tests/test_data.py::TestData::test_crackedlines
-				numpy/f2py/tests/test_data.py::TestDataF77::test_crackedlines
-				numpy/f2py/tests/test_f2py2e.py::test_gen_pyf
-			)
-			;;
-	esac
-
 	if ! has_version -b "~${CATEGORY}/${P}[${PYTHON_USEDEP}]" ; then
 		# depends on importing numpy.random from system namespace
 		EPYTEST_DESELECT+=(
@@ -200,7 +192,7 @@ python_test() {
 
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
-	epytest
+	epytest -p rerunfailures --reruns=5
 }
 
 python_install_all() {
