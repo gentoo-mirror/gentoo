@@ -5,33 +5,29 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{10..12} )
 
-inherit autotools flag-o-matic python-any-r1 qmake-utils
+inherit autotools flag-o-matic python-any-r1
 
 MY_P=qp${PV}
 
 DESCRIPTION="Extended Prolog supporting quantifiers, object-variables and substitutions"
 HOMEPAGE="https://staff.itee.uq.edu.au/pjr/HomePages/QuPrologHome.html"
 SRC_URI="https://staff.itee.uq.edu.au/pjr/HomePages/QPFiles/${MY_P}.tar.gz"
+S="${WORKDIR}"/${MY_P}
 
 LICENSE="Apache-2.0 GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 ppc x86"
-IUSE="debug doc examples pcre pedro qt5 readline threads"
+IUSE="debug doc examples pcre pedro readline threads"
 
-RDEPEND="
-	!dev-util/rej
-	qt5? (
-		dev-qt/qtwidgets:5
-		dev-qt/qtgui:5
-	 )
+COMMON_DEPEND="
 	pcre? ( dev-libs/libpcre2 )
 	pedro? ( net-misc/pedro )
 	readline? ( app-misc/rlwrap )"
-DEPEND="${RDEPEND}
+RDEPEND="${COMMON_DEPEND}
+	!dev-util/rej"
+DEPEND="${COMMON_DEPEND}
 	${PYTHON_DEPS}
 	dev-lang/perl"
-
-S="${WORKDIR}"/${MY_P}
 
 src_prepare() {
 	eapply "${FILESDIR}"/${PN}-10.x-qt5.patch
@@ -41,7 +37,7 @@ src_prepare() {
 
 	eautoconf
 
-	python_fix_shebang "${S}"/bin/qc.in
+	python_fix_shebang bin/qc.in
 }
 
 src_configure() {
@@ -57,20 +53,10 @@ src_configure() {
 		--libdir=/usr/$(get_libdir) \
 		$(use_enable debug) \
 		$(use_enable threads multiple-threads)
-
-	if use qt5; then
-		cd "${S}"/src/xqp || die
-		eqmake5 xqp.pro
-	fi
 }
 
 src_compile() {
 	emake OPTIMISATION="${CXXFLAGS}"
-
-	if use qt5; then
-		cd "${S}"/src/xqp || die
-		emake
-	fi
 }
 
 src_install() {
@@ -79,8 +65,6 @@ src_install() {
 		-i bin/qc bin/qc1.qup bin/qecat bin/qg bin/qp || die
 
 	dobin bin/{qc,qecat,qp,kq}
-
-	use qt5 && dobin src/xqp/xqp
 
 	into /usr/$(get_libdir)/${PN}
 	dobin bin/{qa,qc1.qup,qdeal,qem,qg,ql,qppp}
