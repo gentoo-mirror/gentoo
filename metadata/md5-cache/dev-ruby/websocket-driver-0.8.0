@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby32? ( dev-ruby/base64[ruby_targets_ruby32(-)] >=dev-ruby/websocket-extensions-0.1.0[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( dev-ruby/base64[ruby_targets_ruby33(-)] >=dev-ruby/websocket-extensions-0.1.0[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( dev-ruby/base64[ruby_targets_ruby34(-)] >=dev-ruby/websocket-extensions-0.1.0[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) test? ( ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
+DESCRIPTION=A complete implementation of the WebSocket protocols
+EAPI=8
+HOMEPAGE=https://github.com/faye/websocket-driver-ruby
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 doc test test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=Apache-2.0
+RDEPEND=ruby_targets_ruby32? ( dev-ruby/base64[ruby_targets_ruby32(-)] >=dev-ruby/websocket-extensions-0.1.0[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( dev-ruby/base64[ruby_targets_ruby33(-)] >=dev-ruby/websocket-extensions-0.1.0[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( dev-ruby/base64[ruby_targets_ruby34(-)] >=dev-ruby/websocket-extensions-0.1.0[ruby_targets_ruby34(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 )
+RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
+SLOT=0.7
+SRC_URI=https://github.com/faye/websocket-driver-ruby/archive/0.8.0.tar.gz -> websocket-driver-0.8.0.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multilib	b2a329026f2e404e9e371097dda47f96	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	ruby-fakegem	92ad9217e94825cb9c8ad831b513a7ec
+_md5_=16160ec992a08e8edad5baf59f346059
