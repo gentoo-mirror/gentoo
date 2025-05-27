@@ -1,17 +1,17 @@
-BDEPEND=test? ( media-libs/libsdl2 >=dev-python/pytest-7.4.4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+BDEPEND=test? ( media-libs/libsdl2 >=dev-python/pytest-7.4.4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=test? ( dev-python/numpy[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/pillow[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-gfx media-libs/sdl2-image[gif,jpeg,png,tiff,webp] || ( media-libs/sdl2-mixer[flac] media-libs/sdl2-mixer[midi] media-libs/sdl2-mixer[mod] media-libs/sdl2-mixer[mp3] media-libs/sdl2-mixer[opus] ) media-libs/sdl2-ttf )
+DEPEND=test? ( dev-python/numpy[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/pillow[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-gfx media-libs/sdl2-image[gif,jpeg,png,tiff,webp] || ( media-libs/sdl2-mixer[flac] media-libs/sdl2-mixer[midi] media-libs/sdl2-mixer[mod] media-libs/sdl2-mixer[mp3] media-libs/sdl2-mixer[opus] ) media-libs/sdl2-ttf )
 DESCRIPTION=Python (ctypes) bindings for SDL2 libraries
 EAPI=8
 HOMEPAGE=https://github.com/py-sdl/py-sdl2/ https://pypi.org/project/PySDL2/
 INHERIT=distutils-r1 pypi
-IUSE=test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+IUSE=test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( public-domain CC0-1.0 ZLIB )
-RDEPEND=media-libs/libsdl2 python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
-REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RDEPEND=media-libs/libsdl2 python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/P/PySDL2/pysdl2-0.9.17.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	0e08701ccfa3f73267c62f539b7ab456	pypi	ad1b21f87d117ae9bb089bdb65b8f013
-_md5_=6b0af7c87ea3c9817188d3e397e7fde2
+_md5_=ca62c46dbcba7b62b77b0997e8717824
