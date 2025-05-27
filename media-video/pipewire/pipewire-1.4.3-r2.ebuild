@@ -29,14 +29,9 @@ PIPEWIRE_DOCS_USEFLAG="+man"
 PYTHON_COMPAT=( python3_{10..13} )
 inherit meson-multilib optfeature prefix python-any-r1 systemd tmpfiles udev
 
-if [[ ${PV} == 9999 ]] ; then
+if [[ ${PV} == 9999 ]]; then
 	PIPEWIRE_DOCS_PREBUILT=0
 	EGIT_REPO_URI="https://gitlab.freedesktop.org/${PN}/${PN}.git"
-	inherit git-r3
-elif [[ ${PV} == *.9999 ]] ; then
-	PIPEWIRE_DOCS_PREBUILT=0
-	EGIT_REPO_URI="https://gitlab.freedesktop.org/${PN}/${PN}.git"
-	EGIT_BRANCH="${PV%.*}"
 	inherit git-r3
 else
 	if [[ ${PV} == *_p* ]] ; then
@@ -45,6 +40,7 @@ else
 		S="${WORKDIR}"/${PN}-${MY_COMMIT}
 	else
 		SRC_URI="https://gitlab.freedesktop.org/${PN}/${PN}/-/archive/${PV}/${P}.tar.bz2"
+		SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-patches.tar.xz"
 	fi
 
 	if [[ ${PIPEWIRE_DOCS_PREBUILT} == 1 ]] ; then
@@ -182,6 +178,7 @@ PDEPEND=">=media-video/wireplumber-0.5.2"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.3.25-enable-failed-mlock-warning.patch
+	"${WORKDIR}"/${P}-patches
 )
 
 pkg_setup() {
@@ -194,9 +191,7 @@ src_prepare() {
 	default
 
 	# Used for upstream backports
-	if [[ ${PV} != *9999 && -d "${FILESDIR}"/${PV} ]] ; then
-		eapply "${FILESDIR}"/${PV}
-	fi
+	[[ -d "${FILESDIR}"/${PV} ]] && eapply "${FILESDIR}"/${PV}
 }
 
 multilib_src_configure() {
