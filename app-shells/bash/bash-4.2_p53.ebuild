@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -39,6 +39,8 @@ if [[ -n ${GENTOO_PATCH_VER} ]] ; then
 	SRC_URI+=" https://dev.gentoo.org/~${GENTOO_PATCH_DEV}/distfiles/${CATEGORY}/${PN}/${PN}-${GENTOO_PATCH_VER}-patches.tar.xz"
 fi
 
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="GPL-3"
 SLOT="${MY_PV}"
 KEYWORDS="~alpha amd64 arm arm64 hppa ~m68k ~mips ppc ppc64 ~s390 sparc x86"
@@ -52,8 +54,6 @@ DEPEND="${RDEPEND}
 	static? ( ${LIB_DEPEND} )"
 # We only need bison (yacc) when the .y files get patched (bash42-005)
 BDEPEND="sys-devel/bison"
-
-S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
 	"${WORKDIR}"/${PN}-${GENTOO_PATCH_VER}-patches/${PN}-4.2-execute-job-control.patch # bug #383237
@@ -107,6 +107,10 @@ src_configure() {
 	# bash 5.3 drops unprototyped functions, earlier versions are
 	# incompatible with C23.
 	append-cflags $(test-flags-CC -std=gnu17)
+
+	if tc-is-cross-compiler; then
+		export CFLAGS_FOR_BUILD="${BUILD_CFLAGS} -std=gnu17"
+	fi
 
 	local myconf=(
 		--with-installed-readline=.
