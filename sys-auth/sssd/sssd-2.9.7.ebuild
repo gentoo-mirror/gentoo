@@ -6,7 +6,7 @@ EAPI=8
 PLOCALES="ca de es fr ja ko pt_BR ru sv tr uk"
 PLOCALES_BIN="${PLOCALES} bg cs eu fi hu id it ka nb nl pl pt tg zh_TW zh_CN"
 PLOCALE_BACKUP="sv"
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit autotools linux-info multilib-minimal optfeature plocale \
 	python-single-r1 pam systemd toolchain-funcs
@@ -15,7 +15,7 @@ DESCRIPTION="System Security Services Daemon provides access to identity and aut
 HOMEPAGE="https://github.com/SSSD/sssd"
 if [[ ${PV} != 9999 ]]; then
 	SRC_URI="https://github.com/SSSD/sssd/releases/download/${PV}/${P}.tar.gz"
-	KEYWORDS="amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 else
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/SSSD/sssd.git"
@@ -38,7 +38,7 @@ DEPEND="
 	dev-libs/libunistring:=[${MULTILIB_USEDEP}]
 	>=dev-libs/popt-1.16
 	>=dev-libs/openssl-1.0.2:=
-	>=net-dns/bind-tools-9.9[gssapi]
+	>=net-dns/bind-9.9[gssapi]
 	>=net-dns/c-ares-1.10.0-r1:=[${MULTILIB_USEDEP}]
 	>=net-nds/openldap-2.4.30:=[sasl,experimental]
 	>=sys-apps/dbus-1.6
