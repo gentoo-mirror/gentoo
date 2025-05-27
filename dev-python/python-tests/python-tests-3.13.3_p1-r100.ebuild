@@ -3,12 +3,11 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_14t )
-VERIFY_SIG_METHOD=sigstore
+PYTHON_COMPAT=( python3_13t )
 
 inherit python-r1 verify-sig
 
-MY_PV=${PV/_beta/b}
+MY_PV=${PV}
 MY_P="Python-${MY_PV%_p*}"
 PYVER=$(ver_cut 1-2)t
 PATCHSET="python-gentoo-patches-${MY_PV}"
@@ -22,7 +21,7 @@ SRC_URI="
 	https://www.python.org/ftp/python/${PV%%_*}/${MY_P}.tar.xz
 	https://dev.gentoo.org/~mgorny/dist/python/${PATCHSET}.tar.xz
 	verify-sig? (
-		https://www.python.org/ftp/python/${PV%%_*}/${MY_P}.tar.xz.sigstore
+		https://www.python.org/ftp/python/${PV%%_*}/${MY_P}.tar.xz.asc
 	)
 "
 S="${WORKDIR}/${MY_P}/Lib"
@@ -38,15 +37,14 @@ RDEPEND="
 "
 BDEPEND="
 	${PYTHON_DEPS}
+	verify-sig? ( >=sec-keys/openpgp-keys-python-20221025 )
 "
 
-# https://www.python.org/downloads/metadata/sigstore/
-VERIFY_SIG_CERT_IDENTITY=hugo@python.org
-VERIFY_SIG_CERT_OIDC_ISSUER=https://github.com/login/oauth
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/python.org.asc
 
 src_unpack() {
 	if use verify-sig; then
-		verify-sig_verify_detached "${DISTDIR}"/${MY_P}.tar.xz{,.sigstore}
+		verify-sig_verify_detached "${DISTDIR}"/${MY_P}.tar.xz{,.asc}
 	fi
 	default
 }
