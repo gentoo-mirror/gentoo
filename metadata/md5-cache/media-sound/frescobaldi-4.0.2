@@ -6,11 +6,11 @@ HOMEPAGE=https://frescobaldi.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=desktop distutils-r1 xdg
 IUSE=python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-2+
 RDEPEND=python_single_target_python3_11? ( dev-python/pyqt6-webengine[widgets,python_targets_python3_11(-)] dev-python/pyqt6[gui,network,printsupport,svg,webchannel,widgets,python_targets_python3_11(-)] dev-python/python-ly[python_targets_python3_11(-)] >=dev-python/qpageview-1.0.0[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pyqt6-webengine[widgets,python_targets_python3_12(-)] dev-python/pyqt6[gui,network,printsupport,svg,webchannel,widgets,python_targets_python3_12(-)] dev-python/python-ly[python_targets_python3_12(-)] >=dev-python/qpageview-1.0.0[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pyqt6-webengine[widgets,python_targets_python3_13(-)] dev-python/pyqt6[gui,network,printsupport,svg,webchannel,widgets,python_targets_python3_13(-)] dev-python/python-ly[python_targets_python3_13(-)] >=dev-python/qpageview-1.0.0[python_targets_python3_13(-)] ) media-libs/portmidi media-sound/lilypond x11-themes/tango-icon-theme python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=0
 SRC_URI=https://github.com/frescobaldi/frescobaldi/releases/download/v4.0.2/frescobaldi-4.0.2.tar.gz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	distutils-r1	0e08701ccfa3f73267c62f539b7ab456	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=1b4a3cb503dc430c696cce9c475e53fb
+_md5_=eb9a6f323aedc7551af481be94aefc1a
