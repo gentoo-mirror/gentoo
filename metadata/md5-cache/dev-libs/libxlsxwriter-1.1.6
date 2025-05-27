@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/pytest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sys-libs/zlib[minizip] openssl? ( dev-libs/openssl:= )
+DESCRIPTION=C library for creating Excel XLSX files
+EAPI=8
+HOMEPAGE=https://libxlsxwriter.github.io/ https://github.com/jmcnamara/libxlsxwriter
+INHERIT=cmake plocale
+IUSE=openssl test
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=BSD-2
+RDEPEND=sys-libs/zlib[minizip] openssl? ( dev-libs/openssl:= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/jmcnamara/libxlsxwriter/archive/RELEASE_1.1.6.tar.gz -> libxlsxwriter-1.1.6.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	plocale	950fbaec7deeba41b5bcc0572cca99b9
+_md5_=bc7fc8f2870e223c0c63cd1462fa0e98
