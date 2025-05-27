@@ -1,13 +1,13 @@
 BDEPEND=dev-qt/qttools:6 app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
-DEPEND=dev-db/sqlite:= dev-qt/qtbase:6[ssl] dev-qt/qtsvg:6 x11-libs/libX11
+DEPEND=dev-db/sqlite:= dev-qt/qtbase:6[gui,network,ssl,widgets] dev-qt/qtsvg:6 x11-libs/libX11
 DESCRIPTION=A new mail system tray notification icon for Thunderbird
 EAPI=8
 HOMEPAGE=https://github.com/gyunaev/birdtray
 INHERIT=cmake xdg-utils git-r3
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=dev-db/sqlite:= dev-qt/qtbase:6[ssl] dev-qt/qtsvg:6 x11-libs/libX11
+RDEPEND=dev-db/sqlite:= dev-qt/qtbase:6[gui,network,ssl,widgets] dev-qt/qtsvg:6 x11-libs/libX11
 SLOT=0
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=a92cab59cddda18bd0207c6164e3ba48
+_md5_=cfaa63f04ac6979c4b5ab616bf08036a

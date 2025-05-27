@@ -1,0 +1,16 @@
+DEFINED_PHASES=install setup
+DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
+DESCRIPTION=Toolkit for dealing with the qmail queue directory structure
+EAPI=8
+HOMEPAGE=https://pyropus.ca/software/queue-repair/
+INHERIT=python-single-r1
+IUSE=python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://pyropus.ca/software/queue-repair/queue-repair-0.9.0.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=54090c6f0a6d13d8ca04ce7c3bbd0392
