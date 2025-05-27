@@ -1,16 +1,17 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 ssl? ( dev-libs/openssl )
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install postinst prepare test
 DEPEND=net-libs/libnsl:= virtual/libcrypt:= freeipmi? ( sys-libs/freeipmi:= ) kerberos? ( virtual/krb5 net-libs/libgssglue ) ssl? ( dev-libs/openssl:0= ) pam? ( sys-libs/pam ) tcpd? ( sys-apps/tcp-wrappers )
 DESCRIPTION=Serial Console Manager
 EAPI=8
 HOMEPAGE=https://www.conserver.com
+IDEPEND=ssl? ( dev-libs/openssl )
 INHERIT=autotools pam ssl-cert
 IUSE=ipv6 freeipmi kerberos pam ssl test tcpd ssl
 KEYWORDS=~alpha amd64 ppc ppc64 ~sparc x86
 LICENSE=BSD BSD-with-attribution
-RDEPEND=net-libs/libnsl:= virtual/libcrypt:= freeipmi? ( sys-libs/freeipmi:= ) kerberos? ( virtual/krb5 net-libs/libgssglue ) ssl? ( dev-libs/openssl:0= ) pam? ( sys-libs/pam ) tcpd? ( sys-apps/tcp-wrappers ) pam? ( sys-auth/pambase )
+RDEPEND=net-libs/libnsl:= virtual/libcrypt:= freeipmi? ( sys-libs/freeipmi:= ) kerberos? ( virtual/krb5 net-libs/libgssglue ) ssl? ( dev-libs/openssl:0= ) pam? ( sys-libs/pam ) tcpd? ( sys-apps/tcp-wrappers ) pam? ( sys-auth/pambase ) ssl? ( dev-libs/openssl )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/conserver/conserver/releases/download/v8.2.6/conserver-8.2.6.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	pam	b56d0c9c20fc5b553f13c8ae165a10a5	ssl-cert	c6ea4108da6e229ed3a7d2d949f72a26
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	pam	b56d0c9c20fc5b553f13c8ae165a10a5	edo	a5e294016aa84979fcb2459749eb80b2	ssl-cert	89fbacafccd672dde4fd51b8e313bf02
 _md5_=2e351a3114b471565a5cc57c0b886191
