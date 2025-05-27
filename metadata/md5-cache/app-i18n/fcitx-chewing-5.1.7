@@ -6,10 +6,12 @@ EAPI=8
 HOMEPAGE=https://github.com/fcitx/fcitx5-chewing
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake unpacker xdg
+IUSE=test
 KEYWORDS=amd64 ~arm64 ~loong ~riscv x86
 LICENSE=LGPL-2.1+
 RDEPEND=!app-i18n/fcitx-chewing:4 >=app-i18n/fcitx-5.1.12:5 >=app-i18n/libchewing-0.5.0
+RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=https://download.fcitx-im.org/fcitx5/fcitx5-chewing/fcitx5-chewing-5.1.7.tar.zst -> fcitx-chewing-5.1.7.tar.zst
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=3922dbe0e61614183f03d8a58b02f81c
+_md5_=fad07ae9f827cb63a292c5e68af99d86
