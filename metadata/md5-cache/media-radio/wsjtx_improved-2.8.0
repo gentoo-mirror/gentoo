@@ -1,0 +1,15 @@
+BDEPEND=dev-qt/linguist-tools app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=!media-radio/wsjtx dev-libs/boost:=[nls,python] dev-qt/qtbase:6[concurrent,gui,network,sql,sqlite,widgets] dev-qt/qtmultimedia:6 dev-qt/qtserialport:6 dev-qt/qtwebsockets:6 virtual/libusb:1 >=media-libs/hamlib-4.0:= sci-libs/fftw:3.0=[threads,fortran] virtual/fortran app-text/asciidoc doc? ( dev-ruby/asciidoctor )
+DESCRIPTION=Weak signal ham radio communication with improvements
+EAPI=8
+HOMEPAGE=https://physics.princeton.edu//pulsar/K1JT/wsjtx.html
+INHERIT=cmake edos2unix flag-o-matic
+IUSE=doc
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=!media-radio/wsjtx dev-libs/boost:=[nls,python] dev-qt/qtbase:6[concurrent,gui,network,sql,sqlite,widgets] dev-qt/qtmultimedia:6 dev-qt/qtserialport:6 dev-qt/qtwebsockets:6 virtual/libusb:1 >=media-libs/hamlib-4.0:= sci-libs/fftw:3.0=[threads,fortran] virtual/fortran app-text/asciidoc doc? ( dev-ruby/asciidoctor )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/wsjt-x-improved/wsjtx-2.8.0_improved_PLUS_250501_qt6.tgz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	edos2unix	33e347e171066657f91f8b0c72ec8773
+_md5_=96ce7769ec263d3f12f5efedabe72e28
