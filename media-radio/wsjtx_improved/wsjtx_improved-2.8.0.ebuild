@@ -5,35 +5,26 @@ EAPI=8
 
 inherit cmake edos2unix flag-o-matic
 
-MY_P=${P/_/-}
-
-DESCRIPTION="Weak signal ham radio communication"
+DESCRIPTION="Weak signal ham radio communication with improvements"
 HOMEPAGE="https://physics.princeton.edu//pulsar/K1JT/wsjtx.html"
-SRC_URI="https://downloads.sourceforge.net/wsjt/${MY_P}.tgz"
+SRC_URI="https://downloads.sourceforge.net/wsjt-x-improved/wsjtx-${PV}_improved_PLUS_250501_qt6.tgz"
 
 S=${WORKDIR}/wsjtx
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
 RDEPEND="
-	!media-radio/wsjtx_improved
+	!media-radio/wsjtx
 	dev-libs/boost:=[nls,python]
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtmultimedia:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtconcurrent:5
-	dev-qt/qtserialport:5
-	dev-qt/qtsql:5
-	dev-qt/qttest:5
-	dev-qt/qtprintsupport:5
+	dev-qt/qtbase:6[concurrent,gui,network,sql,sqlite,widgets]
+	dev-qt/qtmultimedia:6
+	dev-qt/qtserialport:6
+	dev-qt/qtwebsockets:6
 	virtual/libusb:1
 	>=media-libs/hamlib-4.0:=
-	media-libs/portaudio
 	sci-libs/fftw:3.0=[threads,fortran]
 	virtual/fortran
 	app-text/asciidoc
@@ -42,16 +33,17 @@ DEPEND="${RDEPEND}"
 BDEPEND="dev-qt/linguist-tools"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.2.0-werror.patch"
-	"${FILESDIR}/${PN}-2.3.0-drop-docs.patch"
-	"${FILESDIR}/${PN}-clang.patch"
+	"${FILESDIR}/wsjtx-2.2.0-werror.patch"
+	"${FILESDIR}/wsjtx-2.3.0-drop-docs.patch"
+	"${FILESDIR}/wsjtx-clang.patch"
+	"${FILESDIR}/wsjtx-fix-sound-dir.patch"
 )
 
 DOCS=( AUTHORS BUGS NEWS README THANKS )
 
 src_unpack() {
 	unpack ${A}
-	unpack "${WORKDIR}/${PN}-2.7.0/src/wsjtx.tgz"
+	unpack "${WORKDIR}/wsjtx-2.8.0/src/wsjtx.tgz"
 }
 
 src_prepare() {
