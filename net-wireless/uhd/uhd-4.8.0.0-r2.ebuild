@@ -19,7 +19,7 @@ S="${WORKDIR}/${P}/host"
 
 LICENSE="GPL-3"
 SLOT="0/$(ver_cut 1-3)"
-KEYWORDS="amd64 ~arm ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~riscv ~x86"
 IUSE="+b100 +b200 doc cpu_flags_arm_neon cpu_flags_x86_ssse3 e300 examples +mpmd octoclock test +usb +usrp1 +usrp2 +utils +x300"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
@@ -32,7 +32,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 RDEPEND="${PYTHON_DEPS}
 	e300? ( virtual/udev )
 	usb? ( virtual/libusb:1 )
-	<dev-libs/boost-1.88.0:=
+	dev-libs/boost:=
 	sys-libs/ncurses:0=
 	$(python_gen_cond_dep '
 	dev-python/numpy[${PYTHON_USEDEP}]
@@ -53,6 +53,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/"${P}"-includes.patch
 	"${FILESDIR}"/"${P}"-cmake4.patch
+	"${FILESDIR}"/"${P}"-boost-1.88.0.patch
 )
 
 src_unpack() {
