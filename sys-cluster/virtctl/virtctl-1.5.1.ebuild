@@ -3,10 +3,10 @@
 
 EAPI=8
 
-inherit bash-completion-r1 go-module optfeature
+inherit go-module optfeature shell-completion
 
 # git rev-parse HEAD
-MY_GIT_COMMIT="e8e638edc22587ec7be2cc3d983b61763e33f973"
+MY_GIT_COMMIT="522b44c0ce8d1909618324cb083d69e5c7a0a234"
 
 MY_PN="kubevirt"
 MY_P="${MY_PN}-${PV}"
@@ -39,8 +39,7 @@ src_install() {
 	newbashcomp ./virtctl.bash virtctl
 
 	bin/virtctl completion zsh >./virtctl.zsh || die "Failed generating zsh completions"
-	insinto /usr/share/zsh/site-functions
-	newins ./virtctl.zsh _virtctl
+	newzshcomp ./virtctl.zsh _virtctl
 }
 
 pkg_postinst() {
