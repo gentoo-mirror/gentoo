@@ -1,17 +1,17 @@
-BDEPEND=virtual/pkgconfig python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=virtual/pkgconfig python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=curl? ( net-misc/curl ) gd? ( media-libs/gd ) gtk? ( x11-libs/gdk-pixbuf:2 ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:0 ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
+DEPEND=curl? ( net-misc/curl ) gd? ( media-libs/gd ) gtk? ( x11-libs/gdk-pixbuf:2 ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:0 ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) )
 DESCRIPTION=A lightweight, fast implementation of DEC SIXEL graphics codec
 EAPI=8
 HOMEPAGE=https://github.com/libsixel/libsixel
 INHERIT=bash-completion-r1 distutils-r1 meson
-IUSE=curl gd gtk jpeg png python test python_targets_python3_11 python_targets_python3_12
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86
+IUSE=curl gd gtk jpeg png python test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
+KEYWORDS=~amd64 ~arm arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86
 LICENSE=MIT public-domain
-RDEPEND=curl? ( net-misc/curl ) gd? ( media-libs/gd ) gtk? ( x11-libs/gdk-pixbuf:2 ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:0 ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
-REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 ) )
+RDEPEND=curl? ( net-misc/curl ) gd? ( media-libs/gd ) gtk? ( x11-libs/gdk-pixbuf:2 ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:0 ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/libsixel/libsixel/archive/v1.10.5.tar.gz -> libsixel-1.10.5.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	bash-completion-r1	767861f3744f589ee5291c1698b1c082	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	0e08701ccfa3f73267c62f539b7ab456	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=b276ef6ca41f3ab87c212403d3cc5151
+_md5_=4802bcc1ef52009f1577b06a45e599cf
