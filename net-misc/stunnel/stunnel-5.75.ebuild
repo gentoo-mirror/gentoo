@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit ssl-cert systemd tmpfiles
+PYTHON_COMPAT=( python3_{11..14} )
+inherit autotools python-any-r1 ssl-cert systemd tmpfiles
 
 DESCRIPTION="TLS/SSL - Port Wrapper"
 HOMEPAGE="https://www.stunnel.org/index.html"
@@ -14,40 +15,67 @@ SRC_URI="
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos"
-IUSE="selinux stunnel3 tcpd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+IUSE="selinux stunnel3 systemd tcpd test"
+RESTRICT="!test? ( test )"
 
 DEPEND="
-	dev-libs/openssl:0=
+	dev-libs/openssl:=
 	tcpd? ( sys-apps/tcp-wrappers )
+	systemd? ( sys-apps/systemd:= )
 "
-
 RDEPEND="
+	${DEPEND}
 	acct-user/stunnel
 	acct-group/stunnel
-	${DEPEND}
 	selinux? ( sec-policy/selinux-stunnel )
 	stunnel3? ( dev-lang/perl )
 "
+# autoconf-archive for F_S patch
+BDEPEND="
+	dev-build/autoconf-archive
+	test? (
+		${PYTHON_DEPS}
+		$(python_gen_any_dep 'dev-python/cryptography[${PYTHON_USEDEP}]')
+	)
+"
 
-RESTRICT="test"
+PATCHES=(
+	"${FILESDIR}"/${PN}-5.71-dont-clobber-fortify-source.patch
+	"${FILESDIR}"/${PN}-5.71-respect-EPYTHON-for-tests.patch
+)
+
+python_check_deps() {
+	python_has_version "dev-python/cryptography[${PYTHON_USEDEP}]"
+}
+
+pkg_setup() {
+	use test && python-any-r1_pkg_setup
+}
 
 src_prepare() {
+	default
+
 	# Hack away generation of certificate
 	sed -i -e "s/^install-data-local:/do-not-run-this:/" \
-		tools/Makefile.in || die "sed failed"
+		tools/Makefile.am || die "sed failed"
 
-	echo "CONFIG_PROTECT=\"/etc/stunnel/stunnel.conf\"" > "${T}"/20stunnel
+	echo "CONFIG_PROTECT=\"/etc/stunnel/stunnel.conf\"" > "${T}"/20stunnel || die
 
-	eapply_user
+	# We pass --disable-fips to configure, so avoid spurious test failures
+	rm tests/plugins/p10_fips.py tests/plugins/p11_fips_cipher.py || die
+
+	# Needed for FORTIFY_SOURCE patch
+	eautoreconf
 }
 
 src_configure() {
 	local myeconfargs=(
 		--libdir="${EPREFIX}/usr/$(get_libdir)"
-		$(use_enable tcpd libwrap)
 		--with-ssl="${EPREFIX}"/usr
 		--disable-fips
+		$(use_enable tcpd libwrap)
+		$(use_enable systemd)
 	)
 
 	econf "${myeconfargs[@]}"
@@ -55,10 +83,14 @@ src_configure() {
 
 src_install() {
 	emake DESTDIR="${D}" install
-	rm -rf "${ED}"/usr/share/doc/${PN}
+
+	rm -rf "${ED}"/usr/share/doc/${PN} || die
 	rm -f "${ED}"/etc/stunnel/stunnel.conf-sample \
-		"${ED}"/usr/share/man/man8/stunnel.{fr,pl}.8
-	use stunnel3 || rm -f "${ED}"/usr/bin/stunnel3
+		"${ED}"/usr/share/man/man8/stunnel.{fr,pl}.8 || die
+
+	if ! use stunnel3 ; then
+		rm -f "${ED}"/usr/bin/stunnel3 || die
+	fi
 
 	dodoc AUTHORS.md BUGS.md CREDITS.md PORTS.md README.md TODO.md
 	docinto html
@@ -78,7 +110,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	if [ ! -f "${EROOT}"/etc/stunnel/stunnel.key ]; then
+	if [[ ! -f "${EROOT}"/etc/stunnel/stunnel.key ]]; then
 		install_cert /etc/stunnel/stunnel
 		chown stunnel:stunnel "${EROOT}"/etc/stunnel/stunnel.{crt,csr,key,pem}
 		chmod 0640 "${EROOT}"/etc/stunnel/stunnel.{crt,csr,key,pem}
