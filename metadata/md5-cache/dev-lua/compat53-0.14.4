@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/lunarmodules/lua-compat-5.3/
 INHERIT=edo lua toolchain-funcs
 IUSE=lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
-KEYWORDS=amd64
+KEYWORDS=amd64 ~arm64
 LICENSE=MIT
 RDEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 )
 REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 )
 SLOT=0
 SRC_URI=https://github.com/lunarmodules/lua-compat-5.3/archive/v0.14.4.tar.gz -> lua-compat-5.3-0.14.4.tar.gz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	lua-utils	7c89927eda6f21c4c48136247077ab37	lua	3414f66fe14a8c3ffdb5a894097068c6
-_md5_=e03165b4a9d840ead60035efd145b44e
+_md5_=73e2b66f3c609f7d74bb667d62b94e96
