@@ -6,7 +6,7 @@ EAPI=8
 inherit unpacker
 
 DESCRIPTION="Binary plugins from Google Chrome for use in Chromium"
-HOMEPAGE="https://www.google.com/chrome"
+HOMEPAGE="https://www.google.com/chrome/"
 
 case ${PV} in
 	*_alpha*)
@@ -32,7 +32,7 @@ SRC_URI="https://dl.google.com/linux/chrome/deb/pool/main/g/${MY_PN}/${MY_P}_amd
 S="${WORKDIR}/${CHROMEDIR}"
 
 LICENSE="google-chrome"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* amd64"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
