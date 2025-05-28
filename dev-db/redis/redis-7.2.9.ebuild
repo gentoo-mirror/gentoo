@@ -18,14 +18,14 @@ SRC_URI="
 		-> ${P}.tar.gz
 "
 
-LICENSE="|| ( AGPL-3 RSAL-2 SSPL-1 ) Boost-1.0 MIT"
+LICENSE="BSD Boost-1.0"
 SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="+jemalloc selinux ssl systemd tcmalloc test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	jemalloc? ( >=dev-libs/jemalloc-5.1:=[stats] )
+	jemalloc? ( >=dev-libs/jemalloc-5.1:= )
 	ssl? ( dev-libs/openssl:0= )
 	systemd? ( sys-apps/systemd:= )
 	tcmalloc? ( dev-util/google-perftools )
@@ -132,9 +132,7 @@ src_test() {
 	local runtestargs=(
 		--clients "$(makeopts_jobs)" # see bug #649868
 
-		# The Active defrag for argv test fails with edge values, it does not seem to be
-		# critical issue, see https://github.com/redis/redis/issues/14006
-		--skiptest "/Active defrag for argv retained by the main thread from IO thread.*"
+		--skiptest "Active defrag eval scripts" # see bug #851654
 	)
 
 	if has usersandbox ${FEATURES} || ! has userpriv ${FEATURES}; then
@@ -195,4 +193,8 @@ src_install() {
 
 pkg_postinst() {
 	tmpfiles_process redis.conf
+
+	ewarn "The default redis configuration file location changed to:"
+	ewarn "  /etc/redis/{redis,sentinel}.conf"
+	ewarn "Please apply your changes to the new configuration files."
 }
