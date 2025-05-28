@@ -3,13 +3,13 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..14} )
 
 inherit cmake flag-o-matic multilib-minimal python-any-r1
 
 DESCRIPTION="Cryptographic library for embedded systems"
 HOMEPAGE="https://www.trustedfirmware.org/projects/mbed-tls/"
-SRC_URI="https://github.com/Mbed-TLS/mbedtls/releases/download/${P}/${P}.tar.bz2"
+SRC_URI="https://github.com/Mbed-TLS/mbedtls/releases/download/v${PV}/${P}.tar.bz2"
 
 LICENSE="|| ( Apache-2.0 GPL-2+ )"
 SLOT="3/16.21.7" # ffmpeg subslot naming: SONAME tuple of {libmbedcrypto.so,libmbedtls.so,libmbedx509.so}
@@ -17,7 +17,10 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv 
 IUSE="cpu_flags_x86_sse2 doc programs static-libs test threads"
 RESTRICT="!test? ( test )"
 
-RDEPEND="!>net-libs/mbedtls-3:0"
+RDEPEND="
+	!>net-libs/mbedtls-3:0
+	programs? ( !net-libs/mbedtls:0[programs] )
+"
 BDEPEND="
 	${PYTHON_DEPS}
 	doc? (
@@ -29,10 +32,10 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/mbedtls-3.6.2-allow-install-headers-to-different-location.patch"
-	"${FILESDIR}/mbedtls-3.6.2-add-version-suffix-for-all-installable-targets.patch"
+	"${FILESDIR}/mbedtls-3.6.3.1-add-version-suffix-for-all-installable-targets.patch"
 	"${FILESDIR}/mbedtls-3.6.2-add-version-suffix-for-pkg-config-files.patch"
 	"${FILESDIR}/mbedtls-3.6.2-exclude-static-3dparty.patch"
-	"${FILESDIR}/mbedtls-3.6.2-slotted-version.patch"
+	"${FILESDIR}/mbedtls-3.6.3.1-slotted-version.patch"
 )
 
 enable_mbedtls_option() {
@@ -48,11 +51,14 @@ src_prepare() {
 	use threads && enable_mbedtls_option MBEDTLS_THREADING_C
 	use threads && enable_mbedtls_option MBEDTLS_THREADING_PTHREAD
 
+	sed -i -e "s:VERSION 3.5.1:VERSION 3.10:g" CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
 src_configure() {
-	# Workaround for https://github.com/Mbed-TLS/mbedtls/issues/9814 (bug #946544)
+	# Workaround for https://github.com/Mbed-TLS/mbedtls/issues/9814
+	# (https://github.com/Mbed-TLS/mbedtls/pull/10179, bug #946544)
 	append-flags $(test-flags-CC -fzero-init-padding-bits=unions)
 	multilib-minimal_src_configure
 }

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..14} )
 
 inherit cmake flag-o-matic multilib-minimal python-any-r1
 
@@ -12,12 +12,12 @@ HOMEPAGE="https://www.trustedfirmware.org/projects/mbed-tls/"
 SRC_URI="https://github.com/Mbed-TLS/mbedtls/releases/download/${P}/${P}.tar.bz2"
 LICENSE="|| ( Apache-2.0 GPL-2+ )"
 SLOT="0/7.14.1" # ffmpeg subslot naming: SONAME tuple of {libmbedcrypto.so,libmbedtls.so,libmbedx509.so}
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="cmac cpu_flags_x86_sse2 doc havege programs static-libs test threads zlib"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	programs? ( !net-libs/mbedtls:0[programs] )
+	programs? ( !net-libs/mbedtls:3[programs] )
 	zlib? ( >=sys-libs/zlib-1.2.8-r1[${MULTILIB_USEDEP}] )
 "
 DEPEND="${RDEPEND}"
@@ -45,6 +45,8 @@ src_prepare() {
 	use havege && enable_mbedtls_option MBEDTLS_HAVEGE_C
 	use threads && enable_mbedtls_option MBEDTLS_THREADING_C
 	use threads && enable_mbedtls_option MBEDTLS_THREADING_PTHREAD
+
+	sed -i -e "s:VERSION 2.8.12:VERSION 3.10:g" CMakeLists.txt || die
 
 	cmake_src_prepare
 }
