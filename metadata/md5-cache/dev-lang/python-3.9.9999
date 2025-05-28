@@ -4,7 +4,7 @@ DEPEND=app-arch/bzip2:= app-arch/xz-utils:= >=dev-libs/expat-2.1:= dev-libs/libf
 DESCRIPTION=An interpreted, interactive, object-oriented programming language
 EAPI=8
 HOMEPAGE=https://www.python.org/ https://github.com/python/cpython/
-INHERIT=autotools check-reqs flag-o-matic git-r3 multiprocessing pax-utils prefix python-utils-r1 toolchain-funcs
+INHERIT=autotools check-reqs flag-o-matic git-r3 multiprocessing pax-utils prefix toolchain-funcs
 IUSE=bluetooth build debug +ensurepip examples gdbm +ncurses pgo +readline +sqlite +ssl test tk valgrind
 LICENSE=PSF-2
 PROPERTIES=live
@@ -12,5 +12,5 @@ RDEPEND=app-arch/bzip2:= app-arch/xz-utils:= >=dev-libs/expat-2.1:= dev-libs/lib
 RESTRICT=!test? ( test )
 SLOT=3.9
 SRC_URI=https://dev.gentoo.org/~mgorny/dist/python/python-gentoo-patches-3.9.22.tar.xz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	check-reqs	2a9731073c152554078a9a8df8fc0f1b	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	git-r3	875eb471682d3e1f18da124be97dcc81	multiprocessing	1e32df7deee68372153dca65f4a7c21f	pax-utils	5555f2e75744739fe100ee62c22d28fe	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64
-_md5_=ee214ec0ea5afbe56d19a13f52e5b402
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	check-reqs	2a9731073c152554078a9a8df8fc0f1b	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	git-r3	875eb471682d3e1f18da124be97dcc81	multiprocessing	1e32df7deee68372153dca65f4a7c21f	pax-utils	5555f2e75744739fe100ee62c22d28fe	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
+_md5_=b78ec9d8bbb0a90c5c0ef36e82660205
