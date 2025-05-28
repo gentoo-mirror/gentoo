@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://rakshasa.github.io/rtorrent/
 INHERIT=autotools linux-info lua-single systemd
 IUSE=debug lua selinux test tinyxml2 xmlrpc lua_single_target_lua5-3 lua_single_target_lua5-4
-KEYWORDS=~amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-2
 RDEPEND=~net-libs/libtorrent-0.15.3 net-misc/curl sys-libs/ncurses:0= lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) xmlrpc? ( dev-libs/xmlrpc-c:= ) selinux? ( sec-policy/selinux-rtorrent )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) tinyxml2? ( !xmlrpc )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rakshasa/rtorrent/releases/download/v0.15.3/rtorrent-0.15.3.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	linux-info	ea4122ba1d8791a12b78e53f9510a2e3	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=6fe9f9670732885a31cb93fda316001e
+_md5_=6b98c7e132df48e39b678af1dcd3c727
