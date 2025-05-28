@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup
 DEPEND=>=media-libs/alsa-lib-1.2.14 >=dev-python/pyalsa-1.0.26 fltk? ( x11-libs/fltk:1= ) gtk? ( dev-libs/gobject-introspection x11-libs/gtk+:2 x11-libs/gtk+:3 )
 DESCRIPTION=Advanced Linux Sound Architecture tools
@@ -12,5 +12,5 @@ LICENSE=GPL-2
 RDEPEND=>=media-libs/alsa-lib-1.2.14 >=dev-python/pyalsa-1.0.26 fltk? ( x11-libs/fltk:1= ) gtk? ( dev-libs/gobject-introspection x11-libs/gtk+:2 x11-libs/gtk+:3 ) gtk? ( media-fonts/font-misc-misc )
 SLOT=0.9
 SRC_URI=https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.14.tar.bz2
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
 _md5_=8068f7c8c891a8e3879184de49fbb47d

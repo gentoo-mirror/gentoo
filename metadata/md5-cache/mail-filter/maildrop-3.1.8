@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
 DEPEND=!mail-mta/courier net-mail/mailbase dev-libs/libpcre2 net-dns/libidn2:= net-libs/courier-unicode:= gdbm? ( sys-libs/gdbm:= ) mysql? ( net-libs/courier-authlib ) postgres? ( net-libs/courier-authlib ) ldap? ( net-libs/courier-authlib ) authlib? ( net-libs/courier-authlib ) !gdbm? ( berkdb? ( sys-libs/db:= ) ) tools? ( !mail-mta/netqmail !<net-mail/courier-imap-5.2.6 net-mail/courier-common[gdbm?,berkdb?] )
 DESCRIPTION=Mail delivery agent/filter
@@ -13,5 +13,5 @@ REQUIRED_USE=mysql? ( authlib ) postgres? ( authlib ) ldap? ( authlib )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/courier/maildrop-3.1.8.tar.bz2
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7
 _md5_=0d582d8bccd8de3926556fcb3ae9f0dc

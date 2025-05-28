@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/bison sys-devel/flex sys-devel/gettext virtual/pkgconfig doc? ( app-text/po4a ) ocaml? ( dev-ml/ocaml-gettext dev-ml/ocaml-gettext-stub ) perl? ( dev-perl/Module-Build virtual/perl-ExtUtils-CBuilder virtual/perl-Pod-Simple ) test? ( ocaml? ( dev-ml/ounit2[ocamlopt] ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=sys-devel/bison sys-devel/flex sys-devel/gettext virtual/pkgconfig doc? ( app-text/po4a ) ocaml? ( dev-ml/ocaml-gettext dev-ml/ocaml-gettext-stub ) perl? ( dev-perl/Module-Build virtual/perl-ExtUtils-CBuilder virtual/perl-Pod-Simple ) test? ( ocaml? ( dev-ml/ounit2[ocamlopt] ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install postinst prepare test
 DEPEND=app-arch/xz-utils dev-libs/libpcre2:= dev-libs/libxml2:= sys-libs/libxcrypt:= sys-libs/ncurses:= >=app-emulation/libguestfs-1.49.8:=[ocaml,perl?,libvirt=] dev-libs/jansson:= sys-libs/libosinfo || ( dev-libs/libisoburn app-cdr/cdrtools ) dev-db/sqlite sys-apps/hwdata libvirt? ( app-emulation/libvirt[qemu] ) perl? ( app-misc/hivex virtual/perl-Getopt-Long ) dev-lang/ocaml[ocamlopt] dev-ml/findlib[ocamlopt]
 DESCRIPTION=Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
@@ -12,5 +12,5 @@ RDEPEND=app-arch/xz-utils dev-libs/libpcre2:= dev-libs/libxml2:= sys-libs/libxcr
 RESTRICT=!test? ( test )
 SLOT=0/1.52
 SRC_URI=https://download.libguestfs.org/guestfs-tools/1.52-stable/guestfs-tools-1.52.3.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	bash-completion-r1	767861f3744f589ee5291c1698b1c082	perl-functions	1863acf0982afafc67797e3ce7275b4c
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	bash-completion-r1	767861f3744f589ee5291c1698b1c082	perl-functions	1863acf0982afafc67797e3ce7275b4c
 _md5_=1e8432dfa795944332d94ffebb3c68e1

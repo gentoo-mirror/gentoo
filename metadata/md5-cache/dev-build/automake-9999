@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/gzip sys-apps/help2man dev-build/autoconf-wrapper dev-build/autoconf test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) dev-util/dejagnu sys-devel/bison sys-devel/flex ) verify-sig? ( sec-keys/openpgp-keys-jimmeyering ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-alternatives/gzip sys-apps/help2man dev-build/autoconf-wrapper dev-build/autoconf test? ( || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) dev-util/dejagnu sys-devel/bison sys-devel/flex ) verify-sig? ( sec-keys/openpgp-keys-karlberry ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare setup test unpack
 DESCRIPTION=Used to generate Makefile.in from Makefile.am
 EAPI=8
@@ -7,8 +7,8 @@ INHERIT=python-any-r1 verify-sig git-r3
 IUSE=test verify-sig
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=>=dev-lang/perl-5.6 >=dev-build/automake-wrapper-20240607 >=dev-build/autoconf-2.69:* sys-devel/gnuconfig
+RDEPEND=>=dev-lang/perl-5.6 >=dev-build/automake-wrapper-20250528 >=dev-build/autoconf-2.69:* sys-devel/gnuconfig
 RESTRICT=!test? ( test )
 SLOT=9999
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-any-r1	891415dfe39ad9b41b461f2b86354af0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=c9de44d3d7511893e964941acf87c436
+_md5_=674609df4c3957269cc86bf2d25ef79f

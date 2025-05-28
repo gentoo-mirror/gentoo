@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-text/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=doc? ( app-text/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst prepare setup
 DEPEND=dev-libs/apr:1= dev-libs/apr-util:1[openssl] dev-libs/expat dev-libs/libxml2 dev-libs/libpcre[jit?] net-misc/curl sys-apps/util-linux sys-libs/gdbm:= virtual/libcrypt:= fuzzyhash? ( app-crypt/ssdeep ) json? ( dev-libs/yajl ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) mlogc? ( net-misc/curl ) pcre2? ( dev-libs/libpcre2:= ) www-servers/apache[apache2_modules_unique_id] =www-servers/apache-2*
 DESCRIPTION=Application firewall and intrusion detection for Apache
@@ -14,5 +14,5 @@ REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/owasp-modsecurity/ModSecurity/releases/download/v2.9.8/modsecurity-v2.9.8.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	depend.apache	3b9c533be911d4550c8972e4dfb6434a	apache-module	2778fecd257078e9c921796782f6ede1	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	depend.apache	3b9c533be911d4550c8972e4dfb6434a	apache-module	2778fecd257078e9c921796782f6ede1	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
 _md5_=f3eeaa86df89ffcbc731a53433a84158

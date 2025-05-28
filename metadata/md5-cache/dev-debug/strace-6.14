@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig verify-sig? ( >=sec-keys/openpgp-keys-strace-20151021 ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=virtual/pkgconfig verify-sig? ( >=sec-keys/openpgp-keys-strace-20151021 ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare test unpack
 DEPEND=static? ( unwind? ( sys-libs/libunwind[static-libs(+)] ) elfutils? ( dev-libs/elfutils[static-libs(+)] ) selinux? ( sys-libs/libselinux[static-libs(+)] ) ) aio? ( >=dev-libs/libaio-0.3.106 )
 DESCRIPTION=Useful diagnostic, instructional, and debugging tool
@@ -13,5 +13,5 @@ REQUIRED_USE=?? ( unwind elfutils )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/strace/strace/releases/download/v6.14/strace-6.14.tar.xz verify-sig? ( https://github.com/strace/strace/releases/download/v6.14/strace-6.14.tar.xz.asc )
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	edo	a5e294016aa84979fcb2459749eb80b2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	edo	a5e294016aa84979fcb2459749eb80b2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
 _md5_=6e8b3fe32174c36d4aa4414406e316a8

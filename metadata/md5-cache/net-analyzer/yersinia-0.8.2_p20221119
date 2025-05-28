@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure prepare
 DEPEND=>=net-libs/libnet-1.1.2:1.1 >=net-libs/libpcap-0.9.4 ncurses? ( >=sys-libs/ncurses-5.5:= ) gtk? ( dev-libs/glib:2 x11-libs/gdk-pixbuf:2 =x11-libs/gtk+-2*:2 x11-libs/pango )
 DESCRIPTION=A framework for layer 2 attacks
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=>=net-libs/libnet-1.1.2:1.1 >=net-libs/libpcap-0.9.4 ncurses? ( >=sys-libs/ncurses-5.5:= ) gtk? ( dev-libs/glib:2 x11-libs/gdk-pixbuf:2 =x11-libs/gtk+-2*:2 x11-libs/pango )
 SLOT=0
 SRC_URI=https://github.com/tomac/yersinia/archive/867b309eced9e02b63412855440cd4f5f7727431.tar.gz -> yersinia-0.8.2_p20221119.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
 _md5_=db0757938c10c92b3978f6ffcc0f1569

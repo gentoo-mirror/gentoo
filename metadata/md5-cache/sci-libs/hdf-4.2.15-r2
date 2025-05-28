@@ -1,4 +1,4 @@
-BDEPEND=fortran? ( virtual/fortran ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=fortran? ( virtual/fortran ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare setup
 DEPEND=net-libs/libtirpc:= sys-libs/zlib virtual/jpeg:0 szip? ( virtual/szip ) test? ( virtual/szip ) fortran? ( virtual/fortran )
 DESCRIPTION=General purpose library and format for storing scientific data
@@ -13,5 +13,5 @@ REQUIRED_USE=test? ( szip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://support.hdfgroup.org/ftp/HDF/releases/HDF4.2.15/src/hdf-4.2.15.tar.bz2 https://dev.gentoo.org/~sam/distfiles/sci-libs/hdf/hdf-4.2.15-arch-patches-1.tar.bz2 https://dev.gentoo.org/~dlan/distfiles/sci-libs/hdf/hdf-4.2.15-arch-patches-1.tar.bz2
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	fortran-2	54fcb693257134adae26819685891ecc	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	fortran-2	54fcb693257134adae26819685891ecc	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
 _md5_=40bb0736794c76dd8eb41ce5b38ce205

@@ -1,4 +1,4 @@
-BDEPEND=dev-util/intltool dev-build/autoconf-archive virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=dev-util/intltool dev-build/autoconf-archive virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure prepare setup
 DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) app-i18n/pyzy dev-db/sqlite:3 python_single_target_python3_11? ( app-i18n/ibus[python(+),python_targets_python3_11(-)] dev-python/pygobject:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( app-i18n/ibus[python(+),python_targets_python3_12(-)] dev-python/pygobject:3[python_targets_python3_12(-)] ) boost? ( dev-libs/boost ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) nls? ( virtual/libintl )
 DESCRIPTION=Chinese Pinyin and Bopomofo engines for IBus
@@ -12,5 +12,5 @@ RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 ) lua? ( ^^ ( lua_single_target_lua5-1 ) )
 SLOT=0
 SRC_URI=https://github.com/ibus/ibus-pinyin/archive/refs/tags/1.5.1.tar.gz -> ibus-pinyin-1.5.1.gh.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
 _md5_=6a72d3da97138471abeb0c72915d547f

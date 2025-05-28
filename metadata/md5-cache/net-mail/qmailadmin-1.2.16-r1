@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install postinst prepare prerm setup
 DEPEND=virtual/libcrypt:= virtual/qmail >=net-mail/vpopmail-5.4.33 net-mail/autorespond maildrop? ( >=mail-filter/maildrop-2.0.1 ) app-admin/webapp-config
 DESCRIPTION=A web interface for managing a qmail system with virtual domains
@@ -12,5 +12,5 @@ RDEPEND=virtual/libcrypt:= virtual/qmail >=net-mail/vpopmail-5.4.33 net-mail/aut
 RESTRICT=userpriv
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/qmailadmin/qmailadmin-1.2.16.tar.gz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	fixheadtails	1721997ed44d035654efe12da50797ef	qmail	30f39e6819a20ba64005ceeadd3845e0	webapp	5fa840db95fc7348dfd53b8526ed05f5	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	fixheadtails	1721997ed44d035654efe12da50797ef	qmail	30f39e6819a20ba64005ceeadd3845e0	webapp	5fa840db95fc7348dfd53b8526ed05f5	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7
 _md5_=7455b9879c63144f456ddd1838ddbd96

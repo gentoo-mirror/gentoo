@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare pretend setup test
 DEPEND=>=dev-libs/openssl-1.0.1:= virtual/libcrypt:= mpi? ( virtual/mpi ) opencl? ( virtual/opencl ) kerberos? ( virtual/krb5 ) pcap? ( net-libs/libpcap ) dev-libs/gmp:= sys-libs/zlib app-arch/bzip2
 DESCRIPTION=Fast password cracker, community enhanced version
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/openssl-1.0.1:= virtual/libcrypt:= mpi? ( virtual/mpi ) openc
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/openwall/john/archive/9daf16b5743b2c521d23c281e13ae8cdbd37b1eb.tar.gz -> johntheripper-jumbo-1.9.0_p20240102.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	pax-utils	5555f2e75744739fe100ee62c22d28fe
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	pax-utils	5555f2e75744739fe100ee62c22d28fe
 _md5_=e28261ce0139190be6aac5243f77dc91

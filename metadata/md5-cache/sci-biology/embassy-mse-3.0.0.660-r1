@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
 DEPEND=sys-libs/ncurses:= dev-libs/expat dev-libs/libpcre:3 sci-libs/plplot:= sys-libs/zlib mysql? ( dev-db/mysql-connector-c:0= ) pdf? ( media-libs/libharu:= ) png? ( media-libs/gd:2=[png] ) postgres? ( dev-db/postgresql:= ) X? ( x11-libs/libXt ) >=sci-biology/emboss-6.6.0-r1[mysql=,pdf=,png=,postgres=,X=]
 DESCRIPTION=EMBOSS integrated version of MSE - Multiple Sequence Screen Editor
@@ -11,5 +11,5 @@ LICENSE=LGPL-2 GPL-2
 RDEPEND=sys-libs/ncurses:= dev-libs/expat dev-libs/libpcre:3 sci-libs/plplot:= sys-libs/zlib mysql? ( dev-db/mysql-connector-c:0= ) pdf? ( media-libs/libharu:= ) png? ( media-libs/gd:2=[png] ) postgres? ( dev-db/postgresql:= ) X? ( x11-libs/libXt ) >=sci-biology/emboss-6.6.0-r1[mysql=,pdf=,png=,postgres=,X=]
 SLOT=0
 SRC_URI=ftp://emboss.open-bio.org/pub/EMBOSS/MSE-3.0.0.660.tar.gz -> embassy-mse-3.0.0.660.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	emboss-r3	bd98b11ffc89ab4079e13e7d634fd143
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	emboss-r3	bd98b11ffc89ab4079e13e7d634fd143
 _md5_=86e12f8b76c4395cf8cf96c8af1aa75e

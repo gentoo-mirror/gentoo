@@ -1,4 +1,4 @@
-BDEPEND=x11-misc/imake sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=x11-misc/imake sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
 DEPEND=sys-libs/ncurses:= lirc? ( app-misc/lirc ) sdl? ( media-libs/libsdl ) sid? ( media-libs/libsidplay:1 ) vorbis? ( media-libs/libvorbis ) oss? ( virtual/os-headers )
 DESCRIPTION=Text console based program for playing audio files
@@ -12,5 +12,5 @@ RDEPEND=sys-libs/ncurses:= lirc? ( app-misc/lirc ) sdl? ( media-libs/libsdl ) si
 REQUIRED_USE=|| ( oss sdl )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/mp3blaster/mp3blaster-3.2.6.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7
 _md5_=eeeff744b99365fc2de0ed86805361d1

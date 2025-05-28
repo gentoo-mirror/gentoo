@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/glib:2 x11-libs/gdk-pixbuf:2 aalib? ( media-libs/aalib ) gtk? ( app-accessibility/at-spi2-core:2 media-libs/fontconfig media-libs/freetype media-libs/harfbuzz:= x11-libs/cairo x11-libs/gtk+:2 x11-libs/pango )
 DESCRIPTION=Library full of useful things to hack the Blinkenlights
@@ -11,5 +11,5 @@ LICENSE=GPL-2+
 RDEPEND=dev-libs/glib:2 x11-libs/gdk-pixbuf:2 aalib? ( media-libs/aalib ) gtk? ( app-accessibility/at-spi2-core:2 media-libs/fontconfig media-libs/freetype media-libs/harfbuzz:= x11-libs/cairo x11-libs/gtk+:2 x11-libs/pango )
 SLOT=0
 SRC_URI=http://www.blinkenlights.de/dist/blib-1.1.7.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7
 _md5_=756060e0a347945888d7e6e78b32cb93

@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=berkdb? ( sys-libs/db:= ) gdbm? ( sys-libs/gdbm:= ) jemalloc? ( dev-libs/jemalloc:= ) jit? ( || ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* ) ) ssl? ( dev-libs/openssl:0= ) socks5? ( >=net-proxy/dante-1.1.13 ) systemtap? ( dev-debug/systemtap ) tk? ( dev-lang/tcl:0=[threads] dev-lang/tk:0=[threads] ) dev-libs/libyaml dev-libs/libffi:= sys-libs/zlib virtual/libcrypt:= >=app-eselect/eselect-ruby-20231226 valgrind? ( dev-debug/valgrind )
 DESCRIPTION=An object-oriented scripting language
@@ -12,5 +12,5 @@ PDEPEND=>=dev-ruby/debug-1.9.2[ruby_targets_ruby33(-)] >=dev-ruby/irb-1.11.0[rub
 RDEPEND=berkdb? ( sys-libs/db:= ) gdbm? ( sys-libs/gdbm:= ) jemalloc? ( dev-libs/jemalloc:= ) jit? ( || ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* ) ) ssl? ( dev-libs/openssl:0= ) socks5? ( >=net-proxy/dante-1.1.13 ) systemtap? ( dev-debug/systemtap ) tk? ( dev-lang/tcl:0=[threads] dev-lang/tk:0=[threads] ) dev-libs/libyaml dev-libs/libffi:= sys-libs/zlib virtual/libcrypt:= >=app-eselect/eselect-ruby-20231226
 SLOT=3.3
 SRC_URI=https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.8.tar.xz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	35f9bf6198bb538e28dcdea5fda274f2	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	3b042096236a464b8bd9dd7a1120ad23
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	3b042096236a464b8bd9dd7a1120ad23
 _md5_=091f2bd42acae5424416d62d4d8ddb25
