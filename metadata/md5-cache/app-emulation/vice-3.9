@@ -1,11 +1,11 @@
-BDEPEND=app-alternatives/awk app-alternatives/yacc app-arch/unzip app-text/dos2unix dev-embedded/xa dev-lang/perl sys-apps/texinfo app-alternatives/lex sys-devel/gettext virtual/pkgconfig doc? ( virtual/texi2dvi ) gtk? ( x11-misc/xdg-utils )
+BDEPEND=app-alternatives/awk app-alternatives/yacc app-arch/unzip app-text/dos2unix dev-embedded/xa dev-lang/perl sys-apps/texinfo app-alternatives/lex sys-devel/gettext virtual/pkgconfig doc? ( virtual/texi2dvi ) gtk? ( x11-misc/xdg-utils ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup
 DEPEND=sys-libs/zlib:= virtual/libintl alsa? ( media-libs/alsa-lib ) curl? ( net-misc/curl ) ethernet? ( net-libs/libpcap sys-libs/libcap ) evdev? ( dev-libs/libevdev ) flac? ( media-libs/flac:= ) gif? ( media-libs/giflib:= ) gtk? ( >=app-accessibility/at-spi2-core-2.46:2 dev-libs/glib:2 media-libs/fontconfig:1.0 media-libs/glew:0=[-egl-only(-)] media-libs/libglvnd[X] x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/pango ) lame? ( media-sound/lame ) mpg123? ( media-sound/mpg123-base ) ogg? ( media-libs/libogg media-libs/libvorbis ) parport? ( sys-libs/libieee1284 ) pci? ( sys-apps/pciutils ) png? ( media-libs/libpng:= ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) sdl? ( media-libs/libsdl2[video] media-libs/sdl2-image ) x11-base/xorg-proto
 DESCRIPTION=Versatile Commodore Emulator
 EAPI=8
 HOMEPAGE=https://vice-emu.sourceforge.io/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=multibuild toolchain-funcs xdg
+INHERIT=autotools multibuild toolchain-funcs xdg
 IUSE=alsa curl debug doc ethernet +evdev flac gif +gtk headless lame mpg123 ogg openmp oss parport pci png portaudio pulseaudio sdl
 KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=GPL-2+
@@ -13,5 +13,5 @@ RDEPEND=sys-libs/zlib:= virtual/libintl alsa? ( media-libs/alsa-lib ) curl? ( ne
 REQUIRED_USE=|| ( gtk headless sdl )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/vice-emu/releases/vice-3.9.tar.gz
-_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=09dc943c036bbc31af15c95321520ff4
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	216128ca9bbff45fbea22427005310c7	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=e8a507f002d5d38135652c24ffb81135
