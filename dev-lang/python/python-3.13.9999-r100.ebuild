@@ -3,7 +3,7 @@
 
 EAPI="8"
 
-LLVM_COMPAT=( 19 )
+LLVM_COMPAT=( 18 )
 LLVM_OPTIONAL=1
 WANT_LIBTOOL="none"
 
@@ -11,7 +11,7 @@ inherit autotools check-reqs flag-o-matic git-r3 linux-info llvm-r1
 inherit multiprocessing pax-utils python-utils-r1 toolchain-funcs
 
 PYVER="$(ver_cut 1-2)t"
-PATCHSET="python-gentoo-patches-3.14.0b1"
+PATCHSET="python-gentoo-patches-3.13.3"
 
 DESCRIPTION="Freethreading (no-GIL) version of Python programming language"
 HOMEPAGE="
@@ -28,7 +28,7 @@ LICENSE="PSF-2"
 SLOT="${PYVER}"
 IUSE="
 	bluetooth build debug +ensurepip examples gdbm jit
-	libedit +ncurses pgo +readline +sqlite +ssl tail-call-interp test tk valgrind
+	libedit +ncurses pgo +readline +sqlite +ssl test tk valgrind
 "
 REQUIRED_USE="jit? ( ${LLVM_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"
@@ -41,7 +41,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	app-arch/bzip2:=
 	app-arch/xz-utils:=
-	app-arch/zstd:=
+	app-crypt/libb2
 	>=dev-libs/expat-2.1:=
 	dev-libs/libffi:=
 	dev-libs/mpdecimal:=
@@ -405,7 +405,6 @@ src_configure() {
 		$(use_enable jit experimental-jit)
 		$(use_enable pgo optimizations)
 		$(use_with readline readline "$(usex libedit editline readline)")
-		$(use_with tail-call-interp)
 		$(use_with valgrind)
 	)
 

@@ -3,17 +3,17 @@
 
 EAPI="8"
 
-LLVM_COMPAT=( 19 )
+LLVM_COMPAT=( 18 )
 LLVM_OPTIONAL=1
 WANT_LIBTOOL="none"
 
 inherit autotools check-reqs flag-o-matic git-r3 linux-info llvm-r1
 inherit multiprocessing pax-utils python-utils-r1 toolchain-funcs
 
-PYVER="$(ver_cut 1-2)t"
-PATCHSET="python-gentoo-patches-3.14.0b1"
+PYVER=$(ver_cut 1-2)
+PATCHSET="python-gentoo-patches-3.13.3"
 
-DESCRIPTION="Freethreading (no-GIL) version of Python programming language"
+DESCRIPTION="An interpreted, interactive, object-oriented programming language"
 HOMEPAGE="
 	https://www.python.org/
 	https://github.com/python/cpython/
@@ -22,13 +22,13 @@ SRC_URI="
 	https://dev.gentoo.org/~mgorny/dist/python/${PATCHSET}.tar.xz
 "
 EGIT_REPO_URI="https://github.com/python/cpython.git"
-EGIT_BRANCH=${PYVER%t}
+EGIT_BRANCH=${PYVER}
 
 LICENSE="PSF-2"
 SLOT="${PYVER}"
 IUSE="
 	bluetooth build debug +ensurepip examples gdbm jit
-	libedit +ncurses pgo +readline +sqlite +ssl tail-call-interp test tk valgrind
+	libedit +ncurses pgo +readline +sqlite +ssl test tk valgrind
 "
 REQUIRED_USE="jit? ( ${LLVM_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"
@@ -41,7 +41,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	app-arch/bzip2:=
 	app-arch/xz-utils:=
-	app-arch/zstd:=
+	app-crypt/libb2
 	>=dev-libs/expat-2.1:=
 	dev-libs/libffi:=
 	dev-libs/mpdecimal:=
@@ -114,11 +114,13 @@ pkg_pretend() {
 		check-reqs_pkg_pretend
 	fi
 
-	ewarn "Freethreading build is considered experimental upstream.  Using it"
-	ewarn "could lead to unexpected breakage, including race conditions"
-	ewarn "and crashes, respectively.  Please do not file Gentoo bugs, unless"
-	ewarn "you can reproduce the problem with dev-lang/python.  Instead,"
-	ewarn "please consider reporting freethreading problems upstream."
+	if use jit; then
+		ewarn "USE=jit is considered experimental upstream.  Using it"
+		ewarn "could lead to unexpected breakage, including race conditions"
+		ewarn "and crashes, respectively.  Please do not file Gentoo bugs, unless"
+		ewarn "you can reproduce the problem with dev-lang/python[-jit].  Instead,"
+		ewarn "please consider reporting JIT problems upstream."
+	fi
 }
 
 pkg_setup() {
@@ -399,13 +401,12 @@ src_configure() {
 		--with-platlibdir=lib
 		--with-pkg-config=yes
 		--with-wheel-pkg-dir="${EPREFIX}"/usr/lib/python/ensurepip
-		--disable-gil
+		--enable-gil
 
 		$(use_with debug assertions)
 		$(use_enable jit experimental-jit)
 		$(use_enable pgo optimizations)
 		$(use_with readline readline "$(usex libedit editline readline)")
-		$(use_with tail-call-interp)
 		$(use_with valgrind)
 	)
 
@@ -538,10 +539,6 @@ src_install() {
 
 	# Fix collisions between different slots of Python.
 	rm "${ED}/usr/$(get_libdir)/libpython3.so" || die
-	# Fix collision with GIL-enabled build.
-	rm "${ED}/usr/bin/python${PYVER%t}" || die
-	mv "${ED}"/usr/bin/pydoc{${PYVER%t},${PYVER}} || die
-	mv "${ED}"/usr/share/man/man1/python{${PYVER%t},${PYVER}}.1 || die
 
 	# Cheap hack to get version with ABIFLAGS
 	local abiver=$(cd "${ED}/usr/include"; echo python*)
@@ -567,11 +564,8 @@ src_install() {
 	if ! use sqlite; then
 		rm -r "${libdir}/"sqlite3 || die
 	fi
-	if use tk; then
-		# rename to avoid collision with dev-lang/python
-		mv "${ED}"/usr/bin/idle{${PYVER%t},${PYVER}} || die
-	else
-		rm -r "${ED}/usr/bin/idle${PYVER%t}" || die
+	if ! use tk; then
+		rm -r "${ED}/usr/bin/idle${PYVER}" || die
 		rm -r "${libdir}/"{idlelib,tkinter} || die
 	fi
 
