@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ EAPI=8
 # on new automake (major) releases, as well as the dependency in RDEPEND below too.
 # * Update _WANT_AUTOMAKE and _automake_atom case statement in autotools.eclass.
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit python-any-r1 verify-sig
 
@@ -19,7 +19,7 @@ if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://git.savannah.gnu.org/r/${PN}.git"
 	inherit git-r3
 else
-	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/jimmeyering.asc
+	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/karlberry.asc
 	if [[ $(ver_cut 3) -ge 90 ]] ; then
 		MANGLED_SLOT=$(ver_cut 1).$(($(ver_cut 2) + 1))
 		SRC_URI="
@@ -50,7 +50,7 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-lang/perl-5.6
-	>=dev-build/automake-wrapper-20240607
+	>=dev-build/automake-wrapper-20250528
 	>=dev-build/autoconf-2.69:*
 	sys-devel/gnuconfig
 "
@@ -65,7 +65,7 @@ BDEPEND="
 		sys-devel/bison
 		sys-devel/flex
 	)
-	verify-sig? ( sec-keys/openpgp-keys-jimmeyering )
+	verify-sig? ( sec-keys/openpgp-keys-karlberry )
 "
 
 pkg_setup() {
