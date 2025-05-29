@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit bash-completion-r1 go-module
+inherit go-module shell-completion
 
 MY_PN="flux2"
 MY_P="${MY_PN}-${PV}"
@@ -35,6 +35,5 @@ src_install() {
 	bin/${PN} completion bash > ${PN}.bash || die
 	bin/${PN} completion zsh > ${PN}.zsh || die
 	newbashcomp ${PN}.bash ${PN}
-	insinto /usr/share/zsh/site-functions
-	newins ${PN}.zsh _${PN}
+	newzshcomp ${PN}.zsh _${PN}
 }
