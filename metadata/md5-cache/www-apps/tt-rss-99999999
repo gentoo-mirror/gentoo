@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=daemon? ( acl? ( sys-apps/acl ) ) daemon? ( acct-user/ttrssd acct-group/ttrssd || ( ( virtual/httpd-php:8.4 dev-lang/php:8.4[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml,cli,pcntl] ) ( virtual/httpd-php:8.3 dev-lang/php:8.3[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml,cli,pcntl] ) ( virtual/httpd-php:8.2 dev-lang/php:8.2[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml,cli,pcntl] ) ) ) !daemon? ( || ( ( virtual/httpd-php:8.4 dev-lang/php:8.4[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml] ) ( virtual/httpd-php:8.3 dev-lang/php:8.3[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml] ) ( virtual/httpd-php:8.2 dev-lang/php:8.2[gd?,postgres,ctype,curl,fileinfo,filter,intl,pdo,tokenizer,unicode,xml] ) ) ) app-admin/webapp-config
 SLOT=99999999
 _eclasses_=webapp	5fa840db95fc7348dfd53b8526ed05f5	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=0d5e470742d867518e683eb44d922273
+_md5_=28882b78673db8f8f8669bbd67c8e17d
