@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig || ( >=dev-lang/rust-bin-1.82.0:* >=dev-lang/rust-1.82.0:* )
+BDEPEND=virtual/pkgconfig || ( >=dev-lang/rust-bin-1.84.1:* >=dev-lang/rust-1.84.1:* )
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
 DEPEND=>=dev-libs/libgit2-0.99:= dev-libs/oniguruma:= dev-libs/openssl:0= net-libs/libssh2:= net-libs/nghttp2:= net-misc/curl dev-db/sqlite:3= system-clipboard? ( X? ( x11-libs/libX11 x11-libs/libxcb ) )
 DESCRIPTION=A new type of shell, written in Rust
@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.nushell.sh
 INHERIT=cargo
 IUSE=plugins system-clipboard X debug
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
 LICENSE=MIT 0BSD Apache-2.0 BSD Boost-1.0 CC-PD CC0-1.0 ISC MIT MPL-2.0 MPL-2.0 Unicode-DFS-2016 ZLIB
 RDEPEND=>=dev-libs/libgit2-0.99:= dev-libs/oniguruma:= dev-libs/openssl:0= net-libs/libssh2:= net-libs/nghttp2:= net-misc/curl dev-db/sqlite:3= system-clipboard? ( X? ( x11-libs/libX11 x11-libs/libxcb ) )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/nushell/nushell/archive/0.102.0.tar.gz -> nushell-0.102.0.tar.gz https://github.com/freijon/nushell/releases/download/0.102.0/nushell-0.102.0-crates.tar.xz
+SRC_URI=https://github.com/nushell/nushell/archive/0.104.1.tar.gz -> nushell-0.104.1.tar.gz https://github.com/freijon/nushell/releases/download/0.104.1/nushell-0.104.1-crates.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	3b042096236a464b8bd9dd7a1120ad23	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a
-_md5_=98b2ea195ba313fbae614cfe0396e920
+_md5_=0a3652be46771919c532754b7e40a996
