@@ -1,6 +1,6 @@
 BDEPEND=app-arch/xz-utils nls? ( sys-devel/gettext ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=app-arch/bzip2 dev-db/sqlite:3 dev-games/ode[double-precision=] lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) dev-libs/libxdg-basedir dev-libs/libxml2 media-fonts/dejavu media-libs/libpng:0= media-libs/libsdl[joystick,opengl] media-libs/sdl-mixer[vorbis] media-libs/sdl-net media-libs/sdl-ttf net-misc/curl sys-libs/zlib:= virtual/jpeg:0 virtual/glu virtual/opengl nls? ( virtual/libintl )
+DEPEND=app-arch/bzip2 dev-db/sqlite:3 dev-games/ode[double-precision=] lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) dev-libs/libxdg-basedir dev-libs/libxml2:= media-fonts/dejavu media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/libsdl[joystick,opengl] media-libs/sdl-mixer[vorbis] media-libs/sdl-net media-libs/sdl-ttf net-misc/curl sys-libs/zlib:= virtual/glu virtual/opengl nls? ( virtual/libintl )
 DESCRIPTION=A challenging 2D motocross platform game, where physics play an important role
 EAPI=7
 HOMEPAGE=https://xmoto.tuxfamily.org
@@ -8,9 +8,9 @@ INHERIT=cmake lua-single
 IUSE=double-precision +nls lua_single_target_lua5-1 lua_single_target_lua5-3
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=app-arch/bzip2 dev-db/sqlite:3 dev-games/ode[double-precision=] lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) dev-libs/libxdg-basedir dev-libs/libxml2 media-fonts/dejavu media-libs/libpng:0= media-libs/libsdl[joystick,opengl] media-libs/sdl-mixer[vorbis] media-libs/sdl-net media-libs/sdl-ttf net-misc/curl sys-libs/zlib:= virtual/jpeg:0 virtual/glu virtual/opengl nls? ( virtual/libintl )
+RDEPEND=app-arch/bzip2 dev-db/sqlite:3 dev-games/ode[double-precision=] lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) dev-libs/libxdg-basedir dev-libs/libxml2:= media-fonts/dejavu media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/libsdl[joystick,opengl] media-libs/sdl-mixer[vorbis] media-libs/sdl-net media-libs/sdl-ttf net-misc/curl sys-libs/zlib:= virtual/glu virtual/opengl nls? ( virtual/libintl )
 REQUIRED_USE=^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 )
 SLOT=0
 SRC_URI=https://github.com/xmoto/xmoto/archive/0.6.1.tar.gz -> xmoto-0.6.1.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
-_md5_=c84301632f1444507c18ec39b09bca94
+_md5_=1114776e11f98742c7808547d8fd2dcf

@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext )
 DEFINED_PHASES=configure install postinst
-DEPEND=>=dev-games/t4k-common-0.1.1-r1[svg?] dev-libs/libxml2:2 media-libs/libsdl[video] media-libs/sdl-image[jpeg,png] media-libs/sdl-mixer media-libs/sdl-net nls? ( virtual/libintl ) svg? ( gnome-base/librsvg:2 x11-libs/cairo )
+DEPEND=>=dev-games/t4k-common-0.1.1-r1[svg?] dev-libs/libxml2:2= media-libs/libsdl[video] media-libs/sdl-image[jpeg,png] media-libs/sdl-mixer media-libs/sdl-net nls? ( virtual/libintl ) svg? ( gnome-base/librsvg:2 x11-libs/cairo )
 DESCRIPTION=Educational arcade game where you have to solve maths problems
 EAPI=7
 HOMEPAGE=https://www.tux4kids.com/
@@ -8,8 +8,8 @@ INHERIT=desktop optfeature
 IUSE=nls svg
 KEYWORDS=~amd64 ~x86
 LICENSE=CC-BY-SA-3.0 CC-PD GPL-3+ public-domain
-RDEPEND=>=dev-games/t4k-common-0.1.1-r1[svg?] dev-libs/libxml2:2 media-libs/libsdl[video] media-libs/sdl-image[jpeg,png] media-libs/sdl-mixer media-libs/sdl-net nls? ( virtual/libintl )
+RDEPEND=>=dev-games/t4k-common-0.1.1-r1[svg?] dev-libs/libxml2:2= media-libs/libsdl[video] media-libs/sdl-image[jpeg,png] media-libs/sdl-mixer media-libs/sdl-net nls? ( virtual/libintl )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/t/tuxmath/tuxmath_2.0.3.orig.tar.gz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	optfeature	538bce96e5589935b57e178e8635f301
-_md5_=2d9b309b6542a7400c2e92b04ef68d78
+_md5_=0837339c6039f36e53ec8d403685a50e
