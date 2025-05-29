@@ -1,15 +1,15 @@
 DEFINED_PHASES=install
-DEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
+DEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
 DESCRIPTION=Assorted git-related scripts
 EAPI=8
 HOMEPAGE=https://github.com/MestreLion/git-tools
 INHERIT=python-r1
-IUSE=python_targets_python3_11 python_targets_python3_12
+IUSE=python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-3+
-RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=app-shells/bash-4.0 >=dev-vcs/git-2.5
-REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=app-shells/bash-4.0 >=dev-vcs/git-2.5
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
 SLOT=0
 SRC_URI=https://github.com/MestreLion/git-tools/archive/v2022.12.tar.gz -> git-tools-2022.12.tar.gz
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38
-_md5_=ad09bacfe6ede544d83c773fcf2dd2f6
+_md5_=8dc77e51700f377e4aedd22ecdf7f7f7
