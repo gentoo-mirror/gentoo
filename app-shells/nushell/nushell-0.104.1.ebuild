@@ -5,7 +5,7 @@ EAPI=8
 
 CRATES=""
 
-RUST_MIN_VER="1.82.0"
+RUST_MIN_VER="1.84.1"
 
 inherit cargo
 
@@ -24,7 +24,7 @@ LICENSE+="
 	Unicode-DFS-2016 ZLIB
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
 IUSE="plugins system-clipboard X"
 
 DEPEND="
@@ -81,7 +81,7 @@ src_install() {
 		# Clear features to compile plugins
 		local myfeatures=()
 		cargo_src_configure
-		
+
 		cargo_src_install --path crates/nu_plugin_custom_values
 		cargo_src_install --path crates/nu_plugin_example
 		cargo_src_install --path crates/nu_plugin_formats
