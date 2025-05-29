@@ -22,7 +22,10 @@ SRC_URI="
 # nvidia-installer is unused but here for GPL-2's "distribute sources"
 S=${WORKDIR}
 
-LICENSE="NVIDIA-r2 Apache-2.0 BSD BSD-2 GPL-2 MIT ZLIB curl openssl"
+LICENSE="
+	NVIDIA-r2 Apache-2.0 Boost-1.0 BSD BSD-2 GPL-2 MIT ZLIB
+	curl openssl public-domain
+"
 SLOT="0/${PV%%.*}"
 KEYWORDS="-* ~amd64 ~arm64"
 # note: kernel-open is an upstream default in >=560 if all GPUs on the system
@@ -85,6 +88,7 @@ DEPEND="
 	)
 "
 BDEPEND="
+	app-alternatives/awk
 	sys-devel/m4
 	virtual/pkgconfig
 "
@@ -281,7 +285,7 @@ src_install() {
 	local skip_modules=(
 		$(usev !X "nvfbc vdpau xdriver")
 		$(usev !modules gsp)
-		$(usev !powerd powerd)
+		$(usev !powerd nvtopps)
 		installer nvpd # handled separately / built from source
 	)
 	local skip_types=(
