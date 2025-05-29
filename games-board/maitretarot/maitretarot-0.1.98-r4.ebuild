@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit autotools toolchain-funcs
+inherit autotools
 
-DESCRIPTION="client for the french tarot game maitretarot"
+DESCRIPTION="Server for the french tarot game maitretarot"
 HOMEPAGE="http://www.nongnu.org/maitretarot/"
 SRC_URI="https://savannah.nongnu.org/download/maitretarot/${PN}.pkg/${PV}/${P}.tar.bz2"
 
@@ -15,14 +15,13 @@ KEYWORDS="~amd64 ~x86"
 
 BDEPEND="virtual/pkgconfig"
 DEPEND="dev-libs/glib:2
-	dev-libs/libxml2
-	dev-games/libmaitretarot
-	dev-games/libmt_client
-	sys-libs/ncurses:0="
+	dev-libs/libxml2:=
+	dev-games/libmaitretarot"
 RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-format.patch
+	"${FILESDIR}"/${P}-gcc15.patch
 )
 
 src_prepare() {
@@ -31,15 +30,14 @@ src_prepare() {
 	mv configure.{in,ac} || die
 
 	# Remove bundled macros (avoid patching same file multiple times)
-	rm -rf m4/{libmaitretarot,libmt_client}.m4 || die
+	rm m4/libmaitretarot.m4 || die
 
 	# Ensure we generate auto* with the fixed macros in tree
 	# (not bundled)
-	# bug #716102
+	# bug #739142
 	eautoreconf
 }
 
 src_configure() {
-	export LIBS="$( $(tc-getPKG_CONFIG) --libs ncurses )"
-	default
+	econf --with-default-config-file="/etc/maitretarotrc.xml"
 }

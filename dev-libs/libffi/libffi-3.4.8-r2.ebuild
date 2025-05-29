@@ -33,6 +33,10 @@ IUSE="debug +exec-static-trampoline pax-kernel static-libs test"
 RESTRICT="!test? ( test )"
 BDEPEND="test? ( dev-util/dejagnu )"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-3.4.8-pa-add-.note.GNU-stack-marker-to-linux.S.patch
+)
+
 src_prepare() {
 	default
 
@@ -69,6 +73,7 @@ multilib_src_configure() {
 	ECONF_SOURCE="${S}" econf \
 		--includedir="${EPREFIX}"/usr/$(get_libdir)/${PN}/include \
 		--disable-multi-os-directory \
+		--with-pic \
 		$(use_enable static-libs static) \
 		$(use_enable exec-static-trampoline exec-static-tramp) \
 		$(use_enable pax-kernel pax_emutramp) \

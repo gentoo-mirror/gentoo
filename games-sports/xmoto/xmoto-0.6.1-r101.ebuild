@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -23,8 +23,9 @@ RDEPEND="app-arch/bzip2
 	dev-games/ode[double-precision=]
 	${LUA_DEPS}
 	dev-libs/libxdg-basedir
-	dev-libs/libxml2
+	dev-libs/libxml2:=
 	media-fonts/dejavu
+	media-libs/libjpeg-turbo:=
 	media-libs/libpng:0=
 	media-libs/libsdl[joystick,opengl]
 	media-libs/sdl-mixer[vorbis]
@@ -32,7 +33,6 @@ RDEPEND="app-arch/bzip2
 	media-libs/sdl-ttf
 	net-misc/curl
 	sys-libs/zlib:=
-	virtual/jpeg:0
 	virtual/glu
 	virtual/opengl
 	nls? ( virtual/libintl )"
