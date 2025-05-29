@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) >=app-portage/elt-patches-20250306
+DEFINED_PHASES=configure install prepare test
+DEPEND=virtual/libiconv nls? ( virtual/libintl ) test? ( dev-libs/check )
+DESCRIPTION=Library for hangul input method logic, hanja dictionary
+EAPI=8
+HOMEPAGE=https://github.com/libhangul/libhangul
+INHERIT=libtool
+IUSE=nls static-libs test
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=virtual/libiconv nls? ( virtual/libintl )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://github.com/libhangul/libhangul/releases/download/libhangul-0.2.0/libhangul-0.2.0.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402
+_md5_=8155a566406ca1b835ff0827a5eed62f
