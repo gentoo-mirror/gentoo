@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} pypy3_11 )
+PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
 inherit distutils-r1
 
@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 RDEPEND="
 	dev-python/msgpack[${PYTHON_USEDEP}]
@@ -29,7 +29,7 @@ RDEPEND="
 	' 'python*')
 	$(python_gen_cond_dep '
 		>=dev-python/typing-extensions-4.5[${PYTHON_USEDEP}]
-	' 3.11 3.12)
+	' 3.11)
 "
 BDEPEND="
 	test? (
@@ -37,6 +37,10 @@ BDEPEND="
 		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 	)
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.5.2-py314.patch
+)
 
 : ${EPYTEST_TIMEOUT:=5}
 distutils_enable_tests pytest
