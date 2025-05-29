@@ -17,7 +17,10 @@ DEPEND="
 	net-libs/ldns
 	sys-libs/readline
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!net-dns/bind-tools
+	!net-dns/bind
+"
 
 src_compile() {
 	tc-export CC

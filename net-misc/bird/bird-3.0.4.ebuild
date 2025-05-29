@@ -7,11 +7,11 @@ inherit autotools fcaps
 
 DESCRIPTION="A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 & IPv6"
 HOMEPAGE="https://bird.network.cz"
-SRC_URI="https://bird.network.cz/download/${P}.tar.gz"
-
+SRC_URI="https://bird.nic.cz/download/${P}.tar.gz"
 LICENSE="GPL-2"
+
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~loong ~x86 ~x64-macos"
+#KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86 ~x64-macos"
 IUSE="+client custom-cflags debug libssh"
 
 RDEPEND="
@@ -36,15 +36,6 @@ FILECAPS=(
 	CAP_NET_RAW				usr/sbin/bird
 )
 
-PATCHES=(
-	"${FILESDIR}/${P}-musl-tests.patch"
-)
-
-src_prepare() {
-	default
-	eautoreconf
-}
-
 src_configure() {
 	# This export makes compilation and test phases verbose
 	export VERBOSE=1
@@ -60,7 +51,8 @@ src_configure() {
 	# optimisations to be fast, as it may very likely be exposed to several
 	# thounsand BGP updates per seconds
 	# Although, we make it possible to deactivate it if wanted
-	use custom-cflags && myargs+=( bird_cv_c_lto=no )
+	use custom-cflags && myargs+=( bird_cflags_default=no ) || \
+		myargs+=( bird_cflags_default=yes )
 
 	econf "${myargs[@]}"
 }
