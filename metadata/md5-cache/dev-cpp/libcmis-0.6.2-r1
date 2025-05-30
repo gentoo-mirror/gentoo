@@ -4,13 +4,13 @@ DEPEND=dev-libs/boost:= dev-libs/libxml2:= net-misc/curl
 DESCRIPTION=C++ client library for the CMIS interface
 EAPI=8
 HOMEPAGE=https://github.com/tdf/libcmis
-INHERIT=autotools
+INHERIT=autotools flag-o-matic
 IUSE=man test tools
 KEYWORDS=amd64 ~arm arm64 ~loong ppc64 ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=|| ( GPL-2 LGPL-2 MPL-1.1 )
 RDEPEND=dev-libs/boost:= dev-libs/libxml2:= net-misc/curl !dev-cpp/libcmis:0.5
-RESTRICT=test
+RESTRICT=!test? ( test )
 SLOT=0/0.6
 SRC_URI=https://github.com/tdf/libcmis/archive/v0.6.2.tar.gz -> libcmis-0.6.2.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=7410267925a202b4736992f2670825c1
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
+_md5_=f7ce9e873a5620fe357625ad02945557
