@@ -50,11 +50,6 @@ BDEPEND="
 distutils_enable_tests pytest
 
 src_prepare() {
-	local PATCHES=(
-		# https://github.com/magic-wormhole/magic-wormhole/pull/626
-		"${FILESDIR}/${P}-test.patch"
-	)
-
 	distutils-r1_src_prepare
 	rm versioneer.py || die
 }
