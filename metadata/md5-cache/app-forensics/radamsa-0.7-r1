@@ -1,0 +1,14 @@
+BDEPEND=test? ( dev-scheme/owl-lisp )
+DEFINED_PHASES=compile install prepare test
+DESCRIPTION=A general-purpose fuzzer
+EAPI=8
+HOMEPAGE=https://gitlab.com/akihe/radamsa
+INHERIT=toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=MIT
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.com/akihe/radamsa/-/archive/v0.7/radamsa-v0.7.tar.bz2 https://gitlab.com/akihe/radamsa/uploads/d774a42f7893012d0a56c490a75ae12b/radamsa-0.7.c.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169
+_md5_=3f6ba7588e8f2cdf21a71b3051e7ca7d

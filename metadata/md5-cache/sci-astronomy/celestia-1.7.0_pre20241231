@@ -6,12 +6,13 @@ EAPI=8
 HOMEPAGE=https://celestiaproject.space/ https://github.com/CelestiaProject/Celestia
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=desktop lua-single xdg cmake
-IUSE=ffmpeg gtk lto lua nls +qt6 sdl lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3
+IUSE=ffmpeg gtk lto lua nls +qt6 sdl test lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
 RDEPEND=dev-libs/libfmt:= media-libs/libepoxy media-libs/libjpeg-turbo:0= media-libs/libpng:0= sys-libs/zlib:= virtual/glu virtual/opengl gtk? ( x11-libs/gtk+:3 ) ffmpeg? ( media-video/ffmpeg:0= ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) ) qt6? ( dev-qt/qtbase:6[gui,opengl,widgets] ) sdl? ( media-libs/libsdl2[X] )
 REQUIRED_USE=|| ( gtk qt6 sdl ) lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 ) )
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/CelestiaProject/Celestia/archive/9292455b420aa865482078c3149ae974367270e5.tar.gz -> celestia-1.7.0_pre20241231.tar.gz https://github.com/CelestiaProject/CelestiaContent/archive/d20a4500410af19bd508eba567c9220890e9e316.tar.gz -> celestia-1.7.0_pre20241231-data.tar.gz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	cmake	b05c1b7b3c9213c155f128f4eadaa49f
-_md5_=807939480b02f5e6e6fb5d85ab3f1de7
+_md5_=09246724f0c8456f905d6aff6af975f1
