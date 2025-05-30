@@ -5,12 +5,12 @@ EAPI=8
 HOMEPAGE=https://conan.io/
 INHERIT=distutils-r1
 IUSE=python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
 RDEPEND=>=dev-python/bottle-0.12.8[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/colorama-0.4.3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/distro-1.4.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/fasteners-0.15.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/jinja2-3.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/patch-ng-1.18.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/pluginbase-0.5[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/pyjwt-2.4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/python-dateutil-2.8.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/pyyaml-6.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/requests-2.25[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/urllib3-1.26.6[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11[sqlite] ) python_targets_python3_12? ( dev-lang/python:3.12[sqlite] ) python_targets_python3_13? ( dev-lang/python:3.13[sqlite] )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/conan-io/conan/archive/2.11.0.tar.gz -> conan-2.11.0.gh.tar.gz
+SRC_URI=https://github.com/conan-io/conan/archive/2.14.0.tar.gz -> conan-2.14.0.gh.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	0e08701ccfa3f73267c62f539b7ab456
-_md5_=2c49d1e5b6744ad799a4a343dd6a1f81
+_md5_=a8dce6734b90968eb52c4d3eb052cdad
