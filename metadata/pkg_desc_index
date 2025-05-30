@@ -2431,7 +2431,7 @@ app-eselect/eselect-guile 20250224: GNU Guile eselect module
 app-eselect/eselect-iptables 20220320: Manages the {,/usr}/sbin/iptables symlink
 app-eselect/eselect-java 0.5.1: A set of eselect modules for Java
 app-eselect/eselect-lapack 0.2 0.3: LAPACK module for eselect
-app-eselect/eselect-lib-bin-symlink 0.1.1-r1 9999: An eselect library to manage executable symlinks
+app-eselect/eselect-lib-bin-symlink 0.1.1-r1: An eselect library to manage executable symlinks
 app-eselect/eselect-lua 4-r1: Lua eselect module
 app-eselect/eselect-luajit 1: Manages LuaJIT symlinks
 app-eselect/eselect-mpg123 0.1-r1: Manage /usr/bin/mpg123 symlink
@@ -2751,7 +2751,7 @@ app-misc/gcal 4.1-r3: The GNU Calendar - a replacement for cal
 app-misc/geekcode 1.7.3-r1: Geek code generator
 app-misc/geneweb 7.0.0_p1-r2 7.0.1_alpha2-r3 7.1_beta: Genealogy software program with a Web interface
 app-misc/gentoo 0.20.7-r1: Graphical file manager for Unix-like systems, using GTK+
-app-misc/gentoo-elections 0_p20190710: Gentoo election control data and scripts
+app-misc/gentoo-elections 0_p20190710 0_p20240831: Gentoo election control data and scripts
 app-misc/geoclue 2.7.1 2.7.2: Location information D-Bus service
 app-misc/getopt 1.1.6-r1: getopt(1) replacement supporting GNU-style long options
 app-misc/glastree 1.04_p20150525: glastree is a poor mans snapshot utility using hardlinks written in perl
@@ -3082,7 +3082,7 @@ app-portage/ufed 0.96 9999: Gentoo Linux USE flags editor
 app-portage/unsymlink-lib 20: Convert your system to SYMLINK_LIB=no
 app-shells/atuin 18.4.0 18.5.0 18.6.1: Shell history manager supporting encrypted synchronisation
 app-shells/autojump 22.5.3-r4: change directory command that learns
-app-shells/bash 2.05b_p13 3.0_p22 3.1_p23 3.2_p57 4.0_p44 4.1_p17 4.2_p53 4.3_p48-r2 4.4_p23-r2 5.0_p18-r3 5.1_p16-r14 5.2_p37 5.2_p37-r3 5.3_rc1 5.3_rc1_p20250430-r1 5.3_rc1_p20250504-r1 5.3_rc1_p20250519 9999: The standard GNU Bourne again shell
+app-shells/bash 2.05b_p13 3.0_p22 3.1_p23 3.2_p57 4.0_p44 4.1_p17 4.2_p53 4.3_p48-r2 4.4_p23-r2 5.0_p18-r3 5.1_p16-r14 5.2_p37 5.2_p37-r3 5.3_rc1 5.3_rc1_p20250430-r1 5.3_rc1_p20250504-r1 5.3_rc1_p20250519 5.3_rc1_p20250530 9999: The standard GNU Bourne again shell
 app-shells/bash-completion 2.14.0-r1 2.15.0 2.16.0 9999: Programmable Completion for bash
 app-shells/bashdb 5.0.1.1.2-r1 5.1_pre20240617: bash source code debugging
 app-shells/bashish 2.2.4: Text console theme engine
@@ -4080,7 +4080,7 @@ dev-dotnet/nake 3.0.0-r1: C# scripting build automation task runner
 dev-dotnet/netcoredbg 3.1.0.1031: NetCoreDbg is a managed code debugger with MI interface for CoreCLR
 dev-dotnet/nuget-license 3.0.0: .NET Core tool to print or save all the licenses of a project
 dev-dotnet/omnisharp-roslyn 1.39.12 1.39.13: OmniSharp server (HTTP, STDIO) based on Roslyn workspaces
-dev-dotnet/pe-format 2.1.2-r1 9999: Intelligent PE executable wrapper for binfmt_misc
+dev-dotnet/pe-format 2.1.2-r1: Intelligent PE executable wrapper for binfmt_misc
 dev-embedded/arduino 1.8.19-r1: An open-source AVR electronics prototyping platform
 dev-embedded/arduino-builder 1.5.4-r1: A command line tool for compiling Arduino sketches
 dev-embedded/arduino-ctags 20161123-r2: Arduino private fork of dev-util/ctags
@@ -9834,10 +9834,10 @@ dev-ruby/backports 3.25.0 3.25.1: Backports of Ruby features for older Ruby
 dev-ruby/bacon 1.2.0-r4: Small RSpec clone weighing less than 350 LoC
 dev-ruby/barby 0.6.8-r1: Ruby barcode generator that doesn't rely on 3rd party libraries
 dev-ruby/base32 0.3.4-r1: A library which provides base32 decoding and encoding
-dev-ruby/base64 0.2.0: Support for encoding and decoding binary data using a Base64 representation.
+dev-ruby/base64 0.2.0 0.3.0: Support for encoding and decoding binary data using a Base64 representation.
 dev-ruby/bcrypt-ruby 3.1.20: An easy way to keep your users' passwords secure
 dev-ruby/bcrypt_pbkdf 1.1.1: Implements bcrypt_pdkfd (a variant of PBKDF2 with bcrypt-based PRF)
-dev-ruby/benchmark 0.4.0: A performance benchmarking library
+dev-ruby/benchmark 0.4.0 0.4.1: A performance benchmarking library
 dev-ruby/benchmark-ips 2.14.0: A iterations per second enhancement to Benchmark
 dev-ruby/bigdecimal 3.1.8 3.1.9 3.2.0: Arbitrary-precision decimal floating-point number library for Ruby
 dev-ruby/bindata 2.5.0 2.5.1: Parsing Binary Data in Ruby
@@ -10220,7 +10220,7 @@ dev-ruby/rails-dom-testing 2.2.0 2.3.0: Compare doms and assert certain elements
 dev-ruby/rails-html-sanitizer 1.6.2: Sanitize HTML fragments in Rails applications
 dev-ruby/railties 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.2 7.2.2.1 8.0.1 8.0.2: Tools for creating, working with, and running Rails applications
 dev-ruby/rainbow 3.1.1: Colorize printed text on ANSI terminals
-dev-ruby/rake 13.0.6-r2 13.2.1: Make-like scripting in Ruby
+dev-ruby/rake 13.0.6-r2 13.2.1 13.3.0: Make-like scripting in Ruby
 dev-ruby/rake-compiler 1.2.8 1.2.9 1.3.0: Provide a standard and simplified way to build and package Ruby extensions
 dev-ruby/rake-compiler-dock 1.9.1: Easy to use and reliable cross compiler environment for building binary gems
 dev-ruby/rake-remote_task 2.4.4-r1: Extends Rake with remote task goodness
@@ -10994,8 +10994,8 @@ dev-util/spirv-headers 1.4.309.0 1.4.313.0 9999: Machine-readable files for the 
 dev-util/spirv-llvm-translator 15.0.10-r2 15.0.11 16.0.10-r2 16.0.11 17.0.10-r2 17.0.11 18.1.10-r2 18.1.11 19.1.5-r2 19.1.6 20.1.1 21.0.0_pre20250311 21.0.0.9999: Bi-directional translator between SPIR-V and LLVM IR
 dev-util/spirv-tools 1.4.309.0 1.4.313.0 9999: Provides an API and commands for processing SPIR-V modules
 dev-util/splint 3.1.2-r2: Check C programs for vulnerabilities and programming mistakes
-dev-util/squashdelta 0.1.1 0.1.2 9999: Efficient (partially uncompressed) SquashFS binary delta tool
-dev-util/squashmerge 0.1 9999: dev-util/squashdelta delta merge tool
+dev-util/squashdelta 0.1.2: Efficient (partially uncompressed) SquashFS binary delta tool
+dev-util/squashmerge 0.1: dev-util/squashdelta delta merge tool
 dev-util/src-cli 4.4.0 4.5.0 5.0.2-r1 5.1.2 5.2.0: command line interface for the Sourcegraph code search tool
 dev-util/statifier 1.7.4-r3: Statifier is a tool for creating portable, self-containing Linux executables
 dev-util/stressapptest 1.0.11: Stressful Application Test
