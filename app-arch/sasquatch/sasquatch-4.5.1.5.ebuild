@@ -16,7 +16,12 @@ S="${WORKDIR}/${PN}-${MY_P}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug lz4 lzma lzo xattr zstd"
+IUSE="debug deprecated lz4 lzma lzo xattr zstd"
+
+REQUIRED_USE="
+	deprecated? ( !lzma )
+	lzma? ( !deprecated )
+"
 
 DEPEND="
 	sys-libs/zlib
@@ -26,7 +31,10 @@ DEPEND="
 	xattr? ( sys-apps/attr )
 	zstd? ( app-arch/zstd )
 "
+
 RDEPEND=${DEPEND}
+
+PATCHES=( "${FILESDIR}/${P}_signal-fix.patch" )
 
 use10() {
 	usex "${1}" 1 0
@@ -35,7 +43,7 @@ use10() {
 src_compile() {
 	# set up make command line variables in EMAKE_SQUASHFS_CONF
 	local opts=(
-		LZMA_XZ_SUPPORT=$(use10 lzma)
+		LZMA_XZ_SUPPORT=$(use10 deprecated)
 		LZO_SUPPORT=$(use10 lzo)
 		LZ4_SUPPORT=$(use10 lz4)
 		XATTR_SUPPORT=$(use10 xattr)
