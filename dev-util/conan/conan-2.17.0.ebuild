@@ -42,6 +42,6 @@ src_prepare() {
 	# Fix strict dependencies
 	sed -i \
 		-e 's:,[[:space:]]\?<=\?[[:space:]]\?[[:digit:]|.]*::g' \
-		-e 's:==:>=:g' \
+		-e 's:==\([[:space:]]\?[[:digit:]]\):>=\1:g' \
 		conans/requirements{,_server}.txt || die
 }
