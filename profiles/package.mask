@@ -210,10 +210,6 @@ dev-util/intel_clc
 net-libs/stem
 net-misc/nyx
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-08)
-# No more revdeps. Removal on 2025-05-31.
-kde-frameworks/kinit
-
 # Michał Górny <mgorny@gentoo.org> (2025-05-08)
 # Vulnerable, EOL branch of dev-python/django.  Bug #955606.
 # Pleas upgrade to 5.1, 5.2 LTS, or downgrade to 4.2 LTS.
@@ -223,13 +219,6 @@ kde-frameworks/kinit
 # Masked for testing
 >=dev-libs/libxml2-2.14
 dev-libs/libxml2-compat
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-04)
-# Several open bugs, pending bump since 2020, fails to fetch since 2022.
-# If anyone is here to fix these things, then please make upstream port
-# the gui to Qt6 or drop it. Removal on 2025-05-31.
-# Bugs #715918, #717528, #734242, #854750, #882655
-app-misc/flirc
 
 # Michał Górny <mgorny@gentoo.org> (2025-05-04)
 # New wave of breakage from random removals.
@@ -244,16 +233,6 @@ app-misc/flirc
 # Removal on 2025-06-02.  Bug #950475, #952653.
 sci-chemistry/modeller
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-03)
-# Dead upstream since 2014, depends on Qt5. Bug #949079
-# Removal  on 2025-05-31
-media-video/ffdiaporama
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-03)
-# Dead upstream since 2011, relies on downstream patching even for Qt5.
-# No one else packages this. Bugs #644482, #953769; removal on 2025-05-31
-sci-electronics/osqoop
-
 # Marc Schiffbauer <mschiff@gentoo.org> (2025-05-02)
 # Ancient version in tree, upstream discontinued to develop
 # a server for taskwarrior a long time ago
@@ -261,39 +240,6 @@ sci-electronics/osqoop
 acct-group/taskd
 acct-user/taskd
 app-misc/taskd
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-01)
-# Unmaintained in Gentoo for almost 3 years, no commit upstream in 5 years
-# and depends on Qt5. Whoever wants to keep this in ::gentoo must sort out
-# the upstream/new-upstream situation and become a permanent maintainer.
-# Bugs #951484, #954360, #752198; removal on 2025-05-31
-x11-apps/radeon-profile
-x11-apps/radeon-profile-daemon
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-01)
-# Dead upstream for many years, depends on Qt5 and FTB w/ boost-1.87 among
-# other bugs. Bugs #946991, #949076, #943002; removal on 2025-05-31
-games-board/pokerth
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-01)
-# Dead upstream for many years, depends on Qt5 and app-text/poppler[qt5].
-# Bug #949025; removal on 2025-05-31
-x11-misc/qcomicbook
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-01)
-# Package destabilisation mask. 1.0_p20241107 is in ~arch but as snapshot
-# with long-term pending Qt6 patches on top it will not be stabilised.
-# 1.0 release was almost 8 years old already.
-~media-gfx/fotowall-1.0
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-01)
-# No maintainer in Gentoo since 2016, current package is still Qt5 based;
-# upstream does not even bother making tags let alone releases; anyone who
-# wants to deal with that shall step up as permanent maintainer and cut
-# some kind of Qt6 based package.
-# See also: https://github.com/fritzing/fritzing-app/issues/4086
-# Bug #947619; removal on 2025-05-31
-sci-electronics/fritzing
 
 # Matt Jolly <kangie@gentoo.org> (2025-04-28)
 # Unmaintained in Gentoo, depends on masked x11-wm/fvwm,
@@ -427,13 +373,6 @@ net-im/yowsup
 =dev-libs/liborcus-0.20.0
 =dev-libs/libixion-0.20.0
 =dev-util/mdds-3.0.0
-
-# Nowa Ammerlaan <nowa@gentoo.org> (2025-02-21)
-# Shiboken and Pyside-tools have been merged into dev-python/pyside
-# as of version 6.8.2. Pyside-tools are useable when the "tools" USE
-# flag is enabled.
-dev-python/shiboken6
-dev-python/pyside6-tools
 
 # Maciej Barć <xgqt@gentoo.org> (2025-02-12)
 # Masked for testing. Fails to update from previous version. See bug #949626.
