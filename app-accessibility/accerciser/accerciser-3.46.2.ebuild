@@ -1,19 +1,19 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 PYTHON_REQ_USE="xml(+)"
 
-inherit gnome2 python-single-r1
+inherit gnome2 meson python-single-r1
 
 DESCRIPTION="Interactive Python accessibility explorer"
-HOMEPAGE="https://wiki.gnome.org/Apps/Accerciser https://gitlab.gnome.org/GNOME/accerciser"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/accerciser"
 
 LICENSE="BSD CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
@@ -44,11 +44,14 @@ BDEPEND="
 "
 
 PATCHES=(
-	# Port from imp to importlib (from 'master')
-	"${FILESDIR}/${P}-imp-module.patch"
+	"${FILESDIR}/${P}-ipython9-pre_prompt_hook.patch"
+	"${FILESDIR}/${P}-ipython9-KeyboardInterrupt.patch"
+	"${FILESDIR}/${P}-ipython9-ansi-color.patch"
 )
 
 src_install() {
+	meson_src_install
 	gnome2_src_install
+	python_fix_shebang "${ED}"
 	python_optimize
 }
