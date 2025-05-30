@@ -13,6 +13,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~x64-solaris"
 IUSE="png truetype"
+# bug #379279
 REQUIRED_USE="truetype? ( png )"
 
 RDEPEND="
@@ -25,9 +26,6 @@ BDEPEND="
 	app-alternatives/lex
 	virtual/pkgconfig
 "
-
-# Workaround for bug #379279
-#RESTRICT="test"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.20-escape.patch
