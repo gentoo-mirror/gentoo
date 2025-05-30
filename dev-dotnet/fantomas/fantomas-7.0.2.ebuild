@@ -8,7 +8,7 @@ DOTNET_PKG_COMPAT="8.0"
 # Required tools are on top, they are listed in ".config/dotnet-tools.json".
 NUGETS="
 dotnet-fsharplint@0.19.2
-fantomas@6.3.9
+fantomas@7.0.1
 fsdocs-tool@21.0.0-beta-002
 fsharp-analyzers@0.25.0
 
@@ -163,7 +163,7 @@ else
 	SRC_URI="https://github.com/fsprojects/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
