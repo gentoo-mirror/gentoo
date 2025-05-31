@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://www.flycheck.org/ https://github.com/flycheck/flycheck/
 INHERIT=elisp
 IUSE=test test
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~sparc ~x86 ~x64-macos
+KEYWORDS=~alpha amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~sparc ~x86 ~x64-macos
 LICENSE=GPL-3+
 RDEPEND=>=app-editors/emacs-25.3:*
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/flycheck/flycheck/archive/v35.0.tar.gz -> flycheck-35.0.gh.tar.gz
 _eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5
-_md5_=f465abc2c00f7ecd849cecc081143f18
+_md5_=f1e4bae5c6a5f6ba8b1e6a1bd5ed1c1c
