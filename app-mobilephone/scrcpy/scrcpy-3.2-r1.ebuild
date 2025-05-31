@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,6 +28,13 @@ RDEPEND="
 	!ppc64? ( dev-util/android-tools )
 "
 
+DOCS=( {FAQ,README}.md doc/. )
+
+src_prepare() {
+	default
+	rm doc/{build,develop,macos,windows}.md || die
+}
+
 src_configure() {
 	local emesonargs=(
 		-Dprebuilt_server="${DISTDIR}/${PN}-server-v${PV}"
@@ -38,8 +45,10 @@ src_configure() {
 pkg_postinst() {
 	xdg_pkg_postrm
 
-	einfo "If you use pipewire because of a problem with libsdl2 it is possible that"
-	einfo "scrcpy will not start, in which case start the program by exporting the"
-	einfo "environment variable SDL_AUDIODRIVER=pipewire."
-	einfo "For more information see https://github.com/Genymobile/scrcpy/issues/3864."
+	if has_version media-video/pipewire; then
+		ewarn "On pipewire systems scrcpy might not start due to a problem with libsdl2."
+		ewarn "If that is the case for you start the program as follows:"
+		ewarn "    $ SDL_AUDIODRIVER=pipewire scrcpy [...]"
+		ewarn "For more information see https://github.com/Genymobile/scrcpy/issues/3864"
+	fi
 }
