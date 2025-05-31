@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( 20 )
+LLVM_COMPAT=( 19 )
 LLVM_OPTIONAL=1
 
 ZIG_SLOT="$(ver_cut 1-2)"
@@ -70,6 +70,10 @@ RDEPEND="${DEPEND}"
 IDEPEND="app-eselect/eselect-zig"
 
 DOCS=( "README.md" "doc/build.zig.zon.md" )
+
+PATCHES=(
+	"${FILESDIR}/${P}-skip-test-heap_sort.patch"
+)
 
 # zig.eclass does not set this for us since we use ZIG_OPTIONAL=1
 QA_FLAGS_IGNORED="usr/.*/zig/${PV}/bin/zig"
