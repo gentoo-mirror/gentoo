@@ -1,0 +1,18 @@
+BDEPEND=test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test
+DEPEND=dev-util/intltool
+DESCRIPTION=audio library tagger, manager, and player for GTK+
+EAPI=8
+HOMEPAGE=https://quodlibet.readthedocs.io/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=edo python-single-r1 virtualx xdg
+IUSE=+dbus gstreamer +udev python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 test
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2+
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-libs/keybinder:3[introspection] python_single_target_python3_11? ( >=dev-python/feedparser-6.0.11[python_targets_python3_11(-)] >=dev-python/pycairo-1.19[python_targets_python3_11(-)] >=dev-python/pygobject-3.34.0:3[python_targets_python3_11(-)] >=media-libs/mutagen-1.45[python_targets_python3_11(-)] ) python_single_target_python3_12? ( >=dev-python/feedparser-6.0.11[python_targets_python3_12(-)] >=dev-python/pycairo-1.19[python_targets_python3_12(-)] >=dev-python/pygobject-3.34.0:3[python_targets_python3_12(-)] >=media-libs/mutagen-1.45[python_targets_python3_12(-)] ) python_single_target_python3_13? ( >=dev-python/feedparser-6.0.11[python_targets_python3_13(-)] >=dev-python/pycairo-1.19[python_targets_python3_13(-)] >=dev-python/pygobject-3.34.0:3[python_targets_python3_13(-)] >=media-libs/mutagen-1.45[python_targets_python3_13(-)] ) net-libs/libsoup:3.0[introspection] x11-libs/gtk+[introspection] gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 media-libs/gst-plugins-good:1.0 media-plugins/gst-plugins-meta:1.0 ) !gstreamer? ( media-libs/xine-lib ) dbus? ( app-misc/media-player-info python_single_target_python3_11? ( dev-python/dbus-python[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/dbus-python[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/dbus-python[python_targets_python3_13(-)] ) ) udev? ( virtual/udev )
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/quodlibet/quodlibet/archive/release-4.7.1.tar.gz -> quodlibet-4.7.1.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=40cff70e512505f916ca86232932b381
