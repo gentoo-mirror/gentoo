@@ -5,11 +5,12 @@ DESCRIPTION=A lightweight window manager initially based on aewm++
 EAPI=8
 HOMEPAGE=https://www.pekwm.se/ https://github.com/pekwm/pekwm
 INHERIT=cmake desktop optfeature
-IUSE=debug +jpeg pango +png truetype xinerama +xpm
+IUSE=debug +jpeg pango +png test truetype xinerama +xpm
 KEYWORDS=amd64 ~mips ppc x86
 LICENSE=GPL-2
 RDEPEND=x11-libs/libX11 x11-libs/libXext jpeg? ( media-libs/libjpeg-turbo:= ) pango? ( x11-libs/pango x11-libs/cairo[X] ) png? ( media-libs/libpng:0= ) truetype? ( x11-libs/libXft ) xinerama? ( x11-libs/libXinerama ) xpm? ( x11-libs/libXpm )
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pekwm/pekwm/releases/download/release-0.3.0/pekwm-0.3.0.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	optfeature	538bce96e5589935b57e178e8635f301
-_md5_=292e15871f3a6801f2a954da2908ab8f
+_md5_=691b29356d5db0f875d044ca973b5ebf
