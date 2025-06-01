@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
+DEPEND=dev-libs/openssl:0= sys-apps/util-linux:= elibc_musl? ( sys-libs/fts-standalone:= ) libzip? ( dev-libs/libzip:= )
+DESCRIPTION=Chrome OS verified boot tools
+EAPI=8
+HOMEPAGE=https://chromium.googlesource.com/chromiumos/platform/vboot_reference/ https://dev.chromium.org/chromium-os/chromiumos-design-docs/verified-boot
+INHERIT=toolchain-funcs
+IUSE=+libzip
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/openssl:0= sys-apps/util-linux:= elibc_musl? ( sys-libs/fts-standalone:= ) libzip? ( dev-libs/libzip:= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~zmedico/dist/vboot-utils-138_p20250522.tar.xz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169
+_md5_=b7ded25b1cbdbe2893ddd855afa66853
