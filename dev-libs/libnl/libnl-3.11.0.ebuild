@@ -67,6 +67,7 @@ MULTILIB_WRAPPED_HEADERS=(
 
 PATCHES=(
 	"${FILESDIR}"/0001-Fix-compilation-error-in-GCC-14.patch
+	"${FILESDIR}"/${P}-tests-ns.patch
 	"${FILESDIR}"/${PN}-3.11.0-no-iproute2.patch
 )
 
