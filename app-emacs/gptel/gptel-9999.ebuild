@@ -13,19 +13,19 @@ HOMEPAGE="https://github.com/karthink/gptel/"
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/karthink/${PN}.git"
+	EGIT_REPO_URI="https://github.com/karthink/${PN}"
 else
 	SRC_URI="https://github.com/karthink/${PN}/archive/refs/tags/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 arm64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-30.0.0.0
+	>=app-emacs/compat-30.1.0.0
 	app-emacs/transient
 "
 BDEPEND="
