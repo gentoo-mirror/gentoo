@@ -1,6 +1,6 @@
 BDEPEND=>=dev-ml/dune-3.11 dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=>=dev-lang/ocaml-5 dev-ml/base:0/0.17[ocamlopt] dev-ml/ppx_jane:0/0.17[ocamlopt] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-lang/ocaml-5 =dev-ml/base-0.17*:=[ocamlopt?] =dev-ml/ppx_jane-0.17*:=[ocamlopt] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=A library which provides traversal of records with an applicative
 EAPI=8
 HOMEPAGE=https://github.com/janestreet/record_builder
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~arm64
 LICENSE=MIT
-RDEPEND=>=dev-lang/ocaml-5 dev-ml/base:0/0.17[ocamlopt] dev-ml/ppx_jane:0/0.17[ocamlopt] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-lang/ocaml-5 =dev-ml/base-0.17*:=[ocamlopt?] =dev-ml/ppx_jane-0.17*:=[ocamlopt] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.17
 SRC_URI=https://github.com/janestreet/record_builder/archive/refs/tags/v0.17.0.tar.gz -> record_builder-0.17.0.tar.gz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=b1b0ec9eebda79f857cb2e2861c9cd15
+_md5_=8f1b6689462a90531b3d38f562e02bb0
