@@ -7,11 +7,11 @@ HOMEPAGE=https://calf-studio-gear.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake flag-o-matic toolchain-funcs xdg
 IUSE=cpu_flags_x86_sse experimental gui jack lash lv2
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 x86
 LICENSE=LGPL-2.1
 RDEPEND=>=app-accessibility/at-spi2-core-2.46.0 dev-libs/expat dev-libs/glib:2 media-sound/fluidsynth:= gui? ( x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/pango ) jack? ( virtual/jack ) lash? ( media-sound/lash ) lv2? ( media-libs/lv2 )
 REQUIRED_USE=jack? ( gui )
 SLOT=0
 SRC_URI=https://github.com/calf-studio-gear/calf/archive/0.90.6.tar.gz -> calf-0.90.6.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=6596038bc0a7082a41278a015b599fdf
+_md5_=63d3bc78fc9f1c3412e93230b18d3671
