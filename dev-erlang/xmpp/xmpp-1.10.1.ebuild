@@ -14,11 +14,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~sparc ~x86"
 
 RDEPEND="
-	>=dev-erlang/ezlib-1.0.13
-	>=dev-erlang/fast_tls-1.1.22
-	>=dev-erlang/fast_xml-1.1.53
-	>=dev-erlang/p1_utils-1.0.26
-	>=dev-erlang/stringprep-1.0.30
+	>=dev-erlang/ezlib-1.0.14
+	>=dev-erlang/fast_tls-1.1.23
+	>=dev-erlang/fast_xml-1.1.56
+	>=dev-erlang/p1_utils-1.0.27
+	>=dev-erlang/stringprep-1.0.31
 	>=dev-erlang/idna-6.0.0-r1
 "
 DEPEND="${RDEPEND}"

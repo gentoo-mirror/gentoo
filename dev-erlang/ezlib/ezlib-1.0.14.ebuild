@@ -3,10 +3,10 @@
 
 EAPI=8
 
-inherit rebar3
+inherit rebar
 
-DESCRIPTION="ACME client library for Erlang"
-HOMEPAGE="https://github.com/processone/p1_acme"
+DESCRIPTION="Native zlib driver for Erlang and Elixir"
+HOMEPAGE="https://github.com/processone/ezlib"
 SRC_URI="https://github.com/processone/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Apache-2.0"
@@ -14,12 +14,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~sparc ~x86"
 
 DEPEND="
-	>=dev-lang/erlang-17.1
-	>=dev-erlang/jiffy-1.1.1
-	>=dev-erlang/yconf-1.0.17
-	>=dev-erlang/idna-6.0.0-r1
-	>=dev-erlang/jose-1.11.1
-	>=dev-erlang/base64url-1.0.1
+	>=dev-lang/erlang-17.1:=
+	>=dev-erlang/p1_utils-1.0.27
+	sys-libs/zlib
 "
 RDEPEND="${DEPEND}"
 
