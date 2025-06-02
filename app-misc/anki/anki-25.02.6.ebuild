@@ -22,7 +22,7 @@ DESCRIPTION="A spaced-repetition memory training program (flash cards)"
 HOMEPAGE="https://apps.ankiweb.net/"
 
 declare -A COMMITS=(
-	[anki]="29192d156ae60d6ce35e80ccf815a8331c9db724"
+	[anki]="6381f1845ff2e79f4a424e6978c2a3e9bbb91735"
 	[ftl-core]="0fe0162f4a18e8ef2fbac1d9a33af8e38cf7260e"
 	[ftl-desktop]="17216b03db7249600542e388bd4ea124478400e5"
 )
@@ -32,7 +32,7 @@ SRC_URI="${CARGO_CRATE_URIS}
 	-> anki-core-i18n-${COMMITS[ftl-core]}.gh.tar.gz
 	https://github.com/ankitects/anki-desktop-ftl/archive/${COMMITS[ftl-desktop]}.tar.gz
 	-> anki-desktop-ftl-${COMMITS[ftl-desktop]}.gh.tar.gz
-	https://github.com/gentoo-crate-dist/anki/releases/download/${PV}/${P}-crates.tar.xz
+	https://github.com/gentoo-crate-dist/anki/releases/download/25.02.5/anki-25.02.5-crates.tar.xz
 	gui? (
 	https://home.cit.tum.de/~salu/distfiles/anki-25.02.4-node_modules.tar.xz
 	)
