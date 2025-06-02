@@ -23,6 +23,10 @@ S=${WORKDIR}/${MY_P}
 LICENSE="Apache-2.0"
 SLOT="0"
 
+RDEPEND="
+	=dev-python/pyrsistent-0.20*[${PYTHON_USEDEP}]
+"
+
 distutils_enable_tests pytest
 
 src_prepare() {
