@@ -3,23 +3,21 @@
 
 EAPI=8
 
-NEED_EMACS="29.1"
-
 inherit elisp
 
-DESCRIPTION="Minuscule client library for the Git forge APIs"
-HOMEPAGE="https://magit.vc/manual/ghub/
-	https://github.com/magit/ghub/"
+DESCRIPTION="Transient commands abstraction for GNU Emacs"
+HOMEPAGE="https://magit.vc/manual/transient/
+	https://github.com/magit/transient/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/magit/${PN}.git"
+	EGIT_REPO_URI="https://github.com/magit/${PN}"
 else
 	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64 x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 fi
 
 LICENSE="GPL-3+"
@@ -27,16 +25,14 @@ SLOT="0"
 
 RDEPEND="
 	>=app-emacs/compat-30.0.2.0
-	app-emacs/llama
-	app-emacs/treepy
 "
 BDEPEND="
 	${RDEPEND}
 	sys-apps/texinfo
 "
 
-DOCS=( README.org )
-ELISP_TEXINFO="docs/ghub.texi"
+DOCS=( CHANGELOG README.org "docs/${PN}.org" )
+ELISP_TEXINFO="docs/${PN}.texi"
 SITEFILE="50${PN}-gentoo.el"
 
 src_prepare() {
