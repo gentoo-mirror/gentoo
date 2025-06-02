@@ -1203,7 +1203,7 @@ app-arch/unar 1.10.8: Unpacker for various archiving formats, e.g. rar v3
 app-arch/unp 2.0: Script for unpacking various file formats
 app-arch/unrar 7.1.5 7.1.6: Uncompress rar files
 app-arch/unrpa 2.3.0-r1: Ren'Py's RPA data file extractor
-app-arch/unshield 1.5.1 1.6.2: InstallShield CAB file extractor
+app-arch/unshield 1.5.1 1.6.2-r1: InstallShield CAB file extractor
 app-arch/unzip 6.0_p27-r1 6.0_p29: unzipper for pkzip-compressed files
 app-arch/upx 4.1.0 4.2.4: Ultimate Packer for eXecutables (free version using UCL compression and not NRV)
 app-arch/upx-bin 4.1.0 4.2.4: Ultimate Packer for eXecutables, binary version with proprietary NRV compression
@@ -1378,7 +1378,7 @@ app-containers/lxc-templates 3.0.4_p20240917: Old style template scripts for LXC
 app-containers/lxd 5.0.3-r2 5.21.1-r1 6.1 6.3: Modern, secure and powerful system container and virtual machine manager
 app-containers/nerdctl 2.0.2 2.0.3: Docker-compatible CLI for containerd, with support for Compose
 app-containers/netavark 1.12.2-r1 1.14.1 9999: A container network stack
-app-containers/nvidia-container-toolkit 1.17.3-r1 1.17.4-r1 1.17.5 1.17.6 9999: NVIDIA container runtime toolkit
+app-containers/nvidia-container-toolkit 1.17.3-r1 1.17.4-r1 1.17.5 1.17.6 1.17.8 9999: NVIDIA container runtime toolkit
 app-containers/podman 5.3.0 5.3.2 5.4.2 9999: A tool for managing OCI containers and pods with Docker-compatible CLI
 app-containers/podman-compose 1.2.0 1.3.0 1.4.0: A script to run docker-compose.yml using Podman
 app-containers/podman-tui 1.1.0 1.4.0 1.5.0 9999: Terminal UI frontend for Podman
@@ -1538,7 +1538,7 @@ app-crypt/xca 2.8.0 2.9.0: A GUI to OpenSSL, RSA public keys, certificates, sign
 app-crypt/xor-analyze 0.5-r1: Program for cryptanalyzing xor 'encryption' with variable key length
 app-crypt/yubihsm-connector 3.0.4: Server to expose YubiHSM 2 to network
 app-crypt/yubihsm-shell 2.6.0: Components used to interact with the YubiHSM 2
-app-crypt/yubikey-manager 5.5.1 5.5.1-r1 5.6.1 5.6.1-r1: Python library and command line tool for configuring a YubiKey
+app-crypt/yubikey-manager 5.5.1 5.5.1-r1 5.6.1 5.6.1-r1 5.7.0: Python library and command line tool for configuring a YubiKey
 app-crypt/yubikey-manager-qt 1.2.5: Cross-platform application for configuring any YubiKey over all USB transports
 app-crypt/yubioath-flutter-bin 6.1.0-r3 6.4.0-r1 7.0.0 7.1.0 7.1.1: Yubico Authenticator for TOTP
 app-crypt/zulucrypt 7.0.0: Front end to cryptsetup
@@ -2655,7 +2655,7 @@ app-misc/abook 0.6.1-r4: Abook is a text-based addressbook program designed to u
 app-misc/acdctl 1.1-r2: Apple Cinema Display Control
 app-misc/actkbd 0.2.8-r2: A keyboard shortcut daemon
 app-misc/aldo 0.7.7: A morse tutor
-app-misc/anki 25.02.5: A spaced-repetition memory training program (flash cards)
+app-misc/anki 25.02.6: A spaced-repetition memory training program (flash cards)
 app-misc/ansiweather 1.19.0: Weather in terminal, with ANSI colors and Unicode symbols
 app-misc/asciicast-tools 0.0_pre20220524-r1: Tools for creating recordings of console sessions
 app-misc/asciinema 2.4.0: Command line recorder for asciinema.org service
@@ -3002,8 +3002,8 @@ app-office/sc-im 0.8.3-r1: Ncurses based, vim-like spreadsheet calculator
 app-office/scribus 1.6.3 1.6.4 1.6.9999 1.7.0 9999: Desktop publishing (DTP) and layout program
 app-office/skrooge 25.4.0: Personal finances manager, aiming at being simple and intuitive
 app-office/texmacs 2.1-r100: Wysiwyg text processor with high-quality maths
-app-office/texmaker 6.0.0: Powerful LaTeX-IDE
-app-office/texstudio 4.8.4-r2: Free cross-platform LaTeX editor (fork from texmakerX)
+app-office/texmaker 6.0.0 6.0.1: Powerful LaTeX-IDE
+app-office/texstudio 4.8.4-r2 4.8.7: Free cross-platform LaTeX editor (fork from texmakerX)
 app-office/unoconv 0.9.0-r1: Convert between document formats supported by LibreOffice
 app-office/worklog-assistant-bin 2.3.3900: Hassle-free time tracking for JIRA self-hosted and OnDemand
 app-office/wps-office 11.1.0.11723: WPS Office is an office productivity suite
@@ -3838,7 +3838,7 @@ dev-build/slibtool 0.6.1 0.7.0 9999: A strong libtool implementation, written in
 dev-build/tinycmmc 0.1.0 9999: Tiny CMake Module Collections
 dev-build/xfce4-dev-tools 4.18.1 4.20.0 4.21.0: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-cpp/ETL 1.4.1: Multi-platform class and template library
-dev-cpp/abseil-cpp 20211102.0-r2 20220623.1 20230125.2 20230125.3-r4 20230125.3-r5 20230802.0-r4 20230802.3 20240116.2-r4 20240116.3 20240722.0-r1 20240722.1 20250127.0 20250127.1: Abseil Common Libraries (C++), LTS Branch
+dev-cpp/abseil-cpp 20211102.0-r2 20220623.1 20230125.2 20230125.3-r4 20230125.3-r5 20230802.0-r4 20230802.3 20240116.2-r4 20240116.3 20240722.0-r1 20240722.1 20250127.0 20250127.1 20250512.0: Abseil Common Libraries (C++), LTS Branch
 dev-cpp/ada 2.9.1 3.2.4: WHATWG-compliant and fast URL parser written in modern C++
 dev-cpp/aixlog 1.5.0-r1: Header-only C++ logging library
 dev-cpp/amqp-cpp 4.3.27: AMQP-CPP is a C++ library for communicating with a RabbitMQ message broker
@@ -4054,7 +4054,7 @@ dev-debug/kdbg 3.1.0_p20250406: Graphical debugger interface
 dev-debug/leaktracer 2.4-r3: Trace and analyze memory leaks in C++ programs
 dev-debug/ltrace 0.7.91_pre20221216-r1: trace library calls made at runtime
 dev-debug/peda 1.2 9999: Python Exploit Development Assistance for GDB
-dev-debug/pwndbg 20250219 20250418 20250418-r1 99999999: A GDB plug-in that makes debugging with GDB suck less
+dev-debug/pwndbg 20250219 20250418 20250418-r1 20250530 99999999: A GDB plug-in that makes debugging with GDB suck less
 dev-debug/rr 5.8.0 5.9.0-r1 9999: Record and Replay Framework
 dev-debug/scap-driver 0.19.0 0.20.0: Kernel module for dev-debug/sysdig
 dev-debug/strace 6.13 6.14 6.15 9999: Useful diagnostic, instructional, and debugging tool
@@ -5725,7 +5725,7 @@ dev-libs/pocl 6.0: Portable Computing Language (an implementation of OpenCL)
 dev-libs/poco 1.13.3 1.14.0-r1 1.14.1: C++ libraries for building network-based applications
 dev-libs/popt 1.19-r1: Parse Options - Command line parser
 dev-libs/ppl 1.2-r5: The Parma Polyhedra Library for numerical analysis of complex systems
-dev-libs/protobuf 21.9 21.12 22.5-r1 22.5-r2 23.3-r4 23.4 24.4 25.3 25.4 25.5 25.6 26.1-r2 27.2 27.4 27.5 28.0 28.3-r1 29.2 29.4 30.2 9999: Google's Protocol Buffers - Extensible mechanism for serializing structured data
+dev-libs/protobuf 21.9 21.12 22.5-r1 22.5-r2 23.3-r4 23.4 24.4 25.3 25.4 25.5 25.6 26.1-r2 27.2 27.4 27.5 28.0 28.3-r1 29.2 29.4 30.2 31.1 9999: Google's Protocol Buffers - Extensible mechanism for serializing structured data
 dev-libs/protobuf-c 1.4.1-r2 1.5.0-r3 1.5.0-r4 1.5.1 1.5.2: Protocol Buffers implementation in C
 dev-libs/psimd 2020.05.17: P(ortable) SIMD
 dev-libs/pslib 0.4.6: pslib is a C-library to create PostScript files on the fly
@@ -9990,7 +9990,7 @@ dev-ruby/gist 6.0.0-r1: Potentially the best command line gister
 dev-ruby/git 1.19.1 2.3.3 3.0.0 3.0.1 3.0.2 3.1.0: Library for using Git in Ruby
 dev-ruby/globalid 1.2.1: Reference models by URI
 dev-ruby/gnuplot 2.6.2-r3: Gnuplot drawing library - Ruby Bindings
-dev-ruby/google-protobuf 3.21.12 3.24.4 3.25.4 3.25.5 3.25.6 4.26.1 4.27.4 4.27.5 4.28.0 4.28.3 4.29.2 4.29.4 4.30.2: Protocol Buffers are Google's data interchange format
+dev-ruby/google-protobuf 3.21.12 3.24.4 3.25.4 3.25.5 3.25.6 4.26.1 4.27.4 4.27.5 4.28.0 4.28.3 4.29.2 4.29.4 4.30.2 4.31.1: Protocol Buffers are Google's data interchange format
 dev-ruby/googleapis-common-protos-types 1.15.0 1.19.0 1.20.0: Common protocol buffer types used by Google APIs
 dev-ruby/gpgme 2.0.24-r1: Ruby language binding for GnuPG Made Easy
 dev-ruby/grpc 1.54.0 1.59.2 1.59.2-r1 1.66.0-r2 1.71.0 1.72.0: Send RPCs from Ruby using GRPC
@@ -11453,7 +11453,7 @@ games-engines/gargoyle 2019.1.1: An Interactive Fiction (IF) player supporting a
 games-engines/love 0.7.2-r100 0.8.0-r100 11.4 11.5 9999: A framework for 2D games in Lua
 games-engines/minetest 5.9.1 5.11.0: A free open-source voxel game engine with easy modding and game creation
 games-engines/odamex 10.6.0-r4: Online multiplayer free software engine for DOOM
-games-engines/openmw 0.49.0_rc7 9999: Open source reimplementation of TES III: Morrowind
+games-engines/openmw 0.49.0_rc7-r1 9999: Open source reimplementation of TES III: Morrowind
 games-engines/openxcom 1.0.0_p20180317-r1 9999: Open-source reimplementation of the popular UFO: Enemy Unknown
 games-engines/qtads 3.4.0: Multimedia interpreter for TADS text adventures
 games-engines/scrap-engine 1.2.0: Terminal-based Python game engine involving objects on a map
@@ -12630,7 +12630,7 @@ mail-mta/opensmtpd 7.3.0_p1-r1 7.5.0_p0 7.6.0_p1: Lightweight but featured SMTP 
 mail-mta/postfix 3.9.1 3.9.2 3.9.3 3.10.0 3.10.1 3.10.2 3.11_pre20250418: A fast and secure drop-in replacement for sendmail
 mail-mta/proton-mail-bridge 3.15.1-r1: Serves Proton Mail to IMAP/SMTP clients
 mail-mta/qpsmtpd 0.95-r1 9999: qpsmtpd is a flexible smtpd daemon written in Perl
-mail-mta/sendmail 8.17.1.9 8.18.1: Widely-used Mail Transport Agent (MTA)
+mail-mta/sendmail 8.17.1.9 8.18.1 8.18.1.10: Widely-used Mail Transport Agent (MTA)
 mail-mta/ssmtp 2.64_p11-r1 2.64_p12: Extremely simple MTA to get mail off the system to a Mailhub
 mate-base/caja 1.28.0-r2: Caja file manager for the MATE desktop
 mate-base/libmatekbd 1.28.0: MATE keyboard configuration library
@@ -13264,7 +13264,7 @@ media-libs/libdmtx 0.7.8: Barcode data matrix reading and writing library
 media-libs/libdovi 3.3.1-r1: Dolby Vision metadata parsing and writing
 media-libs/libdv 1.0.0-r5 1.0.0-r6: Software codec for dv-format video (camcorders etc)
 media-libs/libdvbcsa 1.1.0-r1: Free implementation of the DVB Common Scrambling Algorithm - DVB/CSA
-media-libs/libdvbpsi 1.3.3: Library for MPEG TS/DVB PSI tables decoding and generation
+media-libs/libdvbpsi 1.3.3 1.3.3-r1: Library for MPEG TS/DVB PSI tables decoding and generation
 media-libs/libdvd-audio 1.0.0: library for extracting audio from DVD-Audio discs
 media-libs/libdvdcss 1.4.3: A portable abstraction library for DVD decryption
 media-libs/libdvdnav 6.1.1 9999: Library for DVD navigation tools
@@ -14594,7 +14594,7 @@ net-analyzer/trippy 0.12.1 0.12.2 0.13.0: A network diagnostic tool
 net-analyzer/tsung 1.8.0: Erlang's multi-protocol distributed load testing tool
 net-analyzer/ttcp 1.12-r3: Tool to test TCP and UDP throughput
 net-analyzer/upnpscan 0.4-r3: Scans the network for UPnP capable devices
-net-analyzer/vnstat 2.12 2.13 9999: Console-based network traffic monitor that keeps statistics of network usage
+net-analyzer/vnstat 2.13 2.13-r1 9999: Console-based network traffic monitor that keeps statistics of network usage
 net-analyzer/wapiti 3.1.7: Web-application vulnerability scanner
 net-analyzer/webfuzzer 0.2.0-r2: Poor man's web vulnerability scanner
 net-analyzer/wireshark 4.4.2-r2 4.4.5-r2 4.4.6-r3 9999: Network protocol analyzer (sniffer)
@@ -14660,7 +14660,7 @@ net-dns/https_dns_proxy 0_pre20200925 9999: A lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3-r2: Toolkit for Internationalized Domain Names (IDN)
 net-dns/inadyn 2.12.0-r2: Dynamic DNS client with multiple SSL/TLS library support
 net-dns/knot 3.4.4 3.4.6: High-performance authoritative-only DNS server
-net-dns/knot-resolver 5.7.5 6.0.12: A scaleable caching DNS resolver
+net-dns/knot-resolver 5.7.5 6.0.13: A scaleable caching DNS resolver
 net-dns/ldns-tools 0.1: ldns tools: host, nslookup
 net-dns/libidn 1.42 1.43: Internationalized Domain Names (IDN) implementation
 net-dns/libidn2 2.3.7 2.3.8: An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892, 5893)
@@ -17700,7 +17700,7 @@ sys-libs/libieee1284 0.2.11-r9: Library to query devices using IEEE1284
 sys-libs/libixp 0.5_p20110208-r3: A stand-alone client/server 9P library including ixpc client
 sys-libs/libmodulemd 2.15.0-r1 9999: C Library for manipulating Fedora Modularity metadata files
 sys-libs/libnbd 1.18.1-r3: NBD client library in userspace
-sys-libs/libnvidia-container 1.17.2 1.17.3 1.17.4 1.17.5 1.17.6 9999: NVIDIA container runtime library
+sys-libs/libnvidia-container 1.17.2 1.17.3 1.17.4 1.17.5 1.17.6 1.17.8 9999: NVIDIA container runtime library
 sys-libs/libnvme 1.11.1-r1 1.12-r1 1.13-r1 1.14: C Library for NVM Express on Linux
 sys-libs/libosinfo 1.11.0-r1 1.12.0-r1: GObject library for managing information about real and virtual OSes
 sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 1394 bus
