@@ -1,16 +1,17 @@
-BDEPEND=virtual/pkgconfig gui? ( dev-qt/qttools:6[linguist] ) app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
+BDEPEND=virtual/pkgconfig gui? ( dev-qt/qttools:6[linguist] ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=sys-apps/file sys-libs/readline:0= fuse? ( sys-fs/fuse:3= ) gui? ( dev-qt/qtbase:6[gui,network,widgets] ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_11? ( dev-python/pybind11[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pybind11[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pybind11[python_targets_python3_13(-)] ) ) taglib? ( media-libs/taglib:= ) zune? ( dev-libs/openssl:0= )
 DESCRIPTION=Android File Transfer for Linux
 EAPI=8
 HOMEPAGE=https://github.com/whoozle/android-file-transfer-linux
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=cmake python-single-r1 xdg git-r3
+INHERIT=cmake python-single-r1 xdg
 IUSE=fuse gui python taglib zune python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1
-PROPERTIES=live
 RDEPEND=sys-apps/file sys-libs/readline:0= fuse? ( sys-fs/fuse:3= ) gui? ( dev-qt/qtbase:6[gui,network,widgets] ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_11? ( dev-python/pybind11[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pybind11[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pybind11[python_targets_python3_13(-)] ) ) taglib? ( media-libs/taglib:= ) zune? ( dev-libs/openssl:0= )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
 SLOT=0
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	875eb471682d3e1f18da124be97dcc81
+SRC_URI=https://github.com/whoozle/android-file-transfer-linux/archive/v4.5.tar.gz -> android-file-transfer-linux-4.5.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	b05c1b7b3c9213c155f128f4eadaa49f	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	xdg	3ef49a87c52c8b77c476351195dfe575
 _md5_=195e7293be8a579234650306053826c2
