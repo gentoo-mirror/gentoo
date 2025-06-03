@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # The Debian ca-certificates package merely takes the CA database as it exists
@@ -21,9 +21,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 
-inherit python-any-r1
+inherit edo python-any-r1
 
 if [[ ${PV} == *.* ]] ; then
 	# Compile from source ourselves.
@@ -53,26 +53,26 @@ else
 	"
 fi
 
+S="${WORKDIR}"
+
 LICENSE="MPL-1.1"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
-IUSE=""
 ${PRECOMPILED} || IUSE+=" cacert"
 
-BDEPEND="${CDEPEND}"
+BDEPEND="${COMMON_DEPEND}"
 if ! ${PRECOMPILED} ; then
 	BDEPEND+=" ${PYTHON_DEPS}"
 fi
 
-DEPEND=""
 if ${PRECOMPILED} ; then
 	DEPEND+=" !<sys-apps/portage-2.1.10.41"
 fi
 
-RDEPEND="${CDEPEND}
-	${DEPEND}"
-
-S="${WORKDIR}"
+RDEPEND="
+	${COMMON_DEPEND}
+	${DEPEND}
+"
 
 pkg_setup() {
 	# For the conversion to having it in CONFIG_PROTECT_MASK,
@@ -92,7 +92,7 @@ src_unpack() {
 		DEB_S="${WORKDIR}/${PN}-${DEB_VER}"
 		DEB_BAD_S="${WORKDIR}/work"
 		if [[ -d "${DEB_BAD_S}" ]] && [[ ! -d "${DEB_S}" ]] ; then
-			mv "${DEB_BAD_S}" "${DEB_S}"
+			mv "${DEB_BAD_S}" "${DEB_S}" || die
 		fi
 	fi
 
@@ -120,8 +120,7 @@ src_prepare() {
 	fi
 
 	default
-	eapply -p2 "${FILESDIR}"/${PN}-20150426-root.patch
-	eapply -p2 "${FILESDIR}"/0001-update-ca-certificates-drop-pointless-dependency-on-.patch
+	eapply -p2 "${FILESDIR}"/${PN}-20240203.3.98-update-ca-certificates-drop-pointless-dependency.patch
 
 	pushd "${S}/${PN}" >/dev/null || die
 	# We patch out the dep on cryptography as it's not particularly useful
@@ -170,7 +169,7 @@ src_compile() {
 		find * -name '*.crt' | LC_ALL=C sort
 	) > etc/ca-certificates.conf
 
-	sh usr/sbin/update-ca-certificates --root "${S}/image" || die
+	edo sh usr/sbin/update-ca-certificates --sysroot "${S}/image"
 }
 
 src_install() {
@@ -191,7 +190,7 @@ pkg_postinst() {
 		# to include their stuff in the db.
 		# However it's too overzealous when the user has custom certs in place.
 		# --fresh is to clean up dangling symlinks
-		"${EROOT}"/usr/sbin/update-ca-certificates --root "${ROOT}"
+		"${EROOT}"/usr/sbin/update-ca-certificates --sysroot "${ROOT}"
 	fi
 
 	if [[ -n "$(find -L "${EROOT}"/etc/ssl/certs/ -type l)" ]] ; then
