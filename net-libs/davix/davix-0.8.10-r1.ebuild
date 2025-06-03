@@ -9,21 +9,13 @@ inherit cmake python-any-r1
 
 DESCRIPTION="High-performance file management over WebDAV/HTTP"
 HOMEPAGE="https://github.com/cern-fts/davix"
+SRC_URI="https://github.com/cern-fts/${PN}/releases/download/R_${PV//./_}/${P}.tar.gz"
+
 LICENSE="LGPL-2.1"
-
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc test tools"
-
-if [[ ${PV} =~ "9999" ]] ; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/cern-fts/davix.git"
-else
-	KEYWORDS="~amd64 ~x86"
-	SRC_URI="https://github.com/cern-fts/${PN}/releases/download/R_${PV//./_}/${P}.tar.gz"
-fi
-
 RESTRICT="!test? ( test )"
-REQUIRED_USE="test? ( tools )"
 
 CDEPEND="
 		dev-libs/libxml2:2=
@@ -45,6 +37,8 @@ BDEPEND="
 "
 
 RDEPEND="${CDEPEND}"
+
+REQUIRED_USE="test? ( tools )"
 
 src_prepare() {
 	cmake_src_prepare
