@@ -4,7 +4,9 @@
 EAPI=8
 
 LLVM_COMPAT=( 19 )
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
+
+RUST_PATCH_VER=${PVR}
 
 RUST_MAX_VER=${PV}
 RUST_MIN_VER="$(ver_cut 1).$(($(ver_cut 2) - 1)).0"
@@ -12,25 +14,37 @@ RUST_MIN_VER="$(ver_cut 1).$(($(ver_cut 2) - 1)).0"
 inherit check-reqs estack flag-o-matic llvm-r1 multiprocessing optfeature \
 	multilib multilib-build python-any-r1 rust rust-toolchain toolchain-funcs verify-sig
 
-if [[ ${PV} = *beta* ]]; then
+if [[ ${PV} = *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/rust-lang/rust.git"
+	EGIT_SUBMODULES=(
+		"*"
+		"-src/gcc"
+	)
+elif [[ ${PV} == *beta* ]]; then
+	# Identify the snapshot date of the beta release:
+	# curl -Ls static.rust-lang.org/dist/channel-rust-beta.toml | grep beta-src.tar.xz
 	betaver=${PV//*beta}
 	BETA_SNAPSHOT="${betaver:0:4}-${betaver:4:2}-${betaver:6:2}"
 	MY_P="rustc-beta"
-	SRC="${BETA_SNAPSHOT}/rustc-beta-src.tar.xz -> rustc-${PV}-src.tar.xz"
+	SRC_URI="https://static.rust-lang.org/dist/${BETA_SNAPSHOT}/rustc-beta-src.tar.xz -> rustc-${PV}-src.tar.xz
+		https://gitweb.gentoo.org/proj/rust-patches.git/snapshot/rust-patches-${RUST_PATCH_VER}.tar.bz2
+		verify-sig? ( https://static.rust-lang.org/dist/${BETA_SNAPSHOT}/rustc-beta-src.tar.xz.asc
+			-> rustc-${PV}-src.tar.xz.asc )
+	"
+	S="${WORKDIR}/${MY_P}-src"
 else
 	MY_P="rustc-${PV}"
-	SRC="${MY_P}-src.tar.xz"
+	SRC_URI="https://static.rust-lang.org/dist/${MY_P}-src.tar.xz
+		https://gitweb.gentoo.org/proj/rust-patches.git/snapshot/rust-patches-${RUST_PATCH_VER}.tar.bz2
+		verify-sig? ( https://static.rust-lang.org/dist/${MY_P}-src.tar.xz.asc )
+	"
+	S="${WORKDIR}/${MY_P}-src"
 	KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv sparc x86"
 fi
 
 DESCRIPTION="Systems programming language from Mozilla"
 HOMEPAGE="https://www.rust-lang.org/"
-
-SRC_URI="
-	https://static.rust-lang.org/dist/${SRC}
-	verify-sig? ( https://static.rust-lang.org/dist/${SRC}.asc )
-"
-S="${WORKDIR}/${MY_P}-src"
 
 # keep in sync with llvm ebuild of the same version as bundled one.
 ALL_LLVM_TARGETS=( AArch64 AMDGPU ARC ARM AVR BPF CSKY DirectX Hexagon Lanai
@@ -146,13 +160,6 @@ RESTRICT="test"
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/rust.asc
 
-PATCHES=(
-	"${FILESDIR}"/1.78.0-musl-dynamic-linking.patch
-	"${FILESDIR}"/1.83.0-cross-compile-libz.patch
-	"${FILESDIR}"/1.67.0-doc-wasm.patch
-	"${FILESDIR}"/1.84.1-fix-cross.patch # already upstreamed
-)
-
 clear_vendor_checksums() {
 	sed -i 's/\("files":{\)[^}]*/\1/' "vendor/${1}/.cargo-checksum.json" || die
 }
@@ -232,13 +239,9 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# Rust baselines to Pentium4 on x86, this patch lowers the baseline to i586 when sse2 is not set.
-	if use x86; then
-		if ! use cpu_flags_x86_sse2; then
-			eapply "${FILESDIR}/1.82.0-i586-baseline.patch"
-			#grep -rl cmd.args.push\(\"-march=i686\" . | xargs sed  -i 's/march=i686/-march=i586/g' || die
-		fi
-	fi
+	PATCHES=(
+		"${WORKDIR}/rust-patches-${RUST_PATCH_VER}/"
+	)
 
 	if use lto && tc-is-clang && ! tc-ld-is-lld && ! tc-ld-is-mold; then
 		export RUSTFLAGS+=" -C link-arg=-fuse-ld=lld"
@@ -551,7 +554,7 @@ src_configure() {
 }
 
 src_compile() {
-	RUST_BACKTRACE=1 "${EPYTHON}" ./x.py build -vvv --config="${S}"/config.toml -j$(makeopts_jobs) || die
+	RUST_BACKTRACE=1 "${EPYTHON}" ./x.py build -v --config="${S}"/config.toml -j$(makeopts_jobs) || die
 }
 
 src_test() {
@@ -607,7 +610,7 @@ src_test() {
 }
 
 src_install() {
-	DESTDIR="${D}" "${EPYTHON}" ./x.py install -vv --config="${S}"/config.toml -j$(makeopts_jobs) || die
+	DESTDIR="${D}" "${EPYTHON}" ./x.py install -v --config="${S}"/config.toml -j$(makeopts_jobs) || die
 
 	docompress /usr/lib/${PN}/${PV}/share/man/
 
@@ -695,7 +698,7 @@ src_install() {
 	doins "${T}/provider-${P}"
 
 	if use dist; then
-		"${EPYTHON}" ./x.py dist -vv --config="${S}"/config.toml -j$(makeopts_jobs) || die
+		"${EPYTHON}" ./x.py dist -v --config="${S}"/config.toml -j$(makeopts_jobs) || die
 		insinto "/usr/lib/${PN}/${PV}/dist"
 		doins -r "${S}/build/dist/."
 	fi

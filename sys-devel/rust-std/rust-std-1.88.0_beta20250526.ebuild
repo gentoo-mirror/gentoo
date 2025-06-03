@@ -5,12 +5,36 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{11..13} )
 
-inherit edo flag-o-matic multiprocessing python-any-r1 rust-toolchain toolchain-funcs
+inherit edo flag-o-matic multiprocessing python-any-r1 rust-toolchain toolchain-funcs verify-sig
 
 DESCRIPTION="Rust standard library, standalone (for crossdev)"
 HOMEPAGE="https://www.rust-lang.org"
-SRC_URI="https://static.rust-lang.org/dist/rustc-${PV}-src.tar.xz"
-S="${WORKDIR}/${P/-std/c}-src"
+
+if [[ ${PV} = *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/rust-lang/rust.git"
+	EGIT_SUBMODULES=(
+			"*"
+			"-src/gcc"
+	)
+elif [[ ${PV} == *beta* ]]; then
+	# Identify the snapshot date of the beta release:
+	# curl -Ls static.rust-lang.org/dist/channel-rust-beta.toml | grep beta-src.tar.xz
+	betaver=${PV//*beta}
+	BETA_SNAPSHOT="${betaver:0:4}-${betaver:4:2}-${betaver:6:2}"
+	MY_P="rustc-beta"
+	SRC_URI="https://static.rust-lang.org/dist/${BETA_SNAPSHOT}/rustc-beta-src.tar.xz -> rustc-${PV}-src.tar.xz
+			verify-sig? ( https://static.rust-lang.org/dist/${BETA_SNAPSHOT}/rustc-beta-src.tar.xz.asc
+					-> rustc-${PV}-src.tar.xz.asc )
+	"
+	S="${WORKDIR}/${MY_P}-src"
+else
+	MY_P="rustc-${PV}"
+	SRC_URI="https://static.rust-lang.org/dist/${MY_P}-src.tar.xz
+			verify-sig? ( https://static.rust-lang.org/dist/${MY_P}-src.tar.xz.asc )
+	"
+	S="${WORKDIR}/${MY_P}-src"
+fi
 
 LICENSE="|| ( MIT Apache-2.0 ) BSD-1 BSD-2 BSD-4"
 SLOT="stable/$(ver_cut 1-2)"
@@ -21,19 +45,20 @@ IUSE="debug"
 BDEPEND="
 	${PYTHON_DEPS}
 	~dev-lang/rust-${PV}:=
+	verify-sig? ( sec-keys/openpgp-keys-rust )
 "
-
 DEPEND="||
 	(
 		>="${CATEGORY}"/gcc-4.7:*
 		>="${CATEGORY/sys-devel/llvm-core}"/clang-3.5:*
 	)
 "
-
 RDEPEND="${DEPEND}"
 
 # need full compiler to run tests
 RESTRICT="test"
+
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/rust.asc
 
 QA_FLAGS_IGNORED="usr/lib/rust/${PV}/rustlib/.*/lib/lib.*.so"
 
@@ -85,7 +110,7 @@ src_configure() {
 		einfo "$(printf '%10s' ${x^^}:) ${!x}"
 	done
 
-	cat <<- EOF > "${S}"/config.toml
+	cat <<- EOF > "${S}"/bootstrap.toml
 		[build]
 		build = "${rbuild}"
 		host = ["${rhost}"]
@@ -132,12 +157,12 @@ src_configure() {
 	EOF
 
 	einfo "${PN^} configured with the following settings:"
-	cat "${S}"/config.toml || die
+	cat "${S}"/bootstrap.toml || die
 }
 
 src_compile() {
 	edo env RUST_BACKTRACE=1 \
-		"${EPYTHON}" ./x.py build -vv --config="${S}"/config.toml -j$(makeopts_jobs) \
+		"${EPYTHON}" ./x.py build -vv --config="${S}"/bootstrap.toml -j$(makeopts_jobs) \
 		library/std --stage 0
 }
 

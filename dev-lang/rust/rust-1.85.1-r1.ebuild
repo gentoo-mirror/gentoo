@@ -4,7 +4,9 @@
 EAPI=8
 
 LLVM_COMPAT=( 19 )
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
+
+RUST_PATCH_VER=${PVR}
 
 RUST_MAX_VER=${PV%%_*}
 if [[ ${PV} == *9999* ]]; then
@@ -37,6 +39,7 @@ elif [[ ${PV} == *beta* ]]; then
 	BETA_SNAPSHOT="${betaver:0:4}-${betaver:4:2}-${betaver:6:2}"
 	MY_P="rustc-beta"
 	SRC_URI="https://static.rust-lang.org/dist/${BETA_SNAPSHOT}/rustc-beta-src.tar.xz -> rustc-${PV}-src.tar.xz
+		https://gitweb.gentoo.org/proj/rust-patches.git/snapshot/rust-patches-${RUST_PATCH_VER}.tar.bz2
 		verify-sig? ( https://static.rust-lang.org/dist/${BETA_SNAPSHOT}/rustc-beta-src.tar.xz.asc
 			-> rustc-${PV}-src.tar.xz.asc )
 	"
@@ -44,10 +47,11 @@ elif [[ ${PV} == *beta* ]]; then
 else
 	MY_P="rustc-${PV}"
 	SRC_URI="https://static.rust-lang.org/dist/${MY_P}-src.tar.xz
+		https://gitweb.gentoo.org/proj/rust-patches.git/snapshot/rust-patches-${RUST_PATCH_VER}.tar.bz2
 		verify-sig? ( https://static.rust-lang.org/dist/${MY_P}-src.tar.xz.asc )
 	"
 	S="${WORKDIR}/${MY_P}-src"
-	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
 fi
 
 DESCRIPTION="Systems programming language originally developed by Mozilla"
@@ -170,12 +174,6 @@ RESTRICT="test"
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/rust.asc
 
-PATCHES=(
-	"${FILESDIR}"/1.85.0-cross-compile-libz.patch
-	"${FILESDIR}"/1.85.0-musl-dynamic-linking.patch
-	"${FILESDIR}"/1.67.0-doc-wasm.patch
-)
-
 clear_vendor_checksums() {
 	sed -i 's/\("files":{\)[^}]*/\1/' "vendor/${1}/.cargo-checksum.json" || die
 }
@@ -207,7 +205,7 @@ src_unpack() {
 		# to ensure that all dependencies are present and up-to-date
 		mkdir "${S}/vendor" || die
 		# This also compiles the 'build helper', there's no way to avoid this.
-		${EPYTHON} "${S}"/x.py vendor -vvv --config="${T}"/vendor-config.toml -j$(makeopts_jobs) ||
+		${EPYTHON} "${S}"/x.py vendor -v --config="${T}"/vendor-config.toml -j$(makeopts_jobs) ||
 			die "Failed to vendor dependencies"
 		# TODO: This has to be generated somehow, this is from a 1.84.x tarball I had lying around.
 		cat <<- _EOF_ > "${S}/.cargo/config.toml"
@@ -301,16 +299,12 @@ pkg_setup() {
 src_prepare() {
 	if [[ ${PV} = *9999* ]]; then
 		# We need to update / generate lockfiles for the workspace
-		${CARGO} generate-lockfile --offline
+		${CARGO} generate-lockfile --offline || die "Failed to generate lockfiles"
+	fi
 
-	fi
-	# Rust baselines to Pentium4 on x86, this patch lowers the baseline to i586 when sse2 is not set.
-	if use x86; then
-		if ! use cpu_flags_x86_sse2; then
-			eapply "${FILESDIR}/1.82.0-i586-baseline.patch"
-			#grep -rl cmd.args.push\(\"-march=i686\" . | xargs sed  -i 's/march=i686/-march=i586/g' || die
-		fi
-	fi
+	PATCHES=(
+		"${WORKDIR}/rust-patches-${RUST_PATCH_VER}/"
+	)
 
 	if use lto && tc-is-clang && ! tc-ld-is-lld && ! tc-ld-is-mold; then
 		export RUSTFLAGS+=" -C link-arg=-fuse-ld=lld"
@@ -638,7 +632,7 @@ src_configure() {
 }
 
 src_compile() {
-	RUST_BACKTRACE=1 "${EPYTHON}" ./x.py build -vvv --config="${S}"/config.toml -j$(makeopts_jobs) || die
+	RUST_BACKTRACE=1 "${EPYTHON}" ./x.py build -v --config="${S}"/config.toml -j$(makeopts_jobs) || die
 }
 
 src_test() {
@@ -694,7 +688,7 @@ src_test() {
 }
 
 src_install() {
-	DESTDIR="${D}" "${EPYTHON}" ./x.py install -vv --config="${S}"/config.toml -j$(makeopts_jobs) || die
+	DESTDIR="${D}" "${EPYTHON}" ./x.py install -v --config="${S}"/config.toml -j$(makeopts_jobs) || die
 
 	docompress /usr/lib/${PN}/${SLOT}/share/man/
 
@@ -784,7 +778,7 @@ src_install() {
 	doins "${T}/provider-${PN}-${SLOT}"
 
 	if use dist; then
-		"${EPYTHON}" ./x.py dist -vv --config="${S}"/config.toml -j$(makeopts_jobs) || die
+		"${EPYTHON}" ./x.py dist -v --config="${S}"/config.toml -j$(makeopts_jobs) || die
 		insinto "/usr/lib/${PN}/${SLOT}/dist"
 		doins -r "${S}/build/dist/."
 	fi
