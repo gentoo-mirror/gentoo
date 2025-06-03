@@ -87,8 +87,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-6.0.9-libsystemd.patch
 	"${FILESDIR}"/${PN}-6.0.9-config-example.patch
 	"${FILESDIR}"/${PN}-6.0.12-pytest_tomllib.patch
-	# Regression fix merged, to be removed with release 6.0.14
-	"${FILESDIR}"/${PN}-6.0.13-fix_template_regress.patch
 )
 
 pkg_setup() {
