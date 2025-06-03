@@ -1,17 +1,17 @@
-BDEPEND=ruby_targets_ruby32? ( test? ( >=dev-ruby/rr-1.0[ruby_targets_ruby32(-)] dev-ruby/activesupport[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( >=dev-ruby/rr-1.0[ruby_targets_ruby33(-)] dev-ruby/activesupport[ruby_targets_ruby33(-)] ) ) test? ( ruby_targets_ruby32? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby32? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) test? ( ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) )
+BDEPEND=ruby_targets_ruby32? ( test? ( >=dev-ruby/rr-1.0[ruby_targets_ruby32(-)] dev-ruby/activesupport[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( >=dev-ruby/rr-1.0[ruby_targets_ruby33(-)] dev-ruby/activesupport[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( test? ( >=dev-ruby/rr-1.0[ruby_targets_ruby34(-)] dev-ruby/activesupport[ruby_targets_ruby34(-)] ) ) test? ( ruby_targets_ruby32? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) test? ( ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
+DEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
 DESCRIPTION=Treetop is a language for describing languages
 EAPI=8
 HOMEPAGE=https://github.com/cjheath/treetop
 INHERIT=ruby-fakegem
-IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 doc test test
+IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 doc test test
 KEYWORDS=~amd64 ~arm ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=MIT
-RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby33(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
-REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 )
-RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
+RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby34(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 )
+RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/cjheath/treetop/archive/v1.6.14.tar.gz -> treetop-1.6.14.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	multilib	b2a329026f2e404e9e371097dda47f96	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	ruby-fakegem	bc37b1e2fa23e795fae856dd70a23846
-_md5_=bcb351a644c753f0ae5a59b80e22c692
+_md5_=5ff1cc28df960b96ac16640d19e4cb6f
