@@ -1,0 +1,13 @@
+BDEPEND=games-util/grfcodec games-util/nml || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 )
+DEFINED_PHASES=compile install setup test
+DESCRIPTION=OpenGFX data files for OpenTTD
+EAPI=8
+HOMEPAGE=https://wiki.openttd.org/en/Basesets/OpenGFX https://github.com/OpenTTD/OpenGFX
+INHERIT=python-any-r1 toolchain-funcs
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-2
+RESTRICT=test
+SLOT=0
+SRC_URI=https://cdn.openttd.org/opengfx-releases/7.1/opengfx-7.1-source.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	e6fe2c451b7e577e827165580e5bdd64	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=dc4114adba1254dbaddc1aee6c634f50

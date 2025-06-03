@@ -1226,7 +1226,7 @@ app-backup/backup-manager 0.7.14-r1: Backup Manager is a command line backup too
 app-backup/backupninja 1.2.2: lightweight, extensible meta-backup system
 app-backup/backuppc 3.3.1-r6 4.4.0-r1 4.4.0-r2: High-performance backups to a server's disk
 app-backup/bacula 15.0.3-r1: Featureful client/server network backup suite
-app-backup/bareos 21.1.11 22.1.7 23.1.3-r1 24.0.2-r1 24.0.3 9999: Featureful client/server network backup suite
+app-backup/bareos 21.1.11 22.1.7 23.1.3-r1 24.0.2-r2 24.0.3 9999: Featureful client/server network backup suite
 app-backup/borgbackup 1.4.0 1.4.1: Deduplicating backup program with compression and authenticated encryption
 app-backup/borgmatic 1.9.14 2.0.3 2.0.4 2.0.5 2.0.6: Automatically create, prune and verify backups with borgbackup
 app-backup/btrbk 0.32.6-r1 0.32.6-r2 9999: Tool for creating snapshots and remote backups of btrfs subvolumes
@@ -2351,7 +2351,7 @@ app-emulation/gallium-nine-standalone 0.10 9999: A standalone version of the WIN
 app-emulation/ganeti-os-noop 0.2: Dummy OS provider for Ganeti
 app-emulation/ganeti-os-simpleimage 0_p20221113: Ganeti OS provider for simple images
 app-emulation/genymotion-bin 3.7.1: Complete set of tools that provide a virtual environment for Android
-app-emulation/glean 1.23.0-r1 1.24.0: Simple program to write static config from config-drive
+app-emulation/glean 1.24.0: Simple program to write static config from config-drive
 app-emulation/grub-xen-host 1.0-r2: Grub2 built as a PV grub per the Xen PV Boot Protocol
 app-emulation/guestfs-tools 1.48.2-r1 1.52.3-r1 1.53.7-r1 1.54.0: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
 app-emulation/gxemul 0.6.2 0.6.3.1: A Machine Emulator, Mainly emulates MIPS, but supports other CPU types
@@ -3788,10 +3788,10 @@ dev-ada/langkit-contrib 25.0.0-r2: A Python framework to generate language parse
 dev-ada/libadalang 24.0.0-r3 25.0.0-r1: high performance semantic engine for the Ada programming language
 dev-ada/libadalang-tools 25.0.0-r2: Libadalang-based tools: gnatpp, gnatmetric and gnatstub
 dev-ada/libgpr 25.0.0-r3: Ada library to handle GPRbuild project files
-dev-ada/markdown 25.0.0-r1: Provides a markdown parser written in Ada
+dev-ada/markdown 25.0.0-r2: Provides a markdown parser written in Ada
 dev-ada/prettier-ada 25.0.0-r2: Port of the Prettier formatter to the Ada programming language
 dev-ada/spawn 25.0.0-r3: Simple API to spawn processes
-dev-ada/templates-parser 24.0.0-r1 25.0.0-r3: A template engine
+dev-ada/templates-parser 24.0.0-r1 25.0.0-r4: A template engine
 dev-ada/xmlada 25.0.0-r5: Set of modules that provide a simple manipulation of XML streams
 dev-build/autoconf 2.13-r8 2.69-r9 2.71-r6 2.71-r7 2.72-r1 9999: Used to create autoconfiguration files
 dev-build/autoconf-archive 2023.02.20 2024.10.16-r1 2024.10.16-r2: GNU Autoconf Macro Archive
@@ -6004,13 +6004,13 @@ dev-ml/gen 0.5.3-r1 1.0-r2 1.1: Iterators for OCaml, both restartable and consum
 dev-ml/graphics 5.1.2: The OCaml graphics library
 dev-ml/gsl-ocaml 1.24.3-r2 1.25.1: OCaml bindings for the GSL library (successor of dev-ml/ocamlgsl)
 dev-ml/hmap 0.8.1: Heterogeneous value maps for OCaml
-dev-ml/int_repr 0.15.0 0.16.0 0.17.0: Integers of various widths
+dev-ml/int_repr 0.15.0 0.16.0 0.17.0-r1: Integers of various widths
 dev-ml/integers 0.7.0: Various signed and unsigned integer types for OCaml
 dev-ml/iostream 0.3: Generic, composable IO input and output streams
 dev-ml/jane-street-headers 0.15.0-r1 0.16.0 0.17.0: Jane Street header files
 dev-ml/jingoo 1.5.0: OCaml template engine almost compatible with Jinja2
 dev-ml/jsonm 1.0.2: Non-blocking streaming JSON codec for OCaml
-dev-ml/jst-config 0.15.0-r1 0.15.1-r1 0.16.0 0.17.0: Compile-time configuration for Jane Street libraries
+dev-ml/jst-config 0.15.0-r1 0.15.1-r1 0.16.0 0.17.0-r1: Compile-time configuration for Jane Street libraries
 dev-ml/lablgl 1.06-r2 1.07: Objective CAML interface for OpenGL
 dev-ml/lablgtk 3.1.5-r1: OCaml bindings to GTK-3
 dev-ml/lablgtk-sourceview 3.1.5: OCaml bindings to GTK-3
@@ -6080,39 +6080,39 @@ dev-ml/patience_diff 0.15.0 0.16.0 0.17.0: Tool and library implementing patienc
 dev-ml/pcre-ocaml 7.4.6-r2 7.5.0: Perl Compatibility Regular Expressions for O'Caml
 dev-ml/pp 1.1.2 1.2.0 2.0.0: Pretty-printing library
 dev-ml/pprint 20220103 20230830: A pretty-printing combinator library and rendering engine
-dev-ml/ppx_assert 0.15.0-r1 0.16.0 0.17.0: Assert-like extension nodes that raise useful errors on failure
+dev-ml/ppx_assert 0.15.0-r1 0.16.0 0.17.0-r1: Assert-like extension nodes that raise useful errors on failure
 dev-ml/ppx_base 0.15.0 0.16.0-r1 0.17.0: Base set of ppx rewriters
 dev-ml/ppx_bench 0.15.0-r1 0.16.0 0.17.0: Syntax extension for writing in-line benchmarks in ocaml code
-dev-ml/ppx_bin_prot 0.15.0-r1 0.16.0 0.17.0: Generation of bin_prot readers and writers from types
+dev-ml/ppx_bin_prot 0.15.0-r1 0.16.0 0.17.0-r1: Generation of bin_prot readers and writers from types
 dev-ml/ppx_blob 0.7.2 0.8.0 0.9.0: Include a file as a string at compile time
-dev-ml/ppx_cold 0.15.0 0.16.0 0.17.0: Expands [@cold] into [@inline never][@specialise never][@local never]
-dev-ml/ppx_compare 0.15.0 0.16.0 0.17.0: Generation of comparison functions from types
-dev-ml/ppx_custom_printf 0.15.0-r1 0.16.0 0.17.0: Printf-style format-strings for user-defined string conversion
+dev-ml/ppx_cold 0.15.0 0.16.0 0.17.0-r1: Expands [@cold] into [@inline never][@specialise never][@local never]
+dev-ml/ppx_compare 0.15.0 0.16.0 0.17.0-r1: Generation of comparison functions from types
+dev-ml/ppx_custom_printf 0.15.0-r1 0.16.0 0.17.0-r1: Printf-style format-strings for user-defined string conversion
 dev-ml/ppx_derivers 1.2.1: Shared [@@deriving] plugin registry
 dev-ml/ppx_deriving 5.2.1-r2 6.0.3: Type-driven code generation for OCaml
 dev-ml/ppx_deriving_yojson 3.8.0 3.9.0: JSON codec generator for OCaml
-dev-ml/ppx_diff 0.17.0: A PPX rewriter that genreates the implementation of [Ldiffable.S].
-dev-ml/ppx_disable_unused_warnings 0.15.0-r1 0.16.0 0.17.0: Expands [@disable_unused_warnings]
-dev-ml/ppx_enumerate 0.15.0 0.16.0 0.17.0: Generate a list containing all values of a finite type
-dev-ml/ppx_expect 0.15.0-r1 0.15.1-r1 0.16.0 0.17.2: Cram like framework for OCaml
-dev-ml/ppx_fields_conv 0.15.0 0.16.0 0.17.0: Generation of accessor and iteration functions for ocaml records
-dev-ml/ppx_fixed_literal 0.15.0 0.16.0 0.17.0: Simpler notation for fixed point literals
-dev-ml/ppx_globalize 0.16.0 0.17.0: Generates functions to copy local values to the global heap
-dev-ml/ppx_hash 0.15.0-r1 0.16.0 0.17.0: PPX rewriter that generates hash functions from type expressions and definitions
-dev-ml/ppx_here 0.15.0 0.16.0 0.17.0: Expands [%here] into its location
+dev-ml/ppx_diff 0.17.0-r1: A PPX rewriter that genreates the implementation of [Ldiffable.S].
+dev-ml/ppx_disable_unused_warnings 0.15.0-r1 0.16.0 0.17.0-r1: Expands [@disable_unused_warnings]
+dev-ml/ppx_enumerate 0.15.0 0.16.0 0.17.0-r1: Generate a list containing all values of a finite type
+dev-ml/ppx_expect 0.15.0-r1 0.15.1-r1 0.16.0 0.17.2-r1: Cram like framework for OCaml
+dev-ml/ppx_fields_conv 0.15.0 0.16.0 0.17.0-r1: Generation of accessor and iteration functions for ocaml records
+dev-ml/ppx_fixed_literal 0.15.0 0.16.0 0.17.0-r1: Simpler notation for fixed point literals
+dev-ml/ppx_globalize 0.16.0 0.17.0-r1: Generates functions to copy local values to the global heap
+dev-ml/ppx_hash 0.15.0-r1 0.16.0 0.17.0-r1: PPX rewriter that generates hash functions from type expressions and definitions
+dev-ml/ppx_here 0.15.0 0.16.0 0.17.0-r1: Expands [%here] into its location
 dev-ml/ppx_ignore_instrumentation 0.15.0-r1 0.16.0 0.17.0: Ignore Jane Street specific instrumentation extensions
 dev-ml/ppx_import 1.9.1-r1 1.10.0 1.11.0: A syntax extension for importing declarations from interface files
-dev-ml/ppx_inline_test 0.15.0-r2 0.15.0-r3 0.16.0 0.17.0: Syntax extension for writing in-line tests in ocaml code
+dev-ml/ppx_inline_test 0.15.0-r2 0.15.0-r3 0.16.0 0.17.0-r1: Syntax extension for writing in-line tests in ocaml code
 dev-ml/ppx_jane 0.15.0 0.16.0-r1 0.17.0: Standard Jane Street ppx rewriters
 dev-ml/ppx_js_style 0.15.0 0.16.0 0.17.0: Code style checker for Jane Street Packages
-dev-ml/ppx_let 0.15.0 0.16.0 0.17.0: Monadic let-bindings
-dev-ml/ppx_log 0.15.0-r1 0.16.0 0.17.0: Lazily rendering log messages
-dev-ml/ppx_module_timer 0.15.0-r1 0.16.0 0.17.0: Ppx rewriter that records top-level module startup times
-dev-ml/ppx_optcomp 0.15.0 0.16.0 0.17.0: Optional compilation for OCaml
-dev-ml/ppx_optional 0.15.0 0.16.0 0.17.0: Pattern matching on flat options
+dev-ml/ppx_let 0.15.0 0.16.0 0.17.0-r1: Monadic let-bindings
+dev-ml/ppx_log 0.15.0-r1 0.16.0 0.17.0-r1: Lazily rendering log messages
+dev-ml/ppx_module_timer 0.15.0-r1 0.16.0 0.17.0-r1: Ppx rewriter that records top-level module startup times
+dev-ml/ppx_optcomp 0.15.0 0.16.0 0.17.0-r1: Optional compilation for OCaml
+dev-ml/ppx_optional 0.15.0 0.16.0 0.17.0-r1: Pattern matching on flat options
 dev-ml/ppx_pipebang 0.15.0-r1 0.16.0 0.17.0: A ppx rewriter that inlines reverse application operators |> and |!
-dev-ml/ppx_sexp_conv 0.15.1-r1 0.16.0-r1 0.17.0: Support Library for type-driven code generators
-dev-ml/ppx_sexp_message 0.15.0-r1 0.16.0 0.17.0: A ppx rewriter for easy construction of s-expressions
+dev-ml/ppx_sexp_conv 0.15.1-r1 0.16.0-r1 0.17.0-r1: Support Library for type-driven code generators
+dev-ml/ppx_sexp_message 0.15.0-r1 0.16.0 0.17.0-r1: A ppx rewriter for easy construction of s-expressions
 dev-ml/ppx_sexp_value 0.15.0-r1 0.16.0 0.17.0-r1: Standard library for ppx rewriters
 dev-ml/ppx_stable 0.15.0 0.16.0 0.17.0-r1: Stable types conversions generator
 dev-ml/ppx_stable_witness 0.16.0 0.17.0-r1: Ppx extension for deriving a witness that a type is intended to be stable
@@ -9672,7 +9672,7 @@ dev-python/wsgiproxy2 0.5.1-r1: HTTP proxying tools for WSGI apps
 dev-python/wsproto 1.2.0: WebSockets state-machine based protocol implementation
 dev-python/wtforms 3.2.1: Flexible forms validation and rendering library for python web development
 dev-python/wurlitzer 3.1.1: Capture C-level stdout/stderr in Python
-dev-python/wxpython 4.2.0 4.2.1-r2 4.2.2 4.2.3-r2: A blending of the wxWindows C++ class library with Python
+dev-python/wxpython 4.2.3-r2: A blending of the wxWindows C++ class library with Python
 dev-python/x-wr-timezone 2.0.1: Convert calendars using X-WR-TIMEZONE to standard ones
 dev-python/xarray 2025.3.1 2025.4.0: N-D labeled arrays and datasets in Python
 dev-python/xcffib 1.7.1 1.8.0 1.9.0: A drop in replacement for xpyb, an XCB python binding
@@ -11428,7 +11428,7 @@ games-emulation/mupen64plus-video-glide64mk2 2.6.0: A fork of Mupen64 Nintendo 6
 games-emulation/mupen64plus-video-rice 2.6.0: A fork of Mupen64 Nintendo 64 emulator, rice video plugin
 games-emulation/nestopia 1.53.1: Portable Nintendo Entertainment System emulator written in C++
 games-emulation/nestopia-jg 1.53.1 9999: Jolly Good Fork of Nestopia
-games-emulation/openmsx 19.1 20.0: MSX emulator that aims for perfection
+games-emulation/openmsx 19.1 20.0-r1: MSX emulator that aims for perfection
 games-emulation/pcsx2 2.2.0-r1 9999: PlayStation 2 emulator
 games-emulation/pcsx2_patches 0_p20241020 9999: Collection of game patches for use with PCSX2 (e.g. widescreen hacks)
 games-emulation/ppsspp 1.18.1-r2: A PSP emulator written in C++
@@ -11576,9 +11576,9 @@ games-misc/little-inferno 20130509-r1: Throw your toys into your fire, and play 
 games-misc/lolcat 100.0.1-r3: Rainbows and unicorns!
 games-misc/lucidlife 0.9.2-r1: A Conway's Life simulator written in GTK+2 - fork from Gtklife
 games-misc/nyancat 1.5.2: Nyancat in your terminal, rendered through ANSI escape sequences
-games-misc/opengfx 7.1: OpenGFX data files for OpenTTD
+games-misc/opengfx 7.1-r1: OpenGFX data files for OpenTTD
 games-misc/openmsx 0.4.2: Open source music base set for OpenTTD
-games-misc/opensfx 1.0.3: OpenSFX data files for OpenTTD
+games-misc/opensfx 1.0.3-r1: OpenSFX data files for OpenTTD
 games-misc/papers-please 1.1.65: Dystopian Document Thriller
 games-misc/ponysay 3.0.3: cowsay reimplemention for ponies
 games-misc/rfksay 0.1-r1: Like cowsay, but different because it involves robots and kittens
@@ -12087,7 +12087,7 @@ gui-libs/hyprland-qt-support 0.1.0: QML style provider for hypr* Qt apps
 gui-libs/hyprland-qtutils 0.1.1 0.1.4: Hyprland QT/qml utility apps
 gui-libs/hyprutils 0.3.0-r1 0.5.2 0.7.1 9999: Hyprland utilities library used across the ecosystem
 gui-libs/kddockwidgets 2.2.3 2.2.5: KDAB's Dock Widget Framework for Qt
-gui-libs/libadwaita 1.5.3 1.5.5 1.6.2 1.7.2: Building blocks for modern GNOME applications
+gui-libs/libadwaita 1.5.3-r1 1.5.5-r1 1.6.2-r1 1.7.2-r1: Building blocks for modern GNOME applications
 gui-libs/libdecor 0.2.2-r1 9999: A client-side decorations library for Wayland clients
 gui-libs/libgedit-amtk 5.8.0 5.9.0: Actions, Menus and Toolbars Kit for GTK applications
 gui-libs/libgedit-gfls 0.2.0 0.2.1: A module dedicated to file loading and saving
@@ -14852,7 +14852,7 @@ net-libs/cppzmq 4.9.0 4.10.0: High-level CPP Binding for ZeroMQ
 net-libs/cvm 0.97-r2: Credential Validation Modules by Bruce Guenter
 net-libs/czmq 4.2.1: High-level C Binding for ZeroMQ
 net-libs/daq 2.0.7 2.0.7-r1: Data Acquisition library, for packet I/O
-net-libs/davix 0.8.7 0.8.10 9999: High-performance file management over WebDAV/HTTP
+net-libs/davix 0.8.7 0.8.10-r1 9999: High-performance file management over WebDAV/HTTP
 net-libs/dleyna 0.8.3 0.8.3-r1: A set of services and D-Bus APIs to simplify access to UPnP/DLNA media devices
 net-libs/enet 1.3.17 1.3.17-r1 1.3.18: Relatively thin, simple and robust network communication layer on top of UDP
 net-libs/farstream 0.2.9-r1 0.2.9-r2: Audio/video conferencing framework specifically designed for instant messengers
@@ -17488,7 +17488,7 @@ sys-firmware/atmel-firmware 1.3-r3: Firmware and config for atmel and atmel_cs w
 sys-firmware/b43-firmware 5.100.138 6.30.163.46: broadcom firmware for b43 LP PHY and >=linux-3.2
 sys-firmware/b43legacy-firmware 3.130.20.0: broadcom firmware for b43legacy/bcm43xx
 sys-firmware/broadcom-bt-firmware 12.0.1.1105_p4-r1: Broadcom Bluetooth firmware
-sys-firmware/edk2 202202 202408 202411 202502: TianoCore EDK II UEFI firmware for virtual machines
+sys-firmware/edk2 202202 202408 202411 202502-r1: TianoCore EDK II UEFI firmware for virtual machines
 sys-firmware/edk2-bin 202202 202408 202411: TianoCore EDK II UEFI firmware for virtual machines
 sys-firmware/firmware-imx 8.18: NXP i.MX firmware
 sys-firmware/intel-microcode 20241112_p20241103 20250211_p20250211 20250512_p20250513: Intel IA32/IA64 microcode update data
