@@ -9,8 +9,6 @@ DESCRIPTION="Robust, scalable and extensible XMPP server"
 HOMEPAGE="https://www.ejabberd.im/ https://github.com/processone/ejabberd/"
 SRC_URI="
 	https://github.com/processone/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/processone/ejabberd/commit/5008947e326f24fa88f9c06c970630047d6b1020.patch ->
-		${PN}-25.03-fix-sqlite-schema.patch
 "
 
 LICENSE="GPL-2"
@@ -66,9 +64,9 @@ RDEPEND="
 "
 
 DOCS=( CHANGELOG.md README.md )
+
 PATCHES=(
 	"${FILESDIR}/ejabberd-22.10-adjust-ejabberd.service.template-to-Gentoo.patch"
-	"${DISTDIR}"/${PN}-25.03-fix-sqlite-schema.patch
 )
 
 # Get path to ejabberd lib directory.
