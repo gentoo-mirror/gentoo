@@ -1,0 +1,17 @@
+BDEPEND=acct-user/opendkim test? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
+DEFINED_PHASES=compile config configure install postinst prepare setup test
+DEPEND=mail-filter/libmilter:= dev-libs/libbsd sys-apps/grep ssl? ( dev-libs/openssl:0= ) berkdb? ( >=sys-libs/db-3.2:* ) opendbx? ( >=dev-db/opendbx-1.4.0 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) ldap? ( net-nds/openldap:= ) lmdb? ( dev-db/lmdb:= ) memcached? ( dev-libs/libmemcached ) sasl? ( dev-libs/cyrus-sasl ) unbound? ( >=net-dns/unbound-1.4.1:= net-dns/dnssec-root )
+DESCRIPTION=A milter providing DKIM signing and verification
+EAPI=8
+HOMEPAGE=http://opendkim.org/
+INHERIT=autotools db-use systemd tmpfiles lua-single
+IUSE=berkdb ldap lmdb lua memcached opendbx poll sasl selinux +ssl static-libs stats querycache test unbound lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=BSD GPL-2 Sendmail-Open-Source
+RDEPEND=mail-filter/libmilter:= dev-libs/libbsd sys-apps/grep ssl? ( dev-libs/openssl:0= ) berkdb? ( >=sys-libs/db-3.2:* ) opendbx? ( >=dev-db/opendbx-1.4.0 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) ldap? ( net-nds/openldap:= ) lmdb? ( dev-db/lmdb:= ) memcached? ( dev-libs/libmemcached ) sasl? ( dev-libs/cyrus-sasl ) unbound? ( >=net-dns/unbound-1.4.1:= net-dns/dnssec-root ) acct-user/opendkim sys-process/psmisc selinux? ( sec-policy/selinux-dkim ) virtual/tmpfiles
+REQUIRED_USE=sasl? ( ldap ) stats? ( opendbx ) querycache? ( berkdb ) lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) test? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/opendkim/opendkim-2.10.3.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	multilib	b2a329026f2e404e9e371097dda47f96	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
+_md5_=d5b9cac27ff978f29d0c159a906947ee
