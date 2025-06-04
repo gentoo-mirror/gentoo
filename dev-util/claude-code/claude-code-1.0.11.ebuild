@@ -51,4 +51,6 @@ src_install() {
 	edo npm "${my_npm_opts[@]}" install "${DISTDIR}/${P}.tgz"
 
 	rm -r "${ED}/usr/lib64/node_modules/@anthropic-ai/claude-code/vendor/ripgrep" || die
+	insinto /etc/claude-code
+	doins "${FILESDIR}/policies.json"
 }
