@@ -25,7 +25,7 @@ else
 	if [[ ${FVWM3_DOCS_PREBUILT} == 1 ]]; then
 		SRC_URI+=" https://deps.gentoo.zip/x11-wm/fvwm3/${P}-docs.tar.xz"
 	fi
-	KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-2+ FVWM
@@ -99,6 +99,10 @@ RDEPEND="
 "
 
 DEPEND="${COMMON_DEPEND}"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-1.1.3-reproducible-docs.patch"
+)
 
 src_configure() {
 	local emesonargs=(
