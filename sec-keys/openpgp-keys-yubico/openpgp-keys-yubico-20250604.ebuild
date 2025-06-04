@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -30,6 +30,10 @@ SRC_URI="
 		-> yubico-${PV}-78D997D53E9C0A2A205392ED14A19784723C9988.asc
 	https://keys.openpgp.org/vks/v1/by-fingerprint/AF511D2CBC0F973E5D308054325C8E4AE2E6437D
 		-> yubico-${PV}-AF511D2CBC0F973E5D308054325C8E4AE2E6437D.asc
+	https://keys.openpgp.org/vks/v1/by-fingerprint/C28ED3753F01B4B097A1B306948B29C5F1E063ED
+		-> yubico-${PV}-C28ED3753F01B4B097A1B306948B29C5F1E063ED.asc
+	https://keys.openpgp.org/vks/v1/by-fingerprint/F475928225229F58460640EAD91777C175533EE5
+		-> yubico-${PV}-F475928225229F58460640EAD91777C175533EE5.asc
 "
 # Old keys. Keys which should also be there but as of 2023-08-25 trigger import failures
 # due to having no user IDs associated with them on the keyserver:
