@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig doc? ( app-text/texlive-core dev-texlive/texlive-latexextra dev-libs/libxslt dev-tex/latex2html )
 DEFINED_PHASES=compile install prepare
-DEPEND=dev-libs/xerces-c
+DEPEND=dev-libs/xerces-c:=
 DESCRIPTION=TeX-to-MathML converter
 EAPI=8
 HOMEPAGE=http://gva.noekeon.org/blahtexml
@@ -8,8 +8,8 @@ INHERIT=toolchain-funcs
 IUSE=doc
 KEYWORDS=amd64 arm arm64 ~hppa ppc ppc64 ~riscv ~s390 x86
 LICENSE=BSD CC-BY-3.0 ZLIB
-RDEPEND=dev-libs/xerces-c
+RDEPEND=dev-libs/xerces-c:=
 SLOT=0
 SRC_URI=https://github.com/gvanas/blahtexml/archive/refs/tags/v1.0.tar.gz -> blahtexml-1.0.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169
-_md5_=70fa78db84b8eb0061d818923fb6926e
+_md5_=052dd28b0882c237ee630d3a96fd2474
