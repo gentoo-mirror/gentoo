@@ -6,19 +6,27 @@ EAPI=8
 KERNEL_IUSE_GENERIC_UKI=1
 KERNEL_IUSE_MODULES_SIGN=1
 
-inherit git-r3 kernel-build toolchain-funcs
+inherit kernel-build toolchain-funcs
 
+MY_P=linux-${PV%.*}
+GENPATCHES_P=genpatches-${PV%.*}-$(( ${PV##*.} + 2 ))
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
 # forked to https://github.com/projg2/fedora-kernel-config-for-gentoo
-CONFIG_VER=6.6.12-gentoo
+CONFIG_VER=6.14.10-gentoo
 GENTOO_CONFIG_VER=g16
 
-DESCRIPTION="Linux kernel built from vanilla upstream sources"
+DESCRIPTION="Linux kernel built with Gentoo patches"
 HOMEPAGE="
 	https://wiki.gentoo.org/wiki/Project:Distribution_Kernel
 	https://www.kernel.org/
 "
 SRC_URI+="
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
+	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.base.tar.xz
+	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
+	experimental? (
+		https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.experimental.tar.xz
+	)
 	https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
 		-> gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz
 	amd64? (
@@ -33,42 +41,53 @@ SRC_URI+="
 		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-ppc64le-fedora.config
 			-> kernel-ppc64le-fedora.config.${CONFIG_VER}
 	)
+	riscv? (
+		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-riscv64-fedora.config
+			-> kernel-riscv64-fedora.config.${CONFIG_VER}
+	)
 	x86? (
 		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-i686-fedora.config
 			-> kernel-i686-fedora.config.${CONFIG_VER}
 	)
 "
+S=${WORKDIR}/${MY_P}
 
-EGIT_REPO_URI=(
-	https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/
-	https://github.com/gregkh/linux/
-)
-EGIT_BRANCH="linux-${PV/.9999/.y}"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="debug experimental hardened"
+REQUIRED_USE="
+	arm? ( savedconfig )
+	hppa? ( savedconfig )
+	sparc? ( savedconfig )
+"
 
-LICENSE="GPL-2"
-IUSE="debug hardened"
-REQUIRED_USE="arm? ( savedconfig )"
-
+RDEPEND="
+	!sys-kernel/gentoo-kernel-bin:${SLOT}
+"
 BDEPEND="
 	debug? ( dev-util/pahole )
 "
 PDEPEND="
-	>=virtual/dist-kernel-$(ver_cut 1-2)
+	>=virtual/dist-kernel-${PV}
 "
 
-src_unpack() {
-	git-r3_src_unpack
-	default
-}
+QA_FLAGS_IGNORED="
+	usr/src/linux-.*/scripts/gcc-plugins/.*.so
+	usr/src/linux-.*/vmlinux
+	usr/src/linux-.*/arch/powerpc/kernel/vdso.*/vdso.*.so.dbg
+"
 
 src_prepare() {
+	local PATCHES=(
+		# meh, genpatches have no directory
+		"${WORKDIR}"/*.patch
+	)
 	default
 
 	local biendian=false
 
 	# prepare the default config
 	case ${ARCH} in
-		arm | hppa | loong)
+		arm | hppa | loong | sparc)
 			> .config || die
 		;;
 		amd64)
@@ -87,6 +106,9 @@ src_prepare() {
 			cp "${DISTDIR}/kernel-ppc64le-fedora.config.${CONFIG_VER}" .config || die
 			biendian=true
 			;;
+		riscv)
+			cp "${DISTDIR}/kernel-riscv64-fedora.config.${CONFIG_VER}" .config || die
+			;;
 		x86)
 			cp "${DISTDIR}/kernel-i686-fedora.config.${CONFIG_VER}" .config || die
 			;;
@@ -95,7 +117,7 @@ src_prepare() {
 			;;
 	esac
 
-	local myversion="-dist"
+	local myversion="-gentoo-dist"
 	use hardened && myversion+="-hardened"
 	echo "CONFIG_LOCALVERSION=\"${myversion}\"" > "${T}"/version.config || die
 	local dist_conf_path="${WORKDIR}/gentoo-kernel-config-${GENTOO_CONFIG_VER}"
@@ -103,6 +125,7 @@ src_prepare() {
 	local merge_configs=(
 		"${T}"/version.config
 		"${dist_conf_path}"/base.config
+		"${dist_conf_path}"/6.12+.config
 	)
 	use debug || merge_configs+=(
 		"${dist_conf_path}"/no-debug.config
