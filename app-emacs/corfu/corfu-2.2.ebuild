@@ -18,14 +18,14 @@ else
 	SRC_URI="https://github.com/minad/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-30.0.2.0
+	>=app-emacs/compat-30.1.0.0
 "
 BDEPEND="
 	${RDEPEND}
