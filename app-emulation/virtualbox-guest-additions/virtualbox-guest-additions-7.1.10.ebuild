@@ -6,17 +6,18 @@ EAPI=8
 inherit edo readme.gentoo-r1 systemd toolchain-funcs udev
 
 MY_PN="VirtualBox"
-MY_P="${MY_PN}-${PV}"
+MY_PV=${PV^^}
+MY_P=${MY_PN}-${MY_PV}
 
 DESCRIPTION="VirtualBox kernel modules and user-space tools for Gentoo guests"
 HOMEPAGE="https://www.virtualbox.org/"
-SRC_URI="https://download.virtualbox.org/virtualbox/${PV}/${MY_P}.tar.bz2
-	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.0.16.tar.bz2"
-S="${WORKDIR}/${MY_PN}-${PV}"
+SRC_URI="https://download.virtualbox.org/virtualbox/${MY_PV}/${MY_P}.tar.bz2
+	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.1.10.tar.bz2"
+S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
 LICENSE="GPL-3 LGPL-2.1+ MIT || ( GPL-3 CDDL )"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+dbus gui"
 
 RDEPEND="
@@ -54,6 +55,12 @@ BDEPEND="
 	sys-devel/bin86
 	sys-power/iasl
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-7.1.6-disable-vboxvideo-module.patch
+	"${FILESDIR}"/${PN}-7.1-arm64.patch
+	"${WORKDIR}/virtualbox-patches-7.1.10/patches"
+)
 
 DOCS=()	# Don't install the default README file during einstalldocs
 
@@ -99,8 +106,7 @@ src_prepare() {
 	# Respect LDFLAGS (bug #759100)
 	sed -i -e '/TEMPLATE_VBoxR3Exe_LDFLAGS.linux[    ]*=/ s/$/ $(CCLDFLAGS)/' Config.kmk || die
 
-	eapply "${FILESDIR}"/${PN}-7.1.6-disable-vboxvideo-module.patch
-	eapply "${WORKDIR}/virtualbox-patches-7.0.16/patches"
+	eapply "${PATCHES[@]}"
 	eapply_user
 }
 
