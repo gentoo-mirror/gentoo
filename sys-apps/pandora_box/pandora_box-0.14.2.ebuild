@@ -5,77 +5,76 @@
 
 EAPI=8
 
-SYDVER=3.32.2
+SYDVER=3.35.0
 
 IUSE="static"
 
 CRATES="
-	ahash@0.8.11
+	ahash@0.8.12
 	arrayvec@0.7.6
 	autocfg@1.4.0
-	bitflags@2.8.0
+	bitflags@2.9.1
 	block-buffer@0.10.4
-	btoi@0.4.3
+	btoi@0.5.0
 	bumpalo@3.17.0
 	cfg-if@1.0.0
 	cfg_aliases@0.2.1
-	console@0.15.10
+	console@0.15.11
 	cpufeatures@0.2.17
 	crc-catalog@2.4.0
-	crc@3.2.1
+	crc@3.3.0
 	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
 	crossbeam-utils@0.8.21
 	crypto-common@0.1.6
 	digest@0.10.7
-	either@1.13.0
+	either@1.15.0
 	encode_unicode@1.0.0
-	equivalent@1.0.1
-	errno@0.3.10
+	equivalent@1.0.2
+	errno@0.3.12
 	fastrand@2.3.0
 	generic-array@0.14.7
-	getrandom@0.2.15
-	getrandom@0.3.1
-	hashbrown@0.15.2
-	hermit-abi@0.3.9
+	getrandom@0.3.3
+	hashbrown@0.15.3
+	hermit-abi@0.5.1
 	hex-conservative@0.3.0
-	indexmap@2.7.1
+	indexmap@2.9.0
 	indicatif@0.17.11
-	itoa@1.0.14
+	itoa@1.0.15
 	js-sys@0.3.77
 	keccak@0.1.5
-	lexopt@0.3.0
-	libc@0.2.169
-	linux-raw-sys@0.4.15
-	log@0.4.25
+	lexopt@0.3.1
+	libc@0.2.172
+	linux-raw-sys@0.9.4
+	log@0.4.27
 	md5@0.7.0
 	memchr@2.7.4
 	memoffset@0.9.1
-	nix@0.29.0
+	nix@0.30.1
 	num-traits@0.2.19
-	num_cpus@1.16.0
+	num_cpus@1.17.0
 	number_prefix@0.4.0
-	once_cell@1.20.3
-	portable-atomic@1.10.0
-	proc-macro2@1.0.93
-	quote@1.0.38
+	once_cell@1.21.3
+	portable-atomic@1.11.0
+	proc-macro2@1.0.95
+	quote@1.0.40
+	r-efi@5.2.0
 	rayon-core@1.12.1
 	rayon@1.10.0
-	rustix@0.38.44
-	ryu@1.0.19
-	serde@1.0.217
-	serde_derive@1.0.217
-	serde_json@1.0.138
+	rustix@1.0.7
+	ryu@1.0.20
+	serde@1.0.219
+	serde_derive@1.0.219
+	serde_json@1.0.140
 	sha1@0.10.6
 	sha3@0.10.8
-	syn@2.0.98
-	tempfile@3.16.0
-	typenum@1.17.0
-	unicode-ident@1.0.16
+	syn@2.0.101
+	tempfile@3.20.0
+	typenum@1.18.0
+	unicode-ident@1.0.18
 	unicode-width@0.2.0
 	version_check@0.9.5
-	wasi@0.11.0+wasi-snapshot-preview1
-	wasi@0.13.3+wasi-0.2.2
+	wasi@0.14.2+wasi-0.2.4
 	wasm-bindgen-backend@0.2.100
 	wasm-bindgen-macro-support@0.2.100
 	wasm-bindgen-macro@0.2.100
@@ -92,9 +91,9 @@ CRATES="
 	windows_x86_64_gnu@0.52.6
 	windows_x86_64_gnullvm@0.52.6
 	windows_x86_64_msvc@0.52.6
-	wit-bindgen-rt@0.33.0
-	zerocopy-derive@0.7.35
-	zerocopy@0.7.35
+	wit-bindgen-rt@0.39.0
+	zerocopy-derive@0.8.25
+	zerocopy@0.8.25
 "
 
 inherit cargo
