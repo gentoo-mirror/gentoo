@@ -2,7 +2,7 @@ BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/
 DEFINED_PHASES=configure install prepare
 DEPEND=>=net-libs/libtrace-4.0.1 >=net-libs/libflowmanager-3.0.0
 DESCRIPTION=A library that performs application layer protocol identification for flows
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/LibtraceTeam/libprotoident
 INHERIT=autotools
 IUSE=static-libs tools
@@ -10,6 +10,6 @@ KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-3+
 RDEPEND=>=net-libs/libtrace-4.0.1 >=net-libs/libflowmanager-3.0.0
 SLOT=0/2
-SRC_URI=https://github.com/wanduow/libprotoident/archive/2.0.14-1.tar.gz
+SRC_URI=https://github.com/LibtraceTeam/libprotoident/archive/refs/tags/2.0.15-1.tar.gz -> libprotoident-2.0.15_p1.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=0a70b47018dc26d336eb221912c10e33
+_md5_=bfc38a4d87ce6ce66e08212f4c71cd0d
