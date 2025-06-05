@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 inherit distutils-r1 xdg
 
 if [[ ${PV} == 9999 ]]; then
@@ -18,7 +18,7 @@ else
 		verify-sig? ( https://github.com/qutebrowser/qutebrowser/releases/download/v${PV}/${P}.tar.gz.asc )
 	"
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/qutebrowser.gpg
-	KEYWORDS="amd64 ~arm64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 DESCRIPTION="Keyboard-driven, vim-like browser based on Python and Qt"
@@ -40,7 +40,7 @@ RDEPEND="
 		dev-python/zipp[${PYTHON_USEDEP}]
 		dev-qt/qtbase:6[icu,sqlite]
 		adblock? ( dev-python/adblock[${PYTHON_USEDEP}] )
-		pdf? ( <www-plugins/pdfjs-5 )
+		pdf? ( www-plugins/pdfjs )
 		widevine? ( www-plugins/chrome-binary-plugins )
 	')
 "
