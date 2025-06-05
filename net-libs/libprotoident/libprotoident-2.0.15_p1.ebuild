@@ -1,13 +1,13 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools
 
 DESCRIPTION="A library that performs application layer protocol identification for flows"
 HOMEPAGE="https://github.com/LibtraceTeam/libprotoident"
-SRC_URI="https://github.com/wanduow/${PN}/archive/${PV/_p/-}.tar.gz"
+SRC_URI="https://github.com/LibtraceTeam/${PN}/archive/refs/tags/${PV/_p/-}.tar.gz -> ${P}.tar.gz"
 S=${WORKDIR}/${P/_p/-}
 
 LICENSE="LGPL-3+"
@@ -22,6 +22,11 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 "
+
+PATCHES=(
+	# Update README to remove links to dead WAND sites
+	"${FILESDIR}"/0001-Update-README-to-remove-links-to-dead-WAND-sites.patch
+	)
 
 src_prepare() {
 	default
