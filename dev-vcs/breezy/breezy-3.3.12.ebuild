@@ -1,29 +1,25 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+CRATES=""
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
-PYTHON_COMPAT=( python3_{10..12} )
-
-CRATES="
-"
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit cargo distutils-r1 optfeature
 
 DESCRIPTION="Distributed Version Control System with a Friendly UI"
 HOMEPAGE="https://www.breezy-vcs.org/ https://github.com/breezy-team/breezy"
-SRC_URI="https://launchpad.net/brz/$(ver_cut 1-2)/${PV}/+download/${P}.tar.gz
-		${CARGO_CRATE_URIS}"
-if [[ ${PKGBUMPING} != ${PVR} ]]; then
-	SRC_URI+="https://dev.gentoo.org/~arthurzam/distfiles/dev-vcs/${PN}/${P}-crates.tar.xz"
-fi
+SRC_URI="https://github.com/breezy-team/breezy/archive/brz-${PV}.tar.gz -> ${P}.gh.tar.gz"
+SRC_URI+=" https://github.com/gentoo-crate-dist/${PN}/releases/download/brz-${PV}/${PN}-brz-${PV}-crates.tar.xz"
+S=${WORKDIR}/${PN}-brz-${PV}
 
 LICENSE="GPL-2+"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-DFS-2016"
+LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
