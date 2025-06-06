@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-cpp/yaml-cpp:= dev-libs/boost:= media-libs/opencv:=[qt6(-)?] sci-libs/octomap:= sci-libs/pcl:=[openni,vtk,qt6(-)?] sci-libs/vtk:=[qt6(-)?] sys-libs/zlib ieee1394? ( media-libs/libdc1394:2= ) openni2? ( dev-libs/OpenNI2 ) qt6? ( dev-qt/qtbase:6[gui,widgets] dev-qt/qtsvg:6 )
+DESCRIPTION=Real-Time Appearance-Based Mapping (RGB-D Graph SLAM)
+EAPI=8
+HOMEPAGE=https://introlab.github.io/rtabmap/
+INHERIT=cmake
+IUSE=examples ieee1394 openni2 qt6
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-cpp/yaml-cpp:= dev-libs/boost:= media-libs/opencv:=[qt6(-)?] sci-libs/octomap:= sci-libs/pcl:=[openni,vtk,qt6(-)?] sci-libs/vtk:=[qt6(-)?] sys-libs/zlib ieee1394? ( media-libs/libdc1394:2= ) openni2? ( dev-libs/OpenNI2 ) qt6? ( dev-qt/qtbase:6[gui,widgets] dev-qt/qtsvg:6 )
+SLOT=0
+SRC_URI=https://github.com/introlab/rtabmap/archive/refs/tags/0.21.13-noetic.tar.gz -> rtabmap-0.21.13.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	90d8ee8393c5c815637fd3cb87828c9b
+_md5_=2462246e7fc92c1bbf5d83593f108b7e
