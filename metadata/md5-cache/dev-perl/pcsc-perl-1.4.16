@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://pcsc-perl.apdu.fr/
 INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=amd64 arm ~arm64 ~hppa ~ppc ppc64 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=>=sys-apps/pcsc-lite-1.6.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://pcsc-perl.apdu.fr/Chipcard-PCSC-v1.4.16.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
-_md5_=431fde54a369698f0297ffb8e6c7e7d0
+_md5_=1ee89171043b89ac2b3d2f6b9129ceeb
