@@ -202,6 +202,7 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
+	[guid-create]='https://github.com/FrameworkComputer/guid-create;84c3ad2e8b64a12beebb460804a65da55434cfd9;guid-create-%commit%'
 	[redox_hwio]='https://github.com/FrameworkComputer/rust-hwio;9bcff4277d8f3d7dce2b12c6ad81d092ae35c4ba;rust-hwio-%commit%'
 	[smbios-lib]='https://github.com/FrameworkComputer/smbios-lib;b3e2fff8a6f4b8c2d729467cbbf0c8c41974cd1c;smbios-lib-%commit%'
 	[uefi-services]='https://github.com/FrameworkComputer/uefi-rs;76130a0f1c1585012e598b8c514526bac09c68e0;uefi-rs-%commit%/uefi-services'
@@ -212,7 +213,7 @@ RUST_MIN_VER="1.74.0"
 
 inherit shell-completion cargo
 
-DESCRIPTION="Swiss army knife for Framework laptops"
+DESCRIPTION="Tool to control Framework Computer systems"
 HOMEPAGE="https://github.com/FrameworkComputer/framework-system"
 SRC_URI="
 	https://github.com/FrameworkComputer/framework-system/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
