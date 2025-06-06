@@ -1,42 +1,51 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit autotools linux-info systemd
+# require 64-bit integer
+LUA_COMPAT=( lua5-{3,4} )
+
+inherit autotools linux-info lua-single systemd
 
 DESCRIPTION="BitTorrent Client using libtorrent"
 HOMEPAGE="https://rakshasa.github.io/rtorrent/"
-# rtorrent-archive is an exact match to the tarballs also uploaded to
-# https://github.com/rakshasa/rtorrent/releases, but the problem with that more
-# common path is the libtorrent/rtorrent versions are not in sync, so updating
-# libtorrent wouldnt be more annoying.
-SRC_URI="https://github.com/rakshasa/rtorrent-archive/raw/master/${P}.tar.gz"
+SRC_URI="https://github.com/rakshasa/rtorrent/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
-IUSE="debug selinux test xmlrpc"
+KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+IUSE="debug lua selinux test tinyxml2 xmlrpc"
 RESTRICT="!test? ( test )"
+REQUIRED_USE="
+	lua? ( ${LUA_REQUIRED_USE} )
+	tinyxml2? ( !xmlrpc )
+"
 
-COMMON_DEPEND="~net-libs/libtorrent-0.14.${PV##*.}
+COMMON_DEPEND="
+	~net-libs/libtorrent-${PV}
 	net-misc/curl
 	sys-libs/ncurses:0=
-	xmlrpc? ( dev-libs/xmlrpc-c:= )"
+	lua? ( ${LUA_DEPS} )
+	xmlrpc? ( dev-libs/xmlrpc-c:=[libxml2] )
+"
+DEPEND="${COMMON_DEPEND}
+	dev-cpp/nlohmann_json
+"
 RDEPEND="${COMMON_DEPEND}
 	selinux? ( sec-policy/selinux-rtorrent )
 "
-DEPEND="${COMMON_DEPEND}
-	dev-util/cppunit
-	virtual/pkgconfig"
+BDEPEND="
+	virtual/pkgconfig
+	test? ( dev-util/cppunit )
+"
 
 DOCS=( doc/rtorrent.rc )
 
 PATCHES=(
-	# Merged in upstream. To be removed for the next release.
-	"${FILESDIR}"/${PN}-0.10.0-fix-calls-ar.patch
-
-	"${FILESDIR}"/${PN}-0.10.0-scgi-software-crash.patch
+	"${FILESDIR}"/${PN}-0.15.3-unbundle_json.patch
+	# from upstream. To be removed in next release
+	"${FILESDIR}"/${PN}-0.15.4-fix_waitpid.patch
 )
 
 pkg_setup() {
@@ -46,10 +55,14 @@ pkg_setup() {
 		ewarn "similar in your rtorrent.rc"
 		ewarn "Upstream bug: https://github.com/rakshasa/rtorrent/issues/732"
 	fi
+	use lua && lua-single_pkg_setup
 }
 
 src_prepare() {
 	default
+
+	# use system-json
+	rm -r src/rpc/nlohmann || die
 
 	# https://github.com/rakshasa/rtorrent/issues/332
 	cp "${FILESDIR}"/rtorrent.1 "${S}"/doc/ || die
@@ -64,14 +77,30 @@ src_prepare() {
 
 src_configure() {
 	# configure needs bash or script bombs out on some null shift, bug #291229
-	CONFIG_SHELL=${BASH} econf \
-		$(use_enable debug) \
-		$(use_with xmlrpc xmlrpc-c)
+	export CONFIG_SHELL=${BASH}
+
+	local myeconfargs=(
+		$(use_enable debug)
+		$(use_with lua)
+		$(usev xmlrpc --with-xmlrpc-c)
+		$(usev tinyxml2 --with-xmlrpc-tinyxml2)
+	)
+
+	use lua && myeconfargs+=(
+		LUA_INCLUDE="-I$(lua_get_include_dir)"
+	)
+
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {
 	default
 	doman doc/rtorrent.1
+
+	if use lua; then
+		insinto $(lua_get_lmod_dir)
+		doins ${PN}.lua
+	fi
 
 	newinitd "${FILESDIR}/rtorrent-r1.init" rtorrent
 	newconfd "${FILESDIR}/rtorrentd.conf" rtorrent
