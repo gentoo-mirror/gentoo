@@ -1744,7 +1744,7 @@ app-doc/casting-spels-emacs 19-r4: Casting SPELs in Lisp - A Comic Book (Emacs L
 app-doc/cppman 0.5.6-r1 0.5.9: C++ man pages for Linux, with source from cplusplus.com and cppreference.com
 app-doc/csound-manual 6.15-r1 6.16: The Csound reference manual
 app-doc/devmanual 0_pre20241109 9999: The Gentoo Development Guide
-app-doc/dita-ot-bin 4.2.3 4.3.1: Darwin Information Typing Architecture - Open Toolkit publishing engine
+app-doc/dita-ot-bin 4.3.1 4.3.2: Darwin Information Typing Architecture - Open Toolkit publishing engine
 app-doc/diveintopython 3-r2: 'Dive Into Python' by Mark Pilgrim - Python 3
 app-doc/e16-docs 0.16.8.0.2: The E16 online help
 app-doc/eclass-manpages 20241115 20241117 20241210 20250105 20250506 99999999: Collection of Gentoo eclass manpages
@@ -2399,13 +2399,13 @@ app-emulation/virt-viewer 11.0-r1: Graphical console client for connecting to vi
 app-emulation/virt-what 1.21 1.25: Detects if the current machine is running in a virtual machine
 app-emulation/virtio-win 0.1.240.1 0.1.266.1 0.1.271.1: VirtIO drivers for Windows virtual machines running on KVM
 app-emulation/virtiofsd 1.10.0-r2 1.10.1-r2 1.11.1-r2 1.13.1 9999: Shared file system for virtual machines
-app-emulation/virtualbox 6.1.50-r4 7.0.22-r1 7.0.26-r1 7.1.4-r1 7.1.8-r1 7.1.10 7.2.0_beta1 9999: Family of powerful x86 virtualization products for enterprise and home use
-app-emulation/virtualbox-additions 6.1.50 7.0.22 7.0.26 7.1.4 7.1.8 7.1.10 7.2.0_beta1: CD image containing guest additions for VirtualBox
-app-emulation/virtualbox-extpack-oracle 6.1.50 7.0.22 7.0.26 7.1.4 7.1.8 7.1.10 7.2.0_beta1: PUEL extensions for VirtualBox
-app-emulation/virtualbox-guest-additions 6.1.50-r1 7.0.22 7.0.26 7.1.4 7.1.8 7.1.8-r1 7.1.10 7.2.0_beta1: VirtualBox kernel modules and user-space tools for Gentoo guests
+app-emulation/virtualbox 7.0.26-r1 7.1.8-r1 7.1.10 7.2.0_beta1 9999: Family of powerful x86 virtualization products for enterprise and home use
+app-emulation/virtualbox-additions 7.0.26 7.1.8 7.1.10 7.2.0_beta1: CD image containing guest additions for VirtualBox
+app-emulation/virtualbox-extpack-oracle 7.0.26 7.1.8 7.1.10 7.2.0_beta1: PUEL extensions for VirtualBox
+app-emulation/virtualbox-guest-additions 7.0.26 7.1.8 7.1.8-r1 7.1.10 7.2.0_beta1: VirtualBox kernel modules and user-space tools for Gentoo guests
 app-emulation/virtualbox-guest-modules 7.0.26 7.0.26-r1 7.1.8 7.1.8-r2 7.1.10 7.2.0_beta1: Kernel Modules for Virtualbox Guest Additions
-app-emulation/virtualbox-kvm 7.0.22_pre20240828-r1 7.1.4_pre20241220-r1 7.1.8_pre20250207-r1: Family of powerful x86 virtualization products for enterprise and home use
-app-emulation/virtualbox-modules 6.1.50-r2 7.0.22-r1 7.0.26 7.0.26-r1 7.1.4-r1 7.1.8 7.1.8-r2 7.1.10 7.2.0_beta1: Kernel Modules for Virtualbox
+app-emulation/virtualbox-kvm 7.1.8_pre20250207-r1 7.1.10_pre20250207: Family of powerful x86 virtualization products for enterprise and home use
+app-emulation/virtualbox-modules 7.0.26 7.0.26-r1 7.1.8 7.1.8-r2 7.1.10 7.2.0_beta1: Kernel Modules for Virtualbox
 app-emulation/vkd3d-proton 2.6-r1 2.12 2.13 2.14.1 9999: Fork of VKD3D, development branches for Proton's Direct3D 12 implementation
 app-emulation/wine-desktop-common 20150204-r2: Various desktop menu items and icons for wine
 app-emulation/wine-gecko 2.47.3 2.47.4: Mozilla Gecko based version of Internet Explorer for Wine
@@ -3971,7 +3971,7 @@ dev-db/mariadb 10.6.15 10.6.20 10.6.21 10.6.22 10.11.11 10.11.13 11.4.5-r1 11.4.
 dev-db/mariadb-connector-c 3.3.8 9999: C client library for MariaDB/MySQL
 dev-db/mariadb-connector-odbc 3.1.18: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.30 6.0.22 7.0.18 8.0.8: A high-performance, open source, schema-free document-oriented database
-dev-db/mongodb-compass-bin 1.46.1 1.46.2: GUI for MongoDB
+dev-db/mongodb-compass-bin 1.46.2 1.46.3: GUI for MongoDB
 dev-db/mycli 1.31.1: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.15.2.8-r1 0.16.11.2 0.18.1.1 0.18.2.7: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
@@ -10921,7 +10921,7 @@ dev-util/pahole 1.27-r1 1.29 1.30 9999: pahole (Poke-a-Hole) and other DWARF uti
 dev-util/patchelf 0.17.2 0.17.2-r1 0.18.0: Small utility to modify the dynamic linker and RPATH of ELF executables
 dev-util/patchutils 0.4.2: A collection of tools that operate on patch files
 dev-util/patdiff 0.15.0 0.17.0: Colored patience diffs with word-level refinement
-dev-util/peg 0.1.18 0.1.19: Recursive-descent parser generators for C
+dev-util/peg 0.1.19: Recursive-descent parser generators for C
 dev-util/perf 6.7 6.14 6.15: Userland tools for Linux Performance Counters
 dev-util/pixi 0.47.0 0.48.0: A package management and workflow tool
 dev-util/pkgcheck 0.10.33-r1 0.10.34 9999: pkgcore-based QA utility for ebuild repos
