@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install postinst
+DEPEND=app-eselect/eselect-chuck media-libs/libsndfile alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack ) app-alternatives/yacc app-alternatives/lex
+DESCRIPTION=Strongly-timed, concurrent, and on-the-fly audio programming language
+EAPI=8
+HOMEPAGE=http://chuck.cs.princeton.edu/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=+alsa jack examples
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=app-eselect/eselect-chuck media-libs/libsndfile alsa? ( media-libs/alsa-lib ) jack? ( virtual/jack )
+REQUIRED_USE=|| ( alsa jack )
+SLOT=0
+SRC_URI=http://chuck.cs.princeton.edu/release/files/chuck-1.5.5.1.tgz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
+_md5_=fda274d9a7da48c2efa37fb21019dd86
