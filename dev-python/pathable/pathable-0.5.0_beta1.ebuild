@@ -8,14 +8,14 @@ PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1
 
-MY_P=${P/_alpha/a}
+MY_P=${P/_beta/b}
 DESCRIPTION="Object-oriented paths"
 HOMEPAGE="
 	https://pypi.org/project/pathable/
 	https://github.com/p1c2u/pathable
 "
 SRC_URI="
-	https://github.com/p1c2u/pathable/archive/${PV/_alpha/a}.tar.gz
+	https://github.com/p1c2u/pathable/archive/${PV/_beta/b}.tar.gz
 		-> ${MY_P}.gh.tar.gz
 "
 S=${WORKDIR}/${MY_P}
