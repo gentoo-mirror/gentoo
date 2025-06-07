@@ -3,10 +3,12 @@ DEPEND=alac? ( media-sound/alac_decoder ) flac? ( media-libs/flac ) mac? ( <=med
 DESCRIPTION=A multi-purpose WAVE data processing and reporting utility
 EAPI=8
 HOMEPAGE=http://www.etree.org/shnutils/shntool/
+INHERIT=flag-o-matic
 IUSE=alac flac mac shorten sox wavpack
 KEYWORDS=amd64 ~ppc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
 RDEPEND=alac? ( media-sound/alac_decoder ) flac? ( media-libs/flac ) mac? ( <=media-sound/mac-4.12 ) shorten? ( media-sound/shorten ) sox? ( media-sound/sox ) wavpack? ( media-sound/wavpack )
 SLOT=0
 SRC_URI=http://www.etree.org/shnutils/shntool/dist/src/shntool-3.0.10.tar.gz
-_md5_=f86816b62770b1db016a22539a2a47e0
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
+_md5_=7f1b015378dba1bc8504fc45386f64e9
