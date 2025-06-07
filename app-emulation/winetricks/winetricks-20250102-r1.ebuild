@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,19 +6,18 @@ EAPI=8
 WTG="winetricks-gentoo-2012.11.24"
 inherit xdg
 
+DESCRIPTION="Easy way to install DLLs needed to work around problems in Wine"
+HOMEPAGE="https://github.com/Winetricks/winetricks https://wiki.winehq.org/Winetricks"
+
 if [[ ${PV} == *99999999* ]] ; then
 	EGIT_REPO_URI="https://github.com/Winetricks/${PN}.git"
 	inherit git-r3
-	SRC_URI=""
 else
 	SRC_URI="https://github.com/Winetricks/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 SRC_URI+=" gui? ( https://dev.gentoo.org/~chiitoo/distfiles/${WTG}.tar.bz2 )"
-
-DESCRIPTION="Easy way to install DLLs needed to work around problems in Wine"
-HOMEPAGE="https://github.com/Winetricks/winetricks https://wiki.winehq.org/Winetricks"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
@@ -40,7 +39,10 @@ BDEPEND="
 "
 RDEPEND="
 	app-arch/cabextract
-	app-arch/p7zip
+	|| (
+		>=app-arch/7zip-24.09[symlink(+)]
+		app-arch/p7zip
+	)
 	app-arch/unzip
 	net-misc/wget
 	virtual/wine
