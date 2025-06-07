@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit cmake llvm.org multilib multilib-minimal
 inherit prefix python-single-r1 toolchain-funcs
@@ -170,6 +170,7 @@ get_distribution_components() {
 		ppc-htm-resource-headers
 		ppc-resource-headers
 		riscv-resource-headers
+		spirv-resource-headers
 		systemz-resource-headers
 		utility-resource-headers
 		ve-resource-headers

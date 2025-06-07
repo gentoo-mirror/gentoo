@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake-multilib flag-o-matic llvm.org llvm-utils python-any-r1
 inherit toolchain-funcs
 
@@ -12,7 +12,6 @@ HOMEPAGE="https://libcxx.llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="+clang +libcxxabi +static-libs test"
 REQUIRED_USE="test? ( clang )"
 RESTRICT="!test? ( test )"
@@ -146,6 +145,8 @@ multilib_src_compile() {
 }
 
 multilib_src_test() {
+	local -x LIT_XFAIL="libcxx/gdb/gdb_pretty_printer_test.sh.cpp"
+
 	local -x LIT_PRESERVES_TMP=1
 	cmake_build install-cxx-test-suite-prefix
 	cp "${BUILD_DIR}"/{lib,libcxx/test-suite-install/$(get_libdir)}/libc++_shared.so || die

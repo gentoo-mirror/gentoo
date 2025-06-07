@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit check-reqs cmake flag-o-matic llvm.org llvm-utils python-any-r1
 
 DESCRIPTION="Compiler runtime libraries for clang (sanitizers & xray)"
@@ -11,8 +11,7 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="${LLVM_MAJOR}"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~x86 ~amd64-linux ~ppc-macos ~x64-macos"
-IUSE="+abi_x86_32 abi_x86_64 +clang debug test"
+IUSE="+abi_x86_32 abi_x86_64 +clang +debug test"
 # base targets
 IUSE+=" +ctx-profile +libfuzzer +memprof +orc +profile +xray"
 # sanitizer targets, keep in sync with config-ix.cmake
@@ -190,9 +189,11 @@ src_configure() {
 	cmake_src_configure
 
 	if use test; then
-		local sys_dir=( "${EPREFIX}"/usr/lib/clang/${LLVM_MAJOR}/lib/* )
-		[[ -e ${sys_dir} ]] || die "Unable to find ${sys_dir}"
-		[[ ${#sys_dir[@]} -eq 1 ]] || die "Non-deterministic compiler-rt install: ${sys_dir[*]}"
+		local sys_dest=( "${BUILD_DIR}"/lib/clang/${LLVM_MAJOR}/lib/* )
+		[[ ! -e ${sys_dest} ]] && die "Unable to find ${sys_dest}"
+		[[ ${#sys_dest[@]} -ne 1 ]] && die "Non-deterministic compiler-rt install: ${sys_dest[*]}"
+		local sys_dir=( "${EPREFIX}/usr/lib/clang/${LLVM_MAJOR}/lib/${sys_dest##*/}" )
+		[[ ! -e ${sys_dir} ]] && die "${sys_dir} is missing"
 
 		# copy clang over since resource_dir is located relatively to binary
 		# therefore, we can put our new libraries in it
@@ -201,8 +202,7 @@ src_configure() {
 			"${BUILD_DIR}"/lib/llvm/${LLVM_MAJOR}/bin/ || die
 		cp "${EPREFIX}"/usr/lib/clang/${LLVM_MAJOR}/include/*.h \
 			"${BUILD_DIR}"/lib/clang/${LLVM_MAJOR}/include/ || die
-		cp "${sys_dir}"/*builtins*.a \
-			"${BUILD_DIR}/lib/clang/${LLVM_MAJOR}/lib/${sys_dir##*/}/" || die
+		cp "${sys_dir}"/*builtins*.a "${sys_dest}/" || die
 		# we also need LLVMgold.so for gold-based tests
 		if [[ -f ${EPREFIX}/usr/lib/llvm/${LLVM_MAJOR}/$(get_libdir)/LLVMgold.so ]]; then
 			ln -s "${EPREFIX}"/usr/lib/llvm/${LLVM_MAJOR}/$(get_libdir)/LLVMgold.so \

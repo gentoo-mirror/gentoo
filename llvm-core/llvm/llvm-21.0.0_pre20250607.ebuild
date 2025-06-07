@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit cmake flag-o-matic llvm.org multilib-minimal pax-utils python-any-r1
 inherit toolchain-funcs
@@ -19,9 +19,8 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc"
 SLOT="${LLVM_MAJOR}/${LLVM_SOABI}"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~arm64-macos ~ppc-macos ~x64-macos"
 IUSE="
-	+binutils-plugin debug debuginfod doc exegesis libedit +libffi
+	+binutils-plugin +debug debuginfod doc exegesis libedit +libffi
 	test xml z3 zstd
 "
 RESTRICT="!test? ( test )"
@@ -162,6 +161,10 @@ check_distribution_components() {
 					llvm-debuginfod)
 						use debuginfod || continue
 						;;
+					# used only w/ USE=xml
+					llvm-mt)
+						use xml || continue
+						;;
 				esac
 
 				all_targets+=( "${l}" )
@@ -297,8 +300,8 @@ get_distribution_components() {
 			llvm-mc
 			llvm-mca
 			llvm-ml
+			llvm-ml64
 			llvm-modextract
-			llvm-mt
 			llvm-nm
 			llvm-objcopy
 			llvm-objdump
@@ -356,6 +359,9 @@ get_distribution_components() {
 		)
 		use debuginfod && out+=(
 			llvm-debuginfod
+		)
+		use xml && out+=(
+			llvm-mt
 		)
 	fi
 

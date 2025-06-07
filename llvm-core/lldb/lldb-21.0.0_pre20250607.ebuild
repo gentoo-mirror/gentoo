@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake flag-o-matic llvm.org python-single-r1
 
 DESCRIPTION="The LLVM debugger"
@@ -11,8 +11,7 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA"
 SLOT="0/${LLVM_SOABI}"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~x86"
-IUSE="debug debuginfod +libedit lzma ncurses +python test +xml"
+IUSE="+debug debuginfod +libedit lzma ncurses +python test +xml"
 RESTRICT="test"
 REQUIRED_USE=${PYTHON_REQUIRED_USE}
 
