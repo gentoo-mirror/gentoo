@@ -912,7 +912,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.40.17 1.40.22 1.40.26 1.40.27 1.40.28 1.40.29 1.40.30: Universal Command Line Environment for AWS
+app-admin/awscli 1.40.17 1.40.22 1.40.26 1.40.27 1.40.28 1.40.29 1.40.30 1.40.31: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.5.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.3.1 2025.4.2: Bitwarden password manager desktop client
@@ -5502,7 +5502,7 @@ dev-libs/libgcrypt 1.10.2 1.10.3-r1 1.10.3-r2 1.11.0-r1 1.11.0-r2 1.11.1: Genera
 dev-libs/libgcrypt-compat 1.5.6: Old version of libgcrypt needed by some binaries
 dev-libs/libgdata 0.18.1-r1: GLib-based library for accessing online service APIs using the GData protocol
 dev-libs/libgee 0.20.6-r1: GObject-based interfaces and classes for commonly used data structures
-dev-libs/libgit2 1.8.4 1.9.0: A linkable library for Git
+dev-libs/libgit2 1.8.4 1.9.0 1.9.1: A linkable library for Git
 dev-libs/libgit2-glib 1.2.1-r1: Git library for GLib
 dev-libs/libglib-testing 0.1.1: Libglib-testing is a test library providing test harnesses and mock classes
 dev-libs/libgnome-games-support 1.8.2 2.0.0: Library for code common to GNOME games
@@ -8148,8 +8148,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.38.18 1.38.23 1.38.27 1.38.28 1.38.29 1.38.30 1.38.31: The AWS SDK for Python
-dev-python/botocore 1.38.18 1.38.23 1.38.27 1.38.28 1.38.29 1.38.30 1.38.31: Low-level, data-driven core of boto 3
+dev-python/boto3 1.38.18 1.38.23 1.38.27 1.38.28 1.38.29 1.38.30 1.38.31 1.38.32: The AWS SDK for Python
+dev-python/botocore 1.38.18 1.38.23 1.38.27 1.38.28 1.38.29 1.38.30 1.38.31 1.38.32: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2 1.5.0_rc1 1.5.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8412,7 +8412,7 @@ dev-python/flit 3.12.0: Simplified packaging of Python modules
 dev-python/flit-core 3.12.0: Simplified packaging of Python modules (core module)
 dev-python/flit-scm 1.7.0: A PEP 518 build backend combining flit with setuptools_scm
 dev-python/flufl-lock 8.1.0 8.2.0: NFS-safe file locking with timeouts for POSIX systems
-dev-python/fonttools 4.56.0 4.57.0 4.58.0 4.58.1: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
+dev-python/fonttools 4.56.0 4.57.0 4.58.0 4.58.1 4.58.2: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
 dev-python/forbiddenfruit 0.1.4: Patch built-in Python objects
 dev-python/fpylll 0.6.3 0.6.4: Python bindings for sci-libs/fplll
 dev-python/fqdn 1.5.1-r2: RFC-compliant FQDN validation and manipulation for Python
@@ -8471,7 +8471,7 @@ dev-python/gst-python 1.22.11 1.22.12 1.24.10 1.24.11: A Python Interface to GSt
 dev-python/guessit 3.8.0: Python library for guessing information from video filenames
 dev-python/h11 0.14.0 0.16.0: A pure-Python implementation of HTTP/1.1 inspired by hyper-h2
 dev-python/h2 4.2.0: HTTP/2 State-Machine based protocol implementation
-dev-python/h5py 3.13.0: Simple Python interface to HDF5 files
+dev-python/h5py 3.13.0 3.14.0: Simple Python interface to HDF5 files
 dev-python/happybase 1.2.0-r1: A developer-friendly Python library to interact with Apache HBase
 dev-python/hatch 1.14.1: Modern, extensible Python project management
 dev-python/hatch-fancy-pypi-readme 25.1.0: Fancy PyPI READMEs with Hatch
@@ -8777,7 +8777,7 @@ dev-python/mysqlclient 2.2.6 2.2.7: Python interface to MySQL
 dev-python/myst-parser 4.0.1 4.0.1-r1: Extended commonmark compliant parser, with bridges to Sphinx
 dev-python/nagiosplugin 1.3.3 1.4.0: A class library for writing nagios-compatible plugins
 dev-python/nanobind 2.7.0: Tiny and efficient C++/Python bindings
-dev-python/narwhals 1.39.1 1.40.0 1.41.0: Extremely lightweight compatibility layer between dataframe libraries
+dev-python/narwhals 1.41.0 1.41.1: Extremely lightweight compatibility layer between dataframe libraries
 dev-python/natsort 8.4.0: Natural sorting for Python
 dev-python/nautilus-python 4.0.1: Python bindings for the Nautilus file manager
 dev-python/nbclassic 1.3.1: Jupyter Notebook as a Jupyter Server Extension
@@ -8882,7 +8882,7 @@ dev-python/patiencediff 0.2.15: Python implementation of the patiencediff algori
 dev-python/patsy 1.0.1: Python module to describe statistical models and design matrices
 dev-python/pbkdf2 1.3-r2: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
 dev-python/pbr 6.1.1: Inject some useful and sensible default behaviors into setuptools
-dev-python/pbs-installer 2025.05.17 2025.06.04: Installer for Python Build Standalone
+dev-python/pbs-installer 2025.06.04 2025.06.06: Installer for Python Build Standalone
 dev-python/pdfrw 0.4_p1-r1: PDF file reader/writer library
 dev-python/pdm 2.24.1 2.24.2: Python package and dependency manager supporting the latest PEP standards
 dev-python/pdm-backend 2.4.4: A PEP 517 backend for PDM that supports PEP 621 metadata
@@ -9138,7 +9138,7 @@ dev-python/pytest-codeblocks 0.17.0: Extract code blocks from markdown
 dev-python/pytest-console-scripts 1.4.1: Pytest plugin for testing console scripts
 dev-python/pytest-cov 6.1.1: pytest plugin for coverage reporting
 dev-python/pytest-custom-exit-code 0.3.0: Exit pytest test session with custom exit code in different scenarios
-dev-python/pytest-datadir 1.6.1 1.7.0 1.7.1: Pytest plugin for manipulating test data directories and files
+dev-python/pytest-datadir 1.6.1 1.7.0 1.7.1 1.7.2: Pytest plugin for manipulating test data directories and files
 dev-python/pytest-datafiles 3.0.0: Create a 'tmp_path' containing predefined files/directories
 dev-python/pytest-describe 2.2.0: Describe-style plugin for pytest
 dev-python/pytest-django 4.11.1: A Django plugin for pytest
@@ -9364,7 +9364,7 @@ dev-python/rst-linker 2.6.0: Sphinx plugin to add links and timestamps to the ch
 dev-python/rtimulib 7.2.1-r3: Python Binding for RTIMULib, a versatile IMU library
 dev-python/rtree 1.4.0: R-Tree spatial index for Python GIS
 dev-python/rtslib-fb 2.1.76 2.2.3: A Python object API for managing the Linux LIO kernel target
-dev-python/ruamel-yaml 0.18.10 0.18.11 0.18.12: YAML parser/emitter that supports roundtrip comment preservation
+dev-python/ruamel-yaml 0.18.10 0.18.11 0.18.12 0.18.13: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.12: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/rustworkx 0.16.0: A high performance Python graph library implemented in Rust
 dev-python/s3transfer 0.12.0 0.13.0: An Amazon S3 Transfer Manager
@@ -9406,7 +9406,7 @@ dev-python/shellingham 1.5.4: Tool to Detect Surrounding Shell
 dev-python/shtab 1.7.2: Automagic shell tab completion for Python CLI applications
 dev-python/signature-dispatch 1.0.1-r1: Execute the first function that matches the given arguments
 dev-python/signedjson 1.1.4: Signs JSON objects with ED25519 signatures.
-dev-python/sigstore 3.6.2-r1: A tool for signing Python package distributions
+dev-python/sigstore 3.6.2-r1 3.6.3: A tool for signing Python package distributions
 dev-python/sigstore-protobuf-specs 0.3.2 0.4.1 0.4.2: A library for serializing and deserializing Sigstore messages
 dev-python/sigstore-rekor-types 0.0.18: Python models for Rekor's API types
 dev-python/simber 0.2.6: Simple, minimal and powerful logging library for Python
@@ -9416,7 +9416,7 @@ dev-python/simpleeval 1.0.3: A simple, safe single expression evaluator library
 dev-python/simplejson 3.20.1: Simple, fast, extensible JSON encoder/decoder for Python
 dev-python/simplekml 1.3.6: Enables you to generate KML with as little effort as possible
 dev-python/simpy 4.1.1: Object-oriented, process-based discrete-event simulation language
-dev-python/simsimd 6.4.5 6.4.7: Fastest SIMD-Accelerated Vector Similarity Functions for x86 and Arm
+dev-python/simsimd 6.4.7: Fastest SIMD-Accelerated Vector Similarity Functions for x86 and Arm
 dev-python/sip 6.10.0 6.12.0: Python bindings generator for C/C++ libraries
 dev-python/siphash24 1.7: Streaming-capable SipHash-1-3 and SipHash-2-4 Implementation
 dev-python/six 1.17.0: Python 2 and 3 compatibility library
@@ -9625,8 +9625,8 @@ dev-python/urwid-readline 0.15.1: Text input widget for urwid that supports read
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10: TidyLib Python wrapper
-dev-python/uv 0.6.17 0.7.8 0.7.9 0.7.10: A Python package installer and resolver, written in Rust
-dev-python/uv-build 0.6.17 0.7.8 0.7.9 0.7.10: PEP517 uv build backend
+dev-python/uv 0.6.17 0.7.8 0.7.9 0.7.10 0.7.12: A Python package installer and resolver, written in Rust
+dev-python/uv-build 0.6.17 0.7.8 0.7.9 0.7.10 0.7.12: PEP517 uv build backend
 dev-python/uvicorn 0.31.1 0.34.2 0.34.3: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.21.0: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.35.0: Python Data Validation for Humans

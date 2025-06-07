@@ -1,0 +1,16 @@
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-libs/libpcre2:= net-libs/llhttp:= sys-libs/zlib dev-libs/openssl:0= gssapi? ( virtual/krb5 ) ssh? ( net-libs/libssh2 )
+DESCRIPTION=A linkable library for Git
+EAPI=8
+HOMEPAGE=https://libgit2.org/
+INHERIT=cmake flag-o-matic python-any-r1
+IUSE=examples gssapi +ssh test +threads trace
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=GPL-2-with-linking-exception
+RDEPEND=dev-libs/libpcre2:= net-libs/llhttp:= sys-libs/zlib dev-libs/openssl:0= gssapi? ( virtual/krb5 ) ssh? ( net-libs/libssh2 )
+RESTRICT=!test? ( test )
+SLOT=0/1.9
+SRC_URI=https://github.com/libgit2/libgit2/archive/v1.9.1.tar.gz -> libgit2-1.9.1.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	90d8ee8393c5c815637fd3cb87828c9b	python-utils-r1	b043191f3a82642545249acea7318e03	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=b50b74433c2334e3c085b1ac035337f9
