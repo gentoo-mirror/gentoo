@@ -1,0 +1,13 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=configure install prepare unpack
+DEPEND=dev-libs/boron allegro? ( media-libs/allegro:5[opengl] ) !allegro? ( media-libs/glfw ) >=media-libs/faun-0.2.1 media-libs/libglvnd media-libs/libpng:= sys-libs/zlib:=[minizip]
+DESCRIPTION=A remake of the computer game Ultima IV
+EAPI=8
+HOMEPAGE=https://xu4.sourceforge.net/
+IUSE=allegro
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/boron allegro? ( media-libs/allegro:5[opengl] ) !allegro? ( media-libs/glfw ) >=media-libs/faun-0.2.1 media-libs/libglvnd media-libs/libpng:= sys-libs/zlib:=[minizip]
+SLOT=0
+SRC_URI=https://sourceforge.net/projects/xu4/files/xu4/1.4/xu4-1.4.3.tar.gz https://ultima.thatfleminggent.com/ultima4.zip https://downloads.sourceforge.net/xu4/u4upgrad.zip
+_md5_=2d083d9a5be2358c987ae9919d60e259
