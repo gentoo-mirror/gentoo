@@ -5,34 +5,29 @@ EAPI=8
 
 inherit qt6-build
 
-DESCRIPTION="Toolbox for making Qt based Wayland compositors"
+DESCRIPTION="State Chart XML (SCXML) support library for the Qt6 framework"
 
 if [[ ${QT6_BUILD_TYPE} == release ]]; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 fi
 
-IUSE="gnome qml"
+IUSE="qml"
 
 RDEPEND="
-	dev-libs/wayland
-	~dev-qt/qtbase-${PV}:6[gui,opengl,wayland]
-	media-libs/libglvnd
-	x11-libs/libxkbcommon
+	~dev-qt/qtbase-${PV}:6[gui]
 	qml? ( ~dev-qt/qtdeclarative-${PV}:6 )
-	gnome? (
-		~dev-qt/qtbase-${PV}:6[dbus]
-		~dev-qt/qtsvg-${PV}:6
-	)
 "
 DEPEND="${RDEPEND}"
-BDEPEND="
-	dev-util/wayland-scanner
-"
+
+CMAKE_SKIP_TESTS=(
+	# may fail with pid-sandbox, or at least musl/hardened+gcc (exact
+	# conditions unknown but passes without pid, considering this flaky)
+	tst_qstatemachine
+)
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake_use_find_package qml Qt6Quick)
-		$(qt_feature gnome wayland_decoration_adwaita)
+		$(cmake_use_find_package qml Qt6Qml)
 	)
 
 	qt6-build_src_configure
