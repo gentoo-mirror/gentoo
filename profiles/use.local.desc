@@ -2986,7 +2986,6 @@ dev-vcs/fossil:tcl-private-stubs - Enable Tcl integration via private stubs mech
 dev-vcs/fossil:tcl-stubs - Enable Tcl integration via stubs library mechanism
 dev-vcs/fossil:th1-docs - Enable TH1 for embedded documentation pages
 dev-vcs/fossil:th1-hooks - Enable TH1 hooks for commands and web pages
-dev-vcs/git:blksha1 - Use the new optimized SHA1 implementation
 dev-vcs/git:cgi - Install gitweb too
 dev-vcs/git:curl - Support fetching and pushing (requires webdav too) over http:// and https:// protocols
 dev-vcs/git:gpg - Pull in gnupg for signing -- without gnupg, attempts at signing will fail at runtime!
@@ -5348,7 +5347,7 @@ media-video/pipewire:liblc3 - Allow loading LC3 plugins via media-sound/liblc3
 media-video/pipewire:loudness - Enable loudness normalisation according to the EBU R128 standard using media-libs/libebur128
 media-video/pipewire:lv2 - Allow loading LV2 plugins via media-libs/lv2
 media-video/pipewire:modemmanager - Combined with USE=bluetooth, allows PipeWire to perform telephony on mobile devices.
-media-video/pipewire:pipewire-alsa - Replace PulseAudio's ALSA plugin with PipeWire's plugin
+media-video/pipewire:pipewire-alsa - Install ALSA plugin, similar to media-plugins/alsa-plugins's USE=pulseaudio.
 media-video/pipewire:roc - Enable roc support for real-time audio streaming over the network, using media-libs/roc-toolkit. See https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Network#roc
 media-video/pipewire:sound-server - Provide sound server using ALSA and bluetooth devices
 media-video/pipewire:ssl - Enable raop-sink support (needs dev-libs/openssl)
