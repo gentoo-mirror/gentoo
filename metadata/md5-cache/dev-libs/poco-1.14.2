@@ -6,12 +6,12 @@ EAPI=8
 HOMEPAGE=https://pocoproject.org/
 INHERIT=cmake
 IUSE=7z activerecord avahi cppparser +crypt +data examples +file2pagecompiler iodbc mariadb +mongodb mysql +net odbc +pagecompiler pdf pocodoc postgres prometheus sqlite test +util +xml +zip
-KEYWORDS=amd64 arm arm64 ppc64 x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=Boost-1.0
 RDEPEND=>=dev-libs/libpcre2-10.40:= dev-libs/libutf8proc:= activerecord? ( !app-arch/arc ) avahi? ( net-dns/avahi:= ) mysql? ( dev-db/mysql-connector-c:= ) mariadb? ( dev-db/mariadb-connector-c:= ) postgres? ( dev-db/postgresql:= ) odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) ) pdf? ( media-libs/libpng:= ) sqlite? ( dev-db/sqlite:3 ) crypt? ( dev-libs/openssl:= ) xml? ( dev-libs/expat ) zip? ( sys-libs/zlib:= )
 REQUIRED_USE=activerecord? ( util xml ) 7z? ( xml ) file2pagecompiler? ( pagecompiler ) iodbc? ( odbc ) mongodb? ( data ) mysql? ( data ) odbc? ( data ) postgres? ( data ) pagecompiler? ( net util xml ) pocodoc? ( cppparser util xml ) sqlite? ( data ) crypt? ( util ) test? ( data? ( sqlite ) activerecord cppparser crypt pdf prometheus xml )
 RESTRICT=!test? ( test )
-SLOT=0/110
-SRC_URI=https://github.com/pocoproject/poco/archive/poco-1.14.0-release.tar.gz -> poco-1.14.0.tar.gz
+SLOT=0/112
+SRC_URI=https://github.com/pocoproject/poco/archive/poco-1.14.2-release.tar.gz -> poco-1.14.2.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	90d8ee8393c5c815637fd3cb87828c9b
-_md5_=a46cc46958606dd5ba1d307735148565
+_md5_=46405138a9543c2f07eae5881b2f9821
