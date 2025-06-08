@@ -1,0 +1,14 @@
+BDEPEND=dev-lang/perl
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=A very small C compiler for ix86/amd64
+EAPI=8
+HOMEPAGE=https://bellard.org/tcc/ https://repo.or.cz/tinycc.git/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86 ~amd64-linux
+LICENSE=LGPL-2.1
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://repo.or.cz/tinycc.git/snapshot/59aecdb5392dd9c2178af379c35c7d5ebf0762ae.tar.gz -> tcc-0.9.27_p20250608.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
+_md5_=02e2b8926a8879aff4f084e8f6b62547
