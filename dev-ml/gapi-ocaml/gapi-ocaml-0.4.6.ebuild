@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit dune findlib
+inherit dune
 
 DESCRIPTION="A simple OCaml client for Google Services"
 HOMEPAGE="
@@ -19,13 +19,14 @@ KEYWORDS="~amd64"
 IUSE="ocamlopt test"
 
 RDEPEND="
-	dev-ml/ocurl:=
-	>=dev-ml/ocamlnet-4.1.4:=
-	dev-ml/cryptokit:=
-	dev-ml/yojson:=
+	dev-ml/ocurl:=[ocamlopt?]
+	dev-ml/cryptokit:=[ocamlopt?]
+	dev-ml/yojson:=[ocamlopt?]
+	dev-ml/camlp-streams:=[ocamlopt?]
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}"
+BDEPEND="
+	dev-ml/cppo
 	test? ( dev-ml/ounit2 )
 "
 
