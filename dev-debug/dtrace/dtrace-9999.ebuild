@@ -52,7 +52,6 @@ RDEPEND="
 		sys-fs/xfsprogs
 		sys-process/time
 		virtual/jdk
-		virtual/perl-IO-Socket-IP
 	)
 "
 BDEPEND="
@@ -127,8 +126,6 @@ src_configure() {
 	# that can't actually obtain results from probes, even trivial examples
 	# just hang.
 	filter-flags -fno-semantic-interposition
-	# https://github.com/oracle/dtrace-utils/issues/86
-	filter-lto
 
 	local confargs=(
 		# TODO: Maybe we should set the UNPRIV_UID to something? -3 is a bit... kludgy
