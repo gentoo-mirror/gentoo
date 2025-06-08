@@ -1,0 +1,15 @@
+BDEPEND=dev-build/cmake
+DEFINED_PHASES=compile install postinst prepare pretend
+DEPEND=llvm-core/clang:20 llvm-core/llvm:20 llvm-core/lld:20
+DESCRIPTION=Clang/LLVM based mingw64 toolchain
+EAPI=8
+HOMEPAGE=https://www.mingw-w64.org/
+INHERIT=edo ninja-utils flag-o-matic toolchain-funcs
+IUSE=custom-cflags +strip
+KEYWORDS=~arm64
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT ) ZPL BSD BSD-2 ISC LGPL-2+ LGPL-2.1+ MIT public-domain
+RDEPEND=llvm-core/clang:20 llvm-core/llvm:20 llvm-core/lld:20
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v12.0.0.tar.bz2 https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.6/llvm-project-20.1.6.src.tar.xz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
+_md5_=39ca79cddb764758085b31e059324a26
