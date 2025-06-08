@@ -30,7 +30,7 @@ else
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 fi
 
-SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-7.97-patches-2.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-7.97-patches-1.tar.xz"
 
 # https://github.com/nmap/nmap/issues/2199
 LICENSE="NPSL-0.95"
@@ -84,7 +84,7 @@ if [[ ${PV} != *9999* ]] ; then
 fi
 
 PATCHES=(
-	"${WORKDIR}"/${PN}-7.97-patches-1
+	"${WORKDIR}"/${PN}-7.97-patches-2
 )
 
 pkg_setup() {
