@@ -1,0 +1,15 @@
+BDEPEND=nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure postinst prepare
+DESCRIPTION=Linux FUSE (or coda) driver that allows you to mount a WebDAV resource
+EAPI=8
+HOMEPAGE=https://savannah.nongnu.org/projects/davfs2
+INHERIT=autotools
+IUSE=nls
+KEYWORDS=amd64 ~arm ~arm64 ppc x86
+LICENSE=GPL-3+
+RDEPEND=dev-libs/libxml2:= acct-group/davfs2 acct-user/davfs2 net-libs/neon:0/27 sys-libs/zlib nls? ( virtual/libintl virtual/libiconv )
+RESTRICT=test
+SLOT=0
+SRC_URI=mirror://nongnu/davfs2/davfs2-1.6.1.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
+_md5_=b3c1245524eb66b6860d99c952bcb9f4

@@ -1,0 +1,15 @@
+BDEPEND=doc? ( app-text/doxygen virtual/latex-base ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=png? ( media-libs/libpng:* ) ssl? ( dev-libs/openssl:= ) tcpd? ( sys-apps/tcp-wrappers ) tiff? ( media-libs/tiff:= ) xml? ( dev-libs/libxml2:2= ) zlib? ( sys-libs/zlib )
+DESCRIPTION=The DICOM Toolkit
+EAPI=8
+HOMEPAGE=https://dicom.offis.de/dcmtk.php.en
+INHERIT=flag-o-matic cmake
+IUSE=doc png ssl tcpd tiff +threads xml zlib
+KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=OFFIS
+RDEPEND=png? ( media-libs/libpng:* ) ssl? ( dev-libs/openssl:= ) tcpd? ( sys-apps/tcp-wrappers ) tiff? ( media-libs/tiff:= ) xml? ( dev-libs/libxml2:2= ) zlib? ( sys-libs/zlib )
+SLOT=0
+SRC_URI=https://dicom.offis.de/download/dcmtk/release/dcmtk-3.6.9.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	90d8ee8393c5c815637fd3cb87828c9b
+_md5_=c0494bf367c62f5de749946c2945a4b9

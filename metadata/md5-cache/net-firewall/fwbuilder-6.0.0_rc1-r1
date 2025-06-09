@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/libxml2:= dev-libs/libxslt dev-libs/openssl dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 net-analyzer/net-snmp test? ( dev-qt/qttest:5 )
+DESCRIPTION=A firewall management GUI for iptables, PF, Cisco routers and more
+EAPI=7
+HOMEPAGE=https://github.com/fwbuilder/fwbuilder
+INHERIT=cmake virtualx
+IUSE=test test
+KEYWORDS=amd64 ~ppc ppc64 x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/libxml2:= dev-libs/libxslt dev-libs/openssl dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 net-analyzer/net-snmp
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://github.com/fwbuilder/fwbuilder/archive/refs/tags/v6.0.0-rc1.tar.gz -> fwbuilder-6.0.0_rc1.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	90d8ee8393c5c815637fd3cb87828c9b	virtualx	9741d451eb64ea8bb9faee90d68a9b68
+_md5_=057aff8682f35c6ea45d9e587404baa9

@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig doc? ( || ( dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-vpn/ocserv ) verify-sig? ( sec-keys/openpgp-keys-dwmw2 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install prepare pretend setup test unpack
+DEPEND=dev-libs/json-parser:0= dev-libs/libxml2:= sys-libs/zlib app-crypt/p11-kit !gnutls? ( >=dev-libs/openssl-1.0.1h:0= dev-libs/libp11 ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss:= ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) pskc? ( sys-auth/oath-toolkit[pskc(+)] ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) test? ( net-libs/socket_wrapper sys-libs/uid_wrapper !gnutls? ( dev-libs/openssl:0[weak-ssl-ciphers(-)] ) )
+DESCRIPTION=Free client for Cisco AnyConnect SSL VPN software
+EAPI=8
+HOMEPAGE=https://www.infradead.org/openconnect/
+INHERIT=linux-info python-any-r1 verify-sig
+IUSE=doc +gnutls gssapi libproxy lz4 nls pskc selinux smartcard stoken test verify-sig
+KEYWORDS=amd64 arm arm64 ~loong ppc64 ~riscv x86
+LICENSE=LGPL-2.1 GPL-2
+RDEPEND=dev-libs/json-parser:0= dev-libs/libxml2:= sys-libs/zlib app-crypt/p11-kit !gnutls? ( >=dev-libs/openssl-1.0.1h:0= dev-libs/libp11 ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss:= ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) pskc? ( sys-auth/oath-toolkit[pskc(+)] ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) sys-apps/iproute2 >=net-vpn/vpnc-scripts-20210402-r1 selinux? ( sec-policy/selinux-vpn )
+RESTRICT=!test? ( test )
+SLOT=0/5
+SRC_URI=https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz verify-sig? ( https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz.asc )
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	linux-info	497f53bf03541c9ee8d103e895ba7b3d	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b043191f3a82642545249acea7318e03	python-any-r1	891415dfe39ad9b41b461f2b86354af0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	7433426b6b28bf2737ba4b82c8aa8c53
+_md5_=838ebbe70ea2a7b4c1562451051537e9

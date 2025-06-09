@@ -1,0 +1,16 @@
+BDEPEND=gtk? ( virtual/pkgconfig ) xml? ( virtual/pkgconfig )
+DEFINED_PHASES=compile install setup test
+DEPEND=gtk? ( x11-libs/gtk+:3 ) llvm? ( <llvm-core/llvm-15:= ) sqlite? ( dev-db/sqlite:= ) xml? ( dev-libs/libxml2:= ) !!llvm-core/llvm:0
+DESCRIPTION=C semantic parser
+EAPI=7
+HOMEPAGE=https://sparse.wiki.kernel.org/index.php/Main_Page
+INHERIT=llvm toolchain-funcs
+IUSE=gtk llvm sqlite test xml
+KEYWORDS=~amd64 ~arm ~hppa ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=MIT
+RDEPEND=gtk? ( x11-libs/gtk+:3 ) llvm? ( <llvm-core/llvm-15:= ) sqlite? ( dev-db/sqlite:= ) xml? ( dev-libs/libxml2:= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://www.kernel.org/pub/software/devel/sparse/dist/sparse-0.6.4.tar.xz
+_eclasses_=llvm-utils	64536677f4b4365e25e9b739163bed58	llvm	df1cea363f19e80316ea702563b607be	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169
+_md5_=cadde6e13180b8acdf6545a652b4969a

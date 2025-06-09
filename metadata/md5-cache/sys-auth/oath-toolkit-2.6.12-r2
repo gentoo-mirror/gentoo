@@ -1,0 +1,16 @@
+BDEPEND=dev-build/gtk-doc-am test? ( dev-libs/libxml2 ) >=app-portage/elt-patches-20250306
+DEFINED_PHASES=configure install prepare test
+DEPEND=dev-libs/libxml2:= dev-libs/xmlsec:= pam? ( sys-libs/pam )
+DESCRIPTION=Toolkit for using one-time password authentication with HOTP/TOTP algorithms
+EAPI=8
+HOMEPAGE=https://www.nongnu.org/oath-toolkit/
+INHERIT=libtool pam
+IUSE=pam static-libs test
+KEYWORDS=amd64 arm arm64 ~loong ppc64 ~riscv x86
+LICENSE=GPL-3 LGPL-2.1
+RDEPEND=dev-libs/libxml2:= dev-libs/xmlsec:= pam? ( sys-libs/pam )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://nongnu/oath-toolkit/oath-toolkit-2.6.12.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	pam	b56d0c9c20fc5b553f13c8ae165a10a5
+_md5_=16cb0f07df8609a38516e762d76c39ad
