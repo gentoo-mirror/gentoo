@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..12} python3_{13..14}{,t} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit flag-o-matic gnome.org gnome2-utils meson python-any-r1 systemd xdg
 
@@ -29,6 +29,7 @@ RDEPEND="
 	xmp? ( >=media-libs/exempi-2.1.0:= )
 	raw? ( media-libs/gexiv2 )
 	>=dev-libs/glib-2.70:2
+	dev-libs/libgudev
 	dev-libs/gobject-introspection
 	cue? ( media-libs/libcue:= )
 	exif? ( >=media-libs/libexif-0.6 )
@@ -43,7 +44,6 @@ RDEPEND="
 	xml? ( >=dev-libs/libxml2-2.6:= )
 	pdf? ( >=app-text/poppler-0.16.0:=[cairo] )
 	playlist? ( >=dev-libs/totem-pl-parser-3:= )
-	sys-apps/util-linux
 
 	gif? ( media-libs/giflib:= )
 
