@@ -16,6 +16,7 @@ HOMEPAGE="https://ceph.com/"
 
 SRC_URI="
 	https://download.ceph.com/tarballs/${P}.tar.gz
+	https://github.com/JuliaStrings/utf8proc/archive/v2.10.0/utf8proc-2.10.0.tar.gz
 	parquet? ( https://github.com/xtensor-stack/xsimd/archive/${XSIMD_HASH}.tar.gz -> ceph-xsimd-${PV}.tar.gz
 		mirror://apache/arrow/arrow-17.0.0/apache-arrow-17.0.0.tar.gz )
 "
@@ -245,6 +246,7 @@ PATCHES=(
 	"${FILESDIR}/ceph-19.2.2-py313-2.patch"
 	"${FILESDIR}/ceph-19.2.2-py313-3.patch"
 	"${FILESDIR}/ceph-19.2.2-gcc15.patch"
+	"${FILESDIR}/ceph-19.2.2-ipv6.patch"
 )
 
 check-reqs_export_vars() {
@@ -328,6 +330,9 @@ src_prepare() {
 	sed -i -e 's~target_link_libraries(ceph-mds mds ${CMAKE_DL_LIBS} global-static ceph-common~target_link_libraries(ceph-mds mds ${CMAKE_DL_LIBS} global-static ceph-common boost_url~' src/CMakeLists.txt || die
 	sed -i -e 's/target_link_libraries(journal cls_journal_client)/target_link_libraries(journal cls_journal_client boost_url)/' src/journal/CMakeLists.txt || die
 	sed -i -e 's/${BLKID_LIBRARIES} ${CMAKE_DL_LIBS})/${BLKID_LIBRARIES} ${CMAKE_DL_LIBS} boost_url)/g' src/tools/cephfs/CMakeLists.txt || die
+
+	rm -rf src/utf8proc
+	mv "${WORKDIR}/utf8proc-2.10.0" src/utf8proc || die
 }
 
 ceph_src_configure() {
