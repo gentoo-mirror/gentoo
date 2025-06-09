@@ -19,7 +19,7 @@ REQUIRED_USE="
 "
 RESTRICT="!test? ( test )"
 
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris"
 
 COMMON_DEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0[introspection?,${MULTILIB_USEDEP}]
@@ -101,8 +101,8 @@ PATCHES=(
 	# such support.
 	# https://bugs.gentoo.org/624960
 	"${FILESDIR}"/0001-gdk-add-a-poison-macro-to-hide-GDK_WINDOWING_.patch
-	# Backport from 3.24 branch
-	"${FILESDIR}"/${P}-signal-handler.patch
+	# bug #952006
+	"${FILESDIR}"/${PN}-3.24.49-java-crash.patch
 )
 
 src_prepare() {
