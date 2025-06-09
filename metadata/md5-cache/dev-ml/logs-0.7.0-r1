@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://erratique.ch/software/logs https://github.com/dbuenzli/logs
 INHERIT=findlib
 IUSE=+fmt cli +lwt test +ocamlopt
-KEYWORDS=amd64 arm arm64 ~ppc ~ppc64 ~riscv x86
+KEYWORDS=amd64 arm arm64 ~ppc ppc64 ~riscv x86
 LICENSE=ISC
 RDEPEND=dev-ml/result:=[ocamlopt] dev-lang/ocaml:=[ocamlopt] fmt? ( dev-ml/fmt:= ) cli? ( dev-ml/cmdliner:=[ocamlopt] ) lwt? ( dev-ml/lwt:= ) dev-lang/ocaml:=[ocamlopt?]
 RESTRICT=!test? ( test )
 SLOT=0/0.7.0
 SRC_URI=https://erratique.ch/software/logs/releases/logs-0.7.0.tbz
 _eclasses_=findlib	49d5365fca4dea46f13825b9d763c89e
-_md5_=7922b71ace03e97c007f5388d4fad23c
+_md5_=108d5ee9c48cd4623af95cdda9046271
