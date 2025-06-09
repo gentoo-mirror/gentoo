@@ -1,6 +1,6 @@
 BDEPEND=dev-libs/appstream-glib dev-libs/libxml2:2 dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig test? ( dev-libs/json-glib ) app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst test
-DEPEND=x11-libs/gtk+:3[introspection] gui-libs/gtk:4[introspection] gui-libs/libadwaita:1[introspection] >=dev-libs/glib-2.43.4:2 net-libs/telepathy-glib[introspection] app-misc/tracker:3 >=dev-libs/gobject-introspection-1.50:= >=dev-libs/gjs-1.73.1 x11-libs/gdk-pixbuf:2[introspection] >=app-text/gspell-1.4.0[introspection] x11-libs/pango[introspection] app-crypt/libsecret[introspection] net-libs/libsoup:3.0[introspection]
+DEPEND=x11-libs/gtk+:3[introspection] gui-libs/gtk:4[introspection] gui-libs/libadwaita:1[introspection] >=dev-libs/glib-2.43.4:2 net-libs/telepathy-glib[introspection] app-misc/tinysparql:3 >=dev-libs/gobject-introspection-1.50:= >=dev-libs/gjs-1.73.1 x11-libs/gdk-pixbuf:2[introspection] >=app-text/gspell-1.4.0[introspection] x11-libs/pango[introspection] app-crypt/libsecret[introspection] net-libs/libsoup:3.0[introspection]
 DESCRIPTION=An IRC client for GNOME
 EAPI=8
 HOMEPAGE=https://apps.gnome.org/Polari https://gitlab.gnome.org/GNOME/polari
@@ -9,9 +9,9 @@ INHERIT=gnome.org gnome2-utils meson xdg
 IUSE=test
 KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=GPL-2+ CC0-1.0 CC-BY-SA-4.0
-RDEPEND=x11-libs/gtk+:3[introspection] gui-libs/gtk:4[introspection] gui-libs/libadwaita:1[introspection] >=dev-libs/glib-2.43.4:2 net-libs/telepathy-glib[introspection] app-misc/tracker:3 >=dev-libs/gobject-introspection-1.50:= >=dev-libs/gjs-1.73.1 x11-libs/gdk-pixbuf:2[introspection] >=app-text/gspell-1.4.0[introspection] x11-libs/pango[introspection] app-crypt/libsecret[introspection] net-libs/libsoup:3.0[introspection] >=net-irc/telepathy-idle-0.2
+RDEPEND=x11-libs/gtk+:3[introspection] gui-libs/gtk:4[introspection] gui-libs/libadwaita:1[introspection] >=dev-libs/glib-2.43.4:2 net-libs/telepathy-glib[introspection] app-misc/tinysparql:3 >=dev-libs/gobject-introspection-1.50:= >=dev-libs/gjs-1.73.1 x11-libs/gdk-pixbuf:2[introspection] >=app-text/gspell-1.4.0[introspection] x11-libs/pango[introspection] app-crypt/libsecret[introspection] net-libs/libsoup:3.0[introspection] >=net-irc/telepathy-idle-0.2
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/polari/46/polari-46.0.tar.xz
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b043191f3a82642545249acea7318e03	meson	99466844dd8d4fcfb07578a76f5a9922	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=00fbc8523c9af34c7b29679cfe649f3a
+_md5_=734d4a0e55e206ede72b239df9f43054

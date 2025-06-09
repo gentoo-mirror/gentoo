@@ -326,7 +326,7 @@ app-benchmarks/sysbench:largefile - Add support for large files.
 app-cdr/brasero:libburn - Enable dev-libs/libburn backend
 app-cdr/brasero:nautilus - Build the gnome-base/nautilus extension
 app-cdr/brasero:playlist - Enable support for playlists through dev-libs/totem-pl-parser
-app-cdr/brasero:tracker - Enable audio playlist search using the app-misc/tracker indexer
+app-cdr/brasero:tracker - Enable audio playlist search using the app-misc/tinysparql indexer
 app-cdr/cdemu:cdemu-daemon - Pull app-cdr/cdemu-daemon dependency, useful in chroot environment (bug #315491). Do not disable until you know what you are doing.
 app-cdr/dvdisaster:debug - Enable memory debugging.
 app-cdr/gaffitter:scripts - Install additional gaffitter scripts for external programs
@@ -949,6 +949,12 @@ app-misc/lirc:ftdi - Support FTDI devices
 app-misc/lirc:gtk - Include GTK support which enables the use of lirc-setup
 app-misc/lirc:inputlirc - Add a dependency on app-misc/inputlircd
 app-misc/lirc:uinput - Enable support for uinput
+app-misc/localsearch:cue - Enable cue sheet parsing
+app-misc/localsearch:gsf - Enable gnome-extra/libgsf based data extractor and for ODT.
+app-misc/localsearch:iptc - Enable extraction of IPTC data from pictures
+app-misc/localsearch:iso - Enable extraction of metadata from ISO disk images
+app-misc/localsearch:playlist - Add support for playlists
+app-misc/localsearch:xps - Add support for XPS file format through app-text/libgxps.
 app-misc/mc:edit - Compile and install the mcedit application
 app-misc/mc:sftp - Add support for sftp (uses net-libs/libssh2 for it).
 app-misc/mc:slang - Use sys-libs/slang instead of sys-libs/ncurses.
@@ -987,16 +993,11 @@ app-misc/sphinx:id64 - use 64-bit document and word IDs
 app-misc/sphinx:mariadb - Add mariadb database support
 app-misc/sphinx:stemmer - Enable language stemming support
 app-misc/task:sync - Enable "task sync" support
+app-misc/tinysparql:localsearch - Install the app-misc/localsearch package for actual data mining support for tinysparql
+app-misc/tinysparql:miners - Install the app-misc/localsearch package for actual data mining support for tracker
+app-misc/tinysparql:stemmer - Add word stemming via dev-libs/snowball-stemmer.
 app-misc/tmux:sixel - Enable sixel support
 app-misc/tmux:utempter - Include libutempter support
-app-misc/tracker:miners - Install the app-misc/tracker-miners package for actual data mining support for tracker
-app-misc/tracker:stemmer - Add word stemming via dev-libs/snowball-stemmer.
-app-misc/tracker-miners:cue - Enable cue sheet parsing
-app-misc/tracker-miners:gsf - Enable gnome-extra/libgsf based data extractor and for ODT.
-app-misc/tracker-miners:iptc - Enable extraction of IPTC data from pictures
-app-misc/tracker-miners:iso - Enable extraction of metadata from ISO disk images
-app-misc/tracker-miners:playlist - Add support for playlists
-app-misc/tracker-miners:xps - Add support for XPS file format through app-text/libgxps.
 app-misc/unfoo:minimal - Do not install all support archive binaries
 app-misc/vcontrold:vclient - Build the vclient helper program to talk to vcontrold
 app-misc/vcontrold:vsim - Build the vsim helper program (simulates the heating's answers, for development and debugging)
@@ -3377,7 +3378,7 @@ gnome-base/gnome-control-center:ibus - Enable support for enhanced input methods
 gnome-base/gnome-extra-apps:games - Install Gnome Games
 gnome-base/gnome-extra-apps:share - Install the gnome-extra/gnome-user-share personal file sharing tool
 gnome-base/gnome-extra-apps:shotwell - Install the media-gfx/shotwell photo manager
-gnome-base/gnome-extra-apps:tracker - Install the app-misc/tracker indexer and the GNOME packages that require it
+gnome-base/gnome-extra-apps:tracker - Install the app-misc/tinysparql indexer and the GNOME packages that require it
 gnome-base/gnome-keyring:ssh-agent - Use GNOME Keyring to unlock SSH keys. Recommended unless you are using ECDSA or Ed25519 keys.
 gnome-base/gnome-light:gnome-shell - Install gnome-base/gnome-shell and x11-wm/mutter for the standard GNOME 3 desktop mode
 gnome-base/gnome-session:elogind - Support sys-auth/elogind for session tracking
@@ -3431,7 +3432,7 @@ gnome-extra/libgda:json - Enable support for JSON format
 gnome-extra/libgda:mdb - Enable support for Microsoft Access database using app-office/mdbtools
 gnome-extra/libgda:sourceview - Enable support for x11-libs/gtksourceview
 gnome-extra/libgsf:gtk - Enable use of gdk in thumbnailer
-gnome-extra/nemo:tracker - Add support for app-misc/tracker search
+gnome-extra/nemo:tracker - Add support for app-misc/tinysparql search
 gnome-extra/nm-applet:modemmanager - Enable support for mobile broadband devices using net-misc/modemmanager
 gnome-extra/nm-applet:teamd - Enable teamd configuration editor
 gnustep-apps/gemas:projectcenter - Build and install plugin for gnustep-apps/projectcenter
@@ -4659,7 +4660,7 @@ media-plugins/grilo-plugins:flickr - Enable Flickr support
 media-plugins/grilo-plugins:freebox - Build support for viewing TV channels using Freebox
 media-plugins/grilo-plugins:gnome-online-accounts - Enable net-libs/gnome-online-accounts support
 media-plugins/grilo-plugins:thetvdb - Build support for thetvdb.com
-media-plugins/grilo-plugins:tracker - Build support for content discovery using the app-misc/tracker indexer
+media-plugins/grilo-plugins:tracker - Build support for content discovery using the app-misc/tinysparql indexer
 media-plugins/grilo-plugins:youtube - Build support for YouTube content discovery using dev-libs/libgdata
 media-plugins/gst-plugins-gtk:gles2 - Enable gtkglsink OpenGL sink based on GLESv2 API
 media-plugins/gst-plugins-gtk:opengl - Enable gtkglsink OpenGL sink based on desktop OpenGL API

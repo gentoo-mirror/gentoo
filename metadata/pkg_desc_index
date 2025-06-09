@@ -1464,7 +1464,7 @@ app-crypt/libb2 0.98.1-r3: C library providing BLAKE2b, BLAKE2s, BLAKE2bp, BLAKE
 app-crypt/libmd 1.0.4 1.1.0: Message Digest functions from BSD systems
 app-crypt/libnitrokey 3.8 9999: Support library for the Nitrokey
 app-crypt/libscrypt 1.22-r3: Shared library to implement the scrypt algorithm
-app-crypt/libsecret 0.21.1 0.21.4-r1 0.21.4-r2: GObject library for accessing the freedesktop.org Secret Service API
+app-crypt/libsecret 0.21.1 0.21.4-r1 0.21.4-r2 0.21.7: GObject library for accessing the freedesktop.org Secret Service API
 app-crypt/libu2f-host 1.1.10-r1: Yubico Universal 2nd Factor (U2F) Host C Library
 app-crypt/libu2f-server 1.1.0-r2: Yubico Universal 2nd Factor (U2F) server C Library
 app-crypt/loop-aes-losetup 2.40.1 2.40.2: Loop-AES losetup utility
@@ -2815,6 +2815,7 @@ app-misc/linuxspa 0.7.1-r2: Linux Serial Protocol Analyser
 app-misc/liquidctl 1.14.0: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/lirc 0.10.1_p7-r1 0.10.2-r2: decode and send infra-red signals of many commonly used remote controls
 app-misc/livecd-tools 2.9 2.10-r1 2.11 9999: Gentoo LiveCD tools for autoconfiguration of hardware
+app-misc/localsearch 3.6.2 3.6.2-r2 3.8.2: Indexer and search engine that powers desktop search for core GNOME components
 app-misc/lockfile-progs 0.1.19: Programs to safely lock/unlock files and mailboxes
 app-misc/logiops 0.3.5: An unofficial userspace driver for HID++ Logitech devices
 app-misc/lsx 0.1-r1: list executables
@@ -2909,6 +2910,7 @@ app-misc/terminal-colors 3.0.2 9999: A tool to display color charts for 8, 16, 8
 app-misc/timestamp 1.1-r3: A text filtering pipe that marks each line with a timestamp
 app-misc/timew 1.7.1: Tracks your time from the command line, and generates reports
 app-misc/timew-report 1.4.0-r1: An interface for Timewarrior report data
+app-misc/tinysparql 3.6.0-r2 3.8.2: Low-footprint RDF triple store with SPARQL 1.1 interface
 app-misc/tkpasman 2.2b: Useful and reliable personal password manager, written in Tcl/Tk
 app-misc/tmate 2.4.0-r2: Instant terminal sharing
 app-misc/tmux 3.4-r1 3.5a 9999: Terminal multiplexer
@@ -2920,8 +2922,6 @@ app-misc/todo 2.12.0-r2 2.13.0: A CLI-based TODO list manager
 app-misc/toilet 0.3-r1: The Other Implementations letters. Figlet replacement
 app-misc/tpipe 1.6-r2: Command to duplicate standard input to more than one program
 app-misc/tprint 1.1.0-r1: Transparent Print Utility for terminals
-app-misc/tracker 3.6.0-r2: A tagging metadata database, search tool and indexer
-app-misc/tracker-miners 3.6.2 3.6.2-r2: Collection of data extractors for Tracker/Nepomuk
 app-misc/transfolio 1.0.1-r2: Enables data transfer between the PC and the Atari Portfolio
 app-misc/trash-cli 0.23.11.10 0.24.5.26: Python scripts to manipulate trash cans via the command line
 app-misc/tty-clock 2.3: Displays a simple digital clock on the terminal
@@ -5368,7 +5368,7 @@ dev-libs/geoip 1.6.12 1.6.12-r1: GeoIP Legacy C API
 dev-libs/gf-complete 2.0.0-r1: A Comprehensive Open Source Library for Galois Field Arithmetic
 dev-libs/gf2x 1.3.0-r1: C/C++ routines for fast arithmetic in GF(2)[x]
 dev-libs/girara 0.4.2 0.4.4 0.4.5 9999: UI library that focuses on simplicity and minimalism
-dev-libs/gjs 1.80.2 1.82.1: Javascript bindings for GNOME
+dev-libs/gjs 1.80.2 1.82.1 1.82.3: Javascript bindings for GNOME
 dev-libs/glib 2.78.6 2.80.5-r1 2.82.5 2.84.0 2.84.1 2.84.2: The GLib library of C routines
 dev-libs/gmime 2.6.23-r2 3.2.14 3.2.15 3.2.15-r1: Library for creating and parsing MIME messages
 dev-libs/gmp 6.3.0-r1: Library for arbitrary-precision arithmetic on different type of numbers
@@ -8470,7 +8470,7 @@ dev-python/grpcio-status 1.72.0 1.72.1: Reference package for GRPC Python status
 dev-python/grpclib 0.4.7-r1 0.4.8: Pure-Python gRPC implementation for asyncio
 dev-python/gsd 3.4.2: GSD - file format specification and a library to read and write it
 dev-python/gssapi 1.9.0: Low and high level wrappers around the GSSAPI C libraries
-dev-python/gst-python 1.22.11 1.22.12 1.24.10 1.24.11: A Python Interface to GStreamer
+dev-python/gst-python 1.22.11-r1 1.22.12-r1 1.24.10-r1 1.24.11-r1: A Python Interface to GStreamer
 dev-python/guessit 3.8.0: Python library for guessing information from video filenames
 dev-python/h11 0.14.0 0.16.0: A pure-Python implementation of HTTP/1.1 inspired by hyper-h2
 dev-python/h2 4.2.0: HTTP/2 State-Machine based protocol implementation
@@ -9029,7 +9029,7 @@ dev-python/pyglet 2.1.6: Cross-platform windowing and multimedia library for Pyt
 dev-python/pygments 2.19.1: Pygments is a syntax highlighting package written in Python
 dev-python/pygments-ansi-color 0.3.0: ANSI color-code highlighting for Pygments
 dev-python/pygments-github-lexers 0.0.5-r2: Pygments Github custom lexers
-dev-python/pygobject 3.46.0-r1 3.48.2-r1 3.50.0: Python bindings for GObject Introspection
+dev-python/pygobject 3.48.2-r1 3.50.0 3.50.1 3.52.3: Python bindings for GObject Introspection
 dev-python/pygraphviz 1.14: Python wrapper for the Graphviz Agraph data structure
 dev-python/pygresql 6.0.1: A Python interface for the PostgreSQL database
 dev-python/pyh2o 1-r1: Python API for sci-libs/libh2o
@@ -11921,7 +11921,7 @@ gnome-base/gnome-menus 3.36.0-r1: Library and layout configuration for the Deskt
 gnome-base/gnome-panel 3.46.0 3.50.0 3.52.0 3.54.0: The GNOME Flashback Panel
 gnome-base/gnome-session 46.0-r1 47.0.1: Gnome session manager
 gnome-base/gnome-settings-daemon 46.0-r2 47.2: Gnome Settings Daemon
-gnome-base/gnome-shell 46.7-r1 47.3 47.3-r2: Provides core UI functions for the GNOME desktop
+gnome-base/gnome-shell 46.7-r1 47.3 47.3-r2 47.7: Provides core UI functions for the GNOME desktop
 gnome-base/gsettings-desktop-schemas 45.0 46.1 47.1: Collection of GSettings schemas for GNOME desktop
 gnome-base/gvfs 1.52.3-r2 1.56.1-r2: Virtual filesystem implementation for GIO
 gnome-base/libglade 2.6.4-r5: Library to construct graphical interfaces at runtime
@@ -11948,7 +11948,7 @@ gnome-extra/gnome-calculator 46.1-r1 47.1-r1 47.3-r1: A calculator application f
 gnome-extra/gnome-calendar 46.1 47.0: Manage your calendars with simple and modern interface
 gnome-extra/gnome-characters 46.0 47.0: Unicode character map viewer and library
 gnome-extra/gnome-clocks 46.0 47.0: Clocks application for GNOME
-gnome-extra/gnome-color-manager 3.36.0: GNOME color profile tools
+gnome-extra/gnome-color-manager 3.36.0 3.36.2: GNOME color profile tools
 gnome-extra/gnome-commander 1.18.1-r1: A graphical, full featured, twin-panel file manager
 gnome-extra/gnome-contacts 46.0 47.1.1: GNOME contact management application
 gnome-extra/gnome-directory-thumbnailer 0.1.11-r1: Thumbnail generator for directories
@@ -11969,7 +11969,7 @@ gnome-extra/gnome-shell-extension-desktop-icons-ng 47.0.12 47.0.13: Desktop icon
 gnome-extra/gnome-shell-extension-gsconnect 58 62: KDE Connect implementation for Gnome Shell
 gnome-extra/gnome-shell-extension-pop-shell 1.2.0_p20241231 1.2.0_p20250301: Keyboard-driven layer for GNOME Shell with tiling support
 gnome-extra/gnome-shell-extension-weather-in-the-clock 20221024-r3 20221024-r4: Display the current weather in the clock
-gnome-extra/gnome-shell-extensions 46.2 47.3: JavaScript extensions for GNOME Shell
+gnome-extra/gnome-shell-extensions 46.2 47.3 47.5: JavaScript extensions for GNOME Shell
 gnome-extra/gnome-shell-frippery 46.1: Unofficial extension pack providing GNOME 2-like features
 gnome-extra/gnome-software 46.4 47.4 47.5: Gnome install & update software
 gnome-extra/gnome-system-monitor 45.0.2-r1 46.0-r2 47.0-r1 47.1: The Gnome System Monitor
@@ -12095,7 +12095,7 @@ gui-libs/hyprland-qt-support 0.1.0: QML style provider for hypr* Qt apps
 gui-libs/hyprland-qtutils 0.1.1 0.1.4: Hyprland QT/qml utility apps
 gui-libs/hyprutils 0.3.0-r1 0.5.2 0.7.1 9999: Hyprland utilities library used across the ecosystem
 gui-libs/kddockwidgets 2.2.5: KDAB's Dock Widget Framework for Qt
-gui-libs/libadwaita 1.5.3-r1 1.5.5-r1 1.6.2-r1 1.7.2-r1: Building blocks for modern GNOME applications
+gui-libs/libadwaita 1.5.3-r1 1.5.5-r1 1.6.2-r1 1.6.7 1.7.2-r1: Building blocks for modern GNOME applications
 gui-libs/libdecor 0.2.2-r1 9999: A client-side decorations library for Wayland clients
 gui-libs/libgedit-amtk 5.8.0 5.9.0: Actions, Menus and Toolbars Kit for GTK applications
 gui-libs/libgedit-gfls 0.2.0 0.2.1: A module dedicated to file loading and saving
@@ -14961,7 +14961,7 @@ net-libs/libsearpc 3.3.0-r2 3.3.0-r3: Simple C language RPC framework
 net-libs/libsignal-protocol-c 2.3.3-r1: Signal Protocol C Library
 net-libs/libslirp 4.6.1 4.7.0: A TCP-IP emulator used to provide virtual networking services
 net-libs/libsmi 0.5.0-r5: A Library to Access SMI MIB Information
-net-libs/libsoup 2.74.3 3.4.4: HTTP client/server library for GNOME
+net-libs/libsoup 2.74.3 3.4.4 3.6.5: HTTP client/server library for GNOME
 net-libs/libsrsirc 0.0.14-r2 0.0.14.1: Lightweight, cross-platform IRC library
 net-libs/libsrtp 1.6.0-r1 2.4.2 2.6.0: Open-source implementation of the Secure Real-time Transport Protocol (SRTP)
 net-libs/libssh 0.11.1-r1 9999: Access a working SSH implementation by means of a library
@@ -19013,7 +19013,7 @@ x11-wm/matwm2 0.1.2_pre3-r2 0.1.2_pre3-r3: Simple EWMH compatible window manager
 x11-wm/metacity 3.52.0-r1 3.54.0-r1: GNOME Flashback window manager
 x11-wm/muffin 6.2.0 6.4.1: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
-x11-wm/mutter 46.7-r1 47.6-r1 9999: GNOME compositing window manager based on Clutter
+x11-wm/mutter 46.7-r1 47.6-r1 47.8 9999: GNOME compositing window manager based on Clutter
 x11-wm/notion 4.0.2_p20220613 4.0.2_p20220613-r1 4.0.3 9999: Notion is a tiling, tabbed window manager for the X window system
 x11-wm/openbox 3.6.1-r9 3.6.1-r11 9999: Standards compliant, fast, light-weight, extensible window manager
 x11-wm/oroborus 2.0.20-r2: Small and fast window manager
