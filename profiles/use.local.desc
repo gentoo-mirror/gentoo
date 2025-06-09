@@ -2588,7 +2588,6 @@ dev-python/wrapt:native-extensions - Compiles native C extensions (speedups, ins
 dev-python/zeep:async - Add async support
 dev-qt/designer:declarative - Build the qdeclarativeview plugin
 dev-qt/linguist-tools:qml - Enable QML support in lupdate
-dev-qt/qdoc:qml - Enable QML/JS parsing support
 dev-qt/qt-creator:clang - Build clang-based plugins for C/C++ development (code model, formatting, static analysis)
 dev-qt/qt-creator:cmdbridge-server - Build the cmdbridge server using dev-lang/go
 dev-qt/qt-creator:designer - Enable designer for QtWidgets-based UIs
@@ -2600,7 +2599,7 @@ dev-qt/qt-creator:tracing - Build plugins for tracing requiring extra dependenci
 dev-qt/qt-creator:webengine - Allow using dev-qt/qtwebengine for better USE=help display, and for Design Viewer Connector support with USE=qmldesigner
 dev-qt/qt-docs:3d - Install documentation for dev-qt/qt3d
 dev-qt/qt-docs:activeqt - Install documentation for ActiveQt (unpackaged, Windows-only)
-dev-qt/qt-docs:assistant - Install documentation for dev-qt/assistant
+dev-qt/qt-docs:assistant - Install documentation for QtAssistant (pkgremoved, now dev-qt/qttools[assistant])
 dev-qt/qt-docs:bluetooth - Install documentation for dev-qt/qtconnectivity[bluetooth]
 dev-qt/qt-docs:charts - Install documentation for dev-qt/qtcharts
 dev-qt/qt-docs:concurrent - Install documentation for dev-qt/qtconcurrent
@@ -2617,7 +2616,7 @@ dev-qt/qt-docs:help - Install documentation for dev-qt/qthelp
 dev-qt/qt-docs:html - Install documentation in HTML format
 dev-qt/qt-docs:httpserver - Install documentation for QtHTTPServer (unpackaged)
 dev-qt/qt-docs:imageformats - Install documentation for dev-qt/qtimageformats
-dev-qt/qt-docs:linguist - Install documentation for dev-qt/linguist
+dev-qt/qt-docs:linguist - Install documentation for QtLinguist (pkgremoved, now dev-qt/qttools[linguist])
 dev-qt/qt-docs:location - Install documentation for dev-qt/qtlocation
 dev-qt/qt-docs:lottie - Install documentation for QtLottie (unpackaged)
 dev-qt/qt-docs:multimedia - Install documentation for dev-qt/qtmultimedia
@@ -2626,7 +2625,7 @@ dev-qt/qt-docs:networkauth - Install documentation for dev-qt/qtnetworkauth
 dev-qt/qt-docs:positioning - Install documentation for dev-qt/qtpositioning
 dev-qt/qt-docs:printsupport - Install documentation for dev-qt/qtprintsupport
 dev-qt/qt-docs:qch - Install documentation in QCH format
-dev-qt/qt-docs:qdoc - Install documentation for dev-qt/qdoc
+dev-qt/qt-docs:qdoc - Install documentation for QDoc (pkgremoved, now dev-qt/qttools[qdoc])
 dev-qt/qt-docs:qt5compat - Install documentation for dev-qt/qt5compat
 dev-qt/qt-docs:quick3d - Install documentation for dev-qt/qtquick3d
 dev-qt/qt-docs:quick3dphysics - Install documentation for QtQuick3DPhysics (unpackaged)
@@ -2683,8 +2682,6 @@ dev-qt/qtdeclarative:opengl - Enable OpenGL support
 dev-qt/qtdeclarative:qmlls - Build the qmlls tool using dev-qt/qtlanguageserver
 dev-qt/qtdeclarative:sql - Enable QtSQL support
 dev-qt/qtdeclarative:widgets - Enable QtWidgets support
-dev-qt/qtdiag:network - Report network information
-dev-qt/qtdiag:widgets - Report widget style information
 dev-qt/qtgui:X - Build the XCB platform plugin and enable X11 integration
 dev-qt/qtgui:eglfs - Build the EGL Full Screen/Single Surface platform plugin
 dev-qt/qtgui:evdev - Enable support for input devices via evdev
