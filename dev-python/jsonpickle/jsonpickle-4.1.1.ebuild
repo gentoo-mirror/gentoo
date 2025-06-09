@@ -4,8 +4,8 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} )
-
+PYTHON_FULLY_TESTED=( python3_{11..13} )
+PYTHON_COMPAT=( "${PYTHON_FULLY_TESTED[@]}" python3_14 )
 inherit distutils-r1 optfeature
 
 DESCRIPTION="Python library for serializing any arbitrary object graph into JSON"
@@ -21,17 +21,22 @@ SRC_URI="
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv ~x86 ~amd64-linux ~x86-linux"
+IUSE="test-full"
 
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
 		dev-python/feedparser[${PYTHON_USEDEP}]
-		dev-python/gmpy2[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
-		dev-python/pandas[${PYTHON_USEDEP}]
 		dev-python/simplejson[${PYTHON_USEDEP}]
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
 		dev-python/ujson[${PYTHON_USEDEP}]
+		test-full? (
+			$(python_gen_cond_dep '
+				dev-python/gmpy2[${PYTHON_USEDEP}]
+				dev-python/pandas[${PYTHON_USEDEP}]
+			' "${PYTHON_FULLY_TESTED[@]}")
+		)
 	)
 "
 
@@ -49,10 +54,10 @@ python_test() {
 		tests/bson_test.py
 	)
 
-	if ! has_version "dev-python/gmpy2[${PYTHON_USEDEP}]"; then
+	if ! use test-full || ! has_version "dev-python/gmpy2[${PYTHON_USEDEP}]"; then
 		EPYTEST_IGNORE+=( jsonpickle/ext/gmpy.py )
 	fi
-	if ! has_version "dev-python/pandas[${PYTHON_USEDEP}]"; then
+	if ! use test-full || ! has_version "dev-python/pandas[${PYTHON_USEDEP}]"; then
 		EPYTEST_IGNORE+=( jsonpickle/ext/pandas.py )
 	fi
 
