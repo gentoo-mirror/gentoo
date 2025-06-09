@@ -12,7 +12,7 @@ DISTUTILS_SINGLE_IMPL=1
 # >= 6.2.1 uses a bunch of setuptools hooks instead of vanilla setuptools
 # https://github.com/streamlink/streamlink/commit/194d9bc193f5285bc1ba33af5fd89209a96ad3a7
 DISTUTILS_USE_PEP517=standalone
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE='xml(+),threads(+)'
 inherit distutils-r1
 
@@ -32,9 +32,6 @@ fi
 # See https://github.com/streamlink/streamlink/commit/9d8156dd794ee0919297cd90d85bcc11b8a28358 for chardet/charset-normalizer dep
 RDEPEND="
 	media-video/ffmpeg
-	$(python_gen_cond_dep '
-		dev-python/exceptiongroup[${PYTHON_USEDEP}]
-	' 3.10)
 	$(python_gen_cond_dep '
 		dev-python/certifi[${PYTHON_USEDEP}]
 		|| (
@@ -56,7 +53,6 @@ RDEPEND="
 BDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/setuptools-77[${PYTHON_USEDEP}]
-		>=dev-python/versioningit-2.0.0[${PYTHON_USEDEP}]
 		test? (
 			>=dev-python/freezegun-1.5.0[${PYTHON_USEDEP}]
 			dev-python/pytest-trio[${PYTHON_USEDEP}]
@@ -64,9 +60,8 @@ BDEPEND="
 		)
 	')
 "
-
 if [[ ${PV} == 9999* ]]; then
-	RDEPEND+="
+	BDEPEND+="
 		$(python_gen_cond_dep '
 			>=dev-python/versioningit-2.0.0[${PYTHON_USEDEP}]
 		')
