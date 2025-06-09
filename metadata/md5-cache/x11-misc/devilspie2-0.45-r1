@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gettext virtual/pkgconfig
 DEFINED_PHASES=compile install setup
-DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/glib:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXinerama x11-libs/libXrandr x11-libs/libwnck:3 x11-base/xorg-proto
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/glib:2 x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/libXinerama x11-libs/libXrandr x11-libs/libwnck:3 x11-base/xorg-proto
 DESCRIPTION=Window matching utility with Lua scripting
 EAPI=8
 HOMEPAGE=https://www.nongnu.org/devilspie2/
@@ -8,9 +8,9 @@ INHERIT=lua-single plocale toolchain-funcs
 IUSE=lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=amd64 x86
 LICENSE=GPL-3+
-RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/glib:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libXinerama x11-libs/libXrandr x11-libs/libwnck:3
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/glib:2 x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/libXinerama x11-libs/libXrandr x11-libs/libwnck:3
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 )
 SLOT=0
 SRC_URI=mirror://nongnu/devilspie2/devilspie2_0.45-src.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	plocale	950fbaec7deeba41b5bcc0572cca99b9
-_md5_=57061921e8a02e6e153fc04a33ff1bc6
+_md5_=2f084dd826cd57887cf3e18f8c863f9c
