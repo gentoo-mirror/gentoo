@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://libguestfs.org/
 INHERIT=autotools bash-completion-r1 linux-info lua-single perl-functions python-single-r1 ruby-single toolchain-funcs vala
 IUSE=doc erlang +fuse introspection libvirt lua +ocaml +perl python readline ruby selinux static-libs test vala lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 ~ppc64 ~x86
+KEYWORDS=amd64 ~ppc64 ~x86
 LICENSE=GPL-2 LGPL-2
 RDEPEND=app-arch/xz-utils app-arch/zstd dev-libs/libpcre2:= dev-libs/libxml2:= net-libs/libtirpc:= sys-libs/libcap-ng sys-libs/ncurses:= sys-libs/readline:= virtual/acl virtual/libcrypt app-admin/augeas app-alternatives/cpio app-emulation/qemu[qemu_softmmu_targets_x86_64,selinux?] app-misc/hivex[ocaml?] dev-libs/jansson:= || ( dev-libs/libisoburn app-cdr/cdrtools ) dev-libs/libconfig:= media-gfx/icoutils media-libs/netpbm[png] erlang? ( dev-lang/erlang ) fuse? ( sys-fs/fuse:0 ) introspection? ( dev-libs/glib dev-libs/gobject-introspection ) libvirt? ( app-emulation/libvirt[qemu] ) perl? ( dev-perl/libintl-perl virtual/perl-Getopt-Long ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) readline? ( sys-libs/readline ) ruby? ( || ( ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ) ) selinux? ( sys-libs/libselinux ) vala? ( || ( dev-lang/vala:0.56 ) ) app-emulation/libguestfs-appliance
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) ) vala? ( introspection )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1.54
 SRC_URI=https://download.libguestfs.org/1.54-stable/libguestfs-1.54.1.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	bash-completion-r1	767861f3744f589ee5291c1698b1c082	linux-info	497f53bf03541c9ee8d103e895ba7b3d	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	perl-functions	1863acf0982afafc67797e3ce7275b4c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b043191f3a82642545249acea7318e03	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-single	d1b60f2dbb45623756c128d02b2d3497	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	vala	e477903dbe0105930c51f170a592dc16
-_md5_=d4303cf944a1f1405013b737b3fbd994
+_md5_=20165c5edc66b48a59fae0c6f3bca552
