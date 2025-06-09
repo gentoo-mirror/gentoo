@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
 
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{10..14} )
 
 inherit flag-o-matic python-any-r1 toolchain-funcs
 
@@ -16,7 +16,7 @@ if [[ ${PV} == "9999" ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/confluentinc/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~sparc x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 LICENSE="BSD-2"
@@ -24,7 +24,7 @@ LICENSE="BSD-2"
 # subslot = soname version
 SLOT="0/1"
 
-IUSE="lz4 sasl ssl static-libs zstd"
+IUSE="+lz4 sasl ssl static-libs +zstd"
 
 LIB_DEPEND="
 	lz4? ( app-arch/lz4:=[static-libs(+)] )
@@ -48,8 +48,6 @@ DEPEND="
 	elibc_musl? ( sys-libs/queue-standalone )
 	static-libs? ( ${LIB_DEPEND} )
 "
-
-PATCHES=( "${FILESDIR}/${PN}-2.2.0-backport-pr4449.patch" )
 
 pkg_setup() {
 	python-any-r1_pkg_setup
