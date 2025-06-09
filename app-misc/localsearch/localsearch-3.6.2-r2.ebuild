@@ -1,13 +1,15 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..12} python3_{13..14}{,t} )
+
+GNOME_ORG_MODULE=tracker-miners
 
 inherit flag-o-matic gnome.org gnome2-utils meson python-any-r1 systemd xdg
 
-DESCRIPTION="Collection of data extractors for Tracker/Nepomuk"
-HOMEPAGE="https://wiki.gnome.org/Projects/Tracker"
+DESCRIPTION="Indexer and search engine that powers desktop search for core GNOME components"
+HOMEPAGE="https://gnome.pages.gitlab.gnome.org/localsearch"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="3"
@@ -16,13 +18,13 @@ IUSE="cue exif ffmpeg gif gsf +gstreamer iptc +iso +jpeg networkmanager +pdf +pl
 REQUIRED_USE="cue? ( gstreamer )" # cue is currently only supported via gstreamer, not ffmpeg
 RESTRICT="!test? ( test )"
 
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 # tracker-2.1.7 currently always depends on ICU (theoretically could be libunistring instead);
 # so choose ICU over enca always here for the time being (ICU is preferred)
 RDEPEND="
 	>=dev-libs/glib-2.70:2
-	>=app-misc/tracker-3.6_rc:3
+	>=app-misc/tinysparql-3.6_rc:3
 
 	>=sys-apps/dbus-1.3.1
 	xmp? ( >=media-libs/exempi-2.1.0:= )
@@ -37,7 +39,7 @@ RDEPEND="
 	>=media-libs/libpng-1.2:0=
 	seccomp? ( >=sys-libs/libseccomp-2.0 )
 	tiff? ( media-libs/tiff:= )
-	xml? ( >=dev-libs/libxml2-2.6 )
+	xml? ( >=dev-libs/libxml2-2.6:= )
 	pdf? ( >=app-text/poppler-0.16.0:=[cairo] )
 	playlist? ( >=dev-libs/totem-pl-parser-3:= )
 	sys-apps/util-linux
@@ -82,6 +84,12 @@ BDEPEND="
 		)
 	)
 "
+
+PATCHES=(
+	# https://gitlab.gnome.org/GNOME/localsearch/-/merge_requests/511
+	"${FILESDIR}/tracker-miners-3.6.2-epoll_wait.patch"
+	"${FILESDIR}/Disable-the-examples-test-suite.patch"
+)
 
 python_check_deps() {
 	python_has_version -b \
@@ -165,7 +173,7 @@ src_configure() {
 
 src_test() {
 	export GSETTINGS_BACKEND="dconf" # Tests require dconf and explicitly check for it (env_reset set it to "memory")
-	export PYTHONPATH="${EROOT}"/usr/$(get_libdir)/tracker-3.0
+	export PYTHONPATH="${ESYSROOT}"/usr/$(get_libdir)/tracker-3.0
 	dbus-run-session meson test -C "${BUILD_DIR}" || die 'tests failed'
 }
 

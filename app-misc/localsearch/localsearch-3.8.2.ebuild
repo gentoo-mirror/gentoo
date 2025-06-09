@@ -2,31 +2,34 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..12} python3_{13..14}{,t} )
 
 inherit flag-o-matic gnome.org gnome2-utils meson python-any-r1 systemd xdg
 
-DESCRIPTION="Collection of data extractors for Tracker/Nepomuk"
-HOMEPAGE="https://wiki.gnome.org/Projects/Tracker"
+DESCRIPTION="Indexer and search engine that powers desktop search for core GNOME components"
+HOMEPAGE="https://gnome.pages.gitlab.gnome.org/localsearch"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="3"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="cue exif ffmpeg gif gsf +gstreamer iptc +iso +jpeg networkmanager +pdf +playlist raw +rss seccomp test +tiff upower +xml xmp xps"
 
 REQUIRED_USE="cue? ( gstreamer )" # cue is currently only supported via gstreamer, not ffmpeg
 RESTRICT="!test? ( test )"
 
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+PATCHES=(
+	"${FILESDIR}/Disable-the-examples-test-suite.patch"
+)
 
 # tracker-2.1.7 currently always depends on ICU (theoretically could be libunistring instead);
 # so choose ICU over enca always here for the time being (ICU is preferred)
 RDEPEND="
-	>=dev-libs/glib-2.70:2
-	>=app-misc/tracker-3.6_rc:3
-
+	>=app-misc/tinysparql-3.8:3
 	>=sys-apps/dbus-1.3.1
 	xmp? ( >=media-libs/exempi-2.1.0:= )
 	raw? ( media-libs/gexiv2 )
+	>=dev-libs/glib-2.70:2
+	dev-libs/gobject-introspection
 	cue? ( media-libs/libcue:= )
 	exif? ( >=media-libs/libexif-0.6 )
 	gsf? ( >=gnome-extra/libgsf-1.14.24:= )
@@ -83,11 +86,6 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	# https://gitlab.gnome.org/GNOME/localsearch/-/merge_requests/511
-	"${FILESDIR}/${P}-epoll_wait.patch"
-)
-
 python_check_deps() {
 	python_has_version -b \
 		"dev-python/pygobject[${PYTHON_USEDEP}]" \
@@ -125,8 +123,6 @@ src_configure() {
 	fi
 
 	local emesonargs=(
-		-Dtracker_core=system
-
 		-Dman=true
 		-Dextract=true
 		$(meson_use test functional_tests)
@@ -170,7 +166,7 @@ src_configure() {
 
 src_test() {
 	export GSETTINGS_BACKEND="dconf" # Tests require dconf and explicitly check for it (env_reset set it to "memory")
-	export PYTHONPATH="${EROOT}"/usr/$(get_libdir)/tracker-3.0
+	export PYTHONPATH="${ESYSROOT}"/usr/$(get_libdir)/tinysparql-3.0
 	dbus-run-session meson test -C "${BUILD_DIR}" || die 'tests failed'
 }
 
