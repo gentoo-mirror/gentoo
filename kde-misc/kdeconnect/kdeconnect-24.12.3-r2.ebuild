@@ -7,16 +7,17 @@ ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 KDE_ORG_NAME="${PN}-kde"
 KDE_SELINUX_MODULE="${PN}"
-KFMIN=6.13.0
+KFMIN=6.7.0
 QTMIN=6.7.2
-inherit ecm flag-o-matic gear.kde.org xdg
+inherit ecm flag-o-matic gear.kde.org
 
 DESCRIPTION="Adds communication between KDE Plasma and your smartphone"
 HOMEPAGE="https://kdeconnect.kde.org/ https://apps.kde.org/kdeconnect/"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${P}-patchset.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="6"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="amd64 arm64 ~ppc64 ~x86"
 IUSE="bluetooth pulseaudio telephony zeroconf X"
 
 RESTRICT="test"
@@ -70,6 +71,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=dev-qt/qtmultimedia-${QTMIN}:6[qml]
 	>=dev-qt/qttools-${QTMIN}:6[qdbus]
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
+	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	kde-plasma/libplasma:6
 	net-fs/sshfs
 "
@@ -78,6 +80,9 @@ BDEPEND="
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
+
+# CVE-2025-32898, CVE-2025-32900; bug 953443
+PATCHES=( "${WORKDIR}/${P}-patchset" )
 
 src_configure() {
 	# -Werror=lto-type-mismatch
@@ -96,7 +101,7 @@ src_configure() {
 }
 
 pkg_postinst() {
-	xdg_pkg_postinst
+	ecm_pkg_postinst
 
 	elog "The Android .apk file is available via"
 	elog "https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
