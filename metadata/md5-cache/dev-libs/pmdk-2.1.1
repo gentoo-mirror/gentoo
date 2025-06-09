@@ -1,0 +1,14 @@
+BDEPEND=virtual/pandoc virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sys-block/ndctl:= sys-block/libfabric:=
+DESCRIPTION=Persistent Memory Development Kit
+EAPI=8
+HOMEPAGE=https://pmem.io/ https://github.com/pmem/pmdk
+INHERIT=toolchain-funcs flag-o-matic
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=sys-block/ndctl:= sys-block/libfabric:=
+SLOT=0/1
+SRC_URI=https://github.com/pmem/pmdk/releases/download/2.1.1/pmdk-2.1.1.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
+_md5_=93607718536b23e66108bbd2b22e08f5
