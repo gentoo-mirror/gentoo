@@ -23,7 +23,7 @@ DEPEND="
 	dev-libs/glib:2[${MULTILIB_USEDEP}]
 	x11-libs/cairo[${MULTILIB_USEDEP}]
 	x11-libs/gdk-pixbuf[${MULTILIB_USEDEP}]
-	x11-libs/gtk+:3[${MULTILIB_USEDEP}]
+	x11-libs/gtk+:3[${MULTILIB_USEDEP},X]
 	x11-libs/libX11[${MULTILIB_USEDEP}]
 	x11-libs/pango[${MULTILIB_USEDEP}]
 "
@@ -37,6 +37,7 @@ PATCHES=(
 	"${WORKDIR}/${PATCHSET}/1.4.6/0005-demo-optional.patch"
 	"${WORKDIR}/${PATCHSET}/1.4.6/0006-tabstyle.patch"
 	"${WORKDIR}/${PATCHSET}/1.4.6/0007-cmake4.patch" # bug 955107
+	"${FILESDIR}/${P}-fix-uninitialised.patch" # bug 957749, pending MR
 )
 
 multilib_src_configure() {
