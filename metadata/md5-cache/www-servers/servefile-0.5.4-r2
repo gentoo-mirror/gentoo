@@ -1,0 +1,17 @@
+BDEPEND=test? ( ssl? ( dev-python/pyopenssl[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) sys-apps/grep sys-apps/iproute2 sys-apps/net-tools sys-apps/sed python_targets_python3_13? ( dev-python/legacy-cgi[python_targets_python3_13(-)?] ) >=dev-python/pytest-7.4.4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=test? ( ssl? ( dev-python/pyopenssl[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) sys-apps/grep sys-apps/iproute2 sys-apps/net-tools sys-apps/sed python_targets_python3_13? ( dev-python/legacy-cgi[python_targets_python3_13(-)?] ) dev-python/requests[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] )
+DESCRIPTION=Serve a single file via HTTP
+EAPI=8
+HOMEPAGE=https://github.com/sebageek/servefile
+INHERIT=distutils-r1
+IUSE=ssl test test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=ssl? ( dev-python/pyopenssl[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) sys-apps/grep sys-apps/iproute2 sys-apps/net-tools sys-apps/sed python_targets_python3_13? ( dev-python/legacy-cgi[python_targets_python3_13(-)?] ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/sebageek/servefile/archive/v0.5.4.tar.gz -> servefile-0.5.4.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b043191f3a82642545249acea7318e03	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	d75163bd34f1e2f95ecea7530b0a25bf
+_md5_=c5697f51d87cc89f9efd6593245c7085
