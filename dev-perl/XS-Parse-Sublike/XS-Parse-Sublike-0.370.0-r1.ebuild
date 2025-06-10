@@ -4,7 +4,7 @@
 EAPI=8
 
 DIST_AUTHOR=PEVANS
-DIST_VERSION=0.36
+DIST_VERSION=0.37
 inherit perl-module
 
 DESCRIPTION="XS functions to assist in parsing sub-like syntax"
@@ -18,8 +18,4 @@ RDEPEND="
 BDEPEND="
 	${BDEPEND}
 	>=dev-perl/Module-Build-0.400.400
-	test? (
-		virtual/perl-Scalar-List-Utils
-		virtual/perl-Test2-Suite
-	)
 "
