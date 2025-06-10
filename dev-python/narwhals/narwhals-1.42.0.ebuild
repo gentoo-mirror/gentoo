@@ -32,5 +32,7 @@ distutils_enable_tests pytest
 
 python_test() {
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	# make hypothesis more forgiving
+	local -x CI=1
 	epytest --runslow --constructors="pandas,pandas[nullable],pandas[pyarrow],pyarrow"
 }
