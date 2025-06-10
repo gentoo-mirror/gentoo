@@ -3824,7 +3824,7 @@ dev-build/libtool 2.5.4 9999: A shared library tool for developers
 dev-build/mage 1.13.0 1.15.0: make/rake like tool using go
 dev-build/make 4.4.1-r100 9999: Standard tool to compile source trees
 dev-build/melange 0.18.3: Build APK packages from source code using declarative pipelines
-dev-build/meson 1.1.1 1.2.3 1.3.2 1.4.2 1.5.2 1.6.1 1.7.0 1.7.2 1.8.1 9999: Open source build system
+dev-build/meson 1.1.1 1.2.3 1.3.2 1.4.2 1.5.2 1.6.1 1.7.0 1.7.2 1.8.1 1.8.2 9999: Open source build system
 dev-build/meson-format-array 0: Format shell expressions into a meson array
 dev-build/muon 0.2.0-r2 0.3.0 0.4.0: A meson-compatible build system
 dev-build/netsurf-buildsystem 1.10: Build system used for netsurf and its libraries
@@ -9925,7 +9925,7 @@ dev-ruby/dry-inflector 1.1.0 1.2.0: String inflections for dry-rb
 dev-ruby/dry-logic 1.5.0 1.6.0: Predicate logic with rule composition
 dev-ruby/dry-monads 1.6.0 1.7.1 1.8.2 1.8.3: Common monads for Ruby
 dev-ruby/dry-struct 1.6.0 1.8.0: Typed structs and value objects
-dev-ruby/dry-types 1.7.2 1.8.2: Type system for Ruby supporting coercions, constraints and complex types.
+dev-ruby/dry-types 1.7.2 1.8.2 1.8.3: Type system for Ruby supporting coercions, constraints and complex types.
 dev-ruby/duktape-rb 2.7.0.0: Ruby bindings to the Duktape JavaScript interpreter
 dev-ruby/ecma-re-validator 0.4.0: Validate a regular expression string against what ECMA-262 can actually do
 dev-ruby/ed25519 1.3.0 1.4.0: Library for the Ed25519 public-key signature system
@@ -10236,7 +10236,7 @@ dev-ruby/rchardet 1.8.0-r1 1.9.0: Character encoding auto-detection in Ruby
 dev-ruby/rdiscount 2.2.7.3: Implementation of John Gruber's Markdown
 dev-ruby/rdoc 6.8.1 6.11.0 6.13.1 6.14.0: An extended version of the RDoc library from Ruby 1.8
 dev-ruby/rdtool 0.6.38-r3: A multipurpose documentation format for Ruby
-dev-ruby/recog 2.3.23 3.1.16: Pattern recognition for hosts, services, and content
+dev-ruby/recog 2.3.23 3.1.16 3.1.17: Pattern recognition for hosts, services, and content
 dev-ruby/red-colors 0.4.0: Color features for Ruby
 dev-ruby/redcarpet 3.6.0 3.6.1: A Ruby wrapper for Upskirt
 dev-ruby/redcloth 4.3.4: A module for using Textile in Ruby
@@ -10370,7 +10370,7 @@ dev-ruby/spring 4.3.0: Rails application preloader
 dev-ruby/sprockets 3.7.2-r3 4.2.2: Ruby library for compiling and serving web assets
 dev-ruby/sprockets-rails 3.5.2: Sprockets implementation for Rails 4.x (and beyond) Asset Pipeline
 dev-ruby/spy 1.0.5: A simple opinionated mocking framework
-dev-ruby/sqlite3 1.7.3 2.0.4-r2 2.5.0 2.6.0: An extension library to access a SQLite database from Ruby
+dev-ruby/sqlite3 1.7.3 2.0.4-r2 2.5.0 2.6.0 2.7.0: An extension library to access a SQLite database from Ruby
 dev-ruby/sshkey 2.0.0-r1 3.0.0: SSH private and public key generator in pure Ruby
 dev-ruby/sshkit 1.23.2 1.24.0: SSHKit makes it easy to write structured, testable SSH commands in Ruby
 dev-ruby/stamp 0.6.0-r1: Date and time formatting for humans
@@ -11939,7 +11939,7 @@ gnome-extra/gnome-calculator 46.1-r1 47.1-r1 47.3-r1: A calculator application f
 gnome-extra/gnome-calendar 46.1 47.0: Manage your calendars with simple and modern interface
 gnome-extra/gnome-characters 46.0 47.0: Unicode character map viewer and library
 gnome-extra/gnome-clocks 46.0 47.0: Clocks application for GNOME
-gnome-extra/gnome-color-manager 3.36.0 3.36.2: GNOME color profile tools
+gnome-extra/gnome-color-manager 3.36.0-r1 3.36.2-r1: GNOME color profile tools
 gnome-extra/gnome-commander 1.18.1-r1: A graphical, full featured, twin-panel file manager
 gnome-extra/gnome-contacts 46.0 47.1.1: GNOME contact management application
 gnome-extra/gnome-directory-thumbnailer 0.1.11-r1: Thumbnail generator for directories
@@ -15423,7 +15423,7 @@ net-misc/xmrig 6.21.1 6.21.3 6.22.0 6.22.1 6.22.2 6.22.3 9999: RandomX, CryptoNi
 net-misc/yandex-disk 0.1.6.1080_p1: CLI to access Yandex Disk file storage service
 net-misc/you-get 0.4.1650-r1 0.4.1700: Utility to download media contents from the web
 net-misc/youtube-viewer 3.11.2 3.11.3 9999: A command line utility for viewing youtube-videos in Mplayer
-net-misc/yt-dlp 2025.04.30 2025.05.22 9999: youtube-dl fork with additional features and fixes
+net-misc/yt-dlp 2025.05.22 2025.06.09 9999: youtube-dl fork with additional features and fixes
 net-misc/ytfzf 2.6.2: Posix script to find and watch youtube videos from the terminal
 net-misc/ytmdl 2024.08.15.1-r1: Simple app to get songs from youtube in mp3 format
 net-misc/zerotier 1.14.2-r1 1.14.2-r2: A software-based managed Ethernet switch for planet Earth
@@ -15445,7 +15445,7 @@ net-news/alligator 24.12.3 25.04.2: Convergent RSS/Atom feed reader for Plasma
 net-news/amphetadesk 0.93.1-r2: Free syndicated news aggregator
 net-news/canto-curses 0.9.9 0.9.9-r1: The ncurses client for canto-daemon
 net-news/canto-daemon 0.9.8: Daemon part of Canto-NG RSS reader
-net-news/liferea 1.15.5-r2 1.15.8-r1 1.16_rc3: News Aggregator for RDF/RSS/CDF/Atom/Echo feeds
+net-news/liferea 1.15.5-r2 1.15.8-r2 1.16_rc3-r1: News Aggregator for RDF/RSS/CDF/Atom/Echo feeds
 net-news/newsboat 2.34-r2 2.38-r1: An RSS/Atom feed reader for text terminals
 net-news/rssguard 4.8.4 4.8.5: Simple (yet powerful) news feed reader
 net-news/rsstail 2.2: A tail-like RSS-reader
