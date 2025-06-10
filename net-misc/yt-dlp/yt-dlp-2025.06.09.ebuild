@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
 inherit distutils-r1 optfeature shell-completion wrapper
 
 DESCRIPTION="youtube-dl fork with additional features and fixes"
@@ -23,6 +23,9 @@ KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~riscv x86 ~arm64-macos ~x64-macos"
 
 RDEPEND="
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	test? ( media-video/ffmpeg[webp] )
 "
 
 distutils_enable_tests pytest
