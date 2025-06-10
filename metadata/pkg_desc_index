@@ -5164,7 +5164,7 @@ dev-lang/ghc 9.0.2-r4 9.2.8: The Glasgow Haskell Compiler
 dev-lang/gleam 1.4.1-r1: A friendly language for building type-safe, scalable systems!
 dev-lang/gnucobol 3.2-r2: A free/libre COBOL compiler
 dev-lang/gnuprologjava 0.2.6-r2: GNU Prolog for Java is an implementation of ISO Prolog as a Java library
-dev-lang/go 1.23.9-r1 1.24.3 9999: A concurrent garbage collected and typesafe programming language
+dev-lang/go 1.23.9-r1 1.23.10 1.24.3 1.24.4 9999: A concurrent garbage collected and typesafe programming language
 dev-lang/go-bootstrap 1.20.14 1.22.12: Bootstrap package for dev-lang/go
 dev-lang/gprolog 1.5.0-r1: Native Prolog compiler with constraint solving over finite domains (FD)
 dev-lang/grass 0.13.4: A Sass compiler written purely in Rust
@@ -6044,7 +6044,7 @@ dev-ml/ocaml-augeas 0.5 0.6-r1: Ocaml bindings for Augeas
 dev-ml/ocaml-autoconf 1.1-r1: autoconf macros to support configuration of OCaml programs and libraries
 dev-ml/ocaml-base64 3.5.0 3.5.1: Library for radix-64 representation (de)coding
 dev-ml/ocaml-compiler-libs 0.12.3-r2 0.12.4-r2 0.17.0: Repackage the OCaml compiler libs so they do not expose everything at toplevel
-dev-ml/ocaml-crunch 3.3.1: Convert a filesystem into a static OCaml module
+dev-ml/ocaml-crunch 3.3.1 4.0.0: Convert a filesystem into a static OCaml module
 dev-ml/ocaml-ctypes 0.23.0: Library for binding to C libraries using pure OCaml
 dev-ml/ocaml-doc 4.05: Ocaml reference manual (html)
 dev-ml/ocaml-expat 1.3.0: OCaml bindings for expat
@@ -12453,7 +12453,7 @@ kde-plasma/ksystemstats 6.3.5: Plugin-based system monitoring daemon
 kde-plasma/kwallet-pam 6.3.5-r1: PAM module to not enter KWallet password again after login
 kde-plasma/kwayland 5.116.0-r1 6.3.5: Qt-style API to interact with the wayland-client API
 kde-plasma/kwayland-integration 6.3.5: Provides KWindowSystem integration plugin for Wayland
-kde-plasma/kwin 6.3.5 6.3.5-r1: Flexible, composited Window Manager for windowing systems on Linux
+kde-plasma/kwin 6.3.5 6.3.5-r1 6.3.5-r2: Flexible, composited Window Manager for windowing systems on Linux
 kde-plasma/kwrited 6.3.5: KDE Plasma daemon listening for wall and write messages
 kde-plasma/layer-shell-qt 6.3.5: Qt component to allow applications make use of Wayland wl-layer-shell protocol
 kde-plasma/libkscreen 6.3.5: Plasma screen management library
@@ -12973,7 +12973,7 @@ media-gfx/hydrus 615 9999: A booru-like media organizer for the desktop
 media-gfx/icon-slicer 0.3-r1: Utility for generating icon themes and libXcursor cursor themes
 media-gfx/icoutils 0.32.3: Tools to extract and convert images in icon and cursor files (.ico, .cur)
 media-gfx/igal 3.2: Static HTML image gallery generator
-media-gfx/imagemagick 6.9.13.3-r1 6.9.13.16-r2 7.1.1.25-r2 7.1.1.38-r3 9999: A collection of tools and libraries for many image formats
+media-gfx/imagemagick 6.9.13.3-r1 6.9.13.16-r2 6.9.13.25 7.1.1.25-r2 7.1.1.38-r3 7.1.1.47 9999: A collection of tools and libraries for many image formats
 media-gfx/imageworsener 1.3.3 1.3.4 1.3.5: Utility for image scaling and processing
 media-gfx/img2pdf 0.4.4-r1 0.5.1 0.6.1: Losslessly convert raster images to PDF
 media-gfx/imv 4.5.0: Minimal image viewer designed for tiling window manager users
@@ -17018,7 +17018,7 @@ sys-apps/grepcidr 2.0: Filter IPv4 and IPv6 addresses matching CIDR patterns
 sys-apps/groff 1.22.4 1.23.0: Text formatter used for man pages
 sys-apps/gscanbus 0.8-r1: Bus scanning, testing and topology visualizing tool for Linux IEEE1394 subsystem
 sys-apps/gsmartcontrol 1.1.4-r1 2.0.1: Hard Disk Drive and SSD Health Inspection Tool
-sys-apps/haveged 1.9.15 1.9.17 1.9.18: A simple entropy daemon using the HAVEGE algorithm
+sys-apps/haveged 1.9.15 1.9.17 1.9.18 1.9.19: A simple entropy daemon using the HAVEGE algorithm
 sys-apps/hd-idle 1.05-r2 1.05-r3 1.05-r4: Utility for spinning down hard disks after a period of idle time
 sys-apps/hdparm 9.65-r2: Utility to change hard drive performance parameters
 sys-apps/heirloom-tools 070715-r6 070715-r7: Heirloom toolchest - original Unix tools
@@ -17643,9 +17643,9 @@ sys-kernel/cryptodev 1.12 1.13-r1 9999: device that allows access to Linux kerne
 sys-kernel/dkms 3.1.6 3.1.7 3.1.8 3.2.0 3.2.1 9999: Dynamic Kernel Module Support
 sys-kernel/dracut 060_pre20240104-r4 103-r4 106-r2 107 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.8 1.0.8-r1: Early unlocking of encrypted systems via ssh for dracut
-sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 4.3.16-r2 4.3.16-r3 4.3.16-r4 4.3.16-r5 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.237 5.10.238 5.15.183 5.15.185 6.1.140 6.1.141 6.6.92 6.6.93 6.12.31 6.12.32 6.14.9 6.14.10: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.237 5.10.238 5.15.183 5.15.185 6.1.140 6.1.141 6.6.92 6.6.93 6.12.31 6.12.32 6.14.9 6.14.10: Pre-built Linux kernel with Gentoo patches
+sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 4.3.16-r2 4.3.16-r3 4.3.16-r4 4.3.16-r5 4.3.17 9999: Gentoo automatic kernel building scripts
+sys-kernel/gentoo-kernel 5.10.237 5.10.238 5.15.183 5.15.185 6.1.140 6.1.141 6.6.92 6.6.93 6.12.31 6.12.32 6.12.33 6.14.9 6.14.10 6.14.11 6.15.2: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.237 5.10.238 5.15.183 5.15.185 6.1.140 6.1.141 6.6.92 6.6.93 6.12.31 6.12.32 6.12.33 6.14.9 6.14.10 6.14.11 6.15.2: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.233 5.10.236 5.10.237 5.10.238 5.15.177 5.15.183 5.15.184 5.15.185 6.1.132 6.1.139 6.1.140 6.1.141 6.6.85 6.6.91 6.6.92 6.6.93 6.12.21 6.12.29 6.12.30 6.12.31 6.12.32 6.12.33 6.14.6 6.14.8 6.14.9 6.14.9-r1 6.14.10 6.14.11 6.15.0 6.15.1 6.15.2: Full sources including the Gentoo patchset for the 6.15 kernel tree
 sys-kernel/git-sources 6.16_rc1: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 50 59-r1: Gentoo fork of installkernel script from debianutils
@@ -17664,7 +17664,7 @@ sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230
 sys-kernel/rt-sources 4.14.336_p159 4.19.325_p140 5.4.290_p96 5.10.237_p131 5.15.179_p84 6.0.5_p14 6.1.134_p51 6.5.2_p8 6.6.87_p54 6.12.16_p9: Full Linux 6.12 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/scx 1.0.10 1.0.11 1.0.12: sched_ext schedulers and tools
 sys-kernel/ugrd 1.20.0 1.22.0 1.24.2 1.27.2 1.28.2 1.29.0-r1 1.31.2 9999: Python based POSIX initramfs generator with TOML definitions
-sys-kernel/vanilla-kernel 5.10.237 5.10.238 5.10.9999 5.15.183 5.15.185 5.15.9999 6.1.140 6.1.141 6.1.9999 6.6.92 6.6.93 6.6.9999 6.12.31 6.12.32 6.12.9999 6.14.9 6.14.10: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.237 5.10.238 5.10.9999 5.15.183 5.15.185 5.15.9999 6.1.140 6.1.141 6.1.9999 6.6.92 6.6.93 6.6.9999 6.12.31 6.12.32 6.12.33 6.12.9999 6.14.9 6.14.10 6.14.11 6.15.2: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 5.4.294 5.10.238 5.15.185 6.1.141 6.6.92 6.12.33 6.14.11 6.15.2: Full sources for the Linux kernel
 sys-kernel/virtme-ng 1.33 1.36: Quickly build and run kernels inside a virtualized snapshot of your live system
 sys-kernel/zen-sources 6.13.8: The Zen Kernel Live Sources
@@ -17850,7 +17850,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.237 5.10.238 5.15.183 5.15.185 6.1.140 6.1.141 6.6.92 6.6.93 6.12.31 6.12.32 6.14.9 6.14.10: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.237 5.10.238 5.15.183 5.15.185 6.1.140 6.1.141 6.6.92 6.6.93 6.12.31 6.12.32 6.12.33 6.14.9 6.14.10 6.14.11 6.15.2: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0 9.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
@@ -18939,7 +18939,7 @@ x11-themes/numix-icon-theme-circle 23.04.28 23.06.11 23.09.11 23.10.09: Icon the
 x11-themes/nuovo-icon-theme 0.5-r1: A scalable icon theme called Nuovo
 x11-themes/nuvox 07.1-r1: NuvoX SVG icon theme
 x11-themes/obsidian-xcursors 1.0-r1 1.0-r2: A shiny and clean xcursor theme
-x11-themes/oxygen-gtk 1.4.1-r1 1.4.6-r1: Official GTK+:2 port of KDE's Oxygen widget style
+x11-themes/oxygen-gtk 1.4.1-r2 1.4.6-r1: Official GTK+:2 port of KDE's Oxygen widget style
 x11-themes/papirus-icon-theme 20250201 20250501: Free and open source SVG icon theme
 x11-themes/pearlgrey-xcursors 1.0-r1 1.0-r2: A simple crispy white-grey xcursor theme
 x11-themes/pidgin-penguins-smileys 1.0: Penguins pidgin smiley theme

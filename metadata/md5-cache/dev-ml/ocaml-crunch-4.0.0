@@ -1,0 +1,16 @@
+BDEPEND=>=dev-ml/dune-2.5 dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/cmdliner:=[ocamlopt?] dev-ml/ptime:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Convert a filesystem into a static OCaml module
+EAPI=8
+HOMEPAGE=https://github.com/mirage/ocaml-crunch
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64
+LICENSE=ISC
+RDEPEND=dev-ml/cmdliner:=[ocamlopt?] dev-ml/ptime:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/mirage/ocaml-crunch/archive/refs/tags/v4.0.0.tar.gz -> ocaml-crunch-4.0.0.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
+_md5_=c35a8a2889aa2e5c2f566200bc685986
