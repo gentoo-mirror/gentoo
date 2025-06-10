@@ -1,5 +1,5 @@
 BDEPEND=dev-lang/perl dev-libs/libxslt sys-devel/gettext || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) test? ( x11-apps/xkbcomp x11-libs/libxkbcommon || ( ( dev-lang/python:3.13 dev-python/pycountry[python_targets_python3_13(-)] dev-python/pytest-xdist[python_targets_python3_13(-)] dev-python/pytest[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pycountry[python_targets_python3_12(-)] dev-python/pytest-xdist[python_targets_python3_12(-)] dev-python/pytest[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pycountry[python_targets_python3_11(-)] dev-python/pytest-xdist[python_targets_python3_11(-)] dev-python/pytest[python_targets_python3_11(-)] ) ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
-DEFINED_PHASES=compile configure install prepare setup test
+DEFINED_PHASES=compile configure install preinst prepare setup test
 DESCRIPTION=X keyboard configuration database
 EAPI=8
 HOMEPAGE=https://www.freedesktop.org/wiki/Software/XKeyboardConfig/ https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config
@@ -11,4 +11,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.x.org/releases/individual/data/xkeyboard-config/xkeyboard-config-2.45.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b043191f3a82642545249acea7318e03	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=ba286f3f901b86c56ea1e1be2da7a075
+_md5_=12f789924864041711837d5d92cf60f9
