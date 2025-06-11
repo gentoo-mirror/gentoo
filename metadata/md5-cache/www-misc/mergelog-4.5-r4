@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=prepare
+DEPEND=sys-libs/zlib
+DESCRIPTION=A utility to merge apache logs in chronological order
+EAPI=8
+HOMEPAGE=http://mergelog.sourceforge.net
+INHERIT=autotools
+KEYWORDS=~amd64 ~arm64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=sys-libs/zlib
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/mergelog/mergelog-4.5.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
+_md5_=4f3d78e29b7bb508db70f3fa17e61144
