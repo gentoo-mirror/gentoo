@@ -126,7 +126,9 @@ python_test() {
 	local EPYTEST_DESELECT=(
 		# Internet
 		tests/test_client_session.py::test_client_session_timeout_zero
+		tests/test_connector.py::test_tcp_connector_ssl_shutdown_timeout_nonzero_passed
 		tests/test_connector.py::test_tcp_connector_ssl_shutdown_timeout_passed_to_create_connection
+		tests/test_connector.py::test_tcp_connector_ssl_shutdown_timeout_zero_not_passed
 		# broken by irrelevant deprecation warnings
 		tests/test_circular_imports.py::test_no_warnings
 	)
