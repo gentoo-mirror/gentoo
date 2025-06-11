@@ -1,4 +1,4 @@
-BDEPEND=app-text/scdoc test? ( dev-util/gdbus-codegen ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=test? ( dev-util/gdbus-codegen ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=curl? ( net-misc/curl ) archive? ( app-arch/libarchive:= ) libpkgconf? ( dev-util/pkgconf:= )
 DESCRIPTION=A meson-compatible build system
@@ -11,6 +11,6 @@ LICENSE=GPL-3
 RDEPEND=curl? ( net-misc/curl ) archive? ( app-arch/libarchive:= ) libpkgconf? ( dev-util/pkgconf:= )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://muon.build/releases/v0.4.0/muon-v0.4.0.tar.gz test? ( https://git.sr.ht/~lattis/meson-tests/archive/1e565931348f15f3f9b654f46ab4bf5fa009ca4f.tar.gz -> meson-tests-1e565931348f15f3f9b654f46ab4bf5fa009ca4f.tar.gz )
+SRC_URI=https://muon.build/releases/v0.4.0/muon-v0.4.0.tar.gz https://muon.build/releases/v0.4.0/docs/man.tar.gz -> muon-0.4.0-man.tar.gz test? ( https://git.sr.ht/~lattis/meson-tests/archive/1e565931348f15f3f9b654f46ab4bf5fa009ca4f.tar.gz -> meson-tests-1e565931348f15f3f9b654f46ab4bf5fa009ca4f.tar.gz )
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b043191f3a82642545249acea7318e03	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=b9f644c07f0c87561c2f9b23dcbdf655
+_md5_=2f72955cd587e4f3b92c721b9810a6c1
