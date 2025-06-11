@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/dash app-emacs/magit app-emacs/emacsql[sqlite(+)] test? ( app-emacs/buttercup ) test? ( app-emacs/buttercup ) >=app-editors/emacs-26.1:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Rudimentary Roam replica with Org-mode
+EAPI=8
+HOMEPAGE=https://github.com/org-roam/org-roam
+INHERIT=elisp
+IUSE=test test
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=app-emacs/dash app-emacs/magit app-emacs/emacsql[sqlite(+)] test? ( app-emacs/buttercup ) >=app-editors/emacs-26.1:*
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/org-roam/org-roam/archive/refs/tags/v2.3.0.tar.gz -> org-roam-2.3.0.tar.gz
+_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5
+_md5_=a35494983c8adeebcd002637cfa77456
