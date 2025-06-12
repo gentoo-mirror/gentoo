@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit optfeature strip-linguas xdg
+inherit flag-o-matic optfeature strip-linguas xdg
 
 LANGS="ar ast be bg ca cs de el en_GB es et eu fa fi fr gl he hi hu id it ja kk ko ku lb lt mn nl nn pl pt pt_BR ro ru si sk sl sr sv tr uk vi zh_CN ZH_TW"
 NOSHORTLANGS="en_GB zh_CN zh_TW"
@@ -16,17 +16,17 @@ if [[ "${PV}" = 9999* ]] ; then
 else
 	[[ "${PV}" == *_pre* ]] && inherit autotools
 	SRC_URI="https://download.geany.org/${P}.tar.bz2"
-	KEYWORDS="amd64 arm ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 fi
 LICENSE="GPL-2+ HPND"
 SLOT="0"
 
-IUSE="+vte"
+IUSE="+vte wayland X"
 
 BDEPEND="virtual/pkgconfig"
 RDEPEND="
 	>=dev-libs/glib-2.32:2
-	>=x11-libs/gtk+-3.24:3
+	>=x11-libs/gtk+-3.24:3[wayland?,X?]
 	vte? ( x11-libs/vte:2.91 )
 "
 DEPEND="
@@ -34,6 +34,8 @@ DEPEND="
 	dev-util/intltool
 	sys-devel/gettext
 "
+
+PATCHES=( "${FILESDIR}/${P}-gcc15.patch" )
 
 pkg_setup() {
 	strip-linguas ${LANGS}
@@ -53,6 +55,9 @@ src_prepare() {
 }
 
 src_configure() {
+	use X || append-cflags -DGENTOO_GTK_HIDE_X11
+	use wayland || append-flags -DGENTOO_GTK_HIDE_WAYLAND
+
 	local myeconfargs=(
 		--disable-html-docs
 		--disable-pdf-docs
