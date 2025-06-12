@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202506-05">
+    <title>GTK+ 3: Search path vulnerability</title>
+    <synopsis>A vulnerability has been discovered in Gtk+, which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">gtk+</product>
+    <announced>2025-06-12</announced>
+    <revised count="1">2025-06-12</revised>
+    <bug>949825</bug>
+    <access>local</access>
+    <affected>
+        <package name="x11-libs/gtk+" auto="yes" arch="*">
+            <unaffected range="ge">3.24.48</unaffected>
+            <vulnerable range="lt">3.24.48</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GTK+ (GIMP Toolkit +) is a toolkit for creating graphical user interfaces.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in GTK+ 3. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GTK+ 3 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-libs/gtk+-3.24.48"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-6655">CVE-2024-6655</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-06-12T07:34:19.625651Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-06-12T07:34:19.629942Z">graaff</metadata>
+</glsa>
