@@ -1,0 +1,16 @@
+BDEPEND=test? ( virtual/pkgconfig ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=virtual/libiconv test? ( dev-libs/atf dev-util/kyua )
+DESCRIPTION=Mailing list managing made joyful
+EAPI=8
+HOMEPAGE=https://codeberg.org/mlmmj/mlmmj
+INHERIT=autotools
+IUSE=test
+KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=MIT
+RDEPEND=virtual/libiconv virtual/mta
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://codeberg.org/mlmmj/mlmmj/releases/download/RELEASE_1.5.2/mlmmj-1.5.2.tar.xz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
+_md5_=5365dedfa80dd46877ff38cc64b54fc4
