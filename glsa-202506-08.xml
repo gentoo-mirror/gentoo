@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202506-08">
+    <title>Node.js: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Node.js, the worst of which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">nodejs</product>
+    <announced>2025-06-12</announced>
+    <revised count="1">2025-06-12</revised>
+    <bug>948514</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="net-libs/nodejs" auto="yes" arch="*">
+            <unaffected range="ge">22.13.1</unaffected>
+            <vulnerable range="lt">22.13.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Node.js. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Node.js users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/nodejs-22.13.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-23083">CVE-2025-23083</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-23085">CVE-2025-23085</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-06-12T08:55:53.901654Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-06-12T08:55:53.905453Z">graaff</metadata>
+</glsa>
