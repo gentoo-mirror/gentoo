@@ -11,7 +11,7 @@ SRC_URI="https://github.com/nullobsi/cantata/archive/v${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc64 ~x86"
 IUSE="cdda cddb http-server mtp musicbrainz replaygain streaming +taglib udisks zeroconf"
 REQUIRED_USE="
 	cdda? ( taglib udisks || ( cddb musicbrainz ) )
@@ -55,9 +55,9 @@ BDEPEND="
 "
 
 PATCHES=(
+	# unbundle KF6ItemViews and KF6Solid
 	"${FILESDIR}"/${PN}-3.3.0-rm-vendor.patch
-	# https://github.com/nullobsi/cantata/pull/51.patch
-	"${FILESDIR}"/${PN}-3.3.0-cdparanoia.patch
+
 	# Fix ODR violations with cddb or udisks enabled
 	# https://github.com/nullobsi/cantata/pull/71.patch
 	"${FILESDIR}"/${PN}-3.3.0-fix_odr.patch
