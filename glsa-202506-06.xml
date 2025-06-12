@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202506-06">
+    <title>Qt: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Qt, the worst of which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">qtbase,qtgui,qtnetwork</product>
+    <announced>2025-06-12</announced>
+    <revised count="1">2025-06-12</revised>
+    <bug>924647</bug>
+    <bug>931096</bug>
+    <bug>935869</bug>
+    <bug>954261</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-qt/qtbase" auto="yes" arch="*">
+            <unaffected range="ge">6.8.3-r1</unaffected>
+            <vulnerable range="lt">6.8.3-r1</vulnerable>
+        </package>
+        <package name="dev-qt/qtgui" auto="yes" arch="*">
+            <unaffected range="ge">5.15.12-r2</unaffected>
+            <vulnerable range="lt">5.15.12-r2</vulnerable>
+        </package>
+        <package name="dev-qt/qtnetwork" auto="yes" arch="*">
+            <unaffected range="ge">5.15.14-r1</unaffected>
+            <vulnerable range="lt">5.15.14-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Qt is a cross-platform application development framework.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Qt. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Qt users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-qt/qtbase-6.8.3-r1"
+          # emerge --ask --oneshot --verbose ">=dev-qt/qtnetwork-5.15.14-r1"
+          # emerge --ask --oneshot --verbose ">=dev-qt/qtgui-5.15.12-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-25580">CVE-2024-25580</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-33861">CVE-2024-33861</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-39936">CVE-2024-39936</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-3512">CVE-2025-3512</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-06-12T07:35:55.955870Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-06-12T07:35:55.959632Z">graaff</metadata>
+</glsa>
