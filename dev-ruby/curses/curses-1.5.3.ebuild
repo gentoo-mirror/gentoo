@@ -1,8 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby31 ruby32 ruby33 ruby34"
+
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_EXTRADOC="README.md"
 
@@ -19,8 +20,8 @@ LICENSE="|| ( Ruby BSD-2 )"
 SLOT="1"
 KEYWORDS="~amd64 ~riscv ~x86"
 
-DEPEND+=" sys-libs/ncurses:0"
-RDEPEND+=" sys-libs/ncurses:0"
+DEPEND="sys-libs/ncurses:0"
+RDEPEND="sys-libs/ncurses:0"
 
 each_ruby_test() {
 	# No specs so we use the smoketest that upstream use in CI:
