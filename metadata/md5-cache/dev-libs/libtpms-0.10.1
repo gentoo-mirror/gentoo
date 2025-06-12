@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=dev-libs/openssl:=
+DESCRIPTION=Library providing software emulation of a TPM
+EAPI=8
+HOMEPAGE=https://github.com/stefanberger/libtpms
+INHERIT=autotools eapi9-ver
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/openssl:=
+SLOT=0
+SRC_URI=https://github.com/stefanberger/libtpms/archive/v0.10.1.tar.gz -> libtpms-0.10.1.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0
+_md5_=692c0759582c6fbfbea3fa645fead938
