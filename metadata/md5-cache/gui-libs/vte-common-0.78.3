@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) dev-libs/libxml2:2 dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) dev-libs/libxml2:2 dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=|| ( >=gui-libs/gtk-4.0.1:4 >=x11-libs/gtk+-3.24.22:3 ) >=x11-libs/cairo-1.0 >=dev-libs/fribidi-1.0.0 >=dev-libs/glib-2.60:2 >=x11-libs/pango-1.22.0 >=dev-libs/libpcre2-10.21 systemd? ( >=sys-apps/systemd-220:= ) >=app-arch/lz4-1.9 x11-libs/pango
 DESCRIPTION=Library providing a virtual terminal emulator widget
@@ -8,8 +8,7 @@ INHERIT=flag-o-matic gnome.org meson python-any-r1
 IUSE=systemd
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=LGPL-3+ GPL-3+
-RDEPEND=!<x11-libs/vte-0.70.0:2.91
 SLOT=2.91
 SRC_URI=mirror://gnome/sources/vte/0.78/vte-0.78.3.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	gnome.org	e1b4f392dbfedfb8974b71b017937f08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b043191f3a82642545249acea7318e03	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=f9d176f5042b191b95778074528be923
+_md5_=9f87436196e850197a1979a7c8fadaff
