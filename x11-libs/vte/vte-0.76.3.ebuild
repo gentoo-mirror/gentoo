@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit flag-o-matic gnome.org meson python-any-r1 vala xdg
 
@@ -72,7 +72,7 @@ src_prepare() {
 		eapply "${WORKDIR}"/${P}-a11y-implement-GtkAccessibleText.patch
 	fi
 
-	# -Ddebugg option enables various debug support via VTE_DEBUG, but also ggdb3; strip the latter
+	# -Ddebug option enables various debug support via VTE_DEBUG, but also ggdb3; strip the latter
 	sed -e '/ggdb3/d' -i meson.build || die
 	sed -i 's/vte_gettext_domain = vte_api_name/vte_gettext_domain = vte_gtk3_api_name/' meson.build || die
 }
