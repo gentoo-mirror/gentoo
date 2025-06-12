@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202506-04">
+    <title>X.Org X server, XWayland: Multiple Vulnerabilities</title>
+    <synopsis>A vulnerability has been discovered in the Xorg Server and XWayland, the worst of which can result in privilege escalation.</synopsis>
+    <product type="ebuild">xorg-server,xwayland</product>
+    <announced>2025-06-12</announced>
+    <revised count="1">2025-06-12</revised>
+    <bug>950290</bug>
+    <access>local</access>
+    <affected>
+        <package name="x11-base/xorg-server" auto="yes" arch="*">
+            <unaffected range="ge">21.1.16</unaffected>
+            <vulnerable range="lt">21.1.16</vulnerable>
+        </package>
+        <package name="x11-base/xwayland" auto="yes" arch="*">
+            <unaffected range="ge">24.1.6</unaffected>
+            <vulnerable range="lt">24.1.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The X Window System is a graphical windowing system based on a client/server model.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in X.Org X server and XWayland. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All X.Org X server users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-base/xorg-server-21.1.16"
+        </code>
+        
+        <p>All XWayland users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-base/xwayland-24.1.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-26594">CVE-2025-26594</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-26595">CVE-2025-26595</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-26596">CVE-2025-26596</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-26597">CVE-2025-26597</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-26598">CVE-2025-26598</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-26599">CVE-2025-26599</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-26600">CVE-2025-26600</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-26601">CVE-2025-26601</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-06-12T07:32:17.297739Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-06-12T07:32:17.301861Z">graaff</metadata>
+</glsa>
