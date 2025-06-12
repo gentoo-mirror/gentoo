@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit libtool multilib-minimal
+inherit ffmpeg-compat libtool multilib-minimal
 
 DESCRIPTION="An enhanced version of the quicktime4linux library"
 HOMEPAGE="http://libquicktime.sourceforge.net/"
@@ -11,7 +11,7 @@ SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="aac alsa doc dv encode ffmpeg gtk jpeg lame cpu_flags_x86_mmx opengl png static-libs vorbis X x264"
 
 RDEPEND="
@@ -23,7 +23,7 @@ RDEPEND="
 	)
 	alsa? ( >=media-libs/alsa-lib-1.0.20 )
 	dv? ( >=media-libs/libdv-1.0.0-r3[${MULTILIB_USEDEP}] )
-	ffmpeg? ( >=media-video/ffmpeg-4:=[${MULTILIB_USEDEP}] )
+	ffmpeg? ( media-video/ffmpeg-compat:6=[${MULTILIB_USEDEP}] )
 	gtk? ( x11-libs/gtk+:2 )
 	jpeg? ( media-libs/libjpeg-turbo:=[${MULTILIB_USEDEP}] )
 	lame? ( >=media-sound/lame-3.99.5-r1[${MULTILIB_USEDEP}] )
@@ -63,6 +63,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-ffmpeg-codecs.patch
 	"${FILESDIR}"/${P}-ffmpeg4.patch
 	"${FILESDIR}"/${P}-ffmpeg5.patch
+	"${FILESDIR}"/${P}-c23.patch
 )
 
 src_prepare() {
@@ -72,6 +73,13 @@ src_prepare() {
 
 multilib_src_configure() {
 	# utils use: alsa, opengl, gtk+, X
+
+	# TODO: fix with >=ffmpeg-7 (or mask USE) then drop compat (bug #942966)
+	if use ffmpeg; then
+		ffmpeg_compat_setup 6
+		local -x CPPFLAGS=${CPPFLAGS} LDFLAGS=${LDFLAGS} # multilib preserve
+		ffmpeg_compat_add_flags
+	fi
 
 	ECONF_SOURCE=${S} \
 	econf \
