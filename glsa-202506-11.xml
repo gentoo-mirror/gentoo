@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202506-11">
+    <title>YAML-LibYAML: Shell injection</title>
+    <synopsis>A vulnerability has been discovered in YAML-LibYAML, which can lead to shell injection.</synopsis>
+    <product type="ebuild">YAML-LibYAML</product>
+    <announced>2025-06-12</announced>
+    <revised count="1">2025-06-12</revised>
+    <bug>949498</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-perl/YAML-LibYAML" auto="yes" arch="*">
+            <unaffected range="ge">0.903.0</unaffected>
+            <vulnerable range="lt">0.903.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>YAML-LibYAML provides YAML Serialization using XS and libyaml for Perl.</p>
+    </background>
+    <description>
+        <p>YAML-LibYAML uses the legacy &#39;2-arg&#39; open() call which is susceptible to shell injection via malicious filenames.</p>
+    </description>
+    <impact type="normal">
+        <p>Shell injection may be used to execute arbitrary code using a malicious filename.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All YAML-LibYAML users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-perl/YAML-LibYAML-0.903.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-40908">CVE-2025-40908</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-06-12T09:59:10.845538Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2025-06-12T09:59:10.848792Z">graaff</metadata>
+</glsa>
