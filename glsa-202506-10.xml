@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202506-10">
+    <title>File-Find-Rule: Shell Injection</title>
+    <synopsis>A vulnerability has been discovered in File-Find-Rule, which can lead to shell injection.</synopsis>
+    <product type="ebuild">File-Find-Rule</product>
+    <announced>2025-06-12</announced>
+    <revised count="1">2025-06-12</revised>
+    <bug>957182</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-perl/File-Find-Rule" auto="yes" arch="*">
+            <unaffected range="ge">0.350.0</unaffected>
+            <vulnerable range="lt">0.350.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>File-Find-Rule is an alternative interface to File::Find.</p>
+    </background>
+    <description>
+        <p>File-Find-Rule uses the legacy &#39;2-arg&#39; open() call which is susceptible to shell injection via malicious filenames.</p>
+    </description>
+    <impact type="normal">
+        <p>Shell injection may be used to execute arbitrary code using a malicious filename.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All File-Find-Rule users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-perl/File-Find-Rule-0.350.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2011-10007">CVE-2011-10007</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-06-12T09:56:52.226397Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2025-06-12T09:56:52.230379Z">graaff</metadata>
+</glsa>
