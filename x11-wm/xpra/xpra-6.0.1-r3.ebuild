@@ -19,7 +19,7 @@ DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=yes
 DISTUTILS_EXT=1
 
-inherit cuda distutils-r1 prefix tmpfiles toolchain-funcs udev xdg
+inherit cuda xdg distutils-r1 prefix tmpfiles udev
 
 DESCRIPTION="X Persistent Remote Apps (xpra) and Partitioning WM (parti) based on wimpiggy"
 HOMEPAGE="https://xpra.org/"
@@ -37,7 +37,6 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	clipboard? ( gtk3 )
 	gtk3? ( client )
 	test? ( client clipboard crypt dbus gstreamer html server sound xdg xinerama )
-	video_cards_nvidia? ( cuda )
 "
 
 TEST_DEPEND="
@@ -137,9 +136,8 @@ BDEPEND="
 		dev-python/cython[${PYTHON_USEDEP}]
 		dev-python/pip[${PYTHON_USEDEP}]
 	')
-	cuda? ( dev-util/nvidia-cuda-toolkit )
-	doc? ( virtual/pandoc )
 	virtual/pkgconfig
+	doc? ( virtual/pandoc )
 "
 
 PATCHES=(
@@ -283,13 +281,7 @@ python_configure_all() {
 
 python_compile() {
 	if use cuda; then
-		if tc-is-gcc ; then
-			export NVCC_PREPEND_FLAGS="-ccbin $(cuda_gccdir)/g++"
-		elif tc-is-clang ; then
-			export NVCC_PREPEND_FLAGS="-ccbin /usr/lib/llvm/$(clang-major-version)/bin/clang++"
-		else
-			die "unsupported compiler: ${CC}"
-		fi
+		export NVCC_PREPEND_FLAGS="-ccbin $(cuda_gccdir)/g++"
 	fi
 
 	PYTHONPATH="${S}" distutils-r1_python_compile
