@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202506-02">
+    <title>GStreamer, GStreamer Plugins: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GStreamer and GStreamer Plugins, the worst of which could lead to code execution.</synopsis>
+    <product type="ebuild">gst-plugins-base,gstreamer</product>
+    <announced>2025-06-12</announced>
+    <revised count="1">2025-06-12</revised>
+    <bug>948198</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="media-libs/gst-plugins-base" auto="yes" arch="*">
+            <unaffected range="ge">1.24.10</unaffected>
+            <vulnerable range="lt">1.24.10</vulnerable>
+        </package>
+        <package name="media-libs/gstreamer" auto="yes" arch="*">
+            <unaffected range="ge">1.24.10</unaffected>
+            <vulnerable range="lt">1.24.10</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GStreamer is an open source multimedia framework.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GStreamer, GStreamer Plugins. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GStreamer, GStreamer Plugins users should upgrade to the latest versions:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/gstreamer-1.24.10" ">=media-libs/gst-plugins-bad-1.24.10"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-44331">CVE-2024-44331</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47537">CVE-2024-47537</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47538">CVE-2024-47538</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47539">CVE-2024-47539</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47540">CVE-2024-47540</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47541">CVE-2024-47541</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47542">CVE-2024-47542</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47543">CVE-2024-47543</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47544">CVE-2024-47544</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47545">CVE-2024-47545</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47546">CVE-2024-47546</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47596">CVE-2024-47596</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47597">CVE-2024-47597</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47598">CVE-2024-47598</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47599">CVE-2024-47599</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47600">CVE-2024-47600</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47601">CVE-2024-47601</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47602">CVE-2024-47602</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47603">CVE-2024-47603</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47606">CVE-2024-47606</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47607">CVE-2024-47607</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47613">CVE-2024-47613</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47615">CVE-2024-47615</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47774">CVE-2024-47774</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47775">CVE-2024-47775</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47776">CVE-2024-47776</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47777">CVE-2024-47777</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47778">CVE-2024-47778</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47834">CVE-2024-47834</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47835">CVE-2024-47835</uri>
+        <uri link="https://gstreamer.freedesktop.org/security/sa-2024-0003.html">GStreamer-SA-2024-0003</uri>
+        <uri link="https://gstreamer.freedesktop.org/security/sa-2024-0004.html">GStreamer-SA-2024-0004</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-06-12T06:33:47.057621Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-06-12T06:33:47.059792Z">graaff</metadata>
+</glsa>
