@@ -3,7 +3,9 @@
 
 EAPI=8
 
-PLOCALES="ca de es fr ja ko pt_BR ru sv tr uk"
+# Ukrainian translation causes compile fail failure, so skkip it for now
+#PLOCALES="ca de es fr ja ko pt_BR ru sv tr uk"
+PLOCALES="ca de es fr ja ko pt_BR ru sv tr"
 PLOCALES_BIN="${PLOCALES} bg cs eu fi hu id it ka nb nl pl pt tg zh_TW zh_CN"
 PLOCALE_BACKUP="sv"
 PYTHON_COMPAT=( python3_{10..13} )
