@@ -3,29 +3,30 @@
 
 EAPI=8
 
-NEED_EMACS="28.1"
+NEED_EMACS="27.1"
 
 inherit elisp
 
-DESCRIPTION="Completion Overlay Region FUnction"
-HOMEPAGE="https://github.com/minad/corfu/"
+DESCRIPTION="Simple Large Language Model chat client for GNU Emacs"
+HOMEPAGE="https://github.com/karthink/gptel/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/minad/${PN}"
+	EGIT_REPO_URI="https://github.com/karthink/${PN}"
 else
-	SRC_URI="https://github.com/minad/${PN}/archive/${PV}.tar.gz
+	SRC_URI="https://github.com/karthink/${PN}/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
-LICENSE="GPL-3+"
+LICENSE="GPL-3"
 SLOT="0"
 
 RDEPEND="
 	>=app-emacs/compat-30.1.0.0
+	app-emacs/transient
 "
 BDEPEND="
 	${RDEPEND}
@@ -33,12 +34,6 @@ BDEPEND="
 
 DOCS=( README.org )
 SITEFILE="50${PN}-gentoo.el"
-
-src_prepare() {
-	default
-
-	mv ./extensions/*.el . || die
-}
 
 src_compile() {
 	elisp_src_compile

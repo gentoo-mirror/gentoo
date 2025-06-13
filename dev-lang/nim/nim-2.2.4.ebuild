@@ -5,7 +5,7 @@ EAPI=8
 
 ATLAS_V="0.8.0"
 
-inherit bash-completion-r1 edo multiprocessing toolchain-funcs xdg-utils
+inherit edo multiprocessing shell-completion toolchain-funcs xdg-utils
 
 DESCRIPTION="Compiled, garbage-collected systems programming language"
 HOMEPAGE="https://nim-lang.org/
@@ -19,7 +19,8 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~x86"
+KEYWORDS="~amd64 ~arm ~x86"
+
 IUSE="test-js test"
 RESTRICT="!test? ( test )"
 
@@ -47,7 +48,7 @@ src_configure() {
 	unset NIMBLE_DIR
 	tc-export CC CXX LD
 
-	mkdir "${HOME}/.parallel" || die
+	mkdir -p "${HOME}/.parallel" || die
 	touch "${HOME}/.parallel/will-cite" || die "parallel setup failed"
 
 	cat > nim.cfg <<- EOF || die "Failed to create Nim config"
@@ -78,7 +79,7 @@ src_configure() {
 	cp -r "${WORKDIR}/atlas-${ATLAS_V}" "${S}/dist/atlas" || die
 
 	mkdir -p "${S}/dist/atlas/dist" || die
-	cp -r "${S}/dist/nimble/dist/sat" "${S}/dist/atlas/dist/sat" || die
+	cp -r "${S}/dist/nimble/vendor/sat" "${S}/dist/atlas/dist/sat" || die
 }
 
 src_compile() {
@@ -106,29 +107,33 @@ src_test() {
 		--hint:UserRaw:on
 	)
 	local -a testament_args=(
-		--skipFrom:"${FILESDIR}/${PN}-2.0.6-testament-skipfile.txt"
+		--skipFrom:"${FILESDIR}/nim-2.2.2-testament-skipfile.txt"
 		--nim:"bin/nim"
 		--targets:"$(usex test-js 'c js' 'c')"
 	)
 
-	[[ "${NOCOLOR}" == true || "${NOCOLOR}" == yes ]] \
-		&& testament_args+=( --colors:off )
+	if [[ "${NOCOLOR}" == true || "${NOCOLOR}" == yes ]] ; then
+		testament_args+=( --colors:off )
+	fi
 
-	local -a categories
-	readarray -t categories < <(find tests -mindepth 1 -maxdepth 1 -type d -printf "%P\n" | sort)
+	local -a categories=()
+	readarray -t categories < \
+		<(find tests -mindepth 1 -maxdepth 1 -type d -printf "%P\n" | sort)
 
 	# AdditionalCategories from "testament/categories.nim".
 	categories+=( debugger examples lib )
 
 	local test_return=0
 
-	local tcat
-	local checkpoint
+	local tcat=""
+	local checkpoint=""
 	for tcat in "${categories[@]}"; do
 		# Use checkpoints for less painful testing.
 		checkpoint="${T}/.testament-${tcat}"
 
-		[[ -f "${checkpoint}" ]] && continue
+		if [[ -f "${checkpoint}" ]] ; then
+			continue
+		fi
 
 		case "${tcat}" in
 			testdata )
@@ -143,9 +148,11 @@ src_test() {
 				;;
 
 			* )
-				einfo "Running tests in category '${tcat}'"
-				nonfatal edo ./bin/testament "${testament_args[@]}" \
-						 category "${tcat}" "${nimflags[@]}" \
+				einfo "Running tests in category '${tcat}'..."
+
+				nonfatal \
+					edo ./bin/testament "${testament_args[@]}" \
+					category "${tcat}" "${nimflags[@]}" \
 					|| test_return=1
 				;;
 		esac
@@ -153,8 +160,9 @@ src_test() {
 		touch "${checkpoint}" || die
 	done
 
-	[[ "${test_return}" -eq 1 ]] \
-		&& die "tests failed, please inspect the failed test categories above"
+	if [[ "${test_return}" -eq 1 ]] ; then
+		die "tests failed, please inspect the failed test categories above"
+	fi
 }
 
 src_install() {
@@ -164,19 +172,19 @@ src_install() {
 	dosym -r /usr/lib/nim/bin/nim /usr/bin/nim
 
 	# "./koch install" installs only "nim" binary but not the rest.
-	exeinto /usr/bin
-	local exe
+	local exe=""
 	while read -r exe ; do
 		einfo "Installing nim support tool: ${exe}"
+
+		exeinto /usr/bin
 		doexe "${exe}"
-	done < <(find ./bin -type f -not -iname nim)
+	done < \
+		 <(find ./bin -type f -not -iname nim)
 
-	newbashcomp tools/nim.bash-completion nim
 	newbashcomp dist/nimble/nimble.bash-completion nimble
-
-	insinto /usr/share/zsh/site-functions
-	newins tools/nim.zsh-completion _nim
-	newins dist/nimble/nimble.zsh-completion _nimble
+	newbashcomp tools/nim.bash-completion nim
+	newzshcomp dist/nimble/nimble.zsh-completion _nimble
+	newzshcomp tools/nim.zsh-completion _nim
 
 	# Install the @nim-rebuild set for Portage.
 	insinto /usr/share/portage/config/sets
