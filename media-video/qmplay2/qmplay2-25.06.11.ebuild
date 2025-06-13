@@ -14,7 +14,7 @@ if [[ ${PV} == *9999 ]]; then
 else
 	SRC_URI="https://github.com/zaps166/QMPlay2/releases/download/${PV}/QMPlay2-src-${PV}.tar.xz"
 	S="${WORKDIR}/QMPlay2-src-${PV}"
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="LGPL-3"
@@ -57,10 +57,9 @@ BDEPEND="
 
 src_prepare() {
 	# disable compress man pages
-	sed -r \
+	sed -i src/gui/CMakeLists.txt -r \
 		-e 's/if\(GZIP\)/if\(TRUE\)/' \
-		-e 's/(install.+QMPlay2\.1)\.gz/\1/' \
-		-i src/gui/CMakeLists.txt || die
+		-e 's/(install.+QMPlay2\.1)\.gz/\1/' || die
 
 	cmake_src_prepare
 }
