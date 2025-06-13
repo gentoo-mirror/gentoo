@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install postinst postrm preinst prepare
+DEPEND=acct-group/gkrellmd acct-user/gkrellmd dev-libs/glib:2 ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) lm-sensors? ( sys-apps/lm-sensors:= ) nls? ( virtual/libintl ) ntlm? ( net-libs/libntlm ) X? ( x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/pango ) x11-base/xorg-proto nls? ( sys-devel/gettext )
+DESCRIPTION=Single process stack of various system monitors
+EAPI=8
+HOMEPAGE=https://gkrellm.srcbox.net/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=flag-o-matic optfeature toolchain-funcs xdg
+IUSE=gnutls lm-sensors nls ntlm ssl X
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-3+
+RDEPEND=acct-group/gkrellmd acct-user/gkrellmd dev-libs/glib:2 ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) lm-sensors? ( sys-apps/lm-sensors:= ) nls? ( virtual/libintl ) ntlm? ( net-libs/libntlm ) X? ( x11-libs/gdk-pixbuf:2 x11-libs/gtk+:2 x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/pango )
+REQUIRED_USE=gnutls? ( ssl ) ntlm? ( X ) ssl? ( X )
+SLOT=2
+SRC_URI=https://gkrellm.srcbox.net/releases/gkrellm-2.4.0.tar.bz2
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	optfeature	538bce96e5589935b57e178e8635f301	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=86777170191443a47468194e0459b55a
