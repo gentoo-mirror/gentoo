@@ -1047,7 +1047,7 @@ app-admin/rcm 1.3.6: rc file (dotfile) management
 app-admin/redfishtool 1.1.8: Python package and command-line tool for accessing the Redfish API
 app-admin/restart-services 1.3-r1 1.4 1.5: Tool to manage OpenRC and systemd services that need to be restarted
 app-admin/rex 1.14.3 1.15.0-r1 1.16.0 9999: (R)?ex, the friendly automation framework
-app-admin/rsyslog 8.2412.0 8.2502.0-r1 8.2504.0: An enhanced multi-threaded syslogd with database support and more
+app-admin/rsyslog 8.2412.0 8.2502.0-r1 8.2504.0 8.2506.0: An enhanced multi-threaded syslogd with database support and more
 app-admin/ryzen_monitor 1.0.6_pre20220901: Monitor power information of Ryzen processors via the PM table of the SMU
 app-admin/ryzen_smu 0.1.5: Kernel driver for AMD Ryzen's System Management Unit
 app-admin/sagan 2.0.2: Sagan is a multi-threaded, real time system and event log monitoring system
@@ -1354,7 +1354,7 @@ app-containers/cosign 2.4.0 2.4.3 2.5.0: container signing utility
 app-containers/cri-o 1.31.2 1.31.4: OCI-based implementation of Kubernetes Container Runtime Interface
 app-containers/cri-tools 1.27.0 1.32.0 1.33.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.14.3 1.16 1.17 1.19.1 1.20: A fast and low-memory footprint OCI Container Runtime fully written in C
-app-containers/devcontainer 0.75.0 0.76.0: Reference implementation of the Development Containers specification
+app-containers/devcontainer 0.76.0 0.77.0: Reference implementation of the Development Containers specification
 app-containers/distrobox 1.8.1.2-r1 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1 3.1 3.2: System container image builder for LXC and incus
 app-containers/docker 28.0.1 28.0.4 28.1.1 28.2.2: The core functions you need to create Docker images and run Docker containers
@@ -1933,7 +1933,7 @@ app-emacs/company-quickhelp 2.3.0: Company documentation popups for completion c
 app-emacs/compat 30.0.2.0 30.1.0.0: Compatibility libraries for Emacs
 app-emacs/consult 2.3 2.4 2.5 9999: Consulting complete-read for GNU Emacs
 app-emacs/consult-flycheck 1.0: Consult integration for Flycheck
-app-emacs/corfu 2.1 2.2 9999: Completion Overlay Region FUnction
+app-emacs/corfu 2.1 2.2 2.3 9999: Completion Overlay Region FUnction
 app-emacs/counsel 0.14.2 0.15.0 0.15.1: Versions of common Emacs commands customized to make the best use of ivy
 app-emacs/crontab-mode 1.20: Mode for editing crontab files
 app-emacs/crux 0.4.0 0.5.0: Collection of Ridiculously Useful eXtensions for GNU Emacs
@@ -2071,7 +2071,7 @@ app-emacs/gnuserv 3.12.8-r8: Attach to an already running Emacs
 app-emacs/go-mode 1.6.0: An improved Go mode for emacs
 app-emacs/god-mode 2.18.0: Minor mode for God-like command entering in GNU Emacs
 app-emacs/google-c-style 20140929: Provides the google C/C++ coding style
-app-emacs/gptel 0.9.8 9999: Simple Large Language Model chat client for GNU Emacs
+app-emacs/gptel 0.9.8 0.9.8.5 9999: Simple Large Language Model chat client for GNU Emacs
 app-emacs/graphql 0.1.2: GraphQL utilities
 app-emacs/graphviz-dot-mode 0.4 0.4.20181118: Emacs mode for editing and previewing Graphviz dot graphs
 app-emacs/groovy-emacs-modes 2.1: Groovy major mode, grails minor mode, and a groovy inferior mode
@@ -2094,7 +2094,7 @@ app-emacs/icicles 2018.02.13.23733 2018.10.15.23738: Minibuffer input completion
 app-emacs/igrep 2.113: An improved interface to "grep" and "find"
 app-emacs/indent-bars 0.8.3: Fast, configurable indentation guide-bars for Emacs
 app-emacs/inf-clojure 3.2.1 3.3.0: Major mode for Clojure code
-app-emacs/inform-mode 1.6.2 2.0.0: A major mode for editing Inform programs
+app-emacs/inform-mode 2.0.0 2.0.1: A major mode for editing Inform programs
 app-emacs/initsplit 1.8_pre20160919: Split customizations into different files
 app-emacs/ivy 0.14.2 0.15.0 0.15.1: Generic completion mechanism for Emacs
 app-emacs/ivy-rich 0.1.7: More friendly interface for ivy
@@ -2145,7 +2145,7 @@ app-emacs/mldonkey 0.0.4b-r2: An Emacs Lisp interface to the MLDonkey core
 app-emacs/mmm-mode 0.5.11: Enables the user to edit different parts of a file in different major modes
 app-emacs/moccur-edit 2.16: An improved interface to color-moccur for editing
 app-emacs/mocker 0.5.0: Simple mocking framework for Emacs
-app-emacs/modus-themes 4.6.0 4.7.0 9999: Highly accessible themes for GNU Emacs
+app-emacs/modus-themes 4.7.0 4.8.0 9999: Highly accessible themes for GNU Emacs
 app-emacs/mpg123-el 1.61 1.65: Emacs front-end to mpg123 audio player and OggVorbis audio player
 app-emacs/mu-cite 8.1_p202011031127: Message citation utilities for emacsen
 app-emacs/multi-term 1.4: Manage multiple terminal buffers in Emacs
@@ -2170,7 +2170,7 @@ app-emacs/orderless 1.3 1.4: Completion style that matches multiple regexps in a
 app-emacs/org-appear 0.3.1: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.5 0.6: Contributed packages to Org
 app-emacs/org-mode 9.7.27 9.7.29 9.7.30 9999: An Emacs mode for notes and project planning
-app-emacs/org-modern 1.7 1.8 9999: Modern style for your GNU Emacs Org buffers
+app-emacs/org-modern 1.7 1.8 1.9 9999: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r3 2.3.0 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.6.0 1.7.0 9999: Static site generator using Emacs's org-mode
 app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mode (use UTF8 bullets)
@@ -2209,7 +2209,7 @@ app-emacs/protbuf 1.7-r1: Protect Emacs buffers from accidental killing
 app-emacs/psgml 1.4.1: A GNU Emacs Major Mode for editing SGML and XML coded documents
 app-emacs/puppet-mode 0.4: Emacs major mode for editing Puppet manifests
 app-emacs/pymacs 0.26-r6: A tool that allows both-side communication between Python and Emacs Lisp
-app-emacs/python-mode 6.3.0: An Emacs major mode for editing Python source
+app-emacs/python-mode 6.3.0 6.3.1: An Emacs major mode for editing Python source
 app-emacs/pyvenv 1.21: Python virtual environment interface for Emacs
 app-emacs/quack 0.48: Enhances Emacs support for Scheme
 app-emacs/queue 0.2: Queue data structure
@@ -2278,7 +2278,7 @@ app-emacs/template 3.3b: Use templates, decorate comments, auto-update buffers
 app-emacs/tempo-snippets 0.1.5: Visual insertion of tempo templates
 app-emacs/thinks 1.12: Insert text in a think bubble
 app-emacs/tp 0.6 0.7: Utilities to create transient menus for POSTing to an API for GNU Emacs
-app-emacs/transient 0.8.7 0.8.8 0.9.0 9999: Transient commands abstraction for GNU Emacs
+app-emacs/transient 0.8.7 0.8.8 0.9.0 0.9.2 9999: Transient commands abstraction for GNU Emacs
 app-emacs/treemacs 3.1_p20240229-r1 3.2: Tree style project file explorer
 app-emacs/treemacs-all-the-icons 3.1 3.2: GNU Emacs all-the-icons integration for treemacs
 app-emacs/treepy 0.1.2: Generic tree traversing tools for Emacs Lisp
@@ -2295,7 +2295,7 @@ app-emacs/undo-tree 0.8.2-r1: Undo trees and visualization
 app-emacs/uptimes 3.8: Track and display emacs session uptimes
 app-emacs/use-package 2.4.6: Declaration macro for simplifying your Emacs configuration
 app-emacs/uxntal-mode 0.3: GNU Emacs major mode for the uxntal assembly language
-app-emacs/vertico 2.0 2.1 2.2 9999: Vertical interactive completion
+app-emacs/vertico 2.1 2.2 2.3 9999: Vertical interactive completion
 app-emacs/vhdl-mode 3.39.3: VHDL-mode for Emacs
 app-emacs/visual-basic-mode 1.5: A mode for editing Visual Basic programs
 app-emacs/vm 8.2.0_beta-r1: The VM mail reader for Emacs
@@ -2978,7 +2978,7 @@ app-office/gnumeric 1.12.57-r1 1.12.59-r1: The GNOME Spreadsheet
 app-office/grisbi 2.0.5-r1 3.0.3-r1 3.0.4-r1: Grisbi is a personal accounting application for Linux
 app-office/homebank 5.9 5.9.1: Free, easy, personal accounting for everyone
 app-office/impressive 0.13.1 0.13.2: Stylish way of giving presentations with Python
-app-office/joplin-desktop 3.3.3 3.3.10 3.3.12: Secure note taking and to-do app with synchronization capabilities
+app-office/joplin-desktop 3.3.12 3.3.13: Secure note taking and to-do app with synchronization capabilities
 app-office/kmymoney 5.1.95: Personal finance manager based on KDE Frameworks
 app-office/kraft 2.0_pre20250419: Quotes and invoices manager for small enterprises
 app-office/ktimetracker 6.0.0_pre20250109: Todo management and time tracker
@@ -5138,7 +5138,7 @@ dev-lang/clips 6.40: Tool for building Expert Systems (native version)
 dev-lang/clipsjni 6.40-r1: Tool for building Expert Systems (Java version)
 dev-lang/cll1h 0.6-r1: C<<1 programming language system
 dev-lang/clojure 1.12.0: General-purpose programming language with an emphasis on functional programming
-dev-lang/closure-compiler-bin 20250402 20250407: JavaScript optimizing compiler
+dev-lang/closure-compiler-bin 20250407 20250528: JavaScript optimizing compiler
 dev-lang/coffee-script 2.7.0: A little language that compiles into javascript
 dev-lang/crystal 1.15.1-r1 1.16.2-r1 1.16.3: The Crystal Programming Language
 dev-lang/cue 0.7.0: open-source data validation language and inference engine
@@ -5204,7 +5204,7 @@ dev-lang/mujs 1.3.5 1.3.6: An embeddable JavaScript interpreter written in C
 dev-lang/nasm 2.16.03: groovy little assembler
 dev-lang/neko 2.4.0-r2: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
-dev-lang/nim 2.2.0 2.2.2: Compiled, garbage-collected systems programming language
+dev-lang/nim 2.2.0 2.2.2 2.2.4: Compiled, garbage-collected systems programming language
 dev-lang/nprolog 4.08 4.32 4.36 4.37: Interpreter and compiler to be compatible with Arity/Prolog32
 dev-lang/nqp 2025.01-r1 2025.05 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.09.0-r3 4.10.2-r3 4.11.2-r2 4.12.1 4.13.1 4.14.1 4.14.2 5.3.0-r1: Programming language supporting functional, imperative & object-oriented styles
@@ -11004,7 +11004,7 @@ dev-util/sysprof 3.48.0-r2 46.0-r2 47.2-r1: System-wide Linux Profiler
 dev-util/sysprof-capture 3.36.0-r1 3.48.0 46.0 47.2: Static library for sysprof capture data generation
 dev-util/sysprof-common 3.48.0 46.0 47.2: Static library for sysprof capture data generation
 dev-util/tbump 6.11.0: tbump helps you bump the version of your project easily
-dev-util/tea 0.9.2-r1: Command line tool to interact with Gitea server
+dev-util/tea 0.9.2-r1 0.10.0: Command line tool to interact with Gitea server
 dev-util/tinlink 1.0.0-r2: Tool to create very small elf binary from pure binary files
 dev-util/tkdiff 5.6 5.7: Graphical front end to the diff program
 dev-util/tmake 2.12-r2: Cross platform Makefile tool
@@ -15968,7 +15968,7 @@ sci-electronics/librepcb 1.2.0 1.3.0: Free EDA software to develop printed circu
 sci-electronics/magic 8.3.365: The VLSI design CAD tool
 sci-electronics/netgen 1.4.52: LVS tool (layout versus schematic comparison)
 sci-electronics/ngspice 40 43: The Next Generation Spice (Electronic Circuit Simulator)
-sci-electronics/nvc 1.16.0 1.16.1: NVC is a VHDL compiler and simulator
+sci-electronics/nvc 1.16.0 1.16.1 1.16.2: NVC is a VHDL compiler and simulator
 sci-electronics/pcb 4.2.2 4.3.0: GPL Electronic Design Automation: Printed Circuit Board editor
 sci-electronics/petrify 4.2-r1: Synthesize Petri nets into asynchronous circuits
 sci-electronics/puff 20100127-r1 20181104: microwave CAD software

@@ -1,12 +1,13 @@
-BDEPEND=>=app-emacs/compat-30.1.0.0 >=app-editors/emacs-27.1:* >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=app-emacs/compat-30.1.0.0 >=app-editors/emacs-27.1:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Modern style for your GNU Emacs Org buffers
 EAPI=8
 HOMEPAGE=https://github.com/minad/org-modern/
-INHERIT=elisp git-r3
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-PROPERTIES=live
 RDEPEND=>=app-emacs/compat-30.1.0.0 >=app-editors/emacs-27.1:*
 SLOT=0
-_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5	git-r3	875eb471682d3e1f18da124be97dcc81
+SRC_URI=https://github.com/minad/org-modern/archive/1.9.tar.gz -> org-modern-1.9.gh.tar.gz
+_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5
 _md5_=f5251f5174bd2e91ec58863155093ab6
