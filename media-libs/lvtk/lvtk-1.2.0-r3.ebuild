@@ -1,12 +1,12 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="threads(+)"
 
-inherit python-single-r1 waf-utils
+inherit dot-a python-any-r1 waf-utils
 
 WAF_VER=2.0.20
 
@@ -19,16 +19,21 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="debug doc examples +gtk2 +tools"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND="media-libs/lv2
+RDEPEND="
+	media-libs/lv2
 	dev-libs/boost
-	${PYTHON_DEPS}
-	gtk2? ( dev-cpp/gtkmm:2.4 )"
-DEPEND="${RDEPEND}
+	gtk2? ( dev-cpp/gtkmm:2.4 )
+"
+DEPEND="
+	${RDEPEND}
 	doc? ( app-text/doxygen
 		media-gfx/graphviz )
-	virtual/pkgconfig"
+"
+BDEPEND="
+	${PYTHON_DEPS}
+	virtual/pkgconfig
+"
 
 PATCHES=(
 	"${FILESDIR}/${P}-boost-system-underlinking.patch"
@@ -43,6 +48,8 @@ src_unpack() {
 }
 
 src_configure() {
+	lto-guarantee-fat
+
 	local mywafconfargs=(
 		"--docdir=${EPREFIX}/usr/share/doc/${PF}"
 		"--lv2dir=${EPREFIX}/usr/$(get_libdir)/lv2"
@@ -57,6 +64,8 @@ src_configure() {
 
 src_install() {
 	waf-utils_src_install
+
+	strip-lto-bytecode
 
 	# It does not respect docdir properly, reported upstream
 	if use doc; then

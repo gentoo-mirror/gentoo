@@ -4,7 +4,7 @@
 EAPI=8
 LUA_COMPAT=( lua5-{3,4} )
 
-inherit lua-single meson optfeature xdg
+inherit flag-o-matic lua-single meson optfeature xdg
 
 DESCRIPTION="A lightweight GTK image viewer forked from GQview"
 HOMEPAGE="https://www.geeqie.org"
@@ -17,12 +17,12 @@ SRC_URI="https://github.com/BestImageViewer/${PN}/releases/download/v${PV}/${P}.
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc x86"
-IUSE="debug djvu exif ffmpegthumbnailer heif jpeg jpeg2k jpegxl lcms lua map pdf raw spell tiff webp xmp zip"
+KEYWORDS="~amd64 ~arm64 ~ppc ~x86"
+IUSE="debug djvu exif ffmpegthumbnailer heif jpeg jpeg2k jpegxl lcms lua map pdf raw spell tiff webp X xmp zip"
 
 RDEPEND="gnome-extra/zenity
 	virtual/libintl
-	x11-libs/gtk+:3
+	x11-libs/gtk+:3[X?]
 	djvu? ( app-text/djvu )
 	exif? ( >=media-gfx/exiv2-0.17:=[xmp?] )
 	ffmpegthumbnailer? ( media-video/ffmpegthumbnailer )
@@ -49,7 +49,10 @@ BDEPEND="
 
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 
-PATCHES=( "${FILESDIR}"/${PN}-2.5-test-ancillary.patch )
+PATCHES=( "${FILESDIR}"/${PN}-2.5-test-ancillary.patch
+	"${FILESDIR}"/${P}-incorrect_init.patch
+	"${FILESDIR}"/${P}-start_thumbnail.patch
+	)
 
 pkg_setup() {
 	# Do not require setting LUA_SINGLE_TARGET if lua is not used
@@ -64,6 +67,10 @@ src_prepare() {
 }
 
 src_configure() {
+	# defang automagic dependencies
+	# Currently only needed for X11-specific workarounds.
+	use X || append-flags -DGENTOO_GTK_HIDE_X11
+
 	local emesonargs=(
 		-Dgq_helpdir="share/doc/${PF}"
 		-Dgq_htmldir="share/doc/${PF}/html"
@@ -85,6 +92,11 @@ src_configure() {
 		$(meson_feature zip archive)
 	)
 
+	# Bug: https://bugs.gentoo.org/957023
+	# https://github.com/BestImageViewer/geeqie/issues/1762
+	#
+	# Fixed in git master, remove for 2.7
+	filter-lto
 	meson_src_configure
 }
 
