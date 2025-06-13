@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20250306
+DEFINED_PHASES=configure install postinst postrm prepare
+DEPEND=>=dev-libs/glib-2.72.0 >=x11-libs/gtk+-3.24.0:3[wayland?,X?] >=xfce-base/libxfce4ui-4.15.1:=[gtk3(+)] >=xfce-base/libxfce4util-4.17.2:=
+DESCRIPTION=Extensions, widgets and framework library with session support for Xfce
+EAPI=8
+HOMEPAGE=https://docs.xfce.org/xfce/exo/start https://gitlab.xfce.org/xfce/exo/
+INHERIT=flag-o-matic libtool xdg-utils
+IUSE=wayland X
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris
+LICENSE=GPL-2+ LGPL-2.1+
+RDEPEND=>=dev-libs/glib-2.72.0 >=x11-libs/gtk+-3.24.0:3[wayland?,X?] >=xfce-base/libxfce4ui-4.15.1:=[gtk3(+)] >=xfce-base/libxfce4util-4.17.2:=
+SLOT=0
+SRC_URI=https://archive.xfce.org/src/xfce/exo/4.21/exo-4.21.0.tar.bz2
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	libtool	c81bd096be5f4c82f4e8f156ef112402	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_md5_=09c303f6c714c76e57ffa1404af0754f
