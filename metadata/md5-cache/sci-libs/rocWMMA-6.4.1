@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-cpp/gtest sci-libs/rocBLAS:0/6.4 ) dev-build/rocm-cmake app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-util/hip:0/6.4
+DESCRIPTION=library for accelerating mixed precision matrix multiply-accumulate operations
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/rocWMMA
+INHERIT=cmake rocm
+IUSE=+amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx940 +amdgpu_targets_gfx941 +amdgpu_targets_gfx942 +amdgpu_targets_gfx1100 +amdgpu_targets_gfx1101 +amdgpu_targets_gfx1102 +amdgpu_targets_gfx1200 +amdgpu_targets_gfx1201 test
+KEYWORDS=~amd64
+LICENSE=MIT
+REQUIRED_USE=|| ( amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx942 amdgpu_targets_gfx1100 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102 amdgpu_targets_gfx1200 amdgpu_targets_gfx1201 )
+RESTRICT=!test? ( test )
+SLOT=0/6.4
+SRC_URI=https://github.com/ROCm/rocWMMA/archive/rocm-6.4.1.tar.gz -> rocWMMA-6.4.1.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	90d8ee8393c5c815637fd3cb87828c9b	rocm	ceb8f84b6d9c14021b983faab573ef93
+_md5_=6527e8f91e47b5d25ec56b7b384f187b
