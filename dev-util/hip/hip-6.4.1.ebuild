@@ -7,7 +7,7 @@ DOCS_BUILDER="doxygen"
 DOCS_DEPEND="media-gfx/graphviz"
 ROCM_SKIP_GLOBALS=1
 
-LLVM_COMPAT=( 19 )
+LLVM_COMPAT=( 20 )
 
 inherit cmake docs flag-o-matic llvm-r1 rocm
 
@@ -24,7 +24,7 @@ SRC_URI="
 "
 S="${WORKDIR}/clr-rocm-${PV}/"
 TEST_S="${WORKDIR}/hip-tests-rocm-${TEST_PV}/catch"
-HIP_S="${WORKDIR}/HIP-rocm-${PV}"
+HIP_S="${WORKDIR}/hip-rocm-${PV}"
 
 LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
@@ -81,6 +81,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-6.2.4-libcxx.patch"
 	"${FILESDIR}/${PN}-6.3.0-no-isystem-usr-include.patch"
 	"${FILESDIR}/${PN}-6.3.0-clr-fix-libcxx.patch"
+	"${FILESDIR}/${PN}-6.4.1-no-glibcxx-assert.patch"
 )
 
 hip_test_wrapper() {
@@ -91,16 +92,6 @@ hip_test_wrapper() {
 }
 
 src_prepare() {
-	# NOTE We do this head stand to safe the patch size.
-	# NOTE Adjust when we drop 5.7.1
-	sed \
-		-e 's:kAmdgcnTargetTriple:AMDGCN_TARGET_TRIPLE:g' \
-		-i hipamd/src/hip_code_object.cpp || die
-	eapply "${FILESDIR}/${PN}-5.7.1-extend-isa-compatibility-check.patch"
-	sed \
-		-e 's:AMDGCN_TARGET_TRIPLE:kAmdgcnTargetTriple:g' \
-		-i hipamd/src/hip_code_object.cpp || die
-
 	pushd "${HIP_S}" >/dev/null || die
 	eapply "${FILESDIR}/${PN}-6.3.0-hip-fix-libcxx.patch"
 
@@ -112,9 +103,9 @@ src_prepare() {
 		-i "cmake/FindHIP.cmake" || die
 	popd >/dev/null || die
 
-	sed -e "s/ -Werror//g" -i "hipamd/src/CMakeLists.txt" || die
+	sed "s/ -Werror//g" -i "hipamd/src/CMakeLists.txt" || die
 
-	sed -i -e 's/cmake_minimum_required(VERSION 3.3)/cmake_minimum_required(VERSION 3.5)/' hipamd/src/hiprtc/cmake/hiprtc-config.cmake.in || die
+	sed "/cmake_minimum_required/ s/3\.3/3.5/" -i "hipamd/src/hiprtc/cmake/hiprtc-config.cmake.in" || die
 
 	cmake_src_prepare
 
