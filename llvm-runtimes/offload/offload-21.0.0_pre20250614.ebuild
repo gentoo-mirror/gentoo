@@ -4,15 +4,19 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{11..14} )
-inherit cmake flag-o-matic llvm.org python-any-r1 toolchain-funcs
+inherit cmake crossdev flag-o-matic llvm.org python-any-r1
+inherit toolchain-funcs
 
 DESCRIPTION="OpenMP offloading support"
 HOMEPAGE="https://openmp.llvm.org"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0/${LLVM_SOABI}"
-KEYWORDS="~amd64 ~arm64 ~ppc64"
-IUSE="+debug ompt test llvm_targets_AMDGPU llvm_targets_NVPTX"
+IUSE="+clang +debug ompt test llvm_targets_AMDGPU llvm_targets_NVPTX"
+REQUIRED_USE="
+	llvm_targets_AMDGPU? ( clang )
+	llvm_targets_NVPTX? ( clang )
+"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -31,6 +35,7 @@ DEPEND="
 BDEPEND="
 	dev-lang/perl
 	virtual/pkgconfig
+	clang? ( llvm-core/clang )
 	llvm_targets_AMDGPU? ( llvm-core/clang[llvm_targets_AMDGPU] )
 	llvm_targets_NVPTX? ( llvm-core/clang[llvm_targets_NVPTX] )
 	test? (
@@ -40,12 +45,8 @@ BDEPEND="
 		llvm-core/clang
 	)
 "
-# TODO: can it be fixed to compile with gcc?
-BDEPEND+="
-	llvm-core/clang
-"
 
-LLVM_COMPONENTS=( offload cmake runtimes/cmake libc/shared )
+LLVM_COMPONENTS=( offload cmake runtimes/cmake libc )
 LLVM_TEST_COMPONENTS=( openmp/cmake )
 llvm.org_set_globals
 
@@ -68,10 +69,16 @@ pkg_setup() {
 }
 
 src_configure() {
-	# TODO
-	local -x CC=${CHOST}-clang
-	local -x CXX=${CHOST}-clang++
-	strip-unsupported-flags
+	if use clang && ! is_crosspkg; then
+		# Only do this conditionally to allow overriding with
+		# e.g. CC=clang-13 in case of breakage
+		if ! tc-is-clang ; then
+			local -x CC=${CHOST}-clang
+			local -x CXX=${CHOST}-clang++
+		fi
+
+		strip-unsupported-flags
+	fi
 
 	# LLVM_ENABLE_ASSERTIONS=NO does not guarantee this for us, #614844
 	use debug || local -x CPPFLAGS="${CPPFLAGS} -DNDEBUG"
@@ -97,6 +104,7 @@ src_configure() {
 		-DLLVM_ROOT="${ESYSROOT}/usr/lib/llvm/${LLVM_MAJOR}"
 
 		-DOFFLOAD_LIBDIR_SUFFIX="${libdir#lib}"
+		-DOFFLOAD_INCLUDE_TESTS=$(usex test)
 		-DLIBOMPTARGET_PLUGINS_TO_BUILD="${plugins}"
 		-DLIBOMPTARGET_OMPT_SUPPORT="$(usex ompt)"
 		-DLIBOMPTARGET_BUILD_DEVICERTL_BCLIB="${build_devicertl}"
@@ -106,6 +114,8 @@ src_configure() {
 
 		-DFFI_INCLUDE_DIR="${ffi_cflags#-I}"
 		-DFFI_LIBRARY_DIR="${ffi_ldflags#-L}"
+		# force using shared libffi
+		-DFFI_STATIC_LIBRARIES=NO
 	)
 
 	[[ ! ${LLVM_ALLOW_GPU_TESTING} ]] && mycmakeargs+=(
@@ -125,11 +135,6 @@ src_configure() {
 	)
 
 	cmake_src_configure
-
-	if [[ ${build_devicertl} == FALSE ]]; then
-		# clang requires libomptarget.devicertl.a, but it can be empty
-		> "${BUILD_DIR}"/libomptarget.devicertl.a || die
-	fi
 }
 
 src_test() {
@@ -137,13 +142,4 @@ src_test() {
 	local -x LIT_PRESERVES_TMP=1
 
 	cmake_build check-offload
-}
-
-src_install() {
-	cmake_src_install
-
-	if [[ ! -f ${ED}/usr/$(get_libdir)/libomptarget.devicertl.a ]]
-	then
-		dolib.a "${BUILD_DIR}"/libomptarget.devicertl.a
-	fi
 }
