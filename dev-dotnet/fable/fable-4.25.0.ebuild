@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DOTNET_PKG_COMPAT="8.0"
+DOTNET_PKG_COMPAT="9.0"
 NUGETS="
 altcover@5.3.675
 blackfox.commandline@1.0.0
@@ -18,13 +18,20 @@ fable.browser.event@1.4.4
 fable.browser.event@1.4.5
 fable.browser.gamepad@1.0.3
 fable.browser.webstorage@1.0.4
+fable.core@3.0.0
+fable.core@3.1.2
+fable.core@3.1.5
 fable.core@3.1.6
+fable.core@3.2.7
+fable.core@3.2.8
 fable.core@4.2.0
 fable.fluentui@0.7.0
 fable.jester@0.33.0
 fable.jsonprovider@1.1.1
 fable.node@1.0.2
 fable.promise@2.2.2
+fable.react@7.0.1
+fable.react@7.4.0
 fable.react@8.0.1
 fable.reacttestinglibrary@0.33.0
 fake.core.context@6.1.0
@@ -34,35 +41,46 @@ fake.core.string@6.1.0
 fake.core.trace@6.1.0
 fake.io.filesystem@6.1.0
 feliz.compilerplugins@2.0.0-prerelease-002
+feliz@1.47.0
 feliz@2.0.0-prerelease-002
 fsharp.analyzers.build@0.3.0
 fsharp.analyzers.sdk@0.27.0
 fsharp.compiler.service@43.8.400
+fsharp.core@4.2.3
+fsharp.core@4.3.4
 fsharp.core@4.7.0
+fsharp.core@4.7.1
+fsharp.core@4.7.2
+fsharp.core@6.0.1
 fsharp.core@6.0.2
 fsharp.core@7.0.200
-fsharp.core@8.0.102
+fsharp.core@7.0.400
+fsharp.core@8.0.301
 fsharp.core@8.0.400
+fsharp.core@9.0.100
 fsharp.data.adaptive@1.2.14
 fsharp.systemtextjson@1.2.42
 fsharp.umx@1.1.0
 g-research.fsharp.analyzers@0.8.0
 ionide.analyzers@0.8.0
 mcmaster.netcore.plugins@1.4.0
+microsoft.build.framework@16.4.0
 microsoft.build.framework@16.9.0
+microsoft.build.tasks.core@16.4.0
 microsoft.build.tasks.core@16.9.0
 microsoft.build.tasks.git@8.0.0
+microsoft.build.utilities.core@16.4.0
 microsoft.build.utilities.core@16.9.0
+microsoft.build@15.3.409
+microsoft.build@16.4.0
 microsoft.build@16.9.0
 microsoft.codecoverage@17.10.0
 microsoft.csharp@4.0.1
 microsoft.dotnet.platformabstractions@2.1.0
 microsoft.dotnet.platformabstractions@3.1.6
-microsoft.extensions.configuration.abstractions@2.1.1
 microsoft.extensions.configuration.abstractions@8.0.0
 microsoft.extensions.configuration.binder@2.1.1
 microsoft.extensions.configuration.binder@8.0.0
-microsoft.extensions.configuration@2.1.1
 microsoft.extensions.configuration@8.0.0
 microsoft.extensions.dependencyinjection.abstractions@2.1.1
 microsoft.extensions.dependencyinjection.abstractions@8.0.0
@@ -79,7 +97,6 @@ microsoft.extensions.logging@8.0.0
 microsoft.extensions.options.configurationextensions@8.0.0
 microsoft.extensions.options@2.1.1
 microsoft.extensions.options@8.0.0
-microsoft.extensions.primitives@2.1.1
 microsoft.extensions.primitives@8.0.0
 microsoft.net.test.sdk@17.10.0
 microsoft.netcore.platforms@1.0.1
@@ -150,6 +167,7 @@ system.collections.immutable@8.0.0
 system.collections@4.0.11
 system.collections@4.3.0
 system.diagnostics.debug@4.0.11
+system.diagnostics.debug@4.3.0
 system.diagnostics.diagnosticsource@8.0.0
 system.diagnostics.tools@4.0.1
 system.diagnostics.tracing@4.3.0
@@ -158,12 +176,12 @@ system.dynamic.runtime@4.0.11
 system.globalization@4.0.11
 system.globalization@4.3.0
 system.io.filesystem.primitives@4.0.1
+system.io.filesystem.primitives@4.3.0
 system.io.filesystem@4.0.1
 system.io@4.1.0
 system.io@4.3.0
 system.linq.expressions@4.1.0
 system.linq@4.1.0
-system.memory@4.5.1
 system.memory@4.5.4
 system.memory@4.5.5
 system.objectmodel@4.0.12
@@ -178,13 +196,13 @@ system.reflection.metadata@1.6.0
 system.reflection.metadata@8.0.0
 system.reflection.primitives@4.0.1
 system.reflection.primitives@4.3.0
+system.reflection.typeextensions@4.1.0
 system.reflection.typeextensions@4.7.0
 system.reflection@4.1.0
 system.reflection@4.3.0
 system.resources.extensions@4.6.0
 system.resources.resourcemanager@4.0.1
 system.resources.resourcemanager@4.3.0
-system.runtime.compilerservices.unsafe@4.5.1
 system.runtime.compilerservices.unsafe@5.0.0
 system.runtime.compilerservices.unsafe@6.0.0
 system.runtime.extensions@4.1.0
@@ -245,13 +263,13 @@ HOMEPAGE="http://fable.io/
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/fable-compiler/${PN}.git"
+	EGIT_REPO_URI="https://github.com/fable-compiler/${PN}"
 else
 	SRC_URI="https://github.com/fable-compiler/${PN}/archive/refs/tags/${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${P^}"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -283,7 +301,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	rm Fable.Standalone.sln || die
+	rm ./Fable.Standalone.sln || die
 
 	if use debug ; then
 		DOTNET_PKG_BAD_PROJECTS+=(
