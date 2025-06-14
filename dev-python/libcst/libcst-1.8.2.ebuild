@@ -13,42 +13,35 @@ CRATES="
 	annotate-snippets@0.11.5
 	anstyle@1.0.10
 	autocfg@1.1.0
-	bitflags@2.4.0
 	bumpalo@3.12.0
 	cast@0.3.0
-	cc@1.0.83
 	cfg-if@1.0.0
 	ciborium-io@0.2.0
 	ciborium-ll@0.2.0
 	ciborium@0.2.0
-	clap@4.4.0
-	clap_builder@4.4.0
-	clap_lex@0.5.1
+	clap@4.5.38
+	clap_builder@4.5.38
+	clap_lex@0.7.4
 	criterion-plot@0.5.0
-	criterion@0.5.1
+	criterion@0.6.0
 	crossbeam-deque@0.8.1
 	crossbeam-epoch@0.9.9
 	crossbeam-utils@0.8.10
 	difference@2.0.0
 	either@1.6.1
 	equivalent@1.0.1
-	errno-dragonfly@0.1.2
-	errno@0.3.2
 	glob@0.3.0
 	half@1.8.2
 	hashbrown@0.14.5
 	heck@0.5.0
-	hermit-abi@0.3.2
 	indexmap@2.4.0
 	indoc@2.0.4
-	is-terminal@0.4.9
 	itertools@0.10.5
 	itertools@0.13.0
+	itertools@0.14.0
 	itoa@1.0.2
-	js-sys@0.3.58
-	lazy_static@1.4.0
+	js-sys@0.3.77
 	libc@0.2.149
-	linux-raw-sys@0.4.10
 	log@0.4.17
 	memchr@2.7.4
 	memoffset@0.6.5
@@ -60,9 +53,9 @@ CRATES="
 	peg-macros@0.8.5
 	peg-runtime@0.8.5
 	peg@0.8.5
-	plotters-backend@0.3.2
-	plotters-svg@0.3.1
-	plotters@0.3.1
+	plotters-backend@0.3.7
+	plotters-svg@0.3.7
+	plotters@0.3.7
 	portable-atomic@1.4.3
 	proc-macro2@1.0.95
 	pyo3-build-config@0.25.0
@@ -76,7 +69,7 @@ CRATES="
 	regex-automata@0.4.9
 	regex-syntax@0.8.5
 	regex@1.11.1
-	rustix@0.38.19
+	rustversion@1.0.21
 	ryu@1.0.10
 	same-file@1.0.6
 	scopeguard@1.1.0
@@ -84,7 +77,6 @@ CRATES="
 	serde_derive@1.0.208
 	serde_json@1.0.125
 	serde_spanned@0.6.7
-	syn@1.0.109
 	syn@2.0.101
 	target-lexicon@0.13.2
 	target-triple@0.1.4
@@ -96,29 +88,20 @@ CRATES="
 	toml_datetime@0.6.8
 	toml_edit@0.22.20
 	trybuild@1.0.105
-	unicode-ident@1.0.1
+	unicode-ident@1.0.18
 	unicode-width@0.2.0
 	unindent@0.2.3
 	walkdir@2.3.2
-	wasm-bindgen-backend@0.2.81
-	wasm-bindgen-macro-support@0.2.81
-	wasm-bindgen-macro@0.2.81
-	wasm-bindgen-shared@0.2.81
-	wasm-bindgen@0.2.81
-	web-sys@0.3.58
+	wasm-bindgen-backend@0.2.100
+	wasm-bindgen-macro-support@0.2.100
+	wasm-bindgen-macro@0.2.100
+	wasm-bindgen-shared@0.2.100
+	wasm-bindgen@0.2.100
+	web-sys@0.3.77
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-util@0.1.5
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
-	windows-sys@0.48.0
-	windows-targets@0.48.5
-	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_msvc@0.48.5
-	windows_i686_gnu@0.48.5
-	windows_i686_msvc@0.48.5
-	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_msvc@0.48.5
 	winnow@0.6.18
 "
 
@@ -135,7 +118,7 @@ SRC_URI+="
 
 LICENSE="MIT Apache-2.0 PSF-2"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT"
+LICENSE+=" Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64 ~riscv"
 
