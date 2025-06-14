@@ -1,0 +1,17 @@
+BDEPEND=test? ( sys-fs/cryptsetup sys-fs/btrfs-progs sys-fs/e2fsprogs sys-fs/f2fs-tools sys-fs/xfsprogs sys-fs/squashfs-tools dev-python/zstandard amd64? ( app-emulation/qemu[qemu_softmmu_targets_x86_64] ) arm64? ( app-emulation/qemu[qemu_softmmu_targets_aarch64] ) ) test? ( app-misc/pax-utils sys-devel/bc >=dev-python/zenlib-3.0.2[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/pycpio-1.5.2[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+DEFINED_PHASES=compile configure install postinst prepare test
+DESCRIPTION=Python based POSIX initramfs generator with TOML definitions
+EAPI=8
+HOMEPAGE=https://github.com/desultory/ugrd
+INHERIT=distutils-r1 optfeature shell-completion
+IUSE=test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-2
+PROPERTIES=test_privileged
+RDEPEND=app-misc/pax-utils sys-devel/bc >=dev-python/zenlib-3.0.2[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/pycpio-1.5.2[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/desultory/ugrd/archive/refs/tags/2.0.0.tar.gz -> ugrd-2.0.0.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b043191f3a82642545249acea7318e03	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	d75163bd34f1e2f95ecea7530b0a25bf	optfeature	538bce96e5589935b57e178e8635f301	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16
+_md5_=286b1093c936eccd732a0647cd3a271f
