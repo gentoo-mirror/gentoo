@@ -13,10 +13,10 @@ SRC_URI="https://www.surina.net/${MY_PN}/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_PN}"
 
 LICENSE="LGPL-2.1"
-# subslot = libSoundTouch.so soname
-SLOT="0/1"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos"
-IUSE="cpu_flags_x86_sse openmp static-libs"
+SLOT="0/1" # subslot is libSoundTouch.so soname
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+IUSE="openmp static-libs"
+IUSE+=" cpu_flags_arm_neon cpu_flags_x86_sse"
 
 BDEPEND="virtual/pkgconfig"
 
@@ -32,9 +32,7 @@ src_prepare() {
 	default
 	sed -i "s:^\(dist_doc_DATA=\)COPYING.TXT :\1:" Makefile.am || die
 
-	if tc-is-clang && use openmp ; then
-		append-libs omp
-	fi
+	tc-is-clang && use openmp && append-libs omp
 
 	eautoreconf
 }
@@ -42,7 +40,7 @@ src_prepare() {
 multilib_src_configure() {
 	local myeconfargs=(
 		--enable-shared
-		--disable-integer-samples
+		$(use_enable cpu_flags_arm_neon neon-optimizations)
 		$(use_enable cpu_flags_x86_sse x86-optimizations)
 		$(use_enable openmp)
 		$(use_enable static-libs static)
@@ -59,5 +57,5 @@ multilib_src_install() {
 }
 
 multilib_src_install_all() {
-	find "${ED}" -name '*.la' -delete || die
+	find "${ED}" -type f -name '*.la' -delete || die
 }
