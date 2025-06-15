@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202506-13">
+    <title>Konsole: Code execution</title>
+    <synopsis>An input sanitization flaw in Konsole might allow remote attackers to execute commands via a malicious URL</synopsis>
+    <product type="ebuild">konsole</product>
+    <announced>2025-06-15</announced>
+    <revised count="1">2025-06-15</revised>
+    <bug>957792</bug>
+    <access>remote</access>
+    <affected>
+        <package name="kde-apps/konsole" auto="yes" arch="*">
+            <unaffected range="ge">24.12.3-r1</unaffected>
+            <vulnerable range="lt">24.12.3-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Konsole is KDE&#39;s terminal emulator.</p>
+    </background>
+    <description>
+        <p>Konsole supports loading URLs from the scheme handlers such as telnet://URL. This can be executed regardless of whether the telnet binary is available. It would fallback to bash in that case and execute arbitrary code.</p>
+    </description>
+    <impact type="high">
+        <p>Clicking a malicious URL in a browser may lead to arbitrary code execution. Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Konsole users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=kde-apps/konsole-24.12.3-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-49091">CVE-2025-49091</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-06-15T06:28:01.634408Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2025-06-15T06:28:01.639044Z">graaff</metadata>
+</glsa>
