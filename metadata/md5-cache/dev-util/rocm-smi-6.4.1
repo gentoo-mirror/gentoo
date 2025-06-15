@@ -1,9 +1,9 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
-DEFINED_PHASES=compile configure install prepare test
+DEFINED_PHASES=compile configure install postinst prepare setup test
 DESCRIPTION=ROCm System Management Interface Library
 EAPI=8
 HOMEPAGE=https://github.com/ROCm/rocm_smi_lib
-INHERIT=cmake python-r1
+INHERIT=cmake linux-info python-r1
 IUSE=python_targets_python3_13t python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
 KEYWORDS=~amd64
 LICENSE=MIT NCSA-AMD
@@ -11,5 +11,5 @@ RDEPEND=python_targets_python3_13t? ( dev-lang/python:3.13t ) python_targets_pyt
 REQUIRED_USE=|| ( python_targets_python3_13t python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
 SLOT=0/6.4
 SRC_URI=https://github.com/ROCm/rocm_smi_lib/archive/rocm-6.4.1.tar.gz -> rocm-smi-6.4.1.tar.gz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	90d8ee8393c5c815637fd3cb87828c9b	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	b043191f3a82642545249acea7318e03	python-r1	0e15b2ab9cfc87d7474678201d6bca38
-_md5_=336d6e546b1a5a03868f396b3222a445
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	90d8ee8393c5c815637fd3cb87828c9b	linux-info	efd923656513c879204fec6638eadee5	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	b043191f3a82642545249acea7318e03	python-r1	0e15b2ab9cfc87d7474678201d6bca38
+_md5_=cf2609e1a11831b83912935c154be0ac
