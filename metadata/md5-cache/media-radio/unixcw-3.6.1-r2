@@ -4,7 +4,7 @@ DEPEND=ncurses? ( sys-libs/ncurses:= ) qt6? ( dev-qt/qtbase:6[gui,widgets] ) als
 DESCRIPTION=Collection of programs that fit together to form a morse code tutor program
 EAPI=8
 HOMEPAGE=https://unixcw.sourceforge.net
-INHERIT=autotools
+INHERIT=autotools flag-o-matic
 IUSE=alsa ncurses pulseaudio suid test qt6
 KEYWORDS=~alpha amd64 ppc x86
 LICENSE=GPL-2+
@@ -12,5 +12,5 @@ RDEPEND=ncurses? ( sys-libs/ncurses:= ) qt6? ( dev-qt/qtbase:6[gui,widgets] ) al
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/unixcw/unixcw-3.6.1.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=850935137937f88154ef730bd8bcd005
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
+_md5_=e3ceac241932792c285caf4dae839441
