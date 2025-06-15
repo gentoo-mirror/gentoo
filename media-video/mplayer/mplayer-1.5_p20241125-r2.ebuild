@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit edo toolchain-funcs flag-o-matic
+inherit edo toolchain-funcs ffmpeg-compat flag-o-matic
 
 if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://git.ffmpeg.org/ffmpeg.git"
@@ -36,12 +36,15 @@ SRC_URI="
 	!truetype? ( ${FONT_URI} )
 "
 
-IUSE="cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_fma3 cpu_flags_x86_fma4"
+IUSE="cpu_flags_x86_avx cpu_flags_x86_avx2"
+IUSE+=" cpu_flags_x86_fma3 cpu_flags_x86_fma4"
 IUSE+=" cpu_flags_x86_mmx cpu_flags_x86_mmxext"
 IUSE+=" cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_ssse3 cpu_flags_x86_sse4_1"
 IUSE+=" cpu_flags_x86_sse4_2 cpu_flags_x86_xop"
 IUSE+=" cpu_flags_x86_3dnow cpu_flags_x86_3dnowext"
 
+IUSE+=" cpu_flags_arm_thumb cpu_flags_arm_neon cpu_flags_arm_vfp cpu_flags_arm_vfpv3"
+IUSE+=" cpu_flags_arm_iwmmxt"
 IUSE+=" cpu_flags_ppc_altivec"
 
 IUSE+=" a52 aalib +alsa aqua bidi bl bluray"
@@ -72,7 +75,7 @@ X_RDEPS="
 #   https://sourceforge.net/p/giflib/bugs/132/
 RDEPEND="
 	app-arch/bzip2
-	>=media-video/ffmpeg-4.0:=[vdpau?]
+	media-video/ffmpeg-compat:6=[vdpau?]
 	sys-libs/ncurses:=
 	sys-libs/zlib
 	a52? ( media-libs/a52dec )
@@ -121,7 +124,7 @@ RDEPEND="
 	opengl? ( virtual/opengl )
 	png? ( media-libs/libpng:= )
 	pnm? ( media-libs/netpbm )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 	rar? (
 		|| (
 			app-arch/unrar
@@ -132,7 +135,7 @@ RDEPEND="
 	samba? ( net-fs/samba )
 	sdl? ( media-libs/libsdl )
 	speex? ( media-libs/speex )
-	theora? ( media-libs/libtheora[encode?] )
+	theora? ( media-libs/libtheora:=[encode?] )
 	tremor? ( media-libs/tremor )
 	truetype? ( ${FONT_RDEPS} )
 	vdpau? ( x11-libs/libvdpau )
@@ -150,7 +153,7 @@ DEPEND="
 	xinerama? ( x11-base/xorg-proto )
 	xscreensaver? ( x11-base/xorg-proto )
 "
-ASM_DEP="dev-lang/yasm"
+ASM_DEP="dev-lang/nasm"
 BDEPEND="
 	virtual/pkgconfig
 	amd64? ( ${ASM_DEP} )
@@ -188,8 +191,17 @@ REQUIRED_USE="
 	vidix? ( X )
 	xinerama? ( X )
 	xscreensaver? ( X )
-	xv? ( X )"
+	xv? ( X )
+"
 RESTRICT="faac? ( bindist )"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.5_p20241125-c99.patch
+)
+
+QA_CONFIG_IMPL_DECL_SKIP=(
+	_aligned_malloc
+)
 
 pkg_setup() {
 	if [[ ${PV} == *9999* ]]; then
@@ -263,6 +275,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# TODO: fix with >=ffmpeg-7 then drop compat (bug #948254)
+	ffmpeg_compat_setup 6
+
 	# undefined reference to `sse_int32_map_factor' etc
 	# https://bugs.gentoo.org/650458
 	# https://trac.mplayerhq.hu/ticket/2408
@@ -273,7 +288,7 @@ src_configure() {
 
 	# Set LINGUAS
 	[[ -n ${LINGUAS} ]] && LINGUAS="${LINGUAS/da/dk}"
-	[[ -n ${LINGUAS} ]] && LINGUAS="${LINGUAS/zh/zh_CN}" #482968
+	[[ -n ${LINGUAS} ]] && LINGUAS="${LINGUAS/zh/zh_CN}" # bug #482968
 
 	# mplayer ebuild uses "use foo || --disable-foo" to forcibly disable
 	# compilation in almost every situation. The reason for this is
@@ -297,7 +312,6 @@ src_configure() {
 		--disable-libnut
 		--disable-libopus
 		--disable-svga --disable-svgalib_helper
-		--disable-xvmc
 		$(use_enable network networking)
 		$(use_enable joystick)
 	)
@@ -466,14 +480,21 @@ src_configure() {
 	# Platform specific flags, hardcoded on amd64 (see below)
 	use cpudetection && myconf+=( --enable-runtime-cpudetection )
 
-	uses="3dnow 3dnowext avx avx2 fma3 fma4 mmx mmxext sse sse2 sse3 ssse3 xop"
-	for i in ${uses}; do
+	local x86_uses="3dnow 3dnowext avx avx2 fma3 fma4 mmx mmxext sse sse2 sse3 ssse3 xop"
+	for i in ${x86_uses}; do
 		myconf+=( $(use_enable cpu_flags_x86_${i} ${i}) )
 	done
-	myconf+=( $(use_enable cpu_flags_x86_sse4_1 sse4) )
-	myconf+=( $(use_enable cpu_flags_x86_sse4_2 sse42) )
+	myconf+=(
+		$(use_enable cpu_flags_x86_sse4_1 sse4)
+		$(use_enable cpu_flags_x86_sse4_2 sse42)
+	)
 
 	myconf+=(
+		$(use_enable cpu_flags_arm_iwmmxt iwmmxt)
+		$(use_enable cpu_flags_arm_thumb thumb)
+		$(use_enable cpu_flags_arm_neon neon)
+		$(use_enable cpu_flags_arm_vfp armvfp)
+		$(use_enable cpu_flags_arm_vfpv3 vfpv3)
 		$(use_enable cpu_flags_ppc_altivec altivec)
 		$(use_enable shm)
 	)
@@ -608,7 +629,7 @@ src_install() {
 		_EOF_
 	fi
 
-	# bug 256203
+	# bug #256203
 	if use rar; then
 		cat >> "${ED}/etc/mplayer/mplayer.conf" <<- _EOF_
 		unrarexec=${EPREFIX}/usr/bin/unrar
