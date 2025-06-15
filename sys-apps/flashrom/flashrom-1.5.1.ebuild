@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -97,20 +97,6 @@ DEPEND="${COMMON}
 BDEPEND="test? ( dev-util/cmocka )"
 
 DOCS=( README.rst doc/ )
-
-src_prepare() {
-	default
-	if use elibc_musl ; then
-		# skip failing test #908539
-		sed -i -e 's/-DCONFIG_LINUX_MTD=1/-UCONFIG_LINUX_MTD/' \
-			meson.build || die
-	fi
-
-	# enable warnings
-	sed -i \
-		-e 's:^warning_flags = \[:warning_flags = \[ '"'-Wall'"' \]\nno = \[:' \
-		meson.build || die
-}
 
 src_configure() {
 	local programmers="$(printf '%s,' $(for flag in ${IUSE_PROGRAMMERS//+/}; do usev ${flag}; done))"
