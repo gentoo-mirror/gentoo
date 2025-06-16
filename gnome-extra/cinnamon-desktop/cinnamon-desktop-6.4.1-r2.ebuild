@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit meson flag-o-matic gnome2-utils python-any-r1
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/linuxmint/cinnamon-desktop/archive/${PV}.tar.gz -> $
 
 LICENSE="GPL-1 GPL-2+ LGPL-2+ LGPL-2.1+ MIT"
 SLOT="0/4" # subslot = libcinnamon-desktop soname version
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="wayland"
 
 RDEPEND="
@@ -49,6 +49,10 @@ PATCHES=(
 	# Remove dead config option to prevent junk files from being installed
 	# https://github.com/linuxmint/cinnamon-desktop/pull/249
 	"${FILESDIR}/${PN}-6.4.0-remove-pnp_ids-option.patch"
+
+	# Fix GVC Mixer Crash
+	# https://github.com/linuxmint/cinnamon-desktop/pull/254
+	"${FILESDIR}/${PN}-6.4.0-fix-gvc-mixer-crash.patch"
 )
 
 src_prepare() {
