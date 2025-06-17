@@ -13,7 +13,7 @@ S="${WORKDIR}/${PN}-src-${PV}"
 LICENSE="GPL-2+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-IUSE="+client hidpi master +odalaunch portmidi server upnp"
+IUSE="+client master +odalaunch portmidi server upnp"
 REQUIRED_USE="|| ( client master server )"
 
 # protobuf is still bundled. Unfortunately an old version is required for C++98
@@ -22,39 +22,44 @@ REQUIRED_USE="|| ( client master server )"
 
 RDEPEND="
 	client? (
+		dev-libs/jsoncpp:=
 		media-libs/libpng:0=
 		media-libs/libsdl2[joystick,sound,video]
 		media-libs/sdl2-mixer
 		net-misc/curl
+		>=x11-libs/fltk-1.4.3-r1:1=
 		x11-libs/libX11
-		!hidpi? ( x11-libs/fltk:1= )
 		portmidi? ( media-libs/portmidi )
 	)
-	odalaunch? ( x11-libs/wxGTK:${WX_GTK_VER}= )
+	odalaunch? (
+		x11-libs/wxGTK:${WX_GTK_VER}=
+	)
 	server? (
 		dev-libs/jsoncpp:=
+		sys-libs/zlib
 		upnp? ( net-libs/miniupnpc:= )
-	)"
+	)
+"
 DEPEND="${RDEPEND}"
 BDEPEND="games-util/deutex"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-10.3.0-unbundle-fltk.patch
-	"${FILESDIR}"/${P}-odalaunch-sorting-crash.patch
+	"${FILESDIR}"/${PN}-11.0.0-unbundle-fltk.patch
 )
 
 src_prepare() {
-	rm -r libraries/miniupnp || die
-	hprefixify common/d_main.cpp
+	# All this is unneeded and includes old CMake declarations.
+	rm -r libraries/{curl,fltk,jsoncpp,libpng,miniupnp,portmidi,protobuf/{examples,third_party},zlib}/ || die
 
 	cmake_src_prepare
+	hprefixify common/d_main.cpp
 }
 
 src_configure() {
 	use odalaunch && setup-wxwidgets
 
 	local mycmakeargs=(
-		-DUSE_INTERNAL_FLTK=$(usex hidpi)
+		-DUSE_INTERNAL_FLTK=0
 		-DUSE_INTERNAL_JSONCPP=0
 		-DUSE_INTERNAL_LIBS=0
 		-DUSE_INTERNAL_MINIUPNP=0
