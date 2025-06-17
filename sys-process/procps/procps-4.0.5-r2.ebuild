@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools flag-o-matic multilib-minimal
+inherit autotools flag-o-matic multilib-minimal toolchain-funcs
 
 DESCRIPTION="Standard informational utilities and process-handling tools"
 HOMEPAGE="https://gitlab.com/procps-ng/procps"
@@ -14,13 +14,14 @@ S="${WORKDIR}"/${PN}-ng-${PV}
 
 # See bug #913210
 LICENSE="GPL-2+ LGPL-2+ LGPL-2.1+"
-SLOT="0/0-ng"
+SLOT="0/1-ng"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="elogind +kill modern-top +ncurses nls selinux static-libs skill systemd test unicode"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	elogind? ( sys-auth/elogind )
+	elibc_musl? ( sys-libs/error-standalone )
 	ncurses? ( >=sys-libs/ncurses-5.7-r7:=[unicode(+)?] )
 	selinux? ( sys-libs/libselinux[${MULTILIB_USEDEP}] )
 	systemd? ( sys-apps/systemd[${MULTILIB_USEDEP}] )
@@ -37,6 +38,7 @@ RDEPEND="
 "
 BDEPEND="
 	elogind? ( virtual/pkgconfig )
+	elibc_musl? ( virtual/pkgconfig )
 	ncurses? ( virtual/pkgconfig )
 	systemd? ( virtual/pkgconfig )
 	test? ( dev-util/dejagnu )
@@ -49,12 +51,15 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-4.0.4-xfail-pmap-test.patch
 	"${FILESDIR}"/${PN}-4.0.5-sysctl-manpage.patch # bug #565304
 	"${FILESDIR}"/${PN}-4.0.5-fix-tests-multilib.patch
+	"${FILESDIR}"/${PN}-4.0.5-top-legacy-config-vuln.patch # bug #958286
+	"${FILESDIR}"/${PN}-4.0.5-macos.patch
+	"${FILESDIR}"/${PN}-4.0.5-pgrep-old-linux-headers.patch # bug #911375
 )
 
 src_prepare() {
 	default
 
-	# Only needed for fix-tests-multilib.patch
+	# Only needed for fix-tests-multilib.patch and pgrep-old-linux-headers.patch
 	eautoreconf
 }
 
@@ -62,6 +67,12 @@ multilib_src_configure() {
 	# http://www.freelists.org/post/procps/PATCH-enable-transparent-large-file-support
 	# bug #471102
 	append-lfs-flags
+
+	# Workaround for bug #947680, can be dropped w/ >4.0.5
+	if use elibc_musl ; then
+		append-cflags "$($(tc-getPKG_CONFIG) --cflags error-standalone)"
+		append-libs "$($(tc-getPKG_CONFIG) --libs error-standalone)"
+	fi
 
 	local myeconfargs=(
 		# No elogind multilib support
