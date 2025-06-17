@@ -10,11 +10,10 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/transmission/transmission"
 else
 	MY_PV="${PV/_beta/-beta.}"
-	MY_P="${PN}-${MY_PV}"
+	MY_P="${PN}-${MY_PV}+rac5c9e082d"
 	S="${WORKDIR}/${MY_P}"
-	#SRC_URI="https://github.com/transmission/transmission/releases/download/${MY_PV}/${MY_P}.tar.xz"
-	SRC_URI="https://dev.gentoo.org/~floppym/dist/${P}-gentoo.tar.xz"
-	KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 ~riscv x86"
+	SRC_URI="https://github.com/transmission/transmission/releases/download/${MY_PV}/${MY_P}.tar.xz"
+	#KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="A fast, easy, and free BitTorrent client"
@@ -70,15 +69,11 @@ RDEPEND="${COMMON_DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/transmission-dht-cmake-4.patch"
-	"${FILESDIR}/transmission-4.0.6-miniupnpc-2.2.8.patch"
-	"${FILESDIR}/transmission-4.0.6-http-announce-error.patch"
 )
 
 src_prepare() {
-	# Remove files which trigger <cmake-4 compat in cmake.eclass
-	rm -r third-party/{lib{deflate,event,natpmp,psl},miniupnpc} || die
-	rm third-party/utfcpp/CMakeLists.txt || die
-
+	# Avoid <cmake-4 compat in cmake.eclass
+	find third-party/{lib{event,natpmp,psl},rapidjson,utfcpp} -name CMakeLists.txt -delete || die
 	cmake_src_prepare
 }
 
