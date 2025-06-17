@@ -3671,17 +3671,22 @@ kde-plasma/discover:flatpak - Enable support for flatpak repositories using sys-
 kde-plasma/discover:snap - Enable support for snap packages using app-containers/snapd
 kde-plasma/discover:webengine - Enable webflow support using dev-qt/qtwebview and dev-qt/qtwebengine instead of default URL handler
 kde-plasma/drkonqi:systemd - Enable Coredumpd integration
-kde-plasma/kde-cli-tools:kdesu - Build graphical frontend for kde-frameworks/kdesu
+kde-plasma/kde-cli-tools:kdesu - Pull in graphical kdesu frontend kde-plasma/kdesu-gui
 kde-plasma/kdeplasma-addons:alternate-calendar - Support alternate calendar systems (currently Chinese or Indian) via dev-libs/icu
 kde-plasma/kdeplasma-addons:share - Enable applet for quickly sharing data to a variety of sources
 kde-plasma/kdeplasma-addons:webengine - Enable dictionary and web browser applets using dev-qt/qtwebengine
 kde-plasma/kinfocenter:usb - Show USB device information
 kde-plasma/ksystemstats:networkmanager - Enable improved backend for Network statistics using kde-frameworks/networkmanager-qt
+kde-plasma/kwin:X - Enable ability to support native X11 applications via x11-base/xwayland
 kde-plasma/kwin:lock - Enable screen locking via kde-plasma/kscreenlocker
 kde-plasma/kwin:screencast - Enable screencast portal using media-video/pipewire
 kde-plasma/kwin:shortcuts - Enable global shortcuts support via kde-plasma/kglobalacceld
+kde-plasma/kwin-x11:lock - Enable screen locking via kde-plasma/kscreenlocker
+kde-plasma/kwin-x11:shortcuts - Enable global shortcuts support via kde-plasma/kglobalacceld
 kde-plasma/plasma-desktop:ibus - Use ibus input method via app-i18n/ibus
 kde-plasma/plasma-desktop:scim - Enable applets that use app-i18n/scim
+kde-plasma/plasma-desktop:screencast - Enable screencast portal thumbnails using kde-plasma/kpipewire
+kde-plasma/plasma-desktop:sdl - Enable gamepad support using media-libs/libsdl2
 kde-plasma/plasma-desktop:webengine - Build the OpenDesktop integration plugin
 kde-plasma/plasma-firewall:firewalld - Build net-firewall/firewalld backend
 kde-plasma/plasma-firewall:ufw - Build net-firewall/ufw backend
@@ -3713,11 +3718,14 @@ kde-plasma/plasma-meta:webengine - Use kde-apps/khelpcenter to access the locall
 kde-plasma/plasma-nm:openconnect - Build support for the OpenConnect VPN client
 kde-plasma/plasma-nm:teamd - Enable Teamd control support
 kde-plasma/plasma-workspace:appstream - Enable AppStream software metadata support
+kde-plasma/plasma-workspace:ksysguard - Enable device notifier and system monitor applets as well as terminate applications runner
+kde-plasma/plasma-workspace:networkmanager - Enable support for location-based time zone changes
 kde-plasma/plasma-workspace:policykit - Enable locale generation and Users KCM using sys-auth/polkit and sys-apps/accountsservice
-kde-plasma/plasma-workspace:screencast - Enable screencast portal using kde-plasma/kpipewire
+kde-plasma/plasma-workspace:screencast - Enable camera indicator applet (requires media-video/pipewire at runtime)
 kde-plasma/plasma-workspace:telemetry - Enable User Feedback control module for kde-plasma/systemsettings
 kde-plasma/plasma-workspace:wallpaper-metadata - Show metadata for image wallpaper plugin using kde-apps/libkexiv2
 kde-plasma/plasma5support:activities - Enable kactivities support
+kde-plasma/plasma5support:ksysguard - Enable device notifications dataengine using kde-plasma/libksysguard
 kde-plasma/powerdevil:brightness-control - Enable screen brightness control using app-misc/ddcutil
 kde-plasma/spectacle:share - Enable support for a share menu using kde-frameworks/purpose
 llvm-core/clang:extra - Build extra tools (clangd, clang-tidy and a few more)
