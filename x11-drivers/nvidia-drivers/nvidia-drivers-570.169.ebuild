@@ -4,7 +4,7 @@
 EAPI=8
 
 MODULES_OPTIONAL_IUSE=+modules
-inherit desktop dot-a eapi9-pipestatus eapi9-ver flag-o-matic linux-mod-r1
+inherit desktop dot-a eapi9-pipestatus flag-o-matic linux-mod-r1
 inherit readme.gentoo-r1 systemd toolchain-funcs unpacker user-info
 
 MODULES_KERNEL_MAX=6.15
@@ -22,10 +22,7 @@ SRC_URI="
 # nvidia-installer is unused but here for GPL-2's "distribute sources"
 S=${WORKDIR}
 
-LICENSE="
-	NVIDIA-r2 Apache-2.0 Boost-1.0 BSD BSD-2 GPL-2 MIT ZLIB
-	curl openssl public-domain
-"
+LICENSE="NVIDIA-2025 Apache-2.0 BSD BSD-2 GPL-2 MIT ZLIB curl openssl"
 SLOT="0/${PV%%.*}"
 KEYWORDS="-* ~amd64 ~arm64"
 # TODO: enable kernel-open by default to match nvidia upstream, but should
@@ -89,7 +86,6 @@ DEPEND="
 	)
 "
 BDEPEND="
-	app-alternatives/awk
 	sys-devel/m4
 	virtual/pkgconfig
 "
@@ -100,7 +96,6 @@ QA_PREBUILT="lib/firmware/* usr/bin/* usr/lib*"
 PATCHES=(
 	"${FILESDIR}"/nvidia-modprobe-390.141-uvm-perms.patch
 	"${FILESDIR}"/nvidia-settings-530.30.02-desktop.patch
-	"${FILESDIR}"/nvidia-drivers-570.153.02-kernel-6.15.patch
 )
 
 pkg_setup() {
@@ -286,7 +281,7 @@ src_install() {
 	local skip_modules=(
 		$(usev !X "nvfbc vdpau xdriver")
 		$(usev !modules gsp)
-		$(usev !powerd nvtopps)
+		$(usev !powerd powerd)
 		installer nvpd # handled separately / built from source
 	)
 	local skip_types=(
@@ -587,19 +582,5 @@ pkg_postinst() {
 		elog "Note that with USE=wayland, nvidia-drm.modeset=1 will be enabled"
 		elog "in '${EROOT}/etc/modprobe.d/nvidia.conf'. *If* experience issues,"
 		elog "either disable wayland or edit nvidia.conf."
-	fi
-
-	[[ ${PV} == 575.57.08 ]] || die "TODO: recheck intel+nvidia status & cleanup"
-	if use kernel-open && ver_replacing -lt 575; then
-		ewarn
-		ewarn "WARNING:"
-		ewarn
-		ewarn "*If* using a hybrid Intel+NVIDIA laptop, be warned that users have"
-		ewarn "reported that the GSP firmware could fail to initialize (for some"
-		ewarn "setups) when USE=kernel-open is enabled with ${PN}-575.x."
-		ewarn "*If* X/wayland fails to come up and boot messages have GSP errors,"
-		ewarn "try to either disable USE=kernel-open or stay on ${PN}-570.x"
-		ewarn "for now. Note that blackwell cards (aka 50xx+) require USE=kernel-open,"
-		ewarn "so downgrading will be the only option there for now."
 	fi
 }
