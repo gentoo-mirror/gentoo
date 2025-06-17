@@ -1,15 +1,15 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
-DEFINED_PHASES=prepare
+DEFINED_PHASES=configure install prepare
 DEPEND=media-libs/libpng media-libs/tiff:=
 DESCRIPTION=Portable C library for reading and writing BSB format image files
 EAPI=8
 HOMEPAGE=https://libbsb.sourceforge.net/
-INHERIT=autotools toolchain-funcs
+INHERIT=autotools dot-a toolchain-funcs
 KEYWORDS=amd64 x86
 LICENSE=LGPL-2.1+
 RDEPEND=media-libs/libpng media-libs/tiff:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/libbsb/libbsb-0.0.7.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=9a1320d5ca89e958cff4b8d6c23913c8
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	dot-a	3ecbad0eb02f9cec7e76849b053ac3c5
+_md5_=c8ad2dcc6e0817299ba6e640e3065f57
