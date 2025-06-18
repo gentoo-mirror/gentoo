@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1
 
@@ -32,6 +32,11 @@ RDEPEND="
 "
 
 distutils_enable_tests pytest
+
+PATCHES=(
+	# https://github.com/esheldon/fitsio/pull/430
+	"${FILESDIR}/${P}-numpy-2.3.patch"
+)
 
 export FITSIO_USE_SYSTEM_FITSIO=1
 
