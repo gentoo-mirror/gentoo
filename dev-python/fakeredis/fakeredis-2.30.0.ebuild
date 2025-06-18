@@ -36,6 +36,11 @@ BDEPEND="
 distutils_enable_tests pytest
 
 src_prepare() {
+	local PATCHES=(
+		# https://github.com/cunla/fakeredis-py/pull/396
+		"${FILESDIR}/${P}-pytest-asyncio-1.patch"
+	)
+
 	distutils-r1_src_prepare
 
 	# https://github.com/cunla/fakeredis-py/issues/395
@@ -44,8 +49,6 @@ src_prepare() {
 
 python_test() {
 	local EPYTEST_DESELECT=(
-		# also lupa
-		test/test_aioredis2.py::test_failed_script_error
 		# TODO
 		"test/test_mixins/test_pubsub_commands.py::test_pubsub_channels[StrictRedis2]"
 		"test/test_mixins/test_pubsub_commands.py::test_pubsub_channels[StrictRedis3]"
@@ -56,21 +59,13 @@ python_test() {
 		# json ext
 		test/test_json/test_json.py
 		test/test_json/test_json_arr_commands.py
-		# require event_loop fixture removed in >=dev-python/pytest-asyncio-1
-		# (no point in pinning for two tests)
-		test/test_asyncredis.py::test_pubsub
-		test/test_asyncredis.py::test_blocking_unblock
 	)
 	local EPYTEST_IGNORE=(
 		# these tests fail a lot...
 		test/test_hypothesis
 		test/test_hypothesis_joint.py
 	)
-	local args=(
-		# tests requiring lupa (lua support)
-		-k 'not test_eval and not test_lua and not test_script'
-	)
-	# Note: this package is not xdist-friendly
+
 	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest -p asyncio -p pytest_mock "${args[@]}"
 }
