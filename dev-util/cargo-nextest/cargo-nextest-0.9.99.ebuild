@@ -19,8 +19,8 @@ S=${WORKDIR}/nextest-${P}/${PN}
 LICENSE="|| ( Apache-2.0 MIT )"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 ISC MIT
-	MPL-2.0 Unicode-3.0
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0
+	CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0 ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
