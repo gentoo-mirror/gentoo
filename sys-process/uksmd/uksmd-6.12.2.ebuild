@@ -17,7 +17,7 @@ IUSE="systemd"
 
 DEPEND="
 	sys-libs/libcap-ng
-	<sys-process/procps-4.0.5
+	>=sys-process/procps-4.0.5:=
 	systemd? ( sys-apps/systemd:= )
 "
 RDEPEND="${DEPEND}"
