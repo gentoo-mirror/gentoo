@@ -3,8 +3,8 @@
 
 EAPI="8"
 ETYPE="sources"
-K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="1"
+K_WANT_GENPATCHES="base extras experimental"
+K_GENPATCHES_VER="39"
 
 inherit check-reqs kernel-2
 detect_version
@@ -14,6 +14,7 @@ DESCRIPTION="Full sources including the Gentoo patchset for the ${KV_MAJOR}.${KV
 HOMEPAGE="https://dev.gentoo.org/~mpagano/genpatches"
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="experimental"
 
 pkg_pretend() {
 	CHECKREQS_DISK_BUILD="4G"

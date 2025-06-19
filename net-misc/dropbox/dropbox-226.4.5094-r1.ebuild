@@ -14,7 +14,7 @@ SRC_URI="
 
 LICENSE="BSD-2 CC-BY-ND-3.0 FTL MIT LGPL-2 openssl dropbox"
 SLOT="0"
-KEYWORDS="-* ~amd64"
+KEYWORDS="-* amd64"
 IUSE="selinux X"
 
 RESTRICT="mirror strip"
@@ -110,4 +110,19 @@ pkg_postinst() {
 	einfo " each user who will run dropbox:"
 	einfo ""
 	einfo "install -dm0 ~/.dropbox-dist"
+	einfo ""
+	einfo "If you do allow dropbox to update/install to your user homedir, you"
+	einfo " will need to create some compat symlinks to keep the tray icon working:"
+	einfo ""
+	einfo "ln -sf /usr/$(get_libdir)/libayatana-appindicator3.so.1 ~/.dropbox-dist/libappindicator3.so.1"
+	einfo "ln -sf libappindicator3.so.1 ~/.dropbox-dist/libappindicator3.so"
+
+	if has_version gnome-base/gnome-shell; then
+		if ! has_version gnome-extra/gnome-shell-extension-appindicator; then
+			einfo ""
+			einfo "Please install gnome-extra/gnome-shell-extension-appindicator if you"
+			einfo " require tray icon support for Dropbox in Gnome."
+		fi
+	fi
+
 }
