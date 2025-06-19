@@ -4,7 +4,7 @@
 EAPI=8
 
 DIST_AUTHOR=ROBM
-DIST_VERSION=1.59
+DIST_VERSION=1.60
 inherit perl-module
 
 DESCRIPTION="Uses an mmaped file to act as a shared memory interprocess cache"
