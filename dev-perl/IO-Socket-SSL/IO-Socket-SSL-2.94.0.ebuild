@@ -4,7 +4,7 @@
 EAPI=8
 
 DIST_AUTHOR=SULLR
-DIST_VERSION=2.092
+DIST_VERSION=2.094
 DIST_EXAMPLES=("example/*")
 inherit perl-module
 
