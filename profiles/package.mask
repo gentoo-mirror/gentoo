@@ -201,23 +201,11 @@ games-fps/prboom-plus
 # Severe memory leak (bug #953874)
 =app-i18n/ibus-anthy-1.5.17
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-23)
-# Package destabilisation mask. There is simply no need for this without
-# any stable consumers, and it is freeing up resources.
-# 5.2.10.1 is available in ~arch.
-~media-libs/allegro-5.2.7.0
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-05-22)
 # Even if Qt5 is optional here, it is dead upstream for close to 10 years
 # and without Gentoo package maintainer almost as long. Bug #926074.
 # Removal on 2025-06-21.
 net-firewall/pglinux
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-22)
-# Package destabilisation mask. 0.4.4_p20250125 is in ~arch but as snapshot
-# with currently no Gentoo maintainer it will not be stabilised.
-# 0.4.4 release was more than 3 years old already. Bug #955653
-~media-video/simplescreenrecorder-0.4.4
 
 # Matt Turner <mattst88@gentoo.org> (2025-05-22)
 # Old slot depending on libsoup:2.4. All reverse dependencies migrated to a
@@ -234,17 +222,6 @@ x11-misc/meteo
 # Introduces REQUIRED_USE that needs more discussion (bug #956402)
 =media-gfx/gimp-3.0.2-r2
 =media-gfx/gimp-3.0.4
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-20)
-# Unaddressed pending version bumps for almost 2 years, stuck on EAPI-7.
-# Bugs #908094, #908095, #908096, #908097, #908427, #908428
-# Removal on 2025-06-19.
-dev-libs/aws-c-cal
-dev-libs/aws-checksums
-dev-libs/aws-c-common
-dev-libs/aws-c-event-stream
-dev-libs/aws-c-io
-dev-libs/s2n
 
 # Ulrich Müller <ulm@gentoo.org> (2025-05-18)
 # Pretest versions, masked for testing.

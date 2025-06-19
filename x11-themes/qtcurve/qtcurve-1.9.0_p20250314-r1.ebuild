@@ -21,7 +21,12 @@ REQUIRED_USE="gtk? ( X )
 RESTRICT="test"
 
 DEPEND="
-	gtk? ( x11-libs/gtk+:2 )
+	gtk? (
+		dev-libs/glib:2
+		x11-libs/cairo
+		x11-libs/gdk-pixbuf:2
+		x11-libs/gtk+:2
+	)
 	plasma? (
 		kde-frameworks/frameworkintegration:6
 		kde-frameworks/karchive:6
