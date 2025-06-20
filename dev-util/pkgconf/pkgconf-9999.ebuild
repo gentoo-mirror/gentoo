@@ -17,7 +17,7 @@ DESCRIPTION="pkg-config compatible replacement with no dependencies other than C
 HOMEPAGE="https://github.com/pkgconf/pkgconf"
 
 LICENSE="ISC"
-SLOT="0/6"
+SLOT="0/7"
 IUSE="+native-symlinks test"
 
 RESTRICT="!test? ( test )"

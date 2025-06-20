@@ -1,26 +1,25 @@
-# Copyright 2012-2023 Gentoo Authors
+# Copyright 2012-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit multilib multilib-minimal
 
-if [[ ${PV} == "9999" ]] ; then
+if [[ ${PV} == 9999 ]] ; then
 	inherit autotools git-r3
-	EGIT_REPO_URI="https://gitea.treehouse.systems/ariadne/pkgconf.git"
+	EGIT_REPO_URI="https://github.com/pkgconf/pkgconf"
 else
 	SRC_URI="https://distfiles.ariadne.space/${PN}/${P}.tar.xz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 fi
 
 DESCRIPTION="pkg-config compatible replacement with no dependencies other than C99"
-HOMEPAGE="https://gitea.treehouse.systems/ariadne/pkgconf"
+HOMEPAGE="https://github.com/pkgconf/pkgconf"
 
 LICENSE="ISC"
-SLOT="0/3"
-IUSE="test"
+SLOT="0/7"
+IUSE="+native-symlinks test"
 
-# tests require 'kyua'
 RESTRICT="!test? ( test )"
 
 BDEPEND="
@@ -29,30 +28,26 @@ BDEPEND="
 		dev-util/kyua
 	)
 "
-RDEPEND="
-	!dev-util/pkgconfig
-"
-
-MULTILIB_CHOST_TOOLS=(
-	/usr/bin/pkgconf$(get_exeext)
-)
+RDEPEND="!dev-util/pkgconfig"
 
 src_prepare() {
 	default
 
-	[[ ${PV} == "9999" ]] && eautoreconf
-	MULTILIB_CHOST_TOOLS+=(
+	[[ ${PV} == 9999 ]] && eautoreconf
+
+	MULTILIB_CHOST_TOOLS=(
+		/usr/bin/pkgconf$(get_exeext)
 		/usr/bin/pkg-config$(get_exeext)
 	)
 }
 
 multilib_src_configure() {
-	local ECONF_SOURCE="${S}"
-	local args=(
+	local myeconfargs=(
 		--with-system-includedir="${EPREFIX}/usr/include"
 		--with-system-libdir="${EPREFIX}/$(get_libdir):${EPREFIX}/usr/$(get_libdir)"
 	)
-	econf "${args[@]}"
+
+	ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
 }
 
 multilib_src_test() {
@@ -69,5 +64,10 @@ multilib_src_install() {
 
 multilib_src_install_all() {
 	einstalldocs
+
+	if ! use native-symlinks; then
+		rm "${ED}"/usr/bin/{pkgconf,pkg-config}$(get_exeext) || die
+	fi
+
 	find "${ED}" -type f -name '*.la' -delete || die
 }
