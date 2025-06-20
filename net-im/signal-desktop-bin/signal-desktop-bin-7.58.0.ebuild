@@ -83,7 +83,7 @@ src_install() {
 
 	newbin - signal-desktop <<- _EOF_
 		#!/bin/sh
-		exec \$(command -pv apulse) ${EPREFIX}/opt/Signal/signal-desktop "\${@}"
+		exec \$(command -pv apulse) ${EPREFIX}/opt/Signal/signal-desktop --ozone-platform-hint=auto "\${@}"
 	_EOF_
 }
 
