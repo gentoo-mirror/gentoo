@@ -3098,7 +3098,7 @@ app-shells/fish 3.7.1 4.0.0-r1 4.0.1 4.0.2 9999: Friendly Interactive SHell
 app-shells/fsh 1.0.0_p20220816-r1: F# Shell with integrated F# scripting
 app-shells/fzf 0.60.3 0.61.0 0.62.0: General-purpose command-line fuzzy finder, written in Golang
 app-shells/gash 0.3.0-r100: POSIX-compatible shell written in Guile Scheme
-app-shells/gentoo-bashcomp 20240625: Gentoo-specific bash command-line completions (emerge, ebuild, equery, etc)
+app-shells/gentoo-bashcomp 20240625 20250620: Gentoo-specific bash command-line completions (emerge, ebuild, equery, etc)
 app-shells/gentoo-zsh-completions 20220112 20230117 99999999: Gentoo specific zsh completion support (includes emerge and ebuild commands)
 app-shells/heirloom-sh 050706-r1: Heirloom Bourne Shell, derived from OpenSolaris code SVR4/SVID3
 app-shells/hstr 2.6: Shell history suggest box
@@ -4042,7 +4042,7 @@ dev-db/wxsqlite3 4.10.6-r1: C++ wrapper around the public domain SQLite 3.x data
 dev-debug/apitrace 12.0: Tool for tracing, analyzing, and debugging graphics APIs
 dev-debug/bpftrace 0.22.1 0.23.2 0.23.4: High-level tracing language for eBPF
 dev-debug/cgdb 0.8.0 9999: A curses front-end for GDB, the GNU debugger
-dev-debug/d-feet 0.3.16: D-Feet is a powerful D-Bus debugger
+dev-debug/d-feet 0.3.16 0.3.16-r1: D-Feet is a powerful D-Bus debugger
 dev-debug/d-spy 1.10.0 47.0: D-Spy is a simple tool to explore D-Bus connections
 dev-debug/ddd 3.3.12-r5 3.4.1: Graphical front-end for command-line debuggers
 dev-debug/drgn 0.0.31 0.0.32: Programmable debugger
@@ -5277,7 +5277,7 @@ dev-libs/atk 2.38.0 2.46.0: GTK+ & GNOME Accessibility Toolkit
 dev-libs/avro-c 1.12.0 1.12.0-r1: c library for the apache avro data serialization system
 dev-libs/ayatana-ido 0.10.4: Ayatana Application Indicators (Shared Library)
 dev-libs/bcm2835 1.71 1.75: Provides access to GPIO and other IO functions on the Broadcom BCM2835
-dev-libs/bemenu 0.6.10-r1 0.6.14 0.6.15 0.6.16 0.6.21 9999: dmenu clone for wayland
+dev-libs/bemenu 0.6.10-r1 0.6.14 0.6.15 0.6.16 0.6.21 0.6.23 9999: dmenu clone for wayland
 dev-libs/bglibs 2.04-r1 2.04-r2 2.04-r4: Bruce Guenter's Libraries Collection
 dev-libs/bitset 2.8.4-r3: A compressed bitset with supporting data structures and algorithms
 dev-libs/bitshuffle 0.3.5-r1: Bitshuffle C library
@@ -5788,10 +5788,10 @@ dev-libs/tomsfastmath 0.13.1-r1: Fast public domain large integer arithmetic lib
 dev-libs/totem-pl-parser 3.26.6-r2: Playlist parsing library
 dev-libs/tre 0.8.0_p20210321-r4 0.9.0-r1: Lightweight, robust, and efficient POSIX compliant regexp matching library
 dev-libs/tree-sitter 0.23.0 0.24.3 0.25.1 0.25.2 0.25.3 0.25.6 9999: Tree-sitter is a parser generator tool and an incremental parsing library
-dev-libs/tree-sitter-bash 0.21.0-r1 0.23.1 0.23.2 0.23.3 0.25.0: Bash grammar for Tree-sitter
+dev-libs/tree-sitter-bash 0.21.0-r1 0.23.3 0.25.0: Bash grammar for Tree-sitter
 dev-libs/tree-sitter-c 0.21.4 0.23.0 0.23.1 0.23.2 0.23.3 0.23.4 0.23.5: C grammar for Tree-sitter
 dev-libs/tree-sitter-c-sharp 0.23.0 0.23.1: C# grammar for Tree-sitter
-dev-libs/tree-sitter-cmake 0.4.1: CMake grammar for tree-sitter
+dev-libs/tree-sitter-cmake 0.4.1 0.7.1: CMake grammar for tree-sitter
 dev-libs/tree-sitter-cpp 0.23.0 0.23.1: C++ grammar for Tree-sitter
 dev-libs/tree-sitter-css 0.23.0 0.23.2: CSS grammar for Tree-sitter
 dev-libs/tree-sitter-embedded-template 0.20.0: Embedded template languages (like ERB, EJS) grammar for Tree-sitter
@@ -5812,7 +5812,7 @@ dev-libs/tree-sitter-ocaml 0.20.4: OCaml grammar for Tree-sitter
 dev-libs/tree-sitter-php 0.23.2: PHP grammar for Tree-sitter
 dev-libs/tree-sitter-python 0.21.0-r1 0.23.2 0.23.6: Python grammar for Tree-sitter
 dev-libs/tree-sitter-ql 0.19.0: Semmle QL grammar for Tree-sitter
-dev-libs/tree-sitter-query 0.4.0 0.5.0: Tree-sitter query grammar for Tree-sitter
+dev-libs/tree-sitter-query 0.4.0 0.5.0 0.6.2: Tree-sitter query grammar for Tree-sitter
 dev-libs/tree-sitter-regex 0.21.0: Regular Expressions grammar for Tree-sitter
 dev-libs/tree-sitter-ruby 0.23.0: Ruby grammar for Tree-sitter
 dev-libs/tree-sitter-rust 0.23.0 0.23.2 0.24.0: Rust grammar for Tree-sitter
@@ -10771,7 +10771,7 @@ dev-util/debugedit 5.1-r3: Create debuginfo and source file distributions
 dev-util/dejagnu 1.6.3: Framework for testing other programs
 dev-util/desktop-file-utils 0.27 0.27-r1 0.28: Command line utilities to work with desktop menu entries
 dev-util/devhelp 43.0: An API documentation browser for GNOME
-dev-util/dialog 1.3.20231002 1.3.20240101 1.3.20240307 1.3.20250116: Tool to display dialog boxes from a shell
+dev-util/dialog 1.3.20231002 1.3.20240101 1.3.20240307 1.3.20250116 1.3.20250116-r1: Tool to display dialog boxes from a shell
 dev-util/diff-cover 6.5.0-r2 9.2.0: Find diff lines that do not have test coverage
 dev-util/diffball 1.0.1-r2: Delta compression suite for using/generating binary patches
 dev-util/diffoscope 294 295 296 297 298: Will try to get to the bottom of what makes files or directories different
@@ -16144,7 +16144,7 @@ sci-libs/jama 1.2.5-r1: Java-like matrix C++ templates
 sci-libs/kim-api 2.2.1: Application Programming Interface for atomistic simulations
 sci-libs/kissfft 131.1.0-r1 131.1.0-r2 9999: A Fast Fourier Transform (FFT) library that tries to Keep it Simple, Stupid
 sci-libs/klu 1.3.9-r2 2.0.3: Sparse LU factorization for circuit simulation
-sci-libs/lapack 3.11 3.12.0 3.12.0-r1: BLAS, CBLAS, LAPACK, LAPACKE reference implementations
+sci-libs/lapack 3.12.0-r1 3.12.1: BLAS, CBLAS, LAPACK, LAPACKE reference implementations
 sci-libs/ldl 2.2.6 3.0.3: Simple but educational LDL^T matrix factorization algorithm
 sci-libs/lemon 1.3.1-r2: C++ template static library of common data structures and algorithms
 sci-libs/levmar 2.6-r1: Levenberg-Marquardt nonlinear least squares C library
@@ -16209,7 +16209,7 @@ sci-libs/oc 2.0-r1: Network Data Access Protocol client C library
 sci-libs/octomap 1.10.0 1.10.0-r1: Efficient Probabilistic 3D Mapping Framework Based on Octrees
 sci-libs/ogdi 4.1.0-r1: Open Geographical Datastore Interface, a GIS support library
 sci-libs/ondselsolver 1.0.1_p20241024 1.0.1_p20241127-r1: Assembly Constraints and Multibody Dynamics code
-sci-libs/openblas 0.3.25-r1 0.3.26 0.3.26-r1 0.3.29: Optimized BLAS library based on GotoBLAS2
+sci-libs/openblas 0.3.26-r1 0.3.29 0.3.30: Optimized BLAS library based on GotoBLAS2
 sci-libs/opencascade 7.8.1 9999: Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
 sci-libs/openlibm 0.8.3: High quality system independent, open source libm
 sci-libs/orocos-bfl 0.8.0: Bayesian Filtering Library
