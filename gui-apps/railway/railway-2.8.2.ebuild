@@ -38,7 +38,7 @@ DEPEND="
 	>=dev-libs/glib-2.66
 	dev-libs/openssl:=
 	>=gui-libs/gtk-4.14:4
-	>=gui-libs/libadwaita-1.6.0
+	>=gui-libs/libadwaita-1.7.0
 	media-libs/graphene
 "
 RDEPEND="

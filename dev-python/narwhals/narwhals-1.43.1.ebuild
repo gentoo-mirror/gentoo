@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~arm64"
 BDEPEND="
 	test? (
 		dev-python/hypothesis[${PYTHON_USEDEP}]
-		dev-python/pandas[${PYTHON_USEDEP}]
+		>=dev-python/pandas-1.1.3[${PYTHON_USEDEP}]
 		dev-python/pyarrow[${PYTHON_USEDEP}]
 		dev-python/pytest-env[${PYTHON_USEDEP}]
 	)
