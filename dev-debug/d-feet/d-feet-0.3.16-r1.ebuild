@@ -1,7 +1,7 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 PYTHON_COMPAT=( python3_{11..13} )
 
 inherit gnome2 meson python-single-r1 virtualx
@@ -11,7 +11,7 @@ HOMEPAGE="https://wiki.gnome.org/Apps/DFeet"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~riscv x86"
+KEYWORDS="~amd64 ~riscv ~x86"
 
 IUSE="test +X"
 RESTRICT="!test? ( test )"

@@ -1,10 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 # Some additional tests are run if Python is found
-PYTHON_COMPAT=( python3_{10..11} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake flag-o-matic fortran-2 python-any-r1
 
 DESCRIPTION="BLAS, CBLAS, LAPACK, LAPACKE reference implementations"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/Reference-LAPACK/lapack/archive/v${PV}.tar.gz -> ${P
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 arm arm64 hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos"
 # TODO: static-libs 64bit-index
 IUSE="lapacke deprecated doc eselect-ldso test"
 RESTRICT="!test? ( test )"
@@ -39,9 +39,7 @@ pkg_setup() {
 }
 
 src_configure() {
-	# -Werror=lto-type-mismatch
-	# https://bugs.gentoo.org/878891
-	# https://github.com/Reference-LAPACK/lapack/issues/990
+	# bug #878891
 	filter-lto
 
 	local mycmakeargs=(

@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,7 @@ RDEPEND="
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.3.23-shared-blas-lapack.patch"
+	"${FILESDIR}/${PN}-0.3.29-shared-blas-lapack.patch"
 )
 
 pkg_pretend() {
@@ -148,15 +148,15 @@ src_install() {
 	if use eselect-ldso; then
 		insinto /usr/$(get_libdir)/blas/openblas/
 		doins interface/libblas.so.3
-		dosym -r /usr/$(get_libdir)/libblas.so.3 /usr/$(get_libdir)/blas/openblas/libblas.so
+		dosym -r /usr/$(get_libdir)/blas/openblas/libblas.so.3 /usr/$(get_libdir)/blas/openblas/libblas.so
 		doins interface/libcblas.so.3
-		dosym -r /usr/$(get_libdir)/libcblas.so.3 /usr/$(get_libdir)/blas/openblas/libcblas.so
+		dosym -r /usr/$(get_libdir)/blas/openblas/libcblas.so.3 /usr/$(get_libdir)/blas/openblas/libcblas.so
 
 		insinto /usr/$(get_libdir)/lapack/openblas/
 		doins interface/liblapack.so.3
-		dosym -r /usr/$(get_libdir)/liblapack.so.3 /usr/$(get_libdir)/lapack/openblas/liblapack.so
+		dosym -r /usr/$(get_libdir)/lapack/openblas/liblapack.so.3 /usr/$(get_libdir)/lapack/openblas/liblapack.so
 		doins interface/liblapacke.so.3
-		dosym -r /usr/$(get_libdir)/liblapacke.so.3 /usr/$(get_libdir)/lapack/openblas/liblapacke.so
+		dosym -r /usr/$(get_libdir)/lapack/openblas/liblapacke.so.3 /usr/$(get_libdir)/lapack/openblas/liblapacke.so
 	fi
 }
 
