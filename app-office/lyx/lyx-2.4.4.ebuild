@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit desktop font optfeature python-single-r1 cmake xdg
 
@@ -16,7 +16,7 @@ SRC_URI="
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="aspell cups dia dot enchant gnumeric html +hunspell +latex monolithic-build nls rcs rtf svg l10n_he"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="test"
@@ -41,7 +41,7 @@ RDEPEND="${PYTHON_DEPS}
 	enchant? ( app-text/enchant:2 )
 	gnumeric? ( app-office/gnumeric )
 	html? ( dev-tex/html2latex )
-	hunspell? ( app-text/hunspell )
+	hunspell? ( app-text/hunspell:= )
 	l10n_he? (
 		dev-tex/culmus-latex
 		dev-texlive/texlive-langarabic
@@ -92,7 +92,7 @@ PATCHES=(
 	"${FILESDIR}"/lyx-2.4.0-fix-hunspell.patch
 	# Try first with xdg-open before hardcoded commands
 	# Patch from Debian using a similar approach to Fedora
-	"${FILESDIR}"/lyx-2.4.0-prefer-xdg-open.patch
+	"${FILESDIR}"/lyx-2.4.4-prefer-xdg-open.patch
 )
 
 pkg_setup() {
