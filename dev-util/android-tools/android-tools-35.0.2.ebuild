@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit cmake flag-o-matic python-r1
 
@@ -59,10 +59,6 @@ src_prepare() {
 	eapply "${S}/patches/libziparchive/0004-Remove-the-useless-dependency-on-gtest.patch"
 
 	cd "${S}" || die
-
-	# why do we depend on libandroidfw? It is never linked to or used.
-	# https://github.com/nmeum/android-tools/issues/148
-	sed -i '/libandroidfw/d' vendor/CMakeLists.txt || die
 
 	rm -r patches || die
 	cmake_src_prepare
