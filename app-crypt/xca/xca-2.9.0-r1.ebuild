@@ -12,7 +12,7 @@ S="${WORKDIR}/xca-RELEASE.${PV}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="doc"
 
 RDEPEND="
@@ -32,8 +32,13 @@ PATCHES=(
 )
 
 src_configure() {
+	if ! use doc; then
+		xca_docs=-DSPHINX=
+	fi
+
 	local mycmakeargs=(
 		-DQTFIXEDVERSION=Qt6
+		$xca_docs
 	)
 	cmake_src_configure
 }
