@@ -912,7 +912,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.40.26 1.40.31 1.40.35 1.40.36 1.40.37 1.40.38 1.40.39: Universal Command Line Environment for AWS
+app-admin/awscli 1.40.26 1.40.31 1.40.35 1.40.36 1.40.37 1.40.38 1.40.39 1.40.40: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.5.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.4.2 2025.5.1: Bitwarden password manager desktop client
@@ -8146,8 +8146,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.38.27 1.38.32 1.38.36 1.38.37 1.38.38 1.38.39 1.38.40: The AWS SDK for Python
-dev-python/botocore 1.38.27 1.38.32 1.38.36 1.38.37 1.38.38 1.38.39 1.38.40: Low-level, data-driven core of boto 3
+dev-python/boto3 1.38.27 1.38.32 1.38.36 1.38.37 1.38.38 1.38.39 1.38.40 1.38.41: The AWS SDK for Python
+dev-python/botocore 1.38.27 1.38.32 1.38.36 1.38.37 1.38.38 1.38.39 1.38.40 1.38.41: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2 1.5.0_rc1 1.5.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8175,7 +8175,7 @@ dev-python/cerberus 1.3.7: A lightweight and extensible data-validation library 
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.17.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.35.3 1.35.4 1.36.0: CloudFormation Linter
+dev-python/cfn-lint 1.35.3 1.35.4 1.36.0 1.36.1: CloudFormation Linter
 dev-python/cftime 1.6.4_p1: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1 1.0.2: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.6.0: Fast HTML/XML template compiler for Python
@@ -8504,7 +8504,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.131.32 6.132.0 6.135.1 6.135.9 6.135.10 6.135.11 6.135.12: A library for property based testing
+dev-python/hypothesis 6.131.32 6.132.0 6.135.1 6.135.9 6.135.10 6.135.11 6.135.12 6.135.14: A library for property based testing
 dev-python/icalendar 6.3.1: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
 dev-python/identify 2.6.12: File identification library for Python
@@ -9343,7 +9343,7 @@ dev-python/respx 0.22.0-r1: Mock HTTPX with awesome request patterns and respons
 dev-python/restructuredtext-lint 1.4.0: Checks PyPI validity of reStructuredText
 dev-python/retry-decorator 1.1.1-r1: Decorator for retrying when exceptions occur
 dev-python/retrying 1.3.4: General-purpose retrying library
-dev-python/rfc3161-client 0.1.2-r1 1.0.1-r1 1.0.2: An Opinionated Python RFC3161 Client
+dev-python/rfc3161-client 1.0.3: An Opinionated Python RFC3161 Client
 dev-python/rfc3339-validator 0.1.4-r1: A pure python RFC3339 validator
 dev-python/rfc3986 2.0.0-r1: Validating URI References per RFC 3986
 dev-python/rfc3986-validator 0.1.1-r2: Pure python RFC3986 validator
@@ -9407,7 +9407,7 @@ dev-python/shellingham 1.5.4: Tool to Detect Surrounding Shell
 dev-python/shtab 1.7.2: Automagic shell tab completion for Python CLI applications
 dev-python/signature-dispatch 1.0.1-r1: Execute the first function that matches the given arguments
 dev-python/signedjson 1.1.4: Signs JSON objects with ED25519 signatures.
-dev-python/sigstore 3.6.2-r1 3.6.3: A tool for signing Python package distributions
+dev-python/sigstore 3.6.4: A tool for signing Python package distributions
 dev-python/sigstore-protobuf-specs 0.3.2 0.4.1 0.4.2 0.4.3: A library for serializing and deserializing Sigstore messages
 dev-python/sigstore-rekor-types 0.0.18: Python models for Rekor's API types
 dev-python/simber 0.2.6: Simple, minimal and powerful logging library for Python
@@ -18428,7 +18428,7 @@ x11-misc/cairo-clock 0.3.4-r3: An analog clock displaying the system-time
 x11-misc/cbatticon 1.6.13: A lightweight and fast battery icon that sits in your system tray
 x11-misc/cdm 0.7: The Console Display Manager
 x11-misc/chgres 0.1-r3: A very simple command line utility for changing X resolutions
-x11-misc/clipmenu 6.2.0-r1: Clipboard management
+x11-misc/clipmenu 6.2.0-r1 9999: Clipboard management
 x11-misc/clipnotify 1.0.2: Notify on new X clipboard events
 x11-misc/colord 1.4.7-r1: System service to accurately color manage input and output devices
 x11-misc/compose-tables 1.8.12: X.Org Compose Key tables from libX11
