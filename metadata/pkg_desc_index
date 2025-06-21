@@ -1424,7 +1424,7 @@ app-crypt/cryptor 1.1.0: Simple GUI application for gocryptfs
 app-crypt/debian-archive-keyring 2023.4 2025.1: GnuPG archive keys of the Debian archive
 app-crypt/dehydrated 0.7.1-r1 0.7.1-r2 0.7.2: A client for signing certificates with an ACME-server
 app-crypt/dieharder 3.31.1-r4: An advanced suite for testing the randomness of RNGs
-app-crypt/easy-rsa 3.2.0 3.2.1 3.2.2: Small RSA key management package, based on OpenSSL
+app-crypt/easy-rsa 3.2.1 3.2.2 3.2.3: Small RSA key management package, based on OpenSSL
 app-crypt/efitools 1.9.2-r1: Tools for manipulating UEFI secure boot platforms
 app-crypt/eid-mw 5.1.21-r1 9999: Electronic Identity Card middleware supplied by the Belgian Federal Government
 app-crypt/ekeyd 1.1.5-r101: Entropy Key userspace daemon
@@ -2343,7 +2343,7 @@ app-emulation/dynamips 0.2.23: Cisco 7200/3600 Simulator
 app-emulation/faudio 25.03 25.04: Accuracy-focused XAudio reimplementation for open platforms
 app-emulation/fex-xtajit 2506: A wine emulation dll for running x86 application on an arm64 host
 app-emulation/firecracker-bin 1.10.1 1.12.0: Secure and fast microVMs for serverless computing (static build)
-app-emulation/free42 3.1.9 3.2.3 3.2.7 3.2.8 3.3.3: An HP-42S Calculator Simulator
+app-emulation/free42 3.1.9 3.3.3 3.3.6: An HP-42S Calculator Simulator
 app-emulation/fs-uae 3.1.66: Integrates the most accurate Amiga emulation code available from WinUAE
 app-emulation/fs-uae-launcher 3.1.70: PyQt5-based launcher for FS-UAE
 app-emulation/fuse 1.6.0-r2: Free Unix Spectrum Emulator by Philip Kendall
@@ -2372,7 +2372,7 @@ app-emulation/libvirt-glib 4.0.0-r1 5.0.0-r1: GLib and GObject mappings for libv
 app-emulation/nemu 3.1.0-r1 3.3.0-r1: Ncurses interface for QEMU
 app-emulation/open-vm-tools 12.4.5-r1 12.5.0 12.5.0-r1 12.5.0-r3: Tools for VMware guests
 app-emulation/pcem 17_p20241210-r2: A PC emulator that specializes in running old operating systems and software
-app-emulation/plus42 1.2.6 1.2.7 1.3.3: An Enhanced HP-42S Calculator Simulator
+app-emulation/plus42 1.3.3 1.3.8: An Enhanced HP-42S Calculator Simulator
 app-emulation/protontricks 1.10.5-r1 1.12.0 1.12.1: app-emulation/winetricks wrapper for Proton (Steam Play) games
 app-emulation/punes 0.111-r1 0.111-r2: Nintendo Entertainment System (NES) emulator
 app-emulation/q4wine 1.4.1: Qt GUI configuration tool for Wine
@@ -5416,7 +5416,7 @@ dev-libs/jsonrpc-glib 3.44.0 3.44.1: JSON-RPC library for GLib
 dev-libs/jthread 1.3.3-r1: JThread provides some classes to make use of threads easy on different platforms
 dev-libs/judy 1.0.5-r4: A C library that implements a dynamic array
 dev-libs/kdiagram 2.8.0 3.0.1: Powerful libraries (KChart, KGantt) for creating business diagrams
-dev-libs/kdsingleapplication 1.1.0-r1: KDAB's helper class for single-instance policy applications
+dev-libs/kdsingleapplication 1.1.0-r1 1.2.0: KDAB's helper class for single-instance policy applications
 dev-libs/keybinder 0.3.2-r300: A library for registering global keyboard shortcuts
 dev-libs/keystone 0.9.2-r3 9999: assembly/assembler framework + bindings
 dev-libs/kirigami-addons 1.7.0 1.8.1: Visual end user components for Kirigami-based applications
@@ -10190,7 +10190,7 @@ dev-ruby/prawn 2.5.0: Fast, Nimble PDF Generation For Ruby
 dev-ruby/prawn-table 0.2.2-r2: Provides support for tables in Prawn
 dev-ruby/prettyprint 0.2.0: Implements a pretty printing algorithm for readable structure
 dev-ruby/prime 0.1.2-r1 0.1.3 0.1.4: Prime numbers and factorization library
-dev-ruby/prism 1.3.0 1.4.0: Prism Ruby parser
+dev-ruby/prism 1.4.0: Prism Ruby parser
 dev-ruby/process_executer 1.2.0 1.3.0 2.0.0 3.2.0 3.2.4 4.0.0: An API for executing commands in a subprocess
 dev-ruby/propshaft 0.9.1 1.1.0: Deliver assets for Rails
 dev-ruby/pry 0.14.2 0.15.2: Pry is a powerful alternative to the standard IRB shell for Ruby
@@ -11384,7 +11384,7 @@ games-emulation/desmume 0.9.13-r1: Nintendo DS emulator
 games-emulation/dgen-sdl 1.33-r1: Linux/SDL-Port of the famous DGen MegaDrive/Genesis-Emulator
 games-emulation/dolphin 2503 2506 9999: Gamecube and Wii game emulator
 games-emulation/dosbox 0.74.3 0.75_pre4302 9999: DOS emulator
-games-emulation/dosbox-staging 0.82.0 0.82.1: Modernized DOSBox soft-fork
+games-emulation/dosbox-staging 0.82.0 0.82.1 0.82.2: Modernized DOSBox soft-fork
 games-emulation/emutos 1.3: Single-user single-tasking operating system for 32-bit Atari computer emulators
 games-emulation/fbzx 4.8.0-r1: Full Screen Sinclair Spectrum emulator
 games-emulation/fceux 2.6.6-r2: Portable Famicom/NES emulator, an evolution of the original FCE Ultra
@@ -12010,7 +12010,7 @@ gnustep-apps/lapispuzzle 1.2: a Tetris-like game where each player is effected b
 gnustep-apps/laternamagica 0.5: an image viewer and slideshow application
 gnustep-apps/mpdcon 1.5.1-r1: GNUstep client for the Music Player Daemon
 gnustep-apps/pictureframe 1.1.3: digital picture frame software
-gnustep-apps/pikopixel 1.0_beta10 1.0_beta10-r1: a free application for drawing & editing pixel-art images
+gnustep-apps/pikopixel 1.0_beta10-r1: a free application for drawing & editing pixel-art images
 gnustep-apps/preview 0.9-r1: Simple image viewer
 gnustep-apps/price 1.3.0-r1: Precision Raster Image Convolution Engine
 gnustep-apps/projectcenter 0.6.2-r1 0.7.0: An IDE for GNUstep
@@ -14984,7 +14984,7 @@ net-libs/nDPI 4.2 4.4 4.6 4.8 4.14 9999: Open Source Deep Packet Inspection Soft
 net-libs/neon 0.32.4-r1 0.33.0 0.34.0: HTTP and WebDAV client library
 net-libs/net6 1.3.14-r2: Network access framework for IPv4/IPv6 written in C++
 net-libs/netwib 5.39.0-r1: Library of Ethernet, IP, UDP, TCP, ICMP, ARP and RARP protocols
-net-libs/nghttp2 1.65.0-r2 9999: HTTP/2 C Library
+net-libs/nghttp2 1.65.0-r2 1.66.0 9999: HTTP/2 C Library
 net-libs/nghttp3 1.8.0 1.8.0-r1 1.9.0 1.10.1 9999: HTTP/3 library written in C
 net-libs/ngtcp2 1.11.0 1.11.0-r1 1.12.0 1.13.0 9999: Implementation of the IETF QUIC Protocol
 net-libs/nodejs 20.18.2 20.19.2 22.13.1 22.16.0 24.1.0 24.2.0 99999999: A JavaScript runtime built on Chrome's V8 JavaScript engine
@@ -15287,7 +15287,7 @@ net-misc/netpipes 4.2-r2: Tools to manipulate BSD TCP/IP stream sockets
 net-misc/netsed 0.01b-r1 1.3-r1 1.4: Small tool for altering forwarded network data in real time
 net-misc/netstat-nat 1.4.10-r1: Display NAT connections
 net-misc/networkmanager 1.46.0-r2 1.48.4-r1 1.48.10-r1 1.48.16: A set of co-operative tools that make networking simple and straightforward
-net-misc/nextcloud-client 3.14.4 3.15.2-r1 3.15.3 3.15.3-r1 3.16.2 3.16.3 3.16.4 3.16.5: Desktop Syncing Client for Nextcloud
+net-misc/nextcloud-client 3.14.4 3.16.5 3.16.6: Desktop Syncing Client for Nextcloud
 net-misc/nicstat 1.95: Network traffic statics utility for Solaris and Linux
 net-misc/ntp 4.2.8_p15-r6 4.2.8_p17-r1 4.2.8_p17-r2 4.2.8_p18: Network Time Protocol suite/programs
 net-misc/ntpsec 1.2.3-r1 1.2.4 9999: The NTP reference implementation, refactored
@@ -15306,7 +15306,7 @@ net-misc/openrsync 0.5.0_p20220508: BSD-licensed implementation of rsync
 net-misc/openssh 9.8_p1-r3 9.9_p2 9.9_p2-r3 10.0_p1: Port of OpenBSD's free SSH release
 net-misc/openssh-contrib 9.7_p1-r4: Port of OpenBSD's free SSH release with HPN/X509 patches
 net-misc/openvswitch 2.17.8 2.17.9-r1 2.17.12: Production quality, multilayer virtual switch
-net-misc/owncloud-client 5.3.1.14018: Synchronize files from ownCloud Server with your computer
+net-misc/owncloud-client 5.3.1.14018 5.3.2.15463: Synchronize files from ownCloud Server with your computer
 net-misc/packETH 2.1 2.1-r1 3.0: Packet generator tool for ethernet
 net-misc/passt 2025.01.21 2025.02.17 2025.03.20 2025.04.15 9999: User-mode networking daemons for VMs and namespaces, replacement for Slirp
 net-misc/pcapfix 1.1.7: Repair and fix broken pcap files
@@ -18041,7 +18041,7 @@ www-apps/cvsweb 3.0.6-r2: WWW interface to a CVS tree
 www-apps/davical 1.1.12-r1: A CalDAV and CardDAV Server
 www-apps/dokuwiki 20240206b 20250514a: DokuWiki is a simple to use Wiki aimed at a small company's documentation needs
 www-apps/drupal 7.102 10.3.14 10.4.5 11.0.13 11.1.5: PHP-based open-source platform and content management system
-www-apps/element 1.11.96 1.11.97 1.11.101: A glossy Matrix collaboration client for the web
+www-apps/element 1.11.101 1.11.104: A glossy Matrix collaboration client for the web
 www-apps/gitea 1.23.6 1.23.8: A painless self-hosted Git service
 www-apps/grafana-bin 11.4.5 11.5.5 12.0.1: Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB & OpenTSDB
 www-apps/haunt 0.3.0: Haunt is a simple, functional, hackable static site generator
@@ -18077,7 +18077,7 @@ www-apps/nanoc-cli 4.13.3 4.13.4 4.13.5: nanoc is a simple but very flexible sta
 www-apps/nanoc-core 4.13.3 4.13.4 4.13.5: nanoc is a simple but very flexible static site generator written in Ruby
 www-apps/nanoc-deploying 1.0.2-r1: Provides deploying functionality for Nanoc
 www-apps/nanoc-spec 0.0.2-r1: Provides Nanoc::Spec, containing functionality for writing tests for Nanoc
-www-apps/nextcloud 29.0.12-r1 29.0.14-r1 29.0.15 29.0.16 30.0.6-r1 30.0.8-r1 30.0.9 30.0.11 31.0.2-r1 31.0.3 31.0.5: Personal cloud that runs on your own server
+www-apps/nextcloud 29.0.12-r1 29.0.16 30.0.6-r1 30.0.11 30.0.12 31.0.5 31.0.6: Personal cloud that runs on your own server
 www-apps/nextcloud-notify_push 1.0.0: Push daemon for Nextcloud clients
 www-apps/nikola 8.3.1-r1 8.3.3: A static website and blog generator
 www-apps/novnc 1.4.0 9999: noVNC is a VNC client implemented using HTML5 technologies
