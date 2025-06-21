@@ -3,6 +3,7 @@
 
 EAPI=8
 
+# TODO: meson
 inherit toolchain-funcs
 
 DESCRIPTION="ucontext implementation featuring glibc-compatible ABI"
@@ -11,7 +12,7 @@ SRC_URI="https://distfiles.ariadne.space/libucontext/${P}.tar.xz"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86"
 IUSE="+man"
 
 BDEPEND="man? ( app-text/scdoc )"
@@ -29,6 +30,8 @@ src_compile() {
 		arch="arm"
 	elif use arm64 ; then
 		arch="aarch64"
+	elif use loong ; then
+		arch="loongarch64"
 	elif use ppc64 ; then
 		arch="ppc64"
 	else
