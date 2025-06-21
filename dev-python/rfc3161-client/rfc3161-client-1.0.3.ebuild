@@ -32,17 +32,17 @@ CRATES="
 	once_cell@1.20.2
 	openssl-macros@0.1.1
 	openssl-src@300.4.1+3.4.0
-	openssl-sys@0.9.107
-	openssl@0.10.72
+	openssl-sys@0.9.109
+	openssl@0.10.73
 	pkg-config@0.3.31
 	portable-atomic@1.10.0
 	ppv-lite86@0.2.20
 	proc-macro2@1.0.92
-	pyo3-build-config@0.25.0
-	pyo3-ffi@0.25.0
-	pyo3-macros-backend@0.25.0
-	pyo3-macros@0.25.0
-	pyo3@0.25.0
+	pyo3-build-config@0.25.1
+	pyo3-ffi@0.25.1
+	pyo3-macros-backend@0.25.1
+	pyo3-macros@0.25.1
+	pyo3@0.25.1
 	quote@1.0.37
 	rand@0.9.1
 	rand_chacha@0.9.0
@@ -75,7 +75,7 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
-	[cryptography-x509]='https://github.com/pyca/cryptography;f81c07535ddf2d26cb1a27e70a9967ab708b8056;cryptography-%commit%/src/rust/cryptography-x509'
+	[cryptography-x509]='https://github.com/pyca/cryptography;678c0c59f743e3b301fbd34f1d26112db0cc2216;cryptography-%commit%/src/rust/cryptography-x509'
 )
 
 inherit cargo distutils-r1
