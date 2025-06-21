@@ -58,6 +58,7 @@ MULTILIB_CHOST_TOOLS=(
 
 PATCHES=(
 	"${FILESDIR}"/libxml2-2.14.2-no-git.patch
+	"${FILESDIR}"/libxml2-2.14.4-cmake.patch
 )
 
 src_unpack() {
