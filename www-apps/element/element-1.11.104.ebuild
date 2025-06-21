@@ -7,7 +7,7 @@ inherit webapp
 
 DESCRIPTION="A glossy Matrix collaboration client for the web"
 HOMEPAGE="https://element.io/"
-SRC_URI="https://github.com/vector-im/element-web/releases/download/v${PV}/${PN}-v${PV}.tar.gz"
+SRC_URI="https://github.com/element-hq/element-web/releases/download/v${PV}/${PN}-v${PV}.tar.gz"
 S=${WORKDIR}/${PN}-v${PV}
 
 LICENSE="Apache-2.0"
