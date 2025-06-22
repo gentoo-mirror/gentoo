@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install
 DEPEND=acct-group/atheme-services acct-user/atheme-services >=dev-libs/libmowgli-2.1.0:2 virtual/libcrypt:= cracklib? ( sys-libs/cracklib ) ldap? ( net-nds/openldap:= ) perl? ( dev-lang/perl:= ) pcre? ( dev-libs/libpcre ) ssl? ( dev-libs/openssl:0= )
 DESCRIPTION=A portable and secure set of open-source and modular IRC services
 EAPI=8
-HOMEPAGE=https://github.com/atheme/atheme
+HOMEPAGE=https://atheme.github.io/atheme.html
 INHERIT=perl-functions systemd
 IUSE=cracklib largenet ldap nls +pcre perl profile ssl
 KEYWORDS=amd64 ~arm ~arm64
@@ -12,4 +12,4 @@ RDEPEND=acct-group/atheme-services acct-user/atheme-services >=dev-libs/libmowgl
 SLOT=0
 SRC_URI=https://github.com/atheme/atheme/releases/download/v7.2.12/atheme-services-v7.2.12.tar.xz -> atheme-services-7.2.12.tar.xz
 _eclasses_=perl-functions	1863acf0982afafc67797e3ce7275b4c	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=ec16c4ba0c9ead8adcc6dfb8ef6165ef
+_md5_=e1236b43fbf02c40d47059448aa60ca1

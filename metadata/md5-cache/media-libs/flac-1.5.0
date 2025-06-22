@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20250306
+BDEPEND=sys-devel/gettext virtual/pkgconfig >=app-portage/elt-patches-20250306
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=ogg? ( media-libs/libogg[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
 DESCRIPTION=Free lossless audio encoder and decoder
@@ -13,4 +13,4 @@ REQUIRED_USE=cpu_flags_x86_avx2? ( cpu_flags_x86_avx )
 SLOT=0/11-14
 SRC_URI=https://github.com/xiph/flac/releases/download/1.5.0/flac-1.5.0.tar.xz https://downloads.xiph.org/releases/flac/flac-1.5.0.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	libtool	c81bd096be5f4c82f4e8f156ef112402	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
-_md5_=9e7bad0fba2498158f375dad282fa673
+_md5_=850e79475fd61e5b1c40ad3639c6fb83

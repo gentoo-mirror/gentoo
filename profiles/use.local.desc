@@ -1352,7 +1352,6 @@ dev-cpp/eigen:sparsehash - Add test support for GoogleHash (dev-cpp/sparsehash)
 dev-cpp/eigen:spqr - Add test support for SPQR (sci-libs/spqr)
 dev-cpp/eigen:superlu - Add test support for SuperLU (sci-libs/superlu)
 dev-cpp/eigen:umfpack - Add test support for UMFPACK (sci-libs/umfpack)
-dev-cpp/glaze:doc - Install README files
 dev-cpp/glaze:examples - Build examples (not install)
 dev-cpp/glaze:fuzzing - Build fuzzers (not install)
 dev-cpp/glog:gflags - Use dev-cpp/gflags for flag parsing
@@ -1370,7 +1369,6 @@ dev-cpp/opentelemetry-cpp:jaeger - Include the jaeger exporter
 dev-cpp/opentelemetry-cpp:prometheus - include the Prometheus Client in the SDK
 dev-cpp/sdbus-c++:systemd - Use external libsystemd instead of statically-linked build
 dev-cpp/sdbus-c++:tools - Install interface stub code generator
-dev-cpp/ut2-glaze:doc - Install README files
 dev-db/etcd:server - Installs etcd daemon
 dev-db/mariadb:backup - Build mariadb-backup which supports SST and hot backup of InnoDB, Aria and MyISAM including compression and encryption
 dev-db/mariadb:columnstore - Build the ColumnStore storage engine
@@ -6029,7 +6027,6 @@ net-irc/anope:ssl - Provide SSL services using OpenSSL
 net-irc/anope:tre - Use dev-libs/tre for regular expressions
 net-irc/atheme-services:cracklib - Enable nickserv/cracklib module for enforcing strong account passwords
 net-irc/atheme-services:largenet - Enable support/tweaks for large networks
-net-irc/atheme-services:ldap - Enable ldap-backed authentication module
 net-irc/atheme-services:perl - Install a perl module which wraps around the services' XML-RPC interface
 net-irc/hexchat:libcanberra - Enable sound event support using media-libs/libcanberra
 net-irc/hexchat:plugin-checksum - Build Checksum plugin (needs plugins)
@@ -6038,17 +6035,13 @@ net-irc/hexchat:plugin-sysinfo - Build SysInfo plugin (needs plugins)
 net-irc/hexchat:theme-manager - Build the theme manager (mono)
 net-irc/inspircd:argon2 - Enable Argon2 hashes in modules
 net-irc/inspircd:gnutls - Enable TLS support
-net-irc/inspircd:ldap - Enable LDAP support
 net-irc/inspircd:log-json - Enable logging via JSON
-net-irc/inspircd:maxminddb - Add support for geolocation using libMaxMindDB
+net-irc/inspircd:maxminddb - Enable geolocation support via dev-libs/libmaxminddb
 net-irc/inspircd:mbedtls - Add support for TLS using the mbedTLS library
-net-irc/inspircd:mysql - Enable MySQL database backend
 net-irc/inspircd:pcre2 - Add support for Perl Compatible Regular Expressions 2
-net-irc/inspircd:postgres - Enable PostgreSQL database backend
 net-irc/inspircd:re2 - Add support for Google RE2 regular expressions library
 net-irc/inspircd:regex-posix - Add support for POSIX Regular Expressions
 net-irc/inspircd:regex-stdlib - Add support for C++ stdlib regular expressions
-net-irc/inspircd:sqlite - Enable Sqlite database backend
 net-irc/inspircd:ssl - Enable SSL support
 net-irc/inspircd:sslrehashsignal - Enable rehashing SSL module by SIGUSR1
 net-irc/inspircd:tre - Enable support for TRE, a lightweight, robust, and efficient POSIX compliant regexp matching library
