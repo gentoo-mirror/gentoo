@@ -10,17 +10,15 @@ inherit perl-module
 DESCRIPTION="Paste on www.pastebin.com without API keys"
 
 SLOT="0"
-KEYWORDS="amd64 ~arm ~ppc ~x86"
+KEYWORDS="amd64 ~arm ppc x86"
 
 RDEPEND="
 	>=dev-perl/Moo-1.4.1
 	>=dev-perl/WWW-Mechanize-1.730.0
 "
-BDEPEND="${RDEPEND}
+BDEPEND="
+	${RDEPEND}
 	dev-perl/Module-Build
-	test? (
-		virtual/perl-Test-Simple
-	)
 "
 
 src_test() {
