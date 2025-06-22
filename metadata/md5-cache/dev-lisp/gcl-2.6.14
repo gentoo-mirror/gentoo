@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://www.gnu.org/software/gcl/gcl.html
 INHERIT=elisp-common flag-o-matic
 IUSE=+ansi athena emacs +readline tk X
-KEYWORDS=~amd64 ~arm ~ppc ppc64 ~x86
+KEYWORDS=amd64 ~arm ~ppc ppc64 x86
 LICENSE=LGPL-2+ GPL-2+
 RDEPEND=dev-libs/gmp virtual/latex-base emacs? ( app-editors/emacs:= ) readline? ( sys-libs/readline:= ) athena? ( x11-libs/libXaw ) tk? ( dev-lang/tk:= ) X? ( x11-libs/libXt x11-libs/libXext x11-libs/libXmu x11-libs/libXaw )
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://ftp.gnu.org/gnu/gcl/gcl-2.6.14.tar.gz
 _eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a
-_md5_=b9b6ca32f7de59b72dc9e03c2ae86e35
+_md5_=a68407f8345258e2123d1f6178253d4a

@@ -88,9 +88,7 @@ app-admin/keepassxc:ssh-agent - Use KeePassXC to unlock SSH keys
 app-admin/keepassxc:yubikey - Enable database unlocking via hardware keys supporting YubiKey-style HMAC-SHA1 protocol
 app-admin/lnav:pcap - Enable support for pcap files.
 app-admin/logcheck:cron - Adds file to enable hourly cron job to run logcheck"
-app-admin/logrotate:acl - Installs acl support
 app-admin/logrotate:cron - Installs cron file
-app-admin/logrotate:selinux - Installs Security Enhanced Linux support
 app-admin/logstash-bin:x-pack - Enable additional features (may need a license)
 app-admin/openrc-settingsd:systemd - Use the versions of dbus and polkit files provided by sys-apps/systemd
 app-admin/pass:X - Use x11-misc/xclip to copy passwords to the clipboard.
@@ -3000,7 +2998,6 @@ dev-vcs/git:tk - Include the 'gitk' and 'git gui' tools
 dev-vcs/git:webdav - Adds support for push'ing to HTTP/HTTPS repositories via DAV
 dev-vcs/git-annex:assistant - Enable git-annex assistant and watch command
 dev-vcs/git-annex:benchmark - Enable benchmarking
-dev-vcs/git-annex:dbus - Enable dbus support
 dev-vcs/git-annex:gitlfs - Build with git-lfs library (rather than vendored copy)
 dev-vcs/git-annex:magicmime - Use libmagic to determine file MIME types
 dev-vcs/git-annex:pairing - Enable pairing
@@ -8430,11 +8427,10 @@ sys-fs/quota:netlink - Compile daemon receiving quota messages via netlink
 sys-fs/quota:rpc - Enable quota interaction via RPC
 sys-fs/squashfs-tools-ng:tools - Build the gensquashfs, rdsquashfs, sqfs2tar, sqfsdiff, and tar2sqfs tools
 sys-fs/udisks:daemon - Build the system daemon, not just the client tool
-sys-fs/udisks:elogind - Use sys-auth/elogind for session tracking
-sys-fs/udisks:lvm - Add support for Logical Volume Management via sys-fs/lvm2.
+sys-fs/udisks:lvm - Add support for Logical Volume Management via sys-fs/lvm2
 sys-fs/udisks:systemd - Support sys-apps/systemd's logind
 sys-fs/udisks:vdo - Enable Virtual Data Optimizer support.
-sys-fs/udisks:zram - Enable ZRAM support (requires sys-apps/systemd).
+sys-fs/udisks:zram - Enable ZRAM support (requires sys-apps/systemd)
 sys-fs/zfs:kernel-builtin - Disable dependency on sys-fs/zfs-kmod under the assumption that ZFS is part of the kernel source tree
 sys-fs/zfs:minimal - Don't install python scripts (arcstat, dbufstat etc) and avoid dependency on dev-lang/python
 sys-fs/zfs:pam - Install zfs_key pam module, for automatically loading zfs encryption keys for home datasets
