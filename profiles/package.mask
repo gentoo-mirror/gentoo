@@ -148,12 +148,6 @@ dev-python/gpgmepy
 =app-misc/ca-certificates-20250419.3.112
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-06-02)
-# Package destabilisation mask. There is simply no need for this without
-# any stable consumers, and it is freeing up resources.
-# 0.6.0_pre20241020 is available in ~arch.
-~sci-libs/libsigrok-0.5.2
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-06-02)
 # Gui depends on Qt5 and is unmaintained for a very long time - its main
 # developers have moved to the InputLeap project (gui-apps/input-leap).
 # Bugs #942580, #949911, #951987, #953262; removal on 2025-07-02.
@@ -204,21 +198,9 @@ dev-libs/urdfdom_headers
 # Removal on 2025-06-24
 media-libs/oneVPL-cpu
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-24)
-# Dead upstream, fails to build with GCC-14, depends on media-libs/dumb.
-# A rescue mission would ideally package dsda-doom. Bugs #939219, #908973
-# Removal on 2025-06-23.
-games-fps/prboom-plus
-
 # Sam James <sam@gentoo.org> (2025-05-23)
 # Severe memory leak (bug #953874)
 =app-i18n/ibus-anthy-1.5.17
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-05-22)
-# Even if Qt5 is optional here, it is dead upstream for close to 10 years
-# and without Gentoo package maintainer almost as long. Bug #926074.
-# Removal on 2025-06-21.
-net-firewall/pglinux
 
 # Matt Turner <mattst88@gentoo.org> (2025-05-22)
 # Old slot depending on libsoup:2.4. All reverse dependencies migrated to a
