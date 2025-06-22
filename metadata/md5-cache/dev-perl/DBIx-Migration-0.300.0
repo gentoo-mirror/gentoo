@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/DBIx-Migration
 INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/Class-Accessor >=dev-perl/DBI-1.330.0 dev-perl/File-Slurp >=dev-perl/Log-Any-1.44.0 dev-perl/Moo dev-perl/MooX-SetOnce dev-perl/MooX-StrictConstructor >=dev-perl/Path-Tiny-0.62.0 dev-perl/PerlX-Maybe dev-perl/String-Expand dev-perl/Try-Tiny >=dev-perl/Type-Tiny-2.0.1 dev-perl/Types-Path-Tiny dev-perl/Types-Self dev-perl/namespace-clean >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/S/SV/SVW/DBIx-Migration-0.30.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
-_md5_=77aac823d8450282a9a0e6bd585ee1b2
+_md5_=f66855e13bef8cadb5ad77837acbbb18
