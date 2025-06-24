@@ -1,4 +1,4 @@
-DEFINED_PHASES=install postinst prerm setup
+DEFINED_PHASES=install postinst prepare prerm setup
 DEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) app-admin/webapp-config
 DESCRIPTION=ruTorrent is a front-end for the popular Bittorrent client rTorrent
 EAPI=8
@@ -8,7 +8,7 @@ IUSE=vhosts
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=GPL-2+ MIT
 RDEPEND=dev-lang/php[xml,gd] virtual/httpd-php app-admin/webapp-config
-SLOT=5.2.8
-SRC_URI=https://github.com/Novik/ruTorrent/archive/v5.2.8.tar.gz -> rutorrent-5.2.8.tar.gz
+SLOT=5.2.10
+SRC_URI=https://github.com/Novik/ruTorrent/archive/v5.2.10.tar.gz -> rutorrent-5.2.10.tar.gz
 _eclasses_=webapp	5fa840db95fc7348dfd53b8526ed05f5	optfeature	538bce96e5589935b57e178e8635f301
-_md5_=0eb8104f49861137b5b0a43d6ee31d19
+_md5_=7a334d5e828c7eeafc3ff8f6cd5f8a78
