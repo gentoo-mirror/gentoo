@@ -127,7 +127,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-6.1.80-override-include-dirs.patch" # downstream patch
-	"${FILESDIR}/${P}-unused-dep.patch" # fixed in 6.4 branch
 )
 
 src_prepare() {

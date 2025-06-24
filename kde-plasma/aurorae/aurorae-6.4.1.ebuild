@@ -25,13 +25,12 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/knewstuff-${KFMIN}:6
 	>=kde-frameworks/kpackage-${KFMIN}:6
-	>=kde-frameworks/ksvg-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/kdecoration-${PV}:6
 "
 RDEPEND="${DEPEND}
-	>=kde-frameworks/kirigami-${KFMIN}:6
 	!<kde-plasma/kwin-6.3.2
+	>=kde-frameworks/kirigami-${KFMIN}:6
+	>=kde-frameworks/ksvg-${KFMIN}:6
 "
 
 DOCS=( README )
