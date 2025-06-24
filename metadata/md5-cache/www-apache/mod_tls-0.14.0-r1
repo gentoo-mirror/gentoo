@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile install postinst prepare setup
+DEPEND=|| ( =net-libs/rustls-ffi-0.15* =net-libs/rustls-ffi-0.14* ) >=www-servers/apache-2.4.48[-apache2_modules_tls(-)] =www-servers/apache-2.4*
+DESCRIPTION=A module that uses rustls to provide a memory safe TLS implementation in Rust.
+EAPI=8
+HOMEPAGE=https://github.com/icing/mod_tls
+INHERIT=apache-module autotools
+IUSE=ssl
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=|| ( =net-libs/rustls-ffi-0.15* =net-libs/rustls-ffi-0.14* ) >=www-servers/apache-2.4.48[-apache2_modules_tls(-)] =www-servers/apache-2.4*
+SLOT=0
+SRC_URI=https://github.com/icing/mod_tls/archive/v0.14.0.tar.gz -> mod_tls-0.14.0.tar.gz
+_eclasses_=depend.apache	3b9c533be911d4550c8972e4dfb6434a	apache-module	2778fecd257078e9c921796782f6ede1	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
+_md5_=57b660653145909c31770f1af545d015
