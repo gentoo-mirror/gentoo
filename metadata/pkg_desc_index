@@ -3897,7 +3897,7 @@ dev-cpp/kokkos 4.0.1 4.3.1: C++ Performance Portability Programming EcoSystem
 dev-cpp/libcmis 0.6.2-r1 0.6.2-r2 9999: C++ client library for the CMIS interface
 dev-cpp/libjson-rpc-cpp 1.4.0 1.4.0-r1: JSON-RPC (1.0 & 2.0) framework for C++
 dev-cpp/libmcpp 2.7.2_p5-r2: A portable C++ preprocessor
-dev-cpp/libxmlpp 2.42.2-r1 5.0.3-r1: C++ wrapper for the libxml2 XML parser library
+dev-cpp/libxmlpp 2.42.2-r1 2.42.3 5.0.3-r1 5.0.4: C++ wrapper for the libxml2 XML parser library
 dev-cpp/lucene++ 3.0.7-r3 3.0.9: C++ port of Lucene library, a high-performance, full-featured text search engine
 dev-cpp/magic_enum 0.9.6 0.9.7: Static reflection for enums in header-only C++
 dev-cpp/metslib 0.5.3: Metaheuristic modeling framework and optimization toolkit
@@ -10973,7 +10973,7 @@ dev-util/roctracer 5.7.1-r1 6.1.1-r1 6.3.2 6.3.3 6.4.1: Callback/Activity Librar
 dev-util/ropper 1.13.10 1.13.13 9999: Use to display information about binary files in different file formats
 dev-util/rpmdevtools 9.6: Collection of rpm packaging related utilities
 dev-util/rt-tests 2.7 2.8: A collection of latency testing tools for the linux(-rt) kernel
-dev-util/ruff 0.11.7 0.11.10 0.11.11 0.11.13: An extremely fast Python linter, written in Rust
+dev-util/ruff 0.11.7 0.11.10 0.11.11 0.11.13 0.12.0: An extremely fast Python linter, written in Rust
 dev-util/runme 2.0.5: Execute your runbooks, docs and READMEs
 dev-util/rustup 1.28.1 1.28.2 9999: Rust toolchain installer
 dev-util/sasm 3.10.1: Simple crossplatform IDE for NASM assembly language
@@ -17142,7 +17142,7 @@ sys-apps/prctl 1.6-r1: Tool to query and modify process behavior
 sys-apps/preload 0.6.4-r3: Adaptive readahead daemon
 sys-apps/progress 0.15-r1: Coreutils Viewer: show progress for cp, rm, dd, and so forth
 sys-apps/proot 5.3.0 5.4.0: User-space implementation of chroot, mount --bind, and binfmt_misc
-sys-apps/pv 1.9.0 1.9.15 1.9.31 9999: Pipe Viewer: a tool for monitoring the progress of data through a pipe
+sys-apps/pv 1.9.31 9999: Pipe Viewer: a tool for monitoring the progress of data through a pipe
 sys-apps/qcontrol 0.4.2-r100: Send commands to some microcontrollers, e.g., to change LEDs or sound a buzzer
 sys-apps/qdirstat 1.9: Qt-based directory statistics
 sys-apps/qingy 1.0.0-r6: A DirectFB getty replacement
@@ -17830,7 +17830,7 @@ sys-process/nmon 16q: Nigel's performance MONitor for CPU, memory, network, disk
 sys-process/numactl 2.0.16-r1 2.0.18 2.0.19 9999: Utilities and libraries for NUMA systems
 sys-process/numad 0.5-r4 0.5_p20180531-r2 9999: The NUMA daemon that manages application locality
 sys-process/nvtop 3.1.0 3.2.0 9999: (h)top like task monitor for AMD, NVIDIA, Intel and other GPUs
-sys-process/parallel 20241022: A shell tool for executing jobs in parallel locally or on remote machines
+sys-process/parallel 20241022 20250622: Shell tool for executing jobs in parallel locally or on remote machines
 sys-process/pkill-darwin 1.0-r1: pgrep(1) and pkill(1) for Darwin
 sys-process/prll 0.6.4: Utility for parallelizing execution of shell functions
 sys-process/procenv 0.51 0.51-r1: command-line utility to show process environment
@@ -17910,15 +17910,15 @@ virtual/os-headers 0-r2: Virtual for operating system headers
 virtual/package-manager 2: Virtual for the package manager
 virtual/pager 0-r1: Virtual for command-line pagers
 virtual/pandoc 0-r1: Virtual for pandoc
-virtual/perl-Archive-Tar 3.20.10_rc: Virtual for Archive-Tar
-virtual/perl-CPAN 2.360.0-r1: Virtual for CPAN
-virtual/perl-CPAN-Meta 2.150.10-r9: Virtual for CPAN-Meta
-virtual/perl-CPAN-Meta-Requirements 2.143.0: Virtual for CPAN-Meta-Requirements
-virtual/perl-Carp 1.540.0-r1: Virtual for Carp
-virtual/perl-Compress-Raw-Bzip2 2.212.0: Virtual for Compress-Raw-Bzip2
-virtual/perl-Compress-Raw-Zlib 2.212.0-r1 2.213.0: Virtual for Compress-Raw-Zlib
+virtual/perl-Archive-Tar 3.20.10_rc 3.40.0: Virtual for Archive-Tar
+virtual/perl-CPAN 2.360.0-r1 2.380.0: Virtual for CPAN
+virtual/perl-CPAN-Meta 2.150.10-r10: Virtual for CPAN-Meta
+virtual/perl-CPAN-Meta-Requirements 2.143.0-r1: Virtual for CPAN-Meta-Requirements
+virtual/perl-Carp 1.540.0-r2: Virtual for Carp
+virtual/perl-Compress-Raw-Bzip2 2.212.0 2.213.0: Virtual for Compress-Raw-Bzip2
+virtual/perl-Compress-Raw-Zlib 2.212.0-r1 2.213.0-r1: Virtual for Compress-Raw-Zlib
 virtual/perl-DB_File 1.859.0: Virtual for DB_File
-virtual/perl-Data-Dumper 2.189.0: Virtual for Data-Dumper
+virtual/perl-Data-Dumper 2.189.0 2.192.0: Virtual for Data-Dumper
 virtual/perl-Devel-PPPort 3.720.0: Virtual for Devel-PPPort
 virtual/perl-Digest 1.200.0-r2: Virtual for Digest
 virtual/perl-Digest-MD5 2.580.100_rc-r1: Virtual for Digest-MD5
@@ -17970,8 +17970,8 @@ virtual/perl-Time-Local 1.350.0: Virtual for Time-Local
 virtual/perl-Unicode-Collate 1.310.0-r2: Virtual for Unicode-Collate
 virtual/perl-Unicode-Normalize 1.320.0-r1: Virtual for Unicode-Normalize
 virtual/perl-XSLoader 0.320.0-r1: Virtual for XSLoader
-virtual/perl-autodie 2.370.0: Virtual for autodie
-virtual/perl-bignum 0.670.0: Virtual for bignum
+virtual/perl-autodie 2.370.0-r1: Virtual for autodie
+virtual/perl-bignum 0.670.0-r1: Virtual for bignum
 virtual/perl-if 0.61.0-r2: Virtual for if
 virtual/perl-libnet 3.150.0-r1: Virtual for libnet
 virtual/perl-parent 0.241.0-r1: Virtual for parent
