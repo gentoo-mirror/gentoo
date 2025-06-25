@@ -6,12 +6,12 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 KFMIN=6.9.0
 QTMIN=6.7.2
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 inherit ecm kde.org optfeature python-any-r1 xdg
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
 	SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
-#	KEYWORDS="~amd64"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Advanced audio player based on KDE Frameworks"
@@ -24,6 +24,7 @@ IUSE="ipod lastfm mariadb mtp podcast webengine X"
 # ipod requires gdk enabled and also gtk compiled in libgpod
 DEPEND="
 	>=app-crypt/qca-2.3.9:2[qt6(+)]
+	dev-libs/glib:2
 	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
@@ -60,14 +61,15 @@ DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-frameworks/threadweaver-${KFMIN}:6
-	>=media-libs/phonon-4.12.0[qt6(+)]
+	media-libs/gstreamer:1.0
+	media-libs/gst-plugins-base:1.0
 	>=media-libs/taglib-1.12:=
 	sci-libs/fftw:3.0
 	sys-libs/zlib
 	virtual/opengl
 	ipod? (
-		dev-libs/glib:2
 		media-libs/libgpod[gtk]
+		x11-libs/gdk-pixbuf:2
 	)
 	lastfm? ( >=media-libs/liblastfm-1.1.0_pre20241124 )
 	mariadb? ( dev-db/mariadb-connector-c:= )
@@ -78,6 +80,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	>=kde-frameworks/kirigami-${KFMIN}:6
+	media-plugins/gst-plugins-meta:1.0
 	media-video/ffmpeg
 "
 BDEPEND="${PYTHON_DEPS}
@@ -101,7 +104,7 @@ src_configure() {
 		$(cmake_use_find_package webengine Qt6WebEngineWidgets)
 		-DWITH_X11=$(usex X)
 	)
-	use ipod && mycmakeargs+=( -DWITH_GDKPixBuf=ON )
+	use ipod && mycmakeargs+=$(cmake_use_find_package ipod GDKPixBuf)
 
 	ecm_src_configure
 }
