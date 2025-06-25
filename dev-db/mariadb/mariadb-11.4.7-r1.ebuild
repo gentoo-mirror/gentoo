@@ -13,7 +13,7 @@ DESCRIPTION="An enhanced, drop-in replacement for MySQL"
 HOMEPAGE="https://mariadb.org/"
 SRC_URI="
 	mirror://mariadb/${P}/source/${P}.tar.gz
-	https://dev.gentoo.org/~arkamar/distfiles/${P}-patches-01.tar.xz
+	https://dev.gentoo.org/~arkamar/distfiles/${PN}-11.4.7-patches-01.tar.xz
 "
 # Shorten the path because the socket path length must be shorter than 107 chars
 # and we will run a mysql server during test phase
@@ -21,7 +21,7 @@ S="${WORKDIR}/mysql"
 
 LICENSE="GPL-2 LGPL-2.1+"
 SLOT="$(ver_cut 1-2)/${SUBSLOT:-0}"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86"
 IUSE="+backup bindist columnstore cracklib debug extraengine galera innodb-lz4
 	innodb-lzo innodb-snappy jdbc jemalloc kerberos latin1 mroonga
 	numa odbc oqgraph pam +perl profiling rocksdb selinux +server sphinx
@@ -37,17 +37,9 @@ REQUIRED_USE="jdbc? ( extraengine server !static )
 
 # Be warned, *DEPEND are version-dependant
 # These are used for both runtime and compiletime
-#
-# libfmt-10 contains a bug which was fixed in libfmt-11, see
-# https://jira.mariadb.org/browse/MDEV-32815, bug 946074
-# libfmt-11.1 works with FMT_STATIC_THOUSANDS_SEPARATOR
-# differently, bug 946924
 COMMON_DEPEND="
 	dev-libs/libfmt:=
-	|| (
-		<dev-libs/libfmt-10
-		=dev-libs/libfmt-11.0*
-	)
+	dev-libs/lzo:2
 	>=dev-libs/libpcre2-10.34:=
 	>=sys-apps/texinfo-4.7-r1
 	sys-libs/ncurses:0=
@@ -71,6 +63,7 @@ COMMON_DEPEND="
 		columnstore? (
 			app-arch/snappy:=
 			dev-libs/boost:=
+			dev-libs/thrift:=
 			dev-libs/libxml2:2=
 		)
 		cracklib? ( sys-libs/cracklib:0= )
@@ -98,11 +91,18 @@ COMMON_DEPEND="
 		>=dev-libs/openssl-1.0.0:0=
 	)
 "
-BDEPEND="app-alternatives/yacc"
+BDEPEND="
+	app-alternatives/yacc
+	test? (
+		acct-group/mysql
+		acct-user/mysql
+		dev-perl/Net-SSLeay
+		virtual/perl-Getopt-Long
+	)
+"
 DEPEND="${COMMON_DEPEND}
 	server? (
 		extraengine? ( jdbc? ( >=virtual/jdk-1.8 ) )
-		test? ( acct-group/mysql acct-user/mysql )
 	)
 	static? ( sys-libs/ncurses[static-libs] )
 "
@@ -131,7 +131,11 @@ RDEPEND="${COMMON_DEPEND}
 			sst-rsync? ( sys-process/lsof )
 			sst-mariabackup? ( net-misc/socat[ssl] )
 		)
-		!prefix? ( dev-db/mysql-init-scripts acct-group/mysql acct-user/mysql )
+		!prefix? (
+			acct-group/mysql
+			acct-user/mysql
+			dev-db/mysql-init-scripts
+		)
 	)
 "
 # For other stuff to bring us in
@@ -220,6 +224,7 @@ src_prepare() {
 	eapply "${WORKDIR}"/mariadb-patches
 	eapply "${FILESDIR}"/${PN}-10.6.11-gssapi.patch
 	eapply "${FILESDIR}"/${PN}-10.6.12-gcc-13.patch
+	eapply "${FILESDIR}"/${PN}-11.4.7-gcc-16.patch
 
 	eapply_user
 
@@ -291,8 +296,6 @@ src_configure() {
 	filter-lto
 	# bug 508724 mariadb cannot use ld.gold
 	tc-ld-is-gold && tc-ld-force-bfd
-	# Bug #114895, bug #110149
-	filter-flags "-O" "-O[01]"
 
 	use elibc_musl && append-flags -D_LARGEFILE64_SOURCE
 
@@ -306,8 +309,6 @@ src_configure() {
 
 	# bug #283926, with GCC4.4, this is required to get correct behavior.
 	append-flags -fno-strict-aliasing
-
-	CMAKE_BUILD_TYPE="RelWithDebInfo"
 
 	# debug hack wrt #497532
 	local mycmakeargs=(
@@ -351,11 +352,12 @@ src_configure() {
 		-DSUFFIX_INSTALL_DIR=""
 		-DWITH_UNITTEST=OFF
 		-DWITHOUT_CLIENTLIBS=YES
-		-DCLIENT_PLUGIN_DIALOG=$(usex test DYNAMIC OFF)
 		-DCLIENT_PLUGIN_AUTH_GSSAPI_CLIENT=OFF
-		-DCLIENT_PLUGIN_CLIENT_ED25519=$(usex test DYNAMIC OFF)
-		-DCLIENT_PLUGIN_MYSQL_CLEAR_PASSWORD=STATIC
 		-DCLIENT_PLUGIN_CACHING_SHA2_PASSWORD=OFF
+		-DCLIENT_PLUGIN_CLIENT_ED25519=$(usex test DYNAMIC OFF)
+		-DCLIENT_PLUGIN_DIALOG=$(usex test DYNAMIC OFF)
+		-DCLIENT_PLUGIN_MYSQL_CLEAR_PASSWORD=STATIC
+		-DCLIENT_PLUGIN_ZSTD=OFF
 	)
 	if use test ; then
 		mycmakeargs+=( -DINSTALL_MYSQLTESTDIR=share/mariadb/mysql-test )

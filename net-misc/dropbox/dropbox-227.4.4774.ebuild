@@ -32,7 +32,8 @@ RDEPEND="
 	selinux? ( sec-policy/selinux-dropbox )
 	app-arch/bzip2
 	dev-libs/glib:2
-	dev-libs/libffi-compat:6
+	dev-libs/libayatana-appindicator
+	dev-libs/libffi-compat:7
 	media-libs/fontconfig
 	media-libs/freetype
 	net-misc/wget
@@ -59,7 +60,7 @@ src_unpack() {
 src_prepare() {
 	default
 	# we supply all of these in RDEPEND
-	rm -vf libGL.so.1 libX11* libffi.so.6 || die
+	rm -vf libGL.so.1 libX11* libffi.so.7 || die
 	# some of these do not appear to be used
 	rm -vf libQt5{OpenGL,PrintSupport,Qml,Quick,Sql,WebKit,WebKitWidgets}.so.5 \
 		PyQt5.QtPrintSupport.* PyQt5.QtQml.* PyQt5.QtQuick.*  \
@@ -85,6 +86,9 @@ src_install() {
 	doins -r *
 	fperms a+x "${targetdir}"/{dropbox,dropboxd}
 	dosym "${targetdir}/dropboxd" "/opt/bin/dropbox"
+	# symlinks for bug 955139
+	dosym ../../usr/$(get_libdir)/libayatana-appindicator3.so.1 ${targetdir}/libappindicator3.so.1
+	dosym libappindicator3.so.1 ${targetdir}/libappindicator3.so
 
 	if use X; then
 		doicon -s 16 -c status "${T}"/status
@@ -101,9 +105,26 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
+
 	einfo "Warning: while running, dropbox may attempt to autoupdate itself in"
 	einfo " your user's home directory.  To prevent this, run the following as"
 	einfo " each user who will run dropbox:"
 	einfo ""
 	einfo "install -dm0 ~/.dropbox-dist"
+	einfo ""
+	einfo "If you do allow dropbox to update/install to your user homedir, you"
+	einfo " will need to create some compat symlinks to keep the tray icon working:"
+	einfo ""
+	einfo "ln -sf /usr/$(get_libdir)/libayatana-appindicator3.so.1 ~/.dropbox-dist/libappindicator3.so.1"
+	einfo "ln -sf libappindicator3.so.1 ~/.dropbox-dist/libappindicator3.so"
+
+	if has_version gnome-base/gnome-shell; then
+		if ! has_version gnome-extra/gnome-shell-extension-appindicator; then
+			einfo ""
+			einfo "Please install gnome-extra/gnome-shell-extension-appindicator if you"
+			einfo " require tray icon support for Dropbox in Gnome."
+		fi
+	fi
+
 }
