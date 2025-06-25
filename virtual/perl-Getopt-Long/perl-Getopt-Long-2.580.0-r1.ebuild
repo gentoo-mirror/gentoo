@@ -8,8 +8,8 @@ SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 
 RDEPEND="
-	~perl-core/${PN#perl-}-${PV}
+	|| ( =dev-lang/perl-5.42* ~perl-core/${PN#perl-}-${PV} )
 	dev-lang/perl:=
+	!<perl-core/${PN#perl-}-${PV}
+	!>perl-core/${PN#perl-}-${PV}-r999
 "
-
-# this is the dev-lang/perl-5.34 and dev-lang/perl-5.36 and dev-lang/perl-5.38 and dev-lang/perl-5.40 and dev-lang/perl-5.42 version but we want the security patch
