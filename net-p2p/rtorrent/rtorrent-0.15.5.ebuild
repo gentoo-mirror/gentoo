@@ -44,8 +44,6 @@ DOCS=( doc/rtorrent.rc )
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.15.3-unbundle_json.patch
-	# from upstream. To be removed in next release
-	"${FILESDIR}"/${PN}-0.15.4-fix_waitpid.patch
 )
 
 pkg_setup() {
