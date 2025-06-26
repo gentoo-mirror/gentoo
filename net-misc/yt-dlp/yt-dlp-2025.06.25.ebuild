@@ -5,35 +5,30 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
-inherit distutils-r1 git-r3 optfeature shell-completion wrapper
+inherit distutils-r1 optfeature shell-completion wrapper
 
 DESCRIPTION="youtube-dl fork with additional features and fixes"
 HOMEPAGE="https://github.com/yt-dlp/yt-dlp/"
-EGIT_REPO_URI="https://github.com/yt-dlp/yt-dlp.git"
+SRC_URI="
+	https://github.com/yt-dlp/yt-dlp/releases/download/${PV}/${PN}.tar.gz
+		-> ${P}.tar.gz
+"
+S=${WORKDIR}/${PN}
 
 LICENSE="Unlicense"
 SLOT="0"
-IUSE="man"
+# note that yt-dlp bumps are typically done straight-to-stable (unless there
+# was major/breaking changes) given website changes breaks it on a whim
+KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~riscv x86 ~arm64-macos ~x64-macos"
 
 RDEPEND="
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	man? ( virtual/pandoc )
 	test? ( media-video/ffmpeg[webp] )
 "
 
 distutils_enable_tests pytest
-
-python_compile() {
-	# generate missing files in live, not in compile_all nor prepare
-	# given need lazy before compile and it needs a usable ${PYTHON}
-	emake completions lazy-extractors $(usev man yt-dlp.1)
-
-	"${EPYTHON}" devscripts/update-version.py || die
-
-	distutils-r1_python_compile
-}
 
 python_test() {
 	local EPYTEST_DESELECT=(
@@ -52,11 +47,13 @@ python_test() {
 
 python_install_all() {
 	dodoc README.md Changelog.md supportedsites.md
-	use man && doman yt-dlp.1
+	doman yt-dlp.1
 
 	dobashcomp completions/bash/yt-dlp
 	dofishcomp completions/fish/yt-dlp.fish
 	dozshcomp completions/zsh/_yt-dlp
+
+	rm -r "${ED}"/usr/share/doc/yt_dlp || die
 
 	make_wrapper youtube-dl "yt-dlp --compat-options youtube-dl"
 }
