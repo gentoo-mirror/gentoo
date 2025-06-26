@@ -1,6 +1,6 @@
 BDEPEND=dev-cpp/mm-common virtual/pkgconfig doc? ( app-text/doxygen dev-libs/libxslt media-gfx/graphviz ) >=app-portage/elt-patches-20250306 app-arch/xz-utils test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=>=media-libs/gstreamer-1.10.0:1.0 >=media-libs/gst-plugins-base-1.10.0:1.0 >=dev-cpp/glibmm-2.47.6:2 >=dev-cpp/libxmlpp-2.14:2.6 >=dev-libs/libsigc++-2:2 test? ( dev-cpp/gtest >=media-libs/gst-plugins-base-1.10.0:1.0[X,ogg,theora,vorbis] >=media-libs/gst-plugins-good-1.10.0:1.0 >=media-plugins/gst-plugins-jpeg-1.10.0:1.0 )
+DEPEND=>=media-libs/gstreamer-1.10.0:1.0 >=media-libs/gst-plugins-base-1.10.0:1.0 >=dev-cpp/glibmm-2.47.6:2 >=dev-libs/libsigc++-2:2 test? ( dev-cpp/gtest >=media-libs/gst-plugins-base-1.10.0:1.0[X,ogg,theora,vorbis] >=media-libs/gst-plugins-good-1.10.0:1.0 >=media-plugins/gst-plugins-jpeg-1.10.0:1.0 )
 DESCRIPTION=C++ interface for GStreamer
 EAPI=8
 HOMEPAGE=https://gstreamer.freedesktop.org/bindings/cplusplus.html
@@ -9,9 +9,9 @@ INHERIT=gnome2 virtualx
 IUSE=doc examples test test
 KEYWORDS=amd64 ~ppc x86
 LICENSE=LGPL-2.1
-RDEPEND=>=media-libs/gstreamer-1.10.0:1.0 >=media-libs/gst-plugins-base-1.10.0:1.0 >=dev-cpp/glibmm-2.47.6:2 >=dev-cpp/libxmlpp-2.14:2.6 >=dev-libs/libsigc++-2:2
+RDEPEND=>=media-libs/gstreamer-1.10.0:1.0 >=media-libs/gst-plugins-base-1.10.0:1.0 >=dev-cpp/glibmm-2.47.6:2 >=dev-libs/libsigc++-2:2
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=1.0/1
 SRC_URI=mirror://gnome/sources/gstreamermm/1.10/gstreamermm-1.10.0.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	gnome.org	e1b4f392dbfedfb8974b71b017937f08	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	xdg	3ef49a87c52c8b77c476351195dfe575	gnome2	26fd01914b36038dc8e964ff4bd03a95	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=289cca37c8e4746a1e473a3e741b64a4
+_md5_=48ab6ee6b3928e317e817e7ce51820c0
