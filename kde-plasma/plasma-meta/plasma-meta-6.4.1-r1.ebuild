@@ -67,10 +67,10 @@ RDEPEND="
 	sys-fs/udisks:2[elogind?,systemd?]
 	bluetooth? ( >=kde-plasma/bluedevil-${PV}:${SLOT} )
 	browser-integration? ( >=kde-plasma/plasma-browser-integration-${PV}:${SLOT} )
-	crash-handler? ( || (
-		=kde-plasma/drkonqi-6.3.80*:${SLOT}
-		>=kde-plasma/drkonqi-${PV}:${SLOT}
-	) )
+	crash-handler? (
+		!systemd? ( >=kde-plasma/drkonqi-legacy-6.3.80_p20250417:${SLOT} )
+		systemd? ( >=kde-plasma/drkonqi-${PV}:${SLOT} )
+	)
 	crypt? ( >=kde-plasma/plasma-vault-${PV}:${SLOT} )
 	cups? (
 		>=kde-plasma/print-manager-${PV}:${SLOT}
