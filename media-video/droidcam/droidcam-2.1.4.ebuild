@@ -7,12 +7,12 @@ inherit desktop linux-mod-r1 xdg
 
 DESCRIPTION="Use your phone or tablet as webcam with a v4l device driver and app"
 HOMEPAGE="https://www.dev47apps.com/droidcam/linux/"
-SRC_URI="https://github.com/dev47apps/${PN}/archive/v${PV//_rc1/-RC}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${PV//_rc1/-RC}"
+SRC_URI="https://github.com/dev47apps/${PN}-linux-client/archive/v${PV//_rc1/-RC}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-linux-client-${PV}"
 
-KEYWORDS="~amd64"
 LICENSE="GPL-2"
 SLOT="0"
+KEYWORDS="~amd64"
 
 IUSE="gtk"
 
@@ -43,10 +43,6 @@ BDEPEND="virtual/pkgconfig"
 CONFIG_CHECK="~SND_ALOOP VIDEO_DEV MEDIA_SUPPORT MEDIA_CAMERA_SUPPORT"
 ERROR_SND_ALOOP="CONFIG_SND_ALOOP is optionally required for audio support"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-2.0.0-libusbmuxd-20.patch"
-)
-
 src_prepare() {
 	if ! use gtk; then
 		default
@@ -68,9 +64,9 @@ src_configure() {
 
 src_compile() {
 	if use gtk; then
-		APPINDICATOR=ayatana-appindicator3-0.1 emake droidcam
+		USBMUXD=libusbmuxd-2.0 APPINDICATOR=ayatana-appindicator3-0.1 emake droidcam
 	fi
-	 APPINDICATOR=ayatana-appindicator3-0.1 emake droidcam-cli
+	 USBMUXD=libusbmuxd-2.0 APPINDICATOR=ayatana-appindicator3-0.1 emake droidcam-cli
 
 	local modlist=(
 		v4l2loopback-dc=video:v4l2loopback:v4l2loopback:all
