@@ -1,0 +1,17 @@
+BDEPEND=test? ( sys-apps/bubblewrap sys-apps/dbus ) || ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=>=dev-libs/glib-2.60:2 >=sys-libs/libseccomp-2.5.0 heif? ( >=media-libs/libheif-1.17.0:= ) jpegxl? ( >=media-libs/libjxl-0.10.0:= ) svg? ( >=gnome-base/librsvg-2.52.0:2 >=x11-libs/cairo-1.17.0 ) test? ( >=gui-libs/gtk-4.16.0:4 >=media-libs/lcms-2.14:2 )
+DESCRIPTION=Loaders for glycin clients (glycin crate or libglycin)
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/glycin/
+INHERIT=cargo meson
+IUSE=heif jpegxl svg test debug
+KEYWORDS=~amd64 ~arm64
+LICENSE=|| ( LGPL-2.1+ MPL-2.0 ) Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD GPL-3+ ISC LGPL-3+ MIT Unicode-3.0 || ( LGPL-2.1+ MPL-2.0 )
+RDEPEND=>=dev-libs/glib-2.60:2 >=sys-libs/libseccomp-2.5.0 heif? ( >=media-libs/libheif-1.17.0:= ) jpegxl? ( >=media-libs/libjxl-0.10.0:= ) svg? ( >=gnome-base/librsvg-2.52.0:2 >=x11-libs/cairo-1.17.0 )
+REQUIRED_USE=test? ( heif jpegxl )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://download.gnome.org/sources/glycin/1.2/glycin-1.2.2.tar.xz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	205f396579fe93ffb2775ef7e36a1b20	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	9c45b7a544652d5b47888c9a419c6ccc	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=63676d3532486232d8f043c2d6f6cfdc
