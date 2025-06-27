@@ -1852,8 +1852,8 @@ app-editors/vile 9.8z: VI Like Emacs -- yet another full-featured vi clone
 app-editors/vim 9.1.0794 9.1.1436 9999: Vim, an improved vi-style text editor
 app-editors/vim-core 9.1.0794 9.1.1436 9999: vim and gvim shared files
 app-editors/vis 0.9 0.9-r1 9999: Modern, legacy free, simple yet efficient vim-like editor
-app-editors/vscode 1.101.0 1.101.1: Multiplatform Visual Studio Code from Microsoft
-app-editors/vscodium 1.100.33714: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
+app-editors/vscode 1.101.2: Multiplatform Visual Studio Code from Microsoft
+app-editors/vscodium 1.100.33714 1.101.24242: A community-driven, freely-licensed binary distribution of Microsoft's VSCode
 app-editors/wily 1.0-r3: An emulation of ACME, Plan9's hybrid window system, shell and editor
 app-editors/wxhexeditor 0.24-r4: A cross-platform hex editor designed specially for large files
 app-editors/xemacs 21.5.35-r8 21.5.35-r9 21.5.9999: highly customizable open source text editor and application development system
@@ -3948,7 +3948,7 @@ dev-db/cdb 0.75-r4 0.75-r5: Fast, reliable, simple package for creating and read
 dev-db/citus 12.1.8 13.0.4 13.1.0 9999: Open-source postgresql extension for clustering/multi-node setups
 dev-db/cockroach 2.1.5-r1 19.1.1-r1: open source database for building cloud services
 dev-db/datadraw 3.1.1: feature rich database generator for high performance C applications
-dev-db/dbeaver-bin 25.0.5 25.1.0: Free universal database tool (community edition)
+dev-db/dbeaver-bin 25.1.0 25.1.1: Free universal database tool (community edition)
 dev-db/duckdb 1.2.1 1.2.2-r1 1.3.0: high-performance analytical database system
 dev-db/etcd 3.4.31 3.5.12 3.5.15 3.5.17 3.5.18: Highly-available key value store for shared configuration and service discovery
 dev-db/freetds 1.4.24 1.4.26 1.4.27 1.5: Tabular Datastream Library
@@ -3973,7 +3973,7 @@ dev-db/mariadb 10.6.15 10.6.21 10.6.22 10.11.11 10.11.13 11.4.7 11.4.7-r1 11.8.2
 dev-db/mariadb-connector-c 3.3.8 3.3.15 3.4.5 9999: C client library for MariaDB/MySQL
 dev-db/mariadb-connector-odbc 3.1.18: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.30 6.0.22 7.0.18 8.0.8: A high-performance, open source, schema-free document-oriented database
-dev-db/mongodb-compass-bin 1.46.2 1.46.3: GUI for MongoDB
+dev-db/mongodb-compass-bin 1.46.3 1.46.4: GUI for MongoDB
 dev-db/mycli 1.31.1 1.31.2: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.15.2.8-r1 0.16.11.2 0.18.1.1 0.18.2.7: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
@@ -7613,9 +7613,9 @@ dev-perl/Test-File-Contents 0.242.0: Test routines for examining the contents of
 dev-perl/Test-File-ShareDir 1.1.2-r1: Create a Fake ShareDir for your modules for testing
 dev-perl/Test-Filename 0.30.0-r2: Portable filename comparison
 dev-perl/Test-Files 0.260.0-r1: A Test::Builder based module to ease testing with files and dirs
-dev-perl/Test-Fork 0.20.0: test code which forks
+dev-perl/Test-Fork 0.20.0-r1: test code which forks
 dev-perl/Test-Future-IO-Impl 0.140.0-r2: Acceptance tests for Future::IO implementations
-dev-perl/Test-HTTP-Server-Simple 0.110.0: Test::More functions for HTTP::Server::Simple
+dev-perl/Test-HTTP-Server-Simple 0.110.0-r1: Test::More functions for HTTP::Server::Simple
 dev-perl/Test-InDistDir 1.112.71: Test environment setup for development with IDE
 dev-perl/Test-Inline 2.214.0: Inline test suite support for Perl
 dev-perl/Test-Inter 1.120.0-r1: Framework for more readable interactive test scripts
@@ -7738,13 +7738,13 @@ dev-perl/Time-Moment 0.440.0: Represents a date and time of day with an offset f
 dev-perl/Time-Monotonic 0.9.8-r1: A clock source that only increments and never jumps
 dev-perl/Time-Out 1.0.0: Easily timeout long running operations
 dev-perl/Time-ParseDate 2015.103.0-r2: A Date/Time Parsing Perl Module
-dev-perl/Time-Period 1.250.0-r1: Time period Perl module
+dev-perl/Time-Period 1.250.0-r2: Time period Perl module
 dev-perl/Time-Piece-MySQL 0.60.0-r3: MySQL-specific functions for Time::Piece
 dev-perl/Time-Stopwatch 1.0.0-r1: Use tied scalars as timers
 dev-perl/Time-TAI64 2.110.0-r3: Time manipulation in the TAI64* formats
 dev-perl/Time-TZOffset 0.40.0-r1: Show timezone offset strings like +0900
 dev-perl/TimeDate 2.330.0-r1: A Date/Time Parsing Perl Module
-dev-perl/Tk 804.36.0-r4: A Perl Module for Tk
+dev-perl/Tk 804.36.0-r5: A Perl Module for Tk
 dev-perl/Tk-CursorControl 0.400.0-r4: Manipulate the mouse cursor programmatically
 dev-perl/Tk-JPEG-Lite 2.15.0-r2: lite JPEG loader for Tk::Photo
 dev-perl/Tk-TableMatrix 1.290.0: Create and manipulate tables in Perl + Tk
@@ -7753,7 +7753,7 @@ dev-perl/Tree-Simple 1.340.0: A simple tree object
 dev-perl/Try-Tiny 0.320.0: Minimal try/catch with proper localization of $@
 dev-perl/Type-Tiny 2.6.0 2.8.2: Tiny, yet Moo(se)-compatible type constraint
 dev-perl/Type-Tiny-XS 0.25.0: provides an XS boost for some of Type::Tiny's built-in type constraints
-dev-perl/Types-Path-Tiny 0.6.0: Path::Tiny types and coercions for Moose and Moo
+dev-perl/Types-Path-Tiny 0.6.0-r1: Path::Tiny types and coercions for Moose and Moo
 dev-perl/Types-Self 0.2.0: Provides a 'Self' type constraint, referring to the caller class or role
 dev-perl/Types-Serialiser 1.10.0: simple data types for common serialisation formats
 dev-perl/UNIVERSAL-can 1.201.403.280-r1: Hack around people calling UNIVERSAL::can() as a function
@@ -7764,7 +7764,7 @@ dev-perl/URI 5.280.0 5.310.0 5.320.0: Uniform Resource Identifiers (absolute and
 dev-perl/URI-Encode 1.1.1-r1: Simple percent Encoding/Decoding
 dev-perl/URI-Fetch 0.150.0: Smart URI fetching/caching
 dev-perl/URI-Find 20160806.0.0-r1: Find URIs in plain text
-dev-perl/URI-FromHash 0.50.0: Build a URI from a set of named parameters
+dev-perl/URI-FromHash 0.50.0-r1: Build a URI from a set of named parameters
 dev-perl/URI-cpan 1.9.0: URLs that refer to things on the CPAN
 dev-perl/URI-redis 0.20.0-r1: URI for Redis connection info
 dev-perl/USB-LibUSB 0.90.0-r1: Perl interface to the libusb-1.0 API
@@ -7773,7 +7773,7 @@ dev-perl/UUID 0.370.0: Perl extension for using UUID interfaces as defined in e2
 dev-perl/UUID-Tiny 1.40.0-r2: Pure Perl UUID Support With Functional Interface
 dev-perl/UltraDNS 0.60.0-r3: Client API for the NeuStar UltraDNS Transaction Protocol
 dev-perl/Unicode-EastAsianWidth 12.0.0: East Asian Width properties
-dev-perl/Unicode-LineBreak 2019.1.0: UAX #14 Unicode Line Breaking Algorithm
+dev-perl/Unicode-LineBreak 2019.1.0-r1: UAX #14 Unicode Line Breaking Algorithm
 dev-perl/Unicode-Map 0.112.0-r2: Map charsets from and to utf16 code
 dev-perl/Unicode-Map8 0.130.0-r3: Convert between most 8bit encodings
 dev-perl/Unicode-MapUTF8 1.140.0: Conversions to and from arbitrary character sets and UTF8
@@ -7804,7 +7804,7 @@ dev-perl/WWW-Pastebin-PastebinCom-Create 1.3.0-r2: Paste on www.pastebin.com wit
 dev-perl/WWW-RobotRules 6.20.0-r2: Parse /robots.txt file
 dev-perl/WWW-Shorten 3.94.0: Interface to URL shortening sites
 dev-perl/Want 0.290.0-r1: A generalisation of wantarray
-dev-perl/WattsUp-Daemon 0.4-r2: Watt's Up Monitoring Daemon
+dev-perl/WattsUp-Daemon 0.4-r3: Watt's Up Monitoring Daemon
 dev-perl/WeakRef 0.10.0-r2: An API to the Perl weak references
 dev-perl/Weather-Com 2.0.0-r2: fetching weather information from weather.com
 dev-perl/Web-Machine 0.170.0: A Perl port of Webmachine
@@ -7818,7 +7818,7 @@ dev-perl/Wx-Perl-ProcessStream 0.320.0-r6: access IO of external processes via e
 dev-perl/Wx-Scintilla 0.390.0-r6: Scintilla source code editing component for wxWidgets
 dev-perl/X-Osd 0.700.0-r3: Perl glue to libxosd (X OnScreen Display)
 dev-perl/X11-FreeDesktop-DesktopEntry 0.40.0-r2: An interface to Freedesktop.org .desktop files
-dev-perl/X11-Protocol 0.560.0-r2: Client-side interface to the X11 Protocol
+dev-perl/X11-Protocol 0.560.0-r3: Client-side interface to the X11 Protocol
 dev-perl/X11-Protocol-Other 31: X11 Protocol related components not included in dev-perl/X11-Protocol
 dev-perl/X11-XCB 0.220.0 0.230.0: Perl bindings for libxcb
 dev-perl/X500-DN 0.290.0-r2: handle X.500 DNs (Distinguished Names), parse and format them
@@ -7855,7 +7855,7 @@ dev-perl/XML-LibXSLT 2.3.0-r1: A Perl module to parse XSL Transformational sheet
 dev-perl/XML-Mini 1.380.0-r2: pure perl API to create and parse XML
 dev-perl/XML-NamespaceSupport 1.120.0-r1: A Perl module that offers a simple to process namespaced XML names
 dev-perl/XML-NodeFilter 0.10.0-r2: Generic XML::NodeFilter Class
-dev-perl/XML-Parser 2.470.0: A perl module for parsing XML documents
+dev-perl/XML-Parser 2.470.0-r1: A perl module for parsing XML documents
 dev-perl/XML-Parser-Lite 0.722.0: Lightweight regexp-based XML parser
 dev-perl/XML-RAI 1.303.100-r2: RSS Abstraction Interface
 dev-perl/XML-RSS 1.650.0-r1: Basic framework for creating and maintaining RSS files
