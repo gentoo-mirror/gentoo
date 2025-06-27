@@ -96,7 +96,7 @@ src_prepare() {
 	fi
 
 	# Patch "System.Security.Cryptography.Native.OpenSsl.so": *.so.10 -> *.so.1.0.0
-	local mssql_ext_version="5.0.20241115.1"
+	local mssql_ext_version="5.0.20250115.1"
 	local mssql_ext_lib="libSystem.Security.Cryptography.Native.OpenSsl.so"
 	cd "extensions/mssql/sqltoolsservice/Linux/${mssql_ext_version}" || die
 	patchelf --add-needed libcrypto.so.1.0.0 "${mssql_ext_lib}" || die
