@@ -30,8 +30,6 @@ RDEPEND="
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
-		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
 		|| (
 			x11-misc/xclip
 			x11-misc/xsel
@@ -39,6 +37,7 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-{mock,rerunfailures} )
 distutils_enable_tests pytest
 
 src_test() {
@@ -48,9 +47,8 @@ src_test() {
 }
 
 python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	# TODO: tests_isolated?
-	epytest -o addopts= -p pytest_mock -p rerunfailures --reruns=5 tests || die
+	nonfatal epytest -o addopts= --reruns=5 tests || die
 }
 
 pkg_postinst() {
