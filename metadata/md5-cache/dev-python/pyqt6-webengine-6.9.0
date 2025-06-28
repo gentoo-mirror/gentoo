@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.riverbankcomputing.com/software/pyqtwebengine/
 INHERIT=distutils-r1 flag-o-matic multiprocessing pypi qmake-utils
 IUSE=debug quick +widgets python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 arm64
 LICENSE=GPL-3
 RDEPEND=>=dev-python/pyqt6-6.9[gui,ssl,webchannel,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-qt/qtbase-6.9:6[gui,widgets?] >=dev-qt/qtwebengine-6.9:6[widgets] quick? ( dev-python/pyqt6[qml] >=dev-qt/qtwebengine-6.9:6[qml] ) widgets? ( dev-python/pyqt6[network,printsupport,widgets] ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/p/pyqt6-webengine/pyqt6_webengine-6.9.0.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	9c45b7a544652d5b47888c9a419c6ccc	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	be1082db72eb0381081ef946a26e3a71	pypi	ad1b21f87d117ae9bb089bdb65b8f013	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
-_md5_=66a84cd00bd89f223ea4854d58146ac8
+_md5_=36a873b9eb9897a7804d6f86601837ab

@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.qt.io/
 INHERIT=desktop llvm-r2 optfeature qt6-build
 IUSE=+assistant clang designer distancefieldgenerator gles2-only +linguist opengl pixeltool +qdbus qdoc qml qmlls qtattributionsscanner qtdiag qtplugininfo vulkan +widgets zstd +llvm_slot_20 llvm_slot_17 llvm_slot_18 llvm_slot_19 custom-cflags
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv x86
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
 RDEPEND=~dev-qt/qtbase-6.9.1:6[widgets?] assistant? ( ~dev-qt/qtbase-6.9.1:6[concurrent,network,sql,sqlite] ) clang? ( llvm_slot_17? ( llvm-core/clang:17= llvm-core/llvm:17= ) llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20= ) ) designer? ( ~dev-qt/qtbase-6.9.1:6[network,xml,zstd=] zstd? ( app-arch/zstd:= ) ) qdbus? ( ~dev-qt/qtbase-6.9.1:6[dbus,xml] ) qml? ( ~dev-qt/qtdeclarative-6.9.1:6[widgets?] ) qmlls? ( ~dev-qt/qtdeclarative-6.9.1:6[qmlls] ) qtdiag? ( ~dev-qt/qtbase-6.9.1:6[network,gles2-only=,vulkan=] ) widgets? ( ~dev-qt/qtbase-6.9.1:6[opengl=] )
 REQUIRED_USE=assistant? ( widgets ) clang? ( ^^ ( llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 ) ) designer? ( qml widgets ) distancefieldgenerator? ( qml widgets ) pixeltool? ( widgets ) qdoc? ( clang qml ) qmlls? ( assistant qml )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=6/6.9.1
 SRC_URI=https://download.qt.io/official_releases/qt/6.9/6.9.1/submodules/qttools-everywhere-src-6.9.1.tar.xz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	llvm-utils	64536677f4b4365e25e9b739163bed58	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	multilib	b2a329026f2e404e9e371097dda47f96	llvm-r2	452c1a70845763809d225a317d8a6c05	optfeature	538bce96e5589935b57e178e8635f301	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	qt6-build	e2f3516e769fa65d6ad4f92236d95847
-_md5_=0bb74dec6bc0d4c791b5c1ff1a150351
+_md5_=a29bfedb6cf2e16ff36c8ced9eb7f310
