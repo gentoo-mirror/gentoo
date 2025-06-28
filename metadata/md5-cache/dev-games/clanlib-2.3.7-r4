@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/sphair/ClanLib
 INHERIT=autotools toolchain-funcs
 IUSE=doc ipv6 mikmod opengl +sound sqlite cpu_flags_x86_sse2 static-libs vorbis X
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=ZLIB
 RDEPEND=sys-libs/zlib X? ( app-arch/bzip2 media-libs/libpng:0 media-libs/freetype media-libs/fontconfig media-libs/libjpeg-turbo:0= x11-libs/libX11 opengl? ( virtual/opengl ) ) mikmod? ( media-libs/alsa-lib media-libs/libmikmod ) sqlite? ( dev-db/sqlite:3 ) sound? ( media-libs/alsa-lib ) vorbis? ( media-libs/alsa-lib media-libs/libogg media-libs/libvorbis )
 REQUIRED_USE=opengl? ( X )
 SLOT=2.3
 SRC_URI=mirror://gentoo/ClanLib-2.3.7.tgz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=3712df3cdab830565d92d14dadf5df26
+_md5_=8132c0142a2fa06314f2aad305215b43
