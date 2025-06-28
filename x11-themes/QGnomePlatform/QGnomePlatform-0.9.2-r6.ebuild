@@ -12,7 +12,7 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
-IUSE="+qt5 qt6 minimal wayland X"
+IUSE="qt5 +qt6 minimal wayland X"
 REQUIRED_USE="|| ( qt5 qt6 )"
 
 RDEPEND="
@@ -44,7 +44,7 @@ src_prepare() {
 
 src_configure() {
 	# avoid automagic dep on src/theme/qgtk3dialoghelpers.cpp
-	use X || append-flags -DGENTOO_GTK_HIDE_X11
+	use X || append-cppflags -DGENTOO_GTK_HIDE_X11
 	use wayland || append-cppflags -DGENTOO_GTK_HIDE_WAYLAND
 
 	if use qt5; then
