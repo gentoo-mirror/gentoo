@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.h5py.org/ https://github.com/h5py/h5py/ https://pypi.org/project/h5py/
 INHERIT=distutils-r1 pypi
 IUSE=examples test doc python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug
-KEYWORDS=amd64 ~arm ~arm64 ~riscv ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos
+KEYWORDS=amd64 ~arm ~arm64 ~riscv x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos
 LICENSE=BSD
 RDEPEND=>=dev-python/numpy-1.17.3:=[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=sci-libs/hdf5-1.10.4:=[hl(+)] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/h/h5py/h5py-3.14.0.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	9c45b7a544652d5b47888c9a419c6ccc	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	be1082db72eb0381081ef946a26e3a71	pypi	ad1b21f87d117ae9bb089bdb65b8f013
-_md5_=94da3743af0ef1c931ab5c3189c4a0c5
+_md5_=ce6b336f8772ef52e179de6b086806ef
