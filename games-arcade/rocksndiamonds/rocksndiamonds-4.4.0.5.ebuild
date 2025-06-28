@@ -1,20 +1,24 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit desktop flag-o-matic unpacker
+inherit desktop unpacker
 
 DESCRIPTION="A Boulderdash clone"
 HOMEPAGE="https://www.artsoft.org/rocksndiamonds/"
+# https://www.artsoft.org/rocksndiamonds/levels/
 # rocksndiamonds-distributable-music.tar.bz2 from Fedora
 SRC_URI="https://www.artsoft.org/RELEASES/unix/rocksndiamonds/${P}-linux.tar.gz
 	https://dev.gentoo.org/~pacho/${PN}/rocksndiamonds-distributable-music.tar.bz2
 	https://upload.wikimedia.org/wikipedia/commons/e/e2/Rocks%27n%27Diamonds.png -> ${PN}.png
 	https://www.artsoft.org/RELEASES/rocksndiamonds/levels/Andreas_Buschbeck-1.0.0.zip
 	https://www.artsoft.org/RELEASES/rocksndiamonds/levels/BD2K3-1.0.0.zip
+	https://www.artsoft.org/RELEASES/rocksndiamonds/levels/Better_Together-1.0.0.7z
+	https://www.artsoft.org/RELEASES/rocksndiamonds/levels/Boulder_Dash-1.0.5.zip
 	https://www.artsoft.org/RELEASES/rocksndiamonds/levels/Boulder_Dash_Dream-1.0.0.zip
 	https://www.artsoft.org/RELEASES/rocksndiamonds/levels/Contributions-1.2.0.zip
 	https://www.artsoft.org/RELEASES/rocksndiamonds/levels/Emerald_Mine_Club-3.1.3.7z
+	https://www.artsoft.org/RELEASES/rocksndiamonds/levels/Gav.zip
 	https://www.artsoft.org/RELEASES/rocksndiamonds/levels/RS_MIX_01-needs_rnd_jue.zip
 	https://www.artsoft.org/RELEASES/rocksndiamonds/levels/RS_MIX_01-standalone.zip
 	https://www.artsoft.org/RELEASES/rocksndiamonds/levels/Snake_Bite-1.0.0.zip
@@ -65,10 +69,13 @@ src_unpack() {
 		Andreas_Buschbeck-1.0.0.zip \
 		rnd_jue-v8.tar.bz2 \
 		BD2K3-1.0.0.zip \
+		Better_Together-1.0.0.7z \
 		rnd-contrib-1.0.0.tar.gz \
 		Snake_Bite-1.0.0.zip \
 		Contributions-1.2.0.zip \
+		Boulder_Dash-1.0.5.zip \
 		Boulder_Dash_Dream-1.0.0.zip \
+		Gav.zip \
 		Sokoban-1.0.0.zip \
 		Zelda-1.0.0.zip \
 		ZeldaII-1.0.0.zip \
@@ -97,8 +104,6 @@ src_prepare() {
 }
 
 src_compile() {
-	replace-cpu-flags k6 k6-1 k6-2 i586
-
 	local makeopts="BASE_PATH=/usr/share/${PN} RO_GAME_DIR=/usr/share/${PN} RW_GAME_DIR=/usr/share/${PN} EXTRA_CFLAGS=-DUSE_USERDATADIR_FOR_COMMONDATA"
 	emake -j1 clean
 	emake ${makeopts} OPTIONS="${CFLAGS}"
