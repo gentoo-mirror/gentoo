@@ -4,7 +4,7 @@ DEPEND=app-arch/lz4:= app-arch/xz-utils dev-db/sqlite:3 dev-libs/double-conversi
 DESCRIPTION=The Visualization Toolkit
 EAPI=8
 HOMEPAGE=https://www.vtk.org/
-INHERIT=check-reqs cmake cuda java-pkg-opt-2 multiprocessing python-single-r1 toolchain-funcs virtualx webapp
+INHERIT=check-reqs cmake cuda flag-o-matic java-pkg-opt-2 multiprocessing python-single-r1 toolchain-funcs virtualx webapp
 IUSE=all-modules boost +cgns cuda debug doc examples ffmpeg gdal gles2-only imaging java las +logging minimal mpi mysql +netcdf odbc opencascade openmp openvdb pdal postgres python qt6 +rendering tbb test +threads tk +truetype video_cards_nvidia +views vtkm web java python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 test
 KEYWORDS=~amd64 ~arm ~arm64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD LGPL-2
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0/9.4
 SRC_URI=https://www.vtk.org/files/release/9.4/VTK-9.4.2.tar.gz doc? ( https://www.vtk.org/files/release/9.4/vtkDocHtml-9.4.2.tar.gz ) examples? ( https://www.vtk.org/files/release/9.4/VTKLargeData-9.4.2.tar.gz https://www.vtk.org/files/release/9.4/VTKLargeDataFiles-9.4.2.tar.gz ) test? ( https://www.vtk.org/files/release/9.4/VTKData-9.4.2.tar.gz https://www.vtk.org/files/release/9.4/VTKDataFiles-9.4.2.tar.gz https://www.vtk.org/files/release/9.4/VTKLargeData-9.4.2.tar.gz https://www.vtk.org/files/release/9.4/VTKLargeDataFiles-9.4.2.tar.gz )
 _eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	cuda	283d0f298f6c196c755a0f8d50daca85	java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-opt-2	28044ae40e7846886b6f5eca24661629	python-utils-r1	9c45b7a544652d5b47888c9a419c6ccc	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	virtualx	9741d451eb64ea8bb9faee90d68a9b68	webapp	5fa840db95fc7348dfd53b8526ed05f5
-_md5_=d0bf7fc6e8419ef1faaa4d32b91d3dbe
+_md5_=1a6d0c438dbc06cf41e4fd674b8ab9ca
