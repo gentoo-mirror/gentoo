@@ -1,21 +1,21 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..11} pypy3 )
+PYTHON_COMPAT=( python3_{10..13} pypy3 pypy3_11 )
 
 inherit flag-o-matic fortran-2 python-any-r1 toolchain-funcs
 
 DESCRIPTION="Portable, Extensible Toolkit for Scientific Computation"
-HOMEPAGE="https://www.mcs.anl.gov/petsc"
-SRC_URI="http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/${P}.tar.gz"
+HOMEPAGE="https://petsc.org/release/"
+SRC_URI="https://web.cels.anl.gov/projects/petsc/download/release-snapshots/${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="afterimage boost complex-scalars debug +examples fftw
-fortran hdf5 hypre int64 mpi metis mumps scotch superlu threads X"
+IUSE="afterimage boost complex-scalars cuda debug +examples fftw fortran
+	hdf5 hypre int64 mpi metis mumps scotch superlu threads X"
 
 # readd sparse when suitesparse-5.6.0 is in tree
 # sparse? ( >=sci-libs/suitesparse-5.6.0 >=sci-libs/cholmod-1.7.0 )
@@ -26,6 +26,7 @@ RDEPEND="
 
 	afterimage? ( media-libs/libafterimage )
 	boost? ( dev-libs/boost )
+	cuda? ( >=dev-util/nvidia-cuda-toolkit-3.2 )
 	fftw? ( sci-libs/fftw:3.0[mpi?] )
 	hdf5? ( sci-libs/hdf5:=[mpi?] )
 	hypre? ( >=sci-libs/hypre-2.18.0[int64?,mpi?] )
@@ -58,8 +59,8 @@ REQUIRED_USE="
 	superlu? ( !hypre )
 "
 PATCHES=(
-	"${FILESDIR}/${PN}-3.7.0-disable-rpath.patch"
-	"${FILESDIR}"/${PN}-3.16.0-fix_sandbox_violation.patch
+	"${FILESDIR}/${PN}-3.21.3-disable-rpath.patch"
+	"${FILESDIR}"/${PN}-3.21.3-fix_sandbox_violation.patch
 )
 
 # petsc uses --with-blah=1 and --with-blah=0 to en/disable options
@@ -154,6 +155,7 @@ src_configure() {
 		--with-shared-libraries \
 		--with-single-library \
 		--with-windows-graphics=0 \
+		$(petsc_enable cuda cudac) \
 		$(petsc_enable debug debugging) \
 		$(petsc_enable fortran) \
 		$(petsc_enable mpi) \
@@ -162,6 +164,7 @@ src_configure() {
 		$(petsc_select complex-scalars scalar-type complex real) \
 		$(petsc_select mpi cc mpicc $(tc-getCC)) \
 		$(petsc_select mpi cxx mpicxx $(tc-getCXX)) \
+		$(petsc_select mpi fc mpif90 $(tc-getFC)) \
 		$(petsc_with afterimage afterimage /usr/include/libAfterImage -lAfterImage) \
 		$(petsc_with hypre hypre /usr/include/hypre -lHYPRE) \
 		$(petsc_with superlu superlu /usr/include/superlu -lsuperlu) \
