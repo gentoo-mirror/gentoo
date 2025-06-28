@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit autotools elisp-common latex-package python-r1
 
@@ -13,14 +13,11 @@ SRC_URI="https://downloads.sourceforge.net/asymptote/${P}.src.tgz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~ppc ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos"
-IUSE="+boehm-gc context curl doc emacs examples fftw gsl gui +imagemagick latex lsp offscreen +opengl python sigsegv svg test vim-syntax"
+KEYWORDS="~amd64 ~ppc ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
+IUSE="context curl doc emacs examples fftw gsl gui +imagemagick latex lsp +opengl python sigsegv svg test vim-syntax"
 RESTRICT="!test? ( test )"
 
-REQUIRED_USE="
-	${PYTHON_REQUIRED_USE}
-	offscreen? ( opengl )
-	doc? ( boehm-gc )"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	>=sys-libs/ncurses-5.4-r5:0=
@@ -28,7 +25,6 @@ RDEPEND="
 	net-libs/libtirpc:=
 	imagemagick? ( media-gfx/imagemagick[png] )
 	opengl? ( media-libs/mesa[X] media-libs/freeglut media-libs/glew:0 media-libs/glm )
-	offscreen? ( media-libs/mesa[osmesa] )
 	svg? ( app-text/dvisvgm )
 	sigsegv? ( dev-libs/libsigsegv )
 	fftw? ( >=sci-libs/fftw-3.0.1:= )
@@ -95,13 +91,12 @@ src_configure() {
 		--disable-gc-full-debug \
 		--with-latex=/usr/share/texmf-site/tex/latex \
 		--with-context=/usr/share/texmf-site/tex/context \
-		$(use_enable boehm-gc) \
+		--disable-offscreen \
 		$(use_enable curl) \
 		$(use_enable lsp) \
 		$(use_enable fftw) \
 		$(use_enable gsl) \
 		$(use_enable opengl gl) \
-		$(use_enable offscreen) \
 		$(use_enable sigsegv)
 }
 
