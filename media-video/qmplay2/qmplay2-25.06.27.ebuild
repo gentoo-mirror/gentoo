@@ -56,7 +56,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-fix-qmvk.patch" # merged upstream, bug #958275
+	"${FILESDIR}/${PN}-25.06.27-revert-lld-stuff.patch"
 )
 
 src_prepare() {
