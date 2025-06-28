@@ -1,11 +1,11 @@
-BDEPEND=dev-lang/perl rust? ( || ( >=dev-lang/rust-bin-1.74.1:*[rustfmt] >=dev-lang/rust-1.74.1:*[rustfmt] ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=dev-lang/perl sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare setup
 DEPEND=dev-libs/libxml2 examples? ( dev-libs/glib dev-libs/libev ) fuse? ( sys-fs/fuse:3 ) gnutls? ( net-libs/gnutls:= ) go? ( dev-lang/go ) ocaml? ( >=dev-lang/ocaml-4.03:=[ocamlopt] ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) test? ( sys-block/nbdkit[gnutls?] net-libs/gnutls:=[tools] ocaml? ( dev-ml/findlib[ocamlopt] ) )
 DESCRIPTION=NBD client library in userspace
 EAPI=8
 HOMEPAGE=https://gitlab.com/nbdkit/libnbd
-INHERIT=autotools bash-completion-r1 python-single-r1 rust
-IUSE=examples fuse gnutls go ocaml python rust test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+INHERIT=autotools bash-completion-r1 python-single-r1
+IUSE=examples fuse gnutls go ocaml python test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=~amd64 ~ppc64 ~sparc ~x86
 LICENSE=LGPL-2.1+
 RDEPEND=dev-libs/libxml2 examples? ( dev-libs/glib dev-libs/libev ) fuse? ( sys-fs/fuse:3 ) gnutls? ( net-libs/gnutls:= ) go? ( dev-lang/go ) ocaml? ( >=dev-lang/ocaml-4.03:=[ocamlopt] ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
@@ -13,5 +13,5 @@ REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.libguestfs.org/libnbd/1.22-stable/libnbd-1.22.2.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	9c45b7a544652d5b47888c9a419c6ccc	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	rust	205f396579fe93ffb2775ef7e36a1b20
-_md5_=28a357bd61082ada5e2f7e89e4d22c9b
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	9c45b7a544652d5b47888c9a419c6ccc	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=236f871c6a4517bfc53a439df4b2e8a0
