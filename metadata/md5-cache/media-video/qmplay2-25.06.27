@@ -12,6 +12,6 @@ LICENSE=LGPL-3
 RDEPEND=dev-qt/qtbase:6[concurrent,dbus,gui,network,opengl?,ssl,vulkan?,widgets] dev-qt/qt5compat:6 dev-qt/qtsvg:6 media-video/ffmpeg:=[vaapi?] alsa? ( media-libs/alsa-lib ) cdio? ( dev-libs/libcdio[cddb] ) extensions? ( dev-qt/qtdeclarative:6 ) gme? ( media-libs/game-music-emu ) libass? ( media-libs/libass ) opengl? ( virtual/opengl ) pipewire? ( media-video/pipewire ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) sid? ( media-libs/libsidplayfp ) shaders? ( >=media-libs/shaderc-2020.1 ) taglib? ( media-libs/taglib:= ) vaapi? ( media-libs/libva[X] ) vulkan? ( >=media-libs/vulkan-loader-1.2.133 ) xv? ( x11-libs/libXv )
 REQUIRED_USE=audiofilters? ( || ( alsa pipewire portaudio pulseaudio ) ) shaders? ( vulkan )
 SLOT=0
-SRC_URI=https://github.com/zaps166/QMPlay2/releases/download/25.06.11/QMPlay2-src-25.06.11.tar.xz
+SRC_URI=https://github.com/zaps166/QMPlay2/releases/download/25.06.27/QMPlay2-src-25.06.27.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=2438cbf275dd2d9467885a0f44a7b1e2
+_md5_=51ce23ed3c50dea21c980ac6d8716239
