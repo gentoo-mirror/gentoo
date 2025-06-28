@@ -1,15 +1,16 @@
-BDEPEND=dev-perl/Log-TraceMessages >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+BDEPEND=dev-perl/Log-TraceMessages >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Pick a language based on user's preferences
-EAPI=7
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Lingua-Preferred
 INHERIT=perl-module
-IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath
+IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=amd64 arm arm64 ppc ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=|| ( Artistic GPL-2+ )
 RDEPEND=dev-perl/Log-TraceMessages >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/E/ED/EDAVIS/Lingua-Preferred-0.2.4.tar.gz
-_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
-_md5_=920518ea9454b799cac9f2586f82471c
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
+_md5_=0bb1acf2f7b040444c54448719171378
