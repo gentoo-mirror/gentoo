@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=kdegraphics - merge this to pull in all kdegraphics-derived packages
+EAPI=8
+HOMEPAGE=https://apps.kde.org/graphics/
+IUSE=color-management scanner +webengine
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=metapackage
+RDEPEND=>=kde-apps/gwenview-25.04.2:* >=kde-apps/kamera-25.04.2:* >=kde-apps/kcolorchooser-25.04.2:* >=kde-apps/kdegraphics-mobipocket-25.04.2:* >=kde-apps/kolourpaint-25.04.2:* >=kde-apps/kruler-25.04.2:* >=kde-apps/libkdcraw-25.04.2:* >=kde-apps/libkexiv2-25.04.2:* >=kde-apps/okular-25.04.2:* >=kde-apps/svgpart-25.04.2:* >=kde-apps/thumbnailers-25.04.2:* >=media-gfx/kgraphviewer-25.04.2:* color-management? ( >=kde-misc/colord-kde-25.04.2:* ) scanner? ( >=kde-apps/libksane-25.04.2:* >=kde-misc/skanlite-25.04.2:* webengine? ( >=media-gfx/skanpage-25.04.2:* ) )
+SLOT=0
+_md5_=9482eb2f5949a5089443469ee0ea01f7
