@@ -5,7 +5,7 @@ EAPI=8
 
 CMAKE_BUILD_TYPE="Release"
 LLVM_COMPAT=( 15 )
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..14} )
 
 inherit cmake flag-o-matic llvm-r1 python-any-r1
 
@@ -26,7 +26,7 @@ DEPEND="
 		llvm-core/llvm:${LLVM_SLOT}
 	')
 	vc? (
-		>=dev-libs/intel-vc-intrinsics-0.22.1[${LLVM_USEDEP}]
+		>=dev-libs/intel-vc-intrinsics-0.23.1[${LLVM_USEDEP}]
 		dev-util/spirv-llvm-translator:15=
 	)
 "

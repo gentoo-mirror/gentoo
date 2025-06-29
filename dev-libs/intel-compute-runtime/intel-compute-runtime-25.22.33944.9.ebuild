@@ -15,13 +15,13 @@ SRC_URI="https://github.com/intel/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
-SLOT="0/1.6.32961"
+SLOT="0/1.6.$(ver_cut 3)"
 KEYWORDS="~amd64"
-IUSE="+l0 +vaapi"
+IUSE="disable-mitigations +l0 +vaapi"
 
 RDEPEND="
 	!dev-libs/intel-compute-runtime:legacy
-	>=dev-util/intel-graphics-compiler-2.10.2:0
+	>=dev-util/intel-graphics-compiler-2.14.1:0
 	!dev-util/intel-graphics-compiler:legacy
 	>=media-libs/gmmlib-22.7.1:=
 "
@@ -29,13 +29,13 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	dev-libs/intel-metrics-discovery:=
-	>=dev-libs/intel-metrics-library-1.0.196:=
+	>=dev-libs/intel-metrics-library-1.0.198:=
 	dev-libs/libnl:3
-	dev-libs/libxml2:2=
-	>=dev-util/intel-graphics-system-controller-0.9.5:=
+	dev-libs/libxml2:2
+	>=dev-util/intel-graphics-system-controller-0.9.6:=
 	media-libs/mesa
 	>=virtual/opencl-3
-	l0? ( >=dev-libs/level-zero-1.21.2:= )
+	l0? ( >=dev-libs/level-zero-1.23.0:= )
 	vaapi? (
 		x11-libs/libdrm[video_cards_intel]
 		media-libs/libva
@@ -67,6 +67,7 @@ src_configure() {
 		-DDISABLE_LIBVA="$(usex !vaapi)"
 		-DNEO_ALLOW_LEGACY_PLATFORMS_SUPPORT="ON"
 		-DNEO_DISABLE_LTO="ON"
+		-DNEO_DISABLE_MITIGATIONS="$(usex disable-mitigations)"
 		-DNEO__METRICS_LIBRARY_INCLUDE_DIR="${ESYSROOT}/usr/include"
 		-DKHRONOS_GL_HEADERS_DIR="${ESYSROOT}/usr/include"
 		-DOCL_ICD_VENDORDIR="${EPREFIX}/etc/OpenCL/vendors"
