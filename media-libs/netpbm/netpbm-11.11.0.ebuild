@@ -8,7 +8,7 @@ inherit flag-o-matic multilib toolchain-funcs
 # Upstream has 3 flavors of netpbm: super stable, stable and advanced.
 # They only provide a tarball for super stable, but super stable is a bit lagging.
 # So we package the stable branch of their svn (currently versions 11.2.xx) on SLOT "0/stable"
-# and the advanced branch of their svn (currently versions 11.9.yy) on SLOT "0/advanced".
+# and the advanced branch of their svn (currently versions 11.11.yy) on SLOT "0/advanced".
 # The stable branch is stabilized according to usual Gentoo rules, while the
 # advanced branch will not be stabilized.
 # A detailed explanation is here https://netpbm.sourceforge.net/release.html
@@ -62,7 +62,6 @@ PATCHES=(
 	"${FILESDIR}"/netpbm-11.0.0-misc-deps.patch
 	"${FILESDIR}"/netpbm-11.1.0-fix-clang-O2.patch
 	"${FILESDIR}"/netpbm-11.6.1-incompatible-pointer-types.patch
-	"${FILESDIR}"/netpbm-11.10.3-fix-pamdice-test.patch
 )
 
 netpbm_libtype() {
@@ -159,20 +158,16 @@ src_prepare() {
 
 	# pbmtext-iso88591 requires LC_ALL=en_US.iso88591, not available on musl
 	# pbmtext-utf8 requires locale, not available on musl
-	# pnmindex is broken on musl
+	# ppmpat-random and pnmindex are broken on musl
 	# bug #907295
 	if use elibc_musl; then
 		sed \
 			-e 's:pbmtext-iso88591.*::' \
 			-e 's:pbmtext-utf8.*::' \
+			-e 's:ppmpat-random.*::' \
 			-e 's:pnmindex.*::' \
 			-i test/Test-Order || die
 	fi
-
-	# ppmpat-random is highly dependent on random number generator
-	sed \
-		-e 's:ppmpat-random.*::' \
-		-i test/Test-Order || die
 }
 
 src_configure() {
