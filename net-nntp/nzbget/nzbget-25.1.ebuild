@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake systemd
 
-PAR2_TURBO_VER="1.2.0-nzbget-20250213"
+PAR2_TURBO_VER="1.3.0"
 DESCRIPTION="A command-line based binary newsgrabber supporting .nzb files"
 HOMEPAGE="https://nzbget.com/"
 SRC_URI="
@@ -19,20 +19,14 @@ SRC_URI="
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
-IUSE="gnutls ncurses +parcheck ssl test zlib"
+IUSE="ncurses +parcheck ssl test zlib"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-libs/boost:=
 	dev-libs/libxml2:=
 	ncurses? ( sys-libs/ncurses:0= )
-	ssl? (
-		gnutls? (
-			net-libs/gnutls:=
-			dev-libs/nettle:=
-		)
-		!gnutls? ( dev-libs/openssl:0=[-bindist(-)] )
-	)
+	ssl? ( dev-libs/openssl:0=[-bindist(-)] )
 	zlib? ( sys-libs/zlib:= )"
 RDEPEND="
 	${DEPEND}
@@ -53,7 +47,7 @@ DOCS=( ChangeLog.md README.md nzbget.conf )
 
 PATCHES=(
 	# Required to use par2-turbo downloaded into the source directory
-	"${FILESDIR}/${PN}-24.6-build-with-par2-turbo-offline.patch"
+	"${FILESDIR}/${PN}-25.1-build-with-par2-turbo-offline.patch"
 )
 
 src_prepare() {
@@ -82,8 +76,6 @@ src_configure() {
 		-DDISABLE_PARCHECK=$(usex !parcheck)
 		-DDISABLE_TLS=$(usex !ssl)
 		-DDISABLE_GZIP=$(usex !zlib)
-		-DUSE_OPENSSL=$(usex !gnutls)
-		-DUSE_GNUTLS=$(usex gnutls)
 		-DENABLE_TESTS=$(usex test)
 	)
 	cmake_src_configure
