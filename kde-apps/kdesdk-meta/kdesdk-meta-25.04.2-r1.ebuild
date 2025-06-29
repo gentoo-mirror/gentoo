@@ -8,8 +8,8 @@ HOMEPAGE="https://apps.kde.org/categories/development/"
 
 LICENSE="metapackage"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~x86"
-IUSE="cvs git mercurial perl php python subversion webengine"
+KEYWORDS="~amd64 ~arm64 ~x86"
+IUSE="+git mercurial perl php python qt5 subversion webengine"
 
 RDEPEND="
 	>=dev-build/dolphin-plugins-makefileactions-${PV}:*
@@ -21,13 +21,12 @@ RDEPEND="
 	>=kde-apps/kdesdk-thumbnailers-${PV}:*
 	>=kde-apps/kompare-${PV}:*
 	>=kde-apps/libkomparediff2-${PV}:*
+	>=kde-apps/lokalize-${PV}:*
 	>=kde-apps/poxml-${PV}:*
-	>=kde-apps/umbrello-${PV}:*
-	cvs? ( >=kde-apps/cervisia-${PV}:* )
 	git? ( >=kde-apps/dolphin-plugins-git-${PV}:* )
 	mercurial? ( >=kde-apps/dolphin-plugins-mercurial-${PV}:* )
 	perl? ( >=dev-util/kio-perldoc-${PV}:* )
-	python? ( >=kde-apps/lokalize-${PV}:* )
+	qt5? ( >=kde-apps/umbrello-${PV}:* )
 	subversion? ( >=kde-apps/dolphin-plugins-subversion-${PV}:* )
 	webengine? (
 		>=dev-util/kdevelop-${PV}:*
