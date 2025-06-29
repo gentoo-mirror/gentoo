@@ -1,0 +1,17 @@
+BDEPEND=ruby_targets_ruby32? ( test? ( dev-ruby/bundler[ruby_targets_ruby32(-)] <dev-ruby/activemodel-8.1[ruby_targets_ruby32(-)] <dev-ruby/railties-8.1[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( dev-ruby/bundler[ruby_targets_ruby33(-)] <dev-ruby/activemodel-8.1[ruby_targets_ruby33(-)] <dev-ruby/railties-8.1[ruby_targets_ruby33(-)] ) ) test? ( ruby_targets_ruby32? ( >=dev-ruby/activesupport-6.1:*[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/activesupport-6.1:*[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rake[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( dev-ruby/rake[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) test? ( ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
+DESCRIPTION=Reference models by URI
+EAPI=8
+HOMEPAGE=https://github.com/rails/globalid
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 doc test test
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux
+LICENSE=MIT
+RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/activesupport-6.1:*[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/activesupport-6.1:*[ruby_targets_ruby33(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/rails/globalid/archive/v1.2.1.tar.gz -> globalid-1.2.1.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	multilib	b2a329026f2e404e9e371097dda47f96	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	ruby-fakegem	bc37b1e2fa23e795fae856dd70a23846
+_md5_=71f662a977e0a68f84c655ca8da9b4ee
