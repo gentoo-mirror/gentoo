@@ -1,16 +1,16 @@
-BDEPEND=app-text/htmldoc >=dev-perl/Devel-CheckBin-0.40.0 >=dev-perl/Module-Build-Tiny-0.35.0 test? ( >=virtual/perl-Test-Simple-0.980.0 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+BDEPEND=app-text/htmldoc >=dev-perl/Devel-CheckBin-0.40.0 >=dev-perl/Module-Build-Tiny-0.35.0 test? ( >=virtual/perl-Test-Simple-0.980.0 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Perl interface to the htmldoc program for producing PDF-Files from HTML-Content
-EAPI=7
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/HTML-HTMLDoc
 INHERIT=perl-module
-IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath
+IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=amd64 ~arm ~ppc sparc x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=app-text/htmldoc >=dev-perl/Devel-CheckBin-0.40.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/E/EC/ECHERNOF/HTML-HTMLDoc-0.21.tar.gz
-_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
-_md5_=f729fb851be59d0081337fd7ba90af75
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	perl-module	25ca2ff8e7971cb7f817f0bda4be696d
+_md5_=427527ba27401d1d75b71ef4531a3b07
