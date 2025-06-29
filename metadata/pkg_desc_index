@@ -1608,7 +1608,7 @@ app-dicts/aspell-no 0.50.2-r2: Aspell (Norwegian) language dictionary
 app-dicts/aspell-ny 0.01.0-r1: Aspell (Chichewa) language dictionary
 app-dicts/aspell-or 0.03.1-r1: Aspell (Oriya) language dictionary
 app-dicts/aspell-pa 0.01.1-r1: Aspell (Punjabi) language dictionary
-app-dicts/aspell-pl 6.0.20250101.0: Aspell (Polish) language dictionary
+app-dicts/aspell-pl 6.0.20250101.0 6.0.20250301.0: Aspell (Polish) language dictionary
 app-dicts/aspell-pt 20220621: Aspell (Portuguese) language dictionary
 app-dicts/aspell-pt-br 20131030.12.0-r1: Aspell (Brazilian Portuguese) language dictionary
 app-dicts/aspell-qu 0.02.0-r1: Aspell (Quechua Runasimi) language dictionary
@@ -1690,7 +1690,7 @@ app-dicts/myspell-ms 20100407: Malay dictionaries for myspell/hunspell
 app-dicts/myspell-nb 2.0.10-r1: Norwegian dictionaries for myspell/hunspell
 app-dicts/myspell-nl 2.10g-r2: Dutch dictionaries for myspell/hunspell
 app-dicts/myspell-nn 2.0.10: Norwegian dictionaries for myspell/hunspell
-app-dicts/myspell-pl 20250101: Polish dictionaries for myspell/hunspell
+app-dicts/myspell-pl 20250101 20250301: Polish dictionaries for myspell/hunspell
 app-dicts/myspell-pt 20120420: Portuguese dictionaries for myspell/hunspell
 app-dicts/myspell-pt-br 3.2.0: Brazilian dictionaries for myspell/hunspell
 app-dicts/myspell-ro 3.3.10: Romanian dictionaries for myspell/hunspell
@@ -2727,7 +2727,7 @@ app-misc/digitemp 3.7.2 3.7.2-r1: Temperature logging and reporting using Maxim'
 app-misc/dtach 0.9-r1: Emulates the detach feature of screen
 app-misc/dvorak7min 1.6.1-r2: Simple ncurses-based typing tutor for learning the Dvorak keyboard layout
 app-misc/dvtm 0.15-r6 9999: Dynamic virtual terminal manager
-app-misc/ebusd 24.1 25.1: Daemon for communication with eBUS heating systems
+app-misc/ebusd 25.1: Daemon for communication with eBUS heating systems
 app-misc/editor-wrapper 4-r1: Wrapper scripts that will execute EDITOR or PAGER
 app-misc/egads 0.9.5-r2: Entropy Gathering And Distribution System
 app-misc/elasticsearch 7.17.25 8.17.4 8.18.0 9.0.0 9.0.1: Free and Open, Distributed, RESTful Search Engine
@@ -5664,7 +5664,7 @@ dev-libs/marisa 0.2.6 9999: Matching Algorithm with Recursively Implemented Stor
 dev-libs/mathjax 2.7.7-r1 3.2.2-r2: JavaScript display engine for LaTeX, MathML and AsciiMath
 dev-libs/md4c 0.5.2: C Markdown parser. Fast, SAX-like interface, CommonMark Compliant.
 dev-libs/mdns 1.4.3: Public domain mDNS/DNS-SD library in C
-dev-libs/metee 4.3.1 5.0.0 6.0.0: Cross-platform access library for Intel CSME HECI interface
+dev-libs/metee 5.0.0 6.0.0: Cross-platform access library for Intel CSME HECI interface
 dev-libs/mimalloc 2.1.9: A compact general purpose allocator with excellent performance
 dev-libs/mimetic 0.9.8: C++ MIME library designed to be easy to use and integrate, fast and efficient
 dev-libs/miniaudio 0.11.15 0.11.21: Single file library for audio playback and capture
@@ -14776,7 +14776,7 @@ net-im/openmittsu 0.10.2.0: Open source chat client for Threema-style end-to-end
 net-im/pidgin 2.14.13-r2 2.14.14-r2: GTK Instant Messenger client
 net-im/poezio 0.14 0.15.1 9999: Console XMPP client that looks like most famous IRC clients
 net-im/profanity 0.14.0-r2: A console based XMPP client inspired by Irssi
-net-im/prosody 13.0.1 13.0.1-r1: Prosody is a modern XMPP communication server
+net-im/prosody 13.0.1-r1: Prosody is a modern XMPP communication server
 net-im/prosody-modules 0_pre20241231 9999: A collection of community-maintained modules for Prosody
 net-im/purple-events 0.99.1 0.99.2: Allows a fine-grained control over libpurple events
 net-im/qtox 1.18.3-r1 9999: Instant messaging client using the encrypted p2p Tox protocol
@@ -14797,9 +14797,7 @@ net-im/telepathy-mission-control 5.16.6: An account manager and channel dispatch
 net-im/tkabber 1.1.2: A jabber client written in Tcl/Tk
 net-im/tokodon 24.12.3 25.04.2: Mastodon client for Plasma and Plasma Mobile
 net-im/toxic 0.15.1 0.16.0: A curses-based client for Tox
-net-im/transwhat 0.2.2_p20190426-r3: A WhatsApp XMPP Gateway based on Spectrum 2 and Yowsup 3
 net-im/whatsapp-desktop-bin 0.5.2-r5: Unofficial electron-based wrapper around WhatsApp Web
-net-im/yowsup 3.3.0: A library that enables you to build applications which use the WhatsApp service
 net-im/ysm 2.9.9.1-r2: A console ICQ client supporting versions 7/8
 net-im/zoom 6.4.10.2027 6.4.13.2309: Video conferencing and web conferencing service
 net-irc/anope 2.0.14 2.0.18: Anope IRC Services
@@ -15608,7 +15606,7 @@ net-vpn/networkmanager-openconnect 1.2.10-r3: NetworkManager OpenConnect plugin
 net-vpn/networkmanager-openvpn 1.10.2-r1 1.12.0: NetworkManager OpenVPN plugin
 net-vpn/networkmanager-pptp 1.2.12-r1: NetworkManager PPTP VPN plugin
 net-vpn/networkmanager-sstp 1.3.0 1.3.1-r2 1.3.2: Client for the proprietary Microsoft Secure Socket Tunneling Protocol(SSTP)
-net-vpn/networkmanager-strongswan 1.6.0 1.6.2: NetworkManager StrongSwan plugin
+net-vpn/networkmanager-strongswan 1.6.2: NetworkManager StrongSwan plugin
 net-vpn/networkmanager-vpnc 1.2.8-r1 1.4.0-r1: NetworkManager VPNC plugin
 net-vpn/nstx 1.1_beta6-r3: IP over DNS tunnel
 net-vpn/ocserv 1.3.0-r1 1.3.0-r10 9999: Openconnect SSL VPN server
@@ -15705,7 +15703,7 @@ net-wireless/suwidgets 0.3.0: graphical library containing all SigDigger's custo
 net-wireless/tempestsdr 0.0_p20250122-r2 9999: Remote video eavesdropping using a software-defined radio platform
 net-wireless/ubertooth 2020.12.1-r1 9999: open source wireless development platform suitable for Bluetooth experimentation
 net-wireless/uhd 4.8.0.0-r2: Universal Software Radio Peripheral (USRP) Hardware Driver
-net-wireless/unifi 9.0.114 9.1.120: A Management Controller for Ubiquiti Networks UniFi APs
+net-wireless/unifi 9.1.120: A Management Controller for Ubiquiti Networks UniFi APs
 net-wireless/urh 2.9.6_p20240428-r1 2.9.8-r2 9999: Universal Radio Hacker: investigate wireless protocols like a boss
 net-wireless/wavemon 0.9.3-r1 0.9.5 0.9.6: Ncurses based monitor for IEEE 802.11 wireless LAN cards
 net-wireless/wepattack 0.1.3-r6 0.1.3-r7: WLAN tool for breaking 802.11 WEP keys
@@ -16972,7 +16970,7 @@ sys-apps/conspy 1.16: Remote control for Linux virtual consoles
 sys-apps/coreutils 9.4 9.4-r1 9.5 9.6 9.7 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 sys-apps/cpint 2.5.3: Linux/390 Interface to z/VM's Control Program
 sys-apps/cpu-x 5.1.3 5.2.0 5.3.1: A Free software that gathers information on CPU, motherboard and more
-sys-apps/cpuid 20250316 20250419: Linux tool to dump x86 CPUID information about the CPUs
+sys-apps/cpuid 20250419: Linux tool to dump x86 CPUID information about the CPUs
 sys-apps/cracklib-words 2.10.2 2.10.3: Large set of crack/cracklib dictionaries
 sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
 sys-apps/cyme 2.2.1 2.2.2 2.2.3: List system USB buses and devices; a modern cross-platform `lsusb`
