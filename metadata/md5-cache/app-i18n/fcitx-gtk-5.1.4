@@ -1,0 +1,17 @@
+BDEPEND=dev-util/glib-utils virtual/pkgconfig kde-frameworks/extra-cmake-modules:0 app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=app-i18n/fcitx:5 >=dev-libs/glib-2.56 x11-libs/libxkbcommon gtk2? ( x11-libs/gtk+:2 ) gtk3? ( x11-libs/gtk+:3[wayland?,X?] ) gtk4? ( gui-libs/gtk:4[wayland?,X?] ) introspection? ( dev-libs/gobject-introspection ) X? ( x11-libs/libX11 )
+DESCRIPTION=Gtk im module for fcitx5 and glib based dbus client library
+EAPI=8
+HOMEPAGE=https://github.com/fcitx/fcitx5-gtk
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake gnome2-utils unpacker xdg
+IUSE=gtk2 +gtk3 +gtk4 +introspection +snooper onlyplugin wayland +X
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=app-i18n/fcitx:5 >=dev-libs/glib-2.56 x11-libs/libxkbcommon gtk2? ( x11-libs/gtk+:2 ) gtk3? ( x11-libs/gtk+:3[wayland?,X?] ) gtk4? ( gui-libs/gtk:4[wayland?,X?] ) introspection? ( dev-libs/gobject-introspection ) X? ( x11-libs/libX11 )
+REQUIRED_USE=|| ( gtk2 gtk3 gtk4 )
+SLOT=5
+SRC_URI=https://download.fcitx-im.org/fcitx5/fcitx5-gtk/fcitx5-gtk-5.1.4.tar.zst -> fcitx-gtk-5.1.4.tar.zst
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=87e11c4ae88fc80238f824b6029e474d

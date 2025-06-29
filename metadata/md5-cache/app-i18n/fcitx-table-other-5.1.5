@@ -1,15 +1,15 @@
 BDEPEND=kde-frameworks/extra-cmake-modules:0 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
-DEPEND=!app-i18n/fcitx-hangul:4 >=app-i18n/fcitx-5.1.12:5 >=app-i18n/libhangul-0.0.12 virtual/libiconv
-DESCRIPTION=Korean Hangul input method for Fcitx
+DEPEND=app-i18n/fcitx:5 app-i18n/libime
+DESCRIPTION=Provides some other tables for Fcitx, fork from ibus-table-others, scim-tables
 EAPI=8
-HOMEPAGE=https://fcitx-im.org/ https://github.com/fcitx/fcitx5-hangul
+HOMEPAGE=https://github.com/fcitx/fcitx5-table-other
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake unpacker xdg
-KEYWORDS=amd64 ~arm64 ~loong ~riscv x86
-LICENSE=LGPL-2.1+
-RDEPEND=!app-i18n/fcitx-hangul:4 >=app-i18n/fcitx-5.1.12:5 >=app-i18n/libhangul-0.0.12 virtual/libiconv
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=app-i18n/fcitx:5 app-i18n/libime
 SLOT=5
-SRC_URI=https://download.fcitx-im.org/fcitx5/fcitx5-hangul/fcitx5-hangul-5.1.6.tar.zst
+SRC_URI=https://download.fcitx-im.org/fcitx5/fcitx5-table-other/fcitx5-table-other-5.1.5.tar.zst -> fcitx-table-other-5.1.5.tar.zst
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=dedd1d8ebf21ce8ed3cff9b8fed67601
+_md5_=ed42352234acbf194dc1918aff98a5ab
