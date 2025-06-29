@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake
+inherit cmake optfeature
 
 DESCRIPTION="Commandline tool to take screenshots of the desktop"
 HOMEPAGE="https://github.com/naelstrof/maim"
@@ -13,18 +13,17 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/naelstrof/maim.git"
 else
 	SRC_URI="https://github.com/naelstrof/maim/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+ MIT"
 SLOT="0"
 IUSE="icu"
 
-DEPEND="
+COMMON_DEPEND="
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:0=
 	media-libs/libwebp:=
-	virtual/opengl
 	x11-libs/libX11
 	x11-libs/libXcomposite
 	x11-libs/libXext
@@ -34,17 +33,20 @@ DEPEND="
 	>=x11-misc/slop-7.5:=
 	icu? ( dev-libs/icu:= )
 "
-RDEPEND="${DEPEND}"
-
-PATCHES=(
-	"${FILESDIR}/${P}-cmake-4.patch" # bug 957925
-	# Upstreamed: https://github.com/naelstrof/maim/commit/b27fe197ea1d6116c2b7e92a0e4523a76db8e900
-	"${FILESDIR}/${P}-icu-75.patch" # bug 937454
-)
+DEPEND="
+	${COMMON_DEPEND}
+	media-libs/glm
+	x11-base/xorg-proto
+"
+RDEPEND="${COMMON_DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
 		-DMAIM_UNICODE=$(usex icu)
 	)
 	cmake_src_configure
+}
+
+pkg_postinst() {
+	optfeature "using OpenGL-based CLI flags" x11-misc/slop[opengl]
 }
