@@ -1,4 +1,4 @@
-BDEPEND=>=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=man? ( app-text/scdoc ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst setup test
 DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_11? ( dev-python/dbus-python[python_targets_python3_11(-)] dev-python/pyxdg[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/dbus-python[python_targets_python3_12(-)] dev-python/pyxdg[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/dbus-python[python_targets_python3_13(-)] dev-python/pyxdg[python_targets_python3_13(-)] )
 DESCRIPTION=Universal Wayland Session Manager
@@ -13,4 +13,4 @@ REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_1
 SLOT=0
 SRC_URI=https://github.com/Vladimir-csp/uwsm/archive/refs/tags/v0.21.5.tar.gz -> uwsm-0.21.5.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	5ffe8ec396a751540949b565de0f048c	meson	99466844dd8d4fcfb07578a76f5a9922	optfeature	538bce96e5589935b57e178e8635f301	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=aa8c4fce318e233d0a6046fb20cff2e3
+_md5_=662895ac174f8861123b254d2bb5cc59
