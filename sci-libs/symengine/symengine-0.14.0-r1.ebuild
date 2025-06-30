@@ -46,6 +46,8 @@ DEPEND="
 	dev-libs/cereal
 "
 
+PATCHES=( "${FILESDIR}/${P}-cmake4.patch" ) # bug 957803, in git master
+
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 }

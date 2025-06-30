@@ -34,7 +34,7 @@ DEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-131.1.0-cross.patch
-	"${FILESDIR}"/${PN}-131.1.0-cmake.patch
+	"${FILESDIR}"/${PN}-131.1.0-cmake{,4}.patch # bug #957670, PR pending
 )
 
 python_check_deps() {
