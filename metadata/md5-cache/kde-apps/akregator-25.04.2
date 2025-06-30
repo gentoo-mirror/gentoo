@@ -7,11 +7,11 @@ HOMEPAGE=https://apps.kde.org/akregator/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=ecm gear.kde.org xdg
 IUSE=activities speech telemetry debug +handbook test
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 arm64
 LICENSE=GPL-2+ handbook? ( FDL-1.2+ )
 RDEPEND=>=dev-libs/ktextaddons-1.5.4:6[speech?] >=dev-qt/qtbase-6.7.2:6[dbus,gui,network,widgets,xml] >=dev-qt/qtwebengine-6.7.2:6[widgets] >=kde-apps/grantleetheme-25.04.2:6 >=kde-apps/kontactinterface-25.04.2:6 >=kde-apps/libkdepim-25.04.2:6 >=kde-apps/messagelib-25.04.2:6 >=kde-apps/pimcommon-25.04.2:6[activities?] >=kde-frameworks/kcmutils-6.13.0:6 >=kde-frameworks/kcodecs-6.13.0:6 >=kde-frameworks/kcolorscheme-6.13.0:6 >=kde-frameworks/kcompletion-6.13.0:6 >=kde-frameworks/kconfig-6.13.0:6 >=kde-frameworks/kconfigwidgets-6.13.0:6 >=kde-frameworks/kcoreaddons-6.13.0:6 >=kde-frameworks/kcrash-6.13.0:6 >=kde-frameworks/ki18n-6.13.0:6 >=kde-frameworks/kiconthemes-6.13.0:6 >=kde-frameworks/kio-6.13.0:6 >=kde-frameworks/kjobwidgets-6.13.0:6 >=kde-frameworks/knotifications-6.13.0:6 >=kde-frameworks/knotifyconfig-6.13.0:6 >=kde-frameworks/kparts-6.13.0:6 >=kde-frameworks/kstatusnotifieritem-6.13.0:6 >=kde-frameworks/kwidgetsaddons-6.13.0:6 >=kde-frameworks/kxmlgui-6.13.0:6 >=kde-frameworks/syndication-6.13.0:6 activities? ( kde-plasma/plasma-activities:6 ) telemetry? ( >=kde-frameworks/kuserfeedback-6.13.0:6 ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-apps/akregator:5
 RESTRICT=!test? ( test )
 SLOT=6
 SRC_URI=mirror://kde/stable/release-service/25.04.2/src/akregator-25.04.2.tar.xz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg	3ef49a87c52c8b77c476351195dfe575	ecm	345e56daba8a71a36d79bc70072d214b	kde.org	2eea56ed41440913be4caa3d255d2db3	gear.kde.org	306add9a4115e196f34a0ca5228dd25e
-_md5_=b413c4ece488ace2e3ef223010e298bc
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	345e56daba8a71a36d79bc70072d214b	kde.org	2eea56ed41440913be4caa3d255d2db3	gear.kde.org	306add9a4115e196f34a0ca5228dd25e	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=5db3904e41b397e10c9522225b73f7c3
