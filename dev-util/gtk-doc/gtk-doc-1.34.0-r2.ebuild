@@ -50,6 +50,9 @@ PATCHES=(
 
 	# https://gitlab.gnome.org/GNOME/gtk-doc/-/issues/150
 	"${FILESDIR}"/${PN}-1.34.0-mkhtml-test.patch
+
+	# https://gitlab.gnome.org/GNOME/gtk-doc/-/merge_requests/101
+	"${FILESDIR}"/${PN}-1.34.0-cmake4.patch # bug 957671
 )
 
 pkg_setup() {
