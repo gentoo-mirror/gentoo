@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,8 @@ S="${WORKDIR}"/${PN}-${SUB_PV}
 FONT_PN="x3270"
 FONT_S="${S}"/${FONT_PN}
 
-inherit autotools font
+PYTHON_COMPAT=( python3_{11..14} )
+inherit autotools font python-any-r1
 
 DESCRIPTION="Complete 3270 (S390) access package"
 HOMEPAGE="http://x3270.bgp.nu/"
@@ -20,11 +21,13 @@ SRC_URI="https://downloads.sourceforge.net/x3270/${MY_P}-src.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc ~s390 sparc x86"
-IUSE="X cjk doc ncurses ssl tcl"
+KEYWORDS="~amd64 ~ppc ~s390 ~sparc ~x86"
+IUSE="cjk doc gui ncurses ssl tcl"
+# json_test fails on an obvious assert?
+RESTRICT="test"
 
 RDEPEND="
-	X? (
+	gui? (
 		x11-libs/libX11
 		x11-libs/libXaw
 		x11-libs/libXmu
@@ -39,10 +42,11 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
-	X? ( x11-base/xorg-proto )
+	gui? ( x11-base/xorg-proto )
 "
 BDEPEND="
-	X? (
+	${PYTHON_DEPS}
+	gui? (
 		x11-apps/bdftopcf
 		>=x11-apps/mkfontscale-1.2.0
 		x11-misc/xbitmaps
@@ -51,8 +55,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.1-musl-wint-t-fix.patch
-	"${FILESDIR}"/${PN}-4.2_p5-ncurses-pkg-config.patch
-	"${FILESDIR}"/${PN}-4.2_p5-egrep.patch
+	"${FILESDIR}"/${PN}-4.4_p6-ncurses-pkg-config.patch
 )
 
 src_prepare() {
@@ -60,7 +63,7 @@ src_prepare() {
 
 	# Some subdirs (like c3270/x3270/s3270) install the same set of data files
 	# (they have the same contents).  Wrap that in a retry to avoid errors.
-	cat <<-EOF > _install
+	cat <<-EOF > _install || die
 	#!/bin/sh
 	for n in 1 2 3 4 5; do
 		install "\$@" && exit
@@ -83,23 +86,30 @@ src_configure() {
 		--enable-pr3287 \
 		$(use_enable ncurses c3270) \
 		$(use_enable tcl tcl3270) \
-		$(use_enable X x3270) \
-		$(use_with X x) \
-		$(use_with X fontdir "${FONTDIR}")
+		$(use_enable gui x3270) \
+		$(use_with gui x) \
+		$(use_with gui fontdir "${FONTDIR}")
+}
+
+src_test() {
+	# https://x3270.miraheze.org/wiki/Build/Tests
+	# TODO: Try switch to the generic 'test' target but tests hang
+	# with that.
+	emake unix-lib-test
 }
 
 src_install() {
-	use X && dodir "${FONTDIR}"
+	use gui && dodir "${FONTDIR}"
 
 	emake DESTDIR="${D}" install{,.man}
 
-	use X && font_src_install
+	use gui && font_src_install
 }
 
 pkg_postinst() {
-	use X && font_pkg_postinst
+	use gui && font_pkg_postinst
 }
 
 pkg_postrm() {
-	use X && font_pkg_postrm
+	use gui && font_pkg_postrm
 }
