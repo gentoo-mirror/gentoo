@@ -1,4 +1,4 @@
-BDEPEND=app-arch/unzip dev-lang/perl || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) || ( ( dev-lang/python:3.13 dev-python/pyyaml[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pyyaml[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pyyaml[python_targets_python3_11(-)] ) ) app-alternatives/lex tiles? ( advpng? ( app-arch/advancecomp ) !advpng? ( media-gfx/pngcrush ) ) virtual/pkgconfig app-alternatives/yacc
+BDEPEND=app-arch/unzip dev-lang/perl || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) || ( ( dev-lang/python:3.14 dev-python/pyyaml[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/pyyaml[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pyyaml[python_targets_python3_12(-)] ) ) app-alternatives/lex tiles? ( advpng? ( app-arch/advancecomp ) !advpng? ( media-gfx/pngcrush ) ) virtual/pkgconfig app-alternatives/yacc
 DEFINED_PHASES=compile install postinst postrm prepare setup test
 DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) dev-db/sqlite:3 sys-libs/zlib !ncurses? ( !tiles? ( sys-libs/ncurses:0 ) ) ncurses? ( sys-libs/ncurses:0 ) tiles? ( media-fonts/dejavu media-libs/freetype:2 media-libs/libpng:0 sound? ( media-libs/libsdl2[X,opengl,sound,video] media-libs/sdl2-mixer ) !sound? ( media-libs/libsdl2[X,opengl,video] ) media-libs/sdl2-image[png] virtual/glu virtual/opengl ) test? ( <dev-cpp/catch-3.0.0:0 ) tiles? ( sys-libs/ncurses:0 )
 DESCRIPTION=Role-playing roguelike game of exploration and treasure-hunting in dungeons
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0.32
 SRC_URI=https://github.com/crawl/crawl/archive/refs/tags/0.32.1.tar.gz -> stone-soup-0.32.1.tar.gz https://dev.gentoo.org/~stasibear/distfiles/stone-soup.png -> stone-soup-0.32.png https://dev.gentoo.org/~stasibear/distfiles/stone-soup.svg -> stone-soup-0.32.svg
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	python-utils-r1	5ffe8ec396a751540949b565de0f048c	python-any-r1	891415dfe39ad9b41b461f2b86354af0	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=a62324f6d94697abc64c4bac06019f49
+_md5_=03065c879bec0739faec4810f52260f1
