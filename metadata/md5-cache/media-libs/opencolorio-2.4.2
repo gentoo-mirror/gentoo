@@ -4,7 +4,7 @@ DEPEND=dev-cpp/pystring:= >=dev-cpp/yaml-cpp-0.7.0:= dev-libs/expat media-libs/g
 DESCRIPTION=Color management framework for visual effects and animation
 EAPI=8
 HOMEPAGE=https://opencolorio.org https://github.com/AcademySoftwareFoundation/OpenColorIO
-INHERIT=cmake python-single-r1 virtualx
+INHERIT=cmake dot-a python-single-r1 virtualx
 IUSE=apps cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512f cpu_flags_x86_f16c cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_ssse3 doc opengl python test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 test
 KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
@@ -13,5 +13,5 @@ REQUIRED_USE=apps? ( opengl ) doc? ( python ) python? ( ^^ ( python_single_targe
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0/2.4
 SRC_URI=https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v2.4.2.tar.gz -> opencolorio-2.4.2.tar.gz
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	python-utils-r1	5ffe8ec396a751540949b565de0f048c	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=84a4c600b5eb456a08c8e14750278631
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	dot-a	1c17cadc24a810e525e7fdd7a5ae84b9	python-utils-r1	5ffe8ec396a751540949b565de0f048c	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	virtualx	9741d451eb64ea8bb9faee90d68a9b68
+_md5_=3fc7c0eafbf8a4a7eb881ca2fc4cc2c1
