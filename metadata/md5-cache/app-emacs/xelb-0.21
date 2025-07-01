@@ -1,0 +1,13 @@
+BDEPEND=>=app-editors/emacs-27.1:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=X protocol Emacs Lisp Binding
+EAPI=8
+HOMEPAGE=https://github.com/emacs-exwm/xelb/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-emacs/compat-30.0.0.0 app-editors/emacs[gui] x11-apps/xauth >=app-editors/emacs-27.1:*
+SLOT=0
+SRC_URI=https://github.com/emacs-exwm/xelb/archive/0.21.tar.gz -> xelb-0.21.tar.gz
+_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5
+_md5_=b0b3aabb270614d540235c7356d14f1a
