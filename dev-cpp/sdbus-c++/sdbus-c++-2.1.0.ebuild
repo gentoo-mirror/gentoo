@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ S="${WORKDIR}/sdbus-cpp-${PV}"
 
 LICENSE="LGPL-2.1+ Nokia-Qt-LGPL-Exception-1.1" # Nothing to do with Qt but exception text is exactly the same.
 SLOT="0/2"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="doc +elogind systemd test tools"
 REQUIRED_USE="?? ( elogind systemd )"
 RESTRICT="!test? ( test )"
@@ -36,7 +36,6 @@ BDEPEND="
 
 src_configure() {
 	local mycmakeargs=(
-		-DBUILD_DOXYGEN_DOC=$(usex doc)
 		-DSDBUSCPP_BUILD_CODEGEN=$(usex tools)
 		-DSDBUSCPP_BUILD_DOCS=yes
 		-DSDBUSCPP_BUILD_DOXYGEN_DOCS=$(usex doc)
