@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/Class-Load dev-perl/Class-Std-Fast dev-perl/Crypt-OpenSSL-RSA dev-perl/Data-Uniqid dev-perl/TimeDate dev-perl/File-HomeDir dev-perl/HTTP-Server-Simple dev-perl/IO-Socket-SSL dev-perl/JSON-Parse dev-perl/LWP-Protocol-https dev-perl/libwww-perl dev-perl/Log-Log4perl dev-perl/Math-Random-MT >=dev-perl/SOAP-WSDL-2.00.10 dev-perl/Template-Toolkit dev-perl/URI dev-perl/XML-LibXML dev-perl/XML-Simple dev-perl/XML-XPath >=dev-perl/Module-Build-0.400.0 test? ( dev-perl/Config-Properties dev-perl/Test-Deep dev-perl/Test-Exception dev-perl/Test-MockObject ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DESCRIPTION=Google AdWords API Perl Client Library
+EAPI=8
+HOMEPAGE=https://github.com/googleads/googleads-perl-lib
+INHERIT=perl-module
+IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test examples
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=dev-perl/Class-Load dev-perl/Class-Std-Fast dev-perl/Crypt-OpenSSL-RSA dev-perl/Data-Uniqid dev-perl/TimeDate dev-perl/File-HomeDir dev-perl/HTTP-Server-Simple dev-perl/IO-Socket-SSL dev-perl/JSON-Parse dev-perl/LWP-Protocol-https dev-perl/libwww-perl dev-perl/Log-Log4perl dev-perl/Math-Random-MT >=dev-perl/SOAP-WSDL-2.00.10 dev-perl/Template-Toolkit dev-perl/URI dev-perl/XML-LibXML dev-perl/XML-Simple dev-perl/XML-XPath >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/S/SU/SUNDQUIST/Google-Ads-AdWords-Client-5.8.2.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	perl-module	41920449ca174fe9b9b303dfcbdb37a3
+_md5_=a73b8f64cd5d234473781aee6b54b727
