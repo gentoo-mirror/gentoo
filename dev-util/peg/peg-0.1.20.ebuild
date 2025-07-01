@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~x86"
 DOCS=( ChangeLog README.txt )
 
 src_prepare() {
-	eapply_user
+	default
 
 	sed -i \
 		-e '/strip/d' \
@@ -33,18 +33,20 @@ src_compile() {
 }
 
 src_test() {
-	emake check test \
+	# There's also a 'check' target but it seems to rely on some
+	# data being regenerated (bug #959339).
+	emake test \
 		CC="$(tc-getCC)" \
 		CFLAGS="${CFLAGS}" \
 		LDFLAGS="${LDFLAGS}"
 }
 
 src_install() {
+	dodir /usr/share/man/man1
+
 	emake \
 		ROOT="${D}" \
-		PREFIX="/usr" \
+		PREFIX="${EPREFIX}/usr" \
+		MANDIR="${D}/${EPREFIX}/usr/share/man/man1" \
 		install
-	# "reinstall" manpages to a proper location
-	rm -r "${D}/usr/man" || die
-	doman src/${PN}.1
 }
