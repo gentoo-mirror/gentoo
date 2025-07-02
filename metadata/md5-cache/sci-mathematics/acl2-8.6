@@ -1,0 +1,16 @@
+BDEPEND=dev-lisp/sbcl:= emacs? ( >=app-editors/emacs-25:* ) doc? ( dev-lang/perl )
+DEFINED_PHASES=compile install postinst postrm prepare
+DEPEND=dev-lisp/sbcl:=
+DESCRIPTION=Industrial strength theorem prover, logic and programming language
+EAPI=8
+HOMEPAGE=https://www.cs.utexas.edu/users/moore/acl2/ https://github.com/acl2/acl2/
+INHERIT=elisp-common
+IUSE=doc emacs
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=dev-lisp/sbcl:= emacs? ( >=app-editors/emacs-25:* )
+REQUIRED_USE=emacs? ( doc )
+SLOT=0
+SRC_URI=https://github.com/acl2/acl2/archive/refs/tags/8.6.tar.gz -> acl2-8.6.gh.tar.gz
+_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23
+_md5_=945dc9bb331ace62fed87fd863165443
