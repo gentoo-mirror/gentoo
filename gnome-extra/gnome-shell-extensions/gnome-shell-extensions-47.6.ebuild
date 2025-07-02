@@ -10,6 +10,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-shell-extensions"
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
+IUSE="X"
 
 DEPEND="
 	>=dev-libs/glib-2.26:2
@@ -50,6 +51,7 @@ src_configure() {
 	local emesonargs=(
 		-Dextension_set=all
 		-Dclassic_mode=true
+		$(meson_use X x11)
 	)
 	meson_src_configure
 }
