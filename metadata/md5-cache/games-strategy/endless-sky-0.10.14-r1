@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libmad media-libs/libpng:= media-libs/libsdl2[video] media-libs/openal sys-apps/util-linux gles2-only? ( media-libs/libsdl2[gles2] ) !gles2-only? ( media-libs/glew:0= media-libs/libsdl2[opengl] ) test? ( dev-cpp/catch:0 )
+DEPEND=media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libmad media-libs/libpng:= media-libs/libsdl2[video] media-libs/openal sys-apps/util-linux sys-libs/zlib:=[minizip] gles2-only? ( media-libs/libsdl2[gles2] ) !gles2-only? ( media-libs/glew:0= media-libs/libsdl2[opengl] ) test? ( dev-cpp/catch:0 )
 DESCRIPTION=Space exploration, trading & combat in the tradition of Terminal Velocity
 EAPI=8
 HOMEPAGE=https://endless-sky.github.io/
@@ -9,9 +9,9 @@ INHERIT=cmake flag-o-matic xdg
 IUSE=gles2-only test
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+ CC-BY-2.0 CC-BY-3.0 CC-BY-4.0 CC-BY-SA-3.0 CC-BY-SA-4.0 CC0-1.0 Unsplash public-domain
-RDEPEND=media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libmad media-libs/libpng:= media-libs/libsdl2[video] media-libs/openal sys-apps/util-linux gles2-only? ( media-libs/libsdl2[gles2] ) !gles2-only? ( media-libs/glew:0= media-libs/libsdl2[opengl] )
+RDEPEND=media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libmad media-libs/libpng:= media-libs/libsdl2[video] media-libs/openal sys-apps/util-linux sys-libs/zlib:=[minizip] gles2-only? ( media-libs/libsdl2[gles2] ) !gles2-only? ( media-libs/glew:0= media-libs/libsdl2[opengl] )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/endless-sky/endless-sky/archive/refs/tags/v0.10.14.tar.gz -> endless-sky-0.10.14.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=2676d8ba0dafa284647525eee75b9888
+_md5_=983d5d2b5b734be06ee85da51c3de621
