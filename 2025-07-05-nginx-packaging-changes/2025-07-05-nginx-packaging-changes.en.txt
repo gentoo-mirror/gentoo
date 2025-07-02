@@ -1,0 +1,124 @@
+Title: Breaking changes in nginx packaging in Gentoo
+Author: Zurab Kvachadze <zurabid2016@gmail.com>
+Posted: 2025-07-05
+Revision: 2
+News-Item-Format: 2.0
+Display-If-Installed: www-servers/nginx
+
+NGINX is a web server and a reverse proxy. Following a year-long effort, its
+packaging in Gentoo has undergone a major revamp[1]. Starting from the mainline
+version 1.29.0 the changes will come into force.
+
+On 2025-09-05, the stable version will also have the changes
+described below in the "What changed?" section. This enables more thorough
+testing before user-facing changes are applied to the stable NGINX version.
+
+If you are reading this NEWS item, the information below is relevant for you.
+
+What changed?
+====================
+
+There are a few user-facing changes with the updated packaging.
+
+1. Third-party modules.
+
+Third-party modules, which were previously part of the NGINX package,
+www-servers/nginx, are now separate packages in the www-nginx/ category. The
+Lua, Brotli, headers-more and upload-progress are examples of the modules that
+are now separate packages. Some of the modules have been removed completely.
+
+The following is a list of modules that have been removed. If you rely
+on any of the modules outlined below, please file a bug on Gentoo
+Bugzilla[2][3] asking the module to be added. The recommended summary
+for a bug is "www-servers/nginx: please add module MODULE_NAME", where
+MODULE_NAME is the name of the module you would like to see added.
+
+Removed modules:
+    - ngx_cache_purge/http_cache_purge_module
+    - nginx_ngx_slowfs_cache/http_slowfs_cache_module
+    - ngx_http_auth_pam_module/http_authpam_module
+    - nginx_upstream_check_module/http_upstream_check_module
+    - ngx_metrics/http_metrics_module
+    - naxsi/http_naxsi_module
+    - nginx-rtmp-module/rtmp_module
+    - nginx-push-stream-module/http_push_stream_module
+    - nginx-sticky-module-ng/http_sticky_module
+    - nginx-mogilefs-module/http_mogilefs_module
+    - nginx-auth-ldap/http_auth_ldap_module
+
+2. USE flags.
+
+Some USE flags, like "http-cache", "ktls", "pcre", "pcre-jit" and so on,
+have been removed. They did not have any effect or served no purpose,
+thus you need not worry about them.
+
+The "http2", "http3" use flags have been renamed to
+nginx_modules_http_v2 and nginx_modules_http_v3 respectively. They
+correspond to NGINX_MODULES_HTTP "v2" and "v3" USE_EXPAND flags
+accordingly. "ssl" use flag has been changed into individual "ssl"
+USE_EXPAND flags for the mail, stream and HTTP servers.
+
+Thread pool support[4], previously toggled by the "threads" USE flag, is
+now enabled unconditionally. Vim syntax files are now provided by the
+main www-servers/nginx package, instead of app-vim/nginx-syntax.
+
+3. Default log files.
+
+Default log filenames are now error.log and access.log, instead of
+error_log and access_log.
+
+User Action Required
+====================
+
+To upgrade to the new NGINX version, use the following command.
+
+        emerge --deselect app-vim/nginx-syntax
+        emerge --oneshot --update --deep www-servers/nginx
+
+If you use any third-party modules, install the new separate package.
+For instance, if you previously enabled the nginx_modules_http_lua USE
+flag on www-servers/nginx, here is how you install the new Lua module
+package.
+
+        emerge www-nginx/ngx-lua-module
+
+To list all the available module packages, use
+
+        emerge --search @www-nginx | less
+
+or
+
+        qlist --installed --tree www-nginx/
+
+If you use the "http2" or "http3" USE flags, enable the corresponding
+USE_EXPAND flags. To enable http2 only:
+
+        echo 'www-servers/nginx NGINX_MODULES_HTTP: v2' >> \
+            /etc/portage/package.use/nginx.use
+
+To enable http3:
+
+        echo 'www-servers/nginx NGINX_MODULES_HTTP: v3' >> \
+            /etc/portage/package.use/nginx.use
+
+To enable both http2 and http3:
+
+        echo 'www-servers/nginx NGINX_MODULES_HTTP: v2 v3' >> \
+            /etc/portage/package.use/nginx.use
+
+SSL/TLS modules are enabled by default. If you wish to disable them, use
+the following command.
+
+        echo www-servers/nginx NGINX_MODULES_HTTP: -ssl \
+            NGINX_MODULES_STREAM: -ssl \
+            NGINX_MODULES_MAIL: -ssl >> \
+            /etc/portage/package.use/nginx.use
+
+The updated NGINX comes with a new logrotate file that points to the new
+log filenames. If any of your scripts rely on the old log files, change
+them accordingly as needed.
+
+[1]: https://github.com/gentoo/gentoo/pull/37590
+[2]: https://bugs.gentoo.org/
+[3]: https://wiki.gentoo.org/wiki/Bugzilla/Bug_report_guide
+[4]: https://nginx.org/en/docs/ngx_core_module.html#thread_pool
