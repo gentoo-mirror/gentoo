@@ -912,7 +912,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.40.35 1.40.40 1.40.45 1.41.0: Universal Command Line Environment for AWS
+app-admin/awscli 1.40.35 1.40.40 1.40.45 1.41.0 1.41.1: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.5.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.4.2 2025.5.1: Bitwarden password manager desktop client
@@ -8153,8 +8153,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.38.36 1.38.41 1.38.46 1.39.0: The AWS SDK for Python
-dev-python/botocore 1.38.36 1.38.41 1.38.46 1.39.0: Low-level, data-driven core of boto 3
+dev-python/boto3 1.38.36 1.38.41 1.38.46 1.39.0 1.39.1: The AWS SDK for Python
+dev-python/botocore 1.38.36 1.38.41 1.38.46 1.39.0 1.39.1: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2 1.5.0_rc1 1.5.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8182,7 +8182,7 @@ dev-python/cerberus 1.3.7: A lightweight and extensible data-validation library 
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.17.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.35.4 1.36.1: CloudFormation Linter
+dev-python/cfn-lint 1.35.4 1.36.1 1.37.0: CloudFormation Linter
 dev-python/cftime 1.6.4_p1: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1 1.0.2: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.6.0: Fast HTML/XML template compiler for Python
@@ -8546,7 +8546,7 @@ dev-python/ipdb 0.13.13: IPython-enabled pdb
 dev-python/ipy 1.01-r1: Class and tools for handling of IPv4 and IPv6 addresses and networks
 dev-python/ipykernel 6.29.5-r1 7.0.0_alpha1: IPython Kernel for Jupyter
 dev-python/ipyparallel 9.0.1: Interactive Parallel Computing with IPython
-dev-python/ipython 8.36.0-r1 8.37.0 9.2.0-r1 9.3.0: Advanced interactive shell for Python
+dev-python/ipython 8.36.0-r1 8.37.0 9.2.0-r1 9.3.0 9.4.0: Advanced interactive shell for Python
 dev-python/ipython-genutils 0.2.0-r4: Vestigial utilities from IPython
 dev-python/ipython-pygments-lexers 1.1.1: Pygments lexers for syntax-highlighting IPython code and sessions
 dev-python/ipywidgets 8.1.7: IPython HTML widgets for Jupyter
@@ -8749,7 +8749,7 @@ dev-python/mkdocs-git-authors-plugin 0.10.0: Mkdocs plugin to display git author
 dev-python/mkdocs-git-revision-date-localized-plugin 1.4.7: Display the localized date of the last git modification of a markdown file
 dev-python/mkdocs-htmlproofer-plugin 1.3.0: A MkDocs plugin that validates URLs in rendered HTML files
 dev-python/mkdocs-i18n 0.4.6: MkDocs i18n plugin
-dev-python/mkdocs-material 9.6.14: A Material Design theme for MkDocs
+dev-python/mkdocs-material 9.6.14 9.6.15: A Material Design theme for MkDocs
 dev-python/mkdocs-material-extensions 1.3.1: Extension pack for Python Markdown
 dev-python/mkdocs-minify-plugin 0.8.0: An MkDocs plugin to minify HTML and/or JS files prior to being written to disk
 dev-python/mkdocs-monorepo-plugin 1.1.2: Build multiple documentation folders in a single Mkdocs
@@ -8784,7 +8784,7 @@ dev-python/mysqlclient 2.2.6 2.2.7: Python interface to MySQL
 dev-python/myst-parser 4.0.1 4.0.1-r1: Extended commonmark compliant parser, with bridges to Sphinx
 dev-python/nagiosplugin 1.3.3 1.4.0: A class library for writing nagios-compatible plugins
 dev-python/nanobind 2.7.0: Tiny and efficient C++/Python bindings
-dev-python/narwhals 1.43.0 1.43.1 1.44.0: Extremely lightweight compatibility layer between dataframe libraries
+dev-python/narwhals 1.44.0 1.45.0: Extremely lightweight compatibility layer between dataframe libraries
 dev-python/natsort 8.4.0: Natural sorting for Python
 dev-python/nautilus-python 4.0.1: Python bindings for the Nautilus file manager
 dev-python/nbclassic 1.3.1: Jupyter Notebook as a Jupyter Server Extension
@@ -8911,7 +8911,7 @@ dev-python/pid 3.0.4-r1: Pidfile featuring stale detection and file-locking
 dev-python/piexif 1.1.3-r4: Exif manipulation with pure Python
 dev-python/pika 1.3.2: Pure-Python implementation of the AMQP
 dev-python/pikepdf 9.5.2 9.7.0 9.8.1 9.9.0: Python library to work with pdf files based on qpdf
-dev-python/pillow 11.1.0 11.2.0 11.2.1: Python Imaging Library (fork)
+dev-python/pillow 11.1.0 11.2.0 11.2.1 11.3.0: Python Imaging Library (fork)
 dev-python/pip 24.1 25.0.1-r1 25.1-r1 25.1.1: The PyPA recommended tool for installing Python packages
 dev-python/pipdeptree 2.23.4 2.26.1: Utility for displaying installed packages in a dependency tree
 dev-python/pipenv 2024.0.2-r1: Python Development Workflow for Humans
@@ -8922,7 +8922,7 @@ dev-python/pkgcraft 0.0.11 9999: Python bindings for pkgcraft
 dev-python/pkginfo 1.12.1.2: Provides an API for querying the distutils metadata written in a PKG-INFO file
 dev-python/platformdirs 4.3.8: A small Python module for determining appropriate platform-specific dirs
 dev-python/plette 0.4.4 2.1.0: Structured Pipfile and Pipfile.lock models
-dev-python/plotly 6.1.1 6.1.2: Browser-based graphing library for Python
+dev-python/plotly 6.1.2: Browser-based graphing library for Python
 dev-python/plotly-geo 1.0.0-r2: Browser-based graphing library for Python
 dev-python/pluggy 1.6.0: Plugin and hook calling mechanisms for Python
 dev-python/pluginbase 1.0.1-r1: Support library for building plugins systems in Python
@@ -8949,7 +8949,7 @@ dev-python/prettytable 3.16.0: Easily displaying tabular data in a visually appe
 dev-python/primecountpy 0.1.1: Cython interface to sci-mathematics/primecount
 dev-python/priority 1.3.0-r1 2.0.0-r1: A pure-Python implementation of the HTTP/2 priority tree
 dev-python/process-tests 3.0.0: Tools for testing processes
-dev-python/progress 1.6-r1: Easy to use progress bars
+dev-python/progress 1.6-r1 1.6.1: Easy to use progress bars
 dev-python/progressbar2 4.5.0: Text progressbar library for python
 dev-python/prometheus-client 0.22.1: Python client for the Prometheus monitoring system
 dev-python/prompt-toolkit 3.0.51: Building powerful interactive command lines in Python
@@ -9197,7 +9197,7 @@ dev-python/pytest-tornado 0.8.1-r1: Fixtures and markers to simplify testing of 
 dev-python/pytest-tornasync 0.6.0_p2-r1: Pytest plugin for testing Python 3.5+ Tornado code
 dev-python/pytest-trio 0.8.0-r1: This is a pytest plugin to help you test projects that use Trio
 dev-python/pytest-twisted 1.14.3: A pytest plugin for testing Twisted framework consumers
-dev-python/pytest-xdist 3.7.0: Distributed testing and loop-on-failing modes
+dev-python/pytest-xdist 3.7.0 3.8.0: Distributed testing and loop-on-failing modes
 dev-python/pytest-xprocess 0.23.0 1.0.2: Manage external processes across test runs
 dev-python/pytest-xvfb 3.1.1: Pytest plugin to run Xvfb for tests
 dev-python/python-augeas 1.2.0: Python bindings for Augeas
@@ -9363,7 +9363,7 @@ dev-python/roman-numerals-py 3.1.0: Manipulate roman numerals
 dev-python/rope 1.13.0-r1: Python refactoring library
 dev-python/ropemode 0.6.1: A helper for using rope refactoring library in IDEs
 dev-python/routes 2.5.1-r2: A re-implementation of Rails routes system, mapping URLs to Controllers/Actions
-dev-python/rpds-py 0.23.1 0.24.0 0.25.0 0.25.1: Python bindings to Rust's persistent data structures (rpds)
+dev-python/rpds-py 0.24.0 0.25.1: Python bindings to Rust's persistent data structures (rpds)
 dev-python/rply 0.7.8-r1: Pure python parser generator that also works with RPython
 dev-python/rpy2 3.5.14: Python interface to the R language
 dev-python/rpyc 6.0.0: Remote Python Call (RPyC), a transparent and symmetric RPC library
@@ -9498,7 +9498,7 @@ dev-python/spyder-notebook 0.6.2: Jupyter notebook integration with Spyder
 dev-python/spyder-unittest 0.7.0: Plugin for Spyder to run tests and view the results
 dev-python/sqlalchemy 1.4.54 2.0.40 2.0.41: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 26.31.0 26.32.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 26.31.0 26.32.0 26.33.0: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.3: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9514,7 +9514,7 @@ dev-python/stestr 4.2.0: A parallel Python test runner built around subunit
 dev-python/stevedore 5.4.1: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.1.2: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 12.2.0: Stripe Python bindings
+dev-python/stripe 12.2.0 12.3.0: Stripe Python bindings
 dev-python/structlog 25.2.0 25.3.0 25.4.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.2: subprocess.run replacement with tee(1)-like output
 dev-python/suds-community 1.2.0: Lightweight SOAP client
@@ -9636,8 +9636,8 @@ dev-python/urwid-readline 0.15.1: Text input widget for urwid that supports read
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10: TidyLib Python wrapper
-dev-python/uv 0.6.17 0.7.8 0.7.9 0.7.10 0.7.12 0.7.13 0.7.15 0.7.16 0.7.17: A Python package installer and resolver, written in Rust
-dev-python/uv-build 0.6.17 0.7.8 0.7.9 0.7.10 0.7.12 0.7.13 0.7.15 0.7.16 0.7.17: PEP517 uv build backend
+dev-python/uv 0.6.17 0.7.8 0.7.9 0.7.10 0.7.12 0.7.13 0.7.15 0.7.16 0.7.17 0.7.18: A Python package installer and resolver, written in Rust
+dev-python/uv-build 0.6.17 0.7.8 0.7.9 0.7.10 0.7.12 0.7.13 0.7.15 0.7.16 0.7.17 0.7.18: PEP517 uv build backend
 dev-python/uvicorn 0.34.3 0.35.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.21.0: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.35.0: Python Data Validation for Humans
@@ -15639,7 +15639,7 @@ net-wireless/bdaddr 0_p20210511: Utility for changing the Bluetooth device addre
 net-wireless/bladerf 2021.03-r1 2023.02 9999: Libraries for supporing the BladeRF hardware from Nuand
 net-wireless/bladerf-firmware 2.4.0: bladeRF FX3 firmware images
 net-wireless/bladerf-fpga 0.12.0 0.15.0: bladeRF FPGA bitstreams
-net-wireless/blueman 2.4.4 9999: Simple and intuitive GTK+ Bluetooth Manager
+net-wireless/blueman 2.4.4 2.4.6 9999: Simple and intuitive GTK+ Bluetooth Manager
 net-wireless/bluez 5.79 5.82 5.83: Bluetooth Tools and System Daemons for Linux
 net-wireless/bluez-tools 0_p20201025-r1: Set of tools to manage bluetooth devices for Linux
 net-wireless/broadcom-sta 6.30.223.271-r9: Broadcom's IEEE 802.11a/b/g/n hybrid Linux device driver
