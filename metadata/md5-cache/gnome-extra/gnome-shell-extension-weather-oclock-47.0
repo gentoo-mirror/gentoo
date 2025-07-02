@@ -1,0 +1,12 @@
+DEFINED_PHASES=install postinst postrm preinst
+DESCRIPTION=Display the current weather inside the pill next to the clock
+EAPI=8
+HOMEPAGE=https://github.com/CleoMenezesJr/weather-oclock
+INHERIT=gnome2-utils
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=app-eselect/eselect-gnome-shell-extensions =gnome-base/gnome-shell-47* gnome-extra/gnome-weather !gnome-extra/gnome-shell-extension-weather-in-the-clock
+SLOT=0
+SRC_URI=https://github.com/CleoMenezesJr/weather-oclock/archive/refs/tags/47.0.tar.gz -> gnome-shell-extension-weather-oclock-47.0.tar.gz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88
+_md5_=c3f56f551e4592c974597964892eb0b2
