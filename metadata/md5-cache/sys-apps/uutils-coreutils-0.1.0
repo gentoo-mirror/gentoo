@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-util/cargo-nextest ) || ( >=dev-lang/rust-bin-1.85.0:* >=dev-lang/rust-1.85.0:* )
+DEFINED_PHASES=compile configure install setup test unpack
+DEPEND=dev-libs/oniguruma:= selinux? ( sys-libs/libselinux )
+DESCRIPTION=GNU coreutils rewritten in Rust
+EAPI=8
+HOMEPAGE=https://uutils.github.io/coreutils/ https://github.com/uutils/coreutils
+INHERIT=cargo flag-o-matic multiprocessing
+IUSE=debug selinux test debug
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT Apache-2.0 BSD-2 BSD Boost-1.0 CC0-1.0 ISC MIT Unicode-3.0 ZLIB
+RDEPEND=dev-libs/oniguruma:= selinux? ( sys-libs/libselinux )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/uutils/coreutils/archive/refs/tags/0.1.0.tar.gz -> uutils-coreutils-0.1.0.tar.gz https://github.com/gentoo-crate-dist/coreutils/releases/download/0.1.0/coreutils-0.1.0-crates.tar.xz
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	205f396579fe93ffb2775ef7e36a1b20	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a
+_md5_=8746dd565f57617bdc119219cb2a410d
