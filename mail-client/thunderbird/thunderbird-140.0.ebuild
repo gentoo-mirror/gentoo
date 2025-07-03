@@ -3,14 +3,15 @@
 
 EAPI=8
 
-FIREFOX_PATCHSET="firefox-128esr-patches-11.tar.xz"
+FIREFOX_PATCHSET="firefox-139-patches-03.tar.xz"
+FIREFOX_LOONG_PATCHSET="firefox-139-loong-patches-01.tar.xz"
 
-LLVM_COMPAT=( 18 19 )
+LLVM_COMPAT=( 19 20 )
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 PYTHON_REQ_USE="ncurses,sqlite,ssl"
 
-RUST_MIN_VER="1.77.1"
+RUST_MIN_VER="1.82.0"
 RUST_NEEDS_LLVM=1
 
 WANT_AUTOCONF="2.1"
@@ -18,7 +19,7 @@ WANT_AUTOCONF="2.1"
 VIRTUALX_REQUIRED="manual"
 
 # Thunderbird will have separate release and esr channels, matching Firefox's rapid and esr.
-MOZ_ESR=yes
+MOZ_ESR=
 
 MOZ_PV=${PV}
 MOZ_PV_SUFFIX=
@@ -41,8 +42,8 @@ MOZ_P="${MOZ_PN}-${MOZ_PV}"
 MOZ_PV_DISTFILES="${MOZ_PV}${MOZ_PV_SUFFIX}"
 MOZ_P_DISTFILES="${MOZ_PN}-${MOZ_PV_DISTFILES}"
 
-inherit autotools check-reqs desktop flag-o-matic gnome2-utils linux-info llvm-r1 multiprocessing \
-	optfeature pax-utils python-any-r1 rust toolchain-funcs virtualx xdg
+inherit check-reqs desktop eapi9-ver flag-o-matic gnome2-utils linux-info llvm-r1 \
+	multiprocessing optfeature pax-utils python-any-r1 rust toolchain-funcs virtualx xdg
 
 DESCRIPTION="Thunderbird Mail Client"
 HOMEPAGE="https://www.thunderbird.net/"
@@ -58,7 +59,10 @@ PATCH_URIS=(
 )
 
 SRC_URI="${MOZ_SRC_BASE_URI}/source/${MOZ_P}.source.tar.xz -> ${MOZ_P_DISTFILES}.source.tar.xz
-	${PATCH_URIS[@]}"
+	${PATCH_URIS[@]}
+	loong? (
+		https://dev.gentoo.org/~xen0n/distfiles/www-client/${MOZ_PN}/${FIREFOX_LOONG_PATCHSET}
+	)"
 S="${WORKDIR}/${PN}-${PV%_*}"
 
 if [[ -n ${MOZ_ESR} ]] ; then
@@ -68,20 +72,17 @@ else
 fi
 
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~x86"
 
-IUSE="+clang +dbus debug eme-free hardened hwaccel jack libproxy pgo pulseaudio sndio selinux"
+IUSE="+clang debug eme-free hardened hwaccel jack libproxy pgo pulseaudio sndio selinux"
 IUSE+=" +system-av1 +system-harfbuzz +system-icu +system-jpeg +system-libevent +system-libvpx"
-IUSE+=" system-png +system-webp wayland wifi +X"
+IUSE+=" system-pipewire system-png +system-webp wayland wifi +X"
 
 # Thunderbird-only USE flags.
-IUSE+=" +rust-extensions +system-librnp"
+IUSE+=" +system-librnp"
 
 REQUIRED_USE="|| ( X wayland )
-	debug? ( !system-av1 )
-	rust-extensions? ( dbus )
-	wayland? ( dbus )
-	wifi? ( dbus )"
+	debug? ( !system-av1 )"
 
 TB_ONLY_DEPEND="selinux? ( sec-policy/selinux-thunderbird )
 	!system-librnp? ( dev-libs/jsoncpp )
@@ -98,7 +99,7 @@ BDEPEND="${PYTHON_DEPS}
 	app-alternatives/awk
 	app-arch/unzip
 	app-arch/zip
-	>=dev-util/cbindgen-0.26.0
+	>=dev-util/cbindgen-0.27.0
 	net-libs/nodejs
 	virtual/pkgconfig
 	amd64? ( >=dev-lang/nasm-2.14 )
@@ -122,20 +123,21 @@ COMMON_DEPEND="${TB_ONLY_DEPEND}
 	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/libffi:=
-	>=dev-libs/nss-3.101
+	>=dev-libs/nss-3.112
 	>=dev-libs/nspr-4.35
 	media-libs/alsa-lib
 	media-libs/fontconfig
 	media-libs/freetype
 	media-libs/mesa
 	media-video/ffmpeg
+	sys-apps/dbus
 	sys-libs/zlib
 	virtual/freedesktop-icon-theme
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
+	x11-libs/libdrm
 	x11-libs/pango
 	x11-libs/pixman
-	dbus? ( sys-apps/dbus )
 	jack? ( virtual/jack )
 	pulseaudio? (
 		|| (
@@ -154,11 +156,12 @@ COMMON_DEPEND="${TB_ONLY_DEPEND}
 		>=media-gfx/graphite2-1.3.13
 		>=media-libs/harfbuzz-2.8.1:0=
 	)
-	system-icu? ( >=dev-libs/icu-74.1:= )
+	system-icu? ( >=dev-libs/icu-76.1:= )
 	system-jpeg? ( >=media-libs/libjpeg-turbo-1.2.1:= )
 	system-libevent? ( >=dev-libs/libevent-2.1.12:0=[threads(+)] )
 	system-libvpx? ( >=media-libs/libvpx-1.8.2:0=[postproc] )
-	system-png? ( >=media-libs/libpng-1.6.35:0=[apng] )
+	system-pipewire? ( media-video/pipewire:= )
+	system-png? ( >=media-libs/libpng-1.6.45:0=[apng] )
 	system-webp? ( >=media-libs/libwebp-1.1.0:0= )
 	wayland? (
 		>=media-libs/libepoxy-1.5.10-r1
@@ -170,7 +173,6 @@ COMMON_DEPEND="${TB_ONLY_DEPEND}
 				net-misc/networkmanager
 				net-misc/connman[networkmanager]
 			)
-			sys-apps/dbus
 		)
 	)
 	X? (
@@ -382,19 +384,13 @@ virtwl() {
 
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != binary ]] ; then
-		if use pgo ; then
-			if ! has usersandbox $FEATURES ; then
-				die "You must enable usersandbox as X server can not run as root!"
-			fi
-		fi
-
 		# Ensure we have enough disk space to compile
 		if use pgo || use debug ; then
 			CHECKREQS_DISK_BUILD="14300M"
 		elif tc-is-lto ; then
 			CHECKREQS_DISK_BUILD="10600M"
 		else
-			CHECKREQS_DISK_BUILD="6800M"
+			CHECKREQS_DISK_BUILD="7400M"
 		fi
 
 		check-reqs_pkg_pretend
@@ -431,7 +427,7 @@ pkg_setup() {
 		elif [[ ${use_lto} == "yes" ]] ; then
 			CHECKREQS_DISK_BUILD="10600M"
 		else
-			CHECKREQS_DISK_BUILD="6800M"
+			CHECKREQS_DISK_BUILD="7400M"
 		fi
 
 		check-reqs_pkg_setup
@@ -516,18 +512,16 @@ src_prepare() {
 		rm -v "${WORKDIR}"/firefox-patches/*-LTO-Only-enable-LTO-*.patch || die
 	fi
 
-	# Workaround for bgo#917599
-	if has_version ">=dev-libs/icu-74.1" && use system-icu ; then
-		eapply "${WORKDIR}"/firefox-patches/*-bmo-1862601-system-icu-74.patch
-	fi
-	rm -v "${WORKDIR}"/firefox-patches/*-bmo-1862601-system-icu-74.patch || die
-
 	# Workaround for bgo#915651 on musl
 	if use elibc_glibc ; then
 		rm -v "${WORKDIR}"/firefox-patches/*bgo-748849-RUST_TARGET_override.patch || die
 	fi
 
+	# Enable jpeg-xl only in Firefox.
+	rm -v "${WORKDIR}"/firefox-patches/*bgo-928126-enable-jxl.patch || die
+
 	eapply "${WORKDIR}/firefox-patches"
+	use loong && eapply "${WORKDIR}/firefox-loong-patches"
 
 	# Allow user to apply any additional patches without modifing ebuild
 	eapply_user
@@ -543,6 +537,10 @@ src_prepare() {
 			export RUST_TARGET="i686-unknown-linux-musl"
 		elif use arm64 ; then
 			export RUST_TARGET="aarch64-unknown-linux-musl"
+		elif use loong; then
+			# Only the LP64D ABI of LoongArch64 is actively supported among
+			# the wider Linux ecosystem, so the assumption is safe.
+			export RUST_TARGET="loongarch64-unknown-linux-musl"
 		elif use ppc64 ; then
 			export RUST_TARGET="powerpc64le-unknown-linux-musl"
 		elif use riscv ; then
@@ -560,26 +558,11 @@ src_prepare() {
 	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
 		"${S}"/build/moz.configure/lto-pgo.configure || die "Failed sedding multiprocessing.cpu_count"
 
-	# Make ICU respect MAKEOPTS
 	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
-		"${S}"/intl/icu_sources_data.py || die "Failed sedding multiprocessing.cpu_count"
-
-	# Respect MAKEOPTS all around (maybe some find+sed is better)
-	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
-		"${S}"/python/mozbuild/mozbuild/base.py || die "Failed sedding multiprocessing.cpu_count"
-
-	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
-		"${S}"/third_party/libwebrtc/build/toolchain/get_cpu_count.py || die "Failed sedding multiprocessing.cpu_count"
-
-	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
-		"${S}"/third_party/libwebrtc/build/toolchain/get_concurrent_links.py ||
-			die "Failed sedding multiprocessing.cpu_count"
+		"${S}"/third_party/chromium/build/toolchain/get_cpu_count.py || die "Failed sedding multiprocessing.cpu_count"
 
 	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
 		"${S}"/third_party/python/gyp/pylib/gyp/input.py || die "Failed sedding multiprocessing.cpu_count"
-
-	sed -i -e "s/multiprocessing.cpu_count()/$(makeopts_jobs)/" \
-		"${S}"/python/mozbuild/mozbuild/code_analysis/mach_commands.py || die "Failed sedding multiprocessing.cpu_count"
 
 	# sed-in toolchain prefix
 	sed -i \
@@ -691,7 +674,6 @@ src_configure() {
 		--disable-crashreporter \
 		--disable-disk-remnant-avoidance \
 		--disable-geckodriver \
-		--disable-gpsd \
 		--disable-install-strip \
 		--disable-legacy-profile-creation \
 		--disable-parental-controls \
@@ -700,12 +682,13 @@ src_configure() {
 		--disable-updater \
 		--disable-valgrind \
 		--disable-wmf \
+		--enable-dbus \
 		--enable-js-shell \
 		--enable-negotiateauth \
 		--enable-new-pass-manager \
 		--enable-official-branding \
+		--enable-packed-relative-relocs \
 		--enable-release \
-		--enable-system-pixman \
 		--enable-system-policies \
 		--host="${CBUILD:-${CHOST}}" \
 		--libdir="${EPREFIX}/usr/$(get_libdir)" \
@@ -716,20 +699,22 @@ src_configure() {
 		--with-intl-api \
 		--with-libclang-path="$(llvm-config --libdir)" \
 		--with-system-ffi \
+		--with-system-gbm \
+		--with-system-libdrm \
 		--with-system-nspr \
 		--with-system-nss \
+		--with-system-pixman \
 		--with-system-zlib \
 		--with-toolchain-prefix="${CHOST}-" \
-		--with-unsigned-addon-scopes=app,system \
-		--x-includes="${ESYSROOT}/usr/include" \
-		--x-libraries="${ESYSROOT}/usr/$(get_libdir)"
+		--with-unsigned-addon-scopes=app,system
 
 	# Set update channel
 	local update_channel=release
 	[[ -n ${MOZ_ESR} ]] && update_channel=esr
 	mozconfig_add_options_ac '' --enable-update-channel=${update_channel}
 
-	if ! use x86 ; then
+	# Whitelist to allow unkeyworded arches to build with "--disable-rust-simd" by default.
+	if use amd64 || use arm64 || use loong ; then
 		mozconfig_add_options_ac '' --enable-rust-simd
 	fi
 
@@ -737,16 +722,17 @@ src_configure() {
 	# amd64, arm, arm64 & x86.
 	# Might want to flip the logic around if Firefox is to support more arches.
 	# bug 833001, bug 903411#c8
-	if use ppc64 || use riscv; then
+	if use loong || use ppc64 || use riscv; then
 		mozconfig_add_options_ac '' --disable-sandbox
 	else
 		mozconfig_add_options_ac '' --enable-sandbox
 	fi
 
-	# Enable JIT on riscv64 explicitly, since it's not activated automatically via "known arches" list.
-	# Update 128.1.0: Disable jit on riscv (this line can be blanked to disable by default),
-	# bgo#937867.
-	use riscv && mozconfig_add_options_ac 'Disable JIT for RISC-V 64' --disable-jit
+	# riscv-related options, bgo#947337, bgo#947338
+	if use riscv ; then
+		mozconfig_add_options_ac 'Disable JIT for RISC-V 64' --disable-jit
+		mozconfig_add_options_ac 'Disable webrtc for RISC-V' --disable-webrtc
+	fi
 
 	if [[ -s "${S}/api-google.key" ]] ; then
 		local key_origin="Gentoo default"
@@ -784,8 +770,6 @@ src_configure() {
 		einfo "Building without Mozilla API key ..."
 	fi
 
-	mozconfig_use_enable rust-extensions thunderbird-rust
-
 	mozconfig_use_with system-av1
 	mozconfig_use_with system-harfbuzz
 	mozconfig_use_with system-harfbuzz system-graphite2
@@ -793,6 +777,7 @@ src_configure() {
 	mozconfig_use_with system-jpeg
 	mozconfig_use_with system-libevent
 	mozconfig_use_with system-libvpx
+	mozconfig_use_with system-pipewire
 	mozconfig_use_with system-png
 	mozconfig_use_with system-webp
 
@@ -805,7 +790,6 @@ src_configure() {
 		mozconfig_add_options_ac "+bundled librnp backend = botan" --with-librnp-backend="botan"
 	fi
 
-	mozconfig_use_enable dbus
 	mozconfig_use_enable libproxy
 
 	use eme-free && mozconfig_add_options_ac '+eme-free' --disable-eme
@@ -934,8 +918,8 @@ src_configure() {
 		else
 			mozconfig_add_options_ac 'relr elf-hack' --enable-elf-hack=relr
 		fi
-	elif use ppc64 || use riscv ; then
-		# '--disable-elf-hack' is not recognized on ppc64/riscv,
+	elif use loong || use ppc64 || use riscv ; then
+		# '--disable-elf-hack' is not recognized on loong/ppc64/riscv,
 		# see bgo #917049, #930046
 		:;
 	else
@@ -1163,6 +1147,13 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
+
+	if ver_replacing -lt 136.0 ; then
+		elog "In this version of Thunderbird, upstream introduced an in-app notification"
+		elog "system. Setting pref 'mail.inappnotifications.enabled' to false and nullifying"
+		elog "'mail.inappnotifications.url' may help you avoid these messages, if you don't"
+		elog "wish to receive them."
+	fi
 
 	optfeature_header "Optional programs for extra features:"
 	optfeature "desktop notifications" x11-libs/libnotify
