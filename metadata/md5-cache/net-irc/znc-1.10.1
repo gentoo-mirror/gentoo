@@ -1,16 +1,17 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) perl? ( >=dev-lang/swig-4.0.1 >=dev-lang/perl-5.10 ) python? ( >=dev-lang/swig-4.0.1 >=dev-lang/perl-5.10 ) test? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) dev-qt/qtbase:6[network] ) app-alternatives/ninja >=dev-build/cmake-3.20.5 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile config configure install postinst prepare setup test unpack
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) perl? ( >=dev-lang/swig-4.0.1 >=dev-lang/perl-5.10 ) python? ( >=dev-lang/swig-4.0.1 >=dev-lang/perl-5.10 ) test? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) dev-qt/qtbase:6[network] ) app-alternatives/ninja >=dev-build/cmake-3.20.5 virtual/pkgconfig
+DEFINED_PHASES=compile config configure install postinst prepare setup test
 DEPEND=dev-cpp/cctz:= argon2? ( app-crypt/argon2:= ) icu? ( dev-libs/icu:= ) nls? ( dev-libs/boost:=[nls] ) perl? ( >=dev-lang/perl-5.10:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ) sasl? ( >=dev-libs/cyrus-sasl-2 ) ssl? ( dev-libs/openssl:0= ) tcl? ( dev-lang/tcl:0= ) zlib? ( sys-libs/zlib:0= )
 DESCRIPTION=An advanced IRC Bouncer
 EAPI=8
 HOMEPAGE=https://znc.in
-INHERIT=cmake python-single-r1 readme.gentoo-r1 systemd git-r3
+INHERIT=cmake python-single-r1 readme.gentoo-r1 systemd
 IUSE=+argon2 +icu nls perl python +ssl sasl tcl test +zlib python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=Apache-2.0
-PROPERTIES=live
 RDEPEND=dev-cpp/cctz:= argon2? ( app-crypt/argon2:= ) icu? ( dev-libs/icu:= ) nls? ( dev-libs/boost:=[nls] ) perl? ( >=dev-lang/perl-5.10:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ) sasl? ( >=dev-libs/cyrus-sasl-2 ) ssl? ( dev-libs/openssl:0= ) tcl? ( dev-lang/tcl:0= ) zlib? ( sys-libs/zlib:0= ) acct-user/znc acct-group/znc
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) icu ) test? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) )
 RESTRICT=!test? ( test )
-SLOT=0/9999
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	python-utils-r1	5ffe8ec396a751540949b565de0f048c	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	systemd	a964c0cbe818b5729da1dbfcee5be861	git-r3	875eb471682d3e1f18da124be97dcc81
+SLOT=0/1.10.1
+SRC_URI=https://znc.in/releases/archive/znc-1.10.1.tar.gz test? ( https://github.com/google/googletest/archive/1.14.0.tar.gz -> gtest-1.14.0.tar.gz )
+_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	python-utils-r1	5ffe8ec396a751540949b565de0f048c	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	systemd	a964c0cbe818b5729da1dbfcee5be861
 _md5_=f3877b906dc1358c5380b9873ed27ca2
