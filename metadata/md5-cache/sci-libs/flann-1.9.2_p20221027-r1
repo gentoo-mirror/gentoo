@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/flann-lib/flann
 INHERIT=cmake cuda toolchain-funcs
 IUSE=cuda doc examples mpi octave openmp test
-KEYWORDS=amd64 ~arm ~arm64 ~ppc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm arm64 ~ppc ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
 RDEPEND=app-arch/lz4:= cuda? ( dev-util/nvidia-cuda-toolkit:= ) examples? ( sci-libs/hdf5:=[mpi?] ) mpi? ( virtual/mpi dev-libs/boost:=[mpi] sci-libs/hdf5:= ) octave? ( >=sci-mathematics/octave-3.6.4-r1:= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/flann-lib/flann/archive/f9caaf609d8b8cb2b7104a85cf59eb92c275a25d.tar.gz -> flann-1.9.2_p20221027.tar.gz https://github.com/negril/gentoo-overlay-vendored/raw/refs/heads/blobs/flann-1.9.2_p20221027-patches-r1.tar.xz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	cuda	283d0f298f6c196c755a0f8d50daca85
-_md5_=4a9e41b41ae48612a39e94a650eae5ec
+_md5_=61e1776e3323f8dbf0995abf6a1ad3bb
