@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,14 +18,11 @@ RDEPEND="
 	>=dev-perl/Log-Report-1.200.0
 	>=virtual/perl-MIME-Base64-3.100.0
 	>=virtual/perl-Math-BigInt-1.770.0
-	>=virtual/perl-Math-BigRat-0.100.0
 	dev-perl/Types-Serialiser
 	>=dev-perl/XML-LibXML-2.10.700
-	>=virtual/perl-bignum-0.100.0
 "
 BDEPEND="
 	${RDEPEND}
-	virtual/perl-ExtUtils-MakeMaker
 	test? (
 		>=dev-perl/Test-Deep-0.95.0
 		>=virtual/perl-Test-Simple-0.540.0
