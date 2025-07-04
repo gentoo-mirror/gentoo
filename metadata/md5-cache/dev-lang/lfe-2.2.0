@@ -1,0 +1,14 @@
+BDEPEND=dev-lang/erlang emacs? ( >=app-editors/emacs-23.1:* )
+DEFINED_PHASES=compile install postinst postrm
+DESCRIPTION=Lisp-flavoured Erlang, a lisp syntax front-end to the Erlang compiler
+EAPI=8
+HOMEPAGE=http://lfe.github.io/ https://github.com/rvirding/lfe/
+INHERIT=elisp-common toolchain-funcs
+IUSE=emacs
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-lang/erlang emacs? ( >=app-editors/emacs-23.1:* )
+SLOT=0
+SRC_URI=https://github.com/rvirding/lfe/archive/2.2.0.tar.gz -> lfe-2.2.0.tar.gz
+_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169
+_md5_=2da7d0692b20e6464b1e09ae7d40d56e
