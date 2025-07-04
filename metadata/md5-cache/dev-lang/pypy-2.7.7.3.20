@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=|| ( >=dev-python/pypy-exe-bin-7.3.20:7.3.20 >=dev-python/pypy-exe-7.3.20:7.3.20[bzip2?,ncurses?] ) dev-libs/openssl:0= gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !dev-python/pypy
+DESCRIPTION=A fast, compliant alternative implementation of the Python (2.7) language
+EAPI=8
+HOMEPAGE=https://pypy.org/ https://github.com/pypy/pypy/
+INHERIT=pax-utils toolchain-funcs
+IUSE=bzip2 full-stdlib gdbm +jit ncurses sqlite tk
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=|| ( >=dev-python/pypy-exe-bin-7.3.20:7.3.20 >=dev-python/pypy-exe-7.3.20:7.3.20[bzip2?,ncurses?] ) dev-libs/openssl:0= gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !dev-python/pypy
+RESTRICT=test
+SLOT=2.7/73
+SRC_URI=https://downloads.python.org/pypy/pypy2.7-v7.3.20-src.tar.bz2 https://buildbot.pypy.org/pypy/pypy2.7-v7.3.20-src.tar.bz2 https://dev.gentoo.org/~mgorny/dist/python/pypy2.7-gentoo-patches-7.3.20.tar.xz
+_eclasses_=pax-utils	5555f2e75744739fe100ee62c22d28fe	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169
+_md5_=ca7ed7716668f8f752aca0e860d6a179
