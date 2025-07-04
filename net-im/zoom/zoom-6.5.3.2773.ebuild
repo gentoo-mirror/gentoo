@@ -83,13 +83,13 @@ src_prepare() {
 src_install() {
 	insinto /opt/zoom
 	exeinto /opt/zoom
-	doins -r calendar cef chatapp diagnostic email js json ringtone \
-		sip timezones translations
+	doins -r calendar cef diagnostic email imjs js json ringtone sip \
+		timezones translations
 	doins *.pcm Embedded.properties version.txt
 	doexe zoom zopen ZoomLauncher ZoomWebviewHost *.sh \
 		aomhost libaomagent.so libcml.so libdvf.so libmkldnn.so libquazip.so \
 		libavcodec.so* libavformat.so* libavutil.so* libswresample.so*
-	fperms a+x /opt/zoom/cef/chrome-sandbox
+	fperms a+x /opt/zoom/cef/chrome_sandbox
 	dosym -r {"/usr/$(get_libdir)",/opt/zoom}/libmpg123.so
 	dosym -r "/usr/$(get_libdir)/libfdk-aac.so.2" /opt/zoom/libfdkaac2.so
 
