@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.docker.com/
 INHERIT=go-module linux-info optfeature systemd toolchain-funcs udev
 IUSE=apparmor btrfs +container-init cuda +overlay2 seccomp selinux systemd
-KEYWORDS=amd64 ~arm ~arm64 ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm arm64 ppc64 ~riscv ~x86
 LICENSE=Apache-2.0
 RDEPEND=acct-group/docker >=dev-db/sqlite-3.7.9:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1 ) seccomp? ( >=sys-libs/libseccomp-2.2.1 ) systemd? ( sys-apps/systemd ) >=net-firewall/iptables-1.4 sys-process/procps >=dev-vcs/git-1.7 >=app-arch/xz-utils-4.9 >=app-containers/containerd-2.0.4[apparmor?,btrfs?,seccomp?] >=app-containers/runc-1.2.5[apparmor?,seccomp?] !app-containers/docker-proxy !<app-containers/docker-cli-28.0.4 container-init? ( >=sys-process/tini-0.19.0[static] ) cuda? ( app-containers/nvidia-container-toolkit ) selinux? ( sec-policy/selinux-docker )
 RESTRICT=installsources strip test strip
 SLOT=0
 SRC_URI=https://github.com/moby/moby/archive/v28.0.4.tar.gz -> docker-28.0.4.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	191a27261275fc3bff7dd7482361b5d6	linux-info	efd923656513c879204fec6638eadee5	optfeature	538bce96e5589935b57e178e8635f301	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	f3d9a4376ebd22131726a68e1a0a058f
-_md5_=fcf5977c5ff863d576d3e3ce4479b4ff
+_md5_=62fdb40f09c2e3539a473a9c76b314d9

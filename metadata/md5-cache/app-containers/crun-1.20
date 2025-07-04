@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/containers/crun
 INHERIT=libtool python-any-r1
 IUSE=+bpf +caps criu +seccomp selinux systemd static-libs
-KEYWORDS=amd64 ~arm ~arm64 ~loong ppc64 ~riscv
+KEYWORDS=amd64 ~arm arm64 ~loong ppc64 ~riscv
 LICENSE=GPL-2+ LGPL-2.1+
 RDEPEND=dev-libs/yajl:= sys-kernel/linux-headers caps? ( sys-libs/libcap ) criu? ( >=sys-process/criu-3.15 ) seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= ) selinux? ( sec-policy/selinux-container )
 SLOT=0
 SRC_URI=https://github.com/containers/crun/releases/download/1.20/crun-1.20.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	5ffe8ec396a751540949b565de0f048c	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=d6bf249d381b819d81b79395d355f854
+_md5_=295b91eb25e3a0c9660a9cacdb34191f
