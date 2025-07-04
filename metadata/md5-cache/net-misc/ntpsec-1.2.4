@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.ntpsec.org/
 INHERIT=dot-a distutils-r1 multiprocessing waf-utils systemd verify-sig
 IUSE=oncore trimble truetime gpsd jjy generic spectracom shm pps hpgps zyfer arbiter nmea modem local debug doc early heat libbsd nist ntpviz samba seccomp smear test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug verify-sig
-KEYWORDS=amd64 arm ~arm64 ~riscv ~x86
+KEYWORDS=amd64 arm arm64 ~riscv ~x86
 LICENSE=HPND MIT BSD-2 BSD CC-BY-SA-4.0
 RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[threads(+)] ) dev-libs/openssl:= dev-python/psutil[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] sys-libs/libcap libbsd? ( dev-libs/libbsd:0= ) seccomp? ( sys-libs/libseccomp ) oncore? ( net-misc/pps-tools ) pps? ( net-misc/pps-tools ) !net-misc/ntp !net-misc/openntpd acct-group/ntp acct-user/ntp ntpviz? ( media-fonts/liberation-fonts sci-visualization/gnuplot ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[threads(+)] )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) nist? ( local ) || ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://ftp.ntpsec.org/pub/releases/ntpsec-1.2.4.tar.gz verify-sig? ( https://ftp.ntpsec.org/pub/releases/ntpsec-1.2.4.tar.gz.asc )
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	dot-a	e5200fe17cfd2ed6fa66edd80201763a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	5ffe8ec396a751540949b565de0f048c	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	be1082db72eb0381081ef946a26e3a71	sysroot	edeeb7766a9fe51d84bbea2ca8a236dc	waf-utils	04842f6fb79b876b079301eff0764e2d	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
-_md5_=0fe3bd601eb93db1ecbb9a836b2ab50a
+_md5_=7a64988187d13ec58bd0e565807e1920
