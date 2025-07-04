@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Config-MVP-Reader-INI
 INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
-KEYWORDS=amd64 x86
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/Config-INI >=dev-perl/Config-MVP-2 dev-perl/Moose virtual/perl-parent >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/R/RJ/RJBS/Config-MVP-Reader-INI-2.101465.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	perl-module	41920449ca174fe9b9b303dfcbdb37a3
-_md5_=652ea8859c23e624f546f65454544c4a
+_md5_=e9ea72fc94c16204b8e2eb6955e205f1

@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Mixin-Linewise
 INHERIT=perl-module
 IUSE=minimal perl_features_debug perl_features_ithreads perl_features_quadmath test
-KEYWORDS=amd64 x86
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=virtual/perl-Carp virtual/perl-IO dev-perl/PerlIO-utf8_strict dev-perl/Sub-Exporter >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/R/RJ/RJBS/Mixin-Linewise-0.111.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	perl-module	41920449ca174fe9b9b303dfcbdb37a3
-_md5_=8566baacb3b3501286ea306e8531c2d2
+_md5_=b953b1f3c3bdfe35fa57d5ac6b4b3ef6

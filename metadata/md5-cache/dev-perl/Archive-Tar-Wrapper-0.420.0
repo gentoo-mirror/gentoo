@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Archive-Tar-Wrapper
 INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test examples
-KEYWORDS=amd64 x86
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=GPL-3+
 RDEPEND=virtual/perl-File-Spec virtual/perl-File-Temp dev-perl/File-Which dev-perl/IPC-Run dev-perl/Log-Log4perl virtual/perl-File-Path app-arch/tar >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/H/HA/HAARG/Archive-Tar-Wrapper-0.42.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	perl-module	41920449ca174fe9b9b303dfcbdb37a3
-_md5_=1ad1014e26407909475f4994b84bea73
+_md5_=a4c15c0f5ae2dfc617876a0a5db071a0

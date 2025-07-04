@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/MooseX-Types-Perl
 INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
-KEYWORDS=amd64 x86
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/MooseX-Types dev-perl/Params-Util >=virtual/perl-version-0.820.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/R/RJ/RJBS/MooseX-Types-Perl-0.101344.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	perl-module	41920449ca174fe9b9b303dfcbdb37a3
-_md5_=db0820e0f334156ddd064c5fad4ed4ff
+_md5_=13682bee9fb55f18a6ab03205a8ac1d7
