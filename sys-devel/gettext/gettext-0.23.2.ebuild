@@ -6,8 +6,7 @@
 EAPI=8
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/gettext.asc
-inherit java-pkg-opt-2 libtool multilib-minimal verify-sig toolchain-funcs
-inherit flag-o-matic
+inherit flag-o-matic java-pkg-opt-2 libtool multilib-minimal verify-sig toolchain-funcs
 
 DESCRIPTION="GNU locale utilities"
 HOMEPAGE="https://www.gnu.org/software/gettext/"
@@ -23,7 +22,7 @@ else
 		mirror://gnu/${PN}/${P}.tar.xz
 		verify-sig? ( mirror://gnu/${PN}/${P}.tar.xz.sig )
 	"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 fi
 
 # Only libasprintf is under the LGPL (and libintl is in a sep package),
@@ -37,24 +36,20 @@ IUSE="acl +cxx doc emacs git java ncurses nls openmp static-libs xattr"
 # Note: The version of libxml2 corresponds to the version bundled via gnulib.
 # If the build detects too old of a system version, it will end up falling back
 # to the bundled copy (bug #596918).
-#
-# Note: expat lacks a subslot because it is dynamically loaded at runtime.  We
-# would depend on older subslots if they were available (based on the ABIs that
-# are explicitly handled), but expat doesn't currently use subslots.
 DEPEND="
 	>=virtual/libiconv-0-r1[${MULTILIB_USEDEP}]
 	>=virtual/libintl-0-r2[${MULTILIB_USEDEP}]
 	>=dev-libs/libxml2-2.9.3:=
-	dev-libs/expat
 	acl? ( virtual/acl )
 	ncurses? ( sys-libs/ncurses:= )
-	java? ( virtual/jdk:1.8 )
+	java? ( >=virtual/jdk-1.8:* )
 	xattr? ( sys-apps/attr )
 "
 RDEPEND="
 	${DEPEND}
 	git? ( dev-vcs/git )
-	java? ( virtual/jre:1.8 )
+	java? ( >=virtual/jre-1.8:* )
+	nls? ( app-i18n/gnulib-l10n )
 "
 BDEPEND="
 	git? ( dev-vcs/git )
@@ -93,12 +88,11 @@ src_prepare() {
 
 	default
 
-	# gettext-0.21.1-java-autoconf.patch changes
-	# gettext-{runtime,tools}/configure.ac and the corresponding
-	# configure scripts. Avoid regenerating other autotools output.
-	#touch -c gettext-{runtime,tools}/{aclocal.m4,Makefile.in,config.h.in,configure} || die
-	# Makefile.am adds a dependency on gettext-{runtime,tools}/configure.ac
-	#touch -c configure || die
+	# gettext-0.23-no-nls.patch changes gettext-tools/configure.ac and the
+	# corresponding configure scripts. Avoid regenerating other autotools output.
+	touch -c gettext-tools/{aclocal.m4,Makefile.in,config.h.in,configure} || die
+	# Makefile.am adds a dependency on gettext-tools/configure.ac
+	touch -c configure || die
 
 	elibtoolize
 
@@ -108,6 +102,9 @@ src_prepare() {
 }
 
 multilib_src_configure() {
+	# see https://bugs.gentoo.org/955689
+	append-flags -Wno-error=format-security
+
 	local myconf=(
 		# switches common to runtime and top-level
 		--cache-file="${BUILD_DIR}"/config.cache
@@ -148,9 +145,6 @@ multilib_src_configure() {
 		# for non-native ABIs, we build runtime only
 		ECONF_SOURCE+=/gettext-runtime
 	fi
-
-	# should be gone on next release, for memset_s breakage
-	[[ ${CHOST} == *-solaris* ]] && append-cppflags -D__STDC_WANT_LIB_EXT1__=1
 
 	econf "${myconf[@]}"
 }

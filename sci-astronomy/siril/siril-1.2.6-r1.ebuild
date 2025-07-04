@@ -25,7 +25,7 @@ DEPEND="
 	>=dev-libs/glib-2.56.0:2
 	>=dev-libs/json-glib-1.2.6
 	media-libs/librtprocess
-	>=media-libs/opencv-4.4.0:=
+	>=media-libs/opencv-4.4.0:=[features2d]
 	sci-libs/cfitsio:=
 	sci-libs/fftw:3.0=
 	sci-libs/gsl:=
@@ -54,6 +54,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-docfiles.patch"
 	"${FILESDIR}/${PN}-1.2-fseek64-musl.patch"
 	"${FILESDIR}/${PN}-1.2.1-options.patch"
+	"${FILESDIR}/${PN}-1.2.6-linkage.patch"
 )
 
 DOCS=( README.md NEWS ChangeLog AUTHORS )

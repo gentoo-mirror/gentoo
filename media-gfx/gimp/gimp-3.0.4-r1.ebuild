@@ -7,13 +7,15 @@ LUA_COMPAT=( luajit )
 PYTHON_COMPAT=( python3_{11..14} )
 VALA_USE_DEPEND=vapigen
 
-inherit flag-o-matic git-r3 lua-single meson python-single-r1 toolchain-funcs vala xdg
+inherit flag-o-matic lua-single meson python-single-r1 toolchain-funcs vala xdg
 
 DESCRIPTION="GNU Image Manipulation Program"
 HOMEPAGE="https://www.gimp.org/"
-EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/gimp.git"
+SRC_URI="mirror://gimp/v$(ver_cut 1-2)/${P}.tar.xz"
+
 LICENSE="GPL-3+ LGPL-3+"
 SLOT="0/3"
+KEYWORDS="~amd64 ~arm"
 
 IUSE="X aalib alsa doc fits gnome heif javascript jpeg2k jpegxl lua mng openexr openmp postscript test udev unwind vala vector-icons wayland webp wmf xpm"
 REQUIRED_USE="
@@ -44,10 +46,10 @@ COMMON_DEPEND="
 	>=dev-libs/json-glib-1.4.4
 	>=gnome-base/librsvg-2.57.3:2
 	>=media-gfx/mypaint-brushes-1.3.1:1.0=
-	>=media-libs/babl-9999[introspection,lcms,vala?]
+	>=media-libs/babl-0.1.114[introspection,lcms,vala?]
 	>=media-libs/fontconfig-2.12.6
 	>=media-libs/freetype-2.10.2
-	>=media-libs/gegl-9999[cairo,introspection,lcms,vala?]
+	>=media-libs/gegl-0.4.62:0.4[cairo,introspection,lcms,vala?]
 	>=media-libs/gexiv2-0.14.0
 	>=media-libs/harfbuzz-2.6.5:=
 	>=media-libs/lcms-2.13.1:2
@@ -118,6 +120,10 @@ BDEPEND="
 
 DOCS=( "AUTHORS" "NEWS" "README" "README.i18n" )
 
+PATCHES=(
+	"${FILESDIR}/${P}_fix_gir_and_plugins_build_deps.patch" # Bugs 951863 (fix build with app-alternatives/ninja[samurai])
+)
+
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 }
@@ -126,11 +132,6 @@ pkg_setup() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 	python-single-r1_pkg_setup
 	use lua && lua-single_pkg_setup
-
-	if has_version ">=media-libs/babl-9999" || has_version ">=media-libs/gegl-9999"; then
-		ewarn "Please make sure to rebuid media-libs/babl-9999 and media-libs/gegl-9999 packages"
-		ewarn "before building media-gfx/gimp-9999 to have their latest master branch versions."
-	fi
 }
 
 src_prepare() {

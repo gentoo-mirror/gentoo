@@ -4,7 +4,7 @@
 EAPI=8
 
 LUA_COMPAT=( luajit )
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 VALA_USE_DEPEND=vapigen
 
 inherit flag-o-matic lua-single meson python-single-r1 toolchain-funcs vala xdg
@@ -15,7 +15,6 @@ SRC_URI="mirror://gimp/v$(ver_cut 1-2)/${P}.tar.xz"
 
 LICENSE="GPL-3+ LGPL-3+"
 SLOT="0/3"
-KEYWORDS="~amd64 ~arm"
 
 IUSE="X aalib alsa doc fits gnome heif javascript jpeg2k jpegxl lua mng openexr openmp postscript test udev unwind vala vector-icons wayland webp wmf xpm"
 REQUIRED_USE="
@@ -23,7 +22,6 @@ REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
 	test? ( X )
 	xpm? ( X )
-	^^ ( X wayland )
 "
 
 RESTRICT="!test? ( test )"
@@ -36,13 +34,15 @@ COMMON_DEPEND="
 		>=dev-python/pygobject-3.0:3[${PYTHON_USEDEP}]
 	')
 	>=app-accessibility/at-spi2-core-2.46.0
+	app-arch/bzip2
+	app-arch/libarchive:=
+	>=app-arch/xz-utils-5.0.0
 	>=app-text/poppler-0.90.1[cairo]
 	>=app-text/poppler-data-0.4.9
-	>=dev-libs/appstream-glib-0.7.16
+	>=dev-libs/appstream-glib-0.7.16:=
 	>=dev-libs/glib-2.70.0:2
+	dev-libs/gobject-introspection
 	>=dev-libs/json-glib-1.4.4
-	dev-libs/libxml2:2=
-	dev-libs/libxslt
 	>=gnome-base/librsvg-2.57.3:2
 	>=media-gfx/mypaint-brushes-1.3.1:1.0=
 	>=media-libs/babl-0.1.114[introspection,lcms,vala?]
@@ -86,6 +86,7 @@ COMMON_DEPEND="
 		x11-libs/libX11
 		x11-libs/libXcursor
 		x11-libs/libXext
+		x11-libs/libXfixes
 		>=x11-libs/libXmu-1.1.4
 	)
 	xpm? ( x11-libs/libXpm )
@@ -106,6 +107,7 @@ DEPEND="
 # TODO: there are probably more atoms in DEPEND which should be in BDEPEND now
 BDEPEND="
 	>=dev-lang/perl-5.30.3
+	dev-libs/libxslt
 	dev-util/gdbus-codegen
 	>=sys-devel/gettext-0.21
 	doc? (
@@ -147,9 +149,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# bug #944284 (https://gitlab.gnome.org/GNOME/gimp/-/issues/12843)
-	append-cflags -std=gnu17
-
 	# defang automagic dependencies. Bug 943164
 	use wayland || append-cflags -DGENTOO_GTK_HIDE_WAYLAND
 	use X || append-cflags -DGENTOO_GTK_HIDE_X11
@@ -225,9 +224,8 @@ src_test() {
 src_install() {
 	meson_src_install
 
-	python_optimize
-
-	find "${D}" -name '*.la' -type f -delete || die
+	python_optimize "${ED}/usr/$(get_libdir)/gimp"
+	python_fix_shebang "${ED}/usr/$(get_libdir)/gimp"
 
 	# Create symlinks for Gimp exec in /usr/bin
 	dosym "${ESYSROOT}"/usr/bin/gimp-3.0 /usr/bin/gimp
