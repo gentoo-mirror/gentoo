@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1 go-module
+inherit go-module shell-completion
 
 DESCRIPTION="General-purpose command-line fuzzy finder, written in Golang"
 HOMEPAGE="https://github.com/junegunn/fzf"
@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/junegunn/fzf"
 # For fancy versioning only. Bump on the next release!
 # MY_GIT_REV is the first 7 characters of release commit, we truncate it
 # after to make it easier to copy/paste.
-MY_GIT_REV=e15cba0c8c7c9dd3388d260cf5b5de7fc044dfbc
+MY_GIT_REV=397fe8e395d215cc3ce3d24527ae1cdbe27acb1b
 MY_GIT_REV=${MY_GIT_REV:0:7}
 
 SRC_URI="https://github.com/junegunn/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -19,7 +19,7 @@ SRC_URI+=" https://dev.gentoo.org/~mattst88/distfiles/${P}-deps.tar.xz"
 
 LICENSE="MIT BSD-with-disclosure"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 src_prepare() {
 	default
@@ -45,8 +45,7 @@ src_install() {
 
 	newbashcomp shell/completion.bash ${PN}
 
-	insinto /usr/share/zsh/site-functions
-	newins shell/completion.zsh _${PN}
+	newzshcomp shell/completion.zsh _${PN}
 
 	insinto /usr/share/fzf
 	doins shell/key-bindings.bash
