@@ -13,7 +13,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0 MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~m68k ~mips ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~x86"
 
 BDEPEND="
 	app-text/lowdown
@@ -40,8 +40,6 @@ src_configure() {
 		-DBTOP_STATIC=false
 		# These settings can be controlled in make.conf CFLAGS/CXXFLAGS
 		-DBTOP_LTO=false
-		-DBTOP_WERROR=false
-		-DBTOP_USE_MOLD=false
 	)
 	cmake_src_configure
 }
