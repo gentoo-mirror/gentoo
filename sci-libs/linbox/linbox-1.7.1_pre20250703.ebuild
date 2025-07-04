@@ -7,7 +7,9 @@ inherit autotools toolchain-funcs
 
 DESCRIPTION="C++ template library for integer and finite-field linear algebra"
 HOMEPAGE="https://linalg.org/"
-SRC_URI="https://github.com/linbox-team/${PN}/releases/download/v${PV}/${P}.tar.gz"
+GH_COMMIT=9c79417278c51509871dfd8f4f9fd56b5495db65
+SRC_URI="https://github.com/linbox-team/linbox/archive/9c79417278c51509871dfd8f4f9fd56b5495db65.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${GH_COMMIT}"
 
 # I think only macros/libtool.m4 (and COPYING) is GPL-2+; the source
 # headers all say LGPL-2.1
@@ -37,12 +39,6 @@ DEPEND="dev-libs/gmp[cxx(+)]
 RDEPEND="${DEPEND}
 	doc? ( >=dev-libs/mathjax-3 )
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.7.0-hardened-testfails.patch
-	"${FILESDIR}"/${PN}-1.7.0-gcc14.patch
-	"${FILESDIR}"/${PN}-1.7.0-gcc15.patch
-)
 
 # The --enable-openmp flag has been removed upstream, but we don't want
 # openmp support to disappear after the package has been compiled with
