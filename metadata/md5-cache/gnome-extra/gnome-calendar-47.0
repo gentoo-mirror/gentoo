@@ -7,11 +7,11 @@ HOMEPAGE=https://apps.gnome.org/Calendar/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org gnome2-utils meson virtualx xdg
 IUSE=test
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=~amd64 arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=GPL-3+
 RDEPEND=>=dev-libs/libical-1.0.1:0= >=gnome-base/gsettings-desktop-schemas-3.21.2 >=gnome-extra/evolution-data-server-3.45.1:=[gtk] net-libs/libsoup:3.0 >=gui-libs/libadwaita-1.6_alpha:1 >=dev-libs/glib-2.67.5:2 >=gui-libs/gtk-4.15.2:4 >=dev-libs/libgweather-4.2.0:4= >=app-misc/geoclue-2.4:2.0
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-calendar/47/gnome-calendar-47.0.tar.xz
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	5ffe8ec396a751540949b565de0f048c	meson	99466844dd8d4fcfb07578a76f5a9922	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=784b3a6b330f883644c1f3ff41008b34
+_md5_=e00d237a59df494f930c88929cde40fb
