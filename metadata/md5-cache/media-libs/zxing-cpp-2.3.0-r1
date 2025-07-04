@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/zxing-cpp/zxing-cpp
 INHERIT=cmake
 IUSE=experimental test
-KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm arm64 ~loong ppc64 ~riscv x86
 LICENSE=Apache-2.0
 RDEPEND=experimental? ( media-libs/zint:= )
 RESTRICT=!test? ( test )
 SLOT=0/3
 SRC_URI=https://github.com/zxing-cpp/zxing-cpp/archive/v2.3.0.tar.gz -> zxing-cpp-2.3.0.tar.gz test? ( https://github.com/zxing-cpp/zxing-cpp/releases/download/v2.3.0/test_samples.tar.gz -> zxing-cpp-2.3.0-test-samples.tar.gz )
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
-_md5_=3f03678c8af62e6519c98279c8727a72
+_md5_=f93c5cc2a9a2b2712c5b6da3a39dd391

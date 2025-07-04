@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.pgpool.net/
 INHERIT=autotools flag-o-matic postgres-multi
 IUSE=doc memcached pam ssl static-libs postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 postgres_targets_postgres13
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=BSD
 RDEPEND=postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) postgres_targets_postgres13? ( dev-db/postgresql:13= ) acct-user/pgpool net-libs/libnsl:0= virtual/libcrypt:= memcached? ( dev-libs/libmemcached ) pam? ( sys-auth/pambase ) ssl? ( dev-libs/openssl:0= )
 SLOT=0
 SRC_URI=https://www.pgpool.net/download.php?f=pgpool-II-4.4.7.tar.gz -> pgpool-II-4.4.7.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	postgres	aa74feb4d9c1e9af578d99aea36bbace	postgres-multi	ccad35d745ce66b41837db8a6ee94601
-_md5_=1b439ae3120777e23206dd5b1bd767e8
+_md5_=456fa50e4f30ced669a3f6f76216321f

@@ -1,12 +1,14 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
-DESCRIPTION=Simple command-line tool to talk to serial devices
-EAPI=7
-HOMEPAGE=https://github.com/BGO-OD/serialtalk
+DEPEND=>=dev-util/diffball-0.7
+DESCRIPTION=Synchronize tarball content with file system content
+EAPI=8
+HOMEPAGE=https://github.com/zmedico/tarsync
 INHERIT=cmake
-KEYWORDS=amd64 x86
-LICENSE=GPL-3+
+KEYWORDS=amd64 x86 ~amd64-linux
+LICENSE=GPL-2
+RDEPEND=>=dev-util/diffball-0.7
 SLOT=0
-SRC_URI=https://github.com/BGO-OD/serialtalk/archive/v1.2.tar.gz -> serialtalk-1.2.tar.gz
+SRC_URI=https://github.com/zmedico/tarsync/archive/refs/tags/v0.2.3.tar.gz -> tarsync-0.2.3.tar.gz
 _eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
-_md5_=af59a8c3e8a17ae3835a10d4f877a5cb
+_md5_=93239fc70732bc7b44f31854257c6314
