@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure setup
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) dev-libs/openssl:=
+DESCRIPTION=String utilities and common hash functions for the ngx-lua-module NGINX module
+EAPI=8
+HOMEPAGE=https://github.com/openresty/lua-resty-string
+INHERIT=lua-single
+IUSE=+lua_single_target_luajit
+LICENSE=BSD-2
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) dev-libs/openssl:=
+REQUIRED_USE=^^ ( lua_single_target_luajit )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/openresty/lua-resty-string/archive/refs/tags/v0.16.tar.gz -> lua-resty-string-0.16.tar.gz
+_eclasses_=toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
+_md5_=4c7c5eb8c0dceaf8ec1daa90ca8886ee

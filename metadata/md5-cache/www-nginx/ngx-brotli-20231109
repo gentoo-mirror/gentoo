@@ -1,0 +1,13 @@
+BDEPEND=www-servers/nginx:=[modules(-)]
+DEFINED_PHASES=compile configure install postinst prepare test unpack
+DEPEND=www-servers/nginx:=[modules(-)]
+DESCRIPTION=NGINX module for Brotli compression
+EAPI=8
+HOMEPAGE=https://github.com/google/ngx_brotli
+INHERIT=nginx-module
+LICENSE=BSD-2
+RDEPEND=www-servers/nginx:=[modules(-)]
+SLOT=0
+SRC_URI=https://github.com/google/ngx_brotli/archive/a71f9312c2deb28875acc7bacfdd5695a111aa53.tar.gz -> ngx-brotli-a71f9312c2deb28875acc7bacfdd5695a111aa53.tar.gz https://github.com/google/brotli/archive/ed738e842d2fbdf2d6459e39267a633c4a9b2f5d.tar.gz -> brotli-ed738e842d2fbdf2d6459e39267a633c4a9b2f5d.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	nginx-module	08eaad3c3f7b1b798cc9d5b3daa6318b
+_md5_=a870912f095a4e0f78293cda19e34f77

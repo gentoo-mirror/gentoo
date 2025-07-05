@@ -1,0 +1,14 @@
+BDEPEND=www-servers/nginx:=[modules(-)]
+DEFINED_PHASES=compile configure install postinst prepare test unpack
+DEPEND=dev-libs/libxml2 dev-libs/libxslt www-servers/nginx:=[modules(-)]
+DESCRIPTION=NGINX module providing support for WebDAV PROPFIND,OPTIONS,LOCK,UNLOCK
+EAPI=8
+HOMEPAGE=https://github.com/arut/nginx-dav-ext-module
+INHERIT=nginx-module
+LICENSE=BSD-2
+RDEPEND=dev-libs/libxml2 dev-libs/libxslt www-servers/nginx:=[modules(-)]
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/arut/nginx-dav-ext-module/archive/refs/tags/v3.0.0.tar.gz -> ngx-dav-ext-3.0.0.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	nginx-module	08eaad3c3f7b1b798cc9d5b3daa6318b
+_md5_=871ba7f6bad6472ec7cbd7423a65fbe7

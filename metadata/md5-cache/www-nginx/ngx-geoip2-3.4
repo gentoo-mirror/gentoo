@@ -1,0 +1,13 @@
+BDEPEND=www-servers/nginx:=[modules(-)]
+DEFINED_PHASES=compile configure install postinst prepare test unpack
+DEPEND=dev-libs/libmaxminddb www-servers/nginx:=[modules(-)]
+DESCRIPTION=NGINX GeoIP2 module
+EAPI=8
+HOMEPAGE=https://github.com/leev/ngx_http_geoip2_module
+INHERIT=nginx-module
+LICENSE=BSD-2
+RDEPEND=dev-libs/libmaxminddb www-servers/nginx:=[modules(-)]
+SLOT=0
+SRC_URI=https://github.com/leev/ngx_http_geoip2_module/archive/refs/tags/3.4.tar.gz -> ngx-geoip2-3.4.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	nginx-module	08eaad3c3f7b1b798cc9d5b3daa6318b
+_md5_=f8278d6b0e0c8229db79afe5133be5db

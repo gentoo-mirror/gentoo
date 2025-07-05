@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig www-servers/nginx:=[modules(-)] test? ( dev-perl/Test-Nginx virtual/perl-Test-Harness ) test? ( www-nginx/ngx-lua-module www-nginx/ngx-echo )
+DEFINED_PHASES=compile configure install postinst prepare setup test unpack
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) www-servers/nginx:=[modules(-)] www-nginx/ngx-lua-module
+DESCRIPTION=An NGINX C module exposing ngx-lua-module's Lua APIs for NGINX upstreams
+EAPI=8
+HOMEPAGE=https://github.com/openresty/lua-upstream-nginx-module
+INHERIT=flag-o-matic lua-single nginx-module
+IUSE=+lua_single_target_luajit test
+LICENSE=BSD-2
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) www-servers/nginx:=[modules(-)] www-nginx/ngx-lua-module
+REQUIRED_USE=^^ ( lua_single_target_luajit )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/openresty/lua-upstream-nginx-module/archive/refs/tags/v0.07.tar.gz -> ngx-lua-upstream-0.07.tar.gz
+_eclasses_=toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	edo	a5e294016aa84979fcb2459749eb80b2	nginx-module	08eaad3c3f7b1b798cc9d5b3daa6318b
+_md5_=8e6810d317307881a651beb719efaa82

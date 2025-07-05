@@ -2631,7 +2631,7 @@ app-metrics/memcached_exporter 0.10.0 0.15.0: Prometheus exporter for memcached
 app-metrics/mongodb_exporter 0.39.0 0.43.1: Prometheus exporter for MongoDB
 app-metrics/mysqld_exporter 0.14.0 0.14.0_p20221209 0.14.0_p20230328: Prometheus exporter for MySQL server metrics
 app-metrics/nftables-exporter 0.2.7 0.3.1: prometheus exporter for nftables metrics
-app-metrics/nginx-lua-prometheus 0.1_pre20170610-r100: Library that exports Nginx metrics to Prometheus
+app-metrics/nginx-lua-prometheus 0.1_pre20170610-r101: Library that exports Nginx metrics to Prometheus
 app-metrics/nginx-vts-exporter 0.10.8: Nginx virtual host traffic stats exporter for Prometheus
 app-metrics/node_exporter 1.8.2 1.9.0 1.9.1 9999: Prometheus exporter for machine metrics
 app-metrics/openvpn_exporter 0.3.0: Prometheus Exporter for OpenVPN
@@ -5901,6 +5901,11 @@ dev-lua/lua-cjson 2.1.0.10-r1: A fast JSON encoding/parsing module for Lua
 dev-lua/lua-http 0.4_p20240908: HTTP Library for Lua. Supports HTTP(S) 1.0, 1.1 and 2.0; client and server.
 dev-lua/lua-mmdb 0.2: Maxmind database parser for lua
 dev-lua/lua-openssl 0.9.0_p0: OpenSSL binding for Lua
+dev-lua/lua-resty-core 0.1.30: FFI-based API for lua-nginx-module
+dev-lua/lua-resty-lrucache 0.15: Lua-land LRU Cache based on LuaJIT FFI
+dev-lua/lua-resty-memcached 0.17: Lua memcached client driver based on cosocket API for ngx-lua-module
+dev-lua/lua-resty-mysql 0.27: Nonblocking Lua MySQL driver library for the ngx-lua-module NGINX module
+dev-lua/lua-resty-string 0.16: String utilities and common hash functions for the ngx-lua-module NGINX module
 dev-lua/lua-term 0.8: Terminal operations for Lua
 dev-lua/lua-unbound 1.0.0: A binding to libunbound for Lua
 dev-lua/lua-utf8 0.1.5: A UTF-8 support module for Lua and LuaJIT
@@ -7640,6 +7645,7 @@ dev-perl/Test-MockTime-HiRes 0.80.0-r1: Replace actual time with simulated high 
 dev-perl/Test-More-UTF8 0.50.0-r1: Enhancing Test::More for UTF8-based projects
 dev-perl/Test-Most 0.380.0: Most commonly needed test functions and features
 dev-perl/Test-Needs 0.2.10: Skip tests when modules not available
+dev-perl/Test-Nginx 0.31: Data-driven test scaffold for NGINX and OpenResty
 dev-perl/Test-NoTabs 2.20.0: Check the presence of tabs in your project
 dev-perl/Test-NoWarnings 1.60.0: Make sure you didn't emit any warnings while testing
 dev-perl/Test-Number-Delta 1.60.0-r1: Compare the difference between numbers against a given tolerance
@@ -15295,7 +15301,7 @@ net-misc/netpipe 1.0.0_beta2-r2: tool to reliably distribute binary data using U
 net-misc/netpipes 4.2-r2: Tools to manipulate BSD TCP/IP stream sockets
 net-misc/netsed 0.01b-r1 1.3-r1 1.4: Small tool for altering forwarded network data in real time
 net-misc/netstat-nat 1.4.10-r1: Display NAT connections
-net-misc/networkmanager 1.46.0-r2 1.48.4-r1 1.48.10-r1 1.48.16 1.52.0: A set of co-operative tools that make networking simple and straightforward
+net-misc/networkmanager 1.48.16 1.52.0: A set of co-operative tools that make networking simple and straightforward
 net-misc/nextcloud-client 3.14.4 3.16.5 3.16.6: Desktop Syncing Client for Nextcloud
 net-misc/nicstat 1.95: Network traffic statics utility for Solaris and Linux
 net-misc/ntp 4.2.8_p15-r6 4.2.8_p17-r1 4.2.8_p17-r2 4.2.8_p18: Network Time Protocol suite/programs
@@ -16229,7 +16235,7 @@ sci-libs/p4est 2.8.6: Scalable Algorithms for Parallel Adaptive Mesh Refinement 
 sci-libs/parmetis 4.0.3_p20230326-r1: Parallel (MPI) unstructured graph partitioning library
 sci-libs/pastix 6.0.3: Parallel solver for very large sparse linear systems
 sci-libs/pcl 1.14.1-r2 9999: 2D/3D image and point cloud processing
-sci-libs/pdal 2.8.2-r1 2.8.4-r1: A C++ library for translating and manipulating point cloud data
+sci-libs/pdal 2.8.2-r1 2.8.4-r1 2.9.0: A C++ library for translating and manipulating point cloud data
 sci-libs/pgplot 5.2.2-r8 5.2.2-r9: FORTRAN/C device-independent scientific graphic library
 sci-libs/plplot 5.15.0_p15: Multi-language scientific plotting library
 sci-libs/primegen 0.97-r3: Small, fast library to generate primes in order
@@ -16247,7 +16253,7 @@ sci-libs/rocPRIM 5.7.1 6.1.1 6.3.2 6.3.3 6.4.1: HIP parallel primitives for deve
 sci-libs/rocRAND 5.7.1 6.1.1 6.3.2 6.3.3 6.4.1: Generate pseudo-random and quasi-random numbers
 sci-libs/rocSOLVER 5.7.1 6.1.1 6.3.2 6.3.3 6.4.1: Implementation of a subset of LAPACK functionality on the ROCm platform
 sci-libs/rocSPARSE 5.7.1-r2 6.1.1 6.3.2 6.3.3 6.4.1: Basic Linear Algebra Subroutines for sparse computation
-sci-libs/rocThrust 5.7.1 6.1.1 6.3.2 6.3.3 6.4.1: HIP back-end for the parallel algorithm library Thrust
+sci-libs/rocThrust 5.7.1 6.1.1 6.3.2 6.3.3 6.4.1-r1: HIP back-end for the parallel algorithm library Thrust
 sci-libs/rocWMMA 5.7.1 6.1.1 6.3.2 6.3.3 6.4.1: library for accelerating mixed precision matrix multiply-accumulate operations
 sci-libs/rpp 6.1.1 6.3.3 6.4.1: AMD ROCm Performance Primitives (RPP) high-performance computer vision library
 sci-libs/rtabmap 0.21.4 0.21.13 9999: Real-Time Appearance-Based Mapping (RGB-D Graph SLAM)
@@ -18162,6 +18168,25 @@ www-misc/profile-sync-daemon 5.75 6.35 6.50 9999: Symlinks and syncs browser pro
 www-misc/urlwatch 2.28-r1 2.29: A tool for monitoring webpages for updates
 www-misc/vdradmin-am 3.6.10-r1 3.6.10-r2: WWW Admin for the Video Disk Recorder
 www-misc/visitors 0.7-r2: Fast web log analyzer
+www-nginx/ngx-brotli 20231109: NGINX module for Brotli compression
+www-nginx/ngx-dav-ext 3.0.0: NGINX module providing support for WebDAV PROPFIND,OPTIONS,LOCK,UNLOCK
+www-nginx/ngx-echo 0.63: An NGINX module bringing the power of "echo", "sleep", "time" and more to NGINX
+www-nginx/ngx-encrypted-session 0.09: An NGINX module that encrypts and decrypts NGINX variable values
+www-nginx/ngx-eval 0_p20240817: An NGINX module that stores subrequest response bodies into variables
+www-nginx/ngx-fancyindex 0.5.2: Fancy indexes module for the NGINX web server
+www-nginx/ngx-geoip2 3.4: NGINX GeoIP2 module
+www-nginx/ngx-headers-more 0.37: Set, add, and clear arbitrary output headers in NGINX HTTP servers
+www-nginx/ngx-iconv 0.14: A character conversion NGINX module using libiconv
+www-nginx/ngx-lua-module 0.10.27: A module embedding the power of Lua into NGINX HTTP Servers
+www-nginx/ngx-lua-upstream 0.07: An NGINX C module exposing ngx-lua-module's Lua APIs for NGINX upstreams
+www-nginx/ngx-memc 0.20: An extended version of the standard NGINX memcached module
+www-nginx/ngx-modsecurity 1.0.3: ModSecurity v3 NGINX Connector
+www-nginx/ngx-set-misc 0.33: An NGINX module that adds various set_xxx directives to NGINX's rewrite module
+www-nginx/ngx-srcache 0.33: An NGINX module enabling transparent subrequest-based caching
+www-nginx/ngx-upload-progress 0.9.3: An upload progress system for NGINX monitoring RFC1867 POST uploads
+www-nginx/ngx-vod 1.33: NGINX-based MP4 Repackager
+www-nginx/ngx-xss 0.06: Native support for cross-site scripting (XSS) in NGINX
+www-nginx/ngx_devel_kit 0.3.4: An NGINX module that adds generic tools for third-party modules
 www-plugins/browserpass 3.1.0: WebExtension host binary for app-admin/pass, a UNIX password manager
 www-plugins/chrome-binary-plugins 138.0.7204.92 139.0.7258.5_beta 140.0.7259.2_alpha: Binary plugins from Google Chrome for use in Chromium
 www-plugins/lightspark 0.8.7-r1 0.9.0: High performance flash player
@@ -18179,7 +18204,7 @@ www-servers/kore 4.2.3 4.3.0_rc4: Web application platform for writing scalable,
 www-servers/lighttpd 1.4.78-r1 1.4.79-r1 9999: Lightweight high-performance web server
 www-servers/mongrel2 1.11.0-r3: A language agnostic web server focused on web applications
 www-servers/moonbridge 1.1.3-r1: Network Server for Lua Applications
-www-servers/nginx 1.26.3-r2 1.27.5-r1: Robust, small and high performance http and reverse proxy server
+www-servers/nginx 1.26.3-r2 1.27.5-r1 1.29.0 9999: Robust, small and high performance HTTP and reverse proxy server
 www-servers/nginx-unit 1.34.2: Dynamic web and application server
 www-servers/pound 4.10 4.16: A http/https reverse-proxy and load-balancer
 www-servers/pshs 0.4.3: Pretty small HTTP server -- a command-line tool to share files

@@ -10,5 +10,5 @@ RDEPEND=acct-group/sonarr acct-user/sonarr media-video/mediainfo dev-libs/icu de
 RESTRICT=bindist strip test
 SLOT=0
 SRC_URI=amd64? ( elibc_glibc? ( https://github.com/Sonarr/Sonarr/releases/download/v4.0.15.2941/Sonarr.main.4.0.15.2941.linux-x64.tar.gz ) elibc_musl? ( https://github.com/Sonarr/Sonarr/releases/download/v4.0.15.2941/Sonarr.main.4.0.15.2941.linux-musl-x64.tar.gz ) ) arm? ( elibc_glibc? ( https://github.com/Sonarr/Sonarr/releases/download/v4.0.15.2941/Sonarr.main.4.0.15.2941.linux-arm.tar.gz ) ) arm64? ( elibc_glibc? ( https://github.com/Sonarr/Sonarr/releases/download/v4.0.15.2941/Sonarr.main.4.0.15.2941.linux-arm64.tar.gz ) elibc_musl? ( https://github.com/Sonarr/Sonarr/releases/download/v4.0.15.2941/Sonarr.main.4.0.15.2941.linux-musl-arm64.tar.gz ) )
-_eclasses_=toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	systemd	a964c0cbe818b5729da1dbfcee5be861
+_eclasses_=toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	systemd	a964c0cbe818b5729da1dbfcee5be861
 _md5_=23ef2df29550330e14192b0c99a482d9

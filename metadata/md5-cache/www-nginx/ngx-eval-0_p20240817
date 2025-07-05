@@ -1,0 +1,15 @@
+BDEPEND=test? ( net-misc/memcached ) www-servers/nginx:=[modules(-)] test? ( dev-perl/Test-Nginx virtual/perl-Test-Harness ) test? ( www-nginx/ngx-memc www-nginx/ngx-echo )
+DEFINED_PHASES=compile configure install postinst prepare test unpack
+DEPEND=www-servers/nginx:=[modules(-)]
+DESCRIPTION=An NGINX module that stores subrequest response bodies into variables
+EAPI=8
+HOMEPAGE=https://github.com/openresty/nginx-eval-module
+INHERIT=nginx-module
+IUSE=test
+LICENSE=BSD-2
+RDEPEND=www-servers/nginx:=[modules(-)]
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/openresty/nginx-eval-module/archive/13425e897c19f4f4436c5ca4414dddd37fc65190.tar.gz -> nginx-eval-module-13425e897c19f4f4436c5ca4414dddd37fc65190.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	nginx-module	08eaad3c3f7b1b798cc9d5b3daa6318b
+_md5_=7bca142162cc474618635633aa2f8962

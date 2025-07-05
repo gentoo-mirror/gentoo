@@ -8759,6 +8759,7 @@ www-client/w3m:lynxkeymap - If you prefer Lynx-like key binding
 www-misc/litmus:libproxy - Support for automatic proxy configuration management through net-libs/libproxy.
 www-misc/litmus:libxml2 - Use dev-libs/libxml2 to parse XML
 www-misc/litmus:pkcs11 - Support for PKCS #11 through PaKChoiS (dev-libs/pakchois).
+www-nginx/ngx-set-misc:hmac - Enable support for generating HMAC digests using dev-libs/openssl
 www-plugins/lightspark:ppapi - Install the PPAPI plugin (for Chromium)
 www-plugins/lightspark:rtmp - Enable Real Time Messaging Protocol using librtmp
 www-plugins/passff-host:chrome - Install plugin for chrome (which also includes opera)
@@ -8790,17 +8791,20 @@ www-servers/lighttpd:nss - Build module for TLS via Mozilla's Network Security S
 www-servers/lighttpd:webdav - Enable webdav properties
 www-servers/lighttpd:zlib - Enable output compression via gzip or deflate algorithms from sys-libs/zlib
 www-servers/lighttpd:zstd - Enable output compression via Zstandard (app-arch/zstd) algorithm
-www-servers/nginx:aio - Enables file AIO support
-www-servers/nginx:http - Enable HTTP core support
+www-servers/nginx:aio - Enable asynchronous I/O support
+www-servers/nginx:debug - Enable support for debugging log
+www-servers/nginx:http - Enable core HTTP support
 www-servers/nginx:http-cache - Enable HTTP cache support
 www-servers/nginx:http2 - Enable HTTP2 module support
 www-servers/nginx:http3 - Enable HTTP3 module support
 www-servers/nginx:ktls - Enable Kernel TLS offload (kTLS)
-www-servers/nginx:libatomic - Use libatomic instead of builtin atomic operations
+www-servers/nginx:libatomic - Use dev-libs/libatomic_ops instead of builtin atomic operations
+www-servers/nginx:mail - Enable POP3/IMAP4/SMTP mail proxy server
 www-servers/nginx:pcre-jit - Enable JIT for pcre
 www-servers/nginx:pcre2 - Enable support for pcre2
 www-servers/nginx:rtmp - NGINX-based Media Streaming Server
 www-servers/nginx:ssl - Enable HTTPS module for http. Enable SSL/TLS support for POP3/IMAP/SMTP for mail.
+www-servers/nginx:stream - Enable generic TCP/UDP proxying and load balancing
 www-servers/nginx-unit:php8-3 - Support for PHP 8.3
 www-servers/pshs:magic - Enable automatic detection of Content-Type using libmagic (sys-apps/file)
 www-servers/pshs:qrcode - Enable generating QRCodes for server URL

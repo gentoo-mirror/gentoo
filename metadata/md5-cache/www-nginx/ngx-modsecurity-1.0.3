@@ -1,0 +1,13 @@
+BDEPEND=www-servers/nginx:=[modules(-)]
+DEFINED_PHASES=compile configure install postinst prepare test unpack
+DEPEND=dev-libs/modsecurity www-servers/nginx:=[modules(-)]
+DESCRIPTION=ModSecurity v3 NGINX Connector
+EAPI=8
+HOMEPAGE=https://github.com/owasp-modsecurity/ModSecurity-nginx https://modsecurity.org/ https://github.com/owasp-modsecurity/ModSecurity
+INHERIT=nginx-module
+LICENSE=Apache-2.0
+RDEPEND=dev-libs/modsecurity www-servers/nginx:=[modules(-)]
+SLOT=0
+SRC_URI=https://github.com/owasp-modsecurity/ModSecurity-nginx/releases/download/v1.0.3/modsecurity-nginx-v1.0.3.tar.gz -> ngx-modsecurity-1.0.3.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	nginx-module	08eaad3c3f7b1b798cc9d5b3daa6318b
+_md5_=16a3cb1df9afb815c9fc82c1f98b0517
