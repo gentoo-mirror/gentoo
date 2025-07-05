@@ -1,11 +1,13 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
 DESCRIPTION="LGPL-ed pc emulator"
-HOMEPAGE="http://bochs.sourceforge.net/"
-SRC_URI="https://downloads.sourceforge.net/bochs/${P}.tar.gz"
+HOMEPAGE="http://bochs.sourceforge.io/"
+MY_P="REL_$(ver_cut 1)_$(ver_cut 2)_FINAL"
+SRC_URI="https://github.com/bochs-emu/Bochs/archive/refs/tags/${MY_P}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/Bochs-${MY_P}/bochs"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
@@ -42,6 +44,10 @@ src_prepare() {
 
 	sed -i "s:^docdir.*:docdir = ${EPREFIX}/usr/share/doc/${PF}:" \
 		Makefile.in || die
+	sed -i 's:| $(GZIP_BIN) -c >  $(DESTDIR)$(man1dir)/$$i.1.gz:> $(DESTDIR)$(man1dir)/$$i.1:' Makefile.in || die
+	sed -i 's:$$i.1.gz:$$i.1:' Makefile.in || die
+	sed -i 's:| $(GZIP_BIN) -c >  $(DESTDIR)$(man5dir)/$$i.5.gz:> $(DESTDIR)$(man5dir)/$$i.5:' Makefile.in || die
+	sed -i 's:$$i.5.gz:$$i.5:' Makefile.in || die
 }
 
 src_configure() {
@@ -80,4 +86,11 @@ src_configure() {
 		$(use_with vnc rfb) \
 		$(use_with X x) \
 		$(use_with X x11)
+}
+
+src_install() {
+	default
+
+	# remove unneeded .la files the plugins load fine even without them.
+	find "${ED}" -name '*.la' -delete || die
 }
