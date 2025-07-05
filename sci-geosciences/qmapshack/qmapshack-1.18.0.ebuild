@@ -5,12 +5,10 @@ EAPI=8
 
 inherit cmake xdg
 
-COMMIT="5fc1cb76091d80094a3c3d1d50948089dd47f402"
-
 DESCRIPTION="GPS mapping utility"
 HOMEPAGE="https://github.com/Maproom/qmapshack/wiki"
-SRC_URI="https://github.com/Maproom/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}"/${PN}-${COMMIT}
+SRC_URI="https://github.com/Maproom/${PN}/archive/tags/V_${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}"/${PN}-tags-V_${PV}
 
 LICENSE="GPL-3+"
 SLOT="0"
