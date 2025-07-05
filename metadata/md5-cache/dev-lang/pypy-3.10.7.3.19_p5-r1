@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare
-DEPEND=|| ( >=dev-python/pypy3_10-exe-7.3.19:7.3.19[bzip2(+),ncurses?] >=dev-python/pypy3_10-exe-bin-7.3.19:7.3.19 ) dev-libs/openssl:0= dev-python/gentoo-common ensurepip? ( dev-python/ensurepip-wheels ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !dev-python/pypy3_10
+DEPEND=|| ( >=dev-python/pypy3_10-exe-7.3.19:7.3.19[bzip2(+),ncurses?] >=dev-python/pypy3_10-exe-bin-7.3.19:7.3.19 ) dev-libs/openssl:0= dev-python/gentoo-common ensurepip? ( dev-python/ensurepip-pip dev-python/ensurepip-setuptools ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !dev-python/pypy3_10
 DESCRIPTION=A fast, compliant alternative implementation of the Python (3.10) language
 EAPI=8
 HOMEPAGE=https://pypy.org/ https://github.com/pypy/pypy/
@@ -7,9 +7,9 @@ INHERIT=multiprocessing pax-utils python-utils-r1 toolchain-funcs
 IUSE=+ensurepip gdbm +jit ncurses sqlite +test-install tk
 KEYWORDS=amd64 ~arm64 ~ppc64 x86 ~amd64-linux ~x86-linux
 LICENSE=MIT
-RDEPEND=|| ( >=dev-python/pypy3_10-exe-7.3.19:7.3.19[bzip2(+),ncurses?] >=dev-python/pypy3_10-exe-bin-7.3.19:7.3.19 ) dev-libs/openssl:0= dev-python/gentoo-common ensurepip? ( dev-python/ensurepip-wheels ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !dev-python/pypy3_10
+RDEPEND=|| ( >=dev-python/pypy3_10-exe-7.3.19:7.3.19[bzip2(+),ncurses?] >=dev-python/pypy3_10-exe-bin-7.3.19:7.3.19 ) dev-libs/openssl:0= dev-python/gentoo-common ensurepip? ( dev-python/ensurepip-pip dev-python/ensurepip-setuptools ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) !dev-python/pypy3_10
 RESTRICT=test
 SLOT=3.10/pypy310-pp73-384
 SRC_URI=https://downloads.python.org/pypy/pypy3.10-v7.3.19-src.tar.bz2 https://buildbot.pypy.org/pypy/pypy3.10-v7.3.19-src.tar.bz2 https://dev.gentoo.org/~mgorny/dist/python/pypy3.10-gentoo-patches-7.3.19_p5.tar.xz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	pax-utils	5555f2e75744739fe100ee62c22d28fe	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	python-utils-r1	5ffe8ec396a751540949b565de0f048c
-_md5_=9ab2e783870c717da6348348b06343d5
+_md5_=989454e2a839b31ef5e675a8ea5027d1
