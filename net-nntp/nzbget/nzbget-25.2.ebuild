@@ -1,31 +1,32 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit cmake systemd
 
+PAR2_TURBO_VER="1.3.0"
 DESCRIPTION="A command-line based binary newsgrabber supporting .nzb files"
 HOMEPAGE="https://nzbget.com/"
-SRC_URI="https://github.com/nzbgetcom/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	parcheck? (
+		https://github.com/nzbgetcom/par2cmdline-turbo/archive/v${PAR2_TURBO_VER}.tar.gz
+			-> nzbgetcom-par2turbo-${PAR2_TURBO_VER}.tar.gz
+	)
+	https://github.com/nzbgetcom/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc x86"
-IUSE="gnutls ncurses +parcheck ssl test zlib"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
+IUSE="ncurses +parcheck ssl test zlib"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	dev-libs/boost:=
 	dev-libs/libxml2:=
 	ncurses? ( sys-libs/ncurses:0= )
-	ssl? (
-		gnutls? (
-			net-libs/gnutls:=
-			dev-libs/nettle:=
-		)
-		!gnutls? ( dev-libs/openssl:0=[-bindist(-)] )
-	)
+	ssl? ( dev-libs/openssl:0=[-bindist(-)] )
 	zlib? ( sys-libs/zlib:= )"
 RDEPEND="
 	${DEPEND}
@@ -45,10 +46,14 @@ BDEPEND="
 DOCS=( ChangeLog.md README.md nzbget.conf )
 
 PATCHES=(
-	"${FILESDIR}/${P}-fix-getrealpath-buffer-overflow.patch"
+	# Required to use par2-turbo downloaded into the source directory
+	"${FILESDIR}/${PN}-25.1-build-with-par2-turbo-offline.patch"
 )
 
 src_prepare() {
+	if use parcheck; then
+		mv "${WORKDIR}/par2cmdline-turbo-${PAR2_TURBO_VER}" par2-turbo || die
+	fi
 	cmake_src_prepare
 
 	# Update the main configuration file with the correct paths
@@ -71,8 +76,6 @@ src_configure() {
 		-DDISABLE_PARCHECK=$(usex !parcheck)
 		-DDISABLE_TLS=$(usex !ssl)
 		-DDISABLE_GZIP=$(usex !zlib)
-		-DUSE_OPENSSL=$(usex !gnutls)
-		-DUSE_GNUTLS=$(usex gnutls)
 		-DENABLE_TESTS=$(usex test)
 	)
 	cmake_src_configure
