@@ -6,6 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/openresty/lua-resty-lrucache
 INHERIT=lua-single
 IUSE=+lua_single_target_luajit
+KEYWORDS=~amd64 ~arm64
 LICENSE=BSD-2
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= )
 REQUIRED_USE=^^ ( lua_single_target_luajit )
@@ -13,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/openresty/lua-resty-lrucache/archive/refs/tags/v0.15.tar.gz -> lua-resty-lrucache-0.15.tar.gz
 _eclasses_=toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
-_md5_=92fd64abdb7e026e815d8bb3eaf33dbe
+_md5_=3f25495fdffda6892fc1c52ec8845c19

@@ -6,11 +6,12 @@ EAPI=8
 HOMEPAGE=https://github.com/openresty/lua-nginx-module
 INHERIT=lua-single nginx-module
 IUSE=+lua_single_target_luajit
+KEYWORDS=~amd64 ~arm64
 LICENSE=BSD-2
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) dev-lua/lua-resty-core[lua_single_target_luajit(-)?] dev-lua/lua-resty-lrucache[lua_single_target_luajit(-)?] www-servers/nginx:=[modules(-)] www-nginx/ngx_devel_kit
 REQUIRED_USE=^^ ( lua_single_target_luajit )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/openresty/lua-nginx-module/archive/refs/tags/v0.10.27.tar.gz -> ngx-lua-module-0.10.27.tar.gz
-_eclasses_=toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	edo	a5e294016aa84979fcb2459749eb80b2	nginx-module	08eaad3c3f7b1b798cc9d5b3daa6318b
-_md5_=93b854acac5d92e163b04afb064b7eae
+_eclasses_=toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	edo	a5e294016aa84979fcb2459749eb80b2	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	nginx-module	ada1c3a95ded5c118bf6b87992d40345
+_md5_=b6f6a8867a5ebdac61130e6dcc83662a
