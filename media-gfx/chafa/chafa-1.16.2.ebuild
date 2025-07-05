@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,12 +11,11 @@ SRC_URI="https://hpjansson.org/chafa/releases/${P}.tar.xz"
 
 LICENSE="LGPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~mips ~ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="+tools webp"
 
 RDEPEND="
 	dev-libs/glib:2
-	media-gfx/imagemagick:0=
 	tools? ( >=media-libs/freetype-2.0.0 )
 	webp? ( media-libs/libwebp:= )
 "
@@ -44,7 +43,6 @@ src_configure() {
 }
 
 src_install() {
-	local DOCS=( AUTHORS NEWS README TODO )
 	default
 
 	use tools && doman docs/chafa.1
