@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://docs.xfce.org/apps/xfburn/start https://gitlab.xfce.org/apps/xfburn/
 INHERIT=meson xdg-utils
 IUSE=gstreamer +udev
-KEYWORDS=amd64 arm arm64 ~loong ~ppc ~ppc64 ~riscv x86
+KEYWORDS=amd64 arm arm64 ~loong ppc ~ppc64 ~riscv x86
 LICENSE=GPL-2+
 RDEPEND=>=dev-libs/glib-2.66.0 >=dev-libs/libburn-0.4.2:= >=dev-libs/libisofs-0.6.2:= >=x11-libs/gtk+-3.24.0:3 >=xfce-base/exo-0.18.0:= >=xfce-base/libxfce4ui-4.18.0:= >=xfce-base/libxfce4util-4.18.0:= gstreamer? ( >=media-libs/gstreamer-1.0.0:1.0 >=media-libs/gst-plugins-base-1.0.0:1.0 ) udev? ( >=dev-libs/libgudev-145:= )
 SLOT=0
 SRC_URI=https://archive.xfce.org/src/apps/xfburn/0.8/xfburn-0.8.0.tar.bz2
 _eclasses_=toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	5ffe8ec396a751540949b565de0f048c	meson	99466844dd8d4fcfb07578a76f5a9922	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=11571602514c88c4ac58d35b8fea59a7
+_md5_=65dbddd625a585c5e702963fa0fabf3f
