@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-perl/Test-Exception dev-perl/Test-Perl-Critic )
+BDEPEND=test? ( dev-perl/Test-Exception dev-perl/Test-Perl-Critic dev-perl/Test-Output )
 DEFINED_PHASES=install postinst postrm preinst
 DESCRIPTION=Applet to edit Claws Mail's hidden preferences
 EAPI=8
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.claws-mail.org/tools/clawsker-1.4.0.tar.xz
 _eclasses_=xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=70236aef89a3dc3f7c948c34f7dcb7b3
+_md5_=6fd8c978c5fd0f9913970eac5788b710
