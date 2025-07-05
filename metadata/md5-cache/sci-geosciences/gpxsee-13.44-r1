@@ -5,11 +5,11 @@ DESCRIPTION=Viewer and analyzer that supports gpx, tcx, kml, fit, igc and nmea f
 EAPI=8
 HOMEPAGE=https://www.gpxsee.org/ https://github.com/tumic0/GPXSee
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=plocale qmake-utils xdg
-KEYWORDS=amd64 arm64 ~ppc64 ~x86
+INHERIT=plocale qmake-utils xdg optfeature
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
 LICENSE=GPL-3
 RDEPEND=dev-qt/qtbase:6=[concurrent,gui,network,opengl,sql,widgets] dev-qt/qtpositioning:6 dev-qt/qtsvg:6
 SLOT=0
-SRC_URI=https://github.com/tumic0/GPXSee/archive/13.34.tar.gz -> gpxsee-13.34.tar.gz
-_eclasses_=plocale	950fbaec7deeba41b5bcc0572cca99b9	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=421408f8e8c1c556169f875b243e7212
+SRC_URI=https://github.com/tumic0/GPXSee/archive/13.44.tar.gz -> gpxsee-13.44.tar.gz
+_eclasses_=plocale	950fbaec7deeba41b5bcc0572cca99b9	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	optfeature	538bce96e5589935b57e178e8635f301
+_md5_=8cd01a25530b3b8526d9cf4e5c308703
