@@ -1,0 +1,17 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=acct-user/http acct-group/http
+DESCRIPTION=Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS
+EAPI=8
+HOMEPAGE=https://caddyserver.com
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps go-module systemd shell-completion
+IUSE=dynamicdns dns-azure dns-cloudflare dns-cloudns dns-digitalocean dns-duckdns dns-googleclouddns dns-hetzner dns-mailinabox dns-netcup dns-ovh dns-porkbun dns-rfc2136 dns-vultr events-handlers-exec security webdav +filecaps
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv
+LICENSE=Apache-2.0 BSD ECL-2.0 MIT CC0-1.0
+RDEPEND=acct-user/http acct-group/http
+RESTRICT=test strip
+SLOT=0
+SRC_URI=https://github.com/caddyserver/caddy/archive/v2.10.0.tar.gz -> caddy-2.10.0.tar.gz https://github.com/rahilarious/gentoo-distfiles/releases/download/caddy-2.10.0/deps.tar.xz -> caddy-2.10.0-deps.tar.xz https://github.com/caddyserver/dist/archive/refs/tags/v2.10.0.tar.gz -> caddy-2.10.0-docs.tar.gz
+_eclasses_=fcaps	27152c9e4da035accb14a2d7879744ef	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	191a27261275fc3bff7dd7482361b5d6	systemd	a964c0cbe818b5729da1dbfcee5be861	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16
+_md5_=f81a107e28130c3d581eac1f377dbc03
