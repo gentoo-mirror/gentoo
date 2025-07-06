@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare
+DEPEND=x11-libs/libX11 x11-libs/libXft x11-libs/libXinerama x11-libs/libXtst x11-base/xorg-proto
+DESCRIPTION=Simple Virtual Keyboard
+EAPI=8
+HOMEPAGE=https://tools.suckless.org/x/svkbd/
+INHERIT=savedconfig toolchain-funcs
+IUSE=savedconfig
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=x11-libs/libX11 x11-libs/libXft x11-libs/libXinerama x11-libs/libXtst
+SLOT=0
+SRC_URI=https://dl.suckless.org/tools/svkbd-0.4.2.tar.gz
+_eclasses_=portability	a39e3d646f76cb45d06b44cc1144b8d4	savedconfig	b9131abe556ad2ea96c01b06d658d363	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772
+_md5_=9406c6fb09680f2d3a867a8152d3f5b9
