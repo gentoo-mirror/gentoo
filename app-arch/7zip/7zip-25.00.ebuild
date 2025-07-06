@@ -1,4 +1,4 @@
-# Copyright 2023-2024 Gentoo Authors
+# Copyright 2023-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,18 +17,20 @@ S="${WORKDIR}"
 
 LICENSE="LGPL-2 BSD rar? ( unRAR )"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~ppc ~ppc64 ~riscv"
-IUSE="uasm jwasm rar"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="uasm jwasm rar +symlink"
 REQUIRED_USE="?? ( uasm jwasm )"
 
 DOCS=( readme.txt History.txt License.txt )
 HTML_DOCS=( MANUAL )
 
-DEPEND="${RDEPEND}"
 BDEPEND="
 	app-arch/xz-utils[extra-filters(+)]
 	uasm? ( dev-lang/uasm )
 	jwasm? ( dev-lang/jwasm )
+"
+RDEPEND="
+	symlink? ( !app-arch/p7zip )
 "
 
 PATCHES=(
@@ -107,5 +109,10 @@ src_compile() {
 
 src_install() {
 	dobin "./CPP/7zip/Bundles/Alone2/b/${bdir}/7zz"
+	if use symlink; then
+		dosym 7zz /usr/bin/7z
+		dosym 7zz /usr/bin/7za
+		dosym 7zz /usr/bin/7zr
+	fi
 	einstalldocs
 }
