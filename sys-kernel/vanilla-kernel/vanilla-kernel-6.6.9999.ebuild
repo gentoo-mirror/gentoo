@@ -56,6 +56,12 @@ PDEPEND="
 	>=virtual/dist-kernel-$(ver_cut 1-2)
 "
 
+QA_FLAGS_IGNORED="
+	usr/src/linux-.*/scripts/gcc-plugins/.*.so
+	usr/src/linux-.*/vmlinux
+	usr/src/linux-.*/arch/powerpc/kernel/vdso.*/vdso.*.so.dbg
+"
+
 src_unpack() {
 	git-r3_src_unpack
 	default
@@ -68,7 +74,7 @@ src_prepare() {
 
 	# prepare the default config
 	case ${ARCH} in
-		arm | hppa | loong)
+		arm | hppa | loong | riscv | sparc)
 			> .config || die
 		;;
 		amd64)
