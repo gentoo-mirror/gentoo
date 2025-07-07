@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DESCRIPTION=Ahead of Time (AOT) Triton Math Library (binary package)
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/aotriton
+KEYWORDS=-* ~amd64
+LICENSE=MIT
+RDEPEND=sys-libs/glibc sys-devel/gcc app-arch/xz-utils dev-util/hip:0/6.4
+RESTRICT=strip
+SLOT=0/0.9
+SRC_URI=https://github.com/ROCm/aotriton/releases/download/0.9.2b/aotriton-0.9.2b-manylinux_2_28_x86_64-rocm6.4-shared.tar.gz
+_md5_=f24d8647de4d8b94e99f6cd49c26acd8
