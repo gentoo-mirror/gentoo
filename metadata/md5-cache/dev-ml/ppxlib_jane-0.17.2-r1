@@ -1,6 +1,6 @@
 BDEPEND=>=dev-ml/dune-3.11 dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=>=dev-lang/ocaml-5.3 dev-ml/stdlib-shims:=[ocamlopt?] >=dev-ml/ppxlib-0.32.1:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-lang/ocaml-5.3 dev-ml/stdlib-shims:=[ocamlopt?] >=dev-ml/ppxlib-0.32.1:=[ocamlopt?] <dev-ml/ppxlib-0.36.0 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Utilities for working with Jane Street AST constructs
 EAPI=8
 HOMEPAGE=https://github.com/janestreet/ppxlib_jane
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64
 LICENSE=MIT
-RDEPEND=>=dev-lang/ocaml-5.3 dev-ml/stdlib-shims:=[ocamlopt?] >=dev-ml/ppxlib-0.32.1:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-lang/ocaml-5.3 dev-ml/stdlib-shims:=[ocamlopt?] >=dev-ml/ppxlib-0.32.1:=[ocamlopt?] <dev-ml/ppxlib-0.36.0 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.17
 SRC_URI=https://github.com/janestreet/ppxlib_jane/archive/refs/tags/v0.17.2.tar.gz -> ppxlib_jane-0.17.2.tar.gz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=1d88520a552f5d2d6ecefeda43cf5307
+_md5_=9ad8072f147c9b436cf8eed80239cb05
