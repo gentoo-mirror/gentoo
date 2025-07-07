@@ -47,18 +47,8 @@
     <url>https://wiki.gentoo.org/wiki/Project:ARM</url>
     <description>The ARM Development Project is devoted to keeping Gentoo in good shape on the ARM architecture.</description>
     <member>
-      <email>ago@gentoo.org</email>
-      <name>Agostino Sarubbo</name>
-      <role>Security bugs primarily</role>
-    </member>
-    <member>
       <email>ajak@gentoo.org</email>
       <name>John Helmert III</name>
-    </member>
-    <member>
-      <email>alicef@gentoo.org</email>
-      <name>Arisu Tachibana</name>
-      <role>Kernel</role>
     </member>
     <member>
       <email>blueness@gentoo.org</email>
@@ -78,21 +68,12 @@
       <name>Yixun Lan</name>
     </member>
     <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>installcd maintainer, misc helper</role>
-    </member>
-    <member>
       <email>maekke@gentoo.org</email>
       <name>Markus Meier</name>
     </member>
     <member is-lead="1">
       <email>sam@gentoo.org</email>
       <name>Sam James</name>
-    </member>
-    <member>
-      <email>zerochaos@gentoo.org</email>
-      <name>Rick Farina</name>
     </member>
   </project>
   <project>
@@ -212,6 +193,11 @@
     <name>Gentoo Asahi Project</name>
     <url>https://wiki.gentoo.org/wiki/Project:Asahi</url>
     <description>The Gentoo Asahi Project brings Gentoo Linux to Apple Silicon Mac devices.</description>
+    <member>
+      <email>kangie@gentoo.org</email>
+      <name>Matt Jolly</name>
+      <role>Wanted an aarch64 laptop</role>
+    </member>
     <member is-lead="1">
       <email>leio@gentoo.org</email>
       <name>Mart Raudsepp</name>
@@ -252,11 +238,6 @@
     <member>
       <email>floppym@gentoo.org</email>
       <name>Mike Gilbert</name>
-    </member>
-    <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>new helper</role>
     </member>
     <member>
       <email>robbat2@gentoo.org</email>
@@ -461,10 +442,6 @@
       <name>Andreas K. Hüttel</name>
     </member>
     <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-    </member>
-    <member>
       <email>juippis@gentoo.org</email>
       <name>Joonas Niilola</name>
     </member>
@@ -605,11 +582,6 @@
     <name>Distribution Kernel</name>
     <url>https://wiki.gentoo.org/wiki/Project:Distribution_Kernel</url>
     <description>Dist-kernel project maintains packages providing for zero-effort kernel install and upgrades</description>
-    <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>ppc64 maintenance, testing</role>
-    </member>
     <member is-lead="1">
       <email>mgorny@gentoo.org</email>
       <name>Michał Górny</name>
@@ -927,13 +899,13 @@
     <url>https://wiki.gentoo.org/wiki/Project:GSoC</url>
     <description>The central project to unite efforts for Google Summer of Code participation</description>
     <member>
-      <email>amadio@gentoo.org</email>
-      <name>Guilherme Amadio</name>
+      <email>alicef@gentoo.org</email>
+      <name>Arisu Tachibana</name>
       <role>2022 Mentor</role>
     </member>
     <member>
-      <email>alicef@gentoo.org</email>
-      <name>Arisu Tachibana</name>
+      <email>amadio@gentoo.org</email>
+      <name>Guilherme Amadio</name>
       <role>2022 Mentor</role>
     </member>
     <member>
@@ -1319,11 +1291,6 @@
       <email>fordfrog@gentoo.org</email>
       <name>Miroslav Šulc</name>
     </member>
-    <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>JDK maintainer</role>
-    </member>
   </project>
   <project>
     <email>kde@gentoo.org</email>
@@ -1554,13 +1521,27 @@
   <project>
     <email>dist-kernel@gentoo.org</email>
     <name>Distribution Kernel</name>
-    <url>https://wiki.gentoo.org/wiki/Handbook:Parts/Installation/Kernel/Dist-Kernel/es</url>
+    <url>https://wiki.gentoo.org/wiki/Handbook:Parts/Installation/Kernel/es</url>
     <description>Dist-kernel project maintains packages providing for zero-effort kernel install and upgrades</description>
     <member>
       <email>gyakovlev@gentoo.org</email>
       <name>Georgy Yakovlev</name>
       <role>ppc64 maintenance, testing</role>
     </member>
+    <member>
+      <email>nowa@gentoo.org</email>
+      <name>Nowa Ammerlaan</name>
+    </member>
+    <member>
+      <email>sam@gentoo.org</email>
+      <name>Sam James</name>
+    </member>
+  </project>
+  <project>
+    <email>dist-kernel@gentoo.org</email>
+    <name>Distribution Kernel</name>
+    <url>https://wiki.gentoo.org/wiki/Handbook:Parts/Installation/Kernel/Dist-Kernel/es</url>
+    <description>Dist-kernel project maintains packages providing for zero-effort kernel install and upgrades</description>
     <member>
       <email>nowa@gentoo.org</email>
       <name>Nowa Ammerlaan</name>
@@ -1611,21 +1592,12 @@
     <url>https://wiki.gentoo.org/wiki/Project:Musl</url>
     <description>This subproject aims to port the hardened tool chain to musl based systems for a variety of architectures. The project treats musl as an alternative to glibc and uClibc, and not necessarily as "embedded".</description>
     <member>
-      <email>anarchy@gentoo.org</email>
-      <name>Jory A. Pratt</name>
-    </member>
-    <member>
       <email>arkamar@gentoo.org</email>
       <name>Petr Vaněk</name>
     </member>
     <member is-lead="1">
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
-    </member>
-    <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>ppc64 helper</role>
     </member>
     <member>
       <email>sam@gentoo.org</email>
@@ -1955,11 +1927,6 @@
       <name>Anthony G. Basile</name>
       <role>ppc/ppc64 keywording/stabilization</role>
     </member>
-    <member is-lead="1">
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>profiles, keywording, releng, desktop</role>
-    </member>
     <member>
       <email>lu_zero@gentoo.org</email>
       <name>Luca Barbato</name>
@@ -2077,10 +2044,6 @@
       <name>Florian Schmaus</name>
     </member>
     <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-    </member>
-    <member>
       <email>ionen@gentoo.org</email>
       <name>Ionen Wolkens</name>
     </member>
@@ -2133,7 +2096,7 @@
     <member>
       <email>dilfridge@gentoo.org</email>
       <name>Andreas K. Hüttel</name>
-      <role>Facebook (admin), LinkedIn (admin)</role>
+      <role>www.g.o, Facebook (admin), LinkedIn (admin)</role>
     </member>
     <member>
       <email>jstein@gentoo.org</email>
@@ -2296,11 +2259,6 @@
       <name>Florian Schmaus</name>
     </member>
     <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>can do keywording</role>
-    </member>
-    <member>
       <email>jsmolic@gentoo.org</email>
       <name>Jakov Smolić</name>
     </member>
@@ -2401,11 +2359,6 @@
       <role>amd64, m68k, riscv, x86; musl; qemu autobuilds</role>
     </member>
     <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>ppc64 helper (musl, systemd, power9)</role>
-    </member>
-    <member>
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
       <role>Catalyst developer</role>
@@ -2493,11 +2446,6 @@
       <email>arthurzam@gentoo.org</email>
       <name>Arthur Zamarin</name>
       <role>Not sure how I got here</role>
-    </member>
-    <member is-lead="1">
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>Self-appointed lead</role>
     </member>
     <member>
       <email>kangie@gentoo.org</email>
@@ -2786,11 +2734,6 @@
       <role>Lead</role>
     </member>
     <member>
-      <email>gyakovlev@gentoo.org</email>
-      <name>Georgy Yakovlev</name>
-      <role>minor helper, musl testing, tmpfiles</role>
-    </member>
-    <member>
       <email>williamh@gentoo.org</email>
       <name>William Hubbs</name>
     </member>
@@ -2931,10 +2874,6 @@
     <name>musl</name>
     <url>https://wiki.gentoo.org/wiki/User:Immolo/musl-ng</url>
     <description>This subproject aims to port the hardened tool chain to musl based systems for a variety of architectures. The project treats musl as an alternative to glibc and uClibc, and not necessarily as "embedded".</description>
-    <member>
-      <email>anarchy@gentoo.org</email>
-      <name>Jory A. Pratt</name>
-    </member>
     <member>
       <email>arkamar@gentoo.org</email>
       <name>Petr Vaněk</name>
@@ -3165,10 +3104,6 @@
     <url>https://wiki.gentoo.org/wiki/Project:X11</url>
     <description>The X11 project manages the X implementations and related packages in Portage.</description>
     <subproject ref="vulkan@gentoo.org"/>
-    <member>
-      <email>chithanh@gentoo.org</email>
-      <name>Chí-Thanh Christopher Nguyễn</name>
-    </member>
     <member is-lead="1">
       <email>mattst88@gentoo.org</email>
       <name>Matt Turner</name>
