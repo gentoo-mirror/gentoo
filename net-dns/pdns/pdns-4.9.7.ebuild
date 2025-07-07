@@ -6,7 +6,7 @@ EAPI=8
 LUA_COMPAT=( lua5-{1..4} luajit )
 PYTHON_COMPAT=( python3_{10..13} )
 
-inherit eapi9-ver flag-o-matic lua-single python-any-r1
+inherit eapi9-ver lua-single python-any-r1
 
 DESCRIPTION="The PowerDNS Daemon"
 HOMEPAGE="https://www.powerdns.com/"
@@ -14,7 +14,7 @@ SRC_URI="https://downloads.powerdns.com/releases/${P/_/-}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 IUSE="debug doc geoip ldap lmdb lua-records mysql odbc postgres remote sodium sqlite systemd tools tinydns test"
 RESTRICT="!test? ( test )"
@@ -48,8 +48,6 @@ S="${WORKDIR}"/${P/_/-}
 pkg_setup() {
 	lua-single_pkg_setup
 	python-any-r1_pkg_setup
-	append-lfs-flags
-	append-cppflags -D_TIME_BITS=64
 }
 
 src_configure() {
@@ -66,6 +64,7 @@ src_configure() {
 	use tinydns && cnf_dynmodules+=" tinydns"
 
 	econf \
+		--enable-experimental-64bit-time_t-support-on-glibc \
 		--disable-static \
 		--sysconfdir=/etc/powerdns \
 		--libdir=/usr/$(get_libdir)/powerdns \
