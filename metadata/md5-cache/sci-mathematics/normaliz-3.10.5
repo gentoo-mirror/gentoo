@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile configure install pretend setup
+DEPEND=dev-libs/gmp:=[cxx(+)] nauty? ( sci-mathematics/nauty ) dev-libs/boost
+DESCRIPTION=Tool for computations in affine monoids and more
+EAPI=8
+HOMEPAGE=https://www.normaliz.uni-osnabrueck.de/
+INHERIT=toolchain-funcs
+IUSE=doc extras nauty openmp
+KEYWORDS=~amd64 ~arm ~riscv ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-3
+RDEPEND=dev-libs/gmp:=[cxx(+)] nauty? ( sci-mathematics/nauty )
+SLOT=0/3
+SRC_URI=https://github.com/Normaliz/Normaliz/releases/download/v3.10.5/normaliz-3.10.5.tar.gz
+_eclasses_=toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772
+_md5_=3dd33b3987cea83fa3875915e39b95ef
