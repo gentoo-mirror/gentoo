@@ -38,8 +38,8 @@ PATCHES=(
 )
 
 src_compile() {
-	export BUILDTAGS="exclude_graphdriver_devicemapper"
-	use !btrfs && BUILDTAGS+=",exclude_graphdriver_btrfs,btrfs_noversion"
+	export BUILDTAGS=""
+	use !btrfs && BUILDTAGS+=",exclude_graphdriver_btrfs"
 	use systemd && BUILDTAGS+=",systemd"
 	default
 }

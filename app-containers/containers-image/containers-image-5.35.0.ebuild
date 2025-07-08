@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ if [[ ${PV} == 9999* ]]; then
 else
 	SRC_URI="https://github.com/containers/image/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${P#containers-}"
-	KEYWORDS="amd64 arm64 ~loong ~riscv"
+	KEYWORDS="~amd64 ~arm64 ~loong ~riscv"
 fi
 
 LICENSE="Apache-2.0"
@@ -23,7 +23,7 @@ RESTRICT='test'
 BDEPEND=">=dev-go/go-md2man-2.0.3"
 RDEPEND="!<=app-containers/containers-common-0.57.0"
 PATCHES=(
-	"${FILESDIR}"/fix-warnings.patch
+	"${FILESDIR}"/remove-go-as-bdepend-5.34.2.patch
 )
 
 src_compile() {

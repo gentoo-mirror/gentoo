@@ -17,7 +17,7 @@ else
 	SRC_URI="https://github.com/containers/podman/archive/v${PV/_rc/-rc}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${P/_rc/-rc}"
 	[[ ${PV} != *rc* ]] && \
-		KEYWORDS="amd64 arm64 ~loong ~riscv"
+		KEYWORDS="~amd64 ~arm64 ~loong ~riscv"
 fi
 
 # main pkg
@@ -51,7 +51,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-5.2.5-togglable-seccomp.patch
+	"${FILESDIR}"/${PN}-5.5.2-togglable-seccomp.patch
 )
 
 CONFIG_CHECK="
@@ -81,15 +81,18 @@ src_prepare() {
 		EOF
 	done
 
-	echo -e "#!/usr/bin/env bash\n echo" > hack/btrfs_installed_tag.sh || die
 	cat <<-EOF > hack/btrfs_tag.sh || die
 	#!/usr/bin/env bash
-	$(usex btrfs echo 'echo exclude_graphdriver_btrfs btrfs_noversion')
+	$(usex btrfs echo 'echo btrfs_noversion')
+	EOF
+	cat <<-EOF > hack/btrfs_installed_tag.sh || die
+	#!/usr/bin/env bash
+	$(usex btrfs echo 'echo exclude_graphdriver_btrfs')
 	EOF
 }
 
 src_compile() {
-	export PREFIX="${EPREFIX}/usr"
+	export PREFIX="${EPREFIX}/usr" BUILD_ORIGIN="Gentoo Portage"
 
 	# For non-live versions, prevent git operations which causes sandbox violations
 	# https://github.com/gentoo/gentoo/pull/33531#issuecomment-1786107493
@@ -123,6 +126,12 @@ src_install() {
 
 		insinto /etc/logrotate.d
 		newins "${FILESDIR}/podman.logrotated" podman
+
+		exeinto /etc/user/init.d
+		newexe "${FILESDIR}/podman-5.0.0_rc4.user.initd" podman
+
+		insinto /etc/user/conf.d
+		newins "${FILESDIR}/podman-5.0.0_rc4.user.confd" podman
 	fi
 
 	keepdir /var/lib/containers

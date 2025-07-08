@@ -38,7 +38,7 @@ pkg_setup() {
 
 run_make() {
 	local emakeflags=(
-		BTRFS_BUILD_TAG="$(usex btrfs '' 'btrfs_noversion exclude_graphdriver_btrfs')"
+		BTRFS_BUILD_TAG="$(usex btrfs '' 'exclude_graphdriver_btrfs')"
 		CONTAINERSCONFDIR="${EPREFIX}/etc/containers"
 		LIBSUBID_BUILD_TAG="$(usex rootless 'libsubid' '')"
 		PREFIX="${EPREFIX}/usr"

@@ -12,47 +12,38 @@ if [[ ${PV} == 9999* ]]; then
 	EGIT_REPO_URI="https://github.com/containers/skopeo.git"
 else
 	SRC_URI="https://github.com/containers/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 arm64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 # main
 LICENSE="Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT"
 SLOT="0"
-IUSE="btrfs device-mapper rootless"
+IUSE="btrfs rootless"
+RESTRICT="test"
 
-COMMON_DEPEND="
+DEPEND="
 	>=app-crypt/gpgme-1.5.5:=
-	>=dev-libs/libassuan-2.4.3:=
 	btrfs? ( >=sys-fs/btrfs-progs-4.0.1 )
-	device-mapper? ( >=sys-fs/lvm2-2.02.145:= )
 	rootless? ( sys-apps/shadow:= )
 "
-
-# TODO: Is this really needed? cause upstream doesnt mention it https://github.com/containers/skopeo/blob/main/install.md#building-from-source
-# 	dev-libs/libgpg-error:=
-DEPEND="${COMMON_DEPEND}"
-RDEPEND="
-	${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	app-containers/containers-common
 "
 BDEPEND="dev-go/go-md2man"
 
-RESTRICT="test"
-
 pkg_setup() {
 	use btrfs && CONFIG_CHECK+=" ~BTRFS_FS"
-	use device-mapper && CONFIG_CHECK+=" ~MD"
 	linux-info_pkg_setup
 }
 
 run_make() {
-	emake \
-		BTRFS_BUILD_TAG="$(usex btrfs '' 'btrfs_noversion exclude_graphdriver_btrfs')" \
-		CONTAINERSCONFDIR="${EPREFIX}/etc/containers" \
-		LIBDM_BUILD_TAG="$(usex device-mapper '' 'libdm_no_deferred_remove exclude_graphdriver_devicemapper')" \
-		LIBSUBID_BUILD_TAG="$(usex rootless 'libsubid' '')" \
-		PREFIX="${EPREFIX}/usr" \
-		$@
+	local emakeflags=(
+		BTRFS_BUILD_TAG="$(usex btrfs '' 'exclude_graphdriver_btrfs')"
+		CONTAINERSCONFDIR="${EPREFIX}/etc/containers"
+		LIBSUBID_BUILD_TAG="$(usex rootless 'libsubid' '')"
+		PREFIX="${EPREFIX}/usr"
+	)
+	emake "${emakeflags[@]}" "$@"
 }
 
 src_compile() {
