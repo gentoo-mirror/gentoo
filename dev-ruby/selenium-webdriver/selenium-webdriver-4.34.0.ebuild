@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33"
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_RECIPE_DOC="none"
 RUBY_FAKEGEM_EXTRADOC="CHANGES README.md"
@@ -19,9 +19,9 @@ HOMEPAGE="https://github.com/seleniumhq/selenium"
 
 LICENSE="Apache-2.0"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
-RDEPEND=" >=dev-util/selenium-manager-$(ver_cut 1-2)"
+RDEPEND=">=dev-util/selenium-manager-$(ver_cut 1-2)"
 
 ruby_add_rdepend "
 	>=dev-ruby/base64-0.2 =dev-ruby/base64-0*
