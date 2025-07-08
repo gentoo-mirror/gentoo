@@ -6,25 +6,25 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
 DISTUTILS_SINGLE_IMPL=1
-DISTUTILS_USE_PEP517=no
+DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{11..13} )
 
 declare -A GIT_CRATES=(
 	[linkcheck]='https://github.com/ankitects/linkcheck;184b2ca50ed39ca43da13f0b830a463861adb9ca;linkcheck-%commit%'
 	[percent-encoding-iri]='https://github.com/ankitects/rust-url;bb930b8d089f4d30d7d19c12e54e66191de47b88;rust-url-%commit%/percent_encoding'
 )
-RUST_MIN_VER="1.82.0"
+RUST_MIN_VER="1.85.0"
 
-inherit cargo desktop distutils-r1 greadme multiprocessing ninja-utils \
+inherit cargo desktop distutils-r1 edo greadme multiprocessing ninja-utils \
 	optfeature toolchain-funcs xdg
 
-DESCRIPTION="A spaced-repetition memory training program (flash cards)"
+DESCRIPTION="Smart spaced repetition flashcard program"
 HOMEPAGE="https://apps.ankiweb.net/"
 
 declare -A COMMITS=(
-	[anki]="6381f1845ff2e79f4a424e6978c2a3e9bbb91735"
-	[ftl-core]="0fe0162f4a18e8ef2fbac1d9a33af8e38cf7260e"
-	[ftl-desktop]="17216b03db7249600542e388bd4ea124478400e5"
+	[anki]="a83a6b5928c6563d12e7b66d4f7b7b2f51b6f22b"
+	[ftl-core]="a9216499ba1fb1538cfd740c698adaaa3410fd4b"
+	[ftl-desktop]="a1134ab59d3d23468af2968741aa1f21d16ff308"
 )
 SRC_URI="${CARGO_CRATE_URIS}
 	https://github.com/ankitects/anki/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
@@ -32,23 +32,26 @@ SRC_URI="${CARGO_CRATE_URIS}
 	-> anki-core-i18n-${COMMITS[ftl-core]}.gh.tar.gz
 	https://github.com/ankitects/anki-desktop-ftl/archive/${COMMITS[ftl-desktop]}.tar.gz
 	-> anki-desktop-ftl-${COMMITS[ftl-desktop]}.gh.tar.gz
-	https://github.com/gentoo-crate-dist/anki/releases/download/25.02.5/anki-25.02.5-crates.tar.xz
+	https://github.com/gentoo-crate-dist/anki/releases/download/${PV}/${P}-crates.tar.xz
 	gui? (
-	https://home.cit.tum.de/~salu/distfiles/anki-25.02.4-node_modules.tar.xz
+		https://home.cit.tum.de/~salu/distfiles/${P}-node_modules.tar.xz
 	)
 "
 # How to get an up-to-date summary of runtime JS libs' licenses:
 # ./node_modules/.bin/license-checker-rseidelsohn --production --excludePackages anki --summary
-LICENSE="AGPL-3+ BSD public-domain gui? ( 0BSD CC-BY-4.0 GPL-3+ )"
+LICENSE="
+	AGPL-3+ BSD public-domain
+	gui? ( 0BSD BlueOak-1.0.0 CC-BY-3.0 CC-BY-4.0 PSF-2 )
+"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 CC0-1.0 ISC MIT
-	MPL-2.0 Unicode-3.0 Unicode-DFS-2016 Unlicense ZLIB
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 CC0-1.0
+	CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0 Unlicense ZLIB
 "
-# Manually added crate licenses
+# ring crate
 LICENSE+=" openssl"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 IUSE="+gui"
 REQUIRED_USE="gui? ( ${PYTHON_REQUIRED_USE} )"
@@ -99,6 +102,7 @@ BDEPEND="
 	dev-libs/protobuf[protoc(+)]
 	virtual/pkgconfig
 	gui? (
+		${DISTUTILS_DEPS}
 		${PYTHON_DEPS}
 		app-alternatives/ninja
 		>=net-libs/nodejs-20.12.1
@@ -122,9 +126,11 @@ distutils_enable_sphinx python/sphinx \
 			dev-python/sphinx-autoapi \
 			dev-python/sphinx-rtd-theme
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 PATCHES=(
+	"${FILESDIR}"/${P}-remove-aqt-data.patch
 	"${FILESDIR}"/24.06.3/remove-yarn.patch
 	"${FILESDIR}"/24.04.1/remove-mypy-protobuf.patch
 	"${FILESDIR}"/24.04.1/revert-cert-store-hack.patch
@@ -148,7 +154,6 @@ python_prepare_all() {
 	# Expected files and directories
 	mkdir .git out/env || die
 	mkdir -p out/pyenv/bin || die
-	ln -s "${PYTHON}" out/pyenv/bin/python || die
 
 	if use doc; then
 		sed "/^REPO_ROOT/s|=.*|= \"${S}\"|" -i python/sphinx/conf.py || die
@@ -157,6 +162,8 @@ python_prepare_all() {
 	# Unpin Yarn
 	sed -e '/"type": "module"/s/,//' \
 		-e '/packageManager/d' -i package.json || die
+	# We build wheels without invoking the uv frontend
+	sed -i '/uv_binary/d' build/configure/src/python.rs || die
 
 	# Not running the black formatter on generated files saves a dependency
 	sed '/subprocess/d' -i pylib/tools/hookslib.py || die
@@ -169,6 +176,10 @@ python_prepare_all() {
 	# Separate src_configure from runner build
 	sed '/ConfigureBuild/d' -i build/ninja_gen/src/build.rs || die
 	distutils-r1_python_prepare_all
+}
+
+python_prepare() {
+	ln -s "${PYTHON}" out/pyenv/bin/python || die
 }
 
 src_prepare() {
@@ -203,7 +214,7 @@ python_configure_all() {
 			local -x RELEASE=1
 		fi
 	fi
-	cargo_env "${cbuild_dir}"/configure || die
+	cargo_env edo "${cbuild_dir}"/configure
 	unset cbuild_dir
 }
 
@@ -215,10 +226,17 @@ src_configure() {
 
 python_compile() {
 	tc-env_build _cbuild_cargo_build -p runner
-	cargo_env eninja -f out/build.ninja wheels
-	local w
-	for w in out/wheels/*.whl; do
-		distutils_wheel_install "${BUILD_DIR}"/install ${w}
+	cargo_env eninja -f out/build.ninja pylib qt
+	declare -A wheel_tags=(
+		[pylib]="cp39-abi3-manylinux_2_36_x86_64"
+		[qt]="py3-none-any"
+	)
+	local dir
+	for dir in ${!wheel_tags[@]}; do
+		pushd ${dir} > /dev/null || die
+		local -x ANKI_WHEEL_TAG=${wheel_tags[${dir}]}
+		distutils-r1_python_compile
+		popd || die
 	done
 }
 
@@ -236,18 +254,12 @@ python_test() {
 }
 
 python_test_all() {
-	local nextest_opts=(
-		cargo-verbose
-		failure-output=immediate
-		status-level=all
-		test-threads=$(get_makeopts_jobs)
-	)
-	if [[ ! ${CARGO_TERM_COLOR} ]]; then
-		[[ "${NOCOLOR}" = true || "${NOCOLOR}" = yes ]] && nextest_opts+=( color=never )
-	fi
-	nextest_opts=( ${nextest_opts[@]/#/--} )
-	cargo_env cargo nextest run ${nextest_opts[@]} || die
-
+	local -x NEXTEST_TEST_THREADS="$(makeopts_jobs)"
+	edo cargo nextest run $(usev !debug '--release') \
+			--color always \
+			--all-features \
+			--tests \
+			--no-fail-fast
 	eninja -f out/build.ninja check_vitest
 }
 
@@ -257,19 +269,13 @@ src_test() {
 }
 
 python_install_all() {
-	pushd qt/bundle/lin > /dev/null || die
+	pushd qt/launcher/lin > /dev/null || die
 	doman anki.1
 	doicon anki.{png,xpm}
 	domenu anki.desktop
 	insinto /usr/share/mime/packages
 	doins anki.xml
 	popd || die
-	python_newscript - anki <<-EOF
-		#!${EPREFIX}/usr/bin/python
-		import sys
-		from aqt import run
-		sys.exit(run())
-	EOF
 	distutils-r1_python_install_all
 }
 
@@ -280,17 +286,6 @@ src_install() {
 	EOF
 
 	if use gui; then
-		greadme_stdin --append <<-EOF
-		Users with add-ons that still rely on Anki's Qt5 GUI
-		can temporarily set the environment variable ENABLE_QT5_COMPAT to 1 to have
-		Anki install the previous compatibility code. This option has additional
-		runtime dependencies. Please take a look at this package's optional runtime
-		features for a complete listing.
-
-		ENABLE_QT5_COMPAT may be removed in the future, so this is not a
-		long-term solution.
-		EOF
-
 		distutils-r1_src_install
 	else
 		cargo_src_install --path rslib/sync
@@ -310,7 +305,6 @@ pkg_postinst() {
 		optfeature "sound support" media-video/mpv media-video/mplayer
 		optfeature "recording support" "media-sound/lame[frontend] dev-python/pyqt6[multimedia]"
 		optfeature "faster database operations" dev-python/orjson
-		optfeature "compatibility with Qt5-dependent add-ons" dev-python/pyqt6[dbus,printsupport]
 		optfeature "Vulkan driver" "media-libs/vulkan-loader dev-qt/qtbase:6[vulkan]
 			dev-qt/qtdeclarative:6[vulkan] dev-qt/qtwebengine:6[vulkan]"
 
