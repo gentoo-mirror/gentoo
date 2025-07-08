@@ -51,7 +51,7 @@ ADDONS_SRC=(
 	# not packaged in Gentoo, https://github.com/serge-sans-paille/frozen
 	"${ADDONS_URI}/frozen-1.2.0.tar.gz"
 	# not packaged in Gentoo, https://skia.org/
-	"${ADDONS_URI}/skia-m136-28685d899b0a35894743e2cedad4c9f525e90e1e.tar.xz"
+	"${ADDONS_URI}/skia-m130-3c64459d5df2fa9794b277f0959ed8a92552bf4c.tar.xz"
 
 	"base? (
 		${ADDONS_URI}/ba2930200c9f019c2d93a8c88c651a0f-flow-engine-0.9.4.zip
@@ -84,14 +84,14 @@ S="${WORKDIR}/${PN}-${MY_PV}"
 LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
 
-[[ ${MY_PV} == *9999* ]] || \
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux"
+# [[ ${MY_PV} == *9999* ]] || \
+# KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux"
 
 # Extensions that need extra work:
 LO_EXTS="nlpsolver scripting-beanshell scripting-javascript wiki-publisher"
 
 IUSE="accessibility base bluetooth +branding coinmp +cups custom-cflags +dbus debug eds
-googledrive gstreamer gtk kde ldap +mariadb odk pdfimport postgres qt6 test valgrind vulkan
+googledrive gstreamer +gtk3 gtk4 kde ldap +mariadb odk pdfimport postgres qt6 test valgrind vulkan
 $(printf 'libreoffice_extensions_%s ' ${LO_EXTS})"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
@@ -138,7 +138,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	dev-libs/icu:=
 	dev-libs/libassuan:=
 	dev-libs/libgpg-error
-	>=dev-libs/liborcus-0.20.0:0/0.20
+	>=dev-libs/liborcus-0.18.0:0/0.18
 	dev-libs/librevenge
 	dev-libs/libxml2:=
 	dev-libs/libxslt
@@ -193,12 +193,20 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		media-libs/gstreamer:1.0
 		media-libs/gst-plugins-base:1.0
 	)
-	gtk? (
+	gtk3? (
 		app-accessibility/at-spi2-core:2
 		dev-libs/glib:2
 		gnome-base/dconf
 		media-libs/mesa[egl(+)]
-		gui-libs/gtk[X]
+		x11-libs/gtk+:3[X]
+		x11-libs/pango
+	)
+	gtk4? (
+		app-accessibility/at-spi2-core:2
+		dev-libs/glib:2
+		gnome-base/dconf
+		media-libs/mesa[egl(+)]
+		gui-libs/gtk:4[X]
 		x11-libs/pango
 	)
 	kde? (
@@ -229,7 +237,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-perl/Archive-Zip
 	>=dev-util/cppunit-1.14.0
 	>=dev-util/gperf-3.1
-	dev-util/mdds:1/3.0
+	dev-util/mdds:1/2.1
 	media-libs/glm
 	x11-base/xorg-proto
 	x11-libs/libXt
@@ -283,6 +291,14 @@ PATCHES=(
 	"${FILESDIR}/${PN}-6.1-nomancompress.patch"
 	"${FILESDIR}/${PN}-24.2-qtdetect.patch"
 	"${FILESDIR}/${PN}-25.2-cflags.patch"
+
+	# git master
+	"${FILESDIR}/${PN}-25.2-unused-qt6network.patch"
+	"${FILESDIR}/${PN}-25.2.4.3-gcc16.patch"
+
+	# add qt6 backend as possible fallback for gtk-based desktop environments:
+	# https://bugs.gentoo.org/950170
+	"${FILESDIR}/${PN}-25.2-vcl-backend-fallback.patch"
 )
 
 _check_reqs() {
@@ -321,8 +337,8 @@ src_unpack() {
 		branch="master"
 		mypv=${MY_PV/.9999}
 		[[ ${mypv} != ${MY_PV} ]] && branch="${PN}-${mypv/./-}"
-		git-r3_fetch "${base_uri}/core" "refs/heads/${branch}"
-		git-r3_checkout "${base_uri}/core"
+		git-r3_fetch "${base_uri}/${PN}/core" "refs/heads/${branch}"
+		git-r3_checkout "${base_uri}/${PN}/core"
 		LOCOREGIT_VERSION=${EGIT_VERSION}
 
 		git-r3_fetch "${base_uri}/${PN}/help" "refs/heads/master"
@@ -459,6 +475,9 @@ src_configure() {
 	export PYTHON_CFLAGS=$(python_get_CFLAGS)
 	export PYTHON_LIBS=$(python_get_LIBS)
 
+	# doesn't respect CPPFLAGS
+	append-flags "-I${ESYSROOT}/usr/include/zxcvbn"
+
 	if use qt6; then
 		export QT6DIR="$(qt6_get_bindir)/.."
 	fi
@@ -502,7 +521,6 @@ src_configure() {
 		--disable-epm
 		--disable-fetch-external
 		--disable-firebird-sdbc
-		--disable-gtk3
 		--disable-gtk3-kde5
 		# Covered by our own toolchain defaults
 		--disable-hardening-flags
@@ -546,7 +564,8 @@ src_configure() {
 		$(use_enable debug)
 		$(use_enable eds evolution2)
 		$(use_enable gstreamer gstreamer-1-0)
-		$(use_enable gtk gtk4)
+		$(use_enable gtk3)
+		$(use_enable gtk4)
 		$(use_enable kde kf6)
 		$(use_enable ldap)
 		$(use_enable odk)
@@ -564,7 +583,7 @@ src_configure() {
 		$(use_with valgrind)
 	)
 
-	if use eds || use gtk ; then
+	if use eds || use gtk3 || use gtk4 ; then
 		myeconfargs+=( --enable-dconf --enable-gio )
 	else
 		myeconfargs+=( --disable-dconf --disable-gio )
@@ -621,10 +640,10 @@ src_install() {
 
 	# TODO: still relevant for gtk4?
 	# bug #593514
-	#if use gtk3; then
-	#	dosym libreoffice/program/liblibreofficekitgtk.so \
-	#		/usr/$(get_libdir)/liblibreofficekitgtk.so
-	#fi
+	if use gtk3; then
+		dosym libreoffice/program/liblibreofficekitgtk.so \
+			/usr/$(get_libdir)/liblibreofficekitgtk.so
+	fi
 
 	# bash completion aliases
 	bashcomp_alias \
