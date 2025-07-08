@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,11 +21,10 @@ RESTRICT="!test? ( test ) test"
 
 RDEPEND="
 	dev-libs/glib[dbus]
-	>=x11-libs/gtk+-3.22.0:3[wayland?]
+	>=x11-libs/gtk+-3.22.0:3[wayland?,X]
 	gtk2? ( >=x11-libs/gtk+-2.24.0:2 )
 "
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}
 	wayland? ( dev-libs/wayland )
 "
 BDEPEND="virtual/pkgconfig"
