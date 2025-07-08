@@ -13,8 +13,8 @@ inherit cmake flag-o-matic lua-single optfeature python-single-r1 xdg
 
 CEF_AMD64="cef_binary_6533_linux_x86_64_v3"
 CEF_ARM64="cef_binary_6533_linux_aarch64_v4"
-OBS_BROWSER_COMMIT="b56fd78936761891475458447c1cc9058bb9c2d4"
-OBS_WEBSOCKET_COMMIT="c542622d7b6d41ce5875f54efdab1d4ac2967ef4"
+OBS_BROWSER_COMMIT="033a23befe01e0a2f85b95af384a89b82c8d6a40"
+OBS_WEBSOCKET_COMMIT="40d26dbf4d29137bf88cd393a3031adb04d68bba"
 
 DESCRIPTION="Software for Recording and Streaming Live Video Content"
 HOMEPAGE="https://obsproject.com"
@@ -82,6 +82,7 @@ DEPEND="
 	sys-apps/pciutils
 	sys-apps/util-linux
 	sys-libs/zlib:=
+	x11-libs/libdrm
 	x11-libs/libX11
 	x11-libs/libxcb:=
 	x11-libs/libXcomposite
@@ -99,7 +100,6 @@ DEPEND="
 		media-libs/mesa[gbm(+)]
 		net-print/cups
 		x11-libs/cairo
-		x11-libs/libdrm
 		x11-libs/libXcursor
 		x11-libs/libXdamage
 		x11-libs/libXext
@@ -186,10 +186,6 @@ src_prepare() {
 	use wayland && filter-lto
 
 	cmake_src_prepare
-
-	pushd deps/json11 &> /dev/null || die
-		eapply "${FILESDIR}/json11-1.0.0-include-cstdint.patch"
-	popd &> /dev/null || die
 }
 
 src_configure() {
@@ -252,8 +248,8 @@ src_install() {
 	cmake_src_install
 
 	# external plugins may need some things not installed by default, install them here
-	insinto /usr/include/obs/UI/obs-frontend-api
-	doins UI/obs-frontend-api/obs-frontend-api.h
+	insinto /usr/include/obs/frontend/api
+	doins frontend/api/obs-frontend-api.h
 }
 
 pkg_postinst() {
