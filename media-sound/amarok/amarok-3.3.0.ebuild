@@ -10,7 +10,7 @@ PYTHON_COMPAT=( python3_{11..13} )
 inherit ecm kde.org optfeature python-any-r1 xdg
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	SRC_URI="mirror://kde/unstable/${PN}/${PV}/${P}.tar.xz"
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
@@ -93,9 +93,9 @@ src_configure() {
 		-DWITH_MP3Tunes=OFF
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=ON
+		-DWITHOUT_EMBEDDED_DB=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Googlemock=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibOFA=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_MySQLe=ON
 		-DWITH_IPOD=$(usex ipod)
 		$(cmake_use_find_package lastfm LibLastFm)
 		$(cmake_use_find_package !mariadb MySQL)
