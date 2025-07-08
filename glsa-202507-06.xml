@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202507-06">
+    <title>openh264: Heap Overflow</title>
+    <synopsis>A heap overflow has been discovered in openh264, which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">openh264</product>
+    <announced>2025-07-08</announced>
+    <revised count="1">2025-07-08</revised>
+    <bug>950112</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/openh264" auto="yes" arch="*">
+            <unaffected range="ge">2.6.0</unaffected>
+            <vulnerable range="lt">2.6.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OpenH264 is a codec library which supports H.264 encoding and decoding. It is suitable for use in real time applications such as WebRTC.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in openh264. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>A vulnerability in the decoding functions of OpenH264 codec library could allow a remote, unauthenticated attacker to trigger a heap overflow.
+
+This vulnerability is due to a race condition between a Sequence Parameter Set (SPS) memory allocation and a subsequent non Instantaneous Decoder Refresh (non-IDR) Network Abstraction Layer (NAL) unit memory usage. An attacker could exploit this vulnerability by crafting a malicious bitstream and tricking a victim user into processing an arbitrary video containing the malicious bitstream. An exploit could allow the attacker to cause an unexpected crash in the victim&#39;s user decoding client and, possibly, perform arbitrary commands on the victim&#39;s host by abusing the heap overflow.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All openh264 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/openh264-2.6.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-27091">CVE-2025-27091</uri>
+        <uri>GHSA-m99q-5j7x-7m9x</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-07-08T22:26:50.251377Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-07-08T22:26:50.255190Z">sam</metadata>
+</glsa>
