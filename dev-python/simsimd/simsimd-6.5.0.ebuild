@@ -30,11 +30,11 @@ IUSE="openmp"
 
 BDEPEND="
 	test? (
-		dev-python/pytest-repeat[${PYTHON_USEDEP}]
 		dev-python/tabulate[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-repeat )
 distutils_enable_tests pytest
 
 pkg_pretend() {
@@ -58,7 +58,13 @@ src_prepare() {
 	distutils-r1_src_prepare
 }
 
+src_compile() {
+	einfo "Please disregard initial compiler errors -- the package is checking"
+	einfo "for target support."
+
+	distutils-r1_src_compile
+}
+
 python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -p repeat scripts/test.py
+	epytest scripts/test.py
 }

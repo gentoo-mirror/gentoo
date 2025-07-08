@@ -20,18 +20,16 @@ KEYWORDS="~amd64 ~arm64"
 
 BDEPEND="
 	test? (
-		dev-python/hypothesis[${PYTHON_USEDEP}]
 		>=dev-python/pandas-1.1.3[${PYTHON_USEDEP}]
 		dev-python/pyarrow[${PYTHON_USEDEP}]
-		dev-python/pytest-env[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( hypothesis pytest-env )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	# make hypothesis more forgiving
 	local -x CI=1
 	epytest --runslow --constructors="pandas,pandas[nullable],pandas[pyarrow],pyarrow"
