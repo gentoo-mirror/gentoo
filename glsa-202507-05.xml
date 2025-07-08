@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202507-05">
+    <title>NTP: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in NTP, the worst of which could lead to the execution of arbitrary code.</synopsis>
+    <product type="ebuild">ntp</product>
+    <announced>2025-07-08</announced>
+    <revised count="1">2025-07-08</revised>
+    <bug>904337</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/ntp" auto="yes" arch="*">
+            <unaffected range="ge">4.2.8_p16</unaffected>
+            <vulnerable range="lt">4.2.8_p16</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>NTP contains software for the Network Time Protocol.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in NTP. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>The first four of these CVEs affect a function in libntp that is only used by ntpq, but not by ntpd.
+
+The last CVE affects the driver for a hardware clock (GPS receiver), so ntpd might be vulnerable to manipulated devices of that type, but not to remote attacks.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All NTP users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/ntp-4.2.8_p16"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-26551">CVE-2023-26551</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-26552">CVE-2023-26552</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-26553">CVE-2023-26553</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-26554">CVE-2023-26554</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-26555">CVE-2023-26555</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-07-08T22:26:31.897918Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-07-08T22:26:31.900099Z">sam</metadata>
+</glsa>
