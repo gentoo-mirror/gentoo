@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -44,9 +44,11 @@ DZIL_DEPENDS="
 "
 RDEPEND="
 	!minimal? (
+		app-admin/augeas
 		dev-perl/DBI
 		dev-perl/Expect
 		dev-perl/IPC-Shareable
+		dev-perl/Parallel-ForkManager
 		dev-perl/XML-LibXML
 		net-misc/rsync
 	)
@@ -61,14 +63,12 @@ RDEPEND="
 	dev-perl/HTTP-Message
 	dev-perl/Hash-Merge
 	virtual/perl-IO
-	dev-perl/IO-String
 	dev-perl/IO-Tty
 	dev-perl/JSON-MaybeXS
 	virtual/perl-MIME-Base64
 	dev-perl/Net-OpenSSH
 	dev-perl/Net-SFTP-Foreign
 	>=virtual/perl-Scalar-List-Utils-1.450.0
-	dev-perl/Parallel-ForkManager
 	dev-perl/Sort-Naturally
 	dev-perl/String-Escape
 	virtual/perl-Storable
@@ -93,6 +93,7 @@ BDEPEND="
 	virtual/perl-Module-Metadata
 	test? (
 		!minimal? (
+			app-admin/augeas
 			|| ( dev-perl/File-LibMagic sys-apps/file )
 			dev-vcs/git
 		)
