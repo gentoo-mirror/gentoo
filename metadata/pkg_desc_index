@@ -5731,7 +5731,7 @@ dev-libs/pslib 0.4.6: pslib is a C-library to create PostScript files on the fly
 dev-libs/ptexenc 1.4.3_p20230311 1.4.6_p20240311: Library for Japanese pTeX providing a better way of handling character encodings
 dev-libs/pthreadpool 2023.08.29: Portable and efficient thread pool implementation
 dev-libs/pugixml 1.14 1.15 9999: Light-weight, simple, and fast XML parser for C++ with XPath support
-dev-libs/qcoro 0.11.0 0.12.0: C++ Coroutine Library for Qt
+dev-libs/qcoro 0.12.0: C++ Coroutine Library for Qt
 dev-libs/qcustomplot 2.1.1-r10: Qt C++ widget for plotting and data visualization
 dev-libs/qgpgme 1.24.3 2.0.0-r1: GnuPG Made Easy is a library for making GnuPG easier to use (Qt bindings)
 dev-libs/qhotkey 1.5.0-r1: A global shortcut/hotkey library for desktop Qt applications
@@ -12183,7 +12183,7 @@ kde-apps/kalarm 24.12.3 25.04.2 25.04.3: Application to manage alarms and other 
 kde-apps/kalgebra 25.04.2 25.04.3: MathML-based 2D and 3D graph calculator by KDE
 kde-apps/kalzium 25.04.2 25.04.3: Periodic table of the elements
 kde-apps/kamera 25.04.2 25.04.3: Plasma integration for gphoto2 cameras
-kde-apps/kamoso 25.04.0: Application to take pictures and videos from your webcam by KDE
+kde-apps/kamoso 25.04.0 25.07.80_pre20250708: Application to take pictures and videos from your webcam
 kde-apps/kanagram 25.04.2 25.04.3: Game based on anagrams of words
 kde-apps/kapman 25.04.2 25.04.3: Pac-Man clone by KDE
 kde-apps/kapptemplate 25.04.2 25.04.3: Shell script to create the necessary framework to develop KDE applications
@@ -12212,18 +12212,18 @@ kde-apps/kdeadmin-meta 25.04.2 25.04.3: KDE administration tools - merge this to
 kde-apps/kdebugsettings 25.04.2 25.04.3: Application to enable/disable qCDebug
 kde-apps/kdecore-meta 25.04.2 25.04.3: kdecore - merge this to pull in the most basic applications
 kde-apps/kdeedu-data 25.04.2 25.04.3: Shared icons, artwork and data files for educational applications
-kde-apps/kdeedu-meta 25.04.2 25.04.3: KDE educational apps - merge this to pull in all kdeedu-derived packages
+kde-apps/kdeedu-meta 25.04.2 25.04.3-r1: KDE educational apps - merge this to pull in all kdeedu-derived packages
 kde-apps/kdegames-meta 25.04.2 25.04.3: kdegames - merge this to pull in all kdegames-derived packages
 kde-apps/kdegraphics-meta 25.04.2-r1 25.04.2-r2 25.04.3: kdegraphics - merge this to pull in all kdegraphics-derived packages
 kde-apps/kdegraphics-mobipocket 25.04.2 25.04.3: Library to support mobipocket ebooks
-kde-apps/kdemultimedia-meta 25.04.2 25.04.3: kdemultimedia - merge this to pull in all kdemultimedia-derived packages
+kde-apps/kdemultimedia-meta 25.04.2 25.04.3 25.04.3-r1: kdemultimedia - merge this to pull in all kdemultimedia-derived packages
 kde-apps/kdenetwork-filesharing 25.04.2 25.04.3: Samba filesharing plugin for file properties
 kde-apps/kdenetwork-meta 25.04.2 25.04.3: kdenetwork - merge this to pull in all kdenetwork-derived packages
 kde-apps/kdenlive 25.04.2 25.04.3: Non-linear video editing suite by KDE
 kde-apps/kdepim-addons 24.12.3 25.04.2 25.04.3: Plugins for KDE Personal Information Management Suite
 kde-apps/kdepim-meta 24.12.3 25.04.2 25.04.3: KDE PIM - merge this to pull in all kdepim-derived packages
 kde-apps/kdepim-runtime 24.12.3 25.04.2 25.04.2-r1 25.04.3: Runtime plugin collection to extend the functionality of KDE PIM
-kde-apps/kdesdk-meta 25.04.2 25.04.2-r1 25.04.3: KDE SDK - merge this to pull in all kdesdk-derived packages
+kde-apps/kdesdk-meta 25.04.2-r1 25.04.3: KDE SDK - merge this to pull in all kdesdk-derived packages
 kde-apps/kdesdk-thumbnailers 25.04.2 25.04.3: Thumbnail generator for PO files
 kde-apps/kdeutils-meta 24.12.0 25.04.2 25.04.3: kdeutils - merge this to pull in all kdeutils-derived packages
 kde-apps/kdf 25.04.2 25.04.3: KDE free disk space utility
@@ -12470,7 +12470,7 @@ kde-plasma/kglobalacceld 6.3.5 6.3.6 6.4.2: Daemon providing Global Keyboard Sho
 kde-plasma/kinfocenter 6.3.5 6.3.6 6.4.2: Utility providing information about the computer hardware
 kde-plasma/kmenuedit 6.3.5 6.3.6 6.4.2: KDE Plasma menu editor
 kde-plasma/kpipewire 6.3.5-r1 6.3.6 6.4.2-r1: Components relating to Flatpak pipewire use in Plasma
-kde-plasma/krdp 6.3.5-r1 6.3.5-r2 6.3.6 6.4.2: Library and examples for creating an RDP server
+kde-plasma/krdp 6.3.5-r2 6.3.6 6.4.2: Library and examples for creating an RDP server
 kde-plasma/kscreen 6.3.5-r1 6.3.6 6.4.2: KDE Plasma screen management
 kde-plasma/kscreenlocker 6.3.5 6.3.6 6.4.2: Library and components for secure lock screen architecture
 kde-plasma/ksshaskpass 6.3.5 6.3.6 6.4.2: Implementation of ssh-askpass with KDE Wallet integration
@@ -13437,7 +13437,7 @@ media-libs/lv2 1.18.10-r1: A simple but extensible successor of LADSPA
 media-libs/lvtk 1.2.0-r3: A set of C++ wrappers around the LV2 C API
 media-libs/mesa 24.1.7-r1 25.0.7 25.1.3 25.1.4 25.1.5 9999: OpenGL-like graphic library for Linux
 media-libs/mesa-amber 21.3.9-r1 21.3.9-r2: OpenGL-like graphic library for Linux
-media-libs/mlt 7.30.0-r1 7.32.0: Open source multimedia framework for television broadcasting
+media-libs/mlt 7.32.0: Open source multimedia framework for television broadcasting
 media-libs/mpvqt 1.0.1: libmpv wrapper for QtQuick2 and QML
 media-libs/munt-mt32emu 2.7.0: Library for emulating the Roland MT-32, CM-32L, CM-64 and LAPC-I
 media-libs/musicbrainz 5.1.0-r2: Client Library for accessing the latest XML based MusicBrainz web service
@@ -13635,6 +13635,7 @@ media-plugins/gst-plugins-openh264 1.24.11: H.264 encoder/decoder plugin for GSt
 media-plugins/gst-plugins-opus 1.24.11: Opus audio parser plugin for GStreamer
 media-plugins/gst-plugins-oss 1.24.11: OSS (Open Sound System) support plugin for GStreamer
 media-plugins/gst-plugins-pulse 1.24.11: PulseAudio sound server plugin for GStreamer
+media-plugins/gst-plugins-qt6 1.24.11: Qt6 QML video sink plugin for GStreamer
 media-plugins/gst-plugins-raw1394 1.24.11: Fiwewire DV/HDV capture plugin for GStreamer
 media-plugins/gst-plugins-resindvd 1.24.11: DVD playback support plugin for GStreamer
 media-plugins/gst-plugins-rtmp 1.24.11: RTMP source/sink plugin for GStreamer
@@ -17078,7 +17079,7 @@ sys-apps/kbd 2.7.1 2.8.0 9999: Keyboard and console utilities
 sys-apps/kcheck 0.0.2-r3: Record and check required kernel symbols are set
 sys-apps/kexec-tools 2.0.30 2.0.31 9999: Load another kernel from the currently executing Linux kernel
 sys-apps/keyutils 1.6.3-r1: Linux Key Management Utilities
-sys-apps/kmod 33 9999: Library and tools for managing linux kernel modules
+sys-apps/kmod 33 34.2 9999: Library and tools for managing linux kernel modules
 sys-apps/kmscon 9.0.0-r1 9.1.0: KMS/DRM based virtual Console Emulator
 sys-apps/lcdsplash 0.3-r1: splash Gentoo boot information on LCD's
 sys-apps/lcdutils 0.2-r2: (Sun) Cobalt Qube/RaQ button reading and LCD writing utilities
