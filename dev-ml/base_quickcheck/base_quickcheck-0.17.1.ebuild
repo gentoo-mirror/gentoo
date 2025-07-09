@@ -21,13 +21,24 @@ RDEPEND="
 	>=dev-lang/ocaml-5
 	=dev-ml/base-${JSM}:=[ocamlopt?]
 	=dev-ml/ppx_base-${JSM}:=[ocamlopt?]
+	=dev-ml/ppx_compare-${JSM}:=[ocamlopt?]
+	=dev-ml/ppx_cold-${JSM}:=[ocamlopt?]
+	=dev-ml/ppx_enumerate-${JSM}:=[ocamlopt?]
 	=dev-ml/ppx_fields_conv-${JSM}:=[ocamlopt?]
+	=dev-ml/ppx_globalize-${JSM}:=[ocamlopt?]
+	>=dev-ml/ppx_globalize-0.17.2
+	=dev-ml/ppx_hash-${JSM}:=[ocamlopt?]
+	=dev-ml/ppx_here-${JSM}:=[ocamlopt?]
 	=dev-ml/ppx_let-${JSM}:=[ocamlopt?]
+	>=dev-ml/ppx_let-0.17.1
+	=dev-ml/ppx_sexp_conv-${JSM}:=[ocamlopt?]
+	>=dev-ml/ppx_sexp_conv-0.17.1
 	=dev-ml/ppx_sexp_message-${JSM}:=[ocamlopt?]
 	=dev-ml/ppx_sexp_value-${JSM}:=[ocamlopt?]
 	=dev-ml/ppxlib_jane-${JSM}:=[ocamlopt?]
+	>=dev-ml/ppxlib_jane-0.17.4
 	=dev-ml/splittable_random-${JSM}:=[ocamlopt?]
-	>=dev-ml/ppxlib-0.32.1:=[ocamlopt?]
+	>=dev-ml/ppxlib-0.36.0:=[ocamlopt?]
 "
 DEPEND="${RDEPEND}"
 BDEPEND=">=dev-ml/dune-3.11"
