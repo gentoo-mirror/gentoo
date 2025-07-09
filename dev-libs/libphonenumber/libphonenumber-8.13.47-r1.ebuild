@@ -1,9 +1,8 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-#CMAKE_MAKEFILE_GENERATOR="emake" # broken w/ ninja
 inherit cmake
 
 DESCRIPTION="Library for parsing, formatting, and validating international phone numbers"
@@ -19,9 +18,10 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
+	dev-cpp/abseil-cpp:=
+	dev-libs/boost:=
 	dev-libs/icu:=
 	dev-libs/protobuf:=
-	dev-libs/boost:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="

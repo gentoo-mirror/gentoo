@@ -41,4 +41,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	>=kde-apps/kmail-${PVCUT}:6
+	>=kde-apps/kmail-account-wizard-${PVCUT}:6
+"
