@@ -34,7 +34,7 @@ RDEPEND="
 		>=dev-python/pygments-1.6[${PYTHON_USEDEP}]
 		>=dev-python/pymysql-0.9.2[${PYTHON_USEDEP}]
 		>=dev-python/pyperclip-1.8.1[${PYTHON_USEDEP}]
-		>=dev-python/sqlglot-5.1.3[${PYTHON_USEDEP}]
+		=dev-python/sqlglot-26*[${PYTHON_USEDEP}]
 		<dev-python/sqlparse-0.6.0[${PYTHON_USEDEP}]
 		>=dev-python/sqlparse-0.3.0[${PYTHON_USEDEP}]
 		ssh? (
@@ -53,9 +53,23 @@ BDEPEND="
 	')
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
+
+python_prepare_all() {
+	# Relax click requirement. Behave tests aren't hooked up here :/
+	# https://github.com/dbcli/mycli/commit/bb18b0c2f2ed7375efe31d379e616a11c82b1299
+	# https://github.com/dbcli/mycli/pull/1241
+	sed -e '/click/ s/,<8.1.8//' -i pyproject.toml || die
+
+	# no coverage please
+	sed -e 's/import coverage ; coverage.process_startup(); //' \
+		-i test/features/environment.py test/features/steps/wrappers.py || die
+
+	distutils-r1_python_prepare_all
+}
 
 src_test() {
 	# test/utils.py
@@ -96,8 +110,14 @@ src_test() {
 		-e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${PYTEST_PASSWORD}'" \
 		|| die "Failed to change mysql user password"
 
+	local failures=()
 	nonfatal distutils-r1_src_test
-	local ret=${?}
+	[[ ${?} -ne 0 ]] && failures+=( pytest )
+
+	# Behave is in a weird situation, last non beta version is 7 years old and doesnt build well with modern setuptools.
+	# Mycli doesnt pass tests with prereleases of updated behave.
+	#behave --jobs=$(get_makeopts_jobs)  --summary --verbose test/features
+	#[[ ${?} -ne 0 ]] && failures+=( behave )
 
 	einfo "Stopping mysql test instance ..."
 	pkill -F "${T}"/mysqld.pid || die
@@ -110,5 +130,7 @@ src_test() {
 
 	rm -rf "${T}"/mysql || die
 
-	[[ ${ret} -ne 0 ]] && die
+	if [[ ${#failures[@]} -gt 0 ]]; then
+		die "Tests failed: ${failures}"
+	fi
 }
