@@ -6,6 +6,7 @@ EAPI=8
 EGIT_BRANCH="5.2"
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
+KDE_ORG_COMMIT=45f6113430a2656e8c432cc817a2d273c4afc5f8
 KFMIN=5.115.0
 QTMIN=5.15.12
 VIRTUALDBUS_TEST="true"
@@ -14,13 +15,9 @@ inherit ecm kde.org optfeature
 DESCRIPTION="Personal finance manager based on KDE Frameworks"
 HOMEPAGE="https://kmymoney.org/"
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="~amd64"
-fi
-
 LICENSE="GPL-2"
 SLOT="5"
+KEYWORDS="~amd64"
 IUSE="calendar hbci holidays sql sqlcipher"
 [[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
 

@@ -6,6 +6,7 @@ EAPI=8
 EGIT_BRANCH="8.2"
 ECM_TEST="forceoptional"
 KDE_ORG_NAME="alkimia"
+KDE_ORG_COMMIT=234c8eae9d9960c2994b49cff9154810a09fb9d7
 KFMIN=5.115.0
 QTMIN=5.15.12
 inherit ecm kde.org
@@ -14,13 +15,9 @@ DESCRIPTION="Library with common classes and functionality used by KDE finance a
 HOMEPAGE="https://www.linux-apps.com/content/show.php/libalkimia?content=137323
 https://community.kde.org/Alkimia"
 
-if [[ ${KDE_BUILD_TYPE} = release ]]; then
-	SRC_URI="mirror://kde/stable/${KDE_ORG_NAME}/${PV}/${KDE_ORG_NAME}-${PV}.tar.xz"
-	KEYWORDS="~amd64"
-fi
-
 LICENSE="LGPL-2.1"
 SLOT="0/8"
+KEYWORDS="~amd64"
 IUSE="doc"
 
 DEPEND="
