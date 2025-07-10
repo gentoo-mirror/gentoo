@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/findlib:=[ocamlopt?] dev-ml/ppx_derivers:=[ocamlopt?] >=dev-ml/ppxlib-0.32.0:=[ocamlopt?] dev-ml/cppo[ocamlopt?] test? ( dev-ml/ounit2 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/findlib:=[ocamlopt?] dev-ml/ppx_derivers:=[ocamlopt?] >=dev-ml/ppxlib-0.32.0:=[ocamlopt?] <dev-ml/ppxlib-0.36 dev-ml/cppo[ocamlopt?] test? ( dev-ml/ounit2 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Type-driven code generation for OCaml
 EAPI=8
 HOMEPAGE=https://github.com/ocaml-ppx/ppx_deriving
@@ -8,9 +8,9 @@ INHERIT=dune
 IUSE=+ocamlopt test
 KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64
 LICENSE=MIT
-RDEPEND=dev-ml/findlib:=[ocamlopt?] dev-ml/ppx_derivers:=[ocamlopt?] >=dev-ml/ppxlib-0.32.0:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/findlib:=[ocamlopt?] dev-ml/ppx_derivers:=[ocamlopt?] >=dev-ml/ppxlib-0.32.0:=[ocamlopt?] <dev-ml/ppxlib-0.36 >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/6.0.3
 SRC_URI=https://github.com/ocaml-ppx/ppx_deriving/archive/v6.0.3.tar.gz -> ppx_deriving-6.0.3.tar.gz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=016761cd25bd1a380cc83d1d5acae895
+_md5_=5455c70ceb7bc387c591c7f4559b7e95
