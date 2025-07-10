@@ -60,6 +60,8 @@ RDEPEND="${COMMON_DEPEND}
 	kde-apps/kfind:6
 "
 
+PATCHES=( "${FILESDIR}/${P}-desktop.patch" ) # bug 955036
+
 src_prepare() {
 	[[ ${CHOST} == *-solaris* ]] && append-ldflags -lmalloc
 
