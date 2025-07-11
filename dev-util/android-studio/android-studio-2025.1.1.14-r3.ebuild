@@ -64,6 +64,7 @@ RDEPEND="${DEPEND}
 	>=x11-libs/libdrm-2.4.114
 	>=x11-libs/libxcb-1.15-r1
 	sys-libs/libxcrypt[compat]
+	dev-libs/wayland
 	>=x11-libs/libxshmfence-1.3.2
 	virtual/libcrypt:=
 "
@@ -71,14 +72,6 @@ RDEPEND="${DEPEND}
 src_prepare() {
 
 	default
-
-	rm -rf "${S}"/plugins/android/resources/installer/{arm64-v8a,armeabi-v7a,x86}
-	rm -rf "${S}"/plugins/android/resources/perfetto/{arm64-v8a,armeabi-v7a,x86}
-	rm -rf "${S}"/plugins/android/resources/process-tracker-agent/native/{arm64-v8a,armeabi-v7a,x86}
-	rm -rf "${S}"/plugins/android/resources/screen-sharing-agent/{arm64-v8a,armeabi-v7a,x86}
-	rm -rf "${S}"/plugins/android/resources/simpleperf/{arm64-v8a,armeabi-v7a,x86}
-	rm -rf "${S}"/plugins/android/resources/transport/{arm64-v8a,armeabi-v7a,x86}
-	rm -rf "${S}"/plugins/android/resources/transport/native/agent/{arm64-v8a,armeabi-v7a,x86}
 
 	cat <<-EOF >> bin/idea.properties || die
 	#-----------------------------------------------------------------------
