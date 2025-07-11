@@ -3,8 +3,8 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
+DISTUTILS_USE_PEP517=flit
+PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1 pypi
 
@@ -16,14 +16,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# unconditional mypy dep for a test that is not even run
-	# https://github.com/seperman/orderly-set/pull/5
-	sed -i -e '/mypy\.api/d' tests/*.py || die
-}
