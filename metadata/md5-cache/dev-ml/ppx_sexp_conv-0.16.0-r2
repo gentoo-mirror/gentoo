@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=>=dev-lang/ocaml-4.14 dev-ml/base:0/0.16[ocamlopt?] dev-ml/findlib:=[ocamlopt?] >=dev-ml/ppxlib-0.28:=[ocamlopt?] dev-ml/ocaml-compiler-libs:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=dev-lang/ocaml-4.14 dev-ml/base:0/0.16[ocamlopt?] dev-ml/findlib:=[ocamlopt?] >=dev-ml/ppxlib-0.28:=[ocamlopt?] <dev-ml/ppxlib-0.36.0 dev-ml/ocaml-compiler-libs:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Support Library for type-driven code generators
 EAPI=8
 HOMEPAGE=https://github.com/janestreet/ppx_sexp_conv
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=amd64 arm arm64 ~ppc ppc64 ~riscv x86
 LICENSE=MIT
-RDEPEND=>=dev-lang/ocaml-4.14 dev-ml/base:0/0.16[ocamlopt?] dev-ml/findlib:=[ocamlopt?] >=dev-ml/ppxlib-0.28:=[ocamlopt?] dev-ml/ocaml-compiler-libs:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=dev-lang/ocaml-4.14 dev-ml/base:0/0.16[ocamlopt?] dev-ml/findlib:=[ocamlopt?] >=dev-ml/ppxlib-0.28:=[ocamlopt?] <dev-ml/ppxlib-0.36.0 dev-ml/ocaml-compiler-libs:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0/0.16
 SRC_URI=https://github.com/janestreet/ppx_sexp_conv/archive/v0.16.0.tar.gz -> ppx_sexp_conv-0.16.0.tar.gz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=3af7358f50e2ad4f5ec92c8a0572c2f2
+_md5_=b72ce6a1e7cb2df7824dacc1580ee8d4
