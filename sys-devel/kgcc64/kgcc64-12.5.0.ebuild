@@ -14,10 +14,10 @@ esac
 export CTARGET
 TOOLCHAIN_ALLOWED_LANGS="c"
 TOOLCHAIN_PATCH_DEV="sam"
-PATCH_VER="8"
-PATCH_GCC_VER="14.2.0"
-MUSL_VER="1"
-MUSL_GCC_VER="14.1.0"
+PATCH_GCC_VER="12.4.0"
+PATCH_VER="3"
+MUSL_VER="3"
+MUSL_GCC_VER="12.4.0"
 GCC_TARGET_NO_MULTILIB=true
 inherit toolchain
 
@@ -29,6 +29,10 @@ KEYWORDS="~hppa"
 # unlike every other target, hppa has not unified the 32/64 bit
 # ports in binutils yet
 BDEPEND="hppa? ( sys-devel/binutils-hppa64 )"
+
+src_prepare() {
+	toolchain_src_prepare
+}
 
 pkg_postinst() {
 	toolchain_pkg_postinst
