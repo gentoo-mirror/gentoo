@@ -6,7 +6,7 @@ EAPI=8
 inherit optfeature wine
 
 WINE_GECKO=2.47.4
-WINE_MONO=10.0.0
+WINE_MONO=10.1.0
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -172,7 +172,6 @@ src_configure() {
 		$(use_with nls gettext)
 		$(use_with opencl)
 		$(use_with opengl)
-		--without-osmesa # media-libs/mesa no longer supports this
 		--without-oss # media-sound/oss is not packaged (OSSv4)
 		$(use_with pcap)
 		$(use_with pulseaudio pulse)
