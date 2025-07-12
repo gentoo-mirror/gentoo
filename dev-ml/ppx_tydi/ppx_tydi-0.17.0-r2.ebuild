@@ -5,11 +5,12 @@ EAPI=8
 
 inherit dune
 
-DESCRIPTION="Generation of runtime types from type declarations"
-HOMEPAGE="https://github.com/janestreet/ppx_typerep_conv"
-SRC_URI="https://github.com/janestreet/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="Let expressions, inferring pattern type from expression"
+HOMEPAGE="https://github.com/janestreet/ppx_tydi"
+SRC_URI="https://github.com/janestreet/${PN}/archive/v${PV}.tar.gz
+	-> ${P}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="Apache-2.0"
 SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64"
 IUSE="+ocamlopt"
@@ -20,8 +21,8 @@ JSM=$(ver_cut 1-2)*
 RDEPEND="
 	>=dev-lang/ocaml-5
 	=dev-ml/base-${JSM}:=[ocamlopt?]
-	=dev-ml/typerep-${JSM}:=[ocamlopt?]
 	>=dev-ml/ppxlib-0.32.1:=[ocamlopt?]
+	<dev-ml/ppxlib-0.36.0
 "
 DEPEND="${RDEPEND}"
 BDEPEND=">=dev-ml/dune-3.11"
