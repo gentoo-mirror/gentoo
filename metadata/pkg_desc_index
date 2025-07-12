@@ -3149,7 +3149,7 @@ app-shells/zsh-completions 0.34.0 0.35.0 9999: Additional completion definitions
 app-shells/zsh-syntax-highlighting 0.8.0 9999: Fish shell like syntax highlighting for zsh
 app-text/App-XML-DocBook-Builder 0.100.300-r1: A Perl-based tool to Render DocBook/XML
 app-text/NaturalDocs 1.52-r2: Extensible, multi-language source code documentation generator
-app-text/a2ps 4.15.5-r1 4.15.6: Any to PostScript filter
+app-text/a2ps 4.15.5-r1 4.15.6 4.15.7: Any to PostScript filter
 app-text/aha 0.5.1: Converts ANSI escape sequences of a unix terminal to HTML code
 app-text/aiksaurus 1.2.1-r3: A thesaurus lib, tool, and database
 app-text/an 1.2_p6: Very fast anagram generator with dictionary lookup
@@ -3195,7 +3195,7 @@ app-text/cssmin 0.2.0-r1: Python port of the YUI CSS compression algorithm
 app-text/cwtext 0.96-r1: Text to Morse Code converter
 app-text/dblatex 0.3.12-r3 0.3.12-r4: Transform DocBook using TeX macros
 app-text/delta 20060803-r1: Heuristically minimizes interesting files
-app-text/dictd 1.13.0-r7 1.13.0-r8 1.13.1: Dictionary Client/Server for the DICT protocol
+app-text/dictd 1.13.0-r7 1.13.0-r8 1.13.1 1.13.3: Dictionary Client/Server for the DICT protocol
 app-text/diction 1.14: Diction and style checkers for english and german texts
 app-text/diff-pdf 0.5.1-r1: A simple tool for visually comparing two PDF files
 app-text/diffpdf 2.1.3-r3: Program that textually or visually compares two PDF files
@@ -3347,7 +3347,7 @@ app-text/poppler 25.03.0 25.06.0 25.07.0 9999: PDF rendering library based on th
 app-text/poppler-data 0.4.12: Data files for poppler to support uncommon encodings without xpdfrc
 app-text/ps2eps 1.68: Generate Encapsulated Postscript Format files from one-page Postscript documents
 app-text/ps2pkm 1.8_p20210325-r1 1.8_p20230311 1.8_p20240311: Tool that converts a PostScript type1 font into a corresponding TeX PK font
-app-text/psiconv 0.8.3-r1: An interpreter for Psion 5(MX) file formats
+app-text/psiconv 0.8.3-r1 0.9.9: Interpreter for Psion 5(MX) file formats
 app-text/psmark 2.1: Prints watermark-like text on any PostScript document
 app-text/pspdftool 0.03: Tool for prepress preparation of PDF and PostScript documents
 app-text/pspresent 1.3-r2: A tool to display full-screen PostScript presentations
@@ -4020,7 +4020,7 @@ dev-db/psqlodbc 16.00.0000: Official ODBC driver for PostgreSQL
 dev-db/qdbm 1.8.78-r5: Quick Database Manager
 dev-db/qt5-sqlcipher 1.0.11-r2: Qt SQL driver plugin for SQLCipher
 dev-db/recutils 1.9-r1: Tools and libraries to access human-editable, plain text databases
-dev-db/redict 7.3.3: A persistent caching system, key-value, and data structures database
+dev-db/redict 7.3.4: A persistent caching system, key-value, and data structures database
 dev-db/redis 6.2.16 6.2.17 6.2.18 6.2.19 7.2.6 7.2.7 7.2.8 7.2.9 7.2.10 7.4.1 7.4.2 7.4.3 7.4.4 7.4.5 8.0.0 8.0.1 8.0.2 8.0.3: A persistent caching system, key-value, and data structures database
 dev-db/repmgr 5.1.0 5.1.0-r1 5.5.0: PostgreSQL Replication Manager
 dev-db/rqlite 8.36.2 8.36.3 8.36.5 8.36.6 8.36.8 8.36.10: Replicated SQLite using the Raft consensus protocol
@@ -5313,7 +5313,7 @@ dev-libs/collada-dom 2.5.0-r2: COLLADA Document Object Model (DOM) C++ Library
 dev-libs/concurrencykit 0.7.2-r1: A library with concurrency related algorithms and data structures in C
 dev-libs/confuse 3.3-r2: a configuration file parser library
 dev-libs/console_bridge 1.0.2 9999: A ROS-independent package for logging into rosconsole/rosout
-dev-libs/cowsql 1.15.8: Embeddable, replicated and fault tolerant SQL engine (fork of dqlite)
+dev-libs/cowsql 1.15.8 1.15.9: Embeddable, replicated and fault tolerant SQL engine (fork of dqlite)
 dev-libs/cppcodec 0.2 9999: C++11 library to encode/decode base64, base64url, base32, base32hex and hex
 dev-libs/cpuinfo 2024.10.22.2: CPU INFOrmation library
 dev-libs/crc32c 1.1.2-r2: CRC32C implementation with support for CPU-specific acceleration instructions
@@ -11652,7 +11652,7 @@ games-puzzle/fbg 0.9-r3: Tetris clone written in OpenGL
 games-puzzle/fish-fillets 1.0.1-r100: Underwater puzzle game - find a safe way out
 games-puzzle/five-or-more 3.32.3: Remove colored balls from the board by forming lines
 games-puzzle/flobopuyo 0.20-r3: Clone of the famous PuyoPuyo game
-games-puzzle/freesweep 1.0.2-r1: Console Minesweeper
+games-puzzle/freesweep 1.0.2-r2: Console Minesweeper
 games-puzzle/galaxis 1.10-r1: Curses-based clone of the nifty little Macintosh freeware game Galaxis
 games-puzzle/gemdropx 0.9-r3: Puzzle game where it's your job to clear the screen of gems
 games-puzzle/gfifteen 1.0.3-r2: Graphical implementation of the sliding puzzle game fifteen
@@ -15483,7 +15483,7 @@ net-news/yydecode 0.2.10-r3 0.2.10-r4: A decoder for yENC format, popular on Use
 net-nntp/leafnode 1.11.11-r2 1.12.0-r1: A USENET software package designed for small sites
 net-nntp/newspost 2.1.1-r3: A usenet binary autoposter for unix
 net-nntp/nzbget 25.0 25.1 25.2: A command-line based binary newsgrabber supporting .nzb files
-net-nntp/sabnzbd 4.5.1: Binary newsgrabber with web-interface
+net-nntp/sabnzbd 4.5.1 4.5.2: Binary newsgrabber with web-interface
 net-nntp/slrn 1.0.3-r1 1.0.3-r2: A s-lang based newsreader
 net-nntp/suck 4.3.4 4.3.5: Grab news from a remote NNTP server and feed them to another
 net-nntp/tin 2.6.4: A threaded NNTP and spool based UseNet newsreader
@@ -17691,7 +17691,7 @@ sys-kernel/pf-sources 6.8_p1 6.8_p5 6.8_p6 6.8_p7 6.8_p8 6.8_p9 6.9_p2 6.9_p4 6.
 sys-kernel/raspberrypi-image 4.14.98_p20190215 4.19.75_p20190925 5.4.79_p20201201 5.10.11_p20210201 5.10.17_p20210527 5.10.63_p20211029 5.15.32_p20220331 6.1.21_p20230405 6.6.28_p20240424 6.6.31_p20240529 6.6.47_p20240902 9999: Raspberry Pi (all versions) kernel and modules
 sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230405 6.6.31_p20240529 6.6.47_p20240902: Raspberry Pi kernel sources
 sys-kernel/rt-sources 4.14.336_p159 4.19.325_p140 5.4.293_p98 5.10.239_p133 5.15.185_p86 6.0.5_p14 6.1.134_p51 6.1.141_p52 6.5.2_p8 6.6.94_p56 6.12.28_p10: Full Linux 6.12 kernel sources with the CONFIG_PREEMPT_RT patch
-sys-kernel/scx 1.0.10 1.0.11 1.0.12 1.0.13: sched_ext schedulers and tools
+sys-kernel/scx 1.0.10 1.0.11 1.0.12 1.0.13 1.0.14: sched_ext schedulers and tools
 sys-kernel/ugrd 1.27.2 1.28.2 1.29.0-r1 1.31.2 2.0.1 9999: Python based POSIX initramfs generator with TOML definitions
 sys-kernel/vanilla-kernel 5.10.238 5.10.239 5.10.9999 5.15.185 5.15.186 5.15.187 5.15.9999 6.1.141 6.1.142 6.1.143 6.1.144 6.1.9999 6.6.94 6.6.95 6.6.96 6.6.97 6.6.9999 6.12.34 6.12.35 6.12.36 6.12.37 6.12.9999 6.15.4 6.15.5 6.15.6: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 5.4.295 5.10.239 5.15.187 6.1.144 6.6.97 6.12.37 6.15.6: Full sources for the Linux kernel
