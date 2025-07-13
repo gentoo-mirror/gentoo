@@ -1,16 +1,16 @@
-BDEPEND=dev-perl/Data-Section >=dev-perl/Dist-Zilla-4 dev-perl/Moose >=dev-perl/CPAN-Changes-0.190.0 virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-File-Path virtual/perl-File-Spec virtual/perl-IO >=virtual/perl-Test-Simple-0.940.0 virtual/perl-autodie ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+BDEPEND=dev-perl/Data-Section >=dev-perl/Dist-Zilla-4 dev-perl/Moose >=dev-perl/CPAN-Changes-0.190.0 test? ( >=virtual/perl-Test-Simple-0.940.0 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=release tests for your changelog
-EAPI=7
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Dist-Zilla-Plugin-Test-CPAN-Changes
 INHERIT=perl-module
-IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath
+IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/Data-Section >=dev-perl/Dist-Zilla-4 dev-perl/Moose >=dev-perl/CPAN-Changes-0.190.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/D/DO/DOHERTY/Dist-Zilla-Plugin-Test-CPAN-Changes-0.012.tar.gz
-_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	perl-module	41920449ca174fe9b9b303dfcbdb37a3
-_md5_=19df7cfeca7f5ff3aefceabb8a04e6ca
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	perl-module	41920449ca174fe9b9b303dfcbdb37a3
+_md5_=f1ea74c94988266dc7bbcc3859f0dc12
