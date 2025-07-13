@@ -2343,7 +2343,7 @@ app-emulation/dosemu 1.4.1_pre20130107-r6: DOS Emulator
 app-emulation/dxvk 2.3.1-r1 2.4.1 2.5.3 2.6.2 2.7 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/dynamips 0.2.23: Cisco 7200/3600 Simulator
 app-emulation/faudio 25.03 25.04: Accuracy-focused XAudio reimplementation for open platforms
-app-emulation/fex-xtajit 2506: A wine emulation dll for running x86 application on an arm64 host
+app-emulation/fex-xtajit 2506 2507.1: A wine emulation dll for running x86 application on an arm64 host
 app-emulation/firecracker-bin 1.10.1 1.12.0: Secure and fast microVMs for serverless computing (static build)
 app-emulation/free42 3.1.9 3.3.3 3.3.6: An HP-42S Calculator Simulator
 app-emulation/fs-uae 3.1.66: Integrates the most accurate Amiga emulation code available from WinUAE
@@ -2986,7 +2986,7 @@ app-office/kraft 2.0_pre20250419: Quotes and invoices manager for small enterpri
 app-office/ktimetracker 6.0.0_pre20250109 6.0.0: Todo management and time tracker
 app-office/ledger 3.3.2-r2: Double-entry accounting system with a command-line reporting interface
 app-office/libalkimia 8.1.95 8.2.0_p20250709: Library with common classes and functionality used by KDE finance applications
-app-office/libreoffice 25.2.4.3-r1 25.2.5.1 25.2.9999 9999: A full office productivity suite
+app-office/libreoffice 25.2.4.3-r1 25.2.5.2 25.2.9999 9999: A full office productivity suite
 app-office/libreoffice-bin 24.8.4-r5 25.2.0-r5: A full office productivity suite. Binary package
 app-office/libreoffice-l10n 25.2.4.3 25.2.5.1: Translations for the Libreoffice suite
 app-office/libreoffice-voikko 5.0-r1: Free Finnish spell checking and hyphenation for LibreOffice
@@ -5835,7 +5835,7 @@ dev-libs/unittest++ 2.0.0-r2 2.0.0-r3: A lightweight unit testing framework for 
 dev-libs/univalue 1.0.5 9999: C++ universal value object and JSON library
 dev-libs/urdfdom 3.1.0 9999: URDF (U-Robot Description Format) library
 dev-libs/urdfdom_headers 1.1.0 9999: URDF (U-Robot Description Format) headers
-dev-libs/uriparser 0.9.7 0.9.8 0.9.8-r1: Strictly RFC 3986 compliant URI parsing library in C
+dev-libs/uriparser 0.9.8-r1: Strictly RFC 3986 compliant URI parsing library in C
 dev-libs/userspace-rcu 0.14.0 0.14.1 0.15.0 0.15.1 0.15.2 0.15.3: Userspace RCU (read-copy-update) library
 dev-libs/utfcpp 3.2.1 4.0.6 9999: UTF-8 C++ library
 dev-libs/uthash 2.3.0-r1: An easy-to-use hash implementation for C programmers
@@ -7291,7 +7291,7 @@ dev-perl/ORLite-Migrate 1.100.0-r2: Extremely light weight SQLite-specific schem
 dev-perl/Object-Enum 0.75.0-r1: Replacement for if ($foo eq 'bar')
 dev-perl/Object-Event 1.230.0-r1: A class that provides an event callback interface
 dev-perl/Object-MultiType 0.50.0-r1: Perl Objects as Hash, Array, Scalar, Code and Glob at the same time
-dev-perl/Object-Pad 0.820.0: Simple syntax for lexical field-based objects
+dev-perl/Object-Pad 0.820.0 0.821.0: Simple syntax for lexical field-based objects
 dev-perl/Object-Realize-Later 0.210.0: Delayed creation of objects
 dev-perl/Ogg-Vorbis-Header 0.110.0: An object-oriented interface to Ogg Vorbis information and comment fields
 dev-perl/Ogg-Vorbis-Header-PurePerl 1.50.0: Object-oriented interface to Ogg Vorbis information and comment fields
@@ -7991,7 +7991,6 @@ dev-php/pecl-amqp 2.1.2: PHP Bindings for AMQP 0-9-1 compatible brokers
 dev-php/pecl-apcu 5.1.24: Stripped down version of APC supporting only user cache
 dev-php/pecl-brotli 0.15.0 0.16.0 9999: Brotli compression extension for PHP
 dev-php/pecl-dio 0.2.1: Direct I/O functions for PHP
-dev-php/pecl-eio 3.1.0_rc1: PHP wrapper for libeio library
 dev-php/pecl-event 3.1.4: PHP wrapper for libevent2
 dev-php/pecl-http 4.2.6: Extended HTTP Support for PHP
 dev-php/pecl-imagick 3.7.0-r3 3.7.0-r4 3.8.0: PHP wrapper for the ImageMagick library
@@ -8559,7 +8558,7 @@ dev-python/ipdb 0.13.13: IPython-enabled pdb
 dev-python/ipy 1.01-r1: Class and tools for handling of IPv4 and IPv6 addresses and networks
 dev-python/ipykernel 6.29.5-r1 7.0.0_alpha1: IPython Kernel for Jupyter
 dev-python/ipyparallel 9.0.1: Interactive Parallel Computing with IPython
-dev-python/ipython 8.37.0 9.2.0-r1 9.3.0 9.4.0: Advanced interactive shell for Python
+dev-python/ipython 8.37.0 9.3.0 9.4.0: Advanced interactive shell for Python
 dev-python/ipython-genutils 0.2.0-r4: Vestigial utilities from IPython
 dev-python/ipython-pygments-lexers 1.1.1: Pygments lexers for syntax-highlighting IPython code and sessions
 dev-python/ipywidgets 8.1.7: IPython HTML widgets for Jupyter
@@ -10991,7 +10990,7 @@ dev-util/rocprofiler 5.3.3-r1: Callback/Activity Library for Performance tracing
 dev-util/roctracer 5.7.1-r1 6.1.1-r1 6.3.2 6.3.3 6.4.1: Callback/Activity Library for Performance tracing AMD GPU's
 dev-util/ropper 1.13.10 1.13.13 9999: Use to display information about binary files in different file formats
 dev-util/rpmdevtools 9.6: Collection of rpm packaging related utilities
-dev-util/rt-tests 2.7 2.8: A collection of latency testing tools for the linux(-rt) kernel
+dev-util/rt-tests 2.8 2.9: A collection of latency testing tools for the linux(-rt) kernel
 dev-util/ruff 0.11.13 0.12.2 0.12.3: An extremely fast Python linter, written in Rust
 dev-util/runme 2.0.5: Execute your runbooks, docs and READMEs
 dev-util/rustup 1.28.1 1.28.2 9999: Rust toolchain installer
@@ -15505,7 +15504,7 @@ net-p2p/ed2k_hash 0.4.0-r3: Tool for generating eDonkey2000 links
 net-p2p/energi3 3.0.8 3.1.0 9999: Official golang implementation of the Energi Core
 net-p2p/fms 0.3.84: Spam-resistant message board application for Freenet
 net-p2p/freenet 0.7.5_p1501: An encrypted network without censorship
-net-p2p/go-ethereum 1.15.10 1.15.11: Official golang implementation of the Ethereum protocol
+net-p2p/go-ethereum 1.15.10 1.15.11 1.16.1: Official golang implementation of the Ethereum protocol
 net-p2p/gtk-gnutella 1.2.2-r1 1.2.3: GTK+ Gnutella client
 net-p2p/gtorrentviewer 0.2b-r1: A GTK2-based viewer and editor for BitTorrent meta files
 net-p2p/ktorrent 25.04.2 25.04.3: Powerful BitTorrent client based on KDE Frameworks
@@ -18603,7 +18602,7 @@ x11-misc/simpleswitcher 20191008 99999999: lightweight EWMH window switcher with
 x11-misc/skippy 0.5.0-r2: A full-screen task-switcher providing Apple Expose-like functionality
 x11-misc/slim 1.4.0 9999: Simple Login Manager resurrected
 x11-misc/slock 1.5: simple X display locker
-x11-misc/slop 7.6-r2: Application that queries the user for a selection for printing
+x11-misc/slop 7.6-r2 7.7: Application that queries the user for a selection for printing
 x11-misc/snixembed 0.3.0 0.3.3: Proxy StatusNotifierItems as XEmbedded systemtray-spec icons
 x11-misc/spacefm 1.0.6-r4: A multi-panel tabbed file manager
 x11-misc/splatmoji 1.1.1 1.2.0: Quickly look up and input emoji and/or emoticons
