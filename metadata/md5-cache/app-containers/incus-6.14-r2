@@ -9,8 +9,8 @@ IUSE=apparmor fuidshift nls qemu verify-sig
 KEYWORDS=~amd64 ~arm64
 LICENSE=Apache-2.0 BSD LGPL-3 MIT
 RDEPEND=acct-group/incus acct-group/incus-admin app-arch/xz-utils >=app-containers/lxc-5.0.0:=[apparmor?,seccomp(+)] dev-db/sqlite:3 >=dev-libs/cowsql-1.15.7 dev-libs/lzo >=dev-libs/raft-0.22.1:=[lz4] >=dev-util/xdelta-3.0[lzma(+)] net-dns/dnsmasq[dhcp] sys-libs/libcap virtual/udev || ( net-firewall/iptables net-firewall/nftables[json] ) fuidshift? ( !app-containers/lxd ) net-firewall/ebtables sys-apps/iproute2 sys-fs/fuse:* >=sys-fs/lxcfs-5.0.0 sys-fs/squashfs-tools[lzma] virtual/acl apparmor? ( sec-policy/apparmor-profiles ) qemu? ( app-cdr/cdrtools app-emulation/qemu[spice,usbredir,virtfs] sys-apps/gptfdisk )
-RESTRICT=test strip
+RESTRICT=test
 SLOT=0/stable
 SRC_URI=https://linuxcontainers.org/downloads/incus/incus-6.14.tar.xz verify-sig? ( https://linuxcontainers.org/downloads/incus/incus-6.14.tar.xz.asc )
-_eclasses_=toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	go-env	0e2babf96e7d0b045fc07ad199eb2399	multiprocessing	1e32df7deee68372153dca65f4a7c21f	go-module	191a27261275fc3bff7dd7482361b5d6	linux-info	efd923656513c879204fec6638eadee5	optfeature	538bce96e5589935b57e178e8635f301	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
+_eclasses_=toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	go-env	0e2babf96e7d0b045fc07ad199eb2399	multiprocessing	1e32df7deee68372153dca65f4a7c21f	go-module	d96f2a2fd6d8fbad6d94516bf238f885	linux-info	efd923656513c879204fec6638eadee5	optfeature	538bce96e5589935b57e178e8635f301	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
 _md5_=04991ddc14a52da10c998c51efcdc318
