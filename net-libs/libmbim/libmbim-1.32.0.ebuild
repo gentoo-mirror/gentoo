@@ -1,8 +1,8 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit bash-completion-r1 meson python-any-r1
 
 DESCRIPTION="Mobile Broadband Interface Model (MBIM) modem protocol helper library"
@@ -11,12 +11,12 @@ SRC_URI="https://gitlab.freedesktop.org/mobile-broadband/libmbim/-/archive/${PV}
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv x86"
-IUSE="gtk-doc"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~x86"
+IUSE="gtk-doc introspection"
 
 RDEPEND="
 	>=dev-libs/glib-2.56:2
-	>=dev-libs/gobject-introspection-0.9.6:=
+	introspection? ( >=dev-libs/gobject-introspection-0.9.6:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -28,12 +28,12 @@ BDEPEND="
 "
 
 src_configure() {
-	# Let's avoid BuildRequiring bash-completion, install it manually
 	local emesonargs=(
-		-Dintrospection=true
 		-Dman=true
+		# Let's avoid BuildRequiring bash-completion, install it manually
 		-Dbash_completion=false
 		$(meson_use gtk-doc gtk_doc)
+		$(meson_use introspection)
 	)
 	meson_src_configure
 }
