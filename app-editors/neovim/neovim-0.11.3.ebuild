@@ -16,7 +16,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/neovim/neovim.git"
 else
 	SRC_URI="https://github.com/neovim/neovim/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86 ~x64-macos"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~x64-macos"
 fi
 
 LICENSE="Apache-2.0 vim"
@@ -49,7 +49,7 @@ DEPEND="${LUA_DEPS}
 	$(lua_gen_cond_dep '
 		dev-lua/LuaBitOp[${LUA_USEDEP}]
 	' lua5-{1,2})
-	>=dev-libs/libutf8proc-2.10.0:=
+	>=dev-libs/libutf8proc-2.10.0:=[-cjk]
 	>=dev-libs/libuv-1.50.0:=
 	>=dev-libs/libvterm-0.3.3
 	>=dev-libs/msgpack-3.0.0:=
@@ -94,6 +94,8 @@ src_configure() {
 		-DENABLE_LTO=OFF
 		-DPREFER_LUA=$(usex lua_single_target_luajit no "$(lua_get_version)")
 		-DLUA_PRG="${LUA}"
+		# bug 906019: fix hardcoded usage of ccache
+		-DCACHE_PRG=OFF
 	)
 	cmake_src_configure
 }
@@ -113,7 +115,7 @@ src_install() {
 
 	# conditionally install a symlink for nvimpager
 	if use nvimpager; then
-		dosym ../share/nvim/runtime/macros/less.sh /usr/bin/nvimpager
+		dosym ../share/nvim/runtime/scripts/less.sh /usr/bin/nvimpager
 	fi
 }
 
