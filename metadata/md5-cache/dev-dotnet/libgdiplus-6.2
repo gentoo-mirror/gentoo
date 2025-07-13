@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 dev-lang/mono
+DEFINED_PHASES=configure install prepare setup
+DEPEND=dev-libs/glib:2 media-libs/freetype media-libs/fontconfig >=media-libs/giflib-5.1.2:= media-libs/libexif media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/tiff:= x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrender x11-libs/libXt !cairo? ( x11-libs/pango )
+DESCRIPTION=C-based implementation of the GDI+ API
+EAPI=7
+HOMEPAGE=https://www.mono-project.com
+INHERIT=autotools dotnet
+IUSE=cairo
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=MIT
+RDEPEND=dev-libs/glib:2 media-libs/freetype media-libs/fontconfig >=media-libs/giflib-5.1.2:= media-libs/libexif media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/tiff:= x11-libs/cairo[X] x11-libs/libX11 x11-libs/libXrender x11-libs/libXt !cairo? ( x11-libs/pango )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~sam/distfiles/dev-dotnet/libgdiplus/libgdiplus-6.2.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	mono-env	de65900415c861786a591376c62844cb	dotnet	39b605c06a0444c406948bb8e5fbd9af
+_md5_=34fe07632525a1af355daedc0ccee5c0
