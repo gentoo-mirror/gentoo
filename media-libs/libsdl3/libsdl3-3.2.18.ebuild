@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake-multilib
+inherit cmake-multilib dot-a
 
 DESCRIPTION="Simple Direct Media Layer"
 HOMEPAGE="https://www.libsdl.org/"
@@ -12,7 +12,7 @@ S=${WORKDIR}/SDL3-${PV}
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 IUSE="
 	X alsa aqua dbus doc ibus io-uring jack kms opengl oss pipewire
@@ -89,6 +89,8 @@ src_prepare() {
 }
 
 src_configure() {
+	lto-guarantee-fat
+
 	local mycmakeargs=(
 		-DSDL_ASSERTIONS=disabled
 		-DSDL_DBUS=$(usex dbus)
@@ -160,6 +162,8 @@ src_test() {
 src_install() {
 	local DOCS=( {BUGS,WhatsNew}.txt {CREDITS,README}.md docs/*.md )
 	cmake-multilib_src_install
+
+	strip-lto-bytecode
 
 	rm -r -- "${ED}"/usr/share/licenses || die
 
