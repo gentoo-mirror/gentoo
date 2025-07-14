@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/confluentinc/librdkafka
 INHERIT=flag-o-matic python-any-r1 toolchain-funcs
 IUSE=+lz4 sasl ssl static-libs +zstd
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~sparc x86
+KEYWORDS=amd64 arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~sparc x86
 LICENSE=BSD-2
 RDEPEND=net-misc/curl !static-libs? ( lz4? ( app-arch/lz4:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? ( dev-libs/openssl:0= ) zstd? ( app-arch/zstd:= ) sys-libs/zlib:= )
 SLOT=0/1
 SRC_URI=https://github.com/confluentinc/librdkafka/archive/v2.10.0.tar.gz -> librdkafka-2.10.0.tar.gz
 _eclasses_=toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	bb392d69d55c48a5483d356933a26d57	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=a5cf78e63185bb96c1798da110f9acb0
+_md5_=196d9c0e7f9849ed33c5f0856f7d7813
