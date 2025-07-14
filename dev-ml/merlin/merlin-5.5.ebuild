@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,28 +8,18 @@ inherit elisp-common dune edo
 
 DESCRIPTION="Context sensitive completion for OCaml in Vim and Emacs"
 HOMEPAGE="https://github.com/ocaml/merlin/"
-SRC_URI="
-	https://github.com/ocaml/merlin/archive/refs/tags/v${PV}-414.tar.gz
-	-> ${P}-414.tar.gz
-	https://github.com/ocaml/merlin/archive/refs/tags/${PV}-502_preview2.tar.gz
-	-> ${P}-502.tar.gz
-"
+SRC_URI="https://github.com/ocaml/${PN}/releases/download/v${PV}-503/${P}-503.tbz"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="emacs +ocamlopt test"
-
-# Tests fail unexpectedly on Tinderbox. See https://bugs.gentoo.org/933857
-# RESTRICT="!test? ( test )"
-RESTRICT="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-lang/ocaml-4.14.1
-	>=dev-ml/dune-2.9:=
-	>=dev-ml/yojson-2.0.0:=
+	>=dev-lang/ocaml-5.3.0 <dev-lang/ocaml-5.4.0
 	dev-ml/csexp:=
-	dev-ml/menhir:=
+	dev-ml/yojson:=
 	emacs? (
 		>=app-editors/emacs-23.1:*
 		app-emacs/auto-complete
@@ -43,24 +33,29 @@ DEPEND="
 # because it breaks merlin builds.
 # https://github.com/ocaml/merlin/issues/1500
 BDEPEND="
-	!!<dev-ml/seq-0.3
 	dev-ml/findlib
 	test? (
 		app-misc/jq
+		dev-ml/alcotest
+		dev-ml/ppxlib
 	)
 "
 
 SITEFILE="50${PN}-gentoo.el"
 
+DUNE_PKG_NAMES_OTHER=(
+	dot-merlin-reader
+	ocaml-index
+	merlin-lib
+)
+
 src_unpack() {
 	default
 
-	if has_version "=dev-lang/ocaml-4.14*" ; then
-		edo mv "${P}-414" "${S}"
-	elif has_version "=dev-lang/ocaml-5.2*" ; then
-		edo mv "${P}-502_preview2" "${S}"
+	if has_version "=dev-lang/ocaml-5.3*" ; then
+		edo mv "${P}-503" "${S}"
 	else
-		die "Currently installed version of OCaml is not yet supported"
+		die "The installed version of OCaml is not yet supported"
 	fi
 }
 
@@ -88,21 +83,33 @@ src_prepare() {
 }
 
 src_compile() {
-	dune_src_compile
+	# This is a minimal compilation set to avoid the "menhir" dependency.
+	# See the readme: https://github.com/ocaml/merlin/blob/main/README.md
+	dune-compile "${DUNE_PKG_NAMES_OTHER[@]}" "${PN}"
 
 	if use emacs ; then
 		# iedit isn't packaged yet
 		rm emacs/merlin-iedit.el || die
 
-		BYTECOMPFLAGS="-L emacs" elisp-compile emacs/*.el
+		local -x BYTECOMPFLAGS="-L emacs"
+		elisp-compile ./emacs/*.el
 	fi
+}
+
+src_test() {
+	dune-test "${DUNE_PKG_NAMES_OTHER[@]}"
+
+	# Dune test dance:
+	# Testing not all packages removes some needed files for the install step.
+	# We have to compile again, luckily this time most of the build is cached.
+	dune-compile "${DUNE_PKG_NAMES_OTHER[@]}" "${PN}"
 }
 
 src_install() {
 	dune_src_install
 
 	if use emacs ; then
-		elisp-install ${PN} emacs/*.el{,c}
+		elisp-install "${PN}" ./emacs/*.el{,c}
 		elisp-site-file-install "${FILESDIR}/${SITEFILE}"
 	fi
 }

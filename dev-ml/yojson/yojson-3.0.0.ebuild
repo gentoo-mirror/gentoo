@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,32 +6,41 @@ EAPI=8
 inherit dune
 
 DESCRIPTION="JSON parsing and pretty-printing library for OCaml"
-HOMEPAGE="https://github.com/ocaml-community/yojson"
-SRC_URI="https://github.com/ocaml-community/${PN}/archive/${PV}.tar.gz
-	-> ${P}.tar.gz"
+HOMEPAGE="https://github.com/ocaml-community/yojson/"
+
+if [[ "${PV}" == *9999* ]] ; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://github.com/ocaml-community/${PN}"
+else
+	SRC_URI="https://github.com/ocaml-community/${PN}/archive/${PV}.tar.gz
+		-> ${P}.gh.tar.gz"
+
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
+fi
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="amd64"
 IUSE="examples +ocamlopt test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="
-	>=dev-lang/ocaml-4.07:=[ocamlopt?]
-	dev-ml/sedlex:=
-	!!<dev-ml/seq-0.3
-"
-DEPEND="${RDEPEND}"
 BDEPEND="
 	test? ( dev-ml/alcotest )
 "
 
-PATCHES=( "${FILESDIR}/${PN}-2.1.1-dune-seq.patch" )
-
 src_prepare() {
 	default
+
 	# let's not build this
 	rm bench/dune yojson-bench.opam || die
+}
+
+src_compile() {
+	dune-compile "${PN}"
+}
+
+src_test() {
+	dune-test "${PN}"
 }
 
 src_install() {

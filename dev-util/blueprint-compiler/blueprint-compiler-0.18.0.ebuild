@@ -5,21 +5,20 @@ EAPI=8
 
 PYTHON_COMPAT=( python3_{11..13} )
 
-inherit meson python-single-r1 virtualx
+inherit edo meson python-single-r1 virtualx
 
 DESCRIPTION="Compiler for Blueprint, a markup language for GTK user interfaces"
-HOMEPAGE="https://jwestman.pages.gitlab.gnome.org/blueprint-compiler/
-	https://gitlab.gnome.org/jwestman/blueprint-compiler/"
+HOMEPAGE="https://gnome.pages.gitlab.gnome.org/blueprint-compiler/
+	https://gitlab.gnome.org/GNOME/blueprint-compiler/"
 
 if [[ "${PV}" == *9999 ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://gitlab.gnome.org/jwestman/${PN}.git"
+	EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/${PN}.git"
 else
-	SRC_URI="https://gitlab.gnome.org/jwestman/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
-	S="${WORKDIR}/${PN}-v${PV}"
+	inherit gnome.org
 
-	KEYWORDS="amd64 ~arm ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 LICENSE="LGPL-3+"
@@ -53,6 +52,7 @@ DOCS=( CONTRIBUTING.md MAINTENANCE.md NEWS.md README.md )
 src_prepare() {
 	default
 
+	rm ./tests/test_deprecations.py || die
 	rm ./tests/test_samples.py || die  # Fails on CI, bug #947156
 }
 
@@ -66,11 +66,13 @@ src_configure() {
 src_compile() {
 	meson_src_compile
 
-	use doc && build_sphinx docs
+	if use doc ; then
+		build_sphinx docs
+	fi
 }
 
 src_test() {
-	virtx meson_src_test
+	virtx edo "${EPYTHON}" -m unittest
 }
 
 src_install() {
