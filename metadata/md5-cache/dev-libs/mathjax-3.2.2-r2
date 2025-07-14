@@ -1,4 +1,4 @@
-BDEPEND=doc? ( || ( ( dev-lang/python:3.12 dev-python/sphinx[python_targets_python3_12(-)] dev-python/sphinx-rtd-theme[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/sphinx[python_targets_python3_11(-)] dev-python/sphinx-rtd-theme[python_targets_python3_11(-)] ) ) )
+BDEPEND=doc? ( || ( ( dev-lang/python:3.14 dev-python/sphinx[python_targets_python3_14(-)] dev-python/sphinx-rtd-theme[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/sphinx[python_targets_python3_13(-)] dev-python/sphinx-rtd-theme[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/sphinx[python_targets_python3_12(-)] dev-python/sphinx-rtd-theme[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/sphinx[python_targets_python3_11(-)] dev-python/sphinx-rtd-theme[python_targets_python3_11(-)] ) ) )
 DEFINED_PHASES=compile install setup
 DESCRIPTION=JavaScript display engine for LaTeX, MathML and AsciiMath
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=!app-doc/mathjax-docs
 SLOT=0/3.2.2
 SRC_URI=https://github.com/mathjax/MathJax/archive/3.2.2.tar.gz -> mathjax-3.2.2.tar.gz doc? ( https://github.com/mathjax/MathJax-docs/archive/c4a733d6d0ced4242a4df1c46137d4be6b3aaaee.tar.gz -> mathjax-docs-3.2.2.tar.gz )
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a6df79c1e9bc84369dbf3d44206ac772	python-utils-r1	bb392d69d55c48a5483d356933a26d57	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=4c19b1ff368d57dfe5edae0bdc09ff55
+_md5_=316e3bbc93e1c196a29312b9036ac20b
