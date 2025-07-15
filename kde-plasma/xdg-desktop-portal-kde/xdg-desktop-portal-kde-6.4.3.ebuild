@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KFMIN=6.10.0
+KFMIN=6.14.0
 QTMIN=6.8.1
 inherit ecm plasma.kde.org xdg
 
@@ -45,7 +45,7 @@ COMMON_DEPEND="
 	x11-libs/libxkbcommon
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.16.0
+	>=dev-libs/plasma-wayland-protocols-1.18.0
 	>=dev-libs/wayland-protocols-1.25
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 "
