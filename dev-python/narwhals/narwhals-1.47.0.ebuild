@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~arm64"
 BDEPEND="
 	test? (
 		>=dev-python/pandas-1.1.3[${PYTHON_USEDEP}]
-		dev-python/pyarrow[${PYTHON_USEDEP}]
+		>=dev-python/pyarrow-13.0.0[${PYTHON_USEDEP}]
 	)
 "
 
