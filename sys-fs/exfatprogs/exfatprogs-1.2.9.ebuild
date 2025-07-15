@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Userspace utilities for the exFAT filesystem (kernel 5.7+)"
+DESCRIPTION="Userspace utilities for the exFAT filesystem"
 HOMEPAGE="https://github.com/exfatprogs/exfatprogs"
 
 if [[ ${PV} == *9999 ]] ; then
@@ -11,7 +11,7 @@ if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/exfatprogs/exfatprogs.git"
 else
 	SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
-	KEYWORDS="amd64 ~arm64 ~loong ppc ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-2"
