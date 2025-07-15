@@ -26,11 +26,11 @@ LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-30.0.2.0
+	>=app-emacs/compat-30.1.0.0
 	>=app-emacs/dash-2.19.1
-	>=app-emacs/transient-0.7.7
+	>=app-emacs/llama-0.6.3
+	>=app-emacs/transient-0.9.0
 	>=app-emacs/with-editor-3.4.2
-	app-emacs/llama
 "
 BDEPEND="
 	${RDEPEND}
