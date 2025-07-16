@@ -3,14 +3,12 @@
 
 EAPI=8
 
-inherit cmake toolchain-funcs
+inherit cmake
 
-DESCRIPTION="Scalable Algorithms for Parallel Adaptive Mesh Refinement on Forests of Octrees"
+DESCRIPTION="Support for parallel scientific applications"
 HOMEPAGE="http://www.p4est.org/"
 
-LIBSC_VERSION="${PV}"
-
-if [[ ${PV} = *9999* ]]; then
+if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/cburstedde/${PN}.git"
 	EGIT_BRANCH="develop"
@@ -19,15 +17,13 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-LICENSE="GPL-2+"
+LICENSE="LGPL-2.1+"
 SLOT="0"
-
-# TODO petsc
-IUSE="debug doc examples mpi openmp threads +vtk-binary"
+IUSE="debug examples mpi threads"
 
 RDEPEND="
-	~sci-libs/libsc-${LIBSC_VERSION}[mpi=,openmp=,threads=]
 	sys-apps/util-linux
+	sys-libs/zlib
 	virtual/blas
 	virtual/lapack
 	mpi? ( virtual/mpi[romio] )"
@@ -35,19 +31,10 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-fix_build_system.patch
 	"${FILESDIR}"/${P}-set_version.patch
+	"${FILESDIR}"/${P}-fix_build_system.patch
 	"${FILESDIR}"/${P}-fix_cmake_path.patch
-	"${FILESDIR}"/${P}-use_external_sc.patch
 )
-
-pkg_pretend() {
-	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
-}
-
-pkg_setup() {
-	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
-}
 
 src_configure() {
 	# avoid using debug codepaths that are manually enabled with the
@@ -55,7 +42,7 @@ src_configure() {
 	local CMAKE_BUILD_TYPE="Release"
 
 	local mycmakeargs=(
-		-DP4EST_ENABLE_MPI="$(usex mpi)"
+		-Dmpi="$(usex mpi)"
 		-Dlibrary_reldir="$(get_libdir)"
 	)
 
@@ -65,7 +52,10 @@ src_configure() {
 src_install() {
 	cmake_src_install
 
-	mkdir -p "${ED}"/usr/share/doc/${PF}
-	mv "${ED}"/usr/share/docs/P4EST/* "${ED}"/usr/share/doc/${PF}/ || die "mv failed"
+#      rm -r "${ED}"/usr/include/getopt.h \
+#          "${ED}"/usr/include/getopt_int.h \
+#          "${ED}"/usr/include/sc_builtin || die "rm failed"
+
+	mv "${ED}"/usr/share/docs/SC/* "${ED}"/usr/share/doc/${PF}/ || die "mv failed"
 	rm -r "${ED}"/usr/share/docs || die "rm failed"
 }
