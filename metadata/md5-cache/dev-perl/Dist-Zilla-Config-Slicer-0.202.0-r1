@@ -1,16 +1,16 @@
-BDEPEND=dev-perl/Config-MVP-Slicer >=dev-perl/Dist-Zilla-4.0.0 dev-perl/Moose virtual/perl-ExtUtils-MakeMaker test? ( virtual/perl-File-Spec virtual/perl-File-Temp virtual/perl-IO >=virtual/perl-Test-Simple-0.960.0 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+BDEPEND=dev-perl/Config-MVP-Slicer >=dev-perl/Dist-Zilla-4.0.0 dev-perl/Moose test? ( >=virtual/perl-Test-Simple-0.960.0 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Config::MVP::Slicer customized for Dist::Zilla
-EAPI=7
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/Dist-Zilla-Config-Slicer
 INHERIT=perl-module
-IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath
+IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/Config-MVP-Slicer >=dev-perl/Dist-Zilla-4.0.0 dev-perl/Moose >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/R/RW/RWSTAUNER/Dist-Zilla-Config-Slicer-0.202.tar.gz
-_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	perl-module	41920449ca174fe9b9b303dfcbdb37a3
-_md5_=50276f75d0fc67cff2ca0d8ad107aac8
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	perl-module	41920449ca174fe9b9b303dfcbdb37a3
+_md5_=b7679a0000df01813256f215524ad097
