@@ -15,11 +15,11 @@ else
 	MY_PV="$(ver_cut 1-2).0$(ver_cut 3)"
 	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${MY_PV}"
-	KEYWORDS="~amd64 -x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="BSD"
-SLOT="0"
+SLOT="0/${PV}"
 IUSE="+openmp test"
 RESTRICT="!test? ( test )"
 
