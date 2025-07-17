@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,7 +31,6 @@ HOMEPAGE="https://www.gnu.org/software/autoconf/autoconf.html"
 
 LICENSE="GPL-3+"
 SLOT="${PV/_*}"
-IUSE="emacs"
 
 # for 2.71, our Perl time resolution patch changes our min Perl from 5.6
 # (vanilla upstream for 2.71) to 5.8.
@@ -42,7 +41,6 @@ RDEPEND="${BDEPEND}
 	sys-devel/gnuconfig
 	!~dev-build/${P}:2.5"
 [[ ${PV} == 9999 ]] && BDEPEND+=" >=sys-apps/texinfo-4.3"
-PDEPEND="emacs? ( app-emacs/autoconf-mode )"
 
 PATCHES=(
 	"${FILESDIR}"/${MY_P}-AC_LANG_CALL_C_cxx.patch
