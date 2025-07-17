@@ -52,28 +52,40 @@ src_prepare() {
 	tc-export OBJCOPY
 	default
 
-	local remove_me=(
-		lib/async-profiler/aarch64
-		plugins/go-plugin/lib/dlv/linuxarm/dlv
-		plugins/go-plugin/lib/dlv/linuxarmmusl/dlv
-	)
+	if ! use arm64; then
+		local remove_me=(
+			lib/async-profiler/aarch64
+			plugins/go-plugin/lib/dlv/linuxarm/dlv
+			plugins/go-plugin/lib/dlv/linuxarmmusl/dlv
+		)
+	elif ! use amd64; then
+		local remove_me=(
+			lib/async-profiler/amd64
+			plugins/go-plugin/lib/dlv/linuxmusl/dlv
+		)
+	fi
 
 	rm -rv "${remove_me[@]}" || die
 
 	# excepting files that should be kept for remote plugins
-	local skip_nonx86_files=(
-		"./plugins/platform-ijent-impl/ijent-aarch64-unknown-linux-musl-release"
-		"./plugins/clion-radler/DotFiles/linux-musl-arm64/jb_zip_unarchiver"
-		"./plugins/clion-radler/DotFiles/linux-arm/jb_zip_unarchiver"
-		"./plugins/clion-radler/DotFiles/linux-musl-arm/jb_zip_unarchiver"
-		"./plugins/gateway-plugin/lib/remote-dev-workers/remote-dev-worker-linux-arm64"
-	)
+	if ! use arm64 ; then
+		local skip_remote_files=(
+			"plugins/platform-ijent-impl/ijent-aarch64-unknown-linux-musl-release"
+			"plugins/gateway-plugin/lib/remote-dev-workers/remote-dev-worker-linux-arm64"
+		)
+	elif ! use amd64; then
+		local skip_remote_files=(
+			"plugins/platform-ijent-impl/ijent-x86_64-unknown-linux-musl-release"
+			"plugins/gateway-plugin/lib/remote-dev-workers/remote-dev-worker-linux-amd64"
+		)
+	fi
+
 	# removing debug symbols and relocating debug files as per #876295
 	# we're escaping all the files that contain $() in their name
 	# as they should not be executed
 	find . -type f ! -name '*$(*)*' -print0 | while IFS= read -r -d '' file; do
-		for skip in "${skip_nonx86_files[@]}"; do
-			[[ ${file} == "${skip}" ]] && continue 2
+		for skip in "${skip_remote_files[@]}"; do
+			[[ ${file} == ./"${skip}" ]] && continue 2
 		done
 		if file "${file}" | grep -qE "ELF (32|64)-bit"; then
 			${OBJCOPY} --remove-section .note.gnu.build-id "${file}" || die
