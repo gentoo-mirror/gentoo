@@ -1367,7 +1367,7 @@ app-containers/docker-credential-helpers 0.8.2 0.9.2 0.9.3: Suite of programs to
 app-containers/docker-pushrm 1.9.0: Docker CLI plugin to update container repository documentation
 app-containers/docker-registry 3.0.0_rc2 3.0.0_rc3: Docker Registry 2.0
 app-containers/docker-swarm 1.2.9: Swarm Classic: a container clustering system
-app-containers/earthly 0.8.15: Build automation tool that executes in containers
+app-containers/earthly 0.8.15 0.8.16: Build automation tool that executes in containers
 app-containers/flannel 0.26.3: An etcd backed network fabric for containers
 app-containers/grype 0.59.1 0.61.0 0.72.0 0.73.0 0.79.3 0.86.1: A vulnerability scanner for container images and filesystems
 app-containers/img 0.5.11: Standalone daemon-less unprivileged Dockerfile and OCI container image builder
@@ -5132,7 +5132,7 @@ dev-lang/algol68g 3.5.14 3.5.15: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.11 3.0.0: Scala language-based scripting and REPL
 dev-lang/arc 3.2-r1: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2-r1: Functional programming language with dependent types
-dev-lang/bas 2.6-r1: An interpreter for the classic dialect of the programming language BASIC
+dev-lang/bas 2.6-r2: An interpreter for the classic dialect of the programming language BASIC
 dev-lang/bff 1.0.7: A brainfuck interpreter
 dev-lang/boogie 3.5.2 3.5.3 3.5.4: SMT-based program verifier
 dev-lang/c-intercal 33.0-r2: C-INTERCAL - INTERCAL to binary (via C) compiler
@@ -5285,7 +5285,7 @@ dev-libs/bglibs 2.04-r1 2.04-r2 2.04-r4: Bruce Guenter's Libraries Collection
 dev-libs/bitset 2.8.4-r3: A compressed bitset with supporting data structures and algorithms
 dev-libs/bitshuffle 0.3.5-r1: Bitshuffle C library
 dev-libs/blake3 1.5.0 1.5.1 1.5.3: a fast cryptographic hash function
-dev-libs/blazesym_c 0.1.1: C bindings for blazesym, a library for address symbolization and related tasks
+dev-libs/blazesym_c 0.1.1 0.1.2: C bindings for blazesym, a library for address symbolization and related tasks
 dev-libs/boehm-gc 8.2.8: The Boehm-Demers-Weiser conservative garbage collector
 dev-libs/boost 1.85.0-r1 1.86.0-r1 1.87.0-r3 1.88.0-r1: Boost Libraries for C++
 dev-libs/boron 2.1.0: A scripting language similar to REBOL
@@ -5444,7 +5444,7 @@ dev-libs/libayatana-appindicator 0.5.93 0.5.94: Ayatana Application Indicators (
 dev-libs/libayatana-indicator 0.9.4: Ayatana Application Indicators (Shared Library)
 dev-libs/libb64 2.0.0.1-r1: Fast Base64 encoding/decoding routines
 dev-libs/libbase58 0.1.4-r2: C implementation of Bitcoin's base58 encoding
-dev-libs/libbpf 1.5.0 1.5.1 9999: Stand-alone build of libbpf from the Linux kernel
+dev-libs/libbpf 1.5.1 1.6.0 9999: Stand-alone build of libbpf from the Linux kernel
 dev-libs/libbsd 0.11.8 0.12.1: Library to provide useful functions commonly found on BSD systems
 dev-libs/libbson 1.24.4 1.24.4-r1: Library routines related to building,parsing and iterating BSON documents
 dev-libs/libbulletml 0.0.6: A Library of Bullet Markup Language
@@ -10790,7 +10790,7 @@ dev-util/cutils 1.6-r5: C language utilities
 dev-util/cutter 2.3.4-r2: A Qt and C++ GUI for rizin reverse engineering framework
 dev-util/cvise 2.11.0-r1 9999: Super-parallel Python port of the C-Reduce
 dev-util/cwdiff 0.4.0 9999: A script that wraps wdiff to support directories and colorize the output
-dev-util/datree 1.9.19: Tool to ensure K8s manifests and Helm charts follow best practices
+dev-util/datree 1.9.19-r1: Tool to ensure K8s manifests and Helm charts follow best practices
 dev-util/dbus-test-runner 19.04.0-r2: Run executables under a new DBus session for testing
 dev-util/debhelper 13.2.1: Collection of programs that can be used to automate common tasks in debian/rules
 dev-util/debootstrap 1.0.128_p2 1.0.134: Debian/Ubuntu bootstrap scripts
@@ -13925,7 +13925,7 @@ media-sound/cdplay 1.0: A commandline CD Player
 media-sound/cdstatus 0.97.03: Tool for diagnosing cdrom drive and digital data (audio) extraction
 media-sound/cdtool 2.1.8-r2: collection of command-line utilities to control cdrom devices
 media-sound/chordii 4.5.3: Guitar music typesetter
-media-sound/chuck 1.5.5.0 1.5.5.1: Strongly-timed, concurrent, and on-the-fly audio programming language
+media-sound/chuck 1.5.5.1: Strongly-timed, concurrent, and on-the-fly audio programming language
 media-sound/clementine 1.4.1_p28-r1 9999: Modern music player and library organizer based on Amarok 1.4 and Qt
 media-sound/cmix 1.6-r1: command line audio mixer
 media-sound/cmus 2.12.0 9999: Ncurses based music player with plugin support for many formats
@@ -14127,7 +14127,7 @@ media-sound/qsampler 1.0.0-r1 9999: Graphical frontend to the LinuxSampler engin
 media-sound/qsynth 1.0.2-r1 9999: Qt application to control FluidSynth
 media-sound/qtagger 1.0.1_p20150402-r1: Simple Qt5 ID3v2 tag editor
 media-sound/qtgain 1.0.0: Simple frontend to mp3gain, vorbisgain and metaflac
-media-sound/qtractor 1.5.4 1.5.6: Audio/MIDI multi-track sequencer written in C++ with the Qt framework
+media-sound/qtractor 1.5.6: Audio/MIDI multi-track sequencer written in C++ with the Qt framework
 media-sound/quimup 2.1.1-r1: Qt client for the music player daemon (MPD)
 media-sound/quodlibet 4.6.0-r2 4.6.0-r3 4.7.1: audio library tagger, manager, and player for GTK+
 media-sound/rawrec 0.9.991: CLI program to play and record audiofiles
