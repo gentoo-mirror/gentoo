@@ -1,10 +1,10 @@
 BDEPEND=>=app-text/scdoc-1.9.2 dev-util/gdbus-codegen dev-util/wayland-scanner virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install test unpack
+DEFINED_PHASES=compile configure install postinst test unpack
 DEPEND=dev-cpp/cairomm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-libs/glib:2 dev-libs/jsoncpp:= dev-libs/libsigc++:2 >=dev-libs/libfmt-8.1.1:= >=dev-libs/spdlog-1.10.0:= dev-libs/date:= dev-libs/wayland >=gui-libs/gtk-layer-shell-0.9.0 media-video/pipewire:= x11-libs/gtk+:3[wayland] x11-libs/libxkbcommon evdev? ( dev-libs/libevdev ) jack? ( virtual/jack ) libinput? ( dev-libs/libinput:= ) logind? ( || ( sys-apps/systemd sys-auth/elogind ) ) mpd? ( media-libs/libmpdclient ) mpris? ( >=media-sound/playerctl-2 ) network? ( dev-libs/libnl:3 ) pipewire? ( media-video/wireplumber:0/0.5 ) pulseaudio? ( media-libs/libpulse ) sndio? ( media-sound/sndio:= ) systemd? ( sys-apps/systemd:= ) tray? ( dev-libs/libayatana-appindicator dev-libs/libdbusmenu[gtk3] ) udev? ( virtual/libudev:= ) upower? ( sys-power/upower:= ) wifi? ( sys-apps/util-linux ) dev-libs/wayland-protocols test? ( dev-cpp/catch:0 )
 DESCRIPTION=Highly customizable Wayland bar for Sway and Wlroots based compositors
 EAPI=8
 HOMEPAGE=https://github.com/Alexays/Waybar
-INHERIT=meson git-r3
+INHERIT=meson optfeature git-r3
 IUSE=evdev experimental jack +libinput +logind mpd mpris network pipewire pulseaudio sndio systemd test tray +udev upower wifi
 LICENSE=MIT
 PROPERTIES=live
@@ -12,5 +12,5 @@ RDEPEND=dev-cpp/cairomm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-libs/glib:2 dev
 REQUIRED_USE=upower? ( logind )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	bb392d69d55c48a5483d356933a26d57	meson	99466844dd8d4fcfb07578a76f5a9922	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=ef5fb7f5047f3beb4c4bd63784b94abf
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	bb392d69d55c48a5483d356933a26d57	meson	99466844dd8d4fcfb07578a76f5a9922	optfeature	538bce96e5589935b57e178e8635f301	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=69db634edb37d77371cffd27bd9d0f4b
