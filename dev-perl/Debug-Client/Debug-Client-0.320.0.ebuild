@@ -3,8 +3,8 @@
 
 EAPI=8
 
-DIST_AUTHOR=MANWAR
-DIST_VERSION=0.31
+DIST_AUTHOR=SZABGAB
+DIST_VERSION=0.32
 inherit perl-module
 
 DESCRIPTION="Client side code for perl debugger"
