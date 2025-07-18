@@ -3,7 +3,7 @@ DEPEND=>=dev-lang/ocaml-4.05:=[ocamlopt=] dev-libs/gmp:0= dev-lang/perl >=dev-ml
 DESCRIPTION=Arithmetic and logic operations over arbitrary-precision integers
 EAPI=8
 HOMEPAGE=https://github.com/ocaml/Zarith
-INHERIT=findlib toolchain-funcs
+INHERIT=findlib toolchain-funcs dot-a
 IUSE=doc +ocamlopt +ocamlopt
 KEYWORDS=amd64 ~arm arm64 ~ppc x86
 LICENSE=LGPL-2.1-with-linking-exception
@@ -11,5 +11,5 @@ RDEPEND=>=dev-lang/ocaml-4.05:=[ocamlopt=] dev-libs/gmp:0= dev-lang/ocaml:=[ocam
 RESTRICT=!ocamlopt? ( test )
 SLOT=0/1.14
 SRC_URI=https://github.com/ocaml/Zarith/archive/release-1.14.tar.gz -> zarith-1.14.tar.gz
-_eclasses_=findlib	49d5365fca4dea46f13825b9d763c89e	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
-_md5_=6a8ab949276eb04f256d3c82ade73ab3
+_eclasses_=findlib	49d5365fca4dea46f13825b9d763c89e	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a
+_md5_=3e7f9845989afbe2e016e31f5215f106
