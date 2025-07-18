@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{11..13} )
 inherit check-reqs edo toolchain-funcs
 inherit python-r1
 
-DRIVER_PV="570.124.06"
+DRIVER_PV="575.57.08"
 GCC_MAX_VER="14"
 CLANG_MAX_VER="19"
 
@@ -77,9 +77,9 @@ python_check_deps() {
 
 cuda-toolkit_check_reqs() {
 	if use amd64; then
-		export CHECKREQS_DISK_BUILD="6608M"
+		export CHECKREQS_DISK_BUILD="7228M"
 	elif use arm64; then
-		export CHECKREQS_DISK_BUILD="6354M"
+		export CHECKREQS_DISK_BUILD="6998M"
 	fi
 
 	"check-reqs_pkg_${EBUILD_PHASE}"
