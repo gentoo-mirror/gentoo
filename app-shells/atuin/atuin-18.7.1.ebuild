@@ -4,6 +4,7 @@
 EAPI=8
 
 CRATES=" "
+
 RUST_MIN_VER="1.86"
 
 inherit cargo readme.gentoo-r1 shell-completion systemd
@@ -18,7 +19,7 @@ LICENSE="MIT"
 # - openssl for ring crate
 LICENSE+=" Apache-2.0 BSD Boost-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016 openssl"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 IUSE="+client +daemon server test +sync"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
