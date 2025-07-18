@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 # Avoid QA warnings
 TMPFILES_OPTIONAL=1
@@ -272,6 +272,7 @@ src_unpack() {
 src_prepare() {
 	local PATCHES=(
 		"${FILESDIR}"/systemd-257-cred-util-tpm2.patch
+		"${FILESDIR}"/257-ignore-sframe.patch
 	)
 
 	if ! use vanilla; then
