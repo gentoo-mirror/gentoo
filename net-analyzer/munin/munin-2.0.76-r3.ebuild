@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="asterisk irc java ldap memcached minimal mysql postgres selinux ssl test cgi ipv6 syslog ipmi http dhcpd doc apache2"
 REQUIRED_USE="cgi? ( !minimal ) apache2? ( cgi )"
-RESTRICT="!test? ( test )"
 
 # Upstream's listing of required modules is NOT correct!
 # Some of the postgres plugins use DBD::Pg, while others call psql directly.
@@ -110,6 +109,7 @@ RDEPEND="${DEPEND_COM}
 		selinux? ( sec-policy/selinux-munin )"
 
 S="${WORKDIR}/${MY_P}"
+RESTRICT="!test? ( test )"
 
 pkg_setup() {
 	java-pkg-opt-2_pkg_setup
@@ -147,6 +147,7 @@ src_configure() {
 	LOGDIR=\$(DESTDIR)/var/log/munin
 	PERLLIB=\$(DESTDIR)$(perl -V:vendorlib | cut -d"'" -f2)
 	JCVALID=$(usex java yes no)
+	JFLAGS=-Xlint
 	STATEDIR=\$(DESTDIR)/run/munin
 	EOF
 }
@@ -231,7 +232,7 @@ src_install() {
 
 	dodir /etc/logrotate.d/
 	sed -e "s:@CGIUSER@:$(usex apache2 apache munin):g" \
-		"${FILESDIR}"/logrotate.d-munin.3 > "${D}"/etc/logrotate.d/munin
+		"${FILESDIR}"/logrotate.d-munin.5 > "${D}"/etc/logrotate.d/munin
 
 	dosym ipmi_ /usr/libexec/munin/plugins/ipmi_sensor_
 
