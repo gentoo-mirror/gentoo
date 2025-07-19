@@ -1,0 +1,14 @@
+BDEPEND=doc? ( dev-python/sphinx )
+DEFINED_PHASES=compile configure install prepare
+DESCRIPTION=Userspace tools for MMC/SD devices
+EAPI=8
+HOMEPAGE=https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git/
+INHERIT=toolchain-funcs
+IUSE=doc
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-2 BSD
+RDEPEND=!dev-lang/mercury
+SLOT=0
+SRC_URI=https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git/snapshot/mmc-utils-1.0.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
+_md5_=1dd56e28ee051d2ad40634faf8527231
