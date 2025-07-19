@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.exim.org/
 INHERIT=db-use flag-o-matic toolchain-funcs pam systemd
 IUSE=arc berkdb +dane dcc +dkim dlfunc dmarc +dnsdb doc dovecot-sasl dsn gdbm gnutls idn ipv6 ldap lmtp maildir mbx mysql nis pam perl pkcs11 postgres +prdr proxy radius redis sasl selinux socks5 spf sqlite srs +ssl syslog tdb tcpd +tpda
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=~alpha ~amd64 arm ~arm64 ~hppa ~ppc ppc64 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=>=sys-apps/sed-4.0.5 dev-libs/libpcre2:= tdb? ( sys-libs/tdb:= ) !tdb? ( berkdb? ( >=sys-libs/db-3.2:= <sys-libs/db-6:= ) ) !tdb? ( !berkdb? ( sys-libs/gdbm:= ) ) idn? ( net-dns/libidn:= net-dns/libidn2:= ) perl? ( dev-lang/perl:= ) pam? ( sys-libs/pam ) tcpd? ( sys-apps/tcp-wrappers ) ssl? ( gnutls? ( net-libs/gnutls:0=[pkcs11?] dev-libs/libtasn1 ) !gnutls? ( dev-libs/openssl:0= ) ) ldap? ( >=net-nds/openldap-2.0.7:= ) elibc_glibc? ( net-libs/libnsl:= nis? ( net-libs/libtirpc:= >=net-libs/libnsl-1:= ) ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:= ) sasl? ( >=dev-libs/cyrus-sasl-2.1.26-r2 ) redis? ( dev-libs/hiredis:= ) spf? ( >=mail-filter/libspf2-1.2.5-r1 ) dmarc? ( mail-filter/opendmarc:= ) sqlite? ( dev-db/sqlite:= ) radius? ( net-dialup/freeradius-client ) virtual/libcrypt:= virtual/libiconv !mail-mta/courier !mail-mta/esmtp !mail-mta/msmtp[mta] !mail-mta/netqmail !mail-mta/nullmailer !mail-mta/postfix !mail-mta/sendmail !mail-mta/opensmtpd !mail-mta/ssmtp[mta] >=net-mail/mailbase-0.00-r5 virtual/logger dcc? ( mail-filter/dcc ) selinux? ( sec-policy/selinux-exim )
 REQUIRED_USE=arc? ( dkim spf ) dane? ( ssl !gnutls ) !dane? ( ssl? ( gnutls ) ) dmarc? ( dkim spf ) dkim? ( ssl !gnutls ) gnutls? ( ssl ) pkcs11? ( ssl ) || ( berkdb gdbm tdb sqlite )
 SLOT=0
 SRC_URI=https://downloads.exim.org/exim4/exim-4.98.2.tar.xz mirror://gentoo/system_filter.exim.gz doc? ( https://downloads.exim.org/exim4/exim-pdf-4.98.2.tar.xz )
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	multilib	b2a329026f2e404e9e371097dda47f96	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=e63c19a60f2d29803f37f2e5eb5d0c08
+_md5_=a06a78fe2ab228087c02036e589c6911
