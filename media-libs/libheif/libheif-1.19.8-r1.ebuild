@@ -18,9 +18,8 @@ fi
 
 LICENSE="GPL-3 MIT"
 SLOT="0/$(ver_cut 1-2)"
-IUSE="+aom dav1d +de265 doc examples ffmpeg gdk-pixbuf +jpeg +jpeg2k +kvazaar openh264 rav1e svt-av1 test test-full +threads tools +webp x265"
+IUSE="+aom dav1d +de265 doc examples ffmpeg gdk-pixbuf +jpeg +jpeg2k +kvazaar openh264 rav1e svt-av1 test +threads +webp x265"
 # IUSE+=" vvdec vvenc"
-REQUIRED_USE="test-full? ( test )"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
@@ -40,11 +39,6 @@ DEPEND="
 	openh264? ( media-libs/openh264:=[${MULTILIB_USEDEP}] )
 	rav1e? ( media-video/rav1e:= )
 	svt-av1? ( media-libs/svt-av1:=[${MULTILIB_USEDEP}] )
-	tools? (
-		examples? (
-			media-libs/libsdl2:=[${MULTILIB_USEDEP}]
-		)
-	)
 	webp? ( media-libs/libwebp:= )
 	x265? ( media-libs/x265:=[${MULTILIB_USEDEP}] )
 "
@@ -66,7 +60,6 @@ multilib_src_configure() {
 		-DWITH_AOM_ENCODER=$(usex aom)
 		-DWITH_DAV1D=$(usex dav1d)
 		-DWITH_EXAMPLES=$(usex examples)
-		-DWITH_EXAMPLE_HEIF_VIEW=$(usex examples $(usex tools))
 		-DWITH_FFMPEG_DECODER=$(usex ffmpeg)
 		-DWITH_GDK_PIXBUF=$(usex gdk-pixbuf)
 		-DWITH_OpenH264_DECODER=$(usex openh264)
@@ -83,17 +76,6 @@ multilib_src_configure() {
 		-DWITH_OpenJPEG_DECODER=$(usex jpeg2k)
 		-DWITH_OpenJPEG_ENCODER=$(usex jpeg2k)
 	)
-
-	# Allow tests that rely on options not normally enabled
-	# https://github.com/strukturag/libheif/blob/v1.20.1/tests/CMakeLists.txt#L36-L46
-	# https://github.com/strukturag/libheif/blob/v1.20.1/tests/CMakeLists.txt#L82-L101
-	if use test && use test-full; then
-		mycmakeargs+=(
-			-DENABLE_EXPERIMENTAL_FEATURES=ON
-			-DWITH_REDUCED_VISIBILITY=OFF
-			-DWITH_UNCOMPRESSED_CODEC=ON
-		)
-	fi
 
 	cmake_src_configure
 }

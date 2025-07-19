@@ -95,6 +95,13 @@ multilib_src_configure() {
 		)
 	fi
 
+	# TODO WITH_EXAMPLE_HEIF_VIEW in -9999
+	if ! use tools; then
+		mycmakeargs+=(
+			-DCMAKE_DISABLE_FIND_PACKAGE_SDL2=ON
+		)
+	fi
+
 	cmake_src_configure
 }
 
