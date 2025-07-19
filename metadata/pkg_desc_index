@@ -3977,7 +3977,7 @@ dev-db/mariadb-connector-c 3.3.8 3.3.15 3.4.5-r1 9999: C client library for Mari
 dev-db/mariadb-connector-odbc 3.1.18: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.30 6.0.22 7.0.18 8.0.8: A high-performance, open source, schema-free document-oriented database
 dev-db/mongodb-compass-bin 1.46.5 1.46.6: GUI for MongoDB
-dev-db/mycli 1.31.2 1.32.0 1.33.0 1.34.2: CLI for MySQL Database with auto-completion and syntax highlighting
+dev-db/mycli 1.31.2 1.34.2 1.36.0: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.15.2.8-r1 0.16.11.2 0.18.1.1 0.18.2.7: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
 dev-db/mysql 5.7.41 8.0.40 8.0.41 8.0.42 8.4.5: Fast, multi-threaded, multi-user SQL database server
@@ -5643,7 +5643,7 @@ dev-libs/libxdg-basedir 1.2.3: Small library to access XDG Base Directories Spec
 dev-libs/libxdiff 0.23-r3: Library for creating diff files
 dev-libs/libxls 1.6.3: Library which can read Excel (xls) files
 dev-libs/libxlsxwriter 1.1.5-r1 1.1.6: C library for creating Excel XLSX files
-dev-libs/libxml2 2.13.7 2.13.8 2.13.8-r1 2.14.4 2.14.4-r1 9999: XML C parser and toolkit
+dev-libs/libxml2 2.13.7 2.13.8 2.13.8-r1 2.13.8-r2 2.14.4 2.14.4-r1 2.14.5 9999: XML C parser and toolkit
 dev-libs/libxml2-compat 2.13.7 2.13.8: XML C parser and toolkit
 dev-libs/libxmlb 0.3.19 0.3.21: Library to help create and query binary XML blobs
 dev-libs/libxslt 1.1.43-r1 9999: XSLT libraries and tools
@@ -10830,8 +10830,8 @@ dev-util/ftnchek 3.3.1-r2: Static analyzer a la 'lint' for Fortran 77
 dev-util/fuzz 0.6-r4: Stress-tests programs by giving them random input
 dev-util/gcovr 7.2-r1 8.3 8.3-r1: Python script for summarizing gcov data
 dev-util/gdbus-codegen 2.78.6 2.80.5-r1 2.82.5 2.84.0-r1 2.84.0-r2 2.84.1 2.84.2 2.84.3: GDBus code and documentation generator
-dev-util/geany 2.0-r1 2.0-r2: GTK+ based fast and lightweight IDE
-dev-util/geany-plugins 2.0-r1 2.0-r3: A collection of different plugins for Geany
+dev-util/geany 2.0-r1 2.0-r2 2.1: GTK+ based fast and lightweight IDE
+dev-util/geany-plugins 2.0-r1 2.0-r3 2.1: A collection of different plugins for Geany
 dev-util/gengetopt 2.23-r1: Tool to write command line option parsing code for C programs
 dev-util/gertty 1.6.0-r3 9999: Gertty is a console-based interface to the Gerrit Code Review system
 dev-util/gi-docgen 2023.1-r1 2023.3 2024.1: A documentation generator for GObject-based libraries
@@ -13741,7 +13741,7 @@ media-plugins/kodi-visualization-waveform 9999: Waveform visualizer for Kodi
 media-plugins/ladspa-bs2b 0.9.1-r4: LADSPA plugin for bs2b headphone filter
 media-plugins/libvisual-plugins 0.4.2-r1: collection of visualization plugins for use with the libvisual framework
 media-plugins/libvisual-projectm 2.1.1: A libvisual graphical music visualization plugin similar to milkdrop
-media-plugins/live 2021.08.24 2024.10.31 2025.01.17 2025.05.24 2025.07.10: Libraries for standards-based RTP/RTCP/RTSP multimedia streaming
+media-plugins/live 2021.08.24 2024.10.31 2025.01.17 2025.05.24 2025.07.10 2025.07.19: Libraries for standards-based RTP/RTCP/RTSP multimedia streaming
 media-plugins/mcp-plugins 0.4.0-r1: MCP ladspa plugins package. Includes moogvcf, phaser & chorus
 media-plugins/mda-lv2 1.2.10-r1: LV2 port of the MDA plugins by Paul Kellett
 media-plugins/mpg123-output-plugins 1.32.9 1.32.10 1.33.0: a realtime MPEG 1.0/2.0/2.5 audio player for layers 1, 2 and 3
@@ -14233,7 +14233,7 @@ media-tv/ivtv-utils 1.4.1-r1: IVTV utilities for Hauppauge PVR PCI cards
 media-tv/ivtvplayer 0.1.3-r3: Simple IVTV command line TV and radio player with support of LIRC
 media-tv/kodi 21.2-r5 21.9999 9999: A free and open source media-player and entertainment hub
 media-tv/linuxtv-dvb-apps 1.1.1.20140321-r2: Small utils for DVB to scan, zap, view signal strength
-media-tv/mythtv 33.1-r4: Open Source DVR and media center hub
+media-tv/mythtv 33.1-r4 35.0: Open Source DVR and media center hub
 media-tv/mythtv-status 1.1.0: Displays the current status of MythTV at the command prompt
 media-tv/plex-media-server 1.41.9.9961: Free media library that is intended for use with a plex client
 media-tv/shoutcast2vdr 0.0.8-r1: VDR script: generate shoutcast playlists
@@ -14694,7 +14694,7 @@ net-dns/https_dns_proxy 0_pre20200925 9999: A lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3-r2: Toolkit for Internationalized Domain Names (IDN)
 net-dns/inadyn 2.12.0-r2: Dynamic DNS client with multiple SSL/TLS library support
 net-dns/knot 3.4.4 3.4.6 3.4.7: High-performance authoritative-only DNS server
-net-dns/knot-resolver 5.7.5 6.0.14: A scaleable caching DNS resolver
+net-dns/knot-resolver 5.7.5 5.7.6 6.0.15: A scaleable caching DNS resolver
 net-dns/ldns-tools 0.1: ldns tools: host, nslookup
 net-dns/libidn 1.42 1.43: Internationalized Domain Names (IDN) implementation
 net-dns/libidn2 2.3.7 2.3.8: An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892, 5893)
@@ -17588,7 +17588,7 @@ sys-fs/fatsort 1.6.5.640: Sorts files on FAT16/32 partitions, ideal for basic au
 sys-fs/fragview 0.1.1-r1 0.1.2 9999: Disk fragmentation visualizer based on FIEMAP and FIBMAP ioctls
 sys-fs/fscrypt 0.3.4: Tool for managing Linux filesystem encryption
 sys-fs/fswatch 1.18.0 1.18.3: cross-platform file change monitor with multiple backends
-sys-fs/fuse 2.9.9-r2 3.16.2 3.17.1-r1 3.17.2: An interface for filesystems implemented in userspace
+sys-fs/fuse 2.9.9-r2 3.16.2 3.17.1-r1 3.17.2 3.17.3: An interface for filesystems implemented in userspace
 sys-fs/fuse-common 3.10.4: Common files for multiple slots of sys-fs/fuse
 sys-fs/fuse-convmvfs 0.2.6-r1: FUSE file system to convert filename charset
 sys-fs/fuse-exfat 1.4.0-r1: exFAT filesystem FUSE module
@@ -17668,7 +17668,7 @@ sys-fs/zerofree 1.1.1-r1: Zeroes out all free space on a filesystem
 sys-fs/zfs 2.1.16 2.2.7 2.2.8 2.3.2 2.3.3 9999: Userland utilities for ZFS Linux kernel module
 sys-fs/zfs-auto-snapshot 1.2.4-r2 1.2.4-r3 9999: ZFS Automatic Snapshot Service for Linux
 sys-fs/zfs-kmod 2.1.16 2.2.7 2.2.8 2.3.2 2.3.3 9999: Linux ZFS kernel module for sys-fs/zfs
-sys-kernel/asahi-sources 6.14.4_p1 6.14.8_p1: Asahi Linux kernel sources
+sys-kernel/asahi-sources 6.14.8_p1 6.15.7_p1: Asahi Linux kernel sources
 sys-kernel/bliss-initramfs 9.3.0: Boot your system's rootfs from Encrypted/OpenZFS
 sys-kernel/cryptodev 1.12 1.13-r1 9999: device that allows access to Linux kernel cryptographic drivers
 sys-kernel/dkms 3.1.6 3.1.7 3.1.8 3.2.0 3.2.1 9999: Dynamic Kernel Module Support

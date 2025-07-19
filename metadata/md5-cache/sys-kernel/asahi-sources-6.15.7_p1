@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/rust-bin-1.84.0:*[rust-src,rustfmt] >=dev-lang/rust-1.84.0:*[rust-src,rustfmt] )
+BDEPEND=|| ( >=dev-lang/rust-bin-1.80.1:*[rust-src,rustfmt] >=dev-lang/rust-1.80.1:*[rust-src,rustfmt] )
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
 DEPEND=dev-util/bindgen
 DESCRIPTION=Asahi Linux kernel sources
@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://asahilinux.org
 INHERIT=kernel-2 rust
 IUSE=symlink build
-KEYWORDS=arm64
+KEYWORDS=~arm64
 LICENSE=GPL-2
 RDEPEND=!build? ( app-alternatives/cpio dev-lang/perl app-alternatives/bc dev-build/make sys-devel/bison sys-devel/flex >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
 RESTRICT=binchecks strip
-SLOT=6.14.4_p1
-SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.14.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-6.14-5.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.14-5.base.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-6.14-5.extras.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.14-5.extras.tar.xz https://github.com/AsahiLinux/linux/compare/v6.14.4...asahi-6.14.4-1.diff -> linux-asahi-6.14.4-1.diff
+SLOT=6.15.7_p1
+SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.15.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-6.15-8.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.15-8.base.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-6.15-8.extras.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.15-8.extras.tar.xz https://github.com/AsahiLinux/linux/compare/v6.15.7...asahi-6.15.7-1.diff -> linux-asahi-6.15.7-1.diff
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	crossdev	f04338ff78f213a4a55c5c37b3c6563e	estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	1e32df7deee68372153dca65f4a7c21f	optfeature	538bce96e5589935b57e178e8635f301	kernel-2	0e01377cce73a7a06321d0ef97388d31	rust	205f396579fe93ffb2775ef7e36a1b20
-_md5_=1ba87563c67a7dcf7f529493b1977430
+_md5_=11fec4acdaf4154fa4ec02a451946caa
