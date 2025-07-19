@@ -57,7 +57,7 @@ LLVM_VERSION=$(ver_cut 1-3)
 # @DESCRIPTION:
 # The major version of current LLVM trunk.  Used to determine
 # the correct branch to use.
-_LLVM_MAIN_MAJOR=21
+_LLVM_MAIN_MAJOR=22
 
 # @ECLASS_VARIABLE: _LLVM_SOURCE_TYPE
 # @INTERNAL
@@ -74,9 +74,6 @@ if [[ -z ${_LLVM_SOURCE_TYPE+1} ]]; then
 			case ${PV} in
 				21.0.0_pre20250713)
 					EGIT_COMMIT=b6313b381ac0e83012ea11b4549cd8cb39b686d2
-					;;
-				21.0.0_pre20250628)
-					EGIT_COMMIT=e34e02128ec5eb89e36a8f0f7307dcbcfecabbee
 					;;
 				*)
 					die "Unknown snapshot: ${PV}"
