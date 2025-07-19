@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( 21 )
+LLVM_COMPAT=( {21..22} )
 PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake llvm.org llvm-r1 python-any-r1
 
@@ -18,8 +18,8 @@ BDEPEND="
 	${PYTHON_DEPS}
 	$(llvm_gen_dep '
 		llvm-core/clang:${LLVM_SLOT}
-		spirv? ( dev-util/spirv-llvm-translator:${LLVM_SLOT} )
 	')
+	spirv? ( dev-util/spirv-llvm-translator:* )
 "
 
 LLVM_COMPONENTS=( libclc )

@@ -6,13 +6,13 @@ EAPI=8
 DISABLE_AUTOFORMATTING="yes"
 PYTHON_COMPAT=( python3_{11..12} )
 
-inherit edo flag-o-matic java-pkg-opt-2 python-any-r1
+inherit edo flag-o-matic python-any-r1
 inherit qmake-utils readme.gentoo-r1 systemd toolchain-funcs user-info
 
 DESCRIPTION="Open Source DVR and media center hub"
 HOMEPAGE="https://www.mythtv.org https://github.com/MythTV/mythtv"
 if [[ ${PV} == *_p* ]] ; then
-	MY_COMMIT="5824c588db24b4e71a7d94e829e6419f71089297"
+	MY_COMMIT=
 	SRC_URI="https://github.com/MythTV/mythtv/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 	# mythtv and mythplugins are separate builds in the github MythTV project
 	S="${WORKDIR}/mythtv-${MY_COMMIT}/mythtv"
@@ -28,7 +28,7 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE_INPUT_DEVICES="input_devices_joystick"
 IUSE_VIDEO_CAPTURE_DEVICES="v4l ieee1394 hdhomerun vbox ceton"
-IUSE="alsa asi autostart cdda cdr cec cpu_flags_ppc_altivec debug dvd dvb exif fftw jack java"
+IUSE="alsa asi autostart cdda cdr cec cpu_flags_ppc_altivec debug dvd dvb exif jack java"
 IUSE+=" +lame lcd libass lirc nvdec +opengl oss perl pulseaudio python raw systemd vaapi vdpau vpx"
 IUSE+=" +wrapper x264 x265 +xml xmltv +xvid +X zeroconf"
 IUSE+=" ${IUSE_INPUT_DEVICES} ${IUSE_VIDEO_CAPTURE_DEVICES}"
@@ -39,16 +39,9 @@ REQUIRED_USE="
 RDEPEND="
 	acct-user/mythtv
 	dev-libs/glib:2
-	dev-libs/lzo
+	dev-libs/lzo:2
 	dev-libs/libzip:=
-	dev-qt/qtcore:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5[jpeg]
-	dev-qt/qtnetwork:5
-	dev-qt/qtscript:5
-	dev-qt/qtsql:5[mysql]
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	dev-qt/qtbase:6[dbus,gui,mysql,network,sql,xml,widgets]
 	media-fonts/corefonts
 	media-fonts/dejavu
 	media-fonts/liberation-fonts
@@ -57,7 +50,7 @@ RDEPEND="
 	media-libs/freetype:2
 	media-libs/libbluray:=[java?]
 	media-libs/libsamplerate
-	media-libs/libsoundtouch
+	media-libs/libsoundtouch:=
 	media-libs/taglib:=
 	sys-libs/zlib
 	alsa? ( media-libs/alsa-lib )
@@ -72,7 +65,6 @@ RDEPEND="
 		media-libs/libdvdcss
 		sys-fs/udisks:2
 	)
-	fftw? ( sci-libs/fftw:3.0=[threads] )
 	hdhomerun? ( media-libs/libhdhomerun )
 	ieee1394? (
 		media-libs/libiec61883
@@ -85,25 +77,24 @@ RDEPEND="
 	libass? ( media-libs/libass:= )
 	lirc? ( app-misc/lirc )
 	nvdec? ( x11-drivers/nvidia-drivers )
-	opengl? ( dev-qt/qtopengl:5 )
+	opengl? ( dev-qt/qtbase:6[opengl] )
 	pulseaudio? ( media-libs/libpulse )
 	systemd? ( sys-apps/systemd:= )
-	vaapi? ( media-libs/libva:= )
+	vaapi? ( media-libs/libva:=[X] )
 	vdpau? ( x11-libs/libvdpau )
 	vpx? ( media-libs/libvpx:= )
 	x264? (	media-libs/x264:= )
 	X? (
 		x11-apps/xinit
-		x11-libs/libX11:=
-		x11-libs/libXext:=
-		x11-libs/libXinerama:=
-		x11-libs/libXrandr:=
-		x11-libs/libXv:=
+		x11-libs/libX11
+		x11-libs/libXext
+		x11-libs/libXrandr
+		x11-libs/libXv
 		x11-libs/libXxf86vm:=
 		x11-misc/wmctrl:=
 	)
 	x265? (	media-libs/x265 )
-	xml? ( dev-libs/libxml2:2= )
+	xml? ( dev-libs/libxml2:2 )
 	xmltv? (
 		dev-perl/XML-LibXML
 		media-tv/xmltv
@@ -131,7 +122,6 @@ DEPEND="
 "
 BDEPEND="
 	virtual/pkgconfig
-	java? ( >=dev-java/ant-1.10.14-r3 )
 	opengl? ( virtual/opengl )
 	python? (
 		${PYTHON_DEPS}
@@ -146,8 +136,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-33.1-libva.patch
-	"${FILESDIR}"/${PN}-33.1-ffmpeg-binutils-2.41.patch
-	"${FILESDIR}"/${PN}-33.1-linux-headers-6.5.patch
+	"${FILESDIR}"/${PN}-35.no-ant-java-required-if-use-system-libblur.patch
 )
 
 python_check_deps() {
@@ -164,19 +153,10 @@ pkg_setup() {
 
 src_prepare() {
 	default
-	cat > external/libmythbluray/src/libbluray/bdj/build.properties <<-EOF
-		java_version_asm=1.8
-		java_version_bdj=1.8
-	EOF
-	# https://github.com/MythTV/mythtv/pull/824
-	# https://github.com/MythTV/mythtv/pull/838
-	# https://bugs.gentoo.org/888291
-	eapply -p2 "${FILESDIR}"/${PN}-33.1-python3.12.patch
 
 	# Perl bits need to go into vendor_perl and not site_perl
 	sed -e "s:pure_install:pure_install INSTALLDIRS=vendor:" \
 		-i "${S}"/bindings/perl/Makefile || die "Cannot convert site_perl to vendor_perl!"
-
 }
 
 src_configure() {
@@ -308,7 +288,7 @@ src_configure() {
 		--extra-cflags="${CFLAGS}" \
 		--extra-cxxflags="${CXXFLAGS}" \
 		--extra-ldflags="${LDFLAGS}" \
-		--qmake="$(qt5_get_bindir)"/qmake \
+		--qmake="$(qt6_get_bindir)"/qmake \
 		"${myconf[@]}"
 }
 
