@@ -1,0 +1,11 @@
+DEFINED_PHASES=install
+DESCRIPTION=Symlinks to use Clang on GCC-free system
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:LLVM
+INHERIT=multilib
+IUSE=gcc-symlinks multilib-symlinks +native-symlinks
+LICENSE=public-domain
+RDEPEND=!<sys-devel/gcc-config-2.6 llvm-core/clang:22
+SLOT=22
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	multilib	b2a329026f2e404e9e371097dda47f96
+_md5_=1906a365c548ee68bf657546e84f47d4
