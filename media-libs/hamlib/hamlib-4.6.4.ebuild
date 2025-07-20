@@ -15,7 +15,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="LGPL-2+ GPL-2+"
 SLOT="0/4.2"
-KEYWORDS="amd64 ~arm ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 IUSE="doc perl python tcl"
 
 RESTRICT="test"
@@ -40,8 +40,6 @@ BDEPEND="
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DOCS=(AUTHORS NEWS PLAN README README.betatester README.developer)
-
-PATCHES=( "${FILESDIR}/hamlib-drop-lua.patch" )
 
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
