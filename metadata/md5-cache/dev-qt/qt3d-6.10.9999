@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl] dev-lang/perl virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=~dev-qt/qtbase-6.10.9999:6[concurrent,gles2-only=,gui,network,opengl,vulkan=] ~dev-qt/qtshadertools-6.10.9999:6 media-libs/assimp:= qml? ( ~dev-qt/qtdeclarative-6.10.9999:6 ) vulkan? ( dev-util/vulkan-headers )
+DEPEND=~dev-qt/qtbase-6.10.9999:6[concurrent,gles2-only=,gui,network,opengl,vulkan=] ~dev-qt/qtshadertools-6.10.9999:6 <media-libs/assimp-6:= qml? ( ~dev-qt/qtdeclarative-6.10.9999:6 ) vulkan? ( dev-util/vulkan-headers )
 DESCRIPTION=3D rendering module for the Qt6 framework
 EAPI=8
 HOMEPAGE=https://www.qt.io/
@@ -8,8 +8,8 @@ INHERIT=qt6-build
 IUSE=gles2-only qml vulkan custom-cflags test
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
 PROPERTIES=live
-RDEPEND=~dev-qt/qtbase-6.10.9999:6[concurrent,gles2-only=,gui,network,opengl,vulkan=] ~dev-qt/qtshadertools-6.10.9999:6 media-libs/assimp:= qml? ( ~dev-qt/qtdeclarative-6.10.9999:6 )
+RDEPEND=~dev-qt/qtbase-6.10.9999:6[concurrent,gles2-only=,gui,network,opengl,vulkan=] ~dev-qt/qtshadertools-6.10.9999:6 <media-libs/assimp-6:= qml? ( ~dev-qt/qtdeclarative-6.10.9999:6 )
 RESTRICT=!test? ( test )
 SLOT=6/6.10.9999
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	git-r3	875eb471682d3e1f18da124be97dcc81	qt6-build	04c07cb597838accfcfe811033d1f1f0
-_md5_=cffde089624540fafa91e1b21891fa98
+_md5_=66fe2dbbd6ecbb1840fe067c17addba6
