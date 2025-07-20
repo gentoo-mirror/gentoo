@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 DIST_TEST="do"
 inherit perl-module
 
-DESCRIPTION="mytop - a top clone for mysql"
+DESCRIPTION="Clone of top for MySQL"
 HOMEPAGE="http://www.mysqlfanboy.com/mytop-3/"
 SRC_URI="http://www.mysqlfanboy.com/mytop-3/${P}.tar.gz"
 
@@ -17,9 +17,7 @@ SLOT="0"
 RDEPEND="
 	dev-perl/DBD-mysql
 	dev-perl/TermReadKey
-	virtual/perl-Getopt-Long
-	virtual/perl-Term-ANSIColor
-	virtual/perl-Time-HiRes"
+"
 DEPEND="${RDEPEND}"
 
 PATCHES=(
