@@ -1,6 +1,6 @@
 BDEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-libs/xapian-1.4:0=[inmemory(+)] !dev-libs/xapian-bindings[perl] virtual/perl-ExtUtils-MakeMaker test? ( dev-perl/Devel-Leak ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DEPEND=>=dev-libs/xapian-1.4:0=[inmemory(+)] !dev-libs/xapian-bindings[perl] test? ( dev-perl/Devel-Leak ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Perl XS frontend to the Xapian C++ search library
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/Search-Xapian
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/O/OL/OLLY/Search-Xapian-1.2.25.5.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	perl-module	41920449ca174fe9b9b303dfcbdb37a3
-_md5_=ea5f9ff58db9662c1a67de615460a52c
+_md5_=c7d32f847223ef227588109e225e94d0
