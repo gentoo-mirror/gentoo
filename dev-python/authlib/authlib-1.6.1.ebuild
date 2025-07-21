@@ -41,7 +41,6 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/anyio[${PYTHON_USEDEP}]
 		dev-python/cachelib[${PYTHON_USEDEP}]
 		dev-python/django[${PYTHON_USEDEP}]
@@ -54,6 +53,7 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-asyncio )
 distutils_enable_tests pytest
 
 src_prepare() {
@@ -65,11 +65,10 @@ src_prepare() {
 }
 
 python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	local -x DJANGO_SETTINGS_MODULE=tests.clients.test_django.settings
-	epytest -p asyncio tests/{core,jose,clients,flask}
+	epytest tests/{core,jose,clients,flask}
 
 	# TODO: django.core.exceptions.AppRegistryNotReady: Apps aren't loaded yet.
 	#local -x DJANGO_SETTINGS_MODULE=tests.django.settings
-	#epytest -p asyncio tests/django
+	#epytest tests/django
 }
