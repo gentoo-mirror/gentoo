@@ -11,12 +11,12 @@ inherit eapi9-ver cargo systemd
 DESCRIPTION="Push daemon for Nextcloud clients"
 HOMEPAGE="https://github.com/nextcloud/notify_push"
 SRC_URI="https://github.com/nextcloud/notify_push/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://github.com/gentoo-crate-dist/notify_push/releases/download/v${PV}/notify_push-v${PV}-crates.tar.xz"
+SRC_URI+=" https://github.com/antonfischl1980/nextcloud-notify_push/releases/download/v${PV}/nextcloud-notify_push-${PV}-crates.tar.xz"
 S=${WORKDIR}/notify_push-${PV}
 
 LICENSE="AGPL-3"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 BSD GPL-3 ISC MIT MPL-2.0 Unicode-3.0 ZLIB"
+LICENSE+=" Apache-2.0 BSD CDLA-Permissive-2.0 GPL-3 ISC MIT Unicode-3.0 ZLIB"
 # ring crate
 LICENSE+=" openssl"
 SLOT="0"
