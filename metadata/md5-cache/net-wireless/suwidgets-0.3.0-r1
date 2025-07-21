@@ -1,13 +1,13 @@
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-libs/libglvnd
+DEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 media-libs/libglvnd
 DESCRIPTION=graphical library containing all SigDigger's custom widgets
 EAPI=8
 HOMEPAGE=https://github.com/BatchDrake/SuWidgets
 INHERIT=qmake-utils
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-libs/libglvnd
+RDEPEND=dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtopengl:5 dev-qt/qtwidgets:5 media-libs/libglvnd
 SLOT=0
 SRC_URI=https://github.com/BatchDrake/SuWidgets/archive/v0.3.0.tar.gz -> suwidgets-0.3.0.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
-_md5_=9cc2319ee09035a52d4b72343dfa0ad1
+_md5_=10c87f373d12e496df4cf659a21ea548
