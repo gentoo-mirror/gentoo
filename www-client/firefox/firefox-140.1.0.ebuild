@@ -3,7 +3,7 @@
 
 EAPI=8
 
-FIREFOX_PATCHSET="firefox-139-patches-03.tar.xz"
+FIREFOX_PATCHSET="firefox-140esr-patches-01.tar.xz"
 FIREFOX_LOONG_PATCHSET="firefox-139-loong-patches-02.tar.xz"
 
 LLVM_COMPAT=( 19 20 )
@@ -24,7 +24,7 @@ VIRTUALX_REQUIRED="manual"
 WASI_SDK_VER=25.0
 WASI_SDK_LLVM_VER=19
 
-MOZ_ESR=
+MOZ_ESR=yes
 
 MOZ_PV=${PV}
 MOZ_PV_SUFFIX=
@@ -82,10 +82,10 @@ KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 IUSE="+clang dbus debug eme-free hardened hwaccel jack libproxy pgo pulseaudio selinux sndio"
 IUSE+=" +system-av1 +system-harfbuzz +system-icu +system-jpeg +system-libevent +system-libvpx"
-IUSE+=" system-pipewire system-png +system-webp test valgrind wayland wifi +X"
+IUSE+=" system-pipewire system-png +system-webp test wayland wifi +X"
 
 # Firefox-only IUSE
-IUSE+=" +gmp-autoupdate gnome-shell jpegxl +jumbo-build openh264 +telemetry wasm-sandbox"
+IUSE+=" +gmp-autoupdate gnome-shell +jumbo-build openh264 +telemetry wasm-sandbox"
 
 REQUIRED_USE="|| ( X wayland )
 	debug? ( !system-av1 )
@@ -177,7 +177,6 @@ COMMON_DEPEND="${FF_ONLY_DEPEND}
 	system-pipewire? ( media-video/pipewire:= )
 	system-png? ( >=media-libs/libpng-1.6.45:0=[apng] )
 	system-webp? ( >=media-libs/libwebp-1.1.0:0= )
-	valgrind? ( dev-debug/valgrind )
 	wayland? (
 		>=media-libs/libepoxy-1.5.10-r1
 		x11-libs/gtk+:3[wayland]
@@ -834,8 +833,6 @@ src_configure() {
 	# bug 833001, bug 903411#c8
 	if use loong || use ppc64 || use riscv; then
 		mozconfig_add_options_ac '' --disable-sandbox
-	elif use valgrind; then
-		mozconfig_add_options_ac 'valgrind requirement' --disable-sandbox
 	else
 		mozconfig_add_options_ac '' --enable-sandbox
 	fi
@@ -894,7 +891,6 @@ src_configure() {
 
 	mozconfig_use_enable dbus
 	mozconfig_use_enable libproxy
-	mozconfig_use_enable valgrind
 
 	use eme-free && mozconfig_add_options_ac '+eme-free' --disable-eme
 
@@ -934,8 +930,6 @@ src_configure() {
 		mozconfig_add_options_ac 'no wasm-sandbox' --without-wasm-sandboxed-libraries
 		mozconfig_use_with system-harfbuzz system-graphite2
 	fi
-
-	! use jpegxl && mozconfig_add_options_ac '-jpegxl' --disable-jxl
 
 	if [[ ${use_lto} == "yes" ]] ; then
 		if use clang ; then
@@ -1053,10 +1047,6 @@ src_configure() {
 		mozconfig_add_options_ac '!elibc_glibc' --disable-jemalloc
 	fi
 
-	if use valgrind; then
-		mozconfig_add_options_ac 'valgrind requirement' --disable-jemalloc
-	fi
-
 	# System-av1 fix
 	use system-av1 && append-ldflags "-Wl,--undefined-version"
 
@@ -1118,10 +1108,6 @@ src_configure() {
 	done
 	echo "=========================================================="
 	echo
-
-	if use valgrind; then
-		sed -i -e 's/--enable-optimize=-O[0-9s]/--enable-optimize="-g -O2"/' .mozconfig || die
-	fi
 
 	./mach configure || die
 }
