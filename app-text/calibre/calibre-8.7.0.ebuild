@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 PYTHON_REQ_USE="sqlite,ssl"
 
 inherit edo toolchain-funcs python-single-r1 qmake-utils verify-sig xdg
@@ -72,6 +72,7 @@ COMMON_DEPEND="${PYTHON_DEPS}
 		>=dev-python/pillow-3.2.0[jpeg,truetype,webp,zlib,${PYTHON_USEDEP}]
 		>=dev-python/psutil-4.3.0[${PYTHON_USEDEP}]
 		>=dev-python/pychm-0.8.6[${PYTHON_USEDEP}]
+		dev-python/pykakasi[${PYTHON_USEDEP}]
 		>=dev-python/pygments-2.3.1[${PYTHON_USEDEP}]
 		>=dev-python/python-dateutil-2.5.3[${PYTHON_USEDEP}]
 		dev-python/pyqt6[gui,network,opengl,printsupport,quick,svg,widgets,${PYTHON_USEDEP}]
@@ -140,9 +141,10 @@ src_prepare() {
 	#
 	# If in doubt about a problem, checking Fedora's packaging is recommended.
 
-	# Disable unnecessary privilege dropping for bug #287067.
-	sed -e "s:if os.geteuid() == 0:if False and os.geteuid() == 0:" \
-		-i setup/install.py || die "sed failed to patch install.py"
+	# Disable privilege dropping for bug #287067 and generally because desktop
+	# login user != portage.
+	sed -e "s:SUDO_:__DISABLED_SUDO_:" \
+		-i setup/__init__.py || die
 
 	# This is only ever used at build time. It contains a small embedded copy
 	# of the rapydscript-ng compiler usable inside of qtwebengine, if you don't
