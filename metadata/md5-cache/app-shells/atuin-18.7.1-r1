@@ -1,10 +1,10 @@
 BDEPEND=test? ( dev-db/postgresql ) || ( >=dev-lang/rust-bin-1.86:* >=dev-lang/rust-1.86:* ) virtual/pkgconfig
-DEFINED_PHASES=compile configure install postinst setup test unpack
+DEFINED_PHASES=compile configure install postinst preinst setup test unpack
 DEPEND=dev-db/sqlite:3
 DESCRIPTION=Shell history manager supporting encrypted synchronisation
 EAPI=8
 HOMEPAGE=https://atuin.sh https://github.com/atuinsh/atuin
-INHERIT=cargo readme.gentoo-r1 shell-completion systemd
+INHERIT=cargo greadme shell-completion systemd
 IUSE=+client +daemon server test +sync debug
 KEYWORDS=~amd64 ~arm64 ~riscv
 LICENSE=MIT Apache-2.0 BSD Boost-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016 openssl
@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( client server ) sync? ( client ) test? ( client server sync )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/atuinsh/atuin/archive/refs/tags/v18.7.1.tar.gz -> atuin-18.7.1.tar.gz https://github.com/gentoo-crate-dist/atuin/releases/download/v18.7.1/atuin-18.7.1-crates.tar.xz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	205f396579fe93ffb2775ef7e36a1b20	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=1f5bcdf51fdd95e8c1395d3ce0e2c843
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	205f396579fe93ffb2775ef7e36a1b20	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a	greadme	0ba874b1e3a465df8c2debe8a3077b47	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=72c02bc881cde27f7dec85d3917ab706
