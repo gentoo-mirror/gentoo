@@ -273,6 +273,13 @@ src_configure() {
 	myconf+=( --enable-symbol-visibility )
 	myconf+=( --enable-pic )
 
+	# libavformat/format.c:37:22: error: type of 'ff_mythtv_mpegtsraw_demuxer' does not match original declaration [-Werror=lto-type-mismatch]
+	# libavformat/mpegts-mythtv.c:3731:21: note: type 'const struct FFInputFormat' should match type 'struct AVInputFormat'
+	filter-lto
+
+	# Needed just like ffmpeg (bug #860987)
+	tc-is-lto && myconf+=( --enable-lto )
+
 	if tc-is-cross-compiler ; then
 		myconf+=( --enable-cross-compile --arch=$(tc-arch-kernel) )
 		myconf+=( --cross-prefix="${CHOST}"- )
@@ -294,8 +301,12 @@ src_configure() {
 		"${myconf[@]}"
 }
 
+src_compile() {
+	emake V=1
+}
+
 src_install() {
-	emake STRIP="true" INSTALL_ROOT="${D}" install
+	emake V=1 STRIP="true" INSTALL_ROOT="${D}" install
 	use python && python_optimize  # does all packages by default
 	dodoc AUTHORS README
 	readme.gentoo_create_doc
