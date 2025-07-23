@@ -22,9 +22,9 @@ DESCRIPTION="Smart spaced repetition flashcard program"
 HOMEPAGE="https://apps.ankiweb.net/"
 
 declare -A COMMITS=(
-	[anki]="a83a6b5928c6563d12e7b66d4f7b7b2f51b6f22b"
-	[ftl-core]="a9216499ba1fb1538cfd740c698adaaa3410fd4b"
-	[ftl-desktop]="a1134ab59d3d23468af2968741aa1f21d16ff308"
+	[anki]="65b5aefd0705463cb12e72e254f798f90c96e815"
+	[ftl-core]="b90ef6f03c251eb336029ac7c5f551200d41273f"
+	[ftl-desktop]="9aa63c335c61b30421d39cf43fd8e3975179059c"
 )
 SRC_URI="${CARGO_CRATE_URIS}
 	https://github.com/ankitects/anki/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
@@ -32,9 +32,9 @@ SRC_URI="${CARGO_CRATE_URIS}
 	-> anki-core-i18n-${COMMITS[ftl-core]}.gh.tar.gz
 	https://github.com/ankitects/anki-desktop-ftl/archive/${COMMITS[ftl-desktop]}.tar.gz
 	-> anki-desktop-ftl-${COMMITS[ftl-desktop]}.gh.tar.gz
-	https://github.com/gentoo-crate-dist/anki/releases/download/${PV}/${P}-crates.tar.xz
+	https://github.com/gentoo-crate-dist/anki/releases/download/${PV/3/1}/${P/3/1}-crates.tar.xz
 	gui? (
-		https://home.cit.tum.de/~salu/distfiles/${P}-node_modules.tar.xz
+		https://home.cit.tum.de/~salu/distfiles/${P/3/1}-node_modules.tar.xz
 	)
 "
 # How to get an up-to-date summary of runtime JS libs' licenses:
@@ -130,7 +130,6 @@ EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 PATCHES=(
-	"${FILESDIR}"/${P}-remove-aqt-data.patch
 	"${FILESDIR}"/24.06.3/remove-yarn.patch
 	"${FILESDIR}"/24.04.1/remove-mypy-protobuf.patch
 	"${FILESDIR}"/24.04.1/revert-cert-store-hack.patch
@@ -162,8 +161,6 @@ python_prepare_all() {
 	# Unpin Yarn
 	sed -e '/"type": "module"/s/,//' \
 		-e '/packageManager/d' -i package.json || die
-	# We build wheels without invoking the uv frontend
-	sed -i '/uv_binary/d' build/configure/src/python.rs || die
 
 	# Not running the black formatter on generated files saves a dependency
 	sed '/subprocess/d' -i pylib/tools/hookslib.py || die
@@ -206,6 +203,7 @@ python_configure_all() {
 
 	local -x NODE_BINARY="${BROOT}"/usr/bin/node \
 	YARN_BINARY="${BROOT}"/usr/bin/yarn \
+	UV_BINARY="${BROOT}"/bin/true \
 	OFFLINE_BUILD=1
 	if ! use debug; then
 		if tc-is-lto; then

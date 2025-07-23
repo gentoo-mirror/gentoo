@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,10 +22,9 @@ else
 fi
 
 LICENSE="MIT"
-SLOT="0/${PV}"  # soversion / /usr/include/httplib.h: CPPHTTPLIB_VERSION
+SLOT="0/0.23"  # soversion / /usr/include/httplib.h: CPPHTTPLIB_VERSION
 
-IUSE="brotli ssl test zlib"
-REQUIRED_USE="test? ( brotli ssl zlib )"
+IUSE="brotli ssl test zlib zstd"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -38,12 +37,16 @@ RDEPEND="
 	zlib? (
 		sys-libs/zlib[${MULTILIB_USEDEP}]
 	)
+	zstd? (
+		app-arch/zstd[${MULTILIB_USEDEP}]
+	)
 "
 DEPEND="
 	${RDEPEND}
 "
 BDEPEND="
 	${PYTHON_DEPS}
+	virtual/pkgconfig
 "
 
 src_configure() {
@@ -53,9 +56,11 @@ src_configure() {
 		-DHTTPLIB_USE_BROTLI_IF_AVAILABLE=no
 		-DHTTPLIB_USE_OPENSSL_IF_AVAILABLE=no
 		-DHTTPLIB_USE_ZLIB_IF_AVAILABLE=no
+		-DHTTPLIB_USE_ZSTD_IF_AVAILABLE=no
 		-DHTTPLIB_REQUIRE_BROTLI=$(usex brotli)
 		-DHTTPLIB_REQUIRE_OPENSSL=$(usex ssl)
 		-DHTTPLIB_REQUIRE_ZLIB=$(usex zlib)
+		-DHTTPLIB_REQUIRE_ZSTD=$(usex zstd)
 		-DPython3_EXECUTABLE="${PYTHON}"
 	)
 	cmake-multilib_src_configure
@@ -71,15 +76,6 @@ multilib_src_test() {
 		# Fails on musl x86:
 		ServerTest.GetRangeWithMaxLongLength
 		ServerTest.GetStreamedWithTooManyRanges
-
-		# https://github.com/yhirose/cpp-httplib/issues/1798
-		# Filed by mgorny's testing, fails on openssl >=3.2:
-		SSLClientServerTest.ClientCertPresent
-		SSLClientServerTest.ClientEncryptedCertPresent
-		SSLClientServerTest.CustomizeServerSSLCtx
-		SSLClientServerTest.MemoryClientCertPresent
-		SSLClientServerTest.MemoryClientEncryptedCertPresent
-		SSLClientServerTest.TrustDirOptional
 	)
 
 	# Little dance to please the GTEST filter (join array using ":").
