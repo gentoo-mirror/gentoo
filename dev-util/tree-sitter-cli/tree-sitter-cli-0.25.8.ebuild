@@ -3,8 +3,10 @@
 
 EAPI=8
 
-CRATES=""
-RUST_MIN_VER="1.76"
+CRATES="
+"
+
+RUST_MIN_VER="1.82"
 inherit cargo
 
 MY_PN=tree-sitter
@@ -13,7 +15,7 @@ MY_P=${MY_PN}-${PV}
 DESCRIPTION="Command-line tool for creating and testing tree-sitter grammars"
 HOMEPAGE="https://github.com/tree-sitter/tree-sitter"
 SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${MY_P}.tar.gz"
-SRC_URI+=" https://github.com/gentoo-crate-dist/${MY_PN}/releases/download/v${PV}/${MY_PN}-v${PV}-crates.tar.xz"
+SRC_URI+=" https://github.com/gentoo-crate-dist/${MY_PN}/releases/download/v${PV}/${MY_P}-crates.tar.xz"
 S="${WORKDIR}"/${MY_P}/cli
 
 LICENSE="MIT"
