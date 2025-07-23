@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/awk app-alternatives/lex doc? ( dev-texlive/texlive-fontsrecommended virtual/latex-base ) virtual/latex-base >=sys-apps/texinfo-4.2-r5
+DEFINED_PHASES=compile configure install postinst postrm
+DEPEND=|| ( app-text/openjade app-text/opensp ) app-text/sgml-common dev-lang/perl:= sys-apps/groff
+DESCRIPTION=Toolset for processing LinuxDoc DTD SGML files
+EAPI=8
+HOMEPAGE=https://gitlab.com/agmartin/linuxdoc-tools
+INHERIT=latex-package perl-functions sgml-catalog-r1 toolchain-funcs
+IUSE=doc
+KEYWORDS=~amd64 ~ppc ~sparc ~x86
+LICENSE=GPL-3+ MIT SGMLUG
+RDEPEND=|| ( app-text/openjade app-text/opensp ) app-text/sgml-common dev-lang/perl:= sys-apps/groff virtual/latex-base >=app-text/sgml-common-0.6.3-r7
+SLOT=0
+SRC_URI=https://gitlab.com/agmartin/linuxdoc-tools/-/archive/0.9.86/linuxdoc-tools-0.9.86.tar.bz2
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	latex-package	f6529cd874a632d3343b4d264a70a0bc	perl-functions	1863acf0982afafc67797e3ce7275b4c	sgml-catalog-r1	3f5bc11b4b3984844a0b20d2a679e217	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
+_md5_=29c84345214a759ec5d463b47b8bc0ff
