@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) app-text/scdoc virtual/pkgconfig test? ( dev-libs/weston[examples,headless,remoting,screen-sharing,wayland-compositor] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) app-text/scdoc virtual/pkgconfig test? ( dev-libs/weston[examples,headless,remoting,screen-sharing,wayland-compositor] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=dmabuf? ( media-libs/mesa[gbm(+),vaapi?,wayland] x11-libs/libdrm ) lz4? ( app-arch/lz4 ) systemtap? ( dev-debug/systemtap ) vaapi? ( media-libs/libva[drm(+),wayland] ) ffmpeg? ( media-video/ffmpeg[x264,vaapi?] ) zstd? ( app-arch/zstd )
 DESCRIPTION=Transparent network proxy for Wayland compositors
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/mstoeckl/waypipe/-/archive/v0.9.2/waypipe-v0.9.2.tar.bz2
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	601de75299d1a5fb14b475836969af0f	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=b67c207bbe7bf14bfa0c2bdd6a7b9a0b
+_md5_=6a70cdeb1205594198a6057344d190a4
