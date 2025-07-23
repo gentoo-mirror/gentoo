@@ -1,4 +1,4 @@
-# Copyright 2020-2024 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,11 +6,8 @@ EAPI=8
 inherit meson
 
 DESCRIPTION="dynamic display configuration (autorandr for wayland)"
-HOMEPAGE="https://wayland.emersion.fr/kanshi/ https://sr.ht/~emersion/kanshi/"
-SRC_URI="
-	https://git.sr.ht/~emersion/kanshi/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz
-"
+HOMEPAGE="https://gitlab.freedesktop.org/emersion/kanshi"
+SRC_URI="https://gitlab.freedesktop.org/emersion/kanshi/-/archive/v${PV}/kanshi-v${PV}.tar.bz2"
 S=${WORKDIR}/${PN}-v${PV}
 
 LICENSE="MIT"
