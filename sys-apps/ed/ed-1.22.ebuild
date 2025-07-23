@@ -23,7 +23,7 @@ S="${WORKDIR}"/${MY_P}
 LICENSE="GPL-2+"
 SLOT="0"
 if [[ ${PV} != *_rc* ]] ; then
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 fi
 
 BDEPEND="
@@ -38,9 +38,8 @@ src_unpack() {
 }
 
 src_configure() {
-	# TODO: -std=gnu99 can be dropped on next release > 1.20.2
 	edo ./configure \
-		CC="$(tc-getCC) -std=gnu99" \
+		CC="$(tc-getCC)" \
 		CFLAGS="${CFLAGS}" \
 		LDFLAGS="${LDFLAGS}" \
 		CPPFLAGS="${CPPFLAGS}" \
