@@ -2116,6 +2116,7 @@ dev-libs/libsecp256k1:lowmem - Reduce runtime memory usage at the expense of per
 dev-libs/libsecp256k1:musig - Enable MuSig2 module
 dev-libs/libsecp256k1:recovery - Enable ECDSA pubkey recovery module
 dev-libs/libsecp256k1:schnorr - Enable Schnorr signature module
+dev-libs/libsecp256k1:test-full - Enable exhaustive tests
 dev-libs/libslz:tools - Install additional tools (zenc, zdec)
 dev-libs/libsodium:urandom - Use /dev/urandom instead of /dev/random
 dev-libs/libtermkey:demos - Install demos, which pulls in dev-libs/glib
@@ -5736,24 +5737,14 @@ net-dns/hash-slinger:ssh - Enable support for SSHFP records (sshfp)
 net-dns/idnkit:liteonly - Compile and install lite library only
 net-dns/inadyn:mbedtls - Use net-libs/mbedtls as tls provider.
 net-dns/inadyn:openssl - Use dev-libs/openssl as tls provider.
-net-dns/knot:authsignal - Enable Automatic Authenticated DNSSEC Bootstrapping records
-net-dns/knot:cookies - Enable the DNS cookie module (RFC 7873)
 net-dns/knot:daemon - Enable Knot DNS main daemon
-net-dns/knot:dnsproxy - Enable the tiny DNS proxy module
 net-dns/knot:dnstap - Include support for the dnstap binary log format (http://dnstap.info/)
 net-dns/knot:doh - Enable DNS over HTTP (DoH) using libnghttp2
 net-dns/knot:fastparser - Use a zone file parser that is faster, but requires more memory and CPU time to compile
-net-dns/knot:noudp - Enable the module which can send empty truncated responses to UDP queries
-net-dns/knot:onlinesign - Enable the module that sign zones on the fly instead of pre-signing zone
 net-dns/knot:pkcs11 - Add support for PKCS#11
 net-dns/knot:prometheus - A Prometheus exporter for server and query statistics.
-net-dns/knot:queryacl - Enable the module for query access control
 net-dns/knot:quic - Enable the DNS over QUIC (DoQ) module using libngtcp2
-net-dns/knot:rrl - Enable the response rate limiting module
-net-dns/knot:stats - Enable the server statistics module
-net-dns/knot:synthrecord - Enable the automatic forward/reverse records module
 net-dns/knot:utils - Install Knot utilities, such as kdig, kzonecheck, ...
-net-dns/knot:whoami - Enable the whoami response module
 net-dns/knot:xdp - Enable eXpress Data Path
 net-dns/knot-resolver:dnstap - Build dnstap binary logging module
 net-dns/knot-resolver:kresc - Build (experimental) command-line client

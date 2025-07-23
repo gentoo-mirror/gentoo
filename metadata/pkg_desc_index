@@ -1505,7 +1505,7 @@ app-crypt/quickcrypt 0.9.2b-r1: gives you a quick MD5 Password from any string
 app-crypt/rainbowcrack 1.8: Hash cracker that precomputes plaintext - ciphertext pairs in advance
 app-crypt/rhash 1.4.5 1.4.6-r1: Console utility and library for computing and verifying file hash sums
 app-crypt/rotix 0.83-r3: Rotix allows you to generate rotational obfuscations
-app-crypt/rpm-sequoia 1.7.0-r1 1.8.0: Implementation of the RPM PGP interface using Sequoia
+app-crypt/rpm-sequoia 1.8.0 1.9.0: Implementation of the RPM PGP interface using Sequoia
 app-crypt/sbctl 0.15.4 0.16: Secure Boot key manager
 app-crypt/sbsigntools 0.9.4-r1 0.9.5: Utilities for signing and verifying files for UEFI Secure Boot
 app-crypt/scdrand 0.3.5: Feed kernel entropy pool from smartcard's TRNG
@@ -2487,7 +2487,7 @@ app-forensics/sleuthkit 4.12.1-r2: A collection of file system and media managem
 app-forensics/unhide 20220611: Forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
 app-forensics/volatility3 2.11.0-r1: Framework for analyzing volatile memory
 app-forensics/yara 4.5.2 4.5.3 9999: A malware identification and classification tool
-app-forensics/yara-x 0.14.0 0.15.0 1.0.0 1.0.1 1.1.0 1.3.0: A malware identification and classification tool
+app-forensics/yara-x 1.0.1 1.1.0 1.3.0 1.4.0: A malware identification and classification tool
 app-forensics/zzuf 0.15_p20190208 0.15_p20220529: Transparent application input fuzzer
 app-i18n/anthy 9100h-r3: Anthy -- free and secure Japanese input system
 app-i18n/bidiv 1.5_p4: A commandline tool displaying logical Hebrew/Arabic
@@ -2658,7 +2658,7 @@ app-misc/abook 0.6.1-r4: Abook is a text-based addressbook program designed to u
 app-misc/acdctl 1.1-r2: Apple Cinema Display Control
 app-misc/actkbd 0.2.8-r2: A keyboard shortcut daemon
 app-misc/aldo 0.7.7: A morse tutor
-app-misc/anki 25.07.1: Smart spaced repetition flashcard program
+app-misc/anki 25.07.3: Smart spaced repetition flashcard program
 app-misc/ansiweather 1.19.0: Weather in terminal, with ANSI colors and Unicode symbols
 app-misc/asciicast-tools 0.0_pre20220524-r1: Tools for creating recordings of console sessions
 app-misc/asciinema 2.4.0: Command line recorder for asciinema.org service
@@ -3377,7 +3377,7 @@ app-text/sgrep 1.94a-r2: Use structural criteria to grep and index text, SGML, X
 app-text/sigil 2.4.2 2.5.0 2.5.2 2.6.0: Multi-platform WYSIWYG ebook editor for ePub format
 app-text/sloccount 2.26-r3: Tools for counting Source Lines of Code (SLOC) for a large number of languages
 app-text/spellutils 0.7-r1: spellutils includes 'newsbody' (useful for spellchecking in mails, etc.)
-app-text/sword 1.9.0-r1 1.9.0-r2: Library for Bible reading software
+app-text/sword 1.9.0-r2: Library for Bible reading software
 app-text/t1utils 1.42 1.42-r1: Type 1 Font utilities
 app-text/tabler 2-r1: A utility to create text art tables from delimited input
 app-text/talkfilters 2.3.8-r1 2.3.8-r2: Convert ordinary English text into text that mimics a stereotyped dialect
@@ -3863,7 +3863,7 @@ dev-cpp/clhpp 2024.10.24: Khronos OpenCL C++ bindings
 dev-cpp/cli11 2.5.0: Command line parser for C++11
 dev-cpp/clucene 2.3.3.4-r9 2.3.3.4-r10 2.3.3.4-r11: High-performance, full-featured text search engine based off of lucene in C++
 dev-cpp/cpp-hocon 0.3.0-r1: Provides C++ support for the HOCON configuration file format
-dev-cpp/cpp-httplib 0.18.1 0.18.3 0.18.6 0.20.0-r1 0.20.1: C++ HTTP/HTTPS server and client library
+dev-cpp/cpp-httplib 0.18.1 0.20.1 0.23.1: C++ HTTP/HTTPS server and client library
 dev-cpp/cppdap 0_pre20230605-r1 0_pre20240802: C++ library for the Debug Adapter Protocol
 dev-cpp/cppgir 2.0_p20240928 2.0_p20250508: GObject-Introspection C++ binding wrapper generator
 dev-cpp/cpptoml 0.1.1-r1: Header-only library for parsing TOML
@@ -5374,7 +5374,7 @@ dev-libs/gobject-introspection 1.76.1-r2 1.78.1-r2 1.80.1-r3 1.82.0-r1 1.82.0-r2
 dev-libs/gobject-introspection-common 1.76.1 1.78.1 1.80.1 1.82.0 1.84.0: Build infrastructure for GObject Introspection
 dev-libs/gom 0.4 0.5.1 0.5.2 0.5.3: GObject to SQLite object mapper library
 dev-libs/gost-engine 3.0.1 3.0.1-r1 3.0.2 3.0.3 9999: A reference implementation of the Russian GOST crypto algorithms for OpenSSL
-dev-libs/granite 6.2.0: Elementary OS library that extends GTK+
+dev-libs/granite 6.2.0 7.6.0: Elementary OS library that extends GTK+
 dev-libs/grantlee 5.3.0: C++ string template engine based on the Django template system
 dev-libs/gumbo 0.13.1: The HTML5 parsing algorithm implemented as a pure C99 library
 dev-libs/half 1.12.0-r1: Half-precision floating-point library
@@ -5590,7 +5590,7 @@ dev-libs/libretls 3.8.1: Port of libtls from LibreSSL to OpenSSL
 dev-libs/librevenge 0.0.5 9999: Helper library for REVerse ENGineered formats filters
 dev-libs/libsass 3.6.5-r1 3.6.6 9999: A C/C++ implementation of a Sass CSS compiler
 dev-libs/libscfg 0.1.1: C library for a simple configuration file format
-dev-libs/libsecp256k1 0.5.1 0.6.0: Optimized C library for EC operations on curve secp256k1
+dev-libs/libsecp256k1 0.5.1 0.6.0 0.7.0: Optimized C library for EC operations on curve secp256k1
 dev-libs/libserdes 5.4.0-r1 5.4.0-r2: Avro SerializationDeserialization w/ Confluent schema-registry support
 dev-libs/libserialport 0.1.1-r1 0.1.2 9999: Cross platform serial port access library
 dev-libs/libsigc++ 2.12.0 2.12.1 3.6.0: Typesafe callback system for standard C++
@@ -7492,7 +7492,7 @@ dev-perl/Signal-Mask 0.8.0-r1: Signal masks made easy
 dev-perl/Snowball-Norwegian 1.200.0-r2: Porters stemming algorithm for Norwegian
 dev-perl/Snowball-Swedish 1.200.0-r2: Porters stemming algorithm for Swedish
 dev-perl/Socket-GetAddrInfo 0.220.0-r1: Address-family independent name resolving functions
-dev-perl/Socket6 0.290.0 0.290.0-r1: IPv6 related part of the C socket.h defines and structure manipulators
+dev-perl/Socket6 0.290.0 0.290.0-r2: IPv6 related part of the C socket.h defines and structure manipulators
 dev-perl/Software-License 0.104.6 0.104.7: Packages that provide templated software licenses
 dev-perl/Sort-Key 1.330.0-r2: sort objects by some (calculated) key
 dev-perl/Sort-Key-IPv4 0.30.0-r2: Sort IP v4 addresses
@@ -7998,7 +7998,7 @@ dev-php/pecl-imagick 3.7.0-r3 3.7.0-r4 3.8.0: PHP wrapper for the ImageMagick li
 dev-php/pecl-mailparse 3.1.6: PHP extension for parsing and working with RFC822 and MIME compliant messages
 dev-php/pecl-memcached 3.3.0: Interface PHP with memcached via libmemcached library
 dev-php/pecl-mongodb 1.16.2: MongoDB database driver for PHP
-dev-php/pecl-parallel 1.2.1 1.2.5: A succint parallel concurrency API for PHP
+dev-php/pecl-parallel 1.2.1 1.2.5 1.2.6 1.2.7: A succint parallel concurrency API for PHP
 dev-php/pecl-radius 1.4.0_beta1-r4: Provides support for RADIUS authentication (RFC 2865) and accounting (RFC 2866)
 dev-php/pecl-raphf 2.0.1-r3: A reusable, persistent handle and resource factory API
 dev-php/pecl-redis 6.1.0: PHP extension for interfacing with Redis
@@ -11405,7 +11405,7 @@ games-board/xskat 4.0-r2: Famous german card game
 games-emulation/advancemame 3.9-r1: GNU/Linux port of the MAME emulator with GUI menu
 games-emulation/advancescan 1.16-r1: A command line rom manager for MAME, MESS, AdvanceMAME, AdvanceMESS and Raine
 games-emulation/atari800 5.2.0: Emulator of Atari 8-bit computer systems and 5200 game console
-games-emulation/bsnes-jg 2.0.1 9999: Jolly Good Fork of bsnes
+games-emulation/bsnes-jg 2.0.1 2.0.2 9999: Jolly Good Fork of bsnes
 games-emulation/cega-jg 0.6.1 9999: Jolly Good SG-1000, SMS, and Game Gear Emulator
 games-emulation/desmume 0.9.13-r1: Nintendo DS emulator
 games-emulation/dgen-sdl 1.33-r1: Linux/SDL-Port of the famous DGen MegaDrive/Genesis-Emulator
@@ -11418,7 +11418,7 @@ games-emulation/fceux 2.6.6-r2: Portable Famicom/NES emulator, an evolution of t
 games-emulation/gambatte-jg 0.6.0 9999: Jolly Good Fork of Gambatte
 games-emulation/generator 0.35_p4-r1: Sega Genesis / Mega Drive emulator
 games-emulation/gens 2.15.5-r2: Sega Genesis/CD/32X emulator
-games-emulation/geolith-jg 0.2.1 9999: Jolly Good Neo Geo AES/MVS Emulator
+games-emulation/geolith-jg 0.2.1 0.2.2 9999: Jolly Good Neo Geo AES/MVS Emulator
 games-emulation/gngb 20060309-r2: Gameboy / Gameboy Color emulator
 games-emulation/gngeo 0.8-r2: A NeoGeo emulator
 games-emulation/gnuboy 1.0.3-r4: Gameboy emulator with multiple renderers
@@ -11444,7 +11444,7 @@ games-emulation/mednafen-jg 1.32.1.1 9999: Jolly Good Port of Mednafen
 games-emulation/mednaffe 0.9.3: Front-end (GUI) for mednafen emulator
 games-emulation/mekanix 070-r1: SG-1000, SC-3000, SF-7000, SSC, SMS, GG, COLECO, and OMV emulator
 games-emulation/melonds 1.0_rc 1.0 9999: Nintendo DS emulator, sorta
-games-emulation/melonds-jg 0.9.5 9999: Jolly Good Port of melonDS
+games-emulation/melonds-jg 0.9.5 1.0.0 9999: Jolly Good Port of melonDS
 games-emulation/mgba 0.10.4 9999: Game Boy Advance Emulator
 games-emulation/mgba-jg 0.10.5 9999: Jolly Good Port of mGBA
 games-emulation/mupen64plus 2.6.0: A fork of Mupen64 Nintendo 64 emulator, meta-package
@@ -11476,7 +11476,7 @@ games-engines/box2d 2.4.1: C++ engine for simulating rigid bodies in 2D games
 games-engines/dMagnetic 0.37: A Magnetic Scrolls Interpreter for playing a collection of old text adventures
 games-engines/devilutionx 1.5.4-r1: Diablo engine for modern operating systems
 games-engines/exult 1.12.0: Ultima 7 game engine that runs on modern operating systems
-games-engines/fheroes2 1.1.9: Recreation of HoMM2 game engine
+games-engines/fheroes2 1.1.10: Recreation of HoMM2 game engine
 games-engines/frobtads 2.0: Curses-based interpreter and dev tools for TADS 2 and TADS 3 text adventures
 games-engines/frotz 2.55-r1: Interpreter for Z-code based text games
 games-engines/gargoyle 2019.1.1: An Interactive Fiction (IF) player supporting all major formats
@@ -13575,7 +13575,7 @@ media-libs/zimg 3.0.4 3.0.4-r1 9999: Scaling, colorspace conversion, and ditheri
 media-libs/zint 2.15.0: Barcode encoding library supporting over 50 symbologies
 media-libs/zita-alsa-pcmi 0.6.1: Provides easy access to ALSA PCM devices
 media-libs/zita-convolver 4.0.3: C++ library implementing a real-time convolution matrix
-media-libs/zita-resampler 1.10.1 1.11.2: C++ library for real-time resampling of audio signals
+media-libs/zita-resampler 1.11.2: C++ library for real-time resampling of audio signals
 media-libs/zmusic 1.1.14: GZDoom's music system as a standalone library
 media-libs/zvbi 0.2.35-r2 0.2.44: VBI Decoding Library for Zapping
 media-libs/zxing-cpp 2.3.0-r1: C++ Multi-format 1D/2D barcode image processing library
@@ -14694,7 +14694,7 @@ net-dns/hash-slinger 3.4: Various tools to generate DNS records like SSHFP, TLSA
 net-dns/https_dns_proxy 0_pre20200925 9999: A lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3-r2: Toolkit for Internationalized Domain Names (IDN)
 net-dns/inadyn 2.12.0-r2: Dynamic DNS client with multiple SSL/TLS library support
-net-dns/knot 3.4.4 3.4.6 3.4.7: High-performance authoritative-only DNS server
+net-dns/knot 3.4.7: High-performance authoritative-only DNS server
 net-dns/knot-resolver 5.7.5 5.7.6 6.0.15: A scaleable caching DNS resolver
 net-dns/ldns-tools 0.1: ldns tools: host, nslookup
 net-dns/libidn 1.42 1.43: Internationalized Domain Names (IDN) implementation
@@ -14998,7 +14998,7 @@ net-libs/libtorrent-rasterbar 2.0.10: C++ BitTorrent implementation focusing on 
 net-libs/libtrace 4.0.21 4.0.22 4.0.26 4.0.28: A library and tools for trace processing
 net-libs/libupnp 1.14.20: An Portable Open Source UPnP Development Kit
 net-libs/libupnpp 1.0.2 1.0.3: The libupnpp C++ library wraps libupnp for easier use by upmpdcli and upplay
-net-libs/libvncserver 0.9.14-r2 0.9.15 0.9.15-r1: library for creating vnc servers
+net-libs/libvncserver 0.9.15-r1: library for creating vnc servers
 net-libs/libwebsockets 4.3.3-r1 4.3.5 4.4.1: A flexible pure-C library for implementing network protocols
 net-libs/libyang 3.7.8 3.12.2: YANG data modeling language library
 net-libs/liquid-dsp 1.3.2 1.6.0 9999: digital signal processing library for software-defined radios
@@ -15147,7 +15147,7 @@ net-misc/aria2 1.37.0: A download utility with segmented downloading with BitTor
 net-misc/arpsponge 3.17.11-r1: Sweeps up stray ARP queries from a peering LAN
 net-misc/asahi-btsync 0.2.0-r1: Bluetooth pairing data handoff from macOS for Apple Silicon Macs
 net-misc/asahi-wifisync 0.2.0-r1: WiFi network handoff from macOS for Apple Silicon Macs
-net-misc/asterisk 18.26.2 20.14.1 21.9.1 22.4.1: Asterisk: A Modular Open Source PBX System
+net-misc/asterisk 18.26.2 20.14.1 20.15.0 21.9.1 21.10.0 22.4.1 22.5.0: Asterisk: A Modular Open Source PBX System
 net-misc/asterisk-base 1 2 3: Gentoo Asterisk init scripts
 net-misc/asterisk-core-sounds 1.6.1-r1: Core sounds for asterisk
 net-misc/asterisk-extra-sounds 1.5.2: Extra sounds for asterisk
@@ -15614,7 +15614,7 @@ net-vpn/gsocket 1.4.43 1.4.43-r1 9999: Allow firewalled/NATed host to establish 
 net-vpn/headscale 0.25.1 0.26.1: An open source, self-hosted implementation of the Tailscale control server
 net-vpn/httptunnel 3.3_p20230508: httptunnel can create IP tunnels through firewalls/proxies using HTTP
 net-vpn/i2p 2.8.2 2.9.0: A privacy-centric, anonymous network
-net-vpn/i2pd 2.55.0 2.56.0 2.56.0-r1: A C++ daemon for accessing the I2P anonymous network
+net-vpn/i2pd 2.56.0 2.56.0-r1 2.57.0: A C++ daemon for accessing the I2P anonymous network
 net-vpn/iodine 0.7.0-r3 0.7.0-r4: IP over DNS tunnel
 net-vpn/isatapd 0.9.7-r2: Creates and maintains an ISATAP tunnel (rfc5214)
 net-vpn/libreswan 4.15 5.1-r1 5.2 5.3: IPsec implementation for Linux, fork of Openswan
@@ -17161,7 +17161,7 @@ sys-apps/powerpc-utils 1.1.3.18-r4: PowerPC utilities and additional OldWorld ap
 sys-apps/ppc64-diag 2.7.9: Diagnostic tools for PowerLinux
 sys-apps/prctl 1.6-r1: Tool to query and modify process behavior
 sys-apps/preload 0.6.4-r3: Adaptive readahead daemon
-sys-apps/progress 0.15-r1: Coreutils Viewer: show progress for cp, rm, dd, and so forth
+sys-apps/progress 0.15-r1 0.17: Coreutils Viewer: show progress for cp, rm, dd, and so forth
 sys-apps/proot 5.3.0 5.4.0: User-space implementation of chroot, mount --bind, and binfmt_misc
 sys-apps/pv 1.9.31 9999: Pipe Viewer: a tool for monitoring the progress of data through a pipe
 sys-apps/qcontrol 0.4.2-r100: Send commands to some microcontrollers, e.g., to change LEDs or sound a buzzer
@@ -17422,10 +17422,10 @@ sys-cluster/fake 1.1.10: Switch in backup servers on a LAN
 sys-cluster/flux 0.41.2 2.6.1 2.6.3: Flux is a tool for keeping Kubernetes clusters in sync
 sys-cluster/galera 26.4.18 26.4.22 26.4.23: Synchronous multi-master replication engine that provides the wsrep API
 sys-cluster/gasnet 1.32.0: Networking middleware for partitioned global address space (PGAS) language
-sys-cluster/glusterfs 10.5-r1 11.1-r2: GlusterFS is a powerful network/cluster filesystem
+sys-cluster/glusterfs 10.5-r1 11.1-r2 11.2: GlusterFS is a powerful network/cluster filesystem
 sys-cluster/gmqtt 0.5.0: MQTT broker library with cluster support that implements MQTT V5.0 and V3.1.1
 sys-cluster/hpl 2.0-r4 2.3: Portable Implementation of the Linpack Benchmark for Distributed-Memory Clusters
-sys-cluster/hpx 1.10.0 9999: C++ runtime system for parallel and distributed applications
+sys-cluster/hpx 1.11.0 9999: C++ runtime system for parallel and distributed applications
 sys-cluster/hubble 0.10.0: Network, Service & Security Observability for Kubernetes using eBPF
 sys-cluster/ipvsadm 1.31-r1: utility to administer the IP virtual server services
 sys-cluster/k9scli 0.32.4 0.40.10 0.50.6: terminal based UI to manage kubernetes clusters
@@ -18038,7 +18038,7 @@ www-apache/mod_h2 2.0.33 9999: HTTP/2 module for Apache
 www-apache/mod_jk 1.2.50: Provides an AJP Apache2-JK-connector for the Tomcat servlet engine
 www-apache/mod_limitipconn 0.24-r4: Limit the number of simultaneous apache connections
 www-apache/mod_log_rotate 1.02: Log rotation support for mod_log_config based on strftime(3)
-www-apache/mod_maxminddb 1.2.0-r1: MaxMind DB Apache Module
+www-apache/mod_maxminddb 1.2.0-r1 1.3.0: MaxMind DB Apache Module
 www-apache/mod_musicindex 1.4.1-r4: mod_musicindex allows nice displaying of directories containing music files
 www-apache/mod_nss 1.0.18: SSL/TLS module for the Apache HTTP server
 www-apache/mod_perl 2.0.13-r1 2.0.13-r2: An embedded Perl interpreter for Apache2
@@ -18637,7 +18637,7 @@ x11-misc/whaw 0.2: Window manager independent Window Layout tool
 x11-misc/wininfo 0.7-r2: An X app that follows your pointer providing information about the windows below
 x11-misc/wmctrl 1.07-r3: Command line tool to interact with an EWMH/NetWM compatible X Window Manager
 x11-misc/wmname 0.1-r1: Utility to set the name of your window manager
-x11-misc/x11vnc 0.9.16-r8 0.9.17: VNC server for real X displays
+x11-misc/x11vnc 0.9.17: VNC server for real X displays
 x11-misc/x2vnc 1.7.2-r2: Control a remote computer running VNC from X
 x11-misc/x2x 1.30-r1: A utility to connect the mouse and keyboard to another X
 x11-misc/xaos 4.3.3: Very fast real-time fractal zoomer

@@ -1,14 +1,14 @@
-BDEPEND=test? ( dev-lang/yasm ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=test? ( dev-lang/yasm dev-lang/nasm ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=JIT assembler for x86(IA-32)/x64(AMD64, x86-64)
 EAPI=8
 HOMEPAGE=https://github.com/herumi/xbyak
-INHERIT=cmake
+INHERIT=cmake multilib toolchain-funcs
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/herumi/xbyak/archive/v7.28.tar.gz -> xbyak-7.28.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
-_md5_=620f25366a8ff729261eb62cee47a5df
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	multilib	b2a329026f2e404e9e371097dda47f96
+_md5_=c03d52822c7cef53d95ed2e1c26fe207

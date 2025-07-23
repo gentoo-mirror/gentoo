@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install
+DEPEND=media-libs/jg:1= media-libs/libsamplerate
+DESCRIPTION=Jolly Good Port of melonDS
+EAPI=8
+HOMEPAGE=https://gitlab.com/jgemu/melonds
+INHERIT=toolchain-funcs flag-o-matic
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=BSD-1 BSD-2 GPL-3+ MIT Unlicense public-domain
+RDEPEND=media-libs/jg:1= media-libs/libsamplerate games-emulation/jgrf
+SLOT=1
+SRC_URI=https://gitlab.com/jgemu/melonds/-/archive/1.0.0/melonds-1.0.0.tar.bz2
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
+_md5_=433986b6a644ab01faf4b14e6571e449

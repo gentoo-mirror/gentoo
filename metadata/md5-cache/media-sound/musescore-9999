@@ -1,17 +1,17 @@
-BDEPEND=dev-qt/qttools:6[linguist] virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-qt/qttools:6[linguist] virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test unpack
-DEPEND=dev-libs/tinyxml2:= dev-qt/qtbase[concurrent,dbus,gui,network,opengl,widgets,xml] dev-qt/qt5compat:6[qml] dev-qt/qtdeclarative:6 dev-qt/qtnetworkauth:6 dev-qt/qtscxml:6 dev-qt/qtsvg:6 dev-qt/qttools:6[assistant] >=media-libs/alsa-lib-1.0.0 media-libs/flac:= >=media-libs/freetype-2.5.2 media-libs/libopusenc media-libs/libsndfile media-libs/opus media-sound/lame sys-libs/zlib:= jack? ( virtual/jack ) video? ( media-video/ffmpeg )
+DEPEND=dev-libs/tinyxml2:= dev-qt/qtbase:6[concurrent,dbus,gui,network,opengl,widgets,xml] dev-qt/qt5compat:6[qml] dev-qt/qtdeclarative:6 dev-qt/qtnetworkauth:6 dev-qt/qtscxml:6 dev-qt/qtsvg:6 media-libs/alsa-lib media-libs/flac:= media-libs/freetype media-libs/harfbuzz:= media-libs/libopusenc media-libs/libsndfile media-libs/opus media-sound/lame sys-libs/zlib:= jack? ( virtual/jack ) video? ( media-video/ffmpeg:= ) test? ( dev-cpp/gtest )
 DESCRIPTION=WYSIWYG Music Score Typesetter
 EAPI=8
 HOMEPAGE=https://musescore.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=cmake flag-o-matic qmake-utils xdg check-reqs virtualx git-r3
-IUSE=jack test video test
+INHERIT=cmake flag-o-matic xdg check-reqs git-r3
+IUSE=jack test video
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=dev-libs/tinyxml2:= dev-qt/qtbase[concurrent,dbus,gui,network,opengl,widgets,xml] dev-qt/qt5compat:6[qml] dev-qt/qtdeclarative:6 dev-qt/qtnetworkauth:6 dev-qt/qtscxml:6 dev-qt/qtsvg:6 dev-qt/qttools:6[assistant] >=media-libs/alsa-lib-1.0.0 media-libs/flac:= >=media-libs/freetype-2.5.2 media-libs/libopusenc media-libs/libsndfile media-libs/opus media-sound/lame sys-libs/zlib:= jack? ( virtual/jack ) video? ( media-video/ffmpeg )
-RESTRICT=!test? ( test ) !test? ( test )
+RDEPEND=dev-libs/tinyxml2:= dev-qt/qtbase:6[concurrent,dbus,gui,network,opengl,widgets,xml] dev-qt/qt5compat:6[qml] dev-qt/qtdeclarative:6 dev-qt/qtnetworkauth:6 dev-qt/qtscxml:6 dev-qt/qtsvg:6 media-libs/alsa-lib media-libs/flac:= media-libs/freetype media-libs/harfbuzz:= media-libs/libopusenc media-libs/libsndfile media-libs/opus media-sound/lame sys-libs/zlib:= jack? ( virtual/jack ) video? ( media-video/ffmpeg:= )
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~fordfrog/distfiles/MuseScore_General-0.2.0.tar.bz2
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg	3ef49a87c52c8b77c476351195dfe575	check-reqs	2a9731073c152554078a9a8df8fc0f1b	virtualx	9741d451eb64ea8bb9faee90d68a9b68	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=6cde0ebf722fe7058ec66886a1257acd
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	xdg	3ef49a87c52c8b77c476351195dfe575	check-reqs	2a9731073c152554078a9a8df8fc0f1b	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=552d71d91d54ace9ce3517e9965e4818
