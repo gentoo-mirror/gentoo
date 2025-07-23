@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) dev-libs/glib:2 dev-libs/libfmt:= x11-libs/cairo x11-libs/pango
+DESCRIPTION=Unicode-aware text to PostScript converter
+EAPI=8
+HOMEPAGE=https://github.com/dov/paps
+INHERIT=edo meson python-r1
+IUSE=python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) dev-libs/glib:2 dev-libs/libfmt:= x11-libs/cairo x11-libs/pango
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+SLOT=0
+SRC_URI=https://github.com/dov/paps/archive/v0.8.0.tar.gz -> paps-0.8.0.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	601de75299d1a5fb14b475836969af0f	meson	99466844dd8d4fcfb07578a76f5a9922	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-r1	0e15b2ab9cfc87d7474678201d6bca38
+_md5_=613c76b07ce92e3012c33529c2eb6737
