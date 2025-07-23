@@ -12,7 +12,8 @@ inherit qmake-utils readme.gentoo-r1 systemd toolchain-funcs user-info
 DESCRIPTION="Open Source DVR and media center hub"
 HOMEPAGE="https://www.mythtv.org https://github.com/MythTV/mythtv"
 if [[ ${PV} == *_p* ]] ; then
-	MY_COMMIT=
+	# https://github.com/MythTV/mythtv/tree/fixes/35
+	MY_COMMIT="0a868b015e7346a9156a389acbbe395ec2e1aa24"
 	SRC_URI="https://github.com/MythTV/mythtv/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
 	# mythtv and mythplugins are separate builds in the github MythTV project
 	S="${WORKDIR}/mythtv-${MY_COMMIT}/mythtv"
@@ -137,7 +138,6 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-33.1-libva.patch
 	"${FILESDIR}"/${PN}-35.no-ant-java-required-if-use-system-libblur.patch
-	"${FILESDIR}"/${PN}-35.Fix-Qt6-compilation-on-Fedora-rawhide.patch
 	"${FILESDIR}"/${PN}-35.freemheg-update-visibility-of-MHCreateEngine-MHSetLo.patch
 )
 
