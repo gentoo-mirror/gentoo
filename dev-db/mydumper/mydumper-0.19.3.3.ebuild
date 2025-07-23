@@ -3,11 +3,13 @@
 
 EAPI=8
 
-inherit cmake
+PYTHON_COMPAT=( python3_{12..14} )
+
+inherit cmake python-any-r1
 
 MY_PV="$(ver_rs 3 -)"
 MY_P="${PN}-${MY_PV}"
-DOCS_COMMIT="b260deb19d8cf88a5e57abc0d271673a4bea254d"
+DOCS_COMMIT="af9dcd8d9c66cf445237f9a060d07c2a4dd3d382"
 
 DESCRIPTION="A high-performance multi-threaded backup (and restore) toolset for MySQL"
 HOMEPAGE="https://github.com/mydumper/mydumper"
@@ -17,23 +19,26 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
 RDEPEND="
 	app-arch/zstd
 	dev-db/mysql-connector-c:=
 	dev-libs/glib:2
-	dev-libs/libpcre
-	dev-libs/openssl:=
-	sys-libs/zlib
+	dev-libs/libpcre2:=
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	doc? (
-		dev-python/furo
-		dev-python/sphinx-inline-tabs
+		$(python_gen_any_dep '
+			dev-python/accessible-pygments[${PYTHON_USEDEP}]
+			dev-python/furo[${PYTHON_USEDEP}]
+			dev-python/sphinx-copybutton[${PYTHON_USEDEP}]
+			dev-python/sphinx-inline-tabs[${PYTHON_USEDEP}]
+			dev-python/sphinx[${PYTHON_USEDEP}]
+		')
 	)
 "
 
@@ -43,13 +48,23 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.16-cmake-docs.patch"
 )
 
+python_check_deps() {
+	python_has_version \
+		"dev-python/accessible-pygments[${PYTHON_USEDEP}]" \
+		"dev-python/furo[${PYTHON_USEDEP}]" \
+		"dev-python/sphinx-copybutton[${PYTHON_USEDEP}]" \
+		"dev-python/sphinx-inline-tabs[${PYTHON_USEDEP}]" \
+		"dev-python/sphinx[${PYTHON_USEDEP}]"
+}
+
+pkg_setup() {
+	use doc && python-any-r1_pkg_setup
+}
+
 src_prepare() {
 	# copy in docs
 	rm -rv "${WORKDIR}"/"${MY_P}"/docs || die
 	mv -v "${WORKDIR}/${PN}_docs-${DOCS_COMMIT}" "${WORKDIR}/${MY_P}/docs" || die
-
-	# https://pypi.org/project/sphinx-copybutton/ not yet in Gentoo
-	sed -i "s/'sphinx_copybutton',//g" "${WORKDIR}/${MY_P}/docs/_build/conf.py.in" || die
 
 	# fix doc install path
 	sed -i -e "s|share/doc/mydumper|share/doc/${PF}|" docs/CMakeLists.txt || die
