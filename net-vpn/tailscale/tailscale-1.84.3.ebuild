@@ -7,10 +7,10 @@ inherit go-module linux-info systemd tmpfiles
 # These settings are obtained by running ./build_dist.sh shellvars` in
 # the upstream repo.
 # They should be updated on every bump.
-VERSION_MINOR="82"
-VERSION_SHORT="1.82.5"
-VERSION_LONG="1.82.5-te4d64c6fa"
-VERSION_GIT_HASH="e4d64c6faf827a308ec20b39651225178e6743c0"
+VERSION_MINOR="84"
+VERSION_SHORT="1.84.3"
+VERSION_LONG="1.84.3-t7648989bc"
+VERSION_GIT_HASH="7648989bc54738b1e40dde74fa822984a63cbc05"
 
 DESCRIPTION="Tailscale vpn client"
 HOMEPAGE="https://tailscale.com"
@@ -19,7 +19,7 @@ SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 CONFIG_CHECK="~TUN"
 
