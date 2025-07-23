@@ -1,0 +1,16 @@
+BDEPEND=dev-util/ragel virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/boost:=
+DESCRIPTION=A portable fork of the high-performance regular expression matching library
+EAPI=8
+HOMEPAGE=https://vectorcamp.gr/vectorscan/ https://github.com/VectorCamp/vectorscan
+INHERIT=cmake edo flag-o-matic
+IUSE=cpu_flags_x86_avx2 cpu_flags_x86_sse4_2
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/boost:= !dev-libs/hyperscan
+REQUIRED_USE=x86? ( cpu_flags_x86_sse4_2 ) amd64? ( cpu_flags_x86_sse4_2 )
+SLOT=0/5
+SRC_URI=https://github.com/VectorCamp/vectorscan/archive/refs/tags/vectorscan/5.4.12.tar.gz -> vectorscan-5.4.12.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	edo	a5e294016aa84979fcb2459749eb80b2
+_md5_=8ac6a5d1ac532ad976f23afed7fa7080
