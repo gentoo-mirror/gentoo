@@ -37,6 +37,7 @@ RDEPEND="
 	apparmor? ( sys-libs/libapparmor:= )
 	>=app-containers/containers-common-0.58.0-r1
 	app-crypt/gpgme:=
+	dev-db/sqlite:3=
 	dev-libs/libgpg-error:=
 	dev-libs/libassuan:=
 	sys-apps/shadow:=
@@ -58,7 +59,7 @@ src_prepare() {
 	# ensure all  necessary files are there
 	local file
 	for file in docs/Makefile hack/libsubid_tag.sh hack/apparmor_tag.sh \
-		hack/systemd_tag.sh btrfs_installed_tag.sh btrfs_tag.sh; do
+		hack/systemd_tag.sh hack/sqlite_tag.sh btrfs_installed_tag.sh; do
 		[[ -f "${file}" ]] || die
 	done
 
@@ -77,13 +78,20 @@ src_prepare() {
 	$(usex systemd 'echo systemd' echo)
 	EOF
 
-	echo -e "#!/usr/bin/env bash\n echo" > btrfs_installed_tag.sh || die
-	cat <<-EOF > btrfs_tag.sh || die
+	cat <<-EOF > btrfs_installed_tag.sh || die
 	#!/usr/bin/env bash
 	$(usex btrfs echo 'echo exclude_graphdriver_btrfs')
 	EOF
 
-	use test || eapply "${FILESDIR}/${PN}-1.40.1-disable-tests.patch"
+	# instead of statically compiling sqlite into binary dynamically link it
+	# for better security and smaller binary size.
+	# Refer https://github.com/containers/buildah/commit/e5b8765
+	cat <<-EOF > hack/sqlite_tag.sh || die
+	#!/usr/bin/env bash
+	echo libsqlite3
+	EOF
+
+	use test || eapply "${FILESDIR}/${PN}-1.41.0-disable-tests.patch"
 }
 
 src_compile() {
