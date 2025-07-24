@@ -1,6 +1,6 @@
 BDEPEND=dev-go/go-md2man >=dev-lang/go-1.20:= app-arch/unzip >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install prepare pretend setup test unpack
-DEPEND=systemd? ( sys-apps/systemd ) btrfs? ( sys-fs/btrfs-progs ) seccomp? ( sys-libs/libseccomp:= ) apparmor? ( sys-libs/libapparmor:= ) >=app-containers/containers-common-0.58.0-r1 app-crypt/gpgme:= dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:=
+DEPEND=systemd? ( sys-apps/systemd ) btrfs? ( sys-fs/btrfs-progs ) seccomp? ( sys-libs/libseccomp:= ) apparmor? ( sys-libs/libapparmor:= ) >=app-containers/containers-common-0.58.0-r1 app-crypt/gpgme:= dev-db/sqlite:3= dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:=
 DESCRIPTION=A tool that facilitates building OCI images
 EAPI=8
 HOMEPAGE=https://github.com/containers/buildah
@@ -8,8 +8,8 @@ INHERIT=go-module linux-info toolchain-funcs git-r3
 IUSE=apparmor btrfs +seccomp systemd test
 LICENSE=Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT MPL-2.0
 PROPERTIES=live
-RDEPEND=systemd? ( sys-apps/systemd ) btrfs? ( sys-fs/btrfs-progs ) seccomp? ( sys-libs/libseccomp:= ) apparmor? ( sys-libs/libapparmor:= ) >=app-containers/containers-common-0.58.0-r1 app-crypt/gpgme:= dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:=
+RDEPEND=systemd? ( sys-apps/systemd ) btrfs? ( sys-fs/btrfs-progs ) seccomp? ( sys-libs/libseccomp:= ) apparmor? ( sys-libs/libapparmor:= ) >=app-containers/containers-common-0.58.0-r1 app-crypt/gpgme:= dev-db/sqlite:3= dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:=
 RESTRICT=test
 SLOT=0
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	d96f2a2fd6d8fbad6d94516bf238f885	linux-info	efd923656513c879204fec6638eadee5	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=4d52c5eb22c2f3f24b6f70b809e1c492
+_md5_=652b6102ed5ed33f7fd19409255d2d11
