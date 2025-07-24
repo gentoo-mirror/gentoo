@@ -1,17 +1,17 @@
-BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=configure install postinst prepare setup
+BDEPEND=|| ( ( dev-lang/python:3.14 dev-python/pyyaml[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/pyyaml[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pyyaml[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pyyaml[python_targets_python3_11(-)] ) ) virtual/pkgconfig yaml? ( || ( >=dev-lang/rust-bin-1.85.1:* >=dev-lang/rust-1.85.1:* ) )
+DEFINED_PHASES=compile configure install postinst prepare setup test unpack
 DEPEND=acct-group/dnsdist acct-user/dnsdist bpf? ( dev-libs/libbpf:= ) cdb? ( dev-db/tinycdb:= ) dev-libs/boost:= sys-libs/libcap dev-libs/libedit dev-libs/libsodium:= dnstap? ( dev-libs/fstrm ) doh? ( net-libs/nghttp2:= ) doh3? ( net-libs/quiche:= ) lmdb? ( dev-db/lmdb:= ) quic? ( net-libs/quiche ) regex? ( dev-libs/re2:= ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd:0= ) xdp? ( net-libs/xdp-tools ) lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
 DESCRIPTION=A highly DNS-, DoS- and abuse-aware loadbalancer
 EAPI=8
 HOMEPAGE=https://www.dnsdist.org/index.html
-INHERIT=flag-o-matic lua-single
-IUSE=bpf cdb dnscrypt dnstap doh doh3 ipcipher lmdb quic regex snmp +ssl systemd test web xdp lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+INHERIT=cargo flag-o-matic lua-single python-any-r1
+IUSE=bpf cdb dnscrypt dnstap doh doh3 ipcipher lmdb quic regex snmp +ssl systemd test web xdp yaml debug lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=acct-group/dnsdist acct-user/dnsdist bpf? ( dev-libs/libbpf:= ) cdb? ( dev-db/tinycdb:= ) dev-libs/boost:= sys-libs/libcap dev-libs/libedit dev-libs/libsodium:= dnstap? ( dev-libs/fstrm ) doh? ( net-libs/nghttp2:= ) doh3? ( net-libs/quiche:= ) lmdb? ( dev-db/lmdb:= ) quic? ( net-libs/quiche ) regex? ( dev-libs/re2:= ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd:0= ) xdp? ( net-libs/xdp-tools ) lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) dnscrypt? ( ssl ) doh? ( ssl ) doh3? ( ssl quic ) ipcipher? ( ssl ) quic? ( ssl )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://downloads.powerdns.com/releases/dnsdist-1.9.10.tar.bz2
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
-_md5_=8f7d4f01ab52eb10458442f5225163ea
+SRC_URI=https://downloads.powerdns.com/releases/dnsdist-2.0.0.tar.xz yaml? ( https://www.applied-asynchrony.com/distfiles/dnsdist-rust-2.0.0-crates.tar.xz )
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	205f396579fe93ffb2775ef7e36a1b20	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	python-utils-r1	601de75299d1a5fb14b475836969af0f	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=551a7f06f516ec616651e96aa76a7ffb
