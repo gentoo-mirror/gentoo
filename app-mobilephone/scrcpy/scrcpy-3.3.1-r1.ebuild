@@ -16,9 +16,10 @@ SRC_URI="
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc64 ~x86"
+IUSE="X wayland"
 
 DEPEND="
-	media-libs/libsdl2[X]
+	media-libs/libsdl2[X?,wayland?]
 	media-video/ffmpeg:=
 	virtual/libusb:1
 "
