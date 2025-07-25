@@ -10,7 +10,7 @@ EAPI=8
 # app-emulation/libvirt
 # Please bump them together!
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..14} )
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/libvirt.org.asc
 inherit meson linux-info python-any-r1 readme.gentoo-r1 tmpfiles verify-sig
 
@@ -21,7 +21,7 @@ if [[ ${PV} = *9999* ]]; then
 else
 	SRC_URI="https://download.libvirt.org/${P}.tar.xz
 		verify-sig? ( https://download.libvirt.org/${P}.tar.xz.asc )"
-	KEYWORDS="amd64 ~arm arm64 ppc64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 fi
 
 DESCRIPTION="C toolkit to manipulate virtual machines"
@@ -64,7 +64,7 @@ BDEPEND="
 RDEPEND="
 	acct-user/qemu
 	app-misc/scrub
-	>=dev-libs/glib-2.56.0
+	>=dev-libs/glib-2.66.0
 	dev-libs/libgcrypt
 	dev-libs/libnl:3
 	>=dev-libs/libxml2-2.9.1:=
@@ -156,10 +156,10 @@ PDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-9.4.0-fix_paths_in_libvirt-guests_sh.patch
-	"${FILESDIR}"/${PN}-9.9.0-do-not-use-sysconfig.patch
-	"${FILESDIR}"/${PN}-10.7.0-fix-paths-for-apparmor.patch
-	"${FILESDIR}"/${PN}-10.10.0-qemu-tpm-do-not-update-profile-name-for-transient-do.patch
+	"${FILESDIR}"/${PN}-11.0.0-Fix-paths-in-libvirt-guests.sh.in.patch
+	"${FILESDIR}"/${PN}-11.3.0-do-not-use-sysconfig.patch
+	"${FILESDIR}"/${PN}-11.3.0-fix-paths-for-apparmor.patch
+	"${FILESDIR}"/${PN}-11.1.0-match_firwmare_with_fully_resolved_paths.patch
 )
 
 python_check_deps() {
@@ -206,9 +206,6 @@ pkg_setup() {
 		~!GRKERNSEC_CHROOT_CHMOD
 		~!GRKERNSEC_CHROOT_CAPS"
 
-	kernel_is lt 4 7 && use lxc && CONFIG_CHECK+="
-		~DEVPTS_MULTIPLE_INSTANCES"
-
 	use virt-network && CONFIG_CHECK+="
 		~BRIDGE_EBT_MARK_T
 		~BRIDGE_NF_EBTABLES
@@ -216,6 +213,7 @@ pkg_setup() {
 		~NETFILTER_XT_CONNMARK
 		~NETFILTER_XT_MARK
 		~NETFILTER_XT_TARGET_CHECKSUM
+		~NETFILTER_XT_TARGET_MASQUERADE
 		~NET_ACT_CSUM
 		~IP_NF_FILTER
 		~IP_NF_MANGLE
@@ -223,17 +221,6 @@ pkg_setup() {
 		~IP6_NF_FILTER
 		~IP6_NF_MANGLE
 		~IP6_NF_NAT"
-
-	# This was renamed in kernel commit v5.2-rc1~133^2~174^2~6
-	if use virt-network ; then
-		if kernel_is -lt 5 2 ; then
-			CONFIG_CHECK+="
-			~IP_NF_TARGET_MASQUERADE"
-		else
-			CONFIG_CHECK+="
-			~NETFILTER_XT_TARGET_MASQUERADE"
-		fi
-	fi
 
 	# Bandwidth Limiting Support
 	use virt-network && CONFIG_CHECK+="
