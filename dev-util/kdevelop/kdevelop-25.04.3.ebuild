@@ -22,6 +22,8 @@ IUSE="gdbui plasma +qmake +share subversion"
 # see bug 366471
 RESTRICT="test"
 
+CMAKE_QA_COMPAT_SKIP=1 # bug 960669, fixed in >=25.08
+
 # UPSTREAM: not ported yet, check plugins/CMakeLists.txt
 # IUSE="hex"
 # 	hex? ( app-editors/okteta:6 )
@@ -94,11 +96,13 @@ src_configure() {
 		$(cmake_use_find_package gdbui KSysGuard)
 		-DBUILD_executeplasmoid=$(usex plasma)
 		$(cmake_use_find_package plasma Plasma)
-		$(cmake_use_find_package qmake KDevelop-PG-Qt)
+		$(cmake_use_find_package qmake KDevelopPGQt)
 		$(cmake_use_find_package share KF6Purpose)
 		$(cmake_use_find_package subversion SubversionLibrary)
 	)
-#		$(cmake_use_find_package hex OktetaKastenControllers)
+	if has_version "<dev-util/kdevelop-pg-qt-2.4"; then
+		mycmakeargs+=( $(cmake_use_find_package qmake KDevelop-PG-Qt) )
+	fi
 
 	ecm_src_configure
 }
