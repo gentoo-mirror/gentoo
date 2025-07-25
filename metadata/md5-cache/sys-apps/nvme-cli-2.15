@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm test
+DEPEND=>=sys-libs/libnvme-1.15:=[json?] json? ( dev-libs/json-c:= ) sys-libs/zlib:= virtual/os-headers
+DESCRIPTION=NVM-Express user space tooling for Linux
+EAPI=8
+HOMEPAGE=https://github.com/linux-nvme/nvme-cli
+INHERIT=meson systemd udev
+IUSE=+json pdc
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2 GPL-2+
+RDEPEND=>=sys-libs/libnvme-1.15:=[json?] json? ( dev-libs/json-c:= ) sys-libs/zlib:=
+SLOT=0
+SRC_URI=https://github.com/linux-nvme/nvme-cli/archive/v2.15.tar.gz -> nvme-cli-2.15.gh.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8a006695bc0db22490452dd06914dda5	meson	99466844dd8d4fcfb07578a76f5a9922	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	f3d9a4376ebd22131726a68e1a0a058f
+_md5_=7a7e04210a8c57920d577b349c5311dd
