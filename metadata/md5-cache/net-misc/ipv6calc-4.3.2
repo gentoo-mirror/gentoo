@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure test
+DEPEND=cgi? ( dev-perl/HTML-Parser dev-perl/URI www-servers/apache ) geoip? ( dev-libs/geoip dev-libs/libmaxminddb:= ) openssl? ( >=dev-libs/openssl-3.0.0:= ) !openssl? ( app-crypt/libmd )
+DESCRIPTION=IPv6 address calculator
+EAPI=8
+HOMEPAGE=https://www.deepspace6.net/projects/ipv6calc.html
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=cgi geoip +openssl
+KEYWORDS=~alpha ~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=GPL-2
+RDEPEND=cgi? ( dev-perl/HTML-Parser dev-perl/URI www-servers/apache ) geoip? ( dev-libs/geoip dev-libs/libmaxminddb:= ) openssl? ( >=dev-libs/openssl-3.0.0:= ) !openssl? ( app-crypt/libmd )
+SLOT=0
+SRC_URI=https://github.com/pbiering/ipv6calc/archive/4.3.2.tar.gz -> ipv6calc-4.3.2.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
+_md5_=2523c36cb57fff528c81c1762ace02e6
