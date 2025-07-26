@@ -912,7 +912,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.41.3 1.41.4 1.41.9 1.41.10 1.41.11 1.41.12 1.41.13 1.41.14: Universal Command Line Environment for AWS
+app-admin/awscli 1.41.4 1.41.9 1.41.14: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.5.0 2025.6.1: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.4.2 2025.5.1 2025.6.1: Bitwarden password manager desktop client
@@ -3057,7 +3057,7 @@ app-portage/gentoolkit 0.6.8 9999: Collection of administration scripts for Gent
 app-portage/gentoopm 0.5.0 9999: A common interface to Gentoo package managers
 app-portage/getuto 1.13 1.14 1.15 9999: Standalone Gentoo gpg trust anchor generation tool for binpkgs
 app-portage/golop 0.2.1-r1: A pure Go re-implementation of genlop
-app-portage/gpyutils 0.14.0 0.15.0: Utitilies for maintaining Python packages
+app-portage/gpyutils 0.15.0: Utitilies for maintaining Python packages
 app-portage/gverify 2: gentoo.git signature verification tool
 app-portage/hackport 0.7.2.2 0.8.4.0 9999: Hackage and Portage integration tool
 app-portage/iwdevtools 0.12.16 0.13.0 9999: Small tools to aid with Gentoo development, primarily intended for QA
@@ -3065,7 +3065,7 @@ app-portage/java-ebuilder 0.5.1-r2 9999: Java team tool for semi-automatic creat
 app-portage/kuroneko 0.1.3-r1 0.1.4 0.1.5: Vulnerability checker using data scraped from Gentoo Bugzilla
 app-portage/kuroo 1.2.4 9999: Graphical Portage frontend based on KDE Frameworks
 app-portage/metagen 0.7.3-r2 0.7.3-r3 0.7.4 9999: metadata.xml generator for ebuilds
-app-portage/mgorny-dev-scripts 59 60 61 62: Handy scripts for ebuild development and more
+app-portage/mgorny-dev-scripts 62: Handy scripts for ebuild development and more
 app-portage/mirrorselect 2.5.0 9999: Tool to help select distfiles mirrors for Gentoo
 app-portage/nattka 0.4.2: A New Arch Tester Toolkit -- open-source stable-bot replacement
 app-portage/no-distcc-env 9999: package.env files to disable distcc on a per-package basis
@@ -8073,7 +8073,7 @@ dev-python/aiostream 0.6.4 0.7.0: Generator-based operators for asynchronous ite
 dev-python/aiounittest 1.5.0-r1: Test asyncio code more easily
 dev-python/ajsonrpc 1.2.0: Async JSON-RPC 2.0 protocol + server powered by asyncio
 dev-python/alabaster 1.0.0: A configurable sidebar-enabled Sphinx theme
-dev-python/alembic 1.16.2 1.16.3 1.16.4: Database migrations tool, written by the author of SQLAlchemy
+dev-python/alembic 1.16.4: Database migrations tool, written by the author of SQLAlchemy
 dev-python/allpairspy 2.5.1: Pairwise test combinations generator
 dev-python/amodem 1.15.6: Transmit data between two computers using audio
 dev-python/amqp 5.3.1: Low-level AMQP client for Python (fork of amqplib)
@@ -8105,7 +8105,7 @@ dev-python/argparse-manpage 4.5 4.6: Automatically build man-pages for your Pyth
 dev-python/arpeggio 2.0.2: Parser interpreter based on PEG grammars
 dev-python/arrow 1.3.0: Better dates and times for Python
 dev-python/arsenic 21.8: Asynchronous WebDriver client
-dev-python/asgiref 3.8.1 3.9.0 3.9.1: ASGI utilities (successor to WSGI)
+dev-python/asgiref 3.9.1: ASGI utilities (successor to WSGI)
 dev-python/asn1crypto 1.5.1_p20231012: Python ASN.1 library with a focus on performance and a pythonic API
 dev-python/asteval 1.0.6: Evaluator of Python expression using ast module
 dev-python/astor 0.8.1-r2: Read/rewrite/write Python ASTs
@@ -8165,8 +8165,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.39.3 1.39.4 1.39.9 1.39.10 1.39.11 1.39.12 1.39.13 1.39.14: The AWS SDK for Python
-dev-python/botocore 1.39.3 1.39.4 1.39.9 1.39.10 1.39.11 1.39.12 1.39.13 1.39.14: Low-level, data-driven core of boto 3
+dev-python/boto3 1.39.4 1.39.9 1.39.14: The AWS SDK for Python
+dev-python/botocore 1.39.4 1.39.9 1.39.14: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2 1.5.0_rc1 1.5.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8194,7 +8194,7 @@ dev-python/cerberus 1.3.7: A lightweight and extensible data-validation library 
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.17.1: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.36.1 1.37.0 1.37.2 1.38.0: CloudFormation Linter
+dev-python/cfn-lint 1.37.2 1.38.0: CloudFormation Linter
 dev-python/cftime 1.6.4_p1: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1 1.0.2: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.6.0: Fast HTML/XML template compiler for Python
@@ -8463,7 +8463,7 @@ dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gitpython 3.1.44 3.1.45: Library used to interact with Git repositories
 dev-python/gmpy2 2.2.1: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.25.1: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.175.0 2.176.0 2.177.0: Google API Client for Python
+dev-python/google-api-python-client 2.176.0 2.177.0: Google API Client for Python
 dev-python/google-auth 2.40.3: Google Authentication Library
 dev-python/google-auth-httplib2 0.2.0: httplib2 Transport for Google Auth
 dev-python/google-auth-oauthlib 1.2.2: Google Authentication Library
@@ -8860,10 +8860,10 @@ dev-python/os-client-config 2.1.0-r2 2.3.0: OpenStack Client Configuation Librar
 dev-python/os-service-types 1.7.0-r2 1.8.0: A library to handle official service types for OpenStack and it's aliases
 dev-python/osc-lib 4.0.2 4.1.0: A package of common support modules for writing OSC plugins
 dev-python/oslo-concurrency 7.1.0: Oslo Concurrency library
-dev-python/oslo-config 9.8.0 10.0.0: Oslo Configuration API
+dev-python/oslo-config 10.0.0: Oslo Configuration API
 dev-python/oslo-context 6.0.0: Helpers to maintain useful information about a request context
 dev-python/oslo-i18n 6.5.1: Oslo i18n library
-dev-python/oslo-log 7.1.0 7.2.0: OpenStack logging config library, configuration for all openstack projects
+dev-python/oslo-log 7.2.0: OpenStack logging config library, configuration for all openstack projects
 dev-python/oslo-serialization 5.7.0: Oslo Serialization library
 dev-python/oslo-utils 9.0.0: Oslo Utility library
 dev-python/oslotest 5.0.1: Oslo test framework
@@ -8909,7 +8909,7 @@ dev-python/pdm-backend 2.4.5: A PEP 517 backend for PDM that supports PEP 621 me
 dev-python/pdoc3 0.11.6: Auto-generate API documentation for Python projects
 dev-python/peachpy 2022.11.13-r3: Portable Efficient Assembly Code-generator in Higher-level Python
 dev-python/pebble 5.1.1 5.1.2: Threading and multiprocessing eye-candy
-dev-python/pecan 1.6.0 1.7.0: A WSGI object-dispatching web framework, lean, fast, with few dependencies
+dev-python/pecan 1.7.0: A WSGI object-dispatching web framework, lean, fast, with few dependencies
 dev-python/peewee 3.18.1 3.18.2: Small Python ORM
 dev-python/pefile 2024.8.26 9999: Module to read and work with Portable Executable (PE) files
 dev-python/pelican-minify 2.0.0: An HTML minification plugin for Pelican, the static site generator
@@ -8987,7 +8987,7 @@ dev-python/pyacoustid 1.3.0 1.3.0-r1: Python bindings for Chromaprint and the Ac
 dev-python/pyaes 1.6.1-r3: Pure-Python Implementation of the AES block-cipher and common modes of operation
 dev-python/pyalsa 1.2.14: Python bindings for ALSA library
 dev-python/pyamg 5.2.1: Algebraic multigrid solvers in Python
-dev-python/pyaml 25.5.0 25.7.0: PyYAML-based module to produce pretty and readable YAML-serialized data
+dev-python/pyaml 25.7.0: PyYAML-based module to produce pretty and readable YAML-serialized data
 dev-python/pyarrow 20.0.0 21.0.0: Python library for Apache Arrow
 dev-python/pyasn1 0.6.1: ASN.1 library for Python
 dev-python/pyasn1-modules 0.4.2: pyasn1 modules
@@ -9190,7 +9190,7 @@ dev-python/pytest-param-files 0.6.0: Pytest parametrize decorators from external
 dev-python/pytest-plus 0.8.1: PyTest Plus Plugin - extends pytest functionality
 dev-python/pytest-qt 4.5.0: Pytest plugin for PyQt6 and PySide6 applications
 dev-python/pytest-recording 0.13.3 0.13.4: A pytest plugin to record network interactions via VCR.py
-dev-python/pytest-regressions 2.8.0 2.8.1: Easy to use fixtures to write regression tests
+dev-python/pytest-regressions 2.8.1: Easy to use fixtures to write regression tests
 dev-python/pytest-repeat 0.9.4: pytest plugin for repeating tests
 dev-python/pytest-reraise 2.1.2: Make multi-threaded pytest test cases fail when they should
 dev-python/pytest-rerunfailures 15.1: pytest plugin to re-run tests to eliminate flaky failures
@@ -9233,9 +9233,9 @@ dev-python/python-editor 1.0.4-r2: Programmatically open an editor, capture the 
 dev-python/python-engineio 4.12.0 4.12.1 4.12.2: Python implementation of the Engine.IO realtime server
 dev-python/python-gammu 3.2.4-r1: Python bindings for Gammu
 dev-python/python-gflags 3.1.2-r2: Google's Python argument parsing library
-dev-python/python-glanceclient 4.8.0 4.9.0: A client for the OpenStack Glance API
+dev-python/python-glanceclient 4.9.0: A client for the OpenStack Glance API
 dev-python/python-gnupg 0.5.4: A Python wrapper for GnuPG
-dev-python/python-ironicclient 5.11.0 5.12.0: Python bindings for the Ironic API
+dev-python/python-ironicclient 5.12.0: Python bindings for the Ironic API
 dev-python/python-jose 3.5.0: A JavaScript Object Signing and Encryption (JOSE) implementation in Python
 dev-python/python-json-logger 3.3.0: Standard python logging to output log data as json objects
 dev-python/python-keystoneclient 5.6.0: Client Library for OpenStack Identity
@@ -9417,7 +9417,7 @@ dev-python/serpent 1.41: A simple serialization library based on ast.literal_eva
 dev-python/serverfiles 0.3.1-r1: Utility for accessing HTTP server and storing files locally for reuse
 dev-python/service-identity 24.2.0: Service identity verification for pyOpenSSL
 dev-python/setproctitle 1.3.5: Allow customization of the process title
-dev-python/setuptools 79.0.1 80.9.0 80.9.0-r1: Collection of extensions to Distutils
+dev-python/setuptools 79.0.1 80.9.0-r1: Collection of extensions to Distutils
 dev-python/setuptools-gettext 0.1.14: Setuptools plugin for building mo files
 dev-python/setuptools-git 1.2-r3: Setuptools revision control system plugin for Git
 dev-python/setuptools-rust 1.11.1: A plugin for setuptools to build Rust Python extensions
@@ -9536,7 +9536,7 @@ dev-python/subprocess-tee 0.4.2: subprocess.run replacement with tee(1)-like out
 dev-python/suds-community 1.2.0: Lightweight SOAP client
 dev-python/superqt 0.7.3: Missing widgets and components for PyQt/PySide
 dev-python/sure 2.0.1: idiomatic assertion toolkit with human-friendly failure messages
-dev-python/svg-path 6.3-r1 7.0: SVG path objects and parser
+dev-python/svg-path 7.0: SVG path objects and parser
 dev-python/svglib 1.5.1: Pure-Python library for reading and converting SVG
 dev-python/svgwrite 1.4.3: Python Package to write SVG files
 dev-python/swagger-spec-validator 3.0.4: Validate Swagger specs against Swagger 1.1 or 2.0 specification
@@ -9561,7 +9561,7 @@ dev-python/terminado 0.18.1: Terminals served to term.js using Tornado websocket
 dev-python/terminaltables3 4.0.0: Generate simple tables in terminals from a nested list of strings
 dev-python/test 0: Virtual to install 'test' package from stdlib
 dev-python/test2ref 1.1.0 1.1.1: Testing Against Learned Reference Data
-dev-python/testfixtures 9.0.1 9.1.0: A collection of helpers and mock objects for unit tests and doc tests
+dev-python/testfixtures 9.1.0: A collection of helpers and mock objects for unit tests and doc tests
 dev-python/testpath 0.6.0: Test utilities for code working with files and commands
 dev-python/testresources 2.0.2: A pyunit extension for managing expensive test resources
 dev-python/testscenarios 0.5.0-r3: A pyunit extension for dependency injection
@@ -14129,7 +14129,7 @@ media-sound/qsampler 1.0.0-r1 9999: Graphical frontend to the LinuxSampler engin
 media-sound/qsynth 1.0.2-r1 9999: Qt application to control FluidSynth
 media-sound/qtagger 1.0.1_p20150402-r1: Simple Qt5 ID3v2 tag editor
 media-sound/qtgain 1.0.0: Simple frontend to mp3gain, vorbisgain and metaflac
-media-sound/qtractor 1.5.6: Audio/MIDI multi-track sequencer written in C++ with the Qt framework
+media-sound/qtractor 1.5.6 1.5.7: Audio/MIDI multi-track sequencer written in C++ with the Qt framework
 media-sound/quimup 2.1.1-r1: Qt client for the music player daemon (MPD)
 media-sound/quodlibet 4.6.0-r2 4.6.0-r3 4.7.1: audio library tagger, manager, and player for GTK+
 media-sound/rawrec 0.9.991: CLI program to play and record audiofiles
@@ -14638,7 +14638,7 @@ net-analyzer/wtfis 0.10.1 0.10.2 0.11.0 9999: Passive hostname, domain and IP lo
 net-analyzer/xnetload 1.11.3-r1: Displays a count and a graph of the traffic over a specified network connection
 net-analyzer/xprobe 0.3-r1 0.3-r2: Active OS fingerprinting tool - this is Xprobe2
 net-analyzer/yersinia 0.8.2_p20221119: A framework for layer 2 attacks
-net-analyzer/zabbix 6.0.40-r2 7.0.13-r2 7.0.16-r1 7.2.7-r2 7.2.10-r1 7.4.0: ZABBIX is software for monitoring of your applications, network and servers
+net-analyzer/zabbix 6.0.40-r2 7.0.13-r2 7.0.17 7.2.7-r2 7.2.11 7.4.0: ZABBIX is software for monitoring of your applications, network and servers
 net-analyzer/zmap 4.3.2: Fast network scanner designed for Internet-wide network surveys
 net-analyzer/zniper 1.0-r3: Displays and kill active TCP connections seen by the selected interface
 net-dialup/accel-ppp 1.12.0_p20220830-r1 1.12.0_p20230609 9999: High performance PPTP, PPPoE and L2TP server
