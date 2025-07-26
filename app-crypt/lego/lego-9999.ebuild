@@ -8,7 +8,7 @@ inherit go-module
 DESCRIPTION="Let's Encrypt/ACME client (like certbot or acme.sh) and library written in Go"
 HOMEPAGE="https://github.com/go-acme/lego/"
 
-DOCUMENTATION_COMMIT=0c2dfac6dbd1315c4af57ae954a3b070ca5ca43e
+DOCUMENTATION_COMMIT=0ce4747df447fbf0ca99f68a9d8542b75b7f68e3
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
