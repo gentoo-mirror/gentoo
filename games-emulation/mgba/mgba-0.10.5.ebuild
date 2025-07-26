@@ -37,14 +37,14 @@ RDEPEND="
 	ffmpeg? ( media-video/ffmpeg:= )
 	gles2? ( media-libs/libglvnd )
 	gles3? ( media-libs/libglvnd )
-	lua? (
-		${LUA_DEPS}
-		dev-libs/json-c:=
-	)
+	lua? ( ${LUA_DEPS} )
 	opengl? ( media-libs/libglvnd )
 	gui? (
-		dev-qt/qtbase:6[gui,network,opengl,widgets]
-		dev-qt/qtmultimedia:6
+		dev-qt/qtcore:5
+		dev-qt/qtgui:5
+		dev-qt/qtmultimedia:5
+		dev-qt/qtnetwork:5
+		dev-qt/qtwidgets:5
 	)
 	sdl? ( media-libs/libsdl2[sound,joystick,gles2?,opengl?,video] )
 	sqlite? ( dev-db/sqlite:3 )
@@ -54,12 +54,13 @@ DEPEND="
 	test? ( dev-util/cmocka )
 "
 BDEPEND="
-	gui? ( dev-qt/qttools:6[linguist] )
+	gui? ( dev-qt/linguist-tools:5 )
 	lua? ( virtual/pkgconfig )
 "
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.10.0-optional-updater.patch
+	"${FILESDIR}"/${P}-cmake4.patch
 )
 
 CMAKE_QA_COMPAT_SKIP=1 #958356
@@ -76,20 +77,19 @@ src_configure() {
 		-DBUILD_GLES3=$(usex gles3)
 		-DBUILD_LIBRETRO=$(usex libretro)
 		-DBUILD_QT=$(usex gui)
-		$(usev gui -DFORCE_QT_VERSION=6)
 		-DBUILD_ROM_TEST=yes #918855
 		-DBUILD_SDL=$(usex sdl) # also used for gamepads in QT build
 		-DBUILD_SUITE=$(usex test)
 		-DBUILD_UPDATER=no
-		-DENABLE_DEBUGGERS=$(usex debug)
-		-DENABLE_GDB_STUB=$(usex debug)
 		-DENABLE_SCRIPTING=$(usex lua)
 		-DMARKDOWN=no #752048
+		-DUSE_DEBUGGERS=$(usex debug)
 		-DUSE_DISCORD_RPC=$(usex discord)
 		-DUSE_EDITLINE=$(usex debug)
 		-DUSE_ELF=$(usex elf)
 		-DUSE_EPOXY=no
 		-DUSE_FFMPEG=$(usex ffmpeg)
+		-DUSE_GDB_STUB=$(usex debug)
 		-DUSE_LIBZIP=no
 		-DUSE_LZMA=yes
 		-DUSE_MINIZIP=yes
@@ -116,15 +116,4 @@ src_install() {
 	use !test || rm "${ED}"/usr/bin/mgba-cinema || die
 
 	rm -r -- "${ED}"/usr/share/doc/${PF}/{LICENSE,licenses} || die
-}
-
-pkg_preinst() {
-	xdg_pkg_preinst
-
-	# hack: .shader/ were directories in <0.11 and are now single (zip) files
-	# named the same, that leads to portage mis-merging and leaving an empty
-	# directory behind rather than the new file
-	if use gui && has_version '<games-emulation/mgba-0.11[gui]'; then
-		rm -rf -- "${EROOT}"/usr/share/mgba/shaders/*.shader/ || die
-	fi
 }
