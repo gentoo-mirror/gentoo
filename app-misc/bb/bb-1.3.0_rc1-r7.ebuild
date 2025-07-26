@@ -1,15 +1,16 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit autotools
 
-MY_P="${PN}-$(ver_cut 1-2)$(ver_cut 4-5)"
+MY_PV="$(ver_cut 1-2)$(ver_cut 4-5)"
 
 DESCRIPTION="Lightweight ASCII art demo using media-libs/aalib"
 HOMEPAGE="https://aa-project.sourceforge.net/"
-SRC_URI="https://downloads.sourceforge.net/aa-project/${MY_P}.tar.gz"
+SRC_URI="https://downloads.sourceforge.net/project/aa-project/bb/${MY_PV}/bb-${MY_PV}.tar.gz"
+S="${WORKDIR}/${PN}-$(ver_cut 1-3)"
 
 LICENSE="GPL-2+"
 SLOT="0"
@@ -22,8 +23,7 @@ DEPEND="media-libs/aalib:=
 "
 # media-libs/libmikmod[openal] is due to bug #516964
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}-$(ver_cut 1-3)"
+BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-noattr.patch
@@ -31,7 +31,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-messager-overlap.patch
 	"${FILESDIR}"/${P}-zbuff-fault.patch
 	"${FILESDIR}"/${P}-printf-cleanup.patch
-	"${FILESDIR}"/${P}-m4-stuff.patch
+	"${FILESDIR}"/${P}-libmikmod-pkgconfig.patch
 	"${FILESDIR}"/${P}-protos.patch
 	"${FILESDIR}"/${P}-disable-pulse.patch
 	"${FILESDIR}"/${P}-fix-build-for-clang16.patch
