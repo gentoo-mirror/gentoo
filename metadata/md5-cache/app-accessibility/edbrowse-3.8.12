@@ -1,0 +1,14 @@
+BDEPEND=dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=compile install prepare test
+DEPEND=dev-db/unixODBC dev-libs/libpcre2:= dev-libs/openssl:= net-misc/curl sys-libs/readline:=
+DESCRIPTION=Combination editor, browser, and mail client that is 100% text based
+EAPI=8
+HOMEPAGE=https://edbrowse.org
+INHERIT=edo flag-o-matic toolchain-funcs
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-2+ curl MIT CC0-1.0
+RDEPEND=dev-db/unixODBC dev-libs/libpcre2:= dev-libs/openssl:= net-misc/curl sys-libs/readline:=
+SLOT=0
+SRC_URI=https://github.com/edbrowse/edbrowse/archive/v3.8.12.tar.gz -> edbrowse-3.8.12.tar.gz https://github.com/bellard/quickjs/archive/1fdc768fdc8571300755cdd3e4654ce99c0255ce.tar.gz -> quickjs-1fdc768fdc8571300755cdd3e4654ce99c0255ce.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
+_md5_=32c14ee883a7caddcad5187a9576e9cf
