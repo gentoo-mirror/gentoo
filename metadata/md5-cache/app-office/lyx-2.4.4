@@ -7,7 +7,7 @@ HOMEPAGE=https://www.lyx.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=desktop font optfeature python-single-r1 cmake xdg
 IUSE=aspell cups dia dot enchant gnumeric html +hunspell +latex monolithic-build nls rcs rtf svg l10n_he X python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 ~arm64
 LICENSE=GPL-2+
 RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) app-text/mythes dev-libs/boost:= sys-apps/file sys-libs/zlib:= virtual/imagemagick-tools[png,svg?] x11-libs/libxcb x11-misc/xdg-utils dev-qt/qtbase:6[concurrent,dbus,gui,widgets] dev-qt/qt5compat:6 dev-qt/qtsvg:6 aspell? ( app-text/aspell ) cups? ( net-print/cups ) dia? ( app-office/dia ) dot? ( media-gfx/graphviz ) enchant? ( app-text/enchant:2 ) gnumeric? ( app-office/gnumeric ) html? ( dev-tex/html2latex ) hunspell? ( app-text/hunspell:= ) l10n_he? ( dev-tex/culmus-latex dev-texlive/texlive-langarabic ) latex? ( app-text/dvipng app-text/ghostscript-gpl app-text/ps2eps app-text/texlive dev-texlive/texlive-fontsrecommended dev-texlive/texlive-latexextra dev-texlive/texlive-mathscience dev-texlive/texlive-pictures dev-texlive/texlive-plaingeneric || ( dev-tex/latex2html dev-tex/hevea dev-tex/tex4ht[java] dev-tex/tth ) ) rcs? ( dev-vcs/rcs ) rtf? ( app-text/unrtf dev-tex/html2latex dev-tex/latex2rtf ) svg? ( || ( gnome-base/librsvg media-gfx/inkscape ) )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
@@ -15,4 +15,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=http://ftp.lyx.org/pub/lyx/stable/2.4.x/lyx-2.4.4.tar.xz http://ftp.lyx.org/pub/lyx/devel/lyx-2.4/lyx-2.4.4.tar.xz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	font	aa113a3df9cd0a9693a1c1ee7c34a6eb	optfeature	538bce96e5589935b57e178e8635f301	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=458567ac227ccfb78c094c27db5549d6
+_md5_=cc179d4473bbbebd35f2566c97910002
