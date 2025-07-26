@@ -27,14 +27,20 @@ RDEPEND="
 	${DEPEND}
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
-src_compile() {
-	local -x LMDB_FORCE_SYSTEM=1
-	distutils-r1_src_compile
-}
+export LMDB_FORCE_SYSTEM=1
 
 python_test() {
 	rm -rf lmdb || die
 	epytest tests
+}
+
+src_install() {
+	distutils-r1_src_install
+
+	# remove temporary files
+	find "${D}" -name '*.o' -delete || die
+	find "${D}" -depth -type d -empty -delete || die
 }
