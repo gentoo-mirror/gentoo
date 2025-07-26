@@ -1,16 +1,16 @@
-BDEPEND=dev-perl/Class-Accessor-Grouped dev-perl/DBIx-Class-DynamicDefault dev-perl/DBIx-Class test? ( dev-perl/DBD-SQLite ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+BDEPEND=dev-perl/Class-Accessor-Grouped dev-perl/DBIx-Class-DynamicDefault dev-perl/DBIx-Class test? ( dev-perl/DBD-SQLite ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Automatically set update and create user id fields
-EAPI=7
+EAPI=8
 HOMEPAGE=https://metacpan.org/release/DBIx-Class-UserStamp
 INHERIT=perl-module
-IUSE=test perl_features_debug perl_features_ithreads perl_features_quadmath
+IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/Class-Accessor-Grouped dev-perl/DBIx-Class-DynamicDefault dev-perl/DBIx-Class >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/J/JG/JGOULAH/DBIx-Class-UserStamp-0.11.tar.gz
-_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	perl-module	41920449ca174fe9b9b303dfcbdb37a3
-_md5_=ea98e1816fbed046a8d8a1d2a6d92254
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	perl-module	41920449ca174fe9b9b303dfcbdb37a3
+_md5_=df5717b2574b8b196c7f5c83bdf88cae
