@@ -3,7 +3,7 @@ DEFINED_PHASES=configure prepare setup test unpack
 DEPEND=ncurses? ( sys-libs/ncurses:= )
 DESCRIPTION=Pipe Viewer: a tool for monitoring the progress of data through a pipe
 EAPI=8
-HOMEPAGE=https://www.ivarch.com/programs/pv.shtml https://codeberg.org/a-j-wood/pv
+HOMEPAGE=https://ivarch.com/p/pv https://codeberg.org/ivarch/pv
 INHERIT=linux-info toolchain-funcs verify-sig autotools git-r3
 IUSE=debug ncurses nls verify-sig
 LICENSE=GPL-3+
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=ncurses? ( sys-libs/ncurses:= )
 SLOT=0
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	linux-info	efd923656513c879204fec6638eadee5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=b78e6acc1987d7c48ccac640ebfad166
+_md5_=660894ee266511f92523cd8b8fdcda2a
