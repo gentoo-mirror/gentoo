@@ -36,6 +36,17 @@
 
 #--- END OF EXAMPLES ---
 
+# Bernard Cafarelli <voyageur@gentoo.org> (2025-07-27)
+# Current version in tree only supports python <=3.11
+# Needs major version bump, relevant dependencies, and tests fixes
+# Removal on 2025-08-26. Bug #952156.
+dev-python/aiocache
+dev-python/arsenic
+dev-python/browser-cookie3
+dev-python/tld
+dev-python/yaswfp
+net-analyzer/wapiti
+
 # Michał Górny <mgorny@gentoo.org> (2025-07-26)
 # Another pytest plugin causing random breakage.  Discontinued upstream,
 # last revdep stopped using it.
@@ -138,66 +149,15 @@ kde-apps/cervisia
 # no longer be used on this architecture.
 =net-proxy/mitmproxy-9.0.1
 
-# Jay Faulkner <jayf@gentoo.org> (2025-06-26)
-# Discontinued by upstream in Sept 2023, running on a likely vulnerable
-# electron version. Bug #959128.
-net-irc/irccloud-desktop-bin
-
-# David Seifert <soap@gentoo.org> (2025-06-25)
-# Skype has been shut down on 2025-05-05, use the Teams progressive web
-# application with your Skype username as alternative.
-# Removal on 2025-07-25.  Bug #942322.
-net-im/skypeforlinux
-sec-policy/selinux-skype
-x11-plugins/pidgin-skypeweb
-
 # Sam James <sam@gentoo.org> (2025-06-12)
 # Breaks several applications (bug #957943)
 >=dev-python/pygobject-3.52
 >=net-im/gajim-2.3.0
 
-# Alexey Sokolov <alexey+gentoo@asokolov.org> (2025-06-09)
-# Dead upstream, fails to compile with gcc 15 and cmake 4.
-# Removal on 2025-07-12. Bugs #957271, #944255
-games-arcade/tuxanci
-
-# Alexey Sokolov <alexey+gentoo@asokolov.org> (2025-06-09)
-# Dead upstream, doesn't build with gcc 15, we're the only ones packaging it.
-# Removal on 2025-07-12. Bugs #944434, #943845, #906249, #680698.
-app-shells/esh
-
-# Alexey Sokolov <alexey+gentoo@asokolov.org> (2025-06-09)
-# Unmaintained upstream since 2008, doesn't build. x86-only.
-# Removal on 2025-07-12. Bugs #77471, #926465, #941191, #948965.
-games-fps/tenebrae
-
-# Alexey Sokolov <alexey+gentoo@asokolov.org> (2025-06-09)
-# Dead upstream, fails to compile.
-# Removal on 2025-07-12. Bugs #919185, #882585, #871018, #913572
-net-analyzer/cryptcat
-
-# Alexey Sokolov <alexey+gentoo@asokolov.org> (2025-06-09)
-# Deprecated and no longer maintained upstream. Open security
-# issues. Use media-gfx/fig2dev instead.
-# Removal on 2025-07-12. Bug #917279.
-media-gfx/transfig
-
 # Sam James <sam@gentoo.ogr> (2025-06-08)
 # Masked for testing (bug #957583).
 =sys-devel/gettext-0.25*
 =dev-libs/libintl-0.25*
-
-# Michał Górny <mgorny@gentoo.org> (2025-06-07)
-# Broken and dangerous.  Archived in 2022.  The last reverse dependency
-# stopped using it in 2023 (except for outdated ebuilds).
-# Removal on 2025-07-07.  Bug #957272, #806474.
-dev-python/pytest-tempdir
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2025-06-07)
-# EAPI=7, maintainer-needed, fails to compile, upstream gone, not
-# packaged anywhere else.
-# Removal on 2025-07-07.  Bug #957444.
-dev-util/bin_replace_string
 
 # Michał Górny <mgorny@gentoo.org> (2025-06-07)
 # Destabilized due to unresolved test failures.  If you need this
