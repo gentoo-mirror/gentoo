@@ -151,23 +151,6 @@ net-im/skypeforlinux
 sec-policy/selinux-skype
 x11-plugins/pidgin-skypeweb
 
-# Michał Górny <mgorny@gentoo.org> (2025-06-25)
-# New problematic test dependencies.  No reverse dependencies.
-# Removal on 2025-07-25.  Bug #958987.
-dev-python/caldav
-
-# Michał Górny <mgorny@gentoo.org> (2025-06-21)
-# Last commit in 2019.  Has an entry point conflict with
-# dev-python/pytest-tornasync.  No reverse dependencies left.
-# Removal on 2025-07-21.  Bug #958601.
-dev-python/pytest-tornado
-
-# Michał Górny <mgorny@gentoo.org> (2025-06-21)
-# No commits for two years.  Broken with Python 3.14
-# and with >=dev-python/pytest-asyncio-1.0.0.  No reverse dependencies.
-# Removal on 2025-07-21.  Bug #958592.
-dev-python/backoff
-
 # Sam James <sam@gentoo.org> (2025-06-12)
 # Breaks several applications (bug #957943)
 >=dev-python/pygobject-3.52
@@ -235,13 +218,6 @@ dev-util/bin_replace_string
 # >  Unable to locally verify the issuer's authority.
 =app-misc/ca-certificates-20250419.3.112
 
-# Michael Orlitzky <mjo@gentoo.org> (2025-05-28)
-# I added this for SageMath, but in hindsight do not think anyone is
-# using it. It has code issues and upstream is not terribly interested
-# in fixing it. (They are active and helpful, just not in love with this
-# particular codebase.) Bug 940232. Removal after 30 days.
-dev-gap/cohomolo
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-05-27)
 # sci-electronics/gazebo depends on x11-libs/qwt:6[qt5] and Qt5, lots of
 # open bugs. Most packages perpetually stuck at EAPI-7 and several major
@@ -262,12 +238,6 @@ dev-libs/urdfdom_headers
 # Breaks some reverse dependencies and is abandoned upstream (bug #956630).
 =dev-cpp/glog-0.7.1
 
-# Nowa Ammerlaan <nowa@gentoo.org> (2025-05-25)
-# Archived upstream and no longer builds with modern compilers.
-# Bugs #956601, #930253
-# Removal on 2025-06-24
-media-libs/oneVPL-cpu
-
 # Sam James <sam@gentoo.org> (2025-05-23)
 # Severe memory leak (bug #953874)
 =app-i18n/ibus-anthy-1.5.17
@@ -279,13 +249,6 @@ media-libs/oneVPL-cpu
 # Ulrich Müller <ulm@gentoo.org> (2025-05-18)
 # Pretest versions, masked for testing.
 <app-editors/emacs-30.1.9999:30-vcs
-
-# David Seifert <soap@gentoo.org> (2025-05-17)
-# Historically split from dev-libs/icu, disabled by default upstream and not
-# recommended anymore. If need be, we can make it optional in icu itself.
-# Removal on 2025-06-16. Bug #956106.
-dev-libs/icu-layoutex
-dev-libs/icu-le-hb
 
 # Alfred Wingate <parona@protonmail.com> (2025-05-17)
 # Masked for testing
