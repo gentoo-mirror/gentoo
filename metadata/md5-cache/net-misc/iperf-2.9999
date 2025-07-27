@@ -1,12 +1,13 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install unpack
 DESCRIPTION=Tool to measure IP bandwidth using UDP or TCP
-EAPI=7
+EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/iperf2/
-INHERIT=git-r3 toolchain-funcs
-IUSE=ipv6 threads debug
+INHERIT=toolchain-funcs git-r3
+IUSE=debug
 LICENSE=HPND
 PROPERTIES=live
+RESTRICT=test
 SLOT=2
-_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
-_md5_=101abf96c11c04fb8069bceb3b4010a8
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=aeafb5d470b2f006fe29b0cf5fec78ec
