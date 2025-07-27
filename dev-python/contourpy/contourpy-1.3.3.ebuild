@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=meson-python
-PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
 
 inherit distutils-r1
 
@@ -21,17 +21,16 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 sparc x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos"
 
 RDEPEND="
-	>=dev-python/numpy-1.23[${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.25[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	>=dev-python/pybind11-2.13.4[${PYTHON_USEDEP}]
 	test? (
 		dev-python/matplotlib[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP}]
-		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
 		dev-python/wurlitzer[${PYTHON_USEDEP}]
 	)
 "
@@ -40,14 +39,11 @@ DISTUTILS_ARGS=(
 	-Dwerror=false
 )
 
+EPYTEST_PLUGINS=( pytest-rerunfailures )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
-python_test() {
-	local EPYTEST_IGNORE=(
-		# linters
-		tests/test_codebase.py
-	)
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest
-}
+EPYTEST_IGNORE=(
+	# linters
+	tests/test_codebase.py
+)
