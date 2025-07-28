@@ -35,6 +35,11 @@ RDEPEND="
 		dev-qt/qtsvg:6
 	)
 	sndfile? ( media-libs/libsndfile )
+	webengine? (
+		dev-qt/qtwebchannel:6
+		dev-qt/qtwebengine:6[widgets]
+		dev-qt/qtwebsockets:6
+	)
 	X? (
 		x11-libs/libX11
 		x11-libs/libXt
