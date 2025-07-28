@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-text/doxygen )
+BDEPEND=doc? ( app-text/doxygen[dot] )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=sys-libs/zlib[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] dev-libs/boost test? ( dev-util/cppunit[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
 DESCRIPTION=Helper library for REVerse ENGineered formats filters
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://sf.net/projects/libwpd/files/librevenge/librevenge-0.0.5/librevenge-0.0.5.tar.xz
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	multilib	b2a329026f2e404e9e371097dda47f96	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
-_md5_=60370165211b2541ebd8a41d3277c5ee
+_md5_=e9fe49cf3777d3a6268cd62de4e867c9
