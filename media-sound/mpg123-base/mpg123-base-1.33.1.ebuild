@@ -10,12 +10,11 @@ inherit flag-o-matic toolchain-funcs libtool multilib-minimal
 DESCRIPTION="a realtime MPEG 1.0/2.0/2.5 audio player for layers 1, 2 and 3"
 HOMEPAGE="https://www.mpg123.org/"
 SRC_URI="https://downloads.sourceforge.net/${MY_PN}/${MY_P}.tar.bz2"
-
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 IUSE="cpu_flags_x86_3dnow cpu_flags_x86_3dnowext cpu_flags_ppc_altivec alsa coreaudio int-quality ipv6 jack cpu_flags_x86_mmx nas oss portaudio pulseaudio sdl cpu_flags_x86_sse"
 
 # No MULTILIB_USEDEP here since we only build libmpg123 for non native ABIs.
@@ -51,7 +50,7 @@ multilib_src_configure() {
 
 	filter-lto # bug #951124
 
-	if $(multilib_is_native_abi) ; then
+	if multilib_is_native_abi ; then
 		local flag
 		for flag in coreaudio pulseaudio jack alsa oss sdl portaudio nas ; do
 			if use ${flag}; then
@@ -61,12 +60,10 @@ multilib_src_configure() {
 	fi
 
 	use cpu_flags_ppc_altivec && _cpu=altivec
-
 	if [[ $(tc-arch) == amd64 || ${ARCH} == x64-* ]]; then
 		use cpu_flags_x86_sse && _cpu=x86-64
 	elif use x86 && gcc-specs-pie ; then
-		# Don't use any mmx, 3dnow, sse and 3dnowext
-		# bug #164504
+		# Don't use any mmx, 3dnow, sse and 3dnowext (bug #164504)
 		_cpu=generic_fpu
 	else
 		use cpu_flags_x86_mmx && _cpu=mmx
@@ -83,13 +80,14 @@ multilib_src_configure() {
 		--enable-network
 		$(use_enable ipv6)
 		--enable-int-quality=$(usex int-quality)
+		$(multilib_native_enable programs)
 	)
 
 	multilib_is_native_abi || myconf+=( --disable-modules )
 
 	ECONF_SOURCE="${S}" econf "${myconf[@]}"
 
-	if ! $(multilib_is_native_abi) ; then
+	if ! multilib_is_native_abi ; then
 		sed -i -e 's:src doc:src/libmpg123:' Makefile || die
 	fi
 }

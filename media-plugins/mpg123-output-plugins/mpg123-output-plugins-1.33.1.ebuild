@@ -15,7 +15,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 IUSE="cpu_flags_x86_3dnow cpu_flags_x86_3dnowext cpu_flags_ppc_altivec alsa coreaudio int-quality ipv6 jack cpu_flags_x86_mmx nas oss portaudio pulseaudio sdl cpu_flags_x86_sse"
 
 # No MULTILIB_USEDEP here since we only build libmpg123 for non native ABIs.
@@ -66,12 +66,10 @@ src_configure() {
 	done
 
 	use cpu_flags_ppc_altivec && _cpu=altivec
-
 	if [[ $(tc-arch) == amd64 || ${ARCH} == x64-* ]]; then
 		use cpu_flags_x86_sse && _cpu=x86-64
 	elif use x86 && gcc-specs-pie ; then
-		# Don't use any mmx, 3dnow, sse and 3dnowext
-		# bug #164504
+		# Don't use any mmx, 3dnow, sse and 3dnowext (bug #164504)
 		_cpu=generic_fpu
 	else
 		use cpu_flags_x86_mmx && _cpu=mmx
@@ -88,7 +86,8 @@ src_configure() {
 		--enable-network
 		$(use_enable ipv6)
 		--enable-int-quality=$(usex int-quality)
-		--disable-components --enable-libout123-modules
+		--disable-components
+		--enable-libout123-modules
 	)
 
 	ECONF_SOURCE="${S}" econf "${myconf[@]}"
