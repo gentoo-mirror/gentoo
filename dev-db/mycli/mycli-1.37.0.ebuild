@@ -23,7 +23,7 @@ IUSE="ssh"
 
 RDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/cli-helpers-2.2.1[${PYTHON_USEDEP}]
+		>=dev-python/cli-helpers-2.7.0[${PYTHON_USEDEP}]
 		>=dev-python/click-7.0[${PYTHON_USEDEP}]
 		>=dev-python/configobj-5.0.5[${PYTHON_USEDEP}]
 		>=dev-python/cryptography-1.0.0[${PYTHON_USEDEP}]
@@ -34,7 +34,7 @@ RDEPEND="
 		>=dev-python/pygments-1.6[${PYTHON_USEDEP}]
 		>=dev-python/pymysql-0.9.2[${PYTHON_USEDEP}]
 		>=dev-python/pyperclip-1.8.1[${PYTHON_USEDEP}]
-		>=dev-python/sqlglot-5.1.3[${PYTHON_USEDEP}]
+		=dev-python/sqlglot-26*[${PYTHON_USEDEP}]
 		<dev-python/sqlparse-0.6.0[${PYTHON_USEDEP}]
 		>=dev-python/sqlparse-0.3.0[${PYTHON_USEDEP}]
 		ssh? (
@@ -49,10 +49,12 @@ BDEPEND="
 		test? (
 			dev-db/mysql[server]
 			dev-python/paramiko[${PYTHON_USEDEP}]
+			dev-python/sshtunnel[${PYTHON_USEDEP}]
 		)
 	')
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
@@ -60,6 +62,7 @@ export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 python_prepare_all() {
 	# Relax click requirement. Behave tests aren't hooked up here :/
 	# https://github.com/dbcli/mycli/commit/bb18b0c2f2ed7375efe31d379e616a11c82b1299
+	# https://github.com/dbcli/mycli/pull/1241
 	sed -e '/click/ s/,<8.1.8//' -i pyproject.toml || die
 
 	# no coverage please
