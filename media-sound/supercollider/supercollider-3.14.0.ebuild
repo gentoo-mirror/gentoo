@@ -7,20 +7,19 @@ inherit cmake flag-o-matic xdg
 
 DESCRIPTION="Environment and programming language for real time audio synthesis"
 HOMEPAGE="https://supercollider.github.io/"
-SRC_URI="https://github.com/supercollider/supercollider/releases/download/Version-${PV}/SuperCollider-${PV}-Source.tar.bz2"
-SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-3.13.0-boost-1.85.patch.xz"
-S="${WORKDIR}/SuperCollider-${PV}-Source"
+SRC_URI="https://github.com/supercollider/supercollider/releases/download/Version-${PV/_/-}/SuperCollider-${PV/_/-}-Source.tar.bz2"
+S="${WORKDIR}/SuperCollider-${PV/_/-}-Source"
 
 LICENSE="GPL-2 gpl3? ( GPL-3 )"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="ableton-link cpu_flags_x86_sse cpu_flags_x86_sse2 debug emacs +fftw gedit +gpl3 jack qt5 server +sndfile static-libs vim X +zeroconf"
+IUSE="ableton-link cpu_flags_x86_sse cpu_flags_x86_sse2 debug emacs +fftw +gpl3 jack qt6 server +sndfile static-libs vim webengine X +zeroconf"
 
-REQUIRED_USE="qt5? ( X )"
+REQUIRED_USE="qt6? ( X ) webengine? ( qt6 )"
 
 BDEPEND="
 	virtual/pkgconfig
-	qt5? ( dev-qt/linguist-tools:5 )
+	qt6? ( dev-qt/qttools:6[linguist] )
 "
 RDEPEND="
 	dev-cpp/yaml-cpp:=
@@ -31,13 +30,9 @@ RDEPEND="
 	fftw? ( sci-libs/fftw:3.0= )
 	jack? ( virtual/jack )
 	!jack? ( media-libs/portaudio )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtnetwork:5
-		dev-qt/qtprintsupport:5
-		dev-qt/qtsvg:5
-		dev-qt/qtwidgets:5
+	qt6? (
+		dev-qt/qtbase:6[gui,network,widgets]
+		dev-qt/qtsvg:6
 	)
 	sndfile? ( media-libs/libsndfile )
 	X? (
@@ -49,18 +44,9 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-libs/icu
 	emacs? ( >=app-editors/emacs-23.1:* )
-	gedit? ( app-editors/gedit )
-	qt5? ( dev-qt/qtconcurrent:5 )
+	qt6? ( dev-qt/qtbase:6[concurrent] )
 	vim? ( app-editors/vim )
 "
-
-PATCHES=(
-	"${FILESDIR}/${P}-boost-1.84.patch" # bug 921595
-	"${FILESDIR}/${P}-gcc-13.patch" # bug 905127
-	"${FILESDIR}/${P}-no-ccache.patch" # bug 922095
-	"${WORKDIR}/${P}-boost-1.85.patch" # bug 932793
-	"${FILESDIR}"/${P}-boost-1.87-{1,2}.patch # bug 946624
-)
 
 src_configure() {
 	# -Werror=strict-aliasing
@@ -80,21 +66,19 @@ src_configure() {
 		-DSSE2=$(usex cpu_flags_x86_sse2)
 		-DSC_EL=$(usex emacs)
 		-DFFT_GREEN=$(usex !fftw)
-		-DSC_ED=$(usex gedit)
 		-DNO_GPL3=$(usex !gpl3)
 		-DAUDIOAPI=$(usex jack jack portaudio)
-		-DSC_IDE=$(usex qt5)
-		-DSC_QT=$(usex qt5)
+		-DSC_IDE=$(usex qt6)
+		-DSC_QT=$(usex qt6)
 		-DSCLANG_SERVER=$(usex server)
 		-DSUPERNOVA=$(usex server)
 		-DNO_LIBSNDFILE=$(usex !sndfile)
 		-DLIBSCSYNTH=$(usex !static-libs)
 		-DSC_VIM=$(usex vim)
+		-DSC_USE_QTWEBENGINE=$(usex webengine)
 		-DNO_X11=$(usex !X)
 		-DNO_AVAHI=$(usex !zeroconf)
 	)
-
-	use qt5 && mycmakeargs+=( -DSC_USE_QTWEBENGINE=OFF ) # bug 926680
 
 	use debug && mycmakeargs+=(
 		-DSC_MEMORY_DEBUGGING=ON
@@ -116,12 +100,7 @@ src_install() {
 	cmake_src_install
 
 	use emacs && newdoc editors/sc-el/README.md README.emacs
-	use gedit && newdoc editors/sced/README.md README.gedit
 	use vim && newdoc editors/scvim/README.md README.vim
-}
-
-pkg_preinst() {
-	xdg_pkg_preinst
 }
 
 pkg_postinst() {
@@ -130,8 +109,4 @@ pkg_postinst() {
 	einfo "successful and get you started with using SuperCollider is to take"
 	einfo "a look through ${EROOT}/usr/share/doc/${PF}/README.md.bz2"
 	xdg_pkg_postinst
-}
-
-pkg_postrm() {
-	xdg_pkg_postrm
 }
