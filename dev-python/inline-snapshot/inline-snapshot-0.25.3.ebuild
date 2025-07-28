@@ -46,14 +46,6 @@ EPYTEST_PLUGINS=( "${PN}" pytest-{freezer,mock,subtests,xdist} )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# incorrect, dead and not actually used at all
-	# https://github.com/15r10nk/inline-snapshot/pull/268
-	sed -i -e '/uuid7/d' pyproject.toml || die
-}
-
 python_test() {
 	local EPYTEST_DESELECT=(
 		# requires pyright
@@ -65,5 +57,5 @@ python_test() {
 
 	local -x COLUMNS=80
 	local -x PYTHONPATH=${S}/src
-	epytest -p pytest_mock
+	epytest
 }
