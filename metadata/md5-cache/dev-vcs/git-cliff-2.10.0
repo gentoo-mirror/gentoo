@@ -1,0 +1,13 @@
+BDEPEND=|| ( >=dev-lang/rust-bin-1.85.1:* >=dev-lang/rust-1.85.1:* )
+DEFINED_PHASES=compile configure install setup test unpack
+DESCRIPTION=A highly customizable changelog generator
+EAPI=8
+HOMEPAGE=https://git-cliff.org/
+INHERIT=cargo shell-completion
+IUSE=debug
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 BSD-2 BSD Boost-1.0 CDDL CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0 ZLIB
+SLOT=0
+SRC_URI=https://github.com/orhun/git-cliff/archive/refs/tags/v2.10.0.tar.gz -> git-cliff-2.10.0.gh.tar.gz https://dev.gentoo.org/~xgqt/distfiles/deps/git-cliff-2.10.0-crates.tar.xz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	205f396579fe93ffb2775ef7e36a1b20	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16
+_md5_=7dfd7c3d5791e34554741c0640f0ce21
