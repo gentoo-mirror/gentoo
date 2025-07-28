@@ -1914,7 +1914,7 @@ app-emacs/cdlatex 4.18.5: Fast input methods for LaTeX environments and math
 app-emacs/centaur-tabs 3.2: Customizable tabs plugin for GNU Emacs
 app-emacs/cfrs 1.6.0-r1: Child Frame Read String, alternative to read-string
 app-emacs/chess 2.0.5: A chess client and library for Emacs
-app-emacs/cider 1.16.0: Clojure Interactive Development Environment for GNU Emacs
+app-emacs/cider 1.16.0 1.19.0: Clojure Interactive Development Environment for GNU Emacs
 app-emacs/circe 2.13 2.14: A great IRC client for Emacs
 app-emacs/citar 1.4.0: Emacs package to quickly find and act on bibliographic references
 app-emacs/citeproc-el 0.9.4-r1: CSL 1.0.2 Citation Processor for Emacs
@@ -2090,7 +2090,7 @@ app-emacs/highline 7.2.2: Minor mode to highlight current line in buffer
 app-emacs/hl-todo 3.8.3 3.8.4: Highlight TODO and similar keywords in comments and strings
 app-emacs/howm 1.5.0: Note-taking tool on Emacs
 app-emacs/ht 2.3: The missing hash table library for Emacs
-app-emacs/htmlize 1.58: HTML-ize font-lock buffers in Emacs
+app-emacs/htmlize 1.58 1.59: HTML-ize font-lock buffers in Emacs
 app-emacs/httpd 1.1: A HTTP server embedded in the Emacs
 app-emacs/hydra 0.15.0: Make Emacs bindings that stick around
 app-emacs/icicles 2018.02.13.23733 2018.10.15.23738: Minibuffer input completion and cycling
@@ -2134,7 +2134,7 @@ app-emacs/macrostep-geiser 0.2.0_p20210717: Emacs macrostep back-end powered by 
 app-emacs/magit 4.2.0 4.3.6 4.3.7 4.3.8 9999: A Git porcelain inside Emacs
 app-emacs/magit-popup 2.13.3: Define prefix-infix-suffix command combos
 app-emacs/mailcrypt 3.5.9-r3: Provides a simple interface to public key cryptography with OpenPGP
-app-emacs/marginalia 2.0 2.1: Marginalia in the minibuffer
+app-emacs/marginalia 2.1 2.2: Marginalia in the minibuffer
 app-emacs/markdown-mode 2.6 2.7: Major mode for editing Markdown-formatted text files
 app-emacs/mastodon 1.1.1 9999: Emacs client for Mastodon, federated microblogging social network
 app-emacs/math-symbol-lists 1.3: Lists of Unicode mathematical symbols and latex commands
@@ -2169,10 +2169,10 @@ app-emacs/nxml-libvirt-schemas 11.4.0: Extension for nxml-mode with libvirt sche
 app-emacs/nxml-svg-schemas 1.1.20081123-r1: Extension for nxml-mode with SVG 1.1 schemas
 app-emacs/oauth2 0.17: OAuth 2.0 authorization protocol
 app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
-app-emacs/orderless 1.3 1.4: Completion style that matches multiple regexps in any order
+app-emacs/orderless 1.4 1.5: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.1: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.5 0.6: Contributed packages to Org
-app-emacs/org-mode 9.7.30 9.7.31 9999: An Emacs mode for notes and project planning
+app-emacs/org-mode 9.7.30 9.7.31 9.7.33 9999: An Emacs mode for notes and project planning
 app-emacs/org-modern 1.7 1.8 1.9 9999: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r3 2.3.0 2.3.1 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.6.0 1.7.0 9999: Static site generator using Emacs's org-mode
@@ -5126,7 +5126,7 @@ dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.4.1 4.4.3 4.5.0: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
 dev-lang/ada-bootstrap 0_p2021-r1 11 12 13 14: Binary bootstrap compiler for GNAT (Ada compiler)
-dev-lang/algol68g 3.5.14 3.5.15: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.5.14 3.5.15 3.6.0: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.11 3.0.0: Scala language-based scripting and REPL
 dev-lang/arc 3.2-r1: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2-r1: Functional programming language with dependent types
@@ -5206,7 +5206,7 @@ dev-lang/nasm 2.16.03: groovy little assembler
 dev-lang/neko 2.4.0-r2: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
 dev-lang/nim 2.2.0 2.2.2 2.2.4: Compiled, garbage-collected systems programming language
-dev-lang/nprolog 4.08 4.37 4.47 4.49: Interpreter and compiler to be compatible with Arity/Prolog32
+dev-lang/nprolog 4.37 4.47 4.49 4.50: Interpreter and compiler to be compatible with Arity/Prolog32
 dev-lang/nqp 2025.01-r1 2025.05 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.09.0-r3 4.10.2-r3 4.11.2-r2 4.12.1 4.13.1 4.14.1 4.14.2 5.3.0-r1: Programming language supporting functional, imperative & object-oriented styles
 dev-lang/oorexx 5.1.0_beta12932: Open source implementation of Object Rexx
@@ -10493,7 +10493,7 @@ dev-scheme/akku 1.1.0-r100: Language package manager for Scheme
 dev-scheme/bigloo 4.5b-r1: Practical Scheme Compiler with many extensions
 dev-scheme/bytestructures 2.0.2-r100: Structured access to bytevector contents
 dev-scheme/c-wrapper 0.6.1-r2: Foreign function interface for C and Objective-C libraries
-dev-scheme/chez 10.1.0 10.2.0: A programming language based on R6RS
+dev-scheme/chez 10.2.0: A programming language based on R6RS
 dev-scheme/chez-minikanren 2018.04.11: Canonical miniKanren implementation (on Chez Scheme)
 dev-scheme/chibi 0.10.0 0.11.0 9999: Minimal Scheme implementation for use as an extension language
 dev-scheme/chicken 5.3.0 5.4.0: Scheme interpreter and native Scheme to C compiler
@@ -10537,7 +10537,7 @@ dev-scheme/jscheme 7.2-r2: A Scheme dialect with a simple Java interface called 
 dev-scheme/kawa 3.1.1-r3: Java-based Scheme system & Language Framework
 dev-scheme/mit-scheme 12.1-r1: Scheme interpreter, compiler, debugger and runtime library
 dev-scheme/owl-lisp 0.2.1 0.2.2 9999: Purely functional dialect of Scheme
-dev-scheme/racket 8.15 8.16 8.17: General purpose, multi-paradigm Lisp-Scheme programming language
+dev-scheme/racket 8.16 8.17: General purpose, multi-paradigm Lisp-Scheme programming language
 dev-scheme/scm 5.5.6-r4: SCM is a Scheme implementation from the author of slib
 dev-scheme/scmxlate 20090410-r2: Scmxlate is a configuration tool for software packages written in Scheme
 dev-scheme/sigscheme 0.9.1-r1 0.9.2: SigScheme is an R5RS Scheme interpreter for embedded use
@@ -15187,7 +15187,7 @@ net-misc/exabgp 4.2.23 4.2.25: The BGP swiss army knife of networking
 net-misc/fakeidentd 2.6-r1: A static, secure identd. One source file only!
 net-misc/freerdp 2.11.7-r1 2.9999 3.14.1 3.16.0 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 10.1.2 10.1.3 10.2.2 10.2.3 10.3 10.3.1: The FRRouting Protocol Suite
-net-misc/gallery-dl 1.29.7 1.30.0 9999: Download image galleries and collections from several image hosting sites
+net-misc/gallery-dl 1.29.7 1.30.0 1.30.2 9999: Download image galleries and collections from several image hosting sites
 net-misc/geckodriver 0.36.0: Proxy for using WebDriver clients to interact with Gecko-based browsers
 net-misc/gensio 2.8.5: General Stream I/O
 net-misc/geoipupdate 6.1.0 7.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases

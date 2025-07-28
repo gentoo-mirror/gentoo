@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/clojure-mode app-emacs/parseedn app-emacs/queue app-emacs/sesman app-emacs/spinner app-emacs/transient test? ( app-emacs/buttercup ) >=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Clojure Interactive Development Environment for GNU Emacs
+EAPI=8
+HOMEPAGE=https://cider.mx/ https://github.com/clojure-emacs/cider/
+INHERIT=elisp optfeature
+IUSE=test test
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=app-emacs/clojure-mode app-emacs/parseedn app-emacs/queue app-emacs/sesman app-emacs/spinner app-emacs/transient >=app-editors/emacs-25.3:*
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/clojure-emacs/cider/archive/v1.19.0.tar.gz -> cider-1.19.0.tar.gz
+_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5	optfeature	538bce96e5589935b57e178e8635f301
+_md5_=64d7bc10ff917c83a9dddccd80602300
