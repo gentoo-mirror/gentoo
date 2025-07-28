@@ -3,7 +3,7 @@
 
 EAPI=8
 
-NEED_EMACS="27.1"
+NEED_EMACS="28.1"
 
 inherit elisp
 
@@ -18,7 +18,7 @@ else
 	SRC_URI="https://github.com/minad/${PN}/archive/refs/tags/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
