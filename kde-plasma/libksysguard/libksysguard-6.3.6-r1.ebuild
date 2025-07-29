@@ -36,7 +36,7 @@ RDEPEND="${DEPEND}
 "
 
 # -m 0755 to avoid suid with USE="-filecaps"
-FILECAPS=( -m 0755 cap_sys_nice=ep usr/libexec/ksysguard/ksgrd_network_helper )
+FILECAPS=( -m 0755 cap_net_raw+ep usr/libexec/ksysguard/ksgrd_network_helper )
 
 src_configure() {
 	# support std::jthread and std::stop_token is not enabled per default

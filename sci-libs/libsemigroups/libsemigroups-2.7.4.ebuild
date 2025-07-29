@@ -1,4 +1,4 @@
-# Copyright 2019-2024 Gentoo Authors
+# Copyright 2019-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,8 +12,6 @@ LICENSE="GPL-3+"
 SLOT="0/2"
 KEYWORDS="~amd64 ~riscv ~x86"
 IUSE="cpu_flags_x86_popcnt"
-
-PATCHES=( "${FILESDIR}/${P}-gcc-15-buildfix.patch" )
 
 src_configure() {
 	econf \

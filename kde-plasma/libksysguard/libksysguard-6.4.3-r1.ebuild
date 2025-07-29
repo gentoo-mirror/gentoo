@@ -37,7 +37,7 @@ RDEPEND="${DEPEND}
 "
 
 # -m 0755 to avoid suid with USE="-filecaps"
-FILECAPS=( -m 0755 cap_sys_nice=ep usr/libexec/ksysguard/ksgrd_network_helper )
+FILECAPS=( -m 0755 cap_net_raw+ep usr/libexec/ksysguard/ksgrd_network_helper )
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && tc-check-min_ver gcc 13
