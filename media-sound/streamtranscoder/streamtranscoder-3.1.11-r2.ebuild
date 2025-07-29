@@ -1,7 +1,11 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+AT_M4DIR=m4/
+
+inherit autotools dot-a
 
 MY_P="${PN}v3-${PV}"
 
@@ -19,5 +23,23 @@ RDEPEND="
 	media-libs/libvorbis
 	media-sound/lame
 	media-libs/libmad
-	net-misc/curl"
+"
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	default
+
+	# should not be commented...
+	sed -i 's/#AC_PROG_CXX/AC_PROG_CXX/' configure.in || die
+	eautoreconf
+}
+
+src_configure() {
+	lto-guarantee-fat
+	default
+}
+
+src_install() {
+	default
+	strip-lto-bytecode
+}
