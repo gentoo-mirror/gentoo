@@ -8,43 +8,38 @@ CRATES="
 	android-tzdata@0.1.1
 	android_system_properties@0.1.5
 	anes@0.1.6
-	anstream@0.6.18
-	anstyle-parse@0.2.6
-	anstyle-query@1.1.2
-	anstyle-wincon@3.0.8
-	anstyle@1.0.10
+	anstream@0.6.19
+	anstyle-parse@0.2.7
+	anstyle-query@1.1.3
+	anstyle-wincon@3.0.9
+	anstyle@1.0.11
 	assert-json-diff@2.0.2
-	async-channel@2.3.1
-	async-task@4.7.1
-	atomic-waker@1.1.2
-	autocfg@1.4.0
+	autocfg@1.5.0
 	base64@0.13.1
 	bitflags@1.3.2
 	bitflags@2.9.1
-	blocking@1.6.1
-	bumpalo@3.17.0
+	bumpalo@3.19.0
 	byteorder@1.5.0
 	cansi@2.2.1
 	cast@0.3.0
-	cc@1.2.23
-	cfg-if@1.0.0
+	cc@1.2.30
+	cfg-if@1.0.1
 	cfg_aliases@0.2.1
 	chrono@0.4.41
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.38
-	clap_builder@4.5.38
-	clap_complete@4.5.50
-	clap_derive@4.5.32
-	clap_lex@0.7.4
-	clap_mangen@0.2.26
-	colorchoice@1.0.3
+	clap@4.5.41
+	clap_builder@4.5.41
+	clap_complete@4.5.55
+	clap_derive@4.5.41
+	clap_lex@0.7.5
+	clap_mangen@0.2.28
+	colorchoice@1.0.4
 	colored@2.2.0
 	colored@3.0.0
-	concurrent-queue@2.5.0
 	core-foundation-sys@0.8.7
-	core-foundation@0.9.4
+	core-foundation@0.10.1
 	criterion-plot@0.5.0
 	criterion@0.5.1
 	crossbeam-deque@0.8.6
@@ -52,7 +47,7 @@ CRATES="
 	crossbeam-utils@0.8.21
 	crossterm@0.28.1
 	crossterm_winapi@0.9.1
-	crunchy@0.2.3
+	crunchy@0.2.4
 	darling@0.20.11
 	darling_core@0.20.11
 	darling_macro@0.20.11
@@ -61,9 +56,7 @@ CRATES="
 	dirs-sys@0.5.0
 	dirs@6.0.0
 	either@1.15.0
-	errno@0.3.12
-	event-listener-strategy@0.5.4
-	event-listener@5.4.0
+	errno@0.3.13
 	fastrand@2.3.0
 	fnv@1.0.7
 	futures-core@0.3.31
@@ -78,7 +71,7 @@ CRATES="
 	heck@0.4.1
 	heck@0.5.0
 	hermit-abi@0.3.9
-	hermit-abi@0.5.1
+	hermit-abi@0.5.2
 	hex@0.4.3
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.63
@@ -92,38 +85,38 @@ CRATES="
 	itoa@1.0.15
 	js-sys@0.3.77
 	lazy_static@1.5.0
-	libc@0.2.172
-	libredox@0.1.3
+	libc@0.2.174
+	libredox@0.1.6
 	libudev-sys@0.1.4
 	libusb1-sys@0.7.0
 	linux-raw-sys@0.3.8
 	linux-raw-sys@0.4.15
 	linux-raw-sys@0.9.4
-	lock_api@0.4.12
+	lock_api@0.4.13
 	log@0.4.27
-	mach2@0.4.2
-	memchr@2.7.4
+	mach2@0.4.3
+	memchr@2.7.5
 	minimal-lexical@0.2.1
-	mio@1.0.3
+	mio@1.0.4
 	nix@0.29.0
 	nom@7.1.3
 	num-conv@0.1.0
 	num-traits@0.2.19
 	num_threads@0.1.7
+	nusb@0.2.0
 	once_cell@1.21.3
-	once_cell_polyfill@1.70.0
+	once_cell_polyfill@1.70.1
 	oorandom@11.1.5
 	option-ext@0.2.0
 	parking@2.2.1
-	parking_lot@0.12.3
-	parking_lot_core@0.9.10
+	parking_lot@0.12.4
+	parking_lot_core@0.9.11
 	pci-ids@0.2.5
 	phf@0.11.3
 	phf_codegen@0.11.3
 	phf_generator@0.11.3
 	phf_shared@0.11.3
 	pin-project-lite@0.2.16
-	piper@0.2.4
 	pkg-config@0.3.32
 	plotters-backend@0.3.7
 	plotters-svg@0.3.7
@@ -135,7 +128,7 @@ CRATES="
 	rand_core@0.6.4
 	rayon-core@1.12.1
 	rayon@1.10.0
-	redox_syscall@0.5.12
+	redox_syscall@0.5.16
 	redox_users@0.5.0
 	regex-automata@0.4.9
 	regex-syntax@0.8.5
@@ -144,14 +137,14 @@ CRATES="
 	rusb@0.9.4
 	rustix@0.37.28
 	rustix@0.38.44
-	rustix@1.0.7
-	rustversion@1.0.20
+	rustix@1.0.8
+	rustversion@1.0.21
 	ryu@1.0.20
 	same-file@1.0.6
 	scopeguard@1.2.0
 	serde@1.0.219
 	serde_derive@1.0.219
-	serde_json@1.0.140
+	serde_json@1.0.141
 	serde_with@2.3.3
 	serde_with_macros@2.3.3
 	shlex@1.3.0
@@ -160,13 +153,13 @@ CRATES="
 	signal-hook@0.3.18
 	simple_logger@4.3.3
 	siphasher@1.0.1
-	slab@0.4.9
-	smallvec@1.15.0
+	slab@0.4.10
+	smallvec@1.15.1
 	stable_deref_trait@1.2.0
 	strsim@0.11.1
 	strum@0.26.3
 	strum_macros@0.26.4
-	syn@2.0.101
+	syn@2.0.104
 	terminal_size@0.2.6
 	terminal_size@0.4.2
 	thiserror-impl@2.0.12
@@ -178,13 +171,13 @@ CRATES="
 	udev@0.8.0
 	udevrs@0.4.0
 	unicode-ident@1.0.18
-	unicode-width@0.2.0
+	unicode-width@0.2.1
 	usb-ids@1.2025.2
 	utf8parse@0.2.2
-	uuid@1.16.0
+	uuid@1.17.0
 	vcpkg@0.2.15
 	walkdir@2.5.0
-	wasi@0.11.0+wasi-snapshot-preview1
+	wasi@0.11.1+wasi-snapshot-preview1
 	wasm-bindgen-backend@0.2.100
 	wasm-bindgen-macro-support@0.2.100
 	wasm-bindgen-macro@0.2.100
@@ -198,34 +191,39 @@ CRATES="
 	windows-core@0.61.2
 	windows-implement@0.60.0
 	windows-interface@0.59.1
-	windows-link@0.1.1
+	windows-link@0.1.3
 	windows-result@0.3.4
 	windows-strings@0.4.2
 	windows-sys@0.48.0
-	windows-sys@0.52.0
 	windows-sys@0.59.0
+	windows-sys@0.60.2
 	windows-targets@0.48.5
 	windows-targets@0.52.6
+	windows-targets@0.53.2
 	windows_aarch64_gnullvm@0.48.5
 	windows_aarch64_gnullvm@0.52.6
+	windows_aarch64_gnullvm@0.53.0
 	windows_aarch64_msvc@0.48.5
 	windows_aarch64_msvc@0.52.6
+	windows_aarch64_msvc@0.53.0
 	windows_i686_gnu@0.48.5
 	windows_i686_gnu@0.52.6
+	windows_i686_gnu@0.53.0
 	windows_i686_gnullvm@0.52.6
+	windows_i686_gnullvm@0.53.0
 	windows_i686_msvc@0.48.5
 	windows_i686_msvc@0.52.6
+	windows_i686_msvc@0.53.0
 	windows_x86_64_gnu@0.48.5
 	windows_x86_64_gnu@0.52.6
+	windows_x86_64_gnu@0.53.0
 	windows_x86_64_gnullvm@0.48.5
 	windows_x86_64_gnullvm@0.52.6
+	windows_x86_64_gnullvm@0.53.0
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
+	windows_x86_64_msvc@0.53.0
 "
-
-declare -A GIT_CRATES=(
-	[nusb]='https://github.com/kevinmehall/nusb;dad53d268db6620d641a01eb2ecb8b5791fcc1fc;nusb-%commit%'
-)
 
 inherit cargo
 
