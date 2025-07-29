@@ -11,7 +11,7 @@ HOMEPAGE="https://apps.gnome.org/Boxes/"
 LICENSE="LGPL-2+ CC-BY-2.0"
 SLOT="0"
 
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 # FIXME: qemu probably needs to depend on spice[smartcard] directly with USE=spice
 # FIXME: Check over libvirt USE=libvirtd,qemu and the smartcard/usbredir requirements
@@ -74,10 +74,6 @@ If you have an Intel Processor, run:
 
 If you have an AMD Processor, run:
 # modprobe kvm-amd"
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-45.0-c99.patch
-)
 
 pkg_pretend() {
 	linux-info_get_any_version

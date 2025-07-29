@@ -9,8 +9,8 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-applets/"
 
 LICENSE="GPL-2+ FDL-1.1"
 SLOT="0"
+KEYWORDS="~amd64 ~riscv"
 IUSE="tracker"
-KEYWORDS="amd64 ~riscv"
 
 # FIXME: automagic wireless-tools
 # TODO: gucharmap could be optional, but no knob
@@ -48,6 +48,5 @@ BDEPEND="
 src_configure() {
 	gnome2_src_configure \
 		--disable-static \
-		--disable-cpufreq \
 		$(use_enable tracker tracker-search-bar)
 }

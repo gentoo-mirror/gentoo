@@ -10,11 +10,11 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-chess"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~loong ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.44:2
-	gui-libs/gtk:4
+	>=gui-libs/gtk-4.14:4
 	>=gui-libs/libadwaita-1.5:1
 	>=gnome-base/librsvg-2.46.0:2
 	x11-libs/pango

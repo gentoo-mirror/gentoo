@@ -22,7 +22,7 @@ RDEPEND="
 	>=dev-libs/libgee-0.20.0:0.8=
 	dev-libs/mpc:=
 	dev-libs/mpfr:0=
-	>=gui-libs/gtk-4.15.2:4
+	>=gui-libs/gtk-4.17.0:4
 	>=gui-libs/libadwaita-1.6_beta:1
 	>=gui-libs/gtksourceview-5.3.0:5
 	introspection? ( >=dev-libs/gobject-introspection-1.58:= )
