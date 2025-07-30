@@ -11,10 +11,10 @@ PYTHON_COMPAT=( python3_{11..14} )
 
 inherit cmake flag-o-matic lua-single optfeature python-single-r1 xdg
 
-CEF_AMD64="cef_binary_6533_linux_x86_64_v3"
-CEF_ARM64="cef_binary_6533_linux_aarch64_v4"
-OBS_BROWSER_COMMIT="b56fd78936761891475458447c1cc9058bb9c2d4"
-OBS_WEBSOCKET_COMMIT="c542622d7b6d41ce5875f54efdab1d4ac2967ef4"
+CEF_AMD64="cef_binary_6533_linux_x86_64_v5"
+CEF_ARM64="cef_binary_6533_linux_aarch64_v5"
+OBS_BROWSER_COMMIT="bdabf8300ecefeb566b81f4a7ff75f8a8e21f62b"
+OBS_WEBSOCKET_COMMIT="40d26dbf4d29137bf88cd393a3031adb04d68bba"
 
 DESCRIPTION="Software for Recording and Streaming Live Video Content"
 HOMEPAGE="https://obsproject.com"
@@ -58,6 +58,7 @@ REQUIRED_USE="
 "
 
 BDEPEND="
+	kde-frameworks/extra-cmake-modules:0
 	lua? ( dev-lang/swig )
 	python? ( dev-lang/swig )
 "
@@ -69,7 +70,7 @@ DEPEND="
 	dev-libs/glib:2
 	dev-libs/jansson:=
 	dev-libs/uthash
-	dev-qt/qtbase:6[network,widgets,xml(+)]
+	dev-qt/qtbase:6[network,widgets,X,xml(+)]
 	dev-qt/qtsvg:6
 	media-libs/libglvnd[X]
 	media-libs/libva
@@ -82,6 +83,7 @@ DEPEND="
 	sys-apps/pciutils
 	sys-apps/util-linux
 	sys-libs/zlib:=
+	x11-libs/libdrm
 	x11-libs/libX11
 	x11-libs/libxcb:=
 	x11-libs/libXcomposite
@@ -99,7 +101,6 @@ DEPEND="
 		media-libs/mesa[gbm(+)]
 		net-print/cups
 		x11-libs/cairo
-		x11-libs/libdrm
 		x11-libs/libXcursor
 		x11-libs/libXdamage
 		x11-libs/libXext
@@ -248,8 +249,8 @@ src_install() {
 	cmake_src_install
 
 	# external plugins may need some things not installed by default, install them here
-	insinto /usr/include/obs/UI/obs-frontend-api
-	doins UI/obs-frontend-api/obs-frontend-api.h
+	insinto /usr/include/obs/frontend/api
+	doins frontend/api/obs-frontend-api.h
 }
 
 pkg_postinst() {

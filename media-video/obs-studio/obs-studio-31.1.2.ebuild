@@ -11,9 +11,9 @@ PYTHON_COMPAT=( python3_{11..14} )
 
 inherit cmake flag-o-matic lua-single optfeature python-single-r1 xdg
 
-CEF_AMD64="cef_binary_6533_linux_x86_64_v3"
-CEF_ARM64="cef_binary_6533_linux_aarch64_v4"
-OBS_BROWSER_COMMIT="033a23befe01e0a2f85b95af384a89b82c8d6a40"
+CEF_AMD64="cef_binary_6533_linux_x86_64_v5"
+CEF_ARM64="cef_binary_6533_linux_aarch64_v5"
+OBS_BROWSER_COMMIT="bdabf8300ecefeb566b81f4a7ff75f8a8e21f62b"
 OBS_WEBSOCKET_COMMIT="40d26dbf4d29137bf88cd393a3031adb04d68bba"
 
 DESCRIPTION="Software for Recording and Streaming Live Video Content"
@@ -58,6 +58,7 @@ REQUIRED_USE="
 "
 
 BDEPEND="
+	kde-frameworks/extra-cmake-modules:0
 	lua? ( dev-lang/swig )
 	python? ( dev-lang/swig )
 "
@@ -69,7 +70,7 @@ DEPEND="
 	dev-libs/glib:2
 	dev-libs/jansson:=
 	dev-libs/uthash
-	dev-qt/qtbase:6[network,widgets,xml(+)]
+	dev-qt/qtbase:6[network,widgets,X,xml(+)]
 	dev-qt/qtsvg:6
 	media-libs/libglvnd[X]
 	media-libs/libva

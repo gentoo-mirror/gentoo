@@ -70,7 +70,7 @@ DEPEND="
 	dev-libs/glib:2
 	dev-libs/jansson:=
 	dev-libs/uthash
-	dev-qt/qtbase:6[network,widgets,xml(+)]
+	dev-qt/qtbase:6[network,widgets,X,xml(+)]
 	dev-qt/qtsvg:6
 	media-libs/libglvnd[X]
 	media-libs/libva
