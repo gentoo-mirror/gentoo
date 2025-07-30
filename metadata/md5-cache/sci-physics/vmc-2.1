@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 doc? ( app-text/doxygen app-text/doxygen[dot] )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=sci-physics/root:=
+DESCRIPTION=The Virtual Monte Carlo core library
+EAPI=8
+HOMEPAGE=https://vmc-project.github.io/ https://github.com/vmc-project/vmc
+INHERIT=cmake docs
+IUSE=doc doc
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=sci-physics/root:=
+SLOT=0
+SRC_URI=https://github.com/vmc-project/vmc/archive/v2-1.tar.gz -> vmc-2.1.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	docs	006125f2158d2f16904ebd9114336058
+_md5_=4785fae205882e5737165204b905f2dc
