@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,6 +6,7 @@ EAPI=8
 DESCRIPTION="(T)he k(I)cki(N) (T)ickin d(I)kumud clie(N)t"
 HOMEPAGE="https://tintin.mudhalla.net/"
 SRC_URI="https://github.com/scandum/${PN}/releases/download/${PV}/${P}.tar.gz"
+S="${WORKDIR}"/tt/src
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -21,8 +22,6 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 "
-
-S="${WORKDIR}"/tt/src
 
 src_install() {
 	dobin tt++
