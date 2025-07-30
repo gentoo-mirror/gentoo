@@ -3,19 +3,17 @@
 
 EAPI=8
 
-NEED_EMACS="27.1"
-
 inherit elisp
 
-DESCRIPTION="Modern style for your GNU Emacs Org buffers"
-HOMEPAGE="https://github.com/minad/org-modern/"
+DESCRIPTION="Child Frame Read String, alternative to read-string"
+HOMEPAGE="https://github.com/Alexander-Miller/cfrs/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/minad/${PN}.git"
+	EGIT_REPO_URI="https://github.com/Alexander-Miller/${PN}"
 else
-	SRC_URI="https://github.com/minad/${PN}/archive/${PV}.tar.gz
+	SRC_URI="https://github.com/Alexander-Miller/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
 	KEYWORDS="~amd64 ~x86"
@@ -25,11 +23,13 @@ LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-30.1.0.0
+	app-emacs/dash
+	app-emacs/posframe
+	app-emacs/s
 "
 BDEPEND="
 	${RDEPEND}
 "
 
-DOCS=( README.org example.org )
+DOCS=( README.org )
 SITEFILE="50${PN}-gentoo.el"
