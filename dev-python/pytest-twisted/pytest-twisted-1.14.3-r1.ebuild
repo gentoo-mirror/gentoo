@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	dev-python/decorator[${PYTHON_USEDEP}]
@@ -28,29 +28,7 @@ RDEPEND="
 	>=dev-python/pytest-2.3[${PYTHON_USEDEP}]
 	dev-python/twisted[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	test? (
-		dev-python/hypothesis[${PYTHON_USEDEP}]
-	)
-"
-
+EPYTEST_PLUGIN_LOAD_VIA_ENV=1
+EPYTEST_PLUGINS=( "${PN}" hypothesis )
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
-
-src_prepare() {
-	# If we let pytest-twisted autoload everywhere, it breaks tests in
-	# packages that don't expect it. Apply a similar hack as for bug
-	# #661218.
-	sed -e 's/"pytest11": \[[^]]*\]//' -i setup.py || die
-
-	# https://github.com/pytest-dev/pytest/issues/9280
-	sed -e '/^pytest_plugins =/d' -i testing/conftest.py || die
-
-	distutils-r1_src_prepare
-}
-
-python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	local -x PYTEST_PLUGINS=pytest_twisted
-
-	epytest -p pytester
-}
