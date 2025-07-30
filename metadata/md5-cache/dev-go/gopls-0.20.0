@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.24.2 >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION="Go please" is the official Go language server
+EAPI=8
+HOMEPAGE=https://github.com/golang/tools/blob/master/gopls/README.md
+INHERIT=go-module
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/golang/tools/archive/refs/tags/gopls/v0.20.0.tar.gz -> gopls-0.20.0.tar.gz https://github.com/douglarek/gentoo-deps/releases/download/gopls-0.20.0/gopls-0.20.0-vendor.tar.xz -> gopls-0.20.0-deps.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	d96f2a2fd6d8fbad6d94516bf238f885
+_md5_=f56396496bb22ac98053983c802fc99f
