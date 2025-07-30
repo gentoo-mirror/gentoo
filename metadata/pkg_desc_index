@@ -8142,7 +8142,7 @@ dev-python/betterproto 2.0.0_beta6 2.0.0_beta7: A better Protobuf / gRPC generat
 dev-python/bibtexparser 1.4.2 1.4.3: A BibTeX parser written in Python
 dev-python/binaryornot 0.4.4-r3: Ultra-lightweight pure Python package to guess whether a file is binary or text
 dev-python/bincopy 20.1.0: Mangling of various file formats that conveys binary information
-dev-python/bitarray 3.4.3 3.5.2: Efficient arrays of booleans -- C extension
+dev-python/bitarray 3.4.3 3.5.2 3.6.0: Efficient arrays of booleans -- C extension
 dev-python/bitstring 4.3.1: A pure Python module for creation and analysis of binary data
 dev-python/black 24.10.0 25.1.0: The uncompromising Python code formatter
 dev-python/blake3 1.0.4 1.0.5: Python bindings for the BLAKE3 cryptographic hash function
@@ -8327,7 +8327,7 @@ dev-python/docker 6.1.3 7.0.0 7.1.0: Python client for Docker
 dev-python/dockerpty 0.4.1-r3: Python library to use the pseudo-tty of a docker container
 dev-python/docopt 0.6.2-r5: Pythonic argument parser, that will make you smile
 dev-python/docstring-to-markdown 0.17: On the fly conversion of Python docstrings to markdown
-dev-python/docutils 0.21.2 0.22_rc2 0.22_rc3 0.22_rc5: Python Documentation Utilities (reference reStructuredText impl.)
+dev-python/docutils 0.21.2 0.22: Python Documentation Utilities (reference reStructuredText impl.)
 dev-python/docutils-glep 1.5: Gentoo GLEP support for docutils
 dev-python/dogpile-cache 1.4.0: A locking API for expiring values while a single thread generates a new value
 dev-python/doit 0.36.0-r2: Automation tool
@@ -8374,7 +8374,7 @@ dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the s
 dev-python/eyed3 0.9.8: Module for manipulating ID3 (v1 + v2) tags in Python
 dev-python/fake-py 0.11.6 0.11.8: Minimalistic, standalone alternative fake data generator with no dependencies
 dev-python/faker 37.4.0 37.4.2: A Python package that generates fake data for you
-dev-python/fakeredis 2.30.1: Fake implementation of redis API for testing purposes
+dev-python/fakeredis 2.30.1 2.30.3: Fake implementation of redis API for testing purposes
 dev-python/fastbencode 0.3.1 0.3.2: Implementation of bencode with optional fast C extensions
 dev-python/fasteners 0.19: Python package that provides useful locks
 dev-python/fastimport 0.9.14: Library for parsing the fastimport VCS serialization format
@@ -8640,8 +8640,8 @@ dev-python/keyutils 0.6-r2: A set of python bindings for keyutils
 dev-python/kgb 7.2: Python function spy support for unit tests
 dev-python/kiwisolver 1.4.8: An efficient C++ implementation of the Cassowary constraint solving algorithm
 dev-python/klein 24.8.0: Micro-framework for developing production-ready web services with Python
-dev-python/knowit 0.5.6 0.5.8 0.5.10: Know better your media files
-dev-python/kombu 5.5.3 5.5.4: AMQP Messaging Framework for Python
+dev-python/knowit 0.5.6 0.5.8 0.5.10 0.5.11: Know better your media files
+dev-python/kombu 5.5.4 5.6.0_beta1: AMQP Messaging Framework for Python
 dev-python/krb5 0.7.1: Kerberos API bindings for Python
 dev-python/lap 0.5.12: Linear Assignment Problem solver (LAPJV/LAPMOD)
 dev-python/lark 1.2.2: Python module to propose a modern general-purpose parsing library for Python
@@ -8760,7 +8760,7 @@ dev-python/mkdocs-redirects 1.2.2: Plugin for Mkdocs page redirects
 dev-python/mkdocs-static-i18n 1.3.0: MkDocs i18n plugin using static translation markdown files
 dev-python/mkdocstrings 0.29.1 0.30.0: Automatic documentation from sources, for MkDocs
 dev-python/mkdocstrings-python 1.16.10 1.16.11 1.16.12: Python handler for dev-python/mkdocstrings
-dev-python/ml-dtypes 0.5.1: A stand-alone implementation of several NumPy dtype extensions
+dev-python/ml-dtypes 0.5.1 0.5.3: A stand-alone implementation of several NumPy dtype extensions
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 5.2.0: Rolling backport of unittest.mock for all Pythons
 dev-python/moddb 0.12.0: Python scrapper to access ModDB mods, games and more as objects
@@ -8837,9 +8837,9 @@ dev-python/openpyxl 3.1.5: Pure python reader and writer of Excel OpenXML files
 dev-python/opensearch-py 2.7.1: Python client for OpenSearch
 dev-python/openstackdocstheme 3.5.0: Theme and extension support for Sphinx documentation
 dev-python/openstacksdk 4.6.0: A collection of libraries for building applications to work with OpenStack
-dev-python/opentelemetry-api 1.35.0: OpenTelemetry Python API
-dev-python/opentelemetry-sdk 1.35.0: OpenTelemetry Python SDK
-dev-python/opentelemetry-semantic-conventions 1.35.0: OpenTelemetry Semantic Conventions
+dev-python/opentelemetry-api 1.35.0 1.36.0: OpenTelemetry Python API
+dev-python/opentelemetry-sdk 1.35.0 1.36.0: OpenTelemetry Python SDK
+dev-python/opentelemetry-semantic-conventions 1.35.0 1.36.0: OpenTelemetry Semantic Conventions
 dev-python/opt-einsum 3.4.0: Optimized Einsum: A tensor contraction order optimizer
 dev-python/ordered-set 4.1.0-r1: A mutable set that remembers the order of its entries
 dev-python/orderedmultidict 1.0.1: Ordered Multivalue Dictionary. Powers furl
@@ -9583,7 +9583,7 @@ dev-python/tox 4.26.0 4.28.0 4.28.1 4.28.3: virtualenv-based automation of test 
 dev-python/tpm2-pytss 2.3.0-r1: Python bindings for TSS
 dev-python/tqdm 4.67.1: Add a progress meter to your loops in a second
 dev-python/traitlets 5.14.3: A configuration system for Python applications
-dev-python/trakit 0.2.2 0.2.3 0.2.4: Guess additional information from titles in media tracks
+dev-python/trakit 0.2.2 0.2.3 0.2.4 0.2.5: Guess additional information from titles in media tracks
 dev-python/transitions 0.9.3: A lightweight, object-oriented state machine implementation in Python
 dev-python/translate-toolkit 3.15.6: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.23.0-r1 0.23.1-r1 0.24.0 0.25.0: Python bindings to the Tree-sitter parsing library
@@ -9593,7 +9593,7 @@ dev-python/trio 0.30.0: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.12.2: WebSocket client and server implementation for Python Trio
 dev-python/trove-classifiers 2025.5.9.12: Canonical source for classifiers on PyPI (pypi.org)
 dev-python/trustme 1.2.1: #1 quality TLS certs while you wait, for the discerning tester
-dev-python/truststore 0.10.1: Verify certificates using native system trust stores
+dev-python/truststore 0.10.1 0.10.3: Verify certificates using native system trust stores
 dev-python/tubes 0.2.1: Flow control and backpressure for event-driven applications
 dev-python/tuf 6.0.0: A secure updater framework for Python
 dev-python/twine 6.0.1 6.1.0: Collection of utilities for publishing packages on PyPI
@@ -9722,7 +9722,7 @@ dev-python/zeroconf 0.147.0: Pure Python Multicast DNS Service Discovery Library
 dev-python/zipp 3.23.0: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zipstream-ng 1.7.1 1.8.0: A modern and easy to use streamable zip file generator
 dev-python/zlib-ng 0.5.1: Drop-in replacement for zlib and gzip modules using zlib-ng
-dev-python/zmq-anyio 0.3.9: Asynchronous API for ZMQ using AnyIO
+dev-python/zmq-anyio 0.3.9 0.3.10: Asynchronous API for ZMQ using AnyIO
 dev-python/zope-component 6.0: Zope Component Architecture
 dev-python/zope-configuration 6.0: Zope Configuration Architecture
 dev-python/zope-deprecation 5.1: Zope Deprecation Infrastructure
@@ -9796,7 +9796,7 @@ dev-qt/qtxmlpatterns 5.15.17: XPath, XQuery, XSLT, and XML Schema validation lib
 dev-ruby/GeoRuby 2.5.2-r2: Ruby data holder for OGC Simple Features
 dev-ruby/abbrev 0.1.2: Calculates a set of unique abbreviations for a given set of strings
 dev-ruby/abstract 1.0.0-r5: Library which enable you to define abstract method in Ruby
-dev-ruby/acme-client 2.0.21 2.0.22: A Ruby client for the letsencrypt's ACME protocol
+dev-ruby/acme-client 2.0.21 2.0.22 2.0.23: A Ruby client for the letsencrypt's ACME protocol
 dev-ruby/actioncable 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.2 7.2.2.1 8.0.1 8.0.2: Integrated WebSockets for Rails
 dev-ruby/actionmailbox 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.2 7.2.2.1 8.0.1 8.0.2: Framework for designing email-service layers
 dev-ruby/actionmailer 7.0.8.7 7.1.4.2 7.1.5 7.1.5.1 7.2.2 7.2.2.1 8.0.1 8.0.2: Framework for designing email-service layers
@@ -10296,7 +10296,7 @@ dev-ruby/rspec-mocks 3.13.2 3.13.4 3.13.5: A Behaviour Driven Development (BDD) 
 dev-ruby/rspec-pending_for 0.1.17: Mark specs pending or skipped for specific Ruby engine / version combinations
 dev-ruby/rspec-rails 6.1.5 7.1.1 8.0.0 8.0.1: RSpec's official Ruby on Rails plugin
 dev-ruby/rspec-retry 0.6.2: Retry randomly failing rspec example
-dev-ruby/rspec-stubbed_env 1.0.1 1.0.2: Stub environment variables in a scoped context for testing
+dev-ruby/rspec-stubbed_env 1.0.1 1.0.2 1.0.3: Stub environment variables in a scoped context for testing
 dev-ruby/rspec-support 3.13.2 3.13.4: A Behaviour Driven Development (BDD) framework for Ruby
 dev-ruby/rss 0.3.1: Family of libraries that support various formats of XML feeds
 dev-ruby/ruby-atk 4.2.4 4.2.9: Ruby Atk bindings
@@ -10466,10 +10466,10 @@ dev-ruby/version_gem 1.1.7 1.1.8: Enhance that VERSION! Sugar for boring Version
 dev-ruby/virtus 2.0.0: Attributes on Steroids for Plain Old Ruby Objects
 dev-ruby/vlad 2.7.1-r1: Pragmatic application deployment automation, without mercy
 dev-ruby/warden 1.2.9-r1: General Rack Authentication Framework
-dev-ruby/warning 1.4.0 1.5.0: Custom processing for warnings
+dev-ruby/warning 1.5.0: Custom processing for warnings
 dev-ruby/web-console 4.2.1: A debugging tool for your Ruby on Rails applications
-dev-ruby/webmock 3.24.0 3.25.1: Allows stubbing HTTP requests and setting expectations on HTTP requests
-dev-ruby/webrick 1.7.0-r1 1.8.2 1.9.1: An HTTP server toolkit
+dev-ruby/webmock 3.25.1: Allows stubbing HTTP requests and setting expectations on HTTP requests
+dev-ruby/webrick 1.7.0-r1 1.9.1: An HTTP server toolkit
 dev-ruby/webrobots 0.1.2-r3: A library to help write robots.txt compliant web robots
 dev-ruby/websocket 1.2.11: Universal Ruby library to handle WebSocket protocol
 dev-ruby/websocket-driver 0.7.7 0.8.0: A complete implementation of the WebSocket protocols
