@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=cuda? ( dev-util/nvidia-cuda-toolkit:= ) libuv? ( dev-libs/libuv ) mpi? ( virtual/mpi ) redis? ( dev-db/redis dev-libs/hiredis ) ssl? ( dev-libs/openssl:= )
+DESCRIPTION=library of floating-point neural network inference operators
+EAPI=8
+HOMEPAGE=https://github.com/facebookincubator/gloo/
+INHERIT=cmake cuda
+IUSE=cuda libuv mpi redis ssl test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=cuda? ( dev-util/nvidia-cuda-toolkit:= ) libuv? ( dev-libs/libuv ) mpi? ( virtual/mpi ) redis? ( dev-db/redis dev-libs/hiredis ) ssl? ( dev-libs/openssl:= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/facebookincubator/gloo/archive/c7b7b022c124d9643957d9bd55f57ac59fce8fa2.tar.gz -> gloo-2025.06.04.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	cuda	8b660e223a1695e3884ee4c7dc2c5059
+_md5_=b3beec2477f8c636c48ed7929d3e6c80
