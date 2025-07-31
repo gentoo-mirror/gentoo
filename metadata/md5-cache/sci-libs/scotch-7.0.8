@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile install prepare test
+DEPEND=sys-libs/zlib mpi? ( virtual/mpi )
+DESCRIPTION=Software for graph, mesh and hypergraph partitioning
+EAPI=8
+HOMEPAGE=https://www.labri.u-bordeaux.fr/perso/pelegrin/scotch/ https://gitlab.inria.fr/scotch/scotch
+INHERIT=toolchain-funcs flag-o-matic multilib
+IUSE=doc int64 mpi static-libs test tools +threads
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=CeCILL-2
+RDEPEND=sys-libs/zlib mpi? ( virtual/mpi )
+REQUIRED_USE=test? ( threads )
+RESTRICT=!test? ( test )
+SLOT=0/7
+SRC_URI=https://gitlab.inria.fr/scotch/scotch/-/archive/v7.0.8/scotch-v7.0.8.tar.bz2
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multilib	b2a329026f2e404e9e371097dda47f96
+_md5_=8d41e8d7eafcdf0610d3c1304b817da2
