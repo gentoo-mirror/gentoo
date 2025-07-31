@@ -101,6 +101,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.13.0-cmake-3.31-compat.patch
 	"${FILESDIR}"/${PN}-5.13.0-fix_compilation.patch
 	"${FILESDIR}"/${PN}-5.13.0-fix_compilation-2.patch
+	"${FILESDIR}"/${PN}-5.13.0-avoid_file_collisions.patch
 )
 
 # false positive when checking for available HDF5 interface, bug #904731
