@@ -6,12 +6,12 @@ EAPI=8
 inherit gnome.org meson vala virtualx xdg
 
 DESCRIPTION="A text widget implementing syntax highlighting and other features"
-HOMEPAGE="https://wiki.gnome.org/Projects/GtkSourceView"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/gtksourceview"
 
 LICENSE="LGPL-2.1+"
 SLOT="5"
 
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="gtk-doc +introspection sysprof +vala"
 REQUIRED_USE="
 	gtk-doc? ( introspection )
@@ -20,7 +20,7 @@ REQUIRED_USE="
 
 RDEPEND="
 	>=dev-libs/glib-2.72:2
-	>=gui-libs/gtk-4.6:4[introspection?]
+	>=gui-libs/gtk-4.17:4[introspection?]
 	>=dev-libs/libxml2-2.6:2=
 	introspection? ( >=dev-libs/gobject-introspection-1.70.0:= )
 	>=dev-libs/fribidi-0.19.7
