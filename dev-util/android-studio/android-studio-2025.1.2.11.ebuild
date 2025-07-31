@@ -63,6 +63,8 @@ RDEPEND="${DEPEND}
 	>=x11-libs/libXxf86vm-1.1.5
 	>=x11-libs/libdrm-2.4.114
 	>=x11-libs/libxcb-1.15-r1
+	sys-libs/libxcrypt[compat]
+	dev-libs/wayland
 	>=x11-libs/libxshmfence-1.3.2
 	virtual/libcrypt:=
 "
@@ -70,12 +72,6 @@ RDEPEND="${DEPEND}
 src_prepare() {
 
 	default
-
-	rm "${S}"/plugins/android/resources/installer/{arm64-v8a,armeabi-v7a,x86}/*
-	rm "${S}"/plugins/android/resources/perfetto/{arm64-v8a,armeabi-v7a,x86}/*
-	rm "${S}"/plugins/android/resources/process-tracker-agent/native/{arm64-v8a,armeabi-v7a,x86}/*
-	rm "${S}"/plugins/android/resources/transport/{arm64-v8a,armeabi-v7a,x86}/*
-	rm "${S}"/plugins/android/resources/transport/native/agent/{arm64-v8a,armeabi-v7a,x86}/*
 
 	cat <<-EOF >> bin/idea.properties || die
 	#-----------------------------------------------------------------------
@@ -104,7 +100,6 @@ src_install() {
 	fperms -R 755 "${dir}"/plugins/android/resources/perfetto
 	fperms -R 755 "${dir}"/plugins/android/resources/simpleperf
 	fperms -R 755 "${dir}"/plugins/android/resources/trace_processor_daemon
-	fperms -R 755 "${dir}"/plugins/android/resources/transport/{arm64-v8a,armeabi-v7a,x86,x86_64}
 	fperms -R 755 "${dir}"/plugins/android-ndk/resources/lldb/{android,bin,lib,shared}
 	fperms 755 "${dir}"/plugins/c-clangd/bin/clang/linux/x64/bin/clangd
 	fperms -R 755 "${dir}"/plugins/terminal/shell-integrations/{,fish}
@@ -112,12 +107,6 @@ src_install() {
 	newicon "bin/studio.png" "${PN}.png"
 	make_wrapper ${PN} ${dir}/bin/studio
 	make_desktop_entry ${PN} "Android Studio" ${PN} "Development;IDE" "StartupWMClass=jetbrains-studio"
-
-	# https://developer.android.com/studio/command-line/variables
-	newenvd - 99android-studio <<-EOF
-		# Configuration file android-studio
-		STUDIO_JDK="${dir}/jbr"
-	EOF
 
 	# recommended by: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
 	mkdir -p "${D}/etc/sysctl.d/" || die
