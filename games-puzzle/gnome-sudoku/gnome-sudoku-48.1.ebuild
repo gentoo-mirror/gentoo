@@ -10,7 +10,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-sudoku"
 
 LICENSE="GPL-3+ CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.76:2
@@ -27,6 +27,7 @@ BDEPEND="
 	${PYTHON_DEPS}
 	$(vala_depend)
 	dev-libs/appstream-glib
+	>=dev-util/blueprint-compiler-0.16
 	dev-util/itstool
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig

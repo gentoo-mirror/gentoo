@@ -17,22 +17,22 @@ RDEPEND="
 	>=dev-libs/appstream-0.14.0:0=
 	>=x11-libs/gdk-pixbuf-2.32.0:2
 	>=dev-libs/libxmlb-0.3.4:=
-	>=gui-libs/gtk-4.13.4:4
+	>=gui-libs/gtk-4.16.0:4
 	>=dev-libs/glib-2.76.0:2
 	>=dev-libs/json-glib-1.6.0
 	>=net-libs/libsoup-3.0:3.0
-	>=gui-libs/libadwaita-1.6_alpha:1
+	>=gui-libs/libadwaita-1.6.0:1
 	sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 )
 	>=gnome-base/gsettings-desktop-schemas-3.18.0
 	sys-auth/polkit
 	firmware? ( >=sys-apps/fwupd-1.6.2 )
 	flatpak? (
-		>=sys-apps/flatpak-1.14.0-r1
+		>=sys-apps/flatpak-1.14.1
 		dev-util/ostree
 	)
 	snap? (
 		app-containers/snapd
-		sys-libs/snapd-glib:=
+		>=sys-libs/snapd-glib-1.64:=
 	)
 	udev? ( dev-libs/libgudev )
 	>=gnome-base/gsettings-desktop-schemas-3.18.0
@@ -50,6 +50,10 @@ BDEPEND="
 		app-text/docbook-xml-dtd:4.3
 	)
 "
+
+PATCHES=(
+	"${FILESDIR}/Disable-gs-self-test-flatpak.patch"
+)
 
 src_prepare() {
 	default
@@ -92,7 +96,6 @@ src_configure() {
 		-Dmogwai=false #TODO?
 		$(meson_feature sysprof)
 		-Dprofile=''
-		-Dsoup2=false
 		-Dopensuse-distro-upgrade=false
 	)
 	meson_src_configure
