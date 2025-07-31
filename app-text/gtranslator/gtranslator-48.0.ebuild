@@ -10,13 +10,13 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gtranslator/"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 
 DEPEND="
 	>=dev-libs/glib-2.71.3:2
 	>=gui-libs/gtk-4.12.0:4
-	>=gui-libs/libadwaita-1.5_alpha
-	gnome-extra/libgda:5=
+	>=gui-libs/libadwaita-1.6_alpha
+	gnome-extra/libgda:5=[-http]
 	gnome-base/gsettings-desktop-schemas
 	>=gui-libs/gtksourceview-5.4.0:5
 	>=dev-libs/libxml2-2.4.12:2=
@@ -38,10 +38,7 @@ PATCHES=(
 )
 
 src_configure() {
-	# Documentation broken and removed in future releases:
-	# https://gitlab.gnome.org/GNOME/gtranslator/-/issues/189
 	local emesonargs=(
-		-Dgtk_doc=false
 		-Dprofile=default
 	)
 	meson_src_configure
