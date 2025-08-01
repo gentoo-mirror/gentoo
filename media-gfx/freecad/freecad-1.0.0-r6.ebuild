@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..12} )
 
-inherit check-reqs cmake flag-o-matic optfeature python-single-r1 qmake-utils xdg
+inherit check-reqs cmake cuda edo flag-o-matic optfeature python-single-r1 qmake-utils toolchain-funcs xdg virtualx
 
 DESCRIPTION="Qt based Computer Aided Design application"
 HOMEPAGE="https://www.freecad.org/ https://github.com/FreeCAD/FreeCAD"
@@ -17,7 +17,11 @@ if [[ ${PV} == *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/${MY_PN}/${MY_PN}.git"
 	S="${WORKDIR}/freecad-${PV}"
 else
-	SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="
+		https://github.com/${MY_PN}/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/FreeCAD/FreeCAD/commit/8934af10128f0bd2d0ffada946d1c93bc5d8869f.patch -> ${PN}-18423.patch
+		https://github.com/FreeCAD/FreeCAD/commit/d91b3e051789623f0bc1eff65947c361e7a661d0.patch -> ${PN}-20710.patch
+	"
 	KEYWORDS="amd64"
 	S="${WORKDIR}/FreeCAD-${PV}"
 fi
@@ -31,7 +35,7 @@ IUSE="debug designer +gui netgen pcl +smesh spacenav test X"
 # cMake/FreeCAD_Helpers/InitializeFreeCADBuildOptions.cmake
 # To get their dependencies:
 # 'grep REQUIRES_MODS cMake/FreeCAD_Helpers/CheckInterModuleDependencies.cmake'
-IUSE+=" addonmgr +bim cam cloud fem idf inspection +mesh openscad points reverse robot surface +techdraw"
+IUSE+=" addonmgr assembly +bim cam cloud fem idf inspection +mesh openscad points reverse robot surface +techdraw"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -63,9 +67,10 @@ RDEPEND="
 	sys-libs/zlib
 	$(python_gen_cond_dep '
 		dev-python/numpy[${PYTHON_USEDEP}]
-		dev-python/pybind11[${PYTHON_USEDEP}]
+		<dev-python/pybind11-3[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 	')
+	assembly? ( sci-libs/ondselsolver )
 	cloud? (
 		dev-libs/openssl:=
 		net-misc/curl
@@ -100,6 +105,13 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=dev-cpp/eigen-3.3.1:3
 	dev-cpp/ms-gsl
+	test? (
+		gui? (
+			$(python_gen_cond_dep '
+				dev-python/pyside:6=[tools(-),${PYTHON_USEDEP}]
+			' )
+		)
+	)
 "
 BDEPEND="
 	dev-lang/swig
@@ -110,11 +122,81 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.0.0-r1-Gentoo-specific-don-t-check-vcs.patch
 	"${FILESDIR}"/${PN}-0.21.0-0001-Gentoo-specific-disable-ccache-usage.patch
 	"${FILESDIR}"/${PN}-9999-tests-src-Qt-only-build-test-for-BUILD_GUI-ON.patch
+	"${DISTDIR}/${PN}-18423.patch" # vtk-9.4
+	"${DISTDIR}/${PN}-20710.patch" # DESTDIR in env
 )
 
 DOCS=( CODE_OF_CONDUCT.md README.md )
 
 CHECKREQS_DISK_BUILD="2G"
+
+cuda_get_host_compiler() {
+	if [[ -n "${NVCC_CCBIN}" ]]; then
+		echo "${NVCC_CCBIN}"
+		return
+	fi
+
+	if [[ -n "${CUDAHOSTCXX}" ]]; then
+		echo "${CUDAHOSTCXX}"
+		return
+	fi
+
+	if ! has_version dev-util/nvidia-cuda-toolkit ; then
+		return
+	fi
+
+	einfo "Trying to find working CUDA host compiler"
+
+	if ! tc-is-gcc && ! tc-is-clang; then
+		die "$(tc-get-compiler-type) compiler is not supported"
+	fi
+
+	local compiler compiler_type compiler_version
+	local package package_version
+	local NVCC_CCBIN_default
+
+	compiler_type="$(tc-get-compiler-type)"
+	compiler_version="$("${compiler_type}-major-version")"
+
+	# try the default compiler first
+	NVCC_CCBIN="$(tc-getCXX)"
+	NVCC_CCBIN_default="${NVCC_CCBIN}-${compiler_version}"
+
+	compiler="${NVCC_CCBIN/%-${compiler_version}}"
+
+	# store the package so we can re-use it later
+	if tc-is-gcc; then
+		package="sys-devel/${compiler_type}"
+	elif tc-is-clang; then
+		package="llvm-core/${compiler_type}"
+	else
+		die "$(tc-get-compiler-type) compiler is not supported"
+	fi
+
+	package_version="${package}"
+
+	ebegin "testing ${NVCC_CCBIN_default} (default)"
+
+	while ! nvcc -v -ccbin "${NVCC_CCBIN}" - -x cu <<<"int main(){}" &>> "${T}/cuda_get_host_compiler.log" ; do
+		eend 1
+
+		while true; do
+			# prepare next version
+			if ! package_version="<$(best_version "${package_version}")"; then
+				die "could not find a supported version of ${compiler}"
+			fi
+
+			NVCC_CCBIN="${compiler}-$(ver_cut 1 "${package_version/#<${package}-/}")"
+
+			[[ "${NVCC_CCBIN}" != "${NVCC_CCBIN_default}" ]] && break
+		done
+		ebegin "testing ${NVCC_CCBIN}"
+	done
+	eend $?
+
+	echo "${NVCC_CCBIN}"
+	export NVCC_CCBIN
+}
 
 pkg_setup() {
 	check-reqs_pkg_setup
@@ -125,6 +207,9 @@ src_prepare() {
 	# Fix desktop file
 	sed -e 's/Exec=FreeCAD/Exec=freecad/' -i src/XDGData/org.freecad.FreeCAD.desktop || die
 
+	# deprecated in python-3.11 removed in python-3.13
+	sed -e '/import imghdr/d' -i src/Mod/CAM/CAMTests/TestCAMSanity.py || die
+
 	cmake_src_prepare
 }
 
@@ -132,12 +217,25 @@ src_configure() {
 	# -Werror=odr, -Werror=lto-type-mismatch
 	# https://bugs.gentoo.org/875221
 	# https://github.com/FreeCAD/FreeCAD/issues/13173
+	append-flags -fno-strict-aliasing
 	filter-lto
 
 	# Fix building tests
-	append-ldflags -Wl,--copy-dt-needed-entries
+	if ! tc-ld-is-mold; then # 940524
+		append-ldflags -Wl,--copy-dt-needed-entries
+	fi
+
+	# cmake-4
+	# https://github.com/FreeCAD/FreeCAD/issues/20246
+	: "${CMAKE_POLICY_VERSION_MINIMUM:=3.10}"
+	export CMAKE_POLICY_VERSION_MINIMUM
 
 	local mycmakeargs=(
+		-DCMAKE_POLICY_DEFAULT_CMP0144="OLD" # FLANN_ROOT
+		-DCMAKE_POLICY_DEFAULT_CMP0167="OLD" # FindBoost
+		-DCMAKE_POLICY_DEFAULT_CMP0175="OLD" # add_custom_command
+		-DCMAKE_POLICY_DEFAULT_CMP0153="OLD" # exec_program
+
 		-DBUILD_DESIGNER_PLUGIN=$(usex designer)
 		-DBUILD_FORCE_DIRECTORY=ON				# force building in a dedicated directory
 		-DBUILD_GUI=$(usex gui)
@@ -147,7 +245,7 @@ src_configure() {
 
 		# Modules
 		-DBUILD_ADDONMGR=$(usex addonmgr)
-		-DBUILD_ASSEMBLY=OFF					# Requires OndselSolver
+		-DBUILD_ASSEMBLY=$(usex assembly)
 		-DBUILD_BIM=$(usex bim)
 		-DBUILD_CAM=$(usex cam)
 		-DBUILD_CLOUD=$(usex cloud)
@@ -172,14 +270,14 @@ src_configure() {
 		-DBUILD_POINTS=$(usex points)
 		-DBUILD_REVERSEENGINEERING=$(usex reverse)
 		-DBUILD_ROBOT=$(usex robot)
-		-DBUILD_SANDBOX=OFF
+		# -DBUILD_SANDBOX=OFF
 		-DBUILD_SHOW=$(usex gui)
 		-DBUILD_SKETCHER=ON						# needed by draft workspace
 		-DBUILD_SPREADSHEET=ON
 		-DBUILD_START=ON
 		-DBUILD_SURFACE=$(usex surface)
 		-DBUILD_TECHDRAW=$(usex techdraw)
-		-DBUILD_TEST=ON							# always build test workbench for run-time testing
+		-DBUILD_TEST="$(usex test)"				# always build test workbench for run-time testing
 		-DBUILD_TUX=$(usex gui)
 		-DBUILD_WEB=ON							# needed by start workspace
 
@@ -190,8 +288,11 @@ src_configure() {
 
 		-DFREECAD_BUILD_DEBIAN=OFF
 
+		-DFREECAD_USE_EXTERNAL_ONDSELSOLVER=$(usex assembly)
 		-DFREECAD_USE_EXTERNAL_SMESH=OFF		# no package in Gentoo
 		-DFREECAD_USE_EXTERNAL_ZIPIOS=OFF		# doesn't work yet, also no package in Gentoo tree
+		-DFREECAD_USE_EXTERNAL_FMT="yes"
+		-DFREECAD_USE_EXTERNAL_KDL=OFF # https://github.com/FreeCAD/FreeCAD/commit/9f98866
 		-DFREECAD_USE_FREETYPE=ON
 		-DFREECAD_USE_OCC_VARIANT:STRING="Official Version"
 		-DFREECAD_USE_PCL=$(usex pcl)
@@ -202,10 +303,23 @@ src_configure() {
 		# sub-packages will still be installed inside /usr/lib64/freecad
 		-DINSTALL_TO_SITEPACKAGES=ON
 
-		# Use the version of shiboken2 that matches the selected python version
+		# Use the version of pyside[tools] that matches the selected python version
 		-DPYTHON_CONFIG_SUFFIX="-${EPYTHON}"
-		-DPython3_EXECUTABLE=${PYTHON}
+		# -DPython3_EXECUTABLE=${EPYTHON}
+
+		-DPACKAGE_WCREF="${PVR} (gentoo)"
+		-DPACKAGE_WCURL="git://github.com/FreeCAD/FreeCAD.git ${PV}"
 	)
+
+	if [[ ${PV} == *9999* ]]; then
+		mycmakeargs+=(
+			-DENABLE_DEVELOPER_TESTS=ON
+		)
+	else
+		mycmakeargs+=(
+			-DENABLE_DEVELOPER_TESTS=OFF
+		)
+	fi
 
 	if use debug; then
 		# BUILD_SANDBOX currently broken, see
@@ -221,6 +335,11 @@ src_configure() {
 		)
 	fi
 
+	if use fem || use smesh; then
+		export CUDAHOSTCXX="$(cuda_get_host_compiler)"
+		cuda_add_sandbox
+	fi
+
 	if use gui; then
 		mycmakeargs+=(
 			-DFREECAD_QT_MAJOR_VERSION=6
@@ -233,6 +352,9 @@ src_configure() {
 			-DBUILD_DRAWING=OFF
 		)
 	fi
+
+	addpredict "/dev/char/"
+	[[ -c "/dev/udmabuf" ]] && addwrite "/dev/udmabuf"
 
 	cmake_src_configure
 }
@@ -248,16 +370,61 @@ src_configure() {
 src_test() {
 	cd "${BUILD_DIR}" || die
 
+	# No module named 'ifcopenshell' #940465
+	rm "${BUILD_DIR}/Mod/BIM/nativeifc/ifc_performance_test.py" || die
+
 	local -x FREECAD_USER_HOME="${HOME}"
 	local -x FREECAD_USER_DATA="${T}"
 	local -x FREECAD_USER_TEMP="${T}"
-	./bin/FreeCADCmd --run-test 0 --set-config AppHomePath="${BUILD_DIR}/" || die
+
+	local fail=""
+	local run
+	nonfatal \
+		edo "${BUILD_DIR}/bin/FreeCADCmd" \
+			--run-test 0 \
+			--set-config AppHomePath="${BUILD_DIR}/" \
+			--log-file "${T}/FreeCADCmd.log" \
+		|| fail+=" FreeCADCmd"
+
+	if use gui; then
+		# this is naive
+		addpredict "/dev/char/"
+		addwrite "/dev/dri/renderD128"
+		addwrite "/dev/dri/card0"
+		[[ -c "/dev/nvidiactl" ]] && addwrite "/dev/nvidiactl"
+		[[ -c "/dev/nvidia-uvm" ]] && addwrite "/dev/nvidia-uvm"
+		[[ -c "/dev/nvidia-uvm-tools" ]] && addwrite "/dev/nvidia-uvm-tools"
+		[[ -c "/dev/nvidia0" ]] && addwrite "/dev/nvidia0"
+		[[ -c "/dev/udmabuf" ]] && addwrite "/dev/udmabuf"
+
+		nonfatal \
+			virtx edo "${BUILD_DIR}/bin/FreeCAD" \
+				--run-test 0 \
+				--set-config AppHomePath="${BUILD_DIR}/" \
+				--log-file "${T}/FreeCAD.log" \
+			|| fail+=" FreeCAD"
+
+		run=virtx
+	fi
+
+	# nonfatal \
+		${run} cmake_src_test || fail+=" cmake"
+	if [[ -n "${fail}" ]]; then
+		eerror "${fail}"
+		die "${fail}"
+	fi
 }
 
 src_install() {
 	cmake_src_install
 
-	dobin src/Tools/freecad-thumbnailer
+	if [[ -f src/Tools/freecad-thumbnailer ]]; then
+		dobin src/Tools/freecad-thumbnailer
+	fi
+
+	if [[ -f freecad-thumbnailer ]]; then
+		dobin freecad-thumbnailer
+	fi
 
 	if use gui; then
 		newbin - freecad <<- _EOF_
@@ -267,13 +434,13 @@ src_install() {
 		export QT_QPA_PLATFORM
 		exec /usr/$(get_libdir)/${PN}/bin/FreeCAD "\${@}"
 		_EOF_
-		mv "${ED}"/usr/$(get_libdir)/${PN}/share/* "${ED}"/usr/share || die "failed to move shared resources"
+		mv "${ED}/usr/$(get_libdir)/${PN}/share/"* "${ED}/usr/share" || die "failed to move shared resources"
 	fi
-	dosym -r /usr/$(get_libdir)/${PN}/bin/FreeCADCmd /usr/bin/freecadcmd
+	dosym -r "/usr/$(get_libdir)/${PN}/bin/FreeCADCmd" "/usr/bin/freecadcmd"
 
-	rm -r "${ED}"/usr/$(get_libdir)/${PN}/include/E57Format || die "failed to drop unneeded include directory E57Format"
+	rm -r "${ED}/usr/$(get_libdir)/${PN}/include/E57Format" || die "failed to drop unneeded include directory E57Format"
 
-	python_optimize "${ED}"/usr/share/${PN}/data/Mod/Start/StartPage "${ED}"/usr/$(get_libdir)/${PN}{/Ext,/Mod}/
+	python_optimize "${ED}/usr/share/${PN}/data/Mod/Start/StartPage" "${ED}/usr/$(get_libdir)/${PN}/"{Ext,Mod}/
 	# compile main package in python site-packages as well
 	python_optimize
 }

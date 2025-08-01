@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{11..13} )
-inherit cmake desktop python-single-r1 xdg
+inherit cmake desktop flag-o-matic python-single-r1 xdg
 
 DESCRIPTION="Automatic 3d tetrahedral mesh generator"
 HOMEPAGE="https://ngsolve.org/ https://github.com/NGSolve/netgen"
@@ -73,6 +73,8 @@ PATCHES=(
 	# "${FILESDIR}/${PN}-6.2.2406-find-libjpeg-turbo-library.patch"
 	"${FILESDIR}/${PN}-6.2.2301-fix-nullptr-deref-in-archive.patch"
 	"${FILESDIR}/${PN}-6.2.2406-encoding_h.patch"
+	"${FILESDIR}/${PN}-6.2.2406-link-against-jpeg.patch"
+	"${FILESDIR}/${PN}-PR202-std_map.patch"
 )
 
 pkg_setup() {
@@ -95,6 +97,11 @@ src_prepare() {
 	# cat <<- EOF > "${S}/version.txt" || die
 	# 	v${PV}-0-gd1a9f7ee
 	# EOF
+
+	# 855214 needs git
+	sed \
+		-e '/-DBDIR=${CMAKE_CURRENT_BINARY_DIR}/a -DNETGEN_VERSION_GIT=${NETGEN_VERSION_GIT}' \
+		-i CMakeLists.txt || die
 
 	if use python; then
 		sed \
@@ -142,6 +149,8 @@ src_configure() {
 	fi
 
 	if use python; then
+		append-cppflags -DPYBIND11_NO_ASSERT_GIL_HELD_INCREF_DECREF
+
 		mycmakeargs+=(
 			-DPREFER_SYSTEM_PYBIND11=ON
 			# needed, so the value gets passed to NetgenConfig.cmake instead of ${T}/pythonX.Y

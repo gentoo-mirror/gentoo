@@ -11,13 +11,11 @@ DESCRIPTION="Abseil Common Libraries (C++), LTS Branch"
 HOMEPAGE="https://abseil.io/"
 SRC_URI="
 	https://github.com/abseil/abseil-cpp/archive/${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/abseil/abseil-cpp/commit/f004e6c0a9a25e16fd2a1ae671a9cacfa79625b4.patch
-		-> ${PN}-20250127.0-PR1834.patch
 "
 
 LICENSE="Apache-2.0"
 SLOT="0/${PV:2:4}.$(ver_cut 2).0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="test test-helpers"
 
 RDEPEND="
@@ -41,7 +39,6 @@ RESTRICT="!test? ( test )"
 PATCHES=(
 	"${FILESDIR}/${PN}-20230802.0-sdata-tests.patch"
 	"${FILESDIR}/${PN}-20240722.0-lto-odr.patch"
-	"${DISTDIR}/${PN}-20250127.0-PR1834.patch"
 )
 
 src_prepare() {
