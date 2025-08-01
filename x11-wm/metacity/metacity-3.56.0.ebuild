@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,13 +9,13 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/metacity/"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 IUSE="+libcanberra vulkan xinerama"
 
 # TODO: libgtop could be optional, but no knob
 RDEPEND="
 	>=dev-libs/glib-2.67.3:2
-	>=x11-libs/gtk+-3.24.6:3[X]
+	>=x11-libs/gtk+-3.24.37:3[X]
 	>=x11-libs/pango-1.2.0
 	>=x11-libs/libXcomposite-0.3
 	>=x11-libs/libXres-1.2

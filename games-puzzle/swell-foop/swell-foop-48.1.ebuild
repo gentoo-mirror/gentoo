@@ -1,27 +1,27 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 inherit gnome.org gnome2-utils meson vala xdg
 
 DESCRIPTION="Clear the screen by removing groups of colored and shaped tiles"
-HOMEPAGE="https://wiki.gnome.org/Apps/Swell%20Foop"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/swell-foop"
 
 LICENSE="GPL-2+ FDL-1.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 
 RDEPEND="
-	>=dev-libs/glib-2.36:2
-	>=x11-libs/gtk+-3.24:3
-	>=media-libs/clutter-1.14.0:1.0
-	>=media-libs/clutter-gtk-1.5.0:1.0
-	>=dev-libs/libgnome-games-support-1.7.1:1=
+	>=dev-libs/glib-2.74:2
+	>=gui-libs/gtk-4.10:4
+	>=gui-libs/libadwaita-1.5:1
+	>=dev-libs/libgnome-games-support-2.0.0:2=
+	>=gnome-base/librsvg-2.46[vala]
 	>=dev-libs/libgee-0.14.0:0.8=
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	dev-libs/appstream-glib
+	dev-libs/appstream
 	dev-util/itstool
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig

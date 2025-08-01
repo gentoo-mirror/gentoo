@@ -1,28 +1,27 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-PYTHON_COMPAT=( python3_{9..11} )
+EAPI=8
+PYTHON_COMPAT=( python3_{11..13} )
 inherit gnome.org gnome2-utils meson python-any-r1 xdg vala
 
 DESCRIPTION="Turn off all the lights"
-HOMEPAGE="https://wiki.gnome.org/Apps/Lightsoff"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/lightsoff"
 
 LICENSE="GPL-2+ CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~riscv x86"
-IUSE=""
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.38.0:2
-	>=x11-libs/gtk+-3.24.0:3
-	>=gnome-base/librsvg-2.32.0:2
+	>=gui-libs/gtk-4.14.0:4
+	>=gui-libs/libadwaita-1.6.0:1
 "
 DEPEND="${RDEPEND}"
 # libxml2:2 needed for glib-compile-resources xml-stripblanks attributes
 BDEPEND="
 	${PYTHON_DEPS}
-	dev-libs/appstream-glib
+	dev-libs/appstream
 	dev-libs/libxml2:2
 	dev-util/itstool
 	>=sys-devel/gettext-0.19.8
@@ -32,15 +31,8 @@ BDEPEND="
 "
 
 src_prepare() {
-	xdg_src_prepare
-	vala_src_prepare
-
-	# Bug #778845
-	sed -i \
-		-e 's:40\.rc:40~rc:' \
-		-e 's:40\.beta:40~beta:' \
-		-e 's:40\.alpha:40~alpha:' \
-		data/org.gnome.LightsOff.appdata.xml.in || die
+	default
+	vala_setup
 }
 
 pkg_postinst() {
