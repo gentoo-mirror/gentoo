@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile config install postinst postrm prepare setup unpack
-DEPEND=>=media-video/vdr-2.2.0 media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
-DESCRIPTION=VDR plugin: Remote Control Unit consists mainly of an IR receiver, PIC 16C84
+DEPEND=>media-video/vdr-2.4 dev-libs/expat net-misc/curl media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
+DESCRIPTION=VDR Plugin: RSS reader
 EAPI=8
-HOMEPAGE=https://github.com/vdr-projects/vdr-plugin-rcu/
+HOMEPAGE=https://github.com/rofafor/vdr-plugin-rssreader
 INHERIT=vdr-plugin-2
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=>=media-video/vdr-2.2.0 media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
+RDEPEND=>media-video/vdr-2.4 dev-libs/expat net-misc/curl media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
 SLOT=0
-SRC_URI=https://github.com/vdr-projects/vdr-plugin-rcu/archive/refs/tags/2.2.0.tar.gz -> vdr-rcu-2.2.0.tgz
+SRC_URI=https://github.com/rofafor/vdr-plugin-rssreader/archive/v2.4.0.tar.gz -> vdr-rssreader-2.4.0.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	strip-linguas	9d8d529d8082ec56dd495636df194d64	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	vdr-plugin-2	82b5825b9191fe26411649b6e757c905
-_md5_=64630dc937a4eb4c334c48895abaa647
+_md5_=4ee87da71125a0f47f0ad4e5b6b4fcc7
