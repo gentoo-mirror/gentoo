@@ -13,18 +13,16 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="wayland X"
 
-# Newer-than-strictly-required xdg-desktop-portal dep for hang/slowness fixes
-# https://gitlab.gnome.org/GNOME/xdg-desktop-portal-gnome/-/issues/74
 DEPEND="
 	dev-libs/glib:2
 	>=gnome-base/gsettings-desktop-schemas-47_alpha
 	gnome-base/gnome-desktop:4=
-	>=gui-libs/libadwaita-1.6_beta:1
+	>=gui-libs/libadwaita-1.7_alpha:1
 	media-libs/fontconfig
 	sys-apps/dbus
-	>=sys-apps/xdg-desktop-portal-1.18.2
+	>=sys-apps/xdg-desktop-portal-1.19.1
 	>=sys-apps/xdg-desktop-portal-gtk-1.14.0
-	gui-libs/gtk:4[wayland?,X?]
+	>=gui-libs/gtk-4.17.1:4[wayland?,X?]
 	X? ( x11-libs/libX11 )
 	wayland? ( dev-libs/wayland )
 "
