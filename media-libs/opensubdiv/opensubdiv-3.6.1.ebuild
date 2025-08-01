@@ -17,8 +17,9 @@ S="${WORKDIR}/OpenSubdiv-${MY_PV}"
 # Modfied Apache-2.0 license, where section 6 has been replaced.
 # See for example CMakeLists.txt for details.
 LICENSE="Apache-2.0"
-SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~x86"
+# MATCHES SONAME
+SLOT="0/${PV}"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="X cuda doc examples glfw opencl +opengl openmp ptex python tbb test tutorials"
 RESTRICT="!test? ( test )"
 
@@ -36,6 +37,7 @@ BDEPEND="
 	python? ( ${PYTHON_DEPS} )
 "
 
+# opengl requires GLX, libglvnd[X]
 RDEPEND="
 	examples? (
 		opengl? (
@@ -44,6 +46,7 @@ RDEPEND="
 			)
 		)
 	)
+	opengl? ( media-libs/libglvnd[X] )
 	opencl? ( virtual/opencl )
 	openmp? ( || (
 		sys-devel/gcc:*[openmp]
