@@ -4,11 +4,11 @@ EAPI=8
 HOMEPAGE=https://savannah.nongnu.org/projects/quilt
 INHERIT=bash-completion-r1 elisp-common
 IUSE=emacs graphviz
-KEYWORDS=~amd64 arm arm64 ~mips ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris
+KEYWORDS=amd64 arm arm64 ~mips ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris
 LICENSE=GPL-2 GPL-1+
 RDEPEND=sys-apps/ed dev-util/diffstat graphviz? ( media-gfx/graphviz ) elibc_Darwin? ( app-misc/getopt ) elibc_SunOS? ( app-misc/getopt ) sys-apps/coreutils app-arch/zstd:=
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://nongnu/quilt/quilt-0.69.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	bash-completion-r1	767861f3744f589ee5291c1698b1c082	elisp-common	fe05085d051330f15cf7201109b5cd23
-_md5_=84372911fd7836c7bfffdc33c8d28b54
+_md5_=ad05e5959e893d3c37e7827c5e207d0d
