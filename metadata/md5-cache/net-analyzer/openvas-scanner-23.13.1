@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.greenbone.net https://github.com/greenbone/openvas-scanner/
 INHERIT=cmake systemd tmpfiles toolchain-funcs readme.gentoo-r1 optfeature
 IUSE=doc snmp test
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-2 GPL-2+
 RDEPEND=acct-user/gvm app-crypt/gpgme:= >=dev-db/redis-5.0.3 >=dev-libs/glib-2.42:2 >=dev-libs/libgcrypt-1.6:= dev-libs/libgpg-error >=dev-libs/libksba-1.0.7 dev-libs/libbsd >=net-libs/libssh-0.6.0:= >=dev-libs/json-glib-1.4.4 >=net-analyzer/gvm-libs-22.4 >=net-libs/gnutls-3.6.4:= net-libs/libpcap >=net-misc/curl-7.74.0[ssl] snmp? ( net-analyzer/net-snmp:= ) virtual/tmpfiles
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/greenbone/openvas-scanner/archive/v23.13.1.tar.gz -> openvas-scanner-23.13.1.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	optfeature	538bce96e5589935b57e178e8635f301
-_md5_=7c0bf71d8317cde06c2d94355ff9f843
+_md5_=696e9e842c28b7abd0f67fe2c7893927

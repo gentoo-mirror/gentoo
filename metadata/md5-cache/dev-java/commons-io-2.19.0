@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://commons.apache.org/proper/commons-io/
 INHERIT=java-pkg-2 java-pkg-simple verify-sig
 IUSE=doc source verify-sig
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=amd64 arm64 ppc64 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 SLOT=0
 SRC_URI=mirror://apache/commons/io/source/commons-io-2.19.0-src.tar.gz verify-sig? ( https://archive.apache.org/dist/commons/io/source/commons-io-2.19.0-src.tar.gz.asc )
 _eclasses_=java-utils-2	e2cdf66cd9c826ccda532772976d342d	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
-_md5_=7310c8ecddfac946867b6b3fc534084b
+_md5_=b62e3fc2e24738e81e5a4703264d8245

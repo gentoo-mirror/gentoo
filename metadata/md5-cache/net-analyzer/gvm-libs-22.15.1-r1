@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.greenbone.net https://github.com/greenbone/gvm-libs/
 INHERIT=cmake toolchain-funcs
 IUSE=doc ldap test radius
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-2+
 RDEPEND=acct-user/gvm >=app-crypt/gpgme-1.7.0:= >=dev-libs/glib-2.42:2 >=dev-libs/hiredis-0.10.1:= dev-libs/libgcrypt:= dev-libs/libgpg-error >=dev-libs/cJSON-1.7.14 >=dev-libs/libxml2-2.0:2= >=net-libs/gnutls-3.2.15:= net-libs/libnet:1.1 net-libs/libpcap >=net-libs/libssh-0.6.0:= >=sys-apps/util-linux-2.25.0 sys-libs/libxcrypt:= >=sys-libs/zlib-1.2.8 net-libs/paho-mqtt-c:1.3 >=net-misc/curl-7.74.0 ldap? ( net-nds/openldap:= ) radius? ( net-dialup/freeradius-client )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/greenbone/gvm-libs/archive/v22.15.1.tar.gz -> gvm-libs-22.15.1.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
-_md5_=a5c529c8460b486d417a88eacc09cdb2
+_md5_=f56adcabc56ef8939a4463559fca874c
