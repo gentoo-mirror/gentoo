@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1
 
@@ -25,15 +25,9 @@ KEYWORDS="~amd64 ~arm64"
 RDEPEND="
 	dev-python/python-dotenv[${PYTHON_USEDEP}]
 	>=dev-python/marshmallow-3.18.0[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '
-		dev-python/typing-extensions[${PYTHON_USEDEP}]
-	' 3.10)
 "
 BDEPEND="
 	test? (
-		$(python_gen_cond_dep '
-			dev-python/backports-strenum[${PYTHON_USEDEP}]
-		' 3.10)
 		dev-python/django-cache-url[${PYTHON_USEDEP}]
 		dev-python/dj-database-url[${PYTHON_USEDEP}]
 		dev-python/dj-email-url[${PYTHON_USEDEP}]
@@ -42,4 +36,5 @@ BDEPEND="
 
 DOCS=( CHANGELOG.md CONTRIBUTING.md README.md  )
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
