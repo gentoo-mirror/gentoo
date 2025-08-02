@@ -3,7 +3,7 @@
 
 EAPI=8
 
-RUST_MIN_VER=1.82.0
+RUST_MIN_VER=1.86.0
 inherit cargo desktop optfeature xdg
 
 MY_PV=nightly-${PV:3:4}-${PV:7:2}-${PV:9:2}
@@ -20,28 +20,20 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="|| ( Apache-2.0 MIT )"
 LICENSE+="
-	Apache-2.0 BSD BSD-2 Boost-1.0 CC0-1.0 ISC MIT MPL-2.0 OFL-1.1
-	UbuntuFontLicense-1.0 Unicode-3.0 ZLIB openssl
+	Apache-2.0 BSD-2 BSD CC0-1.0 CDLA-Permissive-2.0 ISC MIT MPL-2.0
+	OFL-1.1 openssl UbuntuFontLicense-1.0 Unicode-3.0 ZLIB BZIP2
 " # crates
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-# dlopen: libX* (see winit+x11-dl crates -- TODO: need to recheck
-# if still correct and for the potential to be optional on wayland)
+# X/wayland are dlopen'ed optfeatures, not needed at build time
 RDEPEND="
 	media-libs/alsa-lib
 	virtual/libudev:=
-	x11-libs/libX11
-	x11-libs/libXcursor
-	x11-libs/libXrandr
-	x11-libs/libXrender
 "
-DEPEND="
-	${RDEPEND}
-	x11-base/xorg-proto
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/jre:*
 	virtual/pkgconfig
@@ -63,16 +55,6 @@ src_configure() {
 	cargo_src_configure "${workspaces[@]/#/--package=}"
 }
 
-src_test() {
-	local skip=(
-		# may need more investigation, strangely "pass" (xfail) when
-		# RUSTFLAGS is unset, skip for now (bug #915726)
-		--skip from_avmplus/as3/Types/Int/wraparound
-	)
-
-	cargo_src_test -- "${skip[@]}"
-}
-
 src_install() {
 	dodoc README.md
 
@@ -92,8 +74,8 @@ pkg_postinst() {
 	if [[ ! ${REPLACING_VERSIONS} ]]; then
 		elog "${PN} is experimental software that is still under heavy development"
 		elog "and only receiving nightly releases. Plans in Gentoo is to update"
-		elog "roughly every months if no known major regressions (feel free to"
-		elog "report if you feel a newer nightly is needed ahead of time)."
+		elog "roughly every two months if no known major regressions (feel free"
+		elog "to report if you feel a newer nightly is needed ahead of time)."
 		elog
 		elog "There is currently no plans to support wasm builds / browser"
 		elog "extensions, this provides the desktop viewer and other tools."
