@@ -6,11 +6,11 @@ EAPI=8
 inherit gnome.org meson vala
 
 DESCRIPTION="Utility library aiming to ease the handling UPnP A/V profiles"
-HOMEPAGE="https://wiki.gnome.org/Projects/GUPnP https://gitlab.gnome.org/GNOME/gupnp-av"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/gupnp-av"
 
 LICENSE="LGPL-2"
 SLOT="0/3" # subslot: soname version
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="gtk-doc +introspection vala"
 REQUIRED_USE="vala? ( introspection )"
 
@@ -23,15 +23,11 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	gtk-doc? (
-		dev-util/gtk-doc
+		>=dev-util/gi-docgen-2021.1
 		app-text/docbook-xml-dtd:4.1.2
 	)
 	vala? ( $(vala_depend) )
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.14.1-libxml2-2.12.patch
-)
 
 src_prepare() {
 	use vala && vala_setup
