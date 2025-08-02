@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure test
+DEPEND=virtual/libiconv curl? ( net-misc/curl )
+DESCRIPTION=HTML to text converter, aimed at email for clients like Mutt
+EAPI=8
+HOMEPAGE=https://gitlab.com/grobian/html2text
+IUSE=+curl
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=GPL-2
+RDEPEND=virtual/libiconv curl? ( net-misc/curl )
+SLOT=0
+SRC_URI=https://gitlab.com/-/project/48313341/uploads/8526650dd42218b3493ce7ca0a3eeb1e/html2text-2.4.0.tar.gz
+_md5_=12bbbc60a7b30e906b6405413f48381a
