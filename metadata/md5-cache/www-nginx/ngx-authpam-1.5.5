@@ -1,0 +1,14 @@
+BDEPEND=www-servers/nginx:=[modules(-)]
+DEFINED_PHASES=compile configure install postinst prepare test unpack
+DEPEND=sys-libs/pam:= www-servers/nginx:=[modules(-)]
+DESCRIPTION=NGINX module using PAM for simple HTTP authentication
+EAPI=8
+HOMEPAGE=https://github.com/sto/ngx_http_auth_pam_module
+INHERIT=nginx-module
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RDEPEND=sys-libs/pam:= www-servers/nginx:=[modules(-)]
+SLOT=0
+SRC_URI=https://github.com/sto/ngx_http_auth_pam_module/archive/refs/tags/v1.5.5.tar.gz -> ngx-authpam-1.5.5.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	nginx-module	7a07ce58f7dfc697ac74b6f3eb541f67
+_md5_=3b323fe76af3cd746c475300b1ee61c5
