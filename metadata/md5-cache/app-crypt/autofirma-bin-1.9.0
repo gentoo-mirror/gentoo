@@ -1,0 +1,14 @@
+BDEPEND=app-arch/unzip app-arch/rpm2targz
+DEFINED_PHASES=install postinst postrm preinst unpack
+DESCRIPTION=Spanish government certificate request generator
+EAPI=8
+HOMEPAGE=https://administracionelectronica.gob.es/ctt/verPestanaGeneral.htm?idIniciativa=clienteafirma https://github.com/ctt-gob-es/clienteafirma
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=rpm xdg
+KEYWORDS=~amd64
+LICENSE=|| ( GPL-2 EUPL-1.1 )
+RDEPEND=dev-libs/nss[utils] virtual/jre:17
+SLOT=0
+SRC_URI=https://estaticos.redsara.es/comunes/autofirma/1/9/0/Autofirma_Linux_Fedora.zip -> autofirma-bin-1.9.0.zip https://dev.gentoo.org/~pacho/autofirma-bin/autofirma-bin-1.9.0.zip
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	a07e59be6cf48ed85e624a41e8a7a832	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=1f901fd1ee694876669eabc4cbf18b6a
