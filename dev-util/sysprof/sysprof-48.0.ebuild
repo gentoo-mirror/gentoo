@@ -11,7 +11,7 @@ HOMEPAGE="https://www.sysprof.com/"
 LICENSE="GPL-3+ GPL-2+"
 API_VERSION="4"
 SLOT="0/${API_VERSION}"
-KEYWORDS="amd64 ~arm64 ~loong x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~x86"
 IUSE="gtk systemd test"
 RESTRICT="!test? ( test )"
 
@@ -19,14 +19,14 @@ RDEPEND="
 	>=dev-libs/glib-2.76.0:2
 	gtk? (
 		>=gui-libs/gtk-4.15:4
-		>=gui-libs/libadwaita-1.6_alpha:1
+		>=gui-libs/libadwaita-1.6.0:1
 		x11-libs/cairo
 		x11-libs/pango
 	)
 	systemd? ( sys-apps/systemd )
 	dev-libs/json-glib
-	>=dev-libs/libdex-0.6
-	>=gui-libs/libpanel-1.7.0
+	>=dev-libs/libdex-0.9
+	>=gui-libs/libpanel-1.4
 	sys-libs/libunwind:=
 	>=sys-auth/polkit-0.114[daemon(+)]
 	>=dev-util/sysprof-common-${PV}
