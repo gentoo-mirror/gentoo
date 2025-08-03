@@ -1,0 +1,18 @@
+BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) doc? ( app-text/doxygen media-gfx/graphviz ) test? ( python_single_target_python3_11? ( dev-python/pytest[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pytest[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pytest[python_targets_python3_13(-)] ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test
+DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_11? ( dev-libs/boost:=[python_targets_python3_11(-),nls,python,zlib] ) python_single_target_python3_12? ( dev-libs/boost:=[python_targets_python3_12(-),nls,python,zlib] ) python_single_target_python3_13? ( dev-libs/boost:=[python_targets_python3_13(-),nls,python,zlib] ) client? ( media-libs/freetype media-libs/glew:0= media-libs/libglvnd media-libs/libpng:= media-libs/libsdl2[opengl,video] media-libs/libvorbis media-libs/openal )
+DESCRIPTION=Free turn-based space empire and galactic conquest game
+EAPI=8
+HOMEPAGE=https://www.freeorion.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=check-reqs cmake flag-o-matic multiprocessing python-single-r1 xdg
+IUSE=+client doc test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64
+LICENSE=GPL-2+ CC-BY-SA-3.0 LGPL-2.1+
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_11? ( dev-libs/boost:=[python_targets_python3_11(-),nls,python,zlib] ) python_single_target_python3_12? ( dev-libs/boost:=[python_targets_python3_12(-),nls,python,zlib] ) python_single_target_python3_13? ( dev-libs/boost:=[python_targets_python3_13(-),nls,python,zlib] ) client? ( media-libs/freetype media-libs/glew:0= media-libs/libglvnd media-libs/libpng:= media-libs/libsdl2[opengl,video] media-libs/libvorbis media-libs/openal ) client? ( media-fonts/dejavu media-fonts/roboto )
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/freeorion/freeorion/releases/download/v0.5.1.1/FreeOrion-v0.5.1.1_Source.tar.gz
+_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=043d85c69a94d0bf982ee08fa44a1198
