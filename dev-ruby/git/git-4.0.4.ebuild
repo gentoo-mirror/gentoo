@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_BINWRAP=""
@@ -18,7 +19,7 @@ RUBY_S="ruby-git-${PV}"
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="test"
 
 DEPEND="test? ( >=dev-vcs/git-1.6.0.0 net-misc/openssh app-arch/tar )"
@@ -27,7 +28,7 @@ RDEPEND=">=dev-vcs/git-1.6.0.0"
 ruby_add_rdepend "
 	>=dev-ruby/activesupport-5.0:*
 	>=dev-ruby/addressable-2.8:0
-	>=dev-ruby/process_executer-1.3:1
+	dev-ruby/process_executer:4
 	>=dev-ruby/rchardet-1.9:1
 "
 
@@ -46,5 +47,6 @@ all_ruby_prepare() {
 each_ruby_test() {
 	git config --global user.email "git@example.com" || die
 	git config --global user.name "GitExample" || die
+	git config --global init.defaultBranch main || die
 	${RUBY} -Ilib:.:tests -e 'Dir["tests/**/test_*.rb"].each {|f| require f}' || die
 }
