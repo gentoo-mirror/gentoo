@@ -11,10 +11,10 @@ HOMEPAGE="https://github.com/tarsius/hl-todo/"
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/tarsius/${PN}.git"
+	EGIT_REPO_URI="https://github.com/tarsius/${PN}"
 else
 	SRC_URI="https://github.com/tarsius/${PN}/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
 	KEYWORDS="~amd64 ~x86"
 fi
@@ -23,7 +23,7 @@ LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-30.0.0.0
+	app-emacs/compat
 "
 BDEPEND="
 	${RDEPEND}

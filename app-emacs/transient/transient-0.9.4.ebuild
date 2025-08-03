@@ -15,16 +15,16 @@ if [[ "${PV}" == *9999* ]] ; then
 	EGIT_REPO_URI="https://github.com/magit/${PN}"
 else
 	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-30.0.2.0
+	app-emacs/compat
 "
 BDEPEND="
 	${RDEPEND}
