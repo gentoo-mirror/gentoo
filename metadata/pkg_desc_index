@@ -2415,7 +2415,7 @@ app-emulation/wine-desktop-common 20150204-r2: Various desktop menu items and ic
 app-emulation/wine-gecko 2.47.3 2.47.4: Mozilla Gecko based version of Internet Explorer for Wine
 app-emulation/wine-mono 7.4.0 8.1.0 9.1.0 9.3.1 9.4.0 10.0.0 10.1.0: Replacement for the .NET runtime and class libraries in Wine
 app-emulation/wine-proton 8.0.5c 9.0.4-r2 10.0.1f 10.0.2c 9999: Valve Software's fork of Wine
-app-emulation/wine-staging 9.0 10.0 10.9 10.10 10.11 10.12 9999: Free implementation of Windows(tm) on Unix, with Wine-Staging patchset
+app-emulation/wine-staging 10.0 10.9 10.10 10.11 10.12 9999: Free implementation of Windows(tm) on Unix, with Wine-Staging patchset
 app-emulation/wine-vanilla 8.0.2 9.0.1-r1 10.0-r2 10.9 10.10 10.11 10.12 9999: Free implementation of Windows(tm) on Unix, without external patchsets
 app-emulation/winetricks 20250102 20250102-r1 99999999: Easy way to install DLLs needed to work around problems in Wine
 app-emulation/x48 0.6.4-r3: HP48 Calculator Emulator
@@ -9102,11 +9102,11 @@ dev-python/pypy-exe 7.3.20: PyPy executable (build from source)
 dev-python/pypy-exe-bin 7.3.20: PyPy executable (pre-built version)
 dev-python/pypy3_10-exe 7.3.19: PyPy3.10 executable (build from source)
 dev-python/pypy3_10-exe-bin 7.3.19: PyPy3.10 executable (pre-built version)
-dev-python/pyqt-builder 1.18.1 1.18.2: The PEP 517 compliant PyQt build system
+dev-python/pyqt-builder 1.18.2: The PEP 517 compliant PyQt build system
 dev-python/pyqt5 5.15.11: Python bindings for the Qt framework
 dev-python/pyqt5-sip 12.17.0: sip extension module for PyQt5
-dev-python/pyqt6 6.8.1 6.9.1: Python bindings for the Qt framework
-dev-python/pyqt6-sip 13.10.0 13.10.2: sip module support for PyQt6
+dev-python/pyqt6 6.9.1: Python bindings for the Qt framework
+dev-python/pyqt6-sip 13.10.2: sip module support for PyQt6
 dev-python/pyqt6-webengine 6.8.0 6.9.0: Python bindings for QtWebEngine
 dev-python/pyqtgraph 0.13.7-r2: A pure-python graphics and GUI library built on PyQt and numpy
 dev-python/pyquery 2.0.1: A jQuery-like library for python
@@ -9737,7 +9737,7 @@ dev-python/zope-testing 5.1: Zope testing helpers
 dev-python/zstandard 0.23.0-r2 0.23.0-r3: Zstandard Bindings for Python
 dev-qt/designer 5.15.17: WYSIWYG tool for designing and building graphical user interfaces with QtWidgets
 dev-qt/linguist-tools 5.15.17: Tools for working with Qt translation data files
-dev-qt/qt-creator 16.0.2 17.0.0 9999: Lightweight IDE for C++/QML development centering around Qt
+dev-qt/qt-creator 17.0.0 9999: Lightweight IDE for C++/QML development centering around Qt
 dev-qt/qt-docs 5.15.2_p202011130614 6.9.1_p202505291653: Qt6 documentation and examples for Qt Creator and other tools
 dev-qt/qt3d 6.9.1 6.9.9999 6.10.9999 6.9999: 3D rendering module for the Qt6 framework
 dev-qt/qt5compat 6.9.1 6.9.9999 6.10.9999 6.9999: Qt module containing the unsupported Qt 5 APIs
@@ -10914,7 +10914,7 @@ dev-util/memprof 0.6.2-r2: Profiling and leak detection tool
 dev-util/mesa_clc 25.0.7 25.1.3 25.1.4 25.1.5 25.1.6 25.1.7 25.2.0_rc1 25.2.0_rc2 25.2.0_rc3 9999: mesa_clc tool used for building OpenCL C to SPIR-V
 dev-util/min-cscope 16.1.0-r2: Interactively examine a C program
 dev-util/mingw64-runtime 12.0.0 13.0.0: Free Win64 runtime and import library definitions
-dev-util/mingw64-toolchain 12.0.0 12.0.0_p1 13.0.0: All-in-one mingw64 toolchain intended for building Wine without crossdev
+dev-util/mingw64-toolchain 13.0.0: All-in-one mingw64 toolchain intended for building Wine without crossdev
 dev-util/mk-configure 0.38.3: Lightweight replacement for GNU autotools
 dev-util/nihtest 1.9.1: A testing tool for command line utilities
 dev-util/ninka 2.0_pre1_p20220619: A license identification tool for source code
@@ -11400,7 +11400,7 @@ games-emulation/dgen-sdl 1.33-r1: Linux/SDL-Port of the famous DGen MegaDrive/Ge
 games-emulation/dolphin 2506 9999: Gamecube and Wii game emulator
 games-emulation/dosbox 0.74.3 0.75_pre4302 0.75_pre4302-r1: DOS emulator
 games-emulation/dosbox-staging 0.82.0 0.82.1 0.82.2: Modernized DOSBox soft-fork
-games-emulation/emutos 1.3 1.4: Single-user single-tasking operating system for 32-bit Atari computer emulators
+games-emulation/emutos 1.4: Single-user single-tasking operating system for 32-bit Atari computer emulators
 games-emulation/fbzx 4.8.0-r1: Full Screen Sinclair Spectrum emulator
 games-emulation/fceux 2.6.6-r2: Portable Famicom/NES emulator, an evolution of the original FCE Ultra
 games-emulation/gambatte-jg 0.6.0 9999: Jolly Good Fork of Gambatte
@@ -11410,7 +11410,7 @@ games-emulation/geolith-jg 0.2.1 0.2.2 9999: Jolly Good Neo Geo AES/MVS Emulator
 games-emulation/gngb 20060309-r2: Gameboy / Gameboy Color emulator
 games-emulation/gngeo 0.8-r2: A NeoGeo emulator
 games-emulation/gnuboy 1.0.3-r4: Gameboy emulator with multiple renderers
-games-emulation/hatari 2.5.0 2.6.0: Atari ST emulator
+games-emulation/hatari 2.6.0: Atari ST emulator
 games-emulation/higan 116_pre20210818-r2: Multi-system emulator focused on accuracy, preservation, and configurability
 games-emulation/jgemu 1.0.0: Meta ebuild for the Jolly Good API
 games-emulation/jgrf 1.2.1 9999: The Jolly Good Reference Frontend
@@ -13115,7 +13115,7 @@ media-gfx/ttygif 1.6.0: Convert terminal recordings to animated gifs
 media-gfx/tuxpaint 0.9.31 0.9.31-r1: Drawing program designed for young children
 media-gfx/tuxpaint-stamps 20090628-r1 20211125 20220604 20230402: Set of 'Rubber Stamp' images which can be used within Tux Paint
 media-gfx/ueberzug 18.3.1: Command line util to draw images on terminals by using child windows
-media-gfx/ueberzugpp 2.9.6 2.9.7: Drop in replacement for ueberzug written in C++
+media-gfx/ueberzugpp 2.9.7: Drop in replacement for ueberzug written in C++
 media-gfx/valentina 0.7.52: Cloth patternmaking software
 media-gfx/viewer 0.8.0-r2: A stereo pair image viewer (supports ppm's only)
 media-gfx/viewnior 1.8-r1: Fast and simple image viewer
@@ -13280,7 +13280,7 @@ media-libs/libde265 1.0.15 1.0.16 9999: Open h.265 video codec implementation
 media-libs/libdiscid 0.6.4: Client library to create MusicBrainz enabled tagging applications
 media-libs/libdisplay-info 0.2.0-r1: EDID and DisplayID library
 media-libs/libdmtx 0.7.8: Barcode data matrix reading and writing library
-media-libs/libdovi 3.3.1-r1 3.3.2: Dolby Vision metadata parsing and writing
+media-libs/libdovi 3.3.2: Dolby Vision metadata parsing and writing
 media-libs/libdv 1.0.0-r5 1.0.0-r6: Software codec for dv-format video (camcorders etc)
 media-libs/libdvbcsa 1.1.0-r1: Free implementation of the DVB Common Scrambling Algorithm - DVB/CSA
 media-libs/libdvbpsi 1.3.3 1.3.3-r1: Library for MPEG TS/DVB PSI tables decoding and generation
@@ -13382,7 +13382,7 @@ media-libs/librtprocess 0.12.0-r1: Algorithms for RAW processing from RawTherape
 media-libs/libsamplerate 0.2.2 9999: Secret Rabbit Code (aka libsamplerate) is a Sample Rate Converter for audio
 media-libs/libsbsms 2.3.0: A library for high quality time and pitch scale modification
 media-libs/libsdl 1.2.68: Simple Direct Media Layer 1.2 compatibility wrapper around SDL2
-media-libs/libsdl2 2.30.7-r1 2.30.11 2.32.0 2.32.2 2.32.4 2.32.6 2.32.8 2.32.54 2.32.56: Simple Direct Media Layer
+media-libs/libsdl2 2.30.7-r1 2.30.11 2.32.0 2.32.2 2.32.4 2.32.6 2.32.8 2.32.56: Simple Direct Media Layer
 media-libs/libsdl3 3.2.16 3.2.18: Simple Direct Media Layer
 media-libs/libsfml 2.6.2 3.0.1: Simple and Fast Multimedia Library (SFML)
 media-libs/libshout 2.4.6-r1: library for connecting and sending data to icecast servers
@@ -16410,11 +16410,11 @@ sci-ml/FP16 2024.05.27-r1 2024.06.20: conversion to/from half-precision floating
 sci-ml/NNPACK 2020.12.22-r4: acceleration package for neural network computations
 sci-ml/XNNPACK 2024.02.29-r1 2024.11.08-r1 2024.12.03: library of floating-point neural network inference operators
 sci-ml/accelerate 1.6.0-r5 1.7.0: Run your *raw* PyTorch training script on any kind of device
-sci-ml/caffe2 2.5.1-r12 2.6.0-r5 2.7.0-r3 2.7.1-r4: A deep learning framework
+sci-ml/caffe2 2.5.1-r12 2.6.0-r5 2.7.0-r3 2.7.1-r5: A deep learning framework
 sci-ml/clearml 1.18.0: Auto-Magical CI/CD to streamline your AI workload
 sci-ml/cudnn-frontend 1.10.0 1.11.0 1.12.1: A c++ wrapper for the cudnn backend API
 sci-ml/datasets 3.5.0: Access and share datasets for Audio, Computer Vision, and NLP tasks
-sci-ml/evaluate 0.4.3-r1: makes evaluating, comparing models and reporting their performance easier
+sci-ml/evaluate 0.4.3-r2: makes evaluating, comparing models and reporting their performance easier
 sci-ml/fastai 2.7.19: The fastai deep learning library
 sci-ml/fastcore 1.7.29-r1: Python supercharged for the fastai library
 sci-ml/fastdownload 0.0.6: Easily download, verify, and extract archives
@@ -18131,7 +18131,7 @@ www-client/opera 120.0.5543.93: A fast and secure web browser
 www-client/opera-beta 120.0.5543.36 120.0.5543.53 121.0.5600.3: A fast and secure web browser
 www-client/opera-developer 121.0.5593.0 121.0.5600.0 122.0.5608.0: A fast and secure web browser
 www-client/pybugz 0.14 9999: Command line interface to (Gentoo) Bugzilla
-www-client/qutebrowser 3.5.0-r1 3.5.1 9999: Keyboard-driven, vim-like browser based on Python and Qt
+www-client/qutebrowser 3.5.1 9999: Keyboard-driven, vim-like browser based on Python and Qt
 www-client/seamonkey 2.53.20 2.53.21: Seamonkey Web Browser
 www-client/surf 2.1-r3 9999: A simple web browser based on WebKit/GTK+
 www-client/surfraw 2.3.0-r3 99999: A fast unix command line interface to WWW
