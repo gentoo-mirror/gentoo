@@ -1,8 +1,8 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit flag-o-matic meson-multilib python-any-r1 vala
 
@@ -11,7 +11,7 @@ if [[ ${PV} = 9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/martinpitt/umockdev/releases/download/${PV}/${P}.tar.xz"
-	KEYWORDS="amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 DESCRIPTION="Mock hardware devices for creating unit tests"
@@ -58,5 +58,6 @@ multilib_src_configure() {
 }
 
 multilib_src_test() {
-	meson_src_test --no-suite fails-valgrind
+	export SLOW_TESTBED_FACTOR=10
+	meson test -v --num-processes=1 --timeout-multiplier=10 --setup installed
 }
