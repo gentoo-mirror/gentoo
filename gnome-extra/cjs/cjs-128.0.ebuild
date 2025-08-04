@@ -13,19 +13,16 @@ SRC_URI="https://github.com/linuxmint/cjs/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD CC0-1.0 MIT MPL-2.0 || ( MPL-1.1 GPL-2+ LGPL-2.1+ )"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv x86"
-IUSE="+cairo examples readline sysprof test"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
+IUSE="examples readline sysprof test"
 
 RDEPEND="
-	dev-lang/spidermonkey:115
+	dev-lang/spidermonkey:$(ver_cut 1)
 	>=dev-libs/glib-2.66.0:2
 	>=dev-libs/gobject-introspection-1.71.0:=
 	>=dev-libs/libffi-3.3:0=
-
-	cairo? (
-		x11-libs/cairo[glib,svg(+),X]
-		x11-libs/libX11
-	)
+	x11-libs/cairo[glib,svg(+),X]
+	x11-libs/libX11
 	readline? ( sys-libs/readline:0= )
 "
 DEPEND="
@@ -64,10 +61,10 @@ src_configure() {
 	use elibc_musl && append-ldflags -Wl,-z,stack-size=2097152
 
 	local emesonargs=(
-		$(meson_feature cairo)
 		$(meson_feature readline)
 		$(meson_feature sysprof profiler)
 		-Dinstalled_tests=false
+		-Dgobject-introspection-tests:install_dir=''
 		$(meson_use !test skip_dbus_tests)
 		$(meson_use !test skip_gtk_tests)
 	)
