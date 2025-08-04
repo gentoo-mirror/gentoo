@@ -9,7 +9,7 @@ EAPI=8
 
 inherit linux-mod-r1
 
-MY_P="vbox-host-kernel-module-src-${PV^^[beta]}"
+MY_P="vbox-host-kernel-module-src-${PV^^[betarc]}"
 DESCRIPTION="Kernel Modules for Virtualbox"
 HOMEPAGE="https://www.virtualbox.org/"
 SRC_URI="https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${MY_P}.tar.xz"

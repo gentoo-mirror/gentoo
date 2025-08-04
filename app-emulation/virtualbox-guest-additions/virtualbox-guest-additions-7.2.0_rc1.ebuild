@@ -12,7 +12,7 @@ MY_P=${MY_PN}-${MY_PV}
 DESCRIPTION="VirtualBox kernel modules and user-space tools for Gentoo guests"
 HOMEPAGE="https://www.virtualbox.org/"
 SRC_URI="https://download.virtualbox.org/virtualbox/${MY_PV}/${MY_P}.tar.bz2
-	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.2.0_pre20250508.tar.bz2"
+	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.2.0_pre20250723.tar.bz2"
 S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
 LICENSE="GPL-3 LGPL-2.1+ MIT || ( GPL-3 CDDL )"
@@ -58,7 +58,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-7.1.6-disable-vboxvideo-module.patch
 	"${FILESDIR}"/${PN}-7.1-arm64.patch
-	"${WORKDIR}/virtualbox-patches-7.2.0_pre20250508/patches"
+	"${WORKDIR}/virtualbox-patches-7.2.0_pre20250723/patches"
 )
 
 DOCS=()	# Don't install the default README file during einstalldocs
