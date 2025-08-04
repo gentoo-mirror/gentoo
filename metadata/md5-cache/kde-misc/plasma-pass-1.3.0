@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.9.0:*
+DEFINED_PHASES=compile configure info install nofetch prepare test unpack
+DEPEND=dev-cpp/gpgmepp:= dev-libs/qgpgme:= >=dev-qt/qt5compat-6.8.1:6[qml] >=dev-qt/qtbase-6.8.1:6[concurrent,dbus,gui] >=dev-qt/qtdeclarative-6.8.1:6 >=kde-frameworks/kcoreaddons-6.9.0:6 >=kde-frameworks/ki18n-6.9.0:6 >=kde-frameworks/kio-6.9.0:6 >=kde-frameworks/kitemmodels-6.9.0:6 kde-plasma/libplasma:6 kde-plasma/plasma5support:6 sys-auth/oath-toolkit dev-qt/qtbase:6
+DESCRIPTION=Plasma applet to access password from pass
+EAPI=8
+HOMEPAGE=https://www.dvratil.cz/2018/05/plasma-pass/ https://invent.kde.org/plasma/plasma-pass
+INHERIT=ecm kde.org
+IUSE=debug
+KEYWORDS=amd64 ~ppc64 ~riscv
+LICENSE=LGPL-2.1+
+RDEPEND=dev-cpp/gpgmepp:= dev-libs/qgpgme:= >=dev-qt/qt5compat-6.8.1:6[qml] >=dev-qt/qtbase-6.8.1:6[concurrent,dbus,gui] >=dev-qt/qtdeclarative-6.8.1:6 >=kde-frameworks/kcoreaddons-6.9.0:6 >=kde-frameworks/ki18n-6.9.0:6 >=kde-frameworks/kio-6.9.0:6 >=kde-frameworks/kitemmodels-6.9.0:6 kde-plasma/libplasma:6 kde-plasma/plasma5support:6 sys-auth/oath-toolkit !kde-misc/plasma-pass:5 >=kde-frameworks/kirigami-6.9.0:6 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
+SLOT=6
+SRC_URI=mirror://kde/stable/plasma-pass/plasma-pass-1.3.0.tar.xz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	ca1560f738b337a36fa9cf35054ea70a	kde.org	2eea56ed41440913be4caa3d255d2db3
+_md5_=fd4dfe32365846ea36cde8cafd135d4a
