@@ -6,7 +6,6 @@ EAPI=8
 EGIT_BRANCH="5.2"
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KDE_ORG_COMMIT=c3d3f7e5d36d76b4e456de6a88e1ac048dd62792
 KFMIN=6.9.0
 QTMIN=6.8.1
 VIRTUALDBUS_TEST="true"
@@ -15,9 +14,13 @@ inherit ecm kde.org optfeature xdg
 DESCRIPTION="Personal finance manager based on KDE Frameworks"
 HOMEPAGE="https://kmymoney.org/"
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64"
+fi
+
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
 IUSE="activities calendar hbci holidays sql sqlcipher"
 [[ ${KDE_BUILD_TYPE} = live ]] && IUSE+=" experimental"
 
@@ -32,7 +35,6 @@ COMMON_DEPEND="
 	dev-libs/libgpg-error
 	dev-libs/libofx:=
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql?,widgets,xml]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
@@ -85,7 +87,7 @@ src_prepare() {
 
 	sed -e "/find_program.*CCACHE_PROGRAM/s/^/# /" \
 		-e "/if.*CCACHE_PROGRAM/s/CCACHE_PROGRAM/0/" \
-		-i CMakeLists.txt # no, no no.
+		-i CMakeLists.txt || die # no, no no.
 }
 
 src_configure() {
@@ -117,6 +119,7 @@ src_test() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "more options for online stock quote retrieval" dev-perl/Finance-Quote
 	fi
