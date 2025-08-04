@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install postinst prepare setup test
 DEPEND=virtual/linux-sources
 DESCRIPTION=Kernel module for dev-debug/sysdig
 EAPI=8
-HOMEPAGE=https://sysdig.com/
+HOMEPAGE=https://www.sysdig.com/
 IDEPEND=sys-apps/kmod[tools]
 INHERIT=cmake linux-mod-r1
 IUSE=dist-kernel modules-compress modules-sign +strip
@@ -13,4 +13,4 @@ RDEPEND=sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
 SLOT=0
 SRC_URI=https://github.com/falcosecurity/libs/archive/0.20.0.tar.gz -> falcosecurity-libs-0.20.0.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	dist-kernel-utils	a40de3638d3f7a89f4c45d1a62b90e20	edo	a5e294016aa84979fcb2459749eb80b2	linux-info	efd923656513c879204fec6638eadee5	linux-mod-r1	135d5ef515d24ca714c6737e6ffca84b
-_md5_=77608d22408706197755d3f4cbc7af28
+_md5_=1343cd3ab3f1cee951ed4c00831a9aee

@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare
-DEPEND=|| ( dev-lang/pypy3-exe:3.11.7.3.20[bzip2(+),ncurses?] dev-lang/pypy3-exe-bin:3.11.7.3.20 ) dev-lang/python-exec[python_targets_pypy3_11(-)] dev-libs/openssl:0= dev-python/gentoo-common ensurepip? ( dev-python/ensurepip-pip dev-python/ensurepip-setuptools ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) symlink? ( !dev-lang/pypy:3.10[symlink(-)] !<dev-python/pypy3-7.3.17-r100 )
+DEPEND=|| ( dev-lang/pypy3-exe:3.11.7.3.20[bzip2(+),ncurses?] dev-lang/pypy3-exe-bin:3.11.7.3.20 ) dev-lang/python-exec[python_targets_pypy3_11(-)] dev-libs/openssl:0= dev-python/gentoo-common gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) symlink? ( !dev-lang/pypy:3.10[symlink(-)] !<dev-python/pypy3-7.3.17-r100 )
 DESCRIPTION=A fast, compliant alternative implementation of the Python (3.11) language
 EAPI=8
 HOMEPAGE=https://pypy.org/ https://github.com/pypy/pypy/
@@ -7,9 +7,10 @@ INHERIT=multiprocessing pax-utils python-utils-r1 toolchain-funcs
 IUSE=+ensurepip gdbm +jit ncurses sqlite symlink +test-install tk
 KEYWORDS=amd64 ~arm64 ~ppc64 x86
 LICENSE=MIT
-RDEPEND=|| ( dev-lang/pypy3-exe:3.11.7.3.20[bzip2(+),ncurses?] dev-lang/pypy3-exe-bin:3.11.7.3.20 ) dev-lang/python-exec[python_targets_pypy3_11(-)] dev-libs/openssl:0= dev-python/gentoo-common ensurepip? ( dev-python/ensurepip-pip dev-python/ensurepip-setuptools ) gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) symlink? ( !dev-lang/pypy:3.10[symlink(-)] !<dev-python/pypy3-7.3.17-r100 )
+PDEPEND=ensurepip? ( dev-python/ensurepip-pip dev-python/ensurepip-setuptools )
+RDEPEND=|| ( dev-lang/pypy3-exe:3.11.7.3.20[bzip2(+),ncurses?] dev-lang/pypy3-exe-bin:3.11.7.3.20 ) dev-lang/python-exec[python_targets_pypy3_11(-)] dev-libs/openssl:0= dev-python/gentoo-common gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) symlink? ( !dev-lang/pypy:3.10[symlink(-)] !<dev-python/pypy3-7.3.17-r100 )
 RESTRICT=test
 SLOT=3.11/pypy311-pp73-416
 SRC_URI=https://downloads.python.org/pypy/pypy3.11-v7.3.20-src.tar.bz2 https://buildbot.pypy.org/pypy/pypy3.11-v7.3.20-src.tar.bz2 https://dev.gentoo.org/~mgorny/dist/python/pypy3.11-gentoo-patches-7.3.20_p2.tar.xz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	pax-utils	5555f2e75744739fe100ee62c22d28fe	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	python-utils-r1	8a006695bc0db22490452dd06914dda5
-_md5_=904f99d2bae916ed4de0e9e6af292a42
+_md5_=e8c51aa72ea32352f8728e92a1aa9cee
