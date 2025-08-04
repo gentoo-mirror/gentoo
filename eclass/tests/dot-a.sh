@@ -155,7 +155,7 @@ test_strip_lto_bytecode() {
 		tc-is-clang && return 0
 
 		$(tc-getCC) ${CFLAGS} a.c -o a.o -c 2>/dev/null || return 1
-		$(tc-getAR) q test.a a.o 2>/dev/null || return 1
+		$(tc-getAR) qD test.a a.o 2>/dev/null || return 1
 
 		# This should corrupt a.o and make linking below fail.
 		strip-lto-bytecode test.a
@@ -176,7 +176,7 @@ test_strip_lto_bytecode() {
 		lto-guarantee-fat
 
 		$(tc-getCC) ${CFLAGS} a.c -o a.o -c 2>/dev/null || return 1
-		$(tc-getAR) q test.a a.o 2>/dev/null || return 1
+		$(tc-getAR) qD test.a a.o 2>/dev/null || return 1
 
 		# This should NOT corrupt a.o, so linking below should succeed.
 		strip-lto-bytecode test.a
@@ -347,7 +347,7 @@ test_search_recursion() {
 		_create_test_progs
 		lto-guarantee-fat
 		$(tc-getCC) ${CFLAGS} a.c -o a.o -c 2>/dev/null || return 1
-		$(tc-getAR) q foo.a a.o 2>/dev/null || return 1
+		$(tc-getAR) qD foo.a a.o 2>/dev/null || return 1
 
 		_check_if_lto_object "${tmpdir}/lto/foo.a" || return 1
 		# It should search ${ED} if no arguments are passed, find
@@ -397,8 +397,8 @@ test_search_recursion() {
 		_create_test_progs
 		lto-guarantee-fat
 		$(tc-getCC) ${CFLAGS} "${tmpdir}"/lto/a.c -o "${tmpdir}"/lto/a.o -c 2>/dev/null || return 1
-		$(tc-getAR) q foo.a a.o 2>/dev/null || return 1
-		$(tc-getAR) q "${tmpdir}"/lto2/foo.a a.o 2>/dev/null || return 1
+		$(tc-getAR) qD foo.a a.o 2>/dev/null || return 1
+		$(tc-getAR) qD "${tmpdir}"/lto2/foo.a a.o 2>/dev/null || return 1
 
 		_check_if_lto_object "${tmpdir}/lto/foo.a" || return 1
 		_check_if_lto_object "${tmpdir}/lto2/foo.a" || return 1
@@ -426,9 +426,9 @@ test_strip_lto() {
 		_create_test_progs
 
 		$(tc-getCC) a.c -o a.o -c -flto -ggdb3 || return 1
-		$(tc-getAR) q foo.a a.o 2>/dev/null || return 1
+		$(tc-getAR) qD foo.a a.o 2>/dev/null || return 1
 		cp foo.a foo.a.bak || return 1
-		$(tc-getSTRIP) -p -d foo.a || return 1
+		$(tc-getSTRIP) --enable-deterministic-archives -p -d foo.a || return 1
 
 		# They should NOT differ after stripping because it
 		# can't be safely stripped without special arguments.
@@ -445,9 +445,9 @@ test_strip_lto() {
 		_create_test_progs
 
 		$(tc-getCC) a.c -o a.o -c -flto -ffat-lto-objects -ggdb3 || return 1
-		$(tc-getAR) q foo.a a.o 2>/dev/null || return 1
+		$(tc-getAR) qD foo.a a.o 2>/dev/null || return 1
 		cp foo.a foo.a.bak || return 1
-		$(tc-getSTRIP) -p -d foo.a || return 1
+		$(tc-getSTRIP) --enable-deterministic-archives -p -d foo.a || return 1
 
 		# They should differ after stripping because binutils
 		# (these days) can safely strip it without special arguments
@@ -479,7 +479,7 @@ test_strip_lto_mixed() {
 		rm test.a 2>/dev/null
 
 		clang ${CFLAGS} a.c -o a.o -c 2>/dev/null || return 1
-		$(tc-getAR) q test.a a.o 2>/dev/null || return 1
+		$(tc-getAR) qD test.a a.o 2>/dev/null || return 1
 
 		# Pretend that gcc built a.o/test.a so that we use
 		# GNU Binutils strip to trigger the bug.
@@ -503,7 +503,7 @@ test_strip_lto_mixed() {
 		rm test.a 2>/dev/null
 
 		clang ${CFLAGS} a.c -o a.o -c 2>/dev/null || return 1
-		$(tc-getAR) q test.a a.o 2>/dev/null || return 1
+		$(tc-getAR) qD test.a a.o 2>/dev/null || return 1
 
 		# Pretend that gcc built a.o/test.a so that we use
 		# GNU Binutils strip to trigger the bug.
@@ -524,9 +524,9 @@ test_strip_nolto() {
 		_create_test_progs
 
 		$(tc-getCC) a.c -o a.o -c -ggdb3 || return 1
-		$(tc-getAR) q foo.a a.o 2>/dev/null || return 1
+		$(tc-getAR) qD foo.a a.o 2>/dev/null || return 1
 		cp foo.a foo.a.bak || return 1
-		$(tc-getSTRIP) -p -d foo.a || return 1
+		$(tc-getSTRIP) --enable-deterministic-archives -p -d foo.a || return 1
 
 		# They should differ after stripping.
 		cmp -s foo.a foo.a.bak && return 1
@@ -548,9 +548,9 @@ test_strip_nolto() {
 		_create_test_progs
 
 		$(tc-getCC) a.c -o a.o -c -ggdb3 || return 1
-		$(tc-getAR) q foo.a a.o 2>/dev/null || return 1
+		$(tc-getAR) qD foo.a a.o 2>/dev/null || return 1
 		cp foo.a foo.a.bak || return 1
-		$(tc-getSTRIP) -p -d foo.a || return 1
+		$(tc-getSTRIP) --enable-deterministic-archives -p -d foo.a || return 1
 
 		# They should differ after stripping.
 		cmp -s foo.a foo.a.bak && return 1
@@ -577,7 +577,7 @@ test_strip_cross() {
 	# The test only makes sense with binutils[-multitarget], otherwise
 	# binutils will iterate over all available targets and just pick one
 	# rather than not-figuring-it-out and setting EM_NONE.
-	if $(tc-getSTRIP) |& grep -q aarch ; then
+	if $(tc-getSTRIP) --enable-deterministic-archives |& grep -q aarch ; then
 		return
 	fi
 
@@ -591,7 +591,7 @@ test_strip_cross() {
 		cp a.o a.o.bak || return 1
 		# We want this to error out with binutils[-multitarget]
 		# and we skip the test earlier on if binutils[multitarget].
-		$(tc-getSTRIP) -p a.o &>/dev/null || return 0
+		$(tc-getSTRIP) --enable-deterministic-archives -p a.o &>/dev/null || return 0
 
 		if file a.o |& grep "no machine" ; then
 			return 1
