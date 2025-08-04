@@ -1,16 +1,16 @@
 BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-lang/spidermonkey:115 >=dev-libs/glib-2.66.0:2 >=dev-libs/gobject-introspection-1.71.0:= >=dev-libs/libffi-3.3:0= cairo? ( x11-libs/cairo[glib,svg(+),X] x11-libs/libX11 ) readline? ( sys-libs/readline:0= ) sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 ) test? ( sys-apps/dbus x11-libs/gtk+:3[introspection] )
+DEPEND=dev-lang/spidermonkey:128 >=dev-libs/glib-2.66.0:2 >=dev-libs/gobject-introspection-1.71.0:= >=dev-libs/libffi-3.3:0= x11-libs/cairo[glib,svg(+),X] x11-libs/libX11 readline? ( sys-libs/readline:0= ) sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 ) test? ( sys-apps/dbus x11-libs/gtk+:3[introspection] )
 DESCRIPTION=Linux Mint's fork of gjs for Cinnamon
 EAPI=8
 HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cjs
 INHERIT=flag-o-matic meson pax-utils python-any-r1 virtualx
-IUSE=+cairo examples readline sysprof test test
-KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv x86
+IUSE=examples readline sysprof test test
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=BSD CC0-1.0 MIT MPL-2.0 || ( MPL-1.1 GPL-2+ LGPL-2.1+ )
-RDEPEND=dev-lang/spidermonkey:115 >=dev-libs/glib-2.66.0:2 >=dev-libs/gobject-introspection-1.71.0:= >=dev-libs/libffi-3.3:0= cairo? ( x11-libs/cairo[glib,svg(+),X] x11-libs/libX11 ) readline? ( sys-libs/readline:0= )
+RDEPEND=dev-lang/spidermonkey:128 >=dev-libs/glib-2.66.0:2 >=dev-libs/gobject-introspection-1.71.0:= >=dev-libs/libffi-3.3:0= x11-libs/cairo[glib,svg(+),X] x11-libs/libX11 readline? ( sys-libs/readline:0= )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/linuxmint/cjs/archive/6.4.0.tar.gz -> cjs-6.4.0.tar.gz
+SRC_URI=https://github.com/linuxmint/cjs/archive/128.0.tar.gz -> cjs-128.0.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8a006695bc0db22490452dd06914dda5	meson	99466844dd8d4fcfb07578a76f5a9922	pax-utils	5555f2e75744739fe100ee62c22d28fe	python-any-r1	891415dfe39ad9b41b461f2b86354af0	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=a5508432cadbb58a581c3c1c47c5c1ea
+_md5_=953399dbccb8858c116cbd51b219cfec
