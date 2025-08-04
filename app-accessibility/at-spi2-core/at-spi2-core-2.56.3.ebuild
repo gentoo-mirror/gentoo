@@ -10,7 +10,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/at-spi2-core"
 
 LICENSE="LGPL-2.1+"
 SLOT="2"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="X dbus-broker gtk-doc +introspection systemd"
 REQUIRED_USE="
 	dbus-broker? ( systemd )
@@ -55,14 +55,15 @@ multilib_src_configure() {
 		$(meson_native_use_bool gtk-doc docs)
 		$(meson_native_use_feature introspection)
 		$(meson_feature X x11)
-		-Ddisable_p2p=false
 		-Datk_only=false
 	)
 	meson_src_configure
 }
 
 multilib_src_test() {
-	virtx dbus-run-session meson test -C "${BUILD_DIR}" || die
+	# Avoid locates using commas as decimal separators and breaking some
+	# tests
+	LC_ALL=C.UTF-8 virtx dbus-run-session meson test -C "${BUILD_DIR}" || die
 }
 
 multilib_src_install_all() {
