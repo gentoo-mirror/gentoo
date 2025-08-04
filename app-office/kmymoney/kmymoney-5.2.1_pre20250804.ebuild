@@ -6,7 +6,7 @@ EAPI=8
 EGIT_BRANCH="5.2"
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KDE_ORG_COMMIT=091820c817af360ce5d67fd5dd593fee72eaefc9
+KDE_ORG_COMMIT=c3d3f7e5d36d76b4e456de6a88e1ac048dd62792
 KFMIN=6.9.0
 QTMIN=6.8.1
 VIRTUALDBUS_TEST="true"
@@ -26,7 +26,7 @@ REQUIRED_USE="sqlcipher? ( sql )"
 COMMON_DEPEND="
 	dev-cpp/gpgmepp:=
 	dev-libs/qgpgme:=
-	>=app-office/libalkimia-8.2.0_p20250713:=
+	>=app-office/libalkimia-8.2.1:=
 	dev-libs/gmp:0=[cxx(+)]
 	dev-libs/kdiagram:6
 	dev-libs/libgpg-error
