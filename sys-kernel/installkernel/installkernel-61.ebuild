@@ -16,7 +16,7 @@ S="${WORKDIR}/${PN}-gentoo-${PV}"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="dracut efistub grub refind systemd systemd-boot ugrd uki ukify"
 REQUIRED_USE="
 	systemd-boot? ( systemd )
@@ -37,7 +37,7 @@ REQUIRED_USE="
 RDEPEND="
 	!<=sys-kernel/installkernel-systemd-3
 	dracut? (
-		>=sys-kernel/dracut-106
+		>=sys-kernel/dracut-108
 		uki? (
 			|| (
 				sys-apps/systemd[boot(-)]
@@ -94,7 +94,7 @@ src_install() {
 
 	exeinto /usr/lib/kernel/preinst.d
 	doexe hooks/99-check-diskspace.install
-	use dracut && doexe hooks/50-dracut.install
+	use dracut && doexe hooks/52-dracut.install
 	use ukify && doexe hooks/60-ukify.install
 
 	exeinto /usr/lib/kernel/postinst.d
@@ -110,6 +110,7 @@ src_install() {
 	doexe hooks/systemd/90-compat.install
 	doexe hooks/systemd/90-zz-update-static.install
 	doexe hooks/systemd/99-write-log.install
+	use dracut && doexe hooks/systemd/52-dracut.install
 	use grub && doexe hooks/systemd/91-grub-mkconfig.install
 	use efistub && doexe hooks/systemd/95-efistub-kernel-bootcfg.install
 	use refind && doexe hooks/systemd/95-refind-copy-icon.install
