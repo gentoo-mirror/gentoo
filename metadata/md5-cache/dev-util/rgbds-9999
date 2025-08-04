@@ -1,13 +1,13 @@
 BDEPEND=sys-devel/bison virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install test unpack
-DEPEND=media-libs/libpng
+DEPEND=media-libs/libpng:0=
 DESCRIPTION=Rednex Game Boy Development System
 EAPI=8
 HOMEPAGE=https://rgbds.gbdev.io/
 INHERIT=flag-o-matic toolchain-funcs git-r3
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=media-libs/libpng
+RDEPEND=media-libs/libpng:0=
 SLOT=0
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=ddca3c0a7bbb4962f41eb5980fe79dbc
+_md5_=d816e402ec198055a4538b6471649b22
