@@ -35,21 +35,20 @@ REQUIRED_USE="
 # TODO: Handle llvm slots via llvm.eclass; see plugins/clang/meson.build
 RDEPEND="
 	>=dev-libs/glib-2.75:2
-	>=gui-libs/gtk-4.10:4[introspection]
-	>=gui-libs/libadwaita-1.5_alpha:1
-	>=gui-libs/libpanel-1.5.0:1
-	>=gui-libs/gtksourceview-5.8:5[introspection]
+	>=gui-libs/gtk-4.15.5:4[introspection]
+	>=gui-libs/libadwaita-1.6_alpha:1
+	>=gui-libs/libpanel-1.7.0:1
+	>=gui-libs/gtksourceview-5.15:5[introspection]
 	>=dev-libs/json-glib-1.2.0
 	>=dev-libs/jsonrpc-glib-3.43.0:=
-	>=dev-libs/libdex-0.2:=
+	>=dev-libs/libdex-0.7:=
 	>=dev-libs/libpeas-1.99.0:2[python,${PYTHON_SINGLE_USEDEP}]
 	dev-libs/libportal:=[gtk,introspection]
 	>=dev-libs/template-glib-3.36.1:=[introspection]
-	>=gui-libs/vte-0.76.0:2.91-gtk4[introspection]
+	>=gui-libs/vte-0.75.0:2.91-gtk4[introspection]
 	>=dev-libs/libxml2-2.9.0:=
 	webkit? ( >=net-libs/webkit-gtk-2.38.0:6=[introspection] )
 	>=app-text/cmark-0.29.0:0=
-	d-spy? ( >=dev-debug/d-spy-1.4.0:1 )
 	app-text/editorconfig-core-c
 	flatpak? (
 		dev-util/ostree
@@ -65,8 +64,7 @@ RDEPEND="
 	${PYTHON_DEPS}
 	clang? ( $(llvm_gen_dep "llvm-core/clang:${LLVM_SLOT}=") )
 	spell? (
-		app-text/enchant:2
-		dev-libs/icu:=
+		>=app-text/libspelling-0.3
 	)
 	sysprof? (
 		>=dev-util/sysprof-45.0[gtk]
@@ -103,10 +101,10 @@ extra capabilities beyond these expressed via USE flags. Some of these
 that are currently available with packages include:
 
 * dev-util/ctags with exuberant-ctags selected via "eselect ctags" for
-  C, C++, Python, JavaScript, CSS, HTML and Ruby autocompletion, semantic
-  highlighting and symbol resolving support.
-* dev-python/python-lsp-server for more accurate Python
-  autocompletion support.
+C, C++, Python, JavaScript, CSS, HTML and Ruby autocompletion, semantic
+highlighting and symbol resolving support.
+* dev-python/python-lsp-server for more accurate Python autocompletion
+support.
 * dev-debug/valgrind for integration with valgrind.
 * dev-build/meson for integration with the Meson build system.
 * dev-lang/rust{,-bin} for integration with the Rust Cargo build system.
@@ -188,10 +186,12 @@ src_configure() {
 		-Dplugin_lua_language_server=true
 		-Dplugin_make=true
 		-Dplugin_make_templates=true
+		-Dplugin_manuals=false
 		$(meson_use webkit plugin_markdown_preview)
 		$(meson_use webkit plugin_markdown_indenter)
 		-Dplugin_maven=true
 		-Dplugin_meson=true
+		-Dplugin_mesonlsp=true
 		-Dplugin_meson_templates=true
 		-Dplugin_modelines=true
 		-Dplugin_mono=true
@@ -216,7 +216,6 @@ src_configure() {
 		$(meson_use webkit plugin_sphinx_preview)
 		-Dplugin_stylelint=true
 		-Dplugin_swift=true
-		-Dplugin_swift_mesonlsp=true
 		-Dplugin_swiftformat=true
 		-Dplugin_swiftlint=true
 		$(meson_use sysprof plugin_sysprof)
@@ -226,6 +225,7 @@ src_configure() {
 		-Dplugin_valac=true
 		-Dplugin_vala_indenter=true
 		-Dplugin_vala_language_server=true
+		-Dplugin_vhdl_language_server=true
 		-Dplugin_valgrind=true
 		-Dplugin_waf=true
 		-Dplugin_words=true
