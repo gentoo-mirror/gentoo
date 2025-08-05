@@ -18,7 +18,7 @@ fi
 
 LICENSE="GPL-3 MIT"
 SLOT="0/$(ver_cut 1-2)"
-IUSE="+aom dav1d +de265 doc examples ffmpeg gdk-pixbuf +jpeg +jpeg2k +kvazaar openh264 rav1e svt-av1 test +threads +webp x265"
+IUSE="+aom dav1d +de265 doc ffmpeg gdk-pixbuf +jpeg +jpeg2k +kvazaar openh264 rav1e svt-av1 test +threads tools +webp x265"
 # IUSE+=" vvdec vvenc"
 RESTRICT="!test? ( test )"
 
@@ -36,6 +36,7 @@ DEPEND="
 	gdk-pixbuf? ( x11-libs/gdk-pixbuf[${MULTILIB_USEDEP}] )
 	jpeg? ( media-libs/libjpeg-turbo:=[${MULTILIB_USEDEP}] )
 	jpeg2k? ( media-libs/openjpeg:=[${MULTILIB_USEDEP}] )
+	kvazaar? ( media-libs/kvazaar:=[${MULTILIB_USEDEP}] )
 	openh264? ( media-libs/openh264:=[${MULTILIB_USEDEP}] )
 	rav1e? ( media-video/rav1e:= )
 	svt-av1? ( media-libs/svt-av1:=[${MULTILIB_USEDEP}] )
@@ -59,7 +60,7 @@ multilib_src_configure() {
 		-DWITH_AOM_DECODER=$(usex aom)
 		-DWITH_AOM_ENCODER=$(usex aom)
 		-DWITH_DAV1D=$(usex dav1d)
-		-DWITH_EXAMPLES=$(usex examples)
+		-DWITH_EXAMPLES=$(usex tools) # the examples are tools
 		-DWITH_FFMPEG_DECODER=$(usex ffmpeg)
 		-DWITH_GDK_PIXBUF=$(usex gdk-pixbuf)
 		-DWITH_OpenH264_DECODER=$(usex openh264)
