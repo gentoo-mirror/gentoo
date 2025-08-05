@@ -1,0 +1,14 @@
+BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip )
+DEFINED_PHASES=compile configure install unpack
+DEPEND=media-libs/libpng:=
+DESCRIPTION=OCR (Optical Character Recognition) program
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/ocrad/ocrad.html
+INHERIT=dot-a edo unpacker toolchain-funcs
+KEYWORDS=~alpha amd64 ppc ppc64 ~sparc x86
+LICENSE=GPL-2+
+RDEPEND=media-libs/libpng:=
+SLOT=0
+SRC_URI=mirror://nongnu/ocrad/ocrad-0.29.tar.lz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a	edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627
+_md5_=8c15ead508f5e41bd7cf07e87241b3e8

@@ -1,12 +1,12 @@
 DEFINED_PHASES=configure install
 DESCRIPTION=feature rich database generator for high performance C applications
-EAPI=7
+EAPI=8
 HOMEPAGE=http://datadraw.sourceforge.net/
-INHERIT=edo toolchain-funcs
+INHERIT=dot-a edo toolchain-funcs
 IUSE=examples
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/datadraw/datadraw/datadraw3.1.1/datadraw3.1.1.tar.gz
-_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
-_md5_=871b7cd8b2b64770da31c728e299cf9e
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a	edo	a5e294016aa84979fcb2459749eb80b2
+_md5_=73eb4c11563dc068dc25eac73858d0a8

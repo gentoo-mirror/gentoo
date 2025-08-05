@@ -4,7 +4,7 @@ DEPEND=flac? ( media-libs/flac:= ) mp3? ( media-libs/libmad ) vorbis? ( media-li
 DESCRIPTION=Cuecue converts .cue + [.ogg|.flac|.wav|.mp3] to .cue + .bin
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
-INHERIT=autotools toolchain-funcs
+INHERIT=autotools dot-a toolchain-funcs
 IUSE=+flac mp3 +vorbis
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
@@ -12,5 +12,5 @@ RDEPEND=flac? ( media-libs/flac:= ) mp3? ( media-libs/libmad ) vorbis? ( media-l
 REQUIRED_USE=|| ( flac mp3 vorbis )
 SLOT=0
 SRC_URI=mirror://gentoo/cuecue-0.2.2.tar.gz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=a7eadff444e82980c0070673c4b5c327
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a
+_md5_=2f44c88a317cc4fe0157d07aafc9535d

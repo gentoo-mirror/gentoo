@@ -1,13 +1,13 @@
-DEFINED_PHASES=compile install
+DEFINED_PHASES=compile configure install
 DEPEND=doc? ( app-text/texi2html )
 DESCRIPTION=Compiler-compiler tool for aspect-oriented programming
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/dotgnu/
-INHERIT=toolchain-funcs
+INHERIT=dot-a toolchain-funcs
 IUSE=doc examples
 KEYWORDS=~alpha amd64 arm ~hppa ~mips ppc ppc64 ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2+
 SLOT=0
 SRC_URI=https://download.savannah.gnu.org/releases/dotgnu-pnet/treecc-0.3.10.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
-_md5_=11bc54936984b575035e56ad45e6cf8a
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a
+_md5_=779eb0525575b4dd878ddadf4ca20ba6

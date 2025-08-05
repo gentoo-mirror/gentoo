@@ -4,7 +4,7 @@ DEPEND=mpi? ( virtual/mpi ) gsl? ( sci-libs/gsl:= )
 DESCRIPTION=Sequence analysis using profile hidden Markov models
 EAPI=8
 HOMEPAGE=http://hmmer.org/
-INHERIT=toolchain-funcs
+INHERIT=dot-a toolchain-funcs
 IUSE=cpu_flags_ppc_altivec cpu_flags_x86_sse gsl mpi test
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-3
@@ -12,5 +12,5 @@ RDEPEND=mpi? ( virtual/mpi ) gsl? ( sci-libs/gsl:= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
-_md5_=66609c69302596b8671531f5be5cf6c1
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a
+_md5_=7c8918ae9470b84f6444047d0a24efa8

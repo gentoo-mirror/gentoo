@@ -1,9 +1,11 @@
-DEFINED_PHASES=compile
+DEFINED_PHASES=compile configure install
 DESCRIPTION=pcc compiler support libs
 EAPI=8
 HOMEPAGE=http://pcc.ludd.ltu.se
+INHERIT=dot-a
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
 SLOT=0
 SRC_URI=ftp://pcc.ludd.ltu.se/pub/pcc-releases/pcc-libs-1.1.0.tgz
-_md5_=813c9867f2edc459dd89b6cda392e66f
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a
+_md5_=27c2a3a667359df1115298984ca5e3e4
