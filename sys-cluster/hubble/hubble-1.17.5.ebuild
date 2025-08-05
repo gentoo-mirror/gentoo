@@ -4,7 +4,7 @@
 EAPI=8
 inherit go-module
 # make sure this gets updated on every bump
-GIT_HASH=daec1c89
+GIT_HASH=13fb5dcb
 
 DESCRIPTION="Network, Service & Security Observability for Kubernetes using eBPF"
 HOMEPAGE="https://cilium.io"
@@ -15,6 +15,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 QA_PRESTRIPPED=usr/bin/hubble
+
+src_prepare() {
+	default
+	sed -i -e 's/-race//' Makefile
+}
 
 src_compile() {
 	emake GIT_HASH=${GIT_HASH}
