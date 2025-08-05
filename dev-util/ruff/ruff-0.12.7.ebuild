@@ -9,12 +9,12 @@ CRATES=""
 
 declare -A GIT_CRATES=(
 	[lsp-types]='https://github.com/astral-sh/lsp-types;3512a9f33eadc5402cfab1b8f7340824c8ca1439;lsp-types-%commit%'
-	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;fc00eba89e5dcaa5edba51c41aa5f309b5cb126b;salsa-%commit%/components/salsa-macro-rules'
-	[salsa-macros]='https://github.com/salsa-rs/salsa;fc00eba89e5dcaa5edba51c41aa5f309b5cb126b;salsa-%commit%/components/salsa-macros'
-	[salsa]='https://github.com/salsa-rs/salsa;fc00eba89e5dcaa5edba51c41aa5f309b5cb126b;salsa-%commit%'
+	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;dba66f1a37acca014c2402f231ed5b361bd7d8fe;salsa-%commit%/components/salsa-macro-rules'
+	[salsa-macros]='https://github.com/salsa-rs/salsa;dba66f1a37acca014c2402f231ed5b361bd7d8fe;salsa-%commit%/components/salsa-macros'
+	[salsa]='https://github.com/salsa-rs/salsa;dba66f1a37acca014c2402f231ed5b361bd7d8fe;salsa-%commit%'
 )
 
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.86.0"
 
 inherit shell-completion cargo
 
@@ -66,7 +66,7 @@ src_prepare() {
 	# smaller CRATES= variables. Less for the user to download, fewer distfiles
 	# to mirror.
 	pushd crates >/dev/null || die
-	rm -r ruff_{benchmark,dev} ty{,_server} *_wasm || die
+	rm -r ruff_{benchmark,dev} ty{,_{ide,project,server}} *_wasm || die
 	popd > /dev/null || die
 
 	# tests that hang in the ebuild environment
