@@ -1,0 +1,14 @@
+BDEPEND=dev-texlive/texlive-latex doc? ( dev-texlive/texlive-langgerman dev-texlive/texlive-latexextra ) virtual/latex-base >=sys-apps/texinfo-4.2-r5
+DEFINED_PHASES=compile install postinst postrm prepare
+DESCRIPTION=LaTeX class for creating presentations using a video projector
+EAPI=8
+HOMEPAGE=https://github.com/josephwright/beamer
+INHERIT=edo latex-package
+IUSE=doc
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=GPL-2 FDL-1.2 LPPL-1.3c
+RDEPEND=>=dev-tex/pgf-1.10 dev-texlive/texlive-latexrecommended virtual/latex-base
+SLOT=0
+SRC_URI=https://github.com/josephwright/beamer/archive/v3.75.tar.gz -> latex-beamer-3.75.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	latex-package	f6529cd874a632d3343b4d264a70a0bc
+_md5_=154c7f1008282e383d426b46fae1743d
