@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-flashback/"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 IUSE="elogind systemd"
 REQUIRED_USE="^^ ( elogind systemd )"
 
@@ -54,11 +54,12 @@ BDEPEND="
 	dev-util/glib-utils
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
-" # autoconf-archive for eautoreconf
+"
 RDEPEND="${RDEPEND}
 	x11-wm/metacity
 	gnome-base/gnome-panel
 	gnome-base/gnome-settings-daemon
+	gnome-extra/tecla
 "
 
 src_configure() {
@@ -72,19 +73,29 @@ src_configure() {
 	# per-version die to force a manual recheck. Only update the explicit version if the
 	# "PKG_CHECK_MODULES([DESKTOP/SCREENSAVER], ...)" blocks did not change; otherwise adjust
 	# elogind conditional block below accordingly first.
-	if ver_test ${PV} -ne 3.52.1; then
+	if ver_test ${PV} -ne 3.56.0; then
 		die "Maintainer has not checked over packages MENU pkg-config deps for elogind support"
 	fi
 
 	if use elogind; then
 		local pkgconfig="$(tc-getPKG_CONFIG)"
+
+		local desktop_modules="glib-2.0 gio-2.0 gio-unix-2.0 gnome-desktop-3.0 gtk+-3.0 libelogind x11"
+		local screensaver_modules="gdm gio-unix-2.0 glib-2.0 gnome-desktop-3.0 gtk+-3.0 libelogind xxf86vm"
+
 		myconf+=(
-			DESKTOP_CFLAGS="$(${pkgconfig} --cflags glib-2.0 gio-2.0 gio-unix-2.0 gnome-desktop-3.0 gtk+-3.0 libelogind x11)"
-			DESKTOP_LIBS="$(${pkgconfig} --libs glib-2.0 gio-2.0 gio-unix-2.0 gnome-desktop-3.0 gtk+-3.0 libelogind x11)"
-			SCREENSAVER_CFLAGS="$(${pkgconfig} --cflags gdm gio-unix-2.0 glib-2.0 gnome-desktop-3.0 gtk+-3.0 libelogind xxf86vm)"
-			SCREENSAVER_LIBS="$(${pkgconfig} --libs gdm gio-unix-2.0 glib-2.0 gnome-desktop-3.0 gtk+-3.0 libelogind xxf86vm)"
+			DESKTOP_CFLAGS="$(${pkgconfig} --cflags ${desktop_modules})"
+			DESKTOP_LIBS="$(${pkgconfig} --libs ${desktop_modules})"
+			SCREENSAVER_CFLAGS="$(${pkgconfig} --cflags ${screensaver_modules})"
+			SCREENSAVER_LIBS="$(${pkgconfig} --libs ${screensaver_modules})"
 		)
 	fi
 
 	gnome2_src_configure "${myconf[@]}"
+}
+
+src_install() {
+	gnome2_src_install
+	insinto /usr/share/xdg-desktop-portal
+	doins "${FILESDIR}/${PN}-portals.conf"
 }

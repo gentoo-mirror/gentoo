@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33"
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG README.rdoc"
 RUBY_FAKEGEM_GEMSPEC="sequel.gemspec"
@@ -18,7 +18,7 @@ SRC_URI="https://github.com/jeremyevans/sequel/archive/refs/tags/${PV}.tar.gz ->
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86"
 IUSE="test"
 
 ruby_add_rdepend "dev-ruby/bigdecimal"
