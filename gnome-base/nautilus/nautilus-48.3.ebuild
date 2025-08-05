@@ -11,9 +11,10 @@ HOMEPAGE="https://apps.gnome.org/Nautilus/"
 LICENSE="GPL-3+ LGPL-2.1+"
 SLOT="0"
 
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
 IUSE="+cloudproviders doc gnome +gstreamer +introspection +previewer selinux"
+REQUIRED_USE="doc? ( introspection )"
 
 DEPEND="
 	>=dev-libs/glib-2.79.0:2
@@ -24,21 +25,26 @@ DEPEND="
 	>=app-arch/gnome-autoar-0.4.4
 	>=gnome-base/gnome-desktop-43:4=
 	>=gnome-base/gsettings-desktop-schemas-42
-	>=gui-libs/gtk-4.13.6:4[introspection?]
-	>=gui-libs/libadwaita-1.4.0:1
-	>=dev-libs/libportal-0.5:=[gtk]
+	>=gui-libs/gtk-4.17.5:4[introspection?]
+	>=gui-libs/libadwaita-1.6_beta:1
+	>=dev-libs/libportal-0.7:=[gtk]
 	>=x11-libs/pango-1.28.3
 	selinux? ( >=sys-libs/libselinux-2.0 )
 	>=app-misc/tinysparql-3.0:3
 	cloudproviders? ( >=net-libs/libcloudproviders-0.3.1 )
 	introspection? ( >=dev-libs/gobject-introspection-1.54:= )
 "
+# Uses org.freedesktop.Tracker.Miner.Files gsettings schema from localsearch
 RDEPEND="${DEPEND}
 	>=app-misc/localsearch-3.0:3=
-" # uses org.freedesktop.Tracker.Miner.Files gsettings schema from tracker-miners
+"
 BDEPEND="
 	>=dev-util/gdbus-codegen-2.51.2
 	dev-util/glib-utils
+	doc? (
+		app-text/docbook-xml-dtd:4.1.2
+		dev-util/gi-docgen
+	)
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 	test? ( sys-apps/dbus )
@@ -65,9 +71,6 @@ src_prepare() {
 			To activate the previewer, select a file and press space; to
 			close the previewer, press space again."
 	fi
-
-	# Disable test-nautilus-search-engine-tracker; bug #831170
-	sed -e '/^tracker_tests = /{n;N;N;d}' -i test/automated/displayless/meson.build || die
 }
 
 src_configure() {
@@ -93,8 +96,6 @@ src_install() {
 src_test() {
 	# Avoid dconf that looks at XDG_DATA_DIRS, which can sandbox fail if flatpak is installed
 	gnome2_environment_reset
-	# TODO: Tests require tracker testutils (e.g. tracker-sandbox), which may
-	# need some sorting out with tracker use flag deps
 	# GIO_USE_VOLUME_MONITOR=unix due to https://gitlab.gnome.org/GNOME/gvfs/-/issues/629#note_1467280
 	GIO_USE_VOLUME_MONITOR=unix XDG_SESSION_TYPE=x11 virtx dbus-run-session meson test -C "${BUILD_DIR}" || die
 }
