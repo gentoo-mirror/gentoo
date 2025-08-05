@@ -912,7 +912,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.41.9 1.41.14 1.42.1: Universal Command Line Environment for AWS
+app-admin/awscli 1.41.9 1.41.14 1.42.1 1.42.2: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.4.2 2025.5.1 2025.6.1: Bitwarden password manager desktop client
@@ -8080,7 +8080,7 @@ dev-python/ansible-pygments 0.1.2: Pygments lexer and style Ansible snippets
 dev-python/ansicolor 0.3.2-r1 9999: Produce ansi color output and colored highlighting and diffing
 dev-python/antlr4-python3-runtime 4.13.2: Python 3 runtime for ANTLR
 dev-python/anyascii 0.3.3: Unicode to ASCII transliteration
-dev-python/anyio 4.8.0-r3: Compatibility layer for multiple asynchronous event loop implementations
+dev-python/anyio 4.8.0-r3 4.10.0: Compatibility layer for multiple asynchronous event loop implementations
 dev-python/anyioutils 0.7.3 0.7.4: Utility classes and functions for AnyIO
 dev-python/anytree 2.13.0: Tree data library
 dev-python/apache-libcloud 3.8.0-r1: Unified Interface to the Cloud - python support libs
@@ -8159,7 +8159,7 @@ dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
 dev-python/boto3 1.39.9 1.39.14 1.40.1: The AWS SDK for Python
-dev-python/botocore 1.39.9 1.39.14 1.40.1: Low-level, data-driven core of boto 3
+dev-python/botocore 1.39.9 1.39.14 1.40.1 1.40.2: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.4.2 1.5.0_rc1 1.5.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8378,7 +8378,7 @@ dev-python/eyed3 0.9.8: Module for manipulating ID3 (v1 + v2) tags in Python
 dev-python/fake-py 0.11.6 0.11.8: Minimalistic, standalone alternative fake data generator with no dependencies
 dev-python/faker 37.4.2 37.4.3: A Python package that generates fake data for you
 dev-python/fakeredis 2.30.1 2.30.3: Fake implementation of redis API for testing purposes
-dev-python/fastbencode 0.3.1 0.3.2: Implementation of bencode with optional fast C extensions
+dev-python/fastbencode 0.3.2 0.3.4: Implementation of bencode with Rust implementation
 dev-python/fasteners 0.19: Python package that provides useful locks
 dev-python/fastimport 0.9.14: Library for parsing the fastimport VCS serialization format
 dev-python/fastjsonschema 2.21.1: Fast JSON schema validator for Python
@@ -8515,7 +8515,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.135.25 6.136.0 6.136.1 6.136.2 6.136.3 6.136.4 6.136.5 6.136.6 6.136.7 6.136.8: A library for property based testing
+dev-python/hypothesis 6.135.25 6.136.0 6.136.8 6.136.9: A library for property based testing
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 6.3.1: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
@@ -8549,7 +8549,7 @@ dev-python/ioctl-opt 1.3: Linux's ioctl.h for Python
 dev-python/ioflo 2.0.3: Automated Reasoning Engine and Flow Based Programming Framework
 dev-python/ipdb 0.13.13: IPython-enabled pdb
 dev-python/ipy 1.01-r1: Class and tools for handling of IPv4 and IPv6 addresses and networks
-dev-python/ipykernel 6.29.5-r1 6.30.0 7.0.0_alpha1: IPython Kernel for Jupyter
+dev-python/ipykernel 6.29.5-r1 6.30.0 6.30.1 7.0.0_alpha1: IPython Kernel for Jupyter
 dev-python/ipyparallel 9.0.1: Interactive Parallel Computing with IPython
 dev-python/ipython 8.37.0 9.3.0 9.4.0: Advanced interactive shell for Python
 dev-python/ipython-genutils 0.2.0-r4: Vestigial utilities from IPython
@@ -9010,7 +9010,7 @@ dev-python/pycurl 7.45.6: Python bindings for curl/libcurl
 dev-python/pycurl-requests 0.5.0-r1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.8-r3: Set of facilities to extend Python with C++
 dev-python/pydantic 2.11.7 2.12.0_alpha1: Data parsing and validation using Python type hints
-dev-python/pydantic-core 2.33.2 2.37.2: Core validation logic for pydantic written in Rust
+dev-python/pydantic-core 2.33.2 2.37.2 2.38.0: Core validation logic for pydantic written in Rust
 dev-python/pydata-sphinx-theme 0.16.0: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0-r1: Pythonic DBus library
 dev-python/pydecomp 0.3-r3 9999: A python library of common (de)compression and contents handling
@@ -9224,7 +9224,7 @@ dev-python/python-engineio 4.12.0 4.12.1 4.12.2: Python implementation of the En
 dev-python/python-gammu 3.2.4-r1: Python bindings for Gammu
 dev-python/python-gflags 3.1.2-r2: Google's Python argument parsing library
 dev-python/python-glanceclient 4.9.0: A client for the OpenStack Glance API
-dev-python/python-gnupg 0.5.4: A Python wrapper for GnuPG
+dev-python/python-gnupg 0.5.4 0.5.5: A Python wrapper for GnuPG
 dev-python/python-ironicclient 5.12.0: Python bindings for the Ironic API
 dev-python/python-jose 3.5.0: A JavaScript Object Signing and Encryption (JOSE) implementation in Python
 dev-python/python-json-logger 3.3.0: Standard python logging to output log data as json objects
@@ -9283,7 +9283,7 @@ dev-python/pyudev 0.24.3: Python binding to libudev
 dev-python/pyupgrade 3.19.1 3.20.0: Tool + pre-commit hook to automatically upgrade syntax for newer Pythons
 dev-python/pyusb 1.3.1: USB support for Python
 dev-python/pyvirtualdisplay 3.0: Python wrapper for Xvfb, Xephyr and Xvnc
-dev-python/pywavelets 1.8.0: Discrete Wavelet Transforms in Python
+dev-python/pywavelets 1.8.0 1.9.0: Discrete Wavelet Transforms in Python
 dev-python/pywayland 0.4.18: Python bindings for the libwayland library
 dev-python/pywinrm 0.5.0: Python client for the Windows Remote Management (WinRM) service
 dev-python/pywlroots 0.17.0: Python binding to the wlroots library using cffi
@@ -9411,7 +9411,7 @@ dev-python/setuptools 79.0.1 80.9.0-r1: Collection of extensions to Distutils
 dev-python/setuptools-gettext 0.1.14: Setuptools plugin for building mo files
 dev-python/setuptools-git 1.2-r3: Setuptools revision control system plugin for Git
 dev-python/setuptools-rust 1.11.1: A plugin for setuptools to build Rust Python extensions
-dev-python/setuptools-scm 8.3.1: Manage versions by scm tags via setuptools
+dev-python/setuptools-scm 8.3.1 9.0.0: Manage versions by scm tags via setuptools
 dev-python/sexpdata 1.0.2: a simple S-expression parser/serializer
 dev-python/sgmllib3k 1.0.0-r1: Py3k port of sgmllib
 dev-python/sh 2.2.2: Python subprocess interface
