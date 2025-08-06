@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202508-04">
+    <title>Mozilla Network Security Service (NSS): TLS RSA decryption timing attack</title>
+    <synopsis>A vulnerability has been discovered in NSS, which can lead to the recovery of private data.</synopsis>
+    <product type="ebuild">nss</product>
+    <announced>2025-08-06</announced>
+    <revised count="1">2025-08-06</revised>
+    <bug>925027</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-libs/nss" auto="yes" arch="*">
+            <unaffected range="ge">3.98</unaffected>
+            <vulnerable range="lt">3.98</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The Mozilla Network Security Service is a library implementing security features like SSL v.2/v.3, TLS, PKCS #5, PKCS #7, PKCS #11, PKCS #12, S/MIME and X.509 certificates.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Mozilla Network Security Service (NSS). Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mozilla Network Security Service (NSS) users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/nss-3.98"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5388">CVE-2023-5388</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-08-06T11:46:34.344411Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-08-06T11:46:34.348757Z">graaff</metadata>
+</glsa>
