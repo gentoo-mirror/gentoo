@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig verify-sig? ( >=sec-keys/openpgp-keys-strace-20151021 ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install prepare test unpack
+DEPEND=static? ( unwind? ( sys-libs/libunwind[static-libs(+)] ) elfutils? ( dev-libs/elfutils[static-libs(+)] ) selinux? ( sys-libs/libselinux[static-libs(+)] ) ) aio? ( >=dev-libs/libaio-0.3.106 )
+DESCRIPTION=Useful diagnostic, instructional, and debugging tool
+EAPI=8
+HOMEPAGE=https://strace.io/
+INHERIT=autotools edo flag-o-matic toolchain-funcs verify-sig
+IUSE=aio perl selinux static test unwind elfutils verify-sig
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=LGPL-2.1+ test? ( GPL-2+ )
+RDEPEND=!static? ( unwind? ( sys-libs/libunwind ) elfutils? ( dev-libs/elfutils ) selinux? ( sys-libs/libselinux ) ) perl? ( dev-lang/perl )
+REQUIRED_USE=?? ( unwind elfutils )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/strace/strace/releases/download/v6.16/strace-6.16.tar.xz verify-sig? ( https://github.com/strace/strace/releases/download/v6.16/strace-6.16.tar.xz.asc )
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	edo	a5e294016aa84979fcb2459749eb80b2	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
+_md5_=69ca1713325a7222de81251f068f1c38
