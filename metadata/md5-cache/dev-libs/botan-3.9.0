@@ -1,0 +1,17 @@
+BDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) app-alternatives/ninja || ( ( dev-lang/python:3.13 doc? ( dev-python/sphinx[python_targets_python3_13(-)] ) ) ( dev-lang/python:3.12 doc? ( dev-python/sphinx[python_targets_python3_12(-)] ) ) ( dev-lang/python:3.11 doc? ( dev-python/sphinx[python_targets_python3_11(-)] ) ) ) || ( >=sys-devel/gcc-11:* >=llvm-core/clang-14:* ) verify-sig? ( sec-keys/openpgp-keys-botan ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install pretend test unpack
+DEPEND=boost? ( dev-libs/boost:= ) bzip2? ( >=app-arch/bzip2-1.0.5:= ) lzma? ( app-arch/xz-utils:= ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) sqlite? ( dev-db/sqlite:3= ) zlib? ( >=sys-libs/zlib-1.2.3:= )
+DESCRIPTION=C++ crypto library
+EAPI=8
+HOMEPAGE=https://botan.randombit.net/
+INHERIT=edo dot-a flag-o-matic multiprocessing ninja-utils python-r1 toolchain-funcs verify-sig
+IUSE=doc boost bzip2 lzma python static-libs sqlite test tools zlib python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~ppc-macos
+LICENSE=BSD-2
+RDEPEND=boost? ( dev-libs/boost:= ) bzip2? ( >=app-arch/bzip2-1.0.5:= ) lzma? ( app-arch/xz-utils:= ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) sqlite? ( dev-db/sqlite:3= ) zlib? ( >=sys-libs/zlib-1.2.3:= ) !<dev-libs/botan-2.19.3-r1:2[tools]
+REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) )
+RESTRICT=!test? ( test )
+SLOT=3/3.9
+SRC_URI=https://botan.randombit.net/releases/Botan-3.9.0.tar.xz verify-sig? ( https://botan.randombit.net/releases/Botan-3.9.0.tar.xz.asc )
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-r1	0e15b2ab9cfc87d7474678201d6bca38	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
+_md5_=2195770a2d68b7e824b58ba131a1a61a
