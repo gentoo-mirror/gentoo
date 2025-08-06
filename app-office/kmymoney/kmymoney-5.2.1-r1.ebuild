@@ -60,7 +60,7 @@ COMMON_DEPEND="
 	calendar? ( dev-libs/libical:= )
 	hbci? (
 		>=dev-qt/qtdeclarative-${QTMIN}:6
-		>=net-libs/aqbanking-6.5.0
+		>=net-libs/aqbanking-6.6.1
 		>=sys-libs/gwenhywfar-5.12.1:=[qt6]
 	)
 	holidays? ( >=kde-frameworks/kholidays-${KFMIN}:6 )
