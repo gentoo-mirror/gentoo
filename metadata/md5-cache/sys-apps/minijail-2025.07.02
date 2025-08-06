@@ -1,8 +1,9 @@
+BDEPEND=test? ( virtual/pkgconfig )
 DEFINED_PHASES=compile configure install pretend setup test
-DEPEND=sys-libs/libcap-ng:= test? ( virtual/pkgconfig >=dev-cpp/gtest-1.8.0:= )
+DEPEND=sys-libs/libcap-ng:= test? ( >=dev-cpp/gtest-1.8.0:= )
 DESCRIPTION=helper binary and library for sandboxing & restricting privs of service
-EAPI=7
-HOMEPAGE=https://android.googlesource.com/platform/external/minijail
+EAPI=8
+HOMEPAGE=https://android.googlesource.com/platform/external/minijail https://github.com/google/minijail
 INHERIT=linux-info toolchain-funcs
 IUSE=+seccomp test
 KEYWORDS=~amd64 ~riscv ~x86
@@ -10,6 +11,6 @@ LICENSE=BSD
 RDEPEND=sys-libs/libcap-ng:=
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/google/minijail/archive/linux-v17.tar.gz -> minijail-17.tar.gz
+SRC_URI=https://github.com/google/minijail/archive/linux-v2025.07.02.tar.gz -> minijail-2025.07.02.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	linux-info	efd923656513c879204fec6638eadee5
-_md5_=e7c4b7462586c20dd73c8eeb02b446ef
+_md5_=cfb13246d023f8e076b6b1968346a66f
