@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=dev-java/jaxb-api-4.0.2:4 dev-java/xpp2:0 dev-java/xpp3:0 dev-java/xsdlib:0 >=virtual/jdk-11:* jaxen? ( dev-java/jaxen:1.2[dom4j] ) test? ( dev-java/xerces:2 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/testng:0 )
+DESCRIPTION=flexible XML framework for Java
+EAPI=8
+HOMEPAGE=https://dom4j.github.io/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=jaxen doc source test
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=dom4j
+RDEPEND=>=dev-java/jaxb-api-4.0.2:4 dev-java/xpp2:0 dev-java/xpp3:0 dev-java/xsdlib:0 >=virtual/jre-1.8:* jaxen? ( dev-java/jaxen:1.2[dom4j] ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/dom4j/dom4j/archive/version/2.2.0.tar.gz -> dom4j-2.2.0.tar.gz https://repo1.maven.org/maven2/jaxen/jaxen/1.2.0/jaxen-1.2.0.jar
+_eclasses_=java-utils-2	e2cdf66cd9c826ccda532772976d342d	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e
+_md5_=2f2ad5f55bb71d1f69e2d5d0d676ef1b

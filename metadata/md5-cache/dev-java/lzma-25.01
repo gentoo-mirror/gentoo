@@ -1,0 +1,15 @@
+BDEPEND=|| ( app-arch/7zip app-arch/p7zip )
+DEFINED_PHASES=compile install preinst prepare setup test unpack
+DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Java code for LZMA compression and decompression
+EAPI=8
+HOMEPAGE=https://7-zip.org/
+INHERIT=java-pkg-2 java-pkg-simple unpacker
+IUSE=doc source
+KEYWORDS=~amd64 ~arm64
+LICENSE=public-domain
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=0
+SRC_URI=https://7-zip.org/a/lzma2501.7z -> lzma-25.01.7z
+_eclasses_=java-utils-2	e2cdf66cd9c826ccda532772976d342d	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627
+_md5_=4f53e1f278f40f0fb5ca7941f689c3f0
