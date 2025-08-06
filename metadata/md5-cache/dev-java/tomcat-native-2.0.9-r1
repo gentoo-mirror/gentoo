@@ -1,6 +1,6 @@
 BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-tomcat-connectors ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
-DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=virtual/jdk-17:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Allows Tomcat to use certain native resources for better performance
 EAPI=8
 HOMEPAGE=https://tomcat.apache.org/native-doc/
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=2
 SRC_URI=mirror://apache/tomcat/tomcat-connectors/native/2.0.9/source/tomcat-native-2.0.9-src.tar.gz verify-sig? ( https://downloads.apache.org/tomcat/tomcat-connectors/native/2.0.9/source/tomcat-native-2.0.9-src.tar.gz.asc )
 _eclasses_=java-utils-2	e2cdf66cd9c826ccda532772976d342d	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
-_md5_=fc2cdb381385527fd108b1e33b991613
+_md5_=8d25f6a29cab78319e1486f0b3e330a5
