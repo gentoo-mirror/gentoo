@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://rspamd.com https://github.com/rspamd/rspamd
 INHERIT=cmake lua-single pax-utils systemd tmpfiles
 IUSE=blas +hyperscan jemalloc +jit selinux test lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=Apache-2.0 Boost-1.0 BSD BSD-1 BSD-2 CC0-1.0 LGPL-3 MIT public-domain unicode ZLIB
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) lua_single_target_luajit? ( dev-lua/LuaBitOp[lua_targets_luajit(-)] dev-lua/lua-argparse[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/LuaBitOp[lua_targets_lua5-1(-)] dev-lua/lua-argparse[lua_targets_lua5-1(-)] ) lua_single_target_lua5-3? ( dev-lua/LuaBitOp[lua_targets_lua5-3(-)] dev-lua/lua-argparse[lua_targets_lua5-3(-)] ) lua_single_target_lua5-4? ( dev-lua/LuaBitOp[lua_targets_lua5-4(-)] dev-lua/lua-argparse[lua_targets_lua5-4(-)] ) acct-group/rspamd acct-user/rspamd app-arch/libarchive:= app-arch/zstd:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/icu:= dev-libs/libpcre2:=[jit=] dev-libs/libsodium:= dev-libs/openssl:0=[-bindist(-)] dev-libs/snowball-stemmer:= sys-libs/zlib blas? ( virtual/blas virtual/lapack ) hyperscan? ( dev-libs/vectorscan:= ) jemalloc? ( dev-libs/jemalloc:= ) selinux? ( sec-policy/selinux-spamassassin ) virtual/tmpfiles
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) test? ( lua_single_target_luajit )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rspamd/rspamd/archive/3.12.1.tar.gz -> rspamd-3.12.1.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	pax-utils	5555f2e75744739fe100ee62c22d28fe	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
-_md5_=48fefcbbe397db8e04170abad5677056
+_md5_=01b6a311a78dea8c27afdb82cc1d0e8f
