@@ -26,9 +26,6 @@ KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
 	>=dev-python/colorama-0.4[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '
-		>=dev-python/backports-strenum-1.3[${PYTHON_USEDEP}]
-	' 3.10)
 "
 BDEPEND="
 	test? (
