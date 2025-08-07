@@ -5,8 +5,8 @@ HOMEPAGE=https://github.com/linuxhw/hw-probe/
 INHERIT=optfeature readme.gentoo-r1
 KEYWORDS=amd64 ~arm64 ~loong x86
 LICENSE=LGPL-2.1+
-RDEPEND=dev-lang/perl dev-perl/Digest-SHA1 net-misc/curl sys-apps/dmidecode sys-apps/edid-decode sys-apps/hwinfo sys-apps/pciutils sys-apps/smartmontools sys-apps/usbutils
+RDEPEND=dev-lang/perl dev-perl/Digest-SHA1 || ( >=media-libs/libv4l-1.30.1[utils] sys-apps/edid-decode ) net-misc/curl sys-apps/dmidecode sys-apps/hwinfo sys-apps/pciutils sys-apps/smartmontools sys-apps/usbutils
 SLOT=0
 SRC_URI=https://github.com/linuxhw/hw-probe/archive/refs/tags/1.6.6.tar.gz -> hw-probe-1.6.6.tar.gz
 _eclasses_=optfeature	538bce96e5589935b57e178e8635f301	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
-_md5_=76eec7dd2fd434eea90d4233c415da77
+_md5_=cb26caa25e0900b0d9720cdcab42845a
