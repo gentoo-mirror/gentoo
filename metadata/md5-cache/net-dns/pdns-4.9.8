@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) virtual/pkgconfig doc? ( app-text/doxygen[dot] )
+DEFINED_PHASES=compile configure install postinst setup
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/openssl:= dev-libs/boost:= lmdb? ( >=dev-db/lmdb-0.9.29 ) lua-records? ( >=net-misc/curl-7.21.3 ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:= ) ldap? ( >=net-nds/openldap-2.0.27-r4:= app-crypt/mit-krb5 ) odbc? ( dev-db/unixODBC ) sqlite? ( dev-db/sqlite:3 ) geoip? ( >=dev-cpp/yaml-cpp-0.5.1:= dev-libs/geoip ) sodium? ( dev-libs/libsodium:= ) tinydns? ( >=dev-db/tinycdb-0.77 ) elibc_glibc? ( x86? ( >=sys-libs/glibc-2.34 ) )
+DESCRIPTION=The PowerDNS Daemon
+EAPI=8
+HOMEPAGE=https://www.powerdns.com/
+INHERIT=eapi9-ver lua-single python-any-r1
+IUSE=debug doc geoip ldap lmdb lua-records mysql odbc postgres remote sodium sqlite systemd tools tinydns test lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/openssl:= dev-libs/boost:= lmdb? ( >=dev-db/lmdb-0.9.29 ) lua-records? ( >=net-misc/curl-7.21.3 ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:= ) ldap? ( >=net-nds/openldap-2.0.27-r4:= app-crypt/mit-krb5 ) odbc? ( dev-db/unixODBC ) sqlite? ( dev-db/sqlite:3 ) geoip? ( >=dev-cpp/yaml-cpp-0.5.1:= dev-libs/geoip ) sodium? ( dev-libs/libsodium:= ) tinydns? ( >=dev-db/tinycdb-0.77 ) elibc_glibc? ( x86? ( >=sys-libs/glibc-2.34 ) ) acct-user/pdns acct-group/pdns
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://downloads.powerdns.com/releases/pdns-4.9.8.tar.bz2
+_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=3142856ffb74a1fb2d541eb21dc102a9
