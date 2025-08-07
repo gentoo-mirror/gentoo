@@ -1,4 +1,4 @@
-BDEPEND=test? ( >=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !<app-text/tree-2.1.1-r1 !!net-fs/mc || ( ( dev-lang/python:3.13 dev-python/pexpect[python_targets_python3_13(-)] dev-python/pytest[python_targets_python3_13(-)] dev-python/pytest-xdist[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pexpect[python_targets_python3_12(-)] dev-python/pytest[python_targets_python3_12(-)] dev-python/pytest-xdist[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pexpect[python_targets_python3_11(-)] dev-python/pytest[python_targets_python3_11(-)] dev-python/pytest-xdist[python_targets_python3_11(-)] ) ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( >=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !<app-text/tree-2.1.1-r1 || ( ( dev-lang/python:3.13 dev-python/pexpect[python_targets_python3_13(-)] dev-python/pytest[python_targets_python3_13(-)] dev-python/pytest-xdist[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pexpect[python_targets_python3_12(-)] dev-python/pytest[python_targets_python3_12(-)] dev-python/pytest-xdist[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pexpect[python_targets_python3_11(-)] dev-python/pytest[python_targets_python3_11(-)] dev-python/pytest-xdist[python_targets_python3_11(-)] ) ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=install postinst prepare setup test unpack
 DESCRIPTION=Programmable Completion for bash
 EAPI=8
@@ -8,8 +8,8 @@ IUSE=+eselect test
 LICENSE=GPL-2+
 PDEPEND=>=app-shells/gentoo-bashcomp-20140911
 PROPERTIES=live
-RDEPEND=>=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !<app-text/tree-2.1.1-r1 !!net-fs/mc
+RDEPEND=>=app-shells/bash-4.3_p30-r1:0 sys-apps/miscfiles !<app-text/tree-2.1.1-r1
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	git-r3	875eb471682d3e1f18da124be97dcc81	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=83811e41444e5ad3c70008358b22cfe2
+_md5_=856251c800b5325ca36f76ad8d4dab30
