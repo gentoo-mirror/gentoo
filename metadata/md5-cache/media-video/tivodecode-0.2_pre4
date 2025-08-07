@@ -1,11 +1,11 @@
-DEFINED_PHASES=compile
+DEFINED_PHASES=compile configure install
 DESCRIPTION=TiVo File Decoder
 EAPI=8
 HOMEPAGE=https://tivodecode.sourceforge.net/
-INHERIT=toolchain-funcs
+INHERIT=dot-a toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/tivodecode/tivodecode-0.2pre4.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
-_md5_=0bd3ae5ea5d04256685dad175d3155ae
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a
+_md5_=76fd244c8fab6ee2d1a56bd4d4005f10
