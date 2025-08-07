@@ -22,13 +22,16 @@ fi
 
 LICENSE="|| ( Apache-2.0 MIT )"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 BSD ISC MIT MPL-2.0 openssl Unicode-3.0"
+LICENSE+="
+	Apache-2.0 BSD CDLA-Permissive-2.0 ISC MIT openssl Unicode-3.0 ZLIB
+"
 SLOT="0"
 # uses network
 RESTRICT="test"
 
 DEPEND="
 	app-arch/xz-utils
+	app-arch/zstd
 	net-misc/curl:=[http2,ssl]
 	dev-libs/openssl:0=
 "
@@ -48,23 +51,19 @@ src_unpack() {
 
 src_configure() {
 	# modeled after ci/run.bash upstream
-	# reqwest-rustls-tls requires ring crate, which is not very portable.
+	# reqwest-rustls-tls requires ring crate and/or aws-lc, which is not
+	# very portable and also compiles much vendored openssl code
 	local myfeatures=(
 		no-self-update
 		curl-backend
 		reqwest-native-tls
 	)
-	case ${ARCH} in
-		ppc* | mips* | riscv* | s390*)
-			;;
-		*) myfeatures+=( reqwest-rustls-tls )
-			;;
-	esac
 	cargo_src_configure --no-default-features
 }
 
 src_compile() {
 	export OPENSSL_NO_VENDOR=true
+	export ZSTD_SYS_USE_PKG_CONFIG=1
 	cargo_src_compile
 }
 
