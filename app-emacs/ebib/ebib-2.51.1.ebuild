@@ -14,20 +14,20 @@ HOMEPAGE="https://joostkremers.github.io/ebib/
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/joostkremers/${PN}.git"
+	EGIT_REPO_URI="https://github.com/joostkremers/${PN}"
 else
 	SRC_URI="https://github.com/joostkremers/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="BSD"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-30.0.0.0
-	>=app-emacs/parsebib-6.2
+	app-emacs/compat
+	app-emacs/parsebib
 "
 BDEPEND="
 	${RDEPEND}
@@ -43,6 +43,5 @@ elisp-enable-tests ert-runner test
 
 src_install() {
 	elisp_src_install
-
 	doinfo "${PN}.info"
 }
