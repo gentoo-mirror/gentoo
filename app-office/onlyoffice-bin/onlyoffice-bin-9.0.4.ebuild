@@ -19,7 +19,7 @@ S="${WORKDIR}"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 RESTRICT="mirror strip test"
 
 RDEPEND="
@@ -30,6 +30,7 @@ RDEPEND="
 	dev-libs/nss
 	dev-qt/qtdeclarative:5
 	dev-qt/qtgui:5[eglfs]
+	gnome-base/gsettings-desktop-schemas
 	media-libs/alsa-lib
 	media-libs/fontconfig
 	media-libs/freetype
