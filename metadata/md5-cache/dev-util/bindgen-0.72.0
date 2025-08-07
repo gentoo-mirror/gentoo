@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://rust-lang.github.io/rust-bindgen/
 INHERIT=rust-toolchain cargo
 IUSE=debug
-KEYWORDS=~amd64 arm64 ~loong ~ppc64 ~riscv
+KEYWORDS=amd64 arm64 ~loong ~ppc64 ~riscv
 LICENSE=BSD Apache-2.0 BSD ISC MIT Unicode-3.0
 RDEPEND=|| ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* ) llvm-core/clang:*
 SLOT=0
 SRC_URI=https://github.com/rust-lang/rust-bindgen/archive/refs/tags/v0.72.0.tar.gz -> bindgen-0.72.0.tar.gz https://github.com/gentoo-crate-dist/rust-bindgen/releases/download/v0.72.0/rust-bindgen-0.72.0-crates.tar.xz
 _eclasses_=rust-toolchain	76468983281b0a7fc167ca224f84ecfd	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	2c958ff95a0fd21c1cb19e961cb2946d	cargo	5da01b45ec362e78575502b4fb82773a
-_md5_=0c56b1b4c65a19a553517f3ba2b3673f
+_md5_=aaa79e8d2f66cbabdf43867e492416cb
