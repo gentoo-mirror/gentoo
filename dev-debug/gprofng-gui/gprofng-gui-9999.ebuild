@@ -7,6 +7,7 @@ inherit java-pkg-2 xdg
 
 DESCRIPTION="Full-fledged graphical interface to operate gprofng"
 HOMEPAGE="https://www.gnu.org/software/gprofng-gui/"
+
 if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://git.savannah.gnu.org/git/gprofng-gui.git"
 	inherit autotools git-r3
@@ -29,7 +30,23 @@ RDEPEND="
 src_prepare() {
 	default
 
+	mkdir "${WORKDIR}"/build || die
+
 	[[ ${PV} == 9999 ]] && eautoreconf
 
 	java-pkg-2_src_prepare
+}
+
+src_configure() {
+	cd "${WORKDIR}"/build || die
+	ECONF_SOURCE="${S}" econf
+}
+
+src_compile() {
+	emake -C "${WORKDIR}"/build
+}
+
+src_install() {
+	einstalldocs
+	emake -C "${WORKDIR}"/build DESTDIR="${D}" install
 }
