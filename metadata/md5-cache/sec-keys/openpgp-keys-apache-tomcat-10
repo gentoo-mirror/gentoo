@@ -1,0 +1,15 @@
+BDEPEND=app-crypt/gnupg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP keys used by tomcat.apache.org
+EAPI=8
+HOMEPAGE=https://tomcat.apache.org/download-10.cgi
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=amd64 ~arm64
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test )
+SLOT=10
+SRC_URI=https://downloads.apache.org/tomcat/tomcat-10/KEYS -> openpgp-keys-apache-tomcat-10-KEYS.asc
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	4b9446d1a7c294a5eeaecae0d8768b99
+_md5_=ad562a3c7ff40f01e6d7cc9d4298ece5
