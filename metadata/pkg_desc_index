@@ -3045,7 +3045,7 @@ app-portage/elt-patches 20240912 20241121 20250306 20250718 99999999: Collection
 app-portage/emerge-delta-webrsync 3.7.7 3.7.8 3.7.9: emerge-webrsync using patches to minimize bandwidth
 app-portage/emlop 0.7.0-r1 0.7.1-r1 0.8.0 0.8.1: A fast, accurate, ergonomic emerge.log parser
 app-portage/epkg 0.4-r2: A simple portage wrapper which works like other package managers
-app-portage/eschwartz-dev-scripts 1 2: Collection of QA scripts for ebuild development
+app-portage/eschwartz-dev-scripts 2: Collection of QA scripts for ebuild development
 app-portage/esearch 1.3-r3 9999: Replacement for 'emerge --search' with search-index
 app-portage/euses 2.6.0: look up USE flag descriptions fast
 app-portage/fetchcommandwrapper 0.8.4-r5 1.0.0: Wrapper integrating aria2 into portage's FETCHCOMMAND
@@ -5445,7 +5445,7 @@ dev-libs/libbase58 0.1.4-r2: C implementation of Bitcoin's base58 encoding
 dev-libs/libbpf 1.5.1 1.6.1 9999: Stand-alone build of libbpf from the Linux kernel
 dev-libs/libbsd 0.11.8 0.12.1: Library to provide useful functions commonly found on BSD systems
 dev-libs/libbson 1.24.4 1.24.4-r1: Library routines related to building,parsing and iterating BSON documents
-dev-libs/libbulletml 0.0.6: A Library of Bullet Markup Language
+dev-libs/libbulletml 0.0.6 0.0.6-r1: A Library of Bullet Markup Language
 dev-libs/libburn 1.5.6-r2: Open-source library for reading, mastering and writing optical discs
 dev-libs/libbytesize 2.9 2.10 2.11: Tiny library providing a C "class" for working with arbitrary big byte sizes
 dev-libs/libcbor 0.11.0 0.12.0: CBOR protocol implementation for C and others
@@ -13171,7 +13171,7 @@ media-libs/clutter-gtk 1.8.4-r1 1.8.4-r2: Library for embedding a Clutter canvas
 media-libs/codec2 1.2.0: Low bit rate speech codec
 media-libs/cogl 1.22.8-r3: A library for using 3D graphics hardware to draw pretty pictures
 media-libs/coin 4.0.4: High-level 3D graphics toolkit, fully compatible with SGI Open Inventor 2.1
-media-libs/compface 1.5.2 1.5.2-r1: Utilities and library to convert to/from X-Face format
+media-libs/compface 1.5.2 1.5.2-r1 1.5.2-r2: Utilities and library to convert to/from X-Face format
 media-libs/ctl 1.5.2_p20221224 1.5.3: AMPAS' Color Transformation Language
 media-libs/cubeb 0.2_p20231121: Cross-platform audio library
 media-libs/dav1d 1.4.2 1.5.0 1.5.1 9999: dav1d is an AV1 Decoder :)
@@ -16348,7 +16348,7 @@ sci-mathematics/maxima 5.47.0-r1 5.47.0-r2 5.48.1: Free computer algebra environ
 sci-mathematics/metamath 0.198: Proof verifier based on a minimalistic formalism
 sci-mathematics/metamath-databases 20220303: Sample databases for Metamath
 sci-mathematics/minisat 2.2.1-r1: Small yet efficient SAT solver with reference paper
-sci-mathematics/msieve 1.53-r1 1.53-r2: A C library implementing a suite of algorithms to factor large integers
+sci-mathematics/msieve 1.53-r1 1.53-r3: A C library implementing a suite of algorithms to factor large integers
 sci-mathematics/nauty 2.8.8-r1: Computing automorphism groups of graphs and digraphs
 sci-mathematics/nestedsums 1.5.2-r1: A GiNaC-based library for symbolic expansion of certain transcendental functions
 sci-mathematics/normaliz 3.9.3 3.10.1 3.10.5: Tool for computations in affine monoids and more
@@ -16491,7 +16491,7 @@ sci-visualization/xyscan 4.6.6: Tool for extracting data points from graphs
 sec-keys/minisig-keys-libsodium 20230914: OpenPGP keys used for libsodium
 sec-keys/minisig-keys-zig-software-foundation 20240330: Minisign keys used by Zig Software Foundation
 sec-keys/openpgp-keys-aacid 20230907: OpenPGP keys used by Albert Astals Cid
-sec-keys/openpgp-keys-adamspiers 20210426: OpenPGP keys used by Adam Spiers
+sec-keys/openpgp-keys-adamspiers 20210426 20210426-r1 20250806: OpenPGP keys used by Adam Spiers
 sec-keys/openpgp-keys-akallabeth 20240521: OpenPGP key for Github user akallabeth
 sec-keys/openpgp-keys-alejandro-colomar 20231031: OpenPGP keys used by Alejandro Colomar
 sec-keys/openpgp-keys-alexanderneumann 20241028: OpenPGP keys used by Alexander Neumann
@@ -16533,7 +16533,7 @@ sec-keys/openpgp-keys-canonical 20190401: OpenPGP keys used to sign LXD-related 
 sec-keys/openpgp-keys-cathugger 20240123: OpenPGP keys used by cathugger
 sec-keys/openpgp-keys-cgzones 20240624: OpenPGP keys used by Christian Göttsche (cgzones)
 sec-keys/openpgp-keys-chetramey 20220406: OpenPGP keys used by Chet Ramey
-sec-keys/openpgp-keys-coreutils 20220407: OpenPGP keys used by GNU coreutils
+sec-keys/openpgp-keys-coreutils 20220407 20250806: OpenPGP keys used by GNU coreutils
 sec-keys/openpgp-keys-crypto++ 20210416: OpenPGP keys used to sign crypto++ releases
 sec-keys/openpgp-keys-danielkiper 20230215: OpenPGP keys used by Daniel Kiper
 sec-keys/openpgp-keys-danielstenberg 20220330: OpenPGP keys used by Daniel Stenberg
@@ -16550,7 +16550,7 @@ sec-keys/openpgp-keys-dwmw2 20230504: OpenPGP key for David Woodhouse
 sec-keys/openpgp-keys-eduvpn 20231208 20240307: OpenPGP keys used by eduVPN developers
 sec-keys/openpgp-keys-electrum 4.5.8: OpenPGP keys for net-misc/electrum releases
 sec-keys/openpgp-keys-elfutils 20220427 20240301: OpenPGP key used to sign elfutils releases
-sec-keys/openpgp-keys-eschwartz 20250405 20250723: OpenPGP keys used by Eli Schwartz
+sec-keys/openpgp-keys-eschwartz 20250723-r1: OpenPGP keys used by Eli Schwartz
 sec-keys/openpgp-keys-evenrouault 20220520: OpenPGP keys used by Even Rouault
 sec-keys/openpgp-keys-ffmpeg 20220405: OpenPGP keys used to sign FFmpeg
 sec-keys/openpgp-keys-file 20220611: OpenPGP keys used by Christos Zoulas (to sign file releases)

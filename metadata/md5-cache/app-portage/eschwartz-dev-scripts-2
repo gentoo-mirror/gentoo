@@ -1,4 +1,4 @@
-BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) verify-sig? ( sec-keys/openpgp-keys-eschwartz ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) verify-sig? ( >=sec-keys/openpgp-keys-eschwartz-20250723-r1 ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install setup test unpack
 DESCRIPTION=Collection of QA scripts for ebuild development
 EAPI=8
@@ -12,4 +12,4 @@ REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_1
 SLOT=0
 SRC_URI=https://codeberg.org/eli-schwartz/eschwartz-dev-scripts/releases/download/2/eschwartz-dev-scripts-2.tar.xz verify-sig? ( https://codeberg.org/eli-schwartz/eschwartz-dev-scripts/releases/download/2/eschwartz-dev-scripts-2.tar.xz.asc )
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8a006695bc0db22490452dd06914dda5	meson	99466844dd8d4fcfb07578a76f5a9922	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
-_md5_=a5f7c38aa4623c1ba8e5937f14f8e4af
+_md5_=6c7aab6a79cf34125a9d011876b53b54
