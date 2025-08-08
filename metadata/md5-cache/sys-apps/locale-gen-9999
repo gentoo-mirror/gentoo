@@ -1,0 +1,12 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=install unpack
+DESCRIPTION=Generate locales based upon the config file /etc/locale.gen
+EAPI=8
+HOMEPAGE=https://gitweb.gentoo.org/proj/locale-gen.git/
+INHERIT=git-r3
+LICENSE=GPL-2
+PROPERTIES=live
+RDEPEND=dev-lang/perl !<sys-libs/glibc-2.37-r3
+SLOT=0
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=008ea728e89aca1bfe26a6283660cc73
