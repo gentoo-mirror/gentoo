@@ -6,7 +6,7 @@ EAPI=8
 inherit go-module optfeature shell-completion
 
 # git rev-parse HEAD
-MY_GIT_COMMIT="522b44c0ce8d1909618324cb083d69e5c7a0a234"
+MY_GIT_COMMIT="d53baa7f84687d156bd8a3a80d7ea2fbd8e0a993"
 
 MY_PN="kubevirt"
 MY_P="${MY_PN}-${PV}"
