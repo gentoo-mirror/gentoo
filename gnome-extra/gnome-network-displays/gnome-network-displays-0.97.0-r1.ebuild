@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 inherit gnome.org gnome2-utils meson python-any-r1 xdg
 
 DESCRIPTION="Stream the desktop to Wi-Fi Display capable devices"
@@ -10,29 +10,33 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-network-displays"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="firewalld test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="
+DEPEND="
 	dev-libs/glib:2
-	gnome-base/gnome-desktop:3
-	media-libs/gst-rtsp-server
+	dev-libs/json-glib
+	>=dev-libs/libportal-0.7[gtk]
+	gui-libs/gtk:4
+	gui-libs/libadwaita:1
+	media-libs/gst-rtsp-server:1.0
 	media-libs/libpulse[glib]
 	media-plugins/gst-plugins-faac
 	media-plugins/gst-plugins-x264
 	media-plugins/gst-plugins-ximagesrc
-	>=gui-libs/gtk-4
-	>=net-misc/networkmanager-1.16.0[wifi]
-	>=dev-libs/libportal-0.7[gtk]
-	>=gui-libs/libadwaita-1
 	net-dns/avahi[introspection]
 	net-dns/dnsmasq
+	net-libs/libsoup:3.0
 	net-wireless/wpa_supplicant[p2p]
 	sys-apps/xdg-desktop-portal[screencast(+)]
 	firewalld? ( net-firewall/firewalld )
 "
-DEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}
+	gnome-base/gnome-desktop:3
+	>=net-misc/networkmanager-1.16.0[wifi]
+	x11-wm/mutter[screencast]
+"
 BDEPEND="
 	${PYTHON_DEPS}
 	sys-devel/gettext
