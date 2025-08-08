@@ -6,12 +6,12 @@ EAPI=8
 HOMEPAGE=https://virustotal.github.io/yara/
 INHERIT=autotools
 IUSE=+dex +dotnet +cuckoo +macho +magic profiling python test
-KEYWORDS=amd64 ~arm64 ~ppc64 x86
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
 LICENSE=Apache-2.0
 PDEPEND=python? ( =dev-python/yara-python-4* )
 RDEPEND=dev-libs/openssl:= cuckoo? ( dev-libs/jansson:= ) magic? ( sys-apps/file:= )
 RESTRICT=!test? ( test )
 SLOT=0/10
-SRC_URI=https://github.com/virustotal/yara/archive/v4.5.2.tar.gz -> yara-4.5.2.tar.gz
+SRC_URI=https://github.com/virustotal/yara/archive/v4.5.4.tar.gz -> yara-4.5.4.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=c86a3518722d877ff8d1c26fa64525b4
+_md5_=b4bf0c9ec256a76eb4625aa758e8ba76
