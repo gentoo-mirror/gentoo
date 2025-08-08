@@ -5,14 +5,14 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="The DWARF Debugging Information Format"
+DESCRIPTION="Library intended to simplify reading (and writing) applications using DWARF"
 HOMEPAGE="
 	https://www.prevanders.net/dwarf.html
 	https://github.com/davea42/libdwarf-code
 "
 SRC_URI="https://www.prevanders.net/${P}.tar.xz"
 
-LICENSE="BSD GPL-2 LGPL-2.1"
+LICENSE="GPL-2 LGPL-2.1 BSD"
 SLOT="0/$(ver_cut 1)"
 KEYWORDS="~amd64"
 IUSE="test dwarfexample dwarfgen"
