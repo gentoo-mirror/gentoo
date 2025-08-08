@@ -1,11 +1,11 @@
 DEFINED_PHASES=configure install
 DESCRIPTION=Simplified Satisfiability Solver
 EAPI=8
-HOMEPAGE=http://fmv.jku.at/cadical/ https://github.com/arminbiere/cadical/
-INHERIT=toolchain-funcs
+HOMEPAGE=https://fmv.jku.at/cadical/ https://github.com/arminbiere/cadical/
+INHERIT=dot-a toolchain-funcs
 KEYWORDS=amd64 ~x86
 LICENSE=MIT
 SLOT=0/2.0.0
 SRC_URI=https://github.com/arminbiere/cadical/archive/rel-2.0.0.tar.gz -> cadical-2.0.0.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
-_md5_=843c06df41968ef339a700ff85151ccf
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a
+_md5_=05566d027b09241419d9e4686aeaa975
