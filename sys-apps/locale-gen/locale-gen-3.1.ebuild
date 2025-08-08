@@ -12,14 +12,14 @@ if [[ ${PV} == 9999 ]] ; then
 else
 	SRC_URI="https://gitweb.gentoo.org/proj/locale-gen.git/snapshot/${P}.tar.bz2"
 
-	#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 LICENSE="GPL-2"
 SLOT="0"
 
 RDEPEND="
-	dev-lang/perl
+	>=dev-lang/perl-5.36
 	!<sys-libs/glibc-2.37-r3
 "
 
