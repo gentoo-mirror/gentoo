@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip verify-sig? ( sec-keys/openpgp-keys-freenet ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DEPEND=dev-java/unbescape:0 >=virtual/jdk-1.8:* dev-java/bcprov:0 dev-java/commons-compress:0 >=dev-java/commons-io-2.19.0:0 dev-java/fec:0 dev-java/freenet-ext:29 dev-java/java-service-wrapper:0 dev-java/jbitcollider-core:0 >=dev-java/jna-5.17.0:0 >=dev-java/lzma-24.09:0 dev-java/lzmajio:0 dev-java/mersennetwister:0 dev-java/pebble:0 test? ( dev-java/hamcrest:0 dev-java/mockito:0 dev-java/objenesis:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=An encrypted network without censorship
+EAPI=8
+HOMEPAGE=https://www.hyphanet.org
+INHERIT=java-pkg-2 java-pkg-simple systemd toolchain-funcs verify-sig
+IUSE=+nss doc source test verify-sig
+KEYWORDS=~amd64 ~arm64
+LICENSE=GPL-2+ GPL-2 MIT BSD-2 Apache-2.0
+RDEPEND=acct-user/freenet acct-group/freenet >=virtual/jre-1.8:* dev-java/bcprov:0 dev-java/commons-compress:0 >=dev-java/commons-io-2.19.0:0 dev-java/fec:0 dev-java/freenet-ext:29 dev-java/java-service-wrapper:0 dev-java/jbitcollider-core:0 >=dev-java/jna-5.17.0:0 >=dev-java/lzma-24.09:0 dev-java/lzmajio:0 dev-java/mersennetwister:0 dev-java/pebble:0 nss? ( dev-libs/nss ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/hyphanet/fred/releases/download/build01503/freenet-build01503-source.tar.bz2 https://github.com/hyphanet/seedrefs/archive/build01480.tar.gz -> seednodes-0.7.5_p1480.tar.gz https://github.com/hyphanet/contrib/archive/v29.tar.gz -> freenet-ext-29.tar.gz verify-sig? ( https://github.com/hyphanet/fred/releases/download/build01503/freenet-build01503-source.tar.bz2.sig )
+_eclasses_=java-utils-2	e2cdf66cd9c826ccda532772976d342d	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
+_md5_=ab2f243a7733fb692c7411f778f8f244

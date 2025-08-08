@@ -5299,7 +5299,7 @@ dev-libs/c-siphash 1.1.0: Streaming-capable SipHash Implementation
 dev-libs/c-stdaux 1.6.0: Auxiliary macros and functions for the C standard library
 dev-libs/cJSON 1.7.18: Ultralightweight JSON parser in ANSI C
 dev-libs/capnproto 0.9.1 0.10.2 0.10.4-r1 1.0.2 1.1.0: RPC/Serialization system with capabilities support
-dev-libs/capstone 5.0.3 5.0.5 5.0.6 6.0.0_alpha4 9999: disassembly/disassembler framework + bindings
+dev-libs/capstone 5.0.6 6.0.0_alpha5 9999: disassembly/disassembler framework + bindings
 dev-libs/castxml 0.6.11: C-family abstract syntax tree XML output tool
 dev-libs/cdk 5.0.20230201 5.0.20230201-r2 5.0.20240331-r1 5.0.20240619-r2 5.0.20250116-r1: A library of curses widgets
 dev-libs/cereal 1.3.2-r2: Header-only C++11 serialization library
@@ -5471,6 +5471,7 @@ dev-libs/libdivsufsort 2.0.1-r2: Suffix-sorting library (for BWT)
 dev-libs/libdnet 1.18.0-r1 1.18.0-r2 1.18.0-r3: Simplified, portable interface to several low-level networking routines
 dev-libs/libdnsres 0.1a-r4 0.1a-r5: A non-blocking DNS resolver library
 dev-libs/libdshconfig 0.20.13: Library for parsing dsh.style configuration files
+dev-libs/libdwarf 2.1.0: The DWARF Debugging Information Format
 dev-libs/libdynd 0.7.2-r1: C++ dynamic multi-dimensionnal array library with Python exposure
 dev-libs/libebml 1.4.5 1.4.5-r1: Extensible binary format library (kinda like XML)
 dev-libs/libedit 20240808.3.1: BSD replacement for libreadline
@@ -14621,7 +14622,7 @@ net-analyzer/vnstat 2.13 2.13-r2 9999: Console-based network traffic monitor tha
 net-analyzer/wapiti 3.1.7-r2: Web-application vulnerability scanner
 net-analyzer/webfuzzer 0.2.0-r2: Poor man's web vulnerability scanner
 net-analyzer/wireshark 4.4.7 4.4.8 9999: Network protocol analyzer (sniffer)
-net-analyzer/wtfis 0.10.1 0.10.2 0.11.0 9999: Passive hostname, domain and IP lookup tool for non-robots
+net-analyzer/wtfis 0.11.0 0.13.0 9999: Passive hostname, domain and IP lookup tool for non-robots
 net-analyzer/xnetload 1.11.3-r1: Displays a count and a graph of the traffic over a specified network connection
 net-analyzer/xprobe 0.3-r1 0.3-r2: Active OS fingerprinting tool - this is Xprobe2
 net-analyzer/yersinia 0.8.2_p20221119: A framework for layer 2 attacks
@@ -14796,7 +14797,7 @@ net-im/rocketchat-desktop-bin 3.9.10-r1 4.1.1-r1: The Ultimate Open Source Web C
 net-im/sendxmpp 1.24: A perl-script to send xmpp (jabber), similar to what mail(1) does for mail
 net-im/sendxmpp-scala 1.1.1-r1 1.2.0 9999: Send XMPP (Jabber) messages via command line
 net-im/signal-cli-bin 0.13.2-r1 0.13.9: Send and receive messages of Signal Messenger over a command line interface
-net-im/signal-desktop-bin 7.63.0: Allows you to send and receive messages of Signal Messenger on your computer
+net-im/signal-desktop-bin 7.65.0: Allows you to send and receive messages of Signal Messenger on your computer
 net-im/slack 4.44.65 4.45.60 4.45.64: Team collaboration tool
 net-im/spectrum2 2.2.1: An open source instant messaging transport
 net-im/swift 4.0.3-r3: An elegant, secure, adaptable and intuitive XMPP Client
@@ -15490,7 +15491,7 @@ net-p2p/deluge 2.1.1-r5 2.1.1-r6 2.1.1-r7 2.2.0 9999: BitTorrent client with a c
 net-p2p/ed2k_hash 0.4.0-r3: Tool for generating eDonkey2000 links
 net-p2p/energi3 3.0.8 3.1.0 9999: Official golang implementation of the Energi Core
 net-p2p/fms 0.3.84: Spam-resistant message board application for Freenet
-net-p2p/freenet 0.7.5_p1501: An encrypted network without censorship
+net-p2p/freenet 0.7.5_p1501 0.7.5_p1503: An encrypted network without censorship
 net-p2p/go-ethereum 1.15.10 1.15.11 1.16.1: Official golang implementation of the Ethereum protocol
 net-p2p/gtk-gnutella 1.2.2-r1 1.2.3: GTK+ Gnutella client
 net-p2p/gtorrentviewer 0.2b-r1: A GTK2-based viewer and editor for BitTorrent meta files
@@ -16659,7 +16660,7 @@ sec-keys/openpgp-keys-wget 20220407 20230313 20230511 20240415 20241111: OpenPGP
 sec-keys/openpgp-keys-wireshark 20230903: OpenPGP keys used to sign Wireshark releases
 sec-keys/openpgp-keys-xpdf 20220515: OpenPGP key used to sign Xpdf releases
 sec-keys/openpgp-keys-yorhel 20221110: OpenPGP keys used by Yoran Heling
-sec-keys/openpgp-keys-yubico 20250604: OpenPGP keys used by Yubico's developers
+sec-keys/openpgp-keys-yubico 20250807: OpenPGP keys used by Yubico's developers
 sec-keys/openpgp-keys-zackweinberg 20231223: OpenPGP keys used by Zack Weinberg
 sec-keys/signify-keys-opensmtpd 20181026: Signify keys used to sign OpenSMTPD portable releases
 sec-keys/signify-keys-signify 30: Signify keys used to sign signify portable releases
@@ -17286,7 +17287,7 @@ sys-auth/sssd 2.9.6-r3 2.9.7 2.11.0: System Security Services Daemon provides ac
 sys-auth/thinkfinger 0.3-r3: Support for the UPEK/SGS Thomson fingerprint reader, common in Thinkpads
 sys-auth/ykclient 2.15: Yubico C client library
 sys-auth/ykpers 1.20.0-r1: Library and tool for personalization of Yubico's YubiKey
-sys-auth/yubico-piv-tool 2.6.1 2.7.1: Command-line tool and p11-kit module for the YubiKey PIV application
+sys-auth/yubico-piv-tool 2.7.1 2.7.2: Command-line tool and p11-kit module for the YubiKey PIV application
 sys-auth/yubikey-personalization-gui 3.1.25: GUI for personalization of Yubico's YubiKey
 sys-block/aoetools 37: tools for ATA over Ethernet (AoE) network storage protocol
 sys-block/arcconf 2.01.22270-r2 3.07.23980 4.23.00.27147: Microsemi Adaptec RAID Controller Command Line Utility
