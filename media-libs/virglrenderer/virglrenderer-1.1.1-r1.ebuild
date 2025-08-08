@@ -21,7 +21,7 @@ HOMEPAGE="https://virgil3d.github.io/"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="static-libs test venus vaapi video_cards_amdgpu video_cards_asahi video_cards_freedreno"
+IUSE="static-libs test venus vaapi video_cards_amdgpu video_cards_freedreno"
 # Most of the testsuite cannot run in our sandboxed environment, just don't
 # deal with it for now.
 RESTRICT="!test? ( test ) test"
@@ -40,7 +40,6 @@ DEPEND="
 src_configure() {
 	local -a gpus=()
 	use video_cards_amdgpu && gpus+=( amdgpu-experimental )
-	use video_cards_asahi && gpus+=( asahi )
 	use video_cards_freedreno && gpus+=( msm )
 
 	local emesonargs=(
