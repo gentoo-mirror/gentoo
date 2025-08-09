@@ -8,11 +8,11 @@ if [[ ${PV} = *9999* ]]; then
 	EGIT_REPO_URI="https://github.com/xkbcommon/${PN}"
 else
 	SRC_URI="https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 	S="${WORKDIR}/libxkbcommon-xkbcommon-${PV}"
 fi
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit bash-completion-r1 meson-multilib ${GIT_ECLASS} python-any-r1 virtualx
 
@@ -25,7 +25,7 @@ IUSE="doc static-libs test tools wayland X"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
-	app-alternatives/yacc
+	>=sys-devel/bison-3.6
 	doc? ( app-text/doxygen[dot] )
 	test? ( ${PYTHON_DEPS} )
 	tools? ( wayland? ( dev-util/wayland-scanner ) )
@@ -39,7 +39,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )
-	tools? ( wayland? ( >=dev-libs/wayland-protocols-1.12 ) )
+	tools? ( wayland? ( >=dev-libs/wayland-protocols-1.15 ) )
 "
 
 pkg_setup() {
