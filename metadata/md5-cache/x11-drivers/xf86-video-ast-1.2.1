@@ -1,14 +1,14 @@
 BDEPEND=>=app-portage/elt-patches-20250306 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare unpack
-DEPEND=x11-libs/libFS x11-base/xorg-proto
-DESCRIPTION=font dumper for X font server
+DEPEND=x11-base/xorg-proto >=x11-base/xorg-server-1.20[xorg] >=x11-libs/libpciaccess-0.14
+DESCRIPTION=X.Org driver for ASpeedTech cards
 EAPI=8
-HOMEPAGE=https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/app/showfont
+HOMEPAGE=https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/driver/xf86-video-ast
 INHERIT=xorg-3
-KEYWORDS=amd64 arm ~arm64 ~mips ppc ppc64 ~s390 sparc x86
+KEYWORDS=~amd64 ~loong ~ppc ~ppc64 ~x86
 LICENSE=MIT
-RDEPEND=x11-libs/libFS
+RDEPEND=x11-base/xorg-server:= >=x11-base/xorg-server-1.20[xorg] >=x11-libs/libpciaccess-0.14
 SLOT=0
-SRC_URI=https://www.x.org/releases/individual/app/showfont-1.0.6.tar.xz
+SRC_URI=https://www.x.org/releases/individual/driver/xf86-video-ast-1.2.1.tar.xz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	xorg-3	94f60a83e0ddddb4b1d3a3882fae4ec3
-_md5_=c3ee0abdbe87a55dfdde6493b77cd933
+_md5_=bd1b4ea26063429986cf7d379c9070ab
