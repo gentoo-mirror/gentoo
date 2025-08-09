@@ -47,7 +47,7 @@ QA_PRESTRIPPED="usr/bin/${PN}"
 ECARGO_VENDOR="${WORKDIR}/vendor"
 
 PATCHES=(
-	"${FILESDIR}"/vaultwarden-envfile-1.33.2.patch
+	"${FILESDIR}"/vaultwarden-envfile-1.34.1.patch
 )
 
 CHECKREQS_MEMORY=3G
@@ -153,11 +153,4 @@ src_install() {
 pkg_postinst() {
 	tmpfiles_process "${PN}".conf
 	readme.gentoo_print_elog
-
-	# delete following after 3 months
-	elog "Vaultwarden stack has been moved from ::guru to ::gentoo"
-	elog "###  Migration guide: "
-	elog "* Backup /etc/vaultwarden.env"
-	elog "* Configuration file has been moved from /etc/${PN}.env to /etc/${PN}/${PN}.conf"
-	elog "  So make sure to migrate that & remove old config"
 }
