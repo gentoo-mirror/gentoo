@@ -4,12 +4,12 @@ DEPEND=sys-apps/hwloc:=
 DESCRIPTION=C++ Performance Portability Programming EcoSystem
 EAPI=8
 HOMEPAGE=https://github.com/kokkos
-INHERIT=cmake toolchain-funcs git-r3
-IUSE=+openmp test
+INHERIT=cmake cuda toolchain-funcs git-r3
+IUSE=cuda +openmp test
 LICENSE=BSD
 PROPERTIES=live
 RDEPEND=sys-apps/hwloc:=
 RESTRICT=!test? ( test )
 SLOT=0/9999
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=16a0d809ddb02e82dc8154c403a399c4
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	cuda	8b660e223a1695e3884ee4c7dc2c5059	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=1cce68198a411e3c8bc9def24671cace
