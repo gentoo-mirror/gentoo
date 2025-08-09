@@ -27,6 +27,7 @@ avalonia@11.2.8
 avaloniaedit.textmate@11.2.0
 azure.ai.openai@2.2.0-beta.4
 azure.core@1.44.1
+bitmiracle.libtiff.net@2.4.660
 communitytoolkit.mvvm@8.4.0
 harfbuzzsharp.nativeassets.linux@7.3.0.3
 harfbuzzsharp.nativeassets.macos@7.3.0.3
@@ -41,6 +42,7 @@ microsoft.bcl.asyncinterfaces@6.0.0
 microsoft.extensions.logging.abstractions@6.0.0
 onigwrap@1.0.6
 openai@2.2.0-beta.4
+pfim@0.11.3
 skiasharp.harfbuzz@2.88.9
 skiasharp.nativeassets.linux@2.88.9
 skiasharp.nativeassets.macos@2.88.9
@@ -81,7 +83,7 @@ else
 	SRC_URI="https://github.com/sourcegit-scm/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "

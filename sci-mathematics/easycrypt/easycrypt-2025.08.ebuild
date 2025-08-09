@@ -11,10 +11,10 @@ HOMEPAGE="https://github.com/EasyCrypt/easycrypt/"
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/EasyCrypt/${PN}.git"
+	EGIT_REPO_URI="https://github.com/EasyCrypt/${PN}"
 else
 	SRC_URI="https://github.com/EasyCrypt/${PN}/archive/r${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${PN}-r${PV}"
 
 	KEYWORDS="~amd64"
@@ -27,6 +27,7 @@ IUSE="+ocamlopt"
 RDEPEND="
 	>=dev-lang/ocaml-4.08.0:=[ocamlopt?]
 	>=sci-mathematics/why3-1.8.0:=
+
 	dev-ml/batteries:=
 	dev-ml/camlp-streams:=
 	dev-ml/camlzip:=

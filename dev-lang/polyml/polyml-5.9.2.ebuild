@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,12 +6,22 @@ EAPI=8
 inherit autotools
 
 DESCRIPTION="Poly/ML is a full implementation of Standard ML"
-HOMEPAGE="https://www.polyml.org"
-SRC_URI="https://github.com/polyml/polyml/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://www.polyml.org/
+	https://github.com/polyml/polyml/"
+
+if [[ "${PV}" == *9999* ]] ; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://github.com/${PN}/${PN}"
+else
+	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz
+		-> ${P}.gh.tar.gz"
+
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="LGPL-2.1"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~x86"
 IUSE="X +gmp portable"
 
 RDEPEND="
@@ -22,8 +32,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-5.8.2-configure.patch
-	"${FILESDIR}"/${P}-c++11.patch
+	"${FILESDIR}/polyml-5.9-c++11.patch"
 )
 
 src_prepare() {
