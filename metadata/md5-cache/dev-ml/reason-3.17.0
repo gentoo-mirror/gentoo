@@ -1,0 +1,15 @@
+BDEPEND=dev-ml/findlib dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/cppo:=[ocamlopt?] dev-ml/dune-build-info:=[ocamlopt?] dev-ml/fix:=[ocamlopt?] dev-ml/menhir:=[ocamlopt?] dev-ml/merlin-extend:=[ocamlopt?] dev-ml/ppx_derivers:=[ocamlopt?] dev-ml/ppxlib:=[ocamlopt?] dev-ml/utop:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Simple, fast & type safe language that leverages JavaScript and OCaml
+EAPI=8
+HOMEPAGE=https://reasonml.github.io/ https://github.com/reasonml/reason/
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=dev-ml/cppo:=[ocamlopt?] dev-ml/dune-build-info:=[ocamlopt?] dev-ml/fix:=[ocamlopt?] dev-ml/menhir:=[ocamlopt?] dev-ml/merlin-extend:=[ocamlopt?] dev-ml/ppx_derivers:=[ocamlopt?] dev-ml/ppxlib:=[ocamlopt?] dev-ml/utop:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/3.17.0
+SRC_URI=https://github.com/reasonml/reason/archive/3.17.0.tar.gz -> reason-3.17.0.gh.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
+_md5_=9388376cab6560940bb833f57852b14e

@@ -3,13 +3,13 @@ DEFINED_PHASES=configure install prepare test
 DEPEND=dev-libs/libffi:= X? ( x11-libs/motif:0 ) gmp? ( >=dev-libs/gmp-5:= )
 DESCRIPTION=Poly/ML is a full implementation of Standard ML
 EAPI=8
-HOMEPAGE=https://www.polyml.org
+HOMEPAGE=https://www.polyml.org/ https://github.com/polyml/polyml/
 INHERIT=autotools
 IUSE=X +gmp portable
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1
 RDEPEND=dev-libs/libffi:= X? ( x11-libs/motif:0 ) gmp? ( >=dev-libs/gmp-5:= )
-SLOT=0/5.9
-SRC_URI=https://github.com/polyml/polyml/archive/v5.9.tar.gz -> polyml-5.9.tar.gz
+SLOT=0/5.9.2
+SRC_URI=https://github.com/polyml/polyml/archive/v5.9.2.tar.gz -> polyml-5.9.2.gh.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=fe52739c216d7101186fc418098e9fcb
+_md5_=76be86a748ed683ae9413f8077ed67cb

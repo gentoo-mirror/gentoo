@@ -3098,7 +3098,7 @@ app-shells/ctypes-sh 1.2-r2: Foreign function interface for bash
 app-shells/dash 0.5.12 0.5.12-r1 9999: Debian Almquist Shell
 app-shells/dsh 0.25.10-r2: Distributed Shell
 app-shells/fish 3.7.1 4.0.0-r1 4.0.1 4.0.2 9999: Friendly Interactive SHell
-app-shells/fsh 1.0.0_p20220816-r1: F# Shell with integrated F# scripting
+app-shells/fsh 1.0.0_p20220816-r2: F# Shell with integrated F# scripting
 app-shells/fzf 0.62.0 0.63.0 0.64.0 0.65.0 0.65.1: General-purpose command-line fuzzy finder, written in Golang
 app-shells/gash 0.3.0-r100: POSIX-compatible shell written in Guile Scheme
 app-shells/gentoo-bashcomp 20240625 20250620: Gentoo-specific bash command-line completions (emerge, ebuild, equery, etc)
@@ -3969,7 +3969,7 @@ dev-db/libiodbc 3.52.15-r1: ODBC Interface for Linux
 dev-db/libodbc++ 0.2.5-r3: Provides a subset of the well-known JDBC 2.0(tm) and runs on top of ODBC
 dev-db/libzdb 3.2.3 3.4.0: A thread safe high level multi-database connection pool library
 dev-db/litecli 1.15.0 9999: CLI for SQLite with auto-completion and syntax highlighting
-dev-db/litedb 5.0.17-r3: .NET NoSQL Document Store in a single data file
+dev-db/litedb 5.0.17-r4 5.0.21: .NET NoSQL Document Store in a single data file
 dev-db/lmdb 0.9.33: An ultra-fast, ultra-compact key-value embedded data store
 dev-db/lmdb++ 1.0.0-r1: C++11 wrapper for the LMDB database library
 dev-db/m17n-db 1.8.5: Database for the m17n library
@@ -5128,7 +5128,7 @@ dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.4.1 4.4.3 4.5.0: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
 dev-lang/ada-bootstrap 0_p2021-r1 11 12 13 14: Binary bootstrap compiler for GNAT (Ada compiler)
-dev-lang/algol68g 3.5.14 3.5.15 3.6.1: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.5.14 3.5.15 3.6.1 3.7.3: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.11 3.0.0: Scala language-based scripting and REPL
 dev-lang/arc 3.2-r1: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2-r1: Functional programming language with dependent types
@@ -5218,7 +5218,7 @@ dev-lang/pcc 1.1.0-r1 1.1.0-r2: pcc portable c compiler
 dev-lang/perl 5.40.0-r1 5.40.1 5.40.2 5.42.0: Larry Wall's Practical Extraction and Report Language
 dev-lang/php 8.2.24-r1 8.2.28-r1 8.2.29 8.3.21 8.3.24 8.4.11: The PHP language runtime engine
 dev-lang/pico8 0.2.6b: Fantasy console for making and playing tiny games and other computer programs
-dev-lang/polyml 5.9-r2 5.9.1: Poly/ML is a full implementation of Standard ML
+dev-lang/polyml 5.9.1 5.9.2: Poly/ML is a full implementation of Standard ML
 dev-lang/pypy 2.7.7.3.20 3.11.7.3.20_p2: A fast, compliant alternative implementation of the Python (3.11) language
 dev-lang/pypy3-exe 3.11.7.3.20: PyPy3.11 executable (build from source)
 dev-lang/pypy3-exe-bin 3.11.7.3.20: PyPy3.11 executable (pre-built version)
@@ -6134,7 +6134,7 @@ dev-ml/qtest 2.11.2: Inline (Unit) Tests for OCaml
 dev-ml/re 1.11.0 1.12.0 1.13.0-r2 1.13.3-r2: Regular expression library for OCaml
 dev-ml/react 1.2.1-r1 1.2.2-r1: OCaml module for functional reactive programming
 dev-ml/reactiveData 0.2.1: Functional reactive programming with incremental changes in data structures
-dev-ml/reason 3.14.0 3.15.0: Simple, fast & type safe language that leverages JavaScript and OCaml
+dev-ml/reason 3.15.0 3.17.0: Simple, fast & type safe language that leverages JavaScript and OCaml
 dev-ml/record_builder 0.17.0-r1: A library which provides traversal of records with an applicative
 dev-ml/result 1.5: Compat result type
 dev-ml/rresult 0.6.0 0.7.0: Result value combinators for OCaml
@@ -11126,7 +11126,7 @@ dev-vcs/rcsi 0.5: A program to give information about RCS files
 dev-vcs/repo 2.53 2.54: Google tool for managing git, particularly multiple repos
 dev-vcs/reposurgeon 5.3: Tool for editing VCS repositories and translating among different systems
 dev-vcs/rsvndump 0.6.1-r1 0.6.2: Dump a remote Subversion repository
-dev-vcs/sourcegit 2025.15 2025.21 2025.23 2025.24 9999: Open Source Git GUI client using .NET AvaloniaUI
+dev-vcs/sourcegit 2025.21 2025.23 2025.24 2025.29 9999: Open Source Git GUI client using .NET AvaloniaUI
 dev-vcs/stagit 1.2: Generates static HTML pages for a Git repository
 dev-vcs/stgit 2.5.3: Stack-based patch management for Git
 dev-vcs/subversion 1.14.5-r2: Advanced version control system
@@ -16306,7 +16306,7 @@ sci-mathematics/dataplot 20131220: Program for scientific visualization and stat
 sci-mathematics/diagrtb 2.64: Calculation of some eigenvectors of a large real, symmetrical, matrix
 sci-mathematics/dsfmt 2.2.4: Double precision SIMD-oriented Fast Mersenne Twister library
 sci-mathematics/dunshire 0.1.3-r2: Python library to solve linear games over symmetric cones
-sci-mathematics/easycrypt 2025.02 2025.03: Computer-Aided Cryptographic Proofs
+sci-mathematics/easycrypt 2025.03 2025.08: Computer-Aided Cryptographic Proofs
 sci-mathematics/eclib 20250122 20250627: Programs for elliptic curves defined over the rational numbers
 sci-mathematics/ent 101202: Random number sequence test and entropy calculation
 sci-mathematics/eprover 3.0_pre008 3.0.03: Automated theorem prover for full first-order logic with equality
