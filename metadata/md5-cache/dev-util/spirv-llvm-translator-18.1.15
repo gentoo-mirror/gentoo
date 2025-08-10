@@ -1,17 +1,17 @@
 BDEPEND=virtual/pkgconfig test? ( dev-python/lit llvm-core/clang:18 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-util/spirv-tools[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] llvm-core/llvm:18=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=dev-util/spirv-headers-1.4.309.0
+DEPEND=dev-util/spirv-tools[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] llvm-core/llvm:18=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=dev-util/spirv-headers-1.4.313.0
 DESCRIPTION=Bi-directional translator between SPIR-V and LLVM IR
 EAPI=8
 HOMEPAGE=https://github.com/KhronosGroup/SPIRV-LLVM-Translator
 INHERIT=cmake-multilib flag-o-matic llvm-r2 multiprocessing
 IUSE=test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 +llvm_slot_18
-KEYWORDS=amd64 arm64 ~loong ~riscv x86
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~riscv ~x86
 LICENSE=UoI-NCSA
 RDEPEND=dev-util/spirv-tools[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] llvm-core/llvm:18=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
 REQUIRED_USE=^^ ( llvm_slot_18 )
 RESTRICT=!test? ( test )
 SLOT=18
-SRC_URI=https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v18.1.10.tar.gz -> spirv-llvm-translator-18.1.10.tar.gz
+SRC_URI=https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v18.1.15.tar.gz -> spirv-llvm-translator-18.1.15.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	cmake-multilib	37d23064f303dcf23453353ab8c77059	llvm-utils	64536677f4b4365e25e9b739163bed58	llvm-r2	452c1a70845763809d225a317d8a6c05
-_md5_=93da607e98067dfaf570b5d03d69eebd
+_md5_=2caf705cca9ea00defc8c98d866177f7

@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install preinst prepare setup unpack
+DEPEND=>=dev-java/java-config-2.2.0-r3
+DESCRIPTION=A GUI application that allows to manage multiple target systems through BMC
+EAPI=8
+HOMEPAGE=https://www.supermicro.com/
+INHERIT=desktop java-pkg-2 prefix
+KEYWORDS=-* ~amd64
+LICENSE=supermicro
+RDEPEND=net-misc/stunnel sys-libs/ncurses-compat:5 virtual/jre:1.8 >=dev-java/java-config-2.2.0-r3
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://www.supermicro.com/Bios/sw_download/960/IPMIView_2.23.0_build.250519_bundleJRE_Linux_x64.tar.gz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	java-utils-2	e2cdf66cd9c826ccda532772976d342d	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
+_md5_=7fee21ebf38d4e39859e2add40f7836e
