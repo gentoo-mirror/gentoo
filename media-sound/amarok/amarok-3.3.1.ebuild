@@ -25,7 +25,6 @@ IUSE="ipod lastfm mariadb mtp podcast webengine X"
 DEPEND="
 	>=app-crypt/qca-2.3.9:2[qt6(+)]
 	dev-libs/glib:2
-	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
@@ -90,10 +89,10 @@ BDEPEND="${PYTHON_DEPS}
 
 src_configure() {
 	local mycmakeargs=(
+		-DWITH_EMBEDDED_DB=OFF
 		-DWITH_MP3Tunes=OFF
 		-DWITH_PLAYER=ON
 		-DWITH_UTILITIES=ON
-		-DWITHOUT_EMBEDDED_DB=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_Googlemock=ON
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibOFA=ON
 		-DWITH_IPOD=$(usex ipod)
