@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig test? ( lua_single_target_luajit? ( dev-lua/busted[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/busted[lua_targets_lua5-1(-)] ) lua_single_target_lua5-3? ( dev-lua/busted[lua_targets_lua5-3(-)] ) lua_single_target_lua5-4? ( dev-lua/busted[lua_targets_lua5-4(-)] ) lua_single_target_luajit? ( dev-lua/busted-htest[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/busted-htest[lua_targets_lua5-1(-)] ) lua_single_target_lua5-3? ( dev-lua/busted-htest[lua_targets_lua5-3(-)] ) lua_single_target_lua5-4? ( dev-lua/busted-htest[lua_targets_lua5-4(-)] ) lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) )
+DEFINED_PHASES=configure install postinst prepare setup test
+DEPEND=net-misc/curl dev-libs/openssl:0 lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+DESCRIPTION=A package manager for the Lua programming language
+EAPI=8
+HOMEPAGE=https://luarocks.org
+INHERIT=lua-single
+IUSE=test lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86
+LICENSE=MIT
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
+REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://luarocks.org/releases/luarocks-3.12.2.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
+_md5_=e18555ecc880fc10845c4f58e4c30164
