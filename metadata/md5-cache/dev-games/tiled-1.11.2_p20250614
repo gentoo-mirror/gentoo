@@ -1,0 +1,17 @@
+BDEPEND=dev-util/qbs dev-qt/qtbase:6 dev-qt/qttools:6[linguist]
+DEFINED_PHASES=compile configure install postinst postrm preinst setup
+DEPEND=app-arch/zstd:= dev-qt/qtbase:6[X,dbus,gui,network,opengl,widgets] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 sys-libs/zlib python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) )
+DESCRIPTION=A general purpose tile map editor
+EAPI=8
+HOMEPAGE=https://www.mapeditor.org/ https://github.com/mapeditor/tiled
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=edo flag-o-matic multiprocessing python-single-r1 toolchain-funcs xdg
+IUSE=minimal python python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+KEYWORDS=~amd64
+LICENSE=BSD BSD-2 GPL-2+
+RDEPEND=app-arch/zstd:= dev-qt/qtbase:6[X,dbus,gui,network,opengl,widgets] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 sys-libs/zlib python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) )
+SLOT=0
+SRC_URI=https://codeload.github.com/mapeditor/tiled/tar.gz/f0191439b7f6b18cd727ee051e976756889b4d11 -> tiled-1.11.2_p20250614.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=4c9119881ff06d56fb3b7b569a679245
