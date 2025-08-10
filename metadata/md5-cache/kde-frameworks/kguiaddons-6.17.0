@@ -1,0 +1,17 @@
+BDEPEND=wayland? ( >=dev-qt/qtbase-6.7.2:6[wayland] dev-util/wayland-scanner ) wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.17:*
+DEFINED_PHASES=compile configure info install nofetch postinst postrm preinst prepare test unpack
+DEPEND=>=dev-qt/qtbase-6.7.2:6[dbus?,gui] >=dev-qt/qtdeclarative-6.7.2:6 wayland? ( dev-libs/wayland >=dev-qt/qtbase-6.7.2:6=[wayland] ) X? ( >=dev-qt/qtbase-6.7.2:6[X] x11-libs/libX11 ) wayland? ( >=dev-libs/plasma-wayland-protocols-1.15.0 >=dev-libs/wayland-protocols-1.39 ) X? ( x11-base/xorg-proto x11-libs/libxcb ) dev-qt/qtbase:6
+DESCRIPTION=Framework providing assorted high-level user interface components
+EAPI=8
+HOMEPAGE=https://develop.kde.org/products/frameworks/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=ecm frameworks.kde.org xdg
+IUSE=dbus wayland X debug test
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2+
+RDEPEND=>=dev-qt/qtbase-6.7.2:6[dbus?,gui] >=dev-qt/qtdeclarative-6.7.2:6 wayland? ( dev-libs/wayland >=dev-qt/qtbase-6.7.2:6=[wayland] ) X? ( >=dev-qt/qtbase-6.7.2:6[X] x11-libs/libX11 ) !<kde-frameworks/kguiaddons-5.116.0-r2:5[-kf6compat(-)] wayland? ( || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
+RESTRICT=!test? ( test )
+SLOT=6/6.17
+SRC_URI=mirror://kde/stable/frameworks/6.17/kguiaddons-6.17.0.tar.xz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	ca1560f738b337a36fa9cf35054ea70a	kde.org	2eea56ed41440913be4caa3d255d2db3	frameworks.kde.org	c3e97d56f2422e7f729ed13f859352f1	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=01676fce7d582fb61a26945977a06082
