@@ -1,0 +1,15 @@
+BDEPEND=dev-util/debugedit dev-util/patchelf
+DEFINED_PHASES=install prepare
+DESCRIPTION=Golang IDE by JetBrains
+EAPI=8
+HOMEPAGE=https://www.jetbrains.com/go/
+INHERIT=desktop wrapper toolchain-funcs
+IUSE=wayland
+KEYWORDS=~amd64 ~arm64
+LICENSE=|| ( JetBrains-business JetBrains-classroom JetBrains-educational JetBrains-individual ) Apache-2.0 BSD CC0-1.0 CDDL CDDL-1.1 EPL-1.0 GPL-2 GPL-2-with-classpath-exception ISC LGPL-2.1 LGPL-3 MIT MPL-1.1 OFL-1.1 ZLIB
+RDEPEND=>=virtual/jre-17:* dev-lang/go dev-libs/wayland sys-libs/pam sys-process/audit
+RESTRICT=bindist mirror
+SLOT=0/2025
+SRC_URI=amd64? ( https://download.jetbrains.com/go/goland-2025.1.4.tar.gz ) arm64? ( https://download.jetbrains.com/go/goland-2025.1.4-aarch64.tar.gz )
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	wrapper	11a2a3bd712784986679b60a0cab34a0	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
+_md5_=bda97b554848f7362f375d54095f28dd
