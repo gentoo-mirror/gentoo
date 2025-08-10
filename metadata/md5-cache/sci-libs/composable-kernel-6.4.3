@@ -1,0 +1,17 @@
+BDEPEND=dev-build/rocm-cmake app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=dev-util/hip:0/6.4 python_targets_python3_13t? ( dev-lang/python:3.13t ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+DESCRIPTION=High Performance Composable Kernel for AMD GPUs
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/composable_kernel
+INHERIT=check-reqs cmake flag-o-matic multiprocessing python-r1 rocm
+IUSE=debug profiler test python_targets_python3_13t python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102 amdgpu_targets_gfx1200 amdgpu_targets_gfx1201
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip:0/6.4 python_targets_python3_13t? ( dev-lang/python:3.13t ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=|| ( amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx942 amdgpu_targets_gfx1030 amdgpu_targets_gfx1100 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102 amdgpu_targets_gfx1200 amdgpu_targets_gfx1201 ) || ( python_targets_python3_13t python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+RESTRICT=!test? ( test )
+SLOT=0/6.4
+SRC_URI=https://github.com/ROCm/composable_kernel/archive/rocm-6.4.3.tar.gz -> composable-kernel-6.4.3.tar.gz test? ( https://github.com/google/googletest/archive/b85864c64758dec007208e56af933fc3f52044ee.tar.gz -> gtest-1.14.0_p20220421.tar.gz )
+_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-r1	0e15b2ab9cfc87d7474678201d6bca38	rocm	049a642ed7dfce216d678c82044e33f9
+_md5_=894fbabb7e90ef9fa5935ab6b9e67d09

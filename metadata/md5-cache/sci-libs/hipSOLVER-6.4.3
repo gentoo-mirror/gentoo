@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-util/hip:0/6.4 sci-libs/rocSOLVER:0/6.4 sparse? ( sci-libs/suitesparseconfig sci-libs/cholmod )
+DESCRIPTION=CU / ROCM agnostic marshalling library for LAPACK routines on the GPU
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/hipSOLVER
+INHERIT=cmake rocm
+IUSE=sparse +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102 amdgpu_targets_gfx1200 amdgpu_targets_gfx1201
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip:0/6.4 sci-libs/rocSOLVER:0/6.4 sparse? ( sci-libs/suitesparseconfig sci-libs/cholmod )
+REQUIRED_USE=|| ( amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx942 amdgpu_targets_gfx1030 amdgpu_targets_gfx1100 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102 amdgpu_targets_gfx1200 amdgpu_targets_gfx1201 )
+RESTRICT=test
+SLOT=0/6.4
+SRC_URI=https://github.com/ROCm/hipSOLVER/archive/refs/tags/rocm-6.4.3.tar.gz -> hipSOLVER-rocm-6.4.3.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	rocm	049a642ed7dfce216d678c82044e33f9
+_md5_=5762839fe5b475f47969ab3d05909e1a
