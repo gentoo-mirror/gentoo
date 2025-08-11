@@ -1,0 +1,16 @@
+BDEPEND=nls? ( sys-devel/gettext ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=media-libs/imlib2[X,text] virtual/libiconv x11-libs/libX11 x11-libs/libXext x11-misc/xbitmaps dbus? ( sys-apps/dbus ) editline? ( dev-libs/editline:= ) opengl? ( media-libs/glu media-libs/libglvnd[X] ) pango? ( dev-libs/glib:2 x11-libs/pango[X] ) readline? ( sys-libs/readline:= ) sound? ( alsa? ( media-libs/alsa-lib ) player? ( media-sound/alsa-utils ) pulseaudio? ( || ( media-libs/libpulse media-sound/apulse[sdk] ) ) audiofile? ( media-libs/audiofile:= ) sndfile? ( media-libs/libsndfile ) ) xcomposite? ( x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXfixes ) xft? ( x11-libs/libXft ) xi2? ( x11-libs/libXi ) xinerama? ( x11-libs/libXinerama ) xpresent? ( x11-libs/libXpresent ) xrandr? ( x11-libs/libXrandr ) xrender? ( x11-libs/libXrender ) xsm? ( x11-libs/libICE x11-libs/libSM ) zoom? ( !xrandr? ( x11-libs/libXxf86vm ) ) x11-base/xorg-proto pango? ( media-libs/fontconfig media-libs/freetype:2 media-libs/harfbuzz:= )
+DESCRIPTION=Enlightenment Window Manager (E16)
+EAPI=8
+HOMEPAGE=https://www.enlightenment.org https://sourceforge.net/projects/enlightenment/
+INHERIT=autotools
+IUSE=+alsa audiofile +dbus debug +dialogs doc examples gnome libhack editline modules nls no-container opengl +pango player pulseaudio readline +sndfile sound +themes xcomposite +xft xi2 xinerama xpresent +xrandr +xrender +xsm +xsync zoom
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=media-libs/imlib2[X,text] virtual/libiconv x11-libs/libX11 x11-libs/libXext x11-misc/xbitmaps dbus? ( sys-apps/dbus ) editline? ( dev-libs/editline:= ) opengl? ( media-libs/glu media-libs/libglvnd[X] ) pango? ( dev-libs/glib:2 x11-libs/pango[X] ) readline? ( sys-libs/readline:= ) sound? ( alsa? ( media-libs/alsa-lib ) player? ( media-sound/alsa-utils ) pulseaudio? ( || ( media-libs/libpulse media-sound/apulse[sdk] ) ) audiofile? ( media-libs/audiofile:= ) sndfile? ( media-libs/libsndfile ) ) xcomposite? ( x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXfixes ) xft? ( x11-libs/libXft ) xi2? ( x11-libs/libXi ) xinerama? ( x11-libs/libXinerama ) xpresent? ( x11-libs/libXpresent ) xrandr? ( x11-libs/libXrandr ) xrender? ( x11-libs/libXrender ) xsm? ( x11-libs/libICE x11-libs/libSM ) zoom? ( !xrandr? ( x11-libs/libXxf86vm ) ) doc? ( app-doc/e16-docs ) nls? ( virtual/libintl ) themes? ( x11-themes/e16-themes ) !x11-wm/enlightenment:0
+REQUIRED_USE=?? ( editline readline ) opengl? ( xcomposite xrender ) pango? ( xft ) sound? ( ^^ ( alsa player pulseaudio ) alsa? ( ^^ ( sndfile audiofile ) ) pulseaudio? ( ^^ ( sndfile audiofile ) ) )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/enlightenment/e16-1.0.31.tar.xz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
+_md5_=82ad916624b738cb3cbe8af2767bc47d
