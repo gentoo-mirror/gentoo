@@ -3,12 +3,12 @@
 
 EAPI=8
 
-inherit autotools
+inherit autotools dot-a
 
 MYP="${PN}-$(ver_rs 1- '-')"
 
 DESCRIPTION="Object Oriented Enhancements for Tcl/Tk"
-HOMEPAGE="http://incrtcl.sourceforge.net/"
+HOMEPAGE="https://incrtcl.sourceforge.net/"
 SRC_URI="https://github.com/tcltk/${PN}/archive/refs/tags/${MYP}.tar.gz"
 
 S="${WORKDIR}/${PN}-${MYP}"
@@ -37,6 +37,7 @@ src_prepare() {
 }
 
 src_configure() {
+	lto-guarantee-fat
 	econf \
 		--with-tcl="${EPREFIX}"/usr/$(get_libdir) \
 		--with-tclinclude="${EPREFIX}"/usr/include \
@@ -58,6 +59,7 @@ src_compile() {
 
 src_install() {
 	default
+	strip-lto-bytecode
 
 	local MY_P=${PN}${PV}
 

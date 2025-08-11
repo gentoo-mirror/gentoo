@@ -96,7 +96,7 @@ SLOT="0"
 
 IUSE="test"
 PROPERTIES="test_network"
-RESTRICT="!test? ( test )"
+RESTRICT="!test? ( test ) test"
 
 BDEPEND="
 	app-crypt/gnupg
@@ -198,7 +198,11 @@ sec-keys_src_test() {
 # installed to the standard /usr/share/openpgp-keys.
 sec-keys_src_install() {
 	insinto /usr/share/openpgp-keys
-	doins ${PN#openpgp-keys-}.asc
+
+	case ${SLOT} in
+		0) doins ${PN#openpgp-keys-}.asc;;
+		*) newins ${PN#openpgp-keys-}.asc ${PN#openpgp-keys-}-${SLOT}.asc;;
+	esac
 }
 
 fi

@@ -1,7 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+inherit dot-a
 
 MY_P=Togl${PV}
 
@@ -16,7 +18,8 @@ IUSE="debug +threads"
 
 RDEPEND="
 	dev-lang/tk:*
-	media-libs/mesa[X]
+	media-libs/libglvnd[X]
+	x11-libs/libX11
 	x11-libs/libXmu"
 DEPEND="${RDEPEND}"
 
@@ -41,6 +44,7 @@ src_prepare() {
 }
 
 src_configure() {
+	lto-guarantee-fat
 	econf \
 		$(use_enable debug symbols) \
 		$(use_enable threads)
@@ -49,4 +53,5 @@ src_configure() {
 src_install() {
 	HTML_DOCS=( doc/* )
 	default
+	strip-lto-bytecode
 }
