@@ -21,7 +21,7 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/bitstring[${PYTHON_USEDEP}]
 		dev-python/cryptography[${PYTHON_USEDEP}]
-		>=dev-python/ecdsa-0.16.0[${PYTHON_USEDEP}]
+		dev-python/ecdsa[${PYTHON_USEDEP}]
 		dev-python/intelhex[${PYTHON_USEDEP}]
 		dev-python/pyserial[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
@@ -33,21 +33,14 @@ BDEPEND="
 		dev-python/wheel[${PYTHON_USEDEP}]
 	')
 	test? ( $(python_gen_cond_dep '
-		dev-python/cffi[${PYTHON_USEDEP}]
-		dev-python/requests[${PYTHON_USEDEP}]
-		dev-python/flaky[${PYTHON_USEDEP}]
 		dev-python/pyelftools[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]
 	') )
 "
-
 distutils_enable_tests pytest
-
 EPYTEST_DESELECT=(
 	# need real hardware connected
 	test/test_esptool.py
-	test/test_espefuse.py
-	test/test_esptool_sdm.py
 	# need network
 	test/test_uf2_ids.py
 )
