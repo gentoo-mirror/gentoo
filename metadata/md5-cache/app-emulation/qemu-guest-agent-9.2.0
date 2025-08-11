@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.13[ensurepip(-),ncurses,readline] dev-lang/python:3.12[ensurepip(-),ncurses,readline] dev-lang/python:3.11[ensurepip(-),ncurses,readline] ) dev-lang/perl app-alternatives/ninja virtual/pkgconfig virtual/pkgconfig
+BDEPEND=|| ( dev-lang/python:3.13[ensurepip(-),ncurses,readline] dev-lang/python:3.12[ensurepip(-),ncurses,readline] dev-lang/python:3.11[ensurepip(-),ncurses,readline] ) || ( ( dev-lang/python:3.13[ensurepip(-),ncurses,readline] dev-python/distlib[python_targets_python3_13(-)] ) ( dev-lang/python:3.12[ensurepip(-),ncurses,readline] dev-python/distlib[python_targets_python3_12(-)] ) ( dev-lang/python:3.11[ensurepip(-),ncurses,readline] dev-python/distlib[python_targets_python3_11(-)] ) ) dev-lang/perl app-alternatives/ninja virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=configure install postinst postrm setup test
 DEPEND=dev-libs/glib
 DESCRIPTION=QEMU Guest Agent (qemu-ga) for use when running inside a VM
@@ -11,4 +11,4 @@ RDEPEND=dev-libs/glib
 SLOT=0
 SRC_URI=http://wiki.qemu.org/download/qemu-9.2.0.tar.xz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	systemd	a964c0cbe818b5729da1dbfcee5be861	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	udev	f3d9a4376ebd22131726a68e1a0a058f
-_md5_=eca8783a7c28f3a03e428acccefb7474
+_md5_=744de67d4f2626b487de83fac6836e35

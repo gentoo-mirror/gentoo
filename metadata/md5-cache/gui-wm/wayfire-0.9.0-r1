@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/WayfireWM/wayfire
 INHERIT=dot-a meson toolchain-funcs
 IUSE=X +dbus +gles3 openmp test
-KEYWORDS=~amd64 ~arm64 ~riscv
+KEYWORDS=amd64 arm64 ~riscv
 LICENSE=MIT
 RDEPEND=dev-cpp/nlohmann_json dev-libs/glib:2 dev-libs/libevdev dev-libs/libinput:= dev-libs/wayland >=dev-libs/wayland-protocols-1.12 gui-libs/wf-config:0/0.9 gui-libs/wlroots:0/17[drm(+),libinput(+),x11-backend,X?] media-libs/glm media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libpng:= x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman dbus? ( sys-apps/dbus ) X? ( x11-libs/libxcb:= ) x11-misc/xkeyboard-config
 RESTRICT=!test? ( test )
 SLOT=0/0.9
 SRC_URI=https://github.com/WayfireWM/wayfire/releases/download/v0.9.0/wayfire-0.9.0.tar.xz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8a006695bc0db22490452dd06914dda5	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=f8c815d58f90cc17df682327b12a8145
+_md5_=70e1a7c8b6df33ded6d2fa567a674d38
