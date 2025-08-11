@@ -4,7 +4,7 @@ DEPEND=dev-libs/gmp:= chez? ( dev-scheme/chez:=[threads] ) racket? ( dev-scheme/
 DESCRIPTION=Purely functional programming language with first class types
 EAPI=8
 HOMEPAGE=https://idris-lang.org/
-INHERIT=check-reqs toolchain-funcs
+INHERIT=check-reqs dot-a toolchain-funcs
 IUSE=+chez doc minimal racket test-full
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( chez racket )
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/idris-lang/Idris2/archive/v0.7.0.tar.gz -> idris2-0.7.0.tar.gz
-_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
-_md5_=7c5c494567639d41c03197fb414c5809
+_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a
+_md5_=2639f4b63d80795bd72cd0c6fb26da5f
