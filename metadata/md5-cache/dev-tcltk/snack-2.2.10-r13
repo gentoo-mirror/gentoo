@@ -3,8 +3,8 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-lang/tcl:0= dev-lang/tk:0= alsa? ( media-libs/alsa-lib ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) vorbis? ( media-libs/libvorbis )
 DESCRIPTION=The Snack Sound Toolkit (Tcl)
 EAPI=8
-HOMEPAGE=http://www.speech.kth.se/snack/
-INHERIT=distutils-r1 flag-o-matic toolchain-funcs virtualx
+HOMEPAGE=https://www.speech.kth.se/snack/
+INHERIT=dot-a distutils-r1 flag-o-matic toolchain-funcs virtualx
 IUSE=alsa examples python vorbis python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 test
 KEYWORDS=amd64 ~arm64 ~hppa ppc sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
@@ -12,6 +12,6 @@ RDEPEND=dev-lang/tcl:0= dev-lang/tk:0= alsa? ( media-libs/alsa-lib ) python? ( p
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
-SRC_URI=http://www.speech.kth.se/snack/dist/snack2.2.10.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	37143302bc375f4878f7b5f7497da8cc	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=7ce830e17aa36fdf79610eecbcf5a483
+SRC_URI=https://www.speech.kth.se/snack/dist/snack2.2.10.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	37143302bc375f4878f7b5f7497da8cc	virtualx	9741d451eb64ea8bb9faee90d68a9b68
+_md5_=4cbbf07f6c385e7067e161081bf47574

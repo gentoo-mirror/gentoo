@@ -4,7 +4,7 @@ DEPEND=app-arch/lz4:= sys-apps/util-linux sys-libs/zlib:= X? ( x11-libs/libX11 )
 DESCRIPTION=A programming language based on R6RS
 EAPI=8
 HOMEPAGE=https://cisco.github.io/ChezScheme/ https://github.com/cisco/ChezScheme/
-INHERIT=edo toolchain-funcs
+INHERIT=dot-a edo toolchain-funcs
 IUSE=X +ncurses +threads
 KEYWORDS=amd64 ~arm ~x86
 LICENSE=Apache-2.0 MIT
@@ -12,5 +12,5 @@ RDEPEND=app-arch/lz4:= sys-apps/util-linux sys-libs/zlib:= X? ( x11-libs/libX11 
 RESTRICT=test
 SLOT=0/10.2.0
 SRC_URI=https://github.com/cisco/ChezScheme/releases/download/v10.2.0/csv10.2.0.tar.gz -> chez-10.2.0.tar.gz
-_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
-_md5_=17e593f29703afc8084f9555096e1196
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a	edo	a5e294016aa84979fcb2459749eb80b2
+_md5_=3b438cf8cb5d528b3f672ac2ba57b0e3
