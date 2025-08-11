@@ -1,0 +1,16 @@
+BDEPEND=>=dev-perl/PadWalker-1.980.0 >=dev-perl/Term-ReadLine-Gnu-1.200.0 test? ( >=dev-perl/File-HomeDir-1.0.0 >=dev-perl/Test-CheckDeps-0.10.0 >=dev-perl/Test-Class-0.420.0 >=dev-perl/Test-Deep-0.112.0 >=dev-perl/Test-Requires-0.70.0 >=dev-perl/PadWalker-1.920.0 >=dev-perl/Term-ReadLine-Perl-1.30.300 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DESCRIPTION=Client side code for perl debugger
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Debug-Client
+INHERIT=perl-module
+IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=dev-perl/PadWalker-1.980.0 >=dev-perl/Term-ReadLine-Gnu-1.200.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/S/SZ/SZABGAB/Debug-Client-0.33.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	perl-module	41920449ca174fe9b9b303dfcbdb37a3
+_md5_=15a477ab78f4673b4bd085b976d994cc
