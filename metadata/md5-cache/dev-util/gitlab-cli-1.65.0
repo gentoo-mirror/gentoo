@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=the official gitlab command line interface
+EAPI=8
+HOMEPAGE=https://gitlab.com/gitlab-org/cli
+INHERIT=go-module
+KEYWORDS=~amd64
+LICENSE=MIT
+RESTRICT=test
+SLOT=0
+SRC_URI=https://gitlab.com/gitlab-org/cli/-/archive/v1.65.0/gitlab-cli-v1.65.0.tar.bz2 -> gitlab-cli-1.65.0.tar.bz2 https://dev.gentoo.org/~williamh/dist/gitlab-cli-1.65.0-deps.tar.xz https://dev.gentoo.org/~williamh/dist/gitlab-cli-1.65.0-man.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	d96f2a2fd6d8fbad6d94516bf238f885
+_md5_=a56f8d0cbe939ab92e41b65c523e12dd
