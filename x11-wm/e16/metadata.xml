@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <!-- maintainer-needed -->
+  <maintainer type="person">
+    <email>ceamac@gentoo.org</email>
+    <name>Viorel Munteanu</name>
+  </maintainer>
   <use>
     <flag name="debug">Build libtrip debugging library</flag>
     <flag name="dialogs">Enable support for configuration dialogs</flag>
+    <flag name="editline">Use <pkg>dev-libs/editline</pkg> for line editing</flag>
     <flag name="libhack">Build libhack window mode helper library</flag>
     <flag name="modules">Enable support for loadable modules</flag>
     <flag name="no-container">Do not use container window (experimental)</flag>
