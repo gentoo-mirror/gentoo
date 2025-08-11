@@ -1,0 +1,12 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=prepare
+DESCRIPTION=An IP address formatting tool
+EAPI=8
+HOMEPAGE=https://github.com/tlby/netmask
+INHERIT=autotools
+KEYWORDS=~amd64
+LICENSE=GPL-2
+SLOT=0
+SRC_URI=https://github.com/tlby/netmask/archive/v2.5.0.tar.gz -> netmask-2.5.0.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
+_md5_=d620050746bcf663a584022c18f222aa
