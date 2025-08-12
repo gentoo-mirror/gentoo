@@ -5,7 +5,7 @@ EAPI=8
 
 LLVM_COMPAT=( {15..20} )
 LLVM_OPTIONAL=1
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake edo flag-o-matic go-env llvm-r2 multiprocessing
 inherit python-any-r1 readme.gentoo-r1 xdg
 
@@ -103,6 +103,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-16.0.0-musl-no-execinfo.patch
 	"${FILESDIR}"/${PN}-12.0.0-musl-no-malloc-trim.patch
+	"${FILESDIR}"/${P}-qt692.patch
 )
 
 # written in Go, use PREBUILT rather than FLAGS_IGNORED given the
