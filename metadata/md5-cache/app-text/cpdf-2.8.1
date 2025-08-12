@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install
+DEPEND=>=dev-lang/ocaml-4:=[ocamlopt] ~dev-ml/camlpdf-2.8.1:= >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DESCRIPTION=A command line tool for manipulating PDF files
+EAPI=8
+HOMEPAGE=https://community.coherentpdf.com/ https://github.com/johnwhitington/cpdf-source/
+INHERIT=findlib
+IUSE=doc +ocamlopt
+KEYWORDS=~amd64
+LICENSE=AGPL-3 ISC
+RDEPEND=>=dev-lang/ocaml-4:=[ocamlopt] ~dev-ml/camlpdf-2.8.1:= dev-lang/ocaml:=[ocamlopt?]
+SLOT=0
+SRC_URI=https://github.com/johnwhitington/cpdf-source/archive/v2.8.1.tar.gz -> cpdf-2.8.1.tar.gz
+_eclasses_=findlib	49d5365fca4dea46f13825b9d763c89e
+_md5_=7c9f91761cc767656b4b4d583c13fb1e
