@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} pypy3 pypy3_11 )
+PYTHON_COMPAT=( python3_{10..14} pypy3 pypy3_11 )
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
 
@@ -20,7 +20,6 @@ RDEPEND="
 	app-emulation/winetricks[gui?]
 	$(python_gen_cond_dep '
 		dev-python/pillow[${PYTHON_USEDEP}]
-		dev-python/setuptools[${PYTHON_USEDEP}]
 		>=dev-python/vdf-3.4_p20240630[${PYTHON_USEDEP}]
 	')
 	gui? ( gnome-extra/zenity )"
