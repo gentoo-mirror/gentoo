@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen[dot] ) app-alternatives/ninja >=dev-build/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=media-libs/freetype:2 sys-libs/zlib assimp? ( media-libs/assimp:= ) bullet? ( sci-physics/bullet:= ) cg? ( media-gfx/nvidia-cg-toolkit ) dotscene? ( dev-libs/pugixml ) freeimage? ( media-libs/freeimage ) gl3plus? ( virtual/opengl ) glslang? ( dev-util/glslang:= ) gles2? ( virtual/opengl ) opengl? ( virtual/opengl ) qt6? ( dev-qt/qtbase:6[gui] ) sdl? ( media-libs/libsdl2 ) tools? ( dev-libs/pugixml ) vulkan? ( media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) !wayland? ( x11-libs/libX11 x11-libs/libXaw x11-libs/libXt gl3plus? ( x11-libs/libXrandr ) gles2? ( x11-libs/libXrandr ) opengl? ( x11-libs/libXrandr ) ) test? ( dev-cpp/gtest ) vulkan? ( dev-util/vulkan-headers )
+DESCRIPTION=Object-oriented Graphics Rendering Engine
+EAPI=8
+HOMEPAGE=https://www.ogre3d.org/
+INHERIT=cmake flag-o-matic virtualx
+IUSE=assimp bullet cg doc +dotscene egl-only freeimage +gl3plus gles2 glslang opengl qt6 samples test tiny tools sdl vulkan wayland test
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=MIT public-domain
+RDEPEND=media-libs/freetype:2 sys-libs/zlib assimp? ( media-libs/assimp:= ) bullet? ( sci-physics/bullet:= ) cg? ( media-gfx/nvidia-cg-toolkit ) dotscene? ( dev-libs/pugixml ) freeimage? ( media-libs/freeimage ) gl3plus? ( virtual/opengl ) glslang? ( dev-util/glslang:= ) gles2? ( virtual/opengl ) opengl? ( virtual/opengl ) qt6? ( dev-qt/qtbase:6[gui] ) sdl? ( media-libs/libsdl2 ) tools? ( dev-libs/pugixml ) vulkan? ( media-libs/vulkan-loader ) wayland? ( dev-libs/wayland ) !wayland? ( x11-libs/libX11 x11-libs/libXaw x11-libs/libXt gl3plus? ( x11-libs/libXrandr ) gles2? ( x11-libs/libXrandr ) opengl? ( x11-libs/libXrandr ) )
+REQUIRED_USE=|| ( gl3plus gles2 opengl tiny vulkan ) egl-only? ( || ( gl3plus gles2 opengl ) ) test? ( samples ) vulkan? ( glslang ) wayland? ( egl-only )
+RESTRICT=!test? ( test ) vulkan? ( test ) wayland? ( test ) !test? ( test )
+SLOT=0/14.4
+SRC_URI=https://github.com/OGRECave/ogre/archive/refs/tags/v14.4.0.tar.gz -> ogre-14.4.0.tar.gz https://github.com/ocornut/imgui/archive/v1.91.9b.tar.gz -> imgui-1.91.9b.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	virtualx	9741d451eb64ea8bb9faee90d68a9b68
+_md5_=055bf58074ee3d6104189dc5cdbedcfd
