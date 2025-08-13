@@ -4,7 +4,7 @@
 EAPI=8
 
 MY_PN="GPXSee"
-PLOCALES="ca cs da de en eo es fi fr hu it ko nb pl pt_BR ru sv tr uk zh_CN"
+PLOCALES="ca cs da de en eo es fi fr hu it ko lv nb pl pt_BR ru sv tr uk zh_CN"
 inherit plocale qmake-utils xdg optfeature
 
 DESCRIPTION="Viewer and analyzer that supports gpx, tcx, kml, fit, igc and nmea files"
