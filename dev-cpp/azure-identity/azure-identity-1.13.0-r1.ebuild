@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake
 
-COMMIT="de3cc64a55b2a67d672b7ca899a8675182d1c989"
+COMMIT="6aea93d0410f5bc3e3a58a8d492a3063cac3aced"
 MY_P="azure-sdk-for-cpp-${COMMIT}"
 DESCRIPTION="Azure SDK for C++"
 HOMEPAGE="https://azure.github.io/azure-sdk-for-cpp/"
@@ -29,6 +29,10 @@ BDEPEND="
 	virtual/pkgconfig
 	doc? ( app-text/doxygen )
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-imds-double-slash.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
