@@ -109,7 +109,7 @@ CRATES="
 	lazy_static@1.5.0
 	lexis@0.2.3
 	lexopt@0.3.1
-	libc@0.2.174
+	libc@0.2.175
 	libcgroups@0.5.4
 	libcontainer@0.5.4
 	libloading@0.8.8
@@ -158,7 +158,7 @@ CRATES="
 	prctl@1.0.0
 	proc-macro-error-attr2@2.0.0
 	proc-macro-error2@2.0.1
-	proc-macro2@1.0.95
+	proc-macro2@1.0.96
 	procfs-core@0.17.0
 	procfs@0.17.0
 	protobuf-codegen@3.2.0
@@ -184,7 +184,7 @@ CRATES="
 	rustc-demangle@0.1.26
 	rustix@0.38.44
 	rustix@1.0.8
-	rustversion@1.0.21
+	rustversion@1.0.22
 	ryu@1.0.20
 	safe-path@0.1.0
 	scroll@0.12.0
