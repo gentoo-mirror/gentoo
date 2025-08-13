@@ -1,0 +1,16 @@
+BDEPEND=test? ( || ( www-client/firefox www-client/firefox-bin ) ) || ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=app-arch/bzip2:= app-arch/xz-utils:= app-arch/zstd:= sys-libs/zlib:=
+DESCRIPTION=CLI tool that manages the browser/driver infrastructure required by Selenium
+EAPI=8
+HOMEPAGE=https://www.selenium.dev/ https://github.com/SeleniumHQ/selenium/
+INHERIT=cargo
+IUSE=telemetry test debug
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0 Apache-2.0 BSD CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016 ZLIB BZIP2
+RDEPEND=app-arch/bzip2:= app-arch/xz-utils:= app-arch/zstd:= sys-libs/zlib:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/SeleniumHQ/selenium/archive/selenium-4.35.0.tar.gz -> selenium-selenium-4.35.0.gh.tar.gz https://github.com/gentoo-crate-dist/selenium/releases/download/selenium-4.35.0/selenium-4.35.0-crates.tar.xz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	2c958ff95a0fd21c1cb19e961cb2946d	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a
+_md5_=9d2909f3bd41177e9cc036db6c82d403
