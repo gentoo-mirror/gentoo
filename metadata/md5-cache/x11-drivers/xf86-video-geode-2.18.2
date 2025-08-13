@@ -1,0 +1,15 @@
+BDEPEND=>=app-portage/elt-patches-20250306 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare unpack
+DEPEND=ztv? ( sys-kernel/linux-headers ) x11-base/xorg-proto >=x11-base/xorg-server-1.20[xorg] >=x11-libs/libpciaccess-0.14
+DESCRIPTION=AMD Geode GX and LX graphics driver
+EAPI=8
+HOMEPAGE=https://www.x.org/wiki/ https://gitlab.freedesktop.org/xorg/driver/xf86-video-geode
+INHERIT=xorg-3
+IUSE=ztv
+KEYWORDS=~x86
+LICENSE=MIT
+RDEPEND=x11-base/xorg-server:= >=x11-base/xorg-server-1.20[xorg] >=x11-libs/libpciaccess-0.14
+SLOT=0
+SRC_URI=https://www.x.org/releases/individual/driver/xf86-video-geode-2.18.2.tar.xz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	multilib	b2a329026f2e404e9e371097dda47f96	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	xorg-3	94f60a83e0ddddb4b1d3a3882fae4ec3
+_md5_=a38a5eda1baf9d255094611cbbf24aef
