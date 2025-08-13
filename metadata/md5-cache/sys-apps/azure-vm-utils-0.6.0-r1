@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/Azure/azure-vm-utils
 INHERIT=cmake udev
 IUSE=dracut test
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 arm64
 LICENSE=MIT
 RDEPEND=dev-libs/json-c:= dracut? ( sys-kernel/dracut )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Azure/azure-vm-utils/archive/refs/tags/v0.6.0/azure-vm-utils-0.6.0.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	udev	f3d9a4376ebd22131726a68e1a0a058f
-_md5_=91b2580bfa1670cc31587825f0c42e5a
+_md5_=c30770b31b7b0c2efdb22c7df9a3e801
