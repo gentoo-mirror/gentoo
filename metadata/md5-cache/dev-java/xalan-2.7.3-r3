@@ -1,6 +1,6 @@
 BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-xalan-j ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile install preinst prepare setup test unpack
-DEPEND=!x86? ( dev-java/javacup:0 ) dev-java/bcel:0 ~dev-java/xalan-serializer-2.7.3:0 dev-java/xerces:2 >=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=!x86? ( dev-java/javacup:0 ) dev-java/bcel:0 ~dev-java/xalan-serializer-2.7.3:0 dev-java/xerces:2 <virtual/jdk-26:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=Transforming XML documents into HTML, text, or other XML document types
 EAPI=8
 HOMEPAGE=https://xalan.apache.org/
@@ -12,4 +12,4 @@ RDEPEND=!x86? ( dev-java/javacup:0 ) dev-java/bcel:0 ~dev-java/xalan-serializer-
 SLOT=0
 SRC_URI=mirror://apache/xalan/xalan-j/source/xalan-j_2_7_3-src.tar.gz verify-sig? ( https://downloads.apache.org/xalan/xalan-j/source/xalan-j_2_7_3-src.tar.gz.asc ) x86? ( https://www2.cs.tum.edu/projects/cup/releases/java-cup-bin-11b-20160615.tar.gz )
 _eclasses_=java-utils-2	e2cdf66cd9c826ccda532772976d342d	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
-_md5_=e1533d2fd416b8787a71f8fc84aa86e0
+_md5_=04ffefa88cc515f2e9fad0d96c7205f5

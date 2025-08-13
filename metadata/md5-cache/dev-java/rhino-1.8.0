@@ -1,14 +1,15 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-11 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DEPEND=>=virtual/jdk-11 test? ( dev-java/junit:4 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:5 )
 DESCRIPTION=Rhino JavaScript runtime jar, excludes XML, tools, and ScriptEngine wrapper
 EAPI=8
 HOMEPAGE=https://github.com/mozilla/rhino
-INHERIT=java-pkg-2 java-pkg-simple
-IUSE=doc source
+INHERIT=java-pkg-2 java-pkg-simple junit5
+IUSE=doc source test
 KEYWORDS=amd64 arm64 ppc64
 LICENSE=MPL-1.1 GPL-2
 RDEPEND=>=virtual/jre-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/mozilla/rhino/archive/Rhino1_8_0_Release.tar.gz -> rhino-1.8.0.tar.gz
-_eclasses_=java-utils-2	e2cdf66cd9c826ccda532772976d342d	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e
-_md5_=345bcc098f0cf8bb98b465e724cd2cad
+_eclasses_=java-utils-2	e2cdf66cd9c826ccda532772976d342d	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e	junit5	84fcaea874f0356694c679a7b2bdeee2
+_md5_=b1cf3fa57e6d5747d5e9f0c2cd52f412
