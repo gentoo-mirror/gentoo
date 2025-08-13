@@ -1,0 +1,17 @@
+BDEPEND=native-extensions? ( || ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* ) dev-util/maturin[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) test? ( dev-python/pytz[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) test? ( >=dev-python/pytest-7.4.4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?]
+DEFINED_PHASES=compile configure install postinst prepare setup test unpack
+DEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+DESCRIPTION=An easily customizable SQL parser and transpiler
+EAPI=8
+HOMEPAGE=https://sqlglot.com/ https://github.com/tobymao/sqlglot/ https://pypi.org/project/sqlglot/
+INHERIT=cargo distutils-r1 pypi optfeature
+IUSE=+native-extensions test debug python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 debug
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=MIT native-extensions? ( Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT Unicode-DFS-2016 )
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/s/sqlglot/sqlglot-27.7.0.tar.gz native-extensions? ( https://github.com/gentoo-crate-dist/sqlglot/releases/download/v26.33.0/sqlglot-26.33.0-crates.tar.xz )
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	2c958ff95a0fd21c1cb19e961cb2946d	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	37143302bc375f4878f7b5f7497da8cc	pypi	ad1b21f87d117ae9bb089bdb65b8f013	optfeature	538bce96e5589935b57e178e8635f301
+_md5_=dcea658f617503a283ba1a1a5b7086e1
