@@ -1,6 +1,6 @@
 BDEPEND=>=dev-util/intltool-0.40 virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 app-arch/xz-utils
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
-DEPEND=>=app-text/enchant-2.2.0:2 app-text/iso-codes >=dev-cpp/cairomm-1.12:0 >=dev-cpp/glibmm-2.46:2 >=dev-cpp/gtkmm-3.18:3.0 >=dev-cpp/gstreamermm-1.0:1.0= >=dev-cpp/libxmlpp-2.40:2.6 dev-libs/glib:2 >=dev-libs/libsigc++-2.6:2 media-libs/gst-plugins-base:1.0[X,pango] media-libs/gst-plugins-good:1.0 media-libs/gstreamer:1.0 media-plugins/gst-plugins-meta:1.0 x11-libs/gtk+:3 nls? ( virtual/libintl ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+DEPEND=>=app-text/enchant-2.2.0:2 app-text/iso-codes >=dev-cpp/cairomm-1.12:0 >=dev-cpp/glibmm-2.46:2 >=dev-cpp/gtkmm-3.18:3.0 >=dev-cpp/gstreamermm-1.0:1.0= >=dev-cpp/libxmlpp-2.40:2.6 dev-libs/glib:2 >=dev-libs/libsigc++-2.6:2 media-libs/gst-plugins-base:1.0[X,pango] media-libs/gst-plugins-good:1.0 media-libs/gstreamer:1.0 media-plugins/gst-plugins-meta:1.0 x11-libs/gtk+:3[X] nls? ( virtual/libintl ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 DESCRIPTION=GTK+3 subtitle editing tool
 EAPI=7
 HOMEPAGE=https://kitone.github.io/subtitleeditor
@@ -8,8 +8,8 @@ INHERIT=flag-o-matic gnome2
 IUSE=debug nls
 KEYWORDS=amd64 x86
 LICENSE=GPL-3+
-RDEPEND=>=app-text/enchant-2.2.0:2 app-text/iso-codes >=dev-cpp/cairomm-1.12:0 >=dev-cpp/glibmm-2.46:2 >=dev-cpp/gtkmm-3.18:3.0 >=dev-cpp/gstreamermm-1.0:1.0= >=dev-cpp/libxmlpp-2.40:2.6 dev-libs/glib:2 >=dev-libs/libsigc++-2.6:2 media-libs/gst-plugins-base:1.0[X,pango] media-libs/gst-plugins-good:1.0 media-libs/gstreamer:1.0 media-plugins/gst-plugins-meta:1.0 x11-libs/gtk+:3 nls? ( virtual/libintl )
+RDEPEND=>=app-text/enchant-2.2.0:2 app-text/iso-codes >=dev-cpp/cairomm-1.12:0 >=dev-cpp/glibmm-2.46:2 >=dev-cpp/gtkmm-3.18:3.0 >=dev-cpp/gstreamermm-1.0:1.0= >=dev-cpp/libxmlpp-2.40:2.6 dev-libs/glib:2 >=dev-libs/libsigc++-2.6:2 media-libs/gst-plugins-base:1.0[X,pango] media-libs/gst-plugins-good:1.0 media-libs/gstreamer:1.0 media-plugins/gst-plugins-meta:1.0 x11-libs/gtk+:3[X] nls? ( virtual/libintl )
 SLOT=0
 SRC_URI=https://github.com/kitone/subtitleeditor/releases/download/0.54.0_p5/subtitleeditor-0.54.0.tar.gz mirror://debian/pool/main/s/subtitleeditor/subtitleeditor_0.54.0-5.debian.tar.xz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	gnome.org	e1b4f392dbfedfb8974b71b017937f08	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	xdg	3ef49a87c52c8b77c476351195dfe575	gnome2	26fd01914b36038dc8e964ff4bd03a95
-_md5_=61a79aed788b9d7996866f90e524fe47
+_md5_=c1a6f32459dffb8750161ccdcbed6c9b
