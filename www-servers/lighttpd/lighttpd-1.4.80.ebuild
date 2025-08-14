@@ -17,7 +17,7 @@ else
 		https://download.lighttpd.net/lighttpd/releases-1.4.x/${P}.tar.xz
 		verify-sig? ( https://download.lighttpd.net/lighttpd/releases-$(ver_cut 1-2).x/${P}.tar.xz.asc )
 	"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 LICENSE="BSD GPL-2"
@@ -151,6 +151,7 @@ src_configure() {
 		$(meson_feature webdav with_webdav_props)
 
 		# Unpackaged in Gentoo
+		-Dwith_boringssl=false
 		-Dwith_wolfssl=false
 
 		$(meson_use xattr with_xattr)
@@ -196,7 +197,7 @@ src_install() {
 	fowners lighttpd:lighttpd /var/l{ib,og}/lighttpd
 	fperms 0750 /var/l{ib,og}/lighttpd
 
-	systemd_newunit "${FILESDIR}"/${PN}.service-r2 ${PN}.service
+	systemd_newunit "${FILESDIR}"/${PN}.service-r3 ${PN}.service
 	newtmpfiles "${FILESDIR}"/${PN}.tmpfiles.conf ${PN}.conf
 }
 
