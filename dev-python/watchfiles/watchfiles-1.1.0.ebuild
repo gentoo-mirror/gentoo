@@ -7,6 +7,7 @@ DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
 PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
+RUST_MIN_VER="1.77.0"
 CRATES="
 	autocfg@1.3.0
 	bitflags@1.3.2
@@ -90,8 +91,6 @@ BDEPEND="
 	dev-python/setuptools-rust[${PYTHON_USEDEP}]
 	test? (
 		dev-python/dirty-equals[${PYTHON_USEDEP}]
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
-		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 	)
 "
 
@@ -100,6 +99,7 @@ QA_FLAGS_IGNORED=".*/_rust_notify.*"
 
 export PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
 
+EPYTEST_PLUGINS=( anyio pytest-{mock,timeout} )
 distutils_enable_tests pytest
 
 python_test() {
