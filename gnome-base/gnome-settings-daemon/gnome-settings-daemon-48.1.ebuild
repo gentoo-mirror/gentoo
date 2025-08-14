@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-settings-daemon"
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
 
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 
 IUSE="+colord +cups debug elogind input_devices_wacom modemmanager networkmanager smartcard systemd test wayland"
 RESTRICT="!test? ( test )"
@@ -28,7 +28,7 @@ COMMON_DEPEND="
 	colord? ( >=x11-misc/colord-1.4.5:= )
 	|| (
 		media-libs/libcanberra-gtk3
-		media-libs/libcanberra[gtk3(-)]
+		>=media-libs/libcanberra-0.25[gtk3(-)]
 	)
 	>=app-misc/geoclue-2.3.1:2.0
 	>=x11-libs/libnotify-0.7.3
@@ -48,7 +48,7 @@ COMMON_DEPEND="
 	cups? ( >=net-print/cups-1.4[dbus] )
 	modemmanager? (
 		>=app-crypt/gcr-3.90.0:4=
-		>=net-misc/modemmanager-1.0:=
+		>=net-misc/modemmanager-1.18:=
 	)
 	networkmanager? ( >=net-misc/networkmanager-1.0 )
 	media-libs/alsa-lib
@@ -87,8 +87,6 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/42.1-build-Make-wacom-optional-and-controllable-via-meson.patch
 	"${FILESDIR}"/${PN}-3.38.1-build-Allow-NM-optional-on-Linux.patch
-	# https://bugs.gentoo.org/937244 , is merged so it should not be needed since 46.1
-	"${FILESDIR}"/${P}-add-elogind-support.patch
 )
 
 python_check_deps() {
