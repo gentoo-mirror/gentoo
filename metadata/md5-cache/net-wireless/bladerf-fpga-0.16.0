@@ -1,0 +1,11 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=bladeRF FPGA bitstreams
+EAPI=8
+HOMEPAGE=https://nuand.com/fpga.php
+IUSE=wlanxA9 +xA4 xA5 +xA9 +x40 +x115
+KEYWORDS=amd64 ~arm ~riscv x86
+LICENSE=MIT
+REQUIRED_USE=|| ( wlanxA9 xA4 xA5 xA9 x40 x115 )
+SLOT=0
+SRC_URI=wlanxA9? ( https://www.nuand.com/fpga/v0.15.3/wlanxA9.rbf -> wlanxA9-0.15.3.rbf ) xA4? ( https://nuand.com/fpga/v0.16.0/hostedxA4.rbf -> hostedxA4-0.16.0.rbf ) xA5? ( https://nuand.com/fpga/v0.16.0/hostedxA5.rbf -> hostedxA5-0.16.0.rbf ) xA9? ( https://nuand.com/fpga/v0.16.0/hostedxA9.rbf -> hostedxA9-0.16.0.rbf ) x40? ( https://nuand.com/fpga/v0.16.0/hostedx40.rbf -> hostedx40-0.16.0.rbf ) x115? ( https://nuand.com/fpga/v0.16.0/hostedx115.rbf -> hostedx115-0.16.0.rbf )
+_md5_=ee2450d0045331da7bfbd4edcc61d9e1
