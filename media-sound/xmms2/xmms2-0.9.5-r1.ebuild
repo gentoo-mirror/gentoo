@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="threads(+)"
 inherit flag-o-matic optfeature perl-functions python-single-r1 waf-utils
 
@@ -72,7 +72,7 @@ COMMON_DEPEND="
 			media-libs/libvorbis
 		)
 		jack? ( virtual/jack )
-		mac? ( <=media-sound/mac-4.12 )
+		mac? ( <media-sound/mac-4.12 )
 		mad? ( media-libs/libmad )
 		modplug? ( media-libs/libmodplug )
 		mp3? ( media-sound/mpg123-base )
