@@ -3,11 +3,11 @@
 
 EAPI=8
 
-inherit findlib
+inherit dot-a findlib
 
 DESCRIPTION="Ocaml bindings for Augeas"
-HOMEPAGE="http://augeas.net/"
-#SRC_URI="http://augeas.net/download/ocaml/${P}.tar.gz"
+HOMEPAGE="https://augeas.net/"
+#SRC_URI="https://augeas.net/download/ocaml/${P}.tar.gz"
 SRC_URI="https://people.redhat.com/~rjones/augeas/files/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
@@ -16,7 +16,6 @@ KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	app-admin/augeas
-	dev-libs/libxml2:=
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -30,10 +29,16 @@ PATCHES=(
 	"${FILESDIR}"/${P}-ocaml-4.09.patch
 )
 
+src_configure() {
+	lto-guarantee-fat
+	default
+}
+
 src_compile() {
 	emake -j1
 }
 
 src_install() {
 	findlib_src_install
+	strip-lto-bytecode
 }
