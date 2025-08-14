@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/gettext virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=sys-devel/gettext virtual/pkgconfig test? ( >=dev-cpp/gtest-1.15.0 ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=test? ( sci-libs/gdal[geos,jpeg,png,sqlite] ) net-misc/curl app-arch/zstd:= dev-libs/libxml2 dev-libs/openssl:= sci-libs/gdal:= >=sci-libs/libgeotiff-1.7.0:= sys-libs/zlib debug? ( sys-libs/libunwind:= ) postgres? ( dev-db/postgresql:*[xml] )
 DESCRIPTION=A C++ library for translating and manipulating point cloud data
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/19
 SRC_URI=https://github.com/PDAL/PDAL/releases/download/2.9.0/PDAL-2.9.0-src.tar.bz2
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
-_md5_=6ae75ce31aca24c9bc80cfc89161777f
+_md5_=d255bf0ecb1ca4d806cbf6d62239a568
