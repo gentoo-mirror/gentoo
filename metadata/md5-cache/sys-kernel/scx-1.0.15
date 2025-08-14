@@ -1,0 +1,16 @@
+BDEPEND=app-misc/jq dev-libs/protobuf[protoc(+)] >=dev-util/bpftool-7.5.0 llvm_slot_16? ( llvm-core/clang:16=[llvm_targets_BPF(-)] ) llvm_slot_17? ( llvm-core/clang:17=[llvm_targets_BPF(-)] ) llvm_slot_18? ( llvm-core/clang:18=[llvm_targets_BPF(-)] ) llvm_slot_19? ( llvm-core/clang:19=[llvm_targets_BPF(-)] ) llvm_slot_20? ( llvm-core/clang:20=[llvm_targets_BPF(-)] ) || ( >=dev-lang/rust-bin-1.82.0:* >=dev-lang/rust-1.82.0:* ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=virtual/libelf:= sys-libs/libseccomp sys-libs/zlib:= >=dev-libs/libbpf-1.6:=
+DESCRIPTION=sched_ext schedulers and tools
+EAPI=8
+HOMEPAGE=https://github.com/sched-ext/scx
+INHERIT=llvm-r2 linux-info cargo rust-toolchain toolchain-funcs meson
+IUSE=systemd +llvm_slot_20 llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 debug
+KEYWORDS=~amd64
+LICENSE=GPL-2 Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0 ZLIB
+RDEPEND=virtual/libelf:= sys-libs/libseccomp sys-libs/zlib:= >=dev-libs/libbpf-1.6:=
+REQUIRED_USE=^^ ( llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 )
+SLOT=0
+SRC_URI=https://github.com/sched-ext/scx/archive/refs/tags/v1.0.15.tar.gz -> scx-1.0.15.tar.gz https://github.com/gentoo-crate-dist/scx/releases/download/v1.0.15/scx-1.0.15-crates.tar.xz
+_eclasses_=llvm-utils	64536677f4b4365e25e9b739163bed58	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	multilib	b2a329026f2e404e9e371097dda47f96	llvm-r2	452c1a70845763809d225a317d8a6c05	linux-info	efd923656513c879204fec6638eadee5	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	2c958ff95a0fd21c1cb19e961cb2946d	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8a006695bc0db22490452dd06914dda5	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=68d83da83c1103b1624f427b68dce0c0
