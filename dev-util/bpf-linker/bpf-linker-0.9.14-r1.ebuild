@@ -12,14 +12,14 @@ CRATES="
 
 # Implied by crates above.
 RUST_MIN_VER=1.86.0
-RUST_MAX_VER=1.87.0
+RUST_MAX_VER=1.88.0
 
 declare -A GIT_CRATES=(
 	[compiletest_rs]='https://github.com/Manishearth/compiletest-rs;cb121796a041255ae0afcd9c2766bee4ebfd54f0;compiletest-rs-%commit%'
 )
 
-# this version of bpf-linker is incompatible with changes in LLVM 21
-LLVM_COMPAT=( 20 )
+# bpf-linker code specifically requires LLVM 21 right now
+LLVM_COMPAT=( 21 )
 RUST_REQ_USE="llvm_targets_BPF(+),rust-src"
 
 inherit cargo llvm-r2
@@ -40,7 +40,6 @@ LICENSE+="
 	|| ( Apache-2.0 Boost-1.0 )
 "
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -66,6 +65,11 @@ pkg_setup() {
 }
 
 src_prepare() {
+	local PATCHES=(
+		# https://github.com/aya-rs/bpf-linker/pull/289
+		"${FILESDIR}/${P}-llvm-21.patch"
+	)
+
 	default
 
 	# replace upstream crate substitution with our crate substitution, sigh
