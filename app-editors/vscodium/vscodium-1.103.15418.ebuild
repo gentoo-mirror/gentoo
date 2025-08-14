@@ -17,7 +17,6 @@ DESCRIPTION="A community-driven, freely-licensed binary distribution of Microsof
 HOMEPAGE="https://vscodium.com/"
 SRC_URI="
 	$(arch_src_uri amd64 x64)
-	$(arch_src_uri arm armhf)
 	$(arch_src_uri arm64 arm64)
 	$(arch_src_uri loong loong64)
 "
@@ -42,7 +41,7 @@ LICENSE="
 	W3C
 "
 SLOT="0"
-KEYWORDS="-* amd64 ~arm ~arm64 ~loong"
+KEYWORDS="-* amd64 ~arm64 ~loong"
 IUSE="egl kerberos wayland"
 RESTRICT="strip bindist"
 
