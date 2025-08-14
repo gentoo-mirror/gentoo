@@ -1,15 +1,15 @@
 BDEPEND=net-misc/ipcalc virtual/pkgconfig test? ( net-libs/gnutls[tools(+)] net-libs/socket_wrapper net-vpn/openconnect sys-libs/nss_wrapper sys-libs/uid_wrapper pam? ( sys-libs/pam_wrapper ) ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install prepare test unpack
+DEFINED_PHASES=configure install prepare setup test unpack
 DEPEND=dev-libs/libnl:3= dev-libs/libev:0= >=dev-libs/nettle-2.7:0= dev-libs/pcl:0= dev-libs/protobuf-c:0= >=net-libs/gnutls-3.3.0:0= sys-libs/readline:0= sys-libs/talloc:0= virtual/libcrypt:= geoip? ( dev-libs/geoip:0= ) kerberos? ( app-crypt/mit-krb5 ) lz4? ( app-arch/lz4:0= ) otp? ( sys-auth/oath-toolkit:0= ) pam? ( sys-libs/pam:0= ) radius? ( net-libs/radcli:0= ) seccomp? ( sys-libs/libseccomp:0= ) systemd? ( sys-apps/systemd:0= ) tcpd? ( sys-apps/tcp-wrappers:0= )
 DESCRIPTION=Openconnect SSL VPN server
 EAPI=8
 HOMEPAGE=https://ocserv.gitlab.io/www/index.html
-INHERIT=systemd autotools git-r3
+INHERIT=linux-info systemd autotools git-r3
 IUSE=geoip kerberos +lz4 otp pam radius +seccomp systemd tcpd test
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=dev-libs/libnl:3= dev-libs/libev:0= >=dev-libs/nettle-2.7:0= dev-libs/pcl:0= dev-libs/protobuf-c:0= >=net-libs/gnutls-3.3.0:0= sys-libs/readline:0= sys-libs/talloc:0= virtual/libcrypt:= geoip? ( dev-libs/geoip:0= ) kerberos? ( app-crypt/mit-krb5 ) lz4? ( app-arch/lz4:0= ) otp? ( sys-auth/oath-toolkit:0= ) pam? ( sys-libs/pam:0= ) radius? ( net-libs/radcli:0= ) seccomp? ( sys-libs/libseccomp:0= ) systemd? ( sys-apps/systemd:0= ) tcpd? ( sys-apps/tcp-wrappers:0= )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	systemd	a964c0cbe818b5729da1dbfcee5be861	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=bbeb9a14f42b3ad7afcd3a0e1b318d55
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	linux-info	efd923656513c879204fec6638eadee5	systemd	a964c0cbe818b5729da1dbfcee5be861	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=65ea78ddc6340dd9b09e442a19564e4c
