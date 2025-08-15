@@ -14,7 +14,7 @@ SRC_URI="
 
 LICENSE="BSD-2 CC-BY-ND-3.0 FTL MIT LGPL-2 openssl dropbox"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 IUSE="selinux X"
 
 RESTRICT="mirror strip"
@@ -28,11 +28,11 @@ BDEPEND="dev-util/patchelf"
 RDEPEND="
 	X? (
 		x11-themes/hicolor-icon-theme
+		dev-libs/libayatana-appindicator
 	)
 	selinux? ( sec-policy/selinux-dropbox )
 	app-arch/bzip2
 	dev-libs/glib:2
-	dev-libs/libayatana-appindicator
 	dev-libs/libffi-compat:7
 	media-libs/fontconfig
 	media-libs/freetype
@@ -86,11 +86,12 @@ src_install() {
 	doins -r *
 	fperms a+x "${targetdir}"/{dropbox,dropboxd}
 	dosym "${targetdir}/dropboxd" "/opt/bin/dropbox"
-	# symlinks for bug 955139
-	dosym ../../usr/$(get_libdir)/libayatana-appindicator3.so.1 ${targetdir}/libappindicator3.so.1
-	dosym libappindicator3.so.1 ${targetdir}/libappindicator3.so
 
 	if use X; then
+		# symlinks for bug 955139
+		dosym ../../usr/$(get_libdir)/libayatana-appindicator3.so.1 ${targetdir}/libappindicator3.so.1
+		dosym libappindicator3.so.1 ${targetdir}/libappindicator3.so
+
 		doicon -s 16 -c status "${T}"/status
 		newicon -s scalable "${DISTDIR}/dropbox-icon.svg" dropbox.svg
 	fi
@@ -105,6 +106,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
+
 	einfo "Warning: while running, dropbox may attempt to autoupdate itself in"
 	einfo " your user's home directory.  To prevent this, run the following as"
 	einfo " each user who will run dropbox:"
@@ -114,8 +117,8 @@ pkg_postinst() {
 	einfo "If you do allow dropbox to update/install to your user homedir, you"
 	einfo " will need to create some compat symlinks to keep the tray icon working:"
 	einfo ""
-	einfo "ln -sf /usr/$(get_libdir)/libayatana-appindicator3.so.1 ~/.dropbox-dist/libappindicator3.so.1"
-	einfo "ln -sf libappindicator3.so.1 ~/.dropbox-dist/libappindicator3.so"
+	einfo "ln -sf /usr/$(get_libdir)/libayatana-appindicator3.so.1 ~/.dropbox-dist/dropbox-lnx.*/libappindicator3.so.1"
+	einfo "ln -sf libappindicator3.so.1 ~/.dropbox-dist/dropbox-lnx.*/libappindicator3.so"
 
 	if has_version gnome-base/gnome-shell; then
 		if ! has_version gnome-extra/gnome-shell-extension-appindicator; then
