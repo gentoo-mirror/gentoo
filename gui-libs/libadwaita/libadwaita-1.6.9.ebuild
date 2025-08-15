@@ -17,11 +17,11 @@ IUSE="+introspection test +vala"
 REQUIRED_USE="vala? ( introspection )"
 
 RDEPEND="
-	>=dev-libs/glib-2.80.0:2
-	>=gui-libs/gtk-4.17.5:4[introspection?]
+	>=dev-libs/glib-2.76:2
+	>=gui-libs/gtk-4.15.2:4[introspection?]
 	dev-libs/appstream:=
 	dev-libs/fribidi
-	introspection? ( >=dev-libs/gobject-introspection-1.83.2:= )
+	introspection? ( >=dev-libs/gobject-introspection-1.54:= )
 "
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto"
@@ -48,7 +48,7 @@ src_configure() {
 		-Dprofiling=false
 		$(meson_feature introspection)
 		$(meson_use vala vapi)
-		-Ddocumentation=false # we ship pregenerated docs
+		-Dgtk_doc=false
 		$(meson_use test tests)
 		-Dexamples=false
 	)
@@ -62,6 +62,4 @@ src_test() {
 
 src_install() {
 	meson_src_install
-
-	insinto /usr/share/gtk-doc/html
 }
