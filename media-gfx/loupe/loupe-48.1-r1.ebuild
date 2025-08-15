@@ -302,8 +302,8 @@ DEPEND="
 "
 # meson.build file
 DEPEND+="
-	>=gui-libs/gtk-4.15.3:4[X?,wayland?]
-	>=gui-libs/libadwaita-1.6_alpha:1
+	>=gui-libs/gtk-4.16.0:4[X?,wayland?]
+	>=gui-libs/libadwaita-1.7_beta:1
 	>=dev-libs/libgweather-4.0.0:4=
 	>=media-libs/lcms-2.12.0:2[jpeg?,tiff?]
 	>=sys-libs/libseccomp-2.5.0
