@@ -7,11 +7,11 @@ HOMEPAGE=https://github.com/GSConnect/gnome-shell-extension-gsconnect
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome2-utils meson readme.gentoo-r1 virtualx xdg
 IUSE=nautilus test
-KEYWORDS=~amd64 ~ppc64 ~x86
+KEYWORDS=amd64 ~ppc64 x86
 LICENSE=GPL-2+
 RDEPEND=dev-libs/glib:2 app-eselect/eselect-gnome-shell-extensions >=dev-libs/gjs-1.68 >=gnome-base/gnome-shell-46 gnome-base/gvfs gnome-extra/evolution-data-server || ( media-libs/libcanberra media-libs/gsound ) nautilus? ( dev-python/nautilus-python gnome-base/nautilus[introspection] )
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/GSConnect/gnome-shell-extension-gsconnect/archive/v66.tar.gz -> gnome-shell-extension-gsconnect-66.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8a006695bc0db22490452dd06914dda5	meson	99466844dd8d4fcfb07578a76f5a9922	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=9803477fef0427bd5b4a6b55aa544f1a
+_md5_=17a0b472a70427cea32f69dcf9357ee6

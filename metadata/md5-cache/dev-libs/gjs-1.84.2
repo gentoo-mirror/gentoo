@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install test
-DEPEND=>=dev-libs/glib-2.66.0:2 dev-libs/libffi:= >=dev-libs/gobject-introspection-1.71.1:= dev-lang/spidermonkey:128 x11-libs/cairo[X,glib] readline? ( sys-libs/readline:0= ) sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 ) test? ( sys-apps/dbus >=x11-libs/gtk+-3.20:3[introspection] )
+DEPEND=>=dev-libs/glib-2.68.0:2 dev-libs/libffi:= >=dev-libs/gobject-introspection-1.72.0:= dev-lang/spidermonkey:128 x11-libs/cairo[X,glib] readline? ( sys-libs/readline:0= ) sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 ) test? ( sys-apps/dbus >=x11-libs/gtk+-3.20:3[introspection] )
 DESCRIPTION=Javascript bindings for GNOME
 EAPI=8
 HOMEPAGE=https://gjs.guide
@@ -8,9 +8,9 @@ INHERIT=flag-o-matic gnome.org meson virtualx
 IUSE=examples readline sysprof test test
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=MIT || ( MPL-1.1 LGPL-2+ GPL-2+ )
-RDEPEND=>=dev-libs/glib-2.66.0:2 dev-libs/libffi:= >=dev-libs/gobject-introspection-1.71.1:= dev-lang/spidermonkey:128 x11-libs/cairo[X,glib] readline? ( sys-libs/readline:0= )
+RDEPEND=>=dev-libs/glib-2.68.0:2 dev-libs/libffi:= >=dev-libs/gobject-introspection-1.72.0:= dev-lang/spidermonkey:128 x11-libs/cairo[X,glib] readline? ( sys-libs/readline:0= )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
-SRC_URI=mirror://gnome/sources/gjs/1.82/gjs-1.82.1.tar.xz
+SRC_URI=mirror://gnome/sources/gjs/1.84/gjs-1.84.2.tar.xz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	gnome.org	e1b4f392dbfedfb8974b71b017937f08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	8a006695bc0db22490452dd06914dda5	meson	99466844dd8d4fcfb07578a76f5a9922	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=e927ae1ed0ca27978e417bd90098e00d
+_md5_=c628a88f8d4723d94facc84fe619cb78
