@@ -24,11 +24,11 @@ DEPEND="
 	>=app-crypt/gcr-3.90.0:4=[introspection]
 	>=dev-libs/glib-2.68:2
 	>=dev-libs/gobject-introspection-1.49.1:=
-	>=dev-libs/gjs-1.73.1[cairo]
+	>=dev-libs/gjs-1.73.1[cairo(+)]
 	>=gui-libs/gtk-4:4[introspection]
-	>=x11-wm/mutter-47.0:0/15[introspection,test?]
+	>=x11-wm/mutter-48.0:0/16[introspection,test?]
 	>=sys-auth/polkit-0.120_p20220509[introspection]
-	>=gnome-base/gsettings-desktop-schemas-47_alpha[introspection]
+	>=gnome-base/gsettings-desktop-schemas-48_beta[introspection]
 	>=app-i18n/ibus-1.5.19
 	dev-python/docutils
 	>=gnome-base/gnome-desktop-40.0:4=
@@ -87,7 +87,7 @@ RDEPEND="${DEPEND}
 	app-accessibility/at-spi2-core:2[introspection]
 	app-misc/geoclue:2.0[introspection]
 	media-libs/graphene[introspection]
-	x11-libs/pango[introspection]
+	>=x11-libs/pango-1.46.0[introspection]
 	net-libs/libsoup:3.0[introspection]
 	>=sys-power/upower-0.99:=[introspection]
 	gnome-base/librsvg:2[introspection]
@@ -115,6 +115,7 @@ PDEPEND="
 	>=gnome-base/gnome-control-center-3.26[networkmanager(+)?]
 "
 BDEPEND="
+	>=dev-build/meson-1.3.0
 	dev-libs/libxslt
 	>=dev-util/gdbus-codegen-2.45.3
 	dev-util/glib-utils
@@ -131,11 +132,6 @@ BDEPEND="
 # These are not needed from tarballs, unless stylesheets or manpage get patched with patchset:
 # dev-lang/sassc
 # app-text/asciidoc
-
-PATCHES=(
-	# Change favorites defaults, bug #479918
-	"${FILESDIR}"/46.4-defaults.patch
-)
 
 src_prepare() {
 	default

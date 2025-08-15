@@ -4,7 +4,9 @@
 EAPI=8
 inherit gnome2-utils optfeature readme.gentoo-r1
 
-EGIT_COMMIT="104269ede04d52caf98734b199d960a3b25b88df"
+# Make sure to check upstream README.md for recommendations on which branch
+# to use for which Gnome shell version.
+EGIT_COMMIT="6fd8c039a081e8ad7bbd40ef7883ec6e5fc2a3f8"
 
 DESCRIPTION="Keyboard-driven layer for GNOME Shell with tiling support"
 HOMEPAGE="https://github.com/pop-os/shell"
@@ -13,11 +15,11 @@ S="${WORKDIR}/shell-${EGIT_COMMIT}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64"
+KEYWORDS="~amd64 ~ppc64"
 
 RDEPEND="
 	app-eselect/eselect-gnome-shell-extensions
-	>=gnome-base/gnome-shell-45
+	>=gnome-base/gnome-shell-46
 	sys-apps/fd
 "
 BDEPEND="dev-lang/typescript"

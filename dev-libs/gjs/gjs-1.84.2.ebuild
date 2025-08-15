@@ -15,9 +15,9 @@ IUSE="examples readline sysprof test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-libs/glib-2.66.0:2
+	>=dev-libs/glib-2.68.0:2
 	dev-libs/libffi:=
-	>=dev-libs/gobject-introspection-1.71.1:=
+	>=dev-libs/gobject-introspection-1.72.0:=
 	dev-lang/spidermonkey:128
 	x11-libs/cairo[X,glib]
 	readline? ( sys-libs/readline:0= )
