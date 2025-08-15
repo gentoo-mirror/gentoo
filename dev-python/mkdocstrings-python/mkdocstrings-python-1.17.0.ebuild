@@ -20,29 +20,24 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
-	>=dev-python/griffe-1.6.2[${PYTHON_USEDEP}]
-	>=dev-python/mkdocstrings-0.28.3[${PYTHON_USEDEP}]
+	>=dev-python/griffe-1.12.1[${PYTHON_USEDEP}]
+	>=dev-python/mkdocstrings-0.30[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-autorefs-1.4[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
 		>=dev-python/beautifulsoup4-4.12.3[${PYTHON_USEDEP}]
-		>=dev-python/inline-snapshot-0.18[${PYTHON_USEDEP}]
 		dev-python/mkdocs-material[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( inline-snapshot )
 distutils_enable_tests pytest
 
 export PDM_BUILD_SCM_VERSION=${PV}
 
-python_test() {
-	local EPYTEST_DESELECT=(
-		# "None" meaning particular formatter not installed
-		"tests/test_rendering.py::test_format_code[None-print('Hello')]"
-		"tests/test_rendering.py::test_format_code[None-aaaaa(bbbbb, ccccc=1) + ddddd.eeeee[ffff] or {ggggg: hhhhh, iiiii: jjjjj}]"
-	)
-
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -p inline_snapshot
-}
+EPYTEST_DESELECT=(
+	# "None" meaning particular formatter not installed
+	"tests/test_rendering.py::test_format_code[None-print('Hello')]"
+	"tests/test_rendering.py::test_format_code[None-aaaaa(bbbbb, ccccc=1) + ddddd.eeeee[ffff] or {ggggg: hhhhh, iiiii: jjjjj}]"
+)
