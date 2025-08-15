@@ -14,6 +14,7 @@ S="${WORKDIR}"
 
 LICENSE="GPL-3 || ( GPL-3 CDDL )"
 SLOT="0/$(ver_cut 1-2)"
+KEYWORDS="~amd64"
 
 src_unpack() {
 	return 0

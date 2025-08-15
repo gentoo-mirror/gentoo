@@ -23,18 +23,20 @@ inherit desktop edo flag-o-matic java-pkg-opt-2 linux-info multilib optfeature p
 MY_PN="VirtualBox"
 MY_P=${MY_PN}-${PV^^}
 HELP_PV=${PV}
+PATCHES_PV="7.2.0_pre20250723"
 
 DESCRIPTION="Family of powerful x86 virtualization products for enterprise and home use"
 HOMEPAGE="https://www.virtualbox.org/ https://github.com/VirtualBox/virtualbox"
 SRC_URI="
 	https://download.virtualbox.org/virtualbox/${PV^^}/${MY_P}.tar.bz2
-	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.2.0_pre20250723.tar.bz2
+	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-${PATCHES_PV}.tar.bz2
 	gui? ( !doc? ( https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-help-${HELP_PV}.tar.xz ) )
 "
 S="${WORKDIR}/${MY_PN}-${PV^^}"
 
 LICENSE="GPL-2+ GPL-3 LGPL-2.1 MIT dtrace? ( CDDL )"
 SLOT="0/$(ver_cut 1-2)"
+KEYWORDS="~amd64"
 IUSE="alsa dbus debug doc dtrace +gui java lvm nls pam pch pulseaudio +opengl python +sdk +sdl test +udev vboxwebsrv vde vnc"
 RESTRICT="!test? ( test )"
 
@@ -197,7 +199,7 @@ REQUIRED_USE="
 
 PATCHES=(
 	# Downloaded patchset
-	"${WORKDIR}"/virtualbox-patches-7.2.0_pre20250723/patches
+	"${WORKDIR}"/virtualbox-patches-${PATCHES_PV}/patches
 )
 
 pkg_pretend() {

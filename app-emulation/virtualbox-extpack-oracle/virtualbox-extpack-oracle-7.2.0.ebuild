@@ -14,6 +14,7 @@ S="${WORKDIR}"
 
 LICENSE="PUEL-12"
 SLOT="0/$(ver_cut 1-2)"
+KEYWORDS="~amd64"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
