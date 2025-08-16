@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://bnd.bndtools.org/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 ~arm64
+KEYWORDS=amd64 ~arm64 ppc64
 LICENSE=Apache-2.0 EPL-2.0
 RDEPEND=dev-java/osgi-cmpn:8 dev-java/slf4j-api:0 dev-java/osgi-annotation:0 dev-java/osgi-core:0 >=virtual/jre-17:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bndtools/bnd/archive/7.1.0.tar.gz -> aQute.bnd-7.1.0.tar.gz
 _eclasses_=java-utils-2	a080d4947ca188a48725a375b6184bc5	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e
-_md5_=94ea987cc05d032696dc5eff6f5d3762
+_md5_=a434bb5a0d7c80dd97c87d20d4675b41
