@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl test? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_11? ( dev-python/lit[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/lit[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/lit[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/lit[python_targets_python3_14(-)] ) llvm-core/clang ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=gdb-plugin? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ) hwloc? ( >=sys-apps/hwloc-2.5:0=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
+DESCRIPTION=OpenMP runtime library for LLVM/clang compiler
+EAPI=8
+HOMEPAGE=https://openmp.llvm.org
+INHERIT=flag-o-matic cmake-multilib linux-info llvm.org python-single-r1
+IUSE=+debug gdb-plugin hwloc ompt test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+RDEPEND=gdb-plugin? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ) hwloc? ( >=sys-apps/hwloc-2.5:0=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
+REQUIRED_USE=gdb-plugin? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) )
+RESTRICT=!test? ( test )
+SLOT=0/22.0.0_pre20250815
+SRC_URI=https://github.com/llvm/llvm-project/archive/1c7720ef78dc5eb9196d6c178afe03b60f201b78.tar.gz -> llvm-project-1c7720ef78dc5eb9196d6c178afe03b60f201b78.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	cmake-multilib	37d23064f303dcf23453353ab8c77059	linux-info	efd923656513c879204fec6638eadee5	llvm.org	cb73a8491d18fe72fa22a77c1e96a9f9	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=3daaa5dea7c269eda0a8e8c0a43e9d6c
