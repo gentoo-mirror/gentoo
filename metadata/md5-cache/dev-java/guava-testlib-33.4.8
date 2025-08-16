@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare pretend setup test
+DEPEND=>=dev-java/error-prone-annotations-2.41.0:0 ~dev-java/guava-33.4.8:0 dev-java/jspecify:0 dev-java/junit:4 >=dev-java/checker-framework-qual-3.49.5:0 dev-java/jsr305:0 dev-java/j2objc-annotations:0 >=virtual/jdk-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=A set of java classes to assist the tests for Guava itself
+EAPI=8
+HOMEPAGE=https://github.com/google/guava
+INHERIT=java-pkg-2 java-pkg-simple check-reqs
+IUSE=doc source test
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=>=dev-java/error-prone-annotations-2.41.0:0 ~dev-java/guava-33.4.8:0 dev-java/jspecify:0 dev-java/junit:4 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/google/guava/archive/v33.4.8.tar.gz -> guava-33.4.8.tar.gz test? ( https://repo1.maven.org/maven2/com/google/truth/truth/1.4.4/truth-1.4.4.jar )
+_eclasses_=java-utils-2	a080d4947ca188a48725a375b6184bc5	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e	check-reqs	2a9731073c152554078a9a8df8fc0f1b
+_md5_=2dffcdcf7b1c0b57c72f93dc25e0b9ca
