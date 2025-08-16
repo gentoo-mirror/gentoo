@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 handbook? ( >=kde-frameworks/kdoctools-6.16.0:6 ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.16.0:*
+DEFINED_PHASES=compile configure info install nofetch postinst postrm preinst prepare test unpack
+DEPEND=>=dev-qt/qtbase-6.9.1:6[gui,widgets] >=kde-frameworks/kconfig-6.16.0:6 >=kde-frameworks/kconfigwidgets-6.16.0:6 >=kde-frameworks/kcoreaddons-6.16.0:6 >=kde-frameworks/kcrash-6.16.0:6 >=kde-frameworks/kdbusaddons-6.16.0:6 >=kde-frameworks/ki18n-6.16.0:6 >=kde-frameworks/kio-6.16.0:6 >=kde-frameworks/knotifications-6.16.0:6 >=kde-frameworks/kstatusnotifieritem-6.16.0:6 >=kde-frameworks/kwidgetsaddons-6.16.0:6 dev-qt/qtbase:6
+DESCRIPTION=Little tool to execute programs after some time
+EAPI=8
+HOMEPAGE=https://apps.kde.org/ktimer/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=ecm gear.kde.org xdg
+IUSE=debug +handbook
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-qt/qtbase-6.9.1:6[gui,widgets] >=kde-frameworks/kconfig-6.16.0:6 >=kde-frameworks/kconfigwidgets-6.16.0:6 >=kde-frameworks/kcoreaddons-6.16.0:6 >=kde-frameworks/kcrash-6.16.0:6 >=kde-frameworks/kdbusaddons-6.16.0:6 >=kde-frameworks/ki18n-6.16.0:6 >=kde-frameworks/kio-6.16.0:6 >=kde-frameworks/knotifications-6.16.0:6 >=kde-frameworks/kstatusnotifieritem-6.16.0:6 >=kde-frameworks/kwidgetsaddons-6.16.0:6 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-apps/ktimer:5
+SLOT=6
+SRC_URI=mirror://kde/stable/release-service/25.08.0/src/ktimer-25.08.0.tar.xz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	ca1560f738b337a36fa9cf35054ea70a	kde.org	2eea56ed41440913be4caa3d255d2db3	gear.kde.org	82ffe34462966333d61881de9375bc87	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=5d66a5dc04b77f985f9d441d8bdf2baf
