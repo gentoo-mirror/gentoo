@@ -54,7 +54,10 @@ DEPEND="
 "
 
 BDEPEND="
-	app-text/asciidoc
+	|| (
+		dev-ruby/asciidoctor
+		app-text/asciidoc
+	)
 	app-text/docbook-xml-dtd:4.5
 	>=app-text/docbook-xsl-stylesheets-1.75.2
 	>=dev-libs/libxslt-1.1.26
@@ -99,9 +102,13 @@ QA_MULTILIB_PATHS="usr/lib/dracut/.*"
 PATCHES=(
 	"${FILESDIR}"/gentoo-ldconfig-paths-r1.patch
 	# Gentoo specific acct-user and acct-group conf adjustments
-	"${FILESDIR}"/${PN}-106-acct-user-group-gentoo.patch
-	# https://github.com/dracut-ng/dracut-ng/pull/1322
-	"${FILESDIR}"/${PN}-107-hostonly-regression-fix-1322.patch
+	"${FILESDIR}"/${PN}-108-acct-user-group-gentoo.patch
+	# https://github.com/dracut-ng/dracut-ng/pull/1447
+	"${FILESDIR}"/${PN}-108-respect-objcopy-and-objdump.patch
+	# https://github.com/dracut-ng/dracut-ng/pull/1538
+	"${FILESDIR}"/${PN}-108-elf-parsing-fixes.patch
+	# https://github.com/dracut-ng/dracut-ng/pull/1122#issuecomment-3192110686
+	"${FILESDIR}"/${PN}-108-disable-ukify-magic.patch
 )
 
 pkg_setup() {
@@ -116,6 +123,10 @@ src_configure() {
 		--systemdsystemunitdir="$(systemd_get_systemunitdir)"
 		--disable-dracut-cpio
 	)
+
+	if ! has_version dev-ruby/asciidoctor; then
+		myconf+=( --disable-asciidoctor )
+	fi
 
 	# this emulates what the build system would be doing without us
 	append-cflags -D_FILE_OFFSET_BITS=64
@@ -167,6 +178,9 @@ src_install() {
 		exeinto /usr/lib/dracut
 		doexe "src/dracut-cpio/$(cargo_target_dir)/dracut-cpio"
 	fi
+
+	# Use our own from sys-kernel/installkernel[dracut]
+	rm -r "${ED}/usr/lib/kernel" || die
 }
 
 pkg_preinst() {
