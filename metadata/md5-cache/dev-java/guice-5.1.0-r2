@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* dev-java/aopalliance:1 dev-java/asm:0 >=dev-java/error-prone-annotations-2.41.0:0 dev-java/guava:0 dev-java/javax-inject:0 dev-java/jsr305:0 test? ( dev-java/guava-testlib:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Guice is a lightweight dependency injection framework for Java 6 and above
+EAPI=8
+HOMEPAGE=https://github.com/google/guice
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=Apache-2.0
+RDEPEND=>=virtual/jre-1.8:* dev-java/aopalliance:1 dev-java/asm:0 >=dev-java/error-prone-annotations-2.41.0:0 dev-java/guava:0 dev-java/javax-inject:0 dev-java/jsr305:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=4
+SRC_URI=https://github.com/google/guice/archive/5.1.0.tar.gz -> guice-5.1.0.tar.gz
+_eclasses_=java-utils-2	a080d4947ca188a48725a375b6184bc5	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e
+_md5_=1bc02236eff5e3ef8a4d225dc66c099f
