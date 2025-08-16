@@ -39,7 +39,7 @@ BDEPEND="
 	)
 "
 
-LLVM_COMPONENTS=( openmp cmake llvm/include )
+LLVM_COMPONENTS=( runtimes openmp cmake llvm/{cmake,include,utils/llvm-lit} )
 llvm.org_set_globals
 
 pkg_setup() {
@@ -57,6 +57,8 @@ multilib_src_configure() {
 
 	local libdir="$(get_libdir)"
 	local mycmakeargs=(
+		-DLLVM_ENABLE_RUNTIMES=openmp
+		-DOPENMP_STANDALONE_BUILD=ON
 		-DOPENMP_LIBDIR_SUFFIX="${libdir#lib}"
 
 		-DLIBOMP_USE_HWLOC=$(usex hwloc)
@@ -84,5 +86,5 @@ multilib_src_test() {
 	# respect TMPDIR!
 	local -x LIT_PRESERVES_TMP=1
 
-	cmake_build check-libomp
+	cmake_build check-openmp
 }
