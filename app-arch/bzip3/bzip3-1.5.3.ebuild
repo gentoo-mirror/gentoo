@@ -6,16 +6,16 @@ EAPI=8
 inherit toolchain-funcs
 
 DESCRIPTION="A better and stronger spiritual successor to BZip2"
-HOMEPAGE="https://github.com/kspalaiologos/bzip3"
+HOMEPAGE="https://github.com/kspalaiologos/bzip3/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/kspalaiologos/${PN}.git"
+	EGIT_REPO_URI="https://github.com/kspalaiologos/${PN}"
 else
 	SRC_URI="https://github.com/kspalaiologos/${PN}/releases/download/${PV}/${P}.tar.xz"
 
-	KEYWORDS="amd64 arm64 ~loong x86"
+	KEYWORDS="~amd64 ~arm64 ~loong ~x86"
 fi
 
 LICENSE="LGPL-3+"

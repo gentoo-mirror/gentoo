@@ -12,12 +12,12 @@ HOMEPAGE="https://emacs-helm.github.io/helm/
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/emacs-helm/${PN}.git"
+	EGIT_REPO_URI="https://github.com/emacs-helm/${PN}"
 else
 	SRC_URI="https://github.com/emacs-helm/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -43,7 +43,5 @@ src_compile() {
 
 src_install() {
 	elisp_src_install
-
-	exeinto /usr/bin
-	doexe ./emacs-helm.sh
+	dobin ./emacs-helm.sh
 }
