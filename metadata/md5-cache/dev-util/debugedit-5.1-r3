@@ -7,9 +7,9 @@ HOMEPAGE=https://sourceware.org/debugedit/
 INHERIT=multiprocessing verify-sig toolchain-funcs
 IUSE=verify-sig
 KEYWORDS=~alpha amd64 arm arm64 hppa ~loong ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux
-LICENSE=GPL-2+ LGPL-2+
+LICENSE=GPL-3+ GPL-2+ LGPL-2+
 RDEPEND=>=dev-libs/elfutils-0.176-r1:= >=dev-libs/xxhash-0.8:= elibc_musl? ( >=sys-libs/error-standalone-2.0 ) sys-devel/dwz
 SLOT=0
 SRC_URI=https://sourceware.org/ftp/debugedit/5.1/debugedit-5.1.tar.xz verify-sig? ( https://sourceware.org/ftp/debugedit/5.1/debugedit-5.1.tar.xz.sig )
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
-_md5_=b8a8617466515b14c6e63e07d21f1035
+_md5_=cf52f2b4e7c7651dad52ca120188c711
