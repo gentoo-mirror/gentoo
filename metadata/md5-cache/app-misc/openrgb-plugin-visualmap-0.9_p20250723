@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=>=app-misc/openrgb-0.9_p20250802:= dev-qt/qtbase:6[gui,widgets] dev-cpp/nlohmann_json
+DESCRIPTION=Plugin for OpenRGB to create virtual devices out of multiple real ones
+EAPI=8
+HOMEPAGE=https://gitlab.com/OpenRGBDevelopers/OpenRGBVisualMapPlugin
+INHERIT=qmake-utils
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=>=app-misc/openrgb-0.9_p20250802:= dev-qt/qtbase:6[gui,widgets]
+SLOT=0
+SRC_URI=https://gitlab.com/OpenRGBDevelopers/OpenRGBVisualMapPlugin/-/archive/14cfa5aa28e708b7419de249b672122b3239aa72/OpenRGBVisualMapPlugin-14cfa5aa28e708b7419de249b672122b3239aa72.tar.bz2 -> openrgb-plugin-visualmap-0.9_p20250723.tar.bz2
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=a244646624bac6938643fa9057186d00

@@ -1,0 +1,14 @@
+BDEPEND=dev-qt/qttools:6[linguist] virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm prepare pretend setup
+DEPEND=dev-cpp/cpp-httplib:= dev-libs/hidapi dev-qt/qtbase:6[gui,widgets] net-libs/mbedtls:0= virtual/libusb:1 dev-cpp/nlohmann_json dev-libs/mdns
+DESCRIPTION=Open source RGB lighting control
+EAPI=8
+HOMEPAGE=https://openrgb.org https://gitlab.com/CalcProgrammer1/OpenRGB/
+INHERIT=check-reqs flag-o-matic qmake-utils udev xdg-utils
+KEYWORDS=~amd64 ~loong ~x86
+LICENSE=GPL-2
+RDEPEND=dev-cpp/cpp-httplib:= dev-libs/hidapi dev-qt/qtbase:6[gui,widgets] net-libs/mbedtls:0= virtual/libusb:1
+SLOT=0/4
+SRC_URI=https://gitlab.com/CalcProgrammer1/OpenRGB/-/archive/90c1e10cc59f4ba203bc797d75315885a32dddab/OpenRGB-90c1e10cc59f4ba203bc797d75315885a32dddab.tar.bz2
+_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	udev	f3d9a4376ebd22131726a68e1a0a058f	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_md5_=0f2979c5efe1702471c6d27ed5f7a39c
