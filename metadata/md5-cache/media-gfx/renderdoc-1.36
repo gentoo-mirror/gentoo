@@ -1,7 +1,7 @@
 BDEPEND=x11-base/xorg-proto virtual/pkgconfig qt5? ( sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-libs/libpcre dev-qt/qtcore:5 app-alternatives/yacc ) verify-sig? ( sec-keys/openpgp-keys-baldurkarlsson ) app-alternatives/ninja >=dev-build/cmake-3.20.5 doc? ( python_single_target_python3_11? ( dev-python/sphinx[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/sphinx[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/sphinx[python_targets_python3_13(-)] ) ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
 DEPEND=app-arch/lz4:= app-arch/zstd:= dev-libs/miniz:= x11-libs/libX11 x11-libs/libxcb:= x11-libs/xcb-util-keysyms virtual/opengl qt5? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5[ssl] dev-qt/qtsvg:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 )
-DESCRIPTION=A stand-alone graphics debugging tool
+DESCRIPTION=Stand-alone graphics debugging tool
 EAPI=8
 HOMEPAGE=https://renderdoc.org https://github.com/baldurk/renderdoc
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
@@ -14,4 +14,4 @@ REQUIRED_USE=doc? ( qt5 ) qt5? ( ^^ ( python_single_target_python3_11 python_sin
 SLOT=0
 SRC_URI=https://github.com/baldurk/renderdoc/archive/refs/tags/v1.36.tar.gz -> renderdoc-1.36.tar.gz qt5? ( https://github.com/baldurk/swig/archive/renderdoc-modified-7.tar.gz -> swig-renderdoc-7.tar.gz ) verify-sig? ( https://github.com/baldurk/renderdoc/releases/download/v1.36/v1.36.tar.gz.asc -> renderdoc-1.36.tar.gz.asc )
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	optfeature	538bce96e5589935b57e178e8635f301	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	docs	006125f2158d2f16904ebd9114336058	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=77beae8d13d5b0741943023c0a4c44cc
+_md5_=5ac7af1341fae7ae38593707fffd35fd
