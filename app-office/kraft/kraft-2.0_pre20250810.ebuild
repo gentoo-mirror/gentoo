@@ -3,13 +3,13 @@
 
 EAPI=8
 
-COMMIT=37e3a51e11fb630ec3fc910a6d15457d8f3de55e
+COMMIT=3aee920cd8a991a325aec741aff2e882fd729b59
 KFMIN=6.9.0
-inherit ecm
+inherit ecm xdg
 
 DESCRIPTION="Quotes and invoices manager for small enterprises"
 HOMEPAGE="https://www.volle-kraft-voraus.de/"
-SRC_URI="https://github.com/dragotin/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/dragotin/${PN}/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="GPL-2+ LGPL-2+"
@@ -36,17 +36,17 @@ RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 "
 
-DOCS=( AUTHORS Changes.txt README.md Releasenotes.txt TODO )
+DOCS=( AUTHORS Changes.txt README.md )
 
 PATCHES=(
-	"${FILESDIR}/${P}-no-git-or-buildhost-info.patch"
+	"${FILESDIR}/${PN}-2.0_pre20250419-no-git-or-buildhost-info.patch"
 )
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_Asciidoctor=ON
+		-DCMAKE_DISABLE_FIND_PACKAGE_Asciidoctor=ON # using prebuilt html
 		-DGIT_SHA1=${COMMIT}
-		-DGIT_BRANCH=portqt6_1
+		-DGIT_BRANCH=master
 		-DBUILD_WITH_AKONADI=$(usex pim)
 	)
 	ecm_src_configure
