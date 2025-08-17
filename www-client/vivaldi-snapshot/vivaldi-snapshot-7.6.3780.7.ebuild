@@ -101,14 +101,13 @@ VIVALDI_BASE_URI="https://downloads.vivaldi.com/${VIVALDI_PN#vivaldi-}/${VIVALDI
 
 SRC_URI="
 	amd64? ( ${VIVALDI_BASE_URI}amd64.deb )
-	arm? ( ${VIVALDI_BASE_URI}armhf.deb )
 	arm64? ( ${VIVALDI_BASE_URI}arm64.deb )
 "
 
 S="${WORKDIR}"
 LICENSE="Vivaldi"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~arm ~arm64"
+KEYWORDS="-* ~amd64 ~arm64"
 IUSE="ffmpeg-chromium gtk proprietary-codecs qt6 widevine"
 RESTRICT="bindist mirror"
 #REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
