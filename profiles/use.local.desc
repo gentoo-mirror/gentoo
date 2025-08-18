@@ -1392,14 +1392,11 @@ dev-db/mongodb:mongosh - Install the MongoDB shell from app-admin/mongosh-bin
 dev-db/mongodb:tools - Install the MongoDB tools (mongoimport, mongodump...) from app-admin/mongo-tools
 dev-db/mycli:ssh - Add support for connection over SSH tunnel
 dev-db/mysql:cjk - Add CJK support for InnoDB fulltext search using app-text/mecab
-dev-db/mysql:client-libs - Build the client libraries from the server package instead of the C Connector packages (not recommended)
-dev-db/mysql:experimental - Build experimental features aka "rapid" plugins
 dev-db/mysql:latin1 - Use LATIN1 encoding instead of UTF8
 dev-db/mysql:numa - Enable NUMA support using sys-process/numactl (NUMA kernel support is also required)
 dev-db/mysql:profiling - Add support for statement profiling (requires USE=community).
 dev-db/mysql:router - Build the MySQL router program
 dev-db/mysql:server - Build the server program
-dev-db/mysql:systemtap - Build support for profiling and tracing using dev-debug/systemtap
 dev-db/mysql:test - Install upstream testsuites for end use.
 dev-db/mysql-connector-c++:legacy - Build the legacy 1.x API as well as the DevX API
 dev-db/oracle-instantclient:jdbc - Support for XA, Internationalization, and RowSet operations under JDBC
@@ -1532,27 +1529,14 @@ dev-games/mygui:tools - Build the tools for development
 dev-games/ode:double-precision - more precise calculations at the expense of speed
 dev-games/ode:gyroscopic - enable gyroscopic term (may cause instability)
 dev-games/ogre:assimp - Use media-libs/assimp to import assets from 3D files
-dev-games/ogre:boost - Enable boost support
 dev-games/ogre:bullet - Use sci-physics/bullet for physics plugin
-dev-games/ogre:cache - Enable GL state cache support
 dev-games/ogre:cg - NVIDIA toolkit plugin
-dev-games/ogre:deprecated - Build deprecated nodeless positioning of Lights and Cameras.
 dev-games/ogre:dotscene - DotScene (.scene) file format support through dev-libs/pugixml
-dev-games/ogre:double-precision - More precise calculations at the expense of speed
-dev-games/ogre:egl - Use egl instead of glx
 dev-games/ogre:egl-only - Use EGL instead of GLX
-dev-games/ogre:fine-granularity - Enable fine light mask granularity. This impacts on performance and should not be enabled unless an application really needs it.
 dev-games/ogre:freeimage - Support images via media-libs/freeimage
 dev-games/ogre:gl3plus - Build OpenGL 3+ RenderSystem
-dev-games/ogre:gles3 - Enable OpenGL ES 3.x Features
 dev-games/ogre:glslang - Build Glslang plugin
-dev-games/ogre:json - Use dev-libs/rapidjson (needed by Hlms JSON materials)
-dev-games/ogre:legacy-animations - Use the skeletal animation from 1.x. It's much slower, but the new system is still experimental.
-dev-games/ogre:ois - Pull in Object-oriented Input System library dev-games/ois for samples
-dev-games/ogre:poco - When USE=threads, use poco for threading
-dev-games/ogre:resman-pedantic - Resource Manager PEDANTIC : require an explicit resource group. Case sensitive lookup. Some demos might not work with this setting. (default: case-insensitive + sensitive lookup in all groups)
 dev-games/ogre:samples - Build and install Ogre demos
-dev-games/ogre:tbb - When USE=threads, use tbb for threading
 dev-games/ogre:tiny - Build Tiny RenderSystem (software-rendering)
 dev-games/ogre:tools - Build and install AssimpConverter (assimp USE flag is enabled), MeshUpgrader, VRMLConverter and XMLConverter
 dev-games/openscenegraph:collada - Enable DAE file support via dev-libs/collada-dom
@@ -8614,7 +8598,6 @@ virtual/lapacke:eselect-ldso - Enable runtime library switching by eselect and l
 virtual/linux-sources:firmware - Install linux kernel firmware
 virtual/mpi:nullmpi - Allow sys-cluster/nullmpi a minimal incomplete MPI implementation as a provider
 virtual/mpi:romio - Enable romio, a high-performance portable MPI-IO
-virtual/mysql:embedded - Build embedded server (libmysqld)
 virtual/mysql:server - Build server (mysqld)
 virtual/pkgconfig:native-symlinks - Install generic symlinks like pkgconf and pkg-config. If this flag is disabled, only CHOST-prefixed pkg-config executables will be available to end users and ebuilds.
 virtual/podofo-build:boost - Add support for boost
