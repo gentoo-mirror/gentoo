@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.torproject.org/ https://gitlab.torproject.org/tpo/core/tor/
 INHERIT=edo python-any-r1 readme.gentoo-r1 systemd verify-sig
 IUSE=caps doc hardened lzma +man scrypt seccomp selinux +server systemd test zstd verify-sig
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~ppc-macos
+KEYWORDS=~amd64 arm arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~ppc-macos
 LICENSE=BSD GPL-2 GPL-3
 RDEPEND=>=dev-libs/libevent-2.1.12-r1:=[ssl] dev-libs/openssl:=[-bindist(-)] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd:= ) zstd? ( app-arch/zstd:= ) acct-user/tor acct-group/tor selinux? ( sec-policy/selinux-tor )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.torproject.org/dist/tor-0.4.8.17.tar.gz https://archive.torproject.org/tor-package-archive/tor-0.4.8.17.tar.gz verify-sig? ( https://dist.torproject.org/tor-0.4.8.17.tar.gz.sha256sum https://dist.torproject.org/tor-0.4.8.17.tar.gz.sha256sum.asc )
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
-_md5_=1fb8656008faea7349c60182f0d2e2d7
+_md5_=7d27aa6fffff2b665ad04c182cda0c53
