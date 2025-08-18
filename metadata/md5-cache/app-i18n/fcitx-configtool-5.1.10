@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://fcitx-im.org/ https://github.com/fcitx/fcitx5-configtool
 INHERIT=cmake unpacker
 IUSE=kcm +config-qt test X
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~loong
 LICENSE=GPL-2+
 RDEPEND=>=app-i18n/fcitx-5.1.13:5 >=app-i18n/fcitx-qt-5.1.4:5[qt6(+),-onlyplugin] app-text/iso-codes dev-qt/qtbase:6[concurrent,dbus,gui,widgets] dev-qt/qtsvg:6 kde-frameworks/kwidgetsaddons:6 sys-devel/gettext virtual/libintl X? ( x11-libs/libX11 x11-libs/libxkbfile x11-misc/xkeyboard-config ) config-qt? ( kde-frameworks/kitemviews:6 ) kcm? ( dev-qt/qtdeclarative:6 kde-frameworks/kcoreaddons:6 kde-frameworks/kdeclarative:6 kde-frameworks/ki18n:6 kde-frameworks/kiconthemes:6 kde-frameworks/kirigami:6 kde-frameworks/kpackage:6 kde-frameworks/ksvg:6 kde-frameworks/kcmutils:6 kde-plasma/libplasma:6 x11-libs/libxkbcommon )
 RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=https://download.fcitx-im.org/fcitx5/fcitx5-configtool/fcitx5-configtool-5.1.10.tar.zst -> fcitx-configtool-5.1.10.tar.zst
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627
-_md5_=2ad6f736ad764e8e28fc0b3f72e882ec
+_md5_=3fa4478030f37af106d53c4a291dac17
