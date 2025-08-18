@@ -1,0 +1,17 @@
+BDEPEND=java? ( >=dev-java/asm-9.8:0 >=dev-java/jna-5.17.0:0 ) moar? ( ~dev-lang/moarvm-2025.06[clang=] ) clang? ( llvm-core/clang ) java? ( >=virtual/jdk-11 ) dev-lang/perl
+DEFINED_PHASES=compile configure install preinst prepare pretend setup test
+DEPEND=java? ( >=dev-java/asm-9.8:0 >=dev-java/jna-5.17.0:0 ) moar? ( ~dev-lang/moarvm-2025.06[clang=] ) java? ( >=dev-java/java-config-2.2.0-r3 )
+DESCRIPTION=Not Quite Perl, a Raku bootstrapping compiler
+EAPI=8
+HOMEPAGE=https://rakudo.org
+INHERIT=java-pkg-opt-2 multibuild
+IUSE=doc clang java +moar test java
+KEYWORDS=~amd64 ~x86
+LICENSE=Artistic-2
+RDEPEND=java? ( >=dev-java/asm-9.8:0 >=dev-java/jna-5.17.0:0 ) moar? ( ~dev-lang/moarvm-2025.06[clang=] ) java? ( >=virtual/jre-11 ) java? ( >=dev-java/java-config-2.2.0-r3 )
+REQUIRED_USE=|| ( java moar )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/perl6/nqp/releases/download/2025.06.1/nqp-2025.06.1.tar.gz
+_eclasses_=java-utils-2	a080d4947ca188a48725a375b6184bc5	java-pkg-opt-2	cfe09ee08c1c7907ffee08abd026fd4b	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364
+_md5_=42c8cef4b5dbc93528d622e4143787b3
