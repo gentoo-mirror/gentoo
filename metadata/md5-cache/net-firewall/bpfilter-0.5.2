@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/bison sys-devel/flex doc? ( app-text/doxygen || ( ( dev-lang/python:3.13 dev-python/sphinx[python_targets_python3_13(-)] dev-python/linuxdoc[python_targets_python3_13(-)] dev-python/breathe[python_targets_python3_13(-)] dev-python/furo[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/sphinx[python_targets_python3_12(-)] dev-python/linuxdoc[python_targets_python3_12(-)] dev-python/breathe[python_targets_python3_12(-)] dev-python/furo[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/sphinx[python_targets_python3_11(-)] dev-python/linuxdoc[python_targets_python3_11(-)] dev-python/breathe[python_targets_python3_11(-)] dev-python/furo[python_targets_python3_11(-)] ) ) ) test? ( || ( ( dev-lang/python:3.13 net-analyzer/scapy[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 net-analyzer/scapy[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 net-analyzer/scapy[python_targets_python3_11(-)] ) ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-libs/libbpf:= dev-libs/libnl:3= test? ( dev-util/cmocka )
+DESCRIPTION=BPF-based packet filtering framework
+EAPI=8
+HOMEPAGE=https://bpfilter.io/ https://github.com/facebook/bpfilter
+INHERIT=python-any-r1 cmake
+IUSE=doc test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=dev-libs/libbpf:= dev-libs/libnl:3= test? ( dev-util/cmocka )
+RESTRICT=!test? ( test ) test
+SLOT=0/0
+SRC_URI=https://github.com/facebook/bpfilter/archive/refs/tags/v0.5.2.tar.gz -> bpfilter-0.5.2.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
+_md5_=4248c723bf533a9ddaa8fcd872240fdf
