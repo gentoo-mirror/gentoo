@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} pypy3 pypy3_11 )
+PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
 inherit distutils-r1
 
@@ -23,7 +23,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 
 DEPEND="
 	>=app-arch/zstd-1.5.7:=
@@ -34,20 +34,11 @@ RDEPEND="
 		>=dev-python/cffi-1.14.0-r2:=[${PYTHON_USEDEP}]
 	' 'python*')
 "
-BDEPEND="
-	test? (
-		dev-python/hypothesis[${PYTHON_USEDEP}]
-	)
-"
 
+EPYTEST_PLUGINS=( hypothesis )
 distutils_enable_tests pytest
 
 src_prepare() {
-	local PATCHES=(
-		# https://github.com/indygreg/python-zstandard/pull/255
-		"${FILESDIR}/${P}-zstd-1.5.7.patch"
-	)
-
 	# the C backend is repeatedly broken, so force CFFI instead
 	sed -e '/PYTHON_ZSTANDARD_IMPORT_POLICY/s:default:cffi:' \
 		-i zstandard/__init__.py || die
@@ -56,7 +47,7 @@ src_prepare() {
 	> zstd/zstd.c || die
 	# it does random preprocessing on that, so we can't use #include
 	local f
-	for f in zdict.h zstd.h; do
+	for f in zdict.h zstd.h zstd_errors.h; do
 		cp "${ESYSROOT}/usr/include/${f}" "zstd/${f}" || die
 	done
 	sed -i -e '/include_dirs/a    libraries=["zstd"],' make_cffi.py || die
