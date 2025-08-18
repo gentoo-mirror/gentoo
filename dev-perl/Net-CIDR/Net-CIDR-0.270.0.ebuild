@@ -4,7 +4,7 @@
 EAPI=8
 
 DIST_AUTHOR=MRSAM
-DIST_VERSION=0.26
+DIST_VERSION=0.27
 inherit perl-module
 
 DESCRIPTION="Manipulate netblock lists in CIDR notation"

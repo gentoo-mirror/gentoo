@@ -4,7 +4,7 @@
 EAPI=8
 
 DIST_AUTHOR=PLICEASE
-DIST_VERSION=1.30
+DIST_VERSION=1.31
 inherit perl-module
 
 DESCRIPTION="Cross-platform basic tests for scripts"
