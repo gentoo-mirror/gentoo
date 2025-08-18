@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://asymptote.sourceforge.io/ https://github.com/vectorgraphics/asymptote/
 INHERIT=autotools elisp-common latex-package python-r1
 IUSE=context curl doc emacs examples fftw gsl gui +imagemagick latex lsp +opengl python sigsegv svg test vim-syntax python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
-KEYWORDS=~amd64 ~ppc ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=amd64 ~ppc ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-3
 RDEPEND=>=sys-libs/ncurses-5.4-r5:0= >=sys-libs/readline-4.3-r5:0= net-libs/libtirpc:= imagemagick? ( media-gfx/imagemagick[png] ) opengl? ( media-libs/mesa[X] media-libs/freeglut media-libs/glew:0 media-libs/glm ) svg? ( app-text/dvisvgm ) sigsegv? ( dev-libs/libsigsegv ) fftw? ( >=sci-libs/fftw-3.0.1:= ) gsl? ( sci-libs/gsl:= ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) curl? ( net-misc/curl ) lsp? ( dev-libs/boost dev-libs/rapidjson dev-libs/utfcpp ) gui? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) dev-python/pyqt5[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,gui,widgets,svg] dev-python/cson dev-python/numpy >=gnome-base/librsvg-2.40 ) latex? ( virtual/latex-base dev-texlive/texlive-latexextra ) context? ( dev-texlive/texlive-context ) emacs? ( >=app-editors/emacs-23.1:* ) vim-syntax? ( || ( app-editors/vim app-editors/gvim ) ) virtual/latex-base
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/asymptote/asymptote-3.05.src.tgz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	elisp-common	fe05085d051330f15cf7201109b5cd23	edo	a5e294016aa84979fcb2459749eb80b2	latex-package	f6529cd874a632d3343b4d264a70a0bc	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-r1	0e15b2ab9cfc87d7474678201d6bca38
-_md5_=6dea0e9c8ff0e8ccaf8b84a399765515
+_md5_=2c1fc961b18c81df6d69a70540270246
