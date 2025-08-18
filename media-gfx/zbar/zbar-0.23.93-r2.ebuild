@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..14} )
-inherit autotools flag-o-matic java-pkg-opt-2 multilib-minimal python-single-r1 qmake-utils virtualx
+PYTHON_COMPAT=( python3_{11..14} )
+inherit autotools flag-o-matic java-pkg-opt-2 multilib-minimal python-single-r1 virtualx
 
 DESCRIPTION="Library and tools for reading barcodes from images or video"
 HOMEPAGE="https://github.com/mchehab/zbar"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/mchehab/zbar/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="amd64 ~arm ~arm64 x86"
-IUSE="dbus graphicsmagick gtk +imagemagick introspection java jpeg nls python qt5 static-libs test +threads v4l X xv"
+IUSE="dbus graphicsmagick gtk +imagemagick introspection java jpeg nls python test +threads v4l X xv"
 
 REQUIRED_USE="
 	introspection? ( gtk )
@@ -40,12 +40,6 @@ COMMON_DEPEND="
 	)
 	jpeg? ( media-libs/libjpeg-turbo:0=[${MULTILIB_USEDEP}] )
 	python? ( ${PYTHON_DEPS} )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		dev-qt/qtx11extras:5
-	)
 	v4l? ( media-libs/libv4l:0=[${MULTILIB_USEDEP}] )
 	X? (
 		x11-libs/libX11[${MULTILIB_USEDEP}]
@@ -131,6 +125,7 @@ multilib_src_configure() {
 	append-cppflags -DNDEBUG
 
 	local myeconfargs=(
+		--without-qt # bug 947629
 		$(use_with dbus)
 		$(use_with gtk gtk gtk3) # avoid 'auto'
 		$(use_with jpeg)
@@ -138,7 +133,6 @@ multilib_src_configure() {
 		$(multilib_native_use_with java)
 		$(multilib_native_use_with python python auto)
 		$(use_enable nls)
-		$(use_enable static-libs static)
 		$(use_enable threads pthread)
 		$(use_enable v4l video)
 		$(use_with X x)
@@ -175,14 +169,6 @@ multilib_src_configure() {
 			fi
 		fi
 
-		if use qt5; then
-			myeconfargs+=(
-				--with-qt
-			)
-		else
-			myeconfargs+=( --without-qt )
-		fi
-
 		if use test && use elibc_musl; then
 			append-ldflags -largp
 		fi
@@ -191,7 +177,6 @@ multilib_src_configure() {
 		myeconfargs+=(
 			--without-graphicsmagick
 			--without-imagemagick
-			--without-qt
 		)
 
 		# zbarimg tests with native abi only
@@ -202,8 +187,7 @@ multilib_src_configure() {
 	# use bash (bug 721370)
 	CONFIG_SHELL='/bin/bash' \
 	ECONF_SOURCE="${S}" \
-	MOC="$(qt5_get_bindir)"/moc \
-		econf "${myeconfargs[@]}"
+	econf "${myeconfargs[@]}"
 
 	# work around out-of-source build issues for multilib systems (bug 672184)
 	mkdir qt zbarcam || die
@@ -214,12 +198,6 @@ src_test() {
 }
 
 src_install() {
-	if use qt5; then
-		local MULTILIB_WRAPPED_HEADERS=(
-			/usr/include/zbar/QZBar.h
-			/usr/include/zbar/QZBarImage.h
-		)
-	fi
 	multilib-minimal_src_install
 }
 
