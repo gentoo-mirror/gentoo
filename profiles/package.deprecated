@@ -55,7 +55,7 @@ dev-qt/qtscript:5
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2023-06-10)
 # Obsolete transitional meta package. Switch to media-libs/libpulse
-# which ensures a sound server is installed via PDEPEND.
+# which ensures a sound server is installed via PDEPEND. Bug #961795
 media-sound/pulseaudio
 
 # Sam James <sam@gentoo.org> (2023-04-07)
@@ -134,16 +134,12 @@ x11-themes/gtk-engines-rezlooks
 x11-themes/gtk-engines-ubuntulooks
 
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2021-06-30)
-# Deprecated upstream, see HOMEPAGE
+# Deprecated upstream, see HOMEPAGE; Bug #961791
 dev-perl/Mail-Sender
 
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2021-06-11)
 # gtk2. Nuff said. See HOMEPAGE, too.
 dev-perl/Gtk2
-
-# Mart Raudsepp <leio@gentoo.org> (2020-07-04)
-# Port to gtk+:3 using wxGTK:3.0-gtk3 SLOT
-x11-libs/wxGTK:3.0
 
 # Kent Fredric <kentnl@gentoo.org> (2020-04-15)
 # Functionality now provided by Net::SMTP 3.25+
@@ -152,7 +148,3 @@ x11-libs/wxGTK:3.0
 # Try patching/removing dependent code to utilize this.
 # Bug #650320
 dev-perl/Net-SMTP-SSL
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2020-03-08)
-# x11-libs/gtkglext is in the process of being removed, tracker bug #698950
-x11-libs/gtkglext
