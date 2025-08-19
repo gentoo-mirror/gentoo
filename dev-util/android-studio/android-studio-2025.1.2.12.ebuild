@@ -108,12 +108,6 @@ src_install() {
 	make_wrapper ${PN} ${dir}/bin/studio
 	make_desktop_entry ${PN} "Android Studio" ${PN} "Development;IDE" "StartupWMClass=jetbrains-studio"
 
-	# https://developer.android.com/studio/command-line/variables
-	newenvd - 99android-studio <<-EOF
-		# Configuration file android-studio
-		STUDIO_JDK="${dir}/jbr"
-	EOF
-
 	# recommended by: https://confluence.jetbrains.com/display/IDEADEV/Inotify+Watches+Limit
 	mkdir -p "${D}/etc/sysctl.d/" || die
 	echo "fs.inotify.max_user_watches = 524288" > "${D}/etc/sysctl.d/30-android-studio-inotify-watches.conf" || die
