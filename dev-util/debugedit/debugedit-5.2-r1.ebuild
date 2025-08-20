@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit multiprocessing verify-sig toolchain-funcs
+inherit multiprocessing optfeature verify-sig toolchain-funcs
 
 DESCRIPTION="Create debuginfo and source file distributions"
 HOMEPAGE="https://sourceware.org/debugedit/"
@@ -25,13 +25,13 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	sys-devel/dwz
 "
 BDEPEND="
 	sys-apps/help2man
 	virtual/pkgconfig
 	test? (
 		app-alternatives/cpio
+		sys-devel/dwz
 	)
 	verify-sig? (
 		sec-keys/openpgp-keys-debugedit
@@ -68,4 +68,8 @@ src_configure() {
 src_test() {
 	local -x CCACHE_DISABLE=1
 	emake -Onone check TESTSUITEFLAGS="--jobs=$(get_makeopts_jobs)"
+}
+
+pkg_postinst() {
+	 optfeature "dwz support in find-debuginfo" sys-devel/dwz
 }
