@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33"
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_RECIPE_DOC="none"
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
@@ -23,17 +23,17 @@ KEYWORDS="~amd64"
 IUSE="+git"
 
 ruby_add_rdepend "
-	~dev-ruby/colored2-3.1.2
+	dev-ruby/colored2:4
 	>=dev-ruby/cri-2.15.10:0
 	dev-ruby/gettext-setup:1
 	>=dev-ruby/jwt-2.2.3:2
 	>=dev-ruby/ruby-gettext-3.0.2:0
 	~dev-ruby/log4r-1.1.10
-	>=dev-ruby/minitar-0.9:0
-	dev-ruby/puppet_forge:5
+	|| ( dev-ruby/minitar:1 >=dev-ruby/minitar-0.9:0 )
+	|| ( dev-ruby/puppet_forge:6 dev-ruby/puppet_forge:5 )
 "
 
-RDEPEND="${RDEPEND} git? ( >=dev-vcs/git-1.6.6 )"
+RDEPEND="git? ( >=dev-vcs/git-1.6.6 )"
 
 all_ruby_prepare() {
 	# Remove unused multi_json dependency. It is not used anywhere and
