@@ -91,6 +91,7 @@ CARGO_OPTIONAL=1
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..14} )
+CRATE_PV=26.33.0
 
 inherit cargo distutils-r1 pypi optfeature
 
@@ -102,7 +103,7 @@ HOMEPAGE="
 "
 SRC_URI+="
 	native-extensions? (
-		https://github.com/gentoo-crate-dist/sqlglot/releases/download/v${PV}/${P}-crates.tar.xz
+		https://github.com/gentoo-crate-dist/sqlglot/releases/download/v${CRATE_PV}/sqlglot-${CRATE_PV}-crates.tar.xz
 	)
 "
 
