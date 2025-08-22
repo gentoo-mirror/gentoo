@@ -3,8 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
-inherit bash-completion-r1 estack flag-o-matic linux-info llvm toolchain-funcs python-r1
+LLVM_COMPAT=( {18..20} )
+PYTHON_COMPAT=( python3_{10..14} python3_{13,14}t)
+inherit bash-completion-r1 estack flag-o-matic linux-info llvm-r1 toolchain-funcs python-r1
 
 DESCRIPTION="Userland tools for Linux Performance Counters"
 HOMEPAGE="https://perfwiki.github.io/main/"
@@ -33,8 +34,8 @@ S="${S_K}/tools/perf"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
-IUSE="abi_mips_o32 abi_mips_n32 abi_mips_n64 audit babeltrace big-endian bpf caps crypt debug +doc gtk java libpfm +libtraceevent +libtracefs lzma numa perl python slang systemtap tcmalloc unwind zstd"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
+IUSE="abi_mips_o32 abi_mips_n32 abi_mips_n64 babeltrace capstone big-endian bpf caps crypt debug +doc gtk java libpfm +libtraceevent +libtracefs lzma numa perl +python +slang systemtap tcmalloc unwind"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -48,6 +49,7 @@ BDEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	app-alternatives/yacc
 	app-alternatives/lex
+	sys-apps/which
 	virtual/pkgconfig
 	doc? (
 		app-text/asciidoc
@@ -58,18 +60,18 @@ BDEPEND="
 "
 
 RDEPEND="
-	audit? ( sys-process/audit )
 	babeltrace? ( dev-util/babeltrace:0/1 )
 	bpf? (
 		dev-libs/libbpf
 		dev-util/bpftool
 		dev-util/pahole
+		$(llvm_gen_dep '
+			llvm-core/clang:${LLVM_SLOT}=
+			llvm-core/llvm:${LLVM_SLOT}=
+		')
 	)
 	caps? ( sys-libs/libcap )
-	bpf? (
-		llvm-core/clang:=
-		llvm-core/llvm:=
-	)
+	capstone? ( dev-libs/capstone )
 	crypt? ( dev-libs/openssl:= )
 	gtk? ( x11-libs/gtk+:2 )
 	java? ( virtual/jre:* )
@@ -84,10 +86,11 @@ RDEPEND="
 	systemtap? ( dev-debug/systemtap )
 	tcmalloc? ( dev-util/google-perftools )
 	unwind? ( sys-libs/libunwind:= )
-	zstd? ( app-arch/zstd:= )
+	app-arch/zstd:=
 	dev-libs/elfutils
 	sys-libs/binutils-libs:=
 	sys-libs/zlib
+	virtual/libcrypt
 "
 
 DEPEND="${RDEPEND}
@@ -110,7 +113,9 @@ pkg_pretend() {
 
 pkg_setup() {
 	local CONFIG_CHECK="
+		~!SCHED_OMIT_FRAME_POINTER
 		~DEBUG_INFO
+		~FRAME_POINTER
 		~FTRACE
 		~FTRACE_SYSCALLS
 		~FUNCTION_TRACER
@@ -119,17 +124,19 @@ pkg_setup() {
 		~KPROBES
 		~KPROBE_EVENTS
 		~PERF_EVENTS
+		~STACKTRACE
+		~TRACEPOINTS
 		~UPROBES
 		~UPROBE_EVENTS
 	"
 
-	use bpf && llvm_pkg_setup
+	use bpf && llvm-r1_pkg_setup
 	# We enable python unconditionally as libbpf always generates
 	# API headers using python script
 	python_setup
 
 	if use bpf ; then
-		CONFIG_CHECK+="~BPF ~BPF_EVENTS ~BPF_SYSCALL ~DEBUG_INFO_BTF ~HAVE_EBPF_JIT"
+		CONFIG_CHECK+="~BPF ~BPF_EVENTS ~BPF_SYSCALL ~DEBUG_INFO_BTF ~HAVE_EBPF_JIT ~UNWINDER_FRAME_POINTER"
 	fi
 
 	linux-info_pkg_setup
@@ -139,8 +146,10 @@ pkg_setup() {
 # it's building from the same tarball, please keep it in sync with bpftool
 src_unpack() {
 	local paths=(
-		kernel/bpf tools/{arch,bpf,build,include,lib,perf,scripts}
-		scripts include lib "arch/*/lib" "arch/*/tools"
+		'arch/*/include/*' 'arch/*/lib/*' 'arch/*/tools/*' 'include/*'
+		'kernel/bpf/*' 'lib/*' 'scripts/*' 'tools/arch/*' 'tools/bpf/*'
+		'tools/build/*' 'tools/include/*' 'tools/lib/*' 'tools/perf/*'
+		'tools/scripts/*'
 	)
 
 	# We expect the tar implementation to support the -j option (both
@@ -152,9 +161,10 @@ src_unpack() {
 	if [[ -n ${LINUX_PATCH} ]] ; then
 		eshopts_push -o noglob
 		ebegin "Filtering partial source patch"
-		filterdiff -p1 ${paths[@]/#/-i } -z "${DISTDIR}"/${LINUX_PATCH} \
-			> ${P}.patch
+		xzcat "${DISTDIR}"/${LINUX_PATCH} | filterdiff -p1 ${paths[@]/#/-i} > ${P}.patch
+		assert -n "Unpacking to ${P} from ${DISTDIR}/${LINUX_PATCH} failed"
 		eend $? || die "filterdiff failed"
+		test -s ${P}.patch || die "patch is empty?!"
 		eshopts_pop
 	fi
 
@@ -175,8 +185,7 @@ src_prepare() {
 	fi
 
 	pushd "${S_K}" >/dev/null || die
-	eapply "${FILESDIR}"/perf-6.4-libtracefs.patch
-	eapply "${FILESDIR}"/perf-6.7-expr.patch
+	# Gentoo patches go here
 	popd || die
 
 	# Drop some upstream too-developer-oriented flags and fix the
@@ -262,10 +271,10 @@ perf_make() {
 		feature-gtk2-infobar=$(usex gtk 1 "")
 		NO_AUXTRACE=
 		NO_BACKTRACE=
+		NO_CAPSTONE=$(puse capstone)
 		NO_DEMANGLE=
-		NO_JEVENTS=$(puse python)
 		NO_JVMTI=$(puse java)
-		NO_LIBAUDIT=$(puse audit)
+		NO_LIBAUDIT=1
 		NO_LIBBABELTRACE=$(puse babeltrace)
 		NO_LIBBIONIC=1
 		NO_LIBBPF=$(puse bpf)
@@ -273,25 +282,27 @@ perf_make() {
 		NO_LIBCRYPTO=$(puse crypt)
 		NO_LIBDW_DWARF_UNWIND="${disable_libdw}"
 		NO_LIBELF=
+		NO_LIBLLVM=$(puse bpf)
 		NO_LIBNUMA=$(puse numa)
 		NO_LIBPERL=$(puse perl)
 		NO_LIBPFM4=$(puse libpfm)
 		NO_LIBPYTHON=$(puse python)
 		NO_LIBTRACEEVENT=$(puse libtraceevent)
 		NO_LIBUNWIND=$(puse unwind)
-		NO_LIBZSTD=$(puse zstd)
 		NO_SDT=$(puse systemtap)
+		NO_SHELLCHECK=1
 		NO_SLANG=$(puse slang)
 		NO_LZMA=$(puse lzma)
 		NO_ZLIB=
 		TCMALLOC=$(usex tcmalloc 1 "")
 		WERROR=0
+		DEBUG=$(usex debug 1 "")
 		LIBDIR="/usr/libexec/perf-core"
 		libdir="${EPREFIX}/usr/$(get_libdir)"
 		plugindir="${EPREFIX}/usr/$(get_libdir)/perf/plugins"
 		"$@"
 	)
-	emake "${emakeargs[@]}"
+	NO_JEVENTS=$(puse python) emake "${emakeargs[@]}"
 }
 
 src_compile() {
