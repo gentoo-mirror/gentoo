@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig || ( >=dev-lang/rust-bin-1.86:* >=dev-lang/rust-1.86:* )
+BDEPEND=virtual/pkgconfig || ( >=dev-lang/rust-bin-1.86.0:* >=dev-lang/rust-1.86.0:* )
 DEFINED_PHASES=compile configure install setup test unpack
 DEPEND=>=app-arch/zstd-1.5.5:= dev-libs/openssl
 DESCRIPTION=Next-generation test runner for Rust
@@ -12,4 +12,4 @@ RDEPEND=>=app-arch/zstd-1.5.5:= dev-libs/openssl
 SLOT=0
 SRC_URI=https://github.com/nextest-rs/nextest/archive/refs/tags/cargo-nextest-0.9.102.tar.gz https://github.com/gentoo-crate-dist/nextest/releases/download/cargo-nextest-0.9.102/nextest-cargo-nextest-0.9.102-crates.tar.xz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	2c958ff95a0fd21c1cb19e961cb2946d	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a
-_md5_=cd8cced6955f7b8520b78fa89717497e
+_md5_=af702cdaad736fb7b025ff1cf47404fe
