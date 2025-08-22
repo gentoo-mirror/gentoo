@@ -13,13 +13,13 @@ S="${WORKDIR}/package"
 #             full details.
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 
 IUSE="jetbrains vscode"
 RESTRICT="bindist strip"
 
 RDEPEND="
-	net-libs/nodejs
+	>=net-libs/nodejs-18
 	sys-apps/ripgrep
 "
 
