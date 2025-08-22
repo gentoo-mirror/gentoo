@@ -3,9 +3,10 @@ DESCRIPTION=Claude Code - an agentic coding tool by Anthropic
 EAPI=8
 HOMEPAGE=https://www.anthropic.com/claude-code
 IUSE=jetbrains vscode
+KEYWORDS=~amd64
 LICENSE=all-rights-reserved
-RDEPEND=net-libs/nodejs sys-apps/ripgrep
+RDEPEND=>=net-libs/nodejs-18 sys-apps/ripgrep
 RESTRICT=bindist strip
 SLOT=0
-SRC_URI=https://registry.npmjs.org/@anthropic-ai/claude-code/-/claude-code-1.0.83.tgz
-_md5_=696816738cf91ff35bc28be083dac4d0
+SRC_URI=https://registry.npmjs.org/@anthropic-ai/claude-code/-/claude-code-1.0.88.tgz
+_md5_=30fd9180d4be85d22852082f8e091920
