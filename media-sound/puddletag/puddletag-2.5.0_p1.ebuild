@@ -10,7 +10,8 @@ inherit distutils-r1 xdg
 
 DESCRIPTION="Audio tag editor"
 HOMEPAGE="https://docs.puddletag.net/"
-SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+#SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://dev.gentoo.org/~billie/distfiles/${P}.tar.gz"
 
 LICENSE="GPL-2 GPL-3"
 SLOT="0"
@@ -18,13 +19,13 @@ KEYWORDS="~amd64"
 IUSE="acoustid quodlibet"
 
 RDEPEND="
-	>=dev-python/configobj-5.0.8[${PYTHON_USEDEP}]
-	>=dev-python/levenshtein-0.25.1[${PYTHON_USEDEP}]
-	>=dev-python/lxml-5.2.2[${PYTHON_USEDEP}]
+	>=dev-python/configobj-5.0.9[${PYTHON_USEDEP}]
+	>=dev-python/levenshtein-0.27.1[${PYTHON_USEDEP}]
+	>=dev-python/lxml-6.0.0[${PYTHON_USEDEP}]
 	acoustid? ( >=dev-python/pyacoustid-1.3.0[${PYTHON_USEDEP}] )
-	>=dev-python/pyparsing-3.1.2[${PYTHON_USEDEP}]
-	>=dev-python/pyqt5-5.15.10[${PYTHON_USEDEP},svg]
-	>=dev-python/unidecode-1.3.8[${PYTHON_USEDEP}]
+	>=dev-python/pyparsing-3.2.3[${PYTHON_USEDEP}]
+	>=dev-python/pyqt6-6.9.1[${PYTHON_USEDEP},svg]
+	>=dev-python/unidecode-1.4.0[${PYTHON_USEDEP}]
 	>=media-libs/mutagen-1.47.0[${PYTHON_USEDEP}]
 	quodlibet? ( >=media-sound/quodlibet-4.4.0[${PYTHON_USEDEP}] )
 "
