@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,12 +12,13 @@ SRC_URI="https://mirrors.edge.kernel.org/pub/linux/network/${PN}/${P}.tar.xz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE="+atmodem bluetooth +datafiles doc dundee examples +isimodem +phonesim +qmimodem tools +udev upower"
+IUSE="+atmodem bluetooth +datafiles doc dundee examples +isimodem +phonesim +qmimodem system-ell tools +udev upower"
 
 REQUIRED_USE="dundee? ( bluetooth )"
 
 RDEPEND=">=sys-apps/dbus-1.6
 	>=dev-libs/glib-2.68
+	system-ell? ( >=dev-libs/ell-0.79 )
 	net-misc/mobile-broadband-provider-info
 	bluetooth? ( >=net-wireless/bluez-4.99 )
 	udev? ( virtual/udev )
@@ -41,6 +42,7 @@ src_configure() {
 		$(use_enable tools) \
 		$(use_enable examples test) \
 		$(use_enable upower) \
+		$(use_enable system-ell external-ell) \
 		--disable-maintainer-mode \
 		--disable-rilmodem \
 		--localstatedir=/var \
