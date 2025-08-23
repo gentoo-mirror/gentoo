@@ -17,15 +17,14 @@ CRATES="
 	anstyle-query@1.1.4
 	anstyle-wincon@3.0.10
 	anstyle@1.0.11
-	anyhow@1.0.98
+	anyhow@1.0.99
 	arrayref@0.3.9
 	arrayvec@0.5.2
 	autocfg@1.5.0
 	backtrace@0.3.75
 	base64@0.13.1
 	bitflags@1.3.2
-	bitflags@2.9.1
-	bitvec@1.0.1
+	bitflags@2.9.3
 	blake2b_simd@0.5.11
 	block-buffer@0.10.4
 	brunch@0.5.3
@@ -33,13 +32,13 @@ CRATES="
 	bumpalo@3.19.0
 	bytes@1.10.1
 	caps@0.5.5
-	cc@1.2.32
-	cfg-if@1.0.1
+	cc@1.2.34
+	cfg-if@1.0.3
 	cfg_aliases@0.2.1
 	chrono@0.4.41
-	clap@4.5.43
-	clap_builder@4.5.43
-	clap_derive@4.5.41
+	clap@4.5.45
+	clap_builder@4.5.44
+	clap_derive@4.5.45
 	clap_lex@0.7.5
 	colorchoice@1.0.4
 	const_format@0.2.34
@@ -76,7 +75,6 @@ CRATES="
 	fixedbitset@0.5.7
 	flate2@1.1.2
 	fnv@1.0.7
-	funty@2.0.0
 	generic-array@0.14.7
 	getrandom@0.1.16
 	getrandom@0.2.16
@@ -95,7 +93,6 @@ CRATES="
 	home@0.5.11
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.63
-	iced-x86@1.21.0
 	ident_case@1.0.1
 	indexmap@1.9.3
 	indexmap@2.10.0
@@ -110,10 +107,10 @@ CRATES="
 	lexis@0.2.3
 	lexopt@0.3.1
 	libc@0.2.175
-	libcgroups@0.5.4
-	libcontainer@0.5.4
+	libcgroups@0.5.5
+	libcontainer@0.5.5
 	libloading@0.8.8
-	liboci-cli@0.5.4
+	liboci-cli@0.5.5
 	libredox@0.1.9
 	libseccomp-sys@0.2.1
 	libseccomp-sys@0.3.0
@@ -140,7 +137,7 @@ CRATES="
 	num-traits@0.2.19
 	num_cpus@1.17.0
 	object@0.36.7
-	oci-spec@0.8.1
+	oci-spec@0.8.2
 	once_cell@1.21.3
 	once_cell_polyfill@1.70.1
 	option-ext@0.2.0
@@ -158,7 +155,7 @@ CRATES="
 	prctl@1.0.0
 	proc-macro-error-attr2@2.0.0
 	proc-macro-error2@2.0.1
-	proc-macro2@1.0.96
+	proc-macro2@1.0.101
 	procfs-core@0.17.0
 	procfs@0.17.0
 	protobuf-codegen@3.2.0
@@ -167,8 +164,6 @@ CRATES="
 	protobuf@3.2.0
 	quote@1.0.40
 	r-efi@5.3.0
-	radium@0.7.0
-	raki@1.3.2
 	rand@0.8.5
 	rand_core@0.6.4
 	redox_syscall@0.1.57
@@ -189,11 +184,10 @@ CRATES="
 	safe-path@0.1.0
 	scroll@0.12.0
 	scroll_derive@0.12.1
-	secure-string@0.3.0
 	sendfd@0.4.4
 	serde@1.0.219
 	serde_derive@1.0.219
-	serde_json@1.0.142
+	serde_json@1.0.143
 	sha1@0.10.6
 	sha3@0.10.8
 	sharded-slab@0.1.7
@@ -206,19 +200,18 @@ CRATES="
 	strum@0.27.2
 	strum_macros@0.27.2
 	subtle@2.6.1
-	syn@2.0.104
+	syn@2.0.106
 	tabwriter@1.4.1
-	tap@1.0.1
 	tcmalloc@0.3.0
-	tempfile@3.20.0
+	tempfile@3.21.0
 	terminfo@0.8.0
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.12
+	thiserror-impl@2.0.16
 	thiserror@1.0.69
-	thiserror@2.0.12
+	thiserror@2.0.16
 	thread_local@1.1.9
 	tick_counter@0.4.5
-	tinyvec@1.9.0
+	tinyvec@1.10.0
 	tinyvec_macros@0.1.1
 	tracing-attributes@0.1.30
 	tracing-core@0.1.34
@@ -273,9 +266,6 @@ CRATES="
 	windows_x86_64_msvc@0.52.6
 	windows_x86_64_msvc@0.53.0
 	wit-bindgen-rt@0.39.0
-	wyz@0.5.1
-	yaxpeax-arch@0.3.2
-	yaxpeax-arm@0.3.1
 	zerocopy-derive@0.8.26
 	zerocopy@0.8.26
 	zeroize@1.8.1
