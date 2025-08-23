@@ -17,7 +17,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT MPL-2.0 Unlicense"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~loong ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 IUSE="+deploy doc +extended test"
 
 BDEPEND="
@@ -34,6 +34,9 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+# NOTE(JayF): Most tests currently pass, but not all. Most failing
+#             tests are internet-dependant and need to be patched out.
+# See https://bugs.gentoo.org/959346
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="deploy? ( extended )"
