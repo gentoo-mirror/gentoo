@@ -3,11 +3,11 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 MY_PV=${PV/_p/-}
 MY_P=${PN}-${MY_PV}
 
-inherit cmake linux-info python-single-r1 udev
+inherit cmake dot-a linux-info python-single-r1 udev
 
 DESCRIPTION="Library for communicating with the Pulse-Eight USB HDMI-CEC Adaptor"
 HOMEPAGE="https://libcec.pulse-eight.com"
@@ -16,7 +16,7 @@ S="${WORKDIR}/${PN}-${MY_P}"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 IUSE="exynos kernel-cec python tools udev +xrandr"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -34,11 +34,6 @@ DEPEND="${RDEPEND}
 BDEPEND="virtual/pkgconfig"
 
 CONFIG_CHECK="~USB_ACM"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-4.0.7-no-override-udev.patch"
-	"${FILESDIR}/${PN}-6.0.2-musl-nullptr.patch"
-)
 
 pkg_pretend() {
 	use udev || CONFIG_CHECK+=" ~SYSFS"
@@ -59,23 +54,36 @@ src_prepare() {
 
 	(use tools && use python) || cmake_comment_add_subdirectory "src/pyCecClient"
 
+	if use python; then
+		sed -e "s|\${CMAKE_INSTALL_LIBDIR}/python\${PYTHON_VERSION}/\${PYTHON_PKG_DIR}|$(python_get_sitedir)|" \
+			-i src/libcec/cmake/CheckPlatformSupport.cmake || die
+	fi
+
 	if ! use tools; then
 		cmake_comment_add_subdirectory "src/cec-client"
 		cmake_comment_add_subdirectory "src/cecc-client"
-		sed -i -Ee 's|add_dependencies\(cecc?-client cec\)|#DO NOT BUILD \0|' \
+		sed -i -Ee 's|add_dependencies\(cecc?-client cec-shared\)|#DO NOT BUILD \0|' \
 			CMakeLists.txt || die
 	fi
 }
 
 src_configure() {
+	lto-guarantee-fat
+
 	local mycmakeargs=(
-		-DHAVE_LINUX_API=$(usex kernel-cec ON OFF)
-		-DHAVE_LIBUDEV=$(usex udev ON OFF)
-		-DSKIP_PYTHON_WRAPPER=$(usex python OFF ON)
-		-DHAVE_EXYNOS_API=$(usex exynos ON OFF)
+		-DSKIP_PYTHON_WRAPPER=$(usex !python)
+
+		# Same order as in src/libcec/cmake/CheckPlatformSupport.cmake
+		-DHAVE_DRM_EDID_PARSER=ON
+		-DHAVE_LIBUDEV=$(usex udev)
+		-DHAVE_RANDR=$(usex xrandr)
+		-DHAVE_RPI_API=OFF
 		# bug 922690 and bug 955124
 		-DHAVE_TDA995X_API=OFF
-		-DHAVE_RPI_API=OFF
+		-DHAVE_EXYNOS_API=$(usex exynos)
+		-DHAVE_LINUX_API=$(usex kernel-cec)
+
+		-DCMAKE_INSTALL_INCLUDEDIR=include # use of GNUInstallDirs variables without including it
 	)
 
 	if linux_config_exists && linux_chkconfig_present SYSFS; then
@@ -96,6 +104,8 @@ src_compile() {
 
 src_install() {
 	cmake_src_install
+
+	strip-lto-bytecode
 
 	use python && python_optimize "${D}$(python_get_sitedir)"
 
