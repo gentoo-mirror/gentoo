@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/dune-configurator:=[ocamlopt?] >=dev-lang/ocaml-4.09:= x11-libs/libX11:= x11-base/xorg-proto >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/dune-configurator:=[ocamlopt?] x11-libs/libXft x11-libs/libX11:= x11-base/xorg-proto >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=The OCaml graphics library
 EAPI=8
 HOMEPAGE=https://github.com/ocaml/graphics
@@ -8,8 +8,8 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2.1-with-linking-exception
-RDEPEND=dev-ml/dune-configurator:=[ocamlopt?] >=dev-lang/ocaml-4.09:= x11-libs/libX11:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/dune-configurator:=[ocamlopt?] x11-libs/libXft x11-libs/libX11:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
 SLOT=0
 SRC_URI=https://github.com/ocaml/graphics/archive/refs/tags/5.2.0.tar.gz -> graphics-5.2.0.tar.gz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
-_md5_=9afc5707ecf7f4cf9fd6ff6bf01c171b
+_md5_=19343f49905d20bddc730fe72d645fdc
