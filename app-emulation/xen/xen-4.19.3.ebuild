@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit flag-o-matic mount-boot python-any-r1 secureboot toolchain-funcs
 
@@ -12,7 +12,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://xenbits.xen.org/git-http/xen.git"
 	SRC_URI=""
 else
-	KEYWORDS="amd64 ~arm -x86"
+	KEYWORDS="~amd64 ~arm -x86"
 
 	XEN_GENTOO_PATCHSET_NUM=2
 	XEN_GENTOO_PATCHSET_BASE=4.17.0

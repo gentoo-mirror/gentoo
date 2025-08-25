@@ -18,7 +18,7 @@ IUSE_VOICEMAIL_STORAGE=(
 	voicemail_storage_odbc
 	voicemail_storage_imap
 )
-IUSE="${IUSE_VOICEMAIL_STORAGE[*]} alsa blocks bluetooth calendar +caps cluster codec2 curl debug deprecated doc freetds gtalk http iconv ilbc ldap lua mysql newt odbc pjproject portaudio postgres radius selinux snmp span speex srtp +ssl static statsd systemd unbound vorbis xmpp"
+IUSE="${IUSE_VOICEMAIL_STORAGE[*]} alsa blocks bluetooth calendar +caps cluster codec2 curl debug deprecated doc freetds gtalk http iconv ilbc ldap lua mysql newt odbc oss pjproject portaudio postgres radius selinux snmp span speex srtp +ssl static statsd syslog systemd unbound vorbis xmpp"
 IUSE_EXPAND="VOICEMAIL_STORAGE"
 REQUIRED_USE="gtalk? ( xmpp )
 	lua? ( ${LUA_REQUIRED_USE} )
@@ -92,7 +92,8 @@ RDEPEND="${DEPEND}
 	net-misc/asterisk-core-sounds
 	net-misc/asterisk-extra-sounds
 	net-misc/asterisk-moh-opsound
-	selinux? ( sec-policy/selinux-asterisk )"
+	selinux? ( sec-policy/selinux-asterisk )
+	syslog? ( virtual/logger )"
 PDEPEND="net-misc/asterisk-base"
 
 BDEPEND="dev-libs/libxml2:2
@@ -112,7 +113,6 @@ ast_make() {
 		"ASTCACHEDIR=/var/cache/asterisk"
 		"OPTIMIZE="
 		"DEBUG="
-		"DESTDIR=${D}"
 		"CONFIG_SRC=configs/samples"
 		"CONFIG_EXTEN=.sample"
 		"AST_FORTIFY_SOURCE="
@@ -195,7 +195,7 @@ src_configure() {
 	sed -i 's/NATIVE_ARCH=/&0/' build_tools/menuselect-deps || die "Unable to squelch noisy build system"
 
 	# Compile menuselect binary for optional components
-	emake "${_make_args[@]}" menuselect.makeopts
+	ast_make menuselect.makeopts
 
 	# Disable astdb2* tools.  We've been on sqlite long enough
 	# that this should really no longer be a problem (bug #https://bugs.gentoo.org/872194)
@@ -206,6 +206,7 @@ src_configure() {
 	ast_menuselect --disable build_native
 
 	# Broken functionality is forcibly disabled (bug #360143)
+	ast_menuselect --disable chan_misdn
 	ast_menuselect --disable chan_ooh323
 
 	# Utility set is forcibly enabled (bug #358001)
@@ -238,7 +239,7 @@ src_configure() {
 	_use_select cluster      res_corosync
 	_use_select codec2       codec_codec2
 	_use_select curl         func_curl res_config_curl res_curl
-	_use_select deprecated   app_macro chan_sip res_monitor
+	_use_select deprecated   app_macro
 	_use_select freetds      {cdr,cel}_tds
 	_use_select gtalk        chan_motif
 	_use_select http         res_http_post
@@ -246,8 +247,9 @@ src_configure() {
 	_use_select ilbc         codec_ilbc format_ilbc
 	_use_select ldap         res_config_ldap
 	_use_select lua          pbx_lua
-	_use_select mysql        res_config_mysql
+	_use_select mysql        app_mysql cdr_mysql res_config_mysql
 	_use_select odbc         cdr_adaptive_odbc res_config_odbc {cdr,cel,res,func}_odbc
+	_use_select oss          chan_oss
 	_use_select postgres     {cdr,cel}_pgsql res_config_pgsql
 	_use_select radius       {cdr,cel}_radius
 	_use_select snmp         res_snmp
@@ -256,6 +258,7 @@ src_configure() {
 	_use_select speex        format_ogg_speex
 	_use_select srtp         res_srtp
 	_use_select statsd       res_statsd res_{endpoint,chan}_stats
+	_use_select syslog       cdr_syslog
 	_use_select vorbis       format_ogg_vorbis
 	_use_select xmpp         res_xmpp
 
@@ -314,6 +317,7 @@ src_install() {
 	# Reset diropts else dodoc uses it for doc installations.
 	diropts -m0755
 
+	# install the upgrade documentation
 	dodoc README* BUGS CREDITS
 
 	# install extra documentation
