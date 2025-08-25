@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_QTHELP="false" # TODO: figure out install error
 ECM_TEST="forceoptional"
-KDE_ORG_COMMIT=7c5170480ff73d7f767e78f6278c9cc55fd7bba9
+KDE_ORG_COMMIT=15d660b0ef6657e32cc5dc76f1c595591cf5716c
 KFMIN=6.16.0
 QTMIN=6.9.1
 inherit ecm gear.kde.org xdg
@@ -49,7 +49,6 @@ DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-24.11.80-gentoo-docbundledir.patch # fix hardcoded path
-	"${FILESDIR}"/${P}-cmake.patch # pending MR
 )
 
 src_configure() {
