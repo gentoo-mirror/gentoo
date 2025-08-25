@@ -1,17 +1,17 @@
 BDEPEND=secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare prerm pretend setup
-DEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 ) uefi? ( >=sys-devel/binutils-2.22[multitarget] ) !uefi? ( >=sys-devel/binutils-2.22 ) flask? ( sys-apps/checkpolicy )
+DEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) uefi? ( >=sys-devel/binutils-2.22[multitarget] ) !uefi? ( >=sys-devel/binutils-2.22 ) flask? ( sys-apps/checkpolicy )
 DESCRIPTION=The Xen virtual machine monitor
 EAPI=8
 HOMEPAGE=https://xenproject.org
 INHERIT=flag-o-matic mount-boot python-any-r1 secureboot toolchain-funcs
 IUSE=+boot-symlinks debug uefi flask secureboot
-KEYWORDS=amd64 ~arm -x86
+KEYWORDS=~amd64 ~arm -x86
 LICENSE=GPL-2
-PDEPEND=~app-emulation/xen-tools-4.19.1
+PDEPEND=~app-emulation/xen-tools-4.19.3
 REQUIRED_USE=arm? ( debug )
 RESTRICT=test splitdebug strip
 SLOT=0
-SRC_URI=https://downloads.xenproject.org/release/xen/4.19.1/xen-4.19.1.tar.gz https://gitweb.gentoo.org/proj/xen-gentoo-patches.git/snapshot/xen-gentoo-patches-4.17.0-gentoo-patchset-2.tar.bz2
+SRC_URI=https://downloads.xenproject.org/release/xen/4.19.3/xen-4.19.3.tar.gz https://gitweb.gentoo.org/proj/xen-gentoo-patches.git/snapshot/xen-gentoo-patches-4.17.0-gentoo-patchset-2.tar.bz2
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	mount-boot	03b0280b48caf6e18472fa7272cfcda8	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	linux-info	efd923656513c879204fec6638eadee5	secureboot	d98b63e30a9468e1f1c06d3d7c66e760
-_md5_=1204bf8f3ff94e111bb13a2fc76febfb
+_md5_=7d47ba74aad4de351eadc08d0a9cb006
