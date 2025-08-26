@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{11..14} )
 
 RUST_MIN_VER="1.85.0"
 
-inherit bash-completion-r1 cargo desktop optfeature python-any-r1 shell-completion
+inherit bash-completion-r1 cargo desktop optfeature python-any-r1 shell-completion xdg
 
 DESCRIPTION="ncurses Spotify client written in Rust using librespot"
 HOMEPAGE="https://github.com/hrkfdn/ncspot"
@@ -19,7 +19,7 @@ LICENSE="BSD-2"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0 BSD Boost-1.0 ISC MIT MPL-2.0 openssl Unicode-3.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 IUSE="clipboard cover mpris ncurses +notify pulseaudio"
 
@@ -86,6 +86,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_icon_cache_update
+
 	optfeature_header "Optional runtime features:"
 	optfeature "MPRIS song scrobbling support" media-sound/rescrobbled
 }
