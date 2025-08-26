@@ -52,6 +52,17 @@ src_install() {
 	dodir /opt/bin
 	dosym -r /opt/${PN}/cli.js /opt/bin/claude
 
+	# https://bugs.gentoo.org/962002 indicates that Claude doesn't use
+	# path to find the `rg` binary. Gross. So we symlink it into the place
+	# they expect it to be. Thanks to Leo Douglas for the patch.
+	if use amd64; then
+		dodir /opt/${PN}/vendor/ripgrep/x64-linux
+		dosym -r /usr/bin/rg /opt/${PN}/vendor/ripgrep/x64-linux/rg
+	elif use arm64; then
+		dodir /opt/{$PN}/vendor/ripgrep/arm64-linux
+		dosym -r /usr/bin/rg /opt/${PN}/vendor/ripgrep/arm64-linux/rg
+	fi
+
 	insinto /etc/${PN}
 	doins "${FILESDIR}/policies.json"
 
