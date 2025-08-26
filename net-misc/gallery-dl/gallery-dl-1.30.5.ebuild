@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 PYTHON_REQ_USE="sqlite,ssl,xml(+)"
 DISTUTILS_USE_PEP517="setuptools"
 
@@ -20,7 +20,7 @@ else
 	SRC_URI="https://github.com/mikf/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 arm arm64 hppa ppc ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-2"

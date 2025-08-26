@@ -8,15 +8,16 @@ inherit shell-completion check-reqs edo go-module
 DESCRIPTION="A program to sync files to and from various cloud storage providers"
 HOMEPAGE="https://rclone.org/
 	https://github.com/rclone/rclone/"
+
 SRC_URI="
-	https://github.com/rclone/rclone/releases/download/v${PV}/rclone-v${PV}.tar.gz
-	https://github.com/rclone/rclone/releases/download/v${PV}/rclone-v${PV}-vendor.tar.gz
+	https://github.com/rclone/rclone/releases/download/v${PV}/${PN}-v${PV}.tar.gz
+	https://github.com/rclone/rclone/releases/download/v${PV}/${PN}-v${PV}-vendor.tar.gz
 "
 S="${WORKDIR}/rclone-v${PV}"
 
 LICENSE="Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	sys-fs/fuse:3=
