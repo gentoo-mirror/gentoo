@@ -10,21 +10,21 @@ HOMEPAGE="https://dqlite.io/ https://github.com/canonical/dqlite"
 SRC_URI="https://github.com/canonical/dqlite/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-3-with-linking-exception"
-SLOT="0/1.15.1"
-KEYWORDS="amd64 ~arm64 ~x86"
+SLOT="0/1.18.0"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+lz4 test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="dev-db/sqlite:3
+RDEPEND="
+	>=dev-db/sqlite-3.34.0:3
 	dev-libs/libuv:=
-	lz4? ( app-arch/lz4:= )"
+	lz4? ( app-arch/lz4:= )
+"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/dqlite-1.12.0-disable-werror.patch
-	"${FILESDIR}"/dqlite-1.16.6-respect-cflags.patch
-	"${FILESDIR}"/dqlite-1.16.7-libuv-conflict.patch
+	"${FILESDIR}"/dqlite-1.18.0-disable-werror.patch
 )
 
 src_prepare() {
@@ -39,14 +39,11 @@ src_configure() {
 		--disable-sanitize
 		--disable-static
 
-		# Will use bundled raft instead of system raft. See bugs #915960, #925012.
-		--enable-build-raft
+		# Linking to a separately-built libraft is no longer supported.
+		--enable-build-raft=yes
 
 		# Will build a bundled libsqlite3.so.
 		--enable-build-sqlite=no
-
-		# Will build with experimental dqlite backend
-		--enable-dqlite-next=no
 
 		$(use_with lz4)
 	)
