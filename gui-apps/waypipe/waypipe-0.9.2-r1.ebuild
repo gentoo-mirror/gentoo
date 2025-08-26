@@ -15,7 +15,7 @@ if [[ ${PV} == 9999 ]]; then
 else
 	SRC_URI="https://gitlab.freedesktop.org/mstoeckl/waypipe/-/archive/v${PV}/${PN}-v${PV}.tar.bz2"
 	S="${WORKDIR}"/${PN}-v${PV}
-	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+	KEYWORDS="amd64 ~arm arm64 ~x86"
 fi
 
 LICENSE="MIT"
@@ -40,9 +40,7 @@ DEPEND="
 	lz4? ( app-arch/lz4 )
 	systemtap? ( dev-debug/systemtap )
 	vaapi? ( media-libs/libva[drm(+),wayland] )
-	ffmpeg? (
-		media-video/ffmpeg[x264,vaapi?]
-	)
+	ffmpeg? ( media-video/ffmpeg:=[x264,vaapi?] )
 	zstd? ( app-arch/zstd )
 "
 RDEPEND="${DEPEND}"
