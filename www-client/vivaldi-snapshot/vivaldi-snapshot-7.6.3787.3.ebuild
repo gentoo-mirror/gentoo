@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CHROMIUM_VERSION="138"
+CHROMIUM_VERSION="140"
 CHROMIUM_LANGS="
 	af
 	am
@@ -48,6 +48,7 @@ CHROMIUM_LANGS="
 	jbo
 	ka
 	kab
+	kmr
 	kn
 	ko
 	lt
@@ -168,8 +169,7 @@ src_prepare() {
 	rm -vf ${VIVALDI_HOME}/update-ffmpeg || die
 
 	pushd ${VIVALDI_HOME}/locales > /dev/null || die
-	rm ja-KS.pak || die # No flag for Kansai as not in IETF list.
-	rm kmr.pak || die # No flag for Kurmanji.
+	rm ja-KS.pak ja-KS_*.pak || die # No flag for Kansai as not in IETF list.
 	chromium_remove_language_paks
 	popd > /dev/null || die
 
