@@ -12,7 +12,7 @@ LICENSE=BSD-2
 RDEPEND=acct-group/nginx acct-user/nginx virtual/libcrypt:= libatomic? ( dev-libs/libatomic_ops ) app-misc/mime-types[nginx] selinux? ( sec-policy/selinux-nginx ) !app-vim/nginx-syntax !www-servers/nginx:stable !www-servers/nginx:live !www-servers/nginx:0 nginx_modules_http_xslt? ( dev-libs/libxml2:= dev-libs/libxslt ) nginx_modules_http_gzip? ( sys-libs/zlib:= ) nginx_modules_http_gunzip? ( sys-libs/zlib:= ) nginx_modules_http_image_filter? ( media-libs/gd:= ) nginx_modules_http_perl? ( dev-lang/perl:= ) nginx_modules_stream_geoip? ( dev-libs/geoip ) nginx_modules_stream_ssl? ( dev-libs/openssl:= ) nginx_modules_http_v3? ( >=dev-libs/openssl-1.1.1:= ) nginx_modules_http_rewrite? ( dev-libs/libpcre2:= ) nginx_modules_http_ssl? ( dev-libs/openssl:= ) nginx_modules_http_geoip? ( dev-libs/geoip ) nginx_modules_mail_ssl? ( dev-libs/openssl:= )
 REQUIRED_USE=|| ( http stream mail ) nginx_modules_http_v3? ( nginx_modules_http_ssl )
 RESTRICT=!test? ( test )
-SLOT=mainline/1.29.1
-SRC_URI=https://nginx.org/download/nginx-1.29.1.tar.gz test? ( https://github.com/nginx/nginx-tests/archive/06a36245e134eac985cdfc5fac982cb149f61412.tar.gz -> nginx-tests-06a36245e134eac985cdfc5fac982cb149f61412.tar.gz )
+SLOT=mainline/1.29.0
+SRC_URI=https://nginx.org/download/nginx-1.29.0.tar.gz test? ( https://github.com/nginx/nginx-tests/archive/7f1e88e10dca8e4c135ab9e688df0c2484091125.tar.gz -> nginx-tests-7f1e88e10dca8e4c135ab9e688df0c2484091125.tar.gz )
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	nginx	2d9a45fbdffc8c3d5f4f47fc72773264
-_md5_=3effbcef1b1f57c38a0ad6c3a7678497
+_md5_=94ee73b2ca250d0e4f654446cd45dfc4
