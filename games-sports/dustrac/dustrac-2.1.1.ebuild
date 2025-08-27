@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit cmake xdg-utils virtualx
+inherit cmake xdg
 
 DESCRIPTION="Tile-based, cross-platform 2D racing game"
 HOMEPAGE="https://juzzlin.github.io/DustRacing2D/"
@@ -21,6 +21,8 @@ RDEPEND="
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtopengl:5
+	dev-qt/qtsql:5
+	dev-qt/qtwidgets:5
 	dev-qt/qtxml:5
 	media-fonts/ubuntu-font-family
 	media-libs/libvorbis
@@ -37,12 +39,11 @@ BDEPEND="
 
 PATCHES=(
 	# upstream backports
-	"${FILESDIR}"/${P}-gcc10.patch # bug 722524
-	"${FILESDIR}"/${P}-opengl.patch
-	"${FILESDIR}"/${P}-appdata.patch
+	"${FILESDIR}"/${P}-cmake_policy_0100.patch
 	# downstream patches
 	"${FILESDIR}"/${P}-cmake.patch
 	"${FILESDIR}"/${P}-cmake-add_library-static.patch
+	"${FILESDIR}"/${P}-cmake4.patch
 )
 
 src_configure() {
@@ -50,6 +51,7 @@ src_configure() {
 	# Maybe add a local gles use flag
 	local mycmakeargs=(
 		-DReleaseBuild=ON
+		-DSystemFonts=ON
 		-DOpenGL_GL_PREFERENCE=GLVND
 		-DDATA_PATH=/usr/share/${PN}
 		-DBIN_PATH=/usr/bin
@@ -60,7 +62,8 @@ src_configure() {
 }
 
 src_test() {
-	virtx cmake_src_test
+	local -x QT_QPA_PLATFORM=offscreen
+	cmake_src_test
 }
 
 src_install() {
@@ -68,12 +71,4 @@ src_install() {
 
 	dosym ../../fonts/ubuntu-font-family/UbuntuMono-B.ttf /usr/share/${PN}/fonts/UbuntuMono-B.ttf
 	dosym ../../fonts/ubuntu-font-family/UbuntuMono-R.ttf /usr/share/${PN}/fonts/UbuntuMono-R.ttf
-}
-
-pkg_postinst() {
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_icon_cache_update
 }
