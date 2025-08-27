@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-ml/ppx_expect ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/gen:= >=dev-ml/ppxlib-0.26:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=An OCaml lexer generator for Unicode
+EAPI=8
+HOMEPAGE=https://github.com/ocaml-community/sedlex/
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=dev-ml/gen:= >=dev-ml/ppxlib-0.26:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/3.6
+SRC_URI=https://github.com/ocaml-community/sedlex/archive/v3.6.tar.gz -> sedlex-3.6.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
+_md5_=4a6bb814040da2a52068523ceb97e265
