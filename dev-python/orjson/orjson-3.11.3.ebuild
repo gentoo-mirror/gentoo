@@ -8,45 +8,8 @@ DISTUTILS_USE_PEP517=maturin
 PYTHON_COMPAT=( python3_{11..14} )
 
 # upstream is vendoring crates
-CRATES="
-	associative-cache@2.0.0
-	bytecount@0.6.9
-	cc@1.2.29
-	cfg-if@1.0.1
-	crunchy@0.2.4
-	encoding_rs@0.8.35
-	gimli@0.31.1
-	half@2.6.0
-	itoa@1.0.15
-	itoap@1.0.1
-	jiff-static@0.2.15
-	jiff@0.2.15
-	libc@0.2.174
-	memchr@2.7.5
-	once_cell@1.21.3
-	portable-atomic-util@0.2.4
-	portable-atomic@1.11.1
-	proc-macro2@1.0.95
-	pyo3-build-config@0.25.1
-	pyo3-ffi@0.25.1
-	quote@1.0.40
-	ryu@1.0.20
-	serde@1.0.219
-	serde_derive@1.0.219
-	serde_json@1.0.140
-	shlex@1.3.0
-	simdutf8@0.1.5
-	smallvec@1.15.1
-	syn@2.0.104
-	target-lexicon@0.13.2
-	unicode-ident@1.0.18
-	unwinding@0.2.5
-	uuid@1.17.0
-	version_check@0.9.5
-	xxhash-rust@0.8.15
-"
-
-RUST_MIN_VER="1.74.1"
+CRATES=""
+RUST_MIN_VER="1.88.0"
 
 inherit cargo distutils-r1 pypi
 
