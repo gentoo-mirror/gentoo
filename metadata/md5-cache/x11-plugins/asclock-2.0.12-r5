@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile configure install prepare
+DEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXpm
+DESCRIPTION=Clock applet for AfterStep
+EAPI=8
+HOMEPAGE=http://wiki.afterstep.org/index.php?title=AfterStep_Applets_DataBase#asclock
+INHERIT=edo toolchain-funcs
+KEYWORDS=~amd64 ~mips ~ppc ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-solaris
+LICENSE=GPL-2
+RDEPEND=x11-libs/libX11 x11-libs/libXext x11-libs/libXpm
+SLOT=0
+SRC_URI=mirror://debian/pool/main/a/asclock/asclock_2.0.12.orig.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
+_md5_=efc0c0423e539986c3df670c7719a06c
