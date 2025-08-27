@@ -36,6 +36,31 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-27)
+# Only translation commits since 2020, still Qt5-based. Worse, packaged
+# version in Gentoo is from 2016, no one bothered to bump it since then.
+# Really needs a package maintainer while upstream is looking into Qt6.
+# Bug #955260. Removal on 2025-09-26.
+media-sound/fmit
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-27)
+# Qt5 based, still EAPI-7, last commit in upstream repo 7 years ago.
+# Alternatives are games-emulation/mednafen or, from guru overlay,
+# games-emulation/RetroArch. Bugs #953641, #957257, #879693.
+# Removal on 2025-09-26.
+games-emulation/yabause
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-27)
+# Qt5 based, last release >3 years ago and no commits since then.
+# Bug #953258. Removal on 2025-09-26
+x11-terms/cool-retro-term
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-27)
+# Qt5 based and still EAPI-7, last release from 2016, broken Qt6 "support"
+# in upstream repo. Needs someone to pick up the pieces of upstream's
+# porting effort. Bugs #953885, #955828, #957574. Removal on 2025-09-26.
+sci-calculators/speedcrunch
+
 # Arthur Zamarin <arthurzam@gentoo.org> (2025-08-22)
 # maintainer-needed, depends on Qt5, no upstream activity since 2017.
 # Removal on 2025-09-21.  Bugs #961889, #960823.
