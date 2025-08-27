@@ -3,10 +3,10 @@
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33 ruby34"
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_RECIPE_DOC="none"
-RUBY_FAKEGEM_EXTRADOC="Changelog.md README.md TODO"
+RUBY_FAKEGEM_EXTRADOC="Changelog.md README.md"
 
 RUBY_FAKEGEM_GEMSPEC="rubyzip.gemspec"
 
@@ -40,14 +40,21 @@ all_ruby_prepare() {
 	sed -i -e '/simplecov/ s:^:#:' test/test_helper.rb || die
 
 	# Avoid dependency on bundler
-	sed -i -e '/bundler/ s:^:#: ; /rubocop/I s:^:#:' Rakefile || die
+	sed -e '/bundler/ s:^:#: ; /rubocop/I s:^:#:' \
+		-e '2irequire "zip/version"' \
+		-i Rakefile || die
 
 	# Fix hardcoded path to /tmp
 	sed -i -e "s:/tmp/:${T}/:g" test/entry_test.rb || die
 
 	# Add missing requires
 	sed -i -e '1irequire "forwardable"; require "pathname"' test/input_stream_test.rb || die
+	sed -e '2irequire "zip/version"' \
+		-i test/constants_test.rb || die
 
 	# Fix broken test that uses native endian
 	sed -i -e '/pack/ s/LLS/VVv/' test/file_extract_test.rb || die
+
+	sed -e "s:_relative ': './:" \
+		-i ${RUBY_FAKEGEM_GEMSPEC} || die
 }
