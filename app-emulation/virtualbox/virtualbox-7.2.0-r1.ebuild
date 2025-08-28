@@ -55,7 +55,7 @@ COMMON_DEPEND="
 	sys-libs/zlib
 	dbus? ( sys-apps/dbus )
 	gui? (
-		dev-qt/qtbase:6[X,widgets]
+		dev-qt/qtbase:6[X,wayland,widgets]
 		dev-qt/qtscxml:6
 		dev-qt/qttools:6[assistant]
 		x11-libs/libX11
@@ -200,6 +200,8 @@ REQUIRED_USE="
 PATCHES=(
 	# Downloaded patchset
 	"${WORKDIR}"/virtualbox-patches-${PATCHES_PV}/patches
+
+	"${FILESDIR}"/${P}-fix-qt-freeze.patch
 )
 
 pkg_pretend() {
