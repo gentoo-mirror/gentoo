@@ -28,7 +28,7 @@ RDEPEND="
 		virtual/jack
 	)
 	pcap? ( net-libs/libpcap )
-	pulseaudio? ( media-sound/pulseaudio )"
+	pulseaudio? ( media-libs/libpulse )"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
