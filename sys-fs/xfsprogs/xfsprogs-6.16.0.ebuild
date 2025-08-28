@@ -58,9 +58,10 @@ src_configure() {
 	# Avoid automagic on libdevmapper (bug #709694)
 	export ac_cv_search_dm_task_create=no
 
-	# bug 903611, 948468
+	# bug 903611, 948468, 960632
 	use elibc_musl && \
-		append-flags -D_LARGEFILE64_SOURCE -DOVERRIDE_SYSTEM_STATX
+		append-flags -D_LARGEFILE64_SOURCE -DOVERRIDE_SYSTEM_STATX \
+			-DSTATX__RESERVED=0x80000000U
 
 	# Upstream does NOT support --disable-static anymore,
 	# https://www.spinics.net/lists/linux-xfs/msg30185.html
@@ -83,9 +84,7 @@ src_configure() {
 }
 
 src_compile() {
-	# -j1 for:
-	# gmake[2]: *** No rule to make target '../libhandle/libhandle.la', needed by 'xfs_spaceman'.  Stop.
-	emake V=1 -j1
+	emake V=1
 }
 
 src_install() {
