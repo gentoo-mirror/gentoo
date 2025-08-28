@@ -8,12 +8,12 @@ KERNEL_IUSE_MODULES_SIGN=1
 
 inherit kernel-build toolchain-funcs verify-sig
 
-MY_P=linux-${PV%.*}
+BASE_P=linux-${PV%.*}
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
 # forked to https://github.com/projg2/fedora-kernel-config-for-gentoo
-CONFIG_VER=6.16.0-gentoo
+CONFIG_VER=6.12.41-gentoo
 GENTOO_CONFIG_VER=g17
-SHA256SUM_DATE=20250815
+SHA256SUM_DATE=20250828
 
 DESCRIPTION="Linux kernel built from vanilla upstream sources"
 HOMEPAGE="
@@ -21,7 +21,7 @@ HOMEPAGE="
 	https://www.kernel.org/
 "
 SRC_URI+="
-	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${BASE_P}.tar.xz
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PV}.xz
 	https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
 		-> gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz
@@ -50,7 +50,7 @@ SRC_URI+="
 			-> kernel-i686-fedora.config.${CONFIG_VER}
 	)
 "
-S=${WORKDIR}/${MY_P}
+S=${WORKDIR}/${BASE_P}
 
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="debug hardened"
@@ -68,20 +68,20 @@ PDEPEND="
 	>=virtual/dist-kernel-${PV}
 "
 
-VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kernel.org.asc
-
 QA_FLAGS_IGNORED="
 	usr/src/linux-.*/scripts/gcc-plugins/.*.so
 	usr/src/linux-.*/vmlinux
 	usr/src/linux-.*/arch/powerpc/kernel/vdso.*/vdso.*.so.dbg
 "
 
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kernel.org.asc
+
 src_unpack() {
 	if use verify-sig; then
 		cd "${DISTDIR}" || die
 		verify-sig_verify_signed_checksums \
 			"linux-$(ver_cut 1).x-sha256sums-${SHA256SUM_DATE}.asc" \
-			sha256 "${MY_P}.tar.xz patch-${PV}.xz"
+			sha256 "${BASE_P}.tar.xz patch-${PV}.xz"
 		cd "${WORKDIR}" || die
 	fi
 
@@ -109,14 +109,11 @@ src_prepare() {
 		ppc)
 			# assume powermac/powerbook defconfig
 			# we still package.use.force savedconfig
-			cp "${WORKDIR}/${MY_P}/arch/powerpc/configs/pmac32_defconfig" .config || die
+			cp "${WORKDIR}/${BASE_P}/arch/powerpc/configs/pmac32_defconfig" .config || die
 			;;
 		ppc64)
 			cp "${DISTDIR}/kernel-ppc64le-fedora.config.${CONFIG_VER}" .config || die
 			biendian=true
-			;;
-		riscv)
-			cp "${DISTDIR}/kernel-riscv64-fedora.config.${CONFIG_VER}" .config || die
 			;;
 		x86)
 			cp "${DISTDIR}/kernel-i686-fedora.config.${CONFIG_VER}" .config || die

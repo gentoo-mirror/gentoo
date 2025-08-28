@@ -3,15 +3,15 @@
 
 EAPI=8
 
-KERNEL_IUSE_GENERIC_UKI=1
 KERNEL_IUSE_MODULES_SIGN=1
 
 inherit kernel-install toolchain-funcs unpacker verify-sig
 
-MY_P=linux-${PV%.*}
-PATCHSET=linux-gentoo-patches-6.15.9-r1
-BINPKG=${PF/-bin}-1
-SHA256SUM_DATE=20250801
+BASE_P=linux-${PV%.*}
+PATCH_PV=${PV%_p*}
+PATCHSET=linux-gentoo-patches-6.1.147
+BINPKG=${P/-bin}-1
+SHA256SUM_DATE=20250828
 
 DESCRIPTION="Pre-built Linux kernel with Gentoo patches"
 HOMEPAGE="
@@ -19,8 +19,8 @@ HOMEPAGE="
 	https://www.kernel.org/
 "
 SRC_URI+="
-	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
-	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PV}.xz
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${BASE_P}.tar.xz
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PATCH_PV}.xz
 	https://dev.gentoo.org/~mgorny/dist/linux/${PATCHSET}.tar.xz
 	verify-sig? (
 		https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/sha256sums.asc
@@ -46,27 +46,23 @@ SRC_URI+="
 S=${WORKDIR}
 
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-IUSE="debug"
 
 RDEPEND="
 	!sys-kernel/gentoo-kernel:${SLOT}
 "
 PDEPEND="
-	>=virtual/dist-kernel-${PV}
+	>=virtual/dist-kernel-${PATCH_PV}
 "
 BDEPEND="
 	app-alternatives/bc
 	app-alternatives/lex
-	dev-util/pahole
 	virtual/libelf
 	app-alternatives/yacc
-	amd64? ( app-crypt/sbsigntools )
-	arm64? ( app-crypt/sbsigntools )
 	verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 )
 "
 
 KV_LOCALVERSION='-gentoo-dist'
-KPV=${PV}${KV_LOCALVERSION}
+KV_FULL=${PV/_p/-p}${KV_LOCALVERSION}
 
 QA_PREBUILT='*'
 
@@ -77,7 +73,7 @@ src_unpack() {
 		cd "${DISTDIR}" || die
 		verify-sig_verify_signed_checksums \
 			"linux-$(ver_cut 1).x-sha256sums-${SHA256SUM_DATE}.asc" \
-			sha256 "${MY_P}.tar.xz patch-${PV}.xz"
+			sha256 "${BASE_P}.tar.xz patch-${PATCH_PV}.xz"
 		cd "${WORKDIR}" || die
 	fi
 
@@ -86,8 +82,8 @@ src_unpack() {
 
 src_prepare() {
 	local patch
-	cd "${MY_P}" || die
-	eapply "${WORKDIR}/patch-${PV}"
+	cd "${BASE_P}" || die
+	eapply "${WORKDIR}/patch-${PATCH_PV}"
 	for patch in "${WORKDIR}/${PATCHSET}"/*.patch; do
 		eapply "${patch}"
 		# non-experimental patches always finish with Gentoo Kconfig
@@ -99,6 +95,10 @@ src_prepare() {
 	done
 
 	default
+
+	# add Gentoo patchset version
+	local extraversion=${PV#${PATCH_PV}}
+	sed -i -e "s:^\(EXTRAVERSION =\).*:\1 ${extraversion/_/-}:" Makefile || die
 }
 
 src_configure() {
@@ -140,50 +140,27 @@ src_configure() {
 		O="${WORKDIR}"/modprep
 	)
 
-	local kernel_dir="${BINPKG}/image/usr/src/linux-${KPV}"
+	local kernel_dir="${BINPKG}/image/usr/src/linux-${KV_FULL}"
 
 	# If this is set it will have an effect on the name of the output
 	# image. Set this variable to track this setting.
 	if grep -q "CONFIG_EFI_ZBOOT=y" "${kernel_dir}/.config"; then
 		KERNEL_EFI_ZBOOT=1
-	elif use arm64 && use generic-uki; then
-		die "USE=generic-uki requires a CONFIG_EFI_ZBOOT enabled build"
-	fi
-
-	local image="${kernel_dir}/$(dist-kernel_get_image_path)"
-	local uki="${image%/*}/uki.efi"
-	if [[ -s ${uki} ]]; then
-		# We need to extract the plain image for the test phase
-		# and USE=-generic-uki.
-		kernel-install_extract_from_uki linux "${uki}" "${image}"
 	fi
 
 	mkdir modprep || die
-	cp "${kernel_dir}/.config" modprep/ || die
-	emake -C "${MY_P}" "${makeargs[@]}" modules_prepare
+	cp "${BINPKG}/image/usr/src/linux-${KV_FULL}/.config" modprep/ || die
+	emake -C "${BASE_P}" "${makeargs[@]}" modules_prepare
 }
 
 src_test() {
-	local kernel_dir="${BINPKG}/image/usr/src/linux-${KPV}"
-	kernel-install_test "${KPV}" \
-		"${WORKDIR}/${kernel_dir}/$(dist-kernel_get_image_path)" \
-		"${BINPKG}/image/lib/modules/${KPV}"
+	kernel-install_test "${KV_FULL}" \
+		"${WORKDIR}/${BINPKG}/image/usr/src/linux-${KV_FULL}/$(dist-kernel_get_image_path)" \
+		"${BINPKG}/image/lib/modules/${KV_FULL}"
 }
 
 src_install() {
-	local rel_kernel_dir=/usr/src/linux-${KPV}
-	local kernel_dir="${BINPKG}/image${rel_kernel_dir}"
-	local image="${kernel_dir}/$(dist-kernel_get_image_path)"
-	local uki="${image%/*}/uki.efi"
-	if [[ -s ${uki} ]]; then
-		# Keep the kernel image type we don't want out of install tree
-		# Replace back with placeholder
-		if use generic-uki; then
-			> "${image}" || die
-		else
-			> "${uki}" || die
-		fi
-	fi
+	local kernel_dir="${BINPKG}/image/usr/src/linux-${KV_FULL}"
 
 	# Overwrite the identifier in the prebuilt package
 	echo "${CATEGORY}/${PF}:${SLOT}" > "${kernel_dir}/dist-kernel" || die
@@ -203,22 +180,5 @@ src_install() {
 			'(' -name '.*' -a -not -name '.config' ')' \
 		')' -delete || die
 	rm modprep/source || die
-	cp -p -R modprep/. "${ED}${rel_kernel_dir}"/ || die
-
-	# Update timestamps on all modules to ensure cleanup works correctly
-	# when switching USE=modules-compress.
-	find "${ED}/lib" -name '*.ko' -exec touch {} + || die
-
-	# Modules were already stripped before signing
-	dostrip -x /lib/modules
-	kernel-install_compress_modules
-
-	# Mirror the logic from kernel-build_src_install, for architectures
-	# where USE=debug is used.
-	if use ppc64; then
-		dostrip -x "${rel_kernel_dir}/$(dist-kernel_get_image_path)"
-	elif use debug && { use amd64 || use arm64; }; then
-		dostrip -x "${rel_kernel_dir}/vmlinux"
-		dostrip -x "${rel_kernel_dir}/vmlinux.ctfa"
-	fi
+	cp -p -R modprep/. "${ED}/usr/src/linux-${KV_FULL}"/ || die
 }

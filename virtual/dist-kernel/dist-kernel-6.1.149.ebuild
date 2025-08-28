@@ -5,12 +5,12 @@ EAPI=8
 
 DESCRIPTION="Virtual to depend on any Distribution Kernel"
 SLOT="0/${PVR}"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	|| (
 		~sys-kernel/gentoo-kernel-${PV}
 		~sys-kernel/gentoo-kernel-bin-${PV}
-		~sys-kernel/vanilla-kernel-${PV}
+		~sys-kernel/vanilla-kernel-${PV%_p*}
 	)
 "

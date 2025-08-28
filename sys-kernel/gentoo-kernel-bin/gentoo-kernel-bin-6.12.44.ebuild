@@ -8,10 +8,11 @@ KERNEL_IUSE_MODULES_SIGN=1
 
 inherit kernel-install toolchain-funcs unpacker verify-sig
 
-MY_P=linux-${PV%.*}
-PATCHSET=linux-gentoo-patches-6.16.2-r1
-BINPKG=${PF/-bin}-1
-SHA256SUM_DATE=20250820
+BASE_P=linux-${PV%.*}
+PATCH_PV=${PV%_p*}
+PATCHSET=linux-gentoo-patches-6.12.44
+BINPKG=${P/-bin}-1
+SHA256SUM_DATE=20250828
 
 DESCRIPTION="Pre-built Linux kernel with Gentoo patches"
 HOMEPAGE="
@@ -19,8 +20,8 @@ HOMEPAGE="
 	https://www.kernel.org/
 "
 SRC_URI+="
-	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
-	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PV}.xz
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${BASE_P}.tar.xz
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PATCH_PV}.xz
 	https://dev.gentoo.org/~mgorny/dist/linux/${PATCHSET}.tar.xz
 	verify-sig? (
 		https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/sha256sums.asc
@@ -52,7 +53,7 @@ RDEPEND="
 	!sys-kernel/gentoo-kernel:${SLOT}
 "
 PDEPEND="
-	>=virtual/dist-kernel-${PV}
+	>=virtual/dist-kernel-${PATCH_PV}
 "
 BDEPEND="
 	app-alternatives/bc
@@ -66,7 +67,7 @@ BDEPEND="
 "
 
 KV_LOCALVERSION='-gentoo-dist'
-KPV=${PV}${KV_LOCALVERSION}
+KV_FULL=${PV/_p/-p}${KV_LOCALVERSION}
 
 QA_PREBUILT='*'
 
@@ -77,7 +78,7 @@ src_unpack() {
 		cd "${DISTDIR}" || die
 		verify-sig_verify_signed_checksums \
 			"linux-$(ver_cut 1).x-sha256sums-${SHA256SUM_DATE}.asc" \
-			sha256 "${MY_P}.tar.xz patch-${PV}.xz"
+			sha256 "${BASE_P}.tar.xz patch-${PATCH_PV}.xz"
 		cd "${WORKDIR}" || die
 	fi
 
@@ -86,8 +87,8 @@ src_unpack() {
 
 src_prepare() {
 	local patch
-	cd "${MY_P}" || die
-	eapply "${WORKDIR}/patch-${PV}"
+	cd "${BASE_P}" || die
+	eapply "${WORKDIR}/patch-${PATCH_PV}"
 	for patch in "${WORKDIR}/${PATCHSET}"/*.patch; do
 		eapply "${patch}"
 		# non-experimental patches always finish with Gentoo Kconfig
@@ -99,6 +100,10 @@ src_prepare() {
 	done
 
 	default
+
+	# add Gentoo patchset version
+	local extraversion=${PV#${PATCH_PV}}
+	sed -i -e "s:^\(EXTRAVERSION =\).*:\1 ${extraversion/_/-}:" Makefile || die
 }
 
 src_configure() {
@@ -140,7 +145,7 @@ src_configure() {
 		O="${WORKDIR}"/modprep
 	)
 
-	local kernel_dir="${BINPKG}/image/usr/src/linux-${KPV}"
+	local kernel_dir="${BINPKG}/image/usr/src/linux-${KV_FULL}"
 
 	# If this is set it will have an effect on the name of the output
 	# image. Set this variable to track this setting.
@@ -160,18 +165,18 @@ src_configure() {
 
 	mkdir modprep || die
 	cp "${kernel_dir}/.config" modprep/ || die
-	emake -C "${MY_P}" "${makeargs[@]}" modules_prepare
+	emake -C "${BASE_P}" "${makeargs[@]}" modules_prepare
 }
 
 src_test() {
-	local kernel_dir="${BINPKG}/image/usr/src/linux-${KPV}"
-	kernel-install_test "${KPV}" \
+	local kernel_dir="${BINPKG}/image/usr/src/linux-${KV_FULL}"
+	kernel-install_test "${KV_FULL}" \
 		"${WORKDIR}/${kernel_dir}/$(dist-kernel_get_image_path)" \
-		"${BINPKG}/image/lib/modules/${KPV}"
+		"${BINPKG}/image/lib/modules/${KV_FULL}"
 }
 
 src_install() {
-	local rel_kernel_dir=/usr/src/linux-${KPV}
+	local rel_kernel_dir=/usr/src/linux-${KV_FULL}
 	local kernel_dir="${BINPKG}/image${rel_kernel_dir}"
 	local image="${kernel_dir}/$(dist-kernel_get_image_path)"
 	local uki="${image%/*}/uki.efi"

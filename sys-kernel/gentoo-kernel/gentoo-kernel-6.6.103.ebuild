@@ -8,13 +8,14 @@ KERNEL_IUSE_MODULES_SIGN=1
 
 inherit kernel-build toolchain-funcs verify-sig
 
-MY_P=linux-${PV%.*}
-PATCHSET=linux-gentoo-patches-6.16.2
+BASE_P=linux-${PV%.*}
+PATCH_PV=${PV%_p*}
+PATCHSET=linux-gentoo-patches-6.6.102
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
 # forked to https://github.com/projg2/fedora-kernel-config-for-gentoo
-CONFIG_VER=6.16.0-gentoo
+CONFIG_VER=6.6.12-gentoo
 GENTOO_CONFIG_VER=g17
-SHA256SUM_DATE=20250820
+SHA256SUM_DATE=20250828
 
 DESCRIPTION="Linux kernel built with Gentoo patches"
 HOMEPAGE="
@@ -22,8 +23,8 @@ HOMEPAGE="
 	https://www.kernel.org/
 "
 SRC_URI+="
-	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
-	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PV}.xz
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${BASE_P}.tar.xz
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PATCH_PV}.xz
 	https://dev.gentoo.org/~mgorny/dist/linux/${PATCHSET}.tar.xz
 	https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
 		-> gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz
@@ -43,22 +44,19 @@ SRC_URI+="
 		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-ppc64le-fedora.config
 			-> kernel-ppc64le-fedora.config.${CONFIG_VER}
 	)
-	riscv? (
-		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-riscv64-fedora.config
-			-> kernel-riscv64-fedora.config.${CONFIG_VER}
-	)
 	x86? (
 		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-i686-fedora.config
 			-> kernel-i686-fedora.config.${CONFIG_VER}
 	)
 "
-S=${WORKDIR}/${MY_P}
+S=${WORKDIR}/${BASE_P}
 
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="debug experimental hardened"
 REQUIRED_USE="
 	arm? ( savedconfig )
 	hppa? ( savedconfig )
+	riscv? ( savedconfig )
 	sparc? ( savedconfig )
 "
 
@@ -70,7 +68,7 @@ BDEPEND="
 	verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 )
 "
 PDEPEND="
-	>=virtual/dist-kernel-${PV}
+	>=virtual/dist-kernel-${PATCH_PV}
 "
 
 QA_FLAGS_IGNORED="
@@ -86,7 +84,7 @@ src_unpack() {
 		cd "${DISTDIR}" || die
 		verify-sig_verify_signed_checksums \
 			"linux-$(ver_cut 1).x-sha256sums-${SHA256SUM_DATE}.asc" \
-			sha256 "${MY_P}.tar.xz patch-${PV}.xz"
+			sha256 "${BASE_P}.tar.xz patch-${PATCH_PV}.xz"
 		cd "${WORKDIR}" || die
 	fi
 
@@ -95,7 +93,7 @@ src_unpack() {
 
 src_prepare() {
 	local patch
-	eapply "${WORKDIR}/patch-${PV}"
+	eapply "${WORKDIR}/patch-${PATCH_PV}"
 	for patch in "${WORKDIR}/${PATCHSET}"/*.patch; do
 		eapply "${patch}"
 		# non-experimental patches always finish with Gentoo Kconfig
@@ -109,11 +107,15 @@ src_prepare() {
 
 	default
 
+	# add Gentoo patchset version
+	local extraversion=${PV#${PATCH_PV}}
+	sed -i -e "s:^\(EXTRAVERSION =\).*:\1 ${extraversion/_/-}:" Makefile || die
+
 	local biendian=false
 
 	# prepare the default config
 	case ${ARCH} in
-		arm | hppa | loong | sparc)
+		arm | hppa | loong | riscv | sparc)
 			> .config || die
 		;;
 		amd64)
@@ -126,14 +128,11 @@ src_prepare() {
 		ppc)
 			# assume powermac/powerbook defconfig
 			# we still package.use.force savedconfig
-			cp "${WORKDIR}/${MY_P}/arch/powerpc/configs/pmac32_defconfig" .config || die
+			cp "${WORKDIR}/${BASE_P}/arch/powerpc/configs/pmac32_defconfig" .config || die
 			;;
 		ppc64)
 			cp "${DISTDIR}/kernel-ppc64le-fedora.config.${CONFIG_VER}" .config || die
 			biendian=true
-			;;
-		riscv)
-			cp "${DISTDIR}/kernel-riscv64-fedora.config.${CONFIG_VER}" .config || die
 			;;
 		x86)
 			cp "${DISTDIR}/kernel-i686-fedora.config.${CONFIG_VER}" .config || die
@@ -151,7 +150,6 @@ src_prepare() {
 	local merge_configs=(
 		"${T}"/version.config
 		"${dist_conf_path}"/base.config
-		"${dist_conf_path}"/6.12+.config
 	)
 	use debug || merge_configs+=(
 		"${dist_conf_path}"/no-debug.config

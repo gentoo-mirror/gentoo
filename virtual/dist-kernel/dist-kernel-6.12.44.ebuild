@@ -11,6 +11,6 @@ RDEPEND="
 	|| (
 		~sys-kernel/gentoo-kernel-${PV}
 		~sys-kernel/gentoo-kernel-bin-${PV}
-		~sys-kernel/vanilla-kernel-${PV}
+		~sys-kernel/vanilla-kernel-${PV%_p*}
 	)
 "
