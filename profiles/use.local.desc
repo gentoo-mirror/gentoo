@@ -1097,6 +1097,8 @@ app-portage/hackport:profile - Enable profiling flags
 app-portage/kuroneko:scraper - Include the dependencies necessary for Bugzilla scraping.
 app-portage/nattka:depgraph-order - Process packages in depgraph order whenever possible.
 app-portage/pfl:network-cron - Adds a cron job which does a weekly submit of the package database
+app-portage/portage-utils:gpkg - Build GLEP-78 gpkg support in qpkg
+app-portage/portage-utils:gtree - Build gtree repository cache support
 app-portage/portage-utils:qmanifest - Build qmanifest applet, this adds additional dependencies for GPG, OpenSSL and BLAKE2B hashing
 app-portage/portage-utils:qtegrity - Build qtegrity applet, this adds additional dependencies for OpenSSL
 app-portage/tatt:templates - Install template scripts to be used with tatt
@@ -7201,9 +7203,6 @@ sci-chemistry/gromacs:opencl - Enable opencl non-bonded kernels
 sci-chemistry/gromacs:single-precision - Single precision version of gromacs (default)
 sci-chemistry/gromacs:tng - Enable new trajectory format - tng
 sci-chemistry/gromacs:video_cards_intel - Modifies the non-bonded GPU cluster size to 4 in order to enable opencl on Intel integrated graphics
-sci-chemistry/molequeue:client - Build the client application
-sci-chemistry/molequeue:server - Build the serve application
-sci-chemistry/molequeue:zeromq - Build with net-libs/zeromq support
 sci-chemistry/molsketch:openbabel - Interface for sci-chemistry/openbabel to support many file formats
 sci-chemistry/openbabel:inchi - Build support for IUPAC International Chemical Identifier format
 sci-chemistry/openbabel:json - Build support for JSON formats (ChemDoodle, PubChem, etc...)
