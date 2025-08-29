@@ -1,24 +1,18 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit gnome2-utils meson
 
-DESCRIPTION="Limiter, compressor, reverberation, equalizer auto volume effects for Pulseaudio"
+DESCRIPTION="Limiter, compressor, reverberation, equalizer auto volume effects for PulseAudio"
 HOMEPAGE="https://github.com/wwmm/easyeffects/tree/pulseaudio-legacy"
-
-if [[ ${PV} == *9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/wwmm/easyeffects"
-	EGIT_BRANCH="pulseaudio-legacy"
-else
-	SRC_URI="https://github.com/wwmm/easyeffects/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 x86"
-fi
+SRC_URI="https://github.com/wwmm/easyeffects/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}"/easyeffects-${PV}
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="amd64 x86"
 IUSE="bs2b calf +doc rnnoise rubberband webrtc zamaudio"
 
 COMMON="dev-libs/boost:=
@@ -33,7 +27,7 @@ COMMON="dev-libs/boost:=
 	media-libs/libsndfile
 	>=media-libs/lilv-0.24.2-r1
 	>=media-libs/zita-convolver-3.0.0
-	media-sound/pulseaudio
+	media-sound/pulseaudio-daemon
 	>=x11-libs/gtk+-3.20:3
 	bs2b? ( >=media-plugins/gst-plugins-bs2b-1.12.5:1.0 )
 	rnnoise? ( media-libs/rnnoise )"
@@ -60,12 +54,9 @@ BDEPEND="dev-libs/appstream-glib
 	virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-4.8.7-meson_no_automagic.patch
-	"${FILESDIR}"/${PN}-4.8.7-boost-1.85.patch
-	"${FILESDIR}"/${PN}-4.8.7-boost-1.88.patch
+	"${FILESDIR}"/${P}-meson_no_automagic.patch
+	"${FILESDIR}"/${P}-boost-1.{85,88}.patch # bugs 932322, 958315
 )
-
-S="${WORKDIR}"/easyeffects-${PV}
 
 src_configure() {
 	local emesonargs=(
