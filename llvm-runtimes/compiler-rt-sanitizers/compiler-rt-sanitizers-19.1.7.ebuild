@@ -84,6 +84,9 @@ pkg_setup() {
 src_prepare() {
 	sed -i -e 's:-Werror::' lib/tsan/go/buildgo.sh || die
 
+	# builds freestanding code
+	filter-flags -fstack-protector*
+
 	local flag
 	for flag in "${SANITIZER_FLAGS[@]}"; do
 		if ! use "${flag}"; then
@@ -100,8 +103,6 @@ src_prepare() {
 	if use ubsan && ! use cfi; then
 		> test/cfi/CMakeLists.txt || die
 	fi
-	# hangs, sigh
-	rm test/tsan/getline_nohang.cpp || die
 
 	llvm.org_src_prepare
 }

@@ -84,6 +84,9 @@ pkg_setup() {
 src_prepare() {
 	sed -i -e 's:-Werror::' lib/tsan/go/buildgo.sh || die
 
+	# builds freestanding code
+	filter-flags -fstack-protector*
+
 	local flag
 	for flag in "${SANITIZER_FLAGS[@]}"; do
 		if ! use "${flag}"; then
@@ -102,6 +105,13 @@ src_prepare() {
 	fi
 	if use ubsan && ! use cfi; then
 		> test/cfi/CMakeLists.txt || die
+	fi
+	if has_version -b ">=sys-libs/glibc-2.38"; then
+		# On glibc 2.38, the "nohang" test fails by... hanging.
+		# "fixed" in llvm 19.
+		# https://github.com/google/sanitizers/issues/1733
+		# https://github.com/llvm/llvm-project/commit/deebf6b312227e028dd3258b162306b9cdb21cf7
+		rm test/tsan/getline_nohang.cpp || die
 	fi
 
 	llvm.org_src_prepare
