@@ -1,7 +1,7 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -12,48 +12,29 @@ SRC_URI="https://github.com/dirkvdb/${PN}/releases/download/${PV}/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv sparc x86"
-IUSE="gnome gtk jpeg png test"
+IUSE="gtk jpeg png test"
 RESTRICT="!test? ( test )"
 
-REQUIRED_USE="gnome? ( gtk )
-	test? ( png jpeg )"
+REQUIRED_USE="test? ( png jpeg )"
 
-BDEPEND="
-	virtual/pkgconfig
-"
+BDEPEND="virtual/pkgconfig"
 RDEPEND="
-	gtk? ( dev-libs/glib:2= )
-	jpeg? ( virtual/jpeg:0= )
 	>=media-video/ffmpeg-2.7:0=
+	gtk? ( dev-libs/glib:2 )
+	jpeg? ( media-libs/libjpeg-turbo:0= )
 	png? ( media-libs/libpng:0= )
 "
 DEPEND="${RDEPEND}"
 
 DOCS=( AUTHORS ChangeLog README.md )
-PATCHES=(
-	"${FILESDIR}/ffmpeg5-1.patch"
-	"${FILESDIR}/ffmpeg5-2.patch"
-	"${FILESDIR}/ffmpeg5-3.patch"
-	"${FILESDIR}/ffmpeg5-4.patch"
-	"${FILESDIR}/ffmpeg5-5.patch"
-	"${FILESDIR}/ffmpeg5-6.patch"
-	"${FILESDIR}/ffmpeg5-7.patch"
-	"${FILESDIR}/ffmpeg5-8.patch"
-	"${FILESDIR}/ffmpeg5-9.patch"
-	"${FILESDIR}/ffmpeg5-10.patch"
-)
 
-src_prepare() {
-	rm -rf out* || die
-
-	cmake_src_prepare
-}
+PATCHES=( "${FILESDIR}"/ffmpeg5-{1,2,3,4,5,6,7,8,9,10}.patch )
 
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_GIO=$(usex gtk)
 		-DENABLE_TESTS=$(usex test)
-		-DENABLE_THUMBNAILER=$(usex gnome)
+		-DENABLE_THUMBNAILER=ON
 		-DHAVE_JPEG=$(usex jpeg)
 		-DHAVE_PNG=$(usex png)
 	)

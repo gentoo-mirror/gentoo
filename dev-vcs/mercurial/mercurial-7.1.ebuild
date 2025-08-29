@@ -6,8 +6,9 @@ EAPI=8
 CARGO_OPTIONAL=1
 DISTUTILS_USE_PEP517="setuptools"
 DISTUTILS_EXT=1
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..14} )
 PYTHON_REQ_USE="threads(+)"
+RUST_MIN_VER="1.81"
 
 CRATES="
 	adler2@2.0.0
@@ -252,7 +253,7 @@ CRATES="
 	zstd@0.13.3
 "
 
-inherit bash-completion-r1 cargo elisp-common distutils-r1 flag-o-matic multiprocessing
+inherit shell-completion cargo elisp-common distutils-r1 flag-o-matic multiprocessing
 
 DESCRIPTION="Scalable distributed SCM"
 HOMEPAGE="https://www.mercurial-scm.org/"
@@ -366,9 +367,7 @@ python_install_all() {
 	distutils-r1_python_install_all
 
 	newbashcomp contrib/bash_completion hg
-
-	insinto /usr/share/zsh/site-functions
-	newins contrib/zsh_completion _hg
+	newzshcomp contrib/zsh_completion _hg
 
 	dobin hgeditor
 	if use tk; then
