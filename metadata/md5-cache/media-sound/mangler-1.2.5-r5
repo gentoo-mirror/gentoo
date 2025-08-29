@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-cpp/gtkmm:2.4 gnome-base/librsvg >=dev-libs/dbus-glib-0.80 >=dev-libs/glib-2.20.1:2 >=x11-libs/gtk+-2.16:2 x11-libs/libX11 x11-libs/libXi alsa? ( media-libs/alsa-lib ) opus? ( media-libs/opus ) espeak? ( app-accessibility/espeak-ng ) g15? ( app-misc/g15daemon ) gsm? ( media-sound/gsm ) pulseaudio? ( >=media-sound/pulseaudio-0.9.14 ) speex? ( >=media-libs/speex-1.2_rc1 ) xosd? ( x11-libs/xosd )
+DEPEND=dev-cpp/gtkmm:2.4 gnome-base/librsvg >=dev-libs/dbus-glib-0.80 >=dev-libs/glib-2.20.1:2 >=x11-libs/gtk+-2.16:2 x11-libs/libX11 x11-libs/libXi alsa? ( media-libs/alsa-lib ) opus? ( media-libs/opus ) espeak? ( app-accessibility/espeak-ng ) gsm? ( media-sound/gsm ) pulseaudio? ( media-libs/libpulse ) speex? ( >=media-libs/speex-1.2_rc1 ) xosd? ( x11-libs/xosd )
 DESCRIPTION=Open source VOIP client capable of connecting to Ventrilo 3.x servers
 EAPI=8
 HOMEPAGE=http://www.mangler.org/
 INHERIT=autotools toolchain-funcs
-IUSE=+alsa opus espeak g15 +gsm oss pulseaudio +speex +xosd
+IUSE=+alsa opus espeak +gsm oss pulseaudio +speex +xosd
 KEYWORDS=amd64 x86
 LICENSE=GPL-3 LGPL-2.1 ZLIB
-RDEPEND=dev-cpp/gtkmm:2.4 gnome-base/librsvg >=dev-libs/dbus-glib-0.80 >=dev-libs/glib-2.20.1:2 >=x11-libs/gtk+-2.16:2 x11-libs/libX11 x11-libs/libXi alsa? ( media-libs/alsa-lib ) opus? ( media-libs/opus ) espeak? ( app-accessibility/espeak-ng ) g15? ( app-misc/g15daemon ) gsm? ( media-sound/gsm ) pulseaudio? ( >=media-sound/pulseaudio-0.9.14 ) speex? ( >=media-libs/speex-1.2_rc1 ) xosd? ( x11-libs/xosd )
+RDEPEND=dev-cpp/gtkmm:2.4 gnome-base/librsvg >=dev-libs/dbus-glib-0.80 >=dev-libs/glib-2.20.1:2 >=x11-libs/gtk+-2.16:2 x11-libs/libX11 x11-libs/libXi alsa? ( media-libs/alsa-lib ) opus? ( media-libs/opus ) espeak? ( app-accessibility/espeak-ng ) gsm? ( media-sound/gsm ) pulseaudio? ( media-libs/libpulse ) speex? ( >=media-libs/speex-1.2_rc1 ) xosd? ( x11-libs/xosd )
 SLOT=0
 SRC_URI=http://www.mangler.org/downloads/mangler-1.2.5.tar.bz2
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=343158b6aed32da8a1feb51d9bfd7886
+_md5_=c57dd2101472b1f5a5426aa65a645a7c
