@@ -3,16 +3,15 @@
 
 EAPI=8
 
-# crates vendored upstream
-CRATES=""
-
-RUST_MIN_VERSION=1.80.0
+CRATES="
+"
+RUST_MIN_VERSION=1.83.0
 
 inherit cargo meson
 
-MY_PV=${PV/_beta/.beta.}
+MY_PV=${PV/_/.}
 MY_P=glycin-${MY_PV}
-TEST_IMAGE_COMMIT=704f16f7d8bf10c39c182dc0ca9ee9973d68f3b2
+TEST_IMAGE_COMMIT=7e1d59dc5f8ce18d75769d591f9af32fb26e47b6
 
 DESCRIPTION="Loaders for glycin clients (glycin crate or libglycin)"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/glycin/"
@@ -31,17 +30,17 @@ S=${WORKDIR}/${MY_P}
 LICENSE="|| ( LGPL-2.1+ MPL-2.0 )"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD GPL-3+ ISC LGPL-3+
-	MIT Unicode-3.0
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD GPL-3+ IJG ISC
+	LGPL-3+ MIT Unicode-3.0
 	|| ( LGPL-2.1+ MPL-2.0 )
 "
 SLOT="0"
-IUSE="heif jpegxl svg test"
+IUSE="heif jpeg2k jpegxl svg test"
 REQUIRED_USE="test? ( heif jpegxl )"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-libs/glib-2.60:2
+	>=dev-libs/glib-2.68.0:2
 	>=sys-libs/libseccomp-2.5.0
 	heif? ( >=media-libs/libheif-1.17.0:= )
 	jpegxl? ( >=media-libs/libjxl-0.11.0:= )
@@ -78,6 +77,7 @@ src_unpack() {
 src_configure() {
 	local formats=(
 		$(usev heif glycin-heif)
+		$(usev jpeg2k glycin-jpeg2000)
 		$(usev jpegxl glycin-jxl)
 		$(usev svg glycin-svg)
 		glycin-image-rs
