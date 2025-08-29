@@ -1,9 +1,9 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit xdg
+inherit flag-o-matic xdg
 
 DESCRIPTION="GTK+ Sound file editor (wav, and a few others.)"
 HOMEPAGE="https://github.com/magnush/mhwaveedit/"
@@ -21,7 +21,7 @@ RDEPEND="
 	jack? ( virtual/jack )
 	ladspa? ( media-libs/ladspa-sdk )
 	libsamplerate? ( media-libs/libsamplerate:= )
-	pulseaudio? ( media-sound/pulseaudio )
+	pulseaudio? ( media-libs/libpulse )
 	sdl? ( media-libs/libsdl:= )
 	sndfile? ( media-libs/libsndfile:= )
 	sox? ( media-sound/sox:= )"
@@ -31,6 +31,8 @@ BDEPEND="virtual/pkgconfig"
 PATCHES=( "${FILESDIR}"/${PN}-1.4.23-missing-include.patch )
 
 src_configure() {
+	append-cflags -std=gnu17 # bug 944358
+
 	local myeconfargs=(
 		--without-arts
 		--without-esound
