@@ -1,0 +1,16 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp dev-gap/autpgrp dev-gap/alnuth )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=Computation with polycyclic groups
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/packages/#polycyclic
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64 ~riscv
+LICENSE=GPL-2+
+PDEPEND=dev-gap/alnuth
+RDEPEND=dev-gap/autpgrp sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/gap-packages/polycyclic/releases/download/v2.17/polycyclic-2.17.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	ceef97f818402a0c996cdb13b9d90c92
+_md5_=6543da5cd3f01c815c9077363e2d574c
