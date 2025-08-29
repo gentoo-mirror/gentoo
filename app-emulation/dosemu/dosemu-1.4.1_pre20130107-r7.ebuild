@@ -1,7 +1,7 @@
-# Copyright 2002-2024 Gentoo Authors
+# Copyright 2002-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="7"
+EAPI="8"
 
 inherit autotools flag-o-matic pax-utils toolchain-funcs
 
@@ -15,10 +15,11 @@ HOMEPAGE="http://www.dosemu.org/"
 SRC_URI="https://downloads.sourceforge.net/dosemu/${P_FD}.tgz
 	https://dev.gentoo.org/~sam/distfiles/${P}.zip"
 
+S="${WORKDIR}/${PN}-code-${COMMIT}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="-* amd64 x86"
-IUSE="X alsa debug fluidsynth gpm svga"
+IUSE="X alsa debug fluidsynth gpm"
 
 BDEPEND="app-arch/unzip
 	sys-devel/bison
@@ -38,15 +39,12 @@ COMMON_DEPEND="media-libs/libsdl
 		media-sound/fluid-soundfont
 		media-sound/fluidsynth
 	)
-	gpm? ( sys-libs/gpm )
-	svga? ( media-libs/svgalib )"
+	gpm? ( sys-libs/gpm )"
 #	sndfile? ( media-libs/libsndfile )
 DEPEND="${COMMON_DEPEND}
 	X? ( x11-base/xorg-proto )"
 RDEPEND="${COMMON_DEPEND}
 	X? ( x11-apps/xset )"
-
-S="${WORKDIR}/${PN}-code-${COMMIT}"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-fortify.patch
@@ -99,7 +97,6 @@ src_configure() {
 	# CPP has to be set explicitly to workaround autoconf-2.69
 	# CPP detection (fixed in 2.70). bug #762748.
 	econf $(use_with X x) \
-		$(use_with svga svgalib) \
 		$(use_enable debug) \
 		$(use_with gpm) \
 		$(use_with alsa) \
