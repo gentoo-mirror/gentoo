@@ -16,7 +16,7 @@ index bc84fbf0..db9c09fb 100644
 @@ -166,7 +166,7 @@ if(kst_3rdparty)
    find_package(Matio)
    find_package(CFITSIO)
-   find_package(LibTiff)
+   find_package(TIFF)
 -  find_package(HDF5)
 +  find_package(HDF5 COMPONENTS CXX)
    message(STATUS "----------------------------------------------")

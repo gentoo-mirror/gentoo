@@ -3,10 +3,10 @@
 
 EAPI=8
 
-CMAKE_REMOVE_MODULES_LIST=( FindGsl FindHDF5 )
+CMAKE_REMOVE_MODULES_LIST=( FindHDF5 )
 KDE_ORG_CATEGORY=graphics
 KDE_ORG_NAME=kst-plot
-KDE_ORG_COMMIT=16334f6f99613a1b60873d93835f9083dca258b2
+KDE_ORG_COMMIT=c250288dcae3b476d55321b935fbaab5dec6b28b
 inherit cmake flag-o-matic kde.org xdg
 
 DESCRIPTION="Fast real-time large-dataset viewing and plotting tool"
@@ -45,14 +45,15 @@ BDEPEND="dev-qt/linguist-tools:5"
 DOCS=( AUTHORS README.kstScript )
 
 PATCHES=(
+	# downstream patches
 	"${FILESDIR}"/${PN}-2.0.8-getdata-drop-bogus-lib_debug.patch # bug #593848
-	"${FILESDIR}"/${P}-cmake4.patch # thx opensuse
-	"${FILESDIR}"/${P}-cmake-{findgsl,findhdf5}.patch # bugs #884625, #954233
-	"${FILESDIR}"/${P}-hdf5cxx.patch # thx opensuse
+	"${FILESDIR}"/${P}-cmake-findhdf5.patch # bug #954233
+	"${FILESDIR}"/${P}-no-compress-man.patch # bug #812017
 )
 
 src_prepare() {
 	rm -r cmake/3rdparty || die
+	rm -r pyKst || die # unused w/ -Dkst_python=OFF below
 
 	cmake_src_prepare
 
@@ -72,8 +73,6 @@ src_configure() {
 		-Dkst_dbgsym=ON
 		-Dkst_pch=OFF
 		-Dkst_python=OFF
-		-Dkst_qt5=ON
-		-Dkst_qt4=OFF
 		-Dkst_rpath=OFF
 		-Dkst_svnversion=OFF
 		-Dkst_verbose=ON
