@@ -117,7 +117,9 @@ if [[ ${PV} != *9999* ]] ; then
 fi
 
 PATCHES=(
+	"${FILESDIR}/4.4.4-fix-skipping-rawshark-tests-on-big-endian.patch"
 	"${FILESDIR}/4.4.6-lto.patch"
+	"${FILESDIR}/4.4.6-return-from-main.patch"
 )
 
 python_check_deps() {
