@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=app-crypt/libsecret gui? ( >=dev-libs/protobuf-21.12:= dev-libs/re2:= >=dev-libs/sentry-native-0.6.5-r1 dev-qt/qtbase:6=[gui,icu,widgets] dev-qt/qtdeclarative:6=[widgets] dev-qt/qtsvg:6= media-libs/mesa net-libs/grpc:= )
+DESCRIPTION=Serves Proton Mail to IMAP/SMTP clients
+EAPI=8
+HOMEPAGE=https://proton.me/mail/bridge https://github.com/ProtonMail/proton-bridge/
+INHERIT=cmake desktop go-env go-module systemd xdg-utils
+IUSE=gui
+KEYWORDS=~amd64
+LICENSE=GPL-3+ Apache-2.0 BSD BSD-2 ISC LGPL-3+ MIT MPL-2.0 Unlicense
+PROPERTIES=test_network
+RDEPEND=app-crypt/libsecret gui? ( >=dev-libs/protobuf-21.12:= dev-libs/re2:= >=dev-libs/sentry-native-0.6.5-r1 dev-qt/qtbase:6=[gui,icu,widgets] dev-qt/qtdeclarative:6=[widgets] dev-qt/qtsvg:6= media-libs/mesa net-libs/grpc:= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/ProtonMail/proton-bridge/archive/refs/tags/v3.21.2.tar.gz -> proton-mail-bridge-3.21.2.tar.gz https://dev.gentoo.org/~expeditioneer/distfiles/mail-mta/proton-mail-bridge/proton-mail-bridge-3.21.2-vendor.tar.xz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	d96f2a2fd6d8fbad6d94516bf238f885	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=8e3b250f4277ce4284c0faffa1b32c42
