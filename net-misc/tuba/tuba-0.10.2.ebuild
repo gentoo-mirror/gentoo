@@ -56,11 +56,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	# https://github.com/GeopJr/Tuba/pull/1523
-	"${FILESDIR}/${P}-gexiv2-dep.patch"
-)
-
 src_configure() {
 	local emesonargs=(
 		# disable calling updaters (see pkg_post*)

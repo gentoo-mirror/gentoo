@@ -33,6 +33,7 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
@@ -50,7 +51,6 @@ python_test() {
 	local -x _TYPER_FORCE_DISABLE_TERMINAL=1
 	local -x _TYPER_RUN_INSTALL_COMPLETION_TESTS=1
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest
 }
 
