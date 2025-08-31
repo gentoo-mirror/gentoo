@@ -9,7 +9,7 @@ HOMEPAGE="https://apps.kde.org/categories/education/"
 LICENSE="metapackage"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="qt5 +webengine"
+IUSE="+webengine"
 
 RDEPEND="
 	>=kde-apps/analitza-${PV}:*
@@ -33,7 +33,7 @@ RDEPEND="
 	>=kde-apps/libkeduvocdocument-${PV}:*
 	>=kde-apps/marble-${PV}:*
 	>=kde-apps/minuet-${PV}:*
-	qt5? ( >=kde-apps/rocs-25.04.0:* )
+	>=kde-apps/rocs-${PV}:*
 	>=kde-apps/step-${PV}:*
 	webengine? (
 		>=kde-apps/kalgebra-${PV}:*
