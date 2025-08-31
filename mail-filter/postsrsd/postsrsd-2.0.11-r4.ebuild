@@ -13,14 +13,16 @@ SRC_URI="https://github.com/roehling/postsrsd/archive/${PV}.tar.gz -> ${P}.tar.g
 LICENSE="GPL-3 BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="test"
+IUSE="redis sqlite test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="dev-libs/confuse:="
-DEPEND="
-	${RDEPEND}
-	test? ( dev-libs/check )
-"
+RDEPEND="acct-user/postsrsd
+	dev-libs/confuse:=
+	redis? ( dev-libs/hiredis:= )
+	sqlite? ( dev-db/sqlite:3 )"
+
+DEPEND="${RDEPEND}
+	test? ( dev-libs/check )"
 
 CHROOT_DIR="${EPREFIX}/var/lib/postsrsd"
 
@@ -33,6 +35,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test)
 
+		-DPOSTSRSD_USER=postsrsd
 		-DPOSTSRSD_CHROOTDIR="${CHROOT_DIR}"
 		-DSYSTEMD_UNITDIR="$(systemd_get_systemunitdir)"
 		-DSYSTEMD_SYSUSERSDIR="${EPREFIX}/usr/lib/sysusers.d"
@@ -49,9 +52,11 @@ src_configure() {
 		# on every reinstall. Generate the secret in pkg_postinst instead.
 		-DGENERATE_SRS_SECRET=OFF
 
+		# "Note that the Milter code is less tested and should be
+		# considered experimental for now and not ready for production."
 		-DWITH_MILTER=OFF
-		-DWITH_SQLITE=OFF
-		-DWITH_REDIS=OFF
+		-DWITH_REDIS=$(usex redis)
+		-DWITH_SQLITE=$(usex sqlite)
 	)
 
 	cmake_src_configure
@@ -62,6 +67,7 @@ src_install() {
 
 	newinitd "${FILESDIR}"/postsrsd-2.0.11.initd postsrsd
 	newconfd "${FILESDIR}"/postsrsd-2.0.11.confd postsrsd
+	diropts -o postsrsd -g root -m 0755
 	keepdir "${CHROOT_DIR}"
 
 	local DOC_CONTENTS="When updating from version 1.x:
