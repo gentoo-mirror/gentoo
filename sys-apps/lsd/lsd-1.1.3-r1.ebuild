@@ -1,8 +1,9 @@
-# Copyright 2017-2024 Gentoo Authors
+# Copyright 2017-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+RUST_MIN_VER="1.82.0"
 CRATES="
 	aho-corasick@1.1.3
 	android-tzdata@0.1.1
@@ -190,7 +191,7 @@ CRATES="
 	yaml-rust@0.4.5
 "
 
-inherit bash-completion-r1 cargo
+inherit cargo shell-completion
 
 DESCRIPTION="An ls command with a lot of pretty colors and some other stuff."
 HOMEPAGE="https://github.com/lsd-rs/lsd/"
@@ -205,13 +206,14 @@ LICENSE+=" Apache-2.0 MIT MPL-2.0 Unicode-DFS-2016"
 SLOT="0"
 KEYWORDS="amd64 arm64 ppc64 ~riscv x86"
 
-DEPEND="
-	dev-libs/libgit2:=
-"
-
 QA_FLAGS_IGNORED="usr/bin/lsd"
 
 src_prepare() {
+	local PATCHES=(
+		# https://github.com/lsd-rs/lsd/pull/1161
+		"${FILESDIR}/${P}-no-color-test.patch"
+	)
+
 	sed -i -e '/strip/s:true:false:' Cargo.toml || die
 	default
 }
@@ -228,10 +230,6 @@ src_install() {
 	einstalldocs
 
 	newbashcomp "${T}"/shell_completions/lsd.bash lsd
-
-	insinto /usr/share/fish/vendor_completions.d
-	doins "${T}"/shell_completions/lsd.fish
-
-	insinto /usr/share/zsh/site-functions
-	doins "${T}"/shell_completions/_lsd
+	dofishcomp "${T}"/shell_completions/lsd.fish
+	dozshcomp "${T}"/shell_completions/_lsd
 }
