@@ -1,13 +1,13 @@
-BDEPEND=>=app-editors/emacs-26.1:*
+BDEPEND=>=app-editors/emacs-25.3:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Macro to simplify repetitive configuration patterns
 EAPI=8
-HOMEPAGE=https://git.sr.ht/~pkal/setup
+HOMEPAGE=https://git.sr.ht/~pkal/setup https://elpa.gnu.org/packages/setup.html
 INHERIT=elisp
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=>=app-editors/emacs-26.1:*
+RDEPEND=>=app-editors/emacs-25.3:*
 SLOT=0
-SRC_URI=https://git.sr.ht/~pkal/setup/archive/28926bd11eef6118f4e169d10c1c36b8c4e545ae.tar.gz -> setup-1.3.2.tar.gz
+SRC_URI=https://dev.gentoo.org/~xgqt/distfiles/repackaged/setup-1.5.0.tar.xz
 _eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5
-_md5_=e01c25cf87b5a0b26fb15f2f9e6198a0
+_md5_=12bfd5d2bb26595caa4b91385ed9792b
