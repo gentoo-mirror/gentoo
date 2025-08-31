@@ -1,9 +1,11 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=7
 
-inherit dot-a libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
+export CTARGET=hppa64-${CHOST#*-}
+
+inherit libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
 
 DESCRIPTION="Tools necessary to build programs"
 HOMEPAGE="https://sourceware.org/binutils/"
@@ -35,7 +37,7 @@ else
 	[[ -z ${PATCH_VER} ]] || SRC_URI="${SRC_URI}
 		https://dev.gentoo.org/~${PATCH_DEV}/distfiles/binutils-${PATCH_BINUTILS_VER}-patches-${PATCH_VER}.tar.xz"
 	SLOT=$(ver_cut 1-2)
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="-* ~hppa"
 fi
 
 #
@@ -82,7 +84,8 @@ BDEPEND="
 
 RESTRICT="!test? ( test )"
 
-MY_BUILDDIR=${WORKDIR}/build
+MY_BUILDDIR="${WORKDIR}"/build
+S="${WORKDIR}"/${P/-hppa64/}
 
 src_unpack() {
 	if [[ ${PV} == *9999 ]] ; then
@@ -140,8 +143,8 @@ src_prepare() {
 
 			# This is applied conditionally for now just out of caution.
 			# It should be okay on non-prefix systems though. See bug #892549.
-			if is_cross || use prefix; then
-				eapply "${FILESDIR}"/binutils-2.40-linker-search-path.patch \
+			if [[ ${PN} != binutils-hppa64 ]] && { is_cross || use prefix; } ; then
+				eapply "${FILESDIR}"/binutils-2.43-linker-search-path.patch \
 					   "${FILESDIR}"/binutils-2.43-linker-prefix.patch
 			fi
 		fi
@@ -194,7 +197,6 @@ src_configure() {
 	strip-flags
 	use cet && filter-flags -mindirect-branch -mindirect-branch=*
 	use elibc_musl && append-ldflags -Wl,-z,stack-size=2097152
-	lto-guarantee-fat
 
 	local x
 	echo
@@ -295,9 +297,9 @@ src_configure() {
 
 		# We can enable this by default in future, but it's brand new
 		# in 2.39 with several bugs:
-		# - Doesn't build on musl (https://sourceware.org/PR29477)
-		# - No man pages (https://sourceware.org/PR29521)
-		# - Broken at runtime without Java (https://sourceware.org/PR29479)
+		# - Doesn't build on musl (https://sourceware.org/bugzilla/show_bug.cgi?id=29477)
+		# - No man pages (https://sourceware.org/bugzilla/show_bug.cgi?id=29521)
+		# - Broken at runtime without Java (https://sourceware.org/bugzilla/show_bug.cgi?id=29479)
 		# - binutils-config (and this ebuild?) needs adaptation first (https://bugs.gentoo.org/865113)
 		$(use_enable gprofng)
 
@@ -311,7 +313,7 @@ src_configure() {
 			# These hardening options are available from 2.39+ but
 			# they unconditionally enable the behaviour even on arches
 			# where e.g. execstacks can't be avoided.
-			# See https://sourceware.org/PR29592.
+			# See https://sourceware.org/bugzilla/show_bug.cgi?id=29592.
 			#
 			# TODO: Get the logic for this fixed upstream so it doesn't
 			# create impossible broken combinations on some arches, like mips.
@@ -350,16 +352,14 @@ src_configure() {
 	fi
 
 	if ! is_cross ; then
-		myconf+=( $(use_enable pgo pgo-build $(tc-is-lto && echo "lto" || echo "yes")) )
+		# No LTO for HPPA64 right now as we don't build kgcc64 with LTO support.
+		myconf+=( $(use_enable pgo pgo-build) )
 
 		if use pgo ; then
 			# We let configure handle it for us because it has to run
 			# the testsuite later on for profiling, and LTO isn't compatible
 			# with the testsuite.
 			filter-lto
-
-			# bug #637066
-			filter-flags -Wall -Wreturn-type
 
 			export BUILD_CFLAGS="${CFLAGS}"
 		fi
@@ -402,16 +402,6 @@ src_test() {
 		# Tests don't expect LTO
 		filter-lto
 
-		# If we have e.g. -mfpmath=sse -march=pentium4 in CFLAGS,
-		# we'll get lto1 warnings for some tests which cause
-		# spurious failures because -mfpmath isn't passed at
-		# link-time. Filter accordingly.
-		#
-		# Alternatively, we could pass C{C,XX}_FOR_TARGET with
-		# some (ideally not all, surely would break some tests)
-		# stuffed in.
-		filter-flags '-mfpmath=*'
-
 		# lto-wrapper warnings which confuse tests
 		filter-flags '-Wa,*'
 
@@ -437,8 +427,6 @@ src_install() {
 	emake DESTDIR="${D}" tooldir="${EPREFIX}${LIBPATH}" install
 	rm -rf "${ED}"/${LIBPATH}/bin || die
 	use static-libs || find "${ED}" -name '*.la' -delete
-	# Explicit "${ED}" as we need it to do things even w/ USE=-static-libs
-	strip-lto-bytecode "${ED}"
 
 	# Newer versions of binutils get fancy with ${LIBPATH}, bug #171905
 	cd "${ED}"/${LIBPATH} || die
@@ -524,57 +512,11 @@ src_install() {
 
 	# Trim all empty dirs
 	find "${ED}" -depth -type d -exec rmdir {} + 2>/dev/null
-}
 
-# Simple test to make sure our new binutils isn't completely broken.
-# Skip if this binutils is a cross compiler.
-#
-# If coreutils is built with USE=multicall, some of these files
-# will just be wrapper scripts, not actual ELFs we can test.
-binutils_sanity_check() {
-	pushd "${T}" >/dev/null
-
-	einfo "Last-minute run tests with binutils in ${ED}${BINPATH} ..."
-
-	cat <<-EOF > "${T}"/number.c
-	int get_magic_number() {
-		return 42;
-	}
-	EOF
-
-	cat <<-EOF > "${T}"/test.c
-	#include <stdio.h>
-	int get_magic_number();
-
-	int main() {
-		printf("Hello Gentoo! Your magic number is: %d\n", get_magic_number());
-	}
-	EOF
-
-	local -x LD_LIBRARY_PATH="${ED}${LIBPATH}${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
-
-	local opt opt2
-	# TODO: test multilib variants?
-	for opt in '' '-O2' ; do
-		for opt2 in '-static' '-static-pie' '-fno-PIE -no-pie' ; do
-			$(tc-getCC) ${opt} ${opt2} -B"${ED}${BINPATH}" "${T}"/number.c "${T}"/test.c -o "${T}"/test
-			if "${T}"/test | grep -q "Hello Gentoo! Your magic number is: 42" ; then
-				:;
-			else
-				die "Test with '${opt} ${opt2}' failed! Aborting to avoid broken binutils!"
-			fi
-		done
-	done
-
-	popd >/dev/null
-}
-
-pkg_preinst() {
-	[[ -n ${ROOT} ]] && return 0
-	[[ -d ${ED}${BINPATH} ]] || return 0
-	[[ -n ${BOOTSTRAP_RAP} ]] || return 0
-	is_cross && return 0
-	binutils_sanity_check
+	# the hppa64 hack; this should go into 9999 as a PN-conditional
+	# tweak the default fake list a little bit
+	cd "${D}"/etc/env.d/binutils
+	sed -i '/FAKE_TARGETS=/s:"$: hppa64-linux":' ${CTARGET}-${PV} || die
 }
 
 pkg_postinst() {
