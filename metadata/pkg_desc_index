@@ -726,6 +726,7 @@ acct-user/postgres 0-r3: PostgreSQL program user
 acct-user/postgres_exporter 0-r2: user for postgres_exporter
 acct-user/postgrey 0-r1: User for the postgrey mail daemon
 acct-user/postmaster 0-r3: Postmaster user
+acct-user/postsrsd 0: User for mail-filter/postsrsd
 acct-user/privoxy 0-r3: A privoxy: privacy oriented web proxy user
 acct-user/prometheus 0-r3: user for prometheus
 acct-user/prosody 0-r1: A user for net-im/prosody
@@ -3942,7 +3943,7 @@ dev-cpp/valijson 1.0.4 1.0.5 1.0.6 1.0.6-r1: Header-only C++ library for JSON Sc
 dev-cpp/wangle 2024.11.04.00 2025.04.14.00: A framework providing common abstractions for building services
 dev-cpp/waylandpp 1.0.0-r1 1.0.0-r2 1.0.1 9999: Wayland C++ bindings
 dev-cpp/websocketpp 0.8.2-r1: C++/Boost Asio based websocket client/server library
-dev-cpp/xsimd 13.1.0 13.2.0: C++ wrappers for SIMD intrinsics
+dev-cpp/xsimd 13.2.0: C++ wrappers for SIMD intrinsics
 dev-cpp/yaml-cpp 0.8.0 0.8.0-r1: YAML parser and emitter in C++
 dev-db/apgdiff 2.7.0-r1: A simple PostgreSQL diff tool that is useful for schema upgrades
 dev-db/barman 3.13.0 3.13.3 3.14.0 3.14.1 3.15.0: Administration tool for disaster recovery of PostgreSQL servers
@@ -8336,7 +8337,7 @@ dev-python/dominate 2.9.1: Library for creating and manipulating HTML documents 
 dev-python/doublex 1.9.6.1: Python test doubles
 dev-python/doublex-expects 0.7.1-r1: Expects matchers for Doublex test doubles assertions
 dev-python/dparse 0.6.4: A parser for Python dependency files
-dev-python/dulwich 0.22.8 0.23.2-r1: Pure-Python implementation of the Git file formats and protocols
+dev-python/dulwich 0.23.2-r1: Pure-Python implementation of the Git file formats and protocols
 dev-python/easy-thumbnails 2.10 2.10.1: Easy thumbnails for Django
 dev-python/easyprocess 1.1-r1: Easy to use Python subprocess interface
 dev-python/ecdsa 0.19.1: ECDSA cryptographic signature library in pure Python
@@ -12621,7 +12622,7 @@ mail-filter/popfile 1.1.3-r1: Anti-spam bayesian filter
 mail-filter/postforward 1.1.1-r1: Postfix Sender Rewriting Scheme forwarding agent
 mail-filter/postfwd 2.02-r1 2.03: Versatile Postfix policy server with a flexible ruleset based configuration
 mail-filter/postgrey 1.37 1.37_p20190625-r1 1.37_p20220122 1.37_p20230714: Postgrey is a Postfix policy server implementing greylisting
-mail-filter/postsrsd 1.12 2.0.11-r1 2.0.11-r3: Postfix Sender Rewriting Scheme daemon
+mail-filter/postsrsd 1.12 2.0.11-r1 2.0.11-r4: Postfix Sender Rewriting Scheme daemon
 mail-filter/procmail 3.24 3.24-r1: Mail delivery agent/filter
 mail-filter/pyzor 1.1.2: A distributed, collaborative spam detection and filtering network
 mail-filter/razor 2.85-r5: Distributed, collaborative spam detection and filtering network
@@ -14779,7 +14780,7 @@ net-im/neochat 25.04.3 25.08.0: Client for Matrix, the decentralized communicati
 net-im/openmittsu 0.10.2.0: Open source chat client for Threema-style end-to-end encrypted chat networks
 net-im/pidgin 2.14.14-r2: GTK Instant Messenger client
 net-im/poezio 0.15.1-r1 9999: Console XMPP client that looks like most famous IRC clients
-net-im/profanity 0.14.0-r2 0.15.0: A console based XMPP client inspired by Irssi
+net-im/profanity 0.15.0: A console based XMPP client inspired by Irssi
 net-im/prosody 13.0.1-r1 13.0.2: Prosody is a modern XMPP communication server
 net-im/prosody-modules 0_pre20241231 9999: A collection of community-maintained modules for Prosody
 net-im/purple-events 0.99.2: Allows a fine-grained control over libpurple events
@@ -14975,7 +14976,7 @@ net-libs/libtrace 4.0.21 4.0.22 4.0.26 4.0.28: A library and tools for trace pro
 net-libs/libupnp 1.14.20 1.14.24: An Portable Open Source UPnP Development Kit
 net-libs/libupnpp 1.0.2 1.0.3: The libupnpp C++ library wraps libupnp for easier use by upmpdcli and upplay
 net-libs/libvncserver 0.9.15-r1: library for creating vnc servers
-net-libs/libwebsockets 4.3.3-r1 4.3.5 4.4.1: A flexible pure-C library for implementing network protocols
+net-libs/libwebsockets 4.4.1: A flexible pure-C library for implementing network protocols
 net-libs/libyang 3.12.2: YANG data modeling language library
 net-libs/liquid-dsp 1.3.2 1.6.0 9999: digital signal processing library for software-defined radios
 net-libs/llhttp 9.2.1: Port of http_parser to llparse
