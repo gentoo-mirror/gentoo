@@ -25,17 +25,9 @@ dev-build/meson test-full
 # mongodb needed for tests which is not stable keyworded for arm64
 dev-libs/mongo-c-driver test
 
-# Sam Jamrs <sam@gentoo.org> (2024-06-07)
-# dev-libs/capstone hasn't been stabilized yet
-app-emulation/qemu capstone
-
 # Nowa Ammerlaan <nowa@gentoo.org> (2024-03-21)
 # Experimental, virt-firmware is keyworded only unstable
 sys-kernel/installkernel efistub
-
-# Ionen Wolkens <ionen@gentoo.org> (2024-01-27)
-# dev-python/pyside is not stable here yet
-dev-python/qtpy pyside6
 
 # Michał Górny <mgorny@gentoo.org> (2023-04-22)
 # Needs unkeyworded dev-python/sympy
@@ -83,21 +75,6 @@ app-emulation/libvirt glusterfs rbd
 # media-gfx/inkscape is not yet stable on arm64
 # bug #785685
 app-text/dblatex inkscape
-
-# Sam James <sam@gentoo.org> (2021-02-25)
-# Roy Bamford <neddyseagoon@gentoo.org> (2021-02-25)
-# Dependencies not yet stable, migrated from p.u.m.
-app-crypt/qca botan
-gnome-base/nautilus previewer
-
-# Sam James <sam@gentoo.org> (2021-02-05)
-# Thomas Deutschmann <whissi@gentoo.org> (2017-02-14)
-# No lua stable for this arch yet
-www-servers/nginx nginx_modules_http_lua
-
-# Sam James <sam@gentoo.org> (2020-12-23)
-# Needs stable dev-lang/luajit
-kde-apps/cantor lua
 
 # Sam James <sam@gentoo.org> (2020-10-18)
 # Needs dev-tex/hevea which isn't stable yet
