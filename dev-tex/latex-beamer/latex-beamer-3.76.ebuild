@@ -45,8 +45,7 @@ src_install() {
 	dodoc README.md
 
 	if use doc; then
-		docinto doc
 		dodoc -r doc
-		dosym ../../../../../usr/share/doc/${PF}/doc/ "${TEXMF}/doc/latex/beamer"
+		dosym ../../../../../usr/share/doc/${PF}/doc/ /usr/share/texmf-site/doc/latex/beamer
 	fi
 }
