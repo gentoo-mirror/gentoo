@@ -7,50 +7,43 @@ CRATES=" "
 LLVM_COMPAT=( {17..21} )
 RUST_MIN_VER="1.88.0"
 
-inherit cargo edo multiprocessing llvm-r1 shell-completion
+inherit cargo edo llvm-r2 multiprocessing shell-completion toolchain-funcs
 
-DESCRIPTION="pkgcraft-based tools for Gentoo"
+DESCRIPTION="QA library and tools based on pkgcraft"
 HOMEPAGE="https://pkgcraft.github.io/"
 
 if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/pkgcraft/pkgcraft"
 	inherit git-r3
 
-	S="${WORKDIR}"/${P}/crates/pkgcraft-tools
+	S="${WORKDIR}"/${P}/crates/${PN}
 else
 	SRC_URI="https://github.com/pkgcraft/pkgcraft/releases/download/${P}/${P}.tar.xz"
 
-	KEYWORDS="~amd64 ~arm64"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 BSD-2 BSD CC0-1.0 CDLA-Permissive-2.0 ISC MIT MPL-2.0
-	Unicode-3.0
 "
 SLOT="0"
 IUSE="test"
-RESTRICT="!test? ( test ) "
+RESTRICT="!test? ( test )"
 
-QA_FLAGS_IGNORED="usr/bin/pk"
-
-RDEPEND="
-	dev-libs/libgit2:0/1.9
-	dev-libs/openssl:=
-	net-libs/libssh2:=
-"
-DEPEND="${RDEPEND}"
-# Clang needed for bindgen
-BDEPEND="
+# clang needed for bindgen
+BDEPEND+="
 	$(llvm_gen_dep '
 		llvm-core/clang:${LLVM_SLOT}
 	')
 	test? ( dev-util/cargo-nextest )
 "
 
+QA_FLAGS_IGNORED="usr/bin/pkgcruft"
+
 pkg_setup() {
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 	rust_pkg_setup
 }
 
@@ -64,31 +57,42 @@ src_unpack() {
 }
 
 src_compile() {
-	export LIBSSH2_SYS_USE_PKG_CONFIG=1
-	export LIBGIT2_NO_VENDOR=1
+	# For scallop building bash
+	tc-export AR CC
+
 	cargo_src_compile
 
 	if [[ ${PV} == 9999 ]] ; then
 		einfo "Generating shell completions"
-		local BIN="${WORKDIR}/${P}/$(cargo_target_dir)/pk"
-		"${BIN}" completion --dir shell || die
+		mkdir shell || die
+		local BIN="${WORKDIR}/${P}/$(cargo_target_dir)/pkgcruft"
+		"${BIN}" completion bash > shell/pkgcruft.bash || die
+		"${BIN}" completion zsh > shell/_pkgcruft || die
+		"${BIN}" completion fish > shell/pkgcruft.fish || die
 	fi
 }
 
 src_test() {
 	unset CLICOLOR CLICOLOR_FORCE
 
+	# TODO: Maybe move into eclass (and maybe have a cargo_enable_tests
+	# helper)
 	local -x NEXTEST_TEST_THREADS="$(makeopts_jobs)"
 
-	edo ${CARGO} nextest run $(usev !debug '--release') \
+	# check::ignore::tests::check: https://github.com/pkgcraft/pkgcraft/issues/334
+	edo cargo nextest run $(usev !debug '--release') \
 		--color always \
-		--tests
+		--all-features \
+		--tests \
+		--no-fail-fast \
+		-- \
+		--skip 'check::ignore::tests::check'
 }
 
 src_install() {
 	cargo_src_install
 
-	newbashcomp shell/pk.bash pk
-	dozshcomp shell/_pk
-	dofishcomp shell/pk.fish
+	newbashcomp shell/pkgcruft.bash pkgcruft
+	dozshcomp shell/_pkgcruft
+	dofishcomp shell/pkgcruft.fish
 }
