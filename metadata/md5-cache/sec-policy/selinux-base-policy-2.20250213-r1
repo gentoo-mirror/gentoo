@@ -5,10 +5,10 @@ DESCRIPTION=SELinux policy for core modules
 EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
 IUSE=systemd +unconfined
-KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+KEYWORDS=amd64 arm arm64 ~riscv x86
 LICENSE=GPL-2
 PDEPEND=unconfined? ( sec-policy/selinux-unconfined )
 RDEPEND==sec-policy/selinux-base-2.20250213-r1[systemd?]
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_2_20250213/refpolicy-2.20250213.tar.bz2 https://dev.gentoo.org/~perfinion/patches/selinux-base-policy/patchbundle-selinux-base-policy-2.20250213-r1.tar.bz2
-_md5_=a996eb9650bd38d4a88aab6d580e971f
+_md5_=a205d5b6a606416eb398890564f410a5
