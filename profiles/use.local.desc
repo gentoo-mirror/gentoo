@@ -3709,6 +3709,7 @@ llvm-core/clang-common:cet - Enable support for control flow hijacking protectio
 llvm-core/clang-common:default-compiler-rt - Use compiler-rt + libunwind instead of libgcc as the default rtlib for clang
 llvm-core/clang-common:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang. Beware: this breaks ABI, producing binaries incompatible with those built with GCC or Clang using libstdc++. Do not set unless you know what you're doing.
 llvm-core/clang-common:default-lld - Use lld as the default linker for clang
+llvm-core/clang-linker-config:default-lld - Use lld as the default linker for clang
 llvm-core/clang-runtime:compiler-rt - Install llvm-runtimes/compiler-rt for -rtlib=compiler-rt
 llvm-core/clang-runtime:default-compiler-rt - Use compiler-rt + libunwind instead of libgcc as the default rtlib for clang
 llvm-core/clang-runtime:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
@@ -3735,6 +3736,10 @@ llvm-core/llvm:xar - Support dumping LLVM bitcode sections in Mach-O files (uses
 llvm-core/llvm:z3 - Enable support for sci-mathematics/z3 constraint solver
 llvm-core/llvm-toolchain-symlinks:multilib-symlinks - Install symlinks for all ABI CHOSTs. Note that this can result in gcc being overrode for native builds, as well as conflict with crossdev if used for the same targets.
 llvm-core/llvm-toolchain-symlinks:native-symlinks - Install generic tool symlinks like 'objdump' and 'ranlib', as well as ${CTARGET}-*. These symlinks are installed into slotted LLVM bindir, so they should not take precedence over symlinks installed into /usr/bin by sys-devel/binutils-config but they can be helpful for binutils-free setups.
+llvm-runtimes/clang-rtlib-config:default-compiler-rt - Use compiler-rt + libunwind instead of libgcc as the default rtlib for clang
+llvm-runtimes/clang-stdlib-config:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
+llvm-runtimes/clang-unwindlib-config:default-compiler-rt - Use compiler-rt + libunwind instead of libgcc as the default rtlib for clang
+llvm-runtimes/clang-unwindlib-config:llvm-libunwind - Use LLVM libunwind instead of GNU libunwind
 llvm-runtimes/compiler-rt:atomic-builtins - Compile atomic builtins into compiler-rt.builtins. This is needed on systems without GCC/libatomic, but requires using Clang to build.
 llvm-runtimes/compiler-rt:clang - Force building using installed clang (rather than the default CC/CXX).
 llvm-runtimes/compiler-rt-sanitizers:asan - Build Address Sanitizer runtime.

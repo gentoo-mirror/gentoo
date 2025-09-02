@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Default linker configuration for clang
+EAPI=8
+HOMEPAGE=https://clang.llvm.org/
+IUSE=default-lld
+LICENSE=public-domain
+RDEPEND=default-lld? ( llvm-core/lld:22 ) !default-lld? ( sys-devel/binutils )
+SLOT=22
+_md5_=d39fc7613282b50e3f036065f81ce186
