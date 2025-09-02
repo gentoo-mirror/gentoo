@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 ECM_HANDBOOK="optional"
-KDE_ORG_COMMIT=0f587b130bd7a16244736840ba43d34587edc96f
+KDE_ORG_COMMIT=51a96097381ec2b9b6e10106afa9ebf2579e5272
 KFMIN=6.9.0
 QTMIN=6.8.1
 inherit ecm kde.org xdg
@@ -55,15 +55,6 @@ RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5
 "
 BDEPEND="git? ( virtual/pkgconfig )"
-
-# https://invent.kde.org/utilities/basket/-/merge_requests/57
-PATCHES=( "${FILESDIR}/${P}-no-phonon.patch" )
-
-src_prepare() {
-	cmake_src_prepare
-	# https://invent.kde.org/utilities/basket/-/merge_requests/58
-	sed -e "/^find_package(X11/s/^/# /" -i CMakeLists.txt || die
-}
 
 src_configure() {
 	local mycmakeargs=(

@@ -12,7 +12,7 @@ SRC_URI="https://github.com/flameshot-org/flameshot/archive/v${PV}.tar.gz -> ${P
 LICENSE="Apache-2.0 Free-Art-1.3 GPL-3+"
 SLOT="0"
 KEYWORDS="amd64 ~arm64 ~x86"
-IUSE="wayland"
+IUSE=""
 
 DEPEND="
 	=dev-qt/qtsingleapplication-2.6*[qt5(+),X]
@@ -23,12 +23,11 @@ DEPEND="
 	dev-qt/qtsvg:5
 	dev-qt/qtwidgets:5
 	sys-apps/dbus
-	wayland? ( kde-frameworks/kguiaddons:5 )
 "
+RDEPEND="${DEPEND}"
 BDEPEND="
 	dev-qt/linguist-tools:5
 "
-RDEPEND="${DEPEND}"
 
 src_prepare() {
 	rm -r external/singleapplication || die
@@ -48,7 +47,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DUSE_EXTERNAL_SINGLEAPPLICATION=1
 		-DENABLE_CACHE=0
-		-DUSE_WAYLAND_CLIPBOARD=$(usex wayland)
+		-DUSE_WAYLAND_CLIPBOARD=OFF
 	)
 
 	cmake_src_configure
