@@ -5,6 +5,8 @@ EAPI=8
 
 RESTRICT="test" # fails with sandbox
 
+RUST_MIN_VER="1.82.0"
+
 CRATES="
 	addr2line@0.24.2
 	adler2@2.0.1
@@ -24,7 +26,7 @@ CRATES="
 	backtrace@0.3.75
 	base64@0.13.1
 	bitflags@1.3.2
-	bitflags@2.9.1
+	bitflags@2.9.4
 	bitvec@1.0.1
 	blake2b_simd@0.5.11
 	block-buffer@0.10.4
@@ -33,12 +35,12 @@ CRATES="
 	bumpalo@3.19.0
 	bytes@1.10.1
 	caps@0.5.5
-	cc@1.2.32
-	cfg-if@1.0.1
+	cc@1.2.35
+	cfg-if@1.0.3
 	cfg_aliases@0.2.1
 	chrono@0.4.41
-	clap@4.5.45
-	clap_builder@4.5.44
+	clap@4.5.46
+	clap_builder@4.5.46
 	clap_derive@4.5.45
 	clap_lex@0.7.5
 	colorchoice@1.0.4
@@ -73,6 +75,7 @@ CRATES="
 	error-chain@0.12.4
 	expiringmap@0.1.2
 	fastrand@2.3.0
+	find-msvc-tools@0.1.0
 	fixedbitset@0.5.7
 	flate2@1.1.2
 	fnv@1.0.7
@@ -98,7 +101,7 @@ CRATES="
 	iced-x86@1.21.0
 	ident_case@1.0.1
 	indexmap@1.9.3
-	indexmap@2.10.0
+	indexmap@2.11.0
 	io-uring@0.6.4
 	ipnet@2.11.0
 	iprange@0.6.7
@@ -136,7 +139,7 @@ CRATES="
 	nix@0.30.1
 	nom@7.1.3
 	nom@8.0.0
-	nu-ansi-term@0.46.0
+	nu-ansi-term@0.50.1
 	num-traits@0.2.19
 	num_cpus@1.17.0
 	object@0.36.7
@@ -144,7 +147,6 @@ CRATES="
 	once_cell@1.21.3
 	once_cell_polyfill@1.70.1
 	option-ext@0.2.0
-	overload@0.1.1
 	parse-size@1.0.0
 	phf@0.11.3
 	phf_codegen@0.11.3
@@ -158,7 +160,7 @@ CRATES="
 	prctl@1.0.0
 	proc-macro-error-attr2@2.0.0
 	proc-macro-error2@2.0.1
-	proc-macro2@1.0.97
+	proc-macro2@1.0.101
 	procfs-core@0.17.0
 	procfs@0.17.0
 	protobuf-codegen@3.2.0
@@ -175,9 +177,9 @@ CRATES="
 	redox_users@0.3.5
 	redox_users@0.4.6
 	redox_users@0.5.2
-	regex-automata@0.4.9
-	regex-syntax@0.8.5
-	regex@1.11.1
+	regex-automata@0.4.10
+	regex-syntax@0.8.6
+	regex@1.11.2
 	ringbuf@0.4.8
 	rust-argon2@0.8.3
 	rust-criu@0.4.0
@@ -192,7 +194,7 @@ CRATES="
 	sendfd@0.4.4
 	serde@1.0.219
 	serde_derive@1.0.219
-	serde_json@1.0.142
+	serde_json@1.0.143
 	sha1@0.10.6
 	sha3@0.10.8
 	sharded-slab@0.1.7
@@ -205,24 +207,24 @@ CRATES="
 	strum@0.27.2
 	strum_macros@0.27.2
 	subtle@2.6.1
-	syn@2.0.105
+	syn@2.0.106
 	tabwriter@1.4.1
 	tap@1.0.1
 	tcmalloc@0.3.0
-	tempfile@3.20.0
+	tempfile@3.21.0
 	terminfo@0.8.0
 	thiserror-impl@1.0.69
-	thiserror-impl@2.0.14
+	thiserror-impl@2.0.16
 	thiserror@1.0.69
-	thiserror@2.0.14
+	thiserror@2.0.16
 	thread_local@1.1.9
 	tick_counter@0.4.5
-	tinyvec@1.9.0
+	tinyvec@1.10.0
 	tinyvec_macros@0.1.1
 	tracing-attributes@0.1.30
 	tracing-core@0.1.34
 	tracing-log@0.2.0
-	tracing-subscriber@0.3.19
+	tracing-subscriber@0.3.20
 	tracing@0.1.41
 	typenum@1.18.0
 	unicode-ident@1.0.18
@@ -234,7 +236,7 @@ CRATES="
 	valuable@0.1.1
 	version_check@0.9.5
 	wasi@0.11.1+wasi-snapshot-preview1
-	wasi@0.14.2+wasi-0.2.4
+	wasi@0.14.3+wasi-0.2.4
 	wasi@0.9.0+wasi-snapshot-preview1
 	wasm-bindgen-backend@0.2.100
 	wasm-bindgen-macro-support@0.2.100
@@ -251,6 +253,7 @@ CRATES="
 	windows-link@0.1.3
 	windows-result@0.3.4
 	windows-strings@0.4.2
+	windows-sys@0.52.0
 	windows-sys@0.59.0
 	windows-sys@0.60.2
 	windows-targets@0.52.6
@@ -271,7 +274,7 @@ CRATES="
 	windows_x86_64_gnullvm@0.53.0
 	windows_x86_64_msvc@0.52.6
 	windows_x86_64_msvc@0.53.0
-	wit-bindgen-rt@0.39.0
+	wit-bindgen@0.45.0
 	wyz@0.5.1
 	yaxpeax-arch@0.3.2
 	yaxpeax-arm@0.3.1
