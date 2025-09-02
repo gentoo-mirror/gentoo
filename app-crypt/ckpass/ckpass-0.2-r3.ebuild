@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,12 +13,16 @@ LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=">=dev-libs/libkpass-6"
+DEPEND="
+	>=dev-libs/libkpass-6
+	sys-libs/ncurses:=
+"
 RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-tinfo.patch
 	"${FILESDIR}"/${P}-implicit-function-declaration.patch
+	"${FILESDIR}"/${P}-fix_c23_and_sentinel.patch
 )
 
 src_prepare() {
