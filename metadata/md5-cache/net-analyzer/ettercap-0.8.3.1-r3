@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/Ettercap/ettercap
 INHERIT=cmake
 IUSE=doc geoip gtk ipv6 ncurses +plugins test
-KEYWORDS=~alpha amd64 arm ppc ppc64 sparc x86
+KEYWORDS=~alpha amd64 arm ppc ppc64 ~sparc x86
 LICENSE=GPL-2+
 RDEPEND=dev-libs/libbsd dev-libs/libpcre dev-libs/openssl:= net-libs/libnet:1.1 >=net-libs/libpcap-0.8.1 sys-libs/zlib geoip? ( dev-libs/geoip ) gtk? ( >=app-accessibility/at-spi2-core-2.46.0 >=dev-libs/glib-2.2.2:2 media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-2.2.2:2 >=x11-libs/pango-1.2.3 ) ncurses? ( >=sys-libs/ncurses-5.3:= ) plugins? ( >=net-misc/curl-7.26.0 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Ettercap/ettercap/archive/v0.8.3.1.tar.gz -> ettercap-0.8.3.1.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
-_md5_=2f8e69a8e3af2e38c0fb40ab18953dfd
+_md5_=05168f7f70bf6b92cc9231e9e0996e79

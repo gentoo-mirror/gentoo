@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://lensfun.github.io
 INHERIT=python-single-r1 cmake
 IUSE=doc cpu_flags_x86_sse cpu_flags_x86_sse2 test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-3 CC-BY-SA-3.0
 RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-libs/glib-2.40 media-libs/libpng:= sys-libs/zlib
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/lensfun/lensfun/archive/refs/tags/v0.3.4.tar.gz -> lensfun-0.3.4.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
-_md5_=4a927ea8f70d2a95bb14142e546ffb9b
+_md5_=fe91bcad82ab2fccb45874acf4e50c24

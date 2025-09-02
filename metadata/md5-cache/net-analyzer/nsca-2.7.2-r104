@@ -4,9 +4,9 @@ DESCRIPTION=Nagios Service Check Acceptor
 EAPI=7
 HOMEPAGE=https://www.nagios.org/
 IUSE=tcpd +crypt minimal
-KEYWORDS=~alpha amd64 ~arm ~ppc ppc64 sparc x86
+KEYWORDS=~alpha amd64 ~arm ~ppc ppc64 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=crypt? ( >=dev-libs/libmcrypt-2.5.1-r4 ) !minimal? ( tcpd? ( sys-apps/tcp-wrappers ) acct-group/icinga acct-group/nagios acct-user/icinga acct-user/nagios ) !minimal? ( || ( net-analyzer/icinga net-analyzer/nagios ) ) sys-apps/openrc
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/nagios/nsca-2.7.2.tar.gz
-_md5_=a3f061a2157f95ff4521a87be89a37d8
+_md5_=68fea646d8ec200347d477af0dd387df

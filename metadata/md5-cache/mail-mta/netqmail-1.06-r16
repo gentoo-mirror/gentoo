@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=http://netqmail.org https://cr.yp.to/qmail.html http://qmail.org
 INHERIT=qmail
 IUSE=gencertdaily highvolume pop3 qmail-spp ssl vanilla
-KEYWORDS=~alpha ~amd64 ~arm ~hppa ~mips ~ppc64 ~s390 sparc ~x86
+KEYWORDS=~alpha ~amd64 ~arm ~hppa ~mips ~ppc64 ~s390 ~sparc ~x86
 LICENSE=public-domain
 PDEPEND=virtual/daemontools
 RDEPEND=acct-group/nofiles acct-group/qmail acct-user/alias acct-user/qmaild acct-user/qmaill acct-user/qmailp acct-user/qmailq acct-user/qmailr acct-user/qmails net-dns/libidn2 net-mail/queue-repair sys-apps/gentoo-functions sys-apps/groff ssl? ( >=dev-libs/openssl-1.1:0= ) sys-apps/ucspi-tcp !mail-mta/courier !mail-mta/esmtp !mail-mta/exim !mail-mta/mini-qmail !mail-mta/msmtp[mta] !mail-mta/nullmailer !mail-mta/opensmtpd !mail-mta/postfix !mail-mta/qmail-ldap !mail-mta/sendmail !mail-mta/ssmtp[mta]
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=http://qmail.org/netqmail-1.06.tar.gz https://github.com/DerDakon/genqmail/releases/download/genqmail-20200817/genqmail-20200817.tar.bz2 https://www.ckdhr.com/ckd/qmail-103.patch !vanilla? ( highvolume? ( http://qmail.org/big-todo.103.patch ) qmail-spp? ( https://downloads.sourceforge.net/qmail-spp/qmail-spp-0.42.tar.gz ) ssl? ( https://mirror.alexh.name/qmail/netqmail/netqmail-1.05-tls-smtpauth-20190114.patch http://inoa.net/qmail-tls/vu555316.patch https://arnt.gulbrandsen.priv.no/qmail/qmail-smtputf8.patch ) )
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	fixheadtails	1721997ed44d035654efe12da50797ef	qmail	30f39e6819a20ba64005ceeadd3845e0
-_md5_=74c48ec5ea25f52289e5477788353e69
+_md5_=b9da4057b6aefebaf7d43b0054a5c65d

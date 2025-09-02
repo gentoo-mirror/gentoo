@@ -2,7 +2,7 @@ DEFINED_PHASES=-
 DESCRIPTION=Virtual to select between different resolvconf providers
 EAPI=8
 IUSE=systemd
-KEYWORDS=~alpha amd64 arm arm64 hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
 RDEPEND=systemd? ( >=sys-apps/systemd-239-r1[resolvconf] ) !systemd? ( net-dns/openresolv )
 SLOT=0
-_md5_=7cb4b57db49aa8fc3056b586612885ca
+_md5_=0ec534dc83cd8f7170a60f1235b8ea57

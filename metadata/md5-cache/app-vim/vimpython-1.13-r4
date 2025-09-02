@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://www.vim.org/scripts/script.php?script_id=30
 INHERIT=vim-plugin python-single-r1
 IUSE=python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~alpha amd64 ppc sparc x86
+KEYWORDS=~alpha amd64 ppc ~sparc x86
 LICENSE=vim
 RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) || ( >=app-editors/vim-7.3 >=app-editors/gvim-7.3 )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=0
 SRC_URI=mirror://gentoo/vimpython-1.13.tar.bz2 https://dev.gentoo.org/~radhermit/vim/vimpython-1.13.tar.bz2
 _eclasses_=vim-doc	bea02829eae182f569e6e9a5dc2fe08f	vim-plugin	4acc7611306b8fdbeac907d572ccac21	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=574924bfda21d2ca86295e981904e01f
+_md5_=6ccab607592423e5a8381077489d4d27

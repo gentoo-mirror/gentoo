@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=http://gutenprint.sourceforge.net
 INHERIT=autotools
 IUSE=cups gimp gtk nls readline ppds static-libs
-KEYWORDS=~alpha amd64 arm ~hppa ppc ppc64 sparc x86
+KEYWORDS=~alpha amd64 arm ~hppa ppc ppc64 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=dev-lang/perl cups? ( >=net-print/cups-1.1.14 ) gimp? ( media-gfx/gimp:0/2 x11-libs/gtk+:2 ) gtk? ( x11-libs/gtk+:2 ) readline? ( sys-libs/readline:0= )
 REQUIRED_USE=gimp? ( gtk )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/gimp-print/gutenprint-5.3.4.tar.xz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=985b01a1c7fc1168b33bb6691b5e262d
+_md5_=618a9491d275a7864716a026142eb752

@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://thekelleys.org.uk/dnsmasq/doc.html
 INHERIT=toolchain-funcs lua-single systemd
 IUSE=auth-dns conntrack dbus +dhcp dhcp-tools dnssec +dumpfile id idn libidn2 +loop +inotify ipv6 lua nettlehash nls script selinux static tftp lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=|| ( GPL-2 GPL-3 )
 RDEPEND=acct-group/dnsmasq acct-user/dnsmasq dbus? ( sys-apps/dbus:= ) idn? ( !libidn2? ( net-dns/libidn:0= ) libidn2? ( >=net-dns/libidn2-2.0:= ) ) lua? ( lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) conntrack? ( net-libs/libnetfilter_conntrack:= ) nls? ( sys-devel/gettext ) dnssec? ( !static? ( >=dev-libs/nettle-3.4:=[gmp] ) ) nettlehash? ( !static? ( dev-libs/nettle:=[gmp] ) ) selinux? ( sec-policy/selinux-dnsmasq )
 REQUIRED_USE=dhcp-tools? ( dhcp ) dnssec? ( !nettlehash ) lua? ( script ^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) libidn2? ( idn )
 SLOT=0
 SRC_URI=https://thekelleys.org.uk/dnsmasq/dnsmasq-2.91.tar.xz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=c450047573a652664960db99698261dd
+_md5_=d9da299c9202784a7a66198fa4360d11

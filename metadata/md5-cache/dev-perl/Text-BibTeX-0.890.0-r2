@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/Text-BibTeX
 INHERIT=flag-o-matic perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test examples
-KEYWORDS=~alpha amd64 arm arm64 hppa ~loong ~mips ppc ppc64 ~riscv ~s390 sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=!dev-libs/btparse >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/A/AM/AMBS/Text-BibTeX-0.89.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	perl-module	41920449ca174fe9b9b303dfcbdb37a3
-_md5_=1ca24c17e480c7bff02adcfd9f09053c
+_md5_=4f645115fb173369faf79d70a1b08c59

@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://urjtag.sourceforge.io/
 INHERIT=python-r1
 IUSE=ftdi ftd2xx python readline usb python_targets_python3_11 python_targets_python3_12
-KEYWORDS=amd64 ppc sparc x86
+KEYWORDS=amd64 ppc ~sparc x86
 LICENSE=GPL-2
 RDEPEND=ftdi? ( dev-embedded/libftdi:1 ) ftd2xx? ( dev-embedded/libftd2xx ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) readline? ( sys-libs/readline:= ) usb? ( virtual/libusb:1 )
 REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 ) )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/project/urjtag/urjtag/2021.03/urjtag-2021.03.tar.xz
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-r1	0e15b2ab9cfc87d7474678201d6bca38
-_md5_=214ad40665c799a9c1ac5faac2e7e04c
+_md5_=89c27a82b07da2a5acefbe589927896f

@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/wanderlust/flim
 INHERIT=elisp
 IUSE=oauth2 test
-KEYWORDS=~alpha amd64 ppc ~ppc64 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=~alpha amd64 ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2+
 RDEPEND=>=app-emacs/apel-10.8 oauth2? ( app-emacs/oauth2 ) >=app-editors/emacs-25.3:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/wanderlust/flim/archive/abdd2315006eb31476249223569808adb1c0f7b2.tar.gz -> flim-1.14.9_p20231218.tar.gz
 _eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5
-_md5_=a0ddc1b51698715cf1d11c0d72b4b4b3
+_md5_=b1573a55f94096c3922f07f1106a9347

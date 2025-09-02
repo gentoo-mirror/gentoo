@@ -5,10 +5,10 @@ EAPI=8
 HOMEPAGE=https://www.cacti.net/
 INHERIT=edos2unix webapp
 IUSE=snmp doc vhosts
-KEYWORDS=amd64 ~arm ~hppa ~ppc64 sparc x86
+KEYWORDS=amd64 ~arm ~hppa ~ppc64 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=dev-lang/php[cli,mysql,pdo,session,sockets,xml] dev-php/adodb net-analyzer/rrdtool[graph] virtual/cron snmp? ( >=net-analyzer/net-snmp-5.2.0 ) app-admin/webapp-config
 SLOT=1.2.26
 SRC_URI=https://www.cacti.net/downloads/cacti-1.2.26.tar.gz
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	webapp	5fa840db95fc7348dfd53b8526ed05f5
-_md5_=7a65e6b75796dc932212ec5b547cdc7b
+_md5_=eb787481266f14968364795798bc6fd3

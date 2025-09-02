@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/AOMediaCodec/libavif
 INHERIT=cmake-multilib gnome2-utils
 IUSE=+aom dav1d examples extras gdk-pixbuf rav1e svt-av1 test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc64 ~riscv sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc64 ~riscv ~sparc x86
 LICENSE=BSD-2
 RDEPEND=media-libs/libjpeg-turbo:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] media-libs/libpng:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] aom? ( >=media-libs/libaom-3.3.0:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) dav1d? ( >=media-libs/dav1d-1.0.0:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) extras? ( test? ( dev-cpp/gtest media-gfx/imagemagick[lcms] ) ) gdk-pixbuf? ( dev-libs/glib:2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] x11-libs/gdk-pixbuf:2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) rav1e? ( >=media-video/rav1e-0.5.1:=[capi] ) svt-av1? ( >=media-libs/svt-av1-0.9.1:= )
 REQUIRED_USE=|| ( aom dav1d )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/16.1.1
 SRC_URI=https://github.com/AOMediaCodec/libavif/archive/v1.1.1.tar.gz -> libavif-1.1.1.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	cmake-multilib	3f19d8d5fccba52076cdeb2281ad349f	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88
-_md5_=590f4ecffa1ae48aac06551afed74bf0
+_md5_=f6c896f6fcd81b6e11eb540b0338fe12

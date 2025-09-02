@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://timidity.sourceforge.net/
 INHERIT=autotools desktop elisp-common flag-o-matic systemd xdg
 IUSE=alsa ao emacs flac gtk jack motif nas ncurses ogg oss selinux slang speex tk vorbis X Xaw3d
-KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv sparc x86
+KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86
 LICENSE=GPL-2+
 PDEPEND=|| ( media-sound/timidity-eawpatches media-sound/timidity-freepats )
 RDEPEND=alsa? ( media-libs/alsa-lib ) ao? ( >=media-libs/libao-0.8.5 ) emacs? ( >=app-editors/emacs-23.1:* ) flac? ( media-libs/flac:= ) gtk? ( x11-libs/gtk+:2 ) jack? ( virtual/jack ) motif? ( >=x11-libs/motif-2.3:0 ) nas? ( >=media-libs/nas-1.4 ) ncurses? ( sys-libs/ncurses:0= ) ogg? ( media-libs/libogg ) slang? ( sys-libs/slang ) speex? ( media-libs/speex ) tk? ( dev-lang/tk:= ) vorbis? ( media-libs/libvorbis ) X? ( media-libs/libpng:= x11-libs/libX11 x11-libs/libXext Xaw3d? ( x11-libs/libXaw3d ) !Xaw3d? ( x11-libs/libXaw ) ) acct-group/audio acct-group/nobody acct-user/timidity app-eselect/eselect-timidity alsa? ( media-sound/alsa-utils ) selinux? ( sec-policy/selinux-timidity )
@@ -14,4 +14,4 @@ REQUIRED_USE=tk? ( X )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/timidity/TiMidity++-2.15.0.tar.xz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	elisp-common	fe05085d051330f15cf7201109b5cd23	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	systemd	a964c0cbe818b5729da1dbfcee5be861	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=dbabceec8061313fbb65db2d8ed60787
+_md5_=fd3aab7d77f6cd3c18e3e83230638f8a

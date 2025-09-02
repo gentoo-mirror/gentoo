@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://www.trusteddomain.org/opendmarc/
 INHERIT=autotools systemd
 IUSE=spf +reports
-KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ppc ppc64 sparc x86
+KEYWORDS=~alpha amd64 arm ~arm64 ~hppa ppc ppc64 ~sparc x86
 LICENSE=BSD
 RDEPEND=mail-filter/libmilter:= reports? ( dev-perl/DBI ) acct-user/opendmarc reports? ( dev-perl/DBD-mysql dev-perl/HTTP-Message dev-perl/JSON dev-perl/Switch ) spf? ( mail-filter/libspf2 )
 SLOT=0/3
 SRC_URI=https://github.com/trusteddomainproject/OpenDMARC/archive/rel-opendmarc-1-4-1-1.tar.gz -> opendmarc-1.4.1.1.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=8c31a9e09d84ea3eeafca09814d4e4bb
+_md5_=04a2ac2bc76e821bea4de079ff1c883a
