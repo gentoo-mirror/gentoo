@@ -12,7 +12,7 @@ HOMEPAGE="https://libcxxabi.llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~riscv sparc x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="+clang +static-libs test"
 REQUIRED_USE="test? ( clang )"
 RESTRICT="!test? ( test )"
@@ -24,6 +24,9 @@ DEPEND="
 BDEPEND="
 	clang? (
 		llvm-core/clang:${LLVM_MAJOR}
+		llvm-core/clang-linker-config:${LLVM_MAJOR}
+		llvm-runtimes/clang-rtlib-config:${LLVM_MAJOR}
+		llvm-runtimes/clang-unwindlib-config:${LLVM_MAJOR}
 	)
 	!test? (
 		${PYTHON_DEPS}
@@ -34,12 +37,20 @@ BDEPEND="
 "
 
 LLVM_COMPONENTS=( runtimes libcxx{abi,} llvm/cmake cmake )
-LLVM_TEST_COMPONENTS=( libc llvm/utils/llvm-lit )
+LLVM_TEST_COMPONENTS=(
+	libc llvm/include/llvm/{Demangle,Testing} llvm/utils/llvm-lit
+)
 llvm.org_set_globals
 
 python_check_deps() {
 	use test || return 0
 	python_has_version "dev-python/lit[${PYTHON_USEDEP}]"
+}
+
+test_compiler() {
+	target_is_not_host && return
+	$(tc-getCXX) ${CXXFLAGS} ${LDFLAGS} "${@}" -o /dev/null -x c - \
+		<<<'int main() { return 0; }' &>/dev/null
 }
 
 multilib_src_configure() {
@@ -51,9 +62,25 @@ multilib_src_configure() {
 
 	if use clang; then
 		llvm_prepend_path -b "${LLVM_MAJOR}"
-		local -x CC=${CTARGET}-clang
-		local -x CXX=${CTARGET}-clang++
+		local -x CC=${CTARGET}-clang-${LLVM_MAJOR}
+		local -x CXX=${CTARGET}-clang++-${LLVM_MAJOR}
 		strip-unsupported-flags
+
+		# The full clang configuration might not be ready yet. Use the partial
+		# configuration of components that libunwind depends on.
+		#
+		local flags=(
+			--config="${ESYSROOT}"/etc/clang/"${LLVM_MAJOR}"/gentoo-{rtlib,unwindlib,linker}.cfg
+		)
+		local -x CFLAGS="${CFLAGS} ${flags[@]}"
+		local -x CXXFLAGS="${CXXFLAGS} ${flags[@]}"
+		local -x LDFLAGS="${LDFLAGS} ${flags[@]}"
+	fi
+
+	local nostdlib_flags=( -nostdlib++ )
+	if ! test_compiler && test_compiler "${nostdlib_flags[@]}"; then
+		local -x LDFLAGS="${LDFLAGS} ${nostdlib_flags[*]}"
+		ewarn "${CXX} seems to lack stdlib, trying with ${nostdlib_flags[*]}"
 	fi
 
 	# link to compiler-rt
