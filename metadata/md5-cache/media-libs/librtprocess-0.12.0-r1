@@ -1,4 +1,4 @@
-BDEPEND=openmp? ( || ( sys-devel/gcc[openmp] llvm-core/clang-runtime[openmp] ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=openmp? ( || ( sys-devel/gcc[openmp] llvm-runtimes/clang-runtime[openmp] ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare pretend setup test
 DESCRIPTION=Algorithms for RAW processing from RawTherapee
 EAPI=8
@@ -10,4 +10,4 @@ LICENSE=GPL-3+
 SLOT=0
 SRC_URI=https://github.com/CarVac/librtprocess/archive/refs/tags/0.12.0.tar.gz -> librtprocess-0.12.0.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
-_md5_=d294753991bb00d1233ba415a3b00777
+_md5_=afac2ab4a8dc70fc8ed2065646290e51

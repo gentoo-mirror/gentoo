@@ -8,10 +8,10 @@ INHERIT=cmake systemd
 IUSE=+av debug daemon dht-node experimental ipv6 key-utils log-debug +log-error log-info log-trace log-warn test
 KEYWORDS=amd64 ~arm x86
 LICENSE=GPL-3+
-RDEPEND=dev-libs/libsodium:=[asm,urandom,-minimal(-)] av? ( media-libs/libvpx:= media-libs/opus ) daemon? ( dev-libs/libconfig:= ) daemon? ( acct-group/tox acct-user/tox ) key-utils? ( || ( sys-devel/gcc[openmp] llvm-core/clang-runtime[openmp] ) )
+RDEPEND=dev-libs/libsodium:=[asm,urandom,-minimal(-)] av? ( media-libs/libvpx:= media-libs/opus ) daemon? ( dev-libs/libconfig:= ) daemon? ( acct-group/tox acct-user/tox ) key-utils? ( || ( sys-devel/gcc[openmp] llvm-runtimes/clang-runtime[openmp] ) )
 REQUIRED_USE=?? ( log-debug log-error log-info log-trace log-warn ) daemon? ( dht-node )
 RESTRICT=!test? ( test )
 SLOT=0/0.2
 SRC_URI=https://github.com/TokTok/c-toxcore/releases/download/v0.2.20/c-toxcore-0.2.20.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=2833646a430d09ed0b68f67997666264
+_md5_=662819630f0eae912e5648b7d8bcba47

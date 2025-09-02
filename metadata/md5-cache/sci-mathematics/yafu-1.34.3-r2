@@ -1,14 +1,14 @@
 BDEPEND=app-arch/unzip
 DEFINED_PHASES=compile install prepare test
-DEPEND=|| ( >=sys-devel/gcc-4.2:*[openmp] llvm-core/clang-runtime:*[openmp] ) dev-libs/gmp:0= sci-mathematics/gmp-ecm
+DEPEND=|| ( >=sys-devel/gcc-4.2:*[openmp] llvm-runtimes/clang-runtime:*[openmp] ) dev-libs/gmp:0= sci-mathematics/gmp-ecm
 DESCRIPTION=Yet another factoring utility
 EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/yafu/
 INHERIT=flag-o-matic edos2unix toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=public-domain
-RDEPEND=|| ( >=sys-devel/gcc-4.2:*[openmp] llvm-core/clang-runtime:*[openmp] ) dev-libs/gmp:0= sci-mathematics/gmp-ecm
+RDEPEND=|| ( >=sys-devel/gcc-4.2:*[openmp] llvm-runtimes/clang-runtime:*[openmp] ) dev-libs/gmp:0= sci-mathematics/gmp-ecm
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/yafu/1.34/yafu-1.34-src.zip
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	edos2unix	33e347e171066657f91f8b0c72ec8773
-_md5_=c0015e92c4c786edc64b24957358fdc6
+_md5_=283ca746192da948617c71aa9c465a9c
