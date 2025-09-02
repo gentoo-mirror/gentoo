@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5 handbook? ( >=kde-frameworks/kdoctools-6.9.0:6 ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.9.0:*
+DEFINED_PHASES=compile configure info install nofetch postinst postrm preinst prepare test unpack
+DEPEND=>=dev-qt/qt5compat-6.8.1:6 >=dev-qt/qtbase-6.8.1:6[dbus,gui,widgets,xml] >=dev-qt/qtserialport-6.8.1:6 >=kde-frameworks/kcompletion-6.9.0:6 >=kde-frameworks/kconfig-6.9.0:6 >=kde-frameworks/kconfigwidgets-6.9.0:6 >=kde-frameworks/kcoreaddons-6.9.0:6 >=kde-frameworks/ki18n-6.9.0:6 >=kde-frameworks/kiconthemes-6.9.0:6 >=kde-frameworks/kio-6.9.0:6 >=kde-frameworks/kjobwidgets-6.9.0:6 >=kde-frameworks/kparts-6.9.0:6 >=kde-frameworks/ktexteditor-6.9.0:6 >=kde-frameworks/ktextwidgets-6.9.0:6 >=kde-frameworks/kwidgetsaddons-6.9.0:6 >=kde-frameworks/kwindowsystem-6.9.0:6 >=kde-frameworks/kxmlgui-6.9.0:6 gpsim? ( dev-embedded/gpsim ) dev-qt/qtbase:6
+DESCRIPTION=IDE for microcontrollers and electronics
+EAPI=8
+HOMEPAGE=https://userbase.kde.org/KTechlab
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=ecm kde.org xdg
+IUSE=+gpsim debug examples +handbook test
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=>=dev-qt/qt5compat-6.8.1:6 >=dev-qt/qtbase-6.8.1:6[dbus,gui,widgets,xml] >=dev-qt/qtserialport-6.8.1:6 >=kde-frameworks/kcompletion-6.9.0:6 >=kde-frameworks/kconfig-6.9.0:6 >=kde-frameworks/kconfigwidgets-6.9.0:6 >=kde-frameworks/kcoreaddons-6.9.0:6 >=kde-frameworks/ki18n-6.9.0:6 >=kde-frameworks/kiconthemes-6.9.0:6 >=kde-frameworks/kio-6.9.0:6 >=kde-frameworks/kjobwidgets-6.9.0:6 >=kde-frameworks/kparts-6.9.0:6 >=kde-frameworks/ktexteditor-6.9.0:6 >=kde-frameworks/ktextwidgets-6.9.0:6 >=kde-frameworks/kwidgetsaddons-6.9.0:6 >=kde-frameworks/kwindowsystem-6.9.0:6 >=kde-frameworks/kxmlgui-6.9.0:6 gpsim? ( dev-embedded/gpsim ) !sci-electronics/ktechlab:5 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://gentoo/ktechlab-0.51.0_p20250902-0519a640.tar.gz https://invent.kde.org/sdk/ktechlab/-/archive/0519a6405591ec00f9326269a8d0c948706fbf2f/ktechlab-0519a6405591ec00f9326269a8d0c948706fbf2f.tar.gz -> ktechlab-0.51.0_p20250902-0519a640.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	ca1560f738b337a36fa9cf35054ea70a	kde.org	2eea56ed41440913be4caa3d255d2db3	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=795c1af4648c4a2434e8942415e1bb37
