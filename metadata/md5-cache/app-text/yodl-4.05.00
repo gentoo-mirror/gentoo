@@ -1,13 +1,13 @@
-BDEPEND=>=dev-build/icmake-9.03.01-r1 doc? ( dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric )
+BDEPEND=>=dev-build/icmake-9.03.01-r1 doc? ( app-text/ghostscript-gpl dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric )
 DEFINED_PHASES=compile install prepare
 DESCRIPTION=Your Own Document Language: a pre-document language and tools to process it
 EAPI=8
 HOMEPAGE=https://fbb-git.gitlab.io/yodl/ https://gitlab.com/fbb-git/yodl
-INHERIT=toolchain-funcs flag-o-matic prefix
+INHERIT=toolchain-funcs prefix
 IUSE=doc
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 SLOT=0
 SRC_URI=https://gitlab.com/fbb-git/yodl/-/archive/4.05.00/yodl-4.05.00.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
-_md5_=9deab2009e21d69694dd07f51b79932f
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
+_md5_=908308e19cbc8fdc451ea187400dd2ba
