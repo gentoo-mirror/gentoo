@@ -80,6 +80,10 @@ BDEPEND="
 	wayland? ( dev-util/wayland-scanner )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-openvr.patch
+)
+
 src_prepare() {
 	cmake_src_prepare
 
@@ -119,7 +123,8 @@ src_configure() {
 		-DSDL_KMSDRM=$(usex kms)
 		-DSDL_OPENGL=$(usex opengl)
 		-DSDL_OPENGLES=$(usex opengl)
-		-DSDL_OPENVR=$(usex opengl) # only dependency is libglvnd
+		# openvr is not packaged, but support only needs libglvnd (dlopen)
+		-DSDL_OPENVR=$(usex opengl)
 		-DSDL_ROCKCHIP=no
 		-DSDL_RPI=no
 		-DSDL_VIVANTE=no
