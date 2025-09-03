@@ -1,13 +1,13 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl] sys-devel/m4 >=sys-apps/checkpolicy-2.0.21
 DEFINED_PHASES=compile install postinst postrm prepare unpack
-DEPEND=sec-policy/selinux-milter >=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-9999
+DEPEND=sec-policy/selinux-milter >=sys-apps/policycoreutils-2.5 >=sec-policy/selinux-base-policy-9999
 DESCRIPTION=SELinux policy for dkim
 EAPI=7
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
 INHERIT=selinux-policy-2
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=sec-policy/selinux-milter >=sys-apps/policycoreutils-2.0.82 >=sec-policy/selinux-base-policy-9999
+RDEPEND=sec-policy/selinux-milter >=sys-apps/policycoreutils-2.5 >=sec-policy/selinux-base-policy-9999
 SLOT=0
-_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	selinux-policy-2	911f1be4a382263795dbb33c4920a114
+_eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	selinux-policy-2	4327c7f8f8467a714880cce77aad295d
 _md5_=272fef6e8394926665adb609b464368b
