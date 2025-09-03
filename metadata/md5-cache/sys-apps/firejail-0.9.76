@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy ) selinux? ( sys-libs/libselinux ) sys-libs/libseccomp test? ( dev-tcltk/expect )
+DESCRIPTION=Security sandbox for any type of processes
+EAPI=8
+HOMEPAGE=https://firejail.wordpress.com/
+INHERIT=flag-o-matic toolchain-funcs python-single-r1 linux-info
+IUSE=apparmor +chroot contrib +dbusproxy +file-transfer +globalcfg +network +private-home selinux test +userns X python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-2
+RDEPEND=!sys-apps/firejail-lts apparmor? ( sys-libs/libapparmor ) contrib? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) dbusproxy? ( sys-apps/xdg-dbus-proxy ) selinux? ( sys-libs/libselinux )
+REQUIRED_USE=contrib? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/netblue30/firejail/releases/download/0.9.76/firejail-0.9.76.tar.xz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	8a006695bc0db22490452dd06914dda5	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	linux-info	efd923656513c879204fec6638eadee5
+_md5_=2689741f46f544ed8cd0fa66567bf595
