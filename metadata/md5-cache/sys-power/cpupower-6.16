@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst
+DEPEND=sys-apps/pciutils virtual/os-headers nls? ( sys-devel/gettext )
+DESCRIPTION=Shows and sets processor power related values
+EAPI=8
+HOMEPAGE=https://www.kernel.org/
+INHERIT=bash-completion-r1 eapi9-ver systemd toolchain-funcs
+IUSE=nls
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=sys-apps/pciutils
+SLOT=0/0
+SRC_URI=https://dev.gentoo.org/~floppym/dist/cpupower-6.16.tar.xz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	bash-completion-r1	767861f3744f589ee5291c1698b1c082	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=fd4a6ba8f5e0f0dd59c1777e02c43fe8
