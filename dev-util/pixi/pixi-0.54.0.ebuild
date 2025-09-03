@@ -3,8 +3,7 @@
 
 EAPI=8
 
-CRATES="
-"
+CRATES=""
 
 declare -A GIT_CRATES=(
 	[async_zip]='https://github.com/astral-sh/rs-async-zip;c909fda63fcafe4af496a07bfda28a5aae97e58d;rs-async-zip-%commit%'
@@ -133,4 +132,9 @@ src_test() {
 	# it will be always set
 	local -x USER=${USER}
 	cargo_src_test --no-fail-fast
+}
+
+src_install() {
+	cd crates/pixi || die
+	cargo_src_install
 }
