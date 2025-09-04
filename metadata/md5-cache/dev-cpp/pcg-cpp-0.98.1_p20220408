@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install test
+DESCRIPTION=Family of better random number generators
+EAPI=8
+HOMEPAGE=https://www.pcg-random.org https://github.com/imneme/pcg-cpp
+INHERIT=toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=|| ( Apache-2.0 MIT )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/imneme/pcg-cpp/archive/428802d1a5634f96bcd0705fab379ff0113bcf13.tar.gz -> pcg-cpp-0.98.1_p20220408.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
+_md5_=76899415c9e37905959e323eeefd992d

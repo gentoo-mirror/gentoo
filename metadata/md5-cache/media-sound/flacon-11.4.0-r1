@@ -1,16 +1,16 @@
 BDEPEND=dev-qt/qttools:6[linguist] virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test
-DEPEND=app-i18n/uchardet dev-qt/qtbase:6[gui,network,widgets,concurrent] media-libs/taglib:= media-sound/sox[flac,wavpack] media-video/mediainfo test? ( dev-cpp/yaml-cpp media-libs/faac media-libs/flac media-sound/alacenc media-sound/alac_decoder media-sound/lame <=media-sound/mac-4.12 media-sound/opus-tools media-sound/shntool media-sound/ttaenc media-sound/vorbis-tools media-sound/wavpack )
+DEPEND=app-i18n/uchardet dev-qt/qtbase:6[gui,network,widgets,concurrent] media-libs/taglib:= <media-sound/sox-14.6[flac,wavpack] media-video/mediainfo test? ( dev-cpp/yaml-cpp media-libs/faac media-libs/flac media-sound/alacenc media-sound/alac_decoder media-sound/lame <=media-sound/mac-4.12 media-sound/opus-tools media-sound/shntool media-sound/ttaenc media-sound/vorbis-tools media-sound/wavpack )
 DESCRIPTION=Extracts audio tracks from an audio CD image to separate tracks
 EAPI=8
 HOMEPAGE=https://flacon.github.io/
 INHERIT=check-reqs cmake optfeature virtualx xdg-utils
 IUSE=test test
-KEYWORDS=amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=LGPL-2.1+
-RDEPEND=app-i18n/uchardet dev-qt/qtbase:6[gui,network,widgets,concurrent] media-libs/taglib:= media-sound/sox[flac,wavpack] media-video/mediainfo
+RDEPEND=app-i18n/uchardet dev-qt/qtbase:6[gui,network,widgets,concurrent] media-libs/taglib:= <media-sound/sox-14.6[flac,wavpack] media-video/mediainfo
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
-SRC_URI=https://github.com/flacon/flacon/archive/v12.0.0.tar.gz -> flacon-12.0.0.tar.gz
+SRC_URI=https://github.com/flacon/flacon/archive/v11.4.0.tar.gz -> flacon-11.4.0.tar.gz
 _eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	optfeature	538bce96e5589935b57e178e8635f301	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=00a35cd8e112ce469d8f0dd1f1c4fbb1
+_md5_=aa6f45e50b66dfb8fbe6ebe8f93e3dee

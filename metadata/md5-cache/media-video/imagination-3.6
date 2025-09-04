@@ -1,15 +1,15 @@
 BDEPEND=dev-util/intltool sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=install postinst postrm prepare
-DEPEND=dev-libs/glib:2 media-sound/sox:= x11-libs/cairo:= x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/pango
+DEPEND=dev-libs/glib:2 <media-sound/sox-14.5:= x11-libs/cairo:= x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/pango
 DESCRIPTION=Simple DVD slideshow maker
 EAPI=8
 HOMEPAGE=https://imagination.sourceforge.net/
 INHERIT=autotools desktop xdg-utils
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=dev-libs/glib:2 media-sound/sox:= x11-libs/cairo:= x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/pango media-video/ffmpeg
+RDEPEND=dev-libs/glib:2 <media-sound/sox-14.5:= x11-libs/cairo:= x11-libs/gdk-pixbuf x11-libs/gtk+:3 x11-libs/pango media-video/ffmpeg
 RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/imagination/imagination-3.6.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=95ea152338c8cad1f8881869ac03adfa
+_md5_=ffd1f1191c5b2dbc0bc071c04b414c1d
