@@ -11,24 +11,22 @@ inherit distutils-r1
 DESCRIPTION="Realtime PostgreSQL database server monitoring tool"
 HOMEPAGE="https://github.com/dalibo/pg_activity"
 SRC_URI="https://github.com/dalibo/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-KEYWORDS="~amd64"
-SLOT="0"
 LICENSE="POSTGRESQL"
+SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-python/attrs[${PYTHON_USEDEP}]
 	dev-python/blessed[${PYTHON_USEDEP}]
 	dev-python/humanize[${PYTHON_USEDEP}]
+	dev-python/psycopg:0[${PYTHON_USEDEP}]
 	dev-python/psutil[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
 "
 
-BDEPEND="
+DEPEND="
 	dev-python/attrs[${PYTHON_USEDEP}]
-	test? (
-		dev-python/psycopg:0[${PYTHON_USEDEP}]
-		dev-python/psycopg:2[${PYTHON_USEDEP}]
-	)
+	test? ( dev-python/psycopg:0[${PYTHON_USEDEP}] )
 "
 
 distutils_enable_tests pytest
