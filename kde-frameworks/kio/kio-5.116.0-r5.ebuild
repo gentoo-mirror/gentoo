@@ -44,7 +44,6 @@ COMMON_DEPEND="
 	=kde-frameworks/kjobwidgets-${PVCUT}*:5
 	=kde-frameworks/knotifications-${PVCUT}*:5
 	=kde-frameworks/kservice-${PVCUT}*:5
-	=kde-frameworks/ktextwidgets-${PVCUT}*:5
 	=kde-frameworks/kwidgetsaddons-${PVCUT}*:5
 	=kde-frameworks/kwindowsystem-${PVCUT}*:5[X?]
 	=kde-frameworks/kxmlgui-${PVCUT}*:5
@@ -76,6 +75,12 @@ RDEPEND="${COMMON_DEPEND}
 PDEPEND=">=kde-frameworks/kded-${PVCUT}:5"
 
 PATCHES=( "${FILESDIR}/${P}-use-solid-for-home-mountpoint.patch" )
+
+src_prepare() {
+	ecm_src_prepare
+	# kcmshell[5], provided by kde-cli-tools:5, is long gone:
+	cmake_run_in src cmake_comment_add_subdirectory kcms
+}
 
 src_configure() {
 	local mycmakeargs=(

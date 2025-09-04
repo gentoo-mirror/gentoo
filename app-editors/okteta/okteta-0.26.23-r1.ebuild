@@ -6,8 +6,8 @@ EAPI=8
 ECM_DESIGNERPLUGIN="true"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
-KFMIN=5.115.0
-QTMIN=5.15.12
+KFMIN=5.116.0
+QTMIN=5.15.17
 inherit ecm kde.org
 
 DESCRIPTION="Hex editor by KDE"
@@ -17,7 +17,7 @@ SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz
 
 LICENSE="GPL-2 handbook? ( FDL-1.2 )"
 SLOT="5"
-KEYWORDS="amd64 arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE=""
 
 DEPEND="
@@ -27,7 +27,6 @@ DEPEND="
 	>=dev-qt/qtprintsupport-${QTMIN}:5
 	>=dev-qt/qtscript-${QTMIN}:5[scripttools]
 	>=dev-qt/qtwidgets-${QTMIN}:5
-	>=dev-qt/qtxml-${QTMIN}:5
 	>=kde-frameworks/kbookmarks-${KFMIN}:5
 	>=kde-frameworks/kcmutils-${KFMIN}:5
 	>=kde-frameworks/kcodecs-${KFMIN}:5
@@ -42,7 +41,6 @@ DEPEND="
 	>=kde-frameworks/kio-${KFMIN}:5
 	>=kde-frameworks/kjobwidgets-${KFMIN}:5
 	>=kde-frameworks/knewstuff-${KFMIN}:5
-	>=kde-frameworks/kparts-${KFMIN}:5
 	>=kde-frameworks/kservice-${KFMIN}:5
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:5
 	>=kde-frameworks/kxmlgui-${KFMIN}:5
@@ -50,9 +48,22 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.26.13-doctools-optional.patch" # downstream
-	"${WORKDIR}/${PN}-0.26.21-drop-qca.patch" # git master
+	# downstream
+	"${FILESDIR}/${PN}-0.26.13-doctools-optional.patch"
+	# git master
+	"${WORKDIR}/${PN}-0.26.21-drop-qca.patch"
+	"${FILESDIR}/${P}-unused-dep.patch"
 )
+
+src_configure() {
+	local mycmakeargs=(
+		-DOMIT_EXAMPLES=ON
+		-DBUILD_TERMINALTOOL=OFF
+		-DBUILD_KPARTSPLUGIN=OFF
+	)
+
+	ecm_src_configure
+}
 
 src_test() {
 	ecm_src_test -j1
