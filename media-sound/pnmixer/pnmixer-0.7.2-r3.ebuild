@@ -37,6 +37,8 @@ PATCHES=(
 	"${FILESDIR}/${P}-fix-assert-if-volume-gt-100.patch"
 	"${FILESDIR}/${P}-fix-possible-garbage-value.patch"
 	"${FILESDIR}/${P}-fix-possible-memleak.patch"
+	"${FILESDIR}/${P}-cmake4.patch" # bug 957783
+	"${FILESDIR}/${P}-cmake4-fix-signalhandlers.patch" # bug 961943
 )
 
 src_configure() {
