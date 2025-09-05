@@ -1,0 +1,15 @@
+BDEPEND=man? ( || ( app-text/lowdown virtual/pandoc ) ) || ( >=dev-lang/rust-bin-1.85.0:* >=dev-lang/rust-1.85.0:* )
+DEFINED_PHASES=compile configure install setup test unpack
+DEPEND=x11-libs/libdrm:=[video_cards_amdgpu]
+DESCRIPTION=Tool to display AMDGPU usage.
+EAPI=8
+HOMEPAGE=https://github.com/Umio-Yasuno/amdgpu_top
+INHERIT=desktop cargo
+IUSE=man debug
+KEYWORDS=~amd64
+LICENSE=MIT Apache-2.0 Boost-1.0 CC0-1.0 ISC MIT OFL-1.1 UbuntuFontLicense-1.0 Unicode-3.0 ZLIB
+RDEPEND=x11-libs/libdrm:=[video_cards_amdgpu]
+SLOT=0
+SRC_URI=https://github.com/Umio-Yasuno/amdgpu_top/archive/refs/tags/v0.11.0.tar.gz -> amdgpu_top-0.11.0.gh.tar.gz https://github.com/Umio-Yasuno/libdrm-amdgpu-sys-rs/archive/8d0029b4cf8f3b995728614f96c03f6e3dcf4f9e.tar.gz -> libdrm-amdgpu-sys-rs-8d0029b4cf8f3b995728614f96c03f6e3dcf4f9e.gh.tar.gz https://github.com/gentoo-crate-dist/amdgpu_top/releases/download/v0.11.0/amdgpu_top-0.11.0-crates.tar.xz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	2c958ff95a0fd21c1cb19e961cb2946d	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a
+_md5_=3f99bd7fe911d0f11bfcf2908ab6aafb
