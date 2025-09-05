@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="tk?"
 inherit cmake desktop flag-o-matic optfeature python-single-r1 xdg
 
@@ -78,7 +78,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.5.8-cmake.patch # bug 886251
 	"${FILESDIR}"/${PN}-1.5.3-fpic.patch
 	"${FILESDIR}"/${PN}-1.7.0-findhyphen.patch
-	"${FILESDIR}"/${PN}-1.7.0-dont-install-thirdparty-license.patch
+	"${FILESDIR}"/${PN}-1.7.0-dont-install-qtadvanceddocking.patch # bugs 961290, 960017
 	"${FILESDIR}"/${PN}-1.7.0-fix-icon-version.patch
 	"${FILESDIR}"/${P}-poppler-25.0{2,6,7,9}.0.patch # from trunk
 	"${FILESDIR}"/${PN}-1.7.0-fix-compiling-with-qt-6.9.0.patch # bug 957695
