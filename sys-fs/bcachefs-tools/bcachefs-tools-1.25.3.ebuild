@@ -91,6 +91,7 @@ LLVM_COMPAT=( {17..20} )
 PYTHON_COMPAT=( python3_{11..14} )
 RUST_MIN_VER="1.77.0"
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kentoverstreet.asc
+
 inherit cargo flag-o-matic llvm-r1 python-any-r1 shell-completion toolchain-funcs unpacker verify-sig
 
 DESCRIPTION="Tools for bcachefs"
@@ -100,7 +101,8 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://evilpiepirate.org/git/bcachefs-tools.git"
 else
 	SRC_URI="https://evilpiepirate.org/bcachefs-tools/bcachefs-tools-${PV}.tar.zst
-		${CARGO_CRATE_URIS}"
+		${CARGO_CRATE_URIS}
+	"
 	SRC_URI+=" verify-sig? ( https://evilpiepirate.org/bcachefs-tools/bcachefs-tools-${PV}.tar.sign )"
 	S="${WORKDIR}/${P}"
 	KEYWORDS="~amd64 ~arm64"
@@ -156,6 +158,14 @@ pkg_setup() {
 }
 
 src_unpack() {
+	# Upstream signs the uncompressed tarball
+	if use verify-sig; then
+		einfo "Unpacking ${P}.tar.zst ..."
+		verify-sig_verify_detached - "${DISTDIR}"/${P}.tar.sign \
+			< <(zstd -fdc "${DISTDIR}"/${P}.tar.zst | tee >(tar -xf -))
+		assert "Unpack failed"
+	fi
+
 	if [[ ${PV} == "9999" ]]; then
 		git-r3_src_unpack
 		S="${S}/rust-src" cargo_live_src_unpack
@@ -163,12 +173,14 @@ src_unpack() {
 		unpacker ${P}.tar.zst
 		cargo_src_unpack
 	fi
+
 }
 
 src_prepare() {
 	default
 	tc-export CC
 
+	sed -i s/^VERSION=.*$/VERSION=${PV}/ Makefile || die
 	sed \
 		-e '/^CFLAGS/s:-O2::' \
 		-e '/^CFLAGS/s:-g::' \
@@ -182,6 +194,11 @@ src_compile() {
 	export VERSION=${PV}
 
 	default
+
+	# This version mangles the symbolic link,
+	# please check if this can be removed before bumping
+	rm "${S}"/bcachefs
+	ln -s "${S}"/target/release/bcachefs bcachefs
 
 	local shell
 	for shell in bash fish zsh; do
