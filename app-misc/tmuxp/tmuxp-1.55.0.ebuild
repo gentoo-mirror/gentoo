@@ -1,9 +1,9 @@
-# Copyright 2019-2024 Gentoo Authors
+# Copyright 2019-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..14} )
 DISTUTILS_USE_PEP517=hatchling
 inherit distutils-r1
 
@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 RDEPEND="
 	>=app-misc/tmux-3.0a
-	=dev-python/libtmux-0.39*[${PYTHON_USEDEP}]
+	=dev-python/libtmux-0.46*[${PYTHON_USEDEP}]
 	>=dev-python/colorama-0.3.9[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
 "
@@ -26,7 +26,7 @@ BDEPEND="
 		>=dev-python/pytest-6.2.5[${PYTHON_USEDEP}]
 		>=dev-python/pytest-mock-3.14.0[${PYTHON_USEDEP}]
 		>=dev-python/pytest-rerunfailures-4.2[${PYTHON_USEDEP}]
-		!dev-python/flaky
+		!!dev-python/flaky
 	)
 "
 
