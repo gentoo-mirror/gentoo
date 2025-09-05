@@ -49,10 +49,10 @@ microsoft.win32.systemevents@8.0.0
 microsoft.win32.systemevents@9.0.3
 mimekitlite@4.7.1
 naps2.mdns@1.0.1
-naps2.ntwain@1.0.0
-naps2.pdfium.binaries@1.1.0
+naps2.ntwain@1.0.1
+naps2.pdfium.binaries@1.2.0
 naps2.pdfsharp@1.0.1
-naps2.tesseract.binaries@1.3.1
+naps2.tesseract.binaries@1.4.0
 naps2.wia@2.0.3
 netstandard.library@2.0.0
 netstandard.library@2.0.3
@@ -102,7 +102,7 @@ sharpziplib@1.4.2
 simplebase@1.3.1
 sixlabors.fonts@1.0.0-beta17
 sixlabors.fonts@1.0.1
-sixlabors.imagesharp@3.1.7
+sixlabors.imagesharp@3.1.11
 standardsocketshttphandler@2.2.0.8
 system.buffers@4.3.0
 system.buffers@4.4.0

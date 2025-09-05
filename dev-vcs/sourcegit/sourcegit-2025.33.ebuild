@@ -5,43 +5,45 @@ EAPI=8
 
 DOTNET_PKG_COMPAT="9.0"
 NUGETS="
-avalonia.angle.windows.natives@2.1.22045.20230930
-avalonia.avaloniaedit@11.2.0
+avalonia.angle.windows.natives@2.1.25547.20250602
+avalonia.avaloniaedit@11.3.0
 avalonia.buildservices@0.0.31
-avalonia.controls.colorpicker@11.2.8
-avalonia.controls.datagrid@11.2.8
-avalonia.desktop@11.2.8
-avalonia.diagnostics@11.2.8
-avalonia.fonts.inter@11.2.8
-avalonia.freedesktop@11.2.8
-avalonia.native@11.2.8
-avalonia.remote.protocol@11.2.8
+avalonia.controls.colorpicker@11.3.4
+avalonia.controls.datagrid@11.3.4
+avalonia.desktop@11.3.4
+avalonia.diagnostics@11.3.4
+avalonia.fonts.inter@11.3.4
+avalonia.freedesktop@11.3.4
+avalonia.native@11.3.4
+avalonia.remote.protocol@11.3.4
 avalonia.skia@11.0.0
-avalonia.skia@11.2.8
-avalonia.themes.fluent@11.2.8
-avalonia.themes.simple@11.2.8
-avalonia.win32@11.2.8
-avalonia.x11@11.2.8
+avalonia.skia@11.3.4
+avalonia.themes.fluent@11.3.4
+avalonia.themes.simple@11.3.4
+avalonia.win32@11.3.4
+avalonia.x11@11.3.4
 avalonia@11.0.0
-avalonia@11.2.8
-avaloniaedit.textmate@11.2.0
-azure.ai.openai@2.2.0-beta.4
-azure.core@1.44.1
+avalonia@11.3.4
+avaloniaedit.textmate@11.3.0
+azure.ai.openai@2.3.0-beta.1
+azure.core@1.47.1
 bitmiracle.libtiff.net@2.4.660
 communitytoolkit.mvvm@8.4.0
-harfbuzzsharp.nativeassets.linux@7.3.0.3
-harfbuzzsharp.nativeassets.macos@7.3.0.3
-harfbuzzsharp.nativeassets.webassembly@7.3.0.3
-harfbuzzsharp.nativeassets.win32@7.3.0.3
+harfbuzzsharp.nativeassets.linux@8.3.1.1
+harfbuzzsharp.nativeassets.macos@8.3.1.1
+harfbuzzsharp.nativeassets.webassembly@8.3.1.1
+harfbuzzsharp.nativeassets.win32@8.3.1.1
 harfbuzzsharp@7.3.0.3
+harfbuzzsharp@8.3.1.1
 livechartscore.skiasharpview.avalonia@2.0.0-rc5.4
 livechartscore.skiasharpview@2.0.0-rc5.4
 livechartscore@2.0.0-rc5.4
 microcom.runtime@0.11.0
-microsoft.bcl.asyncinterfaces@6.0.0
-microsoft.extensions.logging.abstractions@6.0.0
-onigwrap@1.0.6
-openai@2.2.0-beta.4
+microsoft.bcl.asyncinterfaces@8.0.0
+microsoft.extensions.dependencyinjection.abstractions@8.0.2
+microsoft.extensions.logging.abstractions@8.0.3
+onigwrap@1.0.8
+openai@2.3.0
 pfim@0.11.3
 skiasharp.harfbuzz@2.88.9
 skiasharp.nativeassets.linux@2.88.9
@@ -49,25 +51,15 @@ skiasharp.nativeassets.macos@2.88.9
 skiasharp.nativeassets.webassembly@2.88.9
 skiasharp.nativeassets.win32@2.88.9
 skiasharp@2.88.9
-system.clientmodel@1.1.0
-system.clientmodel@1.2.1
-system.clientmodel@1.4.0-beta.1
-system.diagnostics.diagnosticsource@6.0.1
+system.clientmodel@1.5.1
 system.io.pipelines@8.0.0
-system.memory.data@6.0.0
-system.memory.data@6.0.1
-system.numerics.vectors@4.5.0
-system.runtime.compilerservices.unsafe@6.0.0
-system.text.encodings.web@6.0.0
-system.text.json@6.0.0
-system.text.json@6.0.10
+system.memory.data@8.0.1
 system.text.json@8.0.5
-system.threading.tasks.extensions@4.5.4
 textmatesharp.grammars@1.0.65
-textmatesharp.grammars@1.0.66
+textmatesharp.grammars@1.0.70
 textmatesharp@1.0.65
-textmatesharp@1.0.66
-tmds.dbus.protocol@0.20.0
+textmatesharp@1.0.70
+tmds.dbus.protocol@0.21.2
 "
 
 inherit check-reqs dotnet-pkg desktop xdg
@@ -127,6 +119,8 @@ src_prepare() {
 		-e "s|/opt/sourcegit/sourcegit|sourcegit|g" \
 		-e "s|/usr/share/icons/sourcegit.png|sourcegit|g" \
 		|| die
+
+	rm SourceGit.slnx || die
 
 	dotnet-pkg_src_prepare
 }

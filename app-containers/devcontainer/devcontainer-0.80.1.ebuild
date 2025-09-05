@@ -6,13 +6,14 @@ EAPI=8
 DESCRIPTION="Reference implementation of the Development Containers specification"
 HOMEPAGE="https://containers.dev/
 	https://github.com/devcontainers/cli/"
+
 SRC_URI="https://registry.npmjs.org/@devcontainers/cli/-/cli-${PV}.tgz
 	-> ${P}.tgz"
 S="${WORKDIR}/package"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	net-libs/nodejs
@@ -40,7 +41,8 @@ src_install() {
 		--progress false
 		--verbose
 	)
-	npm "${my_npm_opts[@]}" install "${DISTDIR}/${P}.tgz" || die "npm install failed"
+	npm "${my_npm_opts[@]}" install "${DISTDIR}/${P}.tgz" \
+		|| die "npm install failed"
 
 	einstalldocs
 }
