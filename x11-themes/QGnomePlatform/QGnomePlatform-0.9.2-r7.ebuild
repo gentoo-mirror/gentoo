@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 inherit cmake flag-o-matic
 
-DESCRIPTION="A Qt Platform Theme aimed to accommodate GNOME settings"
+DESCRIPTION="Qt Platform Theme aimed to accommodate GNOME settings"
 HOMEPAGE="https://github.com/FedoraQt/QGnomePlatform"
 SRC_URI="https://github.com/FedoraQt/QGnomePlatform/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
@@ -12,29 +13,33 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="amd64 ~arm64 ~ppc64 x86"
 
-IUSE="qt5 +qt6 minimal wayland X"
+IUSE="qt5 +qt6 wayland X"
 REQUIRED_USE="|| ( qt5 qt6 )"
 
-RDEPEND="
+DEPEND="
 	qt5? (
-		dev-qt/qtdbus:5=
-		>=dev-qt/qtquickcontrols2-5.15.2:5=
-		>=dev-qt/qtwidgets-5.15.2:5=
-		!minimal? ( kde-frameworks/qqc2-desktop-style:5= )
+		>=dev-qt/qtcore-5.15.2:5
+		>=dev-qt/qtdbus-5.15.2:5
+		>=dev-qt/qtgui-5.15.2:5=
+		>=dev-qt/qtquickcontrols2-5.15.2:5
+		>=dev-qt/qtwidgets-5.15.2:5
 		wayland? ( dev-qt/qtwayland:5= )
 	)
 	qt6? (
-		dev-qt/qtbase:6=[dbus,gui,widgets]
-		dev-qt/qtdeclarative:6=
-		wayland? ( dev-qt/qtwayland:6= )
+		dev-qt/qtbase:6=[dbus,gui,wayland?,widgets]
+		dev-qt/qtdeclarative:6
 	)
 	gnome-base/gsettings-desktop-schemas
 	sys-apps/xdg-desktop-portal
 	x11-libs/gtk+:3[wayland?,X?]
 	>=x11-themes/adwaita-qt-1.4.2
 "
-DEPEND="${RDEPEND}"
-BDEPEND="${RDEPEND}"
+RDEPEND="${DEPEND}"
+RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
+BDEPEND="
+	qt5? ( >=dev-qt/qtcore-5.15.2:5 )
+	qt6? ( dev-qt/qtbase:6 )
+"
 
 src_prepare() {
 	# Fix cmake4 compatibility, bug #958301
