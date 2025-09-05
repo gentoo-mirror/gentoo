@@ -4,7 +4,7 @@ DEPEND=>=app-arch/lz4-1.9.4:= >=app-arch/zstd-1.2.0:= >=dev-libs/openssl-1.0.0:=
 DESCRIPTION=A fast, multi-threaded, multi-user SQL database server
 EAPI=8
 HOMEPAGE=https://www.mysql.com/
-INHERIT=check-reqs cmake edo flag-o-matic linux-info multiprocessing prefix toolchain-funcs
+INHERIT=check-reqs cmake dot-a edo flag-o-matic linux-info multiprocessing prefix toolchain-funcs
 IUSE=cjk cracklib debug jemalloc latin1 numa +perl profiling router selinux +server tcmalloc test test-install
 KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~mips -ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris
 LICENSE=GPL-2
@@ -13,6 +13,6 @@ RDEPEND=>=app-arch/lz4-1.9.4:= >=app-arch/zstd-1.2.0:= >=dev-libs/openssl-1.0.0:
 REQUIRED_USE=?? ( tcmalloc jemalloc ) cjk? ( server ) jemalloc? ( server ) numa? ( server ) profiling? ( server ) router? ( server ) tcmalloc? ( server ) test? ( server ) test-install? ( server )
 RESTRICT=!test? ( test )
 SLOT=8.0
-SRC_URI=https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-boost-8.0.41.tar.gz https://cdn.mysql.com/archives/mysql-8.0/mysql-boost-8.0.41.tar.gz https://github.com/parona-source/mysql-server/releases/download/mysql-8.0.40-patches-01/mysql-8.0.40-patches-01.tar.xz
-_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	edo	a5e294016aa84979fcb2459749eb80b2	linux-info	efd923656513c879204fec6638eadee5	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
-_md5_=7f7c01aca29cd0da5a02c469db30b455
+SRC_URI=https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-boost-8.0.43.tar.gz https://cdn.mysql.com/archives/mysql-8.0/mysql-boost-8.0.43.tar.gz https://github.com/parona-source/mysql-server/releases/download/mysql-8.0.43-patches-01/mysql-8.0.43-patches-01.tar.xz
+_eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	dot-a	e5200fe17cfd2ed6fa66edd80201763a	edo	a5e294016aa84979fcb2459749eb80b2	linux-info	efd923656513c879204fec6638eadee5	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
+_md5_=abe199f3444a140b29507803a436efd3
