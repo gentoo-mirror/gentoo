@@ -6,36 +6,39 @@ EAPI=8
 PYTHON_COMPAT=( python3_{11..14} )
 inherit autotools python-single-r1
 
-DESCRIPTION="General purpose formula parser & interpreter"
-HOMEPAGE="https://gitlab.com/ixion/ixion"
+DESCRIPTION="Standalone file import filter library for spreadsheet documents"
+HOMEPAGE="https://gitlab.com/orcus/orcus/blob/master/README.md"
 
 if [[ ${PV} == *9999* ]]; then
 	MDDS_SLOT="1/3.0"
-	EGIT_REPO_URI="https://gitlab.com/ixion/ixion.git"
+	EGIT_REPO_URI="https://gitlab.com/orcus/orcus.git"
 	inherit git-r3
 else
 	MDDS_SLOT="1/2.1"
-	# Invalid as of 0.20.0, serves HTML
-	#SRC_URI="https://kohei.us/files/ixion/src/${P}.tar.xz"
-	SRC_URI="https://gitlab.com/api/v4/projects/ixion%2Fixion/packages/generic/source/${PV}/${P}.tar.xz"
+	SRC_URI="https://kohei.us/files/orcus/src/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="MIT"
-SLOT="0/0.20" # based on SONAME of libixion.so
-IUSE="debug python"
+SLOT="0/0.18" # based on SONAME of liborcus.so
+IUSE="python +spreadsheet-model test tools"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-libs/boost:=
-	dev-util/mdds:${MDDS_SLOT}
+	dev-libs/boost:=[zlib(+)]
+	sys-libs/zlib
 	python? ( ${PYTHON_DEPS} )
+	spreadsheet-model? ( dev-libs/libixion:${SLOT} )
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-util/mdds:${MDDS_SLOT}
+"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.20.0-boost-m4.patch # bug 961528
+	"${FILESDIR}"/${PN}-0.19.2-gcc15-cstdint.patch
+	"${FILESDIR}"/${PN}-0.19.2-boost-m4.patch
 )
 
 pkg_setup() {
@@ -49,15 +52,16 @@ src_prepare() {
 
 src_configure() {
 	local myeconfargs=(
-		$(use_enable debug)
-		$(use_enable debug debug-utils)
-		$(use_enable debug log-debug)
+		--disable-werror
 		$(use_enable python)
+		$(use_enable spreadsheet-model)
+		$(use_with tools)
 	)
 	econf "${myeconfargs[@]}"
 }
 
 src_install() {
 	default
+	use python && python_optimize
 	find "${D}" -name '*.la' -type f -delete || die
 }
