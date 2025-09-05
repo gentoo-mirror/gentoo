@@ -1,6 +1,6 @@
-BDEPEND=>=dev-util/lxqt-build-tools-2.1.0 app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-util/lxqt-build-tools-2.2.0 app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
-DEPEND=>=dev-qt/qtbase-6.6:6[dbus,gui,widgets,X] kde-plasma/layer-shell-qt:6 x11-libs/libX11 ~x11-libs/qtermwidget-9999:=
+DEPEND=>=dev-qt/qtbase-6.6:6=[dbus,gui,widgets,X] kde-plasma/layer-shell-qt:6 media-libs/libcanberra x11-libs/libX11 ~x11-libs/qtermwidget-9999:=
 DESCRIPTION=Qt-based multitab terminal emulator
 EAPI=8
 HOMEPAGE=https://lxqt-project.org/
@@ -9,8 +9,8 @@ INHERIT=cmake xdg git-r3
 IUSE=test
 LICENSE=GPL-2 GPL-2+
 PROPERTIES=live
-RDEPEND=>=dev-qt/qtbase-6.6:6[dbus,gui,widgets,X] kde-plasma/layer-shell-qt:6 x11-libs/libX11 ~x11-libs/qtermwidget-9999:=
+RDEPEND=>=dev-qt/qtbase-6.6:6=[dbus,gui,widgets,X] kde-plasma/layer-shell-qt:6 media-libs/libcanberra x11-libs/libX11 ~x11-libs/qtermwidget-9999:=
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=b5d11fbff4f6808f1396870c2851c6e3
+_md5_=d134798b047188cb9c975eae15abe381
