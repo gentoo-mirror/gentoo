@@ -61,6 +61,10 @@ src_test() {
 			-e '/^src\/transformtest/d' \
 			-e '/^src\/xmlparsertest/d' \
 			-i tests.pro || die
+		# tests not updated after functions have been modified
+		# see https://github.com/pgmodeler/pgmodeler/issues/1971 too
+		sed -e '/^src\/basefunctiontest/d' \
+			-i tests.pro || die
 
 		eqmake6 "${myqmakeargs[@]}" tests.pro
 		emake

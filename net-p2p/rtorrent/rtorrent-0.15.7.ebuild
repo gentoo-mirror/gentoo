@@ -10,11 +10,16 @@ inherit autotools linux-info lua-single systemd
 
 DESCRIPTION="BitTorrent Client using libtorrent"
 HOMEPAGE="https://rakshasa.github.io/rtorrent/"
-SRC_URI="https://github.com/rakshasa/rtorrent/releases/download/v${PV}/${P}.tar.gz"
+if [[ ${PV} == *9999 ]] ; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/rakshasa/${PN}.git"
+else
+	SRC_URI="https://github.com/rakshasa/rtorrent/releases/download/v${PV}/${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+fi
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~ppc ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="debug lua selinux test tinyxml2 xmlrpc"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
@@ -43,7 +48,6 @@ BDEPEND="
 DOCS=( doc/rtorrent.rc )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.15.3-unbundle_json.patch
 	# fix configure w/ slibtool. merged in 0.16.0
 	"${FILESDIR}"/${PN}-0.15.5-find_grep.patch
 )
@@ -63,6 +67,8 @@ src_prepare() {
 
 	# use system-json
 	rm -r src/rpc/nlohmann || die
+	sed -e 's@"rpc/nlohmann/json.h"@<nlohmann/json.hpp>@' \
+		-i src/rpc/jsonrpc.cc || die
 
 	# https://github.com/rakshasa/rtorrent/issues/332
 	cp "${FILESDIR}"/rtorrent.1 "${S}"/doc/ || die
@@ -76,9 +82,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# configure needs bash or script bombs out on some null shift, bug #291229
-	export CONFIG_SHELL=${BASH}
-
 	local myeconfargs=(
 		$(use_enable debug)
 		$(use_with lua)
