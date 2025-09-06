@@ -5,13 +5,13 @@ DESCRIPTION=A highly DNS-, DoS- and abuse-aware loadbalancer
 EAPI=8
 HOMEPAGE=https://www.dnsdist.org/index.html
 INHERIT=cargo flag-o-matic lua-single python-any-r1
-IUSE=bpf cdb dnscrypt dnstap doh doh3 ipcipher lmdb quic regex snmp +ssl systemd test web xdp yaml debug lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
+IUSE=bpf cdb dnscrypt dnstap doc doh doh3 ipcipher lmdb quic regex snmp +ssl systemd test web xdp yaml debug lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=acct-group/dnsdist acct-user/dnsdist bpf? ( dev-libs/libbpf:= ) cdb? ( dev-db/tinycdb:= ) dev-libs/boost:= sys-libs/libcap dev-libs/libedit dev-libs/libsodium:= dnstap? ( dev-libs/fstrm ) doh? ( net-libs/nghttp2:= ) doh3? ( net-libs/quiche:= ) lmdb? ( dev-db/lmdb:= ) quic? ( net-libs/quiche ) regex? ( dev-libs/re2:= ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd:0= ) xdp? ( net-libs/xdp-tools ) lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) dnscrypt? ( ssl ) doh? ( ssl ) doh3? ( ssl quic ) ipcipher? ( ssl ) quic? ( ssl )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://downloads.powerdns.com/releases/dnsdist-2.0.0.tar.xz yaml? ( https://www.applied-asynchrony.com/distfiles/dnsdist-rust-2.0.0-crates.tar.xz )
+SRC_URI=https://downloads.powerdns.com/releases/dnsdist-2.0.0.tar.xz doc? ( https://www.applied-asynchrony.com/distfiles/dnsdist-docs-2.0.0.tar.xz ) yaml? ( https://www.applied-asynchrony.com/distfiles/dnsdist-rust-2.0.0-crates.tar.xz )
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	2c958ff95a0fd21c1cb19e961cb2946d	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	5da01b45ec362e78575502b4fb82773a	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	python-utils-r1	b7eb9c3a6dc6662368634584aab44a2c	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=551a7f06f516ec616651e96aa76a7ffb
+_md5_=cdf95727ed8251adad0ac0239287521c
