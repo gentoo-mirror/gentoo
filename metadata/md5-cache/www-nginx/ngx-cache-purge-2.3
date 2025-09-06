@@ -1,0 +1,16 @@
+BDEPEND=www-servers/nginx:=[modules(-)] test? ( dev-perl/Test-Nginx )
+DEFINED_PHASES=compile configure install postinst prepare test unpack
+DEPEND=www-servers/nginx:=[modules(-)]
+DESCRIPTION=NGINX module allowing to purge the FastCGI, proxy, SCGI and uWSGI caches
+EAPI=8
+HOMEPAGE=https://github.com/FRiCKLE/ngx_cache_purge
+INHERIT=nginx-module
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=BSD-2
+RDEPEND=www-servers/nginx:=[modules(-)]
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/FRiCKLE/ngx_cache_purge/archive/refs/tags/2.3.tar.gz -> ngx-cache-purge-2.3.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	nginx-module	7a07ce58f7dfc697ac74b6f3eb541f67
+_md5_=00e98ed0d0c40e3f74386c5c9ef08018

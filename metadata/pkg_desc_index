@@ -2360,7 +2360,7 @@ app-emulation/ganeti-os-simpleimage 0_p20221113: Ganeti OS provider for simple i
 app-emulation/genymotion-bin 3.7.1: Complete set of tools that provide a virtual environment for Android
 app-emulation/glean 1.24.0: Simple program to write static config from config-drive
 app-emulation/grub-xen-host 1.0-r2: Grub2 built as a PV grub per the Xen PV Boot Protocol
-app-emulation/guestfs-tools 1.48.2-r1 1.52.3-r1 1.53.7-r1 1.54.0: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
+app-emulation/guestfs-tools 1.52.3-r1 1.54.0 1.55.1: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
 app-emulation/gxemul 0.6.3.1: A Machine Emulator, Mainly emulates MIPS, but supports other CPU types
 app-emulation/hercules 3.13-r1: Hercules System/370, ESA/390 and zArchitecture Mainframe Emulator
 app-emulation/hercules-sdl 4.7.0-r1 4.8.0: The SoftDevLabs (SDL) version of the Hercules 4.x Hyperion Emulator
@@ -2370,8 +2370,8 @@ app-emulation/hercules-sdl-softfloat 4.7.0 4.8.0 9999: Berkeley IEEE Binary Floa
 app-emulation/hercules-sdl-telnet 4.7.0 4.8.0 9999: Simple RFC-complient TELNET implementation
 app-emulation/libcacard 2.8.1: Virtual Common Access Card (CAC) library emulator
 app-emulation/libdsk 1.5.21: Library for accessing discs and disc image files
-app-emulation/libguestfs 1.48.6-r2 1.54.1-r1 1.55.13: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
-app-emulation/libguestfs-appliance 1.46.0 1.54.0: VM appliance disk image used in libguestfs package
+app-emulation/libguestfs 1.54.1-r1 1.56.2 1.57.2: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
+app-emulation/libguestfs-appliance 1.54.0 1.56.0: VM appliance disk image used in libguestfs package
 app-emulation/libspectrum 1.5.0: Spectrum emulation library
 app-emulation/libvirt 11.1.0-r1 11.1.0-r2 11.2.0-r2 11.4.0-r1 11.6.0 9999: C toolkit to manipulate virtual machines
 app-emulation/libvirt-glib 4.0.0-r1 5.0.0-r1: GLib and GObject mappings for libvirt
@@ -5412,6 +5412,7 @@ dev-libs/ivykis 0.42.4 0.43.1 0.43.2: Library for asynchronous I/O readiness not
 dev-libs/jansson 2.14-r1 2.14-r2 2.14.1: C library for encoding, decoding and manipulating JSON data
 dev-libs/jemalloc 5.3.0-r1: Jemalloc is a general-purpose scalable concurrent allocator
 dev-libs/jerasure 2.0.0-r2 2.0.0-r3 2.0.0_p20170410: Library in C facilitating Erasure Coding for storage applications
+dev-libs/jose 14: C-language implementation of Javascript Object Signing and Encryption
 dev-libs/json-c 0.18 9999: A JSON implementation in C
 dev-libs/json-glib 1.8.0 1.10.0 1.10.6: Library providing GLib serialization and deserialization for the JSON format
 dev-libs/json-parser 1.1.0_p20211208: Very low footprint JSON parser written in portable ANSI C
@@ -5516,6 +5517,7 @@ dev-libs/libgweather 4.4.2-r1 4.4.4: Location and timezone database and weather-
 dev-libs/libhid 0.2.17-r1: Provides a generic and flexible way to access and interact with USB HID devices
 dev-libs/libical 3.0.19 3.0.20-r1: Implementation of basic iCAL protocols
 dev-libs/libiconv 1.17 1.18: GNU charset conversion library for libc which doesn't implement it
+dev-libs/libinjection 3.10.0_p20250228: A SQL/SQLI tokenizer parser analyzer
 dev-libs/libinput 1.28.1 1.29.0 1.29.1: Library to handle input devices in Wayland
 dev-libs/libintl 0.21.1 0.22.5 0.23.1 0.23.2 0.25.1: the GNU international library (split out of gettext)
 dev-libs/libisoburn 1.5.6-r2: Creation/expansion of ISO-9660 filesystems on CD/DVD media supported by libburn
@@ -17283,7 +17285,7 @@ sys-auth/skey 1.1.5-r14: Linux Port of OpenBSD Single-key Password System
 sys-auth/solo1 0.1.1-r1: CLI and Python library for SoloKeys Solo 1
 sys-auth/ssh-import-id 5.11-r1: Utility to securely retrieve an SSH public key and install it locally
 sys-auth/ssh-ldap-pubkey 1.4.0-r1: Utility to manage SSH public keys stored in LDAP
-sys-auth/sssd 2.9.6-r3 2.9.7 2.11.0: System Security Services Daemon provides access to identity and authentication
+sys-auth/sssd 2.9.7 2.11.1: System Security Services Daemon provides access to identity and authentication
 sys-auth/thinkfinger 0.3-r3: Support for the UPEK/SGS Thomson fingerprint reader, common in Thinkpads
 sys-auth/ykclient 2.15: Yubico C client library
 sys-auth/ykpers 1.20.0-r1: Library and tool for personalization of Yubico's YubiKey
@@ -18162,6 +18164,7 @@ www-misc/vdradmin-am 3.6.10-r1 3.6.10-r2: WWW Admin for the Video Disk Recorder
 www-misc/visitors 0.7-r2: Fast web log analyzer
 www-nginx/ngx-authpam 1.5.5: NGINX module using PAM for simple HTTP authentication
 www-nginx/ngx-brotli 1.0.0_rc_p20231109: NGINX module for Brotli compression
+www-nginx/ngx-cache-purge 2.3: NGINX module allowing to purge the FastCGI, proxy, SCGI and uWSGI caches
 www-nginx/ngx-dav-ext 3.0.0: NGINX module providing support for WebDAV PROPFIND,OPTIONS,LOCK,UNLOCK
 www-nginx/ngx-echo 0.63: An NGINX module bringing the power of "echo", "sleep", "time" and more to NGINX
 www-nginx/ngx-encrypted-session 0.09: An NGINX module that encrypts and decrypts NGINX variable values
@@ -18174,6 +18177,8 @@ www-nginx/ngx-lua-module 0.10.27: A module embedding the power of Lua into NGINX
 www-nginx/ngx-lua-upstream 0.07: An NGINX C module exposing ngx-lua-module's Lua APIs for NGINX upstreams
 www-nginx/ngx-memc 0.20: An extended version of the standard NGINX memcached module
 www-nginx/ngx-modsecurity 1.0.4: ModSecurity v3 NGINX Connector
+www-nginx/ngx-naxsi 1.7: NAXSI is an open-source, high performance, low rules maintenance WAF for NGINX
+www-nginx/ngx-rtmp 1.2.2: NGINX-based Media Streaming Server
 www-nginx/ngx-set-misc 0.33: An NGINX module that adds various set_xxx directives to NGINX's rewrite module
 www-nginx/ngx-srcache 0.33: An NGINX module enabling transparent subrequest-based caching
 www-nginx/ngx-upload-progress 0.9.3: An upload progress system for NGINX monitoring RFC1867 POST uploads

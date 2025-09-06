@@ -1,13 +1,12 @@
-BDEPEND=app-arch/xz-utils
 DEFINED_PHASES=install postinst pretend setup unpack
 DESCRIPTION=VM appliance disk image used in libguestfs package
 EAPI=8
 HOMEPAGE=https://libguestfs.org/
 INHERIT=check-reqs
-KEYWORDS=amd64 ~ppc64 ~x86
+KEYWORDS=-* ~amd64
 LICENSE=GPL-2 LGPL-2
-RDEPEND=!<app-emulation/libguestfs-1.46.0
+RDEPEND=!<app-emulation/libguestfs-1.56.0
 SLOT=0
-SRC_URI=https://download.libguestfs.org/binaries/appliance/appliance-1.46.0.tar.xz
+SRC_URI=https://download.libguestfs.org/binaries/appliance/appliance-1.56.0.tar.xz
 _eclasses_=check-reqs	2a9731073c152554078a9a8df8fc0f1b
-_md5_=835f2a1d033c470aa57120faeb0ccdd2
+_md5_=f29f9f7cd9d09f7a896d4101f21584ab
