@@ -1267,7 +1267,6 @@ app-backup/synology-cloud-station-backup 4469: Back up your files from multiple 
 app-backup/tarsnap 1.0.40-r2 1.0.41: Online backups for the truly paranoid
 app-backup/tsm 8.1.22.0-r1: IBM Spectrum Protect (former Tivoli Storage Manager) Backup/Archive Client, API
 app-backup/untangle-https-backup 0.1.0-r3: Back up Untangle configurations via the web admin UI
-app-backup/vzdump 1.2-r1: A utility to make consistent snapshots of running OpenVZ containers
 app-benchmarks/bashmark 0.6.2: Geno's cross platform benchmarking suite
 app-benchmarks/bonnie 2.0.6-r3: Performance Test of Filesystem I/O using standard C library calls
 app-benchmarks/bonnie++ 2.00a: Hard drive bottleneck testing benchmark suite
@@ -1544,7 +1543,7 @@ app-crypt/xca 2.8.0 2.9.0 2.9.0-r1: A GUI to OpenSSL, RSA public keys, certifica
 app-crypt/xor-analyze 0.5-r1: Program for cryptanalyzing xor 'encryption' with variable key length
 app-crypt/yubihsm-connector 3.0.4: Server to expose YubiHSM 2 to network
 app-crypt/yubihsm-shell 2.6.0: Components used to interact with the YubiHSM 2
-app-crypt/yubikey-manager 5.7.2: Python library and command line tool for configuring a YubiKey
+app-crypt/yubikey-manager 5.7.2 5.8.0: Python library and command line tool for configuring a YubiKey
 app-crypt/yubikey-manager-qt 1.2.5: Cross-platform application for configuring any YubiKey over all USB transports
 app-crypt/yubioath-flutter-bin 7.1.1: Yubico Authenticator for TOTP
 app-crypt/zulucrypt 7.0.0: Front end to cryptsetup
@@ -2491,7 +2490,7 @@ app-forensics/sleuthkit 4.12.1-r2: A collection of file system and media managem
 app-forensics/unhide 20220611: Forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
 app-forensics/volatility3 2.11.0-r1: Framework for analyzing volatile memory
 app-forensics/yara 4.5.3 4.5.4 9999: A malware identification and classification tool
-app-forensics/yara-x 1.0.1 1.1.0 1.3.0 1.4.0: A malware identification and classification tool
+app-forensics/yara-x 1.4.0 1.6.0: A malware identification and classification tool
 app-forensics/zzuf 0.15_p20190208 0.15_p20220529: Transparent application input fuzzer
 app-i18n/anthy 9100h-r3: Anthy -- free and secure Japanese input system
 app-i18n/bidiv 1.5_p4: A commandline tool displaying logical Hebrew/Arabic
@@ -2943,7 +2942,6 @@ app-misc/vit 2.3.3: A lightweight, fast, curses-based front end to Taskwarrior
 app-misc/vittk 1.3-r1: A front end for Taskwarrior (app-misc/task)
 app-misc/vlock 2.2.3-r2: Allows to lock one or all of the sessions of your console display
 app-misc/votrify 5-r1: Tool for community verification of Gentoo elections
-app-misc/vzstats 0.5.1: OpenVZ stats collection daemon
 app-misc/wally-cli 2.0.1-r1: Flash your ZSA Keyboard the EZ way
 app-misc/wayland-utils 1.2.0: Display information about supported Wayland protocols and current compositor
 app-misc/wcd 6.0.4 6.0.5: Wherever Change Directory
@@ -4010,7 +4008,7 @@ dev-db/pgbouncer 1.23.1 1.24.1: Lightweight connection pooler for PostgreSQL
 dev-db/pgcli 4.0.1-r1 4.1.0: CLI for Postgres with auto-completion and syntax highlighting
 dev-db/pglogical 2.4.4: Logical replication for PostgreSQL
 dev-db/pgmemcache 2.3.0 2.3.0-r1: A PostgreSQL API based on libmemcached to interface with memcached
-dev-db/pgmodeler 1.1.6-r1 1.2.0: PostgreSQL Database Modeler
+dev-db/pgmodeler 1.2.0 1.2.1: PostgreSQL Database Modeler
 dev-db/pgpool2 4.3.8 4.3.10 4.4.7 4.4.7-r1: Connection pool server for PostgreSQL
 dev-db/pgrouting 3.6.2 3.7.0 3.7.3 3.8.0: pgRouting extends PostGIS and PostgreSQL with geospatial routing functionality
 dev-db/pgtap 1.3.1 1.3.3: Unit testing for PostgreSQL
@@ -4118,7 +4116,7 @@ dev-embedded/libjaylink 0.3.1: Library to access J-Link devices
 dev-embedded/lpc21isp 1.97: In-circuit programming (ISP) tool for the NXP microcontrollers
 dev-embedded/mavlink_c 20220518: Official reference C library for the v2 protocol
 dev-embedded/mcu8051ide 1.4.10-r1: Graphical IDE for microcontrollers based on 8051
-dev-embedded/minipro 0.7.2 0.7.3 9999: A program for controlling the MiniPRO TL866xx series of chip programmers
+dev-embedded/minipro 0.7.3 0.7.4 9999: A program for controlling the MiniPRO TL866xx series of chip programmers
 dev-embedded/mspdebug 0.25-r1: A free debugger for use with MSP430 MCUs
 dev-embedded/nodemcu-uploader 1.0.0-r1: Simple tool for uploading files to the filesystem of an ESP8266 running NodeMCU
 dev-embedded/openocd 0.12.0-r1 0.12.0-r2 9999: OpenOCD - Open On-Chip Debugger
@@ -5029,7 +5027,7 @@ dev-java/log4j-core 2.19.0-r1: The Apache Log4j Implementation
 dev-java/log4j-over-slf4j 2.0.3: Log4j implemented over SLF4J
 dev-java/lucene 2.4.1-r5: High-performance, full-featured text search engine written entirely in Java
 dev-java/lz4-java 1.8.0-r6: LZ4 compression for Java
-dev-java/lzma 24.09 25.01: Java code for LZMA compression and decompression
+dev-java/lzma 25.01: Java code for LZMA compression and decompression
 dev-java/lzmajio 0.95-r4: LzmaInputStream/LzmaOutputStream interacting with underlying LZMA en-/decoders
 dev-java/maven-bin 3.8.8-r1 3.9.10 3.9.11: Project Management and Comprehension Tool for Java
 dev-java/mchange-commons 0.2.20: a library of arguably useful Java utilities.
@@ -11824,7 +11822,7 @@ games-sports/stormbaancoureur 2.1.6-r2: Simulated obstacle course for automobile
 games-sports/trigger 0.6.1-r1: Free OpenGL rally car racing game
 games-sports/trophy 2.0.4-r1: 2D Racing Game
 games-sports/ultimatestunts 0.7.7-r3: Remake of the famous Stunts game
-games-sports/xmoto 0.6.1-r101: A challenging 2D motocross platform game, where physics play an important role
+games-sports/xmoto 0.6.1-r101 0.6.3: A challenging 2D motocross platform game, where physics play an important role
 games-strategy/0ad 0.27.0-r2: A free, real-time strategy game
 games-strategy/augustus 3.1.0: Feature-enhanced open source re-implementation of Caesar III
 games-strategy/colobot 0.2.2_alpha 9999: A real-time strategy game, where you can program your bots
@@ -13125,7 +13123,7 @@ media-gfx/tuxpaint 0.9.31 0.9.31-r1: Drawing program designed for young children
 media-gfx/tuxpaint-stamps 20090628-r1 20211125 20220604 20230402: Set of 'Rubber Stamp' images which can be used within Tux Paint
 media-gfx/ueberzug 18.3.1: Command line util to draw images on terminals by using child windows
 media-gfx/ueberzugpp 2.9.7: Drop in replacement for ueberzug written in C++
-media-gfx/valentina 0.7.52: Cloth patternmaking software
+media-gfx/valentina 0.7.52 1.0.0: Cloth patternmaking software
 media-gfx/viewer 0.8.0-r2: A stereo pair image viewer (supports ppm's only)
 media-gfx/viewnior 1.8-r1: Fast and simple image viewer
 media-gfx/vkBasalt 0.3.2.10: A Vulkan post-processing layer for Linux
@@ -13847,9 +13845,9 @@ media-radio/cqrlog 2.5.2: CQRLOG is an advanced ham radio logger based on MySQL 
 media-radio/cwdaemon 0.13.0: A morse daemon for the parallel or serial port
 media-radio/direwolf 1.7-r1: Decoded Information from Radio Emissions for Windows Or Linux Fans
 media-radio/dxcc 20191204: A ham radio callsign DXCC lookup utility
-media-radio/flamp 2.2.07: Fldigi helper for transferring files
+media-radio/flamp 2.2.07 2.2.14: Fldigi helper for transferring files
 media-radio/fldigi 4.2.07: Sound card based multimode software modem for Amateur Radio use
-media-radio/flmsg 4.0.23: Fldigi helper for creating radiograms
+media-radio/flmsg 4.0.23 4.0.24: Fldigi helper for creating radiograms
 media-radio/flrig 2.0.05-r1 2.0.06 2.0.07 2.0.08: Transceiver control program for Amateur Radio use
 media-radio/fsync-mdc1200-decode 1.0-r1 9999: Linux Fleetsync / MDC1200 decoder
 media-radio/gpredict 2.3_p20231224 9999: Real-time satellite tracking and orbit prediction application
@@ -14031,7 +14029,7 @@ media-sound/meterbridge 0.9.3: Software meterbridge for the UNIX based JACK audi
 media-sound/mhwaveedit 1.4.24-r1: GTK+ Sound file editor (wav, and a few others.)
 media-sound/mikmod 3.2.8-r1 3.2.9: Console MOD-Player based on libmikmod
 media-sound/milkytracker 1.05.01: FastTracker 2 inspired music tracker
-media-sound/mixxx 2.5.1 2.5.2 9999: Advanced Digital DJ tool based on Qt
+media-sound/mixxx 2.5.1 2.5.2 2.5.3 9999: Advanced Digital DJ tool based on Qt
 media-sound/mmix 0.3-r1: Soundcard mixer for the OSS driver
 media-sound/moc 2.6_alpha3-r7 2.6_alpha3-r8: Music On Console - ncurses interface for playing audio files
 media-sound/modplugtools 0.5.3: libmodplug based module players modplug123 and modplugplay
@@ -14162,7 +14160,7 @@ media-sound/spek 0.8.5-r2: Analyse your audio files by showing their spectrogram
 media-sound/splay 0.9.5.2-r2: An audio player, primarily for the console
 media-sound/split2flac 122 9999: sh script to split an APE/FLAC/WV/WAV audio image with CUE sheet into tracks
 media-sound/spotify 1.2.60 1.2.63: Spotify is a social music platform
-media-sound/strawberry 1.2.7 1.2.11 9999: Modern music player and library organizer based on Clementine and Qt
+media-sound/strawberry 1.2.7 1.2.11 1.2.13 9999: Modern music player and library organizer based on Clementine and Qt
 media-sound/streamripper 1.64.6-r1: Extracts and records individual MP3 file tracks from shoutcast streams
 media-sound/streamtranscoder 3.1.11-r2: Commandline program to transcode shoutcast/icecast streams to different bitrates
 media-sound/subsonic-bin 6.1.6: Subsonic is a complete, personal media streaming solution
@@ -14978,7 +14976,7 @@ net-libs/libssh2 1.11.1 9999: Library implementing the SSH2 protocol
 net-libs/libtelnet 0.23-r2: Simple RFC-compliant TELNET implementation as a C library
 net-libs/libtirpc 1.3.5 1.3.6: Transport Independent RPC library (SunRPC replacement)
 net-libs/libtlsrpt 0.5.0 9999: library to implement TLSRPT
-net-libs/libtorrent 0.13.8-r3 0.15.1 0.15.5: BitTorrent library written in C++ for *nix
+net-libs/libtorrent 0.13.8-r3 0.15.1 0.15.5 0.15.7 9999: BitTorrent library written in C++ for *nix
 net-libs/libtorrent-rasterbar 2.0.10: C++ BitTorrent implementation focusing on efficiency and scalability
 net-libs/libtrace 4.0.21 4.0.22 4.0.26 4.0.28: A library and tools for trace processing
 net-libs/libupnp 1.14.20 1.14.24: An Portable Open Source UPnP Development Kit
@@ -15244,7 +15242,7 @@ net-misc/jlj 2.12-r1: Simple console LiveJournal entry system
 net-misc/jwhois 4.0-r2: Advanced Internet Whois client capable of recursive queries
 net-misc/kafka-bin 3.9.1 4.0.0: A high-throughput distributed messaging system
 net-misc/kafkacat 1.7.1: Generic command line non-JVM Apache Kafka producer and consumer
-net-misc/kea 2.6.3 2.6.4 3.0.0 9999: High-performance production grade DHCPv4 & DHCPv6 server
+net-misc/kea 2.6.3 2.6.4 3.0.0 3.0.1 9999: High-performance production grade DHCPv4 & DHCPv6 server
 net-misc/keychain 2.8.5-r1 2.8.5-r2: Agent manager for OpenSSH, ssh.com, Sun SSH, and GnuPG
 net-misc/kio-zeroconf 25.04.3 25.08.0: KIO worker to discover file systems by DNS-SD (DNS Service Discovery)
 net-misc/knock 0.8: Simple port-knocking daemon
@@ -15369,7 +15367,7 @@ net-misc/shigofumi 0.9-r1 9999: Command line client for ISDS
 net-misc/shmux 1.0.3: run the same command across many hosts in parallel
 net-misc/sipcalc 1.1.6-r1: Advanced console-based IPv4/IPv6 subnet calculator
 net-misc/sipp 3.7.3-r1: A free Open Source test tool / traffic generator for the SIP protocol
-net-misc/sipsak 0.9.8 0.9.8.1: Small command line tool for testing SIP applications and devices
+net-misc/sipsak 0.9.8.1 0.9.8.1_p20230215: Small command line tool for testing SIP applications and devices
 net-misc/sitecopy 0.16.6-r4: Maintain remote web sites with ease
 net-misc/sks 1.1.6_p20200624-r2 1.1.6_p20200624-r3: An OpenPGP keyserver which is decentralized with highly reliable synchronization
 net-misc/smb4k 4.0.4: Advanced network neighborhood browser
@@ -15505,7 +15503,7 @@ net-p2p/nicotine+ 3.3.7 3.3.10: Graphical client for the Soulseek peer to peer n
 net-p2p/qbittorrent 5.0.3 5.0.4 5.0.5 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.7.3.1381 9999: Resilient, fast and scalable file synchronization tool
 net-p2p/retroshare 0.6.7-r4: Friend to Friend secure communication and sharing application
-net-p2p/rtorrent 0.9.8-r3 0.15.1 0.15.5: BitTorrent Client using libtorrent
+net-p2p/rtorrent 0.9.8-r3 0.15.1 0.15.5 0.15.7 9999: BitTorrent Client using libtorrent
 net-p2p/stig 0.13.0a_p0: TUI and CLI for the BitTorrent client Transmission
 net-p2p/syncthing 1.27.9 1.27.10 1.27.12 1.29.5: Open Source Continuous File Synchronization
 net-p2p/torrentinfo 1.8.7: A torrent file parser
@@ -15925,7 +15923,7 @@ sci-chemistry/ksdssp 040728-r1: An open source implementation of sci-chemistry/d
 sci-chemistry/mdtraj 1.10.3: Read, write and analyze MD trajectories with only a few lines of Python code
 sci-chemistry/moldy 2.16e-r2: Molecular dynamics simulations platform
 sci-chemistry/molmol 2k_p2-r9 2k_p2-r10: Publication-quality molecular visualization package
-sci-chemistry/molsketch 0.8.1: Drawing tool for 2D molecular structures
+sci-chemistry/molsketch 0.8.1 0.8.3: Drawing tool for 2D molecular structures
 sci-chemistry/mpqc 2.3.1-r4: The Massively Parallel Quantum Chemistry Program
 sci-chemistry/msms-bin 2.6.1-r1: MSMS very efficiently computes triangulations of Solvent Excluded Surfaces
 sci-chemistry/mustang 3.2.2: MUltiple STructural AligNment AlGorithm
@@ -17451,7 +17449,6 @@ sys-cluster/spark-bin 3.1.2-r1: Lightning-fast unified analytics engine
 sys-cluster/torque 6.0.4-r7: Resource manager and queuing system based on OpenPBS
 sys-cluster/ucx 1.18.1: Unified Communication X
 sys-cluster/virtctl 1.5.1 1.6.0: Control virtual machine related operations on your kubernetes cluster
-sys-cluster/vzctl 4.9.4-r2: OpenVZ ConTainers control utility
 sys-cluster/zookeeper-bin 3.8.4 3.9.2 3.9.3: A high-performance coordination service for distributed applications
 sys-cluster/zookeepercli 1.0.11: Simple, lightweight, dependable CLI for ZooKeeper
 sys-devel/autogen 5.18.16-r102: Program and text file generation
@@ -18584,7 +18581,7 @@ x11-misc/sddm 0.21.0_p20240723-r10 0.21.0_p20250502-r1: Simple Desktop Display M
 x11-misc/seetxt 0.72-r1: Clever, lightweight GUI text file and manual page viewer for X windows
 x11-misc/sent 1-r1 1_p20230110: Simple plaintext presentation tool
 x11-misc/set_opacity 1.0-r1: Tool for set real compositing for windows through window's id, process' pid etc.
-x11-misc/shared-mime-info 2.4-r2: The Shared MIME-info Database specification
+x11-misc/shared-mime-info 2.4-r2 2.4-r3: The Shared MIME-info Database specification
 x11-misc/shutter 0.99.5 0.99.6: Feature-rich screenshot program
 x11-misc/simpleswitcher 20191008 99999999: lightweight EWMH window switcher with features and looks of dmenu
 x11-misc/skippy 0.5.0-r2: A full-screen task-switcher providing Apple Expose-like functionality

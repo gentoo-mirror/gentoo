@@ -3,7 +3,7 @@ DEFINED_PHASES=compile install prepare test
 DEPEND=lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 ) dev-libs/openssl:0= dev-lua/compat53[lua_targets_luajit(-)?,lua_targets_lua5-1(-)?,lua_targets_lua5-3(-)?,lua_targets_lua5-4(-)?]
 DESCRIPTION=Stackable Continuation Queues
 EAPI=8
-HOMEPAGE=https://github.com/wahern/cqueues http://25thandclement.com/~william/projects/cqueues.html
+HOMEPAGE=https://github.com/wahern/cqueues https://25thandclement.com/~william/projects/cqueues.html
 INHERIT=lua toolchain-funcs
 IUSE=examples lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4
 KEYWORDS=amd64 ~arm64
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_t
 SLOT=0
 SRC_URI=https://github.com/wahern/cqueues/archive/8c0142577d3cb1f24917879997678bef0d084815.tar.gz -> cqueues-20200726_p20241204.tar.gz
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	lua-utils	7c89927eda6f21c4c48136247077ab37	lua	3414f66fe14a8c3ffdb5a894097068c6
-_md5_=58512ac233cfd515219e816adce563e3
+_md5_=a34b7916407f8e6e7847a03e774605ae
