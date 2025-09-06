@@ -23,6 +23,7 @@ BDEPEND="${PYTHON_DEPS}
 	>=dev-python/sphinx-7.2.3
 	dev-python/sphinx-rtd-theme
 	media-libs/fontconfig
+	<=dev-python/docutils-0.21.2
 	$(python_gen_any_dep '
 		>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
 	')"
