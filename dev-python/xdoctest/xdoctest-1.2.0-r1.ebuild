@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1
 
@@ -34,7 +34,14 @@ BDEPEND="
 
 EPYTEST_PLUGIN_LOAD_VIA_ENV=1
 EPYTEST_PLUGINS=( "${PN}" )
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
+
+PATCHES=(
+	# https://github.com/Erotemic/xdoctest/pull/168
+	# + parts of https://github.com/Erotemic/xdoctest/pull/177
+	"${FILESDIR}/${P}-py314.patch"
+)
 
 python_test() {
 	local EPYTEST_DESELECT=(
