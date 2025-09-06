@@ -18,7 +18,7 @@ SRC_URI="https://download.libguestfs.org/${PN}/${MY_PV_1}-${SD}/${P}.tar.gz"
 LICENSE="GPL-2 LGPL-2"
 SLOT="0/${MY_PV_1}"
 if [[ ${SD} == "stable" ]] ; then
-	KEYWORDS="~amd64"
+	KEYWORDS=""
 fi
 IUSE="doc libvirt +ocaml +perl test"
 RESTRICT="!test? ( test )"
@@ -31,7 +31,7 @@ COMMON_DEPEND_DEFAULT="
 	sys-libs/ncurses:=
 "
 COMMON_DEPEND_EXPLICIT="
-	>=app-emulation/libguestfs-1.49.8:=[ocaml,perl?,libvirt=]
+	>=app-emulation/libguestfs-1.55.6:=[ocaml,perl?,libvirt=]
 	dev-libs/json-c:=
 	sys-libs/libosinfo
 	|| (

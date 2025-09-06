@@ -8,7 +8,7 @@ USE_RUBY=( ruby3{2..3} )
 LUA_COMPAT=( lua5-{1..4} luajit )
 
 inherit autotools bash-completion-r1 dot-a linux-info lua-single perl-functions\
-		python-single-r1 ruby-single toolchain-funcs vala
+		python-single-r1 ruby-single toolchain-funcs
 
 MY_PV_1="$(ver_cut 1-2)"
 MY_PV_2="$(ver_cut 2)"
@@ -21,15 +21,14 @@ SRC_URI="https://download.libguestfs.org/${MY_PV_1}-${SD}/${P}.tar.gz"
 LICENSE="GPL-2 LGPL-2"
 SLOT="0/${MY_PV_1}"
 if [[ ${SD} == "stable" ]] ; then
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
-IUSE="doc erlang +fuse introspection libvirt lua +ocaml +perl python readline ruby selinux static-libs test vala"
+IUSE="doc erlang +fuse libvirt lua +ocaml +perl python readline ruby selinux static-libs test"
 
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
 	python? ( ${PYTHON_REQUIRED_USE} )
-	vala? ( introspection )
 "
 
 RESTRICT="!test? ( test )"
@@ -49,11 +48,9 @@ COMMON_DEPEND_DEFAULT="
 "
 # Won't compile without it
 COMMON_DEPEND_EXPLICIT="
-	app-admin/augeas
 	app-alternatives/cpio
 	app-emulation/qemu[qemu_softmmu_targets_x86_64,selinux?]
-	app-misc/hivex[ocaml?]
-	dev-libs/jansson:=
+	dev-libs/json-c:=
 	|| (
 		dev-libs/libisoburn
 		app-cdr/cdrtools
@@ -72,10 +69,6 @@ COMMON_DEPEND="
 	${COMMON_DEPEND_IMPLICIT}
 	erlang? ( dev-lang/erlang )
 	fuse? ( sys-fs/fuse:0 )
-	introspection? (
-		dev-libs/glib
-		dev-libs/gobject-introspection
-	)
 	libvirt? ( app-emulation/libvirt[qemu] )
 	perl? (
 		dev-perl/libintl-perl
@@ -85,7 +78,6 @@ COMMON_DEPEND="
 	readline? ( sys-libs/readline )
 	ruby? ( ${RUBY_DEPS} )
 	selinux? ( sys-libs/libselinux )
-	vala? ( $(vala_depend) )
 "
 # Some OCaml is always required
 # Bug #729674
@@ -100,8 +92,6 @@ RDEPEND="
 	app-emulation/libguestfs-appliance
 "
 BDEPEND="
-	sys-devel/bison
-	sys-devel/flex
 	sys-devel/gettext
 	virtual/pkgconfig
 	doc? ( app-text/po4a )
@@ -110,10 +100,6 @@ BDEPEND="
 		dev-perl/Module-Build
 		virtual/perl-ExtUtils-CBuilder
 		virtual/perl-Pod-Simple
-	)
-	test? (
-		introspection? ( dev-libs/gjs )
-		ocaml? ( dev-ml/ounit2[ocamlopt] )
 	)
 "
 
@@ -146,10 +132,6 @@ src_configure() {
 	# Bug #794877
 	tc-export AR
 
-	# m4/guestfs-progs.m4: (f)lex and bison for virt-builder (required).
-	# Bug #915339
-	unset LEX YACC
-
 	if use ocaml || use static-libs; then
 		lto-guarantee-fat
 	fi
@@ -165,14 +147,14 @@ src_configure() {
 		--without-java
 		$(use_enable lua)
 		$(use_enable erlang)
-		$(use_enable vala)
+		--disable-vala
 		$(usex doc '' PO4A=no)
 		--with-extra="-gentoo"
 		$(use_with readline)
 		$(use_enable ruby)
 		$(use_enable fuse)
-		$(use_enable introspection gobject)
-		$(use_enable introspection)
+		--disable-gobject
+		--disable-introspection
 		$(use_with libvirt)
 		--with-default-backend=$(usex libvirt libvirt direct)
 		$(use_enable perl)
@@ -190,8 +172,6 @@ src_configure() {
 		ac_cv_header_selinux_selinux_h=$(usex selinux)
 	fi
 
-	use vala && vala_setup
-
 	econf "${myconf[@]}"
 }
 
@@ -207,7 +187,7 @@ src_install() {
 }
 
 src_test() {
-	# bash-completions may not exist
+	# app-shells/bash-completion may not be installed
 	# Bug #794874
 	local -x SKIP_TEST_COMPLETE_IN_SCRIPT_SH=1
 	# Upstream doesn't ship the test data
@@ -219,10 +199,9 @@ src_test() {
 	local -x SKIP_TEST_GUESTUNMOUNT_FD=1
 	# Doesn't work correctly when --without-daemon is specified
 	local -x SKIP_TEST_NOEXEC_STACK_PL=1
-	# Appliance requires sys-apps/file[zstd,-seccomp].
-	local -x SKIP_TEST_FILE_ARCHITECTURE_26=1
 	# Socket pathname too long for libvirt backend
 	local -x LIBGUESTFS_BACKEND=direct
+
 	# Increase vebosity
 	local -x LIBGUESTFS_DEBUG=1
 	local -x LIBGUESTFS_TRACE=1

@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,9 +17,9 @@ S="${WORKDIR}"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc64 ~x86"
+# Precompiled binaries
+KEYWORDS="-* ~amd64"
 
-BDEPEND="app-arch/xz-utils"
 # Mixing libguestfs versions causes weird problems, bug #501588
 RDEPEND="!<app-emulation/libguestfs-${PV}"
 
