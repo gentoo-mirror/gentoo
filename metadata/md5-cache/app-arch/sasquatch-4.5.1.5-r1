@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install
+DEPEND=sys-libs/zlib lz4? ( app-arch/lz4 ) lzma? ( app-arch/xz-utils ) lzo? ( dev-libs/lzo ) xattr? ( sys-apps/attr ) zstd? ( app-arch/zstd )
+DESCRIPTION=An extended version of sasquashfs-tools
+EAPI=8
+HOMEPAGE=https://github.com/onekey-sec/sasquatch
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=debug deprecated lz4 lzma lzo xattr zstd
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=!sys-fs/squashfs-tools sys-libs/zlib lz4? ( app-arch/lz4 ) lzma? ( app-arch/xz-utils ) lzo? ( dev-libs/lzo ) xattr? ( sys-apps/attr ) zstd? ( app-arch/zstd )
+REQUIRED_USE=deprecated? ( !lzma ) lzma? ( !deprecated )
+SLOT=0
+SRC_URI=https://github.com/onekey-sec/sasquatch/archive/refs/tags/sasquatch-v4.5.1-5.tar.gz -> sasquatch-4.5.1.5.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
+_md5_=e9865462de6d030bf239a4229c93aac3

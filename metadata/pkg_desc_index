@@ -1188,7 +1188,7 @@ app-arch/rar 7.01 7.11 7.12: RAR compressor/uncompressor
 app-arch/rpm 4.20.0 4.20.1-r1: The RPM Package Manager
 app-arch/rpm2targz 2021.03.16: Convert a .rpm file to a .tar.gz archive
 app-arch/rzip 2.1-r5: Compression program for large files
-app-arch/sasquatch 4.5.1.5: An extended version of sasquashfs-tools
+app-arch/sasquatch 4.5.1.5 4.5.1.5-r1: An extended version of sasquashfs-tools
 app-arch/sharutils 4.15.2-r3: Tools to deal with shar archives
 app-arch/snappy 1.2.1 1.2.2 1.2.2-r1: A high-speed compression/decompression library by Google
 app-arch/stenc 2.0.0 2.0.1: SCSI Tape Encryption Manager enables AES support for LTO drives
@@ -1545,7 +1545,7 @@ app-crypt/yubihsm-connector 3.0.4: Server to expose YubiHSM 2 to network
 app-crypt/yubihsm-shell 2.6.0: Components used to interact with the YubiHSM 2
 app-crypt/yubikey-manager 5.7.2 5.8.0: Python library and command line tool for configuring a YubiKey
 app-crypt/yubikey-manager-qt 1.2.5: Cross-platform application for configuring any YubiKey over all USB transports
-app-crypt/yubioath-flutter-bin 7.1.1: Yubico Authenticator for TOTP
+app-crypt/yubioath-flutter-bin 7.1.1 7.2.3: Yubico Authenticator for TOTP
 app-crypt/zulucrypt 7.0.0: Front end to cryptsetup
 app-dicts/aspell-af 0.50.0-r1: Aspell (Afrikaans) language dictionary
 app-dicts/aspell-am 0.03.1-r1: Aspell (Amharic) language dictionary
@@ -2770,7 +2770,7 @@ app-misc/go-jira 1.0.28-r1: A simple JIRA commandline client in Go
 app-misc/gojq 0.12.16 0.12.17: Pure Go implementation of jq with yaml support
 app-misc/golly 4.3-r2: simulator for Conway's Game of Life and other cellular automata
 app-misc/grabcartoons 2.8.5 9999: Comic-summarizing utility
-app-misc/gramps 5.2.3 6.0.1: Community genealogy program aiming to be both intuitive and feature-complete
+app-misc/gramps 5.2.3 6.0.1 6.0.4: Community genealogy program aiming to be both intuitive and feature-complete
 app-misc/graphlcd-base 2.0.3-r3: Contains the lowlevel lcd drivers for GraphLCD
 app-misc/grc 1.13-r1: Generic Colouriser beautifies your logfiles or output of commands
 app-misc/gtk-sunlight 0.4.2-r2: Real-time Sunlight Wallpaper
@@ -3135,7 +3135,7 @@ app-shells/rrs 1.70-r2: Reverse Remote Shell
 app-shells/rush 2.4: Restricted User Shell
 app-shells/sash 3.8: A small (static) UNIX Shell
 app-shells/shish 0.7_pre3-r1: The diet shell
-app-shells/smrsh 8.15.2-r1 8.18.1: Sendmail restricted shell, for use with MTAs other than Sendmail
+app-shells/smrsh 8.15.2-r1 8.18.1 8.18.1-r1: Sendmail restricted shell, for use with MTAs other than Sendmail
 app-shells/soapbox 0.3.1-r2: A preload (sandbox) library to restrict filesystem writes
 app-shells/squirrelsh 1.2.7-r1: Cross-platform object-oriented scripting shell using the squirrel language
 app-shells/starship 1.23.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell
@@ -9719,13 +9719,13 @@ dev-python/youtube-search-python 1.6.6-r2: Get YouTube video information using l
 dev-python/ytmusicapi 1.10.3 1.11.0 1.11.1: Unofficial API for YouTube Music
 dev-python/zc-lockfile 3.0_p1-r1: Basic inter-process locks
 dev-python/zconfig 4.2: Configuration library supporting a hierarchical schema-driven model
-dev-python/zeep 4.3.1: A modern/fast Python SOAP client based on lxml / requests
+dev-python/zeep 4.3.1-r1: A modern/fast Python SOAP client based on lxml / requests
 dev-python/zenlib 3.1.5 9999: Useful python decorators and utilities
 dev-python/zeroconf 0.147.0 0.147.2: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 dev-python/zipp 3.23.0: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zipstream-ng 1.8.0 1.9.0: A modern and easy to use streamable zip file generator
 dev-python/zlib-ng 0.5.1: Drop-in replacement for zlib and gzip modules using zlib-ng
-dev-python/zmq-anyio 0.3.9 0.3.10: Asynchronous API for ZMQ using AnyIO
+dev-python/zmq-anyio 0.3.10: Asynchronous API for ZMQ using AnyIO
 dev-python/zope-component 6.0: Zope Component Architecture
 dev-python/zope-configuration 6.0: Zope Configuration Architecture
 dev-python/zope-deprecation 5.1: Zope Deprecation Infrastructure
@@ -10687,7 +10687,7 @@ dev-util/autodia 2.140.0-r2: Parses source code, XML or data and produces an XML
 dev-util/autoproject 0.20_p15: Start a programming project using autotools and a command line parser generator
 dev-util/azuredatastudio 1.51.1 1.52.0: Data management and development tool from Microsoft
 dev-util/babeltrace 1.5.11 2.0.5-r1 2.0.6-r1 2.1.1-r1: Command-line tool and library to read and convert trace files
-dev-util/bats 1.11.1 1.12.0: Bats-core: Bash Automated Testing System
+dev-util/bats 1.12.0: Bats-core: Bash Automated Testing System
 dev-util/bbe 0.2.2-r1: Sed-like editor for binary files
 dev-util/bcc 0.31.0-r2 0.32.0 0.34.0 0.35.0: Tools for BPF-based Linux IO analysis, networking, monitoring, and more
 dev-util/bcpp 20240917: Indents C/C++ source code
@@ -12608,7 +12608,7 @@ mail-filter/exim-geoip 0.1-r1: This is an IPv4 and IPv6 capable GeoIP dlfunc lib
 mail-filter/exim-p0f 0.1-r1: This is p0f version 3 dlfunc library for Exim
 mail-filter/gld 1.7-r4: Standalone anti-spam greylisting algorithm on top of Postfix
 mail-filter/imapfilter 2.8.2 2.8.3: An IMAP mail filtering utility
-mail-filter/libmilter 1.0.2_p3-r2 1.0.2_p3-r3 1.0.2_p4: The Sendmail Filter API (Milter)
+mail-filter/libmilter 1.0.2_p3-r2 1.0.2_p3-r3 1.0.2_p4 1.0.2_p4-r1: The Sendmail Filter API (Milter)
 mail-filter/libopensmtpd 0.8 1.0: Library for creating OpenSMTPD filters
 mail-filter/libsieve 2.2.7: A library for parsing, sorting and filtering your mail
 mail-filter/libspf2 1.2.11 1.2.11-r1: implementation of Sender Policy Framework (SPF)
@@ -12655,7 +12655,7 @@ mail-mta/opensmtpd 7.5.0_p0 7.6.0_p1 7.7.0_p0: Lightweight but featured SMTP dae
 mail-mta/postfix 3.9.3 3.9.4 3.9.5 3.10.2 3.10.3 3.10.4 3.11_pre20250825: A fast and secure drop-in replacement for sendmail
 mail-mta/proton-mail-bridge 3.21.2: Serves Proton Mail to IMAP/SMTP clients
 mail-mta/qpsmtpd 0.95-r1 9999: qpsmtpd is a flexible smtpd daemon written in Perl
-mail-mta/sendmail 8.17.1.9 8.18.1 8.18.1.10: Widely-used Mail Transport Agent (MTA)
+mail-mta/sendmail 8.17.1.9 8.18.1 8.18.1-r1 8.18.1.10 8.18.1.10-r1: Widely-used Mail Transport Agent (MTA)
 mail-mta/ssmtp 2.64_p11-r1 2.64_p12: Extremely simple MTA to get mail off the system to a Mailhub
 mate-base/caja 1.28.0-r2: Caja file manager for the MATE desktop
 mate-base/libmatekbd 1.28.0: MATE keyboard configuration library
@@ -12978,7 +12978,7 @@ media-gfx/gif2png 2.5.14: Converts images from gif format to png format
 media-gfx/gifsicle 1.93 1.94 1.95: Create, manipulate, and optimize GIF images and animations
 media-gfx/gimp 2.10.38-r2 3.0.0-r1 3.0.2-r1 3.0.2-r2 3.0.4-r1 3.1.2 9999: GNU Image Manipulation Program
 media-gfx/gimp-arrow-brushes 20190407: Brushes for GIMP with the styles arrow, handpointer, button arrow and cursor
-media-gfx/gnofract4d 4.3_p20240324 4.3_p20240821: A program for drawing beautiful mathematically-based images known as fractals
+media-gfx/gnofract4d 4.3_p20240821 4.4: A program for drawing beautiful mathematically-based images known as fractals
 media-gfx/gnome-font-viewer 47.0 48.0: Font viewer utility for GNOME
 media-gfx/gnome-photos 44.0: Access, organize and share your photos on GNOME
 media-gfx/gnome-screenshot 41.0-r1: Screenshot utility for GNOME
@@ -14819,7 +14819,7 @@ net-irc/emech 3.0.99_p20221123: UNIX compatible IRC bot programmed in C
 net-irc/ergo 2.15.0 2.16.0: A modern IRC server written in Go
 net-irc/hexchat 2.16.2-r1: Graphical IRC client based on XChat
 net-irc/ii 1.9 2.0 9999: A minimalist FIFO and filesystem-based IRC client
-net-irc/inspircd 3.18.0 4.6.0 4.7.0: Inspire IRCd - The Stable, High-Performance Modular IRCd
+net-irc/inspircd 3.18.0 4.7.0 4.8.0: Inspire IRCd - The Stable, High-Performance Modular IRCd
 net-irc/ircii 20240111 20240918: An IRC and ICB client that runs under most UNIX platforms
 net-irc/ircmap 0.99-r1: Scripts to treate diagrams of IRC networks using the LINKS command
 net-irc/ircstats 1.2: IRCStats is a Linux log analyzer
@@ -15198,7 +15198,7 @@ net-misc/gensio 2.8.5: General Stream I/O
 net-misc/geoipupdate 6.1.0 7.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
 net-misc/geoipyupdate 0.0.4: Simple python replacement for the MaxMind geoipupdate program
 net-misc/geomyidae 0.96: A daemon to serve the gopher protocol
-net-misc/gerbera 2.3.0-r1 2.5.0 9999: UPnP Media Server
+net-misc/gerbera 2.3.0-r1 2.5.0 2.6.1 9999: UPnP Media Server
 net-misc/getdate 1.2-r3: Network Date/Time Query and Set Local Date/Time Utility
 net-misc/gnome-connections 47.2.1-r1 48.0: A remote desktop client for the GNOME desktop environment
 net-misc/gnome-remote-desktop 47.3 48.1: Remote desktop server which allows you to connect to your machine remotely
@@ -16630,6 +16630,7 @@ sec-keys/openpgp-keys-qbittorrent 20161227: OpenPGP keys used by qBittorrent
 sec-keys/openpgp-keys-qutebrowser 20230816: OpenPGP keys used by Qutebrowser
 sec-keys/openpgp-keys-rust 20210504: Rust Language Tag and Release Signing Key
 sec-keys/openpgp-keys-sed 20220407: OpenPGP keys used by GNU sed
+sec-keys/openpgp-keys-sendmail 20250220: OpenPGP keys used by Sendmail
 sec-keys/openpgp-keys-sergehallyn 20220812: OpenPGP keys used by Serge Hallyn
 sec-keys/openpgp-keys-signify 20211219: OpenPGP keys used to sign signify's signify key
 sec-keys/openpgp-keys-spamassassin 20221226: OpenPGP keys used by spamassassin.apache.org

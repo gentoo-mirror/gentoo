@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/m4 verify-sig? ( ~sec-keys/openpgp-keys-sendmail-20250220 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=!mail-mta/sendmail
+DESCRIPTION=Sendmail restricted shell, for use with MTAs other than Sendmail
+EAPI=8
+HOMEPAGE=https://www.proofpoint.com/us/products/email-protection/open-source-email-solution
+INHERIT=toolchain-funcs verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~x86
+LICENSE=Sendmail
+RDEPEND=!mail-mta/sendmail
+SLOT=0
+SRC_URI=https://ftp.sendmail.org/sendmail.8.18.1.tar.gz verify-sig? ( https://ftp.sendmail.org/sendmail.8.18.1.tar.gz.sig ) https://ftp.sendmail.org/past-releases/sendmail.8.18.1.tar.gz verify-sig? ( https://ftp.sendmail.org/past-releases/sendmail.8.18.1.tar.gz.sig )
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
+_md5_=5c03bf0abf98dfaacc04e81eaf15bff9
