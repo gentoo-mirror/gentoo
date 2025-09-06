@@ -200,6 +200,7 @@ src_configure() {
 	append-cppflags \
 		-DDEFAULT_PATH_VALUE=\'\""${EPREFIX}"/usr/local/sbin:"${EPREFIX}"/usr/local/bin:"${EPREFIX}"/usr/sbin:"${EPREFIX}"/usr/bin:"${EPREFIX}"/sbin:"${EPREFIX}"/bin\"\' \
 		-DSTANDARD_UTILS_PATH=\'\""${EPREFIX}"/bin:"${EPREFIX}"/usr/bin:"${EPREFIX}"/sbin:"${EPREFIX}"/usr/sbin\"\' \
+		-DDEFAULT_LOADABLE_BUILTINS_PATH=\'\""${EPREFIX}"/usr/local/$(get_libdir)/bash:"${EPREFIX}"/usr/$(get_libdir)/bash\"\' \
 		-DSYS_BASHRC=\'\""${EPREFIX}"/etc/bash/bashrc\"\' \
 		-DSYS_BASH_LOGOUT=\'\""${EPREFIX}"/etc/bash/bash_logout\"\' \
 		-DNON_INTERACTIVE_LOGIN_SHELLS \
