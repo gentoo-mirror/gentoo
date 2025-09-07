@@ -197,8 +197,9 @@ REQUIRED_USE="
 
 RESTRICT="!test? ( test )"
 
+# NOTE
+# dev-libs/flatbuffers is header only, but we still want to rebuild on sub-slot changes
 COMMON_DEPEND="
-	app-arch/bzip2[${MULTILIB_USEDEP}]
 	dev-libs/protobuf:=[protoc(+),protobuf(+),${MULTILIB_USEDEP}]
 	sys-libs/zlib[${MULTILIB_USEDEP}]
 	avif? ( media-libs/libavif:=[${MULTILIB_USEDEP}] )
@@ -207,7 +208,10 @@ COMMON_DEPEND="
 		dev-cpp/abseil-cpp:=
 		dev-libs/cudnn:=
 	)
-	contribdnn? ( dev-libs/flatbuffers:= )
+	contribdnn? (
+		dev-cpp/abseil-cpp:=
+		dev-libs/flatbuffers:=
+	)
 	contribhdf? ( sci-libs/hdf5:= )
 	contribfreetype? (
 		media-libs/freetype:2[${MULTILIB_USEDEP}]
@@ -274,6 +278,7 @@ COMMON_DEPEND="
 		dev-python/numpy:=[${PYTHON_USEDEP}]
 	)
 	qt6? (
+		dev-qt/qt5compat:6
 		dev-qt/qtbase:6[gui,widgets,concurrent,opengl?]
 	)
 	quirc? ( media-libs/quirc )
@@ -338,7 +343,6 @@ RDEPEND="
 unset COMMON_DEPEND
 
 BDEPEND="
-	dev-util/patchelf
 	virtual/pkgconfig
 	cuda? ( dev-util/nvidia-cuda-toolkit:= )
 	doc? (
@@ -691,6 +695,8 @@ src_prepare() {
 multilib_src_configure() {
 	# bug #919101 and https://github.com/opencv/opencv/issues/19020
 	filter-lto
+
+	append-cppflags "$(usex debug '-DDEBUG' '-DNDEBUG')"
 
 	# please don't sort here, order is the same as in CMakeLists.txt
 	local mycmakeargs=(
