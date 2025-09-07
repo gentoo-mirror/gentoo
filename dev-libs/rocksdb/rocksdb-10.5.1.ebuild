@@ -11,7 +11,7 @@ SRC_URI="https://github.com/facebook/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="jemalloc numa static-libs tbb test"
 
 RESTRICT="!test? ( test )"
@@ -31,7 +31,6 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
-	eapply "${FILESDIR}/rocksdb-10.1-fixincludes.patch" || die
 	sed -i -e 's/liburing.a/uring/' cmake/modules/Finduring.cmake || die
 	sed -i -e '/find_program(CCACHE_FOUND ccache)/d' CMakeLists.txt || die
 	cmake_src_prepare
