@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://x3270.bgp.nu/
 INHERIT=autotools font python-any-r1
 IUSE=cjk doc gui ncurses ssl tcl X
-KEYWORDS=amd64 ~ppc ~s390 ~sparc x86
+KEYWORDS=amd64 ppc ~s390 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=gui? ( x11-libs/libX11 x11-libs/libXaw x11-libs/libXmu x11-libs/libXt ) ssl? ( dev-libs/openssl:= ) ncurses? ( sys-libs/ncurses:= sys-libs/readline:= ) tcl? ( dev-lang/tcl:= )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/x3270/suite3270-4.4ga6-src.tgz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	font	aa113a3df9cd0a9693a1c1ee7c34a6eb	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7eb9c3a6dc6662368634584aab44a2c	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=a2b445728e8c6cbbc7298fdd504c9b84
+_md5_=44b4350aaffdb1a46e559c525d454d2b
