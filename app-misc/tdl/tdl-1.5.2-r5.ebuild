@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,19 +17,21 @@ KEYWORDS="amd64 ppc x86"
 IUSE="doc readline"
 
 RDEPEND="
-	sys-libs/ncurses:0=
-	sys-libs/readline:0="
-
-DEPEND="
-	${RDEPEND}
+	sys-libs/ncurses:=
+	sys-libs/readline:=
+"
+DEPEND="${RDEPEND}"
+BDEPEND="
 	sys-apps/texinfo
-	doc? ( virtual/texi2dvi )"
+	doc? ( virtual/texi2dvi )
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PV}-ldflags.patch
 	"${FILESDIR}"/${P}-list.c.patch
 	"${FILESDIR}"/${P}-main.c.patch
 	"${FILESDIR}"/${P}-man.patch
+	"${FILESDIR}"/${P}-readline-obsolete-typedefs.patch
 )
 
 DOCS=( README NEWS tdl.txt tdl.html )
@@ -40,7 +42,9 @@ src_prepare() {
 }
 
 src_configure() {
-	local myconf=( --prefix="${EPREFIX}"/usr )
+	local myconf=(
+		--prefix="${EPREFIX}"/usr
+	)
 
 	if ! use readline; then
 		myconf+=( "${myconf} --without-readline" )
