@@ -12,26 +12,26 @@ HOMEPAGE="https://wiki.servarr.com/prowlarr/
 SRC_URI="
 	amd64? (
 		elibc_glibc? (
-			https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-core-x64.tar.gz
+			https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-core-x64.tar.gz
 		)
 		elibc_musl? (
-			https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-musl-core-x64.tar.gz
+			https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-musl-core-x64.tar.gz
 		)
 	)
 	arm? (
 		elibc_glibc? (
-			https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-core-arm.tar.gz
+			https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-core-arm.tar.gz
 		)
 		elibc_musl? (
-			https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-musl-core-arm.tar.gz
+			https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-musl-core-arm.tar.gz
 		)
 	)
 	arm64? (
 		elibc_glibc? (
-			https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-core-arm64.tar.gz
+			https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-core-arm64.tar.gz
 		)
 		elibc_musl? (
-			https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.master.${PV}.linux-musl-core-arm64.tar.gz
+			https://github.com/Prowlarr/Prowlarr/releases/download/v${PV}/Prowlarr.develop.${PV}.linux-musl-core-arm64.tar.gz
 		)
 	)
 "
