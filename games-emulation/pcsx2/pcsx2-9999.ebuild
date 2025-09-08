@@ -32,11 +32,12 @@ IUSE="alsa cpu_flags_x86_sse4_1 +clang jack pulseaudio sndio test wayland"
 REQUIRED_USE="cpu_flags_x86_sse4_1" # dies at runtime if no support
 RESTRICT="!test? ( test )"
 
+# qtbase:6=[X] is due to using qtx11extras_p.h
 # dlopen: libglvnd, qtsvg, shaderc, vulkan-loader, wayland
 COMMON_DEPEND="
 	app-arch/lz4:=
 	app-arch/zstd:=
-	dev-qt/qtbase:6[concurrent,gui,widgets]
+	dev-qt/qtbase:6=[X,concurrent,gui,widgets]
 	dev-qt/qtsvg:6
 	gui-libs/kddockwidgets:=
 	media-libs/freetype
@@ -88,7 +89,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.7.5232-cubeb-automagic.patch
 	"${FILESDIR}"/${PN}-1.7.5835-musl-header.patch
 	"${FILESDIR}"/${PN}-1.7.5913-musl-cache.patch
-	"${FILESDIR}"/${PN}-2.2.0-missing-header.patch
+	"${FILESDIR}"/${PN}-2.4.0-qt610.patch
 )
 
 CMAKE_QA_COMPAT_SKIP=1 #957976
