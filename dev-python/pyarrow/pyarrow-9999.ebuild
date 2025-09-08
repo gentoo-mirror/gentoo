@@ -7,12 +7,7 @@ DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..13} )
 
-inherit distutils-r1 multiprocessing
-
-# arrow.git: testing
-ARROW_DATA_GIT_HASH=d2a13712303498963395318a4eb42872e66aead7
-# arrow.git: cpp/submodules/parquet-testing
-PARQUET_DATA_GIT_HASH=18d17540097fca7c40be3d42c167e6bfad90763c
+inherit distutils-r1 git-r3 multiprocessing
 
 DESCRIPTION="Python library for Apache Arrow"
 HOMEPAGE="
@@ -20,20 +15,12 @@ HOMEPAGE="
 	https://github.com/apache/arrow/
 	https://pypi.org/project/pyarrow/
 "
-SRC_URI="
-	mirror://apache/arrow/arrow-${PV}/apache-arrow-${PV}.tar.gz
-	test? (
-		https://github.com/apache/parquet-testing/archive/${PARQUET_DATA_GIT_HASH}.tar.gz
-			-> parquet-testing-${PARQUET_DATA_GIT_HASH}.tar.gz
-		https://github.com/apache/arrow-testing/archive/${ARROW_DATA_GIT_HASH}.tar.gz
-			-> arrow-testing-${ARROW_DATA_GIT_HASH}.tar.gz
-	)
-"
-S="${WORKDIR}/apache-arrow-${PV}/python"
+EGIT_REPO_URI="https://github.com/apache/arrow.git"
+EGIT_SUBMODULES=( '*' )
+S="${WORKDIR}/${P}/python"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="+parquet +snappy ssl"
 
 RDEPEND="
@@ -102,7 +89,7 @@ python_test() {
 	)
 
 	cd "${T}" || die
-	local -x PARQUET_TEST_DATA="${WORKDIR}/parquet-testing-${PARQUET_DATA_GIT_HASH}/data"
-	local -x ARROW_TEST_DATA="${WORKDIR}/arrow-testing-${ARROW_DATA_GIT_HASH}/data"
+	local -x PARQUET_TEST_DATA="${WORKDIR}/${P}/cpp/submodules/parquet-testing/data"
+	local -x ARROW_TEST_DATA="${WORKDIR}/${P}/testing/data"
 	epytest --pyargs pyarrow
 }
