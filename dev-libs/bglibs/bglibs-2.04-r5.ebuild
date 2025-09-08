@@ -11,7 +11,7 @@ SRC_URI="https://untroubled.org/bglibs/archive/${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0/2"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="doc"
 
 BDEPEND="
@@ -31,6 +31,7 @@ PATCHES=(
 	"${FILESDIR}"/bglibs-2.04-musl.patch
 	"${FILESDIR}"/bglibs-2.04-gcc14.patch
 	"${FILESDIR}"/bglibs-2.04-prefix.patch
+	"${FILESDIR}"/bglibs-2.04-fortify.patch
 )
 
 src_prepare() {
