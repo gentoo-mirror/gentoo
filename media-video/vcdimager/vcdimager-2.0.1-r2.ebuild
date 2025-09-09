@@ -11,7 +11,7 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="static-libs +xml"
 
 RDEPEND="
@@ -24,7 +24,10 @@ BDEPEND="virtual/pkgconfig"
 
 DOCS=( AUTHORS BUGS ChangeLog FAQ HACKING NEWS README THANKS TODO )
 
-PATCHES=("${FILESDIR}/${P}-pkg-config.patch")
+PATCHES=(
+	"${FILESDIR}/${P}-pkg-config.patch"
+	"${FILESDIR}/${PN}-2.0.1-libxml2-2.14.patch"
+)
 
 src_prepare() {
 	default
