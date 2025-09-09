@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1
 
@@ -43,11 +43,11 @@ BDEPEND="
 	)
 	test? (
 		>=dev-db/postgresql-8.1[server]
-		>=dev-python/anyio-4.0[${PYTHON_USEDEP}]
 		>=dev-python/dnspython-2.1[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( anyio )
 distutils_enable_tests pytest
 
 python_compile() {
@@ -106,12 +106,11 @@ python_test() {
 		impls+=( c )
 	fi
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	local -x PSYCOPG_IMPL
 	for PSYCOPG_IMPL in "${impls[@]}"; do
 		einfo "Testing with ${PSYCOPG_IMPL} implementation ..."
 		# leak and timing tests are fragile whereas slow tests are slow
-		epytest -p anyio -k "not leak" \
+		epytest -k "not leak" \
 			-m "not timing and not slow and not flakey"
 	done
 }
