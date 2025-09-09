@@ -3,18 +3,17 @@
 
 EAPI=8
 
-ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
-KFMIN=6.5.0
-QTMIN=6.7.2
-inherit ecm kde.org optfeature
+KFMIN=6.9.0
+QTMIN=6.8.1
+inherit ecm kde.org optfeature xdg
 
 DESCRIPTION="Desktop Planetarium"
 HOMEPAGE="https://apps.kde.org/kstars/ https://kstars.kde.org/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2+ GPL-3+"
@@ -47,7 +46,7 @@ COMMON_DEPEND="
 	sci-libs/gsl:=
 	>=sci-libs/indilib-2.0.2
 	sci-libs/libnova:=
-	>=sci-libs/stellarsolver-2.6-r10
+	>=sci-libs/stellarsolver-2.7
 	sys-libs/zlib
 	opencv? (
 		media-libs/opencv:=[ffmpeg]
@@ -82,17 +81,17 @@ CMAKE_SKIP_TESTS=(
 
 PATCHES=(
 	# downstream patches
-	"${FILESDIR}"/${PN}-3.7.{4,5}-cmake.patch # bug 895892
-	"${FILESDIR}"/${P}-cmake-install-paths.patch # bug 953100
-	"${FILESDIR}"/${PN}-3.7.5-gcc15.patch # bug 956122
+	"${FILESDIR}"/${PN}-3.7.4-cmake.patch # bug 895892
+	"${FILESDIR}"/${PN}-3.7.5-cmake-install-paths.patch # bug 953100
+	"${FILESDIR}"/${P}-unused-dep.patch # pending MR upstream
 )
 
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_PYKSTARS=OFF
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibXISF=ON # not packaged
+		-DBUILD_WITH_QT6=ON # KF6 please
 		-DBUILD_QT5=OFF # KF6 please
-		-DBUILD_DOC=$(usex handbook)
 		$(cmake_use_find_package opencv OpenCV)
 		$(cmake_use_find_package password Qt6Keychain)
 		$(cmake_use_find_package raw LibRaw)
@@ -109,5 +108,5 @@ pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
 		optfeature "Display 'current' pictures of planets" x11-misc/xplanet
 	fi
-	ecm_pkg_postinst
+	xdg_pkg_postinst
 }
