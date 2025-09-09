@@ -7,15 +7,17 @@ inherit autotools desktop
 
 DESCRIPTION="Fast-paced 3D lightcycle game based on Tron"
 HOMEPAGE="https://www.armagetronad.org/"
-SRC_URI="https://launchpad.net/armagetronad/$(ver_cut 1-3)/${PV}/+download/armagetronad-${PV}.tbz"
+SRC_URI="https://launchpad.net/armagetronad/$(ver_cut 1-3)/${PV}/+download/${P}.tbz
+	https://dev.gentoo.org/~asturm/distfiles/${P}-libxml2-2.14.patch.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="dedicated sound"
+REQUIRED_USE="sound? ( !dedicated )"
 
 RDEPEND="
-	dev-libs/libxml2:=
+	net-misc/curl
 	!dedicated? (
 		media-libs/libpng:0=
 		media-libs/libsdl[X,opengl,video,sound?]
@@ -28,11 +30,11 @@ DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.2.9.1.0-AR.patch
+	"${WORKDIR}"/${P}-libxml2-2.14.patch # bug #955800, git master
 )
 
 src_prepare() {
 	default
-
 	eautoreconf
 }
 
