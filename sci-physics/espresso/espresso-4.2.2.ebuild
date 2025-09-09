@@ -1,11 +1,11 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{9..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
-inherit cmake cuda python-single-r1 savedconfig
+inherit cmake cuda flag-o-matic python-single-r1 savedconfig
 
 DESCRIPTION="Extensible Simulation Package for Research on Soft matter"
 HOMEPAGE="https://espressomd.org"
@@ -17,8 +17,8 @@ if [[ ${PV} = 9999 ]]; then
 else
 	SRC_URI="https://github.com/${PN}md/${PN}/releases/download/${PV}/${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86 ~amd64-linux"
+	S="${WORKDIR}/${PN}"
 fi
-S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -32,7 +32,7 @@ RDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		>=dev-python/cython-0.26.1[${PYTHON_USEDEP}]
-		<dev-python/numpy-2[${PYTHON_USEDEP}]
+		dev-python/numpy[${PYTHON_USEDEP}]
 	')
 	cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1 )
 	fftw? ( sci-libs/fftw:3.0 )
@@ -56,14 +56,20 @@ DEPEND="${RDEPEND}
 DOCS=( AUTHORS NEWS Readme.md ChangeLog )
 
 PATCHES=(
-	"${FILESDIR}/${P}-fix-disable-test.patch"
-	# https://github.com/espressomd/espresso/pull/4655
-	# boost 1.81
-	"${FILESDIR}"/${P}-boost1.81.patch
+	"${FILESDIR}/${PN}-4.2.0-fix-disable-test.patch"
 	"${FILESDIR}"/0001-allow-building-test-deps-without-running-ctest-indir.patch
-	"${FILESDIR}"/${P}-test-deprecations.patch
-	"${FILESDIR}"/${P}-test-rounding.patch
+	# https://github.com/espressomd/espresso/pull/4992
+	# https://src.fedoraproject.org/rpms/espresso/c/1c764324a21a92d6500289b4d72043471b5f3840
+	"${FILESDIR}"/${P}-numpy-2.x.patch
 )
+
+src_unpack() {
+	default
+
+	# vendored, cmake4 false positive. Used solely as a directory of *.hpp
+	rm "${S}"/libs/h5xx/CMakeLists.txt || die
+	rm -r "${S}"/libs/h5xx/example || die
+}
 
 src_prepare() {
 	use cuda && cuda_src_prepare
@@ -76,6 +82,10 @@ src_prepare() {
 }
 
 src_configure() {
+	# cmake.eclass for EAPI 8 finally, correctly, wipes out -DNDEBUG, leading
+	# to test fails. Fixed in git.
+	append-cppflags -DBOOST_DISABLE_ASSERTS
+
 	local mycmakeargs=(
 		-DWITH_CUDA=$(usex cuda)
 		-DPYTHON_EXECUTABLE="${PYTHON}"
@@ -95,27 +105,6 @@ src_compile() {
 }
 
 src_test() {
-	CMAKE_SKIP_TESTS=(
-		# These 13 tests fail with
-		# "The MPI_Type_free() function was called before MPI_INIT was invoked."
-		#
-		# I do not know why. But, we didn't used to run any tests at all,
-		# so, baby steps.
-		SingleReaction_test
-		reaction_methods_utils_test
-		rotation_test
-		grid_test
-		Lattice_test
-		lb_exceptions
-		thermostats_test
-		bonded_interactions_map_test
-		ObjectHandle_test
-		AutoParameters_test
-		Accumulators_test
-		Constraints_test
-		Actors_test
-	)
-
 	# testsuite uses exclude_from_all, and lists all targets as deps for their custom rule
 	cmake_build check
 	cmake_src_test
