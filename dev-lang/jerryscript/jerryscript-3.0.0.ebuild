@@ -20,8 +20,7 @@ REQUIRED_USE="debugger? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT="test"
 
 PATCHES=(
-	"${FILESDIR}/jerryscript-2.4.0-python3-r4.patch"
-	"${FILESDIR}/jerryscript-2.4.0-no-werror.patch"
+	"${FILESDIR}/jerryscript-3.0.0-no-werror.patch"
 )
 
 src_prepare() {
