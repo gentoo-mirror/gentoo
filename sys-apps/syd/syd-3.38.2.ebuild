@@ -39,9 +39,9 @@ CRATES="
 	cfg-if@1.0.3
 	cfg_aliases@0.2.1
 	chrono@0.4.41
-	clap@4.5.46
-	clap_builder@4.5.46
-	clap_derive@4.5.45
+	clap@4.5.47
+	clap_builder@4.5.47
+	clap_derive@4.5.47
 	clap_lex@0.7.5
 	colorchoice@1.0.4
 	const_format@0.2.34
@@ -125,7 +125,7 @@ CRATES="
 	linefeed@0.6.0
 	linux-raw-sys@0.4.15
 	linux-raw-sys@0.9.4
-	log@0.4.27
+	log@0.4.28
 	md5@0.8.0
 	memchr@2.7.5
 	memoffset@0.9.1
