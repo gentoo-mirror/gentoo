@@ -21,9 +21,9 @@ RDEPEND="
 	>=dev-libs/glib-2.82:2[${MULTILIB_USEDEP}]
 	>=dev-libs/fribidi-1.0.6[${MULTILIB_USEDEP}]
 	>=media-libs/harfbuzz-8.4.0:=[glib(+),introspection?,truetype(+),${MULTILIB_USEDEP}]
-	>=media-libs/fontconfig-2.15.0:1.0[${MULTILIB_USEDEP}]
+	>=media-libs/fontconfig-2.17.0:1.0[${MULTILIB_USEDEP}]
 	>=x11-libs/cairo-1.18.0[X?,${MULTILIB_USEDEP}]
-	>=media-libs/freetype-2.5.0.1:2[${MULTILIB_USEDEP}]
+	>=media-libs/freetype-2.5.0.1:2[harfbuzz,png,${MULTILIB_USEDEP}]
 	introspection? ( >=dev-libs/gobject-introspection-1.83.2:= )
 	X? (
 		>=x11-libs/libX11-1.6.2[${MULTILIB_USEDEP}]
@@ -92,14 +92,5 @@ multilib_src_install_all() {
 	if use gtk-doc; then
 		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
 		mv "${ED}"/usr/share/doc/Pango* "${ED}"/usr/share/gtk-doc/html/ || die
-	fi
-}
-
-pkg_postinst() {
-	xdg_pkg_postinst
-
-	if has_version 'media-libs/freetype[-harfbuzz]' ; then
-		ewarn "media-libs/freetype is installed without harfbuzz support. This may"
-		ewarn "lead to minor font rendering problems, see bug 712374."
 	fi
 }
