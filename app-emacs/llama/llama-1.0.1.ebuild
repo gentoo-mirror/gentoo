@@ -16,14 +16,14 @@ else
 	SRC_URI="https://github.com/tarsius/${PN}/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~arm ~arm64 ~ppc64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-30.1.0.0
+	app-emacs/compat
 "
 BDEPEND="
 	${RDEPEND}
@@ -31,10 +31,10 @@ BDEPEND="
 
 SITEFILE="50${PN}-gentoo.el"
 
-elisp-enable-tests ert "${S}"
+elisp-enable-tests ert "${S}" -l "./${PN}-tests.el"
 
 src_install() {
-	rm "./${PN}-test.el"* || die
+	rm "./${PN}-tests.el"* || die
 
 	elisp_src_install
 }
