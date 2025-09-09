@@ -3,9 +3,9 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {18..20} )
+LLVM_COMPAT=( {18..21} )
 PYTHON_COMPAT=( python3_{10..14} python3_{13,14}t)
-inherit bash-completion-r1 estack flag-o-matic linux-info llvm-r1 toolchain-funcs python-r1
+inherit bash-completion-r1 estack flag-o-matic linux-info llvm-r1 toolchain-funcs python-single-r1
 
 DESCRIPTION="Userland tools for Linux Performance Counters"
 HOMEPAGE="https://perfwiki.github.io/main/"
@@ -35,7 +35,7 @@ S="${S_K}/tools/perf"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
-IUSE="abi_mips_o32 abi_mips_n32 abi_mips_n64 babeltrace capstone big-endian bpf caps crypt debug +doc gtk java libpfm +libtraceevent +libtracefs lzma numa perl +python +slang systemtap tcmalloc unwind"
+IUSE="abi_mips_o32 abi_mips_n32 abi_mips_n64 babeltrace capstone big-endian bpf caps crypt debug gtk java libpfm +libtraceevent +libtracefs lzma numa perl +python +slang systemtap tcmalloc unwind"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -46,17 +46,17 @@ BDEPEND="
 	${LINUX_PATCH+dev-util/patchutils}
 	${PYTHON_DEPS}
 	>=app-arch/tar-1.34-r2
-	dev-python/setuptools[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+			dev-python/setuptools[${PYTHON_USEDEP}]
+    ')
 	app-alternatives/yacc
 	app-alternatives/lex
 	sys-apps/which
 	virtual/pkgconfig
-	doc? (
-		app-text/asciidoc
-		app-text/sgml-common
-		app-text/xmlto
-		sys-process/time
-	)
+	app-text/asciidoc
+	app-text/sgml-common
+	app-text/xmlto
+	sys-process/time
 "
 
 RDEPEND="
@@ -102,14 +102,6 @@ QA_FLAGS_IGNORED=(
 	'usr/bin/perf-read-vdso32' # not linked with anything except for libc
 	'usr/libexec/perf-core/dlfilters/.*' # plugins
 )
-
-pkg_pretend() {
-	if ! use doc ; then
-		ewarn "Without the doc USE flag you won't get any documentation nor man pages."
-		ewarn "And without man pages, you won't get any --help output for perf and its"
-		ewarn "sub-tools."
-	fi
-}
 
 pkg_setup() {
 	local CONFIG_CHECK="
@@ -309,7 +301,7 @@ src_compile() {
 	filter-lto
 
 	perf_make -f Makefile.perf
-	use doc && perf_make -C Documentation man
+	perf_make -C Documentation man
 }
 
 src_test() {
@@ -317,14 +309,10 @@ src_test() {
 }
 
 src_install() {
-	_install_python_ext() {
-		perf_make -f Makefile.perf install-python_ext DESTDIR="${D}"
-	}
-
 	perf_make -f Makefile.perf install DESTDIR="${D}"
 
 	if use python; then
-		python_foreach_impl _install_python_ext
+		perf_make -f Makefile.perf install-python_ext DESTDIR="${D}"
 	fi
 
 	if use gtk; then
@@ -343,7 +331,5 @@ src_install() {
 	# perf needs this decompressed to print out tips for users
 	docompress -x /usr/share/doc/${PF}/tips.txt
 
-	if use doc ; then
-		doman Documentation/*.1
-	fi
+	doman Documentation/*.1
 }
