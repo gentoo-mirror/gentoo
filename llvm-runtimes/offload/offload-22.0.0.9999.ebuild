@@ -46,7 +46,7 @@ BDEPEND="
 	)
 "
 
-LLVM_COMPONENTS=( offload cmake runtimes/cmake libc )
+LLVM_COMPONENTS=( runtimes offload cmake libc llvm/{cmake,utils/llvm-lit} )
 LLVM_TEST_COMPONENTS=( openmp/cmake )
 llvm.org_set_globals
 
@@ -87,35 +87,28 @@ src_configure() {
 	local ffi_cflags=$($(tc-getPKG_CONFIG) --cflags-only-I libffi)
 	local ffi_ldflags=$($(tc-getPKG_CONFIG) --libs-only-L libffi)
 	local plugins="host"
-	local build_devicertl=FALSE
 
 	if has "${CHOST%%-*}" aarch64 powerpc64le x86_64; then
 		if use llvm_targets_AMDGPU; then
 			plugins+=";amdgpu"
-			build_devicertl=TRUE
 		fi
 		if use llvm_targets_NVPTX; then
 			plugins+=";cuda"
-			build_devicertl=TRUE
 		fi
 	fi
 
 	local mycmakeargs=(
+		-DLLVM_ENABLE_RUNTIMES=offload
+		-DOPENMP_STANDALONE_BUILD=ON
+		-DOFFLOAD_LIBDIR_SUFFIX="${libdir#lib}"
 		-DLLVM_ROOT="${ESYSROOT}/usr/lib/llvm/${LLVM_MAJOR}"
 
-		-DOFFLOAD_LIBDIR_SUFFIX="${libdir#lib}"
 		-DOFFLOAD_INCLUDE_TESTS=$(usex test)
 		-DLIBOMPTARGET_PLUGINS_TO_BUILD="${plugins}"
 		-DLIBOMPTARGET_OMPT_SUPPORT="$(usex ompt)"
-		-DLIBOMPTARGET_BUILD_DEVICERTL_BCLIB="${build_devicertl}"
 
 		# this breaks building static target libs
 		-DBUILD_SHARED_LIBS=OFF
-
-		-DFFI_INCLUDE_DIR="${ffi_cflags#-I}"
-		-DFFI_LIBRARY_DIR="${ffi_ldflags#-L}"
-		# force using shared libffi
-		-DFFI_STATIC_LIBRARIES=NO
 	)
 
 	[[ ! ${LLVM_ALLOW_GPU_TESTING} ]] && mycmakeargs+=(
@@ -141,5 +134,5 @@ src_test() {
 	# respect TMPDIR!
 	local -x LIT_PRESERVES_TMP=1
 
-	cmake_build check-offload
+	cmake_build check-offload check-offload-unit
 }
