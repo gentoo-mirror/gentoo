@@ -16,10 +16,13 @@ HOMEPAGE="
 
 LICENSE="GPL-3+"
 SLOT="0"
-# KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~x64-macos"
 RESTRICT="test"
 
-RDEPEND="~app-admin/ansible-core-2.19.0_beta7"
+RDEPEND="
+	>=app-admin/ansible-core-2.19.0
+	<app-admin/ansible-core-2.20.0
+"
 
 python_compile() {
 	local -x ANSIBLE_SKIP_CONFLICT_CHECK=1
