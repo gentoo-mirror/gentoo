@@ -12,7 +12,8 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="${LLVM_MAJOR}"
-IUSE="+abi_x86_32 abi_x86_64 +atomic-builtins +clang +debug test"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~x86 ~amd64-linux ~arm64-macos ~ppc-macos ~x64-macos"
+IUSE="+abi_x86_32 abi_x86_64 +atomic-builtins +clang debug test"
 REQUIRED_USE="atomic-builtins? ( clang )"
 RESTRICT="!test? ( test ) !clang? ( test )"
 
@@ -20,7 +21,10 @@ DEPEND="
 	llvm-core/llvm:${LLVM_MAJOR}
 "
 BDEPEND="
-	clang? ( llvm-core/clang:${LLVM_MAJOR} )
+	clang? (
+		llvm-core/clang:${LLVM_MAJOR}
+		llvm-core/clang-linker-config:${LLVM_MAJOR}
+	)
 	test? (
 		$(python_gen_any_dep ">=dev-python/lit-15[\${PYTHON_USEDEP}]")
 		=llvm-core/clang-${LLVM_VERSION}*:${LLVM_MAJOR}
@@ -77,11 +81,20 @@ src_configure() {
 		# Only do this conditionally to allow overriding with
 		# e.g. CC=clang-13 in case of breakage
 		if ! tc-is-clang ; then
-			local -x CC=${CHOST}-clang
-			local -x CXX=${CHOST}-clang++
+			local -x CC=${CHOST}-clang-${LLVM_MAJOR}
+			local -x CXX=${CHOST}-clang++-${LLVM_MAJOR}
 		fi
 
 		strip-unsupported-flags
+
+		# The full clang configuration might not be ready yet. Given that compiler-rt
+		# require runtime, use only the linker configuration.
+		local flags=(
+			--config="${ESYSROOT}"/etc/clang/"${LLVM_MAJOR}"/gentoo-linker.cfg
+		)
+		local -x CFLAGS="${CFLAGS} ${flags[@]}"
+		local -x CXXFLAGS="${CXXFLAGS} ${flags[@]}"
+		local -x LDFLAGS="${LDFLAGS} ${flags[@]}"
 	fi
 
 	if ! is_crosspkg && ! test_compiler ; then

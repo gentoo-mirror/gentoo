@@ -19,8 +19,9 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc"
 SLOT="${LLVM_MAJOR}/${LLVM_SOABI}"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~arm64-macos ~ppc-macos ~x64-macos"
 IUSE="
-	+binutils-plugin +debug debuginfod doc exegesis libedit +libffi
+	+binutils-plugin debug debuginfod doc exegesis libedit +libffi
 	test xml z3 zstd
 "
 RESTRICT="!test? ( test )"
@@ -204,9 +205,6 @@ src_prepare() {
 	# Update config.guess to support more systems
 	cp "${BROOT}/usr/share/gnuconfig/config.guess" cmake/ || die
 
-	# Disable lit tests (we run them in dev-python/lit).
-	> utils/lit/CMakeLists.txt || die
-
 	# Verify that the ebuild is up-to-date
 	check_uptodate
 
@@ -293,7 +291,6 @@ get_distribution_components() {
 			llvm-gsymutil
 			llvm-ifs
 			llvm-install-name-tool
-			llvm-ir2vec
 			llvm-jitlink
 			llvm-jitlink-executor
 			llvm-lib
@@ -310,7 +307,6 @@ get_distribution_components() {
 			llvm-nm
 			llvm-objcopy
 			llvm-objdump
-			llvm-offload-wrapper
 			llvm-opt-report
 			llvm-otool
 			llvm-pdbutil
@@ -509,7 +505,6 @@ multilib_src_compile() {
 }
 
 multilib_src_test() {
-	local -x LIT_XFAIL="CodeGen/Xtensa/select-cc-fp.ll"
 	# respect TMPDIR!
 	local -x LIT_PRESERVES_TMP=1
 	cmake_build check

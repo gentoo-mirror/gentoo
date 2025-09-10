@@ -11,7 +11,8 @@ HOMEPAGE="https://openmp.llvm.org"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0/${LLVM_SOABI}"
-IUSE="+debug gdb-plugin hwloc ompt test"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~x86 ~amd64-linux ~x64-macos"
+IUSE="debug gdb-plugin hwloc ompt test"
 REQUIRED_USE="
 	gdb-plugin? ( ${PYTHON_REQUIRED_USE} )
 "
@@ -39,7 +40,7 @@ BDEPEND="
 	)
 "
 
-LLVM_COMPONENTS=( runtimes openmp cmake llvm/{cmake,include,utils/llvm-lit} )
+LLVM_COMPONENTS=( openmp cmake llvm/include )
 llvm.org_set_globals
 
 pkg_setup() {
@@ -57,8 +58,6 @@ multilib_src_configure() {
 
 	local libdir="$(get_libdir)"
 	local mycmakeargs=(
-		-DLLVM_ENABLE_RUNTIMES=openmp
-		-DOPENMP_STANDALONE_BUILD=ON
 		-DOPENMP_LIBDIR_SUFFIX="${libdir#lib}"
 
 		-DLIBOMP_USE_HWLOC=$(usex hwloc)
@@ -86,5 +85,5 @@ multilib_src_test() {
 	# respect TMPDIR!
 	local -x LIT_PRESERVES_TMP=1
 
-	cmake_build check-openmp
+	cmake_build check-libomp
 }

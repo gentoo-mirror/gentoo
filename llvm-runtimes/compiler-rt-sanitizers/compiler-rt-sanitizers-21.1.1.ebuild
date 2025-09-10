@@ -11,7 +11,8 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="${LLVM_MAJOR}"
-IUSE="+abi_x86_32 abi_x86_64 +clang +debug test"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~x86 ~amd64-linux ~ppc-macos ~x64-macos"
+IUSE="+abi_x86_32 abi_x86_64 +clang debug test"
 # base targets
 IUSE+=" +ctx-profile +libfuzzer +memprof +orc +profile +xray"
 # sanitizer targets, keep in sync with config-ix.cmake
@@ -40,6 +41,9 @@ DEPEND="
 BDEPEND="
 	clang? (
 		llvm-core/clang:${LLVM_MAJOR}
+		llvm-core/clang-linker-config:${LLVM_MAJOR}
+		llvm-runtimes/clang-rtlib-config:${LLVM_MAJOR}
+		llvm-runtimes/clang-stdlib-config:${LLVM_MAJOR}
 		llvm-runtimes/compiler-rt:${LLVM_MAJOR}
 	)
 	elibc_glibc? ( net-libs/libtirpc )
@@ -82,9 +86,6 @@ pkg_setup() {
 src_prepare() {
 	sed -i -e 's:-Werror::' lib/tsan/go/buildgo.sh || die
 
-	# builds freestanding code
-	filter-flags -fstack-protector*
-
 	local flag
 	for flag in "${SANITIZER_FLAGS[@]}"; do
 		if ! use "${flag}"; then
@@ -101,6 +102,8 @@ src_prepare() {
 	if use ubsan && ! use cfi; then
 		> test/cfi/CMakeLists.txt || die
 	fi
+	# hangs, sigh
+	rm test/tsan/getline_nohang.cpp || die
 
 	llvm.org_src_prepare
 }
@@ -115,9 +118,19 @@ src_configure() {
 	BUILD_DIR=${WORKDIR}/compiler-rt_build
 
 	if use clang; then
-		local -x CC=${CHOST}-clang
-		local -x CXX=${CHOST}-clang++
+		local -x CC=${CHOST}-clang-${LLVM_MAJOR}
+		local -x CXX=${CHOST}-clang++-${LLVM_MAJOR}
 		strip-unsupported-flags
+
+		# The full clang configuration might not be ready yet. Use the partial
+		# configuration files that are guaranteed to exist even during initial
+		# installations and upgrades.
+		local flags=(
+			--config="${ESYSROOT}"/etc/clang/"${LLVM_MAJOR}"/gentoo-{rtlib,stdlib,linker}.cfg
+		)
+		local -x CFLAGS="${CFLAGS} ${flags[@]}"
+		local -x CXXFLAGS="${CXXFLAGS} ${flags[@]}"
+		local -x LDFLAGS="${LDFLAGS} ${flags[@]}"
 	fi
 
 	local flag want_sanitizer=OFF

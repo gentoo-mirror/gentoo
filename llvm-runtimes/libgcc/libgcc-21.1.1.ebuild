@@ -13,6 +13,7 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0"
+KEYWORDS="~amd64"
 IUSE="debug test"
 
 DEPEND="
@@ -33,7 +34,7 @@ BDEPEND="
 	)
 "
 
-LLVM_COMPONENTS=( compiler-rt cmake llvm/cmake llvm-libgcc )
+LLVM_COMPONENTS=( compiler-rt cmake llvm/cmake llvm-libgcc third-party/siphash )
 LLVM_TEST_COMPONENTS=( llvm/include/llvm/TargetParser )
 llvm.org_set_globals
 

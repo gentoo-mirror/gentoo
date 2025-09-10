@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {21..22} )
+LLVM_COMPAT=( 21 )
 PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake llvm.org llvm-r1 python-any-r1
 
@@ -12,6 +12,7 @@ HOMEPAGE="https://libclc.llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( MIT BSD )"
 SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
 IUSE="+spirv video_cards_nvidia video_cards_r600 video_cards_radeonsi"
 
 BDEPEND="
