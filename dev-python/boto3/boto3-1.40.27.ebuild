@@ -25,7 +25,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux 
 RDEPEND="
 	>=dev-python/botocore-${PV}[${PYTHON_USEDEP}]
 	>=dev-python/jmespath-0.7.1[${PYTHON_USEDEP}]
-	>=dev-python/s3transfer-0.13.0[${PYTHON_USEDEP}]
+	>=dev-python/s3transfer-0.14.0[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()

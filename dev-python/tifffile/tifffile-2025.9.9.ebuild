@@ -35,13 +35,22 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 python_test() {
+	local EPYTEST_DESELECT=(
+		# not marked properly
+		# https://github.com/cgohlke/tifffile/pull/308
+		tests/test_tifffile.py::test_issue_dcp
+		# meaningless and broken on py<3.13
+		# https://github.com/cgohlke/tifffile/pull/309
+		tests/test_tifffile.py::test_gil_enabled
+	)
+
 	local -x SKIP_LARGE=1
 	local -x SKIP_HTTP=1
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest
 }

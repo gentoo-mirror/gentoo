@@ -8,39 +8,30 @@ PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
 inherit distutils-r1
 
-MY_P=redis-py-${PV}
+MY_P=redis-py-${PV/_beta/b}
 DESCRIPTION="Python client for Redis key-value store"
 HOMEPAGE="
 	https://github.com/redis/redis-py/
 	https://pypi.org/project/redis/
 "
 SRC_URI="
-	https://github.com/redis/redis-py/archive/v${PV}.tar.gz
+	https://github.com/redis/redis-py/archive/v${PV/_beta/b}.tar.gz
 		-> ${MY_P}.gh.tar.gz
 "
 S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~riscv ~sparc x86"
 
 BDEPEND="
 	test? (
 		dev-db/redis
 		dev-python/numpy[${PYTHON_USEDEP}]
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-{asyncio,timeout} )
 distutils_enable_tests pytest
-
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# https://github.com/redis/redis-py/issues/3339
-	sed -i 's:(forbid_global_loop=True)::' tests/test_asyncio/*.py || die
-}
 
 python_test() {
 	local EPYTEST_DESELECT=(
@@ -67,6 +58,11 @@ python_test() {
 		tests/test_asyncio/test_commands.py::TestRedisCommands::test_zrevrank_withscore
 		tests/test_asyncio/test_commands.py::TestRedisCommands::test_xinfo_consumers
 		tests/test_asyncio/test_pubsub.py::TestPubSubAutoReconnect::test_reconnect_socket_error[pool-hiredis-listen]
+		# requires sentinel?
+		tests/{,test_asyncio/}test_sentinel.py
+		# require REDIS_ENDPOINTS_CONFIG_PATH, except there's zero documentation
+		# or examples of what this is
+		tests/test_scenario/test_hitless_upgrade.py::TestPushNotifications
 	)
 	local EPYTEST_IGNORE=(
 		# fails over missing certs, we don't do cluster anyway

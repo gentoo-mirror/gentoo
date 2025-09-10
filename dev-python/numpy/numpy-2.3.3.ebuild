@@ -23,7 +23,21 @@ SLOT="0/2"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 # +lapack because the internal fallbacks are pretty slow. Building without blas
 # is barely supported anyway, see bug #914358.
-IUSE="big-endian +lapack"
+IUSE="big-endian +cpudetection +lapack"
+
+# upstream-flag[:gentoo-flag]
+ARM_FLAGS=( neon{,-fp16} vfpv4 asimd{,hp,dp,fhm} sve )
+PPC_FLAGS=( vsx vsx2 vsx3 vsx4 )
+X86_FLAGS=(
+	sse{,2,3,4_1,4_2} ssse3 popcnt avx{,2} xop fma{3,4}
+	f16c avx512{f,cd,pf,er,dq,bw,vl,ifma,vbmi}
+	avx512_{vpopcntdq,4vnniw,4fmaps,vbmi2,bitalg,fp16,vnni}
+)
+IUSE+="
+	${ARM_FLAGS[*]/#/cpu_flags_arm_}
+	${PPC_FLAGS[*]/#/cpu_flags_ppc_}
+	${X86_FLAGS[*]/#/cpu_flags_x86_}
+"
 
 RDEPEND="
 	lapack? (
@@ -43,9 +57,6 @@ BDEPEND="
 			>=dev-python/cffi-1.14.0[${PYTHON_USEDEP}]
 		' 'python*')
 		dev-python/charset-normalizer[${PYTHON_USEDEP}]
-		>=dev-python/hypothesis-5.8.0[${PYTHON_USEDEP}]
-		dev-python/pytest-rerunfailures[${PYTHON_USEDEP}]
-		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 		>=dev-python/pytz-2019.3[${PYTHON_USEDEP}]
 	)
 "
@@ -55,33 +66,166 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 	vrndq_f32
 )
 
+EPYTEST_PLUGINS=( hypothesis pytest-timeout )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
-python_prepare_all() {
-	local PATCHES=(
-		# https://github.com/google/highway/issues/2577
-		# github.com/google/highway/commit/7cde540171a1718a9bdfa8f896d70e47eb0785d5
-		"${FILESDIR}/${PN}-2.2.6-gcc16.patch"
-		# https://github.com/numpy/numpy/pull/29392
-		"${FILESDIR}/${PN}-2.3.1-fix-vector.patch"
+PATCHES=(
+	# https://github.com/numpy/numpy/pull/29459
+	"${FILESDIR}"/${PN}-2.3.2-no-detect.patch
+	# https://github.com/numpy/numpy/pull/29579
+	"${FILESDIR}"/${PN}-2.3.2-arm-asimddp.patch
+)
+
+has_all_x86() {
+	local flag
+	for flag; do
+		if ! use "cpu_flags_x86_${flag}"; then
+			return 1
+		fi
+	done
+	return 0
+}
+
+python_configure_all() {
+	local cpu_baseline=()
+	local map flag
+	case ${ARCH} in
+		arm)
+			# every flag implies the previous one
+			for map in NEON:neon NEON_FP16:neon-fp16 NEON_VFPV4:vfpv4; do
+				if ! use "cpu_flags_arm_${map#*:}"; then
+					break
+				fi
+				cpu_baseline+=( "${map%:*}" )
+			done
+			;&
+		arm64)
+			# on 32-bit ARM, ASIMD implies all NEON* flags
+			# on 64-bit ARM, they are all linked together
+			if use arm64 ||
+				[[ ${cpu_baseline[@]} && ${cpu_baseline[-1]} == NEON_VFPV4 ]]
+			then
+				cpu_baseline+=( $(usev cpu_flags_arm_asimd ASIMD) )
+			fi
+
+			# these two imply ASIMD
+			if [[ ${cpu_baseline[@]} && ${cpu_baseline[-1]} == ASIMD ]]; then
+				for flag in dp hp; do
+					cpu_baseline+=(
+						$(usev "cpu_flags_arm_asimd${flag}" "ASIMD${flag^^}")
+					)
+				done
+			fi
+
+			# these two imply ASIMDHP
+			if [[ ${cpu_baseline[@]} && ${cpu_baseline[-1]} == ASIMDHP ]]; then
+				for flag in asimdfhm sve; do
+					cpu_baseline+=(
+						$(usev "cpu_flags_arm_${flag}" "${flag^^}")
+					)
+				done
+			fi
+			;;
+		ppc64)
+			# every flag implies the previous one
+			for flag in '' 2 3 4; do
+				if ! use "cpu_flags_ppc_vsx${flags}"; then
+					break
+				fi
+				cpu_baseline+=( "VSX${flag}" )
+			done
+			;;
+		amd64|x86)
+			# every flag implies the previous one
+			for flag in sse{,2,3} ssse3 sse4_1 popcnt sse4_2 avx; do
+				if ! use "cpu_flags_x86_${flag}"; then
+					break
+				fi
+				flag=${flag/_}
+				cpu_baseline+=( "${flag^^}" )
+			done
+
+			# these imply AVX
+			if [[ ${cpu_baseline[@]} && ${cpu_baseline[-1]} == AVX ]]; then
+				for flag in xop fma4 f16c; do
+					if use "cpu_flags_x86_${flag}"; then
+						cpu_baseline+=( "${flag^^}" )
+					fi
+				done
+			fi
+
+			# another chain started on implying F16C
+			if [[ ${cpu_baseline[@]} && ${cpu_baseline[-1]} == F16C ]]; then
+				for flag in fma3 avx2 avx512f avx512cd; do
+					if ! use "cpu_flags_x86_${flag}"; then
+						break
+					fi
+					cpu_baseline+=( "${flag^^}" )
+				done
+			fi
+
+			if [[ ${cpu_baseline[@]} && ${cpu_baseline[-1]} == AVX512CD ]]; then
+				# upstream combines multiple instructions into per-CPU sets
+				local -A avx512_mapping=(
+					[AVX512_KNL]="avx512pf avx512er"
+					[AVX512_KNM]="avx512_vpopcntdq avx512_4vnniw avx512_4fmaps"
+					[AVX512_SKX]="avx512dq avx512bw avx512vl"
+					[AVX512_CLX]="avx512_vnni"
+					[AVX512_CNL]="avx512ifma avx512vbmi"
+					[AVX512_ICL]="avx512_vbmi2 avx512_bitalg"
+					[AVX512_SPR]="avx512_fp16"
+				)
+
+				# 1. AVX512CD -> AVX512_KNL -> AVX512_KNM
+				if has_all_x86 ${avx512_mapping[AVX512_KNL]}; then
+					cpu_baseline+=( AVX512_KNL )
+					if has_all_x86 ${avx512_mapping[AVX512_KNM]}; then
+						cpu_baseline+=( AVX512_KNM )
+					fi
+				fi
+				# 2. AVX512CD -> AVX512_SKX -> [AVX512_CLX, AVX512_CNL]
+				if has_all_x86 ${avx512_mapping[AVX512_SKX]}; then
+					cpu_baseline+=( AVX512_SKX )
+					if has_all_x86 ${avx512_mapping[AVX512_CLX]}; then
+						cpu_baseline+=( AVX512_CLX )
+					fi
+					if has_all_x86 ${avx512_mapping[AVX512_CNL]}; then
+						cpu_baseline+=( AVX512_CNL )
+					fi
+				fi
+				# 3. [AVX512_CLX, AVX512_CNL] -> AVX512_ICL -> AVX512_SPR
+				if [[ ${cpu_baseline[-1]} == AVX512_CNL &&
+					${cpu_baseline[-2]} == AVX512_CLX ]]
+				then
+					if has_all_x86 ${avx512_mapping[AVX512_ICL]}; then
+						cpu_baseline+=( AVX512_ICL )
+						if has_all_x86 ${avx512_mapping[AVX512_SPR]}; then
+							cpu_baseline+=( AVX512_SPR )
+						fi
+					fi
+				fi
+			fi
+			;;
+		*)
+			cpu_baseline=MIN
+			;;
+	esac
+
+	DISTUTILS_ARGS=(
+		-Dallow-noblas=$(usex !lapack true false)
+		-Dblas=$(usev lapack cblas)
+		-Dlapack=$(usev lapack lapack)
+		-Dcpu-baseline="${cpu_baseline[*]}"
+		-Dcpu-baseline-detect=disabled
+		# '-XOP -FMA4' is upstream default, since these are deprecated
+		-Dcpu-dispatch="$(usev cpudetection 'MAX -XOP -FMA4')"
 	)
 
 	# bug #922457
 	filter-lto
 	# https://github.com/numpy/numpy/issues/25004
 	append-flags -fno-strict-aliasing
-
-	distutils-r1_python_prepare_all
-}
-
-python_configure_all() {
-	DISTUTILS_ARGS=(
-		-Dallow-noblas=$(usex !lapack true false)
-		-Dblas=$(usev lapack cblas)
-		-Dlapack=$(usev lapack lapack)
-		# TODO: cpu-* options
-	)
 }
 
 python_test() {
@@ -97,6 +241,11 @@ python_test() {
 		numpy/_core/tests/test_umath_accuracy.py::TestAccuracy::test_validate_transcendentals
 
 		numpy/typing/tests/test_typing.py
+
+		# Flaky, reruns don't help
+		numpy/f2py/tests/test_crackfortran.py
+		numpy/f2py/tests/test_f2py2e.py::test_gh22819_cli
+		numpy/f2py/tests/test_data.py::TestData{,F77}::test_crackedlines
 	)
 
 	if [[ $(uname -m) == armv8l ]]; then
@@ -190,9 +339,8 @@ python_test() {
 		)
 	fi
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
-	epytest -p rerunfailures --reruns=5
+	epytest
 }
 
 python_install_all() {

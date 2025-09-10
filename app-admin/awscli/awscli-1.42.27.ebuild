@@ -22,7 +22,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 # botocore is x.(y-2).z, sigh
 BOTOCORE_PV="$(ver_cut 1).$(( $(ver_cut 2) - 2)).$(ver_cut 3-)"
@@ -31,7 +31,7 @@ RDEPEND="
 	dev-python/colorama[${PYTHON_USEDEP}]
 	dev-python/docutils[${PYTHON_USEDEP}]
 	dev-python/rsa[${PYTHON_USEDEP}]
-	>=dev-python/s3transfer-0.13.0[${PYTHON_USEDEP}]
+	>=dev-python/s3transfer-0.14.0[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	!app-admin/awscli-bin
 "
