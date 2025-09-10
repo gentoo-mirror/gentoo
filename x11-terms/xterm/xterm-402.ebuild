@@ -32,10 +32,13 @@ DEPEND="
 	x11-libs/libXt
 	unicode? ( x11-apps/luit )
 	Xaw3d? ( x11-libs/libXaw3d )
-	xinerama? ( x11-libs/libXinerama )"
-RDEPEND="${DEPEND}
+	xinerama? ( x11-libs/libXinerama )
+"
+RDEPEND="
+	${DEPEND}
 	media-fonts/font-misc-misc
-	x11-apps/rgb"
+	x11-apps/rgb
+"
 DEPEND+=" x11-base/xorg-proto"
 BDEPEND="
 	virtual/pkgconfig
