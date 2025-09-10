@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) || ( ( dev-lang/python:3.13 dev-util/babeltrace:2[python,python_single_target_python3_13(-)] ) ( dev-lang/python:3.12 dev-util/babeltrace:2[python,python_single_target_python3_12(-)] ) ( dev-lang/python:3.11 dev-util/babeltrace:2[python,python_single_target_python3_11(-)] ) ) ) verify-sig? ( sec-keys/openpgp-keys-jeremiegalarneau ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install prepare setup test unpack
+DEPEND=>=dev-libs/userspace-rcu-0.11.0:= dev-libs/popt >=dev-libs/libxml2-2.7.6:= kmod? ( sys-apps/kmod ) ust? ( >=dev-util/lttng-ust-2.14.0:= ) test? ( >=dev-libs/libpfm-4.0 dev-util/babeltrace:2 )
+DESCRIPTION=Linux Trace Toolkit - next generation
+EAPI=8
+HOMEPAGE=https://lttng.org
+INHERIT=autotools flag-o-matic python-any-r1 verify-sig
+IUSE=kmod test +ust verify-sig
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/userspace-rcu-0.11.0:= dev-libs/popt >=dev-libs/libxml2-2.7.6:= kmod? ( sys-apps/kmod ) ust? ( >=dev-util/lttng-ust-2.14.0:= )
+RESTRICT=!test? ( test )
+SLOT=0/2.14
+SRC_URI=https://lttng.org/files/lttng-tools/lttng-tools-2.14.0.tar.bz2 verify-sig? ( https://lttng.org/files/lttng-tools/lttng-tools-2.14.0.tar.bz2.asc )
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	b7eb9c3a6dc6662368634584aab44a2c	python-any-r1	891415dfe39ad9b41b461f2b86354af0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
+_md5_=e879259a77863cfaf05c5c356b6a86a9
