@@ -46,13 +46,6 @@ BDEPEND="
 "
 PDEPEND="harfbuzz? ( >=media-libs/harfbuzz-1.3.0[truetype,${MULTILIB_USEDEP}] )"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-harfbuzz-call.patch
-	"${FILESDIR}"/${P}-tt-hint.patch
-	"${FILESDIR}"/${P}-pillow-tests.patch
-	"${FILESDIR}"/${P}-iosevka-hang.patch
-)
-
 _egit_repo_handler() {
 	if [[ ${PV} == 9999 ]] ; then
 		local phase="${1}"
