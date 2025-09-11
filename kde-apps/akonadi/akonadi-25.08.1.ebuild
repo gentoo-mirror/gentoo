@@ -54,8 +54,6 @@ RDEPEND="${COMMON_DEPEND}
 	kde-apps/akonadi-config
 "
 
-PATCHES=( "${FILESDIR}/${P}-fix-open-agent-config.patch" )
-
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TOOLS=$(usex tools)

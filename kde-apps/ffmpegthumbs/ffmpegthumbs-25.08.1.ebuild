@@ -28,5 +28,3 @@ BDEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	virtual/pkgconfig
 "
-
-PATCHES=( "${FILESDIR}/${PN}-25.08.1-ffmpeg8.patch" ) # bug 961442

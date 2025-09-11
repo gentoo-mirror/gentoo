@@ -43,7 +43,6 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/threadweaver-${KFMIN}:6
-	kde-plasma/plasma-activities:6
 	media-libs/freetype
 	sys-libs/zlib
 	crypt? ( >=kde-frameworks/kwallet-${KFMIN}:6 )
@@ -66,6 +65,7 @@ RDEPEND="${DEPEND}
 PATCHES=(
 	"${FILESDIR}/${PN}-20.08.2-hide-mobile-app.patch" # downstream; avoid same-name entry
 	"${FILESDIR}/${PN}-23.08.5-implicit-vasprintf.patch" # bug 922345; pending upstream
+	"${FILESDIR}/${PN}-25.08.1-obsolete-activities.patch" # bug 824546; in git master
 )
 
 src_configure() {
