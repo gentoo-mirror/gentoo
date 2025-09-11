@@ -9,18 +9,19 @@ CRATES="
 	compiler_builtins@0.1.146
 	compiler_builtins@0.1.152
 	compiler_builtins@0.1.158
+	compiler_builtins@0.1.160
 "
 
 # Implied by crates above.
 RUST_MIN_VER=1.86.0
-RUST_MAX_VER=1.88.0
+RUST_MAX_VER=1.89.0
 
 declare -A GIT_CRATES=(
-	[compiletest_rs]='https://github.com/Manishearth/compiletest-rs;cb121796a041255ae0afcd9c2766bee4ebfd54f0;compiletest-rs-%commit%'
+	[compiletest_rs]='https://github.com/Manishearth/compiletest-rs;0c1418d5cd5177ee9d863a5c2f300c0973cfc4f1;compiletest-rs-%commit%'
 )
 
-# bpf-linker code specifically requires LLVM 21 right now
-LLVM_COMPAT=( 21 )
+# LLVM 19 fails on assertions
+LLVM_COMPAT=( {20..21} )
 RUST_REQ_USE="llvm_targets_BPF(+),rust-src"
 
 inherit cargo llvm-r2
@@ -66,13 +67,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	local PATCHES=(
-		# https://github.com/aya-rs/bpf-linker/pull/289
-		"${FILESDIR}/${P}-llvm-21.patch"
-		# https://github.com/aya-rs/bpf-linker/pull/265
-		"${FILESDIR}/${P}-rust-1.88.patch"
-	)
-
 	default
 
 	# replace upstream crate substitution with our crate substitution, sigh
@@ -81,10 +75,13 @@ src_prepare() {
 }
 
 src_configure() {
+	local myfeatures=(
+		"llvm-${LLVM_SLOT}"
+		rustc-build-sysroot
+	)
 	cargo_src_configure --no-default-features
 
-	# note: this needs to be updated to match llvm crate version
-	export LLVM_SYS_201_PREFIX="$(get_llvm_prefix -d)"
+	export "LLVM_SYS_${LLVM_SLOT}1_PREFIX"="$(get_llvm_prefix -d)"
 	# the package requires BPF target that is only available in nightly
 	export RUSTC_BOOTSTRAP=1
 }
