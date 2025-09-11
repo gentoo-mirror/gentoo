@@ -1213,7 +1213,7 @@ app-arch/upx-bin 4.1.0 4.2.4: Ultimate Packer for eXecutables, binary version wi
 app-arch/vimball 0.5.1-r1 9999: A command-line vimball archive extractor
 app-arch/wimlib 1.14.4-r1: The open source Windows Imaging (WIM) library
 app-arch/xar 1.8.0.0.487.100.1-r1 1.8.0.0.498-r1: An easily extensible archive format
-app-arch/xarchiver 0.5.4.25: A GTK+ archive manager that can be used with Thunar
+app-arch/xarchiver 0.5.4.25 0.5.4.26: A GTK+ archive manager that can be used with Thunar
 app-arch/xdms 1.3.2-r2: xDMS - Amiga DMS disk image decompressor
 app-arch/xz-utils 5.6.4-r2 5.8.1-r1 9999: Utils for managing LZMA compressed files
 app-arch/zchunk 1.3.2 1.4.0 1.5.1 9999: File format designed for highly efficient deltas with good compression
@@ -3154,7 +3154,7 @@ app-text/a2ps 4.15.5-r1 4.15.6 4.15.7: Any to PostScript filter
 app-text/aha 0.5.1: Converts ANSI escape sequences of a unix terminal to HTML code
 app-text/aiksaurus 1.2.1-r3: A thesaurus lib, tool, and database
 app-text/an 1.2_p6: Very fast anagram generator with dictionary lookup
-app-text/ansifilter 2.21-r1: Handles text files containing ANSI terminal escape codes
+app-text/ansifilter 2.21-r1 2.22: Handles text files containing ANSI terminal escape codes
 app-text/antiword 0.37-r2: free MS Word reader
 app-text/antixls 0.3b: Print out an XLS file with minimal formatting, or extract the data into CSV
 app-text/apvlv 0.4.0-r3: Alf's PDF/DJVU/EPUB Viewer like Vim
@@ -8247,7 +8247,7 @@ dev-python/cookies 2.2.1-r2: Friendlier RFC 6265-compliant cookie parser/rendere
 dev-python/coverage 7.9.1 7.9.2 7.10.5 7.10.6: Code coverage measurement for Python
 dev-python/cppheaderparser 2.7.4-r1: Parse C++ header files and generate a data structure
 dev-python/cppy 1.3.1: C++ header library which makes it easier to write Python extension modules
-dev-python/cramjam 2.10.0 2.11.0_rc3 2.11.0: Thin Python bindings to de/compression algorithms in Rust
+dev-python/cramjam 2.10.0 2.11.0: Thin Python bindings to de/compression algorithms in Rust
 dev-python/crashtest 0.4.1: Python library that makes exceptions handling and inspection easier
 dev-python/crc32c 2.7.1: CRC32c algorithm in hardware and software
 dev-python/crcmod 1.7-r5: Python CRC Generator module
@@ -8452,7 +8452,7 @@ dev-python/geographiclib 2.0 2.1: Python implementation of the geodesic routines
 dev-python/gfloat 0.3 0.4 0.5.2: Generic floating-point types in Python
 dev-python/gherkin-official 33.1.0 34.0.0: Gherkin parser/compiler for Python
 dev-python/ghp-import 2.1.0-r1: Copy your docs directly to the gh-pages branch
-dev-python/git-review 2.4.0 9999: Tool to submit code to Gerrit
+dev-python/git-review 2.4.0 2.5.0 9999: Tool to submit code to Gerrit
 dev-python/gitdb 4.0.12: GitDB is a pure-Python git object database
 dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gitpython 3.1.45: Library used to interact with Git repositories
@@ -8554,7 +8554,7 @@ dev-python/ipdb 0.13.13: IPython-enabled pdb
 dev-python/ipy 1.01-r1: Class and tools for handling of IPv4 and IPv6 addresses and networks
 dev-python/ipykernel 6.29.5-r1 6.30.0 6.30.1 7.0.0_alpha1 7.0.0_alpha2: IPython Kernel for Jupyter
 dev-python/ipyparallel 9.0.1: Interactive Parallel Computing with IPython
-dev-python/ipython 8.37.0 9.3.0 9.4.0: Advanced interactive shell for Python
+dev-python/ipython 8.37.0 9.3.0 9.4.0 9.5.0: Advanced interactive shell for Python
 dev-python/ipython-genutils 0.2.0-r4: Vestigial utilities from IPython
 dev-python/ipython-pygments-lexers 1.1.1: Pygments lexers for syntax-highlighting IPython code and sessions
 dev-python/ipywidgets 8.1.7: IPython HTML widgets for Jupyter
@@ -8674,7 +8674,7 @@ dev-python/libvirt-python 11.1.0 11.2.0 11.4.0 11.6.0 9999: libvirt Python bindi
 dev-python/license-expression 30.4.4: Parse, compare, simplify and normalize license expressions
 dev-python/line-profiler 4.2.0 5.0.0: Line-by-line profiler
 dev-python/linkify-it-py 2.0.3: Links recognition library with full unicode support
-dev-python/linode-metadata 0.3.0 0.3.1: Python bindings for the Linode Metadata Service
+dev-python/linode-metadata 0.3.1: Python bindings for the Linode Metadata Service
 dev-python/linuxdoc 20240924 99999999: Sphinx-doc extensions for sophisticated C developer
 dev-python/lit 15.0.7 16.0.6 17.0.6 18.1.8 19.1.7 20.1.8 21.1.0 21.1.1 22.0.0_pre20250907 22.0.0_pre20250910 22.0.0.9999: A stand-alone install of the LLVM suite testing tool
 dev-python/littleutils 0.2.4: Small personal collection of Python utility functions
@@ -9013,7 +9013,7 @@ dev-python/pycurl-requests 0.5.0-r1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.8-r3 7.1.10: Set of facilities to extend Python with C++
 dev-python/pydantic 2.11.7 2.12.0_alpha1: Data parsing and validation using Python type hints
 dev-python/pydantic-core 2.33.2 2.37.2 2.38.0 2.39.0: Core validation logic for pydantic written in Rust
-dev-python/pydata-sphinx-theme 0.16.0: Bootstrap-based Sphinx theme from the PyData community
+dev-python/pydata-sphinx-theme 0.16.0 0.16.1: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0-r1: Pythonic DBus library
 dev-python/pydecomp 0.3-r3 9999: A python library of common (de)compression and contents handling
 dev-python/pydes 2.0.1-r2: Python implementation of DES and TRIPLE DES
@@ -9024,7 +9024,7 @@ dev-python/pydyf 0.11.0: A low-level PDF generator
 dev-python/pyeclib 1.6.4 1.7.0: Messaging API for RPC and notifications over different messaging transports
 dev-python/pyelftools 0.32: pure-Python library for analyzing ELF files and DWARF debugging information
 dev-python/pyenchant 3.2.2-r1: Python bindings for the Enchant spellchecking system
-dev-python/pyfakefs 5.9.1 5.9.2 5.9.3: A fake file system that mocks the Python file system modules
+dev-python/pyfakefs 5.9.2 5.9.3: A fake file system that mocks the Python file system modules
 dev-python/pyflakes 3.4.0: Passive checker for Python programs
 dev-python/pyformance 0.4-r2: Performance metrics, based on Coda Hale's Yammer metrics
 dev-python/pyftpdlib 2.0.1: Python FTP server library
@@ -9437,7 +9437,7 @@ dev-python/sip 6.10.0 6.12.0: Python bindings generator for C/C++ libraries
 dev-python/siphash24 1.7 1.8: Streaming-capable SipHash-1-3 and SipHash-2-4 Implementation
 dev-python/six 1.17.0: Python 2 and 3 compatibility library
 dev-python/slixmpp 1.10.0 1.11.0: Python 3 library for XMPP
-dev-python/smartypants 2.0.1-r1: ASCII quote-dot-dash to HTML entity converter
+dev-python/smartypants 2.0.1-r1 2.0.2: ASCII quote-dot-dash to HTML entity converter
 dev-python/smbus2 0.5.0: A drop-in replacement for smbus-cffi/smbus-python in pure Python
 dev-python/smmap 6.0.0: A pure Python implementation of a sliding window memory map manager
 dev-python/snakeoil 0.10.10 0.10.11 9999: misc common functionality and useful optimizations
@@ -9493,7 +9493,7 @@ dev-python/sphinxcontrib-qthelp 2.0.0 2.0.0-r1: Sphinx extension which outputs Q
 dev-python/sphinxcontrib-serializinghtml 2.0.0 2.0.0-r1: Sphinx extension which outputs outputs serialized HTML files
 dev-python/sphinxcontrib-spelling 8.0.1: Sphinx spelling extension
 dev-python/sphinxcontrib-trio 1.1.2-r1: Make Sphinx better at documenting Python functions and methods
-dev-python/sphinxcontrib-websupport 1.2.7 1.2.7-r1: Sphinx websupport extension
+dev-python/sphinxcontrib-websupport 1.2.7 1.2.7-r1 2.0.0: Sphinx websupport extension
 dev-python/sphinxemoji 0.3.1: Extension to use emoji codes in your Sphinx documentation
 dev-python/sphinxygen 1.0.10: Python module/script that generates Sphinx markup to describe a C API
 dev-python/sphobjinv 2.3.1.3: Sphinx objects.inv Inspection/Manipulation Tool
@@ -9702,7 +9702,7 @@ dev-python/xcffib 1.9.0 1.10.0: A drop in replacement for xpyb, an XCB python bi
 dev-python/xdoctest 1.2.0 1.2.0-r1 1.3.0: A rewrite of Python's builtin doctest module but without all the weirdness
 dev-python/xkbcommon 1.5.1: Python bindings for libxkbcommon using cffi
 dev-python/xlrd 2.0.2: Library to extract data from Microsoft Excel spreadsheets
-dev-python/xlsxwriter 3.2.3: Python module for creating Excel XLSX files
+dev-python/xlsxwriter 3.2.3 3.2.5: Python module for creating Excel XLSX files
 dev-python/xlwt 1.3.0-r2: Python library to create spreadsheet files compatible with Excel
 dev-python/xmlschema 4.1.0: An XML Schema validator and decoder
 dev-python/xmlsec 1.3.16: Python bindings for the XML Security Library
@@ -10699,7 +10699,7 @@ dev-util/bingrep 0.11.0-r1: Binary file analysis tool
 dev-util/bloaty 1.1-r1 9999: A size profiler for binaries
 dev-util/blueprint-compiler 0.16.0 0.18.0: Compiler for Blueprint, a markup language for GTK user interfaces
 dev-util/bootconfig 6.6 6.9: Bootconfig tools for kernel command line to support key-value
-dev-util/bpf-linker 0.9.14 0.9.14-r1: Simple BPF static linker
+dev-util/bpf-linker 0.9.14 0.9.14-r1 0.9.15: Simple BPF static linker
 dev-util/bpftool 7.5.0-r1 7.6.0 9999: Tool for inspection and simple manipulation of eBPF programs and maps
 dev-util/bpftop 0.2.3-r1 0.5.1-r1 0.6.0 0.7.0 0.7.1: Dynamic real-time view of running eBPF programs
 dev-util/breakpad 2024.02.16: implement a crash-reporting system.
@@ -15181,7 +15181,7 @@ net-misc/dropbear 2025.87 2025.88-r1: Small SSH 2 client/server designed for sma
 net-misc/dropbox 228.4.5567 229.4.5197 230.4.8797 231.4.5770 232.4.5926: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2024.04.17-r1: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
-net-misc/electrum 4.5.8-r2 4.6.0-r1: User friendly Bitcoin client
+net-misc/electrum 4.5.8-r2 4.6.0-r1 4.6.2: User friendly Bitcoin client
 net-misc/electrum-ltc 4.2.2.1: User friendly Litecoin client
 net-misc/email-validator 1.1.0: Basic syntax and deliverability checks on email addresses
 net-misc/ena-driver 2.13.3 2.14.1 2.15.0: Amazon EC2 Elastic Network Adapter (ENA) kernel driver
@@ -15562,8 +15562,8 @@ net-proxy/havp 0.92a-r3: HTTP AntiVirus Proxy
 net-proxy/lyrebird 0.6.0: An obfuscating proxy supporting Tor's pluggable transport protocol obfs4
 net-proxy/microsocks 1.0.2 1.0.3: Multithreaded, small, efficient SOCKS5 server
 net-proxy/mitmproxy 11.0.2 12.1.1 12.1.2: An interactive, SSL-capable, man-in-the-middle HTTP proxy
-net-proxy/mitmproxy-linux 0.12.6: mitmproxy's Rust bits
-net-proxy/mitmproxy-rs 0.11.1 0.12.6: mitmproxy's Rust bits
+net-proxy/mitmproxy-linux 0.12.6 0.12.7: mitmproxy's Rust bits
+net-proxy/mitmproxy-rs 0.11.1 0.12.6 0.12.7: mitmproxy's Rust bits
 net-proxy/nutcracker 0.4.1-r1 0.5.0: A fast, light-weight proxy for Memcached and Redis. (Twitter's Twemproxy)
 net-proxy/pingtunnel 0.72: Tunnel TCP over ICMP
 net-proxy/piper 1.14-r1: Tool for manipulating SOCKS5 servers
@@ -16497,7 +16497,7 @@ sec-keys/openpgp-keys-akallabeth 20240521: OpenPGP key for Github user akallabet
 sec-keys/openpgp-keys-alejandro-colomar 20231031: OpenPGP keys used by Alejandro Colomar
 sec-keys/openpgp-keys-alexanderneumann 20241028: OpenPGP keys used by Alexander Neumann
 sec-keys/openpgp-keys-alexbarton 20241211: OpenPGP keys used by Alex Barton
-sec-keys/openpgp-keys-andresimon 20240906: OpenPGP keys used by Andre Simon
+sec-keys/openpgp-keys-andresimon 20240906 20250911: OpenPGP keys used by Andre Simon
 sec-keys/openpgp-keys-andrewtridgell 20250329: OpenPGP keys used by Andrew Tridgell
 sec-keys/openpgp-keys-antoniodiazdiaz 20220406: OpenPGP keys used by Antonio Diaz Diaz
 sec-keys/openpgp-keys-apache-ant 20230104: OpenPGP keys used by ant.apache.org
