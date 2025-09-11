@@ -1,7 +1,7 @@
 DEFINED_PHASES=configure install prepare
 DEPEND=!static? ( >=app-arch/libarchive-2.8:= >=app-arch/xz-utils-5 ) static? ( >=app-arch/libarchive-2.8:=[static-libs(+)] >=app-arch/xz-utils-5[static-libs(+)] )
 DESCRIPTION=Parallel Indexed XZ compressor
-EAPI=7
+EAPI=8
 HOMEPAGE=https://github.com/vasi/pixz
 INHERIT=flag-o-matic
 IUSE=static
@@ -11,4 +11,4 @@ RDEPEND=!static? ( >=app-arch/libarchive-2.8:= >=app-arch/xz-utils-5 )
 SLOT=0
 SRC_URI=https://github.com/vasi/pixz/releases/download/v1.0.7/pixz-1.0.7.tar.xz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=4e7e6b65392a71461283b87408470a36
+_md5_=4dd764e520fdb1fcf3f459dcf114bc77
