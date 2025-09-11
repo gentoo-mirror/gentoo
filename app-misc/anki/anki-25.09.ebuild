@@ -7,24 +7,24 @@ DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 declare -A GIT_CRATES=(
 	[linkcheck]='https://github.com/ankitects/linkcheck;184b2ca50ed39ca43da13f0b830a463861adb9ca;linkcheck-%commit%'
 	[percent-encoding-iri]='https://github.com/ankitects/rust-url;bb930b8d089f4d30d7d19c12e54e66191de47b88;rust-url-%commit%/percent_encoding'
 )
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.88.0"
 
 inherit cargo desktop distutils-r1 edo greadme multiprocessing ninja-utils \
-	optfeature toolchain-funcs xdg
+	optfeature toolchain-funcs xdg-utils
 
 DESCRIPTION="Smart spaced repetition flashcard program"
 HOMEPAGE="https://apps.ankiweb.net/"
 
 declare -A COMMITS=(
-	[anki]="65b5aefd0705463cb12e72e254f798f90c96e815"
-	[ftl-core]="b90ef6f03c251eb336029ac7c5f551200d41273f"
-	[ftl-desktop]="9aa63c335c61b30421d39cf43fd8e3975179059c"
+	[anki]="539054c34dccf8b89ca7ea9c9c40ecaf172de759"
+	[ftl-core]="6552c95a81d162422b2a50126547cc7f1b50c2fd"
+	[ftl-desktop]="dad4e2736a2b53dcdb52d79b5703dd464c05d666"
 )
 SRC_URI="${CARGO_CRATE_URIS}
 	https://github.com/ankitects/anki/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz
@@ -32,16 +32,16 @@ SRC_URI="${CARGO_CRATE_URIS}
 	-> anki-core-i18n-${COMMITS[ftl-core]}.gh.tar.gz
 	https://github.com/ankitects/anki-desktop-ftl/archive/${COMMITS[ftl-desktop]}.tar.gz
 	-> anki-desktop-ftl-${COMMITS[ftl-desktop]}.gh.tar.gz
-	https://github.com/gentoo-crate-dist/anki/releases/download/${PV/3/1}/${P/3/1}-crates.tar.xz
+	https://github.com/gentoo-crate-dist/anki/releases/download/${PV}/${P}-crates.tar.xz
 	gui? (
-		https://home.cit.tum.de/~salu/distfiles/${P/3/1}-node_modules.tar.xz
+		https://home.cit.tum.de/~salu/distfiles/${P}-node_modules.tar.xz
 	)
 "
 # How to get an up-to-date summary of runtime JS libs' licenses:
 # ./node_modules/.bin/license-checker-rseidelsohn --production --excludePackages anki --summary
 LICENSE="
 	AGPL-3+ BSD public-domain
-	gui? ( 0BSD BlueOak-1.0.0 CC-BY-3.0 CC-BY-4.0 PSF-2 )
+	gui? ( CC0-1.0 CC-BY-4.0 )
 "
 # Dependent crate licenses
 LICENSE+="
@@ -54,7 +54,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="+gui"
-REQUIRED_USE="gui? ( ${PYTHON_REQUIRED_USE} )"
+REQUIRED_USE="
+	doc? ( gui )
+	gui? ( ${PYTHON_REQUIRED_USE} )
+"
 RESTRICT="!gui? ( test ) !test? ( test )"
 
 # Dependencies:
@@ -96,7 +99,12 @@ RDEPEND="
 	app-misc/ca-certificates
 	gui? ( ${GUI_RDEPEND} )
 "
-
+IDEPEND="
+	gui? (
+		dev-util/desktop-file-utils
+		x11-misc/shared-mime-info
+	)
+"
 BDEPEND="
 	>=app-arch/zstd-1.5.5:=
 	dev-libs/protobuf[protoc(+)]
@@ -107,10 +115,7 @@ BDEPEND="
 		app-alternatives/ninja
 		>=net-libs/nodejs-20.12.1
 		sys-apps/yarn
-		$(python_gen_cond_dep '
-			dev-python/pyqt6[${PYTHON_USEDEP}]
-			dev-python/wheel[${PYTHON_USEDEP}]
-		')
+		$(python_gen_cond_dep 'dev-python/pyqt6[${PYTHON_USEDEP}]')
 	)
 	test? (
 		${RDEPEND}
@@ -290,15 +295,11 @@ src_install() {
 	fi
 }
 
-pkg_preinst() {
-	greadme_pkg_preinst
-	use gui && xdg_pkg_preinst
-}
-
 pkg_postinst() {
 	greadme_pkg_postinst
 	if use gui; then
-		xdg_pkg_postinst
+		xdg_desktop_database_update
+		xdg_mimeinfo_database_update
 		optfeature "LaTeX in cards" "app-text/texlive[extra] app-text/dvipng"
 		optfeature "sound support" media-video/mpv media-video/mplayer
 		optfeature "recording support" "media-sound/lame[frontend] dev-python/pyqt6[multimedia]"
@@ -308,5 +309,12 @@ pkg_postinst() {
 
 		einfo "You can customize the LaTeX header for your cards to fit your needs:"
 		einfo "Notes > Manage Note Types > [select a note type] > Options"
+	fi
+}
+
+pkg_postrm() {
+	if use gui; then
+		xdg_desktop_database_update
+		xdg_mimeinfo_database_update
 	fi
 }

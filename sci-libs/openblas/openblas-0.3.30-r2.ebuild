@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,16 +7,16 @@ inherit flag-o-matic fortran-2 toolchain-funcs
 
 MY_P=OpenBLAS-${PV}
 DESCRIPTION="Optimized BLAS library based on GotoBLAS2"
-HOMEPAGE="https://github.com/xianyi/OpenBLAS"
+HOMEPAGE="https://github.com/OpenMathLib/OpenBLAS"
 SRC_URI="https://github.com/OpenMathLib/OpenBLAS/releases/download/v${PV}/${MY_P}.tar.gz"
 S="${WORKDIR}"/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~riscv ~x86 ~amd64-linux ~x86-linux ~x64-macos"
-IUSE="dynamic eselect-ldso index-64bit openmp pthread relapack test"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86 ~amd64-linux ~x86-linux ~x64-macos"
+IUSE="cpudetection eselect-ldso index-64bit openmp pthread relapack test"
 REQUIRED_USE="?? ( openmp pthread )"
-RESTRICT="!test? ( test )"
+RESTRICT="cpudetection? ( bindist ) !test? ( test )"
 
 RDEPEND="
 	eselect-ldso? (
@@ -27,7 +27,11 @@ RDEPEND="
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.3.23-shared-blas-lapack.patch"
+	"${FILESDIR}/${PN}-0.3.29-shared-blas-lapack.patch"
+	# 960514 replace by upstream fix in next release. Which reverts to worse cmake-config files.
+	# https://github.com/OpenMathLib/OpenBLAS/issues/5387
+	# https://github.com/OpenMathLib/OpenBLAS/pull/5391
+	"${FILESDIR}/${P}-cmake_libdir.patch"
 )
 
 pkg_pretend() {
@@ -97,10 +101,7 @@ src_configure() {
 	export MAKE_NB_JOBS=-1 COMMON_OPT=" " FCOMMON_OPT=" "
 
 	# Target CPU ARCH options generally detected automatically from cross toolchain
-	#
-	# TODO: Rename USE=dynamic -> USE=cpudetection like dev-libs/gmp, media-video/ffmpeg?
-	# (may want to then restrict bindist w/ USE=-cpudetection.)
-	if use dynamic ; then
+	if use cpudetection ; then
 		export DYNAMIC_ARCH=1 NO_AFFINITY=1 TARGET=GENERIC
 	fi
 
@@ -109,8 +110,22 @@ src_configure() {
 	# Allow setting OPENBLAS_TARGET to override auto detection in case the
 	# toolchain is not enough to detect.
 	# https://github.com/xianyi/OpenBLAS/blob/develop/TargetList.txt
-	if ! use dynamic && [[ ! -z "${OPENBLAS_TARGET}" ]] ; then
-		export TARGET="${OPENBLAS_TARGET}"
+	if ! use cpudetection ; then
+		if [[ -n "${OPENBLAS_TARGET}" ]] ; then
+			export TARGET="${OPENBLAS_TARGET}"
+		elif [[ ${CBUILD} != ${CHOST} ]] ; then
+			case ${CHOST} in
+				aarch64-*)
+					export TARGET="ARMV8"
+					export BINARY="64"
+				;;
+				powerpc64le-*)
+					export TARGET="POWER8"
+					export BUILD_BFLOAT16=1
+					export BINARY=64
+				;;
+			esac
+		fi
 	fi
 
 	export NO_STATIC=1
@@ -136,8 +151,8 @@ src_test() {
 
 src_install() {
 	emake install DESTDIR="${D}" \
-			  OPENBLAS_INCLUDE_DIR='$(PREFIX)'/include/${PN} \
-			  OPENBLAS_LIBRARY_DIR='$(PREFIX)'/$(get_libdir)
+		OPENBLAS_INCLUDE_DIR='$(PREFIX)'/include/${PN} \
+		OPENBLAS_LIBRARY_DIR='$(PREFIX)'/$(get_libdir)
 
 	dodoc GotoBLAS_*.txt *.md Changelog.txt
 

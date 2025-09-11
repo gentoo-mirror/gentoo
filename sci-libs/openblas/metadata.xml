@@ -21,6 +21,9 @@
     bug fixes beyond GotoBLAS.
   </longdescription>
   <use>
+    <flag name="cpudetection">
+      Build dynamic architecture detection at run time (for multi targets)
+    </flag>
     <flag name="dynamic">
       Build dynamic architecture detection at run time (for multi targets)
     </flag>
@@ -38,6 +41,6 @@
     </flag>
   </use>
   <upstream>
-    <remote-id type="github">xianyi/OpenBLAS</remote-id>
+    <remote-id type="github">OpenMathLib/OpenBLAS</remote-id>
   </upstream>
 </pkgmetadata>
