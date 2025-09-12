@@ -10,7 +10,7 @@ declare -A GIT_CRATES=(
 	[rust-faces]='https://github.com/blissd/fotema-rust-faces;43c0d5acd6f3f4d90c6487708f2e511a73bf7c9e;fotema-rust-faces-%commit%'
 )
 
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.87.0"
 
 inherit cargo gnome2-utils meson xdg-utils
 
@@ -64,7 +64,7 @@ DEPEND+="
 "
 RDEPEND="
 	${DEPEND}
-	<media-libs/glycin-loaders-2
+	media-libs/glycin-loaders:1
 "
 BDEPEND="
 	dev-libs/glib:2

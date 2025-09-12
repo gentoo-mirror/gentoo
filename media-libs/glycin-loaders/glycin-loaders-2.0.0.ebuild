@@ -34,12 +34,14 @@ LICENSE+="
 	LGPL-3+ MIT Unicode-3.0
 	|| ( LGPL-2.1+ MPL-2.0 )
 "
-SLOT="0"
+SLOT="2"
+KEYWORDS="~amd64 ~arm64"
 IUSE="heif jpeg2k jpegxl svg test"
 REQUIRED_USE="test? ( heif jpegxl )"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	!>=media-libs/glycin-loaders-2:0
 	>=dev-libs/glib-2.68.0:2
 	>=sys-libs/libseccomp-2.5.0
 	heif? ( >=media-libs/libheif-1.17.0:= )

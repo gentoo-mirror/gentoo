@@ -36,12 +36,12 @@ LICENSE+="
 	GPL-3+ ISC MIT MPL-2.0 MPL-2.0 Unicode-3.0 ZLIB
 "
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="amd64 arm64"
 
 DEPEND="
 	>=dev-libs/glib-2.82
 	>=gui-libs/gtk-4.16:4
-	>=gui-libs/libadwaita-1.7:1
+	>=gui-libs/libadwaita-1.6:1
 
 	>=media-libs/gstreamer-1.20:1.0
 	>=media-libs/gst-plugins-bad-1.20:1.0
@@ -49,7 +49,7 @@ DEPEND="
 
 	>=gui-libs/gtksourceview-5.0.0:5
 	>=media-libs/libwebp-1.0.0:=
-	>=dev-libs/openssl-3.0.0:=
+	>=dev-libs/openssl-1.0.1:=
 	>=media-libs/libshumate-1.2:1.0
 	>=dev-db/sqlite-3.24.0:3
 	>=sys-apps/xdg-desktop-portal-1.14.1
@@ -60,7 +60,7 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	media-libs/glycin-loaders
+	media-libs/glycin-loaders:1
 	media-plugins/gst-plugin-gtk4
 	virtual/secret-service
 "
@@ -76,16 +76,15 @@ QA_FLAGS_IGNORED="usr/bin/fractal"
 src_prepare() {
 	default
 
-	# upstream overrides are just wrong
-	sed -i -e 's:profile:ignore:' Cargo.toml || die
-
-	# force dev build
-	if use debug; then
-		sed -i -e "s:profile == 'Devel':true:" src/meson.build || die
-	fi
+	# upstream dev settings are insane
+	sed -i -e 's:profile\.dev:ignored.insanity:' Cargo.toml || die
 }
 
 src_configure() {
+	local mymesonargs=(
+		#-Ddisable-glycin-sandbox=true
+	)
+
 	meson_src_configure
 	ln -s "${CARGO_HOME}" "${BUILD_DIR}/cargo-home" || die
 }
