@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils[extra-filters(+)] app-eselect/eselect-blas app-eselect/eselect-lapack
+BDEPEND=app-arch/xz-utils[extra-filters(+)] eselect-ldso? ( app-eselect/eselect-blas app-eselect/eselect-lapack )
 DEFINED_PHASES=install postinst postrm unpack
 DESCRIPTION=Intel Math Kernel Library
 EAPI=8
@@ -12,4 +12,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://apt.repos.intel.com/oneapi/pool/main/intel-oneapi-mkl-core-2025.2-2025.2.0-628_amd64.deb https://apt.repos.intel.com/oneapi/pool/main/intel-oneapi-mkl-core-devel-2025.2-2025.2.0-628_amd64.deb https://apt.repos.intel.com/oneapi/pool/main/intel-oneapi-mkl-classic-include-2025.2-2025.2.0-628_amd64.deb
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627
-_md5_=47d3137332baebabaf491fa864b28d59
+_md5_=f26c281df4b90132437b425ba26b5ab6
