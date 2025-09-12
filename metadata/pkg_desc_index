@@ -5302,7 +5302,7 @@ dev-libs/c-stdaux 1.6.0: Auxiliary macros and functions for the C standard libra
 dev-libs/cJSON 1.7.18: Ultralightweight JSON parser in ANSI C
 dev-libs/capnproto 0.9.1 0.10.2 0.10.4-r1 1.0.2 1.1.0: RPC/Serialization system with capabilities support
 dev-libs/capstone 5.0.6 6.0.0_alpha5 9999: disassembly/disassembler framework + bindings
-dev-libs/castxml 0.6.11: C-family abstract syntax tree XML output tool
+dev-libs/castxml 0.6.11 0.6.13: C-family abstract syntax tree XML output tool
 dev-libs/cdk 5.0.20230201 5.0.20230201-r2 5.0.20240331-r1 5.0.20240619-r2 5.0.20250116-r1: A library of curses widgets
 dev-libs/cereal 1.3.2-r2: Header-only C++11 serialization library
 dev-libs/cgilib 0.7-r2: Simple and lightweight interface to the CGI for C and C++ programs
@@ -9392,7 +9392,7 @@ dev-python/scikit-build 0.17.6 0.18.0 0.18.1: Improved build system generator fo
 dev-python/scikit-build-core 0.11.5 0.11.6: Build backend for CMake based projects
 dev-python/scikit-image 0.25.2: Image processing routines for SciPy
 dev-python/scikit-learn 1.7.1 1.7.2: Machine learning library for Python
-dev-python/scipy 1.15.3 1.16.0 1.16.1: Scientific algorithms library for Python
+dev-python/scipy 1.15.3 1.16.0 1.16.1 1.16.2: Scientific algorithms library for Python
 dev-python/scripttest 2.0_p1: Helper to test command-line scripts
 dev-python/scrypt 0.8.27 0.8.29 0.9.4: Bindings for the scrypt key derivation function library
 dev-python/seaborn 0.13.2: Statistical data visualization
@@ -10932,7 +10932,7 @@ dev-util/nvidia-cuda-toolkit 11.8.0-r4 12.3.2 12.4.1 12.5.1 12.6.3-r1 12.8.1-r1 
 dev-util/objconv 2.51: object code file converted (COFF, ELF, OMF, MACHO)
 dev-util/omake 0.10.3-r1 0.10.7: Make replacement
 dev-util/open-vcdiff 0.8.4-r2: An encoder/decoder for the VCDIFF (RFC3284) format
-dev-util/opencl-headers 2024.10.24: Unified C language headers for the OpenCL API
+dev-util/opencl-headers 2024.10.24 2025.07.22: Unified C language headers for the OpenCL API
 dev-util/oprofile 1.4.0-r1: A transparent low-overhead system-wide profiler
 dev-util/ostree 2024.3-r2 2024.8-r1 2025.2: Operating system and container binary deployment and upgrades
 dev-util/packer 1.14.1: A tool to create identical machine images for multiple platforms
@@ -12969,7 +12969,7 @@ media-gfx/flam3 3.1.1-r1: Tools and a library for creating flame fractal images
 media-gfx/flameshot 12.1.0-r3 13.1.0: Powerful yet simple to use screenshot software
 media-gfx/fondu 20060102-r1: Utilities for converting between and manipulating mac fonts and unix fonts
 media-gfx/fontforge 20230101 20230101-r2: postscript font editor and converter
-media-gfx/fotema 2.0.2: Photo gallery for Linux
+media-gfx/fotema 2.0.2-r1 2.1.0: Photo gallery for Linux
 media-gfx/fotocx 25.0 25.1 25.2 25.3: Program for improving image files made with a digital camera
 media-gfx/fotowall 1.0_p20241107: Qt tool for creating wallpapers
 media-gfx/freecad 1.0.0-r6 1.0.1 9999: Qt based Computer Aided Design application
@@ -13035,7 +13035,7 @@ media-gfx/libimagequant 2.18.0 4.3.4: Palette quantization library that powers p
 media-gfx/librecad 2.2.2_alpha1_pre20250509 9999: Generic 2D CAD program
 media-gfx/libredwg 0.13 0.13.2 0.13.3: C library to handle DWG files
 media-gfx/llgal 0.13.19-r2: Command-line static web gallery generator
-media-gfx/loupe 48.1-r1: View images
+media-gfx/loupe 48.1-r2: View images
 media-gfx/luminance-hdr 2.6.1.1-r2: Graphical user interface that provides a workflow for HDR imaging
 media-gfx/lximage-qt 2.0.1 2.1.0 2.1.1 2.2.0: Qt Image Viewer
 media-gfx/maim 5.8.0 5.8.1: Commandline tool to take screenshots of the desktop
@@ -13219,7 +13219,7 @@ media-libs/glfw 3.3.8 3.3.9 3.4: Portable OpenGL FrameWork
 media-libs/glm 1.0.1: OpenGL Mathematics
 media-libs/glpng 1.47: OpenGL PNG image library
 media-libs/glu 9.0.3 9999: The OpenGL Utility Library
-media-libs/glycin-loaders 1.2.3 1.2.4 2.0_rc 2.0.0: Loaders for glycin clients (glycin crate or libglycin)
+media-libs/glycin-loaders 1.2.3 1.2.4 2.0.0: Loaders for glycin clients (glycin crate or libglycin)
 media-libs/glyr 1.0.10-r1: Music related metadata searchengine, both with commandline interface and C API
 media-libs/gmmlib 22.8.1 9999: Intel Graphics Memory Management Library
 media-libs/graphene 1.10.8-r1: A thin layer of types for graphic libraries
@@ -14778,7 +14778,7 @@ net-im/discord 0.0.109: All-in-one voice and text chat for gamers
 net-im/ejabberd 24.02-r1 24.07 24.10 25.04: Robust, scalable and extensible XMPP server
 net-im/element-desktop-bin 1.11.110: A glossy Matrix collaboration client for desktop (binary package)
 net-im/err 6.1.9: Multiprotocol chatbot designed to be easily deployable and maintainable
-net-im/fractal 10.1 11.2 12 12.1: Matrix messaging app for GNOME written in Rust
+net-im/fractal 10.1-r1 12.1-r1: Matrix messaging app for GNOME written in Rust
 net-im/gajim 2.2.0 2.3.3 2.3.4: GTK XMPP Client
 net-im/gitter-bin 5.0.1-r1 5.0.1-r2: Chat and network platform
 net-im/kaidan 0.12.2: Modern XMPP chat app for every device
