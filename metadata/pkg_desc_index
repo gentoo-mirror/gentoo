@@ -2405,13 +2405,13 @@ app-emulation/virt-viewer 11.0-r1: Graphical console client for connecting to vi
 app-emulation/virt-what 1.25: Detects if the current machine is running in a virtual machine
 app-emulation/virtio-win 0.1.240.1 0.1.266.1 0.1.271.1: VirtIO drivers for Windows virtual machines running on KVM
 app-emulation/virtiofsd 1.13.1 1.13.2 9999: Shared file system for virtual machines
-app-emulation/virtualbox 7.0.26-r1 7.1.10 7.1.12 7.2.0-r1 7.2.2 9999: Family of powerful x86 virtualization products for enterprise and home use
-app-emulation/virtualbox-additions 7.0.26 7.1.10 7.1.12 7.2.0 7.2.2: CD image containing guest additions for VirtualBox
-app-emulation/virtualbox-extpack-oracle 7.0.26 7.1.10 7.1.12 7.2.0 7.2.2: PUEL extensions for VirtualBox
-app-emulation/virtualbox-guest-additions 7.0.26 7.1.10 7.1.12 7.2.0 7.2.2: VirtualBox kernel modules and user-space tools for Gentoo guests
-app-emulation/virtualbox-guest-modules 7.0.26 7.0.26-r1 7.1.10 7.1.12 7.2.0 7.2.2: Kernel Modules for Virtualbox Guest Additions
+app-emulation/virtualbox 7.0.26-r1 7.1.12 7.2.2 9999: Family of powerful x86 virtualization products for enterprise and home use
+app-emulation/virtualbox-additions 7.0.26 7.1.12 7.2.2: CD image containing guest additions for VirtualBox
+app-emulation/virtualbox-extpack-oracle 7.0.26 7.1.12 7.2.2: PUEL extensions for VirtualBox
+app-emulation/virtualbox-guest-additions 7.0.26 7.1.12 7.2.2: VirtualBox kernel modules and user-space tools for Gentoo guests
+app-emulation/virtualbox-guest-modules 7.0.26 7.0.26-r1 7.1.12 7.2.2: Kernel Modules for Virtualbox Guest Additions
 app-emulation/virtualbox-kvm 7.1.10_pre20250207 7.2.2_pre20250903: Family of powerful x86 virtualization products for enterprise and home use
-app-emulation/virtualbox-modules 7.0.26 7.0.26-r1 7.1.10 7.1.12 7.2.0 7.2.2: Kernel Modules for Virtualbox
+app-emulation/virtualbox-modules 7.0.26 7.0.26-r1 7.1.12 7.2.2: Kernel Modules for Virtualbox
 app-emulation/vkd3d-proton 2.6-r1 2.12 2.13 2.14.1 9999: Fork of VKD3D, development branches for Proton's Direct3D 12 implementation
 app-emulation/wine-desktop-common 20150204-r2: Various desktop menu items and icons for wine
 app-emulation/wine-gecko 2.47.3 2.47.4: Mozilla Gecko based version of Internet Explorer for Wine
@@ -5649,7 +5649,7 @@ dev-libs/libxml2-compat 2.13.9: XML C parser and toolkit
 dev-libs/libxmlb 0.3.21: Library to help create and query binary XML blobs
 dev-libs/libxslt 1.1.43-r1 9999: XSLT libraries and tools
 dev-libs/libyaml 0.2.2 0.2.5: YAML 1.1 parser and emitter written in C
-dev-libs/libzia 4.67: Platform abstraction code for tucnak package
+dev-libs/libzia 4.67 4.69: Platform abstraction code for tucnak package
 dev-libs/libzip 1.11.4-r2: Library for manipulating zip archives
 dev-libs/light 1.2.2-r2: A program to control backlights (and other hardware lights)
 dev-libs/link-grammar 5.12.5: A Syntactic English parser
@@ -13848,7 +13848,7 @@ media-radio/cwdaemon 0.13.0: A morse daemon for the parallel or serial port
 media-radio/direwolf 1.7-r1: Decoded Information from Radio Emissions for Windows Or Linux Fans
 media-radio/dxcc 20191204: A ham radio callsign DXCC lookup utility
 media-radio/flamp 2.2.07 2.2.14: Fldigi helper for transferring files
-media-radio/fldigi 4.2.07: Sound card based multimode software modem for Amateur Radio use
+media-radio/fldigi 4.2.07 4.2.09: Sound card based multimode software modem for Amateur Radio use
 media-radio/flmsg 4.0.23 4.0.24: Fldigi helper for creating radiograms
 media-radio/flrig 2.0.05-r1 2.0.06 2.0.07 2.0.08: Transceiver control program for Amateur Radio use
 media-radio/fsync-mdc1200-decode 1.0-r1 9999: Linux Fleetsync / MDC1200 decoder
@@ -13862,7 +13862,7 @@ media-radio/qsstv 9.5.8-r1: Amateur radio SSTV software
 media-radio/svxlink 24.02-r3 25.05-r1 25.05.1: Multi Purpose Voice Services System, including Qtel for EchoLink
 media-radio/tlf 1.4.1-r5: Console-mode amateur radio contest logger
 media-radio/tqsl 2.7.3: ARRL Logbook of the World
-media-radio/tucnak 4.67-r1: Amateur Radio VHF Contest Logbook
+media-radio/tucnak 4.67-r1 4.69: Amateur Radio VHF Contest Logbook
 media-radio/unixcw 3.6.1-r2: Collection of programs that fit together to form a morse code tutor program
 media-radio/wsjtx 2.7.0: Weak signal ham radio communication
 media-radio/wsjtx_improved 2.8.0-r1: Weak signal ham radio communication with improvements
@@ -14797,7 +14797,7 @@ net-im/rocketchat-desktop-bin 3.9.10-r1 4.1.1-r1: The Ultimate Open Source Web C
 net-im/sendxmpp 1.24: A perl-script to send xmpp (jabber), similar to what mail(1) does for mail
 net-im/sendxmpp-scala 1.1.1-r1 1.2.0 9999: Send XMPP (Jabber) messages via command line
 net-im/signal-cli-bin 0.13.2-r1 0.13.9: Send and receive messages of Signal Messenger over a command line interface
-net-im/signal-desktop-bin 7.69.0: Allows you to send and receive messages of Signal Messenger on your computer
+net-im/signal-desktop-bin 7.70.0: Allows you to send and receive messages of Signal Messenger on your computer
 net-im/slack 4.45.64 4.45.69: Team collaboration tool
 net-im/spectrum2 2.2.1: An open source instant messaging transport
 net-im/swift 4.0.3-r3: An elegant, secure, adaptable and intuitive XMPP Client
