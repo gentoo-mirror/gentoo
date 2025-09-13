@@ -64,7 +64,6 @@ BDEPEND="
 	wayland? ( dev-util/wayland-scanner )
 	x86? ( dev-lang/yasm )
 "
-# <media-plugins/live-2024.11.28: https://github.com/gentoo/gentoo/pull/40610#issuecomment-2664870395
 RDEPEND="
 	media-libs/libvorbis
 	net-dns/libidn:=
@@ -149,7 +148,7 @@ RDEPEND="
 	libtiger? ( media-libs/libtiger )
 	linsys? ( media-libs/zvbi )
 	lirc? ( app-misc/lirc )
-	live? ( <media-plugins/live-2024.11.28:= )
+	live? ( media-plugins/live:= )
 	lua? ( ${LUA_DEPS} )
 	mad? ( media-libs/libmad )
 	matroska? (
@@ -235,6 +234,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.6-fdk-aac-2.0.0.patch # bug 672290
 	"${FILESDIR}"/${PN}-3.0.11.1-configure_lua_version.patch
 	"${FILESDIR}"/${PN}-3.0.18-drop-minizip-dep.patch
+	"${FILESDIR}"/${PN}-3.0.22-live555-fix-w-20241128.patch # git master
 )
 
 DOCS=( AUTHORS THANKS NEWS README doc/fortunes.txt )
