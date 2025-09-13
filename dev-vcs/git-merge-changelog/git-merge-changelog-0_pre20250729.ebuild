@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # snapshot extracted from git://git.savannah.gnu.org/gnulib.git using
@@ -8,16 +8,13 @@
 EAPI=8
 
 DESCRIPTION="Git merge driver for GNU style ChangeLog files"
-HOMEPAGE="https://www.gnu.org/software/gnulib/"
-SRC_URI="https://dev.gentoo.org/~ulm/distfiles/${P}.tar.xz"
+HOMEPAGE="https://www.gnu.org/software/vc-changelog/"
+SRC_URI="https://dev.gentoo.org/~ulm/distfiles/${PN}-${PV#*pre}.tar.xz"
 S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
-# Suppress false positive QA warnings #923767
-QA_CONFIG_IMPL_DECL_SKIP=( MIN static_assert unreachable )
 
 src_install() {
 	emake DESTDIR="${D}" install
