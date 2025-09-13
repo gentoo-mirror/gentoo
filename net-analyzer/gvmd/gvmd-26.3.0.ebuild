@@ -11,7 +11,7 @@ SRC_URI="https://github.com/greenbone/gvmd/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="AGPL-3+"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
@@ -23,7 +23,7 @@ DEPEND="
 	>=dev-libs/cJSON-1.7.14
 	>=dev-libs/glib-2.42:2
 	>=dev-libs/libical-1.0.0:=
-	>=net-analyzer/gvm-libs-22.19
+	>=net-analyzer/gvm-libs-22.28
 	>=net-libs/gnutls-3.2.15:=[tools]
 "
 
@@ -51,20 +51,24 @@ BDEPEND="
 "
 
 PATCHES=(
-	# Closes #962394
-	"${FILESDIR}/${P}-fix-c23-build.patch"
+	# Remove tests that don't work in the network sandbox
+	"${FILESDIR}/${P}-remove-unworking-tests.patch"
 )
 
 src_prepare() {
 	cmake_src_prepare
 	# QA-Fix | Use correct FHS/Gentoo policy paths for 9.0.0
-	sed -i -e "s*share/doc/gvm/html/*share/doc/${PF}/html/*g" doc/CMakeLists.txt || die
+	sed -i -e "s*share/doc/gvm/html/*share/doc/${PF}/html/*g" docs/CMakeLists.txt || die
 	sed -i -e "s*/doc/gvm/*/doc/${PF}/*g" CMakeLists.txt || die
+	# Fix errors in Doxigen OUTPUT_DIRECTORY paths
+	sed -i -e "s*@/doc/generated*@/docs/generated*g" docs/Doxyfile.in || die
+	sed -i -e "s*@/doc/generated*@/docs/generated*g" docs/Doxyfile_full.in || die
+	sed -i -e "s*@/doc/generated*@/docs/generated*g" docs/Doxyfile_xml.in || die
 	# QA-Fix | Remove !CLANG Doxygen warnings for 9.0.0
 	if use doc; then
 		if ! tc-is-clang; then
 		   local f
-		   for f in doc/*.in
+		   for f in docs/*.in
 		   do
 			sed -i \
 				-e "s*CLANG_ASSISTED_PARSING = NO*#CLANG_ASSISTED_PARSING = NO*g" \
@@ -101,7 +105,7 @@ src_compile() {
 
 src_install() {
 	if use doc; then
-		local HTML_DOCS=( "${BUILD_DIR}"/doc/generated/html/. )
+		local HTML_DOCS=( "${BUILD_DIR}"/docs/generated/html/. )
 	fi
 	cmake_src_install
 
@@ -125,10 +129,12 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "If you are upgrading from a previous version, you need to update the database version."
-	elog "Please, create the running directory and give write permission to the database user"
-	elog "then run gvmd as the gvm user with --migrate option:"
-	elog "~# mkdir /run/gvmd"
-	elog "~# setfacl -m u:gvm:rwx /run/gvmd/"
-	elog "~# sudo -u gvm gvmd --migrate"
+	if [[ ${REPLACING_VERSIONS} ]]; then
+		elog "If you are upgrading from a previous version, you need to update the database version."
+		elog "Please, create the running directory and give write permission to the database user"
+		elog "then run gvmd as the gvm user with --migrate option:"
+		elog "~# mkdir /run/gvmd"
+		elog "~# setfacl -m u:gvm:rwx /run/gvmd/"
+		elog "~# sudo -u gvm gvmd --migrate"
+	fi
 }
