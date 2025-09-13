@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/narwhals-dev/narwhals
 PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 pypi
