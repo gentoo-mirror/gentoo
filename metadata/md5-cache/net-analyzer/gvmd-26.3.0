@@ -1,16 +1,16 @@
 BDEPEND=app-alternatives/yacc app-alternatives/lex virtual/pkgconfig doc? ( app-text/doxygen[dot] app-text/xmltoman app-text/htmldoc dev-libs/libxslt ) test? ( dev-libs/cgreen ) app-alternatives/ninja >=dev-build/cmake-3.20.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
-DEPEND=acct-user/gvm app-crypt/gpgme:1= dev-libs/libbsd >=dev-db/postgresql-9.6:=[uuid] >=dev-libs/cJSON-1.7.14 >=dev-libs/glib-2.42:2 >=dev-libs/libical-1.0.0:= >=net-analyzer/gvm-libs-22.19 >=net-libs/gnutls-3.2.15:=[tools]
+DEPEND=acct-user/gvm app-crypt/gpgme:1= dev-libs/libbsd >=dev-db/postgresql-9.6:=[uuid] >=dev-libs/cJSON-1.7.14 >=dev-libs/glib-2.42:2 >=dev-libs/libical-1.0.0:= >=net-analyzer/gvm-libs-22.28 >=net-libs/gnutls-3.2.15:=[tools]
 DESCRIPTION=Greenbone vulnerability manager, previously named openvas-manager
 EAPI=8
 HOMEPAGE=https://www.greenbone.net https://github.com/greenbone/gvmd/
 INHERIT=cmake systemd toolchain-funcs
 IUSE=doc test
-KEYWORDS=amd64
+KEYWORDS=~amd64
 LICENSE=AGPL-3+
-RDEPEND=acct-user/gvm app-crypt/gpgme:1= dev-libs/libbsd >=dev-db/postgresql-9.6:=[uuid] >=dev-libs/cJSON-1.7.14 >=dev-libs/glib-2.42:2 >=dev-libs/libical-1.0.0:= >=net-analyzer/gvm-libs-22.19 >=net-libs/gnutls-3.2.15:=[tools] app-text/xmlstarlet dev-perl/XML-Twig dev-texlive/texlive-latexextra >=net-analyzer/ospd-openvas-22.4 >=dev-db/pg-gvm-22.4
+RDEPEND=acct-user/gvm app-crypt/gpgme:1= dev-libs/libbsd >=dev-db/postgresql-9.6:=[uuid] >=dev-libs/cJSON-1.7.14 >=dev-libs/glib-2.42:2 >=dev-libs/libical-1.0.0:= >=net-analyzer/gvm-libs-22.28 >=net-libs/gnutls-3.2.15:=[tools] app-text/xmlstarlet dev-perl/XML-Twig dev-texlive/texlive-latexextra >=net-analyzer/ospd-openvas-22.4 >=dev-db/pg-gvm-22.4
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/greenbone/gvmd/archive/v25.2.1.tar.gz -> gvmd-25.2.1.tar.gz
+SRC_URI=https://github.com/greenbone/gvmd/archive/v26.3.0.tar.gz -> gvmd-26.3.0.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=a3b3b8030214602a8455155f0a7d4501
+_md5_=01566d7f113ef2221fc2d1ab3320c036
