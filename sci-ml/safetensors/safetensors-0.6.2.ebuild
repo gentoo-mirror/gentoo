@@ -6,47 +6,31 @@ EAPI=8
 DISTUTILS_EXT=1
 
 CRATES="
-	autocfg@1.3.0
-	bitflags@1.3.2
-	cfg-if@1.0.0
+	autocfg@1.5.0
 	heck@0.5.0
-	indoc@2.0.5
-	itoa@1.0.11
-	libc@0.2.155
-	lock_api@0.4.11
-	memchr@2.7.4
-	memmap2@0.9.4
+	indoc@2.0.6
+	itoa@1.0.15
+	libc@0.2.174
+	memchr@2.7.5
+	memmap2@0.9.5
 	memoffset@0.9.1
-	once_cell@1.19.0
-	parking_lot@0.12.1
-	parking_lot_core@0.9.9
-	portable-atomic@1.7.0
-	proc-macro2@1.0.86
-	pyo3-build-config@0.22.2
-	pyo3-ffi@0.22.2
-	pyo3-macros-backend@0.22.2
-	pyo3-macros@0.22.2
-	pyo3@0.22.2
-	quote@1.0.36
-	redox_syscall@0.4.1
-	ryu@1.0.18
-	scopeguard@1.2.0
-	serde@1.0.204
-	serde_derive@1.0.204
-	serde_json@1.0.122
-	smallvec@1.13.2
-	syn@2.0.72
-	target-lexicon@0.12.16
-	unicode-ident@1.0.12
-	unindent@0.2.3
-	windows-targets@0.48.5
-	windows_aarch64_gnullvm@0.48.5
-	windows_aarch64_msvc@0.48.5
-	windows_i686_gnu@0.48.5
-	windows_i686_msvc@0.48.5
-	windows_x86_64_gnu@0.48.5
-	windows_x86_64_gnullvm@0.48.5
-	windows_x86_64_msvc@0.48.5
+	once_cell@1.21.3
+	portable-atomic@1.11.1
+	proc-macro2@1.0.95
+	pyo3-build-config@0.25.1
+	pyo3-ffi@0.25.1
+	pyo3-macros-backend@0.25.1
+	pyo3-macros@0.25.1
+	pyo3@0.25.1
+	quote@1.0.40
+	ryu@1.0.20
+	serde@1.0.219
+	serde_derive@1.0.219
+	serde_json@1.0.140
+	syn@2.0.104
+	target-lexicon@0.13.2
+	unicode-ident@1.0.18
+	unindent@0.2.4
 "
 
 DISTUTILS_USE_PEP517=maturin
@@ -68,7 +52,7 @@ S="${WORKDIR}"/${P}/bindings/python
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64 ~arm64"
 
 QA_FLAGS_IGNORED="usr/lib/.*"
 RESTRICT="test" #depends on single pkg ( pytorch )
