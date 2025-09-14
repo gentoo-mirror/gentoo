@@ -6,21 +6,11 @@ EAPI=8
 inherit go-env go-module
 
 DESCRIPTION="Pager designed to do the right thing without any configuration"
-HOMEPAGE="https://github.com/walles/moar"
-SRC_URI="https://github.com/walles/moar/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-deps.tar.xz"
+HOMEPAGE="https://github.com/walles/moor"
+SRC_URI="https://github.com/walles/moor/archive/refs/tags/v${PV}.tar.gz -> moar-${PV}.tar.gz"
+SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/moar/moar-${PV}-deps.tar.xz"
 
 LICENSE="BSD-2 BSD MIT"
-# Dependent licenses
-LICENSE+="  Apache-2.0 BSD BSD-2 MIT"
-# Dependent licenses
-LICENSE+="  Apache-2.0 BSD BSD-2 MIT"
-# Dependent licenses
-LICENSE+="  Apache-2.0 BSD BSD-2 MIT"
-# Dependent licenses
-LICENSE+="  Apache-2.0 BSD BSD-2 MIT"
-# Dependent licenses
-LICENSE+="  Apache-2.0 BSD BSD-2 MIT"
 # Dependent licenses
 LICENSE+="  Apache-2.0 BSD BSD-2 MIT"
 SLOT="0"
