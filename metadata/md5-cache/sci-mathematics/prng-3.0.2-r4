@@ -1,7 +1,7 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
 DESCRIPTION=Pseudo-Random Number Generator library
-EAPI=7
+EAPI=8
 HOMEPAGE=http://statmath.wu.ac.at/prng/
 INHERIT=autotools
 IUSE=doc examples static-libs
@@ -10,4 +10,4 @@ LICENSE=GPL-2
 SLOT=0
 SRC_URI=http://statmath.wu.ac.at/prng/prng-3.0.2.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=6286dfe3bc3411d12923f612674d37d1
+_md5_=4550a20c6a138c997cf947ec6300ea2b
