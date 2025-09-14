@@ -5,12 +5,12 @@ EAPI=8
 
 DESCRIPTION="Unicode data from unicode.org"
 HOMEPAGE="https://unicode.org/ucd/"
-SRC_URI="https://unicode.org/Public/zipped/${PV}/UCD.zip -> ${P}-UCD.zip
-	https://unicode.org/Public/zipped/${PV}/Unihan.zip -> ${P}-Unihan.zip"
+SRC_URI="https://unicode.org/Public/${PV}/ucd/UCD.zip -> ${P}-UCD.zip
+	https://unicode.org/Public/${PV}/ucd/Unihan.zip -> ${P}-Unihan.zip"
 
 LICENSE="unicode"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 DEPEND="app-arch/unzip"
 S="${WORKDIR}"
