@@ -5,12 +5,9 @@ EAPI=8
 
 LLVM_COMPAT=( {16..20} )
 
-CRATES="
-"
+RUST_MIN_VER="1.82.0"
 
-RUST_MIN_VER="1.74.1"
-
-inherit llvm-r2 linux-info cargo rust-toolchain toolchain-funcs meson
+inherit eapi9-ver llvm-r2 linux-info cargo rust-toolchain toolchain-funcs meson
 
 DESCRIPTION="sched_ext schedulers and tools"
 HOMEPAGE="https://github.com/sched-ext/scx"
@@ -35,14 +32,16 @@ IUSE="systemd"
 
 DEPEND="
 	virtual/libelf:=
+	sys-libs/libseccomp
 	sys-libs/zlib:=
-	>=dev-libs/libbpf-1.5:=
+	>=dev-libs/libbpf-1.6:=
 "
 RDEPEND="
 	${DEPEND}
 "
 BDEPEND="
 	app-misc/jq
+	dev-libs/protobuf[protoc(+)]
 	>=dev-util/bpftool-7.5.0
 	$(llvm_gen_dep '
 		llvm-core/clang:${LLVM_SLOT}=[llvm_targets_BPF(-)]
@@ -59,7 +58,11 @@ CONFIG_CHECK="
 	~SCHED_CLASS_EXT
 "
 
-QA_PREBUILT="/usr/bin/scx_loader"
+QA_PREBUILT="
+	/usr/bin/scx_loader
+	/usr/bin/vmlinux_docify
+	/usr/bin/scxctl
+"
 
 pkg_setup() {
 	linux-info_pkg_setup
@@ -75,10 +78,6 @@ src_prepare() {
 		sed -i "s;\${MESON_BUILD_ROOT};\${MESON_BUILD_ROOT}/$(rust_abi);" \
 			meson-scripts/install_rust_user_scheds || die
 	fi
-
-	# bug #944832
-	sed -i 's;^#!/usr/bin/;#!/sbin/;' \
-		services/openrc/scx.initrd || die
 }
 
 src_configure() {
@@ -92,7 +91,6 @@ src_configure() {
 		-Dcargo_home="${ECARGO_HOME}"
 		-Doffline=true
 		-Denable_rust=true
-		-Dlibalpm=disabled
 		-Dopenrc=disabled
 		$(meson_feature systemd)
 	)
@@ -126,4 +124,31 @@ src_install() {
 	insinto /etc/default
 	doins services/scx
 	dosym ../default/scx /etc/conf.d/scx
+
+	newinitd "${FILESDIR}/scx_loader.initd" scx_loader
+	insinto /etc/scx_loader/
+	newins services/scx_loader.toml config.toml
+}
+
+pkg_postinst() {
+	if ver_replacing -lt 1.0.16; then
+		ewarn "Starting in 1.0.16, the scx service is being replaced with scx_loader."
+		ewarn "To transition to the new service, first edit"
+		ewarn "${EPREFIX}/etc/scx_loader/config.toml with your preferred"
+		ewarn "configuration, then disable the legacy scx service and enable the new"
+		ewarn "scx_loader service:"
+		ewarn
+		ewarn "For openrc users:"
+		ewarn "  rc-service scx stop"
+		ewarn "  rc-update del scx default"
+		ewarn "  rc-service scx_loader start"
+		ewarn "  rc-update add scx_loader default"
+		ewarn
+		ewarn "For systemd users:"
+		ewarn "  systemctl disable --now scx"
+		ewarn "  systemctl enable --now scx_loader"
+		ewarn
+		ewarn "For more info, see:"
+		ewarn "https://wiki.cachyos.org/configuration/sched-ext/#transitioning-from-scxservice-to-scx_loader-a-comprehensive-guide"
+	fi
 }
