@@ -3,50 +3,37 @@
 
 EAPI=8
 
-AT_M4DIR="config"
-inherit autotools toolchain-funcs
-
-DESCRIPTION="Provides Remote-Console and System Management Software as per IPMI v1.5/2.0"
-HOMEPAGE="https://www.gnu.org/software/freeipmi/"
+inherit toolchain-funcs
 
 MY_P="${P/_/.}"
-[[ ${MY_P} == *.beta* ]] && ALPHA="-alpha"
-SRC_URI="mirror://gnu${ALPHA}/${PN}/${MY_P}.tar.gz"
+DESCRIPTION="Provides Remote-Console and System Management Software as per IPMI v1.5/2.0"
+HOMEPAGE="https://www.gnu.org/software/freeipmi/"
+SRC_URI="mirror://gnu/${PN}/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~hppa ~ppc64 x86"
-IUSE="debug nagios without-root"
+KEYWORDS="~amd64 ~arm64 ~hppa ~ppc64 ~x86"
+IUSE="debug doc nagios without-root"
 
-RDEPEND="dev-libs/libgcrypt:0="
-DEPEND="${RDEPEND}
-	virtual/os-headers"
-RDEPEND="${RDEPEND}
+RDEPEND="dev-libs/libgcrypt:="
+DEPEND="
+	${RDEPEND}
+	virtual/os-headers
+"
+RDEPEND="
+	${RDEPEND}
 	nagios? (
-		|| ( net-analyzer/icinga net-analyzer/nagios )
 		dev-lang/perl
+		net-analyzer/nagios
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.6.10-0001-configure.ac-Fix-Wimplicit-function-declaration-for-.patch
-	"${FILESDIR}"/${PN}-1.6.10-0002-configure.ac-Fix-detecting-sighandler_t-on-glibc.patch
-	"${FILESDIR}"/${PN}-1.6.10-0003-configure.ac-Use-AC_USE_SYSTEM_EXTENSIONS-instead-of.patch
-	"${FILESDIR}"/${P}-header-fixes.patch
-)
-
-src_prepare() {
-	default
-
-	# Needed for configure.ac patches, drop if/when merged
-	eautoreconf
-}
 
 src_configure() {
 	local myeconfargs=(
 		$(use_enable debug)
-		$(usex without-root --with-dont-check-for-root "")
+		$(use_enable doc)
+		$(usev without-root --with-dont-check-for-root)
 		--disable-static
 		--disable-init-scripts
 		--localstatedir="${EPREFIX}"/var
