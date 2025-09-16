@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit bash-completion-r1 cmake pam tmpfiles
+inherit bash-completion-r1 cmake dot-a pam tmpfiles
 
 MY_P=${PN}_${PV/_p/-}
 
@@ -11,10 +11,11 @@ DESCRIPTION="Utility to execute commands in a chroot environment"
 HOMEPAGE="https://codeberg.org/shelter/reschroot"
 SRC_URI="https://codeberg.org/shelter/reschroot/archive/release/re${P/%_p*}.tar.gz -> ${P/%_p*}.tar.gz
 	mirror://debian/pool/main/${PN::1}/${PN}/${MY_P}.debian.tar.xz"
+S="${WORKDIR}/re${PN}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="btrfs +dchroot debug doc lvm nls pam test zfs"
 RESTRICT="!test? ( test )"
 
@@ -40,21 +41,24 @@ DEPEND="${COMMON_DEPEND}
 	)
 	test? ( >=dev-util/cppunit-1.10.0 )
 "
+#sys-apps/debianutils
 RDEPEND="${COMMON_DEPEND}
-	sys-apps/debianutils
 	dchroot? ( !sys-apps/dchroot )
 	nls? ( virtual/libintl )
 "
 
-S="${WORKDIR}/re${PN}"
-
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.6.13_p2-build-fixes.patch
+	"${FILESDIR}"/${PN}-1.6.13_p7-build-fixes.patch
 
 	# https://codeberg.org/shelter/reschroot/pulls/6
 	"${FILESDIR}"/${PN}-1.6.13-resize-reserve.patch
 
 	"${FILESDIR}"/${PN}-1.6.13_p2-boost-1.85.0.patch
+
+	"${FILESDIR}"/${PN}-1.6.13_p7-cmake4.patch # bug #953913
+
+	# https://codeberg.org/shelter/reschroot/issues/33
+	"${FILESDIR}"/${PN}-1.6.13_p7-boost-1.89.0.patch
 )
 
 src_unpack() {
@@ -70,6 +74,8 @@ src_prepare() {
 }
 
 src_configure() {
+	lto-guarantee-fat
+
 	local mycmakeargs=(
 		-Dbtrfs-snapshot=$(usex btrfs)
 		-Ddchroot=$(usex dchroot)
@@ -85,6 +91,8 @@ src_configure() {
 		-DCMAKE_INSTALL_SYSCONFDIR="${EPREFIX}/etc"
 		-DCMAKE_INSTALL_LOCALSTATEDIR="${EPREFIX}/var"
 		-DSCHROOT_MOUNT_DIR="${EPREFIX}/run/${PN}/mount"
+
+		-DCMAKE_POLICY_DEFAULT_CMP0167="OLD" # FindBoost
 		-DBoost_NO_BOOST_CMAKE=ON # https://bugs.gentoo.org/791712 and https://bugs.gentoo.org/752120
 	)
 	if ! use nls; then
@@ -110,6 +118,8 @@ src_test() {
 src_install() {
 	cmake_src_install
 
+	strip-lto-bytecode
+
 	# debian-stype PS1 for chroot
 	# checks for /etc/debian_chroot file, which is created by schroot
 	insinto /etc/bash/bashrc.d
@@ -128,6 +138,7 @@ src_install() {
 		doexe "${FILESDIR}/06zfscloneopts"
 	fi
 
+	keepdir /etc/schroot/chroot.d # bug 961345
 	keepdir /var/lib/schroot/{session,unpack,union/{overlay,underlay}}
 
 	docinto contrib/setup.d
