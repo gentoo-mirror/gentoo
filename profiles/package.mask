@@ -246,69 +246,6 @@ app-emulation/gallium-nine-standalone
 # Version yanked due to "unintended change in behavior".
 =dev-python/click-8.2.2
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-19)
-# x11-libs/gtkglext is finally without revdeps, tracker bug #698950
-# Removal on 2025-09-16
-x11-libs/gtkglext
-
-# Mario Haustein <mario.haustein@hrz.tu-chemnitz.de> (2025-08-18)
-# Deprecated by upstream, depends on Qt5. Use app-crypt/yubikey-manager
-# instead. Removal on 2025-09-16. Bug #955646
-sys-auth/yubikey-personalization-gui
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-18)
-# Unmaintained in Gentoo for a long time, resulting in a very outdated
-# package. Many bugs, selecting just #803635, #884609, #890762, #958160
-# Needs a dedicated maintainer. Removal on 2025-09-16.
-dev-db/percona-server
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-18)
-# Effectively unmaintained in Gentoo with many unattended bugs, still
-# EAPI-7 based, broken with non-ancient dev-games/ogre, broken with non-
-# ancient sci-libs/pcl. Bugs #729576, #796806, #834469.
-# Removal on 2025-09-16.
-sci-libs/ViSP
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-17)
-# Dead upstream, based on Qt5, hardware obsolete. Removal on 2025-09-16.
-# Bugs #954122, #955638, #957411, #957589, #957590
-app-crypt/nitrokey-app
-app-crypt/libnitrokey
-dev-libs/cppcodec
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-17)
-# Dead upstream for > 10 years. Only a snapshot could save this from
-# cleanup in 2018 for Qt5, but not this time (for Qt6). Bug #958435.
-# Removal on 2025-09-16.
-media-sound/qtagger
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-17)
-# Unmaintained upstream with no prospect to port from Qt5 to Qt6.
-# Alternatives exist. Bug #961635. Removal on 2025-09-16.
-media-sound/coquillo
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-17)
-# 1.2.3 is almost 10 years old, upstream repository archived, Qt5- and
-# EAPI-7 based. Bugs #832577, #830262, #846416 and finally #961631.
-# Removal on 2025-09-16.
-dev-util/qstlink2
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-17)
-# Hopelessly outdated and unmaintained package in Gentoo, upstream still
-# Qt5- and EAPI-7 based, no revdeps. Bugs #729746, #729746
-# Removal on 2025-09-16.
-dev-util/sasm
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-17)
-# Last release over 5 years ago, Qt5-based, no upstream reaction to Qt6
-# porting PR for more than 1.5 years. Bug #955208. Removal on 2025-09-16.
-sci-electronics/NanoVNA-QT
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-17)
-# Archived and unmaintained upstream, Qt5-based, build broken for >1 year.
-# Bugs #932756, #952103. Removal on 2025-09-16.
-app-crypt/yubikey-manager-qt
-
 # Hans de Graaff <graaff@gentoo.org> (2025-08-08)
 # ruby-openid fails tests and is archived upstream. Last release 6 years
 # ago. rack-openid is the only reverse dependency.
