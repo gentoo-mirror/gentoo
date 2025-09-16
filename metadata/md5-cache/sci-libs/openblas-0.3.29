@@ -5,7 +5,7 @@ DESCRIPTION=Optimized BLAS library based on GotoBLAS2
 EAPI=8
 HOMEPAGE=https://github.com/xianyi/OpenBLAS
 INHERIT=flag-o-matic fortran-2 toolchain-funcs
-IUSE=dynamic eselect-ldso index-64bit openmp pthread relapack test
+IUSE=dynamic eselect-ldso index64 openmp pthread relapack test
 KEYWORDS=amd64 ~arm ~arm64 ~loong ~riscv ~x86 ~amd64-linux ~x86-linux ~x64-macos
 LICENSE=BSD
 RDEPEND=eselect-ldso? ( >=app-eselect/eselect-blas-0.2 >=app-eselect/eselect-lapack-0.2 ) virtual/fortran
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/OpenMathLib/OpenBLAS/releases/download/v0.3.29/OpenBLAS-0.3.29.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	fortran-2	54fcb693257134adae26819685891ecc
-_md5_=51ba6ac6e1ea27fd6fae223dab8ca359
+_md5_=57c5e08a0f21d937564aab1d00e8e9da
