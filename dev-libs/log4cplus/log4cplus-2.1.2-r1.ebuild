@@ -3,23 +3,27 @@
 
 EAPI=8
 
+PATCHSET="${P}-qt6.tar.xz"
 inherit cmake
 
 DESCRIPTION="C++ port of the Log for Java (log4j) logging library"
 HOMEPAGE="https://log4cplus.sourceforge.io/ https://github.com/log4cplus/log4cplus"
-SRC_URI="https://downloads.sourceforge.net/project/${PN}/${PN}-stable/${PV}/${P}.tar.xz"
+SRC_URI="https://downloads.sourceforge.net/project/${PN}/${PN}-stable/${PV}/${P}.tar.xz
+	https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}"
 
 LICENSE="|| ( Apache-2.0 BSD-2 )"
-SLOT="0/3"
-KEYWORDS="amd64 arm arm64 ~ppc64 ~riscv ~x86"
-IUSE="explicit-initialization iconv qt5 server test threads"
+SLOT="0/9"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+IUSE="explicit-initialization iconv qt6 server test threads"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	iconv? ( virtual/libiconv )
-	qt5? ( dev-qt/qtcore:5 )
+	qt6? ( dev-qt/qtbase:6 )
 "
 DEPEND="${RDEPEND}"
+
+PATCHES=( "${WORKDIR}"/${PATCHSET/.tar.xz/} )
 
 src_configure() {
 	local mycmakeargs=(
@@ -29,7 +33,8 @@ src_configure() {
 		-DLOG4CPLUS_ENABLE_THREAD_POOL=$(usex threads)
 		-DLOG4CPLUS_REQUIRE_EXPLICIT_INITIALIZATION=$(usex explicit-initialization)
 		-DWITH_ICONV=$(usex iconv)
-		-DLOG4CPLUS_QT5=$(usex qt5)
+		-DLOG4CPLUS_QT5=OFF
+		-DLOG4CPLUS_QT6=$(usex qt6)
 	)
 
 	cmake_src_configure
