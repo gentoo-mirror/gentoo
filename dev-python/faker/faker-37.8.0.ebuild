@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/tzdata[${PYTHON_USEDEP}]
@@ -32,11 +32,11 @@ BDEPEND="
 "
 
 # note: tests are flaky with xdist
+EPYTEST_PLUGIN_LOAD_VIA_ENV=1
+EPYTEST_PLUGINS=( "${PN}" )
 distutils_enable_tests pytest
 
 python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	local -x PYTEST_PLUGINS=faker.contrib.pytest.plugin
 	epytest
 	epytest --exclusive-faker-session tests/pytest/session_overrides
 }
