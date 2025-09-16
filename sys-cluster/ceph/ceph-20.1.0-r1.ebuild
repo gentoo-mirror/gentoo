@@ -21,13 +21,13 @@ SRC_URI="
 
 LICENSE="Apache-2.0 LGPL-2.1 CC-BY-SA-3.0 GPL-2 GPL-2+ LGPL-2+ LGPL-2.1 LGPL-3 GPL-3 BSD Boost-1.0 MIT public-domain"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc64"
 
 CPU_FLAGS_X86=(avx2 avx512f pclmul sse{,2,3,4_1,4_2} ssse3)
 
 IUSE="
 	babeltrace +cephfs custom-cflags diskprediction dpdk fuse grafana
-	jemalloc jaeger kafka kerberos ldap lttng +mgr +parquet pmdk rabbitmq
+	jemalloc jaeger kafka kerberos ldap lttng +mgr nvmeof +parquet pmdk rabbitmq
 	+radosgw rbd-rwl rbd-ssd rdma rgw-lua selinux +ssl spdk +sqlite +system-boost
 	systemd +tcmalloc test +uring xfs zbd
 "
@@ -90,6 +90,7 @@ DEPEND="
 	kerberos? ( virtual/krb5 )
 	ldap? ( net-nds/openldap:= )
 	lttng? ( dev-util/lttng-ust:= )
+	nvmeof? ( net-libs/grpc:= )
 	parquet? (
 		>=app-arch/lz4-1.10
 		dev-cpp/xsimd
@@ -190,6 +191,7 @@ REQUIRED_USE="
 	mgr? ( cephfs )
 	rabbitmq? ( radosgw )
 	rgw-lua? ( radosgw )
+	nvmeof? ( spdk )
 "
 
 RESTRICT="
@@ -226,6 +228,7 @@ PATCHES=(
 	"${FILESDIR}/ceph-18.2.4-liburing.patch"
 	"${FILESDIR}/ceph-18.2.4-spdk.patch"
 	"${FILESDIR}/ceph-19.2.1-isa-l.patch"
+	"${FILESDIR}/ceph-20.1.0-nvmeof.patch"
 )
 
 check-reqs_export_vars() {
@@ -353,6 +356,7 @@ ceph_src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_fmt=ON
 		-Wno-dev
 		-DCEPHADM_BUNDLED_DEPENDENCIES=none
+		-DWITH_NVMEOF_GATEWAY_MONITOR_CLIENT:BOOL=$(usex nvmeof)
 	)
 
 	# this breaks when re-configuring for python impl
