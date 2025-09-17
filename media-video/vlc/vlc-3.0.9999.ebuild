@@ -8,19 +8,25 @@ LUA_COMPAT=( lua5-{1..2} )
 MY_PV="${PV/_/-}"
 MY_PV="${MY_PV/-beta/-test}"
 MY_P="${PN}-${MY_PV}"
-if [[ ${PV} = *9999 ]] ; then
+if [[ ${PV} == *9999* ]] ; then
 	if [[ ${PV%.9999} != ${PV} ]] ; then
-		EGIT_BRANCH="3.0.x"
+		EGIT_BRANCH="${PV%.9999}.x"
 	fi
 	EGIT_REPO_URI="https://code.videolan.org/videolan/vlc.git"
 	inherit git-r3
 else
-	if [[ ${MY_P} = ${P} ]] ; then
-		SRC_URI="https://download.videolan.org/pub/videolan/${PN}/${PV}/${P}.tar.xz"
+	COMMIT=
+	if [[ -n ${COMMIT} ]] ; then
+		SRC_URI="https://code.videolan.org/videolan/vlc/-/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
+		S="${WORKDIR}/${PN}-${COMMIT}"
 	else
-		SRC_URI="https://download.videolan.org/pub/videolan/testing/${MY_P}/${MY_P}.tar.xz"
+		if [[ ${MY_P} == ${P} ]] ; then
+			SRC_URI="https://download.videolan.org/pub/videolan/${PN}/${PV}/${P}.tar.xz"
+		else
+			SRC_URI="https://download.videolan.org/pub/videolan/testing/${MY_P}/${MY_P}.tar.xz"
+		fi
+		S="${WORKDIR}/${MY_P}"
 	fi
-	S="${WORKDIR}/${MY_P}"
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv -sparc ~x86"
 fi
 inherit autotools flag-o-matic lua-single toolchain-funcs virtualx xdg
@@ -227,6 +233,8 @@ DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )
 "
 
+DOCS=( AUTHORS THANKS NEWS README doc/fortunes.txt )
+
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.22-gettext-version.patch # bug 766549
 	"${FILESDIR}"/${PN}-3.0.22-no-vlc-cache-gen.patch # bugs 564842, 608256
@@ -234,10 +242,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-3.0.6-fdk-aac-2.0.0.patch # bug 672290
 	"${FILESDIR}"/${PN}-3.0.11.1-configure_lua_version.patch
 	"${FILESDIR}"/${PN}-3.0.18-drop-minizip-dep.patch
-	"${FILESDIR}"/${PN}-3.0.22-live555-fix-w-20241128.patch # git master
 )
-
-DOCS=( AUTHORS THANKS NEWS README doc/fortunes.txt )
 
 pkg_setup() {
 	if use lua; then
