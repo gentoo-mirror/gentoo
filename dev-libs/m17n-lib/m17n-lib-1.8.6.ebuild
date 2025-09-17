@@ -11,7 +11,7 @@ SRC_URI="mirror://nongnu/m17n/${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="X anthy athena bidi fontconfig gd libotf libxml2 spell xft"
 
 RDEPEND=">=dev-db/m17n-db-${PV}
@@ -35,7 +35,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-configure.patch
+	"${FILESDIR}"/${PN}-configure.patch
 	"${FILESDIR}"/${PN}-freetype.patch
 	"${FILESDIR}"/${PN}-ispell.patch
 )
