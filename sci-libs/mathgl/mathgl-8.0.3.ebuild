@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-WX_GTK_VER="3.2-gtk3"
 
+WX_GTK_VER="3.2-gtk3"
 inherit cmake wxwidgets xdg
 
 DESCRIPTION="Math Graphics Library"
@@ -14,7 +14,7 @@ LICENSE="LGPL-3+"
 SLOT="0/7.5.0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc fltk gif glut gsl hdf hdf5 jpeg mpi octave opengl openmp pdf
-	png qt5 static-libs threads wxwidgets zlib"
+	png qt6 threads wxwidgets zlib"
 
 LANGS="ru"
 for l in ${LANGS}; do
@@ -22,63 +22,52 @@ for l in ${LANGS}; do
 done
 unset l
 
-RDEPEND="
-	virtual/opengl
-	fltk? ( x11-libs/fltk:1= )
-	gif? ( media-libs/giflib )
-	glut? ( media-libs/freeglut )
-	gsl? ( >=sci-libs/gsl-2:= )
-	hdf? ( sci-libs/hdf )
-	hdf5? ( >=sci-libs/hdf5-1.8:=[mpi=] )
-	jpeg? ( media-libs/libjpeg-turbo:= )
-	octave? ( >=sci-mathematics/octave-3.4.0 )
-	openmp? ( sys-cluster/openmpi )
-	pdf? ( media-libs/libharu )
-	png? ( media-libs/libpng:0 )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtprintsupport:5
-		dev-qt/qtwidgets:5
-	)
-	wxwidgets? ( x11-libs/wxGTK:${WX_GTK_VER}=[X] )
-	zlib? ( sys-libs/zlib )"
-DEPEND="${RDEPEND}"
-BDEPEND="doc? ( app-text/texi2html virtual/texi2dvi )
-	octave? ( dev-lang/swig )"
-
 REQUIRED_USE="
 	mpi? ( hdf5 )
 	openmp? ( !threads )
 	png? ( zlib )
 	pdf? ( png )"
 
-pkg_setup() {
-	use mpi && export CC=mpicc CXX=mpicxx
-}
+RDEPEND="
+	virtual/opengl
+	fltk? ( x11-libs/fltk:1= )
+	gif? ( media-libs/giflib:= )
+	glut? ( media-libs/freeglut )
+	gsl? ( >=sci-libs/gsl-2:= )
+	hdf? ( sci-libs/hdf )
+	hdf5? ( >=sci-libs/hdf5-1.8:=[mpi=] )
+	jpeg? ( media-libs/libjpeg-turbo:= )
+	octave? ( >=sci-mathematics/octave-3.4.0:= )
+	openmp? ( sys-cluster/openmpi )
+	pdf? ( media-libs/libharu:= )
+	png? ( media-libs/libpng:= )
+	qt6? (
+		dev-qt/qt5compat:6
+		dev-qt/qtbase:6[gui,opengl,widgets]
+	)
+	wxwidgets? ( x11-libs/wxGTK:${WX_GTK_VER}=[X] )
+	zlib? ( sys-libs/zlib )"
+DEPEND="${RDEPEND}"
+BDEPEND="
+	doc? (
+		app-text/texi2html
+		virtual/texi2dvi
+	)
+	octave? ( dev-lang/swig )"
 
 PATCHES=(
-	# From Fedora
-	"${FILESDIR}"/${PN}-libharu2.4.patch
+	"${FILESDIR}"/${P}-libharu2.4.patch # from Fedora, rebased for 8.0.3
+	"${FILESDIR}"/${P}-sandbox-violation.patch # bug 808713
 )
 
-src_prepare() {
-	# Prevent sandbox violation
-	sed -i -e 's/update-mime-database/true/' udav/CMakeLists.txt || die
-	sed -i -e 's/update-desktop-database/true/' udav/CMakeLists.txt || die
-	cmake_src_prepare
+pkg_setup() {
+	use mpi && export CC=mpicc CXX=mpicxx
 }
 
 src_configure() {
 	use wxwidgets && setup-wxwidgets unicode
 
-	local mycmakeargs=()
-	if use hdf; then
-		mycmakeargs+=(
-			-DHDF4_INCLUDE_DIR="${EPREFIX}/usr/include"
-		)
-	fi
-	mycmakeargs+=(
+	local mycmakeargs=(
 		# No clue about this option:
 		# option(enable-mgl2 "Use names 'libmgl2-*' instead of 'libmgl-*'")
 		-DMathGL_INSTALL_LIB_DIR="${EPREFIX}/usr/$(get_libdir)"
@@ -97,24 +86,26 @@ src_configure() {
 		-Denable-pdf=$(usex pdf)
 		-Denable-png=$(usex png)
 		-Denable-qt4=OFF
-		-Denable-qt5=$(usex qt5)
-		-Denable-qt5asqt=$(usex qt5)
+		-Denable-qt5=OFF
+		-Denable-qt6=$(usex qt6)
+		-Denable-qt6asqt=$(usex qt6)
+		-Denable-json-sample=OFF # claims WebEngine, but just does not build w/o WebKit
 		-Denable-pthread=$(usex threads)
 		-Denable-pthr-widget=$(usex threads)
 		-Denable-python=OFF
 		-Denable-wx=$(usex wxwidgets)
 		-Denable-zlib=$(usex zlib)
 	)
+	use hdf && mycmakeargs+=( -DHDF4_INCLUDE_DIR="${EPREFIX}/usr/include" )
+
 	cmake_src_configure
 }
 
 src_install() {
 	cmake_src_install
 	dodoc README* *.txt AUTHORS
-	if ! use static-libs; then
-		rm "${ED}"/usr/$(get_libdir)/*.a || die
-	fi
-	if use qt5 ; then
+	rm "${ED}"/usr/$(get_libdir)/*.a || die
+	if use qt6 ; then
 		local lang
 		insinto /usr/share/udav
 		for lang in ${LANGS} ; do
