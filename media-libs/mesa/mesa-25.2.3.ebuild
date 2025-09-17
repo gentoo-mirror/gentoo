@@ -55,8 +55,8 @@ SLOT="0"
 
 RADEON_CARDS="r300 r600 radeon radeonsi"
 VIDEO_CARDS="${RADEON_CARDS}
-	asahi d3d12 freedreno imagination intel lavapipe lima nouveau nvk panfrost
-	v3d vc4 virgl vivante vmware zink"
+	asahi d3d12 freedreno intel lavapipe lima nouveau nvk panfrost v3d vc4 virgl
+	vivante vmware zink"
 for card in ${VIDEO_CARDS}; do
 	IUSE_VIDEO_CARDS+=" video_cards_${card}"
 done
@@ -64,7 +64,7 @@ done
 IUSE="${IUSE_VIDEO_CARDS}
 	cpu_flags_x86_sse2 debug +llvm
 	lm-sensors opencl +opengl +proprietary-codecs
-	sysprof test unwind vaapi valgrind vulkan
+	sysprof test unwind vaapi valgrind vdpau vulkan
 	wayland +X +zstd"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
@@ -74,6 +74,7 @@ REQUIRED_USE="
 	video_cards_r300?   ( x86? ( llvm ) amd64? ( llvm ) )
 	video_cards_zink? ( vulkan opengl )
 	video_cards_nvk? ( vulkan video_cards_nouveau )
+	vdpau? ( X )
 "
 
 LIBDRM_DEPSTRING=">=x11-libs/libdrm-2.4.121"
@@ -108,6 +109,7 @@ RDEPEND="
 	vaapi? (
 		>=media-libs/libva-1.7.3:=[${MULTILIB_USEDEP}]
 	)
+	vdpau? ( >=x11-libs/libvdpau-1.5:=[${MULTILIB_USEDEP}] )
 	video_cards_radeonsi? ( virtual/libelf:0=[${MULTILIB_USEDEP}] )
 	video_cards_zink? ( media-libs/vulkan-loader:=[${MULTILIB_USEDEP}] )
 	vulkan? ( virtual/libudev:= )
@@ -206,7 +208,6 @@ pkg_pretend() {
 		if ! use video_cards_asahi &&
 		   ! use video_cards_d3d12 &&
 		   ! use video_cards_freedreno &&
-		   ! use video_cards_imagination &&
 		   ! use video_cards_intel &&
 		   ! use video_cards_lavapipe &&
 		   ! use video_cards_nouveau &&
@@ -215,7 +216,7 @@ pkg_pretend() {
 		   ! use video_cards_radeonsi &&
 		   ! use video_cards_v3d &&
 		   ! use video_cards_virgl; then
-			ewarn "Ignoring USE=vulkan     since VIDEO_CARDS does not contain asahi, d3d12, freedreno, imagination, intel, lavapipe, nouveau, nvk, panfrost, radeonsi, v3d, or virgl"
+			ewarn "Ignoring USE=vulkan     since VIDEO_CARDS does not contain asahi, d3d12, freedreno, intel, lavapipe, nouveau, nvk, panfrost, radeonsi, v3d, or virgl"
 		fi
 	fi
 
@@ -227,6 +228,16 @@ pkg_pretend() {
 		   ! use video_cards_radeonsi &&
 		   ! use video_cards_virgl; then
 			ewarn "Ignoring USE=vaapi      since VIDEO_CARDS does not contain d3d12, nouveau, r600, radeonsi, or virgl"
+		fi
+	fi
+
+	if use vdpau; then
+		if ! use video_cards_d3d12 &&
+		   ! use video_cards_nouveau &&
+		   ! use video_cards_r600 &&
+		   ! use video_cards_radeonsi &&
+		   ! use video_cards_virgl; then
+			ewarn "Ignoring USE=vdpau      since VIDEO_CARDS does not contain d3d12, nouveau, r600, radeonsi, or virgl"
 		fi
 	fi
 
@@ -302,6 +313,16 @@ multilib_src_configure() {
 		emesonargs+=($(meson_feature vaapi gallium-d3d12-video))
 	fi
 
+	if use video_cards_d3d12 ||
+	   use video_cards_nouveau ||
+	   use video_cards_r600 ||
+	   use video_cards_radeonsi ||
+	   use video_cards_virgl; then
+		emesonargs+=($(meson_feature vdpau gallium-vdpau))
+	else
+		emesonargs+=(-Dgallium-vdpau=disabled)
+	fi
+
 	gallium_enable !llvm softpipe
 	gallium_enable llvm llvmpipe
 	gallium_enable video_cards_asahi asahi
@@ -339,7 +360,6 @@ multilib_src_configure() {
 		vulkan_enable video_cards_asahi asahi
 		vulkan_enable video_cards_d3d12 microsoft-experimental
 		vulkan_enable video_cards_freedreno freedreno
-		vulkan_enable video_cards_imagination imagination-experimental
 		vulkan_enable video_cards_intel intel intel_hasvk
 		vulkan_enable video_cards_lavapipe swrast
 		vulkan_enable video_cards_panfrost panfrost
@@ -357,7 +377,7 @@ multilib_src_configure() {
 			fi
 		fi
 
-		emesonargs+=(-Dvulkan-layers=anti-lag,device-select,overlay)
+		emesonargs+=(-Dvulkan-layers=device-select,overlay)
 	fi
 
 	driver_list() {
@@ -391,6 +411,7 @@ multilib_src_configure() {
 
 	emesonargs+=(
 		$(meson_use test build-tests)
+		-Dlegacy-x11=dri2
 		-Dexpat=enabled
 		$(meson_use opengl)
 		$(meson_feature opengl gbm)
