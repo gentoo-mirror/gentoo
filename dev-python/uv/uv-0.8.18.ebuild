@@ -5,17 +5,16 @@ EAPI=8
 
 CRATES="
 "
+RUST_MIN_VER="1.88.0"
 
 declare -A GIT_CRATES=(
-	[async_zip]='https://github.com/astral-sh/rs-async-zip;c909fda63fcafe4af496a07bfda28a5aae97e58d;rs-async-zip-%commit%'
+	[async_zip]='https://github.com/astral-sh/rs-async-zip;285e48742b74ab109887d62e1ae79e7c15fd4878;rs-async-zip-%commit%'
 	[pubgrub]='https://github.com/astral-sh/pubgrub;06ec5a5f59ffaeb6cf5079c6cb184467da06c9db;pubgrub-%commit%'
-	[reqwest-middleware]='https://github.com/astral-sh/reqwest-middleware;ad8b9d332d1773fde8b4cd008486de5973e0a3f8;reqwest-middleware-%commit%/reqwest-middleware'
-	[reqwest-retry]='https://github.com/astral-sh/reqwest-middleware;ad8b9d332d1773fde8b4cd008486de5973e0a3f8;reqwest-middleware-%commit%/reqwest-retry'
+	[reqwest-middleware]='https://github.com/astral-sh/reqwest-middleware;7650ed76215a962a96d94a79be71c27bffde7ab2;reqwest-middleware-%commit%/reqwest-middleware'
+	[reqwest-retry]='https://github.com/astral-sh/reqwest-middleware;7650ed76215a962a96d94a79be71c27bffde7ab2;reqwest-middleware-%commit%/reqwest-retry'
 	[tl]='https://github.com/astral-sh/tl;6e25b2ee2513d75385101a8ff9f591ef51f314ec;tl-%commit%'
 	[version-ranges]='https://github.com/astral-sh/pubgrub;06ec5a5f59ffaeb6cf5079c6cb184467da06c9db;pubgrub-%commit%/version-ranges'
 )
-
-RUST_MIN_VER="1.85.0"
 
 inherit cargo check-reqs
 
@@ -42,14 +41,14 @@ LICENSE="|| ( Apache-2.0 MIT )"
 # crates/pep508-rs is || ( Apache-2.0 BSD-2 ) which is covered below
 # Dependent crate licenses
 LICENSE+="
-	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD Boost-1.0
+	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD
 	CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016
 	ZLIB
 "
 # ring crate
 LICENSE+=" openssl"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="test"
 RESTRICT="test"
 PROPERTIES="test_network"
