@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils app-alternatives/lex app-alternatives/yacc app-editors/vim-core dev-libs/cereal test? ( || ( >=dev-lang/rust-bin-1.85.1:* >=dev-lang/rust-1.85.1:* ) dev-lang/go dev-util/pahole ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=app-arch/xz-utils app-alternatives/lex app-alternatives/yacc app-editors/vim-core dev-libs/cereal dev-util/bpftool test? ( || ( >=dev-lang/rust-bin-1.85.1:* >=dev-lang/rust-1.85.1:* ) dev-lang/go dev-util/pahole ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare pretend setup test
 DEPEND=>=dev-libs/blazesym_c-0.1.1 >=dev-libs/libbpf-1.5:= >=dev-util/bcc-0.25.0:= llvm_slot_17? ( llvm-core/clang:17= llvm-core/llvm:17=[llvm_targets_BPF(+)] ) llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18=[llvm_targets_BPF(+)] ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19=[llvm_targets_BPF(+)] ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20=[llvm_targets_BPF(+)] ) llvm_slot_21? ( llvm-core/clang:21= llvm-core/llvm:21=[llvm_targets_BPF(+)] ) sys-process/procps sys-libs/binutils-libs:= virtual/libelf:= systemd? ( sys-apps/systemd:= ) pcap? ( net-libs/libpcap:= ) dev-libs/cereal:= test? ( dev-cpp/gtest )
 DESCRIPTION=High-level tracing language for eBPF
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bpftrace/bpftrace/archive/v0.24.0.tar.gz -> bpftrace-0.24.0.tar.gz https://github.com/bpftrace/bpftrace/releases/download/v0.24.0/man.tar.xz -> bpftrace-0.24.0-man.tar.xz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	linux-info	efd923656513c879204fec6638eadee5	llvm-utils	64536677f4b4365e25e9b739163bed58	llvm-r1	5a1fde9f55315992645818a877837527	rust	2c958ff95a0fd21c1cb19e961cb2946d
-_md5_=8c73973ae37fe049f95faebf5562a806
+_md5_=48a77ab6fe9e3819c1cf01afadf0df46
