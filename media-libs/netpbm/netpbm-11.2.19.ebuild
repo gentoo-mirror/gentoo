@@ -171,6 +171,11 @@ src_prepare() {
 	sed \
 		-e 's:ppmpat-random.*::' \
 		-i test/Test-Order || die
+
+	# fix typo
+	sed -i \
+		-e 's/^o#!/#!/' \
+		-i test/stdin-ppm3.test || die
 }
 
 src_configure() {
