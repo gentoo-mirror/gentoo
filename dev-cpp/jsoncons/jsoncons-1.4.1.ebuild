@@ -15,10 +15,6 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-uninit.patch
-)
-
 DOCS=( doc )
 
 # uses modified version of catch.hpp, doesn't work with upstream catch2
