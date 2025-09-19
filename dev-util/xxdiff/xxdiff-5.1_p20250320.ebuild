@@ -7,13 +7,13 @@ DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 qmake-utils
 
 DESCRIPTION="Graphical file and directories comparator and merge tool"
 HOMEPAGE="https://furius.ca/xxdiff/ https://github.com/blais/xxdiff"
-COMMIT="a13d80f3339c5ec39d26b5155f33d0f2907a5629"
+COMMIT="a5593c1c675fb79d0ec2b6e353abba1fb0179aa7"
 SRC_URI="https://github.com/blais/xxdiff/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN}-${COMMIT}"
 
@@ -44,6 +44,10 @@ pkg_setup() {
 
 src_prepare() {
 	default
+
+	# don't use bundled getopt #944133
+	sed -e '/getopt.*/d' -i src/xxdiff.pro || die
+
 	use scripts && distutils-r1_src_prepare
 }
 
