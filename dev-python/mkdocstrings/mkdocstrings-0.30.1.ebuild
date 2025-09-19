@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=pdm-backend
-PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
 
 inherit distutils-r1 pypi
 
@@ -36,6 +36,9 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
+distutils_enable_tests pytest
+
 # mkdocstrings documentation generation requires several currently
 # unpackaged mkdocs extensions and plug-ins, and this test
 # makes use of mkdocs configuration
@@ -48,7 +51,5 @@ EPYTEST_DESELECT=(
 	# Internet
 	tests/test_inventory.py::test_load_inventory
 )
-
-distutils_enable_tests pytest
 
 export PDM_BUILD_SCM_VERSION=${PV}
