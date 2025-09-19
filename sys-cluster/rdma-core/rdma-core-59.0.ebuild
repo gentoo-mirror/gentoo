@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit cmake perl-functions python-single-r1 udev systemd
 
@@ -65,7 +65,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-39.0-RDMA_BuildType.patch
-	"${FILESDIR}"/${PN}-53.1-preload-fix-build-issue-with-clang-19.patch
 )
 
 src_prepare() {
