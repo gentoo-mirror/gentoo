@@ -15,6 +15,7 @@ SRC_URI="
 LICENSE="
 	GPL-2+
 	BSD-2 CC-BY-3.0 CC-BY-4.0 CC-BY-SA-3.0 CC0-1.0 WTFPL-2 XMAME public-domain
+	|| ( MIT Unlicense )
 "
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -23,7 +24,6 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="
 	media-libs/libsdl2[haptic,opengl]
-	media-libs/sdl2-image[png]
 	media-libs/sdl2-mixer[mp3,vorbis,wav]
 	net-libs/enet:1.3=
 "
@@ -32,6 +32,8 @@ DEPEND="${RDEPEND}"
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.1.1-cmake.patch
 )
+
+CMAKE_QA_COMPAT_SKIP=1
 
 src_configure() {
 	filter-lto #858527

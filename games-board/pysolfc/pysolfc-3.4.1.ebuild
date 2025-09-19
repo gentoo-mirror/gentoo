@@ -5,14 +5,14 @@ EAPI=8
 
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 PYTHON_REQ_USE="tk"
 inherit distutils-r1 xdg
 
 MY_PN="PySolFC"
 MY_P="${MY_PN}-${PV}"
-PS_CARD_P="${MY_PN}-Cardsets-3.0"
-PS_CARD_MIN_P="${MY_PN}-Cardsets--Minimal-3.0.0"
+PS_CARD_P="${MY_PN}-Cardsets-3.1"
+PS_CARD_MIN_P="${MY_PN}-Cardsets--Minimal-3.1.0"
 
 DESCRIPTION="Exciting collection of more than 1000 solitaire card games"
 HOMEPAGE="https://pysolfc.sourceforge.io/"
@@ -41,14 +41,6 @@ RDEPEND="
 "
 
 distutils_enable_tests unittest
-
-src_prepare() {
-	distutils-r1_src_prepare
-
-	if use extra-cardsets; then
-		find ../${PS_CARD_P} -type d -name .thumbnails -exec rm -r {} + || die
-	fi
-}
 
 python_install_all() {
 	local DOCS=( AUTHORS.md NEWS.asciidoc README.md )

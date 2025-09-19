@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
-inherit flag-o-matic meson python-single-r1 toolchain-funcs vala
+PYTHON_COMPAT=( python3_{11..14} )
+inherit flag-o-matic meson python-any-r1 toolchain-funcs vala
 
 DESCRIPTION="VIPS Image Processing Library"
 HOMEPAGE="https://libvips.github.io/libvips/"
@@ -12,17 +12,17 @@ SRC_URI="https://github.com/libvips/libvips/releases/download/v${PV}/${P}.tar.xz
 
 LICENSE="LGPL-2.1+ MIT"
 SLOT="0/42" # soname
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="
 	archive deprecated doc exif fftw fits fontconfig graphicsmagick
-	gtk-doc heif +highway imagemagick imagequant +introspection +jpeg
-	jpeg2k jpegxl lcms matio openexr orc pango pdf +png python svg
-	test tiff vala webp
+	heif +highway imagemagick imagequant +introspection +jpeg jpeg2k
+	jpegxl lcms matio openexr orc pango pdf +png svg test tiff vala
+	webp
 "
 REQUIRED_USE="
+	doc? ( introspection )
 	fontconfig? ( pango )
 	graphicsmagick? ( imagemagick )
-	python? ( ${PYTHON_REQUIRED_USE} )
 	test? ( jpeg png webp )
 	vala? ( introspection )
 "
@@ -63,10 +63,6 @@ RDEPEND="
 		x11-libs/cairo
 	)
 	png? ( media-libs/libpng:= )
-	python? (
-		${PYTHON_DEPS}
-		$(python_gen_cond_dep 'dev-python/pycairo[${PYTHON_USEDEP}]')
-	)
 	svg? (
 		gnome-base/librsvg:2
 		sys-libs/zlib:=
@@ -88,24 +84,22 @@ BDEPEND="
 	dev-util/glib-utils
 	sys-devel/gettext
 	doc? (
+		${PYTHON_DEPS}
 		app-text/doxygen
+		dev-util/gi-docgen
 		media-gfx/graphviz
 	)
-	gtk-doc? ( dev-util/gtk-doc )
-	python? ( ${PYTHON_DEPS} )
 	vala? ( $(vala_depend) )
 "
 
 pkg_setup() {
-	use python && python-single-r1_pkg_setup
+	use doc && python-any-r1_pkg_setup
 }
 
 src_prepare() {
 	default
 
 	use vala && vala_setup
-
-	sed -i "s/'vips-doc'/'${PF}'/" cplusplus/meson.build || die
 
 	sed -i "/subdir('fuzz')/d" meson.build || die
 }
@@ -116,9 +110,9 @@ src_configure() {
 
 	local emesonargs=(
 		$(meson_use deprecated)
-		$(meson_use doc doxygen)
+		$(meson_use doc cpp-docs)
+		$(meson_use doc docs)
 		-Dexamples=false
-		$(meson_use gtk-doc gtk_doc)
 		$(meson_use vala vapi)
 		-Dcgif=disabled # not packaged, and not used to view gif (only saving)
 		$(meson_feature archive)
@@ -159,9 +153,10 @@ src_configure() {
 src_install() {
 	meson_src_install
 
-	if use python; then
-		python_fix_shebang "${ED}"/usr/bin/vipsprofile
-	else
-		rm -- "${ED}"/usr/{bin/vipsprofile,share/man/man1/vipsprofile.1} || die
+	if use doc; then
+		mkdir -p "${ED}"/usr/share/doc/${PF}/html || die
+		mv -- "${ED}"/usr/share/doc/{vips,${PF}/html/vips} || die
+		mv -- "${ED}"/usr/share/doc/{vips-cpp/html,${PF}/html/vips-cpp} || die
+		rmdir -- "${ED}"/usr/share/doc/vips-cpp || die
 	fi
 }
