@@ -15595,7 +15595,7 @@ net-vpn/frp 0.56.0 0.58.1 0.60.0 0.61.1: A reverse proxy that exposes a server b
 net-vpn/gsocket 1.4.43 1.4.43-r1 9999: Allow firewalled/NATed host to establish a secure connection
 net-vpn/headscale 0.25.1 0.26.1: An open source, self-hosted implementation of the Tailscale control server
 net-vpn/httptunnel 3.3_p20230508: httptunnel can create IP tunnels through firewalls/proxies using HTTP
-net-vpn/i2p 2.8.2 2.9.0: A privacy-centric, anonymous network
+net-vpn/i2p 2.8.2 2.9.0 2.10.0: A privacy-centric, anonymous network
 net-vpn/i2pd 2.56.0 2.56.0-r1 2.57.0: A C++ daemon for accessing the I2P anonymous network
 net-vpn/iodine 0.7.0-r3 0.7.0-r4: IP over DNS tunnel
 net-vpn/isatapd 0.9.7-r2: Creates and maintains an ISATAP tunnel (rfc5214)
@@ -17039,7 +17039,7 @@ sys-apps/hotplug2stdout 1.2.1: A tool for reading kernel uevent(s) to stdout
 sys-apps/hponcfg 5.6.0.0-r1: HP Lights-Out Online Configuration Utility (HPONCFG)
 sys-apps/hprofile 6.1.3-r1 6.2.1: Utility to manage hardware, network, power or other profiles (fork)
 sys-apps/hw-probe 1.6.6-r3: A tool to probe for hardware, check it's operability and find drivers
-sys-apps/hwdata 0.383 0.390 0.391 0.398: Hardware identification and configuration data
+sys-apps/hwdata 0.391 0.398 0.399: Hardware identification and configuration data
 sys-apps/hwinfo 23.2-r1: Hardware detection tool used in SuSE Linux
 sys-apps/hwloc 1.11.13-r2 2.6.0-r2 2.8.0-r2 2.9.0-r1 2.9.1-r1 2.9.2-r1 2.9.3-r2 2.11.2-r1: Displays the hardware topology in convenient formats
 sys-apps/i2c-tools 4.3-r2 4.4: I2C tools for bus probing, chip dumping, EEPROM decoding, and more
@@ -17062,7 +17062,7 @@ sys-apps/iproute2 6.11.0-r2 6.12.0 6.13.0 6.14.0 6.15.0 6.16.0 9999: kernel rout
 sys-apps/irqbalance 1.9.3-r1 1.9.4-r2: Distribute hardware interrupts across processors on a multiprocessor system
 sys-apps/isapnptools 1.27-r1: Tools for configuring ISA PnP devices
 sys-apps/iucode_tool 2.3.1-r1: tool to manipulate Intel X86 and X86-64 processor microcode update collections
-sys-apps/kbd 2.7.1 2.8.0 9999: Keyboard and console utilities
+sys-apps/kbd 2.7.1 2.8.0 2.9.0 9999: Keyboard and console utilities
 sys-apps/kcheck 0.0.2-r3: Record and check required kernel symbols are set
 sys-apps/kexec-tools 2.0.30 2.0.31 9999: Load another kernel from the currently executing Linux kernel
 sys-apps/keyutils 1.6.3-r1: Linux Key Management Utilities
@@ -17194,7 +17194,7 @@ sys-apps/systemctl-tui 0.4.0: A simple TUI for interacting with systemd services
 sys-apps/systemd 256.10 256.12 256.13 256.16 256.17 257.3 257.5 257.6 257.7 257.8-r1 257.9 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-utils 254.22 254.24 254.26 255.15-r1 255.18 255.21 256.12 256.13 256.16 256.17: Utilities split out from systemd for OpenRC users
-sys-apps/sysvinit 3.09 3.14: /sbin/init - parent of all processes
+sys-apps/sysvinit 3.09 3.14 3.15: /sbin/init - parent of all processes
 sys-apps/tas 1.9.0.240925: Supermicro Thin-Agent Service for monitoring through the BMC/IPMI
 sys-apps/tcp-wrappers 7.6.31-r1: TCP Wrappers
 sys-apps/texinfo 7.2-r2 7.2-r3 9999: The GNU info program and utilities
@@ -17468,7 +17468,7 @@ sys-devel/distcc 3.4-r4 3.4-r6: Distribute compilation of C code across several 
 sys-devel/dwz 0.15-r5 0.16 9999: DWARF optimization and duplicate removal tool
 sys-devel/elftoolchain 0.7.1_p20210319: Libraries/utilities to handle ELF objects (BSD drop in replacement for libelf)
 sys-devel/flex 2.6.4-r6: The Fast Lexical Analyzer
-sys-devel/gcc 8.5.0-r2 9.5.0 10.5.0 11.5.0 12.4.1_p20250528 12.5.0 13.2.0 13.3.1_p20241220 13.4.0 13.4.1_p20250807 13.4.1_p20250904 13.4.1_p20250911 13.4.1_p20250918 13.5.9999 14.3.0 14.3.1_p20250801 14.3.1_p20250905 14.3.1_p20250912 14.3.1_p20250919 14.4.9999 15.2.0 15.2.1_p20250906 15.2.1_p20250913 15.3.9999 16.0.0_p20250831 16.0.0_p20250907 16.0.0_p20250914 16.0.9999: The GNU Compiler Collection
+sys-devel/gcc 8.5.0-r2 9.5.0 10.5.0 11.5.0 12.4.1_p20250528 12.5.0 13.2.0 13.3.1_p20241220 13.4.0 13.4.1_p20250807 13.4.1_p20250904 13.4.1_p20250911 13.4.1_p20250918 13.5.9999 14.3.0 14.3.1_p20250801 14.3.1_p20250905 14.3.1_p20250912 14.3.1_p20250919 14.4.9999 15.2.0 15.2.1_p20250906 15.2.1_p20250913 15.2.1_p20250920 15.3.9999 16.0.0_p20250831 16.0.0_p20250907 16.0.0_p20250914 16.0.9999: The GNU Compiler Collection
 sys-devel/gcc-apple 4.2.1_p5666-r3: Apple branch of the GNU Compiler Collection, Developer Tools 4.0
 sys-devel/gcc-config 2.12.1 9999: Utility to manage compilers
 sys-devel/gettext 0.21.1 0.22.5-r2 0.23.1-r1 0.23.2 0.25.1: GNU locale utilities
