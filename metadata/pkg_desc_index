@@ -1022,7 +1022,7 @@ app-admin/opentofu 1.8.8 1.9.0 1.9.1: The open source infrastructure as code too
 app-admin/pass 1.7.3-r2 1.7.4-r2 9999: Stores, retrieves, generates, and synchronizes passwords securely
 app-admin/pass-otp 1.2.0-r1: A pass extension for managing one-time-password (OTP) tokens
 app-admin/passook 20121001: Password generator capable of generating pronounceable and/or secure passwords
-app-admin/passwordsafe 1.20.0-r2 1.22.0: Password manager with wxGTK based frontend
+app-admin/passwordsafe 1.20.0-r3 1.22.0-r1: Password manager with wxGTK based frontend
 app-admin/paxtest 0.9.15-r2: PaX regression test suite
 app-admin/perl-cleaner 2.31-r2 9999: User land tool for cleaning up old perl installs
 app-admin/petrovich 1.0.0-r2: Filesystem Integrity Checker
@@ -4034,7 +4034,7 @@ dev-db/sqldeveloper 23.1.1.345.2114: Oracle SQL Developer is a graphical tool fo
 dev-db/sqlite 3.50.2 3.50.4 9999: SQL database engine
 dev-db/sqlitebrowser 3.13.1_p20250502-r1 9999: Light GUI editor for SQLite databases
 dev-db/sqlitestudio 3.4.17: Powerful cross-platform SQLite database manager
-dev-db/sqlmap 1.9.5 1.9.8 9999: An automatic SQL injection and database takeover tool
+dev-db/sqlmap 1.9.5 1.9.8 1.9.9 9999: An automatic SQL injection and database takeover tool
 dev-db/textsearch_ja 9.0.0: Integrated Full-Text-Search for Japanese language using morphological analyze
 dev-db/timescaledb 2.19.3 2.20.3 2.21.3: Open-source time-series SQL database
 dev-db/tinycdb 0.81: A very fast and simple package for creating and reading constant data bases
@@ -10679,7 +10679,7 @@ dev-util/android-udev-rules 20250314 20250525: Android udev rules list aimed to 
 dev-util/anjuta 3.34.0-r3: Base library of defunct IDE for GNOME to run applications
 dev-util/archdiff 1.1.6-r1: Utility to view the differences between two source code archives
 dev-util/argouml 0.34-r1: Modelling tool that helps you do your design using UML
-dev-util/aruba 2.2.0 2.3.0-r1 2.3.1: Cucumber steps for driving out command line applications
+dev-util/aruba 2.2.0 2.3.0-r1 2.3.1 2.3.2: Cucumber steps for driving out command line applications
 dev-util/astyle 3.1-r2 3.4.9 3.4.9-r1 3.6.1 3.6.7: Artistic Style is a re-indenter and reformatter for C, C++ and Java source code
 dev-util/autodia 2.140.0-r2: Parses source code, XML or data and produces an XML document in Dia format
 dev-util/autoproject 0.20_p15: Start a programming project using autotools and a command line parser generator
@@ -10773,7 +10773,7 @@ dev-util/cucumber-compatibility-kit 9.2.1-r1 14.1.0 18.0.3 20.1.0: Kit to check 
 dev-util/cucumber-core 13.0.2 13.0.3 15.1.0 15.2.1: Executable feature scenarios
 dev-util/cucumber-cucumber-expressions 15.2.0 17.1.0 18.0.1: a simpler alternative to Regular Expressions
 dev-util/cucumber-gherkin 27.0.0 30.0.4: Fast Gherkin lexer and parser
-dev-util/cucumber-html-formatter 19.2.0-r1 21.3.1 21.9.0 21.10.1 21.12.0 21.13.0 21.14.0: HTML formatter for Cucumber
+dev-util/cucumber-html-formatter 19.2.0-r1 21.3.1 21.9.0 21.10.1 21.12.0 21.13.0 21.14.0 21.15.1: HTML formatter for Cucumber
 dev-util/cucumber-messages 18.0.0 22.0.0 27.2.0: Protocol Buffer messages for Cucumber's inter-process communication
 dev-util/cucumber-rails 3.1.1 4.0.0: Executable feature scenarios for Rails
 dev-util/cucumber-tag-expressions 4.1.0 5.0.6 6.1.2: Cucumber tag expressions for ruby
@@ -11033,7 +11033,7 @@ dev-util/uftrace 0.17 0.18: Function (graph) tracer for user-space
 dev-util/uglifyjs 3.16.1 3.19.3: JavaScript parser, minifier, compressor and beautifier toolkit
 dev-util/umockdev 0.19.1 0.19.3 9999: Mock hardware devices for creating unit tests
 dev-util/uncrustify 0.76.0 0.81.0 9999: C/C++/C#/D/Java/Pawn code indenter and beautifier
-dev-util/unicorn 2.0.1 2.0.1-r1 2.1.1 2.1.2 2.1.3 9999: A lightweight multi-platform, multi-architecture CPU emulator framework
+dev-util/unicorn 2.1.3 2.1.4 9999: A lightweight multi-platform, multi-architecture CPU emulator framework
 dev-util/unifdef 2.12-r2: remove #ifdef'ed lines from a file while otherwise leaving the file alone
 dev-util/vbindiff 3.0_beta5-r1: Visual binary diff utility
 dev-util/vint 0.3.21-r1: Lint tool for Vim script language
@@ -12959,7 +12959,7 @@ media-gfx/exif 0.6.22-r1 0.6.22-r2: Small CLI util to show EXIF infos hidden in 
 media-gfx/exiv2 0.28.5 0.28.7: EXIF, IPTC and XMP metadata C++ library and command line utility
 media-gfx/farbfeld 4: Farbfeld simple image format tools
 media-gfx/fbgrab 1.5: Framebuffer screenshot utility
-media-gfx/fbida 2.14-r6 9999: Image viewers for the framebuffer console (fbi) and X11 (ida)
+media-gfx/fbida 2.14-r6 2.14_p20241216: Image viewers for the framebuffer console (fbi) and X11 (ida)
 media-gfx/feh 3.10.3 3.11.1 3.11.2: A fast, lightweight imageviewer using imlib2
 media-gfx/fig2dev 3.2.9-r5 3.2.9a 9999: Set of tools for creating TeX documents with graphics
 media-gfx/flam3 3.1.1-r1: Tools and a library for creating flame fractal images
@@ -14349,7 +14349,7 @@ media-video/v4l2loopback 0.13.1 0.15.0 0.15.1 9999: v4l2 loopback device whose o
 media-video/vamps 0.99.2-r2: Very fast requantisizing tool for backup DVDs
 media-video/vcdimager 2.0.1-r1 2.0.1-r2: GNU VCDimager
 media-video/vcsi 7.0.16: Create thumbnail sheets from video files
-media-video/vdr 2.2.0-r7 2.6.6 2.6.7 2.6.9: Video Disk Recorder - turns a pc into a powerful set top box for DVB
+media-video/vdr 2.2.0-r7 2.6.9 2.7.3 2.7.7: Video Disk Recorder - turns a pc into a powerful set top box for DVB
 media-video/vdrsync 0.1.3_pre050322-r2: converting vdr-recordings to mpeg2, dvd or other similar formats
 media-video/vdrtools-genindex 0.1.3-r2: VDR: genindex Script
 media-video/vidcutter 6.0.5.1_p20230201-r1 6.0.5.1_p20250419 9999: FFmpeg-based simple video cutter & joiner with a modern PyQt5 GUI
@@ -14677,7 +14677,7 @@ net-dns/hash-slinger 3.4: Various tools to generate DNS records like SSHFP, TLSA
 net-dns/https_dns_proxy 0_pre20200925 9999: A lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3-r2: Toolkit for Internationalized Domain Names (IDN)
 net-dns/inadyn 2.12.0-r2: Dynamic DNS client with multiple SSL/TLS library support
-net-dns/knot 3.4.7 3.4.8: High-performance authoritative-only DNS server
+net-dns/knot 3.4.7 3.4.8 3.5.0: High-performance authoritative-only DNS server
 net-dns/knot-resolver 5.7.5 5.7.6 6.0.15: A scaleable caching DNS resolver
 net-dns/ldns-tools 0.1 0.2: ldns tools: host, nslookup
 net-dns/libidn 1.42 1.43: Internationalized Domain Names (IDN) implementation
@@ -14692,6 +14692,7 @@ net-dns/pdns 4.9.5 4.9.7 4.9.8 5.0.0: The PowerDNS Daemon
 net-dns/pdns-recursor 5.2.4 5.2.5 5.3.0: The PowerDNS Recursor
 net-dns/pdnsd 1.2.9a-r2: Proxy DNS server with permanent caching
 net-dns/rbldnsd 0.998b-r3 0.998b-r4: DNS server designed to serve blacklist zones
+net-dns/redis-knot 3.5.0: Redis module for Knot DNS
 net-dns/resolv_wrapper 1.1.8: Wrapper for DNS name resolving or DNS faking
 net-dns/resolvconf-symlink 0: Make /etc/resolv.conf a symlink to a runtime-writable location
 net-dns/s6-dns 2.3.7.2 2.4.0.0 2.4.1.0: Suite of DNS client programs and libraries for Unix systems
