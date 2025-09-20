@@ -4,7 +4,7 @@ DEPEND=acct-group/dnsdist acct-user/dnsdist bpf? ( dev-libs/libbpf:= ) cdb? ( de
 DESCRIPTION=A highly DNS-, DoS- and abuse-aware loadbalancer
 EAPI=8
 HOMEPAGE=https://www.dnsdist.org/index.html
-INHERIT=cargo flag-o-matic lua-single python-any-r1
+INHERIT=cargo flag-o-matic lua-single python-any-r1 toolchain-funcs
 IUSE=bpf cdb dnscrypt dnstap doc doh doh3 ipcipher lmdb quic regex snmp +ssl systemd test web xdp yaml debug lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.powerdns.com/releases/dnsdist-2.0.1.tar.xz doc? ( https://www.applied-asynchrony.com/distfiles/dnsdist-docs-2.0.1.tar.xz ) yaml? ( https://www.applied-asynchrony.com/distfiles/dnsdist-rust-2.0.1-crates.tar.xz )
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	2c958ff95a0fd21c1cb19e961cb2946d	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a1af74aa9e34cd73aeac642cd0dd54d8	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	python-utils-r1	b7eb9c3a6dc6662368634584aab44a2c	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=cdf95727ed8251adad0ac0239287521c
+_md5_=7d2ff9fd3809ac6f87c371cb73f2fc16
