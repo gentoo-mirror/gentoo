@@ -7836,6 +7836,7 @@ sys-apps/coreutils:kill - Build the kill program
 sys-apps/coreutils:multicall - Build all tools into a single `coreutils` program akin to busybox to save space
 sys-apps/coreutils:openssl - Use openssl libcrypto hash routines for hash functions
 sys-apps/coreutils:split-usr - Enable this if /bin and /usr/bin are separate directories
+sys-apps/coreutils:test-full - Run expensive tests (mostly CPU intensive).
 sys-apps/cpu-x:cpu - Use the dev-libs/libcpuid library for CPU info
 sys-apps/cpu-x:force-libstatgrab - Use sys-libs/libstatgrab to instead of sys-process/procps
 sys-apps/cpu-x:gpu - Use the media-libs/glfw library for GPU info
@@ -7853,6 +7854,7 @@ sys-apps/elfix:ptpax - Enable PT_PAX_FLAGS support.
 sys-apps/elfix:xtpax - Enable XATTR_PAX_FLAGS support.
 sys-apps/etckeeper:cron - Install cron script
 sys-apps/ethtool:netlink - Enable netlink interface via net-libs/libmnl
+sys-apps/findutils:test-full - Run expensive tests (mostly memory intensive).
 sys-apps/firejail:X - Enable X11 sandboxing
 sys-apps/firejail:apparmor - Enable support for custom AppArmor profiles
 sys-apps/firejail:chroot - Enable chrooting to custom directory
@@ -7926,6 +7928,7 @@ sys-apps/gawk:pma - Experimental Persistent Memory Allocator (PMA) support which
 sys-apps/gentoo-wsl-config:interop - Enable Windows interoperability features for WSL
 sys-apps/gnome-disk-utility:fat - Include FAT16/FAT32 support (sys-fs/dosfstools)
 sys-apps/grep:egrep-fgrep - Install deprecated 'egrep' and 'fgrep' wrappers for 'grep -E' and 'grep -F' respectively. GNU grep 3.8 onwards warns about their usage by default, but the versions installed by this flag do not. No deprecation warnings are emitted when this flag is enabled.
+sys-apps/grep:test-full - Run expensive tests (mostly CPU intensive).
 sys-apps/groff:uchardet - Enable automatic encoding detection via app-i18n/uchardet
 sys-apps/hwloc:X - use the X Window System
 sys-apps/hwloc:cairo - Enable the Cairo back-end of hwloc's lstopo command
@@ -8024,6 +8027,7 @@ sys-apps/s390-tools:zlib - build the zgetdump and dump2tar utilities
 sys-apps/s6:execline - enable support for dev-lang/execline
 sys-apps/s6-linux-init:sysv-utils - Install sysvinit compatibility symlinks for telinit, halt, poweroff, reboot, and shutdown
 sys-apps/sandbox:nnp - Enable NO_NEW_PRIVS which blocks set*id programs from gaining privileges (e.g. sudo)
+sys-apps/sed:test-full - Run expensive tests (mostly CPU intensive).
 sys-apps/shadow:su - build the su program
 sys-apps/smartmontools:caps - Build against sys-libs/libcap-ng to allow smartd to drop its privileges.
 sys-apps/smartmontools:daemon - Install the monitoring daemon (smartd) and associated scripts.
