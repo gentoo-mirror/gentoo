@@ -913,7 +913,7 @@ app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.42.11 1.42.16 1.42.21 1.42.25 1.42.30 1.42.31 1.42.32 1.42.33 1.42.34: Universal Command Line Environment for AWS
+app-admin/awscli 1.42.11 1.42.16 1.42.21 1.42.25 1.42.30 1.42.31 1.42.32 1.42.33 1.42.34 1.42.35: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.7.0 2025.8.1 2025.8.2: Bitwarden password manager desktop client
@@ -3920,7 +3920,7 @@ dev-cpp/prometheus-cpp 1.2.4: Prometheus Client Library for Modern C++
 dev-cpp/pystring 1.1.4-r1 1.1.4-r2: C++ functions matching the interface and behavior of python string methods
 dev-cpp/random123 1.14.0: library of counter-based random number generators (CBRNGs)
 dev-cpp/range-v3 0.12.0 0.12.0-r1: Range library for C++14/17/20, basis for C++20's std::ranges
-dev-cpp/rapidfuzz-cpp 3.3.2 3.3.3: Rapid fuzzy string matching in C++
+dev-cpp/rapidfuzz-cpp 3.3.3: Rapid fuzzy string matching in C++
 dev-cpp/rapidyaml 0.6.0 0.7.2: Library to parse and emit YAML, and do it fast
 dev-cpp/robin-hood-hashing 3.11.5-r2: Fast & memory efficient hashtable based on robin hood hashing for C++11/14/17/20
 dev-cpp/robin-map 1.3.0 1.4.0 9999: C++ fast hash map and hash set using robin hood hashing
@@ -8157,8 +8157,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.40.11 1.40.16 1.40.21 1.40.25 1.40.30 1.40.31 1.40.32 1.40.33 1.40.34: The AWS SDK for Python
-dev-python/botocore 1.40.11 1.40.16 1.40.21 1.40.25 1.40.30 1.40.31 1.40.32 1.40.33 1.40.34: Low-level, data-driven core of boto 3
+dev-python/boto3 1.40.11 1.40.16 1.40.21 1.40.25 1.40.30 1.40.31 1.40.32 1.40.33 1.40.34 1.40.35: The AWS SDK for Python
+dev-python/botocore 1.40.11 1.40.16 1.40.21 1.40.25 1.40.30 1.40.31 1.40.32 1.40.33 1.40.34 1.40.35: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8290,7 +8290,7 @@ dev-python/dict2xml 1.7.7: Small utility to convert a python dictionary into an 
 dev-python/dictdiffer 0.9.0-r1: Dictdiffer is a library that helps you to diff and patch dictionaries
 dev-python/diff-match-patch 20241021: Diff, match and patch algorithms for plain text
 dev-python/dill 0.4.0: Serialize all of Python (almost)
-dev-python/dirty-equals 0.9.0: Doing dirty (but extremely useful) things with equals
+dev-python/dirty-equals 0.9.0 0.10.0: Doing dirty (but extremely useful) things with equals
 dev-python/discid 1.3.0: Python bindings for libdiscid
 dev-python/diskcache 5.6.3: Disk and file backed cache
 dev-python/dissononce 0.34.3-r3: A python implementation for Noise Protocol Framework
@@ -8892,7 +8892,7 @@ dev-python/patiencediff 0.2.15: Python implementation of the patiencediff algori
 dev-python/patsy 1.0.1: Python module to describe statistical models and design matrices
 dev-python/pbkdf2 1.3-r2: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
 dev-python/pbr 6.1.1 7.0.0 7.0.1: Inject some useful and sensible default behaviors into setuptools
-dev-python/pbs-installer 2025.08.27 2025.08.28 2025.09.02: Installer for Python Build Standalone
+dev-python/pbs-installer 2025.08.27 2025.08.28 2025.09.02 2025.09.18: Installer for Python Build Standalone
 dev-python/pdfrw 0.4_p1-r1: PDF file reader/writer library
 dev-python/pdm 2.25.4-r1 2.25.6 2.25.9: Python package and dependency manager supporting the latest PEP standards
 dev-python/pdm-backend 2.4.5: A PEP 517 backend for PDM that supports PEP 621 metadata
@@ -9606,9 +9606,9 @@ dev-python/txredisapi 1.4.11: Non-blocking redis client for python
 dev-python/txrequests 0.9.6-r1: Asynchronous Python HTTP for Humans
 dev-python/txtorcon 23.11.0 24.8.0-r1: Twisted-based Tor controller client, with state-tracking abstractions
 dev-python/typeguard 4.4.4: Run-time type checker for Python
-dev-python/typer 0.16.1 0.17.3 0.17.4: Build great CLIs. Easy to code. Based on Python type hints
+dev-python/typer 0.17.4 0.18.0: Build great CLIs. Easy to code. Based on Python type hints
 dev-python/types-docutils 0.22.0.20250814 0.22.0.20250822 0.22.0.20250914 0.22.0.20250919: Typing stubs for docutils
-dev-python/types-gdb 15.0.0.20250809 16.3.0.20250812 16.3.0.20250915: Typing stubs for gdb
+dev-python/types-gdb 15.0.0.20250809 16.3.0.20250812 16.3.0.20250915 16.3.0.20250920: Typing stubs for gdb
 dev-python/types-psutil 7.0.0.20250601 7.0.0.20250801 7.0.0.20250822: Typing stubs for psutil
 dev-python/types-setuptools 80.9.0.20250529 80.9.0.20250801 80.9.0.20250809 80.9.0.20250822: Typing stubs for setuptools
 dev-python/typing-extensions 4.14.1 4.15.0: Backported and Experimental Type Hints for Python 3.7+
@@ -9641,9 +9641,9 @@ dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10: TidyLib Python wrapper
 dev-python/uuid6 2025.0.1: New time-based UUID formats which are suited for use as a database key
-dev-python/uv 0.8.6 0.8.15 0.8.16 0.8.17 0.8.18 9999: A Python package installer and resolver, written in Rust
-dev-python/uv-build 0.8.6 0.8.15 0.8.16 0.8.17 0.8.18: PEP517 uv build backend
-dev-python/uvicorn 0.35.0: Lightning-fast ASGI server implementation
+dev-python/uv 0.8.6 0.8.15 0.8.16 0.8.17 0.8.18 0.8.19 9999: A Python package installer and resolver, written in Rust
+dev-python/uv-build 0.8.6 0.8.15 0.8.16 0.8.17 0.8.18 0.8.19: PEP517 uv build backend
+dev-python/uvicorn 0.35.0 0.36.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.21.0: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.35.0: Python Data Validation for Humans
 dev-python/varlink 31.0.0: Python implementation of the Varlink protocol
@@ -16387,7 +16387,7 @@ sci-mathematics/wxmaxima 25.04.0-r2: Graphical frontend to Maxima, using the wxW
 sci-mathematics/yacas 1.9.1-r2: General purpose computer algebra system
 sci-mathematics/yafu 1.34.3-r2: Yet another factoring utility
 sci-mathematics/yices2 2.6.4-r1 2.6.5: SMT Solver supporting SMT-LIB and Yices specification language
-sci-mathematics/z3 4.15.2 4.15.3: An efficient theorem prover
+sci-mathematics/z3 4.15.3: An efficient theorem prover
 sci-misc/ViSP-images 3.3.0 3.5.0: ViSP images data set
 sci-misc/apertium 3.8.3-r1: Shallow-transfer machine Translation engine and toolbox
 sci-misc/boinc 7.24.1-r2 8.0.2 8.2.4 9999: The Berkeley Open Infrastructure for Network Computing
@@ -17625,7 +17625,7 @@ sys-fs/safecopy 1.7-r1: Tool for fault-tolerant data recovery from damaged (IO-e
 sys-fs/shake 1.0: Defragmenter that runs in userspace while the system is used
 sys-fs/simple-mtpfs 0.4.0-r1: Simple MTP fuse filesystem driver
 sys-fs/snapraid 12.4: Backup program with disk array for cold data on existing filesystems
-sys-fs/squashfs-tools 4.5.1-r1 4.6 4.6.1 4.7 4.7.1 4.7.2: Tools to create and extract Squashfs filesystems
+sys-fs/squashfs-tools 4.7.2: Tools to create and extract Squashfs filesystems
 sys-fs/squashfs-tools-ng 1.3.2 9999: A new set of tools for working with SquashFS images
 sys-fs/squashfuse 0.5.2-r1 0.6.0: FUSE filesystem to mount squashfs archives
 sys-fs/static-dev 0.1-r2 0.1-r3: A skeleton, statically managed /dev
@@ -17654,8 +17654,8 @@ sys-kernel/dkms 3.1.6 3.1.7 3.1.8 3.2.0 3.2.1 3.2.2 9999: Dynamic Kernel Module 
 sys-kernel/dracut 060_pre20240104-r4 103-r4 106-r2 108-r3 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.8-r1: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 4.3.16-r2 4.3.16-r3 4.3.16-r4 4.3.16-r5 4.3.17 4.3.17-r1 4.3.17-r2 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.240 5.10.244 5.15.189 5.15.193 6.1.147 6.1.152 6.6.101 6.6.106 6.12.41 6.12.47 6.16.7: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.240 5.10.244 5.15.189 5.15.193 6.1.147 6.1.152 6.6.101 6.6.106 6.12.41 6.12.47 6.16.7: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.240 5.10.244 5.15.189 5.15.193 6.1.147 6.1.152 6.1.153 6.6.101 6.6.106 6.6.107 6.12.41 6.12.47 6.12.48 6.16.7 6.16.8: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.240 5.10.244 5.15.189 5.15.193 6.1.147 6.1.152 6.1.153 6.6.101 6.6.106 6.6.107 6.12.41 6.12.47 6.12.48 6.16.7 6.16.8: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.233 5.10.237 5.10.238 5.10.239 5.10.240 5.10.241 5.10.241-r1 5.10.242 5.10.243 5.10.244 5.15.177 5.15.184 5.15.185 5.15.186 5.15.187 5.15.188 5.15.189 5.15.190 5.15.191 5.15.192 5.15.193 6.1.132 6.1.140 6.1.141 6.1.142 6.1.143 6.1.144 6.1.145 6.1.146 6.1.147 6.1.148 6.1.149 6.1.150 6.1.151 6.1.152 6.6.85 6.6.92 6.6.93 6.6.94 6.6.95 6.6.96 6.6.97 6.6.98 6.6.99 6.6.100 6.6.101 6.6.102 6.6.103 6.6.104 6.6.105 6.6.106 6.12.21 6.12.31 6.12.33 6.12.34 6.12.35 6.12.36 6.12.37 6.12.38 6.12.39 6.12.40 6.12.41 6.12.42 6.12.43 6.12.44 6.12.45 6.12.45-r1 6.12.46 6.12.47 6.15.1 6.15.2 6.15.3 6.15.4 6.15.5 6.15.6 6.15.7 6.15.8 6.15.9 6.15.9-r1 6.15.10 6.15.11 6.16.0 6.16.1 6.16.2 6.16.3 6.16.4 6.16.5 6.16.5-r1 6.16.6 6.16.7: Full sources including the Gentoo patchset for the 6.16 kernel tree
 sys-kernel/git-sources 6.17_rc1 6.17_rc2 6.17_rc3 6.17_rc4 6.17_rc5 6.17_rc6: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 50 60 62 63: Gentoo fork of installkernel script from debianutils
@@ -17674,7 +17674,7 @@ sys-kernel/raspberrypi-sources 5.15.76_p20221104 5.15.84_p20230106 6.1.21_p20230
 sys-kernel/rt-sources 4.14.336_p159 4.19.325_p140 5.4.293_p98 5.10.239_p133 5.15.185_p86 6.0.5_p14 6.1.134_p51 6.1.141_p52 6.5.2_p8 6.6.94_p56 6.12.28_p10: Full Linux 6.12 kernel sources with the CONFIG_PREEMPT_RT patch
 sys-kernel/scx 1.0.12 1.0.14 1.0.15 1.0.16: sched_ext schedulers and tools
 sys-kernel/ugrd 1.27.2 1.28.2 1.29.0-r1 1.31.2 2.0.2 9999: Python based POSIX initramfs generator with TOML definitions
-sys-kernel/vanilla-kernel 5.10.240 5.10.244 5.10.9999 5.15.189 5.15.193 5.15.9999 6.1.147 6.1.152 6.1.9999 6.6.101 6.6.106 6.6.9999 6.12.41 6.12.47 6.12.9999 6.16.7: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.240 5.10.244 5.10.9999 5.15.189 5.15.193 5.15.9999 6.1.147 6.1.152 6.1.153 6.1.9999 6.6.101 6.6.106 6.6.107 6.6.9999 6.12.41 6.12.47 6.12.48 6.12.9999 6.16.7 6.16.8: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 5.4.299 5.10.244 5.15.193 6.1.153 6.6.107 6.12.48 6.15.11 6.16.8: Full sources for the Linux kernel
 sys-kernel/virtme-ng 1.33 1.36: Quickly build and run kernels inside a virtualized snapshot of your live system
 sys-kernel/zen-sources 6.13.8: The Zen Kernel Live Sources
@@ -17860,7 +17860,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.240 5.10.244 5.15.189 5.15.193 6.1.147 6.1.152 6.6.101 6.6.106 6.12.41 6.12.47 6.16.7: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.240 5.10.244 5.15.189 5.15.193 6.1.147 6.1.152 6.1.153 6.6.101 6.6.106 6.6.107 6.12.41 6.12.47 6.12.48 6.16.7 6.16.8: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0 9.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
@@ -19067,7 +19067,7 @@ xfce-base/xfce4-meta 4.20: The Xfce Desktop Environment (meta package)
 xfce-base/xfce4-panel 4.20.5 4.21.0: Panel for the Xfce desktop environment
 xfce-base/xfce4-power-manager 4.20.0 4.21.0: Power manager for the Xfce desktop environment
 xfce-base/xfce4-session 4.20.3 4.21.0: A session manager for the Xfce desktop environment
-xfce-base/xfce4-settings 4.20.1 4.20.2 4.21.0-r1: Configuration system for the Xfce desktop environment
+xfce-base/xfce4-settings 4.20.2 4.21.0-r1: Configuration system for the Xfce desktop environment
 xfce-base/xfconf 4.20.0 4.21.0: A configuration management system for Xfce
 xfce-base/xfdesktop 4.20.1: Desktop manager for the Xfce desktop environment
 xfce-base/xfwm4 4.20.0: Window manager for the Xfce desktop environment
