@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 IUSE="examples image +sound"
 
 RDEPEND="
@@ -46,6 +46,7 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_test() {
@@ -66,7 +67,6 @@ python_test() {
 
 	# Specify path to avoid running interactive tests
 	# We could add in integration tests, but they're slow
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	nonfatal epytest tests/unit || die "Tests failed with ${EPYTHON}"
 }
 
