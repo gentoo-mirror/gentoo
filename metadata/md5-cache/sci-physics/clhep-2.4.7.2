@@ -1,0 +1,14 @@
+BDEPEND=doc? ( app-text/doxygen dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=High Energy Physics C++ library
+EAPI=8
+HOMEPAGE=http://proj-clhep.web.cern.ch/proj-clhep/ https://gitlab.cern.ch/CLHEP/CLHEP
+INHERIT=cmake dot-a
+IUSE=doc static-libs test threads
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux ~x64-macos
+LICENSE=GPL-3 LGPL-3
+RESTRICT=!test? ( test )
+SLOT=2/2.4.7.2
+SRC_URI=https://gitlab.cern.ch/CLHEP/CLHEP/-/archive/CLHEP_2_4_7_2/CLHEP-CLHEP_2_4_7_2.tar.bz2
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	dot-a	e5200fe17cfd2ed6fa66edd80201763a
+_md5_=3abdafee06c1ecbf7754ba76ea14bd0f
