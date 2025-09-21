@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1
+inherit shell-completion
 
 UPSTREAM_PV=${PV/_/-}
 UPSTREAM_PV=${UPSTREAM_PV/rc/RC}
@@ -29,7 +29,7 @@ S="${WORKDIR}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 # A JRE is not strictly required if native images of scala-cli are used
 # (amd64, arm64). However we may want a system JRE anyway, and having JRE
@@ -72,7 +72,5 @@ src_install() {
 	dobin scala-cli
 
 	newbashcomp bash-completion scala-cli
-
-	insinto /usr/share/zsh/site-functions
-	doins zsh/_scala-cli
+	dozshcomp zsh/_scala-cli
 }
