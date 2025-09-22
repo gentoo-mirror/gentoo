@@ -8,9 +8,9 @@ INHERIT=meson
 IUSE=async-connect chat-screen +colors doc +help-screen key-screen +library-screen lirc lyrics-screen +mouse nls outputs-screen pcre search-screen +song-screen test
 KEYWORDS=~amd64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=GPL-2+
-RDEPEND=dev-libs/libfmt:= media-libs/libmpdclient:= sys-libs/ncurses:=[unicode(+)] lirc? ( app-misc/lirc ) pcre? ( dev-libs/libpcre2 ) dev-lang/ruby
+RDEPEND=dev-libs/libfmt:= media-libs/libmpdclient:= sys-libs/ncurses:=[unicode(+)] lirc? ( app-misc/lirc ) pcre? ( dev-libs/libpcre2 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.musicpd.org/download/ncmpc/0/ncmpc-0.52.tar.xz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7eb9c3a6dc6662368634584aab44a2c	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=be36b8782d180bcfe0205189a1ee01f3
+_md5_=c729e46c1ba04a87cebebc2921efb0c7
