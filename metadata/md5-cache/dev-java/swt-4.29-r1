@@ -3,7 +3,7 @@ DEFINED_PHASES=compile install preinst prepare setup test unpack
 DEPEND=app-accessibility/at-spi2-core:2 dev-libs/glib x11-libs/gtk+:3 x11-libs/libXtst cairo? ( x11-libs/cairo ) opengl? ( virtual/glu virtual/opengl ) webkit? ( net-libs/webkit-gtk:4.1 ) >=virtual/jdk-11:*[-headless-awt] x11-base/xorg-proto x11-libs/libX11 x11-libs/libXrender x11-libs/libXt x11-libs/libXtst >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 DESCRIPTION=GTK based SWT Library
 EAPI=8
-HOMEPAGE=https://www.eclipse.org/swt/
+HOMEPAGE=https://eclipse.dev/eclipse/swt/
 INHERIT=flag-o-matic java-pkg-2 java-pkg-simple toolchain-funcs
 IUSE=cairo opengl webkit doc source
 KEYWORDS=amd64 arm64 ppc64
@@ -12,4 +12,4 @@ RDEPEND=app-accessibility/at-spi2-core:2 dev-libs/glib x11-libs/gtk+:3 x11-libs/
 SLOT=4.27
 SRC_URI=amd64? ( https://archive.eclipse.org/eclipse/downloads/drops4/R-4.29-202309031000/swt-4.29-gtk-linux-x86_64.zip ) arm64? ( https://archive.eclipse.org/eclipse/downloads/drops4/R-4.29-202309031000/swt-4.29-gtk-linux-aarch64.zip ) ppc64? ( https://archive.eclipse.org/eclipse/downloads/drops4/R-4.29-202309031000/swt-4.29-gtk-linux-ppc64le.zip )
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	java-utils-2	a080d4947ca188a48725a375b6184bc5	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e
-_md5_=663c0dbf3d1164427e86eed6488b6025
+_md5_=aa6de025e8b957006a6ed3efc9bc832f
