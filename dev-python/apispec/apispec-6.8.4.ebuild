@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit
+PYPI_VERIFY_REPO=https://github.com/marshmallow-code/apispec
 PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 pypi
@@ -29,18 +30,14 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	dev-python/sphinx-issues \
 	dev-python/sphinx-rtd-theme
 
-python_test() {
-	local EPYTEST_DESELECT=(
-		# requires unpackaged prance
-		tests/test_ext_marshmallow_openapi.py::test_openapi_tools_validate_v2
-		tests/test_ext_marshmallow_openapi.py::test_openapi_tools_validate_v3
-	)
-
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest
-}
+EPYTEST_DESELECT=(
+	# requires unpackaged prance
+	tests/test_ext_marshmallow_openapi.py::test_openapi_tools_validate_v2
+	tests/test_ext_marshmallow_openapi.py::test_openapi_tools_validate_v3
+)
