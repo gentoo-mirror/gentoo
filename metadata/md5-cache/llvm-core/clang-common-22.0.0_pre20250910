@@ -9,5 +9,5 @@ LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
 PDEPEND=default-compiler-rt? ( llvm-runtimes/clang-runtime:22[compiler-rt] llvm-libunwind? ( llvm-runtimes/libunwind[static-libs] ) !llvm-libunwind? ( sys-libs/libunwind[static-libs] ) ) !default-compiler-rt? ( sys-devel/gcc ) default-libcxx? ( >=llvm-runtimes/libcxx-22.0.0_pre20250910[static-libs] ) !default-libcxx? ( sys-devel/gcc ) default-lld? ( >=llvm-core/lld-22.0.0_pre20250910 ) !default-lld? ( sys-devel/binutils ) llvm-runtimes/clang-runtime[default-compiler-rt(-)?,default-libcxx(-)?,default-lld(-)?,llvm-libunwind(-)?]
 SLOT=0
 SRC_URI=https://github.com/llvm/llvm-project/archive/f059d2bac034acca39ad60a1b13aaec6afa0a3d6.tar.gz -> llvm-project-f059d2bac034acca39ad60a1b13aaec6afa0a3d6.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	llvm.org	07c3670b95ff5600a0225390e4c439ee	multilib	a199af442898963433d6f038a88cce9c
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	llvm.org	9953443f7417eac62a23bcd04cb6324b	multilib	a199af442898963433d6f038a88cce9c
 _md5_=3cce1037b99155ede71f42785acd78fe
