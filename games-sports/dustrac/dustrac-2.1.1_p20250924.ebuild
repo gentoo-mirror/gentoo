@@ -3,12 +3,14 @@
 
 EAPI=8
 
+COMMIT=73617c081e42a1d4b9044ac1545522ba5cd667a9
 inherit cmake xdg
 
 DESCRIPTION="Tile-based, cross-platform 2D racing game"
 HOMEPAGE="https://juzzlin.github.io/DustRacing2D/"
-SRC_URI="https://github.com/juzzlin/DustRacing2D/archive/${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/DustRacing2D-${PV}"
+# SRC_URI="https://github.com/juzzlin/DustRacing2D/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/juzzlin/DustRacing2D/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
+S="${WORKDIR}/DustRacing2D-${COMMIT}"
 
 LICENSE="GPL-3+ CC-BY-SA-3.0"
 SLOT="0"
@@ -18,33 +20,19 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtopengl:5
-	dev-qt/qtsql:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtxml:5
+	dev-qt/qtbase:6[gui,opengl,sql,widgets,xml]
 	media-fonts/ubuntu-font-family
 	media-libs/libvorbis
 	media-libs/openal
 	virtual/opengl
 "
-DEPEND="${RDEPEND}
-	test? ( dev-qt/qttest:5 )
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
-	dev-qt/linguist-tools:5
+	dev-qt/qttools:6[linguist]
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	# upstream backports
-	"${FILESDIR}"/${P}-cmake_policy_0100.patch
-	# downstream patches
-	"${FILESDIR}"/${P}-cmake.patch
-	"${FILESDIR}"/${P}-cmake-add_library-static.patch
-	"${FILESDIR}"/${P}-cmake4.patch
-)
+PATCHES=( "${FILESDIR}"/${P}-cmake.patch ) # downstream patch
 
 src_configure() {
 	# -DGLES=ON didn't build for me but maybe just need use flags on some Qt package?
@@ -57,6 +45,7 @@ src_configure() {
 		-DBIN_PATH=/usr/bin
 		-DDOC_PATH=/usr/share/doc/${PF}
 		-DBUILD_TESTING=$(usex test)
+		-DUSE_CCACHE=OFF
 	)
 	cmake_src_configure
 }
