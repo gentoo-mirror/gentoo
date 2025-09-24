@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/idna-2.8[${PYTHON_USEDEP}]
@@ -31,13 +31,13 @@ RDEPEND="
 BDEPEND="
 	>=dev-python/setuptools-scm-6.4[${PYTHON_USEDEP}]
 	test? (
+		>=dev-python/blockbuster-1.5.23[${PYTHON_USEDEP}]
 		>=dev-python/exceptiongroup-1.2.0[${PYTHON_USEDEP}]
-		>=dev-python/hypothesis-4.0[${PYTHON_USEDEP}]
 		>=dev-python/psutil-5.9[${PYTHON_USEDEP}]
 		dev-python/trustme[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep '
-			>=dev-python/trio-0.26.1[${PYTHON_USEDEP}]
-		' 3.{11..13})
+			>=dev-python/trio-0.31.0[${PYTHON_USEDEP}]
+		' 3.{11..14})
 		amd64? (
 			$(python_gen_cond_dep '
 				>=dev-python/uvloop-0.21.0_beta1[${PYTHON_USEDEP}]
@@ -46,33 +46,19 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=( hypothesis pytest-mock )
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	'>=dev-python/sphinx-rtd-theme-1.2.2' \
 	dev-python/sphinxcontrib-jquery \
-	dev-python/sphinx-autodoc-typehints
-
-PATCHES=(
-	# https://github.com/agronholm/anyio/commit/f051fd45a1d34bae8dd70dba726e711e7a49deee
-	# https://github.com/agronholm/anyio/commit/e0e2531de14c54eed895c92b4c8e87b44f47634b
-	# https://github.com/agronholm/anyio/commit/8bad9c05d966f6edfa58f26257015cb657d4e5ef
-	"${FILESDIR}/${P}-py314.patch"
-)
+	dev-python/sphinx-autodoc-typehints \
+	dev-python/sphinx-tabs
 
 python_test() {
 	local EPYTEST_DESELECT=(
 		# requires link-local IPv6 interface
 		tests/test_sockets.py::TestTCPListener::test_bind_link_local
 	)
-
-	case ${EPYTHON} in
-		pypy3.11)
-			EPYTEST_DESELECT+=(
-				# likely related to https://github.com/pypy/pypy/issues/5264
-				tests/test_debugging.py::test_main_task_name
-			)
-			;;
-	esac
 
 	local filter=()
 	if ! has_version ">=dev-python/trio-0.26.1[${PYTHON_USEDEP}]"; then
@@ -84,6 +70,5 @@ python_test() {
 		)
 	fi
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest -m 'not network' "${filter[@]}"
 }
