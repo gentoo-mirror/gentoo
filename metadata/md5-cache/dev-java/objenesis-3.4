@@ -1,15 +1,15 @@
 DEFINED_PHASES=compile install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=virtual/jdk-1.8:* test? ( dev-java/opentest4j:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:5 )
 DESCRIPTION=A library for instantiating Java objects
 EAPI=8
 HOMEPAGE=https://objenesis.org/
-INHERIT=java-pkg-2 java-pkg-simple
+INHERIT=java-pkg-2 java-pkg-simple junit5
 IUSE=doc source test
 KEYWORDS=amd64 arm64 ppc64
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
-RESTRICT=test !test? ( test )
+RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/easymock/objenesis/archive/3.4.tar.gz -> objenesis-3.4.tar.gz
-_eclasses_=java-utils-2	a080d4947ca188a48725a375b6184bc5	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e
-_md5_=a5b896446c035439e29df443d55a0f03
+_eclasses_=java-utils-2	a080d4947ca188a48725a375b6184bc5	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e	junit5	84fcaea874f0356694c679a7b2bdeee2
+_md5_=9cd71c317e8d274249eb4ac009346a2b
