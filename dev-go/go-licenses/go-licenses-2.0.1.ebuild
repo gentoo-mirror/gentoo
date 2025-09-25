@@ -1,24 +1,25 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit bash-completion-r1 edo go-module
+inherit shell-completion edo go-module
 
 DESCRIPTION="Reports on the licenses used by a Go package and its dependencies"
 HOMEPAGE="https://github.com/google/go-licenses"
 SRC_URI="https://github.com/google/go-licenses/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-deps.tar.xz"
+SRC_URI+=" https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-vendor.tar.xz"
 
-LICENSE="Apache-2.0 BSD-2 BSD MIT Unlicense"
+LICENSE="Apache-2.0"
+# Dependent licenses
+LICENSE+=" BSD-2 BSD MIT Unlicense"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-
-# Wants network access
 RESTRICT="test"
+PROPERTIES="test_network"
 
 src_compile() {
-	ego build
+	ego build -mod=vendor
 
 	local shell
 	for shell in bash fish zsh ; do
@@ -26,16 +27,16 @@ src_compile() {
 	done
 }
 
+src_test() {
+	ego test ./...
+}
+
 src_install() {
 	einstalldocs
 
-	dobin go-licenses
+	dobin ${PN}
 
 	newbashcomp ${PN}.bash ${PN}
-
-	insinto /usr/share/fish/vendor_completions.d
-	doins go-licenses.fish
-
-	insinto /usr/share/zsh/site-functions
-	newins go-licenses.zsh _go-licenses
+	newzshcomp ${PN}.zsh _${PN}
+	dofishcomp ${PN}.fish
 }
