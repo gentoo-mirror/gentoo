@@ -204,69 +204,10 @@ dev-cpp/metslib
 app-misc/glastree
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-08-27)
-# EAPI-7 cmake.eclass straggler sci-libs/ libraries without revdeps.
-# If you need them, raise your hand by doing the necessary EAPI-8 porting.
-# Removal on 2025-09-26.
-sci-libs/clapack
-sci-libs/cminpack
-sci-libs/coinor-cppad
-sci-libs/exodusii
-sci-libs/fcl
-sci-libs/kim-api
-sci-libs/libccd
-sci-libs/neartree
-sci-libs/nemesis
-sci-libs/orocos_kdl
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-27)
-# EAPI-7 cmake.eclass straggler dev-libs/ libraries without revdeps.
-# If you need them, raise your hand by doing the necessary EAPI-8 porting.
-# Bugs #957252, #957234. Removal on 2025-09-26.
-dev-libs/libdynd
-dev-libs/libflatarray
-dev-libs/redis-ipc
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-27)
-# EAPI-7 cmake.eclass straggler libraries without revdeps.
-# If you need them, raise your hand by doing the necessary EAPI-8 porting.
-# Bugs #957225, #957238. Removal on 2025-09-26.
-dev-cpp/cpp-hocon
-dev-libs/leatherman
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-27)
-# EAPI-7 cmake.eclass library without any revdeps.
-# Removal on 2025-09-26.
-dev-cpp/robin-hood-hashing
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-27)
-# Only translation commits since 2020, still Qt5-based. Worse, packaged
-# version in Gentoo is from 2016, no one bothered to bump it since then.
-# Really needs a package maintainer while upstream is looking into Qt6.
-# Bug #955260. Removal on 2025-09-26.
-media-sound/fmit
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-27)
-# Qt5 based, still EAPI-7, last commit in upstream repo 7 years ago.
-# Alternatives are games-emulation/mednafen or, from guru overlay,
-# games-emulation/RetroArch. Bugs #953641, #957257, #879693.
-# Removal on 2025-09-26.
-games-emulation/yabause
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-27)
-# Qt5 based, last release >3 years ago and no commits since then.
-# Bug #953258. Removal on 2025-09-26
-x11-terms/cool-retro-term
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-08-27)
 # Qt5 based and still EAPI-7, last release from 2016, broken Qt6 "support"
 # in upstream repo. Needs someone to pick up the pieces of upstream's
 # porting effort. Bugs #953885, #955828, #957574. Removal on 2025-09-26.
 sci-calculators/speedcrunch
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2025-08-22)
-# maintainer-needed, depends on Qt5, no upstream activity since 2017.
-# Removal on 2025-09-21.  Bugs #961889, #960823.
-x11-misc/fracplanet
 
 # James Le Cuirot <chewi@gentoo.org> (2025-08-21)
 # The required Direct3D 9 feature is being dropped from Mesa. Use DXVK or
