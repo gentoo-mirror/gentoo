@@ -5,7 +5,7 @@ EAPI=8
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/yoranheling.asc
 
-ZIG_SLOT="0.14"
+ZIG_SLOT="0.15"
 ZIG_NEEDS_LLVM=1
 inherit verify-sig zig
 
@@ -18,7 +18,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 BDEPEND="verify-sig? ( sec-keys/openpgp-keys-yorhel )"
 DEPEND="
