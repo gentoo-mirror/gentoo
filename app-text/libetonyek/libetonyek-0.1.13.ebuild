@@ -3,37 +3,36 @@
 
 EAPI=8
 
-inherit flag-o-matic
-
 if [[ ${PV} == *9999* ]]; then
-	EGIT_REPO_URI="https://git.libreoffice.org/libvisio.git"
+	EGIT_REPO_URI="https://git.libreoffice.org/libetonyek.git"
 	inherit autotools git-r3
 else
-	SRC_URI="https://dev-www.libreoffice.org/src/libvisio/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	SRC_URI="https://dev-www.libreoffice.org/src/libetonyek/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
-DESCRIPTION="Library parsing the file format of MS Visio documents"
-HOMEPAGE="https://wiki.documentfoundation.org/DLP/Libraries/libvisio"
+DESCRIPTION="Library parsing Apple Keynote presentations"
+HOMEPAGE="https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
 
 LICENSE="|| ( GPL-2+ LGPL-2.1 MPL-1.1 )"
 SLOT="0"
-IUSE="doc test tools"
+IUSE="doc test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-libs/icu:=
+	app-text/liblangtag
 	dev-libs/librevenge
 	dev-libs/libxml2:=
+	>=dev-util/mdds-2.1:1=
+	sys-libs/zlib
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost
-	dev-util/gperf
+	media-libs/glm
 	dev-build/libtool
 	test? ( dev-util/cppunit )
 "
 BDEPEND="
-	dev-lang/perl
 	virtual/pkgconfig
 	doc? ( app-text/doxygen )
 "
@@ -46,14 +45,16 @@ src_prepare() {
 
 src_configure() {
 	local myeconfargs=(
+		--disable-werror
+		--with-mdds=2.1
 		$(use_with doc docs)
 		$(use_enable test tests)
-		$(use_enable tools)
 	)
+
 	econf "${myeconfargs[@]}"
 }
 
 src_install() {
 	default
-	find "${ED}" -name '*.la' -delete || die
+	find "${ED}" -name '*.la' -type f -delete || die
 }
