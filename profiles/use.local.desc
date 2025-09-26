@@ -8047,8 +8047,9 @@ sys-apps/systemd:kernel-install - Enable kernel-install
 sys-apps/systemd:kmod - Enable kernel module loading via sys-apps/kmod
 sys-apps/systemd:lz4 - Enable lz4 compression for the journal
 sys-apps/systemd:openssl - Enable use of dev-libs/openssl for various features
+sys-apps/systemd:passwdqc - Use sys-auth/passwdqc for password checking in homed
 sys-apps/systemd:pkcs11 - Enable PKCS#11 support for cryptsetup and homed
-sys-apps/systemd:pwquality - Enable password quality checking in homed
+sys-apps/systemd:pwquality - Use dev-libs/libpwquality for password checking in homed
 sys-apps/systemd:qrcode - Enable qrcode output support in journal
 sys-apps/systemd:resolvconf - Install resolvconf symlink for systemd-resolve
 sys-apps/systemd:sysv-utils - Install sysvinit compatibility symlinks and manpages for init, telinit, halt, poweroff, reboot, runlevel, and shutdown
