@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install test
-DEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/uchar:= utftrip? ( dev-ml/cmdliner:= ) dev-ml/ocamlbuild dev-ml/topkg test? ( dev-ml/cmdliner ) >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DEPEND=dev-ml/uchar:= utftrip? ( dev-ml/cmdliner:= ) dev-ml/ocamlbuild dev-ml/topkg test? ( dev-ml/cmdliner ) >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Non-blocking streaming Unicode codec for OCaml
 EAPI=7
 HOMEPAGE=https://erratique.ch/software/uutf
@@ -7,10 +7,10 @@ INHERIT=findlib
 IUSE=doc utftrip +ocamlopt test +ocamlopt
 KEYWORDS=amd64 arm arm64 ~ppc ppc64 x86
 LICENSE=ISC
-RDEPEND=>=dev-lang/ocaml-3.12:=[ocamlopt?] dev-ml/uchar:= utftrip? ( dev-ml/cmdliner:= ) dev-lang/ocaml:=[ocamlopt?]
+RDEPEND=dev-ml/uchar:= utftrip? ( dev-ml/cmdliner:= ) dev-lang/ocaml:=[ocamlopt?]
 REQUIRED_USE=utftrip? ( ocamlopt )
 RESTRICT=!test? ( test )
 SLOT=0/1.0.2
 SRC_URI=https://erratique.ch/software/uutf/releases/uutf-1.0.2.tbz
 _eclasses_=findlib	49d5365fca4dea46f13825b9d763c89e
-_md5_=9644152b8012ad5b300977202b4816ff
+_md5_=96b82289da458e5a0ca61ee596bef3fa
