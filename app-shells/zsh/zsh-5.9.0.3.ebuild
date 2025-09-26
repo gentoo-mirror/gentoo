@@ -9,8 +9,10 @@ if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.code.sf.net/p/zsh/code"
 else
-	SRC_URI="https://www.zsh.org/pub/${P}.tar.xz
-		doc? ( https://www.zsh.org/pub/${P}-doc.tar.xz )"
+	MY_PN="zsh-test"
+	SRC_URI="https://downloads.sourceforge.net/zsh/zsh-test/${PV}-test/${P}-test.tar.xz
+		doc? ( https://downloads.sourceforge.net/zsh/zsh-test/${P}-test-doc.tar.xz )"
+	S="${WORKDIR}/${P}-test"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 fi
 
@@ -81,7 +83,6 @@ src_configure() {
 		--enable-fndir="${EPREFIX}"/usr/share/zsh/${PV%_*}/functions
 		--enable-site-fndir="${EPREFIX}"/usr/share/zsh/site-functions
 		--enable-function-subdirs
-		--with-tcsetpgrp
 		--enable-multibyte
 		--with-term-lib='tinfow ncursesw'
 		$(use_enable maildir maildir-support)
@@ -198,7 +199,7 @@ src_install() {
 	dodoc ChangeLog* META-FAQ NEWS README config.modules
 
 	if use doc; then
-		dodoc Doc/intro.{a4,us}.pdf Doc/zsh_{a4,us}.{dvi,pdf}
+		dodoc Doc/intro.{a4,us}.pdf Doc/zsh.{dvi,pdf}
 	fi
 
 	docinto StartupFiles
