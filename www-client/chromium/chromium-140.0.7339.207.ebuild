@@ -74,11 +74,11 @@ LICENSE+=" FFT2D FTL IJG ISC LGPL-2 LGPL-2.1 libpng libpng2 MIT MPL-1.1 MPL-2.0 
 LICENSE+=" SGI-B-2.0 SSLeay SunSoft Unicode-3.0 Unicode-DFS-2015 Unlicense UoI-NCSA X11-Lucent"
 LICENSE+=" rar? ( unRAR )"
 
-SLOT="0/dev"
+SLOT="0/stable"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
 if [[ ${SLOT} != "0/dev" ]]; then
-	KEYWORDS="~amd64 ~arm64"
+	KEYWORDS="amd64 arm64"
 fi
 
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
@@ -217,7 +217,7 @@ BDEPEND="
 	dev-lang/perl
 	>=dev-util/gperf-3.2
 	dev-vcs/git
-	>=net-libs/nodejs-${NODE_VER}[inspector]
+	>=net-libs/nodejs-${NODE_VER}:0/${NODE_VER%%.*}[inspector]
 	>=sys-devel/bison-2.4.3
 	sys-devel/flex
 	virtual/pkgconfig
@@ -363,9 +363,12 @@ pkg_setup() {
 		export RUSTC_BOOTSTRAP=1
 
 		# Users should never hit this, it's purely a development convenience
-		if ver_test $(gn --version || die) -lt ${GN_MIN_VER}; then
-			die "dev-build/gn >= ${GN_MIN_VER} is required to build this Chromium"
-		fi
+		# This has been commented out as our revbump still reports the same version.
+		# Typically we would just update from upstream, but that would need a stablereq
+		# and we may as well do that once the GN patch has landed upstream.
+		# if ver_test $(gn --version || die) -lt ${GN_MIN_VER}; then
+		# 	die "dev-build/gn >= ${GN_MIN_VER} is required to build this Chromium"
+		# fi
 	fi
 
 	chromium_suid_sandbox_check_kernel_config
@@ -465,14 +468,15 @@ src_prepare() {
 	python_setup
 
 	local PATCHES=(
-		"${FILESDIR}/${PN}-cross-compile.patch"
-		"${FILESDIR}/${PN}-109-system-zlib.patch"
-		"${FILESDIR}/${PN}-111-InkDropHost-crash.patch"
-		"${FILESDIR}/${PN}-131-unbundle-icu-target.patch"
-		"${FILESDIR}/${PN}-134-bindgen-custom-toolchain.patch"
-		"${FILESDIR}/${PN}-135-oauth2-client-switches.patch"
-		"${FILESDIR}/${PN}-138-nodejs-version-check.patch"
-		"${FILESDIR}/${PN}-141-cssstylesheet-iwyu.patch"
+		"${FILESDIR}/chromium-cross-compile.patch"
+		"${FILESDIR}/chromium-109-system-zlib.patch"
+		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
+		"${FILESDIR}/chromium-131-unbundle-icu-target.patch"
+		"${FILESDIR}/chromium-134-bindgen-custom-toolchain.patch"
+		"${FILESDIR}/chromium-135-oauth2-client-switches.patch"
+		"${FILESDIR}/chromium-135-map_droppable-glibc.patch"
+		"${FILESDIR}/chromium-138-nodejs-version-check.patch"
+		"${FILESDIR}/chromium-140-bindgen-unknown-warning.patch"
 	)
 
 	# https://issues.chromium.org/issues/442698344
@@ -553,6 +557,12 @@ src_prepare() {
 			sed -i 's/adler2/adler/' build/rust/std/BUILD.gn ||
 				die "Failed to tell GN that we have adler and not adler2"
 		fi
+
+		# chromium@0420449584e2afb7473393f536379efe194ba23c
+		# this crate is not included in the latest versions of Rust,
+		# and apparently has been unnecessary in Chromium for a long time.
+				sed -i '/unicode_width/d' build/rust/std/BUILD.gn ||
+			die "Failed to remove unicode_width from build/rust/std/BUILD.gn"
 
 		if ver_test ${RUST_SLOT} -lt "1.89.0"; then
 			# The rust allocator was changed in 1.89.0, so we need to patch sources for older versions
@@ -680,11 +690,6 @@ src_prepare() {
 		third_party/farmhash
 		third_party/fast_float
 		third_party/fdlibm
-		third_party/federated_compute/chromium/fcp/confidentialcompute
-		third_party/federated_compute/src/fcp/base
-		third_party/federated_compute/src/fcp/confidentialcompute
-		third_party/federated_compute/src/fcp/protos/confidentialcompute
-		third_party/federated_compute/src/fcp/protos/federatedcompute
 		third_party/ffmpeg
 		third_party/fft2d
 		third_party/flatbuffers
@@ -761,8 +766,6 @@ src_prepare() {
 		third_party/nearby
 		third_party/neon_2_sse
 		third_party/node
-		third_party/oak/chromium/proto
-		third_party/oak/chromium/proto/attestation
 		third_party/omnibox_proto
 		third_party/one_euro_filter
 		third_party/openscreen
@@ -854,11 +857,11 @@ src_prepare() {
 		third_party/zlib/google
 		third_party/zxcvbn-cpp
 		url/third_party/mozilla
+		v8/third_party/siphash
+		v8/third_party/utf8-decoder
 		v8/third_party/glibc
 		v8/third_party/inspector_protocol
 		v8/third_party/rapidhash-v8
-		v8/third_party/siphash
-		v8/third_party/utf8-decoder
 		v8/third_party/v8
 		v8/third_party/valgrind
 
@@ -1053,7 +1056,6 @@ chromium_configure() {
 		myconf_gn+=(
 			"is_clang=true"
 			"clang_use_chrome_plugins=false"
-			"use_clang_modules=false" # M141 enables this for the linux platform by default.
 			"use_lld=true"
 			'custom_toolchain="//build/toolchain/linux/unbundle:default"'
 			# From M127 we need to provide a location for libclang.
@@ -1476,11 +1478,6 @@ src_test() {
 		CriticalProcessAndThreadSpotChecks/HangWatcherAnyCriticalThreadTests.AnyCriticalThreadHung/ThreadPoolIsNotCritical
 		# M140
 		CriticalProcessAndThreadSpotChecks/HangWatcherAnyCriticalThreadTests.AnyCriticalThreadHung/GpuProcessIsCritical
-		# M142 - needs investigation if they persist into beta
-		AlternateTestParams/PartitionAllocTest.Realloc/2
-		AlternateTestParams/PartitionAllocTest.Realloc/3
-		AlternateTestParams/PartitionAllocTest.ReallocDirectMapAligned/2
-		AlternateTestParams/PartitionAllocTest.ReallocDirectMapAligned/3
 	)
 	local test_filter="-$(IFS=:; printf '%s' "${skip_tests[*]}")"
 	# test-launcher-bot-mode enables parallelism and plain output
