@@ -1,6 +1,6 @@
 BDEPEND=emacs? ( >=app-editors/emacs-23.1:* ) test? ( sci-mathematics/coq-mathcomp ) dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install postinst postrm test
-DEPEND=>=sci-mathematics/coq-8.20.0:= <sci-mathematics/coq-8.21.0:= >=dev-ml/ppx_sexp_conv-0.13.0:= dev-ml/cmdliner:= dev-ml/ppx_compare:= dev-ml/ppx_deriving:= dev-ml/ppx_deriving_yojson:= dev-ml/ppx_hash:= dev-ml/ppx_import:= dev-ml/sexplib:= dev-ml/yojson:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=>=sci-mathematics/coq-8.20.0:= <sci-mathematics/coq-8.21.0:= >=dev-ml/ppx_sexp_conv-0.13.0:= dev-ml/cmdliner:= dev-ml/ppx_compare:= dev-ml/ppx_deriving:= dev-ml/ppx_deriving_yojson:= dev-ml/ppx_hash:= dev-ml/ppx_import:= dev-ml/sexplib:= dev-ml/yojson:= dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Serialization library and protocol for interaction with the Coq proof assistant
 EAPI=8
 HOMEPAGE=https://github.com/ejgallego/coq-serapi/
@@ -8,9 +8,9 @@ INHERIT=dune elisp-common
 IUSE=emacs +ocamlopt test
 KEYWORDS=~amd64
 LICENSE=GPL-3+
-RDEPEND=>=sci-mathematics/coq-8.20.0:= <sci-mathematics/coq-8.21.0:= >=dev-ml/ppx_sexp_conv-0.13.0:= dev-ml/cmdliner:= dev-ml/ppx_compare:= dev-ml/ppx_deriving:= dev-ml/ppx_deriving_yojson:= dev-ml/ppx_hash:= dev-ml/ppx_import:= dev-ml/sexplib:= dev-ml/yojson:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=>=sci-mathematics/coq-8.20.0:= <sci-mathematics/coq-8.21.0:= >=dev-ml/ppx_sexp_conv-0.13.0:= dev-ml/cmdliner:= dev-ml/ppx_compare:= dev-ml/ppx_deriving:= dev-ml/ppx_deriving_yojson:= dev-ml/ppx_hash:= dev-ml/ppx_import:= dev-ml/sexplib:= dev-ml/yojson:= dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/0.20.0
 SRC_URI=https://github.com/ejgallego/coq-serapi/archive/8.20.0+0.20.0.tar.gz -> coq-serapi-0.20.0.tar.gz
-_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a	elisp-common	fe05085d051330f15cf7201109b5cd23
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	4304f35da0fafecd98eb149d0b7ed4d4	elisp-common	fe05085d051330f15cf7201109b5cd23
 _md5_=ab0a9bb5628b2f680f53a38b21d17498

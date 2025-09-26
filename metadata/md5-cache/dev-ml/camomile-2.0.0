@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/dune-site:= dev-ml/camlp-streams:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/dune-site:= dev-ml/camlp-streams:= dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Camomile is a comprehensive Unicode library for ocaml
 EAPI=8
 HOMEPAGE=https://github.com/savonet/Camomile
@@ -8,9 +8,9 @@ INHERIT=dune
 IUSE=+ocamlopt
 KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 x86
 LICENSE=LGPL-2
-RDEPEND=dev-ml/dune-site:= dev-ml/camlp-streams:= >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/dune-site:= dev-ml/camlp-streams:= dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=test
 SLOT=0/2.0.0
 SRC_URI=https://github.com/savonet/camomile/archive/v2.0.0.tar.gz -> camomile-2.0.0.tar.gz
-_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	4304f35da0fafecd98eb149d0b7ed4d4
 _md5_=d493cc1f033ea056bf839082d4649d60

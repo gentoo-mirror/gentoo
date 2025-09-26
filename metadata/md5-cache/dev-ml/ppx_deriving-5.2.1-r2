@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=dev-ml/ppx_tools:=[ocamlopt?] dev-ml/ocaml-migrate-parsetree:=[ocamlopt?] dev-ml/ppx_derivers:=[ocamlopt?] >=dev-ml/ppxlib-0.20.0:=[ocamlopt?] dev-ml/findlib:=[ocamlopt?] dev-ml/result:=[ocamlopt?] dev-ml/sexplib0:=[ocamlopt?] dev-ml/cppo[ocamlopt?] test? ( dev-ml/ounit2 ) >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/ppx_tools:=[ocamlopt?] dev-ml/ocaml-migrate-parsetree:=[ocamlopt?] dev-ml/ppx_derivers:=[ocamlopt?] >=dev-ml/ppxlib-0.20.0:=[ocamlopt?] dev-ml/findlib:=[ocamlopt?] dev-ml/result:=[ocamlopt?] dev-ml/sexplib0:=[ocamlopt?] dev-ml/cppo[ocamlopt?] test? ( dev-ml/ounit2 ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Type-driven code generation for OCaml
 EAPI=7
 HOMEPAGE=https://github.com/ocaml-ppx/ppx_deriving
@@ -8,9 +8,9 @@ INHERIT=dune
 IUSE=+ocamlopt test
 KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 x86
 LICENSE=MIT
-RDEPEND=dev-ml/ppx_tools:=[ocamlopt?] dev-ml/ocaml-migrate-parsetree:=[ocamlopt?] dev-ml/ppx_derivers:=[ocamlopt?] >=dev-ml/ppxlib-0.20.0:=[ocamlopt?] dev-ml/findlib:=[ocamlopt?] dev-ml/result:=[ocamlopt?] dev-ml/sexplib0:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/ppx_tools:=[ocamlopt?] dev-ml/ocaml-migrate-parsetree:=[ocamlopt?] dev-ml/ppx_derivers:=[ocamlopt?] >=dev-ml/ppxlib-0.20.0:=[ocamlopt?] dev-ml/findlib:=[ocamlopt?] dev-ml/result:=[ocamlopt?] dev-ml/sexplib0:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0/5.2.1
 SRC_URI=https://github.com/ocaml-ppx/ppx_deriving/archive/v5.2.1.tar.gz -> ppx_deriving-5.2.1.tar.gz
-_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	4304f35da0fafecd98eb149d0b7ed4d4
 _md5_=ccf928d5cf107c39b9e81a6ae5ae8458

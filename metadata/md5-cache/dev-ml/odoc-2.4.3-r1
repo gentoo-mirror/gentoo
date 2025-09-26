@@ -1,6 +1,6 @@
 BDEPEND=>=dev-ml/dune-3.7 dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile install test
-DEPEND=<dev-lang/ocaml-5.3 dev-ml/astring:= dev-ml/camlp-streams:=[ocamlopt?] dev-ml/cmdliner:=[ocamlopt?] !dev-ml/odoc-parser dev-ml/fmt:=[ocamlopt?] dev-ml/fpath:= dev-ml/ocaml-crunch:=[ocamlopt?] dev-ml/result:=[ocamlopt?] dev-ml/tyxml:=[ocamlopt?] dev-ml/cppo:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+DEPEND=<dev-lang/ocaml-5.3 dev-ml/astring:= dev-ml/camlp-streams:=[ocamlopt?] dev-ml/cmdliner:=[ocamlopt?] !dev-ml/odoc-parser dev-ml/fmt:=[ocamlopt?] dev-ml/fpath:= dev-ml/ocaml-crunch:=[ocamlopt?] dev-ml/result:=[ocamlopt?] dev-ml/tyxml:=[ocamlopt?] dev-ml/cppo:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=OCaml documentation generator
 EAPI=8
 HOMEPAGE=http://github.com/ocaml/odoc/
@@ -8,9 +8,9 @@ INHERIT=dune
 IUSE=+ocamlopt test
 KEYWORDS=~amd64
 LICENSE=ISC
-RDEPEND=<dev-lang/ocaml-5.3 dev-ml/astring:= dev-ml/camlp-streams:=[ocamlopt?] dev-ml/cmdliner:=[ocamlopt?] !dev-ml/odoc-parser dev-ml/fmt:=[ocamlopt?] dev-ml/fpath:= dev-ml/ocaml-crunch:=[ocamlopt?] dev-ml/result:=[ocamlopt?] dev-ml/tyxml:=[ocamlopt?] >=dev-lang/ocaml-4:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=<dev-lang/ocaml-5.3 dev-ml/astring:= dev-ml/camlp-streams:=[ocamlopt?] dev-ml/cmdliner:=[ocamlopt?] !dev-ml/odoc-parser dev-ml/fmt:=[ocamlopt?] dev-ml/fpath:= dev-ml/ocaml-crunch:=[ocamlopt?] dev-ml/result:=[ocamlopt?] dev-ml/tyxml:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/ocaml/odoc/releases/download/2.4.3/odoc-2.4.3.tbz
-_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	21c2970666b517829dc7b963ca1f4a4a
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	4304f35da0fafecd98eb149d0b7ed4d4
 _md5_=c11dc34b5e1f89ee9af4d29964563147
