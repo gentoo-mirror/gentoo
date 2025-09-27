@@ -11,7 +11,7 @@ DOTNET_PKG_COMPAT="9.0"
 NUGETS="
 dotnet-reportgenerator-globaltool@5.3.8
 fantomas@7.0.1
-fsharp-analyzers@0.31.0
+fsharp-analyzers@0.32.1
 paket@9.0.2
 telplin@0.9.6
 
@@ -29,10 +29,11 @@ dotnet.reproduciblebuilds@1.2.25
 expecto.diff@10.2.1
 expecto@10.0.0
 expecto@10.2.1
+expecto@10.2.3
 fantomas.client@0.9.1
 fparsec@1.1.1
 fsharp.analyzers.build@0.3.0
-fsharp.analyzers.sdk@0.31.0
+fsharp.analyzers.sdk@0.32.1
 fsharp.compiler.service@43.9.300
 fsharp.control.asyncseq@2.0.21
 fsharp.control.asyncseq@3.2.1
@@ -47,7 +48,9 @@ fsharp.core@6.0.1
 fsharp.core@7.0.200
 fsharp.core@7.0.300
 fsharp.core@8.0.101
+fsharp.core@9.0.202
 fsharp.core@9.0.300
+fsharp.core@9.0.303
 fsharp.data.adaptive@1.2.18
 fsharp.formatting@14.0.1
 fsharp.umx@1.1.0
@@ -70,12 +73,12 @@ iced@1.17.0
 iced@1.21.0
 icedtasks@0.11.7
 icsharpcode.decompiler@8.2.0.7535
-ionide.analyzers@0.14.5
+ionide.analyzers@0.14.7
 ionide.keepachangelog.tasks@0.1.8
 ionide.languageserverprotocol@0.7.0
-ionide.projinfo.fcs@0.71.1
-ionide.projinfo.projectsystem@0.71.1
-ionide.projinfo@0.71.1
+ionide.projinfo.fcs@0.71.2
+ionide.projinfo.projectsystem@0.71.2
+ionide.projinfo@0.71.2
 linkdotnet.stringbuilder@1.18.0
 mcmaster.netcore.plugins@1.4.0
 messagepack.annotations@2.5.192
@@ -127,6 +130,7 @@ microsoft.extensions.logging.abstractions@6.0.4
 microsoft.extensions.logging.abstractions@9.0.1
 microsoft.extensions.logging.configuration@9.0.0
 microsoft.extensions.logging.configuration@9.0.1
+microsoft.extensions.logging@8.0.0
 microsoft.extensions.logging@9.0.1
 microsoft.extensions.options.configurationextensions@9.0.1
 microsoft.extensions.options@9.0.1
@@ -142,6 +146,7 @@ microsoft.netcore.targets@5.0.0
 microsoft.testplatform.objectmodel@17.10.0
 microsoft.testplatform.objectmodel@17.12.0
 microsoft.testplatform.testhost@17.12.0
+microsoft.testplatform.translationlayer@17.13.0
 microsoft.visualstudio.solutionpersistence@1.0.28
 microsoft.visualstudio.threading.analyzers@17.10.48
 microsoft.visualstudio.threading.analyzers@17.12.19
@@ -153,6 +158,7 @@ mono.cecil@0.11.4
 mono.cecil@0.11.6
 nerdbank.streams@2.11.74
 nerdbank.streams@2.11.79
+netstandard.library@2.0.0
 netstandard.library@2.0.3
 newtonsoft.json@13.0.1
 newtonsoft.json@13.0.3
@@ -173,6 +179,8 @@ runtime.fedora.28-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.3
 runtime.native.System.Security.Cryptography.Apple@4.3.1
 runtime.native.System.Security.Cryptography.OpenSsl@4.3.3
 runtime.native.system.net.http@4.3.1
+runtime.native.system.security.cryptography.apple@4.3.1
+runtime.native.system.security.cryptography.openssl@4.3.3
 runtime.native.system@4.3.1
 runtime.opensuse.13.2-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.3
 runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.3
@@ -185,6 +193,7 @@ runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3
 runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.3
 runtime.ubuntu.18.04-x64.runtime.native.System.Security.Cryptography.OpenSsl@4.3.3
 semanticversioning@2.0.2
+serilog.extensions.logging@8.0.0
 serilog.sinks.async@2.1.0
 serilog.sinks.console@6.0.0
 serilog.sinks.file@6.0.0
@@ -271,6 +280,7 @@ system.security.cryptography.algorithms@4.3.1
 system.security.cryptography.cng@5.0.0
 system.security.cryptography.csp@4.3.0
 system.security.cryptography.encoding@4.3.0
+system.security.cryptography.openssl@5.0.0
 system.security.cryptography.pkcs@8.0.0
 system.security.cryptography.pkcs@9.0.1
 system.security.cryptography.primitives@4.3.0
@@ -311,7 +321,7 @@ else
 		-> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${APP_PN}-${PV}"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -323,7 +333,10 @@ CHECKREQS_DISK_BUILD="2G"
 PATCHES=( "${FILESDIR}/${PN}-0.73.0-paket-dependencies.patch" )
 
 DOTNET_PKG_PROJECTS=( src/FsAutoComplete )
-DOTNET_PKG_BAD_PROJECTS=( test/FsAutoComplete.Tests.Lsp )
+DOTNET_PKG_BAD_PROJECTS=(
+	test/FsAutoComplete.Tests.Lsp
+	test/FsAutoComplete.Tests.TestExplorer
+)
 
 DOCS=( CHANGELOG.md README.md )
 
