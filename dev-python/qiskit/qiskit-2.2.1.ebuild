@@ -13,7 +13,7 @@ RUST_MIN_VER="1.84.0"
 inherit cargo distutils-r1
 
 MY_P=${P/_}
-CRATE_PV=${PV}
+CRATE_PV=2.2.0
 DESCRIPTION="An open-source SDK for working with quantum computers"
 HOMEPAGE="
 	https://github.com/Qiskit/qiskit/
