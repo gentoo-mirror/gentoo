@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/ocaml-3.10.2
+BDEPEND=dev-lang/ocaml
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-lang/ocaml:=[ocamlopt?] ncurses? ( >=sys-libs/ncurses-5.3:0= ) fam? ( virtual/fam ) readline? ( >=sys-libs/readline-4.3:0= )
 DESCRIPTION=Make replacement
@@ -13,4 +13,4 @@ RESTRICT=installsources !ocamlopt? ( strip )
 SLOT=0
 SRC_URI=https://github.com/ocaml-omake/omake/archive/refs/tags/omake-0.10.7.tar.gz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
-_md5_=5ca6441bd46bd23019243630ca55d528
+_md5_=f0c861eb26bf2c6ae0a234282611f4ac
