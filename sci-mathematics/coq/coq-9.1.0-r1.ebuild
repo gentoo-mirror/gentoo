@@ -6,8 +6,8 @@ EAPI=8
 inherit check-reqs desktop dune edo
 
 DESCRIPTION="Coq/Rocq is a proof assistant written in O'Caml"
-HOMEPAGE="https://coq.inria.fr/
-	https://github.com/coq/coq/"
+HOMEPAGE="https://rocq-prover.org
+	https://github.com/rocq-prover/rocq/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -32,6 +32,7 @@ RESTRICT="test"
 RDEPEND="
 	dev-ml/camlzip:=
 	dev-ml/num:=
+	dev-ml/yojson:=
 	dev-ml/zarith:=
 	gui? (
 		>=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?]
