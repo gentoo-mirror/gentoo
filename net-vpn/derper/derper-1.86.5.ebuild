@@ -5,10 +5,10 @@ EAPI=8
 inherit go-module linux-info systemd
 
 # share same source with net-vpn/tailscale
-VERSION_MINOR="82"
-VERSION_SHORT="1.82.5"
-VERSION_LONG="1.82.5-te4d64c6fa"
-VERSION_GIT_HASH="e4d64c6faf827a308ec20b39651225178e6743c0"
+VERSION_MINOR="86"
+VERSION_SHORT="1.86.5"
+VERSION_LONG="1.86.5-tdb392aed3"
+VERSION_GIT_HASH="db392aed39630023f969e1961fcbced785d09358"
 
 MY_P="tailscale-${PV}"
 DESCRIPTION="DERP server for tailscale network"
@@ -26,7 +26,7 @@ CONFIG_CHECK="~TUN"
 BDEPEND="
 	acct-group/derper
 	acct-user/derper
-	>=dev-lang/go-1.22
+	>=dev-lang/go-1.24
 "
 
 RESTRICT="test"
