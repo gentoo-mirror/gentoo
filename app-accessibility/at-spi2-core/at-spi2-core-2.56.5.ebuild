@@ -30,7 +30,6 @@ DEPEND="
 	)
 
 	!<dev-libs/atk-2.46.0
-	!<app-accessibility/at-spi2-atk-2.46.0
 "
 RDEPEND="${DEPEND}
 	dbus-broker? ( sys-apps/dbus-broker )

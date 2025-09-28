@@ -1,9 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 GCONF_DEBUG="yes"
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit gnome.org meson python-r1
 
@@ -12,7 +13,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gom"
 
 LICENSE="LGPL-2+ FDL-1.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="gtk-doc +introspection python test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="python? ( introspection ${PYTHON_REQUIRED_USE} )"

@@ -2,30 +2,30 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit gnome.org gnome2-utils meson python-single-r1 xdg
 
 DESCRIPTION="Music management for Gnome"
-HOMEPAGE="https://apps.gnome.org/Music/ https://gitlab.gnome.org/GNOME/gnome-music/"
+HOMEPAGE="https://apps.gnome.org/Music/"
 
 LICENSE="GPL-2+"
 SLOT="0"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-KEYWORDS="amd64 arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
 DEPEND="${PYTHON_DEPS}
 	>=dev-libs/glib-2.67.1:2
 	>=dev-libs/gobject-introspection-1.54:=
-	>=gui-libs/gtk-4.10.0:4[introspection]
-	>=gui-libs/libadwaita-1.5_beta:1=[introspection]
+	>=gui-libs/gtk-4.16.0:4[introspection]
+	>=gui-libs/libadwaita-1.6:1=[introspection]
 	>=media-libs/libmediaart-1.9.1:2.0[introspection]
 	net-libs/libsoup:3.0[introspection]
 	app-misc/tinysparql:3=[introspection(+)]
 	>=x11-libs/pango-1.44:=
 	$(python_gen_cond_dep '
-		>=dev-python/pygobject-3.47.0:3[cairo,${PYTHON_USEDEP}]
+		>=dev-python/pygobject-3.50.0:3[cairo,${PYTHON_USEDEP}]
 		>=dev-python/pycairo-1.14.0[${PYTHON_USEDEP}]
 	')
 	>=media-libs/grilo-0.3.15-r1:0.3[introspection]
