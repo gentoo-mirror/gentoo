@@ -1,12 +1,12 @@
 DEFINED_PHASES=compile configure install postinst prepare
-DEPEND=>=dev-lang/ocaml-4.02.3-r1:=[ocamlopt?] tk? ( dev-ml/labltk:= )
+DEPEND=dev-lang/ocaml:=[ocamlopt?] tk? ( dev-ml/labltk:= )
 DESCRIPTION=OCaml tool to find/use non-standard packages
 EAPI=8
 HOMEPAGE=http://projects.camlcity.org/projects/findlib.html
 IUSE=doc +ocamlopt tk
 KEYWORDS=amd64 arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=MIT
-RDEPEND=>=dev-lang/ocaml-4.02.3-r1:=[ocamlopt?] tk? ( dev-ml/labltk:= )
+RDEPEND=dev-lang/ocaml:=[ocamlopt?] tk? ( dev-ml/labltk:= )
 SLOT=0
 SRC_URI=http://download.camlcity.org/download/findlib-1.9.6.tar.gz
-_md5_=28e908a2080cdaab54ebba2586184374
+_md5_=deab942370df686285d628f7aad5c81f

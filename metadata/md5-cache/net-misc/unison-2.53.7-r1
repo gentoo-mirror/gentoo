@@ -9,8 +9,8 @@ INHERIT=desktop xdg-utils
 IUSE=doc gui +ocamlopt
 KEYWORDS=amd64 ~arm ~ppc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=GPL-2
-RDEPEND=>=dev-lang/ocaml-4.08:= gui? ( dev-ml/lablgtk:3=[ocamlopt?] || ( net-misc/ssh-askpass-fullscreen net-misc/x11-ssh-askpass ) )
+RDEPEND=dev-lang/ocaml:= gui? ( dev-ml/lablgtk:3=[ocamlopt?] || ( net-misc/ssh-askpass-fullscreen net-misc/x11-ssh-askpass ) )
 SLOT=2.53
 SRC_URI=https://github.com/bcpierce00/unison/archive/refs/tags/v2.53.7.tar.gz -> unison-2.53.7.gh.tar.gz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=905be33d789083fe415e4d0bf7c49e3c
+_md5_=1d83c09b25baa7bbce43fb0b06b4228a
