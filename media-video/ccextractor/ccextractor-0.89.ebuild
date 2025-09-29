@@ -1,20 +1,21 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
 DESCRIPTION="Extract closed captioning subtitles from video to SRT"
-HOMEPAGE="https://www.ccextractor.org/"
+HOMEPAGE="https://ccextractor.org/"
 SRC_URI="https://github.com/CCExtractor/ccextractor/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${P}/src"
+CMAKE_USE_DIR="${S}/src"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
-BDEPEND="app-arch/unzip
+BDEPEND="
+	app-arch/unzip
 	virtual/pkgconfig"
 RDEPEND="
 	media-libs/libpng:0=
@@ -22,12 +23,12 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/ccextractor-0.88-fno-common.patch"
-	"${FILESDIR}/ccextractor-0.88-libdir.patch"
-	"${FILESDIR}/ccextractor-0.88-cflags.patch"
+	"${FILESDIR}/${P}-libdir.patch"
+	"${FILESDIR}/${P}-cflags.patch"
+	"${FILESDIR}/${P}-cmake4.patch" # bug 953940
 )
 
 src_install() {
 	cmake_src_install
-	dodoc ../docs/*.TXT
+	dodoc docs/*.TXT
 }
