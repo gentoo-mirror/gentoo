@@ -1,5 +1,5 @@
 diff --git a/doc/CMakeLists.txt b/doc/CMakeLists.txt
-index 6269787..9566e6b 100644
+index b79820c..8e04af5 100644
 --- a/doc/CMakeLists.txt
 +++ b/doc/CMakeLists.txt
 @@ -36,7 +36,6 @@
@@ -21,10 +21,11 @@ index 6269787..9566e6b 100644
  	DEPENDS
  		${CMAKE_CURRENT_BINARY_DIR}/conf.py
  		${CMAKE_CURRENT_BINARY_DIR}/xml/index.xml
-@@ -127,36 +122,7 @@ add_custom_command(
+@@ -126,39 +121,3 @@ add_custom_command(
+ 		${CMAKE_CURRENT_BINARY_DIR}/html/index.html
  	COMMENT "Generating the documentation"
  )
- 
+-
 -add_custom_command(
 -	COMMAND
 -		${CMAKE_CURRENT_SOURCE_DIR}/benchreport
@@ -40,6 +41,8 @@ index 6269787..9566e6b 100644
 -	COMMENT "Generate the benchmarks summary"
 -)
 -
+-# covreport should not depend on lcov.out: it should generate a coverage report
+-# if it exists, or skip the report generation if it doesn't.
 -add_custom_command(
 -	COMMAND
 -		${CMAKE_CURRENT_SOURCE_DIR}/covreport
@@ -53,22 +56,21 @@ index 6269787..9566e6b 100644
 -	COMMENT "Generate the coverage report"
 -)
 -
- add_custom_target(doc
- 	DEPENDS
+-add_custom_target(doc
+-	DEPENDS
 -		${CMAKE_CURRENT_BINARY_DIR}/html/external/benchmarks/index.html
 -		${CMAKE_CURRENT_BINARY_DIR}/html/external/coverage/index.html
-+		${CMAKE_CURRENT_BINARY_DIR}/html/index.html
- )
+-)
 diff --git a/tests/unit/CMakeLists.txt b/tests/unit/CMakeLists.txt
-index b7d38cd..505dea6 100644
+index 074a3c3..d09def9 100644
 --- a/tests/unit/CMakeLists.txt
 +++ b/tests/unit/CMakeLists.txt
-@@ -183,7 +183,7 @@ add_custom_target(test
-     COMMENT "Running tests"
+@@ -203,7 +203,7 @@ add_custom_target(unit
+     COMMENT "Running unit tests"
  )
  
 -if (NOT ${NO_DOCS})
 +if (FALSE)
+     include(ProcessorCount)
      find_program(LCOV_BIN lcov REQUIRED)
  
-     add_custom_command(TARGET test

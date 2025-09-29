@@ -51,7 +51,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/bpfilter-0.5.0-no-coverage.patch"
+	"${FILESDIR}/bpfilter-0.6.0-no-coverage.patch"
 )
 
 DOCS=(
