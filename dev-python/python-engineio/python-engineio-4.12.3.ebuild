@@ -31,30 +31,25 @@ RDEPEND="
 # Can use eventlet, werkzeug, or gevent, but no tests for werkzeug
 BDEPEND="
 	test? (
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/tornado[${PYTHON_USEDEP}]
 		dev-python/websockets[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-asyncio )
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	dev-python/alabaster
 
-python_test() {
-	local EPYTEST_IGNORE=(
-		# eventlet is masked for removal
-		tests/common/test_async_eventlet.py
-	)
+EPYTEST_IGNORE=(
+	# eventlet is masked for removal
+	tests/common/test_async_eventlet.py
+)
 
-	local EPYTEST_DESELECT=(
-		# also eventlet
-		tests/common/test_server.py::TestServer::test_async_mode_eventlet
-		tests/common/test_server.py::TestServer::test_connect
-		tests/common/test_server.py::TestServer::test_service_task_started
-		tests/common/test_server.py::TestServer::test_upgrades
-	)
-
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -p asyncio
-}
+EPYTEST_DESELECT=(
+	# also eventlet
+	tests/common/test_server.py::TestServer::test_async_mode_eventlet
+	tests/common/test_server.py::TestServer::test_connect
+	tests/common/test_server.py::TestServer::test_service_task_started
+	tests/common/test_server.py::TestServer::test_upgrades
+)
