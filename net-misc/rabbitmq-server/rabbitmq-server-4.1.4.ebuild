@@ -3,10 +3,10 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="xml(+)"
 
-inherit eapi9-ver python-any-r1 systemd
+inherit python-single-r1 systemd
 
 DESCRIPTION="RabbitMQ is a high-performance AMQP-compliant message broker written in Erlang"
 HOMEPAGE="https://www.rabbitmq.com/"
@@ -14,40 +14,51 @@ SRC_URI="https://github.com/rabbitmq/rabbitmq-server/releases/download/v${PV}/${
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="test"
 
-# See https://www.rabbitmq.com/which-erlang.html for Erlang version
-# See https://github.com/rabbitmq/rabbitmq-server/blob/main/deps/rabbitmq_cli/mix.exs for Elixir version
-RDEPEND="
+ACCT_DEPEND="
 	acct-group/rabbitmq
 	acct-user/rabbitmq
-	>=dev-lang/erlang-26.0[ssl] <dev-lang/erlang-26.3
 "
+# See https://www.rabbitmq.com/which-erlang.html for Erlang version
+ERLANG_DEPEND="
+	>=dev-lang/erlang-26.0[ssl] <dev-lang/erlang-28
+"
+RDEPEND="
+	${ACCT_DEPEND}
+	${ERLANG_DEPEND}
+	${PYTHON_DEPS}
+"
+# See https://github.com/rabbitmq/rabbitmq-server/blob/main/deps/rabbitmq_cli/mix.exs for Elixir version
 DEPEND="
-	${RDEPEND}
+	${ERLANG_DEPEND}
 	app-arch/zip
 	app-arch/unzip
 	app-text/docbook-xml-dtd:4.5
 	app-text/xmlto
-	>=dev-lang/elixir-1.13.4 <dev-lang/elixir-1.17.0
+	>=dev-lang/elixir-1.13.4 <dev-lang/elixir-1.19.0
 	dev-libs/libxslt
-	${PYTHON_DEPS}
 "
 BDEPEND="
+	${ACCT_DEPEND}
+	${ERLANG_DEPEND}
 	sys-apps/which
+	|| (
+		app-arch/7zip
+		app-arch/p7zip
+	)
 "
 
-pkg_setup() {
-	python-any-r1_pkg_setup
-}
-
 src_compile() {
+	python_fix_shebang deps/rabbitmq_management/bin/rabbitmqadmin
+
 	# Disable parallel make
 	# https://bugs.gentoo.org/930093
 	# https://bugs.gentoo.org/930098
 	# https://bugs.gentoo.org/930133
-	emake -j1 all docs dist
+	emake -j1 PROJECT_VERSION=${PV} all docs dist
 }
 
 src_install() {
@@ -88,13 +99,4 @@ src_install() {
 	# create the mnesia directory
 	diropts -m 0770 -o rabbitmq -g rabbitmq
 	keepdir /var/lib/rabbitmq/mnesia
-}
-
-pkg_preinst() {
-	# https://www.rabbitmq.com/docs/upgrade#rabbitmq-version-upgradability
-	if ver_replacing -lt 3.12; then
-		elog "Upgrading to RabbitMQ 3.12 requires all feature flags"
-		elog "from 3.11 to be enabled. If any feature flags are not"
-		elog "enabled, the node will refuse to start."
-	fi
 }
