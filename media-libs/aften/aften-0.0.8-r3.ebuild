@@ -1,7 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit cmake
 
@@ -11,7 +11,7 @@ SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1 BSD"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="cxx"
 
 DOCS=( README Changelog )
@@ -20,12 +20,14 @@ PATCHES=(
 	"${FILESDIR}/${P}-multilib.patch"
 	"${FILESDIR}/${P}-ppc.patch"
 	"${FILESDIR}/${P}-no-static-aften.patch"
+	"${FILESDIR}/${P}-arm64.patch" # thx to macports
+	"${FILESDIR}/${P}-cmake4.patch" # downstream patch
 )
 
 src_configure() {
 	local mycmakeargs=(
 		-DSHARED=1
-		-DBINDINGS_CXX=$(usex cxx)
+		-DBINDINGS_CXX=$(usex cxx) # "only lightly tested"
 	)
 	cmake_src_configure
 }
