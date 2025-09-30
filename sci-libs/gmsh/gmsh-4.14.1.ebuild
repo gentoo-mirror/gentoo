@@ -23,23 +23,23 @@ LICENSE="
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 ## cgns is not compiling ATM, maybe fix cgns lib first
-IUSE="+alglib +blas cgns eigen examples +gmm jpeg med metis mpi mumps netgen opencascade petsc pdf png python shared slepc X voro zlib"
+IUSE="+alglib +blas cgns eigen examples +gmm gui jpeg med metis mpi mumps netgen opencascade petsc pdf png python shared slepc voro zlib"
 
 REQUIRED_USE="
 	^^ ( blas eigen )
 	mumps? ( blas )
 	slepc? ( petsc )
 	python? ( shared ${PYTHON_REQUIRED_USE} )
-	"
+"
 
 RDEPEND="
 	virtual/fortran
-	X? ( x11-libs/fltk:1=[xft(+)] )
-	alglib? ( sci-libs/alglib )
+	gui? ( x11-libs/fltk:1=[xft(+)] )
+	alglib? ( sci-libs/alglib:= )
 	blas? (
+		sci-libs/fftw:3.0
 		virtual/blas
 		virtual/lapack
-		sci-libs/fftw:3.0
 	)
 	cgns? (
 		sci-libs/cgnslib
@@ -49,8 +49,8 @@ RDEPEND="
 	gmm? ( sci-mathematics/gmm )
 	jpeg? ( media-libs/libjpeg-turbo )
 	med? (
-		sci-libs/med[mpi=]
 		sci-libs/hdf5:=[mpi=]
+		sci-libs/med[mpi=]
 	)
 	metis? ( >=sci-libs/metis-5.2.0 )
 	mpi? ( virtual/mpi )
@@ -63,28 +63,38 @@ RDEPEND="
 	slepc? ( sci-mathematics/slepc[mpi=] )
 	voro? ( sci-libs/voro++ )
 	zlib? ( sys-libs/zlib )
-	"
+"
 
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	${PYTHON_DEPS}
 	virtual/pkgconfig
-	python? ( dev-lang/swig:0 )
-	"
+	python? ( dev-lang/swig )
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.9.5-opencascade.patch
 	"${FILESDIR}"/${PN}-4.11.1-metis-5-2.patch
+	"${FILESDIR}"/${PN}-4.14.1-alglib.patch # downstream; find it in include subdir
 )
 
-pkg_setup() {
-	fortran-2_pkg_setup
+src_prepare() {
+	# ensure we don't let automagic detect bundled libs
+	# for pkgs supposed to be in system
+	einfo "Cleanup bundled libs:"
+	local contrib
+	for contrib in ALGLIB eigen gmm metis Netgen voro++; do
+		rm -rv contrib/${contrib} || die
+	done
+
+	cmake_src_prepare
 }
 
 src_configure() {
-	local mycmakeargs=( )
+	local mycmakeargs=( -DENABLE_SYSTEM_CONTRIB="YES" )
 
 	use blas && \
-		mycmakeargs+=(-DCMAKE_Fortran_COMPILER=$(tc-getF77))
+		mycmakeargs+=( -DCMAKE_Fortran_COMPILER=$(tc-getF77) )
 
 	mycmakeargs+=(
 		-DENABLE_ALGLIB="$(usex alglib)"
@@ -92,9 +102,9 @@ src_configure() {
 		-DENABLE_BUILD_DYNAMIC="$(usex shared)"
 		-DENABLE_CGNS="$(usex cgns)"
 		-DENABLE_EIGEN="$(usex eigen)"
-		-DENABLE_FLTK="$(usex X)"
+		-DENABLE_FLTK="$(usex gui)"
 		-DENABLE_GMM="$(usex gmm)"
-		-DENABLE_GRAPHICS="$(usex X)"
+		-DENABLE_GRAPHICS="$(usex gui)"
 		-DENABLE_MED="$(usex med)"
 		-DENABLE_MPI="$(usex mpi)"
 		-DENABLE_METIS="$(usex metis)"
@@ -105,9 +115,9 @@ src_configure() {
 		-DENABLE_POPPLER="$(usex pdf)"
 		-DENABLE_SLEPC="$(usex slepc)"
 		-DENABLE_PRIVATE_API="$(usex shared)"
-		-DENABLE_SYSTEM_CONTRIB="YES"
 		-DENABLE_VOROPP="$(usex voro)"
-		-DENABLE_WRAP_PYTHON="$(usex python)")
+		-DENABLE_WRAP_PYTHON="$(usex python)"
+	)
 
 	cmake_src_configure
 }
@@ -124,20 +134,20 @@ src_install() {
 		python_foreach_impl python_domodule api/gmsh.py
 	fi
 
-	if use X ; then
+	if use gui ; then
 		newicon -s 64 "/${S}/utils/icons/gmsh-no-text.png" gmsh.png
 		make_desktop_entry "/usr/bin/gmsh" "Gmsh ${PV}" "gmsh" "Science;Math"
 	fi
 }
 
 pkg_postinst() {
-	if use X ; then
+	if use gui ; then
 		xdg_icon_cache_update
 	fi
 }
 
 pkg_postrm() {
-	if use X ; then
+	if use gui ; then
 		xdg_icon_cache_update
 	fi
 }
