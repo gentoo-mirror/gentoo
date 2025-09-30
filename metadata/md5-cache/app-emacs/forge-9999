@@ -1,4 +1,4 @@
-BDEPEND=>=app-emacs/compat-30.0.1.0 >=app-emacs/ghub-4.1.1 >=app-emacs/magit-4.1.3 >=app-emacs/transient-0.7.6 app-emacs/closql app-emacs/dash app-emacs/emacsql app-emacs/markdown-mode app-emacs/yaml sys-apps/texinfo >=app-editors/emacs-27.1:* >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=app-emacs/compat-30.1.0.0 >=app-emacs/magit-4.4.0 app-emacs/closql app-emacs/cond-let app-emacs/dash app-emacs/emacsql app-emacs/ghub app-emacs/llama app-emacs/markdown-mode app-emacs/transient app-emacs/yaml sys-apps/texinfo >=app-editors/emacs-29.1:* >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Work with Git forges from the comfort of Magit
 EAPI=8
@@ -6,7 +6,7 @@ HOMEPAGE=https://magit.vc/ https://github.com/magit/forge/
 INHERIT=elisp git-r3
 LICENSE=GPL-3+
 PROPERTIES=live
-RDEPEND=>=app-emacs/compat-30.0.1.0 >=app-emacs/ghub-4.1.1 >=app-emacs/magit-4.1.3 >=app-emacs/transient-0.7.6 app-emacs/closql app-emacs/dash app-emacs/emacsql app-emacs/markdown-mode app-emacs/yaml >=app-editors/emacs-27.1:*
+RDEPEND=>=app-emacs/compat-30.1.0.0 >=app-emacs/magit-4.4.0 app-emacs/closql app-emacs/cond-let app-emacs/dash app-emacs/emacsql app-emacs/ghub app-emacs/llama app-emacs/markdown-mode app-emacs/transient app-emacs/yaml >=app-editors/emacs-29.1:*
 SLOT=0
 _eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=fedb3061721b2827270a5a33d470c279
+_md5_=38fbed41612cefb86357137aac2311b4
