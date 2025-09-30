@@ -36,6 +36,17 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-09-30)
+# Unmaintained in ::gentoo, EAPI-7 based, broken by CMake-4, boost-1.89
+# but most importantly Google according to upstream user reports.
+# Bugs #907861, #957553, #957554, #963466. Removal on 2025-10-29.
+net-misc/grive
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-09-30)
+# Dead upstream, EAPI-7 based, no one else is left packaging this.
+# Bugs #952796, #957240. Removal on 2025-10-29.
+sys-auth/google-authenticator-wrappers
+
 # Jason A. Donenfeld <zx2c4@gentoo.org> (2025-09-30)
 # Upstream is dead, package is broken. Removal on 2025-10-29.
 net-analyzer/speedtest++
@@ -184,17 +195,6 @@ dev-python/spur
 # Qt5-based library without revdeps. Needs a dedicated maintainer.
 # Bug #955270. Removal on 2025-10-05.
 sci-libs/silo
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-09-01)
-# EAPI-7 cmake.eclass, no revdeps, no one else is packaging this.
-# Bugs #951888, #957258. Removal on 2025-10-01.
-net-analyzer/nipper
-net-libs/libnipper
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-09-01)
-# EAPI-7 cmake.eclass, no revdeps, no one else is packaging this.
-# Bugs #952062, #957253. Removal on 2025-10-01.
-sci-mathematics/diagrtb
 
 # Eli Schwartz <eschwartz@gentoo.org> (2025-09-01)
 # Effectively unmaintained in Gentoo. Upstream dead for 8 years. Stuck
