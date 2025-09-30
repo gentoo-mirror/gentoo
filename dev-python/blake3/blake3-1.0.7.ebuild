@@ -8,39 +8,41 @@ DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=standalone
 PYTHON_COMPAT=( python3_{11..14} )
 
+RUST_MIN_VER="1.80.0"
 CRATES="
 	arrayref@0.3.9
 	arrayvec@0.7.6
-	autocfg@1.4.0
+	autocfg@1.5.0
 	blake3@1.8.2
-	cc@1.2.23
-	cfg-if@1.0.0
+	cc@1.2.39
+	cfg-if@1.0.3
 	constant_time_eq@0.3.1
 	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
 	crossbeam-utils@0.8.21
 	either@1.15.0
+	find-msvc-tools@0.1.2
 	heck@0.5.0
 	hex@0.4.3
 	indoc@2.0.6
-	libc@0.2.172
-	memmap2@0.9.5
+	libc@0.2.176
+	memmap2@0.9.8
 	memoffset@0.9.1
 	once_cell@1.21.3
-	portable-atomic@1.11.0
-	proc-macro2@1.0.95
-	pyo3-build-config@0.24.2
-	pyo3-ffi@0.24.2
-	pyo3-macros-backend@0.24.2
-	pyo3-macros@0.24.2
-	pyo3@0.24.2
-	quote@1.0.40
-	rayon-core@1.12.1
-	rayon@1.10.0
+	portable-atomic@1.11.1
+	proc-macro2@1.0.101
+	pyo3-build-config@0.26.0
+	pyo3-ffi@0.26.0
+	pyo3-macros-backend@0.26.0
+	pyo3-macros@0.26.0
+	pyo3@0.26.0
+	quote@1.0.41
+	rayon-core@1.13.0
+	rayon@1.11.0
 	shlex@1.3.0
-	syn@2.0.101
-	target-lexicon@0.13.2
-	unicode-ident@1.0.18
+	syn@2.0.106
+	target-lexicon@0.13.3
+	unicode-ident@1.0.19
 	unindent@0.2.4
 "
 
@@ -77,6 +79,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+rust"
 
+RDEPEND="
+	$(python_gen_cond_dep '
+		>=dev-python/typing-extensions-4.6.0[${PYTHON_USEDEP}]
+	' 3.10)
+"
 BDEPEND="
 	rust? (
 		${RUST_DEPEND}
@@ -93,6 +100,7 @@ BDEPEND="
 
 QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/blake3/blake3.*.so"
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 pkg_setup() {
@@ -116,7 +124,6 @@ src_prepare() {
 
 python_compile() {
 	local DISTUTILS_USE_PEP517=$(usex rust maturin setuptools)
-	local -x PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
 
 	if ! use rust; then
 		cd c_impl || die
