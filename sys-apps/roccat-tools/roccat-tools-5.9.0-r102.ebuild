@@ -1,16 +1,16 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 LUA_COMPAT=( lua5-1 luajit )
 
 inherit readme.gentoo-r1 cmake flag-o-matic lua-single toolchain-funcs udev xdg
 
 DESCRIPTION="Utility for advanced configuration of Roccat devices"
-
-HOMEPAGE="http://roccat.sourceforge.net/"
+HOMEPAGE="https://roccat.sourceforge.net/"
 SRC_URI="https://downloads.sourceforge.net/roccat/${P}.tar.bz2"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -65,7 +65,6 @@ RDEPEND="
 	input_devices_roccat_ryosmkfx? ( ${LUA_DEPS} )
 	input_devices_roccat_ryostkl? ( ${LUA_DEPS} )
 "
-
 DEPEND="
 	${RDEPEND}
 "
@@ -76,6 +75,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-5.9.0-cmake_lua_impl.patch
 	"${FILESDIR}"/${PN}-5.9.0-fno-common.patch
+	"${FILESDIR}"/${PN}-5.9.0-cmake4.patch # downstream patch
 )
 
 DOCS=( Changelog KNOWN_LIMITATIONS README )
@@ -121,6 +121,7 @@ src_configure() {
 				-DLUA_IMPL="${ELUA}"
 				-DWITH_LUA="$(ver_cut 1-2 $(lua_get_version))"
 			)
+			use lua_single_target_luajit || mycmakeargs+=( -DLUA_VERSION=$(lua_get_version) )
 			break
 		fi
 	done
