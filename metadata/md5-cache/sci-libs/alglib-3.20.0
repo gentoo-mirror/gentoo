@@ -1,14 +1,14 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
 DEFINED_PHASES=compile configure install prepare test
 DESCRIPTION=Numerical analysis and data processing library
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.alglib.net/
 INHERIT=cmake flag-o-matic
 IUSE=test
-KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2+
 RESTRICT=!test? ( test )
-SLOT=0/3.8
-SRC_URI=https://www.alglib.net/translator/re/alglib-3.17.0.cpp.gpl.tgz
+SLOT=0/3.20
+SRC_URI=https://www.alglib.net/translator/re/alglib-3.20.0.cpp.gpl.tgz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
-_md5_=fe6d5e2883d5781133be36a65933ce37
+_md5_=84ae0cc837a0d079da6cc5dc13ef59ca
