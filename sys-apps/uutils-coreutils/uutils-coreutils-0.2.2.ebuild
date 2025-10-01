@@ -29,9 +29,11 @@ else
 	KEYWORDS="~amd64 ~arm64 ~ppc64"
 fi
 
-SRC_URI+="
-	https://github.com/gentoo-crate-dist/coreutils/releases/download/${PV}/coreutils-${PV}-crates.tar.xz
-"
+if [[ ${PV} != 9999 ]] ; then
+	SRC_URI+="
+		https://github.com/gentoo-crate-dist/coreutils/releases/download/${PV}/coreutils-${PV}-crates.tar.xz
+	"
+fi
 
 LICENSE="MIT"
 # Dependent crate licenses
@@ -56,6 +58,11 @@ BDEPEND="
 	)
 "
 QA_FLAGS_IGNORED=".*"
+
+pkg_setup() {
+	llvm-r1_pkg_setup
+	rust_pkg_setup
+}
 
 src_unpack() {
 	if [[ ${PV} == 9999 ]] ; then
@@ -93,6 +100,9 @@ src_compile() {
 		# bug #832868
 		# runcon chcon require selinux, but upstream broke the SELINUX_ENABLED logic
 		SKIP_UTILS="$(usev elibc_musl "pinky uptime users who") $(usev !selinux "runcon chcon")"
+
+		# bug #963516
+		LIBSTDBUF_DIR="${EPREFIX}/usr/libexec/${PN}"
 	)
 
 	emake "${makeargs[@]}"
