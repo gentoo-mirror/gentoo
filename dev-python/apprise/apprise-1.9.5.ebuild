@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv"
 IUSE="+dbus mqtt"
 
 RDEPEND="
@@ -30,9 +30,14 @@ RDEPEND="
 "
 BDEPEND="
 	dev-python/babel[${PYTHON_USEDEP}]
-	test? (
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
-	)
 "
 
+EPYTEST_PLUGINS=( pytest-mock )
+# xdist causes test failures
 distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
+	# fails if pygobject is installed
+	# https://github.com/caronc/apprise/issues/1383
+	tests/test_plugin_glib.py::test_plugin_glib_send_raises_generic
+)
