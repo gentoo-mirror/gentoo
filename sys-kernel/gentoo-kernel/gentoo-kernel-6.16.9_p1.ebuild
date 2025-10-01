@@ -10,10 +10,10 @@ inherit kernel-build toolchain-funcs verify-sig
 
 BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
-PATCHSET=linux-gentoo-patches-6.6.107
+PATCHSET=linux-gentoo-patches-6.16.9_p1
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
 # forked to https://github.com/projg2/fedora-kernel-config-for-gentoo
-CONFIG_VER=6.6.12-gentoo
+CONFIG_VER=6.16.2-gentoo
 GENTOO_CONFIG_VER=g17
 SHA256SUM_DATE=20250925
 
@@ -44,6 +44,10 @@ SRC_URI+="
 		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-ppc64le-fedora.config
 			-> kernel-ppc64le-fedora.config.${CONFIG_VER}
 	)
+	riscv? (
+		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-riscv64-fedora.config
+			-> kernel-riscv64-fedora.config.${CONFIG_VER}
+	)
 	x86? (
 		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-i686-fedora.config
 			-> kernel-i686-fedora.config.${CONFIG_VER}
@@ -56,7 +60,6 @@ IUSE="debug experimental hardened"
 REQUIRED_USE="
 	arm? ( savedconfig )
 	hppa? ( savedconfig )
-	riscv? ( savedconfig )
 	sparc? ( savedconfig )
 "
 
@@ -115,7 +118,7 @@ src_prepare() {
 
 	# prepare the default config
 	case ${ARCH} in
-		arm | hppa | loong | riscv | sparc)
+		arm | hppa | loong | sparc)
 			> .config || die
 		;;
 		amd64)
@@ -134,6 +137,9 @@ src_prepare() {
 			cp "${DISTDIR}/kernel-ppc64le-fedora.config.${CONFIG_VER}" .config || die
 			biendian=true
 			;;
+		riscv)
+			cp "${DISTDIR}/kernel-riscv64-fedora.config.${CONFIG_VER}" .config || die
+			;;
 		x86)
 			cp "${DISTDIR}/kernel-i686-fedora.config.${CONFIG_VER}" .config || die
 			;;
@@ -150,6 +156,7 @@ src_prepare() {
 	local merge_configs=(
 		"${T}"/version.config
 		"${dist_conf_path}"/base.config
+		"${dist_conf_path}"/6.12+.config
 	)
 	use debug || merge_configs+=(
 		"${dist_conf_path}"/no-debug.config
