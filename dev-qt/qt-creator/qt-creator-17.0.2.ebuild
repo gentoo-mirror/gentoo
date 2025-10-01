@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {15..20} )
+LLVM_COMPAT=( {15..21} )
 LLVM_OPTIONAL=1
 PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake edo flag-o-matic go-env llvm-r2 multiprocessing
@@ -29,7 +29,7 @@ else
 		cmdbridge-server? ( https://dev.gentoo.org/~ionen/distfiles/${QTC_P}-vendor.tar.xz )
 	"
 	S=${WORKDIR}/${QTC_P}
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Lightweight IDE for C++/QML development centering around Qt"
@@ -103,7 +103,6 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-16.0.0-musl-no-execinfo.patch
 	"${FILESDIR}"/${PN}-12.0.0-musl-no-malloc-trim.patch
-	"${FILESDIR}"/${P}-qt692.patch
 )
 
 # written in Go, use PREBUILT rather than FLAGS_IGNORED given the
