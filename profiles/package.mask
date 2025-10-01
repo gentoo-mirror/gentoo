@@ -217,45 +217,9 @@ app-vim/voom
 # Obsolete transitional meta package. Bug #961795. Removal on 2025-09-28.
 media-sound/pulseaudio
 
-# Arthur Zamarin <arthurzam@gentoo.org> (2025-08-29)
-# EAPI=7, maintainer-needed, gentoo last distro to package it. If you
-# really need this tool, you can use 'openssl dgst -md4 -provider legacy'
-# instead.
-# Removal on 2025-09-28.  Bugs #962124, #729162.
-app-crypt/md4sum
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2025-08-28)
-# EAPI=7, fails to compile, unmaintained in gentoo since git transition,
-# library with no rev-deps.
-# Removal on 2025-09-27.  Bugs #962066, #886470, #735672, #630248.
-dev-cpp/metslib
-
-# Arthur Zamarin <arthurzam@gentoo.org> (2025-08-28)
-# EAPI=7, maintainer-needed, Gentoo is last distro to package it,
-# unmaintained in Gentoo since 2016.
-# Removal on 2025-09-27.  Bug #962064.
-app-misc/glastree
-
-# James Le Cuirot <chewi@gentoo.org> (2025-08-21)
-# The required Direct3D 9 feature is being dropped from Mesa. Use DXVK or
-# WineD3D instead. Removal on 2025-09-21.
-app-emulation/gallium-nine-standalone
-
 # Michał Górny <mgorny@gentoo.org> (2025-08-21)
 # Version yanked due to "unintended change in behavior".
 =dev-python/click-8.2.2
-
-# Hans de Graaff <graaff@gentoo.org> (2025-08-08)
-# ruby-openid fails tests and is archived upstream. Last release 6 years
-# ago. rack-openid is the only reverse dependency.
-# Removal on 2025-09-08
-dev-ruby/rack-openid
-dev-ruby/ruby-openid
-
-# Volkmar W. Pogatzki <gentoo@pogatzki.net> (2025-08-07)
-# Unused java library, pinned to virtual/jdk:1.8.
-# Removal on 2025-09-07.
-dev-java/jide-oss
 
 # Eli Schwartz <eschwartz@gentoo.org> (2025-07-18)
 # End of life software. Relies on a commercial internet service which removed
