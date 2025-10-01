@@ -27,8 +27,8 @@ KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~
 IUSE="doc test"
 
 # We track the bundled sqlite version here
-RDEPEND=">=dev-db/sqlite-3.50.2:3"
-DEPEND=">=dev-db/sqlite-3.50.2:3"
+RDEPEND=">=dev-db/sqlite-3.50.4:3"
+DEPEND=">=dev-db/sqlite-3.50.4:3"
 
 ruby_add_bdepend "
 	doc? ( dev-ruby/rdoc )
