@@ -11,7 +11,7 @@ SRC_URI="https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/10-r1"
-KEYWORDS="~alpha amd64 ~hppa ~loong ~ppc ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 IUSE="bzip2 curl test tools"
 RESTRICT="!test? ( test )"
 
@@ -23,6 +23,7 @@ RDEPEND="
 	sys-libs/zlib[${MULTILIB_USEDEP}]
 	bzip2? ( app-arch/bzip2[${MULTILIB_USEDEP}] )
 	curl? ( net-misc/curl[${MULTILIB_USEDEP}] )
+	tools? ( !dev-util/smem )
 "
 # Bug #803350
 DEPEND="
@@ -37,9 +38,6 @@ pkg_setup() {
 src_prepare() {
 	cmake_src_prepare
 
-	# fix libdir
-	sed -e 's:lib/::' -i CMakeLists.txt || die
-
 	# Avoid internal cfortran
 	rm cfortran.h || die
 }
@@ -47,9 +45,6 @@ src_prepare() {
 multilib_src_configure() {
 	local libdir=$(get_libdir)
 	local mycmakeargs=(
-		# used for .pc file
-		-DLIB_SUFFIX=${libdir#lib}
-
 		-DUSE_BZIP2=$(usex bzip2)
 		-DUSE_CURL=$(usex curl)
 		-DUSE_PTHREADS=ON

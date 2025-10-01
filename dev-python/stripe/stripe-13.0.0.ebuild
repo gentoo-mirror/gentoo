@@ -3,16 +3,22 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=flit
 PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
-inherit distutils-r1 pypi
+inherit distutils-r1
 
+MY_P=stripe-python-${PV}
 DESCRIPTION="Stripe Python bindings"
 HOMEPAGE="
 	https://github.com/stripe/stripe-python/
 	https://pypi.org/project/stripe/
 "
+SRC_URI="
+	https://github.com/stripe/stripe-python/archive/v${PV}.tar.gz
+		-> ${MY_P}.gh.tar.gz
+"
+S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
@@ -37,8 +43,6 @@ BDEPEND="
 EPYTEST_PLUGINS=( anyio pytest-mock )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
-
-DOCS=( LONG_DESCRIPTION.rst CHANGELOG.md README.md )
 
 src_prepare() {
 	distutils-r1_src_prepare
