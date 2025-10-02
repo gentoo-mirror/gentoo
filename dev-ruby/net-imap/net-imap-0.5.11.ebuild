@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_BINWRAP=""
@@ -37,6 +38,6 @@ all_ruby_prepare() {
 		-e 's/git ls-files -z/find * -print0/' \
 		-i ${RUBY_FAKEGEM_GEMSPEC} || die
 
-	sed -e '/simplecov/,/^end/ s:^:#:' \
+	sed -e '/SIMPLECOV_DISABLE/,/^end/ s:^:#:' \
 		-i test/lib/helper.rb || die
 }
