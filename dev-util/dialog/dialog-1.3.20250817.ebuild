@@ -15,8 +15,8 @@ S="${WORKDIR}"/${MY_P}
 
 LICENSE="LGPL-2.1"
 SLOT="0/15"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
-IUSE="examples minimal nls unicode"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="examples nls unicode"
 
 RDEPEND=">=sys-libs/ncurses-5.2-r5:=[unicode(+)?]"
 DEPEND="
@@ -24,8 +24,8 @@ DEPEND="
 	nls? ( sys-devel/gettext )
 "
 BDEPEND="
+	dev-build/libtool
 	virtual/pkgconfig
-	!minimal? ( dev-build/libtool )
 	verify-sig? ( sec-keys/openpgp-keys-thomasdickey )
 "
 
@@ -46,13 +46,13 @@ src_configure() {
 		--with-pkg-config \
 		--enable-pc-files \
 		$(use_enable nls) \
-		$(use_with !minimal libtool) \
+		--with-libtool \
 		--with-libtool-opts='-shared' \
 		--with-ncurses$(usev unicode w)
 }
 
 src_install() {
-	use minimal && default || emake DESTDIR="${D}" install-full
+	emake DESTDIR="${D}" install-full
 
 	use examples && dodoc -r samples
 
