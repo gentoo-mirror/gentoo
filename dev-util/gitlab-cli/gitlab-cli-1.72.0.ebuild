@@ -3,12 +3,15 @@
 
 EAPI=8
 inherit go-module
-GIT_COMMIT=d14f47ce8f09549daf116e347cd1c2987aa14bbb
+
+# update on every bump
+GIT_COMMIT=294f0726782123e38b76aa10a90f246c6a641cef
 
 DESCRIPTION="the official gitlab command line interface"
 HOMEPAGE="https://gitlab.com/gitlab-org/cli"
 SRC_URI="https://gitlab.com/gitlab-org/cli/-/archive/v${PV}/${PN}-v${PV}.tar.bz2 -> ${P}.tar.bz2"
 SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
+# SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-man.tar.xz"
 S="${WORKDIR}/cli-v${PV}-${GIT_COMMIT}"
 
 LICENSE="MIT"
@@ -22,6 +25,7 @@ QA_PRESTRIPPED=usr/bin/glab
 
 src_compile() {
 	emake \
+		BUILD_COMMIT_SHA=${GIT_COMMIT::8} \
 		GLAB_VERSION=v${PV} \
 		build manpage
 }
