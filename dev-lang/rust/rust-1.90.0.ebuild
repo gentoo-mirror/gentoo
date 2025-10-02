@@ -3,14 +3,14 @@
 
 EAPI=8
 
-LLVM_COMPAT=( 21 )
+LLVM_COMPAT=( 20 )
 PYTHON_COMPAT=( python3_{11..14} )
 
 RUST_PATCH_VER=${PVR}
 
 RUST_MAX_VER=${PV%%_*}
 if [[ ${PV} == *9999* ]]; then
-	RUST_MIN_VER="1.91.0" # Update this as new `beta` releases come out.
+	RUST_MIN_VER="1.88.0" # Update this as new `beta` releases come out.
 elif [[ ${PV} == *beta* ]]; then
 	RUST_MAX_VER="$(ver_cut 1).$(ver_cut 2).0"
 	RUST_MIN_VER="$(ver_cut 1).$(($(ver_cut 2) - 1)).0"

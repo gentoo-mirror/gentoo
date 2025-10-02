@@ -87,8 +87,9 @@ CRATES="
 	zeroize_derive@1.4.2
 "
 
-LLVM_COMPAT=( {17..19} )
-PYTHON_COMPAT=( python3_{10..13} )
+LLVM_COMPAT=( {17..21} )
+PYTHON_COMPAT=( python3_{11..14} )
+RUST_MIN_VER="1.77.0"
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kentoverstreet.asc
 
 inherit cargo flag-o-matic llvm-r1 python-any-r1 shell-completion toolchain-funcs unpacker verify-sig
@@ -101,15 +102,15 @@ if [[ ${PV} == "9999" ]]; then
 else
 	SRC_URI="https://evilpiepirate.org/bcachefs-tools/bcachefs-tools-${PV}.tar.zst
 		${CARGO_CRATE_URIS}
-		https://github.com/koverstreet/bcachefs-tools/commit/67c9b378c7e7820b91033004b032e236a8069b4a.patch
-			-> ${P}-fix-fuse-build.patch
 	"
 	SRC_URI+=" verify-sig? ( https://evilpiepirate.org/bcachefs-tools/bcachefs-tools-${PV}.tar.sign )"
 	S="${WORKDIR}/${P}"
-	KEYWORDS="amd64 arm64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
-LICENSE="Apache-2.0 BSD GPL-2 MIT"
+LICENSE="GPL-2"
+# Dependent crate licenses
+LICENSE+=" Apache-2.0 BSD ISC MIT Unicode-DFS-2016"
 SLOT="0"
 IUSE="fuse verify-sig"
 RESTRICT="test"
@@ -146,15 +147,12 @@ BDEPEND="
 
 QA_FLAGS_IGNORED="/sbin/bcachefs"
 
-PATCHES=(
-	"${DISTDIR}/bcachefs-tools-1.20.0-fix-fuse-build.patch"
-)
-
 python_check_deps() {
 	python_has_version "dev-python/docutils[${PYTHON_USEDEP}]"
 }
 
 pkg_setup() {
+	rust_pkg_setup
 	llvm-r1_pkg_setup
 	python-any-r1_pkg_setup
 }
@@ -182,6 +180,7 @@ src_prepare() {
 	default
 	tc-export CC
 
+	sed -i s/^VERSION=.*$/VERSION=${PV}/ Makefile || die
 	sed \
 		-e '/^CFLAGS/s:-O2::' \
 		-e '/^CFLAGS/s:-g::' \
