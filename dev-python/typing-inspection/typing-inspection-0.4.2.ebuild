@@ -22,9 +22,5 @@ RDEPEND="
 	>=dev-python/typing-extensions-4.12.0[${PYTHON_USEDEP}]
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-
-PATCHES=(
-	# https://github.com/pydantic/typing-inspection/pull/37
-	"${FILESDIR}/${P}-py314.patch"
-)
