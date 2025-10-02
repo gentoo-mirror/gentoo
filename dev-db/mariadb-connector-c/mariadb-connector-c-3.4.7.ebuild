@@ -39,7 +39,9 @@ DEPEND="
 	)
 "
 BDEPEND="test? ( dev-db/mariadb[server] )"
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	!<dev-db/mariadb-11.4.7-r1
+"
 
 MULTILIB_CHOST_TOOLS=( /usr/bin/mariadb_config )
 MULTILIB_WRAPPED_HEADERS+=( /usr/include/mariadb/mariadb_version.h )
