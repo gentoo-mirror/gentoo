@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ RESTRICT="test"
 RDEPEND="
 	>=dev-lang/ocaml-4.14:=
 	dev-ml/cmdliner:=[ocamlopt?]
-	dev-ml/uucp:=
+	=dev-ml/uucp-17*:=
 	dev-ml/uutf:=[ocamlopt?]
 "
 DEPEND="${RDEPEND}"

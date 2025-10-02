@@ -1,7 +1,7 @@
-# Copyright 2019-2023 Gentoo Authors
+# Copyright 2019-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit opam
 
@@ -11,15 +11,22 @@ SRC_URI="https://erratique.ch/software/uunf/releases/${P}.tbz"
 
 LICENSE="ISC"
 SLOT="0/${PV}"
-KEYWORDS="amd64 x86"
-IUSE=""
+KEYWORDS="~amd64 ~arm64 ~x86"
 
-DEPEND="dev-ml/topkg:=
+DEPEND="
+	dev-ml/cmdliner:=
+	>=dev-ml/topkg-1.1.0:=
+	dev-ml/uchar:=
 	dev-ml/uutf:=
-	dev-ml/cmdliner:="
-RDEPEND="${DEPEND}"
-BDEPEND="dev-ml/findlib"
-OPAM_FILE=opam
+"
+RDEPEND="
+	${DEPEND}
+"
+BDEPEND="
+	dev-ml/findlib
+"
+
+OPAM_FILE="opam"
 
 src_compile() {
 	# Increase stack limit to 11GiB to avoid stack overflow error.
@@ -27,5 +34,5 @@ src_compile() {
 	ulimit -s 11530000
 
 	ocaml pkg/pkg.ml build \
-		|| die
+		|| die "failed to run the pkg/pkg.ml ocaml compilation script"
 }
