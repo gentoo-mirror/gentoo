@@ -259,6 +259,22 @@ src_prepare() {
 	   ext/gd/tests/bug73272.phpt \
 	   || die
 
+	# Test requires USE=cdb, so we have to skip it when
+	# the cdb USE flag is unset
+	#
+	#  * https://github.com/php/php-src/issues/19706
+	#
+	if ! use cdb; then
+		rm ext/dba/tests/gh19706.phpt
+	fi
+
+	# Test fails in a sandboxed/offline environment,
+	# already fixed upstream, but not yet in this release
+	#
+	#  https://github.com/php/php-src/pull/19776
+	#
+	rm sapi/cli/tests/php_cli_server_ipv4_error_message.phpt || die
+
 	# One-off, somebody forgot to update a version constant
 	rm ext/reflection/tests/ReflectionZendExtension.phpt || die
 
