@@ -36,6 +36,41 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-10-01)
+# Remaining old EAPI-7 based cmake.eclass consumers after 4 years of
+# tracking EAPI-7 removal. Port to EAPI-8 if you can.
+# Bugs #957246, #957403, #957788, #957819, #957869, #957918, #958068,
+# #958255, #958317, #958353, #958596, #958651, #960286
+# Removal on 2025-11-01.
+dev-games/newton
+games-action/lugaru
+games-action/supermariowar
+games-arcade/blobby
+games-arcade/ninvaders
+games-arcade/slimevolley
+games-engines/frobtads
+games-fps/avp
+games-kids/memonix
+games-puzzle/meandmyshadow
+games-server/pvpgn
+games-strategy/freesynd
+games-strategy/maxr
+games-util/antimicro
+games-util/qjoypad
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-09-30)
+# Unmaintained in ::gentoo, EAPI-7 based, a *lot* of ancient unsolved bugs
+# #576768, #594846, #601126, #724848, #770802, #770994, #832774, #925000,
+# #925001, #926243, #926244, #944452. Removal on 2025-10-29.
+media-libs/raspberrypi-userland
+media-libs/raspberrypi-userland-bin
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2025-09-30)
+# EAPI-7 based, depends on dead media-libs/raspberrypi-userland, broken
+# by current available version anyway.
+# Several bugs #770802, #881797, #926326, #928521. Removal on 2025-10-29.
+media-plugins/vdr-rpihddevice
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-09-30)
 # Dead upstream, EAPI-7 based, no one else is left packaging this.
 # Bug #957218. Removal on 2025-10-29.
