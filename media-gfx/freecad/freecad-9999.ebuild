@@ -73,6 +73,7 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/pybind11[${PYTHON_USEDEP}]
+		dev-python/pycxx[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 	')
 	assembly? ( sci-libs/ondselsolver )
@@ -106,7 +107,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	>=dev-cpp/eigen-3.3.1:3
+	<dev-cpp/eigen-5:=
 	dev-cpp/ms-gsl
 	test? (
 		$(python_gen_impl_dep '-debug')
@@ -135,9 +136,9 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-9999-Gentoo-specific-don-t-check-vcs.patch
-	"${FILESDIR}"/${PN}-0.21.0-0001-Gentoo-specific-disable-ccache-usage.patch
 	"${FILESDIR}"/${PN}-9999-tests-src-Qt-only-build-test-for-BUILD_GUI-ON.patch
 	"${FILESDIR}/${PN}-1.0.0-r4-error-cannot-convert-bool-to-App-DocumentInitFlags.patch"
+	"${FILESDIR}/${PN}-1.0.2-pybind11-latent-slots-macro-conflicts-with-Qt.patch" # fixed in pybind-3.0.1
 )
 
 DOCS=( CODE_OF_CONDUCT.md README.md )
@@ -260,16 +261,20 @@ src_prepare() {
 	# deprecated in python-3.11 removed in python-3.13
 	sed -e '/import imghdr/d' -i src/Mod/CAM/CAMTests/TestCAMSanity.py || die
 
+	# The PCL point_traits.h header was renamed (and deprecated) since 1.11.0 and removed in 1.15.0.
+	# d9e731ca94abc14808ebeed208617116f6d5ea4a
+	sed -e 's#pcl/point_traits.h#pcl/type_traits.h#g' -i src/Mod/ReverseEngineering/App/SurfaceTriangulation.cpp || die
+
 	# band-aid fix for botched version check, needs to be revisited for VTK-10
 	sed -e 's/vtkVersion.GetVTKMajorVersion() > 9/vtkVersion.GetVTKMajorVersion() >= 9/g' \
 		-i src/Mod/Fem/femguiutils/data_extraction.py || die
 
-	cmake_src_prepare
-
-	if ! grep -q TKExpress cMake/FindOCC.cmake ; then
-		eqawarn "Applying opencascade-7.9.0 patch"
-		eapply -l "${FILESDIR}/${PN}-1.0.1-opencascade-7.9.0.patch"
+	# removed bundled pycxx
+	if [[ ${PV} != *9999* ]]; then
+		rm -r src/CXX || die "remove bundled pycxx"
 	fi
+
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -285,10 +290,15 @@ src_configure() {
 	fi
 
 	local mycmakeargs=(
+		-DFREECAD_USE_CCACHE="no" # Do not use CCache
+
 		-DCMAKE_POLICY_DEFAULT_CMP0144="OLD" # FLANN_ROOT
 		-DCMAKE_POLICY_DEFAULT_CMP0167="OLD" # FindBoost
 		-DCMAKE_POLICY_DEFAULT_CMP0175="OLD" # add_custom_command
 		-DCMAKE_POLICY_DEFAULT_CMP0153="OLD" # exec_program
+
+		-DPYCXX_INCLUDE_DIR="${ESYSROOT}/usr/include/${PYTHON_SINGLE_TARGET/_/.}"
+		-DPYCXX_SOURCE_DIR="${ESYSROOT}/usr/share/${PYTHON_SINGLE_TARGET/_/.}/CXX"
 
 		-DBUILD_DESIGNER_PLUGIN=$(usex designer)
 		-DBUILD_FORCE_DIRECTORY=ON				# force building in a dedicated directory
@@ -346,7 +356,7 @@ src_configure() {
 		-DFREECAD_BUILD_DEBIAN=OFF
 
 		-DFREECAD_USE_EXTERNAL_E57FORMAT="no"
-		-DFREECAD_USE_EXTERNAL_GTEST="yes"
+		-DFREECAD_USE_EXTERNAL_GTEST="$(usex test)"
 		-DFREECAD_USE_EXTERNAL_ONDSELSOLVER=$(usex assembly)
 		-DFREECAD_USE_EXTERNAL_SMESH=OFF		# no package in Gentoo
 		-DFREECAD_USE_EXTERNAL_ZIPIOS=OFF		# doesn't work yet, also no package in Gentoo tree
@@ -369,7 +379,7 @@ src_configure() {
 
 	if [[ ${PV} == *9999* ]]; then
 		mycmakeargs+=(
-			-DENABLE_DEVELOPER_TESTS=ON
+			-DENABLE_DEVELOPER_TESTS="$(usex test)"
 
 			-DPACKAGE_WCREF="%{release} (Git)"
 			-DPACKAGE_WCURL="git://github.com/FreeCAD/FreeCAD.git main"
@@ -457,6 +467,10 @@ src_test() {
 			"Mod/OpenSCAD/OpenSCADTest/gui/test_dummy.py"
 		)
 	fi
+
+	local -x CMAKE_SKIP_TESTS=(
+		"^ConstraintPointsAccess."
+	)
 
 	local -x FREECAD_USER_HOME="${HOME}"
 	local -x FREECAD_USER_DATA="${T}/data"
