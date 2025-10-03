@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install preinst prepare setup test
+DEPEND=>=virtual/jdk-1.8:* test? ( dev-java/eclipse-ecj:4.20 dev-java/compile-testing:0 dev-java/jimfs:0 dev-java/junit:4 dev-java/mockito:2 dev-java/truth:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DESCRIPTION=Use beautiful Java code to generate beautiful Java code.
+EAPI=8
+HOMEPAGE=https://github.com/square/javapoet/
+INHERIT=java-pkg-2 java-pkg-simple
+IUSE=doc source test
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/square/javapoet/archive/javapoet-1.13.0.tar.gz
+_eclasses_=java-utils-2	a080d4947ca188a48725a375b6184bc5	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	460c3cd928ba6e677d113a15c496017e
+_md5_=482c364c89147e2e90c5367b2243f783

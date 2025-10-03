@@ -903,12 +903,12 @@ app-admin/analog 6.0.17 6.0.18: Multi-purpose, multi-platform log file analyser
 app-admin/ananicy 2.2.1-r1: ANother Auto NICe daemon
 app-admin/ansible 11.2.0 11.6.0 11.7.0 11.9.0 12.0.0: Model-driven deployment, config management, and command execution framework
 app-admin/ansible-core 2.18.3 2.18.6 2.18.6-r1 2.18.8 2.19.1 2.19.2 9999: Model-driven deployment, config management, and command execution framework
-app-admin/ansible-lint 25.1.3 25.5.0 25.6.1 25.8.2: Checks ansible playbooks for practices and behaviour that can be improved
+app-admin/ansible-lint 25.1.3 25.5.0 25.6.1 25.8.2 25.9.0: Checks ansible playbooks for practices and behaviour that can be improved
 app-admin/ansible-modules-hashivault 5.2.1-r1: Ansible module for hashicorp vault
-app-admin/ansible-molecule 25.7.0: A toolkit designed to aid in the development and testing of Ansible roles
+app-admin/ansible-molecule 25.7.0 25.9.0: A toolkit designed to aid in the development and testing of Ansible roles
 app-admin/apache-tools 2.4.63 2.4.64 2.4.65: Useful Apache tools - htdigest, htpasswd, ab, htdbm
 app-admin/apachetop 0.23.2: A realtime Apache log analyzer
-app-admin/apg 2.3.0b_p20150129-r1: Another Password Generator
+app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
@@ -3265,7 +3265,7 @@ app-text/katarakt 0.2: A simple PDF viewer designed to use as much available scr
 app-text/kbibtex 0.10.50_pre20250205: BibTeX editor to edit bibliographies used with LaTeX
 app-text/kramdown-rfc 1.6.39 1.7.19 1.7.22: An XML2RFC (RFC799x) backend for Thomas Leitner's kramdown markdown parser
 app-text/ktikz 0.13.2_p20250728-r1: editor for the TikZ drawing language
-app-text/languagetool 6.3-r1: A proof-reading tool for many languages
+app-text/languagetool 6.3-r1 6.3-r2: A proof-reading tool for many languages
 app-text/lcdf-typetools 2.110: Font utilities for eg manipulating OTF
 app-text/lesspipe 2.11-r1 2.12 2.13: Preprocessor for less
 app-text/letterize 1.4: Generate English-plausible alphabetic mnemonics for a phone number
@@ -3921,6 +3921,7 @@ dev-cpp/rapidyaml 0.6.0 0.7.2: Library to parse and emit YAML, and do it fast
 dev-cpp/robin-map 1.3.0 1.4.0 9999: C++ fast hash map and hash set using robin hood hashing
 dev-cpp/scitokens-cpp 1.1.0-r1 1.1.1 1.1.2 1.1.3: C++ implementation of the SciTokens library with a C library interface
 dev-cpp/sdbus-c++ 2.1.0: High-level C++ D-Bus library
+dev-cpp/simdutf 7.3.4: Unicode validation and transcoding at billions of characters per second
 dev-cpp/simpleini 4.22-r1: C++ library providing a simple API to read and write INI-style files
 dev-cpp/sol2 3.3.1-r1 3.5.0-r1: Header-only C++ <-> Lua API wrapper
 dev-cpp/sparsehash 2.0.4-r1: An extremely memory-efficient hash_map implementation
@@ -4800,10 +4801,11 @@ dev-java/aopalliance 1.0-r3: Aspect-Oriented Programming (AOP) Alliance classes
 dev-java/apache-rat 0.15-r2: Apache Rat is a release audit tool, focused on licenses
 dev-java/apiguardian-api 1.1.2-r1: @org.apiguardian.api.API Java annotation provider
 dev-java/asm 9.7.1-r1 9.8-r1 9.8_p20250706: Bytecode manipulation framework for Java
-dev-java/asm-jdk-bridge 0.0.9: A Bridge to Translate ASM From and to The OpenJDK Class File API
+dev-java/asm-jdk-bridge 0.0.11: A Bridge to Translate ASM From and to The OpenJDK Class File API
 dev-java/aspectj 1.9.7-r1: A seamless aspect-oriented extension to the Java programming language
 dev-java/assertj-core 3.10.0: Rich and fluent assertions for testing for Java
 dev-java/auto-service-annotations 1.1.1: Provider-configuration files for ServiceLoader
+dev-java/auto-value 1.11.0: Immutable value-type code generation for Java 1.7+
 dev-java/batik 1.18-r2: XML Graphics Batik
 dev-java/bcel 6.10.0-r2: Apache Commons Bytecode Engineering Library
 dev-java/bcmail 1.80: The Bouncy Castle Java S/MIME APIs for handling S/MIME protocols
@@ -4821,7 +4823,7 @@ dev-java/browserlauncher2 1.3-r3: A library that facilitates opening a browser f
 dev-java/bsf 2.4.0-r7: Bean Script Framework
 dev-java/bsh 2.1.1-r2: A small embeddable Java source interpreter
 dev-java/byaccj 1.15-r3: A Java extension of BSD YACC-compatible parser generator
-dev-java/byte-buddy 1.15.11 1.17.5: Offers convenience for attaching an agent to the local or a remote VM
+dev-java/byte-buddy 1.15.11 1.17.7: Offers convenience for attaching an agent to the local or a remote VM
 dev-java/c3p0 0.9.5.5-r2: JDBC drivers with JNDI-bindable DataSources
 dev-java/cache2k-api 0.23.1: light weight and high performance Java caching library: API
 dev-java/cache2k-core 0.23.1: light weight and high performance Java caching library: core
@@ -4830,36 +4832,40 @@ dev-java/cal10n 0.8.1: java library for writing localized messages using resourc
 dev-java/cdi-api 4.0.1-r4: APIs for CDI (Contexts and Dependency Injection for Java)
 dev-java/cglib 3.3.0-r3: cglib is a powerful, high performance and quality Code Generation Library
 dev-java/checker-framework-qual 3.48.4 3.49.5: Annotations for type-checking by the Checker Framework
-dev-java/commons-beanutils 1.9.4-r2 1.10.1: Provides easy-to-use wrappers around Reflection and Introspection APIs
-dev-java/commons-cli 1.9.0-r1: A Java library for working with the command line arguments and options
-dev-java/commons-codec 1.18.0: Implementations of common encoders and decoders in Java
+dev-java/commons-beanutils 1.9.4-r2 1.10.1 1.11.0: Provides easy-to-use wrappers around Reflection and Introspection APIs
+dev-java/commons-cli 1.9.0-r1 1.10.0: A Java library for working with the command line arguments and options
+dev-java/commons-codec 1.18.0 1.19.0: Implementations of common encoders and decoders in Java
 dev-java/commons-collections 3.2.2-r2 4.5.0: Extends the JCF classes with new interfaces, implementations and utilities
-dev-java/commons-compress 1.27.1-r1: Java API for working with archive files
-dev-java/commons-csv 1.14.0: Simple interface for reading and writing CSV files of various types
+dev-java/commons-compress 1.27.1-r1 1.28.0: Java API for working with archive files
+dev-java/commons-csv 1.14.0 1.14.1: Simple interface for reading and writing CSV files of various types
 dev-java/commons-daemon 1.4.1: Tools to allow Java programs to run as UNIX daemons
 dev-java/commons-digester 2.1-r3 3.2-r4: Reads XML configuration files to provide initialization of various Java objects
 dev-java/commons-httpclient 3.1-r3: The Jakarta Commons HttpClient library
 dev-java/commons-imaging 1.0_alpha3-r2: Apache Commons Imaging (previously Sanselan) is a pure-Java image library.
-dev-java/commons-io 2.18.0 2.19.0: Utility classes, stream implementations, file filters, and much more
+dev-java/commons-io 2.18.0 2.19.0 2.20.0: Utility classes, stream implementations, file filters, and much more
 dev-java/commons-junit4 1.2.17: Assertions etc. for those who write tests with JUNIT 4
-dev-java/commons-lang 3.17.0: Commons components to manipulate core java classes
+dev-java/commons-lang 3.17.0 3.19.0: Commons components to manipulate core java classes
 dev-java/commons-logging 1.3.5: Thin adapter allowing configurable bridging to other well known logging systems
 dev-java/commons-math 3.6.1-r2: Lightweight, self-contained mathematics and statistics components
-dev-java/commons-net 3.11.1: Client-oriented Java library to implement many Internet protocols
+dev-java/commons-net 3.11.1 3.12.0: Client-oriented Java library to implement many Internet protocols
 dev-java/commons-nullanalysis 1.2.17: Annotations and utility classes for ECLIPSE annotation-base null analysis
-dev-java/commons-validator 1.9.0: Commons component to validate user input, or data input
+dev-java/commons-rng 1.6: Apache Commons Random Numbers Generators
+dev-java/commons-text 1.14.0: Apache Commons Text is a library focused on algorithms working on strings
+dev-java/commons-validator 1.9.0 1.10.0: Commons component to validate user input, or data input
 dev-java/commons-vfs 2.0-r4: A single API for accessing various different file systems
+dev-java/compile-testing 0.23.0: Testing tools for javac and annotation processors
 dev-java/concurrentlinkedhashmap-lru 1.4.2: A high performance version of java.util.LinkedHashMap for use as software cache
 dev-java/conversant-disruptor 1.2.20: Conversant Disruptor - very high throughput Java BlockingQueue
 dev-java/cortado 0.6.0-r3: Multimedia framework for Java written by Fluendo
 dev-java/coursier-bin 2.1.14 2.1.24: Java/Scala artifact fetching, bundling and deploying
 dev-java/cpptasks 1.0_beta5-r3: Ant-tasks to compile various source languages and produce executables
 dev-java/dom4j 2.1.4 2.2.0: flexible XML framework for Java
-dev-java/easymock 2.5.2 3.3.1-r2: Mock Objects for interfaces in JUnit tests by generating them on the fly
+dev-java/easymock 2.5.2 3.3.1-r2 5.6.0: Mock Objects for interfaces in JUnit tests by generating them on the fly
 dev-java/eclipse-ecj 4.20 4.26-r2 4.33 4.37: Eclipse Compiler for Java
 dev-java/eclipse-jdt-annotation 4.30 4.37: JDT Annotations for Enhanced Null Analysis
 dev-java/emma 2.0.5312-r6: Free Java code coverage tool
 dev-java/error-prone-annotations 2.36.0 2.41.0: Java annotations for the Error Prone static analysis tool
+dev-java/escapevelocity 1.1: A reimplementation of a subset of the Apache Velocity templating system.
 dev-java/fastinfoset 2.1.0-r1: Open Source implementation of the Fast Infoset Standard for Binary XML
 dev-java/fec 1.0.4-r5: Forward Error Correction library in Java
 dev-java/felix-framework 7.0.5-r2: Implementation of the OSGi R8 core framework specification
@@ -4875,7 +4881,7 @@ dev-java/freenet-ext 29-r1: Freenet REference Daemon
 dev-java/gnu-regexp 1.1.4-r4: GNU regular expression package for Java
 dev-java/gradle-bin 8.4 8.5 8.7 8.10.2 8.12.1 8.14.2 8.14.3 9.0.0: A project automation and build tool with a Groovy based DSL
 dev-java/greenmail 2.0.0_alpha2: GreenMail - Email Test Servers
-dev-java/gson 2.11.0-r2: Gson JSON library
+dev-java/gson 2.11.0-r2 2.13.2: Gson JSON library
 dev-java/guava 33.4.0 33.4.8: A collection of Google's core Java libraries
 dev-java/guava-testlib 33.4.0 33.4.8: A set of java classes to assist the tests for Guava itself
 dev-java/guice 5.1.0-r1 5.1.0-r2 7.0.0: Guice is a lightweight dependency injection framework for Java 6 and above
@@ -4892,6 +4898,7 @@ dev-java/icedtea-sound 1.0.1-r2: Plugins for javax.sound
 dev-java/icedtea-web 1.8.8-r2: FOSS Java browser plugin and Web Start implementation
 dev-java/icu4j 77.1: A set of Java libraries providing Unicode and Globalization support
 dev-java/identicon 1.0: Visual representation of a hash value
+dev-java/incap 1.0.0: Helper library for building incremental annotation processors
 dev-java/injection-api 2.0.1: Jakarta Dependency Injection
 dev-java/iso-relax 20050331-r7: Interfaces useful for applications which support RELAX Core
 dev-java/istack-commons-runtime 3.0.12 4.1.1-r1: istack common utility code
@@ -4934,6 +4941,7 @@ dev-java/javacc 4.1-r1 7.0.4-r1 7.0.13-r1: Java Compiler Compiler - The Java Par
 dev-java/javacup 11b_p20160615: CUP Parser Generator for Java
 dev-java/javahelp 2.0.05_p20170719-r4: The JavaHelp system online help system
 dev-java/javaparser-core 3.13.10 3.26.3: Java 1-21 Parser and Abstract Syntax Tree for Java
+dev-java/javapoet 1.13.0: Use beautiful Java code to generate beautiful Java code.
 dev-java/javassist 3.30.2-r1: A class library for editing bytecodes in Java.
 dev-java/javatoolkit 0.6.10: Collection of Gentoo-specific tools for Java
 dev-java/javax-el-api 2.2: Expression Language API
@@ -4968,7 +4976,7 @@ dev-java/jetbrains-annotations 26.0.2: Annotations for JVM-based languages
 dev-java/jettison 1.5.4: A StAX implementation for JSON
 dev-java/jffi 1.3.13: Java Foreign Function Interface
 dev-java/jflex 1.6.1-r3: JFlex is a lexical analyzer generator for Java
-dev-java/jimfs 1.3.0: An in-memory file system for Java 7+
+dev-java/jimfs 1.3.0 1.3.1: An in-memory file system for Java 7+
 dev-java/jline 2.14.6-r1: A Java library for handling console input
 dev-java/jmc 8.3.0: JDK Mission Control
 dev-java/jmh-core 1.37: Harness for building, running, and analysing nano/micro/milli/macro benchmarks
@@ -4978,7 +4986,7 @@ dev-java/jna 5.13.0-r1 5.17.0 5.18.0: Java Native Access
 dev-java/jnacl 1.0-r1: Pure Java implementation of NaCl: Networking and Cryptography library
 dev-java/jnr-a64asm 1.0.0-r1: A pure-java A64 assembler
 dev-java/jnr-constants 0.10.4: A set of platform constants (e.g. errno values)
-dev-java/jnr-ffi 2.2.17: A library for invoking native functions from java
+dev-java/jnr-ffi 2.2.17-r1: A library for invoking native functions from java
 dev-java/jnr-netdb 1.2.0-r1: Network services database access for java
 dev-java/jnr-posix 3.1.20: Common cross-project/cross-platform POSIX APIs
 dev-java/jnr-x86asm 1.0.2-r3: A pure-java port of asmjit
@@ -5009,6 +5017,7 @@ dev-java/jul-to-slf4j 2.0.3: JUL to SLF4J bridge
 dev-java/junit 3.8.2-r2 4.13.2_p20240222 5.10.3-r1: Simple framework to write repeatable tests
 dev-java/junit-clptr 1.2.2-r1: ClassLoader per Test runner for JUnit 4.12+
 dev-java/junit-dataprovider 2.9: The common core for a TestNG like dataprovider runner for JUnit
+dev-java/junit-pioneer 1.9.1: JUnit 5 Extension Pack
 dev-java/junitparams 1.1.1-r2: Better parameterised tests for JUnit
 dev-java/jzlib 1.1.3-r3: JZlib is a re-implementation of zlib in pure Java
 dev-java/kafka-clients 1.1.1-r2: Apache Kafka distributed event streaming platform
@@ -5078,7 +5087,7 @@ dev-java/slf4j-nop 2.0.3: SLF4J NOP Binding
 dev-java/slf4j-reload4j 2.0.3: SLF4J Reload4j Binding
 dev-java/slf4j-simple 2.0.3: SLF4J Simple binding
 dev-java/snakeyaml 1.33: YAML 1.1 parser and emitter for Java
-dev-java/snappy-java 1.1.10.7-r1: Snappy compressor/decompressor for Java
+dev-java/snappy-java 1.1.10.7-r1 1.1.10.8: Snappy compressor/decompressor for Java
 dev-java/sparsebitset 1.3: An efficient sparse bitset implementation for Java
 dev-java/stax2-api 4.2.2: stax2 API is an extension to basic Stax 1.0 API
 dev-java/stringprep 2.2: Stringprep (RFC 3454) Java implementation
@@ -5092,6 +5101,7 @@ dev-java/testng 6.11-r1: Testing framework inspired by JUnit and NUnit with new 
 dev-java/tomcat-native 1.3.1 2.0.9-r1: Allows Tomcat to use certain native resources for better performance
 dev-java/tomcat-servlet-api 4.1.40-r1: Tomcat's Servlet API 2.3/JSP API 1.2 implementation
 dev-java/treelayout 1.0.3-r1: Efficient and customizable TreeLayout Algorithm in Java.
+dev-java/truth 1.4.5: Fluent assertions for Java and Android
 dev-java/txw2 2.3.8-r1: TXW is a library that allows you to write XML documents
 dev-java/typesafe-config 1.4.2: A library of arguably useful Java utilities
 dev-java/unbescape 1.1.6: Advanced yet easy-to-use escape/unescape library for Java
@@ -5117,7 +5127,7 @@ dev-java/xpp2 2.1.10-r4: A streaming pull XML parser used to quickly process inp
 dev-java/xpp3 1.1.4c-r6: An implementation of XMLPULL V1 API
 dev-java/xsdlib 2022.7-r1: XML Schema datatypes library
 dev-java/xz-java 1.10: Implementation of xz data compression in pure java
-dev-java/zstd-jni 1.5.2.5: JNI bindings for Zstd native library
+dev-java/zstd-jni 1.5.2.5 1.5.7.4: JNI bindings for Zstd native library
 dev-java/zxing-core 3.5.1: Core barcode encoding/decoding library
 dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.4.1 4.4.3 4.5.0: Language and environment for statistical computing and graphics
@@ -11553,7 +11563,7 @@ games-misc/ballerburg 1.2.0-r2: Linux port of the classical Atari ST game Baller
 games-misc/bsd-games 2.17_p28-r2 3.2 3.3: Collection of games from NetBSD
 games-misc/bsod 0.1-r1: This program will let you experience the authentic Microsoft Windows experience
 games-misc/c++robots 0-r1: ongoing 'King of the Hill' (KotH) tournament
-games-misc/cowsay 3.7.0: Configurable talking ASCII cow (and other characters)
+games-misc/cowsay 3.7.0 3.8.4: Configurable talking ASCII cow (and other characters)
 games-misc/doge 3.9.0: wow very terminal doge
 games-misc/exult-sound 0-r2: Sound data for games-engines/exult
 games-misc/fortune-mod 3.18.0 3.22.0 3.24.0: The notorious fortune program
@@ -12063,7 +12073,7 @@ gui-apps/slurp 1.5.0: Select a region in a Wayland compositor and print it to th
 gui-apps/swappy 1.5.1 9999: A Wayland native snapshot and editor tool, inspired by Snappy on macOS
 gui-apps/swaybg 1.2.0 1.2.1 9999: A wallpaper utility for Wayland
 gui-apps/swayidle 1.8.0 9999: Idle management daemon for Wayland
-gui-apps/swaylock 1.8.0 9999: Screen locker for Wayland
+gui-apps/swaylock 1.8.0 1.8.3 9999: Screen locker for Wayland
 gui-apps/tuigreet 0.8.0-r2 0.9.1-r2 9999: TUI greeter for greetd login manager
 gui-apps/uwsm 0.21.5-r1 0.23.0 0.23.2: Universal Wayland Session Manager
 gui-apps/waybar 0.10.4-r1 0.11.0 0.11.0-r1 0.12.0 9999: Highly customizable Wayland bar for Sway and Wlroots based compositors
@@ -14947,7 +14957,7 @@ net-libs/libre-graph-api-cpp-qt-client 1.0.4: API for cloud collaboration inspir
 net-libs/librist 0.2.8-r1: Library for Reliable Internet Stream Transport (RIST) protocol
 net-libs/librouteros 1.1.3: Library for accessing MikroTik's RouterOS via its API
 net-libs/librsync 2.3.2 2.3.4: Remote delta-compression library
-net-libs/libsearpc 3.3.0-r2 3.3.0-r3: Simple C language RPC framework
+net-libs/libsearpc 3.3.0-r2 3.3.0-r3 3.3.0-r4: Simple C language RPC framework
 net-libs/libsignal-protocol-c 2.3.3-r1: Signal Protocol C Library
 net-libs/libslirp 4.6.1 4.7.0: A TCP-IP emulator used to provide virtual networking services
 net-libs/libsmi 0.5.0-r5: A Library to Access SMI MIB Information
@@ -15341,8 +15351,8 @@ net-misc/s4cmd 2.1.0-r3: Super S3 command line tool
 net-misc/s6-networking 2.7.0.3 2.7.0.4 2.7.1.0: Suite of small networking utilities for Unix systems
 net-misc/samplicator 1.3.6-r1 1.3.8_rc1-r1: UDP packets forwarder and duplicator
 net-misc/scponly 4.8-r9: A tiny pseudoshell which only permits scp and sftp
-net-misc/seafile 9.0.11 9.0.13: File syncing and sharing software with file encryption and group sharing
-net-misc/seafile-client 9.0.13: Seafile desktop client
+net-misc/seafile 9.0.13 9.0.15: File syncing and sharing software with file encryption and group sharing
+net-misc/seafile-client 9.0.13 9.0.15: Seafile desktop client
 net-misc/secpanel 0.6.1-r1: Graphical frontend for managing and running SSH and SCP connections
 net-misc/ser2net 2.10.0-r1 4.6.2: Serial To Network Proxy
 net-misc/sgopherd 18.08: Small Gopher Server written in GNU Bash
@@ -15478,7 +15488,7 @@ net-p2p/go-ethereum 1.15.10 1.15.11 1.16.1 1.16.4: Official golang implementatio
 net-p2p/gtk-gnutella 1.2.2-r1 1.2.3: GTK+ Gnutella client
 net-p2p/gtorrentviewer 0.2b-r1: A GTK2-based viewer and editor for BitTorrent meta files
 net-p2p/ktorrent 25.04.3 25.08.1: Powerful BitTorrent client based on KDE Frameworks
-net-p2p/kubo 0.34.1 0.35.0 0.36.0: Main implementation of IPFS
+net-p2p/kubo 0.35.0 0.36.0 0.37.0: Main implementation of IPFS
 net-p2p/mktorrent 1.1_p20210130-r1: Simple command line utility to create BitTorrent metainfo files
 net-p2p/mldonkey 3.2.1: Multi-network P2P application written in Ocaml, with Gtk, web & telnet interface
 net-p2p/ncdc 1.25: Lightweight direct connect client with a friendly ncurses interface
@@ -16463,6 +16473,7 @@ sec-keys/minisig-keys-libsodium 20230914: OpenPGP keys used for libsodium
 sec-keys/minisig-keys-zig-software-foundation 20240330: Minisign keys used by Zig Software Foundation
 sec-keys/openpgp-keys-aacid 20230907: OpenPGP keys used by Albert Astals Cid
 sec-keys/openpgp-keys-adamspiers 20210426 20210426-r1 20250806: OpenPGP keys used by Adam Spiers
+sec-keys/openpgp-keys-aherbert 20240709: OpenPGP keys used by commons.apache.org/rng
 sec-keys/openpgp-keys-akallabeth 20240521: OpenPGP key for Github user akallabeth
 sec-keys/openpgp-keys-alejandro-colomar 20231031: OpenPGP keys used by Alejandro Colomar
 sec-keys/openpgp-keys-alexanderneumann 20241028: OpenPGP keys used by Alexander Neumann
@@ -16536,6 +16547,7 @@ sec-keys/openpgp-keys-gentoo-auth 20240703: Gentoo Authority Keys (GLEP 79)
 sec-keys/openpgp-keys-gentoo-developers 20250203 20250421 20250804 20250915 99999999: Gentoo Authority Keys (GLEP 79)
 sec-keys/openpgp-keys-gentoo-release 20250806: OpenPGP keys used for Gentoo releases (snapshots, stages)
 sec-keys/openpgp-keys-gettext 20220407 20250608: OpenPGP keys used by GNU gettext
+sec-keys/openpgp-keys-ggregory 20250720: OpenPGP keys used by commons.apache.org
 sec-keys/openpgp-keys-gnupg 20220210: OpenPGP keys used to sign GnuPG releases
 sec-keys/openpgp-keys-gnutls 20220320 20221017 20231129 20240415 20240415-r1 20250704: OpenPGP keys used by GnuTLS
 sec-keys/openpgp-keys-gocryptfs 20250728 20250916: OpenPGP keys used to sign gocryptfs
@@ -17605,7 +17617,7 @@ sys-fs/reiserfsprogs 3.6.27-r1: Reiserfs Utilities
 sys-fs/safecopy 1.7-r1: Tool for fault-tolerant data recovery from damaged (IO-errors) devices or files
 sys-fs/shake 1.0: Defragmenter that runs in userspace while the system is used
 sys-fs/simple-mtpfs 0.4.0-r1: Simple MTP fuse filesystem driver
-sys-fs/snapraid 12.4: Backup program with disk array for cold data on existing filesystems
+sys-fs/snapraid 12.4 12.4-r1: Backup program with disk array for cold data on existing filesystems
 sys-fs/squashfs-tools 4.7.2: Tools to create and extract Squashfs filesystems
 sys-fs/squashfs-tools-ng 1.3.2 9999: A new set of tools for working with SquashFS images
 sys-fs/squashfuse 0.5.2-r1 0.6.0: FUSE filesystem to mount squashfs archives
@@ -17780,7 +17792,7 @@ sys-process/audit 4.0.1-r1 4.0.2-r1: Userspace utilities for storing and process
 sys-process/bashtop 0.9.25: Resource monitor that shows usage and stats
 sys-process/bcron 0.11: A new cron system designed with secure operations in mind by Bruce Guenter
 sys-process/below 0.8.1-r1: An interactive tool to view and record historical system data
-sys-process/bottom 0.10.1-r1 0.10.2-r1: A graphical process/system monitor with a customizable interface
+sys-process/bottom 0.10.2-r1 0.11.1: A graphical process/system monitor with a customizable interface
 sys-process/bpytop 1.0.68-r1: Linux/OSX/FreeBSD resource monitor
 sys-process/btop 1.4.3 1.4.4: A monitor of resources
 sys-process/criu 3.19 4.1: Utility to checkpoint/restore a process tree

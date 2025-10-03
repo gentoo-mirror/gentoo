@@ -1,0 +1,16 @@
+BDEPEND=>=dev-libs/wayland-protocols-1.25 >=dev-util/wayland-scanner-1.15 virtual/pkgconfig man? ( app-text/scdoc ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst test
+DEPEND=dev-libs/wayland x11-libs/cairo x11-libs/libxkbcommon virtual/libcrypt:= gdk-pixbuf? ( x11-libs/gdk-pixbuf:2 ) pam? ( sys-libs/pam )
+DESCRIPTION=Screen locker for Wayland
+EAPI=8
+HOMEPAGE=https://github.com/swaywm/swaylock
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps meson
+IUSE=+gdk-pixbuf +man +pam +filecaps
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/wayland x11-libs/cairo x11-libs/libxkbcommon virtual/libcrypt:= gdk-pixbuf? ( x11-libs/gdk-pixbuf:2 ) pam? ( sys-libs/pam )
+SLOT=0
+SRC_URI=https://github.com/swaywm/swaylock/archive/v1.8.3.tar.gz -> swaylock-1.8.3.tar.gz
+_eclasses_=fcaps	e868eb04ddde039c83f6505a0cd0a4ac	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7eb9c3a6dc6662368634584aab44a2c	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=b1fbcdba1373ad85da440f6d1eb05bb9
