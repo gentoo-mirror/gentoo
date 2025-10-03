@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1 llvm.org multilib
+inherit bash-completion-r1 elisp-common llvm.org multilib
 
 DESCRIPTION="Common files shared between multiple slots of clang"
 HOMEPAGE="https://llvm.org/"
@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~arm64-macos ~ppc-macos ~x64-macos"
 IUSE="
 	default-compiler-rt default-libcxx default-lld
-	bootstrap-prefix cet hardened llvm-libunwind
+	bootstrap-prefix cet emacs hardened llvm-libunwind
 "
 
 PDEPEND="
@@ -31,14 +31,20 @@ PDEPEND="
 # enforce flags on clang-runtime as well to aid transition
 PDEPEND+="
 	llvm-runtimes/clang-runtime[default-compiler-rt(-)?,default-libcxx(-)?,default-lld(-)?,llvm-libunwind(-)?]
+	emacs? ( >=app-editors/emacs-26.3:* )
 "
 IDEPEND="
 	!default-compiler-rt? ( sys-devel/gcc-config )
 	!default-libcxx? ( sys-devel/gcc-config )
 "
+BDEPEND="
+	emacs? ( >=app-editors/emacs-26.3:* )
+"
 
-LLVM_COMPONENTS=( clang/utils )
+LLVM_COMPONENTS=( clang/utils clang/tools/clang-format )
 llvm.org_set_globals
+
+SITEFILE="50clang-gentoo.el"
 
 pkg_pretend() {
 	[[ ${CLANG_IGNORE_DEFAULT_RUNTIMES} ]] && return
@@ -141,6 +147,11 @@ doclang_cfg() {
 			_doclang_cfg ${triple/${abi}/sparcv9}
 			;;
 	esac
+}
+
+src_compile() {
+	default
+	use emacs && elisp-compile ../tools/clang-format/clang-format.el
 }
 
 src_install() {
@@ -300,6 +311,11 @@ src_install() {
 			-isysroot ${EPREFIX}/MacOSX.sdk
 		EOF
 	fi
+
+	if use emacs ; then
+		elisp-install clang ../tools/clang-format/clang-format.{el,elc}
+		elisp-make-site-file "${SITEFILE}" clang
+	fi
 }
 
 pkg_preinst() {
@@ -312,4 +328,12 @@ pkg_preinst() {
 			EOF
 		fi
 	fi
+}
+
+pkg_postinst() {
+	use emacs && elisp-site-regen
+}
+
+pkg_postrm() {
+	use emacs && elisp-site-regen
 }
