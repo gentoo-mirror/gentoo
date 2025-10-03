@@ -105,7 +105,6 @@ acct-group/fdm 0-r2: Group for net-mail/fdm
 acct-group/fetchmail 0-r3: Group for net-mail/fetchmail
 acct-group/fhem 0-r3: A group for the FHEM perl server for house automation
 acct-group/fingerprint 0-r3: System group: fingerprint
-acct-group/firebird 0-r2: A group for dev-db/firebird
 acct-group/flatpak 0-r2: System group: flatpak
 acct-group/floppy 0-r1: System group: floppy
 acct-group/flows 0-r2: gid for net-analyzer/flow-tools
@@ -552,7 +551,6 @@ acct-user/fcron 0-r2: A user for sys-process/fcron
 acct-user/fdm 0-r2: User for net-mail/fdm
 acct-user/fetchmail 0-r3: User for net-mail/fetchmail
 acct-user/fhem 0-r3: A user for the FHEM perl server for house automation
-acct-user/firebird 0-r3: A user for dev-db/firebird
 acct-user/flatpak 0-r2: System user: flatpak
 acct-user/flows 0-r2: uid for net-analyzer/flow-tools
 acct-user/fluentd 0-r3: A user for app-admin/fluentd
@@ -3816,7 +3814,7 @@ dev-build/gn 0.2122 0.2217 0.2227 0.2235 9999: GN is a meta-build system that ge
 dev-build/gtk-doc-am 1.33.2 1.34.0: Automake files from gtk-doc
 dev-build/gyp 20200512145953-r1 99999999999999: GYP (Generate Your Projects) meta-build system
 dev-build/icmake 9.03.01-r1: Hybrid between a make utility and a shell scripting language
-dev-build/just 1.41.0 1.42.4: Just a command runner (with syntax inspired by 'make')
+dev-build/just 1.41.0 1.42.4 1.43.0: Just a command runner (with syntax inspired by 'make')
 dev-build/kas 4.5-r2 4.8.2: Setup tool for bitbake based projects
 dev-build/kbuild 0.1.9998.3499-r4 0.1.9998.3592 0.1.9998.3660-r1 9999: A makefile framework for writing simple makefiles for complex tasks
 dev-build/libtool 2.5.4 2.6.0 9999: A shared library tool for developers
@@ -3951,7 +3949,7 @@ dev-db/datadraw 3.1.1 3.1.1-r1: feature rich database generator for high perform
 dev-db/dbeaver-bin 25.1.4-r1 25.2.0-r1: Free universal database tool (community edition)
 dev-db/duckdb 1.3.0 1.3.1 1.3.2 1.4.0: high-performance analytical database system
 dev-db/etcd 3.4.31 3.5.12 3.5.15 3.5.17 3.5.18: Highly-available key value store for shared configuration and service discovery
-dev-db/freetds 1.4.24 1.4.26 1.4.27 1.5: Tabular Datastream Library
+dev-db/freetds 1.5 1.5.6: Tabular Datastream Library
 dev-db/futuresql 0.1.1: Non-blocking Qt database framework
 dev-db/gqlplus 1.16-r2: a front-end for Oracle program sqlplus with command-line editing
 dev-db/hsqldb 2.7.4: HSQLDB - Lightweight 100% Java SQL Database Engine
@@ -10806,7 +10804,7 @@ dev-util/egypt 1.11: Devilishly simple tool for creating call graphs of C progra
 dev-util/elf_diff 0.7.1: Tool to compare ELF binaries
 dev-util/elfkickers 3.2-r1: Collection of programs to manipulate ELF files: sstrip, rebind, elfls, elftoc
 dev-util/elfshaker 0.9.0_p20250803: Stores binary objects efficiently
-dev-util/flatpak-builder 1.4.4 1.4.6-r2: Tool to build flatpaks from source
+dev-util/flatpak-builder 1.4.4 1.4.6-r3: Tool to build flatpaks from source
 dev-util/flawfinder 2.0.19-r2: Examines C/C++ source code for security flaws
 dev-util/fq 0.13.0 0.14.0 0.15.0 0.15.1: Tool for working with binary data (app-misc/jq for binary formats)
 dev-util/ftjam 2.5.3_rc2-r3: A 100% compatible, enhanced implementation of the make alternative Jam
@@ -10924,7 +10922,7 @@ dev-util/omake 0.10.3-r2 0.10.7-r1: Make replacement
 dev-util/open-vcdiff 0.8.4-r2: An encoder/decoder for the VCDIFF (RFC3284) format
 dev-util/opencl-headers 2024.10.24 2025.07.22: Unified C language headers for the OpenCL API
 dev-util/oprofile 1.4.0-r1: A transparent low-overhead system-wide profiler
-dev-util/ostree 2024.3-r2 2024.8-r1 2025.2: Operating system and container binary deployment and upgrades
+dev-util/ostree 2024.3-r2 2024.8-r1 2025.2 2025.6: Operating system and container binary deployment and upgrades
 dev-util/packer 1.14.1: A tool to create identical machine images for multiple platforms
 dev-util/pahole 1.27-r1 1.29 1.30 9999: pahole (Poke-a-Hole) and other DWARF utilities
 dev-util/patchelf 0.17.2-r1 0.18.0: Small utility to modify the dynamic linker and RPATH of ELF executables
@@ -14488,7 +14486,7 @@ net-analyzer/nessus-agent-bin 10.9.0: A remote security scanner for Linux - agen
 net-analyzer/nessus-bin 10.9.3: A remote security scanner for Linux
 net-analyzer/net-snmp 5.9.4-r2 5.9.4-r3 9999: Software for generating and retrieving SNMP data
 net-analyzer/netcat 110.20180111-r2: The network swiss army knife
-net-analyzer/netdata 1.45.4 1.46.1 1.46.2 1.46.3 1.47.0 1.47.1 1.47.2 1.47.4 1.47.5 9999: Linux real time system monitoring, done right!
+net-analyzer/netdata 1.47.5 2.5.3 9999: Linux real time system monitoring, done right!
 net-analyzer/netdata-go-plugin 1.47.5-r1: Netdata plugin for collectors written in Go
 net-analyzer/netdiscover 0.10 0.20: Active/passive address reconnaissance tool
 net-analyzer/nethogs 0.8.7 0.8.8: Small 'net top' tool, grouping bandwidth by process
@@ -16993,11 +16991,11 @@ sys-apps/fix-gnustack 0.1-r1: Utility to report and remove the executable flag f
 sys-apps/flashrom 1.3.0-r3 1.5.0 1.5.1 1.6.0: Utility for reading, writing, erasing and verifying flash ROM chips
 sys-apps/flatpak 1.14.10 1.16.0 1.16.1: Linux application sandboxing and distribution framework
 sys-apps/fwts 22.03.00 23.11.00 24.03.00: Firmware Test Suite
-sys-apps/fwupd 1.9.24 2.0.1 2.0.3-r1: Aims to make updating firmware on Linux automatic, safe and reliable
+sys-apps/fwupd 1.9.24 2.0.1 2.0.3-r1 2.0.14: Aims to make updating firmware on Linux automatic, safe and reliable
 sys-apps/fwupd-efi 1.6-r1 1.7: EFI executable for fwupd
 sys-apps/fxload 20081013-r1: USB firmware uploader
 sys-apps/gawk 5.3.2: GNU awk pattern-matching language
-sys-apps/gentoo-functions 0.19 1.7.3 1.7.4 9999: Base functions required by all Gentoo systems
+sys-apps/gentoo-functions 0.19 1.7.4 9999: Base functions required by all Gentoo systems
 sys-apps/gentoo-systemd-integration 9 9-r1 9999: systemd integration files for Gentoo
 sys-apps/gentoo-wsl-config 0.1.14: WSL2 configuration for Gentoo Linux
 sys-apps/gnome-disk-utility 45.1-r1 46.1-r1: Disk Utility for GNOME using udisks
@@ -17055,7 +17053,7 @@ sys-apps/likwid 4.3.4 5.2.1 5.2.2: A performance-oriented tool suite for x86 mul
 sys-apps/linux-misc-apps 5.8-r1 6.16: Misc tools bundled with kernel sources
 sys-apps/lm-sensors 3.6.2: Hardware Monitoring user-space utilities
 sys-apps/lnxhc 1.2-r2: Linux Health Checker
-sys-apps/locale-gen 2.23-r1 3.4 3.7 3.8 9999: Generate locales based upon the config file /etc/locale.gen
+sys-apps/locale-gen 2.23-r1 3.8 9999: Generate locales based upon the config file /etc/locale.gen
 sys-apps/logwatch 7.12 7.13 9999: Analyzes and Reports on system logs
 sys-apps/lsadb 0.1.3-r1: Prints out information on all devices attached to the ADB bus
 sys-apps/lsb-release 1.4-r4 3.2 3.3: LSB version query program
