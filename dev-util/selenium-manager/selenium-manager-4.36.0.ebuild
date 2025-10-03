@@ -5,12 +5,13 @@ EAPI=8
 
 CRATES="
 "
+RUST_MIN_VER="1.85.0"
 
 inherit cargo
 
 TAG=selenium-${PV}
 MY_P=selenium-${TAG}
-CRATES_P=selenium-4.33.0
+CRATES_P=selenium-${PV}
 DESCRIPTION="CLI tool that manages the browser/driver infrastructure required by Selenium"
 HOMEPAGE="
 	https://www.selenium.dev/
@@ -29,9 +30,12 @@ S="${WORKDIR}/${MY_P}/rust"
 
 LICENSE="Apache-2.0"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 BSD ISC MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016"
+LICENSE+="
+	Apache-2.0 BSD CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0 ZLIB
+	BZIP2
+"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="telemetry test"
 RESTRICT="!test? ( test )"
 
@@ -67,6 +71,7 @@ src_prepare() {
 	# to fetch them, whatever).
 	rm tests/browser_download_tests.rs || die
 	rm tests/cache_tests.rs || die
+	rm tests/electron_tests.rs || die
 	rm tests/exec_driver_tests.rs || die
 	rm tests/grid_tests.rs || die
 	rm tests/browser_tests.rs || die
