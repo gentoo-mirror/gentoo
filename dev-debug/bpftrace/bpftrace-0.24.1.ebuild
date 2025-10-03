@@ -72,7 +72,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/bpftrace-0.11.4-old-kernels.patch"
 	"${FILESDIR}/bpftrace-0.21.0-dont-compress-man.patch"
-	"${FILESDIR}/bpftrace-0.24.0-gcc16.patch"
+	"${FILESDIR}/bpftrace-0.24.1-enable-ubsan.patch"
 )
 
 pkg_pretend() {
@@ -113,16 +113,22 @@ src_configure() {
 	use test && append-flags -Wno-odr
 
 	local mycmakeargs=(
+		# DO dynamically link the bpftrace executable
+		-DSTATIC_LINKING=OFF
 		# DO NOT build the internal libs as shared
 		-DBUILD_SHARED_LIBS=OFF
-		# DO dynamically link the bpftrace executable
-		-DSTATIC_LINKING:BOOL=OFF
-		-DBUILD_TESTING:BOOL=$(usex test)
+		-DBUILD_TESTING=$(usex test)
 		# we use the pregenerated man page
-		-DENABLE_MAN:BOOL=OFF
-		-DENABLE_SYSTEMD:BOOL=$(usex systemd)
-		-DENABLE_SKB_OUTPUT:BOOL=$(usex pcap)
+		-DENABLE_MAN=OFF
+		-DENABLE_SKB_OUTPUT=$(usex pcap)
+		-DENABLE_SYSTEMD=$(usex systemd)
 	)
+
+	# enable UBSAN only when enabled in the toolchain
+	if is-flagq -fsanitize=undefined; then
+		filter-flags -fsanitize=undefined
+		mycmakeargs+=( -DBUILD_UBSAN=ON )
+	fi
 
 	cmake_src_configure
 }
