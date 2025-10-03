@@ -912,7 +912,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.42.11 1.42.16 1.42.21 1.42.25 1.42.30 1.42.31 1.42.32 1.42.33 1.42.34 1.42.35 1.42.36 1.42.37 1.42.38 1.42.39 1.42.40 1.42.41 1.42.42 1.42.43: Universal Command Line Environment for AWS
+app-admin/awscli 1.42.11 1.42.16 1.42.21 1.42.25 1.42.30 1.42.31 1.42.32 1.42.33 1.42.34 1.42.35 1.42.36 1.42.37 1.42.38 1.42.39 1.42.40 1.42.41 1.42.42 1.42.43 1.42.44: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.7.0 2025.8.1 2025.8.2: Bitwarden password manager desktop client
@@ -3832,7 +3832,7 @@ dev-build/pmake 1.111.3.3-r1: BSD build tool to create programs in parallel. Deb
 dev-build/remake 4.3.1.1.6-r100 4.4_pre20250217: Patched version of GNU Make with improved error reporting, tracing and debugging
 dev-build/rocm-cmake 6.1.2 6.3.2 6.3.3 6.4.1 6.4.3: Radeon Open Compute CMake Modules
 dev-build/samurai 1.2-r3 9999: ninja-compatible build tool written in C
-dev-build/scons 4.8.1 4.9.0 4.9.1: Extensible Python-based build utility
+dev-build/scons 4.8.1 4.9.0 4.9.1 4.10.0: Extensible Python-based build utility
 dev-build/slibtool 0.6.1 0.7.0 0.7.1 0.7.2 0.7.3 9999: A strong libtool implementation, written in C
 dev-build/tinycmmc 0.1.0 9999: Tiny CMake Module Collections
 dev-build/xfce4-dev-tools 4.20.0 4.21.0: A set of scripts and m4/autoconf macros that ease build system maintenance
@@ -8113,7 +8113,7 @@ dev-python/atpublic 6.0.1 6.0.2: A decorator to populate __all__ and the module 
 dev-python/attrs 25.3.0: Attributes without boilerplate
 dev-python/audioop-lts 0.2.1 0.2.2: An LTS port of Python's audioop module
 dev-python/audioread 3.0.1 3.0.1-r1: Wrapper for audio file decoding using FFmpeg or GStreamer
-dev-python/authlib 1.6.2 1.6.3 1.6.4: A Python library in building OAuth and OpenID Connect servers and clients
+dev-python/authlib 1.6.4 1.6.5: A Python library in building OAuth and OpenID Connect servers and clients
 dev-python/authres 1.2.0-r1: Parse and generate Authentication-Results headers
 dev-python/autobahn 24.4.2: WebSocket and WAMP for Twisted and Asyncio
 dev-python/automat 25.4.16: Self-service finite-state machines for the programmer on the go
@@ -8157,8 +8157,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.40.11 1.40.16 1.40.21 1.40.25 1.40.30 1.40.31 1.40.32 1.40.33 1.40.34 1.40.35 1.40.36 1.40.37 1.40.38 1.40.39 1.40.40 1.40.41 1.40.42 1.40.43: The AWS SDK for Python
-dev-python/botocore 1.40.11 1.40.16 1.40.21 1.40.25 1.40.30 1.40.31 1.40.32 1.40.33 1.40.34 1.40.35 1.40.36 1.40.37 1.40.38 1.40.39 1.40.40 1.40.41 1.40.42 1.40.43: Low-level, data-driven core of boto 3
+dev-python/boto3 1.40.11 1.40.16 1.40.21 1.40.25 1.40.30 1.40.31 1.40.32 1.40.33 1.40.34 1.40.35 1.40.36 1.40.37 1.40.38 1.40.39 1.40.40 1.40.41 1.40.42 1.40.43 1.40.44: The AWS SDK for Python
+dev-python/botocore 1.40.11 1.40.16 1.40.21 1.40.25 1.40.30 1.40.31 1.40.32 1.40.33 1.40.34 1.40.35 1.40.36 1.40.37 1.40.38 1.40.39 1.40.40 1.40.41 1.40.42 1.40.43 1.40.44: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8453,7 +8453,7 @@ dev-python/gitdb 4.0.12: GitDB is a pure-Python git object database
 dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gitpython 3.1.45: Library used to interact with Git repositories
 dev-python/gmpy2 2.2.1 2.3.0_alpha1: Python bindings for GMP, MPC, MPFR and MPIR libraries
-dev-python/google-api-core 2.25.1: Core Library for Google Client Libraries
+dev-python/google-api-core 2.25.1 2.25.2: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.181.0 2.182.0 2.183.0 2.184.0: Google API Client for Python
 dev-python/google-auth 2.40.3 2.41.0 2.41.1: Google Authentication Library
 dev-python/google-auth-httplib2 0.2.0: httplib2 Transport for Google Auth
@@ -8474,7 +8474,7 @@ dev-python/grpcio 1.73.1 1.74.0 1.75.0 1.75.1: HTTP/2-based RPC framework
 dev-python/grpcio-status 1.73.1 1.74.0 1.75.0 1.75.1: Reference package for GRPC Python status proto mapping
 dev-python/grpclib 0.4.8: Pure-Python gRPC implementation for asyncio
 dev-python/gsd 4.0.0 4.1.0: GSD - file format specification and a library to read and write it
-dev-python/gssapi 1.9.0 1.10.0: Low and high level wrappers around the GSSAPI C libraries
+dev-python/gssapi 1.9.0 1.10.0 1.10.1: Low and high level wrappers around the GSSAPI C libraries
 dev-python/gst-python 1.22.11-r1 1.22.12-r1 1.24.10-r1 1.24.11-r1: A Python Interface to GStreamer
 dev-python/guessit 3.8.0: Python library for guessing information from video filenames
 dev-python/h11 0.14.0 0.16.0: A pure-Python implementation of HTTP/1.1 inspired by hyper-h2
@@ -8518,7 +8518,7 @@ dev-python/hypothesis 6.136.9 6.137.3 6.138.17 6.139.2 6.140.0 6.140.2: A librar
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 6.3.1: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
-dev-python/identify 2.6.12 2.6.13 2.6.14: File identification library for Python
+dev-python/identify 2.6.14 2.6.15: File identification library for Python
 dev-python/idna 3.10: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.2.0: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.4.0: Iterative JSON parser with a Pythonic interface
@@ -8689,9 +8689,9 @@ dev-python/loky 3.5.5 3.5.6: Robust and reusable Executor for joblib
 dev-python/looseversion 1.3.0: A backwards/forwards-compatible fork of distutils.version.LooseVersion
 dev-python/lrcalc 2.1-r2: Python bindings for sci-mathematics/lrcalc
 dev-python/lxml 5.4.0-r2 6.0.0 6.0.1 6.0.2: A Pythonic binding for the libxml2 and libxslt libraries
-dev-python/lxml-html-clean 0.4.2: Separate project for HTML cleaning functionalities copied from lxml.html.clean
+dev-python/lxml-html-clean 0.4.2 0.4.3: Separate project for HTML cleaning functionalities copied from lxml.html.clean
 dev-python/lz4 4.4.4: LZ4 Bindings for Python
-dev-python/m2crypto 0.45.1 0.46.0: A Python crypto and SSL toolkit
+dev-python/m2crypto 0.45.1 0.46.0 0.46.2: A Python crypto and SSL toolkit
 dev-python/magic-wormhole 0.19.2 0.20.0: Get Things From One Computer To Another, Safely
 dev-python/magic-wormhole-mailbox-server 0.5.1: Mailbox server for magic-wormhole
 dev-python/magic-wormhole-transit-relay 0.4.0: Transit relay server for magic-wormhole
@@ -8926,7 +8926,7 @@ dev-python/pkgcraft 0.0.11 9999: Python bindings for pkgcraft
 dev-python/pkginfo 1.12.1.2: Provides an API for querying the distutils metadata written in a PKG-INFO file
 dev-python/platformdirs 4.3.8 4.4.0: A small Python module for determining appropriate platform-specific dirs
 dev-python/plette 0.4.4 2.1.0: Structured Pipfile and Pipfile.lock models
-dev-python/plotly 6.1.2 6.3.0: Browser-based graphing library for Python
+dev-python/plotly 6.3.0 6.3.1: Browser-based graphing library for Python
 dev-python/plotly-geo 1.0.0-r2: Browser-based graphing library for Python
 dev-python/pluggy 1.6.0: Plugin and hook calling mechanisms for Python
 dev-python/pluginbase 1.0.1-r1: Support library for building plugins systems in Python
@@ -9007,8 +9007,8 @@ dev-python/pycups 2.0.4: Python bindings for the CUPS API
 dev-python/pycurl 7.45.6 7.45.7: Python bindings for curl/libcurl
 dev-python/pycurl-requests 0.5.0-r1 0.5.1: Requests-compatible interface for PycURL
 dev-python/pycxx 7.1.8-r3 7.1.10: Set of facilities to extend Python with C++
-dev-python/pydantic 2.11.7 2.11.8 2.11.9 2.12.0_alpha1: Data parsing and validation using Python type hints
-dev-python/pydantic-core 2.33.2 2.37.2 2.38.0 2.39.0 2.40.0: Core validation logic for pydantic written in Rust
+dev-python/pydantic 2.11.7 2.11.8 2.11.9 2.12.0_alpha1 2.12.0_beta1: Data parsing and validation using Python type hints
+dev-python/pydantic-core 2.33.2 2.37.2 2.40.1: Core validation logic for pydantic written in Rust
 dev-python/pydata-sphinx-theme 0.16.0 0.16.1: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0-r1: Pythonic DBus library
 dev-python/pydecomp 0.3-r3 9999: A python library of common (de)compression and contents handling
@@ -9398,7 +9398,7 @@ dev-python/secretstorage 3.3.3 3.4.0: Python bindings to FreeDesktop.org Secret 
 dev-python/securesystemslib 1.3.0 1.3.1: Cryptographic routines for Secure Systems Lab projects at NYU
 dev-python/seedir 0.5.1: Package for creating, editing, and reading folder tree diagrams
 dev-python/segno 1.6.6: Python QR Code and Micro QR Code encoder
-dev-python/selenium 4.26.1 4.31.0 4.32.0 4.33.0-r1 4.34.0 4.34.2 4.35.0: Python language binding for Selenium Remote Control
+dev-python/selenium 4.26.1 4.34.2 4.35.0 4.36.0: Python language binding for Selenium Remote Control
 dev-python/semantic-version 2.10.0: Python library providing a few tools handling SemVer in Python
 dev-python/semver 3.0.4: A Python module for semantic versioning
 dev-python/send2trash 1.8.3: Sends files to the Trash (or Recycle Bin)
@@ -9498,7 +9498,7 @@ dev-python/sphinxygen 1.0.10: Python module/script that generates Sphinx markup 
 dev-python/sphobjinv 2.3.1.3: Sphinx objects.inv Inspection/Manipulation Tool
 dev-python/spotipy 2.25.1: A lightweight Python library for the Spotify Web API
 dev-python/spur 0.3.23: Run commands locally or over SSH using the same interface
-dev-python/spyder 6.0.7 6.0.8: The Scientific Python Development Environment
+dev-python/spyder 6.0.8: The Scientific Python Development Environment
 dev-python/spyder-kernels 3.0.5 3.1.0_beta1 3.1.0_beta2 3.1.0: Kernels used by spyder on its ipython console
 dev-python/spyder-line-profiler 0.4.1: Plugin to run the python line profiler from within the spyder editor
 dev-python/spyder-notebook 0.6.2: Jupyter notebook integration with Spyder
@@ -9582,7 +9582,7 @@ dev-python/toolz 1.0.0 1.0.0-r1: List processing tools and functional utilities
 dev-python/toposort 1.10: Implements a topological sort algorithm
 dev-python/tornado 6.5.1 6.5.2: Python web framework and asynchronous networking library
 dev-python/towncrier 24.8.0 25.8.0: Building newsfiles for your project
-dev-python/tox 4.28.3 4.28.4 4.29.0 4.30.1 4.30.2: virtualenv-based automation of test activities
+dev-python/tox 4.29.0 4.30.2 4.30.3: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.3.0-r2: Python bindings for TSS
 dev-python/tqdm 4.67.1: Add a progress meter to your loops in a second
 dev-python/traitlets 5.14.3: A configuration system for Python applications
@@ -9708,7 +9708,7 @@ dev-python/xmlschema 4.1.0: An XML Schema validator and decoder
 dev-python/xmlsec 1.3.16: Python bindings for the XML Security Library
 dev-python/xmltodict 0.14.2 0.15.1 1.0.0 1.0.2: Makes working with XML feel like you are working with JSON
 dev-python/xvfbwrapper 0.2.13 0.2.14: Python wrapper for running a display inside X virtual framebuffer
-dev-python/xxhash 3.5.0: Python binding for the xxHash library
+dev-python/xxhash 3.5.0 3.6.0: Python binding for the xxHash library
 dev-python/yapf 0.43.0-r1: A formatter for Python files
 dev-python/yappi 1.6.10: Yet Another Python Profiler
 dev-python/yapsy 1.12.2-r2: A fat-free DIY Python plugin management toolkit
@@ -10993,7 +10993,7 @@ dev-util/schroot 1.6.13_p7-r1 1.6.13_p7-r2: Utility to execute commands in a chr
 dev-util/sdl-jstest 0.2.2 9999: Simple SDL joystick test application for the console
 dev-util/seer 2.5 2.5-r1 9999: A GUI frontend to gdb
 dev-util/sel 0.08.4-r2: A filemanager for shell scripts
-dev-util/selenium-manager 4.26.0-r1 4.31.0 4.32.0 4.33.0 4.34.0 4.35.0: CLI tool that manages the browser/driver infrastructure required by Selenium
+dev-util/selenium-manager 4.26.0-r1 4.34.0 4.35.0 4.36.0: CLI tool that manages the browser/driver infrastructure required by Selenium
 dev-util/serialtalk 1.3 9999: simple command-line tool to talk to serial devices
 dev-util/sh 3.11.0: A shell parser, formatter, and interpreter with bash support
 dev-util/shadowman 4: Unified compiler shadow link directory updater
