@@ -1,0 +1,15 @@
+BDEPEND=doc? ( app-text/doxygen ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=test? ( dev-cpp/gtest )
+DESCRIPTION=The HTML5 parsing algorithm implemented as a pure C99 library
+EAPI=8
+HOMEPAGE=https://codeberg.org/gumbo-parser/gumbo-parser
+INHERIT=meson
+IUSE=doc test
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~ppc-macos ~x64-macos ~x64-solaris
+LICENSE=Apache-2.0
+RESTRICT=!test? ( test )
+SLOT=0/3
+SRC_URI=https://codeberg.org/grisha/gumbo-parser/archive/0.13.2.tar.gz -> gumbo-0.13.2.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	b7eb9c3a6dc6662368634584aab44a2c	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=7780520525cba4d377ceece77f612cad
