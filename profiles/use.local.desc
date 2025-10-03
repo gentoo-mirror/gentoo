@@ -522,7 +522,6 @@ app-editors/xemacs:athena - Chooses the MIT Athena widget set
 app-editors/xemacs:bignum - Support for OpenSSL bignum implementation
 app-editors/xemacs:pop - Support POP for mail retrieval
 app-editors/xemacs:xim - Enable X11 XiM input method
-app-editors/zed:gles - Use simplified OpenGLES instead of full-scale OpenGL
 app-emacs/auctex:preview-latex - Use bundled preview-latex
 app-emacs/bbdb:tex - Install plain TeX support files
 app-emacs/bbdb:vm - Add support for app-emacs/vm
@@ -8166,6 +8165,15 @@ sys-boot/lilo:device-mapper - Enable support for device-mapper from sys-fs/lvm2
 sys-boot/lilo:keytab - Install keytab, keyboard remapping helper script
 sys-boot/lilo:minimal - Do not install optional bits (dolilo helper, docs, etc.)
 sys-boot/lilo:pxeserial - Avoid character echo on PXE serial console
+sys-boot/limine:bios - Enable BIOS/MBR boot support.
+sys-boot/limine:bios-cd - Enables BIOS boot support for CDs.
+sys-boot/limine:bios-pxe - Enables BIOS PXE boot support.
+sys-boot/limine:cd-efi - Enable building cd-efi.bin using sys-fs/mtools. This flag was previously known as eltorito-efi.
+sys-boot/limine:uefi32 - Enable 32-bit UEFI support.
+sys-boot/limine:uefi64 - Enable 64-bit UEFI support.
+sys-boot/limine:uefiaa64 - Enable AArch64 UEFI support.
+sys-boot/limine:uefiloong64 - Enable 64-bit LoongArch UEFI support.
+sys-boot/limine:uefirv64 - Enable 64-bit RISC-V UEFI support.
 sys-boot/plymouth:drm - Provides abstraction to the DRM drivers (intel, nouveau and vmwgfx at this moment)
 sys-boot/plymouth:freetype - Build with freetype support (if enabled, used for encryption prompts)
 sys-boot/plymouth:pango - Adds support for printing text on splash screen and text prompts, e.g. for password

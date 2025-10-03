@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-fefe ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile install setup unpack
+DEPEND=diet? ( >=dev-libs/dietlibc-0.33_pre20090721 )
+DESCRIPTION=reimplement libdjb - excellent libraries from Dan Bernstein
+EAPI=8
+HOMEPAGE=https://www.fefe.de/libowfat/
+INHERIT=flag-o-matic toolchain-funcs verify-sig
+IUSE=diet verify-sig
+KEYWORDS=~amd64 ~hppa ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=diet? ( >=dev-libs/dietlibc-0.33_pre20090721 )
+SLOT=0
+SRC_URI=http://www.fefe.de/libowfat/libowfat-0.34.tar.xz verify-sig? ( http://www.fefe.de/libowfat/libowfat-0.34.tar.xz.sig )
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
+_md5_=b86858df333096b82101b2a0fb678466
