@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,9 +15,9 @@ if [[ ${PV} == 9999 ]] ; then
 	"
 	inherit git-r3
 elif [[ ${PV} == *_p* ]] ; then
-	PUBLIC_INBOX_COMMIT="488958385c6b8974b8780fb44b91c481e57c2eea"
-	SRC_URI="https://public-inbox.org/public-inbox.git/snapshot/${PUBLIC_INBOX_COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}"/${PUBLIC_INBOX_COMMIT}
+	PUBLIC_INBOX_COMMIT="e0066f045f37b413b3fab1aca855d5022e57351f"
+	SRC_URI="https://repo.or.cz/public-inbox.git/snapshot/${PUBLIC_INBOX_COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}"/${PN}-${PUBLIC_INBOX_COMMIT:0:7}
 else
 	SRC_URI="https://public-inbox.org/public-inbox.git/snapshot/${P}.tar.gz"
 fi
@@ -51,3 +51,12 @@ BDEPEND="
 	${RDEPEND}
 	virtual/perl-ExtUtils-MakeMaker
 "
+
+src_install() {
+	perl-module_src_install
+
+	insinto /usr/share/public-inbox/css
+	doins "${S}"/contrib/css/*
+
+	dodoc -r "${S}"/Documentation/*
+}
