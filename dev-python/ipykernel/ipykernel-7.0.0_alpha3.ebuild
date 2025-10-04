@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit distutils-r1 pypi virtualx
@@ -19,8 +19,6 @@ LICENSE="BSD"
 SLOT="0"
 
 RDEPEND="
-	<dev-python/anyio-5[${PYTHON_USEDEP}]
-	>=dev-python/anyio-4.8.0[${PYTHON_USEDEP}]
 	>=dev-python/comm-0.1.1[${PYTHON_USEDEP}]
 	>=dev-python/ipython-7.23.1[${PYTHON_USEDEP}]
 	>=dev-python/jupyter-client-8.0.0[${PYTHON_USEDEP}]
@@ -29,9 +27,9 @@ RDEPEND="
 	>=dev-python/nest-asyncio-1.4[${PYTHON_USEDEP}]
 	>=dev-python/packaging-22[${PYTHON_USEDEP}]
 	>=dev-python/psutil-5.7[${PYTHON_USEDEP}]
-	>=dev-python/pyzmq-26.0[${PYTHON_USEDEP}]
+	>=dev-python/pyzmq-25[${PYTHON_USEDEP}]
+	>=dev-python/tornado-6.2[${PYTHON_USEDEP}]
 	>=dev-python/traitlets-5.4.0[${PYTHON_USEDEP}]
-	>=dev-python/zmq-anyio-0.3.6[${PYTHON_USEDEP}]
 "
 # RDEPEND seems specifically needed in BDEPEND, at least jupyter
 # bug #816486
@@ -40,14 +38,23 @@ RDEPEND="
 BDEPEND="
 	${RDEPEND}
 	test? (
-		dev-python/flaky[${PYTHON_USEDEP}]
 		dev-python/ipyparallel[${PYTHON_USEDEP}]
 		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 		dev-python/trio[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-{asyncio,rerunfailures,timeout} )
 distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
+	# hangs?
+	tests/test_eventloop.py::test_tk_loop
+	# flaky
+	tests/test_eventloop.py::test_qt_enable_gui
+	# fails without pytest-cov; apparently "time-sensitive" too
+	tests/test_subshells.py::test_run_concurrently_sequence
+)
 
 src_prepare() {
 	# debugpy is actually optional
@@ -64,26 +71,4 @@ python_compile() {
 
 src_test() {
 	virtx distutils-r1_src_test
-}
-
-python_test() {
-	local EPYTEST_DESELECT=(
-		# hangs?
-		tests/test_eventloop.py::test_tk_loop
-		# flaky
-		tests/test_eventloop.py::test_qt_enable_gui
-	)
-
-	case ${EPYTHON} in
-		python3.13)
-			EPYTEST_DESELECT+=(
-				tests/test_embed_kernel.py
-				tests/test_kernelspec.py::test_install_kernelspec
-				tests/test_zmq_shell.py::test_zmq_interactive_shell
-			)
-			;;
-	esac
-
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -p anyio -p timeout
 }
