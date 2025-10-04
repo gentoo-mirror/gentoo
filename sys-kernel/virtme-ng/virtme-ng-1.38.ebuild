@@ -5,6 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..13} )
+RUST_MIN_VER="1.75.0"
 
 # for virtme-ng-init
 CRATES="
@@ -18,7 +19,7 @@ CRATES="
 	uzers@0.12.1
 "
 
-inherit bash-completion-r1 cargo distutils-r1
+inherit cargo distutils-r1 shell-completion
 
 DESCRIPTION="Quickly build and run kernels inside a virtualized snapshot of your live system"
 HOMEPAGE="https://github.com/arighi/virtme-ng"
@@ -34,7 +35,7 @@ LICENSE="GPL-2"
 LICENSE+=" MIT"
 SLOT="0"
 
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DEPEND="
 	dev-python/argcomplete[${PYTHON_USEDEP}]
@@ -79,9 +80,9 @@ src_test() {
 
 src_install() {
 	distutils-r1_src_install
-	insinto etc
-	doins cfg/${PN}.conf
-	dobashcomp virtme-ng-prompt vng-prompt
+	newbashcomp virtme-ng-prompt virtme-ng
+	newbashcomp vng-prompt vng
+	dozshcomp virtme-ng-prompt vng-prompt
 
 	cd virtme_ng_init || die
 	cargo_src_install
