@@ -3,10 +3,7 @@
 
 EAPI=8
 
-inherit cmake git-r3 readme.gentoo-r1 xdg-utils
-
-EGIT_REPO_URI="https://github.com/OpenRCT2/OpenRCT2.git"
-EGIT_BRANCH="develop"
+inherit cmake readme.gentoo-r1 xdg-utils
 
 MY_PN="OpenRCT2"
 MY_PN_MSX="openmusic"
@@ -16,23 +13,27 @@ MY_PN_SFX="opensound"
 MY_PN_TS="title-sequences"
 MY_PV_MSX="1.6.1"
 MY_PV_OBJ="1.7.3"
-MY_PV_RPL="0.0.89"
+MY_PV_RPL="0.0.90"
 MY_PV_SFX="1.0.6"
-MY_PV_TS="0.4.14"
+MY_PV_TS="0.4.26"
 
 DESCRIPTION="An open source re-implementation of Chris Sawyer's RollerCoaster Tycoon 2"
 HOMEPAGE="https://openrct2.org/"
 SRC_URI="
+	https://github.com/${MY_PN}/${MY_PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/${MY_PN}/${MY_PN_MSX}/releases/download/v${MY_PV_MSX}/${MY_PN_MSX}.zip -> ${PN}-${MY_PN_MSX}-${MY_PV_MSX}.zip
 	https://github.com/${MY_PN}/${MY_PN_OBJ}/releases/download/v${MY_PV_OBJ}/${MY_PN_OBJ}.zip -> ${PN}-${MY_PN_OBJ}-${MY_PV_OBJ}.zip
 	https://github.com/${MY_PN}/OpenSoundEffects/releases/download/v${MY_PV_SFX}/${MY_PN_SFX}.zip -> ${PN}-${MY_PN_SFX}-${MY_PV_SFX}.zip
 	https://github.com/${MY_PN}/${MY_PN_TS}/releases/download/v${MY_PV_TS}/${MY_PN_TS}.zip -> ${PN}-${MY_PN_TS}-${MY_PV_TS}.zip
 	test? ( https://github.com/${MY_PN}/${MY_PN_RPL}/releases/download/v${MY_PV_RPL}/${MY_PN_RPL}.zip -> ${PN}-${MY_PN_RPL}-${MY_PV_RPL}.zip )
 "
+S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
+KEYWORDS="amd64 ~arm arm64 ~x86"
 IUSE="dedicated +flac +opengl scripting test +truetype +vorbis"
+RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
 	dev-libs/icu:=
@@ -74,8 +75,6 @@ BDEPEND="
 	app-arch/unzip
 	virtual/pkgconfig
 "
-
-RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.4.1-gtest-1.10.patch"
@@ -125,18 +124,17 @@ src_configure() {
 		-DDISABLE_NETWORK=OFF
 		$(usex !dedicated "-DDISABLE_OPENGL=$(usex !opengl)" "")
 		-DDISABLE_TTF=$(usex !truetype)
-		-DDISABLE_VERSION_CHECKER=OFF
 		$(usex !dedicated "-DDISABLE_VORBIS=$(usex !vorbis)" "")
 		-DDOWNLOAD_OBJECTS=OFF
 		-DDOWNLOAD_OPENMSX=OFF
 		-DDOWNLOAD_OPENSFX=OFF
 		-DDOWNLOAD_REPLAYS=OFF
 		-DDOWNLOAD_TITLE_SEQUENCES=OFF
-		-DENABLE_SCRIPTING=$(usex scripting)
+		-DENABLE_SCRIPTING="$(usex scripting)"
 		-DOPENRCT2_USE_CCACHE=OFF
 		-DPORTABLE=OFF
 		-DSTATIC=OFF
-		-DWITH_TESTS=$(usex test)
+		-DWITH_TESTS="$(usex test)"
 		-DUSE_MMAP=ON
 	)
 
