@@ -31,7 +31,7 @@ RUBY_S="rails-${PV}/${PN}"
 ruby_add_rdepend "~dev-ruby/activesupport-${PV}
 	~dev-ruby/activemodel-${PV}
 	>=dev-ruby/timeout-0.4.0
-	sqlite? ( >=dev-ruby/sqlite3-1.4 )
+	sqlite? ( >=dev-ruby/sqlite3-2.1 )
 	mysql? ( dev-ruby/mysql2:0.5 )
 	postgres? ( >=dev-ruby/pg-1.1:1 )"
 
@@ -51,20 +51,20 @@ DEPEND+=" test? ( >=dev-db/sqlite-3.12.1 )"
 
 all_ruby_prepare() {
 	# Remove items from the common Gemfile that we don't need for this
-	# test run.
+	# test run. This also requires handling some gemspecs.
 	rm ../Gemfile.lock || die
 	sed -e "/\(uglifier\|system_timer\|sdoc\|w3c_validators\|pg\|jquery-rails\|execjs\|'mysql'\|journey\|ruby-prof\|stackprof\|benchmark-ips\|kindlerb\|turbolinks\|coffee-rails\|debugger\|redcarpet\|minitest\|sprockets\|stackprof\)/ s:^:#:" \
 		-e '/:job/,/end/ s:^:#:' \
 		-e '/group :doc/,/^end/ s:^:#:' \
 		-i ../Gemfile || die
+	sed -i -e '/rack-ssl/d' -e 's/~> 3.4/>= 3.4/' ../railties/railties.gemspec || die
+	sed -e '/bcrypt/ s/3.0.0/3.0/' \
+		-i ../Gemfile || die
 	sed -i -e '/byebug/ s:^:#:' test/cases/base_prevent_writes_test.rb || die
 
 	# Add back json in the Gemfile because we dropped some dependencies
 	# earlier that implicitly required it.
-	#sed -i -e '$agem "json"' ../Gemfile || die
-
-	sed -e '3igem "activemodel", "~> 7.2.0"; gem "actionpack", "~> 7.2.0"; gem "activejob", "~> 7.2.0"' \
-		-i test/cases/helper.rb || die
+	sed -i -e '$agem "json"' ../Gemfile || die
 
 	# Avoid single tests using mysql or postgres dependencies.
 	rm test/cases/invalid_connection_test.rb || die

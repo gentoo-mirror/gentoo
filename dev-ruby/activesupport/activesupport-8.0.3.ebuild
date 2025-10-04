@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33 ruby34"
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_EXTRADOC="CHANGELOG.md README.rdoc"
 
@@ -39,6 +39,7 @@ ruby_add_rdepend "
 	>=dev-ruby/minitest-5.1
 	>=dev-ruby/securerandom-0.3
 	>=dev-ruby/tzinfo-2.0.5:2
+	>=dev-ruby/uri-0.13.1
 	msgpack? ( >=dev-ruby/msgpack-1.7.0 )
 "
 
@@ -61,7 +62,7 @@ all_ruby_prepare() {
 
 	# Remove items from the common Gemfile that we don't need for this
 	# test run. This also requires handling some gemspecs.
-	sed -i -e "/\(system_timer\|execjs\|jquery-rails\|journey\|ruby-prof\|stackprof\|benchmark-ips\|turbolinks\|coffee-rails\|debugger\|sprockets-rails\|bcrypt\|uglifier\|minitest\|sprockets\|stackprof\|rack-cache\|sqlite\|websocket-client-simple\|\libxml-ruby\|bootsnap\|aws-sdk\|webmock\|capybara\|sass-rails\|selenium-webdriver\|webpacker\|webrick\|propshaft\|rack-test\|terser\|cgi\|net-smtp\|net-imap\|net-pop\|digest\|matrix\|web-console\|error_highlight\|jbuilder\|httpclient\|prism\|useragent\|launchy\)/ s:^:#:" \
+	sed -i -e "/\(system_timer\|execjs\|jquery-rails\|journey\|ruby-prof\|stackprof\|benchmark-ips\|turbolinks\|coffee-rails\|debugger\|sprockets-rails\|bcrypt\|uglifier\|minitest\|sprockets\|stackprof\|rack-cache\|sqlite\|libxml-ruby\|bootsnap\|webmock\|capybara\|sass-rails\|selenium-webdriver\|webpacker\|webrick\|propshaft\|rack-test\|terser\|cgi\|net-smtp\|net-imap\|net-pop\|digest\|matrix\|web-console\|error_highlight\|jbuilder\|httpclient\|prism\|useragent\|solid\|kamal\|thruster\|aws-sdk\|launchy\|releaser\)/ s:^:#:" \
 		-e '/stimulus-rails/,/tailwindcss-rails/ s:^:#:' \
 		-e '/^group :test/,/^end/ s:^:#:' \
 		-e '/^\s*group :\(db\|doc\|rubocop\|job\|cable\|lint\|mdl\|storage\|ujs\|test\|view\) do/,/^\s*end/ s:^:#:' \
@@ -71,10 +72,6 @@ all_ruby_prepare() {
 
 	# Avoid test that depends on timezone
 	sed -i -e '/test_implicit_coercion/,/^  end/ s:^:#:' test/core_ext/duration_test.rb || die
-
-	# Avoid test broken by recent deprecations and already fixed upstream
-	sed -e '/test_time_to_time_without_preserve_configured/askip "Fixed upstream"' \
-		-i test/core_ext/date_and_time_compatibility_test.rb || die
 
 	# Avoid tests that seem to trigger race conditions.
 	rm -f test/evented_file_update_checker_test.rb || die

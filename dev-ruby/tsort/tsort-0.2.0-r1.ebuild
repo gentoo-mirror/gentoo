@@ -23,7 +23,7 @@ IUSE="test"
 ruby_add_depend "test? ( dev-ruby/bundler dev-ruby/test-unit )"
 
 all_ruby_prepare() {
-	sed -e 's/__FILE__/"ostruct.gemspec"/' \
+	sed -e 's/__FILE__/"tsort.gemspec"/' \
 		-e 's/__dir__/"."/' \
 		-e "/spec.version/ s/= version/= '${PV}'/" \
 		-e 's/git ls-files -z/find * -print0/' \

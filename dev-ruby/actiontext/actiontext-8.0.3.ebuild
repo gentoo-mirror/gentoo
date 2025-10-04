@@ -47,7 +47,7 @@ ruby_add_bdepend "test? (
 all_ruby_prepare() {
 	# Remove items from the common Gemfile that we don't need for this
 	# test run. This also requires handling some gemspecs.
-	sed -e "/\(system_timer\|sdoc\|w3c_validators\|pg\|execjs\|jquery-rails\|mysql2\|journey\|ruby-prof\|stackprof\|benchmark-ips\|kindlerb\|turbolinks\|coffee-rails\|sass-rails\|debugger\|sprockets-rails\|redcarpet\|bcrypt\|uglifier\|sprockets\|stackprof\|websocket-client-simple\|libxml-ruby\|redis\|blade\|aws-sdk\|google-cloud\|azure-storage\|selenium\|webpacker\|webrick\|webmock\|webdrivers\|minitest-bisect\|minitest-retry\|minitest-reporters\|listen\|rack-cache\|rack-test\|bootsnap\|capybara\|dalli\|connection_pool\|terser\|cookiejar\|cgi\|web-console\|trilogy\|error_highlight\|jbuilder\|httpclient\|prism\)/ s:^:#:" \
+	sed -e "/\(system_timer\|sdoc\|w3c_validators\|pg\|execjs\|jquery-rails\|mysql2\|journey\|ruby-prof\|stackprof\|benchmark-ips\|kindlerb\|turbolinks\|coffee-rails\|sass-rails\|debugger\|sprockets-rails\|redcarpet\|bcrypt\|uglifier\|sprockets\|stackprof\|websocket-client-simple\|libxml-ruby\|redis\|blade\|aws-sdk\|google-cloud\|azure-storage\|selenium\|webpacker\|webrick\|webmock\|webdrivers\|minitest-bisect\|minitest-retry\|minitest-reporters\|listen\|rack-cache\|rack-test\|bootsnap\|capybara\|dalli\|connection_pool\|terser\|cookiejar\|cgi\|web-console\|trilogy\|error_highlight\|jbuilder\|httpclient\|prism\|solid\|kamal\|thruster\|releaser\)/ s:^:#:" \
 		-e '/stimulus-rails/,/cssbundling-rails/ s:^:#:' \
 		-e '/tailwindcss-rails/,/dartsass-rails/ s:^:#:' \
 		-e '/:job/,/end/ s:^:#:' \
@@ -62,4 +62,9 @@ all_ruby_prepare() {
 
 each_ruby_prepare() {
 	sed -i -e 's:ruby:'${RUBY}':' test/dummy/bin/* || die
+}
+
+each_ruby_test() {
+	export SEED="2"
+	each_fakegem_test
 }

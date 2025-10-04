@@ -30,7 +30,6 @@ ruby_add_rdepend "
 	~dev-ruby/actionview-${PV}
 	~dev-ruby/activesupport-${PV}
 	>=dev-ruby/nokogiri-1.8.5
-	dev-ruby/racc
 	|| ( dev-ruby/rack:3.1 dev-ruby/rack:3.0 >=dev-ruby/rack-2.2.4:2.2 )
 	>=dev-ruby/rack-session-1.0.1
 	>=dev-ruby/rack-test-0.6.3:*
@@ -60,9 +59,8 @@ all_ruby_prepare() {
 		-e '/group :doc/,/^end/ s:^:#:' ../Gemfile || die
 	rm ../Gemfile.lock || die
 
-	# Fix errors loading rack/session with rack 3.0 and use correct rails version.
-	sed -e '2igem "rack-session"; gem "railties", "~> 7.2.0"; gem "activemodel", "~> 7.2.0"' \
-		-i test/abstract_unit.rb || die
+	# Fix errors loading rack/session with rack 3.0 and missing OpenStruct
+	sed -i -e '2igem "rack-session"; require "ostruct"' test/abstract_unit.rb || die
 
 	# Use different timezone notation, this changed at some point due to an external dependency changing.
 	sed -e 's/-0000/GMT/' \

@@ -32,15 +32,16 @@ RUBY_S="rails-${PV}/${PN}"
 # investigation.
 RESTRICT="test"
 
-RDEPEND=">=app-eselect/eselect-rails-0.28"
+RDEPEND=">=app-eselect/eselect-rails-0.29"
 
 ruby_add_rdepend "
 	~dev-ruby/actionpack-${PV}
 	~dev-ruby/activesupport-${PV}
-	dev-ruby/irb
+	>=dev-ruby/irb-1.13:0
 	>=dev-ruby/rackup-1.0.0
 	>=dev-ruby/rake-12.2
 	>=dev-ruby/thor-1.2.2:1
+	>=dev-ruby/tsort-0.2
 	>=dev-ruby/zeitwerk-2.6:2
 "
 

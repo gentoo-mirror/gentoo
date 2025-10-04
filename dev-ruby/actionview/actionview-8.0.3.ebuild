@@ -44,6 +44,7 @@ ruby_add_bdepend "
 		~dev-ruby/activemodel-${PV}
 		~dev-ruby/activerecord-${PV}
 		~dev-ruby/railties-${PV}
+		dev-ruby/prism
 		dev-ruby/sqlite3
 		dev-ruby/minitest:5
 	)"
@@ -51,10 +52,9 @@ ruby_add_bdepend "
 all_ruby_prepare() {
 	# Remove items from the common Gemfile that we don't need for this
 	# test run. This also requires handling some gemspecs.
-	sed -e "/\(system_timer\|sdoc\|w3c_validators\|pg\|execjs\|jquery-rails\|'mysql'\|journey\|rack-cache\|ruby-prof\|stackprof\|benchmark-ips\|kindlerb\|turbolinks\|coffee-rails\|debugger\|redcarpet\|bcrypt\|uglifier\|mime-types\|minitest\|sprockets\|stackprof\)/ s:^:#:" \
+	sed -i -e "/\(system_timer\|sdoc\|w3c_validators\|pg\|execjs\|jquery-rails\|'mysql'\|journey\|rack-cache\|ruby-prof\|stackprof\|benchmark-ips\|kindlerb\|turbolinks\|coffee-rails\|debugger\|redcarpet\|bcrypt\|uglifier\|mime-types\|minitest\|sprockets\|stackprof\)/ s:^:#:" \
 		-e '/:job/,/end/ s:^:#:' \
-		-e '/group :doc/,/^end/ s:^:#:' \
-		-i ../Gemfile || die
+		-e '/group :doc/,/^end/ s:^:#:' ../Gemfile || die
 	rm ../Gemfile.lock || die
 
 	# Fix loading of activerecord integration tests. This avoids loading
@@ -64,7 +64,7 @@ all_ruby_prepare() {
 		-e '/defined/ s/FixtureSet/ActiveRecord::FixtureSet/' \
 		-i test/active_record_unit.rb || die
 
-	sed -e '3irequire "ostruct"; gem "actionpack", "~> 7.2.0"; gem "activerecord", "~> 7.2.0"; gem "railties", "~> 7.2.0"' \
+	sed -e '3irequire "ostruct"' \
 		-i test/abstract_unit.rb || die
 
 	# Avoid test failing on capitalization difference
@@ -74,15 +74,4 @@ all_ruby_prepare() {
 	# Remove tests that are coupled to the Sanitizer (already removed upstream)
 	sed -e '/test_sanitized_allowed_\(tags_class_method\|attributes_class_method\)/askip "Removed upstream"' \
 		-i test/template/sanitize_helper_test.rb || die
-}
-
-each_ruby_prepare() {
-	# The new prism parser is currently unpackaged and only included with ruby33.
-	case ${RUBY} in
-		*ruby31|*ruby32)
-			sed -e '/prism/ s:^:#:' \
-				-e '/PrismRubyTrackerTest/,/^end/ s:^:#:' \
-				-i test/template/dependency_tracker_test.rb || die
-			;;
-	esac
 }
