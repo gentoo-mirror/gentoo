@@ -61,14 +61,11 @@ DEPEND="
 	media-libs/freetype
 	media-libs/libpng:=
 	media-libs/libsamplerate
-	media-libs/libsdl2[haptic,joystick,opengl,sound,vulkan]
+	media-libs/libsdl3[opengl,vulkan]
 	media-libs/speexdsp
 	sys-libs/zlib[minizip(+)]
 	virtual/opengl
-	netplay? (
-		dev-qt/qtwebsockets:6
-		media-libs/sdl2-net
-	)
+	netplay? ( dev-qt/qtwebsockets:6 )
 	rust-plugin? ( dev-libs/libusb:1 )
 "
 RDEPEND="${DEPEND}"
@@ -77,6 +74,11 @@ BDEPEND="
 	dynarec? ( dev-lang/nasm )
 	rust-plugin? ( ${RUST_DEPEND} )
 "
+
+PATCHES=(
+	# https://github.com/Rosalie241/RMG/issues/436
+	"${FILESDIR}"/${PN}-0.8.3-rust.patch
+)
 
 pkg_setup() {
 	QA_FLAGS_IGNORED="/usr/$(get_libdir)/RMG/Plugin/Input/libmupen64plus_input_gca.so"
@@ -100,10 +102,11 @@ src_unpack() {
 }
 
 src_prepare() {
-	cmake_src_prepare
-
-	# Don't install unused 3rdParty code
+	# Remove unused 3rdParty code - https://bugs.gentoo.org/959468
+	rm -r "${S}"/Source/3rdParty/discord-rpc/thirdparty/rapidjson/example || die
 	rm -r "${S}"/Source/3rdParty/fmt || die
+	rm -r "${S}"/Source/3rdParty/imgui/examples || die
+	rm -r "${S}"/Source/3rdParty/mupen64plus-rsp-parallel/win32 || die
 
 	# Don't install XMAME licensed code
 	if ! use angrylion-plugin; then
@@ -115,6 +118,8 @@ src_prepare() {
 
 	# Enable verbose make(1) output
 	sed -e 's/CC=/V=1 CC=/' -i "${S}"/Source/3rdParty/CMakeLists.txt || die
+
+	cmake_src_prepare
 }
 
 src_configure() {
