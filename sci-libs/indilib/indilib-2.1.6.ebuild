@@ -40,8 +40,6 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-cpp/gtest-1.8.0 )
 "
 
-PATCHES=( "${FILESDIR}/${P}-cmake4.patch" ) # bug 959087, pending upstream
-
 src_configure() {
 	local mycmakeargs=(
 		-DINDI_SYSTEM_HTTPLIB=ON
