@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..13} )
 GENTOO_DEPEND_ON_PERL="no"
 
-inherit autotools distutils-r1 perl-functions
+inherit autotools distutils-r1 dot-a perl-module
 
 MY_PV="$(ver_cut 1-2)"
 
@@ -21,10 +21,9 @@ S=${WORKDIR}/apparmor-${PV}/libraries/${PN}
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="doc +perl +python static-libs ${GENTOO_PERL_USESTRING}"
+IUSE="doc +perl +python ${GENTOO_PERL_USESTRING} test"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
-# depends on the package already being installed
-RESTRICT="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	perl? (
@@ -38,6 +37,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-build/autoconf-archive
+	sys-apps/which
 	sys-devel/bison
 	sys-devel/flex
 	doc? ( dev-lang/perl )
@@ -46,6 +46,9 @@ BDEPEND="
 		${PYTHON_DEPS}
 		${DISTUTILS_DEPS}
 		dev-lang/swig
+	)
+	test? (
+		dev-util/dejagnu
 	)
 "
 
@@ -63,6 +66,8 @@ src_prepare() {
 }
 
 src_configure() {
+	lto-guarantee-fat
+
 	# Run configure through distutils-r1.eclass. Bug 764779
 	if use python; then
 		distutils-r1_src_configure
@@ -77,7 +82,8 @@ python_configure_all() {
 	export YACC=yacc.bison
 
 	local myeconfargs=(
-		$(use_enable static-libs static)
+		# Needed for tests, just always install them.
+		--enable-static
 		$(use_with perl)
 		$(use_with python)
 	)
@@ -92,11 +98,37 @@ src_compile() {
 	use perl && emake -C swig/perl
 
 	if use python ; then
-		pushd swig/python > /dev/null
+		pushd swig/python > /dev/null || die
 		emake libapparmor_wrap.c
 		distutils-r1_src_compile
-		popd > /dev/null
+		popd > /dev/null || die
 	fi
+}
+
+src_test() {
+	# Avoid perl-module_src_test. We also need to avoid running the
+	# Python tests in the wrong environment here.
+	mv swig/python/test/test_python.py.in{,.bak} || die
+	touch swig/python/test/test_python.py.in
+	default
+	mv swig/python/test/test_python.py.in{.bak,} || die
+
+	if use python ; then
+		pushd swig/python > /dev/null || die
+		distutils-r1_src_test
+		popd > /dev/null || die
+	fi
+}
+
+python_test() {
+	cd test || die
+
+	# Force regeneration wrt the earlier hack we did
+	touch test_python.py.in || die
+	# Create test_python.py from test_python.py.in
+	emake test_python.py
+
+	LD_LIBRARY_PATH="${S}/src/.libs:${LD_LIBRARY_PATH}" ${EPYTHON} test_python.py || die
 }
 
 src_install() {
@@ -123,6 +155,7 @@ src_install() {
 
 	dodoc AUTHORS ChangeLog NEWS README
 
+	strip-lto-bytecode
 	find "${D}" -name '*.la' -delete || die
 }
 
