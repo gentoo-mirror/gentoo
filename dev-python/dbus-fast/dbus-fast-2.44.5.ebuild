@@ -21,7 +21,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 
 BDEPEND="
 	>=dev-python/cython-3[${PYTHON_USEDEP}]
@@ -29,11 +29,10 @@ BDEPEND="
 	test? (
 		>=dev-python/pycairo-1.21.0[${PYTHON_USEDEP}]
 		>=dev-python/pygobject-3.50[${PYTHON_USEDEP}]
-		>=dev-python/pytest-asyncio-0.19[${PYTHON_USEDEP}]
-		>=dev-python/pytest-timeout-2.1.0[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-{asyncio,timeout} )
 distutils_enable_tests pytest
 
 export REQUIRE_CYTHON=1
@@ -58,6 +57,5 @@ python_test() {
 		tests/benchmarks
 	)
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	nonfatal epytest -o addopts= -p asyncio || die
+	nonfatal epytest -o addopts= || die
 }
