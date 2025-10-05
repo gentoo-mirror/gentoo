@@ -13,7 +13,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/vaeth/${PN}.git"
 else
 	SRC_URI="https://github.com/vaeth/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 arm arm64 ppc ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-2"
@@ -24,6 +24,7 @@ BDEPEND="sys-devel/gettext"
 
 RDEPEND="
 	>=app-shells/push-2.0
+	>=sys-apps/util-linux-2.41
 	virtual/libintl
 	|| ( sys-apps/openrc sys-apps/systemd )
 "
