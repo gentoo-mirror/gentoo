@@ -1,4 +1,4 @@
-BDEPEND=python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) dev-lang/swig ) dev-build/make >=dev-build/cmake-3.20.5
+BDEPEND=python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) dev-lang/swig ) dev-build/make >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst prepare setup test
 DEPEND=dev-libs/libxml2:2= sys-libs/zlib jpeg? ( media-libs/libjpeg-turbo:= ) opencv? ( media-libs/opencv:= ) png? ( media-libs/libpng:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) qt5? ( dev-qt/qtwidgets:5 ) tiff? ( media-libs/tiff:= ) truetype? ( media-libs/freetype:2 )
 DESCRIPTION=A free open-source montecarlo raytracing engine
@@ -13,5 +13,5 @@ REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/YafaRay/libYafaRay/archive/v3.5.1.tar.gz -> yafaray-3.5.1.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
 _md5_=b782c064b2d6382ef6b33710718f0121

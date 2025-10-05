@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-text/doxygen[dot] virtual/latex-base ) tutorials? ( dev-python/sphinx dev-python/sphinx-rtd-theme dev-python/sphinxcontrib-doxylink ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=doc? ( app-text/doxygen[dot] virtual/latex-base ) tutorials? ( dev-python/sphinx dev-python/sphinx-rtd-theme dev-python/sphinxcontrib-doxylink ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=dev-libs/boost:= dev-cpp/eigen:3 >=sci-libs/flann-1.7.1 opengl? ( media-libs/freeglut virtual/opengl ) openni? ( dev-libs/OpenNI ) openni2? ( dev-libs/OpenNI2 ) pcap? ( net-libs/libpcap ) png? ( media-libs/libpng:0= ) qhull? ( media-libs/qhull:= ) qt6? ( dev-qt/qtbase:6[concurrent,gui,opengl] vtk? ( sci-libs/vtk[-qt5(-),qt6] ) ) usb? ( virtual/libusb:1 ) vtk? ( >=sci-libs/vtk-5.6:=[imaging,rendering,views] ) cuda? ( >=dev-util/nvidia-cuda-toolkit-4 ) !!dev-cpp/metslib test? ( dev-cpp/gtest )
 DESCRIPTION=2D/3D image and point cloud processing
@@ -13,5 +13,5 @@ REQUIRED_USE=openni? ( usb ) openni2? ( usb ) tutorials? ( doc )
 RESTRICT=!test? ( test )
 SLOT=0/1.14
 SRC_URI=https://github.com/PointCloudLibrary/pcl/archive/pcl-1.14.1.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	cuda	8b660e223a1695e3884ee4c7dc2c5059
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	cuda	8b660e223a1695e3884ee4c7dc2c5059
 _md5_=7920adca1696acd7bd69fbf96ac29031

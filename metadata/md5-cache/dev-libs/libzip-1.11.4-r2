@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-util/nihtest ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=test? ( dev-util/nihtest ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=sys-libs/zlib bzip2? ( app-arch/bzip2:= ) lzma? ( app-arch/xz-utils ) ssl? ( gnutls? ( dev-libs/nettle:= >=net-libs/gnutls-3.6.5:= ) !gnutls? ( mbedtls? ( net-libs/mbedtls:3= ) !mbedtls? ( dev-libs/openssl:= ) ) ) zstd? ( >=app-arch/zstd-1.4.0:= )
 DESCRIPTION=Library for manipulating zip archives
@@ -13,5 +13,5 @@ REQUIRED_USE=test? ( ssl tools )
 RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=https://www.nih.at/libzip/libzip-1.11.4.tar.xz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181
 _md5_=6599a1e39074c39f0eea9348ceec64df

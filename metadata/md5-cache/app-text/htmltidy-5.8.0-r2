@@ -1,4 +1,4 @@
-BDEPEND=ruby_targets_ruby32? ( test? ( dev-ruby/thor[ruby_targets_ruby32(-)] dev-ruby/tty-editor[ruby_targets_ruby32(-)] ) ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=ruby_targets_ruby32? ( test? ( dev-ruby/thor[ruby_targets_ruby32(-)] dev-ruby/tty-editor[ruby_targets_ruby32(-)] ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DESCRIPTION=Tidy the layout and correct errors in HTML and XML documents
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=BSD
 RESTRICT=!test? ( test )
 SLOT=0/58
 SRC_URI=https://github.com/htacg/tidy-html5/archive/refs/tags/5.8.0.tar.gz -> htmltidy-5.8.0.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	multilib	a199af442898963433d6f038a88cce9c	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	multilib	a199af442898963433d6f038a88cce9c	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d
 _md5_=bfb1e3a3d93d72c6455984e4b1dc5728

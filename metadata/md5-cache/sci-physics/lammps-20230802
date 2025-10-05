@@ -1,4 +1,4 @@
-BDEPEND=>=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-build/make >=dev-build/cmake-3.20.5 virtual/fortran
+BDEPEND=>=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-build/make >=dev-build/cmake-3.28.5 virtual/fortran
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=app-arch/gzip media-libs/libpng:0 sys-libs/zlib mpi? ( virtual/mpi sci-libs/hdf5:=[mpi] ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0= sci-libs/netcdf:= cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1:= ) opencl? ( virtual/opencl ) hip? ( dev-util/hip:= ) dev-cpp/eigen:3 test? ( dev-cpp/gtest ) virtual/fortran
 DESCRIPTION=Large-scale Atomic/Molecular Massively Parallel Simulator
@@ -13,5 +13,5 @@ REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 
 RESTRICT=test
 SLOT=0
 SRC_URI=https://download.lammps.org/tars/lammps-2Aug2023.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	fortran-2	54fcb693257134adae26819685891ecc	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	37143302bc375f4878f7b5f7497da8cc
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	fortran-2	54fcb693257134adae26819685891ecc	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	37143302bc375f4878f7b5f7497da8cc
 _md5_=2f0f79456a027761d7c0a62739496e91

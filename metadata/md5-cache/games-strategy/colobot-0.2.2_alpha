@@ -1,4 +1,4 @@
-BDEPEND=app-text/po4a app-text/xmlstarlet dev-lang/perl sys-devel/gettext app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=app-text/po4a app-text/xmlstarlet dev-lang/perl sys-devel/gettext app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm prepare test
 DEPEND=dev-games/physfs dev-libs/boost:= media-libs/glew:0 media-libs/libogg media-libs/libpng:0= media-libs/libsdl2:= media-libs/libsndfile:= media-libs/libvorbis:= media-libs/sdl2-image media-libs/sdl2-ttf media-sound/vorbis-tools openal? ( media-libs/openal ) test? ( dev-cpp/gtest )
 DESCRIPTION=A real-time strategy game, where you can program your bots
@@ -12,5 +12,5 @@ RDEPEND=dev-games/physfs dev-libs/boost:= media-libs/glew:0 media-libs/libogg me
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/colobot/colobot/archive/colobot-gold-0.2.2-alpha.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181
 _md5_=ba212c7db862fa2de1a4e43e734f9499

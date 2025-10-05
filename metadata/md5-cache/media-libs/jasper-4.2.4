@@ -1,4 +1,4 @@
-BDEPEND=app-shells/bash doc? ( app-text/doxygen dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric virtual/latex-base ) test? ( media-libs/openjpeg ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=app-shells/bash doc? ( app-text/doxygen dev-texlive/texlive-latexextra dev-texlive/texlive-plaingeneric virtual/latex-base ) test? ( media-libs/openjpeg ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=heif? ( media-libs/libheif:= ) jpeg? ( media-libs/libjpeg-turbo:= ) opengl? ( media-libs/freeglut virtual/opengl virtual/glu )
 DESCRIPTION=Implementation of the codec specified in the JPEG-2000 Part-1 standard
@@ -12,5 +12,5 @@ RDEPEND=heif? ( media-libs/libheif:= ) jpeg? ( media-libs/libjpeg-turbo:= ) open
 RESTRICT=!test? ( test )
 SLOT=0/7
 SRC_URI=https://github.com/jasper-software/jasper/archive/version-4.2.4.tar.gz -> jasper-4.2.4.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181
 _md5_=e7dbff3f492d11687bbdac156c652d42

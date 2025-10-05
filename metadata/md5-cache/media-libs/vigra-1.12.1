@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-text/doxygen dev-texlive/texlive-latex ) app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=doc? ( app-text/doxygen dev-texlive/texlive-latex ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=fftw? ( sci-libs/fftw:3.0= ) hdf5? ( >=sci-libs/hdf5-1.8.0:=[mpi=] ) jpeg? ( media-libs/libjpeg-turbo:= ) openexr? ( >=dev-libs/imath-3.1.4-r2:= >=media-libs/openexr-3:0= ) png? ( media-libs/libpng:0= ) tiff? ( media-libs/tiff:= ) zlib? ( sys-libs/zlib )
 DESCRIPTION=C++ computer vision library emphasizing customizable algorithms and structures
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_1
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ukoethe/vigra/archive/refs/tags/Version-1-12-1.tar.gz -> vigra-1.12.1.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
 _md5_=af93edfbbc5dadc36abef278e981be10

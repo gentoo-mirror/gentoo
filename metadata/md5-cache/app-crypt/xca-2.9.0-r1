@@ -1,4 +1,4 @@
-BDEPEND=dev-qt/qttools:6[linguist] doc? ( dev-python/sphinx dev-python/sphinxcontrib-htmlhelp dev-python/sphinxcontrib-qthelp ) app-alternatives/ninja >=dev-build/cmake-3.20.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+BDEPEND=dev-qt/qttools:6[linguist] doc? ( dev-python/sphinx dev-python/sphinxcontrib-htmlhelp dev-python/sphinxcontrib-qthelp ) app-alternatives/ninja >=dev-build/cmake-3.28.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm prepare test
 DEPEND=dev-libs/libltdl:0= dev-qt/qtbase:6[sqlite,widgets] dev-qt/qttools:6[assistant] dev-libs/openssl:* doc? ( app-text/linuxdoc-tools )
 DESCRIPTION=A GUI to OpenSSL, RSA public keys, certificates, signing requests etc
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/libltdl:0= dev-qt/qtbase:6[sqlite,widgets] dev-qt/qttools:6[ass
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/chris2511/xca/archive/refs/tags/RELEASE.2.9.0.tar.gz -> xca-2.9.0.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	virtualx	9741d451eb64ea8bb9faee90d68a9b68
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	virtualx	9741d451eb64ea8bb9faee90d68a9b68
 _md5_=95da00e4d07132f422bd58bbaf395236

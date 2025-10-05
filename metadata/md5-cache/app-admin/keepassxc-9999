@@ -1,4 +1,4 @@
-BDEPEND=dev-qt/linguist-tools:5 doc? ( dev-ruby/asciidoctor ) app-alternatives/ninja >=dev-build/cmake-3.20.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-qt/linguist-tools:5 doc? ( dev-ruby/asciidoctor ) app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
 DEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-libs/zxcvbn-c dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 media-gfx/qrencode:= sys-libs/readline:0= sys-libs/zlib:=[minizip] X? ( dev-qt/qtx11extras:5 ) autotype? ( x11-libs/libX11 x11-libs/libXtst ) yubikey? ( dev-libs/libusb:1 sys-apps/pcsc-lite ) dev-qt/qttest:5
 DESCRIPTION=KeePassXC - KeePass Cross-platform Community Edition
@@ -13,5 +13,5 @@ RDEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-libs/zxcvbn-c dev-qt/qtconcurre
 REQUIRED_USE=autotype? ( X )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	875eb471682d3e1f18da124be97dcc81
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	875eb471682d3e1f18da124be97dcc81
 _md5_=27ec4de47dcbfafab3b6f5850b73c175

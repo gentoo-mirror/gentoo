@@ -1,4 +1,4 @@
-BDEPEND=acct-group/murmur acct-user/murmur virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.20.5 virtual/pkgconfig
+BDEPEND=acct-group/murmur acct-user/murmur virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=acct-group/murmur acct-user/murmur dev-cpp/cli11 dev-cpp/nlohmann_json >=dev-db/soci-4.1.0[mysql?,postgres?,sqlite?] >=dev-libs/openssl-1.0.0b:0= >=dev-libs/protobuf-2.2.0:= dev-libs/spdlog:= dev-libs/utfcpp dev-qt/qtbase:6[dbus,network,sqlite?,xml] sys-apps/lsb-release >=sys-libs/libcap-2.15 ice? ( dev-libs/Ice:= ) zeroconf? ( net-dns/avahi[mdnsresponder-compat] ) dev-libs/boost dev-qt/qtbase:6[test?]
 DESCRIPTION=Mumble is an open source, low-latency, high quality voice chat software
@@ -13,5 +13,5 @@ REQUIRED_USE=|| ( mysql postgres sqlite )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~concord/distfiles/mumble-1.6.0_pre20250920.tar.xz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	systemd	a964c0cbe818b5729da1dbfcee5be861	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	systemd	a964c0cbe818b5729da1dbfcee5be861	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
 _md5_=6af850ae27b6c04b1d14a1e5b021364f

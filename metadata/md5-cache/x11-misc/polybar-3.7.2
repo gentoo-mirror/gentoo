@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.20.5
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst prepare setup test
 DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_11? ( x11-base/xcb-proto[python_targets_python3_11(-)] ) python_single_target_python3_12? ( x11-base/xcb-proto[python_targets_python3_12(-)] ) python_single_target_python3_13? ( x11-base/xcb-proto[python_targets_python3_13(-)] ) dev-libs/libuv:= media-libs/fontconfig media-libs/freetype x11-base/xorg-proto x11-libs/cairo[X,xcb(+)] x11-libs/libxcb:= x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-image x11-libs/xcb-util-wm x11-libs/xcb-util-xrm alsa? ( media-libs/alsa-lib ) curl? ( net-misc/curl ) doc? ( dev-python/sphinx ) i3wm? ( dev-libs/jsoncpp:= x11-wm/i3 ) mpd? ( media-libs/libmpdclient ) network? ( dev-libs/libnl:3 ) pulseaudio? ( media-libs/libpulse )
 DESCRIPTION=A fast and easy-to-use tool for creating status bars
@@ -12,5 +12,5 @@ RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=0
 SRC_URI=https://github.com/polybar/polybar/releases/download/3.7.2/polybar-3.7.2.tar.gz
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	460729dc36f68cf03b044bc1d367e34a	optfeature	538bce96e5589935b57e178e8635f301	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	optfeature	538bce96e5589935b57e178e8635f301	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
 _md5_=da73779f39cf308970af1eeebd96f438
