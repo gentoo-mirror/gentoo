@@ -11923,22 +11923,22 @@ games-util/xqf 1.0.6.2: A server browser for many FPS games (frontend for qstat)
 gnome-base/dconf 0.40.0: Simple low-level configuration system
 gnome-base/dconf-editor 3.38.3 45.0.1: Graphical tool for editing the dconf configuration database
 gnome-base/gdm 47.0 48.0: GNOME Display Manager for managing graphical display servers and user logins
-gnome-base/gnome 45.2: Meta package for GNOME, merge this package to install
+gnome-base/gnome 45.2 48.0: Meta package for GNOME, merge this package to install
 gnome-base/gnome-applets 3.54.0-r1 3.56.0: Applets for the GNOME Flashback Panel
 gnome-base/gnome-common 3.18.0-r2: Common files for development of Gnome packages
 gnome-base/gnome-control-center 47.6 47.7 48.3 48.4: GNOME's main interface to configure various aspects of the desktop
-gnome-base/gnome-core-apps 45.2: Sub-meta package for the core applications integrated with GNOME
-gnome-base/gnome-core-libs 45.2: Sub-meta package for the core libraries of GNOME
-gnome-base/gnome-desktop 44.1-r300 44.1-r400 44.3-r300 44.3-r400: Library with common API for various GNOME modules
-gnome-base/gnome-extra-apps 45.2 45.2-r1: Sub-meta package for the applications of GNOME
+gnome-base/gnome-core-apps 45.2 48.0: Sub-meta package for the core applications integrated with GNOME
+gnome-base/gnome-core-libs 45.2 48.0: Sub-meta package for the core libraries of GNOME
+gnome-base/gnome-desktop 44.1-r300 44.1-r400 44.3-r300 44.3-r400 44.4-r300 44.4-r400: Library with common API for various GNOME modules
+gnome-base/gnome-extra-apps 45.2 45.2-r1 48.0: Sub-meta package for the applications of GNOME
 gnome-base/gnome-flashback 3.54.0-r1 3.56.0: GNOME Flashback session
 gnome-base/gnome-keyring 46.2 48.0: Password and keyring managing daemon
-gnome-base/gnome-light 45.2: Meta package for GNOME-Light, merge this package to install
+gnome-base/gnome-light 45.2 48.0: Meta package for GNOME-Light, merge this package to install
 gnome-base/gnome-menus 3.36.0-r1: Library and layout configuration for the Desktop Menu fd.o specification
 gnome-base/gnome-panel 3.54.0 3.56.0: The GNOME Flashback Panel
 gnome-base/gnome-session 47.0.1-r2 48.0: Gnome session manager
 gnome-base/gnome-settings-daemon 47.2 48.1: Gnome Settings Daemon
-gnome-base/gnome-shell 47.7-r1 47.8-r1 48.3-r1 48.4: Provides core UI functions for the GNOME desktop
+gnome-base/gnome-shell 47.7-r1 47.8-r1 48.4 48.5: Provides core UI functions for the GNOME desktop
 gnome-base/gsettings-desktop-schemas 47.1 48.0: Collection of GSettings schemas for GNOME desktop
 gnome-base/gvfs 1.52.3-r2 1.56.1-r2: Virtual filesystem implementation for GIO
 gnome-base/libglade 2.6.4-r5: Library to construct graphical interfaces at runtime
@@ -11993,7 +11993,7 @@ gnome-extra/gnome-software 47.5 48.3 48.4: Gnome install & update software
 gnome-extra/gnome-system-monitor 47.1-r1 48.1: The Gnome System Monitor
 gnome-extra/gnome-tweaks 46.1-r1: Customize advanced GNOME options
 gnome-extra/gnome-user-docs 47.6 48.2 48.5: GNOME end user documentation
-gnome-extra/gnome-user-share 43.0: Personal file sharing for the GNOME desktop
+gnome-extra/gnome-user-share 43.0 47.2: Personal file sharing for the GNOME desktop
 gnome-extra/gnome-weather 47.0 48.0: A weather application for GNOME
 gnome-extra/gucharmap 15.1.2 16.0.1: Unicode character map viewer and library
 gnome-extra/krb5-auth-dialog 43.0-r1: An application to acquire and list Kerberos tickets.
@@ -12114,7 +12114,7 @@ gui-libs/hyprland-qt-support 0.1.0: QML style provider for hypr* Qt apps
 gui-libs/hyprland-qtutils 0.1.1 0.1.4: Hyprland QT/qml utility apps
 gui-libs/hyprutils 0.7.1 0.7.1-r1 0.8.2 9999: Hyprland utilities library used across the ecosystem
 gui-libs/kddockwidgets 2.2.5-r1 2.3.0: KDAB's Dock Widget Framework for Qt
-gui-libs/libadwaita 1.6.2-r1 1.6.9 1.7.5 1.7.6: Building blocks for modern GNOME applications
+gui-libs/libadwaita 1.6.2-r1 1.6.9 1.7.5 1.7.6 1.7.7: Building blocks for modern GNOME applications
 gui-libs/libdecor 0.2.2-r1 0.2.3 9999: A client-side decorations library for Wayland clients
 gui-libs/libgedit-amtk 5.8.0 5.9.0: Actions, Menus and Toolbars Kit for GTK applications
 gui-libs/libgedit-gfls 0.2.0 0.2.1: A module dedicated to file loading and saving
@@ -16242,7 +16242,6 @@ sci-libs/rtabmap 0.21.4 0.21.13 9999: Real-Time Appearance-Based Mapping (RGB-D 
 sci-libs/scalapack 2.2.0_p20240704: Subset of LAPACK routines redesigned for heterogenous (MPI) computing
 sci-libs/scotch 7.0.1-r1 7.0.8: Software for graph, mesh and hypergraph partitioning
 sci-libs/shapelib 1.6.0: Library for manipulating ESRI Shapefiles
-sci-libs/silo 4.11.1-r1: A mesh and field I/O library and scientific database
 sci-libs/spglib 2.6.0-r1: Spglib is a C library for finding and handling crystal symmetries
 sci-libs/spqr 2.0.9-r4 3.0.3: Multithreaded multifrontal sparse QR factorization library
 sci-libs/spr 3.3.2-r2: Statistical analysis and machine learning library
@@ -19030,7 +19029,7 @@ x11-wm/matwm2 0.1.2_pre3-r2 0.1.2_pre3-r3: Simple EWMH compatible window manager
 x11-wm/metacity 3.54.0-r1 3.56.0: GNOME Flashback window manager
 x11-wm/muffin 6.4.1: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
-x11-wm/mutter 47.8.1 47.9 48.4 9999: GNOME compositing window manager based on Clutter
+x11-wm/mutter 47.8.1 47.9 48.4 48.5 9999: GNOME compositing window manager based on Clutter
 x11-wm/notion 4.0.2_p20220613 4.0.2_p20220613-r1 4.0.3 9999: Notion is a tiling, tabbed window manager for the X window system
 x11-wm/openbox 3.6.1-r9 3.6.1-r11 9999: Standards compliant, fast, light-weight, extensible window manager
 x11-wm/oroborus 2.0.20-r2: Small and fast window manager
