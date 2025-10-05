@@ -7,20 +7,16 @@ inherit font
 DESCRIPTION="Google's font family that aims to support all the world's languages"
 HOMEPAGE="https://fonts.google.com/noto https://github.com/notofonts/notofonts.github.io"
 
-COMMIT="2d714757cbccdcf49ce0af61c9ef74f34b2722a5"
+COMMIT="312ea2e01e7b89ac52215e05ed9b18c4d506c9d6"
 SRC_URI="https://github.com/notofonts/notofonts.github.io/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/notofonts.github.io-${COMMIT}"
 
 LICENSE="OFL-1.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 # Extra allows to optionally reduce disk usage even returning to tofu
 # issue as described in https://fonts.google.com/noto
-IUSE="cjk +extra"
-
-RDEPEND="
-	cjk? ( media-fonts/noto-cjk )
-"
+IUSE="+extra"
 
 RESTRICT="binchecks strip"
 
