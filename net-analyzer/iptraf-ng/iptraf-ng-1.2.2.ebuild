@@ -1,28 +1,31 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-inherit flag-o-matic git-r3 toolchain-funcs
+EAPI=8
 
-DESCRIPTION="A console-based network monitoring utility"
+inherit flag-o-matic toolchain-funcs
+
+DESCRIPTION="Console-based network monitoring utility"
 HOMEPAGE="https://github.com/iptraf-ng/iptraf-ng"
-EGIT_REPO_URI="https://github.com/iptraf-ng/iptraf-ng"
-EGIT_BRANCH="dev"
+SRC_URI="https://github.com/iptraf-ng/iptraf-ng/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2 doc? ( FDL-1.1 )"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc"
+RESTRICT="test"
 
 RDEPEND="
-	>=sys-libs/ncurses-5.7-r7:0=
+	>=sys-libs/ncurses-5.7-r7:=
 "
 DEPEND="
 	${RDEPEND}
 	virtual/os-headers
-	!net-analyzer/iptraf
 "
-RESTRICT="test"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-1.2.2-buffer_overflow.patch"
+)
 
 src_prepare() {
 	sed -i \
@@ -52,10 +55,11 @@ src_install() {
 	doman src/*.8
 	dodoc AUTHORS CHANGES* FAQ README*
 
+	# bug #376157
+	keepdir /var/{lib,log}/iptraf-ng
+
 	if use doc; then
 		docinto html
 		dodoc -r Documentation/*
 	fi
-
-	keepdir /var/{lib,log}/iptraf-ng #376157
 }
