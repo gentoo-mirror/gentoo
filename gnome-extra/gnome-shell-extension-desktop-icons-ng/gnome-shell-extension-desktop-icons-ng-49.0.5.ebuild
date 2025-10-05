@@ -6,12 +6,12 @@ inherit gnome2-utils meson
 
 MY_PN="desktop-icons-ng"
 MY_P="${MY_PN}-${PV}"
-COMMIT="a2347701f1a50e75ba1110aa4331f1b37fb40705"
+COMMIT="14bebee3e2e4df561b9c930af6def98307fddef3"
 
 DESCRIPTION="Desktop icon support for GNOME Shell"
 HOMEPAGE="https://gitlab.com/rastersoft/desktop-icons-ng"
-SRC_URI="https://gitlab.com/rastersoft/desktop-icons-ng/-/archive/${PV}/${P}.tar.bz2"
-S="${WORKDIR}/${MY_P}-${COMMIT}"
+SRC_URI="https://gitlab.com/rastersoft/${MY_PN}/-/archive/${PV}/${MY_P}.tar.bz2"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3"
 SLOT="0"
