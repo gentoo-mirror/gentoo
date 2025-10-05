@@ -1070,7 +1070,7 @@ app-admin/supervisor 4.2.5-r1 4.2.5_p20250125 4.3.0: A system for controlling pr
 app-admin/sxid 4.2-r3 4.20130802: suid, sgid file and directory checking
 app-admin/sysklogd 2.5.2-r1 2.6.2-r1 2.7.2 9999: Standard log daemons
 app-admin/syslog-ng 4.6.0 4.7.1 4.8.1 4.8.1-r1 4.9.0: syslog replacement with advanced filtering features
-app-admin/syslog-summary 1.14-r5: Summarizes the contents of a syslog log file
+app-admin/syslog-summary 1.14-r5 1.14-r6: Summarizes the contents of a syslog log file
 app-admin/sysrqd 17-r2: Daemon providing access to the kernel sysrq functions via network
 app-admin/sysstat 12.6.2-r2: System performance tools for Linux
 app-admin/system-config-printer 1.5.18-r2: Graphical user interface for CUPS administration
@@ -1184,7 +1184,7 @@ app-arch/pure-sfv 0.3-r2: utility to test and create .sfv files and create .par 
 app-arch/pxz 5.0_pre20220509-r1: Parallel implementation of the XZ compression utility
 app-arch/qpress 20220819: A portable file archiver using QuickLZ algorithm
 app-arch/rar 7.01 7.12: RAR compressor/uncompressor
-app-arch/rpm 4.20.0 4.20.1-r1: The RPM Package Manager
+app-arch/rpm 4.20.1-r1 6.0.0: The RPM Package Manager
 app-arch/rpm2targz 2021.03.16: Convert a .rpm file to a .tar.gz archive
 app-arch/rzip 2.1-r5: Compression program for large files
 app-arch/sasquatch 4.5.1.5 4.5.1.5-r1: An extended version of sasquashfs-tools
@@ -3835,7 +3835,7 @@ dev-build/remake 4.3.1.1.6-r100 4.4_pre20250217: Patched version of GNU Make wit
 dev-build/rocm-cmake 6.1.2 6.3.2 6.3.3 6.4.1 6.4.3: Radeon Open Compute CMake Modules
 dev-build/samurai 1.2-r3 9999: ninja-compatible build tool written in C
 dev-build/scons 4.9.1 4.10.0: Extensible Python-based build utility
-dev-build/slibtool 0.6.1 0.7.0 0.7.1 0.7.2 0.7.3 9999: A strong libtool implementation, written in C
+dev-build/slibtool 0.6.1 0.7.0 0.7.1 0.7.2 0.7.3 0.7.4 9999: A strong libtool implementation, written in C
 dev-build/tinycmmc 0.1.0 9999: Tiny CMake Module Collections
 dev-build/xfce4-dev-tools 4.20.0 4.21.0: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-cpp/ETL 1.4.1: Multi-platform class and template library
@@ -11947,15 +11947,15 @@ gnome-base/libgnomekbd 3.28.1: Gnome keyboard configuration library
 gnome-base/libgtop 2.40.0-r2 2.41.3: A library that provides top functionality to applications
 gnome-base/librsvg 2.40.21-r1 2.58.5-r1 2.60.0: Scalable Vector Graphics (SVG) rendering library
 gnome-base/nautilus 47.4 47.5 48.3 48.4.1: Default file manager for the GNOME desktop
-gnome-extra/cinnamon 6.2.9-r2 6.4.8-r2 6.4.10-r1: A fork of GNOME Shell with layout similar to GNOME 2
-gnome-extra/cinnamon-control-center 6.2.0-r1 6.4.1: Cinnamons's main interface to configure various aspects of the desktop
-gnome-extra/cinnamon-desktop 6.2.0-r1 6.4.1-r1 6.4.1-r2: A collection of libraries and utilites used by Cinnamon
-gnome-extra/cinnamon-menus 6.2.0 6.4.0: Cinnamon's library for the Desktop Menu fd.o specification
-gnome-extra/cinnamon-screensaver 6.2.1-r1 6.4.0-r1: Screensaver for Cinnamon
-gnome-extra/cinnamon-session 6.2.1-r1 6.4.0-r1: Cinnamon session manager
-gnome-extra/cinnamon-settings-daemon 6.2.0-r2 6.4.3-r1: Cinnamon's settings daemon
-gnome-extra/cinnamon-translations 6.2.2 6.4.2: Translation data for Cinnamon
-gnome-extra/cjs 6.2.0 6.4.0 128.0: Linux Mint's fork of gjs for Cinnamon
+gnome-extra/cinnamon 6.4.10-r1 6.4.13: A fork of GNOME Shell with layout similar to GNOME 2
+gnome-extra/cinnamon-control-center 6.4.1 6.4.2: Cinnamons's main interface to configure various aspects of the desktop
+gnome-extra/cinnamon-desktop 6.4.1-r2 6.4.2: A collection of libraries and utilites used by Cinnamon
+gnome-extra/cinnamon-menus 6.4.0: Cinnamon's library for the Desktop Menu fd.o specification
+gnome-extra/cinnamon-screensaver 6.4.0-r1 6.4.1: Screensaver for Cinnamon
+gnome-extra/cinnamon-session 6.4.0-r1 6.4.2: Cinnamon session manager
+gnome-extra/cinnamon-settings-daemon 6.4.3-r1 6.4.3-r2: Cinnamon's settings daemon
+gnome-extra/cinnamon-translations 6.4.2: Translation data for Cinnamon
+gnome-extra/cjs 6.4.0 128.0: Linux Mint's fork of gjs for Cinnamon
 gnome-extra/eiciel 0.10.0: ACL editor for GNOME, with Nautilus extension
 gnome-extra/evolution-data-server 3.52.4-r4 3.54.3-r2 3.56.1-r1 3.56.2-r1: Evolution groupware backend
 gnome-extra/evolution-ews 3.52.4-r1 3.54.3.0-r1 3.56.1 3.56.2: Evolution module for connecting to Microsoft Exchange Web Services
@@ -12002,8 +12002,8 @@ gnome-extra/libgsf 1.14.53-r1: The GNOME Structured File Library
 gnome-extra/mousetweaks 3.32.0-r1: Mouse accessibility enhancements for the GNOME desktop
 gnome-extra/nautilus-dropbox 2024.04.17: Dropbox Nautilus Extension
 gnome-extra/nautilus-sendto 3.8.6-r1: A nautilus extension for sending files to locations
-gnome-extra/nemo 6.2.8-r1 6.4.5: A file manager for Cinnamon, forked from Nautilus
-gnome-extra/nemo-fileroller 6.2.0 6.4.0: Nemo file-roller integration
+gnome-extra/nemo 6.4.5: A file manager for Cinnamon, forked from Nautilus
+gnome-extra/nemo-fileroller 6.4.0: Nemo file-roller integration
 gnome-extra/nm-applet 1.36.0: NetworkManager connection editor and applet
 gnome-extra/office-runner 1.0.3: Lighthearted tool to temporarily inhibit GNOME's suspend on lid close behavior
 gnome-extra/pch-session 47.1: Unofficial gnome based session with different default settings and extensions
@@ -14777,7 +14777,7 @@ net-im/cpop 0.0.4-r2: GTK+ network popup message client. Compatible with the jpo
 net-im/dino 0.5.0 9999: Modern Jabber/XMPP Client using GTK+/Vala
 net-im/discord 0.0.111: All-in-one voice and text chat for gamers
 net-im/ejabberd 24.02-r1 24.07 24.10 25.04: Robust, scalable and extensible XMPP server
-net-im/element-desktop-bin 1.11.112: A glossy Matrix collaboration client for desktop (binary package)
+net-im/element-desktop-bin 1.12.0: A glossy Matrix collaboration client for desktop (binary package)
 net-im/err 6.1.9: Multiprotocol chatbot designed to be easily deployable and maintainable
 net-im/fractal 10.1-r1 12.1-r1: Matrix messaging app for GNOME written in Rust
 net-im/gajim 2.2.0 2.3.5 2.3.6: GTK XMPP Client
@@ -15892,8 +15892,8 @@ sci-calculators/hexcalc 1.11-r4: Simple hex calculator for X
 sci-calculators/keurocalc 1.3.0_p20241225: Universal currency converter and calculator
 sci-calculators/orpie 1.6.1: A fullscreen RPN calculator for the console
 sci-calculators/pcalc 4 5: the programmers calculator
-sci-calculators/qalculate-gtk 5.5.0 5.5.1 5.6.0 5.7.0: Modern multi-purpose calculator
-sci-calculators/qalculate-qt 5.5.0 5.5.1 5.6.0 5.7.0: Qt-based UI for libqalculate
+sci-calculators/qalculate-gtk 5.7.0: Modern multi-purpose calculator
+sci-calculators/qalculate-qt 5.7.0: Qt-based UI for libqalculate
 sci-calculators/speedcrunch 0.12.0_p20241202: Fast and usable calculator for power users
 sci-calculators/tiemu 3.03-r2: Texas Instruments hand-helds emulator
 sci-calculators/tilp2 1.18-r1: Communication program for Texas Instruments calculators
@@ -16169,7 +16169,7 @@ sci-libs/libnova 0.16.0: Celestial Mechanics and Astronomical Calculation Librar
 sci-libs/liborigin 3.0.1_p20210828-r1: Library for reading OriginLab OPJ project files
 sci-libs/libpdb 991112-r2: PDB Record I/O Libraries -- c version
 sci-libs/libpdb++ 040728-r2: PDB Record I/O Libraries -- c++ version
-sci-libs/libqalculate 5.5.0-r1 5.5.1-r1 5.5.2-r1 5.6.0 5.7.0: A modern multi-purpose calculator library
+sci-libs/libqalculate 5.7.0: A modern multi-purpose calculator library
 sci-libs/libsc 2.8.6 2.8.7: Support for parallel scientific applications
 sci-libs/libsemigroups 2.7.4 3.0.3: C++ library for semigroups and monoids
 sci-libs/libsigrok 0.6.0_pre20241020 9999: Basic hardware drivers for logic analyzers and input/output file format support
@@ -17227,7 +17227,7 @@ sys-apps/xdg-dbus-proxy 0.1.5 0.1.6: Filtering proxy for D-Bus connections
 sys-apps/xdg-desktop-portal 1.18.4-r1 1.18.4-r2 1.20.0-r2 1.20.3: Desktop integration portal
 sys-apps/xdg-desktop-portal-gnome 47.3 48.0: Backend implementation for xdg-desktop-portal using GNOME
 sys-apps/xdg-desktop-portal-gtk 1.14.1 1.15.2 1.15.3: Backend implementation for xdg-desktop-portal using GTK+
-sys-apps/xdg-desktop-portal-xapp 1.0.9 1.1.0 1.1.1: Backend implementation for xdg-desktop-portal using Cinnamon/MATE/Xfce
+sys-apps/xdg-desktop-portal-xapp 1.1.1 1.1.2: Backend implementation for xdg-desktop-portal using Cinnamon/MATE/Xfce
 sys-apps/xinetd 2.3.15.4-r1: Powerful replacement for inetd
 sys-apps/xmbmon 2.0.5-r2: Mother Board Monitor Program for X Window System
 sys-apps/yarn 1.22.22: Fast, reliable, and secure node dependency management
@@ -18415,7 +18415,7 @@ x11-libs/startup-notification 0.12-r2: Application startup notification and feed
 x11-libs/tslib 1.22 1.23: Touchscreen Access Library
 x11-libs/vte 0.76.3 0.78.5 0.80.3 0.80.4: Library providing a virtual terminal emulator widget
 x11-libs/wxGTK 3.2.8.1 3.2.8.1-r2: GTK version of wxWidgets, a cross-platform C++ GUI toolkit
-x11-libs/xapp 2.8.5-r1 2.8.8-r1 2.8.9: Cross-desktop libraries and common resources
+x11-libs/xapp 2.8.9 2.8.13: Cross-desktop libraries and common resources
 x11-libs/xbae 4.60.4-r1 4.60.4-r2: Motif-based widget to display a grid of cells as a spreadsheet
 x11-libs/xcb-imdkit 1.0.9: Input method development support for xcb
 x11-libs/xcb-util 0.4.1: X C-language Bindings sample implementations
@@ -19028,7 +19028,7 @@ x11-wm/lwm 1.2.4: The ultimate lightweight window manager
 x11-wm/marco 1.28.1-r2: MATE default window manager
 x11-wm/matwm2 0.1.2_pre3-r2 0.1.2_pre3-r3: Simple EWMH compatible window manager with titlebars and frames
 x11-wm/metacity 3.54.0-r1 3.56.0: GNOME Flashback window manager
-x11-wm/muffin 6.2.0 6.4.1: Compositing window manager forked from Mutter for use with Cinnamon
+x11-wm/muffin 6.4.1: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
 x11-wm/mutter 47.8.1 47.9 48.4 9999: GNOME compositing window manager based on Clutter
 x11-wm/notion 4.0.2_p20220613 4.0.2_p20220613-r1 4.0.3 9999: Notion is a tiling, tabbed window manager for the X window system
