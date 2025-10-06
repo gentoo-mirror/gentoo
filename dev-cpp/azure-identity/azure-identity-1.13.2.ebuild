@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake
 
-COMMIT="6aea93d0410f5bc3e3a58a8d492a3063cac3aced"
+COMMIT="fe5e5ad9e50423ad992648a60151696ed896b7c6"
 MY_P="azure-sdk-for-cpp-${COMMIT}"
 DESCRIPTION="Azure SDK for C++"
 HOMEPAGE="https://azure.github.io/azure-sdk-for-cpp/"
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/Azure/azure-sdk-for-cpp/archive/${COMMIT}.tar.gz -> 
 S="${WORKDIR}/${MY_P}/sdk/identity/${PN}"
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="doc"
 RESTRICT="test" # Too many online tests.
 
@@ -29,10 +29,6 @@ BDEPEND="
 	virtual/pkgconfig
 	doc? ( app-text/doxygen )
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-imds-double-slash.patch
-)
 
 src_configure() {
 	local mycmakeargs=(
