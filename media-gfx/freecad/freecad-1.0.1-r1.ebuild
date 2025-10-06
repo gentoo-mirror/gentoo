@@ -108,7 +108,7 @@ RDEPEND="
 	)
 "
 DEPEND="${RDEPEND}
-	>=dev-cpp/eigen-3.3.1:3
+	<dev-cpp/eigen-5:=
 	dev-cpp/ms-gsl
 	test? (
 		$(python_gen_impl_dep '-debug')
@@ -256,9 +256,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	# Fix desktop file
-	sed -e 's/Exec=FreeCAD/Exec=freecad/' -i src/XDGData/org.freecad.FreeCAD.desktop || die
-
 	# deprecated in python-3.11 removed in python-3.13
 	sed -e '/import imghdr/d' -i src/Mod/CAM/CAMTests/TestCAMSanity.py || die
 
@@ -346,7 +343,7 @@ src_configure() {
 		-DFREECAD_BUILD_DEBIAN=OFF
 
 		-DFREECAD_USE_EXTERNAL_E57FORMAT="no"
-		-DFREECAD_USE_EXTERNAL_GTEST="yes"
+		-DFREECAD_USE_EXTERNAL_GTEST="$(usex test)"
 		-DFREECAD_USE_EXTERNAL_ONDSELSOLVER=$(usex assembly)
 		-DFREECAD_USE_EXTERNAL_SMESH=OFF		# no package in Gentoo
 		-DFREECAD_USE_EXTERNAL_ZIPIOS=OFF		# doesn't work yet, also no package in Gentoo tree
@@ -369,7 +366,7 @@ src_configure() {
 
 	if [[ ${PV} == *9999* ]]; then
 		mycmakeargs+=(
-			-DENABLE_DEVELOPER_TESTS=ON
+			-DENABLE_DEVELOPER_TESTS="$(usex test)"
 
 			-DPACKAGE_WCREF="%{release} (Git)"
 			-DPACKAGE_WCURL="git://github.com/FreeCAD/FreeCAD.git main"
@@ -528,7 +525,7 @@ src_install() {
 	cmake_src_install
 
 	if use gui; then
-		newbin - freecad <<- _EOF_
+		newbin - FreeCAD <<- _EOF_
 			#!/bin/sh
 			# https://github.com/coin3d/coin/issues/451
 			: "\${QT_QPA_PLATFORM:=xcb}"
@@ -536,9 +533,15 @@ src_install() {
 			exec ${EPREFIX}/usr/$(get_libdir)/${PN}/bin/FreeCAD "\${@}"
 		_EOF_
 	fi
-	dosym -r "/usr/$(get_libdir)/${PN}/bin/FreeCADCmd" "/usr/bin/freecadcmd"
+	dosym -r "/usr/$(get_libdir)/${PN}/bin/FreeCADCmd" "/usr/bin/FreeCADCmd"
+	dosym -r "/usr/$(get_libdir)/${PN}/bin/freecad-thumbnailer" "/usr/bin/freecad-thumbnailer"
+
+	for dir in share/{applications,icons,metainfo,mime,pixmaps,thumbnailers}; do
+		mv "${ED}/usr/$(get_libdir)/${PN}/${dir}" "${ED}/usr/share/" || die "mv failed"
+	done
 
 	rm -r "${ED}/usr/$(get_libdir)/${PN}/include/E57Format" || die "failed to drop unneeded include directory E57Format"
+	rmdir "${ED}/usr/$(get_libdir)/${PN}/include/" || die "failed to drop unneeded include directory"
 
 	python_optimize "${ED}/usr/share/${PN}/data/Mod/Start/" "${ED}/usr/$(get_libdir)/${PN}/"{Ext,Mod}/
 	# compile main package in python site-packages as well
