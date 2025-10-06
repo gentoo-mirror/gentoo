@@ -5,7 +5,7 @@ EAPI=8
 
 inherit pax-utils readme.gentoo-r1 systemd tmpfiles
 
-BASE_URI="https://download-cdn.resilio.com/stable/linux/@arch@/0/${PN}_@arch@.tar.gz"
+BASE_URI="https://download-cdn.resilio.com/${PV}/linux/@arch@/0/${PN}_@arch@.tar.gz -> ${P}_@arch@.tar.gz"
 
 DESCRIPTION="Resilient, fast and scalable file synchronization tool"
 HOMEPAGE="https://www.resilio.com"
@@ -17,8 +17,8 @@ SRC_URI="
 S="${WORKDIR}"
 LICENSE="all-rights-reserved"
 SLOT="0"
+KEYWORDS="-* ~amd64 ~arm64"
 
-PROPERTIES="live"
 RESTRICT="bindist mirror"
 
 RDEPEND="
