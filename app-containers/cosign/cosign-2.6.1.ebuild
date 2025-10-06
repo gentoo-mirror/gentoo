@@ -3,8 +3,8 @@
 
 EAPI=8
 inherit go-module
-GIT_HASH=6a7abbf3ae7eb6949883a80c8f6007cc065d2dfb
-SOURCE_DATE_EPOCH=1739993692
+GIT_HASH=634fabe54f9fbbab55d821a83ba93b2d25bdba5f
+SOURCE_DATE_EPOCH=1758907476
 
 DESCRIPTION="container signing utility"
 HOMEPAGE="https://sigstore.dev"
