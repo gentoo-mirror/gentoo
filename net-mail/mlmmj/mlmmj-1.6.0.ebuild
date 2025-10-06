@@ -7,11 +7,11 @@ inherit autotools
 
 DESCRIPTION="Mailing list managing made joyful"
 HOMEPAGE="https://codeberg.org/mlmmj/mlmmj"
-SRC_URI="https://codeberg.org/${PN}/${PN}/releases/download/RELEASE_$(ver_rs 1- _)/${P}.tar.xz"
+SRC_URI="https://codeberg.org/${PN}/${PN}/releases/download/RELEASE_${PV}/${P}.tar.xz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ppc x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
