@@ -1,10 +1,10 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DIST_AUTHOR=PEVANS
-DIST_VERSION=0.14
+DIST_VERSION=0.16
 inherit perl-module
 
 DESCRIPTION="Make simple lightweight record-like structures"
@@ -14,7 +14,4 @@ KEYWORDS="~amd64"
 
 BDEPEND="
 	>=dev-perl/Module-Build-0.400.400
-	test? (
-		virtual/perl-Test2-Suite
-	)
 "
