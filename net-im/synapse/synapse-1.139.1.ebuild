@@ -12,7 +12,7 @@ CRATES="
 	addr2line@0.24.2
 	adler2@2.0.1
 	aho-corasick@1.1.3
-	anyhow@1.0.98
+	anyhow@1.0.99
 	arc-swap@1.7.1
 	atomic-waker@1.1.2
 	autocfg@1.5.0
@@ -87,7 +87,7 @@ CRATES="
 	libc@0.2.174
 	libm@0.2.15
 	litemap@0.8.0
-	log@0.4.27
+	log@0.4.28
 	lru-slab@0.1.2
 	memchr@2.7.5
 	memoffset@0.9.1
@@ -121,8 +121,8 @@ CRATES="
 	rand_core@0.9.3
 	regex-automata@0.4.9
 	regex-syntax@0.8.5
-	regex@1.11.1
-	reqwest@0.12.22
+	regex@1.11.2
+	reqwest@0.12.23
 	ring@0.17.14
 	rustc-demangle@0.1.26
 	rustc-hash@2.1.1
@@ -135,14 +135,15 @@ CRATES="
 	schannel@0.1.27
 	security-framework-sys@2.14.0
 	security-framework@3.2.0
-	serde@1.0.219
-	serde_derive@1.0.219
-	serde_json@1.0.141
+	serde@1.0.224
+	serde_core@1.0.224
+	serde_derive@1.0.224
+	serde_json@1.0.145
 	serde_urlencoded@0.7.1
 	sha1@0.10.6
 	sha2@0.10.9
 	shlex@1.3.0
-	slab@0.4.10
+	slab@0.4.11
 	smallvec@1.15.1
 	socket2@0.5.10
 	socket2@0.6.0
@@ -159,7 +160,7 @@ CRATES="
 	tinyvec_macros@0.1.1
 	tokio-rustls@0.26.2
 	tokio-util@0.7.15
-	tokio@1.47.0
+	tokio@1.47.1
 	tower-http@0.6.6
 	tower-layer@0.3.3
 	tower-service@0.3.3
@@ -231,7 +232,7 @@ LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT Unicode-3.0
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="postgres selinux systemd test"
 RESTRICT="!test? ( test )"
 
