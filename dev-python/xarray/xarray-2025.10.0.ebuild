@@ -41,9 +41,15 @@ BDEPEND="
 	)
 "
 
-EPYTEST_PLUGINS=()
+EPYTEST_PLUGINS=( pytest-asyncio )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
+
+src_prepare() {
+	distutils-r1_src_prepare
+	# indirect pin, sigh
+	sed -i -e '/numpy/d' pyproject.toml || die
+}
 
 python_test() {
 	local EPYTEST_DESELECT=(
@@ -55,6 +61,10 @@ python_test() {
 		'xarray/tests/test_backends.py::TestNetCDF4Data::test_compression_encoding[blosc_lz4hc]'
 		'xarray/tests/test_backends.py::TestNetCDF4Data::test_compression_encoding[blosc_zlib]'
 		'xarray/tests/test_backends.py::TestNetCDF4Data::test_compression_encoding[blosc_zstd]'
+		# requires h5netcdf package
+		xarray/tests/test_backends_datatree.py::TestNetCDF4DatatreeIO::test_open_datatree_specific_group
+		# NotImplementedError, seriously?
+		xarray/tests/test_backends.py::TestGenericNetCDF4InMemory::test_roundtrip_group_via_memoryview
 	)
 
 	if ! has_version ">=dev-python/scipy-1.4[${PYTHON_USEDEP}]" ; then
