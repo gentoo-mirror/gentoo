@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=dev-db/sqlite:3 curl? ( net-misc/curl ) tiff? ( media-libs/tiff:= ) test? ( dev-cpp/gtest )
+DESCRIPTION=PROJ coordinate transformation software
+EAPI=8
+HOMEPAGE=https://proj.org/
+INHERIT=cmake
+IUSE=curl test +tiff
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+LICENSE=MIT
+RDEPEND=dev-db/sqlite:3 curl? ( net-misc/curl ) tiff? ( media-libs/tiff:= )
+RESTRICT=!test? ( test )
+SLOT=0/9
+SRC_URI=https://github.com/OSGeo/PROJ/releases/download/9.7.0/proj-9.7.0.tar.gz https://github.com/OSGeo/PROJ-data/releases/download/1.23.0/proj-data-1.23.tar.gz https://download.osgeo.org/proj/proj-9.7.0.tar.gz https://download.osgeo.org/proj/proj-data-1.23.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181
+_md5_=5db02f4e04a2ae389a222fb49dc6c693
