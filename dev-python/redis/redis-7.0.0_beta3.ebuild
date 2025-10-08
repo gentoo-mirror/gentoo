@@ -63,6 +63,7 @@ python_test() {
 		# require REDIS_ENDPOINTS_CONFIG_PATH, except there's zero documentation
 		# or examples of what this is
 		tests/test_scenario/test_hitless_upgrade.py::TestPushNotifications
+		tests/test_scenario/test_maint_notifications.py::TestPushNotifications
 	)
 	local EPYTEST_IGNORE=(
 		# fails over missing certs, we don't do cluster anyway
@@ -70,6 +71,11 @@ python_test() {
 		# require redis_entraid
 		tests/test_asyncio/test_credentials.py
 		tests/test_credentials.py
+		# pybreaker
+		tests/test_asyncio/test_multidb
+		tests/test_asyncio/test_scenario
+		tests/test_multidb
+		tests/test_scenario
 	)
 
 	# TODO: try to run more servers?
