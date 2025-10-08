@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-vgl-turbovnc ) app-alternatives/ninja >=dev-build/cmake-3.28.5 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install postinst preinst prepare pretend setup test unpack
+DEPEND=x11-apps/xauth x11-libs/libX11 x11-libs/libXext x11-misc/xkeyboard-config server? ( media-libs/libjpeg-turbo:= sys-libs/pam virtual/opengl x11-libs/libXau x11-libs/libXdmcp x11-libs/libXfont2 x11-libs/pixman dri3? ( media-libs/mesa[opengl] x11-libs/libxshmfence ) ssl? ( dev-libs/openssl:= ) !net-misc/tigervnc[server] ) viewer? ( media-libs/libjpeg-turbo:=[java] x11-libs/libXi !net-misc/tigervnc[viewer(+)] ) media-libs/mesa x11-libs/xtrans viewer? ( >=virtual/jdk-17:* ) server? ( app-arch/bzip2 media-libs/freetype x11-libs/libfontenc ) viewer? ( >=dev-java/java-config-2.2.0-r3 )
+DESCRIPTION=A fast replacement for TigerVNC
+EAPI=8
+HOMEPAGE=https://www.turbovnc.org/
+INHERIT=cmake desktop java-pkg-opt-2 optfeature verify-sig
+IUSE=dri3 +server +ssl +viewer viewer verify-sig
+LICENSE=GPL-2
+RDEPEND=x11-apps/xauth x11-libs/libX11 x11-libs/libXext x11-misc/xkeyboard-config server? ( media-libs/libjpeg-turbo:= sys-libs/pam virtual/opengl x11-libs/libXau x11-libs/libXdmcp x11-libs/libXfont2 x11-libs/pixman dri3? ( media-libs/mesa[opengl] x11-libs/libxshmfence ) ssl? ( dev-libs/openssl:= ) !net-misc/tigervnc[server] ) viewer? ( media-libs/libjpeg-turbo:=[java] x11-libs/libXi !net-misc/tigervnc[viewer(+)] ) x11-apps/xkbcomp viewer? ( >=virtual/jre-17:* ) viewer? ( >=dev-java/java-config-2.2.0-r3 )
+REQUIRED_USE=|| ( server viewer )
+SLOT=0
+SRC_URI=https://github.com/TurboVNC/turbovnc/releases/download/3.3beta1/turbovnc-3.2.90.tar.gz verify-sig? ( https://github.com/TurboVNC/turbovnc/releases/download/3.3beta1/turbovnc-3.2.90.tar.gz.sig )
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	java-utils-2	3febdd17a5820c438f6368dde60d4848	java-pkg-opt-2	cfe09ee08c1c7907ffee08abd026fd4b	optfeature	538bce96e5589935b57e178e8635f301	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	4e83419d7fb5d336f6a4de8193968319
+_md5_=d76123e9ab6733e30661cdd32a4a9336
