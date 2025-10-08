@@ -34,6 +34,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!<kde-frameworks/kwallet-5.116.0-r2:5[-kf6compat(-)]
 	!<kde-frameworks/kwallet-6.14.0:6
+	keyring? ( =kde-frameworks/ksecretd-services-${KDE_CATV}* )
 "
 BDEPEND="man? ( >=kde-frameworks/kdoctools-${KDE_CATV}:6 )"
 
@@ -55,6 +56,16 @@ src_configure() {
 	)
 
 	ecm_src_configure
+}
+
+src_install() {
+	ecm_src_install
+
+	# provided by kde-frameworks/ksecretd-services
+	if use keyring; then
+		rm -v "${D}"/usr/share/dbus-1/services/org.freedesktop.impl.portal.desktop.kwallet.service \
+			"${D}"/usr/share/dbus-1/services/org.kde.secretservicecompat.service || die
+	fi
 }
 
 pkg_postinst() {
