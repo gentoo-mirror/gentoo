@@ -3094,7 +3094,7 @@ app-shells/ccsh 0.0.4-r5: UNIX Shell for people already familiar with the C lang
 app-shells/ctypes-sh 1.2-r2: Foreign function interface for bash
 app-shells/dash 0.5.12-r1 0.5.13 9999: Debian Almquist Shell
 app-shells/dsh 0.25.10-r2: Distributed Shell
-app-shells/fish 3.7.1 4.0.6 4.0.8 4.1.0 9999: Friendly Interactive SHell
+app-shells/fish 3.7.1 4.0.6 4.0.8 4.1.0 4.1.1 9999: Friendly Interactive SHell
 app-shells/fsh 1.0.0_p20220816-r2: F# Shell with integrated F# scripting
 app-shells/fzf 0.64.0 0.65.1 0.65.2: General-purpose command-line fuzzy finder, written in Golang
 app-shells/gash 0.3.0-r100: POSIX-compatible shell written in Guile Scheme
@@ -3226,7 +3226,7 @@ app-text/evince 48.0-r1 48.1: Simple document viewer for GNOME
 app-text/expander 2.05-r3: Expander is a utility that acts as a filter for text editors
 app-text/extract_url 1.6.2: extracts URLs from correctly-encoded MIME email messages or plain text
 app-text/fblog 4.10.0-r1: Small command-line JSON Log viewer
-app-text/fbpdf 0_p20200614: framebuffer pdf and djvu viewer
+app-text/fbpdf 0_p20250124: Framebuffer pdf and djvu viewer
 app-text/feathernotes 1.3.0 1.3.1 1.3.2 9999: Lightweight Qt Notes-Manager for Linux
 app-text/flpsed 0.7.3-r1: Pseudo PostScript editor
 app-text/foliate 3.2.1 3.3.0-r1: gtk ebook reader built with gjs
@@ -10731,7 +10731,7 @@ dev-util/byacc 20241231: The best variant of the Yacc parser generator
 dev-util/cargo-audit 0.21.1 0.21.2: Audit Cargo.lock for crates with security vulnerabilities
 dev-util/cargo-c 0.10.4-r2 0.10.7-r1 0.10.8-r1 0.10.11-r1 0.10.12-r1 0.10.13-r1 0.10.14 0.10.15 0.10.16: Helper program to build and install c-like libraries
 dev-util/cargo-license 0.6.1-r1 0.7.0: Cargo subcommand to see license of dependencies
-dev-util/cargo-nextest 0.9.103 0.9.104: Next-generation test runner for Rust
+dev-util/cargo-nextest 0.9.103 0.9.104 0.9.105: Next-generation test runner for Rust
 dev-util/cargo-pgrx 0.12.7 0.12.9 0.13.1 0.14.3 0.15.0 0.16.0: pgrx: A Rust framework for creating Postgres extensions
 dev-util/cargo-tarpaulin 0.32.2 0.32.3 0.32.5 0.32.7 0.32.8: Cargo-Tarpaulin is a tool to determine code coverage achieved via tests
 dev-util/cargo-vendor-filterer 0.5.17 0.5.18: Tool to 'cargo vendor' with filtering
@@ -10748,7 +10748,7 @@ dev-util/checkbashisms 2.22.2 2.23.5: Perl script to check for commonly used bas
 dev-util/chirurgien 2.2: Chirurgien helps to understand and manipulate file formats
 dev-util/chroot-wrapper 0.9.4 0.9.9: Wrapper for chroot to set up some bind mounts, namespaces, and control groups
 dev-util/clair 4.4.4: Vulnerability Static Analysis for Containers
-dev-util/clang-extract 0_pre20241220 9999: Tool to extract code content from source files
+dev-util/clang-extract 0_pre20241220 0_pre20251006 9999: Tool to extract code content from source files
 dev-util/claude-code 1.0.128 2.0.8: Claude Code - an agentic coding tool by Anthropic
 dev-util/clazy 1.15: Compiler plugin which allows clang to understand Qt semantics
 dev-util/clinfo 3.0.23.01.25 3.0.25.02.14 9999: A tool to display info about the system's OpenCL capabilities
@@ -11425,7 +11425,7 @@ games-emulation/hatari 2.6.0 2.6.1: Atari ST emulator
 games-emulation/higan 116_pre20210818-r2: Multi-system emulator focused on accuracy, preservation, and configurability
 games-emulation/jgemu 1.0.0: Meta ebuild for the Jolly Good API
 games-emulation/jgrf 1.2.1-r1 9999: The Jolly Good Reference Frontend
-games-emulation/jollycv-jg 1.1.0 9999: Jolly Good ColecoVision Emulator
+games-emulation/jollycv-jg 1.1.0 9999: Jolly Good ColecoVision, CreatiVision and My Vision Emulator
 games-emulation/jrommanager 1.8_p27-r1: A Mame and Retrogaming Rom Manager, Java alternative to ClrMamePro
 games-emulation/libretro-bnes 0.0.1_pre20180723 9999: bNES libretro port
 games-emulation/libretro-dosbox 0.0.1_pre20180723 9999: DOSBox libretro port
@@ -13862,6 +13862,7 @@ media-radio/grig 0.9.0: A tool for controlling amateur radios
 media-radio/ibp 0.21-r3: Shows currently transmitting beacons of the International Beacon Project (IBP)
 media-radio/js8call 2.3.1-r1: Weak signal ham radio communication
 media-radio/kochmorse 3.5.1-r1 3.5.1_p20250730: Morse-code tutor using the Koch method
+media-radio/qlog 0.46.1: Amateur radio logbook software
 media-radio/qrq 0.3.5-r2: Yet another CW trainer for Linux/Unix
 media-radio/qsstv 9.5.8-r1 9.5.11_pre20250212: Amateur radio SSTV software
 media-radio/svxlink 25.05.1: Multi Purpose Voice Services System, including Qtel for EchoLink
@@ -14804,7 +14805,7 @@ net-im/spectrum2 2.2.1 2.2.1-r1: An open source instant messaging transport
 net-im/swift 4.0.3-r3: An elegant, secure, adaptable and intuitive XMPP Client
 net-im/synapse 1.137.0 1.138.0 1.138.2 1.138.3 1.139.0 1.139.1: Reference implementation of Matrix homeserver
 net-im/telegram-desktop 5.12.3-r6 6.0.2-r1 6.1.3: Official desktop client for Telegram
-net-im/telegram-desktop-bin 6.1.2 6.1.3: Official desktop client for Telegram (binary package)
+net-im/telegram-desktop-bin 6.1.3 6.1.4: Official desktop client for Telegram (binary package)
 net-im/telepathy-logger 0.8.2-r2 0.8.2_p4-r1: Daemon that centralizes the communication logging within the Telepathy framework
 net-im/telepathy-mission-control 5.16.6: An account manager and channel dispatcher for the Telepathy framework
 net-im/tkabber 1.1.2: A jabber client written in Tcl/Tk
