@@ -72,7 +72,7 @@ RDEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/prison-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
-	activities? ( >=kde-plasma/plasma-activities-6.3.0:6 )
+	activities? ( >=kde-plasma/plasma-activities-6.3.0:6= )
 	importwizard? ( >=kde-apps/akonadi-import-wizard-${PVCUT}:6= )
 	markdown? ( app-text/discount:= )
 "

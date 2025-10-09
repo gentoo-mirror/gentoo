@@ -58,8 +58,6 @@ RDEPEND="${DEPEND}
 	kde-apps/kfind:6
 "
 
-PATCHES=( "${FILESDIR}/${PN}-25.04.3-plasma-activities-6.5.patch" ) # KDE-bug 509937
-
 src_prepare() {
 	[[ ${CHOST} == *-solaris* ]] && append-ldflags -lmalloc
 

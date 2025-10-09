@@ -52,7 +52,7 @@ COMMON_DEPEND="
 	media-libs/libjpeg-turbo:=
 	media-libs/libpng:0=
 	media-libs/tiff:=
-	activities? ( kde-plasma/plasma-activities:6 )
+	activities? ( kde-plasma/plasma-activities:6= )
 	fits? ( sci-libs/cfitsio )
 	mpris? ( >=dev-qt/qtbase-${QTMIN}:6[dbus] )
 	raw? ( >=kde-apps/libkdcraw-${PVCUT}:6 )
