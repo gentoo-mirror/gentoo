@@ -1,0 +1,13 @@
+DEFINED_PHASES=postinst postrm preinst prepare
+DESCRIPTION=Gentoo Linux Calamares installer configuration for LiveCD
+EAPI=8
+HOMEPAGE=https://github.com/StefanCristian/calamares-gentoo-livecd
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=app-admin/calamares[livecd(-)] app-admin/sudo
+SLOT=0
+SRC_URI=https://github.com/StefanCristian/calamares-gentoo-livecd/archive/refs/tags/3.3.14_p20250918.tar.gz -> calamares-gentoo-livecd-3.3.14_p20250918.tar.gz mirror://gentoo/gentoo-artwork-livecd-2007.0.tar.bz2 mirror://gentoo/gentoo-artwork-0.2.tar.bz2
+_eclasses_=xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=f2d9a19d487e809f8c27570009bae244
