@@ -16,16 +16,14 @@ HOMEPAGE="
 
 LICENSE="Unlicense"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
-		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 		dev-python/virtualenv[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-{asyncio,mock,timeout} )
 distutils_enable_tests pytest
