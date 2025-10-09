@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake systemd
 
-PAR2_TURBO_VER="1.3.0"
+PAR2_TURBO_VER="1.3.0-20250808"
 DESCRIPTION="A command-line based binary newsgrabber supporting .nzb files"
 HOMEPAGE="https://nzbget.com/"
 SRC_URI="
@@ -47,7 +47,7 @@ DOCS=( ChangeLog.md README.md nzbget.conf )
 
 PATCHES=(
 	# Required to use par2-turbo downloaded into the source directory
-	"${FILESDIR}/${PN}-25.1-build-with-par2-turbo-offline.patch"
+	"${FILESDIR}/${PN}-25.3-build-with-par2-turbo-offline.patch"
 )
 
 src_prepare() {
