@@ -19,6 +19,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	>=dev-cpp/glibmm-2.68.0:2.68[gtk-doc?]
 	>=gui-libs/gtk-4.14.0:4
+	<gui-libs/gtk-4.20:4
 	>=dev-cpp/cairomm-1.15.4:1.16[gtk-doc?]
 	>=dev-cpp/pangomm-2.50.0:2.48[gtk-doc?]
 	>=x11-libs/gdk-pixbuf-2.35.5:2
