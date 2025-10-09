@@ -1,0 +1,15 @@
+BDEPEND=|| ( dev-lang/python:3.14[xml(+)] dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=~dev-util/vulkan-headers-1.4.328.0 test? ( dev-cpp/gtest >=dev-cpp/magic_enum-0.9.7 )
+DESCRIPTION=Share code across various Vulkan repositories
+EAPI=8
+HOMEPAGE=https://github.com/KhronosGroup/Vulkan-Utility-Libraries
+INHERIT=cmake-multilib dot-a python-any-r1
+IUSE=test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/KhronosGroup/Vulkan-Utility-Libraries/archive/vulkan-sdk-1.4.328.0.tar.gz -> vulkan-utility-libraries-1.4.328.0.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	cmake-multilib	3f19d8d5fccba52076cdeb2281ad349f	dot-a	e5200fe17cfd2ed6fa66edd80201763a	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=8aa9e4ccbe1b8470e5a9e9ab1db3bd11
