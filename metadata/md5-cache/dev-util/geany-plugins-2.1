@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://plugins.geany.org
 INHERIT=autotools lua-single
 IUSE=ctags debugger enchant geniuspaste git gpg gtkspell lsp lua markdown nls pretty-printer scope test webhelper workbench +lua_single_target_lua5-1
-KEYWORDS=amd64 ~arm ~ppc64 x86
+KEYWORDS=amd64 ~arm ~ppc64 ~riscv x86
 LICENSE=BSD-2 GPL-2 GPL-3+
 RDEPEND=dev-libs/glib:2 >=dev-util/geany-2.1 x11-libs/gtk+:3 ctags? ( dev-util/ctags ) debugger? ( x11-libs/vte:2.91 ) enchant? ( app-text/enchant:= ) geniuspaste? ( net-libs/libsoup:3.0 ) git? ( dev-libs/libgit2:= ) gpg? ( app-crypt/gpgme:= ) gtkspell? ( app-text/gtkspell:3= ) lsp? ( >=dev-libs/json-glib-1.10 >=dev-libs/jsonrpc-glib-3.44 ) lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) ) markdown? ( app-text/discount:= net-libs/webkit-gtk:4.1 ) pretty-printer? ( dev-libs/libxml2:2= ) scope? ( x11-libs/vte:2.91 ) webhelper? ( net-libs/webkit-gtk:4.1 ) workbench? ( dev-libs/libgit2:= ) scope? ( dev-debug/gdb )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://plugins.geany.org/geany-plugins/geany-plugins-2.1.tar.bz2
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
-_md5_=56ae0c07bb16e7ecd2dfb5873e88515b
+_md5_=663446c7cac7b373690a1f5d5da2b29f
