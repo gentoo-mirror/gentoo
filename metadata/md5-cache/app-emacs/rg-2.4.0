@@ -1,0 +1,15 @@
+BDEPEND=app-emacs/transient app-emacs/wgrep test? ( app-emacs/s app-emacs/undercover ) test? ( app-emacs/ert-runner ) >=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=GNU Emacs search tool based on ripgrep
+EAPI=8
+HOMEPAGE=https://rgel.readthedocs.io/ https://github.com/dajva/rg.el/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/transient app-emacs/wgrep sys-apps/ripgrep >=app-editors/emacs-25.3:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/dajva/rg.el/archive/2.4.0.tar.gz -> rg-2.4.0.gh.tar.gz
+_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5
+_md5_=9b64337a238243feba0ecef8d15081dc

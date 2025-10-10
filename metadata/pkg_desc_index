@@ -1948,7 +1948,7 @@ app-emacs/ctable 0.1.3: Table Component for Emacs Lisp
 app-emacs/cycle-buffer 2.16-r1: Select buffer by cycling through
 app-emacs/d-mode 2.0.12: Emacs major mode for editing D code
 app-emacs/dap-mode 0.8: Debug Adapter Protocol mode
-app-emacs/dape 0.24.0 0.24.1: Debug Adapter Protocol for Emacs
+app-emacs/dape 0.24.0 0.24.1 0.25.0: Debug Adapter Protocol for Emacs
 app-emacs/dash 2.19.1 2.20.0: A modern list library for Emacs
 app-emacs/dashboard 1.8.0 9999: Extensible Emacs dashboard, with sections like bookmarks, agenda and more
 app-emacs/ddskk 17.1-r1: One Japanese input methods on Emacs
@@ -2057,7 +2057,7 @@ app-emacs/flycheck-inline 0_pre20200808: Display Flycheck errors inline
 app-emacs/flycheck-nimsuggest 0.8.1_p20171027-r1: Emacs Flycheck backend for Nim language using nimsuggest
 app-emacs/flycheck-package 0.14: Flycheck checker for Emacs Lisp package metadata
 app-emacs/folding 2019.0524.1621: A folding-editor-like Emacs minor mode
-app-emacs/forge 0.5.3 0.6.0 9999: Work with Git forges from the comfort of Magit
+app-emacs/forge 0.6.0 0.6.1 9999: Work with Git forges from the comfort of Magit
 app-emacs/fsharp-mode 2.0_p20230622 9999: Support for the F# programming language
 app-emacs/gap-mode 2.2.2: Major mode for editing and running GAP programs
 app-emacs/geiser 0.31.1 0.32: Generic interaction mode between Emacs and different Scheme implementations
@@ -2066,7 +2066,7 @@ app-emacs/geiser-chicken 0.17: Chicken Scheme's implementation of the Geiser pro
 app-emacs/geiser-gambit 0.18.1: Gambit Scheme's implementation of the Geiser protocols
 app-emacs/geiser-guile 0.28.3-r100: Guile's implementation of the Geiser protocols
 app-emacs/geiser-mit 0.15: MIT/GNU Scheme's implementation of the Geiser protocols
-app-emacs/ghub 4.3.2 5.0.0: Minuscule client library for the Git forge APIs
+app-emacs/ghub 4.3.2 5.0.0 5.0.1: Minuscule client library for the Git forge APIs
 app-emacs/git-modes 1.4.5 1.4.6 9999: Emacs major modes for editing Git configuration files
 app-emacs/git-timemachine 4.13 9999: Step through historic versions of git controlled files in GNU Emacs
 app-emacs/gnuplot-mode 0.8.1 0.11: Gnuplot mode for Emacs
@@ -2131,7 +2131,7 @@ app-emacs/lyskom-elisp-client 0.48_p20200226: Elisp client for the LysKOM confer
 app-emacs/m-buffer 0.16.1: List Oriented Buffer Operations for Emacs
 app-emacs/macrostep 0.9.5: Interactive macro-expander for Emacs
 app-emacs/macrostep-geiser 0.2.0_p20210717: Emacs macrostep back-end powered by geiser
-app-emacs/magit 4.2.0 4.3.8 4.4.0 9999: A Git porcelain inside Emacs
+app-emacs/magit 4.3.8 4.4.0 4.4.2 9999: A Git porcelain inside Emacs
 app-emacs/magit-popup 2.13.3: Define prefix-infix-suffix command combos
 app-emacs/mailcrypt 3.5.9-r3: Provides a simple interface to public key cryptography with OpenPGP
 app-emacs/marginalia 2.2 2.3: Marginalia in the minibuffer
@@ -2232,7 +2232,7 @@ app-emacs/rescript-mode 0.1.0_p20220613: Emacs major mode for ReScript
 app-emacs/restclient 0_p20220426: HTTP REST client tool for GNU Emacs
 app-emacs/revive 2.25: Resume Emacs
 app-emacs/rfcview 0.13: An Emacs mode that reformats IETF RFCs for display
-app-emacs/rg 2.3.0: GNU Emacs search tool based on ripgrep
+app-emacs/rg 2.3.0 2.4.0: GNU Emacs search tool based on ripgrep
 app-emacs/riece 9.0.0-r1: A redesign of Liece IRC client
 app-emacs/rnc-mode 1.0.6-r2: An Emacs mode for editing Relax NG compact schema files
 app-emacs/rpm-spec-mode 0.15 0.16: Emacs mode to ease editing of RPM spec files
@@ -2281,7 +2281,7 @@ app-emacs/template 3.3b: Use templates, decorate comments, auto-update buffers
 app-emacs/tempo-snippets 0.1.5: Visual insertion of tempo templates
 app-emacs/thinks 1.12: Insert text in a think bubble
 app-emacs/tp 0.7: Utilities to create transient menus for POSTing to an API for GNU Emacs
-app-emacs/transient 0.9.4 0.10.0 9999: Transient commands abstraction for GNU Emacs
+app-emacs/transient 0.9.4 0.10.0 0.10.1 9999: Transient commands abstraction for GNU Emacs
 app-emacs/treemacs 3.2: Tree style project file explorer
 app-emacs/treemacs-all-the-icons 3.2: GNU Emacs all-the-icons integration for treemacs
 app-emacs/treepy 0.1.2: Generic tree traversing tools for Emacs Lisp
@@ -3125,8 +3125,8 @@ app-shells/posh-z 1.1.12_p20230811: Quickly navigate the file system based on yo
 app-shells/powerline 2.8.4 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 3.4: A POSIX shell function to treat a variable like an array, quoting args
-app-shells/pwsh 7.5.0 7.5.1: Cross-platform automation and configuration tool
-app-shells/pwsh-bin 7.5.2-r1: Cross-platform automation and configuration tool (binary package)
+app-shells/pwsh 7.5.1: Cross-platform automation and configuration tool
+app-shells/pwsh-bin 7.5.2-r1 7.5.3: Cross-platform automation and configuration tool (binary package)
 app-shells/quoter 4.2: Quote arguments or standard input for usage in POSIX shell by eval
 app-shells/rc 1.7.4-r3: A reimplementation of the Plan 9 shell
 app-shells/rrs 1.70-r2: Reverse Remote Shell
@@ -4065,7 +4065,7 @@ dev-debug/sysdig 0.40.1-r1: A system exploration and troubleshooting tool
 dev-debug/systemtap 5.1-r1 5.2 5.3 9999: Linux trace/probe tool
 dev-debug/valgrind 3.24.0_p3 3.25.1 9999: An open-source memory debugger for GNU/Linux
 dev-dotnet/avalonia-ilspy 7.2_rc-r2: Avalonia-based .NET Decompiler, port of ILSpy
-dev-dotnet/cake 5.0.0: Cake (C# Make) is a cross platform build automation system with a C# DSL
+dev-dotnet/cake 5.0.0 5.1.0: Cake (C# Make) is a cross platform build automation system with a C# DSL
 dev-dotnet/coco 2014.12.24-r4 2014.12.25: The compiler generator Coco/R for C#
 dev-dotnet/csharp-gentoodotnetinfo 2.0.0 2.9999: .NET information tool for Gentoo
 dev-dotnet/csharp-language-server 0.18.0 0.19.0: Roslyn-based LSP language server for C#
@@ -5141,7 +5141,7 @@ dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.4.1 4.4.3 4.5.0: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
 dev-lang/ada-bootstrap 0_p2021-r1 11 12 13 14: Binary bootstrap compiler for GNAT (Ada compiler)
-dev-lang/algol68g 3.5.15 3.7.4 3.8.0 3.9.5: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.8.0 3.9.5 3.10.2: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.11 3.0.0 3.0.2: Scala language-based scripting and REPL
 dev-lang/arc 3.2-r1: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2-r1: Functional programming language with dependent types
@@ -5163,7 +5163,7 @@ dev-lang/dafny 4.10.0 4.11.0: Dafny is a verification-aware programming language
 dev-lang/dafny-bin 4.10.0-r1 4.11.0-r1: Verification-aware programming language
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 9999: A BQN language implementation written in Java, also know as dbqn
-dev-lang/eisl 5.43 5.53 5.55: Interpreter and compiler compatible with the ISLisp standard
+dev-lang/eisl 5.43 5.53 5.55 5.56: Interpreter and compiler compatible with the ISLisp standard
 dev-lang/elixir 1.14.5-r2 1.15.7 1.15.8 1.16.2 1.16.3 1.17.2 1.17.3 1.18.3 1.18.4: Elixir programming language
 dev-lang/elpi 1.19.6-r1 2.0.7: Embeddable Lambda Prolog Interpreter in OCaml
 dev-lang/erlang 26.2.1-r1 26.2.5.14 26.2.5.15 27.3.4.2 27.3.4.3 28.0.2 28.0.4 28.1: Erlang programming language, runtime environment and libraries (OTP)
@@ -11130,7 +11130,7 @@ dev-vcs/rcsi 0.5: A program to give information about RCS files
 dev-vcs/repo 2.53 2.54: Google tool for managing git, particularly multiple repos
 dev-vcs/reposurgeon 5.3: Tool for editing VCS repositories and translating among different systems
 dev-vcs/rsvndump 0.6.1-r1 0.6.2: Dump a remote Subversion repository
-dev-vcs/sourcegit 2025.29 2025.33 2025.34 9999: Open Source Git GUI client using .NET AvaloniaUI
+dev-vcs/sourcegit 2025.29 2025.33 2025.34 2025.35 9999: Open Source Git GUI client using .NET AvaloniaUI
 dev-vcs/stagit 1.2: Generates static HTML pages for a Git repository
 dev-vcs/stgit 2.5.3 2.5.4: Stack-based patch management for Git
 dev-vcs/subversion 1.14.5-r2 1.14.5-r3: Advanced version control system
@@ -13066,7 +13066,7 @@ media-gfx/openscad 2024.12.30_pre-r1 2025.05.01_pre-r1 9999: The Programmers Sol
 media-gfx/openvdb 11.0.0-r1 12.0.1: Library for the efficient manipulation of volumetric data
 media-gfx/optipng 0.7.8 7.9.1: Recompress PNG files to a smaller size without loss of information
 media-gfx/oxipng 8.0.0-r1 9.0.0-r1 9.1.2-r1 9.1.2-r2 9.1.3 9.1.4: Multithreaded lossless PNG compression optimizer written in Rust
-media-gfx/pablodraw 3.3.13_beta-r1: Ansi/Ascii text and RIPscrip vector graphic art editor/viewer
+media-gfx/pablodraw 3.3.13_beta-r1 3.3.14_beta: Ansi/Ascii text and RIPscrip vector graphic art editor/viewer
 media-gfx/panini 0.74.0: OpenGL-based panoramic image viewer
 media-gfx/pdf2svg 0.2.3-r2: Convert PDF to SVG files using poppler and cairo
 media-gfx/pencil 0.7.0: 2D animation and drawing program based on Qt

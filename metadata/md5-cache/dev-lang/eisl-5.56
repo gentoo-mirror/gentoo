@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install test
+DEPEND=sys-libs/ncurses:=
+DESCRIPTION=Interpreter and compiler compatible with the ISLisp standard
+EAPI=8
+HOMEPAGE=https://github.com/sasagawa888/eisl/
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=sys-libs/ncurses:=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/sasagawa888/eisl/archive/v5.56.tar.gz -> eisl-5.56.gh.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0
+_md5_=37fe4cf30c674136aa84bb38ecb3138d
