@@ -7,9 +7,9 @@ NEED_EMACS="29.1"
 
 inherit elisp
 
-DESCRIPTION="Work with Git forges from the comfort of Magit"
-HOMEPAGE="https://magit.vc/
-	https://github.com/magit/forge/"
+DESCRIPTION="Minuscule client library for the Git forge APIs"
+HOMEPAGE="https://magit.vc/manual/ghub/
+	https://github.com/magit/ghub/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -17,33 +17,30 @@ if [[ "${PV}" == *9999* ]] ; then
 	EGIT_REPO_URI="https://github.com/magit/${PN}"
 else
 	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
-		-> ${P}.gh.tar.gz"
+		-> ${P}.tar.gz"
 
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 fi
-
-S="${WORKDIR}/${P}/lisp"
 
 LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-30.1.0.0
-	>=app-emacs/ghub-4.3.2
-	>=app-emacs/magit-4.3.6
-	>=app-emacs/transient-0.9.0
-	app-emacs/closql
-	app-emacs/dash
-	app-emacs/emacsql
+	app-emacs/compat
 	app-emacs/llama
-	app-emacs/markdown-mode
-	app-emacs/yaml
+	app-emacs/treepy
 "
 BDEPEND="
 	${RDEPEND}
 	sys-apps/texinfo
 "
 
-DOCS=( ../README.org )
-ELISP_TEXINFO="../docs/*.texi"
+DOCS=( README.org )
+ELISP_TEXINFO="docs/ghub.texi"
 SITEFILE="50${PN}-gentoo.el"
+
+src_prepare() {
+	mv ./lisp/*.el . || die
+
+	elisp_src_prepare
+}
