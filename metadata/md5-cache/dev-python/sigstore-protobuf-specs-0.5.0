@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/sigstore/protobuf-specs/tree/main/gen/pb-python/ https://pypi.org/project/sigstore-protobuf-specs/
 INHERIT=distutils-r1 pypi
 IUSE=python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
-KEYWORDS=amd64
+KEYWORDS=amd64 ~ppc ~ppc64
 LICENSE=Apache-2.0
 RDEPEND=~dev-python/betterproto-2.0.0_beta7[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] =dev-python/pydantic-2*[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/s/sigstore-protobuf-specs/sigstore_protobuf_specs-0.5.0.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	37143302bc375f4878f7b5f7497da8cc	pypi	464727a3e8a18884f71fe2368cac3197
-_md5_=7236e65a2506ed2251b39a32ffd9269c
+_md5_=5fe976f9fa4d6ba3e0167dbaffdbe138
