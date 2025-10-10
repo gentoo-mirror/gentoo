@@ -24,10 +24,12 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 RDEPEND=">=dev-util/selenium-manager-$(ver_cut 1-2)"
 
 ruby_add_rdepend "
-	>=dev-ruby/base64-0.2 =dev-ruby/base64-0*
+	|| ( dev-ruby/base64:0.3 dev-ruby/base64:0.2 )
+	<dev-ruby/json-2.13.2
 	>=dev-ruby/logger-1.4:0
+	<dev-ruby/prism-1.5:1
 	>=dev-ruby/rexml-3.2.5:3
-	dev-ruby/rubyzip:2
+	|| ( dev-ruby/rubyzip:3 dev-ruby/rubyzip:2 )
 	dev-ruby/websocket:0
 "
 
