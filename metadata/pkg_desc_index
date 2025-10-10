@@ -8215,7 +8215,7 @@ dev-python/click-default-group 1.2.4: Extends click.Group to invoke a command wi
 dev-python/click-didyoumean 0.3.1: Enable git-like did-you-mean feature in click
 dev-python/click-help-colors 0.9.4: Colorization of help messages in Click
 dev-python/click-log 0.4.0: Logging integration for Click
-dev-python/click-option-group 0.5.7 0.5.8: Click-extension package that adds option groups missing in Click
+dev-python/click-option-group 0.5.7 0.5.8 0.5.9: Click-extension package that adds option groups missing in Click
 dev-python/click-plugins 1.1.1-r1: Module for click to enable registering CLI commands via entry points
 dev-python/click-threading 0.5.0-r1: Multithreaded Click apps made easy
 dev-python/cliff 4.10.0 4.11.0: Command Line Interface Formulation Framework
@@ -9102,8 +9102,8 @@ dev-python/pypng 0.20220715.0: Pure Python PNG image encoder/decoder
 dev-python/pypresence 4.3.0: Complete Discord IPC and Rich Presence wrapper library in Python
 dev-python/pyprof2calltree 1.4.5-r1: Convert python profile data to kcachegrind calltree form
 dev-python/pyproj 3.7.1 3.7.2: Python interface to the PROJ library
-dev-python/pyproject-api 1.9.1: API to interact with the python pyproject.toml based projects
-dev-python/pyproject-fmt 2.6.0 2.7.0 2.9.0: Format your pyproject.toml file
+dev-python/pyproject-api 1.9.1 1.10.0: API to interact with the python pyproject.toml based projects
+dev-python/pyproject-fmt 2.6.0 2.7.0 2.9.0 2.10.0: Format your pyproject.toml file
 dev-python/pyproject-hooks 1.2.0: Wrappers to build Python packages using PEP 517 hooks
 dev-python/pyproject-metadata 0.9.1: PEP 621 metadata parsing
 dev-python/pypugjs 5.12.0: Pug (Jade) syntax adapter for Django, Jinja2 and Mako templates
@@ -9161,7 +9161,7 @@ dev-python/pytest-datadir 1.7.2 1.8.0: Pytest plugin for manipulating test data 
 dev-python/pytest-datafiles 3.0.0: Create a 'tmp_path' containing predefined files/directories
 dev-python/pytest-describe 2.2.0: Describe-style plugin for pytest
 dev-python/pytest-django 4.11.1: A Django plugin for pytest
-dev-python/pytest-env 1.1.5: pytest plugin that allows you to add environment variables
+dev-python/pytest-env 1.1.5 1.2.0: pytest plugin that allows you to add environment variables
 dev-python/pytest-expect 1.1.0-r2: pytest plugin that stores test expectations by saving the set of failing tests
 dev-python/pytest-fixture-classes 1.0.3: Fixtures as classes
 dev-python/pytest-flask 1.3.0: A set of pytest fixtures to test Flask applications
@@ -9336,7 +9336,7 @@ dev-python/reedsolo 2.1.1_beta1-r2: Python Reed Solomon encoder/decoder
 dev-python/referencing 0.36.2-r1: Cross-specification JSON referencing (JSON Schema, OpenAPI...)
 dev-python/reflink 0.2.2: Python wrapper around the reflink system calls
 dev-python/regex 2025.7.34 2025.8.29 2025.9.1 2025.9.18: Alternative regular expression module to replace re
-dev-python/regress 2025.5.1: Python bindings to the Rust regress crate
+dev-python/regress 2025.5.1 2025.10.1: Python bindings to the Rust regress crate
 dev-python/rencode 1.0.8-r1: Serialization similar to bencode from the BitTorrent project
 dev-python/reno 4.1.0: Release notes manager, storing release notes in a git repo and building docs
 dev-python/reportlab 4.4.3 4.4.4: Tools for generating printable PDF documents from any data source
@@ -9367,9 +9367,9 @@ dev-python/rfc3986 2.0.0-r1: Validating URI References per RFC 3986
 dev-python/rfc3986-validator 0.1.1-r2: Pure python RFC3986 validator
 dev-python/rfc3987 1.3.8-r3: Parsing and validation of URIs (RFC 3986) and IRIs (RFC 3987)
 dev-python/rfc8785 0.1.4: Pure-Python impl. of RFC 8785 (JSON Canonicalization Scheme)
-dev-python/rich 14.1.0: Python library for rendering rich text, tables, etc. to the terminal
+dev-python/rich 14.1.0 14.2.0: Python library for rendering rich text, tables, etc. to the terminal
 dev-python/rich-argparse 1.7.1: Rich help formatters for argparse and optparse
-dev-python/rich-click 1.8.9 1.9.1 1.9.2: Format click help output nicely with rich
+dev-python/rich-click 1.8.9 1.9.2 1.9.3: Format click help output nicely with rich
 dev-python/roman 5.1: An Integer to Roman numerals converter
 dev-python/roman-numerals-py 3.1.0: Manipulate roman numerals
 dev-python/rope 1.14.0: Python refactoring library
@@ -9429,7 +9429,7 @@ dev-python/shellingham 1.5.4: Tool to Detect Surrounding Shell
 dev-python/shtab 1.7.2: Automagic shell tab completion for Python CLI applications
 dev-python/signature-dispatch 1.0.1-r1: Execute the first function that matches the given arguments
 dev-python/signedjson 1.1.4: Signs JSON objects with ED25519 signatures.
-dev-python/sigstore 3.6.5 4.0.0: A tool for signing Python package distributions
+dev-python/sigstore 3.6.5 3.6.6 4.0.0: A tool for signing Python package distributions
 dev-python/sigstore-models 0.0.5: Pydantic based models for Sigstore's protobuf specifications
 dev-python/sigstore-protobuf-specs 0.3.2 0.4.1 0.4.2 0.4.3 0.5.0: A library for serializing and deserializing Sigstore messages
 dev-python/sigstore-rekor-types 0.0.18: Python models for Rekor's API types
@@ -9463,7 +9463,7 @@ dev-python/speg 0.3_p20180819-r2: A PEG-based parser interpreter with memoizatio
 dev-python/sphinx 8.1.3 8.2.3-r2: Python documentation generator
 dev-python/sphinx-argparse 0.5.2: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-autoapi 3.6.0 3.6.1: A new approach to API documentation in Sphinx
-dev-python/sphinx-autodoc-typehints 3.2.0 3.4.0: Type hints support for the Sphinx autodoc extension
+dev-python/sphinx-autodoc-typehints 3.2.0 3.4.0 3.5.1: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-basic-ng 1.0.0_beta2: A modern skeleton for Sphinx themes
 dev-python/sphinx-bootstrap-theme 0.8.1: Sphinx theme integrates the Bootstrap CSS / JavaScript framework
 dev-python/sphinx-celery 2.1.3: Celery Sphinx Theme and Utilities
@@ -9514,7 +9514,7 @@ dev-python/spyder-notebook 0.6.2: Jupyter notebook integration with Spyder
 dev-python/spyder-unittest 0.7.0: Plugin for Spyder to run tests and view the results
 dev-python/sqlalchemy 1.4.54 2.0.40 2.0.41 2.0.43: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 26.33.0 27.21.0 27.24.2: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 26.33.0 27.21.0 27.24.2 27.25.2: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.3: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9570,7 +9570,7 @@ dev-python/text-unidecode 1.3-r1: The most basic port of the Text::Unidecode Per
 dev-python/textdistance 4.6.3: Compute distance between the two texts
 dev-python/textile 4.0.3-r1: A Python port of Textile, A humane web text generator
 dev-python/texttable 1.7.0: Module to create simple ASCII tables
-dev-python/textx 4.1.0 4.2.0 4.2.2: Meta-language for DSL implementation inspired by Xtext
+dev-python/textx 4.2.2 4.2.3: Meta-language for DSL implementation inspired by Xtext
 dev-python/threadpoolctl 3.6.0: Limit the number of threads used in native libs that have their own threadpool
 dev-python/three-merge 0.1.1-r1: Simple Python library to perform a 3-way merge between strings
 dev-python/thrift 0.22.0: Python implementation of Thrift
@@ -13223,7 +13223,7 @@ media-libs/glfw 3.3.8 3.3.9 3.4: Portable OpenGL FrameWork
 media-libs/glm 1.0.1: OpenGL Mathematics
 media-libs/glpng 1.47: OpenGL PNG image library
 media-libs/glu 9.0.3 9999: The OpenGL Utility Library
-media-libs/glycin-loaders 1.2.3 1.2.4 2.0.0 2.0.2: Loaders for glycin clients (glycin crate or libglycin)
+media-libs/glycin-loaders 1.2.3 1.2.4 2.0.0 2.0.2 2.0.3: Loaders for glycin clients (glycin crate or libglycin)
 media-libs/glyr 1.0.10-r1: Music related metadata searchengine, both with commandline interface and C API
 media-libs/gmmlib 22.8.1 22.8.2 9999: Intel Graphics Memory Management Library
 media-libs/graphene 1.10.8-r1: A thin layer of types for graphic libraries
