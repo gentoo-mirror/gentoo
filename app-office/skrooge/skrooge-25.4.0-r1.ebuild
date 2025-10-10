@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=6.9.0
+KFMIN=6.16.0
 QTMIN=6.7.2
 inherit ecm kde.org xdg
 
@@ -24,9 +24,9 @@ IUSE="activities kde ofx"
 # hangs + installs files (also requires KF5DesignerPlugin)
 RESTRICT="test"
 
-COMMON_DEPEND="
-	>=app-crypt/qca-2.3.9:2[qt6(+)]
+DEPEND="
 	dev-db/sqlcipher
+	>=dev-qt/qt5compat-${QTMIN}:6
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,sql,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6[widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
@@ -52,22 +52,25 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwallet-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	activities? ( kde-plasma/plasma-activities:6 )
+	activities? ( kde-plasma/plasma-activities:6= )
 	kde? ( >=kde-frameworks/krunner-${KFMIN}:6 )
 	ofx? ( dev-libs/libofx:= )
 "
-DEPEND="${COMMON_DEPEND}
-	>=kde-frameworks/kguiaddons-${KFMIN}:6
-	>=kde-frameworks/kjobwidgets-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 "
 BDEPEND="
 	dev-libs/libxslt
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	# cherry-picked from git master
+	"${FILESDIR}/${P}-fix-KF_MIN_VERSION.patch"
+	"${FILESDIR}/${P}-qt-6.10.patch"
+	# Pending https://invent.kde.org/office/skrooge/-/merge_requests/81
+	"${FILESDIR}/${P}-bogusdeps.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
