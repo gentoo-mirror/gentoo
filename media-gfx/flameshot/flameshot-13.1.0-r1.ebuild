@@ -28,6 +28,8 @@ BDEPEND="
 	dev-qt/qttools:6[linguist]
 "
 
+PATCHES=( "${FILESDIR}/${P}-fix-wayland.patch" ) # bug #954005
+
 src_prepare() {
 	# bundles https://gitlab.com/mattbas/Qt-Color-Widgets ...
 	mkdir external || die
