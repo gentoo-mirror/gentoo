@@ -1,9 +1,9 @@
 BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) dev-libs/glib dev-util/gdbus-codegen dev-util/glib-utils sys-devel/gettext doc? ( || ( ( dev-lang/python:3.14 dev-python/breathe[python_targets_python3_14(-)] dev-python/sphinx[python_targets_python3_14(-)] dev-python/sphinx-rtd-theme[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/breathe[python_targets_python3_13(-)] dev-python/sphinx[python_targets_python3_13(-)] dev-python/sphinx-rtd-theme[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/breathe[python_targets_python3_12(-)] dev-python/sphinx[python_targets_python3_12(-)] dev-python/sphinx-rtd-theme[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/breathe[python_targets_python3_11(-)] dev-python/sphinx[python_targets_python3_11(-)] dev-python/sphinx-rtd-theme[python_targets_python3_11(-)] ) ) ) test? ( sys-apps/dbus ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst setup test
 DEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) >=dev-libs/glib-2.68 >=media-video/pipewire-1.0.5-r1:= virtual/libintl elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd )
-DESCRIPTION=Replacement for wireplumber-media-session
+DESCRIPTION=Replacement for pipewire-media-session
 EAPI=8
-HOMEPAGE=https://gitlab.freedesktop.org/wireplumber/wireplumber
+HOMEPAGE=https://gitlab.freedesktop.org/pipewire/wireplumber
 INHERIT=lua-single meson python-any-r1 systemd
 IUSE=doc doc elogind system-service systemd test lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
@@ -12,6 +12,6 @@ RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4?
 REQUIRED_USE=^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) ?? ( elogind systemd ) system-service? ( systemd )
 RESTRICT=!test? ( test )
 SLOT=0/0.5
-SRC_URI=https://gitlab.freedesktop.org/wireplumber/wireplumber/-/archive/0.5.12/wireplumber-0.5.12.tar.bz2 !doc? ( https://dev.gentoo.org/~sam/distfiles/media-video/wireplumber/wireplumber-0.5.12-docs.tar.xz )
+SRC_URI=https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.12/wireplumber-0.5.12.tar.bz2 !doc? ( https://dev.gentoo.org/~sam/distfiles/media-video/wireplumber/wireplumber-0.5.12-docs.tar.xz )
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=9747f9cb52be5b0047f2e6f4a78386dd
+_md5_=be1aca51f600c2f9c3b60a0ccc289706
