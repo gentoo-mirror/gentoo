@@ -1,0 +1,14 @@
+BDEPEND=x11-libs/libdrm[video_cards_amdgpu] app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=sys-process/numactl
+DESCRIPTION=Radeon Open Compute Thunk Interface
+EAPI=8
+HOMEPAGE=https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface
+INHERIT=cmake linux-info
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=sys-process/numactl
+SLOT=0/5.7
+SRC_URI=https://github.com/RadeonOpenCompute/ROCT-Thunk-Interface/archive/rocm-5.7.1.tar.gz -> roct-thunk-interface-5.7.1.tar.gz
+_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	linux-info	efd923656513c879204fec6638eadee5
+_md5_=b65183d527f27aecf95e353f23b38d9e
