@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://git.osmocom.org/gr-iqbal/
 INHERIT=cmake python-single-r1
 IUSE=doc python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 ~arm ~riscv ~x86
+KEYWORDS=amd64 ~arm ~riscv ~x86
 LICENSE=GPL-3
 RDEPEND=>=net-wireless/gnuradio-3.9.0.0:0=[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] net-libs/libosmo-dsp:= dev-libs/boost:= python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=0/0.38.3
 SRC_URI=https://github.com/osmocom/gr-iqbal/archive/refs/tags/v0.38.3.tar.gz -> gr-iqbal-0.38.3.gh.tar.gz
 _eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=cdf8ee800f3d54d9d52b0ca98364b8d8
+_md5_=e0d4c81252ee75afdbe68d96bd196896
