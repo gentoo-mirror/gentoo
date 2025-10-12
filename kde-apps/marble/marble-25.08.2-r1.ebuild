@@ -65,6 +65,8 @@ BDEPEND="
 	aprs? ( dev-lang/perl )
 "
 
+PATCHES=( "${FILESDIR}/${P}-thumbnailers.patch" ) # bug #962789, git master
+
 src_prepare() {
 	ecm_src_prepare
 
