@@ -10,5 +10,5 @@ LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
 PDEPEND=default-compiler-rt? ( llvm-runtimes/clang-runtime:22[compiler-rt] llvm-libunwind? ( llvm-runtimes/libunwind[static-libs] ) !llvm-libunwind? ( sys-libs/libunwind[static-libs] ) ) !default-compiler-rt? ( sys-devel/gcc ) default-libcxx? ( >=llvm-runtimes/libcxx-22.0.0.9999[static-libs] ) !default-libcxx? ( sys-devel/gcc ) default-lld? ( >=llvm-core/lld-22.0.0.9999 ) !default-lld? ( sys-devel/binutils ) llvm-runtimes/clang-runtime[default-compiler-rt(-)?,default-libcxx(-)?,default-lld(-)?,llvm-libunwind(-)?] emacs? ( >=app-editors/emacs-26.3:* )
 PROPERTIES=live
 SLOT=0
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	bash-completion-r1	767861f3744f589ee5291c1698b1c082	elisp-common	fe05085d051330f15cf7201109b5cd23	git-r3	875eb471682d3e1f18da124be97dcc81	multiprocessing	1e32df7deee68372153dca65f4a7c21f	llvm.org	02eb471e49217d5b4cf5c67f224ee570	multilib	a199af442898963433d6f038a88cce9c
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	bash-completion-r1	767861f3744f589ee5291c1698b1c082	elisp-common	fe05085d051330f15cf7201109b5cd23	git-r3	875eb471682d3e1f18da124be97dcc81	multiprocessing	1e32df7deee68372153dca65f4a7c21f	llvm.org	02eb471e49217d5b4cf5c67f224ee570	multilib	a199af442898963433d6f038a88cce9c
 _md5_=e38cafce05ebcca514f89f925611dccd

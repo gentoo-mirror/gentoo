@@ -10,5 +10,5 @@ RDEPEND=acct-group/prowlarr acct-user/prowlarr dev-libs/icu dev-db/sqlite
 RESTRICT=bindist strip test
 SLOT=0
 SRC_URI=amd64? ( elibc_glibc? ( https://github.com/Prowlarr/Prowlarr/releases/download/v2.1.3.5208/Prowlarr.develop.2.1.3.5208.linux-core-x64.tar.gz ) elibc_musl? ( https://github.com/Prowlarr/Prowlarr/releases/download/v2.1.3.5208/Prowlarr.develop.2.1.3.5208.linux-musl-core-x64.tar.gz ) ) arm? ( elibc_glibc? ( https://github.com/Prowlarr/Prowlarr/releases/download/v2.1.3.5208/Prowlarr.develop.2.1.3.5208.linux-core-arm.tar.gz ) elibc_musl? ( https://github.com/Prowlarr/Prowlarr/releases/download/v2.1.3.5208/Prowlarr.develop.2.1.3.5208.linux-musl-core-arm.tar.gz ) ) arm64? ( elibc_glibc? ( https://github.com/Prowlarr/Prowlarr/releases/download/v2.1.3.5208/Prowlarr.develop.2.1.3.5208.linux-core-arm64.tar.gz ) elibc_musl? ( https://github.com/Prowlarr/Prowlarr/releases/download/v2.1.3.5208/Prowlarr.develop.2.1.3.5208.linux-musl-core-arm64.tar.gz ) )
-_eclasses_=toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	systemd	a964c0cbe818b5729da1dbfcee5be861
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	systemd	a964c0cbe818b5729da1dbfcee5be861
 _md5_=ae16173934051f951202eb340b7cad46
