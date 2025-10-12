@@ -345,6 +345,7 @@ acct-group/sddm 0-r1: A group for x11-misc/sddm
 acct-group/seat 0-r1: Group for sys-auth/seatd
 acct-group/serf 0-r2: A group for app-admin/serf
 acct-group/sgx 0-r2: System group: used for SGX enclaves
+acct-group/shadow 0: System group: shadow
 acct-group/sispmctl 0-r2: Group for sys-power/sispmctl
 acct-group/sks 0-r2: Group for SKS OpenPGP keyserver
 acct-group/slurm 0-r3: A group for the slurm - Highly Scalable Resource Manager
@@ -6177,7 +6178,7 @@ dev-ml/uucp 16.0.0 17.0.0: Unicode character properties for OCaml
 dev-ml/uuidm 0.9.7 0.9.8 0.9.9 0.9.10: Universally unique identifiers (UUIDs) for OCaml
 dev-ml/uunf 15.1.0-r1 16.0.0 17.0.0: Unicode text normalization
 dev-ml/uuseg 15.0.0 16.0.0 17.0.0: Unicode text segmentation for OCaml
-dev-ml/uutf 1.0.3-r2: Non-blocking streaming Unicode codec for OCaml
+dev-ml/uutf 1.0.3-r2 1.0.4: Non-blocking streaming Unicode codec for OCaml
 dev-ml/variantslib 0.15.0 0.16.0 0.17.0-r1: OCaml variants as first class values
 dev-ml/xdg 3.16.1 3.20.2: XDG Base Directory Specification
 dev-ml/xml-light 2.5: Minimal Xml parser and printer for OCaml
@@ -17179,7 +17180,7 @@ sys-apps/sensei-raw-ctl 0.0_pre20180729-r1: SteelSeries Sensei Raw configuration
 sys-apps/servicelog 1.1.15 1.1.16: Provides utilities for logging service-related events
 sys-apps/setserial 2.17-r6: Configure your serial ports with it
 sys-apps/sg3_utils 1.47 1.47-r1 1.47-r2 1.48: Apps for querying the sg SCSI interface
-sys-apps/shadow 4.14.8: Utilities to deal with user accounts
+sys-apps/shadow 4.14.8 4.14.8-r1: Utilities to deal with user accounts
 sys-apps/smartmontools 7.4-r1 7.5 9999: Tools to monitor storage systems to provide advanced warning of disk degradation
 sys-apps/smc-sum 2.14.0.20240215: Updates the BIOS and IPMI firmware and system settings on Supermicro mainboards
 sys-apps/smcipmitool 2.29.0.250214: An out-of-band utility for interfacing with SuperBlade and IPMI devices via CLI
@@ -17747,7 +17748,7 @@ sys-libs/nss-usrfiles 2.18.1: NSS module to read passwd/group files from CoreOS 
 sys-libs/nss_wrapper 1.1.15 1.1.16: Wrapper for the user, group and hosts NSS API
 sys-libs/obstack-standalone 1.2.3: A standalone library to implement GNU libc's obstack
 sys-libs/openipmi 2.0.36 2.0.37: Library interface to IPMI
-sys-libs/pam 1.7.0_p20241230-r3 1.7.1-r1: Linux-PAM (Pluggable Authentication Modules)
+sys-libs/pam 1.7.0_p20241230-r3 1.7.1-r1 1.7.1-r2: Linux-PAM (Pluggable Authentication Modules)
 sys-libs/pam_wrapper 1.1.5 1.1.8: A tool to test PAM applications and PAM modules
 sys-libs/pkgcraft 0.0.16-r1 9999: C library for pkgcraft
 sys-libs/pwdb 0.62-r2: Password database
