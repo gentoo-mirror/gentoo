@@ -43,7 +43,7 @@ DEPEND="
 		media-plugins/gst-plugins-twolame:1.0
 		media-plugins/gst-plugins-libav:1.0
 	)
-	gtk? ( >=x11-libs/gtk+-3.22:3 )
+	gtk? ( >=gui-libs/gtk-4.14:4 )
 
 	x11-libs/libX11
 "
@@ -75,7 +75,7 @@ src_configure() {
 		$(meson_use gtk-doc api-docs)
 		-Dman_pages=true
 		-Dsystemd-user-units-dir=$(systemd_get_userunitdir)
-		-Dplugins=gst-launch$(use sqlite && echo ",media-export")$(use tracker && echo ",tracker3")
+		-Dplugins=gst-launch$(use sqlite && echo ",media-export")$(use tracker && echo ",localsearch")
 		-Dengines=gstreamer
 		-Dexamples=false
 		$(meson_use test tests)

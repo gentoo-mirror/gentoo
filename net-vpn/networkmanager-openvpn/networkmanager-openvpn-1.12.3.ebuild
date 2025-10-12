@@ -12,13 +12,13 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/NetworkManager-openvpn"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="gtk test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	>=dev-libs/glib-2.34:2
-	>=net-misc/networkmanager-1.7.0
+	>=net-misc/networkmanager-1.45.11
 	>=net-vpn/openvpn-2.1
 	gtk? (
 		>=app-crypt/libsecret-0.18
@@ -41,10 +41,6 @@ BDEPEND="
 	>=sys-devel/gettext-0.19
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/${P}-openvpn-2.6-compat.patch
-)
 
 src_configure() {
 	# Workaround for LLD on musl systems (bug #947147)
