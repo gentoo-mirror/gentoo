@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 USE_RUBY="ruby32 ruby33 ruby34"
 
 # There is an erb binary in exe but that would conflict with the ruby
@@ -11,6 +12,7 @@ RUBY_FAKEGEM_BINWRAP=""
 RUBY_FAKEGEM_EXTENSIONS=(ext/erb/escape/extconf.rb)
 RUBY_FAKEGEM_EXTENSION_LIBDIR="lib/erb"
 RUBY_FAKEGEM_EXTRADOC="README.md"
+RUBY_FAKEGEM_EXTRAINSTALL="libexec"
 RUBY_FAKEGEM_GEMSPEC="erb.gemspec"
 
 inherit ruby-fakegem
