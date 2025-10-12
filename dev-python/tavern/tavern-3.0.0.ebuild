@@ -20,15 +20,14 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	>=dev-python/jmespath-1[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-4[${PYTHON_USEDEP}]
-	>=dev-python/paho-mqtt-1.3.1[${PYTHON_USEDEP}]
 	>=dev-python/pyjwt-2.5.0[${PYTHON_USEDEP}]
 	>=dev-python/pykwalify-1.8.0[${PYTHON_USEDEP}]
-	>=dev-python/pytest-7[${PYTHON_USEDEP}]
+	>=dev-python/pytest-8[${PYTHON_USEDEP}]
 	>=dev-python/python-box-6[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-6.0.1[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.22.0[${PYTHON_USEDEP}]
