@@ -5,10 +5,10 @@ DESCRIPTION=A http/https reverse-proxy and load-balancer
 EAPI=8
 HOMEPAGE=https://github.com/graygnuorg/pound
 IUSE=tcmalloc test
-KEYWORDS=amd64 ~hppa ~ppc x86
+KEYWORDS=~amd64 ~hppa ~ppc ~x86
 LICENSE=GPL-3+
 RDEPEND=dev-libs/libpcre2:= dev-libs/openssl:= tcmalloc? ( dev-util/google-perftools ) virtual/libcrypt:=
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/graygnuorg/pound/releases/download/v4.16/pound-4.16.tar.gz
-_md5_=604f7ded2c603040d93c5bd12e116848
+SRC_URI=https://github.com/graygnuorg/pound/releases/download/v4.17/pound-4.17.tar.gz
+_md5_=f698aa5bdd289affd70624e86b33dcb7
