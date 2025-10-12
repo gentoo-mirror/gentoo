@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit gnome2 python-single-r1
@@ -12,7 +12,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/alacarte"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
@@ -25,7 +25,7 @@ RDEPEND="${DEPEND}
 	x11-libs/gtk+:3[introspection]
 "
 BDEPEND="
-	>=sys-devel/gettext-0.19.8
+	>=sys-devel/gettext-0.22
 	virtual/pkgconfig
 "
 

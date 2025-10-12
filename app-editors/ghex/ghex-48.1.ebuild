@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,18 +13,18 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/ghex.git"
 	SRC_URI=""
 else
-	KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 fi
 
 LICENSE="GPL-2+ FDL-1.1+"
+SLOT="4"
 IUSE="gtk-doc test"
 RESTRICT="!test? ( test )"
-SLOT="4"
 
 RDEPEND="
 	>=dev-libs/glib-2.68.0:2
-	>=gui-libs/gtk-4.4.0:4
-	>=gui-libs/libadwaita-1.2:1
+	>=gui-libs/gtk-4.17.5:4
+	>=gui-libs/libadwaita-1.7:1
 	dev-libs/gobject-introspection
 	!app-editors/ghex:2
 "
@@ -33,7 +33,7 @@ BDEPEND="
 	gtk-doc? ( dev-util/gi-docgen )
 	test? (
 		dev-util/desktop-file-utils
-		dev-libs/appstream-glib
+		dev-libs/appstream
 	)
 	dev-util/gtk-update-icon-cache
 	dev-util/itstool
