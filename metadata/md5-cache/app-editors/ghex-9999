@@ -1,6 +1,6 @@
-BDEPEND=gtk-doc? ( dev-util/gi-docgen ) test? ( dev-util/desktop-file-utils dev-libs/appstream-glib ) dev-util/gtk-update-icon-cache dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=gtk-doc? ( dev-util/gi-docgen ) test? ( dev-util/desktop-file-utils dev-libs/appstream ) dev-util/gtk-update-icon-cache dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst test unpack
-DEPEND=>=dev-libs/glib-2.68.0:2 >=gui-libs/gtk-4.4.0:4 >=gui-libs/libadwaita-1.2:1 dev-libs/gobject-introspection !app-editors/ghex:2
+DEPEND=>=dev-libs/glib-2.68.0:2 >=gui-libs/gtk-4.17.5:4 >=gui-libs/libadwaita-1.7:1 dev-libs/gobject-introspection !app-editors/ghex:2
 DESCRIPTION=GNOME hexadecimal editor
 EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/GNOME/ghex
@@ -9,8 +9,8 @@ INHERIT=gnome.org gnome2-utils meson xdg git-r3
 IUSE=gtk-doc test
 LICENSE=GPL-2+ FDL-1.1+
 PROPERTIES=live
-RDEPEND=>=dev-libs/glib-2.68.0:2 >=gui-libs/gtk-4.4.0:4 >=gui-libs/libadwaita-1.2:1 dev-libs/gobject-introspection !app-editors/ghex:2
+RDEPEND=>=dev-libs/glib-2.68.0:2 >=gui-libs/gtk-4.17.5:4 >=gui-libs/libadwaita-1.7:1 dev-libs/gobject-introspection !app-editors/ghex:2
 RESTRICT=!test? ( test )
 SLOT=4
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	a0b29008c671a362b505f96fa80ce9c0	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	meson	99466844dd8d4fcfb07578a76f5a9922	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=fec778930fe41724c3799dcd2eecb82d
+_md5_=607e199411470a59c192f4168f83a8aa
