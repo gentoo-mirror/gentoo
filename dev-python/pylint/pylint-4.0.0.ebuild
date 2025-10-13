@@ -23,15 +23,15 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="examples"
 
 RDEPEND="
-	<dev-python/astroid-3.4[${PYTHON_USEDEP}]
-	>=dev-python/astroid-3.3.8[${PYTHON_USEDEP}]
+	<dev-python/astroid-4.1[${PYTHON_USEDEP}]
+	>=dev-python/astroid-4.0.1[${PYTHON_USEDEP}]
 	>=dev-python/dill-0.3.7[${PYTHON_USEDEP}]
-	>=dev-python/isort-4.2.5[${PYTHON_USEDEP}]
-	<dev-python/isort-7[${PYTHON_USEDEP}]
+	>=dev-python/isort-5.14[${PYTHON_USEDEP}]
+	<dev-python/isort-8[${PYTHON_USEDEP}]
 	>=dev-python/mccabe-0.6[${PYTHON_USEDEP}]
 	<dev-python/mccabe-0.8[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-2.2.0[${PYTHON_USEDEP}]
@@ -43,11 +43,11 @@ BDEPEND="
 			>=dev-python/gitpython-3[${PYTHON_USEDEP}]
 		' 'python*' )
 		>=dev-python/pytest-8.3[${PYTHON_USEDEP}]
-		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 		>=dev-python/typing-extensions-4.12[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-timeout )
 distutils_enable_tests pytest
 
 python_test() {
@@ -57,7 +57,6 @@ python_test() {
 		'tests/test_functional.py::test_functional[no_name_in_module]'
 		'tests/test_functional.py::test_functional[shadowed_import]'
 		'tests/test_functional.py::test_functional[use_yield_from]'
-		'tests/test_functional.py::test_functional[wrong_import_order]'
 	)
 	local EPYTEST_IGNORE=(
 		# No need to run the benchmarks
@@ -72,10 +71,7 @@ python_test() {
 		)
 	fi
 
-	rm -rf pylint || die
-
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -p timeout
+	epytest
 }
 
 python_install_all() {
