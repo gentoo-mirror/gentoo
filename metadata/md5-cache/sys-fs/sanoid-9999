@@ -1,0 +1,14 @@
+BDEPEND=dev-lang/perl sys-apps/groff virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile install postinst prepare unpack
+DEPEND=dev-lang/perl app-arch/gzip app-arch/lz4 cron? ( virtual/cron ) dev-perl/Capture-Tiny dev-perl/Config-IniFiles sys-apps/pv sys-block/mbuffer sys-fs/zfs virtual/perl-Data-Dumper virtual/perl-Getopt-Long virtual/ssh
+DESCRIPTION=Policy-driven snapshot management and replication tools for OpenZFS.
+EAPI=8
+HOMEPAGE=https://github.com/jimsalterjrs/sanoid
+INHERIT=systemd optfeature git-r3
+IUSE=cron
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=dev-lang/perl app-arch/gzip app-arch/lz4 cron? ( virtual/cron ) dev-perl/Capture-Tiny dev-perl/Config-IniFiles sys-apps/pv sys-block/mbuffer sys-fs/zfs virtual/perl-Data-Dumper virtual/perl-Getopt-Long virtual/ssh
+SLOT=0
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	systemd	a964c0cbe818b5729da1dbfcee5be861	optfeature	538bce96e5589935b57e178e8635f301	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=fbef08b0cc1674feb3b4b5dee0e5af76
