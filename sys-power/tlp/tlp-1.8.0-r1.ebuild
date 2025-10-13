@@ -42,8 +42,7 @@ pkg_postinst() {
 
 	optfeature "disable Wake-on-LAN" sys-apps/ethtool
 	optfeature "see disk drive health info in tlp-stat" sys-apps/smartmontools
-	optfeature "Sleep hooks (elogind)" sys-auth/elogind
-	optfeature "Sleep hooks (systemd)" sys-apps/systemd
+	optfeature "Sleep hooks" sys-auth/elogind sys-apps/systemd
 }
 
 pkg_postrm() {
