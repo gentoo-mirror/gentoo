@@ -3,9 +3,9 @@ DESCRIPTION=Meta package for GNOME-Light, merge this package to install
 EAPI=8
 HOMEPAGE=https://www.gnome.org/
 IUSE=cups +gnome-shell
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=metapackage
 PDEPEND=>=gnome-base/gvfs-1.56
 RDEPEND=>=gnome-base/gnome-core-libs-48.0[cups?] >=gnome-base/gnome-session-48.0 >=gnome-base/gnome-settings-daemon-48.0[cups?] >=gnome-base/gnome-control-center-48.0[cups?] >=gnome-base/nautilus-48.0 gnome-shell? ( >=x11-wm/mutter-48.0 >=dev-libs/gjs-1.84 >=gnome-base/gnome-shell-48.0 media-fonts/adwaita-fonts ) >=x11-themes/adwaita-icon-theme-48.0 >=x11-themes/gnome-backgrounds-48.0 || ( >=x11-terms/gnome-terminal-3.56 >=gui-apps/gnome-console-48.0 )
 SLOT=2.0
-_md5_=a2f753261279fdf1a98d7e1aebf54e00
+_md5_=00f919ad24c3957d8b88d290f8752933

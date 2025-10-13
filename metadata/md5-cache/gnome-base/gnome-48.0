@@ -3,9 +3,9 @@ DESCRIPTION=Meta package for GNOME, merge this package to install
 EAPI=8
 HOMEPAGE=https://www.gnome.org/
 IUSE=accessibility +bluetooth +classic cups +extras
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=metapackage
 PDEPEND=>=gnome-base/gvfs-1.56.1[udisks]
 RDEPEND=>=gnome-base/gnome-core-libs-48.0[cups?] >=gnome-base/gnome-core-apps-48.0[cups?,bluetooth?] >=gnome-base/gdm-48.0 >=x11-wm/mutter-48.0 >=gnome-base/gnome-shell-48.0 media-fonts/adwaita-fonts >=x11-themes/gnome-backgrounds-48.0 x11-themes/sound-theme-freedesktop accessibility? ( >=app-accessibility/at-spi2-core-2.56 >=app-accessibility/orca-47.3 >=gnome-extra/mousetweaks-3.32.0 ) classic? ( >=gnome-extra/gnome-shell-extensions-48.0 ) extras? ( >=gnome-base/gnome-extra-apps-48.0 )
 SLOT=2.0
-_md5_=0de01784c1821c1f0f5bb7fe62305ae7
+_md5_=7d9503bf130fc6b9da10f0b04e7b170d
