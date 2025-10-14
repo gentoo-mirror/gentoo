@@ -13,7 +13,7 @@ CRATES="
 	ahash@0.8.12
 	aho-corasick@1.1.3
 	android_system_properties@0.1.5
-	anstream@0.6.20
+	anstream@0.6.21
 	anstyle-parse@0.2.7
 	anstyle-query@1.1.4
 	anstyle-wincon@3.0.10
@@ -34,19 +34,18 @@ CRATES="
 	bumpalo@3.19.0
 	bytes@1.10.1
 	caps@0.5.5
-	cc@1.2.39
+	cc@1.2.41
 	cfg-if@1.0.3
 	cfg_aliases@0.2.1
 	chrono@0.4.42
-	clap@4.5.48
-	clap_builder@4.5.48
-	clap_derive@4.5.47
-	clap_lex@0.7.5
+	clap@4.5.49
+	clap_builder@4.5.49
+	clap_derive@4.5.49
+	clap_lex@0.7.6
 	colorchoice@1.0.4
-	const_format@0.2.34
+	const_format@0.2.35
 	const_format_proc_macros@0.2.34
 	constant_time_eq@0.1.5
-	constant_time_eq@0.3.1
 	core-foundation-sys@0.8.7
 	cpufeatures@0.2.17
 	crc-catalog@2.4.0
@@ -74,12 +73,12 @@ CRATES="
 	error-chain@0.12.4
 	expiringmap@0.1.2
 	fastrand@2.3.0
-	find-msvc-tools@0.1.2
+	find-msvc-tools@0.1.4
 	fixedbitset@0.5.7
-	flate2@1.1.2
+	flate2@1.1.4
 	fnv@1.0.7
 	funty@2.0.0
-	generic-array@0.14.7
+	generic-array@0.14.9
 	getrandom@0.1.16
 	getrandom@0.2.16
 	getrandom@0.3.3
@@ -109,10 +108,11 @@ CRATES="
 	lazy_static@1.5.0
 	lexis@0.2.3
 	lexopt@0.3.1
-	libc@0.2.176
+	libc@0.2.177
 	libcgroups@0.5.5
 	libcontainer@0.5.5
 	libloading@0.8.9
+	libmimalloc-sys@0.1.44
 	liboci-cli@0.5.5
 	libredox@0.1.10
 	libseccomp-sys@0.2.1
@@ -126,6 +126,7 @@ CRATES="
 	md5@0.8.0
 	memchr@2.7.6
 	memoffset@0.9.1
+	mimalloc@0.1.48
 	minimal-lexical@0.2.1
 	miniz_oxide@0.8.9
 	mortal@0.2.4
@@ -136,11 +137,11 @@ CRATES="
 	nix@0.30.1
 	nom@7.1.3
 	nom@8.0.0
-	nu-ansi-term@0.50.1
+	nu-ansi-term@0.50.3
 	num-traits@0.2.19
 	num_cpus@1.17.0
 	object@0.37.3
-	oci-spec@0.8.2
+	oci-spec@0.8.3
 	once_cell@1.21.3
 	once_cell_polyfill@1.70.1
 	option-ext@0.2.0
@@ -176,9 +177,9 @@ CRATES="
 	redox_users@0.3.5
 	redox_users@0.4.6
 	redox_users@0.5.2
-	regex-automata@0.4.11
-	regex-syntax@0.8.6
-	regex@1.11.3
+	regex-automata@0.4.13
+	regex-syntax@0.8.8
+	regex@1.12.2
 	ringbuf@0.4.8
 	rpassword@7.4.0
 	rtoolbox@0.0.3
@@ -202,12 +203,14 @@ CRATES="
 	sharded-slab@0.1.7
 	shellexpand@3.1.1
 	shlex@1.3.0
+	simd-adler32@0.3.7
 	siphasher@1.0.1
 	smallstr@0.2.0
 	smallvec@1.15.1
 	strsim@0.11.1
 	strum@0.27.2
 	strum_macros@0.27.2
+	subtle@2.6.1
 	syn@2.0.106
 	tabwriter@1.4.1
 	tap@1.0.1
@@ -227,11 +230,11 @@ CRATES="
 	tracing-log@0.2.0
 	tracing-subscriber@0.3.20
 	tracing@0.1.41
-	typenum@1.18.0
+	typenum@1.19.0
 	unicode-ident@1.0.19
 	unicode-normalization@0.1.24
 	unicode-width@0.1.14
-	unicode-width@0.2.1
+	unicode-width@0.2.2
 	unicode-xid@0.2.6
 	utf8parse@0.2.2
 	valuable@0.1.1
@@ -249,34 +252,34 @@ CRATES="
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
-	windows-core@0.62.1
-	windows-implement@0.60.1
-	windows-interface@0.59.2
-	windows-link@0.2.0
-	windows-result@0.4.0
-	windows-strings@0.5.0
+	windows-core@0.62.2
+	windows-implement@0.60.2
+	windows-interface@0.59.3
+	windows-link@0.2.1
+	windows-result@0.4.1
+	windows-strings@0.5.1
 	windows-sys@0.52.0
 	windows-sys@0.59.0
 	windows-sys@0.60.2
-	windows-sys@0.61.1
+	windows-sys@0.61.2
 	windows-targets@0.52.6
-	windows-targets@0.53.4
+	windows-targets@0.53.5
 	windows_aarch64_gnullvm@0.52.6
-	windows_aarch64_gnullvm@0.53.0
+	windows_aarch64_gnullvm@0.53.1
 	windows_aarch64_msvc@0.52.6
-	windows_aarch64_msvc@0.53.0
+	windows_aarch64_msvc@0.53.1
 	windows_i686_gnu@0.52.6
-	windows_i686_gnu@0.53.0
+	windows_i686_gnu@0.53.1
 	windows_i686_gnullvm@0.52.6
-	windows_i686_gnullvm@0.53.0
+	windows_i686_gnullvm@0.53.1
 	windows_i686_msvc@0.52.6
-	windows_i686_msvc@0.53.0
+	windows_i686_msvc@0.53.1
 	windows_x86_64_gnu@0.52.6
-	windows_x86_64_gnu@0.53.0
+	windows_x86_64_gnu@0.53.1
 	windows_x86_64_gnullvm@0.52.6
-	windows_x86_64_gnullvm@0.53.0
+	windows_x86_64_gnullvm@0.53.1
 	windows_x86_64_msvc@0.52.6
-	windows_x86_64_msvc@0.53.0
+	windows_x86_64_msvc@0.53.1
 	wit-bindgen@0.46.0
 	wyz@0.5.1
 	yaxpeax-arch@0.3.2
