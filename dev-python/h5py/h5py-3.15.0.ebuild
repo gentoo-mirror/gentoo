@@ -4,8 +4,8 @@
 EAPI=8
 
 DISTUTILS_EXT=1
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+DISTUTILS_USE_PEP517=standalone
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 pypi
 
@@ -18,11 +18,11 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~x64-macos"
 IUSE="examples"
 
 DEPEND="
-	>=dev-python/numpy-1.17.3:=[${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.21.2:=[${PYTHON_USEDEP}]
 	>=sci-libs/hdf5-1.10.4:=[hl(+)]
 "
 RDEPEND="
@@ -30,14 +30,16 @@ RDEPEND="
 "
 
 BDEPEND="
-	>=dev-python/cython-0.29.31[${PYTHON_USEDEP}]
+	>=dev-python/cython-3.0.0[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.14.5[${PYTHON_USEDEP}]
-	dev-python/pkgconfig[${PYTHON_USEDEP}]
+	>=dev-python/pkgconfig-1.5.5[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-77.0.1[${PYTHON_USEDEP}]
 	test? (
 		dev-python/qtpy[testlib,${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	dev-python/sphinx-rtd-theme
@@ -51,8 +53,6 @@ python_prepare_all() {
 }
 
 python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-
 	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
 	epytest -m "not mpi"
 }

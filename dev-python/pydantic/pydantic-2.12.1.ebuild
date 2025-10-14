@@ -1,12 +1,16 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
-DISTUTILS_USE_PEP517=maturin
+DISTUTILS_USE_PEP517=hatchling
+# no provenance for pydantic-core:
+# https://github.com/pydantic/pydantic-core/issues/1842
+PYPI_VERIFY_REPO=https://github.com/pydantic/pydantic
 PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
 
+PYDANTIC_CORE_PV=2.41.3
 RUST_MIN_VER="1.75.0"
 CRATES="
 	ahash@0.8.12
@@ -114,14 +118,17 @@ CRATES="
 
 inherit cargo distutils-r1 pypi
 
-DESCRIPTION="Core validation logic for pydantic written in Rust"
+DESCRIPTION="Data parsing and validation using Python type hints"
 HOMEPAGE="
-	https://github.com/pydantic/pydantic-core/
-	https://pypi.org/project/pydantic_core/
+	https://github.com/pydantic/pydantic/
+	https://pypi.org/project/pydantic/
 "
+# pydantic-core & pydantic have a perfect circular test dep now
 SRC_URI+="
+	$(pypi_sdist_url pydantic_core "${PYDANTIC_CORE_PV}")
 	${CARGO_CRATE_URIS}
 "
+PYDANTIC_CORE_S=${WORKDIR}/pydantic_core-${PYDANTIC_CORE_PV}
 
 LICENSE="MIT"
 # Dependent crate licenses
@@ -133,41 +140,87 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
+	>=dev-python/annotated-types-0.6.0[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.14.1[${PYTHON_USEDEP}]
+	>=dev-python/typing-inspection-0.4.2[${PYTHON_USEDEP}]
+	dev-python/tzdata[${PYTHON_USEDEP}]
+	!dev-python/pydantic-core
 "
 BDEPEND="
+	>=dev-python/hatch-fancy-pypi-readme-22.5.0[${PYTHON_USEDEP}]
+	dev-util/maturin[${PYTHON_USEDEP}]
+	test? (
+		$(python_gen_cond_dep '
+			dev-python/cloudpickle[${PYTHON_USEDEP}]
+		' 'python3*')
+		dev-python/dirty-equals[${PYTHON_USEDEP}]
+		>=dev-python/email-validator-2.0.0[${PYTHON_USEDEP}]
+		>=dev-python/faker-18.13.0[${PYTHON_USEDEP}]
+		>=dev-python/jsonschema-4.23.0[${PYTHON_USEDEP}]
+		dev-python/pytz[${PYTHON_USEDEP}]
+		dev-python/rich[${PYTHON_USEDEP}]
+	)
+"
+# pydantic-core
+BDEPEND+="
 	test? (
 		>=dev-python/dirty-equals-0.5.0[${PYTHON_USEDEP}]
-		>=dev-python/hypothesis-6.63.0[${PYTHON_USEDEP}]
 		>=dev-python/inline-snapshot-0.13.3[${PYTHON_USEDEP}]
-		>=dev-python/pydantic-1.10.4[${PYTHON_USEDEP}]
 		>=dev-python/typing-inspection-0.4.1[${PYTHON_USEDEP}]
 	)
 "
 
-EPYTEST_PLUGINS=( pytest-{mock,timeout} )
+EPYTEST_PLUGINS=( hypothesis pytest-mock )
 distutils_enable_tests pytest
 
 QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/pydantic_core/_pydantic_core.*.so"
 
 src_prepare() {
+	sed -i -e '/benchmark/d' {.,"${PYDANTIC_CORE_S}"}/pyproject.toml || die
+	sed -i -e '/^strip/d' "${PYDANTIC_CORE_S}"/Cargo.toml || die
 	distutils-r1_src_prepare
+}
 
-	sed -i -e '/--benchmark/d' pyproject.toml || die
-	sed -i -e '/^strip/d' Cargo.toml || die
+python_compile() {
+	distutils-r1_python_compile
+
+	local DISTUTILS_USE_PEP517=maturin
+	local DISTUTILS_UPSTREAM_PEP517=maturin
+	cd "${PYDANTIC_CORE_S}" || die
+	distutils-r1_python_compile
+	cd - >/dev/null || die
 }
 
 python_test() {
-	local EPYTEST_IGNORE=(
-		tests/benchmarks
-	)
 	local EPYTEST_DESELECT=(
+		# == pydantic ==
+		# -Werror, sigh
+		tests/test_types_typeddict.py::test_readonly_qualifier_warning
+
+		# == pydantic-core ==
 		# TODO: recursion till segfault
 		tests/serializers/test_functions.py::test_recursive_call
 	)
+	local EPYTEST_IGNORE=(
+		# require pytest-examples (pydantic)
+		tests/test_docs.py
+		# benchmarks (both)
+		tests/benchmarks
+	)
 
+	if ! has_version "dev-python/cloudpickle[${PYTHON_USEDEP}]"; then
+		EPYTEST_IGNORE+=(
+			# (pydantic)
+			tests/test_pickle.py
+		)
+	fi
+
+	cd "${PYDANTIC_CORE_S}" || die
 	rm -rf pydantic_core || die
 	# tests link to libpython, so they fail to link on pypy3
 	[[ ${EPYTHON} != pypy3* ]] && cargo_src_test
 	epytest -o xfail_strict=False -o addopts=
+	cd - 2>/dev/null || die
+
+	epytest
 }
