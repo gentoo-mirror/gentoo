@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake xdg
+inherit cmake optfeature xdg
 
 DESCRIPTION="Qt-based audio player with winamp/xmms skins support"
 HOMEPAGE="https://qmmp.ylsoftware.com"
@@ -12,29 +12,25 @@ if [[ ${PV} != *9999* ]]; then
 		https://qmmp.ylsoftware.com/files/qmmp/$(ver_cut 1-2)/${P}.tar.bz2
 		https://downloads.sourceforge.net/project/qmmp-dev/qmmp/$(ver_cut 1-2)/${P}.tar.bz2
 	"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 else
 	inherit subversion
-	QMMP_DEV_BRANCH="2.2"
-	ESVN_REPO_URI="svn://svn.code.sf.net/p/${PN}-dev/code/branches/${PN}-${QMMP_DEV_BRANCH}"
+	ESVN_REPO_URI="svn://svn.code.sf.net/p/${PN}-dev/code/trunk/${PN}"
 fi
 
 LICENSE="CC-BY-SA-4.0 GPL-2+" # default skin & source code
 SLOT="0"
 # KEYWORDS further up
-# NOTE: drop mms in >2.2.3
-# https://sourceforge.net/p/qmmp-dev/code/12062/
 IUSE="X aac +alsa archive bs2b cdda cddb curl +dbus doc enca
-ffmpeg flac game gnome jack ladspa libxmp +mad midi mms mpg123
-mplayer musepack opus pipewire projectm pulseaudio qtmedia
-shout sid sndfile soxr udisks +vorbis wavpack
+ffmpeg flac game gnome jack ladspa libxmp mad midi +mpg123
+musepack opus pipewire projectm pulseaudio qtmedia
+shout sid sndfile soxr +vorbis wavpack
 "
 REQUIRED_USE="
 	cddb? ( cdda )
 	gnome? ( dbus )
 	jack? ( soxr )
 	shout? ( soxr vorbis )
-	udisks? ( dbus )
 "
 # qtbase[sql] to help autounmask of sqlite
 RDEPEND="
@@ -63,9 +59,7 @@ RDEPEND="
 	libxmp? ( media-libs/libxmp )
 	mad? ( media-libs/libmad )
 	midi? ( media-sound/wildmidi )
-	mms? ( media-libs/libmms )
-	mpg123? ( media-sound/mpg123 )
-	mplayer? ( media-video/mplayer )
+	mpg123? ( media-sound/mpg123-base )
 	musepack? ( >=media-sound/musepack-tools-444 )
 	opus? ( media-libs/opusfile )
 	pipewire? ( media-video/pipewire:= )
@@ -80,7 +74,6 @@ RDEPEND="
 	sid? ( >=media-libs/libsidplayfp-1.1.0:= )
 	sndfile? ( media-libs/libsndfile )
 	soxr? ( media-libs/soxr )
-	udisks? ( sys-fs/udisks:2 )
 	vorbis? (
 		media-libs/libogg
 		media-libs/libvorbis
@@ -96,9 +89,19 @@ BDEPEND="
 	doc? ( app-text/doxygen )
 "
 
+PATCHES=(
+	# Avoid using xcb if qmmp is built without X but qtbase has xcb feature.
+	"${FILESDIR}"/${PN}-2.2.8-fix_xcb.patch
+)
+
 DOCS=( AUTHORS ChangeLog README )
 
-PATCHES=( "${FILESDIR}"/${P}_build-with-projectm4.patch )
+src_prepare() {
+	cmake_src_prepare
+	if use doc; then
+		doxygen -u doc/Doxyfile.cmake.in 2>/dev/null || die
+	fi
+}
 
 src_configure() {
 	local mycmakeargs=(
@@ -137,9 +140,7 @@ src_configure() {
 		-DUSE_LADSPA="$(usex ladspa)"
 		-DUSE_MAD="$(usex mad)"
 		-DUSE_MIDI="$(usex midi)"
-		-DUSE_MMS="$(usex mms)"
 		-DUSE_MPG123="$(usex mpg123)"
-		-DUSE_MPLAYER="$(usex mplayer)"
 		-DUSE_MPC="$(usex musepack)"
 		-DUSE_NOTIFIER="$(usex X)"
 		-DUSE_OPUS="$(usex opus)"
@@ -152,10 +153,13 @@ src_configure() {
 		-DUSE_SKINNED="$(usex X)"
 		-DUSE_SNDFILE="$(usex sndfile)"
 		-DUSE_SOXR="$(usex soxr)"
-		-DUSE_UDISKS="$(usex udisks)"
+		-DUSE_UDISKS="$(usex dbus)"
 		-DUSE_VORBIS="$(usex vorbis)"
 		-DUSE_WAVPACK="$(usex wavpack)"
 		-DUSE_XMP="$(usex libxmp)"
+
+		# custom option
+		-DUSE_XCB="$(usex X)"
 	)
 	cmake_src_configure
 }
@@ -166,4 +170,19 @@ src_compile() {
 		cmake_build docs
 		HTML_DOCS=( "${BUILD_DIR}"/doc/html/. )
 	}
+}
+
+src_install() {
+	cmake_src_install
+
+	if use X; then
+		chmod +x "${ED}"/usr/share/qmmp/scripts/kwin6.sh || die
+	fi
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+
+	optfeature "various plugins: input, decoder, video, visualization..." media-plugins/qmmp-plugin-pack
+	use dbus && optfeature "removable device detection" sys-fs/udisks
 }
