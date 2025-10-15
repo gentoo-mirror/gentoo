@@ -7,21 +7,21 @@ DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
 PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
+RUST_MIN_VER="1.77.0"
 CRATES="
 	autocfg@1.3.0
 	bitflags@1.3.2
-	bitflags@2.6.0
+	bitflags@2.7.0
 	cc@1.0.96
 	cfg-if@1.0.0
-	crossbeam-channel@0.5.12
+	crossbeam-channel@0.5.15
 	crossbeam-utils@0.8.19
 	filetime@0.2.24
 	fsevent-sys@4.1.0
 	heck@0.5.0
 	indoc@2.0.5
 	inotify-sys@0.1.5
-	inotify@0.10.2
-	instant@0.1.13
+	inotify@0.11.0
 	kqueue-sys@1.0.4
 	kqueue@1.0.8
 	libc@0.2.169
@@ -29,17 +29,17 @@ CRATES="
 	log@0.4.22
 	memoffset@0.9.1
 	mio@1.0.3
-	notify-types@1.0.1
-	notify@7.0.0
-	once_cell@1.19.0
+	notify-types@2.0.0
+	notify@8.0.0
+	once_cell@1.21.3
 	portable-atomic@1.6.0
 	proc-macro2@1.0.81
-	pyo3-build-config@0.24.1
-	pyo3-ffi@0.24.1
-	pyo3-macros-backend@0.24.1
-	pyo3-macros@0.24.1
-	pyo3@0.24.1
-	python3-dll-a@0.2.13
+	pyo3-build-config@0.26.0
+	pyo3-ffi@0.26.0
+	pyo3-macros-backend@0.26.0
+	pyo3-macros@0.26.0
+	pyo3@0.26.0
+	python3-dll-a@0.2.14
 	quote@1.0.36
 	redox_syscall@0.5.3
 	same-file@1.0.6
@@ -79,10 +79,10 @@ SRC_URI="
 LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0-with-LLVM-exceptions BSD CC0-1.0 ISC MIT Unicode-DFS-2016
+	Apache-2.0-with-LLVM-exceptions CC0-1.0 ISC MIT Unicode-DFS-2016
 "
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/anyio-4.0.0[${PYTHON_USEDEP}]
@@ -91,16 +91,13 @@ BDEPEND="
 	dev-python/setuptools-rust[${PYTHON_USEDEP}]
 	test? (
 		dev-python/dirty-equals[${PYTHON_USEDEP}]
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
-		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 	)
 "
 
 # enjoy Rust
 QA_FLAGS_IGNORED=".*/_rust_notify.*"
 
-export PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
-
+EPYTEST_PLUGINS=( anyio pytest-{mock,timeout} )
 distutils_enable_tests pytest
 
 python_test() {

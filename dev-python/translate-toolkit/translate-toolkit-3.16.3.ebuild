@@ -35,7 +35,7 @@ RDEPEND="
 	>=dev-python/mistletoe-1.1.0[${PYTHON_USEDEP}]
 	>=dev-python/pyparsing-3[${PYTHON_USEDEP}]
 	dev-python/ruamel-yaml[${PYTHON_USEDEP}]
-	>=dev-python/cwcwidth-0.1.9[${PYTHON_USEDEP}]
+	>=dev-python/wcwidth-0.2.14[${PYTHON_USEDEP}]
 	sys-devel/gettext
 	html? ( dev-python/utidylib[${PYTHON_USEDEP}] )
 	ical? ( dev-python/vobject[${PYTHON_USEDEP}] )

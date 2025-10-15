@@ -8,12 +8,13 @@ DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=standalone
 PYTHON_COMPAT=( python3_{11..14} )
 
+RUST_MIN_VER="1.80.0"
 CRATES="
 	arrayref@0.3.9
 	arrayvec@0.7.6
 	autocfg@1.5.0
 	blake3@1.8.2
-	cc@1.2.38
+	cc@1.2.39
 	cfg-if@1.0.3
 	constant_time_eq@0.3.1
 	crossbeam-deque@0.8.6
@@ -24,20 +25,20 @@ CRATES="
 	heck@0.5.0
 	hex@0.4.3
 	indoc@2.0.6
-	libc@0.2.175
+	libc@0.2.176
 	memmap2@0.9.8
 	memoffset@0.9.1
 	once_cell@1.21.3
 	portable-atomic@1.11.1
 	proc-macro2@1.0.101
-	pyo3-build-config@0.25.1
-	pyo3-ffi@0.25.1
-	pyo3-macros-backend@0.25.1
-	pyo3-macros@0.25.1
-	pyo3@0.25.1
-	quote@1.0.40
-	rayon-core@1.12.1
-	rayon@1.10.0
+	pyo3-build-config@0.26.0
+	pyo3-ffi@0.26.0
+	pyo3-macros-backend@0.26.0
+	pyo3-macros@0.26.0
+	pyo3@0.26.0
+	quote@1.0.41
+	rayon-core@1.13.0
+	rayon@1.11.0
 	shlex@1.3.0
 	syn@2.0.106
 	target-lexicon@0.13.3
