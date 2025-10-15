@@ -4,7 +4,7 @@ DEPEND=dev-cpp/abseil-cpp:= dev-libs/capstone:= dev-libs/protobuf:= dev-libs/re2
 DESCRIPTION=A size profiler for binaries
 EAPI=8
 HOMEPAGE=https://github.com/google/bloaty
-INHERIT=cmake git-r3
+INHERIT=cmake flag-o-matic git-r3
 IUSE=test
 LICENSE=Apache-2.0
 PROPERTIES=live
@@ -12,4 +12,4 @@ RDEPEND=dev-cpp/abseil-cpp:= dev-libs/capstone:= dev-libs/protobuf:= dev-libs/re
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=1d9ff233580c399bf9de0ef237126023
+_md5_=236369330bd387340db671366b1b1077
