@@ -18,7 +18,7 @@ if [[ ${PV} == "99999999" ]]; then
 else
 	MY_PV="${PV:0:4}.${PV:4:2}.${PV:6:2}"
 	SRC_URI="https://github.com/pwndbg/pwndbg/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm64 x86"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 	S="${WORKDIR}/${PN}-${MY_PV}"
 fi
 
@@ -29,8 +29,8 @@ RDEPEND="
 	dev-debug/gdb[python,${PYTHON_SINGLE_USEDEP}]
 	~dev-python/gdb-pt-dump-0.0.0_p20240401[${PYTHON_SINGLE_USEDEP}]
 	$(python_gen_cond_dep '
-		>=dev-libs/capstone-5.0.3[python,${PYTHON_USEDEP}]
-		>=dev-python/psutil-5.9.8[${PYTHON_USEDEP}]
+		~dev-libs/capstone-6.0.0_alpha4[python,${PYTHON_USEDEP}]
+		>=dev-python/psutil-6.1.1[${PYTHON_USEDEP}]
 		>=dev-python/pycparser-2.22[${PYTHON_USEDEP}]
 		>=dev-python/pyelftools-0.29[${PYTHON_USEDEP}]
 		>=dev-python/pygments-2.18.0[${PYTHON_USEDEP}]
@@ -41,7 +41,7 @@ RDEPEND="
 		>=dev-python/typing-extensions-4.12.0[${PYTHON_USEDEP}]
 		>=dev-util/pwntools-4.14.0[${PYTHON_USEDEP}]
 		>=dev-util/ROPgadget-7.3[${PYTHON_USEDEP}]
-		>=dev-util/unicorn-2.1.2[python,${PYTHON_USEDEP}]
+		>=dev-util/unicorn-2.1.3[python,${PYTHON_USEDEP}]
 	')
 "
 
@@ -63,7 +63,8 @@ src_install() {
 	make_wrapper "pwndbg" \
 		"gdb -x \"${EPREFIX}/usr/share/${PN}/gdbinit.py\"" || die
 
-	dodoc {README,DEVELOPING,FEATURES}.md
+	dodoc README.md
+	dodoc -r docs
 }
 
 pkg_postinst() {
