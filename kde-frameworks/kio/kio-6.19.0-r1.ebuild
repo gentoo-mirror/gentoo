@@ -71,6 +71,8 @@ PDEPEND="
 	kde-plasma/keditfiletype
 "
 
+PATCHES=( "${FILESDIR}/${P}-fix-smb-access.patch" ) # KDE-bug 510567
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package acl ACL)
