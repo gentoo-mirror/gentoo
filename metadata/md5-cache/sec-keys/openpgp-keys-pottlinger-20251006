@@ -1,0 +1,15 @@
+BDEPEND=app-crypt/gnupg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP keys used by creadur.apache.org
+EAPI=8
+HOMEPAGE=https://creadur.apache.org
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=amd64 arm64 ppc64
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x6BFAB2E3C6490B421B25C76C9C8C892F91F8E6D1 -> openpgp-keys-pottlinger-ubuntu-20251006.asc
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	64e809c5619d14b60d0fbf5fd67761bf
+_md5_=6f3c8831077748684ca9386138c51740
