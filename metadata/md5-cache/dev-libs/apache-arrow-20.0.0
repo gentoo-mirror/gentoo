@@ -13,5 +13,5 @@ REQUIRED_USE=test? ( json parquet? ( zstd ) ) ssl? ( json )
 RESTRICT=!test? ( test )
 SLOT=0/20
 SRC_URI=mirror://apache/arrow/arrow-20.0.0/apache-arrow-20.0.0.tar.gz test? ( https://github.com/apache/parquet-testing/archive/18d17540097fca7c40be3d42c167e6bfad90763c.tar.gz -> parquet-testing-18d17540097fca7c40be3d42c167e6bfad90763c.tar.gz https://github.com/apache/arrow-testing/archive/d2a13712303498963395318a4eb42872e66aead7.tar.gz -> arrow-testing-d2a13712303498963395318a4eb42872e66aead7.tar.gz )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	cf95ad72ab207889c1668fc0d1bee181
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3d9a5fc17dadea162813d5d8918328b4
 _md5_=4c5b659180158601b16bcba56d102267
