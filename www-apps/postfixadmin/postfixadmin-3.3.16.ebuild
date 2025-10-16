@@ -11,12 +11,24 @@ SRC_URI="https://github.com/postfixadmin/postfixadmin/archive/${P}.tar.gz"
 S="${WORKDIR}/${PN}-${P}"
 
 LICENSE="GPL-2"
-KEYWORDS="amd64 ~ppc x86"
-IUSE="+mysql postgres +vacation"
+KEYWORDS="~amd64 ~ppc ~x86"
+IUSE="+mysql postgres +vacation imap"
 REQUIRED_USE="|| ( mysql postgres )"
 
 DEPEND="
-	dev-lang/php:*[unicode,imap(-),postgres?]
+	!imap? ( dev-lang/php:*[unicode,postgres?] )
+	imap? ( ||
+			(
+				(
+				dev-lang/php:8.3[unicode,imap,postgres?]
+				virtual/httpd-php:8.3
+				)
+				(
+				dev-lang/php:8.2[unicode,imap,postgres?]
+				virtual/httpd-php:8.2
+				)
+			)
+	)
 	vacation? (
 		acct-group/vacation
 		acct-user/vacation
