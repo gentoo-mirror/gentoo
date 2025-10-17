@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-qt/qtbase:6[gui,opengl,widgets] media-libs/coin virtual/opengl x11-libs/libX11 x11-libs/libXi x11-base/xorg-proto
+DESCRIPTION=GUI binding for using Coin/Open Inventor with Qt
+EAPI=8
+HOMEPAGE=https://github.com/coin3d/coin/wiki
+INHERIT=cmake flag-o-matic
+IUSE=debug doc
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-qt/qtbase:6[gui,opengl,widgets] media-libs/coin virtual/opengl x11-libs/libX11 x11-libs/libXi
+SLOT=0
+SRC_URI=https://github.com/coin3d/soqt/releases/download/v1.6.4/soqt-1.6.4-src.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3d9a5fc17dadea162813d5d8918328b4
+_md5_=31c0f78cc784996f073617f69fde4a15
