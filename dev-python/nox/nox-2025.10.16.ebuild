@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1
 
@@ -24,25 +24,21 @@ KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	>=dev-python/argcomplete-1.9.4[${PYTHON_USEDEP}]
-	>=dev-python/attrs-23.1[${PYTHON_USEDEP}]
+	>=dev-python/attrs-24.1[${PYTHON_USEDEP}]
 	>=dev-python/colorlog-2.6.1[${PYTHON_USEDEP}]
 	>=dev-python/dependency-groups-1.1[${PYTHON_USEDEP}]
-	>=dev-python/packaging-20.9[${PYTHON_USEDEP}]
-	>=dev-python/virtualenv-20.14.1[${PYTHON_USEDEP}]
+	>=dev-python/humanize-4[${PYTHON_USEDEP}]
+	>=dev-python/packaging-21[${PYTHON_USEDEP}]
+	>=dev-python/virtualenv-20.15[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
-		dev-python/py[${PYTHON_USEDEP}]
+		>=dev-python/pbs-installer-2025.01.06[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-
-src_prepare() {
-	# remove upper bounds from dependencies
-	sed -i -e 's:<[0-9.]*,::' pyproject.toml || die
-	distutils-r1_src_prepare
-}
 
 python_test() {
 	local EPYTEST_DESELECT=(
@@ -65,6 +61,5 @@ python_test() {
 			;;
 	esac
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest -o tmp_path_retention_policy=all
 }

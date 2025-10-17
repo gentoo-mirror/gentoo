@@ -4,7 +4,8 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{11..13} )
+PYPI_VERIFY_REPO=https://github.com/inducer/pudb
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 pypi optfeature
 
@@ -23,15 +24,12 @@ RDEPEND="
 	>=dev-python/jedi-0.18[${PYTHON_USEDEP}]
 	>=dev-python/packaging-20.0[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.7.4[${PYTHON_USEDEP}]
+	>=dev-python/typing-extensions-4.13[${PYTHON_USEDEP}]
 	>=dev-python/urwid-2.4[${PYTHON_USEDEP}]
 	dev-python/urwid-readline[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	test? (
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
-	)
-"
 
+EPYTEST_PLUGINS=( pytest-mock )
 distutils_enable_tests pytest
 
 pkg_postinst() {
