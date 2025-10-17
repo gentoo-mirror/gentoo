@@ -3,12 +3,12 @@
 
 EAPI=8
 
-NEED_EMACS="28.1"
+NEED_EMACS="27.1"
 
 inherit elisp
 
-DESCRIPTION="Completion Overlay Region FUnction"
-HOMEPAGE="https://github.com/minad/corfu/"
+DESCRIPTION="Templates with in-buffer field editing for GNU Emacs"
+HOMEPAGE="https://github.com/minad/tempel/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -18,7 +18,7 @@ else
 	SRC_URI="https://github.com/minad/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -33,12 +33,6 @@ BDEPEND="
 
 DOCS=( README.org )
 SITEFILE="50${PN}-gentoo.el"
-
-src_prepare() {
-	default
-
-	mv ./extensions/*.el . || die
-}
 
 src_compile() {
 	elisp_src_compile

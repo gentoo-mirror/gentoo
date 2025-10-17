@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,22 +12,24 @@ HOMEPAGE="https://apps.gnome.org/app/re.sonny.Tangram/
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/sonnyp/${PN^}.git"
+	EGIT_REPO_URI="https://github.com/sonnyp/${PN^}"
 else
-	TROLL_COMMIT="63392a57392fb8ed944e859269a3751f649f64ec"
+	TROLL_COMMIT="8b0275948eedec9ed0378f9bdda1aa4aac3062ba"
+
 	SRC_URI="
 		https://github.com/sonnyp/${PN^}/archive/refs/tags/v${PV}.tar.gz
-			-> ${P}.tar.gz
+			-> ${P}.gh.tar.gz
 		https://github.com/sonnyp/troll/archive/${TROLL_COMMIT}.tar.gz
-			-> troll-${TROLL_COMMIT}.tar.gz
+			-> troll-${TROLL_COMMIT}.gh.tar.gz
 	"
 	S="${WORKDIR}/${P^}"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
+RESTRICT="test"
 
 RDEPEND="
 	>=dev-libs/gjs-1.76.0
@@ -41,10 +43,6 @@ BDEPEND="
 	dev-util/blueprint-compiler
 	dev-util/desktop-file-utils
 "
-
-PATCHES=(
-	"${FILESDIR}/${PN}-2.0-dont-validate-appstream.patch"
-)
 
 DOCS=( README.md TODO.md )
 

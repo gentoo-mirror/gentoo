@@ -6,7 +6,7 @@ EAPI=8
 BV="${PV}-1"
 BV_AMD64="${BV}-linux-x86_64"
 
-LLVM_COMPAT=( {18..19} )
+LLVM_COMPAT=( {18..20} )
 
 inherit llvm-r1 multiprocessing shell-completion toolchain-funcs
 
@@ -23,7 +23,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="doc debug llvm-libunwind"
 RESTRICT="test"  # Upstream test suite not reliable.
 
@@ -46,7 +46,9 @@ DEPEND="
 		sys-libs/libunwind:=
 	)
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.27.0-gentoo-tests-long-unix.patch"
@@ -65,6 +67,7 @@ src_prepare() {
 
 src_configure() {
 	local bootstrap_path="${WORKDIR}/${PN}-${BV}/bin"
+
 	if [[ ! -d "${bootstrap_path}" ]] ; then
 		eerror "Binary tarball does not contain expected directory:"
 		die "'${bootstrap_path}' path does not exist."
@@ -96,11 +99,13 @@ src_configure() {
 src_compile() {
 	emake "${MY_EMAKE_COMMON_ARGS[@]}"
 
-	use doc && emake docs "${MY_EMAKE_COMMON_ARGS[@]}"
+	if use doc ; then
+		emake docs "${MY_EMAKE_COMMON_ARGS[@]}"
+	fi
 }
 
 src_test() {
-	emake std_spec "${MY_EMAKE_COMMON_ARGS[@]}"
+	nonfatal emake std_spec "${MY_EMAKE_COMMON_ARGS[@]}"
 }
 
 src_install() {

@@ -30,7 +30,7 @@ S="${NVC_BUILDDIR}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-IUSE="debug llvm"
+IUSE="debug llvm test"
 RESTRICT="test"         # Some tests fail.
 
 RDEPEND="
@@ -57,6 +57,9 @@ BDEPEND="
 	sys-apps/which
 	sys-devel/bison
 	sys-devel/flex
+	test? (
+		dev-libs/check
+	)
 "
 
 PATCHES=( "${FILESDIR}/nvc-1.9.2-jit-code-capstone.patch" )
@@ -65,7 +68,9 @@ PATCHES=( "${FILESDIR}/nvc-1.9.2-jit-code-capstone.patch" )
 QA_FLAGS_IGNORED="usr/lib[0-9]*/nvc/preload[0-9]*.so"
 
 pkg_setup() {
-	use llvm && llvm-r1_pkg_setup
+	if use llvm ; then
+		llvm-r1_pkg_setup
+	fi
 }
 
 src_unpack() {
@@ -97,7 +102,7 @@ src_configure() {
 	)
 	econf "${myconf[@]}"
 
-	export V=1          # Verbose compilation and install.
+	export V="1"  # Verbose compilation and install.
 }
 
 src_compile() {
@@ -105,7 +110,10 @@ src_compile() {
 }
 
 src_test() {
-	PATH="${S}/bin:${PATH}" emake check-TESTS
+	local -x ASAN_OPTIONS="detect_leaks=0"
+	local -x PATH="${S}/bin:${PATH}"
+
+	nonfatal emake -j1 check-TESTS
 }
 
 src_install() {

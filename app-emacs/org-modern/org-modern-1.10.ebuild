@@ -7,8 +7,8 @@ NEED_EMACS="29.1"
 
 inherit elisp
 
-DESCRIPTION="OpenStreetMap tile-based viewer for GNU Emacs"
-HOMEPAGE="https://github.com/minad/osm/"
+DESCRIPTION="Modern style for your GNU Emacs Org buffers"
+HOMEPAGE="https://github.com/minad/org-modern/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -18,25 +18,18 @@ else
 	SRC_URI="https://github.com/minad/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
-BDEPEND="
-	>=app-editors/emacs-${NEED_EMACS}:*[jpeg,json(+),libxml2,png,svg]
+RDEPEND="
 	app-emacs/compat
 "
-RDEPEND="
-	${BDEPEND}
-	net-misc/curl[ssl]
+BDEPEND="
+	${RDEPEND}
 "
 
-DOCS=( CHANGELOG.org README.org )
+DOCS=( CHANGELOG.org README.org example.org )
 SITEFILE="50${PN}-gentoo.el"
-
-src_compile() {
-	elisp_src_compile
-	elisp-make-autoload-file
-}
