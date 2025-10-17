@@ -7,12 +7,14 @@ inherit cmake
 
 DESCRIPTION="Implementation of the 3D Manufacturing Format file standard"
 HOMEPAGE="https://3mf.io/ https://github.com/3MFConsortium/lib3mf"
-SRC_URI="https://github.com/3MFConsortium/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/3MFConsortium/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+"
 
 LICENSE="BSD"
 SLOT="0/2"
 KEYWORDS="amd64 ~arm64 ~ppc64 x86"
-IUSE="+system-act test"
+IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -31,21 +33,25 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.3.2-remove-std-and-opt-flags.patch
-	"${FILESDIR}"/${PN}-2.2.0-include-cstdint.patch
-	"${FILESDIR}"/${PN}-2.3.2-include-cstdint.patch
+	"${FILESDIR}/${PN}-2.4.1-cmake_minimum_version-3.10.patch"
+	"${FILESDIR}/${PN}-2.4.1-remove-std-and-opt-flags.patch"
+	"${FILESDIR}/${PN}-2.4.1-include-algorithm.patch"
 )
 
 src_prepare() {
-	cmake_src_prepare
-
 	# DO NOT WANT!
 	rm -r Libraries/libressl || die
+
+	# DO NOT WANT!
+	rm -r SDK || die
+	rm -r AutomaticComponentToolkit || die
+
+	cmake_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_INSTALL_INCLUDEDIR="include/${PN}"
+		-DCMAKE_INSTALL_INCLUDEDIR="${EPREFIX}/usr/include/${PN}"
 		-DLIB3MF_TESTS=$(usex test)
 		-DUSE_INCLUDED_LIBZIP=OFF
 		-DUSE_INCLUDED_ZLIB=OFF
@@ -66,6 +72,6 @@ src_install() {
 	cmake_src_install
 
 	for suf in abi types implicit; do
-		dosym -r /usr/include/${PN}/Bindings/Cpp/${PN}_${suf}.hpp /usr/include/${PN}/${PN}_${suf}.hpp
+		dosym -r "/usr/include/${PN}/Bindings/Cpp/${PN}_${suf}.hpp" "/usr/include/${PN}/${PN}_${suf}.hpp"
 	done
 }
