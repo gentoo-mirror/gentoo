@@ -4,7 +4,7 @@
 EAPI=8
 
 CRATES=""
-RUST_MIN_VER="1.76"
+RUST_MIN_VER="1.82"
 inherit cargo
 
 MY_PN=tree-sitter
@@ -23,7 +23,7 @@ LICENSE+="
 	MIT MPL-2.0 Unicode-3.0 ZLIB
 "
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 # Test seems to require files (grammar definitions) that we don't have.
 RESTRICT="test"
