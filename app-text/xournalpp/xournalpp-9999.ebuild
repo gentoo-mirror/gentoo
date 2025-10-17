@@ -47,7 +47,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-1.1.1-nostrip.patch"
 	"${FILESDIR}/${PN}-1.2.3-nocompress.patch"
-	"${FILESDIR}/${PN}-1.2.3-lua-5-4.patch"
+	"${FILESDIR}/${PN}-1.2.8-lua.patch"
 )
 
 src_configure() {

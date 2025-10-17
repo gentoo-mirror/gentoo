@@ -11,7 +11,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/xournalpp/xournalpp.git"
 else
 	SRC_URI="https://github.com/xournalpp/xournalpp/archive/refs/tags/v${PV}.tar.gz -> ${P}.tgz"
-	KEYWORDS="amd64 ~ppc64"
+	KEYWORDS="~amd64 ~ppc64"
 fi
 
 DESCRIPTION="Handwriting notetaking software with PDF annotation support"
@@ -19,8 +19,9 @@ HOMEPAGE="https://github.com/xournalpp/xournalpp"
 
 LICENSE="GPL-2"
 SLOT="0"
-
+IUSE="test"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
+RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
 	${LUA_DEPS}
@@ -40,18 +41,26 @@ DEPEND="${COMMON_DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 	sys-apps/lsb-release
+	test? ( dev-cpp/gtest )
 "
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.1.1-nostrip.patch"
 	"${FILESDIR}/${PN}-1.2.3-nocompress.patch"
-	"${FILESDIR}/${PN}-1.2.3-lua-5-4.patch"
+	"${FILESDIR}/${PN}-1.2.8-lua.patch"
 )
 
 src_configure() {
 	local mycmakeargs=(
 		-DLUA_VERSION="$(lua_get_version)"
+		-DENABLE_GTEST=$(usex test)
 	)
 
 	cmake_src_configure
+}
+
+src_test() {
+	# https://github.com/xournalpp/xournalpp/tree/master/test#problems-running-make-test
+	eninja -C "${BUILD_DIR}" test-units
+	cmake_src_test
 }
