@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..14} )
 VALA_USE_DEPEND="vapigen"
 inherit cmake python-any-r1 vala
 
@@ -17,17 +17,16 @@ KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86 
 IUSE="doc examples +glib +introspection static-libs test vala"
 
 REQUIRED_USE="introspection? ( glib ) vala? ( introspection )"
-
 RESTRICT="!test? ( test )"
 
-COMMON_DEPEND="
+DEPEND="
 	dev-libs/icu:=
-	glib? ( dev-libs/glib:2 )
+	glib? (
+		dev-libs/glib:2
+		dev-libs/libxml2:2=
+	)
 "
-DEPEND="${COMMON_DEPEND}
-	glib? ( dev-libs/libxml2:2 )
-"
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="${DEPEND}
 	sys-libs/timezone-data
 "
 BDEPEND="
@@ -50,7 +49,10 @@ DOCS=(
 	doc/{AddingOrModifyingComponents.txt,UsingLibical.md}
 )
 
-PATCHES=( "${FILESDIR}/${PN}-3.0.11-pkgconfig-libdir.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-3.0.11-pkgconfig-libdir.patch"
+	"${FILESDIR}/${P}-cmake-minreqver-3.20.patch" # bug 964491
+)
 
 python_check_deps() {
 	python_has_version "dev-python/pygobject:3[${PYTHON_USEDEP}]"
