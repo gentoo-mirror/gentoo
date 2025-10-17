@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig || ( >=dev-lang/rust-bin-1.88.0:* >=dev-lang/rust-1.88.0:* )
+DEFINED_PHASES=compile configure install postinst prepare setup test unpack
+DEPEND=dev-libs/openssl:0= dev-db/sqlite:3= system-clipboard? ( X? ( x11-libs/libX11 x11-libs/libxcb ) )
+DESCRIPTION=A new type of shell, written in Rust
+EAPI=8
+HOMEPAGE=https://www.nushell.sh
+INHERIT=cargo
+IUSE=mcp plugins system-clipboard X debug
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+LICENSE=MIT 0BSD Apache-2.0 BSD Boost-1.0 CC-PD CC0-1.0 ISC MIT MPL-2.0 MPL-2.0 Unicode-DFS-2016 ZLIB
+RDEPEND=dev-libs/openssl:0= dev-db/sqlite:3= system-clipboard? ( X? ( x11-libs/libX11 x11-libs/libxcb ) )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/nushell/nushell/archive/0.108.0.tar.gz -> nushell-0.108.0.tar.gz https://github.com/gentoo-crate-dist/nushell/releases/download/0.108.0/nushell-0.108.0-crates.tar.xz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	67553b9b0296e5b691a6f6efdce65271	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a1af74aa9e34cd73aeac642cd0dd54d8
+_md5_=77998b66e34cdcd944678f5ab6303e76
