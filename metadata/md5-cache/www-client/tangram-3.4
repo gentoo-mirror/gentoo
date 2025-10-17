@@ -5,10 +5,11 @@ EAPI=8
 HOMEPAGE=https://apps.gnome.org/app/re.sonny.Tangram/ https://github.com/sonnyp/Tangram/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome2-utils meson xdg
-KEYWORDS=amd64 ~x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=>=dev-libs/gjs-1.76.0 gui-libs/gtk:4 gui-libs/libadwaita:1 net-libs/webkit-gtk:6
+RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/sonnyp/Tangram/archive/refs/tags/v3.1.tar.gz -> tangram-3.1.tar.gz https://github.com/sonnyp/troll/archive/63392a57392fb8ed944e859269a3751f649f64ec.tar.gz -> troll-63392a57392fb8ed944e859269a3751f649f64ec.tar.gz
+SRC_URI=https://github.com/sonnyp/Tangram/archive/refs/tags/v3.4.tar.gz -> tangram-3.4.gh.tar.gz https://github.com/sonnyp/troll/archive/8b0275948eedec9ed0378f9bdda1aa4aac3062ba.tar.gz -> troll-8b0275948eedec9ed0378f9bdda1aa4aac3062ba.gh.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	meson	99466844dd8d4fcfb07578a76f5a9922	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=890dae548889a94bf603a1b6361de388
+_md5_=34947fef98c061e0946c0b405c35b427

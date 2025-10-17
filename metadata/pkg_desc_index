@@ -1049,7 +1049,7 @@ app-admin/rcm 1.3.6: rc file (dotfile) management
 app-admin/redfishtool 1.1.8: Python package and command-line tool for accessing the Redfish API
 app-admin/restart-services 1.3-r1 1.4 1.5: Tool to manage OpenRC and systemd services that need to be restarted
 app-admin/rex 1.16.0-r1 1.16.1-r1 9999: (R)?ex, the friendly automation framework
-app-admin/rsyslog 8.2412.0 8.2502.0-r1 8.2506.0-r1 8.2508.0: An enhanced multi-threaded syslogd with database support and more
+app-admin/rsyslog 8.2412.0 8.2502.0-r1 8.2506.0-r1 8.2508.0 8.2510.0: An enhanced multi-threaded syslogd with database support and more
 app-admin/ryzen_monitor 1.0.6_pre20220901: Monitor power information of Ryzen processors via the PM table of the SMU
 app-admin/ryzen_smu 0.1.5: Kernel driver for AMD Ryzen's System Management Unit
 app-admin/sagan 2.0.2: Sagan is a multi-threaded, real time system and event log monitoring system
@@ -1866,6 +1866,7 @@ app-editors/yudit 3.1.0: Free (Y)unicode text editor for all unices
 app-editors/zed 0.197.5 0.202.7 0.205.9 0.207.3: The fast, collaborative code editor
 app-editors/zile 2.6.2-r2 2.6.4: Zile is a small Emacs clone
 app-emacs/a 1.0.0: Associative data structure functions for Emacs Lisp
+app-emacs/a68-mode 1.2_p20250524: Algol68 major mode for GNU Emacs
 app-emacs/ace-window 0.10.0: Quickly switch windows in Emacs
 app-emacs/actionscript-mode 7.2.2_p20180527: A major mode for GNU Emacs for editing Actionscript 3 files
 app-emacs/adaptive-wrap 0.8: Smart line-wrapping with wrap-prefix
@@ -1907,7 +1908,7 @@ app-emacs/bui 1.2.1_p20210108: Buffer interface library for Emacs
 app-emacs/burly 0.2 0.3: Save and restore frames and windows with their buffers in Emacs
 app-emacs/buttercup 1.38 9999: Behaviour-driven Elisp testing
 app-emacs/calfw 1.6-r1: A calendar framework for Emacs
-app-emacs/cape 2.1 9999: Completion At Point Extensions
+app-emacs/cape 2.1 2.2 9999: Completion At Point Extensions
 app-emacs/cask 0.9.0: Project management for Emacs package development
 app-emacs/cask-mode 0.1: Major mode for editing Cask files for Emacs
 app-emacs/cdlatex 4.18.5: Fast input methods for LaTeX environments and math
@@ -1937,7 +1938,7 @@ app-emacs/compat 30.1.0.1: Compatibility libraries for Emacs
 app-emacs/cond-let 0.1.1: Additional and improved binding conditionals for GNU Emacs
 app-emacs/consult 2.7 2.8 9999: Consulting complete-read for GNU Emacs
 app-emacs/consult-flycheck 1.0: Consult integration for Flycheck
-app-emacs/corfu 2.2 2.3 9999: Completion Overlay Region FUnction
+app-emacs/corfu 2.3 2.4 9999: Completion Overlay Region FUnction
 app-emacs/counsel 0.15.1: Versions of common Emacs commands customized to make the best use of ivy
 app-emacs/crontab-mode 1.20: Mode for editing crontab files
 app-emacs/crux 0.4.0 0.5.0: Collection of Ridiculously Useful eXtensions for GNU Emacs
@@ -2024,7 +2025,7 @@ app-emacs/emacsql 4.3.0 4.3.1: A high-level Emacs Lisp RDBMS front-end
 app-emacs/embark 1.1 9999: Conveniently act on minibuffer completions inside GNU Emacs
 app-emacs/embark-consult 1.1 9999: Consult integration for Embark
 app-emacs/emhacks 20070920-r2: Useful Emacs Lisp libraries, including gdiff, jjar, jmaker, swbuff, and tabbar
-app-emacs/emms 22 23: The Emacs Multimedia System
+app-emacs/emms 23 24: The Emacs Multimedia System
 app-emacs/emojify 1.2_p20210309: Display emojis in Emacs, like :smile: or plain ASCII ones like :)
 app-emacs/engrave-faces 0.3.1: Convert font-lock faces to other formats
 app-emacs/epc 0.1.1: RPC stack for Emacs Lisp
@@ -2088,7 +2089,7 @@ app-emacs/helm-system-packages 1.10.1 1.10.2: A Helm interface to the package ma
 app-emacs/hexrgb 0_p1019: Functions to manipulate colors, including RGB hex strings
 app-emacs/highlight-indentation 0.7.0_p20210221: Minor modes to highlight indentation guides in Emacs
 app-emacs/highline 7.2.2: Minor mode to highlight current line in buffer
-app-emacs/hl-todo 3.8.5 3.9.0: Highlight TODO and similar keywords in comments and strings
+app-emacs/hl-todo 3.9.0 3.9.1: Highlight TODO and similar keywords in comments and strings
 app-emacs/howm 1.5.0: Note-taking tool on Emacs
 app-emacs/ht 2.3: The missing hash table library for Emacs
 app-emacs/htmlize 1.59: HTML-ize font-lock buffers in Emacs
@@ -2135,7 +2136,7 @@ app-emacs/macrostep-geiser 0.2.0_p20210717: Emacs macrostep back-end powered by 
 app-emacs/magit 4.3.8 4.4.0 4.4.2 9999: A Git porcelain inside Emacs
 app-emacs/magit-popup 2.13.3: Define prefix-infix-suffix command combos
 app-emacs/mailcrypt 3.5.9-r3: Provides a simple interface to public key cryptography with OpenPGP
-app-emacs/marginalia 2.2 2.3: Marginalia in the minibuffer
+app-emacs/marginalia 2.2 2.3 2.4: Marginalia in the minibuffer
 app-emacs/markdown-mode 2.7: Major mode for editing Markdown-formatted text files
 app-emacs/mastodon 2.0.2 9999: Emacs client for Mastodon, federated microblogging social network
 app-emacs/math-symbol-lists 1.3: Lists of Unicode mathematical symbols and latex commands
@@ -2162,7 +2163,7 @@ app-emacs/nginx-mode 1.1.10: Emacs editing mode for Nginx config files
 app-emacs/nim-mode 0.4.2_p20231101: Emacs major mode for the Nim programming language support
 app-emacs/ninja-mode 1.11.1-r2 1.12.0 1.12.1: GNU Emacs mode for handling Ninja build files
 app-emacs/nix-mode 1.5.0: GNU Emacs major mode for editing Nix expressions
-app-emacs/no-littering 1.7.9 1.8.0: ELisp library that helps keeping Emacs configuration directory clean
+app-emacs/no-littering 1.8.0 1.8.1: ELisp library that helps keeping Emacs configuration directory clean
 app-emacs/noflet 0.0.15_p20141102-r1: Dynamic, local advice for Emacs-Lisp code
 app-emacs/nxml-docbook5-schemas 5.1: Add support for DocBook 5 schemas to NXML
 app-emacs/nxml-gentoo-schemas 20241116: Extension for nxml-mode with Gentoo-specific schemas
@@ -2174,15 +2175,15 @@ app-emacs/orderless 1.4 1.5: Completion style that matches multiple regexps in a
 app-emacs/org-appear 0.3.1: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.5 0.6: Contributed packages to Org
 app-emacs/org-mode 9.7.34 9999: An Emacs mode for notes and project planning
-app-emacs/org-modern 1.9 9999: Modern style for your GNU Emacs Org buffers
+app-emacs/org-modern 1.9 1.10 9999: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r3 2.3.0 2.3.1 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.6.0 1.7.0 9999: Static site generator using Emacs's org-mode
 app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mode (use UTF8 bullets)
-app-emacs/osm 1.7 9999: OpenStreetMap tile-based viewer for GNU Emacs
+app-emacs/osm 1.7 1.8 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
 app-emacs/package-build 4.0.0: Tools for assembling a package archive
 app-emacs/package-lint 0.26: Linting library for Emacs Lisp package metadata
-app-emacs/pandoc-mode 2.34.1: GNU Emacs minor mode for interacting with Pandoc
+app-emacs/pandoc-mode 2.34.1 2.35: GNU Emacs minor mode for interacting with Pandoc
 app-emacs/paredit 26-r1: Minor mode for performing structured editing of S-expressions
 app-emacs/pariemacs 3.14-r1: sci-mathematics/pari emacs mode
 app-emacs/parsebib 6.7: Emacs Lisp library for reading .bib files
@@ -2277,7 +2278,7 @@ app-emacs/system-packages 1.1.0 1.1.1: Manage your installed packages with Emacs
 app-emacs/systemd-mode 1.6: Major mode for editing systemd units in GNU Emacs
 app-emacs/tablist 1.1: Extended tabulated-list mode fro Emacs
 app-emacs/teco 7-r2: TECO interpreter for GNU Emacs
-app-emacs/tempel 1.5 1.6 9999: Templates with in-buffer field editing for GNU Emacs
+app-emacs/tempel 1.5 1.6 1.7 9999: Templates with in-buffer field editing for GNU Emacs
 app-emacs/template 3.3b: Use templates, decorate comments, auto-update buffers
 app-emacs/tempo-snippets 0.1.5: Visual insertion of tempo templates
 app-emacs/thinks 1.12: Insert text in a think bubble
@@ -5142,7 +5143,7 @@ dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.4.1 4.4.3 4.5.0: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
 dev-lang/ada-bootstrap 0_p2021-r1 11 12 13 14: Binary bootstrap compiler for GNAT (Ada compiler)
-dev-lang/algol68g 3.8.0 3.9.5 3.10.2: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.8.0 3.9.5 3.10.2 3.10.4: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.11 3.0.0 3.0.2: Scala language-based scripting and REPL
 dev-lang/arc 3.2-r1: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2-r1: Functional programming language with dependent types
@@ -5157,7 +5158,7 @@ dev-lang/cll1h 0.6-r1: C<<1 programming language system
 dev-lang/clojure 1.12.1 1.12.2 1.12.3: General-purpose programming language with an emphasis on functional programming
 dev-lang/closure-compiler-bin 20250528 20250706 20250820: JavaScript optimizing compiler
 dev-lang/coffee-script 2.7.0: A little language that compiles into javascript
-dev-lang/crystal 1.16.3 1.17.1: The Crystal Programming Language
+dev-lang/crystal 1.17.1 1.18.0: The Crystal Programming Language
 dev-lang/cue 0.14.1: open-source data validation language and inference engine
 dev-lang/cxprolog 0.98.2-r3: A WAM based Prolog system
 dev-lang/dafny 4.10.0 4.11.0: Dafny is a verification-aware programming language
@@ -5801,31 +5802,31 @@ dev-libs/tree-sitter-bash 0.21.0-r1 0.23.3 0.25.0: Bash grammar for Tree-sitter
 dev-libs/tree-sitter-c 0.21.4 0.23.0 0.23.1 0.23.2 0.23.3 0.23.4 0.23.5 0.24.1: C grammar for Tree-sitter
 dev-libs/tree-sitter-c-sharp 0.23.0 0.23.1: C# grammar for Tree-sitter
 dev-libs/tree-sitter-cmake 0.4.1 0.7.1: CMake grammar for tree-sitter
-dev-libs/tree-sitter-cpp 0.23.0 0.23.1: C++ grammar for Tree-sitter
-dev-libs/tree-sitter-css 0.23.0 0.23.2: CSS grammar for Tree-sitter
-dev-libs/tree-sitter-embedded-template 0.20.0: Embedded template languages (like ERB, EJS) grammar for Tree-sitter
-dev-libs/tree-sitter-gleam 1.0.0: Gleam grammar for Tree-sitter
-dev-libs/tree-sitter-go 0.23.1 0.23.4: Go grammar for Tree-sitter
+dev-libs/tree-sitter-cpp 0.23.0 0.23.1 0.23.4: C++ grammar for Tree-sitter
+dev-libs/tree-sitter-css 0.23.0 0.23.2 0.25.0: CSS grammar for Tree-sitter
+dev-libs/tree-sitter-embedded-template 0.20.0 0.23.2: Embedded template languages (like ERB, EJS) grammar for Tree-sitter
+dev-libs/tree-sitter-gleam 1.0.0 1.1.0: Gleam grammar for Tree-sitter
+dev-libs/tree-sitter-go 0.23.1 0.23.4 0.25.0: Go grammar for Tree-sitter
 dev-libs/tree-sitter-haskell 0.23.0: Haskell grammar for Tree-sitter
 dev-libs/tree-sitter-html 0.23.0 0.23.2: HTML grammar for Tree-sitter
 dev-libs/tree-sitter-java 0.23.2 0.23.5: Java grammar for Tree-sitter
-dev-libs/tree-sitter-javascript 0.23.0 0.23.1: JavaScript grammar for Tree-sitter
-dev-libs/tree-sitter-jsdoc 0.19.0: JSDoc grammar for Tree-sitter
+dev-libs/tree-sitter-javascript 0.23.0 0.23.1 0.25.0: JavaScript grammar for Tree-sitter
+dev-libs/tree-sitter-jsdoc 0.19.0 0.25.0: JSDoc grammar for Tree-sitter
 dev-libs/tree-sitter-json 0.23.0 0.24.8: JSON grammar for Tree-sitter
-dev-libs/tree-sitter-julia 0.22.0: Julia grammar for Tree-sitter
+dev-libs/tree-sitter-julia 0.22.0 0.23.1: Julia grammar for Tree-sitter
 dev-libs/tree-sitter-lua 0.1.0 0.2.0 0.3.0 0.4.0: Lua grammar for Tree-sitter
-dev-libs/tree-sitter-markdown 0.2.3 0.3.2 0.4.1 0.5.0: Markdown grammar for Tree-sitter
+dev-libs/tree-sitter-markdown 0.2.3 0.3.2 0.4.1 0.5.0 0.5.1: Markdown grammar for Tree-sitter
 dev-libs/tree-sitter-markdown-inline 0.2.3: Markdown-inline grammar for Tree-sitter
 dev-libs/tree-sitter-meta 1-r5: Metapackage for Tree Sitter packages
-dev-libs/tree-sitter-ocaml 0.20.4 0.23.2: OCaml grammar for Tree-sitter
-dev-libs/tree-sitter-php 0.23.2 0.23.12: PHP grammar for Tree-sitter
-dev-libs/tree-sitter-python 0.21.0-r1 0.23.2 0.23.6: Python grammar for Tree-sitter
+dev-libs/tree-sitter-ocaml 0.20.4 0.23.2 0.24.0: OCaml grammar for Tree-sitter
+dev-libs/tree-sitter-php 0.23.2 0.23.12 0.24.2: PHP grammar for Tree-sitter
+dev-libs/tree-sitter-python 0.21.0-r1 0.23.2 0.23.6 0.25.0: Python grammar for Tree-sitter
 dev-libs/tree-sitter-ql 0.19.0 0.23.1: Semmle QL grammar for Tree-sitter
-dev-libs/tree-sitter-query 0.4.0 0.5.0 0.6.2: Tree-sitter query grammar for Tree-sitter
+dev-libs/tree-sitter-query 0.4.0 0.5.0 0.6.2 0.7.0: Tree-sitter query grammar for Tree-sitter
 dev-libs/tree-sitter-regex 0.21.0 1.0.0: Regular Expressions grammar for Tree-sitter
 dev-libs/tree-sitter-ruby 0.23.0 0.23.1: Ruby grammar for Tree-sitter
 dev-libs/tree-sitter-rust 0.23.0 0.23.2 0.24.0: Rust grammar for Tree-sitter
-dev-libs/tree-sitter-scala 0.23.0 0.23.2 0.23.4: Scala grammar for Tree-sitter
+dev-libs/tree-sitter-scala 0.23.0 0.23.2 0.23.4 0.24.0: Scala grammar for Tree-sitter
 dev-libs/tree-sitter-tsq 0.19.0: Tree-sitter query language grammar for Tree-sitter
 dev-libs/tree-sitter-tsx 0.23.0 0.23.2: TSX grammar for Tree-sitter
 dev-libs/tree-sitter-typescript 0.23.0 0.23.2: TypeScript grammar for Tree-sitter
@@ -15984,7 +15985,7 @@ sci-electronics/librepcb 1.2.0 1.3.0: Free EDA software to develop printed circu
 sci-electronics/magic 8.3.365: The VLSI design CAD tool
 sci-electronics/netgen 1.4.52: LVS tool (layout versus schematic comparison)
 sci-electronics/ngspice 40 43: The Next Generation Spice (Electronic Circuit Simulator)
-sci-electronics/nvc 1.16.2 1.17.1: NVC is a VHDL compiler and simulator
+sci-electronics/nvc 1.17.1 1.18.0: NVC is a VHDL compiler and simulator
 sci-electronics/pcb 4.3.0: GPL Electronic Design Automation: Printed Circuit Board editor
 sci-electronics/petrify 4.2-r1: Synthesize Petri nets into asynchronous circuits
 sci-electronics/puff 20181104-r1: microwave CAD software
@@ -18146,7 +18147,7 @@ www-client/qutebrowser 3.5.1 9999: Keyboard-driven, vim-like browser based on Py
 www-client/seamonkey 2.53.20 2.53.21: Seamonkey Web Browser
 www-client/surf 2.1-r3 9999: A simple web browser based on WebKit/GTK+
 www-client/surfraw 2.3.0-r3 99999: A fast unix command line interface to WWW
-www-client/tangram 3.1 3.3: Web browser designed to organize and run Web applications
+www-client/tangram 3.3 3.4: Web browser designed to organize and run Web applications
 www-client/uget 2.2.3 2.2.3-r1 9999: Download manager using gtk+ and libcurl
 www-client/vivaldi 7.6.3797.58 7.6.3797.63: A browser for our friends
 www-client/vivaldi-snapshot 7.7.3829.3 7.7.3832.3: A browser for our friends
