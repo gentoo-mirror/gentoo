@@ -3,14 +3,14 @@
 
 EAPI=8
 
-inherit cmake toolchain-funcs multilib
+inherit cmake flag-o-matic toolchain-funcs
 
 DESCRIPTION="Streamlined C++ linear algebra library"
 HOMEPAGE="https://arma.sourceforge.net"
 SRC_URI="https://downloads.sourceforge.net/arma/${P}.tar.xz"
 
 LICENSE="Apache-2.0"
-SLOT="0/14"
+SLOT="0/15"
 KEYWORDS="~amd64 ~arm ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 IUSE="arpack blas doc examples lapack mkl superlu test"
 RESTRICT="!test? ( test )"
@@ -23,7 +23,7 @@ RDEPEND="
 	blas? ( virtual/blas )
 	lapack? ( virtual/lapack )
 	mkl? ( sci-libs/mkl )
-	superlu? ( >=sci-libs/superlu-5.2 )
+	superlu? ( >=sci-libs/superlu-5.2:= )
 "
 DEPEND="${RDEPEND}
 	arpack? ( virtual/pkgconfig )
@@ -44,6 +44,16 @@ src_prepare() {
 }
 
 src_configure() {
+	# odr violations
+	filter-lto
+
+	# Similar case to https://github.com/AcademySoftwareFoundation/OpenColorIO/issues/1361
+	# spmat.cpp:1137: FAILED:
+	#  REQUIRE( c(1, 0) == d(1, 0) )
+	#with expansion:
+	#  0 == -0.0
+	append-flags -ffp-contract=on
+
 	local mycmakeargs=(
 		-DINSTALL_LIB_DIR="${EPREFIX}/usr/$(get_libdir)"
 	)
@@ -52,6 +62,9 @@ src_configure() {
 			-DARPACK_FOUND=ON
 			-DARPACK_LIBRARY="$($(tc-getPKG_CONFIG) --libs arpack)"
 		)
+		# bug #902451
+		# config.hpp is supposed to define -DARMA_USE_*. but this header isnt included consistently...
+		append-cppflags -DARMA_USE_ARPACK
 	else
 		mycmakeargs+=(
 			-DARPACK_FOUND=OFF
@@ -75,6 +88,8 @@ src_configure() {
 			-DBLAS_FOUND=ON
 			-DBLAS_LIBRARIES="$($(tc-getPKG_CONFIG) --libs blas)"
 		)
+		# bug #902451
+		append-cppflags -DARMA_USE_BLAS
 	else
 		mycmakeargs+=(
 			-DBLAS_FOUND=OFF
@@ -85,6 +100,8 @@ src_configure() {
 			-DLAPACK_FOUND=ON
 			-DLAPACK_LIBRARIES="$($(tc-getPKG_CONFIG) --libs lapack)"
 		)
+		# bug #902451
+		append-cppflags -DARMA_USE_LAPACK
 	else
 		mycmakeargs+=(
 			-DLAPACK_FOUND=OFF
@@ -96,6 +113,8 @@ src_configure() {
 			-DSuperLU_LIBRARY="$($(tc-getPKG_CONFIG) --libs superlu)"
 			-DSuperLU_INCLUDE_DIR="$($(tc-getPKG_CONFIG) --cflags-only-I superlu | awk '{print $1}' | sed 's/-I//')"
 		)
+		# bug #902451
+		append-cppflags -DARMA_USE_SUPERLU
 	else
 		mycmakeargs+=(
 			-DSuperLU_FOUND=OFF
@@ -111,9 +130,9 @@ src_test() {
 	pushd tests2 > /dev/null
 	emake \
 		CXX="$(tc-getCXX)" \
-		CXX_FLAGS="-I../include ${CXXFLAGS} -DARMA_USE_BLAS -DARMA_USE_LAPACK" \
-		LIB_FLAGS="-L.. -larmadillo $($(tc-getPKG_CONFIG) --libs blas lapack)"
-	LD_LIBRARY_PATH="..:${LD_LIBRARY_PATH}" ./main || die
+		CXX_FLAGS="-I../include ${CXXFLAGS} ${CPPFLAGS}" \
+		LIB_FLAGS="-L${BUILD_DIR} -larmadillo $($(tc-getPKG_CONFIG) --libs blas lapack) $($(tc-getPKG_CONFIG) --libs superlu) $($(tc-getPKG_CONFIG) --libs arpack)"
+	LD_LIBRARY_PATH="${BUILD_DIR}:${LD_LIBRARY_PATH}" ./main || die
 	emake clean
 	popd > /dev/null
 }
