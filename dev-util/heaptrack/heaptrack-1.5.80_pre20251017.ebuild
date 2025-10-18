@@ -3,6 +3,7 @@
 
 EAPI=8
 
+KDE_ORG_COMMIT=f813c68d2ca89989334734f2183598ee2f8aa1b5
 inherit cmake kde.org xdg
 
 DESCRIPTION="Fast heap memory profiler"
@@ -11,7 +12,7 @@ https://milianw.de/blog/heaptrack-a-heap-memory-profiler-for-linux"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="+gui test zstd"
 
 RESTRICT="!test? ( test )"
@@ -40,7 +41,7 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="gui? ( kde-frameworks/extra-cmake-modules:0 )"
 
-PATCHES=( "${FILESDIR}/${PN}-1.5.80_pre20251017-unbundle-robin-map.patch" ) # bug #964521
+PATCHES=( "${FILESDIR}/${P}-unbundle-robin-map.patch" ) # bug #964521
 
 QA_CONFIG_IMPL_DECL_SKIP=(
 	# This doesn't exist in libunwind (bug #898768).
