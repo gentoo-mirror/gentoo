@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile config install postinst postrm prepare setup unpack
-DEPEND=~media-video/vdr-2.2.0 media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
-DESCRIPTION=VDR plugin: show content of menu in a shell window
-EAPI=7
-HOMEPAGE=http://www.tvdr.de/
+DEPEND=media-video/vdr:= media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
+DESCRIPTION=VDR Plugin: offers SVDRP connections as a service to other plugins
+EAPI=8
+HOMEPAGE=https://vdr.schmirler.de/
 INHERIT=vdr-plugin-2
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~arm ~x86
 LICENSE=GPL-2
-RDEPEND=media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
+RDEPEND=media-video/vdr:= media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
 SLOT=0
-SRC_URI=mirror://gentoo/vdr-skincurses-2.2.0.tar.gz https://dev.gentoo.org/~hd_brummy/distfiles/vdr-skincurses-2.2.0.tar.gz
+SRC_URI=https://vdr.schmirler.de/svdrpservice/vdr-svdrpservice-1.0.0.tgz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	strip-linguas	9d8d529d8082ec56dd495636df194d64	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	vdr-plugin-2	82b5825b9191fe26411649b6e757c905
-_md5_=5619cb19cb2eb9df3b02bb91067c05cc
+_md5_=30c55efd4d6b5a379dedf697c38b14b5
