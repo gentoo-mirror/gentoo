@@ -1,16 +1,16 @@
 BDEPEND=>=app-portage/elt-patches-20250306 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare setup
-DEPEND=lzma? ( app-arch/xz-utils ) zlib? ( sys-libs/zlib )
+DEPEND=lzma? ( app-arch/xz-utils ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd:= )
 DESCRIPTION=Load another kernel from the currently executing Linux kernel
 EAPI=8
 HOMEPAGE=https://kernel.org/pub/linux/utils/kernel/kexec/
 INHERIT=libtool linux-info systemd
-IUSE=booke lzma selinux xen zlib
-KEYWORDS=amd64 arm64 ~ppc64 x86
+IUSE=booke lzma selinux xen zlib zstd
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
 LICENSE=GPL-2
-RDEPEND=lzma? ( app-arch/xz-utils ) zlib? ( sys-libs/zlib ) selinux? ( sec-policy/selinux-kdump )
+RDEPEND=lzma? ( app-arch/xz-utils ) zlib? ( sys-libs/zlib ) zstd? ( app-arch/zstd:= ) selinux? ( sec-policy/selinux-kdump )
 REQUIRED_USE=lzma? ( zlib )
 SLOT=0
-SRC_URI=https://www.kernel.org/pub/linux/utils/kernel/kexec/kexec-tools-2.0.30.tar.xz
+SRC_URI=https://www.kernel.org/pub/linux/utils/kernel/kexec/kexec-tools-2.0.32.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	linux-info	efd923656513c879204fec6638eadee5	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=b797b270a6d76b0e478bdb5fbe5e1442
+_md5_=6e481fea7e4c5c1f9a24394e47ed3a6c
