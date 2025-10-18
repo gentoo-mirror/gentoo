@@ -21,10 +21,10 @@ KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~sparc ~x86"
 # NB: these don't affect the build, they are only used for tests
 IUSE="cpu_flags_arm_crc32 cpu_flags_x86_sse4_2"
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	local -x CRC32C_SW_MODE
 
 	# force = run "software" code (i.e. unoptimized)

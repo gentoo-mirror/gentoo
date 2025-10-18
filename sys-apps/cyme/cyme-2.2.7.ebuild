@@ -6,36 +6,35 @@ EAPI=8
 RUST_MIN_VER="1.82"
 CRATES="
 	aho-corasick@1.1.3
-	android-tzdata@0.1.1
 	android_system_properties@0.1.5
 	anes@0.1.6
-	anstream@0.6.19
+	anstream@0.6.21
 	anstyle-parse@0.2.7
-	anstyle-query@1.1.3
-	anstyle-wincon@3.0.9
-	anstyle@1.0.11
+	anstyle-query@1.1.4
+	anstyle-wincon@3.0.10
+	anstyle@1.0.13
 	assert-json-diff@2.0.2
 	autocfg@1.5.0
 	base64@0.13.1
 	bitflags@1.3.2
-	bitflags@2.9.1
+	bitflags@2.9.4
 	bumpalo@3.19.0
 	byteorder@1.5.0
 	cansi@2.2.1
 	cast@0.3.0
-	cc@1.2.30
-	cfg-if@1.0.1
+	cc@1.2.41
+	cfg-if@1.0.4
 	cfg_aliases@0.2.1
-	chrono@0.4.41
+	chrono@0.4.42
 	ciborium-io@0.2.2
 	ciborium-ll@0.2.2
 	ciborium@0.2.2
-	clap@4.5.41
-	clap_builder@4.5.41
-	clap_complete@4.5.55
-	clap_derive@4.5.41
-	clap_lex@0.7.5
-	clap_mangen@0.2.28
+	clap@4.5.49
+	clap_builder@4.5.49
+	clap_complete@4.5.59
+	clap_derive@4.5.49
+	clap_lex@0.7.6
+	clap_mangen@0.2.30
 	colorchoice@1.0.4
 	colored@2.2.0
 	colored@3.0.0
@@ -52,20 +51,21 @@ CRATES="
 	darling@0.20.11
 	darling_core@0.20.11
 	darling_macro@0.20.11
-	deranged@0.4.0
+	deranged@0.5.4
 	diff@0.1.13
 	dirs-sys@0.5.0
 	dirs@6.0.0
 	either@1.15.0
-	errno@0.3.13
+	errno@0.3.14
 	fastrand@2.3.0
+	find-msvc-tools@0.1.4
 	fnv@1.0.7
 	futures-core@0.3.31
 	futures-io@0.3.31
-	futures-lite@2.6.0
+	futures-lite@2.6.1
 	getrandom@0.2.16
-	glob@0.3.2
-	half@2.6.0
+	glob@0.3.3
+	half@2.7.1
 	hash32@0.3.1
 	hashbrown@0.12.3
 	heapless@0.8.0
@@ -75,7 +75,7 @@ CRATES="
 	hermit-abi@0.5.2
 	hex@0.4.3
 	iana-time-zone-haiku@0.1.2
-	iana-time-zone@0.1.63
+	iana-time-zone@0.1.64
 	ident_case@1.0.1
 	indexmap@1.9.3
 	io-kit-sys@0.4.1
@@ -84,19 +84,20 @@ CRATES="
 	is_terminal_polyfill@1.70.1
 	itertools@0.10.5
 	itoa@1.0.15
-	js-sys@0.3.77
+	js-sys@0.3.81
 	lazy_static@1.5.0
-	libc@0.2.174
-	libredox@0.1.6
+	libc@0.2.177
+	libredox@0.1.10
 	libudev-sys@0.1.4
 	libusb1-sys@0.7.0
+	linux-raw-sys@0.11.0
 	linux-raw-sys@0.3.8
 	linux-raw-sys@0.4.15
 	linux-raw-sys@0.9.4
-	lock_api@0.4.13
-	log@0.4.27
+	lock_api@0.4.14
+	log@0.4.28
 	mach2@0.4.3
-	memchr@2.7.5
+	memchr@2.7.6
 	minimal-lexical@0.2.1
 	mio@1.0.4
 	nix@0.29.0
@@ -104,15 +105,15 @@ CRATES="
 	num-conv@0.1.0
 	num-traits@0.2.19
 	num_threads@0.1.7
-	nusb@0.2.0
+	nusb@0.2.1
 	once_cell@1.21.3
 	once_cell_polyfill@1.70.1
 	oorandom@11.1.5
 	option-ext@0.2.0
 	parking@2.2.1
-	parking_lot@0.12.4
-	parking_lot_core@0.9.11
-	pci-ids@0.2.5
+	parking_lot@0.12.5
+	parking_lot_core@0.9.12
+	pci-ids@0.2.6
 	phf@0.11.3
 	phf_codegen@0.11.3
 	phf_generator@0.11.3
@@ -123,107 +124,111 @@ CRATES="
 	plotters-svg@0.3.7
 	plotters@0.3.7
 	powerfmt@0.2.0
-	proc-macro2@1.0.95
-	quote@1.0.40
+	proc-macro2@1.0.101
+	quote@1.0.41
 	rand@0.8.5
 	rand_core@0.6.4
-	rayon-core@1.12.1
-	rayon@1.10.0
-	redox_syscall@0.5.16
-	redox_users@0.5.0
-	regex-automata@0.4.9
-	regex-syntax@0.8.5
-	regex@1.11.1
+	rayon-core@1.13.0
+	rayon@1.11.0
+	redox_syscall@0.5.18
+	redox_users@0.5.2
+	regex-automata@0.4.13
+	regex-syntax@0.8.8
+	regex@1.12.2
 	roff@0.2.2
 	rusb@0.9.4
 	rustix@0.37.28
 	rustix@0.38.44
-	rustix@1.0.8
-	rustversion@1.0.21
+	rustix@1.1.2
+	rustversion@1.0.22
 	ryu@1.0.20
 	same-file@1.0.6
 	scopeguard@1.2.0
-	serde@1.0.219
-	serde_derive@1.0.219
-	serde_json@1.0.141
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
+	serde_json@1.0.145
 	serde_with@2.3.3
 	serde_with_macros@2.3.3
 	shlex@1.3.0
 	signal-hook-mio@0.2.4
-	signal-hook-registry@1.4.5
+	signal-hook-registry@1.4.6
 	signal-hook@0.3.18
 	simple_logger@4.3.3
 	siphasher@1.0.1
-	slab@0.4.10
+	slab@0.4.11
 	smallvec@1.15.1
-	stable_deref_trait@1.2.0
+	stable_deref_trait@1.2.1
 	strsim@0.11.1
 	strum@0.26.3
 	strum_macros@0.26.4
-	syn@2.0.104
+	syn@2.0.106
 	terminal_size@0.2.6
-	terminal_size@0.4.2
-	thiserror-impl@2.0.12
-	thiserror@2.0.12
-	time-core@0.1.4
-	time-macros@0.2.22
-	time@0.3.41
+	terminal_size@0.4.3
+	thiserror-impl@2.0.17
+	thiserror@2.0.17
+	time-core@0.1.6
+	time-macros@0.2.24
+	time@0.3.44
 	tinytemplate@1.2.1
 	udev@0.8.0
 	udevrs@0.4.0
-	unicode-ident@1.0.18
-	unicode-width@0.2.1
+	unicode-ident@1.0.19
+	unicode-width@0.2.2
 	usb-ids@1.2025.2
 	utf8parse@0.2.2
-	uuid@1.17.0
+	uuid@1.18.1
 	vcpkg@0.2.15
 	walkdir@2.5.0
 	wasi@0.11.1+wasi-snapshot-preview1
-	wasm-bindgen-backend@0.2.100
-	wasm-bindgen-macro-support@0.2.100
-	wasm-bindgen-macro@0.2.100
-	wasm-bindgen-shared@0.2.100
-	wasm-bindgen@0.2.100
-	web-sys@0.3.77
+	wasm-bindgen-backend@0.2.104
+	wasm-bindgen-macro-support@0.2.104
+	wasm-bindgen-macro@0.2.104
+	wasm-bindgen-shared@0.2.104
+	wasm-bindgen@0.2.104
+	web-sys@0.3.81
 	winapi-i686-pc-windows-gnu@0.4.0
-	winapi-util@0.1.9
+	winapi-util@0.1.11
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
-	windows-core@0.61.2
-	windows-implement@0.60.0
-	windows-interface@0.59.1
-	windows-link@0.1.3
-	windows-result@0.3.4
-	windows-strings@0.4.2
+	windows-core@0.62.2
+	windows-implement@0.60.2
+	windows-interface@0.59.3
+	windows-link@0.2.1
+	windows-result@0.4.1
+	windows-strings@0.5.1
 	windows-sys@0.48.0
 	windows-sys@0.59.0
 	windows-sys@0.60.2
+	windows-sys@0.61.2
 	windows-targets@0.48.5
 	windows-targets@0.52.6
-	windows-targets@0.53.2
+	windows-targets@0.53.5
 	windows_aarch64_gnullvm@0.48.5
 	windows_aarch64_gnullvm@0.52.6
-	windows_aarch64_gnullvm@0.53.0
+	windows_aarch64_gnullvm@0.53.1
 	windows_aarch64_msvc@0.48.5
 	windows_aarch64_msvc@0.52.6
-	windows_aarch64_msvc@0.53.0
+	windows_aarch64_msvc@0.53.1
 	windows_i686_gnu@0.48.5
 	windows_i686_gnu@0.52.6
-	windows_i686_gnu@0.53.0
+	windows_i686_gnu@0.53.1
 	windows_i686_gnullvm@0.52.6
-	windows_i686_gnullvm@0.53.0
+	windows_i686_gnullvm@0.53.1
 	windows_i686_msvc@0.48.5
 	windows_i686_msvc@0.52.6
-	windows_i686_msvc@0.53.0
+	windows_i686_msvc@0.53.1
 	windows_x86_64_gnu@0.48.5
 	windows_x86_64_gnu@0.52.6
-	windows_x86_64_gnu@0.53.0
+	windows_x86_64_gnu@0.53.1
 	windows_x86_64_gnullvm@0.48.5
 	windows_x86_64_gnullvm@0.52.6
-	windows_x86_64_gnullvm@0.53.0
+	windows_x86_64_gnullvm@0.53.1
 	windows_x86_64_msvc@0.48.5
 	windows_x86_64_msvc@0.52.6
-	windows_x86_64_msvc@0.53.0
+	windows_x86_64_msvc@0.53.1
+	zerocopy-derive@0.8.27
+	zerocopy@0.8.27
 "
 
 inherit cargo
