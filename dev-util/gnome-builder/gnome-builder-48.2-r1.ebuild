@@ -62,7 +62,7 @@ RDEPEND="
 
 	>=dev-libs/gobject-introspection-1.74.0:=
 	${PYTHON_DEPS}
-	clang? ( $(llvm_gen_dep "llvm-core/clang:${LLVM_SLOT}=") )
+	clang? ( $(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}=') )
 	spell? (
 		>=app-text/libspelling-0.3
 	)
@@ -91,6 +91,7 @@ BDEPEND="
 		sys-apps/dbus
 	)
 	dev-util/desktop-file-utils
+	dev-util/gdbus-codegen
 	dev-util/glib-utils
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
