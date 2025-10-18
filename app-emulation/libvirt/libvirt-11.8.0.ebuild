@@ -10,7 +10,7 @@ EAPI=8
 # app-emulation/libvirt
 # Please bump them together!
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..14} )
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/libvirt.org.asc
 inherit meson linux-info python-any-r1 readme.gentoo-r1 tmpfiles verify-sig
 
@@ -21,7 +21,7 @@ if [[ ${PV} = *9999* ]]; then
 else
 	SRC_URI="https://download.libvirt.org/${P}.tar.xz
 		verify-sig? ( https://download.libvirt.org/${P}.tar.xz.asc )"
-	KEYWORDS="amd64 ~arm arm64 ppc64 x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 fi
 
 DESCRIPTION="C toolkit to manipulate virtual machines"
@@ -127,7 +127,7 @@ RDEPEND="
 	)
 	virtiofsd? ( app-emulation/virtiofsd )
 	virtualbox? ( <app-emulation/virtualbox-7.1.0 )
-	wireshark-plugins? ( >=net-analyzer/wireshark-2.6.0:= )
+	wireshark-plugins? ( <net-analyzer/wireshark-4.6.0:= )
 	xen? (
 		>=app-emulation/xen-4.9.0
 		app-emulation/xen-tools:=
@@ -156,8 +156,8 @@ PDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-11.0.0-Fix-paths-in-libvirt-guests.sh.in.patch
-	"${FILESDIR}"/${PN}-9.9.0-do-not-use-sysconfig.patch
-	"${FILESDIR}"/${PN}-10.7.0-fix-paths-for-apparmor.patch
+	"${FILESDIR}"/${PN}-11.3.0-do-not-use-sysconfig.patch
+	"${FILESDIR}"/${PN}-11.3.0-fix-paths-for-apparmor.patch
 )
 
 python_check_deps() {
