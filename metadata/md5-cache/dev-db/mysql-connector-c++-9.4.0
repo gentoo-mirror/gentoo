@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://dev.mysql.com/downloads/connector/cpp/
 INHERIT=cmake
 IUSE=+legacy test
-KEYWORDS=amd64 arm ~arm64 -ppc ~ppc64 -sparc x86
+KEYWORDS=amd64 arm ~arm64 -ppc ppc64 -sparc x86
 LICENSE=Artistic GPL-2
 RDEPEND=app-arch/lz4:= app-arch/zstd:= dev-libs/openssl:= sys-libs/zlib legacy? ( >=dev-db/mysql-connector-c-8.0.27:= )
 RESTRICT=!test? ( test )
 SLOT=0/2.10
 SRC_URI=https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-9.4.0-src.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3d9a5fc17dadea162813d5d8918328b4
-_md5_=783a89579073b370e94b7adf91f82403
+_md5_=4c737ac727f99eb19b7d16a06e846773
