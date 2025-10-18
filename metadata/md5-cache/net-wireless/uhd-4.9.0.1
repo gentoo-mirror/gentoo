@@ -1,0 +1,17 @@
+BDEPEND=doc? ( app-text/doxygen ) python_single_target_python3_11? ( dev-python/mako[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/mako[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/mako[python_targets_python3_13(-)] ) app-arch/unzip app-arch/gzip app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) e300? ( virtual/udev ) usb? ( virtual/libusb:1 ) dev-libs/boost:= sys-libs/ncurses:0= python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] dev-python/requests[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/numpy[python_targets_python3_13(-)] dev-python/requests[python_targets_python3_13(-)] )
+DESCRIPTION=Universal Software Radio Peripheral (USRP) Hardware Driver
+EAPI=8
+HOMEPAGE=https://kb.ettus.com
+INHERIT=cmake gnome2-utils python-single-r1 udev
+IUSE=+b100 +b200 doc cpu_flags_arm_neon cpu_flags_x86_ssse3 e300 examples +mpmd octoclock test +usb +usrp1 +usrp2 +utils +x300 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64 ~arm ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) e300? ( virtual/udev ) usb? ( virtual/libusb:1 ) dev-libs/boost:= sys-libs/ncurses:0= python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] dev-python/requests[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/numpy[python_targets_python3_13(-)] dev-python/requests[python_targets_python3_13(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) b100? ( usb ) b200? ( usb ) usrp1? ( usb ) usrp2? ( usb ) || ( b100 b200 e300 mpmd usrp1 usrp2 x300 )
+RESTRICT=!test? ( test )
+SLOT=0/4.9.0
+SRC_URI=https://github.com/EttusResearch/uhd/archive/v4.9.0.1.tar.gz -> EttusResearch-UHD-4.9.0.1.tar.gz https://github.com/EttusResearch/uhd/releases/download/v4.9.0.0/uhd-images_4.9.0.0.tar.xz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3d9a5fc17dadea162813d5d8918328b4	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	udev	f3d9a4376ebd22131726a68e1a0a058f
+_md5_=bd6030f0d5506f78010d47e2bc611a41
