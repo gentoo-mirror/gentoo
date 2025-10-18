@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://gitlab.com/vala-panel-project/vala-panel-appmenu
 INHERIT=edo gnome2-utils flag-o-matic meson systemd virtualx
 IUSE=gtk2 test wayland test
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=LGPL-3+
 RDEPEND=dev-libs/glib[dbus] >=x11-libs/gtk+-3.22.0:3[wayland?,X] gtk2? ( >=x11-libs/gtk+-2.24.0:2 )
 RESTRICT=!test? ( test ) test !test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.com/-/project/6865053/uploads/4f517338d3c65a0ea6f49faf36a4f3e6/appmenu-gtk-module-25.04.tar.xz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	meson	99466844dd8d4fcfb07578a76f5a9922	systemd	a964c0cbe818b5729da1dbfcee5be861	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=02236847a0e399b9075b843c60bb873d
+_md5_=2a6be8295a64ac1a65efdf953b4cbb68

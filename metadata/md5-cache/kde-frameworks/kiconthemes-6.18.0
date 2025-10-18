@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://develop.kde.org/products/frameworks/
 INHERIT=ecm frameworks.kde.org
 IUSE=debug designer test
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ~loong ppc64 ~riscv ~x86
 LICENSE=LGPL-2+
 RDEPEND=>=dev-qt/qtbase-6.7.2:6=[dbus,gui,widgets] >=dev-qt/qtdeclarative-6.7.2:6 >=dev-qt/qtsvg-6.7.2:6 =kde-frameworks/breeze-icons-6.18*:6 =kde-frameworks/karchive-6.18*:6 =kde-frameworks/kcolorscheme-6.18*:6 =kde-frameworks/kconfig-6.18*:6 =kde-frameworks/ki18n-6.18*:6 =kde-frameworks/kwidgetsaddons-6.18*:6 >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
 RESTRICT=test !test? ( test )
 SLOT=6/6.18
 SRC_URI=mirror://kde/stable/frameworks/6.18/kiconthemes-6.18.0.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3d9a5fc17dadea162813d5d8918328b4	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	ab3090652095a7b818afb903b315c3f7	kde.org	2eea56ed41440913be4caa3d255d2db3	frameworks.kde.org	c3e97d56f2422e7f729ed13f859352f1
-_md5_=9a7c846f77cd1c63a5a21a4d6f35314c
+_md5_=474bcce58e72e74539fd76506e32cad7
