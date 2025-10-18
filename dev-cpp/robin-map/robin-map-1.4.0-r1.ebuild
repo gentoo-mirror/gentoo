@@ -25,6 +25,8 @@ BDEPEND="
 	test? ( dev-libs/boost )
 "
 
+PATCHES=( "${FILESDIR}/${P}-cmake-minreqver-3.10.patch" ) # bug #964543
+
 src_test() {
 	cd tests || die
 	sed -i \
