@@ -33,15 +33,15 @@ CRATES="
 	btoi@0.5.0
 	bumpalo@3.19.0
 	bytes@1.10.1
-	caps@0.5.5
-	cc@1.2.40
-	cfg-if@1.0.3
+	caps@0.5.6
+	cc@1.2.41
+	cfg-if@1.0.4
 	cfg_aliases@0.2.1
 	chrono@0.4.42
-	clap@4.5.48
-	clap_builder@4.5.48
-	clap_derive@4.5.47
-	clap_lex@0.7.5
+	clap@4.5.49
+	clap_builder@4.5.49
+	clap_derive@4.5.49
+	clap_lex@0.7.6
 	colorchoice@1.0.4
 	const_format@0.2.35
 	const_format_proc_macros@0.2.34
@@ -73,15 +73,15 @@ CRATES="
 	error-chain@0.12.4
 	expiringmap@0.1.2
 	fastrand@2.3.0
-	find-msvc-tools@0.1.3
+	find-msvc-tools@0.1.4
 	fixedbitset@0.5.7
 	flate2@1.1.4
 	fnv@1.0.7
 	funty@2.0.0
-	generic-array@0.14.7
+	generic-array@0.14.9
 	getrandom@0.1.16
 	getrandom@0.2.16
-	getrandom@0.3.3
+	getrandom@0.3.4
 	getset@0.1.6
 	gimli@0.32.3
 	goblin@0.9.3
@@ -97,7 +97,7 @@ CRATES="
 	iced-x86@1.21.0
 	ident_case@1.0.1
 	indexmap@1.9.3
-	indexmap@2.11.4
+	indexmap@2.12.0
 	io-uring@0.6.4
 	ipnet@2.11.0
 	iprange@0.6.7
@@ -108,10 +108,11 @@ CRATES="
 	lazy_static@1.5.0
 	lexis@0.2.3
 	lexopt@0.3.1
-	libc@0.2.176
+	libc@0.2.177
 	libcgroups@0.5.5
 	libcontainer@0.5.5
 	libloading@0.8.9
+	libmimalloc-sys@0.1.44
 	liboci-cli@0.5.5
 	libredox@0.1.10
 	libseccomp-sys@0.2.1
@@ -125,6 +126,7 @@ CRATES="
 	md5@0.8.0
 	memchr@2.7.6
 	memoffset@0.9.1
+	mimalloc@0.1.48
 	minimal-lexical@0.2.1
 	miniz_oxide@0.8.9
 	mortal@0.2.4
@@ -135,7 +137,7 @@ CRATES="
 	nix@0.30.1
 	nom@7.1.3
 	nom@8.0.0
-	nu-ansi-term@0.50.1
+	nu-ansi-term@0.50.3
 	num-traits@0.2.19
 	num_cpus@1.17.0
 	object@0.37.3
@@ -175,9 +177,9 @@ CRATES="
 	redox_users@0.3.5
 	redox_users@0.4.6
 	redox_users@0.5.2
-	regex-automata@0.4.11
-	regex-syntax@0.8.6
-	regex@1.11.3
+	regex-automata@0.4.13
+	regex-syntax@0.8.8
+	regex@1.12.2
 	ringbuf@0.4.8
 	rpassword@7.4.0
 	rtoolbox@0.0.3
@@ -209,7 +211,7 @@ CRATES="
 	strum@0.27.2
 	strum_macros@0.27.2
 	subtle@2.6.1
-	syn@2.0.106
+	syn@2.0.107
 	tabwriter@1.4.1
 	tap@1.0.1
 	tcmalloc@0.3.0
@@ -238,7 +240,6 @@ CRATES="
 	valuable@0.1.1
 	version_check@0.9.5
 	wasi@0.11.1+wasi-snapshot-preview1
-	wasi@0.14.7+wasi-0.2.4
 	wasi@0.9.0+wasi-snapshot-preview1
 	wasip2@1.0.1+wasi-0.2.4
 	wasm-bindgen-backend@0.2.104
