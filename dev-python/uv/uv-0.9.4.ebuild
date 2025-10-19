@@ -9,16 +9,16 @@ RUST_MIN_VER="1.88.0"
 
 declare -A GIT_CRATES=(
 	[async_zip]='https://github.com/astral-sh/rs-async-zip;285e48742b74ab109887d62e1ae79e7c15fd4878;rs-async-zip-%commit%'
-	[pubgrub]='https://github.com/astral-sh/pubgrub;06ec5a5f59ffaeb6cf5079c6cb184467da06c9db;pubgrub-%commit%'
+	[pubgrub]='https://github.com/astral-sh/pubgrub;d8efd77673c9a90792da9da31b6c0da7ea8a324b;pubgrub-%commit%'
 	[reqwest-middleware]='https://github.com/astral-sh/reqwest-middleware;7650ed76215a962a96d94a79be71c27bffde7ab2;reqwest-middleware-%commit%/reqwest-middleware'
 	[reqwest-retry]='https://github.com/astral-sh/reqwest-middleware;7650ed76215a962a96d94a79be71c27bffde7ab2;reqwest-middleware-%commit%/reqwest-retry'
 	[tl]='https://github.com/astral-sh/tl;6e25b2ee2513d75385101a8ff9f591ef51f314ec;tl-%commit%'
-	[version-ranges]='https://github.com/astral-sh/pubgrub;06ec5a5f59ffaeb6cf5079c6cb184467da06c9db;pubgrub-%commit%/version-ranges'
+	[version-ranges]='https://github.com/astral-sh/pubgrub;d8efd77673c9a90792da9da31b6c0da7ea8a324b;pubgrub-%commit%/version-ranges'
 )
 
 inherit cargo check-reqs
 
-CRATE_PV=0.8.18
+CRATE_PV=0.9.4
 DESCRIPTION="A Python package installer and resolver, written in Rust"
 HOMEPAGE="
 	https://github.com/astral-sh/uv/
@@ -41,7 +41,7 @@ LICENSE="|| ( Apache-2.0 MIT )"
 # crates/pep508-rs is || ( Apache-2.0 BSD-2 ) which is covered below
 # Dependent crate licenses
 LICENSE+="
-	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD
+	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0
 	CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016
 	ZLIB
 "
