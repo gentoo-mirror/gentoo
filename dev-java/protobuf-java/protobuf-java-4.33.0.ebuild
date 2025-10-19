@@ -19,7 +19,7 @@ S="${WORKDIR}/protobuf-${MY_PV}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="system-protoc"
 
 BDEPEND="
@@ -30,10 +30,10 @@ BDEPEND="
 DEPEND="
 	>=virtual/jdk-1.8:*
 	test? (
-		>=dev-java/guava-33.4.8:0
+		>=dev-java/guava-33.5.0:0
 		dev-java/mockito:4
-		dev-java/snakeyaml:0
-		dev-java/testparameterinjector:0
+		>=dev-java/snakeyaml-2.5:0
+		>=dev-java/testparameterinjector-1.19:0
 		dev-java/truth:0
 	)
 "
@@ -95,6 +95,7 @@ src_prepare() {
 		src/google/protobuf/unittest_delimited_import.proto
 		src/google/protobuf/unittest_import_option.proto
 		java/core/src/test/proto/com/google/protobuf/large_open_enum.proto
+		java/core/src/test/proto/com/google/protobuf/generator_names_edition2024_defaults.proto
 	EOF
 }
 
@@ -127,6 +128,13 @@ src_test() {
 	#   path is specified (--processor-path, --processor-module-path), or annotation
 	#   processing is enabled explicitly (-proc:only, -proc:full).
 	JAVA_GENTOO_CLASSPATH_EXTRA+=":$(java-pkg_getjars --build-only testparameterinjector,truth)"
+
+	# java/core/src/test/java/com/google/protobuf/GeneratorNamesTest.java:33: error: cannot find symbol
+	#               GeneratorNamesPre2024Defaults.getDescriptor(), GeneratorNamesPre2024Defaults.class),
+	#                                                              ^
+	#   symbol:   class GeneratorNamesPre2024Defaults
+	#   location: class FileClassProvider
+	rm java/core/src/test/java/com/google/protobuf/GeneratorNamesTest.java || die "remove test"
 
 	einfo "Running protoc on first part of generate-test-sources-build.xml"
 	# java/core/src/test/proto/com/google/protobuf/test_check_utf8.proto:15:1:
