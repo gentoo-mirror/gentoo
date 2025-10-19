@@ -4818,7 +4818,7 @@ dev-java/bcpg 1.80: Java cryptography APIs
 dev-java/bcpkix 1.80: Java APIs for CMS, PKCS, EAC, TSP, CMP, CRMF, OCSP, and certificate generation
 dev-java/bcprov 1.80: Java cryptography APIs
 dev-java/bcutil 1.80: Java APIs for ASN.1 extension and utility APIs used to support bcpkix and bctls
-dev-java/bnd 7.1.0-r2: bndlib: A Swiss Army Knife for OSGi
+dev-java/bnd 7.1.0-r3: bndlib: A Swiss Army Knife for OSGi
 dev-java/bnd-annotation 7.1.0: bnd Annotations Library
 dev-java/bnd-ant 7.1.0: Bnd Ant Tasks
 dev-java/bnd-util 7.1.0-r1: AQute Bnd Utilities
@@ -4871,6 +4871,7 @@ dev-java/eclipse-jdt-annotation 4.30 4.37: JDT Annotations for Enhanced Null Ana
 dev-java/emma 2.0.5312-r6: Free Java code coverage tool
 dev-java/error-prone-annotations 2.36.0 2.41.0 2.42.0: Java annotations for the Error Prone static analysis tool
 dev-java/escapevelocity 1.1: A reimplementation of a subset of the Apache Velocity templating system.
+dev-java/fastdoubleparser 2.0.1: A Java port of Daniel Lemire's fast_float project
 dev-java/fastinfoset 2.1.0-r1: Open Source implementation of the Fast Infoset Standard for Binary XML
 dev-java/fec 1.0.4-r5: Forward Error Correction library in Java
 dev-java/felix-framework 7.0.5-r3: Implementation of the OSGi R8 core framework specification
@@ -4911,12 +4912,12 @@ dev-java/istack-commons-runtime 3.0.12 4.1.1-r1: istack common utility code
 dev-java/j2objc-annotations 3.0.0-r1 3.1: Annotations for the J2ObjC Java to Objective-C translator
 dev-java/jackcess 4.0.7: A pure Java library for reading from and writing to MS Access databases
 dev-java/jackrabbit-webdav 2.10.1-r3: Fully conforming implementation of the JRC API (specified in JSR 170 and 283)
-dev-java/jackson-annotations 2.13.4: Core annotations used for value types, used by Jackson data binding package.
-dev-java/jackson-core 2.13.4: Core Jackson processing abstractions (Streaming API), implementation for JSON
-dev-java/jackson-databind 2.13.4.1: General data-binding functionality for Jackson: works on core streaming API
-dev-java/jackson-dataformat-xml 2.13.4-r1: Data format extension for Jackson
-dev-java/jackson-dataformat-yaml 2.13.4-r1: Support for reading and writing YAML-encoded data via Jackson abstractions
-dev-java/jackson-module-jakarta-xmlbind 2.13.4-r1: Support for using Jakarta XML Bind (aka JAXB 3.0) annotations
+dev-java/jackson-annotations 2.13.4-r1 2.20: Core annotations used for value types, used by Jackson data binding package.
+dev-java/jackson-core 2.13.4-r1 2.20.0: Core Jackson processing abstractions (Streaming API), implementation for JSON
+dev-java/jackson-databind 2.13.4.1-r1 2.20.0: General data-binding functionality for Jackson: works on core streaming API
+dev-java/jackson-dataformat-xml 2.13.4-r2 2.20.0: Data format extension for Jackson
+dev-java/jackson-dataformat-yaml 2.13.4-r2 2.20.0: Support for reading and writing YAML-encoded data via Jackson abstractions
+dev-java/jackson-module-jakarta-xmlbind 2.13.4-r2 2.20.0: Support for using Jakarta XML Bind (aka JAXB 3.0) annotations
 dev-java/jacl 1.4.1-r2: Jacl is an implementation of Tcl written in Java
 dev-java/jai-imageio-core 1.4.0-r1: Java Advanced Imaging Image I/O Tools API core (standalone)
 dev-java/jai-imageio-jpeg2000 1.4.0-r1: JPEG2000 support for Java Advanced Imaging Image I/O Tools API
@@ -4971,7 +4972,7 @@ dev-java/jbitcollider-core 0.8-r2: Core classes of jBitcollider: org.bitpedia.co
 dev-java/jboss-jms-api 1.0.1: JSR-000914: Java(TM) Message Service (JMS) 1.1 API
 dev-java/jcifs 1.3.19-r2: Library that implements the CIFS/SMB networking protocol in Java
 dev-java/jclasslib 4.3.1: Java bytecode viewer
-dev-java/jcommander 1.64-r1 1.82: Command line parsing framework for Java
+dev-java/jcommander 1.64-r1 1.82-r1: Command line parsing framework for Java
 dev-java/jctools-core 4.0.5-r1: Java Concurrency Tools Core Library
 dev-java/jdbc-mysql 9.2.0-r1 9.4.0: JDBC Type 4 driver for MySQL
 dev-java/jdbc-postgresql 42.7.7: Java JDBC 4.2 (JRE 8+) driver for PostgreSQL database
@@ -5005,7 +5006,7 @@ dev-java/jrobin 1.6.0-r2: JRobin is a 100% pure Java alternative to RRDTool
 dev-java/jsch 0.1.55: JSch is a pure Java implementation of SSH2
 dev-java/jsch-agent-proxy 0.0.9-r1 0.0.9-r2: a proxy to ssh-agent and Pageant in Java
 dev-java/json 20250517: A reference implementation of a JSON package in Java
-dev-java/json-path 2.9.0: Java JsonPath implementation
+dev-java/json-path 2.9.0-r1: Java JsonPath implementation
 dev-java/json-simple 2.3.1 4.0.1: Java 7+ toolkit to quickly develop RFC 4627 JSON compatible applications
 dev-java/json-smart 1.3.3 2.5.2 2.6.0: JSON Small and Fast Parser
 dev-java/jsonb-api 2.0.0: Jakarta JSON Binding
@@ -5024,7 +5025,7 @@ dev-java/jul-to-slf4j 2.0.3: JUL to SLF4J bridge
 dev-java/junit 3.8.2-r2 4.13.2_p20240222 5.10.3-r1: Simple framework to write repeatable tests
 dev-java/junit-clptr 1.2.2-r1: ClassLoader per Test runner for JUnit 4.12+
 dev-java/junit-dataprovider 2.9: The common core for a TestNG like dataprovider runner for JUnit
-dev-java/junit-pioneer 1.9.1: JUnit 5 Extension Pack
+dev-java/junit-pioneer 1.9.1-r1: JUnit 5 Extension Pack
 dev-java/junit-quickcheck 1.0: Property-based testing, JUnit-style
 dev-java/junitparams 1.1.1-r2: Better parameterised tests for JUnit
 dev-java/jzlib 1.1.3-r3: JZlib is a re-implementation of zlib in pure Java
@@ -5034,7 +5035,7 @@ dev-java/libg 7.1.0-r1: A library to be statically linked. Contains many small u
 dev-java/lmax-disruptor 3.4.4: A High Performance Inter-Thread Messaging Library
 dev-java/log4j-12-api 2.19.0: The Apache Log4j 1.x Compatibility API
 dev-java/log4j-api 2.19.0: The Apache Log4j API
-dev-java/log4j-core 2.19.0-r1: The Apache Log4j Implementation
+dev-java/log4j-core 2.19.0-r2: The Apache Log4j Implementation
 dev-java/log4j-over-slf4j 2.0.3: Log4j implemented over SLF4J
 dev-java/lucene 2.4.1-r5: High-performance, full-featured text search engine written entirely in Java
 dev-java/lz4-java 1.8.0-r6: LZ4 compression for Java
@@ -5073,7 +5074,7 @@ dev-java/pebble 3.1.6: Templating engine for Java
 dev-java/picocli 4.6.3-r1: Java command line parser with both an annotations API and a programmatic API
 dev-java/plexus-classworlds 2.7.0-r1: The class loader framework of the Plexus project
 dev-java/poi 5.2.5: Maven build of Apache POI for Sonar checks
-dev-java/protobuf-java 4.32.1: Core Protocol Buffers library
+dev-java/protobuf-java 4.32.1-r1 4.33.0: Core Protocol Buffers library
 dev-java/qdox 1.12.1-r7 1.12.1-r8 2.0.1-r1 2.2.0: Parser for extracting class/interface/method definitions
 dev-java/randomized-runner 2.8.3: JUnit test runner and plugins for running JUnit tests with pseudo-randomness
 dev-java/reflections 0.9.12-r6: Reflections - a Java runtime metadata analysis
@@ -5096,7 +5097,7 @@ dev-java/slf4j-ext 2.0.3: Extensions to the SLF4J API
 dev-java/slf4j-nop 2.0.3: SLF4J NOP Binding
 dev-java/slf4j-reload4j 2.0.3: SLF4J Reload4j Binding
 dev-java/slf4j-simple 2.0.3: SLF4J Simple binding
-dev-java/snakeyaml 1.33: YAML 1.1 parser and emitter for Java
+dev-java/snakeyaml 1.33-r1 2.5: YAML 1.1 parser and emitter for Java
 dev-java/snappy-java 1.1.10.7-r1 1.1.10.8: Snappy compressor/decompressor for Java
 dev-java/sparsebitset 1.3: An efficient sparse bitset implementation for Java
 dev-java/stax2-api 4.2.2: stax2 API is an extension to basic Stax 1.0 API
@@ -5107,8 +5108,8 @@ dev-java/swing-layout 1.0.4-r2: Professional cross platform layouts with Swing
 dev-java/swt 4.10-r4 4.29-r1 4.35 4.37: GTK based SWT Library
 dev-java/system-rules 1.19.0: A collection of JUnit rules for testing code which uses java.lang.System.
 dev-java/tapestry-json 5.8.7-r1: Tapestry JSON
-dev-java/testng 6.11-r1 6.11-r2: Testing framework inspired by JUnit and NUnit with new features
-dev-java/testparameterinjector 1.18: TestParameterInjector For JUnit4
+dev-java/testng 6.11-r3 6.11-r4: Testing framework inspired by JUnit and NUnit with new features
+dev-java/testparameterinjector 1.18-r1 1.19: TestParameterInjector For JUnit4
 dev-java/tomcat-native 1.3.1 2.0.9-r1: Allows Tomcat to use certain native resources for better performance
 dev-java/tomcat-servlet-api 4.1.40-r1: Tomcat's Servlet API 2.3/JSP API 1.2 implementation
 dev-java/treelayout 1.0.3-r1: Efficient and customizable TreeLayout Algorithm in Java.
@@ -11105,7 +11106,7 @@ dev-vcs/git-delete-merged-branches 7.4.1 7.4.1-r1 7.4.2 7.5.0: Command-line tool
 dev-vcs/git-extras 7.3.0: Git utilities -- repo summary, repl, changelog population, and many more
 dev-vcs/git-filter-repo 2.47.0: Quickly rewrite git repository history (filter-branch replacement)
 dev-vcs/git-flow 1.12.3-r2: Git extensions to provide high-level repository operations
-dev-vcs/git-lfs 3.5.1 3.6.1 3.7.0 9999: Command line extension and specification for managing large files with git
+dev-vcs/git-lfs 3.5.1 3.6.1 3.7.0 3.7.1 9999: Command line extension and specification for managing large files with git
 dev-vcs/git-machete 3.25.2 3.35.1: Probably the sharpest git repo organizer & rebase/merge workflow automation tool
 dev-vcs/git-mailz 0.14: Send a collection of patches as emails
 dev-vcs/git-mantle 0.6: Generate an overview of changes on a branch
@@ -13575,7 +13576,7 @@ media-libs/webrtc-audio-processing 0.3.1 0.3.1-r1 1.3-r1 1.3-r2 1.3-r3: AudioPro
 media-libs/woff2 1.0.2-r7: Encode/decode WOFF2 font format
 media-libs/wxsvg 1.5.24-r1: C++ library to create, manipulate and render SVG files
 media-libs/x264 0.0.20240513 9999: Free library for encoding X264/AVC streams
-media-libs/x265 3.6-r1 9999: Library for encoding video streams into the H.265/HEVC format
+media-libs/x265 3.6-r1 4.1 9999: Library for encoding video streams into the H.265/HEVC format
 media-libs/xine-lib 1.2.13-r3 1.2.13-r5 1.2.9999: Core libraries for Xine movie player
 media-libs/xvid 1.3.7-r2: High performance/quality MPEG-4 video de-/encoding solution
 media-libs/zimg 3.0.4-r1 9999: Scaling, colorspace conversion, and dithering library

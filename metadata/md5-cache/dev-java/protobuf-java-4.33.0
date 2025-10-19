@@ -1,16 +1,16 @@
-BDEPEND=system-protoc? ( ~dev-libs/protobuf-32.1:0[protoc] ) !system-protoc? ( >=dev-cpp/abseil-cpp-20250512.1:= ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+BDEPEND=system-protoc? ( ~dev-libs/protobuf-33.0:0[protoc] ) !system-protoc? ( >=dev-cpp/abseil-cpp-20250512.1:= ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install preinst prepare setup test
-DEPEND=>=virtual/jdk-1.8:* test? ( >=dev-java/guava-33.4.8:0 dev-java/mockito:4 dev-java/snakeyaml:0 dev-java/testparameterinjector:0 dev-java/truth:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
+DEPEND=>=virtual/jdk-1.8:* test? ( >=dev-java/guava-33.5.0:0 dev-java/mockito:4 >=dev-java/snakeyaml-2.5:0 >=dev-java/testparameterinjector-1.19:0 dev-java/truth:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Core Protocol Buffers library
 EAPI=8
 HOMEPAGE=https://protobuf.dev
 INHERIT=cmake java-pkg-2 java-pkg-simple
 IUSE=system-protoc doc source test
-KEYWORDS=amd64
+KEYWORDS=~amd64
 LICENSE=BSD
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/protocolbuffers/protobuf/releases/download/v32.1/protobuf-32.1.tar.gz
+SRC_URI=https://github.com/protocolbuffers/protobuf/releases/download/v33.0/protobuf-33.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3d9a5fc17dadea162813d5d8918328b4	java-utils-2	3febdd17a5820c438f6368dde60d4848	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	a728b6bc0cd005d093dd71e93106c98e
-_md5_=c78948997a5fae3bb787ae331cb2f735
+_md5_=b678ac313b1f6ee3f8c2f8fe1e7164cb
