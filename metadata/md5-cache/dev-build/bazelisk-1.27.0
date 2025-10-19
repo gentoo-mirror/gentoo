@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=A user-friendly launcher for Bazel written in Go
+EAPI=8
+HOMEPAGE=https://github.com/bazelbuild/bazelisk/
+INHERIT=go-module
+IUSE=+bazel-symlink
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=Apache-2.0
+SLOT=0
+SRC_URI=https://github.com/bazelbuild/bazelisk/archive/refs/tags/v1.27.0.tar.gz -> bazelisk-1.27.0.gh.tar.gz https://dev.gentoo.org/~xgqt/distfiles/deps/bazelisk-1.27.0-deps.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	d96f2a2fd6d8fbad6d94516bf238f885
+_md5_=ebbba3c8d5eeff1c9bad1d5c2c116f96
