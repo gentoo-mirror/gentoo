@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile config install postinst postrm prepare setup unpack
-DEPEND=>=media-video/vdr-1.2.6 media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
-DESCRIPTION=VDR Plugin: Sleeptimer
-EAPI=7
-HOMEPAGE=http://linvdr.org/download/vdr-sleeptimer
+DEPEND=media-video/vdr:= media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
+DESCRIPTION=VDR plugin: export OSD via TCP to vdr-remoteosd
+EAPI=8
+HOMEPAGE=https://github.com/vdr-projects/vdr-plugin-svdrposd/
 INHERIT=vdr-plugin-2
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
+RDEPEND=media-video/vdr:= media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
 SLOT=0
-SRC_URI=http://linvdr.org/download/vdr-sleeptimer/sleeptimer-0.6.tar.gz
+SRC_URI=https://github.com/vdr-projects/vdr-plugin-svdrposd/archive/refs/tags/1.0.0.tar.gz -> vdr-svdrposd-1.0.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	strip-linguas	9d8d529d8082ec56dd495636df194d64	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	vdr-plugin-2	82b5825b9191fe26411649b6e757c905
-_md5_=9938c5dfd162ddba87881c6ff9cdec9d
+_md5_=3924626084479ed554e98e33386d3fbe

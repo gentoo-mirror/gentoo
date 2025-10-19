@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile config install postinst postrm prepare setup unpack
-DEPEND=>=media-video/vdr-2 media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
-DESCRIPTION=VDR Plugin: systeminfo
-EAPI=7
-HOMEPAGE=http://firefly.vdr-developer.org/systeminfo/
+DEPEND=>=media-video/vdr-2.3.5:= media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
+DESCRIPTION=VDR plugin: allows to control externel jobs from within VDR
+EAPI=8
+HOMEPAGE=http://winni.vdr-developer.org/scheduler/index.html
 INHERIT=vdr-plugin-2
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=sys-apps/lm-sensors app-admin/hddtemp media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
+RDEPEND=>=media-video/vdr-2.3.5:= media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr
 SLOT=0
-SRC_URI=http://firefly.vdr-developer.org/systeminfo/vdr-systeminfo-0.1.4.tar.bz2
+SRC_URI=http://winni.vdr-developer.org/scheduler/downloads/vdr-scheduler-0.1.6.tgz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	strip-linguas	9d8d529d8082ec56dd495636df194d64	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	vdr-plugin-2	82b5825b9191fe26411649b6e757c905
-_md5_=cf6ea566982206573f7eec0c1b25b5af
+_md5_=8784034e77f999fe6848421ec69e40b1
