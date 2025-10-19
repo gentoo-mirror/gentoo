@@ -22,6 +22,7 @@ SLOT="0"
 RDEPEND="
 	dev-libs/icu:=
 	dev-libs/kdsingleapplication
+	>=dev-libs/qtkeychain-0.15:=
 	>=dev-libs/kirigami-addons-1.4.0:6
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,sql,ssl,widgets,xml]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
@@ -38,12 +39,14 @@ RDEPEND="
 	>=kde-frameworks/prison-${KFMIN}:6[qml]
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 	media-libs/kquickimageeditor:6
-	>=net-libs/qxmpp-1.10.3[omemo]
+	>=net-libs/qxmpp-1.11.0:=[omemo]
 "
 DEPEND="${RDEPEND}
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
+
+PATCHES=( "${FILESDIR}/${P}-qt6.10.patch" )
 
 src_configure() {
 	local mycmakeargs=(

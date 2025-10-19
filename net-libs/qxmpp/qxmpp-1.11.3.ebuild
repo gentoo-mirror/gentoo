@@ -14,7 +14,7 @@ if [[ ${KDE_BUILD_TYPE} = release ]]; then
 fi
 
 LICENSE="LGPL-2.1 CC0-1.0"
-SLOT="0"
+SLOT="0/6"
 IUSE="doc gstreamer omemo test"
 RESTRICT="!test? ( test )"
 
