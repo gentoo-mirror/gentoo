@@ -1,0 +1,17 @@
+BDEPEND=>=dev-qt/qttools-6.8.0:6[linguist] app-alternatives/ninja >=dev-build/cmake-3.28.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.11.0:*
+DEFINED_PHASES=compile configure info install nofetch postinst postrm preinst prepare test unpack
+DEPEND=dev-libs/icu:= dev-libs/kdsingleapplication >=dev-libs/qtkeychain-0.15:= >=dev-libs/kirigami-addons-1.4.0:6 >=dev-qt/qtbase-6.8.0:6[gui,network,sql,ssl,widgets,xml] >=dev-qt/qtdeclarative-6.8.0:6 >=dev-qt/qtlocation-6.8.0:6 >=dev-qt/qtmultimedia-6.8.0:6[qml] >=dev-qt/qtpositioning-6.8.0:6[qml] >=dev-qt/qtsvg-6.8.0:6 >=kde-frameworks/kcoreaddons-6.11.0:6 >=kde-frameworks/kcrash-6.11.0:6 >=kde-frameworks/kio-6.11.0:6 >=kde-frameworks/kirigami-6.11.0:6 >=kde-frameworks/knotifications-6.11.0:6 >=kde-frameworks/kwindowsystem-6.11.0:6 >=kde-frameworks/prison-6.11.0:6[qml] >=kde-frameworks/qqc2-desktop-style-6.11.0:6 media-libs/kquickimageeditor:6 >=net-libs/qxmpp-1.11.0:=[omemo] >=dev-qt/qtbase-6.8.0:6[concurrent] dev-qt/qtbase:6
+DESCRIPTION=Modern XMPP chat app for every device
+EAPI=8
+HOMEPAGE=https://www.kaidan.im
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=ecm kde.org xdg
+IUSE=debug test
+KEYWORDS=~amd64
+LICENSE=CC-BY-SA-4.0 GPL-3+ LGPL-2.1+ MIT
+RDEPEND=dev-libs/icu:= dev-libs/kdsingleapplication >=dev-libs/qtkeychain-0.15:= >=dev-libs/kirigami-addons-1.4.0:6 >=dev-qt/qtbase-6.8.0:6[gui,network,sql,ssl,widgets,xml] >=dev-qt/qtdeclarative-6.8.0:6 >=dev-qt/qtlocation-6.8.0:6 >=dev-qt/qtmultimedia-6.8.0:6[qml] >=dev-qt/qtpositioning-6.8.0:6[qml] >=dev-qt/qtsvg-6.8.0:6 >=kde-frameworks/kcoreaddons-6.11.0:6 >=kde-frameworks/kcrash-6.11.0:6 >=kde-frameworks/kio-6.11.0:6 >=kde-frameworks/kirigami-6.11.0:6 >=kde-frameworks/knotifications-6.11.0:6 >=kde-frameworks/kwindowsystem-6.11.0:6 >=kde-frameworks/prison-6.11.0:6[qml] >=kde-frameworks/qqc2-desktop-style-6.11.0:6 media-libs/kquickimageeditor:6 >=net-libs/qxmpp-1.11.0:=[omemo] || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://kde/unstable/kaidan/0.13.0/kaidan-0.13.0.tar.xz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3d9a5fc17dadea162813d5d8918328b4	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	ab3090652095a7b818afb903b315c3f7	kde.org	2eea56ed41440913be4caa3d255d2db3	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=61efdd40e223b103c7ccc95babaadd1f
