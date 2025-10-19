@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
-inherit linux-info optfeature python-single-r1 qmake-utils meson systemd
+inherit linux-info optfeature python-single-r1 qmake-utils meson systemd xdg-utils
 
 DESCRIPTION="Personal full text search package"
 HOMEPAGE="https://www.recoll.org"
@@ -17,7 +17,6 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 
 IUSE="camelcase chm +inotify qt6 session +spell systemd webengine"
 REQUIRED_USE="
-	session? ( inotify )
 	webengine? ( qt6 )
 	${PYTHON_REQUIRED_USE}
 "
@@ -37,11 +36,9 @@ DEPEND="
 		webengine? ( dev-qt/qtwebengine:6[widgets] )
 	)
 	session? (
-		inotify? (
-			x11-libs/libSM
-			x11-libs/libICE
-			x11-libs/libX11
-		)
+		x11-libs/libSM
+		x11-libs/libICE
+		x11-libs/libX11
 	)
 	spell? ( app-text/aspell )
 	systemd? ( sys-apps/systemd )
@@ -56,6 +53,9 @@ RDEPEND="
 	${DEPEND}
 	app-arch/unzip
 "
+
+# Build happens in two stages, leading to LDFLAGS being ignored by qmake
+QA_FLAGS_IGNORED="usr/bin/recoll"
 
 pkg_setup() {
 	if use inotify; then
@@ -107,8 +107,9 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_icon_cache_update
 	optfeature "XML based documents support" "dev-libs/libxslt[python] dev-libs/libxml2[python]"
-	optfeature "PDF files support" app-text/poppler
+	optfeature "PDF files support" "app-text/poppler[utils]"
 	optfeature "PDF files with OCR support" app-text/tesseract
 	optfeature "MS Word files support" app-text/antiword
 	optfeature "Wordperfect files support" "app-text/libwpd[tools]"
