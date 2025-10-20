@@ -3,69 +3,67 @@
 
 EAPI=8
 
+DISTUTILS_EXT=1
+DISTUTILS_USE_PEP517=maturin
+PYTHON_COMPAT=( python3_{11..14} )
+
+RUST_MIN_VER="1.82"
 CRATES="
-	autocfg@1.4.0
-	cfg-if@1.0.0
+	autocfg@1.5.0
 	displaydoc@0.2.5
 	heck@0.5.0
-	icu_collections@1.5.0
-	icu_locid@1.5.0
-	icu_locid_transform@1.5.0
-	icu_locid_transform_data@1.5.1
-	icu_normalizer@1.5.0
-	icu_normalizer_data@1.5.1
-	icu_properties@1.5.1
-	icu_properties_data@1.5.1
-	icu_provider@1.5.0
-	icu_provider_macros@1.5.0
-	idna@1.0.3
-	idna_adapter@1.2.0
+	icu_collections@2.0.0
+	icu_locale_core@2.0.0
+	icu_normalizer@2.0.0
+	icu_normalizer_data@2.0.0
+	icu_properties@2.0.1
+	icu_properties_data@2.0.1
+	icu_provider@2.0.0
+	idna@1.1.0
+	idna_adapter@1.2.1
 	indoc@2.0.6
 	jid@0.12.0
-	libc@0.2.171
-	litemap@0.7.5
-	memchr@2.7.4
+	libc@0.2.177
+	litemap@0.8.0
+	memchr@2.7.6
 	memoffset@0.9.1
-	once_cell@1.21.1
-	portable-atomic@1.11.0
-	proc-macro2@1.0.94
-	pyo3-build-config@0.23.5
-	pyo3-ffi@0.23.5
-	pyo3-macros-backend@0.23.5
-	pyo3-macros@0.23.5
-	pyo3@0.23.5
-	quote@1.0.40
-	serde@1.0.219
-	serde_derive@1.0.219
-	smallvec@1.14.0
-	stable_deref_trait@1.2.0
+	once_cell@1.21.3
+	portable-atomic@1.11.1
+	potential_utf@0.1.3
+	proc-macro2@1.0.101
+	pyo3-build-config@0.26.0
+	pyo3-ffi@0.26.0
+	pyo3-macros-backend@0.26.0
+	pyo3-macros@0.26.0
+	pyo3@0.26.0
+	quote@1.0.41
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
+	smallvec@1.15.1
+	stable_deref_trait@1.2.1
 	stringprep@0.1.5
-	syn@2.0.100
-	synstructure@0.13.1
-	target-lexicon@0.12.16
-	tinystr@0.7.6
-	tinyvec@1.9.0
+	syn@2.0.107
+	synstructure@0.13.2
+	target-lexicon@0.13.3
+	tinystr@0.8.1
+	tinyvec@1.10.0
 	tinyvec_macros@0.1.1
 	unicode-bidi@0.3.18
-	unicode-ident@1.0.18
+	unicode-ident@1.0.19
 	unicode-normalization@0.1.24
 	unicode-properties@0.1.3
 	unindent@0.2.4
-	utf16_iter@1.0.5
 	utf8_iter@1.0.4
-	write16@1.0.0
-	writeable@0.5.5
-	yoke-derive@0.7.5
-	yoke@0.7.5
+	writeable@0.6.1
+	yoke-derive@0.8.0
+	yoke@0.8.0
 	zerofrom-derive@0.1.6
 	zerofrom@0.1.6
-	zerovec-derive@0.10.3
-	zerovec@0.10.4
+	zerotrie@0.2.2
+	zerovec-derive@0.11.1
+	zerovec@0.11.4
 "
-
-DISTUTILS_EXT=1
-DISTUTILS_USE_PEP517=maturin
-PYTHON_COMPAT=( python3_{10..13} )
 
 inherit cargo distutils-r1 pypi
 
@@ -82,7 +80,7 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT MPL-2.0 Unicode-3.0"
 SLOT="0"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 
 RDEPEND="
 	>=dev-python/aiodns-3.2.0[${PYTHON_USEDEP}]

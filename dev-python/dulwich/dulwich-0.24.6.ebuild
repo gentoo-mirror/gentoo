@@ -6,27 +6,28 @@ EAPI=8
 CARGO_OPTIONAL=1
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} )
+PYPI_VERIFY_REPO=https://github.com/jelmer/dulwich
+PYTHON_COMPAT=( python3_{11..14} )
 
 CRATES="
 	autocfg@1.5.0
 	heck@0.5.0
 	indoc@2.0.6
-	libc@0.2.174
-	memchr@2.7.5
+	libc@0.2.177
+	memchr@2.7.6
 	memoffset@0.9.1
 	once_cell@1.21.3
 	portable-atomic@1.11.1
-	proc-macro2@1.0.95
-	pyo3-build-config@0.25.1
-	pyo3-ffi@0.25.1
-	pyo3-macros-backend@0.25.1
-	pyo3-macros@0.25.1
-	pyo3@0.25.1
-	quote@1.0.40
-	syn@2.0.104
-	target-lexicon@0.13.2
-	unicode-ident@1.0.18
+	proc-macro2@1.0.101
+	pyo3-build-config@0.26.0
+	pyo3-ffi@0.26.0
+	pyo3-macros-backend@0.26.0
+	pyo3-macros@0.26.0
+	pyo3@0.26.0
+	quote@1.0.41
+	syn@2.0.107
+	target-lexicon@0.13.3
+	unicode-ident@1.0.19
 	unindent@0.2.4
 "
 
@@ -50,12 +51,15 @@ LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
 LICENSE+=" )"
 
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="doc examples +native-extensions test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-python/urllib3-1.25[${PYTHON_USEDEP}]
+	>=dev-python/urllib3-2.2.2[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		>=dev-python/typing-extensions-4.0[${PYTHON_USEDEP}]
+	' 3.11)
 "
 BDEPEND="
 	native-extensions? (
@@ -66,15 +70,12 @@ BDEPEND="
 		${RDEPEND}
 		dev-python/fastimport[${PYTHON_USEDEP}]
 		dev-python/gpgmepy[${PYTHON_USEDEP}]
+		dev-python/merge3[${PYTHON_USEDEP}]
 		dev-python/paramiko[${PYTHON_USEDEP},server(+)]
 	)
 "
 
 distutils_enable_sphinx docs
-
-PATCHES=(
-	"${FILESDIR}/${P}-test.patch"
-)
 
 QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/dulwich/_.*.so"
 
@@ -86,12 +87,14 @@ pkg_setup() {
 }
 
 src_unpack() {
+	pypi_src_unpack
 	cargo_src_unpack
 }
 
 python_compile() {
+	# make extension build errors fatal
+	local -x CIBUILDWHEEL=1
 	unset PURE
-	# TODO: enable Rust extensions
 	if ! use native-extensions; then
 		local -x PURE=1
 	fi
