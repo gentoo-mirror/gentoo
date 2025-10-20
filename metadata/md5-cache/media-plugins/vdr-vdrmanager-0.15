@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile config install postinst postrm prepare setup unpack
-DEPEND=>=media-video/vdr-2 ssl? ( dev-libs/openssl ) media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
+DEPEND=media-video/vdr:= ssl? ( dev-libs/openssl ) media-tv/gentoo-vdr-scripts sys-kernel/linux-headers
 DESCRIPTION=VDR Plugin: remote programming VDR using VDR-Manager running on Android devices
 EAPI=8
-HOMEPAGE=https://projects.vdr-developer.org/projects/vdr-manager/wiki
+HOMEPAGE=https://github.com/vdr-projects/vdr-plugin-vdrmanager/
 IDEPEND=ssl? ( dev-libs/openssl )
 INHERIT=vdr-plugin-2 ssl-cert
 IUSE=gzip +ssl stream zlib ssl
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=stream? ( media-plugins/vdr-streamdev[server] ) zlib? ( sys-libs/zlib ) media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr ssl? ( dev-libs/openssl )
+RDEPEND=media-video/vdr:= ssl? ( dev-libs/openssl ) stream? ( media-plugins/vdr-streamdev[server] ) zlib? ( sys-libs/zlib ) media-tv/gentoo-vdr-scripts app-eselect/eselect-vdr ssl? ( dev-libs/openssl )
 SLOT=0
-SRC_URI=mirror://vdr-developerorg/1971/vdr-vdrmanager-0.14.tgz
+SRC_URI=https://github.com/vdr-projects/vdr-plugin-vdrmanager/archive/refs/tags/0.15.tar.gz -> vdr-vdrmanager-0.15.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	strip-linguas	9d8d529d8082ec56dd495636df194d64	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	vdr-plugin-2	82b5825b9191fe26411649b6e757c905	edo	a5e294016aa84979fcb2459749eb80b2	ssl-cert	89fbacafccd672dde4fd51b8e313bf02
-_md5_=4e9d07594386f531aadc805eba882394
+_md5_=d6c4605f7419a012b93ff90ea0123cff
