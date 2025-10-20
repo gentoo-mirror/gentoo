@@ -3,13 +3,6 @@
 
 EAPI=8
 
-# Important!
-# This compiles the latest git version.
-# It also compiles the kernel modules.  Does not depend on virtualbox-modules.
-# It is not meant to be used, might be very unstable.
-#
-#
-#
 # To add a new Python here:
 # 1. Patch src/libs/xpcom18a4/python/Makefile.kmk (copy the previous impl's logic)
 #    Do NOT skip this part. It'll end up silently not-building the Python extension
@@ -24,24 +17,26 @@ EAPI=8
 #  See bug #785835, bug #856121.
 PYTHON_COMPAT=( python3_{11..14} )
 
-inherit desktop edo flag-o-matic git-r3 java-pkg-opt-2 linux-mod-r1 multilib \
-	optfeature pax-utils python-single-r1 tmpfiles toolchain-funcs udev xdg
+inherit desktop edo flag-o-matic java-pkg-opt-2 linux-info multilib optfeature pax-utils \
+	python-single-r1 tmpfiles toolchain-funcs udev xdg
 
 MY_PN="VirtualBox"
-BASE_PV=7.1.0
-MY_P=${MY_PN}-${PV}
-PATCHES_TAG=7.2.0_p20250830
+MY_P=${MY_PN}-${PV^^}
+HELP_PV=${PV}
+PATCHES_PV="7.2.0_p20250830"
 
 DESCRIPTION="Family of powerful x86 virtualization products for enterprise and home use"
 HOMEPAGE="https://www.virtualbox.org/ https://github.com/VirtualBox/virtualbox"
-EGIT_REPO_URI="https://github.com/VirtualBox/virtualbox.git"
 SRC_URI="
-	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-${PATCHES_TAG}.tar.bz2
-	gui? ( !doc? ( https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-help-${BASE_PV}.tar.xz ) )
+	https://download.virtualbox.org/virtualbox/${PV^^}/${MY_P}.tar.bz2
+	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-${PATCHES_PV}.tar.bz2
+	gui? ( !doc? ( https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-help-${HELP_PV}.tar.xz ) )
 "
+S="${WORKDIR}/${MY_PN}-${PV^^}"
 
 LICENSE="GPL-2+ GPL-3 LGPL-2.1 MIT dtrace? ( CDDL )"
 SLOT="0/$(ver_cut 1-2)"
+KEYWORDS="~amd64"
 IUSE="alsa dbus debug doc dtrace +gui java lvm nls pam pch pulseaudio +opengl python +sdk +sdl test +udev vboxwebsrv vde vnc"
 RESTRICT="!test? ( test )"
 
@@ -50,6 +45,7 @@ unset WATCOM #856769
 COMMON_DEPEND="
 	acct-group/vboxusers
 	app-arch/xz-utils
+	~app-emulation/virtualbox-modules-${PV%*a}
 	dev-libs/libtpms
 	dev-libs/libxml2:=
 	dev-libs/openssl:0=
@@ -126,7 +122,6 @@ DEPEND="
 "
 RDEPEND="
 	${COMMON_DEPEND}
-	!app-emulation/virtualbox-modules
 	gui? ( x11-libs/libxcb:= )
 	java? ( virtual/jre:1.8 )
 "
@@ -204,14 +199,10 @@ REQUIRED_USE="
 
 PATCHES=(
 	# Downloaded patchset
-	"${WORKDIR}"/virtualbox-patches-${PATCHES_TAG}/patches
+	"${WORKDIR}"/virtualbox-patches-${PATCHES_PV}/patches
 
-	"${FILESDIR}"/${PN}-7.2.2-curl-8.16.patch
+	"${FILESDIR}"/${P}-curl-8.16.patch
 )
-
-DOCS=()	# Don't install the default README file during einstalldocs
-
-CONFIG_CHECK="~!SPINLOCK JUMP_LABEL ~PREEMPT_NOTIFIERS"
 
 pkg_pretend() {
 	if ! use gui; then
@@ -240,12 +231,6 @@ pkg_pretend() {
 pkg_setup() {
 	java-pkg-opt-2_pkg_setup
 	use python && python-single-r1_pkg_setup
-	linux-mod-r1_pkg_setup
-}
-
-src_unpack() {
-	git-r3_src_unpack
-	default
 }
 
 src_prepare() {
@@ -262,6 +247,8 @@ src_prepare() {
 		eapply "${FILESDIR}"/050_virtualbox-5.2.8-nopie.patch
 	fi
 
+	# Remove shipped binaries (kBuild, yasm) and tools, see bug #232775
+	rm -r kBuild/bin || die
 	# Remove everything in tools except kBuildUnits
 	find tools -mindepth 1 -maxdepth 1 -name kBuildUnits -prune -o -exec rm -r {} \+ || die
 
@@ -516,10 +503,6 @@ src_compile() {
 	fi
 
 	MAKE="kmk" emake "${myemakeargs[@]}" all
-
-	local modlist=( {vboxdrv,vboxnetflt,vboxnetadp}=misc:"out/linux.${ARCH}/release/bin/src" )
-	local modargs=( KERN_DIR="${KV_OUT_DIR}" KERN_VER="${KV_FULL}" )
-	linux-mod-r1_src_compile
 }
 
 src_test() {
@@ -538,27 +521,6 @@ src_test() {
 }
 
 src_install() {
-	linux-mod-r1_src_install
-	insinto /usr/lib/modules-load.d/
-	newins - virtualbox.conf <<-EOF
-		vboxdrv
-		vboxnetflt
-		vboxnetadp
-	EOF
-	insinto /etc/modprobe.d # bug #945135
-	newins - virtualbox.conf <<-EOF
-			# modprobe.d configuration file for VBOXSF
-
-			# Starting with kernel 6.12,
-			#   KVM initializes virtualization on module loading by default.
-			# This prevents VirtualBox VMs from starting.
-			# See also:
-			#   https://bugs.gentoo.org/945135
-			#   https://www.virtualbox.org/wiki/Changelog-7.1
-			# ------------------------------
-			options kvm enable_virt_at_load=0
-	EOF
-
 	cd "${S}"/out/linux.${ARCH}/$(usex debug debug release)/bin || die
 
 	local vbox_inst_path="/usr/$(get_libdir)/${PN}" each size ico icofile
@@ -743,7 +705,7 @@ src_install() {
 		dodoc UserManual.pdf UserManual.q{ch,hc}
 		docompress -x /usr/share/doc/${PF}
 	elif use gui; then
-		dodoc "${WORKDIR}"/${PN}-help-${BASE_PV}/UserManual.q{ch,hc}
+		dodoc "${WORKDIR}"/${PN}-help-${HELP_PV}/UserManual.q{ch,hc}
 		docompress -x /usr/share/doc/${PF}
 	fi
 
@@ -780,8 +742,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	linux-mod-r1_pkg_postinst
-
 	xdg_pkg_postinst
 
 	if use udev; then
@@ -798,7 +758,7 @@ pkg_postinst() {
 	elog "You must be in the vboxusers group to use VirtualBox."
 	elog ""
 	elog "The latest user manual is available for download at:"
-	elog "https://download.virtualbox.org/virtualbox/${BASE_PV}/UserManual.pdf"
+	elog "https://download.virtualbox.org/virtualbox/${PV}/UserManual.pdf"
 	elog ""
 
 	optfeature "Advanced networking setups" net-misc/bridge-utils sys-apps/usermode-utilities
