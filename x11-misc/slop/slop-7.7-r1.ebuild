@@ -11,7 +11,7 @@ SRC_URI="https://github.com/naelstrof/slop/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0/${PV}"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="icu opengl"
 
 RDEPEND="
@@ -20,29 +20,18 @@ RDEPEND="
 	icu? ( dev-libs/icu:= )
 	opengl? (
 		media-libs/glew:0=
-		media-libs/libglvnd
-		virtual/opengl
-		x11-libs/libXrender:=
+		media-libs/libglvnd[X]
+		x11-libs/libXrender
 	)
-"
-BDEPEND="
-	${RDEPEND}
-	x11-base/xorg-proto
 "
 DEPEND="
 	${RDEPEND}
 	media-libs/glm
+	x11-base/xorg-proto
 "
+BDEPEND="opengl? ( virtual/pkgconfig )"
 
-PATCHES=(
-	"${FILESDIR}/${PN}"-7.5-missing-header.patch
-	"${FILESDIR}/${P}"-cmake4.patch
-)
-
-src_prepare() {
-	use icu && eapply "${FILESDIR}/"icu-75.1-cxx17.patch
-	cmake_src_prepare
-}
+PATCHES=( "${FILESDIR}"/${P}-cmake-min-ver-3.11.patch ) # bug 964438
 
 src_configure() {
 	local mycmakeargs=(
