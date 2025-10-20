@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KDE_ORG_COMMIT=cec72dd2575a562b967349169936b049b3076fc6
+KDE_ORG_COMMIT=87f39a5e846493df94cef498413f85b70f282e6d
 PYTHON_COMPAT=( python3_{11..13} )
 KFMIN=6.9.0
 QTMIN=6.8.0
@@ -91,7 +91,14 @@ PATCHES=(
 	# downstream
 	"${FILESDIR}"/${PN}-5.3.0-tests-optional.patch
 	"${FILESDIR}"/${PN}-5.2.2-fftw.patch # bug 913518
+	# pending upstream
+	"${FILESDIR}"/${P}-qt6.10.patch
 )
+
+src_prepare() {
+	rm -r packaging || die # unused and too low CMake minimum
+	ecm_src_prepare
+}
 
 src_configure() {
 	# Prevent sandbox violation from FindPyQt5.py module
