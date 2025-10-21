@@ -1,0 +1,16 @@
+BDEPEND=>=kde-frameworks/kcmutils-6.18.0:6 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 handbook? ( >=kde-frameworks/kdoctools-6.18.0:6 ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.18.0:*
+DEFINED_PHASES=compile configure info install nofetch postinst postrm preinst prepare test unpack
+DEPEND=>=dev-qt/qtbase-6.9.1:6[dbus,gles2-only=,gui,vulkan,widgets] >=dev-qt/qtdeclarative-6.9.1:6 >=kde-frameworks/kauth-6.18.0:6 >=kde-frameworks/kcmutils-6.18.0:6 >=kde-frameworks/kconfig-6.18.0:6 >=kde-frameworks/kcoreaddons-6.18.0:6 >=kde-frameworks/ki18n-6.18.0:6 >=kde-frameworks/kio-6.18.0:6 >=kde-frameworks/kservice-6.18.0:6 >=kde-frameworks/solid-6.18.0:6 virtual/libudev:= gles2-only? ( >=media-libs/mesa-24.1.0_rc1[opengl] ) usb? ( virtual/libusb:1 ) dev-qt/qtbase:6
+DESCRIPTION=Utility providing information about the computer hardware
+EAPI=8
+HOMEPAGE=https://userbase.kde.org/KInfoCenter
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=ecm plasma.kde.org optfeature xdg
+IUSE=gles2-only usb debug +handbook
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=>=dev-qt/qtbase-6.9.1:6[dbus,gles2-only=,gui,vulkan,widgets] >=dev-qt/qtdeclarative-6.9.1:6 >=kde-frameworks/kauth-6.18.0:6 >=kde-frameworks/kcmutils-6.18.0:6 >=kde-frameworks/kconfig-6.18.0:6 >=kde-frameworks/kcoreaddons-6.18.0:6 >=kde-frameworks/ki18n-6.18.0:6 >=kde-frameworks/kio-6.18.0:6 >=kde-frameworks/kservice-6.18.0:6 >=kde-frameworks/solid-6.18.0:6 virtual/libudev:= gles2-only? ( >=media-libs/mesa-24.1.0_rc1[opengl] ) usb? ( virtual/libusb:1 ) >=dev-qt/qttools-6.9.1:6[qdbus] >=kde-frameworks/kirigami-6.18.0:6 >=kde-plasma/systemsettings-6.5.0:6 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-plasma/kinfocenter:5
+SLOT=6
+SRC_URI=mirror://kde/stable/plasma/6.5.0/kinfocenter-6.5.0.tar.xz https://www.gentoo.org/assets/img/logo/gentoo-3d-small.png -> glogo-small.png
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	2d36accef058c00889b1f93ea4bc4061	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	ab3090652095a7b818afb903b315c3f7	kde.org	2eea56ed41440913be4caa3d255d2db3	plasma.kde.org	7dce7e123b845b50045d250ddb278647	optfeature	538bce96e5589935b57e178e8635f301	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=761d5fb63fc87c982246ebb93f91438c
