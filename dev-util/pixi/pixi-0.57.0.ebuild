@@ -97,11 +97,6 @@ RDEPEND="
 "
 
 src_prepare() {
-	local PATCHES=(
-		# https://github.com/prefix-dev/pixi/pull/4595
-		"${FILESDIR}/${P}-test.patch"
-	)
-
 	default
 
 	# replace upstream crate substitution with our crate substitution, sigh
