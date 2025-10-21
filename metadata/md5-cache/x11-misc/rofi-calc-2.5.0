@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/glib-2.40:2 x11-libs/cairo >=x11-misc/rofi-1.7.6
+DESCRIPTION=Do live calculations in rofi!
+EAPI=8
+HOMEPAGE=https://github.com/svenstaro/rofi-calc
+INHERIT=meson
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-libs/glib-2.40:2 x11-libs/cairo >=x11-misc/rofi-1.7.6 sci-libs/libqalculate
+SLOT=0
+SRC_URI=https://github.com/svenstaro/rofi-calc/archive/v2.5.0.tar.gz -> rofi-calc-2.5.0.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=85acabd1fcf4777407590a949b0e6abd

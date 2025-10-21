@@ -7,11 +7,11 @@ HOMEPAGE=https://handbrake.fr/ https://github.com/HandBrake/HandBrake
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=edo flag-o-matic multiprocessing python-any-r1 toolchain-funcs xdg
 IUSE=amf +fdk gui libdovi numa nvenc qsv x265
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=GPL-2
 RDEPEND=app-arch/bzip2 >=app-arch/xz-utils-5.2.6 dev-libs/jansson:= >=media-libs/dav1d-1.0.0:= >=media-libs/libjpeg-turbo-2.1.4:= >=media-libs/libass-0.16.0:= >=media-libs/libbluray-1.3.4:= media-libs/libdvdnav >=media-libs/libdvdread-6.1.3:= media-libs/libtheora:= media-libs/libvorbis >=media-libs/libvpx-1.12.0:= media-libs/opus >=media-libs/speex-1.2.1 >=media-libs/svt-av1-3.0.0:= >=media-libs/x264-0.0.20220222:= >=media-libs/zimg-3.0.4 media-sound/lame sys-libs/zlib fdk? ( media-libs/fdk-aac:= ) libdovi? ( media-libs/libdovi:= ) gui? ( >=gui-libs/gtk-4.6:4[gstreamer] dev-libs/glib:2 >=dev-libs/libxml2-2.10.3:= x11-libs/gdk-pixbuf:2 x11-libs/pango ) numa? ( sys-process/numactl ) nvenc? ( media-libs/nv-codec-headers ) qsv? ( media-libs/libva:= >=media-libs/libvpl-1.13.0:= ) amf? ( media-video/amdgpu-pro-amf )
 REQUIRED_USE=numa? ( x265 )
 SLOT=0
 SRC_URI=https://github.com/HandBrake/HandBrake/releases/download/1.10.2/HandBrake-1.10.2-source.tar.bz2 -> handbrake-1.10.2.tar.bz2 x265? ( https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20250729-13276.tar.gz -> handbrake-x265-snapshot-20250729-13276.tar.gz ) x265? ( https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20250729-13276.tar.gz -> handbrake-x265-snapshot-20250729-13276.tar.gz ) x265? ( https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20250729-13276.tar.gz -> handbrake-x265-snapshot-20250729-13276.tar.gz ) https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/ffmpeg-7.1.1.tar.bz2 -> handbrake-ffmpeg-7.1.1.tar.bz2 x265? ( https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20250729-13276.tar.gz -> handbrake-x265-snapshot-20250729-13276.tar.gz )
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-any-r1	891415dfe39ad9b41b461f2b86354af0	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=5361c70c6e39c2fea930667b02af84ee
+_md5_=15964f1ed6849130f4540f311eb11be8

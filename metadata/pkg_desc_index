@@ -4007,7 +4007,7 @@ dev-db/pgbouncer 1.23.1 1.24.1: Lightweight connection pooler for PostgreSQL
 dev-db/pgcli 4.0.1-r1 4.1.0: CLI for Postgres with auto-completion and syntax highlighting
 dev-db/pglogical 2.4.4: Logical replication for PostgreSQL
 dev-db/pgmemcache 2.3.0 2.3.0-r1: A PostgreSQL API based on libmemcached to interface with memcached
-dev-db/pgmodeler 1.2.0 1.2.1: PostgreSQL Database Modeler
+dev-db/pgmodeler 1.2.1 1.2.2: PostgreSQL Database Modeler
 dev-db/pgpool2 4.4.7 4.4.7-r1: Connection pool server for PostgreSQL
 dev-db/pgrouting 3.6.2 3.7.0 3.7.3 3.8.0: pgRouting extends PostGIS and PostgreSQL with geospatial routing functionality
 dev-db/pgtap 1.3.1 1.3.3: Unit testing for PostgreSQL
@@ -8144,7 +8144,7 @@ dev-python/babel 2.17.0: Collection of tools for internationalizing Python appli
 dev-python/babelfish 0.6.1: Python library to work with countries and languages
 dev-python/backports-ssl-match-hostname 3.7.0.1: The ssl.match_hostname() function from Python 3.7
 dev-python/backports-tarfile 1.2.0: Backport of CPython tarfile module (from Python 3.12)
-dev-python/backports-zstd 1.0.0: Backport of PEP-784: adding Zstandard to the standard library
+dev-python/backports-zstd 1.0.0-r1: Backport of PEP-784: adding Zstandard to the standard library
 dev-python/backrefs 5.9 6.0.1: Wrapper around re or regex that adds additional back references
 dev-python/bandit 1.8.6: A security linter from OpenStack Security
 dev-python/bareos 24.0.3: python bindings for bareos network backup suite
@@ -14993,7 +14993,7 @@ net-libs/libssh2 1.11.1 9999: Library implementing the SSH2 protocol
 net-libs/libtelnet 0.23-r2: Simple RFC-compliant TELNET implementation as a C library
 net-libs/libtirpc 1.3.6 1.3.7: Transport Independent RPC library (SunRPC replacement)
 net-libs/libtlsrpt 0.5.0 9999: library to implement TLSRPT
-net-libs/libtorrent 0.13.8-r3 0.15.1 0.15.5 0.15.7 9999: BitTorrent library written in C++ for *nix
+net-libs/libtorrent 0.13.8-r3 0.15.1 0.15.5 0.15.7 0.16.1 9999: BitTorrent library written in C++ for *nix
 net-libs/libtorrent-rasterbar 2.0.10: C++ BitTorrent implementation focusing on efficiency and scalability
 net-libs/libtrace 4.0.21 4.0.22 4.0.26 4.0.28: A library and tools for trace processing
 net-libs/libupnp 1.14.24 1.14.25: An Portable Open Source UPnP Development Kit
@@ -15045,7 +15045,7 @@ net-libs/udns 0.6: Async-capable DNS stub resolver library
 net-libs/uhttpmock 0.5.5-r1 0.9.0 0.11.0: HTTP web service mocking library
 net-libs/usrsctp 0.9.5.0_p20250331: A cross-platform userland SCTP stack
 net-libs/wandio 4.2.3_p1-r1 4.2.3_p1-r2 4.2.4 4.2.6: C library for simple and efficient file IO
-net-libs/webkit-gtk 2.44.4-r411 2.44.4-r601 2.46.5-r411 2.46.5-r601 2.48.5-r410 2.48.5-r411 2.48.5-r600 2.48.5-r601: Open source web browser engine
+net-libs/webkit-gtk 2.44.4-r411 2.44.4-r601 2.46.5-r411 2.46.5-r601 2.48.5-r410 2.48.5-r411 2.48.5-r600 2.48.5-r601 2.50.1-r410 2.50.1-r411 2.50.1-r600 2.50.1-r601: Open source web browser engine
 net-libs/wslay 1.1.1_p20210115: WebSocket library in C
 net-libs/wvstreams 4.6.1_p14-r2: A network programming library in C++
 net-libs/xdp-tools 1.5.3 1.5.4 1.5.6 1.5.7: The libxdp library and various tools for use with XDP
@@ -15518,7 +15518,7 @@ net-p2p/nicotine+ 3.3.7 3.3.10: Graphical client for the Soulseek peer to peer n
 net-p2p/qbittorrent 5.0.5 5.1.2 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.8.1.1390 3.1.1.1075 9999: Resilient, fast and scalable file synchronization tool
 net-p2p/retroshare 0.6.7-r4: Friend to Friend secure communication and sharing application
-net-p2p/rtorrent 0.9.8-r3 0.15.1 0.15.5 0.15.7 9999: BitTorrent Client using libtorrent
+net-p2p/rtorrent 0.9.8-r3 0.15.1 0.15.5 0.15.7 0.16.1 9999: BitTorrent Client using libtorrent
 net-p2p/stig 0.13.0a_p0: TUI and CLI for the BitTorrent client Transmission
 net-p2p/syncthing 1.27.12 1.29.5 2.0.8-r1 2.0.10: Open Source Continuous File Synchronization
 net-p2p/torrentinfo 1.8.7: A torrent file parser
@@ -17305,6 +17305,7 @@ sys-block/aoetools 37: tools for ATA over Ethernet (AoE) network storage protoco
 sys-block/arcconf 2.01.22270-r2 3.07.23980 4.23.00.27147 4.26.00.27449: Microsemi Adaptec RAID Controller Command Line Utility
 sys-block/blktrace 1.3.0-r1: show detailed info about what is happening on a block device io queue
 sys-block/bmap-tools 3.6-r1: Flashing tool using block maps and sparse files
+sys-block/bmaptool 3.9.0: The better dd for embedded projects, based on block maps
 sys-block/buffer 1.19-r4: A tapedrive tool for speeding up reading from and writing to tape
 sys-block/cec 14-r2: Coraid Ethernet Console client
 sys-block/devio 1.2-r1: Correctly read (or write) a region of a block device
@@ -18584,7 +18585,7 @@ x11-misc/redshift 1.12-r10 1.12-r12 1.12-r13: A screen color temperature adjusti
 x11-misc/rendercheck 1.6 9999: Tests for compliance with X RENDER extension
 x11-misc/revelation 0.5.5: A password manager for GNOME
 x11-misc/rofi 1.7.5 1.7.6-r2 1.7.7 1.7.8 1.7.9.1 9999: A window switcher, run dialog and dmenu replacement
-x11-misc/rofi-calc 2.4.0: Do live calculations in rofi!
+x11-misc/rofi-calc 2.4.0 2.5.0: Do live calculations in rofi!
 x11-misc/rofi-file-browser-extended 1.3.1-r2: A file browser for rofi
 x11-misc/rss-glx 0.9.1-r4: Really Slick OpenGL Screensavers for XScreenSaver
 x11-misc/safeeyes 2.2.2 2.2.3 2.2.3-r1 3.0.0 3.0.1 3.1.0 3.2.0: Linux alternative to EyeLeo
@@ -18869,7 +18870,7 @@ x11-plugins/wmwifi 0.6-r1: wireless network interface monitor dockapp
 x11-plugins/wmwork 0.2.5-r1: a dockapp that lets you easily track time spent on different projects
 x11-plugins/wmxkb 1.2.2-r1: Dockable keyboard layout switcher for Window Maker
 x11-plugins/wmxres 1.2-r1 1.4: Dock application to select your display mode among those possible
-x11-terms/alacritty 0.15.1 9999: GPU-accelerated terminal emulator
+x11-terms/alacritty 0.15.1 0.16.1 9999: GPU-accelerated terminal emulator
 x11-terms/ghostty 1.1.3 1.2.0 1.2.1: Fast, feature-rich, and cross-platform terminal emulator
 x11-terms/ghostty-terminfo 1.1.3 1.2.0 1.2.1: Terminfo for ghostty, a fast, feature-rich, and cross-platform terminal emulator
 x11-terms/gnome-terminal 3.54.3-r1 3.56.2-r1 3.56.3: A terminal emulator for GNOME
