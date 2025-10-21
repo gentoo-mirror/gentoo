@@ -1,0 +1,16 @@
+BDEPEND=|| ( ( dev-lang/python:3.14 dev-python/cppheaderparser[python_targets_python3_14(-)] dev-python/ply[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/cppheaderparser[python_targets_python3_13(-)] dev-python/ply[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/cppheaderparser[python_targets_python3_12(-)] dev-python/ply[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/cppheaderparser[python_targets_python3_11(-)] dev-python/ply[python_targets_python3_11(-)] ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-libs/rocr-runtime:0/7.0 dev-libs/rocm-comgr:0/7.0 dev-util/hip:0/7.0
+DESCRIPTION=Callback/Activity Library for Performance tracing AMD GPU's
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/rocm-systems/tree/develop/projects/roctracer
+INHERIT=cmake flag-o-matic prefix python-any-r1 rocm toolchain-funcs
+IUSE=test +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx950 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 +amdgpu_targets_gfx1101 +amdgpu_targets_gfx1200 +amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1102 amdgpu_targets_gfx1103 amdgpu_targets_gfx1150 amdgpu_targets_gfx1151
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-libs/rocr-runtime:0/7.0 dev-libs/rocm-comgr:0/7.0
+RESTRICT=!test? ( test )
+SLOT=0/7.0
+SRC_URI=https://github.com/ROCm/roctracer/archive/rocm-7.0.2.tar.gz -> roctracer-7.0.2.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	2d36accef058c00889b1f93ea4bc4061	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	python-utils-r1	0b620dd604ab8af0bc9cd1bcc66d4f7c	python-any-r1	891415dfe39ad9b41b461f2b86354af0	rocm	922af7ff86e77b32bf6eba22cf6537e6
+_md5_=e10e572e5210d5962ad7597f9d8985dd

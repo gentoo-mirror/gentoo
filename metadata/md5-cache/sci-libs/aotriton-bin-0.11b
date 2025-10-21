@@ -1,0 +1,12 @@
+DEFINED_PHASES=install
+DESCRIPTION=Ahead of Time (AOT) Triton Math Library (binary package)
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/aotriton
+IUSE=+amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx950 +amdgpu_targets_gfx1100 +amdgpu_targets_gfx1101 +amdgpu_targets_gfx1102 +amdgpu_targets_gfx1103 +amdgpu_targets_gfx1150 +amdgpu_targets_gfx1151 +amdgpu_targets_gfx1200 +amdgpu_targets_gfx1201
+KEYWORDS=-* ~amd64
+LICENSE=MIT
+RDEPEND=sys-libs/glibc sys-devel/gcc app-arch/xz-utils dev-util/hip:0/7.0
+RESTRICT=strip
+SLOT=0/0.11
+SRC_URI=https://github.com/ROCm/aotriton/releases/download/0.11b/aotriton-0.11b-manylinux_2_28_x86_64-rocm7.0-shared.tar.gz amdgpu_targets_gfx90a? ( https://github.com/ROCm/aotriton/releases/download/0.11b/aotriton-0.11b-images-amd-gfx90a.tar.gz ) amdgpu_targets_gfx942? ( https://github.com/ROCm/aotriton/releases/download/0.11b/aotriton-0.11b-images-amd-gfx942.tar.gz ) amdgpu_targets_gfx950? ( https://github.com/ROCm/aotriton/releases/download/0.11b/aotriton-0.11b-images-amd-gfx950.tar.gz ) amdgpu_targets_gfx1100? ( https://github.com/ROCm/aotriton/releases/download/0.11b/aotriton-0.11b-images-amd-gfx11xx.tar.gz ) amdgpu_targets_gfx1101? ( https://github.com/ROCm/aotriton/releases/download/0.11b/aotriton-0.11b-images-amd-gfx11xx.tar.gz ) amdgpu_targets_gfx1102? ( https://github.com/ROCm/aotriton/releases/download/0.11b/aotriton-0.11b-images-amd-gfx11xx.tar.gz ) amdgpu_targets_gfx1103? ( https://github.com/ROCm/aotriton/releases/download/0.11b/aotriton-0.11b-images-amd-gfx11xx.tar.gz ) amdgpu_targets_gfx1150? ( https://github.com/ROCm/aotriton/releases/download/0.11b/aotriton-0.11b-images-amd-gfx11xx.tar.gz ) amdgpu_targets_gfx1151? ( https://github.com/ROCm/aotriton/releases/download/0.11b/aotriton-0.11b-images-amd-gfx11xx.tar.gz ) amdgpu_targets_gfx1200? ( https://github.com/ROCm/aotriton/releases/download/0.11b/aotriton-0.11b-images-amd-gfx120x.tar.gz ) amdgpu_targets_gfx1201? ( https://github.com/ROCm/aotriton/releases/download/0.11b/aotriton-0.11b-images-amd-gfx120x.tar.gz )
+_md5_=8f168f577bc4e8f8d7a173885edf3432

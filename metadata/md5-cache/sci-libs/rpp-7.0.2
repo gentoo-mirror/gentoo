@@ -1,0 +1,17 @@
+BDEPEND=>=dev-build/cmake-3.22 >=dev-libs/half-1.12.0-r1 test? ( dev-cpp/gtest media-libs/opencv:= ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-util/hip:0/7.0
+DESCRIPTION=AMD ROCm Performance Primitives (RPP) high-performance computer vision library
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/rpp
+INHERIT=cmake flag-o-matic rocm
+IUSE=cpu_flags_x86_avx2 cpu_flags_x86_fma3 cpu_flags_x86_f16c test +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx950 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 +amdgpu_targets_gfx1101 +amdgpu_targets_gfx1200 +amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1102 amdgpu_targets_gfx1103 amdgpu_targets_gfx1150 amdgpu_targets_gfx1151
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-util/hip:0/7.0
+REQUIRED_USE=cpu_flags_x86_avx2 cpu_flags_x86_fma3 cpu_flags_x86_f16c || ( amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx942 amdgpu_targets_gfx950 amdgpu_targets_gfx1030 amdgpu_targets_gfx1100 amdgpu_targets_gfx1101 amdgpu_targets_gfx1200 amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1102 amdgpu_targets_gfx1103 amdgpu_targets_gfx1150 amdgpu_targets_gfx1151 )
+RESTRICT=!test? ( test )
+SLOT=0/7.0
+SRC_URI=https://github.com/ROCm/rpp/archive/refs/tags/rocm-7.0.2.tar.gz -> rpp-7.0.2.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	2d36accef058c00889b1f93ea4bc4061	rocm	922af7ff86e77b32bf6eba22cf6537e6
+_md5_=d7fc0f17ff094a73c53ba87db12e9e78

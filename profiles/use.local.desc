@@ -2238,6 +2238,7 @@ dev-libs/re2:benchmark - Build a benchmark binary, install it as re2-bench
 dev-libs/re2:test-full - Run additional, quite slow tests
 dev-libs/rocksdb:numa - Enable NUMA support using sys-process/numactl (NUMA kernel support is also required)
 dev-libs/rocksdb:tbb - Enable support for dev-cpp/tbb
+dev-libs/rocm-opencl-runtime:numa - Enable NUMA support using sys-process/numactl (NUMA kernel support is also required)
 dev-libs/sentry-native:breakpad - Use dev-util/breakpad as the crash handler
 dev-libs/sentry-native:curl - Enable support for automated uploading of crash reports
 dev-libs/serd:tools - Build command line utilities
@@ -2890,6 +2891,7 @@ dev-util/google-perftools:pagesize-64k - Use 64K page size for tcmalloc. Larger 
 dev-util/heaptrack:gui - Install Qt6-based analyzer tool
 dev-util/hfstospell:clang - Use different logic in ebuild when clang is used
 dev-util/hip:hip - Build HIP runtime
+dev-util/hip:numa - Enable NUMA support using sys-process/numactl (NUMA kernel support is also required)
 dev-util/hip:opencl - Build OpenCL runtime
 dev-util/hip:video_cards_amdgpu - Build for AMD platform
 dev-util/hip:video_cards_nvidia - Build for Nvidia platform
@@ -7411,6 +7413,7 @@ sci-libs/gsl:cblas-external - Link gsl with external cblas provided by (virtual/
 sci-libs/gsl:deprecated - Enable deprecated functions
 sci-libs/hdf5:hl - Enable high level API (https://support.hdfgroup.org/HDF5/doc/HL/index.html)
 sci-libs/hdf5:unsupported - Enable unsupported combinations of configuration options
+sci-libs/hipBLAS:rocsolver - Add additional functions from sci-libs/rocSOLVER
 sci-libs/hipBLASLt:benchmark - Build and install rocblas-bench.
 sci-libs/hipBLASLt:roctracer - Enable roctracer (roctx) marker.
 sci-libs/hipCUB:benchmark - Build and install benchmark binaries.
@@ -7497,12 +7500,14 @@ sci-libs/plplot:qhull - Add bindings for media-libs/qhull
 sci-libs/plplot:shapefile - Enable support for ESRI shapefiles
 sci-libs/rocBLAS:benchmark - Build and install rocblas-bench.
 sci-libs/rocBLAS:hipblaslt - Build with hipBLASLt for some non-batched and strided batched problems on gfx12.
+sci-libs/rocBLAS:roctracer - Enable roctracer (roctx) marker.
 sci-libs/rocBLAS:test - Perform rocblas-test to compare the result between rocBLAS and system BLAS.
 sci-libs/rocFFT:benchmark - Build and install rocfft benchmark tools.
 sci-libs/rocFFT:perfscripts - Install rocfft-perf performance visualization suite.
 sci-libs/rocPRIM:benchmark - Build and install benchmark programs.
 sci-libs/rocRAND:benchmark - Build and install benchmark programs.
 sci-libs/rocSOLVER:benchmark - Build and install rocsolver-bench.
+sci-libs/rocSOLVER:sparse - Install and link with sci-libs/rocSPARSE instead of loading it with dlopen
 sci-libs/rocSOLVER:test - Perform rocsolver-test to compare the result between rocSOLVER and system LAPACK.
 sci-libs/rocSPARSE:benchmark - Build and install rocblas-bench.
 sci-libs/rocThrust:benchmark - Build and install benchmark binary.
