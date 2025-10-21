@@ -2233,7 +2233,7 @@ dev-libs/qcoro:websockets - Build dev-qt/qtwebsockets support
 dev-libs/quazip:qt5 - Build with Qt5 support
 dev-libs/quazip:qt6 - Build with Qt6 support
 dev-libs/raft:zfs - ZFS support
-dev-libs/rccl:roctracer - Enable roctracer (roctx) marker.
+dev-libs/rccl:roctracer - Enable roctracer (roctx) marker
 dev-libs/re2:benchmark - Build a benchmark binary, install it as re2-bench
 dev-libs/re2:test-full - Run additional, quite slow tests
 dev-libs/rocksdb:numa - Enable NUMA support using sys-process/numactl (NUMA kernel support is also required)
@@ -2892,7 +2892,7 @@ dev-util/heaptrack:gui - Install Qt6-based analyzer tool
 dev-util/hfstospell:clang - Use different logic in ebuild when clang is used
 dev-util/hip:hip - Build HIP runtime
 dev-util/hip:numa - Enable NUMA support using sys-process/numactl (NUMA kernel support is also required)
-dev-util/hip:opencl - Build OpenCL runtime
+dev-util/hip:opencl - Build vendored OpenCL runtime
 dev-util/hip:video_cards_amdgpu - Build for AMD platform
 dev-util/hip:video_cards_nvidia - Build for Nvidia platform
 dev-util/idea-community:experimental - Enables Wayland support preview.
@@ -7414,11 +7414,11 @@ sci-libs/gsl:deprecated - Enable deprecated functions
 sci-libs/hdf5:hl - Enable high level API (https://support.hdfgroup.org/HDF5/doc/HL/index.html)
 sci-libs/hdf5:unsupported - Enable unsupported combinations of configuration options
 sci-libs/hipBLAS:rocsolver - Add additional functions from sci-libs/rocSOLVER
-sci-libs/hipBLASLt:benchmark - Build and install rocblas-bench.
-sci-libs/hipBLASLt:roctracer - Enable roctracer (roctx) marker.
-sci-libs/hipCUB:benchmark - Build and install benchmark binaries.
+sci-libs/hipBLASLt:benchmark - Build and install rocblas-bench
+sci-libs/hipBLASLt:roctracer - Enable roctracer (roctx) marker
+sci-libs/hipCUB:benchmark - Build and install benchmark binaries
 sci-libs/hipSOLVER:sparse - Build hipSOLVER with sparse functionality (sci-libs/cholmod)
-sci-libs/hipSPARSE:benchmark - Build and install hipsparse-bench.
+sci-libs/hipSPARSE:benchmark - Build and install hipsparse-bench
 sci-libs/hypre:int64 - Build the 64 bits integer library
 sci-libs/indilib:rtlsdr - Enable support for devices supported by net-wireless/rtl-sdr
 sci-libs/ipopt:asl - AMPL Solver Library support and build the 'ipopt' binary
@@ -7453,10 +7453,10 @@ sci-libs/mathgl:octave - Add bindings for sci-mathematics/octave
 sci-libs/matio:sparse - Extend formats for sparse matrix (not matlab)
 sci-libs/metis:double-precision - Use double- rather than single-precision floating-point representation
 sci-libs/metis:int64 - Use 64- rather than 32-bit integer representation (needed for > 2^31 vertices)
-sci-libs/miopen:composable-kernel - Use composable-kernel for GEMM-like and reduction-like operators.
-sci-libs/miopen:hipblaslt - Use hipBLASLt for some non-batched and strided batched problems.
-sci-libs/miopen:rocblas - Build with rocBLAS support
-sci-libs/miopen:roctracer - Build with roctracer support
+sci-libs/miopen:composable-kernel - Use sci-libs/composable-kernel for GEMM-like and reduction-like operators
+sci-libs/miopen:hipblaslt - Use sci-libs/hipBLASLt for some non-batched and strided batched problems
+sci-libs/miopen:rocblas - Build with sci-libs/rocBLAS support
+sci-libs/miopen:roctracer - Build with dev-util/roctracer support
 sci-libs/mkl:eselect-ldso - Enable BLAS/LAPACK runtime switching.
 sci-libs/mkl:gnu-openmp - Install versions with GNU OpenMP (libgomp) support.
 sci-libs/mkl:llvm-openmp - Install versions with LLVM OpenMP (libomp) support.
@@ -7498,19 +7498,19 @@ sci-libs/plplot:dynamic - Build with dynamic drivers
 sci-libs/plplot:octave - Add bindings for sci-mathematics/octave
 sci-libs/plplot:qhull - Add bindings for media-libs/qhull
 sci-libs/plplot:shapefile - Enable support for ESRI shapefiles
-sci-libs/rocBLAS:benchmark - Build and install rocblas-bench.
-sci-libs/rocBLAS:hipblaslt - Build with hipBLASLt for some non-batched and strided batched problems on gfx12.
-sci-libs/rocBLAS:roctracer - Enable roctracer (roctx) marker.
-sci-libs/rocBLAS:test - Perform rocblas-test to compare the result between rocBLAS and system BLAS.
-sci-libs/rocFFT:benchmark - Build and install rocfft benchmark tools.
-sci-libs/rocFFT:perfscripts - Install rocfft-perf performance visualization suite.
-sci-libs/rocPRIM:benchmark - Build and install benchmark programs.
-sci-libs/rocRAND:benchmark - Build and install benchmark programs.
-sci-libs/rocSOLVER:benchmark - Build and install rocsolver-bench.
+sci-libs/rocBLAS:benchmark - Build and install rocblas-bench
+sci-libs/rocBLAS:hipblaslt - Build with sci-libs/hipBLASLt for some non-batched and strided batched problems on gfx12
+sci-libs/rocBLAS:roctracer - Enable roctracer (roctx) marker
+sci-libs/rocBLAS:test - Perform rocblas-test to compare the result between rocBLAS and system BLAS
+sci-libs/rocFFT:benchmark - Build and install rocfft benchmark tools
+sci-libs/rocFFT:perfscripts - Install rocfft-perf performance visualization suite
+sci-libs/rocPRIM:benchmark - Build and install benchmark programs
+sci-libs/rocRAND:benchmark - Build and install benchmark programs
+sci-libs/rocSOLVER:benchmark - Build and install rocsolver-bench
 sci-libs/rocSOLVER:sparse - Install and link with sci-libs/rocSPARSE instead of loading it with dlopen
-sci-libs/rocSOLVER:test - Perform rocsolver-test to compare the result between rocSOLVER and system LAPACK.
-sci-libs/rocSPARSE:benchmark - Build and install rocblas-bench.
-sci-libs/rocThrust:benchmark - Build and install benchmark binary.
+sci-libs/rocSOLVER:test - Perform rocsolver-test to compare the result between rocSOLVER and system LAPACK
+sci-libs/rocSPARSE:benchmark - Build and install rocblas-bench
+sci-libs/rocThrust:benchmark - Build and install benchmark binary
 sci-libs/rtabmap:openni2 - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI2.
 sci-libs/scotch:int64 - Build the 64 bits integer library (needed for > 2^31 vertices)
 sci-libs/scotch:tools - Provides the graph, mesh, architecture, mapping/ordering, output handling programs (see Scotch User's Guide).
