@@ -3,7 +3,7 @@
 
 EAPI=8
 
-POSTGRES_COMPAT=( {13..17} )
+POSTGRES_COMPAT=( {14..18} )
 inherit desktop postgres qmake-utils
 
 DESCRIPTION="PostgreSQL Database Modeler"
