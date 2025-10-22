@@ -2554,7 +2554,7 @@ app-i18n/man-pages-l10n 4.27.0-r1 4.28.0: A somewhat comprehensive collection of
 app-i18n/man-pages-ru 5.03.2390.2390.20191017-r1: A collection of Russian translations of Linux manual pages
 app-i18n/man-pages-zh_CN 1.6.4.2: A somewhat comprehensive collection of Chinese Linux man pages
 app-i18n/mecab-skkserv 0.03-r1: mecab-skkserv is a Kana-Kanji conversion server using MeCab
-app-i18n/mozc 2.28.5029.102 2.28.5029.102-r5 2.31.5851.102: Mozc - Japanese input method editor.
+app-i18n/mozc 2.28.5029.102 2.28.5029.102-r6 2.31.5851.102: Mozc - Japanese input method editor.
 app-i18n/multiskkserv 20100128: SKK server that handles multiple dictionaries
 app-i18n/nabi 1.0.1: Simple Hanguk X Input Method
 app-i18n/nkf 2.1.5-r1 2.1.5-r2: Network Kanji code conversion Filter with UTF-8/16 support
@@ -3843,7 +3843,7 @@ dev-build/slibtool 0.6.1 0.7.0 0.7.1 0.7.2 0.7.3 0.7.4 9999: A strong libtool im
 dev-build/tinycmmc 0.1.0 9999: Tiny CMake Module Collections
 dev-build/xfce4-dev-tools 4.20.0 4.21.0: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-cpp/ETL 1.4.1: Multi-platform class and template library
-dev-cpp/abseil-cpp 20211102.0-r2 20220623.1 20230125.2 20230125.3-r4 20230125.3-r5 20230802.0-r4 20230802.3 20240116.2-r4 20240116.3 20240722.0-r1 20240722.1 20250127.0 20250127.1 20250512.0-r1 20250512.1: Abseil Common Libraries (C++), LTS Branch
+dev-cpp/abseil-cpp 20211102.0-r2 20220623.1 20230125.3-r5 20230802.3 20240116.3 20240722.1 20250127.1 20250512.1 20250814.1: Abseil Common Libraries (C++), LTS Branch
 dev-cpp/ada 3.2.4 3.3.0: WHATWG-compliant and fast URL parser written in modern C++
 dev-cpp/aixlog 1.5.0-r1: Header-only C++ logging library
 dev-cpp/amqp-cpp 4.3.27: AMQP-CPP is a C++ library for communicating with a RabbitMQ message broker
@@ -5738,8 +5738,8 @@ dev-libs/pocl 6.0 7.0-r2 7.0-r3 7.1: Portable Computing Language (an implementat
 dev-libs/poco 1.13.3 1.14.1 1.14.2: C++ libraries for building network-based applications
 dev-libs/popt 1.19-r1: Parse Options - Command line parser
 dev-libs/ppl 1.2-r5: The Parma Polyhedra Library for numerical analysis of complex systems
-dev-libs/protobuf 21.9 21.12 22.5-r1 22.5-r2 23.3-r4 23.4 24.4 25.3 25.4 25.5 25.6 26.1-r2 27.2 27.4 27.5 28.0 28.3-r1 29.2 29.4 30.2 31.1 9999: Google's Protocol Buffers - Extensible mechanism for serializing structured data
-dev-libs/protobuf-c 1.4.1-r2 1.5.0-r3 1.5.0-r4 1.5.1 1.5.2: Protocol Buffers implementation in C
+dev-libs/protobuf 21.12 25.6 28.0 29.5 30.2 31.1 32.1 9999: Google's Protocol Buffers - Extensible mechanism for serializing structured data
+dev-libs/protobuf-c 1.5.2: Protocol Buffers implementation in C
 dev-libs/psimd 2020.05.17: P(ortable) SIMD
 dev-libs/pslib 0.4.6: pslib is a C-library to create PostScript files on the fly
 dev-libs/ptexenc 1.4.3_p20230311 1.4.6_p20240311: Library for Japanese pTeX providing a better way of handling character encodings
@@ -8979,7 +8979,7 @@ dev-python/prometheus-client 0.22.1 0.23.0 0.23.1: Python client for the Prometh
 dev-python/prompt-toolkit 3.0.51 3.0.52: Building powerful interactive command lines in Python
 dev-python/propcache 0.3.2 0.4.0 0.4.1: Yet another URL library
 dev-python/proto-plus 1.26.1 1.26.1-r1: Beautiful, Pythonic protocol buffers
-dev-python/protobuf 5.29.4-r2 5.29.5-r1 6.30.2-r1 6.30.2-r2 6.31.1 6.32.0 6.32.1 6.32.1-r1 6.33.0: Google's Protocol Buffers - Python bindings
+dev-python/protobuf 5.29.5 5.29.5-r1 6.30.2-r1 6.30.2-r2 6.31.1 6.32.0 6.32.1 6.32.1-r1 6.33.0: Google's Protocol Buffers - Python bindings
 dev-python/psutil 7.0.0 7.1.0 7.1.1: Retrieve information on running processes and system utilization
 dev-python/psycopg 2.9.10 2.9.11 3.2.9 3.2.10 3.2.11: PostgreSQL database adapter for Python
 dev-python/ptyprocess 0.7.0-r1: Run a subprocess in a pseudo terminal
@@ -10029,8 +10029,8 @@ dev-ruby/gist 6.0.0-r1: Potentially the best command line gister
 dev-ruby/git 1.19.1 2.3.3 3.1.1 4.0.1 4.0.4 4.0.5: Library for using Git in Ruby
 dev-ruby/globalid 1.2.1 1.2.1-r1 1.3.0: Reference models by URI
 dev-ruby/gnuplot 2.6.2-r4: Gnuplot drawing library - Ruby Bindings
-dev-ruby/google-protobuf 3.25.4 3.25.5 3.25.6 4.26.1 4.27.4 4.27.5 4.28.0 4.28.3 4.29.2 4.29.4 4.30.2 4.31.1: Protocol Buffers are Google's data interchange format
-dev-ruby/googleapis-common-protos-types 1.20.0: Common protocol buffer types used by Google APIs
+dev-ruby/google-protobuf 3.25.6 4.28.0 4.28.3 4.29.5 4.30.2 4.31.1 4.32.1: Protocol Buffers are Google's data interchange format
+dev-ruby/googleapis-common-protos-types 1.20.0-r1: Common protocol buffer types used by Google APIs
 dev-ruby/gpgme 2.0.24-r3: Ruby language binding for GnuPG Made Easy
 dev-ruby/grpc 1.71.0 1.72.0: Send RPCs from Ruby using GRPC
 dev-ruby/gruff 0.25.0 0.26.0 0.27.0 0.27.1 0.28.0 0.29.0: Beautiful graphs for one or multiple datasets
@@ -14381,7 +14381,7 @@ media-video/vdrsync 0.1.3_pre050322-r2: converting vdr-recordings to mpeg2, dvd 
 media-video/vdrtools-genindex 0.1.3-r2: VDR: genindex Script
 media-video/vidcutter 6.0.5.1_p20230201-r1 6.0.5.1_p20250419 9999: FFmpeg-based simple video cutter & joiner with a modern PyQt5 GUI
 media-video/videotrans 1.6.1-r2: A package to convert movies to DVD format and to build DVDs with
-media-video/vlc 3.0.21_p20250217-r3 3.0.22_rc1-r2 3.0.9999 9999: Media player and framework with support for most multimedia files and streaming
+media-video/vlc 3.0.21_p20250217-r4 3.0.22_rc1-r2 3.0.9999 9999: Media player and framework with support for most multimedia files and streaming
 media-video/vobcopy 1.2.1: Copies DVD .vob files to harddisk, decrypting them on the way
 media-video/webcamoid 9.2.3 9999: Full featured webcam capture application
 media-video/wireplumber 0.5.10 0.5.11 0.5.12 9999: Replacement for pipewire-media-session
@@ -14902,7 +14902,7 @@ net-libs/gloox 1.0.24-r1 1.0.28: A portable high-level Jabber/XMPP client librar
 net-libs/gnome-online-accounts 3.48.1-r1 3.54.4 3.54.5 3.54.6: GNOME framework for accessing online accounts
 net-libs/gnutls 3.8.9-r1 3.8.10 3.8.10-r1: A secure communications library implementing the SSL, TLS and DTLS protocols
 net-libs/google-cloud-cpp 2.19.0 2.30.0: Google Cloud Client Library for C++
-net-libs/grpc 1.52.1 1.55.1 1.56.1 1.57.0-r1 1.60.0 1.62.1 1.65.1 1.66.0 1.71.0 1.72.0: Modern open source high performance RPC framework
+net-libs/grpc 1.71.0 1.72.0 1.75.1: Modern open source high performance RPC framework
 net-libs/gsoap 2.8.114-r1 2.8.130 2.8.130-r1: A cross-platform open source C and C++ SDK for SOAP/XML Web services
 net-libs/gssdp 1.4.0.1 1.4.1 1.6.3 1.6.4: GObject-based API for handling resource discovery and announcement over SSDP
 net-libs/gtk-vnc 1.3.1-r1 1.5.0: VNC viewer widget for GTK
@@ -15290,7 +15290,7 @@ net-misc/miniupnpd 2.3.7 2.3.8 2.3.9: MiniUPnP IGD Daemon
 net-misc/mobile-broadband-provider-info 20230416 20240407: Database of mobile broadband service providers
 net-misc/modemmanager 1.20.6 1.24.0: Modem and mobile broadband management libraries
 net-misc/moonlight 6.1.0-r2 9999: NVIDIA GameStream (and Sunshine) client
-net-misc/mosh 1.3.2-r3 1.4.0: Mobile shell that supports roaming and intelligent local echo
+net-misc/mosh 1.4.0-r1: Mobile shell that supports roaming and intelligent local echo
 net-misc/mptcpd 0.12 0.13 9999: Daemon that performs multipath TCP path management related operations.
 net-misc/mrouted 4.5 4.6: IP multicast routing daemon
 net-misc/mstpd 0.1.0: Multiple spanning tree protocol daemon
@@ -16047,7 +16047,7 @@ sci-geosciences/osm2pgsql 2.2.0 99999999: Converts OSM planet.osm data to a Post
 sci-geosciences/osmctools 0.9-r2: A few really fast tools to convert, filter and update OSM data files
 sci-geosciences/owntracks-recorder 1.0.1: Stores and accesses location data published by the OwnTracks apps
 sci-geosciences/pymap3d 3.1.0: Python 3-D coordinate conversions
-sci-geosciences/qgis 3.42.3 9999: User friendly Geographic Information System
+sci-geosciences/qgis 3.42.3-r1 3.44.3 9999: User friendly Geographic Information System
 sci-geosciences/qmapshack 1.18.0: GPS mapping utility
 sci-geosciences/readosm 1.1.0a: Library to extract valid data from an Open Street Map input file
 sci-geosciences/routino 3.4.3: Routing application based on openstreetmap data
@@ -16570,7 +16570,7 @@ sec-keys/openpgp-keys-fwknop 20240208: OpenPGP key used to sign fwknop releases
 sec-keys/openpgp-keys-gawk 20220407: OpenPGP keys used by GNU Awk
 sec-keys/openpgp-keys-gdbm 20220407 20250323: OpenPGP keys used by GNU dbm
 sec-keys/openpgp-keys-gentoo-auth 20240703: Gentoo Authority Keys (GLEP 79)
-sec-keys/openpgp-keys-gentoo-developers 20250203 20250421 20250804 20250915 99999999: Gentoo Authority Keys (GLEP 79)
+sec-keys/openpgp-keys-gentoo-developers 20250915 99999999: Gentoo Authority Keys (GLEP 79)
 sec-keys/openpgp-keys-gentoo-release 20250806: OpenPGP keys used for Gentoo releases (snapshots, stages)
 sec-keys/openpgp-keys-gettext 20220407 20250608: OpenPGP keys used by GNU gettext
 sec-keys/openpgp-keys-ggregory 20250720: OpenPGP keys used by commons.apache.org
@@ -18610,7 +18610,7 @@ x11-misc/slim 1.4.0 9999: Simple Login Manager resurrected
 x11-misc/slock 1.6: simple X display locker
 x11-misc/slop 7.7 7.7-r1: Application that queries the user for a selection for printing
 x11-misc/snixembed 0.3.0 0.3.3: Proxy StatusNotifierItems as XEmbedded systemtray-spec icons
-x11-misc/spacefm 1.0.6-r4 1.0.6-r5: A multi-panel tabbed file manager
+x11-misc/spacefm 1.0.6-r5 1.0.6-r6: Multi-panel tabbed file manager
 x11-misc/splatmoji 1.1.1 1.2.0: Quickly look up and input emoji and/or emoticons
 x11-misc/spnavcfg 1.3: Qt-based GUI to configure a space navigator device
 x11-misc/stalonetray 0.8.5: System tray utility including support for KDE system tray icons
