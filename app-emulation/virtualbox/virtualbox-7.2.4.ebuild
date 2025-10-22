@@ -15,35 +15,29 @@ EAPI=8
 #  trunk branch but not release branch.
 #
 #  See bug #785835, bug #856121.
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit desktop edo flag-o-matic java-pkg-opt-2 linux-info multilib optfeature pax-utils \
 	python-single-r1 tmpfiles toolchain-funcs udev xdg
 
-PATCHES_PV="7.1.10"
-ORIGIN_PN="VirtualBox"
-ORIGIN_PV=${PV%_pre*}
-
-MY_PN=virtualbox
-MY_PV=${PV#*_pre}
-MY_P=${ORIGIN_PN}-${ORIGIN_PV}
-
-PATCHES_DIR="${WORKDIR}"/${PN}-dev-${MY_PV}
+MY_PN="VirtualBox"
+MY_P=${MY_PN}-${PV^^}
+HELP_PV=${PV}
+PATCHES_PV="7.2.4"
 
 DESCRIPTION="Family of powerful x86 virtualization products for enterprise and home use"
-HOMEPAGE="https://www.virtualbox.org/ https://github.com/cyberus-technology/virtualbox-kvm"
+HOMEPAGE="https://www.virtualbox.org/ https://github.com/VirtualBox/virtualbox"
 SRC_URI="
+	https://download.virtualbox.org/virtualbox/${PV^^}/${MY_P}.tar.bz2
 	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-${PATCHES_PV}.tar.bz2
-	https://github.com/cyberus-technology/virtualbox-kvm/archive/dev-${MY_PV}.tar.gz -> ${PN}-${MY_PV}.tar.gz
-	https://download.virtualbox.org/virtualbox/${ORIGIN_PV%*a}/${MY_P}.tar.bz2
-	gui? ( !doc? ( https://dev.gentoo.org/~ceamac/${CATEGORY}/${MY_PN}/${MY_PN}-help-${ORIGIN_PV}.tar.xz ) )
+	gui? ( !doc? ( https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-help-${HELP_PV}.tar.xz ) )
 "
-S="${WORKDIR}/${ORIGIN_PN}-${ORIGIN_PV%*a}"
+S="${WORKDIR}/${MY_PN}-${PV^^}"
 
 LICENSE="GPL-2+ GPL-3 LGPL-2.1 MIT dtrace? ( CDDL )"
 SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64"
-IUSE="alsa dbus debug doc dtrace +gui +hardened java lvm nls pam pch pulseaudio +opengl python +sdk +sdl test +udev vboxwebsrv vde +vmmraw vnc"
+IUSE="alsa dbus debug doc dtrace +gui java lvm nls pam pch pulseaudio +opengl python +sdk +sdl test +udev vboxwebsrv vde vnc"
 RESTRICT="!test? ( test )"
 
 unset WATCOM #856769
@@ -51,6 +45,7 @@ unset WATCOM #856769
 COMMON_DEPEND="
 	acct-group/vboxusers
 	app-arch/xz-utils
+	~app-emulation/virtualbox-modules-${PV%*a}
 	dev-libs/libtpms
 	dev-libs/libxml2:=
 	dev-libs/openssl:0=
@@ -60,7 +55,7 @@ COMMON_DEPEND="
 	sys-libs/zlib
 	dbus? ( sys-apps/dbus )
 	gui? (
-		dev-qt/qtbase:6[X,widgets]
+		dev-qt/qtbase:6[X,wayland,widgets]
 		dev-qt/qtscxml:6
 		dev-qt/qttools:6[assistant]
 		x11-libs/libX11
@@ -126,7 +121,6 @@ DEPEND="
 	udev? ( >=virtual/udev-171 )
 "
 RDEPEND="
-	!app-emulation/virtualbox
 	${COMMON_DEPEND}
 	gui? ( x11-libs/libxcb:= )
 	java? ( virtual/jre:1.8 )
@@ -135,7 +129,7 @@ BDEPEND="
 	>=app-arch/tar-1.34-r2
 	>=dev-lang/yasm-0.6.2
 	dev-util/glslang
-	>=dev-build/kbuild-0.1.9998.3592
+	>=dev-build/kbuild-0.1.9998.3660
 	sys-apps/which
 	sys-devel/bin86
 	sys-libs/libcap
@@ -206,7 +200,6 @@ REQUIRED_USE="
 PATCHES=(
 	# Downloaded patchset
 	"${WORKDIR}"/virtualbox-patches-${PATCHES_PV}/patches
-	"${PATCHES_DIR}"/patches
 )
 
 pkg_pretend() {
@@ -259,7 +252,7 @@ src_prepare() {
 
 	# Disable things unused or split into separate ebuilds
 	sed -e "s@MY_LIBDIR@$(get_libdir)@" \
-		"${FILESDIR}"/${MY_PN}-5-localconfig > LocalConfig.kmk || die
+		"${FILESDIR}"/${PN}-5-localconfig > LocalConfig.kmk || die
 
 	if ! use pch; then
 		# bug #753323
@@ -364,20 +357,17 @@ src_configure() {
 		--with-g++="$(tc-getCXX)"
 
 		--disable-kmods
-		--with-kvm
 
 		$(usev !alsa --disable-alsa)
 		$(usev !dbus --disable-dbus)
 		$(usev debug --build-debug)
 		$(usev !doc --disable-docs)
-		$(usev !hardened --disable-hardening)
 		$(usev !java --disable-java)
 		$(usev !lvm --disable-devmapper)
 		$(usev !pulseaudio --disable-pulse)
 		$(usev !python --disable-python)
 		$(usev !vboxwebsrv --with-gsoap-dir=/dev/null)
 		$(usev vde --enable-vde)
-		$(usev !vmmraw --disable-vmmraw)
 		$(usev vnc --enable-vnc)
 	)
 
@@ -391,10 +381,8 @@ src_configure() {
 		myconf+=(
 			--build-headless
 		)
-	fi
-
-	if use amd64 && ! has_multilib_profile; then
-		myconf+=( --disable-vmmraw )
+		# disable shared clipboard when headless, it crashes when connecting with RDP: bug #955867
+		echo -e "\nVBOX_WITH_SHARED_CLIPBOARD :=" >> LocalConfig.kmk || die
 	fi
 
 	# not an autoconf script
@@ -533,7 +521,7 @@ src_test() {
 src_install() {
 	cd "${S}"/out/linux.${ARCH}/$(usex debug debug release)/bin || die
 
-	local vbox_inst_path="/usr/$(get_libdir)/${MY_PN}" each size ico icofile
+	local vbox_inst_path="/usr/$(get_libdir)/${PN}" each size ico icofile
 
 	vbox_inst() {
 		local binary="${1}"
@@ -551,7 +539,7 @@ src_install() {
 
 	# Create configuration files
 	insinto /etc/vbox
-	newins "${FILESDIR}/${MY_PN}-4-config" vbox.cfg
+	newins "${FILESDIR}/${PN}-4-config" vbox.cfg
 
 	# Set the correct libdir
 	sed \
@@ -560,7 +548,7 @@ src_install() {
 
 	# Install the wrapper script
 	exeinto ${vbox_inst_path}
-	newexe "${FILESDIR}/${MY_PN}-ose-6-wrapper" "VBox"
+	newexe "${FILESDIR}/${PN}-ose-6-wrapper" "VBox"
 	fowners root:vboxusers ${vbox_inst_path}/VBox
 	fperms 0750 ${vbox_inst_path}/VBox
 
@@ -573,14 +561,13 @@ src_install() {
 		vbox_inst ${each}
 	done
 
-	# These binaries need to be suid root with USE=hardened.
-	local mode=$(usex hardened 4750 0750)
+	# These binaries need to be suid root.
 	for each in VBox{Headless,Net{AdpCtl,DHCP,NAT}} ; do
-		vbox_inst ${each} ${mode}
+		vbox_inst ${each} 4750
 	done
 
 	# Install EFI Firmware files (bug #320757)
-	for each in VBoxEFI{32,64}.fd ; do
+	for each in VBoxEFI{-x86,-amd64}.fd ; do
 		vbox_inst ${each} 0644
 	done
 
@@ -611,7 +598,7 @@ src_install() {
 	doenvd "${T}/90virtualbox"
 
 	if use sdl; then
-		vbox_inst VBoxSDL ${mode}
+		vbox_inst VBoxSDL 4750
 		pax-mark -m "${ED}"${vbox_inst_path}/VBoxSDL
 
 		for each in vboxsdl VBoxSDL ; do
@@ -621,7 +608,7 @@ src_install() {
 
 	if use gui; then
 		vbox_inst VirtualBox
-		vbox_inst VirtualBoxVM ${mode}
+		vbox_inst VirtualBoxVM 4750
 		for each in VirtualBox{,VM} ; do
 			pax-mark -m "${ED}"${vbox_inst_path}/${each}
 		done
@@ -634,21 +621,21 @@ src_install() {
 		doins -r nls
 		doins -r UnattendedTemplates
 
-		newmenu ${MY_PN}.desktop ${PN}.desktop
+		domenu ${PN}.desktop
 
 		pushd "${S}"/src/VBox/Artwork/OSE &>/dev/null || die
 		for size in 16 32 48 64 128 ; do
-			newicon -s ${size} ${MY_PN}-${size}px.png ${PN}.png
+			newicon -s ${size} ${PN}-${size}px.png ${PN}.png
 		done
-		newicon ${MY_PN}-48px.png ${PN}.png
-		newicon -s scalable ${MY_PN}.svg ${PN}.png
+		newicon ${PN}-48px.png ${PN}.png
+		doicon -s scalable ${PN}.svg
 		popd &>/dev/null || die
 		pushd "${S}"/src/VBox/Artwork/other &>/dev/null || die
 		for size in 16 24 32 48 64 72 96 128 256 512 ; do
 			for ico in hdd ova ovf vbox{,-extpack} vdi vdh vmdk ; do
-				icofile="${MY_PN}-${ico}-${size}px.png"
+				icofile="${PN}-${ico}-${size}px.png"
 				if [[ -f "${icofile}" ]]; then
-					newicon -s ${size} ${icofile} ${MY_PN}-${ico}.png
+					newicon -s ${size} ${icofile} ${PN}-${ico}.png
 				fi
 			done
 		done
@@ -656,7 +643,7 @@ src_install() {
 	fi
 
 	if use lvm; then
-		vbox_inst VBoxVolInfo ${mode}
+		vbox_inst VBoxVolInfo 4750
 		dosym ${vbox_inst_path}/VBoxVolInfo /usr/bin/VBoxVolInfo
 	fi
 
@@ -694,7 +681,7 @@ src_install() {
 	fi
 
 	# Remove dead symlinks (bug #715338)
-	find "${ED}"/usr/$(get_libdir)/${MY_PN} -xtype l -delete || die
+	find "${ED}"/usr/$(get_libdir)/${PN} -xtype l -delete || die
 
 	# Fix version string in extensions or else they don't get accepted
 	# by the virtualbox host process (see bug #438930)
@@ -714,12 +701,11 @@ src_install() {
 
 	if use doc; then
 		dodoc UserManual.pdf UserManual.q{ch,hc}
-		docompress -x /usr/share/doc/${PF}/UserManual.q{ch,hc}
+		docompress -x /usr/share/doc/${PF}
 	elif use gui; then
-		dodoc "${WORKDIR}"/${MY_PN}-help-${ORIGIN_PV}/UserManual.q{ch,hc}
-		docompress -x /usr/share/doc/${PF}/UserManual.q{ch,hc}
+		dodoc "${WORKDIR}"/${PN}-help-${HELP_PV}/UserManual.q{ch,hc}
+		docompress -x /usr/share/doc/${PF}
 	fi
-	dodoc ${PATCHES_DIR}/README.*
 
 	if use python; then
 		local python_path_ext="${ED}/usr/$(get_libdir)/virtualbox/VBoxPython3.so"
@@ -750,7 +736,7 @@ src_install() {
 		rm -r "${installer_dir%vboxapi*}" || die
 	fi
 
-	newtmpfiles "${FILESDIR}"/${MY_PN}-vboxusb_tmpfilesd virtualbox-vboxusb.conf
+	newtmpfiles "${FILESDIR}"/${PN}-vboxusb_tmpfilesd ${PN}-vboxusb.conf
 }
 
 pkg_postinst() {
@@ -770,7 +756,7 @@ pkg_postinst() {
 	elog "You must be in the vboxusers group to use VirtualBox."
 	elog ""
 	elog "The latest user manual is available for download at:"
-	elog "https://download.virtualbox.org/virtualbox/${ORIGIN_PV}/UserManual.pdf"
+	elog "https://download.virtualbox.org/virtualbox/${PV}/UserManual.pdf"
 	elog ""
 
 	optfeature "Advanced networking setups" net-misc/bridge-utils sys-apps/usermode-utilities
@@ -778,7 +764,7 @@ pkg_postinst() {
 	optfeature "Guest additions ISO" app-emulation/virtualbox-additions
 
 	if ! use udev; then
-		ewarn "Without USE=udev, USB devices will likely not work in ${MY_PN}."
+		ewarn "Without USE=udev, USB devices will likely not work in ${PN}."
 	fi
 }
 
