@@ -3,14 +3,15 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{11..13} )
+PYPI_VERIFY_REPO=https://github.com/scikit-hep/vector
 DISTUTILS_USE_PEP517=hatchling
 
 inherit distutils-r1 pypi optfeature
 
 DESCRIPTION="Vector classes and utilities"
 HOMEPAGE="
-	https://github.com/scikit-hep/vector
+	https://github.com/scikit-hep/vector/
 	https://pypi.org/project/vector/
 	https://vector.readthedocs.io/
 	https://doi.org/10.5281/zenodo.7054478
@@ -21,17 +22,16 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/numpy-1.13.3[${PYTHON_USEDEP}]
-	>=dev-python/packaging-19[${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.19.3[${PYTHON_USEDEP}]
+	>=dev-python/packaging-20[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
+	test? (
+		dev-python/awkward[${PYTHON_USEDEP}]
+		dev-python/sympy[${PYTHON_USEDEP}]
+	)
 "
-
-pkg_postinst() {
-	optfeature "awkward array support" dev-python/awkward
-	optfeature "sympy support" dev-python/sympy
-}
 
 EPYTEST_IGNORE=(
 	# no module named papermill
@@ -41,4 +41,10 @@ EPYTEST_IGNORE=(
 	tests/compute/sympy/lorentz/
 )
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
+
+pkg_postinst() {
+	optfeature "awkward array support" dev-python/awkward
+	optfeature "sympy support" dev-python/sympy
+}
