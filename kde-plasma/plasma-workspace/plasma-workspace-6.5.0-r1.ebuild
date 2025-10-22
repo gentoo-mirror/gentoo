@@ -14,9 +14,8 @@ DESCRIPTION="KDE Plasma workspace"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS="~amd64"
-IUSE="appstream +calendar +fontconfig +ksysguard networkmanager phonon
-+policykit screencast +semantic-desktop systemd telemetry
-+wallpaper-metadata +X"
+IUSE="appstream +fontconfig +ksysguard networkmanager phonon +policykit
+screencast +semantic-desktop systemd telemetry +wallpaper-metadata +X"
 
 REQUIRED_USE="fontconfig? ( X )"
 RESTRICT="test"
@@ -49,6 +48,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kded-${KFMIN}:6
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/kguiaddons-${KFMIN}:6
+	>=kde-frameworks/kholidays-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kiconthemes-${KFMIN}:6
 	>=kde-frameworks/kidletime-${KFMIN}:6
@@ -89,7 +89,6 @@ COMMON_DEPEND="
 	sys-libs/zlib
 	virtual/libudev:=
 	appstream? ( >=dev-libs/appstream-1[qt6] )
-	calendar? ( >=kde-frameworks/kholidays-${KFMIN}:6 )
 	ksysguard? ( >=kde-plasma/libksysguard-${KDE_CATV}:6 )
 	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	policykit? ( virtual/libcrypt:= )
@@ -196,7 +195,6 @@ src_configure() {
 		-DGLIBC_LOCALE_GEN=OFF
 		-DGLIBC_LOCALE_PREGENERATED=$(usex elibc_glibc)
 		$(cmake_use_find_package appstream AppStreamQt)
-		$(cmake_use_find_package calendar KF6Holidays)
 		$(cmake_use_find_package fontconfig Fontconfig)
 		$(cmake_use_find_package ksysguard KSysGuard)
 		$(cmake_use_find_package networkmanager KF6NetworkManagerQt)
