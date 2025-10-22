@@ -5,7 +5,7 @@ DESCRIPTION=A new type of shell, written in Rust
 EAPI=8
 HOMEPAGE=https://www.nushell.sh
 INHERIT=cargo
-IUSE=mcp plugins system-clipboard X debug
+IUSE=mcp plugins system-clipboard X network debug
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
 LICENSE=MIT 0BSD Apache-2.0 BSD Boost-1.0 CC-PD CC0-1.0 ISC MIT MPL-2.0 MPL-2.0 Unicode-DFS-2016 ZLIB
 RDEPEND=dev-libs/openssl:0= dev-db/sqlite:3= system-clipboard? ( X? ( x11-libs/libX11 x11-libs/libxcb ) )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/nushell/nushell/archive/0.108.0.tar.gz -> nushell-0.108.0.tar.gz https://github.com/gentoo-crate-dist/nushell/releases/download/0.108.0/nushell-0.108.0-crates.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	86c81efc08f3f4c1104dbcb8df8e2885	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a1af74aa9e34cd73aeac642cd0dd54d8
-_md5_=77998b66e34cdcd944678f5ab6303e76
+_md5_=fe628d2c9abef71b6c5d38b90958c505
