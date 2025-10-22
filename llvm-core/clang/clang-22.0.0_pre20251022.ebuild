@@ -16,8 +16,7 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA MIT"
 SLOT="${LLVM_MAJOR}/${LLVM_SOABI}"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~arm64-macos ~x64-macos"
-IUSE="debug doc +extra ieee-long-double +pie +static-analyzer test xml"
+IUSE="+debug doc +extra ieee-long-double +pie +static-analyzer test xml"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="!test? ( test )"
 
@@ -38,7 +37,7 @@ BDEPEND="
 	xml? ( virtual/pkgconfig )
 "
 PDEPEND="
-	~llvm-runtimes/clang-runtime-${PV}
+	llvm-runtimes/clang-runtime:${LLVM_MAJOR}
 	llvm-core/clang-toolchain-symlinks:${LLVM_MAJOR}
 "
 
@@ -198,7 +197,6 @@ get_distribution_components() {
 			clang-linker-wrapper
 			clang-nvlink-wrapper
 			clang-offload-bundler
-			clang-offload-packager
 			clang-refactor
 			clang-repl
 			clang-scan-deps
@@ -284,7 +282,7 @@ multilib_src_configure() {
 		-DCLANG_DEFAULT_PIE_ON_LINUX=$(usex pie)
 
 		-DCLANG_ENABLE_LIBXML2=$(usex xml)
-		-DCLANG_ENABLE_ARCMT=$(usex static-analyzer)
+		-DCLANG_ENABLE_OBJC_REWRITER=ON
 		-DCLANG_ENABLE_STATIC_ANALYZER=$(usex static-analyzer)
 		# TODO: CLANG_ENABLE_HLSL?
 
