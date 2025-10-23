@@ -913,7 +913,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.42.16 1.42.21 1.42.25 1.42.35 1.42.40 1.42.45 1.42.50 1.42.51 1.42.52 1.42.53 1.42.54 1.42.55 1.42.56: Universal Command Line Environment for AWS
+app-admin/awscli 1.42.16 1.42.21 1.42.25 1.42.35 1.42.40 1.42.45 1.42.50 1.42.51 1.42.52 1.42.53 1.42.54 1.42.55 1.42.56 1.42.57: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.8.2 2025.9.0: Bitwarden password manager desktop client
@@ -8132,7 +8132,7 @@ dev-python/audioop-lts 0.2.1 0.2.2: An LTS port of Python's audioop module
 dev-python/audioread 3.0.1-r1: Wrapper for audio file decoding using FFmpeg or GStreamer
 dev-python/authlib 1.6.4 1.6.5: A Python library in building OAuth and OpenID Connect servers and clients
 dev-python/authres 1.2.0-r1: Parse and generate Authentication-Results headers
-dev-python/autobahn 24.4.2: WebSocket and WAMP for Twisted and Asyncio
+dev-python/autobahn 24.4.2 25.10.2: WebSocket and WAMP for Twisted and Asyncio
 dev-python/automat 25.4.16: Self-service finite-state machines for the programmer on the go
 dev-python/autopage 0.5.2: A library to provide automatic paging for console output
 dev-python/autopep8 2.3.2: Automatically formats Python code to conform to the PEP 8 style guide
@@ -8150,6 +8150,7 @@ dev-python/backports-zstd 1.0.0-r1: Backport of PEP-784: adding Zstandard to the
 dev-python/backrefs 5.9 6.0.1: Wrapper around re or regex that adds additional back references
 dev-python/bandit 1.8.6: A security linter from OpenStack Security
 dev-python/bareos 24.0.3: python bindings for bareos network backup suite
+dev-python/base58 2.1.1: Base58 and Base58Check implementation
 dev-python/bashate 2.1.1: A pep8 equivalent for bash scripts
 dev-python/basho-erlastic 2.1.1-r1: Erlang binary term codec and port interface
 dev-python/bcrypt 4.3.0 5.0.0: Modern password hashing for software and servers
@@ -8175,8 +8176,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.40.16 1.40.21 1.40.25 1.40.30 1.40.35 1.40.40 1.40.45 1.40.50 1.40.51 1.40.52 1.40.53 1.40.54 1.40.55 1.40.56: The AWS SDK for Python
-dev-python/botocore 1.40.16 1.40.21 1.40.25 1.40.30 1.40.35 1.40.40 1.40.45 1.40.50 1.40.51 1.40.52 1.40.53 1.40.54 1.40.55 1.40.56: Low-level, data-driven core of boto 3
+dev-python/boto3 1.40.16 1.40.21 1.40.25 1.40.30 1.40.35 1.40.40 1.40.45 1.40.50 1.40.51 1.40.52 1.40.53 1.40.54 1.40.55 1.40.56 1.40.57: The AWS SDK for Python
+dev-python/botocore 1.40.16 1.40.21 1.40.25 1.40.30 1.40.35 1.40.40 1.40.45 1.40.50 1.40.51 1.40.52 1.40.53 1.40.54 1.40.55 1.40.56 1.40.57: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8317,7 +8318,7 @@ dev-python/distro 1.9.0: Reliable machine-readable Linux distribution informatio
 dev-python/dj-database-url 3.0.1: Use Database URLs in your Django Application
 dev-python/dj-email-url 1.0.6: Use an URL to configure email backend settings in your Django Application
 dev-python/dj-search-url 0.1-r1: Use Search URLs in your Django Haystack Application
-dev-python/django 4.2.25 5.1.13 5.2.7 6.0_alpha1: High-level Python web framework
+dev-python/django 4.2.25 5.1.13 5.2.7 6.0_alpha1 6.0_beta1: High-level Python web framework
 dev-python/django-auth-ldap 5.2.0: Django LDAP authentication backend
 dev-python/django-cache-url 3.4.5: Use Cache URLs in your Django application
 dev-python/django-cacheops 7.2: ORM cache with automatic granular event-driven invalidation for Django
@@ -8471,7 +8472,7 @@ dev-python/gitdb 4.0.12: GitDB is a pure-Python git object database
 dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gitpython 3.1.45: Library used to interact with Git repositories
 dev-python/gmpy2 2.2.1 2.3.0_alpha1: Python bindings for GMP, MPC, MPFR and MPIR libraries
-dev-python/google-api-core 2.25.1 2.25.2 2.26.0: Core Library for Google Client Libraries
+dev-python/google-api-core 2.25.1 2.25.2 2.26.0 2.27.0: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.181.0 2.182.0 2.183.0 2.184.0 2.185.0: Google API Client for Python
 dev-python/google-auth 2.40.3 2.41.0 2.41.1: Google Authentication Library
 dev-python/google-auth-httplib2 0.2.0 0.2.0-r1: httplib2 Transport for Google Auth
@@ -8532,7 +8533,7 @@ dev-python/hvac 2.3.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.136.9 6.137.3 6.138.17 6.139.2 6.140.0 6.140.2 6.140.3 6.141.0 6.141.1 6.142.1 6.142.2: A library for property based testing
+dev-python/hypothesis 6.139.2 6.142.2 6.142.3: A library for property based testing
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 6.3.1: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
@@ -8641,10 +8642,10 @@ dev-python/jupyter-server 2.17.0 2.17.0-r1: Core services, APIs, and REST endpoi
 dev-python/jupyter-server-mathjax 0.2.6: MathJax resources as a Jupyter Server Extension
 dev-python/jupyter-server-proxy 4.4.0: Jupyter notebook server extension to proxy web services
 dev-python/jupyter-server-terminals 0.5.3 0.5.3-r1: A Jupyter Server Extension Providing Terminals
-dev-python/jupyterlab 4.3.7 4.4.6 4.4.7 4.4.8 4.4.9: JupyterLab computational environment
+dev-python/jupyterlab 4.3.7 4.4.7 4.4.8 4.4.9 4.4.10: JupyterLab computational environment
 dev-python/jupyterlab-lsp 5.1.0: Coding assistance for JupyterLab with Language Server Protocol
 dev-python/jupyterlab-pygments 0.3.0: Pygments theme making use of JupyterLab CSS variables
-dev-python/jupyterlab-server 2.27.3: Server components for JupyterLab and JupyterLab like applications
+dev-python/jupyterlab-server 2.27.3 2.28.0: Server components for JupyterLab and JupyterLab like applications
 dev-python/jupyterlab-widgets 3.0.15 3.0.15-r1: Jupyter interactive widgets for JupyterLab
 dev-python/jwcrypto 1.5.6: Implements JWK,JWS,JWE specifications using python-cryptography
 dev-python/k5test 0.10.4: Library for testing Python applications in Kerberos 5 environments
@@ -9103,7 +9104,7 @@ dev-python/pyotp 2.9.0: PyOTP is a Python library for generating and verifying o
 dev-python/pyparsing 3.2.3 3.2.4 3.2.5: Easy-to-use Python module for text parsing
 dev-python/pyparted 3.13.0: Python bindings for sys-block/parted
 dev-python/pypax 0.9.5-r2 9999: Python module to get or set either PT_PAX and/or XATTR_PAX flags
-dev-python/pypdf 5.7.0 5.8.0 5.9.0 6.0.0 6.1.0 6.1.1 6.1.2: Python library to work with PDF files
+dev-python/pypdf 5.7.0 5.8.0 5.9.0 6.0.0 6.1.2 6.1.3: Python library to work with PDF files
 dev-python/pyperclip 1.9.0 1.10.0 1.11.0: A cross-platform clipboard module for Python
 dev-python/pyphen 0.17.2: Python module for hyphenation using hunspell dictionaries
 dev-python/pypi-attestations 0.0.27 0.0.28: Convert between Sigstore Bundles and PEP-740 Attestation objects
@@ -9317,7 +9318,7 @@ dev-python/pyzmq 26.4.0 27.0.0 27.0.1 27.0.2 27.1.0: Lightweight and super-fast 
 dev-python/pyzotero 1.6.16 1.6.17 1.7.2 1.7.3: A Python client for the Zotero API
 dev-python/pyzstd 0.17.0 0.18.0: Python bindings to Zstandard (zstd) compression library
 dev-python/qdarkstyle 3.2.3: A dark style sheet for QtWidgets application
-dev-python/qiskit 2.2.0 2.2.1: An open-source SDK for working with quantum computers
+dev-python/qiskit 2.2.0 2.2.1 2.2.2: An open-source SDK for working with quantum computers
 dev-python/qiskit-aer 0.17.2: High performance simulator for quantum circuits that includes noise models
 dev-python/qpageview 1.0.0: Page-based viewer widget for Qt5/PyQt5
 dev-python/qrcode 8.2: QR Code generator on top of PIL
@@ -9344,7 +9345,7 @@ dev-python/readtime 3.0.0: Calculates the time some text takes the average human
 dev-python/rebulk 3.2.0: Python library that performs advanced searches in strings
 dev-python/recommonmark 0.7.1-r1: Python docutils-compatibility bridge to CommonMark
 dev-python/recurring-ical-events 3.7.0 3.8.0: Repeat ICalendar events by RRULE, RDATE and EXDATE
-dev-python/redis 6.4.0 7.0.0_beta2 7.0.0_beta3: Python client for Redis key-value store
+dev-python/redis 6.4.0 7.0.0: Python client for Redis key-value store
 dev-python/reedsolo 2.1.1_beta1-r2: Python Reed Solomon encoder/decoder
 dev-python/referencing 0.36.2-r1 0.37.0: Cross-specification JSON referencing (JSON Schema, OpenAPI...)
 dev-python/reflink 0.2.2: Python wrapper around the reflink system calls
@@ -9388,7 +9389,7 @@ dev-python/roman-numerals-py 3.1.0: Manipulate roman numerals
 dev-python/rope 1.14.0: Python refactoring library
 dev-python/ropemode 0.6.1: A helper for using rope refactoring library in IDEs
 dev-python/routes 2.5.1-r2: A re-implementation of Rails routes system, mapping URLs to Controllers/Actions
-dev-python/rpds-py 0.25.1 0.27.0 0.27.1: Python bindings to Rust's persistent data structures (rpds)
+dev-python/rpds-py 0.27.1 0.28.0: Python bindings to Rust's persistent data structures (rpds)
 dev-python/rply 0.7.8-r1: Pure python parser generator that also works with RPython
 dev-python/rpy2 3.5.14 3.6.4: Python interface to the R language
 dev-python/rpy2-rinterface 3.6.3: Low-level interface from Python to the R
@@ -9400,7 +9401,7 @@ dev-python/rst-linker 2.6.0: Sphinx plugin to add links and timestamps to the ch
 dev-python/rtimulib 7.2.1-r3: Python Binding for RTIMULib, a versatile IMU library
 dev-python/rtree 1.4.0 1.4.1: R-Tree spatial index for Python GIS
 dev-python/rtslib-fb 2.1.76 2.2.3: A Python object API for managing the Linux LIO kernel target
-dev-python/ruamel-yaml 0.18.14 0.18.15: YAML parser/emitter that supports roundtrip comment preservation
+dev-python/ruamel-yaml 0.18.15 0.18.16: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.12 0.2.14: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/rustworkx 0.16.0 0.17.1: A high performance Python graph library implemented in Rust
 dev-python/s3transfer 0.13.1 0.14.0: An Amazon S3 Transfer Manager
@@ -9613,7 +9614,7 @@ dev-python/transitions 0.9.3: A lightweight, object-oriented state machine imple
 dev-python/translate-toolkit 3.15.6 3.16.2 3.16.3: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.24.0 0.25.1-r1 0.25.2: Python bindings to the Tree-sitter parsing library
 dev-python/treq 25.5.0: A requests-like API built on top of twisted.web's Agent
-dev-python/trimesh 4.7.4 4.8.1 4.8.2 4.8.3: Python library for loading and using triangular meshes
+dev-python/trimesh 4.8.2 4.8.3 4.9.0: Python library for loading and using triangular meshes
 dev-python/trio 0.30.0 0.31.0: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.12.2: WebSocket client and server implementation for Python Trio
 dev-python/trove-classifiers 2025.8.26.11 2025.9.8.13 2025.9.9.12 2025.9.11.17: Canonical source for classifiers on PyPI (pypi.org)
@@ -10964,7 +10965,7 @@ dev-util/patchutils 0.4.2 0.4.4-r1: Collection of tools that operate on patch fi
 dev-util/patdiff 0.15.0 0.17.0: Colored patience diffs with word-level refinement
 dev-util/peg 0.1.19 0.1.20: Recursive-descent parser generators for C
 dev-util/perf 6.14 6.16 6.16-r1: Userland tools for Linux Performance Counters
-dev-util/pixi 0.56.0 0.57.0: A package management and workflow tool
+dev-util/pixi 0.57.0 0.58.0: A package management and workflow tool
 dev-util/pkgcheck 0.10.34 0.10.36-r1 0.10.37 9999: pkgcore-based QA utility for ebuild repos
 dev-util/pkgconf 2.3.0 2.4.3 2.5.1 9999: pkg-config compatible replacement with no dependencies other than C99
 dev-util/pkgcruft 0.0.13 0.0.14 0.0.15 0.0.16 9999: QA library and tools based on pkgcraft
@@ -17174,7 +17175,7 @@ sys-apps/rename 1.3-r3: Easily rename files
 sys-apps/renameutils 0.12.0: Use your favorite text editor to rename files
 sys-apps/restartd 0.2.2-r1: A daemon for checking your running and not running processes
 sys-apps/restorecond 3.6 3.7 3.8.1 9999: Daemon to watch for creation and set default SELinux fcontexts
-sys-apps/ripgrep 14.1.1-r1 15.0.0: Search tool that combines the usability of ag with the raw speed of grep
+sys-apps/ripgrep 14.1.1-r1 15.0.0 15.1.0: Search tool that combines the usability of ag with the raw speed of grep
 sys-apps/ripgrep-all 0.10.9-r1: Like ripgrep, but also search in PDFs, E-Books, Office documents, archives, etc.
 sys-apps/rkflashtool 6.1: Tool for flashing Rockchip devices
 sys-apps/rng-tools 6.16-r2 6.17-r1: Daemon to use hardware random number generators
