@@ -7,13 +7,12 @@ inherit cmake udev
 
 DESCRIPTION="INDI Astronomical Control Protocol library"
 HOMEPAGE="https://www.indilib.org/"
-# SRC_URI="https://github.com/${PN}/${PN/lib/}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI="https://dev.gentoo.org/~asturm/distfiles/${P}.tar.gz"
+SRC_URI="https://github.com/${PN}/${PN/lib/}/archive/v${PV}.tar.gz -> ${P}a.tar.gz"
 S="${WORKDIR}/${P/lib/}"
 
 LICENSE="BSD GPL-2+ LGPL-2+ LGPL-2.1+"
 SLOT="0/1"
-KEYWORDS="amd64 ~ppc ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="ogg rtlsdr test"
 
 RESTRICT="!test? ( test )"
@@ -21,6 +20,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-cpp/cpp-httplib:=
 	dev-cpp/nlohmann_json
+	dev-libs/hidapi
 	dev-libs/libev
 	media-libs/libjpeg-turbo:=
 	net-misc/curl
@@ -41,8 +41,11 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-cpp/gtest-1.8.0 )
 "
 
+PATCHES=( "${FILESDIR}/${P}-system-hidapi.patch" ) # git master
+
 src_configure() {
 	local mycmakeargs=(
+		-DINDI_SYSTEM_HIDAPILIB=ON
 		-DINDI_SYSTEM_HTTPLIB=ON
 		-DINDI_SYSTEM_JSONLIB=ON
 		-DINDI_BUILD_QT5_CLIENT=OFF
