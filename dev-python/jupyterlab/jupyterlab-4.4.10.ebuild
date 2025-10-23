@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="BSD MIT GPL-3 Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/async-lru-1.0.0[${PYTHON_USEDEP}]
@@ -65,6 +65,7 @@ EPYTEST_IGNORE=(
 )
 
 EPYTEST_PLUGINS=( pytest-{console-scripts,jupyter,tornasync,timeout} )
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 # TODO: package sphinx_copybutton
 #distutils_enable_sphinx docs/source dev-python/sphinx-rtd-theme dev-python/myst-parser

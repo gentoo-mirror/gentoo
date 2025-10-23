@@ -20,13 +20,14 @@ S="${WORKDIR}"/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/ruamel-yaml-clib[${PYTHON_USEDEP}]
 	!dev-python/namespace-ruamel
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 python_compile() {
@@ -35,10 +36,6 @@ python_compile() {
 }
 
 python_test() {
-	local EPYTEST_DESELECT=()
-	[[ ${EPYTHON} == pypy3 ]] && EPYTEST_DESELECT+=(
-		_test/test_deprecation.py::test_collections_deprecation
-	)
 	local EPYTEST_IGNORE=(
 		# Old PyYAML tests from lib/ require special set-up and are
 		# invoked indirectly via test_z_olddata, tell pytest itself

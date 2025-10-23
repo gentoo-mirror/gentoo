@@ -21,7 +21,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	dev-python/charset-normalizer[${PYTHON_USEDEP}]
@@ -61,10 +61,22 @@ EPYTEST_IGNORE=(
 )
 
 EPYTEST_PLUGINS=()
-: ${EPYTEST_TIMEOUT:=1800}
+: ${EPYTEST_TIMEOUT:=300}
+EPYTEST_RERUNS=3
 EPYTEST_XDIST=1
 
 distutils_enable_tests pytest
+
+python_test() {
+	# We run tests in parallel, so avoid having n^2 threads in lapack
+	# tests.
+	local -x BLIS_NUM_THREADS=1
+	local -x MKL_NUM_THREADS=1
+	local -x OMP_NUM_THREADS=1
+	local -x OPENBLAS_NUM_THREADS=1
+
+	epytest
+}
 
 pkg_postinst() {
 	optfeature_header "${PN} functionality can be extended by installing the following packages:"

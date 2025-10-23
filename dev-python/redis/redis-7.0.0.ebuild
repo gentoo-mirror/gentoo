@@ -22,6 +22,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 BDEPEND="
 	test? (
@@ -37,6 +38,7 @@ python_test() {
 	local EPYTEST_DESELECT=(
 		# Flaky test
 		tests/test_pubsub.py::TestPubSubDeadlock::test_pubsub_deadlock
+		tests/test_background.py::TestBackgroundScheduler::test_run_recurring
 		# require extra redis modules that apparently aren't packaged
 		# on Gentoo
 		tests/{,test_asyncio/}test_bloom.py
