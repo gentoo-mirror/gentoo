@@ -1,0 +1,15 @@
+BDEPEND=>=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=x11-libs/libxkbcommon test? ( dev-libs/check )
+DESCRIPTION=Terminal Emulator State Machine
+EAPI=8
+HOMEPAGE=https://github.com/Aetf/libtsm
+INHERIT=meson
+IUSE=debug test
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-2.1 MIT
+RESTRICT=!test? ( test )
+SLOT=0/4
+SRC_URI=https://github.com/Aetf/libtsm/archive/v4.2.0.tar.gz -> libtsm-4.2.0.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=e7eadc7fcdfa30b5876fe7ee75b91112
