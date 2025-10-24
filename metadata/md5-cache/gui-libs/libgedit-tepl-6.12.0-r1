@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/World/gedit/libgedit-tepl
 INHERIT=gnome.org meson virtualx
 IUSE=gtk-doc test
-KEYWORDS=~amd64 ~arm arm64 ~loong ~riscv ~x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~riscv x86
 LICENSE=LGPL-3+
 RDEPEND=!gui-libs/tepl >=dev-libs/glib-2.74:2 >=x11-libs/gtk+-3.22:3[introspection] >=gui-libs/libgedit-gtksourceview-299.1.0:300 >=gui-libs/libgedit-amtk-5.0:5=[introspection] gui-libs/libgedit-gfls dev-libs/icu:= >=gnome-base/gsettings-desktop-schemas-42 >=gui-libs/libhandy-1.6:1 dev-libs/gobject-introspection:=
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=6/4
 SRC_URI=mirror://gnome/sources/libgedit-tepl/6.12/libgedit-tepl-6.12.0.tar.xz
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=54a5d4f9aceb6935720b0d73dac76386
+_md5_=d7e4f3acc6090ffca2bb639fe143e46a
