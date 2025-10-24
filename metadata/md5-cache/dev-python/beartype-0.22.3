@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/click[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/mypy[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/numpy[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/redis[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/sqlalchemy[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/xarray[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) test? ( >=dev-python/pytest-7.4.4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/hatchling-1.27.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] verify-provenance? ( dev-python/pypi-attestations )
+DEFINED_PHASES=compile configure install prepare test unpack
+DESCRIPTION=Unbearably fast runtime type checking in pure Python
+EAPI=8
+HOMEPAGE=https://pypi.org/project/beartype/ https://github.com/beartype/beartype/
+INHERIT=distutils-r1 pypi
+IUSE=test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 verify-provenance
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=MIT
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/b/beartype/beartype-0.22.3.tar.gz verify-provenance? ( https://pypi.org/integrity/beartype/v0.22.3/beartype-0.22.3.tar.gz/provenance -> beartype-0.22.3.tar.gz.provenance )
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	da0e0aad39afe02500c5b3dee253f4c0	pypi	0ad21249997cbe7d63d15a084d009aa2
+_md5_=21ba6b3c9af51451703d145e6a8900c5
