@@ -1,15 +1,16 @@
-BDEPEND=ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=ruby_targets_ruby33? ( dev-lang/ruby:3.3 )
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DEPEND=dev-qt/qtbase:6[gui,network,sql,ssl,widgets,xml] dev-qt/qtmultimedia:6 dev-qt/qtsvg:6 dev-qt/qttools:6[designer] dev-libs/libgit2:= sys-libs/zlib python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 )
 DESCRIPTION=Viewer and editor for GDS and OASIS integrated circuit layouts
 EAPI=8
 HOMEPAGE=https://www.klayout.de/
-INHERIT=toolchain-funcs python-single-r1 ruby-ng git-r3
+INHERIT=toolchain-funcs python-single-r1 ruby-ng
 IUSE=python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ruby_targets_ruby33
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-PROPERTIES=live
 RDEPEND=dev-qt/qtbase:6[gui,network,sql,ssl,widgets,xml] dev-qt/qtmultimedia:6 dev-qt/qtsvg:6 dev-qt/qttools:6[designer] dev-libs/libgit2:= sys-libs/zlib python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) || ( ruby_targets_ruby33 )
 SLOT=0
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	multilib	a199af442898963433d6f038a88cce9c	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=4b7449834bbe2e5332773c656608ac63
+SRC_URI=https://www.klayout.org/downloads/source/klayout-0.30.4.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	multilib	a199af442898963433d6f038a88cce9c	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d
+_md5_=6f791d3d48707fe3a9975f95d73dd229
