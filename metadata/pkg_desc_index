@@ -913,10 +913,10 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.42.16 1.42.21 1.42.25 1.42.35 1.42.40 1.42.45 1.42.50 1.42.51 1.42.52 1.42.53 1.42.54 1.42.55 1.42.56 1.42.57 1.42.58: Universal Command Line Environment for AWS
+app-admin/awscli 1.42.35 1.42.40 1.42.45 1.42.50 1.42.55 1.42.59: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0: CLI client for Bitwarden compatible servers
-app-admin/bitwarden-desktop-bin 2025.8.2 2025.9.0: Bitwarden password manager desktop client
+app-admin/bitwarden-desktop-bin 2025.8.2 2025.9.0 2025.10.0: Bitwarden password manager desktop client
 app-admin/btrfs-assistant 2.1.1 2.2: GUI management tool to make managing a Btrfs filesystem easier
 app-admin/calamares 3.3.13 3.3.14-r1 3.3.14-r3 3.3.14-r4: Distribution-independent installer framework
 app-admin/cancd 0.1.0-r6: CA NetConsole Daemon receives output from the Linux netconsole driver
@@ -3053,7 +3053,7 @@ app-portage/fetchcommandwrapper 0.8.4-r5 1.0.0: Wrapper integrating aria2 into p
 app-portage/flaggie 0.99.8: A smart CLI mangler for package.* files
 app-portage/g-cpan 0.18.0-r2 9999: Autogenerate and install ebuilds for CPAN modules
 app-portage/g-octave 0.4.1-r8: A tool that generates and installs ebuilds for Octave-Forge
-app-portage/gemato 20.6 20.8 9999: Stand-alone Manifest generation & verification tool
+app-portage/gemato 20.6 20.8 20.9 9999: Stand-alone Manifest generation & verification tool
 app-portage/genlop 0.30.12 9999: Nice emerge.log parser
 app-portage/gentle 1.0.2: Gentoo Lazy Entry - a metadata.xml generator
 app-portage/gentoolkit 0.6.8 0.6.9 9999: Collection of administration scripts for Gentoo
@@ -5286,7 +5286,7 @@ dev-libs/amdgpu-pro-opencl 20.40.1147286: Proprietary OpenCL implementation for 
 dev-libs/aml 0.3.0 9999: Event timer executor loop
 dev-libs/angelscript 2.37.0 2.38.0: A flexible, cross-platform scripting library
 dev-libs/antlr-c 3.5.2-r3: The ANTLR3 C Runtime
-dev-libs/apache-arrow 20.0.0 21.0.0 9999: A cross-language development platform for in-memory data
+dev-libs/apache-arrow 20.0.0 21.0.0 22.0.0 9999: A cross-language development platform for in-memory data
 dev-libs/appstream 1.0.4-r1 1.0.6: Cross-distro effort for providing metadata for software in the Linux ecosystem
 dev-libs/appstream-glib 0.8.2 0.8.3: Provides GObjects and helper methods to read and write AppStream metadata
 dev-libs/apr 1.7.4-r2 1.7.4-r3 1.7.5 1.7.6: Apache Portable Runtime Library
@@ -8178,8 +8178,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.40.16 1.40.21 1.40.25 1.40.30 1.40.35 1.40.40 1.40.45 1.40.50 1.40.51 1.40.52 1.40.53 1.40.54 1.40.55 1.40.56 1.40.57 1.40.58: The AWS SDK for Python
-dev-python/botocore 1.40.16 1.40.21 1.40.25 1.40.30 1.40.35 1.40.40 1.40.45 1.40.50 1.40.51 1.40.52 1.40.53 1.40.54 1.40.55 1.40.56 1.40.57 1.40.58: Low-level, data-driven core of boto 3
+dev-python/boto3 1.40.35 1.40.40 1.40.45 1.40.50 1.40.55 1.40.59: The AWS SDK for Python
+dev-python/botocore 1.40.35 1.40.40 1.40.45 1.40.50 1.40.55 1.40.59: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25: Syntax highlighting and autocompletion for the Python interpreter
@@ -8200,7 +8200,7 @@ dev-python/canonicaljson 2.0.0: Canonical JSON
 dev-python/capturer 3.0-r1: Easily capture stdout/stderr of the current process and subprocesses
 dev-python/casttube 0.2.1-r1: casttube provides a way to interact with the Youtube Chromecast api
 dev-python/cattrs 25.1.1 25.2.0 25.3.0: Composable complex class support for attrs and dataclasses
-dev-python/cbor2 5.6.5 5.7.0: Pure Python CBOR (de)serializer with extensive tag support
+dev-python/cbor2 5.7.0 5.7.1: Pure Python CBOR (de)serializer with extensive tag support
 dev-python/cerberus 1.3.7: A lightweight and extensible data-validation library for Python
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.17.1 2.0.0: Foreign Function Interface for Python calling C code
@@ -8373,7 +8373,7 @@ dev-python/email-validator 2.2.0 2.3.0: A robust email syntax and deliverability
 dev-python/emcee 3.1.6: Python ensemble sampling toolkit for affine-invariant MCMC
 dev-python/emoji 2.14.1 2.15.0: Emoji for Python
 dev-python/enrich 1.2.7-r1: Extend rich functionality
-dev-python/ensurepip-pip 25.1.1-r1 25.2: Shared pip wheel for ensurepip Python module
+dev-python/ensurepip-pip 25.2 25.3: Shared pip wheel for ensurepip Python module
 dev-python/ensurepip-setuptools 79.0.1 80.9.0-r1: Shared setuptools wheel for ensurepip Python module
 dev-python/ensurepip-wheel 0.45.1-r1: Shared wheel wheel for use in pip tests
 dev-python/entrypoint2 1.1: Easy to use command-line interface for python modules
@@ -8396,7 +8396,7 @@ dev-python/expecttest 0.3.0: golden tests
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyed3 0.9.8: Module for manipulating ID3 (v1 + v2) tags in Python
 dev-python/fake-py 0.11.6 0.11.8: Minimalistic, standalone alternative fake data generator with no dependencies
-dev-python/faker 37.6.0 37.8.0 37.11.0: A Python package that generates fake data for you
+dev-python/faker 37.8.0 37.11.0 37.12.0: A Python package that generates fake data for you
 dev-python/fakeredis 2.31.0 2.31.1 2.31.3 2.32.0: Fake implementation of redis API for testing purposes
 dev-python/fastbencode 0.3.4 0.3.5 0.3.6: Implementation of bencode with Rust implementation
 dev-python/fasteners 0.19 0.20: Python package that provides useful locks
@@ -8713,7 +8713,7 @@ dev-python/lxml 5.4.0-r2 6.0.0 6.0.1 6.0.2: A Pythonic binding for the libxml2 a
 dev-python/lxml-html-clean 0.4.2 0.4.3: Separate project for HTML cleaning functionalities copied from lxml.html.clean
 dev-python/lz4 4.4.4: LZ4 Bindings for Python
 dev-python/m2crypto 0.45.1 0.46.0 0.46.2: A Python crypto and SSL toolkit
-dev-python/magic-wormhole 0.19.2 0.20.0: Get Things From One Computer To Another, Safely
+dev-python/magic-wormhole 0.20.0 0.21.0: Get Things From One Computer To Another, Safely
 dev-python/magic-wormhole-mailbox-server 0.5.1: Mailbox server for magic-wormhole
 dev-python/magic-wormhole-transit-relay 0.4.0: Transit relay server for magic-wormhole
 dev-python/makefun 1.16.0: Small library to dynamically create Python functions
@@ -8756,7 +8756,7 @@ dev-python/micawber 0.5.6: A small library for extracting rich content from urls
 dev-python/mido 1.3.3: MIDI Objects, a library for working with MIDI messages and ports
 dev-python/mimerender 0.6.0-r1: RESTful HTTP Content Negotiation for Flask, Bottle, web.py and webapp2
 dev-python/minidb 2.0.8: Simple SQLite-based object store
-dev-python/minify-html 0.16.4: Extremely fast and smart HTML + JS + CSS minifier
+dev-python/minify-html 0.16.4 0.18.0: Extremely fast and smart HTML + JS + CSS minifier
 dev-python/minikanren 1.0.5: Relational programming in Python
 dev-python/minimock 1.3.0-r1: The simplest possible mock library
 dev-python/miniupnpc 2.3.3: Python bindings for UPnP client library
@@ -8867,7 +8867,7 @@ dev-python/opt-einsum 3.4.0: Optimized Einsum: A tensor contraction order optimi
 dev-python/ordered-set 4.1.0-r1: A mutable set that remembers the order of its entries
 dev-python/orderedmultidict 1.0.1: Ordered Multivalue Dictionary. Powers furl
 dev-python/orderly-set 5.4.1 5.5.0: A package containing multiple implementations of Ordered Set
-dev-python/orjson 3.10.18 3.11.1 3.11.2 3.11.3: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
+dev-python/orjson 3.11.3 3.11.4: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/os-client-config 2.3.0: OpenStack Client Configuation Library
 dev-python/os-service-types 1.8.0: A library to handle official service types for OpenStack and it's aliases
 dev-python/osc-lib 4.1.0 4.2.0: A package of common support modules for writing OSC plugins
@@ -8927,7 +8927,7 @@ dev-python/pelican-minify 2.0.0: An HTML minification plugin for Pelican, the st
 dev-python/pexpect 4.9.0: Python module for spawning child apps and responding to expected patterns
 dev-python/pgspecial 2.2.1: Python implementation of PostgreSQL meta commands
 dev-python/pgzero 1.2.1-r2: A zero-boilerplate games programming framework based on Pygame
-dev-python/phonenumbers 9.0.12 9.0.13 9.0.14 9.0.15 9.0.16: Python port of Google's libphonenumber
+dev-python/phonenumbers 9.0.14 9.0.15 9.0.16 9.0.17: Python port of Google's libphonenumber
 dev-python/phply 1.2.6: Lexer and parser for PHP source implemented using PLY
 dev-python/pickleshare 0.7.5-r1: A small 'shelve' like datastore with concurrency support
 dev-python/picobox 4.0.0: Dependency injection framework designed with Python in mind
@@ -8936,7 +8936,7 @@ dev-python/piexif 1.1.3-r4: Exif manipulation with pure Python
 dev-python/pika 1.3.2: Pure-Python implementation of the AMQP
 dev-python/pikepdf 9.5.2 9.9.0 9.10.1 9.10.2 9.11.0: Python library to work with pdf files based on qpdf
 dev-python/pillow 11.3.0 12.0.0: Python Imaging Library (fork)
-dev-python/pip 25.1.1 25.2: The PyPA recommended tool for installing Python packages
+dev-python/pip 25.2 25.3: The PyPA recommended tool for installing Python packages
 dev-python/pipdeptree 2.23.4 2.26.1 2.27.0 2.28.0 2.29.0: Utility for displaying installed packages in a dependency tree
 dev-python/pipenv 2024.0.2-r1: Python Development Workflow for Humans
 dev-python/pipx 1.7.1 1.8.0: Install and Run Python Applications in Isolated Environments
@@ -8999,7 +8999,7 @@ dev-python/pyaes 1.6.1-r3: Pure-Python Implementation of the AES block-cipher an
 dev-python/pyalsa 1.2.14: Python bindings for ALSA library
 dev-python/pyamg 5.2.1 5.3.0: Algebraic multigrid solvers in Python
 dev-python/pyaml 25.7.0: PyYAML-based module to produce pretty and readable YAML-serialized data
-dev-python/pyarrow 20.0.0 21.0.0 9999: Python library for Apache Arrow
+dev-python/pyarrow 20.0.0 21.0.0 22.0.0 9999: Python library for Apache Arrow
 dev-python/pyasn1 0.6.1: ASN.1 library for Python
 dev-python/pyasn1-modules 0.4.2: pyasn1 modules
 dev-python/pyasynchat 1.0.4: Make asynchat available for Python 3.12 onwards
@@ -9337,7 +9337,7 @@ dev-python/random2 1.0.2: Python 2.7 random module ported to Python 3
 dev-python/rapidfuzz 3.13.0 3.14.0 3.14.1: Rapid fuzzy string matching in Python using various string metrics
 dev-python/rarfile 4.2: Module for RAR archive reading
 dev-python/ratelimit 2.2.1-r1: An API rate limit decorator for Python
-dev-python/rdflib 7.1.4 7.2.1: RDF library containing a triple store and parser/serializer
+dev-python/rdflib 7.2.1: RDF library containing a triple store and parser/serializer
 dev-python/re-assert 1.1.0-r3: Show where your regex match assertion failed
 dev-python/readme-renderer 44.0: A library for rendering 'readme' descriptions for Warehouse
 dev-python/readthedocs-sphinx-ext 2.2.5: Code specific for Read the Docs and Sphinx
@@ -9383,7 +9383,7 @@ dev-python/rfc3987 1.3.8-r3: Parsing and validation of URIs (RFC 3986) and IRIs 
 dev-python/rfc8785 0.1.4: Pure-Python impl. of RFC 8785 (JSON Canonicalization Scheme)
 dev-python/rich 14.1.0 14.2.0: Python library for rendering rich text, tables, etc. to the terminal
 dev-python/rich-argparse 1.7.1: Rich help formatters for argparse and optparse
-dev-python/rich-click 1.8.9 1.9.2 1.9.3: Format click help output nicely with rich
+dev-python/rich-click 1.8.9 1.9.3 1.9.4: Format click help output nicely with rich
 dev-python/roman 5.1: An Integer to Roman numerals converter
 dev-python/roman-numerals-py 3.1.0: Manipulate roman numerals
 dev-python/rope 1.14.0: Python refactoring library
@@ -9421,7 +9421,7 @@ dev-python/secretstorage 3.3.3 3.4.0: Python bindings to FreeDesktop.org Secret 
 dev-python/securesystemslib 1.3.0 1.3.1: Cryptographic routines for Secure Systems Lab projects at NYU
 dev-python/seedir 0.5.1: Package for creating, editing, and reading folder tree diagrams
 dev-python/segno 1.6.6: Python QR Code and Micro QR Code encoder
-dev-python/selenium 4.26.1 4.34.2 4.35.0 4.36.0 4.37.0: Python language binding for Selenium Remote Control
+dev-python/selenium 4.26.1 4.34.2 4.35.0 4.36.0 4.37.0 4.38.0: Python language binding for Selenium Remote Control
 dev-python/semantic-version 2.10.0: Python library providing a few tools handling SemVer in Python
 dev-python/semver 3.0.4: A Python module for semantic versioning
 dev-python/send2trash 1.8.3: Sends files to the Trash (or Recycle Bin)
@@ -9603,7 +9603,7 @@ dev-python/toolz 1.0.0 1.0.0-r1 1.1.0: List processing tools and functional util
 dev-python/toposort 1.10: Implements a topological sort algorithm
 dev-python/tornado 6.5.1 6.5.2: Python web framework and asynchronous networking library
 dev-python/towncrier 24.8.0 25.8.0: Building newsfiles for your project
-dev-python/tox 4.29.0 4.30.2 4.30.3 4.31.0: virtualenv-based automation of test activities
+dev-python/tox 4.30.2 4.30.3 4.31.0 4.32.0: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.3.0-r2: Python bindings for TSS
 dev-python/tqdm 4.67.1: Add a progress meter to your loops in a second
 dev-python/traitlets 5.14.3: A configuration system for Python applications
@@ -11016,7 +11016,7 @@ dev-util/schroot 1.6.13_p7-r1 1.6.13_p7-r2: Utility to execute commands in a chr
 dev-util/sdl-jstest 0.2.2 9999: Simple SDL joystick test application for the console
 dev-util/seer 2.5-r1 2.6 9999: GUI frontend to gdb
 dev-util/sel 0.08.4-r2: A filemanager for shell scripts
-dev-util/selenium-manager 4.26.0-r1 4.34.0 4.35.0 4.36.0 4.37.0: CLI tool that manages the browser/driver infrastructure required by Selenium
+dev-util/selenium-manager 4.26.0-r1 4.34.0 4.35.0 4.36.0 4.37.0 4.38.0: CLI tool that manages the browser/driver infrastructure required by Selenium
 dev-util/serialtalk 1.3 9999: simple command-line tool to talk to serial devices
 dev-util/sh 3.11.0: A shell parser, formatter, and interpreter with bash support
 dev-util/shadowman 4: Unified compiler shadow link directory updater
@@ -14818,7 +14818,7 @@ net-im/sendxmpp 1.24: A perl-script to send xmpp (jabber), similar to what mail(
 net-im/sendxmpp-scala 1.1.1-r1 1.2.0 9999: Send XMPP (Jabber) messages via command line
 net-im/signal-cli-bin 0.13.9 0.13.19: Send and receive messages of Signal Messenger over a command line interface
 net-im/signal-desktop-bin 7.75.1: Allows you to send and receive messages of Signal Messenger on your computer
-net-im/slack 4.46.96 4.46.101: Team collaboration tool
+net-im/slack 4.46.96 4.46.101 4.46.104: Team collaboration tool
 net-im/spectrum2 2.2.1 2.2.1-r1: An open source instant messaging transport
 net-im/swift 4.0.3-r3: An elegant, secure, adaptable and intuitive XMPP Client
 net-im/synapse 1.138.4 1.139.2 1.140.0: Reference implementation of Matrix homeserver
@@ -14831,7 +14831,7 @@ net-im/tokodon 25.08.2: Mastodon client for Plasma and Plasma Mobile
 net-im/toxic 0.15.1 0.16.0: A curses-based client for Tox
 net-im/whatsapp-desktop-bin 0.5.2-r5: Unofficial electron-based wrapper around WhatsApp Web
 net-im/ysm 2.9.9.1-r2: A console ICQ client supporting versions 7/8
-net-im/zoom 6.5.11.4015 6.6.0.4410: Video conferencing and web conferencing service
+net-im/zoom 6.6.0.4410 6.6.5.5215: Video conferencing and web conferencing service
 net-irc/anope 2.0.14 2.0.18: Anope IRC Services
 net-irc/atheme-services 7.2.12-r5: A portable and secure set of open-source and modular IRC services
 net-irc/bnc 2.9.4-r3: BNC (BouNCe) is used as a gateway to an IRC Server
@@ -15336,7 +15336,7 @@ net-misc/openrsync 0.5.0_p20220508: BSD-licensed implementation of rsync
 net-misc/openssh 9.8_p1-r4 9.9_p2-r4 10.0_p1 10.0_p2 10.1_p1-r1 10.2_p1: Port of OpenBSD's free SSH release
 net-misc/openssh-contrib 9.7_p1-r4: Port of OpenBSD's free SSH release with HPN/X509 patches
 net-misc/openvswitch 2.17.8 2.17.9-r1 2.17.12: Production quality, multilayer virtual switch
-net-misc/owncloud-client 5.3.1.14018 5.3.2.15463 6.0.0.17092 6.0.0.17092-r1: Synchronize files from ownCloud Server with your computer
+net-misc/owncloud-client 5.3.1.14018 5.3.2.15463 6.0.0.17092-r1 6.0.1.17343: Synchronize files from ownCloud Server with your computer
 net-misc/packETH 2.1 2.1-r1 3.0: Packet generator tool for ethernet
 net-misc/passt 2025.04.15 2025.06.11 9999: User-mode networking daemons for VMs and namespaces, replacement for Slirp
 net-misc/pcapfix 1.1.7: Repair and fix broken pcap files
@@ -15605,7 +15605,7 @@ net-voip/sipvicious 0.3.4-r1: SIPVicious is a SIP security package
 net-voip/umurmur 0.3.1: Minimalistic Murmur (Mumble server)
 net-voip/yate 6.2.0: The Yate AV Suite
 net-vpn/6tunnel 0.13-r1: TCP proxy for applications that don't speak IPv6
-net-vpn/candy 6.1.1 6.1.2: A reliable, low-latency, and anti-censorship virtual private network
+net-vpn/candy 6.1.3: A reliable, low-latency, and anti-censorship virtual private network
 net-vpn/cloudflared 2025.9.0 2025.10.0: A command-line client and tunneling daemon for Cloudflare Tunnel
 net-vpn/corkscrew 2.0-r1: a tool for tunneling SSH through HTTP proxies
 net-vpn/derper 1.84.3 1.86.5: DERP server for tailscale network
@@ -16126,7 +16126,7 @@ sci-libs/fetk 1.5: The Finite Element ToolKit - Meta package
 sci-libs/fflas-ffpack 2.5.0-r1: Library for dense linear algebra over word-size finite fields
 sci-libs/fftw 3.3.10 3.3.10-r1 9999: Fast C library for the Discrete Fourier Transform
 sci-libs/flann 1.9.2_p20221027 1.9.2_p20221027-r1: Fast approximate nearest neighbor searches in high dimensional spaces
-sci-libs/flexiblas 3.4.82-r4 3.4.83 3.4.84 9999: A BLAS and LAPACK wrapper library with runtime exchangable backends
+sci-libs/flexiblas 3.4.82-r4 3.4.83 3.4.84 3.5.0 9999: A BLAS and LAPACK wrapper library with runtime exchangable backends
 sci-libs/fplll 5.5.0: Implementations of the floating-point LLL reduction algorithm
 sci-libs/galib 2.4.7-r2: Library for genetic algorithms in C++ programs
 sci-libs/gamer 1.5-r2: Geometry-preserving Adaptive MeshER
