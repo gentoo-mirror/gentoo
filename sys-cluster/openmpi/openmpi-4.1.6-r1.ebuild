@@ -30,7 +30,7 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~loong ~ppc ppc64 ~riscv ~sparc x86 ~amd64-linux"
-IUSE="cma cuda cxx fortran ipv6 libompitrace peruse romio valgrind
+IUSE="cma cuda cxx fortran libompitrace peruse romio valgrind
 	${IUSE_OPENMPI_FABRICS} ${IUSE_OPENMPI_RM} ${IUSE_OPENMPI_OFED_FEATURES}"
 
 REQUIRED_USE="
@@ -127,7 +127,7 @@ multilib_src_configure() {
 		--disable-heterogeneous
 
 		$(use_enable cxx mpi-cxx)
-		$(use_enable ipv6)
+		--enable-ipv6
 		$(use_enable libompitrace)
 		$(use_enable peruse)
 		$(use_enable romio io-romio)
