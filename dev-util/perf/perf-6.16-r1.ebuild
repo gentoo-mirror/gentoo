@@ -47,8 +47,8 @@ BDEPEND="
 	${PYTHON_DEPS}
 	>=app-arch/tar-1.34-r2
 	$(python_gen_cond_dep '
-			dev-python/setuptools[${PYTHON_USEDEP}]
-    ')
+		dev-python/setuptools[${PYTHON_USEDEP}]
+	')
 	app-alternatives/yacc
 	app-alternatives/lex
 	sys-apps/which
@@ -252,7 +252,7 @@ perf_make() {
 		PKG_CONFIG="$(tc-getPKG_CONFIG)"
 		prefix="${EPREFIX}/usr" bindir_relative="bin"
 		tipdir="share/doc/${PF}"
-		EXTRA_CFLAGS="${CFLAGS}"
+		EXTRA_CFLAGS="${CPPFLAGS} ${CFLAGS}"
 		EXTRA_LDFLAGS="${LDFLAGS}"
 		ARCH="${arch}"
 		BUILD_BPF_SKEL=$(usex bpf 1 "") \
@@ -299,6 +299,9 @@ perf_make() {
 
 src_compile() {
 	filter-lto
+
+	# capstone-6 compatibility (#964350)
+	append-cppflags -DCAPSTONE_AARCH64_COMPAT_HEADER -DCAPSTONE_SYSTEMZ_COMPAT_HEADER
 
 	perf_make -f Makefile.perf
 	perf_make -C Documentation man
