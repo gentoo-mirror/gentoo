@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit findlib
+inherit dune
 
 DESCRIPTION="A community-maintained standard library extension"
 HOMEPAGE="https://github.com/ocaml-batteries-team/batteries-included/"
@@ -14,21 +14,11 @@ S="${WORKDIR}"/batteries-included-${PV}
 LICENSE="LGPL-2.1-with-linking-exception"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~x86"
+IUSE="+ocamlopt"
 RESTRICT="test"
 
 RDEPEND="
-	${DEPEND}
-	dev-ml/num:=
+	dev-ml/camlp-streams:=[ocamlopt?]
+	dev-ml/num:=[ocamlopt?]
 "
-BDEPEND="
-	dev-ml/ocamlbuild
-	<dev-lang/ocaml-5
-"
-
-src_compile() {
-	emake BATTERIES_NATIVE=$(usex ocamlopt yes no)
-}
-
-src_install() {
-	findlib_src_install BATTERIES_NATIVE=$(usex ocamlopt yes no)
-}
+DEPEND="${RDEPEND}"

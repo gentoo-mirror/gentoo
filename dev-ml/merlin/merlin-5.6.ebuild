@@ -9,23 +9,19 @@ inherit elisp-common dune edo
 DESCRIPTION="Context sensitive completion for OCaml in Vim and Emacs"
 HOMEPAGE="https://github.com/ocaml/merlin/"
 SRC_URI="
-	https://github.com/ocaml/merlin/archive/refs/tags/v${PV}-503.tar.gz
-		-> ${P}-503.gh.tar.gz
+	https://github.com/ocaml/${PN}/releases/download/v${PV}-503/${P}-503.tbz
+	https://github.com/ocaml/${PN}/releases/download/v${PV}-504/${P}-504.tbz
 "
 
 LICENSE="MIT"
 SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="emacs +ocamlopt test"
-
-# Tests fail unexpectedly on Tinderbox. See https://bugs.gentoo.org/933857
-# RESTRICT="!test? ( test )"
-RESTRICT="test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-lang/ocaml-5.3.0 <dev-lang/ocaml-5.4.0
+	>=dev-lang/ocaml-5.3.0 <dev-lang/ocaml-5.5.0
 	dev-ml/csexp:=
-	dev-ml/menhir:=
 	dev-ml/yojson:=
 	emacs? (
 		>=app-editors/emacs-23.1:*
@@ -36,25 +32,30 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 "
-# NOTICE: Block dev-ml/seq (which is a back-port of code to ocaml <4.07)
-# because it breaks merlin builds.
-# https://github.com/ocaml/merlin/issues/1500
 BDEPEND="
-	!!<dev-ml/seq-0.3
 	dev-ml/findlib
 	test? (
 		app-misc/jq
 		dev-ml/alcotest
+		dev-ml/ppxlib
 	)
 "
 
 SITEFILE="50${PN}-gentoo.el"
+
+DUNE_PKG_NAMES_OTHER=(
+	dot-merlin-reader
+	ocaml-index
+	merlin-lib
+)
 
 src_unpack() {
 	default
 
 	if has_version "=dev-lang/ocaml-5.3*" ; then
 		edo mv "${P}-503" "${S}"
+	elif has_version "=dev-lang/ocaml-5.4*" ; then
+		edo mv "${P}-504" "${S}"
 	else
 		die "The installed version of OCaml is not yet supported"
 	fi
@@ -84,7 +85,9 @@ src_prepare() {
 }
 
 src_compile() {
-	dune_src_compile
+	# This is a minimal compilation set to avoid the "menhir" dependency.
+	# See the readme: https://github.com/ocaml/merlin/blob/main/README.md
+	dune-compile "${DUNE_PKG_NAMES_OTHER[@]}" "${PN}"
 
 	if use emacs ; then
 		# iedit isn't packaged yet
@@ -93,6 +96,15 @@ src_compile() {
 		local -x BYTECOMPFLAGS="-L emacs"
 		elisp-compile ./emacs/*.el
 	fi
+}
+
+src_test() {
+	dune-test "${DUNE_PKG_NAMES_OTHER[@]}"
+
+	# Dune test dance:
+	# Testing not all packages removes some needed files for the install step.
+	# We have to compile again, luckily this time most of the build is cached.
+	dune-compile "${DUNE_PKG_NAMES_OTHER[@]}" "${PN}"
 }
 
 src_install() {
