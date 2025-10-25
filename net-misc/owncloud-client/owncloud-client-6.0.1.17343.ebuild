@@ -34,7 +34,10 @@ BDEPEND="
 	dev-qt/qttools:6[linguist]
 	kde-frameworks/extra-cmake-modules"
 
-PATCHES=( "${FILESDIR}"/${PN}-3.2.0.10193-no_fortify_override.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-3.2.0.10193-no_fortify_override.patch
+	"${FILESDIR}"/${PN}-6.0.0.17092-ecm-6.19.0.patch
+)
 
 src_prepare() {
 	# Keep tests in ${T}

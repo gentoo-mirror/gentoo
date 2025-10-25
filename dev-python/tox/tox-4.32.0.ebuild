@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/tox-dev/tox
 PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
 inherit distutils-r1 pypi
@@ -17,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/cachetools[${PYTHON_USEDEP}]
@@ -44,6 +45,7 @@ BDEPEND="
 "
 
 EPYTEST_PLUGINS=( pytest-{mock,rerunfailures,xdist} )
+# xdist seems to mess up state between successive implementation runs
 distutils_enable_tests pytest
 
 src_prepare() {
@@ -63,6 +65,7 @@ python_test() {
 		# Internet
 		tests/tox_env/python/virtual_env/package/test_package_cmd_builder.py::test_build_wheel_external
 		tests/tox_env/python/virtual_env/package/test_package_cmd_builder.py::test_run_installpkg_targz
+		tests/tox_env/python/virtual_env/package/test_package_pyproject.py::test_pyproject_installpkg_pep517_envs
 	)
 	local EPYTEST_IGNORE=(
 		# requires devpi*
