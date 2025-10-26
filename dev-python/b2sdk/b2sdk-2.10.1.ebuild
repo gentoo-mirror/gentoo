@@ -26,6 +26,7 @@ RDEPEND="
 	>=dev-python/annotated-types-0.5.0[${PYTHON_USEDEP}]
 	>=dev-python/logfury-1.0.1[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.9.1[${PYTHON_USEDEP}]
+	>=dev-python/tenacity-9.1.2[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -42,7 +43,11 @@ EPYTEST_IGNORE=(
 	test/integration/test_sync.py
 	test/integration/test_upload.py
 	test/integration/test_raw_api.py
+	# ... and they fail to import w/ pytest-8.4.1 anyway because of
+	# pytest_plugins at non-top-level.
+	test/integration
 )
+EPYTEST_PLUGINS=( pytest-{lazy-fixtures,mock,timeout} )
 
 export PDM_BUILD_SCM_VERSION=${PV}
 
