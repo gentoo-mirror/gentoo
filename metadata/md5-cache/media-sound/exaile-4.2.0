@@ -1,0 +1,17 @@
+BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11[sqlite] ) python_single_target_python3_12? ( dev-lang/python:3.12[sqlite] ) python_single_target_python3_13? ( dev-lang/python:3.13[sqlite] ) sys-apps/help2man test? ( python_single_target_python3_11? ( dev-python/pytest[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pytest[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pytest[python_targets_python3_13(-)] ) ) nls? ( dev-util/intltool sys-devel/gettext )
+DEFINED_PHASES=compile install postinst postrm preinst setup test
+DESCRIPTION=GTK+ based media player aiming to be similar to Amarok
+EAPI=8
+HOMEPAGE=https://www.exaile.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=optfeature python-single-r1 xdg
+IUSE=nls test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11[sqlite] ) python_single_target_python3_12? ( dev-lang/python:3.12[sqlite] ) python_single_target_python3_13? ( dev-lang/python:3.13[sqlite] ) >=media-libs/gstreamer-1.16[introspection] >=media-libs/gst-plugins-base-1.16:1.0 >=media-libs/gst-plugins-good-1.16:1.0 >=media-plugins/gst-plugins-meta-1.16:1.0 >=x11-libs/gtk+-3.24:3[introspection] python_single_target_python3_11? ( dev-python/berkeleydb[python_targets_python3_11(-)] >=media-libs/mutagen-1.44[python_targets_python3_11(-)] dev-python/dbus-python[python_targets_python3_11(-)] >=dev-python/gst-python-1.16:1.0[python_targets_python3_11(-)] dev-python/pycairo[python_targets_python3_11(-)] >=dev-python/pygobject-3.24:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/berkeleydb[python_targets_python3_12(-)] >=media-libs/mutagen-1.44[python_targets_python3_12(-)] dev-python/dbus-python[python_targets_python3_12(-)] >=dev-python/gst-python-1.16:1.0[python_targets_python3_12(-)] dev-python/pycairo[python_targets_python3_12(-)] >=dev-python/pygobject-3.24:3[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/berkeleydb[python_targets_python3_13(-)] >=media-libs/mutagen-1.44[python_targets_python3_13(-)] dev-python/dbus-python[python_targets_python3_13(-)] >=dev-python/gst-python-1.16:1.0[python_targets_python3_13(-)] dev-python/pycairo[python_targets_python3_13(-)] >=dev-python/pygobject-3.24:3[python_targets_python3_13(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/exaile/exaile/releases/download/4.2.0/exaile-4.2.0.tar.gz -> exaile-4.2.0.tar.gz
+_eclasses_=optfeature	538bce96e5589935b57e178e8635f301	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=92b544df237855d17ac1e1bbb30a29a5
