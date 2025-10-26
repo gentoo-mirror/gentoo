@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig gnome? ( gnome-base/gnome-control-center:2 ) systemd? ( sys-apps/systemd ) vala? ( || ( dev-lang/vala:0.56[vapigen(+)] ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm prepare test
-DEPEND=dev-libs/appstream-glib >=dev-libs/glib-2.7:2 sys-apps/dbus >=x11-libs/gdk-pixbuf-2.34:2 >=x11-libs/gtk+-3.24:3 x11-libs/libX11 x11-libs/libXi x11-libs/pango gnome? ( >=x11-wm/mutter-41.3 ) introspection? ( dev-libs/gjs >=dev-libs/gobject-introspection-1.48.0 >=x11-wm/mutter-41.3[introspection] )
+DEPEND=dev-libs/appstream-glib >=dev-libs/glib-2.7:2 sys-apps/dbus >=x11-libs/gdk-pixbuf-2.34:2 >=x11-libs/gtk+-3.24:3 x11-libs/libX11 x11-libs/libXi x11-libs/pango gnome? ( >=x11-wm/mutter-41.3 ) introspection? ( dev-libs/gjs >=dev-libs/gobject-introspection-1.82.0-r2 >=x11-wm/mutter-41.3[introspection] )
 DESCRIPTION=Clipboard management system
 EAPI=7
 HOMEPAGE=https://github.com/Keruspe/GPaste
@@ -8,9 +8,9 @@ INHERIT=meson vala gnome2-utils
 IUSE=+gnome +introspection systemd vala
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=dev-libs/appstream-glib >=dev-libs/glib-2.7:2 sys-apps/dbus >=x11-libs/gdk-pixbuf-2.34:2 >=x11-libs/gtk+-3.24:3 x11-libs/libX11 x11-libs/libXi x11-libs/pango gnome? ( >=x11-wm/mutter-41.3 ) introspection? ( dev-libs/gjs >=dev-libs/gobject-introspection-1.48.0 >=x11-wm/mutter-41.3[introspection] ) gnome? ( gnome-base/gnome-control-center:2 gnome-base/gnome-shell ) systemd? ( sys-apps/systemd )
+RDEPEND=dev-libs/appstream-glib >=dev-libs/glib-2.7:2 sys-apps/dbus >=x11-libs/gdk-pixbuf-2.34:2 >=x11-libs/gtk+-3.24:3 x11-libs/libX11 x11-libs/libXi x11-libs/pango gnome? ( >=x11-wm/mutter-41.3 ) introspection? ( dev-libs/gjs >=dev-libs/gobject-introspection-1.82.0-r2 >=x11-wm/mutter-41.3[introspection] ) gnome? ( gnome-base/gnome-control-center:2 gnome-base/gnome-shell ) systemd? ( sys-apps/systemd )
 REQUIRED_USE=gnome? ( introspection ) vala? ( introspection )
 SLOT=0
 SRC_URI=https://github.com/Keruspe/GPaste/archive/v3.42.5.tar.gz -> gpaste-3.42.5.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	eapi8-dosym	5ac4857ad078256d939c44f7c64197a9	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922	vala	e477903dbe0105930c51f170a592dc16	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88
-_md5_=b6851b9333f82d91782d26cf6c4109d9
+_md5_=9d3ef7743ebe301bf25121a8610eb2b0

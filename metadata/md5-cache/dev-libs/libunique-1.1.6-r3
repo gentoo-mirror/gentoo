@@ -1,6 +1,6 @@
 BDEPEND=>=app-portage/elt-patches-20250306 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=>=dev-libs/glib-2.12:2 >=x11-libs/gtk+-2.11:2[introspection?] x11-libs/libX11 dbus? ( >=dev-libs/dbus-glib-0.70 sys-apps/dbus[X] ) introspection? ( >=dev-libs/gobject-introspection-0.6.3:= ) dev-util/glib-utils >=dev-build/gtk-doc-am-1.11 sys-devel/gettext virtual/pkgconfig
+DEPEND=>=dev-libs/glib-2.12:2 >=x11-libs/gtk+-2.11:2[introspection?] x11-libs/libX11 dbus? ( >=dev-libs/dbus-glib-0.70 sys-apps/dbus[X] ) introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= ) dev-util/glib-utils >=dev-build/gtk-doc-am-1.11 sys-devel/gettext virtual/pkgconfig
 DESCRIPTION=A library for writing single instance application
 EAPI=8
 HOMEPAGE=https://wiki.gnome.org/Attic/LibUnique
@@ -9,9 +9,9 @@ INHERIT=gnome2 virtualx
 IUSE=debug dbus +introspection test
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2.1
-RDEPEND=>=dev-libs/glib-2.12:2 >=x11-libs/gtk+-2.11:2[introspection?] x11-libs/libX11 dbus? ( >=dev-libs/dbus-glib-0.70 sys-apps/dbus[X] ) introspection? ( >=dev-libs/gobject-introspection-0.6.3:= )
+RDEPEND=>=dev-libs/glib-2.12:2 >=x11-libs/gtk+-2.11:2[introspection?] x11-libs/libX11 dbus? ( >=dev-libs/dbus-glib-0.70 sys-apps/dbus[X] ) introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= )
 RESTRICT=!test? ( test )
 SLOT=1
 SRC_URI=mirror://gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	gnome.org	e1b4f392dbfedfb8974b71b017937f08	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	xdg	3ef49a87c52c8b77c476351195dfe575	gnome2	26fd01914b36038dc8e964ff4bd03a95	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=2fdd335e2ffb300d6f2a2d639810f7a1
+_md5_=242d013f4dc65498287d1f2fa6ac5866

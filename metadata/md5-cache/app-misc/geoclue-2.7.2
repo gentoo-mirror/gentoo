@@ -1,6 +1,6 @@
 BDEPEND=|| ( dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] ) dev-util/gdbus-codegen dev-util/glib-utils gtk-doc? ( app-text/docbook-xml-dtd:4.1.2 >=dev-util/gtk-doc-1 ) >=sys-devel/gettext-0.19.8 virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=>=dev-libs/glib-2.74:2 >=dev-libs/json-glib-0.14.0 >=net-libs/libsoup-3.0.0:3.0 introspection? ( >=dev-libs/gobject-introspection-1.54:= ) modemmanager? ( >=net-misc/modemmanager-1.12 ) zeroconf? ( >=net-dns/avahi-0.6.10[dbus] ) x11-libs/libnotify
+DEPEND=>=dev-libs/glib-2.74:2 >=dev-libs/json-glib-0.14.0 >=net-libs/libsoup-3.0.0:3.0 introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= ) modemmanager? ( >=net-misc/modemmanager-1.12 ) zeroconf? ( >=net-dns/avahi-0.6.10[dbus] ) x11-libs/libnotify
 DESCRIPTION=Location information D-Bus service
 EAPI=8
 HOMEPAGE=https://gitlab.freedesktop.org/geoclue/geoclue/-/wikis/home
@@ -9,9 +9,9 @@ INHERIT=meson python-any-r1 systemd vala xdg
 IUSE=+introspection gtk-doc modemmanager vala zeroconf
 KEYWORDS=~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86
 LICENSE=LGPL-2.1+ GPL-2+
-RDEPEND=>=dev-libs/glib-2.74:2 >=dev-libs/json-glib-0.14.0 >=net-libs/libsoup-3.0.0:3.0 introspection? ( >=dev-libs/gobject-introspection-1.54:= ) modemmanager? ( >=net-misc/modemmanager-1.12 ) zeroconf? ( >=net-dns/avahi-0.6.10[dbus] ) x11-libs/libnotify acct-user/geoclue sys-apps/dbus
+RDEPEND=>=dev-libs/glib-2.74:2 >=dev-libs/json-glib-0.14.0 >=net-libs/libsoup-3.0.0:3.0 introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= ) modemmanager? ( >=net-misc/modemmanager-1.12 ) zeroconf? ( >=net-dns/avahi-0.6.10[dbus] ) x11-libs/libnotify acct-user/geoclue sys-apps/dbus
 REQUIRED_USE=vala? ( introspection )
 SLOT=2.0
 SRC_URI=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.7.2/geoclue-2.7.2.tar.bz2
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861	vala	e477903dbe0105930c51f170a592dc16	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=64829a4afa3591d7510b24a0ed4259dd
+_md5_=ff487e90950d84a1cf3a1d9a42fbab30

@@ -1,6 +1,6 @@
-BDEPEND=dev-util/desktop-file-utils dev-util/intltool sys-devel/gettext virtual/pkgconfig doc? ( dev-util/gtk-doc ) introspection? ( >=dev-libs/gobject-introspection-1.30 ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+BDEPEND=dev-util/desktop-file-utils dev-util/intltool sys-devel/gettext virtual/pkgconfig doc? ( dev-util/gtk-doc ) introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2 ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm prepare test
-DEPEND=>=app-arch/bzip2-1:= >=app-arch/xz-utils-5:= >=dev-libs/glib-2.38:2 >=media-libs/libsamplerate-0.1:= >=media-libs/libsndfile-1.0:= sys-libs/zlib:= introspection? ( >=dev-libs/gobject-introspection-1.30 )
+DEPEND=>=app-arch/bzip2-1:= >=app-arch/xz-utils-5:= >=dev-libs/glib-2.38:2 >=media-libs/libsamplerate-0.1:= >=media-libs/libsndfile-1.0:= sys-libs/zlib:= introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2 )
 DESCRIPTION=CD and DVD image access library
 EAPI=8
 HOMEPAGE=https://cdemu.sourceforge.io
@@ -8,8 +8,8 @@ INHERIT=cmake xdg-utils
 IUSE=doc +introspection
 KEYWORDS=amd64 x86
 LICENSE=GPL-2+
-RDEPEND=>=app-arch/bzip2-1:= >=app-arch/xz-utils-5:= >=dev-libs/glib-2.38:2 >=media-libs/libsamplerate-0.1:= >=media-libs/libsndfile-1.0:= sys-libs/zlib:= introspection? ( >=dev-libs/gobject-introspection-1.30 )
+RDEPEND=>=app-arch/bzip2-1:= >=app-arch/xz-utils-5:= >=dev-libs/glib-2.38:2 >=media-libs/libsamplerate-0.1:= >=media-libs/libsndfile-1.0:= sys-libs/zlib:= introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2 )
 SLOT=0/11
 SRC_URI=https://download.sourceforge.net/cdemu/libmirage/libmirage-3.2.10.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	2d36accef058c00889b1f93ea4bc4061
-_md5_=ed4ae112c28fbffb18ce7adef3ffb666
+_md5_=1faea8e0a60d9420eff5c4a62335d70f

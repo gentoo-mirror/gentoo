@@ -1,6 +1,6 @@
 BDEPEND=gtk-doc? ( dev-util/gi-docgen ) test? ( net-libs/uhttpmock:1.0 ) app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install test
-DEPEND=>=dev-libs/glib-2.28.0:2 dev-libs/json-glib net-libs/rest:1.0 net-libs/libsoup:3.0 net-libs/gnome-online-accounts:= >=net-libs/uhttpmock-0.11.0:1.0 introspection? ( >=dev-libs/gobject-introspection-0.6.2:= ) >=dev-util/gdbus-codegen-2.30.0 >=sys-devel/gettext-0.19.8 virtual/pkgconfig dev-libs/gobject-introspection-common
+DEPEND=>=dev-libs/glib-2.28.0:2 dev-libs/json-glib net-libs/rest:1.0 net-libs/libsoup:3.0 net-libs/gnome-online-accounts:= >=net-libs/uhttpmock-0.11.0:1.0 introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= ) >=dev-util/gdbus-codegen-2.30.0 >=sys-devel/gettext-0.19.8 virtual/pkgconfig dev-libs/gobject-introspection-common
 DESCRIPTION=GLib-based library for accessing online serive APIs using MS Graph protocol.
 EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/GNOME/msgraph
@@ -8,10 +8,10 @@ INHERIT=gnome.org meson
 IUSE=debug gtk-doc +introspection man test
 KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=LGPL-2+
-RDEPEND=>=dev-libs/glib-2.28.0:2 dev-libs/json-glib net-libs/rest:1.0 net-libs/libsoup:3.0 net-libs/gnome-online-accounts:= >=net-libs/uhttpmock-0.11.0:1.0 introspection? ( >=dev-libs/gobject-introspection-0.6.2:= )
+RDEPEND=>=dev-libs/glib-2.28.0:2 dev-libs/json-glib net-libs/rest:1.0 net-libs/libsoup:3.0 net-libs/gnome-online-accounts:= >=net-libs/uhttpmock-0.11.0:1.0 introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= )
 REQUIRED_USE=gtk-doc? ( introspection )
 RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=mirror://gnome/sources/msgraph/0.2/msgraph-0.2.3.tar.xz
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=058b8a564aa57f368e747cfe576dbaa4
+_md5_=1f3834c151014a0c0196e301ae5b670d

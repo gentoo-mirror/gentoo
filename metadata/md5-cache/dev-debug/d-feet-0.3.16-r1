@@ -1,6 +1,6 @@
 BDEPEND=dev-util/itstool >=app-portage/elt-patches-20250306 app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=x11-libs/gtk+-3.9.4:3[introspection] >=dev-libs/gobject-introspection-0.9.6:=
+DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=x11-libs/gtk+-3.9.4:3[introspection] >=dev-libs/gobject-introspection-1.82.0-r2:=
 DESCRIPTION=D-Feet is a powerful D-Bus debugger
 EAPI=8
 HOMEPAGE=https://wiki.gnome.org/Apps/DFeet
@@ -9,10 +9,10 @@ INHERIT=gnome2 meson python-single-r1 virtualx
 IUSE=test +X python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 test
 KEYWORDS=amd64 ~riscv x86
 LICENSE=GPL-2+
-RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=x11-libs/gtk+-3.9.4:3[introspection] >=dev-libs/gobject-introspection-0.9.6:= >=dev-libs/glib-2.34:2 python_single_target_python3_11? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_12(-)] ) python_single_target_python3_13? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_13(-)] ) >=sys-apps/dbus-1 X? ( x11-libs/libwnck:3[introspection] )
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=x11-libs/gtk+-3.9.4:3[introspection] >=dev-libs/gobject-introspection-1.82.0-r2:= >=dev-libs/glib-2.34:2 python_single_target_python3_11? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_12(-)] ) python_single_target_python3_13? ( >=dev-python/pygobject-3.3.91:3[python_targets_python3_13(-)] ) >=sys-apps/dbus-1 X? ( x11-libs/libwnck:3[introspection] )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/d-feet/0.3/d-feet-0.3.16.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	gnome.org	e1b4f392dbfedfb8974b71b017937f08	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	xdg	3ef49a87c52c8b77c476351195dfe575	gnome2	26fd01914b36038dc8e964ff4bd03a95	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=68dead44144487641eb1df46a1d7f848
+_md5_=a7492a9d59fe2bc1c3905e3f850291f8

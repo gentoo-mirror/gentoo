@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/perl virtual/pkgconfig
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-libs/atk dev-libs/glib dev-libs/gobject-introspection media-libs/fontconfig media-libs/freetype media-libs/libpng:0= sys-libs/zlib x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/pango
+DEPEND=dev-libs/atk dev-libs/glib >=dev-libs/gobject-introspection-1.82.0-r2 media-libs/fontconfig media-libs/freetype media-libs/libpng:0= sys-libs/zlib x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/pango
 DESCRIPTION=chess interface for POSIX systems
 EAPI=7
 HOMEPAGE=http://www.bergo.eng.br/eboard/
@@ -8,8 +8,8 @@ INHERIT=desktop toolchain-funcs
 IUSE=nls
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/atk dev-libs/glib dev-libs/gobject-introspection media-libs/fontconfig media-libs/freetype media-libs/libpng:0= sys-libs/zlib x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/pango
+RDEPEND=dev-libs/atk dev-libs/glib >=dev-libs/gobject-introspection-1.82.0-r2 media-libs/fontconfig media-libs/freetype media-libs/libpng:0= sys-libs/zlib x11-libs/cairo x11-libs/gdk-pixbuf x11-libs/gtk+:2 x11-libs/pango
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/eboard/eboard-1.1.1.tar.bz2 https://downloads.sourceforge.net/eboard/eboard-extras-1pl2.tar.gz https://downloads.sourceforge.net/eboard/eboard-extras-2.tar.gz mirror://debian/pool/main/e/eboard/eboard_1.1.1-4.1.diff.gz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=77a42172164a4840e2473831b02e7eb6
+_md5_=485c64b860d4c89b05ee340086a23daa

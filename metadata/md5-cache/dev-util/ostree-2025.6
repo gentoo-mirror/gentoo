@@ -1,6 +1,6 @@
 BDEPEND=dev-libs/libxslt dev-util/glib-utils sys-devel/flex sys-devel/bison virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=app-arch/xz-utils dev-libs/glib:2 sys-fs/fuse:3= sys-libs/zlib archive? ( app-arch/libarchive:= ) curl? ( net-misc/curl ) dracut? ( sys-kernel/dracut ) gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) grub? ( sys-boot/grub:2= ) introspection? ( dev-libs/gobject-introspection ) libmount? ( sys-apps/util-linux ) selinux? ( sys-libs/libselinux ) sodium? ( >=dev-libs/libsodium-1.0.14:= ) soup? ( net-libs/libsoup:3.0 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) systemd? ( sys-apps/systemd:0= ) zeroconf? ( net-dns/avahi[dbus] ) app-text/docbook-xml-dtd:4.2 app-text/docbook-xsl-stylesheets doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 )
+DEPEND=app-arch/xz-utils dev-libs/glib:2 sys-fs/fuse:3= sys-libs/zlib archive? ( app-arch/libarchive:= ) curl? ( net-misc/curl ) dracut? ( sys-kernel/dracut ) gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) grub? ( sys-boot/grub:2= ) introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2 ) libmount? ( sys-apps/util-linux ) selinux? ( sys-libs/libselinux ) sodium? ( >=dev-libs/libsodium-1.0.14:= ) soup? ( net-libs/libsoup:3.0 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) systemd? ( sys-apps/systemd:0= ) zeroconf? ( net-dns/avahi[dbus] ) app-text/docbook-xml-dtd:4.2 app-text/docbook-xsl-stylesheets doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 )
 DESCRIPTION=Operating system and container binary deployment and upgrades
 EAPI=8
 HOMEPAGE=https://ostreedev.github.io/ostree/
@@ -8,10 +8,10 @@ INHERIT=autotools systemd tmpfiles
 IUSE=archive +curl doc dracut gnutls +gpg grub +http2 introspection libmount selinux sodium ssl +soup systemd zeroconf
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=LGPL-2+
-RDEPEND=app-arch/xz-utils dev-libs/glib:2 sys-fs/fuse:3= sys-libs/zlib archive? ( app-arch/libarchive:= ) curl? ( net-misc/curl ) dracut? ( sys-kernel/dracut ) gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) grub? ( sys-boot/grub:2= ) introspection? ( dev-libs/gobject-introspection ) libmount? ( sys-apps/util-linux ) selinux? ( sys-libs/libselinux ) sodium? ( >=dev-libs/libsodium-1.0.14:= ) soup? ( net-libs/libsoup:3.0 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) systemd? ( sys-apps/systemd:0= ) zeroconf? ( net-dns/avahi[dbus] ) virtual/tmpfiles
+RDEPEND=app-arch/xz-utils dev-libs/glib:2 sys-fs/fuse:3= sys-libs/zlib archive? ( app-arch/libarchive:= ) curl? ( net-misc/curl ) dracut? ( sys-kernel/dracut ) gpg? ( app-crypt/gpgme:= dev-libs/libgpg-error ) grub? ( sys-boot/grub:2= ) introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2 ) libmount? ( sys-apps/util-linux ) selinux? ( sys-libs/libselinux ) sodium? ( >=dev-libs/libsodium-1.0.14:= ) soup? ( net-libs/libsoup:3.0 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) systemd? ( sys-apps/systemd:0= ) zeroconf? ( net-dns/avahi[dbus] ) virtual/tmpfiles
 REQUIRED_USE=dracut? ( systemd ) http2? ( curl )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/ostreedev/ostree/releases/download/v2025.6/libostree-2025.6.tar.xz -> ostree-2025.6.tar.xz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
-_md5_=37bc50f4f10b48abbf0494250cbfdb8c
+_md5_=df767739dd7dfa8af51d85c5e1907b70

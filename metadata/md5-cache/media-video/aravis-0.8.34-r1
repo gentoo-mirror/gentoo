@@ -1,4 +1,4 @@
-BDEPEND=dev-util/glib-utils virtual/pkgconfig doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) introspection? ( dev-libs/gobject-introspection:= ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=dev-util/glib-utils virtual/pkgconfig doc? ( dev-util/gtk-doc app-text/docbook-xml-dtd:4.3 ) introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst test
 DEPEND=dev-libs/glib:2 doc? ( dev-libs/glib:2[gtk-doc(+),doc(+)] ) dev-libs/libxml2:2= sys-libs/zlib gstreamer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 ) packet-socket? ( sys-process/audit ) usb? ( virtual/libusb:1 ) viewer? ( media-libs/gstreamer:1.0 media-libs/gst-plugins-base:1.0 x11-libs/gtk+:3 )
 DESCRIPTION=Library for video acquisition using Genicam cameras
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/AravisProject/aravis/releases/download/0.8.34/aravis-0.8.34.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=1fc4d8c56ab099d022a2cf19cb2fec9b
+_md5_=8e6a9ebd73eae96aabe6a12f1bd4ba4c
