@@ -11,7 +11,7 @@ DESCRIPTION="The GLib library of C routines"
 HOMEPAGE="https://www.gtk.org/"
 
 INTROSPECTION_PN="gobject-introspection"
-INTROSPECTION_PV="1.82.0"
+INTROSPECTION_PV="1.86.0"
 INTROSPECTION_P="${INTROSPECTION_PN}-${INTROSPECTION_PV}"
 SRC_URI="
 	${SRC_URI}
@@ -91,6 +91,7 @@ MULTILIB_CHOST_TOOLS=(
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.64.1-mark-gdbus-server-auth-test-flaky.patch
+	"${FILESDIR}"/${PN}-2.84.4-libpcre2-10.47.patch
 )
 
 python_check_deps() {
@@ -305,13 +306,13 @@ multilib_src_configure() {
 		export PATH="${INTROSPECTION_BIN_DIR}:${PATH}"
 
 		# Override primary pkgconfig search paths to prioritize our internal copy
-		export PKG_CONFIG_LIBDIR="${INTROSPECTION_LIB_DIR}/pkgconfig:${INTROSPECTION_BUILD_DIR}/meson-private"
+		export PKG_CONFIG_LIBDIR="${INTROSPECTION_LIB_DIR}/pkgconfig:${INTROSPECTION_BUILD_DIR}/meson-private:${PKG_CONFIG_LIBDIR}"
 
 		# Set the normal primary pkgconfig search paths as secondary
 		# (We also need to prepend our just-built one for later use of
 		# g-ir-scanner to use the new one and to help workaround bugs like
 		# bug #946221.)
-		export PKG_CONFIG_PATH="${PKG_CONFIG_LIBDIR}:$(pkg-config --variable pc_path pkg-config)"
+		export PKG_CONFIG_PATH="${PKG_CONFIG_LIBDIR}:$($(tc-getPKG_CONFIG) --variable pc_path pkg-config)"
 
 		# Add the paths to the built glib libraries to the library path so that gobject-introspection can load them
 		for gliblib in glib gobject gthread gmodule gio girepository; do
