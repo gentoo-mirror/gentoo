@@ -1,0 +1,16 @@
+BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip )
+DEFINED_PHASES=configure unpack
+DEPEND=>=app-arch/lzlib-1.12 test? ( app-alternatives/lzip )
+DESCRIPTION=A parallel archiver combining tar and lzip
+EAPI=8
+HOMEPAGE=https://www.nongnu.org/lzip/tarlz.html
+INHERIT=toolchain-funcs unpacker
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-2+
+RDEPEND=>=app-arch/lzlib-1.12
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.28.1.tar.lz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627
+_md5_=f4a58ca5291bd3f5c4b4cc7ef7ad60b7
