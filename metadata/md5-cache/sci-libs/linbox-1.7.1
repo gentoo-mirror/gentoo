@@ -1,0 +1,15 @@
+BDEPEND=doc? ( app-text/doxygen )
+DEFINED_PHASES=configure install prepare pretend setup
+DEPEND=dev-libs/gmp[cxx(+)] =sci-libs/givaro-4.2* =sci-libs/fflas-ffpack-2.5* virtual/cblas virtual/lapack opencl? ( virtual/opencl ) dev-libs/ntl:= sci-libs/iml dev-libs/mpfr:= sci-mathematics/flint
+DESCRIPTION=C++ template library for integer and finite-field linear algebra
+EAPI=8
+HOMEPAGE=https://linalg.org/
+INHERIT=toolchain-funcs
+IUSE=doc opencl openmp
+KEYWORDS=~amd64 ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos
+LICENSE=GPL-2+ LGPL-2.1
+RDEPEND=dev-libs/gmp[cxx(+)] =sci-libs/givaro-4.2* =sci-libs/fflas-ffpack-2.5* virtual/cblas virtual/lapack opencl? ( virtual/opencl ) dev-libs/ntl:= sci-libs/iml dev-libs/mpfr:= sci-mathematics/flint doc? ( >=dev-libs/mathjax-3 )
+SLOT=0
+SRC_URI=https://github.com/linbox-team/linbox/releases/download/v1.7.1/linbox-1.7.1.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
+_md5_=468ce17c9de4b7e43597bbe6e164825e
