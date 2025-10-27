@@ -1,0 +1,16 @@
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=!sci-libs/lapack[-flexiblas(-)] >=sci-libs/flexiblas-3.4.82-r4:=[index64(-)?] sci-libs/lapack:=[flexiblas(-),index64(-)?,lapacke]
+DESCRIPTION=BLAS/LAPACK wrappers for FlexiBLAS
+EAPI=8
+HOMEPAGE=https://gitweb.gentoo.org/proj/blas-lapack-aux-wrapper.git/
+INHERIT=meson python-any-r1 toolchain-funcs
+IUSE=index64 test
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=!sci-libs/lapack[-flexiblas(-)] >=sci-libs/flexiblas-3.4.82-r4:=[index64(-)?]
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~mgorny/dist/blas-lapack-aux-wrapper-1.tar.xz test? ( https://github.com/Reference-LAPACK/lapack/archive/v3.12.1.tar.gz -> lapack-3.12.1.tar.gz )
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=c689d4a7b36e553a06ce61dc4b52fd7c
