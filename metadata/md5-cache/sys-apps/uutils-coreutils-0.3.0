@@ -1,0 +1,17 @@
+BDEPEND=test? ( dev-util/cargo-nextest ) selinux? ( llvm_slot_17? ( llvm-core/clang:17 ) llvm_slot_18? ( llvm-core/clang:18 ) llvm_slot_19? ( llvm-core/clang:19 ) llvm_slot_20? ( llvm-core/clang:20 ) ) || ( >=dev-lang/rust-bin-1.85.0:* >=dev-lang/rust-1.85.0:* )
+DEFINED_PHASES=compile configure install setup test unpack
+DEPEND=dev-libs/oniguruma:= selinux? ( sys-libs/libselinux )
+DESCRIPTION=GNU coreutils rewritten in Rust
+EAPI=8
+HOMEPAGE=https://uutils.github.io/coreutils/ https://github.com/uutils/coreutils
+INHERIT=cargo flag-o-matic llvm-r1 multiprocessing
+IUSE=debug selinux test debug +llvm_slot_20 llvm_slot_17 llvm_slot_18 llvm_slot_19
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=MIT Apache-2.0 BSD-2 BSD Boost-1.0 CC0-1.0 ISC MIT Unicode-3.0 ZLIB
+RDEPEND=dev-libs/oniguruma:= selinux? ( sys-libs/libselinux )
+REQUIRED_USE=^^ ( llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/uutils/coreutils/archive/refs/tags/0.3.0.tar.gz -> uutils-coreutils-0.3.0.tar.gz https://github.com/gentoo-crate-dist/coreutils/releases/download/0.3.0/coreutils-0.3.0-crates.tar.xz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	86c81efc08f3f4c1104dbcb8df8e2885	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a1af74aa9e34cd73aeac642cd0dd54d8	llvm-utils	64536677f4b4365e25e9b739163bed58	llvm-r1	5a1fde9f55315992645818a877837527
+_md5_=f00518d25ec336c6b4e6136428511b3b
