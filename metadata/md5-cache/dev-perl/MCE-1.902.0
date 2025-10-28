@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/MCE
 INHERIT=perl-module
 IUSE=+sereal perl_features_debug perl_features_ithreads perl_features_quadmath test
-KEYWORDS=~amd64 ~ppc x86
+KEYWORDS=amd64 ~ppc x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=sereal? ( >=dev-perl/Sereal-Encoder-3.15.0 >=dev-perl/Sereal-Decoder-3.15.0 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/M/MA/MARIOROY/MCE-1.902.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	perl-module	41920449ca174fe9b9b303dfcbdb37a3
-_md5_=dae5e450195cb06fc1f1af0828b6b62a
+_md5_=8898cca9a8c958afcead440a8f4e1201

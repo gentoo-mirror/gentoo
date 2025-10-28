@@ -1358,7 +1358,7 @@ app-containers/cri-o 1.31.2 1.31.4: OCI-based implementation of Kubernetes Conta
 app-containers/cri-tools 1.27.0 1.32.0 1.33.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.19.1 1.20 1.21: Fast and low-memory footprint OCI Container Runtime fully written in C
 app-containers/devcontainer 0.80.1: Reference implementation of the Development Containers specification
-app-containers/distrobox 1.8.1.2-r1 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
+app-containers/distrobox 1.8.1.2-r1 1.8.2.0 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1 3.1 3.2: System container image builder for LXC and incus
 app-containers/dive 0.13.1: terminal based UI to manage kubernetes clusters
 app-containers/docker 28.0.1 28.0.4 28.1.1 28.2.2 28.4.0: The core functions you need to create Docker images and run Docker containers
@@ -2177,7 +2177,7 @@ app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
 app-emacs/orderless 1.4 1.5: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.1: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.5 0.6: Contributed packages to Org
-app-emacs/org-mode 9.7.34 9999: An Emacs mode for notes and project planning
+app-emacs/org-mode 9.7.34 9.7.35 9999: An Emacs mode for notes and project planning
 app-emacs/org-modern 1.9 1.10 9999: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r3 2.3.0 2.3.1 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.6.0 1.7.0 9999: Static site generator using Emacs's org-mode
@@ -2186,7 +2186,7 @@ app-emacs/osm 1.7 1.8 1.9 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
 app-emacs/package-build 4.0.0: Tools for assembling a package archive
 app-emacs/package-lint 0.26: Linting library for Emacs Lisp package metadata
-app-emacs/pandoc-mode 2.34.1 2.35: GNU Emacs minor mode for interacting with Pandoc
+app-emacs/pandoc-mode 2.35 2.90.2: GNU Emacs minor mode for interacting with Pandoc
 app-emacs/paredit 26-r1: Minor mode for performing structured editing of S-expressions
 app-emacs/pariemacs 3.14-r1: sci-mathematics/pari emacs mode
 app-emacs/parsebib 6.7: Emacs Lisp library for reading .bib files
@@ -2771,7 +2771,7 @@ app-misc/gnote 47.2-r1 48.1 48.2: Desktop note-taking application
 app-misc/gnuit 4.9.5-r2: GNU Interactive Tools - increase speed and efficiency of most daily tasks
 app-misc/go-jira 1.0.28-r1: A simple JIRA commandline client in Go
 app-misc/gojq 0.12.16 0.12.17: Pure Go implementation of jq with yaml support
-app-misc/golly 4.3-r2: simulator for Conway's Game of Life and other cellular automata
+app-misc/golly 4.3-r2 5.0: Simulator for Conway's Game of Life and other cellular automata
 app-misc/grabcartoons 2.8.5 9999: Comic-summarizing utility
 app-misc/gramps 5.2.3 6.0.1 6.0.4: Community genealogy program aiming to be both intuitive and feature-complete
 app-misc/graphlcd-base 2.0.3-r3: Contains the lowlevel lcd drivers for GraphLCD
@@ -5148,7 +5148,7 @@ dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.4.1 4.4.3 4.5.0: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
 dev-lang/ada-bootstrap 0_p2021-r1 11 12 13 14: Binary bootstrap compiler for GNAT (Ada compiler)
-dev-lang/algol68g 3.9.5 3.10.2 3.10.4: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.9.5 3.10.2 3.10.4 3.10.5: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.11 3.0.0 3.0.2: Scala language-based scripting and REPL
 dev-lang/arc 3.2-r1: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2-r1: Functional programming language with dependent types
@@ -5163,7 +5163,7 @@ dev-lang/cll1h 0.6-r1: C<<1 programming language system
 dev-lang/clojure 1.12.2 1.12.3: General-purpose programming language with an emphasis on functional programming
 dev-lang/closure-compiler-bin 20250820: JavaScript optimizing compiler
 dev-lang/coffee-script 2.7.0: A little language that compiles into javascript
-dev-lang/crystal 1.17.1 1.18.1: The Crystal Programming Language
+dev-lang/crystal 1.17.1 1.18.1 1.18.2: The Crystal Programming Language
 dev-lang/cue 0.14.1: open-source data validation language and inference engine
 dev-lang/cxprolog 0.98.2-r3: A WAM based Prolog system
 dev-lang/dafny 4.10.0 4.11.0: Dafny is a verification-aware programming language
@@ -17137,7 +17137,7 @@ sys-apps/nosig 2-r1: Block signals before running programs (a generic "nohup")
 sys-apps/nvme-cli 2.11 2.12 2.13 2.14 2.15: NVM-Express user space tooling for Linux
 sys-apps/onerng 3.7: Software for the Open Hardware Random Number Generator called OneRNG
 sys-apps/opal-utils 7.0: OPAL firmware utilities
-sys-apps/openrazer 3.10.2 3.10.3: Drivers and user-space daemon to control Razer devices on GNU/Linux
+sys-apps/openrazer 3.10.3 3.11.0: Drivers and user-space daemon to control Razer devices on GNU/Linux
 sys-apps/openrc 0.56 0.62.2 0.62.3 0.62.4 0.62.5 0.62.6 0.62.10 0.63 9999: OpenRC manages the services, startup and shutdown of a host
 sys-apps/osinfo-db 20250124 20250606: Osinfo database for virtualization provisioning tools
 sys-apps/osinfo-db-tools 1.11.0-r1 1.12.0-r1: Tools for managing the osinfo database

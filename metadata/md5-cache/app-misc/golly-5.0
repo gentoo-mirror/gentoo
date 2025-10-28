@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile configure install postinst postrm preinst setup
+DEPEND=sys-libs/zlib virtual/opengl x11-libs/wxGTK:3.2-gtk3=[X,curl,opengl,sdl,tiff] python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 )
+DESCRIPTION=Simulator for Conway's Game of Life and other cellular automata
+EAPI=8
+HOMEPAGE=http://golly.sourceforge.net/ https://sourceforge.net/projects/golly/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop python-single-r1 toolchain-funcs wxwidgets xdg
+IUSE=python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=sys-libs/zlib virtual/opengl x11-libs/wxGTK:3.2-gtk3=[X,curl,opengl,sdl,tiff] python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/golly/golly-5.0-src.tar.gz
+_eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	wxwidgets	c48bf68858bd3c27c272ff034eb1e14d	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=28b4093592c64720597f26942a5b12ed
