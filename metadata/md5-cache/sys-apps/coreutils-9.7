@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils dev-lang/perl test? ( dev-debug/strace dev-lang/perl dev-perl/Expect || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) ) verify-sig? ( sec-keys/openpgp-keys-coreutils ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=app-arch/xz-utils dev-lang/perl test? ( dev-debug/strace dev-lang/perl dev-perl/Expect || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) ) verify-sig? ( sec-keys/openpgp-keys-coreutils ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst prepare setup test unpack
 DEPEND=!static? ( acl? ( sys-apps/acl ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:= ) openssl? ( dev-libs/openssl:= ) xattr? ( sys-apps/attr ) ) selinux? ( sys-libs/libselinux ) nls? ( virtual/libintl ) static? ( acl? ( sys-apps/acl[static-libs] ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:=[static-libs] ) openssl? ( dev-libs/openssl:=[static-libs] ) xattr? ( sys-apps/attr[static-libs] ) )
 DESCRIPTION=Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
@@ -12,5 +12,5 @@ RDEPEND=!static? ( acl? ( sys-apps/acl ) caps? ( sys-libs/libcap ) gmp? ( dev-li
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/coreutils/coreutils-9.7.tar.xz verify-sig? ( mirror://gnu/coreutils/coreutils-9.7.tar.xz.sig ) !vanilla? ( https://dev.gentoo.org/~sam/distfiles/sys-apps/coreutils/coreutils-9.6-patches.tar.xz )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	8e2e065056335c16cb9f4ab83673c939
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
 _md5_=11f67c841bc2ce83a7b54244e8258040

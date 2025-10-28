@@ -209,6 +209,9 @@ app-alternatives/bzip2:pbzip2 - Symlink to app-arch/pbzip2.
 app-alternatives/bzip2:reference - Symlink to app-arch/bzip2.
 app-alternatives/cpio:gnu - Symlink to GNU cpio (app-arch/cpio)
 app-alternatives/cpio:libarchive - Symlink to bsdcpio from app-arch/libarchive
+app-alternatives/gpg:freepg - Symlink to app-crypt/freepg.
+app-alternatives/gpg:reference - Symlink to app-crypt/gnupg.
+app-alternatives/gpg:sequoia - Symlink to app-crypt/sequoia-chameleon-gnupg.
 app-alternatives/gzip:pigz - Symlink to app-arch/pigz.
 app-alternatives/gzip:reference - Symlink to app-arch/gzip.
 app-alternatives/lex:flex - Symlink to sys-devel/flex.
@@ -383,6 +386,14 @@ app-crypt/eid-mw:p11-kit - Support for app-crypt/p11-kit.
 app-crypt/ekeyd:minimal - Only install the ekey-egd-linux service rather than the full ekeyd package.
 app-crypt/ekeyd:munin - Install a plugin for net-analyzer/munin to graph statistical data from ekeyd.
 app-crypt/ekeyd:usb - Build the libusb-based userland daemon for accessing the EntropyKey (alternative to the CDC USB driver). It is suggested to use this option by default, as the CDC driver in the kernel often seems to be fragile (or the gadget implementation on the EntropyKey is too buggy), and can cause various problems.
+app-crypt/freepg:smartcard - Build scdaemon software. Enables usage of OpenPGP cards. For other type of smartcards, try app-crypt/gnupg-pkcs11-scd. Bring in dev-libs/libusb as a dependency; enable scdaemon.
+app-crypt/freepg:tofu - Enable support for Trust on First use trust model; requires dev-db/sqlite.
+app-crypt/freepg:tools - Install extra tools (including gpgsplit and gpg-zip).
+app-crypt/freepg:tpm - Enable TPM support via app-crypt/tpm2-tss and build tpm2d.
+app-crypt/freepg:usb - Build direct CCID access for scdaemon; requires dev-libs/libusb.
+app-crypt/freepg:user-socket - try a socket directory which is not removed by init manager at session end
+app-crypt/freepg:wks-server - Install the wks-server
+app-crypt/gnupg:alternatives - Install renamed, for compatibility with app-alternatives/gpg.
 app-crypt/gnupg:smartcard - Build scdaemon software. Enables usage of OpenPGP cards. For other type of smartcards, try app-crypt/gnupg-pkcs11-scd. Bring in dev-libs/libusb as a dependency; enable scdaemon.
 app-crypt/gnupg:tofu - Enable support for Trust on First use trust model; requires dev-db/sqlite.
 app-crypt/gnupg:tools - Install extra tools (including gpgsplit and gpg-zip).

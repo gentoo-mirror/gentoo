@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-zackweinberg ) >=dev-lang/perl-5.10 >=sys-devel/m4-1.4.16 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-zackweinberg ) >=dev-lang/perl-5.10 >=sys-devel/m4-1.4.16 verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare test unpack
 DESCRIPTION=Used to create autoconfiguration files
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=GPL-3+
 RDEPEND=verify-sig? ( sec-keys/openpgp-keys-zackweinberg ) >=dev-lang/perl-5.10 >=sys-devel/m4-1.4.16 >=dev-build/autoconf-wrapper-20231224 sys-devel/gnuconfig !~dev-build/autoconf-2.72:2.5
 SLOT=2.72
 SRC_URI=mirror://gnu/autoconf/autoconf-2.72.tar.xz https://alpha.gnu.org/pub/gnu/autoconf/autoconf-2.72.tar.xz https://meyering.net/ac/autoconf-2.72.tar.xz verify-sig? ( mirror://gnu/autoconf/autoconf-2.72.tar.xz.sig )
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	8e2e065056335c16cb9f4ab83673c939	toolchain-autoconf	6feb18874c9d75a5b7cdf922f49f67bf	multiprocessing	1e32df7deee68372153dca65f4a7c21f
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45	toolchain-autoconf	6feb18874c9d75a5b7cdf922f49f67bf	multiprocessing	1e32df7deee68372153dca65f4a7c21f
 _md5_=656bce2424d5fca52dea11deafd0d04e

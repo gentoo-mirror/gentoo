@@ -1,4 +1,4 @@
-BDEPEND=app-text/scdoc dev-util/wayland-scanner verify-sig? ( sec-keys/openpgp-keys-dnkl ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=app-text/scdoc dev-util/wayland-scanner verify-sig? ( sec-keys/openpgp-keys-dnkl ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
 DEPEND=dev-libs/wayland >=media-libs/fcft-3.3.1 media-libs/fontconfig x11-libs/libxkbcommon x11-libs/pixman grapheme-clustering? ( dev-libs/libutf8proc:=[-cjk] media-libs/fcft[harfbuzz] ) >=dev-libs/tllist-1.1.0 >=dev-libs/wayland-protocols-1.41
 DESCRIPTION=Fast, lightweight and minimalistic Wayland terminal emulator
@@ -13,5 +13,5 @@ RDEPEND=dev-libs/wayland >=media-libs/fcft-3.3.1 media-libs/fontconfig x11-libs/
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://codeberg.org/dnkl/foot/releases/download/1.24.0/foot-1.24.0.tar.gz verify-sig? ( https://codeberg.org/dnkl/foot/releases/download/1.24.0/foot-1.24.0.tar.gz.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	8e2e065056335c16cb9f4ab83673c939	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
 _md5_=c5f77ee267e95480b4eab30b74e0ef8a

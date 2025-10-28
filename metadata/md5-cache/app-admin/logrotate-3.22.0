@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-cgzones ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-cgzones ) virtual/pkgconfig verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst prepare unpack
 DEPEND=>=dev-libs/popt-1.5 acl? ( virtual/acl ) selinux? ( sys-libs/libselinux )
 DESCRIPTION=Rotates, compresses, and mails system logs
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=>=dev-libs/popt-1.5 acl? ( virtual/acl ) selinux? ( sys-libs/libselinux ) cron? ( virtual/cron ) selinux? ( sec-policy/selinux-logrotate ) virtual/tmpfiles
 SLOT=0
 SRC_URI=https://github.com/logrotate/logrotate/releases/download/3.22.0/logrotate-3.22.0.tar.xz verify-sig? ( https://github.com/logrotate/logrotate/releases/download/3.22.0/logrotate-3.22.0.tar.xz.asc )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	8e2e065056335c16cb9f4ab83673c939
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
 _md5_=a088f881e5207797bdc45262e446375a

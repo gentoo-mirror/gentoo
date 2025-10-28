@@ -1,4 +1,4 @@
-BDEPEND=test? ( sys-apps/ed ) verify-sig? ( >=sec-keys/openpgp-keys-patch-20250206 ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=test? ( sys-apps/ed ) verify-sig? ( >=sec-keys/openpgp-keys-patch-20250206 ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install test unpack
 DEPEND=xattr? ( sys-apps/attr )
 DESCRIPTION=Utility to apply diffs to files
@@ -12,5 +12,5 @@ RDEPEND=xattr? ( sys-apps/attr )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/patch/patch-2.8.tar.xz verify-sig? ( mirror://gnu/patch/patch-2.8.tar.xz.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	8e2e065056335c16cb9f4ab83673c939
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
 _md5_=81eb46d5b385e192a5589a1b76315608

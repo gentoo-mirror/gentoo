@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig nls? ( app-text/po4a sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=virtual/pkgconfig nls? ( app-text/po4a sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare unpack
 DEPEND=selinux? ( >=sys-libs/libselinux-2.2.2-r4 ) verify-sig? ( >=sec-keys/openpgp-keys-karelzak-20230517 >=sec-keys/openpgp-keys-jariruusu-20240521 ) virtual/os-headers
 DESCRIPTION=Loop-AES losetup utility
@@ -11,5 +11,5 @@ LICENSE=GPL-2 GPL-3 LGPL-2.1 BSD-4 MIT public-domain
 RDEPEND=selinux? ( >=sys-libs/libselinux-2.2.2-r4 ) verify-sig? ( >=sec-keys/openpgp-keys-karelzak-20230517 >=sec-keys/openpgp-keys-jariruusu-20240521 )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/utils/util-linux/v2.40/util-linux-2.40.2.tar.xz https://loop-aes.sourceforge.net/loop-AES/loop-AES-v3.8e.tar.bz2 verify-sig? ( https://www.kernel.org/pub/linux/utils/util-linux/v2.40/util-linux-2.40.2.tar.sign https://loop-aes.sourceforge.net/loop-AES/loop-AES-v3.8e.tar.bz2.sign )
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	8e2e065056335c16cb9f4ab83673c939
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
 _md5_=c2b8a5155cf57f6370fd4e337afb478b

@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-ant ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-ant ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile install preinst prepare setup test unpack
 DEPEND=>=virtual/jdk-11:* bcel? ( dev-java/bcel:0 ) bsf? ( dev-java/bsf:2.3 ) commonslogging? ( dev-java/commons-logging:0 ) commonsnet? ( dev-java/commons-net:0 ) jai? ( dev-java/sun-jai-bin:0 ) jakartamail? ( dev-java/jakarta-mail:0 ) javamail? ( dev-java/jakarta-activation-api:1 dev-java/javax-mail:0 ) jdepend? ( >=dev-java/jdepend-2.10-r1:0 ) jsch? ( dev-java/jsch:0 ) junit4? ( dev-java/junit:4 ) junit? ( dev-java/junit:4 ) junitlauncher? ( dev-java/junit:5[vintage] ) log4j? ( dev-java/log4j-12-api:2 ) oro? ( dev-java/jakarta-oro:2.0 ) regexp? ( dev-java/jakarta-regexp:1.4 ) resolver? ( dev-java/xml-commons-resolver:0 ) test? ( dev-java/antunit:0 dev-java/bsf:2.3[javascript] dev-java/bsh:0 dev-java/hamcrest-library:1.3 dev-java/xerces:2 ) xalan? ( dev-java/xalan:0 dev-java/xalan-serializer:0 ) xz? ( dev-java/xz-java:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:4 )
 DESCRIPTION=Java-based build tool similar to 'make' that uses XML configuration files
@@ -14,5 +14,5 @@ REQUIRED_USE=junit4? ( junit ) test? ( bsf ) testutil? ( junit )
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/ant/source/apache-ant-1.10.15-src.tar.xz verify-sig? ( https://downloads.apache.org/ant/source/apache-ant-1.10.15-src.tar.xz.asc )
-_eclasses_=java-utils-2	3febdd17a5820c438f6368dde60d4848	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	a728b6bc0cd005d093dd71e93106c98e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	8e2e065056335c16cb9f4ab83673c939	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
+_eclasses_=java-utils-2	3febdd17a5820c438f6368dde60d4848	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	a728b6bc0cd005d093dd71e93106c98e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
 _md5_=33ddf4dee6ce9e371e17220543080acb

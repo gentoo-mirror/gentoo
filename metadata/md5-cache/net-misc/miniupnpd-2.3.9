@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/lsb-release verify-sig? ( sec-keys/openpgp-keys-miniupnp ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=sys-apps/lsb-release verify-sig? ( sec-keys/openpgp-keys-miniupnp ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install postinst prepare test unpack
 DEPEND=dev-libs/gmp:0= sys-apps/util-linux:= dev-libs/openssl:0= !nftables? ( >=net-firewall/iptables-1.4.6:0=[ipv6(+)?] net-libs/libnfnetlink:= net-libs/libmnl:= ) nftables? ( net-firewall/nftables net-libs/libnftnl:= net-libs/libmnl:= ) elibc_musl? ( sys-libs/queue-standalone )
 DESCRIPTION=MiniUPnP IGD Daemon
@@ -11,5 +11,5 @@ LICENSE=BSD
 RDEPEND=dev-libs/gmp:0= sys-apps/util-linux:= dev-libs/openssl:0= !nftables? ( >=net-firewall/iptables-1.4.6:0=[ipv6(+)?] net-libs/libnfnetlink:= net-libs/libmnl:= ) nftables? ( net-firewall/nftables net-libs/libnftnl:= net-libs/libmnl:= )
 SLOT=0
 SRC_URI=https://miniupnp.tuxfamily.org/files/miniupnpd-2.3.9.tar.gz verify-sig? ( https://miniupnp.tuxfamily.org/files/miniupnpd-2.3.9.tar.gz.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	8e2e065056335c16cb9f4ab83673c939
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
 _md5_=376aa310d3dd3616290fed60f6bd7432

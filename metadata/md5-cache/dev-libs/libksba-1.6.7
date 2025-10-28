@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/yacc verify-sig? ( sec-keys/openpgp-keys-gnupg ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 ) >=app-portage/elt-patches-20250306
+BDEPEND=app-alternatives/yacc verify-sig? ( sec-keys/openpgp-keys-gnupg ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 ) >=app-portage/elt-patches-20250306
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=>=dev-libs/libgpg-error-1.33
 DESCRIPTION=X.509 and CMS (PKCS#7) library
@@ -11,5 +11,5 @@ LICENSE=LGPL-3+ GPL-2+ GPL-3
 RDEPEND=>=dev-libs/libgpg-error-1.33
 SLOT=0
 SRC_URI=mirror://gnupg/libksba/libksba-1.6.7.tar.bz2 verify-sig? ( mirror://gnupg/libksba/libksba-1.6.7.tar.bz2.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	out-of-source	15ce2b6ae214f3abe70892ce1e517abd	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	8e2e065056335c16cb9f4ab83673c939	libtool	c81bd096be5f4c82f4e8f156ef112402
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	out-of-source	15ce2b6ae214f3abe70892ce1e517abd	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45	libtool	c81bd096be5f4c82f4e8f156ef112402
 _md5_=f56d9435eabb8d2dd08028914709e4de

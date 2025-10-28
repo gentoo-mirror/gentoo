@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-openssl-20240920 ) >=dev-lang/perl-5 sctp? ( >=net-misc/lksctp-tools-1.0.12 ) test? ( sys-apps/diffutils app-alternatives/bc sys-process/procps ) verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-openssl-20240920 ) >=dev-lang/perl-5 sctp? ( >=net-misc/lksctp-tools-1.0.12 ) test? ( sys-apps/diffutils app-alternatives/bc sys-process/procps ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install postinst preinst prepare setup test unpack
 DEPEND=!<net-misc/openssh-9.2_p1-r3 tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
 DESCRIPTION=Robust, full-featured Open Source Toolkit for the Transport Layer Security (TLS)
@@ -13,5 +13,5 @@ RDEPEND=!<net-misc/openssh-9.2_p1-r3 tls-compression? ( >=sys-libs/zlib-1.2.8-r1
 RESTRICT=!test? ( test )
 SLOT=0/3
 SRC_URI=https://github.com/openssl/openssl/releases/download/openssl-3.3.4/openssl-3.3.4.tar.gz verify-sig? ( https://github.com/openssl/openssl/releases/download/openssl-3.3.4/openssl-3.3.4.tar.gz.asc )
-_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	linux-info	efd923656513c879204fec6638eadee5	multilib	a199af442898963433d6f038a88cce9c	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	multiprocessing	1e32df7deee68372153dca65f4a7c21f	preserve-libs	8692a88c92b5ae250732743932d8ebda	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	8e2e065056335c16cb9f4ab83673c939
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	linux-info	efd923656513c879204fec6638eadee5	multilib	a199af442898963433d6f038a88cce9c	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	multiprocessing	1e32df7deee68372153dca65f4a7c21f	preserve-libs	8692a88c92b5ae250732743932d8ebda	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
 _md5_=4de53b91d53f0294b577323900f71594

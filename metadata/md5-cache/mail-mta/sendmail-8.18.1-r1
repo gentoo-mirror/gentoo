@@ -1,4 +1,4 @@
-BDEPEND=sys-devel/m4 virtual/pkgconfig verify-sig? ( ~sec-keys/openpgp-keys-sendmail-20250220 ) virtual/pkgconfig verify-sig? ( app-crypt/gnupg >=app-portage/gemato-20 )
+BDEPEND=sys-devel/m4 virtual/pkgconfig verify-sig? ( ~sec-keys/openpgp-keys-sendmail-20250220 ) virtual/pkgconfig verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
 DEFINED_PHASES=compile install postinst prepare unpack
 DEPEND=acct-group/smmsp >=acct-user/smmsp-0-r2 net-mail/mailbase berkdb? ( >=sys-libs/db-3.2:= ) eai? ( dev-libs/icu:= ) elibc_musl? ( virtual/libcrypt:= ) ldap? ( net-nds/openldap:= ) nis? ( net-libs/libnsl:= ) sasl? ( >=dev-libs/cyrus-sasl-2.1.10 ) ssl? ( >=dev-libs/openssl-1.1.1:= fips? ( >=dev-libs/openssl-3:=[fips] ) ) tcpd? ( sys-apps/tcp-wrappers ) tinycdb? ( dev-db/tinycdb )
 DESCRIPTION=Widely-used Mail Transport Agent (MTA)
@@ -13,5 +13,5 @@ RDEPEND=acct-group/smmsp >=acct-user/smmsp-0-r2 net-mail/mailbase berkdb? ( >=sy
 REQUIRED_USE=|| ( berkdb tinycdb ) fips? ( ssl )
 SLOT=0
 SRC_URI=https://ftp.sendmail.org/sendmail.8.18.1.tar.gz verify-sig? ( https://ftp.sendmail.org/sendmail.8.18.1.tar.gz.sig ) https://ftp.sendmail.org/past-releases/sendmail.8.18.1.tar.gz verify-sig? ( https://ftp.sendmail.org/past-releases/sendmail.8.18.1.tar.gz.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	8e2e065056335c16cb9f4ab83673c939
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
 _md5_=a61a7525a22d4140264ee83ce12c9993
