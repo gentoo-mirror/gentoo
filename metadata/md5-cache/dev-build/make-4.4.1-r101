@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) doc? ( virtual/texi2dvi ) nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-make ) test? ( dev-lang/perl ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 ) virtual/pkgconfig
+BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) doc? ( virtual/texi2dvi ) nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-make ) test? ( dev-lang/perl ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 ) virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare setup unpack
 DEPEND=guile? ( guile_single_target_2-2? ( dev-scheme/guile:2.2 ) guile_single_target_3-0? ( dev-scheme/guile:3.0 ) )
 DESCRIPTION=Standard tool to compile source trees
@@ -13,5 +13,5 @@ REQUIRED_USE=guile? ( ^^ ( guile_single_target_2-2 guile_single_target_3-0 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/make/make-4.4.1.tar.lz verify-sig? ( mirror://gnu/make/make-4.4.1.tar.lz.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45	guile-utils	e45d014e2eb3f7fe4fdcd4e5eeafdb8b	guile-single	6e99296ff5eff20c16de5075dfe75616
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04	guile-utils	e45d014e2eb3f7fe4fdcd4e5eeafdb8b	guile-single	6e99296ff5eff20c16de5075dfe75616
 _md5_=ec98c5a763a9195f39e791733f2f6b0c

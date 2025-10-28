@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils sys-devel/gettext verify-sig? ( sec-keys/openpgp-keys-alejandro-colomar ) >=app-portage/elt-patches-20250306 verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=app-arch/xz-utils sys-devel/gettext verify-sig? ( sec-keys/openpgp-keys-alejandro-colomar ) >=app-portage/elt-patches-20250306 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst preinst prepare unpack
 DEPEND=virtual/libcrypt:= acl? ( sys-apps/acl:= ) audit? ( >=sys-process/audit-2.6:= ) cracklib? ( >=sys-libs/cracklib-2.7-r3:= ) nls? ( virtual/libintl ) pam? ( sys-libs/pam:= ) skey? ( sys-auth/skey:= ) selinux? ( >=sys-libs/libselinux-1.28:= sys-libs/libsemanage:= ) systemd? ( sys-apps/systemd:= ) xattr? ( sys-apps/attr:= ) !<sys-libs/glibc-2.38 >=sys-kernel/linux-headers-4.14
 DESCRIPTION=Utilities to deal with user accounts
@@ -12,5 +12,5 @@ RDEPEND=virtual/libcrypt:= acl? ( sys-apps/acl:= ) audit? ( >=sys-process/audit-
 REQUIRED_USE=?? ( cracklib pam )
 SLOT=0/4
 SRC_URI=https://github.com/shadow-maint/shadow/releases/download/4.14.8/shadow-4.14.8.tar.xz verify-sig? ( https://github.com/shadow-maint/shadow/releases/download/4.14.8/shadow-4.14.8.tar.xz.asc )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=0ed338c40e087af3d52d7d85da4e02cd

@@ -1,4 +1,4 @@
-BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) verify-sig? ( >=sec-keys/openpgp-keys-eschwartz-20250723-r1 ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) verify-sig? ( >=sec-keys/openpgp-keys-eschwartz-20250723-r1 ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install setup test unpack
 DESCRIPTION=Collection of QA scripts for ebuild development
 EAPI=8
@@ -11,5 +11,5 @@ RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
 SLOT=0
 SRC_URI=https://codeberg.org/eli-schwartz/eschwartz-dev-scripts/releases/download/2/eschwartz-dev-scripts-2.tar.xz verify-sig? ( https://codeberg.org/eli-schwartz/eschwartz-dev-scripts/releases/download/2/eschwartz-dev-scripts-2.tar.xz.asc )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=6c7aab6a79cf34125a9d011876b53b54

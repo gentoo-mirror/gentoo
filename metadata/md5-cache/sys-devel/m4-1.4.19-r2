@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-m4 ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=app-arch/xz-utils nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-m4 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare test unpack
 DEPEND=virtual/libiconv nls? ( sys-devel/gettext virtual/libintl )
 DESCRIPTION=GNU macro processor
@@ -11,5 +11,5 @@ LICENSE=GPL-3+
 RDEPEND=virtual/libiconv nls? ( sys-devel/gettext virtual/libintl )
 SLOT=0
 SRC_URI=mirror://gnu/m4/m4-1.4.19.tar.xz https://dev.gentoo.org/~floppym/dist/m4-1.4.19-test-198-sysval-r1.patch.gz verify-sig? ( mirror://gnu/m4/m4-1.4.19.tar.xz.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=68d2a69c1408122df655882bc3c7370c

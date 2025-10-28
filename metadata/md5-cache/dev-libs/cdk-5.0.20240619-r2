@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install unpack
 DEPEND=sys-libs/ncurses:=[unicode(+)?]
 DESCRIPTION=A library of curses widgets
@@ -11,5 +11,5 @@ LICENSE=MIT
 RDEPEND=sys-libs/ncurses:=[unicode(+)?]
 SLOT=0/6.3.4
 SRC_URI=https://invisible-island.net/archives/cdk/cdk-5.0-20240619.tgz verify-sig? ( https://invisible-island.net/archives/cdk/cdk-5.0-20240619.tgz.asc )
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=e9a8b75f8da323fc7bfd6287d34024ed

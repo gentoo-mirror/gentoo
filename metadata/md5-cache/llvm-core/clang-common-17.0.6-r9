@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-llvm-21.1.4 ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-llvm-21.1.4 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=install preinst prepare pretend unpack
 DESCRIPTION=Common files shared between multiple slots of clang
 EAPI=8
@@ -11,5 +11,5 @@ LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
 PDEPEND=default-compiler-rt? ( llvm-runtimes/clang-runtime:17[compiler-rt] llvm-libunwind? ( llvm-runtimes/libunwind[static-libs] ) !llvm-libunwind? ( sys-libs/libunwind[static-libs] ) ) !default-compiler-rt? ( sys-devel/gcc ) default-libcxx? ( >=llvm-runtimes/libcxx-17.0.6[static-libs] ) !default-libcxx? ( sys-devel/gcc ) default-lld? ( >=llvm-core/lld-17.0.6 ) !default-lld? ( sys-devel/binutils )
 SLOT=0
 SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.6/llvm-project-17.0.6.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.6/llvm-project-17.0.6.src.tar.xz.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45	llvm.org	1629e9f8375f05e5a69d0d1f0007dfca	multilib	a199af442898963433d6f038a88cce9c
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04	llvm.org	1629e9f8375f05e5a69d0d1f0007dfca	multilib	a199af442898963433d6f038a88cce9c
 _md5_=7e2fcce635bd8e342d64a208bcb72ba3

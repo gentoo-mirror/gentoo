@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/lex app-alternatives/yacc dev-util/gperf verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=app-alternatives/lex app-alternatives/yacc dev-util/gperf verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=unpack
 DEPEND=app-alternatives/lex
 DESCRIPTION=Generate C function prototypes from C source code
@@ -10,5 +10,5 @@ KEYWORDS=~alpha amd64 ~arm ~arm64 ppc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=public-domain
 SLOT=0
 SRC_URI=https://invisible-island.net/archives/cproto/cproto-4.7y.tgz verify-sig? ( https://invisible-island.net/archives/cproto/cproto-4.7y.tgz.asc )
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=23af04822a125c9d1ef0ab62cecd7798

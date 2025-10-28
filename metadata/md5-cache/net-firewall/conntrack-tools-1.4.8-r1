@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/yacc app-alternatives/lex virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) verify-sig? ( sec-keys/openpgp-keys-netfilter ) virtual/pkgconfig verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=app-alternatives/yacc app-alternatives/lex virtual/pkgconfig doc? ( app-text/docbook-xml-dtd:4.1.2 app-text/xmlto ) verify-sig? ( sec-keys/openpgp-keys-netfilter ) virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install prepare setup unpack
 DEPEND=>=net-libs/libmnl-1.0.3 >=net-libs/libnetfilter_conntrack-1.0.9 >=net-libs/libnetfilter_queue-1.0.2 >=net-libs/libnfnetlink-1.0.1 net-libs/libtirpc cthelper? ( >=net-libs/libnetfilter_cthelper-1.0.0 ) cttimeout? ( >=net-libs/libnetfilter_cttimeout-1.0.0 ) systemd? ( >=sys-apps/systemd-227 )
 DESCRIPTION=Connection tracking userspace tools
@@ -11,5 +11,5 @@ LICENSE=GPL-2+
 RDEPEND=>=net-libs/libmnl-1.0.3 >=net-libs/libnetfilter_conntrack-1.0.9 >=net-libs/libnetfilter_queue-1.0.2 >=net-libs/libnfnetlink-1.0.1 net-libs/libtirpc cthelper? ( >=net-libs/libnetfilter_cthelper-1.0.0 ) cttimeout? ( >=net-libs/libnetfilter_cttimeout-1.0.0 ) systemd? ( >=sys-apps/systemd-227 )
 SLOT=0
 SRC_URI=https://www.netfilter.org/projects/conntrack-tools/files/conntrack-tools-1.4.8.tar.xz verify-sig? ( https://www.netfilter.org/projects/conntrack-tools/files/conntrack-tools-1.4.8.tar.xz.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	linux-info	efd923656513c879204fec6638eadee5	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	linux-info	efd923656513c879204fec6638eadee5	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=f81b9691c57257d522343ffde3703a1d

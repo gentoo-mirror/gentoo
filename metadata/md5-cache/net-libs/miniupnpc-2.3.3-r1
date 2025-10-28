@@ -1,4 +1,4 @@
-BDEPEND=kernel_linux? ( sys-apps/lsb-release ) verify-sig? ( sec-keys/openpgp-keys-miniupnp ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=kernel_linux? ( sys-apps/lsb-release ) verify-sig? ( sec-keys/openpgp-keys-miniupnp ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile install prepare test unpack
 DESCRIPTION=UPnP client library and a simple UPnP client
 EAPI=8
@@ -9,5 +9,5 @@ KEYWORDS=amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=BSD
 SLOT=0/21
 SRC_URI=https://miniupnp.tuxfamily.org/files/miniupnpc-2.3.3.tar.gz verify-sig? ( https://miniupnp.tuxfamily.org/files/miniupnpc-2.3.3.tar.gz.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=1d6fb666883f6e9e28c8193c6e714494

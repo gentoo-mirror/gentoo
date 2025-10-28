@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-tor-20230727 ) acct-user/tor acct-group/tor virtual/pkgconfig verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-tor-20230727 ) acct-user/tor acct-group/tor virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare setup test unpack
 DEPEND=>=dev-libs/libevent-2.1.12-r1:=[ssl] dev-libs/openssl:=[-bindist(-)] sys-libs/zlib caps? ( sys-libs/libcap ) man? ( app-text/asciidoc ) lzma? ( app-arch/xz-utils ) scrypt? ( app-crypt/libscrypt ) seccomp? ( >=sys-libs/libseccomp-2.4.1 ) systemd? ( sys-apps/systemd:= ) zstd? ( app-arch/zstd:= ) test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) )
 DESCRIPTION=Anonymizing overlay network for TCP
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/libevent-2.1.12-r1:=[ssl] dev-libs/openssl:=[-bindist(-)] sys
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.torproject.org/dist/tor-0.4.8.16.tar.gz https://archive.torproject.org/tor-package-archive/tor-0.4.8.16.tar.gz verify-sig? ( https://dist.torproject.org/tor-0.4.8.16.tar.gz.sha256sum https://dist.torproject.org/tor-0.4.8.16.tar.gz.sha256sum.asc )
-_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=7c6bc70625a05ab02a3e44bd64c1939d

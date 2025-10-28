@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-gnupg ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 ) >=app-portage/elt-patches-20250306
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-gnupg ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 ) >=app-portage/elt-patches-20250306
 DEFINED_PHASES=configure install prepare unpack
 DEPEND=>=dev-libs/libgpg-error-1.33
 DESCRIPTION=IPC library used by GnuPG and GPGME
@@ -11,5 +11,5 @@ LICENSE=GPL-3 LGPL-2.1
 RDEPEND=>=dev-libs/libgpg-error-1.33
 SLOT=0/3.0
 SRC_URI=mirror://gnupg/libassuan/libassuan-3.0.1.tar.bz2 verify-sig? ( mirror://gnupg/libassuan/libassuan-3.0.1.tar.bz2.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402
 _md5_=087fba1d0527d5aa5d82d20b7d2f6bdb

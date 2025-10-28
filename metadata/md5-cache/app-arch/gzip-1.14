@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-gzip ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-gzip ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst unpack
 DESCRIPTION=Standard GNU compressor
 EAPI=8
@@ -11,5 +11,5 @@ PDEPEND=app-alternatives/gzip
 RDEPEND=!app-arch/pigz[symlink(-)]
 SLOT=0
 SRC_URI=mirror://gnu/gzip/gzip-1.14.tar.xz verify-sig? ( mirror://gnu/gzip/gzip-1.14.tar.xz.sig )
-_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=c8c8ee3935dfb2982b64776b5f2bafa5

@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-dehydrated ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-dehydrated ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst unpack
 DESCRIPTION=A client for signing certificates with an ACME-server
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=MIT
 RDEPEND=acct-group/dehydrated acct-user/dehydrated app-shells/bash net-misc/curl cron? ( virtual/cron )
 SLOT=0
 SRC_URI=https://github.com/dehydrated-io/dehydrated/releases/download/v0.7.1/dehydrated-0.7.1.tar.gz verify-sig? ( https://github.com/dehydrated-io/dehydrated/releases/download/v0.7.1/dehydrated-0.7.1.tar.gz.asc )
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=70f382e63094e79ad0fbe65d8ce09877

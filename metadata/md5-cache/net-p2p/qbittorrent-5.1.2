@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-qbittorrent ) >=dev-qt/qttools-6.5:6[linguist] virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-qbittorrent ) >=dev-qt/qttools-6.5:6[linguist] virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
 DEPEND=>=dev-libs/openssl-3.0.2:= >=dev-qt/qtbase-6.5:6[network,ssl,sql,sqlite,xml] >=net-libs/libtorrent-rasterbar-2.0.10:= >=sys-libs/zlib-1.2.11 gui? ( >=dev-qt/qtbase-6.5:6[dbus?,gui,widgets] >=dev-qt/qtsvg-6.5:6 ) webui? ( acct-group/qbittorrent acct-user/qbittorrent ) >=dev-libs/boost-1.76
 DESCRIPTION=BitTorrent client in C++ and Qt
@@ -14,5 +14,5 @@ REQUIRED_USE=|| ( gui webui ) dbus? ( gui )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/qbittorrent/qbittorrent-5.1.2.tar.xz verify-sig? ( https://downloads.sourceforge.net/qbittorrent/qbittorrent-5.1.2.tar.xz.asc )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	2d36accef058c00889b1f93ea4bc4061	edo	a5e294016aa84979fcb2459749eb80b2	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	optfeature	538bce96e5589935b57e178e8635f301	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45	xdg	3ef49a87c52c8b77c476351195dfe575
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	2d36accef058c00889b1f93ea4bc4061	edo	a5e294016aa84979fcb2459749eb80b2	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	optfeature	538bce96e5589935b57e178e8635f301	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04	xdg	3ef49a87c52c8b77c476351195dfe575
 _md5_=1db5db5f7e90216988dca6148cf4ec95

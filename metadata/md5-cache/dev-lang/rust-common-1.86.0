@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-rust ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-rust ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install unpack
 DESCRIPTION=Common files shared between multiple slots of Rust
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=|| ( MIT Apache-2.0 ) BSD BSD-1 BSD-2 BSD-4
 RDEPEND=!dev-lang/rust:stable !dev-lang/rust-bin:stable
 SLOT=0
 SRC_URI=https://static.rust-lang.org/dist/rustc-1.86.0-src.tar.xz verify-sig? ( https://static.rust-lang.org/dist/rustc-1.86.0-src.tar.xz.asc )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=afa6f218fdaa281eb508cdb2dc20f4eb

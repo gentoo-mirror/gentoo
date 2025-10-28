@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-miniupnp ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-miniupnp ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile install unpack
 DEPEND=net-libs/libnfnetlink
 DESCRIPTION=MiniSSDP Daemon
@@ -11,5 +11,5 @@ LICENSE=BSD
 RDEPEND=net-libs/libnfnetlink || ( net-misc/miniupnpd net-libs/miniupnpc )
 SLOT=0
 SRC_URI=https://miniupnp.tuxfamily.org/files/minissdpd-1.6.0.tar.gz verify-sig? ( https://miniupnp.tuxfamily.org/files/minissdpd-1.6.0.tar.gz.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=fb2fc058c9799251d5436955481fbb0f

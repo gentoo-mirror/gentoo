@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-bzip2 ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-bzip2 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install postinst prepare test unpack
 DESCRIPTION=A high-quality data compressor used extensively by Gentoo Linux
 EAPI=7
@@ -10,5 +10,5 @@ LICENSE=BZIP2
 PDEPEND=app-alternatives/bzip2
 SLOT=0/1
 SRC_URI=https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz verify-sig? ( https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	multilib	a199af442898963433d6f038a88cce9c	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	multilib	a199af442898963433d6f038a88cce9c	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=5fabec0ad2e83430c6047968a5075196

@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-gnupg ) app-alternatives/ninja >=dev-build/cmake-3.28.5 verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-gnupg ) app-alternatives/ninja >=dev-build/cmake-3.28.5 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=>=app-crypt/gpgme-2.0:= >=dev-libs/libgpg-error-1.47:=
 DESCRIPTION=GnuPG Made Easy is a library for making GnuPG easier to use (C++ bindings)
@@ -12,5 +12,5 @@ RDEPEND=>=app-crypt/gpgme-2.0:= >=dev-libs/libgpg-error-1.47:= !<app-crypt/gpgme
 RESTRICT=!test? ( test )
 SLOT=0/7
 SRC_URI=mirror://gnupg/gpgmepp/gpgmepp-2.0.0.tar.xz verify-sig? ( mirror://gnupg/gpgmepp/gpgmepp-2.0.0.tar.xz.sig )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	2d36accef058c00889b1f93ea4bc4061	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	2d36accef058c00889b1f93ea4bc4061	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=fdf7bbbe17971a0c3bb0737d3d085be2

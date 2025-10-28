@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig doc? ( || ( dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-vpn/ocserv ) verify-sig? ( sec-keys/openpgp-keys-dwmw2 ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=virtual/pkgconfig doc? ( || ( dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] ) sys-apps/groff ) nls? ( sys-devel/gettext ) test? ( net-vpn/ocserv ) verify-sig? ( sec-keys/openpgp-keys-dwmw2 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare pretend setup test unpack
 DEPEND=dev-libs/json-parser:0= dev-libs/libxml2:= sys-libs/zlib app-crypt/p11-kit !gnutls? ( >=dev-libs/openssl-1.0.1h:0= dev-libs/libp11 ) gnutls? ( app-crypt/trousers app-misc/ca-certificates dev-libs/nettle >=net-libs/gnutls-3.6.13:0= dev-libs/libtasn1:0= app-crypt/tpm2-tss:= ) gssapi? ( virtual/krb5 ) libproxy? ( net-libs/libproxy ) lz4? ( app-arch/lz4:= ) nls? ( virtual/libintl ) pskc? ( sys-auth/oath-toolkit[pskc(+)] ) smartcard? ( sys-apps/pcsc-lite:0= ) stoken? ( app-crypt/stoken ) test? ( net-libs/socket_wrapper sys-libs/uid_wrapper !gnutls? ( dev-libs/openssl:0[weak-ssl-ciphers(-)] ) )
 DESCRIPTION=Free client for Cisco AnyConnect SSL VPN software
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/json-parser:0= dev-libs/libxml2:= sys-libs/zlib app-crypt/p11-k
 RESTRICT=!test? ( test )
 SLOT=0/5
 SRC_URI=https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz verify-sig? ( https://www.infradead.org/openconnect/download/openconnect-9.12.tar.gz.asc )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	linux-info	efd923656513c879204fec6638eadee5	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	linux-info	efd923656513c879204fec6638eadee5	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=b76e4f73d49b647bcd56cd19f25f3327

@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/gzip sys-apps/help2man dev-build/autoconf-wrapper dev-build/autoconf test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) dev-util/dejagnu sys-devel/bison sys-devel/flex ) verify-sig? ( sec-keys/openpgp-keys-jimmeyering ) verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=app-alternatives/gzip sys-apps/help2man dev-build/autoconf-wrapper dev-build/autoconf test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) dev-util/dejagnu sys-devel/bison sys-devel/flex ) verify-sig? ( sec-keys/openpgp-keys-jimmeyering ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare setup test unpack
 DESCRIPTION=Used to generate Makefile.in from Makefile.am
 EAPI=8
@@ -11,5 +11,5 @@ RDEPEND=>=dev-lang/perl-5.6 >=dev-build/automake-wrapper-20240607 >=dev-build/au
 RESTRICT=!test? ( test )
 SLOT=1.17
 SRC_URI=mirror://gnu/automake/automake-1.17.tar.xz verify-sig? ( mirror://gnu/automake/automake-1.17.tar.xz.sig )
-_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=251d46246beefdb59136ead35ad42159

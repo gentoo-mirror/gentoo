@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-xalan-c ) doc? ( app-text/doxygen[dot] ) app-alternatives/ninja >=dev-build/cmake-3.28.5 verify-sig? ( app-alternatives/gpg >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-apache-xalan-c ) doc? ( app-text/doxygen[dot] ) app-alternatives/ninja >=dev-build/cmake-3.28.5 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=dev-libs/icu:= dev-libs/xerces-c:=[icu]
 DESCRIPTION=XSLT processor for transforming XML into HTML, text, or other XML types
@@ -11,5 +11,5 @@ LICENSE=Apache-2.0
 RDEPEND=dev-libs/icu:= dev-libs/xerces-c:=[icu]
 SLOT=0/1.12
 SRC_URI=mirror://apache/xalan/xalan-c/sources/xalan_c-1.12.tar.gz verify-sig? ( mirror://apache/xalan/xalan-c/sources/xalan_c-1.12.tar.gz.asc )
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	2d36accef058c00889b1f93ea4bc4061	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cbcfd9aec371384bdcd6f99e8692a45
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	2d36accef058c00889b1f93ea4bc4061	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
 _md5_=1ae687935e9ab866361d8cd9bb573831
