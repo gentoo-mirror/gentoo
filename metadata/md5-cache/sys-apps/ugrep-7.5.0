@@ -1,0 +1,13 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure test
+DEPEND=app-arch/bzip2:= app-arch/lz4:= app-arch/xz-utils:= app-arch/zstd:= sys-libs/zlib:= brotli? ( app-arch/brotli:= ) bzip3? ( app-arch/bzip3:= ) pcre? ( dev-libs/libpcre2 )
+DESCRIPTION=A more powerful, ultra fast, user-friendly, compatible grep
+EAPI=8
+HOMEPAGE=https://ugrep.com/
+IUSE=cpu_flags_arm_neon cpu_flags_x86_avx2 cpu_flags_x86_sse2 brotli bzip3 +pcre
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=app-arch/bzip2:= app-arch/lz4:= app-arch/xz-utils:= app-arch/zstd:= sys-libs/zlib:= brotli? ( app-arch/brotli:= ) bzip3? ( app-arch/bzip3:= ) pcre? ( dev-libs/libpcre2 )
+SLOT=0
+SRC_URI=https://github.com/Genivia/ugrep/archive/refs/tags/v7.5.0.tar.gz -> ugrep-7.5.0.tar.gz
+_md5_=48e41f0909bfd7d447bd1eafe4c55bdd
