@@ -1,4 +1,4 @@
-BDEPEND=app-crypt/gnupg test? ( app-crypt/pgpdump )
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
 DEFINED_PHASES=compile install test
 DESCRIPTION=OpenPGP keys used to sign gocryptfs
 EAPI=8
@@ -11,5 +11,5 @@ PROPERTIES=test_network
 RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xFFF3E01444FED7C316A3545A895F5BC123A02740 -> openpgp-keys-nuetzlich-gocryptfs-signing-key-ubuntu-20250916.asc https://nuetzlich.net/gocryptfs-signing-key.pub -> openpgp-keys-gocryptfs-nuetzlich-gocryptfs-signing-key-20250916.pub
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	64e809c5619d14b60d0fbf5fd67761bf
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	ad87ecc577cf66bca0f31a392060765a
 _md5_=702cb7d48446f46701c304fb6cf22802

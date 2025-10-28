@@ -1,4 +1,4 @@
-BDEPEND=app-crypt/gnupg test? ( app-crypt/pgpdump )
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
 DEFINED_PHASES=compile install test
 DESCRIPTION=OpenPGP keys used by Nicholas Wilson
 EAPI=8
@@ -11,5 +11,5 @@ PROPERTIES=test_network
 RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~sam/distfiles/sec-keys/openpgp-keys-nicholaswilson/openpgp-keys-nicholaswilson-20250910-A95536204A3BB489715231282A98E77EB6F24CA8.asc
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	64e809c5619d14b60d0fbf5fd67761bf
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	ad87ecc577cf66bca0f31a392060765a
 _md5_=2c44a8393be88503edae8635758e8d42
