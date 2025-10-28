@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{10..13} pypy3 pypy3_11 )
+PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
 inherit distutils-r1 git-r3
 
@@ -15,8 +15,12 @@ EGIT_REPO_URI="https://github.com/gentoo/${PN}.git"
 LICENSE="BSD-2"
 SLOT="0"
 
-RDEPEND=">=app-portage/gentoopm-0.2.1[${PYTHON_USEDEP}]"
+RDEPEND="
+	>=app-portage/gentoopm-0.2.1[${PYTHON_USEDEP}]
+	sys-apps/portage[${PYTHON_USEDEP}]
+"
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 python_install_all() {

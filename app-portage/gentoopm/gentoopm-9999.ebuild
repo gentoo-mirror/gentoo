@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{11..13} pypy3_11 )
+PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
 inherit distutils-r1 git-r3
 
@@ -28,4 +28,5 @@ PDEPEND="
 	app-eselect/eselect-package-manager
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
