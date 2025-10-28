@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 # Worth keeping an eye on 'develop' branch upstream for possible backports,
 # as they copied this practice from sys-libs/zlib upstream.
 
-inherit cmake-multilib
+inherit cmake-multilib multibuild
 
 DESCRIPTION="Fork of the zlib data compression library"
 HOMEPAGE="https://github.com/zlib-ng/zlib-ng"
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 CPU_USE=(
 	x86_{avx2,avx512f,avx512_vnni,sse2,ssse3,sse4_2,pclmul,vpclmulqdq}
@@ -32,16 +32,28 @@ RDEPEND="
 	compat? ( !sys-libs/zlib )
 "
 
+run_both() {
+	local MULTIBUILD_VARIANTS=( base )
+	use compat && MULTIBUILD_VARIANTS+=( compat )
+
+	multibuild_foreach_variant "${@}"
+}
+
+my_src_configure() {
+	local compat=OFF
+	[[ ${MULTIBUILD_VARIANT} == compat ]] && compat=ON
+	local mycmakeargs=(
+		"${mycmakeargs[@]}"
+		-DZLIB_COMPAT="${compat}"
+	)
+
+	cmake_src_configure
+}
+
 multilib_src_configure() {
 	local mycmakeargs=(
-		-DZLIB_COMPAT=$(usex compat)
 		-DZLIB_ENABLE_TESTS=$(usex test)
 		-DWITH_GTEST=$(usex test)
-
-		# Unaligned access is controversial and undefined behaviour
-		# Let's keep it off for now
-		# https://github.com/gentoo/gentoo/pull/17167
-		-DWITH_UNALIGNED=OFF
 	)
 
 	# The intrinsics options are all defined conditionally, so we need
@@ -77,8 +89,12 @@ multilib_src_configure() {
 		)
 	fi
 
-	cmake_src_configure
+	run_both my_src_configure
 }
+
+multilib_src_compile() { run_both cmake_src_compile; }
+multilib_src_test() { run_both cmake_src_test; }
+multilib_src_install() { run_both cmake_src_install; }
 
 pkg_postinst() {
 	if use compat ; then

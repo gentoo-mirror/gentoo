@@ -6,7 +6,7 @@ EAPI=8
 # Worth keeping an eye on 'develop' branch upstream for possible backports,
 # as they copied this practice from sys-libs/zlib upstream.
 
-inherit cmake-multilib
+inherit cmake-multilib multibuild
 
 DESCRIPTION="Fork of the popular zip manipulation library found in the zlib distribution"
 HOMEPAGE="https://github.com/zlib-ng/minizip-ng"
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/zlib-ng/minizip-ng/archive/refs/tags/${PV}.tar.gz ->
 
 LICENSE="ZLIB"
 SLOT="0/4"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc64 ~riscv ~x86"
 IUSE="compat lzma openssl test zstd"
 RESTRICT="!test? ( test )"
 
@@ -39,11 +39,29 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-4.0.4-libbsd-overlay.patch
 )
 
+run_both() {
+	local MULTIBUILD_VARIANTS=( base )
+	use compat && MULTIBUILD_VARIANTS+=( compat )
+
+	multibuild_foreach_variant "${@}"
+}
+
+my_src_configure() {
+	local compat=OFF
+	[[ ${MULTIBUILD_VARIANT} == compat ]] && compat=ON
+	local mycmakeargs=(
+		"${mycmakeargs[@]}"
+		-DMZ_COMPAT="${compat}"
+	)
+
+	cmake_src_configure
+}
+
 multilib_src_configure() {
 	local mycmakeargs=(
-		-DMZ_COMPAT=$(usex compat)
-
-		-DMZ_BUILD_TESTS=$(usex test)
+		# Controls installing "minizip" and "minigzip" tools.  Install
+		# them unconditionally to avoid divergence with USE=test.
+		-DMZ_BUILD_TESTS=ON
 		-DMZ_BUILD_UNIT_TESTS=$(usex test)
 
 		-DMZ_FETCH_LIBS=OFF
@@ -66,20 +84,20 @@ multilib_src_configure() {
 		-DMZ_ICONV=ON
 	)
 
-	cmake_src_configure
+	run_both my_src_configure
 }
 
-multilib_src_test() {
-	local myctestargs=(
-		# TODO: investigate
-		-E "(raw-unzip-pkcrypt|raw-append-unzip-pkcrypt|raw-erase-unzip-pkcrypt|deflate-unzip-pkcrypt|deflate-append-unzip-pkcrypt|deflate-erase-unzip-pkcrypt|bzip2-unzip-pkcrypt|bzip2-append-unzip-pkcrypt|bzip2-erase-unzip-pkcrypt|lzma-unzip-pkcrypt|lzma-append-unzip-pkcrypt|lzma-erase-unzip-pkcrypt|xz-unzip-pkcrypt|xz-append-unzip-pkcrypt|xz-erase-unzip-pkcrypt|zstd-unzip-pkcrypt|zstd-append-unzip-pkcrypt|zstd-erase-unzip-pkcrypt)"
-	)
+multilib_src_compile() { run_both cmake_src_compile; }
 
+multilib_src_test() {
 	# TODO: A bunch of tests end up looping and writing over each other's files
 	# It gets better with a patch applied (see https://github.com/zlib-ng/minizip-ng/issues/623#issuecomment-1264518994)
 	# but still hangs.
-	cmake_src_test -j1
+	local CTEST_JOBS=1
+	run_both cmake_src_test
 }
+
+multilib_src_install() { run_both cmake_src_install; }
 
 pkg_postinst() {
 	if use compat ; then
