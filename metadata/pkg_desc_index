@@ -3142,7 +3142,7 @@ app-shells/shish 0.7_pre3-r1: The diet shell
 app-shells/smrsh 8.15.2-r1 8.18.1 8.18.1-r1: Sendmail restricted shell, for use with MTAs other than Sendmail
 app-shells/soapbox 0.3.1-r2: A preload (sandbox) library to restrict filesystem writes
 app-shells/squirrelsh 1.2.7-r1: Cross-platform object-oriented scripting shell using the squirrel language
-app-shells/starship 1.23.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell
+app-shells/starship 1.23.0 1.24.0: The minimal, blazing-fast, and infinitely customizable prompt for any shell
 app-shells/tcsh 6.24.01-r1 6.24.15 6.24.16: Enhanced version of the Berkeley C shell (csh)
 app-shells/thefuck 3.32-r2: Magnificent app which corrects your previous console command
 app-shells/tmux-bash-completion 9999: bash-completion scripts for tmux
@@ -3980,7 +3980,7 @@ dev-db/mariadb 10.6.22 10.6.23-r1 10.11.13 10.11.14-r1 11.4.7-r1 11.4.8-r1 11.8.
 dev-db/mariadb-connector-c 3.3.8 3.3.15 3.3.17 3.4.5-r1 3.4.7 9999: C client library for MariaDB/MySQL
 dev-db/mariadb-connector-odbc 3.1.18: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.30 5.0.31 6.0.22 6.0.25 7.0.18 7.0.23 8.0.8 8.0.12: A high-performance, open source, schema-free document-oriented database
-dev-db/mongodb-compass-bin 1.46.11 1.47.1: GUI for MongoDB
+dev-db/mongodb-compass-bin 1.47.1 1.48.0: GUI for MongoDB
 dev-db/mycli 1.34.2 1.36.0 1.37.0: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.18.2.7-r1 0.19.3.3 0.20.1.2: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
@@ -8172,7 +8172,7 @@ dev-python/bitarray 3.7.1 3.7.2: Efficient arrays of booleans -- C extension
 dev-python/bitstring 4.3.1: A pure Python module for creation and analysis of binary data
 dev-python/black 25.1.0 25.9.0: The uncompromising Python code formatter
 dev-python/blake3 1.0.7 1.0.8: Python bindings for the BLAKE3 cryptographic hash function
-dev-python/bleach 6.2.0: An easy whitelist-based HTML-sanitizing tool
+dev-python/bleach 6.2.0 6.3.0: An easy whitelist-based HTML-sanitizing tool
 dev-python/blessed 1.21.0 1.22.0: Library for making terminal apps using colors, keyboard input and positioning
 dev-python/blinker 1.9.0: Fast, simple object-to-object and broadcast signaling
 dev-python/blockbuster 1.5.25: Utility to detect blocking calls in the async event loop
@@ -8384,7 +8384,7 @@ dev-python/entrypoints 0.4: Discover and load entry points from installed packag
 dev-python/environs 14.2.0 14.3.0: Python library for simplified environment variable parsing
 dev-python/enzyme 0.5.2: Python video metadata parser
 dev-python/ephemeral-port-reserve 1.1.4: Bind to an ephemeral port, force it into the TIME_WAIT state, and unbind it
-dev-python/eradicate 3.0.0: Removes commented-out code from Python files
+dev-python/eradicate 3.0.0 3.0.1: Removes commented-out code from Python files
 dev-python/et-xmlfile 2.0.0: An implementation of lxml.xmlfile for the standard library
 dev-python/etuples 0.3.10: Python S-expression emulation using tuple-like objects
 dev-python/evdev 1.9.2: Python library for evdev bindings
@@ -8521,7 +8521,7 @@ dev-python/housekeeping 1.1: Reusable deprecation helpers for Python projects
 dev-python/hpack 4.1.0: Pure-Python HPACK header compression
 dev-python/html2text 2025.4.15-r1: Turn HTML into equivalent Markdown-structured text
 dev-python/html5-parser 0.4.12: Fast C based HTML 5 parsing for python
-dev-python/html5lib 1.1-r2: HTML parser based on the HTML5 specification
+dev-python/html5lib 1.1-r2 1.2_pre20240221: HTML parser based on the HTML5 specification
 dev-python/httmock 1.4.0-r1: A mocking library for requests
 dev-python/httpauth 0.4.1: A WSGI middleware that secures routes using HTTP Digest Authentication
 dev-python/httpbin 0.10.2-r1: HTTP Request and Response Service
@@ -8562,7 +8562,7 @@ dev-python/inflection 0.5.1-r1: A port of Ruby on Rails' inflector to Python
 dev-python/ini2toml 0.15: Automatically conversion of .ini/.cfg files to TOML equivalents
 dev-python/iniconfig 2.1.0 2.3.0: Brain-dead simple config-ini parsing
 dev-python/iniparse 0.5.1_p20250425: Better INI parser for Python
-dev-python/inline-snapshot 0.28.0 0.29.4 0.30.0 0.30.1: Create and update inline snapshots in your Python tests
+dev-python/inline-snapshot 0.28.0 0.29.4 0.30.0 0.30.1 0.31.0: Create and update inline snapshots in your Python tests
 dev-python/insipid-sphinx-theme 0.4.3 0.4.4: Insipid Sphinx theme
 dev-python/installer 0.7.0: A library for installing Python wheels
 dev-python/intelhex 2.3.0-r1: Python library for Intel HEX files manipulations
@@ -8572,7 +8572,7 @@ dev-python/ioctl-opt 1.3: Linux's ioctl.h for Python
 dev-python/ioflo 2.0.3: Automated Reasoning Engine and Flow Based Programming Framework
 dev-python/ipdb 0.13.13: IPython-enabled pdb
 dev-python/ipy 1.01-r1: Class and tools for handling of IPv4 and IPv6 addresses and networks
-dev-python/ipykernel 6.30.1 6.30.1-r1 6.31.0 7.0.0 7.0.1: IPython Kernel for Jupyter
+dev-python/ipykernel 6.30.1 6.30.1-r1 6.31.0 7.0.0 7.0.1 7.1.0: IPython Kernel for Jupyter
 dev-python/ipyparallel 9.0.1 9.0.2: Interactive Parallel Computing with IPython
 dev-python/ipython 8.37.0 9.3.0 9.4.0 9.5.0 9.6.0: Advanced interactive shell for Python
 dev-python/ipython-genutils 0.2.0-r4: Vestigial utilities from IPython
@@ -8678,7 +8678,7 @@ dev-python/lazy-object-proxy 1.11.0 1.12.0: A fast and thorough lazy object prox
 dev-python/ldap3 2.9.1: A strictly RFC 4511 conforming LDAP V3 pure Python client
 dev-python/leather 0.4.0: Python charting for 80% of humans
 dev-python/leechcorepyc 2.21.0 2.22.3: Python binding for LeechCore Physical Memory Acquisition Library
-dev-python/legacy-cgi 2.6.3: Fork of the standard library cgi and cgitb modules (deprecated)
+dev-python/legacy-cgi 2.6.3 2.6.4: Fork of the standard library cgi and cgitb modules (deprecated)
 dev-python/lesscpy 0.15.1: A compiler written in Python for the LESS language
 dev-python/levenshtein 0.27.1: Functions for fast computation of Levenshtein distance, and edit operations
 dev-python/lhafile 0.3.1: LHA archive support for Python
@@ -9044,7 +9044,7 @@ dev-python/pydyf 0.11.0: A low-level PDF generator
 dev-python/pyeclib 1.6.4 1.7.0: Messaging API for RPC and notifications over different messaging transports
 dev-python/pyelftools 0.32: pure-Python library for analyzing ELF files and DWARF debugging information
 dev-python/pyenchant 3.2.2-r1 3.3.0: Python bindings for the Enchant spellchecking system
-dev-python/pyfakefs 5.9.2 5.9.3 5.10.0: A fake file system that mocks the Python file system modules
+dev-python/pyfakefs 5.9.3 5.10.0 5.10.1: A fake file system that mocks the Python file system modules
 dev-python/pyflakes 3.4.0: Passive checker for Python programs
 dev-python/pyformance 0.4-r2: Performance metrics, based on Coda Hale's Yammer metrics
 dev-python/pyftpdlib 2.0.1 2.1.0: Python FTP server library
@@ -9348,7 +9348,7 @@ dev-python/readtime 3.0.0: Calculates the time some text takes the average human
 dev-python/rebulk 3.2.0: Python library that performs advanced searches in strings
 dev-python/recommonmark 0.7.1-r1: Python docutils-compatibility bridge to CommonMark
 dev-python/recurring-ical-events 3.7.0 3.8.0: Repeat ICalendar events by RRULE, RDATE and EXDATE
-dev-python/redis 6.4.0 7.0.0: Python client for Redis key-value store
+dev-python/redis 6.4.0 7.0.0 7.0.1: Python client for Redis key-value store
 dev-python/reedsolo 2.1.1_beta1-r2: Python Reed Solomon encoder/decoder
 dev-python/referencing 0.36.2-r1 0.37.0: Cross-specification JSON referencing (JSON Schema, OpenAPI...)
 dev-python/reflink 0.2.2: Python wrapper around the reflink system calls
@@ -9547,7 +9547,7 @@ dev-python/stevedore 5.4.1 5.5.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.1.2: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
 dev-python/stripe 12.5.1 13.0.1: Stripe Python bindings
-dev-python/structlog 25.4.0: Structured Logging for Python
+dev-python/structlog 25.4.0 25.5.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.2: subprocess.run replacement with tee(1)-like output
 dev-python/suds-community 1.2.0: Lightweight SOAP client
 dev-python/superqt 0.7.3 0.7.6: Missing widgets and components for PyQt/PySide
@@ -11090,7 +11090,7 @@ dev-util/yamllint 1.35.1 1.36.2 1.37.1: A linter for YAML files
 dev-util/ydiff 1.3 1.4.1 1.4.2: Colored, side-by-side diff terminal viewer (ex. cdiff)
 dev-vcs/bfg 1.14.0: A faster alternative to git-filter-branch for removing bad data from git repos
 dev-vcs/blackbox 1.20220610: Safely store secrets in a VCS repo
-dev-vcs/breezy 3.3.12 3.3.13: Distributed Version Control System with a Friendly UI
+dev-vcs/breezy 3.3.12 3.3.13 3.3.15: Distributed Version Control System with a Friendly UI
 dev-vcs/colorcvs 1.4-r3: A tool based on colorgcc to beautify cvs output
 dev-vcs/colorsvn 0.3.3-r1: Subversion output colorizer
 dev-vcs/cssc 1.4.1: The GNU Project's replacement for SCCS
