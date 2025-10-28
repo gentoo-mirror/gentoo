@@ -5,12 +5,12 @@ EAPI=8
 HOMEPAGE=https://github.com/facelessuser/pyspelling/ https://pypi.org/project/pyspelling/
 INHERIT=distutils-r1 docs
 IUSE=test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 doc
-KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=MIT
 RDEPEND=|| ( app-text/aspell app-text/hunspell ) dev-python/beautifulsoup4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/html5lib[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/lxml[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/markdown[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/pyyaml[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/soupsieve-1.8[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/wcmatch-6.5[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/facelessuser/pyspelling/archive/2.10.tar.gz -> pyspelling-2.10.gh.tar.gz
+SRC_URI=https://github.com/facelessuser/pyspelling/archive/2.12.tar.gz -> pyspelling-2.12.gh.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	da0e0aad39afe02500c5b3dee253f4c0	docs	006125f2158d2f16904ebd9114336058
-_md5_=f22c88eeffb3ecbe15414aa3b66082de
+_md5_=c7300e3db5606613d087818c29decfee
