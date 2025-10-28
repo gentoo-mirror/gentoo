@@ -4053,7 +4053,7 @@ dev-debug/d-feet 0.3.16 0.3.16-r1: D-Feet is a powerful D-Bus debugger
 dev-debug/d-spy 47.0 48.0: D-Spy is a simple tool to explore D-Bus connections
 dev-debug/ddd 3.3.12-r5 3.4.1: Graphical front-end for command-line debuggers
 dev-debug/drgn 0.0.31 0.0.32: Programmable debugger
-dev-debug/dtrace 2.0.3-r2 9999: Dynamic BPF-based system-wide tracing tool
+dev-debug/dtrace 2.0.3-r2 2.0.4 9999: Dynamic BPF-based system-wide tracing tool
 dev-debug/duma 2.5.15-r3: DUMA (Detect Unintended Memory Access) is a memory debugging library
 dev-debug/gdb 16.3 9999: GNU debugger
 dev-debug/gef 2023.08 2024.06 2025.01 9999: GDB Enhanced Features for exploit devs & reversers
@@ -4869,7 +4869,7 @@ dev-java/coursier-bin 2.1.14 2.1.24: Java/Scala artifact fetching, bundling and 
 dev-java/cpptasks 1.0_beta5-r3: Ant-tasks to compile various source languages and produce executables
 dev-java/dom4j 2.1.4 2.2.0: flexible XML framework for Java
 dev-java/easymock 2.5.2 3.3.1-r2 5.6.0: Mock Objects for interfaces in JUnit tests by generating them on the fly
-dev-java/eclipse-ecj 4.20 4.26-r2 4.33 4.37-r1: Eclipse Compiler for Java
+dev-java/eclipse-ecj 4.20 4.26-r2 4.37-r1: Eclipse Compiler for Java
 dev-java/eclipse-jdt-annotation 4.30 4.37: JDT Annotations for Enhanced Null Analysis
 dev-java/emma 2.0.5312-r6: Free Java code coverage tool
 dev-java/error-prone-annotations 2.36.0 2.41.0 2.42.0: Java annotations for the Error Prone static analysis tool
@@ -4977,7 +4977,7 @@ dev-java/jcifs 1.3.19-r2: Library that implements the CIFS/SMB networking protoc
 dev-java/jclasslib 4.3.1: Java bytecode viewer
 dev-java/jcommander 1.64-r1 1.82-r1: Command line parsing framework for Java
 dev-java/jctools-core 4.0.5-r1: Java Concurrency Tools Core Library
-dev-java/jdbc-mysql 9.2.0-r1 9.4.0: JDBC Type 4 driver for MySQL
+dev-java/jdbc-mysql 9.4.0: JDBC Type 4 driver for MySQL
 dev-java/jdbc-postgresql 42.7.7: Java JDBC 4.2 (JRE 8+) driver for PostgreSQL database
 dev-java/jdepend 2.10-r1: Traverses Java class file directories and generates design quality metrics
 dev-java/jdisasm 1.0.6: A disassembler for Java .class files
@@ -9979,7 +9979,7 @@ dev-ruby/elasticsearch-transport 7.17.11: Ruby integrations for ES, elasticsearc
 dev-ruby/em-websocket 0.5.3-r1: EventMachine based WebSocket server
 dev-ruby/equalizer 0.0.11-r2: Module to define equality, equivalence and inspection methods
 dev-ruby/equatable 0.7.0-r1: Allows ruby objects to implement equality comparison and inspection methods
-dev-ruby/erb 5.0.2-r1 5.0.3 5.1.1: An easy to use but powerful templating system for Ruby
+dev-ruby/erb 5.0.2-r1 5.0.3 5.1.1 5.1.3: An easy to use but powerful templating system for Ruby
 dev-ruby/erubi 1.13.1: a ERB template engine for ruby; a simplified fork of Erubis
 dev-ruby/erubis 2.7.0-r4: Erubis is an implementation of eRuby
 dev-ruby/ethon 0.16.0 0.17.0: Very lightweight libcurl wrapper
@@ -10101,7 +10101,7 @@ dev-ruby/leto 2.1.0: Generic object traverser for Ruby
 dev-ruby/letter_opener 1.10.0: Preview mail in the browser instead of sending
 dev-ruby/levenshtein 0.2.2-r3: Levenshtein distance algorithm
 dev-ruby/libusb 0.7.2: binding that gives Ruby programmers access to arbitrary USB devices
-dev-ruby/liquid 4.0.4 5.8.6 5.8.7: Template engine for Ruby
+dev-ruby/liquid 4.0.4 5.8.6 5.8.7 5.9.0: Template engine for Ruby
 dev-ruby/liquid-c 4.2.0: Liquid performance extension in C
 dev-ruby/listen 3.9.0: Listens to file modifications and notifies you about the changes
 dev-ruby/little-plugger 1.1.4-r1: Module that provides Gem based plugin management
@@ -10372,7 +10372,7 @@ dev-ruby/rubypants 0.7.1-r1: A Ruby port of the SmartyPants PHP library
 dev-ruby/rubytest 0.8.1-r1: Ruby Test is a universal test harness for Ruby
 dev-ruby/rubytest-cli 0.2.0-r1: Rubytest CLI is a command-line interface for Rubytest
 dev-ruby/rubytter 1.5.1-r3: Rubytter is a simple twitter library
-dev-ruby/rubyzip 2.4.1 3.0.2 3.1.0 3.1.1 3.2.0: A ruby library for reading and writing zip files
+dev-ruby/rubyzip 2.4.1 3.0.2 3.1.0 3.1.1 3.2.0 3.2.1: A ruby library for reading and writing zip files
 dev-ruby/sanitize 6.1.3 7.0.0: Sanitize is a whitelist-based HTML sanitizer
 dev-ruby/sass 3.7.4-r2 3.7.4-r3: An extension of CSS3, adding nested rules, variables, mixins, and more
 dev-ruby/sass-rails 5.1.0-r1: Official Ruby-on-Rails Integration with Sass
@@ -11103,7 +11103,7 @@ dev-vcs/cvsutils 0.2.6: A small bundle of utilities to work with CVS repositorie
 dev-vcs/darcs 2.16.5-r5: a distributed, interactive, smart revision control system
 dev-vcs/easygit 1.7.5.2-r1: Easy GIT (eg), a frontend for git designed for former cvs and svn users
 dev-vcs/fossil 2.21 2.22 2.24-r1 2.26: Simple, high-reliability, source control management, and more
-dev-vcs/git 2.49.1 2.50.1 2.51.0 2.51.1 9999 9999-r1 9999-r2 9999-r3: Stupid content tracker: distributed VCS designed for speed and efficiency
+dev-vcs/git 2.49.1 2.50.1 2.51.0 2.51.1 2.51.2 9999 9999-r1 9999-r2 9999-r3: Stupid content tracker: distributed VCS designed for speed and efficiency
 dev-vcs/git-absorb 0.7.0 0.8.0: Automatically absorb staged changes into git current branch
 dev-vcs/git-annex 10.20220624 10.20230802: manage files with git, without checking their contents into git
 dev-vcs/git-big-picture 1.3.0 1.3.0-r1: Visualization tool for Git repositories
@@ -18235,7 +18235,7 @@ www-servers/servefile 0.5.4 0.5.4-r1 0.5.4-r2: Serve a single file via HTTP
 www-servers/sniproxy 0.6.1: Proxies incoming HTTP and TLS connections based on the hostname
 www-servers/spawn-fcgi 1.6.5 1.6.6: A FCGI spawner for lighttpd and cherokee and other webservers
 www-servers/thin 1.8.2 2.0.0 2.0.1: A fast and very simple Ruby web server
-www-servers/tomcat 9.0.108 9.0.109 9.0.111 10.1.44 10.1.46 10.1.48 11.0.10 11.0.11 11.0.13: Tomcat Servlet-6.1/JSP-4.0/EL-6.0/WebSocket-2.2/JASPIC-3.1 Container
+www-servers/tomcat 9.0.109 9.0.111 10.1.46 10.1.48 11.0.11 11.0.13: Tomcat Servlet-6.1/JSP-4.0/EL-6.0/WebSocket-2.2/JASPIC-3.1 Container
 www-servers/uwsgi 2.0.23-r1 2.0.27-r1: uWSGI server for Python web applications
 www-servers/varnish 7.5.0 7.7.1 7.7.3: Varnish is a state-of-the-art, high-performance HTTP accelerator
 www-servers/webfs 1.21: Lightweight HTTP server for static content
