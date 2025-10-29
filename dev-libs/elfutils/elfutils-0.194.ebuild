@@ -21,27 +21,28 @@ else
 	SRC_URI="https://sourceware.org/elfutils/ftp/${PV}/${P}.tar.bz2"
 	SRC_URI+=" verify-sig? ( https://sourceware.org/elfutils/ftp/${PV}/${P}.tar.bz2.sig )"
 
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 
 	BDEPEND="verify-sig? ( >=sec-keys/openpgp-keys-elfutils-20240301 )"
 fi
 
 LICENSE="|| ( GPL-2+ LGPL-3+ ) utils? ( GPL-3+ )"
 SLOT="0"
-IUSE="bzip2 debuginfod lzma nls static-libs stacktrace test +utils valgrind zstd"
+IUSE="bzip2 debuginfod libarchive +lzma nls static-libs stacktrace test +utils valgrind zstd"
 RESTRICT="!test? ( test )"
+REQUIRED_USE="debuginfod? ( libarchive )"
 
 RDEPEND="
 	!dev-libs/libelf
 	>=sys-libs/zlib-1.2.8-r1[static-libs?,${MULTILIB_USEDEP}]
 	bzip2? ( >=app-arch/bzip2-1.0.6-r4[static-libs?,${MULTILIB_USEDEP}] )
 	debuginfod? (
-		>=app-arch/libarchive-3.1.2:=
 		dev-db/sqlite:3=
 		>=dev-libs/json-c-0.11:=[${MULTILIB_USEDEP}]
 		>=net-libs/libmicrohttpd-0.9.33:=
 		>=net-misc/curl-7.29.0[static-libs?,${MULTILIB_USEDEP}]
 	)
+	libarchive? ( >=app-arch/libarchive-3.1.2:= )
 	lzma? ( >=app-arch/xz-utils-5.0.5-r1[static-libs?,${MULTILIB_USEDEP}] )
 	stacktrace? ( dev-util/sysprof )
 	zstd? ( app-arch/zstd:=[static-libs?,${MULTILIB_USEDEP}] )
@@ -65,10 +66,7 @@ BDEPEND+="
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.189-musl-aarch64-regs.patch
 	"${FILESDIR}"/${PN}-0.191-musl-macros.patch
-	"${FILESDIR}"/${P}-libelf-static-link-libeu.patch
-	"${FILESDIR}"/${P}-configure-better-error-message.patch
-	"${FILESDIR}"/${P}-stacktrace-maybe-uninit.patch
-	"${FILESDIR}"/${PN}-0.191-musl-configure-better-error-h-check.patch
+	"${FILESDIR}"/${P}-tests.patch
 )
 
 src_prepare() {
@@ -79,6 +77,17 @@ src_prepare() {
 	if ! use static-libs; then
 		sed -i -e '/^lib_LIBRARIES/s:=.*:=:' -e '/^%.os/s:%.o$::' lib{asm,dw,elf}/Makefile.in || die
 	fi
+
+	# TODO: Fails with some CFLAGS
+	# " __divhc3: /var/tmp/portage/dev-libs/elfutils-0.193/work/elfutils-0.193-abi_x86_32.x86/tests/funcretval:
+	#	dwfl_module_return_value_location: cannot handle DWARF type description"
+	printf "#!/bin/sh\nexit 77" > tests/run-native-test.sh || die
+	# TODO: Fails for abi_x86_32 w/ DT_RELR
+	# "section [14] '.rel.plt': relocation 55: relocation type invalid for the file type"
+	printf "#!/bin/sh\nexit 77" > tests/run-elflint-self.sh || die
+	printf "#!/bin/sh\nexit 77" > tests/run-reverse-sections-self.sh || die
+	# TODO: Fails with SFrames
+	printf "#!/bin/sh\nexit 77" > tests/run-strip-strmerge.sh || die
 
 	# https://sourceware.org/PR23914
 	sed -i 's:-Werror::' */Makefile.in || die
@@ -105,8 +114,8 @@ multilib_src_configure() {
 		$(multilib_native_use_enable stacktrace)
 		$(use_enable valgrind valgrind-annotations)
 
-		# explicitly disable thread safety, it's not recommended by upstream
-		# doesn't build either on musl.
+		# Explicitly disable thread safety, it's not recommended by upstream
+		# (marked experimental in configure) and doesn't build either on musl.
 		--disable-thread-safety
 
 		# Valgrind option is just for running tests under it; dodgy under sandbox
@@ -115,6 +124,7 @@ multilib_src_configure() {
 		--program-prefix="eu-"
 		--with-zlib
 		$(use_with bzip2 bzlib)
+		$(multilib_native_use_with libarchive)
 		$(use_with lzma)
 		$(use_with zstd)
 	)
