@@ -12,19 +12,19 @@ MY_P=${P/_p/.post}
 DESCRIPTION="The little ASGI framework that shines"
 HOMEPAGE="
 	https://www.starlette.io/
-	https://github.com/encode/starlette/
+	https://github.com/Kludex/starlette/
 	https://pypi.org/project/starlette/
 "
 # no docs or tests in sdist, as of 0.27.0
 SRC_URI="
-	https://github.com/encode/starlette/archive/${PV/_p/.post}.tar.gz
+	https://github.com/Kludex/starlette/archive/${PV/_p/.post}.tar.gz
 		-> ${MY_P}.gh.tar.gz
 "
 S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	<dev-python/anyio-5[${PYTHON_USEDEP}]
