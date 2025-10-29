@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst prepare setup test
-DEPEND=python_targets_python3_13t? ( dev-lang/python:3.13t ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) sys-kernel/linux-headers x11-libs/libdrm
+DEPEND=python_targets_python3_13t? ( dev-lang/python:3.13t ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) sys-kernel/linux-headers x11-libs/libdrm[video_cards_amdgpu]
 DESCRIPTION=ROCm System Management Interface Library
 EAPI=8
 HOMEPAGE=https://github.com/ROCm/rocm-systems/tree/develop/projects/rocm-smi-lib
@@ -13,4 +13,4 @@ REQUIRED_USE=|| ( python_targets_python3_13t python_targets_python3_11 python_ta
 SLOT=0/7.0
 SRC_URI=https://github.com/ROCm/rocm_smi_lib/archive/rocm-7.0.2.tar.gz -> rocm-smi-7.0.2.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	2d36accef058c00889b1f93ea4bc4061	linux-info	efd923656513c879204fec6638eadee5	optfeature	538bce96e5589935b57e178e8635f301	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38
-_md5_=a7b3687e580a5bc66b12252b279fcdc1
+_md5_=dbe6c2e17847312d93cc9b3414edacbb
