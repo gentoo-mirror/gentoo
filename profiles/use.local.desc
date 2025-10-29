@@ -2001,9 +2001,10 @@ dev-libs/efl:xcf - Enable XCF image loader
 dev-libs/efl:xim - Enable X Input Method
 dev-libs/efl:xpresent - Enable x11-libs/libXpresent support
 dev-libs/elfutils:debuginfod - Enable debuginfod support, both the debuginfod server and the libdebuginfod client library
+dev-libs/elfutils:libarchive - Needed for debuginfod (the server) and also for --zip support in the eu-srcfiles utility. Requires app-arch/libarchive.
 dev-libs/elfutils:lzma - Support automatic decompression of LZMA-compressed files and kernel images
 dev-libs/elfutils:stacktrace - Build experimental eu-stacktrace tool. Relies on integration with dev-util/sysprof. See https://developers.redhat.com/articles/2024/06/11/get-system-wide-profiles-binaries-without-frame-pointers.
-dev-libs/elfutils:utils - Install command-line utilities (all the eu-* programs)
+dev-libs/elfutils:utils - Install command-line utilities (all the eu-* programs).
 dev-libs/fcgi:html - Install HTML documentation
 dev-libs/folks:telepathy - Load contacts from the Telepathy framework
 dev-libs/folks:utils - Build the folks-inspect utility
