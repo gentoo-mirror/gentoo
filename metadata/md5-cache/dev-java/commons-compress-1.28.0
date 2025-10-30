@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://commons.apache.org/proper/commons-compress/
 INHERIT=java-pkg-2 java-pkg-simple junit5 verify-sig
 IUSE=doc source test verify-sig
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=Apache-2.0
 RDEPEND=>=dev-java/asm-9.8-r1:0 dev-java/brotli-dec:0 >=dev-java/commons-codec-1.19.0:0 >=dev-java/commons-io-2.20.0:0 >=dev-java/commons-lang-3.18.0:0 >=dev-java/xz-java-1.10:0 >=dev-java/zstd-jni-1.5.7.4:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/commons/compress/source/commons-compress-1.28.0-src.tar.gz test? ( https://repo1.maven.org/maven2/org/ops4j/pax/exam/pax-exam/4.13.5/pax-exam-4.13.5.jar https://repo1.maven.org/maven2/org/ops4j/pax/exam/pax-exam-junit4/4.13.5/pax-exam-junit4-4.13.5.jar https://repo1.maven.org/maven2/io/airlift/aircompressor/2.0.2/aircompressor-2.0.2.jar ) verify-sig? ( https://downloads.apache.org/commons/compress/source/commons-compress-1.28.0-src.tar.gz.asc )
 _eclasses_=java-utils-2	3febdd17a5820c438f6368dde60d4848	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	a728b6bc0cd005d093dd71e93106c98e	junit5	84fcaea874f0356694c679a7b2bdeee2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	103bd85bd89e7550554d65afe22e8d04
-_md5_=64ba0da9805e3d2919000f8956ecb69e
+_md5_=2a7e5ec8308f58d6f8c804270fedbdf9
