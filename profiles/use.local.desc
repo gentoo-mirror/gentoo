@@ -3047,7 +3047,6 @@ games-action/dxx-rebirth:sdl2 - Use libSDL2, SDL2-mixer instead of libSDL-1* and
 games-action/dxx-rebirth:tracker - Enable support for the PHP-based multiplayer game tracker
 games-action/hotline-miami:bundled-libs - Use bundled libraries.
 games-action/hotline-miami:launcher - Install qt launcher
-games-action/supermariowar:server - Compile and install Super Mario War server files
 games-action/supertuxkart:nettle - Use dev-libs/nettle crypto backend
 games-action/supertuxkart:recorder - Enable recording with media-libs/libopenglrecorder
 games-action/supertuxkart:sqlite - Record IP bans, statistics in server mode with dev-db/sqlite
@@ -3168,8 +3167,6 @@ games-engines/devilutionx:zerotier - Enable ZeroTier for online public games
 games-engines/exult:fluidsynth - Compile with support for FluidSynth
 games-engines/exult:tools - Enable tools, usercode compiler and mods support
 games-engines/fheroes2:tools - Install development tools like 82m2wav and xmi2midi.
-games-engines/frobtads:tads2compiler - Build TADS2 compiler
-games-engines/frobtads:tads3compiler - Build TADS3 compiler
 games-engines/love:gme - Use media-libs/game-music-emu to support additional music formats
 games-engines/minetest:client - Build Minetest client
 games-engines/minetest:leveldb - Enable LevelDB backend
@@ -3338,7 +3335,6 @@ games-strategy/freeciv:sound - Add support for sound provided by media-libs/sdl2
 games-strategy/freeciv:system-lua - Use dev-lang/lua instead of the bundled liblua
 games-strategy/freeciv:web-server - Build the freeciv-web server in place of the freeciv server
 games-strategy/freeorion:client - Build game client
-games-strategy/freesynd:devtools - Build development tools
 games-strategy/hedgewars:ffmpeg - Enable video recording feature
 games-strategy/hedgewars:pas2c - Translate Pascal sources to C and build with clang
 games-strategy/hedgewars:server - Enable local server
@@ -4563,7 +4559,6 @@ media-libs/quirc:sdl - Build tools requiring media-libs/sdl-gfx (inspect, quirc-
 media-libs/quirc:tools - Build tools (qrtest)
 media-libs/quirc:v4l - Build tools for webcams (quirc-scanner)
 media-libs/raptor:json - Enable support for JSON parsing
-media-libs/raspberrypi-userland-bin:hardfp - Use armv6 hardfp ABI
 media-libs/roc-toolkit:tools - Install helper tools like roc-conv, roc-recv, roc-send
 media-libs/rubberband:jni - Enables building of Java Native Interface library
 media-libs/rubberband:lv2 - Add support for Ladspa V2
@@ -6811,8 +6806,6 @@ net-p2p/bitcoin-core:zeromq - Report blocks and transactions via zeromq
 net-p2p/dbhub:switch-user - Enable support for switching user
 net-p2p/deluge:console - Enable default console UI
 net-p2p/deluge:webinterface - Install dependencies needed for the web interface
-net-p2p/fms:frost - Add support for frost boards
-net-p2p/fms:ssl - Add support for FCP connection over SSL
 net-p2p/freenet:nss - Use nss for crypto operations, if it is the fastest way
 net-p2p/go-ethereum:devtools - Build Ethereum development tools (evm, abigen, puppeth, ...)
 net-p2p/ktorrent:bwscheduler - Schedule upload and download limits over a period of a week
@@ -9119,9 +9112,6 @@ x11-themes/vertex-theme:xfce - Install theme for xfce-base/xfwm4
 x11-themes/zuki-themes:gnome-shell - Install theme for gnome-base/gnome-shell
 x11-themes/zuki-themes:gtk2 - Install GTK+2 theme
 x11-themes/zuki-themes:xfce - Install theme for xfce-base/xfwm4
-x11-wm/ctwm:jpeg - Enable jpeg image support with virtual/jpeg
-x11-wm/ctwm:test - Enable upstream test suite, build required binary
-x11-wm/ctwm:xpm - Enable xpm icon support with x11-libs/libXpm
 x11-wm/e16:debug - Build libtrip debugging library
 x11-wm/e16:dialogs - Enable support for configuration dialogs
 x11-wm/e16:editline - Use dev-libs/editline for line editing
