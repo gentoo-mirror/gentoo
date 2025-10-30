@@ -59,3 +59,13 @@ src_install() {
 	fi
 	keepdir /usr/lib/locale
 }
+
+pkg_postinst() {
+	while read -r; do ewarn "${REPLY}"; done <<-'EOF'
+	As of version 3.9, locale-gen(8) only supports locale/charmap pairs that are
+	officially supported by glibc itself. For most users, there should be no
+	impact. Nevertheless, if running locale-gen(8) raises errors regarding
+	unsupported combinations, it will be necessary to modify its config file.
+	The locale.gen(5) man page explains how to determine which are supported.
+	EOF
+}
