@@ -7,13 +7,13 @@ inherit cmake edos2unix flag-o-matic
 
 DESCRIPTION="Weak signal ham radio communication with improvements"
 HOMEPAGE="https://wsjt-x-improved.sourceforge.io/"
-SRC_URI="https://downloads.sourceforge.net/wsjt-x-improved/wsjtx-${PV}_improved_PLUS_250501_qt6.tgz"
+SRC_URI="https://downloads.sourceforge.net/wsjt-x-improved/wsjtx-${PV}_improved_PLUS_250924_qt6.tgz"
 
 S=${WORKDIR}/wsjtx
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
 RDEPEND="
@@ -36,15 +36,15 @@ PATCHES=(
 	"${FILESDIR}/wsjtx-2.2.0-werror.patch"
 	"${FILESDIR}/wsjtx-2.3.0-drop-docs.patch"
 	"${FILESDIR}/wsjtx-clang.patch"
-	"${FILESDIR}/wsjtx-fix-sound-dir.patch"
-	"${FILESDIR}/wsjtx-2.8.0-qt691.patch"
+	"${FILESDIR}/wsjtx-3.0.0-fix-sound-dir.patch"
+	"${FILESDIR}/wsjtx-2.8.0-qt692-audio.patch"
 )
 
 DOCS=( AUTHORS BUGS NEWS README THANKS )
 
 src_unpack() {
 	unpack ${A}
-	unpack "${WORKDIR}/wsjtx-2.8.0/src/wsjtx.tgz"
+	unpack "${WORKDIR}/wsjtx-3.0.0/src/wsjtx.tgz"
 }
 
 src_prepare() {
@@ -65,6 +65,8 @@ src_configure() {
 		-DCMAKE_INSTALL_DOCDIR="share/doc/${PF}"
 	)
 	append-ldflags -no-pie
+	# fix executable stack from fortran nested functions
+	append-fflags -ftrampoline-impl=heap
 	cmake_src_configure
 }
 

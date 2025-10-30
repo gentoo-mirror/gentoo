@@ -18,27 +18,17 @@ HOMEPAGE="
 
 LICENSE="ZPL"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
-
-RDEPEND="
-	!dev-python/namespace-zope
-"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 distutils_enable_tests unittest
 
 src_prepare() {
-	# strip rdep specific to namespaces
-	sed -i -e "s:'setuptools'::" setup.py || die
 	distutils-r1_src_prepare
-}
 
-python_compile() {
-	distutils-r1_python_compile
-	find "${BUILD_DIR}" -name '*.pth' -delete || die
+	# force failure if extension build fails
+	sed -i -e "/'build_ext':/d" setup.py || die
 }
 
 python_test() {
-	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
-	distutils_write_namespace zope
-	eunittest
+	eunittest -s "${BUILD_DIR}/install$(python_get_sitedir)/zope"
 }

@@ -26,6 +26,7 @@ RDEPEND="
 	>=dev-python/findpython-0.7.0[${PYTHON_USEDEP}]
 	dev-python/blinker[${PYTHON_USEDEP}]
 	dev-python/filelock[${PYTHON_USEDEP}]
+	<dev-python/hishel-1[${PYTHON_USEDEP}]
 	>=dev-python/hishel-0.0.32[${PYTHON_USEDEP}]
 	>=dev-python/httpcore-1.0.6[${PYTHON_USEDEP}]
 	dev-python/httpx[${PYTHON_USEDEP}]
