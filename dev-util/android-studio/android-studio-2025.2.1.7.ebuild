@@ -101,7 +101,7 @@ src_install() {
 	fperms -R 755 "${dir}"/plugins/android/resources/simpleperf
 	fperms -R 755 "${dir}"/plugins/android/resources/trace_processor_daemon
 	fperms -R 755 "${dir}"/plugins/android-ndk/resources/lldb/{android,bin,lib,shared}
-	fperms 755 "${dir}"/plugins/c-clangd/bin/clang/linux/x64/bin/clangd
+	fperms 755 "${dir}"/plugins/cidr-clangd/bin/clang/linux/x64/bin/clangd
 	fperms -R 755 "${dir}"/plugins/terminal/shell-integrations/{,fish}
 
 	newicon "bin/studio.png" "${PN}.png"
