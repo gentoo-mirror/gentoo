@@ -6,14 +6,15 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
-PYTHON_COMPAT=( python3_{11..13} )
-inherit cmake distutils-r1 flag-o-matic java-pkg-opt-2
+PYTHON_COMPAT=( python3_{11..14} )
+inherit cmake distutils-r1 flag-o-matic java-pkg-opt-2 verify-sig
 
 DESCRIPTION="Translator library for raster geospatial data formats (includes OGR support)"
 HOMEPAGE="https://gdal.org/"
 SRC_URI="
 	https://download.osgeo.org/${PN}/${PV}/${P}.tar.xz
 	test? ( https://download.osgeo.org/${PN}/${PV}/${PN}autotest-${PV}.tar.gz )
+	verify-sig? ( https://download.osgeo.org/${PN}/${PV}/${P}.tar.xz.sig )
 "
 
 LICENSE="BSD Info-ZIP MIT"
@@ -22,7 +23,7 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="
 	archive armadillo avif blosc cryptopp +curl cpu_flags_arm_neon cpu_flags_x86_avx
 	cpu_flags_x86_avx2 cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse4_1
-	cpu_flags_x86_ssse3 exprtk fits geos gif gml hdf5 heif java jpeg jpeg2k jpegxl
+	cpu_flags_x86_ssse3 exprtk fits geos gif gml hdf5 heif java jpeg2k jpegxl
 	lerc libaec libdeflate lz4 lzma mongodb +muparser mysql netcdf odbc openexr
 	oracle parquet pdf png postgres python qhull spatialite sqlite test +tools webp
 	xls zstd
@@ -40,9 +41,10 @@ COMMON_DEPEND="
 	dev-libs/json-c:=
 	dev-libs/libxml2:2=
 	dev-libs/openssl:=
-	media-libs/tiff:=
+	media-libs/tiff:=[jpeg]
 	>=sci-libs/libgeotiff-1.5.1-r1:=
-	>=sci-libs/proj-6.0.0:=
+	media-libs/libjpeg-turbo:=
+	>=sci-libs/proj-6.0.0:=[tiff]
 	sys-libs/zlib[minizip(+)]
 	archive? ( app-arch/libarchive:= )
 	armadillo? ( sci-libs/armadillo:=[lapack] )
@@ -59,7 +61,6 @@ COMMON_DEPEND="
 	java? (
 		>=virtual/jdk-1.8:*
 	)
-	jpeg? ( media-libs/libjpeg-turbo:= )
 	jpeg2k? ( media-libs/openjpeg:2= )
 	jpegxl? ( media-libs/libjxl:= )
 	lerc? ( media-libs/lerc:= )
@@ -126,7 +127,10 @@ BDEPEND="
 			)
 		')
 	)
+	verify-sig? ( >=sec-keys/openpgp-keys-evenrouault-20250913 )
 "
+
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/evenrouault.asc
 
 QA_CONFIG_IMPL_DECL_SKIP=(
 	_wstat64 # Windows LFS
@@ -138,13 +142,17 @@ EPYTEST_XDIST=1
 # distutils_enable_tests unconditionally touches BDEPEND
 
 PATCHES=(
-	"${FILESDIR}"/gdal-3.11.3-x86.patch
-	"${FILESDIR}"/gdal-3.11.3-java-no-strict-aliasing.patch
-	"${FILESDIR}"/gdal-3.11.3-fix-completions.patch
+	"${FILESDIR}"/${P}-poppler-25.10.patch
 )
 
 pkg_setup() {
 	use java && java-pkg-opt-2_pkg_setup
+}
+
+src_unpack() {
+	use verify-sig && verify-sig_verify_detached "${DISTDIR}"/${P}.tar.xz{,.sig}
+	unpack ${P}.tar.xz
+	use test && unpack ${PN}autotest-${PV}.tar.gz
 }
 
 src_prepare() {
@@ -239,10 +247,7 @@ src_configure() {
 		-DGDAL_USE_HDFS=OFF
 		-DGDAL_USE_ICONV=ON # TODO dep
 		-DGDAL_USE_IDB=OFF
-
-		# Enable internal implementation so that tests pass with the use disabled
-		-DGDAL_USE_JPEG=$(usex jpeg)
-		-DGDAL_USE_JPEG_INTERNAL=$(usex !jpeg)
+		-DGDAL_USE_JPEG=ON # bug #965329
 
 		# https://gdal.org/build_hints.html#jpeg12
 		# Independent of whether using system libjpeg
@@ -477,9 +482,9 @@ src_install() {
 
 	if use java; then
 		# Move the native library into the proper place for Gentoo.  The
-		# library in ${D} has already had its RPATH fixed, so we use it
+		# library in ${ED} has already had its RPATH fixed, so we use it
 		# rather than ${BUILD_DIR}/swig/java/libgdalalljni.so.
-		java-pkg_doso "${D}/usr/$(get_libdir)/jni/libgdalalljni.so"
+		java-pkg_doso "${ED}/usr/$(get_libdir)/jni/libgdalalljni.so"
 		rm -rf "${ED}/usr/$(get_libdir)/jni" || die
 	fi
 
