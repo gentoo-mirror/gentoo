@@ -26,10 +26,7 @@ RDEPEND="
 	dev-libs/nss
 	>=media-fonts/noto-emoji-20231130
 	media-libs/alsa-lib
-	|| (
-		media-libs/libpulse
-		media-sound/apulse
-	)
+	media-libs/libpulse
 	media-libs/mesa[X(+)]
 	net-print/cups
 	sys-apps/dbus
@@ -83,7 +80,7 @@ src_install() {
 
 	newbin - signal-desktop <<- _EOF_
 		#!/bin/sh
-		exec \$(command -pv apulse) ${EPREFIX}/opt/Signal/signal-desktop --ozone-platform-hint=auto "\${@}"
+		exec ${EPREFIX}/opt/Signal/signal-desktop --ozone-platform-hint=auto "\${@}"
 	_EOF_
 }
 
