@@ -11,7 +11,7 @@ CRATES="
 	addr2line@0.25.1
 	adler2@2.0.1
 	ahash@0.8.12
-	aho-corasick@1.1.3
+	aho-corasick@1.1.4
 	android_system_properties@0.1.5
 	anstream@0.6.21
 	anstyle-parse@0.2.7
@@ -25,7 +25,7 @@ CRATES="
 	backtrace@0.3.76
 	base64@0.13.1
 	bitflags@1.3.2
-	bitflags@2.9.4
+	bitflags@2.10.0
 	bitvec@1.0.1
 	blake2b_simd@0.5.11
 	block-buffer@0.10.4
@@ -34,12 +34,12 @@ CRATES="
 	bumpalo@3.19.0
 	bytes@1.10.1
 	caps@0.5.6
-	cc@1.2.41
+	cc@1.2.43
 	cfg-if@1.0.4
 	cfg_aliases@0.2.1
 	chrono@0.4.42
-	clap@4.5.49
-	clap_builder@4.5.49
+	clap@4.5.51
+	clap_builder@4.5.51
 	clap_derive@4.5.49
 	clap_lex@0.7.6
 	colorchoice@1.0.4
@@ -75,7 +75,7 @@ CRATES="
 	fastrand@2.3.0
 	find-msvc-tools@0.1.4
 	fixedbitset@0.5.7
-	flate2@1.1.4
+	flate2@1.1.5
 	fnv@1.0.7
 	funty@2.0.0
 	generic-array@0.14.9
@@ -91,7 +91,7 @@ CRATES="
 	heck@0.5.0
 	hermit-abi@0.5.2
 	hex@0.4.3
-	home@0.5.11
+	home@0.5.12
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.64
 	iced-x86@1.21.0
@@ -101,23 +101,21 @@ CRATES="
 	io-uring@0.6.4
 	ipnet@2.11.0
 	iprange@0.6.7
-	is_terminal_polyfill@1.70.1
+	is_terminal_polyfill@1.70.2
 	itoa@1.0.15
-	js-sys@0.3.81
+	js-sys@0.3.82
 	keccak@0.1.5
 	lazy_static@1.5.0
 	lexis@0.2.3
 	lexopt@0.3.1
 	libc@0.2.177
-	libcgroups@0.5.5
-	libcontainer@0.5.5
+	libcgroups@0.5.6
+	libcontainer@0.5.6
 	libloading@0.8.9
 	libmimalloc-sys@0.1.44
-	liboci-cli@0.5.5
+	liboci-cli@0.5.6
 	libredox@0.1.10
-	libseccomp-sys@0.2.1
 	libseccomp-sys@0.3.0
-	libseccomp@0.3.0
 	libseccomp@0.4.0
 	linefeed@0.6.0
 	linux-raw-sys@0.11.0
@@ -143,7 +141,7 @@ CRATES="
 	object@0.37.3
 	oci-spec@0.8.3
 	once_cell@1.21.3
-	once_cell_polyfill@1.70.1
+	once_cell_polyfill@1.70.2
 	option-ext@0.2.0
 	parse-size@1.1.0
 	phf@0.11.3
@@ -158,7 +156,7 @@ CRATES="
 	prctl@1.0.0
 	proc-macro-error-attr2@2.0.0
 	proc-macro-error2@2.0.1
-	proc-macro2@1.0.101
+	proc-macro2@1.0.103
 	procfs-core@0.17.0
 	procfs-core@0.18.0
 	procfs@0.17.0
@@ -211,7 +209,7 @@ CRATES="
 	strum@0.27.2
 	strum_macros@0.27.2
 	subtle@2.6.1
-	syn@2.0.107
+	syn@2.0.108
 	tabwriter@1.4.1
 	tap@1.0.1
 	tcmalloc@0.3.0
@@ -231,8 +229,8 @@ CRATES="
 	tracing-subscriber@0.3.20
 	tracing@0.1.41
 	typenum@1.19.0
-	unicode-ident@1.0.19
-	unicode-normalization@0.1.24
+	unicode-ident@1.0.22
+	unicode-normalization@0.1.25
 	unicode-width@0.1.14
 	unicode-width@0.2.2
 	unicode-xid@0.2.6
@@ -242,11 +240,10 @@ CRATES="
 	wasi@0.11.1+wasi-snapshot-preview1
 	wasi@0.9.0+wasi-snapshot-preview1
 	wasip2@1.0.1+wasi-0.2.4
-	wasm-bindgen-backend@0.2.104
-	wasm-bindgen-macro-support@0.2.104
-	wasm-bindgen-macro@0.2.104
-	wasm-bindgen-shared@0.2.104
-	wasm-bindgen@0.2.104
+	wasm-bindgen-macro-support@0.2.105
+	wasm-bindgen-macro@0.2.105
+	wasm-bindgen-shared@0.2.105
+	wasm-bindgen@0.2.105
 	which@4.4.2
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-x86_64-pc-windows-gnu@0.4.0
@@ -282,7 +279,7 @@ CRATES="
 	wit-bindgen@0.46.0
 	wyz@0.5.1
 	yaxpeax-arch@0.3.2
-	yaxpeax-arm@0.3.1
+	yaxpeax-arm@0.4.0
 	zerocopy-derive@0.8.27
 	zerocopy@0.8.27
 	zeroize@1.8.2
