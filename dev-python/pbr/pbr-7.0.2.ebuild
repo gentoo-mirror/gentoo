@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 
 RDEPEND="
 	>=dev-python/setuptools-64.0.0[${PYTHON_USEDEP}]
@@ -35,6 +35,7 @@ BDEPEND="
 		$(python_gen_cond_dep '
 			>=dev-python/wheel-0.32.0[${PYTHON_USEDEP}]
 			>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
+			>=dev-python/packaging-20.0[${PYTHON_USEDEP}]
 			>=dev-python/testresources-2.0.0[${PYTHON_USEDEP}]
 			>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 			>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
@@ -47,21 +48,13 @@ BDEPEND="
 distutils_enable_tests unittest
 
 python_prepare_all() {
-	local PATCHES=(
-		# https://review.opendev.org/c/openstack/pbr/+/940773
-		# https://review.opendev.org/c/openstack/pbr/+/940778
-		"${FILESDIR}/${P}-test.patch"
-	)
-
 	# TODO: investigate
-	sed -e 's:test_console_script_develop:_&:' \
-		-e 's:test_console_script_install:_&:' \
-		-e 's:test_setup_py_keywords:_&:' \
-		-i pbr/tests/test_core.py || die
+	sed -e 's:test_with_argument:_&:' \
+		-e 's:test_wsgi_script_run:_&:' \
+		-i pbr/tests/functional/test_wsgi_scripts.py || die
 	# installs random packages via pip from the Internet
-	sed -e 's:test_requirement_parsing:_&:' \
-		-e 's:test_pep_517_support:_&:' \
-		-i pbr/tests/test_packaging.py || die
+	rm pbr/tests/functional/test_pep517.py || die
+	rm pbr/tests/functional/test_requirements.py || die
 
 	distutils-r1_python_prepare_all
 }
