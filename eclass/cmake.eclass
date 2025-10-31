@@ -19,7 +19,11 @@
 # out-of-source builds (default) and in-source builds.
 
 case ${EAPI} in
-	7|8) ;;
+	7)
+		ewarn "${CATEGORY}/${PF}: ebuild uses ${ECLASS} with deprecated EAPI ${EAPI}!"
+		ewarn "${CATEGORY}/${PF}: Support will be removed on 2025-11-14. Please port to newer EAPI."
+		;;
+	8) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
@@ -632,7 +636,6 @@ cmake_src_prepare() {
 			chmod -R a-w "${S}"
 		fi
 		_CMAKE_PREPARE_HAS_RUN=1
-		eqawarn "QA Notice: cmake.eclass will throw unsupported EAPI=7 error after 2025-11-01."
 	else
 		default_src_prepare
 		cmake_prepare
@@ -778,14 +781,6 @@ cmake_src_configure() {
 		set(CMAKE_COMPILE_WARNING_AS_ERROR OFF CACHE BOOL "")
 		set(CMAKE_LINK_WARNING_AS_ERROR OFF CACHE BOOL "")
 	_EOF_
-
-	if [[ ${CMAKE_ECM_MODE} == true ]]; then
-		cat >> ${common_config} <<- _EOF_ || die
-			set(ECM_DISABLE_QMLPLUGINDUMP ON CACHE BOOL "")
-			set(ECM_DISABLE_APPSTREAMTEST ON CACHE BOOL "")
-			set(ECM_DISABLE_GIT ON CACHE BOOL "")
-		_EOF_
-	fi
 
 	# See bug 689410
 	if [[ "${ARCH}" == riscv ]]; then

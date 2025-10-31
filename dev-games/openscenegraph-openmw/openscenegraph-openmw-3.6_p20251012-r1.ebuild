@@ -20,7 +20,7 @@ SLOT="0/162" # NOTE: CHECK WHEN BUMPING! Subslot is SOVERSION
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE="
 	+collada curl dicom debug doc egl examples fltk fox gdal
-	gif gstreamer +jpeg las lua openexr openinventor osgapps pdf +png
+	gif gstreamer +jpeg lua openexr openinventor osgapps pdf +png
 	+sdl sdl2 +svg tiff +truetype vnc wxwidgets xrandr +zlib
 "
 
@@ -61,7 +61,6 @@ RDEPEND="
 		media-libs/gst-plugins-base:1.0
 	)
 	jpeg? ( media-libs/libjpeg-turbo:= )
-	las? ( >=sci-geosciences/liblas-1.8.0 )
 	lua? ( ${LUA_DEPS} )
 	openexr? (
 		dev-libs/imath:=
@@ -125,7 +124,10 @@ src_configure() {
 		-DCMAKE_DISABLE_FIND_PACKAGE_GtkGl=ON
 		$(cmake_use_find_package jpeg JPEG)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
-		$(cmake_use_find_package las LIBLAS)
+		# PDAL instead of LAS: No one upstream willing to pick it up:
+		# https://github.com/openscenegraph/OpenSceneGraph/pull/1093
+		# https://github.com/OpenMW/osg/pull/33
+		-DCMAKE_DISABLE_FIND_PACKAGE_LIBLAS=ON
 		-DBUILD_OSG_LUA_PLUGIN=$(usex lua)
 		-DCMAKE_DISABLE_FIND_PACKAGE_OpenCascade=ON
 		$(cmake_use_find_package openexr OpenEXR)
