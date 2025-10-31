@@ -1,0 +1,14 @@
+BDEPEND=acct-group/zookeeper acct-user/zookeeper
+DEFINED_PHASES=install prepare
+DESCRIPTION=A high-performance coordination service for distributed applications
+EAPI=8
+HOMEPAGE=https://zookeeper.apache.org/
+INHERIT=java-utils-2
+KEYWORDS=~amd64 ~x86
+LICENSE=Apache-2.0
+RDEPEND=acct-group/zookeeper acct-user/zookeeper >=virtual/jre-1.8
+RESTRICT=mirror binchecks
+SLOT=0
+SRC_URI=mirror://apache/zookeeper/zookeeper-3.8.5/apache-zookeeper-3.8.5-bin.tar.gz -> zookeeper-bin-3.8.5.tar.gz
+_eclasses_=java-utils-2	3febdd17a5820c438f6368dde60d4848
+_md5_=3a19df4798d59a21fc24d1cbadf24945

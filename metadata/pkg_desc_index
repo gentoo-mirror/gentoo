@@ -913,7 +913,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.42.35 1.42.40 1.42.45 1.42.50 1.42.55 1.42.59 1.42.60 1.42.61 1.42.62: Universal Command Line Environment for AWS
+app-admin/awscli 1.42.35 1.42.40 1.42.45 1.42.50 1.42.55 1.42.59 1.42.60 1.42.61 1.42.62 1.42.63: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.8.2 2025.9.0 2025.10.0: Bitwarden password manager desktop client
@@ -5218,7 +5218,7 @@ dev-lang/mercury-extras 22.01.1: Additional libraries and tools that are not par
 dev-lang/micropython 1.23.0 1.25.0: Python implementation for microcontrollers
 dev-lang/mlton 20180207: Standard ML optimizing compiler and libraries
 dev-lang/mmix 20160804-r1 20160804-r2: Donald Knuth's MMIX Assembler and Simulator
-dev-lang/moarvm 2025.01 2025.05 2025.06 2025.08 9999: A 6model-based VM for NQP and Raku
+dev-lang/moarvm 2025.06 2025.08 2025.10 9999: A 6model-based VM for NQP and Raku
 dev-lang/mond 0.11.2: Mond is a scripting language for .NET Core
 dev-lang/mono 6.12.0.199-r2 6.14.1: Mono open source ECMA CLI, C# and .NET implementation
 dev-lang/mono-basic 4.8-r1: Visual Basic Compiler and Runtime
@@ -5229,7 +5229,7 @@ dev-lang/neko 2.4.0-r2 2.4.1: Neko is a high-level dynamically typed programming
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
 dev-lang/nim 2.2.2 2.2.4: Compiled, garbage-collected systems programming language
 dev-lang/nprolog 4.72: Interpreter and compiler to be compatible with Arity/Prolog32
-dev-lang/nqp 2025.01-r1 2025.05 2025.06.1 2025.08 9999: Not Quite Perl, a Raku bootstrapping compiler
+dev-lang/nqp 2025.06.1 2025.08 2025.10 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.11.2-r2 4.13.1 4.14.2 5.3.0-r1: Programming language supporting functional, imperative & object-oriented styles
 dev-lang/oorexx 5.1.0_beta12932: Open source implementation of Object Rexx
 dev-lang/orc 0.4.38 0.4.40 0.4.40-r1 0.4.41: The Oil Runtime Compiler, a just-in-time compiler for array operations
@@ -5247,7 +5247,7 @@ dev-lang/python-exec 2.4.10: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
 dev-lang/qore 1.19.2: Qore, the embeddable multithreaded scripting language
 dev-lang/qu-prolog 10.8-r1: Extended Prolog supporting quantifiers, object-variables and substitutions
-dev-lang/rakudo 2025.01 2025.05 2025.06.1 2025.08: A compiler for the Raku programming language
+dev-lang/rakudo 2025.06.1 2025.08 2025.10: A compiler for the Raku programming language
 dev-lang/rapydscript-ng 0.7.22 9999: Pythonic JavaScript that doesn't suck
 dev-lang/regina-rexx 3.9.5 3.9.6: Portable Rexx interpreter
 dev-lang/ruby 3.2.7 3.2.8 3.2.9 3.3.8 3.3.9 3.3.10 3.4.4 3.4.5 3.4.6 3.4.7: An object-oriented scripting language
@@ -8181,8 +8181,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.40.35 1.40.40 1.40.45 1.40.50 1.40.55 1.40.59 1.40.60 1.40.61 1.40.62: The AWS SDK for Python
-dev-python/botocore 1.40.35 1.40.40 1.40.45 1.40.50 1.40.55 1.40.59 1.40.60 1.40.61 1.40.62: Low-level, data-driven core of boto 3
+dev-python/boto3 1.40.35 1.40.40 1.40.45 1.40.50 1.40.55 1.40.59 1.40.60 1.40.61 1.40.62 1.40.63: The AWS SDK for Python
+dev-python/botocore 1.40.35 1.40.40 1.40.45 1.40.50 1.40.55 1.40.59 1.40.60 1.40.61 1.40.62 1.40.63: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8330,7 +8330,7 @@ dev-python/django-cacheops 7.2: ORM cache with automatic granular event-driven i
 dev-python/django-configurations 2.5.1: A helper for organizing Django settings
 dev-python/django-cors-headers 4.9.0: Django App that adds CORS (Cross-Origin Resource Sharing) headers to responses
 dev-python/django-crispy-forms 2.4: DRY Django forms
-dev-python/django-debug-toolbar 6.0.0: A configurable set of panels that display various debug information
+dev-python/django-debug-toolbar 6.0.0 6.1.0: A configurable set of panels that display various debug information
 dev-python/django-filter 25.2: Django app allowing declarative dynamic QuerySet filtering from URL parameters
 dev-python/django-js-asset 3.1.2: Script tag with additional attributes for django.forms.Media
 dev-python/django-otp 1.6.2 1.6.3: Django framework adding two-factor authentication using one-time passwords
@@ -8454,7 +8454,7 @@ dev-python/fritzconnection 1.15.0: Lib/tool to communicate with AVM FRITZ! devic
 dev-python/frozen-flask 1.0.2: Freezes a Flask application into a set of static files
 dev-python/frozenlist 1.7.0 1.8.0: A list-like structure which implements collections.abc.MutableSequence
 dev-python/fs 2.4.16-r1: Filesystem abstraction layer
-dev-python/fsspec 2025.7.0 2025.9.0: A specification that python filesystems should adhere to
+dev-python/fsspec 2025.9.0 2025.10.0: A specification that python filesystems should adhere to
 dev-python/ftfy 6.3.1: Fixes mojibake and other problems with Unicode, after the fact
 dev-python/fullmoon 1.0.2: Determine full moon occurences
 dev-python/funcparserlib 1.0.1: Recursive descent parsing library based on functional combinators
@@ -8478,10 +8478,10 @@ dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
 dev-python/gitpython 3.1.45: Library used to interact with Git repositories
 dev-python/gmpy2 2.2.1 2.3.0_alpha1: Python bindings for GMP, MPC, MPFR and MPIR libraries
 dev-python/google-api-core 2.25.1 2.25.2 2.26.0 2.27.0 2.28.0 2.28.1: Core Library for Google Client Libraries
-dev-python/google-api-python-client 2.181.0 2.182.0 2.183.0 2.184.0 2.185.0: Google API Client for Python
-dev-python/google-auth 2.40.3 2.41.1 2.42.0: Google Authentication Library
-dev-python/google-auth-httplib2 0.2.0 0.2.0-r1: httplib2 Transport for Google Auth
-dev-python/google-auth-oauthlib 1.2.2: Google Authentication Library
+dev-python/google-api-python-client 2.183.0 2.184.0 2.185.0 2.186.0: Google API Client for Python
+dev-python/google-auth 2.40.3 2.41.1 2.42.0 2.42.1: Google Authentication Library
+dev-python/google-auth-httplib2 0.2.0 0.2.0-r1 0.2.1: httplib2 Transport for Google Auth
+dev-python/google-auth-oauthlib 1.2.2 1.2.3: Google Authentication Library
 dev-python/google-i18n-address 3.1.1: Google's i18n address metadata repository
 dev-python/google-pasta 0.2.0-r2: AST-based Python refactoring library
 dev-python/googleapis-common-protos 1.70.0 1.71.0: Python classes generated from the common protos in the googleapis repository
@@ -8534,7 +8534,7 @@ dev-python/httpx-socks 0.10.1: Proxy (HTTP, SOCKS) transports for httpx
 dev-python/huawei-lte-api 1.11.0: API For huawei LAN/WAN LTE Modems
 dev-python/humanfriendly 10.0-r2: Human friendly output for text interfaces using Python
 dev-python/humanize 4.12.3 4.13.0 4.14.0: Common humanization utilities
-dev-python/hvac 2.3.0: HashiCorp Vault API client
+dev-python/hvac 2.3.0 2.4.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
@@ -8831,7 +8831,7 @@ dev-python/netifaces 0.11.0-r2: Portable network interface information
 dev-python/netlink 0.1: Pure-Python client for the Linux NetLink interface
 dev-python/networkx 3.5-r1: Python tools to manipulate graphs and complex networks
 dev-python/nextinspace 3.0.1 9999: A command-line tool for seeing the latest in space
-dev-python/nh3 0.3.0 0.3.1: Ammonia HTML sanitizer Python binding
+dev-python/nh3 0.3.0 0.3.1 0.3.2: Ammonia HTML sanitizer Python binding
 dev-python/nnpy 1.4.2-r1: cffi-based Python bindings for nanomsg
 dev-python/node-semver 0.9.0: Python version of node-semver, the semantic versioner for npm
 dev-python/nodeenv 1.9.1: Node.js virtual environment builder
@@ -8872,7 +8872,7 @@ dev-python/orderedmultidict 1.0.1: Ordered Multivalue Dictionary. Powers furl
 dev-python/orderly-set 5.4.1 5.5.0: A package containing multiple implementations of Ordered Set
 dev-python/orjson 3.11.3 3.11.4: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/os-client-config 2.3.0: OpenStack Client Configuation Library
-dev-python/os-service-types 1.8.0: A library to handle official service types for OpenStack and it's aliases
+dev-python/os-service-types 1.8.0 1.8.1: A library to handle official service types for OpenStack and it's aliases
 dev-python/osc-lib 4.1.0 4.2.0: A package of common support modules for writing OSC plugins
 dev-python/oslo-concurrency 7.1.0 7.2.0: Oslo Concurrency library
 dev-python/oslo-config 10.0.0: Oslo Configuration API
@@ -8915,7 +8915,7 @@ dev-python/pathvalidate 3.3.0: A Python library to sanitize/validate a string su
 dev-python/patiencediff 0.2.15 0.2.18: Python implementation of the patiencediff algorithm
 dev-python/patsy 1.0.1 1.0.1-r1 1.0.2: Python module to describe statistical models and design matrices
 dev-python/pbkdf2 1.3-r2: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
-dev-python/pbr 6.1.1 7.0.0 7.0.1: Inject some useful and sensible default behaviors into setuptools
+dev-python/pbr 7.0.1 7.0.2: Inject some useful and sensible default behaviors into setuptools
 dev-python/pbs-installer 2025.09.18 2025.10.07 2025.10.14 2025.10.28: Installer for Python Build Standalone
 dev-python/pdfrw 0.4_p1-r1: PDF file reader/writer library
 dev-python/pdm 2.26.1: Python package and dependency manager supporting the latest PEP standards
@@ -8954,7 +8954,7 @@ dev-python/plotly 6.3.0 6.3.1: Browser-based graphing library for Python
 dev-python/plotly-geo 1.0.0-r2: Browser-based graphing library for Python
 dev-python/pluggy 1.6.0: Plugin and hook calling mechanisms for Python
 dev-python/pluginbase 1.0.1-r1: Support library for building plugins systems in Python
-dev-python/plumbum 1.9.0: A library for shell script-like programs in python
+dev-python/plumbum 1.9.0 1.10.0: A library for shell script-like programs in python
 dev-python/ply 3.11-r2: Python Lex-Yacc library
 dev-python/plyvel 1.5.1: Python interface to LevelDB
 dev-python/pmw 2.1.1: Toolkit for building high-level compound Python widgets using the Tkinter module
@@ -9321,7 +9321,7 @@ dev-python/pyzmq 26.4.0 27.0.0 27.0.1 27.0.2 27.1.0: Lightweight and super-fast 
 dev-python/pyzotero 1.6.16 1.6.17 1.7.2 1.7.3: A Python client for the Zotero API
 dev-python/pyzstd 0.17.0 0.18.0: Python bindings to Zstandard (zstd) compression library
 dev-python/qdarkstyle 3.2.3: A dark style sheet for QtWidgets application
-dev-python/qiskit 2.2.0 2.2.1 2.2.2: An open-source SDK for working with quantum computers
+dev-python/qiskit 2.2.2 2.2.3: An open-source SDK for working with quantum computers
 dev-python/qiskit-aer 0.17.2: High performance simulator for quantum circuits that includes noise models
 dev-python/qpageview 1.0.0: Page-based viewer widget for Qt5/PyQt5
 dev-python/qrcode 8.2: QR Code generator on top of PIL
@@ -9337,10 +9337,10 @@ dev-python/quart-trio 0.12.0: A Quart extension to provide trio support
 dev-python/radon 6.0.1-r2: Code Metrics in Python
 dev-python/raet 0.6.8-r6: Reliable Asynchronous Event Transport Protocol
 dev-python/random2 1.0.2: Python 2.7 random module ported to Python 3
-dev-python/rapidfuzz 3.13.0 3.14.0 3.14.1: Rapid fuzzy string matching in Python using various string metrics
+dev-python/rapidfuzz 3.14.1 3.14.2: Rapid fuzzy string matching in Python using various string metrics
 dev-python/rarfile 4.2: Module for RAR archive reading
 dev-python/ratelimit 2.2.1-r1: An API rate limit decorator for Python
-dev-python/rdflib 7.2.1 7.3.0: RDF library containing a triple store and parser/serializer
+dev-python/rdflib 7.2.1 7.3.0 7.4.0: RDF library containing a triple store and parser/serializer
 dev-python/re-assert 1.1.0-r3: Show where your regex match assertion failed
 dev-python/readme-renderer 44.0: A library for rendering 'readme' descriptions for Warehouse
 dev-python/readthedocs-sphinx-ext 2.2.5: Code specific for Read the Docs and Sphinx
@@ -9667,8 +9667,8 @@ dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10: TidyLib Python wrapper
 dev-python/uuid6 2025.0.1: New time-based UUID formats which are suited for use as a database key
-dev-python/uv 0.8.6 0.8.24 0.9.3 0.9.4 0.9.6 9999: A Python package installer and resolver, written in Rust
-dev-python/uv-build 0.8.6 0.8.24 0.9.3 0.9.4 0.9.6: PEP517 uv build backend
+dev-python/uv 0.9.4 0.9.6 0.9.7 9999: A Python package installer and resolver, written in Rust
+dev-python/uv-build 0.9.4 0.9.6 0.9.7: PEP517 uv build backend
 dev-python/uvicorn 0.35.0 0.36.0 0.37.0 0.38.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.21.0 0.22.1: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.35.0: Python Data Validation for Humans
@@ -11090,7 +11090,7 @@ dev-util/yamllint 1.35.1 1.36.2 1.37.1: A linter for YAML files
 dev-util/ydiff 1.3 1.4.1 1.4.2: Colored, side-by-side diff terminal viewer (ex. cdiff)
 dev-vcs/bfg 1.14.0: A faster alternative to git-filter-branch for removing bad data from git repos
 dev-vcs/blackbox 1.20220610: Safely store secrets in a VCS repo
-dev-vcs/breezy 3.3.12 3.3.13 3.3.15: Distributed Version Control System with a Friendly UI
+dev-vcs/breezy 3.3.12 3.3.13 3.3.17: Distributed Version Control System with a Friendly UI
 dev-vcs/colorcvs 1.4-r3: A tool based on colorgcc to beautify cvs output
 dev-vcs/colorsvn 0.3.3-r1: Subversion output colorizer
 dev-vcs/cssc 1.4.1: The GNU Project's replacement for SCCS
@@ -17449,7 +17449,7 @@ sys-cluster/spark-bin 3.1.2-r1: Lightning-fast unified analytics engine
 sys-cluster/torque 6.0.4-r7: Resource manager and queuing system based on OpenPBS
 sys-cluster/ucx 1.18.1: Unified Communication X
 sys-cluster/virtctl 1.5.1 1.6.0: Control virtual machine related operations on your kubernetes cluster
-sys-cluster/zookeeper-bin 3.8.4 3.9.2 3.9.3: A high-performance coordination service for distributed applications
+sys-cluster/zookeeper-bin 3.8.4 3.8.5 3.9.3 3.9.4: A high-performance coordination service for distributed applications
 sys-cluster/zookeepercli 1.0.11: Simple, lightweight, dependable CLI for ZooKeeper
 sys-devel/autogen 5.18.16-r102: Program and text file generation
 sys-devel/bc 1.07.1-r6 1.08.0 1.08.1 1.08.2: Handy console-based calculator utility
