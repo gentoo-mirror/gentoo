@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 FORTRAN_NEEDED=fortran
 FORTRAN_STANDARD="77 90"
@@ -19,7 +19,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="fortran hdf5 lapack +python test"
 RESTRICT="!test? ( test )"
 
