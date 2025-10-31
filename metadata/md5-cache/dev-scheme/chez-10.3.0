@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install prepare
+DEPEND=app-arch/lz4:= sys-apps/util-linux sys-libs/zlib:= X? ( x11-libs/libX11 ) ncurses? ( sys-libs/ncurses:= )
+DESCRIPTION=A programming language based on R6RS
+EAPI=8
+HOMEPAGE=https://cisco.github.io/ChezScheme/ https://github.com/cisco/ChezScheme/
+INHERIT=dot-a edo toolchain-funcs
+IUSE=X +ncurses +threads
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=Apache-2.0 MIT
+RDEPEND=app-arch/lz4:= sys-apps/util-linux sys-libs/zlib:= X? ( x11-libs/libX11 ) ncurses? ( sys-libs/ncurses:= )
+RESTRICT=test
+SLOT=0/10.3.0
+SRC_URI=https://github.com/cisco/ChezScheme/releases/download/v10.3.0/csv10.3.0.tar.gz -> chez-10.3.0.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a	edo	a5e294016aa84979fcb2459749eb80b2
+_md5_=80b6ba60e8d711f276f5a3669eebc11a
