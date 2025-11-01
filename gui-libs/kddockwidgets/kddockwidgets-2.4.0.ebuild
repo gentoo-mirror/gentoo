@@ -12,25 +12,21 @@ S=${WORKDIR}/KDDockWidgets-${PV}
 
 LICENSE="|| ( GPL-2 GPL-3 ) BSD MIT"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="qml"
 # building tests require developer mode which is messy to enable here
 RESTRICT="test"
 
-# uses Qt private APIs wrt :=
+# uses Qt private APIs wrt :=, X for x11extras (always uses qtx11extras_p.h
+# with Qt6 regardless of the cmake X11EXTRAS option which is only for Qt5)
 RDEPEND="
-	dev-qt/qtbase:6=[widgets]
+	dev-qt/qtbase:6=[X,widgets]
 	qml? ( dev-qt/qtdeclarative:6= )
 "
 DEPEND="
 	${DEPEND}
 	dev-cpp/nlohmann_json
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.2.1-include-paths.patch
-	"${FILESDIR}"/${PN}-2.2.5-qt610.patch
-)
 
 CMAKE_QA_COMPAT_SKIP=1 #964536
 
@@ -39,7 +35,6 @@ src_configure() {
 		-DKDDockWidgets_FRONTENDS=qtwidgets$(usev qml ';qtquick')
 		-DKDDockWidgets_NO_SPDLOG=yes # less headaches
 		-DKDDockWidgets_PYTHON_BINDINGS=no # ask if need this
-		-DKDDockWidgets_QT6=yes
 		-DKDDockWidgets_XLib=no # off by default, and fails to build
 	)
 
