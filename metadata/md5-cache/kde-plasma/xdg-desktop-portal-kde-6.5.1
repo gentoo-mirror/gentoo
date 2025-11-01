@@ -7,11 +7,11 @@ HOMEPAGE=https://kde.org/plasma-desktop
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=ecm plasma.kde.org xdg
 IUSE=debug test
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=~amd64 ~arm64 ~riscv
 LICENSE=LGPL-2+
 RDEPEND=>=dev-libs/wayland-1.15 >=dev-qt/qtbase-6.9.1:6=[cups,dbus,gui,wayland,widgets] >=dev-qt/qtdeclarative-6.9.1:6 || ( >=dev-qt/qtbase-6.9.1:6[libinput] >=dev-qt/qtbase-6.9.1:6[X] ) >=kde-frameworks/kcoreaddons-6.18.0:6[dbus] >=kde-frameworks/kconfig-6.18.0:6 >=kde-frameworks/kcrash-6.18.0:6 >=kde-frameworks/kglobalaccel-6.18.0:6 >=kde-frameworks/kguiaddons-6.18.0:6 >=kde-frameworks/ki18n-6.18.0:6 >=kde-frameworks/kiconthemes-6.18.0:6 >=kde-frameworks/kio-6.18.0:6 >=kde-frameworks/kirigami-6.18.0:6 >=kde-frameworks/knotifications-6.18.0:6 >=kde-frameworks/kservice-6.18.0:6 >=kde-frameworks/kstatusnotifieritem-6.18.0:6 >=kde-frameworks/kwidgetsaddons-6.18.0:6 >=kde-frameworks/kwindowsystem-6.18.0:6 >=kde-plasma/kwayland-6.5.1:6 >=kde-plasma/plasma-workspace-6.5.1:6 x11-libs/libxkbcommon kde-misc/kio-fuse:6 sys-apps/xdg-desktop-portal || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-plasma/xdg-desktop-portal-kde:5
 RESTRICT=!test? ( test )
 SLOT=6
 SRC_URI=mirror://kde/stable/plasma/6.5.1/xdg-desktop-portal-kde-6.5.1.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	a5537691c00fd7549c8b90300f679185	kde.org	2eea56ed41440913be4caa3d255d2db3	plasma.kde.org	7dce7e123b845b50045d250ddb278647	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=36b4dcd4f3f600fdd3348430bef5335a
+_md5_=87dd0c844b32d59a4bd5d0e23466e9f2

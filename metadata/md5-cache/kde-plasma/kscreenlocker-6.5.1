@@ -7,11 +7,11 @@ HOMEPAGE=https://kde.org/plasma-desktop
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=ecm plasma.kde.org pam xdg
 IUSE=debug test
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=~amd64 ~arm64 ~riscv
 LICENSE=GPL-2
 RDEPEND=dev-libs/wayland >=dev-qt/qtbase-6.9.1:6=[dbus,gui,network,widgets] >=dev-qt/qtdeclarative-6.9.1:6 >=kde-frameworks/kcmutils-6.18.0:6 >=kde-frameworks/kconfig-6.18.0:6[qml] >=kde-frameworks/kconfigwidgets-6.18.0:6 >=kde-frameworks/kcoreaddons-6.18.0:6 >=kde-frameworks/kcrash-6.18.0:6 >=kde-frameworks/kglobalaccel-6.18.0:6 >=kde-frameworks/ki18n-6.18.0:6 >=kde-frameworks/kidletime-6.18.0:6 >=kde-frameworks/kio-6.18.0:6 >=kde-frameworks/knotifications-6.18.0:6 >=kde-frameworks/kpackage-6.18.0:6 >=kde-frameworks/ksvg-6.18.0:6 >=kde-frameworks/kwindowsystem-6.18.0:6 >=kde-frameworks/kxmlgui-6.18.0:6 >=kde-frameworks/solid-6.18.0:6 >=kde-plasma/layer-shell-qt-6.5.1:6 >=kde-plasma/libplasma-6.5.1:6 >=kde-plasma/libkscreen-6.5.1:6 sys-libs/pam x11-libs/libX11 x11-libs/libXi x11-libs/libxcb x11-libs/xcb-util-keysyms >=kde-frameworks/kirigami-6.18.0:6 >=kde-plasma/libplasma-6.5.1:6 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-plasma/kscreenlocker:5
 RESTRICT=test !test? ( test )
 SLOT=6
 SRC_URI=mirror://kde/stable/plasma/6.5.1/kscreenlocker-6.5.1.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	a5537691c00fd7549c8b90300f679185	kde.org	2eea56ed41440913be4caa3d255d2db3	plasma.kde.org	7dce7e123b845b50045d250ddb278647	pam	b56d0c9c20fc5b553f13c8ae165a10a5	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=147f75db0687612e83efc49d900e84e7
+_md5_=b1daada0a2b82ea4deb03698563ac061
