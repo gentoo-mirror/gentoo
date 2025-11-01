@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test
+DEPEND=dev-db/sqlite:3 dev-libs/boost:= >=media-gfx/enblend-4.0 media-gfx/exiv2:= media-libs/freeglut media-libs/glew:= media-libs/libjpeg-turbo:= >=media-libs/libpano13-2.9.19_beta1:= media-libs/libpng:= media-libs/openexr:= media-libs/tiff:= >=media-libs/vigra-1.11.1-r5[openexr,tiff] sci-libs/fftw:3.0= sci-libs/flann sys-libs/zlib virtual/glu virtual/opengl x11-libs/wxGTK:3.2-gtk3=[X,opengl] lapack? ( virtual/blas virtual/lapack ) python? ( python_single_target_python3_13t? ( dev-lang/python:3.13t ) python_single_target_python3_14t? ( dev-lang/python:3.14t ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ) sift? ( media-gfx/autopano-sift-C ) dev-cpp/tclap sys-devel/gettext virtual/pkgconfig python? ( >=dev-lang/swig-2.0.4 )
+DESCRIPTION=GUI for the creation & processing of panoramic images
+EAPI=8
+HOMEPAGE=http://hugin.sf.net
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=python-single-r1 wxwidgets cmake xdg toolchain-funcs
+IUSE=debug lapack python raw sift l10n_ca l10n_ca-valencia l10n_cs l10n_da l10n_de l10n_en-GB l10n_es l10n_eu l10n_fi l10n_fr l10n_hu l10n_it l10n_ja l10n_nl l10n_pl l10n_pt-BR l10n_ro l10n_ru l10n_sk l10n_sv l10n_zh-CN l10n_zh-TW python_single_target_python3_13t python_single_target_python3_14t python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2+ BSD BSD-2 MIT wxWinLL-3 ZLIB FDL-1.2
+RDEPEND=dev-db/sqlite:3 dev-libs/boost:= >=media-gfx/enblend-4.0 media-gfx/exiv2:= media-libs/freeglut media-libs/glew:= media-libs/libjpeg-turbo:= >=media-libs/libpano13-2.9.19_beta1:= media-libs/libpng:= media-libs/openexr:= media-libs/tiff:= >=media-libs/vigra-1.11.1-r5[openexr,tiff] sci-libs/fftw:3.0= sci-libs/flann sys-libs/zlib virtual/glu virtual/opengl x11-libs/wxGTK:3.2-gtk3=[X,opengl] lapack? ( virtual/blas virtual/lapack ) python? ( python_single_target_python3_13t? ( dev-lang/python:3.13t ) python_single_target_python3_14t? ( dev-lang/python:3.14t ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ) sift? ( media-gfx/autopano-sift-C ) media-libs/exiftool raw? ( media-gfx/dcraw )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_13t python_single_target_python3_14t python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/hugin/hugin-2025.0rc1.tar.bz2
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	wxwidgets	c48bf68858bd3c27c272ff034eb1e14d	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=010b305c76df94de86cccf30d7c28e54
