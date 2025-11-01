@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="|| ( Apache-2.0 MIT )"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/attrs-23.2.0[${PYTHON_USEDEP}]
@@ -38,6 +38,8 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=( "${PN}" )
+# xdist causes import errors
 distutils_enable_tests pytest
 # Bug https://bugs.gentoo.org/916756
 # distutils_enable_sphinx docs/source \
@@ -65,10 +67,7 @@ python_test() {
 			;;
 	esac
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	rm -rf trio || die
-	epytest -p trio._tests.pytest_plugin \
-		-m "not redistributors_should_skip" \
-		--pyargs trio \
+	epytest -m "not redistributors_should_skip" --pyargs trio \
 		--skip-optional-imports
 }
