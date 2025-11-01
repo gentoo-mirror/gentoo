@@ -1,0 +1,52 @@
+Title: Portage to verify git-synced ::gentoo per default
+Author: Florian Schmaus <flow@gentoo.org>
+Posted: 2025-11-01
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-apps/portage
+
+Portage is about to implicitly enable OpenPGP verification of the
+::gentoo repository when synchronizing using git [1]. That is, a
+future Portage version will set
+    sync-git-verify-commit-signature = true
+for the ::gentoo repository as default.
+
+This behavior change requires action from users who are synchronizing
+the "raw" ::gentoo git repository, as otherwise synchronization may
+fail due to verification errors.
+
+Users
+- synchronizing the "sync friendly" ::gentoo git repository,
+- using rsync as synchronization mechanism
+- or, using emerge-webrsync
+are *not* required to take any action.
+
+Remotes of the "sync friendly" ::gentoo git repository include:
+- https://github.com/gentoo-mirror/gentoo
+- https://anongit.gentoo.org/git/repo/sync/gentoo.git
+- https://gitweb.gentoo.org/repo/sync/gentoo.git
+
+No action is required when using one of these remotes.
+
+However, users of the "raw" ::gentoo remote repository need to adjust
+the repository configuration to verify against the "gentoo developers"
+keyfile.  Ensure that sec-keys/openpgp-keys-gentoo-developers is
+installed, as it provides this keyfile.  Furthermore, the key refresh
+method should be set to 'keyserver' because WKD is not supported with
+the "gentoo developers" keyfile.
+
+Remotes of this category include:
+- https://github.com/gentoo/gentoo
+- https://gitweb.gentoo.org/repo/gentoo.git/
+
+An typical adjusted configuration may look like the following:
+
+[gentoo]
+location = /var/db/repos/gentoo
+sync-type = git
+sync-uri = https://github.com/gentoo/gentoo.git
+sync-openpgp-key-path = /usr/share/openpgp-keys/gentoo-developers.asc
+sync-openpgp-key-refresh = keyserver
+
+
+1: https://bugs.gentoo.org/959831
