@@ -1439,16 +1439,16 @@ app-crypt/elettra 1.0: Plausible deniable file cryptography
 app-crypt/envchain 1.0.1: Save environment variables in a secret vault
 app-crypt/fcrackzip 1.0: Zip password cracker
 app-crypt/freepg 2.5.12_p1: GnuPG fork with improved RFC9850 compatibility
-app-crypt/gcr 3.41.2-r1 4.2.1 4.3.0 4.3.1 4.4.0.1: Libraries for cryptographic UIs and accessing PKCS#11 modules
+app-crypt/gcr 3.41.2-r2 4.2.1 4.3.0 4.3.1 4.4.0.1-r1: Libraries for cryptographic UIs and accessing PKCS#11 modules
 app-crypt/gifshuffle 2.0-r1: GIF colourmap steganography
-app-crypt/glep63-check 11: GLEP 63 compliance checker for OpenPGP keys
+app-crypt/glep63-check 11-r1: GLEP 63 compliance checker for OpenPGP keys
 app-crypt/gnupg 2.2.45-r1 2.4.8-r1 2.5.12-r1 2.5.13-r1: The GNU Privacy Guard, a GPL OpenPGP implementation
 app-crypt/gnupg-pkcs11-scd 0.11.0 9999: PKCS#11 support for GnuPG
 app-crypt/gocryptfs 2.6.1 2.6.1-r1: Encrypted overlay filesystem written in Go
 app-crypt/gorilla 1.4-r2: Password Safe in secure way with GUI interface
 app-crypt/gpa 0.11.0-r1: GNU Privacy Assistant (GPA): a graphical user interface for GnuPG
 app-crypt/gpg-ringmgr 1.12-r1: GPG Keyring Manager to handle large GPG keyrings more easily
-app-crypt/gpgme 2.0.0 2.0.1: GnuPG Made Easy is a library for making GnuPG easier to use
+app-crypt/gpgme 2.0.0 2.0.1-r1: GnuPG Made Easy is a library for making GnuPG easier to use
 app-crypt/gpgstats 0.5-r2: GPGstats calculates statistics on the keys in your key-ring
 app-crypt/hashalot 0.3-r3: Reads a passphrase and prints a hash
 app-crypt/hashcat 6.2.6-r1 7.1.2 9999: World's fastest and most advanced password recovery utility
@@ -3060,7 +3060,7 @@ app-portage/genlop 0.30.12 9999: Nice emerge.log parser
 app-portage/gentle 1.0.2: Gentoo Lazy Entry - a metadata.xml generator
 app-portage/gentoolkit 0.6.8 0.6.9 9999: Collection of administration scripts for Gentoo
 app-portage/gentoopm 0.5.0 9999: A common interface to Gentoo package managers
-app-portage/getuto 1.15 9999: Standalone Gentoo gpg trust anchor generation tool for binpkgs
+app-portage/getuto 1.15-r1 9999: Standalone Gentoo gpg trust anchor generation tool for binpkgs
 app-portage/golop 0.2.1-r1: A pure Go re-implementation of genlop
 app-portage/gpyutils 0.15.0 0.15.1 0.15.3: Utitilies for maintaining Python packages
 app-portage/gverify 2: gentoo.git signature verification tool
@@ -9244,7 +9244,7 @@ dev-python/python-engineio 4.12.2 4.12.3: Python implementation of the Engine.IO
 dev-python/python-gammu 3.2.4-r1: Python bindings for Gammu
 dev-python/python-gflags 3.1.2-r2: Google's Python argument parsing library
 dev-python/python-glanceclient 4.9.0 4.10.0: A client for the OpenStack Glance API
-dev-python/python-gnupg 0.5.4 0.5.5: A Python wrapper for GnuPG
+dev-python/python-gnupg 0.5.5-r1: A Python wrapper for GnuPG
 dev-python/python-ironicclient 5.12.0 5.13.0: Python bindings for the Ironic API
 dev-python/python-jose 3.5.0: A JavaScript Object Signing and Encryption (JOSE) implementation in Python
 dev-python/python-json-logger 3.3.0 4.0.0_rc1 4.0.0: Standard python logging to output log data as json objects
@@ -11102,7 +11102,7 @@ dev-vcs/cvsutils 0.2.6: A small bundle of utilities to work with CVS repositorie
 dev-vcs/darcs 2.16.5-r5: a distributed, interactive, smart revision control system
 dev-vcs/easygit 1.7.5.2-r1: Easy GIT (eg), a frontend for git designed for former cvs and svn users
 dev-vcs/fossil 2.21 2.22 2.24-r1 2.26: Simple, high-reliability, source control management, and more
-dev-vcs/git 2.49.1 2.50.1 2.51.0 2.51.1 2.51.2 9999 9999-r1 9999-r2 9999-r3: Stupid content tracker: distributed VCS designed for speed and efficiency
+dev-vcs/git 2.49.1 2.50.1 2.51.0 2.51.1 2.51.2-r1 9999 9999-r1 9999-r2 9999-r3: Stupid content tracker: distributed VCS designed for speed and efficiency
 dev-vcs/git-absorb 0.7.0 0.8.0: Automatically absorb staged changes into git current branch
 dev-vcs/git-annex 10.20220624 10.20230802: manage files with git, without checking their contents into git
 dev-vcs/git-big-picture 1.3.0 1.3.0-r1: Visualization tool for Git repositories
@@ -17136,7 +17136,7 @@ sys-apps/pmount 0.9.99_alpha-r7 0.9.99_alpha-r8: Policy based mounter that gives
 sys-apps/pnputils 0.1-r1: Plug and Play BIOS utilities
 sys-apps/policycoreutils 3.7 3.8.1 9999: SELinux core utilities
 sys-apps/polychromatic 0.9.5 9999: RGB lighting management software for GNU/Linux powered by OpenRazer
-sys-apps/portage 3.0.67-r1 3.0.68 3.0.69.3-r1 9999: The package management and distribution system for Gentoo
+sys-apps/portage 3.0.67-r1 3.0.68 3.0.69.3-r2 9999: The package management and distribution system for Gentoo
 sys-apps/powerpc-utils 1.1.3.18-r4: PowerPC utilities and additional OldWorld apps
 sys-apps/ppc64-diag 2.7.9: Diagnostic tools for PowerLinux
 sys-apps/prctl 1.6-r1: Tool to query and modify process behavior
@@ -17179,14 +17179,14 @@ sys-apps/servicelog 1.1.15 1.1.16: Provides utilities for logging service-relate
 sys-apps/setserial 2.17-r6: Configure your serial ports with it
 sys-apps/sg3_utils 1.47 1.47-r1 1.47-r2 1.48: Apps for querying the sg SCSI interface
 sys-apps/shadow 4.14.8 4.14.8-r1: Utilities to deal with user accounts
-sys-apps/smartmontools 7.4-r1 7.5 9999: Tools to monitor storage systems to provide advanced warning of disk degradation
+sys-apps/smartmontools 7.4-r1 7.5-r1 9999: Tools to monitor storage systems to provide advanced warning of disk degradation
 sys-apps/smc-sum 2.14.0.20240215: Updates the BIOS and IPMI firmware and system settings on Supermicro mainboards
 sys-apps/smcipmitool 2.29.0.250214: An out-of-band utility for interfacing with SuperBlade and IPMI devices via CLI
 sys-apps/sparc-utils 1.9-r7: Various sparc utilities from Debian GNU/Linux
 sys-apps/spu-tools 2.3.0.136: CELL spu ps and top alike utilities
 sys-apps/stroke 0.1.3-r3: Powerful tool to change file timestamps (including ctimes)
 sys-apps/superdiag 1.8.0.20230310: Provides the capability to determine the health of Supermicro servers components
-sys-apps/syd 3.41.4 3.41.5: seccomp and landlock based application sandbox with support for namespaces
+sys-apps/syd 3.41.5 3.41.6: seccomp and landlock based application sandbox with support for namespaces
 sys-apps/syscriptor 1.5.15: Display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
 sys-apps/system-monitoring-center 2.26.0-r1 9999: Multi-featured system monitor GUI written in Python
