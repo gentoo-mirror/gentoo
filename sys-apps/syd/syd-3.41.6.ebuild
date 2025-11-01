@@ -34,7 +34,7 @@ CRATES="
 	bumpalo@3.19.0
 	bytes@1.10.1
 	caps@0.5.6
-	cc@1.2.43
+	cc@1.2.44
 	cfg-if@1.0.4
 	cfg_aliases@0.2.1
 	chrono@0.4.42
