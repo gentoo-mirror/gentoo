@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby27 ruby30 ruby31 ruby32"
+
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_RECIPE_DOC="none"
 RUBY_FAKEGEM_EXTRADOC="CHANGES README.rdoc TODO"
@@ -21,17 +22,17 @@ SRC_URI="https://github.com/ruby/rake/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="doc"
 
-BDEPEND+=" app-alternatives/gzip"
+BDEPEND="app-alternatives/gzip"
 
-ruby_add_bdepend "test? ( >=dev-ruby/minitest-5.8 )
+ruby_add_bdepend "test? ( dev-ruby/test-unit )
 	doc? ( dev-ruby/rdoc )"
 
 all_ruby_prepare() {
 	sed -e 's/git ls-files -z/find * -type f -print0/' \
-		-e "s:_relative ': './:" \
+		-e 's:_relative ": "./:' \
 		-i ${RUBY_FAKEGEM_GEMSPEC} || die
 }
 
@@ -43,7 +44,7 @@ all_ruby_compile() {
 }
 
 each_ruby_test() {
-	${RUBY} -Ilib:test:. -e 'gem "minitest", "~>5.8"; require "minitest/autorun"; Dir["test/test_*.rb"].each{|f| require f}' || die
+	MT_NO_PLUGINS=true RUBYLIB="$(pwd)/lib" ${RUBY} -Ilib:test:. -e 'Dir["test/test_*.rb"].each{|f| require f}' || die
 }
 
 all_ruby_install() {
