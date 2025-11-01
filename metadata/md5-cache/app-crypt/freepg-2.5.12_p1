@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gnupg.org/
 INHERIT=autotools flag-o-matic out-of-source multiprocessing systemd toolchain-funcs
 IUSE=bzip2 doc ldap nls readline selinux +smartcard ssl test +tofu tpm tools usb user-socket wks-server
-KEYWORDS=~amd64
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-3+
 PDEPEND=app-alternatives/gpg[-reference] app-crypt/pinentry
 RDEPEND=>=dev-libs/libassuan-3.0.0:= >=dev-libs/libgcrypt-1.11.0:= >=dev-libs/libgpg-error-1.51 >=dev-libs/libksba-1.6.3 >=dev-libs/npth-1.2 sys-libs/zlib bzip2? ( app-arch/bzip2 ) ldap? ( net-nds/openldap:= ) readline? ( sys-libs/readline:0= ) smartcard? ( usb? ( virtual/libusb:1 ) ) tofu? ( >=dev-db/sqlite-3.27 ) tpm? ( >=app-crypt/tpm2-tss-2.4.0:= ) ssl? ( >=net-libs/gnutls-3.2:0= ) nls? ( virtual/libintl ) selinux? ( sec-policy/selinux-gpg ) wks-server? ( virtual/mta ) !app-crypt/gnupg
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.com/freepg/gnupg/-/archive/gnupg-2.5.12-freepg-1/gnupg-gnupg-2.5.12-freepg-1.tar.bz2
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source	15ce2b6ae214f3abe70892ce1e517abd	multiprocessing	1e32df7deee68372153dca65f4a7c21f	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=3b3e82b1b4610ad9d566f6d6c8370134
+_md5_=cafe3dbb84c989662c34b86ccc94c54a
