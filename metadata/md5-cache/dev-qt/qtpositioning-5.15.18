@@ -1,0 +1,17 @@
+BDEPEND=dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND==dev-qt/qtcore-5.15.18* geoclue? ( =dev-qt/qtdbus-5.15.18* ) qml? ( =dev-qt/qtdeclarative-5.15.18* ) test? ( =dev-qt/qttest-5.15.18* )
+DESCRIPTION=Physical position determination library for the Qt5 framework
+EAPI=8
+HOMEPAGE=https://www.qt.io/
+INHERIT=qt5-build
+IUSE=geoclue +qml debug test
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
+PDEPEND=geoclue? ( app-misc/geoclue:2.0 )
+RDEPEND==dev-qt/qtcore-5.15.18* geoclue? ( =dev-qt/qtdbus-5.15.18* ) qml? ( =dev-qt/qtdeclarative-5.15.18* )
+RESTRICT=test
+SLOT=5/5.15
+SRC_URI=https://download.qt.io/archive/qt/5.15/5.15.18/submodules/qtlocation-everywhere-opensource-src-5.15.18.tar.xz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	virtualx	9741d451eb64ea8bb9faee90d68a9b68	qt5-build	504d804fd213f9fbf7994f53e54be133
+_md5_=f9f4290eec3c2c5e68518998c6282f73
