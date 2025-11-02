@@ -1,0 +1,14 @@
+BDEPEND=dev-build/make >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/json-c:= dev-libs/libxml2:= media-libs/alsa-lib media-libs/libsndfile >=net-wireless/sigutils-0.3.0_p20251029 net-wireless/soapysdr:= sci-libs/fftw:= sci-libs/volk:= sys-libs/zlib
+DESCRIPTION=a realtime DSP processing library
+EAPI=8
+HOMEPAGE=https://github.com/BatchDrake/suscan
+INHERIT=cmake
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/json-c:= dev-libs/libxml2:= media-libs/alsa-lib media-libs/libsndfile >=net-wireless/sigutils-0.3.0_p20251029 net-wireless/soapysdr:= sci-libs/fftw:= sci-libs/volk:= sys-libs/zlib
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~tomjbe/distfiles/suscan-0.3.0_p20251029.tgz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
+_md5_=bcf9a7a593b4f210c20bab9b2247dcb7
