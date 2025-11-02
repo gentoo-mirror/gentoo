@@ -19,7 +19,7 @@ index 053e908e6..5ddcb006f 100644
 -#if 0 /// elogind supports suspend modes (deep s2idle) so we need defaults, too
          /* Not used by SLEEP_SUSPEND */
 -#else // 0
--        [SLEEP_SUSPEND]      = STRV_MAKE("s2idle", "deep"),
+-        [SLEEP_SUSPEND]      = STRV_MAKE("deep", "s2idle"),
 -#endif // 0
          [SLEEP_HIBERNATE]    = STRV_MAKE("platform", "shutdown"),
          [SLEEP_HYBRID_SLEEP] = STRV_MAKE("suspend"),
@@ -49,11 +49,9 @@ Subject: [PATCH 2/2] Revert "Re-add elogind additions to sleep.conf loading
 This reverts commit c5e7ba0c47ae95e2cf6fd48dc9353e8f333200c4.
 ---
  src/shared/sleep-config.c |  9 ---------
- src/sleep/10-elogind.conf | 22 ----------------------
  src/sleep/meson.build     |  4 ----
  src/sleep/sleep.conf      |  9 +++++++++
- 4 files changed, 9 insertions(+), 35 deletions(-)
- delete mode 100644 src/sleep/10-elogind.conf
+ 3 files changed, 9 insertions(+), 13 deletions(-)
 
 diff --git a/src/shared/sleep-config.c b/src/shared/sleep-config.c
 index 5ddcb006f..097c203ca 100644
@@ -75,34 +73,6 @@ index 5ddcb006f..097c203ca 100644
                  { "Sleep", "AllowSuspend",              config_parse_tristate,    0,               &allow_suspend               },
                  { "Sleep", "AllowHibernation",          config_parse_tristate,    0,               &allow_hibernate             },
                  { "Sleep", "AllowSuspendThenHibernate", config_parse_tristate,    0,               &allow_s2h                   },
-diff --git a/src/sleep/10-elogind.conf b/src/sleep/10-elogind.conf
-deleted file mode 100644
-index b8b3350b1..000000000
---- a/src/sleep/10-elogind.conf
-+++ /dev/null
-@@ -1,22 +0,0 @@
--#  This file is part of elogind.
--#
--#  elogind is free software; you can redistribute it and/or modify it under the
--#  terms of the GNU Lesser General Public License as published by the Free
--#  Software Foundation; either version 2.1 of the License, or (at your option)
--#  any later version.
--#
--# Entries in this file show the compile time defaults specific to eloging.
--# Local configuration should be created here with a higher leading number so
--# they are parsed later overriding the defaults.
--#
--# See sleep.conf(5) for details.
--
--[Sleep]
--#AllowPowerOffInterrupts=no
--#AllowSuspendInterrupts=no
--#BroadcastPowerOffInterrupts=yes
--#BroadcastSuspendInterrupts=yes
--#HandleNvidiaSleep=no
--#HibernateByUsing=
--#SuspendByUsing=
--#SuspendMode=s2idle deep
 diff --git a/src/sleep/meson.build b/src/sleep/meson.build
 index c711a1b5c..3b06a6e91 100644
 --- a/src/sleep/meson.build
