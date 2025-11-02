@@ -1,0 +1,16 @@
+BDEPEND=dev-qt/qttools:6[linguist]
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=dev-qt/qtbase:6=[dbus,gui,network,ssl,widgets,xml] dev-qt/qtdeclarative:6 sys-libs/zlib x11-libs/libX11
+DESCRIPTION=Great Qt GUI front-end for mplayer/mpv
+EAPI=8
+HOMEPAGE=https://www.smplayer.info/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=optfeature qmake-utils toolchain-funcs xdg
+IUSE=bidi debug
+KEYWORDS=~amd64 ~arm ~hppa ~ppc ~ppc64 ~x86 ~amd64-linux
+LICENSE=GPL-2+ BSD-2
+RDEPEND=dev-qt/qtbase:6=[dbus,gui,network,ssl,widgets,xml] dev-qt/qtdeclarative:6 sys-libs/zlib x11-libs/libX11 || ( media-video/mpv[libass(+),X] media-video/mplayer[bidi?,libass,png,X] )
+SLOT=0
+SRC_URI=https://github.com/smplayer-dev/smplayer/archive/1c32b339d484d5926ddb4ddf095f2ec30b7e44ca.tar.gz -> smplayer-25.6.0_p20250903-1c32b339.tar.gz
+_eclasses_=optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=6cd355d5f3d5ece9998c25ebb980b47d
