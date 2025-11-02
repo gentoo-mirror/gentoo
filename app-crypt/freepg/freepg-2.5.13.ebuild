@@ -3,7 +3,7 @@
 
 EAPI=8
 
-VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/gnupg.asc
+# Keep (roughly) in sync with app-crypt/gnupg!
 # in-source builds are not supported: https://dev.gnupg.org/T6313#166339
 inherit autotools flag-o-matic out-of-source multiprocessing systemd toolchain-funcs
 
@@ -23,7 +23,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="bzip2 doc ldap nls readline selinux +smartcard ssl test +tofu tpm tools usb user-socket wks-server"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="test? ( tofu )"
@@ -33,7 +33,7 @@ REQUIRED_USE="test? ( tofu )"
 DEPEND="
 	>=dev-libs/libassuan-3.0.0:=
 	>=dev-libs/libgcrypt-1.11.0:=
-	>=dev-libs/libgpg-error-1.51
+	>=dev-libs/libgpg-error-1.56
 	>=dev-libs/libksba-1.6.3
 	>=dev-libs/npth-1.2
 	sys-libs/zlib
@@ -78,6 +78,10 @@ PATCHES=(
 
 src_prepare() {
 	default
+
+	# substitute the version
+	sed -i -e '/beta=yes/d' -e 's:-unknown:-freepg:' autogen.sh || die
+
 	eautoreconf
 }
 
@@ -163,11 +167,16 @@ my_src_install() {
 	# rename for app-alternatives/gpg
 	mv "${ED}"/usr/bin/gpg{,-freepg} || die
 	mv "${ED}"/usr/bin/gpgv{,-freepg} || die
+	mv "${ED}"/usr/share/man/man1/gpg{,-freepg}.1 || die
+	mv "${ED}"/usr/share/man/man1/gpgv{,-freepg}.1 || die
+
+	# create *-reference symlinks too, to make it easier to use "some GnuPG"
+	dosym gpg-freepg /usr/bin/gpg-reference
+	dosym gpgv-freepg /usr/bin/gpgv-reference
+	newman - gpg-reference.1 <<<".so gpg-freepg.1"
+	newman - gpgv-reference.1 <<<".so gpgv-freepg.1"
 
 	use tools && dobin tools/{gpgconf,gpgsplit,gpg-check-pattern} tools/make-dns-cert
-
-	echo ".so man1/gpg.1" > "${ED}"/usr/share/man/man1/gpg2.1 || die
-	echo ".so man1/gpgv.1" > "${ED}"/usr/share/man/man1/gpgv2.1 || die
 
 	dodir /etc/env.d
 	echo "CONFIG_PROTECT=/usr/share/gnupg/qualified.txt" >> "${ED}"/etc/env.d/30gnupg || die
