@@ -1,32 +1,31 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
-
-inherit desktop python-single-r1 scons-utils toolchain-funcs udev multilib-minimal xdg
+PYTHON_COMPAT=( python3_{11..13} )
+inherit python-single-r1 scons-utils toolchain-funcs udev multilib-minimal xdg
 
 DESCRIPTION="Driver for IEEE1394 (Firewire) audio interfaces"
-HOMEPAGE="http://www.ffado.org"
+HOMEPAGE="https://ffado.org/"
 
-if [[ "${PV}" = "9999" ]]; then
+if [[ ${PV} == *9999* ]]; then
 	inherit subversion
 	ESVN_REPO_URI="http://subversion.ffado.org/ffado/trunk/${PN}"
 else
-	SRC_URI="http://www.ffado.org/files/${P}.tgz"
+	SRC_URI="https://ffado.org/files/${P}.tgz"
 	KEYWORDS="~alpha amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv x86"
 fi
 
 LICENSE="GPL-2 GPL-3"
 SLOT="0"
-IUSE="debug qt5 test-programs"
+IUSE="debug test-programs"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 BDEPEND="
 	virtual/pkgconfig
 "
-CDEPEND="${PYTHON_DEPS}
+RDEPEND="${PYTHON_DEPS}
 	dev-cpp/libxmlpp:2.6[${MULTILIB_USEDEP}]
 	>=dev-libs/dbus-c++-0.9.0-r5
 	dev-libs/libconfig:=[cxx,${MULTILIB_USEDEP}]
@@ -35,19 +34,10 @@ CDEPEND="${PYTHON_DEPS}
 	sys-apps/dbus
 	sys-libs/libavc1394[${MULTILIB_USEDEP}]
 	sys-libs/libraw1394[${MULTILIB_USEDEP}]
-	qt5? (
-		$(python_gen_cond_dep '
-			dev-python/dbus-python[${PYTHON_USEDEP}]
-			dev-python/pyqt5[dbus,${PYTHON_USEDEP}]
-		')
-		x11-misc/xdg-utils
-	)"
-DEPEND="${CDEPEND}"
-RDEPEND="${CDEPEND}"
+"
+DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}/libffado-2.4.9-fix-config-load-crash.patch"
-)
+PATCHES=( "${FILESDIR}/${P}-fix-config-load-crash.patch" )
 
 myescons() {
 	local myesconsargs=(
@@ -65,17 +55,12 @@ myescons() {
 		ENABLE_OPTIMIZATIONS=false
 		# This only works for JACK1>=0.122.0 or JACK2>=1.9.9.
 		ENABLE_SETBUFFERSIZE_API_VER=force
+		BUILD_MIXER=false # bug #965503
 	)
 	if multilib_is_native_abi; then
-		myesconsargs+=(
-			BUILD_MIXER=$(usex qt5 true false)
-			BUILD_TESTS=$(usex test-programs)
-		)
+		myesconsargs+=( BUILD_TESTS=$(usex test-programs) )
 	else
-		myesconsargs+=(
-			BUILD_MIXER=false
-			BUILD_TESTS=false
-		)
+		myesconsargs+=( BUILD_TESTS=false )
 	fi
 	escons "${myesconsargs[@]}" "${@}"
 }
@@ -109,11 +94,6 @@ multilib_src_install_all() {
 
 	python_fix_shebang "${D}"
 	python_optimize "${D}"
-
-	if use qt5; then
-		newicon "support/xdg/hi64-apps-ffado.png" "ffado.png"
-		newmenu "support/xdg/org.ffado.FfadoMixer.desktop" "ffado-mixer.desktop"
-	fi
 }
 
 pkg_postinst() {

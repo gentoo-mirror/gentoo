@@ -9,10 +9,9 @@ DISTUTILS_EXT=1
 
 inherit desktop xdg distutils-r1
 
-DESCRIPTION="A Python-extensible molecular graphics system"
+DESCRIPTION="Python-extensible molecular graphics system"
 HOMEPAGE="https://www.pymol.org/"
 SRC_URI="https://github.com/schrodinger/pymol-open-source/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-
 S="${WORKDIR}"/${PN}-open-source-${PV}
 
 LICENSE="BitstreamVera BSD freedist HPND MIT-0 OFL-1.0 public-domain UoI-NCSA" #844991
@@ -32,17 +31,20 @@ DEPEND="
 	media-libs/libpng:0=
 	netcdf? ( sci-libs/netcdf:0= )
 "
-BDEPEND="test? ( >=dev-cpp/catch-2:0 )
-	dev-python/setuptools[${PYTHON_USEDEP}]
-	dev-python/wheel[${PYTHON_USEDEP}]
-"
-RDEPEND="
-	${DEPEND}
+RDEPEND="${DEPEND}
 	media-video/mpeg-tools
 	dev-python/pyopengl[${PYTHON_USEDEP}]
-	dev-python/pyqt5[opengl,${PYTHON_USEDEP}]
+	|| (
+		dev-python/pyqt6[opengl,${PYTHON_USEDEP}]
+		dev-python/pyside[opengl,${PYTHON_USEDEP}]
+	)
 	dev-python/pmw[${PYTHON_USEDEP}]
 	sci-chemistry/chemical-mime-data
+"
+BDEPEND="
+	test? ( >=dev-cpp/catch-2:0 )
+	dev-python/setuptools[${PYTHON_USEDEP}]
+	dev-python/wheel[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests pytest

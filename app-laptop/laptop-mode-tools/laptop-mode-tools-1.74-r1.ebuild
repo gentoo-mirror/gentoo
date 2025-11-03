@@ -1,11 +1,10 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-
-inherit optfeature systemd tmpfiles udev
+EAPI=8
 
 MY_P="${PN}_${PV}"
+inherit optfeature systemd tmpfiles udev
 
 DESCRIPTION="Linux kernel laptop_mode user-space utilities"
 HOMEPAGE="https://github.com/rickysarraf/laptop-mode-tools/wiki"
@@ -28,6 +27,8 @@ RDEPEND="
 	acpi? ( sys-power/acpid )
 	apm? ( sys-apps/apmd )
 "
+
+PATCHES=( "${FILESDIR}/${P}-disable-gui.patch" ) # bug #924275
 
 src_compile() { :; }
 
