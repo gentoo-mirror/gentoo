@@ -36,7 +36,8 @@ DEPEND="app-text/ghostscript-gpl
 	emacs? ( app-editors/emacs:* )"
 RDEPEND="${DEPEND}
 	virtual/latex-base"
-BDEPEND="kde-frameworks/extra-cmake-modules
+BDEPEND=">=dev-build/cmake-3.31
+	kde-frameworks/extra-cmake-modules
 	doc? ( virtual/latex-base )"
 
 PATCHES=(
