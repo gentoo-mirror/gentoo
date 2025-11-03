@@ -19,7 +19,7 @@ SRC_URI="
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 IUSE="+eselect test"
 RESTRICT="!test? ( test )"
 
@@ -27,7 +27,7 @@ RDEPEND="
 	>=app-shells/bash-4.3_p30-r1:0
 	sys-apps/miscfiles
 	!<app-text/tree-2.1.1-r1
-	!!<=net-fs/mc-2025.04.16.18.13.26
+	!!<=net-fs/mc-2025.04.16.18.13.26-r0
 "
 BDEPEND="
 	test? (
@@ -45,7 +45,6 @@ PDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.14.0-optimize-kernel-modules.patch
-	"${FILESDIR}"/${PN}-2.16.0-libsecret-completion.patch
 )
 
 strip_completions() {
@@ -149,7 +148,7 @@ src_install() {
 	local TARGET
 	for TARGET in "${PYTHON_COMPAT[@]}"; do
 		if [[ ! -e "${ED}"/usr/share/bash-completion/completions/${TARGET/_/.} ]]; then
-			dosym python "${ED}"/usr/share/bash-completion/completions/${TARGET/_/.}
+			dosym python /usr/share/bash-completion/completions/${TARGET/_/.}
 		fi
 	done
 
