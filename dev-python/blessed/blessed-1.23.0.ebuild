@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=flit
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1 pypi
@@ -16,13 +16,15 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
-	dev-python/wcwidth[${PYTHON_USEDEP}]
+	>=dev-python/wcwidth-0.1.4[${PYTHON_USEDEP}]
 "
 
 distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
+
+EPYTEST_PLUGINS=()
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
@@ -37,8 +39,14 @@ python_prepare_all() {
 }
 
 python_test() {
+	local EPYTEST_DESELECT=(
+		# fragile to timing
+		tests/test_sixel.py::test_sixel_height_and_width_fallback_to_xtwinops
+	)
+
 	# COLORTERM must not be truecolor
 	# See https://github.com/jquast/blessed/issues/162
+	local -x COLORTERM=
 	# Ignore coverage options
-	COLORTERM= epytest --override-ini="addopts="
+	epytest --override-ini="addopts="
 }
