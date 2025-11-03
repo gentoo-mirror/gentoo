@@ -1,16 +1,16 @@
-BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/fortran >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare pretend setup test unpack
-DEPEND=sci-libs/lapack:=[deprecated,index64(-)?] blis? ( sci-libs/blis:=[-64bit-index(-),index64(-)?] ) mkl? ( sci-libs/mkl:=[tbb?] openmp? ( sci-libs/mkl[gnu-openmp] ) ) openblas? ( sci-libs/openblas:=[index64(-)?] ) system-blas? ( sci-libs/lapack[flexiblas(-)] )
+DEPEND=sci-libs/lapack:=[deprecated,index64(-)?] blis? ( sci-libs/blis:=[-64bit-index(-),index64(-)?] ) mkl? ( sci-libs/mkl:=[tbb?] openmp? ( sci-libs/mkl[gnu-openmp] ) ) openblas? ( sci-libs/openblas:=[index64(-)?] ) system-blas? ( sci-libs/lapack[flexiblas(-)] ) virtual/fortran
 DESCRIPTION=A BLAS and LAPACK wrapper library with runtime exchangable backends
 EAPI=8
 HOMEPAGE=https://www.mpi-magdeburg.mpg.de/projects/flexiblas/ https://gitlab.mpi-magdeburg.mpg.de/software/flexiblas-release/
-INHERIT=cmake git-r3 multilib toolchain-funcs
+INHERIT=cmake fortran-2 git-r3 multilib toolchain-funcs
 IUSE=blis index64 mkl openblas openmp system-blas tbb test
 LICENSE=LGPL-3+ BSD
 PDEPEND=system-blas? ( >=sci-libs/blas-lapack-aux-wrapper-0-r1[index64?] )
 PROPERTIES=live
-RDEPEND=sci-libs/lapack:=[deprecated,index64(-)?] blis? ( sci-libs/blis:=[-64bit-index(-),index64(-)?] ) mkl? ( sci-libs/mkl:=[tbb?] openmp? ( sci-libs/mkl[gnu-openmp] ) ) openblas? ( sci-libs/openblas:=[index64(-)?] ) system-blas? ( sci-libs/lapack[flexiblas(-)] ) system-blas? ( !app-eselect/eselect-blas !app-eselect/eselect-cblas !app-eselect/eselect-lapack !sci-libs/lapack[-flexiblas(-)] !=sci-libs/blas-lapack-aux-wrapper-0-r0 )
+RDEPEND=sci-libs/lapack:=[deprecated,index64(-)?] blis? ( sci-libs/blis:=[-64bit-index(-),index64(-)?] ) mkl? ( sci-libs/mkl:=[tbb?] openmp? ( sci-libs/mkl[gnu-openmp] ) ) openblas? ( sci-libs/openblas:=[index64(-)?] ) system-blas? ( sci-libs/lapack[flexiblas(-)] ) system-blas? ( !app-eselect/eselect-blas !app-eselect/eselect-cblas !app-eselect/eselect-lapack !sci-libs/lapack[-flexiblas(-)] !=sci-libs/blas-lapack-aux-wrapper-0-r0 ) virtual/fortran
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	git-r3	875eb471682d3e1f18da124be97dcc81	multilib	a199af442898963433d6f038a88cce9c
-_md5_=edf0c6d59899a51c094b2bd2df1e19f2
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	fortran-2	54fcb693257134adae26819685891ecc	git-r3	875eb471682d3e1f18da124be97dcc81	multilib	a199af442898963433d6f038a88cce9c
+_md5_=c77d371780d5617e0163dc04694086d2
