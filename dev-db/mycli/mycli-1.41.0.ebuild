@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_SINGLE_IMPL=yes
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 pypi
 
@@ -19,22 +19,23 @@ HOMEPAGE="
 LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
+# optional llm unpackaged
 IUSE="ssh"
 
 RDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/cli-helpers-2.6.0[${PYTHON_USEDEP}]
+		>=dev-python/cli-helpers-2.7.0[${PYTHON_USEDEP}]
 		>=dev-python/click-7.0[${PYTHON_USEDEP}]
 		>=dev-python/configobj-5.0.5[${PYTHON_USEDEP}]
 		>=dev-python/cryptography-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/prompt-toolkit-3.0.6[${PYTHON_USEDEP}]
 		<dev-python/prompt-toolkit-4.0.0[${PYTHON_USEDEP}]
-		>=dev-python/pyaes-1.6.1[${PYTHON_USEDEP}]
+		dev-python/pycryptodome[${PYTHON_USEDEP}]
 		>=dev-python/pyfzf-0.3.1[${PYTHON_USEDEP}]
 		>=dev-python/pygments-1.6[${PYTHON_USEDEP}]
 		>=dev-python/pymysql-0.9.2[${PYTHON_USEDEP}]
 		>=dev-python/pyperclip-1.8.1[${PYTHON_USEDEP}]
-		=dev-python/sqlglot-26*[${PYTHON_USEDEP}]
+		=dev-python/sqlglot-27*[${PYTHON_USEDEP}]
 		<dev-python/sqlparse-0.6.0[${PYTHON_USEDEP}]
 		>=dev-python/sqlparse-0.3.0[${PYTHON_USEDEP}]
 		ssh? (
@@ -49,6 +50,7 @@ BDEPEND="
 		test? (
 			dev-db/mysql[server]
 			dev-python/paramiko[${PYTHON_USEDEP}]
+			dev-python/sshtunnel[${PYTHON_USEDEP}]
 		)
 	')
 "
@@ -67,6 +69,10 @@ python_prepare_all() {
 	# no coverage please
 	sed -e 's/import coverage ; coverage.process_startup(); //' \
 		-i test/features/environment.py test/features/steps/wrappers.py || die
+
+	# convert from pycryptodomex to pycryptodome
+	sed -e 's/pycryptodomex/pycryptodome/' -i pyproject.toml || die
+	sed -e 's/from Cryptodome/from Crypto/' -i mycli/config.py || die
 
 	distutils-r1_python_prepare_all
 }
@@ -109,6 +115,11 @@ src_test() {
 		--socket="${T}/mysqld.sock" \
 		-e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${PYTEST_PASSWORD}'" \
 		|| die "Failed to change mysql user password"
+
+	EPYTEST_IGNORE=(
+		# Requires unpackaged llm
+		test/test_llm_special.py
+	)
 
 	local failures=()
 	nonfatal distutils-r1_src_test
