@@ -8,8 +8,8 @@ INHERIT=webapp git-r3
 IUSE=change-password enigma exif fileinfo ldap mysql postgres sqlite ssl spell zip vhosts
 LICENSE=GPL-3 BSD PHP-2.02 PHP-3 MIT public-domain
 PROPERTIES=live
-RDEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) >=dev-lang/php-8.0[exif?,fileinfo?,filter,gd,iconv,intl,json(+),ldap?,pdo,postgres?,session,sqlite?,ssl?,unicode,xml,zip?] virtual/httpd-php change-password? ( dev-lang/php[sockets] ) enigma? ( app-crypt/gnupg ) mysql? ( || ( dev-lang/php[mysql] dev-lang/php[mysqli] ) ) spell? ( dev-lang/php[curl,spell] ) app-admin/webapp-config
+RDEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) >=dev-lang/php-8.0[exif?,fileinfo?,filter,gd,iconv,intl,json(+),ldap?,pdo,postgres?,session,sqlite?,ssl?,unicode,xml,zip?] virtual/httpd-php change-password? ( dev-lang/php[sockets] ) enigma? ( app-alternatives/gpg ) mysql? ( || ( dev-lang/php[mysql] dev-lang/php[mysqli] ) ) spell? ( dev-lang/php[curl,spell] ) app-admin/webapp-config
 REQUIRED_USE=|| ( mysql postgres sqlite )
 SLOT=9999
 _eclasses_=webapp	5fa840db95fc7348dfd53b8526ed05f5	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=3be6aa922752e1260f62f96ee6ccfc7d
+_md5_=1c917e149bdd97e1d2e69cc57bbdc1a1
