@@ -97,6 +97,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.10_fix_configure_GCC13_implicit_function_declarations.patch" #899796
 	"${FILESDIR}/${PN}-2.10.36_c99_tiff.patch" #919282
 	"${FILESDIR}/${PN}-2.10.36_c99_metadata.patch" #919282
+	"${FILESDIR}/${PN}-2.10.38-ZDI-CAN-27823.patch" #965334
 )
 
 src_prepare() {
@@ -134,6 +135,9 @@ src_configure() {
 
 	# bug #944284 (https://gitlab.gnome.org/GNOME/gimp/-/issues/12843)
 	append-cflags -std=gnu17
+
+	# segfault in tests with gcc-15
+	filter-lto
 
 	local myconf=(
 		GEGL="${EPREFIX}"/usr/bin/gegl-0.4
