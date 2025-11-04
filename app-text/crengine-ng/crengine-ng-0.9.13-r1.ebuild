@@ -12,13 +12,14 @@ SRC_URI="https://gitlab.com/coolreader-ng/${PN}/-/archive/${PV}/${P}.tar.bz2
 LICENSE="GPL-2+"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~arm64 ~x86"
-IUSE="+png +jpeg +gif +svg +chm +harfbuzz +fontconfig +libunibreak +fribidi +zstd +libutf8proc static-libs test"
+IUSE="+png +jpeg webp +gif +svg +chm +harfbuzz +fontconfig +libunibreak +fribidi +zstd +libutf8proc static-libs test"
 
 RESTRICT="!test? ( test )"
 
 CDEPEND="virtual/zlib:=
 	png? ( media-libs/libpng:0 )
 	jpeg? ( media-libs/libjpeg-turbo )
+	webp? ( media-libs/libwebp )
 	>=media-libs/freetype-2.10.0
 	harfbuzz? ( media-libs/harfbuzz:=[truetype] )
 	libunibreak? ( dev-libs/libunibreak:= )
@@ -53,6 +54,7 @@ src_configure() {
 		-DUSE_COLOR_BACKBUFFER=ON
 		-DWITH_LIBPNG=$(usex png)
 		-DWITH_LIBJPEG=$(usex jpeg)
+		-DWITH_LIBWEBP=$(usex webp)
 		-DWITH_FREETYPE=ON
 		-DWITH_HARFBUZZ=$(usex harfbuzz)
 		-DWITH_LIBUNIBREAK=$(usex libunibreak)
