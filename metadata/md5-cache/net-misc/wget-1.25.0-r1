@@ -1,6 +1,6 @@
 BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) app-arch/xz-utils dev-lang/perl sys-apps/texinfo virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) >=dev-perl/HTTP-Daemon-6.60.0 dev-perl/HTTP-Message dev-perl/IO-Socket-SSL ) verify-sig? ( >=sec-keys/openpgp-keys-wget-20241111 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure prepare setup unpack
-DEPEND=!static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:= ) libproxy? ( net-libs/libproxy ) metalink? ( app-crypt/gpgme:= media-libs/libmetalink ) pcre? ( dev-libs/libpcre2 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) uuid? ( sys-apps/util-linux ) zlib? ( virtual/zlib ) ) static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:=[static-libs(+)] ) libproxy? ( net-libs/libproxy ) metalink? ( app-crypt/gpgme:= media-libs/libmetalink ) pcre? ( dev-libs/libpcre2[static-libs(+)] ) ssl? ( gnutls? ( net-libs/gnutls:=[static-libs(+)] ) !gnutls? ( dev-libs/openssl:=[static-libs(+)] ) ) uuid? ( sys-apps/util-linux[static-libs(+)] ) zlib? ( virtual/zlib[static-libs(+)] ) )
+DEPEND=!static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:= ) libproxy? ( net-libs/libproxy ) metalink? ( app-crypt/gpgme:= media-libs/libmetalink ) pcre? ( dev-libs/libpcre2 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) uuid? ( sys-apps/util-linux ) zlib? ( virtual/zlib:= ) ) static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:=[static-libs(+)] ) libproxy? ( net-libs/libproxy ) metalink? ( app-crypt/gpgme:= media-libs/libmetalink ) pcre? ( dev-libs/libpcre2[static-libs(+)] ) ssl? ( gnutls? ( net-libs/gnutls:=[static-libs(+)] ) !gnutls? ( dev-libs/openssl:=[static-libs(+)] ) ) uuid? ( sys-apps/util-linux[static-libs(+)] ) zlib? ( virtual/zlib:=[static-libs(+)] ) )
 DESCRIPTION=Network utility to retrieve files from the WWW
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/wget/
@@ -8,10 +8,10 @@ INHERIT=flag-o-matic python-any-r1 toolchain-funcs unpacker verify-sig
 IUSE=cookie-check debug gnutls idn libproxy metalink nls ntlm pcre +ssl static test uuid zlib verify-sig
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-3+
-RDEPEND=!static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:= ) libproxy? ( net-libs/libproxy ) metalink? ( app-crypt/gpgme:= media-libs/libmetalink ) pcre? ( dev-libs/libpcre2 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) uuid? ( sys-apps/util-linux ) zlib? ( virtual/zlib ) )
+RDEPEND=!static? ( cookie-check? ( net-libs/libpsl ) idn? ( >=net-dns/libidn2-0.14:= ) libproxy? ( net-libs/libproxy ) metalink? ( app-crypt/gpgme:= media-libs/libmetalink ) pcre? ( dev-libs/libpcre2 ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) ) uuid? ( sys-apps/util-linux ) zlib? ( virtual/zlib:= ) )
 REQUIRED_USE=ntlm? ( !gnutls ssl ) gnutls? ( ssl )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/wget/wget-1.25.0.tar.lz verify-sig? ( mirror://gnu/wget/wget-1.25.0.tar.lz.sig )
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
-_md5_=2244dd3bebb03db3bacd5e7f05be7aa7
+_md5_=e669c542bcf8483aef6e354666c05fba

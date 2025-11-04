@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure prepare setup
-DEPEND=openmp? ( || ( sys-devel/gcc:*[openmp] llvm-runtimes/openmp ) ) qmanifest? ( !static? ( app-crypt/gpgme:= app-crypt/libb2:= virtual/zlib:= ) ) qmanifest? ( static? ( app-crypt/gpgme[static-libs] app-crypt/libb2[static-libs] virtual/zlib[static-libs] ) )
+DEPEND=openmp? ( || ( sys-devel/gcc:*[openmp] llvm-runtimes/openmp ) ) qmanifest? ( !static? ( app-crypt/gpgme:= app-crypt/libb2:= virtual/zlib:= ) ) qmanifest? ( static? ( app-crypt/gpgme[static-libs] app-crypt/libb2[static-libs] virtual/zlib:=[static-libs] ) )
 DESCRIPTION=Small and fast Portage helper tools written in C
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Portage-utils
@@ -12,4 +12,4 @@ RDEPEND=openmp? ( || ( sys-devel/gcc:*[openmp] llvm-runtimes/openmp ) ) qmanifes
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~grobian/distfiles/portage-utils-0.97.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=65bcb8935301884369d15ec2696c2279
+_md5_=4178edd1886980db8d8fe9958fba96fc

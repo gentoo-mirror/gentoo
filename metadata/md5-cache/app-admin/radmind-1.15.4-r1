@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-libs/openssl:0= net-libs/libnsl pam? ( sys-libs/pam ) zlib? ( virtual/zlib )
+DEPEND=dev-libs/openssl:0= net-libs/libnsl pam? ( sys-libs/pam ) zlib? ( virtual/zlib:= )
 DESCRIPTION=Command-line tools and server to remotely administer multiple Unix filesystems
 EAPI=8
 HOMEPAGE=https://github.com/Radmind https://sourceforge.net/projects/radmind/
@@ -8,8 +8,8 @@ INHERIT=autotools flag-o-matic
 IUSE=pam zlib
 KEYWORDS=amd64 x86
 LICENSE=HPND
-RDEPEND=dev-libs/openssl:0= net-libs/libnsl pam? ( sys-libs/pam ) zlib? ( virtual/zlib )
+RDEPEND=dev-libs/openssl:0= net-libs/libnsl pam? ( sys-libs/pam ) zlib? ( virtual/zlib:= )
 SLOT=0
 SRC_URI=https://github.com/voretaq7/radmind/releases/download/radmind-1.15.4/radmind-1.15.4.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=902ac415dfeefc169cb68fdff29d2aa2
+_md5_=f5c0aa642608f886e4f302107f1c9ffe

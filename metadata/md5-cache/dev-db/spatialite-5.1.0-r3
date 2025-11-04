@@ -1,6 +1,6 @@
 BDEPEND=>=app-portage/elt-patches-20250306
 DEFINED_PHASES=configure install prepare
-DEPEND=>=dev-db/sqlite-3.7.5:3[extensions(+)] dev-libs/libxml2:= virtual/zlib[minizip] geos? ( >=sci-libs/geos-3.11.0 ) proj? ( sci-libs/proj:= ) rttopo? ( sci-geosciences/librttopo ) xls? ( >=dev-libs/freexl-2.0.0[xml(+)] )
+DEPEND=>=dev-db/sqlite-3.7.5:3[extensions(+)] dev-libs/libxml2:= virtual/zlib:=[minizip] geos? ( >=sci-libs/geos-3.11.0 ) proj? ( sci-libs/proj:= ) rttopo? ( sci-geosciences/librttopo ) xls? ( >=dev-libs/freexl-2.0.0[xml(+)] )
 DESCRIPTION=Complete Spatial DBMS in a nutshell built upon sqlite
 EAPI=8
 HOMEPAGE=https://www.gaia-gis.it/gaia-sins/
@@ -8,10 +8,10 @@ INHERIT=libtool
 IUSE=+geos iconv +proj rttopo test +xls
 KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86
 LICENSE=MPL-1.1
-RDEPEND=>=dev-db/sqlite-3.7.5:3[extensions(+)] dev-libs/libxml2:= virtual/zlib[minizip] geos? ( >=sci-libs/geos-3.11.0 ) proj? ( sci-libs/proj:= ) rttopo? ( sci-geosciences/librttopo ) xls? ( >=dev-libs/freexl-2.0.0[xml(+)] )
+RDEPEND=>=dev-db/sqlite-3.7.5:3[extensions(+)] dev-libs/libxml2:= virtual/zlib:=[minizip] geos? ( >=sci-libs/geos-3.11.0 ) proj? ( sci-libs/proj:= ) rttopo? ( sci-geosciences/librttopo ) xls? ( >=dev-libs/freexl-2.0.0[xml(+)] )
 REQUIRED_USE=test? ( iconv )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.1.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402
-_md5_=61176a67076136b1027331ad7a0458d6
+_md5_=d7ff98cf4a16c5d8dfae528ca483e1a9

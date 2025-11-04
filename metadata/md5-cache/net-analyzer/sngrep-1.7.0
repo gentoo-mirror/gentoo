@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure prepare
-DEPEND=net-libs/libpcap sys-libs/ncurses:=[unicode(+)] ssl? ( !gnutls? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= ) ) pcre? ( dev-libs/libpcre2 ) zlib? ( virtual/zlib )
+DEPEND=net-libs/libpcap sys-libs/ncurses:=[unicode(+)] ssl? ( !gnutls? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= ) ) pcre? ( dev-libs/libpcre2 ) zlib? ( virtual/zlib:= )
 DESCRIPTION=Ncurses SIP Messages flow viewer
 EAPI=8
 HOMEPAGE=https://github.com/irontec/sngrep
@@ -8,8 +8,8 @@ INHERIT=autotools
 IUSE=eep gnutls pcre ssl zlib
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=net-libs/libpcap sys-libs/ncurses:=[unicode(+)] ssl? ( !gnutls? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= ) ) pcre? ( dev-libs/libpcre2 ) zlib? ( virtual/zlib )
+RDEPEND=net-libs/libpcap sys-libs/ncurses:=[unicode(+)] ssl? ( !gnutls? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= ) ) pcre? ( dev-libs/libpcre2 ) zlib? ( virtual/zlib:= )
 SLOT=0
 SRC_URI=https://github.com/irontec/sngrep/releases/download/v1.7.0/sngrep-1.7.0.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=cb1784f63b9d85358f8e27170248e827
+_md5_=85c6228745015468abe05151c20d6163

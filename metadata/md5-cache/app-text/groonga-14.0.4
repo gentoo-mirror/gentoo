@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig sphinx? ( dev-python/sphinx ) >=app-portage/elt-patches-20250306
 DEFINED_PHASES=configure install prepare
-DEPEND=acct-group/groonga acct-user/groonga >=dev-libs/onigmo-6.1.1:0= dev-libs/rapidjson dev-libs/xxhash benchmark? ( >=dev-libs/glib-2.8 ) jemalloc? ( dev-libs/jemalloc:0= ) libedit? ( >=dev-libs/libedit-3 ) libevent? ( dev-libs/libevent:0= ) lzo? ( dev-libs/lzo ) mecab? ( >=app-text/mecab-0.80 ) msgpack? ( dev-libs/msgpack:= ) sphinx? ( >=dev-python/sphinx-1.0.1 ) zeromq? ( net-libs/zeromq:0= ) zlib? ( virtual/zlib:0= ) zstd? ( app-arch/zstd:0= )
+DEPEND=acct-group/groonga acct-user/groonga >=dev-libs/onigmo-6.1.1:0= dev-libs/rapidjson dev-libs/xxhash benchmark? ( >=dev-libs/glib-2.8 ) jemalloc? ( dev-libs/jemalloc:0= ) libedit? ( >=dev-libs/libedit-3 ) libevent? ( dev-libs/libevent:0= ) lzo? ( dev-libs/lzo ) mecab? ( >=app-text/mecab-0.80 ) msgpack? ( dev-libs/msgpack:= ) sphinx? ( >=dev-python/sphinx-1.0.1 ) zeromq? ( net-libs/zeromq:0= ) zlib? ( virtual/zlib:= ) zstd? ( app-arch/zstd:0= )
 DESCRIPTION=An Embeddable Fulltext Search Engine
 EAPI=8
 HOMEPAGE=https://groonga.org/
@@ -8,9 +8,9 @@ INHERIT=libtool
 IUSE=benchmark debug doc +exact-alloc-count examples futex jemalloc libedit libevent lzo +mecab msgpack +nfkc sphinx static-libs uyield zeromq zlib zstd
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1
-RDEPEND=acct-group/groonga acct-user/groonga >=dev-libs/onigmo-6.1.1:0= dev-libs/rapidjson dev-libs/xxhash benchmark? ( >=dev-libs/glib-2.8 ) jemalloc? ( dev-libs/jemalloc:0= ) libedit? ( >=dev-libs/libedit-3 ) libevent? ( dev-libs/libevent:0= ) lzo? ( dev-libs/lzo ) mecab? ( >=app-text/mecab-0.80 ) msgpack? ( dev-libs/msgpack:= ) sphinx? ( >=dev-python/sphinx-1.0.1 ) zeromq? ( net-libs/zeromq:0= ) zlib? ( virtual/zlib:0= ) zstd? ( app-arch/zstd:0= )
+RDEPEND=acct-group/groonga acct-user/groonga >=dev-libs/onigmo-6.1.1:0= dev-libs/rapidjson dev-libs/xxhash benchmark? ( >=dev-libs/glib-2.8 ) jemalloc? ( dev-libs/jemalloc:0= ) libedit? ( >=dev-libs/libedit-3 ) libevent? ( dev-libs/libevent:0= ) lzo? ( dev-libs/lzo ) mecab? ( >=app-text/mecab-0.80 ) msgpack? ( dev-libs/msgpack:= ) sphinx? ( >=dev-python/sphinx-1.0.1 ) zeromq? ( net-libs/zeromq:0= ) zlib? ( virtual/zlib:= ) zstd? ( app-arch/zstd:0= )
 REQUIRED_USE=sphinx? ( doc )
 SLOT=0
 SRC_URI=https://packages.groonga.org/source/groonga/groonga-14.0.4.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402
-_md5_=bee590a1c8205088cbb9fbb35f356f3a
+_md5_=7d30d7238f4ca77f6a15ea1a34c919dc

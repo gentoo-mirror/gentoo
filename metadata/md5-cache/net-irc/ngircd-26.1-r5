@@ -1,6 +1,6 @@
 BDEPEND=test? ( dev-tcltk/expect net-misc/netkit-telnetd ) verify-sig? ( >=sec-keys/openpgp-keys-alexbarton-20241211 ) virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst prepare unpack
-DEPEND=acct-user/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( virtual/zlib )
+DEPEND=acct-user/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( virtual/zlib:= )
 DESCRIPTION=An IRC server written from scratch
 EAPI=8
 HOMEPAGE=https://ngircd.barton.de/
@@ -8,9 +8,9 @@ INHERIT=tmpfiles systemd verify-sig
 IUSE=debug gnutls ident irc-plus +ipv6 pam +ssl strict-rfc tcpd test zlib verify-sig
 KEYWORDS=amd64 arm arm64 x86 ~x64-macos
 LICENSE=GPL-2
-RDEPEND=acct-user/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( virtual/zlib ) virtual/tmpfiles
+RDEPEND=acct-user/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( virtual/zlib:= ) virtual/tmpfiles
 RESTRICT=test
 SLOT=0
 SRC_URI=https://arthur.barton.de/pub/ngircd/ngircd-26.1.tar.xz verify-sig? ( https://arthur.barton.de/pub/ngircd/ngircd-26.1.tar.xz.sig )
 _eclasses_=tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
-_md5_=12a0c32d193e01c5a864bf359a03b832
+_md5_=4012050cf138f69d40d1f45e6076e55b

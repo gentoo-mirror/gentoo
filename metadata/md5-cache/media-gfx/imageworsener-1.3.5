@@ -1,14 +1,14 @@
 DEFINED_PHASES=configure install test
-DEPEND=png? ( media-libs/libpng:0 ) jpeg? ( media-libs/libjpeg-turbo ) webp? ( >=media-libs/libwebp-0.1.3 ) zlib? ( virtual/zlib )
+DEPEND=png? ( media-libs/libpng:0 ) jpeg? ( media-libs/libjpeg-turbo ) webp? ( >=media-libs/libwebp-0.1.3 ) zlib? ( virtual/zlib:= )
 DESCRIPTION=Utility for image scaling and processing
 EAPI=8
 HOMEPAGE=https://entropymine.com/imageworsener/
 IUSE=jpeg png static-libs test webp zlib
 KEYWORDS=amd64 x86
 LICENSE=MIT
-RDEPEND=png? ( media-libs/libpng:0 ) jpeg? ( media-libs/libjpeg-turbo ) webp? ( >=media-libs/libwebp-0.1.3 ) zlib? ( virtual/zlib )
+RDEPEND=png? ( media-libs/libpng:0 ) jpeg? ( media-libs/libjpeg-turbo ) webp? ( >=media-libs/libwebp-0.1.3 ) zlib? ( virtual/zlib:= )
 REQUIRED_USE=test? ( jpeg png webp zlib )
 RESTRICT=test
 SLOT=0/3
 SRC_URI=https://entropymine.com/imageworsener/imageworsener-1.3.5.tar.gz
-_md5_=e9969bb6278a3f41fbee3f4650fa822c
+_md5_=02f1d0f0159f64e1ded1868c26cb002b

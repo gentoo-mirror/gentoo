@@ -1,6 +1,6 @@
 BDEPEND=cgi? ( app-text/highlight ) test? ( dev-lang/perl )
 DEFINED_PHASES=compile install postinst prepare pretend test
-DEPEND=virtual/zlib:= system-man? ( !sys-apps/man-db ) cgi? ( virtual/zlib[static-libs] )
+DEPEND=virtual/zlib:= system-man? ( !sys-apps/man-db ) cgi? ( virtual/zlib:=[static-libs] )
 DESCRIPTION=Suite of tools compiling mdoc and man
 EAPI=7
 HOMEPAGE=https://mdocml.bsd.lv/
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://mdocml.bsd.lv/snapshots/mandoc-1.14.6.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=1e3423a6ae7e8da45ff0fabb1cdb295f
+_md5_=6e8933a41b6f30fe778388bcf3895dfe

@@ -1,6 +1,6 @@
 BDEPEND=app-admin/genromfs virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare
-DEPEND=fuse? ( sys-fs/fuse:0= ) ncurses? ( sys-libs/ncurses:0= ) openssl? ( dev-libs/openssl:0= cryptsetup? ( >=sys-fs/cryptsetup-2.0.3:= dev-libs/json-c:= ) ) pfm? ( app-misc/pfm ) snmp? ( net-analyzer/net-snmp ) zlib? ( virtual/zlib )
+DEPEND=fuse? ( sys-fs/fuse:0= ) ncurses? ( sys-libs/ncurses:0= ) openssl? ( dev-libs/openssl:0= cryptsetup? ( >=sys-fs/cryptsetup-2.0.3:= dev-libs/json-c:= ) ) pfm? ( app-misc/pfm ) snmp? ( net-analyzer/net-snmp ) zlib? ( virtual/zlib:= )
 DESCRIPTION=User space utilities for the zSeries (s390) Linux kernel and device drivers
 EAPI=7
 HOMEPAGE=https://github.com/ibm-s390-tools/s390-tools
@@ -8,8 +8,8 @@ INHERIT=toolchain-funcs udev
 IUSE=cryptsetup fuse ncurses openssl pfm snmp zlib
 KEYWORDS=-* ~s390
 LICENSE=MIT
-RDEPEND=fuse? ( sys-fs/fuse:0= ) ncurses? ( sys-libs/ncurses:0= ) openssl? ( dev-libs/openssl:0= cryptsetup? ( >=sys-fs/cryptsetup-2.0.3:= dev-libs/json-c:= ) ) pfm? ( app-misc/pfm ) snmp? ( net-analyzer/net-snmp ) zlib? ( virtual/zlib )
+RDEPEND=fuse? ( sys-fs/fuse:0= ) ncurses? ( sys-libs/ncurses:0= ) openssl? ( dev-libs/openssl:0= cryptsetup? ( >=sys-fs/cryptsetup-2.0.3:= dev-libs/json-c:= ) ) pfm? ( app-misc/pfm ) snmp? ( net-analyzer/net-snmp ) zlib? ( virtual/zlib:= )
 SLOT=0
 SRC_URI=https://github.com/ibm-s390-tools/s390-tools/archive/v2.12.0.tar.gz -> s390-tools-2.12.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	udev	f3d9a4376ebd22131726a68e1a0a058f
-_md5_=cc14764140e10efb30ecd2b3bdee52d6
+_md5_=05c912ef1d58e30ebcc1f794c4f13dfe

@@ -1,6 +1,6 @@
 BDEPEND=test? ( python_single_target_python3_11? ( dev-python/pytest[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pytest[python_targets_python3_12(-)] ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=fftw? ( sci-libs/fftw:3.0= ) hdf5? ( >=sci-libs/hdf5-1.8.0:=[mpi=] ) jpeg? ( media-libs/libjpeg-turbo:= ) openexr? ( >=dev-libs/imath-3.1.4-r2:= >=media-libs/openexr-3:0= ) png? ( media-libs/libpng:0= ) tiff? ( media-libs/tiff:= ) zlib? ( virtual/zlib )
+DEPEND=fftw? ( sci-libs/fftw:3.0= ) hdf5? ( >=sci-libs/hdf5-1.8.0:=[mpi=] ) jpeg? ( media-libs/libjpeg-turbo:= ) openexr? ( >=dev-libs/imath-3.1.4-r2:= >=media-libs/openexr-3:0= ) png? ( media-libs/libpng:0= ) tiff? ( media-libs/tiff:= ) zlib? ( virtual/zlib:= )
 DESCRIPTION=C++ computer vision library emphasizing customizable algorithms and structures
 EAPI=8
 HOMEPAGE=https://ukoethe.github.io/vigra/
@@ -8,10 +8,10 @@ INHERIT=cmake flag-o-matic python-single-r1
 IUSE=+fftw +hdf5 +jpeg mpi openexr +png test +tiff +zlib python_single_target_python3_11 python_single_target_python3_12
 KEYWORDS=amd64 arm64 ~sparc x86 ~amd64-linux ~x86-linux ~x64-solaris
 LICENSE=MIT
-RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11[threads(+),xml(+)] ) python_single_target_python3_12? ( dev-lang/python:3.12[threads(+),xml(+)] ) fftw? ( sci-libs/fftw:3.0= ) hdf5? ( >=sci-libs/hdf5-1.8.0:=[mpi=] ) jpeg? ( media-libs/libjpeg-turbo:= ) openexr? ( >=dev-libs/imath-3.1.4-r2:= >=media-libs/openexr-3:0= ) png? ( media-libs/libpng:0= ) tiff? ( media-libs/tiff:= ) zlib? ( virtual/zlib )
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11[threads(+),xml(+)] ) python_single_target_python3_12? ( dev-lang/python:3.12[threads(+),xml(+)] ) fftw? ( sci-libs/fftw:3.0= ) hdf5? ( >=sci-libs/hdf5-1.8.0:=[mpi=] ) jpeg? ( media-libs/libjpeg-turbo:= ) openexr? ( >=dev-libs/imath-3.1.4-r2:= >=media-libs/openexr-3:0= ) png? ( media-libs/libpng:0= ) tiff? ( media-libs/tiff:= ) zlib? ( virtual/zlib:= )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 ) test? ( hdf5 fftw )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/ukoethe/vigra/archive/4db795574a471bf1d94d258361f1ef536dd87ac1.tar.gz -> vigra-1.11.2_p20240505.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=d7c8cb46fd1b90be9ed86accca50f214
+_md5_=c3aa03b85396546e05280de1c8f2dc7b

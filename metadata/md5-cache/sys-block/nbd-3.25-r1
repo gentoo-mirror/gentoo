@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/bison virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=configure install prepare
-DEPEND=>=dev-libs/glib-2.32.0 gnutls? ( >=net-libs/gnutls-2.12.0 ) netlink? ( >=dev-libs/libnl-3.1 ) zlib? ( virtual/zlib )
+DEPEND=>=dev-libs/glib-2.32.0 gnutls? ( >=net-libs/gnutls-2.12.0 ) netlink? ( >=dev-libs/libnl-3.1 ) zlib? ( virtual/zlib:= )
 DESCRIPTION=Userland client/server for kernel network block device
 EAPI=8
 HOMEPAGE=https://nbd.sourceforge.io/
@@ -8,8 +8,8 @@ INHERIT=systemd
 IUSE=debug gnutls netlink zlib
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~sparc x86
 LICENSE=GPL-2
-RDEPEND=>=dev-libs/glib-2.32.0 gnutls? ( >=net-libs/gnutls-2.12.0 ) netlink? ( >=dev-libs/libnl-3.1 ) zlib? ( virtual/zlib )
+RDEPEND=>=dev-libs/glib-2.32.0 gnutls? ( >=net-libs/gnutls-2.12.0 ) netlink? ( >=dev-libs/libnl-3.1 ) zlib? ( virtual/zlib:= )
 SLOT=0
 SRC_URI=https://github.com/NetworkBlockDevice/nbd/releases/download/nbd-3.25/nbd-3.25.tar.xz https://downloads.sourceforge.net/nbd/nbd-3.25.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=ea9a71c8450c10a90a10acead605e10f
+_md5_=28e6cdf56cada928a00da66e718a0f14

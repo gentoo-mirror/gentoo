@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare
-DEPEND=postgres? ( dev-db/postgresql:* ) mysql? ( dev-db/mysql-connector-c:= ) gsm? ( media-sound/gsm ) speex? ( media-libs/speex ) ssl? ( dev-libs/openssl:0= ) zlib? ( virtual/zlib ) ilbc? ( media-libs/libilbc:= ) spandsp? ( >=media-libs/spandsp-0.0.3 ) dahdi? ( net-misc/dahdi )
+DEPEND=postgres? ( dev-db/postgresql:* ) mysql? ( dev-db/mysql-connector-c:= ) gsm? ( media-sound/gsm ) speex? ( media-libs/speex ) ssl? ( dev-libs/openssl:0= ) zlib? ( virtual/zlib:= ) ilbc? ( media-libs/libilbc:= ) spandsp? ( >=media-libs/spandsp-0.0.3 ) dahdi? ( net-misc/dahdi )
 DESCRIPTION=The Yate AV Suite
 EAPI=7
 HOMEPAGE=http://yate.null.ro/
@@ -8,8 +8,8 @@ INHERIT=autotools
 IUSE=doc cpu_flags_x86_sse2 sctp dahdi zaptel wpcard tdmcard wanpipe +ilbc +ilbc-webrtc +isac-float isac-fixed postgres mysql +gsm +speex spandsp +ssl +zlib amrnb
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=GPL-2
-RDEPEND=postgres? ( dev-db/postgresql:* ) mysql? ( dev-db/mysql-connector-c:= ) gsm? ( media-sound/gsm ) speex? ( media-libs/speex ) ssl? ( dev-libs/openssl:0= ) zlib? ( virtual/zlib ) ilbc? ( media-libs/libilbc:= ) spandsp? ( >=media-libs/spandsp-0.0.3 ) dahdi? ( net-misc/dahdi )
+RDEPEND=postgres? ( dev-db/postgresql:* ) mysql? ( dev-db/mysql-connector-c:= ) gsm? ( media-sound/gsm ) speex? ( media-libs/speex ) ssl? ( dev-libs/openssl:0= ) zlib? ( virtual/zlib:= ) ilbc? ( media-libs/libilbc:= ) spandsp? ( >=media-libs/spandsp-0.0.3 ) dahdi? ( net-misc/dahdi )
 SLOT=0/6.2.0
 SRC_URI=http://voip.null.ro/tarballs/yate6/yate-6.2.0-1.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=6ea371b3e2e710c36b981e43305eaa2e
+_md5_=b2d921e27b245e9386a187b5ec59b840
