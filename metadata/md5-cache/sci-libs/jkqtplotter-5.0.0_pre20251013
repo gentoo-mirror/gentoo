@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-text/doxygen dev-texlive/texlive-latex media-gfx/graphviz[cairo] ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-qt/qtbase:6[gui,opengl,widgets,xml] dev-qt/qtsvg:6
+DESCRIPTION=Extensive Qt Plotter framework
+EAPI=8
+HOMEPAGE=https://jkriege2.github.io/JKQtPlotter/
+INHERIT=cmake
+IUSE=doc test
+KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+LICENSE=LGPL-2.1+
+RDEPEND=dev-qt/qtbase:6[gui,opengl,widgets,xml] dev-qt/qtsvg:6 dev-texlive/texlive-fontsextra
+RESTRICT=!test? ( test )
+SLOT=0/5
+SRC_URI=https://github.com/jkriege2/JKQtPlotter/archive/d243218119b1632987df26baea0d4bc6ccdee533.tar.gz -> jkqtplotter-5.0.0_pre20251013.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
+_md5_=662aa47a19425d49e92c03a00ba49a14
