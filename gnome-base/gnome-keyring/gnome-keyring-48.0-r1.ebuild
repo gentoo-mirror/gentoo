@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit gnome.org gnome2-utils meson python-any-r1 virtualx xdg
 
@@ -12,7 +12,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-keyring"
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux"
-IUSE="pam selinux ssh-agent systemd test"
+IUSE="caps pam selinux ssh-agent systemd test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -24,6 +24,7 @@ RDEPEND="
 	>=app-eselect/eselect-pinentry-0.5
 	app-misc/ca-certificates
 
+	caps? ( sys-libs/libcap-ng )
 	selinux? ( sec-policy/selinux-gnome )
 	systemd? ( sys-apps/systemd )
 	ssh-agent? ( virtual/openssh )
@@ -36,7 +37,10 @@ BDEPEND="
 	app-text/docbook-xml-dtd:4.3
 	dev-libs/libxslt
 	virtual/pkgconfig
-	test? ( ${PYTHON_DEPS} )
+	test? (
+		${PYTHON_DEPS}
+		sys-apps/dbus
+	)
 "
 
 PATCHES=(
@@ -46,6 +50,13 @@ PATCHES=(
 
 	#https://gitlab.gnome.org/GNOME/gnome-keyring/-/issues/151
 	"${FILESDIR}/${PN}-48.0-gkm_marshal-header.patch"
+
+	# bug #964549
+	# https://gitlab.gnome.org/GNOME/gnome-keyring/-/merge_requests/101
+	"${FILESDIR}/gnome-keyring-48.0-disable-libcap-ng-automagic.patch"
+
+	# bug #964367
+	"${FILESDIR}/gnome-keyring-48.0-fix-pam-install.patch"
 )
 
 pkg_setup() {
@@ -54,6 +65,7 @@ pkg_setup() {
 
 src_configure() {
 	local emesonargs=(
+		$(meson_feature caps libcap-ng)
 		$(meson_use ssh-agent)
 		$(meson_feature selinux)
 		$(meson_feature systemd)
@@ -63,10 +75,18 @@ src_configure() {
 }
 
 src_test() {
-	# Needs dbus-run-session to not get:
+	# Needs dbus to not get:
 	# ERROR: test-dbus-search process failed: -6
+	local dbus_params=(
+		$(dbus-daemon --session --print-address --fork --print-pid)
+	)
+	local -x DBUS_SESSION_BUS_ADDRESS=${dbus_params[0]}
+
 	"${BROOT}${GLIB_COMPILE_SCHEMAS}" --allow-any-name "${S}/schema" || die
-	GSETTINGS_SCHEMA_DIR="${S}/schema" virtx dbus-run-session meson test -C "${BUILD_DIR}" || die
+	local -x GSETTINGS_SCHEMA_DIR="${S}/schema"
+	virtx meson_src_test
+
+	kill "${dbus_params[1]}" || die
 }
 
 pkg_postinst() {
