@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=acct-group/onak acct-user/onak dev-libs/nettle:= dev-libs/gmp:= berkdb? ( sys-libs/db:= ) daemon? ( systemd? ( sys-apps/systemd:= ) ) hkp? ( net-misc/curl ) postgres? ( dev-db/postgresql:= )
+DESCRIPTION=onak is an OpenPGP keyserver
+EAPI=8
+HOMEPAGE=https://www.earth.li/projectpurple/progs/onak.html https://github.com/u1f35c/onak
+INHERIT=cmake eapi9-ver systemd
+IUSE=+berkdb +daemon hkp postgres systemd
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=acct-group/onak acct-user/onak dev-libs/nettle:= dev-libs/gmp:= berkdb? ( sys-libs/db:= ) daemon? ( systemd? ( sys-apps/systemd:= ) ) hkp? ( net-misc/curl ) postgres? ( dev-db/postgresql:= )
+SLOT=0
+SRC_URI=https://github.com/u1f35c/onak/archive/onak-0.6.4.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=74385c35634a9046c7d74030c249ae4e

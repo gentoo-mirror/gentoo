@@ -251,6 +251,7 @@ acct-group/nullmail 0-r2: A group for the nullmailer
 acct-group/nut 0-r2: A group for the Network-UPS Tools
 acct-group/nzbget 0-r2: Group for net-nntp/nzbget
 acct-group/oidentd 0-r3: System group: oidentd
+acct-group/onak 0: System group: onak
 acct-group/openct 0-r3: System group: openct
 acct-group/opendkim 0-r3: Group for OpenDKIM
 acct-group/opendmarc 1-r1: Group for mail-filter/opendmarc
@@ -686,6 +687,7 @@ acct-user/nut 0-r3: A user for the Network-UPS Tools
 acct-user/nvpd 0-r2: User for nvidia-persistenced
 acct-user/nzbget 0-r2: User for net-nntp/nzbget
 acct-user/oidentd 0-r3: System user: oidentd
+acct-user/onak 0: user for onak
 acct-user/openctd 0-r2: User for dev-libs/openct
 acct-user/opendkim 0-r3: User for OpenDKIM
 acct-user/opendmarc 0-r2: User for mail-filter/opendmarc
@@ -1426,7 +1428,7 @@ app-crypt/codegroup 20080907-r1: encode / decode binary file as five letter code
 app-crypt/configuradorfnmt 4.0.6: Spanish government certificate request generator
 app-crypt/coolkey 1.1.0-r9: Linux Driver support for the CoolKey and CAC products
 app-crypt/crackpkcs12 0.2.11: Multithreaded program to crack PKCS#12 files
-app-crypt/cryptopant 1.3.1: C library for IP address anonymization using crypto-PAn algorithm
+app-crypt/cryptopant 1.3.2: C library for IP address anonymization using crypto-PAn algorithm
 app-crypt/cryptor 1.1.0: Simple GUI application for gocryptfs
 app-crypt/debian-archive-keyring 2023.4 2025.1: GnuPG archive keys of the Debian archive
 app-crypt/dehydrated 0.7.1-r1 0.7.1-r2 0.7.2: A client for signing certificates with an ACME-server
@@ -1488,7 +1490,7 @@ app-crypt/moolticute 1.03.0-r2 9999: Mooltipass crossplatform daemon/tools
 app-crypt/nasty 0.6-r2: Proof-of-concept GPG passphrase recovery tool
 app-crypt/nitrocli 0.4.1-r1: A command line tool for interacting with Nitrokey devices
 app-crypt/nwipe 0.39: Securely erase disks using a variety of recognized methods
-app-crypt/onak 0.6.3: onak is an OpenPGP keyserver
+app-crypt/onak 0.6.3 0.6.4: onak is an OpenPGP keyserver
 app-crypt/ophcrack 3.8.0-r2: A time-memory-trade-off-cracker
 app-crypt/ophcrack-tables 1.0-r2: Tables available for ophcrack
 app-crypt/osslsigncode 2.9: Platform-independent tool for Authenticode signing of EXE/CAB files
@@ -11012,7 +11014,7 @@ dev-util/rpmdevtools 9.6: Collection of rpm packaging related utilities
 dev-util/rt-tests 2.8 2.9: A collection of latency testing tools for the linux(-rt) kernel
 dev-util/ruff 0.13.1 0.13.3 0.14.2 0.14.3: An extremely fast Python linter, written in Rust
 dev-util/runme 2.0.5 3.15.0: Execute your runbooks, docs and READMEs
-dev-util/rustup 1.28.1 1.28.2-r1 9999: Rust toolchain installer
+dev-util/rustup 1.28.2-r2 9999: Rust toolchain installer
 dev-util/scanmem 0.17: Locate and modify variables in executing processes
 dev-util/sccache 0.10.0-r1 0.11.0: ccache/distcc like tool with support for rust and cloud storage
 dev-util/schroot 1.6.13_p7-r1 1.6.13_p7-r2: Utility to execute commands in a chroot environment
@@ -13078,7 +13080,7 @@ media-gfx/pdf2svg 0.2.3-r2: Convert PDF to SVG files using poppler and cairo
 media-gfx/pencil 0.7.0: 2D animation and drawing program based on Qt
 media-gfx/photopc 3.07: Utility to control digital cameras based on Sierra Imaging firmware
 media-gfx/photoqt 4.9.2: Simple but powerful Qt-based image viewer
-media-gfx/phototonic 3.0.0: Image viewer and organizer
+media-gfx/phototonic 3.0.0 3.1.0: Image viewer and organizer
 media-gfx/pinta 2.1.2 3.0: Pinta is a free, open source program for drawing and image editing
 media-gfx/pixels2pgf 0.1-r1 9999: Convert pixel images (e.g. QRCode) to PGF/Tikz rectangles
 media-gfx/plantuml 1.2025.7 1.2025.8 1.2025.9: Draw UML diagrams using a simple and human readable text description
@@ -14673,7 +14675,7 @@ net-dns/coredns 1.12.1 1.12.2 9999: CoreDNS is a DNS server that chains plugins
 net-dns/ddclient 4.0.0: Perl client used to update dynamic DNS entries
 net-dns/djbdns 1.05-r40: Collection of DNS client/server software
 net-dns/dnrd 2.20.3-r3: A caching DNS proxy server
-net-dns/dnscap 2.4.1: Network capture utility designed specifically for DNS traffic
+net-dns/dnscap 2.4.1 2.5.0: Network capture utility designed specifically for DNS traffic
 net-dns/dnscrypt-proxy 2.1.12 2.1.13 2.1.14 9999: Flexible DNS proxy, with support for encrypted DNS protocols
 net-dns/dnsdist 1.9.10 1.9.11 2.0.1: A highly DNS-, DoS- and abuse-aware loadbalancer
 net-dns/dnsmasq 2.89-r1 2.90 2.90-r1 2.91: Small forwarding DNS server
@@ -14691,7 +14693,7 @@ net-dns/https_dns_proxy 0_pre20200925 9999: Lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3-r2: Toolkit for Internationalized Domain Names (IDN)
 net-dns/inadyn 2.12.0-r2: Dynamic DNS client with multiple SSL/TLS library support
 net-dns/knot 3.4.7 3.4.8 3.5.0 3.5.1: High-performance authoritative-only DNS server
-net-dns/knot-resolver 5.7.5 5.7.6 6.0.15: A scaleable caching DNS resolver
+net-dns/knot-resolver 5.7.6 6.0.16: A scaleable caching DNS resolver
 net-dns/ldns-tools 0.1 0.2: ldns tools: host, nslookup
 net-dns/libidn 1.42 1.43: Internationalized Domain Names (IDN) implementation
 net-dns/libidn2 2.3.7 2.3.8: An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892, 5893)
@@ -16329,7 +16331,7 @@ sci-mathematics/lpsolve 5.5.2.11-r2: Mixed Integer Linear Programming (MILP) sol
 sci-mathematics/lrcalc 1.2 2.1: Littlewood-Richardson Calculator
 sci-mathematics/manifold 3.0.1 3.0.2_pre20250330 3.1.0-r1 9999: Geometry library for topological robustness
 sci-mathematics/mathematica 10.3.1-r1 10.3.1-r2 12.1.0 12.1.1-r1 12.2.0 13.0.0 13.0.1 13.1.0 13.2.1 13.3.1-r1 14.0.0-r2 14.1.0-r1: Wolfram Mathematica
-sci-mathematics/mathmod 12.0 12.1: Plot parametric and implicit surfaces
+sci-mathematics/mathmod 12.1 13.0: Plot parametric and implicit surfaces
 sci-mathematics/mathomatic 16.0.5-r1: Automatic algebraic manipulator
 sci-mathematics/maxima 5.47.0-r2 5.48.1 5.48.1-r1: Free computer algebra environment based on Macsyma
 sci-mathematics/metamath 0.198: Proof verifier based on a minimalistic formalism
@@ -18482,7 +18484,7 @@ x11-misc/fbpager 20090221-r2: A Pager for fluxbox
 x11-misc/fbpanel 7.0-r4: Light-weight X11 desktop panel
 x11-misc/fireflies 2.08-r1: Fireflies screensaver: Wicked cool eye candy
 x11-misc/fluxter 0.1.0-r1: Workspace pager dockapp, particularly useful with the Fluxbox window manager
-x11-misc/fpm2 0.90-r1 0.90.1: A GUI password manager utility with password generator
+x11-misc/fpm2 0.90.1 0.90.2: GUI password manager utility with password generator
 x11-misc/fraqtive 0.4.8.1: Open source, multi-platform generator of the Mandelbrot family fractals
 x11-misc/ftmenu 0.4.0-r2: Tray menu for the Fluxbox toolbar
 x11-misc/gammastep 2.0.9-r1 2.0.9-r2 2.0.10 2.0.11: A screen color temperature adjusting software
