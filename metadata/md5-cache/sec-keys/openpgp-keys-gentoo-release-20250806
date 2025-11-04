@@ -1,4 +1,4 @@
-BDEPEND=test? ( app-crypt/gnupg )
+BDEPEND=test? ( || ( app-crypt/gnupg[alternatives(-)] >=app-crypt/freepg-2.5.12_p1-r1 ) )
 DEFINED_PHASES=install test
 DESCRIPTION=OpenPGP keys used for Gentoo releases (snapshots, stages)
 EAPI=8
@@ -9,4 +9,4 @@ LICENSE=public-domain
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~mgorny/dist/openpgp-keys/gentoo-release.asc.20250806.gz test? ( https://dev.gentoo.org/~mgorny/dist/openpgp-keys/gentoo-release-test-sigs-20190224.tar.gz )
-_md5_=dad1f4314ed48cf9c63ed560921e030d
+_md5_=c3f988ee52a054c8bf0d2ced6fb06741
