@@ -1,6 +1,6 @@
 BDEPEND=dev-qt/linguist-tools:5 doc? ( dev-ruby/asciidoctor ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-libs/zxcvbn-c dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 media-gfx/qrencode:= sys-libs/readline:0= virtual/zlib:=[minizip] X? ( dev-qt/qtx11extras:5 ) autotype? ( x11-libs/libX11 x11-libs/libXtst ) yubikey? ( dev-libs/libusb:1 sys-apps/pcsc-lite ) dev-qt/qttest:5
+DEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-libs/zxcvbn-c dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 media-gfx/qrencode:= sys-libs/readline:0= virtual/minizip:= X? ( dev-qt/qtx11extras:5 ) autotype? ( x11-libs/libX11 x11-libs/libXtst ) yubikey? ( dev-libs/libusb:1 sys-apps/pcsc-lite ) dev-qt/qttest:5
 DESCRIPTION=KeePassXC - KeePass Cross-platform Community Edition
 EAPI=8
 HOMEPAGE=https://keepassxc.org
@@ -9,10 +9,10 @@ INHERIT=cmake xdg
 IUSE=X autotype browser doc keeshare +keyring +network +ssh-agent test yubikey
 KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv x86
 LICENSE=|| ( GPL-2 GPL-3 ) BSD LGPL-2.1 MIT LGPL-2 CC0-1.0 Apache-2.0 GPL-2+ BSD-2
-RDEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-libs/zxcvbn-c dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 media-gfx/qrencode:= sys-libs/readline:0= virtual/zlib:=[minizip] X? ( dev-qt/qtx11extras:5 ) autotype? ( x11-libs/libX11 x11-libs/libXtst ) yubikey? ( dev-libs/libusb:1 sys-apps/pcsc-lite )
+RDEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-libs/zxcvbn-c dev-qt/qtconcurrent:5 dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 media-gfx/qrencode:= sys-libs/readline:0= virtual/minizip:= X? ( dev-qt/qtx11extras:5 ) autotype? ( x11-libs/libX11 x11-libs/libXtst ) yubikey? ( dev-libs/libusb:1 sys-apps/pcsc-lite )
 REQUIRED_USE=autotype? ( X )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/keepassxreboot/keepassxc/archive/2.7.10.tar.gz -> keepassxc-2.7.10.gh.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=e217014674324d083c83359ebd1aa477
+_md5_=5f2a9ee187e9af727aba72deb27aa1b5

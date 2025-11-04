@@ -1,6 +1,6 @@
 BDEPEND=cpu_flags_x86_sse? ( dev-lang/nasm ) virtual/pkgconfig
 DEFINED_PHASES=compile install prepare
-DEPEND=media-libs/libpng:= media-libs/libsdl2[joystick,opengl,video] virtual/zlib:=[minizip] gles2-only? ( media-libs/libsdl2[gles2] ) lirc? ( app-misc/lirc ) netplay? ( media-libs/sdl2-net ) opencv? ( media-libs/opencv:= ) osd? ( media-fonts/dejavu media-libs/freetype:2 virtual/opengl virtual/glu ) vulkan? ( media-libs/vulkan-loader )
+DEPEND=media-libs/libpng:= media-libs/libsdl2[joystick,opengl,video] virtual/minizip:= gles2-only? ( media-libs/libsdl2[gles2] ) lirc? ( app-misc/lirc ) netplay? ( media-libs/sdl2-net ) opencv? ( media-libs/opencv:= ) osd? ( media-fonts/dejavu media-libs/freetype:2 virtual/opengl virtual/glu ) vulkan? ( media-libs/vulkan-loader )
 DESCRIPTION=A fork of Mupen64 Nintendo 64 emulator, core library
 EAPI=8
 HOMEPAGE=https://www.mupen64plus.org/
@@ -8,9 +8,9 @@ INHERIT=toolchain-funcs
 IUSE=debugger gles2-only lirc netplay new-dynarec opencv +osd +vulkan cpu_flags_x86_sse
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=media-libs/libpng:= media-libs/libsdl2[joystick,opengl,video] virtual/zlib:=[minizip] gles2-only? ( media-libs/libsdl2[gles2] ) lirc? ( app-misc/lirc ) netplay? ( media-libs/sdl2-net ) opencv? ( media-libs/opencv:= ) osd? ( media-fonts/dejavu media-libs/freetype:2 virtual/opengl virtual/glu ) vulkan? ( media-libs/vulkan-loader )
+RDEPEND=media-libs/libpng:= media-libs/libsdl2[joystick,opengl,video] virtual/minizip:= gles2-only? ( media-libs/libsdl2[gles2] ) lirc? ( app-misc/lirc ) netplay? ( media-libs/sdl2-net ) opencv? ( media-libs/opencv:= ) osd? ( media-fonts/dejavu media-libs/freetype:2 virtual/opengl virtual/glu ) vulkan? ( media-libs/vulkan-loader )
 REQUIRED_USE=gles2-only? ( !osd )
 SLOT=0/2-sdl2
 SRC_URI=https://github.com/mupen64plus/mupen64plus-core/releases/download/2.6.0/mupen64plus-core-src-2.6.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=cea704e4a3603d6cfb75a6932e297b81
+_md5_=26aebe12b5d0d0f89b543f96defe047b

@@ -1,6 +1,6 @@
-BDEPEND=app-arch/unzip dev-libs/libxml2:= media-libs/cal3d[-16bit-indices] media-libs/freealut media-libs/libpng:0= media-libs/libsdl2[X,opengl,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image media-libs/sdl2-net media-libs/sdl2-ttf virtual/zlib:=[minizip] virtual/glu virtual/opengl x11-libs/libX11 x11-libs/libXau x11-libs/libXdmcp x11-libs/libXext media-libs/glew virtual/pkgconfig doc? ( app-text/doxygen media-gfx/graphviz )
+BDEPEND=app-arch/unzip dev-libs/libxml2:= media-libs/cal3d[-16bit-indices] media-libs/freealut media-libs/libpng:0= media-libs/libsdl2[X,opengl,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image media-libs/sdl2-net media-libs/sdl2-ttf virtual/minizip:= virtual/glu virtual/opengl x11-libs/libX11 x11-libs/libXau x11-libs/libXdmcp x11-libs/libXext media-libs/glew virtual/pkgconfig doc? ( app-text/doxygen media-gfx/graphviz )
 DEFINED_PHASES=compile install postinst postrm preinst prepare
-DEPEND=app-arch/unzip dev-libs/libxml2:= media-libs/cal3d[-16bit-indices] media-libs/freealut media-libs/libpng:0= media-libs/libsdl2[X,opengl,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image media-libs/sdl2-net media-libs/sdl2-ttf virtual/zlib:=[minizip] virtual/glu virtual/opengl x11-libs/libX11 x11-libs/libXau x11-libs/libXdmcp x11-libs/libXext media-libs/glew
+DEPEND=app-arch/unzip dev-libs/libxml2:= media-libs/cal3d[-16bit-indices] media-libs/freealut media-libs/libpng:0= media-libs/libsdl2[X,opengl,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image media-libs/sdl2-net media-libs/sdl2-ttf virtual/minizip:= virtual/glu virtual/opengl x11-libs/libX11 x11-libs/libXau x11-libs/libXdmcp x11-libs/libXext media-libs/glew
 DESCRIPTION=3D fantasy MMORPG written in C and SDL
 EAPI=8
 HOMEPAGE=https://www.eternal-lands.com
@@ -9,8 +9,8 @@ INHERIT=desktop toolchain-funcs xdg
 IUSE=doc
 KEYWORDS=~amd64 ~x86
 LICENSE=eternal_lands
-RDEPEND=app-arch/unzip dev-libs/libxml2:= media-libs/cal3d[-16bit-indices] media-libs/freealut media-libs/libpng:0= media-libs/libsdl2[X,opengl,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image media-libs/sdl2-net media-libs/sdl2-ttf virtual/zlib:=[minizip] virtual/glu virtual/opengl x11-libs/libX11 x11-libs/libXau x11-libs/libXdmcp x11-libs/libXext
+RDEPEND=app-arch/unzip dev-libs/libxml2:= media-libs/cal3d[-16bit-indices] media-libs/freealut media-libs/libpng:0= media-libs/libsdl2[X,opengl,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image media-libs/sdl2-net media-libs/sdl2-ttf virtual/minizip:= virtual/glu virtual/opengl x11-libs/libX11 x11-libs/libXau x11-libs/libXdmcp x11-libs/libXext
 SLOT=0
 SRC_URI=https://github.com/raduprv/Eternal-Lands/archive/1.9.6.1.tar.gz -> eternal-lands-1.9.6.1.tar.gz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=62af01e385d1aa3a6bcbca8b6c954dd2
+_md5_=bc3b5e34272daaec2ba6af09a04f7095

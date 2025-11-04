@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=bzip2? ( app-arch/bzip2:= ) qt5? ( dev-qt/qtcore:5 ) qt6? ( dev-qt/qtbase:6 dev-qt/qt5compat:6 ) virtual/zlib:=[minizip] test? ( qt5? ( dev-qt/qtnetwork:5 dev-qt/qttest:5 ) qt6? ( dev-qt/qtbase:6[network] ) )
+DEPEND=bzip2? ( app-arch/bzip2:= ) qt5? ( dev-qt/qtcore:5 ) qt6? ( dev-qt/qtbase:6 dev-qt/qt5compat:6 ) virtual/minizip:= test? ( qt5? ( dev-qt/qtnetwork:5 dev-qt/qttest:5 ) qt6? ( dev-qt/qtbase:6[network] ) )
 DESCRIPTION=Simple C++ wrapper over Gilles Vollant's ZIP/UNZIP package
 EAPI=8
 HOMEPAGE=https://stachenov.github.io/quazip/
@@ -8,10 +8,10 @@ INHERIT=cmake multibuild
 IUSE=bzip2 +qt5 qt6 test
 KEYWORDS=amd64 ~arm ~arm64 ~hppa ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2.1-with-linking-exception
-RDEPEND=bzip2? ( app-arch/bzip2:= ) qt5? ( dev-qt/qtcore:5 ) qt6? ( dev-qt/qtbase:6 dev-qt/qt5compat:6 ) virtual/zlib:=[minizip]
+RDEPEND=bzip2? ( app-arch/bzip2:= ) qt5? ( dev-qt/qtcore:5 ) qt6? ( dev-qt/qtbase:6 dev-qt/qt5compat:6 ) virtual/minizip:=
 REQUIRED_USE=|| ( qt5 qt6 )
 RESTRICT=!test? ( test )
 SLOT=0/1.4
 SRC_URI=https://github.com/stachenov/quazip/archive/v1.4.tar.gz -> quazip-1.4.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364
-_md5_=3aaa14e53214f065f480abd97ef5463b
+_md5_=5901391639261f8e8d072fc3c4008ec3

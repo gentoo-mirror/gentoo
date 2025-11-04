@@ -1,14 +1,14 @@
 BDEPEND=>=app-portage/elt-patches-20250306
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-libs/expat virtual/zlib:=[minizip] virtual/libiconv
+DEPEND=dev-libs/expat virtual/minizip:= virtual/libiconv
 DESCRIPTION=Simple XLS data extraction library
 EAPI=8
 HOMEPAGE=https://www.gaia-gis.it/fossil/freexl/index
 INHERIT=libtool
 KEYWORDS=amd64 ~arm arm64 ppc ppc64 ~riscv x86
 LICENSE=|| ( MPL-1.1 GPL-2+ LGPL-2.1+ )
-RDEPEND=dev-libs/expat virtual/zlib:=[minizip] virtual/libiconv
+RDEPEND=dev-libs/expat virtual/minizip:= virtual/libiconv
 SLOT=0
 SRC_URI=https://www.gaia-gis.it/gaia-sins/freexl-sources/freexl-2.0.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402
-_md5_=a063c5b7df361950785ac4c53d32d6f1
+_md5_=03927de05fec8507f28567dfaa6eebe1

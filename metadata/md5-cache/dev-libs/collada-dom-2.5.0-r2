@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/boost:= dev-libs/libxml2:= dev-libs/libpcre[cxx] virtual/zlib:=[minizip]
+DEPEND=dev-libs/boost:= dev-libs/libxml2:= dev-libs/libpcre[cxx] virtual/minizip:=
 DESCRIPTION=COLLADA Document Object Model (DOM) C++ Library
 EAPI=8
 HOMEPAGE=https://github.com/rdiankov/collada-dom
 INHERIT=cmake flag-o-matic
 KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ppc ppc64 x86
 LICENSE=MIT
-RDEPEND=dev-libs/boost:= dev-libs/libxml2:= dev-libs/libpcre[cxx] virtual/zlib:=[minizip]
+RDEPEND=dev-libs/boost:= dev-libs/libxml2:= dev-libs/libpcre[cxx] virtual/minizip:=
 SLOT=0/25
 SRC_URI=https://github.com/rdiankov/collada-dom/archive/v2.5.0.tar.gz -> collada-dom-2.5.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=b0043c842f5982dada9f7a4271861b51
+_md5_=438d5bafe45176a6c60baba36e7fa091
