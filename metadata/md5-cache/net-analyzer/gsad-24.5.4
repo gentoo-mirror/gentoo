@@ -1,6 +1,6 @@
 BDEPEND=dev-python/polib virtual/pkgconfig doc? ( app-text/doxygen[dot] app-text/xmltoman ) app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=acct-user/gvm >=net-libs/libmicrohttpd-0.9.0:= dev-libs/libxml2:2= >=dev-libs/glib-2.42:2 >=net-analyzer/gvm-libs-22.8.2 >=net-libs/gnutls-3.2.15:= >=virtual/zlib-1.2 dev-libs/libgcrypt:0= brotli? ( app-arch/brotli )
+DEPEND=acct-user/gvm >=net-libs/libmicrohttpd-0.9.0:= dev-libs/libxml2:2= >=dev-libs/glib-2.42:2 >=net-analyzer/gvm-libs-22.8.2 >=net-libs/gnutls-3.2.15:= >=virtual/zlib-1.2:= dev-libs/libgcrypt:0= brotli? ( app-arch/brotli )
 DESCRIPTION=Greenbone Security Assistant
 EAPI=8
 HOMEPAGE=https://www.greenbone.net https://github.com/greenbone/gsad
@@ -8,8 +8,8 @@ INHERIT=cmake systemd toolchain-funcs
 IUSE=brotli doc
 KEYWORDS=~amd64
 LICENSE=AGPL-3+
-RDEPEND=acct-user/gvm >=net-libs/libmicrohttpd-0.9.0:= dev-libs/libxml2:2= >=dev-libs/glib-2.42:2 >=net-analyzer/gvm-libs-22.8.2 >=net-libs/gnutls-3.2.15:= >=virtual/zlib-1.2 dev-libs/libgcrypt:0= brotli? ( app-arch/brotli ) >=net-analyzer/gvmd-22.4 >=net-analyzer/gsa-22.4 net-analyzer/ospd-openvas
+RDEPEND=acct-user/gvm >=net-libs/libmicrohttpd-0.9.0:= dev-libs/libxml2:2= >=dev-libs/glib-2.42:2 >=net-analyzer/gvm-libs-22.8.2 >=net-libs/gnutls-3.2.15:= >=virtual/zlib-1.2:= dev-libs/libgcrypt:0= brotli? ( app-arch/brotli ) >=net-analyzer/gvmd-22.4 >=net-analyzer/gsa-22.4 net-analyzer/ospd-openvas
 SLOT=0
 SRC_URI=https://github.com/greenbone/gsad/archive/v24.5.4.tar.gz -> gsad-24.5.4.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=4cfcafe54455ecebf13221bb7b3388fc
+_md5_=0864ae3ae7f7e558d2afeb01944f8520

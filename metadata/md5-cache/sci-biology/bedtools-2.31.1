@@ -1,6 +1,6 @@
 BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) test? ( >=sci-biology/samtools-1.10:0 )
 DEFINED_PHASES=configure install setup
-DEPEND=app-arch/bzip2 app-arch/xz-utils virtual/zlib
+DEPEND=app-arch/bzip2 app-arch/xz-utils virtual/zlib:=
 DESCRIPTION=Tools for manipulation and analysis of BED, GFF/GTF, VCF, SAM/BAM file formats
 EAPI=8
 HOMEPAGE=https://bedtools.readthedocs.io/
@@ -8,9 +8,9 @@ INHERIT=python-any-r1 toolchain-funcs
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=app-arch/bzip2 app-arch/xz-utils virtual/zlib
+RDEPEND=app-arch/bzip2 app-arch/xz-utils virtual/zlib:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/arq5x/bedtools2/releases/download/v2.31.1/bedtools-2.31.1.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=821f1f699e4bf6dd340582451b067ce8
+_md5_=3baabbc83946b5042236d3cb4bbd1591

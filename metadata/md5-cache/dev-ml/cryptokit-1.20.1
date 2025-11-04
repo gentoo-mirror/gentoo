@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile configure install postinst test
-DEPEND=dev-ml/dune-configurator dev-ml/zarith:=[-mpir(-)] zlib? ( >=virtual/zlib-1.1 ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/dune-configurator dev-ml/zarith:=[-mpir(-)] zlib? ( >=virtual/zlib-1.1:= ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Cryptographic primitives library for Objective Caml
 EAPI=8
 HOMEPAGE=https://github.com/xavierleroy/cryptokit
@@ -8,10 +8,10 @@ INHERIT=dune
 IUSE=cpu_flags_x86_aes +ocamlopt test zlib
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
 LICENSE=LGPL-2
-RDEPEND=dev-ml/dune-configurator dev-ml/zarith:=[-mpir(-)] zlib? ( >=virtual/zlib-1.1 ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/dune-configurator dev-ml/zarith:=[-mpir(-)] zlib? ( >=virtual/zlib-1.1:= ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 REQUIRED_USE=test? ( ocamlopt )
 RESTRICT=!test? ( test )
 SLOT=0/1.20.1
 SRC_URI=https://github.com/xavierleroy/cryptokit/archive/release1201.tar.gz -> cryptokit-1.20.1.tar.gz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	4304f35da0fafecd98eb149d0b7ed4d4
-_md5_=48b1d0040f90dbb63050a296a9b14885
+_md5_=ed6028e9ff3590159986f55af422fd5c

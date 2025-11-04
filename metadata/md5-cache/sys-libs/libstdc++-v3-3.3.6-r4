@@ -1,6 +1,6 @@
 BDEPEND=>=app-portage/elt-patches-20250306
 DEFINED_PHASES=compile configure install prepare
-DEPEND=virtual/zlib app-alternatives/yacc
+DEPEND=virtual/zlib:= app-alternatives/yacc
 DESCRIPTION=Compatibility package for binaries linked against a pre gcc 3.4 libstdc++
 EAPI=8
 HOMEPAGE=https://gcc.gnu.org/libstdc++/
@@ -8,8 +8,8 @@ INHERIT=flag-o-matic libtool multilib toolchain-funcs
 IUSE=multilib nls
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2 LGPL-2.1
-RDEPEND=virtual/zlib
+RDEPEND=virtual/zlib:=
 SLOT=5
 SRC_URI=https://gcc.gnu.org/pub/gcc/releases/gcc-3.3.6/gcc-3.3.6.tar.bz2 https://dev.gentoo.org/~sam/distfiles/gcc-3.3.6-patches-4.tar.bz2
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	libtool	c81bd096be5f4c82f4e8f156ef112402	multilib	a199af442898963433d6f038a88cce9c
-_md5_=a00b8baa5f3d30c3e73c106cb7bf98ae
+_md5_=e6314a6ea03ea6a90000866c6ecc4739

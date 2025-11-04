@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-libs/imath-3.1.11-r1:= python? ( dev-libs/imath:=[python,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] ) hdf5? ( >=sci-libs/hdf5-1.10.2:=[zlib(+)] >=virtual/zlib-1.2.11-r1 ) python? ( python_single_target_python3_11? ( dev-libs/boost[python,python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-libs/boost[python,python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-libs/boost[python,python_targets_python3_13(-)] ) )
+DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-libs/imath-3.1.11-r1:= python? ( dev-libs/imath:=[python,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] ) hdf5? ( >=sci-libs/hdf5-1.10.2:=[zlib(+)] >=virtual/zlib-1.2.11-r1:= ) python? ( python_single_target_python3_11? ( dev-libs/boost[python,python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-libs/boost[python,python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-libs/boost[python,python_targets_python3_13(-)] ) )
 DESCRIPTION=Open framework for storing and sharing scene data
 EAPI=8
 HOMEPAGE=https://www.alembic.io/
@@ -8,10 +8,10 @@ INHERIT=cmake python-single-r1
 IUSE=examples hdf5 python test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=BSD
-RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-libs/imath-3.1.11-r1:= python? ( dev-libs/imath:=[python,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] ) hdf5? ( >=sci-libs/hdf5-1.10.2:=[zlib(+)] >=virtual/zlib-1.2.11-r1 ) python? ( python_single_target_python3_11? ( dev-libs/boost[python,python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-libs/boost[python,python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-libs/boost[python,python_targets_python3_13(-)] ) )
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-libs/imath-3.1.11-r1:= python? ( dev-libs/imath:=[python,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] ) hdf5? ( >=sci-libs/hdf5-1.10.2:=[zlib(+)] >=virtual/zlib-1.2.11-r1:= ) python? ( python_single_target_python3_11? ( dev-libs/boost[python,python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-libs/boost[python,python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-libs/boost[python,python_targets_python3_13(-)] ) )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) examples? ( python )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/alembic/alembic/archive/1.8.8.tar.gz -> alembic-1.8.8.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=cd3f9eaf4afbac944d7dd29606bdb8fa
+_md5_=10ee5f1f04f9fbb6760f7bf999868c0d

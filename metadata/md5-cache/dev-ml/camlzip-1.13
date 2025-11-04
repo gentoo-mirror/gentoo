@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install
-DEPEND=>=dev-lang/ocaml-4.13:=[ocamlopt?] >=virtual/zlib-1.1.3 >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
+DEPEND=>=dev-lang/ocaml-4.13:=[ocamlopt?] >=virtual/zlib-1.1.3:= >=dev-ml/findlib-1.0.4-r1[ocamlopt?]
 DESCRIPTION=Compressed file access ML library (ZIP, GZIP and JAR)
 EAPI=8
 HOMEPAGE=https://github.com/xavierleroy/camlzip
@@ -7,8 +7,8 @@ INHERIT=findlib
 IUSE=+ocamlopt +ocamlopt
 KEYWORDS=amd64 arm arm64 ~ppc ppc64 ~riscv x86
 LICENSE=LGPL-2.1
-RDEPEND=>=dev-lang/ocaml-4.13:=[ocamlopt?] >=virtual/zlib-1.1.3 dev-lang/ocaml:=[ocamlopt?]
+RDEPEND=>=dev-lang/ocaml-4.13:=[ocamlopt?] >=virtual/zlib-1.1.3:= dev-lang/ocaml:=[ocamlopt?]
 SLOT=1/1.13
 SRC_URI=https://github.com/xavierleroy/camlzip/archive/rel113.tar.gz -> camlzip-1.13.tar.gz
 _eclasses_=findlib	49d5365fca4dea46f13825b9d763c89e
-_md5_=72079b650570704d1a88846e23ac8e1d
+_md5_=9edaef97870e8f67d52d50367b831eea

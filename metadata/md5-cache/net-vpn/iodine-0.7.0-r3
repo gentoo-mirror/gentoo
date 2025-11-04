@@ -1,5 +1,5 @@
 DEFINED_PHASES=install prepare setup
-DEPEND=virtual/zlib test? ( dev-libs/check )
+DEPEND=virtual/zlib:= test? ( dev-libs/check )
 DESCRIPTION=IP over DNS tunnel
 EAPI=8
 HOMEPAGE=https://code.kryo.se/iodine/
@@ -7,9 +7,9 @@ INHERIT=linux-info toolchain-funcs
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=ISC GPL-2
-RDEPEND=virtual/zlib
+RDEPEND=virtual/zlib:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://code.kryo.se/iodine/iodine-0.7.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	linux-info	efd923656513c879204fec6638eadee5
-_md5_=840562d5c46f6bce5abad57f2ed47324
+_md5_=4fba943e320a40362d81ba17f9a1827d

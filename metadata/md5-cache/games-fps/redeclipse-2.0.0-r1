@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install prepare
-DEPEND=!dedicated? ( media-libs/freetype:2 media-libs/libsdl2[opengl] media-libs/sdl2-image:0[jpeg,png] media-libs/sdl2-mixer:0[mp3,vorbis] virtual/opengl x11-libs/libX11 ) >=net-libs/enet-1.3.9:= virtual/zlib
+DEPEND=!dedicated? ( media-libs/freetype:2 media-libs/libsdl2[opengl] media-libs/sdl2-image:0[jpeg,png] media-libs/sdl2-mixer:0[mp3,vorbis] virtual/opengl x11-libs/libX11 ) >=net-libs/enet-1.3.9:= virtual/zlib:=
 DESCRIPTION=First-person ego-shooter, built as a total conversion of Cube Engine 2
 EAPI=7
 HOMEPAGE=https://www.redeclipse.net
@@ -7,8 +7,8 @@ INHERIT=desktop
 IUSE=dedicated
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=ZLIB CC-BY-SA-4.0
-RDEPEND=!dedicated? ( media-libs/freetype:2 media-libs/libsdl2[opengl] media-libs/sdl2-image:0[jpeg,png] media-libs/sdl2-mixer:0[mp3,vorbis] virtual/opengl x11-libs/libX11 ) >=net-libs/enet-1.3.9:= virtual/zlib
+RDEPEND=!dedicated? ( media-libs/freetype:2 media-libs/libsdl2[opengl] media-libs/sdl2-image:0[jpeg,png] media-libs/sdl2-mixer:0[mp3,vorbis] virtual/opengl x11-libs/libX11 ) >=net-libs/enet-1.3.9:= virtual/zlib:=
 SLOT=0
 SRC_URI=https://github.com/redeclipse/base/releases/download/v2.0.0/redeclipse_2.0.0_nix.tar.bz2
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed
-_md5_=6daba13204411accfb8c0a2a2785f586
+_md5_=10dd5b691c46589025ee919f55e63f3d
