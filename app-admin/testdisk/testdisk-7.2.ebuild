@@ -31,7 +31,7 @@ DEPEND="
 		jpeg? ( media-libs/libjpeg-turbo:=[static-libs] )
 		ntfs? ( sys-fs/ntfs3g[static-libs] )
 		reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8[static-libs] )
-		zlib? ( virtual/zlib[static-libs] )
+		zlib? ( virtual/zlib:=[static-libs] )
 		!arm? ( ewf? ( app-forensics/libewf[static-libs] ) )
 	)
 	!static? (
@@ -46,7 +46,7 @@ DEPEND="
 			dev-qt/qtwidgets:5
 		)
 		reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8 )
-		zlib? ( virtual/zlib )
+		zlib? ( virtual/zlib:= )
 		!arm? ( ewf? ( app-forensics/libewf:= ) )
 	)
 "
