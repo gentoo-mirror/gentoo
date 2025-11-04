@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/flex nls? ( app-text/po4a >=sys-devel/gettext-0.18.2 ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=app-arch/gzip-1.7 >=app-arch/tar-1.34-r1 app-crypt/libmd >=dev-lang/perl-5.32.1:= sys-libs/ncurses:=[unicode(+)] bzip2? ( app-arch/bzip2 ) elibc_musl? ( sys-libs/obstack-standalone ) lzma? ( app-arch/xz-utils ) nls? ( virtual/libintl ) selinux? ( sys-libs/libselinux ) zlib? ( >=sys-libs/zlib-1.1.4 ) zstd? ( app-arch/zstd:= ) app-arch/xz-utils virtual/pkgconfig test? ( dev-perl/IO-String dev-perl/Test-Pod )
+DEPEND=>=app-arch/gzip-1.7 >=app-arch/tar-1.34-r1 app-crypt/libmd >=dev-lang/perl-5.32.1:= sys-libs/ncurses:=[unicode(+)] bzip2? ( app-arch/bzip2 ) elibc_musl? ( sys-libs/obstack-standalone ) lzma? ( app-arch/xz-utils ) nls? ( virtual/libintl ) selinux? ( sys-libs/libselinux ) zlib? ( >=virtual/zlib-1.1.4 ) zstd? ( app-arch/zstd:= ) app-arch/xz-utils virtual/pkgconfig test? ( dev-perl/IO-String dev-perl/Test-Pod )
 DESCRIPTION=Package maintenance system for Debian
 EAPI=8
 HOMEPAGE=https://packages.qa.debian.org/dpkg
@@ -8,9 +8,9 @@ INHERIT=autotools toolchain-funcs multiprocessing
 IUSE=+bzip2 +lzma nls selinux static-libs test +update-alternatives +zlib +zstd
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2+
-RDEPEND=>=app-arch/gzip-1.7 >=app-arch/tar-1.34-r1 app-crypt/libmd >=dev-lang/perl-5.32.1:= sys-libs/ncurses:=[unicode(+)] bzip2? ( app-arch/bzip2 ) elibc_musl? ( sys-libs/obstack-standalone ) lzma? ( app-arch/xz-utils ) nls? ( virtual/libintl ) selinux? ( sys-libs/libselinux ) zlib? ( >=sys-libs/zlib-1.1.4 ) zstd? ( app-arch/zstd:= ) selinux? ( sec-policy/selinux-dpkg )
+RDEPEND=>=app-arch/gzip-1.7 >=app-arch/tar-1.34-r1 app-crypt/libmd >=dev-lang/perl-5.32.1:= sys-libs/ncurses:=[unicode(+)] bzip2? ( app-arch/bzip2 ) elibc_musl? ( sys-libs/obstack-standalone ) lzma? ( app-arch/xz-utils ) nls? ( virtual/libintl ) selinux? ( sys-libs/libselinux ) zlib? ( >=virtual/zlib-1.1.4 ) zstd? ( app-arch/zstd:= ) selinux? ( sec-policy/selinux-dpkg )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/d/dpkg/dpkg_1.22.14.tar.xz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	multiprocessing	1e32df7deee68372153dca65f4a7c21f
-_md5_=87a64ff291330de8c8a8259f51df2398
+_md5_=c7d9fd653c716023cb675b4b73de6527

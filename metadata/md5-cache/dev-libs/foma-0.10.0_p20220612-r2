@@ -1,14 +1,14 @@
 BDEPEND=app-alternatives/yacc app-alternatives/lex app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=sys-libs/readline:= sys-libs/zlib
+DEPEND=sys-libs/readline:= virtual/zlib
 DESCRIPTION=Multi-purpose finite-state toolkit
 EAPI=8
 HOMEPAGE=https://fomafst.github.io/ https://github.com/mhulden/foma
 INHERIT=cmake
 KEYWORDS=amd64 x86
 LICENSE=Apache-2.0
-RDEPEND=sys-libs/readline:= sys-libs/zlib
+RDEPEND=sys-libs/readline:= virtual/zlib
 SLOT=0/0.10
 SRC_URI=https://github.com/mhulden/foma/archive/9e8c3df573015a26c84e113ba710ef3d57c8e777.tar.gz -> foma-0.10.0_p20220612.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=b46b223eaf27a3912c7f3b301cca531c
+_md5_=eb7742c06ade257793af6b82bfb09187

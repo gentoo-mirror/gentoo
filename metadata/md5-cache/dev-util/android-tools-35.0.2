@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/go dev-lang/perl dev-libs/protobuf[protoc(+)] app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-cpp/abseil-cpp:= dev-libs/libpcre2:= dev-libs/protobuf:= sys-libs/zlib:= >=dev-libs/libusb-1.0.28 >=dev-libs/libfmt-11:=
+DEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-cpp/abseil-cpp:= dev-libs/libpcre2:= dev-libs/protobuf:= virtual/zlib:= >=dev-libs/libusb-1.0.28 >=dev-libs/libfmt-11:=
 DESCRIPTION=Android platform tools (adb, fastboot, and mkbootimg)
 EAPI=8
 HOMEPAGE=https://github.com/nmeum/android-tools/ https://developer.android.com/
@@ -8,9 +8,9 @@ INHERIT=cmake flag-o-matic python-r1
 IUSE=python udev python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
 KEYWORDS=amd64 ~arm arm64 x86
 LICENSE=Apache-2.0 BSD-2
-RDEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-cpp/abseil-cpp:= dev-libs/libpcre2:= dev-libs/protobuf:= sys-libs/zlib:= >=dev-libs/libusb-1.0.28 >=dev-libs/libfmt-11:= udev? ( dev-util/android-udev-rules ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) )
+RDEPEND=app-arch/brotli:= app-arch/lz4:= app-arch/zstd:= dev-cpp/abseil-cpp:= dev-libs/libpcre2:= dev-libs/protobuf:= virtual/zlib:= >=dev-libs/libusb-1.0.28 >=dev-libs/libfmt-11:= udev? ( dev-util/android-udev-rules ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 ) )
 SLOT=0
 SRC_URI=https://github.com/nmeum/android-tools/releases/download/35.0.2/android-tools-35.0.2.tar.xz https://dev.gentoo.org/~zmedico/dist/android-tools-31.0.3-no-gtest.patch
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38
-_md5_=74d27670d3eef34ae2f933ad646692d3
+_md5_=9cddd4f2b425486d675dc53399faf35c

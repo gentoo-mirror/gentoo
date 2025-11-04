@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install prepare
-DEPEND=sys-apps/pciutils sys-libs/zlib
+DEPEND=sys-apps/pciutils virtual/zlib
 DESCRIPTION=A selection from coreboot/utils useful in general
 EAPI=8
 HOMEPAGE=https://www.coreboot.org/
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64
 LICENSE=GPL-2+ GPL-2
-RDEPEND=sys-apps/pciutils sys-libs/zlib
+RDEPEND=sys-apps/pciutils virtual/zlib
 SLOT=0
 SRC_URI=https://coreboot.org/releases/coreboot-4.18.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=650548d2ef6e4b56373b0b6256f02393
+_md5_=5d8097d018cb4561e9b1670173d64874

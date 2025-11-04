@@ -1,6 +1,6 @@
 BDEPEND=dev-qt/qttools:6[linguist] virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=app-text/hunspell:= app-text/poppler[qt6] dev-qt/qt5compat:6 dev-qt/qtbase:6[concurrent,dbus,gui,widgets,xml] dev-qt/qtdeclarative:6 dev-qt/qttools:6[widgets] sys-libs/zlib lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
+DEPEND=app-text/hunspell:= app-text/poppler[qt6] dev-qt/qt5compat:6 dev-qt/qtbase:6[concurrent,dbus,gui,widgets,xml] dev-qt/qtdeclarative:6 dev-qt/qttools:6[widgets] virtual/zlib lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
 DESCRIPTION=Simple interface for working with TeX documents
 EAPI=8
 HOMEPAGE=https://tug.org/texworks/
@@ -9,10 +9,10 @@ INHERIT=lua-single python-single-r1 cmake xdg
 IUSE=lua python test lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=~amd64 ~riscv ~x86
 LICENSE=GPL-2+ MIT
-RDEPEND=app-text/hunspell:= app-text/poppler[qt6] dev-qt/qt5compat:6 dev-qt/qtbase:6[concurrent,dbus,gui,widgets,xml] dev-qt/qtdeclarative:6 dev-qt/qttools:6[widgets] sys-libs/zlib lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
+RDEPEND=app-text/hunspell:= app-text/poppler[qt6] dev-qt/qt5compat:6 dev-qt/qtbase:6[concurrent,dbus,gui,widgets,xml] dev-qt/qtdeclarative:6 dev-qt/qttools:6[widgets] virtual/zlib lua? ( lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/TeXworks/texworks/archive/release-0.6.10.tar.gz -> texworks-0.6.10.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=037fceadb5f93083ee13d660716bd43f
+_md5_=aceebab163056c2fe1ad7765490ace27

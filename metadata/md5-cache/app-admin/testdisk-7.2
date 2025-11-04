@@ -1,6 +1,6 @@
 BDEPEND=gui? ( dev-qt/linguist-tools:5 )
 DEFINED_PHASES=configure postinst postrm
-DEPEND=sudo? ( app-admin/sudo ) static? ( sys-apps/util-linux[static-libs] sys-fs/e2fsprogs[static-libs] sys-libs/ncurses:0[static-libs] jpeg? ( media-libs/libjpeg-turbo:=[static-libs] ) ntfs? ( sys-fs/ntfs3g[static-libs] ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8[static-libs] ) zlib? ( sys-libs/zlib[static-libs] ) !arm? ( ewf? ( app-forensics/libewf[static-libs] ) ) ) !static? ( sys-apps/util-linux sys-fs/e2fsprogs sys-libs/ncurses:0= jpeg? ( media-libs/libjpeg-turbo:= ) ntfs? ( sys-fs/ntfs3g:= ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8 ) zlib? ( sys-libs/zlib ) !arm? ( ewf? ( app-forensics/libewf:= ) ) )
+DEPEND=sudo? ( app-admin/sudo ) static? ( sys-apps/util-linux[static-libs] sys-fs/e2fsprogs[static-libs] sys-libs/ncurses:0[static-libs] jpeg? ( media-libs/libjpeg-turbo:=[static-libs] ) ntfs? ( sys-fs/ntfs3g[static-libs] ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8[static-libs] ) zlib? ( virtual/zlib[static-libs] ) !arm? ( ewf? ( app-forensics/libewf[static-libs] ) ) ) !static? ( sys-apps/util-linux sys-fs/e2fsprogs sys-libs/ncurses:0= jpeg? ( media-libs/libjpeg-turbo:= ) ntfs? ( sys-fs/ntfs3g:= ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8 ) zlib? ( virtual/zlib ) !arm? ( ewf? ( app-forensics/libewf:= ) ) )
 DESCRIPTION=Checks and undeletes partitions + PhotoRec, signature based recovery tool
 EAPI=8
 HOMEPAGE=https://www.cgsecurity.org/wiki/TestDisk
@@ -8,9 +8,9 @@ INHERIT=flag-o-matic qmake-utils xdg-utils
 IUSE=ewf jpeg ntfs gui reiserfs static +sudo zlib
 KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv x86
 LICENSE=GPL-2+
-RDEPEND=sudo? ( app-admin/sudo ) !static? ( sudo? ( app-admin/sudo ) static? ( sys-apps/util-linux[static-libs] sys-fs/e2fsprogs[static-libs] sys-libs/ncurses:0[static-libs] jpeg? ( media-libs/libjpeg-turbo:=[static-libs] ) ntfs? ( sys-fs/ntfs3g[static-libs] ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8[static-libs] ) zlib? ( sys-libs/zlib[static-libs] ) !arm? ( ewf? ( app-forensics/libewf[static-libs] ) ) ) !static? ( sys-apps/util-linux sys-fs/e2fsprogs sys-libs/ncurses:0= jpeg? ( media-libs/libjpeg-turbo:= ) ntfs? ( sys-fs/ntfs3g:= ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8 ) zlib? ( sys-libs/zlib ) !arm? ( ewf? ( app-forensics/libewf:= ) ) ) )
+RDEPEND=sudo? ( app-admin/sudo ) !static? ( sudo? ( app-admin/sudo ) static? ( sys-apps/util-linux[static-libs] sys-fs/e2fsprogs[static-libs] sys-libs/ncurses:0[static-libs] jpeg? ( media-libs/libjpeg-turbo:=[static-libs] ) ntfs? ( sys-fs/ntfs3g[static-libs] ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8[static-libs] ) zlib? ( virtual/zlib[static-libs] ) !arm? ( ewf? ( app-forensics/libewf[static-libs] ) ) ) !static? ( sys-apps/util-linux sys-fs/e2fsprogs sys-libs/ncurses:0= jpeg? ( media-libs/libjpeg-turbo:= ) ntfs? ( sys-fs/ntfs3g:= ) gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 ) reiserfs? ( >=sys-fs/progsreiserfs-0.3.1_rc8 ) zlib? ( virtual/zlib ) !arm? ( ewf? ( app-forensics/libewf:= ) ) ) )
 REQUIRED_USE=static? ( !gui )
 SLOT=0
 SRC_URI=https://www.cgsecurity.org/testdisk-7.2.tar.bz2
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=96ae421e08b611797218a41b2a809202
+_md5_=de4c6677624c030375961cf963d19f86

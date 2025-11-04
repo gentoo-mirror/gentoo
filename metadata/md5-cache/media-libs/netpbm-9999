@@ -1,6 +1,6 @@
 BDEPEND=app-arch/xz-utils app-alternatives/lex virtual/pkgconfig test? ( dev-lang/perl ) dev-vcs/subversion[http(+)] net-misc/rsync
 DEFINED_PHASES=compile configure install preinst prepare test unpack
-DEPEND=dev-lang/perl jbig? ( media-libs/jbigkit:= ) jpeg? ( media-libs/libjpeg-turbo:=[static-libs?] ) png? ( >=media-libs/libpng-1.4:0= sys-libs/zlib ) postscript? ( app-text/ghostscript-gpl sys-libs/zlib ) rle? ( media-libs/urt:= ) tiff? ( >=media-libs/tiff-3.5.5:= ) xml? ( dev-libs/libxml2:= ) X? ( x11-libs/libX11 ) x11-base/xorg-proto
+DEPEND=dev-lang/perl jbig? ( media-libs/jbigkit:= ) jpeg? ( media-libs/libjpeg-turbo:=[static-libs?] ) png? ( >=media-libs/libpng-1.4:0= virtual/zlib ) postscript? ( app-text/ghostscript-gpl virtual/zlib ) rle? ( media-libs/urt:= ) tiff? ( >=media-libs/tiff-3.5.5:= ) xml? ( dev-libs/libxml2:= ) X? ( x11-libs/libX11 ) x11-base/xorg-proto
 DESCRIPTION=A set of utilities for converting to/from the netpbm (and related) formats
 EAPI=8
 HOMEPAGE=https://netpbm.sourceforge.net/
@@ -8,8 +8,8 @@ INHERIT=flag-o-matic multilib subversion toolchain-funcs
 IUSE=jbig jpeg png postscript rle cpu_flags_x86_sse2 static-libs test tiff X xml
 LICENSE=Artistic BSD GPL-2 IJG LGPL-2.1 MIT public-domain
 PROPERTIES=live
-RDEPEND=dev-lang/perl jbig? ( media-libs/jbigkit:= ) jpeg? ( media-libs/libjpeg-turbo:=[static-libs?] ) png? ( >=media-libs/libpng-1.4:0= sys-libs/zlib ) postscript? ( app-text/ghostscript-gpl sys-libs/zlib ) rle? ( media-libs/urt:= ) tiff? ( >=media-libs/tiff-3.5.5:= ) xml? ( dev-libs/libxml2:= ) X? ( x11-libs/libX11 )
+RDEPEND=dev-lang/perl jbig? ( media-libs/jbigkit:= ) jpeg? ( media-libs/libjpeg-turbo:=[static-libs?] ) png? ( >=media-libs/libpng-1.4:0= virtual/zlib ) postscript? ( app-text/ghostscript-gpl virtual/zlib ) rle? ( media-libs/urt:= ) tiff? ( >=media-libs/tiff-3.5.5:= ) xml? ( dev-libs/libxml2:= ) X? ( x11-libs/libX11 )
 RESTRICT=!test? ( test )
 SLOT=0/devel
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multilib	a199af442898963433d6f038a88cce9c	estack	c61c368a76fdf3a82fdf8dbaebea3804	subversion	44c6a1cae0381c100a526e3b348622cd
-_md5_=380444c562d99ccf54304a8b53964e33
+_md5_=a349c5618768bd6cd494c5cb204dbf6f

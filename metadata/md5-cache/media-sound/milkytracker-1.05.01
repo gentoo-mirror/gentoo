@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=dev-libs/zziplib media-libs/libsdl2[X] sys-libs/zlib alsa? ( media-libs/alsa-lib media-libs/rtmidi ) jack? ( virtual/jack )
+DEPEND=dev-libs/zziplib media-libs/libsdl2[X] virtual/zlib alsa? ( media-libs/alsa-lib media-libs/rtmidi ) jack? ( virtual/jack )
 DESCRIPTION=FastTracker 2 inspired music tracker
 EAPI=8
 HOMEPAGE=https://milkytracker.titandemo.org/
@@ -9,8 +9,8 @@ INHERIT=cmake desktop flag-o-matic xdg
 IUSE=alsa jack
 KEYWORDS=amd64 ~arm64 x86
 LICENSE=|| ( GPL-3 MPL-1.1 ) AIFFWriter.m BSD GPL-3 GPL-3+ LGPL-2.1+ MIT
-RDEPEND=dev-libs/zziplib media-libs/libsdl2[X] sys-libs/zlib alsa? ( media-libs/alsa-lib media-libs/rtmidi ) jack? ( virtual/jack )
+RDEPEND=dev-libs/zziplib media-libs/libsdl2[X] virtual/zlib alsa? ( media-libs/alsa-lib media-libs/rtmidi ) jack? ( virtual/jack )
 SLOT=0
 SRC_URI=https://github.com/milkytracker/MilkyTracker/archive/v1.05.01.tar.gz -> milkytracker-1.05.01.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=5b96def8e4883a1a24417d9f0b5a3582
+_md5_=ebbf6f1f867374abf21b6f9243e79d3d

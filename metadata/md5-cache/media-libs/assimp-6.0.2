@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=sys-libs/zlib[minizip] collada? ( media-libs/opencollada ) doc? ( app-text/doxygen ) samples? ( media-libs/freeglut media-libs/libglvnd ) test? ( dev-cpp/gtest )
+DEPEND=virtual/zlib[minizip] collada? ( media-libs/opencollada ) doc? ( app-text/doxygen ) samples? ( media-libs/freeglut media-libs/libglvnd ) test? ( dev-cpp/gtest )
 DESCRIPTION=Importer library to import assets from 3D files
 EAPI=8
 HOMEPAGE=https://github.com/assimp/assimp
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=collada doc samples test
 KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=BSD
-RDEPEND=sys-libs/zlib[minizip] collada? ( media-libs/opencollada ) doc? ( app-text/doxygen ) samples? ( media-libs/freeglut media-libs/libglvnd ) test? ( dev-cpp/gtest )
+RDEPEND=virtual/zlib[minizip] collada? ( media-libs/opencollada ) doc? ( app-text/doxygen ) samples? ( media-libs/freeglut media-libs/libglvnd ) test? ( dev-cpp/gtest )
 RESTRICT=!test? ( test )
 SLOT=0/6
 SRC_URI=https://github.com/assimp/assimp/archive/v6.0.2.tar.gz -> assimp-6.0.2.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=826f25fb0eb3b9f3ec97a7e4bb165954
+_md5_=f2fea88f51f652742d5c42d8d446be7c

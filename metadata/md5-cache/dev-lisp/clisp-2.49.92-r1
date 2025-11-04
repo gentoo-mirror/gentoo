@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare
-DEPEND=>=dev-lisp/asdf-2.33-r3 virtual/libcrypt:= virtual/libiconv >=dev-libs/libsigsegv-2.10 >=dev-libs/ffcall-1.10 dbus? ( sys-apps/dbus ) fastcgi? ( dev-libs/fcgi ) gdbm? ( sys-libs/gdbm:0= ) gtk? ( >=x11-libs/gtk+-2.10:2 >=gnome-base/libglade-2.6 ) postgres? ( >=dev-db/postgresql-8.0:* ) readline? ( >=sys-libs/readline-7.0:0= ) pcre? ( dev-libs/libpcre:3 ) svm? ( sci-libs/libsvm ) zlib? ( sys-libs/zlib ) X? ( x11-libs/libXpm ) hyperspec? ( dev-lisp/hyperspec ) berkdb? ( sys-libs/db:4.8 ) X? ( x11-base/xorg-proto x11-misc/imake )
+DEPEND=>=dev-lisp/asdf-2.33-r3 virtual/libcrypt:= virtual/libiconv >=dev-libs/libsigsegv-2.10 >=dev-libs/ffcall-1.10 dbus? ( sys-apps/dbus ) fastcgi? ( dev-libs/fcgi ) gdbm? ( sys-libs/gdbm:0= ) gtk? ( >=x11-libs/gtk+-2.10:2 >=gnome-base/libglade-2.6 ) postgres? ( >=dev-db/postgresql-8.0:* ) readline? ( >=sys-libs/readline-7.0:0= ) pcre? ( dev-libs/libpcre:3 ) svm? ( sci-libs/libsvm ) zlib? ( virtual/zlib ) X? ( x11-libs/libXpm ) hyperspec? ( dev-lisp/hyperspec ) berkdb? ( sys-libs/db:4.8 ) X? ( x11-base/xorg-proto x11-misc/imake )
 DESCRIPTION=A portable, bytecode-compiled implementation of Common Lisp
 EAPI=8
 HOMEPAGE=https://clisp.sourceforge.io/
@@ -7,8 +7,8 @@ INHERIT=flag-o-matic xdg-utils
 IUSE=hyperspec X berkdb dbus fastcgi gdbm gtk +pcre postgres +readline svm threads +unicode +zlib
 KEYWORDS=~alpha amd64 ~mips ppc ppc64 ~riscv ~sparc x86
 LICENSE=GPL-2+
-RDEPEND=>=dev-lisp/asdf-2.33-r3 virtual/libcrypt:= virtual/libiconv >=dev-libs/libsigsegv-2.10 >=dev-libs/ffcall-1.10 dbus? ( sys-apps/dbus ) fastcgi? ( dev-libs/fcgi ) gdbm? ( sys-libs/gdbm:0= ) gtk? ( >=x11-libs/gtk+-2.10:2 >=gnome-base/libglade-2.6 ) postgres? ( >=dev-db/postgresql-8.0:* ) readline? ( >=sys-libs/readline-7.0:0= ) pcre? ( dev-libs/libpcre:3 ) svm? ( sci-libs/libsvm ) zlib? ( sys-libs/zlib ) X? ( x11-libs/libXpm ) hyperspec? ( dev-lisp/hyperspec ) berkdb? ( sys-libs/db:4.8 )
+RDEPEND=>=dev-lisp/asdf-2.33-r3 virtual/libcrypt:= virtual/libiconv >=dev-libs/libsigsegv-2.10 >=dev-libs/ffcall-1.10 dbus? ( sys-apps/dbus ) fastcgi? ( dev-libs/fcgi ) gdbm? ( sys-libs/gdbm:0= ) gtk? ( >=x11-libs/gtk+-2.10:2 >=gnome-base/libglade-2.6 ) postgres? ( >=dev-db/postgresql-8.0:* ) readline? ( >=sys-libs/readline-7.0:0= ) pcre? ( dev-libs/libpcre:3 ) svm? ( sci-libs/libsvm ) zlib? ( virtual/zlib ) X? ( x11-libs/libXpm ) hyperspec? ( dev-lisp/hyperspec ) berkdb? ( sys-libs/db:4.8 )
 SLOT=2/8
 SRC_URI=mirror://gentoo/clisp-2.49.92.tar.bz2
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=4e5de3eeebfa2a55ae6f2379d9ad2855
+_md5_=691ad263f35775352f5a0008546e1016

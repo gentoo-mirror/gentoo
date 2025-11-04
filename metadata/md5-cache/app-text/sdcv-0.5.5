@@ -1,6 +1,6 @@
 BDEPEND=nls? ( >=sys-devel/gettext-0.14.1 ) test? ( app-misc/jq ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-libs/glib-2.36 sys-libs/zlib readline? ( sys-libs/readline:= )
+DEPEND=>=dev-libs/glib-2.36 virtual/zlib readline? ( sys-libs/readline:= )
 DESCRIPTION=Console version of Stardict program
 EAPI=8
 HOMEPAGE=https://dushistov.github.io/sdcv/
@@ -8,9 +8,9 @@ INHERIT=cmake plocale
 IUSE=darkterm nls readline test
 KEYWORDS=amd64 ~arm ~arm64 ~riscv x86
 LICENSE=GPL-2
-RDEPEND=>=dev-libs/glib-2.36 sys-libs/zlib readline? ( sys-libs/readline:= )
+RDEPEND=>=dev-libs/glib-2.36 virtual/zlib readline? ( sys-libs/readline:= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Dushistov/sdcv/archive/v0.5.5.tar.gz -> sdcv-0.5.5.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	plocale	950fbaec7deeba41b5bcc0572cca99b9
-_md5_=ff94066a5e9e4b66cdcae4c74a2d89f6
+_md5_=f4e66316244b51210db299bd51257e8a

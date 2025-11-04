@@ -1,11 +1,11 @@
 DEFINED_PHASES=configure install test
-DEPEND=app-arch/bzip2:= sys-libs/zlib:=
+DEPEND=app-arch/bzip2:= virtual/zlib:=
 DESCRIPTION=Recompress ZIP, PNG and MNG, considerably improving compression
 EAPI=8
 HOMEPAGE=https://www.advancemame.it/comp-readme.html https://github.com/amadvance/advancecomp/
 KEYWORDS=~alpha amd64 ~arm arm64 ~hppa ppc ppc64 ~riscv x86
 LICENSE=GPL-2+ Apache-2.0 LGPL-2.1+ MIT
-RDEPEND=app-arch/bzip2:= sys-libs/zlib:=
+RDEPEND=app-arch/bzip2:= virtual/zlib:=
 SLOT=0
 SRC_URI=https://github.com/amadvance/advancecomp/releases/download/v2.6/advancecomp-2.6.tar.gz
-_md5_=8a2d2ec326be672261d7ed958c9b3011
+_md5_=5ba16a8fb4f67f0d8222248b37997876

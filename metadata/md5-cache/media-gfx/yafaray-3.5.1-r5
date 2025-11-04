@@ -1,6 +1,6 @@
 BDEPEND=python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) dev-lang/swig ) dev-build/make >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst prepare setup test
-DEPEND=dev-libs/libxml2:2= sys-libs/zlib jpeg? ( media-libs/libjpeg-turbo:= ) opencv? ( media-libs/opencv:= ) png? ( media-libs/libpng:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) qt5? ( dev-qt/qtwidgets:5 ) tiff? ( media-libs/tiff:= ) truetype? ( media-libs/freetype:2 )
+DEPEND=dev-libs/libxml2:2= virtual/zlib jpeg? ( media-libs/libjpeg-turbo:= ) opencv? ( media-libs/opencv:= ) png? ( media-libs/libpng:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) qt5? ( dev-qt/qtwidgets:5 ) tiff? ( media-libs/tiff:= ) truetype? ( media-libs/freetype:2 )
 DESCRIPTION=A free open-source montecarlo raytracing engine
 EAPI=8
 HOMEPAGE=https://www.yafaray.org https://github.com/YafaRay/libYafaRay
@@ -8,10 +8,10 @@ INHERIT=cmake flag-o-matic python-single-r1
 IUSE=+fastmath +fasttrig jpeg opencv png python qt5 tiff truetype python_single_target_python3_11 python_single_target_python3_12
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1
-RDEPEND=dev-libs/libxml2:2= sys-libs/zlib jpeg? ( media-libs/libjpeg-turbo:= ) opencv? ( media-libs/opencv:= ) png? ( media-libs/libpng:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) qt5? ( dev-qt/qtwidgets:5 ) tiff? ( media-libs/tiff:= ) truetype? ( media-libs/freetype:2 )
+RDEPEND=dev-libs/libxml2:2= virtual/zlib jpeg? ( media-libs/libjpeg-turbo:= ) opencv? ( media-libs/opencv:= ) png? ( media-libs/libpng:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) qt5? ( dev-qt/qtwidgets:5 ) tiff? ( media-libs/tiff:= ) truetype? ( media-libs/freetype:2 )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/YafaRay/libYafaRay/archive/v3.5.1.tar.gz -> yafaray-3.5.1.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=b782c064b2d6382ef6b33710718f0121
+_md5_=06bce3e67a0e74a602a24d60500cdae9

@@ -1,14 +1,14 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/boost:= media-libs/libpng:0= sys-libs/zlib:=
+DEPEND=dev-libs/boost:= media-libs/libpng:0= virtual/zlib:=
 DESCRIPTION=create an APNG from multiple PNG files
 EAPI=8
 HOMEPAGE=https://github.com/apngasm/apngasm
 INHERIT=cmake
 KEYWORDS=amd64 x86
 LICENSE=ZLIB
-RDEPEND=dev-libs/boost:= media-libs/libpng:0= sys-libs/zlib:=
+RDEPEND=dev-libs/boost:= media-libs/libpng:0= virtual/zlib:=
 SLOT=0
 SRC_URI=https://github.com/apngasm/apngasm/archive/refs/tags/3.1.10.tar.gz -> apngasm-3.1.10.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=4a71950ec46e22bf5e473ddf15723a0d
+_md5_=7068593b275993e727cdf7c6a07fbf32

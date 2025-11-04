@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/bison sys-devel/flex test? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install preinst prepare pretend setup test
-DEPEND=ffi? ( dev-libs/libffi:= ) ncurses? ( sys-libs/ncurses:= ) openmp? ( llvm-runtimes/openmp:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) sqlite? ( dev-db/sqlite:3 ) swig? ( dev-lang/swig:= ) zlib? ( sys-libs/zlib:= ) java? ( >=virtual/jdk-1.8 ) java? ( >=dev-java/java-config-2.2.0-r3 )
+DEPEND=ffi? ( dev-libs/libffi:= ) ncurses? ( sys-libs/ncurses:= ) openmp? ( llvm-runtimes/openmp:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) sqlite? ( dev-db/sqlite:3 ) swig? ( dev-lang/swig:= ) zlib? ( virtual/zlib:= ) java? ( >=virtual/jdk-1.8 ) java? ( >=dev-java/java-config-2.2.0-r3 )
 DESCRIPTION=Datalog compiler, synthesizes C++ program from logic specification
 EAPI=8
 HOMEPAGE=http://souffle-lang.github.io/ https://github.com/souffle-lang/souffle/
@@ -8,10 +8,10 @@ INHERIT=bash-completion-r1 cmake java-pkg-opt-2 python-single-r1
 IUSE=+ffi java +ncurses +openmp python +sqlite swig test +zlib java python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=~amd64
 LICENSE=UPL-1.0
-RDEPEND=ffi? ( dev-libs/libffi:= ) ncurses? ( sys-libs/ncurses:= ) openmp? ( llvm-runtimes/openmp:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) sqlite? ( dev-db/sqlite:3 ) swig? ( dev-lang/swig:= ) zlib? ( sys-libs/zlib:= ) java? ( >=dev-java/java-config-2.2.0-r3 )
+RDEPEND=ffi? ( dev-libs/libffi:= ) ncurses? ( sys-libs/ncurses:= ) openmp? ( llvm-runtimes/openmp:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) sqlite? ( dev-db/sqlite:3 ) swig? ( dev-lang/swig:= ) zlib? ( virtual/zlib:= ) java? ( >=dev-java/java-config-2.2.0-r3 )
 REQUIRED_USE=java? ( swig ) python? ( swig ) test? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/souffle-lang/souffle/archive/2.4.1.tar.gz -> souffle-2.4.1.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	bash-completion-r1	767861f3744f589ee5291c1698b1c082	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	java-utils-2	3febdd17a5820c438f6368dde60d4848	java-pkg-opt-2	cfe09ee08c1c7907ffee08abd026fd4b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=8d3a78be59a3a96256eb18a225abb987
+_md5_=0409a38918ea4b0366fa182e9c116fc9

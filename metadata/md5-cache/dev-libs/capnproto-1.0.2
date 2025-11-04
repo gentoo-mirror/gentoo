@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=ssl? ( dev-libs/openssl:= ) zlib? ( sys-libs/zlib:= ) test? ( dev-cpp/gtest )
+DEPEND=ssl? ( dev-libs/openssl:= ) zlib? ( virtual/zlib:= ) test? ( dev-cpp/gtest )
 DESCRIPTION=RPC/Serialization system with capabilities support
 EAPI=8
 HOMEPAGE=https://capnproto.org
@@ -8,9 +8,9 @@ INHERIT=cmake flag-o-matic
 IUSE=+ssl test zlib
 KEYWORDS=amd64 ~arm arm64 ~loong ppc ppc64 ~riscv x86
 LICENSE=MIT
-RDEPEND=ssl? ( dev-libs/openssl:= ) zlib? ( sys-libs/zlib:= )
+RDEPEND=ssl? ( dev-libs/openssl:= ) zlib? ( virtual/zlib:= )
 RESTRICT=!test? ( test )
 SLOT=0/1.0.2
 SRC_URI=https://github.com/sandstorm-io/capnproto/archive/v1.0.2.tar.gz -> capnproto-1.0.2.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=71bf34cb95ba8a35f814b7b424afeb38
+_md5_=42b1070836aafa410584e79825cb5b8f

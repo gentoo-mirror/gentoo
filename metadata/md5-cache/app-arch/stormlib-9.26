@@ -1,14 +1,14 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-arch/bzip2:= dev-libs/libtomcrypt:=[libtommath] sys-libs/zlib:=
+DEPEND=app-arch/bzip2:= dev-libs/libtomcrypt:=[libtommath] virtual/zlib:=
 DESCRIPTION=Library to read and write MPQ archives (Diablo, StarCraft)
 EAPI=8
 HOMEPAGE=http://www.zezula.net/en/mpq/stormlib.html https://github.com/ladislav-zezula/StormLib/
 INHERIT=cmake
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=app-arch/bzip2:= dev-libs/libtomcrypt:=[libtommath] sys-libs/zlib:=
+RDEPEND=app-arch/bzip2:= dev-libs/libtomcrypt:=[libtommath] virtual/zlib:=
 SLOT=0
 SRC_URI=https://github.com/ladislav-zezula/StormLib/archive/v9.26.tar.gz -> StormLib-9.26.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=f77130a3a53b2b99d4e8f5ff53444395
+_md5_=96c0357a7a8d49daae8e3c28d5109cbc

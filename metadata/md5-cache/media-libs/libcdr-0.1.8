@@ -1,6 +1,6 @@
 BDEPEND=dev-build/libtool virtual/pkgconfig doc? ( app-text/doxygen ) test? ( dev-util/cppunit ) >=app-portage/elt-patches-20250306
 DEFINED_PHASES=configure install prepare
-DEPEND=>=dev-libs/icu-75:= dev-libs/librevenge media-libs/lcms:2 sys-libs/zlib dev-libs/boost
+DEPEND=>=dev-libs/icu-75:= dev-libs/librevenge media-libs/lcms:2 virtual/zlib dev-libs/boost
 DESCRIPTION=Library parsing the Corel cdr documents
 EAPI=8
 HOMEPAGE=https://wiki.documentfoundation.org/DLP/Libraries/libcdr
@@ -8,9 +8,9 @@ INHERIT=libtool
 IUSE=doc test
 KEYWORDS=amd64 ~arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86
 LICENSE=MPL-2.0
-RDEPEND=>=dev-libs/icu-75:= dev-libs/librevenge media-libs/lcms:2 sys-libs/zlib
+RDEPEND=>=dev-libs/icu-75:= dev-libs/librevenge media-libs/lcms:2 virtual/zlib
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.8.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402
-_md5_=a2d1f80ad92528e3f075b005ade48362
+_md5_=d50a6cc4f86c7aad9d1bd7fd64e32393

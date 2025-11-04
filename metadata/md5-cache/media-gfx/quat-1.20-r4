@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install
-DEPEND=>=sys-libs/zlib-1.1.4 X? ( x11-libs/fltk:1= x11-libs/libX11 x11-libs/libXext x11-libs/libXft )
+DEPEND=>=virtual/zlib-1.1.4 X? ( x11-libs/fltk:1= x11-libs/libX11 x11-libs/libXext x11-libs/libXft )
 DESCRIPTION=A 3D quaternionic fractal generator
 EAPI=8
 HOMEPAGE=http://www.physcip.uni-stuttgart.de/phy11733/quat_e.html
@@ -7,8 +7,8 @@ INHERIT=flag-o-matic
 IUSE=X debug
 KEYWORDS=amd64 ppc x86
 LICENSE=GPL-2
-RDEPEND=>=sys-libs/zlib-1.1.4 X? ( x11-libs/fltk:1= x11-libs/libX11 x11-libs/libXext x11-libs/libXft )
+RDEPEND=>=virtual/zlib-1.1.4 X? ( x11-libs/fltk:1= x11-libs/libX11 x11-libs/libXext x11-libs/libXft )
 SLOT=0
 SRC_URI=http://www.physcip.uni-stuttgart.de/phy11733/download/quat-1.20.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=8b1028ef0981ffb1c45b544932855ab0
+_md5_=eb134e97fb01319bd00da02e687472c3

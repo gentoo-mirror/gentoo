@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen )
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-libs/librevenge sys-libs/zlib dev-libs/boost dev-libs/icu dev-util/gperf media-libs/lcms dev-build/libtool test? ( dev-util/cppunit )
+DEPEND=dev-libs/librevenge virtual/zlib dev-libs/boost dev-libs/icu dev-util/gperf media-libs/lcms dev-build/libtool test? ( dev-util/cppunit )
 DESCRIPTION=Library for import of FreeHand drawings
 EAPI=8
 HOMEPAGE=https://wiki.documentfoundation.org/DLP/Libraries/libfreehand
 IUSE=doc test
 KEYWORDS=amd64 ~arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86
 LICENSE=MPL-2.0
-RDEPEND=dev-libs/librevenge sys-libs/zlib
+RDEPEND=dev-libs/librevenge virtual/zlib
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://dev-www.libreoffice.org/src/libfreehand/libfreehand-0.1.2.tar.xz
-_md5_=a0a61d8c7e9bb23e55800d21974ead86
+_md5_=7d0ba110e8e2ff1971648b32544b6bec

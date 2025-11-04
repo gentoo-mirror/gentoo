@@ -1,6 +1,6 @@
 BDEPEND=>=dev-lang/perl-5 sctp? ( >=net-misc/lksctp-tools-1.0.12 ) test? ( sys-apps/diffutils app-alternatives/bc kernel_linux? ( sys-process/procps ) )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=!=dev-libs/openssl-1.1.1*:0 tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
+DEPEND=!=dev-libs/openssl-1.1.1*:0 tls-compression? ( >=virtual/zlib-1.2.8-r1[static-libs(+)?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
 DESCRIPTION=Full-strength general purpose cryptography library (including SSL and TLS)
 EAPI=8
 HOMEPAGE=https://www.openssl.org/
@@ -8,9 +8,9 @@ INHERIT=edo flag-o-matic toolchain-funcs multilib-minimal
 IUSE=+asm rfc3779 sctp cpu_flags_x86_sse2 sslv3 static-libs test tls-compression tls-heartbeat vanilla weak-ssl-ciphers abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris
 LICENSE=openssl
-RDEPEND=!=dev-libs/openssl-1.1.1*:0 tls-compression? ( >=sys-libs/zlib-1.2.8-r1[static-libs(+)?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
+RDEPEND=!=dev-libs/openssl-1.1.1*:0 tls-compression? ( >=virtual/zlib-1.2.8-r1[static-libs(+)?,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
 RESTRICT=!test? ( test )
 SLOT=1.1.1
 SRC_URI=mirror://openssl/source/openssl-1.1.1u.tar.gz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
-_md5_=c803839e56ec418793acb162cae67fe1
+_md5_=2edd17ba438552d91cf7df3684ef066b

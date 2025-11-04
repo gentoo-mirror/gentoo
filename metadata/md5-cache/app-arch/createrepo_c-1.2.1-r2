@@ -1,6 +1,6 @@
 BDEPEND=doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-arch/bzip2:= app-arch/drpm app-arch/rpm app-arch/xz-utils app-arch/zchunk app-arch/zstd:= >=dev-db/sqlite-3.6.18:3 dev-libs/glib:2 dev-libs/libxml2:= dev-libs/openssl:= net-misc/curl sys-apps/file sys-libs/libmodulemd sys-libs/zlib:=
+DEPEND=app-arch/bzip2:= app-arch/drpm app-arch/rpm app-arch/xz-utils app-arch/zchunk app-arch/zstd:= >=dev-db/sqlite-3.6.18:3 dev-libs/glib:2 dev-libs/libxml2:= dev-libs/openssl:= net-misc/curl sys-apps/file sys-libs/libmodulemd virtual/zlib:=
 DESCRIPTION=C implementation of createrepo
 EAPI=8
 HOMEPAGE=https://github.com/rpm-software-management/createrepo_c
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=doc legacy test zstd
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=app-arch/bzip2:= app-arch/drpm app-arch/rpm app-arch/xz-utils app-arch/zchunk app-arch/zstd:= >=dev-db/sqlite-3.6.18:3 dev-libs/glib:2 dev-libs/libxml2:= dev-libs/openssl:= net-misc/curl sys-apps/file sys-libs/libmodulemd sys-libs/zlib:=
+RDEPEND=app-arch/bzip2:= app-arch/drpm app-arch/rpm app-arch/xz-utils app-arch/zchunk app-arch/zstd:= >=dev-db/sqlite-3.6.18:3 dev-libs/glib:2 dev-libs/libxml2:= dev-libs/openssl:= net-misc/curl sys-apps/file sys-libs/libmodulemd virtual/zlib:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rpm-software-management/createrepo_c/archive/1.2.1.tar.gz -> createrepo_c-1.2.1.tar.gz https://github.com/rpm-software-management/createrepo_c/commit/4e37bc582b1673ff767dbd0b570ef1c8871d3e8c.patch -> createrepo_c-1.2.1-r2-rpm6compat.patch https://github.com/rpm-software-management/createrepo_c/commit/89fa02828cdaf1c710c38bde5fcbcf59538a9cce.patch -> createrepo_c-1.2.1-r2-cmake4.patch
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=f35fc24019676fd5655b9069c0c21827
+_md5_=b0ea5ab2938b605d350c54c637f29310

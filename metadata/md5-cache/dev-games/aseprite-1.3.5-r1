@@ -1,6 +1,6 @@
 BDEPEND=|| ( dev-lang/python:3.12 dev-lang/python:3.11 ) app-arch/unzip dev-build/gn virtual/pkgconfig test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
-DEPEND=app-arch/libarchive:= app-text/cmark:= dev-libs/libfmt:= dev-libs/tinyxml media-libs/freetype media-libs/giflib:= media-libs/harfbuzz:=[truetype] media-libs/libjpeg-turbo:= media-libs/libpng:= net-misc/curl sys-libs/zlib:= virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libXi x11-libs/libxcb:= webp? ( media-libs/libwebp:= ) x11-base/xorg-proto
+DEPEND=app-arch/libarchive:= app-text/cmark:= dev-libs/libfmt:= dev-libs/tinyxml media-libs/freetype media-libs/giflib:= media-libs/harfbuzz:=[truetype] media-libs/libjpeg-turbo:= media-libs/libpng:= net-misc/curl virtual/zlib:= virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libXi x11-libs/libxcb:= webp? ( media-libs/libwebp:= ) x11-base/xorg-proto
 DESCRIPTION=Animated sprite editor & pixel art tool
 EAPI=8
 HOMEPAGE=https://www.aseprite.org
@@ -8,9 +8,9 @@ INHERIT=cmake desktop flag-o-matic python-any-r1 toolchain-funcs xdg-utils
 IUSE=test webp
 KEYWORDS=amd64 x86
 LICENSE=Aseprite-EULA MIT
-RDEPEND=app-arch/libarchive:= app-text/cmark:= dev-libs/libfmt:= dev-libs/tinyxml media-libs/freetype media-libs/giflib:= media-libs/harfbuzz:=[truetype] media-libs/libjpeg-turbo:= media-libs/libpng:= net-misc/curl sys-libs/zlib:= virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libXi x11-libs/libxcb:= webp? ( media-libs/libwebp:= ) gnome-extra/zenity
+RDEPEND=app-arch/libarchive:= app-text/cmark:= dev-libs/libfmt:= dev-libs/tinyxml media-libs/freetype media-libs/giflib:= media-libs/harfbuzz:=[truetype] media-libs/libjpeg-turbo:= media-libs/libpng:= net-misc/curl virtual/zlib:= virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libXi x11-libs/libxcb:= webp? ( media-libs/libwebp:= ) gnome-extra/zenity
 RESTRICT=bindist mirror !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/aseprite/aseprite/releases/download/v1.3.5/Aseprite-v1.3.5-Source.zip https://github.com/google/skia/archive/3338e90707323d2cd3a150276acb9f39933deee2.tar.gz -> skia-m102-3338e90707323d2cd3a150276acb9f39933deee2.gh.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=acfed1bc43cb4b103e7d6d2896e56f9b
+_md5_=de7b48be385603c11bd78b692ca89935

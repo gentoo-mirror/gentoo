@@ -1,14 +1,14 @@
 BDEPEND=app-arch/unzip
 DEFINED_PHASES=compile install prepare
-DEPEND=sys-libs/zlib
+DEPEND=virtual/zlib
 DESCRIPTION=Small and simple library for loading and writing PNG images
 EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/pnglite/
 INHERIT=flag-o-matic toolchain-funcs
 KEYWORDS=amd64 ~arm64 x86
 LICENSE=ZLIB
-RDEPEND=sys-libs/zlib
+RDEPEND=virtual/zlib
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/project/pnglite/pnglite/0.1.17/pnglite-0.1.17.zip
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=b6ff464d53e2628c6fbcd9c584f79474
+_md5_=2bdd15fbce38efac56434f9a45ef65d7

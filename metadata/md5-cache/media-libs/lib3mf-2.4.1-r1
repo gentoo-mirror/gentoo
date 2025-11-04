@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig test? ( dev-cpp/gtest dev-libs/openssl dev-debug/valgrind ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/libzip:= sys-apps/util-linux sys-libs/zlib
+DEPEND=dev-libs/libzip:= sys-apps/util-linux virtual/zlib
 DESCRIPTION=Implementation of the 3D Manufacturing Format file standard
 EAPI=8
 HOMEPAGE=https://3mf.io/ https://github.com/3MFConsortium/lib3mf
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=test
 KEYWORDS=amd64 ~arm64 ~ppc64 x86
 LICENSE=BSD
-RDEPEND=dev-libs/libzip:= sys-apps/util-linux sys-libs/zlib
+RDEPEND=dev-libs/libzip:= sys-apps/util-linux virtual/zlib
 RESTRICT=!test? ( test )
 SLOT=0/2
 SRC_URI=https://github.com/3MFConsortium/lib3mf/archive/v2.4.1.tar.gz -> lib3mf-2.4.1.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=17d0642905c8c25e5477929587d1f25f
+_md5_=d461d541cc3f534e3f9ce31c37a08829

@@ -1,6 +1,6 @@
 BDEPEND=test? ( dev-lang/tcl )
 DEFINED_PHASES=configure install test
-DEPEND=sys-libs/zlib || ( sys-libs/readline:0 dev-libs/libedit ) system-sqlite? ( >=dev-db/sqlite-3.38.0:3 ) ssl? ( dev-libs/openssl:0= ) tcl? ( dev-lang/tcl:0= ) !tcl? ( || ( dev-lang/tcl:* dev-lang/jimtcl:* ) )
+DEPEND=virtual/zlib || ( sys-libs/readline:0 dev-libs/libedit ) system-sqlite? ( >=dev-db/sqlite-3.38.0:3 ) ssl? ( dev-libs/openssl:0= ) tcl? ( dev-lang/tcl:0= ) !tcl? ( || ( dev-lang/tcl:* dev-lang/jimtcl:* ) )
 DESCRIPTION=Simple, high-reliability, source control management, and more
 EAPI=8
 HOMEPAGE=https://www.fossil-scm.org/home
@@ -8,9 +8,9 @@ INHERIT=toolchain-funcs
 IUSE=debug fusefs json system-sqlite +ssl static tcl tcl-stubs tcl-private-stubs test th1-docs th1-hooks
 KEYWORDS=amd64 arm ppc ppc64 ~riscv x86
 LICENSE=BSD-2
-RDEPEND=sys-libs/zlib || ( sys-libs/readline:0 dev-libs/libedit ) system-sqlite? ( >=dev-db/sqlite-3.38.0:3 ) ssl? ( dev-libs/openssl:0= ) tcl? ( dev-lang/tcl:0= )
+RDEPEND=virtual/zlib || ( sys-libs/readline:0 dev-libs/libedit ) system-sqlite? ( >=dev-db/sqlite-3.38.0:3 ) ssl? ( dev-libs/openssl:0= ) tcl? ( dev-lang/tcl:0= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://fossil-scm.org/home/tarball/66ee0beb9b47d827bde533fe6a1fb2ead4ceb1936468881b4fb621bd6bdfd862/fossil-src-2.22.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=e955e8b7fc7351cf885cedb3ba0678a4
+_md5_=e43052a2169e58c62b8b73bf804324cf

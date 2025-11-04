@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install
-DEPEND=sys-libs/zlib app-crypt/mhash dev-libs/libmcrypt
+DEPEND=virtual/zlib app-crypt/mhash dev-libs/libmcrypt
 DESCRIPTION=Plausible deniable file cryptography
 EAPI=7
 HOMEPAGE=https://www.winstonsmith.info/julia/elettra/
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
 LICENSE=WTFPL-2
-RDEPEND=sys-libs/zlib app-crypt/mhash dev-libs/libmcrypt
+RDEPEND=virtual/zlib app-crypt/mhash dev-libs/libmcrypt
 SLOT=0
 SRC_URI=https://www.winstonsmith.info/julia/elettra/elettra-src-1.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=e0cf1eeecac0c36ea29b0205357f3919
+_md5_=057e2a5ced36accc2a878e4d706ba781

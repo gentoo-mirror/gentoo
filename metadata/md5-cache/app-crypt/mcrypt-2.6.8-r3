@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure
-DEPEND=>=dev-libs/libmcrypt-2.5.8 >=app-crypt/mhash-0.9.9 sys-libs/zlib
+DEPEND=>=dev-libs/libmcrypt-2.5.8 >=app-crypt/mhash-0.9.9 virtual/zlib
 DESCRIPTION=Replacement of the old unix crypt(1)
 EAPI=7
 HOMEPAGE=https://mcrypt.sourceforge.net/
@@ -7,8 +7,8 @@ INHERIT=flag-o-matic
 IUSE=nls
 KEYWORDS=amd64 ppc ~sparc x86
 LICENSE=GPL-3+
-RDEPEND=>=dev-libs/libmcrypt-2.5.8 >=app-crypt/mhash-0.9.9 sys-libs/zlib
+RDEPEND=>=dev-libs/libmcrypt-2.5.8 >=app-crypt/mhash-0.9.9 virtual/zlib
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/mcrypt/mcrypt-2.6.8.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=28d668b760baf27f9b644b60ea343ccf
+_md5_=0dc0b47ae14b3ba716901525d4f4e10b
