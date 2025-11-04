@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=dev-libs/expat dev-libs/libpcre:3 sci-libs/plplot:= sys-libs/zlib mysql? ( dev-db/mysql-connector-c:0= ) pdf? ( media-libs/libharu:= ) png? ( media-libs/gd:2=[png] ) postgres? ( dev-db/postgresql:= ) X? ( x11-libs/libXt )
+DEPEND=dev-libs/expat dev-libs/libpcre:3 sci-libs/plplot:= virtual/zlib mysql? ( dev-db/mysql-connector-c:0= ) pdf? ( media-libs/libharu:= ) png? ( media-libs/gd:2=[png] ) postgres? ( dev-db/postgresql:= ) X? ( x11-libs/libXt )
 DESCRIPTION=The European Molecular Biology Open Software Suite - A sequence analysis package
 EAPI=8
 HOMEPAGE=http://emboss.sourceforge.net/
@@ -9,8 +9,8 @@ IUSE=minimal mysql pdf png postgres X
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2 GPL-2 Apache-2.0 GPL-3+ CC-BY-3.0
 PDEPEND=!minimal? ( sci-biology/aaindex sci-biology/cutg sci-biology/primer3 sci-biology/prints sci-biology/prosite sci-biology/rebase )
-RDEPEND=!dev-build/cons !games-action/xbomber dev-libs/expat dev-libs/libpcre:3 sci-libs/plplot:= sys-libs/zlib mysql? ( dev-db/mysql-connector-c:0= ) pdf? ( media-libs/libharu:= ) png? ( media-libs/gd:2=[png] ) postgres? ( dev-db/postgresql:= ) X? ( x11-libs/libXt )
+RDEPEND=!dev-build/cons !games-action/xbomber dev-libs/expat dev-libs/libpcre:3 sci-libs/plplot:= virtual/zlib mysql? ( dev-db/mysql-connector-c:0= ) pdf? ( media-libs/libharu:= ) png? ( media-libs/gd:2=[png] ) postgres? ( dev-db/postgresql:= ) X? ( x11-libs/libXt )
 SLOT=0
 SRC_URI=ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz https://dev.gentoo.org/~soap/distfiles/emboss-6.6.0-patches-r1.tar.xz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	emboss-r3	bd98b11ffc89ab4079e13e7d634fd143	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	emboss-r3	0fa249385cd36dfe17284fadb344e433	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
 _md5_=70b903dc25a6c63638148281283a607c

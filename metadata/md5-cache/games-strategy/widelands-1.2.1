@@ -1,6 +1,6 @@
 BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) sys-devel/gettext app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
-DEPEND=dev-libs/icu:= media-libs/glew:0= media-libs/libglvnd media-libs/libpng:= media-libs/libsdl2[opengl,sound,video] media-libs/sdl2-image[jpeg,png] media-libs/sdl2-mixer[vorbis] media-libs/sdl2-ttf sys-libs/zlib:=[minizip] virtual/libintl dev-cpp/asio
+DEPEND=dev-libs/icu:= media-libs/glew:0= media-libs/libglvnd media-libs/libpng:= media-libs/libsdl2[opengl,sound,video] media-libs/sdl2-image[jpeg,png] media-libs/sdl2-mixer[vorbis] media-libs/sdl2-ttf virtual/zlib:=[minizip] virtual/libintl dev-cpp/asio
 DESCRIPTION=Game similar to Settlers 2
 EAPI=8
 HOMEPAGE=https://www.widelands.org/
@@ -9,9 +9,9 @@ INHERIT=cmake flag-o-matic python-any-r1 xdg
 IUSE=test
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
 LICENSE=GPL-2+ || ( Apache-2.0 GPL-3 ) BitstreamVera BSD CC-BY-SA-3.0 MIT OFL-1.1
-RDEPEND=dev-libs/icu:= media-libs/glew:0= media-libs/libglvnd media-libs/libpng:= media-libs/libsdl2[opengl,sound,video] media-libs/sdl2-image[jpeg,png] media-libs/sdl2-mixer[vorbis] media-libs/sdl2-ttf sys-libs/zlib:=[minizip] virtual/libintl
+RDEPEND=dev-libs/icu:= media-libs/glew:0= media-libs/libglvnd media-libs/libpng:= media-libs/libsdl2[opengl,sound,video] media-libs/sdl2-image[jpeg,png] media-libs/sdl2-mixer[vorbis] media-libs/sdl2-ttf virtual/zlib:=[minizip] virtual/libintl
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/widelands/widelands/archive/refs/tags/v1.2.1.tar.gz -> widelands-1.2.1.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=3f0d85116c89fdceaafa068db2b0c28d
+_md5_=a5bc0f8e7b8612fad0d8baf0c42760ea

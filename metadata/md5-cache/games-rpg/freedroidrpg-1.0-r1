@@ -1,6 +1,6 @@
 BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) sys-devel/gettext app-alternatives/awk virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure postinst postrm preinst prepare setup
-DEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) media-libs/libpng:= media-libs/libsdl[opengl?,sound?,video] media-libs/sdl-gfx:= media-libs/sdl-image[jpeg,png] sys-libs/zlib:= virtual/libintl devtools? ( media-libs/sdl-ttf ) opengl? ( media-libs/glew:0= media-libs/libglvnd[X] ) sound? ( media-libs/sdl-mixer[vorbis] )
+DEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) media-libs/libpng:= media-libs/libsdl[opengl?,sound?,video] media-libs/sdl-gfx:= media-libs/sdl-image[jpeg,png] virtual/zlib:= virtual/libintl devtools? ( media-libs/sdl-ttf ) opengl? ( media-libs/glew:0= media-libs/libglvnd[X] ) sound? ( media-libs/sdl-mixer[vorbis] )
 DESCRIPTION=Modification of the classical Freedroid engine into an RPG
 EAPI=8
 HOMEPAGE=https://www.freedroid.org/
@@ -9,9 +9,9 @@ INHERIT=autotools lua-single python-any-r1 xdg
 IUSE=debug devtools opengl profile +sound +lua_single_target_lua5-3
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2+
-RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) media-libs/libpng:= media-libs/libsdl[opengl?,sound?,video] media-libs/sdl-gfx:= media-libs/sdl-image[jpeg,png] sys-libs/zlib:= virtual/libintl devtools? ( media-libs/sdl-ttf ) opengl? ( media-libs/glew:0= media-libs/libglvnd[X] ) sound? ( media-libs/sdl-mixer[vorbis] )
+RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) media-libs/libpng:= media-libs/libsdl[opengl?,sound?,video] media-libs/sdl-gfx:= media-libs/sdl-image[jpeg,png] virtual/zlib:= virtual/libintl devtools? ( media-libs/sdl-ttf ) opengl? ( media-libs/glew:0= media-libs/libglvnd[X] ) sound? ( media-libs/sdl-mixer[vorbis] )
 REQUIRED_USE=^^ ( lua_single_target_lua5-3 )
 SLOT=0
 SRC_URI=https://ftp.osuosl.org/pub/freedroid/freedroidRPG-1.0/freedroidRPG-1.0.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=2e6f010d39bc34be485ad720930dad5c
+_md5_=862e8ee7bedb0a8a8eca3d044210cd73

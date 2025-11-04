@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gettext app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=app-arch/bzip2:= dev-libs/libfmt:= media-libs/libsdl2[haptic,joystick,opengl,video] media-libs/sdl2-image[png] media-libs/sdl_audiolib sys-libs/zlib:= sodium? ( dev-libs/libsodium:= ) dev-cpp/simpleini test? ( dev-cpp/gtest )
+DEPEND=app-arch/bzip2:= dev-libs/libfmt:= media-libs/libsdl2[haptic,joystick,opengl,video] media-libs/sdl2-image[png] media-libs/sdl_audiolib virtual/zlib:= sodium? ( dev-libs/libsodium:= ) dev-cpp/simpleini test? ( dev-cpp/gtest )
 DESCRIPTION=Diablo engine for modern operating systems
 EAPI=8
 HOMEPAGE=https://github.com/diasurgical/devilutionX/
@@ -9,9 +9,9 @@ INHERIT=cmake xdg
 IUSE=debug +sodium test zerotier
 KEYWORDS=~amd64 ~x86
 LICENSE=Sustainable-Use-1.0 Boost-1.0 BSD CC-BY-4.0 GPL-2+ LGPL-2.1+ MIT OFL-1.1 zerotier? ( BUSL-1.1 )
-RDEPEND=app-arch/bzip2:= dev-libs/libfmt:= media-libs/libsdl2[haptic,joystick,opengl,video] media-libs/sdl2-image[png] media-libs/sdl_audiolib sys-libs/zlib:= sodium? ( dev-libs/libsodium:= )
+RDEPEND=app-arch/bzip2:= dev-libs/libfmt:= media-libs/libsdl2[haptic,joystick,opengl,video] media-libs/sdl2-image[png] media-libs/sdl_audiolib virtual/zlib:= sodium? ( dev-libs/libsodium:= )
 RESTRICT=bindist mirror !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/diasurgical/devilutionX/releases/download/1.5.4/devilutionx-src.tar.xz -> devilutionx-1.5.4.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=ba049cf11ac627eed5ce7341edb53573
+_md5_=07088dde030fd50ec11a65af4c446346

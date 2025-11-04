@@ -1,6 +1,6 @@
-BDEPEND=dev-lang/nasm sys-libs/zlib virtual/pkgconfig
+BDEPEND=dev-lang/nasm virtual/zlib virtual/pkgconfig
 DEFINED_PHASES=compile install postinst postrm preinst
-DEPEND=media-libs/libglvnd[X,abi_x86_32(-)] media-libs/libpng:=[abi_x86_32(-)] media-libs/libsdl[abi_x86_32(-),joystick,opengl,sound,video] sys-libs/zlib:=[abi_x86_32(-)] x11-libs/libX11[abi_x86_32(-)] x11-base/xorg-proto
+DEPEND=media-libs/libglvnd[X,abi_x86_32(-)] media-libs/libpng:=[abi_x86_32(-)] media-libs/libsdl[abi_x86_32(-),joystick,opengl,sound,video] virtual/zlib:=[abi_x86_32(-)] x11-libs/libX11[abi_x86_32(-)] x11-base/xorg-proto
 DESCRIPTION=Fork of the classic Super Nintendo emulator
 EAPI=8
 HOMEPAGE=https://github.com/xyproto/zsnes/ https://www.zsnes.com/
@@ -9,8 +9,8 @@ INHERIT=desktop flag-o-matic multilib toolchain-funcs xdg
 IUSE=custom-cflags
 KEYWORDS=-* ~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=media-libs/libglvnd[X,abi_x86_32(-)] media-libs/libpng:=[abi_x86_32(-)] media-libs/libsdl[abi_x86_32(-),joystick,opengl,sound,video] sys-libs/zlib:=[abi_x86_32(-)] x11-libs/libX11[abi_x86_32(-)]
+RDEPEND=media-libs/libglvnd[X,abi_x86_32(-)] media-libs/libpng:=[abi_x86_32(-)] media-libs/libsdl[abi_x86_32(-),joystick,opengl,sound,video] virtual/zlib:=[abi_x86_32(-)] x11-libs/libX11[abi_x86_32(-)]
 SLOT=0
 SRC_URI=https://github.com/xyproto/zsnes/archive/2.0.12.tar.gz -> zsnes-2.0.12.tar.gz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multilib	a199af442898963433d6f038a88cce9c	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=77f6095566b8e199749d2a4dfa8af848
+_md5_=5b0cd8804788b1157e8029f9e20c5aa0

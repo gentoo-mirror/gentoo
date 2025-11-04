@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install postinst postrm pretend
-DEPEND=client? ( media-libs/libsdl2[X,sound,joystick,opengl,video] mumble? ( net-voip/mumble:= ) openal? ( media-libs/openal:= ) opus? ( media-libs/opusfile ) vorbis? ( media-libs/libvorbis ) ) curl? ( net-misc/curl ) ~games-fps/urbanterror-data-4.3.4 sys-libs/zlib:=[minizip] virtual/jpeg:0 x11-libs/libX11 x11-libs/libXxf86vm
+DEPEND=client? ( media-libs/libsdl2[X,sound,joystick,opengl,video] mumble? ( net-voip/mumble:= ) openal? ( media-libs/openal:= ) opus? ( media-libs/opusfile ) vorbis? ( media-libs/libvorbis ) ) curl? ( net-misc/curl ) ~games-fps/urbanterror-data-4.3.4 virtual/zlib:=[minizip] virtual/jpeg:0 x11-libs/libX11 x11-libs/libXxf86vm
 DESCRIPTION=Hollywood tactical shooter based on the ioquake3 engine
 EAPI=8
 HOMEPAGE=https://urbanterror.info https://github.com/mickael9/ioq3
@@ -7,9 +7,9 @@ INHERIT=desktop flag-o-matic toolchain-funcs xdg-utils
 IUSE=+altgamma +client +curl debug mumble openal +opus server +skeetshootmod voip vorbis
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=client? ( media-libs/libsdl2[X,sound,joystick,opengl,video] mumble? ( net-voip/mumble:= ) openal? ( media-libs/openal:= ) opus? ( media-libs/opusfile ) vorbis? ( media-libs/libvorbis ) ) curl? ( net-misc/curl ) ~games-fps/urbanterror-data-4.3.4 sys-libs/zlib:=[minizip] virtual/jpeg:0 x11-libs/libX11 x11-libs/libXxf86vm
+RDEPEND=client? ( media-libs/libsdl2[X,sound,joystick,opengl,video] mumble? ( net-voip/mumble:= ) openal? ( media-libs/openal:= ) opus? ( media-libs/opusfile ) vorbis? ( media-libs/libvorbis ) ) curl? ( net-misc/curl ) ~games-fps/urbanterror-data-4.3.4 virtual/zlib:=[minizip] virtual/jpeg:0 x11-libs/libX11 x11-libs/libXxf86vm
 REQUIRED_USE=|| ( client server ) voip? ( opus )
 SLOT=0
 SRC_URI=https://github.com/mickael9/ioq3/archive/c988f7669bd70b59beb384563d4c8304062ae011.tar.gz -> urbanterror-4.3.4_p20211208.tar.gz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=e03338dbf4a5d1c572e99584433cb989
+_md5_=54602da61d9e072421b546c9fe160985

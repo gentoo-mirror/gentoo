@@ -1,6 +1,6 @@
 BDEPEND=games-util/deutex app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=client? ( dev-libs/jsoncpp:= media-libs/libpng:0= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer net-misc/curl >=x11-libs/fltk-1.4.3-r1:1= x11-libs/libX11 portmidi? ( media-libs/portmidi ) ) odalaunch? ( x11-libs/wxGTK:3.2-gtk3= ) server? ( dev-libs/jsoncpp:= sys-libs/zlib upnp? ( net-libs/miniupnpc:= ) )
+DEPEND=client? ( dev-libs/jsoncpp:= media-libs/libpng:0= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer net-misc/curl >=x11-libs/fltk-1.4.3-r1:1= x11-libs/libX11 portmidi? ( media-libs/portmidi ) ) odalaunch? ( x11-libs/wxGTK:3.2-gtk3= ) server? ( dev-libs/jsoncpp:= virtual/zlib upnp? ( net-libs/miniupnpc:= ) )
 DESCRIPTION=Online multiplayer free software engine for DOOM
 EAPI=8
 HOMEPAGE=https://odamex.net/
@@ -9,9 +9,9 @@ INHERIT=cmake desktop prefix wxwidgets xdg
 IUSE=+client master +odalaunch portmidi server upnp
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=GPL-2+ MIT
-RDEPEND=client? ( dev-libs/jsoncpp:= media-libs/libpng:0= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer net-misc/curl >=x11-libs/fltk-1.4.3-r1:1= x11-libs/libX11 portmidi? ( media-libs/portmidi ) ) odalaunch? ( x11-libs/wxGTK:3.2-gtk3= ) server? ( dev-libs/jsoncpp:= sys-libs/zlib upnp? ( net-libs/miniupnpc:= ) )
+RDEPEND=client? ( dev-libs/jsoncpp:= media-libs/libpng:0= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer net-misc/curl >=x11-libs/fltk-1.4.3-r1:1= x11-libs/libX11 portmidi? ( media-libs/portmidi ) ) odalaunch? ( x11-libs/wxGTK:3.2-gtk3= ) server? ( dev-libs/jsoncpp:= virtual/zlib upnp? ( net-libs/miniupnpc:= ) )
 REQUIRED_USE=|| ( client master server )
 SLOT=0
 SRC_URI=https://github.com/odamex/odamex/releases/download/11.0.0/odamex-src-11.0.0.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	wxwidgets	c48bf68858bd3c27c272ff034eb1e14d	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=e26d658c8d2588c3e4919a055cc9d6f0
+_md5_=5b552e66016c91db7619d4162b27a515

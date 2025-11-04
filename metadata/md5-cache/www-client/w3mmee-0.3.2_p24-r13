@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install postinst postrm prepare
-DEPEND=>=dev-libs/boehm-gc-7.2 dev-libs/libmoe dev-lang/perl sys-libs/ncurses:0= sys-libs/zlib gpm? ( sys-libs/gpm ) nls? ( sys-devel/gettext ) ssl? ( dev-libs/openssl:0= )
+DEPEND=>=dev-libs/boehm-gc-7.2 dev-libs/libmoe dev-lang/perl sys-libs/ncurses:0= virtual/zlib gpm? ( sys-libs/gpm ) nls? ( sys-devel/gettext ) ssl? ( dev-libs/openssl:0= )
 DESCRIPTION=A variant of w3m with support for multiple character encodings
 EAPI=8
 HOMEPAGE=http://pub.ks-and-ks.ne.jp/prog/w3mmee/
@@ -7,8 +7,8 @@ INHERIT=alternatives toolchain-funcs
 IUSE=gpm nls ssl
 KEYWORDS=amd64 ppc ~riscv x86
 LICENSE=w3m
-RDEPEND=>=dev-libs/boehm-gc-7.2 dev-libs/libmoe dev-lang/perl sys-libs/ncurses:0= sys-libs/zlib gpm? ( sys-libs/gpm ) nls? ( sys-devel/gettext ) ssl? ( dev-libs/openssl:0= )
+RDEPEND=>=dev-libs/boehm-gc-7.2 dev-libs/libmoe dev-lang/perl sys-libs/ncurses:0= virtual/zlib gpm? ( sys-libs/gpm ) nls? ( sys-devel/gettext ) ssl? ( dev-libs/openssl:0= )
 SLOT=0
 SRC_URI=http://pub.ks-and-ks.ne.jp/prog/pub/w3mmee-p24-23.tar.gz
 _eclasses_=alternatives	8e630f543dbc427323566317daa8cf87	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=9b999c7d4d3be787119a35ee28908c88
+_md5_=52aa76de619a499a995bb69edab68637

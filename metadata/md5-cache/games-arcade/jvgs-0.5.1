@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/swig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-libs/tinyxml[stl] media-libs/libsdl[video] media-libs/sdl-mixer[vorbis] media-libs/freetype:2 sys-libs/zlib:= x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext virtual/opengl virtual/glu
+DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-libs/tinyxml[stl] media-libs/libsdl[video] media-libs/sdl-mixer[vorbis] media-libs/freetype:2 virtual/zlib:= x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext virtual/opengl virtual/glu
 DESCRIPTION=Open-source platform game with a sketched and minimalistic look
 EAPI=8
 HOMEPAGE=https://jvgs.sourceforge.net/
@@ -8,9 +8,9 @@ INHERIT=cmake desktop lua-single
 IUSE=+lua_single_target_lua5-1
 KEYWORDS=~amd64 ~x86
 LICENSE=WTFPL-2
-RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-libs/tinyxml[stl] media-libs/libsdl[video] media-libs/sdl-mixer[vorbis] media-libs/freetype:2 sys-libs/zlib:= x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext virtual/opengl virtual/glu
+RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-libs/tinyxml[stl] media-libs/libsdl[video] media-libs/sdl-mixer[vorbis] media-libs/freetype:2 virtual/zlib:= x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXext virtual/opengl virtual/glu
 REQUIRED_USE=^^ ( lua_single_target_lua5-1 )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/jvgs/jvgs-0.5.1-src.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
-_md5_=5720d1b6462dc61664ec42304cffd385
+_md5_=2973eaa514a12bfd0bc3de2e016d5ff3

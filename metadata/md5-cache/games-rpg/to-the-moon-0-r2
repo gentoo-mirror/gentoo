@@ -7,9 +7,9 @@ INHERIT=desktop unpacker wrapper xdg
 IUSE=bundled-libs
 KEYWORDS=~amd64 ~x86
 LICENSE=all-rights-reserved bundled-libs? ( LGPL-2 LGPL-2.1 ZLIB )
-RDEPEND=media-libs/libglvnd[X] sys-libs/libxcrypt:0/1 sys-libs/zlib !bundled-libs? ( dev-libs/libsigc++:2 >=media-libs/libsdl2-2.0.1[X,joystick,opengl,sound,threads(+),video] media-libs/openal media-libs/sdl2-image[png] media-libs/sdl2-ttf )
+RDEPEND=media-libs/libglvnd[X] sys-libs/libxcrypt:0/1 virtual/zlib !bundled-libs? ( dev-libs/libsigc++:2 >=media-libs/libsdl2-2.0.1[X,joystick,opengl,sound,threads(+),video] media-libs/openal media-libs/sdl2-image[png] media-libs/sdl2-ttf )
 RESTRICT=bindist fetch
 SLOT=0
 SRC_URI=ToTheMoon_linux_1389114090.sh
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	wrapper	11a2a3bd712784986679b60a0cab34a0	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=5f119564e92c5bb0a2da4df1a4a36906
+_md5_=5e65738cec715ae1e63af00b187fe704

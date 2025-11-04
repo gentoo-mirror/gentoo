@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=media-libs/libglvnd png? ( media-libs/libpng:0= ) zlib? ( sys-libs/zlib ) doc? ( dev-tex/tth dev-texlive/texlive-latex dev-texlive/texlive-latexrecommended )
+DEPEND=media-libs/libglvnd png? ( media-libs/libpng:0= ) zlib? ( virtual/zlib ) doc? ( dev-tex/tth dev-texlive/texlive-latex dev-texlive/texlive-latexrecommended )
 DESCRIPTION=OpenGL to PostScript printing library
 EAPI=8
 HOMEPAGE=https://www.geuz.org/gl2ps/
@@ -8,8 +8,8 @@ INHERIT=cmake
 IUSE=doc png zlib
 KEYWORDS=amd64 arm arm64 ~hppa ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=LGPL-2
-RDEPEND=media-libs/libglvnd png? ( media-libs/libpng:0= ) zlib? ( sys-libs/zlib )
+RDEPEND=media-libs/libglvnd png? ( media-libs/libpng:0= ) zlib? ( virtual/zlib )
 SLOT=0
 SRC_URI=https://geuz.org/gl2ps/src/gl2ps-1.4.2.tgz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=6920fafc148e6595ea1cf8c60c7b7227
+_md5_=934b30526c737499f131932de2281628

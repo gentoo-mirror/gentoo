@@ -1,14 +1,14 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=media-libs/libsdl[X,sound,video] sys-libs/zlib:= x11-libs/libX11 x11-base/xorg-proto
+DEPEND=media-libs/libsdl[X,sound,video] virtual/zlib:= x11-libs/libX11 x11-base/xorg-proto
 DESCRIPTION=Digger Remastered
 EAPI=8
 HOMEPAGE=https://www.digger.org/
 INHERIT=cmake desktop
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
 LICENSE=GPL-2
-RDEPEND=media-libs/libsdl[X,sound,video] sys-libs/zlib:= x11-libs/libX11
+RDEPEND=media-libs/libsdl[X,sound,video] virtual/zlib:= x11-libs/libX11
 SLOT=0
 SRC_URI=mirror://gentoo/digger-20140423.tar.gz https://dev.gentoo.org/~ionen/distfiles/digger.png
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed
-_md5_=854b3ac587ab20ca902aa869a0a8becf
+_md5_=9604c450f0c2ae8fdd6445bc75697b3d

@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-libs/json-c:= dev-libs/libuv:= net-libs/libwebsockets:=[libuv,mbedtls=,ssl] sys-libs/zlib:= !mbedtls? ( dev-libs/openssl:= )
+DEPEND=dev-libs/json-c:= dev-libs/libuv:= net-libs/libwebsockets:=[libuv,mbedtls=,ssl] virtual/zlib:= !mbedtls? ( dev-libs/openssl:= )
 DESCRIPTION=ttyd, a simple command-line tool for sharing terminal over the web
 EAPI=8
 HOMEPAGE=https://github.com/tsl0922/ttyd
@@ -8,7 +8,7 @@ INHERIT=cmake systemd git-r3
 IUSE=mbedtls
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=dev-libs/json-c:= dev-libs/libuv:= net-libs/libwebsockets:=[libuv,mbedtls=,ssl] sys-libs/zlib:= !mbedtls? ( dev-libs/openssl:= )
+RDEPEND=dev-libs/json-c:= dev-libs/libuv:= net-libs/libwebsockets:=[libuv,mbedtls=,ssl] virtual/zlib:= !mbedtls? ( dev-libs/openssl:= )
 SLOT=0
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	systemd	a964c0cbe818b5729da1dbfcee5be861	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=f44872c57fc90702e495976a104abbbb
+_md5_=bb463b56ff42a35f4736c4f3619826a4
