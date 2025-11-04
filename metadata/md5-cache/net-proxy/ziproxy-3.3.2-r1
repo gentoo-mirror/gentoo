@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install prepare
-DEPEND=acct-group/ziproxy acct-user/ziproxy media-libs/giflib:= media-libs/libpng:= media-libs/libjpeg-turbo:= virtual/zlib sasl? ( dev-libs/cyrus-sasl ) xinetd? ( virtual/inetd )
+DEPEND=acct-group/ziproxy acct-user/ziproxy media-libs/giflib:= media-libs/libpng:= media-libs/libjpeg-turbo:= virtual/zlib:= sasl? ( dev-libs/cyrus-sasl ) xinetd? ( virtual/inetd )
 DESCRIPTION=Forwarding, non-caching, compressing web proxy server
 EAPI=8
 HOMEPAGE=https://ziproxy.sourceforge.net/
@@ -7,8 +7,8 @@ INHERIT=flag-o-matic
 IUSE=sasl xinetd
 KEYWORDS=~amd64 ~ppc ~riscv ~sparc ~x86
 LICENSE=GPL-2
-RDEPEND=acct-group/ziproxy acct-user/ziproxy media-libs/giflib:= media-libs/libpng:= media-libs/libjpeg-turbo:= virtual/zlib sasl? ( dev-libs/cyrus-sasl ) xinetd? ( virtual/inetd )
+RDEPEND=acct-group/ziproxy acct-user/ziproxy media-libs/giflib:= media-libs/libpng:= media-libs/libjpeg-turbo:= virtual/zlib:= sasl? ( dev-libs/cyrus-sasl ) xinetd? ( virtual/inetd )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/project/ziproxy/ziproxy/ziproxy-3.3.2/ziproxy-3.3.2.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=035355ed5ef77e621dc0224998e556d1
+_md5_=220ac08afe669ed2200611c061d853ef

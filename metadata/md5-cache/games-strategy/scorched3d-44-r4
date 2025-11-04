@@ -1,6 +1,6 @@
 BDEPEND=!dedicated? ( virtual/pkgconfig ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-libs/expat media-fonts/dejavu media-libs/libpng:0= media-libs/libsdl[video] media-libs/sdl-net virtual/zlib x11-misc/xdg-utils media-libs/libjpeg-turbo:= !dedicated? ( virtual/opengl virtual/glu media-libs/glew:0= media-libs/libogg media-libs/libvorbis media-libs/openal media-libs/freealut x11-libs/wxGTK:3.2-gtk3=[X] media-libs/freetype:2 sci-libs/fftw:3.0= ) mysql? ( dev-db/mysql-connector-c )
+DEPEND=dev-libs/expat media-fonts/dejavu media-libs/libpng:0= media-libs/libsdl[video] media-libs/sdl-net virtual/zlib:= x11-misc/xdg-utils media-libs/libjpeg-turbo:= !dedicated? ( virtual/opengl virtual/glu media-libs/glew:0= media-libs/libogg media-libs/libvorbis media-libs/openal media-libs/freealut x11-libs/wxGTK:3.2-gtk3=[X] media-libs/freetype:2 sci-libs/fftw:3.0= ) mysql? ( dev-db/mysql-connector-c )
 DESCRIPTION=Multi-player tank battle in 3D (OpenGL)
 EAPI=8
 HOMEPAGE=http://www.scorched3d.co.uk/
@@ -8,8 +8,8 @@ INHERIT=autotools desktop edos2unix flag-o-matic wxwidgets
 IUSE=dedicated mysql
 KEYWORDS=~amd64 ~ppc64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/expat media-fonts/dejavu media-libs/libpng:0= media-libs/libsdl[video] media-libs/sdl-net virtual/zlib x11-misc/xdg-utils media-libs/libjpeg-turbo:= !dedicated? ( virtual/opengl virtual/glu media-libs/glew:0= media-libs/libogg media-libs/libvorbis media-libs/openal media-libs/freealut x11-libs/wxGTK:3.2-gtk3=[X] media-libs/freetype:2 sci-libs/fftw:3.0= ) mysql? ( dev-db/mysql-connector-c )
+RDEPEND=dev-libs/expat media-fonts/dejavu media-libs/libpng:0= media-libs/libsdl[video] media-libs/sdl-net virtual/zlib:= x11-misc/xdg-utils media-libs/libjpeg-turbo:= !dedicated? ( virtual/opengl virtual/glu media-libs/glew:0= media-libs/libogg media-libs/libvorbis media-libs/openal media-libs/freealut x11-libs/wxGTK:3.2-gtk3=[X] media-libs/freetype:2 sci-libs/fftw:3.0= ) mysql? ( dev-db/mysql-connector-c )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/scorched3d/Scorched3D-44-src.tar.gz https://salsa.debian.org/games-team/scorched3d/-/raw/master/debian/scorched3d.png
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	edos2unix	33e347e171066657f91f8b0c72ec8773	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	wxwidgets	c48bf68858bd3c27c272ff034eb1e14d
-_md5_=9a284258502da4ce212696914e2099a9
+_md5_=cb7d2300d09da75c2c9fb27e82b8c2af

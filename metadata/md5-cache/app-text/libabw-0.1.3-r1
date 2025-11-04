@@ -1,13 +1,13 @@
 BDEPEND=dev-util/gperf virtual/pkgconfig doc? ( app-text/doxygen )
 DEFINED_PHASES=configure install
-DEPEND=dev-libs/librevenge dev-libs/libxml2:= virtual/zlib dev-libs/boost dev-build/libtool
+DEPEND=dev-libs/librevenge dev-libs/libxml2:= virtual/zlib:= dev-libs/boost dev-build/libtool
 DESCRIPTION=Library parsing abiword documents
 EAPI=8
 HOMEPAGE=https://wiki.documentfoundation.org/DLP/Libraries/libabw
 IUSE=doc
 KEYWORDS=amd64 ~arm arm64 ~loong ppc64 ~riscv x86
 LICENSE=MPL-2.0
-RDEPEND=dev-libs/librevenge dev-libs/libxml2:= virtual/zlib
+RDEPEND=dev-libs/librevenge dev-libs/libxml2:= virtual/zlib:=
 SLOT=0
 SRC_URI=https://dev-www.libreoffice.org/src/libabw/libabw-0.1.3.tar.xz
-_md5_=7b7e96ca74f37a47b48b449c0fb38ce8
+_md5_=4a5c161d6eca16092c5e531a17f9a020

@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare pretend setup test
-DEPEND=sys-apps/util-linux virtual/zlib virtual/blas virtual/lapack mpi? ( virtual/mpi[romio] )
+DEPEND=sys-apps/util-linux virtual/zlib:= virtual/blas virtual/lapack mpi? ( virtual/mpi[romio] )
 DESCRIPTION=Support for parallel scientific applications
 EAPI=8
 HOMEPAGE=http://www.p4est.org/
@@ -8,8 +8,8 @@ INHERIT=cmake toolchain-funcs
 IUSE=debug examples mpi openmp threads
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1+
-RDEPEND=sys-apps/util-linux virtual/zlib virtual/blas virtual/lapack mpi? ( virtual/mpi[romio] )
+RDEPEND=sys-apps/util-linux virtual/zlib:= virtual/blas virtual/lapack mpi? ( virtual/mpi[romio] )
 SLOT=0
 SRC_URI=https://github.com/cburstedde/libsc/archive/v2.8.6.tar.gz -> libsc-2.8.6.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=4dfe06336ec20aabcdfc64e6f897f6d6
+_md5_=705186a3a7203614cfefede00495704a

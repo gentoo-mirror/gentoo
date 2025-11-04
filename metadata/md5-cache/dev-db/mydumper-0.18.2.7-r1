@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig doc? ( dev-python/furo dev-python/sphinx-inline-tabs ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-arch/zstd dev-db/mysql-connector-c:= dev-libs/glib:2 dev-libs/libpcre2:= dev-libs/openssl:= virtual/zlib dev-libs/libpcre
+DEPEND=app-arch/zstd dev-db/mysql-connector-c:= dev-libs/glib:2 dev-libs/libpcre2:= dev-libs/openssl:= virtual/zlib:= dev-libs/libpcre
 DESCRIPTION=A high-performance multi-threaded backup (and restore) toolset for MySQL
 EAPI=8
 HOMEPAGE=https://github.com/mydumper/mydumper
@@ -8,8 +8,8 @@ INHERIT=cmake
 IUSE=doc
 KEYWORDS=amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=app-arch/zstd dev-db/mysql-connector-c:= dev-libs/glib:2 dev-libs/libpcre2:= dev-libs/openssl:= virtual/zlib
+RDEPEND=app-arch/zstd dev-db/mysql-connector-c:= dev-libs/glib:2 dev-libs/libpcre2:= dev-libs/openssl:= virtual/zlib:=
 SLOT=0
 SRC_URI=https://github.com/mydumper/mydumper/archive/v0.18.2-7.tar.gz -> mydumper-0.18.2-7.tar.gz https://github.com/mydumper/mydumper_docs/archive/b260deb19d8cf88a5e57abc0d271673a4bea254d.tar.gz -> mydumper-0.18.2-7_docs.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=7111ac21f2dff9c2f0ef5028a3ae05d4
+_md5_=13b25a00ac92606a2bad5bf765473b57

@@ -1,6 +1,6 @@
 BDEPEND=dev-util/gperf virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
-DEPEND=dev-libs/glib:2 virtual/zlib x11-libs/pango x11-libs/gtk+:3 judy? ( dev-libs/judy ) tcl? ( dev-lang/tcl:0 dev-lang/tk:0 ) lzma? ( app-arch/xz-utils )
+DEPEND=dev-libs/glib:2 virtual/zlib:= x11-libs/pango x11-libs/gtk+:3 judy? ( dev-libs/judy ) tcl? ( dev-lang/tcl:0 dev-lang/tk:0 ) lzma? ( app-arch/xz-utils )
 DESCRIPTION=A wave viewer for LXT, LXT2, VZT, GHW and standard Verilog VCD/EVCD files
 EAPI=8
 HOMEPAGE=http://gtkwave.sourceforge.net/
@@ -9,8 +9,8 @@ INHERIT=toolchain-funcs xdg
 IUSE=doc examples fasttree judy lzma packed tcl
 KEYWORDS=amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2 MIT
-RDEPEND=dev-libs/glib:2 virtual/zlib x11-libs/pango x11-libs/gtk+:3 judy? ( dev-libs/judy ) tcl? ( dev-lang/tcl:0 dev-lang/tk:0 ) lzma? ( app-arch/xz-utils )
+RDEPEND=dev-libs/glib:2 virtual/zlib:= x11-libs/pango x11-libs/gtk+:3 judy? ( dev-libs/judy ) tcl? ( dev-lang/tcl:0 dev-lang/tk:0 ) lzma? ( app-arch/xz-utils )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/gtkwave/gtkwave-gtk3-3.3.121.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=acc0c4541812ed556f097ee3d2165e6e
+_md5_=ae659194cd70b55a8ca353fbf9824637

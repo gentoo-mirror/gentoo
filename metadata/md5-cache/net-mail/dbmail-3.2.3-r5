@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=acct-group/dbmail acct-user/dbmail app-text/asciidoc app-crypt/mhash app-text/xmlto dev-db/libzdb >=dev-libs/glib-2.16 dev-libs/gmime:2.6 dev-libs/libevent:= virtual/zlib virtual/libcrypt:= ldap? ( >=net-nds/openldap-2.3.33:= ) sieve? ( >=mail-filter/libsieve-2.2.1 ) ssl? ( dev-libs/openssl:= ) elibc_musl? ( sys-libs/queue-standalone )
+DEPEND=acct-group/dbmail acct-user/dbmail app-text/asciidoc app-crypt/mhash app-text/xmlto dev-db/libzdb >=dev-libs/glib-2.16 dev-libs/gmime:2.6 dev-libs/libevent:= virtual/zlib:= virtual/libcrypt:= ldap? ( >=net-nds/openldap-2.3.33:= ) sieve? ( >=mail-filter/libsieve-2.2.1 ) ssl? ( dev-libs/openssl:= ) elibc_musl? ( sys-libs/queue-standalone )
 DESCRIPTION=Fast and scalable sql based email services
 EAPI=7
 HOMEPAGE=https://dbmail.org/
@@ -8,8 +8,8 @@ INHERIT=readme.gentoo-r1 systemd
 IUSE=ldap sieve ssl
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
-RDEPEND=acct-group/dbmail acct-user/dbmail app-text/asciidoc app-crypt/mhash app-text/xmlto dev-db/libzdb >=dev-libs/glib-2.16 dev-libs/gmime:2.6 dev-libs/libevent:= virtual/zlib virtual/libcrypt:= ldap? ( >=net-nds/openldap-2.3.33:= ) sieve? ( >=mail-filter/libsieve-2.2.1 ) ssl? ( dev-libs/openssl:= )
+RDEPEND=acct-group/dbmail acct-user/dbmail app-text/asciidoc app-crypt/mhash app-text/xmlto dev-db/libzdb >=dev-libs/glib-2.16 dev-libs/gmime:2.6 dev-libs/libevent:= virtual/zlib:= virtual/libcrypt:= ldap? ( >=net-nds/openldap-2.3.33:= ) sieve? ( >=mail-filter/libsieve-2.2.1 ) ssl? ( dev-libs/openssl:= )
 SLOT=0
 SRC_URI=https://github.com/dbmail/dbmail/archive/v3.2.3.tar.gz -> dbmail-3.2.3.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	systemd	a964c0cbe818b5729da1dbfcee5be861	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
-_md5_=44439c69cd92842d348f8618f92cafcc
+_md5_=ff793377c3d8c406d04a804ad60f4ef4

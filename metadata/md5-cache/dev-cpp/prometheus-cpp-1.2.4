@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=net-misc/curl virtual/zlib www-servers/civetweb[cxx] test? ( dev-cpp/benchmark dev-cpp/gtest )
+DEPEND=net-misc/curl virtual/zlib:= www-servers/civetweb[cxx] test? ( dev-cpp/benchmark dev-cpp/gtest )
 DESCRIPTION=Prometheus Client Library for Modern C++
 EAPI=8
 HOMEPAGE=https://github.com/jupp0r/prometheus-cpp
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=test zlib
 KEYWORDS=amd64 ~riscv x86
 LICENSE=MIT
-RDEPEND=net-misc/curl virtual/zlib www-servers/civetweb[cxx]
+RDEPEND=net-misc/curl virtual/zlib:= www-servers/civetweb[cxx]
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jupp0r/prometheus-cpp/archive/v1.2.4.tar.gz -> prometheus-cpp-1.2.4.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=38af4dd461dfdf8db9d2e7e9d99a592d
+_md5_=0849cf4b54555834a78c1272bc3076fe

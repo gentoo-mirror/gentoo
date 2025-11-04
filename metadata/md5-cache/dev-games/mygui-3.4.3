@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst prepare setup test
-DEPEND=media-libs/freetype:2 virtual/zlib ogre? ( >=dev-games/ogre-1.12:0=[freeimage,opengl] samples? ( dev-games/ois ) ) opengl? ( virtual/opengl media-libs/glew:0= ) tools? ( dev-games/ois )
+DEPEND=media-libs/freetype:2 virtual/zlib:= ogre? ( >=dev-games/ogre-1.12:0=[freeimage,opengl] samples? ( dev-games/ois ) ) opengl? ( virtual/opengl media-libs/glew:0= ) tools? ( dev-games/ois )
 DESCRIPTION=A library for creating GUIs for games and 3D applications
 EAPI=8
 HOMEPAGE=http://mygui.info
@@ -8,10 +8,10 @@ INHERIT=cmake flag-o-matic
 IUSE=debug doc +ogre opengl plugins samples static-libs test tools l10n_ru
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
 LICENSE=MIT
-RDEPEND=media-libs/freetype:2 virtual/zlib ogre? ( >=dev-games/ogre-1.12:0=[freeimage,opengl] samples? ( dev-games/ois ) ) opengl? ( virtual/opengl media-libs/glew:0= ) tools? ( dev-games/ois )
+RDEPEND=media-libs/freetype:2 virtual/zlib:= ogre? ( >=dev-games/ogre-1.12:0=[freeimage,opengl] samples? ( dev-games/ois ) ) opengl? ( virtual/opengl media-libs/glew:0= ) tools? ( dev-games/ois )
 REQUIRED_USE=ogre? ( !opengl ) opengl? ( !ogre )
 RESTRICT=!test? ( test )
 SLOT=0/3.4.3
 SRC_URI=https://github.com/MyGUI/mygui/archive/MyGUI3.4.3.tar.gz -> mygui-3.4.3.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=effba8ce42b99909f06e79acec27ff5c
+_md5_=c41bbeebfb57b02929be2224846b3555

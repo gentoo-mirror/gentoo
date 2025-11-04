@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install prepare
-DEPEND=media-libs/libjpeg-turbo:= virtual/zlib
+DEPEND=media-libs/libjpeg-turbo:= virtual/zlib:=
 DESCRIPTION=Command-line tool for taking JPEG snapshots of VNC servers
 EAPI=8
 HOMEPAGE=https://vncsnapshot.sourceforge.net/
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~arm64 ppc x86
 LICENSE=GPL-2+
-RDEPEND=media-libs/libjpeg-turbo:= virtual/zlib
+RDEPEND=media-libs/libjpeg-turbo:= virtual/zlib:=
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/vncsnapshot/vncsnapshot-1.2a-src.tar.bz2
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=4ad0419d8be92cf3cc36215ada6a552e
+_md5_=eb55e0aed0e044b8f2123efd52a9b4f4

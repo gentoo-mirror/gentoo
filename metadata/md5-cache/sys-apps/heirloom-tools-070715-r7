@@ -1,15 +1,15 @@
 BDEPEND=sys-apps/ed app-alternatives/bc virtual/pkgconfig
 DEFINED_PHASES=compile install postinst prepare
-DEPEND=sys-libs/ncurses:= virtual/zlib virtual/libcrypt:=
+DEPEND=sys-libs/ncurses:= virtual/zlib:= virtual/libcrypt:=
 DESCRIPTION=Heirloom toolchest - original Unix tools
 EAPI=8
 HOMEPAGE=https://heirloom.sourceforge.net/tools.html
 INHERIT=flag-o-matic readme.gentoo-r1 toolchain-funcs
 KEYWORDS=~amd64 ~ppc64 ~x86
 LICENSE=ZLIB BSD BSD-4 CDDL GPL-2+ LGPL-2.1+ LPL-1.02 Info-ZIP public-domain
-RDEPEND=sys-libs/ncurses:= virtual/zlib virtual/libcrypt:=
+RDEPEND=sys-libs/ncurses:= virtual/zlib:= virtual/libcrypt:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/heirloom/heirloom/070715/heirloom-070715.tar.bz2
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
-_md5_=3398025bded87ed880e5314bc0b9b009
+_md5_=85dd6997b380f8231a239b453c579c19

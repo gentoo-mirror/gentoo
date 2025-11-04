@@ -1,6 +1,6 @@
 BDEPEND=test? ( dev-cpp/gtest ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=alsa? ( media-libs/alsa-lib ) debug? ( sys-libs/ncurses:0= ) fluidsynth? ( media-sound/fluid-soundfont media-sound/fluidsynth ) mt-32? ( media-libs/munt-mt32emu ) network? ( media-libs/sdl2-net ) opengl? ( virtual/opengl ) slirp? ( net-libs/libslirp ) media-libs/iir1 media-libs/libpng:0= media-libs/libsdl2[joystick,opengl?,video,X] media-libs/opusfile media-libs/speexdsp virtual/zlib !games-emulation/dosbox
+DEPEND=alsa? ( media-libs/alsa-lib ) debug? ( sys-libs/ncurses:0= ) fluidsynth? ( media-sound/fluid-soundfont media-sound/fluidsynth ) mt-32? ( media-libs/munt-mt32emu ) network? ( media-libs/sdl2-net ) opengl? ( virtual/opengl ) slirp? ( net-libs/libslirp ) media-libs/iir1 media-libs/libpng:0= media-libs/libsdl2[joystick,opengl?,video,X] media-libs/opusfile media-libs/speexdsp virtual/zlib:= !games-emulation/dosbox
 DESCRIPTION=Modernized DOSBox soft-fork
 EAPI=8
 HOMEPAGE=https://dosbox-staging.github.io/
@@ -9,9 +9,9 @@ INHERIT=flag-o-matic meson xdg
 IUSE=+alsa debug dynrec +fluidsynth mt-32 network opengl slirp test
 KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
 LICENSE=GPL-2+
-RDEPEND=alsa? ( media-libs/alsa-lib ) debug? ( sys-libs/ncurses:0= ) fluidsynth? ( media-sound/fluid-soundfont media-sound/fluidsynth ) mt-32? ( media-libs/munt-mt32emu ) network? ( media-libs/sdl2-net ) opengl? ( virtual/opengl ) slirp? ( net-libs/libslirp ) media-libs/iir1 media-libs/libpng:0= media-libs/libsdl2[joystick,opengl?,video,X] media-libs/opusfile media-libs/speexdsp virtual/zlib !games-emulation/dosbox
+RDEPEND=alsa? ( media-libs/alsa-lib ) debug? ( sys-libs/ncurses:0= ) fluidsynth? ( media-sound/fluid-soundfont media-sound/fluidsynth ) mt-32? ( media-libs/munt-mt32emu ) network? ( media-libs/sdl2-net ) opengl? ( virtual/opengl ) slirp? ( net-libs/libslirp ) media-libs/iir1 media-libs/libpng:0= media-libs/libsdl2[joystick,opengl?,video,X] media-libs/opusfile media-libs/speexdsp virtual/zlib:= !games-emulation/dosbox
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/dosbox-staging/dosbox-staging/archive/v0.82.2.tar.gz -> dosbox-staging-0.82.2.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=d2db7b064837a69081f6f43540addc6e
+_md5_=519106d79dab1511c1315fbda3267ba4

@@ -1,6 +1,6 @@
 BDEPEND=test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/elfutils dev-libs/libunistring:= dev-libs/openssl:= net-dns/c-ares:= net-dns/libidn2:= net-libs/libpsl net-misc/curl net-libs/nghttp2:= sys-libs/binutils-libs:= virtual/zlib
+DEPEND=dev-libs/elfutils dev-libs/libunistring:= dev-libs/openssl:= net-dns/c-ares:= net-dns/libidn2:= net-libs/libpsl net-misc/curl net-libs/nghttp2:= sys-libs/binutils-libs:= virtual/zlib:=
 DESCRIPTION=Kcov is a code coverage tester for compiled languages, Python and Bash
 EAPI=8
 HOMEPAGE=https://github.com/SimonKagstrom/kcov/
@@ -8,9 +8,9 @@ INHERIT=cmake edo python-any-r1
 IUSE=test
 KEYWORDS=amd64 ~x86
 LICENSE=GPL-2 MIT
-RDEPEND=dev-libs/elfutils dev-libs/libunistring:= dev-libs/openssl:= net-dns/c-ares:= net-dns/libidn2:= net-libs/libpsl net-misc/curl net-libs/nghttp2:= sys-libs/binutils-libs:= virtual/zlib
+RDEPEND=dev-libs/elfutils dev-libs/libunistring:= dev-libs/openssl:= net-dns/c-ares:= net-dns/libidn2:= net-libs/libpsl net-misc/curl net-libs/nghttp2:= sys-libs/binutils-libs:= virtual/zlib:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/SimonKagstrom/kcov/archive/v43.tar.gz -> kcov-43.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	edo	a5e294016aa84979fcb2459749eb80b2	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=de9fe395741817acee37a794605bd6aa
+_md5_=49a2e6b9c09d74fe3bb3c6c7f983d01e

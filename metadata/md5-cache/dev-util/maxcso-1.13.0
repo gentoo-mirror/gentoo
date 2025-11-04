@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install
-DEPEND=app-arch/lz4 dev-libs/libuv virtual/zlib
+DEPEND=app-arch/lz4 dev-libs/libuv virtual/zlib:=
 DESCRIPTION=Fast cso compressor
 EAPI=8
 HOMEPAGE=https://github.com/unknownbrackets/maxcso
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=ISC MIT LGPL-2.1+ Apache-2.0
-RDEPEND=app-arch/lz4 dev-libs/libuv virtual/zlib
+RDEPEND=app-arch/lz4 dev-libs/libuv virtual/zlib:=
 SLOT=0
 SRC_URI=https://github.com/unknownbrackets/maxcso/archive/v1.13.0/maxcso-1.13.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=38ab80607b66d3541a8873b08f415fdd
+_md5_=d9890ccd08be2afb027a24a45287c741

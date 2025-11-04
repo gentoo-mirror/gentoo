@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=dev-db/sqlite:3 dev-libs/expat media-libs/taglib:= >=x11-libs/fox-1.7.80:1.7 x11-libs/libICE x11-libs/libSM x11-libs/libX11 a52? ( media-libs/a52dec ) aac? ( media-libs/faad2 ) alsa? ( media-libs/alsa-lib ) dbus? ( sys-apps/dbus ) dca? ( media-libs/libdca ) flac? ( media-libs/flac:= ) jack? ( virtual/jack ) libsamplerate? ( media-libs/libsamplerate ) mad? ( media-libs/libmad ) nls? ( virtual/libintl ) opengl? ( media-libs/libepoxy virtual/glu ) opus? ( media-libs/libogg media-libs/opus ) pulseaudio? ( media-libs/libpulse ) sndio? ( media-sound/sndio:= ) stream? ( dev-libs/libgcrypt:= virtual/zlib ) tremor? ( media-libs/libogg media-libs/tremor ) vorbis? ( media-libs/libogg media-libs/libvorbis ) x11-base/xorg-proto
+DEPEND=dev-db/sqlite:3 dev-libs/expat media-libs/taglib:= >=x11-libs/fox-1.7.80:1.7 x11-libs/libICE x11-libs/libSM x11-libs/libX11 a52? ( media-libs/a52dec ) aac? ( media-libs/faad2 ) alsa? ( media-libs/alsa-lib ) dbus? ( sys-apps/dbus ) dca? ( media-libs/libdca ) flac? ( media-libs/flac:= ) jack? ( virtual/jack ) libsamplerate? ( media-libs/libsamplerate ) mad? ( media-libs/libmad ) nls? ( virtual/libintl ) opengl? ( media-libs/libepoxy virtual/glu ) opus? ( media-libs/libogg media-libs/opus ) pulseaudio? ( media-libs/libpulse ) sndio? ( media-sound/sndio:= ) stream? ( dev-libs/libgcrypt:= virtual/zlib:= ) tremor? ( media-libs/libogg media-libs/tremor ) vorbis? ( media-libs/libogg media-libs/libvorbis ) x11-base/xorg-proto
 DESCRIPTION=Fast and light music player
 EAPI=8
 HOMEPAGE=https://gogglesmm.dev/
@@ -9,9 +9,9 @@ INHERIT=cmake xdg
 IUSE=a52 +aac alsa +dbus dca +flac jack libsamplerate +mad nls +opengl +opus +pulseaudio sndio stream tremor +vorbis
 KEYWORDS=amd64 x86
 LICENSE=GPL-3
-RDEPEND=dev-db/sqlite:3 dev-libs/expat media-libs/taglib:= >=x11-libs/fox-1.7.80:1.7 x11-libs/libICE x11-libs/libSM x11-libs/libX11 a52? ( media-libs/a52dec ) aac? ( media-libs/faad2 ) alsa? ( media-libs/alsa-lib ) dbus? ( sys-apps/dbus ) dca? ( media-libs/libdca ) flac? ( media-libs/flac:= ) jack? ( virtual/jack ) libsamplerate? ( media-libs/libsamplerate ) mad? ( media-libs/libmad ) nls? ( virtual/libintl ) opengl? ( media-libs/libepoxy virtual/glu ) opus? ( media-libs/libogg media-libs/opus ) pulseaudio? ( media-libs/libpulse ) sndio? ( media-sound/sndio:= ) stream? ( dev-libs/libgcrypt:= virtual/zlib ) tremor? ( media-libs/libogg media-libs/tremor ) vorbis? ( media-libs/libogg media-libs/libvorbis )
+RDEPEND=dev-db/sqlite:3 dev-libs/expat media-libs/taglib:= >=x11-libs/fox-1.7.80:1.7 x11-libs/libICE x11-libs/libSM x11-libs/libX11 a52? ( media-libs/a52dec ) aac? ( media-libs/faad2 ) alsa? ( media-libs/alsa-lib ) dbus? ( sys-apps/dbus ) dca? ( media-libs/libdca ) flac? ( media-libs/flac:= ) jack? ( virtual/jack ) libsamplerate? ( media-libs/libsamplerate ) mad? ( media-libs/libmad ) nls? ( virtual/libintl ) opengl? ( media-libs/libepoxy virtual/glu ) opus? ( media-libs/libogg media-libs/opus ) pulseaudio? ( media-libs/libpulse ) sndio? ( media-sound/sndio:= ) stream? ( dev-libs/libgcrypt:= virtual/zlib:= ) tremor? ( media-libs/libogg media-libs/tremor ) vorbis? ( media-libs/libogg media-libs/libvorbis )
 REQUIRED_USE=?? ( tremor vorbis )
 SLOT=0
 SRC_URI=https://github.com/gogglesmm/gogglesmm/archive/1.2.5.tar.gz -> gogglesmm-1.2.5.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=5024584cacaf381035b3b72688b3bb71
+_md5_=26c483a959b6f64d3ecedce67d005f70

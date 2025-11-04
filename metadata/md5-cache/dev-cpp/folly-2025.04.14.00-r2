@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=app-arch/bzip2 app-arch/lz4:= app-arch/snappy:= app-arch/xz-utils app-arch/zstd:= dev-cpp/fast_float:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] >=dev-libs/boost-1.71:=[context] dev-libs/double-conversion:= dev-libs/libaio dev-libs/libevent:= dev-libs/libfmt:= dev-libs/libsodium:= dev-libs/openssl:= virtual/zlib llvm-libunwind? ( llvm-runtimes/libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) io-uring? ( >=sys-libs/liburing-2.10:= ) sys-libs/binutils-libs test? ( dev-cpp/gtest )
+DEPEND=app-arch/bzip2 app-arch/lz4:= app-arch/snappy:= app-arch/xz-utils app-arch/zstd:= dev-cpp/fast_float:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] >=dev-libs/boost-1.71:=[context] dev-libs/double-conversion:= dev-libs/libaio dev-libs/libevent:= dev-libs/libfmt:= dev-libs/libsodium:= dev-libs/openssl:= virtual/zlib:= llvm-libunwind? ( llvm-runtimes/libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) io-uring? ( >=sys-libs/liburing-2.10:= ) sys-libs/binutils-libs test? ( dev-cpp/gtest )
 DESCRIPTION=An open-source C++ library developed and used at Facebook
 EAPI=8
 HOMEPAGE=https://github.com/facebook/folly
@@ -8,9 +8,9 @@ INHERIT=flag-o-matic cmake toolchain-funcs
 IUSE=io-uring llvm-libunwind test
 KEYWORDS=~amd64 ~arm64 ~ppc64
 LICENSE=Apache-2.0
-RDEPEND=app-arch/bzip2 app-arch/lz4:= app-arch/snappy:= app-arch/xz-utils app-arch/zstd:= dev-cpp/fast_float:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] >=dev-libs/boost-1.71:=[context] dev-libs/double-conversion:= dev-libs/libaio dev-libs/libevent:= dev-libs/libfmt:= dev-libs/libsodium:= dev-libs/openssl:= virtual/zlib llvm-libunwind? ( llvm-runtimes/libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) io-uring? ( >=sys-libs/liburing-2.10:= )
+RDEPEND=app-arch/bzip2 app-arch/lz4:= app-arch/snappy:= app-arch/xz-utils app-arch/zstd:= dev-cpp/fast_float:= dev-cpp/gflags:= dev-cpp/glog:=[gflags] >=dev-libs/boost-1.71:=[context] dev-libs/double-conversion:= dev-libs/libaio dev-libs/libevent:= dev-libs/libfmt:= dev-libs/libsodium:= dev-libs/openssl:= virtual/zlib:= llvm-libunwind? ( llvm-runtimes/libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) io-uring? ( >=sys-libs/liburing-2.10:= )
 RESTRICT=!test? ( test )
 SLOT=0/2025.04.14.00
 SRC_URI=https://github.com/facebook/folly/releases/download/v2025.04.14.00/folly-v2025.04.14.00.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=33ea7638ad927ec28c5ad0b5cb22d1c6
+_md5_=12caa39999693d9f06fd4a2ea5e2f42b

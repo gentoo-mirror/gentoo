@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/swig doc? ( app-text/doxygen dev-texlive/texlive-bibtexextra dev-texlive/texlive-fontsextra dev-texlive/texlive-fontutils dev-texlive/texlive-latex dev-texlive/texlive-latexextra ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) media-libs/freeglut media-libs/glu virtual/zlib virtual/opengl test? ( dev-cpp/gtest )
+DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) media-libs/freeglut media-libs/glu virtual/zlib:= virtual/opengl test? ( dev-cpp/gtest )
 DESCRIPTION=Library for particle IO and manipulation
 EAPI=8
 HOMEPAGE=https://partio.us/
@@ -8,10 +8,10 @@ INHERIT=cmake python-single-r1
 IUSE=doc test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=amd64 ~arm ~arm64 ~ppc64 x86
 LICENSE=BSD
-RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) media-libs/freeglut media-libs/glu virtual/zlib virtual/opengl
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) media-libs/freeglut media-libs/glu virtual/zlib:= virtual/opengl
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/wdas/partio/archive/v1.19.0.tar.gz -> partio-1.19.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=96ddaa1d2f09ef8c77876b282a354765
+_md5_=7c6a99ed5bfb4f9c822c8d62bef8f692

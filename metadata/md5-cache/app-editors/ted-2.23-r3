@@ -1,14 +1,14 @@
 BDEPEND=sys-apps/lsb-release virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare
-DEPEND=app-text/libpaper:= dev-libs/libpcre2 media-libs/fontconfig media-libs/freetype media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/tiff:= virtual/zlib virtual/libiconv x11-libs/libXft x11-libs/libXpm x11-libs/motif
+DEPEND=app-text/libpaper:= dev-libs/libpcre2 media-libs/fontconfig media-libs/freetype media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/tiff:= virtual/zlib:= virtual/libiconv x11-libs/libXft x11-libs/libXpm x11-libs/motif
 DESCRIPTION=X-based rich text editor
 EAPI=7
 HOMEPAGE=https://ftp.nluug.nl/pub/editors/ted/
 INHERIT=toolchain-funcs xdg-utils
 KEYWORDS=amd64 ppc ~riscv ~sparc x86
 LICENSE=GPL-2
-RDEPEND=app-text/libpaper:= dev-libs/libpcre2 media-libs/fontconfig media-libs/freetype media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/tiff:= virtual/zlib virtual/libiconv x11-libs/libXft x11-libs/libXpm x11-libs/motif
+RDEPEND=app-text/libpaper:= dev-libs/libpcre2 media-libs/fontconfig media-libs/freetype media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/tiff:= virtual/zlib:= virtual/libiconv x11-libs/libXft x11-libs/libXpm x11-libs/motif
 SLOT=0
 SRC_URI=ftp://ftp.nluug.nl/pub/editors/ted/ted-2.23.src.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=6d983e9a1d0ed0f1c7eb4b82fb5fb0d8
+_md5_=48d7983ac95cb1e518853980805e241f

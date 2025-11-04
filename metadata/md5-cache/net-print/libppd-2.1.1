@@ -1,6 +1,6 @@
 BDEPEND=>=sys-devel/gettext-0.18.3 virtual/pkgconfig >=app-portage/elt-patches-20250306
 DEFINED_PHASES=configure install prepare
-DEPEND=>=net-print/cups-2 net-print/libcupsfilters !<net-print/cups-filters-2.0.0 virtual/zlib postscript? ( >=app-text/ghostscript-gpl-9.09[cups] ) poppler? ( >=app-text/poppler-0.32[utils] )
+DEPEND=>=net-print/cups-2 net-print/libcupsfilters !<net-print/cups-filters-2.0.0 virtual/zlib:= postscript? ( >=app-text/ghostscript-gpl-9.09[cups] ) poppler? ( >=app-text/poppler-0.32[utils] )
 DESCRIPTION=Legacy library for PPD files, split out of cups-filters
 EAPI=8
 HOMEPAGE=https://github.com/OpenPrinting/libppd
@@ -8,9 +8,9 @@ INHERIT=libtool
 IUSE=+postscript +poppler
 KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86
 LICENSE=Apache-2.0
-RDEPEND=>=net-print/cups-2 net-print/libcupsfilters !<net-print/cups-filters-2.0.0 virtual/zlib postscript? ( >=app-text/ghostscript-gpl-9.09[cups] ) poppler? ( >=app-text/poppler-0.32[utils] )
+RDEPEND=>=net-print/cups-2 net-print/libcupsfilters !<net-print/cups-filters-2.0.0 virtual/zlib:= postscript? ( >=app-text/ghostscript-gpl-9.09[cups] ) poppler? ( >=app-text/poppler-0.32[utils] )
 REQUIRED_USE=|| ( postscript poppler )
 SLOT=0
 SRC_URI=https://github.com/OpenPrinting/libppd/releases/download/2.1.1/libppd-2.1.1.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402
-_md5_=c8746295e4e9bc4c3bd7bcce3a3a38fb
+_md5_=05cc52b635410f0c1c26d24f8f090f15

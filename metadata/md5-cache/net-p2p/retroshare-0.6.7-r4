@@ -1,6 +1,6 @@
 BDEPEND=dev-build/cmake dev-qt/qtcore:5 virtual/pkgconfig gui? ( x11-base/xorg-proto ) jsonapi? ( app-text/doxygen )
 DEFINED_PHASES=configure install postinst postrm preinst
-DEPEND=app-arch/bzip2 dev-libs/openssl:0= virtual/zlib gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 x11-libs/libX11 x11-libs/libXScrnSaver ) keyring? ( app-crypt/libsecret ) libupnp? ( net-libs/libupnp:= ) miniupnp? ( net-libs/miniupnpc:= ) plugins? ( media-libs/speex media-libs/speexdsp media-video/ffmpeg-compat:4= ) sqlcipher? ( dev-db/sqlcipher ) !sqlcipher? ( dev-db/sqlite:3 ) gui? ( dev-qt/designer:5 ) jsonapi? ( >=dev-libs/rapidjson-1.1.0 )
+DEPEND=app-arch/bzip2 dev-libs/openssl:0= virtual/zlib:= gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 x11-libs/libX11 x11-libs/libXScrnSaver ) keyring? ( app-crypt/libsecret ) libupnp? ( net-libs/libupnp:= ) miniupnp? ( net-libs/miniupnpc:= ) plugins? ( media-libs/speex media-libs/speexdsp media-video/ffmpeg-compat:4= ) sqlcipher? ( dev-db/sqlcipher ) !sqlcipher? ( dev-db/sqlite:3 ) gui? ( dev-qt/designer:5 ) jsonapi? ( >=dev-libs/rapidjson-1.1.0 )
 DESCRIPTION=Friend to Friend secure communication and sharing application
 EAPI=8
 HOMEPAGE=https://retroshare.cc
@@ -9,9 +9,9 @@ INHERIT=desktop ffmpeg-compat flag-o-matic qmake-utils xdg
 IUSE=cli +gui +jsonapi keyring libupnp +miniupnp plugins +service +sqlcipher
 KEYWORDS=amd64 x86
 LICENSE=AGPL-3 Apache-2.0 CC-BY-SA-4.0 GPL-2 GPL-3 LGPL-3
-RDEPEND=app-arch/bzip2 dev-libs/openssl:0= virtual/zlib gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 x11-libs/libX11 x11-libs/libXScrnSaver ) keyring? ( app-crypt/libsecret ) libupnp? ( net-libs/libupnp:= ) miniupnp? ( net-libs/miniupnpc:= ) plugins? ( media-libs/speex media-libs/speexdsp media-video/ffmpeg-compat:4= ) sqlcipher? ( dev-db/sqlcipher ) !sqlcipher? ( dev-db/sqlite:3 )
+RDEPEND=app-arch/bzip2 dev-libs/openssl:0= virtual/zlib:= gui? ( dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtmultimedia:5 dev-qt/qtnetwork:5 dev-qt/qtprintsupport:5 dev-qt/qtwidgets:5 dev-qt/qtx11extras:5 dev-qt/qtxml:5 x11-libs/libX11 x11-libs/libXScrnSaver ) keyring? ( app-crypt/libsecret ) libupnp? ( net-libs/libupnp:= ) miniupnp? ( net-libs/miniupnpc:= ) plugins? ( media-libs/speex media-libs/speexdsp media-video/ffmpeg-compat:4= ) sqlcipher? ( dev-db/sqlcipher ) !sqlcipher? ( dev-db/sqlite:3 )
 REQUIRED_USE=|| ( gui service ) ?? ( libupnp miniupnp ) plugins? ( gui ) service? ( || ( cli jsonapi ) )
 SLOT=0
 SRC_URI=https://download.opensuse.org/repositories/network:/retroshare/Debian_Testing/retroshare-common_0.6.7.orig.tar.gz -> retroshare-0.6.7.tar.gz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	ffmpeg-compat	9fb95232cbc648b5a3556767a2a5030d	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=24eed615bb5c6b98d1fd95f4cfc80682
+_md5_=c874dc8adb1f02840748fdcdae414ff1

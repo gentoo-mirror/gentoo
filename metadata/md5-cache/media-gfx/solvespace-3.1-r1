@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test
-DEPEND=dev-cpp/atkmm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0[X] dev-cpp/pangomm:1.4 dev-libs/glib:2 dev-libs/json-c:= dev-libs/libsigc++:2 dev-libs/libspnav[X] media-libs/fontconfig media-libs/freetype:2[X] media-libs/libpng:0= virtual/zlib virtual/opengl x11-libs/cairo[X] x11-libs/gtk+:3[X] system-mimalloc? ( dev-libs/mimalloc:= ) dev-cpp/eigen:3
+DEPEND=dev-cpp/atkmm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0[X] dev-cpp/pangomm:1.4 dev-libs/glib:2 dev-libs/json-c:= dev-libs/libsigc++:2 dev-libs/libspnav[X] media-libs/fontconfig media-libs/freetype:2[X] media-libs/libpng:0= virtual/zlib:= virtual/opengl x11-libs/cairo[X] x11-libs/gtk+:3[X] system-mimalloc? ( dev-libs/mimalloc:= ) dev-cpp/eigen:3
 DESCRIPTION=Parametric 2d/3d CAD
 EAPI=8
 HOMEPAGE=https://solvespace.com
@@ -9,8 +9,8 @@ INHERIT=cmake toolchain-funcs xdg
 IUSE=openmp +system-mimalloc
 KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=BitstreamVera GPL-2+ GPL-3+ !system-mimalloc? ( MIT )
-RDEPEND=dev-cpp/atkmm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0[X] dev-cpp/pangomm:1.4 dev-libs/glib:2 dev-libs/json-c:= dev-libs/libsigc++:2 dev-libs/libspnav[X] media-libs/fontconfig media-libs/freetype:2[X] media-libs/libpng:0= virtual/zlib virtual/opengl x11-libs/cairo[X] x11-libs/gtk+:3[X] system-mimalloc? ( dev-libs/mimalloc:= )
+RDEPEND=dev-cpp/atkmm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0[X] dev-cpp/pangomm:1.4 dev-libs/glib:2 dev-libs/json-c:= dev-libs/libsigc++:2 dev-libs/libspnav[X] media-libs/fontconfig media-libs/freetype:2[X] media-libs/libpng:0= virtual/zlib:= virtual/opengl x11-libs/cairo[X] x11-libs/gtk+:3[X] system-mimalloc? ( dev-libs/mimalloc:= )
 SLOT=0
 SRC_URI=https://github.com/solvespace/solvespace/archive/v3.1.tar.gz -> solvespace-3.1.tar.gz https://github.com/solvespace/libdxfrw/archive/0b7b7b709d9299565db603f878214656ef5e9ddf.tar.gz -> libdxfrw-0.6.3-0b7b7b709d9299565db603f878214656ef5e9ddf.tar.gz !system-mimalloc? ( https://github.com/microsoft/mimalloc/archive/f819dbb4e4813fab464aee16770f39f11476bfea.tar.gz -> mimalloc-2.0.6-f819dbb4e4813fab464aee16770f39f11476bfea.tar.gz )
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=d2b017b2d9b26d747139d6ba7e87cd19
+_md5_=67641b349ab839639112a8942d7d4750

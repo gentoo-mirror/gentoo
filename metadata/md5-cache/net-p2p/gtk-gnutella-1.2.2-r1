@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare
-DEPEND=sys-libs/binutils-libs:= dev-libs/glib:2 virtual/zlib gtk? ( >=x11-libs/gtk+-2.2.1:2 ) dbus? ( >=sys-apps/dbus-0.35.2 ) ssl? ( >=net-libs/gnutls-2.2.5 ) nls? ( >=sys-devel/gettext-0.11.5 )
+DEPEND=sys-libs/binutils-libs:= dev-libs/glib:2 virtual/zlib:= gtk? ( >=x11-libs/gtk+-2.2.1:2 ) dbus? ( >=sys-apps/dbus-0.35.2 ) ssl? ( >=net-libs/gnutls-2.2.5 ) nls? ( >=sys-devel/gettext-0.11.5 )
 DESCRIPTION=GTK+ Gnutella client
 EAPI=8
 HOMEPAGE=https://gtk-gnutella.sourceforge.net/
@@ -8,8 +8,8 @@ INHERIT=flag-o-matic strip-linguas toolchain-funcs
 IUSE=nls dbus ssl +gtk
 KEYWORDS=amd64 ppc ppc64 x86
 LICENSE=CC-BY-SA-4.0 GPL-2
-RDEPEND=sys-libs/binutils-libs:= dev-libs/glib:2 virtual/zlib gtk? ( >=x11-libs/gtk+-2.2.1:2 ) dbus? ( >=sys-apps/dbus-0.35.2 ) ssl? ( >=net-libs/gnutls-2.2.5 ) nls? ( >=sys-devel/gettext-0.11.5 )
+RDEPEND=sys-libs/binutils-libs:= dev-libs/glib:2 virtual/zlib:= gtk? ( >=x11-libs/gtk+-2.2.1:2 ) dbus? ( >=sys-apps/dbus-0.35.2 ) ssl? ( >=net-libs/gnutls-2.2.5 ) nls? ( >=sys-devel/gettext-0.11.5 )
 SLOT=0
 SRC_URI=https://github.com/gtk-gnutella/gtk-gnutella/archive/v1.2.2.tar.gz -> gtk-gnutella-1.2.2.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	strip-linguas	9d8d529d8082ec56dd495636df194d64
-_md5_=8baddc793ee791cb4bdc10c7043b2510
+_md5_=e4fef53ba1936683fad7b5509a35a8ab

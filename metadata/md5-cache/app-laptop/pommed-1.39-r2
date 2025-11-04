@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile install setup
-DEPEND=media-libs/alsa-lib media-libs/audiofile dev-libs/confuse dev-libs/dbus-glib sys-apps/dbus virtual/zlib amd64? ( sys-apps/pciutils ) x86? ( sys-apps/pciutils ) gtk? ( x11-libs/gtk+:2 ) X? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXpm )
+DEPEND=media-libs/alsa-lib media-libs/audiofile dev-libs/confuse dev-libs/dbus-glib sys-apps/dbus virtual/zlib:= amd64? ( sys-apps/pciutils ) x86? ( sys-apps/pciutils ) gtk? ( x11-libs/gtk+:2 ) X? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXpm )
 DESCRIPTION=Manage screen and keyboard backlight on Apple MacBook Pro/PowerBook
 EAPI=7
 HOMEPAGE=http://technologeek.org/projects/pommed/index.html
@@ -8,8 +8,8 @@ INHERIT=desktop linux-info systemd
 IUSE=gtk X
 KEYWORDS=amd64 ppc x86
 LICENSE=GPL-2
-RDEPEND=media-libs/alsa-lib media-libs/audiofile dev-libs/confuse dev-libs/dbus-glib sys-apps/dbus virtual/zlib amd64? ( sys-apps/pciutils ) x86? ( sys-apps/pciutils ) gtk? ( x11-libs/gtk+:2 ) X? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXpm ) media-sound/alsa-utils sys-apps/util-linux
+RDEPEND=media-libs/alsa-lib media-libs/audiofile dev-libs/confuse dev-libs/dbus-glib sys-apps/dbus virtual/zlib:= amd64? ( sys-apps/pciutils ) x86? ( sys-apps/pciutils ) gtk? ( x11-libs/gtk+:2 ) X? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXpm ) media-sound/alsa-utils sys-apps/util-linux
 SLOT=0
 SRC_URI=http://alioth.debian.org/frs/download.php/3583/pommed-1.39.tar.gz
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	linux-info	efd923656513c879204fec6638eadee5	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=c66e30c0d32267b097831c5c3cc738ac
+_md5_=4242c117c9821394a68199721f6e69b5

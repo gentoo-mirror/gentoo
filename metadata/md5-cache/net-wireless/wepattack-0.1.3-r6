@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile install prepare
-DEPEND=dev-libs/openssl:= net-libs/libpcap virtual/zlib
+DEPEND=dev-libs/openssl:= net-libs/libpcap virtual/zlib:=
 DESCRIPTION=WLAN tool for breaking 802.11 WEP keys
 EAPI=8
 HOMEPAGE=http://wepattack.sourceforge.net/
@@ -7,8 +7,8 @@ INHERIT=toolchain-funcs
 IUSE=john
 KEYWORDS=amd64 x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/openssl:= net-libs/libpcap virtual/zlib john? ( || ( app-crypt/johntheripper app-crypt/johntheripper-jumbo ) )
+RDEPEND=dev-libs/openssl:= net-libs/libpcap virtual/zlib:= john? ( || ( app-crypt/johntheripper app-crypt/johntheripper-jumbo ) )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/wepattack/WepAttack-0.1.3.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=d85d3877d07ebb3e867a56d5d367eb29
+_md5_=b516b80787172c88ed47ad7daadae442

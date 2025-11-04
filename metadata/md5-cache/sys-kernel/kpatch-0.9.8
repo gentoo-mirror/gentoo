@@ -1,6 +1,6 @@
 BDEPEND=dev-util/pahole sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig )
 DEFINED_PHASES=compile install postinst prepare setup
-DEPEND=app-crypt/pesign virtual/zlib sys-apps/pciutils dev-libs/elfutils app-alternatives/yacc test? ( || ( dev-util/shellcheck-bin dev-util/shellcheck ) ) virtual/linux-sources
+DEPEND=app-crypt/pesign virtual/zlib:= sys-apps/pciutils dev-libs/elfutils app-alternatives/yacc test? ( || ( dev-util/shellcheck-bin dev-util/shellcheck ) ) virtual/linux-sources
 DESCRIPTION=Dynamic kernel patching for Linux
 EAPI=8
 HOMEPAGE=https://github.com/dynup/kpatch
@@ -9,9 +9,9 @@ INHERIT=flag-o-matic linux-mod-r1
 IUSE=contrib +kpatch +kpatch-build kmod test dist-kernel modules-compress modules-sign +strip
 KEYWORDS=~amd64
 LICENSE=GPL-2+
-RDEPEND=app-crypt/pesign virtual/zlib sys-apps/pciutils sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
+RDEPEND=app-crypt/pesign virtual/zlib:= sys-apps/pciutils sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/dynup/kpatch/archive/v0.9.8.tar.gz -> kpatch-0.9.8.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	dist-kernel-utils	a40de3638d3f7a89f4c45d1a62b90e20	edo	a5e294016aa84979fcb2459749eb80b2	linux-info	efd923656513c879204fec6638eadee5	multiprocessing	1e32df7deee68372153dca65f4a7c21f	linux-mod-r1	2b1749a4ea9e1aea780b1b54dd2f65f1
-_md5_=aefd62dc95616b9dd10262a58581e81b
+_md5_=29b243090e13f84750047d6362d5f127

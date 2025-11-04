@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/ruby:* virtual/pkgconfig doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/mxml:0 media-libs/liblo sci-libs/fftw:3.0 virtual/zlib virtual/opengl alsa? ( media-libs/alsa-lib ) doc? ( dev-texlive/texlive-fontutils ) dssi? ( media-libs/dssi ) jack? ( virtual/jack ) lash? ( media-sound/lash ) portaudio? ( media-libs/portaudio )
+DEPEND=dev-libs/mxml:0 media-libs/liblo sci-libs/fftw:3.0 virtual/zlib:= virtual/opengl alsa? ( media-libs/alsa-lib ) doc? ( dev-texlive/texlive-fontutils ) dssi? ( media-libs/dssi ) jack? ( virtual/jack ) lash? ( media-sound/lash ) portaudio? ( media-libs/portaudio )
 DESCRIPTION=Software synthesizer capable of making a countless number of instruments
 EAPI=8
 HOMEPAGE=https://zynaddsubfx.sourceforge.net/
@@ -8,9 +8,9 @@ INHERIT=cmake flag-o-matic
 IUSE=+alsa doc dssi jack lash portaudio
 KEYWORDS=amd64 ~ppc x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/mxml:0 media-libs/liblo sci-libs/fftw:3.0 virtual/zlib virtual/opengl alsa? ( media-libs/alsa-lib ) doc? ( dev-texlive/texlive-fontutils ) dssi? ( media-libs/dssi ) jack? ( virtual/jack ) lash? ( media-sound/lash ) portaudio? ( media-libs/portaudio ) media-fonts/roboto
+RDEPEND=dev-libs/mxml:0 media-libs/liblo sci-libs/fftw:3.0 virtual/zlib:= virtual/opengl alsa? ( media-libs/alsa-lib ) doc? ( dev-texlive/texlive-fontutils ) dssi? ( media-libs/dssi ) jack? ( virtual/jack ) lash? ( media-sound/lash ) portaudio? ( media-libs/portaudio ) media-fonts/roboto
 REQUIRED_USE=|| ( alsa jack portaudio )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/zynaddsubfx/zynaddsubfx-3.0.6.tar.bz2 https://downloads.sourceforge.net/zynaddsubfx/zyn-fusion-ui-src-3.0.6.tar.bz2
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=6f9fd6c1a6cf39903b4a013dd2ab1acd
+_md5_=778a7571350b93425d48470c67d2bffb

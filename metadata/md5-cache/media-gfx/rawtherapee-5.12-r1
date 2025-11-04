@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm prepare pretend setup test
-DEPEND=dev-cpp/atkmm:0 dev-cpp/cairomm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/pangomm:1.4 dev-libs/expat dev-libs/glib:2 dev-libs/libsigc++:2 gnome-base/librsvg:2 media-gfx/exiv2:= media-libs/lcms:2 media-libs/lensfun || ( media-libs/libcanberra-gtk3 media-libs/libcanberra[gtk3(-)] ) media-libs/libiptcdata media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/libraw:= media-libs/tiff:= sci-libs/fftw:3.0= virtual/zlib x11-libs/gtk+:3 jpegxl? ( media-libs/libjxl:= ) tcmalloc? ( dev-util/google-perftools )
+DEPEND=dev-cpp/atkmm:0 dev-cpp/cairomm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/pangomm:1.4 dev-libs/expat dev-libs/glib:2 dev-libs/libsigc++:2 gnome-base/librsvg:2 media-gfx/exiv2:= media-libs/lcms:2 media-libs/lensfun || ( media-libs/libcanberra-gtk3 media-libs/libcanberra[gtk3(-)] ) media-libs/libiptcdata media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/libraw:= media-libs/tiff:= sci-libs/fftw:3.0= virtual/zlib:= x11-libs/gtk+:3 jpegxl? ( media-libs/libjxl:= ) tcmalloc? ( dev-util/google-perftools )
 DESCRIPTION=A powerful cross-platform raw image processing program
 EAPI=8
 HOMEPAGE=https://www.rawtherapee.com/
@@ -8,8 +8,8 @@ INHERIT=cmake flag-o-matic toolchain-funcs xdg-utils
 IUSE=jpegxl openmp tcmalloc
 KEYWORDS=~amd64 ~riscv ~x86
 LICENSE=GPL-3
-RDEPEND=dev-cpp/atkmm:0 dev-cpp/cairomm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/pangomm:1.4 dev-libs/expat dev-libs/glib:2 dev-libs/libsigc++:2 gnome-base/librsvg:2 media-gfx/exiv2:= media-libs/lcms:2 media-libs/lensfun || ( media-libs/libcanberra-gtk3 media-libs/libcanberra[gtk3(-)] ) media-libs/libiptcdata media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/libraw:= media-libs/tiff:= sci-libs/fftw:3.0= virtual/zlib x11-libs/gtk+:3 jpegxl? ( media-libs/libjxl:= ) tcmalloc? ( dev-util/google-perftools )
+RDEPEND=dev-cpp/atkmm:0 dev-cpp/cairomm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/pangomm:1.4 dev-libs/expat dev-libs/glib:2 dev-libs/libsigc++:2 gnome-base/librsvg:2 media-gfx/exiv2:= media-libs/lcms:2 media-libs/lensfun || ( media-libs/libcanberra-gtk3 media-libs/libcanberra[gtk3(-)] ) media-libs/libiptcdata media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/libraw:= media-libs/tiff:= sci-libs/fftw:3.0= virtual/zlib:= x11-libs/gtk+:3 jpegxl? ( media-libs/libjxl:= ) tcmalloc? ( dev-util/google-perftools )
 SLOT=0
 SRC_URI=https://github.com/Beep6581/RawTherapee/releases/download/5.12/rawtherapee-5.12.tar.xz https://raw.githubusercontent.com/digitalcarp/RawTherapee/refs/heads/meyer-5.12/patch/0001-Fix-static-init-order-fiasco-crashes.patch
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=9e84cc479842088bb8dc5eb0f4e8bd89
+_md5_=fca0630b1d7e5267de8fedadfc69d96b

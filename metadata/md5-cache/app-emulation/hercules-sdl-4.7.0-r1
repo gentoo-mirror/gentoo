@@ -1,6 +1,6 @@
 BDEPEND=test? ( || ( dev-lang/regina-rexx dev-lang/oorexx ) ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=dev-libs/libltdl net-libs/libnsl:0 virtual/zlib bzip2? ( app-arch/bzip2 ) object-rexx? ( dev-lang/oorexx ) regina-rexx? ( dev-lang/regina-rexx ) ~app-emulation/hercules-sdl-crypto-4.7.0 ~app-emulation/hercules-sdl-decnumber-4.7.0 ~app-emulation/hercules-sdl-softfloat-4.7.0 ~app-emulation/hercules-sdl-telnet-4.7.0
+DEPEND=dev-libs/libltdl net-libs/libnsl:0 virtual/zlib:= bzip2? ( app-arch/bzip2 ) object-rexx? ( dev-lang/oorexx ) regina-rexx? ( dev-lang/regina-rexx ) ~app-emulation/hercules-sdl-crypto-4.7.0 ~app-emulation/hercules-sdl-decnumber-4.7.0 ~app-emulation/hercules-sdl-softfloat-4.7.0 ~app-emulation/hercules-sdl-telnet-4.7.0
 DESCRIPTION=The SoftDevLabs (SDL) version of the Hercules 4.x Hyperion Emulator
 EAPI=8
 HOMEPAGE=https://sdl-hercules-390.github.io/html/
@@ -9,9 +9,9 @@ INHERIT=autotools fcaps
 IUSE=bzip2 debug object-rexx regina-rexx test +filecaps
 KEYWORDS=amd64 ppc64
 LICENSE=QPL-1.0
-RDEPEND=!app-emulation/hercules !app-arch/tapeutils dev-libs/libltdl net-libs/libnsl:0 virtual/zlib bzip2? ( app-arch/bzip2 ) object-rexx? ( dev-lang/oorexx ) regina-rexx? ( dev-lang/regina-rexx )
+RDEPEND=!app-emulation/hercules !app-arch/tapeutils dev-libs/libltdl net-libs/libnsl:0 virtual/zlib:= bzip2? ( app-arch/bzip2 ) object-rexx? ( dev-lang/oorexx ) regina-rexx? ( dev-lang/regina-rexx )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/SDL-Hercules-390/hyperion/archive/refs/tags/Release_4.7.tar.gz -> hercules-sdl-4.7.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	fcaps	e868eb04ddde039c83f6505a0cd0a4ac
-_md5_=73dc399e73134a7b92616c7b8bdbc3ee
+_md5_=3b8d7c75a7a05834c6220e15f46fc8b3

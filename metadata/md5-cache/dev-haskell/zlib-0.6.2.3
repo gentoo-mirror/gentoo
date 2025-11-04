@@ -1,6 +1,6 @@
 BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
-DEPEND=>=dev-lang/ghc-8.4.3:= virtual/zlib >=dev-haskell/cabal-2.2.0.1 virtual/pkgconfig test? ( >=dev-haskell/quickcheck-2 <dev-haskell/quickcheck-3 >=dev-haskell/tasty-0.8 <dev-haskell/tasty-1.5 >=dev-haskell/tasty-hunit-0.8 <dev-haskell/tasty-hunit-0.11 >=dev-haskell/tasty-quickcheck-0.8 <dev-haskell/tasty-quickcheck-0.11 ) hscolour? ( dev-haskell/hscolour )
+DEPEND=>=dev-lang/ghc-8.4.3:= virtual/zlib:= >=dev-haskell/cabal-2.2.0.1 virtual/pkgconfig test? ( >=dev-haskell/quickcheck-2 <dev-haskell/quickcheck-3 >=dev-haskell/tasty-0.8 <dev-haskell/tasty-1.5 >=dev-haskell/tasty-hunit-0.8 <dev-haskell/tasty-hunit-0.11 >=dev-haskell/tasty-quickcheck-0.8 <dev-haskell/tasty-quickcheck-0.11 ) hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Compression and decompression in the gzip and zlib formats
 EAPI=8
 HOMEPAGE=https://hackage.haskell.org/package/zlib
@@ -8,9 +8,9 @@ INHERIT=haskell-cabal
 IUSE=bundled-c-zlib non-blocking-ffi doc hscolour profile test
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86 ~ppc-macos
 LICENSE=BSD
-RDEPEND=>=dev-lang/ghc-8.4.3:= virtual/zlib dev-lang/ghc:=[profile?]
+RDEPEND=>=dev-lang/ghc-8.4.3:= virtual/zlib:= dev-lang/ghc:=[profile?]
 RESTRICT=!test? ( test )
 SLOT=0/0.6.2.3
 SRC_URI=https://hackage.haskell.org/package/zlib-0.6.2.3/zlib-0.6.2.3.tar.gz https://hackage.haskell.org/package/zlib-0.6.2.3/revision/1.cabal -> zlib-0.6.2.3-rev1.cabal
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	multilib	a199af442898963433d6f038a88cce9c	haskell-cabal	bad13a2329d86d55e2032a804a9d93a4
-_md5_=26025365aec872b520d56aef82f83a58
+_md5_=e6749e20c865b79f10f9168109bb70fd

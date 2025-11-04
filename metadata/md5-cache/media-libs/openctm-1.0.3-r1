@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install prepare
-DEPEND=dev-libs/tinyxml media-libs/freeglut media-libs/glew:0= media-libs/pnglite virtual/zlib virtual/jpeg:0 virtual/opengl x11-libs/gtk+:2
+DEPEND=dev-libs/tinyxml media-libs/freeglut media-libs/glew:0= media-libs/pnglite virtual/zlib:= virtual/jpeg:0 virtual/opengl x11-libs/gtk+:2
 DESCRIPTION=OpenCTM - the Open Compressed Triangle Mesh
 EAPI=7
 HOMEPAGE=http://openctm.sourceforge.net
 INHERIT=edos2unix flag-o-matic toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/tinyxml media-libs/freeglut media-libs/glew:0= media-libs/pnglite virtual/zlib virtual/jpeg:0 virtual/opengl x11-libs/gtk+:2
+RDEPEND=dev-libs/tinyxml media-libs/freeglut media-libs/glew:0= media-libs/pnglite virtual/zlib:= virtual/jpeg:0 virtual/opengl x11-libs/gtk+:2
 SLOT=0/1
 SRC_URI=https://downloads.sourceforge.net/project/openctm/OpenCTM-1.0.3/OpenCTM-1.0.3-src.tar.bz2 -> openctm-1.0.3-src.tar.bz2
 _eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=c2a5407c14982856bfe6a156a906eb0d
+_md5_=5e2fe933e4d83aa6645fa514ffa32003

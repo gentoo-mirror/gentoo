@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-cpp/eigen-3.4.0:3 dev-libs/boost:= dev-libs/libpcre2 virtual/zlib test? ( dev-cpp/catch:0 )
+DEPEND=>=dev-cpp/eigen-3.4.0:3 dev-libs/boost:= dev-libs/libpcre2 virtual/zlib:= test? ( dev-cpp/catch:0 )
 DESCRIPTION=Code to work with mmCIF and PDB files
 EAPI=8
 HOMEPAGE=https://github.com/PDB-REDO/libcifpp
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD-2
-RDEPEND=>=dev-cpp/eigen-3.4.0:3 dev-libs/boost:= dev-libs/libpcre2 virtual/zlib test? ( dev-cpp/catch:0 )
+RDEPEND=>=dev-cpp/eigen-3.4.0:3 dev-libs/boost:= dev-libs/libpcre2 virtual/zlib:= test? ( dev-cpp/catch:0 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/PDB-REDO/libcifpp/archive/refs/tags/v9.0.3.tar.gz -> libcifpp-9.0.3.tar.gz https://dev.gentoo.org/~pacho/libcifpp/libcifpp-9.0.3-components.cif.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=74a88ebb4ff316dae704b70b63f512b7
+_md5_=a75b7d2bf75e633a69a0eae0f6ed2d12

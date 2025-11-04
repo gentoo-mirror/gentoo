@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
-DEPEND=virtual/zlib ssl? ( net-libs/gnutls:= ) doc? ( app-text/doxygen )
+DEPEND=virtual/zlib:= ssl? ( net-libs/gnutls:= ) doc? ( app-text/doxygen )
 DESCRIPTION=This library implements the client side of the Gadu-Gadu protocol
 EAPI=7
 HOMEPAGE=http://toxygen.net/libgadu/
@@ -8,9 +8,9 @@ INHERIT=autotools
 IUSE=doc ssl threads
 KEYWORDS=~alpha amd64 arm ~mips ppc ppc64 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
 LICENSE=LGPL-2.1
-RDEPEND=virtual/zlib ssl? ( net-libs/gnutls:= )
+RDEPEND=virtual/zlib:= ssl? ( net-libs/gnutls:= )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/wojtekka/libgadu/archive/1.11.4.tar.gz -> libgadu-1.11.4.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=41a5befb320c6c946bca0d9fd8a5afab
+_md5_=eb16e06bbbe71ba423d6a12437bd3bfb

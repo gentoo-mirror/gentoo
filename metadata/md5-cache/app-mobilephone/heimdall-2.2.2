@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm prepare test
-DEPEND=virtual/zlib virtual/libusb:1= gui? ( dev-qt/qtbase:6[gui,widgets] )
+DEPEND=virtual/zlib:= virtual/libusb:1= gui? ( dev-qt/qtbase:6[gui,widgets] )
 DESCRIPTION=Tool suite used to flash firmware onto Samsung devices
 EAPI=8
 HOMEPAGE=https://git.sr.ht/~grimler/Heimdall https://glassechidna.com.au/heimdall/ https://github.com/Benjamin-Dobell/Heimdall
@@ -8,8 +8,8 @@ INHERIT=cmake udev
 IUSE=gui
 KEYWORDS=amd64 ~arm64
 LICENSE=MIT
-RDEPEND=virtual/zlib virtual/libusb:1= gui? ( dev-qt/qtbase:6[gui,widgets] )
+RDEPEND=virtual/zlib:= virtual/libusb:1= gui? ( dev-qt/qtbase:6[gui,widgets] )
 SLOT=0
 SRC_URI=https://git.sr.ht/~grimler/Heimdall/archive/v2.2.2.tar.gz -> heimdall-2.2.2.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	udev	f3d9a4376ebd22131726a68e1a0a058f
-_md5_=93f7623e5873799c815f95acdbf98719
+_md5_=0558f4b0a361b379ea48f464c2d35a9d

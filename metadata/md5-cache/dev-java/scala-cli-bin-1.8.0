@@ -6,8 +6,8 @@ HOMEPAGE=https://scala-cli.virtuslab.org/
 INHERIT=bash-completion-r1
 KEYWORDS=amd64 arm64
 LICENSE=Apache-2.0
-RDEPEND=>=virtual/jre-11 virtual/zlib
+RDEPEND=>=virtual/jre-11 virtual/zlib:=
 SLOT=0
 SRC_URI=!amd64? ( !arm64? ( https://github.com/VirtusLab/scala-cli/releases/download/v1.8.0/scala-cli -> scala-cli-non-native-1.8.0 ) ) amd64? ( https://github.com/VirtusLab/scala-cli/releases/download/v1.8.0/scala-cli-x86_64-pc-linux.gz -> scala-cli-amd64-1.8.0.gz ) arm64? ( https://github.com/VirtusLab/scala-cli/releases/download/v1.8.0/scala-cli-aarch64-pc-linux.gz -> scala-cli-arm64-1.8.0.gz )
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	bash-completion-r1	767861f3744f589ee5291c1698b1c082
-_md5_=de8940c4f9aa5c9450bb5f32d98b1e49
+_md5_=81560cbdeea16f60cb076052e5a68aa9
