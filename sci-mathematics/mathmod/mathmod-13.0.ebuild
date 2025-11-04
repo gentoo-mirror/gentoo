@@ -17,13 +17,13 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-qt/qtbase:6[gui,opengl,widgets]
+	media-libs/libglvnd
 "
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	# Fix collision between <complex.h> and QT
-	# Merged, to be removed with release 12.1
-	"${FILESDIR}"/${P}-rm_complex.patch
+	# https://github.com/parisolab/mathmod/pull/288.patch
+	"${FILESDIR}"/${PN}-13.0-missing_include.patch
 )
 
 src_configure() {
