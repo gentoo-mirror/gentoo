@@ -28,10 +28,9 @@ RDEPEND="
 	>=kde-plasma/kde-cli-tools-common-${PV}
 	>=kde-plasma/kdecoration-${PV}:${SLOT}
 	>=kde-plasma/kdeplasma-addons-${PV}:${SLOT}
-	>=kde-plasma/kdesu-gui-${PV}
+	>=kde-plasma/kdesu-gui-${PV}[X?]
 	>=kde-plasma/keditfiletype-${PV}
-	>=kde-plasma/kgamma-${PV}:${SLOT}
-	>=kde-plasma/kglobalacceld-${PV}:${SLOT}
+	>=kde-plasma/kglobalacceld-${PV}:${SLOT}[X?]
 	>=kde-plasma/kinfocenter-${PV}:${SLOT}
 	>=kde-plasma/kmenuedit-${PV}:${SLOT}
 	>=kde-plasma/knighttime-${PV}:${SLOT}
@@ -101,7 +100,7 @@ RDEPEND="
 	)
 	oxygen-theme? (
 		>=kde-frameworks/oxygen-icons-6.0.0:*
-		>=kde-plasma/oxygen-${PV}:${SLOT}[qt5?]
+		>=kde-plasma/oxygen-${PV}:${SLOT}[qt5?,X?]
 		>=kde-plasma/oxygen-sounds-${PV}:${SLOT}
 	)
 	plymouth? (
@@ -119,13 +118,14 @@ RDEPEND="
 	)
 	thunderbolt? ( >=kde-plasma/plasma-thunderbolt-${PV}:${SLOT} )
 	!unsupported? ( !gui-apps/qt6ct )
-	wacom? (
-		>=kde-plasma/plasma-desktop-${PV}:${SLOT}[input_devices_wacom]
-		X? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
-	)
+	wacom? ( >=kde-plasma/plasma-desktop-${PV}:${SLOT}[input_devices_wacom] )
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
 	webengine? ( kde-apps/khelpcenter:6 )
-	X? ( >=kde-plasma/kwin-x11-${PV}:${SLOT}[lock] )
+	X? (
+		>=kde-plasma/kgamma-${PV}:${SLOT}
+		>=kde-plasma/kwin-x11-${PV}:${SLOT}[lock]
+		wacom? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
+	)
 "
 # NOTE spectacle moved from KDE Gear (yy.mm) to KDE Plasma version scheme
 # TODO drop after 2027-04-26

@@ -20,7 +20,7 @@ IUSE="+firmware flatpak snap telemetry webengine"
 COMMON_DEPEND="
 	>=dev-libs/appstream-1.0.4:=[qt6]
 	dev-libs/kirigami-addons:6
-	dev-libs/qcoro
+	dev-libs/qcoro[dbus,network]
 	>=dev-qt/qtbase-${QTMIN}:6=[concurrent,dbus,gui,network,widgets]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	>=kde-frameworks/attica-${KFMIN}:6
@@ -70,17 +70,19 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		# TODO: Port PackageKit's portage back-end to python3
-		-DCMAKE_DISABLE_FIND_PACKAGE_packagekitqt6=ON
 		# Automated updates will not work for us
 		# https://invent.kde.org/plasma/discover/-/merge_requests/142
 		-DWITH_KCM=OFF
+		-DBUILD_AlpineApkBackend=OFF
 		-DBUILD_DummyBackend=OFF
 		-DBUILD_FlatpakBackend=$(usex flatpak)
 		-DBUILD_FwupdBackend=$(usex firmware)
+		# TODO: Port PackageKit's portage back-end to python3
+		-DBUILD_PackageKitBackend=OFF
 		-DBUILD_RpmOstreeBackend=OFF
 		-DBUILD_SnapBackend=$(usex snap)
 		-DBUILD_SteamOSBackend=OFF
+		-DBUILD_SystemdSysupdateBackend=OFF
 		$(cmake_use_find_package telemetry KF6UserFeedback)
 		$(cmake_use_find_package webengine Qt6WebView)
 	)

@@ -110,8 +110,6 @@ BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_sys_nice=ep usr/bin/kwin_wayland )
 
-PATCHES=( "${FILESDIR}/${P}-drm-fix-implicit-modifier-fallback.patch" ) # KDE-bug #511216
-
 src_prepare() {
 	ecm_src_prepare
 
