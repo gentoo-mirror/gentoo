@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=sys-libs/zlib:=
+DEPEND=virtual/zlib:=
 DESCRIPTION=Small yet efficient SAT solver with reference paper
 EAPI=8
 HOMEPAGE=http://minisat.se/Main.html https://github.com/stp/minisat/
@@ -8,8 +8,8 @@ INHERIT=cmake
 IUSE=doc
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=sys-libs/zlib:=
+RDEPEND=virtual/zlib:=
 SLOT=0/2.2.1
 SRC_URI=https://github.com/stp/minisat/archive/releases/2.2.1.tar.gz -> minisat-2.2.1.tar.gz doc? ( http://minisat.se/downloads/MiniSat.pdf )
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=960d6c16c97e526eb5760d70fd1a5c43
+_md5_=6186e85e614a537bd68a3830c92e8c89

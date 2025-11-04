@@ -1,6 +1,6 @@
 BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) || ( dev-lang/vala:0.56 ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare setup
-DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) app-crypt/argon2:= dev-libs/openssl:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/jansson:= dev-libs/libevent:= net-libs/libsearpc[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] net-libs/libwebsockets:=[client] net-misc/curl sys-apps/util-linux sys-libs/zlib elibc_musl? ( sys-libs/fts-standalone )
+DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) app-crypt/argon2:= dev-libs/openssl:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/jansson:= dev-libs/libevent:= net-libs/libsearpc[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] net-libs/libwebsockets:=[client] net-misc/curl sys-apps/util-linux virtual/zlib elibc_musl? ( sys-libs/fts-standalone )
 DESCRIPTION=File syncing and sharing software with file encryption and group sharing
 EAPI=8
 HOMEPAGE=https://www.seafile.com/ https://github.com/haiwen/seafile/
@@ -8,9 +8,9 @@ INHERIT=autotools python-single-r1 vala
 IUSE=python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+-with-openssl-exception
-RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) app-crypt/argon2:= dev-libs/openssl:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/jansson:= dev-libs/libevent:= net-libs/libsearpc[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] net-libs/libwebsockets:=[client] net-misc/curl sys-apps/util-linux sys-libs/zlib elibc_musl? ( sys-libs/fts-standalone )
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) app-crypt/argon2:= dev-libs/openssl:= dev-db/sqlite:3 dev-libs/glib:2 dev-libs/jansson:= dev-libs/libevent:= net-libs/libsearpc[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] net-libs/libwebsockets:=[client] net-misc/curl sys-apps/util-linux virtual/zlib elibc_musl? ( sys-libs/fts-standalone )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=0
 SRC_URI=https://github.com/haiwen/seafile/archive/bc71a5876e27a3810f3917fba1493d7487eb3876.tar.gz -> seafile-9.0.13.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	vala	e477903dbe0105930c51f170a592dc16
-_md5_=c80248c6cac285ef4ee29351806712f9
+_md5_=2abf208e79ddf81013b3fa7e954235cc

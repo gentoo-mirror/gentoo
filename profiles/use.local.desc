@@ -6082,7 +6082,7 @@ net-irc/weechat:trigger - Enable trigger plugin
 net-irc/weechat:typing - Enable typing plugin
 net-irc/weechat:xfer - Enable xfer plugin support
 net-irc/znc:argon2 - Store password hashes using Argon2id instead of SHA-256
-net-irc/znc:zlib - Enable mod_deflate-like gzip support for znc's web interface using sys-libs/zlib.
+net-irc/znc:zlib - Enable mod_deflate-like gzip support for znc's web interface using virtual/zlib.
 net-libs/aqbanking:ebics - Enable support for Electronic Banking Internet Communication Standard (EBICS)
 net-libs/axtls:cgi-lua - Enables lua backed cgi for axhttpd server
 net-libs/axtls:cgi-php - Enables php backed cgi for axhttpd server
@@ -6899,7 +6899,7 @@ net-proxy/privoxy:threads - Enable POSIX threads. Highly recommended, otherwise 
 net-proxy/privoxy:toggle - Support temporary disable toggle via web interface
 net-proxy/privoxy:tools - Install log parser, regression tester and user agent generator tools
 net-proxy/privoxy:whitelists - Support trust files (white lists)
-net-proxy/privoxy:zlib - Decompress zlib compressed data using sys-libs/zlib before filtering
+net-proxy/privoxy:zlib - Decompress zlib compressed data using virtual/zlib before filtering
 net-proxy/rejik:banlists - Install upstream provided simple banlists
 net-proxy/squid:ecap - Adds support for loadable content adaptation modules (http://www.e-cap.org)
 net-proxy/squid:esi - Enable ESI for accelerators, will cause squid reverse proxies to be capable of the Edge Acceleration Specification (www.esi.org)
@@ -7475,7 +7475,7 @@ sci-libs/mumps:metis - Enable matrix ordering with METIS (sci-libs/metis, sci-li
 sci-libs/mumps:scotch - Enable matrix ordering with sci-libs/scotch
 sci-libs/netcdf:blosc - Allow using blosc compression via dev-libs/c-blosc
 sci-libs/netcdf:dap - Support for remote data access with the built-in OPeNDAP client
-sci-libs/netcdf:hdf - Build with HDF4 read capability(sci-libs/hdf, sci-libs/hdf5 and sys-libs/zlib required).
+sci-libs/netcdf:hdf - Build with HDF4 read capability(sci-libs/hdf, sci-libs/hdf5 and virtual/zlib required).
 sci-libs/nlopt:octave - Add plugin for sci-mathematics/octave
 sci-libs/octomap:dynamicEDT3D - Build and install dynamicEDT3D library: A library for incrementally updatable Euclidean distance transforms in 3D.
 sci-libs/openblas:cpudetection - Build dynamic architecture detection at run time (for multi targets)
@@ -7760,7 +7760,7 @@ sci-physics/pythia:root - Use sci-physics/root trees and histograms (in examples
 sci-physics/rivet:hepmc2 - Build with sci-physics/hepmc version 2
 sci-physics/rivet:hepmc3 - Build with sci-physics/hepmc version 3
 sci-physics/rivet:highfive - Build with sci-libs/highfive and sci-libs/hdf5
-sci-physics/rivet:zlib - Build with sys-libs/zlib
+sci-physics/rivet:zlib - Build with virtual/zlib
 sci-physics/root:R - Enable support for dev-lang/R
 sci-physics/root:asimage - Enable support for media-libs/libafterimage
 sci-physics/root:cudnn - Enable support for nVidia cuDNN library
@@ -8437,7 +8437,7 @@ sys-fs/ecryptfs-utils:openssl - Enable dev-libs/openssl key module
 sys-fs/ecryptfs-utils:pkcs11 - Enable PKCS#11 (Smartcards) key module
 sys-fs/ecryptfs-utils:tpm - Enable support for Trusted Platform Module (TPM) using app-crypt/trousers
 sys-fs/erofs-utils:fuse - Builds erofsfuse (requires sys-fs/fuse).
-sys-fs/erofs-utils:libdeflate - Use app-arch/libdeflate rather than sys-libs/zlib for handling deflate compression.
+sys-fs/erofs-utils:libdeflate - Use app-arch/libdeflate rather than virtual/zlib for handling deflate compression.
 sys-fs/erofs-utils:uuid - Enables UUID support via sys-apps/util-linux.
 sys-fs/ext4magic:expert-mode - Builds ext4magic with expert mode. Highly useful in recovering data from a corrupted filesystem
 sys-fs/ext4magic:file-attr - Enable the recovery of file attributes (append, immutable, nodump etc)

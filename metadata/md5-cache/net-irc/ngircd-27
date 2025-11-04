@@ -1,6 +1,6 @@
 BDEPEND=test? ( dev-tcltk/expect net-misc/netkit-telnetd ) verify-sig? ( >=sec-keys/openpgp-keys-alexbarton-20241211 ) virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postinst prepare unpack
-DEPEND=acct-user/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( sys-libs/zlib )
+DEPEND=acct-user/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( virtual/zlib )
 DESCRIPTION=An IRC server written from scratch
 EAPI=8
 HOMEPAGE=https://ngircd.barton.de/
@@ -8,9 +8,9 @@ INHERIT=flag-o-matic tmpfiles systemd verify-sig
 IUSE=debug gnutls ident +irc-plus +ipv6 pam +ssl strict-rfc tcpd test zlib verify-sig
 KEYWORDS=amd64 arm arm64 x86 ~x64-macos
 LICENSE=GPL-2
-RDEPEND=acct-user/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( sys-libs/zlib ) virtual/tmpfiles
+RDEPEND=acct-user/ngircd irc-plus? ( virtual/libiconv ) ident? ( net-libs/libident ) pam? ( sys-libs/pam ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) tcpd? ( sys-apps/tcp-wrappers ) zlib? ( virtual/zlib ) virtual/tmpfiles
 RESTRICT=test
 SLOT=0
 SRC_URI=https://arthur.barton.de/pub/ngircd/ngircd-27.tar.xz verify-sig? ( https://arthur.barton.de/pub/ngircd/ngircd-27.tar.xz.sig )
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
-_md5_=3a79d4b1f44071b9291d807b3e0476c5
+_md5_=ae7afdbb6ef90b904e9ea8be59ac1a1b

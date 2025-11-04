@@ -1,6 +1,6 @@
 BDEPEND=test? ( || ( app-arch/rar app-arch/unrar ) ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst preinst prepare test
-DEPEND=dev-libs/boost:= dev-libs/libxml2:= ncurses? ( sys-libs/ncurses:0= ) ssl? ( dev-libs/openssl:0=[-bindist(-)] ) zlib? ( sys-libs/zlib:= )
+DEPEND=dev-libs/boost:= dev-libs/libxml2:= ncurses? ( sys-libs/ncurses:0= ) ssl? ( dev-libs/openssl:0=[-bindist(-)] ) zlib? ( virtual/zlib:= )
 DESCRIPTION=A command-line based binary newsgrabber supporting .nzb files
 EAPI=8
 HOMEPAGE=https://nzbget.com/
@@ -8,9 +8,9 @@ INHERIT=cmake systemd
 IUSE=ncurses +parcheck ssl test zlib
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
 LICENSE=GPL-2+
-RDEPEND=dev-libs/boost:= dev-libs/libxml2:= ncurses? ( sys-libs/ncurses:0= ) ssl? ( dev-libs/openssl:0=[-bindist(-)] ) zlib? ( sys-libs/zlib:= ) acct-user/nzbget acct-group/nzbget
+RDEPEND=dev-libs/boost:= dev-libs/libxml2:= ncurses? ( sys-libs/ncurses:0= ) ssl? ( dev-libs/openssl:0=[-bindist(-)] ) zlib? ( virtual/zlib:= ) acct-user/nzbget acct-group/nzbget
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=parcheck? ( https://github.com/nzbgetcom/par2cmdline-turbo/archive/v1.3.0-20250808.tar.gz -> nzbgetcom-par2turbo-1.3.0-20250808.tar.gz ) https://github.com/nzbgetcom/nzbget/archive/v25.4.tar.gz -> nzbget-25.4.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=bfde0d8998cbb2a6998bb6b78b67c671
+_md5_=d8fe39666a0abaf36234b8f1f6ec4933

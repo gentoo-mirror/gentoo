@@ -1,4 +1,4 @@
-BDEPEND=root? ( sci-physics/root:= ) doc? ( app-text/doxygen[dot] dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-latexrecommended ) test? ( sys-libs/zlib app-arch/xz-utils app-arch/bzip2 app-arch/zstd ) examples? ( sys-libs/zlib app-arch/xz-utils app-arch/bzip2 app-arch/zstd ) virtual/fortran app-alternatives/ninja >=dev-build/cmake-3.28.5
+BDEPEND=root? ( sci-physics/root:= ) doc? ( app-text/doxygen[dot] dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-latexrecommended ) test? ( virtual/zlib app-arch/xz-utils app-arch/bzip2 app-arch/zstd ) examples? ( virtual/zlib app-arch/xz-utils app-arch/bzip2 app-arch/zstd ) virtual/fortran app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/numpy[python_targets_python3_13(-)] ) ) virtual/fortran
 DESCRIPTION=Event Record for Monte Carlo Generators
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=3
 SRC_URI=https://hepmc.web.cern.ch/hepmc/releases/HepMC3-3.3.1.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	fortran-2	54fcb693257134adae26819685891ecc	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=2b1199ec44b62a9773700ab7ebdf3ce9
+_md5_=9bf2ef3118addcaf19e704a3763492f3

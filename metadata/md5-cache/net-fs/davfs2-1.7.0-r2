@@ -7,9 +7,9 @@ INHERIT=autotools
 IUSE=nls
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
 LICENSE=GPL-3+
-RDEPEND=dev-libs/libxml2:= acct-group/davfs2 acct-user/davfs2 net-libs/neon:0/27 sys-libs/zlib nls? ( virtual/libintl virtual/libiconv )
+RDEPEND=dev-libs/libxml2:= acct-group/davfs2 acct-user/davfs2 net-libs/neon:0/27 virtual/zlib nls? ( virtual/libintl virtual/libiconv )
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://nongnu/davfs2/davfs2-1.7.0.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=19d2140af1486cade4b0ee45826fc697
+_md5_=e7d3d622d660cfdf3a5a7c686739821c

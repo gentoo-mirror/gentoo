@@ -1,12 +1,12 @@
 DEFINED_PHASES=configure
-DEPEND=net-libs/libpcap sys-libs/zlib:= mysql? ( dev-db/mysql-connector-c:= )
+DEPEND=net-libs/libpcap virtual/zlib:= mysql? ( dev-db/mysql-connector-c:= )
 DESCRIPTION=IPAudit monitors network activity on a network by host, protocol and port
 EAPI=8
 HOMEPAGE=https://ipaudit.sourceforge.net/
 IUSE=mysql
 KEYWORDS=amd64 ~ppc x86
 LICENSE=GPL-2+
-RDEPEND=net-libs/libpcap sys-libs/zlib:= mysql? ( dev-db/mysql-connector-c:= )
+RDEPEND=net-libs/libpcap virtual/zlib:= mysql? ( dev-db/mysql-connector-c:= )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/ipaudit/ipaudit-1.1.tar.gz
-_md5_=2dbbc6fda5f65b89ebef031558d7e2d4
+_md5_=f311ab15c9b8c48c9d9ee785d6b28ba6

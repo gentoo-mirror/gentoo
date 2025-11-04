@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install
-DEPEND=bzip2? ( app-arch/bzip2 ) gui? ( x11-libs/wxGTK:3.2-gtk3= ) zlib? ( sys-libs/zlib ) dev-libs/boost
+DEPEND=bzip2? ( app-arch/bzip2 ) gui? ( x11-libs/wxGTK:3.2-gtk3= ) zlib? ( virtual/zlib ) dev-libs/boost
 DESCRIPTION=Experimental x-y data reading library
 EAPI=8
 HOMEPAGE=https://github.com/wojdyr/xylib
@@ -7,8 +7,8 @@ INHERIT=desktop wxwidgets
 IUSE=bzip2 gui zlib
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2.1
-RDEPEND=bzip2? ( app-arch/bzip2 ) gui? ( x11-libs/wxGTK:3.2-gtk3= ) zlib? ( sys-libs/zlib )
+RDEPEND=bzip2? ( app-arch/bzip2 ) gui? ( x11-libs/wxGTK:3.2-gtk3= ) zlib? ( virtual/zlib )
 SLOT=0
 SRC_URI=https://github.com/wojdyr/xylib/releases/download/v1.6/xylib-1.6.tar.bz2
 _eclasses_=desktop	3a72ffe0d8e1dd73af3a1c8c15a59fed	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	wxwidgets	c48bf68858bd3c27c272ff034eb1e14d
-_md5_=5c43d8d421961f87be2b0c98588cf490
+_md5_=e8d3c6e5bef1eb358d85e8135e2449a0

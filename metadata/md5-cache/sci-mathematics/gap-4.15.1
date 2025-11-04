@@ -1,6 +1,6 @@
 BDEPEND=test? ( dev-gap/gapdoc dev-gap/primgrp dev-gap/smallgrp dev-gap/transgrp )
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/gmp:= sys-libs/zlib valgrind? ( dev-debug/valgrind ) readline? ( sys-libs/readline:= )
+DEPEND=dev-libs/gmp:= virtual/zlib valgrind? ( dev-debug/valgrind ) readline? ( sys-libs/readline:= )
 DESCRIPTION=System for computational discrete algebra. Core functionality.
 EAPI=8
 HOMEPAGE=https://www.gap-system.org/
@@ -9,10 +9,10 @@ IUSE=cpu_flags_x86_popcnt debug memcheck minimal readline test valgrind
 KEYWORDS=~amd64 ~riscv
 LICENSE=GPL-2+
 PDEPEND=dev-gap/gapdoc dev-gap/primgrp dev-gap/smallgrp dev-gap/transgrp !minimal? ( dev-gap/autpgrp dev-gap/alnuth dev-gap/crisp dev-gap/ctbllib dev-gap/factint dev-gap/fga dev-gap/irredsol dev-gap/laguna dev-gap/polenta dev-gap/polycyclic dev-gap/resclasses dev-gap/sophus dev-gap/tomlib )
-RDEPEND=dev-libs/gmp:= sys-libs/zlib valgrind? ( dev-debug/valgrind ) readline? ( sys-libs/readline:= )
+RDEPEND=dev-libs/gmp:= virtual/zlib valgrind? ( dev-debug/valgrind ) readline? ( sys-libs/readline:= )
 REQUIRED_USE=?? ( memcheck valgrind )
 RESTRICT=!test? ( test )
 SLOT=0/10
 SRC_URI=https://github.com/gap-system/gap/releases/download/v4.15.1/gap-4.15.1-core.tar.gz
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804
-_md5_=08ca6a78559ffeb05513d3e64d680447
+_md5_=637c604b5723b3d115e25198f6e09bee

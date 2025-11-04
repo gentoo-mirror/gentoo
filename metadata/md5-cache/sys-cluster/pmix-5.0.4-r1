@@ -1,6 +1,6 @@
 BDEPEND=>=app-portage/elt-patches-20250306
 DEFINED_PHASES=configure install prepare
-DEPEND=dev-libs/libevent:= sys-apps/hwloc:= sys-cluster/ucx sys-libs/zlib:= munge? ( sys-auth/munge ) pmi? ( !sys-cluster/slurm )
+DEPEND=dev-libs/libevent:= sys-apps/hwloc:= sys-cluster/ucx virtual/zlib:= munge? ( sys-auth/munge ) pmi? ( !sys-cluster/slurm )
 DESCRIPTION=The Process Management Interface (PMI) Exascale
 EAPI=8
 HOMEPAGE=https://openpmix.github.io/
@@ -8,8 +8,8 @@ INHERIT=flag-o-matic libtool
 IUSE=debug +munge pmi
 KEYWORDS=amd64 arm64 ppc64 -x86 ~amd64-linux
 LICENSE=BSD
-RDEPEND=dev-libs/libevent:= sys-apps/hwloc:= sys-cluster/ucx sys-libs/zlib:= munge? ( sys-auth/munge ) pmi? ( !sys-cluster/slurm )
+RDEPEND=dev-libs/libevent:= sys-apps/hwloc:= sys-cluster/ucx virtual/zlib:= munge? ( sys-auth/munge ) pmi? ( !sys-cluster/slurm )
 SLOT=0
 SRC_URI=https://github.com/openpmix/openpmix/releases/download/v5.0.4/pmix-5.0.4.tar.bz2
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	libtool	c81bd096be5f4c82f4e8f156ef112402
-_md5_=ef89dab292b9cf0bb9d28e6be048a83b
+_md5_=3e94b50d560c2f7eb7b22d25cdd331f7

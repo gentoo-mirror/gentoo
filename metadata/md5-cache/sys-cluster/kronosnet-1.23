@@ -1,14 +1,14 @@
 BDEPEND=doc? ( >=sys-cluster/libqb-2.0.0 app-text/doxygen[dot] )
 DEFINED_PHASES=configure
-DEPEND=>=sys-cluster/libqb-2.0.0:= dev-libs/libnl:3 sys-libs/zlib:= app-arch/bzip2:= app-arch/xz-utils zstd? ( app-arch/zstd:= ) lzo2? ( dev-libs/lzo:2 ) lz4? ( app-arch/lz4:= ) nss? ( dev-libs/nss ) openssl? ( dev-libs/openssl:= )
+DEPEND=>=sys-cluster/libqb-2.0.0:= dev-libs/libnl:3 virtual/zlib:= app-arch/bzip2:= app-arch/xz-utils zstd? ( app-arch/zstd:= ) lzo2? ( dev-libs/lzo:2 ) lz4? ( app-arch/lz4:= ) nss? ( dev-libs/nss ) openssl? ( dev-libs/openssl:= )
 DESCRIPTION=Network abstraction layer designed for High Availability use cases
 EAPI=8
 HOMEPAGE=https://kronosnet.org
 IUSE=doc nss +openssl lz4 lzo2 test zstd
 KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86
 LICENSE=LGPL-2.1
-RDEPEND=>=sys-cluster/libqb-2.0.0:= dev-libs/libnl:3 sys-libs/zlib:= app-arch/bzip2:= app-arch/xz-utils zstd? ( app-arch/zstd:= ) lzo2? ( dev-libs/lzo:2 ) lz4? ( app-arch/lz4:= ) nss? ( dev-libs/nss ) openssl? ( dev-libs/openssl:= )
+RDEPEND=>=sys-cluster/libqb-2.0.0:= dev-libs/libnl:3 virtual/zlib:= app-arch/bzip2:= app-arch/xz-utils zstd? ( app-arch/zstd:= ) lzo2? ( dev-libs/lzo:2 ) lz4? ( app-arch/lz4:= ) nss? ( dev-libs/nss ) openssl? ( dev-libs/openssl:= )
 RESTRICT=!test? ( test )
 SLOT=0/1
 SRC_URI=https://kronosnet.org/releases/kronosnet-1.23.tar.xz
-_md5_=d2f18312ab0fc0b7dd84040ced568263
+_md5_=f0266463dd08d6b1143cc0678a547936

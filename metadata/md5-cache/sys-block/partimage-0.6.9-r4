@@ -1,6 +1,6 @@
 BDEPEND=acct-group/partimag acct-user/partimag nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=config configure install postinst prepare
-DEPEND=pam? ( sys-libs/pam ) app-arch/bzip2 >=dev-libs/newt-0.52 >=sys-libs/slang-2 sys-libs/zlib:= !nologin? ( virtual/libcrypt:= ) ssl? ( dev-libs/openssl:0= )
+DEPEND=pam? ( sys-libs/pam ) app-arch/bzip2 >=dev-libs/newt-0.52 >=sys-libs/slang-2 virtual/zlib:= !nologin? ( virtual/libcrypt:= ) ssl? ( dev-libs/openssl:0= )
 DESCRIPTION=Console-based application to efficiently save raw partition data to image file
 EAPI=8
 HOMEPAGE=https://www.partimage.org/
@@ -8,9 +8,9 @@ INHERIT=autotools flag-o-matic pam
 IUSE=nls nologin pam ssl static
 KEYWORDS=amd64 arm arm64 ~loong ppc ~riscv ~sparc x86
 LICENSE=GPL-2+
-RDEPEND=acct-group/partimag acct-user/partimag pam? ( sys-libs/pam ) !static? ( app-arch/bzip2 >=dev-libs/newt-0.52 >=sys-libs/slang-2 sys-libs/zlib:= !nologin? ( virtual/libcrypt:= ) ssl? ( dev-libs/openssl:0= ) )
+RDEPEND=acct-group/partimag acct-user/partimag pam? ( sys-libs/pam ) !static? ( app-arch/bzip2 >=dev-libs/newt-0.52 >=sys-libs/slang-2 virtual/zlib:= !nologin? ( virtual/libcrypt:= ) ssl? ( dev-libs/openssl:0= ) )
 REQUIRED_USE=static? ( !pam )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/partimage/partimage-0.6.9.tar.bz2
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5
-_md5_=d0e646f2522dc85c4c33a371b2840ab1
+_md5_=2d09ded02760e491a62ff48337988c73

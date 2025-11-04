@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare pretend test unpack
-DEPEND=app-arch/zstd:= >=dev-cpp/tbb-2021.7.0-r1:= dev-libs/blake3:= sys-libs/zlib !kernel_Darwin? ( >=dev-libs/mimalloc-2:= )
+DEPEND=app-arch/zstd:= >=dev-cpp/tbb-2021.7.0-r1:= dev-libs/blake3:= virtual/zlib !kernel_Darwin? ( >=dev-libs/mimalloc-2:= )
 DESCRIPTION=A Modern Linker
 EAPI=8
 HOMEPAGE=https://github.com/rui314/mold
@@ -8,8 +8,8 @@ INHERIT=cmake flag-o-matic toolchain-funcs git-r3
 IUSE=debug test
 LICENSE=MIT BSD-2 CC0-1.0
 PROPERTIES=live
-RDEPEND=app-arch/zstd:= >=dev-cpp/tbb-2021.7.0-r1:= dev-libs/blake3:= sys-libs/zlib !kernel_Darwin? ( >=dev-libs/mimalloc-2:= )
+RDEPEND=app-arch/zstd:= >=dev-cpp/tbb-2021.7.0-r1:= dev-libs/blake3:= virtual/zlib !kernel_Darwin? ( >=dev-libs/mimalloc-2:= )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=60086237159d1a9a1b633fd2c4c5f824
+_md5_=c7702928a410b5a22187dddb92375bc0

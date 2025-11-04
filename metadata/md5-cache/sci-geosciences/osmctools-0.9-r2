@@ -1,14 +1,14 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=prepare
-DEPEND=sys-libs/zlib
+DEPEND=virtual/zlib
 DESCRIPTION=A few really fast tools to convert, filter and update OSM data files
 EAPI=8
 HOMEPAGE=https://gitlab.com/osm-c-tools
 INHERIT=autotools
 KEYWORDS=amd64 ~x86
 LICENSE=AGPL-3
-RDEPEND=sys-libs/zlib
+RDEPEND=virtual/zlib
 SLOT=0
 SRC_URI=https://gitlab.com/osm-c-tools/osmctools/-/archive/0.9/osmctools-0.9.tar.bz2
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=57edd534462e5c640c3b1b80ae831240
+_md5_=78d8638f9d1b3ea75e46ef0dec255f45

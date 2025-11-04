@@ -1,6 +1,6 @@
 BDEPEND=doc? ( virtual/latex-base ) >=app-portage/elt-patches-20250306
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=sys-libs/zlib hdf5? ( sci-libs/hdf5:= )
+DEPEND=virtual/zlib hdf5? ( sci-libs/hdf5:= )
 DESCRIPTION=Library for reading and writing matlab files
 EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/matio/
@@ -8,8 +8,8 @@ INHERIT=libtool multiprocessing
 IUSE=doc examples hdf5 sparse
 KEYWORDS=amd64 ~arm64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD-2
-RDEPEND=sys-libs/zlib hdf5? ( sci-libs/hdf5:= )
+RDEPEND=virtual/zlib hdf5? ( sci-libs/hdf5:= )
 SLOT=0/11
 SRC_URI=https://downloads.sourceforge.net/matio/matio-1.5.23.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	multiprocessing	1e32df7deee68372153dca65f4a7c21f
-_md5_=496819b88d8c563446233d0af9c47216
+_md5_=11a1e71897897ac54d2320d428a4ffcf

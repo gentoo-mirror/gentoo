@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen[dot] ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/libxml2:= sys-libs/zlib:= blosc? ( dev-libs/c-blosc:= ) bzip2? ( app-arch/bzip2:= ) dap? ( net-misc/curl:= ) hdf? ( media-libs/libjpeg-turbo:= sci-libs/hdf:= sci-libs/hdf5:= ) hdf5? ( sci-libs/hdf5:=[hl(+),mpi=,szip=,zlib] ) zstd? ( app-arch/zstd:= )
+DEPEND=dev-libs/libxml2:= virtual/zlib:= blosc? ( dev-libs/c-blosc:= ) bzip2? ( app-arch/bzip2:= ) dap? ( net-misc/curl:= ) hdf? ( media-libs/libjpeg-turbo:= sci-libs/hdf:= sci-libs/hdf5:= ) hdf5? ( sci-libs/hdf5:=[hl(+),mpi=,szip=,zlib] ) zstd? ( app-arch/zstd:= )
 DESCRIPTION=Scientific library and interface for array oriented data access
 EAPI=8
 HOMEPAGE=https://www.unidata.ucar.edu/software/netcdf/
@@ -8,10 +8,10 @@ INHERIT=cmake
 IUSE=blosc bzip2 +dap doc examples hdf +hdf5 mpi szip test zstd
 KEYWORDS=amd64 ~arm arm64 ~ppc ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux
 LICENSE=UCAR-Unidata
-RDEPEND=dev-libs/libxml2:= sys-libs/zlib:= blosc? ( dev-libs/c-blosc:= ) bzip2? ( app-arch/bzip2:= ) dap? ( net-misc/curl:= ) hdf? ( media-libs/libjpeg-turbo:= sci-libs/hdf:= sci-libs/hdf5:= ) hdf5? ( sci-libs/hdf5:=[hl(+),mpi=,szip=,zlib] ) zstd? ( app-arch/zstd:= )
+RDEPEND=dev-libs/libxml2:= virtual/zlib:= blosc? ( dev-libs/c-blosc:= ) bzip2? ( app-arch/bzip2:= ) dap? ( net-misc/curl:= ) hdf? ( media-libs/libjpeg-turbo:= sci-libs/hdf:= sci-libs/hdf5:= ) hdf5? ( sci-libs/hdf5:=[hl(+),mpi=,szip=,zlib] ) zstd? ( app-arch/zstd:= )
 REQUIRED_USE=szip? ( hdf5 ) mpi? ( hdf5 )
 RESTRICT=!test? ( test )
 SLOT=0/19
 SRC_URI=https://downloads.unidata.ucar.edu/netcdf-c/4.9.2/netcdf-c-4.9.2.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=5430c338bcc83782857fd6273a16f531
+_md5_=d096fb14ce8592f3a3f6da86a02ad0f9

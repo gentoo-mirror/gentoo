@@ -7,9 +7,9 @@ HOMEPAGE=https://foldingathome.org/
 INHERIT=systemd
 KEYWORDS=~amd64
 LICENSE=FAH-EULA-2014 FAH-special-permission
-RDEPEND=acct-group/foldingathome acct-group/video acct-user/foldingathome app-arch/bzip2 || ( dev-libs/openssl-compat:1.0.0 =dev-libs/openssl-1.0*:* ) sys-devel/gcc sys-libs/glibc sys-libs/zlib
+RDEPEND=acct-group/foldingathome acct-group/video acct-user/foldingathome app-arch/bzip2 || ( dev-libs/openssl-compat:1.0.0 =dev-libs/openssl-1.0*:* ) sys-devel/gcc sys-libs/glibc virtual/zlib
 RESTRICT=mirror bindist strip
 SLOT=0
 SRC_URI=https://download.foldingathome.org/releases/public/release/fahclient/centos-6.7-64bit/v7.6/fahclient_7.6.21-64bit-release.tar.bz2
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=50de4ff6faf3b5ac3ed140d8e1653c23
+_md5_=dbae5078c53b9b9aac031215b2459ebd

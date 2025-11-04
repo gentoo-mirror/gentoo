@@ -1,6 +1,6 @@
 BDEPEND=test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 ) ) doc? ( app-text/doxygen )
 DEFINED_PHASES=compile install setup test
-DEPEND=dev-db/sqlite:3 dev-db/mysql++:= dev-db/mysql-connector-c:= dev-libs/boost:=[zlib] sci-biology/bamtools:= sci-biology/samtools:0 sci-libs/gsl:= sci-libs/htslib:= sci-libs/suitesparse sci-mathematics/lpsolve:= sys-libs/zlib
+DEPEND=dev-db/sqlite:3 dev-db/mysql++:= dev-db/mysql-connector-c:= dev-libs/boost:=[zlib] sci-biology/bamtools:= sci-biology/samtools:0 sci-libs/gsl:= sci-libs/htslib:= sci-libs/suitesparse sci-mathematics/lpsolve:= virtual/zlib
 DESCRIPTION=Eukaryotic gene predictor
 EAPI=8
 HOMEPAGE=https://bioinf.uni-greifswald.de/augustus/
@@ -8,9 +8,9 @@ INHERIT=docs python-any-r1 toolchain-funcs
 IUSE=test doc
 KEYWORDS=~amd64 ~x86
 LICENSE=Artistic
-RDEPEND=dev-db/sqlite:3 dev-db/mysql++:= dev-db/mysql-connector-c:= dev-libs/boost:=[zlib] sci-biology/bamtools:= sci-biology/samtools:0 sci-libs/gsl:= sci-libs/htslib:= sci-libs/suitesparse sci-mathematics/lpsolve:= sys-libs/zlib
+RDEPEND=dev-db/sqlite:3 dev-db/mysql++:= dev-db/mysql-connector-c:= dev-libs/boost:=[zlib] sci-biology/bamtools:= sci-biology/samtools:0 sci-libs/gsl:= sci-libs/htslib:= sci-libs/suitesparse sci-mathematics/lpsolve:= virtual/zlib
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Gaius-Augustus/Augustus/archive/refs/tags/v3.5.0.tar.gz -> augustus-3.5.0.tar.gz
 _eclasses_=docs	006125f2158d2f16904ebd9114336058	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=ccde76e002f60fad3b40d4f984ad8f82
+_md5_=b56db0605d41be481cfdb1e477ace396

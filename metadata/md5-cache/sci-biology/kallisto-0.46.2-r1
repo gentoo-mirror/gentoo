@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=sci-libs/htslib:= sys-libs/zlib:= hdf5? ( sci-libs/hdf5:= ) test? ( >=dev-cpp/catch-3:0 sci-libs/hdf5 )
+DEPEND=sci-libs/htslib:= virtual/zlib:= hdf5? ( sci-libs/hdf5:= ) test? ( >=dev-cpp/catch-3:0 sci-libs/hdf5 )
 DESCRIPTION=Near-optimal RNA-Seq quantification
 EAPI=8
 HOMEPAGE=http://pachterlab.github.io/kallisto/
@@ -8,9 +8,9 @@ INHERIT=cmake flag-o-matic
 IUSE=hdf5 test
 KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
-RDEPEND=sci-libs/htslib:= sys-libs/zlib:= hdf5? ( sci-libs/hdf5:= )
+RDEPEND=sci-libs/htslib:= virtual/zlib:= hdf5? ( sci-libs/hdf5:= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pachterlab/kallisto/archive/v0.46.2.tar.gz -> kallisto-0.46.2.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
-_md5_=910bb7d511b17acfbd0b6cd49c0fc114
+_md5_=5c92e354510a9038b36278147722fe88

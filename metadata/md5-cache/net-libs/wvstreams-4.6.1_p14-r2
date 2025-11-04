@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-libs/openssl-1.1:0= sys-libs/readline:0= sys-libs/zlib virtual/libcrypt:= dbus? ( >=sys-apps/dbus-1.4.20 ) pam? ( sys-libs/pam ) virtual/pkgconfig doc? ( app-text/doxygen ) boost? ( dev-libs/boost:= )
+DEPEND=>=dev-libs/openssl-1.1:0= sys-libs/readline:0= virtual/zlib virtual/libcrypt:= dbus? ( >=sys-apps/dbus-1.4.20 ) pam? ( sys-libs/pam ) virtual/pkgconfig doc? ( app-text/doxygen ) boost? ( dev-libs/boost:= )
 DESCRIPTION=A network programming library in C++
 EAPI=7
 HOMEPAGE=https://github.com/apenwarr/wvstreams
@@ -8,9 +8,9 @@ INHERIT=autotools flag-o-matic toolchain-funcs
 IUSE=boost +dbus debug doc pam
 KEYWORDS=~alpha amd64 ~hppa ppc ~sparc x86
 LICENSE=GPL-2
-RDEPEND=>=dev-libs/openssl-1.1:0= sys-libs/readline:0= sys-libs/zlib virtual/libcrypt:= dbus? ( >=sys-apps/dbus-1.4.20 ) pam? ( sys-libs/pam )
+RDEPEND=>=dev-libs/openssl-1.1:0= sys-libs/readline:0= virtual/zlib virtual/libcrypt:= dbus? ( >=sys-apps/dbus-1.4.20 ) pam? ( sys-libs/pam )
 RESTRICT=test
 SLOT=0
 SRC_URI=mirror://debian/pool/main/w/wvstreams/wvstreams_4.6.1.orig.tar.gz mirror://debian/pool/main/w/wvstreams/wvstreams_4.6.1-14.debian.tar.xz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=49958ad8be138ecf9dd0ea9816019414
+_md5_=df05bd8b2a181d3fc2ca498b81b517cf

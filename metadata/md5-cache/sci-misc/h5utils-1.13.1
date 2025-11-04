@@ -1,6 +1,6 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure prepare
-DEPEND=media-libs/libpng:0= sci-libs/hdf5:0= sys-libs/zlib hdf? ( sci-libs/hdf:0= virtual/jpeg:0 )
+DEPEND=media-libs/libpng:0= sci-libs/hdf5:0= virtual/zlib hdf? ( sci-libs/hdf:0= virtual/jpeg:0 )
 DESCRIPTION=Utilities for visualization and conversion of HDF5 files
 EAPI=7
 HOMEPAGE=https://github.com/NanoComp/h5utils
@@ -8,8 +8,8 @@ INHERIT=autotools
 IUSE=hdf octave
 KEYWORDS=amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
-RDEPEND=media-libs/libpng:0= sci-libs/hdf5:0= sys-libs/zlib hdf? ( sci-libs/hdf:0= virtual/jpeg:0 )
+RDEPEND=media-libs/libpng:0= sci-libs/hdf5:0= virtual/zlib hdf? ( sci-libs/hdf:0= virtual/jpeg:0 )
 SLOT=0
 SRC_URI=https://github.com/NanoComp/h5utils/archive/1.13.1.tar.gz -> h5utils-1.13.1.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=f1991edb1d84fe10ba46819daaa2b825
+_md5_=d72c7f302b8d98808d04595021ae957e

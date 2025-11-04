@@ -1,6 +1,6 @@
 BDEPEND=dev-qt/qttools:6[linguist] app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=dev-qt/qtbase:6[concurrent,dbus,gui,mysql?,network,sql,sqlite?,ssl,widgets] dev-qt/qtdeclarative:6 dev-qt/qtmultimedia:6[gstreamer] dev-qt/qt5compat:6 media-libs/libglvnd sys-libs/zlib:= libmpv? ( dev-qt/qtbase:6[opengl] media-video/mpv:= ) qtmultimedia? ( dev-qt/qtbase:6[opengl] dev-qt/qtmultimedia:6 ) webengine? ( dev-qt/qtwebengine:6[widgets(+)] )
+DEPEND=dev-qt/qtbase:6[concurrent,dbus,gui,mysql?,network,sql,sqlite?,ssl,widgets] dev-qt/qtdeclarative:6 dev-qt/qtmultimedia:6[gstreamer] dev-qt/qt5compat:6 media-libs/libglvnd virtual/zlib:= libmpv? ( dev-qt/qtbase:6[opengl] media-video/mpv:= ) qtmultimedia? ( dev-qt/qtbase:6[opengl] dev-qt/qtmultimedia:6 ) webengine? ( dev-qt/qtwebengine:6[widgets(+)] )
 DESCRIPTION=Simple (yet powerful) news feed reader
 EAPI=8
 HOMEPAGE=https://github.com/martinrotter/rssguard/
@@ -9,9 +9,9 @@ INHERIT=cmake optfeature xdg
 IUSE=libmpv mysql qtmultimedia +sqlite webengine
 KEYWORDS=amd64
 LICENSE=|| ( LGPL-3 GPL-2+ ) AGPL-3+ BSD GPL-3+ MIT
-RDEPEND=dev-qt/qtbase:6[concurrent,dbus,gui,mysql?,network,sql,sqlite?,ssl,widgets] dev-qt/qtdeclarative:6 dev-qt/qtmultimedia:6[gstreamer] dev-qt/qt5compat:6 media-libs/libglvnd sys-libs/zlib:= libmpv? ( dev-qt/qtbase:6[opengl] media-video/mpv:= ) qtmultimedia? ( dev-qt/qtbase:6[opengl] dev-qt/qtmultimedia:6 ) webengine? ( dev-qt/qtwebengine:6[widgets(+)] )
+RDEPEND=dev-qt/qtbase:6[concurrent,dbus,gui,mysql?,network,sql,sqlite?,ssl,widgets] dev-qt/qtdeclarative:6 dev-qt/qtmultimedia:6[gstreamer] dev-qt/qt5compat:6 media-libs/libglvnd virtual/zlib:= libmpv? ( dev-qt/qtbase:6[opengl] media-video/mpv:= ) qtmultimedia? ( dev-qt/qtbase:6[opengl] dev-qt/qtmultimedia:6 ) webengine? ( dev-qt/qtwebengine:6[widgets(+)] )
 REQUIRED_USE=|| ( mysql sqlite ) ?? ( libmpv qtmultimedia )
 SLOT=0
 SRC_URI=https://github.com/martinrotter/rssguard/archive/4.8.6.tar.gz -> rssguard-4.8.6.gh.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	optfeature	538bce96e5589935b57e178e8635f301	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=61bd0d0f29d16af76203ec094804542e
+_md5_=b3109d782f0c6093b7a414b584a2a4a1
