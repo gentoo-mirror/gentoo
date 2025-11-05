@@ -54,7 +54,7 @@ BDEPEND="
 # distutils_enable_sphinx ../../../doc/apidoc
 
 EPYTEST_PLUGINS=()
-EPYTEST_XDIST=1
+# xdist is causing pretty nasty race conditions here
 distutils_enable_tests pytest
 
 EPYTEST_IGNORE=(
@@ -91,14 +91,7 @@ EPYTEST_DESELECT=(
 	'tests/test_plotly_utils/validators/test_colorscale_validator.py::test_acceptance_named[Inferno_r]'
 )
 
-python_prepare_all() {
-	local PATCHES=(
-		# https://github.com/plotly/plotly.py/pull/5322
-		"${FILESDIR}/${P}-test.patch"
-	)
-
-	distutils-r1_python_prepare_all
-
+src_configure() {
 	# Do not try to fetch stuff with npm
 	export SKIP_NPM=1
 }
