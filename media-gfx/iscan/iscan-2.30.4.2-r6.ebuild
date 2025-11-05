@@ -1,7 +1,7 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 MY_DOC="userg_revQ"
 inherit autotools desktop flag-o-matic
@@ -26,15 +26,17 @@ SRC_URI="http://support.epson.net/linux/src/scanner/iscan/${PN}_$(ver_rs 3 -).ta
 		https://dev.gentoo.org/~flameeyes/avasys/${MY_DOC}_e.pdf
 		l10n_ja? ( https://dev.gentoo.org/~flameeyes/avasys/${MY_DOC}_j.pdf )
 	)"
+S="${WORKDIR}/${PN}-$(ver_cut 1-3)"
 
 LICENSE="GPL-2 AVASYS"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc gimp l10n_ja nls X"
 
 REQUIRED_USE="gimp? ( X )"
 
 DEPEND="
+	dev-libs/libltdl
 	dev-libs/libxml2:2=
 	media-gfx/sane-backends
 	virtual/libusb:1
@@ -57,8 +59,6 @@ BDEPEND="
 "
 # Upstream ships broken sanity test
 RESTRICT="test"
-
-S="${WORKDIR}/${PN}-$(ver_cut 1-3)"
 
 DOCS=( AUTHORS NEWS README )
 
@@ -91,6 +91,9 @@ src_prepare() {
 src_configure() {
 	append-cppflags -D_GNU_SOURCE	# needed for 'strndup'
 	replace-flags "-O[0-9s]" "-O1"	# fix selector box bug 388073
+
+	# bug #963199
+	append-cflags -std=gnu89
 
 	local myeconfargs=(
 		--enable-dependency-reduction
@@ -134,6 +137,8 @@ src_install() {
 	fi
 
 	use X && make_desktop_entry iscan "Image Scan! for Linux ${PV}" scanner
+
+	find "${D}" -name '*.la' -delete || die
 }
 
 pkg_postinst() {
