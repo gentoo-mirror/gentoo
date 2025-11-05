@@ -9,7 +9,7 @@ VERIFY_SIG_METHOD=sigstore
 inherit python-r1 verify-sig
 
 REAL_PV=${PV#0.}
-MY_PV=${REAL_PV/_/}
+MY_PV=${REAL_PV}
 MY_P="Python-${MY_PV%_p*}"
 PYVER=$(ver_cut 2-3)t
 PATCHSET="python-gentoo-patches-${MY_PV}"

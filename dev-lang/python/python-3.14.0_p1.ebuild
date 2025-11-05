@@ -3,29 +3,30 @@
 
 EAPI="8"
 
+LLVM_COMPAT=( 19 )
+LLVM_OPTIONAL=1
 VERIFY_SIG_METHOD=sigstore
 WANT_LIBTOOL="none"
 
-inherit autotools check-reqs eapi9-ver flag-o-matic linux-info
+inherit autotools check-reqs eapi9-ver flag-o-matic linux-info llvm-r1
 inherit multiprocessing pax-utils python-utils-r1 toolchain-funcs
 inherit verify-sig
 
-REAL_PV=${PV#0.}
-MY_PV=${REAL_PV/_/}
+MY_PV=${PV}
 MY_P="Python-${MY_PV%_p*}"
-PYVER="$(ver_cut 2-3)t"
-PATCHSET="python-gentoo-patches-${MY_PV}_p1"
+PYVER=$(ver_cut 1-2)
+PATCHSET="python-gentoo-patches-${MY_PV}"
 
-DESCRIPTION="Freethreading (no-GIL) version of Python programming language"
+DESCRIPTION="An interpreted, interactive, object-oriented programming language"
 HOMEPAGE="
 	https://www.python.org/
 	https://github.com/python/cpython/
 "
 SRC_URI="
-	https://www.python.org/ftp/python/${REAL_PV%%_*}/${MY_P}.tar.xz
+	https://www.python.org/ftp/python/${PV%%_*}/${MY_P}.tar.xz
 	https://dev.gentoo.org/~mgorny/dist/python/${PATCHSET}.tar.xz
 	verify-sig? (
-		https://www.python.org/ftp/python/${REAL_PV%%_*}/${MY_P}.tar.xz.sigstore
+		https://www.python.org/ftp/python/${PV%%_*}/${MY_P}.tar.xz.sigstore
 	)
 "
 S="${WORKDIR}/${MY_P}"
@@ -34,9 +35,10 @@ LICENSE="PSF-2"
 SLOT="${PYVER}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="
-	bluetooth debug +ensurepip examples gdbm libedit +ncurses pgo
+	bluetooth debug +ensurepip examples gdbm jit libedit +ncurses pgo
 	+readline +sqlite +ssl tail-call-interp test tk valgrind
 "
+REQUIRED_USE="jit? ( ${LLVM_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"
 
 # Do not add a dependency on dev-lang/python to this ebuild.
@@ -86,6 +88,18 @@ BDEPEND="
 	dev-build/autoconf-archive
 	app-alternatives/awk
 	virtual/pkgconfig
+	jit? (
+		$(llvm_gen_dep '
+			llvm-core/clang:${LLVM_SLOT}
+			llvm-core/llvm:${LLVM_SLOT}
+		')
+	)
+	tail-call-interp? (
+		|| (
+			>=sys-devel/gcc-15:*
+			>=llvm-core/clang-19:*
+		)
+	)
 "
 if [[ ${PV} != *_alpha* ]]; then
 	RDEPEND+="
@@ -116,10 +130,19 @@ pkg_pretend() {
 	if use pgo || use test; then
 		check-reqs_pkg_pretend
 	fi
+
+	if use jit; then
+		ewarn "USE=jit is considered experimental upstream.  Using it"
+		ewarn "could lead to unexpected breakage, including race conditions"
+		ewarn "and crashes, respectively.  Please do not file Gentoo bugs, unless"
+		ewarn "you can reproduce the problem with dev-lang/python[-jit].  Instead,"
+		ewarn "please consider reporting JIT problems upstream."
+	fi
 }
 
 pkg_setup() {
 	if [[ ${MERGE_TYPE} != binary ]]; then
+		use jit && llvm-r1_pkg_setup
 		if use test || use pgo; then
 			check-reqs_pkg_setup
 
@@ -128,6 +151,10 @@ pkg_setup() {
 				CONFIG_CHECK+="~${f} "
 			done
 			linux-info_pkg_setup
+		fi
+		if use tail-call-interp; then
+			tc-check-min_ver gcc 15
+			tc-check-min_ver clang 19
 		fi
 	fi
 }
@@ -350,6 +377,10 @@ src_configure() {
 			# Hangs (actually runs indefinitely executing itself w/ many cpython builds)
 			# bug #900429
 			-x test_tools
+
+			# Test terminates abruptly which corrupts written profile data
+			# bug #964023
+			-x test_pyrepl
 		)
 
 		if has_version "app-arch/rpm" ; then
@@ -383,9 +414,10 @@ src_configure() {
 		--with-platlibdir=lib
 		--with-pkg-config=yes
 		--with-wheel-pkg-dir="${EPREFIX}"/usr/lib/python/ensurepip
-		--disable-gil
+		--enable-gil
 
 		$(use_with debug assertions)
+		$(use_enable jit experimental-jit)
 		$(use_enable pgo optimizations)
 		$(use_with readline readline "$(usex libedit editline readline)")
 		$(use_with tail-call-interp)
@@ -521,10 +553,6 @@ src_install() {
 
 	# Fix collisions between different slots of Python.
 	rm "${ED}/usr/$(get_libdir)/libpython3.so" || die
-	# Fix collision with GIL-enabled build.
-	rm "${ED}/usr/bin/python${PYVER%t}" || die
-	mv "${ED}"/usr/bin/pydoc{${PYVER%t},${PYVER}} || die
-	mv "${ED}"/usr/share/man/man1/python{${PYVER%t},${PYVER}}.1 || die
 
 	# Cheap hack to get version with ABIFLAGS
 	local abiver=$(cd "${ED}/usr/include"; echo python*)
@@ -550,11 +578,8 @@ src_install() {
 	if ! use sqlite; then
 		rm -r "${libdir}/"sqlite3 || die
 	fi
-	if use tk; then
-		# rename to avoid collision with dev-lang/python
-		mv "${ED}"/usr/bin/idle{${PYVER%t},${PYVER}} || die
-	else
-		rm -r "${ED}/usr/bin/idle${PYVER%t}" || die
+	if ! use tk; then
+		rm -r "${ED}/usr/bin/idle${PYVER}" || die
 		rm -r "${libdir}/"{idlelib,tkinter} || die
 	fi
 
@@ -616,6 +641,6 @@ pkg_postinst() {
 		ewarn "old versions.  To actively prevent this, rebuild all packages"
 		ewarn "installing Python 3.14 modules, e.g. using:"
 		ewarn
-		ewarn "  emerge -1v /usr/lib/python3.14t/site-packages"
+		ewarn "  emerge -1v /usr/lib/python3.14/site-packages"
 	fi
 }
