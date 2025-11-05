@@ -1,0 +1,14 @@
+BDEPEND=>=dev-qt/qttools-6.6:6[linguist] >=dev-util/lxqt-build-tools-2.3.0 app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-qt/qtbase-6.6:6[gui,widgets]
+DESCRIPTION=Qt terminal emulator widget
+EAPI=8
+HOMEPAGE=https://lxqt-project.org/
+INHERIT=cmake
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD GPL-2 LGPL-2+
+RDEPEND=>=dev-qt/qtbase-6.6:6[gui,widgets]
+SLOT=0/2.3.0
+SRC_URI=https://github.com/lxqt/qtermwidget/releases/download/2.3.0/qtermwidget-2.3.0.tar.xz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5
+_md5_=4d60538beec698e8e9ff79f05ecadee7
