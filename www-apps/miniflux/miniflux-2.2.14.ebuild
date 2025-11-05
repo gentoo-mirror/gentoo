@@ -6,7 +6,7 @@ EAPI=8
 inherit go-module systemd
 
 # git rev-parse --short HEAD
-MY_GIT_COMMIT="4d7d554d"
+MY_GIT_COMMIT="385d8bb9"
 
 DESCRIPTION="Minimalist and opinionated feed reader"
 HOMEPAGE="https://miniflux.app https://github.com/miniflux/v2"
@@ -50,7 +50,6 @@ src_install() {
 	fperms o-rwx /etc/${PN}.conf
 
 	local DOCS=(
-		ChangeLog
 		README.md
 		"${FILESDIR}"/README.gentoo
 	)
