@@ -83,7 +83,7 @@ SLOT="0/stable"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
 if [[ ${SLOT} != "0/dev" ]]; then
-	KEYWORDS="~amd64 ~arm64"
+	KEYWORDS="amd64 arm64"
 fi
 
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
@@ -570,6 +570,12 @@ src_prepare() {
 		if ver_test ${RUST_SLOT} -lt "1.89.0"; then
 			# The rust allocator was changed in 1.89.0, so we need to patch sources for older versions
 			PATCHES+=( "${FILESDIR}/chromium-140-__rust_no_alloc_shim_is_unstable.patch" )
+		fi
+
+		if ver_test ${RUST_SLOT} -lt "1.90.0"; then
+			PATCHES+=(
+				"${WORKDIR}/copium/cr142-rust-pre1.90.patch"
+			)
 		fi
 
 		if ver_test ${RUST_SLOT} -lt "1.91.0"; then
