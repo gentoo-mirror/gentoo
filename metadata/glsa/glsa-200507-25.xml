@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200507-25">
+  <title>Clam AntiVirus: Integer overflows</title>
+  <synopsis>
+    Clam AntiVirus is vulnerable to integer overflows when handling several
+    file formats, potentially resulting in the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">clamav</product>
+  <announced>2005-07-26</announced>
+  <revised count="02">2005-08-11</revised>
+  <bug>100178</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-antivirus/clamav" auto="yes" arch="*">
+      <unaffected range="ge">0.86.2</unaffected>
+      <vulnerable range="lt">0.86.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Clam AntiVirus is a GPL anti-virus toolkit, designed for integration
+    with mail servers to perform attachment scanning. Clam AntiVirus also
+    provides a command line scanner and a tool for fetching updates of the
+    virus database.
+    </p>
+  </background>
+  <description>
+    <p>
+    Neel Mehta and Alex Wheeler discovered that Clam AntiVirus is
+    vulnerable to integer overflows when handling the TNEF, CHM and FSG
+    file formats.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    By sending a specially-crafted file an attacker could execute arbitrary
+    code with the permissions of the user running Clam AntiVirus.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Clam AntiVirus users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-antivirus/clamav-0.86.2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-2450">CAN-2005-2450</uri>
+    <uri link="https://sourceforge.net/project/shownotes.php?release_id=344514">Clam AntiVirus: Release Notes</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-07-25T17:48:24Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-07-25T19:44:22Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-07-26T20:33:43Z">
+    jaervosz
+  </metadata>
+</glsa>

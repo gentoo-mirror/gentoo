@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-01">
+    <title>ClamAV: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in ClamAV, the worst of which could result in remote code execution.</synopsis>
+    <product type="ebuild">clamav</product>
+    <announced>2023-10-01</announced>
+    <revised count="1">2023-10-01</revised>
+    <bug>831083</bug>
+    <bug>842813</bug>
+    <bug>894672</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-antivirus/clamav" auto="yes" arch="*">
+            <unaffected range="ge">0.103.7</unaffected>
+            <vulnerable range="lt">0.103.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>ClamAV is a GPL virus scanner.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in ClamAV. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All ClamAV users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-antivirus/clamav-0.103.7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-20698">CVE-2022-20698</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-20770">CVE-2022-20770</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-20771">CVE-2022-20771</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-20785">CVE-2022-20785</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-20792">CVE-2022-20792</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-20796">CVE-2022-20796</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-20803">CVE-2022-20803</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-20032">CVE-2023-20032</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-20052">CVE-2023-20052</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-01T08:37:37.977976Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-10-01T08:37:37.980167Z">graaff</metadata>
+</glsa>

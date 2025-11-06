@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-01">
+    <title>GNU Gzip, XZ Utils: Arbitrary file write</title>
+    <synopsis>A vulnerability has been discovered in GNU Gzip and XZ Utils&#39; grep helpers which could result in writes to arbitrary files.</synopsis>
+    <product type="ebuild">gzip,xz-utils</product>
+    <announced>2022-09-07</announced>
+    <revised count="1">2022-09-07</revised>
+    <bug>837152</bug>
+    <bug>837155</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-arch/gzip" auto="yes" arch="*">
+            <unaffected range="ge">1.12</unaffected>
+            <vulnerable range="lt">1.12</vulnerable>
+        </package>
+        <package name="app-arch/xz-utils" auto="yes" arch="*">
+            <unaffected range="ge">5.2.5</unaffected>
+            <vulnerable range="lt">5.2.5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GNU Gzip is a popular data compression program.
+
+XZ Utils is free general-purpose data compression software with a high compression ratio.</p>
+    </background>
+    <description>
+        <p>GNU Gzip and XZ Utils&#39; grep helpers do not sufficiently validate certain multi-line file names.</p>
+    </description>
+    <impact type="high">
+        <p>In some cases, writing to arbitrary files such as shell initialization files can be escalation to remote code execution.</p>
+    </impact>
+    <workaround>
+        <p>Ensuring only trusted input is passed to GNU Gzip and XZ Utils&#39; grep helpers minimizes the potential impact.</p>
+    </workaround>
+    <resolution>
+        <p>All GNU Gzip users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-arch/gzip-1.12"
+        </code>
+        
+        <p>All XZ Utils users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-arch/xz-utils-5.2.5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1271">CVE-2022-1271</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-07T02:51:56.494624Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-07T02:51:56.504364Z">ajak</metadata>
+</glsa>

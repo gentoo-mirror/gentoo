@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200606-03">
+  <title>Dia: Format string vulnerabilities</title>
+  <synopsis>
+    Format string vulnerabilities in Dia may lead to the execution of arbitrary
+    code.
+  </synopsis>
+  <product type="ebuild">dia</product>
+  <announced>2006-06-07</announced>
+  <revised count="01">2006-06-07</revised>
+  <bug>133699</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-office/dia" auto="yes" arch="*">
+      <unaffected range="ge">0.95.1</unaffected>
+      <vulnerable range="lt">0.95.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Dia is a GTK+ based diagram creation program.
+    </p>
+  </background>
+  <description>
+    <p>
+    KaDaL-X discovered a format string error within the handling of
+    filenames. Hans de Goede also discovered several other format
+    string errors in the processing of dia files.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By enticing a user to open a specially crafted file, a remote
+    attacker could exploit these vulnerabilities to execute arbitrary code
+    with the rights of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Dia users should upgrade to the latest available version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-office/dia-0.95.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2453">CVE-2006-2453</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2480">CVE-2006-2480</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-05-30T16:11:11Z">
+    DerCorny
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-05-30T23:25:33Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-06-05T17:20:31Z">
+    falco
+  </metadata>
+</glsa>

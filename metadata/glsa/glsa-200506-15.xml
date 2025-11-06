@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200506-15">
+  <title>PeerCast: Format string vulnerability</title>
+  <synopsis>
+    PeerCast suffers from a format string vulnerability that could allow
+    arbitrary code execution.
+  </synopsis>
+  <product type="ebuild">peercast</product>
+  <announced>2005-06-19</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>96199</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-sound/peercast" auto="yes" arch="*">
+      <unaffected range="ge">0.1212</unaffected>
+      <vulnerable range="lt">0.1212</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    PeerCast is a media streaming system based on P2P technology.
+    </p>
+  </background>
+  <description>
+    <p>
+    James Bercegay of the GulfTech Security Research Team discovered that
+    PeerCast insecurely implements formatted printing when receiving a
+    request with a malformed URL.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could exploit this vulnerability by sending a request
+    with a specially crafted URL to a PeerCast server to execute arbitrary
+    code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All PeerCast users should upgrade to the latest available version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-sound/peercast-0.1212"</code>
+  </resolution>
+  <references>
+    <uri link="http://www.gulftech.org/?node=research&amp;article_id=00077-05282005">GulfTech Advisory</uri>
+    <uri link="http://www.peercast.org/forum/viewtopic.php?p=11596">PeerCast Announcement</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1806">CVE-2005-1806</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-06-15T19:02:57Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-06-15T19:42:18Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-06-19T19:09:07Z">
+    koon
+  </metadata>
+</glsa>

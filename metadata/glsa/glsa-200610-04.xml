@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200610-04">
+  <title>Seamonkey: Multiple vulnerabilities</title>
+  <synopsis>
+    The Seamonkey project has reported multiple security vulnerabilities in the
+    application.
+  </synopsis>
+  <product type="ebuild">seamonkey</product>
+  <announced>2006-10-16</announced>
+  <revised count="01">2006-10-16</revised>
+  <bug>147651</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-client/seamonkey" auto="yes" arch="*">
+      <unaffected range="ge">1.0.5</unaffected>
+      <vulnerable range="lt">1.0.5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    The SeaMonkey project is a community effort to deliver
+    production-quality releases of code derived from the application
+    formerly known as 'Mozilla Application Suite'.
+    </p>
+  </background>
+  <description>
+    <p>
+    A number of vulnerabilities have been found and fixed in Seamonkey. For
+    details please consult the references below.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    The most severe vulnerability involves enticing a user to visit a
+    malicious website, crashing the application and executing arbitrary
+    code with the rights of the user running Seamonkey.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Seamonkey users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-client/seamonkey-1.0.5"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4253">CVE-2006-4253</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4565">CVE-2006-4565</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4566">CVE-2006-4566</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4568">CVE-2006-4568</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4570">CVE-2006-4570</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4571">CVE-2006-4571</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2006-10-11T11:17:26Z">
+    frilled
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-10-13T13:40:59Z">
+    falco
+  </metadata>
+</glsa>

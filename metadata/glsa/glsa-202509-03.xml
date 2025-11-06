@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202509-03">
+    <title>Django: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Django, the worst of which could lead to a denial of service.</synopsis>
+    <product type="ebuild">django</product>
+    <announced>2025-09-17</announced>
+    <revised count="1">2025-09-17</revised>
+    <bug>768240</bug>
+    <bug>771627</bug>
+    <bug>780579</bug>
+    <bug>788130</bug>
+    <bug>788700</bug>
+    <bug>793911</bug>
+    <bug>799710</bug>
+    <bug>828490</bug>
+    <bug>830593</bug>
+    <bug>832491</bug>
+    <bug>837836</bug>
+    <bug>856448</bug>
+    <bug>863398</bug>
+    <bug>875323</bug>
+    <bug>892806</bug>
+    <bug>894408</bug>
+    <bug>913620</bug>
+    <bug>923978</bug>
+    <bug>926164</bug>
+    <bug>935793</bug>
+    <bug>937476</bug>
+    <bug>939027</bug>
+    <bug>945889</bug>
+    <bug>948130</bug>
+    <bug>950709</bug>
+    <bug>955606</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/django" auto="yes" arch="*">
+            <unaffected range="ge">5.2.1</unaffected>
+            <vulnerable range="lt">5.2.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Django is a Python-based web framework.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Django. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Django users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/django-5.2.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3281">CVE-2021-3281</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28658">CVE-2021-28658</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-31542">CVE-2021-31542</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32052">CVE-2021-32052</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33203">CVE-2021-33203</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33571">CVE-2021-33571</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35042">CVE-2021-35042</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44420">CVE-2021-44420</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45115">CVE-2021-45115</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45116">CVE-2021-45116</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45452">CVE-2021-45452</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22818">CVE-2022-22818</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23833">CVE-2022-23833</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28346">CVE-2022-28346</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28347">CVE-2022-28347</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34265">CVE-2022-34265</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36359">CVE-2022-36359</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41323">CVE-2022-41323</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23969">CVE-2023-23969</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-24580">CVE-2023-24580</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-41164">CVE-2023-41164</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-24680">CVE-2024-24680</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-27351">CVE-2024-27351</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-38875">CVE-2024-38875</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-39329">CVE-2024-39329</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-39330">CVE-2024-39330</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-39614">CVE-2024-39614</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-41989">CVE-2024-41989</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-41990">CVE-2024-41990</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-41991">CVE-2024-41991</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-42005">CVE-2024-42005</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-45230">CVE-2024-45230</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-45231">CVE-2024-45231</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-53907">CVE-2024-53907</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-53908">CVE-2024-53908</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-56374">CVE-2024-56374</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-26699">CVE-2025-26699</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-32873">CVE-2025-32873</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-09-17T21:40:31.574240Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-09-17T21:40:31.577985Z">sam</metadata>
+</glsa>

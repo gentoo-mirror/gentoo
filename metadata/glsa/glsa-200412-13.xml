@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200412-13">
+  <title>Samba: Integer overflow</title>
+  <synopsis>
+    Samba contains a bug that could lead to remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">Samba</product>
+  <announced>2004-12-17</announced>
+  <revised count="01">2004-12-17</revised>
+  <bug>73943</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-fs/samba" auto="yes" arch="*">
+      <unaffected range="ge">3.0.9-r1</unaffected>
+      <vulnerable range="le">3.0.9</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Samba is a freely available SMB/CIFS implementation which allows
+    seamless interoperability of file and print services to other SMB/CIFS
+    clients.
+    </p>
+  </background>
+  <description>
+    <p>
+    Samba contains a bug when unmarshalling specific MS-RPC requests from
+    clients.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker may be able to execute arbitrary code with the
+    permissions of the user running Samba, which could be the root user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All samba users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-fs/samba-3.0.9-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-1154">CAN 2004-1154</uri>
+    <uri link="https://www.samba.org/samba/security/CAN-2004-1154.html">Samba Announcement</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2004-12-15T20:27:23Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-12-17T19:53:44Z">
+    jaervosz
+  </metadata>
+</glsa>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-20">
+    <title>libapreq2: Buffer Overflow</title>
+    <synopsis>A buffer overflow vulnerability has been discovered in libapreq2 which could result in denial of service.</synopsis>
+    <product type="ebuild">libapreq2</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>866536</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-apache/libapreq2" auto="yes" arch="*">
+            <unaffected range="ge">2.17</unaffected>
+            <vulnerable range="lt">2.17</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libapreq is a shared library with associated modules for manipulating client request data via the Apache API.</p>
+    </background>
+    <description>
+        <p>A buffer overflow could occur when processing multipart form uploads.</p>
+    </description>
+    <impact type="low">
+        <p>An attacker could submit a crafted multipart form to trigger the buffer overflow and cause a denial of service.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libapreq2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-apache/libapreq2-2.17"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22728">CVE-2022-22728</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T10:05:03.532537Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T10:05:03.535300Z">sam</metadata>
+</glsa>

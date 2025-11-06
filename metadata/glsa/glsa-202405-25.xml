@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-25">
+    <title>MariaDB: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in MariaDB, the worst fo which can lead to arbitrary execution of code.</synopsis>
+    <product type="ebuild">mariadb</product>
+    <announced>2024-05-08</announced>
+    <revised count="1">2024-05-08</revised>
+    <bug>699874</bug>
+    <bug>822759</bug>
+    <bug>832490</bug>
+    <bug>838244</bug>
+    <bug>847526</bug>
+    <bug>856484</bug>
+    <bug>891781</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-db/mariadb" auto="yes" arch="*">
+            <unaffected range="ge" slot="10.6">10.6.13</unaffected>
+            <unaffected range="ge" slot="10.11">10.11.3</unaffected>
+            <vulnerable range="lt" slot="10.6">10.11.3</vulnerable>
+            <vulnerable range="lt" slot="10.11">10.11.3</vulnerable>
+            <vulnerable range="lt">10.6.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>MariaDB is an enhanced, drop-in replacement for MySQL.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in MariaDB. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All MariaDB 10.6 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-db/mariadb-10.11.3:10.6"
+        </code>
+        
+        <p>All MariaDB 10.11 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-db/mariadb-10.11.3:10.11"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-2938">CVE-2019-2938</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-2974">CVE-2019-2974</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46661">CVE-2021-46661</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46662">CVE-2021-46662</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46663">CVE-2021-46663</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46664">CVE-2021-46664</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46665">CVE-2021-46665</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46666">CVE-2021-46666</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46667">CVE-2021-46667</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46668">CVE-2021-46668</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46669">CVE-2021-46669</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24048">CVE-2022-24048</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24050">CVE-2022-24050</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24051">CVE-2022-24051</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24052">CVE-2022-24052</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27376">CVE-2022-27376</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27377">CVE-2022-27377</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27378">CVE-2022-27378</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27379">CVE-2022-27379</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27380">CVE-2022-27380</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27381">CVE-2022-27381</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27382">CVE-2022-27382</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27383">CVE-2022-27383</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27384">CVE-2022-27384</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27385">CVE-2022-27385</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27386">CVE-2022-27386</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27444">CVE-2022-27444</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27445">CVE-2022-27445</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27446">CVE-2022-27446</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27447">CVE-2022-27447</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27448">CVE-2022-27448</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27449">CVE-2022-27449</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27451">CVE-2022-27451</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27452">CVE-2022-27452</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27455">CVE-2022-27455</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27456">CVE-2022-27456</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27457">CVE-2022-27457</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27458">CVE-2022-27458</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31621">CVE-2022-31621</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31622">CVE-2022-31622</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31623">CVE-2022-31623</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31624">CVE-2022-31624</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32081">CVE-2022-32081</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32082">CVE-2022-32082</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32083">CVE-2022-32083</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32084">CVE-2022-32084</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32085">CVE-2022-32085</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32086">CVE-2022-32086</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32088">CVE-2022-32088</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32089">CVE-2022-32089</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32091">CVE-2022-32091</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38791">CVE-2022-38791</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-47015">CVE-2022-47015</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5157">CVE-2023-5157</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-08T08:40:00.435252Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-08T08:40:00.439162Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-30">
+  <title>Xen: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Xen, the worst of which
+    could result in privilege escalation.
+  </synopsis>
+  <product type="ebuild">xen</product>
+  <announced>2021-07-12</announced>
+  <revised count="1">2021-07-12</revised>
+  <bug>760144</bug>
+  <bug>766474</bug>
+  <bug>783456</bug>
+  <bug>795054</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="app-emulation/xen" auto="yes" arch="*">
+      <unaffected range="ge">4.14.2-r1</unaffected>
+      <unaffected range="ge">4.15.0-r1</unaffected>
+      <vulnerable range="lt">4.15.0-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Xen is a bare-metal hypervisor.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Xen. Please review the
+      CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="high">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Xen 4.14.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-emulation/xen-4.14.2-r1"
+    </code>
+    
+    <p>All Xen 4.15.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-emulation/xen-4.15.0-r1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-29479">CVE-2020-29479</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-29486">CVE-2020-29486</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-29487">CVE-2020-29487</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-29566">CVE-2020-29566</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-29567">CVE-2020-29567</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-29568">CVE-2020-29568</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-29569">CVE-2020-29569</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-29570">CVE-2020-29570</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-29571">CVE-2020-29571</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-0089">CVE-2021-0089</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26313">CVE-2021-26313</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28687">CVE-2021-28687</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28690">CVE-2021-28690</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28691">CVE-2021-28691</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28692">CVE-2021-28692</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28693">CVE-2021-28693</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3308">CVE-2021-3308</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-06T02:51:30Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-12T02:48:56Z">ajak</metadata>
+</glsa>

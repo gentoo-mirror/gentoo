@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200805-21">
+  <title>Roundup: Permission bypass</title>
+  <synopsis>
+    A vulnerability in Roundup allows for bypassing permission restrictions.
+  </synopsis>
+  <product type="ebuild">roundup</product>
+  <announced>2008-05-27</announced>
+  <revised count="01">2008-05-27</revised>
+  <bug>212488</bug>
+  <bug>214666</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/roundup" auto="yes" arch="*">
+      <unaffected range="ge">1.4.4-r1</unaffected>
+      <vulnerable range="lt">1.4.4-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Roundup is an issue-tracking system with command-line, web and e-mail
+    interfaces.
+    </p>
+  </background>
+  <description>
+    <p>
+    Philipp Gortan reported that the xml-rpc server in Roundup does not
+    check property permissions (CVE-2008-1475). Furthermore, Roland Meister
+    discovered multiple vulnerabilities caused by unspecified errors, some
+    of which may be related to cross-site scripting (CVE-2008-1474).
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could possibly exploit the first vulnerability to
+    edit or view restricted properties via the list(), display(), and set()
+    methods. The impact and attack vectors of the second vulnerability are
+    unknown.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Roundup users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/roundup-1.4.4-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1474">CVE-2008-1474</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1475">CVE-2008-1475</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-05-19T15:24:06Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-05-21T19:07:57Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-05-22T09:03:17Z">
+    p-y
+  </metadata>
+</glsa>

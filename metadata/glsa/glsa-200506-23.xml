@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200506-23">
+  <title>Clam AntiVirus: Denial of Service vulnerability</title>
+  <synopsis>
+    Clam AntiVirus is vulnerable to a Denial of Service attack when processing
+    certain Quantum archives.
+  </synopsis>
+  <product type="ebuild">clamav</product>
+  <announced>2005-06-27</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>96960</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-antivirus/clamav" auto="yes" arch="*">
+      <unaffected range="ge">0.86.1</unaffected>
+      <vulnerable range="lt">0.86.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Clam AntiVirus is a GPL anti-virus toolkit, designed for integration
+    with mail servers to perform attachment scanning. Clam AntiVirus also
+    provides a command line scanner and a tool for fetching updates of the
+    virus database.
+    </p>
+  </background>
+  <description>
+    <p>
+    Andrew Toller and Stefan Kanthak discovered that a flaw in libmspack's
+    Quantum archive decompressor renders Clam AntiVirus vulnerable to a
+    Denial of Service attack.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could exploit this vulnerability to cause a Denial of
+    Service by sending a specially crafted Quantum archive to the server.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Clam AntiVirus users should upgrade to the latest available
+    version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-antivirus/clamav-0.86.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://sourceforge.net/project/shownotes.php?release_id=337279">Clam AntiVirus Release Notes</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2056">CVE-2005-2056</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-06-24T22:27:44Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-06-24T23:09:26Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-06-26T16:53:15Z">
+    jaervosz
+  </metadata>
+</glsa>

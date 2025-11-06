@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200710-06">
+  <title>OpenSSL: Multiple vulnerabilities</title>
+  <synopsis>
+    A buffer underflow vulnerability and an information disclosure
+    vulnerability have been discovered in OpenSSL.
+  </synopsis>
+  <product type="ebuild">openssl</product>
+  <announced>2007-10-07</announced>
+  <revised count="01">2007-10-07</revised>
+  <bug>188799</bug>
+  <bug>194039</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="dev-libs/openssl" auto="yes" arch="*">
+      <unaffected range="ge">0.9.8e-r3</unaffected>
+      <vulnerable range="lt">0.9.8e-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    OpenSSL is an implementation of the Secure Socket Layer and Transport
+    Layer Security protocols.
+    </p>
+  </background>
+  <description>
+    <p>
+    Moritz Jodeit reported an off-by-one error in the
+    SSL_get_shared_ciphers() function, resulting from an incomplete fix of
+    CVE-2006-3738. A flaw has also been reported in the
+    BN_from_montgomery() function in crypto/bn/bn_mont.c when performing
+    Montgomery multiplication.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker sending a specially crafted packet to an application
+    relying on OpenSSL could possibly execute arbitrary code with the
+    privileges of the user running the application. A local attacker could
+    perform a side channel attack to retrieve the RSA private keys.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All OpenSSL users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-libs/openssl-0.9.8e-r3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3738">CVE-2006-3738</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3108">CVE-2007-3108</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5135">CVE-2007-5135</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-09-10T06:24:11Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-09-10T06:24:24Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-10-06T13:14:06Z">
+    p-y
+  </metadata>
+</glsa>

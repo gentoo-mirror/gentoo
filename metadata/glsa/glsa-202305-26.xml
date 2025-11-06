@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-26">
+    <title>LibreCAD: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in LibreCAD, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">librecad</product>
+    <announced>2023-05-21</announced>
+    <revised count="1">2023-05-21</revised>
+    <bug>825362</bug>
+    <bug>832210</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-gfx/librecad" auto="yes" arch="*">
+            <unaffected range="ge">2.1.3-r7</unaffected>
+            <vulnerable range="lt">2.1.3-r7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>LibreCAD is a generic 2D CAD program.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in LibreCAD. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All LibreCAD users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/librecad-2.1.3-r7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21898">CVE-2021-21898</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21899">CVE-2021-21899</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21900">CVE-2021-21900</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45341">CVE-2021-45341</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45342">CVE-2021-45342</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45343">CVE-2021-45343</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-21T19:44:16.481147Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-21T19:44:16.483443Z">ajak</metadata>
+</glsa>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-09">
+    <title>Go: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Go, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">go</product>
+    <announced>2023-11-25</announced>
+    <revised count="1">2023-11-25</revised>
+    <bug>873637</bug>
+    <bug>883783</bug>
+    <bug>894478</bug>
+    <bug>903979</bug>
+    <bug>908255</bug>
+    <bug>915555</bug>
+    <bug>916494</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-lang/go" auto="yes" arch="*">
+            <unaffected range="ge">1.20.10</unaffected>
+            <vulnerable range="lt">1.20.10</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Go. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Go users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/go-1.20.10"
+          # emerge --ask --oneshot --verbose @golang-rebuild
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2879">CVE-2022-2879</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2880">CVE-2022-2880</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41715">CVE-2022-41715</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41717">CVE-2022-41717</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41723">CVE-2022-41723</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41724">CVE-2022-41724</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41725">CVE-2022-41725</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-24534">CVE-2023-24534</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-24536">CVE-2023-24536</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-24537">CVE-2023-24537</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-24538">CVE-2023-24538</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29402">CVE-2023-29402</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29403">CVE-2023-29403</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29404">CVE-2023-29404</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29405">CVE-2023-29405</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29406">CVE-2023-29406</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29409">CVE-2023-29409</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39318">CVE-2023-39318</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39319">CVE-2023-39319</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39320">CVE-2023-39320</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39321">CVE-2023-39321</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39322">CVE-2023-39322</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39323">CVE-2023-39323</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39325">CVE-2023-39325</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-44487">CVE-2023-44487</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-25T08:56:49.846635Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-25T08:56:49.848867Z">graaff</metadata>
+</glsa>

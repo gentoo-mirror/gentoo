@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200502-01">
+  <title>FireHOL: Insecure temporary file creation</title>
+  <synopsis>
+    FireHOL is vulnerable to symlink attacks, potentially allowing a local user
+    to overwrite arbitrary files.
+  </synopsis>
+  <product type="ebuild">FireHOL</product>
+  <announced>2005-02-01</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>79330</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-firewall/firehol" auto="yes" arch="*">
+      <unaffected range="ge">1.224</unaffected>
+      <vulnerable range="lt">1.224</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    FireHOL is an iptables rules generator.
+    </p>
+  </background>
+  <description>
+    <p>
+    FireHOL insecurely creates temporary files with predictable names.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could create malicious symbolic links to arbitrary
+    system files. When FireHOL is executed, this could lead to these files
+    being overwritten with the rights of the user launching FireHOL,
+    usually the root user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All FireHOL users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-firewall/firehol-1.224"</code>
+  </resolution>
+  <references>
+    <uri link="https://cvs.sourceforge.net/viewcvs.py/firehol/firehol/firehol.sh">FireHOL CVS log</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0225">CVE-2005-0225</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-01-28T10:32:33Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-01-29T16:54:50Z">
+    vorlon078
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-01-31T23:48:34Z">
+    lewk
+  </metadata>
+</glsa>

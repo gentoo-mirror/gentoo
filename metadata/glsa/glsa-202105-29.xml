@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-29">
+  <title>Tar: Denial of service</title>
+  <synopsis>A vulnerability in Tar could lead to a Denial of Service condition.</synopsis>
+  <product type="ebuild">tar</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>778548</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="app-arch/tar" auto="yes" arch="*">
+      <unaffected range="ge">1.34</unaffected>
+      <vulnerable range="lt">1.34</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>The Tar program provides the ability to create and manipulate tar
+      archives.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that GNU Tar had a memory leak when processing archive
+      headers.
+    </p>
+  </description>
+  <impact type="low">
+    <p>A remote attacker could entice a user to open a specially crafted
+      archive using Tar, possibly resulting in a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Tar users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-arch/tar-1.34"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20193">CVE-2021-20193</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-24T01:03:25Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T10:11:52Z">whissi</metadata>
+</glsa>

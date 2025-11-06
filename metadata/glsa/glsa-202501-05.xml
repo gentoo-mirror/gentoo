@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202501-05">
+    <title>libuv: Hostname Truncation</title>
+    <synopsis>A vulnerability has been discovered in libuv, where hostname truncation can lead to attacker-controlled lookups.</synopsis>
+    <product type="ebuild">libuv</product>
+    <announced>2025-01-23</announced>
+    <revised count="1">2025-01-23</revised>
+    <bug>924127</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/libuv" auto="yes" arch="*">
+            <unaffected range="ge">1.48.0</unaffected>
+            <vulnerable range="lt">1.48.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libuv is a multi-platform support library with a focus on asynchronous I/O.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libuv. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>The uv_getaddrinfo function in src/unix/getaddrinfo.c truncates hostnames to 256 characters before calling getaddrinfo. This behavior can be exploited to create addresses like 0x00007f000001, which are considered valid by getaddrinfo and could allow an attacker to craft payloads that resolve to unintended IP addresses, bypassing developer checks.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libuv users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/libuv-1.48.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-24806">CVE-2024-24806</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-01-23T06:16:58.811764Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-01-23T06:16:58.815474Z">graaff</metadata>
+</glsa>

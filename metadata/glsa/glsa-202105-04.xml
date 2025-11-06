@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-04">
+  <title>Boost: Buffer overflow</title>
+  <synopsis>A buffer overflow in Boost might allow remote attacker(s) to
+    execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">boost</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>620468</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="dev-libs/boost" auto="yes" arch="*">
+      <unaffected range="ge">1.74.0-r2</unaffected>
+      <vulnerable range="lt">1.74.0-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Boost is a set of C++ libraries, including the Boost.Regex library to
+      process regular expressions.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that Boost incorrectly sanitized ‘next_size’ and
+      ‘max_size’ parameter in ordered_malloc() function when allocating
+      memory.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could provide a specially crafted application-specific
+      file (requiring runtime memory allocation to be processed correctly),
+      that, when opened with an application using Boost C++ source libraries,
+      possibly resulting in execution of arbitrary code with the privileges of
+      the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Boost users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-libs/boost-1.74.0-r2"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2012-2677">CVE-2012-2677</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T22:14:01Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T07:45:40Z">whissi</metadata>
+</glsa>

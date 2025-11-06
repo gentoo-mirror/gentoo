@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-12">
+    <title>mdbtools: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in mdbtools, the worst of which</synopsis>
+    <product type="ebuild">mdbtools</product>
+    <announced>2022-08-10</announced>
+    <revised count="1">2022-08-10</revised>
+    <bug>773289</bug>
+    <bug>830371</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-office/mdbtools" auto="yes" arch="*">
+            <unaffected range="ge">0.9.3</unaffected>
+            <vulnerable range="lt">0.9.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>mdbtools is a set of libraries and utilities for reading Microsoft Access database (MDB) files.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in mdbtools. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All mdbtools users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-office/mdbtools-0.9.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45926">CVE-2021-45926</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45927">CVE-2021-45927</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-10T04:08:26.317866Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-10T04:08:26.320752Z">ajak</metadata>
+</glsa>

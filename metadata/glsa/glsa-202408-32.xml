@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-32">
+    <title>PHP: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in PHP, the worst of which can lead to a denial of service.</synopsis>
+    <product type="ebuild">php</product>
+    <announced>2024-08-12</announced>
+    <revised count="2">2024-08-13</revised>
+    <bug>889882</bug>
+    <bug>895416</bug>
+    <bug>908259</bug>
+    <bug>912331</bug>
+    <bug>929929</bug>
+    <bug>933752</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-lang/php" auto="yes" arch="*">
+            <unaffected range="ge" slot="8.1">8.1.29</unaffected>
+            <unaffected range="ge" slot="8.2">8.2.20</unaffected>
+            <unaffected range="ge" slot="8.3">8.3.8</unaffected>
+            <vulnerable range="lt">8.1</vulnerable>
+            <vulnerable range="lt" slot="8.1">8.1.29</vulnerable>
+            <vulnerable range="lt" slot="8.2">8.2.20</vulnerable>
+            <vulnerable range="lt" slot="8.3">8.3.8</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>PHP is a widely-used general-purpose scripting language that is especially suited for Web development and can be embedded into HTML.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in PHP. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All PHP users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/php-8.1.29:8.1"
+          # emerge --ask --oneshot --verbose ">=dev-lang/php-8.2.20:8.2"
+          # emerge --ask --oneshot --verbose ">=dev-lang/php-8.3.8:8.3"
+        </code>
+        
+        <p>Support for older version has been discontinued:</p>
+        
+        <code>
+          # emerge --ask --verbose --depclean "&lt;dev-lang/php-8.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31631">CVE-2022-31631</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0567">CVE-2023-0567</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0568">CVE-2023-0568</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0662">CVE-2023-0662</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-3823">CVE-2023-3823</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-3824">CVE-2023-3824</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-2756">CVE-2024-2756</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-2757">CVE-2024-2757</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3096">CVE-2024-3096</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-4577">CVE-2024-4577</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5458">CVE-2024-5458</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5585">CVE-2024-5585</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-12T07:39:21.009398Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-12T07:39:21.012299Z">graaff</metadata>
+</glsa>

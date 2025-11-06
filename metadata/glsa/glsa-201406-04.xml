@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201406-04">
+  <title>SystemTap: Denial of service</title>
+  <synopsis>A vulnerability in SystemTap could allow a local attacker to create
+    a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">systemtap</product>
+  <announced>2014-06-05</announced>
+  <revised count="1">2014-06-05</revised>
+  <bug>405345</bug>
+  <access>local</access>
+  <affected>
+    <package name="dev-util/systemtap" auto="yes" arch="*">
+      <unaffected range="ge">2.0</unaffected>
+      <vulnerable range="lt">2.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>SystemTap is a kernel profiling and instrumentation tool.</p>
+  </background>
+  <description>
+    <p>SystemTap does not properly handle DWARF expressions when unwinding the
+      stack.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A local attacker with SystemTap permissions could trigger a kernel
+      panic, causing a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>Disabling unprivileged mode is a temporary workaround for this
+      vulnerability.
+    </p>
+  </workaround>
+  <resolution>
+    <p>All SystemTap users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-util/systemtap-2.0"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-0875">CVE-2012-0875</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-05-30T22:59:45Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-06-05T00:18:26Z">
+    creffett
+  </metadata>
+</glsa>

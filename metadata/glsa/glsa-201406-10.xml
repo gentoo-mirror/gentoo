@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201406-10">
+  <title>lighttpd: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in lighttpd, allowing
+    remote attackers cause a Denial of Service condition or execute arbitrary
+    SQL statements.
+  </synopsis>
+  <product type="ebuild">lighttpd</product>
+  <announced>2014-06-13</announced>
+  <revised count="1">2014-06-13</revised>
+  <bug>392581</bug>
+  <bug>444179</bug>
+  <bug>490432</bug>
+  <bug>491154</bug>
+  <bug>504330</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-servers/lighttpd" auto="yes" arch="*">
+      <unaffected range="ge">1.4.35</unaffected>
+      <vulnerable range="lt">1.4.35</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>lighttpd is a lightweight high-performance web server.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in lighttpd. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="high">
+    <p>A remote attacker could create a Denial of Service condition.
+      Futhermore, a remote attacker may be able to execute arbitrary SQL
+      statements.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All lighttpd users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-servers/lighttpd-1.4.35"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2011-4362">CVE-2011-4362</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-5533">CVE-2012-5533</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-4508">CVE-2013-4508</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-4559">CVE-2013-4559</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-4560">CVE-2013-4560</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-2323">CVE-2014-2323</uri>
+  </references>
+  <metadata tag="requester" timestamp="2012-03-06T01:13:56Z">craig</metadata>
+  <metadata tag="submitter" timestamp="2014-06-13T20:40:42Z">ackle</metadata>
+</glsa>

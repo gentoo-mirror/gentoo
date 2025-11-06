@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202412-02">
+    <title>Cacti: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Cacti, the worst of which can lead to privilege escalation.</synopsis>
+    <product type="ebuild">cacti</product>
+    <announced>2024-12-07</announced>
+    <revised count="1">2024-12-07</revised>
+    <bug>823788</bug>
+    <bug>834597</bug>
+    <bug>884799</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-analyzer/cacti" auto="yes" arch="*">
+            <unaffected range="ge">1.2.26</unaffected>
+            <vulnerable range="lt">1.2.26</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Cacti is a web-based network graphing and reporting tool.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Cacti. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Cacti users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-analyzer/cacti-1.2.26"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-14424">CVE-2020-14424</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0730">CVE-2022-0730</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46169">CVE-2022-46169</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-48547">CVE-2022-48547</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-30534">CVE-2023-30534</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-31132">CVE-2023-31132</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39357">CVE-2023-39357</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39358">CVE-2023-39358</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39359">CVE-2023-39359</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39360">CVE-2023-39360</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39361">CVE-2023-39361</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39362">CVE-2023-39362</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39365">CVE-2023-39365</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39510">CVE-2023-39510</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39511">CVE-2023-39511</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39512">CVE-2023-39512</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39513">CVE-2023-39513</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39514">CVE-2023-39514</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39515">CVE-2023-39515</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39516">CVE-2023-39516</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-12-07T08:56:20.459772Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-12-07T08:56:20.462893Z">graaff</metadata>
+</glsa>

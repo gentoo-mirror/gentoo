@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201406-35">
+  <title>Openfire: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Openfire, the worst of
+    which could lead to a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">openfire</product>
+  <announced>2014-06-30</announced>
+  <revised count="1">2014-06-30</revised>
+  <bug>266129</bug>
+  <bug>507242</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-im/openfire" auto="yes" arch="*">
+      <unaffected range="ge">3.9.2-r1</unaffected>
+      <vulnerable range="lt">3.9.2-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Openfire is a real time collaboration (RTC) server.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Openfire. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could possibly cause a Denial of Service condition or
+      bypass security restrictions.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Openfire users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-im/openfire-3.9.2-r1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2009-1595">CVE-2009-1595</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2009-1596">CVE-2009-1596</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-2741">CVE-2014-2741</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-06-10T01:12:58Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-06-30T17:52:11Z">Zlogene</metadata>
+</glsa>

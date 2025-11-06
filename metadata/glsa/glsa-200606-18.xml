@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200606-18">
+  <title>PAM-MySQL: Multiple vulnerabilities</title>
+  <synopsis>
+    Vulnerabilities in PAM-MySQL can lead to a Denial of Service, making it
+    impossible to log into a machine.
+  </synopsis>
+  <product type="ebuild">pam_mysql</product>
+  <announced>2006-06-15</announced>
+  <revised count="02">2006-07-29</revised>
+  <bug>120842</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-auth/pam_mysql" auto="yes" arch="*">
+      <unaffected range="ge">0.7_rc1</unaffected>
+      <vulnerable range="lt">0.7_rc1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    PAM-MySQL is a PAM module used to authenticate users against a MySQL
+    backend.
+    </p>
+  </background>
+  <description>
+    <p>
+    A flaw in handling the result of pam_get_item() as well as further
+    unspecified flaws were discovered in PAM-MySQL.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By exploiting the mentioned flaws an attacker can cause a Denial of
+    Service and thus prevent users that authenticate against PAM-MySQL from
+    logging into a machine. There is also a possible additional attack
+    vector with more malicious impact that has not been confirmed yet.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All PAM-MySQL users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=sys-auth/pam_mysql-0.7_rc1"</code>
+  </resolution>
+  <references>
+    <uri link="https://pam-mysql.sourceforge.net/News/">Official release information</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-4713">CVE-2005-4713</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0056">CVE-2006-0056</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-06-11T20:13:52Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-06-11T20:15:46Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-06-13T04:26:43Z">
+    frilled
+  </metadata>
+</glsa>

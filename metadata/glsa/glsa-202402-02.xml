@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-02">
+    <title>SDDM: Privilege Escalation</title>
+    <synopsis>A vulnerability has been discovered in SDDM which can lead to privilege escalation.</synopsis>
+    <product type="ebuild">sddm</product>
+    <announced>2024-02-03</announced>
+    <revised count="1">2024-02-03</revised>
+    <bug>753104</bug>
+    <access>local</access>
+    <affected>
+        <package name="x11-misc/sddm" auto="yes" arch="*">
+            <unaffected range="ge">0.18.1-r6</unaffected>
+            <vulnerable range="lt">0.18.1-r6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>SDDM is a modern display manager for X11 and Wayland sessions aiming to be fast, simple and beautiful. It uses modern technologies like QtQuick, which in turn gives the designer the ability to create smooth, animated user interfaces.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in SDDM. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>SDDM passes the -auth and -displayfd command line arguments when
+starting the Xserver. It then waits for the display number to be
+received from the Xserver via the `displayfd`, before the Xauthority
+file specified via the `-auth` parameter is actually written. This
+results in a race condition, creating a time window in which no valid
+Xauthority file is existing while the Xserver is already running.
+
+The X.Org server, when encountering a non-existing, empty or
+corrupt/incomplete Xauthority file, will grant any connecting client
+access to the Xorg display. A local unprivileged attacker can thus
+create an unauthorized connection to the Xserver and grab e.g. keyboard
+input events from other legitimate users accessing the Xserver.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All SDDM users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-misc/sddm-0.18.1-r6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28049">CVE-2020-28049</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-03T06:18:59.426090Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-03T06:18:59.429353Z">ajak</metadata>
+</glsa>

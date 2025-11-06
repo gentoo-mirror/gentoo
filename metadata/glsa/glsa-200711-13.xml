@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200711-13">
+  <title>3proxy: Denial of service</title>
+  <synopsis>
+    A vulnerability has been discovered in 3proxy, possibly resulting in a
+    Denial of Service.
+  </synopsis>
+  <product type="ebuild">3proxy</product>
+  <announced>2007-11-08</announced>
+  <revised count="01">2007-11-08</revised>
+  <bug>196772</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-proxy/3proxy" auto="yes" arch="*">
+      <unaffected range="ge">0.5.3j</unaffected>
+      <vulnerable range="lt">0.5.3j</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    3proxy is a really tiny cross-platform proxy servers set, including
+    HTTP, HTTPS, FTP, SOCKS and POP3 support.
+    </p>
+  </background>
+  <description>
+    <p>
+    3proxy contains a double free vulnerability in the ftpprchild()
+    function, which frees param-&gt;hostname and calls the parsehostname()
+    function, which in turn attempts to free param-&gt;hostname again.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could send a specially crafted request to the proxy,
+    possibly resulting in a Denial of Service. Under typical configuration,
+    the scope of this vulnerability is limited to the local network.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All 3proxy users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-proxy/3proxy-0.5.3j"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5622">CVE-2007-5622</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-11-02T23:15:07Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-11-03T12:02:00Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-11-04T14:26:02Z">
+    rbu
+  </metadata>
+</glsa>

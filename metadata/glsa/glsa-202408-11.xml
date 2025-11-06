@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-11">
+    <title>aiohttp: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in aiohttp, the worst of which could lead to service compromise.</synopsis>
+    <product type="ebuild">aiohttp</product>
+    <announced>2024-08-07</announced>
+    <revised count="1">2024-08-07</revised>
+    <bug>918541</bug>
+    <bug>918968</bug>
+    <bug>931097</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/aiohttp" auto="yes" arch="*">
+            <unaffected range="ge">3.9.4</unaffected>
+            <vulnerable range="lt">3.9.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>aiohttp is an asynchronous HTTP client/server framework for asyncio and Python.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in aiohttp. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All aiohttp users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/aiohttp-3.9.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-47641">CVE-2023-47641</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-49082">CVE-2023-49082</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-30251">CVE-2024-30251</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-07T11:59:46.382696Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-07T11:59:46.386364Z">graaff</metadata>
+</glsa>

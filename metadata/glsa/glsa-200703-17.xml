@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200703-17">
+  <title>ulogd: Remote execution of arbitrary code</title>
+  <synopsis>
+    ulogd contains a possible buffer overflow potentially allowing for the
+    remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">ulogd</product>
+  <announced>2007-03-18</announced>
+  <revised count="01">2007-03-18</revised>
+  <bug>161882</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-admin/ulogd" auto="yes" arch="*">
+      <unaffected range="ge">1.23-r1</unaffected>
+      <vulnerable range="lt">1.23-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    ulogd is a userspace daemon for netfilter related logging.
+    </p>
+  </background>
+  <description>
+    <p>
+    SUSE reported unspecified buffer overflows in ulogd involving the
+    calculation of string lengths.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could trigger a possible buffer overflow through
+    unspecified vectors, potentially leading to the remote execution of
+    arbitrary code with the rights of the user running the ulogd daemon, or
+    more probably leading to the crash of the daemon.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All ulogd users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-admin/ulogd-1.23-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0460">CVE-2007-0460</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-03-14T07:34:19Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-03-16T12:57:18Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-03-18T21:32:10Z">
+    falco
+  </metadata>
+</glsa>

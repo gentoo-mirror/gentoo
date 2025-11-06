@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200608-23">
+  <title>Heartbeat: Denial of service</title>
+  <synopsis>
+    Heartbeat is vulnerable to a Denial of Service which can be triggered by a
+    remote attacker without authentication.
+  </synopsis>
+  <product type="ebuild">heartbeat</product>
+  <announced>2006-08-24</announced>
+  <revised count="02">2006-09-22</revised>
+  <bug>141894</bug>
+  <access>remote</access>
+  <affected>
+    <package name="sys-cluster/heartbeat" auto="yes" arch="*">
+      <unaffected range="ge">2.0.7</unaffected>
+      <unaffected range="rge">1.2.5</unaffected>
+      <vulnerable range="lt">2.0.7</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Heartbeat is a component of the High-Availability Linux project. It is
+    used to perform death-of-node detection, communications and cluster
+    management.
+    </p>
+  </background>
+  <description>
+    <p>
+    Yan Rong Ge discovered that the peel_netstring() function in
+    cl_netstring.c does not validate the "length" parameter of user input,
+    which can lead to an out-of-bounds memory access when processing
+    certain Heartbeat messages (CVE-2006-3121). Furthermore an unspecified
+    local DoS issue was fixed (CVE-2006-3815).
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By sending a malicious UDP Heartbeat message, even before
+    authentication, a remote attacker can crash the master control process
+    of the cluster.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Heartbeat users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose sys-cluster/heartbeat</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3121">CVE-2006-3121</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3815">CVE-2006-3815</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-08-19T16:22:39Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-08-21T14:22:38Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-08-23T14:19:23Z">
+    falco
+  </metadata>
+</glsa>

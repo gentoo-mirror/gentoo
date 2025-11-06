@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202505-09">
+    <title>Atop: Heap Corruption</title>
+    <synopsis>A vulnerability has been discovered in Atop, which can possibly lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">atop</product>
+    <announced>2025-05-14</announced>
+    <revised count="1">2025-05-14</revised>
+    <bug>952921</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-process/atop" auto="yes" arch="*">
+            <unaffected range="ge">2.11.1</unaffected>
+            <vulnerable range="lt">2.11.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Atop is an ASCII full-screen performance monitor for Linux that is capable of reporting the activity of all processes (even if processes have finished during the interval), daily logging of system and process activity for long-term analysis, highlighting overloaded system resources by using colors, etc. At regular intervals, it shows system-level activity related to the CPU, memory, swap, disks (including LVM) and network layers, and for every process (and thread) it shows e.g. the CPU utilization, memory growth, disk utilization, priority, username, state, and exit code.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Atop. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Atop allows local users to cause a denial of service (e.g., assertion failure and application exit) or possibly have unspecified other impact by running certain types of unprivileged processes while a different user runs atop.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Atop users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-process/atop-2.11.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-31160">CVE-2025-31160</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-05-14T12:31:45.446393Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-05-14T12:31:45.448688Z">graaff</metadata>
+</glsa>

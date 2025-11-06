@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200503-22">
+  <title>KDE: Local Denial of service</title>
+  <synopsis>
+    KDE is vulnerable to a local Denial of Service attack.
+  </synopsis>
+  <product type="ebuild">kde, dcopserver</product>
+  <announced>2005-03-19</announced>
+  <revised count="01">2005-03-19</revised>
+  <bug>83814</bug>
+  <access>local</access>
+  <affected>
+    <package name="kde-base/kdelibs" auto="yes" arch="*">
+      <unaffected range="ge">3.3.2-r7</unaffected>
+      <unaffected range="rge">3.2.3-r8</unaffected>
+      <vulnerable range="lt">3.3.2-r7</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    KDE is a feature-rich graphical desktop environment for Linux and
+    Unix-like Operating Systems. DCOP is KDE's simple IPC/RPC mechanism.
+    </p>
+  </background>
+  <description>
+    <p>
+    Sebastian Krahmer discovered that it is possible to stall the
+    dcopserver of other users.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could exploit this to cause a local Denial of Service
+    by stalling the dcopserver in the authentication process. As a result
+    all desktop functionality relying on DCOP will cease to function.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All kdelibs users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose kde-base/kdelibs</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0396">CAN-2005-0396</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2005-03-14T06:00:10Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-03-19T07:23:43Z">
+    jaervosz
+  </metadata>
+</glsa>

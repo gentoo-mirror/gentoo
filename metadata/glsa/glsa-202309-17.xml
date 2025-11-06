@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-17">
+    <title>Chromium, Google Chrome, Microsoft Edge: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Chromium and its derivatives, the worst of which could result in remote code execution.</synopsis>
+    <product type="ebuild">chromium,chromium-bin,google-chrome,microsoft-edge</product>
+    <announced>2023-09-30</announced>
+    <revised count="1">2023-09-30</revised>
+    <bug>893660</bug>
+    <bug>904252</bug>
+    <bug>904394</bug>
+    <bug>904560</bug>
+    <bug>905297</bug>
+    <bug>905620</bug>
+    <bug>905883</bug>
+    <bug>906586</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-client/chromium" auto="yes" arch="*">
+            <unaffected range="ge">113.0.5672.126</unaffected>
+            <vulnerable range="lt">113.0.5672.126</vulnerable>
+        </package>
+        <package name="www-client/chromium-bin" auto="yes" arch="*">
+            <vulnerable range="lt">113.0.5672.126</vulnerable>
+        </package>
+        <package name="www-client/google-chrome" auto="yes" arch="*">
+            <unaffected range="ge">113.0.5672.126</unaffected>
+            <vulnerable range="lt">113.0.5672.126</vulnerable>
+        </package>
+        <package name="www-client/microsoft-edge" auto="yes" arch="*">
+            <unaffected range="ge">113.0.1774.50</unaffected>
+            <vulnerable range="lt">113.0.1774.50</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Chromium is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web.
+
+Google Chrome is one fast, simple, and secure browser for all your devices.
+
+Microsoft Edge is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Chromium and its derivatives. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Chromium users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/chromium-113.0.5672.126"
+        </code>
+        
+        <p>All Google Chrome users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/google-chrome-113.0.5672.126"
+        </code>
+        
+        <p>All Microsoft Edge users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/microsoft-edge-113.0.1774.50"
+        </code>
+        
+        <p>Gentoo has discontinued support for www-client/chromium-bin. Users should unmerge it in favor of the above alternatives:</p>
+        
+        <code>
+          # emerge --ask --depclean --verbose "www-client/chromium-bin"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0696">CVE-2023-0696</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0697">CVE-2023-0697</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0698">CVE-2023-0698</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0699">CVE-2023-0699</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0700">CVE-2023-0700</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0701">CVE-2023-0701</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0702">CVE-2023-0702</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0703">CVE-2023-0703</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0704">CVE-2023-0704</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0705">CVE-2023-0705</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0927">CVE-2023-0927</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0928">CVE-2023-0928</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0929">CVE-2023-0929</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0930">CVE-2023-0930</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0931">CVE-2023-0931</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0932">CVE-2023-0932</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0933">CVE-2023-0933</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0941">CVE-2023-0941</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1528">CVE-2023-1528</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1529">CVE-2023-1529</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1530">CVE-2023-1530</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1531">CVE-2023-1531</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1532">CVE-2023-1532</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1533">CVE-2023-1533</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1534">CVE-2023-1534</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1810">CVE-2023-1810</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1811">CVE-2023-1811</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1812">CVE-2023-1812</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1813">CVE-2023-1813</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1814">CVE-2023-1814</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1815">CVE-2023-1815</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1816">CVE-2023-1816</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1817">CVE-2023-1817</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1818">CVE-2023-1818</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1819">CVE-2023-1819</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1820">CVE-2023-1820</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1821">CVE-2023-1821</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1822">CVE-2023-1822</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1823">CVE-2023-1823</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2033">CVE-2023-2033</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2133">CVE-2023-2133</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2134">CVE-2023-2134</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2135">CVE-2023-2135</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2136">CVE-2023-2136</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2137">CVE-2023-2137</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2459">CVE-2023-2459</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2460">CVE-2023-2460</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2461">CVE-2023-2461</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2462">CVE-2023-2462</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2463">CVE-2023-2463</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2464">CVE-2023-2464</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2465">CVE-2023-2465</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2466">CVE-2023-2466</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2467">CVE-2023-2467</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2468">CVE-2023-2468</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2721">CVE-2023-2721</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2722">CVE-2023-2722</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2723">CVE-2023-2723</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2724">CVE-2023-2724</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2725">CVE-2023-2725</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2726">CVE-2023-2726</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-21720">CVE-2023-21720</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-21794">CVE-2023-21794</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-23374">CVE-2023-23374</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28261">CVE-2023-28261</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28286">CVE-2023-28286</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29334">CVE-2023-29334</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29350">CVE-2023-29350</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29354">CVE-2023-29354</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-30T08:56:23.910135Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-09-30T08:56:23.912398Z">graaff</metadata>
+</glsa>

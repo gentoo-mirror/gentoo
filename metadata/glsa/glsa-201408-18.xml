@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201408-18">
+  <title>NRPE: Multiple Vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in NRPE, the worst of
+    which can allow execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">nrpe</product>
+  <announced>2014-08-30</announced>
+  <revised count="1">2014-08-30</revised>
+  <bug>397603</bug>
+  <bug>459870</bug>
+  <bug>508122</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-analyzer/nrpe" auto="yes" arch="*">
+      <unaffected range="ge">2.15</unaffected>
+      <vulnerable range="lt">2.15</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Nagios Remote Plugin Executor (NRPE) remotely executes Nagios plugins on
+      other Linux/Unix machines.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in NRPE. Please review the
+      CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker can utilize multiple vectors to execute arbitrary
+      code.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All NRPE users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-analyzer/nrpe-2.15"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-1362">CVE-2013-1362</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-2913">CVE-2014-2913</uri>
+  </references>
+  <metadata tag="requester" timestamp="2012-09-21T17:08:14Z">
+    underling
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-08-30T01:17:35Z">
+    BlueKnight
+  </metadata>
+</glsa>

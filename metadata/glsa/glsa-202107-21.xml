@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-21">
+  <title>Wireshark: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Wireshark, the worst of
+    which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">wireshark</product>
+  <announced>2021-07-09</announced>
+  <revised count="1">2021-07-09</revised>
+  <bug>767907</bug>
+  <bug>775323</bug>
+  <bug>784899</bug>
+  <bug>793968</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-analyzer/wireshark" auto="yes" arch="*">
+      <unaffected range="ge">3.4.6</unaffected>
+      <vulnerable range="lt">3.4.6</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Wireshark is a network protocol analyzer formerly known as ethereal.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Wireshark. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Wireshark users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-analyzer/wireshark-3.4.6"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22173">CVE-2021-22173</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22174">CVE-2021-22174</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22191">CVE-2021-22191</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22207">CVE-2021-22207</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22222">CVE-2021-22222</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-08T23:11:17Z">sam_c</metadata>
+  <metadata tag="submitter" timestamp="2021-07-09T02:54:48Z">sam_c</metadata>
+</glsa>

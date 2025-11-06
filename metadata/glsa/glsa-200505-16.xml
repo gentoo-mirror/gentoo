@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200505-16">
+  <title>ImageMagick, GraphicsMagick: Denial of Service vulnerability</title>
+  <synopsis>
+    ImageMagick and GraphicsMagick utilities can be abused to perform a Denial
+    of Service attack.
+  </synopsis>
+  <product type="ebuild">ImageMagick</product>
+  <announced>2005-05-21</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>90423</bug>
+  <bug>90595</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-gfx/imagemagick" auto="yes" arch="*">
+      <unaffected range="ge">6.2.2.3</unaffected>
+      <vulnerable range="lt">6.2.2.3</vulnerable>
+    </package>
+    <package name="media-gfx/graphicsmagick" auto="yes" arch="*">
+      <unaffected range="ge">1.1.6-r1</unaffected>
+      <vulnerable range="lt">1.1.6-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Both ImageMagick and GraphicsMagick are collection of tools to read,
+    write and manipulate images in many formats.
+    </p>
+  </background>
+  <description>
+    <p>
+    Tavis Ormandy of the Gentoo Linux Security Audit Team discovered a
+    Denial of Service vulnerability in the XWD decoder of ImageMagick and
+    GraphicsMagick when setting a color mask to zero.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could submit a specially crafted image to a user or
+    an automated system making use of an affected utility, resulting in a
+    Denial of Service by consumption of CPU time.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All ImageMagick users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-gfx/imagemagick-6.2.2.3"</code>
+    <p>
+    All GraphicsMagick users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-gfx/graphicsmagick-1.1.6-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1739">CVE-2005-1739</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-05-04T05:18:30Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-05-05T19:34:27Z">
+    formula7
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-05-21T14:59:55Z">
+    koon
+  </metadata>
+</glsa>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-22">
+    <title>libspf2: Multiple vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libspf2, the worst of which can lead to remote code execution.</synopsis>
+    <product type="ebuild">libspf2</product>
+    <announced>2024-01-15</announced>
+    <revised count="1">2024-01-15</revised>
+    <bug>807739</bug>
+    <access>remote</access>
+    <affected>
+        <package name="mail-filter/libspf2" auto="yes" arch="*">
+            <unaffected range="ge">1.2.11</unaffected>
+            <vulnerable range="lt">1.2.11</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libspf2 is a library that implements the Sender Policy Framework, allowing mail transfer agents to make sure that an email is authorized by the domain name that it is coming from.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libspf2. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Various buffer overflows have been identified that can lead to denial of service and possibly arbitrary code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libspf2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=mail-filter/libspf2-1.2.11"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20314">CVE-2021-20314</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33912">CVE-2021-33912</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33913">CVE-2021-33913</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-15T15:55:54.972939Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-15T15:55:54.975403Z">graaff</metadata>
+</glsa>

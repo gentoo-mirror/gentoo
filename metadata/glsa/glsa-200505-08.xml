@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200505-08">
+  <title>HT Editor: Multiple buffer overflows</title>
+  <synopsis>
+    Two vulnerabilities have been discovered in HT Editor, potentially leading
+    to the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">hteditor</product>
+  <announced>2005-05-10</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>91569</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-editors/hteditor" auto="yes" arch="*">
+      <unaffected range="ge">0.8.0-r2</unaffected>
+      <vulnerable range="lt">0.8.0-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    HT is a hex editor, designed to help analyse and modify executable
+    files.
+    </p>
+  </background>
+  <description>
+    <p>
+    Tavis Ormandy of the Gentoo Linux Security Team discovered an integer
+    overflow in the ELF parser, leading to a heap-based buffer overflow.
+    The vendor has reported that an unrelated buffer overflow has been
+    discovered in the PE parser.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    Successful exploitation would require the victim to open a specially
+    crafted file using HT, potentially permitting an attacker to execute
+    arbitrary code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All hteditor users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-editors/hteditor-0.8.0-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1545">CVE-2005-1545</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1546">CVE-2005-1546</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-05-05T15:16:28Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-05-05T17:28:17Z">
+    taviso
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-05-10T20:04:14Z">
+    jaervosz
+  </metadata>
+</glsa>

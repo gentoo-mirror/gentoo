@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201001-05">
+  <title>net-snmp: Authorization bypass</title>
+  <synopsis>
+    A remote attacker can bypass the tcp-wrappers client authorization in
+    net-snmp.
+  </synopsis>
+  <product type="ebuild">net-snmp</product>
+  <announced>2010-01-13</announced>
+  <revised count="01">2010-01-13</revised>
+  <bug>250429</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-analyzer/net-snmp" auto="yes" arch="*">
+      <unaffected range="ge">5.4.2.1-r1</unaffected>
+      <vulnerable range="lt">5.4.2.1-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    net-snmp bundles software for generating and retrieving SNMP data.
+    </p>
+  </background>
+  <description>
+    <p>
+    The netsnmp_udp_fmtaddr() function (snmplib/snmpUDPDomain.c), when
+    using TCP wrappers for client authorization, does not properly parse
+    hosts.allow rules.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote, unauthenticated attacker could bypass the ACL filtering,
+    possibly resulting in the execution of arbitrary SNMP queries.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    If possible, protect net-snmp with custom iptables rules:
+    </p>
+    <code>
+    iptables -s [client] -d [host] -p udp --dport 161 -j ACCEPT
+    iptables -s 0.0.0.0/0 -d [host] -p udp --dport 161 -j DROP</code>
+  </workaround>
+  <resolution>
+    <p>
+    All net-snmp users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-analyzer/net-snmp-5.4.2.1-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-6123">CVE-2008-6123</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-09-28T18:16:15Z">
+    craig
+  </metadata>
+  <metadata tag="submitter" timestamp="2010-01-05T21:17:32Z">
+    craig
+  </metadata>
+  <metadata tag="bugReady" timestamp="2010-01-10T19:40:57Z">
+    craig
+  </metadata>
+</glsa>

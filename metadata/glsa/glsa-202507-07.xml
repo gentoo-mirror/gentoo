@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202507-07">
+    <title>Chromium, Google Chrome, Microsoft Edge. Opera: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Chromium and its derivatives, the worst of which can lead to remote code execution.</synopsis>
+    <product type="ebuild">chromium,google-chrome,microsoft-edge,opera</product>
+    <announced>2025-07-08</announced>
+    <revised count="1">2025-07-08</revised>
+    <bug>923966</bug>
+    <bug>942503</bug>
+    <bug>943403</bug>
+    <bug>946723</bug>
+    <bug>947700</bug>
+    <bug>948135</bug>
+    <bug>948983</bug>
+    <bug>951155</bug>
+    <bug>951688</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="www-client/chromium" auto="yes" arch="*">
+            <unaffected range="ge">134.0.6998.117</unaffected>
+            <vulnerable range="lt">134.0.6998.117</vulnerable>
+        </package>
+        <package name="www-client/google-chrome" auto="yes" arch="*">
+            <unaffected range="ge">134.0.6998.117</unaffected>
+            <vulnerable range="lt">134.0.6998.117</vulnerable>
+        </package>
+        <package name="www-client/microsoft-edge" auto="yes" arch="*">
+            <unaffected range="ge">134.0.3124.83</unaffected>
+            <vulnerable range="lt">134.0.3124.83</vulnerable>
+        </package>
+        <package name="www-client/opera" auto="yes" arch="*">
+            <unaffected range="ge">119.0.5497.12</unaffected>
+            <vulnerable range="lt">119.0.5497.12</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Chromium is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web. Google Chrome is one fast, simple, and secure browser for all your devices. Microsoft Edge is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier. Opera is a fast and secure web browser.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Chromium and its derivatives. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Google Chrome users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/google-chrome-134.0.6998.117"
+        </code>
+        
+        <p>All Chromium users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/chromium-134.0.6998.117"
+        </code>
+        
+        <p>All Microsoft Edge users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/microsoft-edge-134.0.3124.83"
+        </code>
+        
+        <p>All Oprea users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/opera-119.0.5497.12"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1283">CVE-2024-1283</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-1284">CVE-2024-1284</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10487">CVE-2024-10487</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10488">CVE-2024-10488</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11110">CVE-2024-11110</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11111">CVE-2024-11111</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11112">CVE-2024-11112</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11113">CVE-2024-11113</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11114">CVE-2024-11114</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11115">CVE-2024-11115</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11116">CVE-2024-11116</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11117">CVE-2024-11117</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12692">CVE-2024-12692</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12693">CVE-2024-12693</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12694">CVE-2024-12694</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12695">CVE-2024-12695</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0291">CVE-2025-0291</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0434">CVE-2025-0434</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0435">CVE-2025-0435</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0436">CVE-2025-0436</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0437">CVE-2025-0437</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0438">CVE-2025-0438</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0439">CVE-2025-0439</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0440">CVE-2025-0440</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0441">CVE-2025-0441</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0442">CVE-2025-0442</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0443">CVE-2025-0443</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0446">CVE-2025-0446</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0447">CVE-2025-0447</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0448">CVE-2025-0448</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0762">CVE-2025-0762</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-1920">CVE-2025-1920</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-2135">CVE-2025-2135</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-2136">CVE-2025-2136</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-2137">CVE-2025-2137</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-2476">CVE-2025-2476</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-07-08T22:27:10.726745Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-07-08T22:27:10.728847Z">sam</metadata>
+</glsa>

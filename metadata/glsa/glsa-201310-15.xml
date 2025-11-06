@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201310-15">
+  <title>GNU Automake: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in GNU Automake, allowing
+    local arbitrary command execution with the privileges of the user running
+    an Automake-based build.
+  </synopsis>
+  <product type="ebuild">automake</product>
+  <announced>2013-10-25</announced>
+  <revised count="1">2013-10-25</revised>
+  <bug>295357</bug>
+  <bug>426336</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-devel/automake" auto="yes" arch="*">
+      <unaffected range="ge">1.11.6</unaffected>
+      <vulnerable range="lt">1.11.6</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>GNU Automake is a tool for automatically generating Makefile.in files
+      compliant with the GNU Coding Standards.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in GNU Automake. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A local attacker could execute arbitrary commands with the privileges of
+      the user running an Automake-based build.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Automake users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=sys-devel/automake-1.11.6"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2009-4029">CVE-2009-4029</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-3386">CVE-2012-3386</uri>
+  </references>
+  <metadata tag="requester" timestamp="2011-10-07T23:37:36Z">
+    underling
+  </metadata>
+  <metadata tag="submitter" timestamp="2013-10-25T23:54:51Z">
+    phajdan.jr
+  </metadata>
+</glsa>

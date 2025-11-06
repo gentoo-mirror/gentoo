@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-24">
+    <title>Ruby on Rails: Remote Code Execution</title>
+    <synopsis>A vulnerability has been discovered in Ruby on Rails, which can lead to remote code execution via serialization of data.</synopsis>
+    <product type="ebuild">rails</product>
+    <announced>2024-08-11</announced>
+    <revised count="1">2024-08-11</revised>
+    <bug>857840</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-ruby/rails" auto="yes" arch="*">
+            <unaffected range="ge" slot="7.0">7.0.3.1</unaffected>
+            <unaffected range="ge" slot="6.1">6.1.6.1</unaffected>
+            <vulnerable range="lt" slot="7.0">7.0.3.1</vulnerable>
+            <vulnerable range="lt" slot="6.1">6.1.6.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Ruby on Rails is a free web framework used to develop database-driven web applications.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Ruby on Rails. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>When serialized columns that use YAML (the default) are deserialized, Rails uses YAML.unsafe_load to convert the YAML data in to Ruby objects. If an attacker can manipulate data in the database (via means like SQL injection), then it may be possible for the attacker to escalate to an RCE.
+
+Impacted Active Record models will look something like this:
+
+class User &lt; ApplicationRecord
+  serialize :options       # Vulnerable: Uses YAML for serialization
+  serialize :values, Array # Vulnerable: Uses YAML for serialization
+  serialize :values, JSON  # Not vulnerable
+end
+
+The released versions change the default YAML deserializer to use YAML.safe_load, which prevents deserialization of possibly dangerous objects. This may introduce backwards compatibility issues with existing data.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Ruby on Rails users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-ruby/rails-6.1.6.1:6.1"
+          # emerge --ask --oneshot --verbose ">=dev-ruby/rails-7.0.3.1:7.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32224">CVE-2022-32224</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-11T05:35:49.928407Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-11T05:35:49.931387Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-11">
+    <title>HarfBuzz: Multiple vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in HarfBuzz, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">harfbuzz</product>
+    <announced>2022-09-25</announced>
+    <revised count="1">2022-09-25</revised>
+    <bug>830372</bug>
+    <bug>856049</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/harfbuzz" auto="yes" arch="*">
+            <unaffected range="ge">4.4.0</unaffected>
+            <vulnerable range="lt">4.4.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>HarfBuzz is an OpenType text shaping engine.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in HarfBuzz. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All HarfBuzz users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/harfbuzz-4.4.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45931">CVE-2021-45931</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-33068">CVE-2022-33068</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-25T13:35:18.213772Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-25T13:35:18.218222Z">ajak</metadata>
+</glsa>

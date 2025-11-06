@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201310-06">
+  <title>Aircrack-ng: User-assisted execution of arbitrary code</title>
+  <synopsis>A buffer overflow vulnerability in Aircrack-ng could result in
+    execution of arbitrary code or Denial of Service.
+  </synopsis>
+  <product type="ebuild">aircrack-ng</product>
+  <announced>2013-10-07</announced>
+  <revised count="1">2013-10-07</revised>
+  <bug>311797</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-wireless/aircrack-ng" auto="yes" arch="*">
+      <unaffected range="ge">1.1-r2</unaffected>
+      <vulnerable range="lt">1.1-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Aircrack-ng is an 802.11 WEP and WPA-PSK keys cracking program that can
+      recover keys once enough data packets have been captured.
+    </p>
+  </background>
+  <description>
+    <p>A buffer overflow vulnerability has been discovered in Aircrack-ng.</p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted dump
+      file using Aircrack-ng, possibly resulting in execution of arbitrary code
+      with the privileges of the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Aircrack-ng users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-wireless/aircrack-ng-1.1-r2"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2010-1159">CVE-2010-1159</uri>
+  </references>
+  <metadata tag="requester" timestamp="2012-12-23T23:18:18Z">ackle</metadata>
+  <metadata tag="submitter" timestamp="2013-10-07T08:46:58Z">ackle</metadata>
+</glsa>

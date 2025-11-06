@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-15">
+    <title>Prometheus SNMP Exporter: Basic Authentication Bypass</title>
+    <synopsis>A vulnerability has been found in Prometheus SNMP Exporter which could allow for authentication bypass.</synopsis>
+    <product type="ebuild">snmp_exporter</product>
+    <announced>2024-01-12</announced>
+    <revised count="1">2024-01-12</revised>
+    <bug>883649</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-metrics/snmp_exporter" auto="yes" arch="*">
+            <unaffected range="ge">0.24.1</unaffected>
+            <vulnerable range="lt">0.24.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The Prometheus SNMP Exporter is the recommended way to expose SNMP data in a format which Prometheus can ingest.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Prometheus SNMP Exporter. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>A user who knows the password hash of a user capable of performing HTTP basic authentication with a vulnerable exporter can use the hash to successfully authenticate as that user via cache manipulation, without knowing the password from which the hash was derived.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Prometheus SNMP Exporter users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-metrics/snmp_exporter-0.24.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46146">CVE-2022-46146</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-12T10:52:37.002879Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-01-12T10:52:37.005288Z">graaff</metadata>
+</glsa>

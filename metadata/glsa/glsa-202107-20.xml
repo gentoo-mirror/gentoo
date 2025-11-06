@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-20">
+  <title>Redis: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Redis, the worst of
+    which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">redis</product>
+  <announced>2021-07-09</announced>
+  <revised count="1">2021-07-09</revised>
+  <bug>788211</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-db/redis" auto="yes" arch="*">
+      <unaffected range="ge">6.0.13</unaffected>
+      <unaffected range="ge">6.2.3</unaffected>
+      <vulnerable range="lt">6.0.13</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Redis is an open source (BSD licensed), in-memory data structure store,
+      used as a database, cache and message broker.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Redis. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Redis 6.0.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-db/redis-6.0.13"
+    </code>
+    
+    <p>All Redis 6.2.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-db/redis-6.2.3"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29477">CVE-2021-29477</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29478">CVE-2021-29478</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-08T22:57:01Z">sam_c</metadata>
+  <metadata tag="submitter" timestamp="2021-07-09T02:52:43Z">sam_c</metadata>
+</glsa>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200808-11">
+  <title>UUDeview: Insecure temporary file creation</title>
+  <synopsis>
+    A vulnerability in UUDeview may allow local attackers to conduct symlink
+    attacks.
+  </synopsis>
+  <product type="ebuild">nzbget uudeview</product>
+  <announced>2008-08-11</announced>
+  <revised count="01">2008-08-11</revised>
+  <bug>222275</bug>
+  <bug>224193</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-text/uudeview" auto="yes" arch="*">
+      <unaffected range="ge">0.5.20-r1</unaffected>
+      <vulnerable range="lt">0.5.20-r1</vulnerable>
+    </package>
+    <package name="news-nntp/nzbget" auto="yes" arch="*">
+      <unaffected range="ge">0.4.0</unaffected>
+      <vulnerable range="lt">0.4.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    UUdeview is encoder and decoder supporting various binary formats.
+    NZBGet is a command-line based binary newsgrabber supporting .nzb
+    files.
+    </p>
+  </background>
+  <description>
+    <p>
+    UUdeview makes insecure usage of the tempnam() function when creating
+    temporary files. NZBGet includes a copy of the vulnerable code.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could exploit this vulnerability to overwrite
+    arbitrary files on the system.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All UUDview users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-text/uudeview-0.5.20-r1"</code>
+    <p>
+    All NZBget users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=news-nntp/nzbget-0.4.0"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2266">CVE-2008-2266</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-07-06T18:30:42Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-07-06T18:32:00Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-07-22T11:22:12Z">
+    p-y
+  </metadata>
+</glsa>

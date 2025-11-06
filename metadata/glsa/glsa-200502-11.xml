@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200502-11">
+  <title>Mailman: Directory traversal vulnerability</title>
+  <synopsis>
+    Mailman fails to properly sanitize input, leading to information
+    disclosure.
+  </synopsis>
+  <product type="ebuild">mailman</product>
+  <announced>2005-02-10</announced>
+  <revised count="01">2005-02-10</revised>
+  <bug>81109</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-mail/mailman" auto="yes" arch="*">
+      <unaffected range="ge">2.1.5-r4</unaffected>
+      <vulnerable range="lt">2.1.5-r4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Mailman is a Python-based mailing list server with an extensive
+    web interface.
+    </p>
+  </background>
+  <description>
+    <p>
+    Mailman contains an error in private.py which fails to properly
+    sanitize input paths.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could exploit this flaw to obtain arbitrary files on
+    the web server.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Mailman users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-mail/mailman-2.1.5-r4"</code>
+  </resolution>
+  <references>
+    <uri link="http://lists.netsys.com/pipermail/full-disclosure/2005-February/031562.html">Full Disclosure Announcement</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0202">CAN-2005-0202</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-02-09T21:12:44Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-02-09T21:59:02Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-02-10T16:41:33Z">
+    jaervosz
+  </metadata>
+</glsa>

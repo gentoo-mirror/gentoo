@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200611-14">
+  <title>TORQUE: Insecure temporary file creation</title>
+  <synopsis>
+    TORQUE creates temporary files in an insecure manner which could lead to
+    the execution of arbitrary code with elevated privileges.
+  </synopsis>
+  <product type="ebuild">torque</product>
+  <announced>2006-11-20</announced>
+  <revised count="03">2006-11-24</revised>
+  <bug>152104</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-cluster/torque" auto="yes" arch="*">
+      <unaffected range="ge">2.1.6</unaffected>
+      <vulnerable range="lt">2.1.6</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    TORQUE is a resource manager providing control over batch jobs and
+    distributed compute nodes.
+    </p>
+  </background>
+  <description>
+    <p>
+    TORQUE creates temporary files with predictable names. Please note that
+    the TORQUE package shipped in Gentoo Portage is not vulnerable in the
+    default configuration. Only systems with more permissive access rights
+    to the spool directory are vulnerable.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A local attacker could create links in the temporary file directory,
+    pointing to a valid file somewhere on the filesystem. This could lead
+    to the execution of arbitrary code with elevated privileges.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Ensure that untrusted users don't have write access to the spool
+    directory.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All TORQUE users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=sys-cluster/torque-2.1.6"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5677">CVE-2006-5677</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-11-15T20:45:04Z">
+    vorlon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-11-16T11:48:29Z">
+    vorlon
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-11-20T08:31:55Z">
+    jaervosz
+  </metadata>
+</glsa>

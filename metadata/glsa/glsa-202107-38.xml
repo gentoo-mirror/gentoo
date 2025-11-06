@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-38">
+  <title>Apache: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Apache, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">apache</product>
+  <announced>2021-07-17</announced>
+  <revised count="1">2021-07-17</revised>
+  <bug>795231</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-servers/apache" auto="yes" arch="*">
+      <unaffected range="ge">2.4.48</unaffected>
+      <vulnerable range="lt">2.4.48</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>The Apache HTTP server is one of the most popular web servers on the
+      Internet.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Apache. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Apache users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-servers/apache-2.4.48"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-17567">CVE-2019-17567</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-13950">CVE-2020-13950</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35452">CVE-2020-35452</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26690">CVE-2021-26690</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26691">CVE-2021-26691</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30641">CVE-2021-30641</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-31618">CVE-2021-31618</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-17T03:52:42Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-17T04:57:02Z">ajak</metadata>
+</glsa>

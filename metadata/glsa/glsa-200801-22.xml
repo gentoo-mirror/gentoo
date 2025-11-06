@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200801-22">
+  <title>PeerCast: Buffer overflow</title>
+  <synopsis>
+    A buffer overflow vulnerability has been discovered in PeerCast.
+  </synopsis>
+  <product type="ebuild">peercast</product>
+  <announced>2008-01-30</announced>
+  <revised count="02">2008-01-30</revised>
+  <bug>202747</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-sound/peercast" auto="yes" arch="*">
+      <unaffected range="ge">0.1218</unaffected>
+      <vulnerable range="lt">0.1218</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    PeerCast is a client and server for P2P-radio network
+    </p>
+  </background>
+  <description>
+    <p>
+    Luigi Auriemma reported a heap-based buffer overflow within the
+    "handshakeHTTP()" function when processing HTTP requests.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could send a specially crafted request to the
+    vulnerable server, possibly resulting in the remote execution of
+    arbitrary code with the privileges of the user running the PeerCast
+    server, usually "nobody".
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All PeerCast users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-sound/peercast-0.1218"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6454">CVE-2007-6454</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-11T08:22:19Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-01-29T19:51:49Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-01-29T23:04:06Z">
+    falco
+  </metadata>
+</glsa>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200909-09">
+  <title>Screenie: Insecure temporary file usage</title>
+  <synopsis>
+    An insecure temporary file usage has been reported in Screenie, allowing
+    for symlink attacks.
+  </synopsis>
+  <product type="ebuild">screenie</product>
+  <announced>2009-09-09</announced>
+  <revised count="01">2009-09-09</revised>
+  <bug>250476</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-misc/screenie" auto="yes" arch="*">
+      <unaffected range="ge">1.30.0-r1</unaffected>
+      <vulnerable range="lt">1.30.0-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Screenie is a small screen frontend that is designed to be a session
+    handler.
+    </p>
+  </background>
+  <description>
+    <p>
+    Dmitry E. Oboukhov reported that Screenie does not handle
+    "/tmp/.screenie.#####" temporary files securely.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could perform symlink attacks to overwrite arbitrary
+    files with the privileges of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Screenie users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-misc/screenie-1.30.0-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5371">CVE-2008-5371</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-06-12T22:09:23Z">
+    craig
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-08-28T07:52:34Z">
+    a3li
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-08-31T03:37:54Z">
+    a3li
+  </metadata>
+</glsa>

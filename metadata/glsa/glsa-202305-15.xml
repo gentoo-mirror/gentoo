@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-15">
+    <title>systemd: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in systemd, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">systemd,systemd-tmpfiles,systemd-utils,udev</product>
+    <announced>2023-05-03</announced>
+    <revised count="2">2024-02-11</revised>
+    <bug>880547</bug>
+    <bug>830967</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-apps/systemd" auto="yes" arch="*">
+            <unaffected range="ge">251.3</unaffected>
+            <vulnerable range="lt">251.3</vulnerable>
+        </package>
+        <package name="sys-apps/systemd-tmpfiles" auto="yes" arch="*">
+            <vulnerable range="le">250</vulnerable>
+        </package>
+        <package name="sys-apps/systemd-utils" auto="yes" arch="*">
+            <unaffected range="ge">251.3</unaffected>
+            <vulnerable range="lt">251.3</vulnerable>
+        </package>
+        <package name="sys-fs/udev" auto="yes" arch="*">
+            <vulnerable range="le">250</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>A system and service manager.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in systemd. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All systemd users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/systemd-251.3"
+        </code>
+        
+        <p>All systemd-utils users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/systemd-utils-251.3"
+        </code>
+        
+        <p>Gentoo has discontinued support for sys-apps/systemd-tmpfiles, sys-boot/systemd-boot, and sys-fs/udev. See the 2022-04-19-systemd-utils news item. Users should unmerge it in favor of sys-apps/systemd-utils on non-systemd systems:</p>
+        
+        <code>
+          # emerge --ask --depclean --verbose "sys-apps/systemd-tmpfiles" "sys-boot/systemd-boot" "sys-fs/udev"
+          # emerge --ask --verbose --oneshot ">=sys-apps/systemd-utils-251.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3997">CVE-2021-3997</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3821">CVE-2022-3821</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T10:03:45.135890Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T10:03:45.140859Z">sam</metadata>
+</glsa>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200510-23">
+  <title>TikiWiki: XSS vulnerability</title>
+  <synopsis>
+    TikiWiki is vulnerable to cross-site scripting attacks.
+  </synopsis>
+  <product type="ebuild">tikiwiki</product>
+  <announced>2005-10-28</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>109858</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/tikiwiki" auto="yes" arch="*">
+      <unaffected range="ge">1.9.1.1</unaffected>
+      <vulnerable range="lt">1.9.1.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    TikiWiki is a web-based groupware and content management system (CMS),
+    using PHP, ADOdb and Smarty.
+    </p>
+  </background>
+  <description>
+    <p>
+    Due to improper input validation, TikiWiki can be exploited to perform
+    cross-site scripting attacks.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    A remote attacker could exploit this to inject and execute malicious
+    script code or to steal cookie-based authentication credentials,
+    potentially compromising the victim's browser.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All TikiWiki users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/tikiwiki-1.9.1.1"</code>
+    <p>
+    Note: Users with the vhosts USE flag set should manually use
+    webapp-config to finalize the update.
+    </p>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3283">CVE-2005-3283</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2005-10-26T19:43:33Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-10-27T18:43:45Z">
+    koon
+  </metadata>
+</glsa>

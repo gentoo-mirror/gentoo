@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200606-26">
+  <title>EnergyMech: Denial of service</title>
+  <synopsis>
+    A Denial of Service vulnerability was discovered in EnergyMech that is
+    easily exploitable via IRC.
+  </synopsis>
+  <product type="ebuild">emech</product>
+  <announced>2006-06-26</announced>
+  <revised count="02">2006-07-29</revised>
+  <bug>132749</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-irc/emech" auto="yes" arch="*">
+      <unaffected range="ge">3.0.2</unaffected>
+      <vulnerable range="lt">3.0.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    EnergyMech is an IRC bot programmed in C.
+    </p>
+  </background>
+  <description>
+    <p>
+    A bug in EnergyMech fails to handle empty CTCP NOTICEs correctly, and
+    will cause a crash from a segmentation fault.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By sending an empty CTCP NOTICE, a remote attacker could exploit this
+    vulnerability to cause a Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All EnergyMech users should update to the latest stable version:
+    </p>
+    <code> 
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-irc/emech-3.0.2"</code>
+  </resolution>
+  <references>
+    <uri link="http://www.energymech.net/versions-3.0.html">EnergyMech Changelog</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3293">CVE-2006-3293</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-06-22T18:15:43Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-06-22T23:37:12Z">
+    hlieberman
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-06-23T18:56:34Z">
+    falco
+  </metadata>
+</glsa>

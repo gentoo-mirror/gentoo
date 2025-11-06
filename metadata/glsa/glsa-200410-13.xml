@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200410-13">
+  <title>BNC: Input validation flaw</title>
+  <synopsis>
+    BNC contains an input validation flaw which might allow a remote attacker
+    to issue arbitrary IRC related commands.
+  </synopsis>
+  <product type="ebuild">bnc</product>
+  <announced>2004-10-15</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>66912</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-irc/bnc" auto="yes" arch="*">
+      <unaffected range="ge">2.8.9</unaffected>
+      <vulnerable range="lt">2.8.9</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    BNC is an IRC proxying server
+    </p>
+  </background>
+  <description>
+    <p>
+    A flaw exists in the input parsing of BNC where part of the
+    sbuf_getmsg() function handles the backspace character incorrectly.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote user could issue commands using fake authentication
+    credentials and possibly gain access to scripts running on the client
+    side.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All BNC users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge sync
+    
+    # emerge -pv "&gt;=net-irc/bnc-2.8.9"
+    # emerge "&gt;=net-irc/bnc-2.8.9"</code>
+  </resolution>
+  <references>
+    <uri link="http://www.gotbnc.com/changes.html#2.8.9">BNC Changes</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1482">CVE-2004-1482</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-10-12T11:44:17Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-10-12T11:44:35Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-10-13T08:51:33Z">
+    vorlon078
+  </metadata>
+</glsa>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202406-05">
+    <title>JHead: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in JHead, the worst of which may lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">jhead</product>
+    <announced>2024-06-22</announced>
+    <revised count="1">2024-06-22</revised>
+    <bug>876247</bug>
+    <bug>879801</bug>
+    <bug>908519</bug>
+    <access>local</access>
+    <affected>
+        <package name="media-gfx/jhead" auto="yes" arch="*">
+            <unaffected range="ge">3.08</unaffected>
+            <vulnerable range="lt">3.08</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>JHead is an EXIF JPEG header manipulation tool.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in JHead. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All JHead users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/jhead-3.08"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-6624">CVE-2020-6624</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-6625">CVE-2020-6625</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-34055">CVE-2021-34055</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28550">CVE-2022-28550</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41751">CVE-2022-41751</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-06-22T08:28:39.822960Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-06-22T08:28:39.825887Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200407-19">
+  <title>Pavuk: Digest authentication helper buffer overflow</title>
+  <synopsis>
+    Pavuk contains a bug that can allow an attacker to run arbitrary code.
+  </synopsis>
+  <product type="ebuild">Pavuk</product>
+  <announced>2004-07-26</announced>
+  <revised count="02">2006-05-22</revised>
+  <access>remote</access>
+  <affected>
+    <package name="net-misc/pavuk" auto="yes" arch="*">
+      <unaffected range="ge">0.9.28-r3</unaffected>
+      <vulnerable range="le">0.9.28-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Pavuk is web spider and website mirroring tool.
+    </p>
+  </background>
+  <description>
+    <p>
+    Pavuk contains several buffer overflow vulnerabilities in the code
+    handling digest authentication.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could cause a buffer overflow, leading to arbitrary code
+    execution with the rights of the user running Pavuk.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time. All users are encouraged to
+    upgrade to the latest available version of Pavuk.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Pavuk users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge sync
+    
+    # emerge -pv "&gt;=net-misc/pavuk-0.9.28-r3"
+    # emerge "&gt;=net-misc/pavuk-0.9.28-r3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1437">CVE-2004-1437</uri>
+  </references>
+  <metadata tag="submitter">
+    jaervosz
+  </metadata>
+</glsa>

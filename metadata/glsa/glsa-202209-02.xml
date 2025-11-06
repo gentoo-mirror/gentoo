@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-02">
+    <title>IBM Spectrum Protect: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in IBM Spectrum Protect, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">tsm</product>
+    <announced>2022-09-07</announced>
+    <revised count="1">2022-09-07</revised>
+    <bug>788115</bug>
+    <bug>829189</bug>
+    <bug>831509</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-backup/tsm" auto="yes" arch="*">
+            <unaffected range="ge">8.1.13.3</unaffected>
+            <vulnerable range="lt">8.1.13.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>TSM provides the client and the API for IBM Spectrum Protect (formerly known as Tivoli Storage Manager), a backup and archival client/server solution targetting large tape libraries.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in IBM Spectrum Protect. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All IBM Spectrum Protect users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-backup/tsm-8.1.13.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3711">CVE-2021-3711</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3712">CVE-2021-3712</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4104">CVE-2021-4104</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29672">CVE-2021-29672</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-39048">CVE-2021-39048</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-07T02:52:10.543581Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-07T02:52:10.548069Z">ajak</metadata>
+</glsa>

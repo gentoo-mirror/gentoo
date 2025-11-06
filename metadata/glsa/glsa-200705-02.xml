@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200705-02">
+  <title>FreeType: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    A vulnerability has been discovered in FreeType allowing for user-assisted
+    remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">freetype</product>
+  <announced>2007-05-01</announced>
+  <revised count="02">2007-05-27</revised>
+  <bug>172577</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/freetype" auto="yes" arch="*">
+      <unaffected range="ge">2.1.10-r3</unaffected>
+      <unaffected range="lt">2.0</unaffected>
+      <vulnerable range="lt">2.1.10-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    FreeType is a True Type Font rendering library.
+    </p>
+  </background>
+  <description>
+    <p>
+    Greg MacManus of iDefense Labs has discovered an integer overflow in
+    the function bdfReadCharacters() when parsing BDF fonts.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to use a specially crafted BDF
+    font, possibly resulting in a heap-based buffer overflow and the remote
+    execution of arbitrary code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All FreeType users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/freetype-2.1.10-r3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1351">CVE-2007-1351</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-04-12T09:19:23Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-04-12T09:19:45Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-04-26T08:55:44Z">
+    p-y
+  </metadata>
+</glsa>

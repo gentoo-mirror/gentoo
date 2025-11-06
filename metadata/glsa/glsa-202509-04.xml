@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202509-04">
+    <title>glibc: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in glibc, the worst of which could lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">glibc</product>
+    <announced>2025-09-17</announced>
+    <revised count="1">2025-09-17</revised>
+    <bug>956996</bug>
+    <bug>960630</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-libs/glibc" auto="yes" arch="*">
+            <unaffected range="ge">2.41-r5</unaffected>
+            <vulnerable range="lt">2.41-r5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>glibc is a package that contains the GNU C library.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in glibc. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All glibc users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-libs/glibc-2.41-r5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-4802">CVE-2025-4802</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-8058">CVE-2025-8058</uri>
+        <uri>GLIBC-SA-2025-0002</uri>
+        <uri>GLIBC-SA-2025-0005</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-09-17T21:40:47.481930Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-09-17T21:40:47.486461Z">sam</metadata>
+</glsa>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-08">
+    <title>Tcpreplay: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Tcpreplay, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">tcpreplay</product>
+    <announced>2022-10-16</announced>
+    <revised count="1">2022-10-16</revised>
+    <bug>833139</bug>
+    <bug>836240</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-analyzer/tcpreplay" auto="yes" arch="*">
+            <unaffected range="ge">4.4.2</unaffected>
+            <vulnerable range="lt">4.4.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Tcpreplay is a suite of utilities for UNIX systems for editing and replaying network traffic which was previously captured by tools like tcpdump and ethereal/wireshark.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Tcpreplay. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Tcpreplay users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-analyzer/tcpreplay-4.4.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45386">CVE-2021-45386</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45387">CVE-2021-45387</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27416">CVE-2022-27416</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27418">CVE-2022-27418</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27939">CVE-2022-27939</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27940">CVE-2022-27940</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27941">CVE-2022-27941</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27942">CVE-2022-27942</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28487">CVE-2022-28487</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-37047">CVE-2022-37047</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-37048">CVE-2022-37048</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-37049">CVE-2022-37049</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-16T14:42:49.366484Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-16T14:42:49.370906Z">ajak</metadata>
+</glsa>

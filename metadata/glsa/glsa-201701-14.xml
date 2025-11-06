@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201701-14">
+  <title>LZO: Multiple vulnerabilities</title>
+  <synopsis>An integer overflow in LZO might allow remote attackers to execute
+    arbitrary code or cause a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">lzo</product>
+  <announced>2017-01-02</announced>
+  <revised count="1">2017-01-02</revised>
+  <bug>515238</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/lzo" auto="yes" arch="*">
+      <unaffected range="ge">2.08</unaffected>
+      <vulnerable range="lt">2.08</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>LZO is an extremely fast compression and decompression library</p>
+  </background>
+  <description>
+    <p>LZO is vulnerable to an integer overflow condition in the
+      “lzo1x_decompress_safe” function which could result in a possible
+      buffer overrun when processing maliciously crafted compressed input data.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could send specially crafted compressed input data
+      possibly resulting in a Denial of Service condition or arbitrary code
+      execution.
+    </p>
+    
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All LZO users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-libs/lzo-2.08"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-4607">CVE-2014-4607</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-07-10T05:18:15Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2017-01-02T15:16:02Z">
+    BlueKnight
+  </metadata>
+</glsa>

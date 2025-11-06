@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-36">
+  <title>urllib3: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in urllib3, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">urllib3</product>
+  <announced>2021-07-15</announced>
+  <revised count="1">2021-07-15</revised>
+  <bug>776421</bug>
+  <bug>799413</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-python/urllib3" auto="yes" arch="*">
+      <unaffected range="ge">1.26.5</unaffected>
+      <vulnerable range="lt">1.26.5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>The urllib3 library is an HTTP library with thread-safe connection
+      pooling, file post, and more.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in urllib3. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>An attacker could cause a possible Denial of Service condition.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All urllib3 users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-python/urllib3-1.26.5"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28363">CVE-2021-28363</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33503">CVE-2021-33503</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-13T14:50:16Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-15T05:20:38Z">ajak</metadata>
+</glsa>

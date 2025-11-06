@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200804-23">
+  <title>CUPS: Integer overflow vulnerability</title>
+  <synopsis>
+    A vulnerability in CUPS might allow for the execution of arbitrary code or
+    a Denial of Service.
+  </synopsis>
+  <product type="ebuild">cups</product>
+  <announced>2008-04-18</announced>
+  <revised count="01">2008-04-18</revised>
+  <bug>217232</bug>
+  <access>remote, local</access>
+  <affected>
+    <package name="net-print/cups" auto="yes" arch="*">
+      <unaffected range="ge">1.2.12-r8</unaffected>
+      <vulnerable range="lt">1.2.12-r8</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    CUPS provides a portable printing layer for UNIX-based operating
+    systems.
+    </p>
+  </background>
+  <description>
+    <p>
+    Thomas Pollet reported a possible integer overflow vulnerability in the
+    PNG image handling in the file filter/image-png.c.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A malicious user might be able to execute arbitrary code with the
+    privileges of the user running CUPS (usually lp), or cause a Denial of
+    Service by sending a specially crafted PNG image to the print server.
+    The vulnerability is exploitable via the network if CUPS is sharing
+    printers remotely.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All CUPS users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-print/cups-1.2.12-r8"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1722">CVE-2008-1722</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-04-17T10:26:38Z">
+    vorlon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-04-17T10:26:47Z">
+    vorlon
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-04-17T11:05:44Z">
+    vorlon
+  </metadata>
+</glsa>

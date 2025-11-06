@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-08">
+    <title>GNU Libmicrohttpd: Buffer Overflow Vulnerability</title>
+    <synopsis>A buffer overflow vulnerability has been discovered in GNU Libmicrohttpd.</synopsis>
+    <product type="ebuild">libmicrohttpd</product>
+    <announced>2023-11-25</announced>
+    <revised count="1">2023-11-25</revised>
+    <bug>778296</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/libmicrohttpd" auto="yes" arch="*">
+            <unaffected range="gt">0.9.70</unaffected>
+            <vulnerable range="eq">0.9.70</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GNU libmicrohttpd is a small C library that makes it easy to run an HTTP server as part of another application. GNU Libmicrohttpd is free software and part of the GNU project.</p>
+    </background>
+    <description>
+        <p>A buffer overflow vulnerability has been discovered in GNU Libmicrohttpd. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>A missing bounds check in the post_process_urlencoded function leads to a buffer overflow, allowing a remote attacker to write arbitrary data in an application that uses libmicrohttpd. The highest threat from this vulnerability is to data confidentiality and integrity as well as system availability.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GNU Libmicrohttpd users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">net-libs/libmicrohttpd-0.9.70"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3466">CVE-2021-3466</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-25T08:29:39.007233Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-25T08:29:39.010725Z">graaff</metadata>
+</glsa>

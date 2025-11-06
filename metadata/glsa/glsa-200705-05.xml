@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200705-05">
+  <title>Quagga: Denial of service</title>
+  <synopsis>
+    A vulnerability has been discovered in Quagga allowing for a Denial of
+    Service.
+  </synopsis>
+  <product type="ebuild">quagga</product>
+  <announced>2007-05-02</announced>
+  <revised count="01">2007-05-02</revised>
+  <bug>174206</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-misc/quagga" auto="yes" arch="*">
+      <unaffected range="ge">0.98.6-r2</unaffected>
+      <vulnerable range="lt">0.98.6-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Quagga is a free routing daemon, supporting RIP, OSPF and BGP
+    protocols.
+    </p>
+  </background>
+  <description>
+    <p>
+    The Quagga development team reported a vulnerability in the BGP routing
+    deamon when processing NLRI attributes inside UPDATE messages.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A malicious peer inside a BGP area could send a specially crafted
+    packet to a Quagga instance, possibly resulting in a crash of the
+    Quagga daemon.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Quagga users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-misc/quagga-0.98.6-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1995">CVE-2007-1995</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-04-23T20:01:28Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-04-25T21:27:10Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-04-30T08:45:01Z">
+    p-y
+  </metadata>
+</glsa>

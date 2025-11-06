@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-12">
+    <title>MiniDLNA: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in MiniDLNA, the worst of which could lead to remove code execution.</synopsis>
+    <product type="ebuild">minidlna</product>
+    <announced>2023-11-25</announced>
+    <revised count="1">2023-11-25</revised>
+    <bug>834642</bug>
+    <bug>907926</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/minidlna" auto="yes" arch="*">
+            <unaffected range="ge">1.3.3</unaffected>
+            <vulnerable range="lt">1.3.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>MiniDLNA is a simple media server software, with the aim of being fully compliant with DLNA/UPnP-AV clients.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in MiniDLNA. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All MiniDLNA users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/minidlna-1.3.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26505">CVE-2022-26505</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-33476">CVE-2023-33476</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-25T10:21:19.244361Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-25T10:21:19.246643Z">graaff</metadata>
+</glsa>

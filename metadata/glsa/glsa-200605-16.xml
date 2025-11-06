@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200605-16">
+  <title>CherryPy: Directory traversal vulnerability</title>
+  <synopsis>
+    CherryPy is vulnerable to a directory traversal that could allow attackers
+    to read arbitrary files.
+  </synopsis>
+  <product type="ebuild">cherrypy</product>
+  <announced>2006-05-30</announced>
+  <revised count="01">2006-05-30</revised>
+  <bug>134273</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-python/cherrypy" auto="yes" arch="*">
+      <unaffected range="ge">2.1.1</unaffected>
+      <vulnerable range="lt">2.1.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    CherryPy is a Python-based, object-oriented web development
+    framework.
+    </p>
+  </background>
+  <description>
+    <p>
+    Ivo van der Wijk discovered that the "staticfilter" component of
+    CherryPy fails to sanitize input correctly.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    An attacker could exploit this flaw to obtain arbitrary files from
+    the web server.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All CherryPy users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-python/cherrypy-2.1.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0847">CVE-2006-0847</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-05-27T09:02:22Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-05-27T09:02:32Z">
+    DerCorny
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-05-28T21:15:45Z">
+    DerCorny
+  </metadata>
+</glsa>

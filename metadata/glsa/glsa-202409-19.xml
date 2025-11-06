@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-19">
+    <title>Emacs, org-mode: Command Execution Vulnerability</title>
+    <synopsis>A vulnerability has been found in Emacs and org-mode which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">emacs,org-mode</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>934736</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-editors/emacs" auto="yes" arch="*">
+            <unaffected range="ge" slot="26">26.3-r19</unaffected>
+            <unaffected range="ge" slot="27">27.2-r17</unaffected>
+            <unaffected range="ge" slot="28">28.2-r13</unaffected>
+            <unaffected range="ge" slot="29">29.3-r3</unaffected>
+            <vulnerable range="lt" slot="26">26.3-r19</vulnerable>
+            <vulnerable range="lt" slot="27">27.2-r17</vulnerable>
+            <vulnerable range="lt" slot="28">28.2-r13</vulnerable>
+            <vulnerable range="lt" slot="29">29.3-r3</vulnerable>
+        </package>
+        <package name="app-emacs/org-mode" auto="yes" arch="*">
+            <unaffected range="ge">9.7.5</unaffected>
+            <vulnerable range="lt">9.7.5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Emacs is the extensible, customizable, self-documenting real-time display editor. org-mode is an Emacs mode for notes and project planning.</p>
+    </background>
+    <description>
+        <p>%(...) link abbreviations could specify unsafe functions.</p>
+    </description>
+    <impact type="high">
+        <p>Opening a malicious org-mode file could result in arbitrary code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Emacs users should upgrade to the latest version according to the installed slot, one of:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-26.3-r19:26"
+        </code>
+        
+        <p>Alternatively:</p>
+        
+        <code>
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-27.2-r17:27"
+        </code>
+        
+        <code>
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-28.2-r13:28"
+        </code>
+        
+        <code>
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-29.3-r3:29"
+        </code>
+        
+        <p>All org-mode users should upgrade to the latest package:</p>
+        
+        <code>
+          # emerge --ask --oneshot --verbose ">=app-emacs/org-mode-9.7.5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-39331">CVE-2024-39331</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T09:04:08.173072Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T09:04:08.176708Z">graaff</metadata>
+</glsa>

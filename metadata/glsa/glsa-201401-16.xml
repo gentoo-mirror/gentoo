@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201401-16">
+  <title>CCID: Arbitrary code execution</title>
+  <synopsis>A vulnerability in CCID could result in execution of arbitrary
+    code.
+  </synopsis>
+  <product type="ebuild">ccid</product>
+  <announced>2014-01-21</announced>
+  <revised count="1">2014-01-21</revised>
+  <bug>349559</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-crypt/ccid" auto="yes" arch="*">
+      <unaffected range="ge">1.4.1-r1</unaffected>
+      <vulnerable range="lt">1.4.1-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>CCID is a generic USB Chip/Smart Card Interface Devices driver.</p>
+  </background>
+  <description>
+    <p>CCID contains an integer overflow vulnerability in ccid_serial.c.</p>
+  </description>
+  <impact type="high">
+    <p>A physically proximate attacker could execute arbitrary code via a smart
+      card with a specially crafted
+      serial number.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All CCID users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-crypt/ccid-1.4.1-r1"
+    </code>
+    
+    <p>NOTE: This is a legacy GLSA. Updates for all affected architectures are
+      available since January 21, 2011. It is likely that your system is
+      already no longer affected by this issue.
+    </p>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2010-4530">CVE-2010-4530</uri>
+  </references>
+  <metadata tag="requester" timestamp="2011-10-07T23:38:18Z">
+    underling
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-01-21T17:22:43Z">Zlogene</metadata>
+</glsa>

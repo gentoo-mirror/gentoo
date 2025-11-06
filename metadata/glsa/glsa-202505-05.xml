@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202505-05">
+    <title>Orc: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in Orc, which can lead to arbitrary code execution</synopsis>
+    <product type="ebuild">orc</product>
+    <announced>2025-05-12</announced>
+    <revised count="1">2025-05-12</revised>
+    <bug>937127</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-lang/orc" auto="yes" arch="*">
+            <unaffected range="ge">0.4.40</unaffected>
+            <vulnerable range="lt">0.4.40</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Orc is a library and set of tools for compiling and executing
+very simple programs that operate on arrays of data.  The &#34;language&#34;
+is a generic assembly language that represents many of the features
+available in SIMD architectures, including saturated addition and
+subtraction, and many arithmetic operations.</p>
+    </background>
+    <description>
+        <p>Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>It is possible for a malicious third party to trigger a buffer overflow and effect code execution with the same privileges as the orc compiler is called with by feeding it with malformed orc source files.
+
+This only affects developers and CI environments using orcc, not users of liborc.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Orc users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/orc-0.4.40"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-40897">CVE-2024-40897</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-05-12T12:39:16.601801Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-05-12T12:39:16.605879Z">graaff</metadata>
+</glsa>

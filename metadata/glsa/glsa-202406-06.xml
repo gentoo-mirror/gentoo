@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202406-06">
+    <title>GStreamer, GStreamer Plugins: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GStreamer and GStreamer Plugins, the worst of which could lead to code execution.</synopsis>
+    <product type="ebuild">gst-plugins-bad,gstreamer</product>
+    <announced>2024-06-28</announced>
+    <revised count="1">2024-06-28</revised>
+    <bug>917791</bug>
+    <bug>918095</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="media-libs/gst-plugins-bad" auto="yes" arch="*">
+            <unaffected range="ge">1.22.11-r1</unaffected>
+            <vulnerable range="lt">1.22.11-r1</vulnerable>
+        </package>
+        <package name="media-libs/gstreamer" auto="yes" arch="*">
+            <unaffected range="ge">1.22.11</unaffected>
+            <vulnerable range="lt">1.22.11</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GStreamer is an open source multimedia framework.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GStreamer, GStreamer Plugins. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GStreamer, GStreamer Plugins users should upgrade to the latest versions:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/gstreamer-1.22.11" ">=media-libs/gst-plugins-bad-1.22.11-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40474">CVE-2023-40474</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40475">CVE-2023-40475</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40476">CVE-2023-40476</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-44429">CVE-2023-44429</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-44446">CVE-2023-44446</uri>
+        <uri>ZDI-CAN-21660</uri>
+        <uri>ZDI-CAN-21661</uri>
+        <uri>ZDI-CAN-21768</uri>
+        <uri>ZDI-CAN-22226</uri>
+        <uri>ZDI-CAN-22299</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-06-28T04:43:02.949485Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-06-28T04:43:02.952359Z">graaff</metadata>
+</glsa>

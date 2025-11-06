@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-21">
+    <title>FasterXML jackson-databind: Multiple vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in FasterXML jackson-databind, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">jackson-databind</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>874033</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-java/jackson-databind" auto="yes" arch="*">
+            <unaffected range="ge">2.13.4.1</unaffected>
+            <vulnerable range="lt">2.13.4.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>FasterXML jackson-databind is a general data-binding package for Jackson (2.x) which works on streaming API (core) implementation(s).</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in FasterXML jackson-databind. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All FasterXML jackson-databind users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/jackson-databind-2.13.4.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42003">CVE-2022-42003</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42004">CVE-2022-42004</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:15:38.213258Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:15:38.220174Z">ajak</metadata>
+</glsa>

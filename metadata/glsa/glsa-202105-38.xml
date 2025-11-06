@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-38">
+  <title>nginx: Remote code execution</title>
+  <synopsis>A vulnerability in nginx could lead to remote code execution.</synopsis>
+  <product type="ebuild">nginx</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>792087</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-servers/nginx" auto="yes" arch="*">
+      <unaffected range="ge" slot="0">1.20.1</unaffected>
+      <unaffected range="ge" slot="mainline">1.21.0</unaffected>
+      <vulnerable range="lt">1.21.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>nginx is a robust, small, and high performance HTTP and reverse proxy
+      server.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that nginx did not properly handle DNS responses when
+      “resolver” directive is used.
+    </p>
+  </description>
+  <impact type="high">
+    <p>A remote attacker, able to provide DNS responses to a nginx instance,
+      could cause the execution of arbitrary code with the privileges of the
+      process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All nginx users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-servers/nginx-1.20.1"
+    </code>
+    
+    <p>All nginx mainline users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=www-servers/nginx-1.21.0:mainline"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23017">CVE-2021-23017</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-26T17:05:23Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T17:40:33Z">whissi</metadata>
+</glsa>

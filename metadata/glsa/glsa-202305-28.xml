@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-28">
+    <title>snakeyaml: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in snakeyaml, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">snakeyaml</product>
+    <announced>2023-05-21</announced>
+    <revised count="1">2023-05-21</revised>
+    <bug>776796</bug>
+    <bug>868621</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-java/snakeyaml" auto="yes" arch="*">
+            <unaffected range="ge">1.33</unaffected>
+            <vulnerable range="lt">1.33</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>snakeyaml is a YAML 1.1 parser and emitter for Java.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in snakeyaml. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All snakeyaml users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/snakeyaml-1.33"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2017-18640">CVE-2017-18640</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38749">CVE-2022-38749</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38750">CVE-2022-38750</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38751">CVE-2022-38751</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38752">CVE-2022-38752</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-21T19:44:41.839877Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-21T19:44:41.842236Z">ajak</metadata>
+</glsa>

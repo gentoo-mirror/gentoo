@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200805-15">
+  <title>libid3tag: Denial of service</title>
+  <synopsis>
+    A Denial of Service vulnerability was found in libid3tag.
+  </synopsis>
+  <product type="ebuild">libid3tag</product>
+  <announced>2008-05-14</announced>
+  <revised count="01">2008-05-14</revised>
+  <bug>210564</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/libid3tag" auto="yes" arch="*">
+      <unaffected range="ge">0.15.1b-r2</unaffected>
+      <vulnerable range="lt">0.15.1b-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    libid3tag is an ID3 tag manipulation library.
+    </p>
+  </background>
+  <description>
+    <p>
+    Kentaro Oda reported an infinite loop in the file field.c when parsing
+    an MP3 file with an ID3_FIELD_TYPE_STRINGLIST field that ends in '\0'.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted MP3
+    file, possibly resulting in a Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All libid3tag users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/libid3tag-0.15.1b-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2109">CVE-2008-2109</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-05-13T20:49:10Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-05-13T20:57:48Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-05-13T21:27:22Z">
+    keytoaster
+  </metadata>
+</glsa>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200509-03">
+  <title>OpenTTD: Format string vulnerabilities</title>
+  <synopsis>
+    OpenTTD is vulnerable to format string vulnerabilities which may result in
+    remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">openttd</product>
+  <announced>2005-09-05</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>102631</bug>
+  <access>remote</access>
+  <affected>
+    <package name="games-simulation/openttd" auto="yes" arch="*">
+      <unaffected range="ge">0.4.0.1-r1</unaffected>
+      <vulnerable range="lt">0.4.0.1-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    OpenTTD is an open source clone of the simulation game "Transport
+    Tycoon Deluxe" by Microprose.
+    </p>
+  </background>
+  <description>
+    <p>
+    Alexey Dobriyan discovered several format string vulnerabilities in
+    OpenTTD.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could exploit these vulnerabilities to crash the
+    OpenTTD server or client and possibly execute arbitrary code with the
+    rights of the user running OpenTTD.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There are no known workarounds at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All OpenTTD users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=games-simulation/openttd-0.4.0.1-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-2763">CAN-2005-2763</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2764">CVE-2005-2764</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-09-01T05:03:56Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-09-01T08:12:01Z">
+    adir
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-09-04T15:43:14Z">
+    DerCorny
+  </metadata>
+</glsa>

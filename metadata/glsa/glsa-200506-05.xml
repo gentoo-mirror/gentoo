@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200506-05">
+  <title>SilverCity: Insecure file permissions</title>
+  <synopsis>
+    Executable files with insecure permissions can be modified causing an
+    unsuspecting user to run arbitrary code.
+  </synopsis>
+  <product type="ebuild">silvercity</product>
+  <announced>2005-06-08</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>93558</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-text/silvercity" auto="yes" arch="*">
+      <unaffected range="ge">0.9.5-r1</unaffected>
+      <vulnerable range="lt">0.9.5-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    SilverCity provides lexical analysis for over 20 programming and markup
+    languages.
+    </p>
+  </background>
+  <description>
+    <p>
+    The SilverCity package installs three executable files with insecure
+    permissions.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could modify the executable files, causing arbitrary
+    code to be executed with the permissions of an unsuspecting SilverCity
+    user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There are no known workarounds at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All SilverCity users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-text/silvercity-0.9.5-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1941">CVE-2005-1941</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-06-06T18:24:23Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-06-06T18:24:47Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-06-07T01:08:04Z">
+    r2d2
+  </metadata>
+</glsa>

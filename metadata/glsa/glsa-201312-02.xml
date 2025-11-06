@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201312-02">
+  <title>BusyBox: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in BusyBox, allowing
+    remote attackers to execute arbitrary code or cause a Denial of Service
+    condition.
+  </synopsis>
+  <product type="ebuild">busybox</product>
+  <announced>2013-12-03</announced>
+  <revised count="1">2013-12-03</revised>
+  <bug>379857</bug>
+  <bug>426504</bug>
+  <bug>461372</bug>
+  <access>remote</access>
+  <affected>
+    <package name="sys-apps/busybox" auto="yes" arch="*">
+      <unaffected range="ge">1.21.0</unaffected>
+      <vulnerable range="lt">1.21.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>BusyBox is set of tools for embedded systems and is a replacement for
+      GNU Coreutils.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in BusyBox. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could send a specially crafted DHCP request to
+      possibly execute arbitrary code or cause Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All BusyBox users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=sys-apps/busybox-1.21.0"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2006-1168">CVE-2006-1168</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2011-2716">CVE-2011-2716</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-1813">CVE-2013-1813</uri>
+  </references>
+  <metadata tag="requester" timestamp="2011-10-07T23:37:58Z">
+    underling
+  </metadata>
+  <metadata tag="submitter" timestamp="2013-12-03T03:51:08Z">
+    pinkbyte
+  </metadata>
+</glsa>

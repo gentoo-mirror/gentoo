@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-02">
+    <title>Mozilla Firefox: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Mozilla Firefox, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">firefox,firefox-bin</product>
+    <announced>2024-08-06</announced>
+    <revised count="1">2024-08-06</revised>
+    <bug>930380</bug>
+    <bug>932374</bug>
+    <bug>935550</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-client/firefox" auto="yes" arch="*">
+            <unaffected range="ge" slot="rapid">127.0</unaffected>
+            <unaffected range="ge" slot="esr">115.12.0</unaffected>
+            <vulnerable range="lt" slot="rapid">127.0</vulnerable>
+            <vulnerable range="lt" slot="esr">115.12.0</vulnerable>
+        </package>
+        <package name="www-client/firefox-bin" auto="yes" arch="*">
+            <unaffected range="ge" slot="rapid">127.0</unaffected>
+            <unaffected range="ge" slot="esr">115.12.0</unaffected>
+            <vulnerable range="lt" slot="rapid">127.0</vulnerable>
+            <vulnerable range="lt" slot="esr">115.12.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mozilla Firefox is a popular open-source web browser from the Mozilla project.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Mozilla Firefox. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mozilla Firefox binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-bin-127.0:rapid"
+        </code>
+        
+        <p>All Mozilla Firefox users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-127.0:rapid"
+        </code>
+        
+        <p>All Mozilla Firefox ESR users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-115.12.0:esr"
+        </code>
+        
+        <p>All Mozilla Firefox ESR binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-bin-115.12.0:esr"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-2609">CVE-2024-2609</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3302">CVE-2024-3302</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3853">CVE-2024-3853</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3854">CVE-2024-3854</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3855">CVE-2024-3855</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3856">CVE-2024-3856</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3857">CVE-2024-3857</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3858">CVE-2024-3858</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3859">CVE-2024-3859</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3860">CVE-2024-3860</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3861">CVE-2024-3861</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3862">CVE-2024-3862</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3864">CVE-2024-3864</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3865">CVE-2024-3865</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-4764">CVE-2024-4764</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-4765">CVE-2024-4765</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-4766">CVE-2024-4766</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-4771">CVE-2024-4771</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-4772">CVE-2024-4772</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-4773">CVE-2024-4773</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-4774">CVE-2024-4774</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-4775">CVE-2024-4775</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-4776">CVE-2024-4776</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-4778">CVE-2024-4778</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5689">CVE-2024-5689</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5693">CVE-2024-5693</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5694">CVE-2024-5694</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5695">CVE-2024-5695</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5696">CVE-2024-5696</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5697">CVE-2024-5697</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5698">CVE-2024-5698</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5699">CVE-2024-5699</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5700">CVE-2024-5700</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5701">CVE-2024-5701</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-5702">CVE-2024-5702</uri>
+        <uri>MFSA-2024-25</uri>
+        <uri>MFSA-2024-26</uri>
+        <uri>MFSA-2024-28</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-06T05:40:35.041061Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-06T05:40:35.043479Z">graaff</metadata>
+</glsa>

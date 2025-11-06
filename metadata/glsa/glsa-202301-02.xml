@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202301-02">
+    <title>Twisted: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Twisted, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">twisted</product>
+    <announced>2023-01-11</announced>
+    <revised count="1">2023-01-11</revised>
+    <bug>878499</bug>
+    <bug>834542</bug>
+    <bug>832875</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/twisted" auto="yes" arch="*">
+            <unaffected range="ge">22.10.0</unaffected>
+            <vulnerable range="lt">22.10.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Twisted is an asynchronous networking framework written in Python.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Twisted. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Twisted users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/twisted-22.10.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21712">CVE-2022-21712</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21716">CVE-2022-21716</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39348">CVE-2022-39348</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-01-11T05:16:16.479507Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-01-11T05:16:16.483411Z">ajak</metadata>
+</glsa>

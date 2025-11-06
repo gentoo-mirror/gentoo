@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200809-04">
+  <title>MySQL: Privilege bypass</title>
+  <synopsis>
+    A vulnerability in MySQL might allow users to bypass privileges and gain
+    access to other databases.
+  </synopsis>
+  <product type="ebuild">mysql</product>
+  <announced>2008-09-04</announced>
+  <revised count="01">2008-09-04</revised>
+  <bug>220399</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-db/mysql" auto="yes" arch="*">
+      <unaffected range="ge">5.0.60-r1</unaffected>
+      <vulnerable range="lt">5.0.60-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MySQL is a popular multi-threaded, multi-user SQL server.
+    </p>
+  </background>
+  <description>
+    <p>
+    Sergei Golubchik reported that MySQL imposes no restrictions on the
+    specification of "DATA DIRECTORY" or "INDEX DIRECTORY" in SQL "CREATE
+    TABLE" statements.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An authenticated remote attacker could create MyISAM tables, specifying
+    DATA or INDEX directories that contain future table files by other
+    database users, or existing table files in the MySQL data directory,
+    gaining access to those tables.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MySQL users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-db/mysql-5.0.60-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2079">CVE-2008-2079</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2008-08-20T00:05:23Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-08-21T15:32:52Z">
+    rbu
+  </metadata>
+</glsa>

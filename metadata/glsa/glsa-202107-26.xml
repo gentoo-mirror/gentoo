@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-26">
+  <title>runC: Container breakout</title>
+  <synopsis>A vulnerability has been found in runC which could result in
+    privilege escalation.
+  </synopsis>
+  <product type="ebuild">runc</product>
+  <announced>2021-07-10</announced>
+  <revised count="1">2021-07-10</revised>
+  <bug>790257</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-emulation/runc" auto="yes" arch="*">
+      <unaffected range="ge">1.0.0_rc95</unaffected>
+      <vulnerable range="lt">1.0.0_rc95</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>runC is a CLI tool for spawning and running containers according to the
+      OCI specification.
+    </p>
+  </background>
+  <description>
+    <p>A vulnerability in runC could allow an attacker to achieve privilege
+      escalation if specific mount configuration prerequisites are satisfied.
+    </p>
+  </description>
+  <impact type="low">
+    <p>An attacker may be able to escalation privileges to gain access to the
+      host system.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All runC users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-emulation/runc-1.0.0_rc95"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30465">CVE-2021-30465</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-10T00:27:46Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-10T02:54:58Z">ajak</metadata>
+</glsa>

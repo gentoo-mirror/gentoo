@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-06">
+    <title>PostgreSQL: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in PostgreSQL, the worst of which could lead to privilege escalation or denial of service.</synopsis>
+    <product type="ebuild">postgresql</product>
+    <announced>2024-08-07</announced>
+    <revised count="1">2024-08-07</revised>
+    <bug>903193</bug>
+    <bug>912251</bug>
+    <bug>917153</bug>
+    <bug>924110</bug>
+    <bug>931849</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-db/postgresql" auto="yes" arch="*">
+            <unaffected range="ge" slot="12">12.19</unaffected>
+            <unaffected range="ge" slot="13">13.14</unaffected>
+            <unaffected range="ge" slot="14">14.12-r1</unaffected>
+            <unaffected range="ge" slot="15">15.7-r1</unaffected>
+            <unaffected range="ge" slot="16">16.3-r1</unaffected>
+            <vulnerable range="lt">12</vulnerable>
+            <vulnerable range="lt" slot="12">12.19</vulnerable>
+            <vulnerable range="lt" slot="13">13.14</vulnerable>
+            <vulnerable range="lt" slot="14">14.12-r1</vulnerable>
+            <vulnerable range="lt" slot="15">15.7-r1</vulnerable>
+            <vulnerable range="lt" slot="16">16.3-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>PostgreSQL is an open source object-relational database management system.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in PostgreSQL. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All PostgreSQL users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-db/postgresql-16.3-r1:16"
+        </code>
+        
+        <p>Or update an older slot if that is still in use.</p>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5868">CVE-2023-5868</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5869">CVE-2023-5869</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5870">CVE-2023-5870</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0985">CVE-2024-0985</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-4317">CVE-2024-4317</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-07T08:28:46.588202Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-07T08:28:46.591128Z">graaff</metadata>
+</glsa>

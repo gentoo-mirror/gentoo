@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200702-03">
+  <title>Snort: Denial of service</title>
+  <synopsis>
+    Snort contains a vulnerability in the rule matching algorithm that could
+    result in a Denial of Service.
+  </synopsis>
+  <product type="ebuild">snort</product>
+  <announced>2007-02-13</announced>
+  <revised count="01">2007-02-13</revised>
+  <bug>161632</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-analyzer/snort" auto="yes" arch="*">
+      <unaffected range="ge">2.6.1.2</unaffected>
+      <vulnerable range="lt">2.6.1.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Snort is a widely deployed intrusion detection program.
+    </p>
+  </background>
+  <description>
+    <p>
+    Randy Smith, Christian Estan and Somesh Jha discovered that the rule
+    matching algorithm of Snort can be exploited in a way known as a
+    "backtracking attack" to perform numerous time-consuming operations.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could send specially crafted network packets, which
+    would result in the cessation of the detections and the consumption of
+    the CPU resources.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Snort users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-analyzer/snort-2.6.1.2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6931">CVE-2006-6931</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-02-10T19:01:49Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-02-12T22:41:30Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-02-12T23:29:42Z">
+    falco
+  </metadata>
+</glsa>

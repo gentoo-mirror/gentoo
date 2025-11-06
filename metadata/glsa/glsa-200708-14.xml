@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200708-14">
+  <title>NVIDIA drivers: Denial of service</title>
+  <synopsis>
+    A vulnerability has been discovered in the NVIDIA graphic drivers, allowing
+    for a Denial of Service.
+  </synopsis>
+  <product type="ebuild">nvidia-drivers</product>
+  <announced>2007-08-19</announced>
+  <revised count="03">2007-10-11</revised>
+  <bug>183567</bug>
+  <access>local</access>
+  <affected>
+    <package name="x11-drivers/nvidia-drivers" auto="yes" arch="*">
+      <unaffected range="ge">71.86.01</unaffected>
+      <unaffected range="rge">1.0.7185</unaffected>
+      <unaffected range="rge">1.0.9639</unaffected>
+      <vulnerable range="eq">100.14.06</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    The NVIDIA drivers provide support for NVIDIA graphic boards.
+    </p>
+  </background>
+  <description>
+    <p>
+    Gregory Shikhman discovered that the default Gentoo setup of NVIDIA
+    drivers creates the /dev/nvidia* with insecure file permissions.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could send arbitrary values into the devices, possibly
+    resulting in hardware damage on the graphic board or a Denial of
+    Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All NVIDIA drivers users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "x11-drivers/nvidia-drivers"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3532">CVE-2007-3532</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-07-28T07:38:56Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-07-28T07:39:35Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-08-12T20:41:51Z">
+    p-y
+  </metadata>
+</glsa>

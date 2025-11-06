@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200502-26">
+  <title>GProFTPD: gprostats format string vulnerability</title>
+  <synopsis>
+    gprostats, distributed with GProFTPD, is vulnerable to a format string
+    vulnerability, potentially leading to the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">GProFTPD</product>
+  <announced>2005-02-18</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>81894</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-ftp/gproftpd" auto="yes" arch="*">
+      <unaffected range="ge">8.1.9</unaffected>
+      <vulnerable range="lt">8.1.9</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    GProFTPD is a GTK+ administration tool for the ProFTPD server. GProFTPD
+    is distributed with gprostats, a utility to parse ProFTPD transfer
+    logs.
+    </p>
+  </background>
+  <description>
+    <p>
+    Tavis Ormandy of the Gentoo Linux Security Audit Team has identified a
+    format string vulnerability in the gprostats utility.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could exploit the vulnerability by performing a specially
+    crafted FTP transfer, the resulting ProFTPD transfer log could
+    potentially trigger the execution of arbitrary code when parsed by
+    GProFTPD.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All GProFTPD users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-ftp/gproftpd-8.1.9"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0484">CVE-2005-0484</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-02-16T19:27:51Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-02-17T00:01:48Z">
+    taviso
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-02-18T09:37:53Z">
+    koon
+  </metadata>
+</glsa>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-29">
+    <title>sudo: Memory Manipulation</title>
+    <synopsis>A vulnerability has been discovered in sudo which can lead to execution manipulation through rowhammer-style memory manipulation.</synopsis>
+    <product type="ebuild">sudo</product>
+    <announced>2024-01-24</announced>
+    <revised count="1">2024-01-24</revised>
+    <bug>920510</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-admin/sudo" auto="yes" arch="*">
+            <unaffected range="ge">1.9.15_p2</unaffected>
+            <vulnerable range="lt">1.9.15_p2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>sudo allows a system administrator to give users the ability to run commands as other users.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in sudo. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Stack/register variables can be flipped via fault injection, affecting execution flow in security-sensitive code.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All sudo users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-admin/sudo-1.9.15_p2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-42465">CVE-2023-42465</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-24T04:05:24.519163Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-24T04:05:24.521789Z">ajak</metadata>
+</glsa>

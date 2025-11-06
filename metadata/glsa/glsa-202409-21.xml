@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-21">
+    <title>Hunspell: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Hunspell, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">hunspell</product>
+    <announced>2024-09-24</announced>
+    <revised count="1">2024-09-24</revised>
+    <bug>866093</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-text/hunspell" auto="yes" arch="*">
+            <unaffected range="ge">1.7.1</unaffected>
+            <vulnerable range="lt">1.7.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Hunspell is the spell checker of LibreOffice, OpenOffice.org, Mozilla Firefox &amp; Thunderbird, Google Chrome.</p>
+    </background>
+    <description>
+        <p>Malicious input to the hunspell spell checker could result in an application crash or other unspecified behavior.</p>
+    </description>
+    <impact type="normal">
+        <p>Malicious input to the hunspell spell checker could result in an application crash or other unspecified behavior.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Hunspell users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/hunspell-1.7.1"
+        </code>
+    </resolution>
+    <references>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-24T05:10:05.686745Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-24T05:10:05.693494Z">graaff</metadata>
+</glsa>

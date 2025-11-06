@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200411-05">
+  <title>libxml2: Remotely exploitable buffer overflow</title>
+  <synopsis>
+    libxml2 contains multiple buffer overflows which could lead to the
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">libxml2</product>
+  <announced>2004-11-02</announced>
+  <revised count="01">2004-11-02</revised>
+  <bug>69154</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/libxml2" auto="yes" arch="*">
+      <unaffected range="ge">2.6.15</unaffected>
+      <vulnerable range="lt">2.6.15</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    libxml2 is an XML parsing library written in C.
+    </p>
+  </background>
+  <description>
+    <p>
+    Multiple buffer overflows have been detected in the nanoftp and nanohttp
+    modules. These modules are responsible for parsing URLs with ftp
+    information, and resolving names via DNS.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    An attacker could exploit an application that uses libxml2 by forcing it to
+    parse a specially-crafted XML file, potentially causing remote execution of
+    arbitrary code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All libxml2 users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-libs/libxml2-2.6.15"</code>
+  </resolution>
+  <references>
+    <uri link="http://www.securityfocus.com/archive/1/379383">BugTraq Advisory</uri>
+    <uri link="http://www.xmlsoft.org/ChangeLog.html">libxml2 ChangeLog</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0989">CAN-2004-0989</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-10-30T16:39:51Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-10-31T21:35:49Z">
+    lewk
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-11-01T23:01:51Z">
+    lewk
+  </metadata>
+</glsa>

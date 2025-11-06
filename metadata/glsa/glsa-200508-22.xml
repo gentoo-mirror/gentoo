@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200508-22">
+  <title>pam_ldap: Authentication bypass vulnerability</title>
+  <synopsis>
+    pam_ldap contains a vulnerability that may allow a remote attacker to gain
+    system access.
+  </synopsis>
+  <product type="ebuild">pam_ldap</product>
+  <announced>2005-08-31</announced>
+  <revised count="01">2005-08-31</revised>
+  <bug>103659</bug>
+  <access>remote</access>
+  <affected>
+    <package name="sys-auth/pam_ldap" auto="yes" arch="*">
+      <unaffected range="ge">180</unaffected>
+      <vulnerable range="lt">180</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    pam_ldap is a Pluggable Authentication Module which allows
+    authentication against LDAP directories.
+    </p>
+  </background>
+  <description>
+    <p>
+    When a pam_ldap client attempts to authenticate against an LDAP
+    server that omits the optional error value from the
+    PasswordPolicyResponseValue, the authentication attempt will always
+    succeed.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker may exploit this vulnerability to bypass the
+    LDAP authentication mechanism, gaining access to the system possibly
+    with elevated privileges.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All pam_ldap users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=sys-auth/pam_ldap-180"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-2641">CAN-2005-2641</uri>
+    <uri link="https://www.kb.cert.org/vuls/id/778916">US-CERT VU#778916</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-08-29T14:50:51Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-08-29T14:51:34Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-08-29T20:08:30Z">
+    adir
+  </metadata>
+</glsa>

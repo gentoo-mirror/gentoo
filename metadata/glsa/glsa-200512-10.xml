@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200512-10">
+  <title>Opera: Command-line URL shell command injection</title>
+  <synopsis>
+    Lack of URL validation in Opera command-line wrapper could be abused to
+    execute arbitrary commands.
+  </synopsis>
+  <product type="ebuild">opera</product>
+  <announced>2005-12-18</announced>
+  <revised count="01">2005-12-18</revised>
+  <bug>113239</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-client/opera" auto="yes" arch="*">
+      <unaffected range="ge">8.51</unaffected>
+      <vulnerable range="lt">8.51</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Opera is a multi-platform web browser.
+    </p>
+  </background>
+  <description>
+    <p>
+    Peter Zelezny discovered that the shell script used to launch
+    Opera parses shell commands that are enclosed within backticks in the
+    URL provided via the command line.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could exploit this vulnerability by enticing a
+    user to follow a specially crafted URL from a tool that uses Opera to
+    open URLs, resulting in the execution of arbitrary commands on the
+    targeted machine.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Opera users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-client/opera-8.51"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3750">CVE-2005-3750</uri>
+    <uri link="https://www.opera.com/docs/changelogs/linux/851/">Opera 8.51 Changelog</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-12-15T12:24:01Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-12-15T12:24:20Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-12-16T02:18:07Z">
+    adir
+  </metadata>
+</glsa>

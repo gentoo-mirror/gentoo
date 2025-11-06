@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202211-09">
+    <title>xterm: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been found in xterm which could allow for arbitrary code execution.</synopsis>
+    <product type="ebuild">xterm</product>
+    <announced>2022-11-22</announced>
+    <revised count="1">2022-11-22</revised>
+    <bug>880747</bug>
+    <access>remote</access>
+    <affected>
+        <package name="x11-terms/xterm" auto="yes" arch="*">
+            <unaffected range="ge">375</unaffected>
+            <vulnerable range="lt">375</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>xterm is a terminal emulator for the X Window system.</p>
+    </background>
+    <description>
+        <p>xterm does not correctly handle control characters related to OSC 50 font ops sequence handling.</p>
+    </description>
+    <impact type="normal">
+        <p>The vulnerability allows text written to the terminal to write text to the terminal&#39;s command line. If the terminal&#39;s shell is zsh running with vi line editing mode, text written to the terminal can also trigger the execution of arbitrary commands via writing ^G to the terminal.</p>
+    </impact>
+    <workaround>
+        <p>As a workaround, users can disable xterm&#39;s usage of OSC 50 sequences by adding the following to the XResources configuration:
+
+XTerm*allowFontOps: false</p>
+    </workaround>
+    <resolution>
+        <p>All xterm users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-terms/xterm-375"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45063">CVE-2022-45063</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-11-22T03:53:08.351235Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-11-22T03:53:08.356875Z">ajak</metadata>
+</glsa>

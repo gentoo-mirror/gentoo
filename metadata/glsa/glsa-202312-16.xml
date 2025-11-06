@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-16">
+    <title>libssh: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libssh, the worst of which could lead to code execution.</synopsis>
+    <product type="ebuild">libssh</product>
+    <announced>2023-12-28</announced>
+    <revised count="1">2023-12-28</revised>
+    <bug>920291</bug>
+    <bug>920724</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/libssh" auto="yes" arch="*">
+            <unaffected range="ge">0.10.6</unaffected>
+            <vulnerable range="lt">0.10.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libssh is a multiplatform C library implementing the SSHv2 protocol on client and server side.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libssh. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libssh users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/libssh-0.10.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6004">CVE-2023-6004</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-48795">CVE-2023-48795</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-28T02:21:10.983119Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2023-12-28T02:21:10.985632Z">sam</metadata>
+</glsa>

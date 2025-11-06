@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-26">
+    <title>matio: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in matio, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">matio</product>
+    <announced>2024-08-11</announced>
+    <revised count="1">2024-08-11</revised>
+    <bug>803131</bug>
+    <access>local</access>
+    <affected>
+        <package name="sci-libs/matio" auto="yes" arch="*">
+            <unaffected range="ge">1.5.22</unaffected>
+            <vulnerable range="lt">1.5.22</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>matio is a library for reading and writing matlab files.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in matio. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All matio users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sci-libs/matio-1.5.22"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36428">CVE-2020-36428</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-36977">CVE-2021-36977</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-11T14:39:15.111907Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-11T14:39:15.117732Z">graaff</metadata>
+</glsa>

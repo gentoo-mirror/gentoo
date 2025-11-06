@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-31">
+    <title>GStreamer, GStreamer Plugins: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in GStreamer and its plugins, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">gst-plugins-bad,gst-plugins-base,gst-plugins-good,gst-plugins-libav,gst-plugins-ugly,gstreamer</product>
+    <announced>2022-08-14</announced>
+    <revised count="1">2022-08-14</revised>
+    <bug>766336</bug>
+    <bug>785652</bug>
+    <bug>785655</bug>
+    <bug>785658</bug>
+    <bug>785661</bug>
+    <bug>835368</bug>
+    <bug>843770</bug>
+    <bug>765163</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/gst-plugins-bad" auto="yes" arch="*">
+            <unaffected range="ge">1.16.3</unaffected>
+            <vulnerable range="lt">1.16.3</vulnerable>
+        </package>
+        <package name="media-libs/gst-plugins-base" auto="yes" arch="*">
+            <unaffected range="ge">1.18.4</unaffected>
+            <vulnerable range="lt">1.18.4</vulnerable>
+        </package>
+        <package name="media-libs/gst-plugins-good" auto="yes" arch="*">
+            <unaffected range="ge">1.18.4</unaffected>
+            <vulnerable range="lt">1.18.4</vulnerable>
+        </package>
+        <package name="media-libs/gst-plugins-ugly" auto="yes" arch="*">
+            <unaffected range="ge">1.18.4</unaffected>
+            <vulnerable range="lt">1.18.4</vulnerable>
+        </package>
+        <package name="media-libs/gstreamer" auto="yes" arch="*">
+            <unaffected range="ge">1.20.2</unaffected>
+            <vulnerable range="lt">1.20.2</vulnerable>
+        </package>
+        <package name="media-plugins/gst-plugins-libav" auto="yes" arch="*">
+            <unaffected range="ge">1.18.4</unaffected>
+            <vulnerable range="lt">1.18.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GStreamer is an open source multimedia framework.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been found in GStreamer and its plugins. Please review the CVE and GStreamer-SA identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GStreamer users should update to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/gstreamer-1.20.2"
+        </code>
+        
+        <p>All gst-plugins-bad users should update to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/gst-plugins-bad-1.20.2"
+        </code>
+        
+        <p>All gst-plugins-good users should update to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/gst-plugins-good-1.20.2"
+        </code>
+        
+        <p>All gst-plugins-ugly users should update to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/gst-plugins-ugly-1.20.2"
+        </code>
+        
+        <p>All gst-plugins-base users should update to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/gst-plugins-base-1.20.2"
+        </code>
+        
+        <p>All gst-plugins-libav users should update to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-plugins/gst-plugins-libav-1.20.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3185">CVE-2021-3185</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3497">CVE-2021-3497</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3498">CVE-2021-3498</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3522">CVE-2021-3522</uri>
+        <uri>GStreamer-SA-2021-0001</uri>
+        <uri>GStreamer-SA-2021-0002</uri>
+        <uri>GStreamer-SA-2021-0004</uri>
+        <uri>GStreamer-SA-2021-0005</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-14T21:47:49.592909Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-14T21:47:49.599041Z">sam</metadata>
+</glsa>

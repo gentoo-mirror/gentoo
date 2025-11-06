@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200612-09">
+  <title>MadWifi: Kernel driver buffer overflow</title>
+  <synopsis>
+    MadWifi is vulnerable to a buffer overflow that could potentially lead to
+    the remote execution of arbitrary code with root privileges.
+  </synopsis>
+  <product type="ebuild">madwifi-ng</product>
+  <announced>2006-12-10</announced>
+  <revised count="01">2006-12-10</revised>
+  <bug>157449</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-wireless/madwifi-ng" auto="yes" arch="*">
+      <unaffected range="ge">0.9.2.1</unaffected>
+      <vulnerable range="lt">0.9.2.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MadWifi (Multiband Atheros Driver for Wireless Fidelity) provides a
+    Linux kernel device driver for Atheros-based Wireless LAN devices.
+    </p>
+  </background>
+  <description>
+    <p>
+    Laurent Butti, Jerome Raznieski and Julien Tinnes reported a buffer
+    overflow in the encode_ie() and the giwscan_cb() functions from
+    ieee80211_wireless.c.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could send specially crafted wireless WPA packets
+    containing malicious RSN Information Headers (IE) that could
+    potentially lead to the remote execution of arbitrary code as the root
+    user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MadWifi users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-wireless/madwifi-ng-0.9.2.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6332">CVE-2006-6332</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-12-07T19:16:43Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-12-07T22:47:16Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-12-10T21:00:26Z">
+    vorlon
+  </metadata>
+</glsa>

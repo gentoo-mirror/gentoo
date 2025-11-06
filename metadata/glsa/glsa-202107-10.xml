@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-10">
+  <title>TCG TPM2 Software Stack: Information disclosure</title>
+  <synopsis>A bug in TCG TPM2 Software Stack may result in information
+    disclosure to a local attacker.
+  </synopsis>
+  <product type="ebuild">tpm2-tss</product>
+  <announced>2021-07-07</announced>
+  <revised count="1">2021-07-07</revised>
+  <bug>746563</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-crypt/tpm2-tss" auto="yes" arch="*">
+      <unaffected range="ge">2.4.3</unaffected>
+      <vulnerable range="lt">2.4.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>TCG TPM2 Software Stack is a library to interface with trusted platform
+      modules.
+    </p>
+  </background>
+  <description>
+    <p>TCG TPM2 Software Stack did not appropriately apply FAPI policies to
+      protect data encrypted with the trusted platform module.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Data encrypted using TCG TPM2 Software Stack (tpm2-tss) may not be
+      protected from an attacker.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All tpm2-tss users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-crypt/tpm2-tss-2.4.3"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-24455">CVE-2020-24455</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-24T14:04:16Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-07-07T07:58:39Z">whissi</metadata>
+</glsa>

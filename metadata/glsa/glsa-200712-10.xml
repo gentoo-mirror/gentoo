@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200712-10">
+  <title>Samba: Execution of arbitrary code</title>
+  <synopsis>
+    Samba contains a buffer overflow vulnerability potentially resulting in the
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">samba</product>
+  <announced>2007-12-10</announced>
+  <revised count="01">2007-12-10</revised>
+  <bug>200773</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-fs/samba" auto="yes" arch="*">
+      <unaffected range="ge">3.0.28</unaffected>
+      <vulnerable range="lt">3.0.28</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Samba is a suite of SMB and CIFS client/server programs for UNIX.
+    </p>
+  </background>
+  <description>
+    <p>
+    Alin Rad Pop (Secunia Research) discovered a boundary checking error in
+    the send_mailslot() function which could lead to a stack-based buffer
+    overflow.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could send a specially crafted "SAMLOGON" domain
+    logon packet, possibly leading to the execution of arbitrary code with
+    elevated privileges. Note that this vulnerability is exploitable only
+    when domain logon support is enabled in Samba, which is not the case in
+    Gentoo's default configuration.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Disable domain logon in Samba by setting "<i>domain logons = no</i>" in
+    the "global" section of your smb.conf and restart Samba.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Samba users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-fs/samba-3.0.28"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6015">CVE-2007-6015</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2007-12-10T02:00:00Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-12-10T19:33:11Z">
+    rbu
+  </metadata>
+</glsa>

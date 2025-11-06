@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200604-14">
+  <title>Dia: Arbitrary code execution through XFig import</title>
+  <synopsis>
+    Buffer overflows in Dia's XFig import could allow remote attackers to
+    execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">dia</product>
+  <announced>2006-04-23</announced>
+  <revised count="01">2006-04-23</revised>
+  <bug>128107</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-office/dia" auto="yes" arch="*">
+      <unaffected range="ge">0.94-r5</unaffected>
+      <vulnerable range="lt">0.94-r5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Dia is a GTK+ based diagram creation program.
+    </p>
+  </background>
+  <description>
+    <p>
+    infamous41md discovered multiple buffer overflows in Dia's XFig
+    file import plugin.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By enticing a user to import a specially crafted XFig file into
+    Dia, an attacker could exploit this issue to execute arbitrary code
+    with the rights of the user running Dia.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Dia users should upgrade to the latest available version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-office/dia-0.94-r5"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1550">CVE-2006-1550</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-04-22T17:58:09Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-04-22T17:58:17Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-04-22T20:01:59Z">
+    DerCorny
+  </metadata>
+</glsa>

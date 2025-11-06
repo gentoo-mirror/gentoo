@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-16">
+    <title>faac: Denial of service</title>
+    <synopsis>A vulnerability in faac could result in denial of service.</synopsis>
+    <product type="ebuild">faac</product>
+    <announced>2022-08-10</announced>
+    <revised count="1">2022-08-10</revised>
+    <bug>762505</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/faac" auto="yes" arch="*">
+            <unaffected range="ge">1.30</unaffected>
+            <vulnerable range="lt">1.30</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>faac contains free MPEG-4 audio codecs by AudioCoding.com.</p>
+    </background>
+    <description>
+        <p>An invalid pointer can be dereferenced in the huffcode function of libfaac/huff2.c, leading to a crash.</p>
+    </description>
+    <impact type="low">
+        <p>An attacker with the ability to provide crafted input to faac could cause a denial of service.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All faac users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/faac-1.30"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-19886">CVE-2018-19886</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-10T22:30:58.155858Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-10T22:30:58.161210Z">ajak</metadata>
+</glsa>

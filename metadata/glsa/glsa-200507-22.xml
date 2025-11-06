@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200507-22">
+  <title>sandbox: Insecure temporary file handling</title>
+  <synopsis>
+    The sandbox utility may create temporary files in an insecure manner.
+  </synopsis>
+  <product type="ebuild">sandbox</product>
+  <announced>2005-07-25</announced>
+  <revised count="02">2005-08-11</revised>
+  <bug>96782</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-apps/sandbox" auto="yes" arch="*">
+      <unaffected range="ge">1.2.11</unaffected>
+      <vulnerable range="lt">1.2.11</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    sandbox is a Gentoo Linux utility used by the Portage package
+    management system.
+    </p>
+  </background>
+  <description>
+    <p>
+    The Gentoo Linux Security Audit Team discovered that the sandbox
+    utility was vulnerable to multiple TOCTOU (Time of Check, Time of Use)
+    file creation race conditions.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    Local users may be able to create or overwrite arbitrary files with the
+    permissions of the root user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All sandbox users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=sys-apps/sandbox-1.2.11"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-2449">CAN-2005-2449</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-07-23T11:46:49Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-07-23T12:17:37Z">
+    taviso
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-07-24T07:49:01Z">
+    adir
+  </metadata>
+</glsa>

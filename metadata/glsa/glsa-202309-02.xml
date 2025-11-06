@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-02">
+    <title>Wireshark: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Wireshark, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">wireshark</product>
+    <announced>2023-09-17</announced>
+    <revised count="1">2023-09-17</revised>
+    <bug>878421</bug>
+    <bug>899548</bug>
+    <bug>904248</bug>
+    <bug>907133</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-analyzer/wireshark" auto="yes" arch="*">
+            <unaffected range="ge">4.0.6</unaffected>
+            <vulnerable range="lt">4.0.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Wireshark is a versatile network protocol analyzer.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Wireshark. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Wireshark users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-analyzer/wireshark-4.0.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3725">CVE-2022-3725</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0666">CVE-2023-0666</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0667">CVE-2023-0667</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0668">CVE-2023-0668</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1161">CVE-2023-1161</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1992">CVE-2023-1992</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1993">CVE-2023-1993</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1994">CVE-2023-1994</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2854">CVE-2023-2854</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2855">CVE-2023-2855</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2856">CVE-2023-2856</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2857">CVE-2023-2857</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2858">CVE-2023-2858</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2879">CVE-2023-2879</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2952">CVE-2023-2952</uri>
+        <uri>WNPA-SEC-2022-07</uri>
+        <uri>WNPA-SEC-2023-08</uri>
+        <uri>WNPA-SEC-2023-09</uri>
+        <uri>WNPA-SEC-2023-10</uri>
+        <uri>WNPA-SEC-2023-11</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-17T05:24:05.630380Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-09-17T05:24:05.633911Z">sam</metadata>
+</glsa>

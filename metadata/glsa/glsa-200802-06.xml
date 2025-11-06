@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200802-06">
+  <title>scponly: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple vulnerabilities in scponly allow authenticated users to bypass
+    security restrictions.
+  </synopsis>
+  <product type="ebuild">scponly</product>
+  <announced>2008-02-12</announced>
+  <revised count="02">2008-02-13</revised>
+  <bug>201726</bug>
+  <bug>203099</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-misc/scponly" auto="yes" arch="*">
+      <unaffected range="ge">4.8</unaffected>
+      <vulnerable range="lt">4.8</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    scponly is a shell for restricting user access to file transfer only
+    using sftp and scp.
+    </p>
+  </background>
+  <description>
+    <p>
+    Joachim Breitner reported that Subversion and rsync support invokes
+    subcommands in an insecure manner (CVE-2007-6350). It has also been
+    discovered that scponly does not filter the -o and -F options to the
+    scp executable (CVE-2007-6415).
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could exploit these vulnerabilities to elevate
+    privileges and execute arbitrary commands on the vulnerable host.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All scponly users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-misc/scponly-4.8"</code>
+    <p>
+    Due to the design of scponly's Subversion support, security
+    restrictions can still be circumvented. Please read carefully the
+    SECURITY file included in the package.
+    </p>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6350">CVE-2007-6350</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6415">CVE-2007-6415</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-23T02:02:07Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-02-06T10:51:42Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-02-06T10:51:57Z">
+    p-y
+  </metadata>
+</glsa>

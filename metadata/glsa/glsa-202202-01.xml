@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202202-01">
+	<title>WebkitGTK+: Multiple vulnerabilities</title>
+	<synopsis>Multiple vulnerabilities have been found in WebkitGTK+, the worst of
+	  which could result in the arbitrary execution of code.
+	</synopsis>
+	<product type="ebuild">webkit-gtk</product>
+	<announced>2022-02-01</announced>
+	<revised count="1">2022-02-01</revised>
+	<bug>779175</bug>
+	<bug>801400</bug>
+	<bug>813489</bug>
+	<bug>819522</bug>
+	<bug>820434</bug>
+	<bug>829723</bug>
+	<bug>831739</bug>
+	<access>remote</access>
+	<affected>
+		<package name="net-libs/webkit-gtk" auto="yes" arch="*">
+			<unaffected range="ge">2.34.4</unaffected>
+			<vulnerable range="lt">2.34.4</vulnerable>
+		</package>
+	</affected>
+	<background>
+		<p>WebKitGTK+ is a full-featured port of the WebKit rendering engine,
+		  suitable for projects requiring any kind of web integration,
+		  from hybrid HTML/CSS applications to full-fledged web browsers.
+		</p>
+	</background>
+	<description>
+		<p>Multiple vulnerabilities have been discovered in WebkitGTK+. Please
+		  review the CVE identifiers referenced below for details.
+		</p>
+	</description>
+	<impact type="high">
+		<p>An attacker, by enticing a user to visit maliciously
+		  crafted web content, may be able to execute arbitrary code, violate
+		  iframe sandboxing policy, access restricted ports on arbitrary
+		  servers, cause memory corruption, or could cause a Denial of Service
+		  condition.</p>
+	</impact>
+	<workaround>
+		<p>There is no known workaround at this time.</p>
+	</workaround>
+	<resolution>
+		<p>All WebkitGTK+ users should upgrade to the latest version:</p>
+
+		<code>
+			# emerge --sync
+			# emerge --ask --oneshot --verbose "&gt;=net-libs/webkit-gtk-2.34.4"
+		</code>
+	</resolution>
+	<references>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1788">CVE-2021-1788</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1817">CVE-2021-1817</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1820">CVE-2021-1820</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1825">CVE-2021-1825</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1826">CVE-2021-1826</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1844">CVE-2021-1844</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1871">CVE-2021-1871</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21775">CVE-2021-21775</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21779">CVE-2021-21779</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21806">CVE-2021-21806</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30661">CVE-2021-30661</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30663">CVE-2021-30663</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30665">CVE-2021-30665</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30666">CVE-2021-30666</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30682">CVE-2021-30682</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30689">CVE-2021-30689</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30720">CVE-2021-30720</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30734">CVE-2021-30734</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30744">CVE-2021-30744</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30749">CVE-2021-30749</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30758">CVE-2021-30758</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30761">CVE-2021-30761</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30762">CVE-2021-30762</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30795">CVE-2021-30795</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30797">CVE-2021-30797</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30799">CVE-2021-30799</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30809">CVE-2021-30809</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30818">CVE-2021-30818</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30823">CVE-2021-30823</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30836">CVE-2021-30836</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30846">CVE-2021-30846</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30848">CVE-2021-30848</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30849">CVE-2021-30849</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30851">CVE-2021-30851</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30858">CVE-2021-30858</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30884">CVE-2021-30884</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30887">CVE-2021-30887</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30888">CVE-2021-30888</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30889">CVE-2021-30889</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30890">CVE-2021-30890</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30897">CVE-2021-30897</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30934">CVE-2021-30934</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30936">CVE-2021-30936</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30951">CVE-2021-30951</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30952">CVE-2021-30952</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30953">CVE-2021-30953</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30954">CVE-2021-30954</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30984">CVE-2021-30984</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42762">CVE-2021-42762</uri>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45482">CVE-2021-45482</uri>
+		<uri link="https://webkitgtk.org/security/WSA-2021-0004.html">WSA-2021-0004</uri>
+		<uri link="https://webkitgtk.org/security/WSA-2021-0005.html">WSA-2021-0005</uri>
+		<uri link="https://webkitgtk.org/security/WSA-2021-0006.html">WSA-2021-0006</uri>
+	</references>
+	<metadata tag="requester" timestamp="2022-02-01T03:14:55.683733Z">ajak</metadata>
+	<metadata tag="submitter" timestamp="2022-02-01T03:14:55.704686Z">ajak</metadata>
+</glsa>

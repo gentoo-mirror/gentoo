@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200705-14">
+  <title>XScreenSaver: Privilege escalation</title>
+  <synopsis>
+    XScreenSaver allows local users to bypass authentication under certain
+    configurations.
+  </synopsis>
+  <product type="ebuild">xscreensaver</product>
+  <announced>2007-05-13</announced>
+  <revised count="01">2007-05-13</revised>
+  <bug>176584</bug>
+  <access>local</access>
+  <affected>
+    <package name="x11-misc/xscreensaver" auto="yes" arch="*">
+      <unaffected range="ge">5.02</unaffected>
+      <vulnerable range="lt">5.02</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    XScreenSaver is a widely used screen saver collection shipped on
+    systems running the X11 Window System.
+    </p>
+  </background>
+  <description>
+    <p>
+    XScreenSaver incorrectly handles the results of the getpwuid() function
+    in drivers/lock.c when using directory servers during a network outage.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local user can crash XScreenSaver by preventing network connectivity
+    if the system uses a remote directory service for credentials such as
+    NIS or LDAP, which will unlock the screen.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All XScreenSaver users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=x11-misc/xscreensaver-5.02"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1859">CVE-2007-1859</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-05-08T10:52:36Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-05-08T15:43:15Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-05-13T21:32:41Z">
+    falco
+  </metadata>
+</glsa>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200409-29">
+  <title>FreeRADIUS: Multiple Denial of Service vulnerabilities</title>
+  <synopsis>
+    Multiple Denial of Service vulnerabilities were found and fixed in
+    FreeRADIUS.
+  </synopsis>
+  <product type="ebuild">FreeRADIUS</product>
+  <announced>2004-09-22</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>60587</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-dialup/freeradius" auto="yes" arch="*">
+      <unaffected range="ge">1.0.1</unaffected>
+      <vulnerable range="lt">1.0.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    FreeRADIUS is an open source RADIUS authentication server
+    implementation.
+    </p>
+  </background>
+  <description>
+    <p>
+    There are undisclosed defects in the way FreeRADIUS handles incorrect
+    received packets.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could send specially-crafted packets to the
+    FreeRADIUS server to deny service to other users by crashing the
+    server.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All FreeRADIUS users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge sync
+    
+    # emerge -pv "&gt;=net-dialup/freeradius-1.0.1"
+    # emerge "&gt;=net-dialup/freeradius-1.0.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.freeradius.org/security.html">FreeRADIUS Vulnerability Notifications</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0938">CVE-2004-0938</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0960">CVE-2004-0960</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0961">CVE-2004-0961</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-09-20T13:27:45Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-09-20T15:22:58Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-09-21T11:24:01Z">
+    koon
+  </metadata>
+</glsa>

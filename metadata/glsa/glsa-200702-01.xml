@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200702-01">
+  <title>Samba: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple flaws exist in the Samba suite of programs, the most serious of
+    which could result in the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">samba</product>
+  <announced>2007-02-13</announced>
+  <revised count="01">2007-02-13</revised>
+  <bug>165549</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-fs/samba" auto="yes" arch="*">
+      <unaffected range="ge">3.0.24</unaffected>
+      <vulnerable range="lt">3.0.24</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Samba is a suite of SMB and CIFS client/server programs for UNIX.
+    </p>
+  </background>
+  <description>
+    <p>
+    A format string vulnerability exists in the VFS module when handling
+    AFS file systems and an infinite loop has been discovered when handling
+    file rename operations.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A user with permission to write to a shared AFS file system may be able
+    to compromise the smbd process and execute arbitrary code with the
+    permissions of the daemon. The infinite loop could be abused to consume
+    excessive resources on the smbd host, denying service to legitimate
+    users.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Samba users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-fs/samba-3.0.24"</code>
+  </resolution>
+  <references>
+    <uri link="https://samba.org/samba/security/CVE-2007-0452.html">CVE-2007-0452</uri>
+    <uri link="https://samba.org/samba/security/CVE-2007-0454.html">CVE-2007-0454</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-02-09T15:08:23Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-02-10T23:53:19Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-02-12T23:21:02Z">
+    taviso
+  </metadata>
+</glsa>

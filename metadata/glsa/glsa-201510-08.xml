@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201510-08">
+  <title>cups-filters: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in cups-filters, the worst
+    of which could lead to arbitrary code execution.
+  </synopsis>
+  <product type="ebuild">cups-filters</product>
+  <announced>2015-10-31</announced>
+  <revised count="1">2015-10-31</revised>
+  <bug>553644</bug>
+  <bug>553836</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-print/cups-filters" auto="yes" arch="*">
+      <unaffected range="ge">1.0.71</unaffected>
+      <vulnerable range="lt">1.0.71</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>cups-filters is an OpenPrinting CUPS Filters.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in cups-filters. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted print
+      job using cups-filters, possibly resulting in execution of arbitrary code
+      with the privileges of the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All cups-filters users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-print/cups-filters-1.0.71"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-3258">CVE-2015-3258</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-3279">CVE-2015-3279</uri>
+  </references>
+  <metadata tag="requester" timestamp="2015-08-10T22:36:13Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2015-10-31T15:30:50Z">mrueg</metadata>
+</glsa>

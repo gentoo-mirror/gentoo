@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200812-15">
+  <title>POV-Ray: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    POV-Ray includes a version of libpng that might allow for the execution of
+    arbitrary code when reading a specially crafted PNG file
+  </synopsis>
+  <product type="ebuild">povray</product>
+  <announced>2008-12-14</announced>
+  <revised count="01">2008-12-14</revised>
+  <bug>153538</bug>
+  <access>local</access>
+  <affected>
+    <package name="media-gfx/povray" auto="yes" arch="*">
+      <unaffected range="ge">3.6.1-r4</unaffected>
+      <vulnerable range="lt">3.6.1-r4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    POV-Ray is a well known open-source ray tracer.
+    </p>
+  </background>
+  <description>
+    <p>
+    POV-Ray uses a statically linked copy of libpng to view and output PNG
+    files. The version shipped with POV-Ray is vulnerable to CVE-2008-3964,
+    CVE-2008-1382, CVE-2006-3334, CVE-2006-0481, CVE-2004-0768. A bug in
+    POV-Ray's build system caused it to load the old version when your
+    installed copy of libpng was &gt;=media-libs/libpng-1.2.10.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could entice a user to load a specially crafted PNG file as
+    a texture, resulting in the execution of arbitrary code with the
+    permissions of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All POV-Ray users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-gfx/povray-3.6.1-r4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0768">CVE-2004-0768</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0481">CVE-2006-0481</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3334">CVE-2006-3334</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1382">CVE-2008-1382</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3964">CVE-2008-3964</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-12-04T23:06:51Z">
+    mabi
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-12-06T15:52:40Z">
+    mabi
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-12-11T20:06:51Z">
+    p-y
+  </metadata>
+</glsa>

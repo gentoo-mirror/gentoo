@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200704-11">
+  <title>Vixie Cron: Denial of service</title>
+  <synopsis>
+    The Gentoo implementation of Vixie Cron is vulnerable to a local Denial of
+    Service.
+  </synopsis>
+  <product type="ebuild">vixie-cron</product>
+  <announced>2007-04-16</announced>
+  <revised count="01">2007-04-16</revised>
+  <bug>164466</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-process/vixie-cron" auto="yes" arch="*">
+      <unaffected range="ge">4.1-r10</unaffected>
+      <vulnerable range="lt">4.1-r10</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Vixie Cron is a command scheduler with extended syntax over cron.
+    </p>
+  </background>
+  <description>
+    <p>
+    During an internal audit, Raphael Marichez of the Gentoo Linux Security
+    Team found that Vixie Cron has weak permissions set on Gentoo, allowing
+    for a local user to create hard links to system and users cron files,
+    while a st_nlink check in database.c will generate a superfluous error.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    Depending on the partitioning scheme and the "cron" group membership, a
+    malicious local user can create hard links to system or users cron
+    files that will trigger the st_link safety check and prevent the
+    targeted cron file from being run from the next restart or database
+    reload.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Vixie Cron users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=sys-process/vixie-cron-4.1-r10"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1856">CVE-2007-1856</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-04-13T15:58:28Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-04-13T21:36:24Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-04-16T18:10:18Z">
+    vorlon
+  </metadata>
+</glsa>

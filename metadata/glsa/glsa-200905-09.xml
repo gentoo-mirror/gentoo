@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200905-09">
+  <title>libsndfile: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    Multiple heap-based buffer overflow vulnerabilities in libsndfile might
+    allow remote attackers to execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">libsndfile</product>
+  <announced>2009-05-27</announced>
+  <revised count="01">2009-05-27</revised>
+  <bug>269863</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/libsndfile" auto="yes" arch="*">
+      <unaffected range="ge">1.0.20</unaffected>
+      <vulnerable range="lt">1.0.20</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    libsndfile is a C library for reading and writing files containing
+    sampled sound.
+    </p>
+  </background>
+  <description>
+    <p>
+    The following vulnerabilities have been found in libsndfile:
+    </p>
+    <ul>
+    <li>Tobias Klein reported that the header_read() function in
+    src/common.c uses user input for calculating a buffer size, possibly
+    leading to a heap-based buffer overflow (CVE-2009-1788).</li>
+    <li>The
+    vendor reported a boundary error in the aiff_read_header() function in
+    src/aiff.c, possibly leading to a heap-based buffer overflow
+    (CVE-2009-1791).</li>
+    </ul>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted AIFF
+    or VOC file in a program using libsndfile, possibly resulting in the
+    execution of arbitrary code with the privileges of the user running the
+    application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All libsndfile users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/libsndfile-1.0.20"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1788">CVE-2009-1788</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1791">CVE-2009-1791</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-05-22T17:42:40Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-05-25T09:17:01Z">
+    a3li
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-05-25T11:57:08Z">
+    p-y
+  </metadata>
+</glsa>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200709-11">
+  <title>GDM: Local Denial of service</title>
+  <synopsis>
+    GDM can be crashed by a local user, preventing it from managing future
+    displays.
+  </synopsis>
+  <product type="ebuild">gdm</product>
+  <announced>2007-09-18</announced>
+  <revised count="01">2007-09-18</revised>
+  <bug>187919</bug>
+  <access>local</access>
+  <affected>
+    <package name="gnome-base/gdm" auto="yes" arch="*">
+      <unaffected range="ge">2.18.4</unaffected>
+      <unaffected range="rge">2.16.7</unaffected>
+      <vulnerable range="lt">2.18.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    GDM is the GNOME display manager.
+    </p>
+  </background>
+  <description>
+    <p>
+    The result of a g_strsplit() call is incorrectly parsed in the files
+    daemon/gdm.c, daemon/gdmconfig.c, gui/gdmconfig.c and
+    gui/gdmflexiserver.c, allowing for a null pointer dereference.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    A local user could send a crafted message to /tmp/.gdm_socket that
+    would trigger the null pointer dereference and crash GDM, thus
+    preventing it from managing future displays.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Restrict the write permissions on /tmp/.gdm_socket to trusted users
+    only after each GDM restart.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All GDM users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "gnome-base/gdm"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3381">CVE-2007-3381</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-08-15T05:40:23Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-08-15T05:40:36Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-08-20T09:31:53Z">
+    falco
+  </metadata>
+</glsa>

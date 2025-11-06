@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200506-07">
+  <title>Ettercap: Format string vulnerability</title>
+  <synopsis>
+    A format string vulnerability in Ettercap could allow a remote attacker to
+    execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">ettercap</product>
+  <announced>2005-06-11</announced>
+  <revised count="01">2005-06-11</revised>
+  <bug>94474</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-analyzer/ettercap" auto="yes" arch="*">
+      <unaffected range="ge">0.7.3</unaffected>
+      <vulnerable range="lt">0.7.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Ettercap is a suite of tools for content filtering, sniffing and
+    man in the middle attacks on a LAN.
+    </p>
+  </background>
+  <description>
+    <p>
+    The curses_msg function of Ettercap's Ncurses-based user interface
+    insecurely implements formatted printing.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could craft a malicious network flow that would
+    result in executing arbitrary code with the rights of the user running
+    the Ettercap tool, which is often root.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Ettercap users should upgrade to the latest available version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-analyzer/ettercap-0.7.3"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-1796">CAN-2005-1796</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-06-08T08:05:23Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-06-08T16:01:35Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-06-11T08:22:41Z">
+    koon
+  </metadata>
+</glsa>

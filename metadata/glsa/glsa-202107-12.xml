@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-12">
+  <title>Schism Tracker: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Schism Tracker, the
+    worst of which could result in denial of service.
+  </synopsis>
+  <product type="ebuild">schismtracker</product>
+  <announced>2021-07-07</announced>
+  <revised count="1">2021-07-07</revised>
+  <bug>711210</bug>
+  <access>local</access>
+  <affected>
+    <package name="media-sound/schismtracker" auto="yes" arch="*">
+      <unaffected range="ge">20190805</unaffected>
+      <vulnerable range="lt">20190805</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Schism Tracker is a free implementation of Impulse Tracker, a tool used
+      to create high quality music.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Schism Tracker. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Schism Tracker users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=media-sound/schismtracker-20190805"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-14465">CVE-2019-14465</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-14523">CVE-2019-14523</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-06-02T11:30:32Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-07-07T08:00:28Z">whissi</metadata>
+</glsa>

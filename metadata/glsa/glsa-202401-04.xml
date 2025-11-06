@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-04">
+    <title>WebKitGTK+: Multiple Vulnerabilities</title>
+    <synopsis>Several vulnerabilities have been found in WebKitGTK+, the worst of which can lead to remote code execution.</synopsis>
+    <product type="ebuild">webkit-gtk</product>
+    <announced>2024-01-05</announced>
+    <revised count="1">2024-01-05</revised>
+    <bug>907818</bug>
+    <bug>909663</bug>
+    <bug>910656</bug>
+    <bug>918087</bug>
+    <bug>918099</bug>
+    <bug>919290</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/webkit-gtk" auto="yes" arch="*">
+            <unaffected range="ge" slot="4">2.42.3</unaffected>
+            <unaffected range="ge" slot="4.1">2.42.3</unaffected>
+            <unaffected range="ge" slot="6">2.42.3</unaffected>
+            <vulnerable range="lt" slot="4">2.42.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>WebKitGTK+ is a full-featured port of the WebKit rendering engine, suitable for projects requiring any kind of web integration, from hybrid HTML/CSS applications to full-fledged web browsers.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in WebKitGTK+. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All WebKitGTK+ users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/webkit-gtk-2.42.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28198">CVE-2023-28198</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28204">CVE-2023-28204</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32370">CVE-2023-32370</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32373">CVE-2023-32373</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32393">CVE-2023-32393</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32439">CVE-2023-32439</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-37450">CVE-2023-37450</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38133">CVE-2023-38133</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38572">CVE-2023-38572</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38592">CVE-2023-38592</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38594">CVE-2023-38594</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38595">CVE-2023-38595</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38597">CVE-2023-38597</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38599">CVE-2023-38599</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38600">CVE-2023-38600</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38611">CVE-2023-38611</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-40397">CVE-2023-40397</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-42916">CVE-2023-42916</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-42917">CVE-2023-42917</uri>
+        <uri link="https://webkitgtk.org/security/WSA-2023-0006.html">WSA-2023-0006</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-05T13:00:45.321572Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-05T13:00:45.323961Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200507-02">
+  <title>WordPress: Multiple vulnerabilities</title>
+  <synopsis>
+    WordPress contains PHP script injection, cross-site scripting and path
+    disclosure vulnerabilities.
+  </synopsis>
+  <product type="ebuild">wordpress</product>
+  <announced>2005-07-04</announced>
+  <revised count="01">2005-07-04</revised>
+  <bug>97374</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/wordpress" auto="yes" arch="*">
+      <unaffected range="ge">1.5.1.3</unaffected>
+      <vulnerable range="lt">1.5.1.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    WordPress is a PHP and MySQL based content management and
+    publishing system.
+    </p>
+  </background>
+  <description>
+    <p>
+    James Bercegay of the GulfTech Security Research Team discovered
+    that WordPress insufficiently checks data passed to the XML-RPC server.
+    He also discovered that WordPress has several cross-site scripting and
+    full path disclosure vulnerabilities.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    An attacker could use the PHP script injection vulnerabilities to
+    execute arbitrary PHP script commands. Furthermore the cross-site
+    scripting vulnerabilities could be exploited to execute arbitrary
+    script code in a user's browser session in context of a vulnerable
+    site.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There are no known workarounds at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All WordPress users should upgrade to the latest available
+    version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/wordpress-1.5.1.3"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-1921">CAN-2005-1921</uri>
+    <uri link="http://www.gulftech.org/?node=research&amp;article_id=00085-06282005">GulfTech Advisory</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-06-30T16:03:34Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-06-30T17:49:02Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-07-04T09:45:20Z">
+    koon
+  </metadata>
+</glsa>

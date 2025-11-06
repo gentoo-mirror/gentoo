@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201606-05">
+  <title>spice: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in spice, the worst of
+    which may result in the remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild"/>
+  <announced>2016-06-16</announced>
+  <revised count="1">2016-06-16</revised>
+  <bug>560006</bug>
+  <bug>562890</bug>
+  <bug>584126</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="app-emulation/spice" auto="yes" arch="*">
+      <unaffected range="ge">0.12.7-r1</unaffected>
+      <vulnerable range="lt">0.12.7-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Provides a complete open source solution for remote access to virtual
+      machines in a seamless way so you can play videos, record audio, share
+      usb devices and share folders without complications.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in spice, please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could possibly execute arbitrary code. Additionally, a
+      local attacker could cause a Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All spice users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-emulation/spice-0.12.7-r1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-5260">CVE-2015-5260</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-5260">CVE-2015-5260</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-5261">CVE-2015-5261</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-5261">CVE-2015-5261</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2016-0749">CVE-2016-0749</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2016-2150">CVE-2016-2150</uri>
+  </references>
+  <metadata tag="requester" timestamp="2015-11-18T21:15:42Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2016-06-16T18:45:10Z">b-man</metadata>
+</glsa>

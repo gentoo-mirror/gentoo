@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201405-02">
+  <title>libSRTP: Denial of service</title>
+  <synopsis>A vulnerability in libSRTP can result in a Denial of Service
+    condition.
+  </synopsis>
+  <product type="ebuild">libsrtp</product>
+  <announced>2014-05-03</announced>
+  <revised count="1">2014-05-03</revised>
+  <bug>472302</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-libs/libsrtp" auto="yes" arch="*">
+      <unaffected range="ge">1.4.4_p20121108-r1</unaffected>
+      <vulnerable range="lt">1.4.4_p20121108-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libSRTP is an Open-source implementation of the Secure Real-time
+      Transport Protocol.
+    </p>
+  </background>
+  <description>
+    <p>A flaw was found in how the crypto_policy_set_from_profile_for_rtp()
+      function applies cryptographic profiles to an srtp_policy in libSRTP.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could exploit this vulnerability to crash an
+      application linked against libSRTP, resulting in Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libSRTP users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=net-libs/libsrtp-1.4.4_p20121108-r1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-2139">CVE-2013-2139</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-02-04T14:44:21Z">Zlogene</metadata>
+  <metadata tag="submitter" timestamp="2014-05-03T13:23:32Z">
+    BlueKnight
+  </metadata>
+</glsa>

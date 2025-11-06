@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200503-11">
+  <title>ImageMagick: Filename handling vulnerability</title>
+  <synopsis>
+    A format string vulnerability exists in ImageMagick that may allow an
+    attacker to execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">ImageMagick</product>
+  <announced>2005-03-06</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>83542</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-gfx/imagemagick" auto="yes" arch="*">
+      <unaffected range="ge">6.2.0.4</unaffected>
+      <vulnerable range="lt">6.2.0.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    ImageMagick is a collection of tools and libraries for manipulating a
+    wide variety of image formats.
+    </p>
+  </background>
+  <description>
+    <p>
+    Tavis Ormandy of the Gentoo Linux Security Audit Team has identified a
+    flaw in the handling of filenames by the ImageMagick utilities.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    Successful exploitation may disrupt web applications that depend on
+    ImageMagick for image processing, potentially executing arbitrary code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All ImageMagick users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-gfx/imagemagick-6.2.0.4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0397">CVE-2005-0397</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-03-02T21:44:33Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-03-02T22:24:40Z">
+    taviso
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-03-06T13:03:12Z">
+    koon
+  </metadata>
+</glsa>

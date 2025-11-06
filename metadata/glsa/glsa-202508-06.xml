@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202508-06">
+    <title>Composer: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Composer, the worst of which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">composer</product>
+    <announced>2025-08-06</announced>
+    <revised count="1">2025-08-06</revised>
+    <bug>838268</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-php/composer" auto="yes" arch="*">
+            <vulnerable range="le">9999</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Composer is a dependency manager for the PHP programming language.</p>
+    </background>
+    <description>
+        <p>Integrators using Composer code to call `VcsDriver::getFileContent` can have a code injection vulnerability if the user can control the `$file` or `$identifier` argument. This leads to a vulnerability on packagist.org for example where the composer.json&#39;s `readme` field can be used as a vector for injecting parameters into hg/Mercurial via the `$file` argument, or git via the `$identifier` argument if you allow arbitrary data there (Packagist does not, but maybe other integrators do). Composer itself should not be affected by the vulnerability as it does not call `getFileContent` with arbitrary data into `$file`/`$identifier`.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for composer and the package should be removed:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --verbose  --depclean "dev-php/composer"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24828">CVE-2022-24828</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-43655">CVE-2023-43655</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-08-06T13:06:06.441845Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-08-06T13:06:06.444985Z">graaff</metadata>
+</glsa>

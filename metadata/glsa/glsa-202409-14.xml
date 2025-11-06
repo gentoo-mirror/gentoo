@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-14">
+    <title>Mbed TLS: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Mbed TLS, the worst of which could lead to information disclosure or denial of service.</synopsis>
+    <product type="ebuild">mbedtls</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>886001</bug>
+    <bug>923279</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="net-libs/mbedtls" auto="yes" arch="*">
+            <unaffected range="ge">2.28.7</unaffected>
+            <vulnerable range="lt">2.28.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mbed TLS (previously PolarSSL) is an “easy to understand, use, integrate and expand” implementation of the TLS and SSL protocols and the respective cryptographic algorithms and support code required.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Mbed TLS. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mbed TLS users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/mbedtls-2.28.7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46392">CVE-2022-46392</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46393">CVE-2022-46393</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-43615">CVE-2023-43615</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45199">CVE-2023-45199</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-23170">CVE-2024-23170</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-23775">CVE-2024-23775</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T07:17:18.324977Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T07:17:18.327589Z">graaff</metadata>
+</glsa>

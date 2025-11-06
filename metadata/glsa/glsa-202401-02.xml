@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-02">
+    <title>c-ares: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in c-ares, the worst of which could result in the loss of confidentiality or integrity.</synopsis>
+    <product type="ebuild">c-ares</product>
+    <announced>2024-01-05</announced>
+    <revised count="1">2024-01-05</revised>
+    <bug>807604</bug>
+    <bug>807775</bug>
+    <bug>892489</bug>
+    <bug>905341</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-dns/c-ares" auto="yes" arch="*">
+            <unaffected range="ge">1.19.0</unaffected>
+            <vulnerable range="lt">1.19.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>c-ares is a C library for asynchronous DNS requests (including name resolves).</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in c-ares. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All c-ares users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-dns/c-ares-1.19.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3672">CVE-2021-3672</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22930">CVE-2021-22930</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22931">CVE-2021-22931</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22939">CVE-2021-22939</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22940">CVE-2021-22940</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4904">CVE-2022-4904</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-05T09:27:33.033646Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-05T09:27:33.037404Z">graaff</metadata>
+</glsa>

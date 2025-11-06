@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200712-04">
+  <title>Cairo: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    Multiple integer overflows were discovered in Cairo, possibly leading to
+    the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">cairo</product>
+  <announced>2007-12-09</announced>
+  <revised count="01">2007-12-09</revised>
+  <bug>200350</bug>
+  <access>remote</access>
+  <affected>
+    <package name="x11-libs/cairo" auto="yes" arch="*">
+      <unaffected range="ge">1.4.12</unaffected>
+      <vulnerable range="lt">1.4.12</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Cairo is a 2D vector graphics library with cross-device output support.
+    </p>
+  </background>
+  <description>
+    <p>
+    Multiple integer overflows were reported, one of which Peter Valchev
+    (Google Security) found to be leading to a heap-based buffer overflow
+    in the cairo_image_surface_create_from_png() function that processes
+    PNG images.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to view or process a specially
+    crafted PNG image file in an application linked against Cairo, possibly
+    leading to the execution of arbitrary code with the privileges of the
+    user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Cairo users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=x11-libs/cairo-1.4.12"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5503">CVE-2007-5503</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-12-04T23:43:52Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-12-05T01:36:20Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-12-05T01:36:55Z">
+    rbu
+  </metadata>
+</glsa>

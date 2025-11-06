@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200801-06">
+  <title>Xfce: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple vulnerabilities in Xfce might allow user-assisted attackers to
+    execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">xfce4-panel libxfcegui4</product>
+  <announced>2008-01-09</announced>
+  <revised count="03">2008-01-10</revised>
+  <bug>201292</bug>
+  <bug>201293</bug>
+  <access>remote</access>
+  <affected>
+    <package name="xfce-base/xfce4-panel" auto="yes" arch="*">
+      <unaffected range="ge">4.4.2</unaffected>
+      <vulnerable range="lt">4.4.2</vulnerable>
+    </package>
+    <package name="xfce-base/libxfcegui4" auto="yes" arch="*">
+      <unaffected range="ge">4.4.2</unaffected>
+      <vulnerable range="lt">4.4.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Xfce is a GTK+ 2 based desktop environment that allows to run a modern
+    desktop environment on modest hardware.
+    </p>
+  </background>
+  <description>
+    <p>
+    Gregory Andersen reported that the Xfce4 panel does not correctly
+    calculate memory boundaries, leading to a stack-based buffer overflow
+    in the launcher_update_panel_entry() function (CVE-2007-6531). Daichi
+    Kawahata reported libxfcegui4 did not copy provided values when
+    creating "SessionClient" structs, possibly leading to access of freed
+    memory areas (CVE-2007-6532).
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to install a specially crafted
+    "rc" file to execute arbitrary code via long strings in the "Name" and
+    "Comment" fields or via unspecified vectors involving the second
+    vulnerability.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Xfce4 panel users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=xfce-base/xfce4-panel-4.4.2"</code>
+    <p>
+    All libxfcegui4 users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=xfce-base/libxfcegui4-4.4.2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6531">CVE-2007-6531</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6532">CVE-2007-6532</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-12-08T23:45:36Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-12-22T13:22:06Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-12-22T16:37:18Z">
+    rbu
+  </metadata>
+</glsa>

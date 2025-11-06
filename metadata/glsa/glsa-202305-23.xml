@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-23">
+    <title>Lua: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Lua, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">lua</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>837521</bug>
+    <bug>831053</bug>
+    <bug>520480</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-lang/lua" auto="yes" arch="*">
+            <unaffected range="ge" slot="5.4">5.4.4-r103</unaffected>
+            <unaffected range="ge" slot="5.2">5.2.3</unaffected>
+            <unaffected range="ge" slot="5.1">5.1.5-r200</unaffected>
+            <vulnerable range="lt" slot="5.4">5.4.4-r103</vulnerable>
+            <vulnerable range="lt" slot="5.2">5.2.3</vulnerable>
+            <vulnerable range="lt" slot="5.1">5.1.5-r200</vulnerable>
+            <vulnerable range="le" slot="0">5.1.5-r4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Lua is a powerful, efficient, lightweight, embeddable scripting language. It supports procedural programming, object-oriented programming, functional programming, data-driven programming, and data description.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Lua. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Lua 5.1 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/lua-5.1.5-r200"
+        </code>
+        
+        <p>All Lua 5.3 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/lua-5.2.3"
+        </code>
+        
+        <p>All Lua 5.4 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/lua-5.4.4-r103"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-5461">CVE-2014-5461</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44647">CVE-2021-44647</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28805">CVE-2022-28805</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T10:32:55.745234Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T10:32:55.751034Z">sam</metadata>
+</glsa>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-25">
+    <title>OWASP ModSecurity Core Rule Set: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in ModSecurity Core Rule Set, the worst of which could result in bypassing the WAF.</synopsis>
+    <product type="ebuild">modsecurity-crs</product>
+    <announced>2023-05-21</announced>
+    <revised count="1">2023-05-21</revised>
+    <bug>822003</bug>
+    <bug>872077</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-apache/modsecurity-crs" auto="yes" arch="*">
+            <unaffected range="ge">3.3.4</unaffected>
+            <vulnerable range="lt">3.3.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Modsecurity Core Rule Set is the OWASP ModSecurity Core Rule Set.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in OWASP ModSecurity Core Rule Set. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All OWASP ModSecurity Core Rule Set users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-apache/modsecurity-crs-3.3.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35368">CVE-2021-35368</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39955">CVE-2022-39955</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39956">CVE-2022-39956</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39957">CVE-2022-39957</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39958">CVE-2022-39958</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-21T19:43:55.477807Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-21T19:43:55.481401Z">ajak</metadata>
+</glsa>

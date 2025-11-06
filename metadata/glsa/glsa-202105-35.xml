@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-35">
+  <title>OpenSSH: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in OpenSSH, the worst of
+    which could allow a remote attacker to execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">openssh</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>763048</bug>
+  <bug>774090</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="net-misc/openssh" auto="yes" arch="*">
+      <unaffected range="ge">8.5_p1</unaffected>
+      <vulnerable range="lt">8.5_p1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>OpenSSH is a complete SSH protocol implementation that includes SFTP
+      client and server support.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in OpenSSH. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker, able to access the socket of the forwarding agent,
+      might be able to execute arbitrary code with the privileges of the
+      process or cause a Denial of Service condition.
+      Furthermore, a remote attacker might conduct a man-in-the-middle attack
+      targeting initial connection attempts where no host key for the server
+      has been cached by client yet.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All OpenSSH users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-misc/openssh-8.5_p1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-14145">CVE-2020-14145</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28041">CVE-2021-28041</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-24T00:47:38Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T10:35:06Z">whissi</metadata>
+</glsa>

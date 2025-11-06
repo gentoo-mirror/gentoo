@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-34">
+  <title>Bash: Privilege escalation</title>
+  <synopsis>A vulnerability in Bash may allow users to escalate privileges.</synopsis>
+  <product type="ebuild">bash</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>702488</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-shells/bash" auto="yes" arch="*">
+      <unaffected range="ge">5.0_p11-r1</unaffected>
+      <vulnerable range="lt">5.0_p11-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Bash is the standard GNU Bourne Again SHell.</p>
+  </background>
+  <description>
+    <p>It was discovered that Bash incorrectly dropped privileges by setting
+      its effective UID to its real UID.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A local attacker could possibly escalate privileges.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Bash users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-shells/bash-5.0_p11-r1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-18276">CVE-2019-18276</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T19:22:45Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T10:13:27Z">whissi</metadata>
+</glsa>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-30">
+    <title>X.Org X server, XWayland: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in the Xorg Server and XWayland, the worst of which can result in remote code execution.</synopsis>
+    <product type="ebuild">xorg-server,xwayland</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>857780</bug>
+    <access>remote</access>
+    <affected>
+        <package name="x11-base/xorg-server" auto="yes" arch="*">
+            <unaffected range="ge">21.1.4</unaffected>
+            <vulnerable range="lt">21.1.4</vulnerable>
+        </package>
+        <package name="x11-base/xwayland" auto="yes" arch="*">
+            <unaffected range="ge">22.1.3</unaffected>
+            <vulnerable range="lt">22.1.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The X Window System is a graphical windowing system based on a client/server model.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in X.Org X server and XWayland. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All X.Org X server users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-base/xorg-server-21.1.4"
+        </code>
+        
+        <p>All XWayland users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-base/xwayland-22.1.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2319">CVE-2022-2319</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2320">CVE-2022-2320</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:25:37.769589Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:25:37.775833Z">ajak</metadata>
+</glsa>

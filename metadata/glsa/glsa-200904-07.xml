@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200904-07">
+  <title>Xpdf: Untrusted search path</title>
+  <synopsis>
+    A vulnerability in Xpdf might allow local attackers to execute arbitrary
+    code.
+  </synopsis>
+  <product type="ebuild">xpdf</product>
+  <announced>2009-04-07</announced>
+  <revised count="01">2009-04-07</revised>
+  <bug>242930</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-text/xpdf" auto="yes" arch="*">
+      <unaffected range="ge">3.02-r2</unaffected>
+      <vulnerable range="lt">3.02-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Xpdf is a PDF file viewer that runs under the X Window System.
+    </p>
+  </background>
+  <description>
+    <p>
+    Erik Wallin reported that Gentoo's Xpdf attempts to read the "xpdfrc"
+    file from the current working directory if it cannot find a ".xpdfrc"
+    file in the user's home directory. This is caused by a missing
+    definition of the SYSTEM_XPDFRC macro when compiling a repackaged
+    version of Xpdf.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could entice a user to run "xpdf" from a directory
+    containing a specially crafted "xpdfrc" file, resulting in the
+    execution of arbitrary code when attempting to, e.g., print a file.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Do not run Xpdf from untrusted working directories.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Xpdf users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-text/xpdf-3.02-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1144">CVE-2009-1144</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-04-04T12:41:57Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-04-04T12:52:05Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-04-04T12:52:11Z">
+    rbu
+  </metadata>
+</glsa>

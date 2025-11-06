@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200901-08">
+  <title>Online-Bookmarks: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple vulnerabilities have been reported in Online-Bookmarks.
+  </synopsis>
+  <product type="ebuild">online-bookmarks</product>
+  <announced>2009-01-12</announced>
+  <revised count="01">2009-01-12</revised>
+  <bug>235053</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/online-bookmarks" auto="yes" arch="*">
+      <unaffected range="ge">0.6.28</unaffected>
+      <vulnerable range="lt">0.6.28</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Online-Bookmarks is a web-based bookmark management system to store
+    your bookmarks, favorites and links.
+    </p>
+  </background>
+  <description>
+    <p>
+    The following vulnerabilities were reported:
+    </p>
+    <ul><li>Authentication bypass when directly requesting certain pages
+    (CVE-2004-2155).</li>
+    <li>Insufficient input validation in the login
+    function in auth.inc (CVE-2006-6358).</li>
+    <li>Unspecified cross-site
+    scripting vulnerability (CVE-2006-6359).</li>
+    </ul>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could exploit these vulnerabilities to bypass
+    authentication mechanisms, execute arbitrary SQL statements or inject
+    arbitrary web scripts.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Online-Bookmarks users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/online-bookmarks-0.6.28"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2155">CVE-2004-2155</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6358">CVE-2006-6358</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6359">CVE-2006-6359</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-09-22T12:41:34Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-01-10T23:26:51Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-01-10T23:27:06Z">
+    p-y
+  </metadata>
+</glsa>

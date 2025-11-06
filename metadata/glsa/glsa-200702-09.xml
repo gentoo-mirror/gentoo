@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200702-09">
+  <title>Nexuiz: Multiple vulnerabilities</title>
+  <synopsis>
+    Two separate vulnerabilities have been found in Nexuiz allowing the remote
+    execution of arbitrary code and a Denial of Service.
+  </synopsis>
+  <product type="ebuild">nexuiz</product>
+  <announced>2007-02-25</announced>
+  <revised count="01">2007-02-25</revised>
+  <bug>166044</bug>
+  <access>remote</access>
+  <affected>
+    <package name="games-fps/nexuiz" auto="yes" arch="*">
+      <unaffected range="ge">2.2.1</unaffected>
+      <vulnerable range="lt">2.2.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Nexuiz is a multi-player FPS game which uses a modified version of the
+    Quake 1 engine.
+    </p>
+  </background>
+  <description>
+    <p>
+    Nexuiz fails to correctly validate input within "clientcommands". There
+    is also a failure to correctly handle connection attempts from remote
+    hosts.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    Using a specially crafted "clientcommand" a remote attacker can cause a
+    buffer overflow in Nexuiz which could result in the execution of
+    arbitrary code. Additionally, there is a Denial of Service
+    vulnerability in Nexuiz allowing an attacker to cause Nexuiz to crash
+    or to run out of resources by overloading it with specially crafted
+    connection requests.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Nexuiz users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=games-fps/nexuiz-2.2.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6609">CVE-2006-6609</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6610">CVE-2006-6610</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-02-10T22:20:41Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-02-10T23:53:08Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-02-15T16:20:20Z">
+    hyakuhei
+  </metadata>
+</glsa>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202506-07">
+    <title>Python, PyPy: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulberabilities have been discovered in Python and PyPy, the worst of which can lead to privilege escalation.</synopsis>
+    <product type="ebuild">pypy,python</product>
+    <announced>2025-06-12</announced>
+    <revised count="1">2025-06-12</revised>
+    <bug>929045</bug>
+    <bug>937124</bug>
+    <bug>938432</bug>
+    <bug>939206</bug>
+    <bug>945845</bug>
+    <bug>953493</bug>
+    <bug>956682</bug>
+    <bug>957088</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-lang/pypy" auto="yes" arch="*">
+            <unaffected range="ge" slot="3.10">3.10.7.3.19_p4</unaffected>
+            <unaffected range="ge" slot="3.11">3.11.7.3.19_p9</unaffected>
+            <vulnerable range="lt" slot="3.10">3.10.7.3.19_p4</vulnerable>
+            <vulnerable range="lt" slot="3.11">3.11.7.3.19_p9</vulnerable>
+        </package>
+        <package name="dev-lang/python" auto="yes" arch="*">
+            <unaffected range="ge" slot="3.14">3.14.0_beta2</unaffected>
+            <unaffected range="ge" slot="3.13">3.13.3_p1</unaffected>
+            <unaffected range="ge" slot="3.12">3.12.10_p1</unaffected>
+            <unaffected range="ge" slot="3.11">3.11.12_p1</unaffected>
+            <unaffected range="ge" slot="3.10">3.10.17_p1</unaffected>
+            <unaffected range="ge" slot="3.9">3.9.22_p1</unaffected>
+            <unaffected range="ge" slot="3.8">3.8.20_p7</unaffected>
+            <vulnerable range="lt" slot="3.14">3.14.0_beta2</vulnerable>
+            <vulnerable range="lt" slot="3.13">3.13.3_p1</vulnerable>
+            <vulnerable range="lt" slot="3.12">3.12.10_p1</vulnerable>
+            <vulnerable range="lt" slot="3.11">3.11.12_p1</vulnerable>
+            <vulnerable range="lt" slot="3.10">3.10.17_p1</vulnerable>
+            <vulnerable range="lt" slot="3.9">3.9.22_p1</vulnerable>
+            <vulnerable range="lt" slot="3.8">3.8.20_p7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Python is an interpreted, interactive, object-oriented, cross-platform programming language.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Python, PyPy3. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Python, PyPy3 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/python-3.14.0_beta2:3.14"
+          # emerge --ask --oneshot --verbose ">=dev-lang/python-3.13.3_p1:3.13"
+          # emerge --ask --oneshot --verbose ">=dev-lang/python-3.12.10_p1:3.12"
+          # emerge --ask --oneshot --verbose ">=dev-lang/python-3.11.12_p1:3.11"
+          # emerge --ask --oneshot --verbose ">=dev-lang/python-3.10.17_p1:3.10"
+          # emerge --ask --oneshot --verbose ">=dev-lang/python-3.9.22_p1:3.9"
+          # emerge --ask --oneshot --verbose ">=dev-lang/python-3.8.20_p7:3.8"
+          # emerge --ask --oneshot --verbose ">=dev-lang/pypy-3.10.7.3.19_p4:3.10"
+          # emerge --ask --oneshot --verbose ">=dev-lang/pypy-3.11.7.3.19_p9:3.11"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-6232">CVE-2024-6232</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-6923">CVE-2024-6923</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-7592">CVE-2024-7592</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-8088">CVE-2024-8088</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12718">CVE-2024-12718</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-4138">CVE-2025-4138</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-4330">CVE-2025-4330</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-4516">CVE-2025-4516</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-4517">CVE-2025-4517</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-06-12T08:52:28.504382Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-06-12T08:52:28.507260Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200609-06">
+  <title>AdPlug: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple heap and buffer overflows exist in AdPlug.
+  </synopsis>
+  <product type="ebuild">adplug</product>
+  <announced>2006-09-12</announced>
+  <revised count="01">2006-09-12</revised>
+  <bug>139593</bug>
+  <access>local</access>
+  <affected>
+    <package name="media-libs/adplug" auto="yes" arch="*">
+      <unaffected range="ge">2.0.1</unaffected>
+      <vulnerable range="lt">2.0.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    AdPlug is a free, cross-platform, and hardware-independent AdLib sound
+    player library.
+    </p>
+  </background>
+  <description>
+    <p>
+    AdPlug is vulnerable to buffer and heap overflows when processing the
+    following types of files: CFF, MTK, DMO, U6M, DTM, and S3M.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By enticing a user to load a specially crafted file, an attacker could
+    execute arbitrary code with the privileges of the user running AdPlug.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There are no known workarounds at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All AdPlug users should update to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/adplug-2.0.1"</code>
+  </resolution>
+  <references>
+    <uri link="http://www.securityfocus.com/archive/1/439432/30/0/threaded">BugTraq Announcement</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3581">CVE-2006-3581</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3582">CVE-2006-3582</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-09-06T14:38:47Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-09-06T23:03:51Z">
+    hlieberman
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-09-12T00:51:08Z">
+    hlieberman
+  </metadata>
+</glsa>

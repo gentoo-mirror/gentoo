@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202411-05">
+    <title>libgit2: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libgit2, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">libgit2</product>
+    <announced>2024-11-06</announced>
+    <revised count="1">2024-11-06</revised>
+    <bug>891525</bug>
+    <bug>923971</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/libgit2" auto="yes" arch="*">
+            <unaffected range="ge">1.7.2</unaffected>
+            <vulnerable range="lt">1.7.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libgit2 is a portable, pure C implementation of the Git core methods provided as a re-entrant linkable library with a solid API, allowing you to write native speed custom Git applications in any language that supports C bindings.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libgit2. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libgit2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/libgit2-1.7.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-22742">CVE-2023-22742</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-11-06T14:15:55.911812Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-11-06T14:15:55.915992Z">graaff</metadata>
+</glsa>

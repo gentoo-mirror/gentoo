@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-21">
+    <title>ConnMan: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in ConnMan, the worst of which can lead to remote code execution.</synopsis>
+    <product type="ebuild">connman</product>
+    <announced>2023-10-31</announced>
+    <revised count="1">2023-10-31</revised>
+    <bug>832028</bug>
+    <bug>863425</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/connman" auto="yes" arch="*">
+            <unaffected range="ge">1.42_pre20220801</unaffected>
+            <vulnerable range="lt">1.42_pre20220801</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>ConnMan provides a daemon for managing Internet connections.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in ConnMan. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All ConnMan users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/connman-1.42_pre20220801"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23096">CVE-2022-23096</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23097">CVE-2022-23097</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23098">CVE-2022-23098</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32292">CVE-2022-32292</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32293">CVE-2022-32293</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-31T06:25:15.876393Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-31T06:25:15.879529Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-01">
+    <title>Leptonica: Multiple Vulnerabilities</title>
+    <synopsis>Several vulnerabilities have been found in Leptonice, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">leptonica</product>
+    <announced>2023-12-18</announced>
+    <revised count="1">2023-12-18</revised>
+    <bug>649752</bug>
+    <bug>869416</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/leptonica" auto="yes" arch="*">
+            <unaffected range="ge">1.81.0</unaffected>
+            <vulnerable range="lt">1.81.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Leptonica is a C library for image processing and analysis.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Leptonica. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Leptonica users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/leptonica-1.81.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2017-18196">CVE-2017-18196</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-7186">CVE-2018-7186</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-7247">CVE-2018-7247</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-7440">CVE-2018-7440</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-7441">CVE-2018-7441</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-7442">CVE-2018-7442</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38266">CVE-2022-38266</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-18T07:24:40.079677Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-12-18T07:24:40.083318Z">graaff</metadata>
+</glsa>

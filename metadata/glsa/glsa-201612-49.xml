@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201612-49">
+  <title>mod_wsgi: Privilege escalation</title>
+  <synopsis>A vulnerability in mod_wsgi could lead to privilege escalation.</synopsis>
+  <product type="ebuild">mod_wsgi</product>
+  <announced>2016-12-30</announced>
+  <revised count="1">2016-12-30</revised>
+  <bug>536270</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="www-apache/mod_wsgi" auto="yes" arch="*">
+      <unaffected range="ge">4.3.0</unaffected>
+      <vulnerable range="lt">4.3.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>mod_wsgi is an Apache2 module for running Python WSGI applications.</p>
+  </background>
+  <description>
+    <p>mod_wsgi, when creating a daemon process group, does not properly handle
+      dropping group privileges.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Context-dependent attackers could escalate privileges due to the
+      improper handling of group privileges.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All mod_wsgi users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-apache/mod_wsgi-4.3.0"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-8583">CVE-2014-8583</uri>
+  </references>
+  <metadata tag="requester" timestamp="2016-11-23T00:29:47Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2016-12-30T00:41:42Z">b-man</metadata>
+</glsa>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202508-05">
+    <title>Spreadsheet-ParseExcel: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in Spreadsheet-ParseExcel, which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">Spreadsheet-ParseExcel</product>
+    <announced>2025-08-06</announced>
+    <revised count="1">2025-08-06</revised>
+    <bug>920954</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-perl/Spreadsheet-ParseExcel" auto="yes" arch="*">
+            <unaffected range="ge">0.660.0</unaffected>
+            <vulnerable range="lt">0.660.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Spreadsheet::ParseExcel is a perl module to extract information from Excel files.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Spreadsheet::ParseExcel. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Spreadsheet::ParseExcel users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-perl/Spreadsheet-ParseExcel-0.660.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-7101">CVE-2023-7101</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-08-06T13:04:39.606103Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-08-06T13:04:39.609840Z">graaff</metadata>
+</glsa>

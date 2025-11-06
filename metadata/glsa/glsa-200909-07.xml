@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200909-07">
+  <title>TkMan: Insecure temporary file usage</title>
+  <synopsis>
+    An insecure temporary file usage has been reported in TkMan, allowing for
+    symlink attacks.
+  </synopsis>
+  <product type="ebuild">tkman</product>
+  <announced>2009-09-09</announced>
+  <revised count="01">2009-09-09</revised>
+  <bug>247540</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-text/tkman" auto="yes" arch="*">
+      <unaffected range="ge">2.2-r1</unaffected>
+      <vulnerable range="lt">2.2-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    TkMan is a graphical, hypertext manual page and Texinfo browser for
+    UNIX.
+    </p>
+  </background>
+  <description>
+    <p>
+    Dmitry E. Oboukhov reported that TkMan does not handle the
+    "/tmp/tkman#####" and "/tmp/ll" temporary files securely.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could perform symlink attacks to overwrite arbitrary
+    files with the privileges of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All TkMan users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-text/tkman-2.2-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5137">CVE-2008-5137</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-07-19T18:23:29Z">
+    a3li
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-08-28T07:32:36Z">
+    a3li
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-08-31T03:37:41Z">
+    a3li
+  </metadata>
+</glsa>

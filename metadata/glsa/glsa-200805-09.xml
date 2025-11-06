@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200805-09">
+  <title>MoinMoin: Privilege escalation</title>
+  <synopsis>
+    A vulnerability in MoinMoin may allow a remote attacker to elevate his
+    privileges.
+  </synopsis>
+  <product type="ebuild">moinmoin</product>
+  <announced>2008-05-11</announced>
+  <revised count="01">2008-05-11</revised>
+  <bug>218752</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/moinmoin" auto="yes" arch="*">
+      <unaffected range="ge">1.6.3</unaffected>
+      <vulnerable range="lt">1.6.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MoinMoin is an advanced and extensible Wiki Engine.
+    </p>
+  </background>
+  <description>
+    <p>
+    It has been reported that the user form processing in the file
+    userform.py does not properly manage users when using Access Control
+    Lists or a non-empty superusers list.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could exploit this vulnerability to gain superuser
+    privileges on the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MoinMoin users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/moinmoin-1.6.3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1937">CVE-2008-1937</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-05-07T22:43:27Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-05-07T22:49:11Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-05-09T14:03:55Z">
+    p-y
+  </metadata>
+</glsa>

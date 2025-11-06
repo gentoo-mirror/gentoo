@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201605-01">
+  <title>Git: Multiple vulnerabilities</title>
+  <synopsis>Git contains multiple vulnerabilities that allow for the remote
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild"/>
+  <announced>2016-05-02</announced>
+  <revised count="1">2016-05-02</revised>
+  <bug>562884</bug>
+  <bug>577482</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-vcs/git" auto="yes" arch="*">
+      <unaffected range="ge">2.7.3-r1</unaffected>
+      <vulnerable range="lt">2.7.3-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Git is a free and open source distributed version control system
+      designed to handle everything from small to very large projects with
+      speed and efficiency.
+    </p>
+  </background>
+  <description>
+    <p>Git is vulnerable to the remote execution of arbitrary code by cloning
+      repositories with large filenames or a large number of nested trees. 
+      Additionally, some protocols within Git, such as git-remote-ext, can
+      execute arbitrary code found within URLs. These URLs that submodules use
+      may come from arbitrary sources (e.g., .gitmodules files in a remote
+      repository), and can effect those who enable recursive fetch. Restrict
+      the allowed protocols to well known and safe ones.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Remote attackers could execute arbitrary code on both client and server.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Git users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-vcs/git-2.7.3-r1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="http://seclists.org/oss-sec/2016/q1/645">Buffer overflow in all
+      git versions before 2.7.1
+    </uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-7545">CVE-2015-7545</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2315">
+      CVE-2016-2315
+    </uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-2324">
+      CVE-2016-2324
+    </uri>
+  </references>
+  <metadata tag="requester" timestamp="2015-12-21T19:36:07Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2016-05-02T19:28:17Z">b-man</metadata>
+</glsa>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201507-11">
+  <title>Perl: Denial of service</title>
+  <synopsis>A vulnerability in Perl allows a remote attacker to cause Denial of
+    Service.
+  </synopsis>
+  <product type="ebuild">perl</product>
+  <announced>2015-07-10</announced>
+  <revised count="1">2015-07-10</revised>
+  <bug>216671</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-lang/perl" auto="yes" arch="*">
+      <unaffected range="ge">5.20.1-r4</unaffected>
+      <vulnerable range="lt">5.20.1-r4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Perl is a highly capable, feature-rich programming language.</p>
+  </background>
+  <description>
+    <p>S_regmatch() function lacks proper checks before passing arguments to
+      atoi()
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could send a specially crafted input, possibly
+      resulting in a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Perl users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-lang/perl-5.20.1-r4"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-7422">CVE-2013-7422</uri>
+  </references>
+  <metadata tag="requester" timestamp="2015-03-29T15:10:08Z">Zlogene</metadata>
+  <metadata tag="submitter" timestamp="2015-07-10T08:19:35Z">Zlogene</metadata>
+</glsa>

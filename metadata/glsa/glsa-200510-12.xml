@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200510-12">
+  <title>KOffice, KWord: RTF import buffer overflow</title>
+  <synopsis>
+    KOffice and KWord are vulnerable to a buffer overflow in the RTF importer,
+    potentially resulting in the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">koffice, kword</product>
+  <announced>2005-10-14</announced>
+  <revised count="01">2005-10-14</revised>
+  <bug>108411</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-office/koffice" auto="yes" arch="*">
+      <unaffected range="ge">1.4.1-r1</unaffected>
+      <vulnerable range="lt">1.4.1-r1</vulnerable>
+    </package>
+    <package name="app-office/kword" auto="yes" arch="*">
+      <unaffected range="ge">1.4.1-r1</unaffected>
+      <vulnerable range="lt">1.4.1-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    KOffice is an integrated office suite for KDE. KWord is the
+    KOffice word processor.
+    </p>
+  </background>
+  <description>
+    <p>
+    Chris Evans discovered that the KWord RTF importer was vulnerable
+    to a heap-based buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could entice a user to open a specially-crafted RTF
+    file, potentially resulting in the execution of arbitrary code with the
+    rights of the user running the affected application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All KOffice users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-office/koffice-1.4.1-r1"</code>
+    <p>
+    All KWord users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-office/kword-1.4.1-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=2005-2971">CAN-2005-2971</uri>
+    <uri link="https://www.kde.org/info/security/advisory-20051011-1.txt">KDE Security Advisory: KWord RTF import buffer overflow</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2005-10-11T14:40:11Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-10-14T05:26:32Z">
+    jaervosz
+  </metadata>
+</glsa>

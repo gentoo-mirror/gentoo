@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-06">
+    <title>file: Stack Buffer Overread</title>
+    <synopsis>A vulnerability has been discovered in file, which could lead to a denial of service.</synopsis>
+    <product type="ebuild">file</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>918554</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-apps/file" auto="yes" arch="*">
+            <unaffected range="ge">5.42</unaffected>
+            <vulnerable range="lt">5.42</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The file utility attempts to identify a file’s format by scanning binary data for patterns.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in file. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>File has an stack-based buffer over-read in file_copystr in funcs.c.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All file users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/file-5.42"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-48554">CVE-2022-48554</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T06:04:59.257322Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T06:04:59.260356Z">graaff</metadata>
+</glsa>

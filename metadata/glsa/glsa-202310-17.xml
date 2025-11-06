@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-17">
+    <title>UnZip: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in UnZip, the worst of which could lead to code execution.</synopsis>
+    <product type="ebuild">unzip</product>
+    <announced>2023-10-30</announced>
+    <revised count="1">2023-10-30</revised>
+    <bug>831190</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-arch/unzip" auto="yes" arch="*">
+            <unaffected range="ge">6.0_p27</unaffected>
+            <vulnerable range="lt">6.0_p27</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Info-ZIP’s UnZip is a tool to list and extract files inside PKZIP compressed files.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in UnZip. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All UnZip users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-arch/unzip-6.0_p27"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0529">CVE-2022-0529</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0530">CVE-2022-0530</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-30T09:22:55.998380Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-30T09:22:56.000940Z">graaff</metadata>
+</glsa>

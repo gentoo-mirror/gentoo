@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-17">
+    <title>Redis: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Redis, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">redis</product>
+    <announced>2022-09-29</announced>
+    <revised count="1">2022-09-29</revised>
+    <bug>803302</bug>
+    <bug>816282</bug>
+    <bug>841404</bug>
+    <bug>856040</bug>
+    <bug>859181</bug>
+    <bug>872278</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-db/redis" auto="yes" arch="*">
+            <unaffected range="ge">7.0.5</unaffected>
+            <vulnerable range="lt">7.0.5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Redis. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Redis users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-db/redis-7.0.5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32626">CVE-2021-32626</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32627">CVE-2021-32627</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32628">CVE-2021-32628</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32672">CVE-2021-32672</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32675">CVE-2021-32675</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32687">CVE-2021-32687</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32761">CVE-2021-32761</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32762">CVE-2021-32762</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41099">CVE-2021-41099</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24735">CVE-2022-24735</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24736">CVE-2022-24736</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31144">CVE-2022-31144</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-33105">CVE-2022-33105</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-35951">CVE-2022-35951</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-29T14:21:49.334830Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-29T14:21:49.338636Z">ajak</metadata>
+</glsa>

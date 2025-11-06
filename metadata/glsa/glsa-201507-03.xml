@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201507-03">
+  <title>Exiv2: Denial of service</title>
+  <synopsis>A vulnerability in Exiv2 could lead to Denial of Service condition.</synopsis>
+  <product type="ebuild">exiv2</product>
+  <announced>2015-07-07</announced>
+  <revised count="1">2015-07-07</revised>
+  <bug>534608</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-gfx/exiv2" auto="yes" arch="*">
+      <unaffected range="ge">0.24-r1</unaffected>
+      <vulnerable range="lt">0.24-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Exiv2 is a C++ library and a command line utility to manage image
+      metadata.
+    </p>
+  </background>
+  <description>
+    <p>Exiv2 has a buffer overflow in the RiffVideo::infoTagsHandler function
+      in riffvideo.cpp.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could possibly cause a Denial of Service condition via
+      a specially crafted AVI file with IKEY INFO tag.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Exiv2 users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-gfx/exiv2-0.24-r1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-9449">CVE-2014-9449</uri>
+  </references>
+  <metadata tag="requester" timestamp="2015-04-22T20:51:42Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2015-07-07T06:47:36Z">Zlogene</metadata>
+</glsa>

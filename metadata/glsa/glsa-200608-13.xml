@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200608-13">
+  <title>ClamAV: Heap buffer overflow</title>
+  <synopsis>
+    ClamAV is vulnerable to a heap-based buffer overflow resulting in a Denial
+    of Service and potentially remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">clamav</product>
+  <announced>2006-08-08</announced>
+  <revised count="02">2006-08-08</revised>
+  <bug>143093</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-antivirus/clamav" auto="yes" arch="*">
+      <unaffected range="ge">0.88.4</unaffected>
+      <vulnerable range="lt">0.88.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    ClamAV is a GPL virus scanner.
+    </p>
+  </background>
+  <description>
+    <p>
+    Damian Put has discovered a boundary error in the pefromupx() function
+    used by the UPX extraction module, which unpacks PE Windows executable
+    files. Both the "clamscan" command-line utility and the "clamd" daemon
+    are affected.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    By sending a malicious attachment to a mail server running ClamAV, a
+    remote attacker can cause a Denial of Service and potentially the
+    execution of arbitrary code with the permissions of the user running
+    ClamAV.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All ClamAV users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-antivirus/clamav-0.88.4"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.clamav.net/security/0.88.4.html">ClamAV security advisory</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4018">CVE-2006-4018</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2006-08-08T07:45:00Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-08-08T09:57:22Z">
+    vorlon078
+  </metadata>
+</glsa>

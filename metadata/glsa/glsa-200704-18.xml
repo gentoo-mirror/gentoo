@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200704-18">
+  <title>Courier-IMAP: Remote execution of arbitrary code</title>
+  <synopsis>
+    A vulnerability has been discovered in Courier-IMAP allowing for remote
+    code execution with root privileges.
+  </synopsis>
+  <product type="ebuild">courier-imap</product>
+  <announced>2007-04-22</announced>
+  <revised count="02">2007-04-23</revised>
+  <bug>168196</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-mail/courier-imap" auto="yes" arch="*">
+      <unaffected range="ge">4.0.6-r2</unaffected>
+      <unaffected range="lt">4.0.0</unaffected>
+      <vulnerable range="lt">4.0.6-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Courier-IMAP is an IMAP server which is part of the Courier mail
+    system. It provides access only to maildirs.
+    </p>
+  </background>
+  <description>
+    <p>
+    CJ Kucera has discovered that some Courier-IMAP scripts don't properly
+    handle the XMAILDIR variable, allowing for shell command injection.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could send specially crafted login credentials to a
+    Courier-IMAP server instance, possibly leading to remote code execution
+    with root privileges.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Courier-IMAP users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-mail/courier-imap-4.0.6-r2"</code>
+  </resolution>
+  <references/>
+  <metadata tag="requester" timestamp="2007-04-12T14:15:03Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-04-12T14:15:17Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-04-16T21:50:11Z">
+    p-y
+  </metadata>
+</glsa>

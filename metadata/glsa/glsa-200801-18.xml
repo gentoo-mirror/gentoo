@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200801-18">
+  <title>Kazehakase: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple vulnerabilities in Kazehakase could result in the execution of
+    arbitrary code.
+  </synopsis>
+  <product type="ebuild">kazehakase</product>
+  <announced>2008-01-30</announced>
+  <revised count="01">2008-01-30</revised>
+  <bug>198983</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-client/kazehakase" auto="yes" arch="*">
+      <unaffected range="ge">0.5.0</unaffected>
+      <vulnerable range="lt">0.5.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Kazehakase is a web browser based on the Gecko engine.
+    </p>
+  </background>
+  <description>
+    <p>
+    Kazehakase includes a copy of PCRE which is vulnerable to multiple
+    buffer overflows and memory corruptions vulnerabilities (GLSA
+    200711-30).
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open specially crafted input
+    (e.g bookmarks) with Kazehakase, which could possibly lead to the
+    execution of arbitrary code, a Denial of Service or the disclosure of
+    sensitive information.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Kazehakase users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-client/kazehakase-0.5.0"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.gentoo.org/security/en/glsa/glsa-200711-30.xml">GLSA-200711-30</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-06T23:02:26Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-01-29T19:33:56Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-01-29T19:34:04Z">
+    p-y
+  </metadata>
+</glsa>

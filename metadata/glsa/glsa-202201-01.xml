@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202201-01">
+	<title>Polkit: Local privilege escalation</title>
+	<synopsis>A vulnerability in polkit could lead to local root privilege escalation.
+	</synopsis>
+	<product type="ebuild">polkit</product>
+	<announced>2022-01-27</announced>
+	<revised count="1">2022-01-27</revised>
+	<bug>832057</bug>
+	<access>local</access>
+	<affected>
+		<package name="sys-auth/polkit" auto="yes" arch="*">
+			<unaffected range="ge">0.120-r2</unaffected>
+			<vulnerable range="lt">0.120-r2</vulnerable>
+		</package>
+	</affected>
+	<background>
+		<p>polkit is a toolkit for managing policies related to unprivileged processes communicating with privileged process. </p>
+	</background>
+	<description>
+		<p>Flawed input validation of arguments was discovered in the &#39;pkexec&#39; program&#39;s main() function.</p>
+	</description>
+	<impact type="high">
+		<p>A local attacker could achieve root privilege escalation.</p>
+	</impact>
+	<workaround>
+		<p>Run the following command as root:
+# chmod 0755 /usr/bin/pkexec</p>
+	</workaround>
+	<resolution>
+		<p>Upgrade Polkit to a patched version.</p>
+
+		<code>
+			# emerge --sync
+			# emerge --ask --verbose &#34;&gt;=sys-auth/polkit-0.120-r2&#34;
+		</code>
+	</resolution>
+	<references>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4034">CVE-2021-4034</uri> 
+	</references>
+	<metadata tag="requester" timestamp="2022-01-27T04:56:33.847737Z">sam</metadata>
+	<metadata tag="submitter" timestamp="2022-01-27T04:56:33.851433Z">sam</metadata>
+</glsa>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202407-15">
+    <title>GraphicsMagick: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GraphicsMagick, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">graphicsmagick</product>
+    <announced>2024-07-05</announced>
+    <revised count="1">2024-07-05</revised>
+    <bug>888545</bug>
+    <bug>890851</bug>
+    <access>local</access>
+    <affected>
+        <package name="media-gfx/graphicsmagick" auto="yes" arch="*">
+            <unaffected range="ge">1.3.40</unaffected>
+            <vulnerable range="lt">1.3.40</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GraphicsMagick is a collection of tools and libraries which support reading, writing, and manipulating images in many major formats.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GraphicsMagick. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GraphicsMagick users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/graphicsmagick-1.3.40"
+        </code>
+    </resolution>
+    <references>
+    </references>
+    <metadata tag="requester" timestamp="2024-07-05T08:23:55.078128Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-07-05T08:23:55.084776Z">graaff</metadata>
+</glsa>

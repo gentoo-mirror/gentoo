@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-15">
+    <title>GNU Binutils: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in GNU Binutils, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">binutils</product>
+    <announced>2023-09-30</announced>
+    <revised count="1">2023-09-30</revised>
+    <bug>866713</bug>
+    <bug>867937</bug>
+    <bug>903893</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-devel/binutils" auto="yes" arch="*">
+            <unaffected range="ge">2.40</unaffected>
+            <vulnerable range="lt">2.40</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The GNU Binutils are a collection of tools to create, modify and analyse binary files. Many of the files use BFD, the Binary File Descriptor library, to do low-level manipulation.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GNU Binutils. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GNU Binutils users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-devel/binutils-2.40"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4285">CVE-2022-4285</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38126">CVE-2022-38126</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38127">CVE-2022-38127</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38128">CVE-2022-38128</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38533">CVE-2022-38533</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1579">CVE-2023-1579</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1972">CVE-2023-1972</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-30T07:43:08.232461Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-09-30T07:43:08.235151Z">graaff</metadata>
+</glsa>

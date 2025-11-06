@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-13">
+    <title>gst-plugins-good: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in gst-plugins-good, the worst of which could lead to denial of service or arbitrary code execution.</synopsis>
+    <product type="ebuild">gst-plugins-good</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>859418</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="media-libs/gst-plugins-good" auto="yes" arch="*">
+            <unaffected range="ge">1.20.3</unaffected>
+            <vulnerable range="lt">1.20.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>gst-plugins-good contains a set of plugins for the GStreamer open source multimedia framework.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in gst-plugins-good. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All gst-plugins-good users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/gst-plugins-good-1.20.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1920">CVE-2022-1920</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1921">CVE-2022-1921</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1922">CVE-2022-1922</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1923">CVE-2022-1923</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1924">CVE-2022-1924</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1925">CVE-2022-1925</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2122">CVE-2022-2122</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T07:13:16.567438Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T07:13:16.570171Z">graaff</metadata>
+</glsa>

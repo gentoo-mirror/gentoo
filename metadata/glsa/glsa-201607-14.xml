@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201607-14">
+  <title>Ansible: Privilege escalation</title>
+  <synopsis>A vulnerability in Ansible may allow local attackers to gain
+    escalated privileges or write arbitrary files.
+  </synopsis>
+  <product type="ebuild">ansible</product>
+  <announced>2016-07-20</announced>
+  <revised count="2">2016-07-20</revised>
+  <bug>578814</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-admin/ansible" auto="yes" arch="*">
+      <unaffected range="ge">2.0.2.0-r1</unaffected>
+      <unaffected range="rge">1.9.6</unaffected>
+      <vulnerable range="lt">2.0.2.0-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Ansible is a radically simple IT automation platform.</p>
+  </background>
+  <description>
+    <p>The create_script function in the lxc_container module of Ansible uses
+      predictable temporary file names, making it vulnerable to a symlink
+      attack.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Local attackers could write arbitrary files or gain escalated privileges
+      within the container.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Ansible 1.9.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-admin/ansible-1.9.6"
+    </code>
+    
+    <p>All Ansible 2.0.2.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-admin/ansible-2.0.2.0-r1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2016-3096">CVE-2016-3096</uri>
+  </references>
+  <metadata tag="requester" timestamp="2016-06-25T23:46:35Z">b-man</metadata>
+  <metadata tag="submitter" timestamp="2016-07-20T11:34:27Z">ackle</metadata>
+</glsa>

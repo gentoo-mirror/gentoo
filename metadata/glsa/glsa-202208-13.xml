@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-13">
+    <title>libass: Denial of service</title>
+    <synopsis>A vulnerability in libass could result in denial of service.</synopsis>
+    <product type="ebuild">libass</product>
+    <announced>2022-08-10</announced>
+    <revised count="1">2022-08-10</revised>
+    <bug>803119</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libass" auto="yes" arch="*">
+            <unaffected range="ge">0.15.1</unaffected>
+            <vulnerable range="lt">0.15.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libass is a portable subtitle renderer for the ASS/SSA (Advanced Substation Alpha/Substation Alpha) subtitle format.</p>
+    </background>
+    <description>
+        <p>A one-byte buffer overwrite in ASS font decoding could trigger an assertion failure resulting in denial of service.</p>
+    </description>
+    <impact type="low">
+        <p>An attacker with control over the ASS track input to libass via an application using it could trigger a denial of service.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libass users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libass-0.15.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36430">CVE-2020-36430</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-10T04:08:39.534267Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-10T04:08:39.537350Z">ajak</metadata>
+</glsa>

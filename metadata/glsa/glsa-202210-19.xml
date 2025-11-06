@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-19">
+    <title>Apptainer: Lack of Digital Signature Hash Verification</title>
+    <synopsis>A vulnerability has been found in Apptainer which could result in the usage of an unexpected of a container.</synopsis>
+    <product type="ebuild">apptainer</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>875869</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-containers/apptainer" auto="yes" arch="*">
+            <unaffected range="ge">1.1.2</unaffected>
+            <vulnerable range="lt">1.1.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Apptainer is the container system for secure high-performance computing.</p>
+    </background>
+    <description>
+        <p>The Go module &#34;sif&#34; version 2.8.0 and older, which is a statically linked dependency of Apptainer, does not verify that the hash algorithm(s) used are cryptographically secure when verifying digital signatures.</p>
+    </description>
+    <impact type="low">
+        <p>An image whose verification relies on a cryptographically insecure hash algorithm could be replaced, resulting in users using an image other than the one that was expected.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Apptainer users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-containers/apptainer-1.1.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39237">CVE-2022-39237</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:13:42.466161Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:13:42.470930Z">ajak</metadata>
+</glsa>

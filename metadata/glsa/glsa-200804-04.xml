@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200804-04">
+  <title>MySQL: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple vulnerabilities in MySQL might lead to privilege escalation and
+    Denial of Service.
+  </synopsis>
+  <product type="ebuild">mysql</product>
+  <announced>2008-04-06</announced>
+  <revised count="01">2008-04-06</revised>
+  <bug>201669</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-db/mysql" auto="yes" arch="*">
+      <unaffected range="ge">5.0.54</unaffected>
+      <vulnerable range="lt">5.0.54</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MySQL is a popular multi-threaded, multi-user SQL server.
+    </p>
+  </background>
+  <description>
+    <p>
+    Multiple vulnerabilities have been reported in MySQL:
+    </p>
+    <ul>
+    <li>Mattias Jonsson reported that a "RENAME TABLE" command against a
+    table with explicit "DATA DIRECTORY" and "INDEX DIRECTORY" options
+    would overwrite the file to which the symlink points
+    (CVE-2007-5969).</li>
+    <li>Martin Friebe discovered that MySQL does not
+    update the DEFINER value of a view when the view is altered
+    (CVE-2007-6303).</li>
+    <li>Philip Stoev discovered that the federated
+    engine expects the response of a remote MySQL server to contain a
+    minimum number of columns in query replies (CVE-2007-6304).</li>
+    </ul>
+  </description>
+  <impact type="normal">
+    <p>
+    An authenticated remote attacker could exploit the first vulnerability
+    to overwrite MySQL system tables and escalate privileges, or use the
+    second vulnerability to gain privileges via an "ALTER VIEW" statement.
+    Remote federated MySQL servers could cause a Denial of Service in the
+    local MySQL server by exploiting the third vulnerability.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MySQL users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-db/mysql-5.0.54"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5969">CVE-2007-5969</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6303">CVE-2007-6303</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6304">CVE-2007-6304</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-28T18:21:58Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-02-09T20:29:29Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-04-03T23:20:56Z">
+    rbu
+  </metadata>
+</glsa>

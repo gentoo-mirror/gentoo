@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200503-35">
+  <title>Smarty: Template vulnerability</title>
+  <synopsis>
+    Smarty's "Template security" feature can be bypassed, potentially allowing
+    a remote attacker to execute arbitrary PHP code.
+  </synopsis>
+  <product type="ebuild">smarty</product>
+  <announced>2005-03-30</announced>
+  <revised count="03">2006-05-22</revised>
+  <bug>86488</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-php/smarty" auto="yes" arch="*">
+      <unaffected range="ge">2.6.9</unaffected>
+      <vulnerable range="lt">2.6.9</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Smarty is a template engine for PHP. The "template security" feature of
+    Smarty is designed to help reduce the risk of a system compromise when
+    you have untrusted parties editing templates.
+    </p>
+  </background>
+  <description>
+    <p>
+    A vulnerability has been discovered within the regex_replace modifier
+    of the Smarty templates when allowing access to untrusted users.
+    Furthermore, it was possible to call functions from {if} statements and
+    {math} functions.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    These issues may allow a remote attacker to bypass the "template
+    security" feature of Smarty, and execute arbitrary PHP code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Do not grant template access to untrusted users.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Smarty users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-php/smarty-2.6.9"</code>
+  </resolution>
+  <references>
+    <uri link="https://smarty.php.net/misc/NEWS">Smarty ChangeLog</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0913">CVE-2005-0913</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-03-24T17:18:18Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-03-28T13:11:35Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-03-28T13:23:33Z">
+    lewk
+  </metadata>
+</glsa>

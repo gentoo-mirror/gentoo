@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201402-26">
+  <title>libssh: Arbitrary code execution</title>
+  <synopsis>Multiple vulnerabilities have been found in libssh, allowing
+    attackers to execute arbitrary code or cause Denial of Service.
+  </synopsis>
+  <product type="ebuild">libssh</product>
+  <announced>2014-02-21</announced>
+  <revised count="1">2014-02-21</revised>
+  <bug>444147</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-libs/libssh" auto="yes" arch="*">
+      <unaffected range="ge">0.5.3</unaffected>
+      <vulnerable range="lt">0.5.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libssh is a C library providing SSHv2 and SSHv1.</p>
+  </background>
+  <description>
+    <p>Multiple buffer overflow, double free, and integer overflow
+      vulnerabilities have been discovered in libssh.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could possibly execute arbitrary code with the
+      privileges of the process or cause a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libssh users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-libs/libssh-0.5.3"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-4559">CVE-2012-4559</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-4560">CVE-2012-4560</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-4561">CVE-2012-4561</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-4562">CVE-2012-4562</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-6063">CVE-2012-6063</uri>
+  </references>
+  <metadata tag="requester" timestamp="2012-12-03T11:55:23Z">ackle</metadata>
+  <metadata tag="submitter" timestamp="2014-02-21T15:44:25Z">ackle</metadata>
+</glsa>

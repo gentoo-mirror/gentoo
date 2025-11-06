@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201405-16">
+  <title>Mono: Denial of service</title>
+  <synopsis>A hash collision vulnerability in Mono allows remote attackers to
+    cause a Denial of Service condition. 
+  </synopsis>
+  <product type="ebuild">mono</product>
+  <announced>2014-05-18</announced>
+  <revised count="1">2014-05-18</revised>
+  <bug>433768</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-lang/mono" auto="yes" arch="*">
+      <unaffected range="ge">2.10.9-r2</unaffected>
+      <vulnerable range="lt">2.10.9-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Mono is an open source implementation of Microsoft’s .NET Framework.</p>
+  </background>
+  <description>
+    <p>Mono does not properly randomize hash functions for form posts to
+      protect against hash collision attacks. 
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could send specially crafted parameters, possibly
+      resulting in a Denial of Service condition. 
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Mono users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-lang/mono-2.10.9-r2"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-3543">CVE-2012-3543</uri>
+  </references>
+  <metadata tag="requester" timestamp="2012-12-16T21:55:51Z">craig</metadata>
+  <metadata tag="submitter" timestamp="2014-05-18T11:28:30Z">ackle</metadata>
+</glsa>

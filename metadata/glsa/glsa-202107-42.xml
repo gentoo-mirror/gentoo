@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-42">
+  <title>PJSIP: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in PJSIP, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">pjproject</product>
+  <announced>2021-07-20</announced>
+  <revised count="1">2021-07-20</revised>
+  <bug>775359</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-libs/pjproject" auto="yes" arch="*">
+      <unaffected range="ge">2.10-r1</unaffected>
+      <vulnerable range="lt">2.10-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>PJSIP is a free and open source multimedia communication library written
+      in C language implementing standard based protocols such as SIP, SDP,
+      RTP, STUN, TURN, and ICE.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in PJSIP. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All PJSIP users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-libs/pjproject-2.10-r1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-15260">CVE-2020-15260</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21375">CVE-2021-21375</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-16T02:16:25Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-20T03:48:47Z">ajak</metadata>
+</glsa>

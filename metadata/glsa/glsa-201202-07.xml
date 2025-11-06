@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201202-07">
+  <title>libvirt: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities were found in libvirt, the worst of which
+    might allow guest OS users to read arbitrary files on the host OS.
+  </synopsis>
+  <product type="ebuild">libvirt</product>
+  <announced>2012-02-27</announced>
+  <revised count="1">2012-02-27</revised>
+  <bug>358877</bug>
+  <bug>372963</bug>
+  <bug>373991</bug>
+  <bug>386287</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="app-emulation/libvirt" auto="yes" arch="*">
+      <unaffected range="ge">0.9.3-r1</unaffected>
+      <vulnerable range="lt">0.9.3-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libvirt is a C toolkit to manipulate virtual machines.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in libvirt. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>These vulnerabilities allow a remote attacker to cause a Denial of
+      Service condition on the host server or libvirt daemon, or  might allow
+      guest OS users to read arbitrary files on the host OS.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libvirt users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-emulation/libvirt-0.9.3-r1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2011-1146">CVE-2011-1146</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2011-1486">CVE-2011-1486</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2011-2178">CVE-2011-2178</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2011-2511">CVE-2011-2511</uri>
+  </references>
+  <metadata timestamp="2011-10-07T23:37:16Z" tag="requester">craig</metadata>
+  <metadata timestamp="2012-02-27T22:20:05Z" tag="submitter">craig</metadata>
+</glsa>

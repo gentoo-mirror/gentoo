@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-18">
+    <title>QEMU: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in QEMU, the worst of which could lead to a denial of service.</synopsis>
+    <product type="ebuild">qemu</product>
+    <announced>2024-08-09</announced>
+    <revised count="1">2024-08-09</revised>
+    <bug>857657</bug>
+    <bug>865121</bug>
+    <bug>883693</bug>
+    <bug>909542</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-emulation/qemu" auto="yes" arch="*">
+            <unaffected range="ge">8.0.0</unaffected>
+            <vulnerable range="lt">8.0.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>QEMU is a generic and open source machine emulator and virtualizer.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in QEMU. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All QEMU users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emulation/qemu-8.0.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-14394">CVE-2020-14394</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0216">CVE-2022-0216</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1050">CVE-2022-1050</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2962">CVE-2022-2962</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4144">CVE-2022-4144</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4172">CVE-2022-4172</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-35414">CVE-2022-35414</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1544">CVE-2023-1544</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2861">CVE-2023-2861</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-09T09:49:28.328653Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-09T09:49:28.332697Z">graaff</metadata>
+</glsa>

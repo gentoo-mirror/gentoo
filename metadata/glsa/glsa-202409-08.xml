@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-08">
+    <title>OpenVPN: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in OpenVPN, the worst of which could lead to information disclosure.</synopsis>
+    <product type="ebuild">openvpn</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>835514</bug>
+    <bug>917272</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-vpn/openvpn" auto="yes" arch="*">
+            <unaffected range="ge">2.6.7</unaffected>
+            <vulnerable range="lt">2.6.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OpenVPN is a multi-platform, full-featured SSL VPN solution.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in OpenVPN. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All OpenVPN users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-vpn/openvpn-2.6.7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0547">CVE-2022-0547</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46849">CVE-2023-46849</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46850">CVE-2023-46850</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T06:34:37.212666Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T06:34:37.215160Z">graaff</metadata>
+</glsa>

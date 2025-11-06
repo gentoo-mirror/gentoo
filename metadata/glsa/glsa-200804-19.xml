@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200804-19">
+  <title>PHP Toolkit: Data disclosure and Denial of service</title>
+  <synopsis>
+    PHP Toolkit does not quote parameters, allowing for PHP source code
+    disclosure on Apache, and a Denial of Service.
+  </synopsis>
+  <product type="ebuild">php-toolkit</product>
+  <announced>2008-04-17</announced>
+  <revised count="01">2008-04-17</revised>
+  <bug>209535</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-admin/php-toolkit" auto="yes" arch="*">
+      <unaffected range="ge">1.0.1</unaffected>
+      <vulnerable range="lt">1.0.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    PHP Toolkit is a utility to manage parallel installations of PHP within
+    Gentoo. It is executed by the PHP ebuilds at setup.
+    </p>
+  </background>
+  <description>
+    <p>
+    Toni Arnold, David Sveningsson, Michal Bartoszkiewicz, and Joseph
+    reported that php-select does not quote parameters passed to the "tr"
+    command, which could convert the "-D PHP5" argument in the
+    "APACHE2_OPTS" setting in the file /etc/conf.d/apache2 to lower case.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could entice a system administrator to run "<i>emerge
+    php</i>" or call "<i>php-select -t apache2 php5</i>" directly in a
+    directory containing a lower case single-character named file, which
+    would prevent Apache from loading mod_php and thereby disclose PHP
+    source code and cause a Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Do not run "emerge" or "php-select" from a working directory which
+    contains a lower case single-character named file.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All PHP Toolkit users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-admin/php-toolkit-1.0.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1734">CVE-2008-1734</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-04-07T23:54:47Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-04-10T13:22:11Z">
+    vorlon
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-04-11T19:26:49Z">
+    rbu
+  </metadata>
+</glsa>

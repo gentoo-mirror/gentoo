@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-37">
+    <title>PJSIP: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in PJSIP, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">pjproject</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>803614</bug>
+    <bug>829894</bug>
+    <bug>875863</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/pjproject" auto="yes" arch="*">
+            <unaffected range="ge">2.12.1</unaffected>
+            <vulnerable range="lt">2.12.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>PJSIP is a free and open source multimedia communication library written in C language implementing standard based protocols such as SIP, SDP, RTP, STUN, TURN, and ICE.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in PJSIP. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All PJSIP users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/pjproject-2.12.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32686">CVE-2021-32686</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37706">CVE-2021-37706</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41141">CVE-2021-41141</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-43804">CVE-2021-43804</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-43845">CVE-2021-43845</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21722">CVE-2022-21722</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21723">CVE-2022-21723</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23608">CVE-2022-23608</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24754">CVE-2022-24754</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24763">CVE-2022-24763</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24764">CVE-2022-24764</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24786">CVE-2022-24786</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24792">CVE-2022-24792</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24793">CVE-2022-24793</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31031">CVE-2022-31031</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39244">CVE-2022-39244</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-39269">CVE-2022-39269</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T20:22:18.091924Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T20:22:18.099528Z">ajak</metadata>
+</glsa>

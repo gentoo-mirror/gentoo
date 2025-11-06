@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-10">
+    <title>Xen: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Xen, the worst of which could lead to privilege escalation.</synopsis>
+    <product type="ebuild">xen</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>918669</bug>
+    <bug>921355</bug>
+    <bug>923741</bug>
+    <bug>928620</bug>
+    <bug>929038</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-emulation/xen" auto="yes" arch="*">
+            <unaffected range="ge">4.17.4</unaffected>
+            <vulnerable range="lt">4.17.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Xen is a bare-metal hypervisor.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Xen. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Xen users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emulation/xen-4.17.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4949">CVE-2022-4949</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42336">CVE-2022-42336</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28746">CVE-2023-28746</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34319">CVE-2023-34319</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34320">CVE-2023-34320</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34321">CVE-2023-34321</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34322">CVE-2023-34322</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34323">CVE-2023-34323</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34324">CVE-2023-34324</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34325">CVE-2023-34325</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34327">CVE-2023-34327</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-34328">CVE-2023-34328</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46835">CVE-2023-46835</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46836">CVE-2023-46836</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46837">CVE-2023-46837</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46839">CVE-2023-46839</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46840">CVE-2023-46840</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46841">CVE-2023-46841</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46842">CVE-2023-46842</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-2193">CVE-2024-2193</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-31142">CVE-2024-31142</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-431.html">XSA-431</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-432.html">XSA-432</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-436.html">XSA-436</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-437.html">XSA-437</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-438.html">XSA-438</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-439.html">XSA-439</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-440.html">XSA-440</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-441.html">XSA-441</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-442.html">XSA-442</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-447.html">XSA-447</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-449.html">XSA-449</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-450.html">XSA-450</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-451.html">XSA-451</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-452.html">XSA-452</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-453.html">XSA-453</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-454.html">XSA-454</uri>
+        <uri link="https://xenbits.xen.org/xsa/advisory-455.html">XSA-455</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T06:41:59.700785Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T06:41:59.703837Z">graaff</metadata>
+</glsa>

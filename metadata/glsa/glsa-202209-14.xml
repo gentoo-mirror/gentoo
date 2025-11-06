@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-14">
+    <title>Fetchmail: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Fetchmail, the worst of which could result in email disclosure to third parties.</synopsis>
+    <product type="ebuild">fetchmail</product>
+    <announced>2022-09-25</announced>
+    <revised count="1">2022-09-25</revised>
+    <bug>810676</bug>
+    <bug>804921</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-mail/fetchmail" auto="yes" arch="*">
+            <unaffected range="ge">6.4.22</unaffected>
+            <vulnerable range="lt">6.4.22</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Fetchmail is a remote mail retrieval and forwarding utility.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Fetchmail. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Fetchmail users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-mail/fetchmail-6.4.22"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-36386">CVE-2021-36386</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-39272">CVE-2021-39272</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-25T13:35:56.538201Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-25T13:35:56.542922Z">ajak</metadata>
+</glsa>

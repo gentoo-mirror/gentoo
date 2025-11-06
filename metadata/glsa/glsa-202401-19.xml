@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-19">
+    <title>Opera: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Opera, the worst of which can lead to remote code execution.</synopsis>
+    <product type="ebuild">opera,opera-beta</product>
+    <announced>2024-01-15</announced>
+    <revised count="1">2024-01-15</revised>
+    <bug>750929</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-client/opera" auto="yes" arch="*">
+            <unaffected range="ge">73.0.3856.284</unaffected>
+            <vulnerable range="lt">73.0.3856.284</vulnerable>
+        </package>
+        <package name="www-client/opera-beta" auto="yes" arch="*">
+            <unaffected range="ge">73.0.3856.284</unaffected>
+            <vulnerable range="lt">73.0.3856.284</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Opera is a fast web browser that is available free of charge.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Opera. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Opera users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/opera-73.0.3856.284"
+        </code>
+        
+        <p>All Opera users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/opera-beta-73.0.3856.284"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-15999">CVE-2020-15999</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-15T12:40:03.932610Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-15T12:40:03.934835Z">graaff</metadata>
+</glsa>

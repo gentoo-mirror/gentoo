@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201409-02">
+  <title>Net-SNMP: Denial of service</title>
+  <synopsis>Multiple vulnerabilities have been found in Net-SNMP which could
+    allow remote attackers to cause Denial of Service. 
+  </synopsis>
+  <product type="ebuild">net-snmp</product>
+  <announced>2014-09-01</announced>
+  <revised count="1">2014-09-01</revised>
+  <bug>431752</bug>
+  <bug>493296</bug>
+  <bug>502968</bug>
+  <bug>509110</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-analyzer/net-snmp" auto="yes" arch="*">
+      <unaffected range="ge">5.7.3_pre3</unaffected>
+      <vulnerable range="lt">5.7.3_pre3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Net-SNMP bundles software for generating and retrieving SNMP data.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Net-SNMP. Please review
+      the CVE identifiers referenced below for details. 
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could create a Denial of Service condition.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All net-snmp users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=net-analyzer/net-snmp-5.7.3_pre3"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-2141">CVE-2012-2141</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-6151">CVE-2012-6151</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-2284">CVE-2014-2284</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-2285">CVE-2014-2285</uri>
+  </references>
+  <metadata tag="requester" timestamp="2012-12-11T17:40:35Z">
+    underling
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-09-01T21:23:11Z">ackle</metadata>
+</glsa>

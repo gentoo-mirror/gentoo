@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202506-03">
+    <title>LibreOffice: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in LibreOffice, the worst of which could result in user-assisted code execution.</synopsis>
+    <product type="ebuild">libreoffice,libreoffice-bin</product>
+    <announced>2025-06-12</announced>
+    <revised count="1">2025-06-12</revised>
+    <bug>948825</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-office/libreoffice" auto="yes" arch="*">
+            <unaffected range="ge">24.2.7.2-r1</unaffected>
+            <vulnerable range="lt">24.2.7.2-r1</vulnerable>
+        </package>
+        <package name="app-office/libreoffice-bin" auto="yes" arch="*">
+            <unaffected range="ge">24.8.4</unaffected>
+            <vulnerable range="lt">24.8.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>LibreOffice is a powerful office suite; its clean interface and powerful tools let you unleash your creativity and grow your productivity.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in LibreOffice. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All LibreOffice binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-office/libreoffice-bin-24.8.4"
+        </code>
+        
+        <p>All LibreOffice users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-office/libreoffice-24.2.7.2-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12425">CVE-2024-12425</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12426">CVE-2024-12426</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-06-12T06:35:17.897017Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-06-12T06:35:17.900114Z">graaff</metadata>
+</glsa>

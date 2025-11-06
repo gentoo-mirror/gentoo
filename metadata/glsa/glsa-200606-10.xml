@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200606-10">
+  <title>Cscope: Many buffer overflows</title>
+  <synopsis>
+    Cscope is vulnerable to multiple buffer overflows that could lead to the
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">Cscope</product>
+  <announced>2006-06-11</announced>
+  <revised count="01">2006-06-11</revised>
+  <bug>133829</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-util/cscope" auto="yes" arch="*">
+      <unaffected range="ge">15.5-r6</unaffected>
+      <vulnerable range="lt">15.5-r6</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Cscope is a developer's tool for browsing source code.
+    </p>
+  </background>
+  <description>
+    <p>
+    Cscope does not verify the length of file names sourced in
+    #include statements.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A user could be enticed to source a carefully crafted file which
+    will allow the attacker to execute arbitrary code with the permissions
+    of the user running Cscope.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Cscope users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-util/cscope-15.5-r6"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-2541">CVE-2004-2541</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-06-01T07:07:22Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-06-05T17:21:43Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-06-05T18:50:34Z">
+    dizzutch
+  </metadata>
+</glsa>

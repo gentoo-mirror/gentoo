@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200611-08">
+  <title>RPM: Buffer overflow</title>
+  <synopsis>
+    RPM is vulnerable to a buffer overflow and possibly the execution of
+    arbitrary code when opening specially crafted packages.
+  </synopsis>
+  <product type="ebuild">rpm</product>
+  <announced>2006-11-13</announced>
+  <revised count="01">2006-11-13</revised>
+  <bug>154218</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-arch/rpm" auto="yes" arch="*">
+      <unaffected range="ge">4.4.6-r3</unaffected>
+      <vulnerable range="lt">4.4.6-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    The Red Hat Package Manager (RPM) is a command line driven package
+    management system capable of installing, uninstalling, verifying,
+    querying, and updating computer software packages.
+    </p>
+  </background>
+  <description>
+    <p>
+    Vladimir Mosgalin has reported that when processing certain packages,
+    RPM incorrectly allocates memory for the packages, possibly causing a
+    heap-based buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could entice a user to open a specially crafted RPM package
+    and execute code with the privileges of that user if certain locales
+    are set.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All RPM users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-arch/rpm-4.4.6-r3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5466">CVE-2006-5466</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-11-06T23:03:12Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-11-06T23:11:11Z">
+    shellsage
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-11-07T13:44:27Z">
+    falco
+  </metadata>
+</glsa>

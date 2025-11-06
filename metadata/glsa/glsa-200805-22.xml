@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200805-22">
+  <title>MPlayer: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    An integer overflow vulnerability in MPlayer may allow for the execution of
+    arbitrary code.
+  </synopsis>
+  <product type="ebuild">mplayer</product>
+  <announced>2008-05-29</announced>
+  <revised count="01">2008-05-29</revised>
+  <bug>215006</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-video/mplayer" auto="yes" arch="*">
+      <unaffected range="ge">1.0_rc2_p26753</unaffected>
+      <vulnerable range="lt">1.0_rc2_p26753</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MPlayer is a media player including support for a wide range of audio
+    and video formats.
+    </p>
+  </background>
+  <description>
+    <p>
+    k`sOSe reported an integer overflow vulnerability in the
+    sdpplin_parse() function in the file stream/realrtsp/sdpplin.c, which
+    can be exploited to overwrite arbitrary memory regions via an overly
+    large "StreamCount" SDP parameter.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted media
+    file, possibly resulting in the execution of arbitrary code with the
+    privileges of the user running MPlayer.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MPlayer users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-video/mplayer-1.0_rc2_p26753"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1558">CVE-2008-1558</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-05-22T17:37:55Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-05-27T21:32:21Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-05-28T13:57:42Z">
+    p-y
+  </metadata>
+</glsa>

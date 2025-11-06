@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200711-02">
+  <title>OpenSSH: Security bypass</title>
+  <synopsis>
+    A flaw has been discovered in OpenSSH which could allow a local attacker to
+    bypass security restrictions.
+  </synopsis>
+  <product type="ebuild">openssh</product>
+  <announced>2007-11-01</announced>
+  <revised count="01">2007-11-01</revised>
+  <bug>191321</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-misc/openssh" auto="yes" arch="*">
+      <unaffected range="ge">4.7</unaffected>
+      <vulnerable range="lt">4.7</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    OpenSSH is a complete SSH protocol implementation that includes an SFTP
+    client and server support.
+    </p>
+  </background>
+  <description>
+    <p>
+    Jan Pechanec discovered that OpenSSH uses a trusted X11 cookie when it
+    cannot create an untrusted one.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    An attacker could bypass the SSH client security policy and gain
+    privileges by causing an X client to be treated as trusted.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All OpenSSH users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-misc/openssh-4.7"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4752">CVE-2007-4752</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-09-25T19:38:10Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-09-25T19:38:18Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-09-28T12:20:41Z">
+    p-y
+  </metadata>
+</glsa>

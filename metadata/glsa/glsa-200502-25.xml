@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200502-25">
+  <title>Squid: Denial of Service through DNS responses</title>
+  <synopsis>
+    Squid contains a bug in the handling of certain DNS responses resulting in
+    a Denial of Service.
+  </synopsis>
+  <product type="ebuild">Squid</product>
+  <announced>2005-02-18</announced>
+  <revised count="01">2005-02-18</revised>
+  <bug>81997</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-proxy/squid" auto="yes" arch="*">
+      <unaffected range="ge">2.5.8</unaffected>
+      <vulnerable range="lt">2.5.8</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Squid is a full-featured Web proxy cache designed to run on
+    Unix-like systems. It supports proxying and caching of HTTP, FTP, and
+    other protocols, as well as SSL support, cache hierarchies, transparent
+    caching, access control lists and many other features.
+    </p>
+  </background>
+  <description>
+    <p>
+    Handling of certain DNS responses trigger assertion failures.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By returning a specially crafted DNS response an attacker could
+    cause Squid to crash by triggering an assertion failure.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Squid users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-proxy/squid-2.5.8"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0446">CAN-2005-0446</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-02-17T20:33:19Z">
+    vorlon078
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-02-17T21:28:52Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-02-18T09:26:51Z">
+    koon
+  </metadata>
+</glsa>

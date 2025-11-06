@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201403-05">
+  <title>GNU Emacs: Multiple vulnerabilities</title>
+  <synopsis>Two vulnerabilities have been found in GNU Emacs, possibly leading
+    to user-assisted execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">emacs</product>
+  <announced>2014-03-20</announced>
+  <revised count="1">2014-03-20</revised>
+  <bug>398239</bug>
+  <bug>431178</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-editors/emacs" auto="yes" arch="*">
+      <unaffected range="ge">24.1-r1</unaffected>
+      <unaffected range="rge">23.4-r4</unaffected>
+      <unaffected range="lt">23.2</unaffected>
+      <vulnerable range="lt">24.1-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>GNU Emacs is a highly extensible and customizable text editor.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in GNU Emacs:</p>
+    
+    <ul>
+      <li>When ‘global-ede-mode’ is enabled, EDE in Emacs automatically
+        loads a Project.ede file from the project directory (CVE-2012-0035).
+      </li>
+      <li>When ‘enable-local-variables’’ is set to ‘:safe’, Emacs
+        automatically processes eval forms (CVE-2012-3479).
+      </li>
+    </ul>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted file,
+      possibly resulting in execution of arbitrary code with the privileges of
+      the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All GNU Emacs 24.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-editors/emacs-24.1-r1"
+    </code>
+    
+    <p>All GNU Emacs 23.x users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-editors/emacs-23.4-r4"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-0035">CVE-2012-0035</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-3479">CVE-2012-3479</uri>
+  </references>
+  <metadata tag="requester" timestamp="2012-01-16T09:37:15Z">ago</metadata>
+  <metadata tag="submitter" timestamp="2014-03-20T10:30:13Z">ackle</metadata>
+</glsa>

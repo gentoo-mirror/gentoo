@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-11">
+    <title>Oracle VirtualBox: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Oracle VirtualBox, the worst of which could lead to privilege escalation.</synopsis>
+    <product type="ebuild">virtualbox</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>918524</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-emulation/virtualbox" auto="yes" arch="*">
+            <unaffected range="ge">7.0.12</unaffected>
+            <vulnerable range="lt">7.0.12</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>VirtualBox is a powerful virtualization product from Oracle.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Oracle VirtualBox. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Oracle VirtualBox users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emulation/virtualbox-7.0.12"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-22098">CVE-2023-22098</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-22099">CVE-2023-22099</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-22100">CVE-2023-22100</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T06:56:15.978186Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T06:56:15.982430Z">graaff</metadata>
+</glsa>

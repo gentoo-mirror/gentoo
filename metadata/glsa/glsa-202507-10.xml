@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202507-10">
+    <title>Roundcube: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Roundcube, the worst of which could lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">roundcube</product>
+    <announced>2025-07-22</announced>
+    <revised count="1">2025-07-22</revised>
+    <bug>711270</bug>
+    <bug>824918</bug>
+    <bug>937890</bug>
+    <bug>957155</bug>
+    <access>remote</access>
+    <affected>
+        <package name="mail-client/roundcube" auto="yes" arch="*">
+            <unaffected range="ge">1.6.11</unaffected>
+            <vulnerable range="lt">1.6.11</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Free and open source webmail software for the masses, written in PHP.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Roundcube. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Roundcube users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=mail-client/roundcube-1.6.11"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-15237">CVE-2019-15237</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44025">CVE-2021-44025</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44026">CVE-2021-44026</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-07-22T08:59:35.672737Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-07-22T08:59:35.675461Z">graaff</metadata>
+</glsa>

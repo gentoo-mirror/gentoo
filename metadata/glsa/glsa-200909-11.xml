@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200909-11">
+  <title>GCC-XML: Insecure temporary file usage</title>
+  <synopsis>
+    An insecure temporary file usage has been reported in GCC-XML allowing for
+    symlink attacks.
+  </synopsis>
+  <product type="ebuild">gccxml</product>
+  <announced>2009-09-09</announced>
+  <revised count="01">2009-09-09</revised>
+  <bug>245765</bug>
+  <access>local</access>
+  <affected>
+    <package name="dev-cpp/gccxml" auto="yes" arch="*">
+      <unaffected range="ge">0.9.0_pre20090516</unaffected>
+      <vulnerable range="lt">0.9.0_pre20090516</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    GCC-XML is an XML output extension to the C++ front-end of GCC.
+    </p>
+  </background>
+  <description>
+    <p>
+    Dmitry E. Oboukhov reported that find_flags in GCC-XML does not handle
+    "/tmp/*.cxx" temporary files securely.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could perform symlink attacks to overwrite arbitrary
+    files with the privileges of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All GCC-XML users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-cpp/gccxml-0.9.0_pre20090516"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4957">CVE-2008-4957</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-05-25T20:39:27Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-08-28T08:04:45Z">
+    a3li
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-08-31T03:38:17Z">
+    a3li
+  </metadata>
+</glsa>

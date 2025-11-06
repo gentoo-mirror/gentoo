@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-07">
+    <title>Go: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Go, the worst of which could lead to information leakage or a denial of service.</synopsis>
+    <product type="ebuild">go</product>
+    <announced>2024-08-07</announced>
+    <revised count="1">2024-08-07</revised>
+    <bug>906043</bug>
+    <bug>919310</bug>
+    <bug>926530</bug>
+    <bug>928539</bug>
+    <bug>931602</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-lang/go" auto="yes" arch="*">
+            <unaffected range="ge">1.22.3</unaffected>
+            <vulnerable range="lt">1.22.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Go. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Go users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/go-1.22.3"
+        </code>
+        
+        <p>Due to Go programs typically being statically compiled, Go users should also recompile the reverse dependencies of the Go language to ensure statically linked programs are remediated:</p>
+        
+        <code>
+          # emerge --ask --oneshot --verbose @golang-rebuild
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-24539">CVE-2023-24539</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-24540">CVE-2023-24540</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29400">CVE-2023-29400</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-39326">CVE-2023-39326</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45283">CVE-2023-45283</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45285">CVE-2023-45285</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45288">CVE-2023-45288</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45289">CVE-2023-45289</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45290">CVE-2023-45290</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-24783">CVE-2024-24783</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-24784">CVE-2024-24784</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-24785">CVE-2024-24785</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-24788">CVE-2024-24788</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-07T09:30:13.961626Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-07T09:30:13.964984Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200506-24">
+  <title>Heimdal: Buffer overflow vulnerabilities</title>
+  <synopsis>
+    Multiple buffer overflow vulnerabilities in Heimdal's telnetd server could
+    allow the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">heimdal</product>
+  <announced>2005-06-29</announced>
+  <revised count="01">2005-06-29</revised>
+  <bug>96727</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-crypt/heimdal" auto="yes" arch="*">
+      <unaffected range="ge">0.6.5</unaffected>
+      <vulnerable range="lt">0.6.5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Heimdal is a free implementation of Kerberos 5 that includes a
+    telnetd server.
+    </p>
+  </background>
+  <description>
+    <p>
+    It has been reported that the "getterminaltype" function of
+    Heimdal's telnetd server is vulnerable to buffer overflows.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    An attacker could exploit this vulnerability to execute arbitrary
+    code with the permission of the telnetd server program.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All users should upgrade to the latest available version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-crypt/heimdal-0.6.5"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-2040">CAN-2005-2040</uri>
+    <uri link="https://www.pdc.kth.se/heimdal/advisory/2005-06-20/">Heimdal Advisory 2005-06-20</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-06-23T11:06:31Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-06-23T12:58:46Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-06-29T07:29:29Z">
+    koon
+  </metadata>
+</glsa>

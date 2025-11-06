@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201408-12">
+  <title>Apache HTTP Server: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been discovered in Apache HTTP
+    Server, the worse of which could lead to execution of arbitrary code or a
+    Denial of Service condition
+  </synopsis>
+  <product type="ebuild">apache,dos,ace</product>
+  <announced>2014-08-29</announced>
+  <revised count="1">2014-08-29</revised>
+  <bug>504990</bug>
+  <bug>507866</bug>
+  <bug>517298</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-servers/apache" auto="yes" arch="*">
+      <unaffected range="ge">2.2.27-r4</unaffected>
+      <vulnerable range="lt">2.2.27-r4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Apache HTTP Server is one of the most popular web servers on the
+      Internet. 
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been found in Apache HTTP Server. Please
+      review the CVE identifiers referenced below for details. 
+    </p>
+  </description>
+  <impact type="high">
+    <p>A remote attacker could send a specially crafted request to possibly
+      execute arbitrary code, cause Denial of Service, or obtain sensitive
+      information. 
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Apache HTTP Server users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-servers/apache-2.2.27-r4"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-6438">CVE-2013-6438</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-0098">CVE-2014-0098</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-0226">CVE-2014-0226</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-05-20T22:08:40Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-08-29T10:56:11Z">K_F</metadata>
+</glsa>

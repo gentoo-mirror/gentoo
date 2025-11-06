@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200506-03">
+  <title>Dzip: Directory traversal vulnerability</title>
+  <synopsis>
+    Dzip is vulnerable to a directory traversal attack.
+  </synopsis>
+  <product type="ebuild">dzip</product>
+  <announced>2005-06-06</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>93079</bug>
+  <access>remote</access>
+  <affected>
+    <package name="games-util/dzip" auto="yes" arch="*">
+      <unaffected range="ge">2.9-r1</unaffected>
+      <vulnerable range="lt">2.9-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Dzip is a compressor and uncompressor especially made for demo
+    recordings of id's Quake.
+    </p>
+  </background>
+  <description>
+    <p>
+    Dzip is vulnerable to a directory traversal attack when extracting
+    archives.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could exploit this vulnerability by creating a specially
+    crafted archive to extract files to arbitrary locations.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Dzip users should upgrade to the latest available version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=games-utils/dzip-2.9-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1874">CVE-2005-1874</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-05-30T13:58:23Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-05-30T13:59:50Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-06-05T17:58:43Z">
+    DerCorny
+  </metadata>
+</glsa>

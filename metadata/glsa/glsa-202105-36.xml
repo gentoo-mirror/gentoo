@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-36">
+  <title>cURL: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in cURL, the worst of
+    which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">curl</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>779535</bug>
+  <bug>792192</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="net-misc/curl" auto="yes" arch="*">
+      <unaffected range="ge">7.77.0</unaffected>
+      <vulnerable range="lt">7.77.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>A command line tool and library for transferring data with URLs.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in cURL. Please review the
+      CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="high">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All cURL users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-misc/curl-7.77.0"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22876">CVE-2021-22876</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22890">CVE-2021-22890</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22898">CVE-2021-22898</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22901">CVE-2021-22901</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T01:59:03Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T12:37:53Z">whissi</metadata>
+</glsa>

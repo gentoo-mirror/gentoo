@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-10">
+    <title>NBD Tools: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in NBD Tools, the worst of which could result in arbitary code execution.</synopsis>
+    <product type="ebuild">nbd</product>
+    <announced>2024-02-04</announced>
+    <revised count="1">2024-02-04</revised>
+    <bug>834678</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-block/nbd" auto="yes" arch="*">
+            <unaffected range="ge">3.24</unaffected>
+            <vulnerable range="lt">3.24</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The NBD Tools are the Network Block Device utilities allowing one to use remote block devices over a TCP/IP network. It includes a userland NBD server.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in NBD Tools. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All NBD Tools users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-block/nbd-3.24"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26495">CVE-2022-26495</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26496">CVE-2022-26496</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-04T09:45:27.057982Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-02-04T09:45:27.060281Z">graaff</metadata>
+</glsa>

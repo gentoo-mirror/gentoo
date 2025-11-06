@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-09">
+  <title>BusyBox: Denial of service</title>
+  <synopsis>A vulnerability in BusyBox might allow remote attackers to cause a
+    Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">busybox</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>777255</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="sys-apps/busybox" auto="yes" arch="*">
+      <unaffected range="ge">1.32.1</unaffected>
+      <vulnerable range="lt">1.32.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>BusyBox is a set of tools for embedded systems and is a replacement for
+      GNU Coreutils.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that BusyBox mishandled the error bit on the
+      huft_build result pointer when decompressing GZIP compressed data.
+    </p>
+  </description>
+  <impact type="low">
+    <p>A remote attacker could entice a user to open a specially crafted GZIP
+      file using BusyBox, possibly resulting in a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All BusyBox users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=sys-apps/busybox-1.32.1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28831">CVE-2021-28831</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-24T01:11:14Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T08:14:24Z">whissi</metadata>
+</glsa>

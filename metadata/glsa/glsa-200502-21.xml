@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200502-21">
+  <title>lighttpd: Script source disclosure</title>
+  <synopsis>
+    An attacker can trick lighttpd into revealing the source of scripts that
+    should be executed as CGI or FastCGI applications.
+  </synopsis>
+  <product type="ebuild">lighttpd</product>
+  <announced>2005-02-15</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>81776</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-servers/lighttpd" auto="yes" arch="*">
+      <unaffected range="ge">1.3.10-r1</unaffected>
+      <vulnerable range="lt">1.3.10-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    lighttpd is a small-footprint, fast, compliant and very flexible
+    web-server which is optimized for high-performance environments.
+    </p>
+  </background>
+  <description>
+    <p>
+    lighttpd uses file extensions to determine which elements are programs
+    that should be executed and which are static pages that should be sent
+    as-is. By appending %00 to the filename, you can evade the extension
+    detection mechanism while still accessing the file.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    A remote attacker could send specific queries and access the source of
+    scripts that should have been executed as CGI or FastCGI applications.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All lighttpd users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-servers/lighttpd-1.3.10-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://article.gmane.org/gmane.comp.web.lighttpd/1171">lighttpd-announce Advisory</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0453">CVE-2005-0453</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-02-14T12:34:31Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-02-14T20:13:10Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-02-14T20:53:12Z">
+    koon
+  </metadata>
+</glsa>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201602-03">
+  <title>libwmf: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in libwmf allowing remote
+    attackers to execute arbitrary code or cause Denial of Service.
+  </synopsis>
+  <product type="ebuild"/>
+  <announced>2016-02-27</announced>
+  <revised count="3">2016-02-27</revised>
+  <bug>551144</bug>
+  <bug>553818</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/libwmf" auto="yes" arch="*">
+      <unaffected range="ge">0.2.8.4-r6</unaffected>
+      <vulnerable range="lt">0.2.8.4-r6</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libwmf is a library for converting WMF files.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in libwmf.  Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could possibly execute arbitrary code with the
+      privileges of the process or cause Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known work around at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libwmf users should upgrade to the latest version:</p>
+      <code>
+        # emerge --sync
+        # emerge --ask --oneshot --verbose "&gt;=media-libs/libwmf-0.2.8.4-r6"
+      </code>
+    </resolution>
+    <references>
+      <uri link="https://nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-0848">
+        CVE-2015-0848
+      </uri>
+      <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-4588">
+        CVE-2015-4588
+      </uri>
+      <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-4695">
+        CVE-2015-4695
+      </uri>
+      <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-4696">
+        CVE-2015-4696
+      </uri>
+    </references>
+    <metadata tag="requester" timestamp="2016-02-25T06:44:07Z">
+      BlueKnight
+    </metadata>
+    <metadata tag="submitter" timestamp="2016-02-27T02:04:39Z">b-man</metadata>
+  </glsa>

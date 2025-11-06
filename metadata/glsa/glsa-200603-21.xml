@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200603-21">
+  <title>Sendmail: Race condition in the handling of asynchronous signals</title>
+  <synopsis>
+    Sendmail is vulnerable to a race condition which could lead to the
+    execution of arbitrary code with sendmail privileges.
+  </synopsis>
+  <product type="ebuild">sendmail</product>
+  <announced>2006-03-22</announced>
+  <revised count="01">2006-03-22</revised>
+  <bug>125623</bug>
+  <access>remote</access>
+  <affected>
+    <package name="mail-mta/sendmail" auto="yes" arch="*">
+      <unaffected range="ge">8.13.6</unaffected>
+      <vulnerable range="lt">8.13.6</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Sendmail is a popular mail transfer agent (MTA).
+    </p>
+  </background>
+  <description>
+    <p>
+    ISS discovered that Sendmail is vulnerable to a race condition in
+    the handling of asynchronous signals.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    An attacker could exploit this via certain crafted timing
+    conditions.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Sendmail users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=mail-mta/sendmail-8.13.6"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0058">CVE-2006-0058</uri>
+    <uri link="https://www.sendmail.com/company/advisory/index.shtml">Sendmail Inc. advisory</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2006-03-21T20:21:08Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-03-22T19:48:59Z">
+    jaervosz
+  </metadata>
+</glsa>

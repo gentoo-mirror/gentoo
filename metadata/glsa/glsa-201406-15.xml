@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201406-15">
+  <title>KDirStat: Arbitrary command execution</title>
+  <synopsis>A vulnerability in KDirStat could allow local attackers to execute
+    arbitrary shell commands.
+  </synopsis>
+  <product type="ebuild">kdirstat</product>
+  <announced>2014-06-15</announced>
+  <revised count="1">2014-06-15</revised>
+  <bug>504994</bug>
+  <access>local</access>
+  <affected>
+    <package name="kde-misc/kdirstat" auto="yes" arch="*">
+      <unaffected range="ge">2.7.5</unaffected>
+      <vulnerable range="lt">2.7.5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>KDirStat is a graphical disk usage utility for KDE.</p>
+  </background>
+  <description>
+    <p>Missing escape of executable shell command in KDirStat can be used to
+      insert malicious shell commands.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A local attacker could possibly execute arbitrary shell command with the
+      privileges of the process.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All KDirStat users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=kde-misc/kdirstat-2.7.5"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-2527">CVE-2014-2527</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-03-21T08:40:23Z">
+    pinkbyte
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-06-15T16:22:38Z">
+    pinkbyte
+  </metadata>
+</glsa>

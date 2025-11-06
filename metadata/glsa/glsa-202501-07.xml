@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202501-07">
+    <title>libgsf: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libgsf, the worst of which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">libgsf</product>
+    <announced>2025-01-23</announced>
+    <revised count="1">2025-01-23</revised>
+    <bug>940777</bug>
+    <access>remote</access>
+    <affected>
+        <package name="gnome-extra/libgsf" auto="yes" arch="*">
+            <unaffected range="ge">1.14.53</unaffected>
+            <vulnerable range="lt">1.14.53</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The GNOME Structured File Library is an I/O library that can read and write common file types and handle structured formats that provide file-system-in-a-file semantics.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libgsf. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libgsf users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=gnome-extra/libgsf-1.14.53"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-36474">CVE-2024-36474</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-42415">CVE-2024-42415</uri>
+        <uri>TALOS-2024-2068</uri>
+        <uri>TALOS-2024-2069</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-01-23T06:25:02.419159Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-01-23T06:25:02.421783Z">graaff</metadata>
+</glsa>

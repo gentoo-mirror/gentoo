@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201101-06">
+  <title>IO::Socket::SSL: Certificate validation error</title>
+  <synopsis>
+    An error in the hostname matching of IO::Socket::SSL might enable remote
+    attackers to conduct man-in-the-middle attacks.
+  </synopsis>
+  <product type="ebuild">IO::Socket::SSL</product>
+  <announced>2011-01-16</announced>
+  <revised count="01">2011-01-16</revised>
+  <bug>276360</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-perl/IO-Socket-SSL" auto="yes" arch="*">
+      <unaffected range="ge">1.26</unaffected>
+      <vulnerable range="lt">1.26</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    IO::Socket::SSL is a Perl class implementing an object oriented
+    interface to SSL sockets.
+    </p>
+  </background>
+  <description>
+    <p>
+    The vendor reported that IO::Socket::SSL does not properly handle
+    Common Name (CN) fields.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker might employ a specially crafted certificate to
+    conduct man-in-the-middle attacks on SSL connections made using
+    IO::Socket::SSL.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All IO::Socket::SSL users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-perl/IO-Socket-SSL-1.26"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3024">CVE-2009-3024</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-07-10T18:07:06Z">
+    craig
+  </metadata>
+  <metadata tag="submitter" timestamp="2010-04-11T12:25:53Z">
+    craig
+  </metadata>
+  <metadata tag="bugReady" timestamp="2010-09-22T19:52:04Z">
+    p-y
+  </metadata>
+</glsa>

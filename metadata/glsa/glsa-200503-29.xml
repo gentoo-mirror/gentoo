@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200503-29">
+  <title>GnuPG: OpenPGP protocol attack</title>
+  <synopsis>
+    Automated systems using GnuPG may leak plaintext portions of an encrypted
+    message.
+  </synopsis>
+  <product type="ebuild">GnuPG</product>
+  <announced>2005-03-24</announced>
+  <revised count="01">2005-03-24</revised>
+  <bug>85547</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-crypt/gnupg" auto="yes" arch="*">
+      <unaffected range="ge">1.4.1</unaffected>
+      <vulnerable range="lt">1.4.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    GnuPG is complete and free replacement for PGP, a tool for secure
+    communication and data storage.
+    </p>
+  </background>
+  <description>
+    <p>
+    A flaw has been identified in an integrity checking mechanism of
+    the OpenPGP protocol.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    An automated system using GnuPG that allows an attacker to
+    repeatedly discover the outcome of an integrity check (perhaps by
+    observing the time required to return a response, or via overly verbose
+    error messages) could theoretically reveal a small portion of
+    plaintext.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All GnuPG users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-crypt/gnupg-1.4.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.kb.cert.org/vuls/id/303094">CERT VU#303094</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0366">CAN-2005-0366</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-03-23T17:12:46Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-03-24T12:34:11Z">
+    taviso
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-03-24T21:44:14Z">
+    koon
+  </metadata>
+</glsa>

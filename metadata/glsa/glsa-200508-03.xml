@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200508-03">
+  <title>nbSMTP: Format string vulnerability</title>
+  <synopsis>
+    nbSMTP is vulnerable to a format string vulnerability which may result in
+    remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">nbsmtp</product>
+  <announced>2005-08-02</announced>
+  <revised count="02">2005-08-11</revised>
+  <bug>100274</bug>
+  <access>remote</access>
+  <affected>
+    <package name="mail-mta/nbsmtp" auto="yes" arch="*">
+      <unaffected range="ge">1.00</unaffected>
+      <vulnerable range="lt">1.00</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    nbSMTP is an SMTP client suitable to run in chroot jails, in embedded
+    systems, laptops and workstations.
+    </p>
+  </background>
+  <description>
+    <p>
+    Niels Heinen discovered a format string vulnerability.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker can setup a malicious SMTP server and exploit this
+    vulnerability to execute arbitrary code with the permissions of the
+    user running nbSMTP.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All nbSMTP users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=mail-mta/nbsmtp-1.0"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-2409">CAN-2005-2409</uri>
+    <uri link="https://nbsmtp.ferdyx.org/">nbSMTP official site</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-07-29T15:56:07Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-07-29T23:01:19Z">
+    adir
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-08-02T12:46:50Z">
+    koon
+  </metadata>
+</glsa>

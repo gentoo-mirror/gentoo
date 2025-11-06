@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200803-24">
+  <title>PCRE: Buffer overflow</title>
+  <synopsis>
+    A buffer overflow vulnerability has been discovered in PCRE, allowing for
+    the execution of arbitrary code and Denial of Service.
+  </synopsis>
+  <product type="ebuild">libpcre glib</product>
+  <announced>2008-03-17</announced>
+  <revised count="02">2008-03-17</revised>
+  <bug>209067</bug>
+  <bug>209293</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/libpcre" auto="yes" arch="*">
+      <unaffected range="ge">7.6-r1</unaffected>
+      <vulnerable range="lt">7.6-r1</vulnerable>
+    </package>
+    <package name="dev-libs/glib" auto="yes" arch="*">
+      <unaffected range="ge">2.14.6</unaffected>
+      <unaffected range="lt">2.14.0</unaffected>
+      <vulnerable range="lt">2.14.6</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    PCRE is a Perl-compatible regular expression library. GLib includes a
+    copy of PCRE.
+    </p>
+  </background>
+  <description>
+    <p>
+    PCRE contains a buffer overflow vulnerability when processing a
+    character class containing a very large number of characters with
+    codepoints greater than 255.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could exploit this vulnerability by sending a
+    specially crafted regular expression to an application making use of
+    the PCRE library, which could possibly lead to the execution of
+    arbitrary code or a Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All PCRE users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-libs/libpcre-7.6-r1"</code>
+    <p>
+    All GLib users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-libs/glib-2.14.6"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0674">CVE-2008-0674</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-02-26T20:45:26Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-03-01T06:12:22Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-03-05T14:06:55Z">
+    keytoaster
+  </metadata>
+</glsa>

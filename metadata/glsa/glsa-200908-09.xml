@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200908-09">
+  <title>DokuWiki: Local file inclusion</title>
+  <synopsis>
+    An input sanitation error in DokuWiki might lead to the dislosure of local
+    files or even the remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">dokuwiki</product>
+  <announced>2009-08-18</announced>
+  <revised count="02">2009-08-19</revised>
+  <bug>272431</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/dokuwiki" auto="yes" arch="*">
+      <unaffected range="ge">20090214b</unaffected>
+      <vulnerable range="lt">20090214b</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    DokuWiki is a standards compliant Wiki system written in PHP.
+    </p>
+  </background>
+  <description>
+    <p>
+    girex reported that data from the "config_cascade" parameter in
+    inc/init.php is not properly sanitized before being used.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could exploit this vulnerability to execute PHP code
+    from arbitrary local, or, when the used PHP version supports ftp://
+    URLs, also from remote files via FTP. Furthermore, it is possible to
+    disclose the contents of local files. NOTE: Successful exploitation
+    requires the PHP option "register_globals" to be enabled.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Disable "register_globals" in php.ini.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All DokuWiki users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/dokuwiki-2009-02-14b"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1960">CVE-2009-1960</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-07-19T18:47:33Z">
+    a3li
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-08-04T19:07:45Z">
+    a3li
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-08-05T13:32:43Z">
+    a3li
+  </metadata>
+</glsa>

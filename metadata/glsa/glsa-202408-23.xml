@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-23">
+    <title>GnuPG: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GnuPG, the worst of which could lead to signature spoofing.</synopsis>
+    <product type="ebuild">gnupg</product>
+    <announced>2024-08-10</announced>
+    <revised count="1">2024-08-10</revised>
+    <bug>855395</bug>
+    <bug>923248</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-crypt/gnupg" auto="yes" arch="*">
+            <unaffected range="ge">2.4.4</unaffected>
+            <vulnerable range="lt">2.4.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The GNU Privacy Guard, GnuPG, is a free replacement for the PGP suite of cryptographic software.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GnuPG. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GnuPG users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-crypt/gnupg-2.4.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34903">CVE-2022-34903</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-10T08:41:19.748264Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-10T08:41:19.752993Z">graaff</metadata>
+</glsa>

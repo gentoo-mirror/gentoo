@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201612-41">
+  <title>WebKitGTK+: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in WebKitGTK+, the worst
+    of which may allow execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">webkit-gtk</product>
+  <announced>2016-12-13</announced>
+  <revised count="3">2016-12-13</revised>
+  <bug>570034</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-libs/webkit-gtk" auto="yes" arch="*">
+      <unaffected range="ge">2.4.10-r200</unaffected>
+      <vulnerable range="lt">2.4.10-r200</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>WebKitGTK+ is a full-featured port of the WebKit rendering engine,
+      suitable for projects requiring any kind of web integration, from hybrid
+      HTML/CSS applications to full-fledged web browsers. It offers WebKit’s
+      full functionality and is useful in a wide range of systems from desktop
+      computers to embedded systems like phones, tablets, and televisions.
+      WebKitGTK+ is made by a lively community of developers and designers, who
+      hope to bring the web platform to everyone. It’s the official web
+      engine of the GNOME platform and is used in browsers such as Epiphany and
+      Midori.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in WebKitGTK+. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker can use multiple vectors to execute arbitrary code or
+      cause a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All WebKitGTK+ users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-libs/webkit-gtk-2.4.10-r200"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-4412">CVE-2014-4412</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-4413">CVE-2014-4413</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-4414">CVE-2014-4414</uri>
+  </references>
+  <metadata tag="requester" timestamp="2016-03-12T11:54:30Z">b-man</metadata>
+  <metadata tag="submitter" timestamp="2016-12-13T13:01:16Z">whissi</metadata>
+</glsa>

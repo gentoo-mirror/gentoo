@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202412-01">
+    <title>R: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in R, which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">R</product>
+    <announced>2024-12-07</announced>
+    <revised count="1">2024-12-07</revised>
+    <bug>930936</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-lang/R" auto="yes" arch="*">
+            <unaffected range="ge">4.4.1</unaffected>
+            <vulnerable range="lt">4.4.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>R is a language and environment for statistical computing and graphics.</p>
+    </background>
+    <description>
+        <p>Deserialization of untrusted data can occur in the R statistical programming language, enabling a maliciously crafted RDS (R Data Serialization) formatted file or R package to run arbitrary code on an end user’s system when interacted with.</p>
+    </description>
+    <impact type="high">
+        <p>Arbitrary code may be run when deserializing untrusted data.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All R users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/R-4.4.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-27322">CVE-2024-27322</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-12-07T08:53:34.596478Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-12-07T08:53:34.602412Z">graaff</metadata>
+</glsa>

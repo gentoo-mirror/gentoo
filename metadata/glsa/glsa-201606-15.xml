@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201606-15">
+  <title>FreeXL: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in FreeXL, allowing remote
+    attackers to executive arbitrary code or cause Denial of Service.
+  </synopsis>
+  <product type="ebuild"/>
+  <announced>2016-06-26</announced>
+  <revised count="1">2016-06-26</revised>
+  <bug>544426</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/freexl" auto="yes" arch="*">
+      <unaffected range="ge">1.0.1</unaffected>
+      <vulnerable range="lt">1.0.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>FreeXL is an open source library to extract valid data from within an
+      Excel (.xls) spreadsheet.
+    </p>
+  </background>
+  <description>
+    <p>FreeXL’s shared strings and workbook functions are vulnerable to the
+      remote execution of arbitrary code and Denial of Service.  This can be
+      achieved through specially crafted workbooks from attackers.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Remote attackers could potentially execute arbitrary code or cause
+      Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All FreeXL users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "dev-libs/freexl-1.0.1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-2753">CVE-2015-2753</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-2754">CVE-2015-2754</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-2776">CVE-2015-2776</uri>
+  </references>
+  <metadata tag="requester" timestamp="2016-03-16T12:15:29Z">b-man</metadata>
+  <metadata tag="submitter" timestamp="2016-06-26T23:53:53Z">b-man</metadata>
+</glsa>

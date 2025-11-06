@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202407-09">
+    <title>OpenSSH: Remote Code Execution</title>
+    <synopsis>A vulnerability has been discovered in OpenSSH, which can lead to remote code execution with root privileges.</synopsis>
+    <product type="ebuild">openssh</product>
+    <announced>2024-07-01</announced>
+    <revised count="1">2024-07-01</revised>
+    <bug>935271</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/openssh" auto="yes" arch="*">
+            <unaffected range="ge">9.7_p1-r6</unaffected>
+            <vulnerable range="lt">9.7_p1-r6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OpenSSH is a free application suite consisting of server and clients that replace tools like telnet, rlogin, rcp and ftp with more secure versions offering additional functionality.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in OpenSSH. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>A critical vulnerability in sshd(8) was present in Portable OpenSSH
+versions that may allow arbitrary code execution with root privileges.
+
+Successful exploitation has been demonstrated on 32-bit Linux/glibc
+systems with ASLR. Under lab conditions, the attack requires on
+average 6-8 hours of continuous connections up to the maximum the
+server will accept. Exploitation on 64-bit systems is believed to be
+possible but has not been demonstrated at this time. It&#39;s likely that
+these attacks will be improved upon.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.
+
+Note that Gentoo has backported the fix to the following versions:
+
+net-misc/openssh-9.6_p1-r5
+net-misc/openssh-9.7_p1-r6</p>
+    </workaround>
+    <resolution>
+        <p>All OpenSSH users should upgrade to the latest version and restart the sshd server (to ensure access for new sessions and no vulnerable code keeps running).</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/openssh-9.7_p1-r6"
+        </code>
+        
+        <p>With OpenRC:</p>
+        
+        <code>
+          # rc-service sshd restart
+        </code>
+        
+        <p>With systemd:</p>
+        
+        <code>
+          #  systemctl try-restart sshd.service
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-6387">CVE-2024-6387</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-07-01T18:03:48.914047Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-07-01T18:03:48.917560Z">graaff</metadata>
+</glsa>

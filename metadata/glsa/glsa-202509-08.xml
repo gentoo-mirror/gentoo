@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202509-08">
+    <title>GnuTLS: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GnuTLS, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">gnutls</product>
+    <announced>2025-09-17</announced>
+    <revised count="1">2025-09-17</revised>
+    <bug>949496</bug>
+    <bug>959840</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/gnutls" auto="yes" arch="*">
+            <unaffected range="ge">3.8.10</unaffected>
+            <vulnerable range="lt">3.8.10</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GnuTLS is a secure communications library implementing the SSL, TLS, and DTLS protocols</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GnuTLS. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GnuTLS users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/gnutls-3.8.10"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12243">CVE-2024-12243</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-6395">CVE-2025-6395</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-32988">CVE-2025-32988</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-32989">CVE-2025-32989</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-32990">CVE-2025-32990</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-09-17T21:41:47.337726Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-09-17T21:41:47.340446Z">sam</metadata>
+</glsa>

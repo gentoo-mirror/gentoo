@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202412-12">
+    <title>PostgreSQL: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in PostgreSQL, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">postgresql</product>
+    <announced>2024-12-08</announced>
+    <revised count="1">2024-12-08</revised>
+    <bug>943512</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-db/postgresql" auto="yes" arch="*">
+            <unaffected range="ge" slot="12">12.21</unaffected>
+            <unaffected range="ge" slot="13">13.17</unaffected>
+            <unaffected range="ge" slot="14">14.14</unaffected>
+            <unaffected range="ge" slot="15">15.9</unaffected>
+            <unaffected range="ge" slot="16">16.5</unaffected>
+            <unaffected range="ge" slot="17">17.1</unaffected>
+            <vulnerable range="lt" slot="12">12.21</vulnerable>
+            <vulnerable range="lt" slot="13">13.17</vulnerable>
+            <vulnerable range="lt" slot="14">14.14</vulnerable>
+            <vulnerable range="lt" slot="15">15.9</vulnerable>
+            <vulnerable range="lt" slot="16">16.5</vulnerable>
+            <vulnerable range="lt" slot="17">17.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>PostgreSQL is an open source object-relational database management system.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in PostgreSQL. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All PostgreSQL users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-db/postgresql-12.21:12"
+          # emerge --ask --oneshot --verbose ">=dev-db/postgresql-13.17:13"
+          # emerge --ask --oneshot --verbose ">=dev-db/postgresql-14.14:14"
+          # emerge --ask --oneshot --verbose ">=dev-db/postgresql-15.9:15"
+          # emerge --ask --oneshot --verbose ">=dev-db/postgresql-16.5:16"
+          # emerge --ask --oneshot --verbose ">=dev-db/postgresql-17.1:17"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10976">CVE-2024-10976</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10977">CVE-2024-10977</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10978">CVE-2024-10978</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10979">CVE-2024-10979</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-12-08T08:29:04.506280Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-12-08T08:29:04.508614Z">graaff</metadata>
+</glsa>

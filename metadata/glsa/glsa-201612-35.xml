@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201612-35">
+  <title>XStream: Remote execution of arbitrary code</title>
+  <synopsis>A vulnerability in XStream may allow remote attackers to execute
+    arbitrary code.
+  </synopsis>
+  <product type="ebuild">xstream</product>
+  <announced>2016-12-13</announced>
+  <revised count="2">2016-12-13</revised>
+  <bug>497652</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-java/xstream" auto="yes" arch="*">
+      <unaffected range="ge">1.4.8-r1</unaffected>
+      <vulnerable range="lt">1.4.8-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>XStream is a simple library to serialize objects to XML and back again.</p>
+  </background>
+  <description>
+    <p>It was found that XStream would deserialize arbitrary user-supplied XML
+      content, thus representing objects of any type.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could pass a specially crafted XML document to
+      XStream, possibly resulting in the execution of arbitrary code with the
+      privileges of the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All XStream users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-java/xstream-1.4.8-r1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-7285">CVE-2013-7285</uri>
+  </references>
+  <metadata tag="requester" timestamp="2016-11-29T21:29:45Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2016-12-13T06:59:12Z">whissi</metadata>
+</glsa>

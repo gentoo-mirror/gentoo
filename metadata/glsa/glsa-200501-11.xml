@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200501-11">
+  <title>Dillo: Format string vulnerability</title>
+  <synopsis>
+    Dillo is vulnerable to a format string bug, which may result in the
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">Dillo</product>
+  <announced>2005-01-09</announced>
+  <revised count="01">2005-01-09</revised>
+  <bug>76665</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-client/dillo" auto="yes" arch="*">
+      <unaffected range="ge">0.8.3-r4</unaffected>
+      <vulnerable range="lt">0.8.3-r4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Dillo is a small and fast multi-platform web browser based on
+    GTK+.
+    </p>
+  </background>
+  <description>
+    <p>
+    Gentoo Linux developer Tavis Ormandy found a format string bug in
+    Dillo's handling of messages in a_Interface_msg().
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could craft a malicious web page which, when accessed
+    using Dillo, would trigger the format string vulnerability and
+    potentially execute arbitrary code with the rights of the user running
+    Dillo.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Dillo users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-client/dillo-0.8.3-r4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0012">CAN-2005-0012</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-01-07T15:41:51Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-01-09T17:56:03Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-01-09T18:39:04Z">
+    koon
+  </metadata>
+</glsa>

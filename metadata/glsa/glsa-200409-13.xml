@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200409-13">
+  <title>LHa: Multiple vulnerabilities</title>
+  <synopsis>
+    Several buffer overflows and a shell metacharacter command execution
+    vulnerability have been found in LHa. These vulnerabilities can be used to
+    execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">lha</product>
+  <announced>2004-09-08</announced>
+  <revised count="02">2006-10-20</revised>
+  <bug>62618</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-arch/lha" auto="yes" arch="*">
+      <unaffected range="rge">114i-r4</unaffected>
+      <vulnerable range="rle">114i-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    LHa is a console-based program for packing and unpacking LHarc archives.
+    </p>
+  </background>
+  <description>
+    <p>
+    The command line argument as well as the archive parsing code of LHa lack
+    sufficient bounds checking. Furthermore, a shell meta character command
+    execution vulnerability exists in LHa, since it does no proper filtering on
+    directory names.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    Using a specially crafted command line argument or archive, an attacker can
+    cause a buffer overflow and could possibly run arbitrary code. The shell
+    meta character command execution could lead to the execution of arbitrary
+    commands by an attacker using directories containing shell meta characters
+    in their names.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All LHa users should upgrade to the latest stable version:
+    </p>
+    <code>
+    # emerge sync
+
+    # emerge -pv "&gt;=app-arch/lha-114i-r4"
+    # emerge "&gt;=app-arch/lha-114i-r4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0694">CAN-2004-0694</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0745">CAN-2004-0745</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0769">CAN-2004-0769</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0771">CAN-2004-0771</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2004-09-08T13:12:24Z">
+    vorlon078
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-09-08T19:32:24Z">
+    jaervosz
+  </metadata>
+</glsa>

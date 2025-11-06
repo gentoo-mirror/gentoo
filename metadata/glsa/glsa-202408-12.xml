@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-12">
+    <title>Bitcoin: Denial of Service</title>
+    <synopsis>A vulnerability has been discovered in Bitcoin, which can lead to a denial of service.</synopsis>
+    <product type="ebuild">bitcoind</product>
+    <announced>2024-08-07</announced>
+    <revised count="1">2024-08-07</revised>
+    <bug>908084</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-p2p/bitcoind" auto="yes" arch="*">
+            <unaffected range="ge">25.0</unaffected>
+            <vulnerable range="lt">25.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Bitcoin Core consists of both &#34;full-node&#34; software for fully validating the blockchain as well as a bitcoin wallet.</p>
+    </background>
+    <description>
+        <p>Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Bitcoin Core, when debug mode is not used, allows attackers to cause a denial of service (CPU consumption) because draining the inventory-to-send queue is inefficient, as exploited in the wild in May 2023.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Bitcoin users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-p2p/bitcoind-25.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-33297">CVE-2023-33297</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-07T12:34:53.892565Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-07T12:34:53.895329Z">graaff</metadata>
+</glsa>

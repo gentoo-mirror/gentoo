@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200705-11">
+  <title>MySQL: Two Denial of Service vulnerabilities</title>
+  <synopsis>
+    Two Denial of Service vulnerabilities have been discovered in MySQL.
+  </synopsis>
+  <product type="ebuild">MySQL</product>
+  <announced>2007-05-08</announced>
+  <revised count="01">2007-05-08</revised>
+  <bug>170126</bug>
+  <bug>171934</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-db/mysql" auto="yes" arch="*">
+      <unaffected range="ge">5.0.38</unaffected>
+      <unaffected range="lt">5.0</unaffected>
+      <vulnerable range="lt">5.0.38</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MySQL is a popular multi-threaded, multi-user SQL server.
+    </p>
+  </background>
+  <description>
+    <p>
+    mu-b discovered a NULL pointer dereference in item_cmpfunc.cc when
+    processing certain types of SQL requests. Sec Consult also discovered
+    another NULL pointer dereference when sorting certain types of queries
+    on the database metadata.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    In both cases, a remote attacker could send a specially crafted SQL
+    request to the server, possibly resulting in a server crash. Note that
+    the attacker needs the ability to execute SELECT queries.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MySQL users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-db/mysql-5.0.38"</code>
+  </resolution>
+  <references>
+    <uri link="https://bugs.mysql.com/bug.php?id=27513">Original Report</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1420">CVE-2007-1420</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-04-24T19:47:08Z">
+    aetius
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-04-25T21:17:16Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-04-25T21:17:35Z">
+    p-y
+  </metadata>
+</glsa>

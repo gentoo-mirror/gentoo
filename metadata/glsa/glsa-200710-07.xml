@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200710-07">
+  <title>Tk: Buffer overflow</title>
+  <synopsis>
+    A buffer overflow vulnerability has been discovered in Tk.
+  </synopsis>
+  <product type="ebuild">tk</product>
+  <announced>2007-10-07</announced>
+  <revised count="01">2007-10-07</revised>
+  <bug>192539</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-lang/tk" auto="yes" arch="*">
+      <unaffected range="ge">8.4.15-r1</unaffected>
+      <vulnerable range="lt">8.4.15-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Tk is a toolkit for creating graphical user interfaces.
+    </p>
+  </background>
+  <description>
+    <p>
+    Reinhard Max discovered a boundary error in Tk when processing an
+    interlaced GIF with two frames where the second is smaller than the
+    first one.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted GIF
+    image with a Tk-based software, possibly resulting in the execution of
+    arbitrary code with the privileges of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Tk users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-lang/tk-8.4.15-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4851">CVE-2007-4851</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-09-25T09:49:33Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-09-25T09:49:45Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-10-02T20:07:14Z">
+    p-y
+  </metadata>
+</glsa>

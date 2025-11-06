@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-15">
+    <title>USBView: root privilege escalation via insecure polkit settings</title>
+    <synopsis>A vulnerability has been discovered in usbview where certain users can trigger a privilege escalation.</synopsis>
+    <product type="ebuild">usbview</product>
+    <announced>2023-10-26</announced>
+    <revised count="1">2023-10-26</revised>
+    <bug>831756</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-admin/usbview" auto="yes" arch="*">
+            <unaffected range="ge">2.2</unaffected>
+            <vulnerable range="lt">2.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>USBView is a tool to display the topology of devices on the USB bus.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in usbview. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>USBView allows some local users (e.g., ones logged in via SSH) to execute arbitrary code as root because certain Polkit settings (e.g., allow_any=yes) for pkexec disable the authentication requirement. Code execution can, for example, use the --gtk-module option.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All USBView users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-admin/usbview-2.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23220">CVE-2022-23220</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-26T04:41:42.430938Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-26T04:41:42.434826Z">graaff</metadata>
+</glsa>

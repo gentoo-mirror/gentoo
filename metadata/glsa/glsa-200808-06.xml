@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200808-06">
+  <title>libxslt: Execution of arbitrary code</title>
+  <synopsis>
+    libxslt is affected by a heap-based buffer overflow, possibly leading to
+    the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">libxslt</product>
+  <announced>2008-08-06</announced>
+  <revised count="01">2008-08-06</revised>
+  <bug>232172</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/libxslt" auto="yes" arch="*">
+      <unaffected range="ge">1.1.24-r1</unaffected>
+      <unaffected range="lt">1.1.8</unaffected>
+      <vulnerable range="lt">1.1.24-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    libxslt is the XSLT C library developed for the GNOME project. XSLT is
+    an XML language to define transformations for XML.
+    </p>
+  </background>
+  <description>
+    <p>
+    Chris Evans (Google Security) reported that the libexslt library that
+    is part of libxslt is affected by a heap-based buffer overflow in the
+    RC4 encryption/decryption functions.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to process an XML file using a
+    specially crafted XSLT stylesheet in an application linked against
+    libxslt, possibly leading to the execution of arbitrary code with the
+    privileges of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All libxslt users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-libs/libxslt-1.1.24-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2935">CVE-2008-2935</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-07-31T23:42:58Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-08-01T23:18:29Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-08-01T23:18:48Z">
+    keytoaster
+  </metadata>
+</glsa>

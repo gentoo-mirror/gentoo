@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200609-04">
+  <title>LibXfont: Multiple integer overflows</title>
+  <synopsis>
+    A buffer overflow was discovered in the PCF font parser, potentially
+    resulting in the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">LibXfont</product>
+  <announced>2006-09-06</announced>
+  <revised count="01">2006-09-06</revised>
+  <bug>144092</bug>
+  <access>local</access>
+  <affected>
+    <package name="x11-libs/libXfont" auto="yes" arch="*">
+      <unaffected range="ge">1.2.0-r1</unaffected>
+      <vulnerable range="lt">1.2.0-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    libXfont is the X.Org Xfont library, some parts are based on the
+    FreeType code base.
+    </p>
+  </background>
+  <description>
+    <p>
+    Several integer overflows have been found in the PCF font parser.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could possibly execute arbitrary code or crash the
+    Xserver by enticing a user to load a specially crafted PCF font file.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Do not use untrusted PCF Font files.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All libXfont users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=x11-libs/libXfont-1.2.0-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3467">CVE-2006-3467</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-08-31T17:04:06Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-09-03T12:10:42Z">
+    daxomatic
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-09-05T19:36:43Z">
+    jaervosz
+  </metadata>
+</glsa>

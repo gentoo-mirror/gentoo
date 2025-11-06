@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200909-16">
+  <title>Wireshark: Denial of service</title>
+  <synopsis>
+    Multiple vulnerabilities have been discovered in Wireshark which allow for
+    Denial of Service.
+  </synopsis>
+  <product type="ebuild">wireshark</product>
+  <announced>2009-09-13</announced>
+  <revised count="01">2009-09-13</revised>
+  <bug>278564</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-analyzer/wireshark" auto="yes" arch="*">
+      <unaffected range="ge">1.2.1</unaffected>
+      <vulnerable range="lt">1.2.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Wireshark is a versatile network protocol analyzer.
+    </p>
+  </background>
+  <description>
+    <p>
+    Multiple vulnerabilities were discovered in Wireshark:
+    </p>
+    <ul>
+    <li>A
+    buffer overflow in the IPMI dissector related to an array index error
+    (CVE-2009-2559).</li>
+    <li>Multiple unspecified vulnerabilities in the
+    Bluetooth L2CAP, RADIUS, and MIOP dissectors (CVE-2009-2560).</li>
+    <li>An unspecified vulnerability in the sFlow dissector
+    (CVE-2009-2561).</li>
+    <li>An unspecified vulnerability in the AFS
+    dissector (CVE-2009-2562).</li>
+    <li>An unspecified vulnerability in the
+    Infiniband dissector when running on unspecified platforms
+    (CVE-2009-2563).</li>
+    </ul>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could exploit these vulnerabilities by sending
+    specially crafted packets on a network being monitored by Wireshark or
+    by enticing a user to read a malformed packet trace file to cause a
+    Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Wireshark users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-analyzer/wireshark-1.2.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2559">CVE-2009-2559</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2560">CVE-2009-2560</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2561">CVE-2009-2561</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2562">CVE-2009-2562</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2563">CVE-2009-2563</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-08-25T10:03:54Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-08-25T13:10:41Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-08-25T13:28:12Z">
+    keytoaster
+  </metadata>
+</glsa>

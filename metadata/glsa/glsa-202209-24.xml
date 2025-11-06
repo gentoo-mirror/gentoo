@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-24">
+    <title>Expat: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Expat, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">expat</product>
+    <announced>2022-09-29</announced>
+    <revised count="1">2022-09-29</revised>
+    <bug>791703</bug>
+    <bug>830422</bug>
+    <bug>831918</bug>
+    <bug>833431</bug>
+    <bug>870097</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/expat" auto="yes" arch="*">
+            <unaffected range="ge">2.4.9</unaffected>
+            <vulnerable range="lt">2.4.9</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Expat is a set of XML parsing libraries.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Expat. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Expat users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/expat-2.4.9"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45960">CVE-2021-45960</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46143">CVE-2021-46143</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22822">CVE-2022-22822</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22823">CVE-2022-22823</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22824">CVE-2022-22824</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22825">CVE-2022-22825</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22826">CVE-2022-22826</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22827">CVE-2022-22827</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23852">CVE-2022-23852</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23990">CVE-2022-23990</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-25235">CVE-2022-25235</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-25236">CVE-2022-25236</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-25313">CVE-2022-25313</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-25314">CVE-2022-25314</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-25315">CVE-2022-25315</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-40674">CVE-2022-40674</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-29T14:24:39.510183Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-29T14:24:39.514035Z">ajak</metadata>
+</glsa>

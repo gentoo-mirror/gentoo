@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200804-09">
+  <title>am-utils: Insecure temporary file creation</title>
+  <synopsis>
+    am-utils creates temporary files insecurely allowing local users to
+    overwrite arbitrary files via a symlink attack.
+  </synopsis>
+  <product type="ebuild">am-utils</product>
+  <announced>2008-04-10</announced>
+  <revised count="01">2008-04-10</revised>
+  <bug>210158</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-fs/am-utils" auto="yes" arch="*">
+      <unaffected range="ge">6.1.5</unaffected>
+      <vulnerable range="lt">6.1.5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    am-utils is a collection of utilities for use with the Berkeley
+    Automounter.
+    </p>
+  </background>
+  <description>
+    <p>
+    Tavis Ormandy discovered that, when creating temporary files, the
+    'expn' utility does not check whether the file already exists.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could exploit the vulnerability via a symlink attack
+    to overwrite arbitrary files.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All am-utils users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-fs/am-utils-6.1.5"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1078">CVE-2008-1078</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-04-08T21:38:37Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-04-10T09:22:28Z">
+    mfleming
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-04-10T13:21:27Z">
+    vorlon
+  </metadata>
+</glsa>

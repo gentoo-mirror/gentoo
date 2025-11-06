@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200612-18">
+  <title>ClamAV: Denial of service</title>
+  <synopsis>
+    ClamAV is vulnerable to Denial of Service.
+  </synopsis>
+  <product type="ebuild">clamav</product>
+  <announced>2006-12-18</announced>
+  <revised count="01">2006-12-18</revised>
+  <bug>157698</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-antivirus/clamav" auto="yes" arch="*">
+      <unaffected range="ge">0.88.7</unaffected>
+      <vulnerable range="lt">0.88.7</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    ClamAV is a GPL virus scanner.
+    </p>
+  </background>
+  <description>
+    <p>
+    Hendrik Weimer discovered that ClamAV fails to properly handle deeply
+    nested MIME multipart/mixed content.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By sending a specially crafted email with deeply nested MIME
+    multipart/mixed content an attacker could cause ClamAV to crash.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All ClamAV users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-antivirus/clamav-0.88.7"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6481">CVE-2006-6481</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2006-12-16T18:27:28Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-12-18T19:01:42Z">
+    vorlon
+  </metadata>
+</glsa>

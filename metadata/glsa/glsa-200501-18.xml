@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200501-18">
+  <title>KDE FTP KIOslave: Command injection</title>
+  <synopsis>
+    The FTP KIOslave contains a bug allowing users to execute arbitrary FTP
+    commands.
+  </synopsis>
+  <product type="ebuild">konqueror</product>
+  <announced>2005-01-11</announced>
+  <revised count="02">2005-01-12</revised>
+  <bug>73759</bug>
+  <access>remote</access>
+  <affected>
+    <package name="kde-base/kdelibs" auto="yes" arch="*">
+      <unaffected range="ge">3.3.2-r2</unaffected>
+      <unaffected range="rge">3.2.3-r5</unaffected>
+      <vulnerable range="lt">3.3.2-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    KDE is a feature-rich graphical desktop environment for Linux and
+    Unix-like Operating Systems. KDE provided KIOslaves for many protocols
+    in the kdelibs package, one of them being FTP. These are used by KDE
+    applications such as Konqueror.
+    </p>
+  </background>
+  <description>
+    <p>
+    The FTP KIOslave fails to properly parse URL-encoded newline
+    characters.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could exploit this to execute arbitrary FTP commands on the
+    server and due to similiarities between the FTP and the SMTP protocol,
+    this vulnerability also allows an attacker to connect to a SMTP server
+    and issue arbitrary commands, for example sending an email.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All kdelibs users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose kde-base/kdelibs</code>
+  </resolution>
+  <references>
+    <uri link="https://www.kde.org/info/security/advisory-20050101-1.txt">KDE Security Advisory: ftp kioslave command injection</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-1165">CAN-2004-1165</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2005-01-05T16:56:23Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-01-11T12:39:06Z">
+    jaervosz
+  </metadata>
+</glsa>

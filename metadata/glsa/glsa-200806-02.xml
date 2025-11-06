@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200806-02">
+  <title>libxslt: Execution of arbitrary code</title>
+  <synopsis>
+    A vulnerability was found in libxslt, possibly resulting in the execution
+    of arbitrary code and Denial of Service.
+  </synopsis>
+  <product type="ebuild">libxslt</product>
+  <announced>2008-06-03</announced>
+  <revised count="01">2008-06-03</revised>
+  <bug>222499</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/libxslt" auto="yes" arch="*">
+      <unaffected range="ge">1.1.24</unaffected>
+      <vulnerable range="lt">1.1.24</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Libxslt is the XSLT C library developed for the GNOME project. XSLT
+    itself is an XML language to define transformations for XML.
+    </p>
+  </background>
+  <description>
+    <p>
+    Anthony de Almeida Lopes reported a vulnerability in libxslt when
+    handling XSL style-sheet files, which could be exploited to trigger the
+    use of uninitialized memory, e.g. in a call to "free()".
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user or automated system to process an
+    XML file using a specially crafted XSL transformation file, possibly
+    resulting in the execution of arbitrary code or a Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All libxslt users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-libs/libxslt-1.1.24"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1767">CVE-2008-1767</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-05-27T20:52:43Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-05-27T21:07:25Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-06-02T21:27:22Z">
+    p-y
+  </metadata>
+</glsa>

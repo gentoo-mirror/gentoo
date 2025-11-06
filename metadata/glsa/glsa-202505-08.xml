@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202505-08">
+    <title>Spidermonkey: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Spidermonkey, the worst of which could lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">spidermonkey</product>
+    <announced>2025-05-14</announced>
+    <revised count="1">2025-05-14</revised>
+    <bug>941171</bug>
+    <bug>942471</bug>
+    <bug>951565</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-lang/spidermonkey" auto="yes" arch="*">
+            <unaffected range="ge">128.8.0</unaffected>
+            <vulnerable range="lt">128.8.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>SpiderMonkey is Mozilla’s JavaScript and WebAssembly Engine, used in Firefox, Servo and various other projects. It is written in C++, Rust and JavaScript. You can embed it into C++ and Rust projects, and it can be run as a stand-alone shell.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Spidermonkey. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Spidermonkey users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/spidermonkey-128.8.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-8900">CVE-2024-8900</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9391">CVE-2024-9391</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9392">CVE-2024-9392</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9395">CVE-2024-9395</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9396">CVE-2024-9396</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9397">CVE-2024-9397</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9399">CVE-2024-9399</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9400">CVE-2024-9400</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9401">CVE-2024-9401</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9402">CVE-2024-9402</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9403">CVE-2024-9403</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10458">CVE-2024-10458</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10459">CVE-2024-10459</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10460">CVE-2024-10460</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10461">CVE-2024-10461</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10462">CVE-2024-10462</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10463">CVE-2024-10463</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10464">CVE-2024-10464</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10465">CVE-2024-10465</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10466">CVE-2024-10466</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10467">CVE-2024-10467</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10468">CVE-2024-10468</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-43097">CVE-2024-43097</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-1931">CVE-2025-1931</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-1932">CVE-2025-1932</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-1933">CVE-2025-1933</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-1934">CVE-2025-1934</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-1935">CVE-2025-1935</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-1936">CVE-2025-1936</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-1937">CVE-2025-1937</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-1938">CVE-2025-1938</uri>
+        <uri>MFSA2024-46</uri>
+        <uri>MFSA2024-47</uri>
+        <uri>MFSA2024-48</uri>
+        <uri>MFSA2024-49</uri>
+        <uri>MFSA2024-50</uri>
+        <uri>MFSA2024-55</uri>
+        <uri>MFSA2024-56</uri>
+        <uri>MFSA2024-57</uri>
+        <uri>MFSA2024-58</uri>
+        <uri>MFSA2024-59</uri>
+        <uri>MFSA2025-14</uri>
+        <uri>MFSA2025-16</uri>
+        <uri>MFSA2025-18</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-05-14T09:54:40.805804Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-05-14T09:54:40.809974Z">graaff</metadata>
+</glsa>

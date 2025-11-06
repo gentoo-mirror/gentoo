@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-20">
+    <title>Thunar: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in Thunar which may lead to arbitrary code execution</synopsis>
+    <product type="ebuild">thunar</product>
+    <announced>2024-02-18</announced>
+    <revised count="1">2024-02-18</revised>
+    <bug>789396</bug>
+    <access>local</access>
+    <affected>
+        <package name="xfce-base/thunar" auto="yes" arch="*">
+            <unaffected range="ge">4.17.3</unaffected>
+            <vulnerable range="lt">4.17.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Thunar is a modern file manager for the Xfce Desktop Environment. Thunar has been designed from the ground up to be fast and easy to use. Its user interface is clean and intuitive and does not include any confusing or useless options by default. Thunar starts up quickly and navigating through files and folders is fast and responsive.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Thunar. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>When called with a regular file as command line argument, Thunar
+would delegate to some other program without user confirmation
+based on the file type. This could be exploited to trigger code
+execution in a chain of vulnerabilities.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Thunar users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=xfce-base/thunar-4.17.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32563">CVE-2021-32563</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-18T10:48:22.149721Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-18T10:48:22.154139Z">graaff</metadata>
+</glsa>

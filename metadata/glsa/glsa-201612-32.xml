@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201612-32">
+  <title>elfutils: Heap-based buffer overflow</title>
+  <synopsis>A heap-based buffer overflow vulnerability in elfutils might allow
+    remote attackers to execute arbitrary code. 
+  </synopsis>
+  <product type="ebuild">elfutils</product>
+  <announced>2016-12-13</announced>
+  <revised count="2">2016-12-13</revised>
+  <bug>507246</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/elfutils" auto="yes" arch="*">
+      <unaffected range="ge">0.159</unaffected>
+      <vulnerable range="lt">0.159</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Elfutils provides a library and utilities to access, modify and analyse
+      ELF objects.
+    </p>
+  </background>
+  <description>
+    <p>An integer overflow, in the check_section function of dwarf_begin_elf.c,
+      in the libdw library can lead to a heap-based buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted file,
+      possibly resulting in the execution of arbitrary code with the privileges
+      of the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All elfutils users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-libs/elfutils-0.159"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-0172">CVE-2014-0172</uri>
+  </references>
+  <metadata tag="requester" timestamp="2016-11-22T14:55:36Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2016-12-13T06:58:39Z">whissi</metadata>
+</glsa>

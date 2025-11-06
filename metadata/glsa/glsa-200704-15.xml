@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200704-15">
+  <title>MadWifi: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple vulnerabilities have been discovered in the MadWifi driver,
+    possibly leading to a Denial of Service and information disclosure.
+  </synopsis>
+  <product type="ebuild">Madwifi-ng</product>
+  <announced>2007-04-17</announced>
+  <revised count="02">2007-04-21</revised>
+  <bug>173434</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-wireless/madwifi-ng" auto="yes" arch="*">
+      <unaffected range="ge">0.9.3</unaffected>
+      <vulnerable range="lt">0.9.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    The MadWifi driver provides support for Atheros based IEEE 802.11
+    Wireless Lan cards.
+    </p>
+  </background>
+  <description>
+    <p>
+    The driver does not properly process Channel Switch Announcement
+    Information Elements, allowing for an abnormal channel change. The
+    ieee80211_input() function does not properly handle AUTH frames and the
+    driver sends unencrypted packets before WPA authentication succeeds.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could send specially crafted AUTH frames to the
+    vulnerable host, resulting in a Denial of Service by crashing the
+    kernel. A remote attacker could gain access to sensitive information
+    about network architecture by sniffing unencrypted packets. A remote
+    attacker could also send a Channel Switch Count less than or equal to
+    one to trigger a channel change, resulting in a communication loss and
+    a Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MadWifi users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-wireless/madwifi-ng-0.9.3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7178">CVE-2006-7178</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7179">CVE-2006-7179</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7180">CVE-2006-7180</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2007-04-11T12:32:14Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-04-11T18:16:05Z">
+    p-y
+  </metadata>
+</glsa>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201612-15">
+  <title>ARJ: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in ARJ, the worst of which
+    may allow attackers to execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">arj</product>
+  <announced>2016-12-06</announced>
+  <revised count="1">2016-12-06</revised>
+  <bug>535708</bug>
+  <bug>541500</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="app-arch/arj" auto="yes" arch="*">
+      <unaffected range="ge">3.10.22-r5</unaffected>
+      <vulnerable range="lt">3.10.22-r5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Open-source implementation of the ARJ archiver.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in ARJ. Please review the
+      CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>An attacker, using a specially crafted ARJ archive, could possibly
+      execute arbitrary code with the privileges of the process, or cause a
+      Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All ARJ users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-arch/arj-3.10.22-r5"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-0556">CVE-2015-0556</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-0557">CVE-2015-0557</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-2782">CVE-2015-2782</uri>
+  </references>
+  <metadata tag="requester" timestamp="2016-11-28T01:08:04Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2016-12-06T03:45:36Z">whissi</metadata>
+</glsa>

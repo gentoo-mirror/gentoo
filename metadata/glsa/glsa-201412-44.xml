@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201412-44">
+  <title>policycoreutils: Privilege escalation</title>
+  <synopsis>A vulnerability in policycoreutils could lead to local privilege
+    escalation.
+  </synopsis>
+  <product type="ebuild">policycoreutils</product>
+  <announced>2014-12-26</announced>
+  <revised count="1">2014-12-26</revised>
+  <bug>509896</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-apps/policycoreutils" auto="yes" arch="*">
+      <unaffected range="ge">2.2.5-r4</unaffected>
+      <vulnerable range="lt">2.2.5-r4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>policycoreutils is a collection of SELinux policy utilities.</p>
+  </background>
+  <description>
+    <p>The seunshare utility is owned by root with 4755 permissions which can
+      be exploited by a setuid system call.
+    </p>
+  </description>
+  <impact type="high">
+    <p>A local attacker may be able to gain escalated privileges.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All policycoreutils users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=sys-apps/policycoreutils-2.2.5-r4"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-3215">CVE-2014-3215</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-08-19T04:53:45Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-12-26T18:53:38Z">ackle</metadata>
+</glsa>

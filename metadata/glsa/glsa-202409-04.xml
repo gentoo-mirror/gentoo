@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-04">
+    <title>calibre: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in calibre, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">calibre</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>918429</bug>
+    <bug>936961</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="app-text/calibre" auto="yes" arch="*">
+            <unaffected range="ge">7.16.0</unaffected>
+            <vulnerable range="lt">7.16.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>calibre is a powerful and easy to use e-book manager.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in calibre. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All calibre users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/calibre-7.16.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-46303">CVE-2023-46303</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-6781">CVE-2024-6781</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-6782">CVE-2024-6782</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-7008">CVE-2024-7008</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-7009">CVE-2024-7009</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T05:54:09.323646Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T05:54:09.325619Z">graaff</metadata>
+</glsa>

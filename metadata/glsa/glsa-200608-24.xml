@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200608-24">
+  <title>AlsaPlayer: Multiple buffer overflows</title>
+  <synopsis>
+    AlsaPlayer is vulnerable to multiple buffer overflows which could lead to
+    the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">AlsaPlayer</product>
+  <announced>2006-08-26</announced>
+  <revised count="01">2006-08-26</revised>
+  <bug>143402</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-sound/alsaplayer" auto="yes" arch="*">
+      <vulnerable range="le">0.99.76-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    AlsaPlayer is a heavily multithreaded PCM player that tries to utilize
+    ALSA utilities and drivers. As of June 2004, the project is inactive.
+    </p>
+  </background>
+  <description>
+    <p>
+    AlsaPlayer contains three buffer overflows: in the function that
+    handles the HTTP connections, the GTK interface, and the CDDB querying
+    mechanism.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could exploit the first vulnerability by enticing a user to
+    load a malicious URL resulting in the execution of arbitrary code with
+    the permissions of the user running AlsaPlayer.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    AlsaPlayer has been masked in Portage pending the resolution of these
+    issues. AlsaPlayer users are advised to uninstall the package until
+    further notice:
+    </p>
+    <code>
+    # emerge --ask --unmerge "media-sound/alsaplayer"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=2006-4089">CVE-2006-4089</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-08-18T15:04:43Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-08-18T21:34:55Z">
+    hlieberman
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-08-18T21:40:51Z">
+    hlieberman
+  </metadata>
+</glsa>

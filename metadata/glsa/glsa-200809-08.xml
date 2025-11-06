@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200809-08">
+  <title>Amarok: Insecure temporary file creation</title>
+  <synopsis>
+    Amarok uses temporary files in an insecure manner, allowing for a symlink
+    attack.
+  </synopsis>
+  <product type="ebuild">amarok</product>
+  <announced>2008-09-08</announced>
+  <revised count="01">2008-09-08</revised>
+  <bug>234689</bug>
+  <access>local</access>
+  <affected>
+    <package name="media-sound/amarok" auto="yes" arch="*">
+      <unaffected range="ge">1.4.10</unaffected>
+      <vulnerable range="lt">1.4.10</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Amarok is an advanced music player.
+    </p>
+  </background>
+  <description>
+    <p>
+    Dwayne Litzenberger reported that the
+    MagnatuneBrowser::listDownloadComplete() function in
+    magnatunebrowser/magnatunebrowser.cpp uses the album_info.xml temporary
+    file in an insecure manner.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could perform a symlink attack to overwrite arbitrary
+    files on the system with the privileges of the user running the
+    application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Amarok users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-sound/amarok-1.4.10"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3699">CVE-2008-3699</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-09-02T17:05:46Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-09-05T21:54:43Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-09-05T21:54:55Z">
+    p-y
+  </metadata>
+</glsa>

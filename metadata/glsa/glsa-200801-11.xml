@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200801-11">
+  <title>CherryPy: Directory traversal vulnerability</title>
+  <synopsis>
+    CherryPy is vulnerable to a directory traversal that could allow attackers
+    to read and write arbitrary files.
+  </synopsis>
+  <product type="ebuild">cherrypy</product>
+  <announced>2008-01-27</announced>
+  <revised count="01">2008-01-27</revised>
+  <bug>204829</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-python/cherrypy" auto="yes" arch="*">
+      <unaffected range="rge">2.2.1-r2</unaffected>
+      <unaffected range="ge">3.0.2-r1</unaffected>
+      <vulnerable range="lt">3.0.2-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    CherryPy is a Python-based, object-oriented web development framework.
+    </p>
+  </background>
+  <description>
+    <p>
+    CherryPy does not sanitize the session id, provided as a cookie value,
+    in the FileSession._get_file_path() function before using it as part of
+    the file name.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could exploit this vulnerability to read and possibly
+    write arbitrary files on the web server, or to hijack valid sessions,
+    by providing a specially crafted session id. This only affects
+    applications using file-based sessions.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Disable the "FileSession" functionality by using "PostgresqlSession" or
+    "RamSession" session management in your CherryPy application.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All CherryPy 2.2 users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-python/cherrypy-2.2.1-r2"</code>
+    <p>
+    All CherryPy 3.0 users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-python/cherrypy-3.0.2-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0252">CVE-2008-0252</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-10T20:11:50Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-01-20T02:16:18Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-01-26T19:16:48Z">
+    p-y
+  </metadata>
+</glsa>

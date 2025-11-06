@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200812-03">
+  <title>IPsec-Tools: racoon Denial of service</title>
+  <synopsis>
+    IPsec-Tools' racoon is affected by a remote Denial of Service
+    vulnerability.
+  </synopsis>
+  <product type="ebuild">ipsec-tools</product>
+  <announced>2008-12-02</announced>
+  <revised count="01">2008-12-02</revised>
+  <bug>232831</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-firewall/ipsec-tools" auto="yes" arch="*">
+      <unaffected range="ge">0.7.1</unaffected>
+      <vulnerable range="lt">0.7.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    IPsec-Tools is a port of KAME's implementation of the IPsec utilities.
+    It contains a collection of network monitoring tools, including racoon,
+    ping, and ping6.
+    </p>
+  </background>
+  <description>
+    <p>
+    Two Denial of Service vulnerabilities have been reported in racoon:
+    </p>
+    <ul>
+    <li>
+    The vendor reported a memory leak in racoon/proposal.c that can be
+    triggered via invalid proposals (CVE-2008-3651).
+    </li>
+    <li>
+    Krzysztof Piotr Oledzk reported that src/racoon/handler.c does not
+    remove an "orphaned ph1" (phase 1) handle when it has been initiated
+    remotely (CVE-2008-3652).
+    </li>
+    </ul>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could exploit these vulnerabilities to cause a Denial of
+    Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All IPsec-Tools users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-firewall/ipsec-tools-0.7.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3651">CVE-2008-3651</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3652">CVE-2008-3652</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-11-26T18:44:35Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-11-26T20:25:15Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-11-26T20:25:48Z">
+    rbu
+  </metadata>
+</glsa>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200610-12">
+  <title>Apache mod_tcl: Format string vulnerability</title>
+  <synopsis>
+    A format string vulnerabilty has been found in Apache mod_tcl, which could
+    lead to the remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">mod_tcl</product>
+  <announced>2006-10-24</announced>
+  <revised count="01">2006-10-24</revised>
+  <bug>151359</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apache/mod_tcl" auto="yes" arch="*">
+      <unaffected range="ge">1.0.1</unaffected>
+      <vulnerable range="lt">1.0.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Apache mod_tcl is a TCL interpreting module for the Apache 2.x web
+    server.
+    </p>
+  </background>
+  <description>
+    <p>
+    Sparfell discovered format string errors in calls to the set_var
+    function in tcl_cmds.c and tcl_core.c.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could exploit the vulnerability to execute arbitrary
+    code with the rights of the user running the Apache server.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All mod_tcl users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apache/mod_tcl-1.0.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4154">CVE-2006-4154</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-10-21T12:26:41Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-10-21T20:37:41Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-10-23T14:13:35Z">
+    vorlon078
+  </metadata>
+</glsa>

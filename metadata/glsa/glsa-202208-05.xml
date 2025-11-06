@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-05">
+    <title>Icinga Web 2: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Icinga Web 2, the worst of which could result in remote code execution.</synopsis>
+    <product type="ebuild">icingaweb2</product>
+    <announced>2022-08-04</announced>
+    <revised count="1">2022-08-04</revised>
+    <bug>738024</bug>
+    <bug>834802</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-apps/icingaweb2" auto="yes" arch="*">
+            <unaffected range="ge">2.9.6</unaffected>
+            <vulnerable range="lt">2.9.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Icinga Web 2 is a frontend for icinga2.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Icinga Web 2. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Icinga Web 2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-apps/icingaweb2-2.9.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-24368">CVE-2020-24368</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24714">CVE-2022-24714</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24715">CVE-2022-24715</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24716">CVE-2022-24716</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-04T13:54:03.704673Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-04T13:54:03.709641Z">ajak</metadata>
+</glsa>

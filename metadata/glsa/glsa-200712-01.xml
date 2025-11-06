@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200712-01">
+  <title>Hugin: Insecure temporary file creation</title>
+  <synopsis>
+    A vulnerability has been discovered in Hugin, potentially allowing for a
+    Denial of Service.
+  </synopsis>
+  <product type="ebuild">hugin</product>
+  <announced>2007-12-05</announced>
+  <revised count="01">2007-12-05</revised>
+  <bug>195996</bug>
+  <access>local</access>
+  <affected>
+    <package name="media-gfx/hugin" auto="yes" arch="*">
+      <unaffected range="rge">0.6.1-r1</unaffected>
+      <unaffected range="ge">0.7_beta4-r1</unaffected>
+      <vulnerable range="lt">0.7_beta4-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Hugin is a GUI for creating and processing panoramic images.
+    </p>
+  </background>
+  <description>
+    <p>
+    Suse Linux reported that Hugin creates the
+    "hugin_debug_optim_results.txt" temporary file in an insecure manner.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could exploit this vulnerability with a symlink
+    attack, potentially overwriting an arbitrary file with the privileges
+    of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Hugin users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-gfx/hugin-0.6.1-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5200">CVE-2007-5200</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2007-11-17T23:47:03Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-11-17T23:47:10Z">
+    p-y
+  </metadata>
+</glsa>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200606-17">
+  <title>OpenLDAP: Buffer overflow</title>
+  <synopsis>
+    The OpenLDAP replication server slurpd contains a buffer overflow that
+    could result in arbitrary code execution.
+  </synopsis>
+  <product type="ebuild">net-nds/openldap</product>
+  <announced>2006-06-15</announced>
+  <revised count="01">2006-06-15</revised>
+  <bug>134010</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-nsd/openldap" auto="yes" arch="*">
+      <unaffected range="ge">2.3.22</unaffected>
+      <vulnerable range="lt">2.3.22</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    OpenLDAP is a suite of LDAP-related applications and development tools.
+    It includes slapd (the standalone LDAP server), slurpd (the standalone
+    LDAP replication server), various LDAP libraries, utilities and example
+    clients.
+    </p>
+  </background>
+  <description>
+    <p>
+    slurpd contains a buffer overflow when reading very long hostnames from
+    the status file.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By injecting an overly long hostname in the status file, an attacker
+    could possibly cause the execution of arbitrary code with the
+    permissions of the user running slurpd.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All openLDAP users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-nds/openldap-2.3.22"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2754">CVE-2006-2754</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-06-08T10:43:24Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-06-11T20:44:06Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-06-12T07:06:11Z">
+    SeJo
+  </metadata>
+</glsa>

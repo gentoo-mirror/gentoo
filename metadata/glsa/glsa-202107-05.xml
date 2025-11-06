@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-05">
+  <title>libxml2: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in libxml2, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">libxml2</product>
+  <announced>2021-07-06</announced>
+  <revised count="1">2021-07-06</revised>
+  <bug>749849</bug>
+  <bug>790002</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="dev-libs/libxml2" auto="yes" arch="*">
+      <unaffected range="ge">2.9.11</unaffected>
+      <vulnerable range="lt">2.9.11</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libxml2 is the XML (eXtended Markup Language) C parser and toolkit
+      initially developed for the GNOME project.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in libxml2. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>A remote attacker could entice a user to process a specially crafted XML
+      document using an application linked against libxml2, possibly resulting
+      in a Denial of Service condition or obtaining sensitive information.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libxml2 users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-libs/libxml2-2.9.12-r3"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-24977">CVE-2020-24977</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3516">CVE-2021-3516</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3517">CVE-2021-3517</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3518">CVE-2021-3518</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3537">CVE-2021-3537</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3541">CVE-2021-3541</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-24T00:17:09Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-07-06T03:13:56Z">whissi</metadata>
+</glsa>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200501-01">
+  <title>LinPopUp: Buffer overflow in message reply</title>
+  <synopsis>
+    LinPopUp contains a buffer overflow potentially allowing execution of
+    arbitrary code.
+  </synopsis>
+  <product type="ebuild">Linpopup</product>
+  <announced>2005-01-04</announced>
+  <revised count="01">2005-01-04</revised>
+  <bug>74705</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-im/linpopup" auto="yes" arch="*">
+      <unaffected range="ge">2.0.4-r1</unaffected>
+      <vulnerable range="lt">2.0.4-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    LinPopUp is a graphical application that acts as a frontend to
+    Samba client messaging functions, allowing a Linux desktop to
+    communicate with a Microsoft Windows computer that runs Winpopup.
+    </p>
+  </background>
+  <description>
+    <p>
+    Stephen Dranger discovered that LinPopUp contains a buffer
+    overflow in string.c, triggered when replying to a remote user message.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could craft a malicious message that, when
+    replied using LinPopUp, would exploit the buffer overflow. This would
+    result in the execution of arbitrary code with the privileges of the
+    user running LinPopUp.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All LinPopUp users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-im/linpopup-2.0.4-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-1282">CAN-2004-1282</uri>
+    <uri link="http://tigger.uic.edu/~jlongs2/holes/linpopup.txt">Stephen Dranger Advisory</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-12-31T10:20:27Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-01-01T22:08:20Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-01-01T22:15:30Z">
+    koon
+  </metadata>
+</glsa>

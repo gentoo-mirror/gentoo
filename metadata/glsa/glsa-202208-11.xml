@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-11">
+    <title>Yubico pam-u2f: Local PIN Bypass vulnerability</title>
+    <synopsis>A vulnerability has been discovered in pam-u2f which could allow a local attacker to bypass PIN entry.</synopsis>
+    <product type="ebuild">pam_u2f</product>
+    <announced>2022-08-10</announced>
+    <revised count="1">2022-08-10</revised>
+    <bug>792270</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-auth/pam_u2f" auto="yes" arch="*">
+            <unaffected range="ge">1.1.1</unaffected>
+            <vulnerable range="lt">1.1.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Yubico pam-u2f is a PAM module for FIDO2 and U2F keys.</p>
+    </background>
+    <description>
+        <p>A logic issue in Yubico pam-u2f could result in the bypass of a PIN entry requirement when authenticating with FIDO2.</p>
+    </description>
+    <impact type="low">
+        <p>An attacker with local access to certain applications using pam-u2f for authentication could incorrectly successfully authenticate without entering the authentication PIN.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Yubico pam-u2f users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-auth/pam_u2f-1.1.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-31924">CVE-2021-31924</uri>
+        <uri>YSA-2021-03</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-10T04:07:59.824838Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-10T04:07:59.828973Z">ajak</metadata>
+</glsa>

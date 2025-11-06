@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-25">
+    <title>runc: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in runc, the worst of which could lead to privilege escalation.</synopsis>
+    <product type="ebuild">runc</product>
+    <announced>2024-08-11</announced>
+    <revised count="1">2024-08-11</revised>
+    <bug>828471</bug>
+    <bug>844085</bug>
+    <bug>903079</bug>
+    <bug>923434</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-containers/runc" auto="yes" arch="*">
+            <unaffected range="ge">1.1.12</unaffected>
+            <vulnerable range="lt">1.1.12</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>runc is a CLI tool for spawning and running containers on Linux according to the OCI specification.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in runc. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All runc users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-containers/runc-1.1.12"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-43784">CVE-2021-43784</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29162">CVE-2022-29162</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25809">CVE-2023-25809</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-27561">CVE-2023-27561</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28642">CVE-2023-28642</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-21626">CVE-2024-21626</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-11T05:45:57.598514Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-11T05:45:57.602231Z">graaff</metadata>
+</glsa>

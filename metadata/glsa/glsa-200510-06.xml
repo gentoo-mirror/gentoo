@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200510-06">
+  <title>Dia: Arbitrary code execution through SVG import</title>
+  <synopsis>
+    Improperly sanitised data in Dia allows remote attackers to execute
+    arbitrary code.
+  </synopsis>
+  <product type="ebuild">dia</product>
+  <announced>2005-10-06</announced>
+  <revised count="01">2005-10-06</revised>
+  <bug>107916</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-office/dia" auto="yes" arch="*">
+      <unaffected range="ge">0.94-r3</unaffected>
+      <vulnerable range="lt">0.94-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Dia is a gtk+ based diagram creation program released under the
+    GPL license.
+    </p>
+  </background>
+  <description>
+    <p>
+    Joxean Koret discovered that the SVG import plugin in Dia fails to
+    properly sanitise data read from an SVG file.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could create a specially crafted SVG file, which, when
+    imported into Dia, could lead to the execution of arbitrary code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Dia users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-office/dia-0.94-r3"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-2966">CAN-2005-2966</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-10-04T12:58:56Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-10-04T18:51:11Z">
+    adir
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-10-05T07:39:21Z">
+    koon
+  </metadata>
+</glsa>

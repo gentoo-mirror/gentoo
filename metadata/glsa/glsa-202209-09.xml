@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-09">
+    <title>Smarty: Multiple vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Smarty, the worst of which could result in remote code execution</synopsis>
+    <product type="ebuild">smarty</product>
+    <announced>2022-09-25</announced>
+    <revised count="1">2022-09-25</revised>
+    <bug>830980</bug>
+    <bug>845180</bug>
+    <bug>870100</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-php/smarty" auto="yes" arch="*">
+            <unaffected range="ge">4.2.1</unaffected>
+            <vulnerable range="lt">4.2.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Smarty is a template engine for PHP. The &#34;template security&#34; feature of Smarty is designed to help reduce the risk of a system compromise when you have untrusted parties editing templates.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Smarty. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Smarty users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-php/smarty-4.2.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-25047">CVE-2018-25047</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21408">CVE-2021-21408</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29454">CVE-2021-29454</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29221">CVE-2022-29221</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-25T13:34:41.298611Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-25T13:34:41.303400Z">ajak</metadata>
+</glsa>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-29">
+    <title>squashfs-tools: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in squashfs-tools, the worst of which can result in an arbitrary file write.</synopsis>
+    <product type="ebuild">squashfs-tools</product>
+    <announced>2023-05-30</announced>
+    <revised count="1">2023-05-30</revised>
+    <bug>810706</bug>
+    <bug>813654</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-fs/squashfs-tools" auto="yes" arch="*">
+            <unaffected range="ge">4.5_p20210914</unaffected>
+            <vulnerable range="lt">4.5_p20210914</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Squashfs is a compressed read-only filesystem for Linux. Squashfs is intended for general read-only filesystem use, for archival use (i.e. in cases where a .tar.gz file may be used), and in constrained block device/memory systems (e.g. embedded systems) where low overhead is needed.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in squashfs-tools. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All squashfs-tools users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-fs/squashfs-tools-4.5_p20210914"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-40153">CVE-2021-40153</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41072">CVE-2021-41072</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-30T02:54:28.530142Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-30T02:54:28.552180Z">ajak</metadata>
+</glsa>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200704-17">
+  <title>3proxy: Buffer overflow</title>
+  <synopsis>
+    A vulnerability has been discovered in 3proxy allowing for the remote
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">3proxy</product>
+  <announced>2007-04-22</announced>
+  <revised count="01">2007-04-22</revised>
+  <bug>174429</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-proxy/3proxy" auto="yes" arch="*">
+      <unaffected range="ge">0.5.3h</unaffected>
+      <vulnerable range="lt">0.5.3h</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    3proxy is a multi-protocol proxy, including HTTP/HTTPS/FTP and SOCKS
+    support.
+    </p>
+  </background>
+  <description>
+    <p>
+    The 3proxy development team reported a buffer overflow in the logurl()
+    function when processing overly long requests.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could send a specially crafted transparent request to
+    the proxy, resulting in the execution of arbitrary code with privileges
+    of the user running 3proxy.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All 3proxy users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-proxy/3proxy-0.5.3h"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2031">CVE-2007-2031</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-04-18T05:09:29Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-04-18T08:45:40Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-04-18T20:45:40Z">
+    p-y
+  </metadata>
+</glsa>

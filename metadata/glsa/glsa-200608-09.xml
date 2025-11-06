@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200608-09">
+  <title>MySQL: Denial of service</title>
+  <synopsis>
+    An authenticated user can crash MySQL through invalid parameters to the
+    date_format function.
+  </synopsis>
+  <product type="ebuild">mysql</product>
+  <announced>2006-08-06</announced>
+  <revised count="02">2006-08-07</revised>
+  <bug>142429</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-db/mysql" auto="yes" arch="*">
+      <unaffected range="ge">4.1.21</unaffected>
+      <unaffected range="lt">4.1.0</unaffected>
+      <vulnerable range="lt">4.1.21</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MySQL is a popular multi-threaded, multi-user SQL server.
+    </p>
+  </background>
+  <description>
+    <p>
+    Jean-David Maillefer discovered a format string vulnerability in
+    time.cc where MySQL fails to properly handle specially formatted user
+    input to the date_format function.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By specifying a format string as the first parameter to the date_format
+    function, an authenticated attacker could cause MySQL to crash,
+    resulting in a Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MySQL users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --verbose --oneshot "&gt;=dev-db/mysql-4.1.21"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3469">CVE-2006-3469</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-08-06T17:22:07Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-08-06T17:22:38Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-08-06T18:32:52Z">
+    hlieberman
+  </metadata>
+</glsa>

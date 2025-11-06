@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-19">
+  <title>Jinja: Denial of service</title>
+  <synopsis>An inefficient regular expression could be exploited to cause a
+    Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">jinja2</product>
+  <announced>2021-07-08</announced>
+  <revised count="1">2021-07-08</revised>
+  <bug>768300</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-python/jinja" auto="yes" arch="*">
+      <unaffected range="ge">2.11.3</unaffected>
+      <vulnerable range="lt">2.11.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Jinja is a template engine written in pure Python.</p>
+  </background>
+  <description>
+    <p>The ‘urlize’ filter in Jinja utilized an inefficient regular
+      expression that could be exploited to consume excess CPU.
+    </p>
+  </description>
+  <impact type="low">
+    <p>An attacker could cause a Denial of Service condition via crafted input
+      to the ‘urlize’ Jinja filter.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Jinja users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-python/jinja-2.11.3"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28493">CVE-2020-28493</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-31T21:46:47Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-07-08T04:02:25Z">ajak</metadata>
+</glsa>

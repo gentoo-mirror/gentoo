@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-24">
+    <title>ytnef: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in ytnef, the worst of which could potentially lead to remote code execution.</synopsis>
+    <product type="ebuild">ytnef</product>
+    <announced>2024-05-08</announced>
+    <revised count="1">2024-05-08</revised>
+    <bug>774255</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-mail/ytnef" auto="yes" arch="*">
+            <unaffected range="ge">2.0</unaffected>
+            <vulnerable range="lt">2.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>ytnef is a TNEF stream reader for reading winmail.dat files.</p>
+    </background>
+    <description>
+        <p>The TNEFSubjectHandler function in lib/ytnef.c allows remote attackers to cause a denial-of-service (and potentially code execution) due to a double free which can be triggered via a crafted file.
+
+The SwapWord function in lib/ytnef.c allows remote attackers to cause a denial-of-service (and potentially code execution) due to a heap buffer overflow which can be triggered via a crafted file.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All ytnef users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-mail/ytnef-2.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3403">CVE-2021-3403</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3404">CVE-2021-3404</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-08T08:16:41.923823Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-08T08:16:41.929071Z">graaff</metadata>
+</glsa>

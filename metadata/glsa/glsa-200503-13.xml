@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200503-13">
+  <title>mlterm: Integer overflow vulnerability</title>
+  <synopsis>
+    mlterm is vulnerable to an integer overflow, which could potentially allow
+    the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">mlterm</product>
+  <announced>2005-03-07</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>84174</bug>
+  <access>remote</access>
+  <affected>
+    <package name="x11-terms/mlterm" auto="yes" arch="*">
+      <unaffected range="ge">2.9.2</unaffected>
+      <vulnerable range="lt">2.9.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    mlterm is a multi-lingual terminal emulator.
+    </p>
+  </background>
+  <description>
+    <p>
+    mlterm is vulnerable to an integer overflow that can be triggered by
+    specifying a large image file as a background. This only effects users
+    that have compiled mlterm with the 'gtk' USE flag, which enables
+    gdk-pixbuf support.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker can create a specially-crafted image file which, when used
+    as a background by the victim, can lead to the execution of arbitrary
+    code with the privileges of the user running mlterm.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Re-compile mlterm without the 'gtk' USE flag.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All mlterm users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=x11-terms/mlterm-2.9.2"</code>
+  </resolution>
+  <references>
+    <uri link="https://sourceforge.net/project/shownotes.php?release_id=310416">mlterm ChangeLog</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0686">CVE-2005-0686</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-03-05T16:23:09Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-03-06T10:05:20Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-03-07T01:52:03Z">
+    lewk
+  </metadata>
+</glsa>

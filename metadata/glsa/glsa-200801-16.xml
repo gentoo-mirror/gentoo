@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200801-16">
+  <title>MaraDNS: CNAME Denial of service</title>
+  <synopsis>
+    MaraDNS is prone to a Denial of Service vulnerability impacting CNAME
+    resolution.
+  </synopsis>
+  <product type="ebuild">maradns</product>
+  <announced>2008-01-29</announced>
+  <revised count="01">2008-01-29</revised>
+  <bug>204351</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-dns/maradns" auto="yes" arch="*">
+      <unaffected range="ge">1.2.12.08</unaffected>
+      <vulnerable range="lt">1.2.12.08</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MaraDNS is a package that implements the Domain Name Service (DNS) with
+    resolver and caching ability.
+    </p>
+  </background>
+  <description>
+    <p>
+    Michael Krieger reported that a specially crafted DNS could prevent an
+    authoritative canonical name (CNAME) record from being resolved because
+    of an "improper rotation of resource records".
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could send specially crafted DNS packets to a
+    vulnerable server, making it unable to resolve CNAME records.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Add "max_ar_chain = 2" to the "marac" configuration file.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MaraDNS users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-dns/maradns-1.2.12.09"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0061">CVE-2008-0061</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-27T19:19:02Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-01-28T17:41:20Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-01-28T18:03:45Z">
+    falco
+  </metadata>
+</glsa>

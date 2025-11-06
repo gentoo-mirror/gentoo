@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-53">
+  <title>Leptonica: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Leptonica, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">leptonica</product>
+  <announced>2021-07-24</announced>
+  <revised count="3">2021-07-24</revised>
+  <bug>775629</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/leptonica" auto="yes" arch="*">
+      <unaffected range="ge">1.80.0</unaffected>
+      <vulnerable range="lt">1.80.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Leptonica is a C library for image processing and analysis.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Leptonica. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Leptonica users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-libs/leptonica-1.80.0"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36277">CVE-2020-36277</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36278">CVE-2020-36278</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36279">CVE-2020-36279</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36280">CVE-2020-36280</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36281">CVE-2020-36281</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-24T02:43:34Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-24T03:05:56Z">ajak</metadata>
+</glsa>

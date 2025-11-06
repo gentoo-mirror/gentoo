@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200707-07">
+  <title>MPlayer: Multiple buffer overflows</title>
+  <synopsis>
+    Multiple vulnerabilities have been discovered in MPlayer, possibly allowing
+    for the remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">mplayer</product>
+  <announced>2007-07-24</announced>
+  <revised count="03">2007-10-12</revised>
+  <bug>181097</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-video/mplayer" auto="yes" arch="*">
+      <unaffected range="ge">1.0.20070622</unaffected>
+      <unaffected range="lt">1.0</unaffected>
+      <vulnerable range="lt">1.0.20070622</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MPlayer is a media player incuding support for a wide range of audio
+    and video formats.
+    </p>
+  </background>
+  <description>
+    <p>
+    Stefan Cornelius and Reimar Doffinger of Secunia Research discovered
+    several boundary errors in the functions cddb_query_parse(),
+    cddb_parse_matches_list() and cddb_read_parse(), each allowing for a
+    stack-based buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted file
+    with malicious CDDB entries, possibly resulting in the execution of
+    arbitrary code with the privileges of the user running MPlayer.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MPlayer users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-video/mplayer-1.0.20070622"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2948">CVE-2007-2948</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-07-15T07:30:30Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-07-17T18:47:22Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-07-17T18:48:15Z">
+    p-y
+  </metadata>
+</glsa>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-47">
+  <title>libpano13: Format string vulnerability</title>
+  <synopsis>A format string vulnerability has been found in libpano13,
+    potentially resulting in arbitrary code execution.
+  </synopsis>
+  <product type="ebuild">libpano13</product>
+  <announced>2021-07-20</announced>
+  <revised count="1">2021-07-20</revised>
+  <bug>780486</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/libpano13" auto="yes" arch="*">
+      <unaffected range="ge">2.9.20</unaffected>
+      <vulnerable range="lt">2.9.20</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libpano13 is Helmut Derschâ€™s panorama toolbox library.</p>
+  </background>
+  <description>
+    <p>A format string issue exists within panoFileOutputNamesCreate() where
+      unvalidated input is passed directly into the formatter.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted file
+      using libpano13, possibly resulting in execution of arbitrary code with
+      the privileges of the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libpano13 users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-libs/libpano13-2.9.20"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20307">CVE-2021-20307</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-16T01:54:06Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-20T04:19:22Z">ajak</metadata>
+</glsa>

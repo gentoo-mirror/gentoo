@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202507-01">
+    <title>sudo: Privilege escalation</title>
+    <synopsis>Multiple vulnerabilities have been discovered in sudo, the worst of which could result in privilege escalation.</synopsis>
+    <product type="ebuild">sudo</product>
+    <announced>2025-07-01</announced>
+    <revised count="1">2025-07-01</revised>
+    <bug>959314</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="app-admin/sudo" auto="yes" arch="*">
+            <unaffected range="ge">1.9.17_p1</unaffected>
+            <vulnerable range="lt">1.9.17_p1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>sudo allows a system administrator to give users the ability to run commands as other users.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in sudo. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>An attacker can escalate privileges to root by providing a special argument to sudo&#39;s --chroot (which is used for chroot purposes). Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All sudo users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-admin/sudo-1.9.17_p1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-32462">CVE-2025-32462</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-32463">CVE-2025-32463</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-07-01T18:11:18.898614Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2025-07-01T18:11:18.901431Z">sam</metadata>
+</glsa>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200603-13">
+  <title>PEAR-Auth: Potential authentication bypass</title>
+  <synopsis>
+    PEAR-Auth did not correctly verify data passed to the DB and LDAP
+    containers, thus allowing to inject false credentials to bypass the
+    authentication.
+  </synopsis>
+  <product type="ebuild">pear-auth</product>
+  <announced>2006-03-17</announced>
+  <revised count="01">2006-03-17</revised>
+  <bug>123832</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-php/PEAR-Auth" auto="yes" arch="*">
+      <unaffected range="ge">1.2.4</unaffected>
+      <vulnerable range="lt">1.2.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    PEAR-Auth is a PEAR package that provides methods to create a PHP
+    based authentication system.
+    </p>
+  </background>
+  <description>
+    <p>
+    Matt Van Gundy discovered that PEAR-Auth did not correctly
+    validate data passed to the DB and LDAP containers.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could possibly exploit this vulnerability to
+    bypass the authentication mechanism by injecting specially crafted
+    input to the underlying storage containers.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All PEAR-Auth users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-php/PEAR-Auth-1.2.4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0868">CVE-2006-0868</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-03-14T21:29:18Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-03-14T21:29:45Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-03-14T23:22:04Z">
+    DerCorny
+  </metadata>
+</glsa>

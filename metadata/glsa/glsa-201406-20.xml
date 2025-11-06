@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201406-20">
+  <title>nginx: Arbitrary code execution</title>
+  <synopsis>A vulnerability has been found in nginx which may allow execution
+    of arbitrary code. 
+  </synopsis>
+  <product type="ebuild">nginx</product>
+  <announced>2014-06-22</announced>
+  <revised count="1">2014-06-22</revised>
+  <bug>505018</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-servers/nginx" auto="yes" arch="*">
+      <unaffected range="ge">1.4.7</unaffected>
+      <vulnerable range="lt">1.4.7</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>nginx is a robust, small, and high performance HTTP and reverse proxy
+      server. 
+    </p>
+  </background>
+  <description>
+    <p>A bug in the SPDY implementation in nginx was found which might cause a
+      heap memory buffer overflow in a worker process by using a specially
+      crafted request. The SPDY implementation is not enabled in default
+      configurations.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could cause execution of arbitrary code by using a
+      specially crafted request.
+    </p>
+  </impact>
+  <workaround>
+    <p>Disable the spdy module in NGINX_MODULES_HTTP. </p>
+  </workaround>
+  <resolution>
+    <p>All nginx users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-servers/nginx-1.4.7"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-0133">CVE-2014-0133</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-06-18T23:50:11Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-06-22T11:57:03Z">K_F</metadata>
+</glsa>

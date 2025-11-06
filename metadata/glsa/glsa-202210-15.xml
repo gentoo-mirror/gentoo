@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-15">
+    <title>GDAL: Heap Buffer Overflow</title>
+    <synopsis>A heap buffer overflow vulnerability has been found in GDAL which could result in denial of service.</synopsis>
+    <product type="ebuild">gdal</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>830370</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sci-libs/gdal" auto="yes" arch="*">
+            <unaffected range="ge">3.4.1</unaffected>
+            <vulnerable range="lt">3.4.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GDAL is a geospatial data abstraction library.</p>
+    </background>
+    <description>
+        <p>GDAL does not sufficiently sanitize input when loading PCIDSK binary segments.</p>
+    </description>
+    <impact type="low">
+        <p>Loading crafted PCIDSK data via GDAL could result in denial of service.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GDAL users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sci-libs/gdal-3.4.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45943">CVE-2021-45943</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:10:36.240702Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:10:36.246058Z">ajak</metadata>
+</glsa>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201409-08">
+  <title>libxml2: Denial of service</title>
+  <synopsis>A vulnerability in libxml2 allows a remote attacker to cause Denial
+    of Service.
+  </synopsis>
+  <product type="ebuild">libxml2</product>
+  <announced>2014-09-19</announced>
+  <revised count="1">2014-09-19</revised>
+  <bug>509834</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/libxml2" auto="yes" arch="*">
+      <unaffected range="ge">2.9.1-r4</unaffected>
+      <vulnerable range="lt">2.9.1-r4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libxml2 is the XML C parser and toolkit developed for the Gnome project.</p>
+  </background>
+  <description>
+    <p>A vulnerability in the xmlParserHandlePEReference() function of
+      parser.c, when expanding entity references, can be exploited to consume
+      large amounts of memory and cause a crash or hang.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker may be able to cause Denial of Service via a specially
+      crafted XML file containing malicious attributes.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libxml2 users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-libs/libxml2-2.9.1-r4"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-0191">CVE-2014-0191</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-06-17T21:06:15Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-09-19T18:56:04Z">K_F</metadata>
+</glsa>

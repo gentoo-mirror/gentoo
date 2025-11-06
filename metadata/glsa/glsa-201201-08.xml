@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201201-08">
+  <title>FontForge: User-assisted execution of arbitrary code</title>
+  <synopsis>A stack-based buffer overflow flaw in FontForge could result in
+    execution of arbitrary code or a Denial of Service.
+  </synopsis>
+  <product type="ebuild">FontForge</product>
+  <announced>2012-01-23</announced>
+  <revised count="1">2012-01-23</revised>
+  <bug>386293</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-gfx/fontforge" auto="yes" arch="*">
+      <unaffected range="ge">20110222-r1</unaffected>
+      <vulnerable range="lt">20110222-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>FontForge is a PostScript font editor and converter.</p>
+  </background>
+  <description>
+    <p>FontForge is vulnerable to an error when processing the
+      "CHARSET_REGISTRY" header in font files, which could cause a stack-based
+      buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted BDF
+      file using FontForge font editor, possibly resulting in the remote
+      execution of arbitrary code with the privileges of the FontForge process,
+      or a Denial of Service (application crash).
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All FontForge users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-gfx/fontforge-20110222-r1"
+    </code>
+    
+    <p>NOTE: This is a legacy GLSA. Updates for all affected architectures are
+      available since October 12, 2011. It is likely that your system is
+      already no longer affected by this issue.
+    </p>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2010-4259">CVE-2010-4259</uri>
+  </references>
+  <metadata timestamp="2011-10-12T15:24:32Z" tag="requester">
+    underling
+  </metadata>
+  <metadata timestamp="2012-01-23T11:57:55Z" tag="submitter">ackle</metadata>
+</glsa>

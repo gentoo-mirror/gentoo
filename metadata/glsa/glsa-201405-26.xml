@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201405-26">
+  <title>X2Go Server: Privilege Escalation</title>
+  <synopsis>A local privilege escalation vulnerability has been discovered in
+    X2Go Server.
+  </synopsis>
+  <product type="ebuild">x2go</product>
+  <announced>2014-05-19</announced>
+  <revised count="1">2014-05-19</revised>
+  <bug>497260</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-misc/x2goserver" auto="yes" arch="*">
+      <unaffected range="ge">4.0.1.12</unaffected>
+      <vulnerable range="lt">4.0.1.12</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>X2Go is an open source terminal server project.</p>
+  </background>
+  <description>
+    <p>X2Go Server is prone to a local privilege-escalation vulnerability.</p>
+  </description>
+  <impact type="high">
+    <p>A local attacker could gain escalated privileges.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All X2Go Server users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-misc/x2goserver-4.0.1.12"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-7383">CVE-2013-7383</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-03-04T17:00:01Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-05-19T07:13:54Z">
+    BlueKnight
+  </metadata>
+</glsa>

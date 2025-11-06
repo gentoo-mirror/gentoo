@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-06">
+    <title>Heimdal: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Heimdal, the worst of which could lead to remote code execution on a KDC.</synopsis>
+    <product type="ebuild">heimdal</product>
+    <announced>2023-10-08</announced>
+    <revised count="1">2023-10-08</revised>
+    <bug>881429</bug>
+    <bug>893722</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-crypt/heimdal" auto="yes" arch="*">
+            <unaffected range="ge">7.8.0-r1</unaffected>
+            <vulnerable range="lt">7.8.0-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Heimdal is a free implementation of Kerberos 5.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Heimdal, the worst of which could lead to remote code execution on a Kerberos Domain Controller.
+
+Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Cross-realm trust vulnerability in Heimdal users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-crypt/heimdal-7.8.0-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-14870">CVE-2019-14870</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44758">CVE-2021-44758</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3437">CVE-2022-3437</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3671">CVE-2022-3671</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41916">CVE-2022-41916</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42898">CVE-2022-42898</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-44640">CVE-2022-44640</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-44758">CVE-2022-44758</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45142">CVE-2022-45142</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-08T06:51:59.537471Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-08T06:51:59.541301Z">graaff</metadata>
+</glsa>

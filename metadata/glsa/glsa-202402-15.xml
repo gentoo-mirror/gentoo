@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-15">
+    <title>e2fsprogs: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in e2fsprogs which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">e2fsprogs</product>
+    <announced>2024-02-18</announced>
+    <revised count="1">2024-02-18</revised>
+    <bug>838388</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-fs/e2fsprogs" auto="yes" arch="*">
+            <unaffected range="ge">1.46.6</unaffected>
+            <vulnerable range="lt">1.46.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>e2fsprogs is a set of utilities for maintaining the ext2, ext3 and ext4 file systems.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in e2fsprogs. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>An out-of-bounds read/write vulnerability was found in e2fsprogs. This issue leads to a segmentation fault and possibly arbitrary code execution via a specially crafted filesystem.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All e2fsprogs users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-fs/e2fsprogs-1.46.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1304">CVE-2022-1304</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-18T07:59:58.426596Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-18T07:59:58.430463Z">graaff</metadata>
+</glsa>

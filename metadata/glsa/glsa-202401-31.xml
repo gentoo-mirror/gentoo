@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-31">
+    <title>containerd: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in containerd, the worst of which could result in privilege escalation.</synopsis>
+    <product type="ebuild">containerd</product>
+    <announced>2024-01-31</announced>
+    <revised count="1">2024-01-31</revised>
+    <bug>802948</bug>
+    <bug>816315</bug>
+    <bug>834689</bug>
+    <bug>835917</bug>
+    <bug>850124</bug>
+    <bug>884803</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-containers/containerd" auto="yes" arch="*">
+            <unaffected range="ge">1.6.14</unaffected>
+            <vulnerable range="lt">1.6.14</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>containerd is a daemon with an API and a command line client, to manage containers on one machine. It uses runC to run containers according to the OCI specification.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in containerd. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All containerd users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-containers/containerd-1.6.14"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32760">CVE-2021-32760</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41103">CVE-2021-41103</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23471">CVE-2022-23471</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23648">CVE-2022-23648</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24769">CVE-2022-24769</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31030">CVE-2022-31030</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-31T12:30:06.354455Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-01-31T12:30:06.357060Z">graaff</metadata>
+</glsa>

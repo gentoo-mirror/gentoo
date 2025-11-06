@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-16">
+    <title>Slurm: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Slurm, the worst of which could result in privilege escalation or code execution.</synopsis>
+    <product type="ebuild">slurm</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>631552</bug>
+    <bug>920104</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-cluster/slurm" auto="yes" arch="*">
+            <vulnerable range="le">22.05.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Slurm is a highly scalable resource manager.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Slurm. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for Slurm. We recommend that users unmerge it:</p>
+        
+        <code>
+          # emerge --ask --depclean "sys-cluster/slurm"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36770">CVE-2020-36770</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-49933">CVE-2023-49933</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-49934">CVE-2023-49934</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-49935">CVE-2023-49935</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-49936">CVE-2023-49936</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-49937">CVE-2023-49937</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-49938">CVE-2023-49938</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T07:39:27.768375Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T07:39:27.772433Z">graaff</metadata>
+</glsa>

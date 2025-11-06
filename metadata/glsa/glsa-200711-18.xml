@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200711-18">
+  <title>Cpio: Buffer overflow</title>
+  <synopsis>
+    GNU cpio contains a buffer overflow vulnerability, possibly resulting in a
+    Denial of Service.
+  </synopsis>
+  <product type="ebuild">cpio</product>
+  <announced>2007-11-14</announced>
+  <revised count="01">2007-11-14</revised>
+  <bug>196978</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-arch/cpio" auto="yes" arch="*">
+      <unaffected range="ge">2.9-r1</unaffected>
+      <vulnerable range="lt">2.9-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    GNU cpio copies files into or out of a cpio or tar archive.
+    </p>
+  </background>
+  <description>
+    <p>
+    A buffer overflow vulnerability in the safer_name_suffix() function in
+    GNU cpio has been discovered.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted
+    archive file resulting in a stack-based buffer overflow, possibly
+    crashing the application. It is disputed whether the execution of
+    arbitrary code is possible.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All GNU cpio users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-arch/cpio-2.9-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4476">CVE-2007-4476</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-11-07T19:52:13Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-11-07T20:48:37Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-11-08T18:58:10Z">
+    keytoaster
+  </metadata>
+</glsa>

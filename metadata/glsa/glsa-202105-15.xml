@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-15">
+  <title>Prosŏdy IM: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Prosŏdy IM, the worst
+    of which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">prosody</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>771144</bug>
+  <bug>789969</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-im/prosody" auto="yes" arch="*">
+      <unaffected range="ge">0.11.9</unaffected>
+      <vulnerable range="lt">0.11.9</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Prosŏdy IM is a modern XMPP communication server. It aims to be easy to
+      set up and configure, and efficient with system resources.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Prosŏdy IM. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Prosŏdy IM users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-im/prosody-0.11.9"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32917">CVE-2021-32917</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32918">CVE-2021-32918</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32919">CVE-2021-32919</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32920">CVE-2021-32920</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32921">CVE-2021-32921</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-24T16:08:26Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T08:37:19Z">whissi</metadata>
+</glsa>

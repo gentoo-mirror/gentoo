@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200605-17">
+  <title>libTIFF: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple vulnerabilities in libTIFF could lead to the execution of
+    arbitrary code or a Denial of Service.
+  </synopsis>
+  <product type="ebuild">libtiff</product>
+  <announced>2006-05-30</announced>
+  <revised count="01">2006-05-30</revised>
+  <bug>129675</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/tiff" auto="yes" arch="*">
+      <unaffected range="ge">3.8.1</unaffected>
+      <vulnerable range="lt">3.8.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    libTIFF provides support for reading and manipulating TIFF images.
+    </p>
+  </background>
+  <description>
+    <p>
+    Multiple vulnerabilities, ranging from integer overflows and NULL
+    pointer dereferences to double frees, were reported in libTIFF.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could exploit these vulnerabilities by enticing a user
+    to open a specially crafted TIFF image, possibly leading to the
+    execution of arbitrary code or a Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All libTIFF users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/tiff-3.8.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0405">CVE-2006-0405</uri>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2024">CVE-2006-2024</uri>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2025">CVE-2006-2025</uri>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2026">CVE-2006-2026</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2006-05-28T21:42:59Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-05-28T21:43:06Z">
+    DerCorny
+  </metadata>
+</glsa>

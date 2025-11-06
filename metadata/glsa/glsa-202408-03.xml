@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-03">
+    <title>libXpm: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulberabilities have been discovered in libXpm, the worst of which could lead to a denial of service.</synopsis>
+    <product type="ebuild">libXpm</product>
+    <announced>2024-08-07</announced>
+    <revised count="1">2024-08-07</revised>
+    <bug>891209</bug>
+    <bug>915130</bug>
+    <access>local</access>
+    <affected>
+        <package name="x11-libs/libXpm" auto="yes" arch="*">
+            <unaffected range="ge">3.5.17</unaffected>
+            <vulnerable range="lt">3.5.17</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The X PixMap image format is an extension of the monochrome X BitMap format specified in the X protocol, and is commonly used in traditional X applications.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libXpm. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libXpm users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-libs/libXpm-3.5.17"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4883">CVE-2022-4883</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-44617">CVE-2022-44617</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46285">CVE-2022-46285</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-43788">CVE-2023-43788</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-43789">CVE-2023-43789</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-07T05:22:06.419014Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-07T05:22:06.422663Z">graaff</metadata>
+</glsa>

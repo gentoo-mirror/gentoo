@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200501-12">
+  <title>TikiWiki: Arbitrary command execution</title>
+  <synopsis>
+    A bug in TikiWiki allows certain users to upload and execute malicious PHP
+    scripts.
+  </synopsis>
+  <product type="ebuild">tikiwiki</product>
+  <announced>2005-01-10</announced>
+  <revised count="03">2006-05-22</revised>
+  <bug>75568</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/tikiwiki" auto="yes" arch="*">
+      <unaffected range="ge">1.8.4.1</unaffected>
+      <vulnerable range="lt">1.8.4.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    TikiWiki is a web-based groupware and content management system (CMS),
+    using PHP, ADOdb and Smarty.
+    </p>
+  </background>
+  <description>
+    <p>
+    TikiWiki lacks a check on uploaded images in the Wiki edit page.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A malicious user could run arbitrary commands on the server by
+    uploading and calling a PHP script.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All TikiWiki users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/tikiwiki-1.8.4.1"</code>
+    <p>
+    Note: Users with the vhosts USE flag set should manually use
+    webapp-config to finalize the update.
+    </p>
+  </resolution>
+  <references>
+    <uri link="http://tikiwiki.org/tiki-read_article.php?articleId=97">TikiWiki Advisory</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1386">CVE-2004-1386</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-01-07T09:12:58Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-01-07T09:13:09Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-01-07T20:49:48Z">
+    vorlon078
+  </metadata>
+</glsa>

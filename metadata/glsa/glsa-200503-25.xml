@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200503-25">
+  <title>OpenSLP: Multiple buffer overflows</title>
+  <synopsis>
+    Multiple buffer overflows have been found in OpenSLP, which could lead to
+    the remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">OpenSLP</product>
+  <announced>2005-03-20</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>85347</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-libs/openslp" auto="yes" arch="*">
+      <unaffected range="ge">1.2.1</unaffected>
+      <vulnerable range="lt">1.2.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    OpenSLP is an open-source implementation of Service Location Protocol
+    (SLP).
+    </p>
+  </background>
+  <description>
+    <p>
+    Multiple buffer overflows have been found in OpenSLP, when handling
+    malformed SLP packets.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    By sending specially crafted SLP packets, a remote attacker could
+    potentially execute arbitrary code with the rights of the OpenSLP
+    daemon.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All OpenSLP users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-libs/openslp-1.2.1"</code>
+  </resolution>
+  <references>
+    <uri link="http://www.novell.com/linux/security/advisories/2005_15_openslp.html">SUSE Security Announcement</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0769">CVE-2005-0769</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-03-16T22:37:07Z">
+    lewk
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-03-17T14:53:57Z">
+    formula7
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-03-20T20:02:39Z">
+    koon
+  </metadata>
+</glsa>

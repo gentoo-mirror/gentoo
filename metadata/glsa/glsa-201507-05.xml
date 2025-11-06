@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201507-05">
+  <title>SQLite: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in SQLite, allowing
+    context-dependent attackers to cause a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">sqlite</product>
+  <announced>2015-07-07</announced>
+  <revised count="1">2015-07-07</revised>
+  <bug>546626</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="dev-db/sqlite" auto="yes" arch="*">
+      <unaffected range="ge">3.8.9</unaffected>
+      <vulnerable range="lt">3.8.9</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>SQLite is a C library that implements an SQL database engine.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in SQLite. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A context-dependent attacker could possibly cause a Denial of Service
+      condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All SQLite users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-db/sqlite-3.8.9"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-3414">CVE-2015-3414</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-3415">CVE-2015-3415</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-3416">CVE-2015-3416</uri>
+  </references>
+  <metadata tag="requester" timestamp="2015-05-28T22:11:40Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2015-07-07T06:59:20Z">Zlogene</metadata>
+</glsa>

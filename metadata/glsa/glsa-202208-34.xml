@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-34">
+    <title>Apache Tomcat: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Apache Tomcat, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">tomcat</product>
+    <announced>2022-08-21</announced>
+    <revised count="1">2022-08-21</revised>
+    <bug>773571</bug>
+    <bug>801916</bug>
+    <bug>818160</bug>
+    <bug>855971</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-servers/tomcat" auto="yes" arch="*">
+            <unaffected range="ge" slot="10">10.0.23</unaffected>
+            <unaffected range="ge" slot="9">9.0.65</unaffected>
+            <unaffected range="ge" slot="8.5">8.5.82</unaffected>
+            <vulnerable range="lt" slot="10">10.0.23</vulnerable>
+            <vulnerable range="lt" slot="9">9.0.65</vulnerable>
+            <vulnerable range="lt" slot="8.5">8.5.82</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Apache Tomcat is a Servlet-3.0/JSP-2.2 Container.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Apache Tomcat. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Apache Tomcat 10.x users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-servers/tomcat-10.0.23:10"
+        </code>
+        
+        <p>All Apache Tomcat 9.x users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-servers/tomcat-9.0.65:9"
+        </code>
+        
+        <p>All Apache Tomcat 8.5.x users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-servers/tomcat-8.5.82:8.5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-25122">CVE-2021-25122</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-25329">CVE-2021-25329</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30639">CVE-2021-30639</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30640">CVE-2021-30640</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33037">CVE-2021-33037</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42340">CVE-2021-42340</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34305">CVE-2022-34305</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-21T01:35:21.756179Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-21T01:35:21.761073Z">ajak</metadata>
+</glsa>

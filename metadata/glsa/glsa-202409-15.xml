@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-15">
+    <title>stb: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in stb, the worst of which lead to a denial of service.</synopsis>
+    <product type="ebuild">stb</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>818556</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-libs/stb" auto="yes" arch="*">
+            <unaffected range="ge">20240201</unaffected>
+            <vulnerable range="lt">20240201</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>A set of single-file public domain (or MIT licensed) libraries for C/C++</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in stb. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All stb users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/stb-20240201"
+        </code>
+        
+        <p>Note that stb is included at compile time, so all packages that depend on it should also be reinstalled. If you have app-portage/gentoolkit installed you can use:</p>
+        
+        <code>
+          # emerge --ask --verbose $( equery depends dev-libs/stb | sed 's/^/=/' )
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28021">CVE-2021-28021</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37789">CVE-2021-37789</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42715">CVE-2021-42715</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42716">CVE-2021-42716</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28041">CVE-2022-28041</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28042">CVE-2022-28042</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28048">CVE-2022-28048</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T07:19:29.592096Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T07:19:29.595210Z">graaff</metadata>
+</glsa>

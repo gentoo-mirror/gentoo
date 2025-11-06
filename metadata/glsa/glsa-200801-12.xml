@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200801-12">
+  <title>xine-lib: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    xine-lib is vulnerable to multiple heap-based buffer overflows when
+    processing RTSP streams.
+  </synopsis>
+  <product type="ebuild">xine-lib</product>
+  <announced>2008-01-27</announced>
+  <revised count="01">2008-01-27</revised>
+  <bug>205197</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/xine-lib" auto="yes" arch="*">
+      <unaffected range="ge">1.1.9.1</unaffected>
+      <vulnerable range="lt">1.1.9.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    xine-lib is the core library package for the xine media player.
+    </p>
+  </background>
+  <description>
+    <p>
+    Luigi Auriemma reported that xine-lib does not properly check
+    boundaries when processing SDP attributes of RTSP streams, leading to
+    heap-based buffer overflows.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could entice a user to play specially crafted RTSP video
+    streams with a player using xine-lib, potentially resulting in the
+    execution of arbitrary code with the privileges of the user running the
+    player.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All xine-lib users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/xine-lib-1.1.9.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0225">CVE-2008-0225</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0238">CVE-2008-0238</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-16T19:08:20Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-01-20T01:56:19Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-01-26T21:39:28Z">
+    p-y
+  </metadata>
+</glsa>

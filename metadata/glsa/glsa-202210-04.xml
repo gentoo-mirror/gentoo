@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-04">
+    <title>Wireshark: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Wireshark, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">wireshark</product>
+    <announced>2022-10-16</announced>
+    <revised count="1">2022-10-16</revised>
+    <bug>802216</bug>
+    <bug>824474</bug>
+    <bug>830343</bug>
+    <bug>833294</bug>
+    <bug>869140</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-analyzer/wireshark" auto="yes" arch="*">
+            <unaffected range="ge">3.6.8</unaffected>
+            <vulnerable range="lt">3.6.8</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Wireshark is a versatile network protocol analyzer.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Wireshark. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Wireshark users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-analyzer/wireshark-3.6.8"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4181">CVE-2021-4181</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4182">CVE-2021-4182</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4183">CVE-2021-4183</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4184">CVE-2021-4184</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4185">CVE-2021-4185</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4186">CVE-2021-4186</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4190">CVE-2021-4190</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-22235">CVE-2021-22235</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-39920">CVE-2021-39920</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-39921">CVE-2021-39921</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-39922">CVE-2021-39922</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-39924">CVE-2021-39924</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-39925">CVE-2021-39925</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-39926">CVE-2021-39926</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-39928">CVE-2021-39928</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-39929">CVE-2021-39929</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0581">CVE-2022-0581</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0582">CVE-2022-0582</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0583">CVE-2022-0583</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0585">CVE-2022-0585</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0586">CVE-2022-0586</uri>
+        <uri>WNPA-SEC-2021-06</uri>
+        <uri>WNPA-SEC-2022-06</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-16T14:40:26.419748Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-16T14:40:26.423750Z">ajak</metadata>
+</glsa>

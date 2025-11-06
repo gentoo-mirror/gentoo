@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200411-12">
+  <title>zgv: Multiple buffer overflows</title>
+  <synopsis>
+    zgv contains multiple buffer overflows that can potentially lead to the
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">zgv</product>
+  <announced>2004-11-07</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>69150</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-gfx/zgv" auto="yes" arch="*">
+      <unaffected range="ge">5.8</unaffected>
+      <vulnerable range="lt">5.8</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    zgv is a console image viewer based on svgalib.
+    </p>
+  </background>
+  <description>
+    <p>
+    Multiple arithmetic overflows have been detected in the image
+    processing code of zgv.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could entice a user to open a specially-crafted image file,
+    potentially resulting in execution of arbitrary code with the rights of
+    the user running zgv.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All zgv users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-gfx/zgv-5.8"</code>
+  </resolution>
+  <references>
+    <uri link="http://www.securityfocus.com/archive/1/379472">BugTraq Advisory</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1095">CVE-2004-1095</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-11-06T19:26:29Z">
+    lewk
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-11-06T20:47:51Z">
+    lewk
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-11-06T21:08:18Z">
+    lewk
+  </metadata>
+</glsa>

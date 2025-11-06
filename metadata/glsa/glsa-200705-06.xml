@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200705-06">
+  <title>X.Org X11 library: Multiple integer overflows</title>
+  <synopsis>
+    The X.Org X11 library contains multiple integer overflows, which could lead
+    to the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">libx11</product>
+  <announced>2007-05-05</announced>
+  <revised count="01">2007-05-05</revised>
+  <bug>172752</bug>
+  <access>remote</access>
+  <affected>
+    <package name="x11-libs/libX11" auto="yes" arch="*">
+      <unaffected range="ge">1.0.3-r2</unaffected>
+      <vulnerable range="lt">1.0.3-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    X.Org is an implementation of the X Window System. The X.Org X11
+    library provides the X11 protocol library files.
+    </p>
+  </background>
+  <description>
+    <p>
+    Multiple integer overflows have been reported in the XGetPixel()
+    function of the X.Org X11 library.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    By enticing a user to open a specially crafted image, an attacker could
+    cause a Denial of Service or an integer overflow, potentially resulting
+    in the execution of arbitrary code with root privileges.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All X.Org X11 library users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=x11-libs/libX11-1.0.3-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1667">CVE-2007-1667</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-04-18T14:52:56Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-04-20T16:53:31Z">
+    dizzutch
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-04-23T12:10:37Z">
+    vorlon
+  </metadata>
+</glsa>

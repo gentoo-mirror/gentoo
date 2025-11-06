@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-25">
+    <title>ISC BIND: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in ISC BIND, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">bind,bind-tools</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>820563</bug>
+    <bug>835439</bug>
+    <bug>872206</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-dns/bind" auto="yes" arch="*">
+            <unaffected range="ge">9.16.33</unaffected>
+            <vulnerable range="lt">9.16.33</vulnerable>
+        </package>
+        <package name="net-dns/bind-tools" auto="yes" arch="*">
+            <unaffected range="ge">9.16.33</unaffected>
+            <vulnerable range="lt">9.16.33</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>ISC BIND is the Internet Systems Consortium implementation of the Domain Name System (DNS) protocol.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in ISC BIND. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All ISC BIND users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-dns/bind-9.16.33"
+        </code>
+        
+        <p>All ISC BIND-tools users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-dns/bind-tools-9.16.33"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-25219">CVE-2021-25219</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-25220">CVE-2021-25220</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0396">CVE-2022-0396</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2795">CVE-2022-2795</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2881">CVE-2022-2881</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2906">CVE-2022-2906</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3080">CVE-2022-3080</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38177">CVE-2022-38177</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38178">CVE-2022-38178</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:18:02.086645Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:18:02.092498Z">ajak</metadata>
+</glsa>

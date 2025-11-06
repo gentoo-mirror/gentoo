@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200711-03">
+  <title>Gallery: Multiple vulnerabilities</title>
+  <synopsis>
+    The WebDAV and Reupload modules of Gallery contain multiple unspecified
+    vulnerabilities.
+  </synopsis>
+  <product type="ebuild">gallery</product>
+  <announced>2007-11-01</announced>
+  <revised count="02">2007-11-11</revised>
+  <bug>191587</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/gallery" auto="yes" arch="*">
+      <unaffected range="ge">2.2.3</unaffected>
+      <unaffected range="lt">2.0</unaffected>
+      <vulnerable range="lt">2.2.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Gallery is a PHP based photo album manager.
+    </p>
+  </background>
+  <description>
+    <p>
+    Merrick Manalastas and Nicklous Roberts have discovered multiple
+    vulnerabilities in the WebDAV and Reupload modules.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    A remote attacker could exploit these vulnerabilities to bypass
+    security restrictions and rename, replace and change properties of
+    items, or edit item data using WebDAV.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Gallery users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/gallery-2.2.3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4650">CVE-2007-4650</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-09-25T09:43:01Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-09-25T09:46:35Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-10-15T18:31:52Z">
+    p-y
+  </metadata>
+</glsa>

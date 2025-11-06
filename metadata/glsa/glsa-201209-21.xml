@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201209-21">
+  <title>fastjar: Directory traversal</title>
+  <synopsis>Two directory traversal vulnerabilities have been found in fastjar,
+    allowing remote attackers to create or overwrite arbitrary files.
+  </synopsis>
+  <product type="ebuild">fastjar</product>
+  <announced>2012-09-28</announced>
+  <revised count="1">2012-09-28</revised>
+  <bug>325557</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-arch/fastjar" auto="yes" arch="*">
+      <unaffected range="ge">0.98-r1</unaffected>
+      <vulnerable range="lt">0.98-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>fastjar is a Java archiver written in C.</p>
+  </background>
+  <description>
+    <p>Two directory traversal vulnerabilities have been discovered in fastjar.
+      Please review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted JAR
+      file, possibly resulting in the creation or truncation of arbitrary
+      files.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All fastjar users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-arch/fastjar-0.98-r1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2010-0831">CVE-2010-0831</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2010-2322">CVE-2010-2322</uri>
+  </references>
+  <metadata tag="requester" timestamp="2011-10-07T23:37:29Z">craig</metadata>
+  <metadata tag="submitter" timestamp="2012-09-28T00:34:46Z">ackle</metadata>
+</glsa>

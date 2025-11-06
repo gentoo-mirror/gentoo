@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200504-12">
+  <title>rsnapshot: Local privilege escalation</title>
+  <synopsis>
+    rsnapshot allows a local user to take ownership of local files, resulting
+    in privilege escalation.
+  </synopsis>
+  <product type="ebuild">rsnapshot</product>
+  <announced>2005-04-13</announced>
+  <revised count="05">2007-12-30</revised>
+  <bug>88681</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-backup/rsnapshot" auto="yes" arch="*">
+      <unaffected range="ge">1.2.1</unaffected>
+      <unaffected range="rge">1.1.7</unaffected>
+      <vulnerable range="lt">1.2.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    rsnapshot is a filesystem snapshot utility based on rsync, allowing
+    local and remote systems backups.
+    </p>
+  </background>
+  <description>
+    <p>
+    The copy_symlink() subroutine in rsnapshot follows symlinks when
+    changing file ownership, instead of changing the ownership of the
+    symlink itself.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    Under certain circumstances, local attackers can exploit this
+    vulnerability to take ownership of arbitrary files, resulting in local
+    privilege escalation.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    The copy_symlink() subroutine is not called if the cmd_cp parameter has
+    been enabled.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All rsnapshot users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose app-backup/rsnapshot</code>
+  </resolution>
+  <references>
+    <uri link="http://www.rsnapshot.org/security/2005/001.html">rsnapshot Security Advisory 001</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-1064">CVE-2005-1064</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-04-11T07:57:07Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-04-11T21:22:40Z">
+    lewk
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-04-13T08:59:16Z">
+    koon
+  </metadata>
+</glsa>

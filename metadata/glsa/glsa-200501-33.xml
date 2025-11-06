@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200501-33">
+  <title>MySQL: Insecure temporary file creation</title>
+  <synopsis>
+    MySQL is vulnerable to symlink attacks, potentially allowing a local user
+    to overwrite arbitrary files.
+  </synopsis>
+  <product type="ebuild">mysql</product>
+  <announced>2005-01-23</announced>
+  <revised count="01">2005-01-23</revised>
+  <bug>77805</bug>
+  <access>local</access>
+  <affected>
+    <package name="dev-db/mysql" auto="yes" arch="*">
+      <unaffected range="ge">4.0.22-r2</unaffected>
+      <vulnerable range="lt">4.0.22-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MySQL is a fast, multi-threaded, multi-user SQL database server.
+    </p>
+  </background>
+  <description>
+    <p>
+    Javier Fernandez-Sanguino Pena from the Debian Security Audit
+    Project discovered that the 'mysqlaccess' script creates temporary
+    files in world-writeable directories with predictable names.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could create symbolic links in the temporary
+    files directory, pointing to a valid file somewhere on the filesystem.
+    When the mysqlaccess script is executed, this would result in the file
+    being overwritten with the rights of the user running the software,
+    which could be the root user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MySQL users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-db/mysql-4.0.22-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0004">CAN-2005-0004</uri>
+    <uri link="https://secunia.com/advisories/13867/">Secunia Advisory SA13867</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-01-19T10:01:33Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-01-21T22:17:35Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-01-22T01:00:40Z">
+    lewk
+  </metadata>
+</glsa>

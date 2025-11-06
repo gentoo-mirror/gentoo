@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-12">
+    <title>Synapse: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilites have been found in Synapse, the worst of which could result in information leaks.</synopsis>
+    <product type="ebuild">synapse</product>
+    <announced>2024-01-07</announced>
+    <revised count="1">2024-01-07</revised>
+    <bug>914765</bug>
+    <bug>916609</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-im/synapse" auto="yes" arch="*">
+            <unaffected range="ge">1.96.0</unaffected>
+            <vulnerable range="lt">1.96.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Synapse is a Matrix homeserver written in Python/Twisted.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Synapse. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Synapse users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-im/synapse-1.96.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-41335">CVE-2023-41335</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-42453">CVE-2023-42453</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-43796">CVE-2023-43796</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45129">CVE-2023-45129</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-07T10:31:28.910221Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-01-07T10:31:28.912325Z">graaff</metadata>
+</glsa>

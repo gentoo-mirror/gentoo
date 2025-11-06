@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-21">
+    <title>libebml: Heap buffer overflow vulnerability</title>
+    <synopsis>A heap-based buffer overflow in libeml might allow attackers to execute arbitrary code.</synopsis>
+    <product type="ebuild">libebml</product>
+    <announced>2022-08-14</announced>
+    <revised count="1">2022-08-14</revised>
+    <bug>772272</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/libebml" auto="yes" arch="arm ppc sparc x86">
+            <unaffected range="ge">1.4.2</unaffected>
+            <vulnerable range="lt">1.4.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libebml is a C++ library to parse EBML files.</p>
+    </background>
+    <description>
+        <p>On 32bit builds of libebml, the length of a string is miscalculated, potentially leading to an exploitable heap overflow.</p>
+    </description>
+    <impact type="high">
+        <p>An attacker able to provide arbitrary input to libebml could achieve arbitrary code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Users of libebml on 32 bit architectures should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/libebml-1.4.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3405">CVE-2021-3405</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-14T00:09:54.090013Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-14T00:09:54.093255Z">ajak</metadata>
+</glsa>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202104-06">
+  <title>libTIFF: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in LibTIFF, the worst of
+    which could result in the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">libtiff</product>
+  <announced>2021-04-30</announced>
+  <revised count="1">2021-04-30</revised>
+  <bug>775125</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="media-libs/tiff" auto="yes" arch="*">
+      <unaffected range="ge">4.2.0</unaffected>
+      <vulnerable range="lt">4.2.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>The TIFF library contains encoding and decoding routines for the Tag
+      Image File Format. It is called by numerous programs, including GNOME and
+      KDE applications, to interpret TIFF images.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in LibTIFF. Please review
+      the referenced CVE identifiers for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker, by enticing the user to process a specially crafted
+      TIFF file, could possibly execute arbitrary code with the privileges of
+      the process, or cause a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All LibTIFF users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-libs/tiff-4.2.0"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35521">CVE-2020-35521</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35522">CVE-2020-35522</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35523">CVE-2020-35523</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35524">CVE-2020-35524</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-04-30T23:10:58Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-04-30T23:46:04Z">whissi</metadata>
+</glsa>

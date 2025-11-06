@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-07">
+    <title>Deluge: Cross-Site Scripting</title>
+    <synopsis>A vulnerability has been found in Deluge which could result in XSS.</synopsis>
+    <product type="ebuild">deluge</product>
+    <announced>2022-10-16</announced>
+    <revised count="1">2022-10-16</revised>
+    <bug>866842</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-p2p/deluge" auto="yes" arch="*">
+            <unaffected range="ge">2.1.1</unaffected>
+            <vulnerable range="lt">2.1.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Deluge is a BitTorrent client.</p>
+    </background>
+    <description>
+        <p>Deluge does not sufficiently sanitize crafted torrent file data, leading to the application interpreting untrusted data as HTML.</p>
+    </description>
+    <impact type="low">
+        <p>An attacker can achieve XSS via a crafted torrent file.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Deluge users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-p2p/deluge-2.1.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3427">CVE-2021-3427</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-16T14:42:29.766021Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-16T14:42:29.770310Z">ajak</metadata>
+</glsa>

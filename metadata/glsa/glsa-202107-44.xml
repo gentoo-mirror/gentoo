@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-44">
+  <title>libslirp: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in libslirp, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">libslirp</product>
+  <announced>2021-07-20</announced>
+  <revised count="1">2021-07-20</revised>
+  <bug>796347</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-libs/libslirp" auto="yes" arch="*">
+      <unaffected range="ge">4.6.0</unaffected>
+      <vulnerable range="lt">4.6.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libslirp is a TCP/IP emulator used to provide virtual networking
+      services.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in libslirp. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libslirp users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-libs/libslirp-4.6.0"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3592">CVE-2021-3592</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3593">CVE-2021-3593</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3594">CVE-2021-3594</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3595">CVE-2021-3595</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-10T00:29:05Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-20T04:11:18Z">ajak</metadata>
+</glsa>

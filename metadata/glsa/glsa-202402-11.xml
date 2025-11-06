@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-11">
+    <title>libxml2: Multiple Vulnerabilities</title>
+    <synopsis>Multiple denial of service vulnerabilities have been found in libxml2.</synopsis>
+    <product type="ebuild">libxml2</product>
+    <announced>2024-02-09</announced>
+    <revised count="1">2024-02-09</revised>
+    <bug>904202</bug>
+    <bug>905399</bug>
+    <bug>915351</bug>
+    <bug>923806</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/libxml2" auto="yes" arch="*">
+            <unaffected range="ge">2.12.5</unaffected>
+            <vulnerable range="lt">2.12.5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libxml2 is the XML C parser and toolkit developed for the GNOME project.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libxml2. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libxml2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/libxml2-2.12.5"
+        </code>
+        
+        <p>If you cannot update to libxml2-2.12 yet you can update to the latest 2.11 version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/libxml2-2.11.7 =dev-libs/libxml2-2.11*"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28484">CVE-2023-28484</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29469">CVE-2023-29469</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45322">CVE-2023-45322</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-25062">CVE-2024-25062</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-09T09:36:35.975755Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-02-09T09:36:35.978152Z">graaff</metadata>
+</glsa>

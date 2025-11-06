@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201405-20">
+  <title>JBIG-KIT: Denial of service</title>
+  <synopsis>A stack-based buffer overflow in JBIG-KIT might allow remote
+    attackers to cause a Denial of Service.
+  </synopsis>
+  <product type="ebuild">jbigkit</product>
+  <announced>2014-05-18</announced>
+  <revised count="1">2014-05-18</revised>
+  <bug>507254</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/jbigkit" auto="yes" arch="*">
+      <unaffected range="ge">2.1</unaffected>
+      <vulnerable range="lt">2.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>JBIG-KIT is a software implementation of the JBIG1 data compression
+      standard.
+    </p>
+  </background>
+  <description>
+    <p>JBIG-KIT contains a stack-based buffer overflow in the jbg_dec_in
+      function in libjbig/jbig.c.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could possibly cause a Denial of Service condition via
+      a specially crafted image file.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All JBIG-KIT users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-libs/jbigkit-2.1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-6369">CVE-2013-6369</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-05-15T03:04:08Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-05-18T12:48:40Z">Zlogene</metadata>
+</glsa>

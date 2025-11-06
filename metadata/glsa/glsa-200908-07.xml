@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200908-07">
+  <title>Perl Compress::Raw modules: Denial of service</title>
+  <synopsis>
+    An off-by-one error in Compress::Raw::Zlib and Compress::Raw::Bzip2 might
+    lead to a Denial of Service.
+  </synopsis>
+  <product type="ebuild">Compress-Raw-Zlib Compress-Raw-Bzip2</product>
+  <announced>2009-08-18</announced>
+  <revised count="01">2009-08-18</revised>
+  <bug>273141</bug>
+  <bug>281955</bug>
+  <access>remote</access>
+  <affected>
+    <package name="perl-core/Compress-Raw-Zlib" auto="yes" arch="*">
+      <unaffected range="ge">2.020</unaffected>
+      <vulnerable range="lt">2.020</vulnerable>
+    </package>
+    <package name="perl-core/Compress-Raw-Bzip2" auto="yes" arch="*">
+      <unaffected range="ge">2.020</unaffected>
+      <vulnerable range="lt">2.020</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Compress::Raw::Zlib and Compress::Raw::Bzip2 are Perl low-level
+    interfaces to the zlib and bzip2 compression libraries.
+    </p>
+  </background>
+  <description>
+    <p>
+    Leo Bergolth reported an off-by-one error in the inflate() function in
+    Zlib.xs of Compress::Raw::Zlib, possibly leading to a heap-based buffer
+    overflow (CVE-2009-1391).
+    </p>
+    <p>
+    Paul Marquess discovered a similar vulnerability in the bzinflate()
+    function in Bzip2.xs of Compress::Raw::Bzip2 (CVE-2009-1884).
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker might entice a user or automated system (for instance
+    running SpamAssassin or AMaViS) to process specially crafted files,
+    possibly resulting in a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Compress::Raw::Zlib users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=perl-core/Compress-Raw-Zlib-2.020"</code>
+    <p>
+    All Compress::Raw::Bzip2 users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=perl-core/Compress-Raw-Bzip2-2.020"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1391">CVE-2009-1391</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1884">CVE-2009-1884</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-07-19T17:33:05Z">
+    a3li
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-08-04T18:43:38Z">
+    a3li
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-08-05T13:32:50Z">
+    a3li
+  </metadata>
+</glsa>

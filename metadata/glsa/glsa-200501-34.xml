@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200501-34">
+  <title>Konversation: Various vulnerabilities</title>
+  <synopsis>
+    Konversation contains multiple vulnerabilities that could lead to remote
+    command execution or information leaks.
+  </synopsis>
+  <product type="ebuild">konversation</product>
+  <announced>2005-01-24</announced>
+  <revised count="01">2005-01-24</revised>
+  <bug>78712</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-irc/konversation" auto="yes" arch="*">
+      <unaffected range="ge">0.15.1</unaffected>
+      <vulnerable range="lt">0.15.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Konversation is a user-friendly IRC client for KDE.
+    </p>
+  </background>
+  <description>
+    <p>
+    Wouter Coekaerts has discovered three vulnerabilities within
+    Konversation:
+    </p>
+    <ul>
+    <li>The Server::parseWildcards function, which
+    is used by the "Quick Buttons", does not properly handle variable
+    expansion (CAN-2005-0129).</li>
+    <li>Perl scripts included with
+    Konversation do not properly escape shell metacharacters
+    (CAN-2005-0130).</li>
+    <li>The 'Nick' and 'Password' fields in the Quick
+    Connect dialog can be easily confused (CAN-2005-0131).</li>
+    </ul>
+  </description>
+  <impact type="normal">
+    <p>
+    A malicious server could create specially-crafted channels, which
+    would exploit certain flaws in Konversation, potentially leading to the
+    execution of shell commands. A user could also unintentionally input
+    their password into the 'Nick' field in the Quick Connect dialog,
+    exposing his password to IRC users, and log files.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Konversation users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-irc/konversation-0.15.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0129">CAN-2005-0129</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0130">CAN-2005-0130</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0131">CAN-2005-0131</uri>
+    <uri link="https://www.kde.org/info/security/advisory-20050121-1.txt">KDE Security Advisory: Multiple vulnerabilities in Konversation</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-01-21T19:25:33Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-01-21T21:24:15Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-01-22T00:39:45Z">
+    lewk
+  </metadata>
+</glsa>

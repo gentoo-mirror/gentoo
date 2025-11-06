@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-10">
+    <title>nghttp2: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in nghttp2, the worst of which could lead to a denial of service.</synopsis>
+    <product type="ebuild">nghttp2</product>
+    <announced>2024-08-07</announced>
+    <revised count="1">2024-08-07</revised>
+    <bug>915554</bug>
+    <bug>928541</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/nghttp2" auto="yes" arch="*">
+            <unaffected range="ge">1.61.0</unaffected>
+            <vulnerable range="lt">1.61.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Nghttp2 is an implementation of HTTP/2 and its header compression algorithm HPACK in C.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in nghttp2. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All nghttp2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/nghttp2-1.61.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-44487">CVE-2023-44487</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-28182">CVE-2024-28182</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-07T11:37:22.663338Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-07T11:37:22.666444Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-21">
+    <title>QtNetwork: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in QtNetwork, the worst of which could lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">qtbase,qtnetwork</product>
+    <announced>2024-02-18</announced>
+    <revised count="1">2024-02-18</revised>
+    <bug>907120</bug>
+    <bug>921292</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-qt/qtbase" auto="yes" arch="*">
+            <unaffected range="ge">6.6.1-r2</unaffected>
+            <vulnerable range="lt">6.6.1-r2</vulnerable>
+        </package>
+        <package name="dev-qt/qtnetwork" auto="yes" arch="*">
+            <unaffected range="ge">5.15.12-r1</unaffected>
+            <vulnerable range="lt">5.15.12-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>QtNetwork provides a set of APIs for programming applications that use TCP/IP. It is part of the Qt framework.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in QtNetwork. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Qt 5 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-qt/qtnetwork-5.15.12-r1"
+        </code>
+        
+        <p>All Qt 6 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-qt/qtbase-6.6.1-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-32762">CVE-2023-32762</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-51714">CVE-2023-51714</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-18T11:07:25.578934Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-18T11:07:25.581712Z">graaff</metadata>
+</glsa>

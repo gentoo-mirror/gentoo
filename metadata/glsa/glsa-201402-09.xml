@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201402-09">
+  <title>Apache mod_fcgid: Arbitrary code execution </title>
+  <synopsis>A buffer overflow in Apache mod_fcgid might allow remote attackers
+    to execute arbitrary code or cause a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">mod_fcgid</product>
+  <announced>2014-02-07</announced>
+  <revised count="1">2014-02-07</revised>
+  <bug>487314</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apache/mod_fcgid" auto="yes" arch="*">
+      <unaffected range="ge">2.3.9</unaffected>
+      <vulnerable range="lt">2.3.9</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Apache mod_fcgid is a binary-compatible alternative to mod_fastcgi with
+      better process management.
+    </p>
+  </background>
+  <description>
+    <p>Apache mod_fcgid fails to perform a boundary check on user-supplied
+      input, potentially resulting in a heap-based buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker can supply a crafted input, possibly resulting in
+      execution of arbitrary code or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Apache mod_fcgid users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-apache/mod_fcgid-2.3.9"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-4365">CVE-2013-4365</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-01-22T21:08:50Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-02-07T20:03:11Z">
+    BlueKnight
+  </metadata>
+</glsa>

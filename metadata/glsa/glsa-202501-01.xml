@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202501-01">
+    <title>rsync: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in rsync, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">rsync</product>
+    <announced>2025-01-15</announced>
+    <revised count="1">2025-01-15</revised>
+    <bug>948106</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/rsync" auto="yes" arch="*">
+            <unaffected range="ge">3.3.0-r2</unaffected>
+            <vulnerable range="lt">3.3.0-r2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>rsync is a server and client utility that provides fast incremental file transfers. It is used to efficiently synchronize files between hosts and is used by emerge to fetch Gentoo&#39;s Portage tree.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in rsync. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All rsync users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/rsync-3.3.0-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12084">CVE-2024-12084</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12085">CVE-2024-12085</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12086">CVE-2024-12086</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12087">CVE-2024-12087</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12088">CVE-2024-12088</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-12747">CVE-2024-12747</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-01-15T17:18:08.215935Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2025-01-15T17:18:08.218034Z">sam</metadata>
+</glsa>

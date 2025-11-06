@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200812-08">
+  <title>Mgetty: Insecure temporary file usage</title>
+  <synopsis>
+    Mgetty uses temporary files in an insecure manner, allowing for symlink
+    attacks.
+  </synopsis>
+  <product type="ebuild">mgetty</product>
+  <announced>2008-12-06</announced>
+  <revised count="02">2008-12-23</revised>
+  <bug>235806</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-dialup/mgetty" auto="yes" arch="*">
+      <unaffected range="ge">1.1.36-r3</unaffected>
+      <vulnerable range="lt">1.1.36-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Mgetty is a set of fax and voice modem programs.
+    </p>
+  </background>
+  <description>
+    <p>
+    Dmitry E. Oboukhov reported that the "spooldir" directory in
+    fax/faxspool.in is created in an insecure manner.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could exploit this vulnerability to overwrite
+    arbitrary files with the privileges of the user running the
+    application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Mgetty users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-dialup/mgetty-1.1.36-r3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4936">CVE-2008-4936</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-09-22T12:40:45Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-09-23T11:36:13Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-09-23T11:36:50Z">
+    p-y
+  </metadata>
+</glsa>

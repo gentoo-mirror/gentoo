@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-17">
+    <title>JHead: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in JHead, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">jhead</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>730746</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-gfx/jhead" auto="yes" arch="*">
+            <unaffected range="ge">3.06.0.1</unaffected>
+            <vulnerable range="lt">3.06.0.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>JHead is an EXIF JPEG header manipulation tool.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in JHead. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All JHead users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/jhead-3.06.0.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3496">CVE-2021-3496</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28275">CVE-2021-28275</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28276">CVE-2021-28276</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28277">CVE-2021-28277</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28278">CVE-2021-28278</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:12:23.524182Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:12:23.530335Z">ajak</metadata>
+</glsa>

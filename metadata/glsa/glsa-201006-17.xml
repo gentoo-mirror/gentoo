@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201006-17">
+  <title>lighttpd: Denial of service</title>
+  <synopsis>
+    A processing error in lighttpd might result in a Denial of Service
+    condition.
+  </synopsis>
+  <product type="ebuild">lighttpd</product>
+  <announced>2010-06-03</announced>
+  <revised count="01">2010-06-03</revised>
+  <bug>303213</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-servers/lighttpd" auto="yes" arch="*">
+      <unaffected range="ge">1.4.25-r1</unaffected>
+      <vulnerable range="lt">1.4.25-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    lighttpd is a lightweight high-performance web server.
+    </p>
+  </background>
+  <description>
+    <p>
+    Li Ming reported that lighttpd does not properly process packets that
+    are sent overly slow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker might send specially crafted packets to a server
+    running lighttpd, possibly resulting in a Denial of Service condition
+    via host memory exhaustion.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All lighttpd users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-servers/lighttpd-1.4.25-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0295">CVE-2010-0295</uri>
+  </references>
+  <metadata tag="requester" timestamp="2010-03-15T14:19:51Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2010-05-31T15:20:53Z">
+    a3li
+  </metadata>
+  <metadata tag="bugReady" timestamp="2010-05-31T15:20:59Z">
+    a3li
+  </metadata>
+</glsa>

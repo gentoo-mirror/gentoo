@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201301-04">
+  <title>dhcpcd: Arbitrary code execution</title>
+  <synopsis>A vulnerability has been found in dhcpcd, allowing remote attackers
+    to execute arbitrary code on the DHCP client.
+  </synopsis>
+  <product type="ebuild">dhcpcd</product>
+  <announced>2013-01-09</announced>
+  <revised count="1">2013-01-09</revised>
+  <bug>362459</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-misc/dhcpcd" auto="yes" arch="*">
+      <unaffected range="ge">5.2.12</unaffected>
+      <vulnerable range="lt">5.2.12</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>dhcpcd is a fully featured, yet light weight RFC2131 compliant DHCP
+      client.
+    </p>
+  </background>
+  <description>
+    <p>A vulnerability has been discovered in dhcpcd. Please review the CVE
+      identifier referenced below for details.
+    </p>
+  </description>
+  <impact type="high">
+    <p>The vulnerability might allow an attacker to execute arbitrary code on
+      the DHCP client.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All dhcpcd users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-misc/dhcpcd-5.2.12"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2011-0996">CVE-2011-0996</uri>
+  </references>
+  <metadata tag="requester" timestamp="2011-10-07T23:37:25Z">
+    underling
+  </metadata>
+  <metadata tag="submitter" timestamp="2013-01-09T00:39:13Z">craig</metadata>
+</glsa>

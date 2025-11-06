@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200904-10">
+  <title>Avahi: Denial of service</title>
+  <synopsis>
+    An error in Avahi might lead to a Denial of Service via network and CPU
+    consumption.
+  </synopsis>
+  <product type="ebuild">avahi</product>
+  <announced>2009-04-08</announced>
+  <revised count="01">2009-04-08</revised>
+  <bug>260971</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-dns/avahi" auto="yes" arch="*">
+      <unaffected range="ge">0.6.24-r2</unaffected>
+      <vulnerable range="lt">0.6.24-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Avahi is a system that facilitates service discovery on a local
+    network.
+    </p>
+  </background>
+  <description>
+    <p>
+    Rob Leslie reported that the
+    originates_from_local_legacy_unicast_socket() function in
+    avahi-core/server.c does not account for the network byte order of a
+    port number when processing incoming multicast packets, leading to a
+    multicast packet storm.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could send specially crafted legacy unicast mDNS
+    query packets to the Avahi daemon, resulting in a Denial of Service due
+    to network bandwidth and CPU consumption.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Avahi users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-dns/avahi-0.6.24-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0758">CVE-2009-0758</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-04-04T13:49:21Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-04-04T13:56:36Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-04-04T13:57:02Z">
+    rbu
+  </metadata>
+</glsa>

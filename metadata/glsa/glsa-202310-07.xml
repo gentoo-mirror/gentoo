@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-07">
+    <title>Oracle VirtualBox: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in VirtualBox, leading to compomise of VirtualBox.</synopsis>
+    <product type="ebuild">virtualbox</product>
+    <announced>2023-10-08</announced>
+    <revised count="1">2023-10-08</revised>
+    <bug>891327</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-emulation/virtualbox" auto="yes" arch="*">
+            <unaffected range="ge">7.0.6</unaffected>
+            <unaffected range="ge">6.1.46</unaffected>
+            <vulnerable range="lt">7.0.6</vulnerable>
+            <vulnerable range="lt">6.1.46</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>VirtualBox is a powerful virtualization product from Oracle.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Oracle VirtualBox, the worst of which may lead to VirtualBox compromise by an attacker with network access.
+
+Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Oracle VirtualBox users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emulation/virtualbox-7.0.6"
+        </code>
+        
+        <p>If you still need to use VirtualBox 6:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emulation/virtualbox-6.1.46" "=app-emulation/virtualbox-6*"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-21884">CVE-2023-21884</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-21885">CVE-2023-21885</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-21886">CVE-2023-21886</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-21889">CVE-2023-21889</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-21898">CVE-2023-21898</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-21899">CVE-2023-21899</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-08T07:06:19.159874Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-08T07:06:19.162195Z">graaff</metadata>
+</glsa>

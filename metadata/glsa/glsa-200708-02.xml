@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200708-02">
+  <title>Xvid: Array indexing vulnerabilities</title>
+  <synopsis>
+    Several array indexing vulnerabilities were discovered in Xvid, possibly
+    allowing for the remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">xvid</product>
+  <announced>2007-08-08</announced>
+  <revised count="01">2007-08-08</revised>
+  <bug>183145</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/xvid" auto="yes" arch="*">
+      <unaffected range="ge">1.1.3</unaffected>
+      <vulnerable range="lt">1.1.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Xvid is a popular open source video codec licensed under the GPL.
+    </p>
+  </background>
+  <description>
+    <p>
+    Trixter Jack discovered an array indexing error in the
+    get_intra_block() function in the file src/bitstream/mbcoding.c. The
+    get_inter_block_h263() and get_inter_block_mpeg() functions in the same
+    file were also reported as vulnerable.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could exploit these vulnerabilities to execute arbitrary
+    code by tricking a user or automated system into processing a malicious
+    video file with an application that makes use of the Xvid library.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Xvid users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/xvid-1.1.3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3329">CVE-2007-3329</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-07-14T21:54:33Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-07-15T18:56:27Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-07-16T07:58:51Z">
+    p-y
+  </metadata>
+</glsa>

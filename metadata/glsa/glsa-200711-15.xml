@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200711-15">
+  <title>FLAC: Buffer overflow</title>
+  <synopsis>
+    Multiple integer overflow vulnerabilities were found in FLAC possibly
+    allowing for the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">flac</product>
+  <announced>2007-11-12</announced>
+  <revised count="01">2007-11-12</revised>
+  <bug>195700</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/flac" auto="yes" arch="*">
+      <unaffected range="ge">1.2.1-r1</unaffected>
+      <vulnerable range="lt">1.2.1-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    The Xiph.org Free Lossless Audio Codec (FLAC) library is the reference
+    implementation of the FLAC audio file format. It contains encoders and
+    decoders in library and executable form.
+    </p>
+  </background>
+  <description>
+    <p>
+    Sean de Regge reported multiple integer overflows when processing FLAC
+    media files that could lead to improper memory allocations resulting in
+    heap-based buffer overflows.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted FLAC
+    file or network stream with an application using FLAC. This might lead
+    to the execution of arbitrary code with privileges of the user playing
+    the file.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All FLAC users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/flac-1.2.1-r1"</code>
+    <p>
+    You should also run revdep-rebuild to rebuild any packages that depend
+    on older versions of FLAC:
+    </p>
+    <code>
+    # revdep-rebuild --library=libFLAC.*</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4619">CVE-2007-4619</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-11-01T19:12:08Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-11-02T03:25:37Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-11-03T23:19:45Z">
+    rbu
+  </metadata>
+</glsa>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200505-06">
+  <title>TCPDump: Decoding routines Denial of Service vulnerability</title>
+  <synopsis>
+    A flaw in the decoding of network packets renders TCPDump vulnerable to a
+    remote Denial of Service attack.
+  </synopsis>
+  <product type="ebuild">tcpdump</product>
+  <announced>2005-05-09</announced>
+  <revised count="02">2005-06-12</revised>
+  <bug>90541</bug>
+  <bug>95349</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-analyzer/tcpdump" auto="yes" arch="*">
+      <unaffected range="ge">3.8.3-r3</unaffected>
+      <vulnerable range="lt">3.8.3-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    TCPDump is a tool for network monitoring and data acquisition.
+    </p>
+  </background>
+  <description>
+    <p>
+    TCPDump improperly handles and decodes ISIS (CAN-2005-1278), BGP
+    (CAN-2005-1267, CAN-2005-1279), LDP (CAN-2005-1279) and RSVP
+    (CAN-2005-1280) packets. TCPDump might loop endlessly after receiving
+    malformed packets.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A malicious remote attacker can exploit the decoding issues for a
+    Denial of Service attack by sending specially crafted packets, possibly
+    causing TCPDump to loop endlessly.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All TCPDump users should upgrade to the latest available version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-analyzer/tcpdump-3.8.3-r3"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2005-1267">CAN-2005-1267</uri>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2005-1278">CAN-2005-1278</uri>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2005-1279">CAN-2005-1279</uri>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2005-1280">CAN-2005-1280</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-05-08T15:18:02Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-05-08T15:56:20Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-05-09T19:22:22Z">
+    jaervosz
+  </metadata>
+</glsa>

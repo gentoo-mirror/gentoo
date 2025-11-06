@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200702-02">
+  <title>ProFTPD: Local privilege escalation</title>
+  <synopsis>
+    A flaw in ProFTPD may allow a local attacker to obtain root privileges.
+  </synopsis>
+  <product type="ebuild">proftpd</product>
+  <announced>2007-02-13</announced>
+  <revised count="01">2007-02-13</revised>
+  <bug>158122</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-ftp/proftpd" auto="yes" arch="*">
+      <unaffected range="ge">1.3.1_rc1</unaffected>
+      <vulnerable range="lt">1.3.1_rc1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    ProFTPD is a powerful, configurable, and free FTP daemon.
+    </p>
+  </background>
+  <description>
+    <p>
+    A flaw exists in the mod_ctrls module of ProFTPD, normally used to
+    allow FTP server administrators to configure the daemon at runtime.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    An FTP server administrator permitted to interact with mod_ctrls could
+    potentially compromise the ProFTPD process and execute arbitrary code
+    with the privileges of the FTP Daemon, which is normally the root user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Disable mod_ctrls, or ensure only trusted users can access this
+    feature.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All ProFTPD users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-ftp/proftpd-1.3.1_rc1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6563">CVE-2006-6563</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-02-10T19:05:16Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-02-10T23:53:16Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-02-12T23:07:04Z">
+    taviso
+  </metadata>
+</glsa>

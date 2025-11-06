@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201001-01">
+  <title>NTP: Denial of service</title>
+  <synopsis>
+    A Denial of Service condition in ntpd can cause excessive CPU or bandwidth
+    consumption.
+  </synopsis>
+  <product type="ebuild">ntp</product>
+  <announced>2010-01-03</announced>
+  <revised count="01">2010-01-03</revised>
+  <bug>290881</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-misc/ntp" auto="yes" arch="*">
+      <unaffected range="ge">4.2.4_p7-r1</unaffected>
+      <vulnerable range="lt">4.2.4_p7-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    NTP is a set of the Network Time Protocol programs.
+    </p>
+  </background>
+  <description>
+    <p>
+    Robin Park and Dmitri Vinokurov discovered that ntp_request.c in ntpd
+    does not handle MODE_PRIVATE packets correctly, causing a continuous
+    exchange of MODE_PRIVATE error responses between two NTP daemons or
+    causing high CPU load on a single host.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote, unauthenticated attacker could send a specially crafted
+    MODE_PRIVATE packet, allowing for a Denial of Service condition (CPU
+    and bandwidth consumption).
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All NTP users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-misc/ntp-4.2.4_p7-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3563">CVE-2009-3563</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-12-10T20:02:44Z">
+    craig
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-12-30T15:53:37Z">
+    craig
+  </metadata>
+  <metadata tag="bugReady" timestamp="2010-01-03T00:05:58Z">
+    craig
+  </metadata>
+</glsa>

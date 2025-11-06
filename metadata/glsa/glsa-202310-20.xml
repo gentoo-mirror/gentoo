@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-20">
+    <title>rxvt-unicode: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in rxvt-unicode where data written to the terminal can lead to code execution.</synopsis>
+    <product type="ebuild">rxvt-unicode</product>
+    <announced>2023-10-30</announced>
+    <revised count="1">2023-10-30</revised>
+    <bug>884787</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="x11-terms/rxvt-unicode" auto="yes" arch="*">
+            <unaffected range="ge">9.30</unaffected>
+            <vulnerable range="lt">9.30</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>rxvt-unicode is a clone of the well known terminal emulator rxvt.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in rxvt-unicode. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>in the Perl background extension, when an attacker can
+control the data written to the user&#39;s terminal and certain options are set.
+
+The &#34;background&#34; extension is automatically loaded if certain X resources are set such as &#39;transparent&#39; (see the full list at the top of src/perl/background[1]). So it is possible to be using this extension without realising it.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All rxvt-unicode users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-terms/rxvt-unicode-9.30"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4170">CVE-2022-4170</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-30T10:19:42.802538Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-30T10:19:42.804901Z">graaff</metadata>
+</glsa>

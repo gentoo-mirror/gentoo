@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200411-25">
+  <title>SquirrelMail: Encoded text XSS vulnerability</title>
+  <synopsis>
+    Squirrelmail fails to properly sanitize user input, which could lead to a
+    compromise of webmail accounts.
+  </synopsis>
+  <product type="ebuild">SquirrelMail</product>
+  <announced>2004-11-17</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>70739</bug>
+  <access>remote</access>
+  <affected>
+    <package name="mail-client/squirrelmail" auto="yes" arch="*">
+      <unaffected range="ge">1.4.3a-r2</unaffected>
+      <vulnerable range="lt">1.4.3a-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    SquirrelMail is a webmail package written in PHP. It supports IMAP and
+    SMTP, and can optionally be installed with SQL support.
+    </p>
+  </background>
+  <description>
+    <p>
+    SquirrelMail fails to properly sanitize certain strings when decoding
+    specially-crafted headers.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    By enticing a user to read a specially-crafted e-mail, an attacker can
+    execute arbitrary scripts running in the context of the victim's
+    browser. This could lead to a compromise of the user's webmail account,
+    cookie theft, etc.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All SquirrelMail users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=mail-client/squirrelmail-1.4.3a-r2"</code>
+    <p>
+    Note: Users with the vhosts USE flag set should manually use
+    webapp-config to finalize the update.
+    </p>
+  </resolution>
+  <references>
+    <uri link="https://article.gmane.org/gmane.mail.squirrelmail.user/21169">SquirrelMail Advisory</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1036">CVE-2004-1036</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-11-13T07:50:02Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-11-14T18:02:58Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-11-14T18:40:00Z">
+    jaervosz
+  </metadata>
+</glsa>

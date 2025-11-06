@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-02">
+    <title>NVIDIA Drivers: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in NVIDIA Drivers, the worst of which could result in root privilege escalation.</synopsis>
+    <product type="ebuild">nvidia-drivers</product>
+    <announced>2023-10-03</announced>
+    <revised count="1">2023-10-03</revised>
+    <bug>764512</bug>
+    <bug>784596</bug>
+    <bug>803389</bug>
+    <bug>832867</bug>
+    <bug>845063</bug>
+    <bug>866527</bug>
+    <bug>881341</bug>
+    <bug>884045</bug>
+    <bug>903614</bug>
+    <access>remote</access>
+    <affected>
+        <package name="x11-drivers/nvidia-drivers" auto="yes" arch="*">
+            <unaffected range="ge">470.182.03</unaffected>
+            <unaffected range="ge">515.105.01</unaffected>
+            <unaffected range="ge">525.105.17</unaffected>
+            <unaffected range="ge">530.41.03</unaffected>
+            <vulnerable range="lt">470.182.03</vulnerable>
+            <vulnerable range="lt">515.105.01</vulnerable>
+            <vulnerable range="lt">525.105.17</vulnerable>
+            <vulnerable range="lt">530.41.03</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>NVIDIA Drivers are NVIDIA&#39;s accelerated graphics driver.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in NVIDIA Drivers. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All NVIDIA Drivers 470 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-drivers/nvidia-drivers-470.182.03:0/470"
+        </code>
+        
+        <p>All NVIDIA Drivers 515 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-drivers/nvidia-drivers-515.105.01:0/515"
+        </code>
+        
+        <p>All NVIDIA Drivers 525 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-drivers/nvidia-drivers-525.105.17:0/525"
+        </code>
+        
+        <p>All NVIDIA Drivers 530 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-drivers/nvidia-drivers-530.41.03:0/530"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1052">CVE-2021-1052</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1053">CVE-2021-1053</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1056">CVE-2021-1056</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE‑2021‑1076">CVE‑2021‑1076</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE‑2021‑1077">CVE‑2021‑1077</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1090">CVE-2021-1090</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1093">CVE-2021-1093</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1094">CVE-2021-1094</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1095">CVE-2021-1095</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE‑2022‑21813">CVE‑2022‑21813</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE‑2022‑21814">CVE‑2022‑21814</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28181">CVE-2022-28181</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28183">CVE-2022-28183</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28184">CVE-2022-28184</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28185">CVE-2022-28185</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31607">CVE-2022-31607</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31608">CVE-2022-31608</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31615">CVE-2022-31615</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE‑2022‑34665">CVE‑2022‑34665</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34666">CVE-2022-34666</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34670">CVE-2022-34670</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34673">CVE-2022-34673</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34674">CVE-2022-34674</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34676">CVE-2022-34676</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34677">CVE-2022-34677</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34678">CVE-2022-34678</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34679">CVE-2022-34679</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34680">CVE-2022-34680</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34682">CVE-2022-34682</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34684">CVE-2022-34684</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42254">CVE-2022-42254</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42255">CVE-2022-42255</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42256">CVE-2022-42256</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42257">CVE-2022-42257</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42258">CVE-2022-42258</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42259">CVE-2022-42259</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42260">CVE-2022-42260</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42261">CVE-2022-42261</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42263">CVE-2022-42263</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42264">CVE-2022-42264</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42265">CVE-2022-42265</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0180">CVE-2023-0180</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0181">CVE-2023-0181</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0183">CVE-2023-0183</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0184">CVE-2023-0184</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0185">CVE-2023-0185</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0187">CVE-2023-0187</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0188">CVE-2023-0188</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0189">CVE-2023-0189</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0190">CVE-2023-0190</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0191">CVE-2023-0191</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0194">CVE-2023-0194</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0195">CVE-2023-0195</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0198">CVE-2023-0198</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0199">CVE-2023-0199</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-03T12:45:00.352577Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-10-03T12:45:00.356374Z">graaff</metadata>
+</glsa>

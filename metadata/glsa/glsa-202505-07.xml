@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202505-07">
+    <title>FreeType: Remote Code Execution</title>
+    <synopsis>A vulnerability has been discovered in FreeType, which can lead to remote code execution.</synopsis>
+    <product type="ebuild">freetype</product>
+    <announced>2025-05-14</announced>
+    <revised count="1">2025-05-14</revised>
+    <bug>951286</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="media-libs/freetype" auto="yes" arch="*">
+            <unaffected range="ge">2.13.1</unaffected>
+            <vulnerable range="lt">2.13.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>FreeType is a high-quality and portable font engine.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in FreeType. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>An out of bounds write exists in FreeType when attempting to parse font subglyph structures related to TrueType GX and variable font files. The vulnerable code assigns a signed short value to an unsigned long and then adds a static value causing it to wrap around and allocate too small of a heap buffer. The code then writes up to 6 signed long integers out of bounds relative to this buffer. This may result in arbitrary code execution. This vulnerability may have been exploited in the wild.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All FreeType users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/freetype-2.13.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-27363">CVE-2025-27363</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-05-14T08:44:33.487136Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-05-14T08:44:33.489503Z">graaff</metadata>
+</glsa>

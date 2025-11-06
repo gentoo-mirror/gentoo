@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200707-13">
+  <title>Fail2ban: Denial of service</title>
+  <synopsis>
+    Fail2ban is vulnerable to a Denial of Service attack.
+  </synopsis>
+  <product type="ebuild">fail2ban</product>
+  <announced>2007-07-28</announced>
+  <revised count="02">2008-01-09</revised>
+  <bug>181214</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-analyzer/fail2ban" auto="yes" arch="*">
+      <unaffected range="ge">0.8.0-r1</unaffected>
+      <vulnerable range="lt">0.8.0-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Fail2ban is a tool for parsing log files and banning IP addresses which
+    make too many password failures.
+    </p>
+  </background>
+  <description>
+    <p>
+    A vulnerability has been discovered in Fail2ban when parsing log files.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could send specially crafted SSH login banners to the
+    vulnerable host, which would prevent any ssh connection to the host and
+    result in a Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Fail2ban users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-analyzer/fail2ban-0.8.0-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4321">CVE-2007-4321</uri>
+    <uri link="http://www.ossec.net/en/attacking-loganalysis.html#fail2ban">Original advisory</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-07-03T22:02:25Z">
+    aetius
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-07-15T18:12:05Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-07-15T18:13:27Z">
+    p-y
+  </metadata>
+</glsa>

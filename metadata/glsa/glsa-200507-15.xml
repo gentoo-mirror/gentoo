@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200507-15">
+  <title>PHP: Script injection through XML-RPC</title>
+  <synopsis>
+    PHP includes an XML-RPC implementation which allows remote attackers to
+    execute arbitrary PHP script commands.
+  </synopsis>
+  <product type="ebuild">PHP</product>
+  <announced>2005-07-15</announced>
+  <revised count="01">2005-07-15</revised>
+  <bug>97655</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-php/php" auto="yes" arch="*">
+      <unaffected range="ge">4.4.0</unaffected>
+      <vulnerable range="lt">4.4.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    PHP is a general-purpose scripting language widely used to develop
+    web-based applications. It can run inside a web server using the
+    mod_php module or the CGI version of PHP, or can run stand-alone in a
+    CLI.
+    </p>
+  </background>
+  <description>
+    <p>
+    James Bercegay has discovered that the XML-RPC implementation in
+    PHP fails to sanitize input passed in an XML document, which is used in
+    an "eval()" statement.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could exploit the XML-RPC vulnerability to
+    execute arbitrary PHP script code by sending specially crafted XML data
+    to applications making use of this XML-RPC implementation.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All PHP users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-php/php-4.4.0"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-1921">CAN-2005-1921</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-07-12T20:30:47Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-07-12T22:51:12Z">
+    formula7
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-07-15T13:35:35Z">
+    koon
+  </metadata>
+</glsa>

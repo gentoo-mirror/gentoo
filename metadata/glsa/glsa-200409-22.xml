@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200409-22">
+  <title>phpGroupWare: XSS vulnerability in wiki module</title>
+  <synopsis>
+    The phpGroupWare software contains a cross site scripting vulnerability in
+    the wiki module.
+  </synopsis>
+  <product type="ebuild">phpGroupWare</product>
+  <announced>2004-09-16</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>63063</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/phpgroupware" auto="yes" arch="*">
+      <unaffected range="ge">0.9.16.003</unaffected>
+      <vulnerable range="lt">0.9.16.003</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    phpGroupWare is a web-based suite of group applications including
+    calendar, todo-list, addressbook, email, wiki, news headlines, and a
+    file manager.
+    </p>
+  </background>
+  <description>
+    <p>
+    Due to an input validation error, the wiki module in the phpGroupWare
+    suite is vulnerable to cross site scripting attacks.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    This vulnerability gives an attacker the ability to inject and execute
+    malicious script code, potentially compromising the victim's browser.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    The is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All phpGroupWare users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge sync
+    
+    # emerge -pv "&gt;=www-apps/phpgroupware-0.9.16.003"
+    # emerge "&gt;=www-apps/phpgroupware-0.9.16.003"</code>
+  </resolution>
+  <references>
+    <uri link="http://downloads.phpgroupware.org/changelog">phpGroupWare ChangeLog</uri>
+    <uri link="https://secunia.com/advisories/12466/">Secunia Advisory SA12466</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0875">CVE-2004-0875</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-09-10T12:36:45Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-09-12T14:15:58Z">
+    lewk
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-09-16T21:55:15Z">
+    lewk
+  </metadata>
+</glsa>

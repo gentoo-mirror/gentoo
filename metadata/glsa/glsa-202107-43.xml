@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-43">
+  <title>RPM: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in RPM, the worst of which
+    could result in remote code execution.
+  </synopsis>
+  <product type="ebuild">rpm</product>
+  <announced>2021-07-20</announced>
+  <revised count="1">2021-07-20</revised>
+  <bug>778533</bug>
+  <bug>787944</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-arch/rpm" auto="yes" arch="*">
+      <unaffected range="ge">4.16.1.3</unaffected>
+      <vulnerable range="lt">4.16.1.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>The Red Hat Package Manager (RPM) is a command line driven package
+      management system capable of installing, uninstalling, verifying,
+      querying, and updating computer software packages.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in RPM. Please review the
+      CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All RPM users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-arch/rpm-4.16.1.3"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20266">CVE-2021-20266</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20271">CVE-2021-20271</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3421">CVE-2021-3421</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-16T01:57:38Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-20T04:06:54Z">ajak</metadata>
+</glsa>

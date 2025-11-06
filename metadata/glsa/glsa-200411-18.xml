@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200411-18">
+  <title>Apache 2.0: Denial of Service by memory consumption</title>
+  <synopsis>
+    A flaw in Apache 2.0 could allow a remote attacker to cause a Denial of
+    Service.
+  </synopsis>
+  <product type="ebuild">apache</product>
+  <announced>2004-11-10</announced>
+  <revised count="02">2007-12-30</revised>
+  <bug>70138</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-servers/apache" auto="yes" arch="*">
+      <unaffected range="ge">2.0.52-r1</unaffected>
+      <unaffected range="lt">2.0</unaffected>
+      <vulnerable range="lt">2.0.52-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    The Apache HTTP Server is one of the most popular web servers on the Internet.
+    </p>
+  </background>
+  <description>
+    <p>
+    Chintan Trivedi discovered a vulnerability in Apache httpd 2.0 that is caused by improper enforcing of the field length limit in the header-parsing code.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By sending a large amount of specially-crafted HTTP GET requests a remote attacker could cause a Denial of Service of the targeted system.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Apache 2.0 users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-servers/apache-2.0.52-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0942">CAN-2004-0942</uri>
+    <uri link="http://www.apacheweek.com/features/security-20">Security vulnerabilities in Apache httpd 2.0</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2004-11-08T09:58:15Z">
+    vorlon078
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-11-09T20:43:00Z">
+    koon
+  </metadata>
+</glsa>

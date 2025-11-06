@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200709-13">
+  <title>rsync: Two buffer overflows</title>
+  <synopsis>
+    Two user-assisted buffer overflow vulnerabilities have been discovered in
+    rsync.
+  </synopsis>
+  <product type="ebuild">rsync</product>
+  <announced>2007-09-20</announced>
+  <revised count="01">2007-09-20</revised>
+  <bug>189132</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-misc/rsync" auto="yes" arch="*">
+      <unaffected range="ge">2.6.9-r3</unaffected>
+      <vulnerable range="lt">2.6.9-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    rsync is a file transfer program to keep remote directories
+    synchronized.
+    </p>
+  </background>
+  <description>
+    <p>
+    Sebastian Krahmer from the SUSE Security Team discovered two off-by-one
+    errors in the function "f_name()" in file sender.c when processing
+    overly long directory names.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to synchronize a repository
+    containing specially crafted directories, leading to the execution of
+    arbitrary code with the privileges of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All rsync users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-misc/rsync-2.6.9-r3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4091">CVE-2007-4091</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-09-08T22:30:02Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-09-09T00:00:07Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-09-15T16:04:37Z">
+    p-y
+  </metadata>
+</glsa>

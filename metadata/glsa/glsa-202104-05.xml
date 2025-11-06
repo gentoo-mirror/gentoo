@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202104-05">
+  <title>GRUB: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in GRUB, the worst might
+    allow for circumvention of UEFI Secure Boot.
+  </synopsis>
+  <product type="ebuild">grub</product>
+  <announced>2021-04-30</announced>
+  <revised count="1">2021-04-30</revised>
+  <bug>734654</bug>
+  <bug>773991</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-devel/grub" auto="yes" arch="*">
+      <unaffected range="ge">2.06_rc1</unaffected>
+      <vulnerable range="lt">2.06_rc1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>GNU GRUB is a multiboot boot loader used by most Linux systems.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in GRUB. Please review the
+      CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All GRUB users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=sys-devel/grub-2.06_rc1"
+    </code>
+    
+    <p>After upgrading, make sure to run the grub-install command with options
+      appropriate for your system. See the GRUB Quick Start guide in the
+      references below for examples. Your system will be vulnerable until this
+      action is performed.
+    </p>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-10713">CVE-2020-10713</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-14308">CVE-2020-14308</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-14309">CVE-2020-14309</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-14310">CVE-2020-14310</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-14311">CVE-2020-14311</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-14372">CVE-2020-14372</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-15705">CVE-2020-15705</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-15706">CVE-2020-15706</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-15707">CVE-2020-15707</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25632">CVE-2020-25632</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25647">CVE-2020-25647</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-27749">CVE-2020-27749</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-27779">CVE-2020-27779</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20225">CVE-2021-20225</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20233">CVE-2021-20233</uri>
+    <uri link="https://wiki.gentoo.org/wiki/GRUB2_Quick_Start">GRUB Quick Start
+      guide 
+    </uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-04-30T23:17:40Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-04-30T23:45:51Z">whissi</metadata>
+</glsa>

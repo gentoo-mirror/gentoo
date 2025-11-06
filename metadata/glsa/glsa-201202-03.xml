@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201202-03">
+  <title>MaraDNS: Denial of service</title>
+  <synopsis>A hash collision vulnerability in MaraDNS allows remote attackers
+    to cause a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">maradns</product>
+  <announced>2012-02-22</announced>
+  <revised count="1">2012-02-22</revised>
+  <bug>397431</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-dns/maradns" auto="yes" arch="*">
+      <unaffected range="ge">1.4.09</unaffected>
+      <vulnerable range="lt">1.4.09</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>MaraDNS is a proxy DNS server with permanent caching.</p>
+  </background>
+  <description>
+    <p>MaraDNS does not properly randomize hash functions to protect against
+      hash collision attacks.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could send many specially crafted DNS recursive
+      queries, possibly resulting in a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All MaraDNS users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-dns/maradns-1.4.09"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-0024">CVE-2012-0024</uri>
+  </references>
+  <metadata timestamp="2012-02-20T21:36:13Z" tag="requester">ackle</metadata>
+  <metadata timestamp="2012-02-22T19:45:52Z" tag="submitter">ackle</metadata>
+</glsa>

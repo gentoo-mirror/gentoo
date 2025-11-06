@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200605-01">
+  <title>MPlayer: Heap-based buffer overflow</title>
+  <synopsis>
+    MPlayer contains multiple integer overflows that may lead to a heap-based
+    buffer overflow.
+  </synopsis>
+  <product type="ebuild">mplayer mplayer-bin</product>
+  <announced>2006-05-01</announced>
+  <revised count="02">2006-06-21</revised>
+  <bug>127969</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-video/mplayer" auto="yes" arch="*">
+      <unaffected range="ge">1.0.20060415</unaffected>
+      <unaffected range="ge">1.0_pre8</unaffected>
+      <vulnerable range="lt">1.0.20060415</vulnerable>
+    </package>
+    <package name="media-video/mplayer-bin" auto="yes" arch="*">
+      <unaffected range="ge">1.0.20060415</unaffected>
+      <unaffected range="ge">1.0_pre8</unaffected>
+      <vulnerable range="lt">1.0.20060415</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MPlayer is a media player that supports many multimedia file types.
+    </p>
+  </background>
+  <description>
+    <p>
+    Xfocus Team discovered multiple integer overflows that may lead to a
+    heap-based buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could entice a user to play a specially crafted multimedia
+    file, potentially resulting in the execution of arbitrary code with the
+    privileges of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MPlayer users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-video/mplayer-1.0.20060415"</code>
+    <p>
+    All MPlayer binary users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-video/mplayer-bin-1.0.20060415"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1502">CVE-2006-1502</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-04-09T10:59:36Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-04-23T01:03:22Z">
+    adir
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-04-30T14:44:19Z">
+    DerCorny
+  </metadata>
+</glsa>

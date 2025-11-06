@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-11">
+    <title>Apache Batik: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Apache Batik, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">batik</product>
+    <announced>2024-01-07</announced>
+    <revised count="1">2024-01-07</revised>
+    <bug>724534</bug>
+    <bug>872689</bug>
+    <bug>918088</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-java/batik" auto="yes" arch="*">
+            <unaffected range="ge">1.17</unaffected>
+            <vulnerable range="lt">1.17</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Apache Batik is a Java-based toolkit for applications or applets that want to use images in the Scalable Vector Graphics (SVG) format for various purposes, such as display, generation or manipulation.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Apache Batik. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Apache Batik users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/batik-1.17"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-8013">CVE-2018-8013</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-17566">CVE-2019-17566</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-11987">CVE-2020-11987</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38398">CVE-2022-38398</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38648">CVE-2022-38648</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-40146">CVE-2022-40146</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41704">CVE-2022-41704</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42890">CVE-2022-42890</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-44729">CVE-2022-44729</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-44730">CVE-2022-44730</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-07T10:19:19.481297Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-01-07T10:19:19.484005Z">graaff</metadata>
+</glsa>

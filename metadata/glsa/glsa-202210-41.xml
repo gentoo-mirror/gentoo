@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-41">
+    <title>android-tools: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in android-tools, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">android-tools</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>878281</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-util/android-tools" auto="yes" arch="*">
+            <unaffected range="ge">33.0.3</unaffected>
+            <vulnerable range="lt">33.0.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>android-tools contains Android platform tools (adb, fastboot, and mkbootimg).</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in android-tools. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All android-tools users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-util/android-tools-33.0.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3168">CVE-2022-3168</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-20128">CVE-2022-20128</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T20:25:11.012259Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T20:25:11.018064Z">ajak</metadata>
+</glsa>

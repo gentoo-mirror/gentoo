@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200505-02">
+  <title>Oops!: Remote code execution</title>
+  <synopsis>
+    The Oops! proxy server contains a remotely exploitable format string
+    vulnerability, which could potentially lead to the execution of arbitrary
+    code.
+  </synopsis>
+  <product type="ebuild">oops</product>
+  <announced>2005-05-05</announced>
+  <revised count="02">2005-05-05</revised>
+  <bug>91303</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-proxy/oops" auto="yes" arch="*">
+      <unaffected range="ge">1.5.24_pre20050503</unaffected>
+      <vulnerable range="lt">1.5.24_pre20050503</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Oops! is an advanced, multithreaded caching web proxy.
+    </p>
+  </background>
+  <description>
+    <p>
+    A format string flaw has been detected in the my_xlog() function of the
+    Oops! proxy, which is called by the passwd_mysql and passwd_pgsql
+    module's auth() functions.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker could send a specially crafted HTTP request to the
+    Oops! proxy, potentially triggering this vulnerability and leading to
+    the execution of arbitrary code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Oops! users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-proxy/oops-1.5.24_pre20050503"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-1121">CAN-2005-1121</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-05-04T15:38:53Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-05-04T15:39:06Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-05-05T13:38:44Z">
+    lewk
+  </metadata>
+</glsa>

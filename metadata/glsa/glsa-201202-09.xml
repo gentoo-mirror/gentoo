@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201202-09">
+  <title>libxml2: User-assisted execution of arbitrary code</title>
+  <synopsis>A boundary error in libxml2 could result in execution of arbitrary
+    code or Denial of Service.
+  </synopsis>
+  <product type="ebuild">libxml2</product>
+  <announced>2012-02-29</announced>
+  <revised count="2">2012-02-29</revised>
+  <bug>398361</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/libxml2" auto="yes" arch="*">
+      <unaffected range="ge">2.7.8-r4</unaffected>
+      <vulnerable range="lt">2.7.8-r4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libxml2 is the XML C parser and toolkit developed for the Gnome project.</p>
+  </background>
+  <description>
+    <p>The "xmlStringLenDecodeEntities()" function in parser.c contains a
+      boundary error which could possibly cause a heap-based buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted XML
+      file in an application linked against libxml2, possibly resulting in the
+      remote execution of arbitrary code with the permissions of the user
+      running the application, or Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libxml2 users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-libs/libxml2-2.7.8-r4"
+    </code>
+    
+    <p>Packages which depend on this library may need to be recompiled. Tools
+      such as revdep-rebuild may assist in identifying some of these packages.
+    </p>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2011-3919">CVE-2011-3919</uri>
+  </references>
+  <metadata timestamp="2012-01-16T09:34:21Z" tag="requester">ago</metadata>
+  <metadata timestamp="2012-02-29T20:10:19Z" tag="submitter">ackle</metadata>
+</glsa>

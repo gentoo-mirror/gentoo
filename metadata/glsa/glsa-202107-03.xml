@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-03">
+  <title>libqb: Insecure temporary file</title>
+  <synopsis>An insecure temporary file usage has been reported in libqb
+    possibly allowing local code execution.
+  </synopsis>
+  <product type="ebuild">libqb</product>
+  <announced>2021-07-03</announced>
+  <revised count="1">2021-07-03</revised>
+  <bug>699860</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-cluster/libqb" auto="yes" arch="*">
+      <unaffected range="ge">1.0.5</unaffected>
+      <vulnerable range="lt">1.0.5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libqb is a library with the primary purpose of providing
+      high-performance, reusable features for client-server architecture, such
+      as logging, tracing, inter-process communication (IPC), and polling.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that libqb used predictable filenames (under /dev/shm
+      and /tmp) without O_EXCL.
+    </p>
+  </description>
+  <impact type="high">
+    <p>A local attacker could perform symlink attacks to overwrite arbitrary
+      files with the privileges of the user running the application linked
+      against libqb.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libqb users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=sys-cluster/libqb-1.0.5"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-12779">CVE-2019-12779</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-26T21:28:24Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-07-03T03:11:34Z">whissi</metadata>
+</glsa>

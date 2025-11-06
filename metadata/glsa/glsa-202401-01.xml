@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-01">
+    <title>Joblib: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been found in Joblib which allows for arbitrary code execution.</synopsis>
+    <product type="ebuild">joblib</product>
+    <announced>2024-01-02</announced>
+    <revised count="1">2024-01-02</revised>
+    <bug>873151</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/joblib" auto="yes" arch="*">
+            <unaffected range="ge">1.2.0</unaffected>
+            <vulnerable range="lt">1.2.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Joblib is a set of tools to provide lightweight pipelining in Python. In particular:
+
+1. transparent disk-caching of functions and lazy re-evaluation (memoize pattern)
+2. easy simple parallel computing
+
+Joblib is optimized to be fast and robust on large data in particular and has specific optimizations for numpy arrays.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Joblib. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Joblib is vulnerable to arbitrary code execution via the pre_dispatch flag in Parallel() class due to the eval() statement.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Joblib users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/joblib-1.2.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21797">CVE-2022-21797</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-02T14:38:14.200471Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-02T14:38:14.202528Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202207-01">
+    <title>HashiCorp Vault: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in HashiCorp Vault, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">vault</product>
+    <announced>2022-07-29</announced>
+    <revised count="1">2022-07-29</revised>
+    <bug>768312</bug>
+    <bug>797244</bug>
+    <bug>808093</bug>
+    <bug>817269</bug>
+    <bug>827945</bug>
+    <bug>829493</bug>
+    <bug>835070</bug>
+    <bug>845405</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-admin/vault" auto="yes" arch="*">
+            <unaffected range="ge">1.10.3</unaffected>
+            <vulnerable range="lt">1.10.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>HashiCorp Vault is a tool for managing secrets.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in HashiCorp Vault. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All HashiCorp Vault users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-admin/vault-1.10.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25594">CVE-2020-25594</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27668">CVE-2021-27668</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3024">CVE-2021-3024</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3282">CVE-2021-3282</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32923">CVE-2021-32923</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37219">CVE-2021-37219</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-38553">CVE-2021-38553</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-38554">CVE-2021-38554</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41802">CVE-2021-41802</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-43998">CVE-2021-43998</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45042">CVE-2021-45042</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-25243">CVE-2022-25243</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30689">CVE-2022-30689</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-07-29T21:22:59.361368Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-07-29T21:22:59.365886Z">ajak</metadata>
+</glsa>

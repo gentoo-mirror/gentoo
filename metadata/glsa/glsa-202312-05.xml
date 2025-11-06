@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-05">
+    <title>libssh: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libssh, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">libssh</product>
+    <announced>2023-12-22</announced>
+    <revised count="1">2023-12-22</revised>
+    <bug>810517</bug>
+    <bug>905746</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/libssh" auto="yes" arch="*">
+            <unaffected range="ge">0.10.5</unaffected>
+            <vulnerable range="lt">0.10.5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libssh is a multiplatform C library implementing the SSHv2 protocol on client and server side.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libssh. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libssh users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/libssh-0.10.5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3634">CVE-2021-3634</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1667">CVE-2023-1667</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-2283">CVE-2023-2283</uri>
+        <uri>GHSL-2023-085</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-22T09:05:35.565422Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-12-22T09:05:35.568851Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201006-05">
+  <title>Wireshark: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple vulnerabilities were found in Wireshark.
+  </synopsis>
+  <product type="ebuild">wireshark</product>
+  <announced>2010-06-01</announced>
+  <revised count="01">2010-06-01</revised>
+  <bug>297388</bug>
+  <bug>318935</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-analyzer/wireshark" auto="yes" arch="*">
+      <unaffected range="ge">1.2.8-r1</unaffected>
+      <vulnerable range="lt">1.2.8-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Wireshark is a versatile network protocol analyzer.
+    </p>
+  </background>
+  <description>
+    <p>
+    Multiple vulnerabilities were found in the Daintree SNA file parser,
+    the SMB, SMB2, IPMI, and DOCSIS dissectors. For further information
+    please consult the CVE entries referenced below.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could cause a Denial of Service and possibly execute
+    arbitrary code via crafted packets or malformed packet trace files.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Wireshark users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-analyzer/wireshark-1.2.8-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4376">CVE-2009-4376</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4377">CVE-2009-4377</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-4378">CVE-2009-4378</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1455">CVE-2010-1455</uri>
+  </references>
+  <metadata tag="requester" timestamp="2010-01-08T17:26:37Z">
+    a3li
+  </metadata>
+  <metadata tag="submitter" timestamp="2010-05-27T13:48:39Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2010-05-27T17:50:20Z">
+    vorlon
+  </metadata>
+</glsa>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200503-33">
+  <title>IPsec-Tools: racoon Denial of service</title>
+  <synopsis>
+    IPsec-Tools' racoon is affected by a remote Denial of Service vulnerability.
+  </synopsis>
+  <product type="ebuild">IPsec-Tools</product>
+  <announced>2005-03-25</announced>
+  <revised count="01">2005-03-25</revised>
+  <bug>84479</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-firewall/ipsec-tools" auto="yes" arch="*">
+      <unaffected range="rge">0.4-r1</unaffected>
+      <unaffected range="ge">0.5-r1</unaffected>
+      <vulnerable range="lt">0.5-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    IPsec-Tools is a port of KAME's implementation of the IPsec
+    utilities. It contains a collection of network monitoring tools,
+    including racoon, ping, and ping6.
+    </p>
+  </background>
+  <description>
+    <p>
+    Sebastian Krahmer has reported a potential remote Denial of
+    Service vulnerability in the ISAKMP header parsing code of racoon.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could possibly cause a Denial of Service of racoon
+    using a specially crafted ISAKMP packet.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All IPsec-Tools users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-firewall/ipsec-tools-0.4-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0398">CAN-2005-0398</uri>
+    <uri link="https://sourceforge.net/mailarchive/forum.php?thread_id=6787713&amp;forum_id=32000">ipsec-tools-devel posting</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-03-23T16:03:41Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-03-24T09:50:17Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-03-24T21:24:17Z">
+    vorlon078
+  </metadata>
+</glsa>

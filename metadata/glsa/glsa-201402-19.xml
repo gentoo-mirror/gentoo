@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201402-19">
+  <title>libtar: Arbitraty code execution</title>
+  <synopsis>A buffer overflow in libtar might allow remote attackers to execute
+    arbitrary code or cause a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">libtar</product>
+  <announced>2014-02-21</announced>
+  <revised count="1">2014-02-21</revised>
+  <bug>487420</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/libtar" auto="yes" arch="*">
+      <unaffected range="ge">1.2.20-r2</unaffected>
+      <vulnerable range="lt">1.2.20-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libtar is a C library for manipulating POSIX tar files.</p>
+  </background>
+  <description>
+    <p>An integer overflow error within the “th_read()” function when
+      processing long names or link extensions can be exploited to cause a
+      heap-based buffer overflow via a specially crafted archive.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted file
+      using a program linked against libtar, possibly resulting in execution of
+      arbitrary code with the privileges of the process or a Denial of Service
+      condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libtar users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-libs/libtar-1.2.20-r2"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-4397">CVE-2013-4397</uri>
+  </references>
+  <metadata tag="requester" timestamp="2013-10-28T17:33:28Z">
+    pinkbyte
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-02-21T07:32:05Z">
+    pinkbyte
+  </metadata>
+</glsa>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200701-01">
+  <title>DenyHosts: Denial of service</title>
+  <synopsis>
+    DenyHosts does not correctly parse log entries, potentially causing a
+    remote Denial of Service.
+  </synopsis>
+  <product type="ebuild">denyhosts</product>
+  <announced>2007-01-03</announced>
+  <revised count="01">2007-01-03</revised>
+  <bug>157163</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-admin/denyhosts" auto="yes" arch="*">
+      <unaffected range="ge">2.6</unaffected>
+      <vulnerable range="lt">2.6</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    DenyHosts is designed to monitor SSH servers for repeated failed login
+    attempts.
+    </p>
+  </background>
+  <description>
+    <p>
+    Tavis Ormandy of the Gentoo Linux Security Audit Team discovered that
+    DenyHosts used an incomplete regular expression to parse failed login
+    attempts.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote unauthenticated attacker can add arbitrary hosts to the
+    blacklist by attempting to login with a specially crafted username. An
+    attacker may use this to prevent legitimate users from accessing a host
+    remotely.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All DenyHosts users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-admin/denyhosts-2.6"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6301">CVE-2006-6301</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2006-12-18T22:34:37Z">
+    taviso
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-01-01T14:18:29Z">
+    taviso
+  </metadata>
+</glsa>

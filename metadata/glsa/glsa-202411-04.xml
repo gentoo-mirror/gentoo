@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202411-04">
+    <title>EditorConfig core C library: arbitrary stack write</title>
+    <synopsis>A vulnerability has been discovered in EditorConfig Core C library, which may lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">editorconfig-core-c</product>
+    <announced>2024-11-06</announced>
+    <revised count="1">2024-11-06</revised>
+    <bug>905308</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="app-text/editorconfig-core-c" auto="yes" arch="*">
+            <unaffected range="ge">0.12.6</unaffected>
+            <vulnerable range="lt">0.12.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>EditorConfig core library written in C (for use by plugins supporting EditorConfig parsing)</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in EditorConfig Core C library. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All EditorConfig core C library users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/editorconfig-core-c-0.12.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0341">CVE-2023-0341</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-11-06T13:45:42.462581Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-11-06T13:45:42.465707Z">graaff</metadata>
+</glsa>

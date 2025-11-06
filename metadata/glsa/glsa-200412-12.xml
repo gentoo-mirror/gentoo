@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200412-12">
+  <title>Adobe Acrobat Reader: Buffer overflow vulnerability</title>
+  <synopsis>
+    Adobe Acrobat Reader is vulnerable to a buffer overflow that could lead to
+    remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">acroread</product>
+  <announced>2004-12-16</announced>
+  <revised count="01">2004-12-16</revised>
+  <bug>74406</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-text/acroread" auto="yes" arch="*">
+      <unaffected range="ge">5.10</unaffected>
+      <vulnerable range="lt">5.10</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Adobe Acrobat Reader is a utility used to view PDF files.
+    </p>
+  </background>
+  <description>
+    <p>
+    A buffer overflow has been discovered in the email processing of
+    Adobe Acrobat Reader. This flaw exists in the mailListIsPdf function,
+    which checks if the input file is an email message containing a PDF
+    file.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could send the victim a specially-crafted email
+    and PDF attachment, which would trigger the buffer overflow and
+    possibly lead to the execution of arbitrary code with the permissions
+    of the user running Adobe Acrobat Reader.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Adobe Acrobat Reader users should upgrade to the latest
+    version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-text/acroread-5.10"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-1152">CAN-2004-1152</uri>
+    <uri link="https://www.adobe.com/support/techdocs/331153.html">Adobe Announcement</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-12-15T17:22:59Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-12-16T15:18:04Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-12-16T17:02:05Z">
+    lewk
+  </metadata>
+</glsa>

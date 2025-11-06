@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200604-04">
+  <title>Kaffeine: Buffer overflow</title>
+  <synopsis>
+    Kaffeine is vulnerable to a buffer overflow that could lead to the
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">kaffeine</product>
+  <announced>2006-04-05</announced>
+  <revised count="01">2006-04-05</revised>
+  <bug>127326</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-video/kaffeine" auto="yes" arch="*">
+      <unaffected range="ge">0.7.1-r2</unaffected>
+      <vulnerable range="lt">0.7.1-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Kaffeine is a graphical front-end for the xine-lib multimedia
+    library.
+    </p>
+  </background>
+  <description>
+    <p>
+    Kaffeine uses an unchecked buffer when fetching remote RAM
+    playlists via HTTP.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to play a specially-crafted
+    RAM playlist resulting in the execution of arbitrary code with the
+    permissions of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Kaffeine users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-video/kaffeine-0.7.1-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0051">CVE-2006-0051</uri>
+    <uri link="https://www.kde.org/info/security/advisory-20060404-1.txt">KDE Security Advisory: Kaffeine buffer overflow</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-04-04T13:17:18Z">
+    DerCorny
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-04-04T19:29:42Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-04-05T21:13:35Z">
+    jaervosz
+  </metadata>
+</glsa>

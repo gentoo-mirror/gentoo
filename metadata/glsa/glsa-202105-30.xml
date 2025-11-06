@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-30">
+  <title>MuPDF: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in MuPDF, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">mupdf</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>747151</bug>
+  <bug>772311</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="app-text/mupdf" auto="yes" arch="*">
+      <unaffected range="ge">1.18.0-r3</unaffected>
+      <vulnerable range="lt">1.18.0-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>MuPDF is a lightweight PDF viewer and toolkit written in portable C.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in MuPDF. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>A remote attacker could entice a user to open a specially crafted PDF
+      document using MuPDF, possibly resulting in a Denial of Service condition
+      or have other unspecified impact.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All MuPDF users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-text/mupdf-1.18.0-r3"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-26519">CVE-2020-26519</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3407">CVE-2021-3407</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T21:00:36Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T10:12:11Z">whissi</metadata>
+</glsa>

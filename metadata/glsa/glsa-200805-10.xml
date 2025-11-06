@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200805-10">
+  <title>Pngcrush: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    A vulnerability in Pngcrush might result in user-assisted execution of
+    arbitrary code.
+  </synopsis>
+  <product type="ebuild">pngcrush</product>
+  <announced>2008-05-11</announced>
+  <revised count="01">2008-05-11</revised>
+  <bug>219033</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-gfx/pngcrush" auto="yes" arch="*">
+      <unaffected range="ge">1.6.4-r1</unaffected>
+      <vulnerable range="lt">1.6.4-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Pngcrush is a multi platform optimizer for PNG (Portable Network
+    Graphics) files.
+    </p>
+  </background>
+  <description>
+    <p>
+    It has been reported that Pngcrush includes a copy of libpng that is
+    vulnerable to a memory corruption (GLSA 200804-15).
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to process a specially crafted
+    PNG image, possibly resulting in the execution of arbitrary code with
+    the privileges of the user running the application, or a Denial of
+    Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Pngcrush users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-gfx/pngcrush-1.6.4-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1382">CVE-2008-1382</uri>
+    <uri link="https://www.gentoo.org/security/en/glsa/glsa-200804-15.xml">GLSA 200804-15</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-05-05T21:28:49Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-05-05T21:29:02Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-05-09T14:19:10Z">
+    p-y
+  </metadata>
+</glsa>

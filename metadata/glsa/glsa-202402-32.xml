@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-32">
+    <title>btrbk: Remote Code Execution</title>
+    <synopsis>A vulnerability has been discovered in btrbk which can lead to remote code execution.</synopsis>
+    <product type="ebuild">btrbk</product>
+    <announced>2024-02-26</announced>
+    <revised count="1">2024-02-26</revised>
+    <bug>806962</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-backup/btrbk" auto="yes" arch="*">
+            <unaffected range="ge">0.31.2</unaffected>
+            <vulnerable range="lt">0.31.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>btrbk is a backup tool for btrfs subvolumes, taking advantage of btrfs specific capabilities to create atomic snapshots and transfer them incrementally to your backup locations.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in btrbk. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Specialy crafted commands may be executed without being propely checked. Applies to remote hosts filtering ssh commands using ssh_filter_btrbk.sh in authorized_keys.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All btrbk users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-backup/btrbk-0.31.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-38173">CVE-2021-38173</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-26T12:53:03.371210Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-26T12:53:03.375893Z">graaff</metadata>
+</glsa>

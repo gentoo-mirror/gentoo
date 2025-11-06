@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200809-13">
+  <title>R: Insecure temporary file creation</title>
+  <synopsis>
+    R is vulnerable to symlink attacks due to an insecure usage of temporary
+    files.
+  </synopsis>
+  <product type="ebuild">R</product>
+  <announced>2008-09-22</announced>
+  <revised count="01">2008-09-22</revised>
+  <bug>235822</bug>
+  <access>local</access>
+  <affected>
+    <package name="dev-lang/R" auto="yes" arch="*">
+      <unaffected range="ge">2.7.1</unaffected>
+      <vulnerable range="lt">2.7.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    R is a GPL licensed implementation of S, a language and environment for
+    statistical computing and graphics.
+    </p>
+  </background>
+  <description>
+    <p>
+    Dmitry E. Oboukhov reported that the "javareconf" script uses temporary
+    files in an insecure manner.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could exploit this vulnerability to overwrite
+    arbitrary files with the privileges of the user running the
+    application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All R users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-lang/R-2.7.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3931">CVE-2008-3931</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-09-18T21:52:27Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-09-18T22:01:59Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-09-19T11:52:28Z">
+    p-y
+  </metadata>
+</glsa>

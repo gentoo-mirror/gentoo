@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200603-17">
+  <title>PeerCast: Buffer overflow</title>
+  <synopsis>
+    PeerCast is vulnerable to a buffer overflow that may lead to the execution
+    of arbitrary code.
+  </synopsis>
+  <product type="ebuild">peercast</product>
+  <announced>2006-03-21</announced>
+  <revised count="01">2006-03-21</revised>
+  <bug>123432</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-sound/peercast" auto="yes" arch="*">
+      <unaffected range="ge">0.1217</unaffected>
+      <vulnerable range="lt">0.1217</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    PeerCast is a Peer to Peer broadcasting technology for listening
+    to radio and watching video on the Internet.
+    </p>
+  </background>
+  <description>
+    <p>
+    INFIGO discovered a problem in the URL handling code. Buffers that
+    are allocated on the stack can be overflowed inside of nextCGIarg()
+    function.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    By sending a specially crafted request to the HTTP server, a
+    remote attacker can cause a stack overflow, resulting in the execution
+    of arbitrary code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All PeerCast users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-sound/peercast-0.1217"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2006-1148">CVE-2006-1148</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-03-11T11:34:53Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-03-12T17:55:02Z">
+    DerCorny
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-03-18T02:16:00Z">
+    adir
+  </metadata>
+</glsa>

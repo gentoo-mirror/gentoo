@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200509-21">
+  <title>Hylafax: Insecure temporary file creation in xferfaxstats script</title>
+  <synopsis>
+    Hylafax is vulnerable to linking attacks, potentially allowing a local user
+    to overwrite arbitrary files.
+  </synopsis>
+  <product type="ebuild">hylafax</product>
+  <announced>2005-09-30</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>106882</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-misc/hylafax" auto="yes" arch="*">
+      <unaffected range="rge">4.2.0-r3</unaffected>
+      <unaffected range="rge">4.2.1-r2</unaffected>
+      <unaffected range="ge">4.2.2</unaffected>
+      <vulnerable range="lt">4.2.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Hylafax is a client-server fax package for class 1 and 2 fax modems.
+    </p>
+  </background>
+  <description>
+    <p>
+    Javier Fernandez-Sanguino has discovered that xferfaxstats cron script
+    supplied by Hylafax insecurely creates temporary files with predictable
+    filenames.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could create symbolic links in the temporary file
+    directory, pointing to a valid file somewhere on the filesystem. When
+    the xferfaxstats script of Hylafax is executed, this would result in
+    the file being overwritten with the rights of the user running the
+    script, which typically is the root user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Hylafax users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose net-misc/hylafax</code>
+  </resolution>
+  <references>
+    <uri link="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=329384">Original bug report</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3069">CVE-2005-3069</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-09-28T15:24:43Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-09-28T19:07:36Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-09-30T07:45:48Z">
+    koon
+  </metadata>
+</glsa>

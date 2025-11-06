@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201701-26">
+  <title>BIND: Denial of service</title>
+  <synopsis>A vulnerability in BIND might allow remote attackers to cause a
+    Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">bind</product>
+  <announced>2017-01-11</announced>
+  <revised count="1">2017-01-11</revised>
+  <bug>598750</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-dns/bind" auto="yes" arch="*">
+      <unaffected range="ge">9.10.4_p4</unaffected>
+      <vulnerable range="lt">9.10.4_p4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>BIND (Berkeley Internet Name Domain) is a Name Server.</p>
+  </background>
+  <description>
+    <p>A defect in BIND’s handling of responses containing a DNAME answer can
+      cause a resolver to exit after encountering an assertion failure in db.c
+      or resolver.c.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could send a specially crafted DNS request to the BIND
+      resolver possibly resulting in a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All BIND users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-dns/bind-9.10.4_p4"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2016-8864">CVE-2016-8864</uri>
+  </references>
+  <metadata tag="requester" timestamp="2017-01-04T02:59:06Z">b-man</metadata>
+  <metadata tag="submitter" timestamp="2017-01-11T12:27:02Z">whissi</metadata>
+</glsa>

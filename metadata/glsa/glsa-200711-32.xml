@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200711-32">
+  <title>Feynmf: Insecure temporary file creation</title>
+  <synopsis>
+    A vulnerability has been discovered in Feynmf allowing local users to
+    overwrite arbitrary files via a symlink attack.
+  </synopsis>
+  <product type="ebuild">feynmf</product>
+  <announced>2007-11-20</announced>
+  <revised count="01">2007-11-20</revised>
+  <bug>198231</bug>
+  <access>local</access>
+  <affected>
+    <package name="dev-tex/feynmf" auto="yes" arch="*">
+      <unaffected range="ge">1.08-r2</unaffected>
+      <vulnerable range="lt">1.08-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Feynmf is a combined LaTeX and Metafont package for easy drawing of
+    professional quality Feynman (and maybe other) diagrams.
+    </p>
+  </background>
+  <description>
+    <p>
+    Kevin B. McCarty discovered that the feynmf.pl script creates a
+    temporary "properly list" file at the location "$TMPDIR/feynmf$PID.pl",
+    where $PID is the process ID.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could create symbolic links in the directory where the
+    temporary files are written, pointing to a valid file somewhere on the
+    filesystem that is writable by the user running Feynmf. When Feynmf
+    writes the temporary file, the target valid file would then be
+    overwritten with the contents of the Feynmf temporary file.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Feynmf users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-tex/feynmf-1.08-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5940">CVE-2007-5940</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-11-19T21:43:28Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-11-19T21:44:51Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-11-20T00:07:40Z">
+    rbu
+  </metadata>
+</glsa>

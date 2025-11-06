@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202403-03">
+    <title>UltraJSON: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in UltraJSON, the worst of which could lead to key confusion and value overwriting.</synopsis>
+    <product type="ebuild">ujson</product>
+    <announced>2024-03-03</announced>
+    <revised count="1">2024-03-03</revised>
+    <bug>855689</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/ujson" auto="yes" arch="*">
+            <unaffected range="ge">5.4.0</unaffected>
+            <vulnerable range="lt">5.4.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>UltraJSON is an ultra fast JSON encoder and decoder written in pure C with bindings for Python 3.8+.</p>
+    </background>
+    <description>
+        <p>Affected versions were found to improperly decode certain characters. JSON strings that contain escaped surrogate characters not part of a proper surrogate pair were decoded incorrectly. Besides corrupting strings, this allowed for potential key confusion and value overwriting in dictionaries. All users parsing JSON from untrusted sources are vulnerable. From version 5.4.0, UltraJSON decodes lone surrogates in the same way as the standard library&#39;s `json` module does, preserving them in the parsed output.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All UltraJSON users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/ujson-5.4.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31116">CVE-2022-31116</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31117">CVE-2022-31117</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-03-03T10:43:37.084240Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-03-03T10:43:37.087046Z">graaff</metadata>
+</glsa>

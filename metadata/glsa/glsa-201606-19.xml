@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201606-19">
+  <title>kwalletd: Information disclosure</title>
+  <synopsis>Kwalletd password stores are vulnerable to codebook attacks.</synopsis>
+  <product type="ebuild">kwalletd</product>
+  <announced>2016-06-27</announced>
+  <revised count="1">2016-06-27</revised>
+  <bug>496768</bug>
+  <access>local</access>
+  <affected>
+    <package name="kde-apps/kwalletd" auto="yes" arch="*">
+      <unaffected range="ge">4.14.3-r2</unaffected>
+      <vulnerable range="lt">4.14.3-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Kwalletd is is a credentials management application for KDE.</p>
+  </background>
+  <description>
+    <p>Kwalletd in KWallet uses Blowfish with ECB mode instead of CBC mode when
+      encrypting the password store.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Local attackers, with access to the password store, could conduct a
+      codebook attack in order to obtain confidential passwords.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All kwalletd users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=kde-apps/kwalletd-4.14.3-r1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-7252">CVE-2013-7252</uri>
+  </references>
+  <metadata tag="requester" timestamp="2015-05-11T16:07:07Z">K_F</metadata>
+  <metadata tag="submitter" timestamp="2016-06-27T22:45:32Z">b-man</metadata>
+</glsa>

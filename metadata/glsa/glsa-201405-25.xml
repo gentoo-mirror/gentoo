@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201405-25">
+  <title>Symfony: Information disclosure</title>
+  <synopsis>A vulnerability in Symfony may allow remote attackers to read
+    arbitrary files.
+  </synopsis>
+  <product type="ebuild">symfony</product>
+  <announced>2014-05-18</announced>
+  <revised count="1">2014-05-18</revised>
+  <bug>444696</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-php/symfony" auto="yes" arch="*">
+      <vulnerable range="lt">1.4.20</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Symfony is a professional, open-source PHP5 web development framework.</p>
+  </background>
+  <description>
+    <p>Symfony does not properly sanitize input for upload requests.</p>
+  </description>
+  <impact type="low">
+    <p>A remote attacker could send a specially crafted file upload request,
+      possibly resulting in disclosure of sensitive information.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>Gentoo has discontinued support for Symfony. We recommend that users
+      unmerge Symfony:
+    </p>
+    
+    <code>
+      # emerge --unmerge "dev-php/symfony"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-5574">CVE-2012-5574</uri>
+  </references>
+  <metadata tag="requester" timestamp="2012-12-17T03:37:50Z">
+    underling
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-05-18T17:31:18Z">ackle</metadata>
+</glsa>

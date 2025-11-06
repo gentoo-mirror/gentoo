@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-31">
+  <title>Nettle: Denial of service</title>
+  <synopsis>A vulnerability in Nettle could lead to a Denial of Service
+    condition.
+  </synopsis>
+  <product type="ebuild">nettle</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>780483</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="dev-libs/nettle" auto="yes" arch="*">
+      <unaffected range="ge">3.7.2</unaffected>
+      <vulnerable range="lt">3.7.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Nettle is a cryptographic library that is designed to fit easily in
+      almost any context: In cryptographic toolkits for object-oriented
+      languages, such as C++, Python, or Pike, in applications like lsh or
+      GnuPG, or even in kernel space.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that Nettle incorrectly handled signature
+      verification.
+    </p>
+  </description>
+  <impact type="low">
+    <p>A remote attacker could send a specially crafted valid-looking input
+      signature, possibly resulting in a Denial of Service condition or force
+      an invalid signature.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Nettle users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-libs/nettle-3.7.2"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20305">CVE-2021-20305</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T20:00:54Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T10:12:28Z">whissi</metadata>
+</glsa>

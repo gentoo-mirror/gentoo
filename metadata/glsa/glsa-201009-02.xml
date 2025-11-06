@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201009-02">
+  <title>Maildrop: privilege escalation</title>
+  <synopsis>
+    Insecure permission handling in maildrop might allow local attackers to
+    elevate their privileges.
+  </synopsis>
+  <product type="ebuild">maildrop</product>
+  <announced>2010-09-06</announced>
+  <revised count="01">2010-09-06</revised>
+  <bug>308043</bug>
+  <access>local</access>
+  <affected>
+    <package name="mail-filter/maildrop" auto="yes" arch="*">
+      <unaffected range="ge">2.4.2</unaffected>
+      <vulnerable range="lt">2.4.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    maildrop is the mail filter/mail delivery agent that is used by the
+    Courier Mail Server.
+    </p>
+  </background>
+  <description>
+    <p>
+    Christoph Anton Mitterer reported that maildrop does not properly drop
+    its privileges when run as root.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A local attacker could create a specially crafted .mailfilter file,
+    possibly leading to the execution of arbitrary commands with the "root"
+    group privileges. NOTE: Successful exploitation requires that maildrop
+    is run as root with the -d option.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All maildrop users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=mail-filter/maildrop-2.4.2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-0301">CVE-2010-0301</uri>
+  </references>
+  <metadata tag="requester" timestamp="2010-08-29T09:32:26Z">
+    a3li
+  </metadata>
+  <metadata tag="submitter" timestamp="2010-09-03T21:46:47Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2010-09-03T21:46:57Z">
+    p-y
+  </metadata>
+</glsa>

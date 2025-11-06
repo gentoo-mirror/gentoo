@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-16">
+    <title>Apache Commons BCEL: Remote Code Execution</title>
+    <synopsis>A vulnerability has been discovered in Apache Commons BCEL, which can lead to remote code execution.</synopsis>
+    <product type="ebuild">bcel</product>
+    <announced>2024-05-05</announced>
+    <revised count="1">2024-05-05</revised>
+    <bug>880447</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-java/bcel" auto="yes" arch="*">
+            <unaffected range="ge">6.6.0</unaffected>
+            <vulnerable range="lt">6.6.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The Byte Code Engineering Library (Apache Commons BCEL™) is intended to give users a convenient way to analyze, create, and manipulate (binary) Java class files (those ending with .class).</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in U-Boot tools. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Apache Commons BCEL users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/bcel-6.6.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34169">CVE-2022-34169</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42920">CVE-2022-42920</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-05T08:54:04.174105Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-05T08:54:04.177186Z">graaff</metadata>
+</glsa>

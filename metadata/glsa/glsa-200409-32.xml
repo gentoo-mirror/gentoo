@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200409-32">
+  <title>getmail: Filesystem overwrite vulnerability</title>
+  <synopsis>
+    getmail contains a vulnerability that could potentially allow any local
+    user to create or overwrite files in any directory on the system. This flaw
+    can be escalated further and possibly lead to a complete system compromise.
+  </synopsis>
+  <product type="ebuild">getmail</product>
+  <announced>2004-09-23</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>64643</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-mail/getmail" auto="yes" arch="*">
+      <unaffected range="ge">4.2.0</unaffected>
+      <vulnerable range="lt">4.2.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    getmail is a reliable fetchmail replacement that supports Maildir,
+    Mboxrd and external MDA delivery.
+    </p>
+  </background>
+  <description>
+    <p>
+    David Watson discovered a vulnerability in getmail when it is
+    configured to run as root and deliver mail to the maildirs/mbox files
+    of untrusted local users. A malicious local user can then exploit a
+    race condition, or a similar symlink attack, and potentially cause
+    getmail to create or overwrite files in any directory on the system.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    An untrusted local user could potentially create or overwrite files in
+    any directory on the system. This vulnerability may also be exploited
+    to have arbitrary commands executed as root.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Do not run getmail as a privileged user; or, in version 4, use an
+    external MDA with explicitly configured user and group privileges.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All getmail users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge sync
+    
+    # emerge -pv "&gt;=net-mail/getmail-4.2.0"
+    # emerge "&gt;=net-mail/getmail-4.2.0"</code>
+  </resolution>
+  <references>
+    <uri link="http://www.qcc.ca/~charlesc/software/getmail-4/CHANGELOG">getmail ChangeLog</uri>
+    <uri link="https://article.gmane.org/gmane.mail.getmail.user/1430">getmail Mailing List</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0880">CVE-2004-0880</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0881">CVE-2004-0881</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2004-09-21T21:51:14Z">
+    lewk
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-09-21T21:52:24Z">
+    lewk
+  </metadata>
+</glsa>

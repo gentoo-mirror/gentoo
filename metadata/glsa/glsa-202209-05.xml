@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-05">
+    <title>OpenJDK: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in OpenJDK, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">openjdk,openjdk-bin,openjdk-jre-bin</product>
+    <announced>2022-09-07</announced>
+    <revised count="1">2022-09-07</revised>
+    <bug>803605</bug>
+    <bug>831446</bug>
+    <bug>784611</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-java/openjdk" auto="yes" arch="*">
+            <unaffected range="ge" slot="17">17.0.2_p8</unaffected>
+            <unaffected range="ge" slot="11">11.0.14_p9</unaffected>
+            <unaffected range="ge" slot="8">8.322_p06</unaffected>
+            <vulnerable range="lt" slot="17">17.0.2_p8</vulnerable>
+            <vulnerable range="lt" slot="11">11.0.14_p9</vulnerable>
+            <vulnerable range="lt" slot="8">8.322_p06</vulnerable>
+        </package>
+        <package name="dev-java/openjdk-bin" auto="yes" arch="*">
+            <unaffected range="ge" slot="17">17.0.2_p8</unaffected>
+            <unaffected range="ge" slot="11">11.0.14_p9</unaffected>
+            <unaffected range="ge" slot="8">8.322_p06</unaffected>
+            <vulnerable range="lt" slot="17">17.0.2_p8</vulnerable>
+            <vulnerable range="lt" slot="11">11.0.14_p9</vulnerable>
+            <vulnerable range="lt" slot="8">8.322_p06</vulnerable>
+        </package>
+        <package name="dev-java/openjdk-jre-bin" auto="yes" arch="*">
+            <unaffected range="ge" slot="17">17.0.2_p8</unaffected>
+            <unaffected range="ge" slot="11">11.0.14_p9</unaffected>
+            <unaffected range="ge" slot="8">8.322_p06</unaffected>
+            <vulnerable range="lt" slot="17">17.0.2_p8</vulnerable>
+            <vulnerable range="lt" slot="11">11.0.14_p9</vulnerable>
+            <vulnerable range="lt" slot="8">8.322_p06</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OpenJDK is an open source implementation of the Java programming language.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in OpenJDK. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All OpenJDK 8 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-8.322_p06:8"
+        </code>
+        
+        <p>All OpenJDK 8 JRE binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-jre-bin-8.322_p06:8"
+        </code>
+        
+        <p>All OpenJDK 8 binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-bin-8.322_p06:8"
+        </code>
+        
+        <p>All OpenJDK 11 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-11.0.14_p9:11"
+        </code>
+        
+        <p>All OpenJDK 11 JRE binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-jre-bin-11.0.14_p9:11"
+        </code>
+        
+        <p>All OpenJDK 11 binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-bin-11.0.14_p9:11"
+        </code>
+        
+        <p>All OpenJDK 17 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-17.0.2_p8:17"
+        </code>
+        
+        <p>All OpenJDK 17 JRE binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-jre-bin-17.0.2_p8:17"
+        </code>
+        
+        <p>All OpenJDK 17 binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/openjdk-bin-17.0.2_p8:17"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2161">CVE-2021-2161</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2163">CVE-2021-2163</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2341">CVE-2021-2341</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2369">CVE-2021-2369</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2388">CVE-2021-2388</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-2432">CVE-2021-2432</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35550">CVE-2021-35550</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35556">CVE-2021-35556</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35559">CVE-2021-35559</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35561">CVE-2021-35561</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35564">CVE-2021-35564</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35565">CVE-2021-35565</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35567">CVE-2021-35567</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35578">CVE-2021-35578</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35586">CVE-2021-35586</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35588">CVE-2021-35588</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35603">CVE-2021-35603</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21248">CVE-2022-21248</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21271">CVE-2022-21271</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21277">CVE-2022-21277</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21282">CVE-2022-21282</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21283">CVE-2022-21283</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21291">CVE-2022-21291</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21293">CVE-2022-21293</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21294">CVE-2022-21294</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21296">CVE-2022-21296</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21299">CVE-2022-21299</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21305">CVE-2022-21305</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21340">CVE-2022-21340</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21341">CVE-2022-21341</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21349">CVE-2022-21349</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21360">CVE-2022-21360</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21365">CVE-2022-21365</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21366">CVE-2022-21366</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-07T02:52:51.955536Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-07T02:52:51.960448Z">ajak</metadata>
+</glsa>

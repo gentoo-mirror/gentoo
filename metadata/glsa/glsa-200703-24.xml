@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200703-24">
+  <title>mgv: Stack overflow in included gv code</title>
+  <synopsis>
+    mgv improperly handles user-supplied data possibly allowing for the
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">mgv</product>
+  <announced>2007-03-26</announced>
+  <revised count="01">2007-03-26</revised>
+  <bug>154645</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-text/mgv" auto="yes" arch="*">
+      <vulnerable range="le">3.1.5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    mgv is a Postscript viewer with a Motif interface, based on Ghostview
+    and GNU gv.
+    </p>
+  </background>
+  <description>
+    <p>
+    mgv includes code from gv that does not properly boundary check
+    user-supplied data before copying it into process buffers.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could entice a user to open a specially crafted Postscript
+    document with mgv and possibly execute arbitrary code with the rights
+    of the user running mgv.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    mgv is currently unmaintained, and the mgv website no longer exists. As
+    such, the mgv package has been masked in Portage. We recommend that
+    users select an alternate Postscript viewer such as ghostview or
+    GSview, and unmerge mgv:
+    </p>
+    <code>
+    # emerge --unmerge "app-text/mgv"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5864">CVE-2006-5864</uri>
+    <uri link="https://www.gentoo.org/security/en/glsa/glsa-200611-20.xml">GLSA 200611-20</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-03-14T07:32:05Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-03-20T02:27:18Z">
+    aetius
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-03-26T19:59:57Z">
+    falco
+  </metadata>
+</glsa>

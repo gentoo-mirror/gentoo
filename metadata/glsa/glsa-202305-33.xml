@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-33">
+    <title>OpenImageIO: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in OpenImageIO, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">openimageio</product>
+    <announced>2023-05-30</announced>
+    <revised count="1">2023-05-30</revised>
+    <bug>879255</bug>
+    <bug>884085</bug>
+    <bug>888045</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/openimageio" auto="yes" arch="*">
+            <unaffected range="ge">2.4.6.0</unaffected>
+            <vulnerable range="lt">2.4.6.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OpenImageIO is a library for reading and writing images.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in OpenImageIO. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All OpenImageIO users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/openimageio-2.4.6.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-4198">CVE-2022-4198</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36354">CVE-2022-36354</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38143">CVE-2022-38143</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41639">CVE-2022-41639</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41649">CVE-2022-41649</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41684">CVE-2022-41684</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41794">CVE-2022-41794</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41837">CVE-2022-41837</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41838">CVE-2022-41838</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41977">CVE-2022-41977</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41981">CVE-2022-41981</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41988">CVE-2022-41988</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-41999">CVE-2022-41999</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43592">CVE-2022-43592</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43593">CVE-2022-43593</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43594">CVE-2022-43594</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43595">CVE-2022-43595</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43596">CVE-2022-43596</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43597">CVE-2022-43597</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43598">CVE-2022-43598</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43599">CVE-2022-43599</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43600">CVE-2022-43600</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43601">CVE-2022-43601</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43602">CVE-2022-43602</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-43603">CVE-2022-43603</uri>
+        <uri>TALOS-2022-1626</uri>
+        <uri>TALOS-2022-1627</uri>
+        <uri>TALOS-2022-1628</uri>
+        <uri>TALOS-2022-1629</uri>
+        <uri>TALOS-2022-1630</uri>
+        <uri>TALOS-2022-1632</uri>
+        <uri>TALOS-2022-1633</uri>
+        <uri>TALOS-2022-1634</uri>
+        <uri>TALOS-2022-1635</uri>
+        <uri>TALOS-2022-1643</uri>
+        <uri>TALOS-2022-1651</uri>
+        <uri>TALOS-2022-1652</uri>
+        <uri>TALOS-2022-1653</uri>
+        <uri>TALOS-2022-1654</uri>
+        <uri>TALOS-2022-1655</uri>
+        <uri>TALOS-2022-1656</uri>
+        <uri>TALOS-2022-1657</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-30T03:02:13.174119Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-30T03:02:13.176617Z">ajak</metadata>
+</glsa>

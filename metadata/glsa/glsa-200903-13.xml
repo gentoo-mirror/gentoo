@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200903-13">
+  <title>MPFR: Denial of service</title>
+  <synopsis>
+    Multiple buffer overflows in MPFR might lead to a Denial of Service.
+  </synopsis>
+  <product type="ebuild">mpfr</product>
+  <announced>2009-03-09</announced>
+  <revised count="01">2009-03-09</revised>
+  <bug>260968</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/mpfr" auto="yes" arch="*">
+      <unaffected range="ge">2.4.1</unaffected>
+      <vulnerable range="lt">2.4.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MPFR is a library for multiple-precision floating-point computations
+    with exact rounding.
+    </p>
+  </background>
+  <description>
+    <p>
+    Multiple buffer overflows have been reported in the mpfr_snprintf() and
+    mpfr_vsnprintf() functions.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote user could exploit the vulnerability to cause a Denial of
+    Service in an application using MPFR via unknown vectors.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MPRF users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-libs/mpfr-2.4.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0757">CVE-2009-0757</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-03-07T16:35:53Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-03-07T18:14:49Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-03-07T18:14:57Z">
+    rbu
+  </metadata>
+</glsa>

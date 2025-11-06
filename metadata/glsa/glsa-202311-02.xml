@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-02">
+    <title>Netatalk: Multiple Vulnerabilities including root remote code execution</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Netatalk, which could lead to remote code execution</synopsis>
+    <product type="ebuild">netatalk</product>
+    <announced>2023-11-01</announced>
+    <revised count="1">2023-11-01</revised>
+    <bug>837623</bug>
+    <bug>881259</bug>
+    <bug>915354</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-fs/netatalk" auto="yes" arch="*">
+            <unaffected range="ge">3.1.18</unaffected>
+            <vulnerable range="lt">3.1.18</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Netatalk is a kernel level implementation of the AppleTalk Protocol Suite, which allows Unix hosts to act as file, print, and time servers for Apple computers. It includes several script utilities, including etc2ps.sh.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Netatalk. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Netatalk users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-fs/netatalk-3.1.18"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-31439">CVE-2021-31439</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0194">CVE-2022-0194</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-22995">CVE-2022-22995</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23121">CVE-2022-23121</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23122">CVE-2022-23122</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23123">CVE-2022-23123</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23124">CVE-2022-23124</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23125">CVE-2022-23125</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45188">CVE-2022-45188</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-01T14:46:24.671379Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-01T14:46:24.673441Z">graaff</metadata>
+</glsa>

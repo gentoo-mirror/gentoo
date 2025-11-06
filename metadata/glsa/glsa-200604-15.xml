@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200604-15">
+  <title>xine-ui: Format string vulnerabilities</title>
+  <synopsis>
+    Format string vulnerabilities in xine-ui may lead to the execution of
+    arbitrary code.
+  </synopsis>
+  <product type="ebuild">xine-ui</product>
+  <announced>2006-04-26</announced>
+  <revised count="01">2006-04-26</revised>
+  <bug>130801</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-video/xine-ui" auto="yes" arch="*">
+      <unaffected range="ge">0.99.4-r5</unaffected>
+      <vulnerable range="lt">0.99.4-r5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    xine-ui is a skin-based user interface for xine. xine is a free
+    multimedia player. It plays CDs, DVDs, and VCDs, and can also decode
+    other common multimedia formats.
+    </p>
+  </background>
+  <description>
+    <p>
+    Ludwig Nussel discovered that xine-ui incorrectly implements
+    formatted printing.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By constructing a malicious playlist file, a remote attacker could
+    exploit these vulnerabilities to execute arbitrary code with the rights
+    of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All xine-ui users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-video/xine-ui-0.99.4-r5"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1905">CVE-2006-1905</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-04-22T18:05:30Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-04-23T00:24:14Z">
+    adir
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-04-25T05:57:00Z">
+    jaervosz
+  </metadata>
+</glsa>

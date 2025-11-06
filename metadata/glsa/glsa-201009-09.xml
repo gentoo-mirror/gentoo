@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201009-09">
+  <title>fence: Multiple symlink vulnerabilities</title>
+  <synopsis>
+    fence contains multiple programs containing vulnerabilities that may allow
+    local users to overwrite arbitrary files via a symlink attack.
+  </synopsis>
+  <product type="ebuild">fence</product>
+  <announced>2010-09-29</announced>
+  <revised count="01">2010-09-29</revised>
+  <bug>240576</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-cluster/fence" auto="yes" arch="*">
+      <vulnerable range="lt">2.03.09</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    fence is an I/O group fencing system.
+    </p>
+  </background>
+  <description>
+    <p>
+    The fence_apc, fence_apc_snmp (CVE-2008-4579) and fence_manual
+    (CVE-2008-4580) programs contain symlink vulnerabilities.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    These vulnerabilities may allow arbitrary files to be overwritten with
+    root privileges.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    Gentoo discontinued support for fence. All fence users should uninstall
+    and choose another software that provides the same functionality.
+    </p>
+    <code>
+    # emerge --unmerge sys-cluster/fence</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4579">CVE-2008-4579</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4580">CVE-2008-4580</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-07-10T11:03:13Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2010-04-10T02:06:28Z">
+    craig
+  </metadata>
+  <metadata tag="bugReady" timestamp="2010-05-31T15:37:24Z">
+    a3li
+  </metadata>
+</glsa>

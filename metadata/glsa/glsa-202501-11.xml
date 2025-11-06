@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202501-11">
+    <title>PHP: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in PHP, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">php</product>
+    <announced>2025-01-23</announced>
+    <revised count="1">2025-01-23</revised>
+    <bug>941598</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-lang/php" auto="yes" arch="*">
+            <unaffected range="ge" slot="8.2">8.2.24</unaffected>
+            <unaffected range="ge" slot="8.3">8.3.12</unaffected>
+            <vulnerable range="lt" slot="8.2">8.2.24</vulnerable>
+            <vulnerable range="lt" slot="8.3">8.3.12</vulnerable>
+            <vulnerable range="lt" slot="8.1">8.1.30</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>PHP is a widely-used general-purpose scripting language that is especially suited for Web development and can be embedded into HTML.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in PHP. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All PHP users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/php-8.2.24:8.2"
+          # emerge --ask --oneshot --verbose ">=dev-lang/php-8.3.12:8.3"
+        </code>
+        
+        <p>Gentoo has discontinued support for php 8.1:</p>
+        
+        <code>
+          # emerge --ask --verbose --depclean "dev-lang/php:8.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-8925">CVE-2024-8925</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-8927">CVE-2024-8927</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-9026">CVE-2024-9026</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-01-23T07:26:35.892309Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-01-23T07:26:35.894806Z">graaff</metadata>
+</glsa>

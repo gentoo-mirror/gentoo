@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-33">
+    <title>Libtirpc: Denial of Service</title>
+    <synopsis>A vulnerability has been discovered in Libtirpc which could result in denial of service.</synopsis>
+    <product type="ebuild">libtirpc</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>859634</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/libtirpc" auto="yes" arch="*">
+            <unaffected range="ge">1.3.2</unaffected>
+            <vulnerable range="lt">1.3.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Libtirpc is a port of Sun&#39;s Transport-Independent RPC library to Linux.</p>
+    </background>
+    <description>
+        <p>Currently svc_run does not handle poll timeout and rendezvous_request
+does not handle EMFILE error returned from accept(2 as it used to.
+These two missing functionality were removed by commit b2c9430f46c4.
+
+The effect of not handling poll timeout allows idle TCP conections
+to remain ESTABLISHED indefinitely. When the number of connections
+reaches the limit of the open file descriptors (ulimit -n) then
+accept(2) fails with EMFILE. Since there is no handling of EMFILE
+error this causes svc_run() to get in a tight loop calling accept(2).
+This resulting in the RPC service of svc_run is being down, it&#39;s
+no longer able to service any requests.
+
+Due to a lack of handling of certain error cases, connections to Libtirpc could remain ESTABLISHED indefinitely.</p>
+    </description>
+    <impact type="normal">
+        <p>Denial of service can be achieved via establishing enough connections to Libtirpc to reach the limit of open file descriptors for the process.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Libtirpc users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/libtirpc-1.3.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-46828">CVE-2021-46828</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:30:06.446859Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:30:06.456481Z">ajak</metadata>
+</glsa>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200909-18">
+  <title>nginx: Remote execution of arbitrary code</title>
+  <synopsis>
+    A buffer underflow vulnerability in the request URI processing of nginx
+    might enable remote attackers to execute arbitrary code or cause a Denial
+    of Service.
+  </synopsis>
+  <product type="ebuild">nginx</product>
+  <announced>2009-09-18</announced>
+  <revised count="01">2009-09-18</revised>
+  <bug>285162</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-servers/nginx" auto="yes" arch="*">
+      <unaffected range="rge">0.5.38</unaffected>
+      <unaffected range="rge">0.6.39</unaffected>
+      <unaffected range="ge">0.7.62</unaffected>
+      <vulnerable range="lt">0.7.62</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    nginx is a robust, small and high performance HTTP and reverse proxy
+    server.
+    </p>
+  </background>
+  <description>
+    <p>
+    Chris Ries reported a heap-based buffer underflow in the
+    ngx_http_parse_complex_uri() function in http/ngx_http_parse.c when
+    parsing the request URI.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker might send a specially crafted request URI to a nginx
+    server, possibly resulting in the remote execution of arbitrary code
+    with the privileges of the user running the server, or a Denial of
+    Service. NOTE: By default, nginx runs as the "nginx" user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All nginx 0.5.x users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-servers/nginx-0.5.38"</code>
+    <p>
+    All nginx 0.6.x users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-servers/nginx-0.6.39"</code>
+    <p>
+    All nginx 0.7.x users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-servers/nginx-0.7.62"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2629">CVE-2009-2629</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-09-14T19:21:09Z">
+    a3li
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-09-14T19:51:52Z">
+    a3li
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-09-18T19:40:49Z">
+    a3li
+  </metadata>
+</glsa>

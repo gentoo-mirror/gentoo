@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200807-12">
+  <title>BitchX: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple vulnerabilities in BitchX may allow for the remote execution of
+    arbitrary code or symlink attacks.
+  </synopsis>
+  <product type="ebuild">bitchx</product>
+  <announced>2008-07-21</announced>
+  <revised count="01">2008-07-21</revised>
+  <bug>190667</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-irc/bitchx" auto="yes" arch="*">
+      <vulnerable range="le">1.1-r4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    BitchX is an IRC client.
+    </p>
+  </background>
+  <description>
+    <p>
+    bannedit reported a boundary error when handling overly long IRC MODE
+    messages (CVE-2007-4584). Nico Golde reported an insecure creation of a
+    temporary file within the e_hostname() function (CVE-2007-5839).
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to connect to a malicious IRC
+    server, resulting in the remote execution of arbitrary code with the
+    privileges of the user running the application. A local attacker could
+    perform symlink attacks to overwrite arbitrary files on the local
+    machine.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    Since BitchX is no longer maintained, we recommend that users unmerge
+    the vulnerable package and switch to another IRC client:
+    </p>
+    <code>
+    # emerge --unmerge "net-irc/bitchx"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-4584">CVE-2007-4584</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5839">CVE-2007-5839</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-07-07T22:27:23Z">
+    vorlon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-07-07T22:27:35Z">
+    vorlon
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-07-17T11:41:45Z">
+    p-y
+  </metadata>
+</glsa>

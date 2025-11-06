@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200805-04">
+  <title>eGroupWare: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple vulnerabilities in eGroupWare may lead to execution of arbitrary
+    PHP code, the ability to upload malicious files and cross-site scripting
+    attacks.
+  </synopsis>
+  <product type="ebuild">egroupware</product>
+  <announced>2008-05-07</announced>
+  <revised count="01">2008-05-07</revised>
+  <bug>214212</bug>
+  <bug>218625</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/egroupware" auto="yes" arch="*">
+      <unaffected range="ge">1.4.004</unaffected>
+      <vulnerable range="lt">1.4.004</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    eGroupWare is a suite of web-based group applications including
+    calendar, address book, messenger and email.
+    </p>
+  </background>
+  <description>
+    <p>
+    A vulnerability has been reported in FCKEditor due to the way that file
+    uploads are handled in the file
+    editor/filemanager/upload/php/upload.php when a filename has multiple
+    file extensions (CVE-2008-2041). Another vulnerability exists in the
+    _bad_protocol_once() function in the file
+    phpgwapi/inc/class.kses.inc.php, which allows remote attackers to
+    bypass HTML filtering (CVE-2008-1502).
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    The first vulnerability can be exploited to upload malicious files and
+    execute arbitrary PHP code provided that a directory is writable by the
+    webserver. The second vulnerability can be exploited by remote
+    attackers via a specially crafted URL in order to conduct cross-site
+    scripting attacks.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All eGroupWare users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/egroupware-1.4.004"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1502">CVE-2008-1502</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2041">CVE-2008-2041</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-04-29T12:58:46Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-04-29T13:57:44Z">
+    mfleming
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-04-29T14:01:45Z">
+    vorlon
+  </metadata>
+</glsa>

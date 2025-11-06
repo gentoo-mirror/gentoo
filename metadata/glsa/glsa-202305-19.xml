@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-19">
+    <title>Firejail: Local Privilege Escalation</title>
+    <synopsis>A vulnerability has been discovered in Firejail which could result in local root privilege escalation.</synopsis>
+    <product type="ebuild">firejail,firejail-lts</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>850748</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-apps/firejail" auto="yes" arch="*">
+            <unaffected range="ge">0.9.70</unaffected>
+            <vulnerable range="lt">0.9.70</vulnerable>
+        </package>
+        <package name="sys-apps/firejail-lts" auto="yes" arch="*">
+            <vulnerable range="le">0.9.56.2-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>A SUID program that reduces the risk of security breaches by restricting the running environment of untrusted applications using Linux namespaces and seccomp-bpf.</p>
+    </background>
+    <description>
+        <p>Firejail does not sufficiently validate the user&#39;s environment prior to using it as the root user when using the --join command line option.</p>
+    </description>
+    <impact type="normal">
+        <p>An unprivileged user can exploit this vulnerability to achieve local root privileges.</p>
+    </impact>
+    <workaround>
+        <p>System administrators can mitigate this vulnerability via adding either &#34;force-nonewprivs yes&#34; or &#34;join no&#34; to the Firejail configuration file in /etc/firejail/firejail.config.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for sys-apps/firejail-lts. Users should unmerge it in favor of sys-apps/firejail:</p>
+        
+        <code>
+          # emerge --ask --depclean --verbose "sys-apps/firejail-lts"
+          # emerge --ask --verbose "sys-apps/firejail"
+        </code>
+        
+        <p>All Firejail users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --ask --oneshot --verbose ">=sys-apps/firejail-0.9.70"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31214">CVE-2022-31214</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T10:04:36.994181Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T10:04:36.999752Z">sam</metadata>
+</glsa>

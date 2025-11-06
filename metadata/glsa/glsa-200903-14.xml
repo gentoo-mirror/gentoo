@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200903-14">
+  <title>BIND: Incorrect signature verification</title>
+  <synopsis>
+    Incomplete verification of RSA and DSA certificates might lead to spoofed
+    records authenticated using DNSSEC.
+  </synopsis>
+  <product type="ebuild">bind</product>
+  <announced>2009-03-09</announced>
+  <revised count="01">2009-03-09</revised>
+  <bug>254134</bug>
+  <bug>257949</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-dns/bind" auto="yes" arch="*">
+      <unaffected range="ge">9.4.3_p1</unaffected>
+      <vulnerable range="lt">9.4.3_p1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    ISC BIND is the Internet Systems Consortium implementation of the
+    Domain Name System (DNS) protocol.
+    </p>
+  </background>
+  <description>
+    <p>
+    BIND does not properly check the return value from the OpenSSL
+    functions to verify DSA (CVE-2009-0025) and RSA (CVE-2009-0265)
+    certificates.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could bypass validation of the certificate chain to
+    spoof DNSSEC-authenticated records.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All BIND users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-dns/bind-9.4.3_p1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0025">CVE-2009-0025</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0265">CVE-2009-0265</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-01-11T17:55:00Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-03-09T10:41:33Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-03-09T10:41:40Z">
+    rbu
+  </metadata>
+</glsa>

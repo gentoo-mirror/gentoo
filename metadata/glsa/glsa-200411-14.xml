@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200411-14">
+  <title>Kaffeine, gxine: Remotely exploitable buffer overflow</title>
+  <synopsis>
+    Kaffeine and gxine both contain a buffer overflow that can be exploited
+    when accessing content from a malicious HTTP server with specially crafted
+    headers.
+  </synopsis>
+  <product type="ebuild">kaffeine gxine</product>
+  <announced>2004-11-07</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>69663</bug>
+  <bug>70055</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-video/kaffeine" auto="yes" arch="*">
+      <unaffected range="ge">0.5_rc1-r1</unaffected>
+      <unaffected range="rge">0.4.3b-r1</unaffected>
+      <vulnerable range="lt">0.5_rc1-r1</vulnerable>
+    </package>
+    <package name="media-video/gxine" auto="yes" arch="*">
+      <unaffected range="ge">0.3.3-r1</unaffected>
+      <vulnerable range="lt">0.3.3-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Kaffeine and gxine are graphical front-ends for xine-lib multimedia
+    library.
+    </p>
+  </background>
+  <description>
+    <p>
+    KF of Secure Network Operations has discovered an overflow that occurs
+    during the Content-Type header processing of Kaffeine. The vulnerable
+    code in Kaffeine is reused from gxine, making gxine vulnerable as well.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could create a specially-crafted Content-type header from a
+    malicious HTTP server, and crash a user's instance of Kaffeine or
+    gxine, potentially allowing the execution of arbitrary code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Kaffeine users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-video/kaffeine-0.4.3b-r1"</code>
+    <p>
+    All gxine users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-video/gxine-0.3.3-r1"</code>
+  </resolution>
+  <references>
+    <uri link="http://securitytracker.com/alerts/2004/Oct/1011936.html">SecurityTracker Advisory</uri>
+    <uri link="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=1060299&amp;group_id=9655&amp;atid=109655">gxine Bug Report</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1034">CVE-2004-1034</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-11-03T13:13:11Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-11-05T01:34:00Z">
+    lewk
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-11-07T19:19:00Z">
+    jaervosz
+  </metadata>
+</glsa>

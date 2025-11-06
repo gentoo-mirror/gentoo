@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200510-10">
+  <title>uw-imap: Remote buffer overflow</title>
+  <synopsis>
+    uw-imap is vulnerable to remote overflow of a buffer in the IMAP server
+    leading to execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">uw-imap</product>
+  <announced>2005-10-11</announced>
+  <revised count="01">2005-10-11</revised>
+  <bug>108206</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-mail/uw-imap" auto="yes" arch="*">
+      <unaffected range="ge">2004g</unaffected>
+      <vulnerable range="lt">2004g</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    uw-imap is the University of Washington's IMAP and POP server
+    daemons.
+    </p>
+  </background>
+  <description>
+    <p>
+    Improper bounds checking of user supplied data while parsing IMAP
+    mailbox names can lead to overflowing the stack buffer.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    Successful exploitation requires an authenticated IMAP user to
+    request a malformed mailbox name. This can lead to execution of
+    arbitrary code with the permissions of the IMAP server.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There are no known workarounds at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All uw-imap users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-mail/uw-imap-2004g"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-2933">CAN-2005-2933</uri>
+    <uri link="http://www.idefense.com/application/poi/display?id=313&amp;type=vulnerabilities&amp;flashstatus=false">iDEFENSE Security Advisory</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-10-07T11:49:05Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-10-07T15:06:14Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-10-08T06:13:24Z">
+    r2d2
+  </metadata>
+</glsa>

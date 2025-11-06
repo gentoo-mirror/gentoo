@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200607-10">
+  <title>Samba: Denial of Service vulnerability</title>
+  <synopsis>
+    A large number of share connection requests could cause a Denial of Service
+    within Samba.
+  </synopsis>
+  <product type="ebuild">samba</product>
+  <announced>2006-07-25</announced>
+  <revised count="01">2006-07-25</revised>
+  <bug>139369</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-fs/samba" auto="yes" arch="*">
+      <unaffected range="ge">3.0.22-r3</unaffected>
+      <vulnerable range="lt">3.0.22-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Samba is a freely available SMB/CIFS implementation which allows
+    seamless interoperability of file and print services to other SMB/CIFS
+    clients.
+    </p>
+  </background>
+  <description>
+    <p>
+    During an internal audit the Samba team discovered that a flaw in the
+    way Samba stores share connection requests could lead to a Denial of
+    Service.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By sending a large amount of share connection requests to a vulnerable
+    Samba server, an attacker could cause a Denial of Service due to memory
+    consumption.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Samba users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-fs/samba-3.0.22-r3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3403">CVE-2006-3403</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-07-23T19:09:42Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-07-23T19:57:17Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-07-23T19:57:30Z">
+    DerCorny
+  </metadata>
+</glsa>

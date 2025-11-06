@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200903-29">
+  <title>BlueZ: Arbitrary code execution</title>
+  <synopsis>
+    Insufficient input validation in BlueZ may lead to arbitrary code execution
+    or a Denial of Service.
+  </synopsis>
+  <product type="ebuild">bluez-utils bluez-libs</product>
+  <announced>2009-03-16</announced>
+  <revised count="01">2009-03-16</revised>
+  <bug>230591</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="net-wireless/bluez-utils" auto="yes" arch="*">
+      <unaffected range="ge">3.36</unaffected>
+      <vulnerable range="lt">3.36</vulnerable>
+    </package>
+    <package name="net-wireless/bluez-libs" auto="yes" arch="*">
+      <unaffected range="ge">3.36</unaffected>
+      <vulnerable range="lt">3.36</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    BlueZ is a set of Bluetooth tools and system daemons for Linux.
+    </p>
+  </background>
+  <description>
+    <p>
+    It has been reported that the Bluetooth packet parser does not validate
+    string length fields in SDP packets.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A physically proximate attacker using a Bluetooth device with an
+    already established trust relationship could send specially crafted
+    requests, possibly leading to arbitrary code execution or a crash.
+    Exploitation may also be triggered by a local attacker registering a
+    service record via a UNIX socket or D-Bus interface.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All bluez-utils users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-wireless/bluez-utils-3.36"</code>
+    <p>
+    All bluez-libs users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-wireless/bluez-libs-3.36"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2374">CVE-2008-2374</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-03-11T19:03:24Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-03-11T19:04:53Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-03-13T12:49:09Z">
+    p-y
+  </metadata>
+</glsa>

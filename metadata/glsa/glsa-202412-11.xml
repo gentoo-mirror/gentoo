@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202412-11">
+    <title>OATH Toolkit: Privilege Escalation</title>
+    <synopsis>A vulnerability has been discovered in OATH Toolkit, which could lead to local root privilege escalation.</synopsis>
+    <product type="ebuild">oath-toolkit</product>
+    <announced>2024-12-07</announced>
+    <revised count="1">2024-12-07</revised>
+    <bug>940778</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-auth/oath-toolkit" auto="yes" arch="*">
+            <unaffected range="ge">2.6.12</unaffected>
+            <vulnerable range="lt">2.6.12</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OATH Toolkit provide components to build one-time password authentication systems. It contains shared C libraries, command line tools and a PAM module. Supported technologies include the event-based HOTP algorithm (RFC 4226), the time-based TOTP algorithm (RFC 6238), and Portable Symmetric Key Container (PSKC, RFC 6030) to manage secret key data. OATH stands for Open AuTHentication, which is the organization that specify the algorithms.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in OATH Toolkit. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All OATH Toolkit users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-auth/oath-toolkit-2.6.12"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-47191">CVE-2024-47191</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-12-07T11:29:36.174751Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-12-07T11:29:36.177979Z">graaff</metadata>
+</glsa>

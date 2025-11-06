@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201403-04">
+  <title>QtCore: Denial of service</title>
+  <synopsis>A vulnerability in QXmlSimpleReader class can be used to cause a
+    Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">qt-core</product>
+  <announced>2014-03-13</announced>
+  <revised count="1">2014-03-13</revised>
+  <bug>494728</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-qt/qtcore" auto="yes" arch="*">
+      <unaffected range="ge">4.8.5-r1</unaffected>
+      <vulnerable range="lt">4.8.5-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>The Qt toolkit is a comprehensive C++ application development framework.</p>
+  </background>
+  <description>
+    <p>A vulnerability in QXmlSimpleReader’s XML entity parsing has been
+      discovered.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted XML
+      file using an application linked against QtCore, possibly resulting in
+      Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All QtCore users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-qt/qtcore-4.8.5-r1"
+    </code>
+    
+    <p>Packages which depend on this library may need to be recompiled. Tools
+      such as revdep-rebuild may assist in identifying these packages.
+    </p>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-4549">CVE-2013-4549</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-02-19T14:50:40Z">Zlogene</metadata>
+  <metadata tag="submitter" timestamp="2014-03-13T16:57:59Z">
+    pinkbyte
+  </metadata>
+</glsa>

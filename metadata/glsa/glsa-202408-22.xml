@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202408-22">
+    <title>Bundler: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Bundler, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">bundler</product>
+    <announced>2024-08-10</announced>
+    <revised count="1">2024-08-10</revised>
+    <bug>743214</bug>
+    <bug>798135</bug>
+    <bug>828884</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-ruby/bundler" auto="yes" arch="*">
+            <unaffected range="ge">2.2.33</unaffected>
+            <vulnerable range="lt">2.2.33</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Bundler provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Bundler. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Bundler users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-ruby/bundler-2.2.33"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-3881">CVE-2019-3881</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36327">CVE-2020-36327</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-43809">CVE-2021-43809</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-08-10T08:23:41.517666Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-08-10T08:23:41.520457Z">graaff</metadata>
+</glsa>

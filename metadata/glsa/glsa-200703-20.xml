@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200703-20">
+  <title>LSAT: Insecure temporary file creation</title>
+  <synopsis>
+    LSAT insecurely creates temporary files which can lead to symlink attacks
+    allowing a local user to overwrite arbitrary files.
+  </synopsis>
+  <product type="ebuild">lsat</product>
+  <announced>2007-03-18</announced>
+  <revised count="02">2007-05-11</revised>
+  <bug>159542</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-admin/lsat" auto="yes" arch="*">
+      <unaffected range="ge">0.9.5</unaffected>
+      <vulnerable range="lt">0.9.5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    The Linux Security Auditing Tool (LSAT) is a post install security
+    auditor which checks many system configurations and local network
+    settings on the system for common security or configuration errors and
+    for packages that are not needed.
+    </p>
+  </background>
+  <description>
+    <p>
+    LSAT insecurely writes in /tmp with a predictable filename.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    A local attacker could create symbolic links in the temporary files
+    directory, pointing to a valid file somewhere on the filesystem. When
+    the LSAT script is executed, this would result in the file being
+    overwritten with the rights of the user running the software, which
+    could be the root user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All lsat users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-admin/lsat-0.9.5"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1500">CVE-2007-1500</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-03-15T22:15:51Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-03-16T10:34:49Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-03-16T11:42:45Z">
+    vorlon
+  </metadata>
+</glsa>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200506-11">
+  <title>Gaim: Denial of Service vulnerabilities</title>
+  <synopsis>
+    Gaim contains two remote Denial of Service vulnerabilities.
+  </synopsis>
+  <product type="ebuild">gaim</product>
+  <announced>2005-06-12</announced>
+  <revised count="01">2005-06-12</revised>
+  <bug>95347</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-im/gaim" auto="yes" arch="*">
+      <unaffected range="ge">1.3.1</unaffected>
+      <vulnerable range="lt">1.3.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Gaim is a full featured instant messaging client which handles a
+    variety of instant messaging protocols.
+    </p>
+  </background>
+  <description>
+    <p>
+    Jacopo Ottaviani discovered a vulnerability in the Yahoo! file
+    transfer code when being offered files with names containing non-ASCII
+    characters (CAN-2005-1269).
+    </p>
+    <p>
+    Hugo de Bokkenrijder discovered a
+    vulnerability when receiving malformed MSN messages (CAN-2005-1934).
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    Both vulnerabilities cause Gaim to crash, resulting in a Denial of
+    Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There are no known workarounds at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Gaim users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-im/gaim-1.3.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://gaim.sourceforge.net/security/?id=18">Gaim Vulnerability: Remote Yahoo! crash</uri>
+    <uri link="https://gaim.sourceforge.net/security/?id=19">Gaim Vulnerability: MSN Remote DoS</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-1269">CAN-2005-1269</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-1934">CAN-2005-1934</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-06-10T08:03:05Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-06-10T08:44:05Z">
+    r2d2
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-06-12T13:55:53Z">
+    koon
+  </metadata>
+</glsa>

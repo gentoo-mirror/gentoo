@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202411-06">
+    <title>GnuTLS: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GnuTLS, the worst of which could lead to a denial of service.</synopsis>
+    <product type="ebuild">gnutls</product>
+    <announced>2024-11-17</announced>
+    <revised count="1">2024-11-17</revised>
+    <bug>831573</bug>
+    <bug>861803</bug>
+    <bug>893880</bug>
+    <bug>918663</bug>
+    <bug>922262</bug>
+    <bug>927557</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/gnutls" auto="yes" arch="*">
+            <unaffected range="ge">3.8.5</unaffected>
+            <vulnerable range="lt">3.8.5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GnuTLS is a secure communications library implementing the SSL, TLS, and DTLS protocols</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GnuTLS. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GnuTLS users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/gnutls-3.8.5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2509">CVE-2022-2509</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0361">CVE-2023-0361</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5981">CVE-2023-5981</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0553">CVE-2024-0553</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0567">CVE-2024-0567</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-28834">CVE-2024-28834</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-28835">CVE-2024-28835</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-11-17T08:50:20.605702Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-11-17T08:50:20.609484Z">sam</metadata>
+</glsa>

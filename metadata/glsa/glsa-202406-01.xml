@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202406-01">
+    <title>GLib: Privilege Escalation</title>
+    <synopsis>A vulnerability has been discovered in GLib, which can lead to privilege escalation.</synopsis>
+    <product type="ebuild">glib</product>
+    <announced>2024-06-22</announced>
+    <revised count="1">2024-06-22</revised>
+    <bug>931507</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-libs/glib" auto="yes" arch="*">
+            <unaffected range="ge">2.78.6</unaffected>
+            <vulnerable range="lt">2.78.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GLib is a library providing a number of GNOME&#39;s core objects and functions.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in GLib. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>When a GDBus-based client subscribes to signals from a trusted system service such as NetworkManager or logind on a shared computer, other users of the same computer can send spoofed D-Bus signals that the GDBus-based client will wrongly interpret as having been sent by the trusted system service. This could lead to the GDBus-based client behaving incorrectly, with an application-dependent impact.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GLib users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/glib-2.78.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-34397">CVE-2024-34397</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-06-22T06:44:35.106379Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-06-22T06:44:35.109355Z">graaff</metadata>
+</glsa>

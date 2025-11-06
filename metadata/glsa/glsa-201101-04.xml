@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201101-04">
+  <title>aria2: Directory traversal</title>
+  <synopsis>
+    A directory traversal vulnerability has been found in aria2.
+  </synopsis>
+  <product type="ebuild">aria2</product>
+  <announced>2011-01-15</announced>
+  <revised count="01">2011-01-15</revised>
+  <bug>320975</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-misc/aria2" auto="yes" arch="*">
+      <unaffected range="ge">1.9.3</unaffected>
+      <vulnerable range="lt">1.9.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    aria2 is a download utility with resuming and segmented downloading
+    with HTTP/HTTPS/FTP/BitTorrent support.
+    </p>
+  </background>
+  <description>
+    <p>
+    A directory traversal vulnerability was discovered in aria2.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to download from a specially
+    crafted metalink file, resulting in the creation of arbitrary files.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All aria2 users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-misc/aria2-1.9.3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-1512">CVE-2010-1512</uri>
+  </references>
+  <metadata tag="requester" timestamp="2010-05-23T20:17:09Z">
+    craig
+  </metadata>
+  <metadata tag="submitter" timestamp="2010-05-27T13:19:55Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2010-05-30T18:46:48Z">
+    vorlon
+  </metadata>
+</glsa>

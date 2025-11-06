@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200801-17">
+  <title>Netkit FTP Server: Denial of service</title>
+  <synopsis>
+    Netkit FTP Server contains a Denial of Service vulnerability.
+  </synopsis>
+  <product type="ebuild">netkit-ftpd</product>
+  <announced>2008-01-29</announced>
+  <revised count="01">2008-01-29</revised>
+  <bug>199206</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-ftp/netkit-ftpd" auto="yes" arch="*">
+      <unaffected range="ge">0.17-r7</unaffected>
+      <vulnerable range="lt">0.17-r7</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    net-ftp/netkit-ftpd is the Linux Netkit FTP server with optional SSL
+    support.
+    </p>
+  </background>
+  <description>
+    <p>
+    Venustech AD-LAB discovered that an FTP client connected to a
+    vulnerable server with passive mode and SSL support can trigger an
+    fclose() function call on an uninitialized stream in ftpd.c.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker can send specially crafted FTP data to a server with
+    passive mode and SSL support, causing the ftpd daemon to crash.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Disable passive mode or SSL.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Netkit FTP Server users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-ftp/netkit-ftpd-0.17-r7"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6263">CVE-2007-6263</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-27T19:17:40Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-01-28T18:03:07Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-01-28T18:03:42Z">
+    falco
+  </metadata>
+</glsa>

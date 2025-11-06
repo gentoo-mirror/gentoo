@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200801-21">
+  <title>Xdg-Utils: Arbitrary command execution</title>
+  <synopsis>
+    A vulnerability has been discovered in Xdg-Utils, allowing for the remote
+    execution of arbitrary commands.
+  </synopsis>
+  <product type="ebuild">xdg-utils</product>
+  <announced>2008-01-30</announced>
+  <revised count="01">2008-01-30</revised>
+  <bug>207331</bug>
+  <access>remote</access>
+  <affected>
+    <package name="x11-misc/xdg-utils" auto="yes" arch="*">
+      <unaffected range="ge">1.0.2-r1</unaffected>
+      <vulnerable range="lt">1.0.2-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Xdg-Utils is a set of tools allowing all applications to easily
+    integrate with the Free Desktop configuration.
+    </p>
+  </background>
+  <description>
+    <p>
+    Miroslav Lichvar discovered that the "xdg-open" and "xdg-email" shell
+    scripts do not properly sanitize their input before processing it.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted link
+    with a vulnerable application using Xdg-Utils (e.g. an email client),
+    resulting in the execution of arbitrary code with the privileges of the
+    user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Xdg-Utils users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=x11-misc/xdg-utils-1.0.2-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0386">CVE-2008-0386</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-26T12:15:55Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-01-28T20:04:22Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-01-28T20:04:30Z">
+    p-y
+  </metadata>
+</glsa>

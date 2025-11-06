@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200611-07">
+  <title>GraphicsMagick: PALM and DCM buffer overflows</title>
+  <synopsis>
+    GraphicsMagick improperly handles PALM and DCM images, potentially
+    resulting in the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">graphicsmagick</product>
+  <announced>2006-11-13</announced>
+  <revised count="01">2006-11-13</revised>
+  <bug>152668</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-gfx/graphicsmagick" auto="yes" arch="*">
+      <unaffected range="ge">1.1.7-r3</unaffected>
+      <vulnerable range="lt">1.1.7-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    GraphicsMagick is a collection of tools and libraries which support
+    reading, writing, and manipulating images in many major formats.
+    </p>
+  </background>
+  <description>
+    <p>
+    M. Joonas Pihlaja has reported that a boundary error exists within the
+    ReadDCMImage() function of coders/dcm.c, causing the improper handling
+    of DCM images. Pihlaja also reported that there are several boundary
+    errors in the ReadPALMImage() function of coders/palm.c, similarly
+    causing the improper handling of PALM images.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could entice a user to open a specially crafted DCM or PALM
+    image with GraphicsMagick, and possibly execute arbitrary code with the
+    privileges of the user running GraphicsMagick.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All GraphicsMagick users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-gfx/graphicsmagick-1.1.7-r3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5456">CVE-2006-5456</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-11-06T14:10:18Z">
+    vorlon078
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-11-06T23:27:19Z">
+    shellsage
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-11-07T12:33:19Z">
+    falco
+  </metadata>
+</glsa>

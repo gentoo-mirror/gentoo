@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200501-15">
+  <title>UnRTF: Buffer overflow</title>
+  <synopsis>
+    A buffer overflow in UnRTF allows an attacker to execute arbitrary code by
+    way of a specially crafted RTF file.
+  </synopsis>
+  <product type="ebuild">app-text/unrtf</product>
+  <announced>2005-01-10</announced>
+  <revised count="01">2005-01-10</revised>
+  <bug>74480</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-text/unrtf" auto="yes" arch="*">
+      <unaffected range="ge">0.19.3-r1</unaffected>
+      <vulnerable range="lt">0.19.3-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    UnRTF is a utility to convert files in the Rich Text Format into
+    other formats.
+    </p>
+  </background>
+  <description>
+    <p>
+    An unchecked strcat() in unrtf may overflow the bounds of a static
+    buffer.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    Using a specially crafted file, possibly delivered by e-mail or
+    over the web, an attacker may execute arbitrary code with the
+    permissions of the user running UnRTF.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All unrtf users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-text/unrtf-0.19.3-r1"</code>
+  </resolution>
+  <references>
+    <uri link="http://tigger.uic.edu/~jlongs2/holes/unrtf.txt">Original Announcement</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-01-08T19:54:59Z">
+    vorlon078
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-01-08T19:55:37Z">
+    vorlon078
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-01-09T05:15:13Z">
+    dmargoli
+  </metadata>
+</glsa>

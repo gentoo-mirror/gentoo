@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-16">
+    <title>BlueZ: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in BlueZ, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">bluez</product>
+    <announced>2022-09-29</announced>
+    <revised count="1">2022-09-29</revised>
+    <bug>797712</bug>
+    <bug>835077</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-wireless/bluez" auto="yes" arch="*">
+            <unaffected range="ge">5.63</unaffected>
+            <vulnerable range="lt">5.63</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>BlueZ is the canonical bluetooth tools and system daemons package for Linux.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in BlueZ. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All BlueZ users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-wireless/bluez-5.63"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-26558">CVE-2020-26558</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-0129">CVE-2021-0129</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3588">CVE-2021-3588</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0204">CVE-2022-0204</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-29T14:21:34.715873Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-29T14:21:34.729713Z">ajak</metadata>
+</glsa>

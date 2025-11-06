@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-12">
+    <title>pypy, pypy3: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in pypy and pypy3, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">pypy,pypy-exe,pypy-exe-bin,pypy3</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>741496</bug>
+    <bug>741560</bug>
+    <bug>774114</bug>
+    <bug>782520</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-python/pypy" auto="yes" arch="*">
+            <unaffected range="ge">7.3.3_p37_p1-r1</unaffected>
+            <vulnerable range="lt">7.3.3_p37_p1-r1</vulnerable>
+        </package>
+        <package name="dev-python/pypy-exe" auto="yes" arch="*">
+            <unaffected range="ge">7.3.2</unaffected>
+            <vulnerable range="lt">7.3.2</vulnerable>
+        </package>
+        <package name="dev-python/pypy-exe-bin" auto="yes" arch="*">
+            <vulnerable range="lt">7.3.2</vulnerable>
+        </package>
+        <package name="dev-python/pypy3" auto="yes" arch="*">
+            <unaffected range="ge">7.3.3_p37_p1-r1</unaffected>
+            <vulnerable range="lt">7.3.3_p37_p1-r1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>A fast, compliant alternative implementation of the Python language.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in pypy. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All pypy users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/pypy-7.3.3_p37_p1-r1"
+          # emerge --ask --oneshot --verbose ">=dev-python/pypy-exe-7.3.2"
+          # emerge --ask --oneshot --verbose ">=dev-python/pypy-exe-bin-7.3.2"
+        </code>
+        
+        <p>All pypy3 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/pypy3-7.3.3_p37_p1-r1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-27619">CVE-2020-27619</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T06:59:11.659897Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T06:59:11.662062Z">graaff</metadata>
+</glsa>

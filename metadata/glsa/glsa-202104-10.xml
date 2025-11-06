@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202104-10">
+  <title>Mozilla Firefox: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Mozilla Firefox, the
+    worst of which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">firefox</product>
+  <announced>2021-04-30</announced>
+  <revised count="1">2021-04-30</revised>
+  <bug>772305</bug>
+  <bug>778269</bug>
+  <bug>784572</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="www-client/firefox" auto="yes" arch="*">
+      <unaffected range="ge" slot="0/esr78">78.10.0</unaffected>
+      <unaffected range="ge">88.0</unaffected>
+      <vulnerable range="lt">88.0</vulnerable>
+    </package>
+    <package name="www-client/firefox-bin" auto="yes" arch="*">
+      <unaffected range="ge" slot="0/esr78">78.10.0</unaffected>
+      <unaffected range="ge">88.0</unaffected>
+      <vulnerable range="lt">88.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Mozilla Firefox is a popular open-source web browser from the Mozilla
+      project.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Mozilla Firefox. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Mozilla Firefox ESR users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-client/firefox-78.10.0"
+    </code>
+    
+    <p>All Mozilla Firefox ESR binary users should upgrade to the latest
+      version:
+    </p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-client/firefox-bin-78.10.0"
+    </code>
+    
+    <p>All Mozilla Firefox users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-client/firefox-88.0"
+    </code>
+    
+    <p>All Mozilla Firefox binary users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-client/firefox-bin-88.0"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23961">CVE-2021-23961</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23968">CVE-2021-23968</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23969">CVE-2021-23969</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23970">CVE-2021-23970</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23971">CVE-2021-23971</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23972">CVE-2021-23972</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23973">CVE-2021-23973</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23974">CVE-2021-23974</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23975">CVE-2021-23975</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23976">CVE-2021-23976</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23977">CVE-2021-23977</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23978">CVE-2021-23978</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23981">CVE-2021-23981</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23982">CVE-2021-23982</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23983">CVE-2021-23983</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23984">CVE-2021-23984</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23985">CVE-2021-23985</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23986">CVE-2021-23986</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23987">CVE-2021-23987</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23988">CVE-2021-23988</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23994">CVE-2021-23994</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23995">CVE-2021-23995</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23998">CVE-2021-23998</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23999">CVE-2021-23999</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-24002">CVE-2021-24002</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29945">CVE-2021-29945</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29946">CVE-2021-29946</uri>
+    <uri link="https://www.mozilla.org/en-US/security/advisories/mfsa2021-08/">
+      MFSA-2021-08
+    </uri>
+    <uri link="https://www.mozilla.org/en-US/security/advisories/mfsa2021-11/">
+      MFSA-2021-11
+    </uri>
+    <uri link="https://www.mozilla.org/en-US/security/advisories/mfsa2021-15/">
+      MFSA-2021-15
+    </uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-04-30T22:45:03Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-04-30T23:47:33Z">whissi</metadata>
+</glsa>

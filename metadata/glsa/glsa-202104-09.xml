@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202104-09">
+  <title>Mozilla Thunderbird: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Mozilla Thunderbird,
+    the worst of which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">thunderbird</product>
+  <announced>2021-04-30</announced>
+  <revised count="1">2021-04-30</revised>
+  <bug>772287</bug>
+  <bug>778272</bug>
+  <bug>784578</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="mail-client/thunderbird" auto="yes" arch="*">
+      <unaffected range="ge">78.10.0</unaffected>
+      <vulnerable range="lt">78.10.0</vulnerable>
+    </package>
+    <package name="mail-client/thunderbird-bin" auto="yes" arch="*">
+      <unaffected range="ge">78.10.0</unaffected>
+      <vulnerable range="lt">78.10.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Mozilla Thunderbird is a popular open-source email client from the
+      Mozilla project.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Mozilla Thunderbird.
+      Please review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Mozilla Thunderbird users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=mail-client/thunderbird-78.10.0"
+    </code>
+    
+    <p>All Mozilla Thunderbird binary users should upgrade to the latest
+      version:
+    </p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=mail-client/thunderbird-bin-78.10.0"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23961">CVE-2021-23961</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23968">CVE-2021-23968</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23969">CVE-2021-23969</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23973">CVE-2021-23973</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23978">CVE-2021-23978</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23981">CVE-2021-23981</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23982">CVE-2021-23982</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23984">CVE-2021-23984</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23987">CVE-2021-23987</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23994">CVE-2021-23994</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23995">CVE-2021-23995</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23998">CVE-2021-23998</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23999">CVE-2021-23999</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-24002">CVE-2021-24002</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29945">CVE-2021-29945</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29946">CVE-2021-29946</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29948">CVE-2021-29948</uri>
+    <uri link="https://www.mozilla.org/en-US/security/advisories/mfsa2021-09/">
+      MFSA-2021-09
+    </uri>
+    <uri link="https://www.mozilla.org/en-US/security/advisories/mfsa2021-12/">
+      MFSA-2021-12
+    </uri>
+    <uri link="https://www.mozilla.org/en-US/security/advisories/mfsa2021-14/">
+      MFSA-2021-14
+    </uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-04-30T22:33:39Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-04-30T23:46:41Z">whissi</metadata>
+</glsa>

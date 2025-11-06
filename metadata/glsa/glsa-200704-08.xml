@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200704-08">
+  <title>DokuWiki: Cross-site scripting vulnerability</title>
+  <synopsis>
+    DokuWiki is vulnerable to a cross-site scripting attack.
+  </synopsis>
+  <product type="ebuild">dokuwiki</product>
+  <announced>2007-04-12</announced>
+  <revised count="01">2007-04-12</revised>
+  <bug>163781</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/dokuwiki" auto="yes" arch="*">
+      <unaffected range="ge">20061106</unaffected>
+      <vulnerable range="lt">20061106</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    DokuWiki is a simple to use wiki aimed at creating documentation.
+    </p>
+  </background>
+  <description>
+    <p>
+    DokuWiki does not sanitize user input to the GET variable 'media' in
+    the fetch.php file.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    An attacker could entice a user to click a specially crafted link and
+    inject CRLF characters into the variable. This would allow the creation
+    of new lines or fields in the returned HTTP Response header, which
+    would permit the attacker to execute arbitrary scripts in the context
+    of the user's browser.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Replace the following line in lib/exe/fetch.php:
+    </p>
+    <code>$MEDIA = getID('media',false); // no cleaning - maybe external</code>
+    <p>
+    with
+    </p>
+    <code>$MEDIA = preg_replace('/[\x00-\x1F]+/s','',getID('media',false));</code>
+  </workaround>
+  <resolution>
+    <p>
+    All DokuWiki users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/dokuwiki-20061106"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6965">CVE-2006-6965</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-04-02T22:16:33Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-04-03T13:45:23Z">
+    aetius
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-04-03T22:29:45Z">
+    falco
+  </metadata>
+</glsa>

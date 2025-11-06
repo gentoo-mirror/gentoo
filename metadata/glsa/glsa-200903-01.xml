@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200903-01">
+  <title>Vinagre: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    A format string error in Vinagre may allow for the execution of arbitrary
+    code.
+  </synopsis>
+  <product type="ebuild">vinagre</product>
+  <announced>2009-03-06</announced>
+  <revised count="01">2009-03-06</revised>
+  <bug>250314</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-misc/vinagre" auto="yes" arch="*">
+      <unaffected range="ge">0.5.2</unaffected>
+      <vulnerable range="lt">0.5.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Vinagre is a VNC Client for the GNOME Desktop.
+    </p>
+  </background>
+  <description>
+    <p>
+    Alfredo Ortega (Core Security Technologies) reported a format string
+    error in the vinagre_utils_show_error() function in
+    src/vinagre-utils.c.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user into opening a specially crafted
+    .vnc file or connecting to a malicious server, possibly resulting in
+    the remote execution of arbitrary code with the privileges of the user
+    running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Vinagre users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-misc/vinagre-0.5.2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5660">CVE-2008-5660</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-12-13T19:36:32Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-02-24T22:12:27Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-02-24T22:12:38Z">
+    p-y
+  </metadata>
+</glsa>

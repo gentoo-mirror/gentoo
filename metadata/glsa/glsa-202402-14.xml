@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-14">
+    <title>QtWebEngine: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in QtWebEngine, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">qtwebengine</product>
+    <announced>2024-02-18</announced>
+    <revised count="1">2024-02-18</revised>
+    <bug>922189</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-qt/qtwebengine" auto="yes" arch="*">
+            <unaffected range="ge">5.15.12_p20240122</unaffected>
+            <vulnerable range="lt">5.15.12_p20240122</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>QtWebEngine is a library for rendering dynamic web content in Qt5 and Qt6 C++ and QML applications.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in QtWebEngine. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All QtWebEngine users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-qt/qtwebengine-5.15.12_p20240122"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-5997">CVE-2023-5997</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6112">CVE-2023-6112</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6345">CVE-2023-6345</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6346">CVE-2023-6346</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6347">CVE-2023-6347</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6348">CVE-2023-6348</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6350">CVE-2023-6350</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6351">CVE-2023-6351</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6508">CVE-2023-6508</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6509">CVE-2023-6509</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6510">CVE-2023-6510</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6511">CVE-2023-6511</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6512">CVE-2023-6512</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6702">CVE-2023-6702</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6703">CVE-2023-6703</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6704">CVE-2023-6704</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6705">CVE-2023-6705</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6706">CVE-2023-6706</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-6707">CVE-2023-6707</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-7024">CVE-2023-7024</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0222">CVE-2024-0222</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0223">CVE-2024-0223</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0224">CVE-2024-0224</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0225">CVE-2024-0225</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0333">CVE-2024-0333</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0517">CVE-2024-0517</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0518">CVE-2024-0518</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-0519">CVE-2024-0519</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-18T07:37:49.729326Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-18T07:37:49.731886Z">graaff</metadata>
+</glsa>

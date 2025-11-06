@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-02">
+    <title>PostgreSQL: Privilege Escalation</title>
+    <synopsis>A vulnerability has been discovered in PostgreSQL, which can lead to privilege escalation.</synopsis>
+    <product type="ebuild">postgresql</product>
+    <announced>2024-09-22</announced>
+    <revised count="1">2024-09-22</revised>
+    <bug>937573</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-db/postgresql" auto="yes" arch="*">
+            <unaffected range="ge" slot="12">12.20</unaffected>
+            <unaffected range="ge" slot="13">13.16</unaffected>
+            <unaffected range="ge" slot="14">14.13</unaffected>
+            <unaffected range="ge" slot="15">15.8</unaffected>
+            <unaffected range="ge" slot="16">16.4</unaffected>
+            <vulnerable range="lt" slot="12">12.20</vulnerable>
+            <vulnerable range="lt" slot="13">13.16</vulnerable>
+            <vulnerable range="lt" slot="14">14.13</vulnerable>
+            <vulnerable range="lt" slot="15">15.8</vulnerable>
+            <vulnerable range="lt" slot="16">16.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>PostgreSQL is an open source object-relational database management system.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in PostgreSQL. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>An attacker able to create and drop non-temporary objects could inject SQL code that would be executed by a concurrent pg_dump session with the privileges of the role running pg_dump (which is often a superuser). The attack involves replacing a sequence or similar object with a view or foreign table that will execute malicious code. To prevent this, introduce a new server parameter restrict_nonsystem_relation_kind that can disable expansion of non-builtin views as well as access to foreign tables, and teach pg_dump to set it when available. Note that the attack is prevented only if both pg_dump and the server it is dumping from are new enough to have this fix.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All PostgreSQL users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-db/postgresql-12.20:12"
+          # emerge --ask --oneshot --verbose ">=dev-db/postgresql-13.16:13"
+          # emerge --ask --oneshot --verbose ">=dev-db/postgresql-14.13:14"
+          # emerge --ask --oneshot --verbose ">=dev-db/postgresql-15.8:15"
+          # emerge --ask --oneshot --verbose ">=dev-db/postgresql-16.4:16"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-7348">CVE-2024-7348</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-22T05:47:12.326843Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-09-22T05:47:12.329535Z">graaff</metadata>
+</glsa>

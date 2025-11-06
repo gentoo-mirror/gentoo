@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-22">
+    <title>rsync: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in rsync, the worst of which can lead to denial of service or information disclosure.</synopsis>
+    <product type="ebuild">rsync</product>
+    <announced>2024-05-08</announced>
+    <revised count="1">2024-05-08</revised>
+    <bug>792576</bug>
+    <bug>838724</bug>
+    <bug>862876</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/rsync" auto="yes" arch="*">
+            <unaffected range="ge">3.2.5_pre1</unaffected>
+            <vulnerable range="lt">3.2.5_pre1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>rsync is a server and client utility that provides fast incremental file transfers. It is used to efficiently synchronize files between hosts and is used by emerge to fetch Gentoo&#39;s Portage tree.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in rsync. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All rsync users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/rsync-3.2.5_pre1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-25032">CVE-2018-25032</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-14387">CVE-2020-14387</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29154">CVE-2022-29154</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-08T06:28:44.897737Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-08T06:28:44.901845Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-04">
+    <title>dbus-broker: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in dbus-broker, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">dbus-broker</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>851696</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-apps/dbus-broker" auto="yes" arch="*">
+            <unaffected range="ge">31</unaffected>
+            <vulnerable range="lt">31</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>dbus-broker is a Linux D-Bus message broker.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in dbus-broker. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All dbus-broker users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/dbus-broker-31"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31212">CVE-2022-31212</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31213">CVE-2022-31213</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T09:13:30.551831Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T09:13:30.556193Z">sam</metadata>
+</glsa>

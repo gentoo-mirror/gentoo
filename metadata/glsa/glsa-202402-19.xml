@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-19">
+    <title>libcaca: Arbitary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in libcaca which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">libcaca</product>
+    <announced>2024-02-18</announced>
+    <revised count="1">2024-02-18</revised>
+    <bug>772317</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libcaca" auto="yes" arch="*">
+            <unaffected range="ge">0.99_beta19-r4</unaffected>
+            <vulnerable range="lt">0.99_beta19-r4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libcaca is a library that creates colored ASCII-art graphics.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in libcaca. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>A buffer overflow issue in caca_resize function in libcaca/caca/canvas.c may lead to local execution of arbitrary code in the user context.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libcaca users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libcaca-0.99_beta19-r4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3410">CVE-2021-3410</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-18T10:22:11.346423Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-18T10:22:11.349349Z">graaff</metadata>
+</glsa>

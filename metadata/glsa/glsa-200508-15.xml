@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200508-15">
+  <title>Apache 2.0: Denial of Service vulnerability</title>
+  <synopsis>
+    A bug in Apache may allow a remote attacker to perform a Denial of Service
+    attack.
+  </synopsis>
+  <product type="ebuild">apache</product>
+  <announced>2005-08-25</announced>
+  <revised count="03">2007-12-30</revised>
+  <bug>102991</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-servers/apache" auto="yes" arch="*">
+      <unaffected range="ge">2.0.54-r9</unaffected>
+      <unaffected range="lt">2.0</unaffected>
+      <vulnerable range="lt">2.0.54-r9</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    The Apache HTTP Server Project is a featureful, freely-available HTTP
+    (Web) server.
+    </p>
+  </background>
+  <description>
+    <p>
+    Filip Sneppe discovered that Apache improperly handles byterange
+    requests to CGI scripts.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker may access vulnerable scripts in a malicious way,
+    exhausting all RAM and swap space on the server, resulting in a Denial
+    of Service of the Apache server.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All apache users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-servers/apache-2.0.54-r9"</code>
+  </resolution>
+  <references>
+    <uri link="https://issues.apache.org/bugzilla/show_bug.cgi?id=29962">ASF Bugzilla Bug 29962</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2728">CVE-2005-2728</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-08-22T07:26:08Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-08-22T07:47:26Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-08-24T00:58:46Z">
+    adir
+  </metadata>
+</glsa>

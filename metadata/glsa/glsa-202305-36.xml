@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-36">
+    <title>Mozilla Thunderbird: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Mozilla Thunderbird, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">thunderbird,thunderbird-bin</product>
+    <announced>2023-05-30</announced>
+    <revised count="1">2023-05-30</revised>
+    <bug>895960</bug>
+    <bug>903619</bug>
+    <bug>905890</bug>
+    <access>remote</access>
+    <affected>
+        <package name="mail-client/thunderbird" auto="yes" arch="*">
+            <unaffected range="ge">102.10.0</unaffected>
+            <vulnerable range="lt">102.10.0</vulnerable>
+        </package>
+        <package name="mail-client/thunderbird-bin" auto="yes" arch="*">
+            <unaffected range="ge">102.10.0</unaffected>
+            <vulnerable range="lt">102.10.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mozilla Thunderbird is a popular open-source email client from the Mozilla project.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Mozilla Thunderbird. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mozilla Thunderbird users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=mail-client/thunderbird-102.10.0"
+        </code>
+        
+        <p>All Mozilla Thunderbird binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=mail-client/thunderbird-bin-102.10.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0616">CVE-2023-0616</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0767">CVE-2023-0767</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1945">CVE-2023-1945</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-1999">CVE-2023-1999</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25728">CVE-2023-25728</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25729">CVE-2023-25729</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25730">CVE-2023-25730</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25732">CVE-2023-25732</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25734">CVE-2023-25734</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25735">CVE-2023-25735</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25737">CVE-2023-25737</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25738">CVE-2023-25738</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25739">CVE-2023-25739</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25740">CVE-2023-25740</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25741">CVE-2023-25741</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25742">CVE-2023-25742</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25743">CVE-2023-25743</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25744">CVE-2023-25744</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25745">CVE-2023-25745</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25746">CVE-2023-25746</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25751">CVE-2023-25751</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25752">CVE-2023-25752</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28162">CVE-2023-28162</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28163">CVE-2023-28163</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28164">CVE-2023-28164</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28176">CVE-2023-28176</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28427">CVE-2023-28427</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29533">CVE-2023-29533</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29535">CVE-2023-29535</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29536">CVE-2023-29536</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29539">CVE-2023-29539</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29541">CVE-2023-29541</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29548">CVE-2023-29548</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-29550">CVE-2023-29550</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-30T03:02:57.393863Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-30T03:02:57.397152Z">ajak</metadata>
+</glsa>

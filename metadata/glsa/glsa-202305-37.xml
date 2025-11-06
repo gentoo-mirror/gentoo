@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-37">
+    <title>Apache Tomcat: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Apache Tomcat, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">tomcat</product>
+    <announced>2023-05-30</announced>
+    <revised count="2">2023-05-31</revised>
+    <bug>878911</bug>
+    <bug>889596</bug>
+    <bug>896370</bug>
+    <bug>907387</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-servers/tomcat" auto="yes" arch="*">
+            <unaffected range="ge" slot="8">8.5.88</unaffected>
+            <vulnerable range="lt" slot="8">8.5.88</vulnerable>
+            <unaffected range="ge" slot="9">9.0.74</unaffected>
+            <vulnerable range="lt" slot="9">9.0.74</vulnerable>
+            <unaffected range="ge" slot="10">10.1.8</unaffected>
+            <vulnerable range="lt" slot="10">10.1.8</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Apache Tomcat is a Servlet-3.0/JSP-2.2 Container.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Apache Tomcat. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Apache Tomcat users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-servers/tomcat-10.1.8"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42252">CVE-2022-42252</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45143">CVE-2022-45143</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-24998">CVE-2023-24998</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28709">CVE-2023-28709</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-30T03:03:08.445610Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-30T03:03:08.449048Z">ajak</metadata>
+</glsa>

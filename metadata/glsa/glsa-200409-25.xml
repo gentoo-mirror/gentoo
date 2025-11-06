@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200409-25">
+  <title>CUPS: Denial of service vulnerability</title>
+  <synopsis>
+    A vulnerability in CUPS allows remote attackers to cause a denial of
+    service when sending a carefully-crafted UDP packet to the IPP port.
+  </synopsis>
+  <product type="ebuild">CUPS</product>
+  <announced>2004-09-20</announced>
+  <revised count="02">2004-09-21</revised>
+  <bug>64168</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-print/cups" auto="yes" arch="*">
+      <unaffected range="ge">1.1.20-r2</unaffected>
+      <vulnerable range="lt">1.1.20-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    The Common UNIX Printing System (CUPS) is a cross-platform print spooler.
+    </p>
+  </background>
+  <description>
+    <p>
+    Alvaro Martinez Echevarria discovered a hole in the CUPS Internet Printing
+    Protocol (IPP) implementation that allows remote attackers to cause CUPS to
+    stop listening on the IPP port.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote user with malicious intent can easily cause a denial of service to
+    the CUPS daemon by sending a specially-crafted UDP datagram packet to the
+    IPP port.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All CUPS users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge sync
+
+    # emerge -pv "&gt;=net-print/cups-1.1.20-r2"
+    # emerge "&gt;=net-print/cups-1.1.20-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cups.org/str.php?L863">CUPS Software Trouble Report</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0558">CAN-2004-0558</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-09-19T06:22:23Z">
+    lewk
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-09-20T00:58:55Z">
+    lewk
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-09-20T00:59:53Z">
+    lewk
+  </metadata>
+</glsa>

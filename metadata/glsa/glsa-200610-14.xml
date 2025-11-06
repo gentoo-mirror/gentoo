@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200610-14">
+  <title>PHP: Integer overflow</title>
+  <synopsis>
+    PHP is vulnerable to an integer overflow potentially allowing the remote
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">php</product>
+  <announced>2006-10-30</announced>
+  <revised count="04">2008-03-29</revised>
+  <bug>150261</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-lang/php" auto="yes" arch="*">
+      <unaffected range="rge">4.4.4-r6</unaffected>
+      <unaffected range="rge">4.4.6</unaffected>
+      <unaffected range="rge">4.4.7</unaffected>
+      <unaffected range="rge">4.4.8_pre20070816</unaffected>
+      <unaffected range="ge">5.1.6-r6</unaffected>
+      <vulnerable range="lt">5.1.6-r6</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    PHP is a widely-used general-purpose scripting language that is
+    especially suited for Web development and can be embedded into HTML.
+    </p>
+  </background>
+  <description>
+    <p>
+    A flaw in the PHP memory handling routines allows an unserialize() call
+    to be executed on non-allocated memory due to a previous integer
+    overflow.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    An attacker could execute arbitrary code with the rights of the web
+    server user or the user running a vulnerable PHP script.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All PHP 5.x users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-lang/php-5.1.6-r6"</code>
+    <p>
+    All PHP 4.x users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-lang/php-4.4.4-r6"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4812">CVE-2006-4812</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-10-18T12:42:57Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-10-18T18:52:45Z">
+    shellsage
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-10-24T10:10:01Z">
+    falco
+  </metadata>
+</glsa>

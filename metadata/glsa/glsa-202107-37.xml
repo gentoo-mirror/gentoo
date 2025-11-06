@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-37">
+  <title>Apache Commons Collections: Remote code execution</title>
+  <synopsis>Apache Commons Collections unsafely deserializes untrusted input,
+    potentially resulting in arbitrary code execution.
+  </synopsis>
+  <product type="ebuild">commons-collections</product>
+  <announced>2021-07-16</announced>
+  <revised count="1">2021-07-16</revised>
+  <bug>739348</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-java/commons-collections" auto="yes" arch="*">
+      <unaffected range="ge">3.2.2</unaffected>
+      <vulnerable range="lt">3.2.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Apache Commons Collections extends the JCF classes with new interfaces,
+      implementations and utilities.
+    </p>
+  </background>
+  <description>
+    <p>Some classes in the Apache Commons Collections functor package
+      deserialized potentially untrusted input by default.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Deserializing untrusted input using Apache Commons Collections could
+      result in remote code execution.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Apache Commons Collections users should upgrade to the latest
+      version:
+    </p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=dev-java/commons-collections-3.2.2"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2017-15708">CVE-2017-15708</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-14T23:32:40Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-16T04:11:42Z">ajak</metadata>
+</glsa>

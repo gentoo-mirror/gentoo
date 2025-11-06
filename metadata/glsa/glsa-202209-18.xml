@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-18">
+    <title>Mozilla Thunderbird: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Mozilla Thunderbird, the world of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">thunderbird,thunderbird-bin</product>
+    <announced>2022-09-29</announced>
+    <revised count="1">2022-09-29</revised>
+    <bug>872572</bug>
+    <access>remote</access>
+    <affected>
+        <package name="mail-client/thunderbird" auto="yes" arch="*">
+            <unaffected range="ge">102.3.0</unaffected>
+            <vulnerable range="lt">102.3.0</vulnerable>
+        </package>
+        <package name="mail-client/thunderbird-bin" auto="yes" arch="*">
+            <unaffected range="ge">102.3.0</unaffected>
+            <vulnerable range="lt">102.3.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mozilla Thunderbird is a popular open-source email client from the Mozilla project.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Mozilla Thunderbird. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mozilla Thunderbird users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=mail-client/thunderbird-102.3.0"
+        </code>
+        
+        <p>All Mozilla Thunderbird binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=mail-client/thunderbird-bin-102.3.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3155">CVE-2022-3155</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-40956">CVE-2022-40956</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-40957">CVE-2022-40957</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-40958">CVE-2022-40958</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-40959">CVE-2022-40959</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-40960">CVE-2022-40960</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-40962">CVE-2022-40962</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-29T14:22:02.610681Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-29T14:22:02.615638Z">ajak</metadata>
+</glsa>

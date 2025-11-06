@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-40">
+  <title>MediaWiki: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in MediaWiki, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">mediawiki</product>
+  <announced>2021-07-17</announced>
+  <revised count="1">2021-07-17</revised>
+  <bug>780654</bug>
+  <bug>797661</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/mediawiki" auto="yes" arch="*">
+      <unaffected range="ge">1.36.1</unaffected>
+      <vulnerable range="lt">1.36.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>MediaWiki is a collaborative editing software used by large projects
+      such as Wikipedia.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in MediaWiki. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All MediaWiki users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=www-apps/mediawiki-1.36.1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30152">CVE-2021-30152</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30154">CVE-2021-30154</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30155">CVE-2021-30155</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30157">CVE-2021-30157</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30158">CVE-2021-30158</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30159">CVE-2021-30159</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30458">CVE-2021-30458</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35197">CVE-2021-35197</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-17T03:41:24Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-17T05:10:27Z">ajak</metadata>
+</glsa>

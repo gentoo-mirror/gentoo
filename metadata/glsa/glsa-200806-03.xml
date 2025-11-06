@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200806-03">
+  <title>Imlib 2: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    Two vulnerabilities in Imlib 2 may allow for the execution of arbitrary
+    code.
+  </synopsis>
+  <product type="ebuild">imlib2</product>
+  <announced>2008-06-08</announced>
+  <revised count="01">2008-06-08</revised>
+  <bug>223965</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/imlib2" auto="yes" arch="*">
+      <unaffected range="ge">1.4.0-r1</unaffected>
+      <vulnerable range="lt">1.4.0-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Imlib 2 is an advanced replacement library for libraries like libXpm.
+    </p>
+  </background>
+  <description>
+    <p>
+    Stefan Cornelius (Secunia Research) reported two boundary errors in
+    Imlib2:
+    </p>
+    <ul>
+    <li>One of them within the load() function in the
+    file src/modules/loaders/loader_pnm.c when processing the header of a
+    PNM image file, possibly leading to a stack-based buffer overflow.</li>
+    <li>The second one within the load() function in the file
+    src/modules/loader_xpm.c when processing an XPM image file, possibly
+    leading to a stack-based buffer overflow.</li>
+    </ul>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted PNM
+    or XPM image, possibly resulting in the execution of arbitrary code
+    with the rights of the user running the application using Imlib 2.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Imlib 2 users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/imlib2-1.4.0-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2426">CVE-2008-2426</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-05-31T09:11:57Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-06-03T07:11:46Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-06-06T17:06:14Z">
+    keytoaster
+  </metadata>
+</glsa>

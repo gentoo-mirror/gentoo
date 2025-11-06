@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200504-16">
+  <title>CVS: Multiple vulnerabilities</title>
+  <synopsis>
+    Several serious vulnerabilities have been found in CVS, which may allow an
+    attacker to remotely compromise a CVS server or cause a DoS.
+  </synopsis>
+  <product type="ebuild">CVS</product>
+  <announced>2005-04-18</announced>
+  <revised count="03">2005-04-22</revised>
+  <bug>86476</bug>
+  <bug>89579</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-util/cvs" auto="yes" arch="*">
+      <unaffected range="ge">1.11.20</unaffected>
+      <vulnerable range="lt">1.11.20</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    CVS (Concurrent Versions System) is an open-source network-transparent
+    version control system. It contains both a client utility and a server.
+    </p>
+  </background>
+  <description>
+    <p>
+    Alen Zukich has discovered several serious security issues in CVS,
+    including at least one buffer overflow (CAN-2005-0753), memory leaks
+    and a NULL pointer dereferencing error. Furthermore when launching
+    trigger scripts CVS includes a user controlled directory.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    An attacker could exploit these vulnerabilities to cause a Denial of
+    Service or execute arbitrary code with the permissions of the CVS
+    pserver or the authenticated user (depending on the connection method
+    used).
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All CVS users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-util/cvs-1.11.20"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0753">CAN-2005-0753</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2005-04-12T18:45:36Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-04-18T20:37:28Z">
+    jaervosz
+  </metadata>
+</glsa>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200511-15">
+  <title>Smb4k: Local unauthorized file access</title>
+  <synopsis>
+    A vulnerability has been identified that allows unauthorized access to the
+    contents of /etc/sudoers and /etc/super.tab files.
+  </synopsis>
+  <product type="ebuild">Smb4k</product>
+  <announced>2005-11-18</announced>
+  <revised count="01">2005-11-18</revised>
+  <bug>111089</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-misc/smb4k" auto="yes" arch="*">
+      <unaffected range="ge">0.6.4</unaffected>
+      <vulnerable range="lt">0.6.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Smb4K is a SMB/CIFS share browser for KDE.
+    </p>
+  </background>
+  <description>
+    <p>
+    A vulnerability leading to unauthorized file access has been
+    found. A pre-existing symlink from /tmp/sudoers and /tmp/super.tab to a
+    textfile will cause Smb4k to write the contents of these files to the
+    target of the symlink, as Smb4k does not check for the existence of
+    these files before writing to them.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    An attacker could acquire local privilege escalation by adding
+    username(s) to the list of sudoers.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All smb4k users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-misc/smb4k-0.6.4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2851">CVE-2005-2851</uri>
+    <uri link="http://smb4k.berlios.de/">Smb4k Announcement</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-11-15T09:03:00Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-11-15T09:04:04Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-11-16T02:48:46Z">
+    shellsage
+  </metadata>
+</glsa>

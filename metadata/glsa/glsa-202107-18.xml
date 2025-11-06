@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-18">
+  <title>BladeEnc: Buffer overflow</title>
+  <synopsis>A buffer overflow in BladeEnc might allow arbitrary code execution.</synopsis>
+  <product type="ebuild">bladeenc</product>
+  <announced>2021-07-08</announced>
+  <revised count="1">2021-07-08</revised>
+  <bug>631394</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-sound/bladeenc" auto="yes" arch="*">
+      <vulnerable range="lt">0.94.2-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>BladeEnc is an mp3 encoder.</p>
+  </background>
+  <description>
+    <p>A crafted file could cause a buffer overflow in the iteration_loop
+      function in BladeEnc.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted using
+      BladeEnc, possibly resulting in execution of arbitrary code with the
+      privileges of the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>Gentoo has discontinued support for BladeEnc. We recommend that users
+      unmerge it:
+    </p>
+    
+    <code>
+      # emerge --ask --depclean "media-sound/bladeenc"
+    </code>
+    
+    <p>NOTE: The Gentoo developer(s) maintaining BladeEnc have discontinued
+      support at this time. It may be possible that a new Gentoo developer will
+      update BladeEnc at a later date. We do not have a suggestion for a
+      replacement at this time.
+    </p>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2017-14648">CVE-2017-14648</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-05T23:50:22Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-08T03:44:12Z">ajak</metadata>
+</glsa>

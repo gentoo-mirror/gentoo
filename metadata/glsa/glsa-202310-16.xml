@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-16">
+    <title>Ubiquiti UniFi: remote code execution via bundled log4j</title>
+    <synopsis>A vulnerability has been discovered in unifi where bundled log4j can facilitate a remote code execution</synopsis>
+    <product type="ebuild">unifi</product>
+    <announced>2023-10-26</announced>
+    <revised count="1">2023-10-26</revised>
+    <bug>828853</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-wireless/unifi" auto="yes" arch="*">
+            <unaffected range="ge">6.5.55</unaffected>
+            <vulnerable range="lt">6.5.55</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Ubiquiti UniFi is a Management Controller for Ubiquiti Networks UniFi APs.</p>
+    </background>
+    <description>
+        <p>A bundled version of log4j could facilitate remote code execution. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>An attacker with permission to modify the logging configuration file can construct a malicious configuration using a JDBC Appender with a data source referencing a JNDI URI which can execute remote code.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Ubiquity UniFi users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-wireless/unifi-6.5.55"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4104">CVE-2021-4104</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45046">CVE-2021-45046</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-26T04:47:43.475731Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-26T04:47:43.478412Z">graaff</metadata>
+</glsa>

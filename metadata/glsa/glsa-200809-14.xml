@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200809-14">
+  <title>BitlBee: Security bypass</title>
+  <synopsis>
+    Multiple vulnerabilities in Bitlbee may allow to bypass security
+    restrictions and hijack accounts.
+  </synopsis>
+  <product type="ebuild">bitlbee</product>
+  <announced>2008-09-23</announced>
+  <revised count="01">2008-09-23</revised>
+  <bug>236160</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-im/bitlbee" auto="yes" arch="*">
+      <unaffected range="ge">1.2.3</unaffected>
+      <vulnerable range="lt">1.2.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    BitlBee is an IRC to IM gateway that support multiple IM protocols.
+    </p>
+  </background>
+  <description>
+    <p>
+    Multiple unspecified vulnerabilities were reported, including a NULL
+    pointer dereference.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could exploit these vulnerabilities to overwrite
+    existing IM accounts.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All BitlBee users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-im/bitlbee-1.2.3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3920">CVE-2008-3920</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3969">CVE-2008-3969</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-09-05T20:44:15Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-09-19T20:00:27Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-09-20T21:14:39Z">
+    p-y
+  </metadata>
+</glsa>

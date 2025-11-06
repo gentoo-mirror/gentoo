@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200609-15">
+  <title>GnuTLS: RSA Signature Forgery</title>
+  <synopsis>
+    GnuTLS fails to handle excess data which could allow an attacker to forge a
+    PKCS #1 v1.5 signature.
+  </synopsis>
+  <product type="ebuild">gnutls</product>
+  <announced>2006-09-26</announced>
+  <revised count="01">2006-09-26</revised>
+  <bug>147682</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-libs/gnutls" auto="yes" arch="*">
+      <unaffected range="ge">1.4.4</unaffected>
+      <vulnerable range="lt">1.4.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    GnuTLS is an implementation of SSL 3.0 and TLS 1.0.
+    </p>
+  </background>
+  <description>
+    <p>
+    verify.c fails to properly handle excess data in
+    digestAlgorithm.parameters field while generating a hash when using an
+    RSA key with exponent 3. RSA keys that use exponent 3 are commonplace.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    Remote attackers could forge PKCS #1 v1.5 signatures that are signed
+    with an RSA key, preventing GnuTLS from correctly verifying X.509 and
+    other certificates that use PKCS.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All GnuTLS users should update both packages:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --update --ask --verbose "&gt;=net-libs/gnutls-1.4.4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4790">CVE-2006-4790</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-09-23T06:35:02Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-09-25T13:07:32Z">
+    hlieberman
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-09-25T18:24:37Z">
+    falco
+  </metadata>
+</glsa>

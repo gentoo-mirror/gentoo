@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200803-15">
+  <title>phpMyAdmin: SQL injection vulnerability</title>
+  <synopsis>
+    A SQL injection vulnerability has been discovered in phpMyAdmin.
+  </synopsis>
+  <product type="ebuild">phpmyadmin</product>
+  <announced>2008-03-09</announced>
+  <revised count="01">2008-03-09</revised>
+  <bug>212000</bug>
+  <access>local</access>
+  <affected>
+    <package name="dev-db/phpmyadmin" auto="yes" arch="*">
+      <unaffected range="ge">2.11.5</unaffected>
+      <vulnerable range="lt">2.11.5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    phpMyAdmin is a free web-based database administration tool.
+    </p>
+  </background>
+  <description>
+    <p>
+    Richard Cunningham reported that phpMyAdmin uses the $_REQUEST variable
+    of $_GET and $_POST as a source for its parameters.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    An attacker could entice a user to visit a malicious web application
+    that sets an "sql_query" cookie and is hosted on the same domain as
+    phpMyAdmin, and thereby conduct SQL injection attacks with the
+    privileges of the user authenticating in phpMyAdmin afterwards.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All phpMyAdmin users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-db/phpmyadmin-2.11.5"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1149">CVE-2008-1149</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-03-05T09:53:35Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-03-07T08:44:33Z">
+    psychoschlumpf
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-03-07T10:05:31Z">
+    p-y
+  </metadata>
+</glsa>

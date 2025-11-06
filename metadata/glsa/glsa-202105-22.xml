@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-22">
+  <title>Samba: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Samba, the worst of
+    which could result in a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">samba</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>778026</bug>
+  <bug>786825</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="net-fs/samba" auto="yes" arch="*">
+      <unaffected range="ge">4.13.8</unaffected>
+      <vulnerable range="lt">4.13.8</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Samba is a suite of SMB and CIFS client/server programs.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Samba. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Samba users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-fs/samba-4.13.8"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-27840">CVE-2020-27840</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20254">CVE-2021-20254</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20277">CVE-2021-20277</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T13:25:24Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T09:29:08Z">whissi</metadata>
+</glsa>

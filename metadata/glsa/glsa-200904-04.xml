@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200904-04">
+  <title>WeeChat: Denial of service</title>
+  <synopsis>
+    A processing error in WeeChat might lead to a Denial of Service.
+  </synopsis>
+  <product type="ebuild">weechat</product>
+  <announced>2009-04-04</announced>
+  <revised count="01">2009-04-04</revised>
+  <bug>262997</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-irc/weechat" auto="yes" arch="*">
+      <unaffected range="ge">0.2.6.1</unaffected>
+      <vulnerable range="lt">0.2.6.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Wee Enhanced Environment for Chat (WeeChat) is a light and extensible
+    console IRC client.
+    </p>
+  </background>
+  <description>
+    <p>
+    Sebastien Helleu reported an array out-of-bounds error in the colored
+    message handling.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could send a specially crafted PRIVMSG command,
+    possibly leading to a Denial of Service (application crash).
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All WeeChat users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-irc/weechat-0.2.6.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0661">CVE-2009-0661</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-04-04T15:10:01Z">
+    a3li
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-04-04T15:21:46Z">
+    a3li
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-04-04T17:18:54Z">
+    keytoaster
+  </metadata>
+</glsa>

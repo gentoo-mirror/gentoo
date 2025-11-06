@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-04">
+    <title>OpenJPEG: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in OpenJPEG, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">openjpeg</product>
+    <announced>2022-09-07</announced>
+    <revised count="1">2022-09-07</revised>
+    <bug>783513</bug>
+    <bug>836969</bug>
+    <bug>844064</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/openjpeg" auto="yes" arch="*">
+            <unaffected range="ge">2.5.0</unaffected>
+            <vulnerable range="lt">2.5.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OpenJPEG is an open-source JPEG 2000 library.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in OpenJPEG. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All OpenJPEG 2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/openjpeg-2.5.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29338">CVE-2021-29338</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1122">CVE-2022-1122</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-07T02:52:40.959934Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-07T02:52:40.964269Z">ajak</metadata>
+</glsa>

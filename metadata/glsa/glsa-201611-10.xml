@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201611-10">
+  <title>libuv: Privilege escalation</title>
+  <synopsis>A vulnerability in libuv could lead to privilege escalation.</synopsis>
+  <product type="ebuild"/>
+  <announced>2016-11-17</announced>
+  <revised count="1">2016-11-17</revised>
+  <bug>540826</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="dev-libs/libuv" auto="yes" arch="*">
+      <unaffected range="ge">1.4.2</unaffected>
+      <vulnerable range="lt">1.4.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libuv is a multi-platform support library with a focus on asynchronous
+      I/O.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that libuv does not call setgroups before calling
+      setuid/setgid.  If this is not called, then even though the uid has been
+      dropped, there may still be groups associated that permit superuser
+      privileges.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Context-dependent attackers could escalate privileges via unspecified
+      vectors.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libuv users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --verbose --oneshot "&gt;=dev-libs/libuv-1.4.2"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2015-0278">CVE-2015-0278</uri>
+  </references>
+  <metadata tag="requester" timestamp="2016-11-17T08:33:56Z">b-man</metadata>
+  <metadata tag="submitter" timestamp="2016-11-17T10:08:59Z">b-man</metadata>
+</glsa>

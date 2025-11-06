@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201403-06">
+  <title>libupnp: Arbitrary code execution</title>
+  <synopsis>Multiple buffer overflow flaws in libupnp may allow execution of
+    arbitrary code.
+  </synopsis>
+  <product type="ebuild">libupnp</product>
+  <announced>2014-03-26</announced>
+  <revised count="1">2014-03-26</revised>
+  <bug>454570</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-libs/libupnp" auto="yes" arch="*">
+      <unaffected range="ge">1.6.18</unaffected>
+      <vulnerable range="lt">1.6.18</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>libupnp is a portable, open source, UPnP development kit.</p>
+  </background>
+  <description>
+    <p>Multiple buffer overflow vulnerabilities have been discovered in
+      libupnp. Please review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="high">
+    <p>A remote attacker could possibly execute arbitrary code with the
+      privileges of the process or cause a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All libupnp users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-libs/libupnp-1.6.18"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-5958">CVE-2012-5958</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-5959">CVE-2012-5959</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-5960">CVE-2012-5960</uri>
+  </references>
+  <metadata tag="requester" timestamp="2013-03-17T15:38:12Z">ackle</metadata>
+  <metadata tag="submitter" timestamp="2014-03-26T10:27:19Z">ackle</metadata>
+</glsa>

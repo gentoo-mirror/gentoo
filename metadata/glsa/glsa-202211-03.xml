@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202211-03">
+    <title>PHP: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in PHP, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">php</product>
+    <announced>2022-11-19</announced>
+    <revised count="1">2022-11-19</revised>
+    <bug>867913</bug>
+    <bug>873376</bug>
+    <bug>877853</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-lang/php" auto="yes" arch="*">
+            <unaffected range="ge" slot="8.1">8.1.12</unaffected>
+            <unaffected range="ge" slot="8.0">8.0.25</unaffected>
+            <unaffected range="ge" slot="7.4">7.4.33</unaffected>
+            <vulnerable range="lt" slot="8.1">8.1.12</vulnerable>
+            <vulnerable range="lt" slot="8.0">8.0.25</vulnerable>
+            <vulnerable range="lt" slot="7.4">7.4.33</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>PHP is a widely-used general-purpose scripting language that is especially suited for Web development and can be embedded into HTML.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in PHP. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All PHP 7.4 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/php-7.4.33"
+        </code>
+        
+        <p>All PHP 8.0 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/php-8.0.25"
+        </code>
+        
+        <p>All PHP 8.1 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/php-8.1.12"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31628">CVE-2022-31628</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31629">CVE-2022-31629</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31630">CVE-2022-31630</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-37454">CVE-2022-37454</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-11-19T03:32:18.817744Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-11-19T03:32:18.825295Z">sam</metadata>
+</glsa>

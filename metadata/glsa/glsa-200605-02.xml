@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200605-02">
+  <title>X.Org: Buffer overflow in XRender extension</title>
+  <synopsis>
+    A buffer overflow in the XRender extension potentially allows any X.Org
+    user to execute arbitrary code with elevated privileges.
+  </synopsis>
+  <product type="ebuild">X.Org</product>
+  <announced>2006-05-02</announced>
+  <revised count="01">2006-05-02</revised>
+  <bug>130979</bug>
+  <access>local</access>
+  <affected>
+    <package name="x11-base/xorg-x11" auto="yes" arch="*">
+      <unaffected range="ge">6.8.2-r7</unaffected>
+      <vulnerable range="lt">6.8.2-r7</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    X.Org is X.Org Foundation's public implementation of the X Window
+    System.
+    </p>
+  </background>
+  <description>
+    <p>
+    X.Org miscalculates the size of a buffer in the XRender extension.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    An X.Org user could exploit this issue to make the X server
+    execute arbitrary code with elevated privileges.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All X.Org users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=x11-base/xorg-x11-6.8.2-r7"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1526">CVE-2006-1526</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2006-05-01T14:14:06Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-05-02T17:42:54Z">
+    jaervosz
+  </metadata>
+</glsa>

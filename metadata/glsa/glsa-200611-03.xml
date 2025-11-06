@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200611-03">
+  <title>NVIDIA binary graphics driver: Privilege escalation vulnerability</title>
+  <synopsis>
+    The NVIDIA binary graphics driver is vulnerable to a local privilege
+    escalation through an X session.
+  </synopsis>
+  <product type="ebuild">nvidia-drivers</product>
+  <announced>2006-11-07</announced>
+  <revised count="02">2006-11-10</revised>
+  <bug>151635</bug>
+  <access>remote, local</access>
+  <affected>
+    <package name="x11-drivers/nvidia-drivers" auto="yes" arch="*">
+      <unaffected range="ge">1.0.8776</unaffected>
+      <unaffected range="lt">1.0.8762</unaffected>
+      <vulnerable range="lt">1.0.8776</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    The NVIDIA binary graphics driver from NVIDIA Corporation provides the
+    kernel module and the GL modules for graphic acceleration on the NVIDIA
+    based graphic cards.
+    </p>
+  </background>
+  <description>
+    <p>
+    Rapid7 reported a boundary error in the NVIDIA binary graphics driver
+    that leads to a buffer overflow in the accelerated rendering
+    functionality.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    An X client could trigger the buffer overflow with a maliciously
+    crafted series of glyphs. A remote attacker could also entice a user to
+    open a specially crafted web page, document or X client that will
+    trigger the buffer overflow. This could result in the execution of
+    arbitrary code with root privileges or at least in the crash of the X
+    server.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Disable the accelerated rendering functionality in the Device section
+    of xorg.conf :
+    </p>
+    <code>Option      "RenderAccel" "false"</code>
+  </workaround>
+  <resolution>
+    <p>
+    NVIDIA binary graphics driver users should upgrade to the latest
+    version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=x11-drivers/nvidia-drivers-1.0.8776"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5379">CVE-2006-5379</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-10-24T09:12:20Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-10-24T14:25:34Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-10-24T14:27:05Z">
+    falco
+  </metadata>
+</glsa>

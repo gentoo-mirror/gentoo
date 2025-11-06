@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200812-18">
+  <title>JasPer: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    Multiple memory management errors in JasPer might lead to execution of
+    arbitrary code via jpeg2k files.
+  </synopsis>
+  <product type="ebuild">jasper</product>
+  <announced>2008-12-16</announced>
+  <revised count="01">2008-12-16</revised>
+  <bug>222819</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/jasper" auto="yes" arch="*">
+      <unaffected range="ge">1.900.1-r3</unaffected>
+      <vulnerable range="lt">1.900.1-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    The JasPer Project is an open-source initiative to provide a free
+    software-based reference implementation of the codec specified in the
+    JPEG-2000 Part-1 (jpeg2k) standard.
+    </p>
+  </background>
+  <description>
+    <p>
+    Marc Espie and Christian Weisgerber have discovered multiple
+    vulnerabilities in JasPer:
+    </p>
+    <ul>
+    <li>
+    Multiple integer overflows might allow for insufficient memory
+    allocation, leading to heap-based buffer overflows (CVE-2008-3520).
+    </li>
+    <li>
+    The jas_stream_printf() function in libjasper/base/jas_stream.c uses
+    vsprintf() to write user-provided data to a static to a buffer, leading
+    to an overflow (CVE-2008-3522).
+    </li>
+    </ul>
+  </description>
+  <impact type="normal">
+    <p>
+    Remote attackers could entice a user or automated system to process
+    specially crafted jpeg2k files with an application using JasPer,
+    possibly leading to the execution of arbitrary code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All JasPer users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/jasper-1.900.1-r3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3520">CVE-2008-3520</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-3522">CVE-2008-3522</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-10-13T18:51:07Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-10-21T20:38:03Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-12-15T14:20:28Z">
+    p-y
+  </metadata>
+</glsa>

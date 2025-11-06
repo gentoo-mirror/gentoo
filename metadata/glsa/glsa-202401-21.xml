@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-21">
+    <title>KTextEditor: Arbitrary Local Code Execution</title>
+    <synopsis>A vulnerability has been found in KTextEditor where local code can be executed without user interaction.</synopsis>
+    <product type="ebuild">ktexteditor</product>
+    <announced>2024-01-15</announced>
+    <revised count="1">2024-01-15</revised>
+    <bug>832447</bug>
+    <access>remote</access>
+    <affected>
+        <package name="kde-frameworks/ktexteditor" auto="yes" arch="*">
+            <unaffected range="ge">5.90.0-r2</unaffected>
+            <vulnerable range="lt">5.90.0-r2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Framework providing a full text editor component for KDE.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in KTextEditor. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>KTextEditor executes binaries without user interaction in a few cases, e.g. KTextEditor will try to check on external file modification via invoking the &#34;git&#34; binary if the file is known in the repository with the new content.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All KTextEditor users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=kde-frameworks/ktexteditor-5.90.0-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23853">CVE-2022-23853</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-15T15:42:22.100996Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-15T15:42:22.106940Z">graaff</metadata>
+</glsa>

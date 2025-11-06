@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201309-13">
+  <title>GNU ZRTP: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in GNU ZRTP, some of which
+    may allow execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">libzrtpcpp</product>
+  <announced>2013-09-24</announced>
+  <revised count="1">2013-09-24</revised>
+  <bug>481228</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-libs/libzrtpcpp" auto="yes" arch="*">
+      <unaffected range="ge">2.3.4</unaffected>
+      <vulnerable range="lt">2.3.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>GNU ZRTP is a C++ implementation of the ZRTP protocol.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in GNU ZRTP. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could possibly execute arbitrary code with the
+      privileges of the process, cause a Denial of Service condition, or obtain
+      sensitive information.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All GNU ZRTP users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-libs/libzrtpcpp-2.3.4"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-2221">CVE-2013-2221</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-2222">CVE-2013-2222</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-2223">CVE-2013-2223</uri>
+  </references>
+  <metadata tag="requester" timestamp="2013-09-01T18:53:56Z">ackle</metadata>
+  <metadata tag="submitter" timestamp="2013-09-24T22:01:15Z">ackle</metadata>
+</glsa>

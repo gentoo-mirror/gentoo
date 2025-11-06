@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200602-01">
+  <title>GStreamer FFmpeg plugin: Heap-based buffer overflow</title>
+  <synopsis>
+    The GStreamer FFmpeg plugin is vulnerable to a buffer overflow that may be
+    exploited by attackers to execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">gst-plugins-ffmpeg</product>
+  <announced>2006-02-05</announced>
+  <revised count="01">2006-02-05</revised>
+  <bug>119512</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-plugins/gst-plugins-ffmpeg" auto="yes" arch="*">
+      <unaffected range="ge">0.8.7-r1</unaffected>
+      <vulnerable range="lt">0.8.7-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    The GStreamer FFmpeg plugin uses code from the FFmpeg library to
+    provide fast colorspace conversion and multimedia decoders to the
+    GStreamer open source media framework.
+    </p>
+  </background>
+  <description>
+    <p>
+    The GStreamer FFmpeg plugin contains derived code from the FFmpeg
+    library, which is vulnerable to a heap overflow in the
+    "avcodec_default_get_buffer()" function discovered by Simon Kilvington
+    (see GLSA 200601-06).
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to run an application using
+    the GStreamer FFmpeg plugin on a maliciously crafted PIX_FMT_PAL8
+    format image file (like PNG images), possibly leading to the execution
+    of arbitrary code with the permissions of the user running the
+    application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All GStreamer FFmpeg plugin users should upgrade to the latest
+    version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-plugins/gst-plugins-ffmpeg-0.8.7-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-4048">CVE-2005-4048</uri>
+    <uri link="https://www.gentoo.org/security/en/glsa/glsa-200601-06.xml">GLSA 200601-06</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-01-29T21:54:38Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-01-31T03:13:44Z">
+    adir
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-02-01T15:27:50Z">
+    DerCorny
+  </metadata>
+</glsa>

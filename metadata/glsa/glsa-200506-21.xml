@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200506-21">
+  <title>Trac: File upload vulnerability</title>
+  <synopsis>
+    Trac may allow remote attackers to upload files, possibly leading to the
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">trac</product>
+  <announced>2005-06-22</announced>
+  <revised count="01">2005-06-22</revised>
+  <bug>96572</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/trac" auto="yes" arch="*">
+      <unaffected range="ge">0.8.4</unaffected>
+      <vulnerable range="lt">0.8.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Trac is a minimalistic web-based project management, wiki and bug
+    tracking system including a Subversion interface.
+    </p>
+  </background>
+  <description>
+    <p>
+    Stefan Esser of the Hardened-PHP project discovered that Trac
+    fails to validate the "id" parameter when uploading attachments to the
+    wiki or the bug tracking system.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could exploit the vulnerability to upload
+    arbitrary files to a directory where the webserver has write access to,
+    possibly leading to the execution of arbitrary code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Trac users should upgrade to the latest available version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/trac-0.8.4"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.hardened-php.net/advisory-012005.php">Hardened PHP Advisory 012005</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-06-21T20:04:48Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-06-22T01:36:58Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-06-22T08:15:34Z">
+    koon
+  </metadata>
+</glsa>

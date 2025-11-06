@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200705-10">
+  <title>LibXfont, TightVNC: Multiple vulnerabilities</title>
+  <synopsis>
+    Multiple vulnerabilities have been reported in libXfont and TightVNC,
+    allowing for the execution of arbitrary code with root privileges.
+  </synopsis>
+  <product type="ebuild">tightvnc, libxfont</product>
+  <announced>2007-05-08</announced>
+  <revised count="01">2007-05-08</revised>
+  <bug>172575</bug>
+  <bug>174200</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-misc/tightvnc" auto="yes" arch="*">
+      <unaffected range="ge">1.2.9-r4</unaffected>
+      <vulnerable range="lt">1.2.9-r4</vulnerable>
+    </package>
+    <package name="x11-libs/libXfont" auto="yes" arch="*">
+      <unaffected range="ge">1.2.7-r1</unaffected>
+      <vulnerable range="lt">1.2.7-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    LibXfont is the X.Org font library. TightVNC is a VNC client/server for
+    X displays.
+    </p>
+  </background>
+  <description>
+    <p>
+    The libXfont code is prone to several integer overflows, in functions
+    ProcXCMiscGetXIDList(), bdfReadCharacters() and FontFileInitTable().
+    TightVNC contains a local copy of this code and is also affected.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A local attacker could use a specially crafted BDF Font to gain root
+    privileges on the vulnerable host.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All libXfont users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=x11-libs/libXfont-1.2.7-r1"</code>
+    <p>
+    All TightVNC users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-misc/tightvnc-1.2.9-r4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1003">CVE-2007-1003</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1351">CVE-2007-1351</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1352">CVE-2007-1352</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-04-17T09:12:59Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-04-23T12:11:04Z">
+    vorlon
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-04-26T19:02:32Z">
+    p-y
+  </metadata>
+</glsa>

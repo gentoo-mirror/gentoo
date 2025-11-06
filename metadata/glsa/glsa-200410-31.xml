@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200410-31">
+  <title>Archive::Zip: Virus detection evasion</title>
+  <synopsis>
+    Email virus scanning software relying on Archive::Zip can be fooled into
+    thinking a ZIP attachment is empty while it contains a virus, allowing
+    detection evasion.
+  </synopsis>
+  <product type="ebuild">Archive::Zip</product>
+  <announced>2004-10-29</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>68616</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-perl/Archive-Zip" auto="yes" arch="*">
+      <unaffected range="ge">1.14</unaffected>
+      <vulnerable range="lt">1.14</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Archive::Zip is a Perl module containing functions to handle ZIP
+    archives.
+    </p>
+  </background>
+  <description>
+    <p>
+    Archive::Zip can be used by email scanning software (like amavisd-new)
+    to uncompress attachments before virus scanning. By modifying the
+    uncompressed size of archived files in the global header of the ZIP
+    file, it is possible to fool Archive::Zip into thinking some files
+    inside the archive have zero length.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    An attacker could send a carefully crafted ZIP archive containing a
+    virus file and evade detection on some email virus-scanning software
+    relying on Archive::Zip for decompression.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Archive::Zip users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-perl/Archive-Zip-1.14"</code>
+  </resolution>
+  <references>
+    <uri link="http://www.idefense.com/application/poi/display?id=153">iDEFENSE Security Advisory 10.18.04</uri>
+    <uri link="https://rt.cpan.org/NoAuth/Bug.html?id=8077">rt.cpan.org bug #8077</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-1096">CVE-2004-1096</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-10-27T12:10:39Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-10-27T12:10:53Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-10-29T12:32:54Z">
+    koon
+  </metadata>
+</glsa>

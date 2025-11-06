@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202104-07">
+  <title>ClamAV: Denial of service</title>
+  <synopsis>A vulnerability in ClamAV could lead to a Denial of Service
+    condition.
+  </synopsis>
+  <product type="ebuild">clamav</product>
+  <announced>2021-04-30</announced>
+  <revised count="1">2021-04-30</revised>
+  <bug>780894</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="app-antivirus/clamav" auto="yes" arch="*">
+      <unaffected range="ge">0.103.2</unaffected>
+      <vulnerable range="lt">0.103.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>ClamAV is a GPL virus scanner.</p>
+  </background>
+  <description>
+    <p>A vulnerability has been discovered in ClamAV. Please review the CVE
+      identifier referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>A remote attacker could cause ClamAV to scan a specially crafted file,
+      possibly resulting a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All ClamAV users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-antivirus/clamav-0.103.2"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-1405">CVE-2021-1405</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-04-30T23:40:37Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-04-30T23:46:17Z">whissi</metadata>
+</glsa>

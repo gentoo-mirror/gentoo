@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-02">
+    <title>Go: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Go, the worst of which could result in remote code execution.</synopsis>
+    <product type="ebuild">go</product>
+    <announced>2022-08-04</announced>
+    <revised count="1">2022-08-04</revised>
+    <bug>754210</bug>
+    <bug>766216</bug>
+    <bug>775326</bug>
+    <bug>788640</bug>
+    <bug>794784</bug>
+    <bug>802054</bug>
+    <bug>806659</bug>
+    <bug>807049</bug>
+    <bug>816912</bug>
+    <bug>821859</bug>
+    <bug>828655</bug>
+    <bug>833156</bug>
+    <bug>834635</bug>
+    <bug>838130</bug>
+    <bug>843644</bug>
+    <bug>849290</bug>
+    <bug>857822</bug>
+    <bug>862822</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-lang/go" auto="yes" arch="*">
+            <unaffected range="ge">1.18.5</unaffected>
+            <vulnerable range="lt">1.18.5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Go. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Go users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/go-1.18.5"
+        </code>
+        
+        <p>In addition, users using Portage 3.0.9 or later should ensure that packages with Go binaries have no vulnerable code statically linked into their binaries by rebuilding the @golang-rebuild set:</p>
+        
+        <code>
+          # emerge --ask --oneshot --verbose @golang-rebuild
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28366">CVE-2020-28366</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28367">CVE-2020-28367</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27918">CVE-2021-27918</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27919">CVE-2021-27919</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29923">CVE-2021-29923</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3114">CVE-2021-3114</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3115">CVE-2021-3115</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-31525">CVE-2021-31525</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33195">CVE-2021-33195</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33196">CVE-2021-33196</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33197">CVE-2021-33197</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33198">CVE-2021-33198</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-34558">CVE-2021-34558</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-36221">CVE-2021-36221</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-38297">CVE-2021-38297</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41771">CVE-2021-41771</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-41772">CVE-2021-41772</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44716">CVE-2021-44716</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44717">CVE-2021-44717</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1705">CVE-2022-1705</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23772">CVE-2022-23772</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23773">CVE-2022-23773</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23806">CVE-2022-23806</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24675">CVE-2022-24675</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24921">CVE-2022-24921</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27536">CVE-2022-27536</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28131">CVE-2022-28131</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28327">CVE-2022-28327</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29526">CVE-2022-29526</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30629">CVE-2022-30629</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30630">CVE-2022-30630</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30631">CVE-2022-30631</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30632">CVE-2022-30632</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30633">CVE-2022-30633</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30635">CVE-2022-30635</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32148">CVE-2022-32148</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32189">CVE-2022-32189</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-04T13:53:02.198118Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-04T13:53:02.201567Z">ajak</metadata>
+</glsa>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200502-24">
+  <title>Midnight Commander: Multiple vulnerabilities</title>
+  <synopsis>
+    Midnight Commander contains several format string errors, buffer overflows
+    and one buffer underflow leading to execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">mc</product>
+  <announced>2005-02-17</announced>
+  <revised count="01">2005-02-17</revised>
+  <bug>77992</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-misc/mc" auto="yes" arch="*">
+      <unaffected range="ge">4.6.0-r13</unaffected>
+      <vulnerable range="lt">4.6.0-r13</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Midnight Commander is a visual console file manager.
+    </p>
+  </background>
+  <description>
+    <p>
+    Midnight Commander contains several format string vulnerabilities
+    (CAN-2004-1004), buffer overflows (CAN-2004-1005), a memory
+    deallocation error (CAN-2004-1092) and a buffer underflow
+    (CAN-2004-1176).
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could exploit these vulnerabilities to execute
+    arbitrary code with the permissions of the user running Midnight
+    Commander or cause Denial of Service by freeing unallocated memory.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Midnight Commander users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-misc/mc-4.6.0-r13"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-1004">CAN-2004-1004</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-1005">CAN-2004-1005</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-1092">CAN-2004-1092</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-1176">CAN-2004-1176</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-02-14T20:35:43Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-02-15T16:08:08Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-02-15T20:09:31Z">
+    jaervosz
+  </metadata>
+</glsa>

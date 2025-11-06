@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201101-07">
+  <title>Prewikka: password disclosure</title>
+  <synopsis>
+    Due to a world-readable file, a local attacker can obtain the SQL database
+    password used by Prewikka.
+  </synopsis>
+  <product type="ebuild">Prewikka</product>
+  <announced>2011-01-16</announced>
+  <revised count="01">2011-01-16</revised>
+  <bug>270056</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-analyzer/prewikka" auto="yes" arch="*">
+      <unaffected range="ge">0.9.14-r2</unaffected>
+      <vulnerable range="lt">0.9.14-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Prewikka is a graphical front-end analysis console for the Prelude
+    Hybrid IDS Framework.
+    </p>
+  </background>
+  <description>
+    <p>
+    The permissions of the prewikka.conf file are set world readable.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could obtain the SQL database password used by
+    Prewikka.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Prewikka users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-analyzer/prewikka-0.9.14-r2"</code>
+    <p>
+    NOTE: This is a legacy GLSA. Updates for all affected architectures are
+    available since May 18, 2009 . It is likely that your system is already
+    no longer affected by this issue.
+    </p>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2058">CVE-2010-2058</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-06-23T20:26:04Z">
+    craig
+  </metadata>
+  <metadata tag="submitter" timestamp="2010-04-11T12:57:02Z">
+    craig
+  </metadata>
+  <metadata tag="bugReady" timestamp="2010-09-21T20:08:51Z">
+    p-y
+  </metadata>
+</glsa>

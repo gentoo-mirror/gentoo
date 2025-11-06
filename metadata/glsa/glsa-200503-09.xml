@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200503-09">
+  <title>xv: Filename handling vulnerability</title>
+  <synopsis>
+    xv contains a format string vulnerability, potentially resulting in the
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">xv</product>
+  <announced>2005-03-04</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>83686</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-gfx/xv" auto="yes" arch="*">
+      <unaffected range="ge">3.10a-r10</unaffected>
+      <vulnerable range="lt">3.10a-r10</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    xv is an interactive image manipulation package for X11.
+    </p>
+  </background>
+  <description>
+    <p>
+    Tavis Ormandy of the Gentoo Linux Security Audit Team identified a flaw
+    in the handling of image filenames by xv.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    Successful exploitation would require a victim to process a specially
+    crafted image with a malformed filename, potentially resulting in the
+    execution of arbitrary code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All xv users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-gfx/xv-3.10a-r10"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0665">CVE-2005-0665</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-03-02T21:42:57Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-03-02T22:55:00Z">
+    taviso
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-03-03T21:51:14Z">
+    koon
+  </metadata>
+</glsa>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200801-13">
+  <title>ngIRCd: Denial of service</title>
+  <synopsis>
+    ngIRCd does not properly sanitize commands sent by users, allowing for a
+    Denial of Service.
+  </synopsis>
+  <product type="ebuild">ngircd</product>
+  <announced>2008-01-27</announced>
+  <revised count="02">2008-01-27</revised>
+  <bug>204834</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-irc/ngircd" auto="yes" arch="*">
+      <unaffected range="ge">0.10.4</unaffected>
+      <vulnerable range="lt">0.10.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    ngIRCd is a free open source daemon for Internet Relay Chat (IRC).
+    </p>
+  </background>
+  <description>
+    <p>
+    The IRC_PART() function in the file irc-channel.c does not properly
+    check the number of parameters, referencing an invalid pointer if no
+    channel is supplied.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker can exploit this vulnerability to crash the ngIRCd
+    daemon.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All ngIRCd users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-irc/ngircd-0.10.4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0285">CVE-2008-0285</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-15T20:42:37Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-01-20T01:06:19Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-01-20T01:44:35Z">
+    rbu
+  </metadata>
+</glsa>

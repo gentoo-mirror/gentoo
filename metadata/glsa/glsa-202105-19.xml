@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-19">
+  <title>Firejail: Privilege escalation</title>
+  <synopsis>A vulnerability was discovered in Firejail which may allow local
+    attackers to gain root privileges.
+  </synopsis>
+  <product type="ebuild">firejail</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>769542</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-apps/firejail" auto="yes" arch="*">
+      <unaffected range="ge">0.9.64.4</unaffected>
+      <vulnerable range="lt">0.9.64.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>A SUID program that reduces the risk of security breaches by restricting
+      the running environment of untrusted applications using Linux namespaces
+      and seccomp-bpf.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that a flaw in Firejail’s OverlayFS code allowed
+      restricted programs to escape sandbox.
+    </p>
+  </description>
+  <impact type="high">
+    <p>A local attacker could obtain arbitrary file system access via an
+      application running within a Firejail sandbox, possibly resulting in
+      privilege escalation.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Firejail users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=sys-apps/firejail-0.9.64.4"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26910">CVE-2021-26910</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T20:22:19Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T08:38:46Z">whissi</metadata>
+</glsa>

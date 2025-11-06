@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200506-22">
+  <title>sudo: Arbitrary command execution</title>
+  <synopsis>
+    A vulnerability in sudo may allow local users to elevate privileges.
+  </synopsis>
+  <product type="ebuild">sudo</product>
+  <announced>2005-06-23</announced>
+  <revised count="01">2005-06-23</revised>
+  <bug>96618</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-admin/sudo" auto="yes" arch="*">
+      <unaffected range="ge">1.6.8_p9</unaffected>
+      <vulnerable range="lt">1.6.8_p9</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    sudo allows a system administrator to give users the ability to
+    run commands as other users.
+    </p>
+  </background>
+  <description>
+    <p>
+    The sudoers file is used to define the actions sudo users are
+    permitted to perform. Charles Morris discovered that a specific layout
+    of the sudoers file could cause the results of an internal check to be
+    clobbered, leaving sudo vulnerable to a race condition.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    Successful exploitation would permit a local sudo user to execute
+    arbitrary commands as another user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Reorder the sudoers file using the visudo utility to ensure the
+    'ALL' pseudo-command precedes other command definitions.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All sudo users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-admin/sudo-1.6.8_p9"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.sudo.ws/sudo/alerts/path_race.html">Sudo Announcement</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-06-21T20:05:11Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-06-22T15:18:20Z">
+    taviso
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-06-23T06:48:01Z">
+    jaervosz
+  </metadata>
+</glsa>

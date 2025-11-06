@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200510-03">
+  <title>Uim: Privilege escalation vulnerability</title>
+  <synopsis>
+    Under certain conditions, applications linked against Uim suffer from a
+    privilege escalation vulnerability.
+  </synopsis>
+  <product type="ebuild">uim</product>
+  <announced>2005-10-04</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>107748</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-i18n/uim" auto="yes" arch="*">
+      <unaffected range="ge">0.4.9.1</unaffected>
+      <vulnerable range="lt">0.4.9.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Uim is a multilingual input method library which provides secure and
+    useful input method for all languages.
+    </p>
+  </background>
+  <description>
+    <p>
+    Masanari Yamamoto discovered that Uim uses environment variables
+    incorrectly. This bug causes a privilege escalation if setuid/setgid
+    applications are linked to libuim. This bug only affects
+    immodule-enabled Qt (if you build Qt 3.3.2 or later versions with
+    USE="immqt" or USE="immqt-bc").
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A malicious local user could exploit this vulnerability to execute
+    arbitrary code with escalated privileges.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Uim users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-i18n/uim-0.4.9.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://lists.freedesktop.org/pipermail/uim/2005-September/001346.html">Original advisory</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3149">CVE-2005-3149</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-10-02T13:02:25Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-10-02T13:02:52Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-10-03T09:56:44Z">
+    adir
+  </metadata>
+</glsa>

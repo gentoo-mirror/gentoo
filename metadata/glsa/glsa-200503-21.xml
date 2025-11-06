@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200503-21">
+  <title>Grip: CDDB response overflow</title>
+  <synopsis>
+    Grip contains a buffer overflow that can be triggered by a large CDDB
+    response, potentially allowing the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">grip</product>
+  <announced>2005-03-17</announced>
+  <revised count="01">2005-03-17</revised>
+  <bug>84704</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-sound/grip" auto="yes" arch="*">
+      <unaffected range="ge">3.3.0</unaffected>
+      <vulnerable range="lt">3.3.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Grip is a GTK+ based audio CD player/ripper.
+    </p>
+  </background>
+  <description>
+    <p>
+    Joseph VanAndel has discovered a buffer overflow in Grip when
+    processing large CDDB results.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A malicious CDDB server could cause Grip to crash by returning
+    more then 16 matches, potentially allowing the execution of arbitrary
+    code with the privileges of the user running the application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Disable automatic CDDB queries, but we highly encourage users to
+    upgrade to 3.3.0.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Grip users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-sound/grip-3.3.0"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0706">CAN-2005-0706</uri>
+    <uri link="https://sourceforge.net/tracker/?group_id=3714&amp;atid=103714&amp;func=detail&amp;aid=834724">Original Bug Report</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-03-14T20:06:50Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-03-15T23:47:13Z">
+    lewk
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-03-17T10:03:26Z">
+    koon
+  </metadata>
+</glsa>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-15">
+    <title>isync: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in isync, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">isync</product>
+    <announced>2022-08-10</announced>
+    <revised count="1">2022-08-10</revised>
+    <bug>771738</bug>
+    <bug>794772</bug>
+    <bug>826902</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-mail/isync" auto="yes" arch="*">
+            <unaffected range="ge">1.4.4</unaffected>
+            <vulnerable range="lt">1.4.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>isync is an IMAP and MailDir mailbox synchronizer.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in isync. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All isync users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-mail/isync-1.4.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3578">CVE-2021-3578</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3657">CVE-2021-3657</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20247">CVE-2021-20247</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44143">CVE-2021-44143</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-10T22:30:18.734099Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-10T22:30:18.742070Z">ajak</metadata>
+</glsa>

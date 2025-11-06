@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-03">
+    <title>SQLite: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in SQLite, the worst of which may lead to code execution.</synopsis>
+    <product type="ebuild">sqlite</product>
+    <announced>2023-11-24</announced>
+    <revised count="1">2023-11-24</revised>
+    <bug>886029</bug>
+    <bug>906114</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-db/sqlite" auto="yes" arch="*">
+            <unaffected range="ge">3.42.0</unaffected>
+            <vulnerable range="lt">3.42.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>SQLite is a C library that implements an SQL database engine.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in SQLite. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All SQLite users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-db/sqlite-3.42.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-31239">CVE-2021-31239</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-46908">CVE-2022-46908</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-24T12:29:15.707023Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-24T12:29:15.709025Z">graaff</metadata>
+</glsa>

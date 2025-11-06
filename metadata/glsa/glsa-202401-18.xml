@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202401-18">
+    <title>zlib: Buffer Overflow</title>
+    <synopsis>A vulnerability has been found in zlib that can lead to a heap-based buffer overflow.</synopsis>
+    <product type="ebuild">zlib</product>
+    <announced>2024-01-15</announced>
+    <revised count="1">2024-01-15</revised>
+    <bug>916484</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-libs/zlib" auto="yes" arch="*">
+            <unaffected range="ge">1.2.13-r2</unaffected>
+            <vulnerable range="lt">1.2.13-r2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>zlib is a widely used free and patent unencumbered data compression library.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in zlib. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>MiniZip in zlib through 1.3 has an integer overflow and resultant heap-based buffer overflow in ZipOpenNewFileInZip4_64 via a long filename, comment, or extra field.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All zlib users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-libs/zlib-1.2.13-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-45853">CVE-2023-45853</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-01-15T12:02:56.466413Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-01-15T12:02:56.468710Z">graaff</metadata>
+</glsa>

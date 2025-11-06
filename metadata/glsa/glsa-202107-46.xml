@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-46">
+  <title>mpv: Format string vulnerability</title>
+  <synopsis>A format string vulnerability was found in mpv, potentially
+    resulting in arbitrary code execution.
+  </synopsis>
+  <product type="ebuild">mpv</product>
+  <announced>2021-07-20</announced>
+  <revised count="1">2021-07-20</revised>
+  <bug>780474</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-video/mpv" auto="yes" arch="*">
+      <unaffected range="ge">0.33.1</unaffected>
+      <vulnerable range="lt">0.33.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Video player based on MPlayer/mplayer2.</p>
+  </background>
+  <description>
+    <p>mpv uses untrusted input within format strings.</p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted m3u
+      playlist file using mpv, possibly resulting in execution of arbitrary
+      code with the privileges of the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All mpv users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-video/mpv-0.33.1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30145">CVE-2021-30145</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-16T02:03:07Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-20T04:16:47Z">ajak</metadata>
+</glsa>

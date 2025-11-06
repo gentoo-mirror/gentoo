@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201301-02">
+  <title>HAProxy: Arbitrary code execution</title>
+  <synopsis>A buffer overflow in HAProxy may allow execution of arbitrary code.</synopsis>
+  <product type="ebuild">haproxy</product>
+  <announced>2013-01-08</announced>
+  <revised count="1">2013-01-08</revised>
+  <bug>417079</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-proxy/haproxy" auto="yes" arch="*">
+      <unaffected range="ge">1.4.21</unaffected>
+      <vulnerable range="lt">1.4.21</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>HAProxy is a TCP/HTTP reverse proxy for high availability environments.</p>
+  </background>
+  <description>
+    <p>A boundary error in HAProxy could cause a buffer overflow when header
+      rewriting is enabled and the configuration sets global.tune.bufsize to a
+      value greater than the default (16384 bytes).
+    </p>
+  </description>
+  <impact type="high">
+    <p>A remote attacker could possibly execute arbitrary code with the
+      privileges of the process or cause a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All HAProxy users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-proxy/haproxy-1.4.21"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-2942">CVE-2012-2942</uri>
+  </references>
+  <metadata tag="requester" timestamp="2012-06-10T15:38:17Z">
+    underling
+  </metadata>
+  <metadata tag="submitter" timestamp="2013-01-08T23:51:14Z">ackle</metadata>
+</glsa>

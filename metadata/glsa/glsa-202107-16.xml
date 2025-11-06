@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-16">
+  <title>Privoxy: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Privoxy, the worst of
+    which could result in Denial of Service.
+  </synopsis>
+  <product type="ebuild">privoxy</product>
+  <announced>2021-07-08</announced>
+  <revised count="1">2021-07-08</revised>
+  <bug>758428</bug>
+  <bug>768096</bug>
+  <bug>771960</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-proxy/privoxy" auto="yes" arch="*">
+      <unaffected range="ge">3.0.32</unaffected>
+      <vulnerable range="lt">3.0.32</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Privoxy is a web proxy with advanced filtering capabilities for
+      enhancing privacy.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in privoxy. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>An attacker could cause a possible Denial of Service condition.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Privoxy users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-proxy/privoxy-3.0.32"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35502">CVE-2020-35502</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20209">CVE-2021-20209</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20210">CVE-2021-20210</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20211">CVE-2021-20211</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20212">CVE-2021-20212</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20213">CVE-2021-20213</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20214">CVE-2021-20214</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20215">CVE-2021-20215</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20216">CVE-2021-20216</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20217">CVE-2021-20217</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20272">CVE-2021-20272</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20273">CVE-2021-20273</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20274">CVE-2021-20274</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20275">CVE-2021-20275</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20276">CVE-2021-20276</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-31T21:51:37Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-07-08T03:36:21Z">ajak</metadata>
+</glsa>

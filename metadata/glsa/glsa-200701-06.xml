@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200701-06">
+  <title>w3m: Format string vulnerability</title>
+  <synopsis>
+    w3m does not correctly handle format string specifiers in SSL certificates.
+  </synopsis>
+  <product type="ebuild">w3m</product>
+  <announced>2007-01-12</announced>
+  <revised count="01">2007-01-12</revised>
+  <bug>159145</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-client/w3m" auto="yes" arch="*">
+      <unaffected range="ge">0.5.1-r4</unaffected>
+      <vulnerable range="lt">0.5.1-r4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    w3m is a multi-platform text-based web browser.
+    </p>
+  </background>
+  <description>
+    <p>
+    w3m in -dump or -backend mode does not correctly handle printf() format
+    string specifiers in the Common Name (CN) field of an X.509 SSL
+    certificate.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could entice a user to visit a malicious website that would
+    load a specially crafted X.509 SSL certificate containing "%n" or other
+    format string specifiers, possibly resulting in the execution of
+    arbitrary code with the rights of the user running w3m.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All w3m users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-client/w3m-0.5.1-r4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6772">CVE-2006-6772</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2007-01-11T00:57:23Z">
+    aetius
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-01-11T11:00:25Z">
+    DerCorny
+  </metadata>
+</glsa>

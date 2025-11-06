@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200702-04">
+  <title>RAR, UnRAR: Buffer overflow</title>
+  <synopsis>
+    RAR and UnRAR contain a buffer overflow allowing the execution of arbitrary
+    code.
+  </synopsis>
+  <product type="ebuild">rar, unrar</product>
+  <announced>2007-02-13</announced>
+  <revised count="02">2007-02-14</revised>
+  <bug>166440</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-arch/rar" auto="yes" arch="*">
+      <unaffected range="ge">3.7.0_beta1</unaffected>
+      <vulnerable range="lt">3.7.0_beta1</vulnerable>
+    </package>
+    <package name="app-arch/unrar" auto="yes" arch="*">
+      <unaffected range="ge">3.7.3</unaffected>
+      <vulnerable range="lt">3.7.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    RAR and UnRAR provide command line interfaces for compressing and
+    decompressing RAR files.
+    </p>
+  </background>
+  <description>
+    <p>
+    RAR and UnRAR contain a boundary error when processing
+    password-protected archives that could result in a stack-based buffer
+    overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to process a specially crafted
+    password-protected archive and execute arbitrary code with the rights
+    of the user uncompressing the archive.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All UnRAR users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-arch/unrar-3.7.3"</code>
+    <p>
+    All RAR users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-arch/rar-3.7.0_beta1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0855">CVE-2007-0855</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-02-12T15:25:34Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-02-12T23:14:14Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-02-13T23:24:39Z">
+    falco
+  </metadata>
+</glsa>

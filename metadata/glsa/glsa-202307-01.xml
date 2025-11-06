@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202307-01">
+    <title>OpenSSH: Remote Code Execution</title>
+    <synopsis>Multiple vulnerbilities have been discovered in OpenSSH, the worst of which could result in remote code execution.</synopsis>
+    <product type="ebuild">openssh</product>
+    <announced>2023-07-20</announced>
+    <revised count="1">2023-07-20</revised>
+    <bug>892936</bug>
+    <bug>905299</bug>
+    <bug>910553</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/openssh" auto="yes" arch="*">
+            <unaffected range="ge">9.3_p2</unaffected>
+            <vulnerable range="lt">9.3_p2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OpenSSH is a free application suite consisting of server and clients that replace tools like telnet, rlogin, rcp and ftp with more secure versions offering additional functionality.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in OpenSSH. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the CVE identifiers referenced below for details.</p>
+    </impact>
+    <workaround>
+        <p>CVE-2023-38408 can be worked around by avoiding connecting to untrusted servers with an SSH agent.</p>
+    </workaround>
+    <resolution>
+        <p>All OpenSSH users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/openssh-9.3_p2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-25136">CVE-2023-25136</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28531">CVE-2023-28531</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-38408">CVE-2023-38408</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-07-20T02:17:18.328897Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2023-07-20T02:17:18.348364Z">sam</metadata>
+</glsa>

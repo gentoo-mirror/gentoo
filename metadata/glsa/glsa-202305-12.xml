@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-12">
+    <title>sudo: Root Privilege Escalation</title>
+    <synopsis>A vulnerability has been discovered in sudo which could result in root privilege escalation.</synopsis>
+    <product type="ebuild">sudo</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>891335</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-admin/sudo" auto="yes" arch="*">
+            <unaffected range="ge">1.9.12_p2</unaffected>
+            <vulnerable range="lt">1.9.12_p2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>sudo allows a system administrator to give users the ability to run commands as other users.</p>
+    </background>
+    <description>
+        <p>The sudoedit (aka -e) feature mishandles extra arguments passed in the user-provided environment variables (SUDO_EDITOR, VISUAL, and EDITOR), allowing a local attacker to append arbitrary entries to the list of files to process.</p>
+    </description>
+    <impact type="high">
+        <p>The improper processing of user&#39;s environment variables could lead to the editing of arbitrary files as root, potentially leading to root privilege escalation.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All sudo users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-admin/sudo-1.9.12_p2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-22809">CVE-2023-22809</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T09:53:34.200622Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T09:53:34.205155Z">sam</metadata>
+</glsa>

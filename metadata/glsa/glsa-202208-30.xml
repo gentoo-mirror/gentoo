@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-30">
+    <title>GNU Binutils: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Binutils, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">binutils,binutils-libs</product>
+    <announced>2022-08-14</announced>
+    <revised count="1">2022-08-14</revised>
+    <bug>778545</bug>
+    <bug>792342</bug>
+    <bug>829304</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-devel/binutils" auto="yes" arch="*">
+            <unaffected range="ge">2.38</unaffected>
+            <vulnerable range="lt">2.38</vulnerable>
+        </package>
+        <package name="sys-libs/binutils-libs" auto="yes" arch="*">
+            <unaffected range="ge">2.38</unaffected>
+            <vulnerable range="lt">2.38</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The GNU Binutils are a collection of tools to create, modify and analyse binary files. Many of the files use BFD, the Binary File Descriptor library, to do low-level manipulation.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GNU Binutils. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Binutils users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-devel/binutils-2.38"
+        </code>
+        
+        <p>All Binutils library users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-libs/binutils-libs-2.38"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3487">CVE-2021-3487</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3530">CVE-2021-3530</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3549">CVE-2021-3549</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20197">CVE-2021-20197</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20284">CVE-2021-20284</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20294">CVE-2021-20294</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45078">CVE-2021-45078</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-14T21:47:19.226452Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-14T21:47:19.232334Z">sam</metadata>
+</glsa>

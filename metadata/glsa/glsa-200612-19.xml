@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200612-19">
+  <title>pam_ldap: Authentication bypass vulnerability</title>
+  <synopsis>
+    pam_ldap contains a vulnerability that may allow a remote user with a
+    locked account to gain unauthorized system access.
+  </synopsis>
+  <product type="ebuild">pam_ldap</product>
+  <announced>2006-12-20</announced>
+  <revised count="01">2006-12-20</revised>
+  <bug>153916</bug>
+  <access>remote</access>
+  <affected>
+    <package name="sys-auth/pam_ldap" auto="yes" arch="*">
+      <unaffected range="ge">183</unaffected>
+      <vulnerable range="lt">183</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    pam_ldap is a Pluggable Authentication Module which allows
+    authentication against LDAP directories.
+    </p>
+  </background>
+  <description>
+    <p>
+    Steve Rigler discovered that pam_ldap does not correctly handle
+    "PasswordPolicyResponse" control responses from an LDAP directory. This
+    causes the pam_authenticate() function to always succeed, even if the
+    previous authentication failed.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    A locked user may exploit this vulnerability to bypass the LDAP
+    authentication mechanism, possibly gaining unauthorized access to the
+    system.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All pam_ldap users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=sys-auth/pam_ldap-183"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-5170">CVE-2006-5170</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2006-12-19T16:57:27Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-12-19T16:58:04Z">
+    falco
+  </metadata>
+</glsa>

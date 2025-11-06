@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-01">
+  <title>Exim: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in Exim, the worst of
+    which allows remote attackers to execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">exim</product>
+  <announced>2021-05-04</announced>
+  <revised count="1">2021-05-04</revised>
+  <bug>786945</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="mail-mta/exim" auto="yes" arch="*">
+      <unaffected range="ge">4.94.2</unaffected>
+      <vulnerable range="lt">4.94.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Exim is a message transfer agent (MTA) designed to be a a highly
+      configurable, drop-in replacement for sendmail.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Exim. Please review the
+      CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="high">
+    <p>A remote attacker, by connecting to the SMTP listener daemon, could
+      possibly execute arbitrary code with the privileges of the process or
+      cause a Denial of Service condition. Furthermore, a local attacker could
+      perform symlink attacks to overwrite arbitrary files with the privileges
+      of the user running the application or escalate privileges.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Exim users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=mail-mta/exim-4.94.2"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28007">CVE-2020-28007</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28008">CVE-2020-28008</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28009">CVE-2020-28009</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28010">CVE-2020-28010</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28011">CVE-2020-28011</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28012">CVE-2020-28012</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28013">CVE-2020-28013</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28014">CVE-2020-28014</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28015">CVE-2020-28015</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28016">CVE-2020-28016</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28017">CVE-2020-28017</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28018">CVE-2020-28018</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28019">CVE-2020-28019</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28020">CVE-2020-28020</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28021">CVE-2020-28021</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28022">CVE-2020-28022</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28023">CVE-2020-28023</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28024">CVE-2020-28024</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28025">CVE-2020-28025</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-28026">CVE-2020-28026</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27216">CVE-2021-27216</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-04T18:26:25Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-04T19:29:15Z">whissi</metadata>
+</glsa>

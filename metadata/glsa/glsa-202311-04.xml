@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-04">
+    <title>Zeppelin: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Zeppelin, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">zeppelin-bin</product>
+    <announced>2023-11-24</announced>
+    <revised count="1">2023-11-24</revised>
+    <bug>811447</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-apps/zeppelin-bin" auto="yes" arch="*">
+            <unaffected range="ge">0.10.1</unaffected>
+            <vulnerable range="lt">0.10.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Apache Zeppelin is a web-based notebook that enables data-driven, interactive data analytics and collaborative documents with SQL, Scala, Python, R and more.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Zeppelin. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Zeppelin users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-apps/zeppelin-bin-0.10.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-10095">CVE-2019-10095</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-13929">CVE-2020-13929</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27578">CVE-2021-27578</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-24T13:19:41.936818Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-24T13:19:41.939030Z">graaff</metadata>
+</glsa>

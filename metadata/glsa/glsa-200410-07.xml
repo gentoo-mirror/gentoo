@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200410-07">
+  <title>ed: Insecure temporary file handling</title>
+  <synopsis>
+    The ed utility is vulnerable to symlink attacks, potentially allowing a
+    local user to overwrite or change rights on arbitrary files with the rights
+    of the user running ed, which could be the root user.
+  </synopsis>
+  <product type="ebuild">ed</product>
+  <announced>2004-10-09</announced>
+  <revised count="01">2004-10-09</revised>
+  <bug>66400</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-apps/ed" auto="yes" arch="*">
+      <unaffected range="ge">0.2-r4</unaffected>
+      <vulnerable range="le">0.2-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    ed is a line-oriented text editor, used to create or modify text files,
+    both interactively and via shell scripts.
+    </p>
+  </background>
+  <description>
+    <p>
+    ed insecurely creates temporary files in world-writeable directories with
+    predictable names. Given that ed is used in various system shell scripts,
+    they are by extension affected by the same vulnerability.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could create symbolic links in the temporary files
+    directory, pointing to a valid file somewhere on the filesystem. When ed is
+    called, this would result in file access with the rights of the user
+    running the utility, which could be the root user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All ed users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge sync
+
+    # emerge -pv "&gt;=sys-apps/ed-0.2-r4"
+    # emerge "&gt;=sys-apps/ed-0.2-r4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2000-1137">CVE-2000-1137</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-10-08T21:10:12Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-10-08T21:10:49Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-10-09T09:43:17Z">
+    koon
+  </metadata>
+</glsa>

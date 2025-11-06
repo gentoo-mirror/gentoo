@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-16">
+    <title>Apache Log4j: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Apache Log4j, the worst of which can lead to remote code execution.</synopsis>
+    <product type="ebuild">log4j</product>
+    <announced>2024-02-18</announced>
+    <revised count="1">2024-02-18</revised>
+    <bug>719146</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-java/log4j" auto="yes" arch="*">
+            <vulnerable range="le">1.2.17</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Log4j is a Java logging framework that supports various use cases with a rich set of components, a separate API, and a performance-optimized implementation.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities hav been discovered in Apache Log4j. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>Gentoo has discontinued support for log4j. We recommend that users unmerge it:</p>
+        
+        <code>
+          # emerge --ask --depclean "dev-java/log4j"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-17571">CVE-2019-17571</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-9488">CVE-2020-9488</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-9493">CVE-2020-9493</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23302">CVE-2022-23302</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-23305">CVE-2022-23305</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-18T08:32:34.454522Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-18T08:32:34.456886Z">graaff</metadata>
+</glsa>

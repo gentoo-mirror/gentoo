@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-29">
+    <title>Net-SNMP: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Net-SNMP, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">net-snmp</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>855500</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-analyzer/net-snmp" auto="yes" arch="*">
+            <unaffected range="ge">5.9.2</unaffected>
+            <vulnerable range="lt">5.9.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Net-SNMP is a suite of applications used to implement the Simple Network Management Protocol.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Net-SNMP. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Net-SNMP users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-analyzer/net-snmp-5.9.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24805">CVE-2022-24805</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24806">CVE-2022-24806</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24807">CVE-2022-24807</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24808">CVE-2022-24808</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24809">CVE-2022-24809</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24810">CVE-2022-24810</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T01:24:42.408832Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T01:24:42.415311Z">ajak</metadata>
+</glsa>

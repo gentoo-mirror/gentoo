@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201101-03">
+  <title>libvpx: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    Timothy B. Terriberry discovered that libvpx contains an integer overflow
+    vulnerability in the processing of video streams that may allow
+    user-assisted execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">libvpx</product>
+  <announced>2011-01-15</announced>
+  <revised count="01">2011-01-15</revised>
+  <bug>345559</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/libvpx" auto="yes" arch="*">
+      <unaffected range="ge">0.9.5</unaffected>
+      <vulnerable range="lt">0.9.5</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    libvpx is the VP8 codec SDK used to encode and decode video streams,
+    typically within a WebM format media file.
+    </p>
+  </background>
+  <description>
+    <p>
+    libvpx is vulnerable to an integer overflow vulnerability when
+    processing crafted VP8 video streams.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted media
+    file, possibly resulting in the execution of arbitrary code with the
+    privileges of the user running the application, or a Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All libvpx users should upgrade to the latest stable version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/libvpx-0.9.5"</code>
+    <p>
+    Packages which depend on this library may need to be recompiled. Tools
+    such as revdep-rebuild may assist in identifying some of these
+    packages.
+    </p>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-4203">CVE-2010-4203</uri>
+  </references>
+  <metadata tag="requester" timestamp="2010-12-13T01:15:02Z">
+    underling
+  </metadata>
+  <metadata tag="submitter" timestamp="2011-01-05T05:26:31Z">
+    underling
+  </metadata>
+  <metadata tag="bugReady" timestamp="2011-01-07T16:42:00Z">
+    underling
+  </metadata>
+</glsa>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200710-05">
+  <title>QGit: Insecure temporary file creation</title>
+  <synopsis>
+    A vulnerability has been discovered in QGit allowing local users to
+    overwrite arbitrary files and execute arbitrary code with another user's
+    rights.
+  </synopsis>
+  <product type="ebuild">qgit</product>
+  <announced>2007-10-07</announced>
+  <revised count="01">2007-10-07</revised>
+  <bug>190697</bug>
+  <access>local</access>
+  <affected>
+    <package name="dev-util/qgit" auto="yes" arch="*">
+      <unaffected range="ge">1.5.7</unaffected>
+      <vulnerable range="lt">1.5.7</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    QGit is a graphical interface to git repositories that allows you to
+    browse revisions history, view patch content and changed files.
+    </p>
+  </background>
+  <description>
+    <p>
+    Raphael Marichez discovered that the DataLoader::doStart() method
+    creates temporary files in an insecure manner and executes them.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could perform a symlink attack, possibly overwriting
+    files or executing arbitrary code with the rights of the user running
+    QGit.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All QGit users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-util/qgit-1.5.7"</code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2007-4631">CVE-2007-4631</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-09-24T08:55:56Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-09-24T08:56:46Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-10-07T18:55:10Z">
+    rbu
+  </metadata>
+</glsa>

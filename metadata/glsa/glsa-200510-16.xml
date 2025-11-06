@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200510-16">
+  <title>phpMyAdmin: Local file inclusion vulnerability</title>
+  <synopsis>
+    phpMyAdmin contains a local file inclusion vulnerability that may lead to
+    the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">phpmyadmin</product>
+  <announced>2005-10-17</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>108939</bug>
+  <access>local</access>
+  <affected>
+    <package name="dev-db/phpmyadmin" auto="yes" arch="*">
+      <unaffected range="ge">2.6.4_p2</unaffected>
+      <vulnerable range="lt">2.6.4_p2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    phpMyAdmin is a tool written in PHP intended to handle the
+    administration of MySQL over the web.
+    </p>
+  </background>
+  <description>
+    <p>
+    Maksymilian Arciemowicz reported that in
+    libraries/grab_globals.lib.php, the $__redirect parameter was not
+    correctly validated. Systems running PHP in safe mode are not affected.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker may exploit this vulnerability by sending malicious
+    requests, causing the execution of arbitrary code with the rights of
+    the user running the web server.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Run PHP in safe mode.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All phpMyAdmin users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-db/phpmyadmin-2.6.4_p2"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.phpmyadmin.net/home_page/security.php?issue=PMASA-2005-4">PMASA-2005-4</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-3299">CVE-2005-3299</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-10-15T08:08:40Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-10-16T19:41:39Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-10-17T03:54:58Z">
+    adir
+  </metadata>
+</glsa>

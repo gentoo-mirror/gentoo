@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200705-18">
+  <title>PPTPD: Denial of Service attack</title>
+  <synopsis>
+    A vulnerability has been reported in PPTPD which could lead to a Denial of
+    Service.
+  </synopsis>
+  <product type="ebuild">pptpd</product>
+  <announced>2007-05-20</announced>
+  <revised count="01">2007-05-20</revised>
+  <bug>176936</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-dialup/pptpd" auto="yes" arch="*">
+      <unaffected range="ge">1.3.4</unaffected>
+      <vulnerable range="lt">1.3.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    PPTPD is a Point-to-Point Tunnelling Protocol Daemon for Linux.
+    </p>
+  </background>
+  <description>
+    <p>
+    James Cameron from HP has reported a vulnerability in PPTPD caused by
+    malformed GRE packets.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could exploit this vulnerability to cause a Denial of
+    Service on the PPTPD connection.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All PPTPD users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-dialup/pptpd-1.3.4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0244">CVE-2007-0244</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-05-11T07:06:10Z">
+    jaervosz
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-05-11T07:14:40Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-05-14T17:58:13Z">
+    dizzutch
+  </metadata>
+</glsa>

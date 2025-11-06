@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-24">
+  <title>FFmpeg: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in FFmpeg, the worst of
+    which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">ffmpeg</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>763315</bug>
+  <bug>781146</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="media-video/ffmpeg" auto="yes" arch="*">
+      <unaffected range="ge">4.4</unaffected>
+      <vulnerable range="lt">4.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>FFmpeg is a complete, cross-platform solution to record, convert and
+      stream audio and video.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in FFmpeg. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted media
+      file using FFmpeg, possibly resulting in execution of arbitrary code with
+      the privileges of the process or a Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All FFmpeg users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-video/ffmpeg-4.4"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35964">CVE-2020-35964</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35965">CVE-2020-35965</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30123">CVE-2021-30123</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-24T00:07:14Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T09:29:48Z">whissi</metadata>
+</glsa>

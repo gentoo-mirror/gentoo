@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200505-10">
+  <title>phpBB: Cross-Site Scripting Vulnerability</title>
+  <synopsis>
+    phpBB is vulnerable to a cross-site scripting attack that could allow
+    arbitrary scripting code execution.
+  </synopsis>
+  <product type="ebuild">phpBB</product>
+  <announced>2005-05-14</announced>
+  <revised count="01">2005-05-14</revised>
+  <bug>90213</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/phpBB" auto="yes" arch="*">
+      <unaffected range="ge">2.0.15</unaffected>
+      <vulnerable range="lt">2.0.15</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    phpBB is an Open Source bulletin board package.
+    </p>
+  </background>
+  <description>
+    <p>
+    phpBB is vulnerable to a cross-site scripting vulnerability due to
+    improper sanitization of user supplied input. Coupled with poor
+    validation of BBCode URLs which may be included in a forum post, an
+    unsuspecting user may follow a posted link triggering the
+    vulnerability.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    Successful exploitation of the vulnerability could cause arbitrary
+    scripting code to be executed in the browser of a user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There are no known workarounds at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All phpBB users should upgrade to the latest version:
+    </p>
+    <code>
+    emerge --sync
+    emerge --ask --oneshot --verbose "&gt;=www-apps/phpBB-2.0.15"</code>
+  </resolution>
+  <references>
+    <uri link="http://www.securityfocus.com/bid/13344/info/">BugTraq ID 13344</uri>
+    <uri link="http://securitytracker.com/id?1013918">SecurityTracker ID 1013918</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-05-13T08:29:22Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-05-13T08:29:44Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-05-13T19:13:15Z">
+    r2d2
+  </metadata>
+</glsa>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200701-20">
+  <title>Centericq: Remote buffer overflow in LiveJournal handling</title>
+  <synopsis>
+    Centericq does not properly handle communications with the LiveJournal
+    service, allowing for the remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">centericq</product>
+  <announced>2007-01-24</announced>
+  <revised count="01">2007-01-24</revised>
+  <bug>160793</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-im/centericq" auto="yes" arch="*">
+      <vulnerable range="le">4.21.0-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Centericq is a text mode menu-driven and window-driven instant
+    messaging interface.
+    </p>
+  </background>
+  <description>
+    <p>
+    When interfacing with the LiveJournal service, Centericq does not
+    appropriately allocate memory for incoming data, in some cases creating
+    a buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could entice a user to connect to an unofficial LiveJournal
+    server causing Centericq to read specially crafted data from the
+    server, which could lead to the execution of arbitrary code with the
+    rights of the user running Centericq.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    Currently, Centericq is unmaintained. As such, Centericq has been
+    masked in Portage until it is again maintained.
+    </p>
+    <code>
+    # emerge --ask --verbose --unmerge "net-im/centericq"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0160">CVE-2007-0160</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-01-14T18:03:01Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-01-14T21:54:11Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-01-18T02:19:00Z">
+    shellsage
+  </metadata>
+</glsa>

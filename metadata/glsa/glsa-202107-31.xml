@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-31">
+  <title>polkit: Privilege escalation</title>
+  <synopsis>A vulnerability in polkit could lead to local root privilege
+    escalation.
+  </synopsis>
+  <product type="ebuild">polkit</product>
+  <announced>2021-07-13</announced>
+  <revised count="1">2021-07-13</revised>
+  <bug>794052</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-auth/polkit" auto="yes" arch="*">
+      <unaffected range="ge">0.119</unaffected>
+      <vulnerable range="lt">0.119</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>polkit is a toolkit for managing policies related to unprivileged
+      processes communicating with privileged process.
+    </p>
+  </background>
+  <description>
+    <p>The function polkit_system_bus_name_get_creds_sync() was called without
+      checking for error, and as such temporarily treats the authentication
+      request as coming from root.
+    </p>
+  </description>
+  <impact type="high">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All polkit users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=sys-auth/polkit-0.119"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3560">CVE-2021-3560</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-13T00:16:39Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-13T02:29:59Z">ajak</metadata>
+</glsa>

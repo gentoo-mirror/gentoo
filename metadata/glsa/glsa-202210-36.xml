@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-36">
+    <title>libjxl: Denial of Service</title>
+    <synopsis>A vulnerability has been found in libjxl which could result in denial of service.</synopsis>
+    <product type="ebuild">libjxl</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>856037</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libjxl" auto="yes" arch="*">
+            <unaffected range="ge">0.7.0_pre20220825</unaffected>
+            <vulnerable range="lt">0.7.0_pre20220825</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libjxl is the JPEG XL image format reference implementation.</p>
+    </background>
+    <description>
+        <p>libjxl contains an unecessary assertion in jxl::LowMemoryRenderPipeline::Init.</p>
+    </description>
+    <impact type="low">
+        <p>An attacker can cause a denial of service of the libjxl process via a crafted input file.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libjxl-0.7.0_pre20220825"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34000">CVE-2022-34000</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T20:21:23.265436Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T20:21:23.274675Z">ajak</metadata>
+</glsa>

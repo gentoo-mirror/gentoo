@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-09">
+    <title>NASM: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in NASM, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">nasm</product>
+    <announced>2023-12-22</announced>
+    <revised count="1">2023-12-22</revised>
+    <bug>686720</bug>
+    <bug>903755</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-lang/nasm" auto="yes" arch="*">
+            <unaffected range="ge">2.16.01</unaffected>
+            <vulnerable range="lt">2.16.01</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>NASM is a 80x86 assembler that has been created for portability and modularity. NASM supports Pentium, P6, SSE MMX, and 3DNow extensions. It also supports a wide range of objects formats (ELF, a.out, COFF, etc), and has its own disassembler.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in NASM. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All NASM users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/nasm-2.16.01"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-8343">CVE-2019-8343</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-21528">CVE-2020-21528</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-44370">CVE-2022-44370</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-22T12:11:31.423926Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-12-22T12:11:31.426302Z">graaff</metadata>
+</glsa>

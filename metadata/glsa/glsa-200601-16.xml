@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200601-16">
+  <title>MyDNS: Denial of service</title>
+  <synopsis>
+    MyDNS contains a vulnerability that may lead to a Denial of Service attack.
+  </synopsis>
+  <product type="ebuild">MyDNS</product>
+  <announced>2006-01-30</announced>
+  <revised count="01">2006-01-30</revised>
+  <bug>119548</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-dns/mydns" auto="yes" arch="*">
+      <unaffected range="ge">1.1.0</unaffected>
+      <vulnerable range="lt">1.1.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MyDNS is a DNS server using a MySQL database as a backend. It is
+    designed to allow for fast updates and small resource usage.
+    </p>
+  </background>
+  <description>
+    <p>
+    MyDNS contains an unspecified flaw that may allow a remote Denial
+    of Service.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could cause a Denial of Service by sending malformed
+    DNS queries to the MyDNS server.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MyDNS users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-dns/mydns-1.1.0"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0351">CVE-2006-0351</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-01-25T19:31:44Z">
+    DerCorny
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-01-27T05:37:45Z">
+    frilled
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-01-27T21:29:58Z">
+    adir
+  </metadata>
+</glsa>

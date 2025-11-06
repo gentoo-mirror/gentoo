@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-08">
+    <title>Mozilla Firefox: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Mozilla Firefox, the worst of which could result in the arbitrary execution of code.</synopsis>
+    <product type="ebuild">firefox,firefox-bin</product>
+    <announced>2022-08-10</announced>
+    <revised count="1">2022-08-10</revised>
+    <bug>834631</bug>
+    <bug>834804</bug>
+    <bug>836866</bug>
+    <bug>842438</bug>
+    <bug>846593</bug>
+    <bug>849044</bug>
+    <bug>857045</bug>
+    <bug>861515</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-client/firefox" auto="yes" arch="*">
+            <unaffected range="ge" slot="esr">91.12.0</unaffected>
+            <unaffected range="ge" slot="rapid">103.0</unaffected>
+            <vulnerable range="lt" slot="rapid">103.0</vulnerable>
+            <vulnerable range="lt" slot="esr">91.12.0</vulnerable>
+        </package>
+        <package name="www-client/firefox-bin" auto="yes" arch="*">
+            <unaffected range="ge" slot="esr">91.12.0</unaffected>
+            <unaffected range="ge" slot="rapid">103.0</unaffected>
+            <vulnerable range="lt" slot="esr">91.12.0</vulnerable>
+            <vulnerable range="lt" slot="rapid">103.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mozilla Firefox is a popular open-source web browser from the Mozilla project.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Mozilla Firefox. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mozilla Firefox ESR users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-91.12.0:esr"
+        </code>
+        
+        <p>All Mozilla Firefox ESR binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-bin-91.12.0:esr"
+        </code>
+        
+        <p>All Mozilla Firefox users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-103.0:rapid"
+        </code>
+        
+        <p>All Mozilla Firefox binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-bin-103.0:rapid"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0843">CVE-2022-0843</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1196">CVE-2022-1196</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1529">CVE-2022-1529</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1802">CVE-2022-1802</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1919">CVE-2022-1919</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2200">CVE-2022-2200</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2505">CVE-2022-2505</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-24713">CVE-2022-24713</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26381">CVE-2022-26381</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26382">CVE-2022-26382</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26383">CVE-2022-26383</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26384">CVE-2022-26384</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26385">CVE-2022-26385</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26386">CVE-2022-26386</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26387">CVE-2022-26387</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26485">CVE-2022-26485</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26486">CVE-2022-26486</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28281">CVE-2022-28281</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28282">CVE-2022-28282</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28283">CVE-2022-28283</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28284">CVE-2022-28284</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28285">CVE-2022-28285</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28286">CVE-2022-28286</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28287">CVE-2022-28287</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28288">CVE-2022-28288</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-28289">CVE-2022-28289</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29909">CVE-2022-29909</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29910">CVE-2022-29910</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29911">CVE-2022-29911</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29912">CVE-2022-29912</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29914">CVE-2022-29914</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29915">CVE-2022-29915</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29916">CVE-2022-29916</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29917">CVE-2022-29917</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-29918">CVE-2022-29918</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31736">CVE-2022-31736</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31737">CVE-2022-31737</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31738">CVE-2022-31738</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31740">CVE-2022-31740</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31741">CVE-2022-31741</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31742">CVE-2022-31742</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31743">CVE-2022-31743</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31744">CVE-2022-31744</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31745">CVE-2022-31745</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31747">CVE-2022-31747</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31748">CVE-2022-31748</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34468">CVE-2022-34468</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34469">CVE-2022-34469</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34470">CVE-2022-34470</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34471">CVE-2022-34471</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34472">CVE-2022-34472</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34473">CVE-2022-34473</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34474">CVE-2022-34474</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34475">CVE-2022-34475</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34476">CVE-2022-34476</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34477">CVE-2022-34477</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34478">CVE-2022-34478</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34479">CVE-2022-34479</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34480">CVE-2022-34480</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34481">CVE-2022-34481</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34482">CVE-2022-34482</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34483">CVE-2022-34483</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34484">CVE-2022-34484</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-34485">CVE-2022-34485</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36315">CVE-2022-36315</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36316">CVE-2022-36316</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36318">CVE-2022-36318</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36319">CVE-2022-36319</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36320">CVE-2022-36320</uri>
+        <uri>MFSA-2022-14</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-10T04:06:48.151092Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-10T04:06:48.153620Z">ajak</metadata>
+</glsa>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200802-10">
+  <title>Python: PCRE Integer overflow</title>
+  <synopsis>
+    A vulnerability within Python's copy of PCRE might lead to the execution of
+    arbitrary code.
+  </synopsis>
+  <product type="ebuild">python</product>
+  <announced>2008-02-23</announced>
+  <revised count="01">2008-02-23</revised>
+  <bug>198373</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-lang/python" auto="yes" arch="*">
+      <unaffected range="ge">2.3.6-r4</unaffected>
+      <vulnerable range="lt">2.3.6-r4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Python is an interpreted, interactive, object-oriented programming
+    language.
+    </p>
+  </background>
+  <description>
+    <p>
+    Python 2.3 includes a copy of PCRE which is vulnerable to an integer
+    overflow vulnerability, leading to a buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could exploit the vulnerability by tricking a vulnerable
+    Python application to compile a regular expressions, which could
+    possibly lead to the execution of arbitrary code, a Denial of Service
+    or the disclosure of sensitive information.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Python 2.3 users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-lang/python-2.3.6-r4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-7228">CVE-2006-7228</uri>
+    <uri link="https://www.gentoo.org/security/en/glsa/glsa-200711-30.xml">GLSA 200711-30</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-07T19:00:53Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-01-28T18:01:42Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-02-18T22:37:11Z">
+    rbu
+  </metadata>
+</glsa>

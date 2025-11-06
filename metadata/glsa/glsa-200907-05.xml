@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200907-05">
+  <title>git: git-daemon Denial of service</title>
+  <synopsis>
+    An error in git-daemon might lead to a Denial of Service via resource
+    consumption.
+  </synopsis>
+  <product type="ebuild">git</product>
+  <announced>2009-07-12</announced>
+  <revised count="01">2009-07-12</revised>
+  <bug>273905</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-util/git" auto="yes" arch="*">
+      <unaffected range="ge">1.6.3.3</unaffected>
+      <vulnerable range="lt">1.6.3.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    git - the stupid content tracker, the revision control system used by
+    the Linux kernel team.
+    </p>
+  </background>
+  <description>
+    <p>
+    Shawn O. Pearce reported that git-daemon runs into an infinite loop
+    when handling requests that contain unrecognized arguments.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote unauthenticated attacker could send a specially crafted
+    request to git-daemon, possibly leading to a Denial of Service (CPU
+    consumption).
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All git users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-util/git-1.6.3.3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2108">CVE-2009-2108</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-07-10T18:02:51Z">
+    craig
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-07-11T00:41:19Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-07-11T00:41:24Z">
+    rbu
+  </metadata>
+</glsa>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-11">
+  <title>GNU Screen: User-assisted execution of arbitrary code</title>
+  <synopsis>A vulnerability in GNU screen may allow a remote attacker to
+    execute arbitrary code.
+  </synopsis>
+  <product type="ebuild">screen</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>769770</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="app-misc/screen" auto="yes" arch="*">
+      <unaffected range="ge">4.8.0-r2</unaffected>
+      <vulnerable range="lt">4.8.0-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>GNU Screen is a full-screen window manager that multiplexes a physical
+      terminal between several processes, typically interactive shells.
+    </p>
+  </background>
+  <description>
+    <p>It was discovered that GNU screen did not properly handle certain UTF-8
+      character sequences.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to run a program where attacker
+      controls the output inside a GNU screen session, possibly resulting in
+      execution of arbitrary code with the privileges of the process or a
+      Denial of Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>This vulnerability can be mitigated by disabling UTF-8 processing in
+      .screenrc.
+    </p>
+  </workaround>
+  <resolution>
+    <p>All GNU screen users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-misc/screen-4.8.0-r2"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26937">CVE-2021-26937</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T21:07:51Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T08:14:58Z">whissi</metadata>
+</glsa>

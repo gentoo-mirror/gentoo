@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201611-02">
+  <title>OpenVPN: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in OpenVPN, the worst of
+    which allows remote attackers to read encrypted traffic.
+  </synopsis>
+  <product type="ebuild"/>
+  <announced>2016-11-01</announced>
+  <revised count="1">2016-11-01</revised>
+  <bug>582902</bug>
+  <bug>592070</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-misc/openvpn" auto="yes" arch="*">
+      <unaffected range="ge">2.3.12</unaffected>
+      <vulnerable range="lt">2.3.12</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>OpenVPN is a multi-platform, full-featured SSL VPN solution.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in OpenVPN. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker may be able to recover plaintext from encrypted
+      communications.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All OpenVPN users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-misc/openvpn-2.3.12"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2016-6329">CVE-2016-6329</uri>
+  </references>
+  <metadata tag="requester" timestamp="2016-09-10T00:38:08Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2016-11-01T13:24:59Z">b-man</metadata>
+</glsa>

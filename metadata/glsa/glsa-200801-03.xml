@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200801-03">
+  <title>Claws Mail: Insecure temporary file creation</title>
+  <synopsis>
+    Claws Mail uses temporary files in an insecure manner, allowing for a
+    symlink attack.
+  </synopsis>
+  <product type="ebuild">claws-mail</product>
+  <announced>2008-01-09</announced>
+  <revised count="01">2008-01-09</revised>
+  <bug>201244</bug>
+  <access>local</access>
+  <affected>
+    <package name="mail-client/claws-mail" auto="yes" arch="*">
+      <unaffected range="ge">3.0.2-r1</unaffected>
+      <vulnerable range="lt">3.0.2-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Claws Mail is a GTK based e-mail client.
+    </p>
+  </background>
+  <description>
+    <p>
+    Nico Golde from Debian reported that the sylprint.pl script that is
+    part of the Claws Mail tools creates temporary files in an insecure
+    manner.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could exploit this vulnerability to conduct symlink
+    attacks to overwrite files with the privileges of the user running
+    Claws Mail.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Claws Mail users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=mail-client/claws-mail-3.0.2-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6208">CVE-2007-6208</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-06T23:01:06Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-01-08T23:07:07Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-01-08T23:07:18Z">
+    p-y
+  </metadata>
+</glsa>

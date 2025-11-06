@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200710-24">
+  <title>OpenOffice.org: Heap-based buffer overflow</title>
+  <synopsis>
+    A heap-based buffer overflow vulnerability has been discovered in
+    OpenOffice.org, allowing for the remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">openoffice</product>
+  <announced>2007-10-23</announced>
+  <revised count="01">2007-10-23</revised>
+  <bug>192818</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-office/openoffice" auto="yes" arch="*">
+      <unaffected range="ge">2.3.0</unaffected>
+      <vulnerable range="lt">2.3.0</vulnerable>
+    </package>
+    <package name="app-office/openoffice-bin" auto="yes" arch="*">
+      <unaffected range="ge">2.3.0</unaffected>
+      <vulnerable range="lt">2.3.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    OpenOffice.org is an open source office productivity suite, including
+    word processing, spreadsheet, presentation, drawing, data charting,
+    formula editing, and file conversion facilities.
+    </p>
+  </background>
+  <description>
+    <p>
+    iDefense Labs reported that the TIFF parsing code uses untrusted values
+    to calculate buffer sizes, which can lead to an integer overflow
+    resulting in heap-based buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted
+    document, possibly leading to execution of arbitrary code with the
+    privileges of the user running OpenOffice.org.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All OpenOffice.org users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-office/openoffice-2.3.0"</code>
+    <p>
+    All OpenOffice.org binary users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-office/openoffice-bin-2.3.0"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2834">CVE-2007-2834</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-10-20T21:31:00Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-10-20T21:31:08Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-10-21T10:52:39Z">
+    rbu
+  </metadata>
+</glsa>

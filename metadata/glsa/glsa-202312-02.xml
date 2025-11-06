@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-02">
+    <title>Minecraft Server: Remote Code Execution</title>
+    <synopsis>A vulnerability has been found in Minecraft Server which leads to remote code execution.</synopsis>
+    <product type="ebuild">minecraft-server</product>
+    <announced>2023-12-20</announced>
+    <revised count="1">2023-12-20</revised>
+    <bug>828936</bug>
+    <access>remote</access>
+    <affected>
+        <package name="games-server/minecraft-server" auto="yes" arch="*">
+            <unaffected range="ge">1.18.1</unaffected>
+            <vulnerable range="lt">1.18.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Minecraft Server is the official server for the sandbox video game.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Minecraft Server. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Vulnerable Minecraft Server versions include a bundled version of log4j which is vulnerable to remote code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Minecraft Server users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=games-server/minecraft-server-1.18.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4104">CVE-2021-4104</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-20T07:18:06.586272Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-12-20T07:18:06.590850Z">graaff</metadata>
+</glsa>

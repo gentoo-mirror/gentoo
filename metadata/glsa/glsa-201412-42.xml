@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201412-42">
+  <title>Xen: Denial of service</title>
+  <synopsis>Multiple vulnerabilities have been found in Xen, possibly resulting
+    in Denial of Service.
+  </synopsis>
+  <product type="ebuild">xen</product>
+  <announced>2014-12-26</announced>
+  <revised count="2">2014-12-31</revised>
+  <bug>523524</bug>
+  <bug>524200</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-emulation/xen" auto="yes" arch="*">
+      <unaffected range="rge">4.2.5-r1</unaffected>
+      <unaffected range="ge">4.3.3-r3</unaffected>
+      <vulnerable range="lt">4.3.3-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Xen is a bare-metal hypervisor.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Xen. Please review the
+      CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A local user could possibly cause a Denial of Service condition.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All xen users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-emulation/xen-4.2.5-r1"
+    </code>
+    
+    <p>All xen users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=app-emulation/xen-4.3.3-r3"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-7154">CVE-2014-7154</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-7155">CVE-2014-7155</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-7156">CVE-2014-7156</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-7188">CVE-2014-7188</uri>
+  </references>
+  <metadata tag="requester" timestamp="2014-10-15T01:33:19Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2014-12-31T14:18:28Z">Zlogene</metadata>
+</glsa>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-01">
+    <title>AtomicParsley: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in AtomicParsley, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">atomicparsley,atomicparsley-wez</product>
+    <announced>2023-05-03</announced>
+    <revised count="1">2023-05-03</revised>
+    <bug>806845</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-video/atomicparsley" auto="yes" arch="*">
+            <unaffected range="ge">0.9.6_p20210715_p151551</unaffected>
+            <vulnerable range="lt">0.9.6_p20210715_p151551</vulnerable>
+        </package>
+        <package name="media-video/atomicparsley-wez" auto="yes" arch="*">
+            <vulnerable range="le">0.9.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>AtomicParsley is a command line program for manipulating iTunes-style metadata in MPEG4 files.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in AtomicParsley. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>Users can pass only trusted input to AtomicParsley.</p>
+    </workaround>
+    <resolution>
+        <p>Previously, the "wez" AtomicParsley fork was packaged in Gentoo as media-video/atomicparsley-wez. This fork is now packaged as media-video/atomicparsley, so users of the fork's package should now depclean it:</p>
+        
+        <code>
+          # emerge --ask --depclean "media-video/atomicparsley-wez"
+        </code>
+        
+        <p>All AtomicParsley users should upgrade to the latest version, which is a packaging of the "wez" AtomicParsley fork:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-video/atomicparsley-0.9.6_p20210715_p151551"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37231">CVE-2021-37231</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-37232">CVE-2021-37232</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-03T09:11:30.867104Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-03T09:11:30.873823Z">sam</metadata>
+</glsa>

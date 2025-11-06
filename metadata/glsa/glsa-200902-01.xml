@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200902-01">
+  <title>sudo: Privilege escalation</title>
+  <synopsis>
+    A vulnerability in sudo may allow for privilege escalation.
+  </synopsis>
+  <product type="ebuild">sudo</product>
+  <announced>2009-02-06</announced>
+  <revised count="01">2009-02-06</revised>
+  <bug>256633</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-admin/sudo" auto="yes" arch="*">
+      <unaffected range="ge">1.7.0</unaffected>
+      <vulnerable range="lt">1.7.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    sudo allows a system administrator to give users the ability to run
+    commands as other users.
+    </p>
+  </background>
+  <description>
+    <p>
+    Harald Koenig discovered that sudo incorrectly handles group
+    specifications in Runas_Alias (and related) entries when a group is
+    specified in the list (using %group syntax, to allow a user to run
+    commands as any member of that group) and the user is already a member
+    of that group.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A local attacker could possibly run commands as an arbitrary system
+    user (including root).
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All sudo users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-admin/sudo-1.7.0"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0034">CVE-2009-0034</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-02-02T22:59:48Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-02-02T23:20:12Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-02-06T22:19:55Z">
+    keytoaster
+  </metadata>
+</glsa>

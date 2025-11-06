@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200502-30">
+  <title>cmd5checkpw: Local password leak vulnerability</title>
+  <synopsis>
+    cmd5checkpw contains a flaw allowing local users to access other users
+    cmd5checkpw passwords.
+  </synopsis>
+  <product type="ebuild">cmd5checkpw</product>
+  <announced>2005-02-25</announced>
+  <revised count="02">2006-05-22</revised>
+  <bug>78256</bug>
+  <access>local</access>
+  <affected>
+    <package name="net-mail/cmd5checkpw" auto="yes" arch="*">
+      <unaffected range="ge">0.22-r2</unaffected>
+      <vulnerable range="le">0.22-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    cmd5checkpw is a checkpassword compatible authentication program that
+    uses CRAM-MD5 authentication mode.
+    </p>
+  </background>
+  <description>
+    <p>
+    Florian Westphal discovered that cmd5checkpw is installed setuid
+    cmd5checkpw but does not drop privileges before calling execvp(), so
+    the invoked program retains the cmd5checkpw euid.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    Local users that know at least one valid /etc/poppasswd user/password
+    combination can read the /etc/poppasswd file.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All cmd5checkpw users should upgrade to the latest available version:
+    </p>
+    <code>
+    # emerge --sync 
+    # emerge --ask --oneshot --verbose "&gt;=net-mail/cmd5checkpw-0.22-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-0580">CVE-2005-0580</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-02-24T11:26:13Z">
+    vorlon078
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-02-25T09:22:33Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-02-25T09:25:07Z">
+    koon
+  </metadata>
+</glsa>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202211-11">
+    <title>GPL Ghostscript: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in GPL Ghostscript, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">ghostscript-gpl</product>
+    <announced>2022-11-22</announced>
+    <revised count="1">2022-11-22</revised>
+    <bug>852944</bug>
+    <bug>812509</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-text/ghostscript-gpl" auto="yes" arch="*">
+            <unaffected range="ge">9.56.1</unaffected>
+            <vulnerable range="lt">9.56.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Ghostscript is an interpreter for the PostScript language and for PDF.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GPL Ghostscript. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GPL Ghostscript users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/ghostscript-gpl-9.56.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3781">CVE-2021-3781</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2085">CVE-2022-2085</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-11-22T03:53:57.184664Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-11-22T03:53:57.190013Z">ajak</metadata>
+</glsa>

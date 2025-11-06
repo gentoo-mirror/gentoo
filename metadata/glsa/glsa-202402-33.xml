@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202402-33">
+    <title>PyYAML: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been found in PyYAML which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">pyyaml</product>
+    <announced>2024-02-26</announced>
+    <revised count="1">2024-02-26</revised>
+    <bug>766228</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-python/pyyaml" auto="yes" arch="*">
+            <unaffected range="ge">5.4</unaffected>
+            <vulnerable range="lt">5.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>PyYAML is a YAML parser and emitter for Python.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in PyYAML. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>A vulnerability was discovered in the PyYAML library, where it is susceptible to arbitrary code execution when it processes untrusted YAML files through the full_load method or with the FullLoader loader. Applications that use the library to process untrusted input may be vulnerable to this flaw. This flaw allows an attacker to execute arbitrary code on the system by abusing the python/object/new constructor. This flaw is due to an incomplete fix for CVE-2020-1747.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All PyYAML users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/pyyaml-5.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-14343">CVE-2020-14343</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-02-26T15:44:41.690132Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-02-26T15:44:41.694949Z">graaff</metadata>
+</glsa>

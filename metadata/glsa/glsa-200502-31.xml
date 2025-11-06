@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200502-31">
+  <title>uim: Privilege escalation vulnerability</title>
+  <synopsis>
+    Under certain conditions, applications linked against uim suffer from a
+    privilege escalation vulnerability.
+  </synopsis>
+  <product type="ebuild">uim</product>
+  <announced>2005-02-28</announced>
+  <revised count="01">2005-02-28</revised>
+  <bug>82678</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-i18n/uim" auto="yes" arch="*">
+      <unaffected range="ge">0.4.5.1</unaffected>
+      <vulnerable range="lt">0.4.5.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    uim is a simple, secure and flexible input method library.
+    </p>
+  </background>
+  <description>
+    <p>
+    Takumi Asaki discovered that uim insufficiently checks environment
+    variables. setuid/setgid applications linked against libuim could end
+    up executing arbitrary code. This vulnerability only affects
+    immodule-enabled Qt (if you build Qt 3.3.2 or later versions with
+    USE="immqt" or USE="immqt-bc").
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A malicious local user could exploit this vulnerability to execute
+    arbitrary code with escalated privileges.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All uim users should upgrade to the latest available version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-i18n/uim-0.4.5.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-0503">CAN-2005-0503</uri>
+    <uri link="https://lists.freedesktop.org/archives/uim/2005-February/000996.html">uim announcement</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-02-25T09:53:35Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-02-27T12:40:49Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-02-28T08:59:25Z">
+    koon
+  </metadata>
+</glsa>

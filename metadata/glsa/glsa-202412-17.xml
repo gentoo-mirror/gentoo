@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202412-17">
+    <title>idna: Denial of Service</title>
+    <synopsis>A vulnerability has been discovered in idna, which can lead to a denial of service.</synopsis>
+    <product type="ebuild">idna</product>
+    <announced>2024-12-11</announced>
+    <revised count="1">2024-12-11</revised>
+    <bug>929208</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-python/idna" auto="yes" arch="*">
+            <unaffected range="ge">3.7</unaffected>
+            <vulnerable range="lt">3.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Internationalized Domain Names for Python (IDNA 2008 and UTS #46)</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in idna. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All idna users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-python/idna-3.7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-3651">CVE-2024-3651</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-12-11T09:59:38.412294Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-12-11T09:59:38.415710Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-06">
+    <title>mujs: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in mujs, the worst of which could lead to remote code execution.</synopsis>
+    <product type="ebuild">mujs</product>
+    <announced>2024-05-04</announced>
+    <revised count="1">2024-05-04</revised>
+    <bug>833453</bug>
+    <bug>845399</bug>
+    <bug>882775</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-lang/mujs" auto="yes" arch="*">
+            <unaffected range="ge">1.3.2</unaffected>
+            <vulnerable range="lt">1.3.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>mujs is an embeddable Javascript interpreter in C.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in mujs. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All mujs users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/mujs-1.3.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45005">CVE-2021-45005</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30974">CVE-2022-30974</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-30975">CVE-2022-30975</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-44789">CVE-2022-44789</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-04T08:04:01.742392Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-04T08:04:01.746124Z">graaff</metadata>
+</glsa>

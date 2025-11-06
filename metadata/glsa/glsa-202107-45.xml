@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-45">
+  <title>PyCharm Community, Professional: Remote code execution</title>
+  <synopsis>A vulnerability has been found in PyCharm Community and
+    Professional, potentially resulting in arbitrary code execution.
+  </synopsis>
+  <product type="ebuild">pycharm</product>
+  <announced>2021-07-20</announced>
+  <revised count="1">2021-07-20</revised>
+  <bug>797892</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-util/pycharm-community" auto="yes" arch="*">
+      <unaffected range="ge">2021.1.2</unaffected>
+      <vulnerable range="lt">2021.1.2</vulnerable>
+    </package>
+    <package name="dev-util/pycharm-professional" auto="yes" arch="*">
+      <unaffected range="ge">2021.1.2</unaffected>
+      <vulnerable range="lt">2021.1.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>PyCharm is the Python IDE for professional developers.</p>
+  </background>
+  <description>
+    <p>Insufficient validation exists within PyCharmâ€™s checks for fetching
+      projects from VCS.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>If a victim can be enticed into fetching a VCS project via PyCharm, a
+      remote attacker could achieve remote code execution.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All PyCharm Community users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=dev-util/pycharm-community-2021.1.2"
+    </code>
+    
+    <p>All PyCharm Professional users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose
+      "&gt;=dev-util/pycharm-professional-2021.1.2"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-30005">CVE-2021-30005</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-16T02:00:34Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-20T04:13:01Z">ajak</metadata>
+</glsa>

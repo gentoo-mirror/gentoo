@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201412-33">
+  <title>PowerDNS Recursor: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in PowerDNS Recursor, the
+    worst of which may allow execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">pdns-recursor</product>
+  <announced>2014-12-22</announced>
+  <revised count="1">2014-12-22</revised>
+  <bug>299942</bug>
+  <bug>404377</bug>
+  <bug>514946</bug>
+  <bug>531992</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-dns/pdns-recursor" auto="yes" arch="*">
+      <unaffected range="ge">3.6.1-r1</unaffected>
+      <vulnerable range="lt">3.6.1-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>PowerDNS Recursor is a high-end, high-performance resolving name server</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in PowerDNS Recursor.
+      Please review the CVE identifiers and PowerDNS blog post referenced below
+      for details.
+    </p>
+  </description>
+  <impact type="high">
+    <p>A remote attacker may be able to send specially crafted packets,
+      possibly resulting in arbitrary code execution or a Denial of Service
+      condition. Furthermore, a remote attacker may be able to spoof DNS data.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All PowerDNS Recursor users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-dns/pdns-recursor-3.6.1-r1"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2009-4009">CVE-2009-4009</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2009-4010">CVE-2009-4010</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2012-1193">CVE-2012-1193</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2014-8601">CVE-2014-8601</uri>
+    <uri link="https://blog.powerdns.com/2014/02/06/related-to-recent-dos-attacks-recursor-configuration-file-guidance/">
+      Related to recent DoS attacks: Recursor configuration file guidance
+    </uri>
+  </references>
+  <metadata tag="requester" timestamp="2011-10-07T23:37:24Z">craig</metadata>
+  <metadata tag="submitter" timestamp="2014-12-22T21:55:57Z">ackle</metadata>
+</glsa>

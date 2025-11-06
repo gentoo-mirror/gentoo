@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200412-18">
+  <title>abcm2ps: Buffer overflow vulnerability</title>
+  <synopsis>
+    abcm2ps is vulnerable to a buffer overflow that could lead to remote
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">abcm2ps</product>
+  <announced>2004-12-19</announced>
+  <revised count="02">2004-12-19</revised>
+  <bug>74702</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-sound/abcm2ps" auto="yes" arch="*">
+      <unaffected range="ge">3.7.21</unaffected>
+      <vulnerable range="lt">3.7.21</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    abcm2ps is a utility used to convert ABC music sheet files into
+    PostScript format.
+    </p>
+  </background>
+  <description>
+    <p>
+    Limin Wang has located a buffer overflow inside the put_words()
+    function in the abcm2ps code.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could convince the victim to download a
+    specially-crafted ABC file. Upon execution, this file would trigger the
+    buffer overflow and lead to the execution of arbitrary code with the
+    permissions of the user running abcm2ps.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All abcm2ps users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-sound/abcm2ps-3.7.21"</code>
+  </resolution>
+  <references>
+    <uri link="http://moinejf.free.fr/abcm2ps-3.txt">abcm2ps ChangeLog</uri>
+    <uri link="https://secunia.com/advisories/13523/">Secunia Advisory</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-12-19T01:45:11Z">
+    lewk
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-12-19T14:05:57Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-12-19T16:00:19Z">
+    lewk
+  </metadata>
+</glsa>

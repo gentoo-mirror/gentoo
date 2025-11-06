@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202508-02">
+    <title>GPL Ghostscript: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GPL Ghostscript, the worst of which can lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">ghostscript-gpl</product>
+    <announced>2025-08-06</announced>
+    <revised count="1">2025-08-06</revised>
+    <bug>951285</bug>
+    <bug>955140</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="app-text/ghostscript-gpl" auto="yes" arch="*">
+            <unaffected range="ge">10.05.1</unaffected>
+            <vulnerable range="lt">10.05.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Ghostscript is an interpreter for the PostScript language and for PDF.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GPL Ghostscript. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GPL Ghostscript users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/ghostscript-gpl-10.05.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-27830">CVE-2025-27830</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-27831">CVE-2025-27831</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-27832">CVE-2025-27832</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-27833">CVE-2025-27833</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-27834">CVE-2025-27834</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-27835">CVE-2025-27835</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-27836">CVE-2025-27836</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-27837">CVE-2025-27837</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-46646">CVE-2025-46646</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-08-06T09:12:27.245316Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-08-06T09:12:27.249333Z">graaff</metadata>
+</glsa>

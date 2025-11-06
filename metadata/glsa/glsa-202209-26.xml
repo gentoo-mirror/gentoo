@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202209-26">
+    <title>Go: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Go, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">go</product>
+    <announced>2022-09-29</announced>
+    <revised count="1">2022-09-29</revised>
+    <bug>869002</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-lang/go" auto="yes" arch="*">
+            <unaffected range="ge">1.18.6</unaffected>
+            <vulnerable range="lt">1.18.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Go. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Go users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/go-1.18.6"
+        </code>
+        
+        <p>In addition, users using Portage 3.0.9 or later should ensure that packages with Go binaries have no vulnerable code statically linked into their binaries by rebuilding the @golang-rebuild set:</p>
+        
+        <code>
+          # emerge --ask --oneshot --verbose @golang-rebuild
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27664">CVE-2022-27664</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32190">CVE-2022-32190</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-09-29T14:25:08.594710Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-09-29T14:25:08.600219Z">ajak</metadata>
+</glsa>

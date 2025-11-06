@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200606-27">
+  <title>Mutt: Buffer overflow</title>
+  <synopsis>
+    Mutt contains a buffer overflow that could result in arbitrary code
+    execution.
+  </synopsis>
+  <product type="ebuild">mutt</product>
+  <announced>2006-06-28</announced>
+  <revised count="01">2006-06-28</revised>
+  <bug>138125</bug>
+  <access>remote</access>
+  <affected>
+    <package name="mail-client/mutt" auto="yes" arch="*">
+      <unaffected range="ge">1.5.11-r2</unaffected>
+      <vulnerable range="lt">1.5.11-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Mutt is a small but very powerful text-based mail client.
+    </p>
+  </background>
+  <description>
+    <p>
+    TAKAHASHI Tamotsu has discovered that Mutt contains a boundary error in
+    the "browse_get_namespace()" function in browse.c, which can be
+    triggered when receiving an overly long namespace from an IMAP server.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A malicious IMAP server can send an overly long namespace to Mutt in
+    order to crash the application, and possibly execute arbitrary code
+    with the permissions of the user running Mutt.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Mutt users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=mail-client/mutt-1.5.11-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3242">CVE-2006-3242</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-06-27T19:49:38Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-06-27T20:02:54Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-06-28T10:14:15Z">
+    falco
+  </metadata>
+</glsa>

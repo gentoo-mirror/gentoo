@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-12">
+    <title>sudo: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in sudo, the worst of which can result in root privilege escalation.</synopsis>
+    <product type="ebuild">sudo</product>
+    <announced>2023-09-29</announced>
+    <revised count="1">2023-09-29</revised>
+    <bug>898510</bug>
+    <bug>905322</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-admin/sudo" auto="yes" arch="*">
+            <unaffected range="ge">1.9.13_p2</unaffected>
+            <vulnerable range="lt">1.9.13_p2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>sudo allows a system administrator to give users the ability to run commands as other users.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in sudo. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All sudo users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-admin/sudo-1.9.13_p2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-27320">CVE-2023-27320</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28486">CVE-2023-28486</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-28487">CVE-2023-28487</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-29T12:15:42.245017Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-09-29T12:15:42.248484Z">graaff</metadata>
+</glsa>

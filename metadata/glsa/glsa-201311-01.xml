@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201311-01">
+  <title>Mednafen: Arbitrary code execution</title>
+  <synopsis>An unspecified vulnerability in Mednafen could result in the
+    execution of arbitrary code. 
+  </synopsis>
+  <product type="ebuild">mednafen</product>
+  <announced>2013-11-04</announced>
+  <revised count="1">2013-11-04</revised>
+  <bug>326141</bug>
+  <access>remote</access>
+  <affected>
+    <package name="games-emulation/mednafen" auto="yes" arch="*">
+      <unaffected range="ge">0.8.13</unaffected>
+      <vulnerable range="lt">0.8.13</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Mednafen is an advanced NES, GB/GBC/GBA, TurboGrafx 16/CD, NGPC and Lynx
+      emulator.
+    </p>
+  </background>
+  <description>
+    <p>An unspecified vulnerability has been discovered in Mednafen when using
+      network play.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote server could execute arbitrary code with the privileges of the
+      process.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Mednafen users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=games-emulation/mednafen-0.8.13"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2010-3085">CVE-2010-3085</uri>
+  </references>
+  <metadata tag="requester" timestamp="2011-10-07T23:37:38Z">
+    underling
+  </metadata>
+  <metadata tag="submitter" timestamp="2013-11-04T11:26:30Z">ackle</metadata>
+</glsa>

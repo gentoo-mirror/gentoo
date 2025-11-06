@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200608-19">
+  <title>WordPress: Privilege escalation</title>
+  <synopsis>
+    A flaw in WordPress allows registered WordPress users to elevate
+    privileges.
+  </synopsis>
+  <product type="ebuild">wordpress</product>
+  <announced>2006-08-10</announced>
+  <revised count="02">2006-12-13</revised>
+  <bug>142142</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/wordpress" auto="yes" arch="*">
+      <unaffected range="ge">2.0.4</unaffected>
+      <vulnerable range="lt">2.0.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    WordPress is a PHP and MySQL based multiuser blogging system.
+    </p>
+  </background>
+  <description>
+    <p>
+    The WordPress developers have confirmed a vulnerability in capability
+    checking for plugins.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By exploiting a flaw, a user can circumvent WordPress access
+    restrictions when using plugins. The actual impact depends on the
+    configuration of WordPress and may range from trivial to critical,
+    possibly even the execution of arbitrary PHP code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All WordPress users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/wordpress-2.0.4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3389">CVE-2006-3389</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3390">CVE-2006-3390</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4028">CVE-2006-4028</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-08-07T16:38:11Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-08-08T02:48:29Z">
+    dizzutch
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-08-08T13:15:28Z">
+    frilled
+  </metadata>
+</glsa>

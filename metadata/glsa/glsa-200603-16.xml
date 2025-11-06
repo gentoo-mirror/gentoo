@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200603-16">
+  <title>Metamail: Buffer overflow</title>
+  <synopsis>
+    A buffer overflow in Metamail could possibly be exploited to execute
+    arbitrary code.
+  </synopsis>
+  <product type="ebuild">metamail</product>
+  <announced>2006-03-17</announced>
+  <revised count="01">2006-03-17</revised>
+  <bug>126052</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-mail/metamail" auto="yes" arch="*">
+      <unaffected range="ge">2.7.45.3-r1</unaffected>
+      <vulnerable range="lt">2.7.45.3-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Metamail is a program that decodes MIME encoded mail.
+    </p>
+  </background>
+  <description>
+    <p>
+    Ulf Harnhammar discovered a buffer overflow in Metamail when
+    processing mime boundraries.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    By sending a specially crafted email, attackers could potentially
+    exploit this vulnerability to crash Metamail or to execute arbitrary
+    code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Metamail users should update to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-mail/metamail-2.7.45.3-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-0709">CVE-2006-0709</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-03-14T21:16:22Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-03-16T09:48:07Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-03-16T21:04:49Z">
+    koon
+  </metadata>
+</glsa>

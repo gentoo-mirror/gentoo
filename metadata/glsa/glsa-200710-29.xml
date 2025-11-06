@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200710-29">
+  <title>Sylpheed, Claws Mail: User-assisted remote execution of arbitrary code</title>
+  <synopsis>
+    A format string error has been discovered in Sylpheed and Claws Mail,
+    potentially leading to the remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">sylpheed claws-mail</product>
+  <announced>2007-10-25</announced>
+  <revised count="01">2007-10-25</revised>
+  <bug>190104</bug>
+  <access>remote</access>
+  <affected>
+    <package name="mail-client/sylpheed" auto="yes" arch="*">
+      <unaffected range="ge">2.4.5</unaffected>
+      <vulnerable range="lt">2.4.5</vulnerable>
+    </package>
+    <package name="mail-client/claws-mail" auto="yes" arch="*">
+      <unaffected range="ge">3.0.0</unaffected>
+      <vulnerable range="lt">3.0.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Sylpheed and Claws Mail are two GTK based e-mail clients.
+    </p>
+  </background>
+  <description>
+    <p>
+    Ulf Harnhammar from Secunia Research discovered a format string error
+    in the inc_put_error() function in file src/inc.c.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to connect to a malicious POP
+    server sending specially crafted replies, possibly resulting in the
+    execution of arbitrary code with the privileges of the user running the
+    application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Sylpheed users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=mail-client/sylpheed-2.4.5"</code>
+    <p>
+    All Claws Mail users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=mail-client/claws-mail-3.0.0"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2958">CVE-2007-2958</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-10-08T00:54:19Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-10-08T02:57:28Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-10-09T18:46:46Z">
+    p-y
+  </metadata>
+</glsa>

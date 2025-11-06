@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202301-08">
+    <title>Mbed TLS: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Mbed TLS, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">mbedtls</product>
+    <announced>2023-01-11</announced>
+    <revised count="1">2023-01-11</revised>
+    <bug>857813</bug>
+    <bug>829660</bug>
+    <bug>801376</bug>
+    <bug>778254</bug>
+    <bug>764317</bug>
+    <bug>740108</bug>
+    <bug>730752</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/mbedtls" auto="yes" arch="*">
+            <unaffected range="ge">2.28.1</unaffected>
+            <vulnerable range="lt">2.28.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mbed TLS (previously PolarSSL) is an “easy to understand, use, integrate and expand” implementation of the TLS and SSL protocols and the respective cryptographic algorithms and support code required.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Mbed TLS. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mbed TLS users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/mbedtls-2.28.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-16150">CVE-2020-16150</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36421">CVE-2020-36421</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36422">CVE-2020-36422</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36423">CVE-2020-36423</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36424">CVE-2020-36424</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36425">CVE-2020-36425</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36426">CVE-2020-36426</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36475">CVE-2020-36475</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36476">CVE-2020-36476</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36477">CVE-2020-36477</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-36478">CVE-2020-36478</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-43666">CVE-2021-43666</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44732">CVE-2021-44732</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-45450">CVE-2021-45450</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-35409">CVE-2022-35409</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-01-11T05:19:06.415631Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-01-11T05:19:06.418706Z">ajak</metadata>
+</glsa>

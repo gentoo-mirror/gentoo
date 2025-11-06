@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200801-20">
+  <title>libxml2: Denial of service</title>
+  <synopsis>
+    A Denial of Service vulnerability has been reported in libxml2.
+  </synopsis>
+  <product type="ebuild">libxml2</product>
+  <announced>2008-01-30</announced>
+  <revised count="01">2008-01-30</revised>
+  <bug>202628</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-libs/libxml2" auto="yes" arch="*">
+      <unaffected range="ge">2.6.30-r1</unaffected>
+      <vulnerable range="lt">2.6.30-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    libxml2 is the XML (eXtended Markup Language) C parser and toolkit
+    initially developed for the Gnome project.
+    </p>
+  </background>
+  <description>
+    <p>
+    Brad Fitzpatrick reported that the xmlCurrentChar() function does not
+    properly handle some UTF-8 multibyte encodings.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted XML
+    document with an application using libxml2, possibly resulting in a
+    high CPU consumption. Note that this vulnerability could also be
+    triggered without user interaction by an automated system processing
+    XML content.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All libxml2 users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-libs/libxml2-2.6.30-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6284">CVE-2007-6284</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-01-12T01:14:43Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-01-28T19:48:32Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-01-28T19:48:45Z">
+    p-y
+  </metadata>
+</glsa>

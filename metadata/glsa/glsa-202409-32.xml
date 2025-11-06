@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202409-32">
+    <title>nginx: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in nginx, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">nginx</product>
+    <announced>2024-09-28</announced>
+    <revised count="1">2024-09-28</revised>
+    <bug>924619</bug>
+    <bug>937938</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-servers/nginx" auto="yes" arch="*">
+            <unaffected range="ge">1.26.2-r2</unaffected>
+            <vulnerable range="lt">1.26.2-r2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>nginx is a robust, small, and high performance HTTP and reverse proxy server.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in nginx. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All nginx users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-servers/nginx-1.26.2-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-7347">CVE-2024-7347</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-24989">CVE-2024-24989</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-24990">CVE-2024-24990</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-09-28T08:27:19.566049Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2024-09-28T08:27:19.571457Z">graaff</metadata>
+</glsa>

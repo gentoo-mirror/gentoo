@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202305-27">
+    <title>Tinyproxy: Memory Disclosure</title>
+    <synopsis>A vulnerability has been discovered in Tinyproxy which could be used to achieve memory disclosure.</synopsis>
+    <product type="ebuild">tinyproxy</product>
+    <announced>2023-05-21</announced>
+    <revised count="1">2023-05-21</revised>
+    <bug>871924</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-proxy/tinyproxy" auto="yes" arch="*">
+            <unaffected range="ge">1.11.1_p20220908</unaffected>
+            <vulnerable range="lt">1.11.1_p20220908</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Tinyproxy is a light-weight HTTP/HTTPS proxy daemon for POSIX operating systems.</p>
+    </background>
+    <description>
+        <p>Tinyproxy&#39;s request processing does not sufficiently null-initialize variables used in error pages.</p>
+    </description>
+    <impact type="low">
+        <p>Contents of the Tinyproxy server&#39;s memory could be disclosed via generated error pages.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Tinyproxy users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-proxy/tinyproxy-1.11.1_p20220908"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-40468">CVE-2022-40468</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-05-21T19:44:29.410959Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-05-21T19:44:29.417842Z">ajak</metadata>
+</glsa>

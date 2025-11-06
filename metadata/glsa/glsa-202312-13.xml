@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202312-13">
+    <title>Gitea: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Gitea, the worst of which could result in information leakage.</synopsis>
+    <product type="ebuild">gitea</product>
+    <announced>2023-12-23</announced>
+    <revised count="1">2023-12-23</revised>
+    <bug>887825</bug>
+    <bug>891983</bug>
+    <bug>905886</bug>
+    <bug>918674</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-apps/gitea" auto="yes" arch="*">
+            <unaffected range="ge">1.20.6</unaffected>
+            <vulnerable range="lt">1.20.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Gitea is a painless self-hosted Git service.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Gitea. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Gitea users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-apps/gitea-1.20.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-3515">CVE-2023-3515</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-12-23T09:39:06.392845Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-12-23T09:39:06.395056Z">graaff</metadata>
+</glsa>

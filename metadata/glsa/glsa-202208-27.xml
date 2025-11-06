@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-27">
+    <title>QEMU: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in QEMU, the worst of which could result in remote code execution (guest sandbox escape).</synopsis>
+    <product type="ebuild">qemu</product>
+    <announced>2022-08-14</announced>
+    <revised count="1">2022-08-14</revised>
+    <bug>733448</bug>
+    <bug>736605</bug>
+    <bug>773220</bug>
+    <bug>775713</bug>
+    <bug>780816</bug>
+    <bug>792624</bug>
+    <bug>807055</bug>
+    <bug>810544</bug>
+    <bug>820743</bug>
+    <bug>835607</bug>
+    <bug>839762</bug>
+    <access>remote</access>
+    <affected>
+        <package name="app-emulation/qemu" auto="yes" arch="*">
+            <unaffected range="ge">7.0.0</unaffected>
+            <vulnerable range="lt">7.0.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>QEMU is a generic and open source machine emulator and virtualizer.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in QEMU.Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All QEMU users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-emulation/qemu-7.0.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-15859">CVE-2020-15859</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-15863">CVE-2020-15863</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-16092">CVE-2020-16092</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35504">CVE-2020-35504</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35505">CVE-2020-35505</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35506">CVE-2020-35506</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35517">CVE-2020-35517</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3409">CVE-2021-3409</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3416">CVE-2021-3416</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3527">CVE-2021-3527</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3544">CVE-2021-3544</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3545">CVE-2021-3545</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3546">CVE-2021-3546</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3582">CVE-2021-3582</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3607">CVE-2021-3607</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3608">CVE-2021-3608</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3611">CVE-2021-3611</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3682">CVE-2021-3682</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3713">CVE-2021-3713</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3748">CVE-2021-3748</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3750">CVE-2021-3750</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3929">CVE-2021-3929</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3930">CVE-2021-3930</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3947">CVE-2021-3947</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4145">CVE-2021-4145</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4158">CVE-2021-4158</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4206">CVE-2021-4206</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-4207">CVE-2021-4207</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20203">CVE-2021-20203</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20257">CVE-2021-20257</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20263">CVE-2021-20263</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0358">CVE-2022-0358</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26353">CVE-2022-26353</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26354">CVE-2022-26354</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-14T16:09:07.836051Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-14T16:09:07.841731Z">sam</metadata>
+</glsa>

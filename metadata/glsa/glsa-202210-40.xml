@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-40">
+    <title>SQLite: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in SQLite, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">sqlite</product>
+    <announced>2022-10-31</announced>
+    <revised count="1">2022-10-31</revised>
+    <bug>777990</bug>
+    <bug>863431</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-db/sqlite" auto="yes" arch="*">
+            <unaffected range="ge">3.39.2</unaffected>
+            <vulnerable range="lt">3.39.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>SQLite is a C library that implements an SQL database engine.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in SQLite. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All SQLite users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-db/sqlite-3.39.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20227">CVE-2021-20227</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-35737">CVE-2022-35737</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-31T20:24:49.875919Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-31T20:24:49.881750Z">ajak</metadata>
+</glsa>

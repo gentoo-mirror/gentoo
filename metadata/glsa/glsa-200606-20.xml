@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200606-20">
+  <title>Typespeed: Remote execution of arbitrary code</title>
+  <synopsis>
+    A buffer overflow in the network code of Typespeed can lead to the
+    execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">typespeed</product>
+  <announced>2006-06-19</announced>
+  <revised count="01">2006-06-19</revised>
+  <bug>135071</bug>
+  <access>remote</access>
+  <affected>
+    <package name="games-misc/typespeed" auto="yes" arch="*">
+      <unaffected range="ge">0.5.0</unaffected>
+      <vulnerable range="lt">0.5.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Typespeed is a game to test and practice 10-finger-typing. Network code
+    allows two users to compete head-to-head.
+    </p>
+  </background>
+  <description>
+    <p>
+    Niko Tyni discovered a buffer overflow in the addnewword() function of
+    Typespeed's network code.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    By sending specially crafted network packets to a machine running
+    Typespeed in multiplayer mode, a remote attacker can execute arbitrary
+    code with the permissions of the user running the game.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Do not run Typespeed in multiplayer mode. There is no known workaround
+    at this time for multiplayer mode.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Typespeed users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=games-misc/typespeed-0.5.0"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1515">CVE-2006-1515</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-06-11T22:01:54Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-06-13T05:10:07Z">
+    frilled
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-06-18T12:23:54Z">
+    falco
+  </metadata>
+</glsa>

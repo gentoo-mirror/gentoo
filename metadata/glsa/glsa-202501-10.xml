@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202501-10">
+    <title>Mozilla Firefox: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Mozilla Firefox, the worst of which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">firefox,firefox-bin</product>
+    <announced>2025-01-23</announced>
+    <revised count="1">2025-01-23</revised>
+    <bug>942469</bug>
+    <bug>945050</bug>
+    <bug>948113</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-client/firefox" auto="yes" arch="*">
+            <unaffected range="ge" slot="rapid">134.0</unaffected>
+            <unaffected range="ge" slot="esr">128.6.0</unaffected>
+            <vulnerable range="lt" slot="rapid">134.0</vulnerable>
+            <vulnerable range="lt" slot="esr">128.6.0</vulnerable>
+        </package>
+        <package name="www-client/firefox-bin" auto="yes" arch="*">
+            <unaffected range="ge" slot="rapid">134.0</unaffected>
+            <unaffected range="ge" slot="esr">128.6.0</unaffected>
+            <vulnerable range="lt" slot="rapid">134.0</vulnerable>
+            <vulnerable range="lt" slot="esr">128.6.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Mozilla Firefox is a popular open-source web browser from the Mozilla project.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Mozilla Firefox. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Mozilla Firefox users should upgrade to the latest version in their release channel:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-bin-134.0:rapid"
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-bin-128.6.0:esr"
+        </code>
+        
+        <p>All Mozilla Firefox users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-134.0:rapid"
+          # emerge --ask --oneshot --verbose ">=www-client/firefox-128.6.0:esr"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10458">CVE-2024-10458</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10459">CVE-2024-10459</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10460">CVE-2024-10460</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10461">CVE-2024-10461</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10462">CVE-2024-10462</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10463">CVE-2024-10463</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10464">CVE-2024-10464</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10465">CVE-2024-10465</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10466">CVE-2024-10466</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10467">CVE-2024-10467</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-10468">CVE-2024-10468</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11692">CVE-2024-11692</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11694">CVE-2024-11694</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11695">CVE-2024-11695</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11696">CVE-2024-11696</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11697">CVE-2024-11697</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11699">CVE-2024-11699</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11700">CVE-2024-11700</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11701">CVE-2024-11701</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11704">CVE-2024-11704</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11705">CVE-2024-11705</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11706">CVE-2024-11706</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11708">CVE-2024-11708</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0237">CVE-2025-0237</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0238">CVE-2025-0238</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0239">CVE-2025-0239</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0240">CVE-2025-0240</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0241">CVE-2025-0241</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0242">CVE-2025-0242</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0243">CVE-2025-0243</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-0247">CVE-2025-0247</uri>
+        <uri>MFSA2024-55</uri>
+        <uri>MFSA2024-56</uri>
+        <uri>MFSA2024-57</uri>
+        <uri>MFSA2024-58</uri>
+        <uri>MFSA2024-59</uri>
+        <uri>MFSA2024-63</uri>
+        <uri>MFSA2024-64</uri>
+        <uri>MFSA2024-65</uri>
+        <uri>MFSA2024-67</uri>
+        <uri>MFSA2024-68</uri>
+        <uri>MFSA2025-01</uri>
+        <uri>MFSA2025-02</uri>
+        <uri>MFSA2025-05</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-01-23T07:24:25.583285Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-01-23T07:24:25.586463Z">graaff</metadata>
+</glsa>

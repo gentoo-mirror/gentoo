@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202311-14">
+    <title>GRUB: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discoverd in GRUB, which may lead to secure boot circumvention or code execution.</synopsis>
+    <product type="ebuild">grub</product>
+    <announced>2023-11-25</announced>
+    <revised count="2">2023-11-26</revised>
+    <bug>881413</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-boot/grub" auto="yes" arch="*">
+            <unaffected range="ge">2.06-r4</unaffected>
+            <vulnerable range="lt">2.06-r4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GNU GRUB is a multiboot boot loader used by most Linux systems.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GRUB. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GRUB users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-boot/grub-2.06-r4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2601">CVE-2022-2601</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3775">CVE-2022-3775</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-11-25T11:18:39.731078Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-11-25T11:18:39.734177Z">graaff</metadata>
+</glsa>

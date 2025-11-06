@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-01">
+    <title>3MF Consortium lib3mf: Remote code execution</title>
+    <synopsis>A vulnerability in lib3mf could lead to remote code execution.</synopsis>
+    <product type="ebuild">lib3mf</product>
+    <announced>2022-08-04</announced>
+    <revised count="1">2022-08-04</revised>
+    <bug>775362</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/lib3mf" auto="yes" arch="*">
+            <unaffected range="ge">2.1.1</unaffected>
+            <vulnerable range="lt">2.1.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>lib3mf is an implementation of the 3D Manufacturing Format file standard.</p>
+    </background>
+    <description>
+        <p>Incorrect memory handling within lib3mf could result in a use-after-free.</p>
+    </description>
+    <impact type="normal">
+        <p>An attacker that can provide malicious input to an application using 3MF Consortium&#39;s lib3mf could achieve remote code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All 3MF Consortium lib3mf users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/lib3mf-2.1.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-21772">CVE-2021-21772</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-04T13:52:26.273448Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-04T13:52:26.289354Z">ajak</metadata>
+</glsa>

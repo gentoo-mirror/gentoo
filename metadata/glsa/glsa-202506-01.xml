@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202506-01">
+    <title>Emacs: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Emacs, the worst of which could lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">emacs</product>
+    <announced>2025-06-12</announced>
+    <revised count="1">2025-06-12</revised>
+    <bug>945164</bug>
+    <bug>950192</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-editors/emacs" auto="yes" arch="*">
+            <unaffected range="ge" slot="29">29.4-r2</unaffected>
+            <unaffected range="ge" slot="28">28.2-r16</unaffected>
+            <unaffected range="ge" slot="27">27.2-r20</unaffected>
+            <unaffected range="ge" slot="26">26.3-r22</unaffected>
+            <vulnerable range="lt" slot="29">29.4-r2</vulnerable>
+            <vulnerable range="lt" slot="28">28.2-r16</vulnerable>
+            <vulnerable range="lt" slot="27">27.2-r20</vulnerable>
+            <vulnerable range="lt" slot="26">26.3-r22</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Emacs is the extensible, customizable, self-documenting real-time display editor. org-mode is an Emacs mode for notes and project planning.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Emacs, org-mode. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Emacs, org-mode users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-29.4-r2:29"
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-28.2-r16:28"
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-27.2-r20:27"
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-26.3-r22:26"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-53920">CVE-2024-53920</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-1244">CVE-2025-1244</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-06-12T06:30:41.407239Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-06-12T06:30:41.409869Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200903-04">
+  <title>DevIL: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    Multiple boundary errors in DevIL may allow for the execution of arbitrary
+    code.
+  </synopsis>
+  <product type="ebuild">devil</product>
+  <announced>2009-03-06</announced>
+  <revised count="01">2009-03-06</revised>
+  <bug>255217</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/devil" auto="yes" arch="*">
+      <unaffected range="ge">1.7.7</unaffected>
+      <vulnerable range="lt">1.7.7</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Developer's Image Library (DevIL) is a cross-platform image library.
+    </p>
+  </background>
+  <description>
+    <p>
+    Stefan Cornelius (Secunia Research) discovered two boundary errors
+    within the iGetHdrHeader() function in src-IL/src/il_hdr.c.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted
+    Radiance RGBE file, possibly resulting in the execution of arbitrary
+    code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All DevIL users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/devil-1.7.7"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5262">CVE-2008-5262</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-03-05T20:17:56Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-03-05T23:09:26Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-03-06T22:07:22Z">
+    p-y
+  </metadata>
+</glsa>

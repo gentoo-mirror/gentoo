@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202202-02">
+	<title>Chromium, Google Chrome: Multiple vulnerabilities</title>
+	<synopsis>Multiple vulnerabilities have been found in Chromium and Google
+Chrome, the worst of which could result in the arbitrary execution
+of code.
+	</synopsis>
+	<product type="ebuild">chromium,google-chrome</product>
+	<announced>2022-02-20</announced>
+	<revised count="1">2022-02-20</revised>
+	<bug>832559</bug>
+	<bug>833432</bug>
+	<access>remote</access>
+	<affected>
+		<package name="www-client/chromium" auto="yes" arch="*">
+			<unaffected range="ge">98.0.4758.102</unaffected>
+			<vulnerable range="lt">98.0.4758.102</vulnerable>
+		</package>
+		<package name="www-client/google-chrome" auto="yes" arch="*">
+			<unaffected range="ge">98.0.4758.102</unaffected>
+			<vulnerable range="lt">98.0.4758.102</vulnerable>
+		</package>
+	</affected>
+	<background>
+		<p>Chromium is an open-source browser project that aims to build a safer,
+faster, and more stable way for all users to experience the web.
+
+Google Chrome is one, fast, simple, and secure browser for all your
+devices.
+		</p>
+	</background>
+	<description>
+		<p>Multiple vulnerabilities have been discovered in Chromium and Google
+Chrome. Please review the CVE identifiers referenced below for details.
+		</p>
+	</description>
+	<impact type="high">
+		<p>Please review the referenced CVE identifiers for details.</p>
+	</impact>
+	<workaround>
+		<p>There is no known workaround at this time.</p>
+	</workaround>
+	<resolution>
+            <p>All Chromium users should upgrade to the latest version:</p>
+
+            <code>
+              # emerge --sync
+              # emerge --ask --oneshot --verbose ">=www-client/chromium-98.0.4758.102"
+            </code>
+
+            <p>All Google Chrome users should upgrade to the latest version:</p>
+
+            <code>
+              # emerge --sync
+              # emerge --ask --oneshot --verbose ">=www-client/google-chrome-98.0.4758.102"
+            </code>
+	</resolution>
+	<references>
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0452">CVE-2022-0452</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0453">CVE-2022-0453</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0454">CVE-2022-0454</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0455">CVE-2022-0455</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0456">CVE-2022-0456</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0457">CVE-2022-0457</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0458">CVE-2022-0458</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0459">CVE-2022-0459</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0460">CVE-2022-0460</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0461">CVE-2022-0461</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0462">CVE-2022-0462</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0463">CVE-2022-0463</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0464">CVE-2022-0464</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0465">CVE-2022-0465</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0466">CVE-2022-0466</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0467">CVE-2022-0467</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0468">CVE-2022-0468</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0469">CVE-2022-0469</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0470">CVE-2022-0470</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0603">CVE-2022-0603</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0604">CVE-2022-0604</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0605">CVE-2022-0605</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0606">CVE-2022-0606</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0607">CVE-2022-0607</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0608">CVE-2022-0608</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0609">CVE-2022-0609</uri> 
+		<uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0610">CVE-2022-0610</uri> 
+	</references>
+	<metadata tag="requester" timestamp="2022-02-20T04:27:54.011934Z">sam</metadata>
+	<metadata tag="submitter" timestamp="2022-02-20T04:27:54.021175Z">sam</metadata>
+</glsa>

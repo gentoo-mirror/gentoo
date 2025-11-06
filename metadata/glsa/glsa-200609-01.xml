@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200609-01">
+  <title>Streamripper: Multiple remote buffer overflows</title>
+  <synopsis>
+    Streamripper is vulnerable to multiple remote buffer overflows, leading to
+    the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">streamripper</product>
+  <announced>2006-09-06</announced>
+  <revised count="01">2006-09-06</revised>
+  <bug>144861</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-sound/streamripper" auto="yes" arch="*">
+      <unaffected range="ge">1.61.26</unaffected>
+      <vulnerable range="lt">1.61.26</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Streamripper extracts and records individual MP3 file tracks from
+    SHOUTcast streams.
+    </p>
+  </background>
+  <description>
+    <p>
+    Ulf Harnhammar, from the Debian Security Audit Project, has found that
+    Streamripper is vulnerable to multiple stack based buffer overflows
+    caused by improper bounds checking when processing malformed HTTP
+    headers.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By enticing a user to connect to a malicious server, an attacker could
+    execute arbitrary code with the permissions of the user running
+    Streamripper
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Streamripper users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-sound/streamripper-1.61.26"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3124">CVE-2006-3124</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-09-04T14:37:38Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-09-04T18:11:08Z">
+    daxomatic
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-09-05T19:33:58Z">
+    jaervosz
+  </metadata>
+</glsa>

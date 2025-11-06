@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201609-02">
+  <title>Bundler: Insecure installation</title>
+  <synopsis>A vulnerability has been found in Bundler, allowing injection of
+    arbitrary code via the gem installation process.
+  </synopsis>
+  <product type="ebuild">bundler</product>
+  <announced>2016-09-26</announced>
+  <revised count="1">2016-09-26</revised>
+  <bug>523798</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-ruby/bundler" auto="yes" arch="*">
+      <unaffected range="ge">1.7.3</unaffected>
+      <vulnerable range="lt">1.7.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Bundler provides a consistent environment for Ruby projects by tracking
+      and installing the exact gems and versions that are needed.
+    </p>
+  </background>
+  <description>
+    <p>Bundler, allows the installation of gems from different sources with the
+      same names, when multiple top-level gem sources are used.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Remote attackers could inject arbitrary code via the gem install
+      process.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Bundler users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-ruby/bundler-1.7.3"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-0334">CVE-2013-0334</uri>
+  </references>
+  <metadata tag="requester" timestamp="2015-01-31T22:12:51Z">
+    BlueKnight
+  </metadata>
+  <metadata tag="submitter" timestamp="2016-09-26T04:04:29Z">b-man</metadata>
+</glsa>

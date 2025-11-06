@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200606-30">
+  <title>Kiax: Arbitrary code execution</title>
+  <synopsis>
+    A security vulnerability in the iaxclient library could lead to the
+    execution of arbitrary code by a remote attacker.
+  </synopsis>
+  <product type="ebuild">kiax</product>
+  <announced>2006-06-30</announced>
+  <revised count="01">2006-06-30</revised>
+  <bug>136099</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-misc/kiax" auto="yes" arch="*">
+      <unaffected range="ge">0.8.5_p1</unaffected>
+      <vulnerable range="lt">0.8.5_p1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Kiax is a graphical softphone supporting the IAX protocol (Inter
+    Asterisk eXchange), which allows PC users to make VoIP calls to
+    Asterisk servers.
+    </p>
+  </background>
+  <description>
+    <p>
+    The iax_net_read function in the iaxclient library fails to properly
+    handle IAX2 packets with truncated full frames or mini-frames. These
+    frames are detected in a length check but processed anyway, leading to
+    buffer overflows.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By sending a specially crafted IAX2 packet, an attacker could execute
+    arbitrary code with the permissions of the user running Kiax.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Kiax users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-misc/kiax-0.8.5_p1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2923">CVE-2006-2923</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-06-22T11:02:44Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-06-22T11:16:37Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-06-22T15:23:48Z">
+    dizzutch
+  </metadata>
+</glsa>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200906-01">
+  <title>libpng: Information disclosure</title>
+  <synopsis>
+    A vulnerability has been discovered in libpng that allows for information
+    disclosure.
+  </synopsis>
+  <product type="ebuild">libpng</product>
+  <announced>2009-06-27</announced>
+  <revised count="01">2009-06-27</revised>
+  <bug>272970</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-libs/libpng" auto="yes" arch="*">
+      <unaffected range="ge">1.2.37</unaffected>
+      <vulnerable range="lt">1.2.37</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    libpng is the official PNG reference library used to read, write and
+    manipulate PNG images.
+    </p>
+  </background>
+  <description>
+    <p>
+    Jeff Phillips discovered that libpng does not properly parse 1-bit
+    interlaced images with width values that are not divisible by 8, which
+    causes libpng to include uninitialized bits in certain rows of a PNG
+    file.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    A remote attacker might entice a user to open a specially crafted PNG
+    file, possibly resulting in the disclosure of sensitive memory
+    portions.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All libpng users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-libs/libpng-1.2.37"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2042">CVE-2009-2042</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-06-21T18:15:41Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-06-21T18:23:22Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-06-27T23:12:55Z">
+    keytoaster
+  </metadata>
+</glsa>

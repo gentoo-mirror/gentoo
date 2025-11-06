@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200705-17">
+  <title>Apache mod_security: Rule bypass</title>
+  <synopsis>
+    A vulnerability has been discovered in mod_security, allowing a remote
+    attacker to bypass rules.
+  </synopsis>
+  <product type="ebuild">mod_security</product>
+  <announced>2007-05-17</announced>
+  <revised count="02">2007-12-30</revised>
+  <bug>169778</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apache/mod_security" auto="yes" arch="*">
+      <unaffected range="ge">2.1.1</unaffected>
+      <vulnerable range="lt">2.1.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    mod_security is an Apache module designed for enhancing the security of
+    the Apache web server.
+    </p>
+  </background>
+  <description>
+    <p>
+    Stefan Esser discovered that mod_security processes NULL characters as
+    terminators in POST requests using the
+    application/x-www-form-urlencoded encoding type, while other parsers
+    used in web applications do not.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    A remote attacker could send a specially crafted POST request, possibly
+    bypassing the module ruleset and leading to the execution of arbitrary
+    code in the scope of the web server with the rights of the user running
+    the web server.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All mod_security users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apache/mod_security-2.1.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1359">CVE-2007-1359</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-05-11T23:14:33Z">
+    shellsage
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-05-13T04:49:45Z">
+    shellsage
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-05-13T13:46:57Z">
+    p-y
+  </metadata>
+</glsa>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200501-14">
+  <title>mpg123: Buffer overflow</title>
+  <synopsis>
+    An attacker may be able to execute arbitrary code by way of specially
+    crafted MP2 or MP3 files.
+  </synopsis>
+  <product type="ebuild">media-sound/mpg123</product>
+  <announced>2005-01-10</announced>
+  <revised count="01">2005-01-10</revised>
+  <bug>76862</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-sound/mpg123" auto="yes" arch="*">
+      <unaffected range="ge">0.59s-r9</unaffected>
+      <vulnerable range="lt">0.59s-r9</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    mpg123 is a real-time MPEG audio player.
+    </p>
+  </background>
+  <description>
+    <p>
+    mpg123 improperly parses frame headers in input streams.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By inducing a user to play a malicious file, an attacker may be
+    able to exploit a buffer overflow to execute arbitrary code with the
+    permissions of the user running mpg123.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All mpg123 users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-sound/mpg123-0.59s-r9"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0991">CAN-2004-0991</uri>
+    <uri link="http://www.securityfocus.com/archive/1/374433">Bugtraq Announcement</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-01-07T13:23:00Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-01-08T19:52:22Z">
+    vorlon078
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-01-09T05:27:09Z">
+    dmargoli
+  </metadata>
+</glsa>

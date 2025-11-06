@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201006-03">
+  <title>ImageMagick: User-assisted execution of arbitrary code</title>
+  <synopsis>
+    An integer overflow in ImageMagick might allow remote attackers to cause
+    the remote execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">imagemagick</product>
+  <announced>2010-06-01</announced>
+  <revised count="01">2010-06-01</revised>
+  <bug>271502</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-gfx/imagemagick" auto="yes" arch="*">
+      <unaffected range="ge">6.5.2.9</unaffected>
+      <vulnerable range="lt">6.5.2.9</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    ImageMagick is a collection of tools and libraries for manipulating
+    various image formats.
+    </p>
+  </background>
+  <description>
+    <p>
+    Tielei Wang has discovered that the XMakeImage() function in
+    magick/xwindow.c is prone to an integer overflow, possibly leading to a
+    buffer overflow.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice a user to open a specially crafted
+    image, possibly resulting in the remote execution of arbitrary code
+    with the privileges of the user running the application, or a Denial of
+    Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All ImageMagick users should upgrade to an unaffected version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=media-gfx/imagemagick-6.5.2.9"</code>
+    <p>
+    NOTE: This is a legacy GLSA. Updates for all affected architectures are
+    available since June 4, 2009. It is likely that your system is already
+    no longer affected by this issue.
+    </p>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1882">CVE-2009-1882</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-06-03T18:15:07Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2010-05-30T11:23:27Z">
+    a3li
+  </metadata>
+  <metadata tag="bugReady" timestamp="2010-05-30T15:32:51Z">
+    a3li
+  </metadata>
+</glsa>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-08">
+    <title>man-db: privilege escalation</title>
+    <synopsis>A root privilege escalation through setuid executable and cron job has been discovered in man-db.</synopsis>
+    <product type="ebuild">man-db</product>
+    <announced>2023-10-08</announced>
+    <revised count="1">2023-10-08</revised>
+    <bug>662438</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-apps/man-db" auto="yes" arch="*">
+            <unaffected range="ge">2.8.5</unaffected>
+            <vulnerable range="lt">2.8.5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>man-db is a man replacement that utilizes BerkeleyDB instead of flat files.</p>
+    </background>
+    <description>
+        <p>A root privilege escalation through setuid executable and cron job has been discovered in man-db. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>A local user with access to the man user or group can elevate privileges to root.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All man-db users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/man-db-2.8.5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2018-25078">CVE-2018-25078</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-08T07:25:53.857649Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-08T07:25:53.860912Z">graaff</metadata>
+</glsa>

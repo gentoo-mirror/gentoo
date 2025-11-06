@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200903-26">
+  <title>TMSNC: Execution of arbitrary code</title>
+  <synopsis>
+    A buffer overflow in TMSNC might lead to the execution of arbitrary code
+    when processing an instant message.
+  </synopsis>
+  <product type="ebuild">tmsnc</product>
+  <announced>2009-03-12</announced>
+  <revised count="01">2009-03-12</revised>
+  <bug>229157</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-im/tmsnc" auto="yes" arch="*">
+      <vulnerable range="le">0.3.2-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    TMSNC is a Textbased client for the MSN instant messaging protocol.
+    </p>
+  </background>
+  <description>
+    <p>
+    Nico Golde reported a stack-based buffer overflow when processing a MSN
+    packet with a UBX command containing a large UBX payload length field.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could send a specially crafted message, possibly
+    resulting in the execution of arbitrary code.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    Since TMSNC is no longer maintained, we recommend that users unmerge
+    the vulnerable package and switch to another console-based MSN client
+    such as CenterIM or Pebrot:
+    </p>
+    <code>
+    # emerge --unmerge "net-im/tmsnc"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2828">CVE-2008-2828</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-03-10T22:52:54Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-03-11T12:01:45Z">
+    rbu
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-03-11T12:02:24Z">
+    rbu
+  </metadata>
+</glsa>

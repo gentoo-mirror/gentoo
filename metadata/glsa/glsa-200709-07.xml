@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200709-07">
+  <title>Eggdrop: Buffer overflow</title>
+  <synopsis>
+    A remote stack-based buffer overflow has been discovered in Eggdrop.
+  </synopsis>
+  <product type="ebuild">eggdrop</product>
+  <announced>2007-09-15</announced>
+  <revised count="02">2007-09-26</revised>
+  <bug>179354</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-irc/eggdrop" auto="yes" arch="*">
+      <unaffected range="ge">1.6.18-r3</unaffected>
+      <vulnerable range="lt">1.6.18-r3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Eggdrop is an IRC bot extensible with C or Tcl.
+    </p>
+  </background>
+  <description>
+    <p>
+    Bow Sineath discovered a boundary error in the file
+    mod/server.mod/servrmsg.c when processing overly long private messages
+    sent by an IRC server.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could entice an Eggdrop user to connect the bot to a
+    malicious server, possibly resulting in the execution of arbitrary code
+    on the host running Eggdrop.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Eggdrop users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-irc/eggdrop-1.6.18-r3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-2807">CVE-2007-2807</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-08-23T09:04:09Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-08-23T09:04:22Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-09-07T09:43:27Z">
+    p-y
+  </metadata>
+</glsa>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202405-05">
+    <title>MPlayer: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in MPlayer, the worst of which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">mplayer</product>
+    <announced>2024-05-04</announced>
+    <revised count="1">2024-05-04</revised>
+    <bug>870406</bug>
+    <access>local</access>
+    <affected>
+        <package name="media-video/mplayer" auto="yes" arch="*">
+            <unaffected range="ge">1.5</unaffected>
+            <vulnerable range="lt">1.5</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>MPlayer is a media player capable of handling multiple multimedia file formats.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in MPlayer. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All MPlayer users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-video/mplayer-1.5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38600">CVE-2022-38600</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38850">CVE-2022-38850</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38851">CVE-2022-38851</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38853">CVE-2022-38853</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38855">CVE-2022-38855</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38856">CVE-2022-38856</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38858">CVE-2022-38858</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38860">CVE-2022-38860</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38861">CVE-2022-38861</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38862">CVE-2022-38862</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38863">CVE-2022-38863</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38864">CVE-2022-38864</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38865">CVE-2022-38865</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38866">CVE-2022-38866</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-05-04T07:42:15.329279Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-05-04T07:42:15.332064Z">graaff</metadata>
+</glsa>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202509-07">
+    <title>libvpx: Use after free</title>
+    <synopsis>A vulnerability has been discovered in libvpx, which could lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">libvpx</product>
+    <announced>2025-09-17</announced>
+    <revised count="1">2025-09-17</revised>
+    <bug>958466</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libvpx" auto="yes" arch="*">
+            <unaffected range="ge">1.15.2</unaffected>
+            <vulnerable range="lt">1.15.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libvpx is the VP8 codec SDK used to encode and decode video streams, typically within a WebM format media file.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in libvpx. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifier for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libvpx users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libvpx-1.15.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5283">CVE-2025-5283</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-09-17T21:41:30.399567Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-09-17T21:41:30.403380Z">sam</metadata>
+</glsa>

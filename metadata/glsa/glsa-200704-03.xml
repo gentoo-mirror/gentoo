@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200704-03">
+  <title>OpenAFS: Privilege escalation</title>
+  <synopsis>
+    OpenAFS is subject to a design flaw that could allow privilege escalation
+    on the client.
+  </synopsis>
+  <product type="ebuild">openafs</product>
+  <announced>2007-04-03</announced>
+  <revised count="01">2007-04-03</revised>
+  <bug>171662</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-fs/openafs" auto="yes" arch="*">
+      <unaffected range="ge">1.4.4</unaffected>
+      <vulnerable range="lt">1.4.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    OpenAFS is a distributed network filesystem.
+    </p>
+  </background>
+  <description>
+    <p>
+    Benjamin Bennett discovered that the OpenAFS client contains a design
+    flaw where cache managers do not use authenticated server connections
+    when performing actions not requested by a user.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    If setuid is enabled on the client cells, an attacker can supply a fake
+    FetchStatus reply that sets setuid and root ownership of a file being
+    executed. This could provide root access on the client. Remote attacks
+    may be possible if an attacker can entice a user to execute a known
+    file. Note that setuid is enabled by default in versions of OpenAFS
+    prior to 1.4.4.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Disable the setuid functionality on all client cells. This is now the
+    default configuration in OpenAFS.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All OpenAFS users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-fs/openafs-1.4.4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-1507">CVE-2007-1507</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-03-25T06:35:01Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-03-28T13:53:51Z">
+    aetius
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-04-03T22:29:30Z">
+    falco
+  </metadata>
+</glsa>

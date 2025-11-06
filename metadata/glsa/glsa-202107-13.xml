@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-13">
+  <title>GLib: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in GLib, the worst of
+    which could result in the arbitrary execution of code.
+  </synopsis>
+  <product type="ebuild">glib</product>
+  <announced>2021-07-07</announced>
+  <revised count="1">2021-07-07</revised>
+  <bug>768753</bug>
+  <bug>775632</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="dev-libs/glib" auto="yes" arch="*">
+      <unaffected range="ge">2.66.8</unaffected>
+      <vulnerable range="lt">2.66.8</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>GLib is a library providing a number of GNOME’s core objects and
+      functions.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in GLib. Please review the
+      CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>Please review the referenced CVE identifiers for details.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All GLib users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-libs/glib-2.66.8"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27218">CVE-2021-27218</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27219">CVE-2021-27219</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28153">CVE-2021-28153</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-24T01:51:26Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-07-07T08:01:06Z">whissi</metadata>
+</glsa>

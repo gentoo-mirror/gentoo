@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-07">
+  <title>glibc: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities in glibc could result in Denial of
+    Service.
+  </synopsis>
+  <product type="ebuild">glibc</product>
+  <announced>2021-07-06</announced>
+  <revised count="1">2021-07-06</revised>
+  <bug>764176</bug>
+  <bug>767718</bug>
+  <bug>772425</bug>
+  <bug>792261</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="sys-libs/glibc" auto="yes" arch="*">
+      <unaffected range="ge">2.33-r1</unaffected>
+      <vulnerable range="lt">2.33-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>glibc is a package that contains the GNU C library.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in glibc. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>An attacker could cause a possible Denial of Service condition.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All glibc users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=sys-libs/glibc-2.33-r1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2019-25013">CVE-2019-25013</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-27618">CVE-2020-27618</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-27645">CVE-2021-27645</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3326">CVE-2021-3326</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-33574">CVE-2021-33574</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-05T02:27:53Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-06T03:37:10Z">ajak</metadata>
+</glsa>

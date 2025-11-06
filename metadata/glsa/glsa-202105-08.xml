@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202105-08">
+  <title>ICU: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in ICU, the worst of which
+    could cause a Denial of Service condition.
+  </synopsis>
+  <product type="ebuild">icu</product>
+  <announced>2021-05-26</announced>
+  <revised count="1">2021-05-26</revised>
+  <bug>755704</bug>
+  <access>local, remote</access>
+  <affected>
+    <package name="dev-libs/icu" auto="yes" arch="*">
+      <unaffected range="ge">68.2</unaffected>
+      <vulnerable range="lt">68.2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>ICU is a mature, widely used set of C/C++ and Java libraries providing
+      Unicode and Globalization support for software applications.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in ICU. Please review the
+      upstream bugs referenced below for details.
+    </p>
+  </description>
+  <impact type="low">
+    <p>Remote attackers could cause a Denial of Service condition or possibly
+      have other unspecified impacts via unspecified vectors.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All ICU users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=dev-libs/icu-68.2"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://chromium-review.googlesource.com/q/Iad839ac77d487d5e1b396bcdbc29bc7cd58a7ef8">
+      Chromium Change-Id Iad839ac77d487d5e1b396bcdbc29bc7cd58a7ef8
+    </uri>
+    <uri link="https://unicode-org.atlassian.net/browse/ICU-21383">ICU-21383</uri>
+    <uri link="https://unicode-org.atlassian.net/browse/ICU-21385">ICU-21385</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-05-25T16:34:40Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-05-26T08:13:14Z">whissi</metadata>
+</glsa>

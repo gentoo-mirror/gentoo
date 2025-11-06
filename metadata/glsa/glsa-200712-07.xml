@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200712-07">
+  <title>Lookup: Insecure temporary file creation</title>
+  <synopsis>
+    Lookup uses temporary files in an insecure manner, allowing for a symlink
+    attack.
+  </synopsis>
+  <product type="ebuild">lookup</product>
+  <announced>2007-12-09</announced>
+  <revised count="01">2007-12-09</revised>
+  <bug>197306</bug>
+  <access>local</access>
+  <affected>
+    <package name="app-emacs/lookup" auto="yes" arch="*">
+      <unaffected range="ge">1.4.1</unaffected>
+      <vulnerable range="lt">1.4.1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Lookup is a search interface to books and dictionnaries for Emacs.
+    </p>
+  </background>
+  <description>
+    <p>
+    Tatsuya Kinoshita reported that the ndeb-binary function does not
+    handle temporay files correctly.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could use a symlink attack to overwrite files with the
+    privileges of the user running Lookup.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Lookup users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-emacs/lookup-1.4.1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0237">CVE-2007-0237</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-11-19T22:00:43Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-11-21T00:09:14Z">
+    rbu
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-12-08T23:10:28Z">
+    p-y
+  </metadata>
+</glsa>

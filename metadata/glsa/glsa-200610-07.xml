@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200610-07">
+  <title>Python: Buffer Overflow</title>
+  <synopsis>
+    A buffer overflow in Python's "repr()" function can be exploited to cause a
+    Denial of Service and potentially allows the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">python</product>
+  <announced>2006-10-17</announced>
+  <revised count="03">2007-02-26</revised>
+  <bug>149065</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-lang/python" auto="yes" arch="*">
+      <unaffected range="ge">2.4.3-r4</unaffected>
+      <unaffected range="rge">2.3.5-r3</unaffected>
+      <unaffected range="rge">2.3.6</unaffected>
+      <vulnerable range="lt">2.4.3-r4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Python is an interpreted, interactive, object-oriented, cross-platform
+    programming language.
+    </p>
+  </background>
+  <description>
+    <p>
+    Benjamin C. Wiley Sittler discovered a buffer overflow in Python's
+    "repr()" function when handling UTF-32/UCS-4 encoded strings.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    If a Python application processes attacker-supplied data with the
+    "repr()" function, this could potentially lead to the execution of
+    arbitrary code with the privileges of the affected application or a
+    Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Python users should update to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-lang/python-2.4.3-r4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4980">CVE-2006-4980</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-09-27T19:59:22Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-10-13T14:44:47Z">
+    DerCorny
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-10-16T09:21:34Z">
+    falco
+  </metadata>
+</glsa>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201110-17">
+  <title>Avahi: Denial of service</title>
+  <synopsis>Multiple vulnerabilities were found in Avahi, allowing for Denial
+    of Service.
+  </synopsis>
+  <product type="ebuild">avahi</product>
+  <announced>2011-10-22</announced>
+  <revised count="1">2011-10-22</revised>
+  <bug>335885</bug>
+  <bug>355583</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-dns/avahi" auto="yes" arch="*">
+      <unaffected range="ge">0.6.28-r1</unaffected>
+      <vulnerable range="lt">0.6.28-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>Avahi is a system which facilitates service discovery on a local
+      network.
+    </p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in Avahi. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could cause a Denial of Service.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All Avahi users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=net-dns/avahi-0.6.28-r1"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2010-2244">CVE-2010-2244</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2011-1002">CVE-2011-1002</uri>
+  </references>
+  <metadata timestamp="2011-10-08T22:46:40Z" tag="requester">craig</metadata>
+  <metadata timestamp="2011-10-22T16:30:30Z" tag="submitter">
+    keytoaster
+  </metadata>
+</glsa>

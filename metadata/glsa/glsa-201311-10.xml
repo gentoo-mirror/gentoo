@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="201311-10">
+  <title>GraphicsMagick: Multiple vulnerabilities</title>
+  <synopsis>Multiple vulnerabilities have been found in GraphicsMagick,
+    allowing remote attackers to execute arbitrary code or cause a Denial of
+    Service condition.
+  </synopsis>
+  <product type="ebuild">graphicsmagick</product>
+  <announced>2013-11-19</announced>
+  <revised count="1">2013-11-19</revised>
+  <bug>365769</bug>
+  <bug>488050</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-gfx/graphicsmagick" auto="yes" arch="*">
+      <unaffected range="ge">1.3.18</unaffected>
+      <vulnerable range="lt">1.3.18</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>GraphicsMagick is the Swiss army knife of image processing.</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in GraphicsMagick. Please
+      review the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially-crafted image
+      file, potentially resulting in arbitrary code execution or a Denial of
+      Service condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All GraphicsMagick users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-gfx/graphicsmagick-1.3.18"
+    </code>
+    
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2008-1097">CVE-2008-1097</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2009-1882">CVE-2009-1882</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2009-3736">CVE-2009-3736</uri>
+    <uri link="https://nvd.nist.gov/nvd.cfm?cvename=CVE-2013-4589">CVE-2013-4589</uri>
+  </references>
+  <metadata tag="requester" timestamp="2013-02-24T15:58:45Z">ackle</metadata>
+  <metadata tag="submitter" timestamp="2013-11-19T00:09:06Z">Zlogene</metadata>
+</glsa>

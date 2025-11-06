@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200903-39">
+  <title>pam_krb5: Privilege escalation</title>
+  <synopsis>
+    Two vulnerabilities in pam_krb5 might allow local users to elevate their
+    privileges or overwrite arbitrary files.
+  </synopsis>
+  <product type="ebuild">pam_krb5</product>
+  <announced>2009-03-25</announced>
+  <revised count="01">2009-03-25</revised>
+  <bug>257075</bug>
+  <access>local</access>
+  <affected>
+    <package name="sys-auth/pam_krb5" auto="yes" arch="*">
+      <unaffected range="ge">3.12</unaffected>
+      <vulnerable range="lt">3.12</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    pam_krb5 is a a Kerberos v5 PAM module.
+    </p>
+  </background>
+  <description>
+    <p>
+    The following vulnerabilities were discovered:
+    </p>
+    <ul><li>pam_krb5
+    does not properly initialize the Kerberos libraries for setuid use
+    (CVE-2009-0360).</li>
+    <li>Derek Chan reported that calls to
+    pam_setcred() are not properly handled when running setuid
+    (CVE-2009-0361).</li>
+    </ul>
+  </description>
+  <impact type="high">
+    <p>
+    A local attacker could set an environment variable to point to a
+    specially crafted Kerberos configuration file and launch a PAM-based
+    setuid application to elevate privileges, or change ownership and
+    overwrite arbitrary files.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All pam_krb5 users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=sys-auth/pam_krb5-3.12"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0360">CVE-2009-0360</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0361">CVE-2009-0361</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-03-05T20:23:59Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-03-09T12:57:24Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-03-09T12:57:36Z">
+    p-y
+  </metadata>
+</glsa>

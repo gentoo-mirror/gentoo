@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202309-06">
+    <title>Samba: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Samba, the worst of which could result in root remote code execution.</synopsis>
+    <product type="ebuild">samba</product>
+    <announced>2023-09-17</announced>
+    <revised count="1">2023-09-17</revised>
+    <bug>820566</bug>
+    <bug>821688</bug>
+    <bug>830983</bug>
+    <bug>832433</bug>
+    <bug>861512</bug>
+    <bug>866225</bug>
+    <bug>869122</bug>
+    <bug>878273</bug>
+    <bug>880437</bug>
+    <bug>886153</bug>
+    <bug>903621</bug>
+    <bug>905320</bug>
+    <bug>910334</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-fs/samba" auto="yes" arch="*">
+            <unaffected range="ge">4.18.4</unaffected>
+            <vulnerable range="lt">4.18.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Samba is a suite of SMB and CIFS client/server programs.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Samba. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Samba users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-fs/samba-4.18.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2007-4559">CVE-2007-4559</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2016-2124">CVE-2016-2124</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-17049">CVE-2020-17049</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25717">CVE-2020-25717</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25718">CVE-2020-25718</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25719">CVE-2020-25719</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25721">CVE-2020-25721</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-25722">CVE-2020-25722</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3670">CVE-2021-3670</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3738">CVE-2021-3738</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20251">CVE-2021-20251</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-20316">CVE-2021-20316</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-23192">CVE-2021-23192</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44141">CVE-2021-44141</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-44142">CVE-2021-44142</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-0336">CVE-2022-0336</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1615">CVE-2022-1615</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-2031">CVE-2022-2031</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3437">CVE-2022-3437</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3592">CVE-2022-3592</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32742">CVE-2022-32742</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32743">CVE-2022-32743</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32744">CVE-2022-32744</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32745">CVE-2022-32745</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-32746">CVE-2022-32746</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-37966">CVE-2022-37966</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-37967">CVE-2022-37967</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-38023">CVE-2022-38023</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42898">CVE-2022-42898</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-45141">CVE-2022-45141</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0225">CVE-2023-0225</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0614">CVE-2023-0614</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-0922">CVE-2023-0922</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-09-17T05:56:23.727556Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-09-17T05:56:23.731410Z">sam</metadata>
+</glsa>

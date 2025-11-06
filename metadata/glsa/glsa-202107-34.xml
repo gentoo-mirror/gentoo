@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-34">
+  <title>FluidSynth: Remote code execution</title>
+  <synopsis>A vulnerability was found in FluidSynth that could result in remote
+    code execution.
+  </synopsis>
+  <product type="ebuild">fluidsynth</product>
+  <announced>2021-07-15</announced>
+  <revised count="1">2021-07-15</revised>
+  <bug>782700</bug>
+  <access>remote</access>
+  <affected>
+    <package name="media-sound/fluidsynth" auto="yes" arch="*">
+      <unaffected range="ge">2.2.0</unaffected>
+      <vulnerable range="lt">2.2.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>FluidSynth is a real-time synthesizer based on the Soundfont 2
+      specifications.
+    </p>
+  </background>
+  <description>
+    <p>FluidSynth contains a use-after-free in sfloader/fluid_sffile.c which
+      occurs when parsing Soundfile 2 files.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>A remote attacker could entice a user to open a specially crafted
+      Soundfont 2 file using FluidSynth, possibly resulting in execution of
+      arbitrary code with the privileges of the process or a Denial of Service
+      condition.
+    </p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All FluidSynth users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=media-sound/fluidsynth-2.2.0"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28421">CVE-2021-28421</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-07-14T23:27:29Z">ajak</metadata>
+  <metadata tag="submitter" timestamp="2021-07-15T05:12:31Z">ajak</metadata>
+</glsa>

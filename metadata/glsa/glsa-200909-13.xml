@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200909-13">
+  <title>irssi: Execution of arbitrary code</title>
+  <synopsis>
+    A remotely exploitable off-by-one error leading to a heap overflow was
+    found in irssi which might result in the execution of arbitrary code.
+  </synopsis>
+  <product type="ebuild">irssi</product>
+  <announced>2009-09-12</announced>
+  <revised count="01">2009-09-12</revised>
+  <bug>271875</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-irc/irssi" auto="yes" arch="*">
+      <unaffected range="ge">0.8.13-r1</unaffected>
+      <vulnerable range="lt">0.8.13-r1</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    irssi is a modular textUI IRC client with IPv6 support.
+    </p>
+  </background>
+  <description>
+    <p>
+    Nemo discovered an off-by-one error leading to a heap overflow in
+    irssi's event_wallops() parsing function.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    A remote attacker might entice a user to connect to a malicious IRC
+    server, use a man-in-the-middle attack to redirect a user to such a
+    server or use ircop rights to send a specially crafted WALLOPS message,
+    which might result in the execution of arbitrary code with the
+    privileges of the user running irssi.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All irssi users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-irc/irssi-0.8.13-r1"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-1959">CVE-2009-1959</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-06-10T19:45:21Z">
+    a3li
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-07-02T19:15:53Z">
+    craig
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-09-12T16:10:35Z">
+    craig
+  </metadata>
+</glsa>

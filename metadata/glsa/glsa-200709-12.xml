@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200709-12">
+  <title>Poppler: Two buffer overflow vulnerabilities</title>
+  <synopsis>
+    Poppler is vulnerable to an integer overflow and a stack overflow.
+  </synopsis>
+  <product type="ebuild">poppler</product>
+  <announced>2007-09-19</announced>
+  <revised count="01">2007-09-19</revised>
+  <bug>188863</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-text/poppler" auto="yes" arch="*">
+      <unaffected range="ge">0.5.4-r2</unaffected>
+      <vulnerable range="lt">0.5.4-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Poppler is a cross-platform PDF rendering library originally based on
+    Xpdf.
+    </p>
+  </background>
+  <description>
+    <p>
+    Poppler and Xpdf are vulnerable to an integer overflow in the
+    StreamPredictor::StreamPredictor function, and a stack overflow in the
+    StreamPredictor::getNextLine function. The original vulnerability was
+    discovered by Maurycy Prodeus. Note: Gentoo's version of Xpdf is
+    patched to use the Poppler library, so the update to Poppler will also
+    fix Xpdf.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    By enticing a user to view a specially crafted program with a
+    Poppler-based PDF viewer such as Gentoo's Xpdf, Epdfview, or Evince, a
+    remote attacker could cause an overflow, potentially resulting in the
+    execution of arbitrary code with the privileges of the user running the
+    application.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Poppler users should upgrade to the latest version of Poppler:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-text/poppler-0.5.4-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-3387">CVE-2007-3387</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-08-29T12:44:56Z">
+    p-y
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-08-29T12:45:03Z">
+    p-y
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-09-01T13:10:32Z">
+    aetius
+  </metadata>
+</glsa>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202107-08">
+  <title>PostSRSd: Denial of service</title>
+  <synopsis>Multiple vulnerabilities in PostSRSd could lead to a Denial of
+    Service condition.
+  </synopsis>
+  <product type="ebuild">postsrsd</product>
+  <announced>2021-07-06</announced>
+  <revised count="1">2021-07-06</revised>
+  <bug>760821</bug>
+  <bug>793674</bug>
+  <access>remote</access>
+  <affected>
+    <package name="mail-filter/postsrsd" auto="yes" arch="*">
+      <unaffected range="ge">1.11</unaffected>
+      <vulnerable range="lt">1.11</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>PostSRSd is a Postfix sender rewriting scheme daemon</p>
+  </background>
+  <description>
+    <p>Multiple vulnerabilities have been discovered in PostSRSd. Please review
+      the CVE identifiers referenced below for details.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>An attacker could cause a possible Denial of Service condition.</p>
+  </impact>
+  <workaround>
+    <p>There is no known workaround at this time.</p>
+  </workaround>
+  <resolution>
+    <p>All postsrsd users should upgrade to the latest version:</p>
+    
+    <code>
+      # emerge --sync
+      # emerge --ask --oneshot --verbose "&gt;=mail-filter/postsrsd-1.11"
+    </code>
+  </resolution>
+  <references>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35573">CVE-2020-35573</uri>
+    <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-35525">CVE-2021-35525</uri>
+  </references>
+  <metadata tag="requester" timestamp="2021-02-20T19:48:10Z">whissi</metadata>
+  <metadata tag="submitter" timestamp="2021-07-06T03:43:40Z">ajak</metadata>
+</glsa>

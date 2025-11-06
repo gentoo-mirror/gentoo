@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200909-17">
+  <title>ZNC: Directory traversal</title>
+  <synopsis>
+    A directory traversal was found in ZNC, allowing for overwriting of
+    arbitrary files.
+  </synopsis>
+  <product type="ebuild">znc</product>
+  <announced>2009-09-13</announced>
+  <revised count="01">2009-09-13</revised>
+  <bug>278684</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-irc/znc" auto="yes" arch="*">
+      <unaffected range="ge">0.074</unaffected>
+      <vulnerable range="lt">0.074</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    ZNC is an advanced IRC bouncer.
+    </p>
+  </background>
+  <description>
+    <p>
+    The vendor reported a directory traversal vulnerability when processing
+    DCC SEND requests.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote, authenticated user could send a specially crafted DCC SEND
+    request to overwrite arbitrary files with the privileges of the user
+    running ZNC, and possibly cause the execution of arbitrary code e.g. by
+    uploading a malicious ZNC module.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All ZNC users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-irc/znc-0.074"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2658">CVE-2009-2658</uri>
+  </references>
+  <metadata tag="requester" timestamp="2009-08-14T18:19:47Z">
+    keytoaster
+  </metadata>
+  <metadata tag="submitter" timestamp="2009-08-14T18:28:31Z">
+    keytoaster
+  </metadata>
+  <metadata tag="bugReady" timestamp="2009-08-31T08:50:23Z">
+    keytoaster
+  </metadata>
+</glsa>

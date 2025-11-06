@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202412-03">
+    <title>Asterisk: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Asterisk, the worst of which can lead to privilege escalation.</synopsis>
+    <product type="ebuild">asterisk</product>
+    <announced>2024-12-07</announced>
+    <revised count="1">2024-12-07</revised>
+    <bug>771318</bug>
+    <bug>803440</bug>
+    <bug>838391</bug>
+    <bug>884797</bug>
+    <bug>920026</bug>
+    <bug>937844</bug>
+    <bug>939159</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/asterisk" auto="yes" arch="*">
+            <unaffected range="ge">18.24.3</unaffected>
+            <vulnerable range="lt">18.24.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Asterisk is an open source telephony engine and toolkit.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Asterisk. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Asterisk users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/asterisk-18.24.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-35776">CVE-2020-35776</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26712">CVE-2021-26712</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26713">CVE-2021-26713</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26714">CVE-2021-26714</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26717">CVE-2021-26717</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-26906">CVE-2021-26906</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-31878">CVE-2021-31878</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-32558">CVE-2021-32558</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26498">CVE-2022-26498</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26499">CVE-2022-26499</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-26651">CVE-2022-26651</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-37325">CVE-2022-37325</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42705">CVE-2022-42705</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42706">CVE-2022-42706</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-37457">CVE-2023-37457</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-49294">CVE-2023-49294</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2023-49786">CVE-2023-49786</uri>
+    </references>
+    <metadata tag="requester" timestamp="2024-12-07T08:58:41.628301Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2024-12-07T08:58:41.632180Z">graaff</metadata>
+</glsa>

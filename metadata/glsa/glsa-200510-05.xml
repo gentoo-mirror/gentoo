@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200510-05">
+  <title>Ruby: Security bypass vulnerability</title>
+  <synopsis>
+    Ruby is vulnerable to a security bypass of the safe level mechanism.
+  </synopsis>
+  <product type="ebuild">ruby</product>
+  <announced>2005-10-06</announced>
+  <revised count="01">2005-10-06</revised>
+  <bug>106996</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-lang/ruby" auto="yes" arch="*">
+      <unaffected range="ge">1.8.3</unaffected>
+      <vulnerable range="lt">1.8.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Ruby is an interpreted scripting language for quick and easy
+    object-oriented programming. Ruby supports the safe execution of
+    untrusted code using a safe level and taint flag mechanism.
+    </p>
+  </background>
+  <description>
+    <p>
+    Dr. Yutaka Oiwa discovered that Ruby fails to properly enforce
+    safe level protections.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An attacker could exploit this vulnerability to execute arbitrary
+    code beyond the restrictions specified in each safe level.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Ruby users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-lang/ruby-1.8.3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2005-2337">CAN-2005-2337</uri>
+    <uri link="https://www.ruby-lang.org/en/20051003.html">Ruby release announcement</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-10-04T12:55:13Z">
+    koon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-10-04T12:55:25Z">
+    koon
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-10-04T18:17:21Z">
+    jaervosz
+  </metadata>
+</glsa>

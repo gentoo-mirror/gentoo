@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200701-11">
+  <title>Kronolith: Local file inclusion</title>
+  <synopsis>
+    Kronolith contains a flaw that could allow the execution of arbitrary
+    files.
+  </synopsis>
+  <product type="ebuild">horde-kronolith</product>
+  <announced>2007-01-16</announced>
+  <revised count="01">2007-01-16</revised>
+  <bug>156627</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-apps/horde-kronolith" auto="yes" arch="*">
+      <unaffected range="ge">2.1.4</unaffected>
+      <vulnerable range="lt">2.1.4</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Kronolith is a web-based calendar which relies on the Horde Framework
+    for integration with other applications.
+    </p>
+  </background>
+  <description>
+    <p>
+    Kronolith contains a mistake in lib/FBView.php where a raw, unfiltered
+    string is used instead of a sanitized string to view local files.
+    </p>
+  </description>
+  <impact type="low">
+    <p>
+    An authenticated attacker could craft an HTTP GET request that uses
+    directory traversal techniques to execute any file on the web server as
+    PHP code, which could allow information disclosure or arbitrary code
+    execution with the rights of the user running the PHP application
+    (usually the webserver user).
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All horde-kronolith users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-apps/horde-kronolith-2.1.4"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-6175">CVE-2006-6175</uri>
+  </references>
+  <metadata tag="requester" timestamp="2007-01-14T17:58:37Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2007-01-14T21:54:17Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2007-01-15T12:41:09Z">
+    aetius
+  </metadata>
+</glsa>

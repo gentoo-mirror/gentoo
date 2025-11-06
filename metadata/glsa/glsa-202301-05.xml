@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202301-05">
+    <title>Apache Commons Text: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in Apache Commons Text which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">commons-text</product>
+    <announced>2023-01-11</announced>
+    <revised count="1">2023-01-11</revised>
+    <bug>877577</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-java/commons-text" auto="yes" arch="*">
+            <unaffected range="ge">1.10.0</unaffected>
+            <vulnerable range="lt">1.10.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Apache Commons Text is a library focused on algorithms working on strings.</p>
+    </background>
+    <description>
+        <p>Apache Commons Text performs variable interpolation, allowing properties to be dynamically evaluated and expanded. The standard format for interpolation is &#34;${prefix:name}&#34;, where &#34;prefix&#34; is used to locate an instance of org.apache.commons.text.lookup.StringLookup that performs the interpolation. The set of default Lookup instances included interpolators that could result in arbitrary code execution or contact with remote servers. These lookups are: - &#34;script&#34; - execute expressions using the JVM script execution engine (javax.script) - &#34;dns&#34; - resolve dns records - &#34;url&#34; - load values from urls, including from remote servers Applications using the interpolation defaults in the affected versions may be vulnerable to remote code execution or unintentional contact with remote servers if untrusted configuration values are used.</p>
+    </description>
+    <impact type="high">
+        <p>Crafted input to Apache Commons Text could trigger remote code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Apache Commons Text users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-java/commons-text-1.10.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-42889">CVE-2022-42889</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-01-11T05:18:10.785619Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2023-01-11T05:18:10.790088Z">ajak</metadata>
+</glsa>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202211-01">
+    <title>OpenSSL: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in OpenSSL, the worst of which could result in remote code execution.</synopsis>
+    <product type="ebuild">openssl</product>
+    <announced>2022-11-01</announced>
+    <revised count="1">2022-11-01</revised>
+    <bug>878269</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/openssl" auto="yes" arch="*">
+            <unaffected range="ge" slot="0/3">3.0.7</unaffected>
+            <vulnerable range="lt" slot="0/3">3.0.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>OpenSSL is an Open Source toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) as well as a general purpose cryptography library.</p>
+    </background>
+    <description>
+        <p>Multiple buffer overflows exist in OpenSSL&#39;s handling of TLS certificates for client authentication.</p>
+    </description>
+    <impact type="normal">
+        <p>It is believed that, while unlikely, code execution is possible in certain system configurations.</p>
+    </impact>
+    <workaround>
+        <p>Users operating TLS servers may consider disabling TLS client authentication, if it is being used, until fixes are applied.</p>
+    </workaround>
+    <resolution>
+        <p>All OpenSSL 3 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/openssl-3.0.7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3602">CVE-2022-3602</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-3786">CVE-2022-3786</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-11-01T21:56:08.734256Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-11-01T21:56:08.739212Z">ajak</metadata>
+</glsa>

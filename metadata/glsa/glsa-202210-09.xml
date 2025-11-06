@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202210-09">
+    <title>Rust: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Rust, the worst of which could result in denial of service.</synopsis>
+    <product type="ebuild">rust,rust-bin</product>
+    <announced>2022-10-16</announced>
+    <revised count="1">2022-10-16</revised>
+    <bug>870166</bug>
+    <bug>831638</bug>
+    <bug>821157</bug>
+    <bug>807052</bug>
+    <bug>782367</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-lang/rust" auto="yes" arch="*">
+            <unaffected range="ge">1.63.0-r1</unaffected>
+            <vulnerable range="lt">1.63.0-r1</vulnerable>
+        </package>
+        <package name="dev-lang/rust-bin" auto="yes" arch="*">
+            <unaffected range="ge">1.64.0</unaffected>
+            <vulnerable range="lt">1.64.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>A systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Rust. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Rust users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/rust-1.63.0-r1"
+        </code>
+        
+        <p>All Rust binary users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-lang/rust-bin-1.64.0"
+        </code>
+        
+        <p>In addition, users using Portage 3.0.38 or later should ensure that packages with Rust binaries have no vulnerable code statically linked into their binaries by rebuilding the @rust-rebuild set:</p>
+        
+        <code>
+          # emerge --ask --oneshot --verbose @rust-rebuild
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28875">CVE-2021-28875</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28876">CVE-2021-28876</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28877">CVE-2021-28877</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28878">CVE-2021-28878</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-28879">CVE-2021-28879</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-29922">CVE-2021-29922</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-31162">CVE-2021-31162</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-36317">CVE-2021-36317</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-36318">CVE-2021-36318</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42574">CVE-2021-42574</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-42694">CVE-2021-42694</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-21658">CVE-2022-21658</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36113">CVE-2022-36113</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-36114">CVE-2022-36114</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-10-16T14:43:11.432733Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-10-16T14:43:11.437329Z">ajak</metadata>
+</glsa>

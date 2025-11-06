@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200805-05">
+  <title>Wireshark: Denial of service</title>
+  <synopsis>
+    Multiple Denial of Service vulnerabilities have been discovered in
+    Wireshark.
+  </synopsis>
+  <product type="ebuild">wireshark</product>
+  <announced>2008-05-07</announced>
+  <revised count="01">2008-05-07</revised>
+  <bug>215276</bug>
+  <access>remote</access>
+  <affected>
+    <package name="net-analyzer/wireshark" auto="yes" arch="*">
+      <unaffected range="ge">1.0.0</unaffected>
+      <vulnerable range="lt">1.0.0</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Wireshark is a network protocol analyzer with a graphical front-end.
+    </p>
+  </background>
+  <description>
+    <p>
+    Errors exist in:
+    </p>
+    <ul>
+    <li>
+    the X.509sat dissector because of an uninitialized variable and the
+    Roofnet dissector because a NULL pointer may be passed to the
+    g_vsnprintf() function (CVE-2008-1561).</li>
+    <li>
+    the LDAP dissector because a NULL pointer may be passed to the
+    ep_strdup_printf() function (CVE-2008-1562).</li>
+    <li>
+    the SCCP dissector because it does not reset a pointer once the packet
+    has been processed (CVE-2008-1563).</li>
+    </ul>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker could exploit these vulnerabilities by sending a
+    malformed packet or enticing a user to read a malformed packet trace
+    file, causing a Denial of Service.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Disable the X.509sat, Roofnet, LDAP, and SCCP dissectors.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Wireshark users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=net-analyzer/wireshark-1.0.0"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1561">CVE-2008-1561</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1562">CVE-2008-1562</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-1563">CVE-2008-1563</uri>
+  </references>
+  <metadata tag="requester" timestamp="2008-04-29T13:11:47Z">
+    vorlon
+  </metadata>
+  <metadata tag="bugReady" timestamp="2008-04-29T13:12:26Z">
+    vorlon
+  </metadata>
+  <metadata tag="submitter" timestamp="2008-04-29T15:31:30Z">
+    mfleming
+  </metadata>
+</glsa>

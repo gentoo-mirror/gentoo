@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200606-13">
+  <title>MySQL: SQL Injection</title>
+  <synopsis>
+    MySQL is vulnerable to an SQL Injection flaw in the multi-byte encoding
+    process.
+  </synopsis>
+  <product type="ebuild">MySQL</product>
+  <announced>2006-06-11</announced>
+  <revised count="04">2006-12-13</revised>
+  <bug>135076</bug>
+  <access>remote</access>
+  <affected>
+    <package name="dev-db/mysql" auto="yes" arch="*">
+      <unaffected range="ge">5.0.22</unaffected>
+      <unaffected range="rge">4.1.20</unaffected>
+      <unaffected range="rge">4.1.21</unaffected>
+      <unaffected range="rge">4.1.22</unaffected>
+      <unaffected range="lt">4.1</unaffected>
+      <vulnerable range="lt">5.0.22</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    MySQL is a popular multi-threaded, multi-user SQL server.
+    </p>
+  </background>
+  <description>
+    <p>
+    MySQL is vulnerable to an injection flaw in mysql_real_escape() when
+    used with multi-byte characters.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    Due to a flaw in the multi-byte character process, an attacker is still
+    able to inject arbitary SQL statements into the MySQL server for
+    execution.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There are a few workarounds available: NO_BACKSLASH_ESCAPES mode as a
+    workaround for a bug in mysql_real_escape_string(): SET
+    sql_mode='NO_BACKSLASH_ESCAPES'; SET GLOBAL
+    sql_mode='NO_BACKSLASH_ESCAPES'; and server command line options:
+    --sql-mode=NO_BACKSLASH_ESCAPES.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All MySQL users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-db/mysql-4.1.20"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-2753">CVE-2006-2753</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-06-01T07:09:29Z">
+    falco
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-06-05T19:55:54Z">
+    falco
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-06-07T09:13:55Z">
+    daxomatic
+  </metadata>
+</glsa>

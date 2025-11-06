@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200412-11">
+  <title>Cscope: Insecure creation of temporary files</title>
+  <synopsis>
+    Cscope is vulnerable to symlink attacks, potentially allowing a local user
+    to overwrite arbitrary files.
+  </synopsis>
+  <product type="ebuild">cscope</product>
+  <announced>2004-12-16</announced>
+  <revised count="01">2004-12-16</revised>
+  <bug>71595</bug>
+  <access>local</access>
+  <affected>
+    <package name="dev-util/cscope" auto="yes" arch="*">
+      <unaffected range="ge">15.5-r2</unaffected>
+      <vulnerable range="lt">15.5-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Cscope is a developer utility used to browse and manage source
+    code.
+    </p>
+  </background>
+  <description>
+    <p>
+    Cscope creates temporary files in world-writable directories with
+    predictable names.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A local attacker could create symbolic links in the temporary
+    files directory, pointing to a valid file somewhere on the filesystem.
+    When Cscope is executed, this would result in the file being
+    overwritten with the rights of the user running the utility, which
+    could be the root user.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Cscope users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=dev-util/cscope-15.5-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CAN-2004-0996">CAN-2004-0996</uri>
+    <uri link="http://www.securityfocus.com/archive/1/381443">BugTraq Advisory</uri>
+  </references>
+  <metadata tag="requester" timestamp="2004-11-29T16:19:40Z">
+    lewk
+  </metadata>
+  <metadata tag="submitter" timestamp="2004-11-29T17:43:04Z">
+    lewk
+  </metadata>
+  <metadata tag="bugReady" timestamp="2004-12-16T20:27:56Z">
+    lewk
+  </metadata>
+</glsa>

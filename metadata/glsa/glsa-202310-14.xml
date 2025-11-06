@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202310-14">
+    <title>libinput: format string vulnerability when using xf86-input-libinput</title>
+    <synopsis>A vulnerability has been discovered in libinput where an attacker may run malicous code by exploiting a format string vulnerability.</synopsis>
+    <product type="ebuild">libinput</product>
+    <announced>2023-10-26</announced>
+    <revised count="1">2023-10-26</revised>
+    <bug>839729</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/libinput" auto="yes" arch="*">
+            <unaffected range="ge">1.20.1</unaffected>
+            <vulnerable range="lt">1.20.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>A library to handle input devices in Wayland and, via xf86-input-libinput, in X.org.</p>
+    </background>
+    <description>
+        <p>An attacker may be able to run malicious code by exploiting a format string vulnerability. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>When a device is detected by libinput, libinput logs several messages through log handlers set up by the callers. These log handlers usually eventually result in a printf call. Logging happens with the privileges of the caller, in the case of Xorg this may be root.
+
+The device name ends up as part of the format string and a kernel device with printf-style format string placeholders in the device name can enable an attacker to run malicious code. An exploit is possible through any device where the attacker controls the device name, e.g. /dev/uinput or Bluetooth devices.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libinput users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/libinput-1.20.1"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-1215">CVE-2022-1215</uri>
+    </references>
+    <metadata tag="requester" timestamp="2023-10-26T04:38:40.405160Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2023-10-26T04:38:40.408918Z">graaff</metadata>
+</glsa>

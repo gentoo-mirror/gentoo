@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200611-01">
+  <title>Screen: UTF-8 character handling vulnerability</title>
+  <synopsis>
+    Screen contains an error in its UTF-8 character handling code that would
+    allow a remote Denial of Service or possibly the remote execution of
+    arbitrary code.
+  </synopsis>
+  <product type="ebuild">screen</product>
+  <announced>2006-11-03</announced>
+  <revised count="01">2006-11-03</revised>
+  <bug>152770</bug>
+  <access>remote</access>
+  <affected>
+    <package name="app-misc/screen" auto="yes" arch="*">
+      <unaffected range="ge">4.0.3</unaffected>
+      <vulnerable range="lt">4.0.3</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Screen is a full-screen window manager that multiplexes a physical
+    terminal between several processes, typically interactive shells.
+    </p>
+  </background>
+  <description>
+    <p>
+    cstone and Richard Felker discovered a flaw in Screen's UTF-8 combining
+    character handling.
+    </p>
+  </description>
+  <impact type="high">
+    <p>
+    The vulnerability can be exploited by writing a special string of
+    characters to a Screen window. A remote attacker could cause a Denial
+    of Service or possibly execute arbitrary code with the privileges of
+    the user running Screen through a program being run inside a Screen
+    session, such as an IRC client or a mail client.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All Screen users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=app-misc/screen-4.0.3"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4573">CVE-2006-4573</uri>
+  </references>
+  <metadata tag="submitter" timestamp="2006-10-27T12:01:54Z">
+    aetius
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-10-30T11:11:00Z">
+    falco
+  </metadata>
+</glsa>

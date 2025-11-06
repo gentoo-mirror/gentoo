@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200609-03">
+  <title>OpenTTD: Remote Denial of service</title>
+  <synopsis>
+    The OpenTTD server is vulnerable to a remote Denial of Service.
+  </synopsis>
+  <product type="ebuild">openttd</product>
+  <announced>2006-09-06</announced>
+  <revised count="01">2006-09-06</revised>
+  <bug>131010</bug>
+  <access>remote</access>
+  <affected>
+    <package name="games-simulation/openttd" auto="yes" arch="*">
+      <unaffected range="ge">0.4.8</unaffected>
+      <vulnerable range="lt">0.4.8</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    OpenTTD is a clone of Transport Tycoon Deluxe.
+    </p>
+  </background>
+  <description>
+    <p>
+    OpenTTD is vulnerable to a Denial of Service attack due to a flaw in
+    the manner the game server handles errors in command packets.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    An authenticated attacker can cause a Denial of Service by sending an
+    invalid error number to a vulnerable OpenTTD server.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    There is no known workaround at this time.
+    </p>
+  </workaround>
+  <resolution>
+    <p>
+    All OpenTTD users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=games-simulation/openttd-0.4.8"</code>
+  </resolution>
+  <references>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1998">CVE-2006-1998</uri>
+    <uri link="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-1999">CVE-2006-1999</uri>
+  </references>
+  <metadata tag="requester" timestamp="2006-09-05T13:05:28Z">
+    jaervosz
+  </metadata>
+  <metadata tag="submitter" timestamp="2006-09-05T18:04:07Z">
+    daxomatic
+  </metadata>
+  <metadata tag="bugReady" timestamp="2006-09-06T14:54:55Z">
+    jaervosz
+  </metadata>
+</glsa>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202208-33">
+    <title>Gnome Shell, gettext, libcroco: Multiple Vulnerabilities</title>
+    <synopsis>A vulnerability has been found in libcroco which could result in denial of service.</synopsis>
+    <product type="ebuild">gettext,gnome-shell,libcroco</product>
+    <announced>2022-08-21</announced>
+    <revised count="1">2022-08-21</revised>
+    <bug>722752</bug>
+    <bug>755848</bug>
+    <bug>769998</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/libcroco" auto="yes" arch="*">
+            <unaffected range="ge">0.6.13</unaffected>
+            <vulnerable range="lt">0.6.13</vulnerable>
+        </package>
+        <package name="gnome-base/gnome-shell" auto="yes" arch="*">
+            <unaffected range="ge">3.36.7</unaffected>
+            <vulnerable range="lt">3.36.7</vulnerable>
+        </package>
+        <package name="sys-devel/gettext" auto="yes" arch="*">
+            <unaffected range="ge">0.21</unaffected>
+            <vulnerable range="lt">0.21</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GNOME Shell provides core user interface functions for the GNOME desktop, like switching to windows and launching applications.
+
+gettext contains the GNU locale utilities.
+
+libcroco is a standalone CSS2 parsing and manipulation library.</p>
+    </background>
+    <description>
+        <p>The cr_parser_parse_any_core function in libcroco&#39;s cr-parser.c does not limit recursion, leading to a denial of service via a stack overflow when trying to parse crafted CSS.
+
+Gnome Shell and gettext bundle libcroco in their own sources and thus are potentially vulnerable as well.</p>
+    </description>
+    <impact type="normal">
+        <p>An attacker with control over the input to the library can cause a denial of service.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All gettext users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-devel/gettext-0.21"
+        </code>
+        
+        <p>All Gnome Shell users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=gnome-base/gnome-shell-3.36.7"
+        </code>
+        
+        <p>All libcroco users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/libcroco-0.6.13"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2020-12825">CVE-2020-12825</uri>
+    </references>
+    <metadata tag="requester" timestamp="2022-08-21T01:34:48.802416Z">ajak</metadata>
+    <metadata tag="submitter" timestamp="2022-08-21T01:34:48.808281Z">ajak</metadata>
+</glsa>

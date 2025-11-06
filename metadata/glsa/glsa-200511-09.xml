@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="200511-09">
+  <title>Lynx: Arbitrary command execution</title>
+  <synopsis>
+    Lynx is vulnerable to an issue which allows the remote execution of
+    arbitrary commands.
+  </synopsis>
+  <product type="ebuild">lynx</product>
+  <announced>2005-11-13</announced>
+  <revised count="01">2005-11-13</revised>
+  <bug>112213</bug>
+  <access>remote</access>
+  <affected>
+    <package name="www-client/lynx" auto="yes" arch="*">
+      <unaffected range="ge">2.8.5-r2</unaffected>
+      <vulnerable range="lt">2.8.5-r2</vulnerable>
+    </package>
+  </affected>
+  <background>
+    <p>
+    Lynx is a fully-featured WWW client for users running
+    cursor-addressable, character-cell display devices such as vt100
+    terminals and terminal emulators.
+    </p>
+  </background>
+  <description>
+    <p>
+    iDefense labs discovered a problem within the feature to execute
+    local cgi-bin programs via the "lynxcgi:" URI handler. Due to a
+    configuration error, the default settings allow websites to specify
+    commands to run as the user running Lynx.
+    </p>
+  </description>
+  <impact type="normal">
+    <p>
+    A remote attacker can entice a user to access a malicious HTTP
+    server, causing Lynx to execute arbitrary commands.
+    </p>
+  </impact>
+  <workaround>
+    <p>
+    Disable "lynxcgi" links by specifying the following directive in
+    lynx.cfg:
+    </p>
+    <code>
+    TRUSTED_LYNXCGI:none</code>
+  </workaround>
+  <resolution>
+    <p>
+    All Lynx users should upgrade to the latest version:
+    </p>
+    <code>
+    # emerge --sync
+    # emerge --ask --oneshot --verbose "&gt;=www-client/lynx-2.8.5-r2"</code>
+  </resolution>
+  <references>
+    <uri link="https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2929">CVE-2005-2929</uri>
+    <uri link="http://www.idefense.com/application/poi/display?id=338&amp;type=vulnerabilities">iDefense Security Advisory 11.11.05</uri>
+  </references>
+  <metadata tag="requester" timestamp="2005-11-11T20:17:54Z">
+    taviso
+  </metadata>
+  <metadata tag="submitter" timestamp="2005-11-11T21:30:52Z">
+    adir
+  </metadata>
+  <metadata tag="bugReady" timestamp="2005-11-13T17:03:02Z">
+    koon
+  </metadata>
+</glsa>
