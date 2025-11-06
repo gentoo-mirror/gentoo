@@ -1,0 +1,167 @@
+Title: PipeWire sound server migration
+Author: Sam James <sam@gentoo.org>
+Posted: 2022-07-29
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: media-video/pipewire
+Display-If-Installed: media-sound/pulseaudio
+Display-If-Installed: media-sound/pulseaudio-daemon
+Display-If-Installed: media-libs/libpulse
+
+PipeWire has gained a new USE flag "sound-server" for enabling/disabling its
+sound server capabilities.
+
+This change is needed to avoid PipeWire and PulseAudio conflicting over control
+of audio devices. Before this change, OpenRC users were in some cases
+accidentally migrated to PipeWire which was difficult to override without
+manually editing launcher files.
+
+For non-audio purposes, PipeWire is installed in many configurations as more
+and more software depends on it for e.g. screensharing, sandboxing,
+and window previews, so users will need to act based on their preferred
+setup rather than simply avoiding installing PipeWire, as it is
+increasingly required as a dependency.
+
+Packages needing PulseAudio's APIs will be migrated from the now-meta package
+media-sound/pulseaudio to depending on media-libs/libpulse. The runtime
+PulseAudio server can be provided by either PipeWire (media-video/pipewire)
+or the original PulseAudio (media-sound/pulseaudio-daemon).
+
+The new sound-server USE flag for PipeWire allows easily controlling
+this behavior.
+
+There are several options available:
+
+1. To use PipeWire for sound, users should enable USE=sound-server for PipeWire:
+
+  Place the following entries in /etc/portage/package.use:
+  ```
+  media-video/pipewire sound-server
+  media-sound/pulseaudio -daemon
+  ```
+
+  First, sync:
+  # emerge --sync
+
+  Deselect media-sound/pulseaudio-daemon:
+  # emerge --deselect media-sound/pulseaudio-daemon
+
+  Then perform a world upgrade with PipeWire on the command line to add
+  it to the world file:
+  # emerge --ask --update --changed-use --deep @world media-video/pipewire
+
+  Then depclean:
+  # emerge --ask --depclean
+
+  OpenRC users on an XDG-compliant desktop which respects autostart files
+  will not need to take any further action.
+
+  OpenRC users using a minimal desktop which does not respect autostart
+  files will need to run `gentoo-pipewire-launcher &` in e.g.
+  `~/.xprofile`.
+
+  Users who want to switch to PipeWire providing a PulseAudio daemon
+  may need to `emerge --deselect` packages in their world file which
+  hard-require media-sound/pulseaudio-daemon. There are only a handful
+  of these. A non-exhaustive list:
+  * media-sound/paprefs
+  * media-sound/pasystray
+  * media-sound/pulseaudio-modules-bt (shouldn't be needed anyway)
+  * net-misc/pulseaudio-dlna
+
+  If not using any of those packages anymore, please emerge --deselect
+  them. If still using these, PipeWire as a PulseAudio is not an
+  option at this time.
+
+  (Note that media-libs/libpulse (which PipeWire will be using, don't emerge
+  libpulse manually) provides 'pactl' which can be used as a replacement for
+  e.g. media-sound/pulseaudio-ctl, so personal scripts can be adapted to this
+  if desired.)
+
+  systemd users will also need to run the following commands:
+  $ systemctl --user --now disable pulseaudio.service pulseaudio.socket
+  $ systemctl --user --now enable pipewire.socket pipewire-pulse.socket
+  $ systemctl --user --now disable pipewire-media-session.service
+  $ systemctl --user --force enable wireplumber.service
+  
+  Root user may replace --user with --global to change system default
+  configuration for all of the above commands.
+
+2. To use PulseAudio's daemon for sound, users should disable USE=sound-server
+  for PipeWire, enable USE=daemon on media-sound/pulseaudio, and add
+  media-sound/pulseaudio-daemon to their world file:
+
+  Place the following entries in /etc/portage/package.use:
+  ```
+  media-video/pipewire -sound-server
+  media-sound/pulseaudio daemon
+  ```
+
+  Add media-sound/pulseaudio-daemon to @world:
+  # emerge --noreplace media-sound/pulseaudio-daemon
+
+  Then perform a world upgrade:
+  # emerge --ask --update --changed-use --deep @world
+
+  Then depclean:
+  # emerge --ask --depclean
+
+  OpenRC users on an XDG-compliant desktop which respects autostart files
+  will not need to take any further action.
+
+  OpenRC users using a minimal desktop which does not respect autostart
+  files should consider adding `gentoo-pipewire-launcher &` in e.g.
+  `~/.xprofile` but it's not strictly required in terms of audio
+  handling. It may be required in future for the non-audio usecases
+  described above.
+
+  systemd users will also need to run the following commands:
+  $ systemctl --user --now enable pulseaudio.service pulseaudio.socket
+  $ systemctl --user --now disable pipewire.socket pipewire-pulse.socket
+
+  Alternatively, systemd users can run the following commands as root to change
+  the default for all users:
+  # systemctl --global enable pulseaudio.service pulseaudio.socket
+  # systemctl --global --force disable pipewire.socket pipewire-pulse.socket
+
+  (If taking this option, the services must be started manually as a one-off as
+  a user.)
+
+3. For users without sound on their system, those using JACK without
+   PipeWire, or those using pure ALSA without PipeWire, the following steps
+   are recommended:
+
+   Place the following entries in /etc/portage/package.use:
+   ```
+   media-video/pipewire -sound-server
+   media-sound/pulseaudio -daemon
+   ```
+
+   Then perform a world upgrade:
+   # emerge --ask --update --changed-use --deep @world
+
+   Then depclean:
+   # emerge --ask --depclean
+
+   OpenRC users on an XDG-compliant desktop which respects autostart files
+   will not need to take any further action.
+
+   OpenRC users using a minimal desktop which does not respect autostart
+   files will need to run `gentoo-pipewire-launcher &` in e.g.
+   `~/.xprofile`.
+
+   systemd users will also likely want to run the following commands as a user, again
+   for the purposes of non-audio PipeWire use:
+   $ systemctl --user --now enable pipewire.socket
+   $ systemctl --user --now --force enable wireplumber.service
+
+   Alternatively, systemd users can run the following commands as root to change
+   the default for all users,  again for the purposes of non-audio PipeWire use:
+   # systemctl --global enable pipewire.socket
+   # systemctl --global --force enable wireplumber.service
+
+   (If taking this option, the services must be started manually as a one-off as
+   a user.)
+
+Further resources:
+* https://wiki.gentoo.org/wiki/PipeWire

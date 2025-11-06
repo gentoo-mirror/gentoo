@@ -1,0 +1,71 @@
+Title: Breaking changes to the RAP Prefix toolchain
+Author: James Le Cuirot <chewi@gentoo.org>
+Posted: 2023-01-28
+Revision: 3
+News-Item-Format: 2.0
+Display-If-Profile: default/linux/amd64/17.0/no-multilib/prefix/*
+Display-If-Profile: default/linux/amd64/17.1/no-multilib/prefix/*
+Display-If-Profile: default/linux/amd64/23.0/no-multilib/prefix/*
+Display-If-Profile: default/linux/amd64/23.0/split-usr/no-multilib/prefix/*
+Display-If-Profile: default/linux/arm/17.0/armv7a/prefix/*
+Display-If-Profile: default/linux/arm/23.0/armv7a/prefix/*
+Display-If-Profile: default/linux/arm/23.0/split-usr/armv7a/prefix/*
+Display-If-Profile: default/linux/arm64/17.0/prefix/*
+Display-If-Profile: default/linux/arm64/23.0/prefix/*
+Display-If-Profile: default/linux/arm64/23.0/split-usr/prefix/*
+Display-If-Profile: default/linux/ppc64le/17.0/prefix/*
+Display-If-Profile: default/linux/riscv/20.0/rv64gc/lp64d/prefix/*
+Display-If-Profile: default/linux/riscv/23.0/rv64/lp64d/prefix/*
+Display-If-Profile: default/linux/riscv/23.0/rv64/split-usr/lp64d/prefix/*
+Display-If-Profile: default/linux/x86/17.0/prefix/*
+Display-If-Profile: default/linux/x86/23.0/prefix/*
+Display-If-Profile: default/linux/x86/23.0/split-usr/prefix/*
+
+We are changing the way the toolchain operates on RAP Prefix systems in order to
+reduce the number of hacks we need to apply and make cross-compiling easier.
+
+If you using a non-RAP "Prefix Guest" or "Prefix Stack" variant (e.g. macOS)
+then this does not apply.
+
+If you're not sure what kind of prefix you have, then check whether the
+prefix-guest USE flag is enabled. If the following command returns nothing, then
+you have a RAP prefix and this does apply.
+
+  portageq envvar USE | grep prefix-guest
+
+If you are using a libc other than glibc (e.g. musl) then this *does* apply, but
+your libc will *not* break, so you should not carry out the following procedure.
+The only other package known to be affected is dev-libs/libbsd, which you can
+simply update. If you find another package affected by this, then please file a
+bug report.
+
+WARNING! It is important that you carry out the following procedure, otherwise
+your toolchain will break when you next update your compiler or glibc.
+
+  1. Run the following to create a temporary symlink:
+
+     EPREFIX=$(portageq envvar EPREFIX)
+     mkdir -p "${EPREFIX}${EPREFIX%/*}"
+     ln -sn "${EPREFIX}" "${EPREFIX}${EPREFIX}"
+
+  2. Update or rebuild all installed slots of sys-devel/gcc and sys-devel/clang
+     (if any). Feel free to remove any you no longer need.
+
+  3. Update or rebuild sys-libs/glibc.
+
+  4. Update sys-devel/binutils to at least 2.40-r2. This package is slotted, so
+     ensure at least this version is selected with binutils-config.
+
+  5. Run the following to remove the symlink:
+
+     EPREFIX=$(portageq envvar EPREFIX)
+     rm "${EPREFIX}${EPREFIX}"
+
+  6. If dev-libs/libbsd is installed, then update it to 0.11.7-r2 or later.
+
+If you are reading this having updated glibc first and you are no longer able to
+build anything, then don't panic. Simply execute the lines below and then carry
+out the regular procedure above.
+
+  EPREFIX=$(portageq envvar EPREFIX)
+  portageq contents "${EPREFIX}" $(portageq best_version "${EPREFIX}" sys-libs/glibc) | xargs grep -lIF -d skip "GNU ld script" | xargs sed -i -r "s: /(usr|lib): ${EPREFIX}/\1:g"

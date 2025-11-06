@@ -1,0 +1,24 @@
+Title: busybox removal from system set
+Author: Mike Gilbert <floppym@gentoo.org>
+Posted: 2021-09-24
+Revision: 2
+News-Item-Format: 2.0
+Display-If-Installed: sys-apps/busybox
+Display-If-Profile: default/linux/*
+
+The sys-apps/busybox package has been removed from the system
+set (@system) in Linux profiles. It was decided that this package is not
+necessary for a basic system install.
+
+If you would like to keep this package installed, please ensure it is
+present in your Portage world file.
+
+  emerge --select --noreplace sys-apps/busybox
+
+As well, the "static" USE flag has been disabled by default. It may be
+re-enabled locally via package.use if so desired.
+
+UPDATE: busybox includes a DHCP client (udhcpc). Some users of netifrc
+unknowingly rely on this client. If your networking configuration uses
+DHCP, please ensure that you have a DHCP client selected in the Portage
+world file.

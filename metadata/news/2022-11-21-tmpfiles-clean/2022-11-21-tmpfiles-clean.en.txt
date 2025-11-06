@@ -1,0 +1,16 @@
+Title: systemd-tmpfiles --clean enabled by default
+Author: Mike Gilbert <floppym@gentoo.org>
+Posted: 2022-11-21
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-apps/systemd-utils[tmpfiles]
+
+Starting with sys-apps/systemd-utils-251.8-r1, a script is installed in
+/etc/cron.daily to run "systemd-tmpfiles --clean" once per day. This
+will remove stale temp files based on settings specified in tmpfiles.d.
+
+This change is meant to mimic the behavior of
+systemd-tmpfiles-clean.timer from systemd on systems running OpenRC.
+
+If you wish to opt-out, simply comment out the command in
+/etc/cron.daily/systemd-tmpfiles-clean.

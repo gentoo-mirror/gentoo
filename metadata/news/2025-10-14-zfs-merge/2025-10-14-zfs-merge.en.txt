@@ -1,0 +1,25 @@
+Title: OpenZFS packages merged
+Author: Marc Schiffbauer <mschiff@gentoo.org>
+Posted: 2025-10-14
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-fs/zfs
+Display-If-Installed: sys-fs/zfs-kmod
+
+To simplify maintenance and system administration, sys-fs/zfs-kmod has been
+merged into sys-fs/zfs starting from version 2.4.0_rc2-r1.
+
+If you are using in-kernel modules from a custom built kernel you should
+unset the modules USE flag for sys-fs/zfs to not build and install
+kernel modules via sys-fs/zfs.
+
+If you were using sys-fs/zfs-kmod and sys-fs/zfs before, you have not to
+do anything special while upgrading as the package manager will take
+care of deinstalling sys-fs/zfs-kmod before upgrading to the new
+sys-fs/zfs version containing the modules.
+
+If you experience a blocker, you may have to remove sys-fs/zfs-kmod from your
+world file by running
+
+  emerge --deselect sys-fs/zfs-kmod
+

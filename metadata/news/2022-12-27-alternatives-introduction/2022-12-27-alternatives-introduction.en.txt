@@ -1,0 +1,101 @@
+Title: Introduction of app-alternatives ebuilds
+Author: Sam James <sam@gentoo.org>
+Posted: 2022-12-27
+Revision: 1
+News-Item-Format: 2.0
+
+Gentoo is introducing a new category of ebuilds called 'app-alternatives'
+to handle cases where a symlink for a common binary may want to be switched
+between different packages by a user.
+
+Traditionally, eselect was used for this, and while eselect still has its
+place, it's unsuitable for cases like /bin/awk and /bin/sh because it
+prevents immutable system directories and (more importantly
+from a package management perspective) relies on orphaned symlinks which
+means no package owns /bin/awk, /bin/sh, etc. This is not reliable and
+can lead to dead symlinks (or no symlink at all) in some edge cases [0].
+
+Systems will be more robust and desired system configuration
+can be achieved using the package manager rather than manual steps outside of it.
+
+The initial list of packages which support alternatives is as follows:
+- app-alternatives/awk
+- app-alternatives/bzip2
+- app-alternatives/bc
+- app-alternatives/cpio
+- app-alternatives/gzip
+- app-alternatives/lex
+- app-alternatives/sh
+- app-alternatives/tar
+- app-alternatives/yacc
+
+The stabilization of these new ebuilds and packages depending
+on them occurred on 2022-12-27 in bug 886017 [1].
+
+## Pre-upgrade requirements
+
+The default configuration on Gentoo systems is FEATURES="protect-owned"
+which works similarly to FEATURES="collision-protect" but it allows
+collisions between orphaned files. In this case, a one-off collision
+occurs as the app-alternatives/ ebuilds begin to claim once-orphaned
+symlinks.
+
+A similar issue occurred during the libxcrypt migration where users
+had upgrades interrupted by using the older, more aggressive
+FEATURES="collision-protect".
+
+It is recommended that users alter their configuration to
+remove references to 'collision-protect' in FEATURES and instead either
+explicitly enable 'protect-owned' in FEATURES or rely on the default
+(equivalent). It is also acceptable to simply disable collision-protect
+temporarily for the purposes of this news item.
+
+WARNING: Users with collision-protect enabled must disable FEATURES="collision-protect"
+in /etc/portage/make.conf by removing it or setting FEATURES="-collision-protect"
+if they have enabled it. collision-protect detects collisions between files including
+orphaned files where no package owns the file.
+
+## Migrating
+
+When receiving this news item, please follow the step below as soon
+as possible to ensure a smooth transition.
+
+To migrate your system, a standard world upgrade will suffice after
+deselecting eselect-awk and eselect-sh:
+1. # emerge --deselect app-eselect/eselect-awk app-eselect/eselect-sh
+2. # emerge --depclean app-eselect/eselect-awk app-eselect/eselect-sh
+3. # emerge --sync
+4. # emerge -a -uvDU @world (or other similar standard world upgrade command)
+5. # emerge --ask --depclean
+
+It's okay if nothing happens in Step 1 and Step 2 (no atoms to remove).
+
+## Configuration
+
+Users who are not interested in using different implementations for
+various tools listed above can ignore this section.
+
+No configuration should be required by default, but users may wish
+to configure the new app-alternatives/ ebuilds to their tastes as they
+used to do via e.g. eselect-sh and eselect-awk.
+
+Going forward, /etc/portage/package.use will be used for this purpose.
+
+Users should review the USE flags available for the various app-alternatives
+ebuilds like app-alternatives/sh and adjust their configuration as desired.
+
+For example, to have /bin/gzip be provided by app-arch/pigz for automatic
+parallelization of 'gzip', one would have the following in /etc/portage/package.use:
+```
+# https://wiki.gentoo.org/wiki/Gzip#Parallelization
+# Make /bin/gzip be a symlink to pigz for a speedup in compression
+app-alternatives/gzip -reference pigz
+```
+
+## Further reading
+
+For more details, please see the technical documentation on the wiki [2].
+
+[0] https://wiki.gentoo.org/wiki/Project:Base/Alternatives#Why.3F
+[1] https://bugs.gentoo.org/886017
+[2] https://wiki.gentoo.org/wiki/Project:Base/Alternatives

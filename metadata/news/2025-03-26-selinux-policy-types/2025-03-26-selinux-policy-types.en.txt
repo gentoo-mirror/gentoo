@@ -1,0 +1,16 @@
+Title: SELinux default POLICY_TYPES update
+Author: Rahul Sandhu <nvraxn@gmail.com>
+Posted: 2025-03-26
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sec-policy/selinux-base
+
+In line with our wiki recommendations, the default SELINUXTYPE set in
+/etc/selinux/config is now the mcs policy type. Hence, POLICY_TYPES
+has been updated to build all policy types by default if none are
+selected in make.conf.
+
+If a user does not explicitly have an override set for POLICY_TYPES,
+a full rebuild of selinux policy packages will be required:
+
+emerge --ask --oneshot @selinux-rebuild

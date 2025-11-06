@@ -1,0 +1,67 @@
+Title: Hardened profiles improvements
+Author: Sam James <sam@gentoo.org>
+Posted: 2023-01-01
+Revision: 2
+News-Item-Format: 2.0
+Display-If-Installed: sys-devel/gcc[hardened]
+Display-If-Profile: features/hardened
+Display-If-Profile: default/linux/amd64/17.0/musl/hardened
+Display-If-Profile: default/linux/amd64/17.0/musl/hardened/selinux
+Display-If-Profile: default/linux/amd64/17.1/hardened
+Display-If-Profile: default/linux/amd64/17.1/hardened/selinux
+Display-If-Profile: default/linux/amd64/17.1/no-multilib/hardened
+Display-If-Profile: default/linux/amd64/17.1/no-multilib/hardened/selinux
+Display-If-Profile: default/linux/arm/17.0/armv6j/hardened
+Display-If-Profile: default/linux/arm/17.0/armv7a/hardened
+Display-If-Profile: default/linux/arm/17.0/armv7a/hardened/selinux
+Display-If-Profile: default/linux/arm/17.0/armv7a/hardened/selinux
+Display-If-Profile: default/linux/arm/17.0/musl/armv6j/hardened
+Display-If-Profile: default/linux/arm/17.0/musl/armv6j/hardened/selinux
+Display-If-Profile: default/linux/arm/17.0/musl/armv7a/hardened
+Display-If-Profile: default/linux/arm/17.0/musl/armv7a/hardened/selinux
+Display-If-Profile: default/linux/arm64/17.0/hardened
+Display-If-Profile: default/linux/arm64/17.0/hardened/selinux
+Display-If-Profile: default/linux/arm64/17.0/musl/hardened
+Display-If-Profile: default/linux/arm64/17.0/musl/hardened/selinux
+Display-If-Profile: default/linux/ppc/17.0/musl/hardened
+Display-If-Profile: default/linux/ppc64/17.0/musl/hardened
+Display-If-Profile: default/linux/ppc64le/17.0/musl/hardened
+Display-If-Profile: default/linux/x86/17.0/hardened
+Display-If-Profile: default/linux/x86/17.0/hardened/selinux
+
+Gentoo's hardened profiles are adopting two new modern toolchain hardening
+techniques:
+1. Level 3 fortification (-D_FORTIFY_SOURCE=3) [0]
+2. libstdc++ assertions (-D_GLIBCXX_ASSERTIONS) [1]
+
+These will both be enabled by default with USE=hardened on sys-devel/gcc
+for >=sys-devel/gcc-12.2.1_p20221231.
+
+To view the existing list of hardening changes applied by the profiles,
+see the wiki [2].
+
+Stable users may wish to add sys-devel/gcc-12.2.1_p20221231 into
+/etc/portage/package.accept_keywords if they wish to take advantage
+of these improvements early, before GCC 12 is marked stable.
+
+## Migration
+
+To fully take advantage of these new settings, GCC must first
+be upgraded, and then all packages must be re-emerged:
+1. # emerge --sync
+2. # emerge --verbose --oneshot ">=sys-devel/gcc-12.2.1_p20221231"
+3. # gcc-config latest
+4. # emerge --verbose --emptytree @world
+
+## Troubleshooting
+
+In the event that some packages fail at runtime, please file a bug
+with the full details. To temporarily workaround the problem,
+it should be possible to recompile broken packages with the
+following *FLAGS:
+CFLAGS="${CFLAGS} -D_FORTIFY_SOURCE=2"
+CXXFLAGS="${CXXFLAGS} -D_FORTIFY_SOURCE=2 -U_GLIBCXX_ASSERTIONS"
+
+[0] https://bugs.gentoo.org/876893
+[1] https://bugs.gentoo.org/876895
+[2] https://wiki.gentoo.org/wiki/Hardened/Toolchain#Changes

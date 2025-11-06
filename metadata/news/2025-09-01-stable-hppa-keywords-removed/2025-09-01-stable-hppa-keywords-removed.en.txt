@@ -1,0 +1,17 @@
+Title: Stable hppa keywords removed
+Author: Arthur Zamarin <arthurzam@gentoo.org>
+Posted: 2025-09-01
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Keyword: hppa
+
+The Gentoo/HPPA team has decided that the time invested in package
+stabilization is no longer justified by the small number of users on the
+Hewlett Packard Precision Architecture (hppa). In addition, Gentoo currently
+lacks a working stable development machine.
+
+As a result, all "hppa" keywords will be changed to "~hppa" on 2025-09-01,
+with the "~hppa" keyword added to ACCEPT_KEYWORDS in the profile.
+
+Users need not make any changes to their systems, and the Gentoo/HPPA team
+does not currently plan to remove support for the architecture.

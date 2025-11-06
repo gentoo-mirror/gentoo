@@ -1,0 +1,69 @@
+Title: systemd-tmpfiles replaces deprecated opentmpfiles
+Author: Georgy Yakovlev <gyakovlev@gentoo.org>
+Author: Sam James <sam@gentoo.org>
+Posted: 2021-07-15
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-apps/opentmpfiles
+Display-If-Installed: sys-apps/systemd-tmpfiles
+
+A tmpfiles [0] implementation provides a generic mechanism to define
+the creation of regular files, directories, pipes, and device nodes,
+adjustments to their access mode, ownership, attributes, quota
+assignments, and contents, and finally their time-based removal.
+It is commonly used for volatile and temporary files and directories
+such as those located under /run/, /tmp/, /var/tmp/, the API file
+systems such as /sys/ or /proc/, as well as some other directories
+below /var/. [1]
+
+On 2021-07-06, the sys-apps/opentmpfiles package was initially masked
+due to a root privilege escalation vulnerability (CVE-2017-18925 [2],
+bug #751415 [3], issue 4 [4] upstream).
+
+The severity of this vulnerability is disputed due to the practical
+obstacles to its exploitation in any default or supported configuration.
+
+That said, the use of opentmpfiles is discouraged by its maintainer due
+to the unpatched vulnerability and other long-standing bugs [5]. It has
+now been declared obsolete in favour of systemd-tmpfiles by opentmpfiles
+upstream.
+
+Users will start seeing their package manager trying to replace
+sys-apps/opentmpfiles with sys-apps/systemd-tmpfiles because it is
+another provider of virtual/tmpfiles.
+
+Despite the name, 'systemd-tmpfiles' does not depend on systemd, does
+not use dbus, and is just a drop-in replacement for opentmpfiles. It is
+a small binary built from systemd source code, but works separately,
+similarly to eudev or elogind. It is known to work on both glibc and
+musl systems.
+
+Note that systemd-tmpfiles is specifically for non-systemd systems. It
+is intended to be used on an OpenRC system.
+
+If you wish to selectively test systemd-tmpfiles, follow those steps:
+
+ 1. # emerge --oneshot sys-apps/systemd-tmpfiles
+ 2. # reboot
+ 3. # rm /etc/runlevels/boot/opentmpfiles-setup
+ 4. # rm /etc/runlevels/sysinit/opentmpfiles-dev
+
+No other steps required.
+
+If you still wish to use opentmpfiles for the time being, you can unmask [6]
+opentmpfiles:
+ 1. In /etc/portage/package.unmask, add a line:
+ -sys-apps/opentmpfiles-
+ 2. # emerge --oneshot sys-apps/opentmpfiles
+
+Note that opentmpfiles is likely to be removed from gentoo repository
+in the future. You may wish to put it in a local overlay instead [7].
+
+[0] https://www.freedesktop.org/software/systemd/man/systemd-tmpfiles.html
+[1] https://www.freedesktop.org/software/systemd/man/tmpfiles.d.html
+[2] https://nvd.nist.gov/vuln/detail/CVE-2017-18925
+[3] https://bugs.gentoo.org/751415
+[4] https://github.com/OpenRC/opentmpfiles/issues/4
+[5] https://bugs.gentoo.org/741216
+[6] https://wiki.gentoo.org/wiki/Knowledge_Base:Unmasking_a_package
+[7] https://wiki.gentoo.org/wiki/Custom_ebuild_repository#Creating_a_local_repository

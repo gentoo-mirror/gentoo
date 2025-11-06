@@ -1,0 +1,33 @@
+Title: PulseEffects-5+ are now media-sound/easyeffects
+Author: Marek Szuba <marecki@gentoo.org>
+Posted: 2021-07-16
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: media-sound/pulseeffects
+
+Since version 5.0.0, media-sound/pulseeffects have explicitly required
+media-video/pipewire rather than just a PulseAudio client (i.e. either
+PipeWire or plain media-sound/pulseaudio). Following up on this change,
+upstream has decided to rename the project to EasyEffects starting with
+version 6.0.0.
+
+Gentoo will follow the upstream renaming but in a slightly different
+fashion:
+ - versions older than 5.0.0, i.e. ones not depending on
+   media-video/pipewire, will continue to use the name
+   media-sound/pulseeffects;
+ - versions: 5.0.0 and newer, i.e. all requiring media-video/pipewire,
+   will be available as media-sound/easyeffects.
+
+media-sound/easyeffects is already available in the tree, and the
+remaining PipeWire-dependent versions of media-sound/pulseeffects will
+be removed on 2021-07-23. Therefore, PipeWire users of
+media-sound/pulseeffects should switch to media-sound/easyeffects by
+deselecting the old package and installing the new one, e.g.
+
+emerge --deselect media-sound/pulseeffects
+emerge media-sound/easyeffects
+
+No action is required of media-sound/pulseeffects users who either use
+PulseAudio exclusively or wish to retain the ability to use this
+package with both PulseAudio and PipeWire.

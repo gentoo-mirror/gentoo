@@ -1,0 +1,72 @@
+Title: eudev retirement on 2022-01-01
+Author: Anthony G. Basile <blueness@gentoo.org>
+Posted: 2021-08-24
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-fs/eudev
+
+UPDATE (2022-01-14): sys-fs/eudev is now maintained by a new collection
+of cross-distribution contributors. It will therefore remain in the
+Gentoo repository.
+
+Help is still welcome with maintaining it within Gentoo if users
+are interested.
+
+The default for new installs will remain sys-fs/udev and the
+rest of this news item still applies.
+---
+
+sys-fs/udev is becoming the standard provider of udev on non-systemd (e.g.
+OpenRC) systems. Users of systemd will continue to use the udev services
+provided by the sys-apps/systemd package itself.
+
+The transition should be uneventful in most cases, but please
+read this item in full to understand some possible corner cases.
+
+eudev will be retired and removed from Gentoo on 2022-01-01. We will
+start masking eudev on 2021-10-01 and give people 3 months to prepare
+their transition. You should ensure that sys-fs/eudev is not in your
+world file by running
+
+  emerge --deselect sys-fs/eudev
+
+in order for Portage to replace eudev with sys-fs/udev once the
+package.mask is in place. We fully support udev on musl, whereas uclibc
+will still have to rely on eudev before also being removed on 2022-01-01.
+
+  **WARNING 1**
+
+If you happen to have an INSTALL_MASK including "systemd", e.g. a
+blanket "*systemd*" glob, you will inevitably break your system. sys-fs/udev
+contains "systemd" in some of its directories and filenames, hence a blanket
+filter rule will likely lead to a non-functional udev installation.
+
+Please also verify you do not have "sys-fs/udev" in package.mask.
+
+  **WARNING 2**
+
+If you DO NOT want the "predictable interface naming" of newer versions
+of udev and instead prefer the old style (e.g. "eth0"), there are several
+options available.
+
+The simplest is to pass 'net.ifnames=0' on the kernel command line.
+
+See the wiki for more information:
+https://wiki.gentoo.org/wiki/Udev#Optional:_Disable_or_override_predictable_network_interface_naming.
+
+  Rationale
+
+The integration of udev into the systemd git repo introduced numerous
+problems for non-glibc systems, such as musl and uclibc.  Several
+options were considered, and the one chosen was to fork and maintain udev
+independent of the rest of systemd.  This was meant as a stop-gap solution
+until such time as the problems with systemd on musl had been resolved.
+This is now the case with patches provided by openembedded, and my original
+reason for maintaining eudev is no longer relevant.
+
+I am willing to transfer eudev to another umbrella organization or Linux
+distribution that is willing to continue its maintenance, but maintaining
+eudev cannot be done purely through proxy-maintaining and requires an
+understanding of its internals.  This is a steep learning curve and must
+be an earnest effort.  For this reason, the Base System project has decided
+not to support eudev as an option going forward.

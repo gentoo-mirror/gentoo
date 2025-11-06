@@ -1,0 +1,41 @@
+Title: CUPS no longer directly depends on its filters
+Author: Eli Schwartz <eschwartz93@gmail.com>
+Posted: 2023-11-20
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: >=net-print/cups-2.4.7-r2
+
+Reasons
+=======
+
+Historically, net-print/cups has both depended on and been a dependency of
+net-print/cups-filters. The latter is required for usability of a CUPS
+printing setup, but also must build against the former's libraries. This
+results in an ugly dependency cycle, and forcing the entire CUPS printing
+setup wherever USE=cups is enabled on a framework.
+
+Current upstream work on CUPS has focused on modularizing the codebase. There
+are now several packages, and there will be more in the future. Installing
+net-print/cups-filters is no longer sufficient to ensure all components are
+installed.
+
+In the future, when CUPS v3 is released, filters will be exclusive to legacy
+printers, and largely replaced with IPP Everywhere.[1]
+
+A more future-proof way to install a CUPS production printing setup is needed.
+
+User Action Required
+=======
+
+cups-filters is required for current versions of CUPS. To prevent depcleaning
+if you are a CUPS user (and it was not installed just as a dependency for
+something else):
+
+    emerge net-print/cups-meta
+
+If cups-browsed support is desired, add the following package.use:
+
+    net-print/cups-meta browsed
+
+
+[1] https://openprinting.github.io/current/#the-new-architecture-for-printing-and-scanning

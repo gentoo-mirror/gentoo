@@ -1,0 +1,18 @@
+Title: x86 support to be dropped from media-gfx/darktable
+Author: Marek Szuba <marecki@gentoo.org>
+Posted: 2021-05-14
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: =media-gfx/darktable-2.6.2
+
+Since version 3.0.0 media-gfx/darktable officially only supports 64-bit
+architectures, and we have observed errors while attempting to build these
+versions on x86 - making media-gfx/darktable-2.6.2 the last version to
+support this architecture. However the 2.6.x branch of Darktable has not
+seen any activity since October 2019 and we have just confirmed with upstream
+that all but the latest release branch (3.4.x at the time of writing this) are
+not supported.
+
+In light of the above we have decided to remove media-gfx/darktable-2.6.2 from
+the tree, thus dropping x86 support from that package, by 2021-06-15.
+

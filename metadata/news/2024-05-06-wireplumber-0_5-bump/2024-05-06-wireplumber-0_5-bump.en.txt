@@ -1,0 +1,25 @@
+Title: media-video/wireplumber-0.5.2 may break on upgrade
+Author: James Calligeros <jcalligeros99@gmail.com>
+Posted: 2024-05-06
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: media-video/wireplumber
+
+As some will be aware, WirePlumber 0.5.0 introduced a significant
+breaking change to its entire configuration system, eliminating the use
+of Lua scripts for configuration purposes. This also came with a
+complete rework of how Lua scripts are registered with WirePlumber
+for execution.
+
+Most typical desktop users, including EasyEffects users, should not
+notice any change to their system. That said, it was not uncommon for
+people to suggest or implement configuration changes using the Lua API.
+
+Any custom functionality which relies on WirePlumber's Lua API will
+break upon upgrade.
+
+If you rely on this functionality, please review the WirePlumber
+documentation on porting your Lua scripts to the new API and
+registering them with the system before upgrading:
+
+https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/migration.html

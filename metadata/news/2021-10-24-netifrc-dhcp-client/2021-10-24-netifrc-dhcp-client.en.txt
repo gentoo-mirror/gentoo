@@ -1,0 +1,21 @@
+Title: netifrc DHCP client
+Author: Mike Gilbert <floppym@gentoo.org>
+Posted: 2021-10-24
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: net-misc/netifrc
+Display-If-Profile: default/linux/*
+
+The sys-apps/busybox package was recently removed from the system set.
+Users of net-misc/netifrc may have unknowingly relied upon this package
+to provide a DHCP client.
+
+If you are using netifrc and use DHCP for network connectivity, please
+ensure you have a supported DHCP client installed/selected in the
+Portage world file.
+
+Supported clients include:
+
+dhcpcd provided by net-misc/dhcpcd
+dhclient provided by net-misc/dhcp
+udhcpc provided by sys-apps/busybox

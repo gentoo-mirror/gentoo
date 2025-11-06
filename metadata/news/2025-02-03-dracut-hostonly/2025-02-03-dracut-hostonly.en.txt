@@ -1,0 +1,66 @@
+Title: Dracut changed default for hostonly setting
+Author: Nowa Ammerlaan <nowa@gentoo.org>
+Posted: 2025-02-03
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-kernel/installkernel[dracut]
+
+Dracut is an initramfs generation tool. It may be invoked via the
+installkernel mechanism in order to automatically generate a new
+initramfs when the kernel is installed. If you are reading this then
+sys-kernel/installkernel is configured to use Dracut and the below is
+relevant for you.
+
+What changed?
+====================
+
+Starting with version 106 of sys-kernel/dracut the default for the
+"hostonly" setting has changed from disabled to enabled when Dracut is
+invoked via installkernel[1].
+
+"hostonly" is a setting for Dracut that controls how much is included
+in the generated initramfs image. When it is disabled Dracut aims to
+generate an initramfs image that is bootable on any hardware. On the
+other hand, when this setting is enabled, Dracut aims to generate an
+initramfs image containing only what is needed to boot the current
+system. The advantage is a significantly smaller initramfs images,
+but this comes with the cost of losing portability.
+
+Example: When the "hostonly" setting is disabled, Dracut's drm module
+will cause all GPU drivers to be included in the initramfs. When it is
+enabled, only the drivers for GPUs that are currently present in the
+system are included in the initramfs.
+
+Enabling the "hostonly" setting was and is our recommendation for most
+use cases. This however was not the default behaviour in versions
+prior to 106.
+
+Note, the default value for the "hostonly" setting has changed only
+when Dracut is invoked via installkernel. Disabled remains the default
+behaviour when Dracut is invoked directly.
+
+User Action Required
+====================
+
+If your system is already configured to enable "hostonly" setting via
+/etc/dracut.conf.d/ then effectively nothing has changed for you.
+
+However, if Dracut has previously not been configured to enable the
+"hostonly" setting, then starting with version 106 the behaviour of
+Dracut will change for you. Though we do not expect major problems, we
+recommend ensuring a backup booting option remains available before
+rebooting the system after the first kernel upgrade following the
+upgrade of Dracut. This is usually the case unless the old kernels are
+manually removed by the user.
+
+If you do experience a booting problem with the "hostonly" enabled
+initramfs images, then please report this problem to Dracut[2].
+
+The "hostonly" setting may be disabled via /etc/dracut.conf.d/
+configuration snippets. For example:
+
+	echo "hostonly=no" >> /etc/dracut.conf.d/95-no-hostonly.conf
+
+
+[1] https://github.com/dracut-ng/dracut-ng/pull/1158
+[2] https://github.com/dracut-ng/dracut-ng/issues

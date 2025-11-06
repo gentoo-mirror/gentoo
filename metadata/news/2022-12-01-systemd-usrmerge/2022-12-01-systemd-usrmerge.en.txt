@@ -1,0 +1,45 @@
+Title: /usr merge for systemd users
+Author: Mike Gilbert <floppym@gentoo.org>
+Posted: 2022-12-01
+Revision: 3
+News-Item-Format: 2.0
+Display-If-Installed: sys-apps/systemd
+
+In the latter half of 2023, systemd will drop support for
+split-usr/unmerged-usr systems [1]. All Gentoo systems running systemd
+will need to be migrated to merged-usr.
+
+Migrating to merged-usr will move all data from /bin, /sbin, and /lib
+into the /usr/bin and /usr/lib directories. The directories in / are
+replaced with symlinks.
+
+To facilitate this, a new set of sub-profiles has been created, and a
+script is available to perform the actual migration.
+
+To migrate a system to merged-usr, follow this procedure:
+
+1. Ensure your system backups are up to date. Please also update
+   your system fully and depclean before proceeding.
+
+2. Install sys-apps/merge-usr.
+
+3. Run "merge-usr --dryrun" as root to check for conflicts. These will
+   appear with the word ERROR at the start of the line.
+
+4. Resolve any conflicts. This may involve deleting duplicate files. If
+   in doubt, seek support in a Gentoo support channel.
+
+5. Run the merge-usr script from a root shell. Avoid running it via sudo
+   directly to avoid locking yourself out if an unexpected error occurs.
+
+6. Switch to a merged-usr profile.
+     eg. eselect profile set default/linux/amd64/17.1/systemd/merged-usr
+
+7. Run emerge with the --newuse or --changed-use option to rebuild
+   any packages that have a "split-usr" USE flag.
+     eg. emerge -uDN @world
+
+For new installs, new "mergedusr" stage3 tarballs are being produced for
+commonly used profiles.
+
+[1] https://lists.freedesktop.org/archives/systemd-devel/2022-September/048352.html

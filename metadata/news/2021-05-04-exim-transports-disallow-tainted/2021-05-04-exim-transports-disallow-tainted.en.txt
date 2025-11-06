@@ -1,0 +1,28 @@
+Title: Exim>=4.94 transports: tainted not permitted
+Author: Fabian Groffen <grobian@gentoo.org>
+Posted: 2021-05-04
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: mail-mta/exim
+
+The Message Transfer Agent Exim disallows tainted variables in transport
+configurations since version 4.94.  Existing exim.conf configurations
+in /etc/exim need to be reviewed for breakage prior to upgrading to
+ >=mail-mta/exim-4.94 to avoid error conditions at runtime.
+
+Since the release of Exim-4.94, transports refuse to use tainted data in
+constructing a delivery location.  If you use this in your transports,
+your configuration will break, causing errors and possible downtime.
+
+Particularly, the use of $local_part in any transport, should likely be
+updated with $local_part_data.  Check your local_delivery transport,
+which historically used $local_part.
+
+Unfortunately there is not much documentation on "tainted" data for
+Exim[1], and to resolve this, non-official sources need to be used, such
+as [2] and [3].
+
+
+[1] https://lists.exim.org/lurker/message/20201109.222746.24ea3904.en.html
+[2] https://mox.sh/sysadmin/tainted-filename-errors-in-exim-4.94/
+[3] https://jimbobmcgee.wordpress.com/2020/07/29/de-tainting-exim-configuration-variables/

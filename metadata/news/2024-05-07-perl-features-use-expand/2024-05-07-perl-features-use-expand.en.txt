@@ -1,0 +1,31 @@
+Title: dev-lang/perl useflags become a PERL_FEATURES use-expand
+Author: Andreas K. Huettel <dilfridge@gentoo.org>
+Posted: 2024-05-07
+Revision: 2
+News-Item-Format: 2.0
+
+Starting with dev-lang/perl-5.38.2-r3, the three use flags "debug", 
+"ithreads", and "quadmath" of Perl are renamed into a common
+use-expand variable, PERL_FEATURES, which should be set *globally*
+in make.conf.
+
+If you do *not* want to change the settings of your Perl, make
+sure that the new variable PERL_FEATURES contains the same settings
+that were applied to your Perl all along. 
+
+I.e., if you have dev-lang/perl[ithreads] installed, make sure
+to now set in make.conf
+  PERL_FEATURES="ithreads"
+
+If you *want* to change the settings of your Perl, you may have to
+run perl-cleaner after rebuilding dev-lang/perl:
+  perl-cleaner --modules ; perl-cleaner --force --libperl
+
+In either case, a full world update
+  emerge -uDNav world
+is recommended and should also bring your system into a consistent
+state.
+
+Background: This change in the structure of the useflags is
+intended to solve bug 930123. The three useflags influence not only
+how Perl itself is installed, but also all Perl modules...

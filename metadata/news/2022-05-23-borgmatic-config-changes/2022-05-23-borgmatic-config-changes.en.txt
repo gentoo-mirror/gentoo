@@ -1,0 +1,14 @@
+Title: Breaking configuration changes in borgmatic-1.6.0
+Author: Marek Szuba <marecki@gentoo.org>
+Posted: 2022-05-23
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: app-backup/borgmatic
+
+Version 1.6.0 of app-backup/borgmatic has introduced some breaking
+changes to the way Borgmatic handles the merging of its configuration
+files and executes command hooks. If you use these features, please
+review your Borgmatic config files to make sure they continue to work
+correctly with >=app-backup/borgmatic-1.6.0. For details, see [1].
+
+[1] https://github.com/borgmatic-collective/borgmatic/releases/tag/1.6.0

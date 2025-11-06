@@ -1,0 +1,26 @@
+Title: Transition from sys-cluster/singularity to app-containers/apptainer
+Author: Marek Szuba <marecki@gentoo.org>
+Posted: 2022-03-05
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-cluster/singularity
+
+In autumn 2021 the Singularity project joined the Linux Foundation
+and changed its name to Apptainer [1]. The change has been reflected
+in the renaming of files and environment variables, as well as a reset
+of version numbers back to 1.0.0.
+
+Apptainer packages include compatibility symlinks to old Singularity
+executables, provide bash-completion rules for both the old and the new
+name, continue to honour old environment variables, and will upon
+the first run import user data from Singularity directories. Therefore,
+for most users it will be sufficient to deselect the old package and
+install the new one, e.g.:
+
+emerge --deselect sys-cluster/singularity
+emerge app-containers/apptainer
+
+However, customisations made to system-wide configuration
+in /etc/singularity will have to be applied to /etc/apptainer by hand.
+
+[1] https://apptainer.org/news/community-announcement-20211130/

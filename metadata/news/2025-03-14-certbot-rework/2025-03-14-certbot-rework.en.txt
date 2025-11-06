@@ -1,0 +1,66 @@
+Title: Certbot rework and transition
+Author: Thibaud CANALE <thican@thican.net>
+Content-Type: text/plain
+Posted: 2025-03-14
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: app-crypt/acme
+Display-If-Installed: app-crypt/certbot
+Display-If-Installed: app-crypt/certbot-apache
+Display-If-Installed: app-crypt/certbot-dns-cloudflare
+Display-If-Installed: app-crypt/certbot-dns-desec
+Display-If-Installed: app-crypt/certbot-dns-dnsimple
+Display-If-Installed: app-crypt/certbot-dns-nsone
+Display-If-Installed: app-crypt/certbot-dns-rfc2136
+Display-If-Installed: app-crypt/certbot-nginx
+
+Certbot and its modules have been reworked into a single package; this
+should ease maintenance and make delivery faster and more reliable.
+
+Starting from app-crypt/certbot-3.2.0-r100, only this package is
+necessary to install Certbot and its modules thanks to the help of USE
+flags. Some block statements are enforced for modules packages to avoid
+collisions.
+However actions from users are required: @world set and package.use
+changes.
+
+Temporary transition metapackages call for the appropriate USE flags,
+but users still have to change their package.use and later they must
+update their @world set to complete the transition before 2025-06-10
+(around three months from publication), after which these temporary
+transition packages will be removed.
+
+As a reminder, there is a Wiki page for Certbot:
+https://wiki.gentoo.org/wiki/Let%27s_Encrypt
+
+Step by step:
+
+1. In /etc/portage/package.use:
+
+Add an entry for the modules of your choice based on the USE flags of
+the new unified package.  Example:
+
+    app-crypt/certbot	certbot-apache certbot-dns-rfc2136
+
+If you wish to stick with stable you may stop here.  The below steps
+(skipping step 2) will be completed later once the unified package
+stabilizes.  Should you wish to complete the transition now:
+
+2. In /etc/portage/package.accept_keywords: (skip this step and continue
+with step 3 if completing after the unified package stabilizes):
+
+Add a keyword entry for the new unified package.  Example:
+
+     ~app-crypt/certbot-3.2.0	~amd64
+
+3. Clean the old module packages out of your @world or other sets:
+
+    emerge --ask --deselect app-crypt/acme app-crypt/certbot-apache \
+        app-crypt/certbot-dns-cloudflare app-crypt/certbot-dns-desec \
+        app-crypt/certbot-dns-dnsimple app-crypt/certbot-dns-nsone \
+        app-crypt/certbot-dns-rfc2136 app-crypt/certbot-nginx
+
+4. Emerge or update app-crypt/certbot if necessary. This should remove
+previous packages:
+
+    emerge --verbose --ask --changed-use --noreplace app-crypt/certbot

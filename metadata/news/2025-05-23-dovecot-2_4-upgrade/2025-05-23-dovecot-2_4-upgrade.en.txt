@@ -1,0 +1,25 @@
+Title: net-mail/dovecot-2.4.x may break on upgrade
+Author: Eray Aslan <eras@gentoo.org>
+Posted: 2025-05-23
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: net-mail/dovecot
+
+Dovecot-2.4 introduced breaking change to its entire configuration system and
+Dovecot-2.3 configuration files will NOT work after upgrade. Please read
+
+https://doc.dovecot.org/2.4.1/installation/upgrade/2.3-to-2.4.html
+
+before upgrading. We strongly recommend finalizing your Dovecot 2.4
+configuration on a test system before upgrading any production systems.
+
+The following steps typically make the upgrade process easier:
+
+1. Make a note of your current configuration by running doveconf -n
+2. Stop the dovecot daemon
+3. Move ALL your configuration files to a temporary location
+4. Upgrade to dovecot-2.4.x
+5. Read the new configuration files and uncomment as necessary
+6. Compare the new doveconf -n output with the old one and add missing
+configuration settings one by one while checking that the system works after
+each change

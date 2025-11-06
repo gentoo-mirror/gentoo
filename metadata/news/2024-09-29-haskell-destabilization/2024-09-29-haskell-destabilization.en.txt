@@ -1,0 +1,39 @@
+Title: Haskell destabilization
+Author: Matt Turner <mattst88@gentoo.org>
+Posted: 2024-09-29
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: app-admin/haskell-updater
+Display-If-Installed: app-arch/pack
+Display-If-Installed: app-portage/hackport
+Display-If-Installed: app-text/pandoc
+Display-If-Installed: dev-lang/ghc
+Display-If-Installed: dev-lang/whitespace
+Display-If-Installed: dev-util/shelltestrunner
+Display-If-Installed: dev-vcs/darcs
+Display-If-Installed: dev-vcs/git-annex
+Display-If-Installed: dev-vcs/git-repair
+Display-If-Installed: net-mail/list-remote-forwards
+Display-If-Installed: net-mail/mailbox-count
+Display-If-Installed: net-misc/haeredes
+Display-If-Installed: net-misc/hath
+Display-If-Installed: x11-misc/xmobar
+Display-If-Installed: x11-wm/xmonad
+Display-If-Installed: x11-wm/xmonad-contrib
+
+Packaging Haskell software has proven difficult in Gentoo: many packages are
+outdated, unstable versions have not been stabilized in nearly a year, and
+stable versions are rather old.
+
+In an effort to reduce the load on the Haskell maintainers, stable keywords
+will be removed from dev-haskell/* packages and their reverse dependencies on
+October 1.
+
+Users with Haskell packages should add entries to their package.accept_keywords
+for these packages to avoid issues rebuilding or upgrading them in the future.
+
+This change does not preclude stabilizing Haskell packages in the future.
+
+Haskell packaging is mostly taking place in the Haskell repository [1].
+
+[1] https://github.com/gentoo-haskell/gentoo-haskell

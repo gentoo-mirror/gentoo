@@ -1,0 +1,27 @@
+Title: OpenSSH directory configuration changes
+Author: Sam James <sam@gentoo.org>
+Posted: 2023-05-11
+Revision: 2
+News-Item-Format: 2.0
+Display-If-Installed: net-misc/openssh
+
+Gentoo's OpenSSH package will start using the /etc/ssh/sshd_config.d
+and /etc/ssh/ssh_config.d directories for both Gentoo default settings
+and use by the administrator.
+
+The default /etc/ssh/sshd_config and /etc/ssh/ssh_config files will
+respectively include configuration files in /etc/ssh/sshd_config.d/* and
+/etc/ssh/ssh_config.d/*, making it possible for all customization and
+configuration to be done via 'drop-in' files if desired.
+
+Most users will not need to take any action. The only action required
+is if specific Gentoo defaults were overridden in the past, as the new
+ebuilds will install them to new files in the new listed directories.
+
+Such admins will need to edit the new files in the new directories or
+make overrides in their own files in the new directories using a smaller
+number in the filename.
+
+For example, if the system administrator has commented out 'AcceptEnv COLORTERM'
+in /etc/ssh/sshd_config, they will need to do the same in the new
+/etc/ssh/sshd_config.d/9999999gentoo.conf file.

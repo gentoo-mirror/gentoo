@@ -1,0 +1,118 @@
+Title: app-backup/tsm changes to scheduled backups
+Author: Nowa Ammerlaan <nowa@gentoo.org>
+Posted: 2025-09-24
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: >=app-backup/tsm-8.1.27.0
+
+In version 8.1.27.0 some changes were made to the way the init
+service scripts for systemd and openrc are distributed by
+app-backup/tsm. As a result some user intervention may be required.
+
+
+What changed?
+====================
+
+Gentoo now uses the init service scripts distributed by IBM as part
+of the DSM client rpm packages. Previously we used custom versions,
+which came with a number of drawbacks. Notably, in some configurations
+certain files could be skipped by the backup client during a scheduled
+backup operation [1].
+
+To avoid such issues in the future it was decided to avoid straying
+too far from how upstream intends for this software to be used. A side
+effect of this is that the "dsmc" service script was removed, and only
+the (upstream) "dsmcad" service script remains. This affects both
+systemd and openrc.
+
+The DSM Client Acceptor Daemon (dsmcad) is a more lightweight and
+modern alternative to continuously running a "dsmc sched" process. It
+can be configured to manage scheduled backup operations as well as the
+webclient [4].
+
+Note that the localisation option of the dsmcad service is
+configurable in /etc/tivoli/dsmcad.lang. Users may change this
+setting, but please note that IBM recommends using a single-byte
+character set (such as en_US) in order to ensure successful backups of
+all files regardless of the character set used in the filename [1].
+Users who are certain that there systems do not mix filename character
+sets may wish to configure dsmcad to match this character set to
+ensure that log files and restore operations display the filenames
+correctly.
+
+
+User Action Required (systemd)
+====================
+
+Users who are using the DSM backup client with systemd and
+'dsmc.service' to perform scheduled backups, should migrate to the
+more modern "dsmcad.service".
+
+# Verify the status of dsmc
+systemctl status dsmc
+
+If it is enabled, then first configure dsmcad to run the scheduler in
+your /etc/tivoli/dsm.sys file [4]. For example:
+
+# nano /etc/tivoli/dsm.sys
+Servername <MY-SERVER>
+	<snip>
+	ManagedServices  SCHEDULE
+	<snip>
+
+# Then, disable dsmc and enable dsmcad
+systemctl disable --now dsmc
+systemctl enable --now dsmcad
+
+Note that a side-effect of this change is that the output of the
+scheduled backup is no longer written into the systemd journal.
+Instead the output of the acceptor daemon, as well as the scheduled
+backup operations that it runs, can be found in /var/log/tsm/. Thus
+additional adjustments to monitoring scripts may be required.
+
+
+User Action Required (OpenRC)
+====================
+
+Users who are using the DSM backup client on OpenRC systems and are
+currently using '/etc/init.d/dsmc' to perform scheduled backups should
+migrate to the more modern '/etc/init.d/dsmcad'.
+
+# Verify the status of dsmc
+rc-update show
+
+If it is enabled, then first configure dsmcad to run the scheduler in
+your /etc/tivoli/dsm.sys file [4]. For example:
+
+# nano /etc/tivoli/dsm.sys
+Servername <MY-SERVER>
+	<snip>
+	ManagedServices  SCHEDULE
+	<snip>
+
+# Then, disable dsmc and enable dsmcad
+rc-update stop dsmc default
+rc-update del dsmc default
+rc-update start dsmcad default
+rc-update add dsmcad default
+
+
+Questions or issues?
+====================
+
+As usual, please report any issues you find in the 8.1.27.0 version on
+bugs.gentoo.org. And feel free to contact the author of this news item
+on IRC (Nowa) should you have any further questions.
+
+
+Further information
+====================
+
+For further information, please read the following documentation
+pages:
+
+[1] https://www.ibm.com/docs/en/storage-protect/8.1.27?topic=solaris-set-language-environment-variables
+[2] https://www.ibm.com/docs/en/storage-protect/8.1.27?topic=spso-setting-client-scheduler-process-run-as-background-task-start-automatically-startup
+[3] https://www.ibm.com/docs/en/storage-protect/8.1.27?topic=problems-starting-stopping-client-service
+[4] https://www.ibm.com/docs/en/storage-protect/8.1.27?topic=reference-managedservices
+[5] https://www.ibm.com/docs/en/storage-protect/8.1.27?topic=cs-comparison-between-client-acceptor-managed-services-traditional-scheduler-services

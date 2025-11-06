@@ -1,0 +1,44 @@
+Title: OAuth2 Credentials Removed from Chromium
+Author: Jason A. Donenfeld <zx2c4@gentoo.org>
+Posted: 2021-08-11
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: www-client/chromium
+
+In March of this year, Google announced that OAuth2 credentials would be revoked
+for distros shipping Chromium. This was covered in multiple places at the time,
+such as [1,2,3]. Around that time, with 89.0.4389.82, Gentoo removed OAuth2
+credentials from its packages. However, they slipped back in shortly after.
+
+As a result, some users [4] have found that recently Google's SSO does not
+persist between browser sessions; e.g. you have to log back into GMail every
+time you open your browser. This week's changes [5] restore the old behavior
+we had in March, of not shipping Gentoo OAuth2 credentials.
+
+If you find that certain Google services are no longer working, you may wish to
+supply OAuth2 credentials manually, obtained by following the instructions at
+[6]. However, even without supplying such credentials, Google's SSO should now
+be working as expected.
+
+There are now two options for passing these credentials to Chromium via
+
+/etc/chromium/default:
+
+  1. GOOGLE_DEFAULT_CLIENT_ID and GOOGLE_DEFAULT_CLIENT_SECRET environment
+     variables:
+       export GOOGLE_DEFAULT_CLIENT_ID="<client-id>"
+       export GOOGLE_DEFAULT_CLIENT_SECRET="<client-secret>"
+
+  2. --oauth2-client-id and --oauth2-client-secret= command line switches:
+       CHROMIUM_FLAGS+=" --oauth2-client-id=<client-id>"
+       CHROMIUM_FLAGS+=" --oauth2-client-secret=<client-secret>"
+
+Alternatively these environment variables and command line switches may be given
+at the command line for ad-hoc testing.
+
+[1] https://archlinux.org/news/chromium-losing-sync-support-in-early-march/
+[2] https://bodhi.fedoraproject.org/updates/FEDORA-2021-48866282e5
+[3] https://hackaday.com/2021/01/26/whats-the-deal-with-chromium-on-linux-google-at-odds-with-package-maintainers/
+[4] https://bugs.gentoo.org/791871
+[5] https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=fce48ef271bbcaee9afdf0481294da167e665a9b
+[6] http://www.chromium.org/developers/how-tos/api-keys

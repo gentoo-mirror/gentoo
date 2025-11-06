@@ -1,0 +1,95 @@
+Title: KDE Plasma 6.1.4 and Gear 24.05.2 Upgrade
+Author: Andreas Sturmlechner <asturm@gentoo.org>
+Posted: 2024-08-31
+Revision: 2
+News-Item-Format: 2.0
+Display-If-Installed: kde-apps/kio-extras:5
+Display-If-Installed: kde-apps/libkgapi:5
+Display-If-Installed: kde-frameworks/baloo:5
+Display-If-Installed: kde-frameworks/kglobalaccel:5
+Display-If-Installed: kde-frameworks/kguiaddons:5
+Display-If-Installed: kde-frameworks/kuserfeedback:5
+Display-If-Installed: kde-frameworks/kwallet:5
+Display-If-Installed: kde-misc/kio-gdrive:5
+Display-If-Installed: kde-plasma/libplasma:5
+Display-If-Installed: kde-plasma/plasma-workspace:5
+
+Reasons
+=======
+
+KDE Plasma 5 has reached end of life and is no longer supported by Gentoo.
+Qt5 upstream OSS support ended on 2020-12-08, and LTS releases - even with
+considerable effort by KDE community's backports on top - only go so far.
+It is therefore required for all users to upgrade to KDE Plasma 6[1].
+
+At the same time, KDE Gear 24.05.2 is provided with most applications ported
+over to KDE Frameworks 6. As long as KF5-based applications are being shipped
+with the KDE Gear bundle, and other non-KDE Qt5-based applications still
+common in ::gentoo repository, it is advised *not* to disable USE="qt5".
+
+
+Changes
+=======
+
+Not many - much like Qt6, this is mostly an evolution of the existing
+codebase, no disruptive feat.
+
+Plasma Wayland support has come a long way and therefore KDE developers have
+decided to make it the default login session for Plasma 6, even if some
+known papercuts[2] remain. For users affected too much by those, switching
+to the still existing X11 session is as easy as selecting it in the display
+manager of choice. Disabling USE="wayland" is *not* changing this default,
+it will yield no dependency savings, and we advise against doing so. It does
+not affect users' X11 sessions.
+
+In Gentoo:
+
+The 32-bit ~arm/arm keyword was inconsistent across KDE Plasma, KDE
+Frameworks, and KDE Gear, and has been dropped.
+
+The situation for x86 was similar to arm and test failures often blocked
+stabilization. Stable x86 has been dropped, ~x86 was dropped for KDE PIM,
+dev-util/kdevelop and any other dev-qt/qtwebengine:6 reverse dependencies.
+
+
+User Action Required
+====================
+
+For users of a desktop profile[3], no specific upgrade steps are necessary,
+although some precautionary measures are advised before and during upgrade:
+
+- Switch to a standard (Breeze or Oxygen) theme
+- Depclean kde-misc/latte-dock, it is unfit for Plasma 6 (and masked already)
+- Cleanup sets and @world from any SLOT or version pinning of KDE packages
+- If possible, perform the upgrade not inside a running Plasma session
+
+Necessary USE flag changes were already made in desktop profile, therefore
+only users of other profiles should set USE="kf6compat qt6" globally[4].
+
+Users are recommended to run the following command (pretend-only) to identify
+packages in @world which have been removed, to help reduce conflicts:
+
+    emerge -pev @world --backtrack=0
+
+Then for any "no ebuild available" messages, either resolve it by making
+the needed changes, or emerge --deselect them. Then proceed to the world
+upgrade below.
+
+Once the packages become available on your arch, it should be as simple as
+update @world:
+
+    emerge -avuUD @world
+
+Run dispatch-conf (preferred) or etc-update to get updated configuration
+files:
+
+    dispatch-conf
+
+Then depclean:
+
+    emerge -ac
+
+[1] https://kde.org/plasma-desktop/
+[2] https://community.kde.org/Plasma/Wayland_Known_Significant_Issues
+[3] https://wiki.gentoo.org/wiki/KDE#Profile
+[4] https://wiki.gentoo.org/wiki//etc/portage/package.use

@@ -1,0 +1,34 @@
+Title: Upgrading to TeX Live 2023
+Author: Florian Schmaus <flow@gentoo.org>
+Posted: 2024-06-05
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: <app-text/texlive-2023
+
+
+Upgrading to TeX Live 2023
+==========================
+
+We will soon start the stabilization of TeX Live 2023 in Gentoo.
+
+Since TeX Live 2023 underwent a major overhaul, including TeX Live package
+moves between the according Gentoo packages, there are file conflicts
+between Gentoo's TeX Live 2021 and 2023 packages. To avoid those
+conflicts, it is recommended to uninstall all of dev-texlive prior
+updating TeX Live to version 2023.
+
+Before uninstalling dev-texlive packages, first check if your system has
+a pending texlive update (1). If this is the case, uninstall the old
+dev-texlive packages (2) and emerge the update (3).
+
+1. emerge -p '>=app-text/texlive-2023'
+[only proceed if texlive update is available]
+2. emerge --unmerge --deselect=n 'dev-texlive/*'
+3. emerge '>=app-text/texlive-2023'
+
+The steps above are equivalent to the following bash snippet:
+
+if emerge -p '>=app-text/texlive-2023'; then
+    emerge --unmerge --deselect=n 'dev-texlive/*'
+    emerge '>=app-text/texlive-2023'
+fi

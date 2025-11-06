@@ -1,0 +1,84 @@
+Title: sys-apps/openrc user services introduction
+Author: Sam James <sam@gentoo.org>
+Posted: 2025-09-04
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-apps/openrc
+
+OpenRC 0.62 (*) introduces user services as a new feature. The functionality
+is documented on the wiki [0] and has a similar interface to conventional
+system-wide services.
+
+Support for user services is enabled by default via the pam_openrc module
+in sys-auth/pambase, but it can be disabled via an OpenRC configuration
+option as described below.
+
+Some ebuilds already provide OpenRC user service init scripts, like
+app-editors/emacs. More will follow, but use of user services is optional.
+
+Requirements
+============
+
+User services currently require the XDG_RUNTIME_DIR environment variable to
+be set, which may be done via sys-auth/elogind, sys-apps/systemd, or manually
+via e.g. pam_env. In the future, pam_xdg may be packaged [1] as another option.
+
+If the XDG_RUNTIME_DIR environment variable isn't set and user services have
+not been disabled, the setup will fail gracefully but will appear in syslog
+and rc-update.
+
+Opting-out of user services
+===========================
+
+If users wish to disable OpenRC user services, they can set
+rc_autostart_user="NO" in /etc/rc.conf:
+
+ ...
+ # Set to "NO" if you don't want pam_openrc autostarting user services. This
+ # effectively disables the pam module, without the need of removing it from
+ # the pam configuration files.
+ rc_autostart_user="NO"
+ ...
+
+~/.profile and friends
+======================
+
+After stabilization, some users reported hangs when logging in [2]. None
+were reported during the extensive period of testing in ~arch or by other
+distributions who deployed newer versions of OpenRC. User services require
+that ~/.profile, ~/.bash_profile run safely under a non-interactive
+shell.
+
+Commands in these shell startup files may be executed by a non-interactive
+shell so commands that require a TTY, reading from stdin, and so on should
+be guarded with a check for TTY like:
+
+ if [ -t 0 ] ; then
+     # Interactive commands here
+     ...
+ fi
+
+Please make sure to check your shell startup files for suspicious constructs
+like the following:
+
+ ...
+ if [ -x /usr/bin/keychain ] ; then # BAD
+     keychain ...
+ fi
+ ...
+
+... replacing them with:
+
+ ...
+ if [ -t 0 ] && [ -x /usr/bin/keychain ] ; then # GOOD
+     keychain ...
+ fi
+ ...
+
+(*) User services were originally in sys-apps/openrc-navi and later as
+    part of >= OpenRC 0.62. The functionality was declared stable with 0.62.6
+    which was the first version with User Services stabled in Gentoo.
+
+[0] https://wiki.gentoo.org/wiki/OpenRC#User_services
+[1] https://bugs.gentoo.org/908431
+[2] https://bugs.gentoo.org/962214

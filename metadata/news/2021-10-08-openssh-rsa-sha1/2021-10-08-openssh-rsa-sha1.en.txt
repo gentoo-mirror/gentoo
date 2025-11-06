@@ -1,0 +1,26 @@
+Title: OpenSSH RSA SHA-1 signatures
+Author: Mike Gilbert <floppym@gentoo.org>
+Posted: 2021-10-08
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: net-misc/openssh
+
+As of version 8.8, OpenSSH disables RSA signatures using the SHA-1
+hash algorithm by default. This change affects both the client and
+server components.
+
+After upgrading to this version, you may have trouble connecting to
+older SSH servers that do not support the newer RSA/SHA-256/SHA-512
+signatures. Support for these signatures was added in OpenSSH 7.2.
+
+As well, you may have trouble using older SSH clients to connect to a
+server running OpenSSH 8.8 or higher. Some older clients do not
+automatically utilize the newer hashes. For example, PuTTY before
+version 0.75 is affected.
+
+To resolve these problems, please upgrade your SSH client/server
+whereever possible. If this is not feasible, support for the SHA-1
+hashes may be re-enabled using the following config options:
+
+HostkeyAlgorithms +ssh-rsa
+PubkeyAcceptedAlgorithms +ssh-rsa

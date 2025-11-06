@@ -1,0 +1,148 @@
+Title: Python 3.13 stanie się domyślną wersją począwszy od 2025-05-01
+Author: Michał Górny <mgorny@gentoo.org>
+Translator: Michał Górny <mgorny@gentoo.org>
+Posted: 2025-03-24
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: dev-lang/pypy:3.10
+Display-If-Installed: dev-lang/python:3.10
+Display-If-Installed: dev-lang/python:3.11
+Display-If-Installed: dev-lang/python:3.12
+
+Gentoo planuje zmienić domyślną wersję Pythona z 3.12 na 3.13 w dniu
+1. maja 2025 r.  Użytkownicy, którzy nie zmieniali wartości flag
+PYTHON_TARGETS oraz PYTHON_SINGLE_TARGET nie muszą nic robić.  Menadżer
+pakietów automatycznie zaktualizuje wsparcie Pythona do nowej wersji
+przy kolejnej aktualizacji systemu po tej zmianie.
+
+Informacje zawarte w tej wiadomości przeznaczone są dla użytkowników,
+którzy zmieniali preferowaną wersję Pythona bądź chcą przeprowadzić
+aktualizację w bezpieczniejszy sposób.
+
+Uwaga: standardowa metoda aktualizacji podmienia obsługiwaną wersję
+Pythona w poszczególnych pakietach w miarę ich aktualizacji.
+Oznacza to, że aktualizacja systemu możliwa będzie wyłącznie, jeżeli
+wszystkie zainstalowane pakiety obsługują nową wersję.  W trakcie
+aktualizacji zależności poszczególnych zainstalowanych programów mogą
+stać się tymczasowo niedostępne, nie powinno to jednak mieć wpływu
+na działanie już uruchomionych aplikacji.
+
+
+Użytkownicy, którzy wykorzystują plik make.conf do ustawienia wartości
+zmiennych PYTHON_TARGETS lub PYTHON_SINGLE_TARGET powinni usunąć
+te wartości, gdyż będą one kolidowały z przykładami package.use
+przedstawionymi w tej wiadomości.  Wykorzystywanie pliku make.conf
+do konfiguracji tych zmiennych jest niewskazane, gdyż ustawienia te
+nadpisują domyślne wartości flag zawarte w poszczególnych pakietach.
+Dalszy ciąg tej wiadomości zakłada wykorzystywanie package.use
+lub równoważnego pliku konfiguracyjnego.
+
+
+Dostępne są następujące możliwości aktualizacji:
+
+1. Automatyczna aktualizacja wersji Pythona.  Aby skorzystać z tej
+   opcji, należy usunąć zmienne PYTHON_TARGETS
+   oraz PYTHON_SINGLE_TARGET.  Wówczas menadżer pakietów automatycznie
+   przeprowadzi aktualizację ilekroć zmieni się domyślna wersja Pythona
+   w Gentoo.  Niemniej, może zaistnieć konieczność ręcznej aktualizacji
+   w przypadku wystąpienia problemów.
+
+2. Odroczenie aktualizacji poprzez wymuszenie poprzedniej wersji
+   w pliku package.use.
+
+3. Wymuszenie wcześniejszej aktualizacji poprzez podanie nowej wersji
+   i dokonanie aktualizacji systemu.
+
+4. Zastosowanie bezpiecznego podejścia (tj. zmniejszającego ryzyko
+   niesprawnych programów w trakcie aktualizacji) poprzez wykonanie
+   aktualizacji w kilku krokach.  Proces ten jest szczegółowo opisany
+   w dalszej części wiadomości.
+
+5. Zastosowanie dowolnej kombinacji zmiennych PYTHON_TARGETS
+   oraz PYTHON_SINGLE_TARGET.
+
+
+Odroczenie aktualizacji
+=======================
+Aby odroczyć aktualizację do późniejszego terminu, należy wymusić
+poprzednią wersję Pythona:
+
+    */* PYTHON_TARGETS: -* python3_12
+    */* PYTHON_SINGLE_TARGET: -* python3_12
+
+W ten sposób Python 3.12 zostanie wymuszony na stałe i przyszłe
+aktualizacje zostaną zablokowane.  Należy jednak pamiętać, że jest
+to rozwiązanie tymczasowe i w przyszłości aktualizacja stanie się
+konieczna.
+
+
+Wymuszenie aktualizacji
+=======================
+Aby wymusić aktualizację wcześniej, należy wybrać Pythona 3.13:
+
+    */* PYTHON_TARGETS: -* python3_13
+    */* PYTHON_SINGLE_TARGET: -* python3_13
+
+Zalecane jest jednak usunięcie tych ustawień po podanym wyżej terminie,
+aby nie kolidowały w przyszłości z kolejną zmianą domyślnej wersji
+Pythona.
+
+
+Bezpieczna procedura aktualizacji
+=================================
+Bezpieczniejszą alternatywą do standardowego procesu jest wprowadzenie
+wsparcia Pythona 3.13 w pierwszym kroku, a następnie usunięcie Pythona
+3.12.  Należy jednak pamiętać, że będzie wymagało to dwukrotnego
+przebudowania wszystkich pakietów używających Pythona, tak więc łączny
+czas aktualizacji zostanie wydłużony.
+
+Najpierw załączyć należy obydwie wersje Pythona i przeprowadzić
+aktualizację systemu:
+
+    */* PYTHON_TARGETS: -* python3_12 python3_13
+    */* PYTHON_SINGLE_TARGET: -* python3_12
+
+Następnie przełączyć należy wartość PYTHON_SINGLE_TARGET i przebudować
+pakiety używające tych flag:
+
+    */* PYTHON_TARGETS: -* python3_12 python3_13
+    */* PYTHON_SINGLE_TARGET: -* python3_13
+
+W ostatnim kroku należy wyłączyć poprzednią wersję i przeprowadzić
+kolejną aktualizację:
+
+    */* PYTHON_TARGETS: -* python3_13
+    */* PYTHON_SINGLE_TARGET: -* python3_13
+
+Po terminie zmiany domyślnych wartości, konfigurację tę można usunąć.
+Alternatywnie, pozostawienie jej zablokuje przyszłą aktualizację
+do Pythona 3.14 i pozwoli na ręczne przeprowadzenie bezpieczniej
+aktualizacji.
+
+
+Proces aktualizacji
+===================
+Usunięcie Pythona 3.12 wymaga, by odpowiednie flagi zostały jednocześnie
+wyłączone w całym drzewie zależności.  Jeżeli niektóre z zainstalowanych
+pakietów nie zostaną uwzględnione w planowanej aktualizacji, mogą one
+zablokować ten proces.  Dlatego też istotne jest przeprowadzenie
+aktualizacji przy pomocy parametrów `--deep --changed-use @world` bądź
+równoważnych, jak również wcześniejsze usunięcie niepotrzebnych
+pakietów.  Można tego dokonać używając poleceń:
+
+    emerge --depclean
+    emerge -1vUD @world
+    emerge --depclean
+
+
+Inne implementacje Pythona
+==========================
+W tym samym czasie, Gentoo usunie wsparcie flag dla Pythona 3.10
+(flaga python3_10) oraz PyPy 3.10 (flaga pypy3).  Konfiguracja systemów,
+które korzystały wcześniej z flagi pypy3 musi zostać zaktualizowana
+do flag, odpowiadających poszczególnym wersjom PyPy, jak:
+
+    */* PYTHON_TARGETS: pypy3_11
+
+Zwracamy uwagę, że wsparcie PyPy dostępne jest jedynie dla systemów,
+akceptujących paczki ~arch.
