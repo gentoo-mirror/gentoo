@@ -13,6 +13,8 @@ EAPI=8
 # USE=bundled-toolchain is intended for users who want to use the same toolchain
 # as the upstream releases. It's also a good fallback in case we fall behind
 # and need to get a release out quickly (less likely with `dev` in-tree).
+# We can't rely on it as a default since the toolchain is only shipped for x86-64;
+# other architectures will need to use system toolchain.
 
 # Since m133 we are using CI-generated tarballs from
 # https://github.com/chromium-linux-tarballs/chromium-tarballs/
@@ -24,8 +26,8 @@ EAPI=8
 GN_MIN_VER=0.2235
 # chromium-tools/get-chromium-toolchain-strings.py
 TEST_FONT=a28b222b79851716f8358d2800157d9ffe117b3545031ae51f69b7e1e1b9a969
-BUNDLED_CLANG_VER=llvmorg-21-init-16348-gbd809ffb-15
-BUNDLED_RUST_VER=22be76b7e259f27bf3e55eb931f354cd8b69d55f-3
+BUNDLED_CLANG_VER=llvmorg-22-init-8940-g4d4cb757-4
+BUNDLED_RUST_VER=15283f6fe95e5b604273d13a428bab5fc0788f5a-1
 RUST_SHORT_HASH=${BUNDLED_RUST_VER:0:10}-${BUNDLED_RUST_VER##*-}
 NODE_VER=22.11.0
 
@@ -49,9 +51,12 @@ DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
 PPC64_HASH="a85b64f07b489b8c6fdb13ecf79c16c56c560fc6"
 PATCH_V="${PV%%\.*}"
+COPIUM_COMMIT="46d68912da04d9ed14856c50db986d5c8e786a4b"
 SRC_URI="https://github.com/chromium-linux-tarballs/chromium-tarballs/releases/download/${PV}/chromium-${PV}-linux.tar.xz
 	!bundled-toolchain? (
 		https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
+		https://codeberg.org/selfisekai/copium/archive/${COPIUM_COMMIT}.tar.gz
+			-> chromium-patches-copium-${COPIUM_COMMIT:0:10}.tar.gz
 	)
 	bundled-toolchain? (
 		https://gsdview.appspot.com/chromium-browser-clang/Linux_x64/clang-${BUNDLED_CLANG_VER}.tar.xz
@@ -78,7 +83,7 @@ SLOT="0/stable"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
 if [[ ${SLOT} != "0/dev" ]]; then
-	KEYWORDS="amd64 arm64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
@@ -86,8 +91,7 @@ IUSE="+X ${IUSE_SYSTEM_LIBS} bindist bundled-toolchain cups debug ffmpeg-chromiu
 IUSE+=" +proprietary-codecs pulseaudio qt6 +rar +screencast selinux test +vaapi +wayland +widevine cpu_flags_ppc_vsx3"
 RESTRICT="
 	!bindist? ( bindist )
-	!test? ( test )
-"
+	test" #!test? ( test ) # Since M142 tests have been segfaulting on Gentoo systems; disabling for now.
 
 REQUIRED_USE="
 	!headless? ( || ( X wayland ) )
@@ -108,6 +112,7 @@ COMMON_X_DEPEND="
 	x11-libs/libxshmfence:=
 "
 
+# sys-libs/zlib: https://bugs.gentoo.org/930365; -ng is not compatible.
 COMMON_SNAPSHOT_DEPEND="
 	system-icu? ( >=dev-libs/icu-73.0:= )
 	>=dev-libs/libxml2-2.12.4:=[icu]
@@ -123,7 +128,7 @@ COMMON_SNAPSHOT_DEPEND="
 	>=media-libs/libwebp-0.4.0:=
 	media-libs/mesa:=[gbm(+)]
 	>=media-libs/openh264-1.6.0:=
-	virtual/zlib:=
+	sys-libs/zlib:=
 	!headless? (
 		dev-libs/glib:2
 		>=media-libs/alsa-lib-1.0.19:=
@@ -153,7 +158,7 @@ COMMON_DEPEND="
 	net-misc/curl[ssl]
 	sys-apps/dbus:=
 	media-libs/flac:=
-	virtual/minizip:=
+	sys-libs/zlib:=[minizip]
 	!headless? (
 		>=app-accessibility/at-spi2-core-2.46.0:2
 		media-libs/mesa:=[X?,wayland?]
@@ -217,7 +222,7 @@ BDEPEND="
 	dev-lang/perl
 	>=dev-util/gperf-3.2
 	dev-vcs/git
-	>=net-libs/nodejs-${NODE_VER}:0/${NODE_VER%%.*}[inspector]
+	>=net-libs/nodejs-${NODE_VER}[inspector]
 	>=sys-devel/bison-2.4.3
 	sys-devel/flex
 	virtual/pkgconfig
@@ -374,7 +379,10 @@ pkg_setup() {
 src_unpack() {
 	unpack ${P}-linux.tar.xz
 	# These should only be required when we're not using the official toolchain
-	use !bundled-toolchain && unpack chromium-patches-${PATCH_V}.tar.bz2
+	if use !bundled-toolchain; then
+		unpack chromium-patches-${PATCH_V}.tar.bz2
+		unpack chromium-patches-copium-${COPIUM_COMMIT:0:10}.tar.gz
+	fi
 
 	use pgo && unpack chromium-profiler-0.2.tar
 
@@ -464,21 +472,26 @@ src_prepare() {
 	# Calling this here supports resumption via FEATURES=keepwork
 	python_setup
 
+	# To know which patches are safe to drop from files/ after tidying up old ebuilds:
+	# comm -13 \
+	# 	<(grep 'FILESDIR' *.ebuild | grep patch | grep -o '\${FILESDIR}/[^") ]*' \
+	#		| sed 's|\${FILESDIR}/|files/|; s|\${PN}|chromium|' | sort -u) \
+	# 	<(find files/ -name "*.patch" | sort)
+
 	local PATCHES=(
-		"${FILESDIR}/chromium-cross-compile.patch"
-		"${FILESDIR}/chromium-109-system-zlib.patch"
-		"${FILESDIR}/chromium-111-InkDropHost-crash.patch"
-		"${FILESDIR}/chromium-131-unbundle-icu-target.patch"
-		"${FILESDIR}/chromium-134-bindgen-custom-toolchain.patch"
-		"${FILESDIR}/chromium-135-oauth2-client-switches.patch"
-		"${FILESDIR}/chromium-135-map_droppable-glibc.patch"
-		"${FILESDIR}/chromium-138-nodejs-version-check.patch"
+		"${FILESDIR}/${PN}-cross-compile.patch"
+		"${FILESDIR}/${PN}-109-system-zlib.patch"
+		"${FILESDIR}/${PN}-131-unbundle-icu-target.patch"
+		"${FILESDIR}/${PN}-134-bindgen-custom-toolchain.patch"
+		"${FILESDIR}/${PN}-135-oauth2-client-switches.patch"
+		"${FILESDIR}/${PN}-138-nodejs-version-check.patch"
+		"${FILESDIR}/${PN}-142-iwyu-field-form-data.patch"
 	)
 
 	# https://issues.chromium.org/issues/442698344
 	# Unreleased fontconfig changed magic numbers and google have rolled to this version
 	if has_version "<=media-libs/fontconfig-2.17.1"; then
-		PATCHES+=( "${FILESDIR}/chromium-140-work-with-old-fontconfig-again.patch" )
+		PATCHES+=( "${FILESDIR}/chromium-142-work-with-old-fontconfig.patch" )
 	fi
 
 	if use bundled-toolchain; then
@@ -554,15 +567,16 @@ src_prepare() {
 				die "Failed to tell GN that we have adler and not adler2"
 		fi
 
-		# chromium@0420449584e2afb7473393f536379efe194ba23c
-		# this crate is not included in the latest versions of Rust,
-		# and apparently has been unnecessary in Chromium for a long time.
-				sed -i '/unicode_width/d' build/rust/std/BUILD.gn ||
-			die "Failed to remove unicode_width from build/rust/std/BUILD.gn"
-
 		if ver_test ${RUST_SLOT} -lt "1.89.0"; then
 			# The rust allocator was changed in 1.89.0, so we need to patch sources for older versions
 			PATCHES+=( "${FILESDIR}/chromium-140-__rust_no_alloc_shim_is_unstable.patch" )
+		fi
+
+		if ver_test ${RUST_SLOT} -lt "1.91.0"; then
+			PATCHES+=(
+				"${WORKDIR}/copium/cr142-crabbyavif-gn-rust-pre1.91.patch"
+				"${WORKDIR}/copium/cr142-crabbyavif-src-rust-pre1.91.patch"
+			)
 		fi
 	fi
 
@@ -602,7 +616,6 @@ src_prepare() {
 		buildtools/third_party/libc++
 		buildtools/third_party/libc++abi
 		net/third_party/mozilla_security_manager
-		net/third_party/nss
 		net/third_party/quic
 		net/third_party/uri_template
 		third_party/abseil-cpp
@@ -686,6 +699,11 @@ src_prepare() {
 		third_party/farmhash
 		third_party/fast_float
 		third_party/fdlibm
+		third_party/federated_compute/chromium/fcp/confidentialcompute
+		third_party/federated_compute/src/fcp/base
+		third_party/federated_compute/src/fcp/confidentialcompute
+		third_party/federated_compute/src/fcp/protos/confidentialcompute
+		third_party/federated_compute/src/fcp/protos/federatedcompute
 		third_party/ffmpeg
 		third_party/fft2d
 		third_party/flatbuffers
@@ -728,6 +746,7 @@ src_prepare() {
 		third_party/libdrm
 		third_party/libgav1
 		third_party/libjingle
+		third_party/libpfm4
 		third_party/libphonenumber
 		third_party/libsecret
 		third_party/libsrtp
@@ -762,6 +781,8 @@ src_prepare() {
 		third_party/nearby
 		third_party/neon_2_sse
 		third_party/node
+		third_party/oak/chromium/proto
+		third_party/oak/chromium/proto/attestation
 		third_party/omnibox_proto
 		third_party/one_euro_filter
 		third_party/openscreen
@@ -853,11 +874,11 @@ src_prepare() {
 		third_party/zlib/google
 		third_party/zxcvbn-cpp
 		url/third_party/mozilla
-		v8/third_party/siphash
-		v8/third_party/utf8-decoder
 		v8/third_party/glibc
 		v8/third_party/inspector_protocol
 		v8/third_party/rapidhash-v8
+		v8/third_party/siphash
+		v8/third_party/utf8-decoder
 		v8/third_party/v8
 		v8/third_party/valgrind
 
@@ -1052,6 +1073,7 @@ chromium_configure() {
 		myconf_gn+=(
 			"is_clang=true"
 			"clang_use_chrome_plugins=false"
+			"use_clang_modules=false" # M141 enables this for the linux platform by default.
 			"use_lld=true"
 			'custom_toolchain="//build/toolchain/linux/unbundle:default"'
 			# From M127 we need to provide a location for libclang.
@@ -1474,6 +1496,13 @@ src_test() {
 		CriticalProcessAndThreadSpotChecks/HangWatcherAnyCriticalThreadTests.AnyCriticalThreadHung/ThreadPoolIsNotCritical
 		# M140
 		CriticalProcessAndThreadSpotChecks/HangWatcherAnyCriticalThreadTests.AnyCriticalThreadHung/GpuProcessIsCritical
+		# M142 - needs investigation if they persist into beta
+		AlternateTestParams/PartitionAllocTest.Realloc/2
+		AlternateTestParams/PartitionAllocTest.Realloc/3
+		AlternateTestParams/PartitionAllocTest.ReallocDirectMapAligned/2
+		AlternateTestParams/PartitionAllocTest.ReallocDirectMapAligned/3
+		# M142 - new beta failures
+		'LazyThreadPoolTaskRunnerEnvironmentTest.*'
 	)
 	local test_filter="-$(IFS=:; printf '%s' "${skip_tests[*]}")"
 	# test-launcher-bot-mode enables parallelism and plain output
