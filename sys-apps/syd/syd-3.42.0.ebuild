@@ -102,6 +102,7 @@ CRATES="
 	ipnet@2.11.0
 	iprange@0.6.7
 	is_terminal_polyfill@1.70.2
+	itertools@0.14.0
 	itoa@1.0.15
 	js-sys@0.3.82
 	keccak@0.1.5
@@ -109,11 +110,11 @@ CRATES="
 	lexis@0.2.3
 	lexopt@0.3.1
 	libc@0.2.177
-	libcgroups@0.5.6
-	libcontainer@0.5.6
+	libcgroups@0.5.7
+	libcontainer@0.5.7
 	libloading@0.8.9
 	libmimalloc-sys@0.1.44
-	liboci-cli@0.5.6
+	liboci-cli@0.5.7
 	libredox@0.1.10
 	libseccomp-sys@0.3.0
 	libseccomp@0.4.0
@@ -144,6 +145,7 @@ CRATES="
 	once_cell_polyfill@1.70.2
 	option-ext@0.2.0
 	parse-size@1.1.0
+	pathrs@0.2.1
 	phf@0.11.3
 	phf_codegen@0.11.3
 	phf_generator@0.11.3
@@ -205,6 +207,7 @@ CRATES="
 	siphasher@1.0.1
 	smallstr@0.2.0
 	smallvec@1.15.1
+	static_assertions@1.1.0
 	strsim@0.11.1
 	strum@0.27.2
 	strum_macros@0.27.2
