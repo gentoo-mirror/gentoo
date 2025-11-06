@@ -1,0 +1,67 @@
+<!-- This file is used for keeping the new mirrors.xml file -->
+
+<!--
+  element: mirrors
+  description: A set of mirrorgroups
+  example: <mirrors>
+             <mirrorgroup country="US" region="North America">
+               ...
+             </mirrorgroup>
+             ...
+           </mirrors>
+-->
+
+<!ELEMENT mirrors (mirrorgroup*)>
+
+<!--
+  element: mirrorgroup
+  description: Group mirrors by region and country.
+  example: <mirrorgroup region="South America" country="BZ">
+             <mirror>
+               ...
+             </mirror>
+             ...
+           </mirrorgroup
+-->
+
+<!ELEMENT mirrorgroup (mirror*)>
+<!ATTLIST mirrorgroup region CDATA #REQUIRED
+                      country CDATA #REQUIRED
+                      countryname CDATA #IMPLIED>
+<!--
+  element: mirror
+  description: One per mirror; name the mirror and provide one or more uris
+  optionally: provide GPS coordinates, a city and a bug id.
+  example: <mirror city="Corvallis"
+                   coordinates="44.5646,-123.2620"
+                   gentoo-bug="12345">
+             <name>OSU Open Source Lab</name>
+             <uri protocol="http">http://gentoo.osuosl.org/</uri>
+             <uri protocol="ftp">ftp://gentoo.osuosl.org/</uri>
+           </mirror>
+-->
+<!ELEMENT mirror (name, uri+)>
+<!ATTLIST mirror
+    city CDATA #IMPLIED
+    coordinates CDATA #IMPLIED
+    gentoo-bug CDATA #IMPLIED>
+
+<!--
+  element: name
+  description: Name of the mirror
+  note: Do not include a country and protocol pair, "(USA/http)" as they will
+        be built by the XSL.
+  example: <name>OSU Open Source Lab</name>
+-->
+<!ELEMENT name (#PCDATA)>
+
+<!--
+  element: uri
+  description: A Uniform Resource Locator for a given mirror
+  example: <uri protocol='http' ipv4='y' ipv6='y'>http://gentoo.osuosl.org/</uri>
+-->
+<!ELEMENT uri (#PCDATA)>
+<!ATTLIST uri ipv4 (Y|y|N|n) "y"
+              ipv6 (Y|y|N|n) "n"
+              partial (Y|y|N|n) "n"
+              protocol (http|ftp|rsync) "http">

@@ -1,0 +1,97 @@
+<!-- Metadata for a category -->
+<!ELEMENT catmetadata ( (longdescription)* )>
+
+<!-- Metadata for a package -->
+<!ELEMENT pkgmetadata ( (maintainer|longdescription|slots|stabilize-allarches|use|upstream)* )>
+
+  <!-- One tag for each maintainer of a package, multiple allowed-->
+  <!ELEMENT maintainer (email|name|description)+>
+  <!-- type attribute determines whether the maintainer is a person or a project.
+    Unknown is added to handle <maintainer/>s in <upstream/>s. Using it (or no
+    explicit type) for Gentoo maintainers is prohibited. -->
+  <!ATTLIST maintainer type (person|project|unknown) "unknown">
+  <!-- proxied attribute determines whether the maintainer is a proxied
+    maintainer (yes), regular dev (no) or a proxy for somebody (proxy). It is
+    valid only for Gentoo maintainers. -->
+  <!ATTLIST maintainer proxied (yes|no|proxy) "no">
+
+  <!-- A long description of the package in freetext-->
+  <!ELEMENT longdescription (#PCDATA|pkg|cat)* >
+
+  <!-- A description of the packages SLOTs -->
+  <!ELEMENT slots ((slot)*,subslots?) >
+    <!-- A particular SLOT -->
+    <!ELEMENT slot (#PCDATA)* >
+      <!-- name attribute holds the name of the SLOT, for sub-SLOTS
+      use the subslots element. A slot name of '*' can be used to
+      indicate a single description applying to all the slots in which
+      case no other <slot/> elements may be present. -->
+      <!ATTLIST slot name CDATA #REQUIRED >
+    <!-- The meaning of sub-SLOTs for the whole package -->
+    <!ELEMENT subslots (#PCDATA)* >
+
+  <!-- whether it's possible to stabilize ALLARCHES -->
+  <!ELEMENT stabilize-allarches EMPTY>
+
+  <!-- description of what this USE flag does for this package -->
+  <!ELEMENT use (flag)* >
+    <!ELEMENT flag (#PCDATA|pkg|cat)* >
+      <!-- name attribute holds the name of the USE flag -->
+      <!ATTLIST flag name CDATA #REQUIRED >
+
+  <!-- upstream metadata information (maintainers, upstream docs,..) -->
+  <!ELEMENT upstream (maintainer|changelog|doc|bugs-to|remote-id)* >
+    <!-- Due to the limitation of DTD this will also allow a status
+      attribute for the package maintainer element. Please note that
+      the usage of the status attribute is nevertheless _only_ allowed
+      in the upstream maintainer element. -->
+    <!ATTLIST maintainer status (active|inactive|unknown) "unknown" >
+    <!-- URL where the upstream changelog can be found -->
+    <!ELEMENT changelog (#PCDATA)>
+    <!-- URL where the location of the upstream documentation can be found -->
+    <!ELEMENT doc (#PCDATA)>
+      <!ATTLIST doc lang CDATA "en" >
+    <!-- location where to report bugs
+      (may also be an email address prefixed with mailto:) -->
+    <!ELEMENT bugs-to (#PCDATA)>
+    <!-- specify a type of package identification tracker -->
+    <!ELEMENT remote-id (#PCDATA)>
+      <!ATTLIST remote-id type (bitbucket|codeberg|cpan|cpan-module|cpe|cran|ctan|freedesktop-gitlab|gentoo|github|gitlab|gnome-gitlab|google-code|hackage|heptapod|kde-invent|launchpad|osdn|pear|pecl|pypi|rubygems|savannah|savannah-nongnu|sourceforge|sourcehut|vim) #REQUIRED>
+
+  <!-- category/package information for cross-linking in descriptions
+    and useflag descriptions -->
+  <!ELEMENT pkg (#PCDATA) >
+  <!ELEMENT cat (#PCDATA) >
+
+<!-- Common attributes -->
+
+<!-- the lang attribute, specifies the language of this tag in the
+  form of an IETF (BCP 47) language tag. This is only useful for
+  descriptions of various kinds. If a tag with this attribute is
+  included there must be a description in the default language "en" -->
+  <!ATTLIST description lang CDATA "en" >
+  <!ATTLIST longdescription lang CDATA "en" >
+  <!ATTLIST slots lang CDATA "en" >
+  <!ATTLIST use lang CDATA "en" >
+
+<!-- The restrict attribute, this attribute specifies restrictions on
+  the applicability of tags on versions. The format of this attribute is
+  equal to the format of DEPEND lines in ebuilds. Only package
+  dependency specifications conforming to EAPI=0 syntax are allowed.
+  The dependency specification may only contain references to the
+  package itself and no other package.
+
+  For required tags, there must be either an unrestricted version, or a
+  version that is default restricted. -->
+  <!ATTLIST maintainer restrict CDATA #IMPLIED >
+  <!ATTLIST longdescription restrict CDATA #IMPLIED >
+  <!ATTLIST flag restrict CDATA #IMPLIED >
+  <!ATTLIST stabilize-allarches restrict CDATA #IMPLIED >
+
+<!-- standard parts -->
+<!-- an email address -->
+<!ELEMENT email (#PCDATA) >
+<!-- the name of a person (maintainer, contributor) -->
+<!ELEMENT name (#PCDATA) >
+<!-- A description of a maintainer or change -->
+<!ELEMENT description (#PCDATA) >
