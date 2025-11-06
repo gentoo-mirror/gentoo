@@ -3,30 +3,30 @@
 
 EAPI=8
 
-NEED_EMACS="27.1"
+NEED_EMACS="28.1"
 
 inherit elisp
 
-DESCRIPTION="Store EIEIO objects using EmacSQL"
-HOMEPAGE="https://github.com/magit/closql/"
+DESCRIPTION="GNU Emacs mode to edit OpenSCAD files"
+HOMEPAGE="https://github.com/openscad/emacs-scad-mode/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/magit/${PN}.git"
+	EGIT_REPO_URI="https://github.com/openscad/emacs-${PN}"
 else
-	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
+	SRC_URI="https://github.com/openscad/emacs-${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
+	S="${WORKDIR}/emacs-${P}"
 
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-30.1
-	>=app-emacs/emacsql-4.3.1
+	app-emacs/compat
 "
 BDEPEND="
 	${RDEPEND}
