@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/GNOME/glycin/
 INHERIT=cargo meson
 IUSE=heif jpeg2k jpegxl svg test debug
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 ~arm64
 LICENSE=|| ( LGPL-2.1+ MPL-2.0 ) Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD GPL-3+ IJG ISC LGPL-3+ MIT Unicode-3.0 || ( LGPL-2.1+ MPL-2.0 )
 RDEPEND=!>=media-libs/glycin-loaders-2:0 >=dev-libs/glib-2.68.0:2 >=sys-libs/libseccomp-2.5.0 heif? ( >=media-libs/libheif-1.17.0:= ) jpegxl? ( >=media-libs/libjxl-0.11.0:= ) svg? ( >=gnome-base/librsvg-2.52.0:2 >=x11-libs/cairo-1.17.0 )
 REQUIRED_USE=test? ( heif jpegxl )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=2
 SRC_URI=https://gitlab.gnome.org/GNOME/glycin/-/archive/2.0.3/glycin-2.0.3.tar.bz2 https://github.com/gentoo-crate-dist/glycin/releases/download/2.0.3/glycin-2.0.3-crates.tar.xz test? ( https://gitlab.gnome.org/sophie-h/test-images/-/archive/b148bcf70847d6f126a8e83e27e1c59d2e474adf/test-images-b148bcf70847d6f126a8e83e27e1c59d2e474adf.tar.bz2 -> glycin-test-images-b148bcf70847d6f126a8e83e27e1c59d2e474adf.tar.bz2 )
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	86c81efc08f3f4c1104dbcb8df8e2885	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	a1af74aa9e34cd73aeac642cd0dd54d8	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922
-_md5_=94038ee5d9b8cd01bb711955b4cb2f98
+_md5_=75632553bb364e2f7186133bd2bc7e36
