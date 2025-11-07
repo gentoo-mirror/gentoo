@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig doc? ( app-text/doxygen ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=app-accessibility/at-spi2-core >=dev-libs/glib-2.72:2 dev-libs/json-glib:= media-libs/harfbuzz:= x11-libs/cairo[glib] x11-libs/gdk-pixbuf >=x11-libs/gtk+-3.24:3[X?] x11-libs/pango test? ( x11-base/xorg-proto x11-libs/gtk+:3[X] x11-misc/xvfb-run )
+DESCRIPTION=UI library that focuses on simplicity and minimalism
+EAPI=8
+HOMEPAGE=https://pwmt.org/projects/girara/
+INHERIT=flag-o-matic meson
+IUSE=doc test X
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+LICENSE=ZLIB
+RDEPEND=app-accessibility/at-spi2-core >=dev-libs/glib-2.72:2 dev-libs/json-glib:= media-libs/harfbuzz:= x11-libs/cairo[glib] x11-libs/gdk-pixbuf >=x11-libs/gtk+-3.24:3[X?] x11-libs/pango
+RESTRICT=!test? ( test )
+SLOT=0/4.5
+SRC_URI=https://github.com/pwmt/girara/archive/0.4.5.tar.gz -> girara-0.4.5.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99466844dd8d4fcfb07578a76f5a9922
+_md5_=cfdd6fcb9c22746087a8cd9d01c090b3
