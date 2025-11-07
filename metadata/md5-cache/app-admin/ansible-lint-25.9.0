@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/ansible/ansible-lint
 INHERIT=distutils-r1 pypi
 IUSE=test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
-KEYWORDS=~amd64 ~arm64 ~riscv
+KEYWORDS=amd64 ~arm64 ~riscv
 LICENSE=MIT
 PROPERTIES=test_network
 RDEPEND=>=app-admin/ansible-core-2.18.1[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/ansible-compat-25.8.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/black-24.8.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/filelock-3.14.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/importlib-metadata[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/jsonschema-4.17.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/packaging-24.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/pathspec-0.10.3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/pyyaml-6.0.2[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/ruamel-yaml-0.18.11[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/wcmatch-8.5.2[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-util/yamllint-1.35.1[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-vcs/git python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
@@ -14,4 +14,4 @@ RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/a/ansible-lint/ansible_lint-25.9.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	da0e0aad39afe02500c5b3dee253f4c0	pypi	0ad21249997cbe7d63d15a084d009aa2
-_md5_=7c6380dc2e4833382ebc17e5700d9f6e
+_md5_=ecccd0065d362f9d007d4e6fde761804
