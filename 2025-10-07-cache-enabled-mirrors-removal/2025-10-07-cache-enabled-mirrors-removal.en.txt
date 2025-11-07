@@ -1,7 +1,7 @@
 Title: Cache-enabled sync mirrors only for official repos
 Author: Michał Górny <mgorny@gentoo.org>
 Posted: 2025-10-07
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 Display-If-Installed: app-eselect/eselect-repository
 
@@ -13,7 +13,7 @@ official repositories, including ::gentoo, ::guru, ::kde, and ::science.
 The remaining mirrors will be removed on 2025-10-30.
 
 Users who have previously added repositories using
-<app-eselect/eselect-repository-15 may need to re-add these repositories
+<app-eselect/eselect-repository-15 will need to re-add these repositories
 with >=app-eselect/eselect-repository-15, in order to update their sync
 URIs.  For example, the following can be used:
 
@@ -22,7 +22,9 @@ URIs.  For example, the following can be used:
 
 Once the mirrors are discontinued, we are going to remove them entirely
 in order to trigger sync errors for the remaining users, and ensure
-that they are not stuck on non-updated mirrors.
+that they are not stuck on non-updated mirrors.  This may show up as
+a 'username/password' prompt as GitHub does this for deleted repositories:
+if that happens, please follow the above instructions if not done so already!
 
 This change does not affect users who have not used eselect-repository
 or the gentoo-mirror repositories.  It does not affect the availability
