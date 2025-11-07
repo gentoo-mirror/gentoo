@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33 ruby34"
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_BINWRAP=""
 RUBY_FAKEGEM_TASK_DOC="faq"
@@ -23,12 +23,12 @@ RUBY_S="sqlite3-ruby-${PV}"
 LICENSE="BSD"
 
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="doc test"
 
 # We track the bundled sqlite version here
-RDEPEND=">=dev-db/sqlite-3.49.1:3"
-DEPEND=">=dev-db/sqlite-3.49.1:3"
+RDEPEND=">=dev-db/sqlite-3.51.0:3"
+DEPEND=">=dev-db/sqlite-3.51.0:3"
 
 ruby_add_bdepend "
 	doc? ( dev-ruby/rdoc )
