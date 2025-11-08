@@ -19,7 +19,6 @@ IUSE="flac vorbis"
 DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[widgets]
 	>=kde-apps/libkcddb-${PVCUT}:6
-	>=kde-apps/libkcompactdisc-${PVCUT}:6
 	>=kde-frameworks/kcompletion-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
@@ -28,6 +27,7 @@ DEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
+	>=kde-frameworks/solid-${KFMIN}:6
 	media-sound/cdparanoia
 	flac? ( >=media-libs/flac-1.1.2:= )
 	vorbis? (
@@ -37,7 +37,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-25.08.1-handbook.patch" ) # in git master
+PATCHES=(
+	"${FILESDIR}/${PN}-25.08.1-handbook.patch" # in git master
+	"${FILESDIR}/${P}-port-away-from-libkcompactdisc.patch" # pending MR
+)
 
 src_configure() {
 	local mycmakeargs=(

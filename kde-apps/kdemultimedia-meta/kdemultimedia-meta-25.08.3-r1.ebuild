@@ -25,7 +25,6 @@ RDEPEND="
 		>=kde-apps/audiocd-kio-${PV}:*
 		>=kde-apps/k3b-${PV}:*
 		>=kde-apps/libkcddb-${PV}:*
-		>=kde-apps/libkcompactdisc-${PV}:*
 	)
 	ffmpeg? ( >=kde-apps/ffmpegthumbs-${PV}:* )
 	gstreamer? ( >=kde-apps/kamoso-${PV}:* )
