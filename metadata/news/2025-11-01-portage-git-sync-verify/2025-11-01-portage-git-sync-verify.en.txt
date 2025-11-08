@@ -1,7 +1,7 @@
 Title: Portage to verify git-synced ::gentoo per default
 Author: Florian Schmaus <flow@gentoo.org>
 Posted: 2025-11-01
-Revision: 5
+Revision: 6
 News-Item-Format: 2.0
 Display-If-Installed: sys-apps/portage
 
@@ -28,7 +28,9 @@ Remotes of the "sync friendly" ::gentoo git repository include:
 
 We recommend using those instead of the "raw" repo because the "raw" repo
 does not include news items, GLSAs, or generated metadata. No action is
-required when using one of these remotes listed above.
+required when using one of these remotes listed above. For those other
+sync types/repos, verification is already handled and they are
+unaffected by this change.
 
 This news item is NOT instructing users to start using the raw repo, it
 is just a necessary change if you are already using it. Please do not start
