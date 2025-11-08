@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://magicant.github.io/yash/
 INHERIT=flag-o-matic plocale toolchain-funcs
 IUSE=nls test
-KEYWORDS=~amd64 ~mips ~x86
+KEYWORDS=amd64 ~mips x86
 LICENSE=GPL-2+
 RDEPEND=sys-libs/ncurses:= nls? ( virtual/libintl )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/magicant/yash/releases/download/2.60/yash-2.60.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	plocale	950fbaec7deeba41b5bcc0572cca99b9
-_md5_=c6813cf62dc694e553691847fd86a104
+_md5_=a4374319e4f4262c000e48c975a0a830
