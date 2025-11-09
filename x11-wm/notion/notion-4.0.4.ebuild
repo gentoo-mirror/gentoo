@@ -1,4 +1,4 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -44,6 +44,11 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	${LUA_DEPS}
 	virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-4.0.2-gcc14-build-fix.patch
+	"${FILESDIR}"/${PN}-4.0.4-c23.patch
+)
 
 src_configure() {
 	tc-export AR CC PKG_CONFIG
