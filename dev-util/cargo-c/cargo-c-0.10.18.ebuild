@@ -12,7 +12,7 @@ EAPI=8
 CRATES="
 "
 
-RUST_MIN_VER="1.88.0"
+RUST_MIN_VER="1.89.0"
 
 inherit cargo
 
@@ -34,7 +34,7 @@ LICENSE+="
 	Apache-2.0 BSD-2 BSD ISC MIT MPL-2.0 MPL-2.0 Unicode-3.0 ZLIB
 "
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	=dev-libs/libgit2-1.9*:=
