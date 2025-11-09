@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-util/dejagnu ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure prepare setup
+DEPEND=crypt? ( virtual/openssh ) rsh? ( net-misc/netkit-rsh ) readline? ( sys-libs/readline:= )
+DESCRIPTION=A high-performance, parallel remote shell utility
+EAPI=8
+HOMEPAGE=https://github.com/chaos/pdsh
+INHERIT=autotools
+IUSE=crypt readline rsh test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=crypt? ( virtual/openssh ) rsh? ( net-misc/netkit-rsh ) readline? ( sys-libs/readline:= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/chaos/pdsh/archive/pdsh-2.35.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
+_md5_=0917ce264142064d8b203c9ba1a5a8e8
