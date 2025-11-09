@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit qmake-utils
+inherit autotools qmake-utils
 
 DESCRIPTION="Multi-platform helper library for other libraries"
 HOMEPAGE="https://www.aquamaniac.de/"
@@ -39,6 +39,13 @@ BDEPEND="
 "
 # doc? ( app-text/doxygen )
 
+PATCHES=( "${FILESDIR}/${P}-fix-qt6-detect.patch" ) # bug 965843, downstream workaround
+
+src_prepare() {
+	default
+	eautoreconf
+}
+
 src_configure() {
 	local myeconfargs=(
 		--with-docpath="${EPREFIX}/usr/share/doc/${PF}/apidoc"
@@ -46,10 +53,9 @@ src_configure() {
 		$(use_enable debug)
 		#$(use_enable doc full-doc)
 	)
-# 	use qt6 && myeconfargs+=(
-# 		--with-qt6-moc="$(qt6_get_libdir)/qt6/libexec/moc"
-# 		--with-qt6-qmake="$(qt6_get_bindir)/qmake"
-# 	)
+	use qt6 && myeconfargs+=(
+		--with-qmake="$(qt6_get_bindir)/qmake"
+	)
 
 	local guis=()
 	use gtk && guis+=( gtk3 )
