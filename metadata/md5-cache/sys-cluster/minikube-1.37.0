@@ -1,0 +1,16 @@
+BDEPEND=dev-go/go-bindata >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile configure install postinst prepare unpack
+DEPEND=libvirt? ( app-emulation/libvirt:=[qemu] )
+DESCRIPTION=Local kubernetes clusters for learning and development
+EAPI=8
+HOMEPAGE=https://github.com/kubernetes/minikube https://kubernetes.io
+INHERIT=bash-completion-r1 go-module toolchain-funcs
+IUSE=hardened libvirt
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 BSD BSD-2 CC-BY-4.0 CC-BY-SA-4.0 CC0-1.0 GPL-2 ISC LGPL-3 MIT MPL-2.0 WTFPL-2 ZLIB || ( LGPL-3+ GPL-2 ) || ( Apache-2.0 LGPL-3+ ) || ( Apache-2.0 CC-BY-4.0 )
+RDEPEND=libvirt? ( app-emulation/libvirt:=[qemu] )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/kubernetes/minikube/archive/refs/tags/v1.37.0.tar.gz -> minikube-1.37.0.tar.gz https://dev.gentoo.org/~zmedico/dist/minikube-1.37.0-deps.tar.xz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	d96f2a2fd6d8fbad6d94516bf238f885
+_md5_=c96147c3e90780c4c1941c82a96ae0f0
