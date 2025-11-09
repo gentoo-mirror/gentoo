@@ -54,6 +54,8 @@ RDEPEND="${COMMON_DEPEND}
 	kde-apps/akonadi-config
 "
 
+PATCHES=( "${FILESDIR}/${P}-fix-db-migration.patch" ) # bug #936102, in 25.12
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TOOLS=$(usex tools)
