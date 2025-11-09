@@ -1,0 +1,15 @@
+DEFINED_PHASES=install
+DEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+DESCRIPTION=A helper program for maintaining the package.keyword and package.unmask files
+EAPI=8
+HOMEPAGE=https://github.com/mpagano/portpeek
+INHERIT=python-r1
+IUSE=python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~riscv ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=app-portage/gentoolkit-0.6.11 || ( >=sys-apps/portage-3.0.71[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+SLOT=0
+SRC_URI=https://github.com/mpagano/portpeek/releases/download/v3.2.8/portpeek-3.2.8.tar.gz
+_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38
+_md5_=be20b4d5c42600d2bb1d98b52ffcffde
