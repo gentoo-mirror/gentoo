@@ -1,0 +1,17 @@
+BDEPEND=dev-lang/yasm[nls=] gui? ( dev-qt/qttools:6[linguist] ) dev-build/make >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=~media-libs/avidemux-core-2.8.1_p20251019:2.7[nls?,nvenc=,vaapi=,vdpau=,xv?] gui? ( dev-qt/qtbase:6[gui,network,opengl,widgets,X] opengl? ( media-libs/glu media-libs/libglvnd ) sdl? ( media-libs/libsdl2[sound,video] ) xv? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXv ) )
+DESCRIPTION=Video editor designed for simple cutting, filtering and encoding tasks
+EAPI=8
+HOMEPAGE=http://fixounet.free.fr/avidemux/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake flag-o-matic qmake-utils xdg
+IUSE=gui nls nvenc opengl sdl vaapi vdpau xv
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 MIT PSF-2 LGPL-2 OFL-1.1
+PDEPEND=~media-libs/avidemux-plugins-2.8.1_p20251019:2.7[opengl?,gui?]
+RDEPEND=~media-libs/avidemux-core-2.8.1_p20251019:2.7[nls?,nvenc=,vaapi=,vdpau=,xv?] gui? ( dev-qt/qtbase:6[gui,network,opengl,widgets,X] opengl? ( media-libs/glu media-libs/libglvnd ) sdl? ( media-libs/libsdl2[sound,video] ) xv? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXv ) ) nls? ( virtual/libintl ) !<media-video/avidemux-2.8.1_p20251019
+SLOT=2.7
+SRC_URI=https://github.com/mean00/avidemux2/archive/376c1469eebedcc724dbbcc0d45030f32c9d13f5.tar.gz -> avidemux-2.8.1_p20251019.tar.gz https://github.com/mean00/avidemux2_i18n/archive/b7393340eda6fa2aebaeeeae9014b923ad82e407.tar.gz -> avidemux-i18n-2.8.1_p20251019.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	2df4e452cea39a9ec8fb543ce059f8d6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	29a000891e576f0392730bb6834b67f5	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=95506b1138f8f01d6d0aaea202b6079d
