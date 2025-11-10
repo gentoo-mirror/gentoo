@@ -6,7 +6,7 @@ EAPI=8
 WX_GTK_VER=3.2-gtk3
 FORTRAN_NEEDED=fortran
 LUA_COMPAT=( lua5-1 )
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 # fails with ninja, due to USE=java missing swig output dependencies
 CMAKE_MAKEFILE_GENERATOR=emake
 
@@ -23,11 +23,10 @@ SLOT="0/14" # SONAME of libplplot.so
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 
 IUSE="cairo cxx doc +dynamic examples fortran gd java jpeg latex lua ocaml octave pdf
-	png python qhull qt5 shapefile svg tcl test threads tk truetype wxwidgets X"
+	png python qhull shapefile svg tcl test threads tk truetype wxwidgets X"
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
 	python? ( ${PYTHON_REQUIRED_USE} )
-	qt5? ( dynamic )
 	test? ( latex )
 	tk? ( tcl )
 "
@@ -56,15 +55,9 @@ RDEPEND="
 		${PYTHON_DEPS}
 		$(python_gen_cond_dep '
 			>=dev-python/numpy-2[${PYTHON_USEDEP}]
-			qt5? ( dev-python/pyqt5[${PYTHON_USEDEP}] )
 		')
 	)
 	qhull? ( media-libs/qhull:0= )
-	qt5? (
-		dev-qt/qtgui:5
-		dev-qt/qtsvg:5
-		dev-qt/qtprintsupport:5
-	)
 	shapefile? ( sci-libs/shapelib:0= )
 	tcl? (
 		dev-lang/tcl:0=
@@ -173,7 +166,7 @@ src_configure() {
 		-DWITH_FREETYPE=$(usex truetype)
 		-DPL_HAVE_PTHREAD=$(usex threads)
 		-DPL_HAVE_QHULL=$(usex qhull)
-		-DPLPLOT_USE_QT5=$(usex qt5)
+		-DPLPLOT_USE_QT5=OFF # bug #953991
 
 		## Tests
 		-DBUILD_TEST=$(usex test)
@@ -190,7 +183,7 @@ src_configure() {
 		-DENABLE_lua=$(usex lua)
 		-DENABLE_octave=$(usex octave)
 		-DENABLE_python=$(usex python)
-		-DENABLE_qt=$(usex qt5)
+		-DENABLE_qt=OFF # bug #953991
 		-DENABLE_tcl=$(usex tcl)
 		-DENABLE_itcl=$(usex tcl)
 		-DENABLE_tk=$(usex tk)
@@ -223,18 +216,18 @@ src_configure() {
 		# PDF
 		-DPLD_pdf=$(usex pdf ON OFF)
 		# Qt
-		-DPLD_aqt=$(usex qt5 ON OFF)
-		-DPLD_bmpqt=$(usex qt5 ON OFF)
-		-DPLD_epsqt=$(usex qt5 ON OFF)
-		-DPLD_extqt=$(usex qt5 ON OFF)
-		-DPLD_jpgqt=$(usex qt5 ON OFF)
-		-DPLD_memqt=$(usex qt5 ON OFF)
-		-DPLD_pdfqt=$(usex qt5 ON OFF)
-		-DPLD_pngqt=$(usex qt5 ON OFF)
-		-DPLD_ppmqt=$(usex qt5 ON OFF)
-		-DPLD_qtwidget=$(usex qt5 ON OFF)
-		-DPLD_svgqt=$(usex qt5 ON OFF)
-		-DPLD_tiffqt=$(usex qt5 ON OFF)
+		-DPLD_aqt=OFF # bug #953991
+		-DPLD_bmpqt=OFF # bug #953991
+		-DPLD_epsqt=OFF # bug #953991
+		-DPLD_extqt=OFF # bug #953991
+		-DPLD_jpgqt=OFF # bug #953991
+		-DPLD_memqt=OFF # bug #953991
+		-DPLD_pdfqt=OFF # bug #953991
+		-DPLD_pngqt=OFF # bug #953991
+		-DPLD_ppmqt=OFF # bug #953991
+		-DPLD_qtwidget=OFF # bug #953991
+		-DPLD_svgqt=OFF # bug #953991
+		-DPLD_tiffqt=OFF # bug #953991
 		# SVG
 		-DPLD_svg=$(usex svg ON OFF)
 		# Tk
@@ -263,7 +256,7 @@ src_configure() {
 		-DOCAML_INSTALL_DIR="$(ocamlc -where)"
 	)
 	use python && mycmakeargs+=(
-		-DENABLE_pyqt5=$(usex qt5)
+		-DENABLE_pyqt5=OFF # bug #953991
 	)
 
 	cmake_src_configure
