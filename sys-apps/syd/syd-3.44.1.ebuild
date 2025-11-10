@@ -34,7 +34,7 @@ CRATES="
 	bumpalo@3.19.0
 	bytes@1.10.1
 	caps@0.5.6
-	cc@1.2.44
+	cc@1.2.45
 	cfg-if@1.0.4
 	cfg_aliases@0.2.1
 	chrono@0.4.42
@@ -167,7 +167,7 @@ CRATES="
 	protobuf-parse@3.2.0
 	protobuf-support@3.2.0
 	protobuf@3.2.0
-	quote@1.0.41
+	quote@1.0.42
 	r-efi@5.3.0
 	radium@0.7.0
 	raki@1.3.2
@@ -212,7 +212,7 @@ CRATES="
 	strum@0.27.2
 	strum_macros@0.27.2
 	subtle@2.6.1
-	syn@2.0.108
+	syn@2.0.110
 	tabwriter@1.4.1
 	tap@1.0.1
 	tcmalloc@0.3.0
