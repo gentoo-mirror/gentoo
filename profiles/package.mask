@@ -76,27 +76,10 @@ media-radio/wsjtx
 # Crashes in memtodest when handling PATH. Not yet reported upstream.
 =app-shells/dash-0.5.13.1
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-10-12)
-# Dead upstream, depends on Qt5.
-# Bug #949899, #953384. Removal on 2025-11-11.
-games-puzzle/colorcode
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-10-12)
-# Dead upstream, broken with CMake-4, no one else packaging this anymore.
-# Bug #958051. Removal on 2025-11-11.
-sci-electronics/Stage
-
 # Michał Górny <mgorny@gentoo.org> (2025-10-12)
 # Requires Rust with RUST_SYSROOTS=bpf, which isn't currently supported
 # by dev-lang/rust-bin.  Also needs net-proxy/mitmproxy-linux updates.
 >=dev-util/bpf-linker-0.9.15-r1
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-10-11)
-# Stuck forever in 5.x because in 6.x it was rewritten around proprietary
-# aqlprofile. A potential future 7.x package would require packaging from
-# scratch with several additional new package dependencies.
-# Bugs #904074, #952456. Removal on 2025-11-10.
-dev-util/rocprofiler
 
 # Hans de Graaff <graaff@gentoo.org> (2025-10-10)
 # No longer supported upstream since 2025-04-01. Use Rails 7.2 or newer
@@ -173,13 +156,6 @@ net-libs/NativeThread
 # and dev-python/ipyparallel tests.
 =dev-python/pymongo-4.15.3
 =dev-python/pymongo-4.15.2
-
-# Sam James <sam@gentoo.org> (2025-10-05)
-# Fails to build with to-be-stabled CMake 4, Qt 5, no upstream release in
-# 5 years (despite much activity), and a bunch of other open bugs in need
-# of attention.
-# Removal on 2025-11-04.  Bug #957460.
-media-sound/lmms
 
 # Lukas Schmelting <lschmelting@posteo.com> (2025-10-03)
 # Breaks e.g. in combination with gnome-shell-48.4, gettext/gjs (bug #963815)
