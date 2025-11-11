@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
+PYPI_VERIFY_REPO=https://github.com/pytest-dev/pytest
 PYTHON_TESTED=( python3_{11..14} pypy3_11 )
 PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" python3_{13,14}t )
 
@@ -44,6 +45,11 @@ BDEPEND="
 		' "${PYTHON_TESTED[@]}")
 	)
 "
+
+PATCHES=(
+	# https://github.com/pytest-dev/pytest/pull/13912
+	"${FILESDIR}/${P}-skiptest.patch"
+)
 
 src_test() {
 	# workaround new readline defaults
