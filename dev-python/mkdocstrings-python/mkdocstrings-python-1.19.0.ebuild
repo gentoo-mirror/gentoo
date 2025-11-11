@@ -32,6 +32,7 @@ BDEPEND="
 "
 
 EPYTEST_PLUGINS=( inline-snapshot )
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 export PDM_BUILD_SCM_VERSION=${PV}
