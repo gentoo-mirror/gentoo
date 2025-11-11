@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-gnustep ) >=gnustep-base/gnustep-make-2.0 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install postinst prepare setup unpack
+DEPEND=gnustep-base/gnustep-base:= gnustep-base/gnustep-gui virtual/gnustep-back
+DESCRIPTION=System Preferences is a clone of Apple OS X' System Preferences
+EAPI=8
+HOMEPAGE=https://github.com/gnustep/apps-systempreferences
+INHERIT=gnustep-2 verify-sig
+IUSE=debug doc verify-sig
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=gnustep-base/gnustep-base:= gnustep-base/gnustep-gui virtual/gnustep-back
+SLOT=0
+SRC_URI=https://github.com/gnustep/apps-systempreferences/releases/download/systempreferences-1_2_1/SystemPreferences-1.2.1.tar.gz verify-sig? ( https://github.com/gnustep/apps-systempreferences/releases/download/systempreferences-1_2_1/SystemPreferences-1.2.1.tar.gz.sig )
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	gnustep-base	07377f73e8155c0cfc2457c9cca702ad	gnustep-2	cfafeebb1111f944995a3bb7ae64ce8b	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
+_md5_=3b55539cad26d1d3bd7dc997673aec91

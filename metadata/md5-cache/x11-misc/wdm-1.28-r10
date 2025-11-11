@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install prepare
+DEPEND=virtual/libcrypt:= x11-libs/libX11 x11-libs/libXau x11-libs/libXdmcp x11-libs/libXinerama x11-libs/libXmu x11-wm/windowmaker:= pam? ( sys-libs/pam ) truetype? ( x11-libs/libXft )
+DESCRIPTION=WINGs Display Manager
+EAPI=8
+HOMEPAGE=https://github.com/voins/wdm
+INHERIT=autotools flag-o-matic pam toolchain-funcs
+IUSE=pam selinux truetype
+KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=virtual/libcrypt:= x11-libs/libX11 x11-libs/libXau x11-libs/libXdmcp x11-libs/libXinerama x11-libs/libXmu x11-wm/windowmaker:= pam? ( sys-libs/pam ) truetype? ( x11-libs/libXft ) pam? ( >=sys-auth/pambase-20080219.1 )
+SLOT=0
+SRC_URI=http://voins.program.ru/wdm/wdm-1.28.tar.bz2
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5
+_md5_=cdfb039c80d38619d6c8a838df8deba1

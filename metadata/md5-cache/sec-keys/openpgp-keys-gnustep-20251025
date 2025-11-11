@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP keys used by the GNUstep project
+EAPI=8
+HOMEPAGE=https://www.gnustep.org/
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86 ~amd64-linux ~x86-linux
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x83AAE47CE829A4146EF83420CA868D4C99149679 -> openpgp-keys-gnustep-ubuntu-20251025.asc
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	ad87ecc577cf66bca0f31a392060765a
+_md5_=407ea0c9f285cc43c8121a249ae9df62
