@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 GUILE_COMPAT=( 3-0 )
 inherit autotools guile
 
-DESCRIPTION="Guile DBI driver for SQLite"
+DESCRIPTION="Guile DBI driver for PostgreSQL"
 HOMEPAGE="https://github.com/opencog/guile-dbi/"
 SRC_URI="https://github.com/opencog/guile-dbi/archive/guile-dbi-${PV}.tar.gz"
 S="${WORKDIR}"/guile-dbi-guile-dbi-${PV}/${PN}
@@ -19,7 +19,7 @@ REQUIRED_USE="${GUILE_REQUIRED_USE}"
 
 RDEPEND="
 	${GUILE_DEPS}
-	dev-db/sqlite:3=
+	dev-db/postgresql:*
 	>=dev-scheme/guile-dbi-2.1.9[${GUILE_USEDEP}]
 "
 DEPEND="${RDEPEND}"
