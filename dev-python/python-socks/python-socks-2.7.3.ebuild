@@ -20,23 +20,15 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 # curio is not packaged
 # asyncio is the only backend we have, so dep on its deps unconditionally
 # TODO: revisit
-RDEPEND="
-	$(python_gen_cond_dep '
-		>=dev-python/async-timeout-4.0[${PYTHON_USEDEP}]
-	' 3.10)
-"
 BDEPEND="
 	test? (
-		>=dev-python/anyio-3.4.0[${PYTHON_USEDEP}]
 		>=dev-python/async-timeout-3.0.1[${PYTHON_USEDEP}]
 		>=dev-python/flask-1.1.2[${PYTHON_USEDEP}]
-		>=dev-python/pytest-asyncio-0.18.3[${PYTHON_USEDEP}]
-		>=dev-python/pytest-trio-0.7.0[${PYTHON_USEDEP}]
 		>=dev-python/tiny-proxy-0.1.1[${PYTHON_USEDEP}]
 		>=dev-python/trio-0.24[${PYTHON_USEDEP}]
 		>=dev-python/trustme-0.9.0[${PYTHON_USEDEP}]
@@ -45,4 +37,5 @@ BDEPEND="
 "
 
 # Test markers exist to exclude trio etc if needed
+EPYTEST_PLUGINS=( anyio pytest-{asyncio,trio} )
 distutils_enable_tests pytest
