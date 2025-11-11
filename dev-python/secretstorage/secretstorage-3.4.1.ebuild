@@ -4,8 +4,8 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYPI_NO_NORMALIZE=1
 PYPI_PN="SecretStorage"
+PYPI_VERIFY_REPO=https://github.com/mitya57/secretstorage
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1 pypi
@@ -18,10 +18,10 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
 
 RDEPEND="
-	dev-python/cryptography[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-2.0[${PYTHON_USEDEP}]
 	>=dev-python/jeepney-0.6[${PYTHON_USEDEP}]
 "
 BDEPEND="
@@ -48,6 +48,6 @@ src_test() {
 }
 
 python_test() {
-	dbus-run-session "${EPYTHON}" -m unittest discover -v -s tests \
-		|| die "tests failed with ${EPYTHON}"
+	dbus-run-session "${EPYTHON}" -m unittest discover -v -s tests ||
+		die "tests failed with ${EPYTHON}"
 }

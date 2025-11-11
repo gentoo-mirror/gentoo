@@ -11,7 +11,7 @@ inherit cargo meson
 
 MY_PV=${PV/_/.}
 MY_P=glycin-${MY_PV}
-TEST_IMAGE_COMMIT=7e1d59dc5f8ce18d75769d591f9af32fb26e47b6
+TEST_IMAGE_COMMIT=b148bcf70847d6f126a8e83e27e1c59d2e474adf
 
 DESCRIPTION="Loaders for glycin clients (glycin crate or libglycin)"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/glycin/"
@@ -35,7 +35,7 @@ LICENSE+="
 	|| ( LGPL-2.1+ MPL-2.0 )
 "
 SLOT="2"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="heif jpeg2k jpegxl svg test"
 REQUIRED_USE="test? ( heif jpegxl )"
 RESTRICT="!test? ( test )"
