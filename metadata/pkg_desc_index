@@ -3855,6 +3855,8 @@ dev-cpp/antlr-cpp 2.7.7-r2 4.11.1 4.13.2-r1: The ANTLR 4 C++ Runtime
 dev-cpp/argparse 2.9 3.0 3.2: Argument Parser for Modern C++
 dev-cpp/asio 1.30.2 1.34.2 1.36.0: Asynchronous Network Library
 dev-cpp/atkmm 2.28.3 2.28.4: C++ interface for the ATK library
+dev-cpp/aws-crt-cpp 0.35.2: C++ wrapper around the aws-c-* libraries
+dev-cpp/aws-sdk-cpp 1.11.686: AWS SDK for C++
 dev-cpp/azure-core 1.16.1: Azure SDK for C++
 dev-cpp/azure-identity 1.13.1 1.13.2: Azure SDK for C++
 dev-cpp/azure-security-keyvault-certificates 4.2.1: Azure SDK for C++
@@ -3978,7 +3980,7 @@ dev-db/litedb 5.0.17-r4 5.0.21: .NET NoSQL Document Store in a single data file
 dev-db/lmdb 0.9.33: An ultra-fast, ultra-compact key-value embedded data store
 dev-db/lmdb++ 1.0.0-r1: C++11 wrapper for the LMDB database library
 dev-db/m17n-db 1.8.5 1.8.10: Database for the m17n library
-dev-db/mariadb 10.6.22 10.6.23-r1 10.6.24 10.11.13 10.11.14-r1 10.11.15 11.4.7-r1 11.4.8-r1 11.4.9 11.8.2 11.8.3-r1 11.8.4 12.0.2-r1: An enhanced, drop-in replacement for MySQL
+dev-db/mariadb 10.6.22 10.6.23-r1 10.6.24 10.11.13 10.11.14-r1 10.11.15 11.4.7-r1 11.4.8-r1 11.4.8-r2 11.4.9 11.8.2 11.8.3-r1 11.8.4 12.0.2-r1: An enhanced, drop-in replacement for MySQL
 dev-db/mariadb-connector-c 3.3.8 3.3.15 3.3.17 3.4.5-r1 3.4.7 9999: C client library for MariaDB/MySQL
 dev-db/mariadb-connector-odbc 3.1.18: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.30 5.0.31 6.0.22 6.0.25 7.0.18 7.0.23 8.0.8 8.0.12: A high-performance, open source, schema-free document-oriented database
@@ -5300,6 +5302,17 @@ dev-libs/asmjit 2024.10.25 2025.06.28 9999: Machine code generation for C++
 dev-libs/atf 0.21-r3 0.22-r1 0.23: Libraries to write tests in C, C++ and shell
 dev-libs/atk 2.38.0 2.46.0: GTK+ & GNOME Accessibility Toolkit
 dev-libs/avro-c 1.12.0 1.12.0-r1: c library for the apache avro data serialization system
+dev-libs/aws-c-auth 0.9.1: AWS C Auth: C99 library implementation of AWS client-side authentication.
+dev-libs/aws-c-cal 0.9.10: AWS C CAL: AWS Crypto Abstraction Layer.
+dev-libs/aws-c-common 0.12.5: Core c99 package for AWS SDK for C.
+dev-libs/aws-c-compression 0.3.1: AWS C Compression cross-platform algorithms.
+dev-libs/aws-c-event-stream 0.5.7: Core c99 package for AWS SDK for C.
+dev-libs/aws-c-http 0.10.7: AWS C Http: C99 implementation of the HTTP/1.1 and HTTP/2 specifications
+dev-libs/aws-c-io 0.23.3: AWS C IO: It handles all IO and TLS work for application protocols.
+dev-libs/aws-c-mqtt 0.13.3: AWS C MQTT: C99 implementation.
+dev-libs/aws-c-s3 0.10.1: AWS C S3 async library.
+dev-libs/aws-c-sdkutils 0.2.4: AWS C SDKUTILS: C99 library implementing AWS SDK specific utilities.
+dev-libs/aws-checksums 0.2.7: Cross-Platform HW accelerated CRC32c and CRC32 with fallback to SW.
 dev-libs/ayatana-ido 0.10.4: Ayatana Application Indicators (Shared Library)
 dev-libs/bcm2835 1.71 1.75: Provides access to GPIO and other IO functions on the Broadcom BCM2835
 dev-libs/bemenu 0.6.10-r1 0.6.14 0.6.15 0.6.16 0.6.21 0.6.23 9999: dmenu clone for wayland
@@ -5776,6 +5789,7 @@ dev-libs/rocm-opencl-runtime 6.3.3 6.4.3 7.0.2 7.1.0: Radeon Open Compute OpenCL
 dev-libs/rocr-runtime 6.3.3 6.4.3 7.0.2 7.1.0: Radeon Open Compute Runtime
 dev-libs/roct-thunk-interface 6.3.3 6.4.3 7.0.2 7.1.0: Radeon Open Compute Thunk Interface
 dev-libs/rremove 1.0.5: A simple library to recursively delete non-empty directories
+dev-libs/s2n-tls 1.6.0: s2n-tls is a C99 implementation of the TLS/SSL protocols
 dev-libs/sentry-native 0.7.2 0.7.6: Sentry SDK for C, C++ and native applications
 dev-libs/serd 0.32.2 0.32.4: Library for RDF syntax which supports reading and writing Turtle and NTriples
 dev-libs/serdisplib 2.02-r3: Library to drive several displays with built-in controllers or display modules
