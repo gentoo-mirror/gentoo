@@ -1,13 +1,14 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit gnustep-2 vcs-snapshot
+inherit gnustep-2
 
 DESCRIPTION="A set of frameworks forming a complete Web application server environment"
 HOMEPAGE="https://www.sogo.nu/"
 SRC_URI="https://github.com/inverse-inc/sope/archive/SOPE-${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${PN^^}-${PV}"
 
 LICENSE="LGPL-2"
 SLOT="0"
@@ -28,27 +29,29 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_configure() {
-	local ssl_provider
-	if use ssl ; then
-		if use gnutls ; then
-			ssl_provider=gnutls
-		else
-			ssl_provider=ssl
-		fi
-	else
-		ssl_provider=none
-	fi
-
 	egnustep_env
 
+	local myconf=(
+		--prefix="${EPREFIX}"
+		--disable-strip
+		$(use_enable debug)
+		$(use_enable ldap openldap)
+		$(use_enable mysql)
+		$(use_enable postgres postgresql)
+		$(use_enable xml)
+		--with-gnustep
+	)
+
+	if use ssl ; then
+		if use gnutls ; then
+			myconf+=( --with-ssl=gnutls )
+		else
+			myconf+=( --with-ssl=ssl )
+		fi
+	else
+		myconf+=( --with-ssl=none )
+	fi
+
 	# Non-standard configure script
-	./configure \
-		--disable-strip \
-		$(use_enable debug) \
-		$(use_enable ldap openldap) \
-		$(use_enable mysql) \
-		$(use_enable postgres postgresql) \
-		$(use_enable xml) \
-		--with-ssl="${ssl_provider}" \
-		--with-gnustep || die "configure failed"
+	./configure "${myconf[@]}" || die "configure failed"
 }

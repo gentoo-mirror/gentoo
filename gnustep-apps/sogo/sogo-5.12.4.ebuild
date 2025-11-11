@@ -1,34 +1,42 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit gnustep-2 vcs-snapshot
+inherit gnustep-2
 
 DESCRIPTION="Groupware server built around OpenGroupware.org and the SOPE application server"
 HOMEPAGE="https://www.sogo.nu"
 SRC_URI="https://github.com/Alinto/sogo/archive/SOGo-${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/sogo-SOGo-${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="activesync gnutls +ssl sodium"
 
+RESTRICT="test"
+PROPERTIES="test_network"
+
 RDEPEND="
 	acct-user/sogo
-	dev-libs/libmemcached
+	|| (
+		dev-libs/libmemcached-awesome
+		dev-libs/libmemcached
+	)
+	dev-libs/libzip:=
+	>=gnustep-libs/sope-${PV}[ldap]
+	net-mail/ytnef
 	net-misc/curl
 	net-misc/memcached
-	>=gnustep-libs/sope-${PV}[ldap]
+	virtual/libcrypt:=
 	activesync? ( dev-libs/libwbxml )
 	gnutls? ( net-libs/gnutls:= )
-	!gnutls? (
-		dev-libs/openssl:0=
-	)
+	!gnutls? ( dev-libs/openssl:0= )
 	sodium? ( dev-libs/libsodium:= )
 "
-DEPEND="${RDEPEND}
-	>=gnustep-base/gnustep-make-2.6.3"
+DEPEND="${RDEPEND}"
+BDEPEND=">=gnustep-base/gnustep-make-2.6.3"
 
 src_prepare() {
 	gnustep-base_src_prepare
@@ -43,27 +51,34 @@ src_prepare() {
 }
 
 src_configure() {
-	local ssl_provider
-	if use ssl ; then
-		if use gnutls ; then
-			ssl_provider=gnutls
-		else
-			ssl_provider=ssl
-		fi
-	else
-		ssl_provider=none
-	fi
-
 	egnustep_env
 
+	local myconf=(
+		--prefix="${EPREFIX}"
+		--disable-strip
+		--with-ssl="${ssl_provider}"
+		$(use_enable debug)
+		$(use_enable sodium)
+	)
+
+	if use ssl ; then
+		if use gnutls ; then
+			myconf+=( --with-ssl=gnutls )
+		else
+			myconf+=( --with-ssl=ssl )
+		fi
+	else
+		myconf+=( --with-ssl=none )
+	fi
+
 	# saml2 requires liblasso, mfa requires liboath
-	./configure \
-		--disable-strip \
-		--prefix=/usr \
-		--with-ssl="${ssl_provider}" \
-		$(use_enable debug) \
-		$(use_enable sodium) \
-		|| die "configure failed"
+	./configure "${myconf[@]}" || die "configure failed"
+}
+
+src_test() {
+	# workaround test assumption that libraries are already installed
+	local -x LD_LIBRARY_PATH="$(find "${S}" -name obj -printf '%p:')${S}/SoObjects/SOGo/SOGo.framework/Versions/$(ver_cut 1)/sogo:${LD_LIBRARY_PATH}"
+	default
 }
 
 src_install() {
