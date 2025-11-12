@@ -1246,7 +1246,7 @@ app-backup/dar 2.8.1-r1: A full featured backup tool, aimed for disks
 app-backup/deja-dup 44.2: Simple backup tool using duplicity back-end
 app-backup/dirvish 1.2.1-r1: Dirvish is a fast, disk based, rotating network backup system
 app-backup/duplicati 2.1.0.103_p20241221-r1 2.2.0.0.2025.10.23: Backup client that securely stores encrypted, incremental, compressed backups
-app-backup/duplicity 3.0.5-r1 3.0.6: Secure backup system using gnupg to encrypt data
+app-backup/duplicity 3.0.5-r1 3.0.6-r1: Secure backup system using gnupg to encrypt data
 app-backup/duply 2.5.2 2.5.5 2.5.6: Shell frontend for duplicity
 app-backup/fsarchiver 0.8.8 0.8.8-r1: Flexible filesystem archiver for backup and deployment tool
 app-backup/hdup 2.0.14-r2: Hdup is backup program using tar, find, gzip/bzip2, mcrypt and ssh
@@ -2822,7 +2822,7 @@ app-misc/lfm 3.1-r1: Last File Manager is a powerful file manager for the consol
 app-misc/libdatovka 0.7.0-r1 0.7.1: Client library for accessing ISDS SOAP services
 app-misc/linux-logo 6.01: A utility that displays an ANSI/ASCII logo and some system information
 app-misc/linuxspa 0.7.1-r2: Linux Serial Protocol Analyser
-app-misc/liquidctl 1.14.0: Cross-platform tool and drivers for liquid coolers and other devices
+app-misc/liquidctl 1.14.0 1.15.0: Cross-platform tool and drivers for liquid coolers and other devices
 app-misc/lirc 0.10.1_p7-r1 0.10.2-r2: decode and send infra-red signals of many commonly used remote controls
 app-misc/livecd-tools 2.11 9999: Gentoo LiveCD tools for autoconfiguration of hardware
 app-misc/localsearch 3.6.2 3.6.2-r2 3.8.2 3.9.0-r1: Indexer and search engine that powers desktop search for core GNOME components
@@ -3102,7 +3102,7 @@ app-shells/ccsh 0.0.4-r5: UNIX Shell for people already familiar with the C lang
 app-shells/ctypes-sh 1.2-r2: Foreign function interface for bash
 app-shells/dash 0.5.12-r1 0.5.13.1 9999: Debian Almquist Shell
 app-shells/dsh 0.25.10-r2: Distributed Shell
-app-shells/fish 3.7.1 4.0.6 4.0.8 4.1.0 4.1.1 4.1.2 9999: Friendly Interactive SHell
+app-shells/fish 3.7.1 4.0.6 4.0.8 4.1.0 4.1.1 4.1.2 4.2.0 9999: Friendly Interactive SHell
 app-shells/fsh 1.0.0_p20220816-r2: F# Shell with integrated F# scripting
 app-shells/fzf 0.64.0 0.65.1 0.65.2 0.66.1: General-purpose command-line fuzzy finder, written in Golang
 app-shells/gash 0.3.0-r100: POSIX-compatible shell written in Guile Scheme
@@ -9575,8 +9575,8 @@ dev-python/svglib 1.5.1 1.6.0: Pure-Python library for reading and converting SV
 dev-python/svgwrite 1.4.3: Python Package to write SVG files
 dev-python/swagger-spec-validator 3.0.4: Validate Swagger specs against Swagger 1.1 or 2.0 specification
 dev-python/sybil 9.1.0 9.2.0 9.2.0-r1: Automated testing for the examples in your documentation
-dev-python/symengine 0.14.1-r1: Python wrappers to the symengine C++ library
-dev-python/sympy 1.14.0-r1: Computer Algebra System in pure Python
+dev-python/symengine 0.14.1-r1 0.14.1-r2: Python wrappers to the symengine C++ library
+dev-python/sympy 1.14.0-r1 1.14.0-r2: Computer Algebra System in pure Python
 dev-python/tables 3.10.2 3.10.2-r1: Hierarchical datasets for Python
 dev-python/tabulate 0.9.0-r1: Pretty-print tabular data
 dev-python/tagpy 2025.1-r1: Python Bindings for TagLib
@@ -10767,7 +10767,7 @@ dev-util/byacc 20241231: The best variant of the Yacc parser generator
 dev-util/cargo-audit 0.21.1 0.21.2 0.22.0: Audit Cargo.lock for crates with security vulnerabilities
 dev-util/cargo-c 0.10.13-r1 0.10.14 0.10.15 0.10.16 0.10.18: Helper program to build and install c-like libraries
 dev-util/cargo-license 0.6.1-r1 0.7.0: Cargo subcommand to see license of dependencies
-dev-util/cargo-nextest 0.9.103 0.9.104 0.9.105 0.9.106 0.9.108: Next-generation test runner for Rust
+dev-util/cargo-nextest 0.9.105 0.9.106 0.9.108 0.9.111: Next-generation test runner for Rust
 dev-util/cargo-pgrx 0.12.7 0.12.9 0.13.1 0.14.3 0.15.0 0.16.0 0.16.1: pgrx: A Rust framework for creating Postgres extensions
 dev-util/cargo-tarpaulin 0.32.8 0.33.0 0.34.1: Cargo-Tarpaulin is a tool to determine code coverage achieved via tests
 dev-util/cargo-vendor-filterer 0.5.17 0.5.18: Tool to 'cargo vendor' with filtering
@@ -10837,7 +10837,7 @@ dev-util/dejagnu 1.6.3: Framework for testing other programs
 dev-util/desktop-file-utils 0.27 0.27-r1 0.28: Command line utilities to work with desktop menu entries
 dev-util/devhelp 43.0: An API documentation browser for GNOME
 dev-util/dialog 1.3.20250116-r1 1.3.20250817: Tool to display dialog boxes from a shell
-dev-util/diff-cover 9.2.0 9.6.0: Find diff lines that do not have test coverage
+dev-util/diff-cover 9.6.0: Find diff lines that do not have test coverage
 dev-util/diffball 1.0.1-r2: Delta compression suite for using/generating binary patches
 dev-util/diffoscope 303 306 308: Will try to get to the bottom of what makes files or directories different
 dev-util/diffstat 1.67 1.68: Display a histogram of diff changes
@@ -13762,7 +13762,7 @@ media-plugins/kodi-visualization-waveform 9999: Waveform visualizer for Kodi
 media-plugins/ladspa-bs2b 0.9.1-r4: LADSPA plugin for bs2b headphone filter
 media-plugins/libvisual-plugins 0.4.2-r1: collection of visualization plugins for use with the libvisual framework
 media-plugins/libvisual-projectm 2.1.1: A libvisual graphical music visualization plugin similar to milkdrop
-media-plugins/live 2024.10.31 2025.07.19 2025.10.13: Libraries for standards-based RTP/RTCP/RTSP multimedia streaming
+media-plugins/live 2024.10.31 2025.07.19 2025.10.13 2025.11.06: Libraries for standards-based RTP/RTCP/RTSP multimedia streaming
 media-plugins/mcp-plugins 0.4.0-r1: MCP ladspa plugins package. Includes moogvcf, phaser & chorus
 media-plugins/mda-lv2 1.2.10-r1: LV2 port of the MDA plugins by Paul Kellett
 media-plugins/mpg123-output-plugins 1.32.10 1.33.0 1.33.1 1.33.3: Plugins for mpg123, the realtime MPEG 1.0/2.0/2.5 audio player
@@ -14326,7 +14326,7 @@ media-video/mjpegtools 2.2.1-r2: Tools for MJPEG video
 media-video/mjpg-streamer 0_pre20200524-r2: MJPG-streamer takes JPGs from Linux-UVC compatible webcams
 media-video/mkclean 0.8.10-r1: mkclean is a command line tool to clean and optimize Matroska files
 media-video/mkvalidator 0.5.2 0.6.0 0.6.0-r1: mkvalidator is a command line tool to verify Matroska files for spec conformance
-media-video/mkvtoolnix 93.0 94.0 95.0 9999: Tools to create, alter, and inspect Matroska files
+media-video/mkvtoolnix 95.0 96.0 9999: Tools to create, alter, and inspect Matroska files
 media-video/motion 4.5.1-r4: A software motion detector
 media-video/motiontrack 0.1.3-r2: A set of tools that detect motion between two images
 media-video/movit 1.7.1: High-performance, high-quality video filters for the GPU
@@ -15511,7 +15511,7 @@ net-p2p/deluge 2.1.1-r5 2.1.1-r6 2.1.1-r7 2.2.0 9999: BitTorrent client with a c
 net-p2p/ed2k_hash 0.4.0-r3: Tool for generating eDonkey2000 links
 net-p2p/energi3 3.0.8 3.1.0 9999: Official golang implementation of the Energi Core
 net-p2p/freenet 0.7.5_p1503-r1: An encrypted network without censorship
-net-p2p/go-ethereum 1.15.10 1.15.11 1.16.1 1.16.4: Official golang implementation of the Ethereum protocol
+net-p2p/go-ethereum 1.16.7: Official golang implementation of the Ethereum protocol
 net-p2p/gtk-gnutella 1.2.2-r1 1.2.3: GTK+ Gnutella client
 net-p2p/gtorrentviewer 0.2b-r1: A GTK2-based viewer and editor for BitTorrent meta files
 net-p2p/ktorrent 25.08.2 25.08.3: Powerful BitTorrent client based on KDE Frameworks
@@ -17382,7 +17382,7 @@ sys-boot/elilo 3.16-r6: Linux boot loader for EFI-based systems such as IA-64
 sys-boot/gnu-efi 3.0.15 3.0.17 3.0.18-r5 3.0.19 4.0.2: Library for build EFI Applications
 sys-boot/grub 2.12-r7 2.14_rc1-r1 9999: GNU GRUB boot loader
 sys-boot/lilo 24.2-r2 24.2-r3: LInux LOader, the original Linux bootloader
-sys-boot/limine 10.2.1: Limine is a modern, advanced, and portable BIOS/UEFI multiprotocol bootloader
+sys-boot/limine 10.3.0: Limine is a modern, advanced, and portable BIOS/UEFI multiprotocol bootloader
 sys-boot/makebootfat 1.4: Command line utility able to create bootable USB disks
 sys-boot/mbr 1.1.11-r2: A replacement master boot record for IBM-PC compatible computers
 sys-boot/milo 2.4.18: The Alpha MIniLOader, for Alpha Machines without SRM
@@ -17815,7 +17815,7 @@ sys-power/wluma 4.3.0-r3 4.4.0-r2 4.9.0: Automatic brightness adjustment based o
 sys-process/acct 6.6.4-r4: GNU system accounting utilities
 sys-process/anacron 2.3-r5: A periodic command scheduler
 sys-process/at 3.2.5 3.2.5-r1 3.2.5-r2: Queues jobs for later execution
-sys-process/atop 2.11.0-r1 2.11.1 2.12.0 2.12.0-r1: Resource-specific view of processes
+sys-process/atop 2.11.0-r1 2.11.1 2.12.0 2.12.0-r1 2.12.1: Resource-specific view of processes
 sys-process/audit 4.0.1-r1 4.0.2-r1: Userspace utilities for storing and processing auditing records
 sys-process/bashtop 0.9.25: Resource monitor that shows usage and stats
 sys-process/bcron 0.11: A new cron system designed with secure operations in mind by Bruce Guenter
