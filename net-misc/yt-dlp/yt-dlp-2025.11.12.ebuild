@@ -11,12 +11,14 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/yt-dlp/yt-dlp.git"
 else
-	SRC_URI="https://dev.gentoo.org/~ionen/distfiles/${P}.tar.xz"
+	SRC_URI="
+		https://github.com/yt-dlp/yt-dlp/releases/download/${PV}/${PN}.tar.gz
+			-> ${P}.tar.gz
+	"
 	S=${WORKDIR}/${PN}
 	# note that yt-dlp bumps are typically done straight-to-stable (unless some
 	# major/breaking changes) given website changes breaks it on a whim
-	# (unkeyworded pre-snapshot including external n/sig solver, aka w/ deno)
-	#KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~riscv x86 ~arm64-macos ~x64-macos"
+	KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~riscv x86 ~arm64-macos ~x64-macos"
 fi
 
 DESCRIPTION="youtube-dl fork with additional features and fixes"
@@ -33,10 +35,11 @@ IUSE="+deno"
 #
 # yt-dlp-ejs requires pinning due to yt-dlp checking sha512sum of .js,
 # live ebuild users may need to use the self-updater method if out of
-# sync as there is no plans for a yt-dlp-ejs live ebuild at the moment
+# sync as there are no plans for a yt-dlp-ejs live ebuild at the moment
+# (should "typically" be updated in Gentoo within 24h if willing to wait)
 RDEPEND="
 	dev-python/pycryptodome[${PYTHON_USEDEP}]
-	~dev-python/yt-dlp-ejs-0.3.0[${PYTHON_USEDEP}]
+	~dev-python/yt-dlp-ejs-0.3.1[${PYTHON_USEDEP}]
 	deno? ( dev-lang/deno-bin )
 "
 BDEPEND="
@@ -85,7 +88,7 @@ python_install_all() {
 		use man && doman yt-dlp.1
 	else
 		doman yt-dlp.1
-		rm -rf -- "${ED}"/usr/share/doc/yt_dlp || die
+		rm -r -- "${ED}"/usr/share/doc/yt_dlp || die
 	fi
 
 	dobashcomp completions/bash/yt-dlp
