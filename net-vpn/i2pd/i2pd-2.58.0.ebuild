@@ -11,19 +11,24 @@ SRC_URI="https://github.com/PurpleI2P/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="+upnp"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86"
+IUSE="test +upnp"
+RESTRICT="!test? ( test )"
 
-DEPEND="
+COMMON_DEPEND="
 	dev-libs/boost:=
 	dev-libs/openssl:0=[-bindist(-)]
 	virtual/zlib:=
 	upnp? ( net-libs/miniupnpc:= )
 "
+DEPEND="
+	${COMMON_DEPEND}
+	test? ( dev-libs/check )
+"
 RDEPEND="
+	${COMMON_DEPEND}
 	acct-user/i2pd
 	acct-group/i2pd
-	${DEPEND}
 "
 
 CMAKE_USE_DIR="${WORKDIR}/${P}/build"
@@ -32,6 +37,7 @@ DOCS=( ../README.md ../contrib/i2pd.conf ../contrib/tunnels.conf )
 
 src_configure() {
 	local mycmakeargs=(
+		-DBUILD_TESTING=$(usex test ON OFF)
 		-DWITH_HARDENING=OFF # worsens or matches the non-hardened profiles
 		-DWITH_STATIC=OFF
 		-DWITH_UPNP=$(usex upnp ON OFF)
@@ -57,13 +63,13 @@ src_install() {
 	doenvd "${FILESDIR}/99i2pd"
 
 	# openrc and systemd daemon routines
-	newconfd "${FILESDIR}/i2pd-2.6.0-r3.confd" i2pd
-	newinitd "${FILESDIR}/i2pd-2.39.0.initd" i2pd
+	newconfd "${FILESDIR}/i2pd-2.56.0.confd" i2pd
+	newinitd "${FILESDIR}/i2pd-2.56.0.initd" i2pd
 	systemd_newunit "${FILESDIR}/i2pd-2.38.0.service" i2pd.service
 
 	# logrotate
 	insinto /etc/logrotate.d
-	newins "${FILESDIR}/i2pd-2.38.0-r1.logrotate" i2pd
+	newins "${FILESDIR}/i2pd-2.57.0.logrotate" i2pd
 }
 
 pkg_postinst() {

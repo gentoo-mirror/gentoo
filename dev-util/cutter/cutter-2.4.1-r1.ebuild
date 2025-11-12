@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
-inherit cmake flag-o-matic toolchain-funcs xdg-utils python-single-r1
+inherit cmake xdg-utils python-single-r1
 
 MY_P="${PN^}-v${PV}"
 
@@ -16,38 +16,33 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="CC-BY-SA-3.0 GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
-IUSE="graphviz"
+KEYWORDS="~amd64 ~x86"
+IUSE="graphviz python"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="${PYTHON_DEPS}
+DEPEND="
 	dev-qt/qtbase:6[gui,network,opengl,widgets]
 	dev-qt/qt5compat:6
 	dev-qt/qtsvg:6
-	>=dev-util/rizin-0.7.1:=
-	graphviz? ( media-gfx/graphviz )"
+	>=dev-util/rizin-0.8.1:=
+	graphviz? ( media-gfx/graphviz )
+	python? ( ${PYTHON_DEPS} )
+"
 RDEPEND="${DEPEND}
 	!net-analyzer/cutter" # https://bugs.gentoo.org/897738
 BDEPEND="dev-qt/qttools:6[linguist]"
 
-src_configure() {
-	# -Werror=odr
-	# https://bugs.gentoo.org/925901
-	# https://github.com/rizinorg/cutter/pull/3317
-	#
-	# Fixed in git dev. Remove as part of next version bump.
-	filter-lto
+PATCHES=(
+	"${FILESDIR}/cutter-2.4.1-cmake4.patch"
+)
 
+src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_CXX_COMPILER="$(tc-getCXX)"
-		-DCMAKE_C_COMPILER="$(tc-getCC)"
-		-DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr"
 		-DCUTTER_ENABLE_GRAPHVIZ="$(usex graphviz)"
 		-DCUTTER_ENABLE_KSYNTAXHIGHLIGHTING=OFF
-		-DCUTTER_ENABLE_PYTHON=ON
+		-DCUTTER_ENABLE_PYTHON="$(usex python)"
 		-DCUTTER_USE_ADDITIONAL_RIZIN_PATHS=OFF
 		-DCUTTER_USE_BUNDLED_RIZIN=OFF
-		-DCUTTER_QT6=ON
 	)
 
 	cmake_src_configure
