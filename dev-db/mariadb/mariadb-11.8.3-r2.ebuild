@@ -13,7 +13,7 @@ DESCRIPTION="An enhanced, drop-in replacement for MySQL"
 HOMEPAGE="https://mariadb.org/"
 SRC_URI="
 	mirror://mariadb/${P}/source/${P}.tar.gz
-	https://dev.gentoo.org/~arkamar/distfiles/${PN}-11.4.7-patches-01.tar.xz
+	https://dev.gentoo.org/~arkamar/distfiles/${PN}-11.4.8-patches-01.tar.xz
 "
 # Shorten the path because the socket path length must be shorter than 107 chars
 # and we will run a mysql server during test phase
@@ -22,7 +22,7 @@ S="${WORKDIR}/mysql"
 LICENSE="GPL-2 LGPL-2.1+"
 SLOT="$(ver_cut 1-2)/${SUBSLOT:-0}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86"
-IUSE="aws-km +backup bindist columnstore cracklib debug extraengine galera innodb-lz4
+IUSE="+backup bindist columnstore cracklib debug extraengine galera innodb-lz4
 	innodb-lzo innodb-snappy jdbc jemalloc kerberos latin1 mroonga
 	numa odbc oqgraph pam +perl profiling rocksdb selinux +server sphinx
 	sst-rsync sst-mariabackup static systemd systemtap s3 tcmalloc
@@ -45,7 +45,6 @@ COMMON_DEPEND="
 	sys-libs/ncurses:0=
 	>=virtual/zlib-1.2.3:=
 	virtual/libcrypt:=
-	aws-km? ( dev-cpp/aws-sdk-cpp:= )
 	!bindist? (
 		sys-libs/binutils-libs:0=
 		>=sys-libs/readline-4.1:0=
@@ -212,9 +211,7 @@ src_unpack() {
 
 src_prepare() {
 	eapply "${WORKDIR}"/mariadb-patches
-	eapply "${FILESDIR}"/${PN}-10.6.11-gssapi.patch
 	eapply "${FILESDIR}"/${PN}-10.6.12-gcc-13.patch
-	eapply "${FILESDIR}"/${PN}-11.4.7-gcc-16.patch
 
 	eapply_user
 
@@ -394,7 +391,7 @@ src_configure() {
 			-DPLUGIN_OQGRAPH=$(usex oqgraph DYNAMIC NO)
 			-DPLUGIN_SPHINX=$(usex sphinx YES NO)
 			-DPLUGIN_AUTH_PAM=$(usex pam YES NO)
-			-DPLUGIN_AWS_KEY_MANAGEMENT=$(usex aws-km DYNAMIC NO)
+			-DPLUGIN_AWS_KEY_MANAGEMENT=NO
 			-DPLUGIN_CRACKLIB_PASSWORD_CHECK=$(usex cracklib YES NO)
 			-DPLUGIN_SEQUENCE=$(usex extraengine YES NO)
 			-DPLUGIN_SPIDER=$(usex extraengine YES NO)
@@ -568,29 +565,16 @@ src_test() {
 
 	cp "${S}"/mysql-test/unstable-tests "${T}/disabled.def" || die
 
-	local disabled_tests+=(
+	local disabled_tests=(
 		"innodb_gis.1;MDEV-25095;Known rounding error with latest AMD processors"
 		"innodb_gis.gis;MDEV-25095;Known rounding error with latest AMD processors"
 		"main.gis;MDEV-25095;Known rounding error with latest AMD processors"
 
-		# Test which fail in network-sandbox because hostname is set to "localhost"
-		"main.explain_non_select;0;Fails in network-sandbox"
-		"main.information_schema_db;MDEV-37088;Fails in network-sandbox"
-		"main.mariadb-import;MDEV-37087;Fails in network-sandbox"
-		"main.mysql_upgrade;MDEV-27044;Fails in network-sandbox"
-		"main.selectivity_no_engine;MDEV-26320;Fails in network-sandbox"
-		"main.stat_tables;0;Fails in network-sandbox"
-		"main.stat_tables_innodb;0;Fails in network-sandbox"
-		"main.upgrade_MDEV-19650;MDEV-25096;Fails in network-sandbox"
-		"perfschema.privilege_table_io;MDEV-27045;Fails in network-sandbox"
-		"roles.acl_statistics;0;Fails in network-sandbox"
-		"sysschema.v_privileges_by_table_by_level;MDEV-36030;Fails in network-sandbox"
-
 		# Some tests are unable to retrieve HW address
 		"spider.*;MDEV-37098;Fails with network sandbox"
 
-		# 11.8.2 specific issues
-		"main.mysqld--help-aria;0;broken test regex, see MDEV-36668"
+		# issue introduced in 11.8.2
+		"main.mysqld--help-aria;MDEV-36668;broken test regex"
 	)
 
 	use latin1 || disabled_tests+=(
