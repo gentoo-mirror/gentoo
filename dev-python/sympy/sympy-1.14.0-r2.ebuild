@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1 virtualx
 
@@ -23,7 +23,7 @@ S=${WORKDIR}/${P/_/}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 IUSE="imaging ipython latex mathml pdf png pyglet symengine"
 
 RDEPEND="
@@ -48,6 +48,7 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
@@ -76,7 +77,6 @@ python_test() {
 		sympy/integrals/tests/test_integrals.py::test_integrate_poly_definite
 	)
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	nonfatal epytest --veryquickcheck ||
 		die -n "Tests failed with ${EPYTHON}"
 }

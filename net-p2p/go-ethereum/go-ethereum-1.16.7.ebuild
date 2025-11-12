@@ -5,7 +5,7 @@ EAPI=8
 
 inherit go-env go-module
 
-LONG_VERSION="${PV}+build505+oracular"
+LONG_VERSION="${PV}+build4239+plucky"
 DESCRIPTION="Official golang implementation of the Ethereum protocol"
 HOMEPAGE="https://github.com/ethereum/go-ethereum"
 SRC_URI="https://ppa.launchpadcontent.net/ethereum/ethereum/ubuntu/pool/main/e/ethereum/ethereum_${LONG_VERSION}.tar.xz -> ${P}.tar.xz"
@@ -20,6 +20,8 @@ IUSE="devtools"
 
 # Does all kinds of wonky stuff like connecting to Docker daemon, network activity, ...
 RESTRICT+=" test"
+
+PATCHES=( "${FILESDIR}/go-ethereum-1.16.7-dont-strip.patch" )
 
 src_unpack() {
 	default
