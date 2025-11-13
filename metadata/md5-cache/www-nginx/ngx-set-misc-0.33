@@ -4,7 +4,7 @@ DEPEND=hmac? ( dev-libs/openssl:= ) www-servers/nginx:=[modules(-)] www-nginx/ng
 DESCRIPTION=An NGINX module that adds various set_xxx directives to NGINX's rewrite module
 EAPI=8
 HOMEPAGE=https://github.com/openresty/set-misc-nginx-module
-INHERIT=toolchain-funcs nginx-module
+INHERIT=nginx-module
 IUSE=+hmac test
 KEYWORDS=~amd64 ~arm64
 LICENSE=BSD-2
@@ -12,5 +12,5 @@ RDEPEND=hmac? ( dev-libs/openssl:= ) www-servers/nginx:=[modules(-)] www-nginx/n
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/openresty/set-misc-nginx-module/archive/refs/tags/v0.33.tar.gz -> ngx-set-misc-0.33.tar.gz
-_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	nginx-module	7a07ce58f7dfc697ac74b6f3eb541f67
-_md5_=e680a48905ada8a93a855d101826c860
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	nginx-module	8a5e1888f06f43088f9a2cfa09980df7
+_md5_=1725b6a1135d6876846c108f29cb9bd2
