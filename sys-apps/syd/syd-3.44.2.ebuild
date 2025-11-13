@@ -212,7 +212,7 @@ CRATES="
 	strum@0.27.2
 	strum_macros@0.27.2
 	subtle@2.6.1
-	syn@2.0.109
+	syn@2.0.110
 	tabwriter@1.4.1
 	tap@1.0.1
 	tcmalloc@0.3.0
