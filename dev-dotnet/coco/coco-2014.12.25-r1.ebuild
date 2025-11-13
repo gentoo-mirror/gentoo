@@ -3,7 +3,14 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT="9.0"
+# Upstream did not tag this release.
+if [[ "${PV}" == "2014.12.25" ]] ; then
+	COMMIT_SHA="14be0314ae393569ab7abaf4e187f78e6d42b2fd"
+else
+	die 'Could not detect "COMMIT_SHA", please update the ebuild.'
+fi
+
+DOTNET_PKG_COMPAT="10.0"
 NUGET_PACKAGES=""
 
 inherit dotnet-pkg
@@ -16,17 +23,19 @@ if [[ "${PV}" == *9999* ]] ; then
 
 	EGIT_REPO_URI="https://github.com/boogie-org/${PN}.git"
 else
-	SRC_URI="https://github.com/boogie-org/${PN}/archive/${PV}.tar.gz
-		-> ${P}.tar.gz"
+	SRC_URI="https://github.com/boogie-org/${PN}/archive/${COMMIT_SHA}.tar.gz
+		-> ${P}.snapshot.gh.tar.gz"
+	S="${WORKDIR}/${PN}-${COMMIT_SHA}"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="GPL-2+"
 SLOT="0"
 
 DOTNET_PKG_PROJECTS=( Coco.csproj )
-PATCHES=( "${FILESDIR}/coco-2014.12.24-Coco-csproj-net9.patch" )
+
+dotnet-pkg_force-compat
 
 src_unpack() {
 	dotnet-pkg_src_unpack
