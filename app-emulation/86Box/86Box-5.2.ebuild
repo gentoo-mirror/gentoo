@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake flag-o-matic
+inherit cmake desktop flag-o-matic
 
 DESCRIPTION="Emulator of x86-based machines based on PCem"
 HOMEPAGE="https://github.com/86Box/86Box"
@@ -12,14 +12,16 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="experimental +fluidsynth +munt new-dynarec +openal +qt6 +threads vde"
+IUSE="discord experimental +fluidsynth +munt new-dynarec +openal +qt6 +threads vde vnc"
 
 DEPEND="
 	app-emulation/faudio
 	dev-libs/libevdev
+	dev-libs/libserialport
 	media-libs/freetype:2=
 	media-libs/libpng:=
 	media-libs/libsdl2
+	media-libs/libsndfile
 	media-libs/openal
 	media-libs/rtmidi
 	net-libs/libslirp
@@ -34,6 +36,7 @@ DEPEND="
 		x11-libs/libXi
 		x11-libs/libxkbcommon
 	)
+	vnc? ( net-libs/libvncserver )
 "
 RDEPEND="${DEPEND}
 	qt6? ( dev-qt/qttranslations:6 )
@@ -44,8 +47,6 @@ BDEPEND="
 	qt6? ( kde-frameworks/extra-cmake-modules )
 "
 
-PATCHES=( "${FILESDIR}"/${P}-crashfix-{1,2,3}.patch ) # bug #953992, git master
-
 src_configure() {
 	# LTO needs to be filtered
 	# See https://bugs.gentoo.org/854507
@@ -55,22 +56,33 @@ src_configure() {
 	local mycmakeargs=(
 		-DCPPTHREADS="$(usex threads)"
 		-DDEV_BRANCH="$(usex experimental)"
+		-DDISCORD="$(usex discord)"
 		-DDYNAREC="ON"
-		-DMUNT_EXTERNAL="$(usex munt)"
 		-DFLUIDSYNTH="$(usex fluidsynth)"
+		-DHAS_VDE="$(usex vde "${EPREFIX}/usr/$(get_libdir)/libvdeplug.so" "HAS_VDE-NOTFOUND")"
 		-DMINITRACE="OFF"
 		-DMUNT="$(usex munt)"
+		-DMUNT_EXTERNAL="$(usex munt)"
 		-DNEW_DYNAREC="$(usex new-dynarec)"
 		-DOPENAL="$(usex openal)"
 		-DPREFER_STATIC="OFF"
-		-DRTMIDI="ON"
 		-DQT="$(usex qt6)"
 		-DRELEASE="ON"
+		-DRTMIDI="ON"
 		$(usex qt6 '-DUSE_QT6=ON' '')
-		-DHAS_VDE="$(usex vde "${EPREFIX}/usr/$(get_libdir)/libvdeplug.so" "HAS_VDE-NOTFOUND")"
+		-DVNC="$(usex vnc)"
 	)
 
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+
+	domenu src/unix/assets/net.86box.86Box.desktop
+	for iconsize in 48 64 72 96 128 192 256 512; do
+		doicon -s $iconsize src/unix/assets/${iconsize}x${iconsize}/net.86box.86Box.png
+	done
 }
 
 pkg_postinst() {
