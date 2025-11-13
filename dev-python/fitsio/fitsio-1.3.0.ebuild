@@ -24,20 +24,16 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 
 DEPEND="
-	>=dev-python/numpy-1.11:=[${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.17:=[${PYTHON_USEDEP}]
 	>=sci-libs/cfitsio-4.4.0:0=
 "
 RDEPEND="
 	${DEPEND}
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-
-PATCHES=(
-	# https://github.com/esheldon/fitsio/pull/430
-	"${FILESDIR}/${P}-numpy-2.3.patch"
-)
 
 export FITSIO_USE_SYSTEM_FITSIO=1
 

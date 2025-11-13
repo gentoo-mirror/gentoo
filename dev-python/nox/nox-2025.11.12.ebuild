@@ -27,9 +27,14 @@ RDEPEND="
 	>=dev-python/attrs-24.1[${PYTHON_USEDEP}]
 	>=dev-python/colorlog-2.6.1[${PYTHON_USEDEP}]
 	>=dev-python/dependency-groups-1.1[${PYTHON_USEDEP}]
-	>=dev-python/pbs-installer-2025.01.06[${PYTHON_USEDEP}]
+	>=dev-python/humanize-4[${PYTHON_USEDEP}]
 	>=dev-python/packaging-21[${PYTHON_USEDEP}]
 	>=dev-python/virtualenv-20.15[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	test? (
+		>=dev-python/pbs-installer-2025.01.06[${PYTHON_USEDEP}]
+	)
 "
 
 EPYTEST_PLUGINS=()
