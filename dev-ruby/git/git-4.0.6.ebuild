@@ -19,7 +19,7 @@ RUBY_S="ruby-git-${PV}"
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="test"
 
 DEPEND="test? ( >=dev-vcs/git-1.6.0.0 net-misc/openssh app-arch/tar )"
@@ -28,27 +28,22 @@ RDEPEND=">=dev-vcs/git-1.6.0.0"
 ruby_add_rdepend "
 	>=dev-ruby/activesupport-5.0:*
 	>=dev-ruby/addressable-2.8:0
-	>=dev-ruby/process_executer-1.3:1
+	dev-ruby/process_executer:4
 	>=dev-ruby/rchardet-1.9:1
 "
 
 ruby_add_bdepend "test? ( dev-ruby/bundler dev-ruby/minitar:1 >=dev-ruby/mocha-2.1:2 dev-ruby/test-unit:2 )"
 
 all_ruby_prepare() {
-	sed -e '2igem "process_executer", "~> 1.0"' \
-		-i tests/test_helper.rb || die
-
 	# Don't use hardcoded /tmp directory.
 	sed -i -e "s:/tmp:${TMPDIR}:" tests/units/test_archive.rb tests/test_helper.rb || die
 
 	sed -i -e 's/__dir__/"."/' -e 's/git ls-files -z/find * -print0/' ${RUBY_FAKEGEM_GEMSPEC} || die
-
-	# Don't use deprecated key type that is removed from openssh
-	sed -i -e 's/-t dsa/-t rsa/' tests/units/test_signed_commits.rb || die
 }
 
 each_ruby_test() {
 	git config --global user.email "git@example.com" || die
 	git config --global user.name "GitExample" || die
+	git config --global init.defaultBranch main || die
 	${RUBY} -Ilib:.:tests -e 'Dir["tests/**/test_*.rb"].each {|f| require f}' || die
 }
