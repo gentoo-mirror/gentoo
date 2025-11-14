@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/cryptography-2.7[${PYTHON_USEDEP}]
@@ -81,6 +81,11 @@ src_prepare() {
 		-i openstack/tests/unit/test_missing_version.py || die
 	sed -e 's:test_create_unknown_proxy:_&:' \
 		-i openstack/tests/unit/test_connection.py || die
+
+	# stupid test checking if they pin to the newest os-service-types,
+	# except they don't actually do
+	sed -e 's:test_ost_version:_&:' \
+		-i openstack/tests/unit/test_utils.py || die
 
 	distutils-r1_src_prepare
 }

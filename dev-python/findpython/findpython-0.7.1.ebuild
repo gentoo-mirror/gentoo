@@ -16,6 +16,12 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
+RDEPEND="
+	>=dev-python/packaging-20[${PYTHON_USEDEP}]
+	>=dev-python/platformdirs-4.3.6[${PYTHON_USEDEP}]
+"
+
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest

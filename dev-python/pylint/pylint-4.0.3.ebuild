@@ -28,7 +28,7 @@ IUSE="examples"
 
 RDEPEND="
 	<dev-python/astroid-4.1[${PYTHON_USEDEP}]
-	>=dev-python/astroid-4.0.1[${PYTHON_USEDEP}]
+	>=dev-python/astroid-4.0.2[${PYTHON_USEDEP}]
 	>=dev-python/dill-0.3.7[${PYTHON_USEDEP}]
 	>=dev-python/isort-5.14[${PYTHON_USEDEP}]
 	<dev-python/isort-8[${PYTHON_USEDEP}]
