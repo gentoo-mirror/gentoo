@@ -7,13 +7,20 @@ DISTUTILS_USE_PEP517=setuptools
 PYPI_PN=fake.py
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
-inherit distutils-r1 pypi
+inherit distutils-r1
 
+MY_P=${P/-/.}
 DESCRIPTION="Minimalistic, standalone alternative fake data generator with no dependencies"
 HOMEPAGE="
 	https://github.com/barseghyanartur/fake.py/
 	https://pypi.org/project/fake-py/
 "
+# upstream removed examples (and their tests) from sdist around 0.11.8
+SRC_URI="
+	https://github.com/barseghyanartur/fake.py/archive/${PV}.tar.gz
+		-> ${MY_P}.gh.tar.gz
+"
+S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
@@ -21,11 +28,9 @@ KEYWORDS="~amd64"
 
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
-	test? (
-		dev-python/hypothesis[${PYTHON_USEDEP}]
-	)
 "
 
+EPYTEST_PLUGINS=( hypothesis )
 distutils_enable_tests pytest
 
 src_prepare() {
@@ -45,7 +50,6 @@ python_test() {
 		fake.py::TestCLI::test_no_command
 	)
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest -o addopts= fake.py
 
 	local suite
