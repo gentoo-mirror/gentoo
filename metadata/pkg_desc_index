@@ -917,7 +917,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.42.45 1.42.50 1.42.55 1.42.59 1.42.64 1.42.69 1.42.70 1.42.71 1.42.72 1.42.73: Universal Command Line Environment for AWS
+app-admin/awscli 1.42.45 1.42.50 1.42.55 1.42.59 1.42.64 1.42.69 1.42.70 1.42.71 1.42.72 1.42.73 1.42.74: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.11.17 2.12.0 2.13.11 2.17.35 2.23.2: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.8.2 2025.9.0 2025.10.0: Bitwarden password manager desktop client
@@ -8104,7 +8104,7 @@ dev-python/aiostream 0.7.0 0.7.1: Generator-based operators for asynchronous ite
 dev-python/aiounittest 1.5.0-r1: Test asyncio code more easily
 dev-python/ajsonrpc 1.2.0: Async JSON-RPC 2.0 protocol + server powered by asyncio
 dev-python/alabaster 1.0.0: A configurable sidebar-enabled Sphinx theme
-dev-python/alembic 1.16.5 1.17.0 1.17.1: Database migrations tool, written by the author of SQLAlchemy
+dev-python/alembic 1.16.5 1.17.0 1.17.1 1.17.2: Database migrations tool, written by the author of SQLAlchemy
 dev-python/allpairspy 2.5.1: Pairwise test combinations generator
 dev-python/amodem 1.15.6: Transmit data between two computers using audio
 dev-python/amqp 5.3.1: Low-level AMQP client for Python (fork of amqplib)
@@ -8199,8 +8199,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.40.45 1.40.50 1.40.55 1.40.59 1.40.64 1.40.69 1.40.70 1.40.71 1.40.72 1.40.73: The AWS SDK for Python
-dev-python/botocore 1.40.45 1.40.50 1.40.55 1.40.59 1.40.64 1.40.69 1.40.70 1.40.71 1.40.72 1.40.73: Low-level, data-driven core of boto 3
+dev-python/boto3 1.40.45 1.40.50 1.40.55 1.40.59 1.40.64 1.40.69 1.40.70 1.40.71 1.40.72 1.40.73 1.40.74: The AWS SDK for Python
+dev-python/botocore 1.40.45 1.40.50 1.40.55 1.40.59 1.40.64 1.40.69 1.40.70 1.40.71 1.40.72 1.40.73 1.40.74: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8364,7 +8364,7 @@ dev-python/django-timezone-field 7.1-r1: A Django app providing database and for
 dev-python/djangorestframework 3.16.1: Web APIs with django made easy
 dev-python/dkimpy 1.1.8: DKIM and ARC email signing and verification library
 dev-python/dkimpy-milter 1.2.3: Domain Keys Identified Mail (DKIM) signing/verifying milter for Postfix/Sendmail
-dev-python/dns-lexicon 3.21.1 3.23.0 3.23.1: Manipulate DNS records on various DNS providers in a standardized/agnostic way
+dev-python/dns-lexicon 3.21.1 3.23.0 3.23.1 3.23.2: Manipulate DNS records on various DNS providers in a standardized/agnostic way
 dev-python/dnspython 2.7.0 2.7.0-r1 2.8.0_rc1 2.8.0: DNS toolkit for Python
 dev-python/doc8 2.0.0: Style checker for Sphinx (or other) RST documentation
 dev-python/docker 6.1.3 7.0.0 7.1.0: Python client for Docker
@@ -8417,7 +8417,7 @@ dev-python/expects 0.9.0-r1: Expressive and extensible TDD/BDD assertion library
 dev-python/expecttest 0.3.0: golden tests
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyed3 0.9.8: Module for manipulating ID3 (v1 + v2) tags in Python
-dev-python/fake-py 0.11.6 0.11.8: Minimalistic, standalone alternative fake data generator with no dependencies
+dev-python/fake-py 0.11.8 0.11.9: Minimalistic, standalone alternative fake data generator with no dependencies
 dev-python/faker 37.11.0 37.12.0 38.0.0: A Python package that generates fake data for you
 dev-python/fakeredis 2.31.0 2.31.1 2.31.3 2.32.0 2.32.1: Fake implementation of redis API for testing purposes
 dev-python/fastbencode 0.3.6 0.3.7: Implementation of bencode with Rust implementation
@@ -8857,12 +8857,12 @@ dev-python/node-semver 0.9.0: Python version of node-semver, the semantic versio
 dev-python/nodeenv 1.9.1: Node.js virtual environment builder
 dev-python/noiseprotocol 0.3.1: Implementation of Noise Protocol Framework. Compatible with revisions 32 and 33.
 dev-python/nose2 0.15.1: Unittest with plugins
-dev-python/notebook 7.3.3 7.4.5 7.4.6 7.4.7: Jupyter Interactive Notebook
+dev-python/notebook 7.3.3 7.4.7: Jupyter Interactive Notebook
 dev-python/notebook-shim 0.2.4: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nox 2025.10.16 2025.11.12: Flexible test automation for Python
 dev-python/ntplib 0.4.0-r1: Python NTP library
-dev-python/nuitka 2.7.16 2.8.1 2.8.3 2.8.4: Python to native compiler
+dev-python/nuitka 2.7.16 2.8.1 2.8.3 2.8.4 2.8.6: Python to native compiler
 dev-python/numexpr 2.11.0 2.12.1 2.13.1 2.14.1: Fast numerical array expression evaluator for Python and NumPy
 dev-python/numpy 1.26.4 2.2.6 2.3.1 2.3.2 2.3.2-r1 2.3.3 2.3.4: Fast array and numerical python library
 dev-python/numpydoc 1.9.0-r1: Sphinx extension to support docstrings in Numpy format
@@ -8993,7 +8993,7 @@ dev-python/poyo 0.5.0-r1: A lightweight YAML Parser for Python
 dev-python/pplpy 0.8.10-r1: Python bindings for the Parma Polyhedra Library (PPL)
 dev-python/precis-i18n 1.1.1 1.1.2: Internationalized Usernames and Passwords
 dev-python/pretend 1.0.9-r2: A library for stubbing in Python
-dev-python/prettytable 3.16.0: Easily displaying tabular data in a visually appealing ASCII table format
+dev-python/prettytable 3.16.0 3.17.0: Easily displaying tabular data in a visually appealing ASCII table format
 dev-python/primecountpy 0.1.1: Cython interface to sci-mathematics/primecount
 dev-python/priority 1.3.0-r1 2.0.0-r1: A pure-Python implementation of the HTTP/2 priority tree
 dev-python/process-tests 3.0.0: Tools for testing processes
@@ -9655,9 +9655,9 @@ dev-python/txrequests 0.9.6-r1: Asynchronous Python HTTP for Humans
 dev-python/txtorcon 23.11.0 24.8.0-r1: Twisted-based Tor controller client, with state-tracking abstractions
 dev-python/typeguard 4.4.4: Run-time type checker for Python
 dev-python/typer 0.19.2 0.20.0: Build great CLIs. Easy to code. Based on Python type hints
-dev-python/types-docutils 0.22.0.20250919 0.22.2.20250924 0.22.2.20251006: Typing stubs for docutils
+dev-python/types-docutils 0.22.2.20251006 0.22.3.20251115: Typing stubs for docutils
 dev-python/types-gdb 15.0.0.20250809 16.3.0.20250812 16.3.0.20250915 16.3.0.20250920: Typing stubs for gdb
-dev-python/types-psutil 7.0.0.20251001 7.0.0.20251111: Typing stubs for psutil
+dev-python/types-psutil 7.0.0.20251001 7.0.0.20251111 7.0.0.20251115: Typing stubs for psutil
 dev-python/types-setuptools 80.9.0.20250529 80.9.0.20250801 80.9.0.20250809 80.9.0.20250822: Typing stubs for setuptools
 dev-python/typing-extensions 4.14.1 4.15.0: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typing-inspection 0.4.1 0.4.2: Runtime typing introspection tools
@@ -9773,7 +9773,7 @@ dev-python/zeroconf 0.147.0 0.147.2 0.148.0: Pure Python Multicast DNS Service D
 dev-python/zipp 3.23.0: Backport of pathlib-compatible object wrapper for zip files
 dev-python/zipstream-ng 1.8.0 1.9.0: A modern and easy to use streamable zip file generator
 dev-python/zlib-ng 0.5.1 1.0.0: Drop-in replacement for zlib and gzip modules using zlib-ng
-dev-python/zmq-anyio 0.3.10: Asynchronous API for ZMQ using AnyIO
+dev-python/zmq-anyio 0.3.10 0.3.12: Asynchronous API for ZMQ using AnyIO
 dev-python/zope-component 6.0 6.1 7.0: Zope Component Architecture
 dev-python/zope-configuration 6.0 7.0: Zope Configuration Architecture
 dev-python/zope-deprecation 5.1 6.0: Zope Deprecation Infrastructure
@@ -9781,7 +9781,7 @@ dev-python/zope-event 6.0 6.1: Event publishing / dispatch, used by Zope Compone
 dev-python/zope-exceptions 5.2 6.0: General purpose exceptions for Zope packages
 dev-python/zope-hookable 8.0 8.1: Efficient creation of 'hookable' objects
 dev-python/zope-i18nmessageid 8.0 8.1: Zope support for i18nmessageid (tagging source of i18n strings)
-dev-python/zope-interface 8.0 8.0.1 8.1: Interfaces for Python
+dev-python/zope-interface 8.0.1 8.1: Interfaces for Python
 dev-python/zope-schema 7.1 8.0 8.1: Zope schema Architecture
 dev-python/zope-testing 5.1 6.0: Zope testing helpers
 dev-python/zstandard 0.23.0-r3 0.24.0 0.25.0: Zstandard Bindings for Python
