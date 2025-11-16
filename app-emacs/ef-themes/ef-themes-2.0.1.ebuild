@@ -3,7 +3,7 @@
 
 EAPI=8
 
-NEED_EMACS="27.1"
+NEED_EMACS="28.1"
 
 inherit elisp
 
@@ -13,16 +13,23 @@ HOMEPAGE="https://github.com/protesilaos/ef-themes/"
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/protesilaos/${PN}.git"
+	EGIT_REPO_URI="https://github.com/protesilaos/${PN}"
 else
 	SRC_URI="https://github.com/protesilaos/${PN}/archive/${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
 	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
+
+RDEPEND="
+	app-emacs/modus-themes
+"
+BDEPEND="
+	${RDEPEND}
+"
 
 DOCS=( CHANGELOG.org README.md README.org contrast-ratios.org )
 ELISP_TEXINFO="${PN}.texi"

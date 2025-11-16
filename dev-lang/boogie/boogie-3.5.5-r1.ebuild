@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT="9.0"
+DOTNET_PKG_COMPAT="10.0"
 NUGETS="
 microsoft.bcl.asyncinterfaces@6.0.0
 microsoft.codecoverage@16.2.0
@@ -205,12 +205,12 @@ HOMEPAGE="https://github.com/boogie-org/boogie/"
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/boogie-org/${PN}.git"
+	EGIT_REPO_URI="https://github.com/boogie-org/${PN}"
 else
 	SRC_URI="https://github.com/boogie-org/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
