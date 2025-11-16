@@ -1,0 +1,15 @@
+BDEPEND=dev-python/setuptools-scm[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Quickly rewrite git repository history (filter-branch replacement)
+EAPI=8
+HOMEPAGE=https://github.com/newren/git-filter-repo/
+INHERIT=distutils-r1
+IUSE=python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
+KEYWORDS=amd64 ~arm64 ~loong ~x86
+LICENSE=MIT
+RDEPEND=dev-vcs/git python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 ) || ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+SLOT=0
+SRC_URI=https://github.com/newren/git-filter-repo/releases/download/v2.47.0/git-filter-repo-2.47.0.tar.xz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	da0e0aad39afe02500c5b3dee253f4c0
+_md5_=046da59923090bdf1e26f8f88d021868
