@@ -3,7 +3,7 @@
 
 EAPI=8
 
-MOZ_ESR=
+MOZ_ESR=yes
 
 MOZ_PV=${PV}
 MOZ_PV_SUFFIX=
@@ -41,7 +41,7 @@ SRC_URI="amd64? ( ${MOZ_SRC_BASE_URI}/linux-x86_64/en-US/${MOZ_P}.tar.xz -> ${PN
 
 DESCRIPTION="Firefox Web Browser"
 
-KEYWORDS="-* amd64 ~arm64 ~x86"
+KEYWORDS="-* amd64 arm64 ~x86"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 IUSE="+gmp-autoupdate selinux wayland"
 
@@ -59,6 +59,7 @@ RDEPEND="${DEPEND}
 	media-libs/alsa-lib
 	media-libs/fontconfig
 	>=media-libs/freetype-2.4.10
+	<media-video/ffmpeg-8.0
 	sys-apps/dbus
 	virtual/freedesktop-icon-theme
 	>=x11-libs/cairo-1.10[X]
@@ -355,6 +356,6 @@ pkg_postinst() {
 	optfeature_header "Optional programs for extra features:"
 	optfeature "speech syntesis (text-to-speech) support" app-accessibility/speech-dispatcher
 	optfeature "fallback mouse cursor theme e.g. on WMs" gnome-base/gsettings-desktop-schemas
-	optfeature "ffmpeg-based audio/video codec support, required for HTML5 video rendering" media-video/ffmpeg
+	# optfeature "ffmpeg-based audio/video codec support, required for HTML5 video rendering" media-video/ffmpeg
 	optfeature "desktop notifications" x11-libs/libnotify
 }
