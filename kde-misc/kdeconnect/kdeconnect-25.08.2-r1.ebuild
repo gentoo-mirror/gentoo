@@ -79,6 +79,8 @@ BDEPEND="
 "
 BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
+PATCHES=( "${FILESDIR}/${P}-check-dev-ID-no-change.patch" )
+
 src_configure() {
 	# -Werror=lto-type-mismatch
 	# https://bugs.gentoo.org/921648
