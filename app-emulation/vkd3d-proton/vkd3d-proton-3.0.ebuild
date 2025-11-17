@@ -67,8 +67,8 @@ src_prepare() {
 
 	if [[ ${PV} != 9999 ]]; then
 		# update to match version+hash of release tag on bump
-		local tag_ver=
-		local tag_hash=
+		local tag_ver=3.0
+		local tag_hash=6d97b022a1c501b8574a2dd5d9e0446c83055043
 		[[ ${PV} == ${tag_ver} ]] || die "hash has not been updated"
 
 		# without .git, meson sets vkd3d_build as 0x${PV} leading to failure
