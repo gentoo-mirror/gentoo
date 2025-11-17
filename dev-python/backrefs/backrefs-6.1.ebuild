@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/facelessuser/backrefs
 PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 pypi
@@ -16,14 +17,14 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 BDEPEND="
 	test? (
-		dev-python/mock[${PYTHON_USEDEP}]
 		dev-python/regex[${PYTHON_USEDEP}]
 		dev-vcs/git
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest

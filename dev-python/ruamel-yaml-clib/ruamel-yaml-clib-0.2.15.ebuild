@@ -5,7 +5,6 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYPI_NO_NORMALIZE=1
 PYPI_PN=${PN//-/.}
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
@@ -21,16 +20,11 @@ S=${WORKDIR}/ruamel_yaml_clib
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 BDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
 "
-
-PATCHES=(
-	# https://sourceforge.net/p/ruamel-yaml-clib/tickets/45/
-	"${FILESDIR}/${P}-py314.patch"
-)
 
 src_unpack() {
 	default
