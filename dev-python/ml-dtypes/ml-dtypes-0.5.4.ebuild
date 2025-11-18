@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1
 
@@ -26,7 +26,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 DEPEND="
 	>=dev-python/numpy-1.21:=[${PYTHON_USEDEP}]
@@ -41,6 +41,7 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 python_prepare_all() {
@@ -53,6 +54,5 @@ src_test() {
 	mv ml_dtypes/tests . || die
 	rm -r ml_dtypes || die
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	distutils-r1_src_test
 }
