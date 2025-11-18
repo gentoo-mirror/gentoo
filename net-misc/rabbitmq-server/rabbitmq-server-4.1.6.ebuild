@@ -38,12 +38,17 @@ DEPEND="
 	app-arch/unzip
 	app-text/docbook-xml-dtd:4.5
 	app-text/xmlto
-	>=dev-lang/elixir-1.13.4 <dev-lang/elixir-1.19.0
+	>=dev-lang/elixir-1.13.4 <dev-lang/elixir-1.20.0
 	dev-libs/libxslt
 "
 BDEPEND="
 	${ACCT_DEPEND}
 	${ERLANG_DEPEND}
+	sys-apps/which
+	|| (
+		app-arch/7zip
+		app-arch/p7zip
+	)
 "
 
 src_compile() {
