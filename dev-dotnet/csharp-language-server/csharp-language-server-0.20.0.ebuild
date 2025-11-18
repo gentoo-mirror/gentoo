@@ -5,16 +5,15 @@ EAPI=8
 
 DOTNET_PKG_COMPAT="9.0"
 NUGETS="
-argu@6.2.3
-castle.core@5.1.1
-coverlet.collector@3.0.3
+argu@6.2.5
+castle.core@5.2.1
+coverlet.collector@6.0.4
 dotnet.reproduciblebuilds@1.2.25
 fsharp.control.asyncseq@3.2.1
-fsharp.core@4.3.2
 fsharp.core@4.7.2
 fsharp.core@6.0.0
 humanizer.core@2.14.1
-icsharpcode.decompiler@8.2.0.7535
+icsharpcode.decompiler@9.1.0.7988
 ionide.keepachangelog.tasks@0.1.8
 ionide.languageserverprotocol@0.7.0
 messagepack.annotations@2.5.108
@@ -22,11 +21,11 @@ messagepack@2.5.108
 microsoft.bcl.asyncinterfaces@5.0.0
 microsoft.bcl.asyncinterfaces@7.0.0
 microsoft.bcl.asyncinterfaces@9.0.0
-microsoft.build.framework@17.14.8
+microsoft.build.framework@17.14.28
 microsoft.build.locator@1.9.1
 microsoft.build.tasks.core@17.7.2
 microsoft.build.utilities.core@17.7.2
-microsoft.build@17.14.8
+microsoft.build@17.14.28
 microsoft.codeanalysis.analyzers@3.11.0
 microsoft.codeanalysis.analyzerutilities@4.14.0
 microsoft.codeanalysis.common@3.11.0
@@ -42,22 +41,34 @@ microsoft.codeanalysis.visualbasic@4.14.0
 microsoft.codeanalysis.workspaces.common@4.14.0
 microsoft.codeanalysis.workspaces.msbuild@4.14.0
 microsoft.codeanalysis@4.14.0
-microsoft.codecoverage@17.12.0
+microsoft.codecoverage@17.14.1
 microsoft.diasymreader@2.0.0
-microsoft.extensions.dependencyinjection.abstractions@9.0.0
+microsoft.extensions.caching.abstractions@9.0.9
+microsoft.extensions.caching.memory@9.0.9
+microsoft.extensions.configuration.abstractions@9.0.9
+microsoft.extensions.configuration.binder@9.0.9
+microsoft.extensions.configuration@9.0.9
+microsoft.extensions.dependencyinjection.abstractions@9.0.9
 microsoft.extensions.dependencyinjection@9.0.0
+microsoft.extensions.dependencyinjection@9.0.9
 microsoft.extensions.logging.abstractions@9.0.0
-microsoft.extensions.logging@9.0.0
+microsoft.extensions.logging.abstractions@9.0.9
+microsoft.extensions.logging.configuration@9.0.9
+microsoft.extensions.logging.console@9.0.9
+microsoft.extensions.logging@9.0.9
+microsoft.extensions.options.configurationextensions@9.0.9
 microsoft.extensions.options@9.0.0
+microsoft.extensions.options@9.0.9
 microsoft.extensions.primitives@9.0.0
-microsoft.net.stringtools@17.14.8
+microsoft.extensions.primitives@9.0.9
+microsoft.net.stringtools@17.14.28
 microsoft.net.stringtools@17.4.0
 microsoft.net.stringtools@17.7.2
-microsoft.net.test.sdk@17.12.0
+microsoft.net.test.sdk@17.14.1
 microsoft.netcore.platforms@1.1.0
 microsoft.netcore.platforms@5.0.0
-microsoft.testplatform.objectmodel@17.12.0
-microsoft.testplatform.testhost@17.12.0
+microsoft.testplatform.objectmodel@17.14.1
+microsoft.testplatform.testhost@17.14.1
 microsoft.visualstudio.setup.configuration.interop@3.2.2146
 microsoft.visualstudio.threading.analyzers@17.6.40
 microsoft.visualstudio.threading@17.6.40
@@ -66,12 +77,10 @@ microsoft.visualstudio.validation@17.6.11
 microsoft.win32.registry@5.0.0
 nerdbank.streams@2.10.66
 netstandard.library@2.0.0
-newtonsoft.json@13.0.3
+newtonsoft.json@13.0.4
+nuget.frameworks@6.14.0
 nunit3testadapter@4.6.0
 nunit@3.14.0
-serilog.sinks.async@1.5.0
-serilog.sinks.console@5.0.1
-serilog@3.1.1
 streamjsonrpc@2.16.36
 system.buffers@4.5.1
 system.codedom@7.0.0
@@ -96,8 +105,8 @@ system.io.pipelines@7.0.0
 system.io.pipelines@9.0.0
 system.memory@4.5.5
 system.numerics.vectors@4.5.0
-system.reflection.metadata@1.6.0
 system.reflection.metadata@6.0.0
+system.reflection.metadata@8.0.0
 system.reflection.metadata@9.0.0
 system.reflection.metadataloadcontext@9.0.0
 system.resources.extensions@7.0.0
@@ -136,7 +145,7 @@ else
 	SRC_URI="https://github.com/razzmatazz/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
