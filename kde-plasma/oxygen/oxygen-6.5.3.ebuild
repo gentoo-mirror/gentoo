@@ -3,9 +3,7 @@
 
 EAPI=8
 
-KF5MIN=5.116.0
 KFMIN=6.18.0
-QT5MIN=5.15.17
 QTMIN=6.9.1
 inherit ecm plasma.kde.org xdg
 
@@ -15,7 +13,7 @@ HOMEPAGE="https://invent.kde.org/plasma/oxygen"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="qt5 X"
+IUSE="X"
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 COMMON_DEPEND="
@@ -33,22 +31,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6
-	qt5? (
-		>=dev-qt/qtdbus-${QT5MIN}:5
-		>=dev-qt/qtdeclarative-${QT5MIN}:5
-		>=dev-qt/qtgui-${QT5MIN}:5
-		>=dev-qt/qtwidgets-${QT5MIN}:5
-		>=kde-frameworks/frameworkintegration-${KF5MIN}:5
-		>=kde-frameworks/kcompletion-${KF5MIN}:5
-		>=kde-frameworks/kconfig-${KF5MIN}:5
-		>=kde-frameworks/kconfigwidgets-${KF5MIN}:5
-		>=kde-frameworks/kcoreaddons-${KF5MIN}:5
-		>=kde-frameworks/kguiaddons-${KF5MIN}:5
-		>=kde-frameworks/ki18n-${KF5MIN}:5
-		>=kde-frameworks/kwidgetsaddons-${KF5MIN}:5
-		>=kde-frameworks/kwindowsystem-${KF5MIN}:5
-		X? ( >=dev-qt/qtx11extras-${QT5MIN}:5 )
-	)
 	X? (
 		>=dev-qt/qtbase-${QTMIN}:6=[gui]
 		x11-libs/libxcb
@@ -59,13 +41,14 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/libplasma-6.1.90:*[-kf6compat(-)]
+	!<${CATEGORY}/${PN}-6.5.0:5
 	>=dev-qt/qtsvg-${QTMIN}:6
 "
 
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_QT6=ON
-		-DBUILD_QT5=$(usex qt5)
+		-DBUILD_QT5=OFF
 		$(cmake_use_find_package X XCB)
 	)
 	ecm_src_configure

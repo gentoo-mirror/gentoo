@@ -3,9 +3,7 @@
 
 EAPI=8
 
-KF5MIN=5.116.0
 KFMIN=6.18.0
-QT5MIN=5.15.17
 QTMIN=6.9.1
 inherit ecm plasma.kde.org xdg
 
@@ -14,7 +12,7 @@ DESCRIPTION="Qt Platform Theme integration plugins for the Plasma workspaces"
 LICENSE="LGPL-2+"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="qt5"
+IUSE=""
 
 # requires running kde environment
 RESTRICT="test"
@@ -39,48 +37,25 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	x11-libs/libXcursor
 	x11-libs/libxcb
-	qt5? (
-		>=dev-qt/qtdbus-${QT5MIN}:5
-		>=dev-qt/qtgui-${QT5MIN}:5=[dbus]
-		>=dev-qt/qtquickcontrols2-${QT5MIN}:5
-		>=dev-qt/qtwayland-${QT5MIN}:5
-		>=dev-qt/qtwidgets-${QT5MIN}:5
-		>=dev-qt/qtx11extras-${QT5MIN}:5
-		>=kde-frameworks/kcompletion-${KF5MIN}:5
-		>=kde-frameworks/kconfig-${KF5MIN}:5
-		>=kde-frameworks/kconfigwidgets-${KF5MIN}:5
-		>=kde-frameworks/kcoreaddons-${KF5MIN}:5
-		>=kde-frameworks/kguiaddons-${KF5MIN}:5
-		>=kde-frameworks/ki18n-${KF5MIN}:5
-		>=kde-frameworks/kiconthemes-${KF5MIN}:5
-		>=kde-frameworks/kio-${KF5MIN}:5
-		>=kde-frameworks/kjobwidgets-${KF5MIN}:5
-		>=kde-frameworks/knotifications-${KF5MIN}:5
-		>=kde-frameworks/kwindowsystem-${KF5MIN}:5
-		>=kde-frameworks/kxmlgui-${KF5MIN}:5
-		>=kde-plasma/kwayland-${KF5MIN}:5
-	)
 "
 DEPEND="${COMMON_DEPEND}
 	>=dev-libs/plasma-wayland-protocols-1.19.0
 "
 RDEPEND="${COMMON_DEPEND}
+	!<${CATEGORY}/${PN}-6.5.0:5
 	media-fonts/hack
 	media-fonts/noto
 	media-fonts/noto-emoji
 "
 RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 PDEPEND=">=kde-plasma/xdg-desktop-portal-kde-${KDE_CATV}:6"
-BDEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[wayland]
-	qt5? ( >=dev-qt/qtwaylandscanner-${QT5MIN}:5 )
-"
+BDEPEND=">=dev-qt/qtbase-${QTMIN}:6[wayland]"
 BDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_QT6=ON
-		-DBUILD_QT5=$(usex qt5)
+		-DBUILD_QT5=OFF
 	)
 	ecm_src_configure
 }
