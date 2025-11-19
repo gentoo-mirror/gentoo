@@ -21,16 +21,15 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~riscv ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~x86"
 
-RDEPEND="
-	dev-python/python-dateutil[${PYTHON_USEDEP}]
-"
 BDEPEND="
 	test? (
+		dev-python/python-dateutil[${PYTHON_USEDEP}]
 		dev-python/tokenize-rt[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGIN_LOAD_VIA_ENV=1
 EPYTEST_PLUGINS=( "${PN}" )
 distutils_enable_tests pytest
