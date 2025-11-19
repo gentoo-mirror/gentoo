@@ -1,8 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby31 ruby32 ruby33"
+
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_EXTRADOC="NEWS.md README.md"
 
@@ -29,8 +30,7 @@ ruby_add_rdepend "!minimal? (
 	www-servers/adsf
 )
 	>=dev-ruby/addressable-2.5
-	>=dev-ruby/colored-1.2:0
-	>=www-apps/nanoc-checking-1.0.5:1
+	>=www-apps/nanoc-checking-1.0.6:1
 	~www-apps/nanoc-cli-${PV}
 	~www-apps/nanoc-core-${PV}
 	www-apps/nanoc-deploying:1
@@ -48,6 +48,7 @@ ruby_add_bdepend "test? (
 	>=dev-ruby/mocha-0.13
 	dev-ruby/minitest
 	dev-ruby/mustache
+	>=dev-ruby/nokogiri-1.12
 	dev-ruby/pry
 	dev-ruby/rdoc
 	>=dev-ruby/rouge-3.5.1:2
@@ -85,6 +86,8 @@ all_ruby_prepare() {
 	# Avoid tests for unpackaged or obsolete dependencies
 	rm spec/nanoc/filters/less_spec.rb \
 	   test/filters/test_{erubis,markaby,rainpress}.rb || die
+	sed -e '/three pluses (TOML)/ s/context/xcontext/' \
+		-i spec/nanoc/data_sources/filesystem/parser_spec.rb || die
 
 	# Avoid tests that are specific to haml 6.x which is currently not packaged
 	sed -i -e '/test_filter_\(with_proper_indentation\|error\)/askip "haml 6"' test/filters/test_haml.rb || die

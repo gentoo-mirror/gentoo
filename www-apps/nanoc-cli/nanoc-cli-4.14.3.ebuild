@@ -1,8 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby31 ruby32 ruby33"
+
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_EXTRADOC="NEWS.md README.md"
 
@@ -24,6 +25,7 @@ RUBY_S="nanoc-${PV}/nanoc-cli"
 ruby_add_rdepend "
 	>=dev-ruby/cri-2.15:0
 	>=dev-ruby/diff-lcs-1.3:0
+	>=dev-ruby/logger-1.6:0
 	~www-apps/nanoc-core-${PV}
 	dev-ruby/pry
 	>=dev-ruby/zeitwerk-2.1:2

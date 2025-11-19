@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-USE_RUBY="ruby32 ruby33"
+
+USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_EXTRADOC="NEWS.md README.md"
 
@@ -23,8 +24,10 @@ DEPEND+="test? ( app-text/asciidoc app-text/highlight )"
 
 RUBY_S="nanoc-${PV}/nanoc-core"
 
+# clonefile is an optional dependency in the gemspec because it does not
+# install on Windows.
 ruby_add_rdepend "
-	dev-ruby/base64:0.2
+	|| ( dev-ruby/base64:0.3 dev-ruby/base64:0.2 )
 	>=dev-ruby/clonefile-0.5.3:0.5
 	>=dev-ruby/concurrent-ruby-1.1:1
 	dev-ruby/ddmetrics:1
@@ -71,6 +74,14 @@ all_ruby_prepare() {
 	# Avoid circular dependency on www-apps/nanoc
 	sed -i -e '/.all_outdated/,/^  end/ s:^:#:' spec/nanoc/core/feature_spec.rb || die
 	rm -f spec/nanoc/core_spec.rb || die
+
+	# Avoid dependency on unpackaged perfect_toml
+	rm -f spec/nanoc/core/toml_loader_spec.rb spec/meta_spec.rb || die
+	sed -e '/can handle TOML/ s/it/xit/' \
+		-i spec/nanoc/core/structured_data_loader_spec.rb || die
+	sed -e '/TOML config file present/ s/context/xcontext/' \
+		-i spec/nanoc/core/config_loader_spec.rb || die
+
 }
 
 each_ruby_test() {
