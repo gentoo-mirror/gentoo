@@ -21,7 +21,7 @@ CRATES="
 	unicode-ident@1.0.12
 "
 
-RUST_MIN_VER="1.78.0"
+RUST_MIN_VER="1.82.0"
 RUST_MULTILIB=1
 RUST_OPTIONAL=1
 
@@ -110,7 +110,10 @@ RDEPEND="
 	)
 	video_cards_radeonsi? ( virtual/libelf:0=[${MULTILIB_USEDEP}] )
 	video_cards_zink? ( media-libs/vulkan-loader:=[${MULTILIB_USEDEP}] )
-	vulkan? ( virtual/libudev:= )
+	vulkan? (
+		media-libs/libdisplay-info:=[${MULTILIB_USEDEP}]
+		virtual/libudev:=
+	)
 	wayland? ( >=dev-libs/wayland-1.18.0[${MULTILIB_USEDEP}] )
 	${LIBDRM_DEPSTRING}[video_cards_freedreno?,video_cards_intel?,video_cards_nouveau?,video_cards_vc4?,video_cards_vivante?,video_cards_vmware?,${MULTILIB_USEDEP}]
 	X? (
@@ -135,7 +138,7 @@ RDEPEND="${RDEPEND}
 
 DEPEND="${RDEPEND}
 	sysprof? ( >=dev-util/sysprof-capture-3.38.0[${MULTILIB_USEDEP}] )
-	video_cards_d3d12? ( >=dev-util/directx-headers-1.614.1[${MULTILIB_USEDEP}] )
+	video_cards_d3d12? ( >=dev-util/directx-headers-1.618.1[${MULTILIB_USEDEP}] )
 	valgrind? ( dev-debug/valgrind )
 	wayland? ( >=dev-libs/wayland-protocols-1.41 )
 	X? (
@@ -339,7 +342,7 @@ multilib_src_configure() {
 		vulkan_enable video_cards_asahi asahi
 		vulkan_enable video_cards_d3d12 microsoft-experimental
 		vulkan_enable video_cards_freedreno freedreno
-		vulkan_enable video_cards_imagination imagination-experimental
+		vulkan_enable video_cards_imagination imagination
 		vulkan_enable video_cards_intel intel intel_hasvk
 		vulkan_enable video_cards_lavapipe swrast
 		vulkan_enable video_cards_panfrost panfrost
@@ -401,6 +404,7 @@ multilib_src_configure() {
 		$(meson_feature llvm)
 		$(meson_feature lm-sensors lmsensors)
 		$(meson_feature unwind libunwind)
+		$(meson_feature vulkan display-info)
 		$(meson_feature zstd)
 		$(meson_use llvm amd-use-llvm)
 		$(meson_use sysprof)
