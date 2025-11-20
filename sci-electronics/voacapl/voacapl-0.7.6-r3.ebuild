@@ -18,8 +18,13 @@ KEYWORDS="amd64 ~x86"
 
 RESTRICT="mirror bindist"
 
+PATCHES=(
+	"${FILESDIR}/${P}-fmtstring.patch"
+	"${FILESDIR}/${P}-fmtstring1.patch"
+)
+
 src_prepare() {
-	eapply_user
+	default
 	eautoreconf
 }
 
