@@ -6,7 +6,7 @@ EAPI=8
 CRATES=""
 PYTHON_COMPAT=( python3_{11..14} )
 
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.88.0"
 
 inherit bash-completion-r1 cargo desktop optfeature python-any-r1 shell-completion xdg
 
@@ -17,7 +17,7 @@ SRC_URI+=" https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/$
 
 LICENSE="BSD-2"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 BSD Boost-1.0 ISC MIT MPL-2.0 openssl Unicode-3.0"
+LICENSE+=" Apache-2.0 BSD Boost-1.0 ISC MIT MPL-2.0 Unicode-3.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
 
