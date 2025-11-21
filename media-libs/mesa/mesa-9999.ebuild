@@ -53,10 +53,9 @@ EGIT_CHECKOUT_DIR=${S}
 LICENSE="MIT SGI-B-2.0"
 SLOT="0"
 
-RADEON_CARDS="r300 r600 radeon radeonsi"
-VIDEO_CARDS="${RADEON_CARDS}
-	asahi d3d12 freedreno imagination intel lavapipe lima nouveau nvk panfrost
-	v3d vc4 virgl vivante vmware zink"
+VIDEO_CARDS="
+	asahi d3d12 freedreno i915 imagination intel lavapipe lima nouveau nvk
+	panfrost r300 r600 radeon radeonsi v3d vc4 virgl vivante vmware zink"
 for card in ${VIDEO_CARDS}; do
 	IUSE_VIDEO_CARDS+=" video_cards_${card}"
 done
@@ -69,6 +68,7 @@ IUSE="${IUSE_VIDEO_CARDS}
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	llvm? ( ${LLVM_REQUIRED_USE} )
+	video_cards_i915? ( llvm )
 	video_cards_lavapipe? ( llvm vulkan )
 	video_cards_radeon? ( x86? ( llvm ) amd64? ( llvm ) )
 	video_cards_r300?   ( x86? ( llvm ) amd64? ( llvm ) )
@@ -78,6 +78,7 @@ REQUIRED_USE="
 
 LIBDRM_DEPSTRING=">=x11-libs/libdrm-2.4.121"
 RDEPEND="
+	${LIBDRM_DEPSTRING}[${MULTILIB_USEDEP}]
 	>=dev-libs/expat-2.1.0-r3[${MULTILIB_USEDEP}]
 	>=dev-util/spirv-tools-1.3.231.0[${MULTILIB_USEDEP}]
 	>=media-libs/libglvnd-1.3.2[X?,${MULTILIB_USEDEP}]
@@ -108,14 +109,19 @@ RDEPEND="
 	vaapi? (
 		>=media-libs/libva-1.7.3:=[${MULTILIB_USEDEP}]
 	)
-	video_cards_radeonsi? ( virtual/libelf:0=[${MULTILIB_USEDEP}] )
+	video_cards_i915? (
+		${LIBDRM_DEPSTRING}[video_cards_intel]
+	)
+	video_cards_radeonsi? (
+		${LIBDRM_DEPSTRING}[video_cards_amdgpu]
+		virtual/libelf:0=[${MULTILIB_USEDEP}]
+	)
 	video_cards_zink? ( media-libs/vulkan-loader:=[${MULTILIB_USEDEP}] )
 	vulkan? (
 		media-libs/libdisplay-info:=[${MULTILIB_USEDEP}]
 		virtual/libudev:=
 	)
 	wayland? ( >=dev-libs/wayland-1.18.0[${MULTILIB_USEDEP}] )
-	${LIBDRM_DEPSTRING}[video_cards_freedreno?,video_cards_intel?,video_cards_nouveau?,video_cards_vc4?,video_cards_vivante?,video_cards_vmware?,${MULTILIB_USEDEP}]
 	X? (
 		>=x11-libs/libX11-1.8[${MULTILIB_USEDEP}]
 		>=x11-libs/libxshmfence-1.1[${MULTILIB_USEDEP}]
@@ -126,14 +132,6 @@ RDEPEND="
 		x11-libs/xcb-util-keysyms[${MULTILIB_USEDEP}]
 	)
 	zstd? ( app-arch/zstd:=[${MULTILIB_USEDEP}] )
-"
-for card in ${RADEON_CARDS}; do
-	RDEPEND="${RDEPEND}
-		video_cards_${card}? ( ${LIBDRM_DEPSTRING}[video_cards_radeon] )
-	"
-done
-RDEPEND="${RDEPEND}
-	video_cards_radeonsi? ( ${LIBDRM_DEPSTRING}[video_cards_amdgpu] )
 "
 
 DEPEND="${RDEPEND}
@@ -310,7 +308,8 @@ multilib_src_configure() {
 	gallium_enable video_cards_asahi asahi
 	gallium_enable video_cards_d3d12 d3d12
 	gallium_enable video_cards_freedreno freedreno
-	gallium_enable video_cards_intel crocus i915 iris
+	gallium_enable video_cards_i915 i915
+	gallium_enable video_cards_intel crocus iris
 	gallium_enable video_cards_lima lima
 	gallium_enable video_cards_nouveau nouveau
 	gallium_enable video_cards_panfrost panfrost
