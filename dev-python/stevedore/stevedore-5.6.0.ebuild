@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=pbr
 PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 pypi
@@ -17,34 +17,27 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~mips ~ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 BDEPEND="
-	>=dev-python/pbr-2.0.0[${PYTHON_USEDEP}]
 	test? (
 		dev-python/sphinx[${PYTHON_USEDEP}]
 		dev-python/testtools[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 distutils_enable_sphinx 'doc/source' \
 	'>=dev-python/openstackdocstheme-1.18.1' \
 	'>=dev-python/reno-2.5.0' \
 	'>=dev-python/sphinx-2.0.0'
 
-python_prepare_all() {
-	# Delete spurious data in requirements.txt
-	sed -e '/^pbr/d' -i requirements.txt || die
-
-	# Also known problem, inside venv
-	sed -i -e 's:test_disable_caching_file:_&:' \
-		stevedore/tests/test_cache.py || die
-
-	distutils-r1_python_prepare_all
-}
-
 python_test() {
+	local EPYTEST_DESELECT=(
+		# also fails in venv
+		stevedore/tests/test_cache.py::TestCache::test_disable_caching_file
+	)
 	local EPYTEST_IGNORE=()
 	if ! has_version "dev-python/sphinx[${PYTHON_USEDEP}]"; then
 		EPYTEST_IGNORE+=(
@@ -52,6 +45,5 @@ python_test() {
 		)
 	fi
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest
 }
