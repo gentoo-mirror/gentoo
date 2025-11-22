@@ -917,7 +917,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.42.50 1.42.55 1.42.59 1.42.64 1.42.69 1.42.74 1.42.75 1.42.76 1.43.0 1.43.1: Universal Command Line Environment for AWS
+app-admin/awscli 1.42.50 1.42.55 1.42.59 1.42.64 1.42.69 1.42.74 1.42.75 1.42.76 1.43.0 1.43.1 1.43.2: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.8.2 2025.9.0 2025.10.0: Bitwarden password manager desktop client
@@ -8163,7 +8163,7 @@ dev-python/autopep8 2.3.2: Automatically formats Python code to conform to the P
 dev-python/autoprop 4.1.0: Infer properties from accessor methods
 dev-python/awkward 2.8.9 2.8.10: Manipulate JSON-like data with NumPy-like idioms
 dev-python/awkward-cpp 50: CPU kernels and compiled extensions for Awkward Array
-dev-python/aws-sam-translator 1.101.0 1.102.0: A library that transform SAM templates into AWS CloudFormation templates
+dev-python/aws-sam-translator 1.101.0 1.102.0 1.103.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk 2.14.0 2.15.0: AWS X-Ray SDK for Python
 dev-python/b2sdk 2.10.1: Library to access Backblaze B2 cloud storage
 dev-python/babel 2.17.0: Collection of tools for internationalizing Python applications
@@ -8201,15 +8201,15 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.40.50 1.40.55 1.40.59 1.40.64 1.40.69 1.40.74 1.40.75 1.40.76 1.41.0 1.41.1: The AWS SDK for Python
-dev-python/botocore 1.40.50 1.40.55 1.40.59 1.40.64 1.40.69 1.40.74 1.40.75 1.40.76 1.41.0 1.41.1: Low-level, data-driven core of boto 3
+dev-python/boto3 1.40.50 1.40.55 1.40.59 1.40.64 1.40.69 1.40.74 1.40.75 1.40.76 1.41.0 1.41.1 1.41.2: The AWS SDK for Python
+dev-python/botocore 1.40.50 1.40.55 1.40.59 1.40.64 1.40.69 1.40.74 1.40.75 1.40.76 1.41.0 1.41.1 1.41.2: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
 dev-python/bracex 2.6: Bash style brace expansion for Python
 dev-python/braintree 4.39.0 4.40.0: Braintree Python Library
 dev-python/breathe 4.36.0: Sphinx Doxygen renderer
-dev-python/brotlicffi 1.1.0.0: Python binding to the Brotli library
+dev-python/brotlicffi 1.1.0.0 1.2.0.0: Python binding to the Brotli library
 dev-python/btrfs 15: Python module to inspect btrfs filesystems
 dev-python/btrfsutil 6.14 6.15 6.16 6.16.1 6.17 6.17.1: Library for managing Btrfs filesystems
 dev-python/build 1.2.2_p1-r2 1.3.0: A simple, correct PEP517 package builder
@@ -8359,7 +8359,7 @@ dev-python/django-prometheus 2.4.1: Library to export Django metrics for Prometh
 dev-python/django-redis 6.0.0: Full featured redis cache backend for Django
 dev-python/django-registration 5.2.1: user-registration application for Django
 dev-python/django-sortedm2m 4.0.0: Drop-in replacement for django's many to many field with sorted relations
-dev-python/django-tables2 2.7.5-r1: Table/data-grid framework for Django
+dev-python/django-tables2 2.7.5-r1 2.8.0: Table/data-grid framework for Django
 dev-python/django-taggit 6.1.0-r1: Simple tagging for Django
 dev-python/django-template-partials 25.2 25.3: Reusable named inline partials for the Django Template Language
 dev-python/django-timezone-field 7.1-r1: A Django app providing database and form fields for timezone objects
@@ -8411,7 +8411,7 @@ dev-python/etuples 0.3.10: Python S-expression emulation using tuple-like object
 dev-python/evdev 1.9.2: Python library for evdev bindings
 dev-python/events 0.5: Bringing the elegance of C# EventHandler to Python
 dev-python/ewmh 0.1.6: An implementation of Extended Window Manager Hints, based on Xlib
-dev-python/exceptiongroup 1.3.0: Backport of PEP 654 (exception groups)
+dev-python/exceptiongroup 1.3.0 1.3.1: Backport of PEP 654 (exception groups)
 dev-python/execnet 2.1.1 2.1.2: Rapid multi-Python deployment
 dev-python/executing 2.2.0 2.2.1: Get information about what a Python frame is currently doing
 dev-python/expandvars 1.1.1 1.1.2: Expand system variables Unix style
@@ -8419,7 +8419,7 @@ dev-python/expects 0.9.0-r1: Expressive and extensible TDD/BDD assertion library
 dev-python/expecttest 0.3.0: golden tests
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyed3 0.9.8 0.9.9: Module for manipulating ID3 (v1 + v2) tags in Python
-dev-python/fake-py 0.11.8 0.11.9 0.11.10: Minimalistic, standalone alternative fake data generator with no dependencies
+dev-python/fake-py 0.11.10 0.11.12: Minimalistic, standalone alternative fake data generator with no dependencies
 dev-python/faker 37.11.0 37.12.0 38.0.0 38.2.0: A Python package that generates fake data for you
 dev-python/fakeredis 2.31.0 2.31.1 2.31.3 2.32.0 2.32.1: Fake implementation of redis API for testing purposes
 dev-python/fastbencode 0.3.6 0.3.7: Implementation of bencode with Rust implementation
@@ -8894,7 +8894,7 @@ dev-python/orderedmultidict 1.0.1: Ordered Multivalue Dictionary. Powers furl
 dev-python/orderly-set 5.4.1 5.5.0: A package containing multiple implementations of Ordered Set
 dev-python/orjson 3.11.3 3.11.4 3.11.4-r1: Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy
 dev-python/os-client-config 2.3.0: OpenStack Client Configuation Library
-dev-python/os-service-types 1.8.0 1.8.1: A library to handle official service types for OpenStack and it's aliases
+dev-python/os-service-types 1.8.0 1.8.1 1.8.2: A library to handle official service types for OpenStack and it's aliases
 dev-python/osc-lib 4.1.0 4.2.0: A package of common support modules for writing OSC plugins
 dev-python/oslo-concurrency 7.1.0 7.2.0: Oslo Concurrency library
 dev-python/oslo-config 10.0.0 10.1.0: Oslo Configuration API
@@ -9007,7 +9007,7 @@ dev-python/propcache 0.3.2 0.4.0 0.4.1: Yet another URL library
 dev-python/proto-plus 1.26.1 1.26.1-r1: Beautiful, Pythonic protocol buffers
 dev-python/protobuf 5.29.5 5.29.5-r1 6.30.2-r1 6.30.2-r2 6.31.1 6.32.0 6.32.1 6.32.1-r1 6.33.0 6.33.1: Google's Protocol Buffers - Python bindings
 dev-python/psutil 7.1.0 7.1.1 7.1.2 7.1.3: Retrieve information on running processes and system utilization
-dev-python/psycopg 2.9.10 2.9.11 3.2.9 3.2.10 3.2.11 3.2.12: PostgreSQL database adapter for Python
+dev-python/psycopg 2.9.10 2.9.11 3.2.9 3.2.10 3.2.11 3.2.12 3.2.13: PostgreSQL database adapter for Python
 dev-python/ptyprocess 0.7.0-r1: Run a subprocess in a pseudo terminal
 dev-python/publicsuffix2 2.20191221-r2: Get a public suffix for a domain name using the Public Suffix List
 dev-python/pudb 2025.1.1 2025.1.2 2025.1.3: A full-screen, console-based Python debugger
@@ -9143,7 +9143,7 @@ dev-python/pyproj 3.7.1 3.7.2: Python interface to the PROJ library
 dev-python/pyproject-api 1.9.1 1.10.0: API to interact with the python pyproject.toml based projects
 dev-python/pyproject-fmt 2.6.0 2.7.0 2.9.0 2.10.0 2.11.0 2.11.1: Format your pyproject.toml file
 dev-python/pyproject-hooks 1.2.0: Wrappers to build Python packages using PEP 517 hooks
-dev-python/pyproject-metadata 0.9.1: PEP 621 metadata parsing
+dev-python/pyproject-metadata 0.9.1 0.10.0: PEP 621 metadata parsing
 dev-python/pypugjs 5.12.0 6.0.1: Pug (Jade) syntax adapter for Django, Jinja2 and Mako templates
 dev-python/pypy-exe 7.3.20: PyPy executable (build from source)
 dev-python/pypy-exe-bin 7.3.20: PyPy executable (pre-built version)
@@ -9399,7 +9399,7 @@ dev-python/requestsexceptions 1.4.0-r1: Finds the correct path to exceptions in 
 dev-python/resolvelib 1.0.1 1.1.0 1.2.0 1.2.1: Resolve abstract dependencies into concrete ones
 dev-python/responses 0.25.7 0.25.8: Utility for mocking out the Python Requests library
 dev-python/respx 0.22.0-r1: Mock HTTPX with awesome request patterns and response side effects
-dev-python/restructuredtext-lint 1.4.0: Checks PyPI validity of reStructuredText
+dev-python/restructuredtext-lint 1.4.0 1.4.1 2.0.0: Checks PyPI validity of reStructuredText
 dev-python/retry-decorator 1.1.1-r1: Decorator for retrying when exceptions occur
 dev-python/retrying 1.4.1 1.4.2: General-purpose retrying library
 dev-python/rfc3161-client 1.0.3 1.0.4 1.0.5: An Opinionated Python RFC3161 Client
@@ -9570,7 +9570,7 @@ dev-python/stestr 4.2.0: A parallel Python test runner built around subunit
 dev-python/stevedore 5.5.0 5.6.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.1.2: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 13.0.1 13.1.2 13.2.0 14.0.0: Stripe Python bindings
+dev-python/stripe 13.0.1 13.1.2 13.2.0 14.0.0 14.0.1: Stripe Python bindings
 dev-python/structlog 25.4.0 25.5.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.2: subprocess.run replacement with tee(1)-like output
 dev-python/suds-community 1.2.0: Lightweight SOAP client
@@ -9589,7 +9589,7 @@ dev-python/tagpy 2025.1-r1: Python Bindings for TagLib
 dev-python/tap-py 3.2.1: Test Anything Protocol (TAP) tools
 dev-python/tasklib 2.5.1: A Python library for interacting with taskwarrior databases
 dev-python/tavalidate 0.0.6-r1: Utities to validate Tavern responses
-dev-python/tavern 2.17.0 3.0.0-r1 3.0.1: A tool, library, and Pytest plugin for testing RESTful APIs
+dev-python/tavern 2.17.0 3.0.0-r1 3.0.1 3.0.2: A tool, library, and Pytest plugin for testing RESTful APIs
 dev-python/tblib 3.1.0 3.2.0 3.2.1 3.2.2: Traceback fiddling library for Python
 dev-python/tcolorpy 0.1.7: tcolorpy is a Python library to apply true color for terminal text
 dev-python/tekore 6.0.0: Spotify Web API client
@@ -9616,7 +9616,7 @@ dev-python/three-merge 0.1.1-r1: Simple Python library to perform a 3-way merge 
 dev-python/thrift 0.22.0: Python implementation of Thrift
 dev-python/thriftpy2 0.5.2 0.5.3: Pure python approach of Apache Thrift
 dev-python/tifffile 2025.10.4 2025.10.16: Read and write TIFF files
-dev-python/time-machine 2.16.0 2.19.0 3.0.0: Travel through time in your tests
+dev-python/time-machine 2.16.0 2.19.0 3.0.0 3.1.0: Travel through time in your tests
 dev-python/tiny-proxy 0.2.1: Simple proxy server (SOCKS4(a), SOCKS5(h), HTTP tunnel)
 dev-python/tinycss2 1.4.0 1.5.0: A complete yet simple CSS parser for Python
 dev-python/tinyhtml5 2.0.0: HTML parser based on the WHATWG HTML specification
@@ -9659,7 +9659,7 @@ dev-python/typeguard 4.4.4: Run-time type checker for Python
 dev-python/typer 0.19.2 0.20.0: Build great CLIs. Easy to code. Based on Python type hints
 dev-python/types-docutils 0.22.2.20251006 0.22.3.20251115: Typing stubs for docutils
 dev-python/types-gdb 15.0.0.20250809 16.3.0.20250812 16.3.0.20250915 16.3.0.20250920: Typing stubs for gdb
-dev-python/types-psutil 7.0.0.20251001 7.0.0.20251111 7.0.0.20251115 7.0.0.20251116: Typing stubs for psutil
+dev-python/types-psutil 7.0.0.20251001 7.0.0.20251111 7.0.0.20251115 7.0.0.20251116 7.1.1.20251122: Typing stubs for psutil
 dev-python/types-setuptools 80.9.0.20250529 80.9.0.20250801 80.9.0.20250809 80.9.0.20250822: Typing stubs for setuptools
 dev-python/typing-extensions 4.14.1 4.15.0: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typing-inspection 0.4.1 0.4.2: Runtime typing introspection tools
@@ -9768,7 +9768,7 @@ dev-python/youtube-search-python 1.6.6-r2: Get YouTube video information using l
 dev-python/yt-dlp-ejs 0.3.1: External JavaScript for yt-dlp supporting many runtimes
 dev-python/ytmusicapi 1.11.0 1.11.1: Unofficial API for YouTube Music
 dev-python/zc-lockfile 3.0_p1-r1 4.0: Basic inter-process locks
-dev-python/zconfig 4.2: Configuration library supporting a hierarchical schema-driven model
+dev-python/zconfig 4.2 4.3: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.3.1-r1 4.3.2: A modern/fast Python SOAP client based on lxml / requests
 dev-python/zenlib 3.1.5 9999: Useful python decorators and utilities
 dev-python/zeroconf 0.147.0 0.147.2 0.148.0: Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
