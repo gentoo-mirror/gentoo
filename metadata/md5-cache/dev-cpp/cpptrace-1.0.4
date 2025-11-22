@@ -1,16 +1,16 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-arch/zstd:= virtual/zlib:=
-DESCRIPTION=Library intended to simplify reading (and writing) applications using DWARF
+DEPEND=app-arch/zstd:= dev-libs/libdwarf:= test? ( dev-cpp/gtest )
+DESCRIPTION=Simple, portable, and self-contained stacktrace library for C++11 and newer
 EAPI=8
-HOMEPAGE=https://www.prevanders.net/dwarf.html https://github.com/davea42/libdwarf-code
+HOMEPAGE=https://github.com/jeremy-rifkin/cpptrace
 INHERIT=cmake
-IUSE=test dwarfexample dwarfgen
+IUSE=test
 KEYWORDS=~amd64 ~arm64
-LICENSE=GPL-2 LGPL-2.1 BSD
-RDEPEND=app-arch/zstd:= virtual/zlib:=
+LICENSE=MIT
+RDEPEND=app-arch/zstd:= dev-libs/libdwarf:=
 RESTRICT=!test? ( test )
-SLOT=0/2
-SRC_URI=https://www.prevanders.net/libdwarf-2.2.0.tar.xz
+SLOT=0
+SRC_URI=https://github.com/jeremy-rifkin/cpptrace/archive/refs/tags/v1.0.4.tar.gz -> cpptrace-1.0.4.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	a36a2a340635cb293524229ee6d2ef7a
-_md5_=d1a8f1a8fc1e395cb5e12c19c7c96ab2
+_md5_=225cffa6d3ec07a641fe9db85a2d7975
