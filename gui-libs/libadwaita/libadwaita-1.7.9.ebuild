@@ -11,7 +11,7 @@ HOMEPAGE="https://gnome.pages.gitlab.gnome.org/libadwaita/ https://gitlab.gnome.
 
 LICENSE="LGPL-2.1+"
 SLOT="1"
-KEYWORDS="amd64 ~arm arm64 ~loong ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
 IUSE="doc +introspection test +vala"
 REQUIRED_USE="
@@ -27,7 +27,6 @@ RDEPEND="
 	introspection? ( >=dev-libs/gobject-introspection-1.83.2:= )
 "
 DEPEND="${RDEPEND}
-	x11-base/xorg-proto
 "
 BDEPEND="
 	${PYTHON_DEPS}
