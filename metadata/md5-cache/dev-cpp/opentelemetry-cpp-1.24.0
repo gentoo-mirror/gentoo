@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig otlp? ( dev-libs/protobuf[protoc(+)] ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=http? ( net-misc/curl virtual/zlib:= ) elasticsearch? ( dev-cpp/nlohmann_json net-misc/curl ) grpc? ( net-libs/grpc:= ) otlp? ( dev-cpp/abseil-cpp:= dev-libs/protobuf:=[libprotoc(+)] dev-cpp/nlohmann_json ) prometheus? ( dev-cpp/prometheus-cpp ) test? ( dev-cpp/gtest )
+DESCRIPTION=The OpenTelemetry C++ Client
+EAPI=8
+HOMEPAGE=https://opentelemetry.io/ https://github.com/open-telemetry/opentelemetry-cpp/
+INHERIT=cmake
+IUSE=elasticsearch grpc http otlp prometheus test
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=Apache-2.0
+RDEPEND=http? ( net-misc/curl virtual/zlib:= ) elasticsearch? ( dev-cpp/nlohmann_json net-misc/curl ) grpc? ( net-libs/grpc:= ) otlp? ( dev-cpp/abseil-cpp:= dev-libs/protobuf:=[libprotoc(+)] dev-cpp/nlohmann_json ) prometheus? ( dev-cpp/prometheus-cpp )
+REQUIRED_USE=grpc? ( otlp ) http? ( otlp )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.24.0.tar.gz -> opentelemetry-cpp-1.24.0.tar.gz otlp? ( https://github.com/open-telemetry/opentelemetry-proto/archive/refs/tags/v1.8.0.tar.gz -> opentelemetry-proto-1.8.0.tar.gz )
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	a36a2a340635cb293524229ee6d2ef7a
+_md5_=ec7d6132c714c10f804003c345bbbb31
