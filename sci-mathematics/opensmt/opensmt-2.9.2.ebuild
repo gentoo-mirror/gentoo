@@ -15,20 +15,18 @@ if [[ "${PV}" == *9999* ]] ; then
 	EGIT_REPO_URI="https://github.com/usi-verification-and-security/${PN}"
 else
 	SRC_URI="https://github.com/usi-verification-and-security/${PN}/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
 	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="MIT"
 SLOT="0/${PV}"
-IUSE="debug libedit +readline test"
-REQUIRED_USE="?? ( libedit readline )"
+IUSE="debug libedit test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/gmp:=[cxx]
-	readline? ( sys-libs/readline:= )
 	libedit? ( dev-libs/libedit:= )
 "
 DEPEND="
@@ -40,32 +38,24 @@ BDEPEND="
 	test? ( dev-cpp/gtest )
 "
 
-PATCHES=(
-	"${FILESDIR}/opensmt-2.5.2-cmake_minimum.patch"
-	"${FILESDIR}/opensmt-2.5.2-gcc-14.patch"
-)
-
 src_prepare() {
 	cmake_src_prepare
 
-	echo "add_subdirectory(unit)" > "${S}"/test/CMakeLists.txt || die
+	echo "add_subdirectory(unit)" > "${S}/test/CMakeLists.txt" || die
 }
 
 src_configure() {
-	local CMAKE_BUILD_TYPE
+	local CMAKE_BUILD_TYPE=""
 	if use debug ; then
-		CMAKE_BUILD_TYPE=Debug
+		CMAKE_BUILD_TYPE="Debug"
 	else
-		CMAKE_BUILD_TYPE=Release
+		CMAKE_BUILD_TYPE="Release"
 	fi
 
 	local -a mycmakeargs=(
-		-DPACKAGE_TESTS=$(usex test)
-		-DUSE_READLINE=$(usex readline)
+		-DENABLE_LINE_EDITING="$(usex libedit)"
+		-DPACKAGE_TESTS="$(usex test)"
 	)
-	if use readline || use libedit ; then
-		mycmakeargs+=( -DENABLE_LINE_EDITING=ON )
-	fi
 	cmake_src_configure
 }
 
@@ -73,9 +63,9 @@ src_install() {
 	cmake_src_install
 
 	if use elibc_glibc ; then
-		dolib.so "${ED}"/usr/lib/libopensmt.so*
-		rm "${ED}"/usr/lib/libopensmt.so* || die
+		dolib.so "${ED}/usr/lib/libopensmt.so"*
+		rm "${ED}/usr/lib/libopensmt.so"* || die
 	fi
 
-	rm "${ED}"/usr/lib/libopensmt.a || die
+	rm "${ED}/usr/lib/libopensmt.a" || die
 }

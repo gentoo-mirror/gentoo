@@ -4,12 +4,12 @@
 EAPI=8
 
 MY_PV="$(ver_cut 1-3)-$(ver_cut 4)"
-DOTNET_RUNTIME_V="8.0.7"
+DOTNET_RUNTIME_V="8.0.20"
 
 CMAKE_IN_SOURCE_BUILD="ON"
 CMAKE_MAKEFILE_GENERATOR="emake"
 
-DOTNET_PKG_COMPAT="8.0"
+DOTNET_PKG_COMPAT="10.0"
 NUGETS="
 microsoft.codeanalysis.analyzers@1.1.0
 microsoft.codeanalysis.common@2.3.0
@@ -144,7 +144,7 @@ else
 		-> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${MY_PV}"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 # .NET runtime that would have otherwise be downloaded via git.
@@ -199,7 +199,7 @@ src_configure() {
 	dotnet-pkg_src_configure
 
 	local -a mycmakeargs=(
-		-DBUILD_MANAGED=1
+		-DBUILD_MANAGED="1"
 		-DCMAKE_INSTALL_PREFIX="${INSTALL_PREFIX}"
 		-DCORECLR_DIR="${CORECLR_S}"
 		-DDOTNET_DIR="${DOTNET_ROOT}"
