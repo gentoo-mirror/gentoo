@@ -1,13 +1,13 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl] >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm test unpack
-DEPEND=sys-fs/fuse:3=
+DEPEND=dev-libs/libevent:= sys-fs/fuse:3=
 DESCRIPTION=A simple jobserver for Gentoo
 EAPI=8
 HOMEPAGE=https://gitweb.gentoo.org/proj/steve.git/
 INHERIT=git-r3 meson systemd udev
 LICENSE=GPL-2+
 PROPERTIES=live
-RDEPEND=sys-fs/fuse:3=
+RDEPEND=dev-libs/libevent:= sys-fs/fuse:3=
 SLOT=0
 _eclasses_=git-r3	875eb471682d3e1f18da124be97dcc81	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	1a27c82364f611e149966d2c47cbb083	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	f3d9a4376ebd22131726a68e1a0a058f
-_md5_=ff12d80dfae68d9eff4ccc91e94823e1
+_md5_=d76bb76abf56fcdf8de5b68b02aae82c
