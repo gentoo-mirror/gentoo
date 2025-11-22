@@ -1,17 +1,16 @@
 BDEPEND=app-alternatives/yacc app-alternatives/lex test? ( dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/gmp:=[cxx] readline? ( sys-libs/readline:= ) libedit? ( dev-libs/libedit:= )
+DEPEND=dev-libs/gmp:=[cxx] libedit? ( dev-libs/libedit:= )
 DESCRIPTION=Compact and open-source SMT-solver written in C++
 EAPI=8
 HOMEPAGE=http://verify.inf.usi.ch/opensmt/ https://github.com/usi-verification-and-security/opensmt/
 INHERIT=cmake
-IUSE=debug libedit +readline test
+IUSE=debug libedit test
 KEYWORDS=~amd64 ~x86
 LICENSE=MIT
-RDEPEND=dev-libs/gmp:=[cxx] readline? ( sys-libs/readline:= ) libedit? ( dev-libs/libedit:= )
-REQUIRED_USE=?? ( libedit readline )
+RDEPEND=dev-libs/gmp:=[cxx] libedit? ( dev-libs/libedit:= )
 RESTRICT=!test? ( test )
-SLOT=0/2.5.2
-SRC_URI=https://github.com/usi-verification-and-security/opensmt/archive/v2.5.2.tar.gz -> opensmt-2.5.2.tar.gz
+SLOT=0/2.9.2
+SRC_URI=https://github.com/usi-verification-and-security/opensmt/archive/v2.9.2.tar.gz -> opensmt-2.9.2.gh.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	a36a2a340635cb293524229ee6d2ef7a
-_md5_=88a6a4d57b57b630ce023f285906f7b8
+_md5_=07ade12b88eb743532186e9a9ee052bd

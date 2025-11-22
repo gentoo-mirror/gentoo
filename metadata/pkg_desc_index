@@ -1361,7 +1361,7 @@ app-containers/cosign 2.5.0 2.6.1: container signing utility
 app-containers/cri-o 1.31.2 1.31.4: OCI-based implementation of Kubernetes Container Runtime Interface
 app-containers/cri-tools 1.27.0 1.32.0 1.33.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.19.1 1.20 1.21: Fast and low-memory footprint OCI Container Runtime fully written in C
-app-containers/devcontainer 0.80.1: Reference implementation of the Development Containers specification
+app-containers/devcontainer 0.80.1 0.80.2: Reference implementation of the Development Containers specification
 app-containers/distrobox 1.8.1.2-r1 1.8.2.1 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1 3.1 3.2: System container image builder for LXC and incus
 app-containers/dive 0.13.1: terminal based UI to manage kubernetes clusters
@@ -2290,7 +2290,7 @@ app-emacs/template 3.3b: Use templates, decorate comments, auto-update buffers
 app-emacs/tempo-snippets 0.1.5: Visual insertion of tempo templates
 app-emacs/thinks 1.12: Insert text in a think bubble
 app-emacs/tp 0.7: Utilities to create transient menus for POSTing to an API for GNU Emacs
-app-emacs/transient 0.10.0 0.10.1 9999: Transient commands abstraction for GNU Emacs
+app-emacs/transient 0.10.0 0.10.1 0.11.0 9999: Transient commands abstraction for GNU Emacs
 app-emacs/treemacs 3.2: Tree style project file explorer
 app-emacs/treemacs-all-the-icons 3.2: GNU Emacs all-the-icons integration for treemacs
 app-emacs/treepy 0.1.2: Generic tree traversing tools for Emacs Lisp
@@ -4093,7 +4093,7 @@ dev-dotnet/fsautocomplete 0.79.2 0.80.0 0.80.1 0.81.0: F# language server using 
 dev-dotnet/gentoo-dotnet-maintainer-tools 3.0.0 3.9999: Gentoo tools for .NET packages maintenance
 dev-dotnet/libgdiplus 6.0.2-r4 6.2: C-based implementation of the GDI+ API
 dev-dotnet/nake 3.0.0-r1 3.0.0-r2: C# scripting build automation task runner
-dev-dotnet/netcoredbg 3.1.0.1031 3.1.2.1054: NetCoreDbg is a managed code debugger with MI interface for CoreCLR
+dev-dotnet/netcoredbg 3.1.2.1054 3.1.2.1054-r1: NetCoreDbg is a managed code debugger with MI interface for CoreCLR
 dev-dotnet/nuget-license 3.0.0: .NET Core tool to print or save all the licenses of a project
 dev-dotnet/omnisharp-roslyn 1.39.13: OmniSharp server (HTTP, STDIO) based on Roslyn workspaces
 dev-dotnet/pe-format 2.1.2-r1: Intelligent PE executable wrapper for binfmt_misc
@@ -5153,7 +5153,7 @@ dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.4.1 4.4.3 4.5.0: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
 dev-lang/ada-bootstrap 0_p2021-r1 11 12 13 14: Binary bootstrap compiler for GNAT (Ada compiler)
-dev-lang/algol68g 3.9.5 3.10.2 3.10.4 3.10.5: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.9.5 3.10.2 3.10.5 3.10.6: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.11 3.0.0 3.0.2: Scala language-based scripting and REPL
 dev-lang/arc 3.2-r1: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2-r1: Functional programming language with dependent types
@@ -5233,7 +5233,7 @@ dev-lang/mujs 1.3.6 1.3.7-r1: An embeddable JavaScript interpreter written in C
 dev-lang/nasm 2.16.03 3.01: groovy little assembler
 dev-lang/neko 2.4.0-r2 2.4.1: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
-dev-lang/nim 2.2.4: Compiled, garbage-collected systems programming language
+dev-lang/nim 2.2.4 2.2.6: Compiled, garbage-collected systems programming language
 dev-lang/nprolog 4.72 4.76: Interpreter and compiler to be compatible with Arity/Prolog32
 dev-lang/nqp 2025.06.1 2025.08 2025.10 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.11.2-r2 4.13.1 4.14.2 5.3.0-r1 5.4.0: Programming language supporting functional, imperative & object-oriented styles
@@ -5263,7 +5263,7 @@ dev-lang/rust-common 1.81.0 1.82.0 1.83.0 1.84.1 1.85.1 1.86.0 1.87.0 1.88.0 1.8
 dev-lang/sassc 3.6.2: A libsass command line driver
 dev-lang/scala-bin 2.13.9-r1: The Scala Programming Language
 dev-lang/scrapscript 0.1.1 9999: Functional, content-addressable programming language
-dev-lang/smlnj 110.99.5 110.99.6.1: Standard ML of New Jersey compiler and libraries
+dev-lang/smlnj 110.99.6.1 110.99.9: Standard ML of New Jersey compiler and libraries
 dev-lang/snobol 1.4.1-r1: Phil Budne's port of Macro SNOBOL4 in C, for modern machines
 dev-lang/souffle 2.4.1-r1 2.5: Datalog compiler, synthesizes C++ program from logic specification
 dev-lang/spark 2024.01.11-r2: Software development for high-reliability applications
@@ -11072,7 +11072,7 @@ dev-util/sysprof 47.2-r1 48.0-r1 48.1 49.0: System-wide Linux Profiler
 dev-util/sysprof-capture 3.36.0-r2 47.2 48.0 48.1 49.0: Static library for sysprof capture data generation
 dev-util/sysprof-common 47.2 48.0 48.1 49.0: Static library for sysprof capture data generation
 dev-util/tbump 6.11.0: tbump helps you bump the version of your project easily
-dev-util/tea 0.10.0 0.11.0: Command line tool to interact with Gitea server
+dev-util/tea 0.11.0 0.11.1: Command line tool to interact with Gitea server
 dev-util/tinlink 1.0.0-r2: Tool to create very small elf binary from pure binary files
 dev-util/tkdiff 5.6 5.7: Graphical front end to the diff program
 dev-util/tmake 2.12-r2: Cross platform Makefile tool
@@ -11498,7 +11498,7 @@ games-emulation/nestopia-jg 1.53.2 9999: Jolly Good Fork of Nestopia
 games-emulation/openmsx 19.1 20.0-r2: MSX emulator that aims for perfection
 games-emulation/pcsx2 2.4.0-r1 9999: PlayStation 2 emulator
 games-emulation/pcsx2_patches 0_p20241020 9999: Collection of game patches for use with PCSX2 (e.g. widescreen hacks)
-games-emulation/ppsspp 1.19.3: A PSP emulator written in C++
+games-emulation/ppsspp 1.19.3 1.19.3-r1: A PSP emulator written in C++
 games-emulation/prosystem-jg 1.5.3 9999: Jolly Good Fork of ProSystem
 games-emulation/rmg 0.8.3 0.8.5 0.8.7 9999: Rosalie's Mupen GUI
 games-emulation/sameboy-jg 1.0.2 9999: Jolly Good Port of SameBoy
@@ -16320,7 +16320,7 @@ sci-mathematics/dunshire 0.1.3-r2: Python library to solve linear games over sym
 sci-mathematics/easycrypt 2025.10 2025.11: Computer-Aided Cryptographic Proofs
 sci-mathematics/eclib 20250122 20250627: Programs for elliptic curves defined over the rational numbers
 sci-mathematics/ent 101202: Random number sequence test and entropy calculation
-sci-mathematics/eprover 3.0_pre008 3.0.03: Automated theorem prover for full first-order logic with equality
+sci-mathematics/eprover 3.0.03 3.2.5: Automated theorem prover for full first-order logic with equality
 sci-mathematics/euler 1.61.0-r1: Mathematical programming environment
 sci-mathematics/fann 2.2.0-r2 9999: Fast Artificial Neural Network Library
 sci-mathematics/flint 3.1.3_p1-r4 3.3.1-r1: Fast Library for Number Theory
@@ -16368,7 +16368,7 @@ sci-mathematics/normaliz 3.9.3 3.10.1 3.10.5: Tool for computations in affine mo
 sci-mathematics/num-utils 0.5-r2: A set of programs for dealing with numbers from the command line
 sci-mathematics/octave 9.2.0-r2: High-level interactive language for numerical computations
 sci-mathematics/octave-epstk 2.4: Graphical output functions for Matlab and Octave
-sci-mathematics/opensmt 2.5.2 2.7.0: Compact and open-source SMT-solver written in C++
+sci-mathematics/opensmt 2.7.0 2.9.2: Compact and open-source SMT-solver written in C++
 sci-mathematics/otter 3.3-r4: An Automated Deduction System
 sci-mathematics/palp 2.21: A Package for Analyzing Lattice Polytopes (PALP)
 sci-mathematics/pari 2.15.5 2.17.1 2.17.2: Computer-aided number theory C library and tools
@@ -16406,7 +16406,7 @@ sci-mathematics/why3-for-spark 2021-r1 2023.12.13-r2: SPARK 2014 repository for 
 sci-mathematics/wxmaxima 25.04.0-r2: Graphical frontend to Maxima, using the wxWidgets toolkit
 sci-mathematics/yacas 1.9.1-r2: General purpose computer algebra system
 sci-mathematics/yafu 1.34.3-r2: Yet another factoring utility
-sci-mathematics/yices2 2.6.4-r1 2.6.5: SMT Solver supporting SMT-LIB and Yices specification language
+sci-mathematics/yices2 2.6.5: SMT Solver supporting SMT-LIB and Yices specification language
 sci-mathematics/z3 4.15.3 4.15.4: An efficient theorem prover
 sci-misc/ViSP-images 3.3.0 3.5.0: ViSP images data set
 sci-misc/apertium 3.8.3-r1: Shallow-transfer machine Translation engine and toolbox
@@ -18937,7 +18937,7 @@ x11-themes/experience 3.04-r1: GTK+2 themes which copy and improve the look of X
 x11-themes/faenza-icon-theme 1.3.1-r1: A scalable icon theme called Faenza
 x11-themes/fedora-backgrounds 27.0.1 28.1.5 29.1.3 30.1.2 31.0.4 32.2.2 33.0.8 34.0.1 36.1.2 37.0.5 37.0.6 38.1.1 38.1.1-r1 39.0.5 40.2.0 41.0.2 42.0.0 43.0.1 43.0.3: A set of default and supplemental wallpapers for Fedora
 x11-themes/flatsvg 1.0: Flat SVG icon set
-x11-themes/fluent-icon-theme 2024.02.25 2025.02.26 2025.08.21: Fluent icon theme for Linux desktops
+x11-themes/fluent-icon-theme 2024.02.25 2025.08.21: Fluent icon theme for Linux desktops
 x11-themes/fluxbox-styles-fluxmod 20050128-r1: A collection of FluxBox themes from FluxMod
 x11-themes/fvwm-crystal 3.7.6: Configurable FVWM theme with transparency and freedesktop compatible menu
 x11-themes/gargantuan-icon-theme 1.7: Gargantuan Icon Theme
