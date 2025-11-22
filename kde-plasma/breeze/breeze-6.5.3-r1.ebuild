@@ -40,6 +40,11 @@ RDEPEND="${DEPEND}
 BDEPEND=">=kde-frameworks/kcmutils-${KFMIN}:6"
 PDEPEND=">=kde-frameworks/breeze-icons-${KFMIN}:*"
 
+PATCHES=(
+	"${FILESDIR}/${P}-menu-itemspacing.patch"
+	"${FILESDIR}/${P}-menu-reduce-margins.patch"
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_QT6=ON
