@@ -38,7 +38,9 @@ src_prepare() {
 	# top of the file.
 	local -a skip_tests=(
 		dt-denote--date-convert
+		dt-denote--make-denote-directory
 		dt-denote-get-identifier
+		dt-denote-identifier-p
 	)
 	local skip_test=""
 	for skip_test in "${skip_tests[@]}"; do

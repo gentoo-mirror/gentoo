@@ -3,30 +3,29 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT="9.0"
+DOTNET_PKG_COMPAT="10.0"
 NUGETS="
 avalonia.angle.windows.natives@2.1.25547.20250602
 avalonia.avaloniaedit@11.3.0
-avalonia.buildservices@0.0.31
-avalonia.controls.colorpicker@11.3.4
-avalonia.controls.datagrid@11.3.4
-avalonia.desktop@11.3.4
-avalonia.diagnostics@11.3.4
-avalonia.fonts.inter@11.3.4
-avalonia.freedesktop@11.3.4
-avalonia.native@11.3.4
-avalonia.remote.protocol@11.3.4
+avalonia.buildservices@11.3.1
+avalonia.controls.colorpicker@11.3.8
+avalonia.controls.datagrid@11.3.8
+avalonia.desktop@11.3.8
+avalonia.diagnostics@11.3.8
+avalonia.fonts.inter@11.3.8
+avalonia.freedesktop@11.3.8
+avalonia.native@11.3.8
+avalonia.remote.protocol@11.3.8
 avalonia.skia@11.0.0
-avalonia.skia@11.3.4
-avalonia.themes.fluent@11.3.4
-avalonia.themes.simple@11.3.4
-avalonia.win32@11.3.4
-avalonia.x11@11.3.4
-avalonia@11.0.0
-avalonia@11.3.4
+avalonia.skia@11.3.8
+avalonia.themes.fluent@11.3.8
+avalonia.themes.simple@11.3.8
+avalonia.win32@11.3.8
+avalonia.x11@11.3.8
+avalonia@11.3.8
 avaloniaedit.textmate@11.3.0
-azure.ai.openai@2.3.0-beta.1
-azure.core@1.47.1
+azure.ai.openai@2.5.0-beta.1
+azure.core@1.49.0
 bitmiracle.libtiff.net@2.4.660
 communitytoolkit.mvvm@8.4.0
 harfbuzzsharp.nativeassets.linux@8.3.1.1
@@ -35,15 +34,15 @@ harfbuzzsharp.nativeassets.webassembly@8.3.1.1
 harfbuzzsharp.nativeassets.win32@8.3.1.1
 harfbuzzsharp@7.3.0.3
 harfbuzzsharp@8.3.1.1
-livechartscore.skiasharpview.avalonia@2.0.0-rc5.4
-livechartscore.skiasharpview@2.0.0-rc5.4
-livechartscore@2.0.0-rc5.4
+livechartscore.skiasharpview.avalonia@2.0.0-rc6.1
+livechartscore.skiasharpview@2.0.0-rc6.1
+livechartscore@2.0.0-rc6.1
 microcom.runtime@0.11.0
 microsoft.bcl.asyncinterfaces@8.0.0
 microsoft.extensions.dependencyinjection.abstractions@8.0.2
 microsoft.extensions.logging.abstractions@8.0.3
 onigwrap@1.0.8
-openai@2.3.0
+openai@2.5.0
 pfim@0.11.3
 skiasharp.harfbuzz@2.88.9
 skiasharp.nativeassets.linux@2.88.9
@@ -51,13 +50,12 @@ skiasharp.nativeassets.macos@2.88.9
 skiasharp.nativeassets.webassembly@2.88.9
 skiasharp.nativeassets.win32@2.88.9
 skiasharp@2.88.9
-system.clientmodel@1.5.1
+system.clientmodel@1.6.1
+system.clientmodel@1.7.0
 system.io.pipelines@8.0.0
 system.memory.data@8.0.1
 system.text.json@8.0.5
-textmatesharp.grammars@1.0.65
 textmatesharp.grammars@1.0.70
-textmatesharp@1.0.65
 textmatesharp@1.0.70
 tmds.dbus.protocol@0.21.2
 "
@@ -100,6 +98,8 @@ RDEPEND="
 CHECKREQS_DISK_BUILD="1G"
 DOTNET_PKG_PROJECTS=( src/SourceGit.csproj )
 DOTNET_PKG_BUILD_EXTRA_ARGS=( -p:DisableUpdateDetection="true" )
+
+dotnet-pkg_force-compat
 
 pkg_setup() {
 	check-reqs_pkg_setup
