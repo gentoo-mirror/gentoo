@@ -3,15 +3,15 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 if [[ ${PV} = *9999* ]]; then
 	EGIT_BRANCH="v255-stable"
 	EGIT_REPO_URI="https://github.com/elogind/elogind.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/V${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 inherit eapi9-ver linux-info meson pam python-any-r1 udev xdg-utils
@@ -44,6 +44,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	!sys-apps/systemd
+	>=sys-apps/systemd-utils-255.7-r4[udev]
 "
 PDEPEND="
 	sys-apps/dbus
@@ -57,7 +58,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-252.9-nodocs.patch"
 	# See also:
 	# https://github.com/elogind/elogind/issues/285
-	"${FILESDIR}/${P}-r0-revert-s2idle.patch" # bug 939042
+	"${FILESDIR}/${PN}-255.17-revert-s2idle.patch" # bug 939042
 )
 
 python_check_deps() {
