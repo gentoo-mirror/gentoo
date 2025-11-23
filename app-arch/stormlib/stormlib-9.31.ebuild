@@ -28,11 +28,6 @@ RDEPEND="
 "
 DEPEND=${RDEPEND}
 
-PATCHES=(
-	# https://github.com/ladislav-zezula/StormLib/pull/352
-	"${FILESDIR}/${P}-gnuinstalldirs.patch"
-)
-
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=ON

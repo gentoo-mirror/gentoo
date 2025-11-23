@@ -17,10 +17,11 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/click-5.0[${PYTHON_USEDEP}]
+	dev-python/croniter[${PYTHON_USEDEP}]
 	>=dev-python/redis-4.5.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
@@ -33,6 +34,18 @@ BDEPEND="
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
+
+EPYTEST_DESELECT=(
+	# requires <sentry-sdk-2
+	tests/test_sentry.py::TestSentry::test_failure_capture
+	# hang
+	tests/test_commands.py::TestCommands::test_shutdown_command
+	tests/test_worker_pool.py::TestWorkerPool::test_check_workers
+	tests/test_worker_pool.py::TestWorkerPool::test_reap_workers
+	tests/test_dependencies.py::TestDependencies
+	# already present in older versions
+	tests/test_spawn_worker.py::TestWorker::test_work_and_quit
+)
 src_prepare() {
 	distutils-r1_src_prepare
 
@@ -41,6 +54,8 @@ src_prepare() {
 }
 
 src_test() {
+	local -x TZ=UTC
+
 	local redis_pid="${T}"/redis.pid
 	local redis_port=6379
 	local redis_test_config="daemonize yes
@@ -61,19 +76,4 @@ src_test() {
 
 	# Clean up afterwards
 	kill "$(<"${redis_pid}")" || die
-}
-
-python_test() {
-	local EPYTEST_DESELECT=(
-		# requires <sentry-sdk-2
-		tests/test_sentry.py::TestSentry::test_failure_capture
-		# hang
-		tests/test_commands.py::TestCommands::test_shutdown_command
-		tests/test_worker_pool.py::TestWorkerPool::test_check_workers
-		tests/test_dependencies.py::TestDependencies
-		# already present in older versions
-		tests/test_spawn_worker.py::TestWorker::test_work_and_quit
-	)
-
-	epytest
 }
