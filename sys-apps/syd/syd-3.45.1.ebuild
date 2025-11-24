@@ -15,8 +15,8 @@ CRATES="
 	android_system_properties@0.1.5
 	anstream@0.6.21
 	anstyle-parse@0.2.7
-	anstyle-query@1.1.4
-	anstyle-wincon@3.0.10
+	anstyle-query@1.1.5
+	anstyle-wincon@3.0.11
 	anstyle@1.0.13
 	anyhow@1.0.100
 	arrayref@0.3.9
@@ -32,14 +32,14 @@ CRATES="
 	brunch@0.8.1
 	btoi@0.5.0
 	bumpalo@3.19.0
-	bytes@1.10.1
+	bytes@1.11.0
 	caps@0.5.6
-	cc@1.2.45
+	cc@1.2.47
 	cfg-if@1.0.4
 	cfg_aliases@0.2.1
 	chrono@0.4.42
-	clap@4.5.51
-	clap_builder@4.5.51
+	clap@4.5.53
+	clap_builder@4.5.53
 	clap_derive@4.5.49
 	clap_lex@0.7.6
 	colorchoice@1.0.4
@@ -52,7 +52,7 @@ CRATES="
 	crc32fast@1.5.0
 	crc@3.3.0
 	crossbeam-utils@0.8.21
-	crypto-common@0.1.6
+	crypto-common@0.1.7
 	dactyl@0.9.1
 	darling@0.20.11
 	darling_core@0.20.11
@@ -73,12 +73,12 @@ CRATES="
 	error-chain@0.12.4
 	expiringmap@0.1.2
 	fastrand@2.3.0
-	find-msvc-tools@0.1.4
+	find-msvc-tools@0.1.5
 	fixedbitset@0.5.7
 	flate2@1.1.5
 	fnv@1.0.7
 	funty@2.0.0
-	generic-array@0.14.9
+	generic-array@0.14.7
 	getrandom@0.1.16
 	getrandom@0.2.16
 	getrandom@0.3.4
@@ -87,7 +87,7 @@ CRATES="
 	goblin@0.9.3
 	gperftools@0.2.0
 	hashbrown@0.12.3
-	hashbrown@0.16.0
+	hashbrown@0.16.1
 	heck@0.5.0
 	hermit-abi@0.5.2
 	hex@0.4.3
@@ -97,7 +97,7 @@ CRATES="
 	iced-x86@1.21.0
 	ident_case@1.0.1
 	indexmap@1.9.3
-	indexmap@2.12.0
+	indexmap@2.12.1
 	io-uring@0.6.4
 	ipnet@2.11.0
 	iprange@0.6.7
@@ -129,7 +129,7 @@ CRATES="
 	minimal-lexical@0.2.1
 	miniz_oxide@0.8.9
 	mortal@0.2.4
-	nc@0.9.6
+	nc@0.9.7
 	netlink-sys@0.8.7
 	nix@0.26.4
 	nix@0.29.0
@@ -180,6 +180,7 @@ CRATES="
 	regex-automata@0.4.13
 	regex-syntax@0.8.8
 	regex@1.12.2
+	retry@2.1.0
 	ringbuf@0.4.8
 	rpassword@7.4.0
 	rtoolbox@0.0.3
@@ -212,7 +213,7 @@ CRATES="
 	strum@0.27.2
 	strum_macros@0.27.2
 	subtle@2.6.1
-	syn@2.0.110
+	syn@2.0.111
 	tabwriter@1.4.1
 	tap@1.0.1
 	tcmalloc@0.3.0
@@ -259,32 +260,22 @@ CRATES="
 	windows-strings@0.5.1
 	windows-sys@0.52.0
 	windows-sys@0.59.0
-	windows-sys@0.60.2
 	windows-sys@0.61.2
 	windows-targets@0.52.6
-	windows-targets@0.53.5
 	windows_aarch64_gnullvm@0.52.6
-	windows_aarch64_gnullvm@0.53.1
 	windows_aarch64_msvc@0.52.6
-	windows_aarch64_msvc@0.53.1
 	windows_i686_gnu@0.52.6
-	windows_i686_gnu@0.53.1
 	windows_i686_gnullvm@0.52.6
-	windows_i686_gnullvm@0.53.1
 	windows_i686_msvc@0.52.6
-	windows_i686_msvc@0.53.1
 	windows_x86_64_gnu@0.52.6
-	windows_x86_64_gnu@0.53.1
 	windows_x86_64_gnullvm@0.52.6
-	windows_x86_64_gnullvm@0.53.1
 	windows_x86_64_msvc@0.52.6
-	windows_x86_64_msvc@0.53.1
 	wit-bindgen@0.46.0
 	wyz@0.5.1
 	yaxpeax-arch@0.3.2
 	yaxpeax-arm@0.4.0
-	zerocopy-derive@0.8.27
-	zerocopy@0.8.27
+	zerocopy-derive@0.8.28
+	zerocopy@0.8.28
 	zeroize@1.8.2
 "
 
