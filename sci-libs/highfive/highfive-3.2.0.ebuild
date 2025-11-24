@@ -9,16 +9,15 @@ DOCS_DIR="doc"
 
 inherit cmake docs
 
-MY_PN="HighFive"
-
+## The development of HighFive will continue at https://github.com/highfive-devs/highfive
+## instead of https://github.com/BlueBrain/HighFive
 DESCRIPTION="Header-only C++ interface for libhdf5"
-HOMEPAGE="https://github.com/BlueBrain/HighFive"
-SRC_URI="https://github.com/BlueBrain/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${MY_PN}-${PV}.tar.gz"
-S="${WORKDIR}/${MY_PN}-${PV}"
+HOMEPAGE="https://highfive-devs.github.io/highfive/"
+SRC_URI="https://github.com/${PN}-devs/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="Boost-1.0"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="mpi test"
 RESTRICT="!test? ( test )"
 
@@ -37,15 +36,17 @@ DEPEND="
 
 DOCS=( {README,CHANGELOG}.md )
 
+PATCHES="${FILESDIR}/${P}_use_system_catch2_fix_QA_cmake4_warning.patch"
+
 src_configure() {
 	default
 	local mycmakeargs=(
-		-DHIGHFIVE_PARALLEL_HDF5=$(usex mpi)
+		-DHDF5_IS_PARALLEL=$(usex mpi)
 
-		-DHIGHFIVE_USE_BOOST=$(usex test)
-		-DHIGHFIVE_USE_EIGEN=$(usex test)
-		-DHIGHFIVE_USE_OPENCV=$(usex test)
-		-DHIGHFIVE_USE_XTENSOR=OFF
+		-DHIGHFIVE_TEST_BOOST=$(usex test)
+		-DHIGHFIVE_TEST_EIGEN=$(usex test)
+		-DHIGHFIVE_TEST_OPENCV=$(usex test)
+		-DHIGHFIVE_TEST_XTENSOR=OFF
 
 		-DHIGHFIVE_EXAMPLES=$(usex test)
 		-DHIGHFIVE_UNIT_TESTS=$(usex test)
