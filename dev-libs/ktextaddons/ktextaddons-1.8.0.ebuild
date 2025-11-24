@@ -6,7 +6,7 @@ EAPI=8
 ECM_DESIGNERPLUGIN="true"
 ECM_QTHELP="true"
 ECM_TEST="true"
-KFMIN=6.11.0
+KFMIN=6.15.0
 QTMIN=6.8.1
 inherit ecm kde.org
 
@@ -15,7 +15,7 @@ HOMEPAGE="https://invent.kde.org/libraries/ktextaddons"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="amd64 arm64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 LICENSE="LGPL-2+"
@@ -26,7 +26,7 @@ RESTRICT="test"
 
 DEPEND="
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
-	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
 	>=dev-qt/qtmultimedia-${QTMIN}:6
 	>=kde-frameworks/karchive-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -34,6 +34,8 @@ DEPEND="
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-${KFMIN}:6
+	>=kde-frameworks/kitemviews-${KFMIN}:6
+	>=kde-frameworks/ktextwidgets-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	>=kde-frameworks/syntax-highlighting-${KFMIN}:6
@@ -42,8 +44,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	!${CATEGORY}/${PN}:5
 "
-
-PATCHES=( "${FILESDIR}/${P}-option-add-autogeneratetext.patch" )
 
 src_configure() {
 	local mycmakeargs=(

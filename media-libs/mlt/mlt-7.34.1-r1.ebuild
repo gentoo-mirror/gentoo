@@ -13,7 +13,8 @@ SRC_URI="https://github.com/mltframework/${PN}/releases/download/v${PV}/${P}.tar
 LICENSE="GPL-3"
 SLOT="0/7"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
-IUSE="debug ffmpeg frei0r gtk jack libsamplerate opencv opengl python qt6 rtaudio rubberband sdl test vdpau vidstab xine xml"
+IUSE="debug ffmpeg frei0r gtk jack libsamplerate opencv opengl python qt6
+rtaudio rubberband sdl test vdpau vidstab vorbis xine xml"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -67,6 +68,7 @@ DEPEND="
 		media-libs/sdl2-image
 	)
 	vidstab? ( media-libs/vidstab )
+	vorbis? ( media-libs/libvorbis )
 	xine? ( >=media-libs/xine-lib-1.1.2_pre20060328-r7 )
 	xml? ( >=dev-libs/libxml2-2.5:= )
 "
@@ -137,6 +139,7 @@ src_configure() {
 		-DMOD_SDL2=$(usex sdl)
 		-DBUILD_TESTING=OFF # Needs unpackaged 'kwalify'; restricted anyway.
 		-DMOD_VIDSTAB=$(usex vidstab)
+		-DMOD_VORBIS=$(usex vorbis)
 		-DMOD_XINE=$(usex xine)
 		-DMOD_XML=$(usex xml)
 	)

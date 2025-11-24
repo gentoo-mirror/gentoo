@@ -16,7 +16,7 @@ DESCRIPTION="libmpv wrapper for QtQuick2 and QML"
 HOMEPAGE="https://invent.kde.org/libraries/mpvqt"
 
 LICENSE="|| ( GPL-2 GPL-3 LGPL-3 LGPL-2.1 ) CC-BY-SA-4.0 MIT BSD"
-SLOT="6"
+SLOT="6/2"
 IUSE=""
 
 DEPEND="
