@@ -1,7 +1,7 @@
 Title: Portage to verify git-synced ::gentoo per default
 Author: Florian Schmaus <flow@gentoo.org>
 Posted: 2025-11-01
-Revision: 6
+Revision: 7
 News-Item-Format: 2.0
 Display-If-Installed: sys-apps/portage
 
@@ -11,9 +11,14 @@ set
     sync-git-verify-commit-signature = true
 for the "raw" ::gentoo repository as default.
 
-This behavior change requires action from users who are synchronizing
-the "raw" ::gentoo git repository, as otherwise synchronization may
-fail due to verification errors.
+Note that if you have the 'rsync-verify' flag (misleading name) disabled
+for sys-apps/portage, you will need to enable it, as it pulls in
+app-portage/gemato which is used for verification for git repositories too.
+It is enabled by default.
+
+This behavior change otherwise only requires action from users who are
+synchronizing the "raw" ::gentoo git repository, as otherwise synchronization
+may fail due to verification errors.
 
 Users
 - synchronizing the "sync friendly" ::gentoo git repository,
