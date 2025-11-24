@@ -3,22 +3,19 @@
 
 EAPI=8
 
-# note: version >=2.5.0 switches from python to lua
-PYTHON_COMPAT=( python3_{11..13} python3_13t )
-inherit cmake flag-o-matic python-single-r1 xdg
+inherit cmake flag-o-matic xdg
 
 MY_P=Commander-Genius-v${PV}
 
 DESCRIPTION="Open Source Commander Keen clone (needs original game files)"
 HOMEPAGE="https://clonekeenplus.sourceforge.io/"
 SRC_URI="https://gitlab.com/Dringgstein/Commander-Genius/-/archive/v${PV}/${MY_P}.tar.bz2"
-S=${WORKDIR}/${MY_P}
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+downloader opengl +python"
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+IUSE="+downloader opengl"
 RESTRICT="mirror" # contains keen files, but we do not install them
 
 RDEPEND="
@@ -28,45 +25,43 @@ RDEPEND="
 	media-libs/sdl2-ttf
 	virtual/minizip:=
 	downloader? ( net-misc/curl )
-	opengl? ( virtual/opengl )
-	python? ( ${PYTHON_DEPS} )
+	opengl? ( media-libs/libglvnd )
 "
 DEPEND="
 	${RDEPEND}
 	dev-libs/boost
 "
-BDEPEND="python? ( ${PYTHON_DEPS} )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.3.1-build.patch
-	"${FILESDIR}"/${PN}-2.3.1-paths.patch
-	"${FILESDIR}"/${P}-gcc13.patch
+	"${FILESDIR}"/${PN}-3.6.1-paths.patch
+	"${FILESDIR}"/${P}-desktop-icon-ext.patch
 )
 
-pkg_setup() {
-	use python && python-single-r1_pkg_setup
+src_prepare() {
+	# Drop unneeded code to avoid CMake issues.
+	rm -r tools || die
+
+	cmake_src_prepare
 }
 
 src_configure() {
 	filter-lto #858530
 
 	local mycmakeargs=(
+		-DBUILD_SHARED_LIBS=no
+		-DCCACHE_FOUND=no
 		-DAPPDIR="${EPREFIX}"/usr/bin
 		-DDOCDIR="${EPREFIX}"/usr/share/doc/${PF}
 		-DGAMES_SHAREDIR="${EPREFIX}"/usr/share
 		-DDOWNLOADER=$(usex downloader)
 		-DUSE_OPENGL=$(usex opengl)
-		-DUSE_PYTHON3=$(usex python)
-		-DUSE_SDL2=yes
-		-DUSE_SDL_TTF=yes # crashes when disabled
-		$(usev python -DPython3_EXECUTABLE="${PYTHON}")
 	)
 
 	cmake_src_configure
 }
 
 src_install() {
-	local DOCS=() # skip .in template file, can drop this on bump
 	cmake_src_install
 
 	# default executable name is weird
