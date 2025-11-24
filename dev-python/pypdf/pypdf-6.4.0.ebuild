@@ -35,7 +35,7 @@ BDEPEND="
 	)
 "
 
-EPYTEST_PLUGINS=()
+EPYTEST_PLUGINS=( pytest-timeout )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 

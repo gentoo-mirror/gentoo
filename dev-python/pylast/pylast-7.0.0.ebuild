@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/pylast/pylast
 PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 pypi
@@ -16,16 +17,14 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-	dev-python/httpx[${PYTHON_USEDEP}]
+	>=dev-python/httpx-0.26[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
-	test? (
-		dev-python/flaky[${PYTHON_USEDEP}]
-	)
 "
 
+EPYTEST_PLUGINS=( flaky pytest-recording )
 distutils_enable_tests pytest
