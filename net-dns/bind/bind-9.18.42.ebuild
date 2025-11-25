@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit systemd tmpfiles
+inherit eapi9-ver systemd tmpfiles toolchain-funcs
 
 MY_PV="${PV/_p/-P}"
 MY_PV="${MY_PV/_rc/rc}"
@@ -15,8 +15,8 @@ S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux"
-IUSE="+caps dnsrps dnstap doc doh fixed-rrset idn jemalloc geoip gssapi lmdb selinux static-libs test xml"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux"
+IUSE="+caps dnstap doc doh fixed-rrset idn jemalloc geoip gssapi lmdb selinux static-libs test xml"
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -63,9 +63,18 @@ src_prepare() {
 
 	# Test is (notoriously) slow/resource intensive
 	sed -i -e 's:ISC_TEST_MAIN:int main(void) { exit(77); }:' tests/isc/netmgr_test.c || die
+
+	# Relies on -Wl,--wrap (bug #877741)
+	if tc-is-lto ; then
+		sed -i -e 's:ISC_TEST_MAIN:int main(void) { exit(77); }:' tests/ns/query_test.c || die
+	fi
 }
 
 src_configure() {
+	# configure automagically uses sphinx even if prebuilt man pages
+	# are available. Force fallback to prebuilt ones.
+	use doc || export ac_cv_path_SPHINX_BUILD= SPHINX_BUILD=
+
 	local myeconfargs=(
 		--prefix="${EPREFIX}"/usr
 		--sysconfdir="${EPREFIX}"/etc/bind
@@ -76,7 +85,7 @@ src_configure() {
 		--with-json-c
 		--with-zlib
 		$(use_enable caps linux-caps)
-		$(use_enable dnsrps)
+		--disable-dnsrps
 		$(use_enable dnstap)
 		$(use_enable doh)
 		$(use_with doh libnghttp2)
@@ -107,8 +116,6 @@ src_test() {
 
 src_install() {
 	default
-
-	dodoc CHANGES README.md
 
 	if use doc; then
 		docinto misc
@@ -173,11 +180,11 @@ src_install() {
 pkg_postinst() {
 	tmpfiles_process named.conf
 
-	if [[ ! -f '/etc/bind/rndc.key' && ! -f '/etc/bind/rndc.conf' ]]; then
+	if [[ -z ${ROOT} && ! -f ${EPREFIX}/etc/bind/rndc.key && ! -f ${EPREFIX}/etc/bind/rndc.conf ]]; then
 		einfo "Generating rndc.key"
-		/usr/sbin/rndc-confgen -a
-		chown root:named /etc/bind/rndc.key || die
-		chmod 0640 /etc/bind/rndc.key || die
+		"${EPREFIX}"/usr/sbin/rndc-confgen -a || die
+		chown root:named "${EPREFIX}"/etc/bind/rndc.key || die
+		chmod 0640 "${EPREFIX}"/etc/bind/rndc.key || die
 	fi
 
 	einfo
@@ -190,7 +197,7 @@ pkg_postinst() {
 	einfo "2) Run \`emerge --config '=${CATEGORY}/${PF}'\`"
 	einfo
 
-	CHROOT=$(source /etc/conf.d/named 2>/dev/null; echo ${CHROOT})
+	CHROOT=$(source "${EROOT}"/etc/conf.d/named 2>/dev/null; echo ${CHROOT})
 	if [[ -n ${CHROOT} ]]; then
 		elog "NOTE: As of net-dns/bind-9.4.3_p5-r1 the chroot part of the init-script got some major changes!"
 		elog "To enable the old behaviour (without using mount) uncomment the"
@@ -202,7 +209,7 @@ pkg_postinst() {
 	fi
 
 	# show only when upgrading to 9.18
-	if [[ -n "${REPLACING_VERSIONS}" ]] && ver_test "${REPLACING_VERSIONS}" -lt 9.18; then
+	if ver_replacing -lt 9.18; then
 		elog "As this is a major bind version upgrade, please read:"
 		elog "   https://kb.isc.org/docs/changes-to-be-aware-of-when-moving-from-bind-916-to-918"
 		elog "for differences in functionality."
@@ -216,9 +223,9 @@ pkg_postinst() {
 }
 
 pkg_config() {
-	CHROOT=$(source /etc/conf.d/named; echo ${CHROOT})
-	CHROOT_NOMOUNT=$(source /etc/conf.d/named; echo ${CHROOT_NOMOUNT})
-	CHROOT_GEOIP=$(source /etc/conf.d/named; echo ${CHROOT_GEOIP})
+	CHROOT=$(source "${EROOT}"/etc/conf.d/named; echo ${CHROOT})
+	CHROOT_NOMOUNT=$(source "${EROOT}"/etc/conf.d/named; echo ${CHROOT_NOMOUNT})
+	CHROOT_GEOIP=$(source "${EROOT}"/etc/conf.d/named; echo ${CHROOT_GEOIP})
 
 	if [[ -z "${CHROOT}" ]]; then
 		eerror "This config script is designed to automate setting up"
@@ -239,34 +246,34 @@ pkg_config() {
 
 	echo; einfo "Setting up the chroot directory..."
 
-	mkdir -m 0750 -p ${CHROOT} || die
-	mkdir -m 0755 -p ${CHROOT}/{dev,etc,var/log,run} || die
-	mkdir -m 0750 -p ${CHROOT}/etc/bind || die
-	mkdir -m 0770 -p ${CHROOT}/var/{bind,log/named} ${CHROOT}/run/named/ || die
+	mkdir -m 0750 -p "${CHROOT}" || die
+	mkdir -m 0755 -p "${CHROOT}"/{dev,etc,var/log,run} || die
+	mkdir -m 0750 -p "${CHROOT}"/etc/bind || die
+	mkdir -m 0770 -p "${CHROOT}"/var/{bind,log/named} "${CHROOT}"/run/named/ || die
 
 	chown root:named \
-		${CHROOT} \
-		${CHROOT}/var/{bind,log/named} \
-		${CHROOT}/run/named/ \
-		${CHROOT}/etc/bind \
+		"${CHROOT}" \
+		"${CHROOT}"/var/{bind,log/named} \
+		"${CHROOT}"/run/named/ \
+		"${CHROOT}"/etc/bind \
 		|| die
 
-	mknod ${CHROOT}/dev/null c 1 3 || die
-	chmod 0666 ${CHROOT}/dev/null || die
+	mknod "${CHROOT}"/dev/null c 1 3 || die
+	chmod 0666 "${CHROOT}"/dev/null || die
 
-	mknod ${CHROOT}/dev/zero c 1 5 || die
-	chmod 0666 ${CHROOT}/dev/zero || die
+	mknod "${CHROOT}"/dev/zero c 1 5 || die
+	chmod 0666 "${CHROOT}"/dev/zero || die
 
 	if [[ "${CHROOT_NOMOUNT:-0}" -ne 0 ]]; then
-		cp -a /etc/bind ${CHROOT}/etc/ || die
-		cp -a /var/bind ${CHROOT}/var/ || die
+		cp -a /etc/bind "${CHROOT}"/etc/ || die
+		cp -a /var/bind "${CHROOT}"/var/ || die
 	fi
 
 	if [[ "${CHROOT_GEOIP:-0}" -eq 1 ]]; then
 		if use geoip; then
-			mkdir -m 0755 -p ${CHROOT}/usr/share/GeoIP || die
+			mkdir -m 0755 -p "${CHROOT}"/usr/share/GeoIP || die
 		elif use geoip2; then
-			mkdir -m 0755 -p ${CHROOT}/usr/share/GeoIP2 || die
+			mkdir -m 0755 -p "${CHROOT}"/usr/share/GeoIP2 || die
 		fi
 	fi
 
