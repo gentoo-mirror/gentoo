@@ -5,24 +5,21 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 RUST_MIN_VER="1.82.0"
 CRATES="
-	addr2line@0.24.2
-	adler2@2.0.1
 	aho-corasick@1.1.3
-	anyhow@1.0.99
+	anyhow@1.0.100
 	arc-swap@1.7.1
 	atomic-waker@1.1.2
 	autocfg@1.5.0
-	backtrace@0.3.75
 	base64@0.22.1
 	bitflags@2.9.1
 	blake2@0.10.6
 	block-buffer@0.10.4
 	bumpalo@3.19.0
-	bytes@1.10.1
+	bytes@1.11.0
 	cc@1.2.30
 	cfg-if@1.0.1
 	cfg_aliases@0.2.1
@@ -48,7 +45,6 @@ CRATES="
 	generic-array@0.14.7
 	getrandom@0.2.16
 	getrandom@0.3.3
-	gimli@0.31.1
 	h2@0.4.11
 	hashbrown@0.15.4
 	headers-core@0.3.0
@@ -72,13 +68,12 @@ CRATES="
 	icu_properties@2.0.1
 	icu_properties_data@2.0.1
 	icu_provider@2.0.0
-	icu_segmenter@2.0.0
+	icu_segmenter@2.0.1
 	icu_segmenter_data@2.0.0
 	idna@1.0.3
 	idna_adapter@1.2.1
 	indexmap@2.10.0
 	indoc@2.0.6
-	io-uring@0.7.9
 	ipnet@2.11.0
 	iri-string@0.7.8
 	itoa@1.0.15
@@ -87,14 +82,12 @@ CRATES="
 	libc@0.2.174
 	libm@0.2.15
 	litemap@0.8.0
-	log@0.4.27
+	log@0.4.28
 	lru-slab@0.1.2
 	memchr@2.7.5
 	memoffset@0.9.1
 	mime@0.3.17
-	miniz_oxide@0.8.9
 	mio@1.0.4
-	object@0.36.7
 	once_cell@1.21.3
 	openssl-probe@0.1.6
 	percent-encoding@2.3.1
@@ -104,13 +97,13 @@ CRATES="
 	potential_utf@0.1.2
 	ppv-lite86@0.2.21
 	proc-macro2@1.0.95
-	pyo3-build-config@0.25.1
-	pyo3-ffi@0.25.1
-	pyo3-log@0.12.4
-	pyo3-macros-backend@0.25.1
-	pyo3-macros@0.25.1
-	pyo3@0.25.1
-	pythonize@0.25.0
+	pyo3-build-config@0.26.0
+	pyo3-ffi@0.26.0
+	pyo3-log@0.13.2
+	pyo3-macros-backend@0.26.0
+	pyo3-macros@0.26.0
+	pyo3@0.26.0
+	pythonize@0.26.0
 	quinn-proto@0.11.12
 	quinn-udp@0.5.13
 	quinn@0.11.8
@@ -119,12 +112,11 @@ CRATES="
 	rand@0.9.2
 	rand_chacha@0.9.0
 	rand_core@0.9.3
-	regex-automata@0.4.9
+	regex-automata@0.4.13
 	regex-syntax@0.8.5
-	regex@1.11.2
-	reqwest@0.12.23
+	regex@1.12.2
+	reqwest@0.12.24
 	ring@0.17.14
-	rustc-demangle@0.1.26
 	rustc-hash@2.1.1
 	rustls-native-certs@0.8.1
 	rustls-pki-types@1.12.0
@@ -135,9 +127,10 @@ CRATES="
 	schannel@0.1.27
 	security-framework-sys@2.14.0
 	security-framework@3.2.0
-	serde@1.0.219
-	serde_derive@1.0.219
-	serde_json@1.0.143
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
+	serde_json@1.0.145
 	serde_urlencoded@0.7.1
 	sha1@0.10.6
 	sha2@0.10.9
@@ -159,7 +152,7 @@ CRATES="
 	tinyvec_macros@0.1.1
 	tokio-rustls@0.26.2
 	tokio-util@0.7.15
-	tokio@1.47.1
+	tokio@1.48.0
 	tower-http@0.6.6
 	tower-layer@0.3.3
 	tower-service@0.3.3
@@ -187,8 +180,10 @@ CRATES="
 	wasm-streams@0.4.2
 	web-sys@0.3.77
 	web-time@1.1.0
+	windows-link@0.2.1
 	windows-sys@0.52.0
 	windows-sys@0.59.0
+	windows-sys@0.61.2
 	windows-targets@0.52.6
 	windows_aarch64_gnullvm@0.52.6
 	windows_aarch64_msvc@0.52.6
@@ -231,7 +226,7 @@ LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT Unicode-3.0
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="postgres selinux systemd test"
 RESTRICT="!test? ( test )"
 
