@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit meson-multilib python-single-r1 tmpfiles udev
 
@@ -15,7 +15,7 @@ SRC_URI="https://pcsclite.apdu.fr/files/${P}.tar.xz"
 # upstream.
 LICENSE="BSD GPL-3+ BSD-2 ISC GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 # This is called libusb so that it doesn't fool people in thinking that
 # it is _required_ for USB support. Otherwise they'll disable udev and
 # that's going to be worse.
@@ -31,17 +31,19 @@ DEPEND="
 	acct-group/openct
 	acct-group/pcscd
 	acct-user/pcscd
-	${PYTHON_DEPS}"
-RDEPEND="${DEPEND}
-	selinux? ( sec-policy/selinux-pcscd )"
+	${PYTHON_DEPS}
+"
+RDEPEND="
+	${DEPEND}
+	selinux? ( sec-policy/selinux-pcscd )
+"
 BDEPEND="
 	app-alternatives/lex
-	virtual/pkgconfig"
+	virtual/pkgconfig
+"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.8.11-polkit-pcscd.patch
-	"${FILESDIR}"/${PN}-1.9.8-systemd-user.patch
-	"${FILESDIR}"/${PN}-2.2.3-change-setup-spy-script-location.patch
+	"${FILESDIR}"/${PN}-2.4.0-change-setup-spy-script-location.patch
 )
 
 multilib_src_configure() {
