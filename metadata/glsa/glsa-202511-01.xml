@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202511-01">
+    <title>UDisks: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in UDisks, the worst of which can lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">udisks</product>
+    <announced>2025-11-24</announced>
+    <revised count="1">2025-11-24</revised>
+    <bug>827863</bug>
+    <bug>962126</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-fs/udisks" auto="yes" arch="*">
+            <unaffected range="ge">2.10.2</unaffected>
+            <vulnerable range="lt">2.10.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>UDisks provides a daemon, tools and libraries to access and manipulate disks, storage devices and technologies.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in UDisks. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All UDisks users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-fs/udisks-2.10.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2021-3802">CVE-2021-3802</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-8067">CVE-2025-8067</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-11-24T23:57:06.298179Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-11-24T23:57:06.301913Z">sam</metadata>
+</glsa>

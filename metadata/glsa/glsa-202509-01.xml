@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202509-01">
+    <title>Poppler: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Poppler, the worst of which could lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">poppler</product>
+    <announced>2025-09-17</announced>
+    <revised count="1">2025-09-17</revised>
+    <bug>843149</bug>
+    <bug>959944</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-text/poppler" auto="yes" arch="*">
+            <unaffected range="ge">25.06.0</unaffected>
+            <vulnerable range="lt">25.06.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Poppler is a PDF rendering library based on the xpdf-3.0 code base.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Poppler. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Poppler users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-text/poppler-25.06.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-27337">CVE-2022-27337</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-52886">CVE-2025-52886</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-09-17T21:40:01.591882Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-09-17T21:40:01.594167Z">sam</metadata>
+</glsa>

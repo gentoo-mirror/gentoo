@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202511-05">
+    <title>redict, redis: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in redis and redict, the worst of which could lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">redict,redis</product>
+    <announced>2025-11-24</announced>
+    <revised count="1">2025-11-24</revised>
+    <bug>940609</bug>
+    <bug>947749</bug>
+    <bug>954265</bug>
+    <bug>959657</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-db/redict" auto="yes" arch="*">
+            <unaffected range="ge">7.3.5</unaffected>
+            <vulnerable range="lt">7.3.5</vulnerable>
+        </package>
+        <package name="dev-db/redis" auto="yes" arch="*">
+            <unaffected range="ge">8.0.3</unaffected>
+            <vulnerable range="lt">8.0.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Redis. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Redis users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-db/redis-8.0.3"
+        </code>
+        
+        <p>All Redict users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-db/redict-7.3.5"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-31227">CVE-2024-31227</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-31228">CVE-2024-31228</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-31449">CVE-2024-31449</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-46981">CVE-2024-46981</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-51741">CVE-2024-51741</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-21605">CVE-2025-21605</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-32023">CVE-2025-32023</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-48367">CVE-2025-48367</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-11-24T23:59:45.672835Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2025-11-24T23:59:45.676181Z">sam</metadata>
+</glsa>
