@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # NOTE: please bump with the other parts of intel's media stack, listed below
@@ -21,6 +21,7 @@ IUSE="test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
+	media-libs/gmmlib
 	media-libs/libva
 	x11-libs/libdrm[video_cards_intel]
 "
