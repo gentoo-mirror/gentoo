@@ -1271,7 +1271,7 @@ app-backup/snapper 0.12.1-r1 0.12.2-r1 0.13.0: Command-line program for btrfs an
 app-backup/spideroak-bin 7.5.0-r3: Secure free online backup, storage, and sharing system
 app-backup/synology-cloud-station-backup 4469: Back up your files from multiple client computers to a centralized Synology NAS
 app-backup/tarsnap 1.0.41: Online backups for the truly paranoid
-app-backup/tsm 8.1.22.0-r1 8.1.27.0-r2: IBM Storage Protect (former Tivoli Storage Manager) Backup/Archive Client, API
+app-backup/tsm 8.1.22.0-r1 8.1.27.0-r2 8.1.27.1: IBM Storage Protect (former Tivoli Storage Manager) Backup/Archive Client, API
 app-backup/untangle-https-backup 0.1.0-r3: Back up Untangle configurations via the web admin UI
 app-benchmarks/bashmark 0.6.2: Geno's cross platform benchmarking suite
 app-benchmarks/bonnie 2.0.6-r3: Performance Test of Filesystem I/O using standard C library calls
@@ -5975,7 +5975,7 @@ dev-ml/alcotest 1.7.0-r1 1.8.0 1.9.0: A lightweight and colourful test framework
 dev-ml/angstrom 0.16.1: Parser combinators built for speed and memory-efficiency
 dev-ml/astring 0.8.5: Alternative String module for OCaml
 dev-ml/async 0.16.0 0.17.0: Jane Street Capital's asynchronous execution library
-dev-ml/async_kernel 0.15.0 0.16.0 0.17.0: Jane Street Capital's asynchronous execution library (core)
+dev-ml/async_kernel 0.16.0 0.17.0: Jane Street Capital's asynchronous execution library (core)
 dev-ml/async_log 0.17.0: Logging library built on top of Async_unix
 dev-ml/async_rpc_kernel 0.16.0 0.17.0: Platform-independent core of Async RPC library
 dev-ml/async_unix 0.16.0 0.17.0: Jane Street Capital's asynchronous execution library (unix)
@@ -6007,10 +6007,10 @@ dev-ml/cinaps 0.15.1-r2: Trivial metaprogramming tool
 dev-ml/cmdliner 1.3.0 2.0.0: Declarative definition of command line interfaces for OCaml
 dev-ml/coq-menhirlib 20240715: A support library for verified Coq parsers produced by Menhir
 dev-ml/core 0.15.1-r3 0.16.1 0.17.1-r1: Jane Street's alternative to the standard library
-dev-ml/core_bench 0.15.0 0.16.0 0.17.0: Micro-benchmarking library for OCaml
+dev-ml/core_bench 0.16.0 0.17.0: Micro-benchmarking library for OCaml
 dev-ml/core_extended 0.17.0: Extra components that are not as closely vetted or as stable as Core
 dev-ml/core_kernel 0.15.0 0.16.0 0.17.0-r1: System-independent part of Core
-dev-ml/core_unix 0.15.2-r2 0.16.0-r1 0.17.0 0.17.1: Unix-specific portions of Core
+dev-ml/core_unix 0.16.0-r1 0.17.0 0.17.1: Unix-specific portions of Core
 dev-ml/cppo 1.6.7-r1 1.6.8-r1 1.6.9-r1 1.7.0 1.8.0: An equivalent of the C preprocessor for OCaml programs
 dev-ml/cryptokit 1.16.1-r2 1.19 1.20.1: Cryptographic primitives library for Objective Caml
 dev-ml/csexp 1.5.2-r1: Parsing and printing of S-expressions in Canonical form
@@ -6187,7 +6187,7 @@ dev-ml/stdio 0.15.0-r1 0.16.0 0.17.0-r1: Standard IO Library for OCaml
 dev-ml/stdlib-shims 0.2.0 0.3.0: Pure OCaml library that allows replacing Pervasives with Stdlib before 4.08
 dev-ml/stringext 1.6.0: Extra string functions for OCaml
 dev-ml/swhid_core 0.1: OCaml library to work with swhids
-dev-ml/textutils 0.15.0 0.16.0 0.17.0: Text output utilities
+dev-ml/textutils 0.16.0 0.17.0: Text output utilities
 dev-ml/textutils_kernel 0.15.0 0.16.0 0.17.0: Text output utilities
 dev-ml/time_now 0.15.0 0.16.0 0.17.0-r1: Reports the current time
 dev-ml/timezone 0.15.0 0.16.0-r1 0.17.0: Time-zone handling for OCaml
@@ -15647,7 +15647,7 @@ net-vpn/openfortivpn 1.22.1 1.23.1: Fortinet compatible VPN client
 net-vpn/openvpn 2.6.12-r1 2.6.14 9999: Robust and highly flexible tunneling application compatible with many OSes
 net-vpn/ovpn-dco 0.2.20230426 0.2.20231117 0.2.20241216 9999: OpenVPN Data Channel Offload in the linux kernel
 net-vpn/pptpd 1.4.0-r5: Linux Point-to-Point Tunnelling Protocol Server
-net-vpn/riseup-vpn 0.24.5 0.24.8 0.24.10: Anonymous encrypted VPN client powered by Bitmask
+net-vpn/riseup-vpn 0.24.5 0.24.8 0.24.10 0.25.8: Anonymous encrypted VPN client powered by Bitmask
 net-vpn/strongswan 5.9.13 5.9.14 5.9.14-r2 6.0.1 6.0.1-r1 6.0.1-r2 6.0.2 6.0.3: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
 net-vpn/tailscale 1.82.5 1.84.3 1.86.5 1.90.6: Tailscale vpn client
 net-vpn/tinc 1.0.36-r1 1.1_pre18-r2: tinc is an easy to configure VPN implementation
@@ -17267,7 +17267,7 @@ sys-auth/elogind 252.9-r3 255.17-r1 255.22 255.22-r1: The systemd project's logi
 sys-auth/fprintd 1.94.2-r1 1.94.3-r1 1.94.5: D-Bus service to access fingerprint readers
 sys-auth/google-authenticator 1.11 9999: PAM Module for two step verification via mobile platform
 sys-auth/libfprint 1.94.4 1.94.7 1.94.9 1.94.9-r1: Library to add support for consumer fingerprint readers
-sys-auth/libfprint-2-tod1-broadcom 5.12.018: Proprietary driver for the fingerprint reader on the Dell Latitude
+sys-auth/libfprint-2-tod1-broadcom 5.12.018 5.15.285: Proprietary driver for the fingerprint reader on the Dell Latitude
 sys-auth/libnss-cache 0.10.2: libnss-cache is a library that serves nss lookups
 sys-auth/libnss-mysql 1.5_p20060915-r5 1.7.1: NSS MySQL Library
 sys-auth/libnss-nis 3.1 3.2: NSS module to provide NIS support
