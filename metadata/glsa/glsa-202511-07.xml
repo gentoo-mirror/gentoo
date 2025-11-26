@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202511-07">
+    <title>librnp: Weak random number generation</title>
+    <synopsis>librnp uses weak random number generation such that generated keys can be easily cracked.</synopsis>
+    <product type="ebuild">librnp</product>
+    <announced>2025-11-26</announced>
+    <revised count="1">2025-11-26</revised>
+    <bug>966299</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="dev-util/librnp" auto="yes" arch="*">
+            <unaffected range="ge">0.18.1</unaffected>
+            <unaffected range="lt">0.18</unaffected>
+            <vulnerable range="eq">0.18.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>librnp is a high performance C++ OpenPGP library.</p>
+    </background>
+    <description>
+        <p>The affected librnp version generated weak session keys for its public key encryption (PKESK) mode.</p>
+    </description>
+    <impact type="high">
+        <p>Messages encrypted using the affected librnp version might be readable by an attacker with just the public key.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All librnp users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-util/librnp-0.18.1"
+        </code>
+        
+        <p>If sensitive information was sent using e.g. Thunderbird (with USE=system-librnp, the default), it should be considered potentially viewable by an attacker.</p>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-13470">CVE-2025-13470</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-11-26T00:25:30.302648Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2025-11-26T00:25:30.304945Z">sam</metadata>
+</glsa>

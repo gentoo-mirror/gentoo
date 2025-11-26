@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202511-06">
+    <title>libpng: Multiple vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in libpng, the worst of which could lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">libpng</product>
+    <announced>2025-11-26</announced>
+    <revised count="1">2025-11-26</revised>
+    <bug>966340</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/libpng" auto="yes" arch="*">
+            <unaffected range="ge">1.6.51</unaffected>
+            <vulnerable range="lt">1.6.51</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libpng is the official PNG reference library used to read, write and manipulate PNG images.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libpng. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libpng users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/libpng-1.6.51"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-64505">CVE-2025-64505</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-64506">CVE-2025-64506</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-64720">CVE-2025-64720</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-65018">CVE-2025-65018</uri>
+    </references>
+    <metadata tag="requester" timestamp="2025-11-26T00:25:13.849254Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2025-11-26T00:25:13.851563Z">sam</metadata>
+</glsa>
