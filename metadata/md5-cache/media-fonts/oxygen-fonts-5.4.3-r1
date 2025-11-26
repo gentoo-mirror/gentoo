@@ -1,4 +1,4 @@
-BDEPEND=>=dev-qt/qtcore-5.12.3:5 >=kde-frameworks/extra-cmake-modules-5.60.0:0 media-gfx/fontforge app-alternatives/ninja >=dev-build/cmake-3.28.5 X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+BDEPEND=kde-frameworks/extra-cmake-modules:0 media-gfx/fontforge app-alternatives/ninja >=dev-build/cmake-3.28.5 X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
 DEFINED_PHASES=compile configure info install nofetch postinst postrm prepare setup test unpack
 DESCRIPTION=Desktop/GUI font family for integrated use with the KDE Plasma desktop
 EAPI=8
@@ -7,7 +7,7 @@ INHERIT=cmake font kde.org xdg-utils
 IUSE=X
 KEYWORDS=amd64 ~arm ~loong x86
 LICENSE=OFL-1.1
-SLOT=5
+SLOT=0
 SRC_URI=mirror://kde/Attic/plasma/5.4.3/oxygen-fonts-5.4.3.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	22e4e58d68692975dc74424dc9b12fb7	font	aa113a3df9cd0a9693a1c1ee7c34a6eb	kde.org	2eea56ed41440913be4caa3d255d2db3
-_md5_=60b8cee27564828cefdf53508a70d899
+_md5_=028d666d00a7b73554028f347fff1cfd
