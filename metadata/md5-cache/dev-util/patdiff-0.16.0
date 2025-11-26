@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=dev-ml/core_unix:0/0.16 dev-ml/patience_diff:0/0.16 dev-ml/pcre-ocaml:= dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Colored patience diffs with word-level refinement
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/patdiff
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=dev-ml/core_unix:0/0.16 dev-ml/patience_diff:0/0.16 dev-ml/pcre-ocaml:= dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.16
+SRC_URI=https://github.com/janestreet/patdiff/archive/v0.16.0.tar.gz -> patdiff-0.16.0.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	4304f35da0fafecd98eb149d0b7ed4d4
+_md5_=f157c5033ebf2c3fe6199e141a84e134
