@@ -1,9 +1,9 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit meson qmake-utils flag-o-matic xdg
+inherit meson flag-o-matic xdg
 
 DESCRIPTION="Simple but fully featured LV2 host for Jack"
 HOMEPAGE="https://drobilla.net/software/jalv.html"
@@ -12,7 +12,7 @@ SRC_URI="https://download.drobilla.net/${P}.tar.xz"
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="gtk +jack portaudio qt5 test"
+IUSE="gtk +jack portaudio test"
 REQUIRED_USE="^^ ( jack portaudio )"
 RESTRICT="!test? ( test )"
 
@@ -26,16 +26,12 @@ RDEPEND="
 	gtk? ( x11-libs/gtk+:3 )
 	jack? ( virtual/jack )
 	portaudio? ( media-libs/portaudio )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-	)
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
 "
+
 DOCS=( AUTHORS NEWS README.md )
 
 PATCHES=(
@@ -43,13 +39,11 @@ PATCHES=(
 )
 
 src_configure() {
-	use qt5 && export PATH="$(qt5_get_bindir):${PATH}"
-
 	local emesonargs=(
 		$(meson_feature gtk gtk3)
 		$(meson_feature jack)
 		$(meson_feature portaudio)
-		$(meson_feature qt5)
+		-Dqt5=disabled
 		$(meson_feature test tests)
 	)
 	meson_src_configure
