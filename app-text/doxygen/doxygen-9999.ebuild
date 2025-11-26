@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( 18 19 20 )
+LLVM_COMPAT=( 18 19 20 21 )
 LLVM_OPTIONAL=1
 PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="xml(+)"
@@ -68,7 +68,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-1.9.4-link_with_pthread.patch"
+	"${FILESDIR}/${PN}-1.15.0-link_with_pthread.patch"
 	"${FILESDIR}/${PN}-1.14.0-suppress-unused-option-libcxx.patch"
 )
 
@@ -133,12 +133,6 @@ src_compile() {
 
 	if use doc; then
 		export VARTEXFONTS="${T}/fonts" # bug #564944
-
-		if ! use dot; then
-			sed -i -e "s/HAVE_DOT               = YES/HAVE_DOT    = NO/" \
-				{testing/Doxyfile,doc/Doxyfile} \
-				|| die "disabling dot failed"
-		fi
 
 		# -j1 for bug #770070
 		cmake_src_compile docs -j1

@@ -3,9 +3,9 @@
 
 EAPI=8
 
-LLVM_COMPAT=( 18 19 )
+LLVM_COMPAT=( 18 19 20 21 )
 LLVM_OPTIONAL=1
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit cmake flag-o-matic llvm-r1 python-any-r1
@@ -19,7 +19,7 @@ if [[ ${PV} == *9999* ]]; then
 else
 	SRC_URI="https://doxygen.nl/files/${P}.src.tar.gz"
 	SRC_URI+=" https://downloads.sourceforge.net/doxygen/rel-${PV}/${P}.src.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris"
 fi
 
 # GPL-2 also for bundled libmscgen
@@ -68,8 +68,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-1.9.4-link_with_pthread.patch"
-	"${FILESDIR}/${PN}-1.9.8-suppress-unused-option-libcxx.patch"
+	"${FILESDIR}/${PN}-1.15.0-link_with_pthread.patch"
+	"${FILESDIR}/${PN}-1.14.0-suppress-unused-option-libcxx.patch"
 )
 
 DOCS=( LANGUAGE.HOWTO README.md )
@@ -111,6 +111,7 @@ src_configure() {
 		-Dbuild_search=$(usex doxysearch)
 		-Dbuild_wizard=$(usex gui)
 		-Dforce_qt=Qt6
+		-Duse_sys_fmt=ON
 		-Duse_sys_spdlog=ON
 		-Duse_sys_sqlite3=ON
 		-DBUILD_SHARED_LIBS=OFF
@@ -133,26 +134,7 @@ src_compile() {
 	if use doc; then
 		export VARTEXFONTS="${T}/fonts" # bug #564944
 
-		if ! use dot; then
-			sed -i -e "s/HAVE_DOT               = YES/HAVE_DOT    = NO/" \
-				{testing/Doxyfile,doc/Doxyfile} \
-				|| die "disabling dot failed"
-		fi
-
 		# -j1 for bug #770070
 		cmake_src_compile docs -j1
 	fi
-}
-
-src_install() {
-	cmake_src_install
-
-	# manpages are only automatically installed when docs are
-	# https://github.com/doxygen/doxygen/pull/10647
-	doman doc/doxygen.1
-	use gui && doman doc/doxywizard.1
-	use doxysearch && {
-		doman doc/doxyindexer.1
-		doman doc/doxysearch.1
-	}
 }

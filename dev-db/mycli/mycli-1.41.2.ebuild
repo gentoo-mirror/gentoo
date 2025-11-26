@@ -25,7 +25,7 @@ IUSE="ssh"
 RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/cli-helpers-2.7.0[${PYTHON_USEDEP}]
-		>=dev-python/click-7.0[${PYTHON_USEDEP}]
+		>=dev-python/click-8.3.1[${PYTHON_USEDEP}]
 		>=dev-python/configobj-5.0.5[${PYTHON_USEDEP}]
 		>=dev-python/cryptography-1.0.0[${PYTHON_USEDEP}]
 		>=dev-python/prompt-toolkit-3.0.6[${PYTHON_USEDEP}]
@@ -61,11 +61,6 @@ distutils_enable_tests pytest
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 
 python_prepare_all() {
-	# Relax click requirement. Behave tests aren't hooked up here :/
-	# https://github.com/dbcli/mycli/commit/bb18b0c2f2ed7375efe31d379e616a11c82b1299
-	# https://github.com/dbcli/mycli/pull/1241
-	sed -e '/click/ s/,<8.1.8//' -i pyproject.toml || die
-
 	# no coverage please
 	sed -e 's/import coverage ; coverage.process_startup(); //' \
 		-i test/features/environment.py test/features/steps/wrappers.py || die
@@ -119,6 +114,10 @@ src_test() {
 	EPYTEST_IGNORE=(
 		# Requires unpackaged llm
 		test/test_llm_special.py
+		# AssertionError: assert 8 in [4, 5, 6, 7]
+		# Per upstream: "...it is a flaky test at best."
+		# https://github.com/dbcli/mycli/commit/3d08910a366d4505a40e8a0fb36c210330723f18
+		test/test_special_iocommands.py::test_watch_query_full
 	)
 
 	local failures=()
