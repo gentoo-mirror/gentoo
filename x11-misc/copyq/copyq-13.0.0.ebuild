@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,6 +23,7 @@ RDEPEND="
 	dev-qt/qtdeclarative:6
 	dev-qt/qtsvg:6
 	dev-qt/qtwayland:6
+	kde-frameworks/kguiaddons:6
 	X? (
 		dev-qt/qtbase:6=[X]
 		x11-libs/libX11
@@ -47,12 +48,13 @@ BDEPEND="
 	)
 "
 
-# used in tests
-PATCHES=( "${FILESDIR}/${PN}-7.1.0-support-plugin-dir-envvar-r1.patch" )
+PATCHES=(
+	# used in tests
+	"${FILESDIR}/${PN}-7.1.0-support-plugin-dir-envvar-r1.patch"
+)
 
 src_configure() {
 	local mycmakeargs=(
-		-DWITH_QT6=ON
 		-DPLUGIN_INSTALL_PREFIX="${EPREFIX}/usr/$(get_libdir)/${PN}/plugins"
 		-DWITH_NATIVE_NOTIFICATIONS=$(usex notification)
 		-DWITH_TESTS=$(usex test)
