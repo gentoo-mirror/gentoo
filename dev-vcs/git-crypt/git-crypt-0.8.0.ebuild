@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit flag-o-matic toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="Transparent file encryption in git"
 HOMEPAGE="https://www.agwa.name/projects/git-crypt/"
@@ -11,7 +11,7 @@ SRC_URI="https://www.agwa.name/projects/git-crypt/downloads/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-libs/openssl:=
@@ -21,8 +21,6 @@ DEPEND="${RDEPEND}"
 BDEPEND="dev-libs/libxslt"
 
 src_configure() {
-	# bug #805545, https://github.com/AGWA/git-crypt/issues/232
-	append-cppflags -DOPENSSL_API_COMPAT=10101
 	tc-export CXX
 
 	# bug #689180
