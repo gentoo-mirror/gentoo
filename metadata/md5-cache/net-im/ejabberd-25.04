@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.ejabberd.im/ https://github.com/processone/ejabberd/
 INHERIT=autotools eapi9-ver pam rebar systemd
 IUSE=captcha debug full-xml ldap mssql mysql odbc pam postgres redis roster-gw selinux sip sqlite +stun zlib
-KEYWORDS=~amd64 ~arm ~sparc ~x86
+KEYWORDS=amd64 ~arm ~sparc ~x86
 LICENSE=GPL-2
 RDEPEND=>=dev-lang/erlang-20[odbc?,ssl] >=dev-erlang/cache_tab-1.0.31 >=dev-erlang/eimp-1.0.24 >=dev-erlang/fast_tls-1.1.22 >=dev-erlang/fast_xml-1.1.55 >=dev-erlang/fast_yaml-1.0.37 >=dev-erlang/yconf-1.0.18 >=dev-erlang/jiffy-1.1.1 >=dev-erlang/jose-1.11.10 >=dev-erlang/lager-3.9.1 >=dev-erlang/p1_oauth2-0.6.14 >=dev-erlang/p1_utils-1.0.27 >=dev-erlang/stringprep-1.0.31 >=dev-erlang/xmpp-1.10.0 >=dev-erlang/pkix-1.0.10 >=dev-erlang/mqtree-1.0.17 >=dev-erlang/idna-6.0.0-r1 >=dev-erlang/p1_acme-1.0.25 >=dev-erlang/base64url-1.0.1 ldap? ( =net-nds/openldap-2* ) mysql? ( >=dev-erlang/p1_mysql-1.0.25 ) odbc? ( dev-db/unixODBC ) pam? ( >=dev-erlang/epam-1.0.14 ) postgres? ( >=dev-erlang/p1_pgsql-1.1.32 ) redis? ( >=dev-erlang/eredis-1.2.0 ) sip? ( >=dev-erlang/esip-1.0.57 ) sqlite? ( >=dev-erlang/sqlite3-1.1.15 ) stun? ( >=dev-erlang/stun-1.2.17 ) zlib? ( >=dev-erlang/ezlib-1.0.13 ) >=acct-user/ejabberd-2[pam?] captcha? ( media-gfx/imagemagick[truetype,png] ) selinux? ( sec-policy/selinux-jabber ) dev-lang/erlang:=
 REQUIRED_USE=mssql? ( odbc )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/processone/ejabberd/archive/refs/tags/25.04.tar.gz -> ejabberd-25.04.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5	rebar-utils	6ff3a08a9fb43ffe130089e51bd1cbf0	rebar	4a4d05b95ca1c02f225eba9c931e71de	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=0932a63ae9e336338cb70973d490e743
+_md5_=00526602b805f196cf84d9e63126635f
