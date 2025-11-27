@@ -14,8 +14,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="agg cairo ffmpeg postscript tiff truetype"
 
+REQUIRED_USE="cairo? ( truetype )"
+
 DEPEND="
-	dev-qt/qtgui:=
+	dev-qt/qtbase:6=[gui,widgets]
 	media-libs/fontconfig
 	media-libs/glfw
 	media-libs/libjpeg-turbo:=
@@ -37,11 +39,12 @@ RDEPEND="${DEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.53.0-musl.patch"
+	"${FILESDIR}/${P}-cmake4.patch" # bug #955792
 )
 
-REQUIRED_USE="cairo? ( truetype )"
-
 src_configure() {
+	local mycmakeargs=( -DCMAKE_DISABLE_FIND_PACKAGE_Qt{4,5}=ON ) # bug 966256
+
 	if use agg ; then
 		mycmakeargs+=( -DAGG_LIBRARY=/usr/$(get_libdir)/libagg.so -DAGG_INCLUDE_DIR=/usr/include/agg2 )
 	else
@@ -72,10 +75,12 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
-	find "${ED}" -name '*.a' -delete
+	find "${ED}" -name '*.a' -delete || die
 
-	echo "GRDIR=/usr/gr" > "${T}/99gr"
-	echo "LDPATH=/usr/gr/$(get_libdir)" >> "${T}/99gr"
+	cat >> "${T}"/99gr <<- _EOF_ || die
+		GRDIR=/usr/gr
+		LDPATH=/usr/gr/$(get_libdir)
+	_EOF_
 	doenvd "${T}/99gr"
 
 	[[ -f "${ED}/usr/gr/bin/gksqt" ]] && dosym ../gr/bin/gksqt /usr/bin/gksqt
