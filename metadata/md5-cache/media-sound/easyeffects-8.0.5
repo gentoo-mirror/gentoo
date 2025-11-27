@@ -1,16 +1,17 @@
-BDEPEND=dev-libs/appstream sys-devel/gettext virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.10:* >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend test unpack
+BDEPEND=dev-libs/appstream sys-devel/gettext virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.10:*
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend test
 DEPEND=dev-cpp/nlohmann_json dev-cpp/tbb:= dev-libs/glib:2 dev-libs/kirigami-addons:6 dev-libs/libportal:=[qt6] dev-qt/qtbase:6[dbus,gui,network,widgets] dev-qt/qtdeclarative:6 dev-qt/qtgraphs:6 >=kde-frameworks/kcolorscheme-6.10:6 >=kde-frameworks/kconfig-6.10:6 >=kde-frameworks/kconfigwidgets-6.10:6 >=kde-frameworks/kcoreaddons-6.10:6 >=kde-frameworks/ki18n-6.10:6 >=kde-frameworks/kiconthemes-6.10:6 >=kde-frameworks/kirigami-6.10:6 >=kde-frameworks/qqc2-desktop-style-6.10:6 media-libs/libbs2b >=media-libs/libebur128-1.2.6:= media-libs/libsamplerate media-libs/libsndfile media-libs/libsoundtouch:= >=media-libs/lilv-0.24 media-libs/rnnoise media-libs/speexdsp media-libs/webrtc-audio-processing:2 >=media-libs/zita-convolver-3.0.0:= >=media-video/pipewire-1.0.6:=[sound-server] sci-libs/fftw:3.0= sci-libs/gsl:= webengine? ( dev-qt/qtwebengine:6[qml] ) media-libs/ladspa-sdk dev-qt/qtbase:6
 DESCRIPTION=Limiter, auto volume and many other plugins for PipeWire applications
 EAPI=8
 HOMEPAGE=https://github.com/wwmm/easyeffects
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=ecm optfeature toolchain-funcs xdg git-r3
+INHERIT=ecm optfeature toolchain-funcs xdg
 IUSE=webengine debug
+KEYWORDS=~amd64
 LICENSE=GPL-3
-PROPERTIES=live
 RDEPEND=dev-cpp/nlohmann_json dev-cpp/tbb:= dev-libs/glib:2 dev-libs/kirigami-addons:6 dev-libs/libportal:=[qt6] dev-qt/qtbase:6[dbus,gui,network,widgets] dev-qt/qtdeclarative:6 dev-qt/qtgraphs:6 >=kde-frameworks/kcolorscheme-6.10:6 >=kde-frameworks/kconfig-6.10:6 >=kde-frameworks/kconfigwidgets-6.10:6 >=kde-frameworks/kcoreaddons-6.10:6 >=kde-frameworks/ki18n-6.10:6 >=kde-frameworks/kiconthemes-6.10:6 >=kde-frameworks/kirigami-6.10:6 >=kde-frameworks/qqc2-desktop-style-6.10:6 media-libs/libbs2b >=media-libs/libebur128-1.2.6:= media-libs/libsamplerate media-libs/libsndfile media-libs/libsoundtouch:= >=media-libs/lilv-0.24 media-libs/rnnoise media-libs/speexdsp media-libs/webrtc-audio-processing:2 >=media-libs/zita-convolver-3.0.0:= >=media-video/pipewire-1.0.6:=[sound-server] sci-libs/fftw:3.0= sci-libs/gsl:= webengine? ( dev-qt/qtwebengine:6[qml] ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
 RESTRICT=test
 SLOT=0
-_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	22e4e58d68692975dc74424dc9b12fb7	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	a5537691c00fd7549c8b90300f679185	optfeature	538bce96e5589935b57e178e8635f301	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	875eb471682d3e1f18da124be97dcc81
+SRC_URI=https://github.com/wwmm/easyeffects/archive/v8.0.5.tar.gz -> easyeffects-8.0.5.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	22e4e58d68692975dc74424dc9b12fb7	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	a5537691c00fd7549c8b90300f679185	optfeature	538bce96e5589935b57e178e8635f301	xdg	3ef49a87c52c8b77c476351195dfe575
 _md5_=484a678434164f0f3760f964ef528d5c
