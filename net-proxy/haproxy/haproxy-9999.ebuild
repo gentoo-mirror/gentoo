@@ -193,6 +193,9 @@ src_install() {
 			newbin dev/hpack/gen-enc haproxy_gen-enc
 			newbin dev/hpack/decode haproxy_decode
 		}
+
+		dosbin admin/cli/haproxy-dump-certs
+		dosbin admin/cli/haproxy-reload
 	fi
 
 	if use examples ; then
