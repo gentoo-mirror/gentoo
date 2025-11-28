@@ -1,32 +1,18 @@
 # Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# shellcheck disable=SC2207
-
-# TODO
-# - Package Hydra
-# 	https://github.com/Ray-Tracing-Systems/HydraCore
-# 	https://github.com/Ray-Tracing-Systems/HydraAPI
-# - Package USD
-# 	https://github.com/PixarAnimationStudios/OpenUSD
-# - Package MaterialX
-# 	https://github.com/AcademySoftwareFoundation/MaterialX
-# - Package Draco
-# 	https://github.com/google/draco
-# - Package Audaspace
-# 	https://github.com/neXyon/audaspace
-
 EAPI=8
 
 PYTHON_COMPAT=( python3_{11..13} )
 # NOTE must match media-libs/osl
-LLVM_COMPAT=( {17..18} )
+LLVM_COMPAT=( {18..18} )
 LLVM_OPTIONAL=1
 
 ROCM_SKIP_GLOBALS=1
+CMAKE_QA_COMPAT_SKIP=1
 
-inherit cuda rocm llvm-r1
-inherit eapi9-pipestatus check-reqs flag-o-matic pax-utils python-single-r1 toolchain-funcs virtualx
+inherit cuda rocm llvm-r2
+inherit eapi9-pipestatus edo check-reqs flag-o-matic pax-utils python-single-r1 toolchain-funcs virtualx
 inherit cmake xdg-utils
 
 DESCRIPTION="3D Creation/Animation/Publishing System"
@@ -50,18 +36,14 @@ if [[ "${PV}" == *9999* ]]; then
 
 	RESTRICT="!test? ( test )"
 else
-	SRC_URI="
-		https://download.blender.org/source/${P}.tar.xz
-		https://github.com/negril/gentoo-overlay-vendored/raw/refs/heads/blobs/blender-assets-${PV}.tar.xz
-	"
-	# BUG upstream returns LFS references instead of files
-	# SRC_URI+="
+	SRC_URI="https://download.blender.org/source/${P}.tar.xz"
 	# 	test? (
 	# 		https://projects.blender.org/blender/blender-test-data/archive/blender-v${BLENDER_BRANCH}-release.tar.gz
+	# 		https://projects.blender.org/blender/blender-test-data/archive/v${PV}.tar.gz
 	# 	)
 	# "
-	KEYWORDS="amd64 ~arm ~arm64"
-	RESTRICT="test" # the test archive contains LFS references
+	KEYWORDS="~amd64 ~arm ~arm64"
+	RESTRICT="test" # the test archive returns LFS references.
 fi
 
 # assets is CC0-1.0
@@ -103,7 +85,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 # Library versions for official builds can be found in the blender source directory in:
 # build_files/build_environment/cmake/versions.cmake
 RDEPEND="${PYTHON_DEPS}
-	app-arch/zstd
+	app-arch/zstd:=
 	dev-cpp/gflags:=
 	dev-cpp/glog:=
 	dev-libs/boost:=[nls?]
@@ -120,19 +102,19 @@ RDEPEND="${PYTHON_DEPS}
 	media-libs/libpng:=
 	media-libs/libsamplerate
 	<media-libs/openimageio-3:=
-	virtual/zlib:=
 	virtual/glu
 	virtual/libintl
 	virtual/opengl[X?]
+	virtual/zlib:=
 	alembic? ( >=media-gfx/alembic-1.8.3-r2[boost(+),hdf(+)] )
 	bullet? ( sci-physics/bullet:=[double-precision] )
 	collada? ( >=media-libs/opencollada-1.6.68 )
 	color-management? ( media-libs/opencolorio:= )
-	cuda? ( dev-util/nvidia-cuda-toolkit:= )
+	cuda? ( <dev-util/nvidia-cuda-toolkit-13:= )
 	embree? ( media-libs/embree:=[raymask] )
 	ffmpeg? ( media-video/ffmpeg:=[encode(+),lame(-),jpeg2k?,opus,theora,vorbis,vpx,x264,xvid] )
 	fftw? ( sci-libs/fftw:3.0=[threads] )
-	gmp? ( dev-libs/gmp[cxx] )
+	gmp? ( dev-libs/gmp:=[cxx] )
 	gnome? ( gui-libs/libdecor )
 	hip? (
 		>=dev-util/hip-5.7:=
@@ -146,13 +128,13 @@ RDEPEND="${PYTHON_DEPS}
 	)
 	nls? ( virtual/libiconv )
 	openal? ( media-libs/openal )
-	oidn? ( >=media-libs/oidn-2.1.0 )
+	oidn? ( >=media-libs/oidn-2.1.0:= )
 	openexr? (
 		>=dev-libs/imath-3.1.7:=
 		>=media-libs/openexr-3.2.1:0=
 	)
 	openpgl? ( media-libs/openpgl:= )
-	opensubdiv? ( >=media-libs/opensubdiv-3.6.0-r2[opengl,cuda?,openmp?,tbb?] )
+	opensubdiv? ( >=media-libs/opensubdiv-3.6.0-r2:=[opengl,cuda?,openmp?,tbb?] )
 	openvdb? (
 		>=media-gfx/openvdb-11.0.0:=[nanovdb?]
 		dev-libs/c-blosc:=
@@ -162,7 +144,7 @@ RDEPEND="${PYTHON_DEPS}
 		<media-libs/osl-1.14:=[${LLVM_USEDEP}]
 		media-libs/mesa[${LLVM_USEDEP}]
 	)
-	pdf? ( media-libs/libharu )
+	pdf? ( media-libs/libharu:= )
 	potrace? ( media-gfx/potrace )
 	pugixml? ( dev-libs/pugixml )
 	pulseaudio? ( media-libs/libpulse )
@@ -179,6 +161,7 @@ RDEPEND="${PYTHON_DEPS}
 		media-libs/mesa[wayland]
 		sys-apps/dbus
 	)
+	webp? ( media-libs/libwebp:= )
 	vulkan? (
 		media-libs/shaderc
 		dev-util/spirv-tools
@@ -193,6 +176,7 @@ RDEPEND="${PYTHON_DEPS}
 	)
 	X? (
 		x11-libs/libX11
+		x11-libs/libXfixes
 		x11-libs/libXi
 		x11-libs/libXxf86vm
 	)
@@ -201,18 +185,6 @@ RDEPEND="${PYTHON_DEPS}
 DEPEND="${RDEPEND}
 	dev-cpp/eigen:=
 "
-
-if [[ "${PV}" == *9999* ]]; then
-DEPEND+="
-	test? (
-		experimental? (
-			wayland? (
-				dev-libs/weston
-			)
-		)
-	)
-"
-fi
 
 BDEPEND="
 	virtual/pkgconfig
@@ -240,16 +212,14 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.0.2-FindClang.patch"
+	"${FILESDIR}/${PN}-4.0.2-CUDA_NVCC_FLAGS.patch"
 	"${FILESDIR}/${PN}-4.1.1-FindLLVM.patch"
 	"${FILESDIR}/${PN}-4.1.1-numpy.patch"
-	"${FILESDIR}/${PN}-4.2.9-python3.12.patch"
-	"${FILESDIR}/${PN}-4.2.9-python3.13.patch"
-	"${FILESDIR}/${PN}-4.2.9-python3.12_1.patch"
 	"${FILESDIR}/${PN}-4.3.2-ffmpeg7.patch"
 	"${FILESDIR}/${PN}-4.3.2-openvdb-12.patch"
 	"${FILESDIR}/${PN}-4.3.2-optix-8.1.0.patch"
 	"${FILESDIR}/${PN}-4.3.2-system-glog.patch"
-	"${FILESDIR}/${PN}-4.4.0-optix-compile-flags.patch"
+# 	"${FILESDIR}/${PN}-4.4.0-optix-compile-flags.patch"
 )
 
 blender_check_requirements() {
@@ -292,7 +262,7 @@ pkg_setup() {
 	python-single-r1_pkg_setup
 
 	if use osl; then
-		llvm-r1_pkg_setup
+		llvm-r2_pkg_setup
 	fi
 }
 
@@ -302,14 +272,20 @@ src_unpack() {
 			EGIT_SUBMODULES+=( '-tests/*' )
 		fi
 		git-r3_src_unpack
+
+		# NOTE Add-ons bundled with Blender releases up to Blender 4.1. Blender 4.2 LTS and later include only a handful
+		#      of core add-ons, while others are part of the Extensions Platform at https://extensions.blender.org
+		ver_test "${BLENDER_BRANCH}" -ge "4.2" && return
+
+		git-r3_fetch "${ADDONS_EGIT_REPO_URI}"
+		git-r3_checkout "${ADDONS_EGIT_REPO_URI}" "${S}/scripts/addons"
 	else
 		default
 
-		# BUG upstream returns LFS references instead of files
-		# if use test; then
-		# 	mkdir -p "${S}/tests/data/" || die
-		# 	mv blender-test-data/* "${S}/tests/data/" || die
-		# fi
+		if use test; then
+			mkdir -p "${S}/tests/data/" || die
+			mv blender-test-data/* "${S}/tests/data/" || die
+		fi
 	fi
 }
 
@@ -339,6 +315,9 @@ src_prepare() {
 		-i CMakeLists.txt \
 		|| die CMAKE_INSTALL_PREFIX_WITH_CONFIG
 
+	# WITH_SYSTEM_GLOG=yes
+	cmake_run_in extern cmake_comment_add_subdirectory glog
+
 	mv \
 		"release/freedesktop/icons/scalable/apps/blender.svg" \
 		"release/freedesktop/icons/scalable/apps/blender-${BV}.svg" \
@@ -357,11 +336,6 @@ src_prepare() {
 		"release/freedesktop/blender-${BV}.metainfo.xml" \
 		|| die
 
-	sed \
-		-e "s#\(set(cycles_kernel_runtime_lib_target_path \)\${cycles_kernel_runtime_lib_target_path}\(/lib)\)#\1\${CYCLES_INSTALL_PATH}\2#" \
-		-i intern/cycles/kernel/CMakeLists.txt \
-		|| die
-
 	if use hip; then
 		# fix hardcoded path
 		sed \
@@ -377,22 +351,15 @@ src_prepare() {
 			-i "build_files/cmake/testing.cmake" \
 			|| die "REPLACE.*TEST_INSTALL_DIR"
 
-		# assertEquals was deprecated in Python-3.2 use assertEqual instead
-		sed \
-			-e 's/assertEquals/assertEqual/g' \
-			-i tests/python/bl_animation_action.py \
-			|| die
-
 		sed -e '1i #include <cstdint>' -i extern/gtest/src/gtest-death-test.cc || die
 	else
 		cmake_comment_add_subdirectory tests
 	fi
 
-	if [[ "${PV}" != *9999* ]]; then
-		rm "${WORKDIR}/blender-assets/publish/LICENSE" || die
-	fi
+	rm -rf extern/gflags || die
 
 	if use vulkan; then
+		# TODO why?
 		sed -e "s/extern_vulkan_memory_allocator/extern_vulkan_memory_allocator\nSPIRV-Tools-opt\nSPIRV-Tools\nSPIRV-Tools-link\nglslang\nSPIRV\nSPVRemapper/" -i source/blender/gpu/CMakeLists.txt || die
 	fi
 }
@@ -410,93 +377,120 @@ src_configure() {
 	blender_get_version
 
 	local mycmakeargs=(
-		-DCMAKE_POLICY_DEFAULT_CMP0177="OLD"
+		-DCMAKE_POLICY_DEFAULT_CMP0146="OLD" # DESTINATION Normalization
+		-DCMAKE_POLICY_DEFAULT_CMP0177="OLD" # Boost
 
 		# we build a host-specific binary
-		-DWITH_INSTALL_PORTABLE="no"
 		-DWITH_CPU_CHECK="no"
 
 		-DWITH_STRICT_BUILD_OPTIONS="yes"
 		-DWITH_LIBS_PRECOMPILED="no"
-		-DBUILD_SHARED_LIBS="no" # quadriflow only?
+		-DBUILD_SHARED_LIBS="no" # this over-ridden by cmake.eclass
 		-DWITH_STATIC_LIBS=OFF
 
+		# Build Options:
+		-DWITH_ALEMBIC="$(usex alembic)"
+		-DWITH_BOOST="yes"
+		-DWITH_BULLET="$(usex bullet)"
+		-DWITH_CYCLES="$(usex cycles)"
+		-DWITH_DOC_MANPAGE="$(usex man)"
+		-DWITH_FFTW3="$(usex fftw)"
+		-DWITH_GMP="$(usex gmp)"
+		-DWITH_GTESTS="$(usex test)"
+		-DWITH_HARFBUZZ="$(usex truetype)"
+		-DWITH_HARU="$(usex pdf)"
+		-DWITH_HEADLESS="$(usex !X "$(usex !wayland)")"
+		-DWITH_INPUT_NDOF="$(usex ndof)"
+		-DWITH_INTERNATIONAL="$(usex nls)"
+		-DWITH_MATERIALX="no" # TODO: Package MaterialX
+		-DWITH_NANOVDB="$(usex nanovdb)"
+		-DWITH_OPENCOLLADA="$(usex collada)"
+		-DWITH_OPENCOLORIO="$(usex color-management)"
+		-DWITH_OPENGL_BACKEND="$(usex opengl)"
+		-DWITH_OPENIMAGEDENOISE="$(usex oidn)"
+		-DWITH_OPENSUBDIV="$(usex opensubdiv)"
+		-DWITH_OPENVDB="$(usex openvdb)"
+		-DWITH_OPENVDB_BLOSC="$(usex openvdb)"
+		-DWITH_POTRACE="$(usex potrace)"
+		-DWITH_PUGIXML="$(usex pugixml)"
+		# -DWITH_QUADRIFLOW=ON
+		-DWITH_RENDERDOC="$(usex renderdoc)"
+		-DWITH_TBB="$(usex tbb)"
+		-DWITH_UNITY_BUILD="no"
+		-DWITH_USD="no" # TODO: Package USD
+		-DWITH_VULKAN_BACKEND="$(usex vulkan)" # experimental
+		-DWITH_XR_OPENXR="no"
+
+		-DWITH_SYSTEM_BULLET="yes"
+		-DWITH_SYSTEM_EIGEN3="yes"
+		-DWITH_SYSTEM_FREETYPE="yes"
+		-DWITH_SYSTEM_GFLAGS="yes"
+		-DWITH_SYSTEM_GLOG="yes"
+		-DWITH_SYSTEM_LZO="yes"
+
+		# Compiler Options:
+		# -DWITH_BUILDINFO="yes"
+		-DWITH_OPENMP="$(usex openmp)"
+
+		# System Options:
+		-DWITH_INSTALL_PORTABLE="no"
+		-DWITH_MEM_JEMALLOC="$(usex jemalloc)"
+		-DWITH_MEM_VALGRIND="$(usex valgrind)"
+
+		# GHOST Options:
+		-DWITH_GHOST_WAYLAND="$(usex wayland)"
+		-DWITH_GHOST_WAYLAND_DYNLOAD="no"
+		-DWITH_GHOST_X11="$(usex X)"
+
+		# Image Formats:
+		-DWITH_IMAGE_OPENEXR="$(usex openexr)"
+		-DWITH_IMAGE_OPENJPEG="$(usex jpeg2k)"
+		-DWITH_IMAGE_WEBP="$(usex webp)" # unlisted
+
+		# Audio:
+		-DWITH_CODEC_FFMPEG="$(usex ffmpeg)"
+		-DWITH_CODEC_SNDFILE="$(usex sndfile)"
+		-DWITH_JACK="$(usex jack)"
+		-DWITH_OPENAL="$(usex openal)"
+		-DWITH_PULSEAUDIO="$(usex pulseaudio)"
+		-DWITH_SDL="$(usex sdl)"
+
+		# Python:
+		-DWITH_PYTHON_INSTALL="no"
+		-DWITH_PYTHON_INSTALL_NUMPY="no"
+		-DWITH_PYTHON_INSTALL_ZSTANDARD="no"
+		# -DWITH_PYTHON_MODULE="no"
+		-DWITH_PYTHON_SAFETY="OFF" # dev option
+		-DWITH_PYTHON_SECURITY="yes"
 		-DPYTHON_INCLUDE_DIR="$(python_get_includedir)"
 		-DPYTHON_LIBRARY="$(python_get_library_path)"
 		-DPYTHON_VERSION="${EPYTHON/python/}"
-		-DWITH_ALEMBIC=$(usex alembic)
-		-DWITH_BOOST=yes
-		-DWITH_BULLET=$(usex bullet)
-		-DWITH_CODEC_FFMPEG=$(usex ffmpeg)
-		-DWITH_CODEC_SNDFILE=$(usex sndfile)
+		-DWITH_DRACO="yes" # TODO: Package Draco # NOTE use bundled for now
 
-		-DWITH_CYCLES=$(usex cycles)
+		# Modifiers:
+		-DWITH_MOD_FLUID="$(usex fluid)"
+		-DWITH_MOD_OCEANSIM="$(usex fftw)"
 
-		-DWITH_CYCLES_DEVICE_CUDA=$(usex cuda)
-		-DWITH_CYCLES_CUDA_BINARIES="$(usex cuda $(usex cycles-bin-kernels))"
-		-DWITH_CYCLES_DEVICE_OPTIX=$(usex optix)
+		# Rendering:
+		-DWITH_HYDRA="no" # TODO: Package Hydra
+
+		# Rendering (Cycles):
+		-DWITH_CYCLES_OSL="$(usex osl)"
+		-DWITH_CYCLES_EMBREE="$(usex embree)"
+		-DWITH_CYCLES_PATH_GUIDING="$(usex openpgl)"
+
+		-DWITH_CYCLES_DEVICE_OPTIX="$(usex optix)"
+		-DWITH_CYCLES_DEVICE_CUDA="$(usex cuda)"
+		-DWITH_CYCLES_CUDA_BINARIES="$(usex cuda "$(usex cycles-bin-kernels)")"
 
 		-DWITH_CYCLES_DEVICE_HIP="$(usex hip)"
-		-DWITH_CYCLES_HIP_BINARIES=$(usex hip $(usex cycles-bin-kernels))
-
+		-DWITH_CYCLES_HIP_BINARIES="$(usex hip "$(usex cycles-bin-kernels)")"
 		-DWITH_CYCLES_HYDRA_RENDER_DELEGATE="no" # TODO: package Hydra
-		-DWITH_CYCLES_EMBREE="$(usex embree)"
-		-DWITH_CYCLES_OSL=$(usex osl)
-		-DWITH_CYCLES_PATH_GUIDING=$(usex openpgl)
-		-DWITH_CYCLES_STANDALONE=no
-		-DWITH_CYCLES_STANDALONE_GUI=no
 
-		-DWITH_DOC_MANPAGE=$(usex man)
-		-DWITH_DRACO="no" # TODO: Package Draco
-		-DWITH_FFTW3=$(usex fftw)
-		-DWITH_GHOST_WAYLAND=$(usex wayland)
-		-DWITH_GHOST_WAYLAND_DYNLOAD="no"
-		-DWITH_GHOST_X11=$(usex X)
-		-DWITH_GMP=$(usex gmp)
-		-DWITH_GTESTS=$(usex test)
-		-DWITH_HARFBUZZ="$(usex truetype)"
-		-DWITH_HARU=$(usex pdf)
-		-DWITH_HEADLESS="$(usex !X "$(usex !wayland)")"
-		-DWITH_HYDRA="no" # TODO: Package Hydra
-		-DWITH_IMAGE_OPENEXR=$(usex openexr)
-		-DWITH_IMAGE_OPENJPEG=$(usex jpeg2k)
-		-DWITH_IMAGE_WEBP=$(usex webp)
-		-DWITH_INPUT_NDOF=$(usex ndof)
-		-DWITH_INTERNATIONAL=$(usex nls)
-		-DWITH_JACK=$(usex jack)
-		-DWITH_MATERIALX="no" # TODO: Package MaterialX
-		-DWITH_MEM_JEMALLOC=$(usex jemalloc)
-		-DWITH_MEM_VALGRIND=$(usex valgrind)
-		-DWITH_MOD_FLUID=$(usex fluid)
-		-DWITH_MOD_OCEANSIM=$(usex fftw)
-		-DWITH_NANOVDB=$(usex nanovdb)
-		-DWITH_OPENAL=$(usex openal)
-		-DWITH_OPENCOLLADA=$(usex collada)
-		-DWITH_OPENCOLORIO=$(usex color-management)
-		-DWITH_OPENGL_BACKEND=$(usex opengl)
-		-DWITH_OPENIMAGEDENOISE=$(usex oidn)
-		-DWITH_OPENMP=$(usex openmp)
-		-DWITH_OPENSUBDIV=$(usex opensubdiv)
-		-DWITH_OPENVDB=$(usex openvdb)
-		-DWITH_OPENVDB_BLOSC=$(usex openvdb)
-		-DWITH_POTRACE=$(usex potrace)
-		-DWITH_PUGIXML=$(usex pugixml)
-		-DWITH_PULSEAUDIO=$(usex pulseaudio)
-		-DWITH_PYTHON_INSTALL=no
-		-DWITH_PYTHON_INSTALL_NUMPY=no
-		-DWITH_PYTHON_INSTALL_ZSTANDARD=no
-		-DWITH_RENDERDOC="$(usex renderdoc)"
-		-DWITH_SDL=$(usex sdl)
-		-DWITH_SYSTEM_BULLET="yes"
-		-DWITH_SYSTEM_EIGEN3=yes
-		-DWITH_SYSTEM_FREETYPE=yes
-		-DWITH_SYSTEM_GFLAGS="yes"
-		-DWITH_SYSTEM_GLOG="yes"
-		-DWITH_SYSTEM_LZO=yes
-		-DWITH_TBB=$(usex tbb)
-		-DWITH_USD="no" # TODO: Package USD
-		-DWITH_XR_OPENXR=no
-		-DWITH_UNITY_BUILD="no"
+		# -DWITH_CYCLES_STANDALONE="OFF"
+		# -DWITH_CYCLES_STANDALONE_GUI="OFF"
+
+		-DWITH_BLENDER_THUMBNAILER="yes"
 	)
 
 	if has_version ">=dev-python/numpy-2"; then
@@ -535,8 +529,11 @@ src_configure() {
 	if use hip; then
 		mycmakeargs+=(
 			-DHIP_ROOT_DIR="$(hipconfig -p)"
+
 			-DHIP_HIPCC_FLAGS="-fcf-protection=none"
+
 			-DCMAKE_HIP_LINK_EXECUTABLE="$(get_llvm_prefix)/bin/clang++"
+
 			-DCYCLES_HIP_BINARIES_ARCH="$(get_amdgpu_flags)"
 		)
 	fi
@@ -564,14 +561,14 @@ src_configure() {
 	if tc-is-gcc; then
 		# We disable these to respect the user's choice of linker.
 		mycmakeargs+=(
-			-DWITH_LINKER_GOLD=no
+			-DWITH_LINKER_GOLD="no"
 		)
 	fi
 
 	if tc-is-clang || use osl; then
 		mycmakeargs+=(
-			-DWITH_CLANG=yes
-			-DWITH_LLVM=yes
+			-DWITH_CLANG="yes"
+			-DWITH_LLVM="yes"
 		)
 	fi
 
@@ -585,34 +582,10 @@ src_configure() {
 		mycmakeargs+=(
 			-DCMAKE_INSTALL_PREFIX_WITH_CONFIG="${T}/usr"
 			-DCYCLES_TEST_DEVICES="$(local IFS=";"; echo "${CYCLES_TEST_DEVICES[*]}")"
+			-DWITH_COMPOSITOR_REALTIME_TESTS=yes
+			-DWITH_GPU_DRAW_TESTS=yes
+			-DWITH_GPU_RENDER_TESTS=yes
 		)
-
-		# NOTE in lieu of a FEATURE/build_options
-		if [[ "${EXPENSIVE_TESTS:-0}" -gt 0 ]]; then
-			mycmakeargs+=(
-				-DWITH_COMPOSITOR_REALTIME_TESTS="yes"
-
-				-DWITH_CYCLES_TEST_OSL="$(usex osl)"
-
-				-DWITH_GPU_DRAW_TESTS="yes"
-
-				-DWITH_GPU_RENDER_TESTS="yes"
-				-DWITH_GPU_RENDER_TESTS_SILENT="no"
-			)
-
-			if [[ "${PV}" == *9999* && "${BVC}" == "alpha" ]] && use experimental; then
-				mycmakeargs+=(
-					# Enable user-interface tests using a headless display server.
-					# Currently this depends on WITH_GHOST_WAYLAND and the weston compositor (Experimental)
-					-DWITH_UI_TESTS="$(usex wayland)"
-					-DWESTON_BIN="${ESYSROOT}/usr/bin/weston"
-				)
-			fi
-		else
-			mycmakeargs+=(
-				-DWITH_GPU_RENDER_TESTS="no"
-			)
-		fi
 	fi
 
 	cmake_src_configure
@@ -639,51 +612,53 @@ src_test() {
 
 	if use cuda; then
 		cuda_add_sandbox -w
-		addwrite "/dev/char/"
+		addwrite "/proc/self/task"
+		addpredict "/dev/char/"
 	fi
 
-	if ! has_version "media-libs/openusd"; then
-		CMAKE_SKIP_TESTS+=(
-			# from pxr import Usd # ModuleNotFoundError: No module named 'pxr'
-			"^script_bundled_modules$"
-		)
-	fi
+	local -x CMAKE_SKIP_TESTS=(
+		draw
+		gpu
+		script_load_modules
+		script_bundled_modules
+		script_pyapi_bpy_driver_secure_eval
+		blendfile_versioning_5_over_8
+		blendfile_versioning_7_over_8
+		cycles_motion_blur_cpu
+		cycles_volume_cpu
+		cycles_motion_blur_cuda
+		cycles_volume_cuda
+		eevee_next_grease_pencil
+		eevee_next_light
+		eevee_next_motion_blur
+		eevee_next_pointcloud
+		eevee_next_render_layer
+		eevee_next_volume
+		workbench_motion_blur
+		workbench_volume
+		compositor_multiple_node_setups_realtime
+		compositor_distort_realtime
+	)
 
-	# For debugging, print out all information.
-	local -x VERBOSE="$(usex debug "true" "false")"
+	if use wayland; then
+		xdg_environment_reset
 
-	# Show the window in the foreground.
-	local -x USE_WINDOW="false"
-	local -x USE_DEBUG="false"
+		local compositor exit_code
+		local logfile=${T}/weston.log
+		weston --xwayland --backend=headless --socket=wayland-5 --idle-time=0 2>"${logfile}" &
+		compositor=$!
+		export WAYLAND_DISPLAY=wayland-5
+		sleep 1 # wait for xwayland to be up
+		export DISPLAY=$(grep "xserver listening on display" "${logfile}" | cut -d ' ' -f 5)
 
-	if [[ "${EXPENSIVE_TESTS:-0}" -gt 0 ]]; then
-		if [[ "${USE_WINDOW}" = "true" ]] &&
-		 [[ "${PV}" == *9999* && "${BVC}" == "alpha" ]] &&
-			use experimental && use wayland; then
-				# This runs weston
-				xdg_environment_reset
-		fi
+		cmake_src_test
 
-		if [[ "${USE_WINDOW}" == "true" ]]; then
-			xdg_environment_reset
-			# WITH_GPU_RENDER_TESTS_HEADED
-			if use wayland; then
-				local compositor exit_code
-				local logfile=${T}/weston.log
-				weston --xwayland --backend=headless --socket=wayland-5 --idle-time=0 2>"${logfile}" &
-				compositor=$!
-				local -x WAYLAND_DISPLAY=wayland-5
-				sleep 1 # wait for xwayland to be up
-				local -x DISPLAY="$(grep "xserver listening on display" "${logfile}" | cut -d ' ' -f 5)"
+		exit_code=$?
+		kill "${compositor}"
 
-				cmake_src_test
-
-				exit_code=$?
-				kill "${compositor}"
-			elif use X; then
-				virtx cmake_src_test
-			fi
-		fi
+	elif use X; then
+		xdg_environment_reset
+		virtx cmake_src_test
 	else
 		cmake_src_test
 	fi
@@ -696,7 +671,7 @@ src_install() {
 	blender_get_version
 
 	# Pax mark blender for hardened support.
-	pax-mark m "${BUILD_DIR}"/bin/blender
+	pax-mark m "${BUILD_DIR}/bin/blender"
 
 	cmake_src_install
 
@@ -715,39 +690,34 @@ src_install() {
 		# (Because the data is in the image directory and it will default to look in /usr/share)
 		local -x BLENDER_SYSTEM_RESOURCES="${ED}/usr/share/blender/${BV}"
 
-		# Workaround for binary drivers.
+		# Workaround for binary drivers. # TODO
 		addpredict /dev/ati
 		addpredict /dev/dri
 		addpredict /dev/nvidiactl
 
 		einfo "Generating Blender C/C++ API docs ..."
-		cd "${CMAKE_USE_DIR}"/doc/doxygen || die
-		doxygen -u Doxyfile || die
-		doxygen || die "doxygen failed to build API docs."
-
-		cd "${CMAKE_USE_DIR}" || die
-		einfo "Generating (BPY) Blender Python API docs ..."
-		"${BUILD_DIR}"/bin/blender --background --python doc/python_api/sphinx_doc_gen.py -noaudio || die "sphinx failed."
-
-		cd "${CMAKE_USE_DIR}"/doc/python_api || die
-		sphinx-build sphinx-in BPY_API || die "sphinx failed."
-
-		docinto "html/API/python"
-		dodoc -r "${CMAKE_USE_DIR}"/doc/python_api/BPY_API/.
+		cd "${CMAKE_USE_DIR}/doc/doxygen" || die
+		edob doxygen -u Doxyfile
+		edob doxygen
 
 		docinto "html/API/blender"
-		dodoc -r "${CMAKE_USE_DIR}"/doc/doxygen/html/.
-	fi
+		dodoc -r "${CMAKE_USE_DIR}/doc/doxygen/html/"
 
-	if [[ "${PV}" != *9999* ]]; then
-		insinto "/usr/share/blender/${BV}/datafiles/assets"
-		doins -r "${WORKDIR}/blender-assets/publish/"*
+		einfo "Generating (BPY) Blender Python API docs ..."
+		cd "${CMAKE_USE_DIR}" || die
+		edob "${BUILD_DIR}"/bin/blender --background --python "doc/python_api/sphinx_doc_gen.py" -noaudio
+
+		cd "${CMAKE_USE_DIR}/doc/python_api" || die
+		sphinx-build sphinx-in BPY_API || die
+
+		docinto "html/API/python"
+		dodoc -r "${CMAKE_USE_DIR}/doc/python_api/BPY_API/"
 	fi
 
 	# Fix doc installdir
 	docinto html
-	dodoc "${CMAKE_USE_DIR}"/release/text/readme.html
-	rm -r "${ED}"/usr/share/doc/blender || die
+	dodoc "${CMAKE_USE_DIR}/release/text/readme.html"
+	rm -r "${ED}/usr/share/doc/blender" || die
 
 	python_optimize "${ED}/usr/share/blender/${BV}/scripts"
 
