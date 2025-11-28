@@ -1,4 +1,4 @@
-BDEPEND=doc? ( >=app-text/asciidoc-8.1.0 app-text/docbook-xsl-stylesheets app-text/docbook-xml-dtd:4.2 dev-libs/libxslt )
+BDEPEND=>=app-text/asciidoc-8.1.0 doc? ( app-text/docbook-xsl-stylesheets app-text/docbook-xml-dtd:4.2 dev-libs/libxslt )
 DEFINED_PHASES=compile install postinst
 DESCRIPTION=Pseudo incremental backup with different exclude lists using hardlinks and rsync
 EAPI=8
@@ -12,4 +12,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://www.nico.schottelius.org/software/ccollect/download/ccollect-2.10.tar.bz2
 _eclasses_=prefix	c3c4c93ebda319c0fa7ed6f942ba1010
-_md5_=cf35744c8ebd43b03ffac83e65f03350
+_md5_=219f6d56d98cf64994981be4667827f6
