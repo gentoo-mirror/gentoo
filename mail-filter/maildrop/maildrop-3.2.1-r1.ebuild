@@ -49,6 +49,7 @@ REQUIRED_USE="
 	ldap? ( authlib )"
 
 PATCHES=(
+	"${FILESDIR}"/${P}-reformime.patch
 	"${FILESDIR}"/${P}-testsuite.patch
 	"${FILESDIR}"/${P}-valgrind.patch
 	"${FILESDIR}"/${PN}-3.1.6-test.patch
