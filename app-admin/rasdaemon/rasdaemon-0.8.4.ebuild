@@ -1,27 +1,23 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit autotools flag-o-matic linux-info systemd
+inherit flag-o-matic linux-info systemd
 
 DESCRIPTION="Reliability, Availability and Serviceability logging tool"
 HOMEPAGE="https://github.com/mchehab/rasdaemon"
-# This if can be dropped > 0.8.0, see https://github.com/mchehab/rasdaemon/issues/88
-if [[ ${PV} == 0.8.0 ]] ; then
-	SRC_URI="https://github.com/mchehab/rasdaemon/releases/download/refs%2Fheads%2Fmaster/${P}.tar.bz2"
-else
-	SRC_URI="https://github.com/mchehab/rasdaemon/releases/download/v${PV}/${P}.tar.bz2"
-fi
+SRC_URI="https://www.infradead.org/~mchehab/rasdaemon/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="selinux"
 
 DEPEND="
 	dev-db/sqlite
 	dev-libs/libtraceevent
+	sys-apps/pciutils
 	elibc_musl? ( sys-libs/argp-standalone )
 "
 RDEPEND="
@@ -33,23 +29,10 @@ RDEPEND="
 "
 BDEPEND="sys-devel/gettext"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.8.0-bashisms-configure.patch
-	"${FILESDIR}"/${PN}-0.8.0-table-create-offline-cpus.patch
-	"${FILESDIR}"/${PN}-0.8.0-check-online-cpus-not-configured.patch
-)
-
 pkg_setup() {
 	linux-info_pkg_setup
-	local CONFIG_CHECK="~ACPI_EXTLOG ~DEBUG_FS"
+	local CONFIG_CHECK="~ACPI_EXTLOG ~DEBUG_FS ~BLK_DEV_IO_TRACE"
 	check_extra_config
-}
-
-src_prepare() {
-	default
-
-	# Only here for 0.8.0's bashism patch
-	eautoreconf
 }
 
 src_configure() {
@@ -65,13 +48,14 @@ src_configure() {
 		--enable-devlink
 		--enable-diskerror
 		--enable-memory-ce-pfa
-		--includedir="/usr/include/${PN}"
+		--includedir="${EPREFIX}/usr/include/${PN}"
 		--localstatedir=/var
 	)
 
 	use elibc_musl && append-libs -largp
 
-	econf "${myconfargs[@]}"
+	# More bashisms snuck into 0.8.2, not yet reported upstream
+	CONFIG_SHELL="${BROOT}"/bin/bash econf "${myconfargs[@]}"
 }
 
 src_install() {
