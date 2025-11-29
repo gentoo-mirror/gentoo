@@ -32,7 +32,7 @@ DEPEND="
 	>=gnome-base/gsettings-desktop-schemas-2.91.92
 	>=gnome-extra/evolution-data-server-${PV}:=[gtk,sound?,weather?]
 	>=net-libs/libsoup-3.0:3.0
-	>=net-libs/webkit-gtk-2.38.0:4.1[spell?]
+	>=net-libs/webkit-gtk-2.40.0:4.1[spell?]
 	>=x11-libs/cairo-1.9.15[glib]
 	>=x11-libs/gdk-pixbuf-2.24:2
 	>=x11-libs/gtk+-3.22:3
