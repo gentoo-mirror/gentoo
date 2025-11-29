@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~m68k ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/sphinx[${PYTHON_USEDEP}]
@@ -32,10 +32,11 @@ distutils_enable_tests pytest
 
 python_prepare_all() {
 	# version number relies on git repo, sigh
-	# also all dependencies are pinned to exact versions, sigh
+	# also unpin dependencies
+	# also hack to install as "sphinx-prompt"
 	sed -i \
 		-e "/^version =/s:[0-9.]\+:${PV}:" \
-		-e '/^\[tool\.poetry\.dependencies\]$/,$s:"[0-9.]\+:"*:' \
+		-e '/include.*sphinx-prompt/d' \
 		pyproject.toml || die
 
 	distutils-r1_python_prepare_all
