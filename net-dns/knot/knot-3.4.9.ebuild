@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{11..14} )
-inherit autotools python-r1 flag-o-matic systemd tmpfiles verify-sig
+inherit autotools python-r1 systemd tmpfiles verify-sig
 
 # subslot: libknot major.libdnssec major.libzscanner major
 KNOT_SUBSLOT="15.9.4"
@@ -16,10 +16,9 @@ SRC_URI="
 	!doc? ( https://raw.githubusercontent.com/PPN-SD/gentoo-manpages/refs/tags/${P}/${P}-manpages.tar.xz )
 	verify-sig? ( https://knot-dns.nic.cz/release/${P}.tar.xz.asc )
 "
-
 LICENSE="GPL-3+"
 SLOT="0/${KNOT_SUBSLOT}"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 # Modules without dep. Built unconditionally.
 KNOT_MODULES=(
@@ -66,7 +65,7 @@ RDEPEND="
 		dbus? ( sys-apps/dbus )
 		geoip? ( dev-libs/libmaxminddb:= )
 		systemd? ( sys-apps/systemd:= )
-		)
+	)
 	prometheus? (
 		dev-python/prometheus-client[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
@@ -156,27 +155,23 @@ src_configure() {
 	# module-dnstap defines support for knotd only
 	if use daemon; then
 		for u in "${KNOT_MODULES[@]}"; do
-			my_conf+=("--with-module-${u}")
+			my_conf+=( --with-module-${u} )
 		done
 		for u in "${KNOT_MODULES_OPT[@]#+}"; do
-			my_conf+=("$(use_with ${u} module-${u})")
+			my_conf+=( $(use_with ${u} module-${u}) )
 		done
 	else
-			my_conf+=("--disable-modules")
+		my_conf+=( --disable-modules )
 	fi
 
 	if use !daemon; then
-		my_conf+=("--enable-dbus=no")
+		my_conf+=( --enable-dbus=no )
 	elif use dbus; then
-		my_conf+=("--enable-dbus=libdbus")
-	elif use !dbus && use !systemd; then
-		my_conf+=("--enable-dbus=no")
-	elif use !dbus && use systemd; then
-		my_conf+=("--enable-dbus=systemd")
-	fi
-
-	if use riscv; then
-		append-libs -latomic
+		my_conf+=( --enable-dbus=libdbus )
+	elif use systemd; then
+		my_conf+=( --enable-dbus=systemd )
+	else
+		my_conf+=( --enable-dbus=no )
 	fi
 
 	econf "${my_conf[@]}"
@@ -210,7 +205,7 @@ src_install() {
 	default
 
 	if use daemon; then
-		rmdir "${D}/var/run/${PN}" "${D}/var/run/" || die
+		rm -r "${ED}"/var/run/ || die
 
 		newinitd "${FILESDIR}"/knot-3.init knot
 		newconfd "${FILESDIR}"/knot.confd knot

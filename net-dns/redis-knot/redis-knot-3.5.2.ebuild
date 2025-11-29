@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools edo toolchain-funcs verify-sig
+inherit autotools verify-sig
 
 MY_PN="knot"
 MY_P="${MY_PN}-${PV}"
@@ -20,16 +20,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 # no test, it requires a Redis instance and RLTest (not packaged)
-BDEPEND="
-	dev-build/libtool
-	verify-sig? ( sec-keys/openpgp-keys-knot )
-"
+BDEPEND="verify-sig? ( sec-keys/openpgp-keys-knot )"
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/${MY_PN}.asc
 
 PATCHES=(
-	# PR merged https://gitlab.nic.cz/knot/knot-dns/-/merge_requests/1808.patch
-	"${FILESDIR}"/${PN}-3.5.0-full_redis_opt.patch
 	# https://gitlab.nic.cz/knot/knot-dns/-/merge_requests/1809.patch
 	"${FILESDIR}"/${PN}-3.5.0-opt_gnutls.patch
 )
@@ -41,33 +36,26 @@ QA_CONFIG_IMPL_DECL_SKIP=( cpuset_create cpuset_destroy )
 # because configure.ac is patched
 src_prepare() {
 	default
-	eautoconf
+	eautoreconf
 }
 
 src_configure() {
-	econf --disable-daemon --disable-modules --disable-utilities --disable-xdp --enable-redis=module
+	local myeconfargs=(
+		--disable-daemon
+		--disable-modules
+		--disable-utilities
+		--disable-xdp
+		--enable-redis=module
+	)
+	econf "${myeconfargs[@]}"
 }
 
 src_compile() {
-	pushd src/redis || die
-
-	# mimic src/redis/Makefile.am
-	edo ${LIBTOOL:=libtool} --tag=CC --mode=compile $(tc-getCC) \
-		${CFLAGS} -fvisibility=hidden \
-		-I../../src -include ../../src/config.h \
-		-c -o knot_la-knot.lo knot.c
-
-	edo ${LIBTOOL:=libtool} --tag=CC --mode=link $(tc-getCC) \
-		-module -shared -avoid-version \
-		${LDFLAGS} \
-		-o knot.la \
-		-rpath "${EPREFIX}"/usr/$(get_libdir)/knot/redis \
-		knot_la-knot.lo
-
-	popd || die
+	emake -C src/redis
 }
 
 src_install() {
-	exeinto /usr/$(get_libdir)/knot/redis
-	doexe src/redis/.libs/knot.so
+	emake DESTDIR="${D}" -C src/redis install
+
+	find "${D}" -name '*.la' -delete || die
 }

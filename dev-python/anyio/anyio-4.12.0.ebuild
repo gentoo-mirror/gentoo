@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
+PYPI_VERIFY_REPO=https://github.com/agronholm/anyio
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1 pypi
@@ -16,11 +17,10 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/idna-2.8[${PYTHON_USEDEP}]
-	>=dev-python/sniffio-1.1[${PYTHON_USEDEP}]
 	>=dev-python/truststore-0.9.1[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/typing-extensions-4.5[${PYTHON_USEDEP}]
@@ -34,14 +34,14 @@ BDEPEND="
 		>=dev-python/blockbuster-1.5.23[${PYTHON_USEDEP}]
 		>=dev-python/exceptiongroup-1.2.0[${PYTHON_USEDEP}]
 		>=dev-python/psutil-5.9[${PYTHON_USEDEP}]
-		dev-python/trustme[${PYTHON_USEDEP}]
+		>=dev-python/trustme-1.0.0[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep '
-			>=dev-python/trio-0.26.1[${PYTHON_USEDEP}]
+			>=dev-python/trio-0.32.0[${PYTHON_USEDEP}]
 		' 3.{11..14})
 		amd64? (
 			$(python_gen_cond_dep '
-				>=dev-python/uvloop-0.21.0_beta1[${PYTHON_USEDEP}]
-			' python3_{11..13})
+				>=dev-python/uvloop-0.22.1[${PYTHON_USEDEP}]
+			' python3_{11..14})
 		)
 	)
 "

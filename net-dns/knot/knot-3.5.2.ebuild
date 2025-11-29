@@ -66,7 +66,7 @@ RDEPEND="
 		geoip? ( dev-libs/libmaxminddb:= )
 		redis? ( >=dev-libs/hiredis-1.1.0:= )
 		systemd? ( sys-apps/systemd:= )
-		)
+	)
 	prometheus? (
 		dev-python/prometheus-client[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
@@ -88,6 +88,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
+	dnstap? ( dev-libs/protobuf[protoc(+)] )
 	doc? (
 		$(python_gen_any_dep '
 			dev-python/sphinx[${PYTHON_USEDEP}]
@@ -102,11 +103,6 @@ BDEPEND="
 "
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/${PN}.asc
-
-PATCHES=(
-	# PR merged https://gitlab.nic.cz/knot/knot-dns/-/merge_requests/1808.patch
-	"${FILESDIR}"/${PN}-3.5.0-full_redis_opt.patch
-)
 
 # Used to check cpuset_t in sched.h with NetBSD.
 # False positive because linux have sched.h too but with cpu_set_t
@@ -162,23 +158,23 @@ src_configure() {
 	# module-dnstap defines support for knotd only
 	if use daemon; then
 		for u in "${KNOT_MODULES[@]}"; do
-			my_conf+=("--with-module-${u}")
+			my_conf+=( --with-module-${u} )
 		done
 		for u in "${KNOT_MODULES_OPT[@]#+}"; do
-			my_conf+=("$(use_with ${u} module-${u})")
+			my_conf+=( $(use_with ${u} module-${u}) )
 		done
 	else
 		my_conf+=( --disable-modules )
 	fi
 
 	if use !daemon; then
-		my_conf+=("--enable-dbus=no")
+		my_conf+=( --enable-dbus=no )
 	elif use dbus; then
-		my_conf+=("--enable-dbus=libdbus")
-	elif use !dbus && use !systemd; then
-		my_conf+=("--enable-dbus=no")
-	elif use !dbus && use systemd; then
-		my_conf+=("--enable-dbus=systemd")
+		my_conf+=( --enable-dbus=libdbus )
+	elif use systemd; then
+		my_conf+=( --enable-dbus=systemd )
+	else
+		my_conf+=( --enable-dbus=no )
 	fi
 
 	econf "${my_conf[@]}"
@@ -212,7 +208,7 @@ src_install() {
 	default
 
 	if use daemon; then
-		rmdir "${D}/var/run/${PN}" "${D}/var/run/" || die
+		rm -r "${ED}"/var/run/ || die
 
 		newinitd "${FILESDIR}"/knot-3.init knot
 		newconfd "${FILESDIR}"/knot.confd knot
