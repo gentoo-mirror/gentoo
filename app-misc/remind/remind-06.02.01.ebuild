@@ -3,25 +3,38 @@
 
 EAPI=8
 
+inherit autotools
+
 DESCRIPTION="Ridiculously functional reminder program"
 HOMEPAGE="https://dianne.skoll.ca/projects/remind/"
-SRC_URI="https://salsa.debian.org/dskoll/remind/-/archive/${PV}/${P}.tar.bz2"
+SRC_URI="https://dianne.skoll.ca/projects/remind/download/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="tk"
 
 RDEPEND="
-	tk? ( >=dev-lang/tk-8.5 dev-tcltk/tcllib )
-"
-DEPEND="${RDEPEND}
 	dev-perl/Cairo
 	dev-perl/JSON-MaybeXS
 	dev-perl/Pango
-	virtual/perl-Getopt-Long
+	tk? (
+		>=dev-lang/tk-8.5:=
+		dev-tcltk/tcllib
+	)
 "
+DEPEND="${RDEPEND}"
 DOCS="docs/* examples/defs.rem"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-06.02.01-no-lto.patch
+)
+
+src_prepare() {
+	default
+	# for LTO patch
+	eautoreconf
+}
 
 src_test() {
 	if [[ ${EUID} -eq 0 ]] ; then
