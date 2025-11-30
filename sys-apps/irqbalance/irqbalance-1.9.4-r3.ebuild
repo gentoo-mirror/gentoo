@@ -1,13 +1,14 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit autotools udev systemd linux-info optfeature
+inherit meson linux-info optfeature systemd udev
 
 DESCRIPTION="Distribute hardware interrupts across processors on a multiprocessor system"
 HOMEPAGE="https://github.com/Irqbalance/irqbalance"
 SRC_URI="https://github.com/Irqbalance/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}"/${P}/contrib
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -32,47 +33,54 @@ RDEPEND="
 	selinux? ( sec-policy/selinux-irqbalance )
 "
 
-PATCHES=(
-	"${FILESDIR}"/${P}-systemd-journal-noise.patch
-)
-
 pkg_setup() {
 	CONFIG_CHECK="~PCI_MSI"
 	linux-info_pkg_setup
 }
 
 src_prepare() {
+	default
+
+	(
+		cd "${WORKDIR}"/${P} || die
+		eapply "${FILESDIR}"/${P}-drop-protectkerneltunables.patch
+		eapply "${FILESDIR}"/${P}-c23.patch
+	)
+
 	# Follow systemd policies
 	# https://wiki.gentoo.org/wiki/Project:Systemd/Ebuild_policy
 	sed \
 		-e 's/ $IRQBALANCE_ARGS//' \
 		-e '/EnvironmentFile/d' \
-		-i misc/irqbalance.service || die
-
-	default
-	eautoreconf
+		-i "${WORKDIR}"/${P}/misc/irqbalance.service || die
 }
 
 src_configure() {
-	local myeconfargs=(
-		$(use_with caps libcap-ng)
-		$(use_enable numa)
-		$(use_with systemd)
-		$(use_enable thermal)
-		$(use_with tui irqbalance-ui)
+	local emesonargs=(
+		$(meson_feature caps capng)
+		$(meson_feature numa)
+		$(meson_feature systemd)
+		$(meson_feature thermal)
+		$(meson_feature tui ui)
 	)
-	econf "${myeconfargs[@]}"
+
+	meson_src_configure
 }
 
 src_install() {
-	default
+	meson_src_install
 
-	newinitd "${FILESDIR}"/irqbalance.init.4 irqbalance
-	newconfd "${FILESDIR}"/irqbalance.confd-1 irqbalance
-	systemd_dounit misc/irqbalance.service
-	udev_dorules misc/90-irqbalance.rules
+	newinitd "${FILESDIR}"/irqbalance.init.5 irqbalance
+	newconfd "${FILESDIR}"/irqbalance.confd-2 irqbalance
+	systemd_dounit "${WORKDIR}"/${P}/misc/irqbalance.service
+	udev_dorules "${WORKDIR}"/${P}/misc/90-irqbalance.rules
+}
+
+pkg_postrm() {
+	udev_reload
 }
 
 pkg_postinst() {
+	udev_reload
 	optfeature "thermal events support (requires USE=thermal)" sys-power/thermald
 }
