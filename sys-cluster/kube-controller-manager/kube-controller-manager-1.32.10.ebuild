@@ -5,7 +5,7 @@ EAPI=8
 
 inherit go-module systemd
 
-DESCRIPTION="Kubernetes Node Agent"
+DESCRIPTION="Kubernetes Controller Manager"
 HOMEPAGE="https://kubernetes.io"
 SRC_URI="https://github.com/kubernetes/kubernetes/archive/v${PV}.tar.gz -> kubernetes-${PV}.tar.gz"
 S=${WORKDIR}/kubernetes-${PV}
@@ -14,14 +14,16 @@ LICENSE="Apache-2.0"
 # Dependent licenses
 LICENSE+=" Apache-2.0 BSD BSD-2 ISC MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
-IUSE="hardened selinux"
+KEYWORDS="~amd64 ~arm64"
+IUSE="hardened"
 RESTRICT="test"
 
-RDEPEND="selinux? ( sec-policy/selinux-kubernetes )"
-BDEPEND=">=dev-lang/go-1.24.0"
+DEPEND="acct-group/kube-controller-manager
+	acct-user/kube-controller-manager"
+RDEPEND="${DEPEND}"
+BDEPEND=">=dev-lang/go-1.23.3"
 
-QA_PRESTRIPPED=usr/bin/kubelet
+QA_PRESTRIPPED=usr/bin/kube-controller-manager
 
 src_compile() {
 	CGO_LDFLAGS="$(usex hardened '-fno-PIC ' '')" \
@@ -31,12 +33,11 @@ src_compile() {
 
 src_install() {
 	dobin _output/bin/${PN}
-	keepdir /etc/kubernetes/manifests /var/log/kubelet /var/lib/kubelet
 	newinitd "${FILESDIR}"/${PN}.initd ${PN}
 	newconfd "${FILESDIR}"/${PN}.confd ${PN}
+	systemd_dounit "${FILESDIR}"/${PN}.service
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}"/${PN}.logrotated ${PN}
-	systemd_dounit "${FILESDIR}"/${PN}.service
-	insinto /etc/kubernetes
-	newins "${FILESDIR}"/${PN}.env ${PN}.env
+	keepdir /var/log/${PN}
+	fowners ${PN}:${PN} /var/log/${PN}
 }
