@@ -22,16 +22,20 @@ CARGO_OPTIONAL=1
 RUST_MIN_VER="1.88"
 RUST_OPTIONAL=1
 
-inherit cargo systemd toolchain-funcs
+inherit cargo eapi9-ver flag-o-matic systemd toolchain-funcs
 
 DESCRIPTION="A software-based managed Ethernet switch for planet Earth"
 HOMEPAGE="https://www.zerotier.com/"
 SRC_URI="
 	https://github.com/zerotier/ZeroTierOne/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	controller? ( ${CARGO_CRATE_URIS} )
 	sso? ( ${CARGO_CRATE_URIS} )
 "
 if [[ ${PKGBUMPING} != ${PVR} ]]; then
 	SRC_URI+="
+		controller? (
+			https://gitlab.com/api/v4/projects/32909921/packages/generic/${PN}/${PV}/${P}-crates.tar.xz
+		)
 		sso? (
 			https://gitlab.com/api/v4/projects/32909921/packages/generic/${PN}/${PV}/${P}-crates.tar.xz
 		)
@@ -39,12 +43,14 @@ if [[ ${PKGBUMPING} != ${PVR} ]]; then
 fi
 S="${WORKDIR}"/ZeroTierOne-${PV}
 
-LICENSE="MPL-2.0"
+LICENSE="MPL-2.0 controller? ( ZeroTier )"
 # Dependent crate licenses
+LICENSE+=" controller? ( 0BSD Apache-2.0 BSD ISC MIT MPL-2.0 Unicode-3.0 ZLIB )"
 LICENSE+=" sso? ( 0BSD Apache-2.0 BSD ISC MIT MPL-2.0 Unicode-3.0 ZLIB )"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
-IUSE="cpu_flags_arm_neon debug sso"
+
+IUSE="controller cpu_flags_arm_neon debug sso"
 
 # https://github.com/zerotier/ZeroTierOne/pull/2453
 # >=miniupnpnc-2.2.8: https://gitlab.archlinux.org/archlinux/packaging/packages/zerotier-one/-/commit/1d040aee9a4cfecdcc747cb42f92a1420a42a3f4
@@ -52,6 +58,10 @@ RDEPEND="
 	dev-libs/openssl:=
 	net-libs/libnatpmp
 	>=net-libs/miniupnpc-2.2.8:=
+	controller? (
+		net-libs/grpc:=
+		>=dev-cpp/opentelemetry-cpp-1.24.0:=[grpc(-),otlp(-),prometheus]
+	)
 "
 DEPEND="
 	${RDEPEND}
@@ -65,18 +75,19 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.10.1-add-armv7a-support.patch
 	"${FILESDIR}"/${PN}-1.16.0-miniupnpc-2.2.8.patch
+	"${FILESDIR}"/${PN}-1.16.0-minimise-deps-for-controller.patch
 )
 
 DOCS=( README.md )
 
 pkg_setup() {
-	if use sso ; then
+	if use controller || use sso ; then
 		rust_pkg_setup
 	fi
 }
 
 src_unpack() {
-	if use sso ; then
+	if use controller || use sso ; then
 		cargo_src_unpack
 	else
 		default
@@ -90,17 +101,21 @@ src_prepare() {
 	# otherwise it will hide api breaks at build time such as:
 	# https://github.com/zerotier/ZeroTierOne/issues/2332
 	rm -r ext/{miniupnpc,libnatpmp,nlohmann} || die
-	rm -r ext/hiredis-* || die
 	# keep opentelemetry-cpp-api-only to avoid dependency for now
 	rm -r ext/opentelemetry-cpp-1.21.0 || die
-	rm -r ext/redis-plus-plus-* || die
+	sed -e '/cd ext\/opentelemetry-cpp-/d' -i make-linux.mk || die
+	# Dependencies that would be used for ZeroTier Central, requirement patched out.
 	rm -r ext/libpqxx-* || die
+	rm -r ext/hiredis-* || die
+	rm -r ext/redis-plus-plus-* || die
+
 	# header only dependency that could be packaged
-	#rm -r ext/inja || die
+	# rm -r ext/inja || die
+	# Upstream advises against unvendoring
 	# https://github.com/zerotier/ZeroTierOne/issues/355#issuecomment-232086084
-	#rm -r ext/http-parser || die
+	# rm -r ext/http-parser || die
 	# Messy and needs proper patches
-	#rm -r ext/cpp-httplib || die
+	# rm -r ext/cpp-httplib || die
 
 	# Remove man page compression and install, we'll handle it with ebuild functions
 	sed -e '/install:/,/^$/ { /man[0-9]/d }' \
@@ -109,6 +124,11 @@ src_prepare() {
 
 src_configure() {
 	tc-export CXX CC
+
+	if use controller; then
+		# ring crate cannot handle it
+		filter-lto
+	fi
 
 	myemakeargs=(
 		CC="${CC}"
@@ -124,20 +144,19 @@ src_configure() {
 		ZT_DEBUG="$(usex debug 1 0)"
 		ZT_SSO_SUPPORTED="$(usex sso 1 0)"
 
-		# TODO:
 		# commercial source-available license
-		# Needs more work to build properly against system packages
-		ZT_CONTROLLER=0
-		ZT_OTEL=0
+		ZT_CONTROLLER="$(usex controller 1 0)"
+		ZT_OTEL=$(usex controller 1 0) # fails without, but pulls in more dependencies
+		ZT_NONFREE=$(usex controller 1 0)
 	)
 
-	if use sso ; then
+	if use controller || use sso ; then
 		cargo_src_configure
 	fi
 }
 
 src_compile() {
-	if use sso ; then
+	if use controller || use sso ; then
 		cargo_env emake "${myemakeargs[@]}" one
 	else
 		emake "${myemakeargs[@]}" one
@@ -156,4 +175,11 @@ src_install() {
 	systemd_dounit "${FILESDIR}/${PN}".service
 
 	doman doc/zerotier-{cli.1,idtool.1,one.8}
+}
+
+pkg_postinst() {
+	if ver_replacing -lt 1.16.0-r1; then
+		elog "Controller component was made conditional in 1.16.0"
+		elog "You can enable it with the controller use flag"
+	fi
 }
