@@ -13,18 +13,19 @@ SRC_URI="
 	https://www.xs4all.nl/~waterlan/${PN}/${P/_/-}.tar.gz
 	https://downloads.sourceforge.net/${PN}/${P/_/-}.tar.gz
 "
-S="${WORKDIR}/${P/_/-}"
+S=${WORKDIR}/${P/_/-}
 
 LICENSE="BSD-2"
 SLOT="0"
 [[ "${PV}" == *_beta* ]] || \
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
 IUSE="debug nls test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	!app-text/hd2u
-	virtual/libintl"
-
+	virtual/libintl
+"
 DEPEND="
 	${RDEPEND}
 	test? ( virtual/perl-Test-Simple )
@@ -32,9 +33,8 @@ DEPEND="
 BDEPEND="
 	dev-lang/perl
 	nls? ( sys-devel/gettext )
+	test? ( elibc_musl? ( sys-apps/musl-locales ) )
 "
-
-RESTRICT="!test? ( test )"
 
 handle_locales() {
 	# Make sure locale list is kept up-to-date.
