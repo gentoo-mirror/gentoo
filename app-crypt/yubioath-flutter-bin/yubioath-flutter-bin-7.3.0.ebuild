@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -52,8 +52,8 @@ src_install() {
 
 	sed -e 's|@EXEC_PATH/authenticator|authenticator|' \
 		-e 's|@EXEC_PATH/linux_support/com.yubico.yubioath.png|com.yubico.yubioath|g' \
-		-i linux_support/com.yubico.authenticator.desktop || die
-	domenu linux_support/com.yubico.authenticator.desktop
+		-i linux_support/com.yubico.yubioath.desktop || die
+	domenu linux_support/com.yubico.yubioath.desktop
 	doicon -s 128 linux_support/com.yubico.yubioath.png
 	rm -r linux_support || die
 
