@@ -1,0 +1,53 @@
+Title: FlexiBLAS migration imminent
+Author: Sam James <sam@gentoo.org>
+Posted: 2025-11-30
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: app-eselect/eselect-blas
+Display-If-Installed: app-eselect/eselect-cblas
+Display-If-Installed: app-eselect/eselect-lapack
+Display-If-Installed: sci-libs/flexiblas
+Display-If-Installed: virtual/blas
+Display-If-Installed: virtual/cblas
+
+Gentoo is adopting FlexiBLAS (sci-libs/flexiblas) [0][1] as the primary way of
+switching BLAS implementations at runtime.
+
+The previous eselect-based 'eselect-blas', 'eselect-cblas', and 'eselect-lapack'
+approach will be phased out in favor of this because of various reliability
+problems we hit.
+
+FlexiBLAS allows both system-wide and per-user configuration and supersedes
+the functionality from the old setup.
+
+The defaults in profiles will change shortly for stable users. For ~arch
+users, the default was changed a little while ago.
+
+Action required
+---------------
+
+Please check your configuration for any stale references to eselect-ldso:
+
+    $ grep -rsin eselect-ldso /etc/portage
+
+and drop any reference to to it in make.conf USE or package.use.
+
+Please also deselect the relevant packages from world:
+
+    $ emerge --deselect app-eselect/eselect-blas app-eselect/eselect-cblas
+    $ emerge --deselect app-eselect/eselect-lapack
+
+Then complete a world upgrade and depclean:
+
+    $ emerge -a -uvDU @world
+    $ emerge -ac
+
+Using flexiblas
+---------------
+
+Most users do not need to worry about this, but if you need to change
+the BLAS implementation at runtime, please consult the flexiblas(1) man
+page.
+
+[0] https://public-inbox.gentoo.org/gentoo-dev/db65740b619e7b2413ac2b4b06f94db960f3e46e.camel@gentoo.org/
+[1] https://bugs.gentoo.org/963034
