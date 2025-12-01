@@ -21,7 +21,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 IUSE="test test-full"
 RESTRICT="!test? ( test )"
 
@@ -105,7 +105,8 @@ python_test() {
 			--exclude 'run.test_patma*'
 			# Slight output difference (missing '<')
 			--exclude 'run.cpp_exception_ptr_just_handler'
-
+			# No freethreading here
+			--exclude 'run.freethreaded_list_indexing_stress_test'
 		)
 	fi
 
