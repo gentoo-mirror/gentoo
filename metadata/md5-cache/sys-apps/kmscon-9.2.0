@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig doc? ( dev-util/gtk-doc ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=>=virtual/udev-172 x11-libs/libxkbcommon >=dev-libs/libtsm-4.3.0:= media-libs/libglvnd[X(+)] drm? ( x11-libs/libdrm >=media-libs/mesa-8.0.3[egl(+),gbm(+)] ) systemd? ( sys-apps/systemd ) pango? ( x11-libs/pango dev-libs/glib:2 ) x11-base/xorg-proto
+DESCRIPTION=KMS/DRM based virtual Console Emulator
+EAPI=8
+HOMEPAGE=https://github.com/kmscon/kmscon
+INHERIT=meson flag-o-matic toolchain-funcs
+IUSE=debug doc +drm elogind +fbdev +gles2 +pango systemd test
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT LGPL-2.1 BSD-2
+RDEPEND=>=virtual/udev-172 x11-libs/libxkbcommon >=dev-libs/libtsm-4.3.0:= media-libs/libglvnd[X(+)] drm? ( x11-libs/libdrm >=media-libs/mesa-8.0.3[egl(+),gbm(+)] ) systemd? ( sys-apps/systemd ) pango? ( x11-libs/pango dev-libs/glib:2 ) x11-misc/xkeyboard-config
+REQUIRED_USE=drm? ( gles2 ) ?? ( elogind systemd )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/kmscon/kmscon/archive/refs/tags/v9.2.0.tar.gz -> kmscon-9.2.0.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	1a27c82364f611e149966d2c47cbb083
+_md5_=b1dab47620b27c950a999830ad1c88c6
