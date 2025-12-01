@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig qt6? ( dev-qt/qttools:6[linguist] ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-cpp/yaml-cpp:= dev-libs/boost:= media-libs/alsa-lib sys-libs/readline:0= virtual/libudev:= fftw? ( sci-libs/fftw:3.0= ) jack? ( virtual/jack ) !jack? ( media-libs/portaudio ) qt6? ( dev-qt/qtbase:6[gui,network,widgets] dev-qt/qtsvg:6 ) sndfile? ( media-libs/libsndfile ) webengine? ( dev-qt/qtwebchannel:6 dev-qt/qtwebengine:6[widgets] dev-qt/qtwebsockets:6 ) X? ( x11-libs/libX11 x11-libs/libXt ) zeroconf? ( net-dns/avahi ) dev-libs/icu emacs? ( >=app-editors/emacs-23.1:* ) qt6? ( dev-qt/qtbase:6[concurrent] ) vim? ( app-editors/vim )
+DESCRIPTION=Environment and programming language for real time audio synthesis
+EAPI=8
+HOMEPAGE=https://supercollider.github.io/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake flag-o-matic xdg
+IUSE=ableton-link cpu_flags_x86_sse cpu_flags_x86_sse2 debug emacs +fftw +gpl3 jack qt6 server +sndfile static-libs vim webengine X +zeroconf
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 gpl3? ( GPL-3 )
+RDEPEND=dev-cpp/yaml-cpp:= dev-libs/boost:= media-libs/alsa-lib sys-libs/readline:0= virtual/libudev:= fftw? ( sci-libs/fftw:3.0= ) jack? ( virtual/jack ) !jack? ( media-libs/portaudio ) qt6? ( dev-qt/qtbase:6[gui,network,widgets] dev-qt/qtsvg:6 ) sndfile? ( media-libs/libsndfile ) webengine? ( dev-qt/qtwebchannel:6 dev-qt/qtwebengine:6[widgets] dev-qt/qtwebsockets:6 ) X? ( x11-libs/libX11 x11-libs/libXt ) zeroconf? ( net-dns/avahi )
+REQUIRED_USE=qt6? ( X ) webengine? ( qt6 )
+SLOT=0
+SRC_URI=https://github.com/supercollider/supercollider/releases/download/Version-3.14.1/SuperCollider-3.14.1-Source.tar.bz2
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	22e4e58d68692975dc74424dc9b12fb7	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=dde4b63a04a5ae4c04d31cc1a5caa456
