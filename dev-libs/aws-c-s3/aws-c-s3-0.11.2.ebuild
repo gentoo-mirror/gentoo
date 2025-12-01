@@ -3,9 +3,9 @@
 
 EAPI=8
 
-DESCRIPTION="AWS C MQTT: C99 implementation."
-HOMEPAGE="https://github.com/awslabs/aws-c-mqtt"
-SRC_URI="https://github.com/awslabs/aws-c-mqtt/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="AWS C S3 async library."
+HOMEPAGE="https://github.com/awslabs/aws-c-s3"
+SRC_URI="https://github.com/awslabs/aws-c-s3/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 inherit cmake
 
@@ -16,8 +16,9 @@ IUSE="test"
 
 RESTRICT="!test? ( test )"
 
-DEPEND="dev-libs/aws-c-common:=
-	dev-libs/aws-c-http:="
+DEPEND="dev-libs/aws-c-auth:=
+	dev-libs/aws-c-common:=
+	dev-libs/aws-checksums:="
 RDEPEND="${DEPEND}"
 BDEPEND="dev-libs/aws-c-common"
 
@@ -25,5 +26,9 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test)
 	)
+	use test && mycmakeargs+=(
+		-DENABLE_NET_TESTS=OFF # Network Sandbox cause these to fail.
+	)
+
 	cmake_src_configure
 }
