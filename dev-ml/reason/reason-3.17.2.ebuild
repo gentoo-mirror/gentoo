@@ -12,10 +12,10 @@ HOMEPAGE="https://reasonml.github.io/
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/reasonml/${PN}.git"
+	EGIT_REPO_URI="https://github.com/reasonml/${PN}"
 else
 	SRC_URI="https://github.com/reasonml/${PN}/archive/${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
 	KEYWORDS="~amd64 ~x86"
 fi
@@ -32,15 +32,16 @@ RDEPEND="
 	dev-ml/merlin-extend:=[ocamlopt?]
 	dev-ml/ppx_derivers:=[ocamlopt?]
 	dev-ml/ppxlib:=[ocamlopt?]
-	dev-ml/ppxlib:=[ocamlopt?]
 	dev-ml/utop:=[ocamlopt?]
 "
 DEPEND="
 	${RDEPEND}
 "
+BDEPEND="
+	dev-ml/findlib
+"
 
 src_install() {
 	dune-install reason rtop
-
 	dodoc ./*.md ./docs/*.md
 }
