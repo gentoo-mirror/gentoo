@@ -31,7 +31,7 @@ RDEPEND="
 	dev-python/colorama[${PYTHON_USEDEP}]
 	dev-python/docutils[${PYTHON_USEDEP}]
 	dev-python/rsa[${PYTHON_USEDEP}]
-	>=dev-python/s3transfer-0.15.0[${PYTHON_USEDEP}]
+	>=dev-python/s3transfer-0.16.0[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	!app-admin/awscli-bin
 "

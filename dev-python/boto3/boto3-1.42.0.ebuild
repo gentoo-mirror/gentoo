@@ -20,12 +20,14 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 
+# major.(minor - 1).(patch + 6), sigh
+BOTOCORE_PV=$(ver_cut 1).$(( $(ver_cut 2) - 1 )).$(( $(ver_cut 3) + 6 ))
 RDEPEND="
-	>=dev-python/botocore-${PV}[${PYTHON_USEDEP}]
+	>=dev-python/botocore-${BOTOCORE_PV}[${PYTHON_USEDEP}]
 	>=dev-python/jmespath-0.7.1[${PYTHON_USEDEP}]
-	>=dev-python/s3transfer-0.14.0[${PYTHON_USEDEP}]
+	>=dev-python/s3transfer-0.16.0[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()
