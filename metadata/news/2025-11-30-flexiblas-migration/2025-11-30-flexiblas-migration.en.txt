@@ -1,14 +1,20 @@
 Title: FlexiBLAS migration imminent
 Author: Sam James <sam@gentoo.org>
 Posted: 2025-11-30
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 Display-If-Installed: app-eselect/eselect-blas
 Display-If-Installed: app-eselect/eselect-cblas
 Display-If-Installed: app-eselect/eselect-lapack
+Display-If-Installed: sci-libs/blis
 Display-If-Installed: sci-libs/flexiblas
+Display-If-Installed: sci-libs/lapack
+Display-If-Installed: sci-libs/mkl
+Display-If-Installed: sci-libs/openblas
 Display-If-Installed: virtual/blas
 Display-If-Installed: virtual/cblas
+Display-If-Installed: virtual/lapack
+Display-If-Installed: virtual/lapacke
 
 Gentoo is adopting FlexiBLAS (sci-libs/flexiblas) [0][1] as the primary way of
 switching BLAS implementations at runtime.
@@ -16,9 +22,6 @@ switching BLAS implementations at runtime.
 The previous eselect-based 'eselect-blas', 'eselect-cblas', and 'eselect-lapack'
 approach will be phased out in favor of this because of various reliability
 problems we hit.
-
-FlexiBLAS allows both system-wide and per-user configuration and supersedes
-the functionality from the old setup.
 
 The defaults in profiles will change shortly for stable users. For ~arch
 users, the default was changed a little while ago.
@@ -45,9 +48,11 @@ Then complete a world upgrade and depclean:
 Using flexiblas
 ---------------
 
-Most users do not need to worry about this, but if you need to change
-the BLAS implementation at runtime, please consult the flexiblas(1) man
-page.
+Most users do not need to worry about this and the defaults will be fine.
+
+For users that want to, FlexiBLAS allows both system-wide and per-user
+configuration and supersedes the functionality from the old setup. Please
+refer to the flexiblas(1) man page for details.
 
 [0] https://public-inbox.gentoo.org/gentoo-dev/db65740b619e7b2413ac2b4b06f94db960f3e46e.camel@gentoo.org/
 [1] https://bugs.gentoo.org/963034
