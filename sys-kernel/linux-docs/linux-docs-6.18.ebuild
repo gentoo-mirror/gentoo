@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11,12,13} )
+PYTHON_COMPAT=( python3_{11,12,13,14} )
 inherit linux-info python-any-r1 toolchain-funcs
 
 MY_P=linux-${PV}
@@ -23,7 +23,7 @@ BDEPEND="${PYTHON_DEPS}
 	>=dev-python/sphinx-7.2.3
 	dev-python/sphinx-rtd-theme
 	media-libs/fontconfig
-	<=dev-python/docutils-0.21.2
+	dev-python/docutils
 	$(python_gen_any_dep '
 		>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
 	')"
