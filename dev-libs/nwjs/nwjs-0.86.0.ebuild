@@ -3,7 +3,6 @@
 
 EAPI=8
 
-CHROMIUM_VERSION="141"
 CHROMIUM_LANGS="
 	af
 	am
@@ -73,7 +72,6 @@ S="${WORKDIR}/${MY_P}-linux-x64"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="-* ~amd64"
-IUSE="ffmpeg-chromium"
 
 RDEPEND="
 	app-accessibility/at-spi2-core:2
@@ -82,7 +80,7 @@ RDEPEND="
 	dev-libs/nspr
 	dev-libs/nss
 	media-libs/alsa-lib
-	media-libs/mesa
+	media-libs/mesa[opengl]
 	net-print/cups
 	sys-apps/dbus
 	sys-apps/util-linux
@@ -101,8 +99,6 @@ RDEPEND="
 	virtual/libudev
 	|| ( gui-libs/gtk:4 x11-libs/gtk+:3 )
 	!<games-rpg/crosscode-1.4.2.2-r1
-	!ffmpeg-chromium? ( >=media-video/ffmpeg-7.1:0/59.61.61[chromium] )
-	ffmpeg-chromium? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
 "
 
 DIR="/opt/${PN}"
@@ -113,7 +109,7 @@ src_prepare() {
 
 	# Unbundle some libraries. We used to unbundle libEGL, libGLESv2, and
 	# libvulkan, but that now causes CrossCode to crash.
-	rm -r lib/libffmpeg.so swiftshader/ || die
+	rm -r swiftshader/ || die
 
 	cd locales || die
 	rm {ar-XB,en-XA}*.pak* || die # No flags for pseudo locales.
@@ -132,9 +128,6 @@ src_install() {
 
 	exeinto "${DIR}"/lib
 	doexe lib/*.so*
-
-	dosym ../../../usr/$(get_libdir)/chromium/libffmpeg.so$(usex ffmpeg-chromium .${CHROMIUM_VERSION} "") \
-		"${DIR}"/lib/libffmpeg.so
 
 	dosym ../.."${DIR}"/nw /usr/bin/${PN}
 }
