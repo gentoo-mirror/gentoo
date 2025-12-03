@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-KDE_ORG_COMMIT=87f39a5e846493df94cef498413f85b70f282e6d
+COMMIT=f71221a14778aa4bb0a3e3aa8c2a40c98dbac660
 PYTHON_COMPAT=( python3_{11..13} )
 KFMIN=6.9.0
 QTMIN=6.8.0
@@ -12,7 +12,8 @@ inherit ecm kde.org python-single-r1 xdg
 
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
 HOMEPAGE="https://apps.kde.org/krita/ https://krita.org/en/"
-SRC_URI="https://dev.gentoo.org/~asturm/distfiles/kde/${KDE_ORG_NAME}-${PV}-${KDE_ORG_COMMIT:0:8}.tar.gz"
+SRC_URI="https://dev.gentoo.org/~asturm/distfiles/kde/${P}-${COMMIT:0:8}.tar.xz"
+S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -92,8 +93,6 @@ PATCHES=(
 	# downstream
 	"${FILESDIR}"/${PN}-5.3.0-tests-optional.patch
 	"${FILESDIR}"/${PN}-5.2.2-fftw.patch # bug 913518
-	# pending upstream
-	"${FILESDIR}"/${P}-qt6.10.patch
 )
 
 src_prepare() {
