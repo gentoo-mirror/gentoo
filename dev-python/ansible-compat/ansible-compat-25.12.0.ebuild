@@ -4,7 +4,8 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517="setuptools"
-PYTHON_COMPAT=( python3_{11..14} )
+PYPI_VERIFY_REPO=https://github.com/ansible/ansible-compat
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -16,13 +17,13 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
 	>=app-admin/ansible-core-2.18.6[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-4.23.0[${PYTHON_USEDEP}]
-	dev-python/packaging[${PYTHON_USEDEP}]
-	dev-python/pyyaml[${PYTHON_USEDEP}]
+	>=dev-python/packaging-22.0[${PYTHON_USEDEP}]
+	>=dev-python/pyyaml-6.0.1[${PYTHON_USEDEP}]
 	>=dev-python/subprocess-tee-0.4.1[${PYTHON_USEDEP}]
 "
 BDEPEND="
@@ -31,6 +32,13 @@ BDEPEND="
 
 EPYTEST_PLUGINS=( pytest-{mock,plus} )
 distutils_enable_tests pytest
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# remove stupid upstream version block
+	sed -i -e 's:2.20.0dev0:0:' src/ansible_compat/prerun.py || die
+}
 
 python_test() {
 	local EPYTEST_DESELECT=(
