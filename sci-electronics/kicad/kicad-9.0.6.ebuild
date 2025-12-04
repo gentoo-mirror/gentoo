@@ -74,7 +74,7 @@ COMMON_DEPEND="
 	>=x11-libs/pixman-0.30
 	>sci-electronics/ngspice-27[shared]
 	virtual/zlib:=
-	>=x11-libs/wxGTK-3.2.2.1-r3:${WX_GTK_VER}[X,opengl]
+	x11-libs/wxGTK:${WX_GTK_VER}=[X,opengl]
 	$(python_gen_cond_dep '
 		dev-libs/boost:=[context,nls,python,${PYTHON_USEDEP}]
 		>=dev-python/wxpython-4.2.0:*[${PYTHON_USEDEP}]
@@ -92,7 +92,8 @@ DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}
 	sci-electronics/electronics-menu
 "
-BDEPEND=">=dev-lang/swig-4.0
+BDEPEND="app-alternatives/ninja
+	>=dev-lang/swig-4.0
 	doc? ( app-text/doxygen )
 	test? ( $(python_gen_cond_dep 'dev-python/pytest[${PYTHON_USEDEP}]') )"
 
@@ -100,8 +101,6 @@ if [[ ${PV} == 9999 ]] ; then
 	# x11-misc-util/macros only required on live ebuilds
 	BDEPEND+=" >=x11-misc/util-macros-1.18"
 fi
-
-PATCHES=( "${FILESDIR}/${PN}-cmake-3.5.patch" )
 
 CHECKREQS_DISK_BUILD="1500M"
 
@@ -144,7 +143,6 @@ src_configure() {
 		-DPYTHON_LIBRARY="$(python_get_library_path)"
 
 		-DKICAD_INSTALL_DEMOS="$(usex examples)"
-		-DCMAKE_SKIP_RPATH="ON"
 
 		-DOCC_INCLUDE_DIR="${CASROOT}"/include/opencascade
 		-DOCC_LIBRARY_DIR="${CASROOT}"/$(get_libdir)/opencascade
@@ -152,6 +150,16 @@ src_configure() {
 		-DKICAD_SPICE_QA="$(usex test)"
 		-DKICAD_BUILD_QA_TESTS="$(usex test)"
 	)
+
+	if ! [[ ${PV} == *9999* ]]; then
+		mycmakeargs+=(
+			-DCMAKE_POLICY_DEFAULT_CMP0167="OLD"
+
+			# 939141
+			-DCMAKE_DISABLE_FIND_PACKAGE_Git="yes"
+			-DKICAD_VERSION="${PVR}"
+		)
+	fi
 
 	cmake_src_configure
 }
@@ -173,9 +181,7 @@ src_test() {
 		qa_cli
 	)
 
-	# LD_LIBRARY_PATH is there to help it pick up the just-built libraries
-	LD_LIBRARY_PATH="${BUILD_DIR}/common:${BUILD_DIR}/common/gal:${BUILD_DIR}/3d-viewer/3d_cache/sg:${LD_LIBRARY_PATH}" \
-		cmake_src_test
+	cmake_src_test
 }
 
 src_install() {
