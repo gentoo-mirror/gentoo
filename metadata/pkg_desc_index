@@ -2175,7 +2175,7 @@ app-emacs/no-littering 1.8.1 1.8.2: ELisp library that helps keeping Emacs confi
 app-emacs/noflet 0.0.15_p20141102-r1: Dynamic, local advice for Emacs-Lisp code
 app-emacs/nxml-docbook5-schemas 5.1: Add support for DocBook 5 schemas to NXML
 app-emacs/nxml-gentoo-schemas 20241116: Extension for nxml-mode with Gentoo-specific schemas
-app-emacs/nxml-libvirt-schemas 11.8.0 11.9.0: Extension for nxml-mode with libvirt schemas
+app-emacs/nxml-libvirt-schemas 11.8.0 11.9.0 11.10.0: Extension for nxml-mode with libvirt schemas
 app-emacs/nxml-svg-schemas 1.1.20081123-r1: Extension for nxml-mode with SVG 1.1 schemas
 app-emacs/oauth2 0.18.3: OAuth 2.0 authorization protocol
 app-emacs/ocaml-mode 4.05.0: Emacs mode for OCaml
@@ -2380,7 +2380,7 @@ app-emulation/libdsk 1.5.21: Library for accessing discs and disc image files
 app-emulation/libguestfs 1.54.1-r1 1.56.2 1.57.2: Tools for accessing, inspecting, and modifying virtual machine (VM) disk images
 app-emulation/libguestfs-appliance 1.54.0 1.56.0: VM appliance disk image used in libguestfs package
 app-emulation/libspectrum 1.5.0: Spectrum emulation library
-app-emulation/libvirt 11.6.0-r2 11.8.0 11.9.0 9999: C toolkit to manipulate virtual machines
+app-emulation/libvirt 11.6.0-r2 11.8.0 11.9.0 11.10.0 9999: C toolkit to manipulate virtual machines
 app-emulation/libvirt-glib 4.0.0-r1 5.0.0-r1: GLib and GObject mappings for libvirt
 app-emulation/nemu 3.1.0-r1 3.3.0-r1: Ncurses interface for QEMU
 app-emulation/open-vm-tools 12.4.5-r1 12.4.5-r2 12.5.0 12.5.0-r1 12.5.0-r3 12.5.0-r4 13.0.5: Tools for VMware guests
@@ -5827,7 +5827,7 @@ dev-libs/totem-pl-parser 3.26.6-r2: Playlist parsing library
 dev-libs/tre 0.8.0_p20210321-r4 0.9.0-r1: Lightweight, robust, and efficient POSIX compliant regexp matching library
 dev-libs/tree-sitter 0.24.3 0.25.6 0.25.8 0.25.10 9999: Tree-sitter is a parser generator tool and an incremental parsing library
 dev-libs/tree-sitter-bash 0.21.0-r1 0.23.3 0.25.0: Bash grammar for Tree-sitter
-dev-libs/tree-sitter-c 0.21.4 0.23.0 0.23.1 0.23.2 0.23.3 0.23.4 0.23.5 0.24.1: C grammar for Tree-sitter
+dev-libs/tree-sitter-c 0.23.3 0.23.4 0.23.5 0.24.1: C grammar for Tree-sitter
 dev-libs/tree-sitter-c-sharp 0.23.0 0.23.1: C# grammar for Tree-sitter
 dev-libs/tree-sitter-cmake 0.7.1: CMake grammar for tree-sitter
 dev-libs/tree-sitter-cpp 0.23.0 0.23.1 0.23.4: C++ grammar for Tree-sitter
@@ -5859,7 +5859,7 @@ dev-libs/tree-sitter-tsq 0.19.0: Tree-sitter query language grammar for Tree-sit
 dev-libs/tree-sitter-tsx 0.23.0 0.23.2: TSX grammar for Tree-sitter
 dev-libs/tree-sitter-typescript 0.23.0 0.23.2: TypeScript grammar for Tree-sitter
 dev-libs/tree-sitter-vim 0.4.0 0.5.0 0.6.0 0.7.0: Vimscript grammar for Tree-sitter
-dev-libs/tree-sitter-vimdoc 3.0.0 4.0.0: Vimdoc grammar for Tree-sitter
+dev-libs/tree-sitter-vimdoc 3.0.0 3.0.1 4.0.0: Vimdoc grammar for Tree-sitter
 dev-libs/trio 1.17.1: Portable string functions, focus on the *printf() and *scanf() clones
 dev-libs/tvision 2.2.3: Text User Interface that implements the well known CUA widgets
 dev-libs/tvmet 1.7.2-r2: Tiny Vector Matrix library using Expression Templates
@@ -7597,7 +7597,7 @@ dev-perl/Sys-Mmap 0.200.0: Uses mmap to map in a file as a Perl variable
 dev-perl/Sys-SigAction 0.230.0-r1 0.240.0: Perl extension for Consistent Signal Handling
 dev-perl/Sys-Statistics-Linux 0.660.0-r2: Collect linux system statistics
 dev-perl/Sys-Syscall 0.250.0-r3: Access system calls that Perl doesn't normally provide access to
-dev-perl/Sys-Virt 11.0.0 11.2.0 11.6.0 11.8.0: API for using the libvirt library from Perl
+dev-perl/Sys-Virt 11.0.0 11.2.0 11.6.0 11.8.0 11.10.0: API for using the libvirt library from Perl
 dev-perl/Sysadm-Install 0.480.0-r1: Typical installation tasks for system administrators
 dev-perl/TAP-Parser-SourceHandler-pgTAP 3.360.0 3.370.0: Stream TAP from pgTAP test scripts
 dev-perl/Taint-Runtime 0.30.0-r2: Runtime enable taint checking
@@ -8713,7 +8713,7 @@ dev-python/librt 0.6.2 0.6.3: Mypyc runtime library
 dev-python/libsass 0.23.0: A straightforward binding of libsass for Python
 dev-python/libtmux 0.36.0 0.46.2 0.47.0 0.48.0_p0 0.49.0 0.50.0: Typed library that provides an ORM wrapper for tmux, a terminal multiplexer
 dev-python/libusb1 3.3.1: Python ctype-based wrapper around libusb1
-dev-python/libvirt-python 11.6.0 11.8.0 11.9.0 9999: libvirt Python bindings
+dev-python/libvirt-python 11.6.0 11.8.0 11.9.0 11.10.0 9999: libvirt Python bindings
 dev-python/license-expression 30.4.4: Parse, compare, simplify and normalize license expressions
 dev-python/line-profiler 4.2.0 5.0.0: Line-by-line profiler
 dev-python/linkify-it-py 2.0.3: Links recognition library with full unicode support
@@ -14746,7 +14746,7 @@ net-firewall/conntrack-tools 1.4.7-r1 1.4.8 1.4.8-r1: Connection tracking usersp
 net-firewall/ebtables 2.0.11-r3: Controls Ethernet frame filtering on a Linux bridge, MAC NAT and brouting
 net-firewall/ferm 2.7: Command line util for managing firewall rules
 net-firewall/firehol 3.1.7-r2 3.1.8: iptables firewall generator
-net-firewall/firewalld 2.3.0-r2 2.3.1 2.3.1-r1: Firewall daemon with D-Bus interface providing a dynamic firewall
+net-firewall/firewalld 2.3.0-r2 2.3.1 2.3.1-r1 2.3.2 2.4.0: Firewall daemon with D-Bus interface providing a dynamic firewall
 net-firewall/fwbuilder 6.0.0_rc1_p20230723: Firewall management GUI for iptables, PF, Cisco routers and more
 net-firewall/fwknop 2.6.11-r1: Single Packet Authorization and Port Knocking application
 net-firewall/ipkungfu 0.6.1-r2: A nice iptables firewall script
@@ -17337,7 +17337,7 @@ sys-block/gparted 1.6.0-r2 1.7.0: Partition editor for graphically managing your
 sys-block/hdrecover 0.5: Attempts to recover a hard disk that has bad blocks on it
 sys-block/hpssacli 2.40.13.0-r2 3.40.3.0-r1 4.21.7.0 5.30.6.0 6.10.14.0 6.25.9.0: HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly HPACUCLI)
 sys-block/io-scheduler-udev-rules 2: Udev rules to allow easier customization of kernel I/O schedulers
-sys-block/libfabric 1.11.2-r2: The Open Fabrics Interfaces (OFI) framework
+sys-block/libfabric 1.11.2-r3 2.3.1: The Open Fabrics Interfaces (OFI) framework
 sys-block/libzbc 5.9.0 5.13.0 5.13.0-r1: A library and tools for working with ZBC and ZAC disks
 sys-block/libzbd 1.2.0-r1 2.0.4: Zoned block device manipulation library and tools
 sys-block/lsiutil 1.62-r3: LSI Logic Fusion MPT Command Line Interface management tool
