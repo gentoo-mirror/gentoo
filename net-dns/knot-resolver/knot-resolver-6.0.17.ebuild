@@ -10,9 +10,9 @@ DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=poetry
 PYTHON_COMPAT=( python3_{11..13} )
 
-inherit distutils-r1 lua-single meson optfeature tmpfiles verify-sig
+inherit distutils-r1 eapi9-ver lua-single meson optfeature tmpfiles verify-sig
 
-DESCRIPTION="A scaleable caching DNS resolver"
+DESCRIPTION="Scaleable caching DNS resolver"
 HOMEPAGE="https://www.knot-resolver.cz https://gitlab.nic.cz/knot/knot-resolver"
 SRC_URI="
 	https://knot-resolver.nic.cz/release/${P}.tar.xz
@@ -72,14 +72,15 @@ DEPEND="
 "
 BDEPEND="
 	virtual/pkgconfig
+	dnstap? ( dev-libs/protobuf[protoc(+)] )
 	manager? (
 		${DISTUTILS_DEPS}
 		${PYTHON_DEPS}
 	)
-	verify-sig? ( >=sec-keys/openpgp-keys-knot-resolver-20240304 )
+	verify-sig? ( >=sec-keys/openpgp-keys-knot-resolver-20251203 )
 "
 
-VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/${PN}.gpg
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/${PN}.asc
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-5.5.3-docdir.patch
@@ -151,32 +152,35 @@ src_install() {
 	newinitd "${FILESDIR}"/kres-cache-gc.initd kres-cache-gc
 }
 
+pkg_preinst() {
+	if use manager && has_version "net-dns/knot-resolver[-manager(-)]"; then
+		show_manager_info=1
+	fi
+}
+
 pkg_postinst() {
 	tmpfiles_process knot-resolver.conf
-	if use manager; then
+
+	if ver_replacing -lt 6.0.0; then
+		ewarn "Knot-Resolver-6.X brings major changes, please read the guide for upgrading:"
+		ewarn "https://www.knot-resolver.cz/documentation/v${PV}/upgrading-to-6.html"
+	fi
+
+	if [[ -n ${show_manager_info} ]]; then
 		elog "You choose the new way, called the manager, to start Knot Resolver:"
 		use systemd && elog "	systemctl start knot-resolver.service"
 		use !systemd && elog "	/etc/init.d/knot-resolver start"
 		elog "Configuration file: /etc/knot-resolver/config.yaml"
-		elog ""
 		elog "The older way, without the manager, is still available:"
-	else
-		elog "You choose the older way, without the manager, to start Knot Resolver:"
+		use systemd && elog "	systemctl start kresd@N.service"
+		use !systemd && elog "	/etc/init.d/kresd start"
+		elog "Configuration file: /etc/knot-resolver/kresd.conf"
+		elog "Optional garbage collector: /etc/init.d/kres-cache-gc"
 	fi
-	use systemd && elog "	systemctl start kresd@N.service"
-	use !systemd && elog "	/etc/init.d/kresd start"
-	elog "Configuration file: /etc/knot-resolver/kresd.conf"
-	elog "Optional garbage collector: /etc/init.d/kres-cache-gc"
-	elog ""
-	use !manager && elog "The new way is available with the useflag manager."
-	elog ""
 
 	optfeature_header "This package is recommended with Knot Resolver:"
 	optfeature "asynchronous execution, especially with policy module" dev-lua/cqueues
-	elog ""
 	optfeature_header "Other packages may also be useful:"
 	use manager && optfeature "Prometheus metrics (need manager)" dev-python/prometheus-client
 	use manager && optfeature "auto-reload TLS certificate files and RPZ files (need manager)" dev-python/watchdog
-	optfeature "legacy doh and webmgmt (metrics, tracking)" dev-lua/lua-http
-	optfeature "server map with geoIP database (webmgmt)" dev-lua/lua-mmdb
 }
