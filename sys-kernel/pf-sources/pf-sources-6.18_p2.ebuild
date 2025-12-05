@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,7 @@ K_EXP_GENPATCHES_NOUSE="1"
 # is the wanted value here, but the genpatches patch set can be bumped if it includes some
 # important fixes. src_prepare() will handle deleting the updated vanilla linux patches.
 # See https://archives.gentoo.org/gentoo-kernel/ (or subscribe to the list) to see all patches.
-K_GENPATCHES_VER="2"
+K_GENPATCHES_VER="1"
 
 # -pf patch set already sets EXTRAVERSION to kernel Makefile.
 K_NOSETEXTRAVERSION="1"
