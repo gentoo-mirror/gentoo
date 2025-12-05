@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="MIT PSF-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 -hppa ~m68k ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 -hppa ~m68k ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -35,13 +35,6 @@ distutils_enable_sphinx docs \
 distutils_enable_tests unittest
 
 src_prepare() {
-	local PATCHES=(
-		# https://github.com/python-greenlet/greenlet/pull/457
-		"${FILESDIR}/${P}-py312-assert.patch"
-		# https://github.com/python-greenlet/greenlet/pull/461
-		"${FILESDIR}/${P}-skip-leak-tests.patch"
-	)
-
 	distutils-r1_src_prepare
 
 	# patch cflag manipulations out
