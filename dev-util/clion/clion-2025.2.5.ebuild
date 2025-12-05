@@ -45,7 +45,6 @@ RDEPEND="
 	media-libs/mesa
 	net-print/cups
 	sys-apps/dbus
-	virtual/zlib:=
 	x11-libs/cairo
 	x11-libs/libdrm
 	x11-libs/libX11
@@ -61,7 +60,9 @@ RDEPEND="
 	x11-libs/libXxf86vm
 	x11-libs/libxcb
 	x11-libs/libxkbcommon
-	x11-libs/pango"
+	x11-libs/pango
+	virtual/zlib:=
+	"
 
 QA_PREBUILT="opt/${PN}/*"
 

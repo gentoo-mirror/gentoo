@@ -41,11 +41,11 @@ BDEPEND="
 	dev-util/patchelf
 "
 RDEPEND="
-	>=virtual/jre-17:*
 	dev-lang/go
 	dev-libs/wayland
 	sys-libs/pam
 	sys-process/audit
+	>=virtual/jre-17:*
 "
 
 src_prepare() {
