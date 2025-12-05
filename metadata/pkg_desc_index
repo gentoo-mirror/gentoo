@@ -918,7 +918,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0 1.2.764.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.42.64 1.42.69 1.42.74 1.43.2 1.43.5 1.43.6 1.43.7 1.43.8: Universal Command Line Environment for AWS
+app-admin/awscli 1.42.64 1.42.69 1.42.74 1.43.2 1.43.5 1.43.6 1.43.7 1.43.8 1.43.9: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.8.2 2025.9.0 2025.10.0: Bitwarden password manager desktop client
@@ -3129,7 +3129,7 @@ app-shells/pdmenu 1.3.6 1.3.6-r1 1.3.6-r2: A simple console menu program
 app-shells/pdsh 2.34-r2 2.35: A high-performance, parallel remote shell utility
 app-shells/peco 0.5.10 9999: Simplistic interactive filtering tool
 app-shells/platyps 0.14.2: Generate PowerShell external help files from Markdown
-app-shells/posh 0.14.2: Reimplementation of Bourne shell based on pdksh
+app-shells/posh 0.14.2 0.14.3: Reimplementation of Bourne shell based on pdksh
 app-shells/posh-dotnet 1.2.3: PowerShell tab completion and tooltip support for the dotnet CLI
 app-shells/posh-git 1.1.0: A PowerShell environment for Git
 app-shells/posh-z 1.1.12_p20230811: Quickly navigate the file system based on your cd history
@@ -8201,8 +8201,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.42.0 1.42.1 1.42.2: The AWS SDK for Python
-dev-python/botocore 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.41.6 1.42.1 1.42.2: Low-level, data-driven core of boto 3
+dev-python/boto3 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.42.0 1.42.1 1.42.2 1.42.3: The AWS SDK for Python
+dev-python/botocore 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.41.6 1.42.1 1.42.2 1.42.3: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8253,7 +8253,7 @@ dev-python/click-log 0.4.0: Logging integration for Click
 dev-python/click-option-group 0.5.7 0.5.8 0.5.9: Click-extension package that adds option groups missing in Click
 dev-python/click-plugins 1.1.1-r1 1.1.1.2: Module for click to enable registering CLI commands via entry points
 dev-python/click-threading 0.5.0-r1: Multithreaded Click apps made easy
-dev-python/cliff 4.11.0 4.12.0: Command Line Interface Formulation Framework
+dev-python/cliff 4.11.0 4.12.0 4.13.0: Command Line Interface Formulation Framework
 dev-python/clikit 0.6.2-r1: Group of utilities to build beautiful and testable command line interfaces
 dev-python/clint 0.5.1-r4: Python Command-line Application Tools
 dev-python/cloudpickle 3.1.1 3.1.2: Extended pickling support for Python objects
@@ -8354,7 +8354,7 @@ dev-python/django-debug-toolbar 6.0.0 6.1.0: A configurable set of panels that d
 dev-python/django-filter 25.2: Django app allowing declarative dynamic QuerySet filtering from URL parameters
 dev-python/django-js-asset 3.1.2: Script tag with additional attributes for django.forms.Media
 dev-python/django-otp 1.6.2 1.6.3: Django framework adding two-factor authentication using one-time passwords
-dev-python/django-polymorphic 4.1.0: Seamless Polymorphic Inheritance for Django Models
+dev-python/django-polymorphic 4.1.0 4.2.0: Seamless Polymorphic Inheritance for Django Models
 dev-python/django-prometheus 2.4.1: Library to export Django metrics for Prometheus
 dev-python/django-redis 6.0.0: Full featured redis cache backend for Django
 dev-python/django-registration 5.2.1: user-registration application for Django
@@ -8511,7 +8511,7 @@ dev-python/gpgmepy 2.0.0-r1: GnuPG Made Easy is a library for making GnuPG easie
 dev-python/gpt-image 0.9.0 0.9.1: Tool to create GPT disk image files
 dev-python/graph-tool 2.75 9999: An efficient python module for manipulation and statistical analysis of graphs
 dev-python/graphviz 0.21: Simple Python interface for Graphviz
-dev-python/greenlet 3.2.3 3.2.4: Lightweight in-process concurrent programming
+dev-python/greenlet 3.2.4 3.3.0: Lightweight in-process concurrent programming
 dev-python/greenstalk 2.1.0 2.1.1: Python 3 client for the beanstalkd work queue
 dev-python/griddataformats 1.0.2: Reading and writing of data on regular grids in Python
 dev-python/griffe 1.14.0 1.15.0: Signature generator for Python programs
@@ -8560,7 +8560,7 @@ dev-python/hvac 2.3.0 2.4.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3 0.18.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.139.2 6.142.5 6.145.1 6.147.0 6.148.0 6.148.1 6.148.2 6.148.3 6.148.5: A library for property based testing
+dev-python/hypothesis 6.142.5 6.145.1 6.147.0 6.148.5 6.148.7: A library for property based testing
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 6.3.1 6.3.2: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
@@ -9077,7 +9077,7 @@ dev-python/pygal 3.0.5: A python SVG charts generator
 dev-python/pygame 2.6.1: Python bindings for SDL multimedia library
 dev-python/pygccxml 3.0.2: A specialized XML reader to navigate C++ declarations
 dev-python/pygdbmi 0.11.0.0: Library to parse gdb mi output and interact with gdb subprocesses
-dev-python/pyghmi 1.6.6 1.6.7: A pure python implementation of IPMI protocol
+dev-python/pyghmi 1.6.7 1.6.8: A pure python implementation of IPMI protocol
 dev-python/pygit2 1.18.2 1.19.0: Python bindings for libgit2
 dev-python/pygithub 2.8.1: Python library to access the Github API v3
 dev-python/pyglet 2.1.9 2.1.10 2.1.11: Cross-platform windowing and multimedia library for Python
@@ -9502,7 +9502,7 @@ dev-python/soundfile 0.13.1: audio library based on libsndfile, CFFI and NumPy
 dev-python/soupsieve 2.7 2.8: A modern CSS selector implementation for BeautifulSoup
 dev-python/spake2 0.8-r1 0.9: python implementation of SPAKE2 password-authenticated key exchange algorithm
 dev-python/speg 0.3_p20180819-r2: A PEG-based parser interpreter with memoization
-dev-python/sphinx 8.2.3-r2 9.0.0 9.0.1 9.0.3: Python documentation generator
+dev-python/sphinx 8.2.3-r2 9.0.3 9.0.4: Python documentation generator
 dev-python/sphinx-argparse 0.5.2: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-autoapi 3.6.0 3.6.1: A new approach to API documentation in Sphinx
 dev-python/sphinx-autodoc-typehints 3.2.0 3.4.0 3.5.1 3.5.2: Type hints support for the Sphinx autodoc extension
@@ -9637,7 +9637,7 @@ dev-python/tqdm 4.67.1: Add a progress meter to your loops in a second
 dev-python/traitlets 5.14.3: A configuration system for Python applications
 dev-python/trakit 0.2.2 0.2.3 0.2.4 0.2.5: Guess additional information from titles in media tracks
 dev-python/transitions 0.9.3: A lightweight, object-oriented state machine implementation in Python
-dev-python/translate-toolkit 3.16.3 3.17.2 3.17.3: Toolkit to convert between many translation formats
+dev-python/translate-toolkit 3.16.3 3.17.2 3.17.3 3.17.4: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.24.0 0.25.1-r1 0.25.2: Python bindings to the Tree-sitter parsing library
 dev-python/treq 25.5.0: A requests-like API built on top of twisted.web's Agent
 dev-python/trimesh 4.8.3 4.9.0 4.10.0: Python library for loading and using triangular meshes
@@ -9651,7 +9651,7 @@ dev-python/tuf 6.0.0: A secure updater framework for Python
 dev-python/twine 6.0.1 6.1.0 6.2.0: Collection of utilities for publishing packages on PyPI
 dev-python/twisted 25.5.0 25.5.0-r1: An asynchronous networking framework written in Python
 dev-python/twython 3.9.1-r1: An easy way to access Twitter data with Python
-dev-python/txaio 25.6.1 25.9.2: Compatibility API between asyncio/Twisted/Trollius
+dev-python/txaio 25.9.2: Compatibility API between asyncio/Twisted/Trollius
 dev-python/txamqp 0.8.2-r1: Python library for communicating with AMQP peers using Twisted
 dev-python/txredisapi 1.4.11-r1: Non-blocking redis client for python
 dev-python/txrequests 0.9.6-r1: Asynchronous Python HTTP for Humans
