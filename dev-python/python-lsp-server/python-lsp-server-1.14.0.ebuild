@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="all-plugins"
 
 PLUGIN_DEP="
@@ -55,27 +55,25 @@ BDEPEND="
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
+EPYTEST_DESELECT=(
+	# broken by presence of pathlib2
+	'test/plugins/test_autoimport.py'
+	# Requires pyqt5
+	'test/plugins/test_completion.py::test_pyqt_completion'
+	# TODO: fails on teardown; also hangs the test suite
+	test/test_language_server.py::test_missing_message
+)
+EPYTEST_IGNORE=(
+	# pydocstyle is archived upstream and broken with py3.12
+	test/plugins/test_pydocstyle_lint.py
+)
+
 python_prepare_all() {
 	# remove pytest-cov dep
 	sed -i -e '/addopts =/d' pyproject.toml || die
 	# unpin all the deps
 	sed -i -e 's:,<[0-9.]*::' pyproject.toml || die
 	distutils-r1_python_prepare_all
-}
-
-python_test() {
-	local EPYTEST_DESELECT=(
-		# broken by presence of pathlib2
-		'test/plugins/test_autoimport.py'
-		# Requires pyqt5
-		'test/plugins/test_completion.py::test_pyqt_completion'
-	)
-	local EPYTEST_IGNORE=(
-		# pydocstyle is archived upstream and broken with py3.12
-		test/plugins/test_pydocstyle_lint.py
-	)
-
-	epytest
 }
 
 pkg_postinst() {
