@@ -4,7 +4,8 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} )
+PYPI_VERIFY_REPO=https://github.com/pydata/xarray
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 pypi
 
@@ -31,7 +32,6 @@ BDEPEND="
 	test? (
 		dev-python/bottleneck[${PYTHON_USEDEP}]
 		dev-python/cftime[${PYTHON_USEDEP}]
-		dev-python/hypothesis[${PYTHON_USEDEP}]
 		dev-python/matplotlib[${PYTHON_USEDEP}]
 		!riscv? ( !x86? (
 			>=dev-python/netcdf4-1.6.0[bzip2,szip,${PYTHON_USEDEP}]
@@ -41,7 +41,7 @@ BDEPEND="
 	)
 "
 
-EPYTEST_PLUGINS=( pytest-asyncio )
+EPYTEST_PLUGINS=( hypothesis pytest-asyncio )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
@@ -63,7 +63,17 @@ python_test() {
 		'xarray/tests/test_backends.py::TestNetCDF4Data::test_compression_encoding[blosc_zstd]'
 		# requires h5netcdf package
 		xarray/tests/test_backends_datatree.py::TestNetCDF4DatatreeIO::test_open_datatree_specific_group
+		# NotImplementedError, seriously?
+		xarray/tests/test_backends.py::TestGenericNetCDF4InMemory::test_roundtrip_group_via_memoryview
 	)
+
+	if has_version ">=dev-python/numpy-2.4[${PYTHON_USEDEP}]" ; then
+		EPYTEST_DESELECT+=(
+			# TODO
+			xarray/tests/test_dataarray.py::TestDataArray::test_curvefit_helpers
+			xarray/tests/test_variable.py::TestIndexVariable::test_concat_periods
+		)
+	fi
 
 	if ! has_version ">=dev-python/scipy-1.4[${PYTHON_USEDEP}]" ; then
 		EPYTEST_DESELECT+=(
