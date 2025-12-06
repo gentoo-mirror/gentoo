@@ -3,6 +3,7 @@
 
 EAPI=8
 
+RUST_MIN_VER="1.87.0"
 [[ ${PV} == 9999* ]] || CRATES="${PN}@${PV}"
 inherit cargo
 
@@ -15,7 +16,7 @@ if [[ ${PV} == 9999* ]]; then
 else
 	SRC_URI="${CARGO_CRATE_URIS}"
 	SRC_URI+="https://github.com/containers/aardvark-dns/releases/download/v${PV}/${PN}-v${PV}-vendor.tar.gz"
-	KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv"
 fi
 
 # main
@@ -23,6 +24,7 @@ LICENSE="Apache-2.0"
 # deps
 LICENSE+=" 0BSD Apache-2.0-with-LLVM-exceptions MIT Unlicense Unicode-DFS-2016 ZLIB"
 SLOT="0"
+
 QA_FLAGS_IGNORED="usr/libexec/podman/${PN}"
 QA_PRESTRIPPED="usr/libexec/podman/${PN}"
 ECARGO_VENDOR="${WORKDIR}/vendor"
@@ -42,6 +44,6 @@ src_prepare() {
 }
 
 src_install() {
-	export PREFIX="${EPREFIX}"/usr
+	local -x PREFIX="${EPREFIX}"/usr
 	default
 }
