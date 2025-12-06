@@ -10,8 +10,8 @@ KEYWORDS=amd64 arm arm64 ~loong ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux ~x6
 LICENSE=BSD
 RDEPEND=eselect-ldso? ( >=app-eselect/eselect-blas-0.2 >=app-eselect/eselect-lapack-0.2 ) virtual/fortran
 REQUIRED_USE=?? ( openmp pthread )
-RESTRICT=cpudetection? ( bindist ) !test? ( test )
+RESTRICT=!cpudetection? ( bindist ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/OpenMathLib/OpenBLAS/releases/download/v0.3.30/OpenBLAS-0.3.30.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	fortran-2	ae6d43513003405bd4a48698fc20370a
-_md5_=e7468e21b25ccca6624a95d43fb7b4f3
+_md5_=8923afe2f0b020f4286a0eedf186ea28
