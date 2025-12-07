@@ -28,7 +28,7 @@ S="${WORKDIR}/${MY_P}"
 LICENSE="geant4"
 SLOT="4/$(ver_cut 1-4)"
 
-KEYWORDS="amd64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="+data debug doc examples freetype gdml geant3 hdf5 inventor motif opengl
 	qt6 raytracerx static-libs tbb threads trajectories vtk"
 
@@ -43,8 +43,8 @@ REQUIRED_USE="
 
 RDEPEND="
 	dev-libs/expat
-	>=sci-physics/clhep-2.4.7.1:2=[threads?]
-	data? ( ~sci-physics/geant-data-4.11.3 )
+	>=sci-physics/clhep-2.4.7.1:2=[threads?,static-libs(+)?]
+	data? ( ~sci-physics/geant-data-4.11.4 )
 	doc? ( app-doc/geant-docs )
 	gdml? ( dev-libs/xerces-c:= )
 	hdf5? ( sci-libs/hdf5:=[threads?] )
