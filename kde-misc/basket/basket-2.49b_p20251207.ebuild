@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 ECM_HANDBOOK="optional"
-KDE_ORG_COMMIT=51a96097381ec2b9b6e10106afa9ebf2579e5272
+KDE_ORG_COMMIT=555e8c30b6d6e7864291d3b8b16f07b8c687079f
 KFMIN=6.9.0
 QTMIN=6.8.1
 inherit ecm kde.org xdg
@@ -55,14 +55,12 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5
 "
-BDEPEND="git? ( virtual/pkgconfig )"
-
-PATCHES=( "${FILESDIR}/${P}-cmake-minreqver-3.16.patch" ) # bug 966794
+BDEPEND="virtual/pkgconfig"
 
 src_configure() {
 	local mycmakeargs=(
 		-DENABLE_GPG=$(usex crypt)
-		$(cmake_use_find_package git Libgit2)
+		-DENABLE_GIT=$(usex git)
 	)
 	ecm_src_configure
 }
