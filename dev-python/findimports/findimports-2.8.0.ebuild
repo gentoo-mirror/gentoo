@@ -22,6 +22,5 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-python_test() {
-	"${EPYTHON}" testsuite.py -v || die
-}
+EPYTEST_PLUGINS=()
+distutils_enable_tests pytest

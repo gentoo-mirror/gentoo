@@ -46,11 +46,6 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	# https://github.com/pytest-dev/pytest/pull/13912
-	"${FILESDIR}/${P}-skiptest.patch"
-)
-
 src_test() {
 	# workaround new readline defaults
 	echo "set enable-bracketed-paste off" > "${T}"/inputrc || die
