@@ -3,14 +3,13 @@
 
 EAPI=8
 
-DISTUTILS_EXT=1
-DISTUTILS_USE_PEP517=setuptools
-DISTUTILS_UPSTREAM_PEP517=standalone
+DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/Rogdham/pyzstd
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1 pypi
 
-DESCRIPTION="Python bindings to Zstandard (zstd) compression library"
+DESCRIPTION="Support for Zstandard (zstd) compression"
 HOMEPAGE="
 	https://github.com/Rogdham/pyzstd/
 	https://pypi.org/project/pyzstd/
@@ -18,33 +17,21 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
-DEPEND="
-	app-arch/zstd:=
-"
 RDEPEND="
-	${DEPEND}
+	$(python_gen_cond_dep '
+		>=dev-python/backports-zstd-1.0.0[${PYTHON_USEDEP}]
+	' 3.11 3.12 3.13)
 	$(python_gen_cond_dep '
 		dev-python/typing-extensions[${PYTHON_USEDEP}]
 	' 3.11 3.12)
 "
 BDEPEND="
-	dev-python/setuptools[${PYTHON_USEDEP}]
+	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests unittest
-
-src_prepare() {
-	sed -i "s/'-g0', '-flto'//" setup.py || die
-
-	distutils-r1_src_prepare
-
-	DISTUTILS_ARGS=(
-		--dynamic-link-zstd
-		--multi-phase-init
-	)
-}
 
 python_test() {
 	eunittest tests

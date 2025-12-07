@@ -6,22 +6,17 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="A fast, extensible Markdown parser in pure Python"
 HOMEPAGE="
 	https://github.com/miyuchina/mistletoe/
 	https://pypi.org/project/mistletoe/
 "
-# pypi has incomplete test suite
-SRC_URI="
-	https://github.com/miyuchina/mistletoe/archive/v${PV}.tar.gz
-		-> ${P}.gh.tar.gz
-"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 # NB: pygments is technically optional but we like syntax highlighting
 RDEPEND="
@@ -33,4 +28,5 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
