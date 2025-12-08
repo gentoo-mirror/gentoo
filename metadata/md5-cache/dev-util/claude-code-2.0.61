@@ -1,12 +1,11 @@
-DEFINED_PHASES=compile install preinst
+DEFINED_PHASES=compile install postinst preinst
 DESCRIPTION=Claude Code - an agentic coding tool by Anthropic
 EAPI=8
 HOMEPAGE=https://www.anthropic.com/claude-code
-IUSE=jetbrains
 KEYWORDS=amd64
 LICENSE=all-rights-reserved
 RDEPEND=>=net-libs/nodejs-18 sys-apps/ripgrep
 RESTRICT=bindist strip
 SLOT=0
-SRC_URI=https://registry.npmjs.org/@anthropic-ai/claude-code/-/claude-code-2.0.58.tgz
-_md5_=4a5ba98d5233b58064c3ee00d1d494c7
+SRC_URI=https://registry.npmjs.org/@anthropic-ai/claude-code/-/claude-code-2.0.61.tgz
+_md5_=08b97cfca462183565a927d3e9d9c1a9
