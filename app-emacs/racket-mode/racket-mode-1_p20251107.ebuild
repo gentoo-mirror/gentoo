@@ -14,7 +14,7 @@ if [[ "${PV}" == *9999* ]] ; then
 
 	EGIT_REPO_URI="https://github.com/greghendershott/${PN}"
 else
-	COMMIT=""
+	[[ "${PV}" == *_p20251107 ]] && COMMIT="d98852ef6d0c05e16ce3e87f4a14cf47c557ce2b"
 
 	SRC_URI="https://github.com/greghendershott/${PN}/archive/${COMMIT}.tar.gz
 		-> ${P}.snapshot.gh.tar.gz"
