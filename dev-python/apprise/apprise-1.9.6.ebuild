@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv"
 IUSE="+dbus mqtt"
 
 RDEPEND="
@@ -33,6 +33,7 @@ BDEPEND="
 "
 
 EPYTEST_PLUGINS=( pytest-mock )
+# xdist causes test failures
 distutils_enable_tests pytest
 
 EPYTEST_DESELECT=(
