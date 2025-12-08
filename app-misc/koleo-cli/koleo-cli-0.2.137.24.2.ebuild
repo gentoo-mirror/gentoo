@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -19,8 +19,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/rich-13.7[${PYTHON_USEDEP}]
-	>=dev-python/requests-2.32[${PYTHON_USEDEP}]
+	>=dev-python/aiohttp-3.2.13[${PYTHON_USEDEP}]
+	>=dev-python/orjson-3.10.18[${PYTHON_USEDEP}]
+	>=dev-python/rich-14.0.0[${PYTHON_USEDEP}]
 "
 
 distutils_enable_tests import-check
