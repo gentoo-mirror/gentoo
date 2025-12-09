@@ -918,7 +918,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0 1.2.764.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.42.64 1.42.69 1.42.74 1.43.2 1.43.5 1.43.6 1.43.7 1.43.8 1.43.9 1.43.10: Universal Command Line Environment for AWS
+app-admin/awscli 1.42.64 1.42.69 1.42.74 1.43.2 1.43.5 1.43.6 1.43.7 1.43.8 1.43.9 1.43.10 1.43.11: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.8.2 2025.9.0 2025.10.0: Bitwarden password manager desktop client
@@ -3846,7 +3846,7 @@ dev-build/rocm-cmake 6.3.3 6.4.3 7.0.2 7.1.0: Radeon Open Compute CMake Modules
 dev-build/samurai 1.2-r3 9999: ninja-compatible build tool written in C
 dev-build/scons 4.9.1 4.10.0 4.10.1: Extensible Python-based build utility
 dev-build/slibtool 0.6.1 0.7.0 0.7.1 0.7.2 0.7.3 0.7.4 9999: A strong libtool implementation, written in C
-dev-build/steve 1.0.0 1.0.1 1.0.2 9999: A load-balancing jobserver for Gentoo
+dev-build/steve 1.0.2 9999: A load-balancing jobserver for Gentoo
 dev-build/tinycmmc 0.1.0 9999: Tiny CMake Module Collections
 dev-build/xfce4-dev-tools 4.20.0 4.21.0: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-cpp/ETL 1.4.1: Multi-platform class and template library
@@ -8202,8 +8202,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.42.0 1.42.1 1.42.2 1.42.3 1.42.4: The AWS SDK for Python
-dev-python/botocore 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.41.6 1.42.1 1.42.2 1.42.3 1.42.4: Low-level, data-driven core of boto 3
+dev-python/boto3 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.42.0 1.42.1 1.42.2 1.42.3 1.42.4 1.42.5: The AWS SDK for Python
+dev-python/botocore 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.41.6 1.42.1 1.42.2 1.42.3 1.42.4 1.42.5: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8285,7 +8285,7 @@ dev-python/construct 2.10.70: A powerful declarative parser for binary data
 dev-python/contourpy 1.3.3 1.3.3-r1: Python library for calculating contours in 2D quadrilateral grids
 dev-python/conway-polynomials 0.10: Python interface to Frank Lübeck's Conway polynomial database
 dev-python/cookies 2.2.1-r2: Friendlier RFC 6265-compliant cookie parser/renderer
-dev-python/coverage 7.10.7 7.11.3 7.12.0 7.12.1_beta1: Code coverage measurement for Python
+dev-python/coverage 7.10.7 7.11.3 7.12.0 7.12.1_beta1 7.13.0: Code coverage measurement for Python
 dev-python/cppheaderparser 2.7.4-r1: Parse C++ header files and generate a data structure
 dev-python/cppy 1.3.1: C++ header library which makes it easier to write Python extension modules
 dev-python/cramjam 2.10.0 2.11.0: Thin Python bindings to de/compression algorithms in Rust
@@ -8436,7 +8436,7 @@ dev-python/fields 5.0.0-r3: Container class boilerplate killer
 dev-python/filebytes 0.10.2 9999: Classes/Types to read and edit executable files
 dev-python/filelock 3.19.1 3.20.0: A platform independent file lock for Python
 dev-python/filetype 1.2.0: Small, dependency-free, fast Python package to infer binary file types checking
-dev-python/findimports 2.7.0 2.8.0: Python module import analysis tool
+dev-python/findimports 2.7.0 2.8.0 3.0.0: Python module import analysis tool
 dev-python/findpython 0.7.0 0.7.1: A utility to find python versions on your system
 dev-python/fitsio 1.2.8 1.3.0: Python library to read from and write to FITS files
 dev-python/fixtures 4.2.5 4.2.6: Fixtures, reusable state for writing clean tests and more
@@ -8579,7 +8579,7 @@ dev-python/immutables 0.21: A high-performance immutable mapping type for Python
 dev-python/importlib-metadata 8.7.0: Read metadata from Python packages
 dev-python/importlib-resources 6.5.2: Read resources from Python packages
 dev-python/incremental 24.7.2 24.11.0: Incremental is a small library that versions your Python projects
-dev-python/indexed-gzip 1.8.7 1.9.5 1.10.1: Fast random access of gzip files in Python
+dev-python/indexed-gzip 1.10.1 1.10.3: Fast random access of gzip files in Python
 dev-python/inflect 7.5.0: Correctly inflect words and numbers
 dev-python/inflection 0.5.1-r1: A port of Ruby on Rails' inflector to Python
 dev-python/ini2toml 0.15: Automatically conversion of .ini/.cfg files to TOML equivalents
@@ -8835,7 +8835,7 @@ dev-python/mypy-extensions 1.1.0: Type system extensions for programs checked wi
 dev-python/mysqlclient 2.2.6 2.2.7: Python interface to MySQL
 dev-python/myst-parser 4.0.1 4.0.1-r1: Extended commonmark compliant parser, with bridges to Sphinx
 dev-python/nagiosplugin 1.3.3 1.4.0: A class library for writing nagios-compatible plugins
-dev-python/nanobind 2.8.0 2.9.2: Tiny and efficient C++/Python bindings
+dev-python/nanobind 2.9.2: Tiny and efficient C++/Python bindings
 dev-python/narwhals 2.12.0 2.13.0: Extremely lightweight compatibility layer between dataframe libraries
 dev-python/natsort 8.4.0: Natural sorting for Python
 dev-python/nautilus-python 4.0.1: Python bindings for the Nautilus file manager
@@ -8853,7 +8853,7 @@ dev-python/netaddr 0.10.1 1.3.0: Network address representation and manipulation
 dev-python/netcdf4 1.7.2 1.7.3: Python/numpy interface to the netCDF C library
 dev-python/netifaces 0.11.0-r2: Portable network interface information
 dev-python/netlink 0.1: Pure-Python client for the Linux NetLink interface
-dev-python/networkx 3.5-r1 3.6: Python tools to manipulate graphs and complex networks
+dev-python/networkx 3.5-r1 3.6 3.6.1: Python tools to manipulate graphs and complex networks
 dev-python/nextinspace 3.0.1 9999: A command-line tool for seeing the latest in space
 dev-python/nh3 0.3.0 0.3.1 0.3.2: Ammonia HTML sanitizer Python binding
 dev-python/nnpy 1.4.2-r1: cffi-based Python bindings for nanomsg
@@ -9078,7 +9078,7 @@ dev-python/pygal 3.0.5: A python SVG charts generator
 dev-python/pygame 2.6.1: Python bindings for SDL multimedia library
 dev-python/pygccxml 3.0.2: A specialized XML reader to navigate C++ declarations
 dev-python/pygdbmi 0.11.0.0: Library to parse gdb mi output and interact with gdb subprocesses
-dev-python/pyghmi 1.6.7 1.6.8: A pure python implementation of IPMI protocol
+dev-python/pyghmi 1.6.8 1.6.9: A pure python implementation of IPMI protocol
 dev-python/pygit2 1.18.2 1.19.0: Python bindings for libgit2
 dev-python/pygithub 2.8.1: Python library to access the Github API v3
 dev-python/pyglet 2.1.9 2.1.10 2.1.11: Cross-platform windowing and multimedia library for Python
@@ -9507,7 +9507,7 @@ dev-python/speg 0.3_p20180819-r2: A PEG-based parser interpreter with memoizatio
 dev-python/sphinx 8.2.3-r2 9.0.3 9.0.4: Python documentation generator
 dev-python/sphinx-argparse 0.5.2: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-autoapi 3.6.0 3.6.1: A new approach to API documentation in Sphinx
-dev-python/sphinx-autodoc-typehints 3.2.0 3.4.0 3.5.1 3.5.2: Type hints support for the Sphinx autodoc extension
+dev-python/sphinx-autodoc-typehints 3.5.2 3.6.0: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-basic-ng 1.0.0_beta2: A modern skeleton for Sphinx themes
 dev-python/sphinx-bootstrap-theme 0.8.1: Sphinx theme integrates the Bootstrap CSS / JavaScript framework
 dev-python/sphinx-celery 2.1.3: Celery Sphinx Theme and Utilities
@@ -9688,7 +9688,7 @@ dev-python/uri-template 1.3.0: URI Template expansion in strict adherence to RFC
 dev-python/uritemplate 4.2.0: Python implementation of RFC6570, URI Template
 dev-python/uritools 5.0.0: RFC 3986-compliant URI parsing, classification and composition
 dev-python/url-normalize 2.2.1: URL normalization for Python
-dev-python/urllib3 2.5.0 2.6.0: HTTP library with thread-safe connection pooling, file post, and more
+dev-python/urllib3 2.5.0 2.6.0 2.6.1: HTTP library with thread-safe connection pooling, file post, and more
 dev-python/urwid 3.0.3 3.0.4: Curses-based user interface library for Python
 dev-python/urwid-readline 0.15.1: Text input widget for urwid that supports readline shortcuts
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
@@ -9701,7 +9701,7 @@ dev-python/uvicorn 0.35.0 0.36.0 0.37.0 0.38.0: Lightning-fast ASGI server imple
 dev-python/uvloop 0.21.0 0.22.1: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.35.0: Python Data Validation for Humans
 dev-python/varlink 31.0.0: Python implementation of the Varlink protocol
-dev-python/vcrpy 7.0.0 8.0.0: Automatically mock your HTTP interactions to simplify and speed up testing
+dev-python/vcrpy 7.0.0 8.0.0 8.1.0: Automatically mock your HTTP interactions to simplify and speed up testing
 dev-python/vdf 4.0: A module for (de)serialization to and from VDF, Valve's key-value text format
 dev-python/vdirsyncer 0.19.3 0.20.0: Synchronize calendars and contacts
 dev-python/vecrec 0.3.1-r1: 2D vector and rectangle classes
