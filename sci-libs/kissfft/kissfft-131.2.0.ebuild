@@ -35,6 +35,9 @@ DEPEND="
 "
 
 PATCHES=(
+	# both merged after 131.2.0
+	"${FILESDIR}"/${PN}-131.1.0-cross.patch
+	"${FILESDIR}"/${PN}-131.2.0-fix_python.patch
 	# PR pending https://github.com/mborgerding/kissfft/pull/92
 	"${FILESDIR}"/${PN}-131.1.0-cmake.patch
 )
