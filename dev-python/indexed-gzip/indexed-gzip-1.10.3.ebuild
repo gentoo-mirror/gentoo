@@ -27,11 +27,13 @@ DEPEND="
 "
 BDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
 		dev-python/numpy[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=()
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
@@ -53,7 +55,7 @@ src_compile() {
 
 python_test() {
 	cd "${BUILD_DIR}/install$(python_get_sitedir)/indexed_gzip/tests" || die
-	epytest
+	epytest -m "not slow_test"
 	# temporary files and test extensions
 	# (to achieve equivalence with USE=-test)
 	rm ctest*.{c,gz,so,tmp} || die

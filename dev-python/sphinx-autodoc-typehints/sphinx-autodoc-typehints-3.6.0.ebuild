@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/tox-dev/sphinx-autodoc-typehints
 PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 pypi
@@ -16,10 +17,10 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
-	>=dev-python/sphinx-8.2.0[${PYTHON_USEDEP}]
+	>=dev-python/sphinx-9.0.4[${PYTHON_USEDEP}]
 "
 # skipping optional test dep on dev-python/nptyping as that package
 # is horribly broken and on its way out
@@ -31,14 +32,10 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
-python_test() {
-	local EPYTEST_DESELECT=(
-		# this package is addicted to Internet
-		tests/test_sphinx_autodoc_typehints.py::test_format_annotation
-	)
-
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest
-}
+EPYTEST_DESELECT=(
+	# Internet
+	tests/test_sphinx_autodoc_typehints.py::test_format_annotation
+)
