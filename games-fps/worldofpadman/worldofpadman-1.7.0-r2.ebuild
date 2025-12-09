@@ -41,6 +41,11 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.7-c23.patch # bug 944329, git main
 )
 
+src_prepare() {
+	rm -r libs/SDL2 || die # unused bundled lib, bug #964479
+	cmake_src_prepare
+}
+
 src_configure() {
 	local arch
 
@@ -60,6 +65,7 @@ src_configure() {
 		-DUSE_CURL_DLOPEN=OFF
 		-DUSE_OPENAL_DLOPEN=OFF
 		-DUSE_RENDERER_DLOPEN=OFF
+		-DDEFAULT_BASEDIR=/usr/share/${PN}
 	)
 
 	cmake_src_configure
@@ -74,7 +80,7 @@ src_install() {
 	if ! use dedicated ; then
 		mv "${ED}"/usr/share/${PN}/wop.* "${ED}"/usr/bin/${PN} || die
 		newicon misc/wop.svg ${PN}.svg
-		make_desktop_entry ${PN} "World of Padman"
+		make_desktop_entry --eapi9 ${PN} -n "World of Padman"
 	fi
 
 	insinto /usr/share/${PN}/wop

@@ -40,7 +40,7 @@ src_configure() {
 		-DXV_ENABLE_PNG=$(usex png)
 		-DXV_ENABLE_TIFF=$(usex tiff)
 		-DXV_ENABLE_WEBP=$(usex webp)
-		)
+	)
 
 	cmake_src_configure
 }
@@ -49,7 +49,6 @@ src_install() {
 	cmake_src_install
 
 	newicon "${WORKDIR}"/xv-3.10a.png ${PN}.png
-	make_desktop_entry xv "" "" "Graphics;Viewer"
 }
 
 pkg_postinst() {

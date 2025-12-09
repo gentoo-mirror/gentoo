@@ -14,7 +14,7 @@ DESCRIPTION="KDE Plasma workspace"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
-IUSE="appstream +fontconfig +ksysguard networkmanager phonon +policykit
+IUSE="appstream +fontconfig +ksysguard networkmanager +policykit
 screencast +semantic-desktop systemd telemetry +wallpaper-metadata +X"
 
 REQUIRED_USE="fontconfig? ( X )"
@@ -90,7 +90,6 @@ COMMON_DEPEND="
 	virtual/libudev:=
 	appstream? ( >=dev-libs/appstream-1[qt6] )
 	ksysguard? ( >=kde-plasma/libksysguard-${KDE_CATV}:6 )
-	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	policykit? ( virtual/libcrypt:= )
 	networkmanager? ( >=kde-frameworks/networkmanager-qt-${KFMIN}:6 )
 	semantic-desktop? ( >=kde-frameworks/baloo-${KFMIN}:6 )
@@ -168,10 +167,8 @@ src_prepare() {
 
 	cmake_comment_add_subdirectory login-sessions
 
-	if ! use phonon; then
-		sed -e "s/^find_package.*Phonon4Qt6/#&/" -i CMakeLists.txt || die
-		cmake_comment_add_subdirectory phonon
-	fi
+	sed -e "s/^find_package.*Phonon4Qt6/#&/" -i CMakeLists.txt || die
+	cmake_comment_add_subdirectory phonon # gone in >=6.6
 
 	if ! use policykit; then
 		cmake_comment_add_subdirectory -f kcms users

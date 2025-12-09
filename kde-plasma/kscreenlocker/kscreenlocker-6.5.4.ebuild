@@ -58,11 +58,6 @@ BDEPEND="
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
 
-src_prepare() {
-	ecm_src_prepare
-	use test || cmake_comment_add_subdirectory -f greeter autotests
-}
-
 src_test() {
 	# requires running environment
 	local myctestargs=(
