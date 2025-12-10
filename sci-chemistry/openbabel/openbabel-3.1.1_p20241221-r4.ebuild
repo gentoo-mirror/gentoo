@@ -241,7 +241,7 @@ src_install() {
 	fi
 
 	if use wxwidgets; then
-		make_desktop_entry obgui "Open Babel" ${PN}
+		make_desktop_entry --eapi9 obgui -n "Open Babel" -i ${PN}
 		newicon "${S}"/src/GUI/babel.xpm ${PN}.xpm
 	fi
 }

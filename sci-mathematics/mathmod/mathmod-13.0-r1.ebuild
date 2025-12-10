@@ -38,5 +38,5 @@ src_install() {
 	for size in 16 32 64; do
 		newicon -s ${size} images/icon/catenoid_mini_${size}x${size}.png catenoid.png
 	done
-	make_desktop_entry MathMod MathMod catenoid
+	make_desktop_entry --eapi9 MathMod -n MathMod -i catenoid
 }
