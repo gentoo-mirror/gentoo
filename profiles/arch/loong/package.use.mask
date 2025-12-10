@@ -1,6 +1,19 @@
 # Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# WANG Xuerui <xen0n@gentoo.org> (2025-12-10)
+# Test case "c_test" fails with "free: invalid size".
+dev-libs/rocksdb jemalloc
+
+# WANG Xuerui <xen0n@gentoo.org> (2025-12-10)
+# Requires ocamlopt which has not been ported to loong.
+# See https://github.com/ocaml/ocaml/pull/11974
+sys-libs/libnbd ocaml
+
+# WANG Xuerui <xen0n@gentoo.org> (2025-12-10)
+# postgresql:14 is not keyworded on loong.
+www-servers/uwsgi postgres_targets_postgres14
+
 # Michal Rostecki <vadorovsky@protonmail.com> (2025-11-26)
 # llvm-core/lld supports loong from 17.x.
 <=llvm-core/clang-linker-config-16 default-lld
@@ -315,6 +328,7 @@ app-admin/syslog-ng test
 # WANG Xuerui <xen0n@gentoo.org> (2022-12-02)
 # sys-cluster/ceph is not keyworded yet.
 net-analyzer/rrdtool rados
+www-servers/uwsgi uwsgi_plugins_rados
 
 # WANG Xuerui <xen0n@gentoo.org> (2022-12-02)
 # Boost.Context has had support for loong since 1.79.0.
