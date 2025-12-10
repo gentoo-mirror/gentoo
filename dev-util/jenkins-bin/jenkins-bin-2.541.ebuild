@@ -7,12 +7,12 @@ inherit systemd
 
 DESCRIPTION="The leading open source automation server"
 HOMEPAGE="https://jenkins.io/"
-SRC_URI="https://get.jenkins.io/war-stable/${PV}/${PN/-bin/}.war -> ${P}.war"
+SRC_URI="https://get.jenkins.io/war/${PV}/${PN/-bin/}.war -> ${P}.war"
 S="${WORKDIR}"
-LICENSE="MIT"
-SLOT="lts"
 
-KEYWORDS="amd64 arm64 ~x86 ~amd64-linux"
+LICENSE="MIT"
+SLOT="0"
+KEYWORDS="~amd64 ~arm64 ~x86 ~amd64-linux"
 
 DEPEND="acct-group/jenkins
 	acct-user/jenkins"
@@ -21,7 +21,7 @@ RDEPEND="acct-group/jenkins
 	acct-user/jenkins
 	media-fonts/dejavu
 	media-libs/freetype
-	!dev-util/jenkins-bin:0
+	!dev-util/jenkins-bin:lts
 	|| ( virtual/jre:21 virtual/jre:17 )"
 
 src_install() {
