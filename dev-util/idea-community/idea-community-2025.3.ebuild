@@ -4,16 +4,14 @@
 EAPI=8
 inherit check-reqs desktop wrapper
 
-MY_PV=$(ver_cut 1-3)
+MY_PV=idea-$(ver_cut 1-2)
 
 DESCRIPTION="A complete toolset for web, mobile and enterprise development"
 HOMEPAGE="https://www.jetbrains.com/idea"
 
-#MY_PV=${PV/\_/-}
-
 SRC_URI="
-	amd64? ( https://download.jetbrains.com/idea/ideaIC-${MY_PV}.tar.gz -> ${P}-amd64.tar.gz )
-	arm64? ( https://download.jetbrains.com/idea/ideaIC-${MY_PV}-aarch64.tar.gz -> ${P}-aarch64.tar.gz )
+	amd64? ( https://download.jetbrains.com/idea/${MY_PV}.tar.gz -> ${P}.tar.gz )
+	arm64? ( https://download.jetbrains.com/idea/${MY_PV}-aarch64.tar.gz -> ${P}-aarch64.tar.gz )
 "
 
 S="${WORKDIR}/idea-IC-${PV}"
