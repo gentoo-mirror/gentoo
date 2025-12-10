@@ -24,14 +24,16 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-qt5.patch
-	"${FILESDIR}"/${P}-qt6.patch
+	"${FILESDIR}"/${P}-qt5.patch # bug #641850
+	"${FILESDIR}"/${P}-qt6.patch # bug #947239
+	"${FILESDIR}"/${P}-qt6.10.patch # bug #966860
 )
 
 src_install() {
 	cmake_src_install
 	einstalldocs
 	doman diffpdf.1
-	domenu "${FILESDIR}"/${PN}.desktop
+	make_desktop_entry --eapi9 diffpdf -n DiffPDF -d "eu.qtrac.diffpdf" \
+		-c "Utility;Qt;" -C "Compare two PDF files"
 	newicon images/icon.png ${PN}.png
 }
