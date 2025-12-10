@@ -54,6 +54,9 @@ distutils_enable_tests pytest
 #distutils_enable_sphinx doc/source dev-python/numpydoc dev-python/myst-parser
 
 src_test() {
+	# just useless formatter replacement
+	rm tests/conftest.py || die
+
 	# for some reason, upstream refetches data that's already in the tarball
 	# sigh
 	mkdir -p "${HOME}/.cache/scikit-image" || die
@@ -71,7 +74,7 @@ src_test() {
 	cp pivchallenge/B/B001_2.tif "${cache_dir}"/pivchallenge-B-B001_2.tif || die
 	cp kidney-tissue-fluorescence.tif "${cache_dir}"/kidney.tif || die
 	cp lily-of-the-valley-fluorescence.tif "${cache_dir}"/lily.tif || die
-	cp astronaut_rl.npy "${cache_dir}/../restoration/tests/" || die
+	cp astronaut_rl.npy "${cache_dir}/../restoration/" || die
 	popd > /dev/null || die
 
 	distutils-r1_src_test
@@ -81,12 +84,10 @@ python_test() {
 	local EPYTEST_DESELECT=(
 		# tests for downloading all data files, including these not needed
 		# by any actual tests
-		data/tests/test_data.py::test_download_all_with_pooch
-		# hangs? TODO
-		graph/tests/test_rag.py::test_reproducibility
+		tests/skimage/data/test_data.py::test_download_all_with_pooch
 	)
 
-	epytest --pyargs skimage -o xfail_strict=False
+	epytest
 }
 
 pkg_postinst() {
