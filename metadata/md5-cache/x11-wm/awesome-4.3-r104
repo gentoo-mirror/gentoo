@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://awesomewm.org/
 INHERIT=cmake desktop lua-single pax-utils
 IUSE=dbus doc gnome test lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3
-KEYWORDS=amd64 arm ppc ~ppc64 ~riscv x86
+KEYWORDS=amd64 arm ppc ppc64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) dev-libs/glib:2 dev-libs/libxdg-basedir lua_single_target_luajit? ( dev-lua/lgi[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/lgi[lua_targets_lua5-1(-)] ) lua_single_target_lua5-3? ( dev-lua/lgi[lua_targets_lua5-3(-)] ) x11-libs/cairo[X,xcb(+)] x11-libs/gdk-pixbuf:2[introspection] x11-libs/libxcb:= x11-libs/pango[introspection] x11-libs/startup-notification x11-libs/xcb-util x11-libs/xcb-util-cursor x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-libs/xcb-util-xrm x11-libs/libxkbcommon[X] x11-libs/libX11 dbus? ( sys-apps/dbus )
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/awesomeWM/awesome-releases/raw/master/awesome-4.3.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	22e4e58d68692975dc74424dc9b12fb7	desktop	431f346390bf3c3a17c9b775d7e329b3	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	pax-utils	5555f2e75744739fe100ee62c22d28fe
-_md5_=62b2527b0603da6491cc1551a63285d5
+_md5_=21f05033bdfeb9dd414569dca41b38f3
