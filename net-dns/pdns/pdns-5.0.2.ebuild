@@ -6,7 +6,7 @@ EAPI=8
 LUA_COMPAT=( lua5-{1..4} luajit )
 PYTHON_COMPAT=( python3_{11..14} )
 
-inherit eapi9-ver lua-single python-any-r1
+inherit lua-single python-any-r1
 
 DESCRIPTION="The PowerDNS Daemon"
 HOMEPAGE="https://www.powerdns.com/"
@@ -14,7 +14,7 @@ SRC_URI="https://downloads.powerdns.com/releases/${P/_/-}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 IUSE="debug doc geoip ldap lmdb lua-records mysql odbc postgres remote sodium sqlite systemd tools tinydns test"
 RESTRICT="!test? ( test )"
@@ -130,24 +130,4 @@ pkg_postinst() {
 	elog
 	elog "The name must be in the format pdns.<suffix> and PowerDNS will use the"
 	elog "/etc/powerdns/pdns-<suffix>.conf configuration file instead of the default."
-
-	if ver_replacing -lt 3.2; then
-		echo
-		ewarn "To fix a security bug (bug #458018) had the following"
-		ewarn "files/directories the world-readable bit removed (if set):"
-		ewarn "  ${EPREFIX}/etc/powerdns"
-		ewarn "  ${EPREFIX}/etc/powerdns/pdns.conf"
-		ewarn "Check if this is correct for your setup"
-		ewarn "This is a one-time change and will not happen on subsequent updates."
-		chmod o-rwx "${EPREFIX}"/etc/powerdns/{,pdns.conf}
-	fi
-
-	if use postgres && ver_replacing -lt 4.1.11-r1; then
-		echo
-		ewarn "PowerDNS 4.1.11 contains a security fix for the PostgreSQL backend."
-		ewarn "This security fix needs to be applied manually to the database schema."
-		ewarn "Please refer to the official security advisory for more information:"
-		ewarn
-		ewarn "  https://doc.powerdns.com/authoritative/security-advisories/powerdns-advisory-2019-06.html"
-	fi
 }
