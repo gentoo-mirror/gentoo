@@ -6,7 +6,7 @@ EAPI=8
 ECM_QTHELP="true"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.16.0
+KFMIN=6.19.0
 QTMIN=6.9.1
 inherit ecm gear.kde.org
 
@@ -14,7 +14,7 @@ DESCRIPTION="Libraries for messaging functions"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="6/$(ver_cut 1-2)"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="speech"
 
 # bug 579630
@@ -24,7 +24,7 @@ DEPEND="
 	dev-cpp/gpgmepp:=
 	dev-libs/qgpgme:=
 	>=dev-libs/openssl-3.0.0:=
-	>=dev-libs/ktextaddons-1.6.0:6[speech?]
+	>=dev-libs/ktextaddons-1.8.0:6[speech?]
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,widgets]
 	>=dev-qt/qtwebengine-${QTMIN}:6[widgets]
 	>=kde-apps/akonadi-${PVCUT}:6=
@@ -37,7 +37,7 @@ DEPEND="
 	>=kde-apps/kmailtransport-${PVCUT}:6=
 	>=kde-apps/kmbox-${PVCUT}:6=
 	>=kde-apps/kmime-${PVCUT}:6=
-	>=kde-apps/kpimtextedit-${PVCUT}:6=[speech=]
+	>=kde-apps/kpimtextedit-${PVCUT}:6=
 	>=kde-apps/libgravatar-${PVCUT}:6=
 	>=kde-apps/libkdepim-${PVCUT}:6=
 	>=kde-apps/libkleo-${PVCUT}:6=

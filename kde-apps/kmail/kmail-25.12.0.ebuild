@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
-KFMIN=6.16.0
+KFMIN=6.19.0
 QTMIN=6.9.1
 inherit ecm gear.kde.org optfeature xdg
 
@@ -16,7 +16,7 @@ https://kontact.kde.org/components/kmail/"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="6"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="activities speech telemetry"
 
 RESTRICT="test" # bug 616878
@@ -25,7 +25,7 @@ RESTRICT="test" # bug 616878
 COMMON_DEPEND="
 	dev-cpp/gpgmepp:=
 	dev-libs/qgpgme:=
-	>=dev-libs/ktextaddons-1.6.0:6[speech?]
+	>=dev-libs/ktextaddons-1.8.0:6[speech?]
 	>=dev-libs/libgpg-error-1.36
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
@@ -40,7 +40,7 @@ COMMON_DEPEND="
 	>=kde-apps/kmailtransport-${PVCUT}:6=
 	>=kde-apps/kmime-${PVCUT}:6=
 	>=kde-apps/kontactinterface-${PVCUT}:6=
-	>=kde-apps/kpimtextedit-${PVCUT}:6=[speech=]
+	>=kde-apps/kpimtextedit-${PVCUT}:6=
 	>=kde-apps/libgravatar-${PVCUT}:6=
 	>=kde-apps/libkdepim-${PVCUT}:6=
 	>=kde-apps/libkleo-${PVCUT}:6=
@@ -95,7 +95,7 @@ BDEPEND="
 
 src_prepare() {
 	ecm_src_prepare
-	use handbook || cmake_run_in ktnef cmake_comment_add_subdirectory doc
+	use handbook || cmake_comment_add_subdirectory -f ktnef doc
 }
 
 src_configure() {
