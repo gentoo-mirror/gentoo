@@ -23,19 +23,19 @@ S=${WORKDIR}/${P/_}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos"
 IUSE="examples"
 
 DEPEND="
 	virtual/blas:=
 	virtual/cblas:=
-	>=dev-python/numpy-1.22.0:=[${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.24.1:=[${PYTHON_USEDEP}]
 "
 RDEPEND="
 	${DEPEND}
-	>=dev-python/joblib-1.2.0[${PYTHON_USEDEP}]
-	>=dev-python/scipy-1.8.0[${PYTHON_USEDEP}]
-	>=dev-python/threadpoolctl-3.1.0[${PYTHON_USEDEP}]
+	>=dev-python/joblib-1.3.0[${PYTHON_USEDEP}]
+	>=dev-python/scipy-1.10.0[${PYTHON_USEDEP}]
+	>=dev-python/threadpoolctl-3.2.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	>=dev-python/pythran-0.14.0[${PYTHON_USEDEP}]

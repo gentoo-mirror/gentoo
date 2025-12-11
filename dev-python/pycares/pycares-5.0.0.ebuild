@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test"
 # Tests fail with network-sandbox, since they try to resolve google.com
 PROPERTIES="test_network"
@@ -38,6 +38,13 @@ RDEPEND="
 "
 
 EPYTEST_PLUGINS=()
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 export PYCARES_USE_SYSTEM_LIB=1
+
+EPYTEST_DESELECT=(
+	# https://github.com/saghul/pycares/issues/287
+	# looks like forgotten to update the expected class
+	tests/test_all.py::DNSTest::test_idna2008_encoding
+)
