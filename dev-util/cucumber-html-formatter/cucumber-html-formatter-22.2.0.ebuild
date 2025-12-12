@@ -30,4 +30,5 @@ ruby_add_rdepend "
 	|| ( dev-util/cucumber-messages:27 dev-util/cucumber-messages:22 )
 	!<dev-util/cucumber-html-formatter-19.2.0-r1:19
 	!<dev-util/cucumber-html-formatter-20.4.0-r1:20
+	!<dev-util/cucumber-html-formatter-21.15.1-r1:21
 "
