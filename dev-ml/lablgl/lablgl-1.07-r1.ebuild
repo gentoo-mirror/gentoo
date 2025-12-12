@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit dot-a toolchain-funcs
 
 DESCRIPTION="Objective CAML interface for OpenGL"
 HOMEPAGE="https://github.com/garrigue/lablgl"
@@ -11,11 +11,12 @@ SRC_URI="https://github.com/garrigue/lablgl/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="BSD"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc glut +ocamlopt tk"
 
 RDEPEND="
 	>=dev-lang/ocaml-4.14:=[ocamlopt?]
+	dev-ml/camlp-streams
 	x11-libs/libXext
 	x11-libs/libXmu
 	x11-libs/libX11
@@ -28,11 +29,15 @@ RDEPEND="
 		dev-ml/labltk:=
 	)
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	dev-ml/findlib
+"
 
 PATCHES=( "${FILESDIR}"/${PN}-1.06-makefile.patch )
 
 src_configure() {
+	lto-guarantee-fat
 	# make configuration file
 	echo "BINDIR=/usr/bin" > Makefile.config || die
 	echo "GLLIBS = -lGL -lGLU" >> Makefile.config || die
@@ -84,6 +89,7 @@ src_install() {
 	BINDIR="${ED}/usr/bin"
 	BASE="${ED}/usr/$(get_libdir)/ocaml"
 	emake BINDIR="${BINDIR}" INSTALLDIR="${BASE}/lablGL" DLLDIR="${BASE}/stublibs" install
+	strip-lto-bytecode
 
 	dodoc README CHANGES
 
