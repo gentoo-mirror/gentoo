@@ -918,7 +918,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0 1.2.764.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.42.64 1.42.69 1.42.74 1.43.2 1.43.5 1.43.6 1.43.7 1.43.8 1.43.9 1.43.10 1.43.11 1.43.12 1.43.13: Universal Command Line Environment for AWS
+app-admin/awscli 1.42.64 1.42.69 1.42.74 1.43.2 1.43.5 1.43.6 1.43.7 1.43.8 1.43.9 1.43.10 1.43.11 1.43.12 1.43.13 1.43.14: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.8.2 2025.9.0 2025.10.0: Bitwarden password manager desktop client
@@ -3990,7 +3990,7 @@ dev-db/mariadb-connector-c 3.3.8 3.3.15 3.3.17 3.4.5-r1 3.4.7 9999: C client lib
 dev-db/mariadb-connector-odbc 3.1.18 3.2.7-r1: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.30 5.0.31 6.0.22 6.0.25 7.0.18 7.0.23 8.0.8 8.0.12: A high-performance, open source, schema-free document-oriented database
 dev-db/mongodb-compass-bin 1.48.1 1.48.2: GUI for MongoDB
-dev-db/mycli 1.37.0 1.41.1 1.41.2: CLI for MySQL Database with auto-completion and syntax highlighting
+dev-db/mycli 1.41.2: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.18.2.7-r1 0.19.3.3 0.20.1.2: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
 dev-db/mysql 8.0.42 8.0.43 8.0.44 8.4.6 8.4.7: Fast, multi-threaded, multi-user SQL database server
@@ -8088,7 +8088,7 @@ dev-python/agate 1.13.0: A Python data analysis library that is optimized for hu
 dev-python/agate-dbf 0.2.3: Adds read support for DBF files to agate
 dev-python/agate-excel 0.4.1: Adds read support for Excel files (xls and xlsx) to agate
 dev-python/agate-sql 0.7.2: Adds SQL read/write support to agate
-dev-python/aiodns 3.5.0 3.6.0: Simple DNS resolver for asyncio
+dev-python/aiodns 3.5.0-r1 3.6.0-r1 3.6.1: Simple DNS resolver for asyncio
 dev-python/aiofiles 24.1.0 25.1.0: File support for asyncio
 dev-python/aiohappyeyeballs 2.6.1: Happy Eyeballs for pre-resolved hosts
 dev-python/aiohttp 3.12.15 3.13.0 3.13.1 3.13.2: HTTP client/server for asyncio
@@ -8132,7 +8132,7 @@ dev-python/apispec 6.8.4 6.9.0: A pluggable API specification generator
 dev-python/appdirs 1.4.4-r3: Module for determining appropriate platform-specific dirs
 dev-python/apprise 1.9.5 1.9.6: Push Notifications that work with just about every platform
 dev-python/apscheduler 3.11.0 3.11.1: In-process task scheduler with Cron-like capabilities
-dev-python/apsw 3.50.4.0 3.51.0.0: APSW - Another Python SQLite Wrapper
+dev-python/apsw 3.50.4.0 3.51.0.0 3.51.1.0: APSW - Another Python SQLite Wrapper
 dev-python/argcomplete 3.6.2 3.6.3: Bash tab completion for argparse
 dev-python/argh 0.31.3: A simple argparse wrapper
 dev-python/argon2-cffi 25.1.0: CFFI bindings to the Argon2 password hashing library
@@ -8203,13 +8203,13 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.42.0 1.42.1 1.42.2 1.42.3 1.42.4 1.42.5 1.42.6 1.42.7: The AWS SDK for Python
-dev-python/botocore 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.41.6 1.42.1 1.42.2 1.42.3 1.42.4 1.42.5 1.42.6 1.42.7: Low-level, data-driven core of boto 3
+dev-python/boto3 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.42.0 1.42.1 1.42.2 1.42.3 1.42.4 1.42.5 1.42.6 1.42.7 1.42.8: The AWS SDK for Python
+dev-python/botocore 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.41.6 1.42.1 1.42.2 1.42.3 1.42.4 1.42.5 1.42.6 1.42.7 1.42.8: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
 dev-python/bracex 2.6: Bash style brace expansion for Python
-dev-python/braintree 4.39.0 4.40.0: Braintree Python Library
+dev-python/braintree 4.40.0 4.41.0: Braintree Python Library
 dev-python/breathe 4.36.0: Sphinx Doxygen renderer
 dev-python/brotlicffi 1.1.0.0 1.2.0.0: Python binding to the Brotli library
 dev-python/btrfs 15: Python module to inspect btrfs filesystems
@@ -8392,7 +8392,7 @@ dev-python/editables 0.5: A Python library for creating 'editable wheels'
 dev-python/editorconfig 0.17.0 0.17.1: Clone of EditorConfig core written in Python
 dev-python/elastic-transport 8.17.1 9.1.0 9.2.0: Transport classes and utilities shared among Python Elastic client libraries
 dev-python/elasticsearch 9.1.1 9.1.2 9.2.0: Official Elasticsearch client library for Python
-dev-python/electrum-aionostr 0.0.11: asyncio nostr client
+dev-python/electrum-aionostr 0.0.11 0.1.0: asyncio nostr client
 dev-python/electrum-ecc 0.0.5 0.0.6: Pure python ctypes wrapper for libsecp256k1
 dev-python/elementpath 5.0.3 5.0.4: XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
 dev-python/email-validator 2.2.0 2.3.0: A robust email syntax and deliverability validation library
@@ -8888,9 +8888,9 @@ dev-python/openpyxl 3.1.5: Pure python reader and writer of Excel OpenXML files
 dev-python/opensearch-py 2.7.1 3.0.0: Python client for OpenSearch
 dev-python/openstackdocstheme 3.5.0: Theme and extension support for Sphinx documentation
 dev-python/openstacksdk 4.7.1 4.8.0: A collection of libraries for building applications to work with OpenStack
-dev-python/opentelemetry-api 1.38.0 1.39.0: OpenTelemetry Python API
-dev-python/opentelemetry-sdk 1.38.0 1.39.0: OpenTelemetry Python SDK
-dev-python/opentelemetry-semantic-conventions 1.38.0 1.39.0: OpenTelemetry Semantic Conventions
+dev-python/opentelemetry-api 1.38.0 1.39.0 1.39.1: OpenTelemetry Python API
+dev-python/opentelemetry-sdk 1.38.0 1.39.0 1.39.1: OpenTelemetry Python SDK
+dev-python/opentelemetry-semantic-conventions 1.38.0 1.39.0 1.39.1: OpenTelemetry Semantic Conventions
 dev-python/opt-einsum 3.4.0: Optimized Einsum: A tensor contraction order optimizer
 dev-python/ordered-set 4.1.0-r1: A mutable set that remembers the order of its entries
 dev-python/orderedmultidict 1.0.1: Ordered Multivalue Dictionary. Powers furl
@@ -9112,7 +9112,7 @@ dev-python/pyls-spyder 0.4.0-r3: Spyder extensions for the python language serve
 dev-python/pylsqpack 0.3.22 0.3.23: Python wrapper for the ls-qpack QPACK library
 dev-python/pymacaroons 0.13.0-r1: A Python implementation of Macaroons
 dev-python/pymad 0.11.3: Python wrapper for libmad MP3 decoding in python
-dev-python/pymdown-extensions 10.16.1 10.17.1 10.17.2 10.18: Extensions for Python Markdown
+dev-python/pymdown-extensions 10.16.1 10.17.1 10.17.2 10.18 10.19: Extensions for Python Markdown
 dev-python/pymdown-lexers 0_pre20210902: Additional lexers for use in Pygments
 dev-python/pymdstat 0.4.3: Python library to parse Linux /proc/mdstat
 dev-python/pymediainfo 7.0.1: A Python wrapper for the MediaInfo library
@@ -9136,7 +9136,7 @@ dev-python/pypax 0.9.5-r2 9999: Python module to get or set either PT_PAX and/or
 dev-python/pypdf 6.1.3 6.2.0 6.3.0 6.4.0 6.4.1: Python library to work with PDF files
 dev-python/pyperclip 1.11.0: A cross-platform clipboard module for Python
 dev-python/pyphen 0.17.2: Python module for hyphenation using hunspell dictionaries
-dev-python/pypi-attestations 0.0.27 0.0.28: Convert between Sigstore Bundles and PEP-740 Attestation objects
+dev-python/pypi-attestations 0.0.27 0.0.28 0.0.29: Convert between Sigstore Bundles and PEP-740 Attestation objects
 dev-python/pypillowfight 0.3.1: Small library containing various image processing algorithms
 dev-python/pypiserver 2.3.2-r1 2.4.0: Minimal PyPI server
 dev-python/pypng 0.20220715.0: Pure Python PNG image encoder/decoder
@@ -9349,7 +9349,7 @@ dev-python/pyzmq 26.4.0 27.0.0 27.0.1 27.0.2 27.1.0: Lightweight and super-fast 
 dev-python/pyzotero 1.7.5 1.7.6: A Python client for the Zotero API
 dev-python/pyzstd 0.18.0 0.19.0: Support for Zstandard (zstd) compression
 dev-python/qdarkstyle 3.2.3: A dark style sheet for QtWidgets application
-dev-python/qiskit 2.2.2 2.2.3: An open-source SDK for working with quantum computers
+dev-python/qiskit 2.2.3 2.3.0_rc1: An open-source SDK for working with quantum computers
 dev-python/qiskit-aer 0.17.2: High performance simulator for quantum circuits that includes noise models
 dev-python/qpageview 1.0.0: Page-based viewer widget for Qt5/PyQt5
 dev-python/qrcode 8.2: QR Code generator on top of PIL
@@ -9558,7 +9558,7 @@ dev-python/spyder-notebook 0.6.2 0.7.0 0.7.1: Jupyter notebook integration with 
 dev-python/spyder-unittest 0.7.0 0.7.1: Plugin for Spyder to run tests and view the results
 dev-python/sqlalchemy 1.4.54 2.0.44 2.0.45: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 26.33.0 27.29.0 28.0.0 28.1.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 27.29.0 28.1.0 28.3.0: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.3 0.5.4: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9632,7 +9632,7 @@ dev-python/tomli-w 1.2.0: A lil' TOML writer
 dev-python/tomlkit 0.13.3: Style preserving TOML library
 dev-python/toolz 1.0.0 1.0.0-r1 1.1.0: List processing tools and functional utilities
 dev-python/toposort 1.10: Implements a topological sort algorithm
-dev-python/tornado 6.5.1 6.5.2: Python web framework and asynchronous networking library
+dev-python/tornado 6.5.2 6.5.3: Python web framework and asynchronous networking library
 dev-python/towncrier 24.8.0 25.8.0: Building newsfiles for your project
 dev-python/tox 4.30.2 4.30.3 4.31.0 4.32.0: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.3.0-r2: Python bindings for TSS
@@ -9689,7 +9689,7 @@ dev-python/uri-template 1.3.0: URI Template expansion in strict adherence to RFC
 dev-python/uritemplate 4.2.0: Python implementation of RFC6570, URI Template
 dev-python/uritools 5.0.0: RFC 3986-compliant URI parsing, classification and composition
 dev-python/url-normalize 2.2.1: URL normalization for Python
-dev-python/urllib3 2.5.0 2.6.0 2.6.1: HTTP library with thread-safe connection pooling, file post, and more
+dev-python/urllib3 2.5.0 2.6.0 2.6.1 2.6.2: HTTP library with thread-safe connection pooling, file post, and more
 dev-python/urwid 3.0.3 3.0.4: Curses-based user interface library for Python
 dev-python/urwid-readline 0.15.1: Text input widget for urwid that supports readline shortcuts
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
