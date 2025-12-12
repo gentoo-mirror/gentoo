@@ -14,12 +14,11 @@ DESCRIPTION="NVIDIA Accelerated Graphics Driver"
 HOMEPAGE="https://www.nvidia.com/"
 SRC_URI="
 	amd64? ( ${NV_URI}Linux-x86_64/${PV}/NVIDIA-Linux-x86_64-${PV}.run )
+	arm64? ( ${NV_URI}Linux-aarch64/${PV}/NVIDIA-Linux-aarch64-${PV}.run )
 	$(printf "${NV_URI}%s/%s-${PV}.tar.bz2 " \
 		nvidia-{installer,modprobe,persistenced,settings,xconfig}{,})
 	${NV_URI}NVIDIA-kernel-module-source/NVIDIA-kernel-module-source-${PV}.tar.xz
 "
-# TODO: arm64 tarball is currently missing, restore + keyword when back
-#	arm64? ( ${NV_URI}Linux-aarch64/${PV}/NVIDIA-Linux-aarch64-${PV}.run )
 # nvidia-installer is unused but here for GPL-2's "distribute sources"
 S=${WORKDIR}
 
@@ -28,7 +27,7 @@ LICENSE="
 	curl openssl public-domain
 "
 SLOT="0/${PV%%.*}"
-KEYWORDS="-* ~amd64" # ~arm64 (see SRC_URI's TODO)
+KEYWORDS="-* ~amd64 ~arm64"
 IUSE="+X abi_x86_32 abi_x86_64 kernel-open persistenced powerd +static-libs +tools wayland"
 REQUIRED_USE="kernel-open? ( modules )"
 
@@ -101,7 +100,6 @@ QA_PREBUILT="lib/firmware/* usr/bin/* usr/lib*"
 PATCHES=(
 	"${FILESDIR}"/nvidia-modprobe-390.141-uvm-perms.patch
 	"${FILESDIR}"/nvidia-settings-530.30.02-desktop.patch
-	"${FILESDIR}"/nvidia-kernel-module-source-580.95.05-kernel6.18.patch
 )
 
 pkg_setup() {
