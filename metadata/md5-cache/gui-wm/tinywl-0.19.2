@@ -1,0 +1,14 @@
+BDEPEND=dev-libs/wayland-protocols dev-util/wayland-scanner virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
+DEPEND=dev-libs/wayland x11-libs/libxkbcommon =gui-libs/wlroots-0.19*:=
+DESCRIPTION="minimum viable product" Wayland compositor based on wlroots
+EAPI=8
+HOMEPAGE=https://gitlab.freedesktop.org/wlroots/wlroots/-/tree/master/tinywl
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=CC0-1.0
+RDEPEND=dev-libs/wayland x11-libs/libxkbcommon =gui-libs/wlroots-0.19*:= !gui-libs/wlroots[tinywl(-)]
+SLOT=0
+SRC_URI=https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.19.2/downloads/wlroots-0.19.2.tar.gz
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
+_md5_=fbbc92c7ee3c0178d9d4b8de8ad14e25
