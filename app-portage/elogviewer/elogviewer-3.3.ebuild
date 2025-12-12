@@ -3,15 +3,13 @@
 
 EAPI=8
 
-COMMIT=dd5ac25c0a35fd443ac2b044382fe574c8a457df
 DISABLE_AUTOFORMATTING=true
 PYTHON_COMPAT=( python3_{11..13} )
 inherit desktop python-single-r1 readme.gentoo-r1
 
 DESCRIPTION="Elog viewer for Gentoo"
 HOMEPAGE="https://github.com/Synss/elogviewer"
-SRC_URI="https://github.com/Synss/${PN}/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
-S="${WORKDIR}/${PN}-${COMMIT}"
+SRC_URI="https://github.com/Synss/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
