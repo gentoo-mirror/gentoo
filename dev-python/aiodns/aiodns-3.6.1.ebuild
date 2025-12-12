@@ -22,7 +22,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 
 PROPERTIES="test? ( test_network )"
 RESTRICT="test"
 
-RDEPEND=">=dev-python/pycares-4.9.0[${PYTHON_USEDEP}]"
+RDEPEND="<dev-python/pycares-5[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}"
 
 EPYTEST_PLUGINS=( pytest-asyncio )

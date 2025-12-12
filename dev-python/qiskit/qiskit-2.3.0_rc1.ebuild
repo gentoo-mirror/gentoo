@@ -7,13 +7,14 @@ DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..13} )
 
-CRATES=""
+CRATES="
+"
 RUST_MIN_VER="1.84.0"
 
 inherit cargo distutils-r1
 
 MY_P=${P/_}
-CRATE_PV=2.2.0
+CRATE_PV=${PV/_}
 DESCRIPTION="An open-source SDK for working with quantum computers"
 HOMEPAGE="
 	https://github.com/Qiskit/qiskit/
@@ -34,7 +35,9 @@ LICENSE+="
 	Unicode-3.0 ZLIB
 "
 SLOT="0"
-KEYWORDS="~amd64"
+if [[ ${PV} != *_rc* ]]; then
+	KEYWORDS="~amd64"
+fi
 IUSE="+visualization"
 
 RDEPEND="
