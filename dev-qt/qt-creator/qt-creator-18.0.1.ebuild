@@ -29,7 +29,7 @@ else
 		cmdbridge-server? ( https://dev.gentoo.org/~ionen/distfiles/${QTC_P}-vendor.tar.xz )
 	"
 	S=${WORKDIR}/${QTC_P}
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Lightweight IDE for C++/QML development centering around Qt"
@@ -51,7 +51,6 @@ QT_PV=6.7.3:6
 COMMON_DEPEND="
 	app-arch/libarchive:=
 	dev-cpp/yaml-cpp:=
-	>=dev-qt/qt5compat-${QT_PV}
 	>=dev-qt/qtbase-${QT_PV}=[concurrent,dbus,gui,network,ssl,widgets,xml]
 	>=dev-qt/qtdeclarative-${QT_PV}=
 	clang? (
@@ -186,11 +185,9 @@ src_configure() {
 
 		-DBUILD_PLUGIN_HELP=$(usex help)
 		-DBUILD_HELPVIEWERBACKEND_QTWEBENGINE=$(usex webengine)
+		# TODO?: unbundle litehtml, but support for latest releases
+		# tend to lag behind and bundled may work out better for now
 		-DBUILD_LIBRARY_QLITEHTML=$(usex help $(usex !webengine))
-		# TODO?: package litehtml, but support for latest releases seem
-		# to lag behind and bundled may work out better for now
-		# https://bugreports.qt.io/browse/QTCREATORBUG-29169
-		$(use help && usev !webengine -DCMAKE_DISABLE_FIND_PACKAGE_litehtml=yes)
 
 		# help shouldn't use with the above, but qmldesigner is automagic
 		$(use help || use qmldesigner &&
@@ -200,8 +197,8 @@ src_configure() {
 		-DENABLE_SVG_SUPPORT=$(usex svg)
 		-DWITH_QMLDESIGNER=$(usex qmldesigner)
 
-		$(usev !cmdbridge-server -DGO_BIN=GO_BIN-NOTFOUND) #945925
-		-DUPX_BIN=UPX_BIN-NOTFOUND #961623
+		-DBUILD_EXECUTABLE_CMDBRIDGE=$(usex cmdbridge-server) #945925
+		$(usev cmdbridge-server -DUPX_BIN=UPX_BIN-NOTFOUND) #961623
 
 		# meant to be in sync with qtbase[journald], but think(?) not worth
 		# handling given qt-creator can use QT_FORCE_STDERR_LOGGING=1 nowadays
@@ -223,9 +220,8 @@ src_test() {
 	local -x QT_QPA_PLATFORM=offscreen
 
 	local CMAKE_SKIP_TESTS=(
-		# tst_Process::recursiveBlockingProcess() broke in 17.0.0, not really looked
-		# into yet but does not seem to cause visible issues, skip for now (unknown
-		# if it passes upstream given their CI is failing to run tests right now)
+		# broke since 17.0.0 and hasn't really been looked into yet,
+		# does not seem to cause visible problems so skipping for now
 		tst_process
 		# skipping same tests+label as upstream's CI by default
 		# `grep ctest .github/workflows/build_cmake.yml`
