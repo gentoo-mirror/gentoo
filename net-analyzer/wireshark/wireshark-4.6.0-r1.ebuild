@@ -23,7 +23,7 @@ else
 	S="${WORKDIR}/${P/_/}"
 
 	if [[ ${PV} != *_rc* ]] ; then
-		KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc64 ~riscv ~x86"
+		KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc64 ~riscv x86"
 	fi
 fi
 
@@ -33,7 +33,7 @@ IUSE="androiddump bcg729 brotli +capinfos +captype ciscodump +dftest doc dpauxmo
 IUSE+=" +dumpcap +editcap +gui http2 http3 ilbc kerberos lua lz4 maxminddb"
 IUSE+=" +mergecap +minizip +netlink opus pkcs11 +plugins +pcap +randpkt"
 IUSE+=" +randpktdump +reordercap sbc selinux +sharkd smi snappy spandsp sshdump ssl"
-IUSE+=" sdjournal test +text2pcap +tshark +udpdump wifi zlib +zstd"
+IUSE+=" sdjournal test +text2pcap +tshark +udpdump wifi xxhash zlib +zstd"
 
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
@@ -79,6 +79,7 @@ RDEPEND="
 	sshdump? ( >=net-libs/libssh-0.6:= )
 	ssl? ( >=net-libs/gnutls-3.5.8:=[pkcs11?] )
 	wifi? ( >=net-libs/libssh-0.6:= )
+	xxhash? ( dev-libs/xxhash )
 	zlib? ( virtual/zlib:= )
 	zstd? ( app-arch/zstd:= )
 "
@@ -222,6 +223,7 @@ src_configure() {
 		-DENABLE_SNAPPY=$(usex snappy)
 		-DENABLE_SPANDSP=$(usex spandsp)
 		-DBUILD_wifidump=$(usex wifi)
+		-DENABLE_XXHASH=$(usex xxhash)
 		-DENABLE_ZLIB=$(usex zlib)
 		-DENABLE_ZLIBNG=OFF
 		-DENABLE_ZSTD=$(usex zstd)
