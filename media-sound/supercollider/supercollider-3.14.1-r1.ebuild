@@ -53,6 +53,10 @@ DEPEND="${RDEPEND}
 	vim? ( app-editors/vim )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-3.14.1-qt-6.10.1.patch
+)
+
 src_configure() {
 	# -Werror=strict-aliasing
 	# https://bugs.gentoo.org/927071
@@ -103,6 +107,9 @@ src_test() {
 
 src_install() {
 	cmake_src_install
+
+	# FIXME upstream: workaround for bug #966114
+	mv "${D}"/usr/share/applications/{SuperColliderIDE,scide}.desktop || die
 
 	use emacs && newdoc editors/sc-el/README.md README.emacs
 	use vim && newdoc editors/scvim/README.md README.vim
