@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,16 +12,11 @@ SRC_URI="https://download.savannah.gnu.org/releases/freetype/${P}.tar.gz"
 LICENSE="|| ( FTL GPL-2+ )"
 SLOT="0/1.0.3"
 KEYWORDS="amd64"
-IUSE="gui"
+IUSE=""
 
 RDEPEND="
 	media-libs/freetype
 	media-libs/harfbuzz:=[truetype]
-	gui? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-	)
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -47,7 +42,7 @@ src_prepare() {
 src_configure() {
 	local myeconfargs=(
 		--without-doc
-		--with-qt="$(usex gui $(qt5_get_bindir) no)"
+		--without-qt # Qt5-based as of 1.8.4 and git master 2025-12-13
 	)
 
 	econf "${myeconfargs[@]}"
@@ -57,7 +52,6 @@ src_install() {
 	default
 
 	doman frontend/ttfautohint.1
-	use gui && doman frontend/ttfautohintGUI.1
 
 	find "${ED}" -name '*.la' -delete || die
 }
