@@ -1,12 +1,13 @@
 BDEPEND=dev-qt/qttools:6[linguist] virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup
-DEPEND=dev-libs/openssl:= dev-db/sqlite:3 dev-qt/qtbase:6[gui,network,widgets,xml] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 cli? ( sys-libs/readline:= sys-libs/ncurses:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) tcl? ( dev-lang/tcl:0= ) dev-qt/designer:6 dev-qt/qtconcurrent:6
+DEPEND=dev-libs/openssl:= dev-db/sqlite:3 dev-qt/qtbase:6[gui,network,widgets,xml] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 cli? ( sys-libs/readline:= sys-libs/ncurses:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) tcl? ( dev-lang/tcl:0= ) dev-qt/qttools:6[designer] dev-qt/qtbase:6[concurrent]
 DESCRIPTION=Powerful cross-platform SQLite database manager
 EAPI=8
 HOMEPAGE=https://sqlitestudio.pl
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=desktop plocale python-single-r1 qmake-utils xdg
 IUSE=cli python tcl test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/openssl:= dev-db/sqlite:3 dev-qt/qtbase:6[gui,network,widgets,xml] dev-qt/qtdeclarative:6 dev-qt/qtsvg:6 cli? ( sys-libs/readline:= sys-libs/ncurses:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) tcl? ( dev-lang/tcl:0= )
 REQUIRED_USE=test? ( cli ) python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
@@ -14,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pawelsalawa/sqlitestudio/archive/bac238ccb0000419a66f3b2134b08d1f7a2bd076.tar.gz -> sqlitestudio-4.0.0_pre20251207-bac238cc.tar.gz
 _eclasses_=desktop	7b6f6e9d65093966fbc8475399c5dd4e	plocale	950fbaec7deeba41b5bcc0572cca99b9	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=da20ba21da5173ae46bd424ac4dad7be
+_md5_=b242dc2772b3f5e89f78cbf87188fe6a
