@@ -10,7 +10,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-remote-desktop"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~loong"
+KEYWORDS="~amd64 ~arm64 ~loong"
 IUSE="doc +rdp systemd +vnc"
 REQUIRED_USE="|| ( rdp vnc )"
 RESTRICT="test" # Tests run xvfb-run directly
@@ -20,16 +20,20 @@ DEPEND="
 	x11-libs/libdrm
 	>=media-libs/libepoxy-1.4
 	>=dev-libs/glib-2.75:2
-	>=dev-libs/libei-1.2.0
+	>=dev-libs/libei-1.3.901
 	x11-libs/libnotify
 	app-crypt/libsecret
-	>=media-video/pipewire-0.3.49:=
+	>=media-video/pipewire-1.2.0:=
 	app-crypt/tpm2-tss:=
 	rdp? (
 		>=media-libs/nv-codec-headers-11.1.5.0
-		>=net-misc/freerdp-3.1.0:=[server]
+		>=net-misc/freerdp-3.15.0:=[server]
 		>=sys-fs/fuse-3.9.1:3=
+		media-libs/libva
 		>=sys-auth/polkit-122
+		>=dev-util/vulkan-headers-1.2.0
+		media-libs/shaderc
+		dev-util/spirv-tools
 		>=x11-libs/libxkbcommon-1.0.0
 		media-libs/fdk-aac:=
 	)
@@ -43,6 +47,7 @@ RDEPEND="${DEPEND}
 	x11-wm/mutter[screencast]
 "
 BDEPEND="
+	>=dev-build/meson-1.4.0
 	dev-libs/glib
 	dev-util/gdbus-codegen
 	dev-util/glib-utils
