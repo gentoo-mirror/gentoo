@@ -41,6 +41,7 @@ DEPEND="${RDEPEND}
 	test? ( dev-libs/libglib-testing )
 "
 BDEPEND="
+	>=dev-build/meson-1.6.0
 	dev-libs/libxml2:2
 	dev-util/gdbus-codegen
 	>=sys-devel/gettext-0.19.8
