@@ -34,6 +34,10 @@ BDEPEND="
 	gtk-doc? ( dev-util/gi-docgen )
 "
 
+PATCHES=(
+	"${FILESDIR}"/libdex-0.8.1-libucontext-musl.patch
+)
+
 pkg_setup() {
 	if use eventfd && linux_config_exists; then
 		if ! linux_chkconfig_present EVENTFD ; then

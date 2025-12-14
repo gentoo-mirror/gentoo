@@ -4,20 +4,19 @@
 EAPI=8
 GNOME_ORG_MODULE="${PN/pp/++}"
 
-inherit gnome2 meson-multilib
+inherit gnome2 meson
 
 DESCRIPTION="C++ wrapper for the libxml2 XML parser library"
 HOMEPAGE="https://libxmlplusplus.sourceforge.net/"
 
 LICENSE="LGPL-2.1"
-SLOT="2.6"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux"
+SLOT="5.0"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-libs/libxml2-2.7.7:=[${MULTILIB_USEDEP}]
-	>=dev-cpp/glibmm-2.32.0:2[${MULTILIB_USEDEP}]
+	>=dev-libs/libxml2-2.7.7:=
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -41,16 +40,17 @@ src_prepare() {
 		docs/manual/meson.build || die
 }
 
-multilib_src_configure() {
+src_configure() {
 	local emesonargs=(
 		-Dmaintainer-mode=false
 		-Dwarnings=min
 		-Ddist-warnings=max
 		-Dbuild-deprecated-api=true
-		$(meson_native_use_bool doc build-documentation)
+		$(meson_use doc build-documentation)
 		-Dvalidation=false
 		-Dbuild-pdf=false
 		-Dbuild-examples=false
+		-Dbuild-manual=false
 		$(meson_use test build-tests)
 		-Dmsvc14x-parallel-installable=false
 	)
