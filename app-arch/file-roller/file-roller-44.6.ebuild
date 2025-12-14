@@ -10,7 +10,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/file-roller"
 
 LICENSE="GPL-2+ CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86 ~amd64-linux ~x86-linux"
 IUSE="gtk-doc +introspection nautilus"
 REQUIRED_USE="gtk-doc? ( introspection )"
 
@@ -19,7 +19,7 @@ REQUIRED_USE="gtk-doc? ( introspection )"
 # pango used in fr-window
 RDEPEND="
 	>=dev-libs/glib-2.38:2
-	>=gui-libs/gtk-4.8.1:4[introspection?]
+	>=gui-libs/gtk-4.12.0:4[introspection?]
 	>=gui-libs/libadwaita-1.2:1
 	nautilus? ( >=gnome-base/nautilus-43.0 )
 	>=dev-libs/json-glib-0.14

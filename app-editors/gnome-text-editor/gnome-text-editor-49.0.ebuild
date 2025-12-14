@@ -1,4 +1,4 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,27 +6,23 @@ EAPI=8
 inherit gnome.org gnome2-utils meson xdg
 
 DESCRIPTION="A simple text editor for the GNOME desktop"
-HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-text-editor"
+HOMEPAGE="https://apps.gnome.org/TextEditor/"
 S="${WORKDIR}/gnome-text-editor-${PV/_/.}"
 
 LICENSE="GPL-3+ CC-BY-SA-3.0"
 SLOT="0"
 
-IUSE="spell"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+IUSE="+editorconfig"
 
 DEPEND="
-	>=dev-libs/glib-2.73.0:2
-	>=gui-libs/gtk-4.12:4
-	>=gui-libs/gtksourceview-5.10.0:5
-	>=gui-libs/libadwaita-1.5_alpha:1
+	>=dev-libs/glib-2.80.0:2
+	>=gui-libs/gtk-4.19.4:4
+	>=gui-libs/gtksourceview-5.15.0:5
+	>=gui-libs/libadwaita-1.8_alpha:1
 	app-text/editorconfig-core-c
-	x11-libs/cairo
-	spell? (
-		>=app-text/enchant-2.2.0:2
-		dev-libs/icu:=
-	)
+	>=app-text/libspelling-0.4.0
 "
 RDEPEND="${DEPEND}
 	gnome-base/gsettings-desktop-schemas
@@ -40,7 +36,7 @@ BDEPEND="
 
 src_configure() {
 	local emesonargs=(
-		$(meson_feature spell enchant)
+		$(meson_feature editorconfig)
 		-Dbugreport_url="https://bugs.gentoo.org"
 	)
 	meson_src_configure

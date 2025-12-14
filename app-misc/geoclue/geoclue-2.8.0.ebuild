@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="xml(+)"
 inherit meson python-any-r1 systemd vala xdg
 
@@ -13,16 +13,16 @@ SRC_URI="https://gitlab.freedesktop.org/geoclue/${PN}/-/archive/${PV}/${P}.tar.b
 
 LICENSE="LGPL-2.1+ GPL-2+"
 SLOT="2.0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="+introspection gtk-doc modemmanager vala zeroconf"
 REQUIRED_USE="vala? ( introspection )"
 
 DEPEND="
-	>=dev-libs/glib-2.68:2
+	>=dev-libs/glib-2.74:2
 	>=dev-libs/json-glib-0.14.0
 	>=net-libs/libsoup-3.0.0:3.0
 	introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= )
-	modemmanager? ( >=net-misc/modemmanager-1.6 )
+	modemmanager? ( >=net-misc/modemmanager-1.12 )
 	zeroconf? ( >=net-dns/avahi-0.6.10[dbus] )
 	x11-libs/libnotify
 "
@@ -62,19 +62,6 @@ src_configure() {
 		-Ddemo-agent=true
 		-Dsystemd-system-unit-dir="$(systemd_get_systemunitdir)"
 		-Ddbus-srv-user=geoclue
-
-		-Dmozilla-api-key=f57afde7-113f-4e8f-96d1-62be64a0273c
 	)
-
-	DISTRO="$(awk -F= '/^NAME/ {print $2}' /etc/os-release | tr -d \" )"
-	if [[ $DISTRO != Gentoo ]]; then
-		eerror "The following API key has been allocated for Gentoo only."
-		eerror "If you are a derivative, please request your own key as discussed here:"
-		eerror "https://gitlab.freedesktop.org/geoclue/geoclue/-/issues/136"
-		eerror "See also: https://location.services.mozilla.com/api and"
-		eerror "https://blog.mozilla.org/services/2019/09/03/a-new-policy-for-mozilla-location-service/"
-		die "Please request an API key for your distribution."
-	fi
-
 	meson_src_configure
 }
