@@ -1519,7 +1519,7 @@ app-crypt/sbsigntools 0.9.5: Utilities for signing and verifying files for UEFI 
 app-crypt/scdrand 0.3.5: Feed kernel entropy pool from smartcard's TRNG
 app-crypt/scrypt 1.3.3: A simple password-based encryption utility using scrypt key derivation function
 app-crypt/scute 1.7.0-r2: A PKCS #11 module for OpenPGP smartcards
-app-crypt/seahorse 47.0.1-r1: Manage your passwords and encryption keys
+app-crypt/seahorse 47.0.1-r1 47.0.1-r2: Manage your passwords and encryption keys
 app-crypt/sequoia-chameleon-gnupg 0.13.1-r1 0.13.1-r3: Sequoia's reimplementation of the GnuPG interface
 app-crypt/sequoia-sop 0.37.2: Implementation of the Stateless OpenPGP Command Line Interface using Sequoia
 app-crypt/sequoia-sq 1.3.1-r1: CLI of the Sequoia OpenPGP implementation
@@ -3008,7 +3008,7 @@ app-office/merkuro 25.08.3 25.12.0: Calendar application using Akonadi
 app-office/moneydance 2024.5117: A cross-platform personal finance application
 app-office/multitalk 1.4-r1: New type of presentation program
 app-office/naps2 8.2.0 8.2.1: Document scanning application with a focus on simplicity and ease of use
-app-office/onlyoffice-bin 9.0.4 9.1.0-r1: A free and open source office and productivity suite (binary version)
+app-office/onlyoffice-bin 9.1.0-r1 9.2.0: A free and open source office and productivity suite (binary version)
 app-office/orage 4.20.2 4.21.0: A calendar application for Xfce
 app-office/planner 0.14.91-r1 0.14.92-r1 9999: Project manager for Gnome
 app-office/projectlibre-bin 1.9.3: Open source desktop alternative to Microsoft Project
@@ -10105,7 +10105,7 @@ dev-ruby/immutable-ruby 0.2.0: Efficient, immutable, thread-safe collection clas
 dev-ruby/importmap-rails 1.2.3 2.1.0 2.2.0 2.2.2: Use ESM with importmap to manage JavaScript in Rails
 dev-ruby/instance_storage 1.0.0-r2 2.0.0-r1: Manage class instances with dictionary
 dev-ruby/introspection 0.0.4-r2: Dynamic inspection of the hierarchy of method definitions on a Ruby object
-dev-ruby/io-console 0.8.0 0.8.1: add console capabilities to IO instances
+dev-ruby/io-console 0.8.0 0.8.1 0.8.2: add console capabilities to IO instances
 dev-ruby/io-endpoint 0.15.2 0.16.0: Provides a separation of concerns interface for IO endpoints
 dev-ruby/io-event 1.1.7 1.10.0 1.11.2 1.12.1 1.14.0 1.14.2: An event loop
 dev-ruby/io-wait 0.3.1 0.3.2 0.3.6: Waits until IO is readable or writable without blocking
@@ -10293,7 +10293,7 @@ dev-ruby/rails-html-sanitizer 1.6.2: Sanitize HTML fragments in Rails applicatio
 dev-ruby/railties 7.1.5.1 7.1.6 7.1.6-r1 7.2.2.2 7.2.3 7.2.3-r1 8.0.4 8.1.1: Tools for creating, working with, and running Rails applications
 dev-ruby/rainbow 3.1.1: Colorize printed text on ANSI terminals
 dev-ruby/rake 13.2.1 13.3.0 13.3.1: Make-like scripting in Ruby
-dev-ruby/rake-compiler 1.3.0: Provide a standard and simplified way to build and package Ruby extensions
+dev-ruby/rake-compiler 1.3.0 1.3.1: Provide a standard and simplified way to build and package Ruby extensions
 dev-ruby/rake-compiler-dock 1.9.1 1.10.0: Easy to use and reliable cross compiler environment for building binary gems
 dev-ruby/rake-remote_task 2.4.4-r1: Extends Rake with remote task goodness
 dev-ruby/rantly 2.0.0-r1 3.0.0: Ruby Imperative Random Data Generator and Quickcheck
@@ -10445,7 +10445,7 @@ dev-ruby/spring 4.3.0 4.4.0: Rails application preloader
 dev-ruby/sprockets 3.7.2-r3 4.2.2: Ruby library for compiling and serving web assets
 dev-ruby/sprockets-rails 3.5.2: Sprockets implementation for Rails 4.x (and beyond) Asset Pipeline
 dev-ruby/spy 1.0.5: A simple opinionated mocking framework
-dev-ruby/sqlite3 1.7.3 2.7.3 2.7.4 2.8.0: An extension library to access a SQLite database from Ruby
+dev-ruby/sqlite3 1.7.3 2.7.3 2.7.4 2.8.0 2.8.1: An extension library to access a SQLite database from Ruby
 dev-ruby/sshkey 2.0.0-r1 3.0.0: SSH private and public key generator in pure Ruby
 dev-ruby/sshkit 1.24.0 1.25.0: SSHKit makes it easy to write structured, testable SSH commands in Ruby
 dev-ruby/stamp 0.6.0-r1: Date and time formatting for humans
@@ -10826,7 +10826,7 @@ dev-util/crash 8.0.6 9.0.0 9.0.1 9999: Red Hat crash utility; used for analyzing
 dev-util/cscope 15.9 15.9-r1: Interactively examine a C program
 dev-util/csup 20060318-r1: A rewrite of CVSup
 dev-util/ctags 6.0_p20230423_p0-r2 6.1_p20240609_p0-r1 6.2.0-r1 6.2.1 9999: Exuberant Ctags creates tags files for code browsing in editors
-dev-util/cucumber 9.2.0 9.2.1 10.0.0 10.1.0 10.1.1: Executable feature scenarios
+dev-util/cucumber 9.2.0 9.2.1 10.0.0 10.1.0 10.1.1 10.2.0: Executable feature scenarios
 dev-util/cucumber-ci-environment 10.0.1: Detect CI Environment from environment variables
 dev-util/cucumber-compatibility-kit 9.2.1-r1 14.1.0 18.0.3 20.1.0: Kit to check compatibility with official cucumber implementation
 dev-util/cucumber-core 13.0.2 13.0.3 15.1.0 15.2.1 15.4.0: Executable feature scenarios
@@ -11361,7 +11361,7 @@ games-arcade/primateplunge 1.1-r2: Help poor Monkey navigate his way down throug
 games-arcade/retrobattle 1.0.0-r1: A NES-like platform arcade game
 games-arcade/ri-li 2.0.1-r2: Drive a toy wood engine and collect all the coaches
 games-arcade/rockdodger 1.1.4: Dodge the rocks for as long as possible until you die
-games-arcade/rocksndiamonds 4.4.0.0 4.4.0.5: A Boulderdash clone
+games-arcade/rocksndiamonds 4.4.0.5 4.4.0.6: A Boulderdash clone
 games-arcade/sable 1.0-r1: A frantic 3D space shooter
 games-arcade/savagewheels 1.6.1-r2: 2D car crashing game similar to the old classic Destruction Derby
 games-arcade/sdb 1.0.2-r2: A 2D top-down action game; escape a facility full of walking death machines
@@ -11909,7 +11909,7 @@ games-strategy/war1gus 3.3.2: Warcraft: Orcs & Humans for the Stratagus game eng
 games-strategy/wargus 3.3.2: Warcraft II for the Stratagus game engine
 games-strategy/warmux 11.04.1-r3: A free Worms clone
 games-strategy/warzone2100 4.4.2 4.5.5-r1 4.6.1: 3D real-time strategy game
-games-strategy/wesnoth 1.18.4 1.18.5 1.19.11-r1 1.19.13: Battle for Wesnoth - A fantasy turn-based strategy game
+games-strategy/wesnoth 1.18.5 1.19.13 1.19.18: Battle for Wesnoth - A fantasy turn-based strategy game
 games-strategy/widelands 1.2.1 9999: Game similar to Settlers 2
 games-strategy/xbattleai 1.2.2-r3: A multi-player game of strategy and coordination
 games-util/acc 1.60: ACS script compiler for use with ZDoom and Hexen
@@ -11968,7 +11968,7 @@ gnome-base/gnome-core-libs 45.2 48.0: Sub-meta package for the core libraries of
 gnome-base/gnome-desktop 44.1-r300 44.1-r400 44.3-r300 44.3-r400 44.4-r300 44.4-r400: Library with common API for various GNOME modules
 gnome-base/gnome-extra-apps 45.2 45.2-r1 48.0: Sub-meta package for the applications of GNOME
 gnome-base/gnome-flashback 3.54.0-r1 3.56.0 3.58.0: GNOME Flashback session
-gnome-base/gnome-keyring 46.2 48.0-r1: Password and keyring managing daemon
+gnome-base/gnome-keyring 48.0-r1: Password and keyring managing daemon
 gnome-base/gnome-light 45.2 48.0: Meta package for GNOME-Light, merge this package to install
 gnome-base/gnome-menus 3.36.0-r1: Library and layout configuration for the Desktop Menu fd.o specification
 gnome-base/gnome-panel 3.54.0 3.56.0 3.58.1: The GNOME Flashback Panel
@@ -12887,7 +12887,7 @@ media-fonts/mplus-fonts 2.2.4-r1: M+ Japanese bitmap fonts
 media-fonts/mplus-outline-fonts 0_pre063_p1: M+ Japanese outline fonts
 media-fonts/nanum 3.0: Korean fonts distributed by Naver
 media-fonts/nanumfont 2.5: Korean monospace font distributed by Naver
-media-fonts/noto 20250901 20251001 20251101: Google's font family that aims to support all the world's languages
+media-fonts/noto 20251001 20251101 20251201: Google's font family that aims to support all the world's languages
 media-fonts/noto-cjk 20190416: Google's CJK font family
 media-fonts/noto-emoji 20241003 20250618 20250912: Google Noto Emoji fonts
 media-fonts/nunito 1.0-r1: Sans Serif font with rounded terminals
@@ -13040,7 +13040,7 @@ media-gfx/graphicsmagick 1.3.45-r2 1.3.45-r3 1.3.46 9999: Collection of tools an
 media-gfx/graphite2 1.3.14_p20210810-r3 1.3.14_p20210810-r5: Library providing rendering capabilities for complex non-Roman writing systems
 media-gfx/graphviz 12.2.1-r1 14.0.5-r1: Open Source Graph Visualization Software
 media-gfx/gscan2pdf 2.13.2-r2 2.13.4-r1 2.13.5: Scan documents, perform OCR, produce PDFs and DjVus
-media-gfx/gthumb 3.12.6 3.12.7: Image viewer and browser for Gnome
+media-gfx/gthumb 3.12.7 3.12.8.2: Image viewer and browser for Gnome
 media-gfx/gtkimageview 1.6.4: A simple image viewer widget for GTK
 media-gfx/hp2xx 3.4.4-r4: Convert Hewlett-Packard's HP-GL plotter language to other graphics formats
 media-gfx/hugin 2024.0.1 2024.0.1-r2 2025.0.0 9999: GUI for the creation & processing of panoramic images
