@@ -87,10 +87,10 @@ src_install() {
 
 	systemd_dounit etc/linux-systemd/system/${PN}@.service
 	systemd_douserunit etc/linux-systemd/user/${PN}.service
-	newconfd "${FILESDIR}"/${PN}.confd-r1 ${PN}
-	newinitd "${FILESDIR}"/${PN}.initd-r4 ${PN}
+	newconfd "${FILESDIR}"/${PN}.confd-r2 ${PN}
+	newinitd "${FILESDIR}"/${PN}.initd-r5 ${PN}
 	exeinto /etc/user/init.d
-	newexe "${FILESDIR}"/syncthing.initd-user syncthing
+	newexe "${FILESDIR}"/syncthing.initd-user-r1 syncthing
 
 	keepdir /var/log/${PN}
 	insinto /etc/logrotate.d
