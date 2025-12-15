@@ -21,7 +21,7 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 # gles2-only: at least not before 2.6 for keyworded ebuild
-IUSE="aac benchmark experimental ffmpeg gles2-only keyfinder lv2 midi modplug mp3 mp4 opus"
+IUSE="aac benchmark ffmpeg keyfinder lv2 midi modplug mp3 mp4 opus"
 IUSE+=" qtkeychain rubberband shout test upower wavpack +X"
 REQUIRED_USE="
 	benchmark? ( test )
@@ -33,10 +33,10 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-db/sqlite:3
 	dev-cpp/abseil-cpp:=
-	>=dev-libs/hidapi-0.14.0
+	dev-libs/hidapi
 	dev-libs/protobuf:=
 	dev-qt/qt5compat:6
-	dev-qt/qtbase:6[concurrent,dbus,gles2-only=,gui,icu,network,opengl,sql,sqlite,ssl,widgets,xml,X?]
+	dev-qt/qtbase:6[concurrent,dbus,-gles2-only,gui,icu,network,opengl,sql,sqlite,ssl,widgets,xml,X?]
 	dev-qt/qtdeclarative:6
 	dev-qt/qtshadertools:6
 	dev-qt/qtsvg:6
@@ -62,7 +62,6 @@ RDEPEND="
 		dev-cpp/gtest:=
 		dev-util/google-perftools:=
 	)
-	experimental? ( dev-qt/qt5compat:6[qml] )
 	ffmpeg? ( media-video/ffmpeg:= )
 	keyfinder? ( media-libs/libkeyfinder )
 	lv2? ( media-libs/lilv )
@@ -93,6 +92,12 @@ DEPEND="
 	dev-cpp/ms-gsl
 "
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=(
+	# Try OpenGL::OpenGL first for X11-less system
+	# Make libX11 optional. Merged in main branch.
+	"${FILESDIR}"/${PN}-2.5.2-x11_opt.patch
+)
 
 CMAKE_SKIP_TESTS=(
 	# need HID controller
@@ -129,9 +134,8 @@ src_configure() {
 		-DOPTIMIZE=OFF
 		-DOPUS="$(usex opus)"
 		-DPORTMIDI="$(usex midi)"
-		-DQGLES2="$(usex gles2-only)"
 		# new QML-UI, experimental and not functionnal for now
-		-DQML=$(usex experimental)
+		-DQML=OFF
 		-DQTKEYCHAIN="$(usex qtkeychain)"
 		-DRUBBERBAND="$(usex rubberband)"
 		-DVINYLCONTROL=ON
