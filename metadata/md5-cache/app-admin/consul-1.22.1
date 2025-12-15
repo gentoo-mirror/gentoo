@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.25.4 >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=acct-group/consul acct-user/consul
+DESCRIPTION=A tool for service discovery, monitoring and configuration
+EAPI=8
+HOMEPAGE=https://www.consul.io
+INHERIT=go-module systemd
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=BUSL-1.1 MPL-2.0 AFL-2.1 Apache-2.0 Artistic Artistic-2 BEER-WARE Boost-1.0 BSD BSD-2 BSD-4 CC-BY-3.0 CC-BY-4.0 CC-BY-SA-2.0 CC-BY-SA-3.0 CC-BY-SA-4.0 GPL-1 GPL-2 GPL-3 ISC LGPL-2 LGPL-2.1 LGPL-3 LPPL-1.3c MIT MPL-2.0 Ms-PL OFL-1.1 openssl OSL-1.1 RSA Sleepycat Unicode-DFS-2016 UoI-NCSA WTFPL-2 ZLIB
+RDEPEND=acct-group/consul acct-user/consul
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/hashicorp/consul/archive/v1.22.1.tar.gz -> consul-1.22.1.tar.gz https://github.com/gentoo-golang-dist/consul/releases/download/v1.22.1/consul-1.22.1-vendor.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	d96f2a2fd6d8fbad6d94516bf238f885	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=57547763e4d9eed3a01b5e79e07a5a7f
