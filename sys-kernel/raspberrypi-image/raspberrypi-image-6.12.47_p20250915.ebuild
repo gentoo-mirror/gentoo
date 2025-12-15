@@ -18,8 +18,17 @@ else
 	[[ $(ver_cut 4) == p ]] || die "Unsupported version format, tweak the ebuild."
 	MY_PV="1.$(ver_cut 5)"
 
-	SRC_URI="https://github.com/raspberrypi/firmware/archive/${MY_PV}.tar.gz -> raspberrypi-firmware-${MY_PV}.tar.gz"
-	S="${WORKDIR}/firmware-${MY_PV}"
+	# This release is bugged; the original archive contains kernel 6.12.25
+	# but the release from 2025-09-15 should be 6.12.47
+	# so use the commit hash instead.
+	# The corresponding raspberrypi-sources is also 6.6.47 (timestamped next day, 20250916).
+	COMMIT="e57538c91b473d23f98bf41fcffdc61b4198a632"
+
+	# Rename to raspberrypi-image- instead of raspberrypi-firmware- to avoid
+	# overwriting the distfile for sys-boot/raspberrypi-firmware-1.20250915
+	# (normally this would use the same upstream filename)
+	SRC_URI="https://github.com/raspberrypi/firmware/archive/${COMMIT}.tar.gz -> raspberrypi-image-${MY_PV}.tar.gz"
+	S="${WORKDIR}/firmware-${COMMIT}"
 	KEYWORDS="-* ~arm ~arm64"
 fi
 
