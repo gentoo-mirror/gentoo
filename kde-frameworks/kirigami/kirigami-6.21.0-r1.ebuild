@@ -33,6 +33,8 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
+PATCHES=( "${FILESDIR}/${P}-fix-visual-regression.patch" ) # 6.22 backport
+
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 }
