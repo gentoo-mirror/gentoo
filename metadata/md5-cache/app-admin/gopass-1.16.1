@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.24.1 sys-apps/which >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=install postinst prepare test unpack
+DESCRIPTION=a simple but powerful password manager for the terminal
+EAPI=8
+HOMEPAGE=https://www.gopass.pw/
+INHERIT=go-module optfeature
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=MIT Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0
+RDEPEND=dev-vcs/git >=app-crypt/gnupg-2
+SLOT=0
+SRC_URI=https://github.com/gopasspw/gopass/archive/v1.16.1.tar.gz -> gopass-1.16.1.tar.gz https://github.com/gentoo-golang-dist/gopass/releases/download/v1.16.1/gopass-1.16.1-vendor.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	d96f2a2fd6d8fbad6d94516bf238f885	optfeature	538bce96e5589935b57e178e8635f301
+_md5_=54d38e9c2a32bc0a0a262de339143d65
