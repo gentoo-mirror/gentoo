@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( dev-libs/check )
+BDEPEND=app-arch/xz-utils dev-lang/perl virtual/pkgconfig nls? ( sys-devel/gettext ) test? ( dev-libs/check )
 DEFINED_PHASES=configure install postinst test
 DEPEND=>=dev-libs/glib-2.30.0:2 gpm? ( sys-libs/gpm ) kernel_linux? ( sys-fs/e2fsprogs[tools(+)] ) sftp? ( net-libs/libssh2 ) slang? ( >=sys-libs/slang-2 ) !slang? ( sys-libs/ncurses:=[unicode(+)?] ) spell? ( app-text/aspell ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 ) X? ( x11-base/xorg-proto )
 DESCRIPTION=GNU Midnight Commander is a text based file manager
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.33.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=e086517873baf682a5c4f860431e4d8b
+_md5_=a72c5c7e95c836f63ab31c445ac9b1e8
