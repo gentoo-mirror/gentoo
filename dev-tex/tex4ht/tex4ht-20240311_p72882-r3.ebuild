@@ -32,7 +32,7 @@ S="${WORKDIR}"
 
 LICENSE="LPPL-1.2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86 ~amd64-linux ~x86-linux ~x64-macos"
 IUSE="doc java source"
 
 COMMON_DEPEND="
@@ -43,7 +43,8 @@ RDEPEND="
 	${COMMON_DEPEND}
 	app-text/ghostscript-gpl
 	dev-lang/perl
-	media-gfx/imagemagick
+	dev-texlive/texlive-binextra
+	virtual/imagemagick-tools
 	java? ( >=virtual/jre-1.8:* )
 "
 
@@ -53,6 +54,8 @@ DEPEND="
 "
 
 BDEPEND="virtual/pkgconfig"
+
+PATCHES=( "${FILESDIR}/${P}-longtable.patch" )
 
 src_prepare() {
 	mv texmf-dist texmf || die
