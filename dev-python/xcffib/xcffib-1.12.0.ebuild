@@ -17,14 +17,14 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 DEPEND="
 	x11-libs/libxcb
 "
 RDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/cffi-1.1:=[${PYTHON_USEDEP}]
+		>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]
 	' 'python*')
 	${DEPEND}
 "
@@ -35,6 +35,7 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 python_test() {
