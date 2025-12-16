@@ -1,0 +1,15 @@
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install prepare setup test
+DEPEND=dev-libs/yajl:= sys-kernel/linux-headers caps? ( sys-libs/libcap ) criu? ( >=sys-process/criu-3.15 ) seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= )
+DESCRIPTION=Fast and low-memory footprint OCI Container Runtime fully written in C
+EAPI=8
+HOMEPAGE=https://github.com/containers/crun
+INHERIT=autotools libtool python-any-r1
+IUSE=+bpf +caps criu +seccomp selinux systemd static-libs
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv
+LICENSE=GPL-2+ LGPL-2.1+
+RDEPEND=dev-libs/yajl:= sys-kernel/linux-headers caps? ( sys-libs/libcap ) criu? ( >=sys-process/criu-3.15 ) seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= ) selinux? ( sec-policy/selinux-container )
+SLOT=0
+SRC_URI=https://github.com/containers/crun/releases/download/1.25.1/crun-1.25.1.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=65c9437b5f668617829a9be610190d8b
