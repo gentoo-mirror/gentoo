@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip verify-sig? ( >=sec-keys/openpgp-keys-apache-logging-20251104 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile install preinst prepare setup test unpack
+DEPEND=dev-java/bnd-annotation:0 dev-java/error-prone-annotations:0 dev-java/findbugs-annotations:0 dev-java/jspecify:0 dev-java/osgi-annotation:0 dev-java/osgi-core:0 >=virtual/jdk-11:* test? ( >=dev-java/asm-9.9:0 >=dev-java/assertj-core-3.27.6:0 >=dev-java/byte-buddy-1.17.8:0 >=dev-java/hamcrest-3.0:0 >=dev-java/jna-5.18.1:0 >=dev-java/jsr305-3.0.2-r1:0 >=dev-java/junit-pioneer-1.9.1-r1:0 >=dev-java/mockito-5.20.0:0 >=dev-java/opentest4j-1.3.0-r1:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:5 )
+DESCRIPTION=The Apache Log4j API
+EAPI=8
+HOMEPAGE=https://logging.apache.org/log4j/2.x/
+INHERIT=java-pkg-2 java-pkg-simple junit5 verify-sig
+IUSE=doc source test verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=Apache-2.0
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=mirror://apache/logging/log4j/2.25.2/apache-log4j-2.25.2-src.zip verify-sig? ( https://downloads.apache.org/logging/log4j/2.25.2/apache-log4j-2.25.2-src.zip.asc )
+_eclasses_=java-utils-2	3febdd17a5820c438f6368dde60d4848	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	a728b6bc0cd005d093dd71e93106c98e	junit5	590bdca40c9331c8994b27dc2d9bc048	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
+_md5_=51b71f8c9eb4247a7701e63f3aa2760e
