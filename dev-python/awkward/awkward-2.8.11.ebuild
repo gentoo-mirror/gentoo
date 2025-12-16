@@ -21,7 +21,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	~dev-python/awkward-cpp-50[${PYTHON_USEDEP}]
+	~dev-python/awkward-cpp-51[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/importlib-metadata-4.13.0[${PYTHON_USEDEP}]
 	' 3.11)
@@ -43,11 +43,14 @@ BDEPEND="
 		#dev-python/numba[${PYTHON_USEDEP}] # needs numba from sci
 
 EPYTEST_IGNORE=(
-	tests-cuda/
-	tests-cuda-kernels/
 	# fails if just caffe2 but not pytorch is installed
 	tests/test_3259_to_torch_from_torch.py
 )
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
+
+python_test() {
+	# CUDA tests require cupy
+	epytest tests
+}
