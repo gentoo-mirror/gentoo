@@ -3,7 +3,7 @@
 
 EAPI=8
 
-COMMIT=b214a915a41be436f46505d85bba809be9065516
+COMMIT=930f7a675ffc656eb5207d4f63fd03a51f767390
 inherit cmake xdg
 
 DESCRIPTION="Arpeggiator, sequencer and MIDI LFO for ALSA"
@@ -30,8 +30,6 @@ BDEPEND="
 	nls? ( dev-qt/qttools:6[linguist] )
 	virtual/pkgconfig
 "
-
-PATCHES=( "${FILESDIR}/${P}-cmake.patch" )
 
 src_configure() {
 	local mycmakeargs=(
