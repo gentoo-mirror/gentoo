@@ -6,7 +6,7 @@ EAPI=8
 USE_RUBY="ruby32 ruby33 ruby34"
 
 # There is an erb binary in exe but that would conflict with the ruby
-# built-in version.
+# built-in version and other slots.
 RUBY_FAKEGEM_BINWRAP=""
 
 RUBY_FAKEGEM_EXTENSIONS=(ext/erb/escape/extconf.rb)
@@ -22,7 +22,7 @@ HOMEPAGE="https://github.com/ruby/erb"
 SRC_URI="https://github.com/ruby/erb/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="|| ( Ruby-BSD BSD-2 )"
-SLOT="0"
+SLOT="$(ver_cut 1)"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
 
 all_ruby_prepare() {
