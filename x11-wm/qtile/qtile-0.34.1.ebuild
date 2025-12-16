@@ -25,6 +25,11 @@ IUSE="pulseaudio wayland"
 DEPEND="
 	>=dev-python/cairocffi-1.7.0[${PYTHON_USEDEP}]
 	>=dev-python/cffi-1.1.0:=[${PYTHON_USEDEP}]
+	wayland? (
+		dev-libs/libinput:=
+		dev-libs/wayland
+		gui-libs/wlroots:0.19
+	)
 "
 RDEPEND="
 	${DEPEND}
@@ -37,10 +42,6 @@ RDEPEND="
 	pulseaudio? (
 		dev-python/pulsectl-asyncio[${PYTHON_USEDEP}]
 		media-libs/libpulse
-	)
-	wayland? (
-		>=dev-python/pywayland-0.4.17[${PYTHON_USEDEP}]
-		>=dev-python/pywlroots-0.17[${PYTHON_USEDEP}]
 	)
 "
 BDEPEND="
@@ -67,19 +68,12 @@ distutils_enable_tests pytest
 python_prepare_all() {
 	distutils-r1_python_prepare_all
 
-	# make extension builds fatal
-	sed -i -e 's:Exception:None:' builder.py || die
-
-	if ! use wayland; then
-		sed -e "s/ffi_compile(verbose=wayland_requested)/pass/" \
-			-i builder.py || die
-	fi
-
 	mkdir bin || die
 }
 
 src_compile() {
 	local -x CFFI_TMPDIR=${T}
+	local DISTUTILS_CONFIG_SETTINGS_JSON="{\"backend\": \"$(usex wayland wayland x11)\"}"
 	distutils-r1_src_compile
 }
 
