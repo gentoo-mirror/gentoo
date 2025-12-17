@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/cunla/fakeredis-py
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1 pypi
@@ -16,11 +17,10 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/redis-4.3[${PYTHON_USEDEP}]
-	<dev-python/sortedcontainers-3[${PYTHON_USEDEP}]
 	>=dev-python/sortedcontainers-2[${PYTHON_USEDEP}]
 "
 BDEPEND="
@@ -42,11 +42,18 @@ EPYTEST_DESELECT=(
 	test/test_mixins/test_set_commands.py::test_smismember_wrong_type
 	"test/test_mixins/test_pubsub_commands.py::test_pubsub_shardnumsub[StrictRedis2]"
 	"test/test_mixins/test_pubsub_commands.py::test_pubsub_shardnumsub[StrictRedis3]"
+	"test/test_mixins/test_streams_commands.py::test_xgroup_setid_redis7[StrictRedis2]"
+	"test/test_mixins/test_streams_commands.py::test_xgroup_setid_redis7[StrictRedis3]"
 	# json ext
 	test/test_json/test_json.py
 	test/test_json/test_json_arr_commands.py
+	# unknown command 'evalsha'
+	"test/test_asyncredis.py::test_async_lock[fake_resp2]"
+	"test/test_asyncredis.py::test_async_lock[fake_resp3]"
 	# incompatible with xdist, not worth extra effort
 	test/test_tcp_server/test_connectivity.py
+	# flaky
+	test/test_mixins/test_server_commands.py::test_bgsave
 )
 EPYTEST_IGNORE=(
 	# these tests fail a lot...

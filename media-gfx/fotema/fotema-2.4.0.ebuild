@@ -7,7 +7,7 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
-	[rust-faces]='https://github.com/blissd/fotema-rust-faces;43c0d5acd6f3f4d90c6487708f2e511a73bf7c9e;fotema-rust-faces-%commit%'
+	[rust-faces]='https://github.com/blissd/fotema-rust-faces;fd8960294d3ae8fdf0d47e1e9b12f7204ecf74a5;fotema-rust-faces-%commit%'
 )
 
 RUST_MIN_VER="1.87.0"
