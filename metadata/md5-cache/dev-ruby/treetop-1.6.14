@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/cjheath/treetop
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 doc test test
-KEYWORDS=~amd64 ~arm ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x64-solaris
+KEYWORDS=~amd64 ~arm ~ppc64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( >=dev-ruby/polyglot-0.3.1:0[ruby_targets_ruby34(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/cjheath/treetop/archive/v1.6.14.tar.gz -> treetop-1.6.14.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	multilib	a199af442898963433d6f038a88cce9c	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	ruby-fakegem	bc37b1e2fa23e795fae856dd70a23846
-_md5_=5ff1cc28df960b96ac16640d19e4cb6f
+_md5_=141323aebe3f9165db4015f7873c97df

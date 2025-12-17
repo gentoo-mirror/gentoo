@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.tinc-vpn.org/
 INHERIT=autotools bash-completion-r1 flag-o-matic systemd
 IUSE=+lzo +ncurses +readline +ssl uml vde upnp +zlib
-KEYWORDS=amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=ssl? ( dev-libs/openssl:0= ) lzo? ( dev-libs/lzo:2 ) ncurses? ( sys-libs/ncurses:= ) readline? ( sys-libs/readline:= ) upnp? ( net-libs/miniupnpc:= ) zlib? ( virtual/zlib:= ) vde? ( net-misc/vde )
 SLOT=0
 SRC_URI=https://www.tinc-vpn.org/packages/tinc-1.1pre18.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	bash-completion-r1	767861f3744f589ee5291c1698b1c082	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=a2fb2412c69bb3f0821c59f87b11db62
+_md5_=f73e0cb3a6219ce1ea2b5f9c3985d320

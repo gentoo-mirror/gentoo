@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://ecasound.seul.org/ecasound/
 INHERIT=autotools python-single-r1
 IUSE=alsa audiofile debug doc jack libsamplerate lv2 mikmod ncurses oil osc oss python ruby sndfile static-libs test python_single_target_python3_11 python_single_target_python3_12
-KEYWORDS=amd64 ~ppc x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=amd64 ~ppc x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=sys-libs/readline:0= alsa? ( media-libs/alsa-lib:= ) audiofile? ( media-libs/audiofile:= ) jack? ( virtual/jack:= ) libsamplerate? ( media-libs/libsamplerate:= ) lv2? ( media-libs/lilv:= ) media-libs/ladspa-sdk mikmod? ( media-libs/libmikmod:0= ) ncurses? ( sys-libs/ncurses:0= ) oil? ( dev-libs/liboil:= ) osc? ( media-libs/liblo:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) ) ruby? ( dev-lang/ruby:* ) sndfile? ( media-libs/libsndfile:= )
 REQUIRED_USE=test? ( lv2 ) python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=1
 SRC_URI=https://ecasound.seul.org/download/ecasound-2.9.3.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=1a279440e5c24f112fcc3726923bb9ac
+_md5_=b818ea9fb9c13d8c0a17adebad990cbd

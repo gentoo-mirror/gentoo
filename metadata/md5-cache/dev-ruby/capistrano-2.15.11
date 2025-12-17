@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://capistranorb.com/
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby32 test test
-KEYWORDS=amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-solaris
+KEYWORDS=amd64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~x64-solaris
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/net-ssh-2.0.14:*[ruby_targets_ruby32(-)] >=dev-ruby/net-sftp-2.0.2[ruby_targets_ruby32(-)] >=dev-ruby/net-scp-1.0.2[ruby_targets_ruby32(-)] >=dev-ruby/net-ssh-gateway-1.1.0:*[ruby_targets_ruby32(-)] >=dev-ruby/highline-1.2.7[ruby_targets_ruby32(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby32 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=2
 SRC_URI=https://rubygems.org/gems/capistrano-2.15.11.gem
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	multilib	a199af442898963433d6f038a88cce9c	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	ruby-fakegem	bc37b1e2fa23e795fae856dd70a23846
-_md5_=139fd5f5a9940219912d4405ef1ac965
+_md5_=f0a12f0eb7bc76d5bd5ca8d057750207

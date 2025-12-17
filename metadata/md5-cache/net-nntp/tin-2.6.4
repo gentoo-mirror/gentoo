@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=http://www.tin.org/
 INHERIT=optfeature toolchain-funcs
 IUSE=cancel-locks debug gnutls gpg libtls nls sasl socks5 ssl
-KEYWORDS=amd64 arm ppc x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=amd64 arm ppc x86 ~amd64-linux ~x86-linux
 LICENSE=BSD
 RDEPEND=dev-libs/icu:= dev-libs/libpcre2:= >=dev-libs/uriparser-0.9.8 dev-libs/uulib net-dns/libidn2:= sys-libs/ncurses:= virtual/zlib:= virtual/libiconv cancel-locks? ( >=net-libs/canlock-3.0:= ) gpg? ( app-crypt/gnupg ) nls? ( virtual/libintl ) sasl? ( net-misc/gsasl[client] ) socks5? ( net-proxy/dante ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( libtls? ( dev-libs/libretls:= ) !libtls? ( dev-libs/openssl:= ) ) )
 SLOT=0
 SRC_URI=ftp://ftp.tin.org/pub/news/clients/tin/stable/tin-2.6.4.tar.xz
 _eclasses_=optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=cfadeb3ba930c80a1a6d916b9208a918
+_md5_=4f24e65abd22c75b7b19c93e72f112b1

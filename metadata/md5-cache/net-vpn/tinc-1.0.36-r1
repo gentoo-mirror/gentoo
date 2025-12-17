@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.tinc-vpn.org/
 INHERIT=systemd
 IUSE=+lzo uml vde +zlib
-KEYWORDS=amd64 ~arm ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=amd64 ~arm ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux
 LICENSE=GPL-2
 RDEPEND=dev-libs/openssl:= lzo? ( dev-libs/lzo:2 ) zlib? ( virtual/zlib:= ) vde? ( net-misc/vde )
 SLOT=0
 SRC_URI=https://www.tinc-vpn.org/packages/tinc-1.0.36.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=a1684d9148f50036a2c13c064549c21f
+_md5_=aa93e5c0dbfcf285e0850aa27579e02b

@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/rrthomas/enchant
 INHERIT=flag-o-matic
 IUSE=aspell +hunspell test
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux ~ppc-macos
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86 ~amd64-linux ~x86-linux
 LICENSE=LGPL-2.1+
 RDEPEND=>=dev-libs/glib-2.6:2 aspell? ( app-text/aspell ) hunspell? ( >=app-text/hunspell-1.2.1:0= ) !<app-text/enchant-2.3.3:2
 REQUIRED_USE=|| ( aspell hunspell )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rrthomas/enchant/releases/download/enchant-1-6-1/enchant-1.6.1.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=9a019aedf4001ecb81ef747b3bea4d1a
+_md5_=b680f6a1927551e0714198ffc83a130e
