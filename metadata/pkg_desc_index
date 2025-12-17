@@ -5263,7 +5263,7 @@ dev-lang/qu-prolog 10.8-r1: Extended Prolog supporting quantifiers, object-varia
 dev-lang/rakudo 2025.10 2025.11: A compiler for the Raku programming language
 dev-lang/rapydscript-ng 0.7.22 9999: Pythonic JavaScript that doesn't suck
 dev-lang/regina-rexx 3.9.5 3.9.6: Portable Rexx interpreter
-dev-lang/ruby 3.2.7 3.2.8 3.2.9 3.2.9-r1 3.3.8 3.3.9 3.3.10 3.3.10-r1 3.4.4 3.4.5 3.4.6 3.4.7 3.4.7-r1: An object-oriented scripting language
+dev-lang/ruby 3.2.7 3.2.8 3.2.9 3.2.9-r1 3.3.8 3.3.9 3.3.10 3.3.10-r1 3.4.6 3.4.7-r1 3.4.8: An object-oriented scripting language
 dev-lang/rust 1.74.1-r101 1.75.0-r101 1.76.0-r101 1.77.1-r101 1.78.0-r101 1.79.0-r101 1.80.1-r101 1.81.0-r101 1.82.0-r103 1.83.0-r3 1.84.0-r2 1.84.1-r2 1.85.0-r2 1.85.1-r1 1.86.0-r2 1.87.0-r1 1.88.0 1.89.0 1.90.0-r1 1.91.0 1.92.0_p1 9999: Systems programming language originally developed by Mozilla
 dev-lang/rust-bin 1.74.1-r102 1.75.0-r102 1.76.0-r101 1.77.1-r102 1.78.0-r102 1.79.0-r103 1.80.1-r103 1.81.0-r103 1.82.0-r103 1.83.0-r2 1.84.0-r2 1.84.1-r2 1.85.0-r1 1.85.1 1.86.0-r1 1.87.0 1.88.0 1.89.0 1.90.0 1.91.0 1.92.0 9999: Systems programming language from Mozilla
 dev-lang/rust-common 1.81.0 1.82.0 1.83.0 1.84.1 1.85.1 1.86.0 1.87.0 1.88.0 1.89.0 1.90.0 1.91.0 1.92.0 9999: Common files shared between multiple slots of Rust
@@ -10112,7 +10112,7 @@ dev-ruby/introspection 0.0.4-r2: Dynamic inspection of the hierarchy of method d
 dev-ruby/io-console 0.8.0 0.8.1 0.8.2: add console capabilities to IO instances
 dev-ruby/io-endpoint 0.15.2 0.16.0: Provides a separation of concerns interface for IO endpoints
 dev-ruby/io-event 1.1.7 1.10.0 1.11.2 1.12.1 1.14.0 1.14.2: An event loop
-dev-ruby/io-wait 0.3.1 0.3.2 0.3.6: Waits until IO is readable or writable without blocking
+dev-ruby/io-wait 0.3.1 0.3.2 0.3.6 0.4.0: Waits until IO is readable or writable without blocking
 dev-ruby/ipaddr 1.2.7: IPAddr provides a set of methods to manipulate an IPv4 or IPv6 address
 dev-ruby/irb 1.15.2 1.15.3 1.16.0: Interactive Ruby command-line tool for REPL (Read Eval Print Loop)
 dev-ruby/itextomml 1.6.1: Native Ruby bindings to itex2MML, which converts itex equations to MathML
@@ -10209,7 +10209,7 @@ dev-ruby/necromancer 0.7.0-r1: Conversion from one object type to another with a
 dev-ruby/nenv 0.3.0-r1: Convenient wrapper for Ruby's ENV
 dev-ruby/neovim-ruby-client 0.10.0: Ruby bindings for Neovim
 dev-ruby/net-ftp 0.3.8 0.3.9: Support for the File Transfer Protocol
-dev-ruby/net-http 0.6.0 0.7.0 0.8.0: HTTP client api for Ruby
+dev-ruby/net-http 0.6.0 0.7.0 0.8.0 0.9.1: HTTP client api for Ruby
 dev-ruby/net-http-digest_auth 1.4.1-r2: An implementation of RFC 2617 - Digest Access Authentication
 dev-ruby/net-http-persistent 4.0.5 4.0.6: Manages persistent connections using Net::HTTP plus a speed fix for Ruby 1.8
 dev-ruby/net-http-pipeline 1.0.1-r1: An HTTP/1.1 pipelining implementation atop Net::HTTP
@@ -10273,7 +10273,7 @@ dev-ruby/prism 1.4.0 1.5.0 1.5.1 1.5.2 1.6.0: Prism Ruby parser
 dev-ruby/process_executer 1.3.0 2.0.0 3.2.0 3.2.4 4.0.0: An API for executing commands in a subprocess
 dev-ruby/propshaft 0.9.1 1.1.0 1.2.0 1.2.1 1.3.1: Deliver assets for Rails
 dev-ruby/pry 0.14.2 0.15.2: Pry is a powerful alternative to the standard IRB shell for Ruby
-dev-ruby/psych 5.2.3 5.2.4 5.2.5 5.2.6 5.3.0: A YAML parser and emitter
+dev-ruby/psych 5.2.3 5.2.4 5.2.5 5.2.6 5.3.0 5.3.1: A YAML parser and emitter
 dev-ruby/ptools 1.5.0 1.5.2: Several handy methods to Ruby's core File class
 dev-ruby/public_suffix 6.0.1 6.0.2 7.0.0: Parse and decompose a domain name into top level domain, domain and subdomains
 dev-ruby/pundit 2.5.0 2.5.1 2.5.2: Object oriented authorization for Rails applications
@@ -10487,9 +10487,9 @@ dev-ruby/thread_order 1.1.1: Test helper for ordering threaded code
 dev-ruby/thread_safe 0.3.6-r3: A collection of thread-safe versions of common core Ruby classes
 dev-ruby/tidy_table 0.0.5-r6: Tool to convert an array of struct into an HTML table
 dev-ruby/tilt 2.6.0 2.6.1: Thin interface over template engines to make their usage as generic as possible
-dev-ruby/time 0.4.1: Extends the Time class with methods for parsing and conversion
+dev-ruby/time 0.4.1 0.4.2: Extends the Time class with methods for parsing and conversion
 dev-ruby/timecop 0.9.6 0.9.10 0.9.10-r1: A gem providing 'time travel' and 'time freezing' capabilities
-dev-ruby/timeout 0.4.3 0.4.4 0.5.0: Provides a framework for message digest libraries
+dev-ruby/timeout 0.4.3 0.4.4 0.5.0 0.6.0: Provides a framework for message digest libraries
 dev-ruby/timers 4.4.0: Pure Ruby one-shot and periodic timers
 dev-ruby/tins 1.38.0 1.43.0 1.44.1 1.45.0 1.47.0 1.48.0: All the stuff that isn't good enough for a real library
 dev-ruby/tokyocabinet 1.32.0-r2: Ruby bindings for Tokyo Cabinet
