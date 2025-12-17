@@ -918,7 +918,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0 1.2.764.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.42.64 1.42.69 1.42.74 1.43.2 1.43.5 1.43.6 1.43.7 1.43.8 1.43.9 1.43.10 1.43.11 1.43.12 1.43.13 1.43.14 1.43.15 1.44.0: Universal Command Line Environment for AWS
+app-admin/awscli 1.42.74 1.43.2 1.43.5 1.43.10 1.43.15 1.44.1: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.8.2 2025.9.0 2025.10.0: Bitwarden password manager desktop client
@@ -5208,7 +5208,7 @@ dev-lang/icon 9.5.22e 9.5.24b 9.5.24b-r1: Very high level language
 dev-lang/idris2 0.7.0-r2: Purely functional programming language with first class types
 dev-lang/inform 6.33.1_p2 6.35_p4 6.42_p4: Design system for interactive fiction
 dev-lang/interprolog 2.1.2-r3: InterProlog is a Java front-end and enhancement for Prolog
-dev-lang/ispc 1.28.0 1.28.2: Intel SPMD Program Compiler
+dev-lang/ispc 1.28.0 1.28.2 1.29.0: Intel SPMD Program Compiler
 dev-lang/janet 1.32.1: A dynamic Lisp dialect and bytecode vm
 dev-lang/jerryscript 3.0.0: Ultra-lightweight JavaScript engine for the Internet of Things
 dev-lang/jimtcl 0.78-r2 0.81 0.82: Small footprint implementation of Tcl programming language
@@ -8171,7 +8171,7 @@ dev-python/awkward 2.8.10 2.8.11: Manipulate JSON-like data with NumPy-like idio
 dev-python/awkward-cpp 50 51: CPU kernels and compiled extensions for Awkward Array
 dev-python/aws-sam-translator 1.101.0 1.102.0 1.103.0 1.104.0 1.105.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk 2.14.0 2.15.0: AWS X-Ray SDK for Python
-dev-python/b2sdk 2.10.1: Library to access Backblaze B2 cloud storage
+dev-python/b2sdk 2.10.1 2.10.2: Library to access Backblaze B2 cloud storage
 dev-python/babel 2.17.0: Collection of tools for internationalizing Python applications
 dev-python/babelfish 0.6.1: Python library to work with countries and languages
 dev-python/backports-tarfile 1.2.0: Backport of CPython tarfile module (from Python 3.12)
@@ -8206,8 +8206,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.42.0 1.42.1 1.42.2 1.42.3 1.42.4 1.42.5 1.42.6 1.42.7 1.42.8 1.42.9 1.42.10: The AWS SDK for Python
-dev-python/botocore 1.40.64 1.40.69 1.40.74 1.41.2 1.41.5 1.41.6 1.42.1 1.42.2 1.42.3 1.42.4 1.42.5 1.42.6 1.42.7 1.42.8 1.42.9 1.42.10: Low-level, data-driven core of boto 3
+dev-python/boto3 1.40.74 1.41.2 1.41.5 1.42.4 1.42.9 1.42.11: The AWS SDK for Python
+dev-python/botocore 1.40.74 1.41.2 1.41.5 1.42.4 1.42.9 1.42.11: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8426,7 +8426,7 @@ dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the s
 dev-python/eyed3 0.9.8 0.9.9: Module for manipulating ID3 (v1 + v2) tags in Python
 dev-python/fake-py 0.11.10 0.11.12: Minimalistic, standalone alternative fake data generator with no dependencies
 dev-python/faker 37.11.0 37.12.0 38.0.0 38.2.0: A Python package that generates fake data for you
-dev-python/fakeredis 2.31.0 2.31.1 2.31.3 2.32.0 2.32.1: Fake implementation of redis API for testing purposes
+dev-python/fakeredis 2.32.1 2.33.0: Fake implementation of redis API for testing purposes
 dev-python/fastbencode 0.3.6 0.3.7: Implementation of bencode with Rust implementation
 dev-python/fasteners 0.20: Python package that provides useful locks
 dev-python/fastimport 0.9.14 0.9.16: Library for parsing the fastimport VCS serialization format
@@ -8639,7 +8639,7 @@ dev-python/jinja2 3.1.6: A full-featured template engine for Python
 dev-python/jinja2-pluralize 0.3.0-r1: Jinja2 pluralize filters
 dev-python/jinja2-time 0.2.0-r1: Jinja2 Extension for Dates and Times
 dev-python/jmespath 1.0.1: JSON Matching Expressions
-dev-python/joblib 1.5.2: Tools to provide lightweight pipelining in Python
+dev-python/joblib 1.5.2 1.5.3: Tools to provide lightweight pipelining in Python
 dev-python/josepy 2.0.0 2.1.0 2.2.0: JOSE protocol implementation in Python
 dev-python/jq 1.8.0 1.9.1 1.10.0: Python bindings for jq
 dev-python/js2py 0.74-r2: JavaScript to Python Translator & JavaScript interpreter in Python
@@ -8674,7 +8674,7 @@ dev-python/jupyter-server 2.17.0 2.17.0-r1: Core services, APIs, and REST endpoi
 dev-python/jupyter-server-mathjax 0.2.6 0.2.6-r1: MathJax resources as a Jupyter Server Extension
 dev-python/jupyter-server-proxy 4.4.0: Jupyter notebook server extension to proxy web services
 dev-python/jupyter-server-terminals 0.5.3 0.5.3-r1: A Jupyter Server Extension Providing Terminals
-dev-python/jupyterlab 4.3.7 4.4.9 4.4.10 4.5.0: JupyterLab computational environment
+dev-python/jupyterlab 4.3.7 4.4.9 4.4.10 4.5.0 4.5.1: JupyterLab computational environment
 dev-python/jupyterlab-lsp 5.1.0: Coding assistance for JupyterLab with Language Server Protocol
 dev-python/jupyterlab-pygments 0.3.0: Pygments theme making use of JupyterLab CSS variables
 dev-python/jupyterlab-server 2.27.3 2.28.0: Server components for JupyterLab and JupyterLab like applications
@@ -8840,7 +8840,7 @@ dev-python/mysqlclient 2.2.6 2.2.7: Python interface to MySQL
 dev-python/myst-parser 4.0.1 4.0.1-r1: Extended commonmark compliant parser, with bridges to Sphinx
 dev-python/nagiosplugin 1.3.3 1.4.0: A class library for writing nagios-compatible plugins
 dev-python/nanobind 2.9.2 2.10.2: Tiny and efficient C++/Python bindings
-dev-python/narwhals 2.12.0 2.13.0: Extremely lightweight compatibility layer between dataframe libraries
+dev-python/narwhals 2.13.0 2.14.0: Extremely lightweight compatibility layer between dataframe libraries
 dev-python/natsort 8.4.0: Natural sorting for Python
 dev-python/nautilus-python 4.0.1: Python bindings for the Nautilus file manager
 dev-python/nbclassic 1.3.1 1.3.2 1.3.3: Jupyter Notebook as a Jupyter Server Extension
@@ -8865,7 +8865,7 @@ dev-python/node-semver 0.9.0: Python version of node-semver, the semantic versio
 dev-python/nodeenv 1.9.1: Node.js virtual environment builder
 dev-python/noiseprotocol 0.3.1: Implementation of Noise Protocol Framework. Compatible with revisions 32 and 33.
 dev-python/nose2 0.15.1: Unittest with plugins
-dev-python/notebook 7.3.3 7.4.7 7.5.0: Jupyter Interactive Notebook
+dev-python/notebook 7.3.3 7.4.7 7.5.0 7.5.1: Jupyter Interactive Notebook
 dev-python/notebook-shim 0.2.4: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nox 2025.10.16 2025.11.12: Flexible test automation for Python
@@ -8883,7 +8883,7 @@ dev-python/odfpy 1.4.2: Python API and tools to manipulate OpenDocument files
 dev-python/olefile 0.47: Python package to parse, read and write Microsoft OLE2 files
 dev-python/omemo-dr 1.0.1 1.0.1-r1 1.1.0: OMEMO Crypto Library
 dev-python/opcodes 0.3.14-r2: Opcodes Project
-dev-python/openapi-core 0.19.5-r1: Client-side and server-side support for the OpenAPI Specification v3
+dev-python/openapi-core 0.19.5-r1 0.21.0: Client-side and server-side support for the OpenAPI Specification v3
 dev-python/openapi-schema-validator 0.6.3: OpenAPI schema validation for Python
 dev-python/openapi-spec-validator 0.7.2 0.8.0_beta1: OpenAPI 2.0 (aka Swagger) and OpenAPI 3.0 spec validator
 dev-python/openapi3 1.8.2: Python OpenAPI 3 Specification client and validator
@@ -9010,7 +9010,7 @@ dev-python/progressbar2 4.5.0: Text progressbar library for python
 dev-python/prometheus-client 0.22.1 0.23.0 0.23.1: Python client for the Prometheus monitoring system
 dev-python/prompt-toolkit 3.0.51 3.0.52: Building powerful interactive command lines in Python
 dev-python/propcache 0.3.2 0.4.0 0.4.1: Accelerated property cache
-dev-python/proto-plus 1.26.1 1.26.1-r1: Beautiful, Pythonic protocol buffers
+dev-python/proto-plus 1.26.1-r1 1.27.0: Beautiful, Pythonic protocol buffers
 dev-python/protobuf 5.29.5 5.29.5-r1 6.30.2-r1 6.30.2-r2 6.31.1 6.32.0 6.32.1 6.32.1-r1 6.33.0 6.33.1 6.33.2: Google's Protocol Buffers - Python bindings
 dev-python/psutil 7.1.0 7.1.1 7.1.2 7.1.3: Retrieve information on running processes and system utilization
 dev-python/psycopg 2.9.10 2.9.11 3.2.9 3.2.10 3.2.11 3.2.12 3.2.13 3.3.0 3.3.1 3.3.2: PostgreSQL database adapter for Python
@@ -9563,7 +9563,7 @@ dev-python/spyder-terminal 1.3.0: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.7.0 0.7.1: Plugin for Spyder to run tests and view the results
 dev-python/sqlalchemy 1.4.54 2.0.44 2.0.45: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 27.29.0 28.1.0 28.3.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 27.29.0 28.1.0 28.3.0 28.4.1: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.3 0.5.4: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9579,7 +9579,7 @@ dev-python/stestr 4.2.0: A parallel Python test runner built around subunit
 dev-python/stevedore 5.5.0 5.6.0: Manage dynamic plugins for Python applications
 dev-python/stomp-py 8.1.2: Python client library for the STOMP messaging protocol
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
-dev-python/stripe 13.0.1 13.1.2 13.2.0 14.0.0 14.0.1: Stripe Python bindings
+dev-python/stripe 13.2.0 14.0.1 14.1.0: Stripe Python bindings
 dev-python/structlog 25.4.0 25.5.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.2: subprocess.run replacement with tee(1)-like output
 dev-python/suds-community 1.2.0: Lightweight SOAP client
@@ -9701,8 +9701,8 @@ dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10: TidyLib Python wrapper
 dev-python/uuid6 2025.0.1: New time-based UUID formats which are suited for use as a database key
-dev-python/uv 0.9.4 0.9.6 0.9.7 0.9.8 0.9.9 0.9.10 0.9.11 0.9.12 0.9.13 0.9.14 0.9.15 0.9.16 0.9.17 9999: A Python package installer and resolver, written in Rust
-dev-python/uv-build 0.9.4 0.9.6 0.9.7 0.9.8 0.9.9 0.9.10 0.9.11 0.9.12 0.9.13 0.9.14 0.9.15 0.9.16 0.9.17: PEP517 uv build backend
+dev-python/uv 0.9.4 0.9.7 0.9.8 0.9.10 0.9.13 0.9.15 0.9.17 0.9.18 9999: A Python package installer and resolver, written in Rust
+dev-python/uv-build 0.9.4 0.9.7 0.9.8 0.9.10 0.9.13 0.9.15 0.9.17 0.9.18: PEP517 uv build backend
 dev-python/uvicorn 0.35.0 0.36.0 0.37.0 0.38.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.21.0 0.22.1: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.35.0: Python Data Validation for Humans
@@ -13021,7 +13021,7 @@ media-gfx/flam3 3.1.1-r1: Tools and a library for creating flame fractal images
 media-gfx/flameshot 13.1.0-r1: Powerful yet simple to use screenshot software
 media-gfx/fondu 20060102-r1: Utilities for converting between and manipulating mac fonts and unix fonts
 media-gfx/fontforge 20230101-r2: postscript font editor and converter
-media-gfx/fotema 2.2.0 2.3.0: Photo gallery for Linux
+media-gfx/fotema 2.3.0 2.4.0: Photo gallery for Linux
 media-gfx/fotocx 25.0 25.1 25.2 25.3 25.4 25.5: Program for improving image files made with a digital camera
 media-gfx/fotowall 1.0_p20241107: Qt tool for creating wallpapers
 media-gfx/freecad 1.0.1-r2 1.0.2-r2 9999: Qt based Computer Aided Design application
