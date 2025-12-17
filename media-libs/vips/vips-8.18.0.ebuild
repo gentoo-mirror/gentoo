@@ -12,12 +12,12 @@ SRC_URI="https://github.com/libvips/libvips/releases/download/v${PV}/${P}.tar.xz
 
 LICENSE="LGPL-2.1+ MIT"
 SLOT="0/42" # soname
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="
 	archive deprecated doc exif fftw fits fontconfig graphicsmagick
 	heif +highway imagemagick imagequant +introspection +jpeg jpeg2k
-	jpegxl lcms matio openexr orc pango pdf +png svg test tiff vala
-	webp
+	jpegxl lcms matio openexr orc pango pdf +png raw svg test tiff
+	vala webp
 "
 REQUIRED_USE="
 	doc? ( introspection )
@@ -63,6 +63,7 @@ RDEPEND="
 		x11-libs/cairo
 	)
 	png? ( media-libs/libpng:= )
+	raw? ( media-libs/libraw:= )
 	svg? (
 		gnome-base/librsvg:2
 		virtual/zlib:=
@@ -140,9 +141,11 @@ src_configure() {
 		$(meson_feature png)
 		$(meson_feature pdf poppler)
 		-Dquantizr=disabled # not packaged, can use imagequant instead
+		$(meson_feature raw)
 		-Dspng=disabled # not packaged, can use libpng instead
 		$(meson_feature svg rsvg)
 		$(meson_feature tiff)
+		-Duhdr=disabled # not packaged
 		$(meson_feature webp)
 		$(meson_feature svg zlib) # zlib is currently only used by svgload.c
 	)
