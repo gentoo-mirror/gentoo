@@ -5,7 +5,7 @@ EAPI=8
 
 RUST_OPTIONAL="yes"
 
-inherit autotools flag-o-matic multiprocessing rust
+inherit autotools flag-o-matic multiprocessing toolchain-funcs rust
 
 MY_P="${PN}-$(ver_cut 1-3)"
 
@@ -98,9 +98,6 @@ pkg_setup() {
 
 src_prepare() {
 	eapply "${FILESDIR}"/"${SLOT}"/010*.patch
-	eapply "${FILESDIR}"/"${SLOT}"/015*.patch
-	eapply "${FILESDIR}"/"${SLOT}"/016*.patch
-	eapply "${FILESDIR}"/"${SLOT}"/017*.patch
 	eapply "${FILESDIR}"/"${SLOT}"/902*.patch
 
 	if use elibc_musl ; then
@@ -178,6 +175,8 @@ src_configure() {
 	# In many places aliasing rules are broken; play it safe
 	# as it's risky with newer compilers to leave it as it is.
 	append-flags -fno-strict-aliasing
+	# Workaround for bug #965095 (gcc PR122610)
+	tc-is-gcc && append-flags -fno-ipa-modref
 
 	# Workaround for bug #938302
 	if use systemtap && has_version "dev-debug/systemtap[-dtrace-symlink(+)]" ; then
