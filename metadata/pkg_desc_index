@@ -64,6 +64,7 @@ acct-group/coredns 0-r2: A group for net-dns/coredns
 acct-group/croc 0-r2: Group for net-misc/croc
 acct-group/cron 0-r2: A group for sys-process/cronbase
 acct-group/crontab 0-r2: System group: crontab
+acct-group/cuse 0: /dev/cuse access
 acct-group/cvmfs 0-r3: Group for the CernVM-FS network file system
 acct-group/davfs2 0-r3: System group: davfs2
 acct-group/dbmail 0-r2: System group: dbmail
@@ -176,6 +177,7 @@ acct-group/iroffer 0-r2: System group: iroffer
 acct-group/jackett 0-r1: System group: jackett
 acct-group/jellyfin 0-r1: System group: jellyfin
 acct-group/jenkins 0-r2: Jenkins program group
+acct-group/jobserver 0: Access to system-wide jobservers
 acct-group/kafka 0-r3: System group: kafka
 acct-group/kapacitor 0-r3: System group: kapacitor
 acct-group/karma 0-r2: A group for www-apps/karma-bin
@@ -379,6 +381,7 @@ acct-group/stapdev 0-r2: System group: stapdev
 acct-group/stapsys 0-r2: System group: stapsys
 acct-group/stapusr 0-r2: System group: stapusr
 acct-group/steamcmd 0-r3: A group for the SteamCMD server
+acct-group/steve 0: System group: steve
 acct-group/stubby 0-r3: Stubby program group (from net-dns/getdns)
 acct-group/stunnel 0-r3: group for stunnel
 acct-group/subsonic 0-r2: A group for media-sound/subsonic-bin
@@ -723,7 +726,7 @@ acct-user/plex 0-r3: Plex Media Server user
 acct-user/polkitd 0-r3: System user: polkitd
 acct-user/polw 0-r2: User for mail-filter/policyd-weight
 acct-user/popa3d 0-r2: User for net-mail/popa3d
-acct-user/portage 0-r3: System user: portage
+acct-user/portage 0-r3 0-r4: System user: portage
 acct-user/postfix 0-r3: user for postfix daemon
 acct-user/postfix_exporter 0-r3: user for postfix_exporter
 acct-user/postfwd 0-r2: A user for mail-filter/postfwd
@@ -815,6 +818,7 @@ acct-user/sstpc 0-r2: User for net-misc/sstp-client
 acct-user/stalwart-mail 0: System user: stalwart-mail
 acct-user/stdiscosrv 1-r1: User for the Syncthing discovery server
 acct-user/steamcmd 0-r3: A user for the SteamCMD server
+acct-user/steve 0: The user used by dev-build/steve
 acct-user/strelaysrv 1-r1: User for the Syncthing relay server
 acct-user/stubby 0-r3: Stubby program user (from net-dns/getdns)
 acct-user/stunnel 0-r3: user for stunnel
@@ -3086,7 +3090,7 @@ app-portage/pkg-testing-tools 0.2.6 0.2.7 0.2.8 9999: Packages testing tools for
 app-portage/portage-utils 0.95-r1 0.96-r1 0.96.1 0.97 9999: Small and fast Portage helper tools written in C
 app-portage/porticron 0.7.2: cron script to sync portage and send update mails to root
 app-portage/portpeek 3.2.6 3.2.8 3.2.8-r1 3.2.9: A helper program for maintaining the package.keyword and package.unmask files
-app-portage/pram 14: Tool to ease merging Pull Requests and git patches
+app-portage/pram 14 15: Tool to ease merging Pull Requests and git patches
 app-portage/prefix-toolkit 11-r1 12: Utilities for users of Gentoo Prefix
 app-portage/pycargoebuild 0.15.0: A generator for Rust/Cargo ebuilds written in Python
 app-portage/recover-broken-vdb 1.0.0-r2 9999: Check Portage's VDB for internal inconsistency on ELF metadata
@@ -17609,7 +17613,7 @@ sys-fs/fragview 0.1.1-r1 0.1.2 9999: Disk fragmentation visualizer based on FIEM
 sys-fs/fscrypt 0.3.4 0.3.6: Tool for managing Linux filesystem encryption
 sys-fs/fswatch 1.18.0 1.18.3: cross-platform file change monitor with multiple backends
 sys-fs/fuse 2.9.9-r2 3.16.2 3.17.4: An interface for filesystems implemented in userspace
-sys-fs/fuse-common 3.10.4: Common files for multiple slots of sys-fs/fuse
+sys-fs/fuse-common 3.10.4 3.10.4-r1: Common files for multiple slots of sys-fs/fuse
 sys-fs/fuse-convmvfs 0.2.6-r1: FUSE file system to convert filename charset
 sys-fs/fuse-exfat 1.4.0-r1: exFAT filesystem FUSE module
 sys-fs/fuse-overlayfs 1.14-r1 1.15: FUSE implementation for overlayfs
