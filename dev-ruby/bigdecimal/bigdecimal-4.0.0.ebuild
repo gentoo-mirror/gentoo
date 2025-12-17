@@ -17,7 +17,7 @@ HOMEPAGE="https://github.com/ruby/bigdecimal"
 SRC_URI="https://github.com/ruby/bigdecimal/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="|| ( Ruby-BSD BSD-2 )"
-SLOT="0"
+SLOT="$(ver_cut 1)"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
 IUSE="test"
 
