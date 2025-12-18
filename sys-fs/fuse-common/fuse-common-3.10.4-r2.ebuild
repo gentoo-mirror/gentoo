@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit udev
+inherit tmpfiles udev
 
 MY_P=fuse-${PV}
 DESCRIPTION="Common files for multiple slots of sys-fs/fuse"
@@ -23,7 +23,12 @@ RDEPEND="
 
 src_install() {
 	udev_newrules util/udev.rules 99-fuse.rules
-	udev_dorules "${FILESDIR}"/99-cuse.rules
+	udev_newrules - 99-cuse.rules <<-EOF
+		KERNEL=="cuse", GROUP="cuse"
+	EOF
+	newtmpfiles - static-nodes-permissions-cuse.conf <<-EOF
+		z /dev/cuse 0660 root cuse - -
+	EOF
 
 	if use kernel_linux ; then
 		newinitd "${FILESDIR}"/fuse.init fuse
@@ -33,4 +38,13 @@ src_install() {
 
 	insinto /etc
 	doins util/fuse.conf
+}
+
+pkg_postinst() {
+	tmpfiles_process static-nodes-permissions-cuse.conf
+	udev_reload
+}
+
+pkg_postrm() {
+	udev_reload
 }
