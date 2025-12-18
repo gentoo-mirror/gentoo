@@ -5,23 +5,16 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
+PYPI_VERIFY_REPO=https://github.com/ashvardanian/SimSIMD
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
-inherit distutils-r1 toolchain-funcs
+inherit distutils-r1 pypi toolchain-funcs
 
-MY_P=SimSIMD-${PV}
 DESCRIPTION="Fastest SIMD-Accelerated Vector Similarity Functions for x86 and Arm"
 HOMEPAGE="
 	https://github.com/ashvardanian/SimSIMD/
 	https://pypi.org/project/simsimd/
 "
-# no sdist, as of 4.3.1
-# https://github.com/ashvardanian/SimSIMD/issues/113
-SRC_URI="
-	https://github.com/ashvardanian/SimSIMD/archive/v${PV}.tar.gz
-		-> ${MY_P}.gh.tar.gz
-"
-S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
 SLOT="0"
