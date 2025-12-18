@@ -1477,7 +1477,7 @@ app-crypt/keybase 6.0.2 6.2.4 9999: Keybase client
 app-crypt/keylookup 2.2-r1: A tool to fetch PGP keys from keyservers
 app-crypt/keysmith 25.08.3 25.12.0: OTP client for Plasma Mobile and Desktop
 app-crypt/kstart 4.3: Modified versions of kinit for refreshing kerberos tickets automatically
-app-crypt/lego 4.28.1 4.29.0 9999: Let's Encrypt/ACME client (like certbot or acme.sh) and library written in Go
+app-crypt/lego 4.28.1 4.29.0 4.30.1 9999: Let's Encrypt/ACME client (like certbot or acme.sh) and library written in Go
 app-crypt/libb2 0.98.1-r3: C library providing BLAKE2b, BLAKE2s, BLAKE2bp, BLAKE2sp
 app-crypt/libmd 1.0.4 1.1.0: Message Digest functions from BSD systems
 app-crypt/libscrypt 1.22-r3: Shared library to implement the scrypt algorithm
@@ -3832,7 +3832,7 @@ dev-build/gtk-doc-am 1.33.2 1.34.0: Automake files from gtk-doc
 dev-build/guildmaster 0_pre20250712 9999: FIFO-like jobserver node via CUSE
 dev-build/gyp 20200512145953-r1 99999999999999: GYP (Generate Your Projects) meta-build system
 dev-build/icmake 9.03.01-r1: Hybrid between a make utility and a shell scripting language
-dev-build/just 1.43.0 1.43.1: Just a command runner (with syntax inspired by 'make')
+dev-build/just 1.43.0 1.43.1 1.45.0: Just a command runner (with syntax inspired by 'make')
 dev-build/kas 4.5-r2 4.8.2 5.1: Setup tool for bitbake based projects
 dev-build/kbuild 0.1.9998.3499-r4 0.1.9998.3592 0.1.9998.3660-r1 9999: A makefile framework for writing simple makefiles for complex tasks
 dev-build/libtool 2.5.4 2.6.0 9999: A shared library tool for developers
@@ -9444,7 +9444,7 @@ dev-python/ruamel-yaml 0.18.16 0.18.17: YAML parser/emitter that supports roundt
 dev-python/ruamel-yaml-clib 0.2.14 0.2.15: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/rustworkx 0.16.0 0.17.1: A high performance Python graph library implemented in Rust
 dev-python/s3transfer 0.14.0 0.15.0 0.16.0: An Amazon S3 Transfer Manager
-dev-python/sabctools 8.2.5 8.2.6 9.0.0 9.1.0: Module providing raw yEnc encoding/decoding for SABnzbd
+dev-python/sabctools 8.2.6 9.1.0: Module providing raw yEnc encoding/decoding for SABnzbd
 dev-python/sarge 0.1.7_p1: Wrapper for subprocess which provides command pipeline functionality
 dev-python/sarif-om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
 dev-python/schema 0.7.7 0.7.8: Simple data validation library
@@ -13098,7 +13098,7 @@ media-gfx/maim 5.8.1 5.8.1-r1: Commandline tool to take screenshots of the deskt
 media-gfx/mandelbulber 2.33: Tool to render 3D fractals
 media-gfx/mcomix 3.1.0 3.1.1 9999: GTK image viewer for comic book archives
 media-gfx/meshlab 2020.12-r3: System for processing and editing unstructured 3D triangular meshes
-media-gfx/metapixel 1.0.2-r2: a program for generating photomosaics
+media-gfx/metapixel 1.0.2-r2 1.0.2-r3: a program for generating photomosaics
 media-gfx/mkbold-mkitalic 0.11: Make BDF fonts bold and/or italic
 media-gfx/mkgallery 1.1-r1: Creates thumbnails and a HTML index file for a directory of jpg files
 media-gfx/monica 3.7-r2: Monica is a Monitor Calibration Tool
@@ -14452,7 +14452,7 @@ net-analyzer/cloudshark 1.0.4-r1: Easily upload your wireshark captures to Cloud
 net-analyzer/cnet 3.3.4: Network simulation tool
 net-analyzer/cutter 1.04: TCP/IP Connection cutting on Linux Firewalls and Routers
 net-analyzer/darkstat 3.0.721-r1 9999999: Network traffic analyzer with cute web interface
-net-analyzer/dhcp_probe 1.3.1: Discover DHCP and BootP servers on a directly-attached Ethernet network
+net-analyzer/dhcp_probe 1.3.1-r1: Discover DHCP and BootP servers on a directly-attached Ethernet network
 net-analyzer/dhcpdump 1.9: DHCP Packet Analyzer/tcpdump postprocessor
 net-analyzer/dnsenum 1.3.1: A perl script to enumerate DNS from a server
 net-analyzer/dnsmap 0.36: Scan for subdomains using bruteforcing techniques
@@ -14711,7 +14711,7 @@ net-dns/avahi 0.9_rc2-r3: System which facilitates service discovery on a local 
 net-dns/bind 9.18.38 9.18.39 9.18.42 9.20.13 9.20.16: Berkeley Internet Name Domain - Name Server
 net-dns/bind-tools 9.18.0-r1: bind tools: dig, nslookup, host, nsupdate, dnssec-keygen
 net-dns/c-ares 1.34.5 1.34.6: C library that resolves names asynchronously
-net-dns/coredns 1.12.1 1.12.2 9999: CoreDNS is a DNS server that chains plugins
+net-dns/coredns 1.12.1 1.12.2 1.13.2 9999: CoreDNS is a DNS server that chains plugins
 net-dns/ddclient 4.0.0: Perl client used to update dynamic DNS entries
 net-dns/djbdns 1.05-r40 1.05-r42: Collection of DNS client/server software
 net-dns/dnrd 2.20.3-r3: A caching DNS proxy server
@@ -14825,7 +14825,7 @@ net-im/cpop 0.0.4-r2: GTK+ network popup message client. Compatible with the jpo
 net-im/dino 0.5.0 0.5.1 9999: Modern Jabber/XMPP Client using GTK+/Vala
 net-im/discord 0.0.116-r1 0.0.117-r1 0.0.118-r1 0.0.119-r1: All-in-one voice and text chat for gamers
 net-im/ejabberd 24.02-r1 24.07 24.10 25.04 25.10: Robust, scalable and extensible XMPP server
-net-im/element-desktop-bin 1.12.4: A glossy Matrix collaboration client for desktop (binary package)
+net-im/element-desktop-bin 1.12.7: A glossy Matrix collaboration client for desktop (binary package)
 net-im/err 6.1.9: Multiprotocol chatbot designed to be easily deployable and maintainable
 net-im/fractal 12.1-r1: Matrix messaging app for GNOME written in Rust
 net-im/gajim 2.2.0 2.4.0 2.4.1: GTK XMPP Client
@@ -14880,7 +14880,7 @@ net-irc/irssi 1.4.5 1.4.5-r1 9999: A modular textUI IRC client with IPv6 support
 net-irc/irssi-xmpp 0.54-r1: Irssi plugin providing Jabber/XMPP support
 net-irc/irssistats 0.75-r3: Generates HTML IRC stats based on irssi logs
 net-irc/konversation 25.08.3 25.12.0: User friendly IRC Client
-net-irc/kvirc 5.2.6-r2 5.2.8 9999: Advanced IRC Client
+net-irc/kvirc 5.2.8 5.2.10 9999: Advanced IRC Client
 net-irc/limnoria 20241222-r1 99999999: Python based extensible IRC infobot and channel bot
 net-irc/limnoria-plugins-chantracker 1.6_p20221109: supybot ban management and channel flood/spam/repeat protections plugin
 net-irc/limnoria-plugins-jlu5 20220201_p20221108: A collection of plugins for the Limnoria IRC bot
@@ -15131,7 +15131,7 @@ net-mail/nmzmail 1.1-r2: Fast mail searching for mutt using namazu
 net-mail/notmuch 0.39: Thread-based e-mail indexer, supporting quick search and tagging
 net-mail/onionrouter 0.6.2-r1 9999: .onion discovery via SRV DNS lookups for use with postfix
 net-mail/pflogsumm 1.1.5-r1 1.1.5-r2: Pflogsumm is a log analyzer for Postfix logs
-net-mail/pfqueue 0.5.6-r2: pfqueue is an ncurses console-based tool for managing Postfix queued messages
+net-mail/pfqueue 0.5.6-r2 0.5.6-r3: pfqueue is an ncurses console-based tool for managing Postfix queued messages
 net-mail/pop-before-smtp 1.42: Simple daemon to control email relay based on successful POP or IMAP logins
 net-mail/pop2imap 1.21: Synchronize mailboxes between a pop and an imap servers
 net-mail/popa3d 1.0.2-r2: A security oriented POP3 server
@@ -15517,7 +15517,7 @@ net-news/yydecode 0.2.10-r3 0.2.10-r4: A decoder for yENC format, popular on Use
 net-nntp/leafnode 1.11.11-r2 1.12.0-r1: A USENET software package designed for small sites
 net-nntp/newspost 2.1.1-r3: A usenet binary autoposter for unix
 net-nntp/nzbget 25.0 25.3 25.4: A command-line based binary newsgrabber supporting .nzb files
-net-nntp/sabnzbd 4.5.2 4.5.3-r1 4.5.5: Binary newsgrabber with web-interface
+net-nntp/sabnzbd 4.5.3-r1 4.5.5: Binary newsgrabber with web-interface
 net-nntp/slrn 1.0.3-r2: A s-lang based newsreader
 net-nntp/suck 4.3.5: Grab news from a remote NNTP server and feed them to another
 net-nntp/tin 2.6.4: A threaded NNTP and spool based UseNet newsreader
@@ -18240,7 +18240,7 @@ www-plugins/passff-host 1.2.4: Host app for the PassFF WebExtension
 www-plugins/pdfjs 4.5.136 4.9.155 4.10.38 5.0.375: A PDF reader in JavaScript
 www-servers/adsf 1.5.2-r1: A Dead Simple Fileserver is a static file server that can launch in a directory
 www-servers/apache 2.4.65 2.4.66: The Apache Web Server
-www-servers/caddy 2.8.4 2.9.0 2.9.1 2.10.0 2.10.2 9999: Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS
+www-servers/caddy 2.9.1 2.10.2 2.10.2-r1 9999: Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS
 www-servers/civetweb 1.16: Embedded C/C++ web server
 www-servers/fnord 1.11-r3: Yet another small httpd
 www-servers/gatling 0.16-r6: High performance web server
