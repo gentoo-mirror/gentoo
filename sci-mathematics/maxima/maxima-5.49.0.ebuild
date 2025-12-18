@@ -20,7 +20,7 @@ LICENSE="GPL-2 GPL-2+ LLGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~riscv ~x86 ~amd64-linux ~x86-linux"
 
-IUSE="clisp clozurecl clozurecl64 cmucl ecl emacs gcl gui nls +sbcl vtk X test"
+IUSE="clisp clozurecl clozurecl64 cmucl ecl emacs gcl gmp gui nls +sbcl vtk X test"
 RESTRICT="test" # bug 838202
 
 # Languages
@@ -111,6 +111,8 @@ PATCHES=(
 
 src_prepare() {
 	default
+
+	use sbcl && use gmp && eapply "${FILESDIR}/sb-gmp-0.patch"
 
 	# bug #343331
 	rm share/Makefile.in || die
