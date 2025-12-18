@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="sqlite,xml(+)"
 DISTUTILS_USE_PEP517=setuptools
 
@@ -24,21 +24,24 @@ IUSE="voice"
 # For introspection dependencies consult upstream documentation and any gi.require_version in the code
 
 # USE="voice" handles all video and audio.
-# https://dev.gajim.org/gajim/gajim#for-video-and-audio-calls
-# https://dev.gajim.org/gajim/gajim#for-voice-messages
+# https://dev.gajim.org/gajim/gajim#rich-previews-images-and-voice-messages
 
 # xdg-desktop-portal: apparent runtime requirement
 # https://gitweb.gentoo.org/repo/gentoo.git/commit/?id=a2963fc1a23747bbb60a3785bf06dd566e6d8be9
 
+# httpx[http2,socks]: h2, socksio
+# gst-plugins-rs (uses gtk4paintablesink): media-plugins/gst-plugin-gtk4
 RDEPEND="
 	>=dev-python/cryptography-3.4.8[${PYTHON_USEDEP}]
 	dev-python/css-parser[${PYTHON_USEDEP}]
 	>=dev-python/emoji-2.6.0[${PYTHON_USEDEP}]
+	dev-python/h2[${PYTHON_USEDEP}]
+	dev-python/httpx[${PYTHON_USEDEP}]
 	dev-python/keyring[${PYTHON_USEDEP}]
-	<dev-python/nbxmpp-7.0.0[${PYTHON_USEDEP}]
-	>=dev-python/nbxmpp-6.3.0[${PYTHON_USEDEP}]
+	<dev-python/nbxmpp-8.0.0[${PYTHON_USEDEP}]
+	>=dev-python/nbxmpp-7.0.0[${PYTHON_USEDEP}]
 	<dev-python/omemo-dr-2.0.0[${PYTHON_USEDEP}]
-	>=dev-python/omemo-dr-1.0.0[${PYTHON_USEDEP}]
+	>=dev-python/omemo-dr-1.1.0[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	>=dev-python/pillow-9.1.0[${PYTHON_USEDEP}]
 	>=dev-python/precis-i18n-1.0.0[${PYTHON_USEDEP}]
@@ -46,6 +49,8 @@ RDEPEND="
 	>=dev-python/pygobject-3.52.0:3[cairo,${PYTHON_USEDEP}]
 	>=dev-python/qrcode-7.3.1[${PYTHON_USEDEP}]
 	>=dev-python/sqlalchemy-2.0.0[${PYTHON_USEDEP}]
+	dev-python/socksio[${PYTHON_USEDEP}]
+	dev-python/truststore[${PYTHON_USEDEP}]
 
 	>=dev-libs/glib-2.80[introspection(+)]
 	>=gui-libs/gtk-4.17.5:4[introspection]
@@ -58,10 +63,13 @@ RDEPEND="
 
 	voice? (
 		media-libs/gstreamer:1.0[introspection]
+		media-libs/gst-plugins-bad
 		media-libs/gst-plugins-base
+		media-libs/gst-plugins-good
 		media-libs/gst-plugins-ugly
 		media-plugins/gst-plugins-gtk
 		media-plugins/gst-plugins-libav
+		media-plugins/gst-plugin-gtk4
 		net-libs/farstream:0.2[introspection]
 	)
 
