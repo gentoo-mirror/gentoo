@@ -1,4 +1,4 @@
-BDEPEND=test? ( >=sys-libs/libselinux-3.8.1:=[python] >=sys-libs/libsemanage-3.8.1:=[python(+)] >=sys-libs/libsepol-3.8.1:=[static-libs(+)] >=app-admin/setools-4.2.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[xml(+)] ) >=sys-apps/secilc-3.8.1 )
+BDEPEND=test? ( >=sys-libs/libselinux-3.8.1:=[python] >=sys-libs/libsemanage-3.8.1:=[python(+)] >=sys-libs/libsepol-3.8.1:=[static-libs(+)] >=app-admin/setools-4.2.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[xml(+)] ) sec-policy/selinux-base >=sys-apps/secilc-3.8.1 )
 DEFINED_PHASES=compile install prepare test
 DEPEND=>=sys-libs/libselinux-3.8.1:=[python] >=sys-libs/libsemanage-3.8.1:=[python(+)] >=sys-libs/libsepol-3.8.1:=[static-libs(+)] >=app-admin/setools-4.2.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[xml(+)] )
 DESCRIPTION=SELinux core utilities
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.8.1/selinux-python-3.8.1.tar.gz
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38
-_md5_=3462dcc84b6daf13767d7f9cb865a7d9
+_md5_=1cc11f968f00ab668330906705eb64d1
