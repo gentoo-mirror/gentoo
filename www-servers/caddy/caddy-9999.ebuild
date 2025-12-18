@@ -14,7 +14,8 @@ if [[ "${PV}" == 9999* ]]; then
 else
 	SRC_URI="
 		https://github.com/caddyserver/caddy/archive/v${PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
+		https://github.com/rahilarious/gentoo-distfiles/releases/download/${PF}/deps.tar.xz -> ${PF}-deps.tar.xz
+		https://github.com/rahilarious/gentoo-distfiles/releases/download/${PF}/go-mod-sum.patch -> ${PF}-go-mod-sum.patch
 		https://github.com/caddyserver/dist/archive/refs/tags/v${PV}.tar.gz -> ${P}-docs.tar.gz
 "
 	KEYWORDS="~amd64 ~arm64 ~loong ~riscv"
@@ -26,7 +27,7 @@ LICENSE="Apache-2.0"
 LICENSE+=" BSD ECL-2.0 MIT CC0-1.0"
 SLOT="0"
 
-IUSE='dynamicdns dns-azure dns-cloudflare dns-cloudns dns-digitalocean dns-duckdns dns-googleclouddns dns-hetzner dns-mailinabox dns-netcup dns-ovh dns-porkbun dns-rfc2136 dns-vultr events-handlers-exec security webdav'
+IUSE='dynamicdns dns-alidns dns-azure dns-cloudflare dns-cloudns dns-digitalocean dns-duckdns dns-dynv6 dns-gandi dns-godaddy dns-googleclouddns dns-he dns-hetzner dns-huaweicloud dns-linode dns-mailinabox dns-namecheap dns-netcup dns-netlify dns-ovh dns-porkbun dns-powerdns dns-rfc2136 dns-route53 dns-vultr events-handlers-exec security webdav'
 RESTRICT="test"
 
 RDEPEND="
@@ -54,19 +55,29 @@ src_unpack() {
 
 	# alphabetically sorted popular DNS providers plugins
 	# more info on https://caddyserver.com/docs/modules/
-	# providers not working with 2.10: dnsimple, gandi, namecheap, powerdns, route53
+	use dns-alidns && { MOOMODULES[alidns]="github.com/caddy-dns/alidns" || die ; }
 	use dns-azure && { MOOMODULES[azure]="github.com/caddy-dns/azure" || die ; }
 	use dns-cloudflare && { MOOMODULES[cloudflare]="github.com/caddy-dns/cloudflare" || die ; }
 	use dns-cloudns && { MOOMODULES[cloudns]="github.com/caddy-dns/cloudns" || die ; }
 	use dns-digitalocean && { MOOMODULES[do]="github.com/caddy-dns/digitalocean" || die ; }
 	use dns-duckdns && { MOOMODULES[duck]="github.com/caddy-dns/duckdns" || die ; }
+	use dns-dynv6 && { MOOMODULES[dynv6]="github.com/caddy-dns/dynv6" || die ; }
+	use dns-gandi && { MOOMODULES[gandi]="github.com/caddy-dns/gandi" || die ; }
+	use dns-godaddy && { MOOMODULES[godaddy]="github.com/caddy-dns/godaddy" || die ; }
 	use dns-googleclouddns && { MOOMODULES[gcpdns]="github.com/caddy-dns/googleclouddns" || die ; }
+	use dns-he && { MOOMODULES[he]="github.com/caddy-dns/he" || die ; }
 	use dns-hetzner && { MOOMODULES[hetzner]="github.com/caddy-dns/hetzner" || die ; }
+	use dns-huaweicloud && { MOOMODULES[huaweicloud]="github.com/caddy-dns/huaweicloud" || die ; }
+	use dns-linode && { MOOMODULES[linode]="github.com/caddy-dns/linode" || die ; }
 	use dns-mailinabox && { MOOMODULES[miabox]="github.com/caddy-dns/mailinabox" || die ; }
+	use dns-namecheap && { MOOMODULES[namecheap]="github.com/caddy-dns/namecheap" || die ; }
 	use dns-netcup && { MOOMODULES[netcup]="github.com/caddy-dns/netcup" || die ; }
+	use dns-netlify && { MOOMODULES[netlify]="github.com/caddy-dns/netlify" || die ; }
 	use dns-ovh && { MOOMODULES[ovh]="github.com/caddy-dns/ovh" || die ; }
 	use dns-porkbun && { MOOMODULES[porkbun]="github.com/caddy-dns/porkbun" || die ; }
+	use dns-powerdns && { MOOMODULES[powerdns]="github.com/caddy-dns/powerdns" || die ; }
 	use dns-rfc2136 && { MOOMODULES[rfc]="github.com/caddy-dns/rfc2136" || die ; }
+	use dns-route53 && { MOOMODULES[route53]="github.com/caddy-dns/route53" || die ; }
 	use dns-vultr && { MOOMODULES[vultr]="github.com/caddy-dns/vultr" || die ; }
 
 	export MY_MODULES="${MOOMODULES[@]}" || die
@@ -99,8 +110,7 @@ src_prepare() {
 	sed -i -e "s|User=caddy|User=http|g;s|Group=caddy|Group=http|g;" ../dist-*/init/*service || die
 
 	if [[ "${PV}" != 9999* ]]; then
-		ln -sv ../vendor ./ || die
-		eapply ../go-mod-sum.patch
+		eapply "${DISTDIR}/${PF}"-go-mod-sum.patch
 
 		for moo in ${MY_MODULES}; do
 			add_custom_module "${moo}"
