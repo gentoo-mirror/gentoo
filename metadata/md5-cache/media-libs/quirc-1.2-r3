@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/libsdl:= opencv? ( media-libs/opencv:= ) sdl? ( media-libs/sdl-gfx:= )
+DEPEND=opencv? ( media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/opencv:= ) sdl? ( media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/libsdl:= media-libs/sdl-gfx:= ) tools? ( media-libs/libjpeg-turbo:= media-libs/libpng:= ) v4l? ( media-libs/libjpeg-turbo:= )
 DESCRIPTION=QR decoder library
 EAPI=8
 HOMEPAGE=https://github.com/dlbeer/quirc
@@ -7,8 +7,8 @@ INHERIT=flag-o-matic multilib-minimal toolchain-funcs
 IUSE=opencv sdl tools v4l abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
 KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=ISC
-RDEPEND=media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/libsdl:= opencv? ( media-libs/opencv:= ) sdl? ( media-libs/sdl-gfx:= )
+RDEPEND=opencv? ( media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/opencv:= ) sdl? ( media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/libsdl:= media-libs/sdl-gfx:= ) tools? ( media-libs/libjpeg-turbo:= media-libs/libpng:= ) v4l? ( media-libs/libjpeg-turbo:= )
 SLOT=0/1.2
 SRC_URI=https://github.com/dlbeer/quirc/archive/refs/tags/v1.2.tar.gz -> quirc-1.2.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
-_md5_=304a37bfebc85a3714a85f57801c830d
+_md5_=e77d671bff5aca77dfa2344b223a1fa2
