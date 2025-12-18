@@ -3,7 +3,7 @@
 
 EAPI=8
 
-COMMIT=930f7a675ffc656eb5207d4f63fd03a51f767390
+COMMIT=915db0f9a41b37c9bbc048e8ad8652f049b36040
 inherit cmake xdg
 
 DESCRIPTION="Arpeggiator, sequencer and MIDI LFO for ALSA"

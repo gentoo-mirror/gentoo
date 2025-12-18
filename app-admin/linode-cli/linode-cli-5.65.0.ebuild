@@ -23,6 +23,7 @@ RDEPEND="
 	>=dev-python/linode-metadata-0.3[${PYTHON_USEDEP}]
 	dev-python/openapi3[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
+	dev-python/pytimeparse[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]
