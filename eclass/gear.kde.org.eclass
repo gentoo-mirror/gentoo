@@ -63,7 +63,7 @@ elif [[ -z ${KDE_ORG_COMMIT} ]]; then
 	SRC_URI="${_KDE_SRC_URI}${KDE_ORG_TAR_PN}-${PV}.tar.xz"
 fi
 
-# list of applications ported to KF6 having to block SLOT=5
+# list of applications ported to KF6 having to block SLOT=5; TODO: drop on 2026-09-01
 if $(ver_test -gt 24.01.75); then
 	case ${PN} in
 		akonadi | \
@@ -71,7 +71,6 @@ if $(ver_test -gt 24.01.75); then
 		akonadi-contacts | \
 		akonadi-import-wizard | \
 		akonadi-mime | \
-		akonadi-notes | \
 		akonadi-search | \
 		akonadiconsole | \
 		akregator | \
@@ -173,7 +172,6 @@ if $(ver_test -gt 24.01.75); then
 		knavalbattle | \
 		knetwalk | \
 		knights | \
-		knotes | \
 		kolf | \
 		kollision | \
 		konqueror | \
@@ -252,10 +250,8 @@ fi
 if $(ver_test -gt 24.04.75); then
 	case ${PN} in
 		audex | \
-		itinerary | \
 		kio-perldoc | \
 		kolourpaint | \
-		libkcompactdisc | \
 		signon-kwallet-extension)
 			RDEPEND+=" !${CATEGORY}/${PN}:5" ;;
 		*) ;;
