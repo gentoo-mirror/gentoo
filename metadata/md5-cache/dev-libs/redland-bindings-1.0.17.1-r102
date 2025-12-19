@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://librdf.org/bindings/
 INHERIT=lua perl-module python-single-r1 autotools
 IUSE=lua perl python ruby test perl_features_debug perl_features_ithreads perl_features_quadmath lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 +python_single_target_python3_11
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ppc ppc64 ~sparc x86 ~x86-linux
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~ppc ppc64 ~sparc x86
 LICENSE=Apache-2.0 GPL-2 LGPL-2.1
 RDEPEND=dev-libs/redland lua? ( lua_targets_luajit? ( dev-lang/luajit:= ) lua_targets_lua5-1? ( dev-lang/lua:5.1 ) lua_targets_lua5-3? ( dev-lang/lua:5.3 ) lua_targets_lua5-4? ( dev-lang/lua:5.4 ) ) perl? ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:= ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) ) ruby? ( dev-lang/ruby:* dev-ruby/log4r )
 REQUIRED_USE=lua? ( || ( lua_targets_luajit lua_targets_lua5-1 lua_targets_lua5-3 lua_targets_lua5-4 ) ) python? ( ^^ ( python_single_target_python3_11 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.librdf.org/source/redland-bindings-1.0.17.1.tar.gz
 _eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	lua-utils	7c89927eda6f21c4c48136247077ab37	lua	3414f66fe14a8c3ffdb5a894097068c6	multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	perl-module	41920449ca174fe9b9b303dfcbdb37a3	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=1082c231a47663db0bedda44e6b59298
+_md5_=699076e2dc5c3eeab558fad894d7acc1

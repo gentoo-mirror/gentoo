@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://git.infradead.org/?p=mtd-utils.git;a=summary
 INHERIT=toolchain-funcs
 IUSE=+lzo +ssl test xattr +zstd
-KEYWORDS=amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=sys-apps/util-linux:= virtual/zlib:= lzo? ( dev-libs/lzo:= ) ssl? ( dev-libs/openssl:0= ) xattr? ( sys-apps/acl ) zstd? ( app-arch/zstd:= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://infraroot.at/pub/mtd/mtd-utils-2.1.6.tar.bz2
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=ca8128e746d555e34f0a51340b0b23e7
+_md5_=87c8d0c976b200f6b032325ac8a6a06d

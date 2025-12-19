@@ -4,10 +4,10 @@ DESCRIPTION=Publication-quality molecular visualization package
 EAPI=8
 HOMEPAGE=http://www.csb.yale.edu/userguides/graphics/molmol/molmol_descrip.html http://pjf.net/science/molmol.html
 INHERIT=desktop toolchain-funcs
-KEYWORDS=amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~ppc ~x86
 LICENSE=molmol
 RDEPEND=|| ( ( media-libs/mesa[X(+)] x11-libs/libGLw ) media-libs/mesa[motif(-),X(+)] ) media-libs/libjpeg-turbo:= media-libs/libpng:= media-libs/tiff:= virtual/zlib:= virtual/glu x11-libs/libXpm x11-libs/motif:0 x11-apps/xdpyinfo
 SLOT=0
 SRC_URI=ftp://ftp.mol.biol.ethz.ch/software/MOLMOL/unix-gzip/molmol-2k.2.0-src.tar.gz ftp://ftp.mol.biol.ethz.ch/software/MOLMOL/unix-gzip/molmol-2k.2.0-doc.tar.gz https://dev.gentoo.org/~soap/distfiles/molmol-patches.tbz2 https://dev.gentoo.org/~pacho/molmol/molmol_256.png
 _eclasses_=desktop	7b6f6e9d65093966fbc8475399c5dd4e	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=a185abb00bc51b31c1e0438665f46cac
+_md5_=9471f0c4b4565bf1c41f2f5930254e41

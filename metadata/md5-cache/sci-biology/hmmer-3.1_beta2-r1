@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://hmmer.org/
 INHERIT=dot-a toolchain-funcs
 IUSE=cpu_flags_ppc_altivec cpu_flags_x86_sse gsl mpi test
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=mpi? ( virtual/mpi ) gsl? ( sci-libs/gsl:= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a
-_md5_=9b69971ba5fd05e1017b38cdc71c677b
+_md5_=ddd6b25a6f9ccbac7521bbe5a525a7c1

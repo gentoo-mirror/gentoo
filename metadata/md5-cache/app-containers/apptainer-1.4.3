@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://apptainer.org/
 INHERIT=eapi9-ver linux-info toolchain-funcs
 IUSE=+network rootless +seccomp suid systemd
-KEYWORDS=amd64 ~riscv ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~riscv ~x86
 LICENSE=BSD
 RDEPEND=app-crypt/gpgme >=dev-lang/go-1.23.6 dev-libs/openssl sys-apps/util-linux sys-fs/cryptsetup sys-fs/squashfs-tools rootless? ( sys-apps/shadow:= ) seccomp? ( sys-libs/libseccomp ) !suid? ( sys-fs/e2fsprogs[fuse] sys-fs/squashfuse )
 SLOT=0
 SRC_URI=https://github.com/apptainer/apptainer/releases/download/v1.4.3/apptainer-1.4.3.tar.gz
 _eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	linux-info	efd923656513c879204fec6638eadee5
-_md5_=42acc7ba397cafd3678f83ee65c50faa
+_md5_=0db02b049b330351b7caa38b80bbbaa1

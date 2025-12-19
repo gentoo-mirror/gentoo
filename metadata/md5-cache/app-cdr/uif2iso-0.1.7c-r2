@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://aluigi.altervista.org/mytoolz.htm#uif2iso
 INHERIT=toolchain-funcs
 IUSE=test
-KEYWORDS=amd64 x86 ~amd64-linux ~x86-linux ~x64-macos
+KEYWORDS=amd64 x86 ~x64-macos
 LICENSE=GPL-2+
 RDEPEND=virtual/zlib:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gentoo/uif2iso-0.1.7c.zip test? ( https://yegortimoshenko.s3.amazonaws.com/uif2iso-test.iso https://yegortimoshenko.s3.amazonaws.com/uif2iso-test.uif )
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=8e12b18b0c19ce48c7dd322eb43fd5dc
+_md5_=5f2555fe0ec7f1949ea2cac151370984

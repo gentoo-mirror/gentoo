@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://gretl.sourceforge.net/
 INHERIT=elisp-common toolchain-funcs xdg-utils
 IUSE=cpu_flags_x86_avx emacs extras gnome gtk mpi nls odbc openmp python readline cpu_flags_x86_sse2 R
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/glib:2= >=dev-libs/gmp-4.0.1:0= dev-libs/json-glib:0= dev-libs/libxml2:2= >=dev-libs/mpfr-2.2.0:0= net-misc/curl:0= sci-libs/fftw:3.0= sci-visualization/gnuplot virtual/lapack virtual/latex-base emacs? ( >=app-editors/emacs-23.1:* ) gnome? ( >=gnome-extra/libgsf-1.14.47[gtk?] ) gtk? ( media-libs/gd:2=[png] >=sci-visualization/gnuplot-5.0[cairo] x11-libs/gtk+:3= x11-libs/gtksourceview:3.0= ) mpi? ( virtual/mpi ) odbc? ( dev-db/unixODBC:0= ) R? ( dev-lang/R:0= ) readline? ( sys-libs/readline:0= ) python? ( dev-python/numpy )
 REQUIRED_USE=emacs? ( gtk )
 SLOT=0/40
 SRC_URI=https://downloads.sourceforge.net/project/gretl/gretl/2021d/gretl-2021d.tar.xz
 _eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=023b894272f5703e2dd412c845dcada5
+_md5_=5c9396ca012b2476b27a2bc547da13fd

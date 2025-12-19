@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/rails/sprockets-rails
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 test test
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/actionpack-6.1:*[ruby_targets_ruby32(-)] >=dev-ruby/activesupport-6.1:*[ruby_targets_ruby32(-)] >=dev-ruby/sprockets-3.0.0:*[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/actionpack-6.1:*[ruby_targets_ruby33(-)] >=dev-ruby/activesupport-6.1:*[ruby_targets_ruby33(-)] >=dev-ruby/sprockets-3.0.0:*[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( >=dev-ruby/actionpack-6.1:*[ruby_targets_ruby34(-)] >=dev-ruby/activesupport-6.1:*[ruby_targets_ruby34(-)] >=dev-ruby/sprockets-3.0.0:*[ruby_targets_ruby34(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=3
 SRC_URI=https://github.com/rails/sprockets-rails/archive/v3.5.2.tar.gz -> sprockets-rails-3.5.2.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	multilib	a199af442898963433d6f038a88cce9c	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	ruby-fakegem	bc37b1e2fa23e795fae856dd70a23846
-_md5_=9bddcb79659874ca20bf74b02c2a3ae2
+_md5_=12c4f68955c09030be91e65ff8052e32

@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://openargus.org/
 INHERIT=autotools flag-o-matic toolchain-funcs
 IUSE=debug sasl tcpd
-KEYWORDS=amd64 ppc x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ppc x86
 LICENSE=GPL-3
 RDEPEND=acct-group/argus acct-user/argus net-libs/libnsl:= net-libs/libpcap net-libs/libtirpc virtual/zlib:= sasl? ( dev-libs/cyrus-sasl ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 )
 SLOT=0
 SRC_URI=https://www.qosient.com/argus/dev/argus-3.0.8.3.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=381375c29484c6b3ddc0066b35e3ae9d
+_md5_=b3ad589ef90ca7812f37ec1476536e1f

@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://nco.sourceforge.net/
 INHERIT=toolchain-funcs
 IUSE=dap gsl hdf5 ncap2 openmp test udunits
-KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=>=sci-libs/netcdf-4:=[dap=,hdf5?,tools(+)] gsl? ( sci-libs/gsl:= ) ncap2? ( dev-cpp/antlr-cpp:2= ) udunits? ( >=sci-libs/udunits-2 )
 RESTRICT=!test? ( test )
 SLOT=0/5.1.3
 SRC_URI=http://nco.sf.net/src/nco-5.1.3.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=593a2f058656a2634e4ee2549ed2d73b
+_md5_=45b2c75d5147a78a8d3acb018c087460

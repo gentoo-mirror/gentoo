@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.scrollz.info/
 INHERIT=flag-o-matic toolchain-funcs
 IUSE=gmp gnutls ipv6 ssl
-KEYWORDS=amd64 ppc ~riscv x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ppc ~riscv x86
 LICENSE=BSD
 RDEPEND=sys-libs/ncurses:= virtual/libcrypt:= gmp? ( dev-libs/gmp:= ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:= ) )
 REQUIRED_USE=gnutls? ( ssl )
 SLOT=0
 SRC_URI=https://www.scrollz.info/download/ScrollZ-2.3.1.tar.gz https://dev.gentoo.org/~sam/distfiles/net-irc/scrollz/scrollz-2.3.1-patches.tar.xz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=474751125ceb7eedafca57872354a9bb
+_md5_=d28fd8b033c5e7239f54c7471bdc9808

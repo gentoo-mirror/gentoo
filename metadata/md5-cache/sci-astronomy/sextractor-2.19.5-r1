@@ -5,7 +5,7 @@ EAPI=7
 HOMEPAGE=http://www.astromatic.net/software/sextractor
 INHERIT=autotools
 IUSE=doc modelfit test threads
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=!games-misc/sex modelfit? ( sci-libs/atlas[lapack,threads=] sci-libs/fftw:3.0= )
 REQUIRED_USE=test? ( modelfit )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=http://www.astromatic.net/download/sextractor/sextractor-2.19.5.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=7e61435c66745bc26956a37e7a267d4e
+_md5_=68f089e82edc3c408cea82c937595fa7

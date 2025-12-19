@@ -2,10 +2,10 @@ DEFINED_PHASES=compile configure install
 DESCRIPTION=NVIDIA Accelerated Deep Learning on GPU library
 EAPI=8
 HOMEPAGE=https://developer.nvidia.com/cudnn
-KEYWORDS=~amd64 ~arm64 ~amd64-linux ~arm64-linux
+KEYWORDS=~amd64 ~arm64
 LICENSE=NVIDIA-cuDNN
 RDEPEND=>=dev-util/nvidia-cuda-toolkit-12
 RESTRICT=bindist test
 SLOT=0/8.9.7
 SRC_URI=amd64? ( https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/linux-x86_64/cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz ) arm64? ( https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/linux-sbsa/cudnn-linux-sbsa-8.9.7.29_cuda12-archive.tar.xz )
-_md5_=d3bdfe5e7f35414d2dd8828482190512
+_md5_=e31bf3eb221db95925dfcdffb5f4081f

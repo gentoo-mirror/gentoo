@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/vasi/squashfuse
 INHERIT=autotools
 IUSE=lz4 lzma lzo static-libs +zlib zstd
-KEYWORDS=amd64 ~riscv ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~riscv ~x86
 LICENSE=BSD-2
 PROPERTIES=test_privileged
 RDEPEND=sys-fs/fuse:= || ( >=sys-fs/fuse-3.2:3 >=sys-fs/fuse-2.8.6:0 ) lzma? ( >=app-arch/xz-utils-5.0.4:= ) zlib? ( >=virtual/zlib-1.2.5-r2:= ) lzo? ( >=dev-libs/lzo-2.06:= ) lz4? ( >=app-arch/lz4-0_p106:= ) zstd? ( app-arch/zstd:= )
@@ -15,4 +15,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/vasi/squashfuse/archive/refs/tags/0.6.0.tar.gz -> squashfuse-0.6.0.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=eb36dce799949deb881daa9424f67f63
+_md5_=bb82e4b7bfcda51b44588bb64769a29d

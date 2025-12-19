@@ -6,10 +6,10 @@ EAPI=7
 HOMEPAGE=http://www.bmsc.washington.edu/raster3d/raster3d.html
 INHERIT=fortran-2 flag-o-matic prefix toolchain-funcs
 IUSE=gd tiff
-KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=Artistic-2
 RDEPEND=gd? ( media-libs/gd[jpeg,png] ) tiff? ( media-libs/tiff:= ) virtual/fortran
 SLOT=0
 SRC_URI=http://www.bmsc.washington.edu/raster3d/Raster3D_3.0-6.tar.gz -> Raster3D_3.0-6.tar
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	fortran-2	ae6d43513003405bd4a48698fc20370a	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
-_md5_=c88cc114475433720a159ba8343b0b8f
+_md5_=36280027a89de05541b31730c4cb1be8

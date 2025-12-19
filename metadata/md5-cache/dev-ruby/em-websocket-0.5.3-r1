@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://rubygems.org/gems/em-websocket
 INHERIT=ruby-fakegem
 IUSE=test ruby_targets_ruby32 doc test test
-KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~x86 ~x64-macos ~x64-solaris
 LICENSE=MIT
 RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/eventmachine-0.12.9[ruby_targets_ruby32(-)] dev-ruby/http_parser_rb:0[ruby_targets_ruby32(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
 REQUIRED_USE=|| ( ruby_targets_ruby32 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/igrigorik/em-websocket/archive/v0.5.3.tar.gz -> em-websocket-0.5.3.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	multilib	a199af442898963433d6f038a88cce9c	ruby-utils	cb2cdbbce7fae7a6b2b1021219b0680d	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	ruby-fakegem	bc37b1e2fa23e795fae856dd70a23846
-_md5_=840ca05e44b068bfd1ffcd2b97599bdc
+_md5_=3864a6e84765c2bffd16be930ba310c9

@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.deepspace6.net/projects/ipv6calc.html
 INHERIT=autotools flag-o-matic eapi9-ver optfeature toolchain-funcs
 IUSE=apache geoip +openssl test
-KEYWORDS=~alpha amd64 ~hppa ppc ~ppc64 ~sparc x86 ~amd64-linux ~x86-linux
+KEYWORDS=~alpha amd64 ~hppa ppc ~ppc64 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=apache? ( www-servers/apache ) geoip? ( dev-libs/geoip dev-libs/libmaxminddb:= ) openssl? ( >=dev-libs/openssl-3.0.0:= ) !openssl? ( app-crypt/libmd )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pbiering/ipv6calc/archive/4.4.0.tar.gz -> ipv6calc-4.4.0.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	optfeature	538bce96e5589935b57e178e8635f301
-_md5_=9402220fc925463a990910c3950acb74
+_md5_=33a6cd6dff18a2faf47688af901feae0

@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.atnf.csiro.au/people/mcalabre/WCS/
 INHERIT=flag-o-matic fortran-2
 IUSE=doc fortran fits pgplot static-libs +tools
-KEYWORDS=amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~x86
 LICENSE=LGPL-3
 RDEPEND=fits? ( !sci-astronomy/montage sci-libs/cfitsio:0= ) pgplot? ( sci-libs/pgplot:0= ) fortran? ( virtual/fortran )
 SLOT=0/8
 SRC_URI=ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-8.3.tar.bz2
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	fortran-2	ae6d43513003405bd4a48698fc20370a
-_md5_=46e1a9d916114b262a5c2d8f98541630
+_md5_=68905f5b2e7bbdf27cf59b39ebde9776

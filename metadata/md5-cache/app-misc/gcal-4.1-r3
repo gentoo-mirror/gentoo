@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.gnu.org/software/gcal/
 INHERIT=autotools flag-o-matic toolchain-funcs
 IUSE=ncurses nls unicode
-KEYWORDS=amd64 ~arm ppc x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm ppc x86
 LICENSE=GPL-3+
 RDEPEND=nls? ( virtual/libintl ) unicode? ( dev-libs/libunistring:= )
 SLOT=0
 SRC_URI=mirror://gnu/gcal/gcal-4.1.tar.xz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=2249c8680bc0042acb4d8f6bf4f242b3
+_md5_=457e0e8b9adf6b62e53ff8e639a4449a

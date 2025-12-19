@@ -4,10 +4,10 @@ DESCRIPTION=NetBSD FTP client with several advanced features
 EAPI=8
 HOMEPAGE=ftp://ftp.netbsd.org/pub/NetBSD/misc/tnftp/
 IUSE=ipv6 socks5 ssl
-KEYWORDS=amd64 ~arm64 ppc x86 ~amd64-linux ~x86-linux
+KEYWORDS=amd64 ~arm64 ppc x86
 LICENSE=BSD-4 BSD ISC
 RDEPEND=>=sys-libs/ncurses-5.1 dev-libs/libedit socks5? ( net-proxy/dante ) ssl? ( dev-libs/openssl:= )
 REQUIRED_USE=socks5? ( !ipv6 )
 SLOT=0
 SRC_URI=ftp://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20210827.tar.gz
-_md5_=5af00d51c69ce80d80944dde5b1b4a82
+_md5_=b605abad25c71a3caddf9f33cf3a49db

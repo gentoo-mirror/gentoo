@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://ccrma.stanford.edu/software/snd/
 INHERIT=autotools flag-o-matic
 IUSE=alsa doc fftw gmp gsl gui jack ladspa notcurses opengl oss portaudio pulseaudio readline ruby +s7
-KEYWORDS=~amd64 ~ppc ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=Snd 0BSD BSD-2 HPND GPL-2+ LGPL-2.1+ LGPL-3+
 RDEPEND=alsa? ( media-libs/alsa-lib ) fftw? ( sci-libs/fftw:3.0= ) gmp? ( dev-libs/gmp:= dev-libs/mpc dev-libs/mpfr:= ) gsl? ( sci-libs/gsl:= ) gui? ( x11-libs/motif:0 ) jack? ( virtual/jack ) ladspa? ( media-libs/ladspa-sdk ) notcurses? ( dev-cpp/notcurses ) opengl? ( virtual/opengl ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) readline? ( sys-libs/readline:= ) ruby? ( dev-lang/ruby:* )
 REQUIRED_USE=?? ( portaudio pulseaudio ) ?? ( ruby s7 )
 SLOT=0
 SRC_URI=https://ccrma.stanford.edu/software/snd/snd-25.6.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
-_md5_=da842dec09b79c0d3af8bbcff9580861
+_md5_=bce2467e709d471d910138fb50e1b351

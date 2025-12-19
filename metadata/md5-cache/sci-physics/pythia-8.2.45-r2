@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://pythia.org/
 INHERIT=toolchain-funcs
 IUSE=doc examples fastjet +hepmc lhapdf root test zlib
-KEYWORDS=~amd64 ~x86 ~amd64-linux ~x86-linux
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=fastjet? ( sci-physics/fastjet ) hepmc? ( sci-physics/hepmc:2= ) lhapdf? ( sci-physics/lhapdf:= ) zlib? ( virtual/zlib:= )
 RESTRICT=!test? ( test )
 SLOT=8
 SRC_URI=https://pythia.org/download/pythia82/pythia8245.tgz test? ( lhapdf? ( https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/CT10.tar.gz https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/MRST2007lomod.tar.gz https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/NNPDF23_nlo_as_0119_qed_mc.tar.gz https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/NNPDF23_nnlo_as_0119_qed_mc.tar.gz https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/cteq66.tar.gz https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/cteq6l1.tar.gz https://www.hepforge.org/archive/lhapdf/pdfsets/6.1/unvalidated/MRST2004qed.tar.gz ) )
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db
-_md5_=57df0876c55f4c62ae3c500ef6dd8315
+_md5_=c63733658ca172d26c95a048f823e2ef
