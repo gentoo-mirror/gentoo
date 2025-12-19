@@ -22,7 +22,7 @@ SLOT="1"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux ~x64-macos ~x64-solaris"
 IUSE="test"
 
-ruby_add_rdepend ">=dev-ruby/minitest-5.20.0:* <dev-ruby/minitest-5.26.0:*"
+ruby_add_rdepend ">=dev-ruby/minitest-5.20.0:* <dev-ruby/minitest-5.28.0:*"
 
 ruby_add_bdepend "test? ( dev-ruby/bundler >=dev-ruby/minitest-5.21.0 )"
 
