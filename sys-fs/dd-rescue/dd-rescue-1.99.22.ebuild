@@ -39,6 +39,11 @@ BDEPEND="
 	)
 "
 
+PATCHES=(
+	# see https://sourceforge.net/p/ddrescue/tickets/10/
+	"${FILESDIR}"/${PN}-1.99.22-fix_static.patch
+)
+
 src_prepare() {
 	default
 
