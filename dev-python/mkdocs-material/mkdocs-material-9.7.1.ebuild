@@ -29,7 +29,7 @@ LICENSE="MIT"
 # bundled icons
 LICENSE+=" Apache-2.0 CC0-1.0 CC-BY-4.0 MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="social"
 
 RDEPEND="
@@ -46,7 +46,7 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/regex-2022.4.24[${PYTHON_USEDEP}]
 	' 'python*')
-	>=dev-python/requests-2.26[${PYTHON_USEDEP}]
+	>=dev-python/requests-2.30[${PYTHON_USEDEP}]
 	social? (
 		>=dev-python/pillow-10.2[${PYTHON_USEDEP}]
 		>=media-gfx/cairosvg-2.5[${PYTHON_USEDEP}]
