@@ -15,7 +15,7 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 else
 	if [[ ${PV} == *_p* ]]; then
-		COMMIT="f30ca9edcf82f8010517445246f12d0e40271402"
+		COMMIT="43da6b65fa375a4c3f6bbf3a94ca231f87f50f83"
 		SRC_URI="https://github.com/metabrainz/${PN}/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		S="${WORKDIR}/${PN}-${COMMIT}"
 	else
@@ -29,17 +29,20 @@ HOMEPAGE="https://picard.musicbrainz.org"
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="discid fingerprints nls"
+IUSE="discid fingerprints markdown multimedia nls"
 
+# Plugin manager, git based(?): dev-python/pygit2[${PYTHON_USEDEP}]
 RDEPEND="
 	$(python_gen_cond_dep '
+		dev-python/charset-normalizer[${PYTHON_USEDEP}]
 		dev-python/fasteners[${PYTHON_USEDEP}]
 		dev-python/pyjwt[${PYTHON_USEDEP}]
-		dev-python/pyqt6[gui,network,qml,widgets,${PYTHON_USEDEP}]
+		dev-python/pyqt6[gui,multimedia?,network,qml,widgets,${PYTHON_USEDEP}]
 		dev-python/python-dateutil[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		media-libs/mutagen[${PYTHON_USEDEP}]
 		discid? ( dev-python/discid[${PYTHON_USEDEP}] )
+		markdown? ( dev-python/markdown[${PYTHON_USEDEP}] )
 	')
 	fingerprints? ( media-libs/chromaprint[tools] )
 "
