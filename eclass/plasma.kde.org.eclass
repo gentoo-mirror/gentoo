@@ -38,16 +38,6 @@ readonly KDE_CATV
 # For proper description see kde.org.eclass manpage.
 KDE_PV_UNRELEASED=( )
 
-# @ECLASS_VARIABLE: _PSLOT
-# @INTERNAL
-# @DESCRIPTION:
-# KDE Plasma major version mapping, implied by package version. This is being
-# used throughout the eclass as a switch between Plasma 5 and 6 packages.
-_PSLOT=6
-if $(ver_test -lt 5.27.50); then
-	_PSLOT=5
-fi
-
 inherit kde.org
 
 HOMEPAGE="https://kde.org/plasma-desktop"
@@ -56,7 +46,7 @@ HOMEPAGE="https://kde.org/plasma-desktop"
 # @INTERNAL
 # @DESCRIPTION:
 # For proper description see kde.org.eclass manpage.
-KDE_ORG_SCHEDULE_URI+="/Plasma_${_PSLOT}"
+KDE_ORG_SCHEDULE_URI+="/Plasma_6"
 
 # @ECLASS_VARIABLE: _KDE_SRC_URI
 # @INTERNAL
@@ -80,22 +70,20 @@ elif [[ -z ${KDE_ORG_COMMIT} ]]; then
 	SRC_URI="${_KDE_SRC_URI}${KDE_ORG_TAR_PN}-${PV}.tar.xz"
 fi
 
-if [[ ${_PSLOT} == 6 ]]; then
-	case ${PN} in
-		breeze | \
-		kglobalacceld | \
-		kwayland | \
-		kwayland-integration | \
-		libplasma | \
-		ocean-sound-theme | \
-		oxygen | \
-		plasma-activities | \
-		plasma-activities-stats | \
-		plasma-integration | \
-		plasma5support | \
-		print-manager) ;;
-		*) RDEPEND+=" !kde-plasma/${PN}:5" ;;
-	esac
-fi
+case ${PN} in
+	breeze | \
+	kglobalacceld | \
+	kwayland | \
+	kwayland-integration | \
+	libplasma | \
+	ocean-sound-theme | \
+	oxygen | \
+	plasma-activities | \
+	plasma-activities-stats | \
+	plasma-integration | \
+	plasma5support | \
+	print-manager) ;;
+	*) RDEPEND+=" !kde-plasma/${PN}:5" ;;
+esac
 
 fi
