@@ -1001,7 +1001,7 @@ app-admin/kio-admin 25.08.3 25.12.0: Manage files as administrator using the adm
 app-admin/kpcli 4.1: Command line interface to KeePass database files
 app-admin/kube-bench 0.6.8: Kubernetes Bench for Security runs the CIS Kubernetes Benchmark
 app-admin/kubectx 0.9.5: Fast way to switch between clusters and namespaces in kubectl
-app-admin/lib_users 0.15 0.15-r1 0.15-r2: Check for mapped libs and open files that are marked as deleted
+app-admin/lib_users 0.15-r2: Check for mapped libs and open files that are marked as deleted
 app-admin/linode-cli 5.64.0 5.65.0: Official command-line interface for interacting with the Linode API
 app-admin/lnav 0.11.2: A curses-based tool for viewing and analyzing log files
 app-admin/logcheck 1.4.3-r2 1.4.3-r5: Mails anomalies in the system logfiles to the administrator
@@ -2892,7 +2892,7 @@ app-misc/regex-markup 0.10.0-r3: A tool to color syslog files as well
 app-misc/regionset 0.2: Sets the region on DVD drives
 app-misc/remind 05.03.02 06.02.01: Ridiculously functional reminder program
 app-misc/reptyr 0.9.0 0.10.0: A utility to attach a running program to a new terminal
-app-misc/resolve-march-native 2.2.0 3.0.0-r1 4.1.0 5.0.2 5.1.0 5.1.0-r1 6.0.1: Resolve GCC flag -march=native
+app-misc/resolve-march-native 6.0.1: Resolve GCC flag -march=native
 app-misc/rioutil 1.5.4-r1: A utility for accessing various Rio media players
 app-misc/rl 0.2.7-r2: Randomize lines from text files or stdin
 app-misc/rlwrap 0.46.1 0.47.1: GNU readline wrapper
@@ -2995,7 +2995,7 @@ app-office/gnucash 5.10-r1 5.11 5.12: Personal finance manager
 app-office/gnumeric 1.12.59-r1: The GNOME Spreadsheet
 app-office/grisbi 3.0.4-r1: Grisbi is a personal accounting application for Linux
 app-office/homebank 5.9.5: Free, easy, personal accounting for everyone
-app-office/impressive 0.13.1 0.13.2: Stylish way of giving presentations with Python
+app-office/impressive 0.13.2: Stylish way of giving presentations with Python
 app-office/joplin-desktop 3.5.5 3.5.6 3.5.7: Secure note taking and to-do app with synchronization capabilities
 app-office/kmymoney 5.2.1-r2: Personal finance manager based on KDE Frameworks
 app-office/kraft 2.0_pre20250810: Quotes and invoices manager for small enterprises
@@ -3079,7 +3079,7 @@ app-portage/iwdevtools 0.13.1 9999: Small tools to aid with Gentoo development, 
 app-portage/java-ebuilder 0.5.1-r2 9999: Java team tool for semi-automatic creation of ebuilds from pom.xml
 app-portage/kuroneko 0.1.3-r1 0.1.4 0.1.5: Vulnerability checker using data scraped from Gentoo Bugzilla
 app-portage/kuroo 1.2.4 9999: Graphical Portage frontend based on KDE Frameworks
-app-portage/metagen 0.7.3-r2 0.7.3-r3 0.7.4 9999: metadata.xml generator for ebuilds
+app-portage/metagen 0.7.4 9999: metadata.xml generator for ebuilds
 app-portage/mgorny-dev-scripts 63 64 65 66: Handy scripts for ebuild development and more
 app-portage/mirrorselect 2.5.0 9999: Tool to help select distfiles mirrors for Gentoo
 app-portage/nattka 0.4.2: A New Arch Tester Toolkit -- open-source stable-bot replacement
@@ -3425,7 +3425,7 @@ app-text/vilistextum 2.8.0.20200411: HTML to ASCII converter programmed to handl
 app-text/wdiff 1.2.2-r2: Create a diff disregarding formatting
 app-text/webgen 1.7.3: A template-based static website generator
 app-text/wgetpaste 2.33-r3 2.33-r5 2.34: Command-line interface to various pastebins
-app-text/wiki2beamer 0.10.0-r2 0.10.0-r3 0.10.0-r4: Tool to produce LaTeX Beamer code from wiki-like input
+app-text/wiki2beamer 0.10.0-r4: Tool to produce LaTeX Beamer code from wiki-like input
 app-text/writerperfect 0.9.6: Various formats to Open document format converter
 app-text/wscr 1.2-r2: A Lightweight and Fast Anagram Solver
 app-text/wv 1.2.9-r5: Tool for conversion of MSWord doc and rtf files to something readable
@@ -3816,7 +3816,7 @@ dev-build/autoconf-dickey 2.52_p20230114 2.52_p20231210 2.52_p20240618 2.52_p202
 dev-build/autoconf-vanilla 2.13 2.69-r1 2.71-r1 2.72-r1 9999: Used to create autoconfiguration files
 dev-build/autoconf-wrapper 20231224 99999999: Wrapper for autoconf to manage multiple autoconf versions
 dev-build/automake 1.11.6-r4 1.17-r2 1.18.1 9999: Used to generate Makefile.in from Makefile.am
-dev-build/automake-vanilla 1.11.6 1.15.1 1.16.5 1.17 1.18 1.18.1 9999: Used to generate Makefile.in from Makefile.am
+dev-build/automake-vanilla 1.17 1.18 1.18.1 9999: Used to generate Makefile.in from Makefile.am
 dev-build/automake-wrapper 20240607 20250528 99999999: Wrapper for automake to manage multiple automake versions
 dev-build/b2 5.3.2 5.3.3: A system for large project software construction, simple to use and powerful
 dev-build/bazel-buildtools 8.2.1: Tools for working with Google's Bazel BUILD files.
@@ -3856,7 +3856,7 @@ dev-build/steve 1.1.0 1.2.0 9999: A load-balancing jobserver for Gentoo
 dev-build/tinycmmc 0.1.0 9999: Tiny CMake Module Collections
 dev-build/xfce4-dev-tools 4.20.0 4.21.0: A set of scripts and m4/autoconf macros that ease build system maintenance
 dev-cpp/ETL 1.4.1: Multi-platform class and template library
-dev-cpp/abseil-cpp 20211102.0-r2 20220623.1 20230125.3-r5 20230802.3 20240116.3 20240722.1 20250127.1 20250512.1 20250814.1: Abseil Common Libraries (C++), LTS Branch
+dev-cpp/abseil-cpp 20250127.1 20250512.1 20250814.1: Abseil Common Libraries (C++), LTS Branch
 dev-cpp/ada 3.2.4 3.3.0: WHATWG-compliant and fast URL parser written in modern C++
 dev-cpp/aixlog 1.5.0-r1: Header-only C++ logging library
 dev-cpp/amqp-cpp 4.3.27: AMQP-CPP is a C++ library for communicating with a RabbitMQ message broker
@@ -5253,7 +5253,7 @@ dev-lang/orc 0.4.38 0.4.40 0.4.40-r1 0.4.41: The Oil Runtime Compiler, a just-in
 dev-lang/parrot 8.1.0-r4: Virtual machine designed to compile and execute bytecode for dynamic languages
 dev-lang/pcc 1.1.0-r1 1.1.0-r2: pcc portable c compiler
 dev-lang/perl 5.40.0-r1 5.40.1 5.40.2 5.42.0 5.42.0-r1: Larry Wall's Practical Extraction and Report Language
-dev-lang/php 8.2.29 8.3.26 8.3.28-r1 8.4.15-r1 8.5.0-r1: The PHP language runtime engine
+dev-lang/php 8.2.29 8.2.30 8.3.26 8.3.29 8.4.16 8.5.1: The PHP language runtime engine
 dev-lang/pico8 0.2.6b 0.2.7: Fantasy console for making and playing tiny games and other computer programs
 dev-lang/polyml 5.9.1 5.9.2-r1: Poly/ML is a full implementation of Standard ML
 dev-lang/pypy 2.7.7.3.20 3.11.7.3.20_p2: A fast, compliant alternative implementation of the Python (3.11) language
@@ -5621,7 +5621,7 @@ dev-libs/libpqxx 7.7.5: Standard front-end for writing C++ programs that use Pos
 dev-libs/libpsl-native 7.4.0: Functionality missing from .NET Core via system calls
 dev-libs/libpthread-stubs 0.5: Pthread functions stubs for platforms missing them
 dev-libs/libptytty 2.0-r1: A library for mostly OS-independent handling of pty/tty/utmp/wtmp/lastlog
-dev-libs/libpwquality 1.4.5-r1 1.4.5-r2: Library for password quality checking and generating random passwords
+dev-libs/libpwquality 1.4.5-r2: Library for password quality checking and generating random passwords
 dev-libs/libpy 0.2.5-r3: Utilities for writing C++ extension modules
 dev-libs/libqt6pas 6.2.7: Free Pascal Qt6 bindings library updated by lazarus IDE
 dev-libs/libqtxdg 4.2.0 4.3.0: Qt Implementation of XDG Standards
@@ -5791,7 +5791,7 @@ dev-libs/rasqal 0.9.33-r3 0.9.33-r4 0.9.33-r5: Library that handles Resource Des
 dev-libs/rccl 6.3.0 6.4.3 7.0.2 7.1.0: ROCm Communication Collectives Library (RCCL)
 dev-libs/re2 0.2022.06.01 0.2022.12.01 0.2024.07.02-r1 2024.07.02 2025.08.12: An efficient, principled regular expression library
 dev-libs/redland 1.0.17-r3: High-level interface for the Resource Description Framework
-dev-libs/redland-bindings 1.0.17.1-r101 1.0.17.1-r102: Language bindings for Redland
+dev-libs/redland-bindings 1.0.17.1-r102: Language bindings for Redland
 dev-libs/rinutils 0.10.3: Set of C headers containing macros and static functions
 dev-libs/rlog 1.4: A C++ logging library
 dev-libs/rocdbgapi 6.3.3 6.4.3 7.0.2 7.1.0-r1: AMD Debugger API
@@ -8378,7 +8378,7 @@ dev-python/dkimpy-milter 1.2.3: Domain Keys Identified Mail (DKIM) signing/verif
 dev-python/dns-lexicon 3.21.1 3.23.0 3.23.1 3.23.2: Manipulate DNS records on various DNS providers in a standardized/agnostic way
 dev-python/dnspython 2.7.0 2.7.0-r1 2.8.0_rc1 2.8.0: DNS toolkit for Python
 dev-python/doc8 2.0.0: Style checker for Sphinx (or other) RST documentation
-dev-python/docker 6.1.3 7.0.0 7.1.0: Python client for Docker
+dev-python/docker 7.1.0: Python client for Docker
 dev-python/dockerpty 0.4.1-r3: Python library to use the pseudo-tty of a docker container
 dev-python/docopt 0.6.2-r5: Pythonic argument parser, that will make you smile
 dev-python/docstring-to-markdown 0.17: On the fly conversion of Python docstrings to markdown
@@ -8776,7 +8776,7 @@ dev-python/mccabe 0.7.0: flake8 plugin: McCabe complexity checker
 dev-python/mdit-py-plugins 0.4.2 0.5.0: Collection of plugins for markdown-it-py
 dev-python/mdurl 0.1.2: Markdown URL utilities
 dev-python/mdx-gh-links 0.4: An extension which adds links to GitHub users, repositories, issues and commits
-dev-python/mecab-python 0.996-r1 1.0.7: Python binding for MeCab
+dev-python/mecab-python 1.0.7: Python binding for MeCab
 dev-python/mechanicalsoup 1.3.0 1.4.0: A Python library for automating interaction with websites
 dev-python/mechanize 0.4.10: Stateful programmatic web browsing in Python
 dev-python/mediafile 0.13.0: Read and write audio files' tags in Python
@@ -10741,7 +10741,7 @@ dev-util/amdsmi 7.0.2 7.1.1: AMD System Management Interface for managing and mo
 dev-util/amtterm 1.6-r1: A nice tool to manage amt-enabled machines
 dev-util/android-sdk-cmdline-tools 0_p11076708: Open Handset Alliance's Android SDK
 dev-util/android-studio 2025.2.2.7: Android development environment based on IntelliJ IDEA
-dev-util/android-tools 33.0.3-r1 34.0.5 35.0.1 35.0.2: Android platform tools (adb, fastboot, and mkbootimg)
+dev-util/android-tools 35.0.2: Android platform tools (adb, fastboot, and mkbootimg)
 dev-util/android-udev-rules 20250314 20250525: Android udev rules list aimed to be the most comprehensive on the net
 dev-util/anjuta 3.34.0-r3: Base library of defunct IDE for GNOME to run applications
 dev-util/archdiff 1.1.6-r1: Utility to view the differences between two source code archives
@@ -10775,15 +10775,15 @@ dev-util/buildbot 3.11.0 3.11.1 3.11.9 4.1.0 9999: BuildBot build automation sys
 dev-util/buildbot-badges 3.11.0 3.11.1 3.11.9 4.1.0: Buildbot badges plugin produces an image in SVG or PNG format...
 dev-util/buildbot-console-view 3.11.0 3.11.1 3.11.9 4.1.0: Buildbot console-view plugin
 dev-util/buildbot-grid-view 3.11.0 3.11.1 3.11.9 4.1.0: BuildBot grid view web interface
-dev-util/buildbot-pkg 3.6.1 3.9.0 3.11.0 3.11.1 3.11.9 4.1.0: BuildBot common www build tools for packaging releases
+dev-util/buildbot-pkg 3.11.0 3.11.1 3.11.9 4.1.0: BuildBot common www build tools for packaging releases
 dev-util/buildbot-react-console-view 3.11.0 3.11.1 3.11.9: Buildbot react based console-view plugin
 dev-util/buildbot-react-grid-view 3.11.0 3.11.1 3.11.9: BuildBot react based grid view web interface
 dev-util/buildbot-react-wsgi-dashboards 3.11.0 3.11.1 3.11.9: Buildbot plugin to integrate flask or bottle dashboards to buildbot UI
 dev-util/buildbot-waterfall-view 3.11.0 3.11.1 3.11.9 4.1.0: Buildbot waterfall-view plugin
 dev-util/buildbot-worker 3.11.0 3.11.1 3.11.9 4.1.0 9999: BuildBot Worker (slave) Daemon
 dev-util/buildbot-wsgi-dashboards 3.11.0 3.11.1 3.11.9 4.1.0: Buildbot plugin to integrate flask or bottle dashboards to buildbot UI
-dev-util/buildbot-www 3.6.1 3.9.0 3.11.0 3.11.1 3.11.9 4.1.0: BuildBot base web interface, use with buildbot-{console-view,waterfall-view}...
-dev-util/buildbot-www-react 3.9.0 3.11.0 3.11.1 3.11.9: BuildBot base web interface, use with buildbot-react-{console-view,grid-view}...
+dev-util/buildbot-www 3.11.0 3.11.1 3.11.9 4.1.0: BuildBot base web interface, use with buildbot-{console-view,waterfall-view}...
+dev-util/buildbot-www-react 3.11.0 3.11.1 3.11.9: BuildBot base web interface, use with buildbot-react-{console-view,grid-view}...
 dev-util/byacc 20241231: The best variant of the Yacc parser generator
 dev-util/cargo-audit 0.21.1 0.21.2 0.22.0: Audit Cargo.lock for crates with security vulnerabilities
 dev-util/cargo-c 0.10.13-r1 0.10.14 0.10.15 0.10.16 0.10.18: Helper program to build and install c-like libraries
@@ -11098,7 +11098,7 @@ dev-util/txt2regex 0.9: A Regular Expression wizard that converts human sentence
 dev-util/uftrace 0.17 0.18 0.18.1: Function (graph) tracer for user-space
 dev-util/uglifyjs 3.16.1 3.19.3: JavaScript parser, minifier, compressor and beautifier toolkit
 dev-util/umockdev 0.19.3 0.19.4 9999: Mock hardware devices for creating unit tests
-dev-util/uncrustify 0.76.0 0.81.0 9999: C/C++/C#/D/Java/Pawn code indenter and beautifier
+dev-util/uncrustify 0.81.0 9999: C/C++/C#/D/Java/Pawn code indenter and beautifier
 dev-util/unicorn 2.1.3-r1 2.1.4 9999: A lightweight multi-platform, multi-architecture CPU emulator framework
 dev-util/unifdef 2.12-r2: remove #ifdef'ed lines from a file while otherwise leaving the file alone
 dev-util/vbindiff 3.0_beta5-r1: Visual binary diff utility
@@ -11182,7 +11182,7 @@ dev-vcs/mr 1.20180726: Multiple Repository management tool
 dev-vcs/pkgcruft-git 0.0.3 9999: QA support for verifying git commits via pkgcruft
 dev-vcs/pre-commit 4.1.0 4.2.0: A framework for managing and maintaining multi-language Git pre-commit hooks
 dev-vcs/pwclient 2.6.2: The command-line client for the patchwork patch tracking tool
-dev-vcs/python-gitlab 3.13.0 4.6.0 5.6.0: Python command line interface to gitlab API
+dev-vcs/python-gitlab 5.6.0: Python command line interface to gitlab API
 dev-vcs/qgit 2.12 2.13: Qt-based GUI for Git repositories
 dev-vcs/rcs 5.10.1-r1: Revision Control System
 dev-vcs/rcsi 0.5: A program to give information about RCS files
@@ -12017,7 +12017,7 @@ gnome-extra/gnome-directory-thumbnailer 0.1.11-r1: Thumbnail generator for direc
 gnome-extra/gnome-firmware 47.0-r1 49.0: Install firmware on devices
 gnome-extra/gnome-getting-started-docs 3.38.1: Help a new user get started in GNOME
 gnome-extra/gnome-integration-spotify 20140907-r2: GNOME integration for Spotify
-gnome-extra/gnome-logs 43.0 45.0: Log viewer for the systemd journal
+gnome-extra/gnome-logs 43.0 45.0 49.0: Log viewer for the systemd journal
 gnome-extra/gnome-network-displays 0.97.0-r1 0.98.0: Stream the desktop to Wi-Fi Display capable devices
 gnome-extra/gnome-power-manager 43.0: GNOME power statistics
 gnome-extra/gnome-shell-extension-alphabetical-grid 42.0 43.0: Restore the alphabetical ordering of the app grid
@@ -12035,11 +12035,11 @@ gnome-extra/gnome-shell-extension-weather-oclock 47.0 49.0: Display the current 
 gnome-extra/gnome-shell-extensions 47.5 47.6 48.3: JavaScript extensions for GNOME Shell
 gnome-extra/gnome-shell-frippery 47.0 48.0: Unofficial extension pack providing GNOME 2-like features
 gnome-extra/gnome-software 48.4 49.2: Gnome install & update software
-gnome-extra/gnome-system-monitor 47.1-r1 48.1: The Gnome System Monitor
-gnome-extra/gnome-tweaks 46.1-r1: Customize advanced GNOME options
+gnome-extra/gnome-system-monitor 48.1 49.1: The Gnome System Monitor
+gnome-extra/gnome-tweaks 46.1-r1 49.0: Customize advanced GNOME options
 gnome-extra/gnome-user-docs 48.5 49.1: GNOME end user documentation
 gnome-extra/gnome-user-share 47.2 48.2: Personal file sharing for the GNOME desktop
-gnome-extra/gnome-weather 47.0 48.0: A weather application for GNOME
+gnome-extra/gnome-weather 48.0 49.0: A weather application for GNOME
 gnome-extra/gucharmap 15.1.2 16.0.1: Unicode character map viewer and library
 gnome-extra/krb5-auth-dialog 43.0-r1: An application to acquire and list Kerberos tickets.
 gnome-extra/libgda 5.2.9-r3: GNOME database access library
@@ -12997,7 +12997,7 @@ media-gfx/curtail 1.13.0: Image compressor, supporting PNG, JPEG and WebP
 media-gfx/darktable 5.2.0 5.2.1: A virtual lighttable and darkroom for photographers
 media-gfx/dcraw 9.28.0-r4: Command-line decoder for raw digital photos
 media-gfx/digikam 8.8.0: Digital photo management application
-media-gfx/displaycal-py3 3.9.10-r3 3.9.13_pre20240925 3.9.16: Modernize the DisplayCAL code including Python 3 support
+media-gfx/displaycal-py3 3.9.16: Modernize the DisplayCAL code including Python 3 support
 media-gfx/ditaa 0.11.0-r1: A utility that converts ascii-art diagrams to bitmap diagrams
 media-gfx/dmtx-utils 0.7.6: Tools for reading and writing Data Matrix barcodes
 media-gfx/dpic 20200901: Converts PIC plots into pstricks, PGF/TikZ, PostScript, MetaPost and TeX
@@ -13244,7 +13244,7 @@ media-libs/exiftool 12.76 13.10 13.30: Read and write meta information in image,
 media-libs/faac 1.30 1.31.1-r1: Free MPEG-4 audio codecs by AudioCoding.com
 media-libs/faad2 2.11.1 2.11.2: AAC audio decoding library
 media-libs/faun 0.2.3: A high-level C audio library
-media-libs/fcft 3.1.2-r1 3.1.3 3.1.5 3.1.6 3.1.7 3.1.8 3.1.9 3.1.10-r1 3.2.0 3.3.1 3.3.2: Simple library for font loading and glyph rasterization
+media-libs/fcft 3.3.1 3.3.2: Simple library for font loading and glyph rasterization
 media-libs/fdk-aac 2.0.3: Fraunhofer AAC codec library
 media-libs/ffmpegsource 2.40 2.40-r2 2.40-r3 5.0 9999: A libav/ffmpeg based source library for easy frame accurate access
 media-libs/fidlib 0.9.10-r1: Run-time filter design and execution library
@@ -13310,7 +13310,7 @@ media-libs/kvazaar 2.1.0 2.2.0 2.3.0-r1 9999: Open-source HEVC encoder
 media-libs/ladspa-sdk 1.17-r2: The Linux Audio Developer's Simple Plugin API
 media-libs/lasi 1.1.3-r1: C++ library for postscript stream output
 media-libs/lcms 2.15 2.16-r1 2.17: A lightweight, speed optimized color management engine
-media-libs/lensfun 0.3.4_rc1 0.3.4 0.3.4-r1: Library for rectifying and simulating photographic lens distortions
+media-libs/lensfun 0.3.4-r1: Library for rectifying and simulating photographic lens distortions
 media-libs/leptonica 1.85.0 1.86.0: C library for image processing and analysis
 media-libs/lerc 4.0.0: Limited Error Raster Compression
 media-libs/lib3ds 1.3.0-r2 2.0.0_rc1-r1: library for managing 3D-Studio Release 3 and 4 .3DS files
@@ -13895,7 +13895,7 @@ media-plugins/zam-plugins 4.2: Collection of LV2/LADSPA/VST/JACK audio plugins f
 media-radio/adifmerg 31-r2: A small conversion and check utility for ADIF files
 media-radio/ax25-apps 0.0.8_rc5-r1: Basic AX.25 (Amateur Radio) user tools, additional daemons
 media-radio/ax25-tools 0.0.10_rc5-r1: Basic AX.25 (Amateur Radio) administrative tools and daemons
-media-radio/chirp 20240311 20240606 20240606-r1: A free, open-source tool for programming your radio
+media-radio/chirp 20240606-r1: A free, open-source tool for programming your radio
 media-radio/cqrlog 2.5.2: CQRLOG is an advanced ham radio logger based on MySQL database
 media-radio/cwdaemon 0.13.0: A morse daemon for the parallel or serial port
 media-radio/direwolf 1.7-r1 1.8 1.8.1: Decoded Information from Radio Emissions for Windows Or Linux Fans
@@ -13923,7 +13923,7 @@ media-radio/xastir 2.2.2: X Amateur Station Tracking and Information Reporting
 media-radio/xdx 2.91: a GTK+ TCP/IP DX-cluster and ON4KST chat client
 media-radio/xlog 2.0.25: An amateur radio logging program
 media-radio/xwxapt 3.4.3-r2: GTK+ linux weather satellite APT image decoder software
-media-sound/a2jmidid 9-r1 12 9999: Daemon for exposing ALSA sequencer applications in JACK MIDI system
+media-sound/a2jmidid 12 9999: Daemon for exposing ALSA sequencer applications in JACK MIDI system
 media-sound/abcde 2.9.3-r5: Command line CD encoder
 media-sound/abcm2ps 8.14.15: Program to convert abc files to Postscript files
 media-sound/abcmidi 2025.02.16: Programs for processing ABC music notation files
@@ -14144,7 +14144,7 @@ media-sound/peercast 0.1218-r2: A client and server for Peercast P2P-radio netwo
 media-sound/pianobar 2022.04.01 2022.04.01-r1 9999: A console-based replacement for Pandora's flash player
 media-sound/picard 2.13.3-r1 3.0_pre20251219 9999: Cross-platform music tagger
 media-sound/picoxine 0.0.7: Very small xine frontend for playing audio events
-media-sound/pithos 1.6.1-r1 1.6.2: Pandora.com client for the GNOME desktop
+media-sound/pithos 1.6.2: Pandora.com client for the GNOME desktop
 media-sound/playerctl 2.3.1 2.4.1-r1: A CLI utility to control media players over MPRIS
 media-sound/pms 0.42_p20170508-r1: Practical Music Search: open source ncurses client for mpd, written in C++
 media-sound/pnmixer 0.7.2-r3: Volume mixer for the system tray
@@ -15153,7 +15153,7 @@ net-mail/relay-ctrl 3.1.1-r2 3.1.1-r3 3.2: SMTP Relaying Control designed for qm
 net-mail/renattach 1.2.4-r1: Filter that renames/deletes dangerous email attachments
 net-mail/ripmime 1.4.1.0: extract attachment files out of a MIME-encoded email pack
 net-mail/ripole 0.2.2: Program/library to pull out attachment from OLE2 data files
-net-mail/rss2email 3.14 3.14-r1 3.14-r2 3.14-r3: A python script that converts RSS/Atom newsfeeds to email
+net-mail/rss2email 3.14-r2 3.14-r3: A python script that converts RSS/Atom newsfeeds to email
 net-mail/safecat 1.13-r1 1.13-r2: Safecat implements qmail's maildir algorithm, safely copying standard input
 net-mail/sendEmail 1.56-r4: Command line based, SMTP email agent
 net-mail/serialmail 0.75-r5: A serialmail is a collection of tools for passing mail across serial links
@@ -15361,7 +15361,7 @@ net-misc/openrdap 0.9.1: RDAP command line client
 net-misc/openrsync 0.5.0_p20220508: BSD-licensed implementation of rsync
 net-misc/openssh 9.8_p1-r4 9.9_p2-r4 10.0_p1 10.0_p2 10.1_p1-r1 10.2_p1: Port of OpenBSD's free SSH release
 net-misc/openssh-contrib 9.7_p1-r4: Port of OpenBSD's free SSH release with HPN/X509 patches
-net-misc/openvswitch 2.17.8 2.17.9-r1 2.17.12: Production quality, multilayer virtual switch
+net-misc/openvswitch 2.17.12: Production quality, multilayer virtual switch
 net-misc/owncloud-client 5.3.1.14018 5.3.2.15463 6.0.0.17092-r1 6.0.1.17343: Synchronize files from ownCloud Server with your computer
 net-misc/packETH 2.1 2.1-r1 3.0: Packet generator tool for ethernet
 net-misc/passt 2025.04.15 2025.06.11 9999: User-mode networking daemons for VMs and namespaces, replacement for Slirp
@@ -15379,7 +15379,7 @@ net-misc/pps-tools 1.0.2-r1 1.0.3: User-space tools for LinuxPPS
 net-misc/proxychains 4.17 4.17-r1: force any tcp connections to flow through a proxy (or proxy chain)
 net-misc/proxytunnel 1.12.3 9999: Connect stdin and stdout to a server via an HTTPS proxy
 net-misc/ps3mediaserver 1.90.1-r2: DLNA compliant UPNP server for streaming media to Playstation 3
-net-misc/pssh 2.3.4-r3 2.3.5: PSSH provides parallel versions of OpenSSH and related tools
+net-misc/pssh 2.3.5: PSSH provides parallel versions of OpenSSH and related tools
 net-misc/ptpd 2.3.1-r2: Precision Time Protocol daemon
 net-misc/puf 1.0.0-r2: Download tool for UNIX-like systems
 net-misc/pulseaudio-dlna 0.6.5_p1-r3 9999: A lightweight DLNA/UPNP/Chromecast streaming server for PulseAudio
@@ -15425,7 +15425,7 @@ net-misc/socat 1.8.0.3: Multipurpose relay (SOcket CAT)
 net-misc/sock 1.1-r2: Shell interface to network sockets
 net-misc/socket 1.5: Shell-level interface to TCP sockets
 net-misc/socket-burst-dampener 1.3.1-r1: A daemon that spawns one command per connection, and dampens connection bursts
-net-misc/spice-gtk 0.42-r3 0.42-r4 9999-r1: Set of GObject and Gtk objects for connecting to Spice servers and a client GUI
+net-misc/spice-gtk 0.42-r4 9999-r1: Set of GObject and Gtk objects for connecting to Spice servers and a client GUI
 net-misc/spiped 1.6.4: secure pipe daemon
 net-misc/ssh-askpass-fullscreen 1.2: A small SSH Askpass replacement written with GTK2
 net-misc/sshpass 1.10: Tool for non-interactively performing password authentication with ssh
@@ -15795,7 +15795,7 @@ sci-astronomy/missfits 2.8.0: Performs basic maintenance and packaging tasks on 
 sci-astronomy/montage 6.1: Toolkit for assembling FITS images into mosaics
 sci-astronomy/pal 0.9.8 0.9.8-r1: Positional Astronomy Library
 sci-astronomy/psfex 3.17.1: Extracts models of the Point Spread Function from FITS images
-sci-astronomy/pyephem 4.1.1 4.1.3 4.1.5: Astronomical routines for the Python programming language
+sci-astronomy/pyephem 4.1.5: Astronomical routines for the Python programming language
 sci-astronomy/pysiril 0.0.15: Python library to interface Python to a SiriL script
 sci-astronomy/scamp 2.13.1 2.14.0: Astrometric and photometric solutions for astronomical images
 sci-astronomy/sextractor 2.19.5-r1: Extract catalogs of sources from astronomical FITS images
@@ -16478,7 +16478,7 @@ sci-physics/fastjet-contrib 1.053 1.055 1.100-r1 1.101-r1 1.101-r2 9999: 3rd par
 sci-physics/geant 4.11.3.2-r2 4.11.4.0: Toolkit for simulation of passage of particles through matter
 sci-physics/geant-data 4.11.3 4.11.4: Data files for Geant4 physical processes
 sci-physics/geant4_vmc 6.3_p2-r1 6.5 6.6_p1 6.7 9999: Virtual Monte Carlo Geant4 implementation
-sci-physics/hepmc 2.06.11 3.2.5_p20230225-r1 3.2.6 3.2.7 3.3.0-r1 3.3.1 9999: Event Record for Monte Carlo Generators
+sci-physics/hepmc 2.06.11 3.2.7 3.3.1 9999: Event Record for Monte Carlo Generators
 sci-physics/heppdt 3.04.01-r2: Data about each particle from the Review of Particle Properties
 sci-physics/herwig 6.5.21-r2: High Energy Physics Event Generator
 sci-physics/lammps 20230802 20230802-r1 20240829: Large-scale Atomic/Molecular Massively Parallel Simulator
@@ -17255,7 +17255,7 @@ sys-apps/usb_modeswitch 2.6.1-r1 2.6.2: Tool for controlling 'flip flop' (multip
 sys-apps/usbguard 1.1.2 1.1.3-r1 1.1.3-r2 1.1.3-r3 1.1.4 1.1.4-r1: Daemon protecting your computer against BadUSB
 sys-apps/usbmon 6.1-r1: Userland for USB monitoring framework
 sys-apps/usbredir 0.13.0-r1 0.14.0 0.15.0: TCP daemon and set of libraries for usbredir protocol (redirecting USB traffic)
-sys-apps/usbutils 016 017 018 018-r1 019: USB enumeration utilities
+sys-apps/usbutils 019: USB enumeration utilities
 sys-apps/usermode-utilities 20070815-r6: Tools for use with Usermode Linux virtual machines
 sys-apps/uswid 0.4.7: Pure-Python library and CLI tool for processing SBoM metadata
 sys-apps/utempter 0.5.5.6-r2: App that allows non-privileged apps to write utmp (login) info
@@ -17313,7 +17313,7 @@ sys-auth/pam_u2f 1.4.0: PAM module for FIDO2 and U2F keys
 sys-auth/pam_yubico 2.27: Library for authenticating against PAM with a Yubikey
 sys-auth/pambase 20250826 20250906 20251013 20251104 20251104-r1 999999999: PAM base configuration files
 sys-auth/passwdqc 2.0.3-r1: Password strength checking library (and PAM module)
-sys-auth/polkit 123-r1 126-r1 126-r2 9999: Policy framework for controlling privileges for system-wide services
+sys-auth/polkit 126-r2 9999: Policy framework for controlling privileges for system-wide services
 sys-auth/polkit-pkla-compat 0.1-r2: Rules for polkit to add compatibility with pklocalauthority
 sys-auth/polkit-qt 0.200.0 0.200.0-r1: Qt wrapper around polkit-1 client libraries
 sys-auth/realtime-base 0.1-r1: Sets up realtime scheduling
@@ -17538,7 +17538,7 @@ sys-firmware/b43legacy-firmware 3.130.20.0: broadcom firmware for b43legacy/bcm4
 sys-firmware/blisp 0.0.5: Bouffalo Labs in-system-programming tool and library
 sys-firmware/bluez-firmware 1.2_p9_p20250503: Firmware for Broadcom BCM, STLC2300, and Synaptics SYN Bluetooth chips
 sys-firmware/broadcom-bt-firmware 12.0.1.1105_p4-r1: Broadcom Bluetooth firmware
-sys-firmware/edk2 202202 202408 202411 202502-r1: TianoCore EDK II UEFI firmware for virtual machines
+sys-firmware/edk2 202411 202502-r1: TianoCore EDK II UEFI firmware for virtual machines
 sys-firmware/edk2-bin 202202 202408 202411: TianoCore EDK II UEFI firmware for virtual machines
 sys-firmware/firmware-imx 8.18: NXP i.MX firmware
 sys-firmware/intel-microcode 20250812_p20250813 20251111_p20251112: Intel IA32/IA64 microcode update data
@@ -17568,7 +17568,7 @@ sys-fs/aufs-util 4.14_p20190603-r1: Utilities are always necessary for aufs
 sys-fs/autorun 3.17: auto cdrom mounter for the lazy user
 sys-fs/avfs 1.1.5: Virtual filesystem that allows browsing of compressed files
 sys-fs/bashmount 4.3.2-r2: Bash script that uses udisks to mount removable devices without GUI
-sys-fs/bcache-tools 1.1-r1 1.1_p20230217-r2 9999: Tools for bcache
+sys-fs/bcache-tools 1.1_p20230217-r2 9999: Tools for bcache
 sys-fs/bcachefs-tools 1.20.0 1.25.0 1.25.1 1.25.2 1.25.3 1.31.5 9999: Tools for bcachefs
 sys-fs/bees 0.10-r1 0.11 9999: Best-Effort Extent-Same, a btrfs dedup agent
 sys-fs/bindfs 1.17.7 1.18.0 1.18.1: FUSE filesystem for bind mounting with altered permissions
@@ -18530,7 +18530,7 @@ x11-misc/fluxter 0.1.0-r1: Workspace pager dockapp, particularly useful with the
 x11-misc/fpm2 0.90.1 0.90.2: GUI password manager utility with password generator
 x11-misc/fraqtive 0.4.8.1: Open source, multi-platform generator of the Mandelbrot family fractals
 x11-misc/ftmenu 0.4.0-r2: Tray menu for the Fluxbox toolbar
-x11-misc/gammastep 2.0.9-r1 2.0.9-r2 2.0.10 2.0.11: A screen color temperature adjusting software
+x11-misc/gammastep 2.0.11: A screen color temperature adjusting software
 x11-misc/gbase 0.5-r2: A convert program for decimal, hexadecimal, octal and binary values
 x11-misc/gbdfed 1.6 1.6-r1: gbdfed Bitmap Font Editor
 x11-misc/gccmakedep 1.0.4: create dependencies in makefiles using 'gcc -M'
@@ -18612,7 +18612,7 @@ x11-misc/qt5ct 1.9: Qt5 configuration tool, similar to qtconfig for Qt4
 x11-misc/qterm 0.8.2: BBS client based on Qt
 x11-misc/quitcount 3.1.4: A simple applet that shows what you saved since you quit smoking
 x11-misc/read-edid 3.0.2-r2: Program that can get information from a PnP monitor
-x11-misc/redshift 1.12-r10 1.12-r12 1.12-r13: A screen color temperature adjusting software
+x11-misc/redshift 1.12-r13: A screen color temperature adjusting software
 x11-misc/rendercheck 1.6 9999: Tests for compliance with X RENDER extension
 x11-misc/revelation 0.5.5: A password manager for GNOME
 x11-misc/rofi 1.7.9.1 2.0.0 9999: A window switcher, run dialog and dmenu replacement
@@ -19097,7 +19097,7 @@ x11-wm/wmfs 20180520: Window Manager From Scratch, A tiling window manager highl
 x11-wm/wmii 3.9.2-r8: A dynamic window manager for X11
 x11-wm/xmonad 0.17.0 0.17.2 0.18.0: A tiling window manager
 x11-wm/xmonad-contrib 0.17.0 0.17.1 0.18.0: Community-maintained extensions for xmonad
-x11-wm/xpra 4.4.6-r2 4.4.6-r3 6.0.1-r2 6.0.1-r3 6.2.5-r1 6.9999 9999: X Persistent Remote Apps (xpra) and Partitioning WM (parti) based on wimpiggy
+x11-wm/xpra 6.2.5-r1 6.9999 9999: X Persistent Remote Apps (xpra) and Partitioning WM (parti) based on wimpiggy
 xfce-base/exo 4.20.0-r1 4.21.0-r1: Extensions, widgets and framework library with session support for Xfce
 xfce-base/garcon 4.20.0 4.21.0: Xfce's freedesktop.org specification compatible menu implementation library
 xfce-base/libxfce4ui 4.20.2 4.21.2 4.21.3: Unified widget and session management libs for Xfce
