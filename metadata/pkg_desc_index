@@ -1400,7 +1400,7 @@ app-containers/reg 0.16.1-r1: Docker registry v2 command line client
 app-containers/runc 1.2.4 1.2.5 1.2.6 1.2.8 1.3.0 1.3.1 1.3.3: runc container cli tools
 app-containers/s6-overlay 2.1.0.2-r1: an s6-based init system for containers
 app-containers/sen 0.8.0: Terminal User Interface for docker engine
-app-containers/skopeo 1.18.0-r1 1.19.0 9999: Work with remote container images registries
+app-containers/skopeo 1.18.0-r1 1.19.0 1.21.0 9999: Work with remote container images registries
 app-containers/slirp4netns 1.2.0: User-mode networking for unprivileged network namespaces
 app-containers/snapd 2.63: Service and tools for management of snap packages
 app-containers/syft 0.75.0 0.76.0 0.94.0 0.95.0 1.9.0 1.18.1: Generate a Software Bill of Materials from container images and filesystems
@@ -2659,7 +2659,7 @@ app-metrics/process-exporter 0.7.10 0.8.5: Process exporter for prometheus
 app-metrics/prom2json 1.4.1: A tool to scrape a Prometheus client and dump the result as JSON
 app-metrics/prometheus 2.52.0 3.1.0 3.2.1 3.4.1: Prometheus monitoring system and time series database
 app-metrics/prometheus-lvm-exporter 0.3.3: Prometheus exporter for LVM metrics
-app-metrics/prometheus-podman-exporter 1.16.0 1.17.1 9999: Exporter for podman giving containers, pods, images, volumes & networks metrics
+app-metrics/prometheus-podman-exporter 1.16.0 1.17.1 1.19.0 9999: Exporter for podman giving containers, pods, images, volumes & networks metrics
 app-metrics/pushgateway 1.11.1 1.11.2: Prometheus push acceptor for ephemeral and batch jobs
 app-metrics/rabbitmq_exporter 1.0.0: Rabbitmq exporter for Prometheus
 app-metrics/redis_exporter 1.61.0 1.67.0: Prometheus Exporter for Redis Metrics. Supports Redis 2.x, 3.x and 4.x
@@ -10902,7 +10902,7 @@ dev-util/gitlab-cli 1.65.0 1.72.0: the official gitlab command line interface
 dev-util/gitlab-runner 18.4.0 18.5.0 18.6.2: The official GitLab Runner, written in Go
 dev-util/glade 3.40.0-r3: A user interface designer for GTK+ and GNOME
 dev-util/glib-utils 2.82.5 2.84.4 2.86.1: Build utilities for GLib using projects
-dev-util/global 6.6.10 6.6.13 6.6.14: Tag system to find an object location in various sources
+dev-util/global 6.6.14: Tag system to find an object location in various sources
 dev-util/glslang 1.4.321.0 1.4.328.0-r1 1.4.335.0 9999: Khronos reference front-end for GLSL and ESSL, and sample SPIR-V generator
 dev-util/gnome-builder 48.2-r1: An IDE for writing GNOME-based software
 dev-util/gnome-devel-docs 40.3: Documentation for developing for the GNOME desktop environment
@@ -14622,7 +14622,7 @@ net-analyzer/slurm 0.4.4: Realtime network interface monitor based on FreeBSD's 
 net-analyzer/snallygaster 0.0.14 0.0.15: Finds file leaks and other security problems on HTTP servers
 net-analyzer/sngrep 1.6.0-r1 1.7.0 1.8.2: Ncurses SIP Messages flow viewer
 net-analyzer/sniffit 0.5-r1 0.6_p20240924: Interactive Packet Sniffer
-net-analyzer/snmpclitools 0.6.4-r1 0.7.2: Pure-Python SNMP management tools
+net-analyzer/snmpclitools 0.7.2: Pure-Python SNMP management tools
 net-analyzer/snmptt 1.4.2: SNMP Trap Translator
 net-analyzer/snort 2.9.20: The de facto standard for intrusion detection/prevention
 net-analyzer/snortalog 2.4.3-r2: A powerful perl script that summarizes snort logs
@@ -15504,7 +15504,7 @@ net-nds/smbldap-tools 0.9.10-r1 0.9.11-r1: Samba LDAP management tools
 net-nds/yp-tools 4.2.3-r1: Network Information Service tools
 net-news/alligator 25.08.3 25.12.0: Convergent RSS/Atom feed reader for Plasma
 net-news/amphetadesk 0.93.1-r2: Free syndicated news aggregator
-net-news/canto-curses 0.9.9 0.9.9-r1: The ncurses client for canto-daemon
+net-news/canto-curses 0.9.9-r1: The ncurses client for canto-daemon
 net-news/canto-daemon 0.9.8: Daemon part of Canto-NG RSS reader
 net-news/liferea 1.15.5-r2 1.15.8-r2 1.16.5: News Aggregator for RDF/RSS/CDF/Atom/Echo feeds
 net-news/newsboat 2.41: An RSS/Atom feed reader for text terminals
@@ -16101,7 +16101,7 @@ sci-libs/ccolamd 2.9.6 3.0.3: Constrained Column approximate minimum degree orde
 sci-libs/cdd+ 077a: Another implementation of the double description method
 sci-libs/cddlib 094m-r2: C library implementing the Double Description Method
 sci-libs/cdf 3.9.0: Common Data Format I/O library for multi-dimensional data sets
-sci-libs/ceres-solver 2.1.0-r1 2.2.0-r1: Nonlinear least-squares minimizer
+sci-libs/ceres-solver 2.2.0-r1: Nonlinear least-squares minimizer
 sci-libs/cfitsio 4.6.3: C and Fortran library for manipulating FITS files
 sci-libs/cgcode 1.0-r2: Conjugate gradient Codes for large sparse linear systems
 sci-libs/cgnslib 4.3.0-r2 4.4.0-r1 4.4.0-r2 4.5.0: CFD General Notation System standard library
@@ -18253,7 +18253,7 @@ www-servers/nginx-unit 1.34.2 1.34.2-r1 1.35.0 1.35.0-r1: Dynamic web and applic
 www-servers/pound 4.16 4.17: A http/https reverse-proxy and load-balancer
 www-servers/pshs 0.4.3: Pretty small HTTP server -- a command-line tool to share files
 www-servers/puma 6.4.3 6.6.0 6.6.1 7.0.1 7.0.3 7.0.4 7.1.0: a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack
-www-servers/servefile 0.5.4 0.5.4-r1 0.5.4-r2: Serve a single file via HTTP
+www-servers/servefile 0.5.4-r2: Serve a single file via HTTP
 www-servers/sniproxy 0.6.1: Proxies incoming HTTP and TLS connections based on the hostname
 www-servers/spawn-fcgi 1.6.5 1.6.6: A FCGI spawner for lighttpd and cherokee and other webservers
 www-servers/thin 1.8.2 2.0.0 2.0.1: A fast and very simple Ruby web server
