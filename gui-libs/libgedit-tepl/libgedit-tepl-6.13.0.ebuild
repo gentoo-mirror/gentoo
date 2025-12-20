@@ -3,14 +3,15 @@
 
 EAPI=8
 
-inherit gnome.org meson virtualx
+inherit meson virtualx
 
 DESCRIPTION="GtkSourceView-based text editors and IDE helper library"
 HOMEPAGE="https://gitlab.gnome.org/World/gedit/libgedit-tepl"
+SRC_URI="https://gitlab.gnome.org/World/gedit/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="LGPL-3+"
 SLOT="6/4"
-KEYWORDS="~amd64 ~loong ~riscv"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 IUSE="gtk-doc"
 RESTRICT="!test? ( test )"
 
@@ -18,11 +19,12 @@ RDEPEND="
 	!gui-libs/tepl
 	>=dev-libs/glib-2.74:2
 	>=x11-libs/gtk+-3.22:3[introspection]
-	>=gui-libs/libgedit-gtksourceview-299.1.0:300
-	>=gui-libs/libgedit-amtk-5.0:5=[introspection]
-	gui-libs/libgedit-gfls
+	>=gui-libs/libgedit-gtksourceview-299.5.0:300
+	>=gui-libs/libgedit-amtk-5.9:5=[introspection]
+	>=gui-libs/libgedit-gfls-0.3
 	dev-libs/icu:=
-	gnome-base/gsettings-desktop-schemas
+	>=gnome-base/gsettings-desktop-schemas-42
+	>=gui-libs/libhandy-1.6:1
 	>=dev-libs/gobject-introspection-1.82.0-r2:=
 "
 DEPEND="${RDEPEND}"

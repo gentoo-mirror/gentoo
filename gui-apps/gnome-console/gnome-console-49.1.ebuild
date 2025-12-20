@@ -3,30 +3,31 @@
 
 EAPI=8
 
-inherit gnome.org gnome2-utils meson xdg
+inherit gnome.org gnome2-utils meson virtualx xdg
 
 DESCRIPTION="A simple user-friendly terminal emulator for the GNOME desktop"
 HOMEPAGE="https://apps.gnome.org/Console/ https://gitlab.gnome.org/GNOME/console"
 
 LICENSE="LGPL-3+"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~loong"
+KEYWORDS="~amd64 ~arm64 ~loong"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-libs/glib-2.80:2
-	>=gui-libs/gtk-4.14:4
-	>=gui-libs/libadwaita-1.6:1
+	>=gui-libs/gtk-4.19:4
+	>=gui-libs/libadwaita-1.8:1
 	>=gui-libs/vte-0.77.0:2.91-gtk4
 	gnome-base/libgtop:2=
 	>=dev-libs/libpcre2-10.32:0=
 	gnome-base/gsettings-desktop-schemas
 
-	x11-libs/pango
+	>=x11-libs/pango-1.51.2
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
+	>=dev-build/meson-1.5.0
 	>=dev-util/gdbus-codegen-2.80
 	virtual/pkgconfig
 	test? (
@@ -35,19 +36,16 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	# https://bugs.gentoo.org/956695
-	# This is fixed in 48.x releases and upstream insists to use that
-	# instead of backporting the fix in 47
-	"${FILESDIR}"/${P}-musl.patch
-)
-
 src_configure() {
 	local emesonargs=(
 		-Ddevel=false
 		$(meson_use test tests)
 	)
 	meson_src_configure
+}
+
+src_test() {
+	virtx meson_src_test
 }
 
 pkg_postinst() {

@@ -3,14 +3,15 @@
 
 EAPI=8
 
-inherit gnome.org meson virtualx
+inherit meson virtualx
 
 DESCRIPTION="A module dedicated to file loading and saving"
 HOMEPAGE="https://gitlab.gnome.org/World/gedit/libgedit-gfls"
+SRC_URI="https://gitlab.gnome.org/World/gedit/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="LGPL-3+"
 SLOT="6/4"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 IUSE="gtk-doc"
 RESTRICT="!test? ( test )"
 
