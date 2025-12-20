@@ -9,7 +9,7 @@ HOMEPAGE="https://apps.gnome.org/SystemMonitor/"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
 IUSE="systemd"
 
@@ -26,16 +26,13 @@ RDEPEND="
 # eautoreconf requires gnome-base/gnome-common
 DEPEND="${RDEPEND}"
 BDEPEND="
+	dev-cpp/catch:0
 	dev-util/glib-utils
 	dev-util/itstool
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 	>=sys-auth/polkit-0.114
 " # polkit needed at buildtime for ITS rules of policy files, first available in 0.114
-
-PATCHES=(
-	"${FILESDIR}"/0001-remove-outdated-libxml2-build-dep.patch
-)
 
 src_configure() {
 	local emesonargs=(
