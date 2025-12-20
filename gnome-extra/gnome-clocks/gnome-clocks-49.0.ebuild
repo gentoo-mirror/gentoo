@@ -10,16 +10,16 @@ HOMEPAGE="https://apps.gnome.org/Clocks/"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.72:2
-	>=gui-libs/gtk-4.5:4
+	>=gui-libs/gtk-4.15.3:4
 	>=dev-libs/libgweather-4.2.0:4=
 	gnome-base/gnome-desktop:4=
 	>=sci-geosciences/geocode-glib-1:2
 	>=app-misc/geoclue-2.4:2.0
-	>=gui-libs/libadwaita-1.5:1
+	>=gui-libs/libadwaita-1.6_alpha:1
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -29,7 +29,7 @@ BDEPEND="
 	virtual/pkgconfig
 	$(vala_depend)
 	>=dev-libs/libgweather-4.2.0:4[vala]
-	gui-libs/libadwaita:1[vala]
+	>=gui-libs/libadwaita-1.6_alpha:1[vala]
 "
 
 DOCS=( AUTHORS.md CONTRIBUTING.md README.md )
