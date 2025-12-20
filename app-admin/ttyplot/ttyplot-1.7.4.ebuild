@@ -18,7 +18,7 @@ DEPEND="${RDEPEND}
 	sys-libs/ncurses[tinfo]"
 
 src_compile() {
-	emake CC="$(tc-getCC)"
+	emake CC="$(tc-getCC)" VERSION="${PV}"
 }
 
 src_install() {
