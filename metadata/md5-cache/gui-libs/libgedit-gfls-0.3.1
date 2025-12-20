@@ -1,0 +1,16 @@
+BDEPEND=dev-util/glib-utils gtk-doc? ( >=dev-util/gtk-doc-1.25 app-text/docbook-xml-dtd:4.3 ) >=sys-devel/gettext-0.19.6 virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/glib-2.78:2 >=x11-libs/gtk+-3.22:3[introspection] gnome-base/gsettings-desktop-schemas >=dev-libs/gobject-introspection-1.82.0-r2:=
+DESCRIPTION=A module dedicated to file loading and saving
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/World/gedit/libgedit-gfls
+INHERIT=meson virtualx
+IUSE=gtk-doc test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~riscv ~x86
+LICENSE=LGPL-3+
+RDEPEND=>=dev-libs/glib-2.78:2 >=x11-libs/gtk+-3.22:3[introspection] gnome-base/gsettings-desktop-schemas >=dev-libs/gobject-introspection-1.82.0-r2:=
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=6/4
+SRC_URI=https://gitlab.gnome.org/World/gedit/libgedit-gfls/-/archive/0.3.1/libgedit-gfls-0.3.1.tar.bz2
+_eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99e6a34d0f7039439dad788f7443b574	virtualx	9741d451eb64ea8bb9faee90d68a9b68
+_md5_=2de8422730f6f95a01266480d8ac39f9

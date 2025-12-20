@@ -1811,8 +1811,8 @@ app-editors/ersatz-emacs 20060515-r1: A very minimal imitation of the famous GNU
 app-editors/fe 2.0-r1: A small and easy to use folding editor
 app-editors/featherpad 1.6.2 9999: Lightweight Qt5 Plain-Text Editor for Linux
 app-editors/focuswriter 1.8.10: Fullscreen and distraction-free word processor
-app-editors/gedit 46.2 48.1: A text editor for the GNOME desktop
-app-editors/gedit-plugins 46.0-r1 48.1: Collection of extra plugins for the gedit Text Editor
+app-editors/gedit 46.2 48.1 48.2: A text editor for the GNOME desktop
+app-editors/gedit-plugins 46.0-r1 48.1 48.2: Collection of extra plugins for the gedit Text Editor
 app-editors/ghex 48.1 48.3 9999: GNOME hexadecimal editor
 app-editors/ghostwriter 25.08.3 25.12.0: Cross-platform, aesthetic, distraction-free markdown editor
 app-editors/gnome-latex 3.46.0-r1: Integrated LaTeX environment for GNOME
@@ -2287,7 +2287,7 @@ app-emacs/svg-lib 0.2.8 0.3: SVG tags, progress bars & icons
 app-emacs/swift-mode 9.3.0 9.4.0: Emacs support for Apple's Swift programming language
 app-emacs/swiper 0.15.0 0.15.1: Alternative to isearch that uses ivy to show overview of all matches
 app-emacs/switch-window 1.6.2_p20210808: Offer a customizable visual way to choose a window to switch to
-app-emacs/system-packages 1.1.1: Manage your installed packages with Emacs
+app-emacs/system-packages 1.1.1 1.1.2: Manage your installed packages with Emacs
 app-emacs/systemd-mode 1.6: Major mode for editing systemd units in GNU Emacs
 app-emacs/tablist 1.1: Extended tabulated-list mode fro Emacs
 app-emacs/teco 7-r2: TECO interpreter for GNU Emacs
@@ -5164,7 +5164,7 @@ dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.4.1 4.4.3 4.5.0 4.5.2: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
 dev-lang/ada-bootstrap 0_p2021-r1 11 12 13 14: Binary bootstrap compiler for GNAT (Ada compiler)
-dev-lang/algol68g 3.10.2 3.10.5 3.10.7 3.10.8: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.10.2 3.10.8 3.10.9: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.11 3.0.0 3.0.2: Scala language-based scripting and REPL
 dev-lang/arc 3.2-r1: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2-r1: Functional programming language with dependent types
@@ -5177,7 +5177,7 @@ dev-lang/clips 6.40-r1: Tool for building Expert Systems (native version)
 dev-lang/clipsjni 6.40-r1: Tool for building Expert Systems (Java version)
 dev-lang/cll1h 0.6-r1: C<<1 programming language system
 dev-lang/clojure 1.12.3 1.12.4: General-purpose programming language with an emphasis on functional programming
-dev-lang/closure-compiler-bin 20250820: JavaScript optimizing compiler
+dev-lang/closure-compiler-bin 20250820 20251216: JavaScript optimizing compiler
 dev-lang/coffee-script 2.7.0: A little language that compiles into javascript
 dev-lang/crystal 1.17.1 1.18.1 1.18.2: The Crystal Programming Language
 dev-lang/cue 0.14.1: open-source data validation language and inference engine
@@ -5221,7 +5221,7 @@ dev-lang/jsonnet 0.21.0: A data templating language for app and tool developers
 dev-lang/julia 1.8.3-r6 1.8.5-r3 1.9.0-r2 1.9.4-r2: High-performance programming language for technical computing
 dev-lang/julia-bin 1.8.3-r1 1.8.5-r1 1.9.4-r1 1.10.0-r1 1.10.9 1.11.5-r1 1.12.1 9999: High-performance programming language for technical computing
 dev-lang/jwasm 2.19: MASM-compatible TASM-similar assembler (fork of Wasm)
-dev-lang/kotlin-bin 2.2.20 2.2.21: Statically typed language that targets the JVM and JavaScript
+dev-lang/kotlin-bin 2.2.21 2.3.0: Statically typed language that targets the JVM and JavaScript
 dev-lang/lazarus 3.4-r1: feature rich visual programming environment emulating Delphi
 dev-lang/lfe 2.0 2.0.1 2.1.2 2.2.0: Lisp-flavoured Erlang, a lisp syntax front-end to the Erlang compiler
 dev-lang/lisaac 0.13.1-r2: An object prototype based language
@@ -9780,7 +9780,7 @@ dev-python/yattag 1.16.1: Python library to generate HTML or XML in a readable, 
 dev-python/yaxmldiff 0.2.0: Yet Another XML Differ
 dev-python/youtube-search-python 1.6.6-r2: Get YouTube video information using link WITHOUT YouTube Data API v3
 dev-python/yt-dlp-ejs 0.3.1 0.3.2: External JavaScript for yt-dlp supporting many runtimes
-dev-python/ytmusicapi 1.11.1 1.11.2 1.11.3: Unofficial API for YouTube Music
+dev-python/ytmusicapi 1.11.1 1.11.2 1.11.3 1.11.4: Unofficial API for YouTube Music
 dev-python/zc-lockfile 3.0_p1-r1 4.0: Basic inter-process locks
 dev-python/zconfig 4.2 4.3: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.3.1-r1 4.3.2: A modern/fast Python SOAP client based on lxml / requests
@@ -11146,7 +11146,7 @@ dev-vcs/git 2.49.1 2.50.1 2.51.0 2.51.1 2.51.2-r1 2.51.2-r2 2.52.0 9999 9999-r1 
 dev-vcs/git-absorb 0.7.0 0.8.0: Automatically absorb staged changes into git current branch
 dev-vcs/git-annex 10.20220624 10.20230802: manage files with git, without checking their contents into git
 dev-vcs/git-big-picture 1.3.0 1.3.0-r1: Visualization tool for Git repositories
-dev-vcs/git-cliff 2.9.1 2.10.0 2.10.1: A highly customizable changelog generator
+dev-vcs/git-cliff 2.10.1: A highly customizable changelog generator
 dev-vcs/git-cola 4.13.0 4.14.0 4.15.0: The highly caffeinated git GUI
 dev-vcs/git-credential-manager 2.6.1: Secure Git credential storage supporing GitHub, Azure Repos, and other services
 dev-vcs/git-crypt 0.7.0 0.8.0: Transparent file encryption in git
@@ -11189,7 +11189,7 @@ dev-vcs/rcsi 0.5: A program to give information about RCS files
 dev-vcs/repo 2.53 2.54: Google tool for managing git, particularly multiple repos
 dev-vcs/reposurgeon 5.3: Tool for editing VCS repositories and translating among different systems
 dev-vcs/rsvndump 0.6.1-r1 0.6.2: Dump a remote Subversion repository
-dev-vcs/sourcegit 2025.35 2025.38 2025.39: Open Source Git GUI client using .NET AvaloniaUI
+dev-vcs/sourcegit 2025.35 2025.38 2025.39 2025.40: Open Source Git GUI client using .NET AvaloniaUI
 dev-vcs/stagit 1.2: Generates static HTML pages for a Git repository
 dev-vcs/stgit 2.5.3 2.5.4 2.5.5: Stack-based patch management for Git
 dev-vcs/subversion 1.14.5-r2 1.14.5-r3: Advanced version control system
@@ -12054,10 +12054,10 @@ gnome-extra/office-runner 1.0.3: Lighthearted tool to temporarily inhibit GNOME'
 gnome-extra/pch-session 47.1-r1 48.0-r1: Unofficial gnome based session with different default settings and extensions
 gnome-extra/polkit-gnome 0.105-r2: A dbus session bus service that is used to bring up authentication dialogs
 gnome-extra/sushi 46.0: A quick previewer for Nautilus, the GNOME file manager
-gnome-extra/tecla 47.0 48.0.2: Tecla is a keyboard layout viewer
-gnome-extra/yelp 42.3: Help browser for GNOME
-gnome-extra/yelp-xsl 42.1-r1 42.4: XSL stylesheets for yelp
-gnome-extra/zenity 4.0.5: Tool to display dialogs from the commandline and shell scripts
+gnome-extra/tecla 48.0.2 49.0: Tecla is a keyboard layout viewer
+gnome-extra/yelp 42.3 49.0: Help browser for GNOME
+gnome-extra/yelp-xsl 42.4 49.0: XSL stylesheets for yelp
+gnome-extra/zenity 4.0.5 4.2.1: Tool to display dialogs from the commandline and shell scripts
 gnustep-apps/aclock 0.4.0-r1 0.4.0-r2: Analog dockapp clock for GNUstep
 gnustep-apps/addresses 0.4.8-r1 0.5.0: Apple Addressbook work alike (standalone and for GNUMail)
 gnustep-apps/affiche 0.6.0-r5: Affiche allows people to 'stick' notes
@@ -12112,7 +12112,7 @@ gnustep-libs/sqlclient 1.8.1-r2 1.9.0: GNUstep lightweight database abstraction 
 gui-apps/deskflow 1.21.2 1.23.0 1.24.0 9999: Share a mouse and keyboard between computers (FOSS version of Synergy)
 gui-apps/foot 1.16.2 1.17.0 1.17.1 1.17.2 1.18.0 1.18.1 1.19.0 1.20.0 1.20.1-r1 1.20.2 1.20.2-r2 1.21.0 1.22.0 1.22.3 1.23.0 1.23.1 1.24.0 1.25.0: Fast, lightweight and minimalistic Wayland terminal emulator
 gui-apps/foot-terminfo 1.16.2 1.17.0 1.17.1 1.17.2 1.18.0 1.18.1 1.19.0 1.20.0 1.20.1 1.20.2 1.21.0 1.22.0 1.22.3 1.23.0 1.23.1 1.24.0 1.25.0: Terminfo for foot, a fast, lightweight and minimal Wayland terminal emulator
-gui-apps/gnome-console 47.2.1 48.0.1 48.1: A simple user-friendly terminal emulator for the GNOME desktop
+gui-apps/gnome-console 48.1 49.1: A simple user-friendly terminal emulator for the GNOME desktop
 gui-apps/grim 1.5.0 9999: Grab images from a Wayland compositor
 gui-apps/gtkgreet 0.7 0.8 9999: gtk based greeter for greetd
 gui-apps/input-leap 3.0.2-r1 3.0.3 9999: Share a mouse and keyboard between computers (fork of Barrier)
@@ -12162,10 +12162,10 @@ gui-libs/hyprutils 0.7.1 0.7.1-r1 0.8.2 0.8.4 9999: Hyprland utilities library u
 gui-libs/kddockwidgets 2.3.0 2.4.0: KDAB's Dock Widget Framework for Qt
 gui-libs/libadwaita 1.7.7-r1 1.7.9 1.8.2: Building blocks for modern GNOME applications
 gui-libs/libdecor 0.2.3 0.2.4 9999: A client-side decorations library for Wayland clients
-gui-libs/libgedit-amtk 5.8.0 5.9.0: Actions, Menus and Toolbars Kit for GTK applications
-gui-libs/libgedit-gfls 0.2.0 0.2.1: A module dedicated to file loading and saving
-gui-libs/libgedit-gtksourceview 299.0.4-r1 299.3.0-r1 299.4.0-r1: Gedit Technology - Source code editing widget
-gui-libs/libgedit-tepl 6.11.0 6.12.0 6.12.0-r1: GtkSourceView-based text editors and IDE helper library
+gui-libs/libgedit-amtk 5.9.0 5.9.2: Actions, Menus and Toolbars Kit for GTK applications
+gui-libs/libgedit-gfls 0.2.1 0.3.1: A module dedicated to file loading and saving
+gui-libs/libgedit-gtksourceview 299.4.0-r1 299.5.0: Gedit Technology - Source code editing widget
+gui-libs/libgedit-tepl 6.12.0-r1 6.13.0: GtkSourceView-based text editors and IDE helper library
 gui-libs/libhandy 1.8.3: Building blocks for modern adaptive GNOME apps
 gui-libs/libpanel 1.10.0 1.10.2: A dock/panel library for GTK 4
 gui-libs/libsfdo 0.1.4: Collection of libraries which implement some freedesktop.org specifications
@@ -15240,7 +15240,7 @@ net-misc/exabgp 4.2.23 4.2.25: The BGP swiss army knife of networking
 net-misc/fakeidentd 2.6-r1: A static, secure identd. One source file only!
 net-misc/freerdp 2.11.7-r1 2.9999 3.14.1 3.16.0 3.17.1 3.17.2-r1 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 10.1.3 10.2.2 10.2.3 10.3.1 10.4.1 10.5.0: The FRRouting Protocol Suite
-net-misc/gallery-dl 1.30.10 1.31.0 9999: Download image galleries and collections from several image hosting sites
+net-misc/gallery-dl 1.30.10 1.31.0 1.31.1 9999: Download image galleries and collections from several image hosting sites
 net-misc/geckodriver 0.36.0: Proxy for using WebDriver clients to interact with Gecko-based browsers
 net-misc/gensio 2.8.5: General Stream I/O
 net-misc/geoipupdate 6.1.0 7.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
@@ -16086,7 +16086,7 @@ sci-libs/arpack 3.9.1 9999: Arnoldi package library to solve large scale eigenva
 sci-libs/arprec 2.2.19-r1: Arbitrary precision float arithmetics and functions
 sci-libs/atlas 3.10.2-r1 3.10.3 3.11.41: Automatically Tuned Linear Algebra Software
 sci-libs/avogadrolibs 1.101.0 1.102.1: Advanced molecule editor and visualizer 2 - libraries
-sci-libs/blas-lapack-aux-wrapper 0-r1 1 2 3 4 5: BLAS/LAPACK wrappers for FlexiBLAS
+sci-libs/blas-lapack-aux-wrapper 1 4 6: BLAS/LAPACK wrappers for FlexiBLAS
 sci-libs/blis 1.0 1.0-r1 2.0: BLAS-like Library Instantiation Software Framework
 sci-libs/bliss 0.77 0.77-r1: Compute Automorphism Groups and Canonical Labelings of Graphs
 sci-libs/branca 0.8.2: spinoff from folium, host the non-map-specific features
