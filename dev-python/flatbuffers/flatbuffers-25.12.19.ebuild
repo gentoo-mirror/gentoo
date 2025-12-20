@@ -21,7 +21,7 @@ S=${WORKDIR}/${P}/python
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~sparc ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -30,13 +30,6 @@ BDEPEND="
 		dev-python/numpy[${PYTHON_USEDEP}]
 	)
 "
-
-src_prepare() {
-	cd "${WORKDIR}/${P}" || die
-	eapply "${FILESDIR}/${PN}-24.3.25-numpy-2.patch"
-	cd "${S}" || die
-	distutils-r1_src_prepare
-}
 
 python_test() {
 	cd "${WORKDIR}/${P}/tests" || die
