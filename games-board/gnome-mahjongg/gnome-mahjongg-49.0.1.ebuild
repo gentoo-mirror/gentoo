@@ -6,16 +6,16 @@ EAPI=8
 inherit gnome.org gnome2-utils meson vala xdg
 
 DESCRIPTION="Disassemble a pile of tiles by removing matching pairs"
-HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-mahjongg"
+HOMEPAGE="https://apps.gnome.org/Mahjongg/"
 
 LICENSE="GPL-2+ CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.40.0:2
-	>=gui-libs/gtk-4.14.0:4
-	>=gui-libs/libadwaita-1.5.0:1
+	>=gui-libs/gtk-4.20.0:4
+	>=gui-libs/libadwaita-1.8.0:1
 	>=gnome-base/librsvg-2.46.0:2
 "
 DEPEND="${RDEPEND}

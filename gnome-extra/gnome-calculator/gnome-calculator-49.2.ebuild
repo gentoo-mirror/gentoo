@@ -10,7 +10,7 @@ HOMEPAGE="https://apps.gnome.org/Calculator/"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+introspection test"
 
 # gtksourceview vapi definitions in dev-lang/vala itself are too old, and newer vala removes them
@@ -22,8 +22,8 @@ RDEPEND="
 	>=dev-libs/libgee-0.20.0:0.8=
 	dev-libs/mpc:=
 	dev-libs/mpfr:0=
-	>=gui-libs/gtk-4.15.2:4
-	>=gui-libs/libadwaita-1.6_beta:1
+	>=gui-libs/gtk-4.17.0:4
+	>=gui-libs/libadwaita-1.8_alpha:1
 	>=gui-libs/gtksourceview-5.3.0:5
 	introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= )
 "

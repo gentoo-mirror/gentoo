@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
+
 inherit gnome.org gnome2-utils meson python-any-r1 vala xdg
 
 DESCRIPTION="Clear hidden mines from a minefield"
@@ -10,20 +11,21 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-mines"
 
 LICENSE="GPL-3+ CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.40:2
 	dev-libs/libgee:0.8
-	>=x11-libs/gtk+-3.24:3
-	>=dev-libs/libgnome-games-support-1.7.1:1=
+	>=gui-libs/gtk-4.6:4
+	>=gui-libs/libadwaita-1.8_alpha:1
+	dev-libs/libgnome-games-support:2=
 	>=gnome-base/librsvg-2.32.0:2
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
 	$(vala_depend)
-	dev-libs/appstream-glib
+	dev-libs/appstream
 	dev-libs/libxml2:2
 	dev-util/itstool
 	>=sys-devel/gettext-0.19.8
