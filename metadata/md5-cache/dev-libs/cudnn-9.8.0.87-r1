@@ -4,8 +4,8 @@ EAPI=8
 HOMEPAGE=https://developer.nvidia.com/cudnn
 KEYWORDS=~amd64 ~arm64
 LICENSE=NVIDIA-cuDNN
-RDEPEND=>=dev-util/nvidia-cuda-toolkit-12
+RDEPEND==dev-util/nvidia-cuda-toolkit-12*
 RESTRICT=bindist test
 SLOT=0/9.8.0
 SRC_URI=amd64? ( https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/linux-x86_64/cudnn-linux-x86_64-9.8.0.87_cuda12-archive.tar.xz ) arm64? ( https://developer.download.nvidia.com/compute/cudnn/redist/cudnn/linux-sbsa/cudnn-linux-sbsa-9.8.0.87_cuda12-archive.tar.xz )
-_md5_=e31bf3eb221db95925dfcdffb5f4081f
+_md5_=c7f372aa6f2a3e38a59ee2b84f6888df
