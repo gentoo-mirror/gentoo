@@ -7,7 +7,7 @@ USE_RUBY="ruby32 ruby33 ruby34"
 
 RUBY_FAKEGEM_RECIPE_DOC=""
 RUBY_FAKEGEM_DOCDIR="doc"
-RUBY_FAKEGEM_EXTRADOC="History.rdoc README.rdoc RI.md TODO.rdoc"
+RUBY_FAKEGEM_EXTRADOC="History.rdoc README.md RI.md TODO.rdoc"
 
 RUBY_FAKEGEM_BINWRAP=""
 RUBY_FAKEGEM_BINDIR="exe"
@@ -30,11 +30,12 @@ RDEPEND=">=app-eselect/eselect-ruby-20181225"
 ruby_add_rdepend "
 	dev-ruby/erb
 	>=dev-ruby/psych-4.0.0
+	dev-ruby/tsort
 "
 
 ruby_add_bdepend "
 	>=dev-ruby/kpeg-1.1.0-r1
-	>dev-ruby/racc-1.4.10
+	>=dev-ruby/racc-1.4.10
 	dev-ruby/rake
 	test? (
 		dev-ruby/bundler
@@ -48,10 +49,10 @@ all_ruby_prepare() {
 	sed -i -e 's#/nonexistent#/nonexistent_rdoc_tests#g' test/rdoc/rdoc*test.rb || die
 
 	# Avoid unneeded dependency on bundler, bug 603696
-	sed -i -e '/bundler/ s:^:#:' \
+	sed -e '/bundler/ s:^:#:' \
 		-e 's/Bundler::GemHelper.gemspec.full_name/"rdoc"/' \
-		-e '/rubocop\/rake/ s:^:#:' \
-		-e '/RuboCop/,/end/ s:^:#:' Rakefile || die
+		-e "/require 'rubocop'/,/])/ s:^:#:" \
+		-i Rakefile || die
 
 	# Skip rubygems tests since the rubygems test case code is no longer installed by rubygems.
 	sed -i -e '/^task/ s/, :rubygems_test//' Rakefile || die
@@ -62,10 +63,14 @@ all_ruby_prepare() {
 	# Remove test depending on FEATURES=userpriv, bug 361959
 	sed -i -e '/def test_check_files/,/^  end/ s:^:#:' test/rdoc/rdoc_options_test.rb || die
 
-	# Remove test depending on currently unpackaged prism
-	#rm -f test/rdoc/rdoc_parser_prism_ruby_test.rb || die
+	sed -e 's:_relative ": "./:' \
+		-e 's/__dir__/"."/' \
+		-i ${RUBY_FAKEGEM_GEMSPEC} || die
+}
 
-	sed -i -e 's:_relative ": "./:' ${RUBY_FAKEGEM_GEMSPEC} || die
+each_ruby_prepare() {
+	sed -e "/sh/ s:\"bundle\", \"exec\", :\"${RUBY}\", \"-S\", :" \
+		-i Rakefile || die
 }
 
 all_ruby_compile() {
@@ -78,7 +83,8 @@ all_ruby_compile() {
 }
 
 each_ruby_compile() {
-	LANG=C.UTF-8 ${RUBY} -S rake generate || die
+	export LANG=C.UTF-8
+	${RUBY} -S rake generate || die
 }
 
 all_ruby_install() {
