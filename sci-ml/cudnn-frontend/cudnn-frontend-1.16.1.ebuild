@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cuda cmake
+inherit cuda cmake edo
 
 DESCRIPTION="A c++ wrapper for the cudnn backend API"
 HOMEPAGE="https://github.com/NVIDIA/cudnn-frontend"
@@ -17,12 +17,13 @@ IUSE="samples test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-libs/cudnn
+	>=dev-libs/cudnn-9.0.0:=
 "
 DEPEND="${RDEPEND}
 	dev-cpp/nlohmann_json
 	test? (
 		>=dev-cpp/catch-3
+		>=dev-libs/cudnn-9.15.0
 	)
 "
 
@@ -65,13 +66,42 @@ src_configure() {
 
 src_test() {
 	cuda_add_sandbox -w
+	addwrite "/proc/self/task"
 
-	"${BUILD_DIR}/bin/tests" || die
+	# List all tests
+	# "${BUILD_DIR}/bin/tests" --list-tests --verbosity quiet
+
+	local catchargs=()
+
+	local CATCH_SKIP_TESTS=()
+
+	if [[ -v CUDAARCHS && "${CUDAARCHS}" != 89 ]]; then
+		CATCH_SKIP_TESTS+=(
+			 # doesn't work on 86 52
+			'Graph key'
+			'Graph key dynamic shape'
+
+			 # doesn't work on 86
+			'sdpa backward graph serialization'
+		)
+	fi
+
+	[[ -v CATCH_SKIP_TESTS ]] && catchargs+=( "${CATCH_SKIP_TESTS[@]/#/\~}" )
+
+	edo "${BUILD_DIR}/bin/tests" -s "${catchargs[@]}"
 
 	if use samples; then
-		"${BUILD_DIR}/bin/samples" || die
-		"${BUILD_DIR}/bin/legacy_samples" || die
+		edo "${BUILD_DIR}/bin/samples" -s
+		edo "${BUILD_DIR}/bin/legacy_samples" -s
 	fi
 
 	cmake_src_test
+}
+
+src_install() {
+	cmake_src_install
+
+	if use test; then
+		rm -R "${ED}/usr/bin/tests" || die
+	fi
 }
