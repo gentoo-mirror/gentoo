@@ -11,7 +11,7 @@ if [[ ${PV} = 9999* ]]; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/martinpitt/umockdev/releases/download/${PV}/${P}.tar.xz"
-	KEYWORDS="amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 DESCRIPTION="Mock hardware devices for creating unit tests"
@@ -31,7 +31,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	test? (
 		${PYTHON_DEPS}
-		dev-libs/libgudev:=[${MULTILIB_USEDEP}]
+		dev-libs/libgudev:=[introspection,${MULTILIB_USEDEP}]
 	)
 "
 BDEPEND="
@@ -39,10 +39,6 @@ BDEPEND="
 	app-arch/xz-utils
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/${P}-tests-ioctl.patch
-)
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
@@ -62,5 +58,6 @@ multilib_src_configure() {
 }
 
 multilib_src_test() {
-	meson_src_test --no-suite fails-valgrind
+	export SLOW_TESTBED_FACTOR=100
+	meson_src_test --num-processes=1 --timeout-multiplier=10 --setup installed
 }
