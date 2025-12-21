@@ -1,9 +1,9 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit go-module
+inherit go-env go-module
 
 DESCRIPTION="Tool for working with binary data (app-misc/jq for binary formats)"
 HOMEPAGE="https://github.com/wader/fq"
@@ -11,12 +11,23 @@ SRC_URI="https://github.com/wader/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-deps.tar.xz"
 
 LICENSE="MIT BSD-2"
+# Dependent licenses
+LICENSE+=" BSD BSD-2 MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64"
+KEYWORDS="~amd64 ~arm ~arm64"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="test? ( dev-tcltk/expect )"
+
+src_unpack() {
+	default
+
+	if [[ -d "${WORKDIR}"/vendor ]] ; then
+		mv "${WORKDIR}"/vendor "${S}"/vendor || die
+	fi
+	go-env_set_compile_environment
+}
 
 src_prepare() {
 	default
@@ -30,7 +41,11 @@ src_compile() {
 	# Avoid -s being set in Makefile (stripping)
 	export GO_BUILD_LDFLAGS="-w"
 
-	default
+	emake -Onone
+}
+
+src_test() {
+	emake -Onone test
 }
 
 src_install() {
