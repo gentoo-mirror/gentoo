@@ -19,11 +19,11 @@ RDEPEND="
 	>=dev-libs/gobject-introspection-1.82.0-r2:=
 	>=gui-libs/gtk-4.10:4[introspection]
 	>=app-misc/geoclue-0.12.99:2.0[introspection]
-	>=gui-libs/libadwaita-1.7_alpha:1[introspection]
+	>=gui-libs/libadwaita-1.8_alpha:1[introspection]
 	>=dev-libs/libgweather-4.2.0:4=[introspection]
 	>=sci-geosciences/geocode-glib-3.15.2:2[introspection]
 	dev-libs/libportal:=[introspection]
-	>=media-libs/libshumate-1.4_alpha:1.0=[introspection]
+	>=media-libs/libshumate-1.5_alpha:1.0=[introspection]
 	dev-libs/libxml2:2=
 	>=net-libs/rest-0.9.1:1.0[introspection]
 	>=gnome-base/librsvg-2.0

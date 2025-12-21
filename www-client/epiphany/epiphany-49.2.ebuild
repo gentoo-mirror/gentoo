@@ -25,7 +25,7 @@ DEPEND="
 	>=app-text/iso-codes-0.35
 	>=dev-libs/json-glib-1.6
 	app-arch/libarchive:=
-	>=gui-libs/libadwaita-1.6:1
+	>=gui-libs/libadwaita-1.8_alpha:1
 	>=app-crypt/libsecret-0.19
 	>=net-libs/libsoup-2.99.4:3.0
 	>=dev-libs/libxml2-2.6.12:2=
@@ -42,6 +42,7 @@ RDEPEND="${DEPEND}
 # appstream-glib needed for appdata.xml gettext translation
 BDEPEND="
 	dev-libs/appstream-glib
+	dev-python/docutils
 	dev-util/gdbus-codegen
 	dev-util/glib-utils
 	dev-util/itstool
@@ -70,6 +71,7 @@ src_configure() {
 		-Dtech_preview=false
 		$(meson_feature test unit_tests)
 		-Dgranite=disabled
+		-Dman-pages=enabled
 	)
 	meson_src_configure
 }
