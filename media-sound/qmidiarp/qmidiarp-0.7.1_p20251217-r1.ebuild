@@ -14,20 +14,18 @@ S="${WORKDIR}/${PN}-${COMMIT}"
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 ~x86"
-IUSE="gui lv2 nls osc"
-
-REQUIRED_USE="osc? ( gui )"
+IUSE="lv2 osc"
 
 RDEPEND="
+	dev-qt/qtbase:6[gui,widgets]
 	media-libs/alsa-lib
 	virtual/jack
-	gui? ( dev-qt/qtbase:6[gui,widgets] )
 	lv2? ( media-libs/lv2 )
 	osc? ( media-libs/liblo )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	nls? ( dev-qt/qttools:6[linguist] )
+	dev-qt/qttools:6[linguist]
 	virtual/pkgconfig
 "
 
@@ -35,11 +33,11 @@ src_configure() {
 	local mycmakeargs=(
 		-DSTRIP_DEBUG_SYMBOLS=OFF
 		-DCONFIG_LV2_UI_RTK=OFF
-		-DCONFIG_APPBUILD=$(usex gui)
+		-DCONFIG_APPBUILD=ON
+		-DCONFIG_TRANSLATIONS=ON
 		-DCONFIG_LV2=$(usex lv2)
-		-DCONFIG_TRANSLATIONS=$(usex nls)
+		-DCONFIG_LV2_UI=$(usex lv2)
 		-DCONFIG_NSM=$(usex osc)
 	)
-	use gui && mycmakeargs+=( -DCONFIG_LV2_UI=$(usex lv2) )
 	cmake_src_configure
 }
