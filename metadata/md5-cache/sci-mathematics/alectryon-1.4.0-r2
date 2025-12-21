@@ -1,16 +1,16 @@
-BDEPEND=emacs? ( >=app-editors/emacs-23.1:* app-emacs/flycheck app-emacs/proofgeneral ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?]
+BDEPEND=emacs? ( >=app-editors/emacs-23.1:* app-emacs/flycheck app-emacs/proofgeneral ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-16[python_targets_python3_12(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_12(-)?]
 DEFINED_PHASES=compile configure install postinst postrm prepare test
-DEPEND=dev-python/beautifulsoup4[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/docutils[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/dominate[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/myst-parser[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/pygments[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/sphinx[python_targets_python3_11(-)?,python_targets_python3_12(-)?] sci-mathematics/coq-serapi
+DEPEND=dev-python/beautifulsoup4[python_targets_python3_12(-)?] dev-python/docutils[python_targets_python3_12(-)?] dev-python/dominate[python_targets_python3_12(-)?] dev-python/myst-parser[python_targets_python3_12(-)?] dev-python/pygments[python_targets_python3_12(-)?] dev-python/sphinx[python_targets_python3_12(-)?] sci-mathematics/coq-serapi
 DESCRIPTION=Toolkit for literate programming in Coq
 EAPI=8
 HOMEPAGE=https://github.com/cpitclaudel/alectryon/
 INHERIT=elisp-common distutils-r1
-IUSE=doc emacs python_targets_python3_11 python_targets_python3_12
+IUSE=doc emacs python_targets_python3_12
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=dev-python/beautifulsoup4[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/docutils[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/dominate[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/myst-parser[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/pygments[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-python/sphinx[python_targets_python3_11(-)?,python_targets_python3_12(-)?] sci-mathematics/coq-serapi python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 )
-REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=dev-python/beautifulsoup4[python_targets_python3_12(-)?] dev-python/docutils[python_targets_python3_12(-)?] dev-python/dominate[python_targets_python3_12(-)?] dev-python/myst-parser[python_targets_python3_12(-)?] dev-python/pygments[python_targets_python3_12(-)?] dev-python/sphinx[python_targets_python3_12(-)?] sci-mathematics/coq-serapi python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_12 )
 SLOT=0
 SRC_URI=https://github.com/cpitclaudel/alectryon/archive/v1.4.0.tar.gz -> alectryon-1.4.0.tar.gz
 _eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	a199af442898963433d6f038a88cce9c	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	d35f403697c0f86d762e7560bb5cd143
-_md5_=67ba84ab9d5dda9aeeb72eee79437b1e
+_md5_=605f6cdbebae6108c319d95ba2ad3ae6
