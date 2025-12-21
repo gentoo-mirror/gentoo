@@ -6,11 +6,11 @@ EAPI=8
 inherit gnome.org gnome2-utils meson optfeature vala xdg
 
 DESCRIPTION="Open source photo manager for GNOME"
-HOMEPAGE="https://gitlab.gnome.org/GNOME/shotwell"
+HOMEPAGE="https://shotwell-project.org/"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~sparc ~x86"
 IUSE="opencv udev"
 
 DEPEND="
@@ -30,13 +30,13 @@ DEPEND="
 	>=media-libs/gexiv2-0.12.3
 	>=media-libs/libraw-0.13.2:=
 	>=media-libs/libexif-0.6.16
-	app-crypt/libsecret
+	app-crypt/libsecret[vala]
 	>=dev-libs/libportal-0.5:=[gtk,vala]
 	media-libs/libwebp:=
 
 	>=app-crypt/gcr-3:0=[gtk]
 	x11-libs/cairo
-	opencv? ( >=media-libs/opencv-4.0.0:= )
+	opencv? ( >=media-libs/opencv-4.0.0:=[features2d] )
 "
 RDEPEND="${DEPEND}
 	media-plugins/gst-plugins-gdkpixbuf:1.0
