@@ -1,5 +1,6 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
 EAPI=8
 
 inherit go-module systemd tmpfiles
@@ -7,8 +8,7 @@ inherit go-module systemd tmpfiles
 DESCRIPTION="soju is a user-friendly IRC bouncer"
 HOMEPAGE="https://soju.im/"
 SRC_URI="https://codeberg.org/emersion/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://github.com/alfredfo/${PN}-deps/raw/master/${P}-deps.tar.xz"
-S="${WORKDIR}/soju"
+SRC_URI+=" https://github.com/gentoo-golang-dist/soju/releases/download/v${PV}/${P}-vendor.tar.xz"
 
 LICENSE="AGPL-3 Apache-2.0 MIT BSD"
 SLOT="0"
@@ -25,6 +25,11 @@ RDEPEND="
 	sqlite? ( dev-db/sqlite:3 )
 "
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	cp -r "${WORKDIR}"/${PN} -T "${S}" || die
+	default
+}
 
 src_compile() {
 	# musl removed legacy LFS64 interfaces in version 1.2.4 temporarily
