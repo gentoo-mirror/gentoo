@@ -1,7 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit toolchain-funcs
 
 DESCRIPTION="Wings 3D is an advanced subdivision modeler"
@@ -10,21 +10,34 @@ SRC_URI="https://downloads.sourceforge.net/wings/${P}.tar.bz2"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
+# Run failed with dev-lang/erlang in the range [28, 28.3), see bug 964737
 RDEPEND="
 	>dev-lang/erlang-21[wxwidgets]
+	|| (
+		<dev-lang/erlang-28
+		>=dev-lang/erlang-28.3
+	)
 	dev-libs/cl
 	media-libs/glu
 	media-libs/libsdl[opengl]
 	virtual/opengl
+	dev-cpp/eigen
+	sci-libs/libigl
 "
 DEPEND="
 	${RDEPEND}
 "
 
+PATCHES=( "${FILESDIR}"/${PN}-2.3-nogit.patch )
+
 src_prepare() {
 	sed -i -e 's# -Werror##g;s# -O3##g' $(find -name Makefile) || die
+	sed -i \
+		-e "s|IGL_INCLUDE = .*$|IGL_INCLUDE=-I/usr/include/eigen3|" \
+		c_src/Makefile \
+		|| die
 	default
 }
 
@@ -50,5 +63,5 @@ src_install() {
 	doins -r e3d ebin icons plugins priv psd shaders src textures tools
 
 	newbin "${FILESDIR}"/wings.sh-r1 wings
-	dodoc AUTHORS README
+	dodoc AUTHORS
 }

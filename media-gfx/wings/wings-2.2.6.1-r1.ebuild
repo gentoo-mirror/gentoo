@@ -12,27 +12,21 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 x86"
 
+# Build fails with >=dev-lang/erlang-28
 RDEPEND="
 	>dev-lang/erlang-21[wxwidgets]
+	<dev-lang/erlang-28
 	dev-libs/cl
 	media-libs/glu
 	media-libs/libsdl[opengl]
 	virtual/opengl
-	dev-cpp/eigen
-	sci-libs/libigl
 "
 DEPEND="
 	${RDEPEND}
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-2.3-nogit.patch )
-
 src_prepare() {
 	sed -i -e 's# -Werror##g;s# -O3##g' $(find -name Makefile) || die
-	sed -i \
-		-e "s|IGL_INCLUDE = .*$|IGL_INCLUDE=-I/usr/include/eigen3|" \
-		c_src/Makefile \
-		|| die
 	default
 }
 
@@ -58,5 +52,5 @@ src_install() {
 	doins -r e3d ebin icons plugins priv psd shaders src textures tools
 
 	newbin "${FILESDIR}"/wings.sh-r1 wings
-	dodoc AUTHORS
+	dodoc AUTHORS README
 }
