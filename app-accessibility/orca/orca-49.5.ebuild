@@ -11,10 +11,11 @@ HOMEPAGE="https://orca.gnome.org/"
 
 LICENSE="LGPL-2.1+ CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64"
 
-IUSE="+braille"
+IUSE="+braille test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+RESTRICT="!test? ( test )"
 
 DEPEND="${PYTHON_DEPS}
 	>=app-accessibility/at-spi2-core-2.50:2[introspection]
@@ -24,6 +25,7 @@ DEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/gst-python:1.0[${PYTHON_USEDEP}]
 		>=dev-python/pygobject-3.18:3[${PYTHON_USEDEP}]
+		dev-python/dasbus[${PYTHON_USEDEP}]
 	')
 	braille? (
 		$(python_gen_cond_dep '
@@ -42,6 +44,11 @@ RDEPEND="${DEPEND}
 	x11-libs/pango[introspection]
 "
 BDEPEND="
+	$(python_gen_cond_dep '
+		test? (
+			dev-python/pytest-mock[${PYTHON_USEDEP}]
+		)'
+	)
 	dev-util/itstool
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
@@ -53,6 +60,11 @@ src_configure() {
 		-Dspiel=false # spiel not yet in gentoo
 	)
 	meson_src_configure
+}
+
+src_test() {
+	# test_structural_navigator needs more time
+	meson_src_test --timeout-multiplier=10
 }
 
 src_install() {
