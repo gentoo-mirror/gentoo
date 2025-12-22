@@ -27,7 +27,7 @@ src_test() {
 	# Avoid error like:
 	# -buildmode=pie not supported when -race is enabled on linux/amd64
 	GOFLAGS=${GOFLAGS//-buildmode=pie}
-	ego test -coverpkg=./... -coverprofile=coverage.txt -v -race ./...
+	ego test -coverpkg=./internal/... -coverprofile=coverage.txt -v -race ./...
 }
 
 src_install() {
