@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.bacula.org/
 INHERIT=desktop flag-o-matic libtool qmake-utils systemd
 IUSE=acl bacula-clientonly bacula-nodir bacula-nosd +batch-insert examples ipv6 logwatch mysql postgres qt6 readline selinux +sqlite ssl static tcpd vim-syntax X
-KEYWORDS=~amd64 ~ppc ~sparc ~x86
+KEYWORDS=amd64 ~ppc ~sparc x86
 LICENSE=AGPL-3
 RDEPEND=!bacula-clientonly? ( !bacula-nodir? ( virtual/mta ) postgres? ( dev-db/postgresql:=[threads(+)] ) mysql? ( || ( dev-db/mysql-connector-c dev-db/mariadb-connector-c ) ) sqlite? ( dev-db/sqlite:3 ) ) dev-libs/gmp:0 qt6? ( dev-qt/qtbase:6[gui,widgets] !sys-apps/bat ) logwatch? ( sys-apps/logwatch ) readline? ( sys-libs/readline:0 ) static? ( dev-libs/lzo[static-libs] sys-libs/ncurses:=[static-libs] virtual/zlib:=[static-libs] acl? ( virtual/acl[static-libs(+)] ) ssl? ( dev-libs/openssl:0=[static-libs] ) ) !static? ( dev-libs/lzo sys-libs/ncurses:= virtual/zlib:= acl? ( virtual/acl ) ssl? ( dev-libs/openssl:0= ) ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 ) dev-util/patchelf acct-user/bacula acct-group/bacula !bacula-clientonly? ( !bacula-nosd? ( app-arch/mt-st sys-block/mtx ) ) selinux? ( sec-policy/selinux-bacula ) vim-syntax? ( || ( app-editors/vim app-editors/gvim ) )
 REQUIRED_USE=!bacula-clientonly? ( ^^ ( mysql postgres sqlite ) ) static? ( bacula-clientonly )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/bacula/bacula-15.0.3.tar.gz https://dev.gentoo.org/~tomjbe/distfiles/bacula-15.0.3-qt6-gentoo.tgz
 _eclasses_=desktop	7b6f6e9d65093966fbc8475399c5dd4e	toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	libtool	c81bd096be5f4c82f4e8f156ef112402	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=6823f57bd16e0293273dc4e94f93edc2
+_md5_=a42a86dba30920fb35bb4309c3f703a9
