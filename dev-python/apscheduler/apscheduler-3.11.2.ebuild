@@ -5,6 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_PN=APScheduler
+PYPI_VERIFY_REPO=https://github.com/agronholm/apscheduler
 PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 pypi
@@ -25,21 +26,16 @@ RDEPEND="
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
-		>=dev-python/anyio-4.5.2[${PYTHON_USEDEP}]
 		dev-python/pytz[${PYTHON_USEDEP}]
 		>=dev-python/sqlalchemy-1.4[${PYTHON_USEDEP}]
 		dev-python/tornado[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( anyio pytest-timeout )
 distutils_enable_tests pytest
 
 PATCHES=(
 	# disable test fixtures using external servers (mongodb, redis...)
 	"${FILESDIR}"/apscheduler-3.11.0-external-server-tests.patch
 )
-
-python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -p anyio
-}

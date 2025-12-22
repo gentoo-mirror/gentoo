@@ -4,9 +4,10 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/Kludex/uvicorn
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
-inherit distutils-r1 optfeature
+inherit distutils-r1 optfeature pypi
 
 DESCRIPTION="Lightning-fast ASGI server implementation"
 HOMEPAGE="
@@ -14,15 +15,10 @@ HOMEPAGE="
 	https://github.com/Kludex/uvicorn/
 	https://pypi.org/project/uvicorn/
 "
-# as of 0.28.0, no tests in sdist
-SRC_URI="
-	https://github.com/Kludex/uvicorn/archive/${PV}.tar.gz
-		-> ${P}.gh.tar.gz
-"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test-rust"
 
 RDEPEND="
@@ -67,14 +63,6 @@ python_test() {
 			# TODO
 			EPYTEST_DESELECT+=(
 				tests/middleware/test_logging.py::test_running_log_using_fd
-			)
-			;;
-		python3.14*)
-			EPYTEST_DESELECT+=(
-				# TODO
-				tests/test_auto_detection.py::test_loop_auto
-				# changed exception type
-				tests/test_compat.py::test_asyncio_run__passing_a_non_awaitable_callback_should_throw_error
 			)
 			;;
 	esac
