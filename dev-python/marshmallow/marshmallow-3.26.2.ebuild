@@ -4,8 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit
-PYPI_VERIFY_REPO=https://github.com/marshmallow-code/marshmallow
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 pypi
 
@@ -19,6 +18,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
+RDEPEND="
+	>=dev-python/packaging-17.0[${PYTHON_USEDEP}]
+"
 BDEPEND="
 	test? (
 		dev-python/simplejson[${PYTHON_USEDEP}]
