@@ -21,9 +21,10 @@ if [[ ${PV} == 9999* ]]; then
 	EGIT_REPO_URI="https://github.com/vim/vim.git"
 	EGIT_CHECKOUT_DIR=${WORKDIR}/vim-${PV}
 else
-	SRC_URI="https://github.com/vim/vim/archive/v${PV}.tar.gz -> vim-${PV}.tar.gz
-		https://gitweb.gentoo.org/proj/vim-patches.git/snapshot/vim-patches-vim-${VIM_PATCHES_VERSION}-patches.tar.bz2"
-		# https://github.com/douglarek/gentoo-vim-patches/releases/download/vim-${VIM_PATCHES_VERSION}-patches/vim-${VIM_PATCHES_VERSION}-patches.tar.gz"
+	SRC_URI="
+		https://github.com/vim/vim/archive/v${PV}.tar.gz -> vim-${PV}.tar.gz
+		https://gitweb.gentoo.org/proj/vim-patches.git/snapshot/vim-patches-vim-${VIM_PATCHES_VERSION}-patches.tar.bz2
+	"
 	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
 fi
 
@@ -33,7 +34,7 @@ S="${WORKDIR}"/vim-${PV}
 
 LICENSE="vim"
 SLOT="0"
-IUSE="acl crypt cscope debug lua minimal motif netbeans nls perl python racket ruby selinux session sound tcl ${GENTOO_PERL_USESTRING}"
+IUSE="acl crypt cscope debug lua minimal motif netbeans nls perl python racket ruby selinux session sound tcl wayland X ${GENTOO_PERL_USESTRING}"
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -50,7 +51,7 @@ RDEPEND="
 	acl? ( kernel_linux? ( sys-apps/acl ) )
 	motif? ( >=x11-libs/motif-2.3:0 )
 	!motif? (
-		x11-libs/gtk+:3
+		x11-libs/gtk+:3[X?]
 		x11-libs/libXft
 	)
 	crypt? ( dev-libs/libsodium:= )
@@ -71,6 +72,7 @@ RDEPEND="
 	session? ( x11-libs/libSM )
 	sound? ( media-libs/libcanberra )
 	tcl? ( dev-lang/tcl:0= )
+	wayland? ( dev-libs/wayland )
 "
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto"
@@ -206,6 +208,7 @@ src_configure() {
 		$(use_enable selinux)
 		$(use_enable session xsmp)
 		$(use_enable tcl tclinterp)
+		$(use_with wayland)
 	)
 
 	if use lua; then
@@ -229,6 +232,8 @@ src_configure() {
 		myconf+=( --enable-gtk3-check )
 		einfo "Building gvim with the gtk+-3 GUI"
 		myconf+=( --enable-gui=gtk3 )
+
+		use X || append-flags -DGENTOO_GTK_HIDE_X11
 	fi
 	echo ; echo
 
