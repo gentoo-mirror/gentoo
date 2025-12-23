@@ -13,7 +13,7 @@ URI_PREFIX="https://github.com/ROCm/${MY_PN}/releases/download/${PV}"
 SHIM_URI_PREFIX="${URI_PREFIX}/${MY_P}-manylinux_2_28_x86_64"
 IMAGES_URI_PREFIX="${URI_PREFIX}/${MY_P}-images-amd"
 
-# Download libs for all rocm releases (3mb each), but unpack only one.
+# Download libs for all rocm releases (4mb each), but unpack only one.
 SRC_URI="
 	${SHIM_URI_PREFIX}-rocm6.3-shared.tar.gz
 	${SHIM_URI_PREFIX}-rocm6.4-shared.tar.gz
@@ -27,6 +27,7 @@ SRC_URI="
 	amdgpu_targets_gfx1100? ( ${IMAGES_URI_PREFIX}-gfx11xx.tar.gz )
 	amdgpu_targets_gfx1101? ( ${IMAGES_URI_PREFIX}-gfx11xx.tar.gz )
 	amdgpu_targets_gfx1102? ( ${IMAGES_URI_PREFIX}-gfx11xx.tar.gz )
+	amdgpu_targets_gfx1103? ( ${IMAGES_URI_PREFIX}-gfx11xx.tar.gz )
 	amdgpu_targets_gfx1150? ( ${IMAGES_URI_PREFIX}-gfx11xx.tar.gz )
 	amdgpu_targets_gfx1151? ( ${IMAGES_URI_PREFIX}-gfx11xx.tar.gz )
 
@@ -47,6 +48,7 @@ IUSE_TARGETS=(
 	gfx1100
 	gfx1101
 	gfx1102
+	gfx1103
 	gfx1150
 	gfx1151
 	gfx1200
