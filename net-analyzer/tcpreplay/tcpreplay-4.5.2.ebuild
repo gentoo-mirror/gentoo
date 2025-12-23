@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,10 +12,8 @@ if [[ ${PV} == *9999* ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/appneta/${PN}/releases/download/v${PV}/${P}.tar.xz"
-	KEYWORDS="amd64 ~arm ~sparc x86"
+	KEYWORDS="~amd64 ~arm ~sparc ~x86"
 fi
-
-S="${WORKDIR}"/${P/_/-}
 
 LICENSE="BSD GPL-3"
 SLOT="0"
@@ -34,6 +32,10 @@ DEPEND="
 	tcpdump? ( net-analyzer/tcpdump )
 "
 RDEPEND="${DEPEND}"
+
+QA_CONFIG_IMPL_DECL_SKIP=(
+	pathfind # sun/solaris only command, bug 900040
+)
 
 DOCS=( docs/{CHANGELOG,CREDIT,HACKING,TODO} )
 
@@ -59,16 +61,19 @@ src_prepare() {
 src_configure() {
 	use elibc_musl && append-flags "-lfts"
 	# By default it uses static linking. Avoid that, bug #252940
-	econf \
-		$(use_enable debug) \
-		$(use_with pcapnav pcapnav-config "${BROOT}"/usr/bin/pcapnav-config) \
-		$(use_with tcpdump tcpdump "${ESYSROOT}"/usr/sbin/tcpdump) \
-		--enable-dynamic-link \
-		--enable-local-libopts \
-		--enable-shared \
-		--with-libdnet \
-		--with-testnic2=lo \
+	local myeconfargs=(
+		$(use_enable debug)
+		$(use_with pcapnav pcapnav-config "${BROOT}"/usr/bin/pcapnav-config)
+		$(use_with tcpdump tcpdump "${ESYSROOT}"/usr/sbin/tcpdump)
+		--enable-dynamic-link
+		--enable-local-libopts
+		--enable-shared
+		--with-libdnet
+		--with-testnic2=lo
 		--with-testnic=lo
+	)
+
+	econf "${myeconfargs[@]}"
 }
 
 src_test() {
