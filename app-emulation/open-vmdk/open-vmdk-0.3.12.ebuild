@@ -46,6 +46,12 @@ BDEPEND="
 	)
 "
 
+pkg_setup() {
+	if use python || use test; then
+		python-single-r1_pkg_setup
+	fi
+}
+
 my_emake() {
 	emake \
 		"$(use python || echo DIRS='vmdk ova templates')" \
