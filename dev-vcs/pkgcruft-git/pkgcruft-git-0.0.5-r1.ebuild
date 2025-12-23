@@ -7,20 +7,20 @@ CRATES=" "
 LLVM_COMPAT=( {17..21} )
 RUST_MIN_VER="1.90.0"
 
-inherit cargo edo multiprocessing llvm-r1 shell-completion
+inherit cargo edo llvm-r2 multiprocessing toolchain-funcs
 
-DESCRIPTION="pkgcraft-based tools for Gentoo"
+DESCRIPTION="QA support for verifying git commits via pkgcruft"
 HOMEPAGE="https://pkgcraft.github.io/"
 
 if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/pkgcraft/pkgcraft"
 	inherit git-r3
 
-	S="${WORKDIR}"/${P}/crates/pkgcraft-tools
+	S="${WORKDIR}"/${P}/crates/${PN}
 else
 	SRC_URI="https://github.com/pkgcraft/pkgcraft/releases/download/${P}/${P}.tar.xz"
 
-	KEYWORDS="~amd64 ~arm64"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="MIT"
@@ -31,26 +31,26 @@ LICENSE+="
 "
 SLOT="0"
 IUSE="test"
-RESTRICT="!test? ( test ) "
+# Fails to link w/ missing libssh2 with some CFLAGS
+RESTRICT="!test? ( test ) test"
 
-QA_FLAGS_IGNORED="usr/bin/pk"
-
-RDEPEND="
-	dev-libs/libgit2:0/1.9
+DEPEND="
 	dev-libs/openssl:=
-	net-libs/libssh2:=
 "
-DEPEND="${RDEPEND}"
-# Clang needed for bindgen
-BDEPEND="
+RDEPEND="${DEPEND}"
+# clang needed for bindgen
+BDEPEND+="
 	$(llvm_gen_dep '
 		llvm-core/clang:${LLVM_SLOT}
 	')
+	dev-libs/protobuf[protoc(+)]
 	test? ( dev-util/cargo-nextest )
 "
 
+QA_FLAGS_IGNORED="usr/bin/pkgcruft-git"
+
 pkg_setup() {
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 	rust_pkg_setup
 }
 
@@ -64,32 +64,22 @@ src_unpack() {
 }
 
 src_compile() {
+	# For scallop building bash
 	# TODO: Package scallop
-	export LIBSSH2_SYS_USE_PKG_CONFIG=1
-	export LIBGIT2_NO_VENDOR=1
-	cargo_src_compile
+	tc-export AR CC
 
-	if [[ ${PV} == 9999 ]] ; then
-		einfo "Generating shell completions"
-		local BIN="${WORKDIR}/${P}/$(cargo_target_dir)/pk"
-		"${BIN}" completion --dir shell || die
-	fi
+	cargo_src_compile
 }
 
 src_test() {
 	unset CLICOLOR CLICOLOR_FORCE
 
+	# TODO: Maybe move into eclass (and maybe have a cargo_enable_tests
+	# helper)
 	local -x NEXTEST_TEST_THREADS="$(makeopts_jobs)"
 
-	edo ${CARGO} nextest run $(usev !debug '--release') \
+	edo cargo nextest run $(usev !debug '--release') \
 		--color always \
-		--tests
-}
-
-src_install() {
-	cargo_src_install
-
-	newbashcomp shell/pk.bash pk
-	dozshcomp shell/_pk
-	dofishcomp shell/pk.fish
+		--tests \
+		--no-fail-fast
 }

@@ -7,20 +7,20 @@ CRATES=" "
 LLVM_COMPAT=( {17..21} )
 RUST_MIN_VER="1.90.0"
 
-inherit cargo edo llvm-r2 multiprocessing toolchain-funcs
+inherit cargo edo multiprocessing llvm-r1 shell-completion
 
-DESCRIPTION="QA support for verifying git commits via pkgcruft"
+DESCRIPTION="pkgcraft-based tools for Gentoo"
 HOMEPAGE="https://pkgcraft.github.io/"
 
 if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/pkgcraft/pkgcraft"
 	inherit git-r3
 
-	S="${WORKDIR}"/${P}/crates/${PN}
+	S="${WORKDIR}"/${P}/crates/pkgcraft-tools
 else
 	SRC_URI="https://github.com/pkgcraft/pkgcraft/releases/download/${P}/${P}.tar.xz"
 
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 LICENSE="MIT"
@@ -31,27 +31,25 @@ LICENSE+="
 "
 SLOT="0"
 IUSE="test"
-# Fails to link w/ missing libssh2 with some CFLAGS
-RESTRICT="!test? ( test ) test"
+RESTRICT="!test? ( test ) "
 
-DEPEND="
-	dev-libs/libgit2:=
+QA_FLAGS_IGNORED="usr/bin/pk"
+
+RDEPEND="
 	dev-libs/openssl:=
+	net-libs/libssh2:=
 "
-RDEPEND="${DEPEND}"
-# clang needed for bindgen
-BDEPEND+="
+DEPEND="${RDEPEND}"
+# Clang needed for bindgen
+BDEPEND="
 	$(llvm_gen_dep '
 		llvm-core/clang:${LLVM_SLOT}
 	')
-	dev-libs/protobuf[protoc(+)]
 	test? ( dev-util/cargo-nextest )
 "
 
-QA_FLAGS_IGNORED="usr/bin/pkgcruft-git"
-
 pkg_setup() {
-	llvm-r2_pkg_setup
+	llvm-r1_pkg_setup
 	rust_pkg_setup
 }
 
@@ -65,22 +63,31 @@ src_unpack() {
 }
 
 src_compile() {
-	# For scallop building bash
 	# TODO: Package scallop
-	tc-export AR CC
-
+	export LIBSSH2_SYS_USE_PKG_CONFIG=1
 	cargo_src_compile
+
+	if [[ ${PV} == 9999 ]] ; then
+		einfo "Generating shell completions"
+		local BIN="${WORKDIR}/${P}/$(cargo_target_dir)/pk"
+		"${BIN}" completion --dir shell || die
+	fi
 }
 
 src_test() {
 	unset CLICOLOR CLICOLOR_FORCE
 
-	# TODO: Maybe move into eclass (and maybe have a cargo_enable_tests
-	# helper)
 	local -x NEXTEST_TEST_THREADS="$(makeopts_jobs)"
 
-	edo cargo nextest run $(usev !debug '--release') \
+	edo ${CARGO} nextest run $(usev !debug '--release') \
 		--color always \
-		--tests \
-		--no-fail-fast
+		--tests
+}
+
+src_install() {
+	cargo_src_install
+
+	newbashcomp shell/pk.bash pk
+	dozshcomp shell/_pk
+	dofishcomp shell/pk.fish
 }
