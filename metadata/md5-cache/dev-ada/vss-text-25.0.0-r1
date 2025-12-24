@@ -1,6 +1,6 @@
 BDEPEND=dev-ada/gprbuild[ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,ada_target_gcc_16(-)?,-ada_target_gcc_12(-)] test? ( app-i18n/unicode-data )
 DEFINED_PHASES=compile install prepare setup test
-DEPEND=ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) ada_target_gcc_16? ( sys-devel/gcc:16[ada] ) dev-ada/xmlada:=[shared?,static-libs?,static-pic?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,ada_target_gcc_16(-)?,-ada_target_gcc_12(-)]
+DEPEND=ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) ada_target_gcc_16? ( sys-devel/gcc:16[ada] ) dev-ada/xmlada:=[shared?,static-libs?,static-pic?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,ada_target_gcc_16(-)?,-ada_target_gcc_12(-)] !dev-ada/vss-extra
 DESCRIPTION=A high level string and text processing library
 EAPI=8
 HOMEPAGE=https://github.com/AdaCore/vss-text
@@ -8,10 +8,10 @@ INHERIT=ada multiprocessing
 IUSE=+shared static-libs static-pic test ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 ada_target_gcc_16
 KEYWORDS=amd64 ~arm64 x86
 LICENSE=GPL-3 gcc-runtime-library-exception-3.1
-RDEPEND=ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) ada_target_gcc_16? ( sys-devel/gcc:16[ada] ) dev-ada/xmlada:=[shared?,static-libs?,static-pic?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,ada_target_gcc_16(-)?,-ada_target_gcc_12(-)]
+RDEPEND=ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) ada_target_gcc_16? ( sys-devel/gcc:16[ada] ) dev-ada/xmlada:=[shared?,static-libs?,static-pic?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,ada_target_gcc_16(-)?,-ada_target_gcc_12(-)] !dev-ada/vss-extra
 REQUIRED_USE=^^ ( ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 ada_target_gcc_16 ) test? ( static-libs )
 RESTRICT=!test? ( test )
 SLOT=0/25.0.0
 SRC_URI=https://github.com/AdaCore/VSS/archive/refs/tags/v25.0.0.tar.gz -> VSS-25.0.0.tar.gz
 _eclasses_=toolchain-funcs	98d9f464d912ae6b7316fb8a3721f5db	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	ada	38e5ef8cefdc0d1e5303a1e71014684e	multiprocessing	1e32df7deee68372153dca65f4a7c21f
-_md5_=6578beab122faeba9a015b649baff484
+_md5_=239b8c5e47505063298a7a23e9868e38
