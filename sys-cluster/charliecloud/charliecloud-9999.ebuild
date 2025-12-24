@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit autotools optfeature python-single-r1
 
@@ -21,7 +21,7 @@ HOMEPAGE="https://charliecloud.io/"
 LICENSE="Apache-2.0"
 
 SLOT="0"
-IUSE="ch-image doc +fuse +json"
+IUSE="ch-image doc +fuse +gc +json"
 
 # Extensive test suite exists, but downloads container images
 # directly and via Docker and installs packages inside using apt/yum.
@@ -45,6 +45,9 @@ COMMON_DEPEND="
 	fuse? (
 		sys-fs/fuse:3=
 		sys-fs/squashfuse
+	)
+	gc? (
+		dev-libs/boehm-gc:=
 	)
 	json? (
 		dev-libs/cJSON
@@ -82,8 +85,7 @@ src_configure() {
 		$(use_with json)
 		# activates linking against both fuse and squashfuse
 		$(use_with fuse squashfuse)
-		# https://github.com/ivmai/bdwgc not packaged
-		--without-gc
+		$(use_with gc)
 		# Libdir is used as a libexec-style destination.
 		--libdir="${EPREFIX}"/usr/lib
 		# Attempts to call python-exec directly otherwise.

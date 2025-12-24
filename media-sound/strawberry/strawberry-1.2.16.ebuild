@@ -48,6 +48,7 @@ RDEPEND="${COMMON_DEPEND}
 	media-plugins/gst-plugins-meta:1.0
 	moodbar? ( media-libs/gst-plugins-good:1.0 )
 	pulseaudio? ( media-plugins/gst-plugins-pulse:1.0 )
+	streaming? ( media-plugins/gst-plugins-soup:1.0 )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/sparsehash
