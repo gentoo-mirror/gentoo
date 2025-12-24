@@ -23,30 +23,35 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
 SLOT="0/$(ver_cut 1)"
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	<dev-python/aiohttp-4[${PYTHON_USEDEP}]
 	>=dev-python/aiohttp-3[${PYTHON_USEDEP}]
+	dev-python/anyio[${PYTHON_USEDEP}]
 	<dev-python/elastic-transport-10[${PYTHON_USEDEP}]
-	>=dev-python/elastic-transport-9.1.0[${PYTHON_USEDEP}]
+	>=dev-python/elastic-transport-9.2.0[${PYTHON_USEDEP}]
 	>=dev-python/orjson-3[${PYTHON_USEDEP}]
 	dev-python/python-dateutil[${PYTHON_USEDEP}]
 	<dev-python/requests-3[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.4[${PYTHON_USEDEP}]
+	dev-python/sniffio[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
 		${RDEPEND}
+		dev-python/httpx[${PYTHON_USEDEP}]
 		dev-python/mapbox-vector-tile[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
 		dev-python/opentelemetry-api[${PYTHON_USEDEP}]
 		dev-python/opentelemetry-sdk[${PYTHON_USEDEP}]
 		dev-python/pandas[${PYTHON_USEDEP}]
 		dev-python/pyarrow[${PYTHON_USEDEP}]
+		dev-python/pydantic[${PYTHON_USEDEP}]
 		dev-python/python-dateutil[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-5.4[${PYTHON_USEDEP}]
+		dev-python/trio[${PYTHON_USEDEP}]
 		dev-python/unasync[${PYTHON_USEDEP}]
 	)
 "
@@ -55,7 +60,7 @@ distutils_enable_sphinx docs/sphinx \
 	dev-python/sphinx-autodoc-typehints \
 	dev-python/sphinx-rtd-theme
 
-EPYTEST_PLUGINS=( pytest-asyncio )
+EPYTEST_PLUGINS=( anyio pytest-asyncio )
 distutils_enable_tests pytest
 
 python_test() {

@@ -4,6 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit
+PYPI_VERIFY_REPO=https://github.com/omnilib/aiosqlite
 PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="sqlite"
 
@@ -13,16 +14,12 @@ DESCRIPTION="asyncio bridge to the standard sqlite3 module"
 HOMEPAGE="
 	https://aiosqlite.omnilib.dev
 	https://pypi.org/project/aiosqlite/
-	https://github.com/omnilib/aiosqlite
+	https://github.com/omnilib/aiosqlite/
 "
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
-
-RDEPEND="
-	>=dev-python/typing-extensions-4[${PYTHON_USEDEP}]
-"
 
 distutils_enable_tests unittest
 

@@ -22,12 +22,13 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 PROPERTIES="test_network"
 RESTRICT="test"
 
 RDEPEND="
 	dev-python/certifi[${PYTHON_USEDEP}]
+	dev-python/sniffio[${PYTHON_USEDEP}]
 	>=dev-python/urllib3-1.26.2[${PYTHON_USEDEP}]
 "
 BDEPEND="
@@ -37,8 +38,6 @@ BDEPEND="
 		dev-python/opentelemetry-api[${PYTHON_USEDEP}]
 		dev-python/opentelemetry-sdk[${PYTHON_USEDEP}]
 		dev-python/orjson[${PYTHON_USEDEP}]
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/pytest-httpserver[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/respx[${PYTHON_USEDEP}]
 		dev-python/trustme[${PYTHON_USEDEP}]
@@ -48,16 +47,21 @@ BDEPEND="
 distutils_enable_sphinx docs/sphinx \
 	dev-python/furo \
 	dev-python/sphinx-autodoc-typehints
+EPYTEST_PLUGINS=( anyio pytest-asyncio pytest-httpbin pytest-httpserver )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
-python_test() {
-	local EPYTEST_DESELECT=(
-		# fragile to random warnings
-		tests/node/test_http_aiohttp.py::TestAiohttpHttpNode::test_uses_https_if_verify_certs_is_off
-		tests/node/test_urllib3_chain_certs.py::test_assert_fingerprint_in_cert_chain
-	)
+EPYTEST_DESELECT=(
+	# fragile to random warnings
+	tests/node/test_http_aiohttp.py::TestAiohttpHttpNode::test_uses_https_if_verify_certs_is_off
+	tests/node/test_http_aiohttp.py::test_ssl_assert_fingerprint
+	tests/node/test_urllib3_chain_certs.py::test_assert_fingerprint_in_cert_chain
+	# hardcodes supported Accept-Encoding
+	# https://github.com/elastic/elastic-transport-python/issues/269
+	tests/async_/test_async_transport.py::test_async_transport_httpbin
+	tests/async_/test_httpbin.py::test_node
+)
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -p asyncio -o addopts=
+python_test() {
+	epytest -o addopts= # avoid coverage
 }
