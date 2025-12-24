@@ -7,31 +7,32 @@ DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
 PYTHON_COMPAT=( python3_{11..14} )
-inherit cmake distutils-r1 flag-o-matic java-pkg-opt-2 verify-sig
+inherit cmake distutils-r1 flag-o-matic java-pkg-opt-2 unpacker
 
 DESCRIPTION="Translator library for raster geospatial data formats (includes OGR support)"
 HOMEPAGE="https://gdal.org/"
 SRC_URI="
 	https://download.osgeo.org/${PN}/${PV}/${P}.tar.xz
-	test? ( https://download.osgeo.org/${PN}/${PV}/${PN}autotest-${PV}.tar.gz )
-	verify-sig? ( https://download.osgeo.org/${PN}/${PV}/${P}.tar.xz.sig )
+	test? ( https://download.osgeo.org/${PN}/${PV}/${PN}autotest-${PV}.zip )
 "
 
 LICENSE="BSD Info-ZIP MIT"
-SLOT="0/37" # subslot is libgdal.so.<SONAME> (and GDAL_SOVERSION in gdal.cmake)
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+SLOT="0/38" # subslot is libgdal.so.<SONAME> (and GDAL_SOVERSION in gdal.cmake)
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="
 	archive armadillo avif blosc cryptopp +curl cpu_flags_arm_neon cpu_flags_x86_avx
 	cpu_flags_x86_avx2 cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse4_1
-	cpu_flags_x86_ssse3 exprtk fits geos gif gml hdf5 heif java jpeg2k jpegxl
-	lerc libaec libdeflate lz4 lzma mongodb +muparser mysql netcdf odbc openexr
-	oracle parquet pdf png postgres python qhull spatialite sqlite test +tools webp
-	xls zstd
+	cpu_flags_x86_ssse3 exprtk fits geos gif gml hdf5 heif java jpeg2k jpegxl lerc
+	libaec libdeflate lz4 lzma mongodb +muparser mysql netcdf odbc openexr oracle
+	parquet pdf png postgres python qhull spatialite sqlite system-tiff test +tools
+	webp xls zstd
 "
 
+# jpegxl isn't supported for system tiff
 REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
 	spatialite? ( sqlite )
+	jpegxl? ( !system-tiff )
 "
 
 RESTRICT="!test? ( test )"
@@ -41,8 +42,6 @@ COMMON_DEPEND="
 	dev-libs/json-c:=
 	dev-libs/libxml2:2=
 	dev-libs/openssl:=
-	media-libs/tiff:=[jpeg]
-	>=sci-libs/libgeotiff-1.5.1-r1:=
 	media-libs/libjpeg-turbo:=
 	>=sci-libs/proj-6.0.0:=[tiff]
 	virtual/minizip:=
@@ -88,6 +87,10 @@ COMMON_DEPEND="
 			>=dev-db/sqlite-3.31:3
 			dev-libs/libpcre2:=
 	)
+	system-tiff? (
+		media-libs/tiff:=[jpeg]
+		>=sci-libs/libgeotiff-1.5.1-r1:=
+	)
 	webp? ( media-libs/libwebp:= )
 	xls? ( dev-libs/freexl )
 	zstd? ( app-arch/zstd:= )
@@ -127,10 +130,8 @@ BDEPEND="
 			)
 		')
 	)
-	verify-sig? ( >=sec-keys/openpgp-keys-evenrouault-20250913 )
+	test? ( app-arch/unzip )
 "
-
-VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/evenrouault.asc
 
 QA_CONFIG_IMPL_DECL_SKIP=(
 	_wstat64 # Windows LFS
@@ -141,18 +142,8 @@ EPYTEST_RERUNS=5
 EPYTEST_XDIST=1
 # distutils_enable_tests unconditionally touches BDEPEND
 
-PATCHES=(
-	"${FILESDIR}"/${P}-poppler-25.10.patch
-)
-
 pkg_setup() {
 	use java && java-pkg-opt-2_pkg_setup
-}
-
-src_unpack() {
-	use verify-sig && verify-sig_verify_detached "${DISTDIR}"/${P}.tar.xz{,.sig}
-	unpack ${P}.tar.xz
-	use test && unpack ${PN}autotest-${PV}.tar.gz
 }
 
 src_prepare() {
@@ -237,7 +228,10 @@ src_configure() {
 		-DGDAL_USE_FILEGDB=OFF
 		-DGDAL_USE_FREEXL=$(usex xls)
 		-DGDAL_USE_FYBA=OFF
-		-DGDAL_USE_GEOTIFF=ON
+
+		-DGDAL_USE_GEOTIFF=$(usex system-tiff)
+		-DGDAL_USE_GEOTIFF_INTERNAL=$(usex !system-tiff)
+
 		-DGDAL_USE_GEOS=$(usex geos)
 		-DGDAL_USE_GIF=$(usex gif)
 		-DGDAL_USE_GTA=OFF
@@ -307,7 +301,10 @@ src_configure() {
 		-DGDAL_USE_SQLITE3=$(usex sqlite)
 		-DGDAL_USE_SFCGAL=OFF
 		-DGDAL_USE_TEIGHA=OFF
-		-DGDAL_USE_TIFF=ON
+
+		-DGDAL_USE_TIFF=$(usex system-tiff)
+		-DGDAL_USE_TIFF_INTERNAL=$(usex !system-tiff)
+
 		-DGDAL_USE_WEBP=$(usex webp)
 		-DGDAL_USE_XERCESC=$(usex gml)
 		-DGDAL_USE_ZLIB=ON
@@ -388,11 +385,13 @@ python_test() {
 		"gcore/vsioss.py::test_vsioss_6"
 		"gdrivers/gdalhttp.py::test_http_ssl_verifystatus"
 		"gdrivers/jp2openjpeg.py::test_jp2openjpeg_45"
+		"gdrivers/vrtrawlink.py::test_vrtrawlink_GDAL_VRT_RAWRASTERBAND_ALLOWED_SOURCE_ONLY_REMOTE_accepted"
 		"gdrivers/wms.py::test_wms_8"
 		"ogr/ogr_csv.py::test_ogr_csv_schema_override"
 		"ogr/ogr_geojson.py::test_ogr_geojson_schema_override"
 		"ogr/ogr_gml.py::test_ogr_gml_type_override"
 		"ogr/ogr_gmlas.py::test_ogr_gmlas_billion_laugh"
+		"ogr/ogr_gmlas.py::test_ogr_gmlas_datetime"
 		"ogr/ogr_parquet.py::test_ogr_parquet_coordinate_epoch"
 		"ogr/ogr_parquet.py::test_ogr_parquet_crs_identification_on_write"
 		"ogr/ogr_parquet.py::test_ogr_parquet_edges"
@@ -419,8 +418,7 @@ python_test() {
 		"ogr/ogr_parquet.py::test_ogr_parquet_bbox_float32"
 		"ogr/ogr_sqlite.py::test_ogr_sqlite_34"
 
-		# USE="pdf" poppler 25.07?
-		# assert 8191 in (7926, 8177, 8174, 8165, 8172, 8193)
+		# Fails on new poppler versions due to checksum check
 		"gdrivers/pdf.py::test_pdf_extra_rasters[POPPLER]"
 	)
 
