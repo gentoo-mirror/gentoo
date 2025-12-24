@@ -4,7 +4,11 @@
 EAPI=8
 inherit pam systemd toolchain-funcs
 
-MY_PV="${PV/_pre/-}"
+if [[ ${PV} == *_rc* ]]; then
+	MY_PV="${PV/_rc/-RC}"
+else
+	MY_PV="${PV/_pre/-}"
+fi
 MY_SRC="${PN}-${MY_PV}"
 MY_URI="http://ftp.porcupine.org/mirrors/postfix-release/experimental"
 RC_VER="2.7"
