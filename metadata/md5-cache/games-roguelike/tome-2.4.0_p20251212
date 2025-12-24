@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/boost:= dev-libs/libfmt:= sys-libs/ncurses:= X? ( x11-libs/libX11 ) dev-cpp/jsoncons dev-cpp/pcg-cpp
+DEPEND=dev-libs/boost:= >=dev-libs/libfmt-12:= sys-libs/ncurses:= X? ( x11-libs/libX11 ) <dev-cpp/jsoncons-1.5.0 dev-cpp/pcg-cpp
 DESCRIPTION=Fantasy adventure game, based on the works of J.R.R. Tolkien
 EAPI=8
 HOMEPAGE=https://github.com/tome2/tome2
@@ -8,8 +8,8 @@ INHERIT=cmake
 IUSE=X
 KEYWORDS=~amd64 ~x86
 LICENSE=Moria ToME2-theme
-RDEPEND=dev-libs/boost:= dev-libs/libfmt:= sys-libs/ncurses:= X? ( x11-libs/libX11 )
+RDEPEND=dev-libs/boost:= >=dev-libs/libfmt-12:= sys-libs/ncurses:= X? ( x11-libs/libX11 )
 SLOT=0
-SRC_URI=https://github.com/tome2/tome2/archive/3892fbcb1c2446afcb0c34f59e2a24f78ae672c4.tar.gz -> tome-2.4.0_p20250227.tar.gz
+SRC_URI=https://github.com/tome2/tome2/archive/8e2f6361e1a55b21e7abcf051e47a22761d41471.tar.gz -> tome-2.4.0_p20251212.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	22e4e58d68692975dc74424dc9b12fb7
-_md5_=4e3691a71a5b44210013b771818798bd
+_md5_=fb44cbcd04f397f856add789837845b0
