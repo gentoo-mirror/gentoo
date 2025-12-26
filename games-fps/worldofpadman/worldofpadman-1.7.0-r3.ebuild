@@ -13,24 +13,20 @@ SRC_URI+=" https://github.com/PadWorld-Entertainment/${PN}/releases/download/v${
 LICENSE="GPL-2 worldofpadman"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="dedicated +opengl"
+IUSE="+opengl"
 
+# bundled libs (bug #963154):
+# media-libs/libjpeg-turbo:=
+# media-libs/libtheora
+# media-libs/libogg
+# media-libs/libvorbis
 RDEPEND="
+	media-libs/libsdl2[joystick,opengl?,video,X]
+	media-libs/openal
+	net-misc/curl
+	virtual/glu
 	virtual/zlib:=
-	!dedicated? (
-		media-libs/libjpeg-turbo:=
-		media-libs/libsdl2[joystick,video,X]
-		media-libs/libtheora
-		media-libs/libogg
-		media-libs/libvorbis
-		media-libs/openal
-		net-misc/curl
-		virtual/glu
-		opengl? (
-			media-libs/libsdl2[opengl]
-			virtual/opengl
-		)
-	)
+	opengl? ( virtual/opengl )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="app-arch/unzip"
@@ -59,7 +55,8 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX=/usr/share/${PN}
 		-DCMAKE_INSTALL_RPATH=/usr/share/${PN}
 		-DARCH=${arch}
-		-DBUILD_CLIENT=$(usex dedicated OFF ON)
+		-DBUILD_CLIENT=ON # no benefit to disable this as-is
+		# BUILD_SERVER: no extra deps; was: $(usex dedicated OFF ON)
 		-DBUILD_RENDERER_OPENGL2=$(usex opengl)
 		-DBUILD_RENDERER_VULKAN=OFF
 		-DUSE_CURL_DLOPEN=OFF
@@ -77,11 +74,9 @@ src_install() {
 	mkdir -p "${ED}"/usr/bin || die
 	mv "${ED}"/usr/share/${PN}/wopded.* "${ED}"/usr/bin/${PN}-ded || die
 
-	if ! use dedicated ; then
-		mv "${ED}"/usr/share/${PN}/wop.* "${ED}"/usr/bin/${PN} || die
-		newicon misc/wop.svg ${PN}.svg
-		make_desktop_entry --eapi9 ${PN} -n "World of Padman"
-	fi
+	mv "${ED}"/usr/share/${PN}/wop.* "${ED}"/usr/bin/${PN} || die
+	newicon misc/wop.svg ${PN}.svg
+	make_desktop_entry --eapi9 ${PN} -n "World of Padman"
 
 	insinto /usr/share/${PN}/wop
 	doins "${WORKDIR}"/wop/*.pk3

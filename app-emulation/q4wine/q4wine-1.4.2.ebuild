@@ -16,6 +16,7 @@ IUSE="debug +ico +iso +wineappdb"
 
 DEPEND="
 	dev-qt/qtbase:6[dbus,gui,network,sql,sqlite,ssl,widgets,xml]
+	dev-qt/qtsvg:6
 	ico? ( >=media-gfx/icoutils-0.26.0 )
 "
 RDEPEND="${DEPEND}

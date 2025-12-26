@@ -63,7 +63,10 @@ RDEPEND="
 		dev-texlive/texlive-plaingeneric
 	)
 	doxysearch? ( dev-libs/xapian:= )
-	gui? ( dev-qt/qtbase:6[gui,widgets,xml] )
+	gui? (
+		dev-qt/qtbase:6[gui,widgets,xml]
+		dev-qt/qtsvg:6
+	)
 "
 DEPEND="${RDEPEND}"
 
