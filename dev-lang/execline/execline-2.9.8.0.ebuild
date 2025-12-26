@@ -1,19 +1,19 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit optfeature toolchain-funcs
 
-DESCRIPTION="Set of tiny linux utilities"
-HOMEPAGE="https://www.skarnet.org/software/s6-linux-utils/"
+DESCRIPTION="A non-interactive scripting language"
+HOMEPAGE="https://www.skarnet.org/software/execline/"
 SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
-SLOT="0"
-KEYWORDS="amd64 arm ~arm64 x86"
+SLOT="0/$(ver_cut 1-2).4"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv ~x86"
 
-RDEPEND=">=dev-libs/skalibs-2.13.0.0:="
+RDEPEND=">=dev-libs/skalibs-2.14.5.0:="
 DEPEND="${RDEPEND}"
 
 HTML_DOCS=( doc/. )
@@ -37,10 +37,19 @@ src_configure() {
 		--with-dynlib="/$(get_libdir)"
 		--with-lib="/usr/$(get_libdir)/skalibs"
 		--with-sysdeps="/usr/$(get_libdir)/skalibs"
+
+		--enable-pkgconfig
+		--pkgconfdir="/usr/$(get_libdir)/pkgconfig"
+
+		--enable-shared
 		--disable-allstatic
 		--disable-static
 		--disable-static-libc
 	)
 
 	econf "${myconf[@]}"
+}
+
+pkg_postinst() {
+	optfeature "man pages" app-doc/execline-man-pages
 }

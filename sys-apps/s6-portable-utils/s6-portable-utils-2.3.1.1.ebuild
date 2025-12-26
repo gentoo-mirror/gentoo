@@ -1,23 +1,19 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit optfeature toolchain-funcs
 
-DESCRIPTION="skarnet.org's small and secure supervision software suite"
-HOMEPAGE="https://www.skarnet.org/software/s6/"
+DESCRIPTION="Set of tiny portable unix utilities"
+HOMEPAGE="https://www.skarnet.org/software/s6-portable-utils/"
 SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
-SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 arm ~mips ~ppc ~ppc64 ~riscv x86"
-IUSE="+execline"
+SLOT="0"
+KEYWORDS="~amd64 ~arm ~x86"
 
-RDEPEND="
-	>=dev-libs/skalibs-2.14.2.0:=
-	execline? ( dev-lang/execline:= )
-"
+RDEPEND=">=dev-libs/skalibs-2.14.0.0:="
 DEPEND="${RDEPEND}"
 
 HTML_DOCS=( doc/. )
@@ -38,21 +34,17 @@ src_configure() {
 		--bindir=/bin
 		--dynlibdir="/$(get_libdir)"
 		--libdir="/usr/$(get_libdir)/${PN}"
-		--libexecdir=/lib/s6
 		--with-dynlib="/$(get_libdir)"
-		--with-lib="/usr/$(get_libdir)/execline"
 		--with-lib="/usr/$(get_libdir)/skalibs"
 		--with-sysdeps="/usr/$(get_libdir)/skalibs"
-		--enable-shared
 		--disable-allstatic
 		--disable-static
 		--disable-static-libc
-		$(use_enable execline)
 	)
 
 	econf "${myconf[@]}"
 }
 
 pkg_postinst() {
-	optfeature "man pages" app-doc/s6-man-pages
+	optfeature "man pages" app-doc/s6-portable-utils-man-pages
 }
