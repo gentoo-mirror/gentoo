@@ -1,7 +1,7 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 BUILD_DIR="${WORKDIR}/${P}-build"
 
@@ -13,28 +13,29 @@ SRC_URI="https://github.com/elementary/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="LGPL-3+"
 SLOT="0/${PV}"
-KEYWORDS="amd64 arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 
 BDEPEND="
 	$(vala_depend)
 	virtual/pkgconfig
 "
 DEPEND="
+	dev-lang/sassc
 	>=dev-libs/glib-2.50:2
-	>=x11-libs/gtk+-3.22:3[introspection]
 	dev-libs/libgee:0.8[introspection]
+	gui-libs/gtk:4[introspection]
 "
 RDEPEND="${DEPEND}"
 
 src_prepare() {
 	default
-	vala_src_prepare
+	vala_setup
 }
 
 src_configure() {
-	# docs disabled due to: https://github.com/elementary/granite/issues/482
+	# demo disable due to: https://github.com/elementary/granite/issues/938
 	local emesonargs=(
-		-Ddocumentation=false
+		-Ddemo=false
 	)
 	meson_src_configure
 }
