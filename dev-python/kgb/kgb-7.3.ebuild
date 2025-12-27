@@ -16,6 +16,8 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
+EPYTEST_PLUGINS=( "${PN}" )
+EPYTEST_PLUGIN_LOAD_VIA_ENV=1
 distutils_enable_tests pytest
