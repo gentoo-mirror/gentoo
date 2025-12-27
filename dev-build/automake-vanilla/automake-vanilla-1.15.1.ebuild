@@ -6,13 +6,15 @@ EAPI=8
 # Please do not apply any patches which affect the generated output from
 # `automake`, as this package is used to submit patches upstream.
 
-MY_PN=${PN/-vanilla}
-MY_P=${MY_PN}-${PV}
+inherit flag-o-matic toolchain-funcs
 
 if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://git.savannah.gnu.org/r/${MY_PN}.git"
 	inherit git-r3
 else
+	MY_PN=${PN/-vanilla}
+	MY_P=${MY_PN}-${PV}
+
 	SRC_URI="mirror://gnu/${MY_PN}/${MY_P}.tar.xz"
 
 	S="${WORKDIR}/${MY_P}"
@@ -26,7 +28,8 @@ LICENSE="GPL-2+ FSFAP"
 SLOT="${PV:0:4}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos"
 IUSE="test"
-RESTRICT="!test? ( test )"
+# Failures w/ newer dejagnu, not worth backporting the fixes
+RESTRICT="!test? ( test ) test"
 
 RDEPEND="
 	>=dev-lang/perl-5.6
@@ -37,18 +40,17 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	app-alternatives/gzip
+	dev-build/autoconf-vanilla:2.69
 	sys-apps/help2man
 	test? (
 		dev-util/dejagnu
-		sys-devel/bison
-		sys-devel/flex
 	)
 "
 
 src_prepare() {
 	default
 
-	export WANT_AUTOCONF=2.5
+	export WANT_AUTOCONF=vanilla-2.69
 	# Don't try wrapping the autotools - this thing runs as it tends
 	# to be a bit esoteric, and the script does `set -e` itself.
 	./bootstrap || die
@@ -61,6 +63,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# Old lex tests fail w/ modern C
+	export CC="$(tc-getCC) $(test-flags-CC -fpermissive)"
+
 	# Also used in install.
 	MY_INFODIR="${EPREFIX}/usr/share/${P}/info"
 	econf \
@@ -70,8 +75,11 @@ src_configure() {
 }
 
 src_test() {
-	# Fails with byacc/flex
-	emake YACC="bison -y" LEX="flex" check
+	# Can't cope with newer Python versions, so pretend we don't
+	# have it installed.
+	local -x PYTHON=false
+
+	default
 }
 
 src_install() {
@@ -107,13 +115,8 @@ src_install() {
 	done
 	popd >/dev/null || die
 
-	if [[ ${PV} == 9999 ]]; then
-		local major="89"
-		local minor="999"
-	else
-		local major="$(ver_cut 1)"
-		local minor="$(ver_cut 2)"
-	fi
+	local major="$(ver_cut 1)"
+	local minor="$(ver_cut 2)"
 	local idx="$((99999-(major*1000+minor)))"
 	newenvd - "07automake${idx}" <<-EOF
 	INFOPATH="${MY_INFODIR}"
