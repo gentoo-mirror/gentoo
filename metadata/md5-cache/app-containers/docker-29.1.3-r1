@@ -1,6 +1,6 @@
 BDEPEND=dev-go/go-md2man virtual/pkgconfig >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile install postinst setup unpack
-DEPEND=acct-group/docker >=dev-db/sqlite-3.7.9:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1 ) seccomp? ( >=sys-libs/libseccomp-2.2.1 ) systemd? ( sys-apps/systemd )
+DEPEND=acct-group/docker >=dev-db/sqlite-3.7.9:3 net-firewall/nftables:= apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1 ) seccomp? ( >=sys-libs/libseccomp-2.2.1 ) systemd? ( sys-apps/systemd )
 DESCRIPTION=The core functions you need to create Docker images and run Docker containers
 EAPI=8
 HOMEPAGE=https://www.docker.com/
@@ -8,9 +8,9 @@ INHERIT=go-module linux-info optfeature systemd toolchain-funcs udev
 IUSE=apparmor btrfs +container-init cuda +overlay2 seccomp selinux systemd
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=Apache-2.0
-RDEPEND=acct-group/docker >=dev-db/sqlite-3.7.9:3 apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1 ) seccomp? ( >=sys-libs/libseccomp-2.2.1 ) systemd? ( sys-apps/systemd ) >=net-firewall/iptables-1.4 sys-process/procps >=dev-vcs/git-1.7 >=app-arch/xz-utils-4.9 >=app-containers/containerd-2.2.0[apparmor?,btrfs?,seccomp?] >=app-containers/runc-1.2.6[apparmor?,seccomp?] !app-containers/docker-proxy !<app-containers/docker-cli-29.1.3 container-init? ( >=sys-process/tini-0.19.0[static] ) cuda? ( app-containers/nvidia-container-toolkit ) selinux? ( sec-policy/selinux-docker )
+RDEPEND=acct-group/docker >=dev-db/sqlite-3.7.9:3 net-firewall/nftables:= apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1 ) seccomp? ( >=sys-libs/libseccomp-2.2.1 ) systemd? ( sys-apps/systemd ) sys-process/procps >=dev-vcs/git-1.7 >=app-arch/xz-utils-4.9 >=app-containers/containerd-2.2.0[apparmor?,btrfs?,seccomp?] >=app-containers/runc-1.2.6[apparmor?,seccomp?] !app-containers/docker-proxy !<app-containers/docker-cli-29.1.3 container-init? ( >=sys-process/tini-0.19.0[static] ) cuda? ( app-containers/nvidia-container-toolkit ) selinux? ( sec-policy/selinux-docker )
 RESTRICT=installsources strip test
 SLOT=0
 SRC_URI=https://github.com/moby/moby/archive/docker-v29.1.3.tar.gz -> docker-29.1.3.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	d96f2a2fd6d8fbad6d94516bf238f885	linux-info	efd923656513c879204fec6638eadee5	optfeature	538bce96e5589935b57e178e8635f301	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	f3d9a4376ebd22131726a68e1a0a058f
-_md5_=fca94ff72c0d0cd254154db6435d7dd9
+_md5_=0f6c27470b387ec1ccd95acfcb62c245
