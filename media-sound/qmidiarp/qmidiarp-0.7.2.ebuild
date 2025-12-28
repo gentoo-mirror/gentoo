@@ -3,13 +3,12 @@
 
 EAPI=8
 
-COMMIT=915db0f9a41b37c9bbc048e8ad8652f049b36040
 inherit cmake xdg
 
 DESCRIPTION="Arpeggiator, sequencer and MIDI LFO for ALSA"
 HOMEPAGE="https://qmidiarp.sourceforge.net/"
-SRC_URI="https://github.com/emuse/${PN}/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
-S="${WORKDIR}/${PN}-${COMMIT}"
+SRC_URI="https://github.com/emuse/${PN}/archive/refs/tags/${P}.tar.gz"
+S="${WORKDIR}/${PN}-${P}"
 
 LICENSE="GPL-2+"
 SLOT="0"
