@@ -26,7 +26,8 @@ LICENSE="MIT"
 SLOT="2"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 
-ruby_add_rdepend ">=dev-ruby/afm-0.2.1 =dev-ruby/afm-0.2*
+ruby_add_rdepend "
+	|| ( dev-ruby/afm:1 >=dev-ruby/afm-0.2.1:0 )
 	|| ( >=dev-ruby/ascii85-2.0.1:2 dev-ruby/ascii85:0 )
 	=dev-ruby/hashery-2*
 	dev-ruby/ttfunk:*
