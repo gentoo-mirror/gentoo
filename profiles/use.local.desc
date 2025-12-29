@@ -4384,6 +4384,14 @@ media-libs/libbluray:aacs - Add support for decryption of AACS
 media-libs/libbluray:bdplus - Use media-libs/libbdplus for BD+ decryption
 media-libs/libbluray:java - Add support for BD-J
 media-libs/libbluray:utils - Install command-line utilities and examples
+media-libs/libcamera:drm - Build with drm support for cam tool
+media-libs/libcamera:elfutils - Build with improved debugging using dev-libs/elfutils
+media-libs/libcamera:gui - Build QCam extra tool
+media-libs/libcamera:openssl - Verify IPA modules signatures using dev-libs/openssl. Note:dev-libs/openssl is also required at build time to sign IPA modules.
+media-libs/libcamera:sdl - Build Cam extra tool with SDL sink support (requires USE=gui)
+media-libs/libcamera:tools - Build extra tools (including cam, qcam and lc-compliance). Note: 'qcam' requires also USE="gui"
+media-libs/libcamera:trace - Build with tracing capabilities
+media-libs/libcamera:unwind - Build with improved debugging using sys-libs/libunwind (has no effect if USE=elfutils is set)
 media-libs/libcanberra:alsa - Enables ALSA sound driver.
 media-libs/libcanberra:gstreamer - Enables gstreamer sound driver. Not useful when alsa or pulseaudio is available.
 media-libs/libcanberra:pulseaudio - Enables PulseAudio sound driver that should be able to support positional event sounds. This is the preferred choice for best sound events experience and picked by default if compiled in and possible to use at runtime.
