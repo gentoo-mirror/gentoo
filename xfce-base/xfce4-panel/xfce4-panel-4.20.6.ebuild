@@ -3,31 +3,31 @@
 
 EAPI=8
 
-inherit meson vala xdg-utils
+inherit vala xdg-utils
 
 DESCRIPTION="Panel for the Xfce desktop environment"
 HOMEPAGE="
 	https://docs.xfce.org/xfce/xfce4-panel/start
 	https://gitlab.xfce.org/xfce/xfce4-panel/
 "
-SRC_URI="https://archive.xfce.org/src/xfce/${PN}/${PV%.*}/${P}.tar.xz"
+SRC_URI="https://archive.xfce.org/src/xfce/${PN}/${PV%.*}/${P}.tar.bz2"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE="+dbusmenu gtk-doc introspection vala wayland X"
+IUSE="+dbusmenu introspection vala wayland X"
 REQUIRED_USE="
 	|| ( wayland X )
 	vala? ( introspection )
 "
 
 DEPEND="
-	>=dev-libs/glib-2.74.0
+	>=dev-libs/glib-2.72.0
 	>=x11-libs/cairo-1.16.0
 	>=x11-libs/gtk+-3.24.0:3[X?,introspection?,wayland?]
 	>=xfce-base/exo-4.18.0:=
 	>=xfce-base/garcon-4.18.0:=
-	>=xfce-base/libxfce4ui-4.21.0:=
+	>=xfce-base/libxfce4ui-4.18.0:=
 	>=xfce-base/libxfce4util-4.18.0:=[introspection?,vala?]
 	>=xfce-base/libxfce4windowing-4.20.1:=[X?]
 	>=xfce-base/xfconf-4.18.0:=
@@ -47,9 +47,9 @@ RDEPEND="
 	${DEPEND}
 "
 BDEPEND="
-	gtk-doc? ( dev-util/gtk-doc )
 	vala? ( $(vala_depend) )
 	dev-build/xfce4-dev-tools
+	dev-lang/perl
 	dev-util/gdbus-codegen
 	dev-util/intltool
 	sys-devel/gettext
@@ -57,18 +57,22 @@ BDEPEND="
 "
 
 src_configure() {
-	local emesonargs=(
-		$(meson_use gtk-doc)
-		$(meson_use introspection)
-		$(meson_feature vala)
-		$(meson_feature X x11)
-		$(meson_feature wayland)
-		$(meson_feature wayland gtk-layer-shell)
-		$(meson_feature dbusmenu)
+	local myconf=(
+		$(use_enable introspection)
+		$(use_enable dbusmenu dbusmenu-gtk3)
+		$(use_enable vala)
+		$(use_enable wayland)
+		$(use_enable wayland gtk-layer-shell)
+		$(use_enable X x11)
 	)
 
 	use vala && vala_setup
-	meson_src_configure
+	econf "${myconf[@]}"
+}
+
+src_install() {
+	default
+	find "${D}" -name '*.la' -delete || die
 }
 
 pkg_postinst() {
