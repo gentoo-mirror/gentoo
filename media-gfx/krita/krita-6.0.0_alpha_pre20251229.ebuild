@@ -4,7 +4,7 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-COMMIT=b647a22149b060ff9bfed2af6921f1d7f0e10484
+COMMIT=ff1d70541d17f873429f00b7fe4553416b9907b9
 PYTHON_COMPAT=( python3_{11..13} )
 KFMIN=6.9.0
 QTMIN=6.8.0
@@ -93,7 +93,6 @@ PATCHES=(
 	# downstream
 	"${FILESDIR}"/${PN}-5.3.0-tests-optional.patch
 	"${FILESDIR}"/${PN}-5.2.2-fftw.patch # bug 913518
-	"${FILESDIR}"/${P}-missing-header.patch # git master
 )
 
 src_prepare() {
