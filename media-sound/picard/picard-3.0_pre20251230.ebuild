@@ -15,7 +15,7 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 else
 	if [[ ${PV} == *_p* ]]; then
-		COMMIT="43da6b65fa375a4c3f6bbf3a94ca231f87f50f83"
+		COMMIT="2811d543ca5da64254e1f3abff00bd863a23dddb"
 		SRC_URI="https://github.com/metabrainz/${PN}/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		S="${WORKDIR}/${PN}-${COMMIT}"
 	else
