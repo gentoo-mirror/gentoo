@@ -1,0 +1,14 @@
+BDEPEND=app-alternatives/gzip dev-lang/nasm sys-apps/findutils llvm_slot_19? ( llvm-core/llvm:19[llvm_targets_AArch64(-),llvm_targets_ARM(-),llvm_targets_X86(-),llvm_targets_RISCV(-),llvm_targets_LoongArch(-)] llvm-core/clang:19[llvm_targets_AArch64(-),llvm_targets_ARM(-),llvm_targets_X86(-),llvm_targets_RISCV(-),llvm_targets_LoongArch(-)] llvm-core/lld:19 ) llvm_slot_20? ( llvm-core/llvm:20[llvm_targets_AArch64(-),llvm_targets_ARM(-),llvm_targets_X86(-),llvm_targets_RISCV(-),llvm_targets_LoongArch(-)] llvm-core/clang:20[llvm_targets_AArch64(-),llvm_targets_ARM(-),llvm_targets_X86(-),llvm_targets_RISCV(-),llvm_targets_LoongArch(-)] llvm-core/lld:20 ) llvm_slot_21? ( llvm-core/llvm:21[llvm_targets_AArch64(-),llvm_targets_ARM(-),llvm_targets_X86(-),llvm_targets_RISCV(-),llvm_targets_LoongArch(-)] llvm-core/clang:21[llvm_targets_AArch64(-),llvm_targets_ARM(-),llvm_targets_X86(-),llvm_targets_RISCV(-),llvm_targets_LoongArch(-)] llvm-core/lld:21 ) uefi-cd? ( sys-fs/mtools )
+DEFINED_PHASES=configure setup
+DESCRIPTION=Limine is a modern, advanced, and portable BIOS/UEFI multiprotocol bootloader
+EAPI=8
+HOMEPAGE=https://limine-bootloader.org/
+INHERIT=llvm-r1
+IUSE=+bios +bios-pxe +bios-cd +uefi-cd +uefi-ia32 +uefi-x86-64 +uefi-aarch64 +uefi-riscv64 +uefi-loongarch64 +llvm_slot_21 llvm_slot_19 llvm_slot_20
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+REQUIRED_USE=^^ ( llvm_slot_19 llvm_slot_20 llvm_slot_21 )
+SLOT=0
+SRC_URI=https://codeberg.org/Limine/Limine/releases/download/v10.6.0/limine-10.6.0.tar.gz
+_eclasses_=llvm-utils	64536677f4b4365e25e9b739163bed58	llvm-r1	59c52dab9ddf3ca54e79003177507e97
+_md5_=f79ce78acc029da986fb69cdbcfc6d0b
