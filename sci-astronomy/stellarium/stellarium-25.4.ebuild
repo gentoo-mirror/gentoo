@@ -3,12 +3,12 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake desktop flag-o-matic python-any-r1 toolchain-funcs xdg verify-sig virtualx
 
 DESCRIPTION="3D photo-realistic skies in real time"
 HOMEPAGE="https://stellarium.org/ https://github.com/Stellarium/stellarium"
-MY_DSO_VERSION="3.20"
+MY_DSO_VERSION="3.22"
 SRC_URI="
 	https://github.com/Stellarium/stellarium/releases/download/v${PV}/${P}.tar.xz
 	verify-sig? ( https://github.com/Stellarium/stellarium/releases/download/v${PV}/${P}.tar.xz.asc )
@@ -37,7 +37,7 @@ SRC_URI="
 
 LICENSE="GPL-2+ SGI-B-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~riscv ~x86"
+KEYWORDS="~amd64 ~riscv ~x86"
 IUSE="debug deep-sky doc gps +lens-distortion libcxx media nls +scripting +show-my-sky stars telescope test webengine +xlsx"
 
 # Python interpreter is used while building RemoteControl plugin
@@ -68,6 +68,7 @@ RDEPEND="
 	)
 	media? (
 		dev-qt/qtmultimedia:6[gstreamer]
+		dev-qt/qtspeech:6
 		virtual/opengl
 	)
 	scripting? ( dev-qt/qtdeclarative:6 )
@@ -85,6 +86,10 @@ DEPEND="${RDEPEND}
 RESTRICT="!test? ( test )"
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/stellarium.asc
+
+PATCHES=(
+	"${FILESDIR}"/stellarium-0.25.4-segfault.patch
+)
 
 pkg_setup() {
 	if tc-is-clang && ! use libcxx && [[ $(tc-get-cxx-stdlib) == libc++ ]]; then
@@ -112,9 +117,9 @@ src_configure() {
 	filter-lto # https://bugs.gentoo.org/862249
 
 	local mycmakeargs=(
-		-DCCACHE_PROGRAM=no
 		-DCPM_LOCAL_PACKAGES_ONLY=yes
 		-DUSE_BUNDLED_QTCOMPRESS=no
+		-DENABLE_CCACHE=no
 		-DENABLE_GPS="$(usex gps)"
 		-DENABLE_MEDIA="$(usex media)"
 		-DENABLE_NLS="$(usex nls)"
