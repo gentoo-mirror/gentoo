@@ -7,14 +7,13 @@ MY_PN=uChmViewer
 inherit cmake xdg
 
 DESCRIPTION="Feature rich chm file viewer, based on Qt"
-HOMEPAGE="https://www.ulduzsoft.com/kchmviewer/"
+HOMEPAGE="https://github.com/eBookProjects/uChmViewer"
 SRC_URI="https://github.com/eBookProjects/${MY_PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE=""
 
 DEPEND="
 	dev-libs/chmlib
@@ -24,10 +23,6 @@ DEPEND="
 	dev-qt/qtwebengine:6[widgets]
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=(
-	"${FILESDIR}/${P}-cmake-minreqver-3.16.patch" # bug #964965, pending PR
-)
 
 DOCS=( AUTHORS.md ChangeLog DBUS-bindings README.md )
 
