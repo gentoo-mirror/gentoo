@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools flag-o-matic
+inherit autotools
 
 DESCRIPTION="A set of libraries for userspace access to RTAS on the PowerPC platform(s)"
 HOMEPAGE="https://github.com/ibm-power-utilities/librtas"
@@ -11,8 +11,11 @@ SRC_URI="https://github.com/ibm-power-utilities/${PN}/archive/v${PV}.tar.gz -> $
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="ppc ppc64"
-IUSE="static-libs"
+KEYWORDS="~ppc ~ppc64"
+IUSE="static-libs test"
+RESTRICT="!test? ( test )"
+
+DEPEND="test? ( >=dev-util/cmocka-1.1.7 )"
 
 src_prepare() {
 	default
@@ -20,9 +23,12 @@ src_prepare() {
 }
 
 src_configure() {
-	# bug #955091
-	append-cflags -std=gnu17
-	econf $(use_enable static-libs static)
+	local myeconfargs=(
+		$(use_enable static-libs static)
+		$(use_enable test tests)
+	)
+
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {
