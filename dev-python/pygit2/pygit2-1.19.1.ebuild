@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{11..14} python3_14t )
 
 inherit distutils-r1 pypi
 
@@ -17,14 +17,14 @@ HOMEPAGE="
 
 LICENSE="GPL-2-with-linking-exception"
 SLOT="0"
-KEYWORDS="amd64 ~loong ~riscv x86"
+KEYWORDS="~amd64 ~loong ~riscv ~x86"
 
 DEPEND="
 	<dev-libs/libgit2-1.10:=
 	>=dev-libs/libgit2-1.9.0:=
 "
 BDEPEND="
-	>=dev-python/cffi-1.17.0:=[${PYTHON_USEDEP}]
+	>=dev-python/cffi-2.0.0:=[${PYTHON_USEDEP}]
 "
 RDEPEND="
 	${DEPEND}
