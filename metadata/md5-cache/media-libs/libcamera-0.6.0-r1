@@ -11,7 +11,7 @@ LICENSE=Apache-2.0 CC0-1.0 BSD BSD-2 CC-BY-4.0 CC-BY-SA-4.0 GPL-2+ GPL-2 LGPL-2.
 RDEPEND=dev-libs/libyaml elfutils? ( dev-libs/elfutils ) gstreamer? ( dev-libs/glib:2 >=media-libs/gstreamer-1.14.0:1.0 >=media-libs/gst-plugins-base-1.14:1.0 ) !openssl? ( net-libs/gnutls:= ) openssl? ( dev-libs/openssl:= ) tools? ( dev-cpp/gtest:= dev-libs/libevent:= drm? ( x11-libs/libdrm ) gui? ( dev-qt/qtbase:6[gui,opengl,widgets] sdl? ( media-libs/libsdl2 jpeg? ( media-libs/libjpeg-turbo:= ) ) ) tiff? ( media-libs/tiff:= ) ) trace? ( dev-util/lttng-ust:= ) udev? ( virtual/libudev:= ) unwind? ( sys-libs/libunwind:= )
 REQUIRED_USE=sdl? ( gui ) test? ( udev )
 RESTRICT=!test? ( test )
-SLOT=0
+SLOT=0/0.6.0
 SRC_URI=https://gitlab.freedesktop.org/camera/libcamera/-/archive/v0.6.0/libcamera-v0.6.0.tar.bz2
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	meson	99e6a34d0f7039439dad788f7443b574	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=2f44fd563e6542f0dbcce6a369db7f0f
+_md5_=14bad21762861b66faea2671557af8ba
