@@ -5,6 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
+PYPI_VERIFY_REPO=https://github.com/agronholm/cbor2
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1 pypi
@@ -17,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="+native-extensions"
 
 BDEPEND="
@@ -27,12 +28,6 @@ BDEPEND="
 
 EPYTEST_PLUGINS=( hypothesis )
 distutils_enable_tests pytest
-
-python_prepare_all() {
-	# remove pytest-cov dep
-	sed -i -e "s/--cov//" pyproject.toml || die
-	distutils-r1_python_prepare_all
-}
 
 python_compile() {
 	local -x CBOR2_BUILD_C_EXTENSION=1
