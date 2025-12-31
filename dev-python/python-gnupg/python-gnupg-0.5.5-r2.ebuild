@@ -29,8 +29,8 @@ KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~spar
 # w/ e.g. sec-keys/openpgp-keys-gentoo-developers but other pkgs too.
 DEPEND="
 	|| (
-		app-alternatives/gpg[reference]
-		app-alternatives/gpg[freepg(-)]
+		app-alternatives/gpg[nls,reference]
+		app-alternatives/gpg[nls,freepg(-)]
 	)
 "
 RDEPEND="
@@ -45,7 +45,6 @@ distutils_enable_tests unittest
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/vinaysajip.asc
 
 python_test() {
-	# NO_EXTERNAL_TESTS must be enabled,
-	# to disable tests needing Internet access.
+	# NO_EXTERNAL_TESTS must be enabled to disable network tests.
 	NO_EXTERNAL_TESTS=1 eunittest
 }
