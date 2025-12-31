@@ -1029,7 +1029,7 @@ app-admin/ocsinventory-agent 2.10.0: Hardware and software inventory tool (clien
 app-admin/op-cli-bin 2.23.0: command line interface for the 1password password manager
 app-admin/openrc-settingsd 1.4.0-r1: System settings D-Bus service for OpenRC
 app-admin/opentofu 1.8.8 1.9.0 1.9.1 1.10.6: The open source infrastructure as code tool
-app-admin/pass 1.7.3-r2 1.7.4-r2 9999: Stores, retrieves, generates, and synchronizes passwords securely
+app-admin/pass 1.7.4-r2 9999: Stores, retrieves, generates, and synchronizes passwords securely
 app-admin/pass-otp 1.2.0-r1: A pass extension for managing one-time-password (OTP) tokens
 app-admin/passook 20121001: Password generator capable of generating pronounceable and/or secure passwords
 app-admin/passwordsafe 1.20.0-r3 1.22.0-r1: Password manager with wxGTK based frontend
@@ -1452,7 +1452,7 @@ app-crypt/freepg 2.5.14: Cross-distro GnuPG fork focused on OpenPGP compliance
 app-crypt/gcr 3.41.2-r2 4.2.1 4.3.0 4.3.1 4.4.0.1-r1: Libraries for cryptographic UIs and accessing PKCS#11 modules
 app-crypt/gifshuffle 2.0-r1: GIF colourmap steganography
 app-crypt/glep63-check 11-r1: GLEP 63 compliance checker for OpenPGP keys
-app-crypt/gnupg 2.2.45-r1 2.4.8-r2 2.4.9 2.5.14 2.5.16: The GNU Privacy Guard, a GPL OpenPGP implementation
+app-crypt/gnupg 2.2.45-r1 2.4.8-r2 2.4.9 2.5.14 2.5.16 2.5.16-r1: The GNU Privacy Guard, a GPL OpenPGP implementation
 app-crypt/gnupg-pkcs11-scd 0.11.0 9999: PKCS#11 support for GnuPG
 app-crypt/gocryptfs 2.6.1 2.6.1-r1: Encrypted overlay filesystem written in Go
 app-crypt/gorilla 1.4-r2: Password Safe in secure way with GUI interface
@@ -5549,7 +5549,7 @@ dev-libs/libgit2-glib 1.2.1-r1: Git library for GLib
 dev-libs/libglib-testing 0.1.1: Libglib-testing is a test library providing test harnesses and mock classes
 dev-libs/libgnome-games-support 1.8.2 2.0.1 2.0.2: Library for code common to GNOME games
 dev-libs/libgnt 2.14.3-r1: Pidgin's GLib Ncurses Toolkit
-dev-libs/libgpg-error 1.56 1.57: Contains error handling functions used by GnuPG software
+dev-libs/libgpg-error 1.56 1.57 1.58: Contains error handling functions used by GnuPG software
 dev-libs/libgpiod 1.6.4 2.2.1-r1 2.2.2: C library and tools for interacting with the linux GPIO character device
 dev-libs/libgrapheme 2.0.2 3.0.0: Unicode string library
 dev-libs/libgudev 238-r1 238-r2: GObject bindings for libudev
@@ -9283,7 +9283,7 @@ dev-python/python-engineio 4.12.3 4.13.0: Python implementation of the Engine.IO
 dev-python/python-gammu 3.2.4-r1: Python bindings for Gammu
 dev-python/python-gflags 3.1.2-r2: Google's Python argument parsing library
 dev-python/python-glanceclient 4.9.0 4.10.0: A client for the OpenStack Glance API
-dev-python/python-gnupg 0.5.5-r1: A Python wrapper for GnuPG
+dev-python/python-gnupg 0.5.5-r2: A Python wrapper for GnuPG
 dev-python/python-ironicclient 5.13.0 5.14.0: Python bindings for the Ironic API
 dev-python/python-jose 3.5.0: A JavaScript Object Signing and Encryption (JOSE) implementation in Python
 dev-python/python-json-logger 3.3.0 4.0.0_rc1 4.0.0: Standard python logging to output log data as json objects
@@ -14722,7 +14722,7 @@ net-dns/ddclient 4.0.0: Perl client used to update dynamic DNS entries
 net-dns/djbdns 1.05-r40 1.05-r42: Collection of DNS client/server software
 net-dns/dnrd 2.20.3-r3: A caching DNS proxy server
 net-dns/dnscap 2.4.1 2.5.0: Network capture utility designed specifically for DNS traffic
-net-dns/dnscrypt-proxy 2.1.12 2.1.13 2.1.14 9999: Flexible DNS proxy, with support for encrypted DNS protocols
+net-dns/dnscrypt-proxy 2.1.12 2.1.13 2.1.14 2.1.15 9999: Flexible DNS proxy, with support for encrypted DNS protocols
 net-dns/dnsdist 1.9.10 1.9.11 2.0.1 2.0.2 9999: A highly DNS-, DoS- and abuse-aware loadbalancer
 net-dns/dnsmasq 2.89-r1 2.90 2.90-r1 2.91: Small forwarding DNS server
 net-dns/dnssec-root 20210902: The DNSSEC root key(s)
@@ -17156,7 +17156,7 @@ sys-apps/mount-gtk 1.4.5.1: GTK+ based UDisks2 frontend
 sys-apps/mount-idmapped 0.0_pre20220825: A tiny tool to allow the creation of idmapped mounts
 sys-apps/msr-tools 1.3_p20170320: Utilities allowing the read and write of CPU model-specific registers (MSR)
 sys-apps/musl-locales 0.1.0 0.1.0-r2: Locale program for musl libc
-sys-apps/nawk 20230909-r1 20250116: Brian Kernighan's pattern scanning and processing language
+sys-apps/nawk 20230909-r1 20250116 20251225: Brian Kernighan's pattern scanning and processing language
 sys-apps/net-tools 2.10 9999: Standard Linux networking tools
 sys-apps/netkit-base 0.17-r10: Old-style inetd
 sys-apps/netplug 1.2.9.2-r3: Brings up/down ethernet ports automatically with cable detection
@@ -17361,7 +17361,7 @@ sys-block/libfabric 1.11.2-r3 2.3.1: The Open Fabrics Interfaces (OFI) framework
 sys-block/libzbc 5.9.0 5.13.0 5.13.0-r1: A library and tools for working with ZBC and ZAC disks
 sys-block/libzbd 1.2.0-r1 2.0.4: Zoned block device manipulation library and tools
 sys-block/lsiutil 1.62-r3: LSI Logic Fusion MPT Command Line Interface management tool
-sys-block/mbuffer 20240707 20241007 20250429 20250809: M(easuring)buffer is a replacement for buffer with additional functionality
+sys-block/mbuffer 20240707 20241007 20250429 20250809 20251025: M(easuring)buffer is a replacement for buffer with additional functionality
 sys-block/megacli 8.07.14-r4: LSI Logic MegaRAID Command Line Interface management tool
 sys-block/megactl 0.4.1-r3: LSI MegaRAID control utility
 sys-block/megarc 1.11-r3: LSI Logic MegaRAID Text User Interface management tool
