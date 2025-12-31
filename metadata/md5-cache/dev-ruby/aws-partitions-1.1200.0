@@ -1,7 +1,7 @@
 BDEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby40? ( dev-lang/ruby:4.0 ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby40? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby40(-)] ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) ruby_targets_ruby40? ( virtual/rubygems[ruby_targets_ruby40(-)] ) test? ( ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) ruby_targets_ruby40? ( virtual/rubygems[ruby_targets_ruby40(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby40? ( dev-lang/ruby:4.0 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) ruby_targets_ruby40? ( virtual/rubygems[ruby_targets_ruby40(-)] )
-DESCRIPTION=Amazon Web Services event stream library
+DESCRIPTION=Provides interfaces to enumerate AWS partitions, regions, and services
 EAPI=8
 HOMEPAGE=https://aws.amazon.com/sdk-for-ruby/
 INHERIT=ruby-fakegem
@@ -12,6 +12,6 @@ RDEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-la
 REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 ruby_targets_ruby40 )
 RESTRICT=!test? ( test )
 SLOT=1
-SRC_URI=https://rubygems.org/gems/aws-eventstream-1.4.0.gem
+SRC_URI=https://rubygems.org/gems/aws-partitions-1.1200.0.gem
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	multilib	a199af442898963433d6f038a88cce9c	ruby-utils	a3a0978ae7e8a40e253821da24a24782	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	ruby-fakegem	bc37b1e2fa23e795fae856dd70a23846
-_md5_=bc04c7522590e8bdcd9a75ca16fa2d5a
+_md5_=17049a9a4d6caa9f3486866884cb6a04

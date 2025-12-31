@@ -922,7 +922,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0 1.2.764.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.42.74 1.43.2 1.43.5 1.43.10 1.43.15 1.44.4 1.44.5 1.44.6 1.44.7 1.44.8: Universal Command Line Environment for AWS
+app-admin/awscli 1.42.74 1.43.2 1.43.5 1.43.10 1.43.15 1.44.4 1.44.5 1.44.6 1.44.7 1.44.8 1.44.9: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.10.0 2025.12.0: Bitwarden password manager desktop client
@@ -1448,7 +1448,7 @@ app-crypt/ekeyd 1.1.5-r101: Entropy Key userspace daemon
 app-crypt/elettra 1.0: Plausible deniable file cryptography
 app-crypt/envchain 1.0.1: Save environment variables in a secret vault
 app-crypt/fcrackzip 1.0: Zip password cracker
-app-crypt/freepg 2.5.14: Cross-distro GnuPG fork focused on OpenPGP compliance
+app-crypt/freepg 2.5.14 2.5.16: Cross-distro GnuPG fork focused on OpenPGP compliance
 app-crypt/gcr 3.41.2-r2 4.2.1 4.3.0 4.3.1 4.4.0.1-r1: Libraries for cryptographic UIs and accessing PKCS#11 modules
 app-crypt/gifshuffle 2.0-r1: GIF colourmap steganography
 app-crypt/glep63-check 11-r1: GLEP 63 compliance checker for OpenPGP keys
@@ -8212,8 +8212,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.40.74 1.41.2 1.41.5 1.42.4 1.42.9 1.42.14 1.42.15 1.42.16 1.42.17 1.42.18: The AWS SDK for Python
-dev-python/botocore 1.40.74 1.41.2 1.41.5 1.42.4 1.42.9 1.42.14 1.42.15 1.42.16 1.42.17 1.42.18: Low-level, data-driven core of boto 3
+dev-python/boto3 1.40.74 1.41.2 1.41.5 1.42.4 1.42.9 1.42.14 1.42.15 1.42.16 1.42.17 1.42.18 1.42.19: The AWS SDK for Python
+dev-python/botocore 1.40.74 1.41.2 1.41.5 1.42.4 1.42.9 1.42.14 1.42.15 1.42.16 1.42.17 1.42.18 1.42.19: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8234,7 +8234,7 @@ dev-python/canonicaljson 2.0.0: Canonical JSON
 dev-python/capturer 3.0-r1: Easily capture stdout/stderr of the current process and subprocesses
 dev-python/casttube 0.2.1-r1: casttube provides a way to interact with the Youtube Chromecast api
 dev-python/cattrs 25.1.1 25.2.0 25.3.0: Composable complex class support for attrs and dataclasses
-dev-python/cbor2 5.7.0 5.7.1: Pure Python CBOR (de)serializer with extensive tag support
+dev-python/cbor2 5.7.1 5.8.0: Pure Python CBOR (de)serializer with extensive tag support
 dev-python/cerberus 1.3.7 1.3.8: A lightweight and extensible data-validation library for Python
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.17.1 2.0.0: Foreign Function Interface for Python calling C code
@@ -8783,7 +8783,7 @@ dev-python/mecab-python 1.0.7: Python binding for MeCab
 dev-python/mechanicalsoup 1.3.0 1.4.0: A Python library for automating interaction with websites
 dev-python/mechanize 0.4.10: Stateful programmatic web browsing in Python
 dev-python/mediafile 0.13.0 0.14.0: Read and write audio files' tags in Python
-dev-python/memory-allocator 0.1.4: An extension class for memory allocation in cython
+dev-python/memory-allocator 0.1.4 0.2.0: An extension class for memory allocation in cython
 dev-python/merge3 0.0.15 0.0.16: Python implementation of 3-way merge
 dev-python/mergedeep 1.3.4-r1: A deep merge tool for Python
 dev-python/mergedict 1.0.0-r1: A Python 'dict' with a merge() method
@@ -9245,7 +9245,7 @@ dev-python/pytest-regressions 2.8.1 2.8.2 2.8.3: Easy to use fixtures to write r
 dev-python/pytest-repeat 0.9.4: pytest plugin for repeating tests
 dev-python/pytest-reraise 2.1.2: Make multi-threaded pytest test cases fail when they should
 dev-python/pytest-rerunfailures 15.1 16.0.1 16.1: pytest plugin to re-run tests to eliminate flaky failures
-dev-python/pytest-reserial 0.4.3 0.5.0 0.5.1 0.6.0: Pytest plugin for recording and replaying serial port traffic during tests
+dev-python/pytest-reserial 0.5.1 0.6.0 0.6.1: Pytest plugin for recording and replaying serial port traffic during tests
 dev-python/pytest-salt-factories 1.0.0_rc29 1.0.1: The new generation of the pytest-salt Plugin
 dev-python/pytest-services 2.2.2: Collection of fixtures and utility functions to run service processes for pytest
 dev-python/pytest-shell-utilities 1.9.7: pytest plugin: fixtures and code to help with running shell commands on tests
@@ -9675,7 +9675,7 @@ dev-python/typeguard 4.4.4: Run-time type checker for Python
 dev-python/typer 0.20.0 0.20.1 0.21.0: Build great CLIs. Easy to code. Based on Python type hints
 dev-python/types-docutils 0.22.2.20251006 0.22.3.20251115: Typing stubs for docutils
 dev-python/types-gdb 15.0.0.20250809 16.3.0.20250812 16.3.0.20250915 16.3.0.20250920: Typing stubs for gdb
-dev-python/types-psutil 7.1.3.20251125 7.1.3.20251211 7.2.0.20251228: Typing stubs for psutil
+dev-python/types-psutil 7.1.3.20251125 7.1.3.20251211 7.2.0.20251228 7.2.1.20251231: Typing stubs for psutil
 dev-python/types-setuptools 80.9.0.20250822 80.9.0.20251221 80.9.0.20251223: Typing stubs for setuptools
 dev-python/typing-extensions 4.14.1 4.15.0: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typing-inspection 0.4.1 0.4.2: Runtime typing introspection tools
@@ -9708,8 +9708,8 @@ dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10: TidyLib Python wrapper
 dev-python/uuid6 2025.0.1: New time-based UUID formats which are suited for use as a database key
-dev-python/uv 0.9.4 0.9.7 0.9.8 0.9.10 0.9.13 0.9.15 0.9.17 0.9.18 0.9.20 9999: A Python package installer and resolver, written in Rust
-dev-python/uv-build 0.9.4 0.9.7 0.9.8 0.9.10 0.9.13 0.9.15 0.9.17 0.9.18 0.9.20: PEP517 uv build backend
+dev-python/uv 0.9.4 0.9.7 0.9.8 0.9.10 0.9.13 0.9.15 0.9.17 0.9.18 0.9.20 0.9.21 9999: A Python package installer and resolver, written in Rust
+dev-python/uv-build 0.9.4 0.9.7 0.9.8 0.9.10 0.9.13 0.9.15 0.9.17 0.9.18 0.9.20 0.9.21: PEP517 uv build backend
 dev-python/uvicorn 0.38.0 0.40.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.21.0 0.22.1: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.35.0: Python Data Validation for Humans
@@ -9907,7 +9907,7 @@ dev-ruby/async-process 1.3.1 1.4.0: Abstract container-based parallelism using t
 dev-ruby/async-rspec 1.17.1: Helpers for writing specs against the async gem
 dev-ruby/autoprefixer-rails 10.4.21.0: Add vendor prefixes to CSS rules using values from the Can I Use website
 dev-ruby/aws-eventstream 1.3.2 1.4.0: Amazon Web Services event stream library
-dev-ruby/aws-partitions 1.1068.0 1.1096.0 1.1118.0 1.1150.0: Provides interfaces to enumerate AWS partitions, regions, and services
+dev-ruby/aws-partitions 1.1150.0 1.1200.0: Provides interfaces to enumerate AWS partitions, regions, and services
 dev-ruby/aws-sigv4 1.11.0 1.12.0 1.12.1: Amazon Web Services Signature Version 4 signing library
 dev-ruby/axiom-types 0.1.1-r1: Define types with optional constraints for use within axiom and other libraries
 dev-ruby/backports 3.25.1 3.25.2 3.25.3: Backports of Ruby features for older Ruby
