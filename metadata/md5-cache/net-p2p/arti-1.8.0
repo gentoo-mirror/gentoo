@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* )
+BDEPEND=|| ( >=dev-lang/rust-bin-1.86:* >=dev-lang/rust-1.86:* )
 DEFINED_PHASES=compile configure install setup test unpack
 DEPEND=app-arch/xz-utils app-arch/zstd:= dev-db/sqlite:3 dev-libs/openssl:=
 DESCRIPTION=Implementation of Tor in Rust
@@ -12,4 +12,4 @@ RDEPEND=app-arch/xz-utils app-arch/zstd:= dev-db/sqlite:3 dev-libs/openssl:=
 SLOT=0
 SRC_URI=https://gitlab.torproject.org/tpo/core/arti/-/archive/arti-v1.8.0/arti-arti-v1.8.0.tar.bz2 -> arti-1.8.0.tar.bz2 https://github.com/gentoo-crate-dist/arti/releases/download/arti-v1.8.0/arti-1.8.0-crates.tar.xz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	20da14430886f3de143eb101684fcf62	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	aeba1d272f6c2e000912e11d8cf626eb
-_md5_=ef294447042444f9a3ce7028f252cc47
+_md5_=95a0966f7bc013f2f5da147b7680df46
