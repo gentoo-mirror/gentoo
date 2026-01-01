@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,7 +25,7 @@ SLOT="0"
 # TODO: either update revdeps to have (+) on no-op IUSE (haptic, joystick,
 # sound, and video) then cleanup, or don't for less overlay issues and instead
 # force in profiles to avoid unnecessary rebuilds -- not forced right now given
-# >=2.32.50 would force for a potential future non-compat 2.34.0 fwiw
+# a >=2.32.50 in profile would force for a potential future non-compat 2.34.0
 IUSE="
 	X alsa gles2 +haptic +joystick kms opengl pipewire pulseaudio
 	+sound test +video vulkan wayland
