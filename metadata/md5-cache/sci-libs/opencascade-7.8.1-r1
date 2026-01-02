@@ -1,17 +1,17 @@
-BDEPEND=doc? ( app-text/doxygen[dot] ) test? ( dev-tcltk/thread ) app-alternatives/ninja >=dev-build/cmake-3.28.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=doc? ( app-text/doxygen[dot] ) test? ( dev-tcltk/thread ) app-alternatives/ninja >=dev-build/cmake-3.28.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=dev-lang/tcl:= dev-libs/double-conversion tk? ( dev-lang/tk:= ) gles2? ( media-libs/libglvnd ) opengl? ( media-libs/libglvnd[X] ) X? ( x11-libs/libX11 ) freeimage? ( media-libs/freeimage ) jemalloc? ( dev-libs/jemalloc ) tbb? ( dev-cpp/tbb:= ) truetype? ( media-libs/fontconfig media-libs/freetype:2 ) vtk? ( sci-libs/vtk:=[rendering,truetype?] tbb? ( sci-libs/vtk[tbb] ) ) X? ( x11-base/xorg-proto ) json? ( dev-libs/rapidjson ) test? ( freeimage? ( media-libs/freeimage[jpeg,mng,png,tiff] ) truetype? ( media-fonts/noto-cjk media-fonts/urw-fonts ) )
 DESCRIPTION=Development platform for CAD/CAE, 3D surface/solid modeling and data exchange
 EAPI=8
 HOMEPAGE=https://www.opencascade.com
-INHERIT=cmake cuda flag-o-matic multiprocessing virtualx xdg-utils git-r3
+INHERIT=cmake cuda flag-o-matic multiprocessing virtualx xdg-utils
 IUSE=X debug doc freeimage gles2 jemalloc json opengl optimize tbb test testprograms tk truetype vtk test
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
 LICENSE=|| ( Open-CASCADE-LGPL-2.1-Exception-1.0 LGPL-2.1 )
-PROPERTIES=live
 RDEPEND=dev-lang/tcl:= dev-libs/double-conversion tk? ( dev-lang/tk:= ) gles2? ( media-libs/libglvnd ) opengl? ( media-libs/libglvnd[X] ) X? ( x11-libs/libX11 ) freeimage? ( media-libs/freeimage ) jemalloc? ( dev-libs/jemalloc ) tbb? ( dev-cpp/tbb:= ) truetype? ( media-libs/fontconfig media-libs/freetype:2 ) vtk? ( sci-libs/vtk:=[rendering,truetype?] tbb? ( sci-libs/vtk[tbb] ) )
 REQUIRED_USE=?? ( optimize tbb ) test? ( freeimage json opengl tk truetype ) vtk? ( X opengl )
 RESTRICT=!test? ( test ) !test? ( test )
-SLOT=0/9999
-SRC_URI=test? ( https://github.com/Open-Cascade-SAS/OCCT/releases/download/V7_9_0_beta1/opencascade-dataset-7.9.0.tar.xz )
-_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	22e4e58d68692975dc74424dc9b12fb7	cuda	8b660e223a1695e3884ee4c7dc2c5059	virtualx	9741d451eb64ea8bb9faee90d68a9b68	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=f5ad4744c9091079af34415477779247
+SLOT=0/7.8
+SRC_URI=test? ( https://github.com/Open-Cascade-SAS/OCCT/releases/download/V7_8_0/opencascade-dataset-7.8.0.tar.xz ) https://github.com/Open-Cascade-SAS/OCCT/archive/refs/tags/V7_8_1.tar.gz -> opencascade-7.8.1.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	22e4e58d68692975dc74424dc9b12fb7	cuda	8b660e223a1695e3884ee4c7dc2c5059	virtualx	9741d451eb64ea8bb9faee90d68a9b68
+_md5_=f1a6d8d8bcf7ad54110b1892985afd1c
