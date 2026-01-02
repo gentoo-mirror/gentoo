@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..14} python3_14t )
 
 inherit distutils-r1
 
@@ -21,7 +21,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 DEPEND="
 	dev-libs/libsodium:=
@@ -36,15 +36,9 @@ BDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/cffi-1.4.1[${PYTHON_USEDEP}]
 	' 'python*')
-	test? (
-		>=dev-python/hypothesis-3.27.0[${PYTHON_USEDEP}]
-	)
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.5.0-py314.patch
-)
-
+EPYTEST_PLUGINS=( hypothesis )
 distutils_enable_tests pytest
 
 src_compile() {
