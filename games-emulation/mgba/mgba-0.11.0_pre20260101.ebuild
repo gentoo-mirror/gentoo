@@ -11,11 +11,13 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/mgba-emu/mgba.git"
 else
+	MGBA_HASH=e8ef4be03cc8de9cc19f03778eadc375f6269d5a
 	SRC_URI="
-		https://github.com/mgba-emu/mgba/archive/refs/tags/${PV}.tar.gz
+		https://github.com/mgba-emu/mgba/archive/${MGBA_HASH}.tar.gz
 			-> ${P}.tar.gz
 	"
 	KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+	S=${WORKDIR}/${PN}-${MGBA_HASH}
 fi
 
 DESCRIPTION="Game Boy Advance Emulator"
@@ -69,6 +71,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.10.0-optional-updater.patch
+	"${FILESDIR}"/${PN}-0.11.0_pre20260101-debugger.patch
 )
 
 CMAKE_QA_COMPAT_SKIP=1 #958356
