@@ -1,17 +1,17 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 CRATES="
 "
-RUST_MIN_VER=1.85.0
+RUST_MIN_VER=1.89.0
 
 inherit cargo meson
 
 MY_PV=${PV/_/.}
 MY_P=glycin-${MY_PV}
-TEST_IMAGE_COMMIT=b148bcf70847d6f126a8e83e27e1c59d2e474adf
+TEST_IMAGE_COMMIT=85c6cdb47229162dcd8c8f599f9c2a7f42d75a1d
 
 DESCRIPTION="Loaders for glycin clients (glycin crate or libglycin)"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/glycin/"
@@ -35,7 +35,9 @@ LICENSE+="
 	|| ( LGPL-2.1+ MPL-2.0 )
 "
 SLOT="2"
-KEYWORDS="~amd64 ~arm64"
+if [[ ${PV} != *_[ab]* ]]; then
+	KEYWORDS="~amd64 ~arm64"
+fi
 IUSE="heif jpeg2k jpegxl svg test"
 REQUIRED_USE="test? ( heif jpegxl )"
 RESTRICT="!test? ( test )"
