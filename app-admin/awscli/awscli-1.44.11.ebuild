@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,16 +22,16 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
-# botocore is x.(y-2).z, sigh
-BOTOCORE_PV="$(ver_cut 1).$(( $(ver_cut 2) - 2)).$(ver_cut 3-)"
+# botocore is x.(y-2).(z+10), sigh
+BOTOCORE_PV="$(ver_cut 1).$(( $(ver_cut 2) - 2)).$(( $(ver_cut 3) + 10 ))"
 RDEPEND="
 	>=dev-python/botocore-${BOTOCORE_PV}[${PYTHON_USEDEP}]
 	dev-python/colorama[${PYTHON_USEDEP}]
 	dev-python/docutils[${PYTHON_USEDEP}]
 	dev-python/rsa[${PYTHON_USEDEP}]
-	>=dev-python/s3transfer-0.15.0[${PYTHON_USEDEP}]
+	>=dev-python/s3transfer-0.16.0[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	!app-admin/awscli-bin
 "

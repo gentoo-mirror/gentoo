@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,12 +20,12 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/botocore-${PV}[${PYTHON_USEDEP}]
 	>=dev-python/jmespath-0.7.1[${PYTHON_USEDEP}]
-	>=dev-python/s3transfer-0.15.0[${PYTHON_USEDEP}]
+	>=dev-python/s3transfer-0.16.0[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()
