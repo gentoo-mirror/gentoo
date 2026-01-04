@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://virgil3d.github.io/
 INHERIT=meson python-any-r1
 IUSE=static-libs test venus vaapi video_cards_amdgpu video_cards_asahi video_cards_freedreno X
-KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~loong ~riscv ~x86
 LICENSE=MIT
 RDEPEND=>=x11-libs/libdrm-2.4.121 media-libs/libepoxy[X?] media-libs/mesa venus? ( media-libs/vulkan-loader ) vaapi? ( media-libs/libva:= ) X? ( x11-libs/libX11 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/virgl/virglrenderer/-/archive/virglrenderer-1.2.0/virglrenderer-virglrenderer-1.2.0.tar.bz2
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	sysroot	c7470ddc2876a596a7a1f4c2a87a5dcb	meson	804c6d117ea7c539cd77f1f1a9a49bc7	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=a214e92f6a7c9c46a4f36901cfebde63
+_md5_=66c861f5f838ff4743c23bcc0e51b43c
