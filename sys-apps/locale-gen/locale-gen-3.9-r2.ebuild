@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,6 +32,7 @@ src_prepare() {
 	local -x MY_EPREFIX=${EPREFIX}
 
 	eapply "${FILESDIR}/${PV}-suppress-bash-setlocale-warnings.patch"
+	eapply "${FILESDIR}/${PV}-avoid-chcon-execution-if-missing.patch"
 	eapply_user
 
 	perl -pi -e '$f //= ($. == 1 && s/^#!\h*\K/$ENV{MY_EPREFIX}/); END { exit !$f }' "${PN}" \
