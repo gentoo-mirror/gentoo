@@ -12,7 +12,8 @@ S="${WORKDIR}"/${PN}-${SUB_PV}
 FONT_PN="x3270"
 FONT_S="${S}"/${FONT_PN}
 
-inherit autotools font
+PYTHON_COMPAT=( python3_{11..14} )
+inherit autotools font python-any-r1
 
 DESCRIPTION="Complete 3270 (S390) access package"
 HOMEPAGE="https://x3270.bgp.nu/"
@@ -20,8 +21,10 @@ SRC_URI="https://downloads.sourceforge.net/x3270/${MY_P}-src.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~ppc ~s390 ~sparc ~x86"
 IUSE="cjk doc gui ncurses ssl tcl"
+# json_test fails on an obvious assert?
+RESTRICT="test"
 
 RDEPEND="
 	gui? (
@@ -42,6 +45,7 @@ DEPEND="
 	gui? ( x11-base/xorg-proto )
 "
 BDEPEND="
+	${PYTHON_DEPS}
 	gui? (
 		x11-apps/bdftopcf
 		>=x11-apps/mkfontscale-1.2.0
@@ -51,7 +55,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.1-musl-wint-t-fix.patch
-	"${FILESDIR}"/${PN}-4.2_p5-ncurses-pkg-config.patch
+	"${FILESDIR}"/${PN}-4.4_p6-ncurses-pkg-config.patch
 )
 
 src_prepare() {
@@ -85,6 +89,13 @@ src_configure() {
 		$(use_enable gui x3270) \
 		$(use_with gui x) \
 		$(use_with gui fontdir "${FONTDIR}")
+}
+
+src_test() {
+	# https://x3270.miraheze.org/wiki/Build/Tests
+	# TODO: Try switch to the generic 'test' target but tests hang
+	# with that.
+	emake lib-test
 }
 
 src_install() {
