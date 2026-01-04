@@ -1,12 +1,12 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 # This ebuild uses 3 special global variables:
-# GRUB_BOOTSTRAP: Depend on python and invoke bootstrap (gnulib).
-# GRUB_AUTOGEN: Depend on python and invoke autogen.sh.
-# GRUB_AUTORECONF: Inherit autotools and invoke eautoreconf.
+# GRUB_BOOTSTRAP: Invoke bootstrap (gnulib)
+# GRUB_AUTOGEN: Invoke autogen.sh
+# GRUB_AUTORECONF: Inherit autotools and invoke eautoreconf
 #
 # When applying patches:
 # If gnulib is updated, set GRUB_BOOTSTRAP=1
@@ -16,28 +16,26 @@ EAPI=7
 # If any of the above applies to a user patch, the user should set the
 # corresponding variable in make.conf or the environment.
 
-GRUB_AUTOGEN=1
 GRUB_AUTORECONF=1
-PYTHON_COMPAT=( python3_{10..13} )
+if [[ ${PV} == 9999  ]]; then
+	GRUB_BOOTSTRAP=1
+fi
+
+PYTHON_COMPAT=( python3_{11..14} )
 WANT_LIBTOOL=none
-VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/grub.asc
 
 if [[ -n ${GRUB_AUTORECONF} ]]; then
 	inherit autotools
-	BDEPEND+=" dev-build/autoconf-archive"
 fi
 
 inherit bash-completion-r1 eapi9-ver flag-o-matic multibuild optfeature
-inherit python-any-r1 secureboot toolchain-funcs
+inherit python-any-r1 secureboot toolchain-funcs verify-sig
 
 DESCRIPTION="GNU GRUB boot loader"
 HOMEPAGE="https://www.gnu.org/software/grub/"
 
 MY_P=${P}
-
 if [[ ${PV} != 9999 ]]; then
-	inherit verify-sig
-
 	if [[ ${PV} == *_alpha* || ${PV} == *_beta* || ${PV} == *_rc* ]]; then
 		# The quote style is to work with <=bash-4.2 and >=bash-4.3 #503860
 		MY_P=${P/_/'~'}
@@ -49,13 +47,17 @@ if [[ ${PV} != 9999 ]]; then
 	else
 		SRC_URI="
 			mirror://gnu/${PN}/${P}.tar.xz
-			https://dev.gentoo.org/~floppym/dist/${P}-bash-completion.patch.gz
 			verify-sig? ( mirror://gnu/${PN}/${P}.tar.xz.sig )
 		"
 		S=${WORKDIR}/${P%_*}
 	fi
-	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-grub )"
-	KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~sparc x86"
+	BDEPEND="
+		verify-sig? (
+			sec-keys/openpgp-keys-grub
+			sec-keys/openpgp-keys-unifont
+		)
+	"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 else
 	inherit git-r3
 	EGIT_REPO_URI="https://git.savannah.gnu.org/git/grub.git"
@@ -65,22 +67,24 @@ PATCHES=(
 	"${FILESDIR}"/gfxpayload.patch
 	"${FILESDIR}"/grub-2.02_beta2-KERNEL_GLOBS.patch
 	"${FILESDIR}"/grub-2.06-test-words.patch
-	"${FILESDIR}"/grub-2.12-fwsetup.patch
-	"${WORKDIR}"/grub-2.12-bash-completion.patch
-	"${FILESDIR}"/grub-2.12-zfs-zstd-compression-support.patch
-	"${FILESDIR}"/grub-2.12-fix-for-bash-completion-_split_longopt.patch
-	"${FILESDIR}"/grub-2.12-image-base.patch
+	"${FILESDIR}"/grub-2.14_rc1-configure.ac-avoid-bashisms.patch
 )
 
-DEJAVU=dejavu-sans-ttf-2.37
-UNIFONT=unifont-15.0.06
-SRC_URI+=" fonts? ( mirror://gnu/unifont/${UNIFONT}/${UNIFONT}.pcf.gz )
-	themes? ( https://downloads.sourceforge.net/dejavu/${DEJAVU}.zip )"
+DEJAVU_VER=2.37
+DEJAVU=dejavu-fonts-ttf-${DEJAVU_VER}
+UNIFONT=unifont-17.0.02
+SRC_URI+="
+	fonts? (
+		mirror://gnu/unifont/${UNIFONT}/${UNIFONT}.pcf.gz
+		verify-sig? ( mirror://gnu/unifont/${UNIFONT}/${UNIFONT}.pcf.gz.sig )
+	)
+	themes? ( https://downloads.sourceforge.net/project/dejavu/dejavu/${DEJAVU_VER}/${DEJAVU}.tar.bz2 )
+"
 
 # Includes licenses for dejavu and unifont
 LICENSE="GPL-3+ BSD MIT fonts? ( GPL-2-with-font-exception ) themes? ( CC-BY-SA-3.0 BitstreamVera )"
 SLOT="2/${PVR}"
-IUSE="+branding +device-mapper doc efiemu +fonts mount nls sdl test +themes truetype libzfs"
+IUSE="+branding +device-mapper doc efiemu +fonts mount nls protect sdl test +themes truetype libzfs"
 
 GRUB_ALL_PLATFORMS=( coreboot efi-32 efi-64 emu ieee1275 loongson multiboot
 	qemu qemu-mips pc uboot xen xen-32 xen-pvh )
@@ -114,7 +118,6 @@ BDEPEND+="
 		sys-fs/squashfs-tools
 	)
 	themes? (
-		app-arch/unzip
 		media-libs/freetype:2
 		virtual/pkgconfig
 	)
@@ -132,9 +135,10 @@ DEPEND="
 	truetype? ( media-libs/freetype:2= )
 	ppc? ( >=sys-apps/ibm-powerpc-utils-1.3.5 )
 	ppc64? ( >=sys-apps/ibm-powerpc-utils-1.3.5 )
+	protect? ( dev-libs/libtasn1:= )
 "
 RDEPEND="${DEPEND}
-	branding? ( >=sys-boot/grub-themes-gentoo-1.0-r1 )
+	branding? ( themes? ( >=sys-boot/grub-themes-gentoo-1.0-r1 ) )
 	kernel_linux? (
 		grub_platforms_efi-32? ( sys-boot/efibootmgr )
 		grub_platforms_efi-64? ( sys-boot/efibootmgr )
@@ -164,7 +168,12 @@ src_unpack() {
 		git-r3_checkout "${GNULIB_URI}" gnulib
 		popd >/dev/null || die
 	elif use verify-sig; then
-		verify-sig_verify_detached "${DISTDIR}"/${MY_P}.tar.xz{,.sig}
+		verify-sig_verify_detached "${DISTDIR}"/${MY_P}.tar.xz{,.sig} \
+			"${BROOT}"/usr/share/openpgp-keys/grub.asc
+	fi
+	if use fonts && use verify-sig; then
+		verify-sig_verify_detached "${DISTDIR}"/${UNIFONT}.pcf.gz{,.sig} \
+			"${BROOT}"/usr/share/openpgp-keys/unifont.asc
 	fi
 	default
 }
@@ -184,10 +193,6 @@ src_prepare() {
 	if [[ -n ${GRUB_AUTORECONF} ]]; then
 		eautoreconf
 	fi
-
-	# Avoid error due to extra_deps.lst missing from source tarball:
-	#       make[3]: *** No rule to make target 'grub-core/extra_deps.lst', needed by 'syminfo.lst'.  Stop.
-	echo "depends bli part_gpt" > grub-core/extra_deps.lst || die
 }
 
 grub_do() {
@@ -229,6 +234,7 @@ grub_configure() {
 		$(use_enable device-mapper)
 		$(use_enable mount grub-mount)
 		$(use_enable nls)
+		$(use_enable protect grub-protect)
 		$(use_enable themes grub-themes)
 		$(use_enable truetype grub-mkfont)
 		$(use_enable libzfs)
@@ -241,11 +247,11 @@ grub_configure() {
 	)
 
 	if use fonts; then
-		ln -rs "${WORKDIR}/${UNIFONT}.pcf" unifont.pcf || die
+		cp "${WORKDIR}/${UNIFONT}.pcf" unifont.pcf || die
 	fi
 
 	if use themes; then
-		ln -rs "${WORKDIR}/${DEJAVU}/ttf/DejaVuSans.ttf" DejaVuSans.ttf || die
+		cp "${WORKDIR}/${DEJAVU}/ttf/DejaVuSans.ttf" DejaVuSans.ttf || die
 	fi
 
 	local ECONF_SOURCE="${S}"
