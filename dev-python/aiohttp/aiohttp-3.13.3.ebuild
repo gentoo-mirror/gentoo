@@ -1,10 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
+PYPI_VERIFY_REPO=https://github.com/aio-libs/aiohttp
 PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
 inherit distutils-r1 pypi
@@ -17,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~x86"
 IUSE="+native-extensions test-rust"
 
 DEPEND="
@@ -33,11 +34,14 @@ RDEPEND="
 	>=dev-python/aiohappyeyeballs-2.5.0[${PYTHON_USEDEP}]
 	>=dev-python/aiosignal-1.4.0[${PYTHON_USEDEP}]
 	>=dev-python/attrs-17.3.0[${PYTHON_USEDEP}]
-	dev-python/brotlicffi[${PYTHON_USEDEP}]
+	>=dev-python/brotlicffi-1.2[${PYTHON_USEDEP}]
 	>=dev-python/frozenlist-1.1.1[${PYTHON_USEDEP}]
 	>=dev-python/multidict-4.5.0[${PYTHON_USEDEP}]
 	>=dev-python/propcache-0.2.0[${PYTHON_USEDEP}]
 	>=dev-python/yarl-1.17.0[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		dev-python/backports-zstd[${PYTHON_USEDEP}]
+	' 3.11 3.12 3.13)
 "
 BDEPEND="
 	>=dev-python/multidict-4.5.0[${PYTHON_USEDEP}]
@@ -131,6 +135,7 @@ python_test() {
 		tests/test_connector.py::test_tcp_connector_ssl_shutdown_timeout_nonzero_passed
 		tests/test_connector.py::test_tcp_connector_ssl_shutdown_timeout_passed_to_create_connection
 		tests/test_connector.py::test_tcp_connector_ssl_shutdown_timeout_zero_not_passed
+		tests/test_client_functional.py::test_invalid_idna
 		# broken by irrelevant deprecation warnings
 		tests/test_circular_imports.py::test_no_warnings
 	)
