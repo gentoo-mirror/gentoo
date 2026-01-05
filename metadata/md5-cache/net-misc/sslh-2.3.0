@@ -6,11 +6,11 @@ EAPI=7
 HOMEPAGE=https://www.rutschle.net/tech/sslh/README.html
 INHERIT=flag-o-matic systemd toolchain-funcs
 IUSE=caps libev systemd tcpd
-KEYWORDS=~amd64 ~arm ~m68k ~mips ~s390 ~x86
+KEYWORDS=amd64 ~arm ~m68k ~mips ~s390 ~x86
 LICENSE=GPL-2
 RDEPEND=caps? ( sys-libs/libcap ) dev-libs/libpcre2:= systemd? ( sys-apps/systemd:= ) tcpd? ( sys-apps/tcp-wrappers ) dev-libs/libconfig:= libev? ( dev-libs/libev ) >=dev-libs/libconfig-1.5:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/yrutschle/sslh/archive/v2.3.0.tar.gz -> sslh-2.3.0.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=4b20a521468d1cd00164818e13ae1a78
+_md5_=1e999b3244a591005f3d2789b98be32d
