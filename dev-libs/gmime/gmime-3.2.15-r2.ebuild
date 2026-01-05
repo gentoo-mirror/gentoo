@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,9 +9,10 @@ DESCRIPTION="Library for creating and parsing MIME messages"
 HOMEPAGE="https://github.com/jstedfast/gmime https://spruce.sourceforge.net/gmime/"
 SRC_URI="https://github.com/jstedfast/${PN}/releases/download/${PV}/${P}.tar.xz"
 
-SLOT="3.0"
 LICENSE="LGPL-2.1+"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ppc ppc64 ~riscv ~sparc x86 ~x64-macos ~x64-solaris"
+SLOT="3.0"
+
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos ~x64-solaris"
 IUSE="crypt doc idn test +vala"
 RESTRICT="!test? ( test )"
 
@@ -33,6 +34,13 @@ BDEPEND="
 	virtual/pkgconfig
 	doc? ( app-text/docbook-sgml-utils )
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-32-bit.patch
+	"${FILESDIR}"/${P}-warning.patch
+	"${FILESDIR}"/${P}-ub-fix.patch
+	"${FILESDIR}"/${P}-headers.patch
+)
 
 src_prepare() {
 	gnome2_src_prepare
@@ -58,6 +66,11 @@ src_compile() {
 	if use doc; then
 		emake -C docs/tutorial html
 	fi
+}
+
+src_test() {
+	# -j1: https://github.com/jstedfast/gmime/issues/177
+	emake -j1 check
 }
 
 src_install() {
