@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,8 +10,8 @@ MY_PN=${PN%-*}
 DESCRIPTION="Free universal database tool (community edition)"
 HOMEPAGE="https://dbeaver.io/"
 SRC_URI="
-	amd64? ( https://dbeaver.io/files/${PV}/dbeaver-ce-${PV}-linux.gtk.x86_64-nojdk.tar.gz )
-	arm64? ( https://dbeaver.io/files/${PV}/dbeaver-ce-${PV}-linux.gtk.aarch64-nojdk.tar.gz )
+	amd64? ( https://dbeaver.io/files/${PV}/dbeaver-ce-${PV}-linux.gtk.x86_64.tar.gz )
+	arm64? ( https://dbeaver.io/files/${PV}/dbeaver-ce-${PV}-linux.gtk.aarch64.tar.gz )
 "
 S=${WORKDIR}/${MY_PN}
 
@@ -34,6 +34,8 @@ src_prepare() {
 }
 
 src_configure() {
+	# Remove JRE bundled
+	rm -r "${S}/jre" || die
 	# Remove unused plugins for other platforms
 	local JNA_DIR="${S}/plugins/com.sun.jna_5.18.1.v20251001-0800/com/sun/jna"
 	pushd "${JNA_DIR}" || die
