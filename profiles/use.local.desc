@@ -5784,10 +5784,8 @@ net-dns/knot-resolver:manager - Manager is a user-friendly interface and a compo
 net-dns/knot-resolver:nghttp2 - DNS-over-HTTPS support
 net-dns/knot-resolver:xdp - Enable eXpress Data Path
 net-dns/nsd:bind8-stats - Enables BIND8 like NSTATS and XSTATS and statistics in nsd-control
-net-dns/nsd:default-znow - Enable full relocation binding at load-time (RELRO NOW, to protect GOT and .dtor areas)
 net-dns/nsd:dnstap - Enable the structured binary log format
 net-dns/nsd:ipv6 - Enable IPv6 support
-net-dns/nsd:largefile - Enables support for large files
 net-dns/nsd:libevent - Use libevent or libev, useful when zone count is high
 net-dns/nsd:memclean - Cleanup memory (at exit) for eg. valgrind, memcheck
 net-dns/nsd:minimal-responses - If minimal responses are disabled, responses are more likely to get truncated, resulting in TCP fallback
@@ -5800,7 +5798,7 @@ net-dns/nsd:ratelimit - Enables ratelimiting, based on query name, type and sour
 net-dns/nsd:recvmmsg - Enable recvmmsg and sendmmsg compilation, faster but some kernel versions may have implementation problems for IPv6
 net-dns/nsd:simdzone - Leverage SIMD instructions in modern CPUs to improve throughput
 net-dns/nsd:tfo - Enable TCP Fast Open
-net-dns/nsd:year2038 - Enables support for 64-bit 'time_t' (sets D_TIME_BITS=64; glibc only)
+net-dns/nsd:xdp - Enable support for XDP through net-libs/xdp-tools
 net-dns/opendnssec:external-hsm - Enables support for storing DNSSEC keys through an arbitrary non-portage PKCS#11 interface, specified through an environment variable
 net-dns/opendnssec:opensc - Enables support for storing DNSSEC keys through a dev-libs/opensc PKCS#11 interface
 net-dns/opendnssec:signer - Enables signing capabilities for OpenDNSSEC
