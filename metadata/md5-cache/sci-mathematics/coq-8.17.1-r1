@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://rocq-prover.org https://github.com/rocq-prover/rocq/
 INHERIT=check-reqs desktop dune edo
 IUSE=debug doc gui +ocamlopt test
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=LGPL-2.1
 RDEPEND=dev-ml/num:= dev-ml/zarith:= gui? ( >=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?] >=dev-ml/lablgtk-sourceview-3.1.2:3=[ocamlopt?] ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=test
 SLOT=0/8.17.1
 SRC_URI=https://github.com/coq/coq/archive/V8.17.1.tar.gz -> coq-8.17.1.tar.gz
 _eclasses_=check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	desktop	7b6f6e9d65093966fbc8475399c5dd4e	edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	dune	4304f35da0fafecd98eb149d0b7ed4d4
-_md5_=655867d20dedb5c8a86279bdea38f6a8
+_md5_=047321bd842660baef320060a5942301

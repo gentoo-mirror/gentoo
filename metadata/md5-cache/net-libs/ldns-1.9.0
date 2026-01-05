@@ -1,0 +1,17 @@
+BDEPEND=doc? ( app-text/doxygen ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) dev-lang/swig python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/setuptools[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/setuptools[python_targets_python3_14(-)] ) )
+DEFINED_PHASES=compile configure install setup test
+DEPEND=>=dev-libs/openssl-1.1.1l-r1:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?,static-libs?] examples? ( net-libs/libpcap ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) )
+DESCRIPTION=Library that aims to simplify DNS programming in C
+EAPI=8
+HOMEPAGE=https://www.nlnetlabs.nl/projects/ldns/about/
+INHERIT=python-single-r1 multilib-minimal
+IUSE=doc examples python static-libs python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris
+LICENSE=BSD
+RDEPEND=>=dev-libs/openssl-1.1.1l-r1:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?,static-libs?] examples? ( net-libs/libpcap ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) )
+RESTRICT=test
+SLOT=0/3
+SRC_URI=https://www.nlnetlabs.nl/downloads/ldns/ldns-1.9.0.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	404b65bd5212cff83b3935c685419d08	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
+_md5_=b37f94c91dcf3e11f794133bb1214454
