@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.why3.org/ https://github.com/AdaCore/why3
 INHERIT=autotools findlib
 IUSE=coq doc emacs gtk html hypothesis-selection +ocamlopt sexp zarith zip +ocamlopt
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 ~arm64
 LICENSE=GPL-3
 RDEPEND=dev-ml/menhir:=[ocamlopt?] dev-ml/num:=[ocamlopt?] dev-ml/re:=[ocamlopt?] dev-ml/yojson:= coq? ( <=sci-mathematics/coq-8.18 ) emacs? ( app-editors/emacs:* ) gtk? ( dev-ml/lablgtk:=[sourceview] ) html? ( dev-tex/hevea:= ) hypothesis-selection? ( dev-ml/ocamlgraph:= ) dev-ml/ppx_deriving:=[ocamlopt?] dev-ml/ppx_sexp_conv:=[ocamlopt?] dev-ml/sexplib:=[ocamlopt?] zarith? ( dev-ml/zarith:=[ocamlopt?] ) zip? ( dev-ml/camlzip:=[ocamlopt?] ) dev-lang/ocaml:=[ocamlopt?]
 REQUIRED_USE=html? ( doc ) ocamlopt
@@ -14,4 +14,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://github.com/AdaCore/why3/archive/fb4ca6cd8c7d888d3e8d281e6de87c66ec20f084.tar.gz -> why3-for-spark-2023.12.13.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	findlib	49d5365fca4dea46f13825b9d763c89e
-_md5_=dc529eacfdb92445b6e3c6a7946e09ea
+_md5_=07a7c4461025e46a7e417195788d89a6
