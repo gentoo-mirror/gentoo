@@ -1,0 +1,16 @@
+BDEPEND=dev-ada/gprbuild[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,-ada_target_gcc_16(-)]
+DEFINED_PHASES=compile install setup test
+DEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) gtk? ( dev-ada/gtkada )
+DESCRIPTION=Simple API to spawn processes
+EAPI=8
+HOMEPAGE=https://github.com/AdaCore/spawn
+INHERIT=ada multiprocessing
+IUSE=gtk static-libs static-pic ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 ada_target_gcc_16
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3 gcc-runtime-library-exception-3.1
+RDEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) gtk? ( dev-ada/gtkada )
+REQUIRED_USE=^^ ( ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 )
+SLOT=0/26.0.0
+SRC_URI=https://github.com/AdaCore/spawn/archive/refs/tags/v26.0.0.tar.gz -> spawn-26.0.0.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	ada	38e5ef8cefdc0d1e5303a1e71014684e	multiprocessing	1e32df7deee68372153dca65f4a7c21f
+_md5_=9fed7d73bcb553efe33084acf7741fc6
