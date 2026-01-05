@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) ada_target_gcc_16? ( sys-devel/gcc:16[ada] ) app-accessibility/at-spi2-core dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango dev-ada/gprbuild[ada_target_gcc_12(-)?,ada_target_gcc_13(-)?,ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,ada_target_gcc_16(-)?]
+DESCRIPTION=A complete Ada graphical toolkit
+EAPI=8
+HOMEPAGE=http://libre.adacore.com//tools/gtkada/
+INHERIT=ada autotools multiprocessing
+IUSE=+shared static-libs static-pic ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 ada_target_gcc_16
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3
+RDEPEND=ada_target_gcc_12? ( sys-devel/gcc:12[ada] ) ada_target_gcc_13? ( sys-devel/gcc:13[ada] ) ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) ada_target_gcc_16? ( sys-devel/gcc:16[ada] ) app-accessibility/at-spi2-core dev-libs/glib:2 media-libs/fontconfig media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango
+REQUIRED_USE=^^ ( ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 ada_target_gcc_16 )
+SLOT=0/26.0.0
+SRC_URI=https://github.com/AdaCore/gtkada/archive/refs/tags/v26.0.0.tar.gz -> gtkada-26.0.0.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	ada	38e5ef8cefdc0d1e5303a1e71014684e	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	multiprocessing	1e32df7deee68372153dca65f4a7c21f
+_md5_=691ec3a3d278f6b5f78346ae917ff580
