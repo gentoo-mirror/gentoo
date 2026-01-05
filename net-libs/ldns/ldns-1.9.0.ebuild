@@ -1,34 +1,34 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit python-single-r1 multilib-minimal
 
-DESCRIPTION="A library with the aim to simplify DNS programming in C"
+DESCRIPTION="Library that aims to simplify DNS programming in C"
 HOMEPAGE="https://www.nlnetlabs.nl/projects/ldns/about/"
 SRC_URI="https://www.nlnetlabs.nl/downloads/${PN}/${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0/3"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 IUSE="doc examples python static-libs"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT="test" # missing test directory
 
 BDEPEND="
+	doc? ( app-text/doxygen )
 	python? (
 		${PYTHON_DEPS}
 		dev-lang/swig
 		$(python_gen_cond_dep 'dev-python/setuptools[${PYTHON_USEDEP}]')
 	)
-	doc? ( app-text/doxygen )
 "
 DEPEND="
-	python? ( ${PYTHON_DEPS} )
-	>=dev-libs/openssl-1.1.1l-r1:0=[${MULTILIB_USEDEP},static-libs?]
+	>=dev-libs/openssl-1.1.1l-r1:=[${MULTILIB_USEDEP},static-libs?]
 	examples? ( net-libs/libpcap )
+	python? ( ${PYTHON_DEPS} )
 "
 RDEPEND="
 	${DEPEND}
@@ -52,14 +52,17 @@ pkg_setup() {
 }
 
 multilib_src_configure() {
-	ECONF_SOURCE="${S}" econf \
-		$(use_enable static-libs static) \
-		$(multilib_native_use_with python pyldns) \
-		$(multilib_native_use_with python pyldnsx) \
-		--with-ssl="${EPREFIX}"/usr \
-		$(multilib_native_with drill) \
-		$(multilib_native_use_with examples) \
+	local myeconfargs=(
+		$(use_enable static-libs static)
+		$(multilib_native_use_with python pyldns)
+		$(multilib_native_use_with python pyldnsx)
+		--with-ssl="${EPREFIX}"/usr
+		$(multilib_native_with drill)
+		$(multilib_native_use_with examples)
 		--disable-rpath
+	)
+
+	ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
 }
 
 multilib_src_compile() {
