@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -55,7 +55,7 @@ DEPEND="${RDEPEND}
 "
 BDEPEND="
 	virtual/pkgconfig
-	verify-sig? ( >=sec-keys/openpgp-keys-libarchive-20221209 )
+	verify-sig? ( >=sec-keys/openpgp-keys-libarchive-20251118 )
 	elibc_musl? ( sys-libs/queue-standalone )
 "
 

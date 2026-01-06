@@ -1,13 +1,14 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
-PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
+PYPI_VERIFY_REPO=https://github.com/ipython/ipython
+PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 PYTHON_REQ_USE='readline(+),sqlite,threads(+)'
 
-inherit distutils-r1 optfeature pypi virtualx
+inherit distutils-r1 optfeature toolchain-funcs pypi virtualx
 
 DESCRIPTION="Advanced interactive shell for Python"
 HOMEPAGE="
@@ -18,20 +19,20 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~s390 ~sparc ~x86"
-IUSE="examples notebook nbconvert qt5 +smp test"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="examples gui notebook nbconvert +smp test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-python/decorator[${PYTHON_USEDEP}]
-	dev-python/ipython-pygments-lexers[${PYTHON_USEDEP}]
-	>=dev-python/jedi-0.16[${PYTHON_USEDEP}]
-	dev-python/matplotlib-inline[${PYTHON_USEDEP}]
+	>=dev-python/decorator-4.3.2[${PYTHON_USEDEP}]
+	>=dev-python/ipython-pygments-lexers-1.0.0[${PYTHON_USEDEP}]
+	>=dev-python/jedi-0.18.1[${PYTHON_USEDEP}]
+	>=dev-python/matplotlib-inline-0.1.5[${PYTHON_USEDEP}]
 	>=dev-python/pexpect-4.3[${PYTHON_USEDEP}]
 	>=dev-python/prompt-toolkit-3.0.41[${PYTHON_USEDEP}]
 	<dev-python/prompt-toolkit-3.1[${PYTHON_USEDEP}]
-	>=dev-python/pygments-2.4.0[${PYTHON_USEDEP}]
-	dev-python/stack-data[${PYTHON_USEDEP}]
+	>=dev-python/pygments-2.11.0[${PYTHON_USEDEP}]
+	>=dev-python/stack-data-0.6.0[${PYTHON_USEDEP}]
 	>=dev-python/traitlets-5.13.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		dev-python/typing-extensions[${PYTHON_USEDEP}]
@@ -49,12 +50,12 @@ BDEPEND="
 		dev-python/matplotlib-inline[${PYTHON_USEDEP}]
 		dev-python/packaging[${PYTHON_USEDEP}]
 		dev-python/pickleshare[${PYTHON_USEDEP}]
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/testpath[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-asyncio )
 distutils_enable_tests pytest
 
 RDEPEND+="
@@ -64,7 +65,7 @@ RDEPEND+="
 "
 PDEPEND="
 	$(python_gen_cond_dep '
-		qt5? ( dev-python/qtconsole[${PYTHON_USEDEP}] )
+		gui? ( dev-python/qtconsole[${PYTHON_USEDEP}] )
 	' 'python*')
 	$(python_gen_cond_dep '
 		notebook? (
@@ -72,7 +73,7 @@ PDEPEND="
 			dev-python/ipywidgets[${PYTHON_USEDEP}]
 			dev-python/widgetsnbextension[${PYTHON_USEDEP}]
 		)
-	' 3.{11..12})
+	' 3.{11..13})
 	smp? (
 		>=dev-python/ipykernel-5.1.0[${PYTHON_USEDEP}]
 		>=dev-python/ipyparallel-6.2.3[${PYTHON_USEDEP}]
@@ -100,14 +101,24 @@ python_test() {
 			EPYTEST_DESELECT+=(
 				# https://github.com/ipython/ipython/issues/14244
 				tests/test_display.py::TestAudioDataWithoutNumpy
+				# minor exception message mismatch
+				# https://github.com/ipython/ipython/issues/14976
+				tests/test_ultratb.py::ExceptionMessagePreferenceTest::test_jsondecodeerror_message
 			)
 			;;
 	esac
 
+	if [[ $(tc-get-ptr-size) == 4 ]] ; then
+		EPYTEST_DESELECT+=(
+			# https://github.com/ipython/ipython/issues/15107
+			IPython/extensions/ipython_tests/test_deduperreload.py::DecoratorPatchingSuite::test_function_decorator_from_other_module
+			IPython/extensions/ipython_tests/test_deduperreload.py::DecoratorPatchingSuite::test_function_decorators
+			IPython/extensions/tests/test_deduperreload.py::DecoratorPatchingSuite::test_method_decorator
+		)
+	fi
+
 	# nonfatal implied by virtx
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	nonfatal epytest -p asyncio --asyncio-mode=auto ||
-		die "Tests failed on ${EPYTHON}"
+	nonfatal epytest || die "Tests failed on ${EPYTHON}"
 }
 
 python_install() {
@@ -115,9 +126,10 @@ python_install() {
 
 	# Create ipythonX.Y symlinks.
 	# TODO:
-	# 1. do we want them for pypy? No.  pypy has no numpy
+	# 1. do we want them for pypy?
 	# 2. handle it in the eclass instead (use _python_ln_rel).
 	# With pypy not an option the dosym becomes unconditional
+	# TODO2: figure out what TODO meant.
 	dosym ../lib/python-exec/${EPYTHON}/ipython \
 		/usr/bin/ipython${EPYTHON#python}
 }
