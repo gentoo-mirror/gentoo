@@ -12,7 +12,7 @@ if [[ ${PV} == *9999* ]] ; then
 else
 	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~riscv ~x86"
 	if [[ ${PV} == *_p* ]] ; then
-		HASH_COMMIT=
+		HASH_COMMIT="cab3e81dc6071e3c1c4bd15cf8fab91236c7f2bd"
 		SRC_URI="https://github.com/awesomeWM/awesome/archive/${HASH_COMMIT}.tar.gz -> ${P}.tar.gz"
 		S="${WORKDIR}/${PN}-${HASH_COMMIT}"
 	else
@@ -85,6 +85,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-4.0-convert-path.patch  # bug #408025
 	"${FILESDIR}"/${PN}-xsession.patch          # bug #408025
 	"${FILESDIR}"/${PN}-4.3-cflag-cleanup.patch # bug #509658
+	"${FILESDIR}"/${PN}-4.3_p20260105-bump_cmake_min.patch
 )
 
 src_prepare() {
