@@ -7,10 +7,10 @@ HOMEPAGE=https://github.com/OpenVPN/ovpn-dco
 IDEPEND=sys-apps/kmod[tools]
 INHERIT=flag-o-matic linux-mod-r1
 IUSE=debug dist-kernel modules-compress modules-sign +strip
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-2
 RDEPEND=sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
 SLOT=0
-SRC_URI=https://github.com/OpenVPN/ovpn-dco/archive/refs/tags/v0.2.20241216.tar.gz -> ovpn-dco-0.2.20241216.tar.gz
+SRC_URI=https://github.com/OpenVPN/ovpn-dco/archive/refs/tags/v0.2.20251017.tar.gz -> ovpn-dco-0.2.20251017.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	dist-kernel-utils	a40de3638d3f7a89f4c45d1a62b90e20	edo	a5e294016aa84979fcb2459749eb80b2	linux-info	efd923656513c879204fec6638eadee5	multiprocessing	1e32df7deee68372153dca65f4a7c21f	linux-mod-r1	2b1749a4ea9e1aea780b1b54dd2f65f1
-_md5_=b6d53f4783a22fdaed118bb8c44a5523
+_md5_=dcec9bc1ea5f252008565346664f244f
