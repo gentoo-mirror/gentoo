@@ -1,24 +1,15 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 CRATES="
 "
-RUST_MIN_VER="1.88.0"
-
-declare -A GIT_CRATES=(
-	[async_zip]='https://github.com/astral-sh/rs-async-zip;285e48742b74ab109887d62e1ae79e7c15fd4878;rs-async-zip-%commit%'
-	[pubgrub]='https://github.com/astral-sh/pubgrub;d8efd77673c9a90792da9da31b6c0da7ea8a324b;pubgrub-%commit%'
-	[reqwest-middleware]='https://github.com/astral-sh/reqwest-middleware;7650ed76215a962a96d94a79be71c27bffde7ab2;reqwest-middleware-%commit%/reqwest-middleware'
-	[reqwest-retry]='https://github.com/astral-sh/reqwest-middleware;7650ed76215a962a96d94a79be71c27bffde7ab2;reqwest-middleware-%commit%/reqwest-retry'
-	[tl]='https://github.com/astral-sh/tl;6e25b2ee2513d75385101a8ff9f591ef51f314ec;tl-%commit%'
-	[version-ranges]='https://github.com/astral-sh/pubgrub;d8efd77673c9a90792da9da31b6c0da7ea8a324b;pubgrub-%commit%/version-ranges'
-)
+RUST_MIN_VER="1.89.0"
 
 inherit cargo check-reqs
 
-CRATE_PV=0.9.4
+CRATE_PV=${PV}
 DESCRIPTION="A Python package installer and resolver, written in Rust"
 HOMEPAGE="
 	https://github.com/astral-sh/uv/
@@ -48,7 +39,7 @@ LICENSE+="
 # ring crate
 LICENSE+=" openssl"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="test"
 RESTRICT="test"
 PROPERTIES="test_network"
@@ -92,13 +83,6 @@ pkg_setup() {
 
 src_prepare() {
 	default
-
-	# replace upstream crate substitution with our crate substitution, sigh
-	local pkg
-	for pkg in reqwest-middleware reqwest-retry; do
-		local dep=$(grep "^${pkg}" "${ECARGO_HOME}"/config.toml || die)
-		sed -i -e "/\[patch\.crates-io\]/,\$s;^${pkg}.*$;${dep};" Cargo.toml || die
-	done
 
 	# force thin lto, makes build much faster and less memory hungry
 	# (i.e. makes it possible to actually build uv on 32-bit PPC)
