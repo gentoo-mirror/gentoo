@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa doc fluidsynth test"
 
 RESTRICT="!test? ( test )"
@@ -33,7 +33,7 @@ DEPEND="
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qttools-${QTMIN}:6[designer]
 	alsa? ( media-libs/alsa-lib )
-	fluidsynth? ( media-sound/fluidsynth:= )
+	fluidsynth? ( >=media-sound/fluidsynth-2.5.0:= )
 "
 RDEPEND="${DEPEND}"
 

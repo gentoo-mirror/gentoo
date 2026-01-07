@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,7 +18,7 @@ if [[ "${PV}" == *9999* ]] ; then
 	EGIT_REPO_URI="https://git.sr.ht/~technomancy/${PN}"
 else
 	SRC_URI="https://git.sr.ht/~technomancy/${PN}/archive/${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.srht.tar.gz"
 
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
 fi
@@ -37,12 +37,15 @@ BDEPEND="
 src_prepare() {
 	default
 
-	# Turn off failing tests. bug https://bugs.gentoo.org/906351
-	sed -e 's|"failures",||' -e 's|"repl",||' -i test/init.lua || die
+	# Turn off failing tests. Bugs: https://bugs.gentoo.org/906351 https://bugs.gentoo.org/923281
+	sed -i test/init.lua \
+		-e 's|"test.failures",||'   \
+		-e 's|"test.repl",||'		\
+		-e 's|"test.macro",||'      \
+		|| die
 
-	# Remove bad tests, bug #923281
-	rm test/macro.fnl || die
-	sed -i test/init.lua -e 's|"test.macro",||' || die
+	# Uses network also fails either way.
+	echo "" > test/irc.lua || die
 }
 
 src_test() {
