@@ -8534,6 +8534,7 @@ sys-libs/freeipmi:nagios - Install a nagios plugin to check sensors' status.
 sys-libs/freeipmi:without-root - Configure whether or not to check for root access in ipmi tools.
 sys-libs/gdbm:berkdb - enable compatibility layer for UNIX-like dbm and ndbm interfaces
 sys-libs/glibc:cet - Enable Intel Control-flow Enforcement Technology (needs binutils 2.29 and gcc 8)
+sys-libs/glibc:clang - Allow building with clang (if proper environment is set). Highly experimental. Disable to auto-force gcc usage.
 sys-libs/glibc:clone3 - Enable the new clone3 syscall within glibc. Can be disabled to allow compatibility with older Electron applications.
 sys-libs/glibc:compile-locales - build *all* locales in src_install; this is generally meant for stage building only as it ignores /etc/locale.gen file and can be pretty slow
 sys-libs/glibc:crypt - build and install libcrypt and crypt.h
