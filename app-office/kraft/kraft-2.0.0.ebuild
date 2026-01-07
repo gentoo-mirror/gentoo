@@ -1,16 +1,14 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-COMMIT=3aee920cd8a991a325aec741aff2e882fd729b59
 KFMIN=6.9.0
 inherit ecm xdg
 
 DESCRIPTION="Quotes and invoices manager for small enterprises"
 HOMEPAGE="https://www.volle-kraft-voraus.de/"
-SRC_URI="https://github.com/dragotin/${PN}/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
-S="${WORKDIR}/${PN}-${COMMIT}"
+SRC_URI="https://github.com/dragotin/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
@@ -39,7 +37,7 @@ RDEPEND="${DEPEND}
 DOCS=( AUTHORS Changes.txt README.md )
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.0_pre20250419-no-git-or-buildhost-info.patch"
+	"${FILESDIR}/${P}-no-git-or-buildhost-info.patch"
 )
 
 src_configure() {

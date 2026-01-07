@@ -1,4 +1,4 @@
-From 587ef0f18b5b76cd38e92b6ae4ad9f9f320dc4e7 Mon Sep 17 00:00:00 2001
+From 9349b722b23382204d88c4dfb8da654e43e9b3d5 Mon Sep 17 00:00:00 2001
 From: Andreas Sturmlechner <asturm@gentoo.org>
 Date: Sat, 19 Apr 2025 22:19:39 +0200
 Subject: [PATCH] Disable git usage, disable build host info
@@ -9,18 +9,18 @@ Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
  1 file changed, 7 insertions(+)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 47b2fea..d905ecd 100644
+index 8d1ba9e0..9a679a2c 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -21,6 +21,7 @@ set(AKO_PREFIX "KPim6")
+@@ -22,6 +22,7 @@ set(AKO_PREFIX "KPim6")
  
  message("Akonadi Prefix is ${AKO_PREFIX}")
  
 +if(0)
- include(GetGitRevisionDescription)
- 
- # set git revision info
-@@ -62,6 +63,12 @@ if(${CMAKE_VERSION} VERSION_GREATER "3.22.0")
+ find_package(Git QUIET)
+ if (Git_FOUND AND EXISTS "${CMAKE_SOURCE_DIR}/.git")
+     include(GetGitRevisionDescription)
+@@ -66,6 +67,12 @@ if(${CMAKE_VERSION} VERSION_GREATER "3.22.0")
  else ()
      set(BUILD_HOST_DISTRI "unknown distribution")
  endif()
@@ -34,5 +34,5 @@ index 47b2fea..d905ecd 100644
  message("Build host distribution: ${BUILD_HOST_DISTRI}")
  
 -- 
-2.49.0
+2.52.0
 
