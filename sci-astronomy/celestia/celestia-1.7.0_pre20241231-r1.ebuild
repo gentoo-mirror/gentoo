@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ LUA_COMPAT=( lua5-{1..3} luajit )
 
 inherit desktop lua-single xdg cmake
 
-if [[ ${PV} == *9999 ]] ; then
+if [[ ${PV} == *9999* ]] ; then
 	EGIT_REPO_URI="https://github.com/CelestiaProject/Celestia.git"
 	inherit git-r3
 else
@@ -36,20 +36,22 @@ REQUIRED_USE="|| ( gtk qt6 sdl )
 	lua? ( ${LUA_REQUIRED_USE} )"
 
 BDEPEND="
-	dev-cpp/eigen
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )
 "
 DEPEND="
+	dev-cpp/eigen:=
+	dev-libs/boost:=
 	dev-libs/libfmt:=
+	media-libs/freetype
 	media-libs/libepoxy
 	media-libs/libjpeg-turbo:0=
 	media-libs/libpng:0=
 	virtual/zlib:=
 	virtual/glu
 	virtual/opengl
-	gtk? ( x11-libs/gtk+:3 )
 	ffmpeg? ( media-video/ffmpeg:0= )
+	gtk? ( x11-libs/gtk+:3[wayland,X] )
 	lua? ( ${LUA_DEPS} )
 	qt6? ( dev-qt/qtbase:6[gui,opengl,widgets] )
 	sdl? ( media-libs/libsdl2[X] )
@@ -59,6 +61,9 @@ RDEPEND="${DEPEND}"
 PATCHES=(
 	# allow forcing CMake to look for a specific Lua version instead of the newest branch installed
 	"${FILESDIR}"/${PN}-1.7.0-cmake_lua_version-r1.patch
+	# Pending upstream:
+	"${FILESDIR}"/${P}-cmake-minreq-warning.patch # bug 964763
+	"${FILESDIR}"/${P}-content-cmake-minreqver-3.10.patch # bug 964763
 )
 
 src_prepare() {
