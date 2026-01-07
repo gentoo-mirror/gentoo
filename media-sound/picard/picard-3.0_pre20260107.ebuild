@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,7 +15,7 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 else
 	if [[ ${PV} == *_p* ]]; then
-		COMMIT="2811d543ca5da64254e1f3abff00bd863a23dddb"
+		COMMIT="113818ad9c6bb7bbcc89c488b5f31b38fd41b857"
 		SRC_URI="https://github.com/metabrainz/${PN}/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		S="${WORKDIR}/${PN}-${COMMIT}"
 	else
