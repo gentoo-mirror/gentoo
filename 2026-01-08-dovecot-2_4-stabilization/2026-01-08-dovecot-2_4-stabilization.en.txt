@@ -1,0 +1,38 @@
+Title: net-mail/dovecot-2.4.2 stabilization
+Author: Eray Aslan <eras@gentoo.org>
+Posted: 2026-01-08
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: net-mail/dovecot
+Display-If-Keyword: amd64
+Display-If-Keyword: arm
+Display-If-Keyword: arm64
+Display-If-Keyword: ppc
+Display-If-Keyword: ppc64
+Display-If-Keyword: x86
+
+net-mail/dovecot-2.4.2 will be stabilized soon[1] and will be the first
+dovecot-2.4 release that will be stable in Gentoo.
+
+Dovecot-2.3 configuration settings will not work with Dovecot-2.4 and
+manual intervention is required for the upgrade. Please read
+
+https://doc.dovecot.org/2.4.2/installation/upgrade/overview.html
+
+before upgrading your dovecot instance.
+
+We strongly recommend finalizing your Dovecot 2.4 configuration on a
+test system before upgrading any production systems.
+
+The following steps typically make the upgrade process easier:
+
+1. Make a note of your current configuration by running doveconf -n
+2. Stop the dovecot daemon
+3. Move ALL your configuration files to a temporary location
+4. Upgrade to dovecot-2.4.2
+5. Read the new configuration files and uncomment as necessary
+6. Compare the new doveconf -n output with the old one and add missing
+configuration settings one by one while checking that the system works after
+each change
+
+[1]: https://bugs.gentoo.org/967978
