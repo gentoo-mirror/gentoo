@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,8 +11,8 @@ CRATES="
 	ansi_term@0.12.1
 	anstream@0.6.21
 	anstyle-parse@0.2.7
-	anstyle-query@1.1.4
-	anstyle-wincon@3.0.10
+	anstyle-query@1.1.5
+	anstyle-wincon@3.0.11
 	anstyle@1.0.13
 	arrayref@0.3.9
 	arrayvec@0.7.6
@@ -22,14 +22,14 @@ CRATES="
 	block-buffer@0.10.4
 	block2@0.6.2
 	bstr@1.12.1
-	bumpalo@3.19.0
-	camino@1.2.1
-	cc@1.2.45
+	bumpalo@3.19.1
+	camino@1.2.2
+	cc@1.2.51
 	cfg-if@1.0.4
 	cfg_aliases@0.2.1
 	chrono@0.4.42
-	clap@4.5.51
-	clap_builder@4.5.51
+	clap@4.5.53
+	clap_builder@4.5.53
 	clap_complete@4.5.48
 	clap_derive@4.5.49
 	clap_lex@0.7.6
@@ -55,7 +55,7 @@ CRATES="
 	errno@0.3.14
 	executable-path@1.0.0
 	fastrand@2.3.0
-	find-msvc-tools@0.1.4
+	find-msvc-tools@0.1.6
 	generic-array@0.14.7
 	getopts@0.2.24
 	getrandom@0.2.16
@@ -66,13 +66,13 @@ CRATES="
 	iana-time-zone@0.1.64
 	is_executable@1.0.5
 	is_terminal_polyfill@1.70.2
-	itoa@1.0.15
-	js-sys@0.3.82
+	itoa@1.0.17
+	js-sys@0.3.83
 	lexiclean@0.0.1
-	libc@0.2.177
-	libredox@0.1.10
+	libc@0.2.178
+	libredox@0.1.12
 	linux-raw-sys@0.11.0
-	log@0.4.28
+	log@0.4.29
 	memchr@2.7.6
 	memmap2@0.9.9
 	nix@0.30.1
@@ -86,7 +86,7 @@ CRATES="
 	percent-encoding@2.3.2
 	ppv-lite86@0.2.21
 	pretty_assertions@1.4.1
-	proc-macro2@1.0.103
+	proc-macro2@1.0.104
 	pulldown-cmark-to-cmark@10.0.4
 	pulldown-cmark@0.9.6
 	quote@1.0.42
@@ -100,14 +100,13 @@ CRATES="
 	regex-syntax@0.8.8
 	regex@1.12.2
 	roff@0.2.2
-	rustix@1.1.2
+	rustix@1.1.3
 	rustversion@1.0.22
-	ryu@1.0.20
 	semver@1.0.27
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
-	serde_json@1.0.145
+	serde_json@1.0.148
 	sha2@0.10.9
 	shellexpand@3.1.1
 	shlex@1.3.0
@@ -117,9 +116,9 @@ CRATES="
 	strsim@0.11.1
 	strum@0.27.2
 	strum_macros@0.27.2
-	syn@2.0.110
+	syn@2.0.112
 	target@2.1.0
-	tempfile@3.23.0
+	tempfile@3.24.0
 	temptree@0.2.0
 	terminal_size@0.4.3
 	thiserror-impl@2.0.17
@@ -131,14 +130,14 @@ CRATES="
 	unicode-segmentation@1.12.0
 	unicode-width@0.2.2
 	utf8parse@0.2.2
-	uuid@1.18.1
+	uuid@1.19.0
 	version_check@0.9.5
 	wasi@0.11.1+wasi-snapshot-preview1
 	wasip2@1.0.1+wasi-0.2.4
-	wasm-bindgen-macro-support@0.2.105
-	wasm-bindgen-macro@0.2.105
-	wasm-bindgen-shared@0.2.105
-	wasm-bindgen@0.2.105
+	wasm-bindgen-macro-support@0.2.106
+	wasm-bindgen-macro@0.2.106
+	wasm-bindgen-shared@0.2.106
+	wasm-bindgen@0.2.106
 	which@8.0.0
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-x86_64-pc-windows-gnu@0.4.0
@@ -163,8 +162,9 @@ CRATES="
 	winsafe@0.0.19
 	wit-bindgen@0.46.0
 	yansi@1.0.1
-	zerocopy-derive@0.8.27
-	zerocopy@0.8.27
+	zerocopy-derive@0.8.31
+	zerocopy@0.8.31
+	zmij@1.0.7
 	${PN}@${PV}
 "
 
