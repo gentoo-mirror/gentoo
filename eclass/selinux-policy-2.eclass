@@ -174,11 +174,11 @@ selinux-policy-2_src_prepare() {
 	local add_interfaces=0
 
 	# Create 3rd_party location for user-contributed policies
-	cd "${S}/refpolicy/policy/modules" && mkdir 3rd_party
+	cd "${S}/refpolicy/policy/modules" && mkdir 3rd_party || die "Could not enter ${S}/refpolicy/policy/modules"
 
 	# Patch the sources with the base patchbundle
-	if [[ -n ${BASEPOL} ]] && [[ "${BASEPOL}" != "9999" ]]; then
-		cd "${S}"
+	if [[ -n ${BASEPOL} && "${BASEPOL}" != "9999" ]]; then
+		cd "${S}" || die "Could not enter ${S}"
 		einfo "Applying SELinux policy updates ... "
 		eapply -p0 -- "${WORKDIR}/0001-full-patch-against-stable-release.patch"
 	fi
@@ -188,10 +188,9 @@ selinux-policy-2_src_prepare() {
 	eapply_user
 
 	# Copy additional files to the 3rd_party/ location
-	if [[ "$(declare -p POLICY_FILES 2>/dev/null 2>&1)" = "declare -a"* ]] ||
-	   [[ -n ${POLICY_FILES} ]]; then
+	if [[ "$(declare -p POLICY_FILES 2>/dev/null 2>&1)" = "declare -a"* || -n ${POLICY_FILES} ]]; then
 		add_interfaces=1
-		cd "${S}/refpolicy/policy/modules"
+		cd "${S}/refpolicy/policy/modules" || die "Could not enter ${S}/refpolicy/policy/modules"
 		for POLFILE in ${POLICY_FILES[@]}; do
 			cp "${FILESDIR}/${POLFILE}" 3rd_party/ || die "Could not copy ${POLFILE} to 3rd_party/ location"
 		done
@@ -289,9 +288,9 @@ selinux-policy-2_src_install() {
 			einfo "Installing ${1} ${i} policy package"
 			insinto ${BASEDIR}/${1}
 			if [[ -f "${S}/${1}/${i}.pp" ]]; then
-			  doins "${S}"/${1}/${i}.pp || die "Failed to add ${i}.pp to ${1}"
+				doins "${S}"/${1}/${i}.pp || die "Failed to add ${i}.pp to ${1}"
 			elif [[ -f "${S}/${1}/${i}.cil" ]]; then
-			  doins "${S}"/${1}/${i}.cil || die "Failed to add ${i}.cil to ${1}"
+				doins "${S}"/${1}/${i}.cil || die "Failed to add ${i}.cil to ${1}"
 			fi
 
 			if [[ "${POLICY_FILES[@]}" = *"${i}.if"* ]]; then
@@ -388,16 +387,39 @@ selinux-policy-2_pkg_postinst() {
 
 	# Don't relabel when cross compiling
 	if [[ -z ${ROOT} ]]; then
-		# Relabel depending packages
-		local PKGSET=""
-		if [[ -x /usr/bin/qdepends ]]; then
-			PKGSET=$(/usr/bin/qdepends -Cq -r -Q ${CATEGORY}/${PN} | grep -v "sec-policy/selinux-")
-		elif [[ -x /usr/bin/equery ]]; then
-			PKGSET=$(/usr/bin/equery -Cq depends ${CATEGORY}/${PN} | grep -v "sec-policy/selinux-")
+		# Relabel depending packages. This entire section is a hack, and a violation of tree policy;
+		# it relies on PM specific functionality (qdepends and equery, which are portage specific) and
+		# hence is not PMS compliant. This should be remove and replaced with a more robust, PMS-compliant
+		# implementation as soon as possible.
+		local PKGSET=()
+		local out
+		local status
+		local cmd
+
+		if command -v qdepends &>/dev/null; then
+			out=$(qdepends -CiqqrF '%[CATEGORY]%[PN]%[SLOT]' -Q "${CATEGORY}/${PN}")
+			status=$?
+			cmd='qdepends'
+		elif command -v equery &>/dev/null; then
+			out=$(equery -Cq depends "${CATEGORY}/${PN}")
+			status=$?
+			cmd='equery'
+		else
+			ewarn "Unable to calculate reverse dependencies for policy: both qdepends and equery were not found."
+			ewarn "Skipping package file relabelling..."
+			return
 		fi
-		if [[ -n "${PKGSET}" ]]; then
-			rlpkg ${PKGSET}
+
+		if [[ "${status}" -ne 0 ]]; then
+			ewarn "Failed to calculate reverse dependencies for policy: ${cmd} returned ${status}."
+			ewarn "Skipping package file relabelling..."
+			return
 		fi
+
+		# Policy packages may pull in other policy packages, filter those out.
+		readarray -t PKGSET <<<"$(echo "${out}" | grep -v 'sec-policy/selinux-')"
+
+		[[ "${#PKGSET[@]}" -ne 0 ]] && rlpkg "${PKGSET[@]}"
 	fi
 }
 
