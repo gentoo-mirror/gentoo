@@ -1,0 +1,13 @@
+BDEPEND=app-emacs/compat sys-apps/texinfo >=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Transient commands abstraction for GNU Emacs
+EAPI=8
+HOMEPAGE=https://magit.vc/manual/transient/ https://github.com/magit/transient/
+INHERIT=elisp
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/compat >=app-editors/emacs-25.3:*
+SLOT=0
+SRC_URI=https://github.com/magit/transient/archive/v0.12.0.tar.gz -> transient-0.12.0.gh.tar.gz
+_eclasses_=elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5
+_md5_=c7022ba0b6b00ee219bb1c8791540529

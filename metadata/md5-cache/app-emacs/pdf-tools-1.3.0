@@ -1,0 +1,16 @@
+BDEPEND=app-emacs/tablist test? ( app-emacs/ert-runner ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DEPEND=app-text/poppler:=[cairo,png] dev-libs/glib:2= media-libs/freetype:2= media-libs/harfbuzz:= media-libs/libpng:= x11-libs/cairo:=
+DESCRIPTION=Emacs Lisp support library for PDF documents
+EAPI=8
+HOMEPAGE=https://github.com/vedang/pdf-tools/
+INHERIT=autotools elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-text/poppler:=[cairo,png] dev-libs/glib:2= media-libs/freetype:2= media-libs/harfbuzz:= media-libs/libpng:= x11-libs/cairo:= app-emacs/tablist >=app-editors/emacs-25.3:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/vedang/pdf-tools/archive/v1.3.0.tar.gz -> pdf-tools-1.3.0.gh.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	elisp-common	fe05085d051330f15cf7201109b5cd23	elisp	8dfc7a00348fe9c91895014adc78a4a5
+_md5_=baf16fea8630154c071c3c5ea2751537
