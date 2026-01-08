@@ -3,7 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{10..13} )
+
 inherit cmake desktop flag-o-matic python-any-r1 toolchain-funcs xdg-utils
 
 SKIA_VER="m102"
@@ -19,15 +20,17 @@ SRC_URI="https://github.com/aseprite/aseprite/releases/download/v${PV}/Aseprite-
 # See https://github.com/aseprite/aseprite#license
 LICENSE="Aseprite-EULA MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
+
 IUSE="test webp"
+
 RESTRICT="bindist mirror !test? ( test )"
 
 COMMON_DEPEND="
 	app-arch/libarchive:=
 	app-text/cmark:=
 	dev-libs/libfmt:=
-	dev-libs/tinyxml
+	dev-libs/tinyxml2:=
 	media-libs/freetype
 	media-libs/giflib:=
 	media-libs/harfbuzz:=[truetype]
@@ -42,29 +45,35 @@ COMMON_DEPEND="
 	x11-libs/libxcb:=
 	webp? ( media-libs/libwebp:= )
 "
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="
+	${COMMON_DEPEND}
 	gnome-extra/zenity
 "
-DEPEND="${COMMON_DEPEND}
-	x11-base/xorg-proto
-"
-BDEPEND="${PYTHON_DEPS}
+DEPEND="
+	${COMMON_DEPEND}
+	x11-base/xorg-proto"
+BDEPEND="
+	${PYTHON_DEPS}
+	test? ( dev-cpp/gtest )
 	app-arch/unzip
 	dev-build/gn
 	virtual/pkgconfig
-	test? ( dev-cpp/gtest )
 "
 
-DOCS=( docs/{ase-file-specs,gpl-palette-extension}.md README.md )
+DOCS=(
+	docs/ase-file-specs.md
+	docs/gpl-palette-extension.md
+	README.md
+)
 
 PATCHES=(
 	"${FILESDIR}/skia-${SKIA_VER}_remove_angle2.patch"
-	"${FILESDIR}/${PN}-1.2.40_shared_libarchive.patch"
-	"${FILESDIR}/${PN}-1.3.2_shared_json11.patch"
-	"${FILESDIR}/${PN}-1.3.2_shared_webp.patch"
-	"${FILESDIR}/${PN}-1.2.35_laf_fixes.patch"
-	"${FILESDIR}/${PN}-1.3.2_shared_fmt.patch"
-	"${FILESDIR}/${P}-no-fetch-in-cmake-kthx.patch" # bug 935448
+	"${FILESDIR}/aseprite-1.3.13_shared_libarchive.patch"
+	"${FILESDIR}/aseprite-1.3.8.1_shared_json11.patch"
+	"${FILESDIR}/aseprite-1.3.13_shared_webp.patch"
+	"${FILESDIR}/aseprite-1.2.35_laf_fixes.patch"
+	"${FILESDIR}/aseprite-1.3.8.1_shared_fmt.patch"
+	"${FILESDIR}/aseprite-1.3.13_shared_tinyxml2.patch"
 )
 
 src_unpack() {
@@ -79,8 +88,14 @@ src_prepare() {
 	# Skia: remove custom optimizations
 	sed -i -e 's:"\/\/gn\/skia\:optimize",::g' \
 		"skia-${SKIA_REV}/gn/BUILDCONFIG.gn" || die
-	# Aseprite: don't install tga bundled library
-	sed -i -e '/install/d' src/tga/CMakeLists.txt || die
+	# Aseprite: don't install targets from third_party projects
+	sed -i -e \
+		's:add_subdirectory(tga):add_subdirectory(tga EXCLUDE_FROM_ALL):g' \
+		src/CMakeLists.txt || die
+	sed -i \
+		-e 's:add_subdirectory(json11):add_subdirectory(json11 EXCLUDE_FROM_ALL):g' \
+		-e 's:add_subdirectory(TinyEXIF):add_subdirectory(TinyEXIF EXCLUDE_FROM_ALL):g' \
+			third_party/CMakeLists.txt || die
 	# Aseprite: don't use bundled gtest
 	sed -i -e '/add_subdirectory(googletest)/d' \
 		laf/third_party/CMakeLists.txt || die
@@ -170,7 +185,6 @@ src_configure() {
 		-DENABLE_TESTS="$(usex test)"
 		-DENABLE_QT_THUMBNAILER=OFF
 		-DENABLE_UPDATER=OFF
-		-DENABLE_UI=ON
 		-DENABLE_WEBP="$(usex webp)"
 		-DLAF_WITH_EXAMPLES=OFF
 		-DLAF_WITH_TESTS="$(usex test)"
