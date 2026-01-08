@@ -3,12 +3,13 @@
 
 EAPI=8
 
-NEED_EMACS="28.1"
+NEED_EMACS="29.1"
 
 inherit elisp
 
-DESCRIPTION="Store EIEIO objects using EmacSQL"
-HOMEPAGE="https://github.com/magit/closql/"
+DESCRIPTION="Minuscule client library for the Git forge APIs"
+HOMEPAGE="https://magit.vc/manual/ghub/
+	https://github.com/magit/ghub/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -18,7 +19,7 @@ else
 	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -26,12 +27,20 @@ SLOT="0"
 
 RDEPEND="
 	app-emacs/compat
-	app-emacs/cond-let
-	app-emacs/emacsql
+	app-emacs/llama
+	app-emacs/treepy
 "
 BDEPEND="
 	${RDEPEND}
+	sys-apps/texinfo
 "
 
 DOCS=( README.org )
+ELISP_TEXINFO="docs/ghub.texi"
 SITEFILE="50${PN}-gentoo.el"
+
+src_prepare() {
+	mv ./lisp/*.el . || die
+
+	elisp_src_prepare
+}

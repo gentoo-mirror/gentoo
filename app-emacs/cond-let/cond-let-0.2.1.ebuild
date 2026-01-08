@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ if [[ "${PV}" == *9999* ]] ; then
 	EGIT_REPO_URI="https://github.com/tarsius/${PN}"
 else
 	SRC_URI="https://github.com/tarsius/${PN}/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi

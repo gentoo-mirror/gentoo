@@ -3,12 +3,13 @@
 
 EAPI=8
 
-NEED_EMACS="28.1"
+NEED_EMACS="29.1"
 
 inherit elisp
 
-DESCRIPTION="Store EIEIO objects using EmacSQL"
-HOMEPAGE="https://github.com/magit/closql/"
+DESCRIPTION="Work with Git forges from the comfort of Magit"
+HOMEPAGE="https://magit.vc/
+	https://github.com/magit/forge/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -21,17 +22,29 @@ else
 	KEYWORDS="~amd64"
 fi
 
+S="${WORKDIR}/${P}/lisp"
+
 LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
+	>=app-emacs/magit-4.5.0
+	app-emacs/closql
 	app-emacs/compat
 	app-emacs/cond-let
+	app-emacs/dash
 	app-emacs/emacsql
+	app-emacs/ghub
+	app-emacs/llama
+	app-emacs/markdown-mode
+	app-emacs/transient
+	app-emacs/yaml
 "
 BDEPEND="
 	${RDEPEND}
+	sys-apps/texinfo
 "
 
-DOCS=( README.org )
+DOCS=( ../README.org )
+ELISP_TEXINFO="../docs/*.texi"
 SITEFILE="50${PN}-gentoo.el"
