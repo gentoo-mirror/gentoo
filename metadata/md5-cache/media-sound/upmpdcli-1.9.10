@@ -1,6 +1,6 @@
 BDEPEND=>=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
 DEFINED_PHASES=compile configure install test
-DEPEND=net-misc/curl dev-libs/jsoncpp media-libs/libmpdclient net-libs/libmicrohttpd:= >net-libs/libupnpp-0.26.4
+DEPEND=net-misc/curl dev-libs/jsoncpp media-libs/libmpdclient net-libs/libmicrohttpd:= net-libs/libupnpp
 DESCRIPTION=UPnP Media Renderer front-end for MPD, the Music Player Daemon
 EAPI=8
 HOMEPAGE=https://www.lesbonscomptes.com/upmpdcli/index.html
@@ -8,8 +8,8 @@ INHERIT=meson systemd
 IUSE=thirdparty
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=net-misc/curl dev-libs/jsoncpp media-libs/libmpdclient net-libs/libmicrohttpd:= >net-libs/libupnpp-0.26.4 acct-group/upmpdcli acct-user/upmpdcli app-misc/recoll thirdparty? ( dev-python/requests )
+RDEPEND=net-misc/curl dev-libs/jsoncpp media-libs/libmpdclient net-libs/libmicrohttpd:= net-libs/libupnpp acct-group/upmpdcli acct-user/upmpdcli app-misc/recoll thirdparty? ( dev-python/requests )
 SLOT=0
-SRC_URI=https://www.lesbonscomptes.com/upmpdcli/downloads/upmpdcli-1.9.8.tar.gz
+SRC_URI=https://www.lesbonscomptes.com/upmpdcli/downloads/upmpdcli-1.9.10.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	sysroot	c7470ddc2876a596a7a1f4c2a87a5dcb	meson	804c6d117ea7c539cd77f1f1a9a49bc7	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=ff7bb42948b37eac2a4bec08b58e5a81
+_md5_=d8a57b95ff76fcebc68b6a0a4bb2f200
