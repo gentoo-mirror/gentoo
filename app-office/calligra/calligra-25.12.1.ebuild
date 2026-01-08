@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -78,7 +78,7 @@ COMMON_DEPEND="
 	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	truetype? ( media-libs/freetype:2 )
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6[widgets] )
-	calligra_features_sheets? ( dev-cpp/eigen:3 )
+	calligra_features_sheets? ( dev-cpp/eigen:= )
 	calligra_features_words? ( dev-libs/libxslt )
 "
 DEPEND="${COMMON_DEPEND}
