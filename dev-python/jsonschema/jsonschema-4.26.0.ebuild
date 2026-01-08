@@ -1,9 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/python-jsonschema/jsonschema
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1 pypi
@@ -16,13 +17,13 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc ppc64 ~riscv ~s390 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~x86"
 
 RDEPEND="
 	>=dev-python/attrs-22.2.0[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-specifications-2023.03.6[${PYTHON_USEDEP}]
 	>=dev-python/referencing-0.28.4[${PYTHON_USEDEP}]
-	>=dev-python/rpds-py-0.7.1[${PYTHON_USEDEP}]
+	>=dev-python/rpds-py-0.25.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
