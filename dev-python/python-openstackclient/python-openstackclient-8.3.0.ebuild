@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=pbr
 PYTHON_COMPAT=( python3_{12..13} )
 
 inherit distutils-r1 pypi
@@ -17,13 +17,13 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
-	>dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
-	>=dev-python/cliff-3.5.0[${PYTHON_USEDEP}]
+	>=dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/cliff-4.13.0[${PYTHON_USEDEP}]
 	>=dev-python/cryptography-2.7[${PYTHON_USEDEP}]
-	>=dev-python/openstacksdk-4.5.0[${PYTHON_USEDEP}]
+	>=dev-python/openstacksdk-4.6.0[${PYTHON_USEDEP}]
 	>=dev-python/osc-lib-2.3.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-i18n-3.15.3[${PYTHON_USEDEP}]
 	>=dev-python/python-keystoneclient-3.22.0[${PYTHON_USEDEP}]
@@ -32,7 +32,6 @@ RDEPEND="
 	>=dev-python/stevedore-2.0.1[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]

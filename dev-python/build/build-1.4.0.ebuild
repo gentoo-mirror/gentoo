@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,18 +23,16 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test test-rust"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-python/packaging-19.1[${PYTHON_USEDEP}]
+	>=dev-python/packaging-24.0[${PYTHON_USEDEP}]
 	dev-python/pyproject-hooks[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '
-		>=dev-python/tomli-1.1.0[${PYTHON_USEDEP}]
-	' 3.10)
 "
 BDEPEND="
+	>=dev-python/setuptools-scm-6[${PYTHON_USEDEP}]
 	test? (
 		${RDEPEND}
 		$(python_gen_cond_dep '
@@ -47,17 +45,11 @@ BDEPEND="
 			>=dev-python/virtualenv-20.0.35[${PYTHON_USEDEP}]
 			>=dev-python/wheel-0.36.0[${PYTHON_USEDEP}]
 			test-rust? (
-				!s390? ( !sparc? ( dev-python/uv ) )
+				!s390? ( !sparc? ( >=dev-python/uv-0.1.18 ) )
 			)
 		' "${PYTHON_TESTED[@]}")
 	)
 "
-
-PATCHES=(
-	# https://github.com/pypa/build/pull/861
-	# https://github.com/pypa/build/pull/898
-	"${FILESDIR}/${P}-gentoo-pip.patch"
-)
 
 python_test() {
 	if ! has "${EPYTHON/./_}" "${PYTHON_TESTED[@]}"; then
@@ -66,22 +58,8 @@ python_test() {
 	fi
 
 	local EPYTEST_DESELECT=(
-		# broken by the presence of flit_core
-		tests/test_util.py::test_wheel_metadata_isolation
-		# broken by the presence of virtualenv (it changes the error
-		# messages, sic!)
-		'tests/test_main.py::test_output[via-sdist-isolation]'
-		'tests/test_main.py::test_output[wheel-direct-isolation]'
-		# broken when built in not normal tty on coloring
-		tests/test_main.py::test_colors
-		'tests/test_main.py::test_output_env_subprocess_error[color]'
-		# Internet
-		'tests/test_main.py::test_verbose_output[False-0]'
-		'tests/test_main.py::test_verbose_output[False-1]'
 		# broken by uv being installed outside venv
 		tests/test_env.py::test_external_uv_detection_success
-		# broken by unbundled pip (TODO: fix pip eventually)
-		'tests/test_projectbuilder.py::test_build_with_dep_on_console_script[False]'
 	)
 
 	if ! has_version "dev-python/uv"; then
@@ -91,7 +69,7 @@ python_test() {
 		)
 	fi
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
+	local EPYTEST_PLUGINS=( pytest-{mock,rerunfailures} )
 	local EPYTEST_XDIST=1
-	epytest -m "not network" -p pytest_mock -p rerunfailures
+	epytest -m "not network"
 }

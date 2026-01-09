@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,8 +26,7 @@ RDEPEND="
 	>=dev-python/findpython-0.7.0[${PYTHON_USEDEP}]
 	dev-python/blinker[${PYTHON_USEDEP}]
 	dev-python/filelock[${PYTHON_USEDEP}]
-	<dev-python/hishel-1[${PYTHON_USEDEP}]
-	>=dev-python/hishel-0.0.32[${PYTHON_USEDEP}]
+	>=dev-python/hishel-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/httpcore-1.0.6[${PYTHON_USEDEP}]
 	dev-python/httpx[${PYTHON_USEDEP}]
 	>=dev-python/id-1.5.0[${PYTHON_USEDEP}]
