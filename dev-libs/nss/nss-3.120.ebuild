@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit dot-a flag-o-matic multilib toolchain-funcs multilib-minimal
 
-NSPR_VER="4.37"
+NSPR_VER="4.38.2"
 RTM_NAME="NSS_${PV//./_}_RTM"
 
 DESCRIPTION="Mozilla's Network Security Services library that implements PKI support"
@@ -42,7 +42,6 @@ MULTILIB_CHOST_TOOLS=(
 PATCHES=(
 	"${FILESDIR}"/nss-3.103-gentoo-fixes-add-pkgconfig-files.patch
 	"${FILESDIR}"/nss-3.21-gentoo-fixup-warnings.patch
-	"${FILESDIR}"/nss-3.87-use-clang-as-bgo892686.patch
 )
 
 src_prepare() {
