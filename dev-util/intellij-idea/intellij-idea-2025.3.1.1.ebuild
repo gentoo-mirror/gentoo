@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -200,7 +200,7 @@ src_install() {
 
 	if use experimental; then
 		make_desktop_entry "/opt/intellij-idea/bin/idea -Dawt.toolkit.name=WLToolkit" \
-			"IntelliJ IDEA Community Edition" "${PN}" "Development;IDE;"
+			"IntelliJ IDEA" "${PN}" "Development;IDE;"
 
 		ewarn "You have enabled the experimental USE flag."
 		ewarn "This is a Wayland support preview. Expect instability."
