@@ -40,8 +40,10 @@ python_test() {
 	local EPYTEST_IGNORE=(
 		# requires playwright
 		src/polymorphic/tests/test_admin.py
+		src/polymorphic/tests/examples/views/test.py
 		# require django-test-migrations
 		src/polymorphic/tests/test_migrations
+		src/polymorphic/tests/test_serialization.py
 	)
 
 	rm -f conftest.py || die

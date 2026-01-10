@@ -1,4 +1,4 @@
-# Copyright 2008-2025 Gentoo Authors
+# Copyright 2008-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,7 +31,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0/$(ver_cut 1-3)"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 # need protobuf compiler
 BDEPEND="
@@ -42,7 +42,7 @@ BDEPEND="
 	)
 "
 
-EPYTEST_PLUGINS=( pytest-forked )
+EPYTEST_PLUGINS=()
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
@@ -109,6 +109,7 @@ python_test() {
 		unittest_delimited_import.proto
 		unittest_features.proto
 		unittest_import.proto
+		unittest_import_option.proto
 		unittest_import_public.proto
 		unittest_legacy_features.proto
 		unittest_mset.proto
@@ -149,7 +150,5 @@ python_test() {
 			"google/protobuf/${proto}" || die
 	done
 
-	# pytest-forked prevents segfault on py3.13
-	# https://github.com/protocolbuffers/protobuf/issues/22067
-	epytest --forked
+	epytest
 }
