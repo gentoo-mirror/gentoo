@@ -1,18 +1,15 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
-inherit bash-completion-r1 check-reqs cmake db-use desktop edo multiprocessing python-any-r1 systemd toolchain-funcs xdg-utils
+inherit bash-completion-r1 check-reqs cmake desktop edo multiprocessing python-any-r1 systemd toolchain-funcs xdg-utils
 
 DESCRIPTION="Reference implementation of the Bitcoin cryptocurrency"
 HOMEPAGE="https://bitcoincore.org/"
-SRC_URI="
-	https://github.com/bitcoin/bitcoin/archive/v${PV/_rc/rc}.tar.gz -> ${P}.tar.gz
-	https://github.com/bitcoin/bitcoin/commit/6d4214925fadc36d26aa58903db5788c742e68c6.patch?full_index=1 -> ${PN}-29.0-qt6.patch
-"
+SRC_URI="https://github.com/bitcoin/bitcoin/archive/v${PV/_rc/rc}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${PN/-core}-${PV/_rc/rc}"
 
 LICENSE="MIT"
@@ -20,7 +17,7 @@ SLOT="0"
 if [[ "${PV}" != *_rc* ]] ; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 fi
-IUSE="asm +berkdb +cli +daemon dbus examples +external-signer gui qrcode +sqlite +system-libsecp256k1 systemtap test test-full zeromq"
+IUSE="asm +cli +daemon dbus examples +external-signer gui qrcode +system-libsecp256k1 systemtap test test-full +wallet zeromq"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
@@ -34,7 +31,6 @@ REQUIRED_USE="
 COMMON_DEPEND="
 	>=dev-libs/boost-1.81.0:=
 	>=dev-libs/libevent-2.1.12:=
-	berkdb? ( >=sys-libs/db-4.8.30:$(db_ver_to_slot 4.8)=[cxx] )
 	daemon? (
 		acct-group/bitcoin
 		acct-user/bitcoin
@@ -43,8 +39,8 @@ COMMON_DEPEND="
 		>=dev-qt/qtbase-6.2:6[dbus?,gui,network,widgets]
 	)
 	qrcode? ( >=media-gfx/qrencode-4.1.1:= )
-	sqlite? ( >=dev-db/sqlite-3.38.5:= )
-	system-libsecp256k1? ( >=dev-libs/libsecp256k1-0.6.0:=[asm=,ellswift,extrakeys,recovery,schnorr] )
+	system-libsecp256k1? ( >=dev-libs/libsecp256k1-0.6.0:=[asm=,ellswift,extrakeys,musig,recovery,schnorr] )
+	wallet? ( >=dev-db/sqlite-3.38.5:= )
 	zeromq? ( >=net-libs/zeromq-4.3.4:= )
 "
 RDEPEND="
@@ -92,8 +88,7 @@ DOCS=(
 )
 
 PATCHES=(
-	"${DISTDIR}/${PN}-29.0-qt6.patch"
-	"${FILESDIR}/29.0-cmake-syslibs.patch"
+	"${FILESDIR}/30.0-cmake-syslibs.patch"
 	"${FILESDIR}/26.0-init.patch"
 )
 
@@ -116,15 +111,6 @@ pkg_pretend() {
 			via the command line using this installation.
 		EOF
 	fi
-	if ! use berkdb && ! use sqlite &&
-		{ { use daemon && ! has_version "${CATEGORY}/${PN}[daemon,-berkdb,-sqlite]" ; } ||
-		  { use gui && ! has_version "${CATEGORY}/${PN}[gui,-berkdb,-sqlite]" ; } ; }
-	then
-		efmt ewarn <<-EOF
-			You are enabling neither USE="berkdb" nor USE="sqlite". This is a valid
-			configuration, but your Bitcoin node will be unable to open any wallets.
-		EOF
-	fi
 
 	# test/functional/feature_pruning.py requires 4 GB disk space
 	# test/functional/wallet_pruning.py requires 1.3 GB disk space
@@ -136,6 +122,34 @@ pkg_setup() {
 		CHECKREQS_DISK_BUILD="6G" check-reqs_pkg_setup
 		python-any-r1_pkg_setup
 	fi
+
+	# check for auto-loaded wallets in the obsolete (now unsupported) format
+	if use daemon && use wallet && [[ -r "${EROOT}/var/lib/bitcoind/settings.json" ]] ; then
+		local wallet bdb_wallets=()
+		while read -rd '' wallet ; do
+			# printf interprets any C-style escape sequences in ${wallet}
+			wallet="${EROOT}$(printf "/var/lib/bitcoind/wallets/${wallet:+${wallet//\%/%%}/}wallet.dat")"
+			[[ -r "${wallet}" && "$(file -b -- "${wallet}")" == *'Berkeley DB'* ]] && bdb_wallets+=( "${wallet}" )
+		done < <(
+			# parsing settings.json using jq would be far cleaner, but jq might not be installed
+			sed -Enze 'H;${x;s/^.*"wallet"\s*:\s*\[\s*("([^"\\]|\\.)*"(\s*,\s*"([^"\\]|\\.)*")*)\s*\].*$/\1/;T' \
+					-e 's/"(([^"\\]|\\.)*)"\s*(,\s*)?/\1\x0/gp}' -- "${EROOT}/var/lib/bitcoind/settings.json"
+		)
+		if (( ${#bdb_wallets[@]} )) ; then
+			efmt -su ewarn <<-EOF
+				The following auto-loaded wallets are in the legacy (Berkeley DB) format, \
+				which is no longer supported by this version of Bitcoin Core:
+				$(printf ' - %s\n' "${bdb_wallets[@]}")
+				You may need to remove these wallets from your auto-load configuration \
+				at ${EROOT}/var/lib/bitcoind/settings.json$(use cli && cat <<-EOS
+					 and convert them to descriptor wallets by executing \
+					\`bitcoin-cli migratewallet "<wallet_name>" ["<passphrase>"]\` \
+					after starting bitcoind
+				EOS
+				).
+			EOF
+		fi
+	fi
 }
 
 src_prepare() {
@@ -143,26 +157,24 @@ src_prepare() {
 	# https://github.com/google/crc32c/commit/2bbb3be42e20a0e6c0f7b39dc07dc863d9ffbc07
 	sed -e '/^cmake_minimum_required(VERSION 3\.1)$/s/)$/6)/' -i src/crc32c/CMakeLists.txt || die
 
+	# https://bugs.gentoo.org/965371
+	# https://github.com/google/leveldb/issues/1289
+	sed -e '/^cmake_minimum_required(VERSION 3\.9)$/s/9)$/10)/' -i src/leveldb/CMakeLists.txt || die
+
 	eapply_user
 	! use system-libsecp256k1 || rm -r src/secp256k1 || die
 	cmake_src_prepare
-
-	# we set BUILD_UTIL=OFF, so we can't test bitcoin-util
-	sed -ne '/^  {/{h;:0;n;H;/^  }/!b0;g;\|"exec": *"\./bitcoin-util"|d};p' \
-		-i test/util/data/bitcoin-util-test.json || die
 
 	sed -e 's/^\(complete -F _bitcoind\b\).*$/\1'"$(usev daemon ' bitcoind')$(usev gui ' bitcoin-qt')/" \
 		-i contrib/completions/bash/bitcoind.bash || die
 }
 
 src_configure() {
-	local wallet ; if use berkdb || use sqlite ; then wallet=ON ; else wallet=OFF ; fi
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_Git=ON	# https://github.com/bitcoin/bitcoin/pull/32220
+#		-DCMAKE_DISABLE_FIND_PACKAGE_Git=ON	# https://github.com/bitcoin/bitcoin/pull/32220
 		-DBUILD_SHARED_LIBS=ON
-		-DENABLE_WALLET=${wallet}
-		-DWITH_SQLITE=$(usex sqlite)
-		-DWITH_BDB=$(usex berkdb)
+		-DENABLE_IPC=OFF
+		-DENABLE_WALLET=$(usex wallet)
 		-DWITH_USDT=$(usex systemtap)
 		-DBUILD_TESTS=$(usex test)
 		-DBUILD_BENCH=OFF
@@ -173,7 +185,7 @@ src_configure() {
 		-DENABLE_EXTERNAL_SIGNER=$(usex external-signer)
 		-DBUILD_CLI=$(usex cli)
 		-DBUILD_TX=ON
-		-DBUILD_WALLET_TOOL=${wallet}
+		-DBUILD_WALLET_TOOL=$(usex wallet)
 		-DBUILD_UTIL=OFF
 		-DBUILD_DAEMON=$(usex daemon)
 		-DBUILD_GUI=$(usex gui)
@@ -208,7 +220,7 @@ src_install() {
 	dodoc -r doc/release-notes
 
 	use external-signer && DOCS+=( doc/external-signer.md )
-	use berkdb || use sqlite && DOCS+=( doc/managing-wallets.md )
+	use wallet && DOCS+=( doc/managing-wallets.md )
 	use systemtap && DOCS+=( doc/tracing.md )
 	use zeromq && DOCS+=( doc/zmq.md )
 
@@ -222,7 +234,7 @@ src_install() {
 	cmake_src_install
 
 	find "${ED}" -type f -name '*.la' -delete || die
-	! use test || rm -f -- "${ED}"/usr/bin/test_bitcoin{,-qt} || die
+	! use test || rm -f -- "${ED}"/usr/libexec/test_bitcoin{,-qt} || die
 
 	newbashcomp contrib/completions/bash/bitcoin-tx.bash bitcoin-tx
 	use cli && newbashcomp contrib/completions/bash/bitcoin-cli.bash bitcoin-cli
@@ -266,27 +278,6 @@ src_install() {
 	fi
 }
 
-pkg_preinst() {
-	if use daemon && [[ -d "${EROOT}/var/lib/bitcoin/.bitcoin" ]] ; then
-		if [[ -h "${EROOT}/var/lib/bitcoin/.bitcoin" ]] ; then
-			dosym -r /var/lib/bitcoin{d,/.bitcoin}
-		elif [[ ! -e "${EROOT}/var/lib/bitcoind" || -h "${EROOT}/var/lib/bitcoind" ]] ; then
-			efmt ewarn <<-EOF
-				Your bitcoind data directory is located at ${EPREFIX}/var/lib/bitcoin/.bitcoin,
-				a deprecated location. To perform an automated migration to
-				${EPREFIX}/var/lib/bitcoind, first shut down any running bitcoind instances
-				that may be using the deprecated path, and then run:
-
-				# emerge --config ${CATEGORY}/${PN}
-				EOF
-			insinto /var/lib/bitcoin
-			mv -- "${ED}/var/lib/bitcoin"{d,/.bitcoin} || die
-			dosym -r {/etc/,/var/lib/bitcoin/.}bitcoin/bitcoin.conf
-			dosym -r /var/lib/bitcoin{/.bitcoin,d}
-		fi
-	fi
-}
-
 pkg_postinst() {
 	# we don't use xdg.eclass because it adds unconditional IDEPENDs
 	if use gui ; then
@@ -312,15 +303,13 @@ pkg_postinst() {
 		EOF
 	fi
 
-	if use berkdb ; then
-		# https://github.com/bitcoin/bitcoin/pull/28597
-		# https://bitcoincore.org/en/releases/26.0/#wallet
+	if use wallet && [[ -r "${EROOT}/etc/bitcoin/bitcoin.conf" ]] &&
+		grep -q '^\s*deprecatedrpc\s*=.*\bcreate_bdb\b' -- "${EROOT}/etc/bitcoin/bitcoin.conf"
+	then
+		# https://github.com/bitcoin/bitcoin/pull/31250
 		efmt ewarn <<-EOF
-			Creation of legacy (Berkeley DB) wallets is refused starting with Bitcoin
-			Core 26.0, pending the deprecation and eventual removal of support for
-			legacy wallets altogether in future releases. At present you can still
-			force support for the creation of legacy wallets by adding the following
-			line to your bitcoin.conf:
+			Creation of legacy (Berkeley DB) wallets is no longer possible starting with
+			Bitcoin Core 30.0. You must remove the following line from your bitcoin.conf:
 
 			deprecatedrpc=create_bdb
 		EOF
@@ -331,81 +320,5 @@ pkg_postrm() {
 	if use gui ; then
 		xdg_desktop_database_update
 		xdg_icon_cache_update
-	fi
-}
-
-pkg_config() {
-	if [[ -d "${EROOT}/var/lib/bitcoin/.bitcoin" && ! -h "${EROOT}/var/lib/bitcoin/.bitcoin" ]] &&
-		[[ ! -e "${EROOT}/var/lib/bitcoind" || -h "${EROOT}/var/lib/bitcoind" ]]
-	then
-		in_use() {
-			: ${1:?} ; local each
-			if command -v fuser >/dev/null ; then
-				fuser "${@}" >/dev/null 2>&1
-			elif command -v lsof >/dev/null ; then
-				for each ; do
-					lsof -- "${each}" && return
-				done >/dev/null 2>&1
-			elif mountpoint -q /proc ; then
-				{ find /proc/[0-9]*/{cwd,exe,fd} -type l -exec readlink -- {} +
-					awk '{ print $6 }' /proc/[0-9]*/maps
-				} 2>/dev/null | grep -Fqx -f <(printf '%s\n' "${@}" ; readlink -m -- "${@}")
-			else
-				return 13
-			fi
-		}
-		ebegin "Checking that ${EPREFIX}/var/lib/bitcoin/.bitcoin is not in use"
-		in_use "${EROOT}/var/lib/bitcoin/.bitcoin"{,/.lock}
-		case $? in
-			0)
-				eend 1
-				efmt eerror <<-EOF
-					${EPREFIX}/var/lib/bitcoin/.bitcoin is currently in use. Please stop any
-					running bitcoind instances that may be using this data directory, and then
-					retry this migration.
-					EOF
-				die "${EPREFIX}/var/lib/bitcoin/.bitcoin is in use"
-				;;
-			13)
-				eend 1
-				if [[ "${BITCOIND_IS_NOT_RUNNING}" != 1 ]] ; then
-					efmt eerror <<-EOF
-						Found no way to check whether ${EPREFIX}/var/lib/bitcoin/.bitcoin is in use.
-						Do you have /proc mounted? To force the migration without checking, re-run
-						this command with BITCOIND_IS_NOT_RUNNING=1.
-						EOF
-					die "could not check whether ${EPREFIX}/var/lib/bitcoin/.bitcoin is in use"
-				fi
-				;;
-			*)
-				eend 0
-				;;
-		esac
-
-		# find all relative symlinks that point outside the data dir
-		local -A symlinks
-		cd -- "${EROOT}/var/lib/bitcoin/.bitcoin" || die
-		local each ; while read -r -d '' each ; do
-			local target=$(readlink -- "${each}") && [[ "${target}" == ../* ]] &&
-				target=$(readlink -e -- "${each}") && [[ "${target}" != "${EROOT}/var/lib/bitcoin/.bitcoin/"* ]] &&
-				symlinks["${each}"]="${target}"
-		done < <(find -type l -print0)
-
-		einfo "Moving your ${EPREFIX}/var/lib/bitcoin/.bitcoin to ${EPREFIX}/var/lib/bitcoind."
-		rm -f -- "${EROOT}/var/lib/bitcoind" || die
-		mv --no-clobber --no-copy --no-target-directory -- "${EROOT}/var/lib/bitcoin"{/.bitcoin,d} ||
-			die "Failed to move your ${EPREFIX}/var/lib/bitcoin/.bitcoin to ${EPREFIX}/var/lib/bitcoind."
-
-		# fix up the relative symlinks
-		cd -- "${EROOT}/var/lib/bitcoind" || die
-		for each in "${!symlinks[@]}" ; do
-			ln -fnrs -- "${symlinks[${each}]}" "${each}"  # keep going even if this fails
-		done
-
-		einfo 'Creating a transitional symlink for your convenience.'
-		ln -fnrsv -- "${EROOT}/var/lib/bitcoin"{d,/.bitcoin}
-		einfo 'You may remove this link when you no longer need it.'
-	else
-		einfo 'Nothing to do.'
 	fi
 }
