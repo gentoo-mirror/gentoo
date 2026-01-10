@@ -1,4 +1,4 @@
-# Copyright 2017-2024 Gentoo Authors
+# Copyright 2017-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -84,7 +84,7 @@ DEPEND="
 # We require gnupg for /usr/bin/gpg-connect-agent.
 RDEPEND="
 	${DEPEND}
-	app-crypt/gnupg
+	app-alternatives/gpg
 "
 
 # Uses a plugged-in Nitrokey and runs tests on it. These tests assumes a
