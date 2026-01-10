@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -173,9 +173,8 @@ src_prepare() {
 	popd > /dev/null || die
 
 	if use proprietary-codecs; then
-		einfo Bundled $($(tc-getSTRINGS) ${VIVALDI_HOME}/lib/libffmpeg.so | grep -m1 "^FFmpeg version ")
-		rm ${VIVALDI_HOME}/lib/libffmpeg.so || die
-		rmdir ${VIVALDI_HOME}/lib || die
+		einfo Bundled $($(tc-getSTRINGS) ${VIVALDI_HOME}/libffmpeg.so | grep -m1 "^FFmpeg version ")
+		rm ${VIVALDI_HOME}/libffmpeg.so || die
 	fi
 
 	# Qt5 is obsolete now.

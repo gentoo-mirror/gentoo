@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,8 +6,9 @@ EAPI=8
 inherit autotools desktop optfeature
 
 DESCRIPTION="GTK program to rip CD audio tracks to Ogg, MP3 or FLAC"
-HOMEPAGE="https://gitlab.com/tiagobar/ripperx"
-SRC_URI="https://gitlab.com/tiagobar/ripperx/-/archive/${PV}/${P}.tar.bz2"
+HOMEPAGE="https://codeberg.org/thothix/ripperx"
+SRC_URI="https://codeberg.org/thothix/ripperx/archive/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/ripperx"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -27,15 +28,11 @@ BDEPEND="
 	nls? ( sys-devel/gettext )"
 
 PATCHES=(
-	"${FILESDIR}"/ripperx-3.0.1-cxx.patch
+	"${FILESDIR}"/ripperx-3.0.2-cxxflags.patch
 )
 
 src_prepare() {
 	default
-
-	find src -name '*.c' -execdir mv '{}' '{}pp' \; || die
-	sed -i -e 's/\.c/.cpp/g' src/Makefile.am || die
-
 	eautoreconf
 }
 
