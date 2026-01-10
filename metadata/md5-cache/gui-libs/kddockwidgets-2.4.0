@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.kdab.com/development-resources/qt-tools/kddockwidgets/
 INHERIT=cmake
 IUSE=qml
-KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=|| ( GPL-2 GPL-3 ) BSD MIT
 RDEPEND=dev-qt/qtbase:6=[X,widgets] qml? ( dev-qt/qtdeclarative:6= )
 RESTRICT=test
 SLOT=0/2.4
 SRC_URI=https://github.com/KDAB/KDDockWidgets/releases/download/v2.4.0/kddockwidgets-2.4.0.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	f66e839e5b60b399ae9d51fb6e6247d3
-_md5_=7492a2abf1972402ba2add35878330be
+_md5_=17cde44c935d49be6e6e645625ad5b7f
