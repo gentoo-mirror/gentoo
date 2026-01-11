@@ -1,6 +1,6 @@
 BDEPEND=app-text/dos2unix
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test
-DEPEND=>=dev-haskell/base-orphans-0.8.8:=[profile?] <dev-haskell/base-orphans-0.10:=[profile?] >=dev-lang/ghc-8.8.1:= >=dev-haskell/cabal-3.0.0.0 hscolour? ( dev-haskell/hscolour )
+DEPEND=>=dev-lang/ghc-9.0.2:= >=dev-haskell/base-orphans-0.8.8:=[profile?] <dev-haskell/base-orphans-0.10 >=dev-haskell/cabal-3.4.1.0 hscolour? ( dev-haskell/hscolour )
 DESCRIPTION=Generically newtype to use with DerivingVia
 EAPI=8
 HOMEPAGE=https://hackage.haskell.org/package/generically
@@ -8,8 +8,8 @@ INHERIT=haskell-cabal
 IUSE=doc hscolour profile
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=BSD
-RDEPEND=>=dev-haskell/base-orphans-0.8.8:=[profile?] <dev-haskell/base-orphans-0.10:=[profile?] >=dev-lang/ghc-8.8.1:= dev-lang/ghc:=[profile?]
+RDEPEND=>=dev-lang/ghc-9.0.2:= >=dev-haskell/base-orphans-0.8.8:=[profile?] <dev-haskell/base-orphans-0.10 dev-lang/ghc:=[profile?]
 SLOT=0/0.1.1
-SRC_URI=https://hackage.haskell.org/package/generically-0.1.1/generically-0.1.1.tar.gz https://hackage.haskell.org/package/generically-0.1.1/revision/1.cabal -> generically-0.1.1-rev1.cabal
+SRC_URI=https://hackage.haskell.org/package/generically-0.1.1/generically-0.1.1.tar.gz https://hackage.haskell.org/package/generically-0.1.1/revision/4.cabal -> generically-0.1.1-rev4.cabal
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	multilib	404b65bd5212cff83b3935c685419d08	haskell-cabal	bad13a2329d86d55e2032a804a9d93a4
-_md5_=fd6105b3518c26a7317c0557bb787188
+_md5_=ead648668cd0302e8f5031e0bcee1560
