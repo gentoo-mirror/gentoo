@@ -1,7 +1,7 @@
 Title: net-mail/dovecot-2.4.x may break on upgrade
 Author: Eray Aslan <eras@gentoo.org>
 Posted: 2025-05-23
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 Display-If-Installed: net-mail/dovecot
 
@@ -15,7 +15,7 @@ configuration on a test system before upgrading any production systems.
 
 The following steps typically make the upgrade process easier:
 
-1. Make a note of your current configuration by running doveconf -n
+1. Make a note of your current configuration by running doveconf -nP
 2. Stop the dovecot daemon
 3. Move ALL your configuration files to a temporary location
 4. Upgrade to dovecot-2.4.x
