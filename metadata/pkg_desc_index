@@ -4317,14 +4317,14 @@ dev-haskell/aeson-pretty 0.8.9 0.8.10: JSON pretty-printing library and command-
 dev-haskell/alex 3.2.7.1 3.2.7.2: Alex is a tool for generating lexical analysers in Haskell
 dev-haskell/alsa-core 0.5.0.1-r2: Binding to the ALSA Library API (Exceptions)
 dev-haskell/alsa-mixer 0.3.0: Bindings to the ALSA simple mixer API
-dev-haskell/ansi-terminal 0.10.3 1.0: Simple ANSI terminal support
-dev-haskell/ansi-terminal-types 0.11.5: Types and functions used to represent SGR aspects
+dev-haskell/ansi-terminal 0.10.3 1.0 1.1.5: Simple ANSI terminal support
+dev-haskell/ansi-terminal-types 0.11.5 1.1.3: Types and functions used to represent SGR aspects
 dev-haskell/ansi-wl-pprint 0.6.9 1.0.2: The Wadler/Leijen Pretty Printer for colored ANSI terminal output
 dev-haskell/appar 0.1.8: A simple applicative parser
 dev-haskell/asn1-encoding 0.9.6: ASN1 data reader and writer in RAW, BER and DER forms
 dev-haskell/asn1-parse 0.9.5: Simple monadic parser for ASN1 stream types
-dev-haskell/asn1-types 0.3.3 0.3.4: ASN.1 types
-dev-haskell/assoc 1.0.2 1.1: swap and assoc: Symmetric and Semigroupy Bifunctors
+dev-haskell/asn1-types 0.3.4: ASN.1 types
+dev-haskell/assoc 1.0.2 1.1 1.1.1: swap and assoc: Symmetric and Semigroupy Bifunctors
 dev-haskell/async 2.2.4-r1: Run IO operations asynchronously and wait for their results
 dev-haskell/atomic-primops 0.8.4: A safe approach to CAS and other atomic ops in Haskell
 dev-haskell/attoparsec 0.14.4 0.14.4-r1: Fast combinator parsing for bytestrings and text
@@ -4370,7 +4370,7 @@ dev-haskell/chell 0.4.0.2 0.5.0.2: A simple and intuitive library for automated 
 dev-haskell/cipher-aes 0.2.11: Fast AES cipher implementation with advanced mode of operations
 dev-haskell/citeproc 0.7 0.8.1: Generates citations and bibliography from CSL styles
 dev-haskell/clientsession 0.9.1.2: Securely store session data in a client-side cookie
-dev-haskell/clock 0.7.2 0.8.3: High-resolution clock functions: monotonic, realtime, cputime
+dev-haskell/clock 0.7.2 0.8.4: High-resolution clock functions: monotonic, realtime, cputime
 dev-haskell/cmdargs 0.10.20 0.10.22: Command line argument processing
 dev-haskell/code-page 0.1.3 0.2.1: Windows code page library for Haskell
 dev-haskell/colour 2.3.5 2.3.6: A model for human colour/color perception
@@ -4408,7 +4408,7 @@ dev-haskell/crypton-x509-validation 1.6.12: X.509 Certificate and CRL validation
 dev-haskell/cryptonite 0.28 0.30: Cryptography Primitives sink
 dev-haskell/cryptonite-conduit 0.2.2: cryptonite conduit
 dev-haskell/css-text 0.1.3.0: CSS parser and renderer
-dev-haskell/data-array-byte 0.1.0.1: Compatibility layer for Data.Array.Byte
+dev-haskell/data-array-byte 0.1.0.2: Compatibility layer for Data.Array.Byte
 dev-haskell/data-default 0.7.1.1: A class for types with a default value
 dev-haskell/data-default-class 0.1.2.0: A class for types with a default value
 dev-haskell/data-default-instances-containers 0.0.1: Default instances for types in containers
@@ -4584,7 +4584,7 @@ dev-haskell/monad-parallel 0.8: Parallel execution of monadic computations
 dev-haskell/monads-tf 0.1.0.3 0.3.0.1: Monad classes, using type families
 dev-haskell/mono-traversable 1.0.15.1 1.0.15.3: Type classes for mapping, folding, and traversing monomorphic containers
 dev-haskell/mountpoints 1.0.2: list mount points
-dev-haskell/mtl 2.2.2-r1: Monad classes, using functional dependencies
+dev-haskell/mtl 2.2.2-r2: Monad classes, using functional dependencies
 dev-haskell/mtl-compat 0.2.2: Backported Control.Monad.Except module from mtl
 dev-haskell/mwc-random 0.14.0.0 0.15.0.2-r2: Fast, high quality pseudo random number generation
 dev-haskell/nanospec 0.2.2: A lightweight implementation of a subset of Hspec's API
@@ -4621,7 +4621,7 @@ dev-haskell/parsers 0.12.10-r1 0.12.11: Parsing combinators
 dev-haskell/path-pieces 0.2.1: Components of paths
 dev-haskell/patience 0.1.1-r1 0.3: Patience diff and longest increasing subsequence
 dev-haskell/pcg-random 0.1.3.7: Haskell bindings to the PCG random number generator
-dev-haskell/pcre-light 0.4.1.0: Portable regex library for Perl 5 compatible regular expressions
+dev-haskell/pcre-light 0.4.1.3: Portable regex library for Perl 5 compatible regular expressions
 dev-haskell/pem 0.2.4: Privacy Enhanced Mail (PEM) format reader and writer
 dev-haskell/persistent 2.14.0.3 2.14.5.1: Type-safe, multi-backend data serialization
 dev-haskell/persistent-sqlite 2.13.1.0 2.13.1.1: Backend for the persistent library using sqlite3
@@ -4630,7 +4630,7 @@ dev-haskell/persistent-test 2.13.1.3: Tests for Persistent
 dev-haskell/pgp-wordlist 0.1.0.3: Translate between binary data and a human-readable collection of words
 dev-haskell/pretty-hex 1.0 1.1: A library for hex dumps of ByteStrings
 dev-haskell/pretty-show 1.10: Tools for working with derived 'Show' instances and generic inspection of values
-dev-haskell/prettyprinter 1.7.0 1.7.1: A modern, easy to use, well-documented, extensible pretty-printer
+dev-haskell/prettyprinter 1.7.1: A modern, easy to use, well-documented, extensible pretty-printer
 dev-haskell/prettyprinter-ansi-terminal 1.1.2 1.1.3: ANSI terminal backend for the 'prettyprinter' package
 dev-haskell/prettyprinter-compat-ansi-wl-pprint 1.0.2: Drop-in compatibility package from ansi-wl-pprint to prettyprinter
 dev-haskell/primitive 0.7.3.0 0.7.4.0: Primitive memory-related operations
@@ -4640,7 +4640,7 @@ dev-haskell/psqueues 0.2.7.3: Pure priority search queues
 dev-haskell/puremd5 2.1.4: A Haskell-only implementation of the MD5 digest (hash) algorithm
 dev-haskell/quickcheck 2.14.2 2.14.3: Automatic testing of Haskell programs
 dev-haskell/quickcheck-classes 0.6.4.0 0.6.5.0: QuickCheck common typeclasses
-dev-haskell/quickcheck-classes-base 0.6.2.0: QuickCheck common typeclasses from 'base'
+dev-haskell/quickcheck-classes-base 0.6.2.0-r1: QuickCheck common typeclasses from 'base'
 dev-haskell/quickcheck-instances 0.3.27 0.3.29.1-r1: Common quickcheck instances
 dev-haskell/quickcheck-io 0.2.0: Use HUnit assertions as QuickCheck properties
 dev-haskell/quickcheck-unicode 1.0.1.0: Generator and shrink functions for testing Unicode-related software
@@ -4695,7 +4695,7 @@ dev-haskell/some 1.0.5: Existential type: Some
 dev-haskell/sop-core 0.5.0.2: True Sums of Products
 dev-haskell/split 0.2.3.4 0.2.3.5: Combinator library for splitting lists
 dev-haskell/splitmix 0.1.0.3 0.1.0.4: Fast Splittable PRNG
-dev-haskell/statevar 1.2.1 1.2.2: State variables
+dev-haskell/statevar 1.2.2-r1: State variables
 dev-haskell/statistics 0.15.2.0 0.16.2.0: A library of statistical types, data, and functions
 dev-haskell/stm 2.5.0.1-r1 2.5.0.2-r1: Software Transactional Memory
 dev-haskell/stm-chans 3.0.0.4: Additional types of channels for STM
@@ -4707,7 +4707,7 @@ dev-haskell/stringbuilder 0.5.1: A writer monad for multi-line string literals
 dev-haskell/syb 0.7.2.1 0.7.2.4: Scrap Your Boilerplate
 dev-haskell/system-fileio 0.3.16.4: Consistent filesystem interaction across GHC versions (deprecated)
 dev-haskell/system-filepath 0.4.14-r1: High-level, byte-based file and directory path manipulations (deprecated)
-dev-haskell/tagged 0.8.6.1 0.8.7: Haskell 98 phantom types to avoid unsafely passing dummy arguments
+dev-haskell/tagged 0.8.6.1 0.8.7 0.8.10: Haskell 98 phantom types to avoid unsafely passing dummy arguments
 dev-haskell/tagsoup 0.14.8: Parsing and extracting information from (possibly malformed) HTML/XML documents
 dev-haskell/tar 0.5.1.1-r3: Reading, writing and manipulating ".tar" archive files
 dev-haskell/tasty 1.4.2.3: Modern and extensible testing framework
@@ -4761,7 +4761,7 @@ dev-haskell/type-equality 1: Type equality, coercion/cast and other operations
 dev-haskell/typed-process 0.2.6.0 0.2.10.1-r1: Run external processes, with strong typing of streams
 dev-haskell/typst 0.3.2.0: Parsing and evaluating typst syntax
 dev-haskell/typst-symbols 0.1.4: Symbol and emoji lookup for typst language
-dev-haskell/unbounded-delays 0.1.1.0 0.1.1.1: Unbounded thread delays and timeouts
+dev-haskell/unbounded-delays 0.1.1.1: Unbounded thread delays and timeouts
 dev-haskell/unicode-collation 0.1.3.3 0.1.3.4: Haskell implementation of the Unicode Collation Algorithm
 dev-haskell/unicode-data 0.3.0 0.4.0.1: Access Unicode Character Database (UCD)
 dev-haskell/unicode-transforms 0.3.7.1-r1 0.4.0.1: Unicode normalization
