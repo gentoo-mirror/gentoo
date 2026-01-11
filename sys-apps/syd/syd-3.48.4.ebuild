@@ -40,7 +40,7 @@ CRATES="
 	bytecheck_derive@0.6.12
 	bytes@1.11.0
 	caps@0.5.6
-	cc@1.2.51
+	cc@1.2.52
 	cfg-if@1.0.4
 	cfg_aliases@0.2.1
 	chrono@0.4.42
@@ -63,7 +63,7 @@ CRATES="
 	darling@0.20.11
 	darling_core@0.20.11
 	darling_macro@0.20.11
-	data-encoding@2.9.0
+	data-encoding@2.10.0
 	derive_builder@0.20.2
 	derive_builder_core@0.20.2
 	derive_builder_macro@0.20.2
@@ -80,7 +80,7 @@ CRATES="
 	error-chain@0.12.4
 	expiringmap@0.1.2
 	fastrand@2.3.0
-	find-msvc-tools@0.1.6
+	find-msvc-tools@0.1.7
 	fixedbitset@0.5.7
 	flate2@1.1.5
 	fnv@1.0.7
@@ -106,7 +106,7 @@ CRATES="
 	iced-x86@1.21.0
 	ident_case@1.0.1
 	indexmap@1.9.3
-	indexmap@2.12.1
+	indexmap@2.13.0
 	io-uring@0.6.4
 	ipnet@2.11.0
 	iprange@0.6.7
@@ -118,7 +118,7 @@ CRATES="
 	lazy_static@1.5.0
 	lexis@0.2.3
 	lexopt@0.3.1
-	libc@0.2.179
+	libc@0.2.178
 	libcgroups@0.5.7
 	libcontainer@0.5.7
 	libloading@0.8.9
@@ -169,7 +169,7 @@ CRATES="
 	proc-macro-crate@3.4.0
 	proc-macro-error-attr2@2.0.0
 	proc-macro-error2@2.0.1
-	proc-macro2@1.0.104
+	proc-macro2@1.0.105
 	procfs-core@0.17.0
 	procfs-core@0.18.0
 	procfs@0.17.0
@@ -180,7 +180,7 @@ CRATES="
 	protobuf@3.2.0
 	ptr_meta@0.1.4
 	ptr_meta_derive@0.1.4
-	quote@1.0.42
+	quote@1.0.43
 	r-efi@5.3.0
 	radium@0.7.0
 	raki@1.3.2
@@ -197,8 +197,8 @@ CRATES="
 	rend@0.4.2
 	retry@2.1.0
 	ringbuf@0.4.8
-	rkyv@0.7.45
-	rkyv_derive@0.7.45
+	rkyv@0.7.46
+	rkyv_derive@0.7.46
 	rpassword@7.4.0
 	rtoolbox@0.0.3
 	rust-argon2@0.8.3
@@ -217,7 +217,7 @@ CRATES="
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
-	serde_json@1.0.148
+	serde_json@1.0.149
 	sha1@0.10.6
 	sha3@0.10.8
 	sharded-slab@0.1.7
@@ -235,7 +235,7 @@ CRATES="
 	strum_macros@0.27.2
 	subtle@2.6.1
 	syn@1.0.109
-	syn@2.0.112
+	syn@2.0.114
 	tabwriter@1.4.1
 	tap@1.0.1
 	tcmalloc@0.3.0
@@ -302,10 +302,10 @@ CRATES="
 	xz2@0.1.7
 	yaxpeax-arch@0.3.2
 	yaxpeax-arm@0.4.0
-	zerocopy-derive@0.8.31
-	zerocopy@0.8.31
+	zerocopy-derive@0.8.33
+	zerocopy@0.8.33
 	zeroize@1.8.2
-	zmij@1.0.9
+	zmij@1.0.12
 "
 
 inherit cargo
