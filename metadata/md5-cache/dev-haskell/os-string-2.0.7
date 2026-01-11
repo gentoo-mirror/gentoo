@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-lang/ghc-9.2.4:= >=dev-haskell/cabal-3.6.3.0 test? ( >=dev-haskell/quickcheck-2.7 <dev-haskell/quickcheck-2.16 >=dev-haskell/quickcheck-classes-base-0.6.2 <dev-haskell/quickcheck-classes-base-0.7 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Library for manipulating Operating system strings
+EAPI=8
+HOMEPAGE=https://github.com/haskell/os-string/blob/master/README.md
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-lang/ghc-9.2.4:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/2.0.7
+SRC_URI=https://hackage.haskell.org/package/os-string-2.0.7/os-string-2.0.7.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	multilib	404b65bd5212cff83b3935c685419d08	haskell-cabal	bad13a2329d86d55e2032a804a9d93a4
+_md5_=b58460b5555cc19fd0b609639f196e5e
