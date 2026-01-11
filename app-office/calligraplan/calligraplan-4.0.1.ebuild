@@ -62,8 +62,6 @@ RDEPEND="${DEPEND}
 	>=dev-qt/qtsvg-${QTMIN}:6
 "
 
-PATCHES=( "${FILESDIR}/${P}-version.patch" )
-
 CMAKE_SKIP_TESTS=( plan-schedulers-tj-TaskJugglerTester ) # segfaults/permissions
 
 src_configure() {
