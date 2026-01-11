@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/google/guice
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 arm64
+KEYWORDS=amd64 arm64 ppc64
 LICENSE=Apache-2.0
 RDEPEND=dev-java/aopalliance:1 dev-java/injection-api:0 >=dev-java/asm-9.8-r1:0 >=dev-java/error-prone-annotations-2.41.0:0 >=dev-java/guava-33.4.8:0 dev-java/jsr305:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/google/guice/archive/7.0.0.tar.gz -> guice-7.0.0.tar.gz test? ( https://repo1.maven.org/maven2/com/google/truth/truth/1.1.3/truth-1.1.3.jar https://repo1.maven.org/maven2/com/google/truth/extensions/truth-java8-extension/1.1.3/truth-java8-extension-1.1.3.jar )
 _eclasses_=java-utils-2	3febdd17a5820c438f6368dde60d4848	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	a728b6bc0cd005d093dd71e93106c98e
-_md5_=c348430b7b4876b56e1627d5ffacf1cd
+_md5_=524c52d1fee1d4806794a09aa63c1e7e

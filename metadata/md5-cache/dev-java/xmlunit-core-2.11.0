@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/xmlunit/ https://www.xmlunit.org
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64
+KEYWORDS=amd64 ppc64
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/xmlunit/xmlunit/archive/v2.11.0.tar.gz -> xmlunit-core-2.11.0.tar.gz test? ( https://github.com/xmlunit/test-resources/archive/67a7aa5ac345fa46bfcb5fc1154ed14807e3f87d.tar.gz -> xmlunit-test-resources-2.11.0.tar.gz )
 _eclasses_=java-utils-2	3febdd17a5820c438f6368dde60d4848	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	java-pkg-simple	a728b6bc0cd005d093dd71e93106c98e
-_md5_=a262e61865e99e6da3cd2ae04b9545d8
+_md5_=4b233e777e4519ab7c13aacc9af67176
