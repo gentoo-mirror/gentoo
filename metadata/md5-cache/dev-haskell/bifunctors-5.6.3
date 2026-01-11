@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/assoc-1.1:=[profile?] <dev-haskell/assoc-1.2:=[profile?] >=dev-haskell/comonad-5.0.7:=[profile?] <dev-haskell/comonad-6:=[profile?] >=dev-haskell/foldable1-classes-compat-0.1:=[profile?] <dev-haskell/foldable1-classes-compat-0.2:=[profile?] >=dev-haskell/th-abstraction-0.4.2.0:=[profile?] <dev-haskell/th-abstraction-0.8:=[profile?] >=dev-lang/ghc-9.0.2:= tagged? ( >=dev-haskell/tagged-0.8.6:=[profile?] <dev-haskell/tagged-1:=[profile?] ) >=dev-haskell/cabal-3.4.1.0 test? ( >=dev-haskell/hspec-1.8 >=dev-haskell/quickcheck-2 <dev-haskell/quickcheck-3 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Haskell 98 bifunctors, bifoldables and bitraversables
+EAPI=8
+HOMEPAGE=https://github.com/ekmett/bifunctors/
+INHERIT=haskell-cabal
+IUSE=+tagged doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/assoc-1.1:=[profile?] <dev-haskell/assoc-1.2:=[profile?] >=dev-haskell/comonad-5.0.7:=[profile?] <dev-haskell/comonad-6:=[profile?] >=dev-haskell/foldable1-classes-compat-0.1:=[profile?] <dev-haskell/foldable1-classes-compat-0.2:=[profile?] >=dev-haskell/th-abstraction-0.4.2.0:=[profile?] <dev-haskell/th-abstraction-0.8:=[profile?] >=dev-lang/ghc-9.0.2:= tagged? ( >=dev-haskell/tagged-0.8.6:=[profile?] <dev-haskell/tagged-1:=[profile?] ) dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/5.6.3
+SRC_URI=https://hackage.haskell.org/package/bifunctors-5.6.3/bifunctors-5.6.3.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	multilib	404b65bd5212cff83b3935c685419d08	haskell-cabal	bad13a2329d86d55e2032a804a9d93a4
+_md5_=06e58e09b4430382769248c272b88faf
