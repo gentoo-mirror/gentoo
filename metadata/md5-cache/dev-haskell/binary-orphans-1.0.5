@@ -1,0 +1,16 @@
+BDEPEND=app-text/dos2unix
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DEPEND=>=dev-haskell/data-array-byte-0.1.0.1:=[profile?] <dev-haskell/data-array-byte-0.2:=[profile?] >=dev-haskell/onetuple-0.4.2:=[profile?] <dev-haskell/onetuple-0.5:=[profile?] >=dev-lang/ghc-9.0.2:= >=dev-haskell/cabal-3.4.1.0 test? ( >=dev-haskell/quickcheck-2.13.1 <dev-haskell/quickcheck-2.16 >=dev-haskell/quickcheck-instances-0.3.28 <dev-haskell/quickcheck-instances-0.4 >=dev-haskell/tagged-0.8.6 <dev-haskell/tagged-0.9 >=dev-haskell/tasty-0.10.1.2 <dev-haskell/tasty-1.6 >=dev-haskell/tasty-quickcheck-0.8.3.2 <dev-haskell/tasty-quickcheck-0.12 ) hscolour? ( dev-haskell/hscolour )
+DESCRIPTION=Compatibility package for binary; provides instances
+EAPI=8
+HOMEPAGE=https://hackage.haskell.org/package/binary-orphans
+INHERIT=haskell-cabal
+IUSE=doc hscolour profile test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=>=dev-haskell/data-array-byte-0.1.0.1:=[profile?] <dev-haskell/data-array-byte-0.2:=[profile?] >=dev-haskell/onetuple-0.4.2:=[profile?] <dev-haskell/onetuple-0.5:=[profile?] >=dev-lang/ghc-9.0.2:= dev-lang/ghc:=[profile?]
+RESTRICT=!test? ( test )
+SLOT=0/1.0.5
+SRC_URI=https://hackage.haskell.org/package/binary-orphans-1.0.5/binary-orphans-1.0.5.tar.gz https://hackage.haskell.org/package/binary-orphans-1.0.5/revision/1.cabal -> binary-orphans-1.0.5-rev1.cabal
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	ghc-package	8e4f6eb2d0e798049f6fcaf3b84c0d4a	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	multilib	404b65bd5212cff83b3935c685419d08	haskell-cabal	bad13a2329d86d55e2032a804a9d93a4
+_md5_=de41ae5a290f2ada43f576396c9b1356
