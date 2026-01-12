@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ inherit go-module
 DESCRIPTION="Let's Encrypt/ACME client (like certbot or acme.sh) and library written in Go"
 HOMEPAGE="https://github.com/go-acme/lego/"
 
-DOCUMENTATION_COMMIT=79065e2859fcd73d4086d37dee54856a3aba0191
+DOCUMENTATION_COMMIT=d2350eaec31e3fea57b8e65cbd095f99bff82ce5
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
@@ -17,7 +17,7 @@ else
 	SRC_URI="
 	https://github.com/go-acme/lego/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/go-acme/lego/archive/${DOCUMENTATION_COMMIT}.tar.gz -> ${P}-docs.tar.gz
-	https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-$(ver_cut 1-2).0-deps.tar.xz
+	https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${P}-deps.tar.xz
 "
 	KEYWORDS="~amd64 ~arm64"
 fi
@@ -59,7 +59,6 @@ src_compile() {
 		VERSION="$(git rev-parse HEAD)" || die
 	else
 		VERSION="${PV}"
-		ln -sv ../vendor ./ || die
 	fi
 
 	ego build -trimpath -ldflags "-X main.version=${VERSION}" -o dist/"${PN}" ./cmd/lego/
