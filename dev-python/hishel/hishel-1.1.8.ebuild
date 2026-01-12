@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,7 +25,7 @@ KEYWORDS="~amd64 ~arm64"
 RDEPEND="
 	>=dev-python/anyio-4.9.0[${PYTHON_USEDEP}]
 	>=dev-python/anysqlite-0.0.5[${PYTHON_USEDEP}]
-	>=dev-python/httpx-0.28[${PYTHON_USEDEP}]
+	>=dev-python/httpx-0.28.1[${PYTHON_USEDEP}]
 	>=dev-python/msgpack-1.1.2[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-1.14.1[${PYTHON_USEDEP}]
 "
@@ -49,9 +49,9 @@ distutils_enable_tests pytest
 src_test() {
 	local EPYTEST_DESELECT=(
 		# Internet
-		tests/beta/test_async_httpx.py
-		tests/beta/test_requests.py
-		tests/beta/test_sync_httpx.py
+		tests/test_async_httpx.py
+		tests/test_requests.py
+		tests/test_sync_httpx.py
 	)
 
 	local redis_pid="${T}"/redis.pid
