@@ -96,7 +96,9 @@ CMAKE_SKIP_TESTS=(
 	test_{path,generationtest} # FIXME: whatever that does, does not work
 )
 
-PATCHES=( "${FILESDIR}/${P}-file-collision.patch" ) # bug #963324 pt.1
+PATCHES=(
+	"${FILESDIR}/${P}-file-collision.patch" # bug #963324 pt.1, git master
+)
 
 src_prepare() {
 	rm -r plugins/qmljs || die # bug 960669, unused upstream
