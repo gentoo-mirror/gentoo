@@ -1608,7 +1608,7 @@ dev-haskell/assoc:tagged - You can disable the use of the `tagged` package using
 dev-haskell/atomic-primops:debug - Enable extra internal checks.
 dev-haskell/bifunctors:semigroups - You can disable the use of the `semigroups` package using `-f-semigroups`. Disabing this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/bifunctors:tagged - You can disable the use of the `tagged` package using `-f-tagged`. Disabing this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
-dev-haskell/bitvec:gmp - Link against the GMP library for the ultimate performance of `zipBits`, `invertBits` and `countBits`. Users are strongly encouraged to enable this flag whenever possible.
+dev-haskell/bitvec:simd - Use a C SIMD implementation for the ultimate performance of `zipBits`, `invertBits` and `countBits`. Disable this flag if there are problems with the C FFI.
 dev-haskell/boring:tagged - You can disable the use of the `tagged` package using `-f-tagged`. Disabling this is an unsupported configuration, but it may be useful for accelerating builds in sandboxes for expert users.
 dev-haskell/c2hs:regression - Enable regression suite build.
 dev-haskell/cabal-install:lukko - Use @lukko@ for file-locking
