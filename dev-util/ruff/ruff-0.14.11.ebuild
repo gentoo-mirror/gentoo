@@ -10,12 +10,12 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[lsp-types]='https://github.com/astral-sh/lsp-types;3512a9f33eadc5402cfab1b8f7340824c8ca1439;lsp-types-%commit%'
-	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;55e5e7d32fa3fc189276f35bb04c9438f9aedbd1;salsa-%commit%/components/salsa-macro-rules'
-	[salsa-macros]='https://github.com/salsa-rs/salsa;55e5e7d32fa3fc189276f35bb04c9438f9aedbd1;salsa-%commit%/components/salsa-macros'
-	[salsa]='https://github.com/salsa-rs/salsa;55e5e7d32fa3fc189276f35bb04c9438f9aedbd1;salsa-%commit%'
+	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;309c249088fdeef0129606fa34ec2eefc74736ff;salsa-%commit%/components/salsa-macro-rules'
+	[salsa-macros]='https://github.com/salsa-rs/salsa;309c249088fdeef0129606fa34ec2eefc74736ff;salsa-%commit%/components/salsa-macros'
+	[salsa]='https://github.com/salsa-rs/salsa;309c249088fdeef0129606fa34ec2eefc74736ff;salsa-%commit%'
 )
 
-RUST_MIN_VER="1.89.0"
+RUST_MIN_VER="1.90.0"
 
 inherit shell-completion cargo
 
@@ -37,7 +37,7 @@ LICENSE+="
 	Unicode-DFS-2016 WTFPL-2 ZLIB
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~loong ~riscv"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv"
 
 RDEPEND="
 	!elibc_musl? ( !elibc_Darwin? ( !elibc_bionic? ( dev-libs/jemalloc:= ) ) )
@@ -67,7 +67,7 @@ src_prepare() {
 	# smaller CRATES= variables. Less for the user to download, fewer distfiles
 	# to mirror.
 	pushd crates >/dev/null || die
-	rm -r ruff_{benchmark,dev} ty{,_{ide,project,server,completion_eval,combine}} *_wasm || die
+	rm -r ruff_{benchmark,dev} ty{,_{ide,project,server,completion_eval}} *_wasm || die
 	popd > /dev/null || die
 
 	# tests that hang in the ebuild environment
@@ -92,6 +92,7 @@ src_compile() {
 	releasedir=$(cargo_target_dir)
 
 	${releasedir}/ruff generate-shell-completion bash > ruff-completion.bash || die
+	${releasedir}/ruff generate-shell-completion fish > ruff-completion.fish || die
 	${releasedir}/ruff generate-shell-completion zsh > ruff-completion.zsh || die
 }
 
@@ -111,6 +112,7 @@ src_install() {
 	dobin ${releasedir}/ruff
 
 	newbashcomp ruff-completion.bash ruff
+	newfishcomp ruff-completion.fish ruff.fish
 	newzshcomp ruff-completion.zsh _ruff
 
 	dodoc -r "${DOCS[@]}"

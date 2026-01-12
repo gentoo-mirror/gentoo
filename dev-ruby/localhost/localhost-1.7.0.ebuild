@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33"
+USE_RUBY="ruby32 ruby33 ruby34"
 
-RUBY_FAKEGEM_EXTRADOC="readme.md"
+RUBY_FAKEGEM_EXTRADOC="readme.md releases.md"
 RUBY_FAKEGEM_GEMSPEC="localhost.gemspec"
 RUBY_FAKEGEM_RECIPE_TEST="sus"
 
@@ -17,12 +17,11 @@ SRC_URI="https://github.com/socketry/localhost/archive/v${PV}.tar.gz -> ${P}.tar
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 ruby_add_bdepend "
 	test? (
-		dev-ruby/async-io
-		dev-ruby/async-process
+		dev-ruby/io-endpoint
 		dev-ruby/sus-fixtures-async
 	)
 "
@@ -30,6 +29,9 @@ ruby_add_bdepend "
 all_ruby_prepare() {
 	sed -i -e 's:_relative ": "./:' ${RUBY_FAKEGEM_GEMSPEC} || die
 	sed -i -e '/covered/Id' config/sus.rb || die
+
+	sed -e "s:/tmp/state:${TMP}/state:" \
+		-i test/localhost/state.rb || die
 
 	# Avoid unpackaged sus-fixtures-async-http which has a huge dependency tree.
 	rm -f test/localhost/protocol.rb || die
