@@ -1,12 +1,13 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-HASH_SPIRV="01e0577914a75a2569c846778c2f93aa8e6feddd"
+# spirv-headers-tag.conf
+HASH_SPIRV="9268f3057354a2cb65991ba5f38b16d81e803692"
 LLVM_COMPAT=( 22 )
 MY_PN="SPIRV-LLVM-Translator"
-EGIT_COMMIT=8ef804541897a80384ae8aaaf0265ef014d0d747
+EGIT_COMMIT=f821423888319dd2f0c436fc9ab86c798ac48ba1
 MY_P=${MY_PN}-${EGIT_COMMIT}
 
 inherit cmake-multilib flag-o-matic llvm-r2 multiprocessing
