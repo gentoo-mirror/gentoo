@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ if [[ -z ${PV%%*9999} ]]; then
 else
 	MY_P="${P/_/.}"
 	SRC_URI="https://downloads.sourceforge.net/gnuplot/${MY_P}.tar.gz"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
 fi
 
 S="${WORKDIR}/${MY_P}"
@@ -29,9 +29,7 @@ LICENSE="gnuplot"
 SLOT="0"
 IUSE="amos aqua bitmap cairo doc examples +gd gpic latex libcaca libcerf lua metafont metapost qt6 readline regis tgif wxwidgets X"
 
-REQUIRED_USE="
-	doc? ( gd )
-	lua? ( ${LUA_REQUIRED_USE} )"
+REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 
 RDEPEND="
 	amos? ( dev-libs/openspecfun )
@@ -123,37 +121,46 @@ src_configure() {
 	tc-export_build_env BUILD_CC
 	export CC_FOR_BUILD=${BUILD_CC}
 
-	econf \
-		--with-texdir="${TEXMF}/tex/latex/${PN}" \
-		--with-readline=$(usex readline gnu builtin) \
-		$(use_with amos) \
-		$(use_with bitmap bitmap-terminals) \
-		$(use_with cairo) \
-		$(use_with gd) \
-		$(use_with gpic) \
-		"$(use_with libcaca caca "${EPREFIX}/usr/$(get_libdir)")" \
-		$(use_with libcerf) \
-		$(use_with lua) \
-		$(use_with metafont) \
-		$(use_with metapost) \
-		$(use_with qt6 qt qt6) \
-		$(use_with regis) \
-		$(use_with tgif) \
-		$(use_with X x) \
-		--enable-stats \
-		$(use_enable wxwidgets) \
-		DIST_CONTACT="https://bugs.gentoo.org/" \
+	local myconf=(
+		--with-texdir="${TEXMF}/tex/latex/${PN}"
+		--with-readline=$(usex readline gnu builtin)
+		$(use_with amos)
+		$(use_with bitmap bitmap-terminals)
+		$(use_with cairo)
+		$(use_with gd)
+		$(use_with gpic)
+		"$(use_with libcaca caca "${EPREFIX}/usr/$(get_libdir)")"
+		$(use_with libcerf)
+		$(use_with lua)
+		$(use_with metafont)
+		$(use_with metapost)
+		$(use_with qt6 qt qt6)
+		$(use_with regis)
+		$(use_with tgif)
+		$(use_with X x)
+		--enable-stats
+		$(use_enable wxwidgets)
+		DIST_CONTACT="https://bugs.gentoo.org/"
 		EMACS=no
+		# pdflatex fails in titlepag.tex: "Argument of Â has an extra }."
+		# Work around this by using lualatex to build the user manual,
+		# see release notes of gnuplot-6.0.3
+		PDFLATEX=lualatex
+	)
+
+	econf "${myconf[@]}"
 }
 
 src_compile() {
-	# Prevent access violations, see bug 201871
-	export VARTEXFONTS="${T}/fonts"
+	# Prevent access violations #201871
+	local -x VARTEXFONTS="${T}/fonts"
+	# Work around luatex braindamage #950021
+	local -x TEXMFCACHE="${T}/texmf-var" TEXMFVAR="${T}/texmf-var"
 
 	emake all
 
-	# pdflatex fails in titlepag.tex: "Argument of Â has an extra }."
-	# Install the pre-built gnuplot.pdf instead.
+	# Building the documentation is broken for some configurations.
+	# Install the pre-built gnuplot.pdf instead. #577828 #689894 #960528
 	#if use doc; then
 	#	if use cairo; then
 	#		emake -C docs pdf
