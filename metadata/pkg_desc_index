@@ -2563,7 +2563,7 @@ app-i18n/librime 1.13.1 1.14.0 1.15.0: RIME (Rime Input Method Engine) core libr
 app-i18n/librime-lua 20240819212322-r1 99999999999999: Lua module for RIME
 app-i18n/libskk 1.0.5_p20210830: GObject-based library to deal with Japanese kana-to-kanji conversion method
 app-i18n/man-pages-ja 20180315-r2: Collection of manual pages translated into Japanese
-app-i18n/man-pages-l10n 4.27.0-r1 4.28.0: A somewhat comprehensive collection of man page translations
+app-i18n/man-pages-l10n 4.27.0-r1 4.28.0 4.29.1: A somewhat comprehensive collection of man page translations
 app-i18n/man-pages-ru 5.03.2390.2390.20191017-r1: A collection of Russian translations of Linux manual pages
 app-i18n/man-pages-zh_CN 1.6.4.2: A somewhat comprehensive collection of Chinese Linux man pages
 app-i18n/mecab-skkserv 0.03-r1: mecab-skkserv is a Kana-Kanji conversion server using MeCab
@@ -3916,7 +3916,7 @@ dev-cpp/highway 1.2.0 1.3.0 9999: Performance-portable, length-agnostic SIMD wit
 dev-cpp/htmlcxx 0.87: A simple non-validating CSS 1 and HTML parser for C++
 dev-cpp/json11 1.0.0-r1: A tiny JSON library for C++11
 dev-cpp/jsoncons 1.4.3 1.5.0: C++ header-only library for JSON and JSON-like data formats
-dev-cpp/jwt-cpp 0.6.0: header only library for creating and validating JSON Web Tokens in C++11
+dev-cpp/jwt-cpp 0.6.0 0.7.1: header only library for creating and validating JSON Web Tokens in C++11
 dev-cpp/kokkos 4.0.1-r1 4.3.1-r1 4.6.2-r1 4.6.2-r2 9999: C++ Performance Portability Programming EcoSystem
 dev-cpp/libcmis 0.6.2-r2 9999: C++ client library for the CMIS interface
 dev-cpp/libjson-rpc-cpp 1.4.0 1.4.0-r1: JSON-RPC (1.0 & 2.0) framework for C++
@@ -3944,7 +3944,7 @@ dev-cpp/range-v3 0.12.0 0.12.0-r1: Range library for C++14/17/20, basis for C++2
 dev-cpp/rapidfuzz-cpp 3.3.3: Rapid fuzzy string matching in C++
 dev-cpp/rapidyaml 0.9.0 0.10.0: Library to parse and emit YAML, and do it fast
 dev-cpp/robin-map 1.3.0 1.4.0-r1 9999: C++ fast hash map and hash set using robin hood hashing
-dev-cpp/scitokens-cpp 1.1.0-r1 1.1.1 1.1.2 1.1.3: C++ implementation of the SciTokens library with a C library interface
+dev-cpp/scitokens-cpp 1.1.0-r1 1.1.1 1.1.2 1.1.3 1.2.0: C++ implementation of the SciTokens library with a C library interface
 dev-cpp/sdbus-c++ 2.1.0: High-level C++ D-Bus library
 dev-cpp/simdutf 7.3.4 7.7.0 7.7.1: Unicode validation and transcoding at billions of characters per second
 dev-cpp/simpleini 4.22-r1 4.25: C++ library providing a simple API to read and write INI-style files
@@ -11019,7 +11019,7 @@ dev-util/patchelf 0.17.2-r1 0.18.0: Small utility to modify the dynamic linker a
 dev-util/patchutils 0.4.2 0.4.4-r1: Collection of tools that operate on patch files
 dev-util/patdiff 0.16.0 0.17.0: Colored patience diffs with word-level refinement
 dev-util/peg 0.1.19 0.1.20: Recursive-descent parser generators for C
-dev-util/perf 6.14 6.16 6.16-r1 6.17 6.18-r1: Userland tools for Linux Performance Counters
+dev-util/perf 6.14 6.16 6.16-r1 6.17 6.18-r1 6.18.5: Userland tools for Linux Performance Counters
 dev-util/pixi 0.62.1 0.62.2: A package management and workflow tool
 dev-util/pkgcheck 0.10.37-r1 0.10.39 9999: pkgcore-based QA utility for ebuild repos
 dev-util/pkgconf 2.3.0 2.4.3 2.5.1 9999: pkg-config compatible replacement with no dependencies other than C99
@@ -16493,7 +16493,7 @@ sci-physics/fastjet 3.4.3 3.5.1 3.5.1-r2 9999: A software package for jet findin
 sci-physics/fastjet-contrib 1.053 1.055 1.100-r1 1.101-r1 1.101-r2 9999: 3rd party extensions of FastJet.
 sci-physics/geant 4.11.3.2-r2 4.11.4.0: Toolkit for simulation of passage of particles through matter
 sci-physics/geant-data 4.11.3 4.11.4: Data files for Geant4 physical processes
-sci-physics/geant4_vmc 6.3_p2-r1 6.5 6.6_p1 6.7 9999: Virtual Monte Carlo Geant4 implementation
+sci-physics/geant4_vmc 6.6_p1 6.7 6.7_p1 9999: Virtual Monte Carlo Geant4 implementation
 sci-physics/hepmc 2.06.11 3.2.7 3.3.1 9999: Event Record for Monte Carlo Generators
 sci-physics/heppdt 3.04.01-r2: Data about each particle from the Review of Particle Properties
 sci-physics/herwig 6.5.21-r2: High Energy Physics Event Generator
@@ -16503,10 +16503,10 @@ sci-physics/looptools 2.15 2.15-r1 2.16: Tools for evaluation of scalar and tens
 sci-physics/pythia 8.3.16-r1 9999: Lund Monte Carlo high-energy physics event generator
 sci-physics/reduze 2.4-r1: Program for reducing Feynman integrals
 sci-physics/rivet 3.1.11-r1 4.1.2 9999: Robust Independent Validation of Experiment and Theory toolkit
-sci-physics/root 6.34.10 6.34.9999 6.36.04 6.36.9999 6.38.00 9999: C++ data analysis framework and interpreter from CERN
+sci-physics/root 6.36.06 6.36.9999 6.38.00 9999: C++ data analysis framework and interpreter from CERN
 sci-physics/siscone 3.0.6 3.1.0 3.1.2 3.1.2-r1 9999: Hadron Seedless Infrared-Safe Cone jet algorithm
 sci-physics/thepeg 2.2.3-r3 2.3.0-r4: Toolkit for High Energy Physics Event Generation
-sci-physics/vgm 5.2-r1 9999: Virtual Geometry Model for High Energy Physics Experiments
+sci-physics/vgm 5.2-r1 5.4 9999: Virtual Geometry Model for High Energy Physics Experiments
 sci-physics/vmc 1.1_p1-r1 2.0-r1 2.1 9999: The Virtual Monte Carlo core library
 sci-physics/xfoil 6.99-r1: Design and analysis of subsonic isolated airfoils
 sci-physics/yoda 1.9.10 2.1.2 9999: Yet more Objects for (High Energy Physics) Data Analysis
@@ -16519,7 +16519,7 @@ sci-visualization/g3data 1.5.4: Tool for extracting data from graphs
 sci-visualization/gcalc 3.1_rc1-r4: Java Mathematical Graphing System
 sci-visualization/ggobi 2.1.11-r1 2.1.12-r1: Visualization program for exploring high-dimensional data
 sci-visualization/gle 4.3.8-r1: Graphics Layout Engine
-sci-visualization/gnuplot 5.4.10-r2 6.0.2-r2 6.0.3 6.1.9999: Command-line driven interactive plotting program
+sci-visualization/gnuplot 5.4.10-r2 6.0.3 6.0.4 6.1.9999: Command-line driven interactive plotting program
 sci-visualization/gr 0.73.6-r1: Universal framework for cross-platform visualization applications
 sci-visualization/grace 5.1.25_p17 5.1.25_p18: Motif based XY-plotting tool
 sci-visualization/gwyddion 2.67-r1 2.69: Framework for Scanning Mode Microscopy data analysis
