@@ -922,7 +922,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0 1.2.764.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.43.10 1.43.15 1.44.4 1.44.7 1.44.11 1.44.13 1.44.14 1.44.15: Universal Command Line Environment for AWS
+app-admin/awscli 1.43.10 1.43.15 1.44.4 1.44.7 1.44.11 1.44.13 1.44.14 1.44.15 1.44.16: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.10.0 2025.12.0: Bitwarden password manager desktop client
@@ -8218,8 +8218,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.41.5 1.42.4 1.42.9 1.42.14 1.42.17 1.42.21 1.42.22 1.42.23 1.42.24 1.42.25: The AWS SDK for Python
-dev-python/botocore 1.41.5 1.42.4 1.42.9 1.42.14 1.42.17 1.42.21 1.42.22 1.42.23 1.42.24 1.42.25: Low-level, data-driven core of boto 3
+dev-python/boto3 1.41.5 1.42.4 1.42.9 1.42.14 1.42.17 1.42.21 1.42.22 1.42.23 1.42.24 1.42.25 1.42.26: The AWS SDK for Python
+dev-python/botocore 1.41.5 1.42.4 1.42.9 1.42.14 1.42.17 1.42.21 1.42.22 1.42.23 1.42.24 1.42.25 1.42.26: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8582,7 +8582,7 @@ dev-python/hypothesis 6.147.0 6.148.5 6.148.7 6.148.8 6.148.9 6.148.11 6.148.12 
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 6.3.1 6.3.2: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
-dev-python/identify 2.6.14 2.6.15: File identification library for Python
+dev-python/identify 2.6.14 2.6.15 2.6.16: File identification library for Python
 dev-python/idna 3.10 3.11: Internationalized Domain Names in Applications (IDNA)
 dev-python/ifaddr 0.2.0: Enumerate IP addresses on the local network adapters
 dev-python/ijson 3.4.0: Iterative JSON parser with a Pythonic interface
@@ -8632,7 +8632,7 @@ dev-python/jack-client 0.5.5: JACK Audio Connection Kit client for Python
 dev-python/jaconv 0.4.0 0.4.1: Pure-Python Japanese character interconverter
 dev-python/jaraco-classes 3.4.0: Classes used by other projects by developer jaraco
 dev-python/jaraco-collections 5.2.1: Models and classes to supplement the stdlib collections module
-dev-python/jaraco-context 6.0.1-r1 6.0.2: Context managers by jaraco
+dev-python/jaraco-context 6.0.1-r1 6.0.2 6.1.0: Context managers by jaraco
 dev-python/jaraco-envs 2.6.0: Classes for orchestrating Python (virtual) environments
 dev-python/jaraco-functools 4.3.0 4.4.0: Additional functions used by other projects by developer jaraco
 dev-python/jaraco-itertools 6.4.3: Tools for working with iterables. Complements itertools and more_itertools
@@ -8687,7 +8687,7 @@ dev-python/jupyter-server 2.17.0 2.17.0-r1: Core services, APIs, and REST endpoi
 dev-python/jupyter-server-mathjax 0.2.6 0.2.6-r1: MathJax resources as a Jupyter Server Extension
 dev-python/jupyter-server-proxy 4.4.0: Jupyter notebook server extension to proxy web services
 dev-python/jupyter-server-terminals 0.5.3 0.5.3-r1: A Jupyter Server Extension Providing Terminals
-dev-python/jupyterlab 4.3.7 4.4.9 4.4.10 4.5.0 4.5.1 4.5.2: JupyterLab computational environment
+dev-python/jupyterlab 4.4.10 4.5.0 4.5.1 4.5.2: JupyterLab computational environment
 dev-python/jupyterlab-lsp 5.1.0: Coding assistance for JupyterLab with Language Server Protocol
 dev-python/jupyterlab-pygments 0.3.0: Pygments theme making use of JupyterLab CSS variables
 dev-python/jupyterlab-server 2.27.3 2.28.0: Server components for JupyterLab and JupyterLab like applications
@@ -8878,7 +8878,7 @@ dev-python/node-semver 0.9.0: Python version of node-semver, the semantic versio
 dev-python/nodeenv 1.9.1 1.10.0: Node.js virtual environment builder
 dev-python/noiseprotocol 0.3.1: Implementation of Noise Protocol Framework. Compatible with revisions 32 and 33.
 dev-python/nose2 0.15.1: Unittest with plugins
-dev-python/notebook 7.3.3 7.4.7 7.5.0 7.5.1 7.5.2: Jupyter Interactive Notebook
+dev-python/notebook 7.4.7 7.5.0 7.5.1 7.5.2: Jupyter Interactive Notebook
 dev-python/notebook-shim 0.2.4: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nox 2025.10.16 2025.11.12: Flexible test automation for Python
@@ -8928,7 +8928,7 @@ dev-python/outputcheck 0.4.2-r2: A tool for checking the output of console progr
 dev-python/overrides 7.7.0-r1: A decorator to automatically detect mismatch when overriding a method.
 dev-python/ovs 2.17.1_p1 2.17.9 2.17.12 3.6.0: OVS bindings for python
 dev-python/owslib 0.34.1 0.35.0: Library for client programming with Open Geospatial Consortium web service
-dev-python/packaging 25.0 26.0_rc1: Core utilities for Python packages
+dev-python/packaging 25.0 26.0_rc1 26.0_rc2: Core utilities for Python packages
 dev-python/paginate 0.5.7: Divides large result sets into pages for easier browsing
 dev-python/paho-mqtt 2.1.0: MQTT version 5.0/3.1.1 client class
 dev-python/pallets-sphinx-themes 2.3.0: Sphinx themes for Pallets and related projects
@@ -9020,7 +9020,7 @@ dev-python/priority 1.3.0-r1 2.0.0-r1: A pure-Python implementation of the HTTP/
 dev-python/process-tests 3.0.0: Tools for testing processes
 dev-python/progress 1.6.1: Easy to use progress bars
 dev-python/progressbar2 4.5.0: Text progressbar library for python
-dev-python/prometheus-client 0.22.1 0.23.0 0.23.1: Python client for the Prometheus monitoring system
+dev-python/prometheus-client 0.23.1 0.24.0: Python client for the Prometheus monitoring system
 dev-python/prompt-toolkit 3.0.51 3.0.52: Building powerful interactive command lines in Python
 dev-python/propcache 0.3.2 0.4.0 0.4.1: Accelerated property cache
 dev-python/proto-plus 1.26.1-r1 1.27.0: Beautiful, Pythonic protocol buffers
@@ -9543,7 +9543,7 @@ dev-python/sphinx-panels 0.6.0-r1: A sphinx extension for creating panels in a g
 dev-python/sphinx-press-theme 0.9.1: A Sphinx-doc theme based on Vuepress
 dev-python/sphinx-prompt 1.10.1-r1 1.10.2: Sphinx directive to add unselectable prompt
 dev-python/sphinx-pytest 0.2.0: Helpful pytest fixtures for Sphinx extensions
-dev-python/sphinx-rtd-theme 3.0.2: ReadTheDocs.org theme for Sphinx
+dev-python/sphinx-rtd-theme 3.0.2 3.1.0: ReadTheDocs.org theme for Sphinx
 dev-python/sphinx-selective-exclude 1.0.3-r2: Sphinx selective rendition extensions
 dev-python/sphinx-tabs 3.4.7-r1 3.4.7-r2: Tabbed views for Sphinx
 dev-python/sphinxcontrib-apidoc 0.6.0: Sphinx extension for running sphinx-apidoc on each build
@@ -9649,7 +9649,7 @@ dev-python/tokenize-rt 6.2.0: A wrapper around the stdlib 'tokenize' which round
 dev-python/toml-fmt-common 1.0.1 1.1.0: Common logic to the TOML formatter
 dev-python/tomli 2.3.0 2.4.0: A lil' TOML parser
 dev-python/tomli-w 1.2.0: A lil' TOML writer
-dev-python/tomlkit 0.13.3: Style preserving TOML library
+dev-python/tomlkit 0.13.3 0.14.0: Style preserving TOML library
 dev-python/toolz 1.0.0 1.0.0-r1 1.1.0: List processing tools and functional utilities
 dev-python/toposort 1.10: Implements a topological sort algorithm
 dev-python/tornado 6.5.2 6.5.3 6.5.4: Python web framework and asynchronous networking library
@@ -9666,7 +9666,7 @@ dev-python/treq 25.5.0: A requests-like API built on top of twisted.web's Agent
 dev-python/trimesh 4.10.0 4.10.1 4.11.0: Python library for loading and using triangular meshes
 dev-python/trio 0.31.0 0.32.0: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.12.2: WebSocket client and server implementation for Python Trio
-dev-python/trove-classifiers 2025.9.11.17 2025.11.14.15 2025.12.1.14 2026.1.12.15: Canonical source for classifiers on PyPI (pypi.org)
+dev-python/trove-classifiers 2025.11.14.15 2025.12.1.14 2026.1.12.15: Canonical source for classifiers on PyPI (pypi.org)
 dev-python/trustme 1.2.1: #1 quality TLS certs while you wait, for the discerning tester
 dev-python/truststore 0.10.1 0.10.3 0.10.4: Verify certificates using native system trust stores
 dev-python/tubes 0.2.1: Flow control and backpressure for event-driven applications
@@ -17714,8 +17714,8 @@ sys-kernel/dkms 3.2.2 3.3.0 9999: Dynamic Kernel Module Support
 sys-kernel/dracut 106-r2 108-r4 109 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.8-r1: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 4.3.16-r2 4.3.16-r3 4.3.16-r4 4.3.16-r5 4.3.17 4.3.17-r1 4.3.17-r3 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.247 5.15.197 6.1.159 6.6.119 6.12.63 6.12.64 6.18.4: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.247 5.15.197 6.1.159 6.6.119 6.12.63 6.12.64 6.18.4: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.247 5.15.197 6.1.159 6.6.119 6.6.120 6.12.63 6.12.64 6.12.65 6.18.4 6.18.5: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.247 5.15.197 6.1.159 6.6.119 6.6.120 6.12.63 6.12.64 6.12.65 6.18.4 6.18.5: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.242 5.10.243 5.10.244 5.10.245 5.10.246 5.10.247 5.15.191 5.15.192 5.15.193 5.15.194 5.15.195 5.15.196 5.15.197 6.1.153 6.1.154 6.1.155 6.1.156 6.1.157 6.1.158 6.1.159 6.6.111 6.6.112 6.6.113 6.6.114 6.6.115 6.6.116 6.6.117 6.6.118 6.6.119 6.12.54 6.12.55 6.12.56 6.12.57 6.12.58 6.12.59 6.12.60 6.12.61 6.12.62 6.12.63 6.12.64 6.17.5-r1 6.17.6 6.17.7 6.17.8 6.17.9 6.17.10 6.17.11 6.17.12 6.17.13 6.18.0 6.18.1 6.18.2 6.18.2-r1 6.18.3 6.18.4: Full sources including the Gentoo patchset for the 6.18 kernel tree
 sys-kernel/git-sources 6.19_rc1 6.19_rc2 6.19_rc3 6.19_rc4 6.19_rc5: The very latest -git version of the Linux kernel
 sys-kernel/installkernel 60 63 65 9999: Gentoo fork of installkernel script from debianutils
@@ -17736,7 +17736,7 @@ sys-kernel/scx 1.0.15 1.0.16 1.0.18 1.0.19: sched_ext schedulers and tools
 sys-kernel/scx-loader 1.0.18 1.0.19: DBUS on-demand loader of sched-ext schedulers
 sys-kernel/udev-hid-bpf 2.2.0_p20251121: Automatic HID-BPF loader based on udev events for device workarounds
 sys-kernel/ugrd 1.27.2 1.28.2 1.29.0-r1 1.31.2 2.0.2 9999: Python based POSIX initramfs generator with TOML definitions
-sys-kernel/vanilla-kernel 5.10.247 5.10.9999 5.15.197 5.15.9999 6.1.159 6.1.9999 6.6.119 6.6.9999 6.12.63 6.12.64 6.12.9999 6.18.4: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.247 5.10.9999 5.15.197 5.15.9999 6.1.159 6.1.9999 6.6.119 6.6.120 6.6.9999 6.12.63 6.12.64 6.12.65 6.12.9999 6.18.4 6.18.5: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 5.4.302 5.10.247 5.15.197 6.1.159 6.6.119 6.12.64 6.16.12 6.17.13 6.18.4: Full sources for the Linux kernel
 sys-kernel/virtme-ng 1.36 1.38: Quickly build and run kernels inside a virtualized snapshot of your live system
 sys-kernel/zen-sources 6.18.2 6.18.3: The Zen Kernel Live Sources
@@ -17922,7 +17922,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.247 5.15.197 6.1.159 6.6.119 6.12.63 6.12.64 6.18.4: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.247 5.15.197 6.1.159 6.6.119 6.6.120 6.12.63 6.12.64 6.12.65 6.18.4 6.18.5: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0 9.0 10.0: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
