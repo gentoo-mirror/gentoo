@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.rabbitmq.com/
 INHERIT=python-single-r1 systemd
 IUSE=python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=MPL-2.0
 RDEPEND=acct-group/rabbitmq acct-user/rabbitmq >=dev-lang/erlang-26.0[ssl] <dev-lang/erlang-28 python_single_target_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_single_target_python3_12? ( dev-lang/python:3.12[xml(+)] ) python_single_target_python3_13? ( dev-lang/python:3.13[xml(+)] ) python_single_target_python3_14? ( dev-lang/python:3.14[xml(+)] )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.2.1/rabbitmq-server-4.2.1.tar.xz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=20557ae95cfd9fc63868d5b9c15ba79f
+_md5_=c83a8c1afbb9314f40888398661773bc
