@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 MODULES_OPTIONAL_IUSE=+modules
-inherit desktop dot-a eapi9-pipestatus eapi9-ver flag-o-matic linux-mod-r1
+inherit desktop dot-a eapi9-pipestatus flag-o-matic linux-mod-r1
 inherit readme.gentoo-r1 systemd toolchain-funcs unpacker user-info
 
 MODULES_KERNEL_MAX=6.18
@@ -27,9 +27,9 @@ LICENSE="
 	curl openssl public-domain
 "
 SLOT="0/${PV%%.*}"
-# kept unkeyworded due to being a beta, users are free to opt-in for testing
-#KEYWORDS="-* ~amd64 ~arm64"
-IUSE="+X abi_x86_32 abi_x86_64 persistenced powerd +static-libs +tools wayland"
+KEYWORDS="-* ~amd64 ~arm64"
+IUSE="+X abi_x86_32 abi_x86_64 kernel-open persistenced powerd +static-libs +tools wayland"
+REQUIRED_USE="kernel-open? ( modules )"
 
 COMMON_DEPEND="
 	acct-group/video
@@ -52,9 +52,6 @@ COMMON_DEPEND="
 		x11-libs/pango
 	)
 "
-# egl-wayland2: nvidia currently ships both versions so, to ensure
-# everything works properly, depend on both at same time for now
-# (may use one or the other depending on setup)
 RDEPEND="
 	${COMMON_DEPEND}
 	dev-libs/openssl:0/3
@@ -67,8 +64,10 @@ RDEPEND="
 	powerd? ( sys-apps/dbus[abi_x86_32(-)?] )
 	wayland? (
 		>=gui-libs/egl-gbm-1.1.1-r2[abi_x86_32(-)?]
-		>=gui-libs/egl-wayland-1.1.13.1[abi_x86_32(-)?]
-		gui-libs/egl-wayland2[abi_x86_32(-)?]
+		|| (
+			>=gui-libs/egl-wayland-1.1.13.1[abi_x86_32(-)?]
+			gui-libs/egl-wayland2[abi_x86_32(-)?]
+		)
 		X? ( gui-libs/egl-x11[abi_x86_32(-)?] )
 	)
 "
@@ -111,7 +110,6 @@ pkg_setup() {
 	require_configured_kernel
 
 	local CONFIG_CHECK="
-		MMU_NOTIFIER
 		PROC_FS
 		~DRM_KMS_HELPER
 		~DRM_FBDEV_EMULATION
@@ -128,21 +126,22 @@ pkg_setup() {
 
 	use amd64 && kernel_is -ge 5 8 && CONFIG_CHECK+=" X86_PAT" #817764
 
+	use kernel-open && CONFIG_CHECK+=" MMU_NOTIFIER" #843827
+
 	local drm_helper_msg="Cannot be directly selected in the kernel's config menus, and may need
 	selection of a DRM device even if unused, e.g. CONFIG_DRM_QXL=m or
 	DRM_AMDGPU=m (among others, consult the kernel config's help), can
 	also use DRM_NOUVEAU=m as long as built as module *not* built-in."
-	local ERROR_DRM_KMS_HELPER="CONFIG_DRM_KMS_HELPER: is not set but is needed for nvidia-drm.modeset=1
-	support (see ${EPREFIX}/etc/modprobe.d/nvidia.conf) which is needed for wayland
-	and for config-less Xorg auto-detection.
+	local ERROR_DRM_KMS_HELPER="CONFIG_DRM_KMS_HELPER: is not set but needed for Xorg auto-detection
+	of drivers (no custom config), and for wayland / nvidia-drm.modeset=1.
 	${drm_helper_msg}"
 	local ERROR_DRM_TTM_HELPER="CONFIG_DRM_TTM_HELPER: is not set but is needed to compile when using
 	kernel version 6.11.x or newer while DRM_FBDEV_EMULATION is set.
 	${drm_helper_msg}"
 	local ERROR_DRM_FBDEV_EMULATION="CONFIG_DRM_FBDEV_EMULATION: is not set but is needed for
-	nvidia-drm.fbdev=1 support (see ${EPREFIX}/etc/modprobe.d/nvidia.conf), may
-	result in a blank console/tty."
-	local ERROR_MMU_NOTIFIER="CONFIG_MMU_NOTIFIER: is not set but is required for compilation.
+	nvidia-drm.fbdev=1 support, currently off-by-default and it could
+	be ignored, but note that is due to change in the future."
+	local ERROR_MMU_NOTIFIER="CONFIG_MMU_NOTIFIER: is not set but needed to build with USE=kernel-open.
 	Cannot be directly selected in the kernel's menuconfig, and may need
 	selection of another option that requires it such as CONFIG_AMD_IOMMU=y,
 	or DRM_I915=m (among others, consult the kernel config's help)."
@@ -164,12 +163,20 @@ src_prepare() {
 
 	default
 
+	# prevent detection of incomplete kernel DRM support (bug #603818)
+	sed 's/defined(CONFIG_DRM/defined(CONFIG_DRM_KMS_HELPER/g' \
+		-i kernel{,-module-source/kernel-open}/conftest.sh || die
+
 	sed 's/__USER__/nvpd/' \
 		nvidia-persistenced/init/systemd/nvidia-persistenced.service.template \
 		> "${T}"/nvidia-persistenced.service || die
 
 	# use alternative vulkan icd option if USE=-X (bug #909181)
 	use X || sed -i 's/"libGLX/"libEGL/' nvidia_{layers,icd}.json || die
+
+	# enable nvidia-drm.modeset=1 by default with USE=wayland
+	cp "${FILESDIR}"/nvidia-570.conf "${T}"/nvidia.conf || die
+	use !wayland || sed -i '/^#.*modeset=1$/s/^#//' "${T}"/nvidia.conf || die
 
 	# makefile attempts to install wayland library even if not built
 	use wayland || sed -i 's/ WAYLAND_LIB_install$//' \
@@ -197,15 +204,20 @@ src_compile() {
 	if use modules; then
 		local o_cflags=${CFLAGS} o_cxxflags=${CXXFLAGS} o_ldflags=${LDFLAGS}
 
-		# environment flags are normally unused for modules, but nvidia uses
-		# them for building the formerly closed "blob" and it is a bit fragile
-		filter-flags -fno-plt #912949
-		filter-lto
-		CC=${KERNEL_CC} CXX=${KERNEL_CXX} strip-unsupported-flags
-		LDFLAGS=$(raw-ldflags)
+		local modlistargs=video:kernel
+		if use kernel-open; then
+			modlistargs+=-module-source:kernel-module-source/kernel-open
 
-		: video:kernel-module-source:kernel-module-source/kernel-open
-		local modlist=( nvidia{,-drm,-modeset,-peermem,-uvm}=${_} )
+			# environment flags are normally unused for modules, but nvidia
+			# uses it for building the "blob" and it is a bit fragile
+			filter-flags -fno-plt #912949
+			filter-lto
+			CC=${KERNEL_CC} CXX=${KERNEL_CXX} strip-unsupported-flags
+
+			LDFLAGS=$(raw-ldflags)
+		fi
+
+		local modlist=( nvidia{,-drm,-modeset,-peermem,-uvm}=${modlistargs} )
 		local modargs=(
 			IGNORE_CC_MISMATCH=yes NV_VERBOSE=1
 			SYSOUT="${KV_OUT_DIR}" SYSSRC="${KV_DIR}"
@@ -267,7 +279,6 @@ src_install() {
 		libnvidia-{gtk,wayland-client} nvidia-{settings,xconfig} # from source
 		libnvidia-egl-gbm 15_nvidia_gbm # gui-libs/egl-gbm
 		libnvidia-egl-wayland 10_nvidia_wayland # gui-libs/egl-wayland
-		libnvidia-egl-wayland2 99_nvidia_wayland2 # gui-libs/egl-wayland2
 		libnvidia-egl-xcb 20_nvidia_xcb.json # gui-libs/egl-x11
 		libnvidia-egl-xlib 20_nvidia_xlib.json # gui-libs/egl-x11
 		libnvidia-pkcs11.so # using the openssl3 version instead
@@ -315,6 +326,12 @@ $(use amd64 && usev !abi_x86_32 "
 Note that without USE=abi_x86_32 on ${PN}, 32bit applications
 (typically using wine / steam) will not be able to use GPU acceleration.")
 
+Be warned that USE=kernel-open may need to be either enabled or
+disabled for certain cards to function:
+- GTX 50xx (blackwell) and higher require it to be enabled
+- GTX 1650 and higher (pre-blackwell) should work either way
+- Older cards require it to be disabled
+
 For additional information or for troubleshooting issues, please see
 https://wiki.gentoo.org/wiki/NVIDIA/nvidia-drivers and NVIDIA's own
 documentation that is installed alongside this README."
@@ -324,7 +341,7 @@ documentation that is installed alongside this README."
 		linux-mod-r1_src_install
 
 		insinto /etc/modprobe.d
-		newins "${FILESDIR}"/nvidia-590.conf nvidia.conf
+		doins "${T}"/nvidia.conf
 
 		# used for gpu verification with binpkgs (not kept, see pkg_preinst)
 		insinto /usr/share/nvidia
@@ -493,6 +510,9 @@ documentation that is installed alongside this README."
 }
 
 pkg_preinst() {
+	has_version "${CATEGORY}/${PN}[kernel-open]" && NV_HAD_KERNEL_OPEN=
+	has_version "${CATEGORY}/${PN}[wayland]" && NV_HAD_WAYLAND=
+
 	use modules || return
 
 	# set video group id based on live system (bug #491414)
@@ -553,15 +573,15 @@ pkg_postinst() {
 		ewarn "[2] https://wiki.gentoo.org/wiki/Nouveau"
 	fi
 
-	if ver_replacing -lt 590; then
-		elog "\n>=${PN}-590 has changes that may or may not need attention:"
-		elog "1. support for Pascal, Maxwell, and Volta cards has been dropped"
-		elog "  (if affected, there should be a another message about this above)"
-		elog "2. kernel-open USE is gone and the open source variant is *always* used"
-		elog "  (no longer possible to disable GSP with NVreg_EnableGpuFirmware=0)"
-		elog "3. nvidia-drm.modeset=1 is now default regardless of USE=wayland"
-		elog "4. nvidia-drm.fbdev=1 is now also tentatively default to match upstream"
-		elog "See ${EROOT}/etc/modprobe.d/nvidia.conf to modify settings if needed,"
-		elog "fbdev=1 *could* cause issues for the console display with some setups."
+	if use kernel-open && [[ ! -v NV_HAD_KERNEL_OPEN ]]; then
+		ewarn "\nOpen source variant of ${PN} was selected, note that it requires"
+		ewarn "Turing/Ampere+ GPUs (aka GTX 1650+). Try disabling if run into issues."
+		ewarn "Also see: ${EROOT}/usr/share/doc/${PF}/html/kernel_open.html"
+	fi
+
+	if use wayland && use modules && [[ ! -v NV_HAD_WAYLAND ]]; then
+		elog "\nNote that with USE=wayland, nvidia-drm.modeset=1 will be enabled"
+		elog "in '${EROOT}/etc/modprobe.d/nvidia.conf'. *If* experience issues,"
+		elog "either disable wayland or edit nvidia.conf."
 	fi
 }
