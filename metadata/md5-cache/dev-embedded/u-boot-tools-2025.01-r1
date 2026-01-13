@@ -1,6 +1,6 @@
 BDEPEND=dev-lang/swig app-alternatives/yacc app-alternatives/lex virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/openssl:= net-libs/gnutls:= sys-apps/util-linux:=
+DEPEND=dev-libs/openssl:= net-libs/gnutls:= sys-apps/dtc[python] sys-apps/util-linux:=
 DESCRIPTION=utilities for working with Das U-Boot
 EAPI=8
 HOMEPAGE=https://www.denx.de/wiki/U-Boot/WebHome
@@ -8,8 +8,8 @@ INHERIT=toolchain-funcs
 IUSE=envtools
 KEYWORDS=amd64 arm arm64 ppc ppc64 ~riscv x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/openssl:= net-libs/gnutls:= sys-apps/util-linux:=
+RDEPEND=dev-libs/openssl:= net-libs/gnutls:= sys-apps/dtc[python] sys-apps/util-linux:=
 SLOT=0
 SRC_URI=https://ftp.denx.de/pub/u-boot/u-boot-2025.01.tar.bz2
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3
-_md5_=a4d7341524881a1fcdda7a8bd082d24e
+_md5_=2c3d08734bf7439793aa7f047e791323

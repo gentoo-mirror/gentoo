@@ -1,4 +1,4 @@
-BDEPEND=dev-util/gdbus-codegen dev-util/intltool
+BDEPEND=>=dev-util/gdbus-codegen-2.80.5-r1 dev-util/intltool
 DEFINED_PHASES=configure install prepare setup
 DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-libs/dbus-glib dev-libs/glib:2 test? ( python_single_target_python3_11? ( dev-python/python-dbusmock[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/python-dbusmock[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/python-dbusmock[python_targets_python3_13(-)] ) )
 DESCRIPTION=Run executables under a new DBus session for testing
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://launchpad.net/dbus-test-runner/19.04/19.04.0/+download/dbus-test-runner-19.04.0.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=59603a4db74430cdf47d6ebf92512591
+_md5_=284775b9109c183f152dedea4128a06c

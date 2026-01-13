@@ -1,4 +1,4 @@
-BDEPEND=dev-util/gdbus-codegen dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig >=app-portage/elt-patches-20250306 app-arch/xz-utils
+BDEPEND=>=dev-util/gdbus-codegen-2.80.5-r1 dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig >=app-portage/elt-patches-20250306 app-arch/xz-utils
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
 DEPEND=>=x11-libs/gdk-pixbuf-2.32.2:2 >=x11-libs/gtk+-3.22.0:3[X] >=gnome-base/gnome-desktop-43:3= >=gnome-base/gnome-panel-3.35.2 || ( media-libs/libcanberra-gtk3 >=media-libs/libcanberra-0.13[gtk3(-)] ) >=dev-libs/glib-2.67.3:2 >=gnome-base/gsettings-desktop-schemas-3.31.0 >=sys-auth/polkit-0.97 >=app-i18n/ibus-1.5.2 >=sys-power/upower-0.99.0:= >=x11-libs/libXrandr-1.5.0 >=x11-libs/libXxf86vm-1.1.4 x11-libs/libxcb:= x11-libs/libX11 gnome-base/gdm elogind? ( >=sys-auth/elogind-230 ) systemd? ( >=sys-apps/systemd-230:= ) net-wireless/gnome-bluetooth:3= x11-libs/libXext >=x11-libs/libXi-1.6.0 x11-libs/pango x11-libs/libxkbfile x11-misc/xkeyboard-config x11-libs/libXfixes media-libs/libpulse[glib] media-libs/alsa-lib sys-libs/pam x11-base/xorg-proto
 DESCRIPTION=GNOME Flashback session
@@ -14,4 +14,4 @@ REQUIRED_USE=^^ ( elogind systemd )
 SLOT=0
 SRC_URI=mirror://gnome/sources/gnome-flashback/3.56/gnome-flashback-3.56.0.tar.xz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	gnome.org	e1b4f392dbfedfb8974b71b017937f08	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	xdg	3ef49a87c52c8b77c476351195dfe575	gnome2	26fd01914b36038dc8e964ff4bd03a95
-_md5_=77760b1a3bba54974b785b55fa81dcc6
+_md5_=66355b51aff7c26ca42aee432e097580

@@ -1,6 +1,6 @@
 BDEPEND=gtk-doc? ( dev-util/gi-docgen ) test? ( net-libs/uhttpmock:1.0 ) app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install test
-DEPEND=>=dev-libs/glib-2.28.0:2 dev-libs/json-glib net-libs/rest:1.0 net-libs/libsoup:3.0 net-libs/gnome-online-accounts:= >=net-libs/uhttpmock-0.11.0:1.0 introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= ) >=dev-util/gdbus-codegen-2.30.0 >=sys-devel/gettext-0.19.8 virtual/pkgconfig dev-libs/gobject-introspection-common
+DEPEND=>=dev-libs/glib-2.28.0:2 dev-libs/json-glib net-libs/rest:1.0 net-libs/libsoup:3.0 net-libs/gnome-online-accounts:= >=net-libs/uhttpmock-0.11.0:1.0 introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= ) >=dev-util/gdbus-codegen-2.80.5-r1 >=sys-devel/gettext-0.19.8 virtual/pkgconfig dev-libs/gobject-introspection-common
 DESCRIPTION=GLib-based library for accessing online serive APIs using MS Graph protocol.
 EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/GNOME/msgraph
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1.1
 SRC_URI=mirror://gnome/sources/msgraph/0.3/msgraph-0.3.3.tar.xz
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	sysroot	c7470ddc2876a596a7a1f4c2a87a5dcb	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	8d2fef06f034c2294794c1ffce65483e
-_md5_=cb332bc7455656f9ea53d20fe4d3b012
+_md5_=55110ecf7342b819a095266aad81200b
