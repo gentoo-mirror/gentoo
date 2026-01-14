@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby32 ruby33 ruby34"
+USE_RUBY="ruby32 ruby33 ruby34 ruby40"
 
 RUBY_FAKEGEM_RECIPE_DOC=""
 RUBY_FAKEGEM_DOCDIR="doc"
@@ -35,7 +35,7 @@ ruby_add_rdepend "
 
 ruby_add_bdepend "
 	>=dev-ruby/kpeg-1.1.0-r1
-	>dev-ruby/racc-1.4.10
+	>=dev-ruby/racc-1.4.10
 	dev-ruby/rake
 	test? (
 		dev-ruby/bundler
@@ -49,10 +49,10 @@ all_ruby_prepare() {
 	sed -i -e 's#/nonexistent#/nonexistent_rdoc_tests#g' test/rdoc/rdoc*test.rb || die
 
 	# Avoid unneeded dependency on bundler, bug 603696
-	sed -i -e '/bundler/ s:^:#:' \
+	sed -e '/bundler/ s:^:#:' \
 		-e 's/Bundler::GemHelper.gemspec.full_name/"rdoc"/' \
-		-e '/rubocop\/rake/ s:^:#:' \
-		-e '/RuboCop/,/])/ s:^:#:' Rakefile || die
+		-e "/require 'rubocop'/,/])/ s:^:#:" \
+		-i Rakefile || die
 
 	# Skip rubygems tests since the rubygems test case code is no longer installed by rubygems.
 	sed -i -e '/^task/ s/, :rubygems_test//' Rakefile || die
