@@ -6,7 +6,7 @@ EAPI=7
 HOMEPAGE=https://www.oracle.com/technetwork/database/database-technologies/berkeleydb/overview/index.html
 INHERIT=autotools db flag-o-matic multilib-minimal toolchain-funcs
 IUSE=doc cxx tcl test doc tcl test examples abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~s390 ~sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=Sleepycat
 RDEPEND=tcl? ( >=dev-lang/tcl-8.5.15-r1:0=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
 REQUIRED_USE=test? ( tcl ) test? ( tcl )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=4.8
 SRC_URI=https://download.oracle.com/berkeley-db/db-4.8.30.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	db	88506965221c24fff62bc25586f10433	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
-_md5_=0bf7dbd0b058fa913100f96afa776170
+_md5_=928b0b97fbe414307411e7d79983dbaf
