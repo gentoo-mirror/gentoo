@@ -101,11 +101,6 @@ games-fps/gzdoom
 # action. Use at your own risk.
 >=app-text/calibre-8.11.0
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-12-21)
-# Fails to build against Qt 6.10, upstream repository was archived.
-# Bug #966389. Removal on 2026-01-15
-gui-libs/hyprland-qtutils
-
 # Michał Górny <mgorny@gentoo.org> (2025-12-20)
 # Packages that are missing Python 3.12+ support (or in case
 # of dev-lang/julia, all versions are unkeyworded).
@@ -135,25 +130,10 @@ www-client/seamonkey
 ~dev-python/python-tests-3.14.2
 ~dev-python/python-tests-0.3.14.2
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-12-15)
-# Last release depends on Qt5, upstream appears dormant. Bug #959826
-# Removal on 2026-01-15
-net-misc/electrum-ltc
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-12-14)
-# Still depends on Qt5 with no upstream activity in years. Bug #960814
-# Removal on 2026-01-15
-media-sound/qmidiroute
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-12-14)
 # Still depends on Qt5 with no upstream porting activity. Bug #960220
 # Removal on 2026-01-15
 media-sound/mp3diags
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-12-14)
-# Last release depends on Qt5, upstream appears dormant. Bug #950474
-# Removal on 2026-01-15
-media-gfx/luminance-hdr
 
 # Michał Górny <mgorny@gentoo.org> (2025-12-12)
 # Upstream has switched to LLM-first coding which has already caused
@@ -177,27 +157,10 @@ dev-ruby/twitter
 media-libs/libsvgtiny-pixbuf
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-12-07)
-# Last release depends on Qt5, upstream appears dormant. Several
-# alternatives are available in ::gentoo. Bug #967107
-# Removal on 2026-01-15
-games-fps/doomsday
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-12-07)
-# Depends on PyQt5, stalled porting effort upstream.
-# Needs porting to Python 3.13, but 0.6.5 requires unpackaged dependency.
-# Bugs #948094, #952551. Removal on 2026-01-15
-media-sound/linux-show-player
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-12-07)
 # IUSE qt5 feature sees no porting effort upstream. 2.4.9-r1 remains
 # available with IUSE qt5 removed. Bug #965503
 # Removal on 2026-01-15
 =media-libs/libffado-2.4.9
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-12-05)
-# Depends on Qt5, stalled porting effort upstream. Bug #955277
-# Removal on 2026-01-15
-games-engines/qtads
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-12-05)
 # Depends on Qt5, no signs of porting work upstream. Bug #949881
