@@ -1,7 +1,7 @@
 Title: Desktop Profile to enable PipeWire support
 Author: Ian Jordan <immoloism@gmail.com>
 Posted: 2026-01-15
-Revision: 2
+Revision: 3
 News-Item-Format: 2.0
 Display-If-Profile: default/linux/alpha/23.0/desktop
 Display-If-Profile: default/linux/alpha/23.0/desktop/*
@@ -82,11 +82,11 @@ time for the user, but also increases support workload by the volunteers
 that provides it.
 
 This change will make PipeWire the default sound server for all Gentoo
-desktop profiles which support it, rather than just Plasma profiles as was
-the previous norm[1]. PipeWire has been widely adopted by Linux as a whole
-due to its feature to work with older standards such as PulseAudio, and means
-Gentoo will be less likely to need users to make any follow-up changes to
-their system, related to audio.
+desktop profiles which support it, rather than just KDE Plasma profiles as
+was the previous norm[1]. PipeWire has been widely adopted by Linux as a
+whole due to its feature to work with older standards such as PulseAudio,
+and means Gentoo will be less likely to need users to make any follow-up
+changes to their system, related to audio.
 
 Changes
 =======
@@ -99,9 +99,9 @@ New global USE flags enabled: pulseaudio
 New global USE flags enabled: pipewire
 New package.use default: media-video/pipewire[sound-server]
 
-    -> These settings will enable PipeWire by default where available and also
-    tell PipeWire to act as our PulseAudio server where there is no native
-    PipeWire support.
+    -> These settings will enable PipeWire by default where available and
+    also tell PipeWire to act as our PulseAudio server where there is no
+    native PipeWire support.
 
 New global USE flags enabled: screencast
 
@@ -109,8 +109,8 @@ New global USE flags enabled: screencast
     used for screen sharing but also to take screenshots and recordings or
     simply to cast window content onto task managers' window previews.
 
-    As this is basically a free and beneficial addition as it provides things
-    like screenshotting and webcam access under Wayland.
+    As this is basically a free and beneficial addition as it provides
+    things like screenshotting and webcam access under Wayland.
 
 Alpha and HPPA
 ===============
@@ -152,8 +152,11 @@ Afterwards all that should be required is a reboot, however in the unlikely
 event of issues then check out how to configure PipeWire for your purposes.
 [1][2].
 
-In order to keep a previously configured PulseAudio only system, set
+In order to keep a previously configured PulseAudio only system (i.e. keep
+using media-sound/pulseaudio-daemon), set
     USE="-pipewire -screencast" in /etc/portage/make.conf
+and
+    media-video/pipewire -sound-server in /etc/portage/package.use
 
 For an ALSA only system, set
     USE="-pipewire -pulseaudio -screencast" in /etc/portage/make.conf
