@@ -1,7 +1,7 @@
 Title: Desktop Profile to enable PipeWire support
 Author: Ian Jordan <immoloism@gmail.com>
-Posted: 2025-09-15
-Revision: 1
+Posted: 2026-01-15
+Revision: 2
 News-Item-Format: 2.0
 Display-If-Profile: default/linux/alpha/23.0/desktop
 Display-If-Profile: default/linux/alpha/23.0/desktop/*
@@ -135,6 +135,19 @@ User Action Required
 In order to enact all changes:
     emerge -1avUD @world
 
+Follow the post-installation messages printed by emerge to start the
+needed daemons.
+
+If using systemd, to configure the PipeWire daemon(s), run the following
+commands:
+    $ systemctl --user --now disable pulseaudio.service pulseaudio.socket
+    $ systemctl --user --now disable pipewire-media-session.service
+    $ systemctl --user --now enable pipewire.socket pipewire-pulse.socket
+    $ systemctl --user --force enable wireplumber.service
+
+OpenRC users don't need to take any action if using a desktop environment
+that supports XDG autostart.
+
 Afterwards all that should be required is a reboot, however in the unlikely
 event of issues then check out how to configure PipeWire for your purposes.
 [1][2].
@@ -142,7 +155,7 @@ event of issues then check out how to configure PipeWire for your purposes.
 In order to keep a previously configured PulseAudio only system, set
     USE="-pipewire -screencast" in /etc/portage/make.conf
 
-For an ALSA only syste, set
+For an ALSA only system, set
     USE="-pipewire -pulseaudio -screencast" in /etc/portage/make.conf
 
 [1] https://www.gentoo.org/support/news-items/2022-07-29-pipewire-sound-server.html
