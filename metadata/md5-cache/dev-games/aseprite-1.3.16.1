@@ -1,0 +1,16 @@
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) test? ( dev-cpp/gtest ) app-arch/unzip dev-build/gn virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DEPEND=app-arch/libarchive:= app-text/cmark:= dev-libs/icu:= dev-libs/libfmt:= dev-libs/tinyxml2:= media-libs/fontconfig media-libs/freetype media-libs/giflib:= media-libs/harfbuzz:=[truetype] media-libs/libjpeg-turbo:= media-libs/libpng:= net-misc/curl virtual/zlib:= virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libXi x11-libs/libxcb:= webp? ( media-libs/libwebp:= ) x11-base/xorg-proto
+DESCRIPTION=Animated sprite editor & pixel art tool
+EAPI=8
+HOMEPAGE=https://www.aseprite.org
+INHERIT=cmake desktop flag-o-matic python-any-r1 toolchain-funcs xdg-utils
+IUSE=test webp
+KEYWORDS=~amd64 ~x86
+LICENSE=Aseprite-EULA BSD MIT
+RDEPEND=app-arch/libarchive:= app-text/cmark:= dev-libs/icu:= dev-libs/libfmt:= dev-libs/tinyxml2:= media-libs/fontconfig media-libs/freetype media-libs/giflib:= media-libs/harfbuzz:=[truetype] media-libs/libjpeg-turbo:= media-libs/libpng:= net-misc/curl virtual/zlib:= virtual/opengl x11-libs/libX11 x11-libs/libXcursor x11-libs/libXi x11-libs/libxcb:= webp? ( media-libs/libwebp:= ) gnome-extra/zenity
+RESTRICT=bindist mirror !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/aseprite/aseprite/releases/download/v1.3.16/Aseprite-v1.3.16.1-Source.zip https://github.com/aseprite/skia/archive/refs/tags/m124-08a5439a6b.tar.gz -> skia-m124-08a5439a6b-aseprite.tar.gz https://github.com/aseprite/skia/releases/download/m124-08a5439a6b/Skia-Linux-Release-x64.zip -> Skia-Linux-Release-x64-m124-08a5439a6b.zip
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	desktop	7b6f6e9d65093966fbc8475399c5dd4e	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=bc2a5c5276621a72ad1aaf123dc06fa7
