@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/PurpleI2P/i2pd
 INHERIT=cmake systemd
 IUSE=test +upnp
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=BSD
 RDEPEND=dev-libs/boost:= dev-libs/openssl:0=[-bindist(-)] virtual/zlib:= upnp? ( net-libs/miniupnpc:= ) acct-user/i2pd acct-group/i2pd
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/PurpleI2P/i2pd/archive/2.58.0.tar.gz -> i2pd-2.58.0.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=438c7130853f537d7e4be8cd013a5167
+_md5_=f93f818ace48587d8a036fd7679a1181
