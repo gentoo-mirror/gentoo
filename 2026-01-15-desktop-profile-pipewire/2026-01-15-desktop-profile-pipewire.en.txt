@@ -1,7 +1,7 @@
 Title: Desktop Profile to enable PipeWire support
 Author: Ian Jordan <immoloism@gmail.com>
 Posted: 2026-01-15
-Revision: 2
+Revision: 3
 News-Item-Format: 2.0
 Display-If-Profile: default/linux/alpha/23.0/desktop
 Display-If-Profile: default/linux/alpha/23.0/desktop/*
@@ -152,8 +152,11 @@ Afterwards all that should be required is a reboot, however in the unlikely
 event of issues then check out how to configure PipeWire for your purposes.
 [1][2].
 
-In order to keep a previously configured PulseAudio only system, set
+In order to keep a previously configured PulseAudio only system (i.e. keep
+using media-sound/pulseaudio-daemon), set
     USE="-pipewire -screencast" in /etc/portage/make.conf
+and
+    media-video/pipewire -sound-server in /etc/portage/package.use
 
 For an ALSA only system, set
     USE="-pipewire -pulseaudio -screencast" in /etc/portage/make.conf
