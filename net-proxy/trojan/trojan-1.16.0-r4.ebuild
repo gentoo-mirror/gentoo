@@ -1,16 +1,16 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISABLE_AUTOFORMATTING=1
 FORCE_PRINT_ELOG=1
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit cmake python-any-r1 systemd readme.gentoo-r1
 DESCRIPTION="An unidentifiable mechanism that helps you bypass GFW"
 HOMEPAGE="https://github.com/trojan-gfw/trojan"
-if [[ "${PV}" == 9999 ]] ; then
+if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/trojan-gfw/trojan.git"
 else
@@ -36,15 +36,19 @@ DEPEND="${RDEPEND}
 	test? ( net-misc/curl ${PYTHON_DEPS} )
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-cmake-minreqver-3.10.patch" # bug 964571
+	"${FILESDIR}/${P}-boost-1.89.patch" # bug 963419
+)
+
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
 }
 
 src_prepare() {
-	default
 	cmake_src_prepare
 	sed -i -e "/User/s/nobody/trojan/g" \
-		"${S}"/examples/trojan.service-example || die
+		examples/trojan.service-example || die
 }
 
 src_configure() {
