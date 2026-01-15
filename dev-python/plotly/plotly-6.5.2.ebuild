@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -89,6 +89,12 @@ EPYTEST_DESELECT=(
 
 	# TODO
 	'tests/test_plotly_utils/validators/test_colorscale_validator.py::test_acceptance_named[Inferno_r]'
+
+	# numpy 2.4
+	tests/test_optional/test_figure_factory/test_figure_factory.py::TestViolin::test_violin_fig
+	tests/test_optional/test_utils/test_utils.py::TestJSONEncoder::test_encode_customdata_datetime_homogeneous_dataframe
+	tests/test_optional/test_utils/test_utils.py::TestJSONEncoder::test_encode_customdata_datetime_series
+	tests/test_optional/test_utils/test_utils.py::TestJSONEncoder::test_numpy_datetime64
 )
 
 src_configure() {

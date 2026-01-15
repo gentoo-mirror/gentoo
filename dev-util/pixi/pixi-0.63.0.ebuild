@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -73,7 +73,7 @@ inherit cargo
 CRATE_P=${P}
 DESCRIPTION="A package management and workflow tool"
 HOMEPAGE="
-	https://pixi.sh/
+	https://pixi.prefix.dev/
 	https://github.com/prefix-dev/pixi/
 "
 SRC_URI="
