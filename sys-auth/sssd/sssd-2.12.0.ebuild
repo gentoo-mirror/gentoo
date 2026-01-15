@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -110,7 +110,6 @@ CONFIG_CHECK="~KEYS"
 PATCHES=(
 	"${FILESDIR}/${PN}-2.8.2-krb5_pw_locked.patch"
 	"${FILESDIR}/${PN}-2.9.6-conditional-python-install.patch"
-	"${FILESDIR}/${PN}-2.9.7-kerberos-1-22.patch"
 	"${FILESDIR}/${PN}-2.10.0_beta2-fix-systemd-systemconfdir.patch"
 )
 
