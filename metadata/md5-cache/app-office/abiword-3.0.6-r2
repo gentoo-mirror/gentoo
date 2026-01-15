@@ -3,7 +3,7 @@ DEFINED_PHASES=configure install postinst postrm preinst prepare setup
 DEPEND=>=app-text/wv-1.2 >=dev-libs/fribidi-0.10.4 >=dev-libs/glib-2.16:2 >=dev-libs/libgcrypt-1.4.5:0= >=dev-libs/libxml2-2.4:2= dev-libs/libxslt >=gnome-base/librsvg-2.16:2 >=gnome-extra/libgsf-1.14.18:= media-libs/libjpeg-turbo:= >=media-libs/libpng-1.2:0= >=x11-libs/cairo-1.10 >=x11-libs/gtk+-3.0.8:3[cups?] calendar? ( >=dev-libs/libical-0.46:= ) eds? ( >=gnome-extra/evolution-data-server-3.6.0:= ) goffice? ( >=x11-libs/goffice-0.10.2:0.10 ) introspection? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-libs/gobject-introspection-1.82.0-r2:= ) map? ( >=media-libs/libchamplain-0.12:0.12[gtk] ) plugins? ( collab? ( >=net-libs/loudmouth-1 net-libs/libsoup:2.4 net-libs/gnutls:= ) grammar? ( >=dev-libs/link-grammar-4.2.1 ) math? ( >=x11-libs/gtkmathview-0.7.5 ) readline? ( sys-libs/readline:0= ) thesaurus? ( >=app-text/aiksaurus-1.2[gtk] ) wordperfect? ( app-text/libwpd:0.10 app-text/libwpg:0.3 ) wmf? ( >=media-libs/libwmf-0.2.8 ) ) redland? ( >=dev-libs/redland-1.0.10 >=dev-libs/rasqal-0.9.17 ) spell? ( app-text/enchant:2 ) dev-libs/boost collab? ( dev-cpp/asio )
 DESCRIPTION=Fully featured yet light and fast cross platform word processor
 EAPI=8
-HOMEPAGE=http://www.abisource.com/
+HOMEPAGE=https://gitlab.gnome.org/World/AbiWord
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=autotools flag-o-matic python-single-r1 xdg
 IUSE=calendar collab cups debug eds +goffice grammar +introspection latex map math +plugins readline redland spell wordperfect wmf thesaurus python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
@@ -14,4 +14,4 @@ REQUIRED_USE=collab? ( plugins ) grammar? ( plugins ) introspection? ( ^^ ( pyth
 SLOT=2
 SRC_URI=https://gitlab.gnome.org/World/AbiWord/-/archive/release-3.0.6/AbiWord-release-3.0.6.tar.bz2 https://dev.gentoo.org/~soap/distfiles/abiword-3.0.6-patches-r1.tar.xz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=5691bddab0a230e50fd48981ba21fa55
+_md5_=73d4ede50692d63afde98ad979720b89
