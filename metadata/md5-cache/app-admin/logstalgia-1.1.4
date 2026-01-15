@@ -1,12 +1,14 @@
-BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=-
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=prepare
 DEPEND=dev-libs/boost:= dev-libs/libpcre2:= media-libs/freetype:2 media-libs/glew:0= media-libs/libglvnd media-libs/libsdl2[opengl,threads(+)] media-libs/libpng:0= media-libs/sdl2-image[jpeg,png] virtual/glu media-libs/glm
 DESCRIPTION=Replays or streams an access_log as a retro arcade game-like simulation
 EAPI=8
 HOMEPAGE=https://logstalgia.io/
+INHERIT=autotools
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/boost:= dev-libs/libpcre2:= media-libs/freetype:2 media-libs/glew:0= media-libs/libglvnd media-libs/libsdl2[opengl,threads(+)] media-libs/libpng:0= media-libs/sdl2-image[jpeg,png] virtual/glu
 SLOT=0
 SRC_URI=https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.4/logstalgia-1.1.4.tar.gz
-_md5_=fa3c2e9a5ec156a3916190227f4b6cde
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
+_md5_=248f5e567723000874e5f684f4e93f73

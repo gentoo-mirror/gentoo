@@ -1,0 +1,15 @@
+BDEPEND=python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-util/maturin-1.8.2[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) || ( >=dev-lang/rust-bin-1.88.0:* >=dev-lang/rust-1.88.0:* )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DESCRIPTION=A malware identification and classification tool
+EAPI=8
+HOMEPAGE=https://virustotal.github.io/yara-x/
+INHERIT=cargo distutils-r1
+IUSE=python debug python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug
+KEYWORDS=~amd64
+LICENSE=BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD CC0-1.0 EPL-2.0 ISC MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016 WTFPL-2 ZLIB
+RDEPEND=python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) )
+SLOT=0
+SRC_URI=https://github.com/VirusTotal/yara-x/archive/refs/tags/v1.11.0.tar.gz -> yara-x-1.11.0.tar.gz https://github.com/gentoo-crate-dist/yara-x/releases/download/v1.11.0/yara-x-1.11.0-crates.tar.xz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	20da14430886f3de143eb101684fcf62	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	aeba1d272f6c2e000912e11d8cf626eb	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	404b65bd5212cff83b3935c685419d08	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701
+_md5_=22c2927d28c2fe848e08747349c2acf0

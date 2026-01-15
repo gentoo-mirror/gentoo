@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/NVIDIA/libnvidia-container
 INHERIT=toolchain-funcs
 IUSE=+seccomp static-libs
-KEYWORDS=amd64
+KEYWORDS=~amd64
 LICENSE=Apache-2.0
 RDEPEND=net-libs/libtirpc:= sys-libs/libcap virtual/libelf:= seccomp? ( sys-libs/libseccomp ) elibc_glibc? ( x11-drivers/nvidia-drivers )
-SLOT=0/1.17.8
-SRC_URI=https://github.com/NVIDIA/libnvidia-container/archive/v1.17.8.tar.gz -> libnvidia-container-1.17.8.tar.gz https://github.com/NVIDIA/nvidia-modprobe/archive/550.54.14.tar.gz -> libnvidia-container-nvidia-modprobe-550.54.14.tar.gz
+SLOT=0/1.18.1
+SRC_URI=https://github.com/NVIDIA/libnvidia-container/archive/v1.18.1.tar.gz -> libnvidia-container-1.18.1.tar.gz https://github.com/NVIDIA/nvidia-modprobe/archive/550.54.14.tar.gz -> libnvidia-container-nvidia-modprobe-550.54.14.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3
-_md5_=df218233ef4ff9e9780d949d8f4cebc3
+_md5_=6a8d9a6dd29c1f69332da6fee629d8c6
