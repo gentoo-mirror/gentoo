@@ -1,9 +1,9 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-RUST_MIN_VER="1.86"
+RUST_MIN_VER="1.90"
 
 inherit cargo greadme shell-completion systemd
 
@@ -15,7 +15,10 @@ SRC_URI+=" https://github.com/gentoo-crate-dist/atuin/releases/download/v${PV}/$
 LICENSE="MIT"
 # Dependent crate licenses
 # - openssl for ring crate
-LICENSE+=" Apache-2.0 BSD Boost-1.0 ISC MIT MPL-2.0 Unicode-DFS-2016 openssl"
+LICENSE+="
+	Apache-2.0 BSD Boost-1.0 CDLA-Permissive-2.0 ISC MIT MPL-2.0 openssl
+	Unicode-3.0 ZLIB
+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv"
 IUSE="+client +daemon server system-sqlite test +sync"
@@ -141,5 +144,5 @@ src_install() {
 	Therefore, instead of using, e.g., 'eval \"\$(atuin init zsh)\"' in
 	your .zshrc you can simply put \"source /usr/share/atuin/shell-init/zsh\"
 	there, which avoids the cost of forking a process.
-EOF
+	EOF
 }
