@@ -1,0 +1,17 @@
+BDEPEND=test? ( ruby_targets_ruby32? ( dev-ruby/csv[ruby_targets_ruby32(-)] >=dev-ruby/mini_mime-1.0.0[ruby_targets_ruby32(-)] >=dev-ruby/multi_xml-0.5.2[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( dev-ruby/csv[ruby_targets_ruby33(-)] >=dev-ruby/mini_mime-1.0.0[ruby_targets_ruby33(-)] >=dev-ruby/multi_xml-0.5.2[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( dev-ruby/csv[ruby_targets_ruby34(-)] >=dev-ruby/mini_mime-1.0.0[ruby_targets_ruby34(-)] >=dev-ruby/multi_xml-0.5.2[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/webmock[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( dev-ruby/webmock[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( test? ( dev-ruby/webmock[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) test? ( ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
+DESCRIPTION=Makes http fun! Also, makes consuming restful web services dead easy
+EAPI=8
+HOMEPAGE=https://www.johnnunemaker.com/httparty/
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 test test
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=ruby_targets_ruby32? ( dev-ruby/csv[ruby_targets_ruby32(-)] >=dev-ruby/mini_mime-1.0.0[ruby_targets_ruby32(-)] >=dev-ruby/multi_xml-0.5.2[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( dev-ruby/csv[ruby_targets_ruby33(-)] >=dev-ruby/mini_mime-1.0.0[ruby_targets_ruby33(-)] >=dev-ruby/multi_xml-0.5.2[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( dev-ruby/csv[ruby_targets_ruby34(-)] >=dev-ruby/mini_mime-1.0.0[ruby_targets_ruby34(-)] >=dev-ruby/multi_xml-0.5.2[ruby_targets_ruby34(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/jnunemaker/httparty/archive/v0.24.2.tar.gz -> httparty-0.24.2.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	multilib	404b65bd5212cff83b3935c685419d08	ruby-utils	a3a0978ae7e8a40e253821da24a24782	ruby-ng	960d5adaf301da1ef0ab9bdba5018a6d	ruby-fakegem	bc37b1e2fa23e795fae856dd70a23846
+_md5_=e1e83534b97da7fa6af7e9b4bf9a4b95
