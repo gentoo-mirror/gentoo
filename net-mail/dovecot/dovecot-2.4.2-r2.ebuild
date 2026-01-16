@@ -6,7 +6,7 @@ EAPI=8
 LUA_COMPAT=( lua5-{3..4} )
 # do not add a ssl USE flag.  ssl is mandatory
 SSL_DEPS_SKIP=1
-inherit autotools eapi9-ver flag-o-matic lua-single ssl-cert systemd toolchain-funcs
+inherit autotools dot-a eapi9-ver flag-o-matic lua-single ssl-cert systemd toolchain-funcs
 
 MY_P="${P/_/.}"
 MY_PV="${PV}"
@@ -25,7 +25,7 @@ S="${WORKDIR}/${MY_P}"
 PIEGONHOLE_S="../dovecot-pigeonhole-${MY_PV}"
 LICENSE="LGPL-2.1 MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64 ~arm arm64 ~hppa ~mips ~ppc ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 IUSE_DOVECOT_AUTH_DICT="cdb kerberos ldap lua mysql pam postgres sqlite"
 IUSE_DOVECOT_COMPRESS="lz4 zstd"
@@ -104,6 +104,12 @@ pkg_setup() {
 src_prepare() {
 	default
 
+	if use sieve || use managesieve; then
+		pushd "${PIEGONHOLE_S}" > /dev/null || die
+		eapply "${FILESDIR}/${PN}-2.4.2-fix-32bit.patch"
+		popd > /dev/null || die
+	fi
+
 	# rename default cert files
 	sed -i -e "s:ssl-cert.pem:server.pem:" \
 		-e "s:ssl-key.pem:server.key:" \
@@ -118,6 +124,8 @@ src_prepare() {
 }
 
 src_configure() {
+	use static-libs && lto-guarantee-fat
+
 	# --disable-hardening because our toolchain already defaults to
 	# these bits on, and it actually regresses the default _FORTIFY_SOURCE
 	# level for hardened at least from 3 to 2.
@@ -210,8 +218,6 @@ src_install() {
 	doins "${FILESDIR}/50-misc.conf"
 
 	dodoc AUTHORS NEWS README.md TODO
-	docinto stopwords
-	dodoc src/lib-language/stopwords/stopwords*.txt
 
 	if use sieve || use managesieve; then
 		pushd "${PIEGONHOLE_S}" > /dev/null || die
@@ -221,8 +227,11 @@ src_install() {
 		popd > /dev/null || die
 	fi
 
-	rm -r "${ED}"/usr/share/dovecot
-	use static-libs || find "${ED}"/usr/lib* -name '*.la' -delete
+	if use static-libs; then
+		strip-lto-bytecode
+	else
+		find "${ED}"/usr/lib* -name '*.la' -delete
+	fi
 }
 
 pkg_postinst() {
