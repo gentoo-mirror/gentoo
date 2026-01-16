@@ -1,4 +1,4 @@
-# Copyright 2011-2025 Gentoo Authors
+# Copyright 2011-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -104,13 +104,9 @@ src_install() {
 		dosym ${MY_PN}.1 usr/share/man/man1/${PN}.1
 	fi
 
-	local suffix=
-	[[ ${PN} == microsoft-edge-beta ]] && suffix=_beta
-	[[ ${PN} == microsoft-edge-dev ]] && suffix=_dev
-
 	local size
 	for size in 16 24 32 48 64 128 256 ; do
-		newicon -s ${size} "${EDGE_HOME}/product_logo_${size}${suffix}.png" ${PN}.png
+		newicon -s ${size} "${EDGE_HOME}/product_logo_${size}.png" ${PN}.png
 	done
 
 	if ! use mip; then
