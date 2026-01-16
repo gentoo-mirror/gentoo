@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit autotools bash-completion-r1 optfeature python-single-r1
 
@@ -13,7 +13,7 @@ SRC_URI="https://download.libguestfs.org/nbdkit/$(ver_cut 1-2)-stable/${P}.tar.g
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc64 ~sparc ~x86"
+KEYWORDS="~amd64 ~loong ~ppc64 ~sparc ~x86"
 IUSE="
 	curl ext2 nbd gnutls libguestfs libssh libvirt lzma selinux python
 	torrent valgrind zlib zlib-ng zstd
@@ -24,7 +24,7 @@ RDEPEND="
 	selinux? ( sys-libs/libselinux )
 	gnutls? ( net-libs/gnutls:= )
 	curl? ( net-misc/curl )
-	libssh? ( net-libs/libssh:= )
+	libssh? ( net-libs/libssh:=[sftp] )
 	libvirt? ( app-emulation/libvirt:= )
 	zlib? ( virtual/zlib:= )
 	zlib-ng? ( sys-libs/zlib-ng )
@@ -46,6 +46,8 @@ BDEPEND="
 "
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
+PATCHES=( "${FILESDIR}/${PN}-1.46.0-which-hunt.patch" )
 
 src_prepare() {
 	default
