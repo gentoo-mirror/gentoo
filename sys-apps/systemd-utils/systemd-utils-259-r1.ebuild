@@ -5,6 +5,9 @@ EAPI=8
 PYTHON_COMPAT=( python3_{11..14} )
 QA_PKGCONFIG_VERSION=$(ver_cut 1)
 
+# Avoid QA warning about skipping tmpfiles.eclass
+TMPFILES_OPTIONAL=1
+
 inherit linux-info meson-multilib
 inherit python-single-r1 secureboot shell-completion udev
 
@@ -290,7 +293,7 @@ multilib_src_install() {
 
 	if use tmpfiles; then
 		installx usr/bin/systemd-tmpfiles
-		installx usr/lib/tmpfiles.d
+		installx usr/lib/tmpfiles.d/{etc,home,static-nodes-permissions,var}.conf
 		installx usr/share/man/{man5/tmpfiles.d.5,man8/systemd-tmpfiles.8}
 	fi
 
