@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://nuetzlich.net/
 INHERIT=sec-keys
 IUSE=test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=~amd64 ~ppc64 ~x86
 LICENSE=public-domain
 PROPERTIES=test_network
 RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xFFF3E01444FED7C316A3545A895F5BC123A02740 -> openpgp-keys-nuetzlich-gocryptfs-signing-key-ubuntu-20250916.asc https://nuetzlich.net/gocryptfs-signing-key.pub -> openpgp-keys-gocryptfs-nuetzlich-gocryptfs-signing-key-20250916.pub
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	ad87ecc577cf66bca0f31a392060765a
-_md5_=bd9b0d1f4d28de7945a91a8e6800c4be
+_md5_=c9ff6ab034e0a9695b7894ba1d06881a
