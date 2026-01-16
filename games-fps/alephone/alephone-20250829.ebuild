@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit autotools flag-o-matic optfeature prefix toolchain-funcs xdg
 
-DESCRIPTION="An enhanced version of the game engine from the classic Mac game, Marathon"
+DESCRIPTION="Enhanced game engine version from the classic Mac game, Marathon"
 HOMEPAGE="https://alephone.lhowon.org/"
 if [[ ${PV} = 9999* ]]; then
 	inherit git-r3
@@ -19,8 +19,9 @@ fi
 
 LICENSE="GPL-3+ BitstreamVera OFL-1.1"
 SLOT="0"
+IUSE="curl test upnp video-export"
 
-IUSE="curl upnp"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-libs/boost:=
@@ -30,22 +31,25 @@ RDEPEND="
 	media-libs/libsdl2[joystick]
 	media-libs/libsndfile[-minimal]
 	media-libs/sdl2-image[png]
-	media-libs/sdl2-net
 	media-libs/sdl2-ttf
 	virtual/zlib:=
 	virtual/opengl
 	virtual/glu
 	curl? ( net-misc/curl )
 	upnp? ( net-libs/miniupnpc )
+	video-export? (
+		dev-libs/libebml:=
+		media-libs/libmatroska:=
+		media-libs/libvorbis
+		media-libs/libvpx:=
+		media-libs/libyuv:=
+	)
 "
-
-DEPEND="
-	${RDEPEND}
+DEPEND="${RDEPEND}
+	dev-cpp/asio
+	test? ( >=dev-cpp/catch-3:0 )
 "
-
-BDEPEND="
-	virtual/pkgconfig
-"
+BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
 	default
@@ -58,12 +62,20 @@ src_configure() {
 	filter-lto
 	my_econf=(
 		--enable-opengl
-		--without-ffmpeg
+		--disable-steam # not packaged?
+		--without-nfd # not packaged?
 		--with-png
 		--with-sdl_image
 		--with-zzip
 		$(use_with curl)
+		$(use_with test catch2)
 		$(use_with upnp miniupnpc)
+		$(use_with video-export ebml)
+		$(use_with video-export matroska)
+		$(use_with video-export vpx)
+		$(use_with video-export vorbis)
+		$(use_with video-export vorbisenc)
+		$(use_with video-export libyuv)
 	)
 	econf "${my_econf[@]}"
 }
