@@ -8229,7 +8229,7 @@ dev-python/braintree 4.40.0 4.41.0: Braintree Python Library
 dev-python/breathe 4.36.0: Sphinx Doxygen renderer
 dev-python/brotlicffi 1.1.0.0 1.2.0.0: Python binding to the Brotli library
 dev-python/btrfs 15: Python module to inspect btrfs filesystems
-dev-python/btrfsutil 6.14 6.15 6.16 6.16.1 6.17 6.17.1: Library for managing Btrfs filesystems
+dev-python/btrfsutil 6.17.1: Library for managing Btrfs filesystems
 dev-python/build 1.3.0 1.4.0: A simple, correct PEP517 package builder
 dev-python/cachecontrol 0.14.3: httplib2 caching for requests
 dev-python/cachelib 0.13.0: Collection of cache libraries in the same API interface. Extracted from werkzeug
@@ -16589,6 +16589,7 @@ sec-keys/openpgp-keys-dnkl 20190530: OpenPGP keys used by dnkl to sign releases 
 sec-keys/openpgp-keys-dropbear 20220406: OpenPGP keys used to sign Dropbear releases
 sec-keys/openpgp-keys-dsterba 20231215: OpenPGP keys used by David Sterba
 sec-keys/openpgp-keys-dwmw2 20230504: OpenPGP key for David Woodhouse
+sec-keys/openpgp-keys-dwz 20260115: OpenPGP key used to sign dwz releases
 sec-keys/openpgp-keys-eduvpn 20231208 20240307: OpenPGP keys used by eduVPN developers
 sec-keys/openpgp-keys-electrum 4.5.8: OpenPGP keys for net-misc/electrum releases
 sec-keys/openpgp-keys-elfutils 20220427 20240301: OpenPGP key used to sign elfutils releases
@@ -16635,6 +16636,7 @@ sec-keys/openpgp-keys-knot 20170710-r1: OpenPGP keys used by the Knot DNS develo
 sec-keys/openpgp-keys-knot-resolver 20240304 20251203: OpenPGP keys used by the Knot Resolver developers
 sec-keys/openpgp-keys-kovidgoyal 20220106: OpenPGP keys used by Kovid Goyal
 sec-keys/openpgp-keys-lassecollin 20230213 20240529 20250313-r1: OpenPGP keys used by Lasse Collin
+sec-keys/openpgp-keys-less 20260115: OpenPGP keys used by less
 sec-keys/openpgp-keys-libarchive 20221209 20251118: OpenPGP keys used by the libarchive project
 sec-keys/openpgp-keys-libass 20220515 20250608: OpenPGP keys used to sign libass releases
 sec-keys/openpgp-keys-libevent 0: OpenPGP keys used by the libevent project
@@ -16700,6 +16702,7 @@ sec-keys/openpgp-keys-tenable 20220718: OpenPGP keys used to sign Tenable Inc. s
 sec-keys/openpgp-keys-terminator 20210306: OpenPGP keys used to sign x11-terms/terminator package
 sec-keys/openpgp-keys-thomasdickey 20220428 20230810 20240114: OpenPGP keys used by Thomas Dickey
 sec-keys/openpgp-keys-tor 20230727 20250713: OpenPGP keys used by the Tor project
+sec-keys/openpgp-keys-tytso 20260115: OpenPGP keys used by Theodore Ts'o
 sec-keys/openpgp-keys-unbound 20220316 20250515 20251107: OpenPGP keys used by unbound
 sec-keys/openpgp-keys-unifont 20251028: OpenPGP keys used by Unifont
 sec-keys/openpgp-keys-unrealircd 20220407: OpenPGP keys used to sign UnrealIRCd releases
@@ -17245,7 +17248,7 @@ sys-apps/system-monitoring-center 2.26.0-r1 9999: Multi-featured system monitor 
 sys-apps/systemctl-tui 0.4.0: A simple TUI for interacting with systemd services and their logs
 sys-apps/systemd 257.9 257.10 258.2 258.3 259 9999: System and service manager for Linux
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
-sys-apps/systemd-utils 254.24 254.26 255.18 255.21 256.17: Utilities split out from systemd for OpenRC users
+sys-apps/systemd-utils 254.24 254.26 255.18 255.21 256.17 259: Utilities split out from systemd for OpenRC users
 sys-apps/sysvinit 3.09 3.14 3.15: /sbin/init - parent of all processes
 sys-apps/tas 1.9.0.240925: Supermicro Thin-Agent Service for monitoring through the BMC/IPMI
 sys-apps/tcp-wrappers 7.6.31-r2: TCP Wrappers
@@ -17269,7 +17272,7 @@ sys-apps/usbutils 019: USB enumeration utilities
 sys-apps/usermode-utilities 20070815-r6: Tools for use with Usermode Linux virtual machines
 sys-apps/uswid 0.4.7: Pure-Python library and CLI tool for processing SBoM metadata
 sys-apps/utempter 0.5.5.6-r2: App that allows non-privileged apps to write utmp (login) info
-sys-apps/util-linux 2.40.4 2.41.1-r1 2.41.2 2.41.3 9999: Various useful Linux utilities
+sys-apps/util-linux 2.41.2 2.41.3 9999: Various useful Linux utilities
 sys-apps/uutils-coreutils 0.2.2-r1 0.3.0 0.4.0 0.5.0 9999: GNU coreutils rewritten in Rust
 sys-apps/uutils-findutils 0.8.0 9999: GNU findutils rewritten in Rust
 sys-apps/vbetool 1.2.2: Run real-mode video BIOS code to alter hw state (i.e. reinitialize video card)
@@ -17583,7 +17586,7 @@ sys-fs/bcache-tools 1.1_p20230217-r2 9999: Tools for bcache
 sys-fs/bcachefs-tools 1.20.0 1.25.0 1.25.1 1.25.2 1.25.3 1.31.5 1.34.0 9999: Tools for bcachefs
 sys-fs/bees 0.10-r1 0.11 9999: Best-Effort Extent-Same, a btrfs dedup agent
 sys-fs/bindfs 1.17.7 1.18.0 1.18.1 1.18.3: FUSE filesystem for bind mounting with altered permissions
-sys-fs/btrfs-progs 6.12 6.13 6.14 6.15 6.16 6.16.1 6.17 6.17.1 9999: Btrfs filesystem utilities
+sys-fs/btrfs-progs 6.17.1 9999: Btrfs filesystem utilities
 sys-fs/btrfsmaintenance 0.5.2: Scripts for btrfs maintenance tasks like periodic scrub, balance, trim or defrag
 sys-fs/cachefilesd 0.10.10-r2: Provides a caching directory on an already mounted filesystem
 sys-fs/clamfs 1.3.0: A FUSE-based user-space file system with on-access anti-virus file scanning
@@ -17604,7 +17607,7 @@ sys-fs/dmraid 1.0.0_rc16-r7: Device-mapper RAID tool and library
 sys-fs/dosfstools 4.2: DOS filesystem tools - provides mkdosfs, mkfs.msdos, mkfs.vfat
 sys-fs/duf 0.8.1 0.9.1: Disk Usage/Free Utility - a better 'df' alternative
 sys-fs/duperemove 0.15.2: Btrfs and xfs deduplication utility
-sys-fs/e2fsprogs 1.47.2-r3 1.47.2-r10 1.47.3 1.47.3-r1: Standard EXT2/EXT3/EXT4 filesystem utilities
+sys-fs/e2fsprogs 1.47.3-r1: Standard EXT2/EXT3/EXT4 filesystem utilities
 sys-fs/e2tools 0.1.2: utilities to read, write, and manipulate files in an ext2/ext3 filesystem
 sys-fs/ecryptfs-utils 111_p20170609-r1: eCryptfs userspace utilities
 sys-fs/encfs 1.9.5-r2: An implementation of encrypted filesystem in user-space using FUSE
