@@ -1,35 +1,33 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
+MY_PN=AutoDock-Vina
 inherit flag-o-matic toolchain-funcs
-
-MY_P="${PN}_$(ver_rs 1- _)"
 
 DESCRIPTION="Program for drug discovery, molecular docking and virtual screening"
 HOMEPAGE="http://vina.scripps.edu/"
-SRC_URI="http://vina.scripps.edu/download/${MY_P}.tgz"
+SRC_URI="https://github.com/ccsb-scripps/AutoDock-Vina/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${MY_PN}-${PV}/build/linux/release"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug"
 
 RDEPEND="dev-libs/boost:="
 DEPEND="${RDEPEND}"
 
-S="${WORKDIR}"/${MY_P}/build/linux/release
-
-PATCHES=(
-	"${FILESDIR}"/${PV}-gentoo.patch
-	"${FILESDIR}"/${P}-boost-filesystem.patch
-	"${FILESDIR}"/${P}-missing-debug-decl.patch
-)
+PATCHES=( "${FILESDIR}"/${P}-gentoo.patch )
 
 src_prepare() {
-	cd "${WORKDIR}"/${MY_P} || die
+	pushd "${WORKDIR}/${MY_PN}-${PV}"  > /dev/null || die
+	sed -e "s:VERSION:\"${PV}\":g" \
+		-i src/main/main.cpp \
+		-i src/split/split.cpp || die
 	default
+	popd > /dev/null || die
 }
 
 src_configure() {
