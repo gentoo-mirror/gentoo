@@ -6,12 +6,12 @@ EAPI=8
 HOMEPAGE=https://gitlab.com/nbdkit/libnbd
 INHERIT=autotools bash-completion-r1 dot-a python-single-r1
 IUSE=examples fuse gnutls go ocaml python test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
-KEYWORDS=amd64 ~loong ~ppc64 ~sparc ~x86
+KEYWORDS=~amd64 ~loong ~ppc64 ~sparc ~x86
 LICENSE=LGPL-2.1+
 RDEPEND=dev-libs/libxml2:= examples? ( dev-libs/glib dev-libs/libev ) fuse? ( sys-fs/fuse:3 ) gnutls? ( net-libs/gnutls:= ) go? ( dev-lang/go ) ocaml? ( >=dev-lang/ocaml-4.03:=[ocamlopt] ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://download.libguestfs.org/libnbd/1.23-development/libnbd-1.23.9.tar.gz
+SRC_URI=https://download.libguestfs.org/libnbd/1.24-stable/libnbd-1.24.0.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	bash-completion-r1	767861f3744f589ee5291c1698b1c082	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=9a06b1d6431625b0b3011bdece342994
+_md5_=51d9bf4db642aa376838839e09f64216
