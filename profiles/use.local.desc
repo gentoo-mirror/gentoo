@@ -8928,7 +8928,7 @@ x11-base/xorg-server:xvfb - Build the Xvfb server
 x11-base/xwayland:libei - Enable emulated input using dev-libs/libei
 x11-base/xwayland:unwind - Enable libunwind usage for backtraces
 x11-base/xwayland:xcsecurity - Build Security extension
-x11-drivers/nvidia-drivers:kernel-open - Use the open source variant of the drivers (only works for Turing/Ampere or newer GPUs, aka GTX 1650+ -- recommended with >=560.xx drivers if usable and is *required* for 50xx Blackwell or newer GPUs -- always-enabled regardless of USE in >=590.xx)
+x11-drivers/nvidia-drivers:kernel-open - Use the open source variant of the drivers (only usable with Turing/Ampere or newer GPUs, aka GTX 1650+ -- note 50xx Blackwell or newer cards *require* this)
 x11-drivers/nvidia-drivers:persistenced - Install the persistence daemon for keeping devices state when unused (e.g. for headless)
 x11-drivers/nvidia-drivers:powerd - Install the NVIDIA dynamic boost support daemon (only useful with specific laptops, ignore if unsure)
 x11-drivers/nvidia-drivers:static-libs - Install the XNVCtrl static library for accessing sensors and other features
