@@ -1,0 +1,14 @@
+BDEPEND=arm64ec? ( dev-util/llvm-mingw64[arm64ec-pe(-)] ) dev-build/cmake >=dev-util/llvm-mingw64-13.0.0 llvm-core/clang llvm-core/llvm
+DEFINED_PHASES=compile configure install postinst setup unpack
+DESCRIPTION=A wine emulation dll for running x86 application on an arm64 host
+EAPI=8
+HOMEPAGE=https://fex-emu.com
+INHERIT=flag-o-matic ninja-utils toolchain-funcs
+IUSE=+wow64 +arm64ec
+KEYWORDS=-* ~arm64
+LICENSE=MIT
+REQUIRED_USE=|| ( wow64 arm64ec )
+SLOT=0
+SRC_URI=https://github.com/FEX-Emu/jemalloc/archive/97d986993dc735a2022856e7e9fdfa1180e8527a.tar.gz -> jemalloc-97d986993dc735a2022856e7e9fdfa1180e8527a.tar.gz https://github.com/Sonicadvance1/cpp-optparse/archive/9f94388a339fcbb0bc95c17768eb786c85988f6e.tar.gz -> cpp-optparse-9f94388a339fcbb0bc95c17768eb786c85988f6e.tar.gz https://github.com/FEX-Emu/robin-map/archive/d5683d9f1891e5b04e3e3b2192b5349dc8d814ea.tar.gz -> robin-map-d5683d9f1891e5b04e3e3b2192b5349dc8d814ea.tar.gz https://github.com/Cyan4973/xxHash/archive/e626a72bc2321cd320e953a0ccf1584cad60f363.tar.gz -> xxhash-e626a72bc2321cd320e953a0ccf1584cad60f363.tar.gz https://github.com/fmtlib/fmt/archive/407c905e45ad75fc29bf0f9bb7c5c2fd3475976f.tar.gz -> fmt-407c905e45ad75fc29bf0f9bb7c5c2fd3475976f.tar.gz https://github.com/ericniebler/range-v3/archive/ca1388fb9da8e69314dda222dc7b139ca84e092f.tar.gz -> range-v3-ca1388fb9da8e69314dda222dc7b139ca84e092f.tar.gz https://github.com/FEX-Emu/FEX/archive/refs/tags/FEX-2601.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b
+_md5_=ea041be47e2d4c0d31b8f2cc9e773f74

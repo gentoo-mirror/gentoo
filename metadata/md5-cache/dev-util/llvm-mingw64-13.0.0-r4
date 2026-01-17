@@ -1,0 +1,16 @@
+BDEPEND=dev-build/cmake sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile install postinst prepare pretend setup
+DEPEND=llvm-core/clang:21 llvm-core/llvm:21 llvm-core/lld:21
+DESCRIPTION=Clang/LLVM based mingw64 toolchain
+EAPI=8
+HOMEPAGE=https://www.mingw-w64.org/
+INHERIT=autotools edo ninja-utils flag-o-matic toolchain-funcs
+IUSE=+arm64ec-pe custom-cflags +strip
+KEYWORDS=~arm64
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT ) ZPL BSD BSD-2 ISC LGPL-2+ LGPL-2.1+ MIT public-domain
+RDEPEND=llvm-core/clang:21 llvm-core/llvm:21 llvm-core/lld:21
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v13.0.0.tar.bz2 https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.0/llvm-project-21.1.0.src.tar.xz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
+_md5_=14f2ab1d939d1227c0a92cd4500ca7de
