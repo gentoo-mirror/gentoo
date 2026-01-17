@@ -1,0 +1,18 @@
+BDEPEND=virtual/pkgconfig doc? ( sys-apps/texinfo ) nls? ( sys-devel/gettext ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install postrm preinst test
+DEPEND=>=dev-libs/libassuan-3.0.0:= >=dev-libs/libgcrypt-1.11.0:= >=dev-libs/libgpg-error-1.56 >=dev-libs/libksba-1.6.3 >=dev-libs/npth-1.2 virtual/zlib:= bzip2? ( app-arch/bzip2 ) ldap? ( net-nds/openldap:= ) readline? ( sys-libs/readline:0= ) smartcard? ( usb? ( virtual/libusb:1 ) ) tofu? ( >=dev-db/sqlite-3.27 ) tpm? ( >=app-crypt/tpm2-tss-2.4.0:= ) ssl? ( >=net-libs/gnutls-3.2:0= )
+DESCRIPTION=Cross-distro GnuPG fork focused on OpenPGP compliance
+EAPI=8
+HOMEPAGE=https://freepg.org/ https://gitlab.com/freepg/gnupg/
+INHERIT=flag-o-matic out-of-source multiprocessing systemd toolchain-funcs
+IUSE=bzip2 doc ldap nls readline selinux +smartcard ssl test +tofu tpm tools usb user-socket wks-server
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris
+LICENSE=GPL-3+
+PDEPEND=app-alternatives/gpg[-reference] app-crypt/pinentry
+RDEPEND=>=dev-libs/libassuan-3.0.0:= >=dev-libs/libgcrypt-1.11.0:= >=dev-libs/libgpg-error-1.56 >=dev-libs/libksba-1.6.3 >=dev-libs/npth-1.2 virtual/zlib:= bzip2? ( app-arch/bzip2 ) ldap? ( net-nds/openldap:= ) readline? ( sys-libs/readline:0= ) smartcard? ( usb? ( virtual/libusb:1 ) ) tofu? ( >=dev-db/sqlite-3.27 ) tpm? ( >=app-crypt/tpm2-tss-2.4.0:= ) ssl? ( >=net-libs/gnutls-3.2:0= ) nls? ( virtual/libintl ) selinux? ( sec-policy/selinux-gpg ) wks-server? ( virtual/mta ) !app-crypt/gnupg
+REQUIRED_USE=test? ( tofu )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~mgorny/dist/gnupg-2.5.16-freepg.tar.bz2
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source	15ce2b6ae214f3abe70892ce1e517abd	multiprocessing	1e32df7deee68372153dca65f4a7c21f	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=71fee3bbe2fc5f4f48f6e044cfd2c85c
