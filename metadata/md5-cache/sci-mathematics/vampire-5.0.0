@@ -5,12 +5,12 @@ DESCRIPTION=The Vampire Prover, theorem prover for first-order logic
 EAPI=8
 HOMEPAGE=https://vprover.github.io/ https://github.com/vprover/vampire/
 INHERIT=flag-o-matic cmake
-IUSE=debug +z3
+IUSE=test +z3
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
 RDEPEND=z3? ( dev-libs/gmp:= >=sci-mathematics/z3-4.11.2:= )
-RESTRICT=!debug? ( test )
-SLOT=0/4.8
-SRC_URI=https://github.com/vprover/vampire/archive/v4.8casc2023.tar.gz -> vampire-4.8-casc2023.tar.gz
+RESTRICT=!test? ( test )
+SLOT=0/5.0.0
+SRC_URI=https://github.com/vprover/vampire/releases/download/v5.0.0/vampire.tar.gz -> vampire-5.0.0.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c
-_md5_=722122d5d42ae4d3fdae420133b7c28b
+_md5_=0d986dbb928415a92c4a61c5771a7e5f

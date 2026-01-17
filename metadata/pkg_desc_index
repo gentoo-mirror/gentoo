@@ -994,7 +994,7 @@ app-admin/ide-smart 1.4-r3: A tool to read SMART information from harddiscs
 app-admin/ig 0.48.0: Tools and framework for data collection and system inspection using eBPF
 app-admin/integrit 4.2_rc1: file integrity verification program
 app-admin/keepass 2.57: A free, open source, light-weight and easy-to-use password manager
-app-admin/keepassxc 2.7.11 9999: KeePassXC - KeePass Cross-platform Community Edition
+app-admin/keepassxc 2.7.10-r2 2.7.11 9999: KeePassXC - KeePass Cross-platform Community Edition
 app-admin/kernel-hardening-checker 0.6.17.1: A tool for checking the security hardening options of the Linux kernel
 app-admin/killproc 2.13-r2: killproc and assorted tools for boot scripts
 app-admin/kio-admin 25.08.3 25.12.1: Manage files as administrator using the admin:// KIO protocol
@@ -1368,7 +1368,7 @@ app-containers/cri-o 1.31.2 1.31.4 1.34.3: OCI-based implementation of Kubernete
 app-containers/cri-tools 1.27.0 1.32.0 1.33.0: CLI and validation tools for Kubelet Container Runtime (CRI)
 app-containers/crun 1.19.1 1.20 1.21 1.25.1: Fast and low-memory footprint OCI Container Runtime fully written in C
 app-containers/devcontainer 0.80.2 0.80.3 0.81.0: Reference implementation of the Development Containers specification
-app-containers/distrobox 1.8.1.2-r1 1.8.2.1 1.8.2.2 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
+app-containers/distrobox 1.8.2.2 1.8.2.3 9999: Use any Linux distribution inside your terminal (powered by docker/podman)
 app-containers/distrobuilder 2.1 3.0-r1 3.1 3.2: System container image builder for LXC and incus
 app-containers/dive 0.13.1: terminal based UI to manage kubernetes clusters
 app-containers/docker 28.0.1 28.0.4 28.1.1 28.2.2 28.4.0 29.1.3-r1: The core functions you need to create Docker images and run Docker containers
@@ -1950,7 +1950,7 @@ app-emacs/company-mode 1.0.2: In-buffer completion front-end
 app-emacs/company-quickhelp 2.3.0: Company documentation popups for completion candidates
 app-emacs/compat 30.1.0.1: Compatibility libraries for Emacs
 app-emacs/cond-let 0.2.0 0.2.1: Additional and improved binding conditionals for GNU Emacs
-app-emacs/consult 3.0 3.1 9999: Consulting complete-read for GNU Emacs
+app-emacs/consult 3.0 3.1 3.2 9999: Consulting complete-read for GNU Emacs
 app-emacs/consult-flycheck 1.0: Consult integration for Flycheck
 app-emacs/corfu 2.5 2.6 2.7 9999: Completion Overlay Region FUnction
 app-emacs/counsel 0.15.1: Versions of common Emacs commands customized to make the best use of ivy
@@ -2039,7 +2039,7 @@ app-emacs/emacsql 4.3.1 4.3.3: A high-level Emacs Lisp RDBMS front-end
 app-emacs/embark 1.1 9999: Conveniently act on minibuffer completions inside GNU Emacs
 app-emacs/embark-consult 1.1 9999: Consult integration for Embark
 app-emacs/emhacks 20070920-r2: Useful Emacs Lisp libraries, including gdiff, jjar, jmaker, swbuff, and tabbar
-app-emacs/emms 23 24: The Emacs Multimedia System
+app-emacs/emms 24: The Emacs Multimedia System
 app-emacs/emojify 1.2_p20210309: Display emojis in Emacs, like :smile: or plain ASCII ones like :)
 app-emacs/engrave-faces 0.3.1: Convert font-lock faces to other formats
 app-emacs/epc 0.1.1: RPC stack for Emacs Lisp
@@ -2126,7 +2126,7 @@ app-emacs/js2-mode 20230408 20231224: Improved JavaScript editing mode for GNU E
 app-emacs/jsonrpc 1.0.25: JSON-RPC library (GNU ELPA release, also part of Emacs)
 app-emacs/julia-mode 0.4_p20211023: Emacs major mode for the Julia programming language
 app-emacs/julia-repl 1.3.0_p20220225: Run an inferior Julia REPL in a terminal inside Emacs
-app-emacs/kaolin-themes 1.7.2 1.7.3: Set of eye pleasing themes for GNU Emacs
+app-emacs/kaolin-themes 1.7.3 1.7.4: Set of eye pleasing themes for GNU Emacs
 app-emacs/key-chord 0.8.2: Map pairs of simultaneously pressed keys to commands
 app-emacs/keywiz 1.4: Emacs key sequence quiz
 app-emacs/kind-icon 0.2.2: Completion kind icons
@@ -4096,10 +4096,10 @@ dev-dotnet/csharp-gentoodotnetinfo 2.0.0 2.0.0-r1 2.9999: .NET information tool 
 dev-dotnet/csharp-language-server 0.19.0 0.20.0 0.21.0: Roslyn-based LSP language server for C#
 dev-dotnet/csharprepl 0.6.7: A command line C# REPL with syntax highlighting
 dev-dotnet/dotnet-outdated 4.6.4-r1 4.6.4-r2 4.6.9: Display and update outdated NuGet packages in a project
-dev-dotnet/dotnet-runtime-nugets 6.0.25-r1 6.0.33 6.0.36 7.0.14-r1 7.0.20 8.0.8 8.0.18 8.0.21 8.0.22 9.0.10 9.0.11 10.0.1: .NET runtime nugets
+dev-dotnet/dotnet-runtime-nugets 6.0.25-r1 6.0.33 6.0.36 7.0.14-r1 7.0.20 8.0.8 8.0.18 8.0.21 8.0.22 8.0.23 9.0.10 9.0.11 9.0.12 10.0.1 10.0.2: .NET runtime nugets
 dev-dotnet/dotnet-script 1.6.0: Run C# scripts from the CLI
 dev-dotnet/dotnet-sdk 9.0.111: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/dotnet-sdk-bin 6.0.417-r5 7.0.404-r5 8.0.108-r1 9.0.111 9.0.112 9.0.308 10.0.101: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/dotnet-sdk-bin 6.0.417-r5 7.0.404-r5 8.0.108-r1 9.0.111 9.0.112 9.0.308 10.0.101 10.0.102: .NET is a free, cross-platform, open-source developer platform
 dev-dotnet/fable 4.26.0 4.28.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
 dev-dotnet/fantomas 7.0.3: FSharp source code formatter
 dev-dotnet/fsautocomplete 0.80.1 0.81.0 0.82.0: F# language server using the Language Server Protocol
@@ -15251,7 +15251,7 @@ net-misc/exabgp 4.2.23 4.2.25: The BGP swiss army knife of networking
 net-misc/fakeidentd 2.6-r1: A static, secure identd. One source file only!
 net-misc/freerdp 2.11.7-r1 2.9999 3.14.1 3.16.0 3.17.1 3.17.2-r1 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 10.1.3 10.2.2 10.2.3 10.3.1 10.4.1 10.5.0: The FRRouting Protocol Suite
-net-misc/gallery-dl 1.30.10 1.31.0 1.31.1 1.31.2 9999: Download image galleries and collections from several image hosting sites
+net-misc/gallery-dl 1.30.10 1.31.2 1.31.3 9999: Download image galleries and collections from several image hosting sites
 net-misc/geckodriver 0.36.0: Proxy for using WebDriver clients to interact with Gecko-based browsers
 net-misc/gensio 2.8.5: General Stream I/O
 net-misc/geoipupdate 6.1.0 7.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
@@ -16426,7 +16426,7 @@ sci-mathematics/sympow 2.023.7: Symmetric power elliptic curve L-functions
 sci-mathematics/topcom 0.17.8-r3 1.1.2: Computing Triangulations Of Point Configurations and Oriented Matroids
 sci-mathematics/twelf 1.7.1-r2: Implementation of the logical framework LF
 sci-mathematics/unuran 1.8.1 1.9.0: Universal Non-Uniform Random number generator
-sci-mathematics/vampire 4.8 4.9: The Vampire Prover, theorem prover for first-order logic
+sci-mathematics/vampire 4.9 5.0.0: The Vampire Prover, theorem prover for first-order logic
 sci-mathematics/verifpal 0.27.0: Cryptographic protocol analysis for real-world protocols
 sci-mathematics/verit 2021.06.2: An open, trustable and efficient SMT-prover
 sci-mathematics/why3 1.6.0 1.7.2 1.8.0 1.8.1 1.8.2: Platform for deductive program verification
