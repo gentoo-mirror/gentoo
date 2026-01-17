@@ -1,4 +1,4 @@
-# Copyright 2009-2025 Gentoo Authors
+# Copyright 2009-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,10 +26,10 @@ EAPI=8
 GN_MIN_VER=0.2235
 # chromium-tools/get-chromium-toolchain-strings.py
 TEST_FONT=a28b222b79851716f8358d2800157d9ffe117b3545031ae51f69b7e1e1b9a969
-BUNDLED_CLANG_VER=llvmorg-22-init-8940-g4d4cb757-84
-BUNDLED_RUST_VER=15283f6fe95e5b604273d13a428bab5fc0788f5a-1
+BUNDLED_CLANG_VER=llvmorg-22-init-14273-gea10026b-2
+BUNDLED_RUST_VER=11339a0ef5ed586bb7ea4f85a9b7287880caac3a-1
 RUST_SHORT_HASH=${BUNDLED_RUST_VER:0:10}-${BUNDLED_RUST_VER##*-}
-NODE_VER=22.11.0
+NODE_VER=24.11.1
 
 VIRTUALX_REQUIRED="pgo"
 
@@ -37,10 +37,10 @@ CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu
 	hi hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr
 	sv sw ta te th tr uk ur vi zh-CN zh-TW"
 
-LLVM_COMPAT=( 20 21 )
+LLVM_COMPAT=( 21 )
 PYTHON_COMPAT=( python3_{11..13} )
 PYTHON_REQ_USE="xml(+)"
-RUST_MIN_VER=1.78.0
+RUST_MIN_VER=1.91.0
 RUST_NEEDS_LLVM="yes please"
 RUST_OPTIONAL="yes" # Not actually optional, but we don't need system Rust (or LLVM) with USE=bundled-toolchain
 
@@ -51,7 +51,7 @@ DESCRIPTION="Open-source version of Google Chrome web browser"
 HOMEPAGE="https://www.chromium.org/"
 PPC64_HASH="a85b64f07b489b8c6fdb13ecf79c16c56c560fc6"
 PATCH_V="${PV%%\.*}"
-COPIUM_COMMIT="8025c57b5b5d0f93ca6392cbcfab8fd2f8255e75"
+COPIUM_COMMIT="bd8cca0b09a9316960853a3150c26e18ed59afd9"
 SRC_URI="https://github.com/chromium-linux-tarballs/chromium-tarballs/releases/download/${PV}/chromium-${PV}-linux.tar.xz
 	!bundled-toolchain? (
 		https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
@@ -59,14 +59,10 @@ SRC_URI="https://github.com/chromium-linux-tarballs/chromium-tarballs/releases/d
 			-> chromium-patches-copium-${COPIUM_COMMIT:0:10}.tar.gz
 	)
 	bundled-toolchain? (
-		https://gsdview.appspot.com/chromium-browser-clang/Linux_x64/clang-${BUNDLED_CLANG_VER}.tar.xz
+		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/clang-${BUNDLED_CLANG_VER}.tar.xz
 			-> chromium-clang-${BUNDLED_CLANG_VER}.tar.xz
 		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-${BUNDLED_RUST_VER}-${BUNDLED_CLANG_VER%-*}.tar.xz
 			-> chromium-rust-toolchain-${RUST_SHORT_HASH}-${BUNDLED_CLANG_VER%-*}.tar.xz
-	)
-	test? (
-		https://github.com/chromium-linux-tarballs/chromium-tarballs/releases/download/${PV}/chromium-${PV}-linux-testdata.tar.xz
-		https://chromium-fonts.storage.googleapis.com/${TEST_FONT} -> chromium-testfonts-${TEST_FONT:0:10}.tar.gz
 	)
 	ppc64? (
 		https://gitlab.raptorengineering.com/raptor-engineering-public/chromium/openpower-patches/-/archive/${PPC64_HASH}/openpower-patches-${PPC64_HASH}.tar.bz2 -> chromium-openpower-${PPC64_HASH:0:10}.tar.bz2
@@ -79,19 +75,17 @@ LICENSE+=" FFT2D FTL IJG ISC LGPL-2 LGPL-2.1 libpng libpng2 MIT MPL-1.1 MPL-2.0 
 LICENSE+=" SGI-B-2.0 SSLeay SunSoft Unicode-3.0 Unicode-DFS-2015 Unlicense UoI-NCSA X11-Lucent"
 LICENSE+=" rar? ( unRAR )"
 
-SLOT="0/beta"
+SLOT="0/stable"
 # Dev exists mostly to give devs some breathing room for beta/stable releases;
 # it shouldn't be keyworded but adventurous users can select it.
-if [[ ${SLOT} != "0/dev" ]]; then
-	KEYWORDS="~amd64 ~arm64"
-fi
+KEYWORDS="~amd64 ~arm64"
 
-IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-png +system-zstd"
+IUSE_SYSTEM_LIBS="+system-harfbuzz +system-icu +system-zstd"
 IUSE="+X ${IUSE_SYSTEM_LIBS} bindist bundled-toolchain cups debug ffmpeg-chromium gtk4 +hangouts headless kerberos +official pax-kernel pgo"
 IUSE+=" +proprietary-codecs pulseaudio qt6 +rar +screencast selinux test +vaapi +wayland +widevine cpu_flags_ppc_vsx3"
 RESTRICT="
 	!bindist? ( bindist )
-	test" #!test? ( test ) # Since M142 tests have been segfaulting on Gentoo systems; disabling for now.
+	test" # Since M142 tests have been segfaulting on Gentoo systems; disabling for now.
 
 REQUIRED_USE="
 	!headless? ( || ( X wayland ) )
@@ -123,7 +117,6 @@ COMMON_SNAPSHOT_DEPEND="
 	>=media-libs/freetype-2.11.0-r1:=
 	system-harfbuzz? ( >=media-libs/harfbuzz-3:0=[icu(-)] )
 	media-libs/libjpeg-turbo:=
-	system-png? ( media-libs/libpng:=[-apng(-)] )
 	system-zstd? ( >=app-arch/zstd-1.5.5:= )
 	>=media-libs/libwebp-0.4.0:=
 	media-libs/mesa:=[gbm(+)]
@@ -480,13 +473,12 @@ src_prepare() {
 	# 	<(find files/ -name "*.patch" | sort)
 
 	local PATCHES=(
-		"${FILESDIR}/${PN}-cross-compile.patch"
 		"${FILESDIR}/${PN}-109-system-zlib.patch"
 		"${FILESDIR}/${PN}-131-unbundle-icu-target.patch"
-		"${FILESDIR}/${PN}-134-bindgen-custom-toolchain.patch"
 		"${FILESDIR}/${PN}-135-oauth2-client-switches.patch"
 		"${FILESDIR}/${PN}-138-nodejs-version-check.patch"
-		"${FILESDIR}/${PN}-143-revert-libpng-testiness.patch"
+		"${FILESDIR}/${PN}-144-bindgen-custom-toolchain.patch"
+		"${FILESDIR}/${PN}-cross-compile.patch"
 	)
 
 	PATCHES+=(
@@ -557,51 +549,13 @@ src_prepare() {
 		fi
 
 		# Oxidised hacks, let's keep 'em all in one place
-		# This is a nightly option that does not exist in older releases
-		# https://github.com/rust-lang/rust/commit/389a399a501a626ebf891ae0bb076c25e325ae64
-		if ver_test ${RUST_SLOT} -lt "1.83.0"; then
-			sed '/rustflags = \[ "-Zdefault-visibility=hidden" \]/d' -i build/config/gcc/BUILD.gn ||
-				die "Failed to remove default visibility nightly option"
-		fi
-
-		# Upstream Rust replaced adler with adler2, for older versions of Rust we still need
-		# to tell GN that we have the older lib when it tries to copy the Rust sysroot
-		# into the bulid directory.
-		if ver_test ${RUST_SLOT} -lt "1.86.0"; then
-			sed -i 's/adler2/adler/' build/rust/std/BUILD.gn ||
-				die "Failed to tell GN that we have adler and not adler2"
-		fi
-
-		if ver_test ${RUST_SLOT} -lt "1.89.0"; then
-			# The rust allocator was changed in 1.89.0, so we need to patch sources for older versions
-			PATCHES+=( "${FILESDIR}/chromium-140-__rust_no_alloc_shim_is_unstable.patch" )
-		fi
-
-		if ver_test ${RUST_SLOT} -lt "1.90.0"; then
-			PATCHES+=(
-				"${WORKDIR}/copium/cr142-rust-pre1.90.patch"
-			)
-		fi
-
-		if ver_test ${RUST_SLOT} -lt "1.91.0"; then
-			PATCHES+=(
-				"${WORKDIR}/copium/cr142-crabbyavif-gn-rust-pre1.91.patch"
-				"${WORKDIR}/copium/cr142-crabbyavif-src-rust-pre1.91.patch"
-			)
+		# Fixes a nightly rust "feature"
+		if [[ ${RUST_SLOT} != 9999 ]]; then
+			PATCHES+=( "${WORKDIR}/copium/cr144-rust-1.86-is-not-nightly--adler2.patch" )
 		fi
 	fi
 
 	default
-
-	if [[ ${LLVM_SLOT} == "19" ]]; then
-		# Upstream now hard depend on a feature that was added in LLVM 20.1, but we don't want to stabilise that yet.
-		# Do the temp file shuffle in case someone is using something other than `gawk`
-		{
-			awk '/config\("clang_warning_suppression"\) \{/	{ print $0 " }"; sub(/clang/, "xclang"); print; next }
-				{ print }' build/config/compiler/BUILD.gn > "${T}/build.gn" && \
-				mv "${T}/build.gn" build/config/compiler/BUILD.gn
-		} || die "Unable to disable warning suppression"
-	fi
 
 	# Not included in -lite tarballs, but we should check for it anyway.
 	if [[ -f third_party/node/linux/node-linux-x64/bin/node ]]; then
@@ -764,6 +718,7 @@ src_prepare() {
 		third_party/libjingle
 		third_party/libpfm4
 		third_party/libphonenumber
+		third_party/libpng
 		third_party/libsecret
 		third_party/libsrtp
 		third_party/libsync
@@ -815,6 +770,7 @@ src_prepare() {
 		third_party/pdfium/third_party/libtiff
 		third_party/perfetto
 		third_party/perfetto/protos/third_party/chromium
+		third_party/perfetto/protos/third_party/pprof
 		third_party/perfetto/protos/third_party/simpleperf
 		third_party/pffft
 		third_party/ply
@@ -915,7 +871,6 @@ src_prepare() {
 			third_party/fuzztest
 			third_party/google_benchmark/src/include/benchmark
 			third_party/google_benchmark/src/src
-			third_party/perfetto/protos/third_party/pprof
 			third_party/test_fonts
 			third_party/test_fonts/fontconfig
 		)
@@ -928,10 +883,6 @@ src_prepare() {
 
 	if ! use system-icu; then
 		keeplibs+=( third_party/icu )
-	fi
-
-	if ! use system-png; then
-		keeplibs+=( third_party/libpng )
 	fi
 
 	if ! use system-zstd; then
@@ -1032,9 +983,7 @@ chromium_configure() {
 	if use system-icu; then
 		gn_system_libraries+=( icu )
 	fi
-	if use system-png; then
-		gn_system_libraries+=( libpng )
-	fi
+
 	if use system-zstd; then
 		gn_system_libraries+=( zstd )
 	fi
