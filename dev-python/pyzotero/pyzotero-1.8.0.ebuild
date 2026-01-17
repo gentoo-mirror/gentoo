@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=uv-build
 PYPI_VERIFY_REPO=https://github.com/urschrei/pyzotero
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 pypi
 
@@ -31,7 +31,6 @@ RDEPEND="
 BDEPEND="
 	>=dev-python/trove-classifiers-2024.7.2[${PYTHON_USEDEP}]
 	test? (
-		>=dev-python/httpretty-1.1.4[${PYTHON_USEDEP}]
 		dev-python/ipython[${PYTHON_USEDEP}]
 		>=dev-python/pytz-2025.2[${PYTHON_USEDEP}]
 		dev-python/python-dateutil[${PYTHON_USEDEP}]
@@ -45,5 +44,6 @@ EPYTEST_PLUGINS=( pytest-asyncio )
 distutils_enable_tests pytest
 
 python_test() {
+	> tests/__init__.py || die
 	epytest -o addopts=
 }
