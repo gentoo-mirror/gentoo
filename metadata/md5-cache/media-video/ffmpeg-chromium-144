@@ -1,0 +1,17 @@
+BDEPEND=>=dev-build/make-3.81 virtual/pkgconfig cpu_flags_x86_mmx? ( >=dev-lang/nasm-2.13 )
+DEFINED_PHASES=compile configure install prepare
+DEPEND=>=media-libs/opus-1.0.2-r2 vaapi? ( >=media-libs/libva-1.2.1-r1:0= ) nvenc? ( >=media-libs/nv-codec-headers-11.1.5.3 ) vdpau? ( >=x11-libs/libvdpau-0.7 ) vulkan? ( >=media-libs/vulkan-loader-1.3.277:= ) vulkan? ( >=dev-util/vulkan-headers-1.3.277 )
+DESCRIPTION=FFmpeg built specifically for codec support in Chromium-based browsers
+EAPI=8
+HOMEPAGE=https://ffmpeg.org/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=cpudetection debug +gpl vaapi vdpau vulkan nvenc +threads cpu_flags_arm_thumb cpu_flags_arm_v6 cpu_flags_arm_thumb2 cpu_flags_arm_neon cpu_flags_arm_vfp cpu_flags_arm_vfpv3 cpu_flags_arm_v8 cpu_flags_arm_asimddp cpu_flags_arm_i8mm cpu_flags_x86_3dnow cpu_flags_x86_3dnowext cpu_flags_x86_aes cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_fma3 cpu_flags_x86_fma4 cpu_flags_x86_mmx cpu_flags_x86_mmxext cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_ssse3 cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_xop
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64
+LICENSE=!gpl? ( LGPL-2.1 ) gpl? ( GPL-2 )
+RDEPEND=>=media-libs/opus-1.0.2-r2 vaapi? ( >=media-libs/libva-1.2.1-r1:0= ) nvenc? ( >=media-libs/nv-codec-headers-11.1.5.3 ) vdpau? ( >=x11-libs/libvdpau-0.7 ) vulkan? ( >=media-libs/vulkan-loader-1.3.277:= )
+REQUIRED_USE=vulkan? ( threads ) arm64? ( cpu_flags_arm_v8 ) cpu_flags_arm_v8? ( cpu_flags_arm_vfpv3 cpu_flags_arm_neon ) cpu_flags_arm_neon? ( cpu_flags_arm_vfp arm? ( cpu_flags_arm_thumb2 ) ) cpu_flags_arm_vfpv3? ( cpu_flags_arm_vfp ) cpu_flags_arm_thumb2? ( cpu_flags_arm_v6 ) cpu_flags_arm_v6? ( arm? ( cpu_flags_arm_thumb ) ) cpu_flags_x86_avx2? ( cpu_flags_x86_avx ) cpu_flags_x86_fma4? ( cpu_flags_x86_avx ) cpu_flags_x86_fma3? ( cpu_flags_x86_avx ) cpu_flags_x86_xop? ( cpu_flags_x86_avx ) cpu_flags_x86_avx? ( cpu_flags_x86_sse4_2 ) cpu_flags_x86_aes? ( cpu_flags_x86_sse4_2 ) cpu_flags_x86_sse4_2? ( cpu_flags_x86_sse4_1 ) cpu_flags_x86_sse4_1? ( cpu_flags_x86_ssse3 ) cpu_flags_x86_ssse3? ( cpu_flags_x86_sse3 ) cpu_flags_x86_sse3? ( cpu_flags_x86_sse2 ) cpu_flags_x86_sse2? ( cpu_flags_x86_sse ) cpu_flags_x86_sse? ( cpu_flags_x86_mmxext ) cpu_flags_x86_mmxext? ( cpu_flags_x86_mmx ) cpu_flags_x86_3dnowext? ( cpu_flags_x86_3dnow ) cpu_flags_x86_3dnow? ( cpu_flags_x86_mmx )
+RESTRICT=test
+SLOT=144
+SRC_URI=https://deps.gentoo.zip/media-video/ffmpeg-chromium-144.tar.xz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
+_md5_=f1213f1fa6950c22d2b61b1698bcdf05
