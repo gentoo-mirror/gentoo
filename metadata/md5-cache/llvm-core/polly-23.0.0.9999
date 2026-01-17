@@ -1,6 +1,6 @@
 BDEPEND=test? ( || ( ( dev-lang/python:3.14 dev-python/lit[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/lit[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/lit[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/lit[python_targets_python3_11(-)] ) ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=~llvm-core/llvm-22.0.0.9999:22=[debug=]
+DEPEND=~llvm-core/llvm-23.0.0.9999:23=[debug=]
 DESCRIPTION=Polyhedral optimizations for LLVM
 EAPI=8
 HOMEPAGE=https://polly.llvm.org/
@@ -8,8 +8,8 @@ INHERIT=cmake llvm.org python-any-r1
 IUSE=+debug test
 LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA MIT
 PROPERTIES=live
-RDEPEND=~llvm-core/llvm-22.0.0.9999:22=[debug=]
+RDEPEND=~llvm-core/llvm-23.0.0.9999:23=[debug=]
 RESTRICT=!test? ( test )
-SLOT=22/22.0.0.9999
-_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	git-r3	875eb471682d3e1f18da124be97dcc81	llvm.org	371ec05cde93e01788fefffb7c995f82	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=e01732913a905fd783ca960d08bec4db
+SLOT=23/23.0.0.9999
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	git-r3	875eb471682d3e1f18da124be97dcc81	llvm.org	7852e2cc8208255f708130f22adf679c	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=5a9ae9ec84f8ba96e4d443260b233294

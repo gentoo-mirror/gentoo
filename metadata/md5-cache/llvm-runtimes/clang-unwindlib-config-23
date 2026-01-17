@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Default unwindlib configuration for clang
+EAPI=8
+HOMEPAGE=https://clang.llvm.org/
+IUSE=default-compiler-rt llvm-libunwind
+LICENSE=public-domain
+RDEPEND=default-compiler-rt? ( llvm-libunwind? ( >=llvm-runtimes/libunwind-23[static-libs] ) !llvm-libunwind? ( sys-libs/libunwind[static-libs] ) ) !default-compiler-rt? ( sys-devel/gcc )
+SLOT=23
+_md5_=a59a908068a9611e5513664f09a7f46c

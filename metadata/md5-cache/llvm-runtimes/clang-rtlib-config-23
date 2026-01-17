@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Default rtlib configuration for clang
+EAPI=8
+HOMEPAGE=https://clang.llvm.org/
+IUSE=default-compiler-rt +abi_x86_32 abi_x86_64
+LICENSE=public-domain
+RDEPEND=default-compiler-rt? ( llvm-runtimes/compiler-rt:23[abi_x86_32(+)?,abi_x86_64(+)?] ) !default-compiler-rt? ( sys-devel/gcc )
+SLOT=23
+_md5_=e218014ebabd75be3a7bba4aaf43b7b7

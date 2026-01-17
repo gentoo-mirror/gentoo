@@ -1,0 +1,14 @@
+BDEPEND=llvm-core/llvm:23 llvm-core/flang test? ( || ( ( dev-lang/python:3.14 dev-python/lit[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/lit[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/lit[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/lit[python_targets_python3_11(-)] ) ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DESCRIPTION=LLVM's Fortran runtime
+EAPI=8
+HOMEPAGE=https://flang.llvm.org/
+INHERIT=cmake flag-o-matic llvm.org python-any-r1
+IUSE=+debug test test
+LICENSE=Apache-2.0-with-LLVM-exceptions
+PROPERTIES=live
+RDEPEND=!<llvm-core/flang-21.0.0_pre20250221-r1
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=23
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	git-r3	875eb471682d3e1f18da124be97dcc81	llvm.org	7852e2cc8208255f708130f22adf679c	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=54d7c9af8259bbbd9902860f0095720a

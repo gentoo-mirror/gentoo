@@ -1,0 +1,9 @@
+DEFINED_PHASES=install
+DESCRIPTION=Default C++ library configuration for clang
+EAPI=8
+HOMEPAGE=https://clang.llvm.org/
+IUSE=default-libcxx
+LICENSE=public-domain
+RDEPEND=default-libcxx? ( >=llvm-runtimes/libcxx-23[static-libs] ) !default-libcxx? ( sys-devel/gcc )
+SLOT=23
+_md5_=b3716b73e564fd7afe07dda8ce88b2d9
