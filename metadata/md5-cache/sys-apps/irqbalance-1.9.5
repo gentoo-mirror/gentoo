@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/Irqbalance/irqbalance
 INHERIT=meson linux-info optfeature udev
 IUSE=caps +numa systemd selinux thermal tui
-KEYWORDS=amd64 arm arm64 ~loong ppc ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm arm64 ~loong ppc ppc64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/glib:2 caps? ( sys-libs/libcap-ng ) numa? ( sys-process/numactl ) systemd? ( sys-apps/systemd:= ) thermal? ( dev-libs/libnl:3 ) tui? ( sys-libs/ncurses:=[unicode(+)] ) selinux? ( sec-policy/selinux-irqbalance )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/Irqbalance/irqbalance/archive/v1.9.5.tar.gz -> irqbalance-1.9.5.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	sysroot	c7470ddc2876a596a7a1f4c2a87a5dcb	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	8d2fef06f034c2294794c1ffce65483e	linux-info	efd923656513c879204fec6638eadee5	optfeature	538bce96e5589935b57e178e8635f301	udev	f3d9a4376ebd22131726a68e1a0a058f
-_md5_=97b164eab98e592b6113945513b1f52e
+_md5_=1ddb01747e8703ee2fb04a796486bb4f
