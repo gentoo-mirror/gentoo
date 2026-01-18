@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/yacc virtual/pkgconfig verify-sig? ( sec-keys/signify-keys-opensmtpd ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig verify-sig? ( app-crypt/signify )
+DEFINED_PHASES=configure install prepare unpack
+DEPEND=dev-libs/libbsd dev-libs/libevent:= dev-libs/openssl:= virtual/zlib:= virtual/libcrypt:= berkdb? ( sys-libs/db:= ) elibc_musl? ( sys-libs/fts-standalone ) pam? ( sys-libs/pam )
+DESCRIPTION=Lightweight but featured SMTP daemon from OpenBSD
+EAPI=8
+HOMEPAGE=https://www.opensmtpd.org
+INHERIT=autotools pam systemd verify-sig
+IUSE=berkdb +mta pam split-usr verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=ISC BSD BSD-1 BSD-2 BSD-4
+RDEPEND=dev-libs/libbsd dev-libs/libevent:= dev-libs/openssl:= virtual/zlib:= virtual/libcrypt:= berkdb? ( sys-libs/db:= ) elibc_musl? ( sys-libs/fts-standalone ) pam? ( sys-libs/pam ) acct-user/smtpd acct-user/smtpq app-misc/ca-certificates net-mail/mailbase !mail-client/mailx-support !mail-mta/courier !mail-mta/esmtp !mail-mta/exim !mail-mta/msmtp[mta] !mail-mta/netqmail !mail-mta/nullmailer !mail-mta/postfix !mail-mta/sendmail !mail-mta/ssmtp[mta]
+SLOT=0
+SRC_URI=https://www.opensmtpd.org/archives/opensmtpd-7.8.0p0.tar.gz verify-sig? ( https://www.opensmtpd.org/archives/opensmtpd-7.8.0p0.sum.sig )
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
+_md5_=fa333df1702aa16f422a74f28062030e
