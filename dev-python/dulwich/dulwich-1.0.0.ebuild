@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,22 +12,24 @@ PYTHON_COMPAT=( python3_{11..14} )
 CRATES="
 	autocfg@1.5.0
 	heck@0.5.0
-	indoc@2.0.6
-	libc@0.2.177
+	indoc@2.0.7
+	libc@0.2.180
 	memchr@2.7.6
 	memoffset@0.9.1
 	once_cell@1.21.3
-	portable-atomic@1.11.1
-	proc-macro2@1.0.101
-	pyo3-build-config@0.27.0
-	pyo3-ffi@0.27.0
-	pyo3-macros-backend@0.27.0
-	pyo3-macros@0.27.0
-	pyo3@0.27.0
-	quote@1.0.41
-	syn@2.0.107
-	target-lexicon@0.13.3
-	unicode-ident@1.0.19
+	portable-atomic@1.13.0
+	proc-macro2@1.0.105
+	pyo3-build-config@0.27.2
+	pyo3-ffi@0.27.2
+	pyo3-macros-backend@0.27.2
+	pyo3-macros@0.27.2
+	pyo3@0.27.2
+	quote@1.0.43
+	rustversion@1.0.22
+	similar@2.7.0
+	syn@2.0.114
+	target-lexicon@0.13.4
+	unicode-ident@1.0.22
 	unindent@0.2.4
 "
 
@@ -47,11 +49,11 @@ SRC_URI+="
 LICENSE="GPL-2+ Apache-2.0"
 LICENSE+=" native-extensions? ("
 # Dependent crate licenses
-LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
+LICENSE+=" Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
 LICENSE+=" )"
 
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86"
 IUSE="doc examples +native-extensions test"
 RESTRICT="!test? ( test )"
 
