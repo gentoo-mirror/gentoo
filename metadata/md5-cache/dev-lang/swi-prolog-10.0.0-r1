@@ -7,7 +7,7 @@ HOMEPAGE=https://www.swi-prolog.org/ https://github.com/SWI-Prolog/swipl-devel/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake desktop flag-o-matic java-pkg-opt-2 toolchain-funcs xdg
 IUSE=archive berkdb +cli debug doc +gmp gui +ipc java minimal odbc pcre pgo ssl test yaml java
-KEYWORDS=~amd64 ~ppc ~x86
+KEYWORDS=amd64 ~ppc ~x86
 LICENSE=BSD-2
 RDEPEND=sys-libs/ncurses:= virtual/zlib:= virtual/libcrypt:= !minimal? ( dev-libs/ossp-uuid ) archive? ( app-arch/libarchive:= ) berkdb? ( >=sys-libs/db-4:= ) cli? ( dev-libs/libedit ) gmp? ( dev-libs/gmp:0= ) gui? ( dev-libs/glib:2 media-libs/sdl3-image x11-libs/pango ) odbc? ( dev-db/unixODBC ) pcre? ( dev-libs/libpcre ) ssl? ( dev-libs/openssl:0= ) yaml? ( dev-libs/libyaml ) java? ( >=virtual/jre-1.8:* ) java? ( >=dev-java/java-config-2.2.0-r3 )
 REQUIRED_USE=doc? ( archive ) minimal? ( !archive !doc !ipc !ssl !test )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://www.swi-prolog.org/download/stable/src/swipl-10.0.0.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	desktop	7b6f6e9d65093966fbc8475399c5dd4e	java-utils-2	3febdd17a5820c438f6368dde60d4848	java-pkg-opt-2	cfe09ee08c1c7907ffee08abd026fd4b	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=f5f440791f9ee2afddcd18e9cf6eb675
+_md5_=a24b96ffb0019108375b20c5230abad2

@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://constexpr.org/innoextract/
 INHERIT=cmake
 IUSE=debug +iconv +lzma test
-KEYWORDS=~amd64 ~arm ~arm64 ~m68k ppc64 ~x86
+KEYWORDS=amd64 ~arm arm64 ~m68k ppc64 ~x86
 LICENSE=ZLIB
 RDEPEND=dev-libs/boost:=[bzip2,zlib] iconv? ( virtual/libiconv ) lzma? ( app-arch/xz-utils )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/dscharrer/innoextract/archive/6e9e34ed0876014fdb46e684103ef8c3605e382e.tar.gz -> innoextract-1.10_pre20250206.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c
-_md5_=f3d7e3b78a6767c0b8764a47f59edd4e
+_md5_=db1aa57801b77b5199597d4b3e6c36f2
