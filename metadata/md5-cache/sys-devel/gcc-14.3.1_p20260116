@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 app-alternatives/yacc sys-devel/binutils:* >=sys-devel/flex-2.5.4 nls? ( sys-devel/gettext ) test? ( || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) >=dev-util/dejagnu-1.4.4 >=sys-devel/autogen-5.5.4 ) doc? ( app-text/doxygen ) sys-apps/texinfo ada? ( || ( <sys-devel/gcc-15[ada] <dev-lang/ada-bootstrap-15 ) ) d? ( || ( <sys-devel/gcc-15[d(-)] sys-devel/gcc:11 ) ) rust? ( || ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* ) )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test unpack
+DEPEND=elibc_glibc? ( sys-libs/glibc[cet(-)?] ) virtual/zlib:= virtual/libiconv nls? ( virtual/libintl ) >=dev-libs/gmp-4.3.2:0= >=dev-libs/mpfr-2.4.2:0= >=dev-libs/mpc-0.8.1:0= objc-gc? ( >=dev-libs/boehm-gc-7.4.2 ) graphite? ( >=dev-libs/isl-0.14:0= ) sanitize? ( virtual/libcrypt ) systemtap? ( dev-debug/systemtap ) zstd? ( app-arch/zstd:= ) valgrind? ( dev-debug/valgrind )
+DESCRIPTION=The GNU Compiler Collection
+EAPI=8
+HOMEPAGE=https://gcc.gnu.org/
+INHERIT=toolchain
+IUSE=test vanilla +nls debug +cxx +fortran doc hardened multilib objc pgo objc-gc libssp objc++ openmp fixed-point go +sanitize graphite ada vtv jit +pie +ssp pch systemtap d lto cet zstd valgrind custom-cflags ieee-long-double default-znow default-stack-clash-protection modula2 rust time64
+LICENSE=GPL-3+ LGPL-3+ || ( GPL-3+ libgcc libstdc++ gcc-runtime-library-exception-3.1 ) FDL-1.3+
+PDEPEND=>=sys-devel/gcc-config-2.11
+RDEPEND=elibc_glibc? ( sys-libs/glibc[cet(-)?] ) virtual/zlib:= virtual/libiconv nls? ( virtual/libintl ) >=dev-libs/gmp-4.3.2:0= >=dev-libs/mpfr-2.4.2:0= >=dev-libs/mpc-0.8.1:0= objc-gc? ( >=dev-libs/boehm-gc-7.4.2 ) graphite? ( >=dev-libs/isl-0.14:0= ) zstd? ( app-arch/zstd:= )
+RESTRICT=!test? ( test )
+SLOT=14
+SRC_URI=mirror://gcc/snapshots/14-20260116/gcc-14-20260116.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-14.3.0-patches-5.tar.xz https://dev.gentoo.org/~sam/distfiles/sys-devel/gcc/gcc-14.3.0-musl-patches-2.tar.xz test? ( https://gitweb.gentoo.org/proj/gcc-patches.git/plain/scripts/testsuite-management/validate_failures.py?id=a447cd6dee206facb66720bdacf0c765a8b09f33 -> gcc-validate-failures-a447cd6dee206facb66720bdacf0c765a8b09f33.py )
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	multilib	404b65bd5212cff83b3935c685419d08	pax-utils	5555f2e75744739fe100ee62c22d28fe	rust	20da14430886f3de143eb101684fcf62	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	toolchain	68899953542ff976fb3aa9def92d2a67
+_md5_=73f12aa05a1c34f58bd79986c953402c
