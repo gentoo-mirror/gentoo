@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -37,6 +37,7 @@ PATCHES=(
 	"${FILESDIR}/wsjtx-2.3.0-drop-docs.patch"
 	"${FILESDIR}/wsjtx-clang.patch"
 	"${FILESDIR}/wsjtx-3.0.0-fix-sound-dir.patch"
+	"${FILESDIR}/wsjtx-3.0.0-gcc16.patch"
 	"${FILESDIR}/wsjtx-2.8.0-qt692-audio.patch"
 )
 
@@ -65,8 +66,9 @@ src_configure() {
 		-DCMAKE_INSTALL_DOCDIR="share/doc/${PF}"
 	)
 	append-ldflags -no-pie
-	# fix executable stack from fortran nested functions
-	append-fflags -ftrampoline-impl=heap
+	# fix executable stack from fortran nested functions, placing them on the
+	# heap. Switch is only supported for newer GCC versions (bug #968790).
+	append-fflags $(test-flags-FC -ftrampoline-impl=heap)
 	cmake_src_configure
 }
 
