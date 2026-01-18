@@ -1,16 +1,16 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
-DEFINED_PHASES=configure postinst postrm preinst prepare
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-gnupg ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure postinst postrm preinst prepare unpack
 DEPEND=>=app-crypt/gnupg-2:= >=app-crypt/gpgme-1.11.1:= >=dev-libs/libassuan-1.1.0:= >=dev-libs/libgpg-error-1.33:= x11-libs/gtk+:3
 DESCRIPTION=GNU Privacy Assistant (GPA): a graphical user interface for GnuPG
 EAPI=8
 HOMEPAGE=https://gnupg.org/software/gpa/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=autotools xdg
-IUSE=nls
+INHERIT=autotools verify-sig xdg
+IUSE=nls verify-sig
 KEYWORDS=~alpha amd64 ppc ppc64 ~sparc x86
 LICENSE=GPL-3
 RDEPEND=>=app-crypt/gnupg-2:= >=app-crypt/gpgme-1.11.1:= >=dev-libs/libassuan-1.1.0:= >=dev-libs/libgpg-error-1.33:= x11-libs/gtk+:3
 SLOT=0
-SRC_URI=mirror://gnupg/gpa/gpa-0.11.0.tar.bz2
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=fbc1db08d5679d436236b9b168b34505
+SRC_URI=mirror://gnupg/gpa/gpa-0.11.0.tar.bz2 verify-sig? ( mirror://gnupg/gpa/gpa-0.11.0.tar.bz2.sig )
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=065778aaf88d4e5cbd97514b7102ac06
