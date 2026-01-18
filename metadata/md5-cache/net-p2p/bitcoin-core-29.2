@@ -7,7 +7,7 @@ HOMEPAGE=https://bitcoincore.org/
 IDEPEND=gui? ( dev-util/desktop-file-utils )
 INHERIT=bash-completion-r1 check-reqs cmake db-use desktop edo multiprocessing python-any-r1 systemd toolchain-funcs xdg-utils
 IUSE=asm +berkdb +cli +daemon dbus examples +external-signer gui qrcode +sqlite +system-libsecp256k1 systemtap test test-full zeromq
-KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+KEYWORDS=amd64 arm arm64 ~ppc ~ppc64 ~x86
 LICENSE=MIT
 RDEPEND=>=dev-libs/boost-1.81.0:= >=dev-libs/libevent-2.1.12:= berkdb? ( >=sys-libs/db-4.8.30:4.8=[cxx] ) daemon? ( acct-group/bitcoin acct-user/bitcoin ) gui? ( >=dev-qt/qtbase-6.2:6[dbus?,gui,network,widgets] ) qrcode? ( >=media-gfx/qrencode-4.1.1:= ) sqlite? ( >=dev-db/sqlite-3.38.5:= ) system-libsecp256k1? ( >=dev-libs/libsecp256k1-0.6.0:=[asm=,ellswift,extrakeys,recovery,schnorr] ) zeromq? ( >=net-libs/zeromq-4.3.4:= ) !dev-util/bitcoin-tx cli? ( !net-p2p/bitcoin-cli ) daemon? ( !net-p2p/bitcoind ) gui? ( !net-p2p/bitcoin-qt )
 REQUIRED_USE=dbus? ( gui ) qrcode? ( gui ) test-full? ( test )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bitcoin/bitcoin/archive/v29.2.tar.gz -> bitcoin-core-29.2.tar.gz https://github.com/bitcoin/bitcoin/commit/6d4214925fadc36d26aa58903db5788c742e68c6.patch?full_index=1 -> bitcoin-core-29.0-qt6.patch
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	bash-completion-r1	767861f3744f589ee5291c1698b1c082	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	multilib	404b65bd5212cff83b3935c685419d08	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	desktop	7b6f6e9d65093966fbc8475399c5dd4e	edo	a5e294016aa84979fcb2459749eb80b2	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=0896121569a1748cd3a4fb75cdb37410
+_md5_=cabce1b93e579841fdc941c325dcc14c
