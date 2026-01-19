@@ -1,15 +1,16 @@
-DEFINED_PHASES=compile install postinst prepare
+BDEPEND=sec-keys/openpgp-keys-openwall verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile install postinst prepare unpack
 DEPEND=nids? ( net-libs/libnids ) pcap? ( net-libs/libpcap )
 DESCRIPTION=A port scan detection tool
 EAPI=7
 HOMEPAGE=https://www.openwall.com/scanlogd/
-INHERIT=savedconfig toolchain-funcs
-IUSE=+nids pcap savedconfig
+INHERIT=savedconfig toolchain-funcs verify-sig
+IUSE=+nids pcap savedconfig verify-sig
 KEYWORDS=~amd64 ~ppc x86
 LICENSE=scanlogd GPL-2
 RDEPEND=nids? ( net-libs/libnids ) pcap? ( net-libs/libpcap ) acct-group/scanlogd acct-user/scanlogd
 REQUIRED_USE=?? ( nids pcap )
 SLOT=0
-SRC_URI=https://www.openwall.com/scanlogd/scanlogd-2.2.8.tar.gz
-_eclasses_=portability	a39e3d646f76cb45d06b44cc1144b8d4	savedconfig	b9131abe556ad2ea96c01b06d658d363	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3
-_md5_=57901d2205d833f49a3e81efd3e93219
+SRC_URI=https://www.openwall.com/scanlogd/scanlogd-2.2.8.tar.gz verify-sig? ( https://www.openwall.com/scanlogd/scanlogd-2.2.8.tar.gz.sign -> scanlogd-2.2.8.tar.gz.sig )
+_eclasses_=portability	a39e3d646f76cb45d06b44cc1144b8d4	savedconfig	b9131abe556ad2ea96c01b06d658d363	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
+_md5_=49792d5a78fb9471636b8e328d2a8493
