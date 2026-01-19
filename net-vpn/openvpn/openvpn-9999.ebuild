@@ -6,13 +6,19 @@ EAPI=8
 inherit autotools dot-a systemd linux-info tmpfiles
 
 DESCRIPTION="Robust and highly flexible tunneling application compatible with many OSes"
-HOMEPAGE="https://openvpn.net"
+HOMEPAGE="https://community.openvpn.net/ https://openvpn.net"
 
 if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://github.com/OpenVPN/${PN}.git"
 	inherit git-r3
 else
-	SRC_URI="https://build.openvpn.net/downloads/releases/${P}.tar.gz"
+	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/openvpn.asc
+	inherit verify-sig
+
+	SRC_URI="
+		https://build.openvpn.net/downloads/releases/${P}.tar.gz
+		verify-sig? ( https://build.openvpn.net/downloads/releases/${P}.tar.gz.asc )
+	"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
@@ -63,6 +69,8 @@ RDEPEND="
 
 if [[ ${PV} = "9999" ]]; then
 	BDEPEND+=" dev-python/docutils"
+else
+	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-openvpn )"
 fi
 
 PATCHES=(
