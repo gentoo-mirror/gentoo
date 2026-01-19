@@ -1,16 +1,16 @@
-BDEPEND=dev-lang/perl virtual/pkgconfig doc? ( dev-python/sphinx ) test? ( dev-util/cmocka ) systemtap? ( dev-debug/systemtap ) virtual/pkgconfig
-DEFINED_PHASES=config configure install postinst prepare test
+BDEPEND=dev-lang/perl virtual/pkgconfig doc? ( dev-python/sphinx ) test? ( dev-util/cmocka ) systemtap? ( dev-debug/systemtap ) verify-sig? ( sec-keys/openpgp-keys-isc ) virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=config configure install postinst prepare test unpack
 DEPEND=acct-group/named acct-user/named dev-libs/json-c:= dev-libs/userspace-rcu:= >=dev-libs/libuv-1.37.0:= virtual/zlib:= dev-libs/openssl:=[-bindist(-)] >=sys-libs/libcap-2.1.0 dnstap? ( dev-libs/fstrm dev-libs/protobuf-c ) doh? ( net-libs/nghttp2:= ) geoip? ( dev-libs/libmaxminddb ) gssapi? ( virtual/krb5 ) idn? ( net-dns/libidn2 ) jemalloc? ( dev-libs/jemalloc:= ) lmdb? ( dev-db/lmdb ) xml? ( dev-libs/libxml2:= )
 DESCRIPTION=Berkeley Internet Name Domain - Name Server
 EAPI=8
 HOMEPAGE=https://www.isc.org/bind/
-INHERIT=eapi9-ver systemd tmpfiles toolchain-funcs
-IUSE=dnstap doc doh fixed-rrset idn jemalloc geoip gssapi lmdb selinux static-libs systemtap test xml
+INHERIT=eapi9-ver systemd tmpfiles toolchain-funcs verify-sig
+IUSE=dnstap doc doh fixed-rrset idn jemalloc geoip gssapi lmdb selinux static-libs systemtap test xml verify-sig
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=MPL-2.0
 RDEPEND=acct-group/named acct-user/named dev-libs/json-c:= dev-libs/userspace-rcu:= >=dev-libs/libuv-1.37.0:= virtual/zlib:= dev-libs/openssl:=[-bindist(-)] >=sys-libs/libcap-2.1.0 dnstap? ( dev-libs/fstrm dev-libs/protobuf-c ) doh? ( net-libs/nghttp2:= ) geoip? ( dev-libs/libmaxminddb ) gssapi? ( virtual/krb5 ) idn? ( net-dns/libidn2 ) jemalloc? ( dev-libs/jemalloc:= ) lmdb? ( dev-db/lmdb ) xml? ( dev-libs/libxml2:= ) selinux? ( sec-policy/selinux-bind ) sys-process/psmisc !<net-dns/bind-tools-9.18.0 virtual/tmpfiles
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://downloads.isc.org/isc/bind9/9.20.16/bind-9.20.16.tar.xz
-_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
-_md5_=fc75fb100af6a489915ff0b9f70da4f9
+SRC_URI=https://downloads.isc.org/isc/bind9/9.20.16/bind-9.20.16.tar.xz verify-sig? ( https://downloads.isc.org/isc/bind9/9.20.16/bind-9.20.16.tar.xz.asc )
+_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
+_md5_=a08597aa413505c695d27972642717c1

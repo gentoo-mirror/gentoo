@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2:= ) compute? ( dev-libs/libutf8proc:= ) dataset? ( dev-libs/libutf8proc:= ) elibc_musl? ( sys-libs/timezone-data ) lz4? ( app-arch/lz4:= ) parquet? ( dev-libs/libutf8proc:= dev-libs/thrift:= ssl? ( dev-libs/openssl:= ) ) re2? ( dev-libs/re2:= ) snappy? ( app-arch/snappy:= ) zlib? ( virtual/zlib:= ) zstd? ( app-arch/zstd:= ) dev-cpp/xsimd >=dev-libs/boost-1.81.0 json? ( dev-libs/rapidjson ) test? ( dev-cpp/gflags dev-cpp/gtest )
+DESCRIPTION=A cross-language development platform for in-memory data
+EAPI=8
+HOMEPAGE=https://arrow.apache.org/ https://github.com/apache/arrow/
+INHERIT=cmake
+IUSE=+brotli bzip2 +compute +dataset +json lz4 +parquet +re2 +snappy ssl test zlib zstd
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~riscv ~s390 ~x86
+LICENSE=Apache-2.0
+RDEPEND=brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2:= ) compute? ( dev-libs/libutf8proc:= ) dataset? ( dev-libs/libutf8proc:= ) elibc_musl? ( sys-libs/timezone-data ) lz4? ( app-arch/lz4:= ) parquet? ( dev-libs/libutf8proc:= dev-libs/thrift:= ssl? ( dev-libs/openssl:= ) ) re2? ( dev-libs/re2:= ) snappy? ( app-arch/snappy:= ) zlib? ( virtual/zlib:= ) zstd? ( app-arch/zstd:= )
+REQUIRED_USE=test? ( json parquet? ( zstd ) ) ssl? ( json )
+RESTRICT=!test? ( test )
+SLOT=0/23
+SRC_URI=mirror://apache/arrow/arrow-23.0.0/apache-arrow-23.0.0.tar.gz test? ( https://github.com/apache/parquet-testing/archive/a3d96a65e11e2bbca7d22a894e8313ede90a33a3.tar.gz -> parquet-testing-a3d96a65e11e2bbca7d22a894e8313ede90a33a3.tar.gz https://github.com/apache/arrow-testing/archive/725fd4a4b12d01c53c98e80274c0b23aa8397082.tar.gz -> arrow-testing-725fd4a4b12d01c53c98e80274c0b23aa8397082.tar.gz )
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c
+_md5_=9f87a8d6ad18182b8d065d2260872642
