@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-bennoschulenberg ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-bennoschulenberg ) virtual/pkgconfig nls? ( sys-devel/gettext ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install postrm prepare unpack
 DEPEND=>=sys-libs/ncurses-5.9-r1:=[unicode(+)?] magic? ( sys-apps/file ) nls? ( virtual/libintl )
 DESCRIPTION=GNU GPL'd Pico clone with more functionality
@@ -13,4 +13,4 @@ REQUIRED_USE=magic? ( !minimal )
 SLOT=0
 SRC_URI=https://www.nano-editor.org/dist/v8/nano-8.7.tar.xz verify-sig? ( https://www.nano-editor.org/dist/v8/nano-8.7.tar.xz.asc )
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
-_md5_=f7cfb5e9383fc5749a6ea85ad990201e
+_md5_=8cfb7449a672489025e181f1186d6054
