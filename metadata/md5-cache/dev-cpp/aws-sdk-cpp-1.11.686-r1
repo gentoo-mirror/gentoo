@@ -1,0 +1,15 @@
+BDEPEND=dev-libs/aws-c-common app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-cpp/aws-crt-cpp:= dev-libs/aws-c-auth:= dev-libs/aws-c-common:= dev-libs/aws-c-compression:= dev-libs/aws-c-event-stream:= dev-libs/aws-c-http:= dev-libs/aws-c-io:= dev-libs/aws-c-mqtt:= dev-libs/aws-c-s3:= dev-libs/aws-c-sdkutils:= dev-libs/aws-checksums:= net-misc/curl:= virtual/zlib:=
+DESCRIPTION=AWS SDK for C++
+EAPI=8
+HOMEPAGE=https://github.com/aws/aws-sdk-cpp
+INHERIT=cmake
+IUSE=devops iot analytics database ml networking compute messaging security media uncategorized storage management monitor
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=dev-cpp/aws-crt-cpp:= dev-libs/aws-c-auth:= dev-libs/aws-c-common:= dev-libs/aws-c-compression:= dev-libs/aws-c-event-stream:= dev-libs/aws-c-http:= dev-libs/aws-c-io:= dev-libs/aws-c-mqtt:= dev-libs/aws-c-s3:= dev-libs/aws-c-sdkutils:= dev-libs/aws-checksums:= net-misc/curl:= virtual/zlib:=
+SLOT=0
+SRC_URI=https://github.com/aws/aws-sdk-cpp/archive/refs/tags/1.11.686.tar.gz -> aws-sdk-cpp-1.11.686.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c
+_md5_=c1bdbc684734ff546cd4998b74ae0e2e
