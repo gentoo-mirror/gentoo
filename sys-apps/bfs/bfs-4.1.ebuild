@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,8 @@ inherit edo flag-o-matic toolchain-funcs
 
 DESCRIPTION="Breadth-first version of the UNIX find command"
 HOMEPAGE="https://tavianator.com/projects/bfs.html"
-SRC_URI="https://github.com/tavianator/bfs/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/tavianator/bfs/releases/download/${PV}/${P}.tar.gz"
+S="${WORKDIR}"
 
 LICENSE="0BSD"
 SLOT="0"
@@ -29,6 +30,7 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 	posix_spawn_file_actions_addfchdir getmntinfo posix_getdents strtofflags
 	# Seems to be in POSIX 2024 but not yet in ncurses?
 	tcgetwinsize
+	tcsetwinsize
 )
 
 src_configure() {
