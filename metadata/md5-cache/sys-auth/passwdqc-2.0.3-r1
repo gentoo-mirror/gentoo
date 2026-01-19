@@ -1,13 +1,15 @@
-DEFINED_PHASES=compile install prepare
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-openwall ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile install prepare unpack
 DEPEND=sys-libs/pam virtual/libcrypt:=
 DESCRIPTION=Password strength checking library (and PAM module)
 EAPI=8
-HOMEPAGE=http://www.openwall.com/passwdqc/
-INHERIT=pam toolchain-funcs
+HOMEPAGE=https://www.openwall.com/passwdqc/
+INHERIT=pam toolchain-funcs verify-sig
+IUSE=verify-sig
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=Openwall BSD public-domain
 RDEPEND=sys-libs/pam virtual/libcrypt:=
 SLOT=0
-SRC_URI=http://www.openwall.com/passwdqc/passwdqc-2.0.3.tar.gz
-_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5
-_md5_=ac1f06fd369c7c11c3b6284f0be0d59b
+SRC_URI=https://www.openwall.com/passwdqc/passwdqc-2.0.3.tar.gz verify-sig? ( https://www.openwall.com/passwdqc/passwdqc-2.0.3.tar.gz.sign -> passwdqc-2.0.3.tar.gz.asc )
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
+_md5_=4eefb2554d5a4a1e3615c5c3057f0b14

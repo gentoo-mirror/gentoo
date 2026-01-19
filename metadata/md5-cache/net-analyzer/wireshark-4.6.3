@@ -7,12 +7,12 @@ HOMEPAGE=https://www.wireshark.org/
 IDEPEND=filecaps? ( sys-libs/libcap ) dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=fcaps lua-single python-any-r1 qmake-utils toolchain-funcs xdg cmake verify-sig
 IUSE=androiddump bcg729 brotli +capinfos +captype ciscodump +dftest doc dpauxmon +dumpcap +editcap +gui http2 http3 ilbc kerberos lua lz4 maxminddb +mergecap +minizip +netlink opus pkcs11 +plugins +pcap +randpkt +randpktdump +reordercap sbc selinux +sharkd smi snappy spandsp sshdump ssl sdjournal test +text2pcap +tshark +udpdump wifi xxhash zlib +zstd +filecaps lua_single_target_lua5-3 lua_single_target_lua5-4 verify-sig
-KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc64 ~riscv x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2
 RDEPEND=acct-group/pcap >=dev-libs/glib-2.50.0:2 dev-libs/libpcre2:= dev-libs/libxml2:= >=net-dns/c-ares-1.13.0:= >=dev-libs/libgcrypt-1.8.0:= media-libs/speexdsp bcg729? ( media-libs/bcg729 ) brotli? ( app-arch/brotli:= ) ciscodump? ( >=net-libs/libssh-0.6:= ) filecaps? ( sys-libs/libcap ) http2? ( >=net-libs/nghttp2-1.11.0:= ) http3? ( net-libs/nghttp3 ) ilbc? ( media-libs/libilbc:= ) kerberos? ( virtual/krb5 ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) lz4? ( app-arch/lz4:= ) maxminddb? ( dev-libs/libmaxminddb:= ) minizip? ( virtual/minizip:= ) netlink? ( dev-libs/libnl:3 ) opus? ( media-libs/opus ) pcap? ( net-libs/libpcap ) gui? ( dev-qt/qtbase:6[concurrent,gui,widgets] dev-qt/qt5compat:6 dev-qt/qtmultimedia:6 x11-misc/xdg-utils ) sbc? ( media-libs/sbc ) sdjournal? ( sys-apps/systemd:= ) smi? ( net-libs/libsmi ) snappy? ( app-arch/snappy:= ) spandsp? ( media-libs/spandsp:= ) sshdump? ( >=net-libs/libssh-0.6:= ) ssl? ( >=net-libs/gnutls-3.5.8:=[pkcs11?] ) wifi? ( >=net-libs/libssh-0.6:= ) xxhash? ( dev-libs/xxhash ) zlib? ( virtual/zlib:= ) zstd? ( app-arch/zstd:= ) gui? ( virtual/freedesktop-icon-theme ) selinux? ( sec-policy/selinux-wireshark )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) )
 RESTRICT=!test? ( test )
-SLOT=0/4.6.0
-SRC_URI=https://www.wireshark.org/download/src/all-versions/wireshark-4.6.0.tar.xz verify-sig? ( https://www.wireshark.org/download/SIGNATURES-4.6.0.txt -> wireshark-4.6.0-signatures.txt )
+SLOT=0/4.6.3
+SRC_URI=https://www.wireshark.org/download/src/all-versions/wireshark-4.6.3.tar.xz verify-sig? ( https://www.wireshark.org/download/SIGNATURES-4.6.3.txt -> wireshark-4.6.3-signatures.txt )
 _eclasses_=fcaps	c94316d02a37fb5cbe79b7d41c729119	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	cmake	5691a3da96eac88f135cf3596b8c2c3c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
-_md5_=83a3871adb25e82a88a39a9856475f12
+_md5_=5c79524b13766e9db65c6bddefd91b4c
