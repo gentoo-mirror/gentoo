@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=>=dev-build/boost-m4-0.4_p20221019 virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install postinst prepare
 DEPEND=>=media-libs/libmpdclient-2.1 dev-libs/boost:=[icu,nls] dev-libs/icu:= net-misc/curl sys-libs/ncurses:=[unicode(+)] sys-libs/readline:= taglib? ( media-libs/taglib:= ) visualizer? ( sci-libs/fftw:3.0= )
 DESCRIPTION=Featureful ncurses based MPD client inspired by ncmpc
@@ -12,4 +12,4 @@ RDEPEND=>=media-libs/libmpdclient-2.1 dev-libs/boost:=[icu,nls] dev-libs/icu:= n
 SLOT=0
 SRC_URI=https://github.com/ncmpcpp/ncmpcpp/archive/refs/tags/0.10.1.tar.gz -> ncmpcpp-0.10.1.gh.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=9b7d464d3ebde8a1f82af4c86d7409d2
+_md5_=2ea5eae3958cb59bcd044887a8254666
