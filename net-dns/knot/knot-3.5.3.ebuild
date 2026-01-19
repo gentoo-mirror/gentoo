@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,7 +18,7 @@ SRC_URI="
 "
 LICENSE="GPL-2+"
 SLOT="0/${KNOT_SUBSLOT}"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 # Modules without dep. Built unconditionally.
 KNOT_MODULES=(
@@ -88,6 +88,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
+	dnstap? ( dev-libs/protobuf[protoc(+)] )
 	doc? (
 		$(python_gen_any_dep '
 			dev-python/sphinx[${PYTHON_USEDEP}]
@@ -147,6 +148,7 @@ src_configure() {
 		$(use_enable fastparser)
 		$(use_enable geoip maxminddb)
 		$(use_with idn libidn)
+		$(use_enable pkcs11)
 		$(use_enable quic)
 		$(use_enable redis redis $(usex daemon client))
 		$(use_enable systemd)
@@ -157,23 +159,23 @@ src_configure() {
 	# module-dnstap defines support for knotd only
 	if use daemon; then
 		for u in "${KNOT_MODULES[@]}"; do
-			my_conf+=("--with-module-${u}")
+			my_conf+=( --with-module-${u} )
 		done
 		for u in "${KNOT_MODULES_OPT[@]#+}"; do
-			my_conf+=("$(use_with ${u} module-${u})")
+			my_conf+=( $(use_with ${u} module-${u}) )
 		done
 	else
 		my_conf+=( --disable-modules )
 	fi
 
 	if use !daemon; then
-		my_conf+=("--enable-dbus=no")
+		my_conf+=( --enable-dbus=no )
 	elif use dbus; then
-		my_conf+=("--enable-dbus=libdbus")
-	elif use !dbus && use !systemd; then
-		my_conf+=("--enable-dbus=no")
-	elif use !dbus && use systemd; then
-		my_conf+=("--enable-dbus=systemd")
+		my_conf+=( --enable-dbus=libdbus )
+	elif use systemd; then
+		my_conf+=( --enable-dbus=systemd )
+	else
+		my_conf+=( --enable-dbus=no )
 	fi
 
 	econf "${my_conf[@]}"

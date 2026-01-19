@@ -1,9 +1,9 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit autotools verify-sig
+inherit verify-sig
 
 MY_PN="knot"
 MY_P="${MY_PN}-${PV}"
@@ -24,20 +24,9 @@ BDEPEND="verify-sig? ( sec-keys/openpgp-keys-knot )"
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/${MY_PN}.asc
 
-PATCHES=(
-	# https://gitlab.nic.cz/knot/knot-dns/-/merge_requests/1809.patch
-	"${FILESDIR}"/${PN}-3.5.0-opt_gnutls.patch
-)
-
 # Used to check cpuset_t in sched.h with NetBSD.
 # False positive because linux have sched.h too but with cpu_set_t
 QA_CONFIG_IMPL_DECL_SKIP=( cpuset_create cpuset_destroy )
-
-# because configure.ac is patched
-src_prepare() {
-	default
-	eautoreconf
-}
 
 src_configure() {
 	local myeconfargs=(
