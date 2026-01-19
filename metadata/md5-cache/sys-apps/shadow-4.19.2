@@ -6,10 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/shadow-maint/shadow
 INHERIT=libtool pam user-info verify-sig
 IUSE=acl audit nls pam selinux skey split-usr su systemd test xattr verify-sig
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=BSD GPL-2
 RDEPEND=virtual/libcrypt:= acl? ( sys-apps/acl:= ) audit? ( >=sys-process/audit-2.6:= ) nls? ( virtual/libintl ) pam? ( sys-libs/pam:= ) skey? ( sys-auth/skey:= ) selinux? ( >=sys-libs/libselinux-1.28:= sys-libs/libsemanage:= ) systemd? ( sys-apps/systemd:= ) xattr? ( sys-apps/attr:= ) !<sys-libs/glibc-2.38 acct-group/shadow pam? ( >=sys-auth/pambase-20150213 ) su? ( !sys-apps/util-linux[su(-)] )
 RESTRICT=!test? ( test )
 SLOT=0/5
-SRC_URI=https://github.com/shadow-maint/shadow/releases/download/4.19.0-rc1/shadow-4.19.0-rc1.tar.xz verify-sig? ( https://github.com/shadow-maint/shadow/releases/download/4.19.0-rc1/shadow-4.19.0-rc1.tar.xz.asc )
+SRC_URI=https://github.com/shadow-maint/shadow/releases/download/4.19.2/shadow-4.19.2.tar.xz verify-sig? ( https://github.com/shadow-maint/shadow/releases/download/4.19.2/shadow-4.19.2.tar.xz.asc )
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5	user-info	563da40a1a20ea1e55bbf4d149fc190d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
-_md5_=7031d0512e866650d626ea254f4228f1
+_md5_=a81f680acbb91601bd4e10b99f4445ce
