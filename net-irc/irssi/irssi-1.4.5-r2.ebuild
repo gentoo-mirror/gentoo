@@ -51,6 +51,10 @@ BDEPEND+="
 	virtual/pkgconfig"
 RDEPEND+=" selinux? ( sec-policy/selinux-irc )"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.4.5-perl-again.patch
+)
+
 src_configure() {
 	local emesonargs=(
 		-Ddocdir="${EPREFIX}"/usr/share/doc/${PF}
