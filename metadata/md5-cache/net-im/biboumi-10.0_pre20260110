@@ -1,0 +1,16 @@
+BDEPEND=dev-python/sphinx app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/expat virtual/libiconv sys-apps/util-linux sqlite? ( dev-db/sqlite:3 ) postgres? ( dev-db/postgresql:* ) idn? ( net-dns/libidn:= ) udns? ( net-libs/udns ) ssl? ( dev-libs/botan:3= ) !ssl? ( dev-libs/libgcrypt ) systemd? ( sys-apps/systemd:= ) test? ( >=dev-cpp/catch-3 )
+DESCRIPTION=XMPP gateway to IRC
+EAPI=8
+HOMEPAGE=https://biboumi.codeberg.page
+INHERIT=cmake
+IUSE=+idn postgres +sqlite +ssl systemd test udns
+KEYWORDS=~amd64
+LICENSE=ZLIB
+RDEPEND=dev-libs/expat virtual/libiconv sys-apps/util-linux sqlite? ( dev-db/sqlite:3 ) postgres? ( dev-db/postgresql:* ) idn? ( net-dns/libidn:= ) udns? ( net-libs/udns ) ssl? ( dev-libs/botan:3= ) !ssl? ( dev-libs/libgcrypt ) systemd? ( sys-apps/systemd:= ) acct-user/biboumi
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://codeberg.org/poezio/biboumi/archive/bf958d0e34e7d8a39dccfcf3c64f72ef0db41f73.tar.gz -> biboumi-10.0_pre20260110.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c
+_md5_=7b42f879d930be8508652ba35ebeb98f
