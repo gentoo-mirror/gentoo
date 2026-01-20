@@ -75,7 +75,14 @@ pkg_setup() {
 }
 
 src_unpack() {
-	use verify-sig && verify-sig_verify_detached "${DISTDIR}"/${P}.tar.xz{,.asc}
+	if [[ ${PV} == 9999 ]] ; then
+		git-r3_src_unpack
+		return
+	fi
+
+	if use verify-sig; then
+		verify-sig_verify_detached "${DISTDIR}"/${P}.tar.xz{,.asc}
+	fi
 
 	default
 }
@@ -153,13 +160,18 @@ src_test() {
 	# Get list of all test suites into an associative array
 	# the meson test --list returns either "kea / test_suite", "kea:shell-tests / test_suite" or
 	# "kea:python-tests / test_suite"
+	# Note: In meson >= 1.10 the format has changed to
+	# the meson test --list returns either "kea:test_suite", "shell-tests - kea:test_suite" or
+	# "python-tests - kea:test_suite"
+	#
 	# Discard the shell tests as we can't run shell tests in sandbox
 
 	pushd "${BUILD_DIR}" || die
 	local -A TEST_SUITES
-	while IFS=" / " read -r subsystem test_suite ; do
-		if [[ ${subsystem} != "kea:shell-tests" ]]; then
-			TEST_SUITES["$test_suite"]=1
+
+	while IFS="/: " read -a words ; do
+		if [[ "${words[0]}" != "shell-tests" ]] && [[ "${words[2]}" != "shell-tests" ]]; then
+			TEST_SUITES["${words[-1]}"]=1
 		fi
 	done < <(meson test --list || die)
 	popd
