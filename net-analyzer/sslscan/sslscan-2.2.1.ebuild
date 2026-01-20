@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ inherit toolchain-funcs
 
 # sslscan builds against a static openssl library to allow weak ciphers
 # to be enabled so that they can be tested.
-OPENSSL_RELEASE_TAG="openssl-3.0.14"
+OPENSSL_RELEASE_TAG="openssl-3.5.0"
 
 DESCRIPTION="Fast SSL configuration scanner"
 HOMEPAGE="https://github.com/rbsec/sslscan"
@@ -16,18 +16,16 @@ SRC_URI="https://github.com/rbsec/sslscan/archive/${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
 # Requires a docker environment
 RESTRICT="test"
 
-# S="${WORKDIR}/${P}-${MY_FORK}"
+PATCHES=( "${FILESDIR}/${PN}-2.2.0-use-distfile-openssl.patch" )
 
 src_prepare() {
 	ln -s ../openssl-${OPENSSL_RELEASE_TAG} openssl || die
 	touch .openssl_is_fresh || die
-	sed -i -e '/openssl\/.git/,/fi/d' \
-		-e '/openssl test/d' Makefile || die
 
 	# Copied from dev-libs/openssl
 	# allow openssl to be cross-compiled
