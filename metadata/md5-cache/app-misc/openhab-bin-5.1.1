@@ -1,0 +1,13 @@
+BDEPEND=app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install postinst
+DESCRIPTION=An open-source automation software for your home
+EAPI=8
+HOMEPAGE=https://www.openhab.org/
+INHERIT=edo systemd tmpfiles
+KEYWORDS=~amd64 ~arm64
+LICENSE=EPL-2.0
+RDEPEND=virtual/jre:21 acct-user/openhab app-arch/zip dev-java/java-config virtual/tmpfiles
+SLOT=0
+SRC_URI=https://github.com/openhab/openhab-distro/releases/download/5.1.1/openhab-5.1.1.tar.gz https://raw.githubusercontent.com/openhab/openhab-linuxpkg/10061acd36524afb12a033fea6dcf142b399bf56/resources/usr/bin/openhab-cli -> openhab-cli-2024-01-14
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_md5_=f5d3bb0a859d60fbe128b41da814f0b9
