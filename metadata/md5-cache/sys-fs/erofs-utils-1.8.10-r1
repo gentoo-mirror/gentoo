@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git
 INHERIT=autotools
 IUSE=fuse libdeflate +lz4 +lzma selinux static-libs +threads +uuid +zlib +zstd
-KEYWORDS=amd64 ~arm64 ~loong
+KEYWORDS=amd64 arm64 ~loong
 LICENSE=GPL-2+
 RDEPEND=dev-libs/xxhash:0= fuse? ( sys-fs/fuse:0 ) libdeflate? ( app-arch/libdeflate:0= ) lz4? ( app-arch/lz4:0= ) lzma? ( >=app-arch/xz-utils-5.4.0:0= ) selinux? ( sys-libs/libselinux:0= ) uuid? ( sys-apps/util-linux ) zlib? ( virtual/zlib:= ) zstd? ( app-arch/zstd:0= )
 SLOT=0
 SRC_URI=https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/erofs-utils-1.8.10.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=7a89e50b0c792c46e3879f2112bd7658
+_md5_=af16b7c3a05148b093f773bbfdf6907b
