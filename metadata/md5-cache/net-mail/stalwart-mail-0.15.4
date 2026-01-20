@@ -1,0 +1,15 @@
+BDEPEND=|| ( >=dev-lang/rust-bin-1.88.0:* >=dev-lang/rust-1.88.0:* ) virtual/pkgconfig
+DEFINED_PHASES=compile config configure install postinst setup test unpack
+DEPEND=!!<net-mail/stalwart-cli-0.15.0
+DESCRIPTION=Stalwart Mail Server
+EAPI=8
+HOMEPAGE=https://stalw.art
+INHERIT=cargo systemd
+IUSE=sqlite postgres mysql +rocks debug
+KEYWORDS=~amd64
+LICENSE=|| ( AGPL-3 ) AGPL-3 Apache-2.0 BSD-2 BSD Boost-1.0 CC0-1.0 CDLA-Permissive-2.0 ISC LGPL-2+ MIT MPL-2.0 Unicode-3.0 ZLIB BZIP2
+RDEPEND=acct-group/stalwart-mail acct-user/stalwart-mail
+SLOT=0
+SRC_URI=https://github.com/stalwartlabs/stalwart/archive/refs/tags/v0.15.4.tar.gz -> stalwart-mail-0.15.4.tar.gz https://dev.gentoo.org/~lordvan/stalwart-0.15.4-crates.tar.xz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	20da14430886f3de143eb101684fcf62	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	aeba1d272f6c2e000912e11d8cf626eb	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=4a7d714170cc140422a9064e38401bd2
