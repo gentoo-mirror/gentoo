@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/JohnCremona/eclib
 INHERIT=autotools
 IUSE=boost flint minimal test
-KEYWORDS=~amd64 ~riscv ~x86
+KEYWORDS=amd64 ~riscv ~x86
 LICENSE=GPL-2+ LGPL-2.1+
 RDEPEND=sci-mathematics/pari:= dev-libs/ntl:= boost? ( dev-libs/boost:= ) flint? ( sci-mathematics/flint:= )
 RESTRICT=!test? ( test )
 SLOT=0/14
 SRC_URI=https://github.com/JohnCremona/eclib/releases/download/20250627/eclib-20250627.tar.bz2
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=460fdeb086758564c6d42398674c9317
+_md5_=25a8eac71791389bea8a3e1371838f31
