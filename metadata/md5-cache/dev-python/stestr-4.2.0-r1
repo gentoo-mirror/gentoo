@@ -1,0 +1,16 @@
+BDEPEND=test? ( >=dev-python/ddt-1.0.1[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=dev-python/gpep517-16[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/flit-core-3.11.0[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] verify-provenance? ( dev-python/pypi-attestations )
+DEFINED_PHASES=compile configure install prepare test unpack
+DESCRIPTION=A parallel Python test runner built around subunit
+EAPI=8
+HOMEPAGE=https://github.com/mtreinish/stestr/ https://pypi.org/project/stestr/
+INHERIT=distutils-r1 multiprocessing pypi
+IUSE=test python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 verify-provenance
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=Apache-2.0
+RDEPEND=>=dev-python/cliff-2.8.0[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/fixtures-3.0.0[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/pyyaml-3.10.0[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/python-subunit-1.4.0[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/testtools-2.2.0[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/tomlkit-0.11.6[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/voluptuous-0.8.9[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=|| ( python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/s/stestr/stestr-4.2.0.tar.gz verify-provenance? ( https://pypi.org/integrity/stestr/v4.2.0/stestr-4.2.0.tar.gz/provenance -> stestr-4.2.0.tar.gz.provenance )
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701	pypi	d2befa41d10011e03e2158e065d5d6da
+_md5_=6e673bdc4131191ef75a662caf2cf829
