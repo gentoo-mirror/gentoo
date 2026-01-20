@@ -40,17 +40,11 @@ python_test() {
 	local EPYTEST_IGNORE=(
 		# requires playwright
 		src/polymorphic/tests/test_admin.py
-		src/polymorphic/tests/examples/views/test.py
-		src/polymorphic/tests/examples/integrations/extra_views/test.py
-		src/polymorphic/tests/examples/integrations/reversion/test.py
+		# some of them require playwright, others break subsequent tests
+		src/polymorphic/tests/examples
 		# require django-test-migrations
 		src/polymorphic/tests/test_migrations
 		src/polymorphic/tests/test_serialization.py
-	)
-	local EPYTEST_DESELECT=(
-		# TODO: no clue what's wrong with this, can't repro in venv
-		src/polymorphic/tests/test_orm.py::PolymorphicTests::test_base_manager
-		src/polymorphic/tests/test_orm.py::PolymorphicTests::test_default_manager
 	)
 
 	rm -f conftest.py || die

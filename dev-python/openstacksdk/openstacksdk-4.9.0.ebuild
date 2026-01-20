@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=pbr
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/cryptography-2.7[${PYTHON_USEDEP}]
@@ -27,7 +27,7 @@ RDEPEND="
 	>=dev-python/jmespath-0.9.0[${PYTHON_USEDEP}]
 	>=dev-python/jsonpatch-1.21[${PYTHON_USEDEP}]
 	>=dev-python/keystoneauth1-5.10.0[${PYTHON_USEDEP}]
-	>=dev-python/os-service-types-1.8.0[${PYTHON_USEDEP}]
+	>=dev-python/os-service-types-1.8.1[${PYTHON_USEDEP}]
 	>=dev-python/pbr-2.2.0[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-3[${PYTHON_USEDEP}]
 	>=dev-python/psutil-3.2.2[${PYTHON_USEDEP}]
@@ -81,6 +81,11 @@ src_prepare() {
 		-i openstack/tests/unit/test_missing_version.py || die
 	sed -e 's:test_create_unknown_proxy:_&:' \
 		-i openstack/tests/unit/test_connection.py || die
+
+	# stupid test checking if they pin to the newest os-service-types,
+	# except they don't actually do
+	sed -e 's:test_ost_version:_&:' \
+		-i openstack/tests/unit/test_utils.py || die
 
 	distutils-r1_src_prepare
 }
