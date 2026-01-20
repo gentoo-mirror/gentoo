@@ -5,20 +5,21 @@ EAPI=8
 
 inherit cmake
 
-MY_PV="${PV/_/-}"
-
 DESCRIPTION="XMPP gateway to IRC"
 HOMEPAGE="https://biboumi.codeberg.page"
 SRC_URI="
-	https://git.louiz.org/biboumi/snapshot/biboumi-${MY_PV}.tar.xz
-	https://lab.louiz.org/flow/biboumi/-/commit/f9d58a44871931ef9b60354fade6f8d7b24cc668.patch ->
-		${PN}-9.0-fix-missing-include.patch
+	https://codeberg.org/poezio/biboumi/archive/bf958d0e34e7d8a39dccfcf3c64f72ef0db41f73.tar.gz
+		-> ${P}.tar.gz
 "
 
+S="${WORKDIR}/${PN}"
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="amd64"
+
+KEYWORDS="~amd64"
+
 IUSE="+idn postgres +sqlite +ssl systemd test udns"
+
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
@@ -29,13 +30,13 @@ COMMON_DEPEND="
 	postgres? ( dev-db/postgresql:* )
 	idn? ( net-dns/libidn:= )
 	udns? ( net-libs/udns )
-	ssl? ( dev-libs/botan:2= )
+	ssl? ( dev-libs/botan:3= )
 	!ssl? ( dev-libs/libgcrypt )
 	systemd? ( sys-apps/systemd:= )
 "
 DEPEND="
 	${COMMON_DEPEND}
-	test? ( <dev-cpp/catch-3:0 )
+	test? ( >=dev-cpp/catch-3 )
 "
 BDEPEND="dev-python/sphinx"
 RDEPEND="
@@ -43,15 +44,7 @@ RDEPEND="
 	acct-user/biboumi
 "
 
-S="${WORKDIR}/${PN}-${MY_PV}"
-
 DOCS=( README.rst CHANGELOG.rst doc/user.rst )
-
-PATCHES=(
-	"${FILESDIR}/${PN}-9.0-do-not-use-as-a-namespace-separator-with-expat.patch"
-	"${FILESDIR}/${PN}-9.0-use-system-catch2.patch"
-	"${DISTDIR}/${PN}-9.0-fix-missing-include.patch"
-)
 
 src_configure() {
 	local mycmakeargs=(
