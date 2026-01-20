@@ -1,15 +1,19 @@
-# Copyright 2004-2025 Gentoo Authors
+# Copyright 2004-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit fcaps
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/martinlambers.asc
+inherit fcaps verify-sig
 
 DESCRIPTION="An SMTP client and SMTP plugin for mail user agents such as Mutt"
 HOMEPAGE="https://marlam.de/msmtp/"
-SRC_URI="https://marlam.de/msmtp/releases/${P}.tar.xz"
+SRC_URI="
+	https://marlam.de/msmtp/releases/${P}.tar.xz
+	verify-sig? ( https://marlam.de/msmtp/releases/${P}.tar.xz.sig )
+"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="daemon doc keyring +gnutls idn +mta nls sasl ssl"
@@ -53,6 +57,7 @@ RDEPEND="${DEPEND}
 BDEPEND="
 	doc? ( virtual/texi2dvi )
 	nls? ( sys-devel/gettext )
+	verify-sig? ( sec-keys/openpgp-keys-martinlambers )
 	virtual/pkgconfig
 "
 
