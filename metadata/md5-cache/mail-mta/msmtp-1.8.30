@@ -8,10 +8,10 @@ IDEPEND=filecaps? ( sys-libs/libcap )
 INHERIT=fcaps
 IUSE=daemon doc keyring +gnutls idn +mta nls sasl ssl +filecaps
 KEYWORDS=~alpha amd64 arm arm64 ppc ppc64 ~riscv ~sparc x86
-LICENSE=GPL-3
+LICENSE=GPL-3+
 RDEPEND=idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) keyring? ( app-crypt/libsecret ) sasl? ( >=net-misc/gsasl-2.1[client] ) ssl? ( gnutls? ( net-libs/gnutls[idn?] ) !gnutls? ( dev-libs/libretls:= ) ) net-mail/mailbase daemon? ( acct-group/msmtpd acct-user/msmtpd ) mta? ( !mail-mta/courier !mail-mta/esmtp !mail-mta/exim !mail-mta/netqmail !mail-mta/nullmailer !mail-mta/postfix !mail-mta/sendmail !mail-mta/opensmtpd !>=mail-mta/ssmtp-2.64-r2[mta] )
 REQUIRED_USE=daemon? ( filecaps )
 SLOT=0
 SRC_URI=https://marlam.de/msmtp/releases/msmtp-1.8.30.tar.xz
 _eclasses_=fcaps	c94316d02a37fb5cbe79b7d41c729119
-_md5_=f309a9f53f1af838791f09adee07a793
+_md5_=c2124bf201337430ab1d552ff97f8300
