@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig make-symlinks? ( >=sys-apps/coreutils-9.2 )
+DEFINED_PHASES=compile configure install postinst preinst prepare
+DEPEND=!static? ( virtual/libc virtual/libcrypt:= selinux? ( sys-libs/libselinux ) ) pam? ( sys-libs/pam ) static? ( virtual/libcrypt[static-libs] selinux? ( sys-libs/libselinux[static-libs(+)] ) ) sys-kernel/linux-headers
+DESCRIPTION=Utilities for rescue and embedded systems
+EAPI=8
+HOMEPAGE=https://www.busybox.net/
+INHERIT=eapi9-ver flag-o-matic readme.gentoo-r1 savedconfig toolchain-funcs
+IUSE=debug livecd make-symlinks math mdev pam selinux sep-usr static syslog systemd savedconfig
+LICENSE=GPL-2
+RDEPEND=!static? ( virtual/libc virtual/libcrypt:= selinux? ( sys-libs/libselinux ) ) pam? ( sys-libs/pam )
+REQUIRED_USE=pam? ( !static )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://www.busybox.net/downloads/busybox-1.37.0.tar.bz2
+_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	portability	a39e3d646f76cb45d06b44cc1144b8d4	savedconfig	b9131abe556ad2ea96c01b06d658d363
+_md5_=bb0d61ac966e0ac8ba14d10605100c63
