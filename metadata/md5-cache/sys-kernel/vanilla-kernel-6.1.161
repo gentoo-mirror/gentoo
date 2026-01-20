@@ -1,0 +1,18 @@
+BDEPEND=debug? ( dev-util/pahole ) verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 ) secureboot? ( app-crypt/sbsigntools dev-libs/openssl ) test? ( dev-tcltk/expect sys-apps/coreutils sys-kernel/dracut sys-fs/e2fsprogs amd64? ( app-emulation/qemu[qemu_softmmu_targets_x86_64] ) arm64? ( app-emulation/qemu[qemu_softmmu_targets_aarch64] ) ppc? ( app-emulation/qemu[qemu_softmmu_targets_ppc] ) ppc64? ( app-emulation/qemu[qemu_softmmu_targets_ppc64] ) sparc? ( app-emulation/qemu[qemu_softmmu_targets_sparc,qemu_softmmu_targets_sparc64] ) x86? ( app-emulation/qemu[qemu_softmmu_targets_i386] ) ) || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) app-alternatives/cpio app-alternatives/bc app-arch/tar dev-lang/perl sys-devel/bison sys-devel/flex virtual/libelf arm? ( sys-apps/dtc ) arm64? ( sys-apps/dtc ) modules-sign? ( dev-libs/openssl ) riscv? ( sys-apps/dtc ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile config configure install postinst postrm preinst prepare pretend setup test unpack
+DESCRIPTION=Linux kernel built from vanilla upstream sources
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Distribution_Kernel https://www.kernel.org/
+IDEPEND=!initramfs? ( >=sys-kernel/installkernel-14 ) initramfs? ( || ( >=sys-kernel/installkernel-14[dracut(-)] >=sys-kernel/installkernel-14[ugrd(-)] ) )
+INHERIT=kernel-build toolchain-funcs verify-sig
+IUSE=debug hardened savedconfig secureboot +initramfs test +strip modules-sign verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2
+PDEPEND=>=virtual/dist-kernel-6.1.161
+RDEPEND=virtual/libelf
+REQUIRED_USE=arm? ( savedconfig ) hppa? ( savedconfig ) riscv? ( savedconfig ) sparc? ( savedconfig ) secureboot? ( modules-sign )
+RESTRICT=!test? ( test ) test? ( userpriv ) arm? ( test )
+SLOT=6.1.161
+SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.1.tar.xz https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.1.161.xz https://github.com/projg2/gentoo-kernel-config/archive/g17.tar.gz -> gentoo-kernel-config-g17.tar.gz verify-sig? ( https://cdn.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc -> linux-6.x-sha256sums-20260120.asc ) amd64? ( https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/6.1.102-gentoo/kernel-x86_64-fedora.config -> kernel-x86_64-fedora.config.6.1.102-gentoo ) arm64? ( https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/6.1.102-gentoo/kernel-aarch64-fedora.config -> kernel-aarch64-fedora.config.6.1.102-gentoo ) ppc64? ( https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/6.1.102-gentoo/kernel-ppc64le-fedora.config -> kernel-ppc64le-fedora.config.6.1.102-gentoo ) x86? ( https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/6.1.102-gentoo/kernel-i686-fedora.config -> kernel-i686-fedora.config.6.1.102-gentoo )
+_eclasses_=branding	7bcece3faa73dd0fc3e597013510d53a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	portability	a39e3d646f76cb45d06b44cc1144b8d4	savedconfig	b9131abe556ad2ea96c01b06d658d363	linux-info	efd923656513c879204fec6638eadee5	secureboot	d98b63e30a9468e1f1c06d3d7c66e760	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	dist-kernel-utils	a40de3638d3f7a89f4c45d1a62b90e20	kernel-install	6f445382d38596103e8882ee6cb70252	kernel-build	805e1e77eb3b72816e4d3642cfe121aa	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
+_md5_=cea8bf17690cf8f34251218510ce77bd
