@@ -1,15 +1,15 @@
-BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=configure install
+BDEPEND=sec-keys/openpgp-keys-inetutils virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install unpack
 DEPEND=sys-libs/readline:0= ftpd? ( virtual/libcrypt:0= ) idn? ( net-dns/libidn2:= ) kerberos? ( virtual/krb5 ) pam? ( sys-libs/pam ) tcpd? ( sys-apps/tcp-wrappers ) uucpd? ( virtual/libcrypt:0= )
 DESCRIPTION=Collection of common network programs
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/inetutils/
-INHERIT=branding pam systemd
-IUSE=idn kerberos pam tcpd ftpd inetd rexecd rlogind rshd syslogd talkd telnetd tftpd uucpd ftp dnsdomainname hostname ping ping6 rcp rexec rlogin rsh logger telnet tftp whois ifconfig traceroute
+INHERIT=branding pam systemd verify-sig
+IUSE=idn kerberos pam tcpd ftpd inetd rexecd rlogind rshd syslogd talkd telnetd tftpd uucpd ftp dnsdomainname hostname ping ping6 rcp rexec rlogin rsh logger telnet tftp whois ifconfig traceroute verify-sig
 KEYWORDS=~amd64
 LICENSE=GPL-3+
 RDEPEND=sys-libs/readline:0= ftpd? ( virtual/libcrypt:0= ) idn? ( net-dns/libidn2:= ) kerberos? ( virtual/krb5 ) pam? ( sys-libs/pam ) tcpd? ( sys-apps/tcp-wrappers ) uucpd? ( virtual/libcrypt:0= ) ftpd? ( net-ftp/ftpbase[pam?] ) ftp? ( !net-ftp/ftp ) dnsdomainname? ( !sys-apps/net-tools ) hostname? ( !sys-apps/coreutils[hostname(-)] !sys-apps/net-tools[hostname(+)] ) inetd? ( !sys-apps/netkit-base ) ping? ( !net-misc/iputils ) ping6? ( !net-misc/iputils[ipv6(+)] ) rcp? ( !net-misc/netkit-rsh ) rexec? ( !net-misc/netkit-rsh ) rexecd? ( !net-misc/netkit-rsh ) rlogin? ( !net-misc/netkit-rsh ) rlogind? ( !net-misc/netkit-rsh ) rsh? ( !net-misc/netkit-rsh ) rshd? ( !net-misc/netkit-rsh ) logger? ( !sys-apps/util-linux[logger(+)] ) syslogd? ( !app-admin/sysklogd ) talkd? ( !net-misc/netkit-talk ) telnet? ( !net-misc/telnet-bsd !net-misc/netkit-telnetd ) telnetd? ( !net-misc/telnet-bsd !net-misc/netkit-telnetd ) tftp? ( !net-ftp/tftp-hpa[client(+)] ) tftpd? ( !net-ftp/tftp-hpa[server(+)] ) whois? ( !net-misc/whois ) ifconfig? ( !sys-apps/net-tools ) traceroute? ( !net-analyzer/traceroute )
 SLOT=0
-SRC_URI=mirror://gnu/inetutils/inetutils-2.7.tar.gz
-_eclasses_=branding	7bcece3faa73dd0fc3e597013510d53a	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=bd6a7d610b8c6e6c11a18ad5f7ac196c
+SRC_URI=mirror://gnu/inetutils/inetutils-2.7.tar.gz verify-sig? ( mirror://gnu/inetutils/inetutils-2.7.tar.gz.sig )
+_eclasses_=branding	7bcece3faa73dd0fc3e597013510d53a	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
+_md5_=762043035b6fcc24d9e0224c9339e29b
