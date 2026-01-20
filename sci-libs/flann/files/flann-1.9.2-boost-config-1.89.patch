@@ -14,7 +14,7 @@ index 64ead01..0e0b4dc 100644
  
  if (USE_MPI AND HDF5_IS_PARALLEL)
 -    find_package(Boost COMPONENTS mpi system serialization thread REQUIRED)
-+    find_package(Boost COMPONENTS mpi system serialization thread REQUIRED CONFIG)
++    find_package(Boost 1.69 COMPONENTS mpi serialization thread REQUIRED CONFIG)
      include_directories(${Boost_INCLUDE_DIRS})
      add_definitions("-DHAVE_MPI")
  endif()
