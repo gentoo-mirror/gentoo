@@ -5,10 +5,10 @@ DESCRIPTION=Linux quota tools
 EAPI=8
 HOMEPAGE=https://sourceforge.net/projects/linuxquota/
 IUSE=ldap netlink nls rpc selinux tcpd
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ~ppc ppc64 ~riscv ~sparc x86
 LICENSE=GPL-2
 PDEPEND=rpc? ( net-nds/rpcbind )
 RDEPEND=sys-fs/e2fsprogs ldap? ( >=net-nds/openldap-2.3.35:= ) netlink? ( sys-apps/dbus dev-libs/libnl:3 ) rpc? ( elibc_glibc? ( sys-libs/glibc[-rpc(-)] ) net-libs/libtirpc:= net-libs/rpcsvc-proto ) tcpd? ( sys-apps/tcp-wrappers ) selinux? ( sec-policy/selinux-quota )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/linuxquota/quota-4.11.tar.gz
-_md5_=87a6765a2b07016adc1606cc32ebe175
+_md5_=a493588b1fd8fa947dc5da2a9fe7ee5d
