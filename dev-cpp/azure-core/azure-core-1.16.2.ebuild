@@ -5,20 +5,19 @@ EAPI=8
 
 inherit cmake
 
-COMMIT="fe5e5ad9e50423ad992648a60151696ed896b7c6"
+COMMIT="1144e4ad18f63bc2084552e1b4fbf737c974261a"
 MY_P="azure-sdk-for-cpp-${COMMIT}"
 DESCRIPTION="Azure SDK for C++"
 HOMEPAGE="https://azure.github.io/azure-sdk-for-cpp/"
 SRC_URI="https://github.com/Azure/azure-sdk-for-cpp/archive/${COMMIT}.tar.gz -> ${MY_P}.tar.gz"
-S="${WORKDIR}/${MY_P}/sdk/identity/${PN}"
+S="${WORKDIR}/${MY_P}/sdk/core/${PN}"
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="doc"
 RESTRICT="test" # Too many online tests.
 
 RDEPEND="
-	dev-cpp/azure-core:=
 	dev-libs/openssl:=
 	net-misc/curl[ssl]
 "
