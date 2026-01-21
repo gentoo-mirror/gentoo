@@ -1,13 +1,13 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install postinst postrm prepare unpack
+DEFINED_PHASES=compile install postinst postrm prepare
 DESCRIPTION=Stores, retrieves, generates, and synchronizes passwords securely
 EAPI=8
 HOMEPAGE=https://www.passwordstore.org/
-INHERIT=bash-completion-r1 elisp-common git-r3
+INHERIT=bash-completion-r1 elisp-common
 IUSE=+git wayland X emacs dmenu importers
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos
 LICENSE=GPL-2+
-PROPERTIES=live
 RDEPEND=app-crypt/gnupg media-gfx/qrencode[png(+)] >=app-text/tree-1.7.0 git? ( dev-vcs/git ) wayland? ( gui-apps/wl-clipboard ) X? ( x11-misc/xclip ) elibc_Darwin? ( app-misc/getopt ) dmenu? ( x11-misc/dmenu x11-misc/xdotool ) emacs? ( >=app-editors/emacs-23.1:* >=app-emacs/f-0.11.0 >=app-emacs/s-1.9.0 >=app-emacs/with-editor-2.5.11 )
 SLOT=0
-_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	bash-completion-r1	767861f3744f589ee5291c1698b1c082	elisp-common	ce20c7e2fc0c52b58ddabcd536b7310b	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=40ec9e4fca00869ea11216f7c67b46ad
+SRC_URI=https://git.zx2c4.com/password-store/snapshot/password-store-1.7.4.tar.xz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	bash-completion-r1	767861f3744f589ee5291c1698b1c082	elisp-common	ce20c7e2fc0c52b58ddabcd536b7310b
+_md5_=897ec1705516eb75926b85771578038b
