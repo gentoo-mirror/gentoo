@@ -1,16 +1,16 @@
-BDEPEND=>=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
-DEFINED_PHASES=compile configure install prepare test
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-zstd ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=lzma? ( app-arch/xz-utils ) lz4? ( app-arch/lz4:= ) zlib? ( virtual/zlib:= )
 DESCRIPTION=zstd fast compression library
 EAPI=8
 HOMEPAGE=https://facebook.github.io/zstd/
-INHERIT=dot-a meson-multilib
-IUSE=+lzma lz4 static-libs test zlib abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+INHERIT=dot-a meson-multilib verify-sig
+IUSE=+lzma lz4 static-libs test zlib abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 verify-sig
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris
 LICENSE=|| ( BSD GPL-2 )
 RDEPEND=lzma? ( app-arch/xz-utils ) lz4? ( app-arch/lz4:= ) zlib? ( virtual/zlib:= )
 RESTRICT=!test? ( test )
 SLOT=0/1
-SRC_URI=https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz
-_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	sysroot	c7470ddc2876a596a7a1f4c2a87a5dcb	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	ee14b47f310c323b82e6655787cd65ed	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	404b65bd5212cff83b3935c685419d08	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	meson-multilib	8989922d980e5e870cc3de949d1b2586
-_md5_=06307263a7f2062a3018b876e4ce2459
+SRC_URI=https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz verify-sig? ( https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz.sig )
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	sysroot	c7470ddc2876a596a7a1f4c2a87a5dcb	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	ee14b47f310c323b82e6655787cd65ed	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	404b65bd5212cff83b3935c685419d08	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	meson-multilib	8989922d980e5e870cc3de949d1b2586	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
+_md5_=95c2d7d16799340399e3c630f517a047
