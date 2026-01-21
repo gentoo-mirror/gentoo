@@ -472,6 +472,10 @@ src_prepare() {
 	#		| sed 's|\${FILESDIR}/|files/|; s|\${PN}|chromium|' | sort -u) \
 	# 	<(find files/ -name "*.patch" | sort)
 
+	# The patches here should apply to both the bundled and system toolchain builds.
+	# If it's something that we're doing to fix a build issue it's _probably_ not
+	# something that impacts the upstream toolchain builds - test and confirm though.
+
 	local PATCHES=(
 		"${FILESDIR}/${PN}-109-system-zlib.patch"
 		"${FILESDIR}/${PN}-131-unbundle-icu-target.patch"
@@ -479,12 +483,6 @@ src_prepare() {
 		"${FILESDIR}/${PN}-138-nodejs-version-check.patch"
 		"${FILESDIR}/${PN}-cross-compile.patch"
 	)
-
-	if use !bundled-toolchain; then
-		PATCHES+=(
-			"${WORKDIR}/copium/cr143-libsync-__BEGIN_DECLS.patch"
-		)
-	fi
 
 	# https://issues.chromium.org/issues/442698344
 	# Unreleased fontconfig changed magic numbers and google have rolled to this version
@@ -513,6 +511,13 @@ src_prepare() {
 			"${WORKDIR}"/rust-toolchain/INSTALLED_VERSION || die "Failed to set rust version"
 	else
 		# We don't need our toolchain patches if we're using the official toolchain
+
+		if use !bundled-toolchain; then
+			PATCHES+=(
+				"${WORKDIR}/copium/cr143-libsync-__BEGIN_DECLS.patch"
+			)
+		fi
+
 		shopt -s globstar nullglob
 		# 130: moved the PPC64 patches into the chromium-patches repo
 		local patch
@@ -1384,19 +1389,69 @@ src_compile() {
 
 	rm -f out/Release/locales/*.pak.info || die
 
-	# Build manpage; bug #684550
-	sed -e 's|@@PACKAGE@@|chromium-browser|g;
-		s|@@MENUNAME@@|Chromium|g;' \
-		chrome/app/resources/manpage.1.in > \
-		out/Release/chromium-browser.1 || die
+	# Generate support files: #684550 #706786 #968958
+	# Use upstream's python installer script to generate support files
+	# This replaces fragile sed commands and handles @@include@@ directives.
+	# It'll also verify that all substitution markers have been resolved, meaning that
+	# future changes to templates that add new variables will be caught during the build.
+	cat > "${T}/generate_support_files.py" <<-EOF || die
+		import sys
+		from pathlib import Path
 
-	# Build desktop file; bug #706786
-	sed -e 's|@@MENUNAME@@|Chromium|g;
-		s|@@USR_BIN_SYMLINK_NAME@@|chromium-browser|g;
-		s|@@PACKAGE@@|chromium-browser|g;
-		s|\(^Exec=\)/usr/bin/|\1|g;' \
-		chrome/installer/linux/common/desktop.template > \
-		out/Release/chromium-browser-chromium.desktop || die
+		# Add upstream installer script to search path
+		sys.path.insert(0, str(Path.cwd() / "chrome/installer/linux/common"))
+		import installer
+
+		# Configure contexts strictly for file generation
+		# Common variables used across templates
+		context = {
+		    "BUGTRACKERURL": "https://bugs.gentoo.org/enter_bug.cgi?product=Gentoo Linux&component=Current packages",
+		    "DEVELOPER_NAME": "The Chromium Authors",
+		    "EXTRA_DESKTOP_ENTRIES": "",
+		    "FULLDESC": "An open-source browser project that aims to build a safer, faster, and more stable way to experience the web.",
+		    "HELPURL": "https://wiki.gentoo.org/wiki/Chromium",
+		    "INSTALLDIR": "/usr/$(get_libdir)/chromium-browser",
+		    "MAINTMAIL": "Gentoo Chromium Project <chromium@gentoo.org>",
+		    "MENUNAME": "Chromium",
+		    "PACKAGE": "chromium-browser",
+		    "PRODUCTURL": "https://www.chromium.org/",
+		    "PROGNAME": "chrome",
+		    "PROJECT_LICENSE": "BSD, LGPL-2, LGPL-2.1, MPL-1.1, MPL-2.0, Apache-2.0, and others",
+		    "SHORTDESC": "Open-source foundation of many web browsers including Google Chrome",
+		    "URI_SCHEME": "x-scheme-handler/chromium",
+		    "USR_BIN_SYMLINK_NAME": "chromium-browser",
+		}
+
+		# Generate Desktop file
+		installer.process_template(
+		    Path("chrome/installer/linux/common/desktop.template"),
+		    Path("out/Release/chromium-browser-chromium.desktop"),
+		    context
+		)
+
+		# Generate Manpage
+		installer.process_template(
+		    Path("chrome/app/resources/manpage.1.in"),
+		    Path("out/Release/chromium-browser.1"),
+		    context
+		)
+
+		# Generate AppData (AppStream)
+		installer.process_template(
+		    Path("chrome/installer/linux/common/appdata.xml.template"),
+		    Path("out/Release/chromium-browser.appdata.xml"),
+		    context
+		)
+
+		# Generate GNOME Default Apps entry
+		installer.process_template(
+		    Path("chrome/installer/linux/common/default-app.template"),
+		    Path("out/Release/chromium-browser.xml"),
+		    context
+		)
+	EOF
+
+	"${EPYTHON}" "${T}/generate_support_files.py" || die "Failed to generate support files"
 
 	# Build vk_swiftshader_icd.json; bug #827861
 	sed -e 's|${ICD_LIBRARY_PATH}|./libvk_swiftshader.so|g' \
@@ -1510,7 +1565,7 @@ src_install() {
 
 	pushd out/Release/locales > /dev/null || die
 	chromium_remove_language_paks
-	popd
+	popd > /dev/null || die
 
 	insinto "${CHROMIUM_HOME}"
 	doins out/Release/*.bin
@@ -1568,7 +1623,11 @@ src_install() {
 
 	# Install GNOME default application entry (bug #303100).
 	insinto /usr/share/gnome-control-center/default-apps
-	newins "${FILESDIR}"/chromium-browser.xml chromium-browser.xml
+	doins out/Release/chromium-browser.xml
+
+	# Install AppStream metadata
+	insinto /usr/share/appdata
+	doins out/Release/chromium-browser.appdata.xml
 
 	# Install manpage; bug #684550
 	doman out/Release/chromium-browser.1
