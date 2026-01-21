@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.xemacs.org/
 INHERIT=flag-o-matic xdg-utils desktop autotools
 IUSE=alsa debug gif gpm pop postgres ldap xface nas X jpeg tiff png motif xft xim athena neXt Xaw3d gdbm berkdb +bignum
-KEYWORDS=~alpha ~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~alpha amd64 arm64 ~hppa ppc ppc64 ~riscv ~sparc x86
 LICENSE=GPL-3+
 PDEPEND=app-xemacs/xemacs-base app-xemacs/mule-base
 RDEPEND=berkdb? ( sys-libs/db:5.3= ) gdbm? ( >=sys-libs/gdbm-1.8.3:=[berkdb(+)] ) >=virtual/zlib-1.1.4:= >=dev-libs/openssl-0.9.6:0= >=media-libs/audiofile-0.2.3 gpm? ( >=sys-libs/gpm-1.19.6 ) postgres? ( dev-db/postgresql:= ) ldap? ( net-nds/openldap:= ) alsa? ( media-libs/alsa-lib ) nas? ( media-libs/nas ) X? ( x11-libs/libXt x11-libs/libXmu x11-libs/libXext x11-misc/xbitmaps !Xaw3d? ( !neXt? ( x11-libs/libXaw ) ) ) motif? ( >=x11-libs/motif-2.3:0[xft=] ) athena? ( x11-libs/libXaw ) Xaw3d? ( x11-libs/libXaw3d[unicode(+)] ) xft? ( media-libs/freetype:2 x11-libs/libXft x11-libs/libXrender >=media-libs/fontconfig-2.5.0 ) neXt? ( x11-libs/neXtaw ) xface? ( media-libs/compface ) tiff? ( media-libs/tiff:= ) png? ( >=media-libs/libpng-1.2:0 ) jpeg? ( media-libs/libjpeg-turbo:= ) >=sys-libs/ncurses-5.2:= >=app-eselect/eselect-emacs-1.15 bignum? ( dev-libs/openssl )
 SLOT=0
 SRC_URI=http://ftp.xemacs.org/pub/xemacs/xemacs-21.5/xemacs-21.5.36.tar.gz neXt? ( http://www.malfunction.de/afterstep/files/NeXT_XEmacs.tar.gz )
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	desktop	7b6f6e9d65093966fbc8475399c5dd4e	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=2f7e3cd9c68443036c1a31e1fa8aa547
+_md5_=af0939cc84f84572fb098d8a83106b50
