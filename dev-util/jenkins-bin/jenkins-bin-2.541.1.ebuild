@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ S="${WORKDIR}"
 LICENSE="MIT"
 SLOT="lts"
 
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 DEPEND="acct-group/jenkins
 	acct-user/jenkins"
@@ -22,7 +22,7 @@ RDEPEND="acct-group/jenkins
 	media-fonts/dejavu
 	media-libs/freetype
 	!dev-util/jenkins-bin:0
-	|| ( virtual/jre:21 virtual/jre:17 )"
+	|| ( virtual/jre:25 virtual/jre:21 virtual/jre:17 )"
 
 src_install() {
 	local JENKINS_DIR=/var/lib/jenkins
