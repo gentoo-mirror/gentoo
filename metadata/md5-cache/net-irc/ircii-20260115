@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install
+DEPEND=dev-libs/openssl:0= sys-libs/ncurses:0= virtual/libcrypt:= virtual/libiconv
+DESCRIPTION=An IRC and ICB client that runs under most UNIX platforms
+EAPI=8
+HOMEPAGE=http://eterna23.net/ircii/
+INHERIT=toolchain-funcs
+KEYWORDS=amd64 ~ppc ~riscv x86
+LICENSE=BSD
+RDEPEND=dev-libs/openssl:0= sys-libs/ncurses:0= virtual/libcrypt:= virtual/libiconv
+SLOT=0
+SRC_URI=https://ircii.warped.com/ircii-20260115.tar.bz2 https://ircii.warped.com/old/ircii-20260115.tar.bz2 https://dev.gentoo.org/~bkohler/dist/ircii-20260115.tar.bz2
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3
+_md5_=9ad0659c15aa28883dd9a8fc55d9a372

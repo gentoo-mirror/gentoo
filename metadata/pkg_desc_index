@@ -1013,7 +1013,7 @@ app-admin/logstash-bin 7.17.25: Tool for managing events and logs
 app-admin/logsurfer+ 1.8-r6: Real Time Log Monitoring and Alerting
 app-admin/lsyncd 2.3.1: Live Syncing (Mirror) Daemon
 app-admin/makepasswd 1.10-r1: Random password generator
-app-admin/mcelog 206 207 208: A tool to log and decode Machine Check Exceptions
+app-admin/mcelog 206 207 208 210: A tool to log and decode Machine Check Exceptions
 app-admin/mei-amt-check 0_p20170515: AMT status checker
 app-admin/metalog 20230719 20260105: Highly configurable replacement for syslogd/klogd
 app-admin/mkosi 24.3 25.3: Build Bespoke OS Images
@@ -1104,7 +1104,7 @@ app-admin/webalizer 2.23.08-r1: Webserver log file analyzer
 app-admin/webapp-config 1.55-r4 9999: Gentoo's installer for web-based applications
 app-admin/whowatch 1.8.6-r2: Displays information about users currently logged on in real time
 app-admin/winbox 4.0_beta47: Management Software for MikroTik RouterOS
-app-admin/xkcdpass 1.20.0: Password generator inspired by XKCD 936
+app-admin/xkcdpass 1.20.0 1.30.0: Password generator inspired by XKCD 936
 app-admin/xstow 1.1.1: Replacement for GNU stow with extensions
 app-admin/xtail 2.1_p8: Tail multiple logfiles at once, even if rotated
 app-admin/yadm 3.2.2 3.5.0: Git based tool for managing dotfiles
@@ -13043,7 +13043,7 @@ media-gfx/flameshot 13.1.0-r1: Powerful yet simple to use screenshot software
 media-gfx/fondu 20060102-r1: Utilities for converting between and manipulating mac fonts and unix fonts
 media-gfx/fontforge 20230101-r2: postscript font editor and converter
 media-gfx/fotema 2.3.0 2.4.0: Photo gallery for Linux
-media-gfx/fotocx 25.0 25.1 25.2 25.3 25.4 25.5: Program for improving image files made with a digital camera
+media-gfx/fotocx 25.0 25.1 25.2 25.3 25.4 25.5 26.1: Program for improving image files made with a digital camera
 media-gfx/fotowall 1.0_p20241107: Qt tool for creating wallpapers
 media-gfx/freecad 1.0.2-r2 9999: Qt based Computer Aided Design application
 media-gfx/freepv 0.3.0-r6: Panorama viewer (Quicktime, PangeaVR, GLPanoView formats)
@@ -14883,7 +14883,7 @@ net-irc/ergo 2.15.0 2.16.0 2.17.0: A modern IRC server written in Go
 net-irc/hexchat 2.16.2-r1 2.16.2-r2: Graphical IRC client based on XChat
 net-irc/ii 1.9 2.0 9999: A minimalist FIFO and filesystem-based IRC client
 net-irc/inspircd 3.18.0 4.8.0: Inspire IRCd - The Stable, High-Performance Modular IRCd
-net-irc/ircii 20240111 20240918: An IRC and ICB client that runs under most UNIX platforms
+net-irc/ircii 20240111 20240918 20260115: An IRC and ICB client that runs under most UNIX platforms
 net-irc/ircmap 0.99-r1: Scripts to treate diagrams of IRC networks using the LINKS command
 net-irc/ircstats 1.2: IRCStats is a Linux log analyzer
 net-irc/irker 2.24 2.24-r1: Submission tools for IRC notifications
@@ -15237,7 +15237,7 @@ net-misc/dhcping 1.2-r1: Utility to send DHCP requests to DHCP servers to see if
 net-misc/dibbler 1.0.1-r4: Portable DHCPv6 implementation (server, client and relay)
 net-misc/downloader-cli 0.3.4-r1: Simple downloader with an customizable progressbar
 net-misc/dropbear 2025.89: Small SSH 2 client/server designed for small memory environments
-net-misc/dropbox 232.4.5988 234.4.5591 235.4.5905 236.4.5918 237.4.5655 238.4.6075: Dropbox daemon (pretends to be GUI-less)
+net-misc/dropbox 232.4.5988 234.4.5591 235.4.5905 236.4.5918 237.4.5655 238.4.6075 240.4.8493: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2024.04.17-r1: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
 net-misc/electrum 4.6.2: User friendly Bitcoin client
@@ -17150,7 +17150,7 @@ sys-apps/kcheck 0.0.2-r3: Record and check required kernel symbols are set
 sys-apps/kexec-tools 2.0.31 2.0.32 9999: Load another kernel from the currently executing Linux kernel
 sys-apps/keyutils 1.6.3-r1: Linux Key Management Utilities
 sys-apps/kmod 33 34.2 9999: Library and tools for managing linux kernel modules
-sys-apps/kmscon 9.1.0 9.2.0: KMS/DRM based virtual Console Emulator
+sys-apps/kmscon 9.1.0 9.2.0 9.2.1: KMS/DRM based virtual Console Emulator
 sys-apps/lcdsplash 0.3-r1: splash Gentoo boot information on LCD's
 sys-apps/lcdutils 0.2-r2: (Sun) Cobalt Qube/RaQ button reading and LCD writing utilities
 sys-apps/less 643-r2 668 679 685 691 9999: Excellent text file viewer
@@ -17174,7 +17174,7 @@ sys-apps/man2html 1.6g-r2: Standard commands to read man pages
 sys-apps/mawk 1.3.4_p20240905 1.3.4_p20250131: An (often faster than gawk) awk-interpreter
 sys-apps/mcstrans 3.6 3.7-r1 3.8.1 9999: SELinux context translation to human readable names
 sys-apps/memtest86+ 6.20-r1 7.00 7.20 8.00: Memory tester based on PCMemTest
-sys-apps/memtest86-bin 11.5: Stand alone memory testing software for x86 EFI hardware
+sys-apps/memtest86-bin 11.6: Stand alone memory testing software for x86 EFI hardware
 sys-apps/memtester 4.6.0 4.7.1: Userspace utility for testing the memory subsystem for faults
 sys-apps/merge-usr 6 7: Script to migrate from split-usr to merged-usr
 sys-apps/miller 5.10.2: A tool like sed, awk, cut, join, and sort for name-indexed data (CSV, JSON, ..)
@@ -17721,7 +17721,7 @@ sys-fs/treesize 0.54.1-r1: A disk consumption analyzing tool
 sys-fs/ubi_reader 0.8.5-r1 0.8.5-r2: Collection of Python scripts for extracting data from UBI and UBIFS images
 sys-fs/udev-init-scripts 35 9999: udev startup scripts for openrc
 sys-fs/udftools 2.3: Ben Fennema's tools for packet writing and the UDF filesystem
-sys-fs/udiskie 2.5.7-r1 2.5.8 2.5.8-r1: An automatic disk mounting service using udisks
+sys-fs/udiskie 2.5.7-r1 2.5.8 2.5.8-r1 2.6.1: An automatic disk mounting service using udisks
 sys-fs/udisks 2.10.2-r1 2.11.0-r1: Daemon providing interfaces to work with storage devices
 sys-fs/unionfs-fuse 3.7 9999: Self-syncing tree-merging file system based on FUSE
 sys-fs/vhba 20240202 20240917 20250329: Virtual (SCSI) Host Bus Adapter kernel module for the CDEmu suite
