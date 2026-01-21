@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.25.4 test? ( app-editors/vim app-shells/bash ) >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile install test unpack
+DESCRIPTION=Instant Terminal Sharing
+EAPI=8
+HOMEPAGE=https://upterm.dev/
+INHERIT=go-module shell-completion systemd
+IUSE=server test
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 Apache-2.0 BSD BSD-2 CC0-1.0 MIT MPL-2.0 Unlicense
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/owenthereal/upterm/archive/refs/tags/v0.22.0.tar.gz -> upterm-0.22.0.tar.gz https://github.com/gentoo-golang-dist/upterm/releases/download/v0.22.0/upterm-0.22.0-vendor.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	d96f2a2fd6d8fbad6d94516bf238f885	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=6f36d137e336d9573dbcff5603b6db99

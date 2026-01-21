@@ -2949,7 +2949,7 @@ app-misc/ttyload 0.5.3-r1: color-coded graph of load averages over time
 app-misc/ttyrec 1.0.8-r3 1.1.7.1: ttyrec provides tools to record and replay a terminal session
 app-misc/tzupdate 3.1.0-r1: Set the system timezone based on IP geolocation.
 app-misc/unfoo 1.0.8-r2: Simple bash driven frontend to simplify decompression of files
-app-misc/upterm 0.20.0 0.21.0 0.21.1: Instant Terminal Sharing
+app-misc/upterm 0.20.0 0.21.0 0.21.1 0.22.0: Instant Terminal Sharing
 app-misc/uptimed 0.4.7: System uptime record daemon that keeps track of your highest uptimes
 app-misc/vcontrold 0.98.11-r1: Daemon for communication with Viessmann Vito heatings
 app-misc/vcp 2.2-r2: Copy files/directories in a curses interface
@@ -3975,7 +3975,7 @@ dev-db/cdb 0.75-r4 0.75-r5: Fast, reliable, simple package for creating and read
 dev-db/citus 12.1.9 12.1.10 13.0.4 13.0.5 13.1.0 13.1.1 13.2.0 9999: Open-source postgresql extension for clustering/multi-node setups
 dev-db/cockroach 2.1.5-r1 19.1.1-r1: open source database for building cloud services
 dev-db/datadraw 3.1.1 3.1.1-r1: feature rich database generator for high performance C applications
-dev-db/dbeaver-bin 25.3.1-r1 25.3.2-r1: Free universal database tool (community edition)
+dev-db/dbeaver-bin 25.3.2-r1 25.3.3: Free universal database tool (community edition)
 dev-db/duckdb 1.4.2 1.4.3: high-performance analytical database system
 dev-db/etcd 3.4.31 3.5.18 3.5.26 3.6.7: Highly-available key value store for shared configuration and service discovery
 dev-db/freetds 1.5 1.5.6: Tabular Datastream Library
@@ -4000,7 +4000,7 @@ dev-db/mariadb 10.6.22 10.6.22-r1 10.6.23-r1 10.6.23-r2 10.6.24 10.6.24-r1 10.11
 dev-db/mariadb-connector-c 3.3.8 3.3.15 3.3.17 3.4.5-r1 3.4.7 9999: C client library for MariaDB/MySQL
 dev-db/mariadb-connector-odbc 3.1.18 3.2.7-r1: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.30 5.0.31 5.0.32 6.0.22 6.0.25 6.0.27 7.0.18 7.0.23 7.0.28 8.0.8 8.0.12: A high-performance, open source, schema-free document-oriented database
-dev-db/mongodb-compass-bin 1.48.1 1.48.2: GUI for MongoDB
+dev-db/mongodb-compass-bin 1.48.2 1.49.0: GUI for MongoDB
 dev-db/mycli 1.42.0 1.44.0: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.20.1.2 0.21.2.2: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
@@ -8935,7 +8935,7 @@ dev-python/packaging 25.0 26.0_rc1 26.0_rc2 26.0_rc3: Core utilities for Python 
 dev-python/paginate 0.5.7: Divides large result sets into pages for easier browsing
 dev-python/paho-mqtt 2.1.0: MQTT version 5.0/3.1.1 client class
 dev-python/pallets-sphinx-themes 2.3.0: Sphinx themes for Pallets and related projects
-dev-python/pandas 2.2.3 2.3.0 2.3.1 2.3.2 2.3.3 3.0.0_rc1 3.0.0_rc2: Powerful data structures for data analysis and statistics
+dev-python/pandas 2.2.3 2.3.0 2.3.1 2.3.2 2.3.3 3.0.0_rc1 3.0.0_rc2 3.0.0: Powerful data structures for data analysis and statistics
 dev-python/pandocfilters 1.5.1: Utilities for writing pandoc filters in python
 dev-python/parallax 1.0.8: Execute commands and copy files over SSH to multiple machines at once
 dev-python/parameterized 0.9.0: Parameterized testing with any Python test framework
@@ -10776,7 +10776,7 @@ dev-util/bcc 0.31.0-r3 0.32.0-r1 0.34.0-r1 0.35.0-r1 0.35.0-r2: Tools for BPF-ba
 dev-util/bcpp 20240917: Indents C/C++ source code
 dev-util/bdelta 0.3.1-r1: Binary Delta - Efficient difference algorithm and format
 dev-util/bear 3.1.6 4.0.0: Build EAR generates a compilation database for clang tooling
-dev-util/bindgen 0.68.1-r1 0.69.4-r1 0.70.1-r1 0.71.1 0.72.0 0.72.1: Automatically generates Rust FFI bindings to C and C++ libraries.
+dev-util/bindgen 0.72.0 0.72.1: Automatically generates Rust FFI bindings to C and C++ libraries.
 dev-util/bingrep 0.11.0-r1: Binary file analysis tool
 dev-util/bloaty 1.1-r1 1.1-r2 9999: A size profiler for binaries
 dev-util/blueprint-compiler 0.18.0: Compiler for Blueprint, a markup language for GTK user interfaces
@@ -10806,9 +10806,9 @@ dev-util/byacc 20241231: The best variant of the Yacc parser generator
 dev-util/cargo-audit 0.21.1 0.21.2 0.22.0: Audit Cargo.lock for crates with security vulnerabilities
 dev-util/cargo-c 0.10.13-r1 0.10.14 0.10.15 0.10.16 0.10.18 0.10.19: Helper program to build and install c-like libraries
 dev-util/cargo-license 0.6.1-r1 0.7.0: Cargo subcommand to see license of dependencies
-dev-util/cargo-nextest 0.9.114 0.9.117 0.9.120 0.9.121: Next-generation test runner for Rust
+dev-util/cargo-nextest 0.9.114 0.9.117 0.9.120 0.9.121 0.9.122: Next-generation test runner for Rust
 dev-util/cargo-pgrx 0.12.7 0.12.9 0.13.1 0.14.3 0.15.0 0.16.0 0.16.1: pgrx: A Rust framework for creating Postgres extensions
-dev-util/cargo-tarpaulin 0.32.8 0.33.0 0.34.1 0.35.0: Cargo-Tarpaulin is a tool to determine code coverage achieved via tests
+dev-util/cargo-tarpaulin 0.35.0 0.35.1: Cargo-Tarpaulin is a tool to determine code coverage achieved via tests
 dev-util/cargo-vendor-filterer 0.5.18: Tool to 'cargo vendor' with filtering
 dev-util/catalyst 4.0.0 4.0.1 4.1.0 9999: Release metatool used for creating releases based on Gentoo Linux
 dev-util/catfish 4.20.0 4.20.1-r1: A frontend for find, (s)locate, doodle, tracker, beagle, strigi and pinot
