@@ -1,0 +1,18 @@
+BDEPEND=app-alternatives/yacc virtual/pkgconfig test? ( acct-group/mysql acct-user/mysql app-arch/zip dev-lang/perl dev-perl/Expect dev-perl/JSON sys-libs/timezone-data ) verify-sig? ( >=sec-keys/openpgp-keys-mysql-20250120 ) app-alternatives/ninja >=dev-build/cmake-3.28.5 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile config configure install postinst prepare pretend setup test unpack
+DEPEND=>=app-arch/lz4-1.9.4:= >=app-arch/zstd-1.2.0:= >=dev-libs/openssl-1.0.0:= net-libs/libtirpc:= sys-libs/ncurses:= >=virtual/zlib-1.2.13:= server? ( dev-libs/icu:= cjk? ( app-text/mecab ) jemalloc? ( dev-libs/jemalloc:= ) kernel_linux? ( dev-libs/libaio sys-process/procps ) numa? ( sys-process/numactl ) tcmalloc? ( dev-util/google-perftools:= ) ) virtual/libudev server? ( net-libs/rpcsvc-proto )
+DESCRIPTION=Fast, multi-threaded, multi-user SQL database server
+EAPI=8
+HOMEPAGE=https://www.mysql.com/
+INHERIT=check-reqs cmake dot-a edo eapi9-ver flag-o-matic linux-info multiprocessing toolchain-funcs prefix verify-sig
+IUSE=cjk cracklib debug jemalloc numa +perl profiling router selinux +server tcmalloc test test-install verify-sig
+KEYWORDS=~amd64 -arm ~arm64 -hppa -mips -ppc ~ppc64 ~riscv ~s390 ~sparc -x86 ~x64-macos ~x64-solaris
+LICENSE=GPL-2
+PDEPEND=perl? ( >=dev-perl/DBD-mysql-2.9004 )
+RDEPEND=>=app-arch/lz4-1.9.4:= >=app-arch/zstd-1.2.0:= >=dev-libs/openssl-1.0.0:= net-libs/libtirpc:= sys-libs/ncurses:= >=virtual/zlib-1.2.13:= server? ( dev-libs/icu:= cjk? ( app-text/mecab ) jemalloc? ( dev-libs/jemalloc:= ) kernel_linux? ( dev-libs/libaio sys-process/procps ) numa? ( sys-process/numactl ) tcmalloc? ( dev-util/google-perftools:= ) ) !dev-db/mariadb !dev-db/mariadb-galera !dev-db/percona-server !dev-db/mysql-cluster !dev-db/mysql:0 !dev-db/mysql:5.7 !dev-db/mysql:8.0 selinux? ( sec-policy/selinux-mysql ) !prefix? ( acct-group/mysql acct-user/mysql dev-db/mysql-init-scripts ) test-install? ( app-arch/zip dev-lang/perl dev-perl/Expect dev-perl/JSON sys-libs/timezone-data )
+REQUIRED_USE=?? ( tcmalloc jemalloc ) cjk? ( server ) jemalloc? ( server ) numa? ( server ) profiling? ( server ) router? ( server ) tcmalloc? ( server ) test? ( server ) test-install? ( server )
+RESTRICT=!test? ( test )
+SLOT=8.4
+SRC_URI=https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.8.tar.gz https://cdn.mysql.com/archives/mysql-8.4/mysql-8.4.8.tar.gz verify-sig? ( https://dev.mysql.com/downloads/gpg/?file=mysql-8.4.8.tar.gz&p=23 -> mysql-8.4.8.tar.gz.asc https://downloads.mysql.com/archives/gpg/?file=mysql-8.4.8.tar.gz&p=23 -> mysql-8.4.8.tar.gz.asc ) https://github.com/parona-source/mysql-server/releases/download/mysql-8.4.7-patches-01/mysql-8.4.7-patches-01.tar.xz
+_eclasses_=check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	dot-a	e5200fe17cfd2ed6fa66edd80201763a	edo	a5e294016aa84979fcb2459749eb80b2	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	linux-info	efd923656513c879204fec6638eadee5	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
+_md5_=b414abfb91d9c7b2137934954db85a36

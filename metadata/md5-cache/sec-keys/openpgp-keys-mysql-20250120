@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP keys used to sign MySQL releases
+EAPI=8
+HOMEPAGE=https://dev.mysql.com/doc/refman/8.4/en/checking-gpg-signature.html
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xBCA43417C3B485DD128EC6D4B7B3B788A8D3785C -> openpgp-keys-mysql-ubuntu-20250120.asc
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	6e52a21003eb40a5b499aa23f711dd09
+_md5_=07541c17cd7e9336bd02e3b9593a23fb

@@ -1,14 +1,14 @@
-BDEPEND=test? ( dev-debug/strace )
-DEFINED_PHASES=compile configure install test
+BDEPEND=test? ( dev-debug/strace ) verify-sig? ( sec-keys/openpgp-keys-stewartsmith ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install test unpack
 DESCRIPTION=LD_PRELOAD hack to convert sync()/msync() and the like to NO-OP
 EAPI=8
 HOMEPAGE=https://www.flamingspork.com/projects/libeatmydata/
-INHERIT=multilib-minimal
-IUSE=test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+INHERIT=multilib-minimal verify-sig
+IUSE=test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 verify-sig
 KEYWORDS=amd64 arm arm64 ~hppa ~loong ~x86
 LICENSE=GPL-3
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/stewartsmith/libeatmydata/releases/download/v131/libeatmydata-131.tar.gz
-_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	multilib	404b65bd5212cff83b3935c685419d08	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
-_md5_=69057e0e53cfdb464a606d4969cbcf8b
+SRC_URI=https://www.flamingspork.com/projects/libeatmydata/libeatmydata-131.tar.gz verify-sig? ( https://www.flamingspork.com/projects/libeatmydata/libeatmydata-131.tar.gz.asc )
+_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	multilib	404b65bd5212cff83b3935c685419d08	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
+_md5_=9f9773db9d77c387dcfcef1eb84c4104
