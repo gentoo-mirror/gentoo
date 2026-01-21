@@ -1,9 +1,13 @@
-DEFINED_PHASES=-
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-dshaw ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=unpack
 DESCRIPTION=OpenPGP key archiver
 EAPI=7
-HOMEPAGE=http://www.jabberwocky.com/software/paperkey/
+HOMEPAGE=https://www.jabberwocky.com/software/paperkey/
+INHERIT=verify-sig
+IUSE=verify-sig
 KEYWORDS=amd64 arm64 ~ppc64 ~riscv x86 ~x64-macos
 LICENSE=GPL-2
 SLOT=0
-SRC_URI=http://www.jabberwocky.com/software/paperkey/paperkey-1.6.tar.gz
-_md5_=e9a19c77ff8a1936b903a90b48f0d1e2
+SRC_URI=https://www.jabberwocky.com/software/paperkey/paperkey-1.6.tar.gz verify-sig? ( https://www.jabberwocky.com/software/paperkey/paperkey-1.6.tar.gz.sig )
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
+_md5_=b67c15548791c708ae9d8d962e0e59aa
