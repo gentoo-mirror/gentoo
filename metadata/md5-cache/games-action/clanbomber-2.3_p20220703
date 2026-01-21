@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=install prepare
-DEPEND=dev-libs/boost:= media-fonts/dejavu media-libs/libsdl[sound,joystick,video] media-libs/sdl-gfx media-libs/sdl-image[png] media-libs/sdl-mixer media-libs/sdl-ttf
+DEPEND=media-fonts/dejavu media-libs/libsdl2[sound,joystick,video] media-libs/sdl2-image[png] media-libs/sdl2-mixer media-libs/sdl2-ttf
 DESCRIPTION=Bomberman-like multiplayer game
-EAPI=7
-HOMEPAGE=https://savannah.nongnu.org/projects/clanbomber/
+EAPI=8
+HOMEPAGE=https://github.com/viti95/ClanBomber2 https://savannah.nongnu.org/projects/clanbomber/
 INHERIT=autotools desktop
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=dev-libs/boost:= media-fonts/dejavu media-libs/libsdl[sound,joystick,video] media-libs/sdl-gfx media-libs/sdl-image[png] media-libs/sdl-mixer media-libs/sdl-ttf
+RDEPEND=media-fonts/dejavu media-libs/libsdl2[sound,joystick,video] media-libs/sdl2-image[png] media-libs/sdl2-mixer media-libs/sdl2-ttf
 SLOT=0
-SRC_URI=https://download.savannah.gnu.org/releases/clanbomber/clanbomber-2.2.0.tar.xz
+SRC_URI=https://github.com/viti95/ClanBomber2/archive/b0f00ecc784d1cbef8c6672712fbeb0f03d324b3.tar.gz -> clanbomber-2.3_p20220703-b0f00ecc.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	desktop	7b6f6e9d65093966fbc8475399c5dd4e
-_md5_=f921a79daf7f03c986c3c3a8b45d54c8
+_md5_=de85110c6dc583ce0b88a8dd682cac4e

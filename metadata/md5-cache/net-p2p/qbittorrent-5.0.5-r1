@@ -1,6 +1,6 @@
 BDEPEND=verify-sig? ( sec-keys/openpgp-keys-qbittorrent ) >=dev-qt/qttools-6.5:6[linguist] virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
-DEPEND=>=dev-libs/openssl-3.0.2:= >=dev-qt/qtbase-6.5:6[network,ssl,sql,sqlite,xml] >=net-libs/libtorrent-rasterbar-2.0.10:= >=virtual/zlib-1.2.11:= gui? ( >=dev-qt/qtbase-6.5:6[dbus?,gui,widgets] >=dev-qt/qtsvg-6.5:6 ) webui? ( acct-group/qbittorrent acct-user/qbittorrent ) >=dev-libs/boost-1.76
+DEPEND=>=dev-libs/boost-1.76:= >=dev-libs/openssl-3.0.2:= >=dev-qt/qtbase-6.5:6[network,ssl,sql,sqlite,xml] >=net-libs/libtorrent-rasterbar-2.0.10:= >=virtual/zlib-1.2.11:= gui? ( >=dev-qt/qtbase-6.5:6[dbus?,gui,widgets] >=dev-qt/qtsvg-6.5:6 ) webui? ( acct-group/qbittorrent acct-user/qbittorrent )
 DESCRIPTION=BitTorrent client in C++ and Qt
 EAPI=8
 HOMEPAGE=https://www.qbittorrent.org
@@ -9,10 +9,10 @@ INHERIT=cmake edo multibuild optfeature systemd verify-sig xdg
 IUSE=+dbus +gui test webui verify-sig
 KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=GPL-2+-with-openssl-exception GPL-3+-with-openssl-exception
-RDEPEND=>=dev-libs/openssl-3.0.2:= >=dev-qt/qtbase-6.5:6[network,ssl,sql,sqlite,xml] >=net-libs/libtorrent-rasterbar-2.0.10:= >=virtual/zlib-1.2.11:= gui? ( >=dev-qt/qtbase-6.5:6[dbus?,gui,widgets] >=dev-qt/qtsvg-6.5:6 ) webui? ( acct-group/qbittorrent acct-user/qbittorrent )
+RDEPEND=>=dev-libs/boost-1.76:= >=dev-libs/openssl-3.0.2:= >=dev-qt/qtbase-6.5:6[network,ssl,sql,sqlite,xml] >=net-libs/libtorrent-rasterbar-2.0.10:= >=virtual/zlib-1.2.11:= gui? ( >=dev-qt/qtbase-6.5:6[dbus?,gui,widgets] >=dev-qt/qtsvg-6.5:6 ) webui? ( acct-group/qbittorrent acct-user/qbittorrent )
 REQUIRED_USE=|| ( gui webui ) dbus? ( gui )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/qbittorrent/qbittorrent-5.0.5.tar.xz verify-sig? ( https://downloads.sourceforge.net/qbittorrent/qbittorrent-5.0.5.tar.xz.asc )
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	edo	a5e294016aa84979fcb2459749eb80b2	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	optfeature	538bce96e5589935b57e178e8635f301	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=3a6c161f3eabd15bc92bbddb6c9bb0e9
+_md5_=75110fcab173506d830783908ead00f4
