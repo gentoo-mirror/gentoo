@@ -1,0 +1,18 @@
+BDEPEND=fuse? ( virtual/pkgconfig ) test? ( fuse? ( sys-fs/e2fsprogs[fuse] ) python? ( python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_13? ( dev-libs/libxml2[python,python_targets_python3_13(-)] dev-python/lxml[python_targets_python3_13(-)] dev-python/pyyaml[python_targets_python3_13(-)] dev-python/xmltodict[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-libs/libxml2[python,python_targets_python3_14(-)] dev-python/lxml[python_targets_python3_14(-)] dev-python/pyyaml[python_targets_python3_14(-)] dev-python/xmltodict[python_targets_python3_14(-)] ) ) python_single_target_python3_13? ( dev-python/pytest[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/pytest[python_targets_python3_14(-)] ) )
+DEFINED_PHASES=compile install setup test
+DEPEND=virtual/zlib fuse? ( sys-fs/fuse:3= )
+DESCRIPTION=Tools for creating and converting OVA virtual appliance files
+EAPI=8
+HOMEPAGE=https://github.com/vmware/open-vmdk
+INHERIT=python-single-r1 toolchain-funcs
+IUSE=fuse +python test python_single_target_python3_13 python_single_target_python3_14
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0
+PROPERTIES=test_network fuse? ( test_privileged )
+RDEPEND=virtual/zlib fuse? ( sys-fs/fuse:3= ) python? ( python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_13? ( dev-libs/libxml2[python,python_targets_python3_13(-)] dev-python/lxml[python_targets_python3_13(-)] dev-python/pyyaml[python_targets_python3_13(-)] dev-python/xmltodict[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-libs/libxml2[python,python_targets_python3_14(-)] dev-python/lxml[python_targets_python3_14(-)] dev-python/pyyaml[python_targets_python3_14(-)] dev-python/xmltodict[python_targets_python3_14(-)] ) )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_13 python_single_target_python3_14 ) ) test? ( ^^ ( python_single_target_python3_13 python_single_target_python3_14 ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/vmware/open-vmdk/archive/refs/tags/v0.3.13.tar.gz -> open-vmdk-0.3.13.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=6bef18304b05e71077dbcdb60002e3d6
