@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://yoda.hepforge.org/
 INHERIT=bash-completion-r1 python-single-r1 optfeature autotools
 IUSE=test +highfive +python +zlib python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
 RDEPEND=dev-cpp/yaml-cpp highfive? ( sci-libs/highfive sci-libs/hdf5[cxx] ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) zlib? ( virtual/zlib:= )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/2.1.2
 SRC_URI=https://yoda.hepforge.org/downloads?f=YODA-2.1.2.tar.bz2 -> YODA-2.1.2.tar.bz2
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	optfeature	538bce96e5589935b57e178e8635f301	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=b2cf2216f8e352d952bb31551ffc19b8
+_md5_=0a77ab5ba99208e6db7ac44c513f61f8
