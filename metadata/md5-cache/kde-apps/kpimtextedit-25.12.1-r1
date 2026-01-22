@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 doc? ( >=app-text/doxygen-1.8.13-r1 ) doc? ( dev-qt/qttools:6[assistant] ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.22.0:*
+DEFINED_PHASES=compile configure info install nofetch prepare test unpack
+DEPEND=>=dev-libs/ktextaddons-1.8.0:6 >=dev-qt/qtbase-6.10.1:6[widgets] >=kde-frameworks/kcodecs-6.22.0:6 >=kde-frameworks/kconfig-6.22.0:6 >=kde-frameworks/kcoreaddons-6.22.0:6 >=kde-frameworks/ki18n-6.22.0:6 >=kde-frameworks/kiconthemes-6.22.0:6 >=kde-frameworks/kio-6.22.1:6 >=kde-frameworks/kwidgetsaddons-6.22.0:6 >=kde-frameworks/kxmlgui-6.22.0:6 >=kde-frameworks/sonnet-6.22.0:6 >=kde-frameworks/syntax-highlighting-6.22.0:6 doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6
+DESCRIPTION=Extended text editor for PIM applications
+EAPI=8
+HOMEPAGE=https://apps.kde.org/
+INHERIT=ecm gear.kde.org
+IUSE=debug doc test
+KEYWORDS=~amd64 ~arm64
+LICENSE=LGPL-2.1+
+RDEPEND=>=dev-libs/ktextaddons-1.8.0:6 >=dev-qt/qtbase-6.10.1:6[widgets] >=kde-frameworks/kcodecs-6.22.0:6 >=kde-frameworks/kconfig-6.22.0:6 >=kde-frameworks/kcoreaddons-6.22.0:6 >=kde-frameworks/ki18n-6.22.0:6 >=kde-frameworks/kiconthemes-6.22.0:6 >=kde-frameworks/kio-6.22.1:6 >=kde-frameworks/kwidgetsaddons-6.22.0:6 >=kde-frameworks/kxmlgui-6.22.0:6 >=kde-frameworks/sonnet-6.22.0:6 >=kde-frameworks/syntax-highlighting-6.22.0:6 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6 !kde-apps/kpimtextedit:5
+RESTRICT=test !test? ( test )
+SLOT=6/25.12
+SRC_URI=mirror://kde/stable/release-service/25.12.1/src/kpimtextedit-25.12.1.tar.xz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	a5537691c00fd7549c8b90300f679185	kde.org	2eea56ed41440913be4caa3d255d2db3	gear.kde.org	cacda432108ae84761ff73c038078bb6
+_md5_=04aff8733e311c2ddbd6e7c5c15b6a3f

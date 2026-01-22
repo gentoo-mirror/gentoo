@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.19.0:*
+DEFINED_PHASES=compile configure info install nofetch prepare test unpack
+DEPEND=>=dev-qt/qtbase-6.9.1:6[dbus,gui,widgets,xml] >=kde-frameworks/kconfig-6.19.0:6 >=kde-frameworks/kconfigwidgets-6.19.0:6 >=kde-frameworks/kcoreaddons-6.19.0:6 >=kde-frameworks/kcrash-6.19.0:6 >=kde-frameworks/ki18n-6.19.0:6 >=kde-frameworks/kiconthemes-6.19.0:6 >=kde-frameworks/kio-6.19.0:6 >=kde-frameworks/kjobwidgets-6.19.0:6 >=kde-frameworks/kparts-6.19.0:6 >=kde-frameworks/kservice-6.19.0:6 >=kde-frameworks/ktexteditor-6.19.0:6 >=kde-frameworks/ktextwidgets-6.19.0:6 >=kde-frameworks/kwidgetsaddons-6.19.0:6 >=kde-frameworks/kwindowsystem-6.19.0:6 >=kde-frameworks/kxmlgui-6.19.0:6 >=kde-frameworks/syntax-highlighting-6.19.0:6 telemetry? ( >=kde-frameworks/kuserfeedback-6.19.0:6 ) dev-qt/qtbase:6
+DESCRIPTION=Shared library used by Kate/Kwrite and Kate-Addons
+EAPI=8
+HOMEPAGE=https://kate-editor.org/ https://apps.kde.org/kate/
+INHERIT=ecm gear.kde.org
+IUSE=telemetry debug test
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2 LGPL-2+ MIT
+RDEPEND=>=dev-qt/qtbase-6.9.1:6[dbus,gui,widgets,xml] >=kde-frameworks/kconfig-6.19.0:6 >=kde-frameworks/kconfigwidgets-6.19.0:6 >=kde-frameworks/kcoreaddons-6.19.0:6 >=kde-frameworks/kcrash-6.19.0:6 >=kde-frameworks/ki18n-6.19.0:6 >=kde-frameworks/kiconthemes-6.19.0:6 >=kde-frameworks/kio-6.19.0:6 >=kde-frameworks/kjobwidgets-6.19.0:6 >=kde-frameworks/kparts-6.19.0:6 >=kde-frameworks/kservice-6.19.0:6 >=kde-frameworks/ktexteditor-6.19.0:6 >=kde-frameworks/ktextwidgets-6.19.0:6 >=kde-frameworks/kwidgetsaddons-6.19.0:6 >=kde-frameworks/kwindowsystem-6.19.0:6 >=kde-frameworks/kxmlgui-6.19.0:6 >=kde-frameworks/syntax-highlighting-6.19.0:6 telemetry? ( >=kde-frameworks/kuserfeedback-6.19.0:6 ) >=kde-apps/kate-common-25.12.1 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-apps/kate-lib:5
+RESTRICT=!test? ( test )
+SLOT=6
+SRC_URI=mirror://kde/stable/release-service/25.12.1/src/kate-25.12.1.tar.xz https://dev.gentoo.org/~asturm/distfiles/kate-25.12.1-fix-kio-binary-compat.patch.xz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	a5537691c00fd7549c8b90300f679185	kde.org	2eea56ed41440913be4caa3d255d2db3	gear.kde.org	cacda432108ae84761ff73c038078bb6
+_md5_=74e94594e8eaaaa43f25e2cffe120c90
