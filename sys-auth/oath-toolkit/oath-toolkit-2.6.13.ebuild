@@ -15,7 +15,7 @@ SRC_URI="
 
 LICENSE="GPL-3 LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="pam static-libs test"
 RESTRICT="!test? ( test )"
 
@@ -42,11 +42,13 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 
 src_prepare() {
 	default
+
 	elibtoolize
+
 	# upstream has a gdoc.mk, which declares that Makefile.am -> Makefile.in has a rebuild rule on:
 	#    $(top_builddir)/configure
 	# which is baffling and also totally breaks elibtoolize. Munge the timestamps into forgetting about this.
-	touch */man/Makefile.gdoc */man/Makefile.in || die
+	#touch */man/Makefile.gdoc */man/Makefile.in || die
 
 	# After patching, we have to fix the mtime on libpskc/global.c so
 	# that it doesn't cause Makefile.gdoc to be rebuilt so that it
