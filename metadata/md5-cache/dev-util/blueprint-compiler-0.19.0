@@ -1,0 +1,16 @@
+BDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygobject:3[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/pygobject:3[python_targets_python3_14(-)] ) doc? ( python_single_target_python3_12? ( dev-python/furo[python_targets_python3_12(-)] dev-python/sphinx[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/furo[python_targets_python3_13(-)] dev-python/sphinx[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/furo[python_targets_python3_14(-)] dev-python/sphinx[python_targets_python3_14(-)] ) ) test? ( gui-libs/gtk:4[introspection] gui-libs/libadwaita:1[introspection] ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) app-arch/xz-utils
+DEFINED_PHASES=compile configure install prepare setup test
+DESCRIPTION=Compiler for Blueprint, a markup language for GTK user interfaces
+EAPI=8
+HOMEPAGE=https://gnome.pages.gitlab.gnome.org/blueprint-compiler/ https://gitlab.gnome.org/GNOME/blueprint-compiler/
+INHERIT=edo meson python-single-r1 virtualx gnome.org
+IUSE=doc test python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-3+
+RDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygobject:3[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/pygobject:3[python_targets_python3_14(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=mirror://gnome/sources/blueprint-compiler/0.19/blueprint-compiler-0.19.0.tar.xz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	sysroot	c7470ddc2876a596a7a1f4c2a87a5dcb	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	ee14b47f310c323b82e6655787cd65ed	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	virtualx	9741d451eb64ea8bb9faee90d68a9b68	gnome.org	e1b4f392dbfedfb8974b71b017937f08
+_md5_=f8445f2fd9c7e5a148ddf1daef6f1884

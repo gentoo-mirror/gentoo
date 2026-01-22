@@ -1,13 +1,13 @@
-BDEPEND=>=app-emacs/compat-30.1.0.0 >=app-editors/emacs-27.1:*
+BDEPEND=app-emacs/compat >=app-editors/emacs-29.1:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Templates with in-buffer field editing for GNU Emacs
 EAPI=8
 HOMEPAGE=https://github.com/minad/tempel/
 INHERIT=elisp
-KEYWORDS=amd64 ~x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=>=app-emacs/compat-30.1.0.0 >=app-editors/emacs-27.1:*
+RDEPEND=app-emacs/compat >=app-editors/emacs-29.1:*
 SLOT=0
-SRC_URI=https://github.com/minad/tempel/archive/1.8.tar.gz -> tempel-1.8.gh.tar.gz
+SRC_URI=https://github.com/minad/tempel/archive/1.10.tar.gz -> tempel-1.10.gh.tar.gz
 _eclasses_=elisp-common	ce20c7e2fc0c52b58ddabcd536b7310b	elisp	a37bfc35b86403c770beebbd71661c30
-_md5_=af9b43c7e3c09595aaa68b0fd597f0d5
+_md5_=d0f48ce8e4ef84d16bf3aef590c830ec
