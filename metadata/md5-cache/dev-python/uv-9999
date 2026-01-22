@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig test? ( dev-lang/python:3.9 dev-lang/python:3.10 dev-lang/python:3.11 dev-lang/python:3.12 dev-lang/python:3.13 !!~dev-python/uv-0.5.0 ) || ( >=dev-lang/rust-bin-1.89.0:* >=dev-lang/rust-1.89.0:* ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig test? ( dev-lang/python:3.9 dev-lang/python:3.10 dev-lang/python:3.11 dev-lang/python:3.12 dev-lang/python:3.13 !!~dev-python/uv-0.5.0 ) || ( >=dev-lang/rust-bin-1.90.0:* >=dev-lang/rust-1.90.0:* ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare pretend setup test unpack
 DEPEND=app-arch/bzip2:= app-arch/xz-utils:= app-arch/zstd:=
 DESCRIPTION=A Python package installer and resolver, written in Rust
@@ -12,4 +12,4 @@ RDEPEND=app-arch/bzip2:= app-arch/xz-utils:= app-arch/zstd:=
 RESTRICT=test
 SLOT=0
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	20da14430886f3de143eb101684fcf62	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	aeba1d272f6c2e000912e11d8cf626eb	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=48fee0b7350e234faaefb06031f93166
+_md5_=b684fb2fafe3bea3da0ba79d0c03116c
