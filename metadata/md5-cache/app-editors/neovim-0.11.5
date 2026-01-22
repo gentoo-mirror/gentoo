@@ -7,7 +7,7 @@ HOMEPAGE=https://neovim.io
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake lua-single optfeature xdg
 IUSE=+nvimpager test lua_single_target_luajit lua_single_target_lua5-1
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86 ~x64-macos
+KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86 ~x64-macos
 LICENSE=Apache-2.0 vim
 RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) >=dev-lua/luv-1.50.0[lua_single_target_luajit(-)?,lua_single_target_lua5-1(-)?] lua_single_target_luajit? ( dev-lua/lpeg[lua_targets_luajit(-)] dev-lua/mpack[lua_targets_luajit(-)] ) lua_single_target_lua5-1? ( dev-lua/lpeg[lua_targets_lua5-1(-)] dev-lua/mpack[lua_targets_lua5-1(-)] ) lua_single_target_lua5-1? ( dev-lua/LuaBitOp[lua_targets_lua5-1(-)] ) >=dev-libs/libutf8proc-2.10.0:=[-cjk] >=dev-libs/libuv-1.50.0:= >=dev-libs/libvterm-0.3.3 >=dev-libs/msgpack-3.0.0:= >=dev-libs/tree-sitter-0.25.6:= =dev-libs/tree-sitter-c-0.24.1* =dev-libs/tree-sitter-lua-0.4* =dev-libs/tree-sitter-markdown-0.5* =dev-libs/tree-sitter-query-0.6.2* =dev-libs/tree-sitter-vim-0.7* =dev-libs/tree-sitter-vimdoc-4* >=dev-libs/unibilium-2.1.2:0= app-eselect/eselect-vi
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 ) test? ( lua_single_target_luajit )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://github.com/neovim/neovim/archive/v0.11.5.tar.gz -> neovim-0.11.5.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	optfeature	538bce96e5589935b57e178e8635f301	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=d99b7ac1749abb36f4ecb0d92ae4939d
+_md5_=117df01064a9ee106bfa7125154d7962

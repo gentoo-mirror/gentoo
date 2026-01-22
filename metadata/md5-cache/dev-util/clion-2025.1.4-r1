@@ -4,11 +4,11 @@ DESCRIPTION=A complete toolset for C and C++ development
 EAPI=8
 HOMEPAGE=https://www.jetbrains.com/clion/
 INHERIT=desktop optfeature toolchain-funcs wrapper
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 ~arm64
 LICENSE=|| ( IDEA IDEA_Academic IDEA_Classroom IDEA_OpenSource IDEA_Personal ) Apache-1.1 Apache-2.0 BSD BSD-2 CC0-1.0 CDDL-1.1 CPL-0.5 CPL-1.0 EPL-1.0 EPL-2.0 GPL-2 GPL-2-with-classpath-exception GPL-3 ISC JDOM LGPL-2.1+ LGPL-3 MIT MPL-1.0 MPL-1.1 OFL-1.1 public-domain PSF-2 UoI-NCSA ZLIB
 RDEPEND=>=app-accessibility/at-spi2-core-2.46.0:2 dev-libs/expat dev-libs/glib:2 || ( dev-util/lttng-ust-compat:0/2.12 dev-util/lttng-ust:0/2.12 ) dev-libs/nspr dev-libs/nss dev-libs/wayland dev-build/cmake app-alternatives/ninja media-libs/alsa-lib media-libs/fontconfig media-libs/freetype:2 media-libs/mesa net-print/cups sys-apps/dbus virtual/zlib:= x11-libs/cairo x11-libs/libdrm x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libXrandr x11-libs/libXrender x11-libs/libXtst x11-libs/libXxf86vm x11-libs/libxcb x11-libs/libxkbcommon x11-libs/pango
 RESTRICT=bindist mirror
 SLOT=0/2025
 SRC_URI=amd64? ( https://download.jetbrains.com/cpp/CLion-2025.1.4.tar.gz ) arm64? ( https://download.jetbrains.com/cpp/CLion-2025.1.4-aarch64.tar.gz )
 _eclasses_=desktop	7b6f6e9d65093966fbc8475399c5dd4e	optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	wrapper	ebaa3beeb43f7e533872b6c37168c7ad
-_md5_=4f23ab21d54688d06989b4b6b5915e72
+_md5_=360a307de2e2ccf9be48fccd4f4b04ea
