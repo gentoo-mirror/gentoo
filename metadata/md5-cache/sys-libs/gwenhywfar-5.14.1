@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile configure install prepare
+DEPEND=dev-libs/libgcrypt:0= dev-libs/libgpg-error dev-libs/libxml2:2= dev-libs/openssl:0= net-libs/gnutls:= virtual/libiconv virtual/libintl gtk? ( x11-libs/gtk+:3 ) qt6? ( dev-qt/qtbase:6[concurrent,dbus,gui,network,opengl,sql,widgets,xml] virtual/opengl ) sys-apps/which
+DESCRIPTION=Multi-platform helper library for other libraries
+EAPI=8
+HOMEPAGE=https://www.aquamaniac.de/
+INHERIT=autotools qmake-utils
+IUSE=debug gtk qt6 test
+KEYWORDS=~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=LGPL-2.1
+RDEPEND=dev-libs/libgcrypt:0= dev-libs/libgpg-error dev-libs/libxml2:2= dev-libs/openssl:0= net-libs/gnutls:= virtual/libiconv virtual/libintl gtk? ( x11-libs/gtk+:3 ) qt6? ( dev-qt/qtbase:6[concurrent,dbus,gui,network,opengl,sql,widgets,xml] virtual/opengl )
+RESTRICT=test
+SLOT=0/79
+SRC_URI=https://www.aquamaniac.de/rdm/attachments/download/630/gwenhywfar-5.14.1.tar.gz
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	qmake-utils	a8dd17b1d94586164f5e3fc12b1c6b81
+_md5_=4b677b87bcbcfcffd545bfec886e3a47
