@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,13 +9,13 @@ DESCRIPTION="A user-friendly launcher for Bazel written in Go"
 HOMEPAGE="https://github.com/bazelbuild/bazelisk/"
 SRC_URI="
 	https://github.com/bazelbuild/${PN}/archive/refs/tags/v${PV}.tar.gz
-		-> ${P}.tar.gz
-	https://dev.gentoo.org/~xgqt/distfiles/deps/${PN}-1.25.0-deps.tar.xz
+		-> ${P}.gh.tar.gz
+	https://dev.gentoo.org/~xgqt/distfiles/deps/${P}-deps.tar.xz
 "
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+bazel-symlink"
 
 DOCS=( CONTRIBUTING.md README.md )

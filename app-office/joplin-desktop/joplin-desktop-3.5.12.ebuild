@@ -1,22 +1,21 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# NOTICE: This is a Electron app (oh my) and the upstream only provides AppImages.
-
 EAPI=8
-
-APPIMAGE="Joplin-${PV}.AppImage"
 
 inherit desktop xdg
 
 DESCRIPTION="Secure note taking and to-do app with synchronization capabilities"
 HOMEPAGE="https://joplinapp.org/
 	https://github.com/laurent22/joplin/"
+
+# NOTICE: This is a Electron app (oh my) and the upstream only provides AppImages.
+APPIMAGE="Joplin-${PV}.AppImage"
 SRC_URI="https://github.com/laurent22/joplin/releases/download/v${PV}/${APPIMAGE}"
 
 LICENSE="AGPL-3+"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 RESTRICT="bindist splitdebug"
 
 RDEPEND="
