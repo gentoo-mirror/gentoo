@@ -89,13 +89,10 @@ unset lang
 src_unpack() {
 	if [[ ${PV} == 9999 ]] ; then
 		git-r3_src_unpack
-		return
-	fi
-
-	if [[ ${PV} != *_rc* ]] && ! [[ ${MAN_PAGES_GENTOO_DIST} -eq 1 ]] && use verify-sig ; then
+		unpack man-pages-gentoo-${GENTOO_PATCH}.tar.bz2
+	elif [[ ${PV} != *_rc* ]] && ! [[ ${MAN_PAGES_GENTOO_DIST} -eq 1 ]] && use verify-sig ; then
 		verify-sig_uncompress_verify_unpack "${DISTDIR}"/${P}.tar.xz \
 			"${DISTDIR}"/${P}.tar.sign
-
 		unpack man-pages-gentoo-${GENTOO_PATCH}.tar.bz2
 	else
 		default
@@ -109,16 +106,22 @@ src_prepare() {
 	rm man5/passwd.5 || die
 }
 
-src_compile() { :; }
+src_configure() {
+	export prefix="${EPREFIX}/usr"
+}
+
+src_compile() {
+	emake -R
+}
 
 src_test() {
 	# We don't use the 'check' target right now because of known errors
 	# https://lore.kernel.org/linux-man/0dfd5319-2d22-a8ad-f085-d635eb6d0678@gmail.com/T/#t
-	emake lint-man-tbl
+	emake -R lint-man-tbl
 }
 
 src_install() {
-	emake -R install prefix="${EPREFIX}"/usr DESTDIR="${D}"
+	emake -R DESTDIR="${D}" install
 	dodoc README Changes*
 
 	# Override with Gentoo specific or additional Gentoo pages
