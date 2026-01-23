@@ -1,0 +1,13 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install
+DESCRIPTION=Modern runtime for JavaScript and TypeScript
+EAPI=8
+HOMEPAGE=https://deno.com/
+INHERIT=shell-completion toolchain-funcs
+KEYWORDS=-* ~amd64 ~arm64
+LICENSE=MIT Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 openssl Unicode-3.0 Unicode-DFS-2016 ZLIB
+RDEPEND=|| ( llvm-runtimes/libgcc sys-devel/gcc:* ) sys-libs/glibc
+SLOT=0
+SRC_URI=amd64? ( https://github.com/denoland/deno/releases/download/v2.6.6/deno-x86_64-unknown-linux-gnu.zip -> deno-bin-2.6.6-amd64.zip ) arm64? ( https://github.com/denoland/deno/releases/download/v2.6.6/deno-aarch64-unknown-linux-gnu.zip -> deno-bin-2.6.6-arm64.zip )
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16
+_md5_=5363bc4e9a30771b76a1464f96dfb1da
