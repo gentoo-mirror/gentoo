@@ -11,7 +11,7 @@ if [[ "${PV}" == "99999999999999" ]]; then
 
 	EGIT_REPO_URI="https://github.com/hchunhui/librime-lua"
 else
-	LIBRIME_LUA_GIT_REVISION="fa6563cf7b40f3bfbf09e856420bff8de6820558"
+	LIBRIME_LUA_GIT_REVISION="68f9c364a2d25a04c7d4794981d7c796b05ab627"
 fi
 
 DESCRIPTION="Lua module for RIME"
