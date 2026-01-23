@@ -1,0 +1,17 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare prerm pretend setup
+DEPEND=media-libs/freetype:2= media-libs/giflib:0/7 media-libs/harfbuzz:= media-libs/libpng:0= media-libs/lcms:2= virtual/zlib:= media-libs/libjpeg-turbo:0= systemtap? ( dev-debug/systemtap ) app-arch/zip media-libs/alsa-lib net-print/cups x11-base/xorg-proto x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrandr x11-libs/libXrender x11-libs/libXt x11-libs/libXtst javafx? ( dev-java/openjfx:25= ) system-bootstrap? ( || ( dev-java/openjdk-bin:25 dev-java/openjdk:25 ) ) >=dev-java/java-config-2.2.0-r3 dev-java/java-config app-eselect/eselect-java
+DESCRIPTION=Open source implementation of the Java programming language
+EAPI=8
+HOMEPAGE=https://openjdk.org
+IDEPEND=app-eselect/eselect-java
+INHERIT=check-reqs flag-o-matic java-pkg-2 java-vm-2 multiprocessing toolchain-funcs
+IUSE=alsa big-endian cups debug doc examples headless-awt javafx +jbootstrap selinux source +system-bootstrap systemtap
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+LICENSE=GPL-2-with-classpath-exception
+RDEPEND=media-libs/freetype:2= media-libs/giflib:0/7 media-libs/harfbuzz:= media-libs/libpng:0= media-libs/lcms:2= virtual/zlib:= media-libs/libjpeg-turbo:0= systemtap? ( dev-debug/systemtap ) >=sys-apps/baselayout-java-0.1.0-r1 !headless-awt? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrandr x11-libs/libXrender x11-libs/libXt x11-libs/libXtst ) alsa? ( media-libs/alsa-lib ) cups? ( net-print/cups ) selinux? ( sec-policy/selinux-java ) >=dev-java/java-config-2.2.0-r3 dev-java/java-config app-eselect/eselect-java
+REQUIRED_USE=javafx? ( alsa !headless-awt ) !system-bootstrap? ( jbootstrap ) !system-bootstrap? ( ppc64 )
+SLOT=25
+SRC_URI=https://github.com/openjdk/jdk25u/archive/jdk-25.0.2-ga.tar.gz -> openjdk-25.0.2_p10.tar.gz !system-bootstrap? ( ppc64? ( big-endian? ( https://dev.gentoo.org/~arthurzam/distfiles/dev-java/openjdk/openjdk-bootstrap-25_p36-ppc64.tar.xz ) ) )
+_eclasses_=check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	java-utils-2	3febdd17a5820c438f6368dde60d4848	java-pkg-2	38fd81c7880666a00a638ca8deb64d72	multilib	404b65bd5212cff83b3935c685419d08	pax-utils	5555f2e75744739fe100ee62c22d28fe	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	java-vm-2	6c7243f2269a7c9b5c177579e49f89ab	multiprocessing	1e32df7deee68372153dca65f4a7c21f
+_md5_=5785b5c64db0c1426fd2394b0b1615e1
