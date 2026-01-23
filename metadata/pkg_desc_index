@@ -797,7 +797,7 @@ acct-user/smsd 0-r2: System user: smsd
 acct-user/smtpd 0-r3: daemon user for smtpd
 acct-user/smtpq 0-r3: queue user for smtpd
 acct-user/snapclient 0-r2: Client user for media-sound/snapcast
-acct-user/snapserver 0-r2: Server user for media-sound/snapcast
+acct-user/snapserver 0-r2 0-r3: Server user for media-sound/snapcast
 acct-user/sndiod 0-r2: Daemon user for sndio
 acct-user/sniproxy 0-r2: System user: sniproxy
 acct-user/snmp_exporter 0-r2: A user for app-metrics/snmp_exporter
@@ -2910,7 +2910,7 @@ app-misc/scrub 2.6.1-r2: Overwrite files with iterative patterns
 app-misc/sdate 0.7: Never ending September date
 app-misc/selecta 0.0.7-r1: A fuzzy text selector for files and anything else you need to select
 app-misc/siegfried 1.11.1 1.11.2: Signature-based file format identification
-app-misc/skim 0.20.5: Command-line fuzzy finder
+app-misc/skim 0.20.5 1.5.1: Command-line fuzzy finder
 app-misc/sl 5.02-r1: Sophisticated graphical program which corrects your miss typing
 app-misc/smtm 1.6.10-r2: Stock ticker, profit/loss calculator and chart tool
 app-misc/socnetv 3.2: Qt Social Network Visualizer
@@ -14208,7 +14208,7 @@ media-sound/shorten 3.6.1-r1: fast, low complexity waveform coder (i.e. audio co
 media-sound/sidplay 2.0.9-r2: C64 SID player
 media-sound/sidplayfp 2.12.0 2.14.1: Sidplay2 fork with resid-fp
 media-sound/smixer 1.0.4: command-line tool for setting and viewing mixer settings
-media-sound/snapcast 0.31.0: Synchronous multi-room audio player
+media-sound/snapcast 0.31.0 0.34.0: Synchronous multi-room audio player
 media-sound/snd 25.6: Sound editor
 media-sound/sndfile-tools 1.5 9999: Small collection of programs that use libsndfile
 media-sound/sndio 1.10.0 9999: Small audio and MIDI framework part of the OpenBSD project
@@ -17769,7 +17769,7 @@ sys-kernel/ugrd 1.27.2 1.28.2 1.29.0-r1 1.31.2 2.0.2 9999: Python based POSIX in
 sys-kernel/vanilla-kernel 5.10.247 5.10.248 5.10.9999 5.15.197 5.15.198 5.15.9999 6.1.159 6.1.161 6.1.9999 6.6.119 6.6.120 6.6.121 6.6.9999 6.12.63 6.12.64 6.12.65 6.12.66 6.12.9999 6.18.4 6.18.5 6.18.6: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 5.4.302 5.10.248 5.15.198 6.1.161 6.6.121 6.12.66 6.16.12 6.17.13 6.18.6: Full sources for the Linux kernel
 sys-kernel/virtme-ng 1.36 1.38: Quickly build and run kernels inside a virtualized snapshot of your live system
-sys-kernel/zen-sources 6.18.3 6.18.4 6.18.5: The Zen Kernel Live Sources
+sys-kernel/zen-sources 6.18.5 6.18.6: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
 sys-libs/basu 0.2.1: The sd-bus library, extracted from systemd
 sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r2 2.43-r3 2.44-r2 2.45 2.45-r1 2.45.1 9999: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
