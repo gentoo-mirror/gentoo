@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ CRATES="
 "
 
 declare -A GIT_CRATES=(
-	[rust-faces]='https://github.com/blissd/fotema-rust-faces;43c0d5acd6f3f4d90c6487708f2e511a73bf7c9e;fotema-rust-faces-%commit%'
+	[rust-faces]='https://github.com/blissd/fotema-rust-faces;d1d1787344e5ce4252feaac7a75d83546dad482e;fotema-rust-faces-%commit%'
 )
 
 RUST_MIN_VER="1.87.0"
@@ -36,8 +36,8 @@ LICENSE="
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0
-	CDLA-Permissive-2.0 ISC MIT MPL-2.0 UoI-NCSA Unicode-3.0 WTFPL-2
-	ZLIB
+	CDLA-Permissive-2.0 ISC MIT MPL-2.0 UoI-NCSA openssl Unicode-3.0
+	WTFPL-2 ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64"
@@ -56,7 +56,6 @@ DEPEND+="
 	media-libs/libshumate:=
 	media-libs/opencv:=[contribdnn,features2d]
 	media-video/ffmpeg:=
-	sci-ml/onnx
 	sys-libs/libseccomp
 	x11-libs/cairo
 	x11-libs/gdk-pixbuf:2
@@ -80,12 +79,17 @@ src_configure() {
 	meson_src_configure
 	ln -s "${CARGO_HOME}" "${BUILD_DIR}/cargo-home" || die
 
-	export ORT_STRATEGY=system
+	# block trying to download onnxruntime
+	export CARGO_NET_OFFLINE=true
 }
 
 pkg_postinst() {
 	gnome2_schemas_update
 	xdg_icon_cache_update
+
+	ewarn "Face detection feature requires onnxruntime that is not packaged"
+	ewarn "in ::gentoo.  If you enable the feature without the library installed,"
+	ewarn "Fotema will crash."
 }
 
 pkg_postrm() {
