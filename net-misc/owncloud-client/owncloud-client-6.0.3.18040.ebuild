@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,6 +21,7 @@ RDEPEND=">=dev-db/sqlite-3.4:3
 	dev-libs/kdsingleapplication[qt6(+)]
 	dev-libs/qtkeychain[keyring?,qt6(+)]
 	dev-qt/qtbase:6[concurrent,gui,network,ssl,widgets]
+	dev-qt/qtdeclarative:6[network,ssl,widgets]
 	net-libs/libre-graph-api-cpp-qt-client
 	sys-fs/inotify-tools"
 
@@ -36,7 +37,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.2.0.10193-no_fortify_override.patch
-	"${FILESDIR}"/${PN}-6.0.0.17092-ecm-6.19.0.patch
 )
 
 src_prepare() {
