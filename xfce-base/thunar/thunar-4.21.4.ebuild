@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,14 +15,17 @@ SRC_URI="https://archive.xfce.org/src/xfce/${PN}/${PV%.*}/${P}.tar.xz"
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="0/3"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE="X exif gtk-doc introspection libnotify pcre policykit +trash-panel-plugin udisks"
+IUSE="
+	X exif gtk-doc introspection libnotify pcre policykit
+	+trash-panel-plugin udisks terminal
+"
 
 DEPEND="
 	>=dev-libs/glib-2.72.0
 	>=x11-libs/gdk-pixbuf-2.42.8
 	>=x11-libs/gtk+-3.24.0:3[X?]
 	>=x11-libs/pango-1.38.0
-	>=xfce-base/libxfce4ui-4.21.1:=
+	>=xfce-base/libxfce4ui-4.21.2:=
 	>=xfce-base/libxfce4util-4.17.2:=
 	>=xfce-base/xfconf-4.12.0:=
 	exif? ( >=media-libs/gexiv2-0.14.0 )
@@ -31,6 +34,7 @@ DEPEND="
 	pcre? ( >=dev-libs/libpcre2-10.0:= )
 	trash-panel-plugin? ( >=xfce-base/xfce4-panel-4.14.0:= )
 	udisks? ( >=dev-libs/libgudev-145:= )
+	terminal? ( >=x11-libs/vte-0.70:= )
 	X? (
 		>=x11-libs/libICE-1.0.10
 		>=x11-libs/libSM-1.2.3
@@ -74,6 +78,7 @@ src_configure() {
 		$(meson_feature udisks gudev)
 		$(meson_feature libnotify)
 		$(meson_feature policykit polkit)
+		$(meson_feature terminal)
 		-Dthunar-apr=enabled
 		-Dthunar-sbr=enabled
 		$(meson_feature exif gexiv2)
