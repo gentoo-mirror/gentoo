@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://github.com/Matoking/protontricks
 INHERIT=distutils-r1 pypi xdg-utils
 IUSE=+gui test python_single_target_pypy3_11 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-3
 RDEPEND=app-emulation/winetricks[gui?] python_single_target_pypy3_11? ( dev-python/pillow[python_targets_pypy3_11(-)] >=dev-python/vdf-3.4_p20240630[python_targets_pypy3_11(-)] ) python_single_target_python3_11? ( dev-python/pillow[python_targets_python3_11(-)] >=dev-python/vdf-3.4_p20240630[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pillow[python_targets_python3_12(-)] >=dev-python/vdf-3.4_p20240630[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pillow[python_targets_python3_13(-)] >=dev-python/vdf-3.4_p20240630[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/pillow[python_targets_python3_14(-)] >=dev-python/vdf-3.4_p20240630[python_targets_python3_14(-)] ) gui? ( gnome-extra/zenity ) python_single_target_pypy3_11? ( dev-lang/pypy:3.11= ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 )
 REQUIRED_USE=^^ ( python_single_target_pypy3_11 python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://files.pythonhosted.org/packages/source/p/protontricks/protontricks-1.13.1.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701	pypi	d2befa41d10011e03e2158e065d5d6da	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=fc63764b7a457ed2cf4be4bc8086093d
+_md5_=def1a9717734b37bce70028a80948c93
