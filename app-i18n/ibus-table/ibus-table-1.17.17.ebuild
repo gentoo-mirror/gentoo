@@ -7,34 +7,36 @@ PYTHON_REQ_USE="sqlite(+)"
 
 inherit gnome2-utils python-single-r1 xdg
 
-DESCRIPTION="Completion input method for IBus"
-HOMEPAGE="https://mike-fabian.github.io/ibus-typing-booster"
-SRC_URI="https://github.com/mike-fabian/${PN}/releases/download/${PV}/${P}.tar.gz"
+DESCRIPTION="Tables engines for IBus"
+HOMEPAGE="https://github.com/ibus/ibus/wiki"
+SRC_URI="https://github.com/kaio/${PN}/releases/download/${PV}/${P}.tar.gz"
 
-LICENSE="GPL-3+"
+LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
+IUSE="nls"
 RESTRICT="test"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-DEPEND="${PYTHON_DEPS}
-	dev-libs/m17n-lib
+RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		app-i18n/ibus[python(+),${PYTHON_USEDEP}]
-		dev-python/dbus-python[${PYTHON_USEDEP}]
-		dev-python/pyenchant[${PYTHON_USEDEP}]
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
-		dev-python/pyxdg[${PYTHON_USEDEP}]
-	')"
-RDEPEND="${DEPEND}
-	>=dev-db/m17n-db-1.7"
-BDEPEND="sys-devel/gettext
-	virtual/pkgconfig"
+	')
+	virtual/libiconv
+	nls? ( virtual/libintl )"
+DEPEND="${RDEPEND}"
+BDEPEND="virtual/pkgconfig
+	nls? ( sys-devel/gettext )"
 
 src_prepare() {
-	default
+	python_fix_shebang .
 
-	sed -i "s|/usr\(/bin/sh\)|\1|" {engine,setup}/*.in
+	default
+}
+
+src_configure() {
+	econf $(use_enable nls)
 }
 
 pkg_preinst() {
