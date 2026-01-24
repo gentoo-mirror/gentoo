@@ -1,4 +1,4 @@
-BDEPEND=app-emacs/bind-key app-emacs/key-chord >=app-editors/emacs-25.3:*
+BDEPEND=>=app-editors/emacs-29.1 app-emacs/key-chord >=app-editors/emacs-29.1:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Key-chord binding helper for use-package-chords
 EAPI=8
@@ -6,8 +6,8 @@ HOMEPAGE=https://github.com/jwiegley/use-package/
 INHERIT=elisp
 KEYWORDS=amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=GPL-3+
-RDEPEND=app-emacs/bind-key app-emacs/key-chord >=app-editors/emacs-25.3:*
+RDEPEND=>=app-editors/emacs-29.1 app-emacs/key-chord >=app-editors/emacs-29.1:*
 SLOT=0
 SRC_URI=https://github.com/jwiegley/use-package/archive/2.4.4.tar.gz -> use-package-2.4.4.tar.gz
 _eclasses_=elisp-common	ce20c7e2fc0c52b58ddabcd536b7310b	elisp	a37bfc35b86403c770beebbd71661c30
-_md5_=d01eb2400693c6712ce4b22a8d401db1
+_md5_=75265e5ca7f56518c48c03fbd0d0f6a3
