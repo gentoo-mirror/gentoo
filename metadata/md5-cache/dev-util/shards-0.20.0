@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=dev-lang/crystal dev-libs/libyaml:=
+DESCRIPTION=Dependency manager for the Crystal language
+EAPI=8
+HOMEPAGE=https://github.com/crystal-lang/shards/
+INHERIT=multiprocessing toolchain-funcs
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=dev-lang/crystal dev-libs/libyaml:=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/crystal-lang/shards/archive/v0.20.0.tar.gz -> shards-0.20.0.gh.tar.gz https://github.com/crystal-lang/crystal-molinillo/archive/v0.2.0.tar.gz -> crystal-molinillo-0.2.0.gh.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3
+_md5_=ad0ce641963727b25795de892bc8c27f
