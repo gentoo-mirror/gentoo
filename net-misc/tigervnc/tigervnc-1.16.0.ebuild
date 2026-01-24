@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 CMAKE_IN_SOURCE_BUILD=1
 inherit autotools cmake eapi9-ver flag-o-matic java-pkg-opt-2 optfeature systemd xdg
 
-XSERVER_VERSION="21.1.20"
+XSERVER_VERSION="21.1.21"
 XSERVER_PATCH_VERSION="21"
 
 DESCRIPTION="Remote desktop viewer display system"
@@ -113,7 +113,7 @@ PATCHES=(
 	# Restore Java viewer
 	"${FILESDIR}"/${PN}-1.11.0-install-java-viewer.patch
 	"${FILESDIR}"/${PN}-1.14.0-xsession-path.patch
-	"${FILESDIR}"/${PN}-1.15.90-disable-server-and-pam.patch
+	"${FILESDIR}"/${PN}-1.15.90-r2-disable-server-and-pam.patch
 	"${FILESDIR}"/${PN}-1.14.1-pam.patch
 )
 
