@@ -922,7 +922,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0 1.2.764.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.43.15 1.44.4 1.44.7 1.44.11 1.44.15 1.44.20 1.44.21 1.44.22 1.44.23: Universal Command Line Environment for AWS
+app-admin/awscli 1.43.15 1.44.4 1.44.7 1.44.11 1.44.15 1.44.20 1.44.21 1.44.22 1.44.23 1.44.24: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.10.0 2025.12.0: Bitwarden password manager desktop client
@@ -2910,7 +2910,7 @@ app-misc/screenie 20120406: A small and lightweight screen wrapper
 app-misc/scrub 2.6.1-r2: Overwrite files with iterative patterns
 app-misc/sdate 0.7: Never ending September date
 app-misc/selecta 0.0.7-r1: A fuzzy text selector for files and anything else you need to select
-app-misc/siegfried 1.11.1 1.11.2: Signature-based file format identification
+app-misc/siegfried 1.11.2 1.11.4: Signature-based file format identification
 app-misc/skim 0.20.5 1.5.1: Command-line fuzzy finder
 app-misc/sl 5.02-r1: Sophisticated graphical program which corrects your miss typing
 app-misc/smtm 1.6.10-r2: Stock ticker, profit/loss calculator and chart tool
@@ -8222,8 +8222,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.42.9 1.42.14 1.42.17 1.42.21 1.42.25 1.42.30 1.42.31 1.42.32 1.42.33: The AWS SDK for Python
-dev-python/botocore 1.42.9 1.42.14 1.42.17 1.42.21 1.42.25 1.42.30 1.42.31 1.42.32 1.42.33: Low-level, data-driven core of boto 3
+dev-python/boto3 1.42.9 1.42.14 1.42.17 1.42.21 1.42.25 1.42.30 1.42.31 1.42.32 1.42.33 1.42.34: The AWS SDK for Python
+dev-python/botocore 1.42.9 1.42.14 1.42.17 1.42.21 1.42.25 1.42.30 1.42.31 1.42.32 1.42.33 1.42.34: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8533,7 +8533,7 @@ dev-python/gpgmepy 2.0.0-r1: GnuPG Made Easy is a library for making GnuPG easie
 dev-python/gpt-image 0.9.0 0.9.1: Tool to create GPT disk image files
 dev-python/graph-tool 2.75 9999: An efficient python module for manipulation and statistical analysis of graphs
 dev-python/graphviz 0.21: Simple Python interface for Graphviz
-dev-python/greenlet 3.2.4 3.3.0: Lightweight in-process concurrent programming
+dev-python/greenlet 3.3.0 3.3.1: Lightweight in-process concurrent programming
 dev-python/greenstalk 2.1.0 2.1.1: Python 3 client for the beanstalkd work queue
 dev-python/griddataformats 1.0.2 1.1.0: Reading and writing of data on regular grids in Python
 dev-python/griffe 1.14.0 1.15.0: Signature generator for Python programs
@@ -8556,7 +8556,7 @@ dev-python/hatch-jupyter-builder 0.9.1 0.9.1-r1: A hatch plugin to help build Ju
 dev-python/hatch-nodejs-version 0.4.0: Hatch plugin for versioning from a package.json file
 dev-python/hatch-vcs 0.5.0: Hatch plugin for versioning with your preferred VCS
 dev-python/hatchling 1.27.0 1.28.0: Modern, extensible Python build backend
-dev-python/hcloud 2.12.0 2.13.0 2.14.0 2.15.0: Official Hetzner Cloud python library
+dev-python/hcloud 2.13.0 2.14.0 2.15.0 2.16.0: Official Hetzner Cloud python library
 dev-python/helpdev 0.7.1-r1: Helping users and developers to get information about the environment
 dev-python/hidapi 0.14.0_p4 0.15.0: A Cython interface to HIDAPI library
 dev-python/hiredis 3.2.1 3.3.0: Python extension that wraps hiredis
@@ -8582,7 +8582,7 @@ dev-python/hvac 2.3.0 2.4.0: HashiCorp Vault API client
 dev-python/hypercorn 0.17.3 0.18.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.147.0 6.148.5 6.148.7 6.148.8 6.148.9 6.148.11 6.148.12 6.149.0 6.149.1 6.150.0 6.150.1 6.150.2: A library for property based testing
+dev-python/hypothesis 6.148.7 6.148.12 6.149.1 6.150.2 6.150.3: A library for property based testing
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 6.3.1 6.3.2: Package used for parsing and generating iCalendar files (RFC 2445)
 dev-python/id 1.5.0: A tool for generating OIDC identities
@@ -8691,7 +8691,7 @@ dev-python/jupyter-server 2.17.0 2.17.0-r1: Core services, APIs, and REST endpoi
 dev-python/jupyter-server-mathjax 0.2.6 0.2.6-r1: MathJax resources as a Jupyter Server Extension
 dev-python/jupyter-server-proxy 4.4.0: Jupyter notebook server extension to proxy web services
 dev-python/jupyter-server-terminals 0.5.3 0.5.3-r1 0.5.4: A Jupyter Server Extension Providing Terminals
-dev-python/jupyterlab 4.4.10 4.5.0 4.5.1 4.5.2: JupyterLab computational environment
+dev-python/jupyterlab 4.4.10 4.5.1 4.5.2 4.5.3: JupyterLab computational environment
 dev-python/jupyterlab-lsp 5.1.0: Coding assistance for JupyterLab with Language Server Protocol
 dev-python/jupyterlab-pygments 0.3.0: Pygments theme making use of JupyterLab CSS variables
 dev-python/jupyterlab-server 2.27.3 2.28.0: Server components for JupyterLab and JupyterLab like applications
@@ -8778,7 +8778,7 @@ dev-python/markdown-it-py 3.0.0 4.0.0: Python port of markdown-it, Markdown pars
 dev-python/markdown2 2.5.3 2.5.4: Python Markdown language reimplementation
 dev-python/markups 4.1.1: A wrapper around various text markups
 dev-python/markupsafe 3.0.2 3.0.3: Implements a XML/HTML/XHTML Markup safe string for Python
-dev-python/marshmallow 3.26.2 4.1.2 4.2.0: A library for converting to and from native Python datatypes
+dev-python/marshmallow 3.26.2 4.2.0 4.2.1: A library for converting to and from native Python datatypes
 dev-python/matplotlib 3.10.3 3.10.7-r1 3.10.8-r1: Pure python plotting library with matlab like syntax
 dev-python/matplotlib-inline 0.1.7 0.2.1: Inline Matplotlib backend for Jupyter
 dev-python/matplotlib-venn 1.1.2: Plot area-proportional two- and three-way Venn diagrams in matplotlib
@@ -8887,7 +8887,7 @@ dev-python/notebook-shim 0.2.4: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nox 2025.10.16 2025.11.12: Flexible test automation for Python
 dev-python/ntplib 0.4.0-r1: Python NTP library
-dev-python/nuitka 2.8.6 2.8.7 2.8.9: Python to native compiler
+dev-python/nuitka 2.8.9 2.8.10: Python to native compiler
 dev-python/numexpr 2.14.1: Fast numerical array expression evaluator for Python and NumPy
 dev-python/numpy 1.26.4 2.2.6 2.3.1 2.3.2 2.3.2-r1 2.3.3 2.3.4 2.3.5 2.4.0_rc1 2.4.0 2.4.1: Fast array and numerical python library
 dev-python/numpydoc 1.9.0-r1 1.10.0: Sphinx extension to support docstrings in Numpy format
@@ -9132,7 +9132,7 @@ dev-python/pyls-spyder 0.4.0-r3: Spyder extensions for the python language serve
 dev-python/pylsqpack 0.3.22 0.3.23: Python wrapper for the ls-qpack QPACK library
 dev-python/pymacaroons 0.13.0-r1: A Python implementation of Macaroons
 dev-python/pymad 0.11.3: Python wrapper for libmad MP3 decoding in python
-dev-python/pymdown-extensions 10.17.2 10.18 10.19.1 10.20: Extensions for Python Markdown
+dev-python/pymdown-extensions 10.18 10.19.1 10.20 10.20.1: Extensions for Python Markdown
 dev-python/pymdown-lexers 0_pre20210902: Additional lexers for use in Pygments
 dev-python/pymdstat 0.4.3: Python library to parse Linux /proc/mdstat
 dev-python/pymediainfo 7.0.1: A Python wrapper for the MediaInfo library
@@ -9688,7 +9688,7 @@ dev-python/typer 0.20.0 0.20.1 0.21.0: Build great CLIs. Easy to code. Based on 
 dev-python/types-docutils 0.22.2.20251006 0.22.3.20251115: Typing stubs for docutils
 dev-python/types-gdb 16.3.0.20250920 16.3.0.20260109: Typing stubs for gdb
 dev-python/types-psutil 7.1.3.20251211 7.2.0.20251228 7.2.1.20251231 7.2.1.20260116: Typing stubs for psutil
-dev-python/types-setuptools 80.9.0.20250822 80.9.0.20251221 80.9.0.20251223: Typing stubs for setuptools
+dev-python/types-setuptools 80.9.0.20250822 80.9.0.20251221 80.9.0.20251223 80.10.0.20260124: Typing stubs for setuptools
 dev-python/typing-extensions 4.14.1 4.15.0: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typing-inspection 0.4.1 0.4.2: Runtime typing introspection tools
 dev-python/typogrify 2.1.0: Filters for web typography, supporting Django & Jinja templates
@@ -9749,7 +9749,7 @@ dev-python/watchdog 6.0.0: Python API and shell utilities to monitor file system
 dev-python/watchfiles 1.1.0 1.1.1: Simple, modern file watching and code reload in Python
 dev-python/wcag-contrast-ratio 0.9-r1: A library for computing contrast ratios, as required by WCAG 2.0
 dev-python/wcmatch 10.1: Wildcard/glob file name matcher
-dev-python/wcwidth 0.2.14 0.3.0 0.3.1: Measures number of Terminal column cells of wide-character codes
+dev-python/wcwidth 0.2.14 0.3.0 0.3.1 0.3.2: Measures number of Terminal column cells of wide-character codes
 dev-python/weasyprint 67.0 68.0: Visual rendering engine for HTML and CSS that can export to PDF
 dev-python/webcolors 24.11.1 25.10.0: Color names and value formats defined by the HTML and CSS specifications
 dev-python/webencodings 0.5.1-r2: Character encoding aliases for legacy web content
@@ -15242,7 +15242,7 @@ net-misc/dropbear 2025.89: Small SSH 2 client/server designed for small memory e
 net-misc/dropbox 232.4.5988 234.4.5591 235.4.5905 236.4.5918 237.4.5655 238.4.6075 240.4.8493: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2024.04.17-r1: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
-net-misc/electrum 4.6.2: User friendly Bitcoin client
+net-misc/electrum 4.6.2 4.7.0: User friendly Bitcoin client
 net-misc/email-validator 1.1.0: Basic syntax and deliverability checks on email addresses
 net-misc/ena-driver 2.15.0 2.16.0 2.16.1: Amazon EC2 Elastic Network Adapter (ENA) kernel driver
 net-misc/endlessh 1.1-r2: SSH tarpit that slowly sends and endless banner
@@ -18295,7 +18295,7 @@ www-servers/caddy 2.9.1 2.10.2 2.10.2-r1 9999: Fast and extensible multi-platfor
 www-servers/civetweb 1.16: Embedded C/C++ web server
 www-servers/fnord 1.11-r3: Yet another small httpd
 www-servers/gatling 0.16-r6: High performance web server
-www-servers/gunicorn 23.0.0 24.0.0: A WSGI HTTP Server for UNIX
+www-servers/gunicorn 23.0.0 24.0.0 24.1.1: A WSGI HTTP Server for UNIX
 www-servers/h2o 2.3.0_pre20250130 9999: H2O - the optimized HTTP/1, HTTP/2 server
 www-servers/kore 4.3.0_rc4: Web application platform for writing scalable, concurrent web based processes
 www-servers/lighttpd 1.4.79-r1 1.4.82 9999: Lightweight high-performance web server
