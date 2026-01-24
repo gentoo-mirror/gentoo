@@ -5503,7 +5503,7 @@ dev-libs/libbsd 0.11.8 0.12.1: Library to provide useful functions commonly foun
 dev-libs/libbson 1.24.4 1.24.4-r1: Library routines related to building,parsing and iterating BSON documents
 dev-libs/libbulletml 0.0.6-r1: A Library of Bullet Markup Language
 dev-libs/libburn 1.5.6-r2: Open-source library for reading, mastering and writing optical discs
-dev-libs/libbytesize 2.11: Tiny library providing a C "class" for working with arbitrary big byte sizes
+dev-libs/libbytesize 2.11 2.12: Tiny library providing a C "class" for working with arbitrary big byte sizes
 dev-libs/libcbor 0.11.0 0.12.0 0.13.0: CBOR protocol implementation for C and others
 dev-libs/libcdada 0.6.1: Basic data structures in C
 dev-libs/libcdio 2.1.0-r2 2.2.0: A library to encapsulate CD-ROM reading and control
@@ -5562,7 +5562,7 @@ dev-libs/libgpg-error 1.56 1.57 1.58: Contains error handling functions used by 
 dev-libs/libgpiod 1.6.4 2.2.1-r1 2.2.2: C library and tools for interacting with the linux GPIO character device
 dev-libs/libgrapheme 2.0.2 3.0.0: Unicode string library
 dev-libs/libgudev 238-r1 238-r2: GObject bindings for libudev
-dev-libs/libgusb 0.4.8 0.4.9: GObject wrapper for libusb
+dev-libs/libgusb 0.4.9: GObject wrapper for libusb
 dev-libs/libgweather 4.4.2-r1 4.4.4: Location and timezone database and weather-lookup library
 dev-libs/libhid 0.2.17-r1: Provides a generic and flexible way to access and interact with USB HID devices
 dev-libs/libical 3.0.20-r2: Implementation of basic iCAL protocols
@@ -5578,7 +5578,7 @@ dev-libs/libixion 0.19.0-r2 0.20.0 9999: General purpose formula parser & interp
 dev-libs/libjcat 0.2.3 0.2.5: Library and tool for reading and writing Jcat files
 dev-libs/libjodycode 3.1.2 4.0.1: Shared code used by several utilities written by Jody Bruchon
 dev-libs/libjwt 1.15.3: JWT C Library
-dev-libs/libkdumpfile 0.5.5-r2: Kernel coredump file access
+dev-libs/libkdumpfile 0.5.5-r2 0.5.6: Kernel coredump file access
 dev-libs/libkpass 6-r2: Libkpass is a C implementation to access KeePass 1.x format password databases
 dev-libs/libksba 1.6.7: X.509 and CMS (PKCS#7) library
 dev-libs/libliftoff 0.5.0: Lightweight KMS plane library
@@ -5626,7 +5626,7 @@ dev-libs/libpcre2 10.45 10.46 10.47: Perl-compatible regular expression library
 dev-libs/libpeas 1.36.0 2.0.7-r1: A GObject plugins library
 dev-libs/libpfm 4.13.0: Hardware-based performance monitoring interface for Linux
 dev-libs/libphonenumber 8.13.47-r1: Library for parsing, formatting, and validating international phone numbers
-dev-libs/libpipeline 1.5.8: A pipeline manipulation library
+dev-libs/libpipeline 1.5.8: Pipeline manipulation library
 dev-libs/libplatform 2.1.0.1-r2 2.1.0.1-r3 9999: Platform support library used by libCEC and binary add-ons for Kodi
 dev-libs/libportal 0.9.1: Flatpak portal library
 dev-libs/libpqxx 7.7.5: Standard front-end for writing C++ programs that use PostgreSQL
@@ -5651,7 +5651,7 @@ dev-libs/libserialport 0.1.1-r1 0.1.2-r1 9999: Cross platform serial port access
 dev-libs/libsigc++ 2.12.1 3.6.0 3.8.0: Typesafe callback system for standard C++
 dev-libs/libsigsegv 2.14-r1 2.15: Library for handling page faults in user mode
 dev-libs/libslz 1.2.0-r1: Stateless, zlib-compatible, and very fast compression library
-dev-libs/libsodium 1.0.20 1.0.20_p20250606: Portable fork of NaCl, a higher-level cryptographic library
+dev-libs/libsodium 1.0.20 1.0.20_p20250606 1.0.21: Portable fork of NaCl, a higher-level cryptographic library
 dev-libs/libspnav 1.1 1.2: libspnav is a replacement for the magellan library with a cleaner API
 dev-libs/libspt 1.1-r4 1.1-r5: Library for handling root privilege
 dev-libs/libstroke 0.5.1-r2: Stroke and Gesture recognition Library
@@ -5700,7 +5700,7 @@ dev-libs/libxls 1.6.3: Library which can read Excel (xls) files
 dev-libs/libxlsxwriter 1.1.5-r1 1.1.6: C library for creating Excel XLSX files
 dev-libs/libxml2 2.13.9 2.14.6 2.15.0-r1 2.15.1 9999: XML C parser and toolkit
 dev-libs/libxml2-compat 2.13.9: XML C parser and toolkit
-dev-libs/libxmlb 0.3.21 0.3.24: Library to help create and query binary XML blobs
+dev-libs/libxmlb 0.3.21 0.3.24 0.3.24-r1: Library to help create and query binary XML blobs
 dev-libs/libxslt 1.1.43-r1 1.1.43-r2 1.1.45 9999: XSLT libraries and tools
 dev-libs/libyaml 0.2.2 0.2.5: YAML 1.1 parser and emitter written in C
 dev-libs/libzia 4.69 4.70: Platform abstraction code for tucnak package
@@ -16582,6 +16582,7 @@ sec-keys/openpgp-keys-canonical 20190401: OpenPGP keys used to sign LXD-related 
 sec-keys/openpgp-keys-cathugger 20240123: OpenPGP keys used by cathugger
 sec-keys/openpgp-keys-cgzones 20240624: OpenPGP keys used by Christian Göttsche (cgzones)
 sec-keys/openpgp-keys-chetramey 20220406: OpenPGP keys used by Chet Ramey
+sec-keys/openpgp-keys-cjwatson 20260124: OpenPGP key used by Colin Watson
 sec-keys/openpgp-keys-colordiff 20260118: OpenPGP keys used to sign colordiff releases
 sec-keys/openpgp-keys-coreutils 20220407 20250806: OpenPGP keys used by GNU coreutils
 sec-keys/openpgp-keys-crypto++ 20210416: OpenPGP keys used to sign crypto++ releases
@@ -16628,6 +16629,7 @@ sec-keys/openpgp-keys-grep 20220407: OpenPGP keys used by GNU Grep
 sec-keys/openpgp-keys-grub 20251028: OpenPGP keys used for GRUB releases
 sec-keys/openpgp-keys-guillemjover 20220331: OpenPGP keys used by Guillem Jover
 sec-keys/openpgp-keys-gzip 20220406: OpenPGP keys used by GNU Gzip
+sec-keys/openpgp-keys-hughsie 20260124: OpenPGP key used by Richard Hughes (hughsie)
 sec-keys/openpgp-keys-icu 20220408 20221020 20241110: OpenPGP keys used by ICU
 sec-keys/openpgp-keys-inetutils 20260120: OpenPGP keys used for net-misc/inetutils
 sec-keys/openpgp-keys-irssi 20260119: OpenPGP keys used for irssi releases
@@ -16657,6 +16659,7 @@ sec-keys/openpgp-keys-libmicrohttpd 201906 999999: OpenPGP keys used to sign GNU
 sec-keys/openpgp-keys-libseccomp 20260122: OpenPGP key used for sys-libs/libseccomp
 sec-keys/openpgp-keys-libssh 20260121: OpenPGP key used by net-libs/libssh
 sec-keys/openpgp-keys-libtasn1 20220824 20250209 20260112: OpenPGP keys used by GNU Libtasn1
+sec-keys/openpgp-keys-libusb 1.0.29: OpenPGP key used by dev-libs/libusb
 sec-keys/openpgp-keys-libuv 20240209: OpenPGP keys used by libuv
 sec-keys/openpgp-keys-libvirt 20210401 20250830: OpenPGP keys used by libvirt
 sec-keys/openpgp-keys-lighttpd 20231008 20250325: OpenPGP keys used to sign lighttpd
@@ -17171,7 +17174,7 @@ sys-apps/lshw 02.19.2b_p20220831-r1 02.20.2b-r1: Hardware Lister
 sys-apps/lssbus 0.1-r1: Small utility for Linux/SPARC that list devices on SBUS
 sys-apps/lsvpd 1.7.14: Utility to List Device Vital Product Data (VPD)
 sys-apps/makedev 3.23.1-r3: Program used for creating device files in /dev
-sys-apps/man-db 2.13.0 2.13.1 9999: A man replacement that utilizes dbm instead of flat files
+sys-apps/man-db 2.13.1 9999: A man replacement that utilizes dbm instead of flat files
 sys-apps/man-pages 6.05.01 6.06 6.10 6.16-r1 9999: A somewhat comprehensive collection of Linux man pages
 sys-apps/man-pages-posix 2013a 2017a-r1: POSIX man-pages (0p, 1p, 3p)
 sys-apps/man2html 1.6g-r2: Standard commands to read man pages

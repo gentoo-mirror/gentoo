@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP key used by dev-libs/libusb
+EAPI=8
+HOMEPAGE=https://github.com/libusb/libusb/blob/master/KEYS
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://raw.githubusercontent.com/libusb/libusb/refs/tags/v1.0.29/KEYS -> openpgp-keys-libusb-1.0.29-libusb-KEYS.txt
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	6e52a21003eb40a5b499aa23f711dd09
+_md5_=f579da1b4e485ca1fe5ab1040aa838bd
