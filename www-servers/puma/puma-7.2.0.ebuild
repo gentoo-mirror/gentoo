@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,7 +27,7 @@ ruby_add_bdepend "virtual/ruby-ssl
 	test? (
 		dev-ruby/concurrent-ruby
 		dev-ruby/localhost
-		|| ( dev-ruby/rack:3.1 dev-ruby/rack:3.0 )
+		|| ( dev-ruby/rack:3.2 dev-ruby/rack:3.1 dev-ruby/rack:3.0 )
 		dev-ruby/rackup
 		>=dev-ruby/minitest-5.9:5
 		>=dev-ruby/test-unit-3.0:2
@@ -83,5 +83,5 @@ each_ruby_test() {
 	einfo "Running test suite"
 
 	MT_NO_PLUGINS=true ${RUBY} -Ilib:.:test \
-		-e "require 'minitest/autorun'; Dir['test/**/*test_*.rb'].each{require _1}" || die
+		-e "gem 'minitest', '~> 5.0'; require 'minitest/autorun'; Dir['test/**/*test_*.rb'].each{require _1}" || die
 }
