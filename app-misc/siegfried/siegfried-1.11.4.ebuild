@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,7 +19,7 @@ SRC_URI="
 "
 if [[ ${PKGBUMPING} != ${PVR} ]]; then
 	SRC_URI+="
-		https://dev.gentoo.org/~mgorny/dist/${P}_rc4.deps.tar.xz
+		https://dev.gentoo.org/~mgorny/dist/${P}.deps.tar.xz
 	"
 fi
 S=${WORKDIR}/${MY_P}
