@@ -1,9 +1,13 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit desktop pax-utils xdg optfeature
+CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu he
+	hi hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr
+	sv sw ta te th tr uk ur vi zh-CN zh-TW"
+
+inherit chromium-2 desktop optfeature pax-utils shell-completion xdg
 
 # Usage: arch_src_uri <gentoo arch> <upstream arch>
 arch_src_uri() {
@@ -81,6 +85,18 @@ RDEPEND="
 
 QA_PREBUILT="*"
 
+src_prepare() {
+	default
+	pushd "locales" > /dev/null || die
+	chromium_remove_language_paks
+	popd > /dev/null || die
+}
+
+src_configure() {
+	default
+	chromium_suid_sandbox_check_kernel_config
+}
+
 src_install() {
 	# Cleanup license file - it exists only in amd64 tarball
 	rm -f "${S}/resources/app/LICENSE.txt" || die
@@ -114,14 +130,21 @@ src_install() {
 		"${FILESDIR}/codium.desktop" \
 		> "${T}/codium.desktop" || die
 
-	sed "s|@exec_extra_flags@|${EXEC_EXTRA_FLAGS[*]}|g" \
-		"${FILESDIR}/codium-open-in-new-window.desktop" \
-		> "${T}/codium-open-in-new-window.desktop" || die
-
 	domenu "${T}/codium.desktop"
 	domenu "${T}/codium-url-handler.desktop"
-	domenu "${T}/codium-open-in-new-window.desktop"
 	newicon "resources/app/resources/linux/code.png" "vscodium.png"
+
+	# Install metainfo
+	insinto /usr/share/metainfo
+	doins "${FILESDIR}/codium.appdata.xml"
+
+	# Install MIME type definitions
+	insinto /usr/share/mime/packages
+	doins "${FILESDIR}/codium-workspace.xml"
+
+	# Install completions
+	newbashcomp resources/completions/bash/codium codium
+	newzshcomp resources/completions/zsh/_codium _codium
 }
 
 pkg_postinst() {
