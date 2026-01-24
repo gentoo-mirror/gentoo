@@ -3,7 +3,7 @@
 
 EAPI=8
 
-CHROMIUM_VERSION="142"
+CHROMIUM_VERSION="144"
 CHROMIUM_LANGS="
 	af
 	am
@@ -108,7 +108,7 @@ SRC_URI="
 S="${WORKDIR}"
 LICENSE="Vivaldi"
 SLOT="0"
-KEYWORDS="-* amd64 ~arm64"
+KEYWORDS="-* ~amd64 ~arm64"
 IUSE="ffmpeg-chromium gtk proprietary-codecs qt6 widevine"
 RESTRICT="bindist mirror"
 #REQUIRED_USE="ffmpeg-chromium? ( proprietary-codecs )"
@@ -173,9 +173,8 @@ src_prepare() {
 	popd > /dev/null || die
 
 	if use proprietary-codecs; then
-		einfo Bundled $($(tc-getSTRINGS) ${VIVALDI_HOME}/lib/libffmpeg.so | grep -m1 "^FFmpeg version ")
-		rm ${VIVALDI_HOME}/lib/libffmpeg.so || die
-		rmdir ${VIVALDI_HOME}/lib || die
+		einfo Bundled $($(tc-getSTRINGS) ${VIVALDI_HOME}/libffmpeg.so | grep -m1 "^FFmpeg version ")
+		rm ${VIVALDI_HOME}/libffmpeg.so || die
 	fi
 
 	# Qt5 is obsolete now.
