@@ -30,7 +30,7 @@ else
 	"
 	S="${WORKDIR}/${LIBNL_P}"
 
-	KEYWORDS="~alpha ~amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-thomashaller )"
 fi
@@ -38,7 +38,7 @@ fi
 LICENSE="LGPL-2.1 utils? ( GPL-2 )"
 SLOT="3"
 IUSE="+debug python test utils"
-# bug #968602
+# test_kernel_route_roundtrip_* fais in 3.12.0
 RESTRICT="!test? ( test ) test"
 
 RDEPEND="python? ( ${PYTHON_DEPS} )"
@@ -75,9 +75,8 @@ MULTILIB_WRAPPED_HEADERS=(
 )
 
 PATCHES=(
-	"${FILESDIR}"/0001-Fix-compilation-error-in-GCC-14.patch
-	"${FILESDIR}"/${P}-tests-ns.patch
 	"${FILESDIR}"/${PN}-3.11.0-no-iproute2.patch
+	"${FILESDIR}"/${P}-tests.patch
 )
 
 src_prepare() {
