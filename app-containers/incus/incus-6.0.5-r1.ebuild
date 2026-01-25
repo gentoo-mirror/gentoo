@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ SRC_URI="https://linuxcontainers.org/downloads/incus/${P}.tar.xz
 	verify-sig? ( https://linuxcontainers.org/downloads/incus/${P}.tar.xz.asc )"
 
 LICENSE="Apache-2.0 BSD LGPL-3 MIT"
-SLOT="0/stable"
+SLOT="0/lts"
 KEYWORDS="~amd64 ~arm64"
 IUSE="apparmor fuidshift nls qemu"
 
@@ -20,7 +20,7 @@ DEPEND="acct-group/incus
 	app-arch/xz-utils
 	>=app-containers/lxc-5.0.0:=[apparmor?,seccomp(+)]
 	dev-db/sqlite:3
-	>=dev-libs/cowsql-1.15.7
+	>=dev-libs/cowsql-1.15.9
 	dev-libs/lzo
 	>=dev-libs/raft-0.22.1:=[lz4]
 	>=dev-util/xdelta-3.0[lzma(+)]
@@ -94,7 +94,8 @@ RESTRICT="test"
 
 GOPATH="${S}/_dist"
 
-PATCHES=( "${FILESDIR}"/incus-6.14-fix-qemu-memory-calculation-logic.patch )
+PATCHES=( "${FILESDIR}"/incus-CVE-2026-23953.patch
+	"${FILESDIR}"/incus-CVE-2026-23954.patch )
 
 src_unpack() {
 	verify-sig_src_unpack
@@ -143,7 +144,6 @@ src_compile() {
 
 	ego install -v -x -tags libsqlite3 "${S}"/cmd/incusd
 
-	# Needs to be built statically
 	CGO_ENABLED=0 go install -v -tags agent,netgo,static -buildmode default "${S}"/cmd/incus-migrate
 
 	# Build the VM agents, statically too
@@ -244,9 +244,9 @@ pkg_postinst() {
 	elog
 	optfeature "OCI container images support" app-containers/skopeo app-containers/umoci
 	optfeature "support for ACME certificate issuance" app-crypt/lego
-	optfeature "btrfs storage backend" sys-fs/btrfs-progs
 	optfeature "ipv6 support" net-dns/dnsmasq[ipv6]
 	optfeature "full incus-migrate support" net-misc/rsync
+	optfeature "btrfs storage backend" sys-fs/btrfs-progs
 	optfeature "lvm2 storage backend" sys-fs/lvm2
 	optfeature "zfs storage backend" sys-fs/zfs
 	elog
