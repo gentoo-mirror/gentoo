@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,9 +16,12 @@ IUSE="test"
 
 RESTRICT="!test? ( test )"
 
-DEPEND="dev-libs/aws-c-sdkutils:=
+DEPEND="
 	dev-libs/aws-c-cal:=
-	dev-libs/aws-c-http:="
+	>=dev-libs/aws-c-common-0.12.6:=
+	dev-libs/aws-c-http:=
+	dev-libs/aws-c-sdkutils:=
+"
 RDEPEND="${DEPEND}"
 BDEPEND="dev-libs/aws-c-common"
 
