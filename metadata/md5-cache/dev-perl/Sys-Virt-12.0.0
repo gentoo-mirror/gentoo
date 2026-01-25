@@ -1,0 +1,16 @@
+BDEPEND=>=app-emulation/libvirt-12.0.0 dev-perl/Module-Build test? ( dev-perl/CPAN-Changes dev-perl/Test-More-UTF8 dev-perl/Test-Pod dev-perl/Test-Pod-Coverage dev-perl/XML-XPath ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=app-emulation/libvirt-12.0.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DESCRIPTION=API for using the libvirt library from Perl
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Sys-Virt
+INHERIT=perl-module
+IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test examples
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=>=app-emulation/libvirt-12.0.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/D/DA/DANBERR/Sys-Virt-v12.0.0.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	perl-module	41920449ca174fe9b9b303dfcbdb37a3
+_md5_=e8c15aad0e900008c9b506d70fbd8fb6

@@ -1,0 +1,14 @@
+DEFINED_PHASES=install postinst prepare setup unpack
+DESCRIPTION=Host app for the PassFF WebExtension
+EAPI=8
+HOMEPAGE=https://codeberg.org/PassFF/passff-host
+INHERIT=python-single-r1
+IUSE=chrome chromium +firefox vivaldi python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) app-crypt/pinentry
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) || ( chrome chromium firefox vivaldi )
+SLOT=0
+SRC_URI=https://codeberg.org/PassFF/passff-host/releases/download/1.2.5/passff.py -> passff-host-1.2.5.py https://codeberg.org/PassFF/passff-host/releases/download/1.2.5/passff.json -> passff-host-1.2.5.json
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=f24b42665317d6f584dd01ab7ca4518c
