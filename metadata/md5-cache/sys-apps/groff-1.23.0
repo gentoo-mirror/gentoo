@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/perl sys-apps/texinfo
+BDEPEND=dev-lang/perl sys-apps/texinfo sys-devel/m4
 DEFINED_PHASES=compile configure install prepare
 DEPEND=uchardet? ( app-i18n/uchardet ) X? ( x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXaw x11-libs/libXmu x11-libs/libXt )
 DESCRIPTION=Text formatter used for man pages
@@ -12,4 +12,4 @@ RDEPEND=uchardet? ( app-i18n/uchardet ) X? ( x11-libs/libICE x11-libs/libSM x11-
 SLOT=0
 SRC_URI=mirror://gnu/groff/groff-1.23.0.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3
-_md5_=0edf8bc76aeea6c3abc203808501d72e
+_md5_=277644e78fc91b4d85b635b7c806cdff
