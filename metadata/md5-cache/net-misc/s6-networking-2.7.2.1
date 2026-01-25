@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure postinst prepare
+DEPEND=dev-lang/execline:= >=dev-libs/skalibs-2.14.5.0:= >=net-dns/s6-dns-2.3.7.0:= sys-apps/s6:=[execline] ssl? ( dev-libs/libretls:= )
+DESCRIPTION=Suite of small networking utilities for Unix systems
+EAPI=8
+HOMEPAGE=https://www.skarnet.org/software/s6-networking/
+INHERIT=optfeature toolchain-funcs
+IUSE=ssl
+KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
+LICENSE=ISC
+RDEPEND=dev-lang/execline:= >=dev-libs/skalibs-2.14.5.0:= >=net-dns/s6-dns-2.3.7.0:= sys-apps/s6:=[execline] ssl? ( dev-libs/libretls:= )
+SLOT=0/2.7
+SRC_URI=https://www.skarnet.org/software/s6-networking/s6-networking-2.7.2.1.tar.gz
+_eclasses_=optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3
+_md5_=ad98d5f84f8fe6ab5d19d5ee079bc709

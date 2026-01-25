@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure postinst prepare
+DEPEND=dev-lang/execline:= >=dev-libs/skalibs-2.14.5.0:= >=sys-apps/s6-2.13.2.0:=[execline]
+DESCRIPTION=Service manager for the s6 supervision suite
+EAPI=8
+HOMEPAGE=https://www.skarnet.org/software/s6-rc/
+INHERIT=optfeature toolchain-funcs
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=ISC
+RDEPEND=dev-lang/execline:= >=dev-libs/skalibs-2.14.5.0:= >=sys-apps/s6-2.13.2.0:=[execline]
+SLOT=0/0.6
+SRC_URI=https://www.skarnet.org/software/s6-rc/s6-rc-0.6.0.0.tar.gz
+_eclasses_=optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3
+_md5_=994fe95f61bd827f738e67a0854c36f4
