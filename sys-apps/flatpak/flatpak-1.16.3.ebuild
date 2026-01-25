@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit linux-info meson python-any-r1 systemd tmpfiles
 
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="doc introspection policykit seccomp systemd test X"
 RESTRICT="!test? ( test )"
 
@@ -23,16 +23,15 @@ RDEPEND="
 	app-arch/zstd:=
 	>=app-crypt/gpgme-1.1.8:=
 	>=dev-libs/appstream-0.12:=
-	>=dev-libs/appstream-glib-0.5.10:=
-	>=dev-libs/glib-2.56:2=
+	>=dev-libs/glib-2.56:2
 	>=dev-libs/libxml2-2.4:=
-	dev-libs/json-glib:=
+	dev-libs/json-glib
 	dev-libs/libassuan:=
 	>=dev-util/ostree-2020.8:=[gpg(+)]
 	dev-util/ostree[curl]
-	>=gnome-base/dconf-0.26:=
+	>=gnome-base/dconf-0.26
 	gnome-base/gsettings-desktop-schemas
-	net-misc/curl:=
+	net-misc/curl
 	net-misc/socat
 	>=sys-apps/bubblewrap-0.10.0
 	sys-apps/dbus
@@ -44,8 +43,8 @@ RDEPEND="
 		x11-libs/libXau:=
 	)
 	x11-libs/gdk-pixbuf:2=
-	seccomp? ( sys-libs/libseccomp:= )
-	systemd? ( sys-apps/systemd:= )
+	seccomp? ( sys-libs/libseccomp )
+	systemd? ( sys-apps/systemd )
 "
 
 DEPEND="${RDEPEND}"
@@ -85,6 +84,11 @@ src_prepare() {
 	default
 	# This line fails because locales are in /usr/lib/locale/locale-archive.
 	sed -i 's:^cp -r /usr/lib/locale/C.*:#\0:' tests/make-test-runtime.sh || die
+
+	# QA Notice: The ebuild is installing to one or more unexpected directories:
+	# /usr/share/doc/flatpak
+	sed -i "s|docdir = get_option('datadir') / 'doc' / 'flatpak'|docdir = get_option('datadir') / 'flatpak'|g" \
+		meson.build || die
 }
 
 src_configure() {
