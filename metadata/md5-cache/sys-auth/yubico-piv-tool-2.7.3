@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://developers.yubico.com/yubico-piv-tool/ https://github.com/Yubico/yubico-piv-tool
 INHERIT=cmake verify-sig
 IUSE=test verify-sig verify-sig
-KEYWORDS=amd64 ~arm64 ~riscv
+KEYWORDS=~amd64 ~arm64 ~riscv
 LICENSE=BSD-2
 RDEPEND=sys-apps/pcsc-lite dev-libs/openssl:=[-bindist(-)] virtual/zlib:=
 RESTRICT=!test? ( test )
 SLOT=0/2
-SRC_URI=https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.7.1.tar.gz verify-sig? ( https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.7.1.tar.gz.sig )
+SRC_URI=https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.7.3.tar.gz verify-sig? ( https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.7.3.tar.gz.sig )
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad
-_md5_=5a0f1a1fc92d8781cc61ae2f43436585
+_md5_=13943bfdea6b6d1fd0e945fa694226ff

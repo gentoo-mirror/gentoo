@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/perl app-alternatives/lex app-alternatives/yacc apidoc? ( app-text/doxygen[dot] media-gfx/graphviz ) doc? ( dev-libs/libxslt || ( >=dev-java/fop-2.10-r1:0 app-text/dblatex app-text/docbook-sgml-utils[jadetex] ) ) perl? ( dev-lang/swig ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 modules? ( dev-util/pahole sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig ) ) virtual/pkgconfig
+DEFINED_PHASES=compile config configure install postinst preinst prepare pretend setup
+DEPEND=virtual/libcrypt:= virtual/libintl amd64? ( tsm? ( app-backup/tsm ) ) doc? ( app-text/docbook-xsl-stylesheets app-text/docbook-xml-dtd:4.3 ) fuse? ( sys-fs/fuse:0= ) kauth? ( sys-libs/pam ) kerberos? ( virtual/krb5 ) ncurses? ( sys-libs/ncurses:0= ) modules? ( virtual/linux-sources )
+DESCRIPTION=The OpenAFS distributed file system
+EAPI=8
+HOMEPAGE=https://www.openafs.org/
+IDEPEND=modules? ( sys-apps/kmod[tools] )
+INHERIT=autotools linux-mod-r1 flag-o-matic pam systemd tmpfiles toolchain-funcs
+IUSE=apidoc bitmap-later debug doc fuse kauth kerberos +modules +namei ncurses perl +pthreaded-ubik selinux +supergroups tsm ubik-read-while-write dist-kernel modules-compress modules-sign +strip modules
+KEYWORDS=~amd64 -riscv ~sparc ~x86
+LICENSE=IBM BSD openafs-krb5-a APSL-2
+RDEPEND=virtual/libcrypt:= virtual/libintl amd64? ( tsm? ( app-backup/tsm ) ) doc? ( app-text/docbook-xsl-stylesheets app-text/docbook-xml-dtd:4.3 ) fuse? ( sys-fs/fuse:0= ) kauth? ( sys-libs/pam ) kerberos? ( virtual/krb5 ) ncurses? ( sys-libs/ncurses:0= ) selinux? ( sec-policy/selinux-afs ) modules? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) ) virtual/tmpfiles
+SLOT=0
+SRC_URI=https://openafs.org/dl/openafs/1.8.14/openafs-1.8.14-src.tar.bz2 https://openafs.org/dl/openafs/1.8.14/openafs-1.8.14-doc.tar.bz2
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	dist-kernel-utils	a40de3638d3f7a89f4c45d1a62b90e20	edo	a5e294016aa84979fcb2459749eb80b2	linux-info	efd923656513c879204fec6638eadee5	multiprocessing	1e32df7deee68372153dca65f4a7c21f	linux-mod-r1	2b1749a4ea9e1aea780b1b54dd2f65f1	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_md5_=6752a5c9462c68c246b5547f76e1f1f8
