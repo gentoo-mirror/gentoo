@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP keys used by commons.apache.org
+EAPI=8
+HOMEPAGE=https://logging.apache.org/log4j/2.x/download.html
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=amd64 arm64 ppc64
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2DB4F1EF0FA761ECC4EA935C86FDC7E2A11262CB -> openpgp-keys-ggregory-ubuntu-20251102.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xF4DD59C90148BDC52BEB90A4530AA5F25C25011F -> openpgp-keys-ggregory2-ubuntu-20251102.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xADC51A76E03EF9BDF4635E65FC777411329D80D2 -> openpgp-keys-sanka-ubuntu-20251102.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xB6E73D84EA4FCC47166087253FAAD2CD5ECBB314 -> openpgp-keys-chtompki-ubuntu-20251102.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0CC641C3A62453AB390066C4A41F13C999945293 -> openpgp-keys-tn-ubuntu-20251102.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA9C5DF4D22E99998D9875A5110C01C5A2F6059E7 -> openpgp-keys-markt-ubuntu-20251102.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA9F885A21BA0EFB7D0991E6CCAF5EC5919FEA27D -> openpgp-keys-simonetripodi-ubuntu-20251102.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x33C6E01240C5468C2B7A556954E2764B48A42DF0 -> openpgp-keys-kinow-ubuntu-20251102.asc
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	6e52a21003eb40a5b499aa23f711dd09
+_md5_=8a49b63d148f593ca5a3440be635e2b2
