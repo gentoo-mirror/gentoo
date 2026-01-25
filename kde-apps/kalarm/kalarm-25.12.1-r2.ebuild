@@ -15,7 +15,7 @@ HOMEPAGE="https://apps.kde.org/kalarm/ https://userbase.kde.org/KAlarm"
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64"
-IUSE="mpv +pim speech X"
+IUSE="+pim speech X"
 
 COMMON_DEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,network,widgets]
@@ -49,8 +49,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X?]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
-	mpv? ( >=media-video/mpv-0.37.0:=[libmpv] )
-	!mpv? ( media-video/vlc:= )
+	>=media-video/mpv-0.37.0:=[libmpv]
 	pim? (
 		>=kde-apps/akonadi-${PVCUT}:6=
 		>=kde-apps/akonadi-contacts-${PVCUT}:6=
@@ -69,8 +68,8 @@ DEPEND="${COMMON_DEPEND}
 
 src_configure() {
 	local mycmakeargs=(
-		-DENABLE_LIBMPV=$(usex mpv)
-		-DENABLE_LIBVLC=$(usex !mpv)
+		-DENABLE_LIBMPV=ON # default upstream
+		-DENABLE_LIBVLC=OFF # OFF as long as it is Qt5-based
 		-DENABLE_AKONADI_PLUGIN=$(usex pim)
 		$(cmake_use_find_package speech KF6TextEditTextToSpeech)
 		-DWITHOUT_X11=$(usex !X)
