@@ -206,20 +206,16 @@ PATCHES=(
 	"${FILESDIR}/ceph-12.2.0-use-provided-cpu-flag-values.patch"
 	"${FILESDIR}/ceph-14.2.0-cflags.patch"
 	"${FILESDIR}/ceph-17.2.1-no-virtualenvs.patch"
-	"${FILESDIR}/ceph-13.2.2-dont-install-sysvinit-script.patch"
 	"${FILESDIR}/ceph-14.2.0-dpdk-cflags.patch"
 	"${FILESDIR}/ceph-16.2.0-rocksdb-cmake.patch"
 	"${FILESDIR}/ceph-16.2.0-spdk-tinfo.patch"
 	"${FILESDIR}/ceph-16.2.0-jaeger-system-boost.patch"
 	"${FILESDIR}/ceph-17.2.0-pybind-boost-1.74.patch"
 	"${FILESDIR}/ceph-17.2.0-findre2.patch"
-	"${FILESDIR}/ceph-18.2.0-system-opentelemetry.patch"
 	"${FILESDIR}/ceph-17.2.0-osd_class_dir.patch"
-	"${FILESDIR}/ceph-17.2.0-gcc12-header.patch"
 	"${FILESDIR}/ceph-17.2.3-flags.patch"
 	# https://bugs.gentoo.org/866165
 	"${FILESDIR}/ceph-17.2.5-suppress-cmake-warning.patch"
-	"${FILESDIR}/ceph-17.2.5-gcc13-deux.patch"
 	# https://bugs.gentoo.org/905626
 	"${FILESDIR}/ceph-17.2.6-arrow-flatbuffers-c++14.patch"
 	# https://bugs.gentoo.org/868891
@@ -244,6 +240,16 @@ PATCHES=(
 	"${FILESDIR}/ceph-19.2.2-py313-2.patch"
 	"${FILESDIR}/ceph-19.2.2-py313-3.patch"
 	"${FILESDIR}/ceph-19.2.2-gcc15.patch"
+	"${FILESDIR}/ceph-19.2.2-QATAPP-Fix-clang-16-compiling-issue.patch"
+	"${FILESDIR}/ceph-19.2.2-add-option-to-build-agains-system-opentelemetry.patch"
+	"${FILESDIR}/ceph-19.2.2-common-add-dependency-on-legacy-option-headers.patch"
+	"${FILESDIR}/ceph-19.2.2-rbd-make-enums-statically-castable.patch"
+	"${FILESDIR}/ceph-19.2.2-rgw-remove-FMT_STRING-to-fix-clang-20-build-failure.patch"
+	"${FILESDIR}/ceph-19.2.2-rgw-update-to-latest-zpp_bits.h.patch"
+	# https://bugs.gentoo.org/960812
+	"${FILESDIR}/ceph-19.2.2-silent-unused-variable-warning.patch"
+	"${FILESDIR}/ceph-19.2.2-src-mgr-make-enum-statically-castable.patch"
+	"${FILESDIR}/ceph-19.2.2-drop-export-dynamic.patch"
 )
 
 check-reqs_export_vars() {
@@ -382,6 +388,9 @@ ceph_src_configure() {
 			-DWITH_JAEGER:BOOL=$(usex jaeger)
 			-DWITH_RADOSGW_SELECT_PARQUET:BOOL=$(usex parquet)
 		)
+		if use jaeger; then
+			mycmakeargs+=( -DWITH_SYSTEM_OPENTELEMETRY:BOOL=ON )
+		fi
 	else
 		mycmakeargs+=(
 			-DWITH_RADOSGW_SELECT_PARQUET:BOOL=OFF
@@ -463,6 +472,11 @@ src_install() {
 	python_optimize
 
 	find "${ED}" -name '*.la' -type f -delete || die
+
+	local bundled_init="${ED}/etc/init.d/ceph"
+	[[ -f "${bundled_init}" ]] && {
+		rm "${bundled_init}" || die
+	}
 
 	exeinto /usr/$(get_libdir)/ceph
 	newexe "${BUILD_DIR}/bin/init-ceph" init-ceph
