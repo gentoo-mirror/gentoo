@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/colorama[${PYTHON_USEDEP}]
@@ -32,11 +32,6 @@ BDEPEND="
 		>=dev-python/attrs-21.4.0[${PYTHON_USEDEP}]
 	)
 "
-
-PATCHES=(
-	# https://github.com/Textualize/rich/pull/3622
-	"${FILESDIR}"/${PN}-14.0.0-py314.patch
-)
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
@@ -57,22 +52,11 @@ python_test() {
 	)
 	# version-specific output -- the usual deal
 	case ${EPYTHON} in
-		pypy3)
-			EPYTEST_DESELECT+=(
-				# pypy3.10, to be more precise
-				tests/test_inspect.py::test_inspect_integer_with_methods_python310only
-			)
-			;;
 		pypy3.11)
 			EPYTEST_DESELECT+=(
 				tests/test_inspect.py::test_inspect_integer_with_methods_python311
 			)
 			;;
-		python3.14*)
-			EPYTEST_DESELECT+=(
-				# Span vs Style
-				tests/test_text.py::test_assemble_meta
-			)
 	esac
 
 	local -x COLUMNS=80
