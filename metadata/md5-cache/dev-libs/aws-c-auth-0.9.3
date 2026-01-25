@@ -1,6 +1,6 @@
 BDEPEND=dev-libs/aws-c-common app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/aws-c-sdkutils:= dev-libs/aws-c-cal:= dev-libs/aws-c-http:=
+DEPEND=dev-libs/aws-c-cal:= >=dev-libs/aws-c-common-0.12.6:= dev-libs/aws-c-http:= dev-libs/aws-c-sdkutils:=
 DESCRIPTION=AWS C Auth: C99 library implementation of AWS client-side authentication.
 EAPI=8
 HOMEPAGE=https://github.com/awslabs/aws-c-auth
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=test
 KEYWORDS=~amd64
 LICENSE=Apache-2.0
-RDEPEND=dev-libs/aws-c-sdkutils:= dev-libs/aws-c-cal:= dev-libs/aws-c-http:=
+RDEPEND=dev-libs/aws-c-cal:= >=dev-libs/aws-c-common-0.12.6:= dev-libs/aws-c-http:= dev-libs/aws-c-sdkutils:=
 RESTRICT=!test? ( test )
 SLOT=0/1
-SRC_URI=https://github.com/awslabs/aws-c-auth/archive/refs/tags/v0.9.1.tar.gz -> aws-c-auth-0.9.1.tar.gz
+SRC_URI=https://github.com/awslabs/aws-c-auth/archive/refs/tags/v0.9.3.tar.gz -> aws-c-auth-0.9.3.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c
-_md5_=0ede13d3c311e640211b9158888729df
+_md5_=0dc888210b1060ed421eb4671e41a3cf
