@@ -1,0 +1,11 @@
+DEFINED_PHASES=install preinst
+DESCRIPTION=Sound Open Firmware (SOF) binary files
+EAPI=8
+HOMEPAGE=https://www.sofproject.org https://github.com/thesofproject/sof https://github.com/thesofproject/sof-bin
+IUSE=tools
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=tools? ( media-libs/alsa-lib sys-libs/glibc )
+SLOT=0
+SRC_URI=https://github.com/thesofproject/sof-bin/releases/download/v2025.12.1/sof-bin-2025.12.1.tar.gz -> sof-firmware-2025.12.1.tar.gz
+_md5_=3507e6fe9aabe77dfad3b67526e3434e
