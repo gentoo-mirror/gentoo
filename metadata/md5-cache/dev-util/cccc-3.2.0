@@ -1,0 +1,13 @@
+BDEPEND=apidoc? ( app-text/doxygen[dot] )
+DEFINED_PHASES=compile install prepare test
+DESCRIPTION=Source metrics (line counts, complexity, etc) for Java and C++
+EAPI=8
+HOMEPAGE=https://sarnold.github.io/cccc/
+INHERIT=toolchain-funcs flag-o-matic
+IUSE=apidoc debug doc mfc
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
+LICENSE=GPL-2
+SLOT=0
+SRC_URI=https://github.com/sarnold/cccc/archive/3.2.0.tar.gz -> cccc-3.2.0.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
+_md5_=7fe514b15eef76bbc8cac803a381a65c

@@ -7,7 +7,7 @@ HOMEPAGE=https://mixxx.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake dot-a udev xdg
 IUSE=aac benchmark ffmpeg keyfinder lv2 midi modplug mp3 mp4 opus qtkeychain rubberband shout test upower wavpack +X
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=GPL-2
 RDEPEND=dev-db/sqlite:3 dev-cpp/abseil-cpp:= dev-libs/hidapi dev-libs/protobuf:= dev-qt/qt5compat:6 dev-qt/qtbase:6[concurrent,dbus,-gles2-only,gui,icu,network,opengl,sql,sqlite,ssl,widgets,xml,X?] dev-qt/qtdeclarative:6 dev-qt/qtshadertools:6 dev-qt/qtsvg:6 media-libs/chromaprint:= media-libs/flac:= media-libs/libebur128:= media-libs/libglvnd[X?] media-libs/libogg media-libs/libsndfile media-libs/libsoundtouch:= media-libs/libvorbis media-libs/portaudio media-libs/taglib:= media-sound/lame virtual/libusb:1 virtual/udev aac? ( media-libs/faad2 media-libs/libmp4v2 ) benchmark? ( dev-cpp/benchmark:= dev-cpp/gtest:= dev-util/google-perftools:= ) ffmpeg? ( media-video/ffmpeg:= ) keyfinder? ( media-libs/libkeyfinder ) lv2? ( media-libs/lilv ) midi? ( media-libs/portmidi ) modplug? ( media-libs/libmodplug ) mp3? ( media-libs/libid3tag:= media-libs/libmad ) mp4? ( media-libs/libmp4v2 ) opus? ( media-libs/opus media-libs/opusfile ) qtkeychain? ( >=dev-libs/qtkeychain-0.14.2:=[qt6(+)] ) rubberband? ( media-libs/rubberband:= ) shout? ( dev-libs/openssl:= ) upower? ( dev-libs/glib:2 sys-power/upower:= ) wavpack? ( media-sound/wavpack ) X? ( x11-libs/libX11 )
 REQUIRED_USE=benchmark? ( test ) qtkeychain? ( shout ) test? ( aac ffmpeg midi mp3 opus rubberband )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/mixxxdj/mixxx/archive/2.5.4.tar.gz -> mixxx-2.5.4.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	dot-a	e5200fe17cfd2ed6fa66edd80201763a	udev	f3d9a4376ebd22131726a68e1a0a058f	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=e00c33ee9a75d200b194edc6a57ce6a4
+_md5_=af3f54a7088d228e4295bab7e6f6d22d
