@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202601-02">
+    <title>Vim, gVim: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Vim and gVim, the worst of which could lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">gvim,vim,vim-core</product>
+    <announced>2026-01-26</announced>
+    <revised count="1">2026-01-26</revised>
+    <bug>961498</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-editors/gvim" auto="yes" arch="*">
+            <unaffected range="ge">9.1.1652</unaffected>
+            <vulnerable range="lt">9.1.1652</vulnerable>
+        </package>
+        <package name="app-editors/vim" auto="yes" arch="*">
+            <unaffected range="ge">9.1.1652</unaffected>
+            <vulnerable range="lt">9.1.1652</vulnerable>
+        </package>
+        <package name="app-editors/vim-core" auto="yes" arch="*">
+            <unaffected range="ge">9.1.1652</unaffected>
+            <vulnerable range="lt">9.1.1652</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Vim is an efficient, highly configurable improved version of the classic ‘vi’ text editor. gVim is the GUI version of Vim.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Vim, gVim. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Vim, gVim users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/vim-9.1.1652"
+        </code>
+        
+        <p>All Vim, gVim users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/vim-core-9.1.1652"
+        </code>
+        
+        <p>All Vim, gVim users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/gvim-9.1.1652"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-53905">CVE-2025-53905</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-53906">CVE-2025-53906</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-01-26T10:26:17.924691Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2026-01-26T10:26:17.927149Z">graaff</metadata>
+</glsa>

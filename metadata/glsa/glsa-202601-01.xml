@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202601-01">
+    <title>inetutils: Remote Code Execution</title>
+    <synopsis>A vulnerability has been discovered in the telnetd module of inetutils, which allows remote code execution as root.</synopsis>
+    <product type="ebuild">inetutils</product>
+    <announced>2026-01-26</announced>
+    <revised count="1">2026-01-26</revised>
+    <bug>969065</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/inetutils" auto="yes" arch="*">
+            <unaffected range="ge">2.7</unaffected>
+            <vulnerable range="lt">2.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Inetutils is a collection of common network programs including a telnet client and server.</p>
+    </background>
+    <description>
+        <p>The telnetd server invokes /usr/bin/login (normally running as root) passing the value of the USER environment variable received from the client as the last parameter.
+
+If the client supply a carefully crafted USER environment value being the string &#34;-f root&#34;, and passes the telnet(1) -a or --login parameter to send this USER environment to the server, the client will be automatically logged in as root bypassing normal authentication processes.
+
+This happens because the telnetd server do not sanitize the USER environment variable before passing it on to login(1), and login(1) uses the -f parameter to by-pass normal authentication.</p>
+    </description>
+    <impact type="high">
+        <p>An attacker can login as root via the telnetd daemon.</p>
+    </impact>
+    <workaround>
+        <p>Reinstall inetutils with the telnetd USE flag disabled. This is the default in Gentoo.</p>
+    </workaround>
+    <resolution>
+        <p>All inetutils users with the telnetd USE flag enabled should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/inetutils-2.7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-24061">CVE-2026-24061</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-01-26T10:22:35.842111Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2026-01-26T10:22:35.844585Z">graaff</metadata>
+</glsa>
