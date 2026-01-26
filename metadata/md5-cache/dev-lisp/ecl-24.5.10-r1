@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://common-lisp.net/project/ecl/
 INHERIT=flag-o-matic readme.gentoo-r1
 IUSE=cxx debug emacs gengc precisegc cpu_flags_x86_sse +threads +unicode X
-KEYWORDS=~amd64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=amd64 ~ppc ppc64 ~riscv ~sparc x86
 LICENSE=BSD-2 LGPL-2.1+
 RDEPEND=dev-libs/gmp:0= dev-libs/libffi:= dev-libs/libatomic_ops >=dev-libs/boehm-gc-7.1[threads?] >=dev-lisp/asdf-2.33-r3:=
 RESTRICT=test
 SLOT=0/24.5.10
 SRC_URI=https://common-lisp.net/project/ecl/static/files/release/ecl-24.5.10.tgz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
-_md5_=78a85498fb47c967f7fe2d5a21c57709
+_md5_=d7f72a726b11345d073929c6cd7b2a23
