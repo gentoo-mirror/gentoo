@@ -10,7 +10,7 @@ LICENSE=LGPL-2.1 UoI-NCSA !mkl? ( !fftw? ( BSD ) !blas? ( BSD ) !lapack? ( BSD )
 RDEPEND=blas? ( virtual/blas ) cuda? ( >=dev-util/nvidia-cuda-toolkit-11:=[profiler] ) opencl? ( virtual/opencl ) openmp? ( sys-devel/gcc[openmp] llvm-runtimes/clang-runtime[openmp] ) fftw? ( sci-libs/fftw:3.0= ) hdf5? ( sci-libs/hdf5 ) hwloc? ( sys-apps/hwloc:= ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) mpi? ( virtual/mpi[cxx] ) nnpot? ( sci-ml/caffe2[cuda=,opencl=] ) sci-libs/lmfit:= >=dev-cpp/muParser-2.3:= python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=|| ( single-precision double-precision ) doc? ( !build-manual ) cuda? ( single-precision ) opencl? ( single-precision ) cuda? ( !opencl ) clang-cuda? ( clang cuda ) mkl? ( !blas !fftw !lapack ) ^^ ( python_single_target_python3_12 python_single_target_python3_13 )
 RESTRICT=!test? ( test )
-SLOT=0/2026_rc
-SRC_URI=https://ftp.gromacs.org/gromacs/gromacs-2026-rc.tar.gz doc? ( https://ftp.gromacs.org/manual/manual-2026-rc.pdf ) test? ( https://ftp.gromacs.org/regressiontests/regressiontests-2026-rc.tar.gz )
+SLOT=0/2026.0
+SRC_URI=https://ftp.gromacs.org/gromacs/gromacs-2026.0.tar.gz doc? ( https://ftp.gromacs.org/manual/manual-2026.0.pdf ) test? ( https://ftp.gromacs.org/regressiontests/regressiontests-2026.0.tar.gz )
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	bash-completion-r1	767861f3744f589ee5291c1698b1c082	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	cuda	8b660e223a1695e3884ee4c7dc2c5059	out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	404b65bd5212cff83b3935c685419d08	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
-_md5_=490784f64a2c4842e15ddfed4d52cb1c
+_md5_=47bbd8300bea0fa4f468aeaf7d58762b
