@@ -1,0 +1,14 @@
+BDEPEND=dev-util/patchelf virtual/pkgconfig
+DEFINED_PHASES=install postinst postrm
+DESCRIPTION=Feature rich multi-platform remote desktop application
+EAPI=8
+HOMEPAGE=https://anydesk.com
+INHERIT=desktop optfeature systemd xdg-utils
+KEYWORDS=-* ~amd64 ~arm64
+LICENSE=AnyDesk-TOS BSD BSD-2 openssl ZLIB
+RDEPEND=app-accessibility/at-spi2-core:2 dev-libs/glib:2 media-libs/fontconfig:1.0 media-libs/freetype:2 media-libs/harfbuzz sys-apps/dbus sys-auth/polkit sys-libs/glibc virtual/zlib x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libxcb x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libXi x11-libs/libxkbfile x11-libs/libXrandr x11-libs/libXrender x11-libs/libXtst x11-libs/pango
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=amd64? ( https://download.anydesk.com/linux/anydesk-7.1.3-amd64.tar.gz ) arm64? ( https://download.anydesk.com/rpi/anydesk-7.1.3-arm64.tar.gz )
+_eclasses_=desktop	7b6f6e9d65093966fbc8475399c5dd4e	optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	systemd	a964c0cbe818b5729da1dbfcee5be861	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_md5_=6bb14f36d2357c523c6f7b61ccfd6df4
