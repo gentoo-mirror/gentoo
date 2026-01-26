@@ -15,7 +15,7 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 else
 	if [[ ${PV} == *_p* ]]; then
-		COMMIT="113818ad9c6bb7bbcc89c488b5f31b38fd41b857"
+		COMMIT="8e2cdc4a020b6db03006df8551eb3415511d6a13"
 		SRC_URI="https://github.com/metabrainz/${PN}/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		S="${WORKDIR}/${PN}-${COMMIT}"
 	else
@@ -38,7 +38,6 @@ RDEPEND="
 		dev-python/fasteners[${PYTHON_USEDEP}]
 		dev-python/pyjwt[${PYTHON_USEDEP}]
 		dev-python/pyqt6[gui,multimedia?,network,qml,widgets,${PYTHON_USEDEP}]
-		dev-python/python-dateutil[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		media-libs/mutagen[${PYTHON_USEDEP}]
 		discid? ( dev-python/discid[${PYTHON_USEDEP}] )

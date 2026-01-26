@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 optfeature systemd
@@ -34,10 +34,9 @@ RDEPEND="
 	net-misc/ubridge
 	sys-apps/busybox[static]
 "
+DEPEND="${RDEPEND}"
 BDEPEND="
-	test? (
-		dev-python/pytest-aiohttp[${PYTHON_USEDEP}]
-	)
+	test? ( dev-python/pytest-aiohttp[${PYTHON_USEDEP}] )
 "
 
 distutils_enable_tests pytest
@@ -57,8 +56,6 @@ python_install() {
 }
 
 pkg_postinst() {
-	elog "net-misc/gns3-server has several optional packages that must be merged manually for additional functionality."
-	elog ""
 	optfeature "QEMU Support" "app-emulation/qemu"
 	optfeature "Virtualbox Support" "app-emulation/virtualbox"
 	optfeature "Docker Support" "app-containers/docker"

@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit distutils-r1 virtualx xdg
@@ -23,7 +23,10 @@ RDEPEND="
 	>=dev-python/psutil-6.1.0[${PYTHON_USEDEP}]
 	>=dev-python/truststore-0.10.0[${PYTHON_USEDEP}]
 	~net-misc/gns3-server-${PV}[${PYTHON_USEDEP}]
-	dev-python/pyqt5[gui,network,svg,websockets,widgets,${PYTHON_USEDEP}]
+	dev-python/pyqt6[gui,network,svg,websockets,widgets,${PYTHON_USEDEP}]
+"
+DEPEND="${RDEPEND}
+	test? ( dev-python/pyqt6[testlib] )
 "
 
 distutils_enable_tests pytest
