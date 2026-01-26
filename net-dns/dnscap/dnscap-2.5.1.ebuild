@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,6 +15,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="cryptopant seccomp"
 
 RDEPEND="
+	app-arch/bzip2:=
 	app-arch/lz4:=
 	app-arch/xz-utils
 	app-arch/zstd:=
@@ -48,7 +49,12 @@ src_configure() {
 	econf "${myeconfargs[@]}"
 }
 
+src_test() {
+	emake test
+}
+
 src_install() {
 	default
+	rm "${ED}"/usr/share/doc/${PF}/LICENSE || die
 	find "${D}" -name '*.la' -delete || die
 }
