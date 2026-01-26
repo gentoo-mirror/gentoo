@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-cpp/glog:= ~dev-cpp/folly-2025.04.14.00:= ~dev-cpp/fb303-2025.04.14.00:= dev-libs/boost:= dev-libs/libfmt:= llvm-libunwind? ( llvm-runtimes/libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) test? ( dev-cpp/gtest )
+DEPEND=dev-cpp/glog:= ~dev-cpp/folly-2025.04.14.00:= ~dev-cpp/fb303-2025.04.14.00:= dev-libs/boost:= dev-libs/libfmt:= llvm-libunwind? ( llvm-runtimes/libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= ) dev-cpp/gtest
 DESCRIPTION=Shared library for Watchman and Eden projects
 EAPI=8
 HOMEPAGE=https://github.com/facebookexperimental/edencommon
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/2025.04.14.00
 SRC_URI=https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2025.04.14.00.tar.gz -> edencommon-2025.04.14.00.gh.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c
-_md5_=9375b5199f2d8dc9a259a0ccdac6673d
+_md5_=a2c44f06fda97ab302563126172da9c0
