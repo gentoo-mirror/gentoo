@@ -4,7 +4,7 @@ DEPEND=php_targets_php8-2? ( app-arch/brotli:= dev-libs/libevent >=dev-php/pecl-
 DESCRIPTION=Extended HTTP Support for PHP
 EAPI=8
 HOMEPAGE=https://pecl.php.net/pecl_http
-INHERIT=php-ext-pecl-r3
+INHERIT=php-ext-pecl-r3 flag-o-matic
 IUSE=ssl curl_ssl_gnutls +curl_ssl_openssl php_targets_php8-2 php_targets_php8-3
 KEYWORDS=amd64 x86
 LICENSE=BSD-2 MIT
@@ -12,5 +12,5 @@ RDEPEND=php_targets_php8-2? ( app-arch/brotli:= dev-libs/libevent >=dev-php/pecl
 REQUIRED_USE=|| ( php_targets_php8-2 php_targets_php8-3 )
 SLOT=8
 SRC_URI=https://pecl.php.net/get/pecl_http-4.2.6.tgz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	php-ext-source-r3	57493651a3540d6ef7bff5e1c97c8dd3	php-ext-pecl-r3	4ca93611caa4190394eb13cc22aedbd0
-_md5_=f1dda378206b3406aa35be4887410558
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	php-ext-source-r3	57493651a3540d6ef7bff5e1c97c8dd3	php-ext-pecl-r3	4ca93611caa4190394eb13cc22aedbd0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
+_md5_=6cd456c3c2a1f4b16e05a94a4c37f7d4
