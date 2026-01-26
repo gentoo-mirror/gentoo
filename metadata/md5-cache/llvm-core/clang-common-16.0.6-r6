@@ -11,5 +11,5 @@ LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
 PDEPEND=default-compiler-rt? ( llvm-runtimes/clang-runtime:16[compiler-rt] llvm-libunwind? ( llvm-runtimes/libunwind[static-libs] ) !llvm-libunwind? ( sys-libs/libunwind[static-libs] ) ) !default-compiler-rt? ( sys-devel/gcc ) default-libcxx? ( >=llvm-runtimes/libcxx-16.0.6[static-libs] ) !default-libcxx? ( sys-devel/gcc ) default-lld? ( >=llvm-core/lld-16.0.6 ) !default-lld? ( sys-devel/binutils )
 SLOT=0
 SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz.sig )
-_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad	llvm.org	dcb06d67aa311c06c477dec9898e1685
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	bash-completion-r1	767861f3744f589ee5291c1698b1c082	multiprocessing	1e32df7deee68372153dca65f4a7c21f	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	2cf23b136af9fd4c3fceadc34d0f98ad	llvm.org	a5dcb987bd5df64a337842ee8164e079
 _md5_=8816e88e718b561d7c58224f865fc897
