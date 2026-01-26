@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install postinst postrm preinst
+DEPEND=dev-qt/qtbase:6[gui,widgets] virtual/libudev:=
+DESCRIPTION=Crossplatform log viewer for Android, iOS and text files
+EAPI=8
+HOMEPAGE=https://github.com/alopatindev/qdevicemonitor
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop qmake-utils xdg
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-qt/qtbase:6[gui,widgets] virtual/libudev:= app-pda/usbmuxd dev-util/android-tools
+SLOT=0
+SRC_URI=https://github.com/alopatindev/qdevicemonitor/archive/4d90f45d6c204ad87b2198791fe522be092bed98.tar.gz -> qdevicemonitor-1.0.1-4d90f45d.tar.gz
+_eclasses_=desktop	7b6f6e9d65093966fbc8475399c5dd4e	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	qmake-utils	28f99dba9219112f4785f46ed426a021	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=b76bb706145a5c57eca2e88baa3d3cdd
