@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202601-03">
+    <title>GIMP: Arbitrary Code Execution</title>
+    <synopsis>A vulnerability has been discovered in GIMP, which can lead to execution of arbitrary code.</synopsis>
+    <product type="ebuild">gimp</product>
+    <announced>2026-01-26</announced>
+    <revised count="1">2026-01-26</revised>
+    <bug>965334</bug>
+    <access>local</access>
+    <affected>
+        <package name="media-gfx/gimp" auto="yes" arch="*">
+            <unaffected range="ge">2.10.38-r3</unaffected>
+            <unaffected range="ge">3.0.6</unaffected>
+            <vulnerable range="lt">2.10.38-r3</vulnerable>
+            <vulnerable range="lt">3.0.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GIMP is the GNU Image Manipulation Program. XCF is the native image file format used by GIMP.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in GIMP. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>This vulnerability allows remote attackers to execute arbitrary code on affected installations of GIMP. User interaction is required to exploit this vulnerability in that the target must visit a malicious page or open a malicious file.
+
+The specific flaw exists within the parsing of XWD files. The issue results from the lack of proper validation of the length of user-supplied data prior to copying it to a heap-based buffer. An attacker can leverage this vulnerability to execute code in the context of the current process.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GIMP users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/gimp-3.0.6"
+        </code>
+        
+        <p>All GIMP 2.x users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/gimp-2.10.38-r3 =media-gfx/gimp-2*"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-10934">CVE-2025-10934</uri>
+        <uri>GHSA-wv7v-cchq-8fjh</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-01-26T10:28:36.688155Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2026-01-26T10:28:36.690919Z">graaff</metadata>
+</glsa>
