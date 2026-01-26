@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 BDEPEND="
 	test? (
@@ -28,6 +28,7 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_prepare() {
@@ -36,9 +37,4 @@ src_prepare() {
 	# do not install the backwards compatibility package
 	# we're patching revdeps instead
 	rm -r multipart || die
-}
-
-python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest
 }

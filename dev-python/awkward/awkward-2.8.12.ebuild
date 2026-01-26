@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,7 +21,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	~dev-python/awkward-cpp-50[${PYTHON_USEDEP}]
+	~dev-python/awkward-cpp-51[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/importlib-metadata-4.13.0[${PYTHON_USEDEP}]
 	' 3.11)
