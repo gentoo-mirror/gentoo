@@ -7,7 +7,7 @@ HOMEPAGE=https://www.audacityteam.org
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake flag-o-matic wxwidgets xdg virtualx
 IUSE=alsa audiocom ffmpeg +flac id3tag +ladspa +lv2 mpg123 +ogg opus +portmixer sbsms test twolame vamp +vorbis wavpack test
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv x86
 LICENSE=GPL-3 GPL-2+ CC-BY-3.0 audiocom? ( ZLIB )
 RDEPEND=app-accessibility/at-spi2-core:2 dev-db/sqlite:3 dev-libs/expat dev-libs/glib:2 media-libs/harfbuzz:= media-libs/libsndfile media-libs/libsoundtouch:= media-libs/portaudio[alsa?] media-libs/portmidi media-libs/portsmf:= media-libs/soxr media-sound/lame sys-apps/util-linux virtual/zlib:= x11-libs/cairo[glib] x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango x11-libs/wxGTK:3.2-gtk3=[X] alsa? ( media-libs/alsa-lib ) audiocom? ( net-misc/curl ) ffmpeg? ( media-video/ffmpeg ) flac? ( media-libs/flac:=[cxx] ) id3tag? ( media-libs/libid3tag:= ) lv2? ( dev-libs/serd dev-libs/sord media-libs/lilv media-libs/lv2 media-libs/sratom media-libs/suil ) mpg123? ( media-sound/mpg123-base ) ogg? ( media-libs/libogg ) opus? ( media-libs/opus media-libs/opusfile ) sbsms? ( media-libs/libsbsms ) twolame? ( media-sound/twolame ) vamp? ( media-libs/vamp-plugin-sdk ) vorbis? ( media-libs/libvorbis ) wavpack? ( media-sound/wavpack )
 REQUIRED_USE=audiocom? ( wavpack ) opus? ( ogg ) test? ( mpg123 ) vorbis? ( ogg )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/audacity/audacity/releases/download/Audacity-3.7.7/audacity-sources-3.7.7.tar.gz audiocom? ( https://raw.githubusercontent.com/progschj/ThreadPool/9a42ec1329f259a5f4881a291db1dcb8f2ad9040/ThreadPool.h -> progschj-ThreadPool-20140926.h )
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	wxwidgets	c48bf68858bd3c27c272ff034eb1e14d	xdg	3ef49a87c52c8b77c476351195dfe575	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=52fb0a0c05e46d2fbad28a4d3446f86e
+_md5_=739dd18255824b89fec2005a47bc3209

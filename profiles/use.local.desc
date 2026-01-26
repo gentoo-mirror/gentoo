@@ -736,7 +736,7 @@ app-emulation/wine-proton:mingw - Build PE files using dev-util/mingw64-toolchai
 app-emulation/wine-proton:mono - Enable .NET support using app-emulation/wine-mono
 app-emulation/wine-proton:perl - Install helpers that require perl (winedump/winemaker)
 app-emulation/wine-proton:sdl - Enable gamepad support using media-libs/libsdl2
-app-emulation/wine-proton:wow64 - Enable the "new" wow64 mode that allows running 32bit applications without 32bit ELF multilib by mapping to 64bit calls (experimental, *may* have worse performance or other issues compared to USE=abi_x86_32 aka "old" wow64) -- if USE=mingw is set, still need the default abi_x86_32 set on dev-util/mingw64-toolchain but that can be done even with /no-multilib/ profiles. This can also be enabled on arm64 to allow running x86 applications via binary translation.
+app-emulation/wine-proton:wow64 - Enable the "new" wow64 mode that allows running 32bit applications without 32bit ELF multilib by mapping to 64bit calls. Generally works well with wine-11.0 or newer, but may or may not have a small perforamce impact or other issues. If USE=mingw is set, still need the default abi_x86_32 set on dev-util/mingw64-toolchain but that can be done even with /no-multilib/ profiles. This can also be enabled on arm64 to allow running x86 applications via binary translation.
 app-emulation/wine-staging:arm64ec - Enable support for running x86_64 applications on arm64 via binary translation
 app-emulation/wine-staging:capi - Enable ISDN support using net-libs/libcapi
 app-emulation/wine-staging:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up and is mostly unsupported, try disabling if have issues)
@@ -749,7 +749,7 @@ app-emulation/wine-staging:pcap - Support packet capture software (e.g. wireshar
 app-emulation/wine-staging:perl - Install helpers that require perl (winedump/winemaker)
 app-emulation/wine-staging:samba - Pull in net-fs/samba with winbind for NTLM auth support
 app-emulation/wine-staging:sdl - Enable gamepad support using media-libs/libsdl2
-app-emulation/wine-staging:wow64 - Enable the "new" wow64 mode that allows running 32bit applications without 32bit ELF multilib by mapping to 64bit calls (experimental, *may* have worse performance or other issues compared to USE=abi_x86_32 aka "old" wow64) -- if USE=mingw is set, still need the default abi_x86_32 set on dev-util/mingw64-toolchain but that can be done even with /no-multilib/ profiles. This can also be enabled on arm64 to allow running x86 applications via binary translation.
+app-emulation/wine-staging:wow64 - Enable the "new" wow64 mode that allows running 32bit applications without 32bit ELF multilib by mapping to 64bit calls. Generally works well with wine-11.0 or newer, but may or may not have a small perforamce impact or other issues. If USE=mingw is set, still need the default abi_x86_32 set on dev-util/mingw64-toolchain but that can be done even with /no-multilib/ profiles. This can also be enabled on arm64 to allow running x86 applications via binary translation.
 app-emulation/wine-vanilla:arm64ec - Enable support for running x86_64 applications on arm64 via binary translation
 app-emulation/wine-vanilla:capi - Enable ISDN support using net-libs/libcapi
 app-emulation/wine-vanilla:crossdev-mingw - Use sys-devel/crossdev for the toolchain rather than dev-util/mingw64-toolchain (requires manual setting up and is mostly unsupported, try disabling if have issues)
@@ -762,7 +762,7 @@ app-emulation/wine-vanilla:pcap - Support packet capture software (e.g. wireshar
 app-emulation/wine-vanilla:perl - Install helpers that require perl (winedump/winemaker)
 app-emulation/wine-vanilla:samba - Pull in net-fs/samba with winbind for NTLM auth support
 app-emulation/wine-vanilla:sdl - Enable gamepad support using media-libs/libsdl2
-app-emulation/wine-vanilla:wow64 - Enable the "new" wow64 mode that allows running 32bit applications without 32bit ELF multilib by mapping to 64bit calls (experimental, *may* have worse performance or other issues compared to USE=abi_x86_32 aka "old" wow64) -- if USE=mingw is set, still need the default abi_x86_32 set on dev-util/mingw64-toolchain but that can be done even with /no-multilib/ profiles. This can also be enabled on arm64 to allow running x86 applications via binary translation.
+app-emulation/wine-vanilla:wow64 - Enable the "new" wow64 mode that allows running 32bit applications without 32bit ELF multilib by mapping to 64bit calls. Generally works well with wine-11.0 or newer, but may or may not have a small perforamce impact or other issues. If USE=mingw is set, still need the default abi_x86_32 set on dev-util/mingw64-toolchain but that can be done even with /no-multilib/ profiles. This can also be enabled on arm64 to allow running x86 applications via binary translation.
 app-emulation/winetricks:rar - Pull in app-arch/unrar for extraction of rar-compressed game files
 app-emulation/xe-guest-utilities:xenstore - Use xenstore binaries bundled by Citrix instead of building app-emulation/xen-tools
 app-emulation/xen:boot-symlinks - Symlink xen.gz variants in /boot, disable on fat filesystems
