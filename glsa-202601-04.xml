@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202601-04">
+    <title>Asterisk: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in Asterisk, the worst of which can lead to arbitrary code execution.</synopsis>
+    <product type="ebuild">asterisk</product>
+    <announced>2026-01-26</announced>
+    <revised count="1">2026-01-26</revised>
+    <bug>960930</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-misc/asterisk" auto="yes" arch="*">
+            <unaffected range="ge">18.26.3</unaffected>
+            <vulnerable range="lt">18.26.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Asterisk is an open source telephony engine and toolkit.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Asterisk. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-misc/asterisk-18.26.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-1131">CVE-2025-1131</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-49832">CVE-2025-49832</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-57767">CVE-2025-57767</uri>
+        <uri>GHSA-64qc-9x89-rx5j</uri>
+        <uri>GHSA-mrq5-74j5-f5cr</uri>
+        <uri>GHSA-v9q8-9j8m-5xwp</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-01-26T10:31:04.790497Z">graaff</metadata>
+    <metadata tag="submitter" timestamp="2026-01-26T10:31:04.792835Z">graaff</metadata>
+</glsa>
