@@ -1,11 +1,11 @@
-BDEPEND=virtual/pkgconfig wayland? ( dev-util/wayland-scanner ) || ( ( dev-lang/python:3.13 >=dev-build/scons-4.4.0[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-build/scons-4.4.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-build/scons-4.4.0[python_targets_python3_11(-)] ) )
+BDEPEND=virtual/pkgconfig wayland? ( dev-util/wayland-scanner ) || ( ( dev-lang/python:3.14 >=dev-build/scons-4.4.0[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 >=dev-build/scons-4.4.0[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-build/scons-4.4.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-build/scons-4.4.0[python_targets_python3_11(-)] ) )
 DEFINED_PHASES=compile install postinst postrm preinst prepare setup test
 DEPEND=app-arch/brotli:= app-arch/zstd:= dev-games/recastnavigation:= dev-libs/icu:= dev-libs/libpcre2:=[pcre32] media-libs/freetype[brotli,harfbuzz] media-libs/harfbuzz:=[icu] media-libs/libogg media-libs/libpng:= media-libs/libvorbis net-libs/mbedtls:0= net-libs/wslay virtual/zlib:= alsa? ( media-libs/alsa-lib ) dbus? ( sys-apps/dbus ) fontconfig? ( media-libs/fontconfig ) gui? ( media-libs/libglvnd x11-libs/libX11 x11-libs/libXcursor x11-libs/libXext x11-libs/libXi x11-libs/libXinerama x11-libs/libXrandr x11-libs/libXrender x11-libs/libxkbcommon tools? ( raycast? ( media-libs/embree:4 ) ) vulkan? ( media-libs/vulkan-loader[X,wayland?] ) ) pulseaudio? ( media-libs/libpulse ) speech? ( app-accessibility/speech-dispatcher ) theora? ( media-libs/libtheora:= ) tools? ( app-misc/ca-certificates ) udev? ( virtual/udev ) wayland? ( dev-libs/wayland gui-libs/libdecor ) webp? ( media-libs/libwebp:= ) gui? ( x11-base/xorg-proto ) tools? ( test? ( dev-cpp/doctest ) )
 DESCRIPTION=Multi-platform 2D and 3D game engine with a feature-rich editor
 EAPI=8
 HOMEPAGE=https://godotengine.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=desktop python-any-r1 flag-o-matic scons-utils shell-completion toolchain-funcs xdg
+INHERIT=branding desktop python-any-r1 flag-o-matic scons-utils shell-completion toolchain-funcs xdg
 IUSE=alsa +dbus debug deprecated +fontconfig +gui pulseaudio raycast speech test +theora +tools +udev +upnp +vulkan wayland +webp
 KEYWORDS=~amd64
 LICENSE=MIT Apache-2.0 BSD Boost-1.0 CC0-1.0 Unlicense ZLIB gui? ( CC-BY-4.0 ) tools? ( OFL-1.1 )
@@ -14,5 +14,5 @@ REQUIRED_USE=wayland? ( gui )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.tuxfamily.org/godotengine/4.3/godot-4.3-stable.tar.xz https://github.com/godotengine/godot/releases/download/4.3-stable/godot-4.3-stable.tar.xz
-_eclasses_=desktop	7b6f6e9d65093966fbc8475399c5dd4e	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	scons-utils	578ea0f3ec78f687f07728af19d8d002	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=6718efb14439042b647981312d9b2024
+_eclasses_=branding	7bcece3faa73dd0fc3e597013510d53a	desktop	7b6f6e9d65093966fbc8475399c5dd4e	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	scons-utils	578ea0f3ec78f687f07728af19d8d002	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=7aacd8a09e0b43fb5b45fd02f17546e7
