@@ -1,13 +1,14 @@
 DEFINED_PHASES=install preinst prepare setup
-DEPEND=>=virtual/jdk-1.8:* >=virtual/jre-1.8:* dev-libs/boost:= net-wireless/airspy net-wireless/uhd:= net-wireless/rtl-sdr:= net-wireless/bladerf:= net-wireless/hackrf-tools >=dev-java/java-config-2.2.0-r3
+DEPEND=>=virtual/jdk-1.8:* >=virtual/jre-1.8:* dev-libs/boost:= airspy? ( net-wireless/airspy ) net-wireless/uhd:= net-wireless/rtl-sdr:= net-wireless/bladerf:= net-wireless/hackrf-tools >=dev-java/java-config-2.2.0-r3
 DESCRIPTION=Remote video eavesdropping using a software-defined radio platform
 EAPI=8
 HOMEPAGE=https://github.com/deltj/TempestSDR.git
 INHERIT=java-pkg-2
+IUSE=airspy
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3
-RDEPEND=>=virtual/jre-1.8:* dev-libs/boost:= net-wireless/airspy net-wireless/uhd:= net-wireless/rtl-sdr:= net-wireless/bladerf:= net-wireless/hackrf-tools >=dev-java/java-config-2.2.0-r3
+RDEPEND=>=virtual/jre-1.8:* dev-libs/boost:= airspy? ( net-wireless/airspy ) net-wireless/uhd:= net-wireless/rtl-sdr:= net-wireless/bladerf:= net-wireless/hackrf-tools >=dev-java/java-config-2.2.0-r3
 SLOT=0
 SRC_URI=https://github.com/deltj/TempestSDR/archive/59201a2cb21ab193125719eb318dcfbbf979c32e.tar.gz -> tempestsdr-0.0_p20250122.tar.gz
 _eclasses_=java-utils-2	b41327d85d12ce816943cf4d344add19	java-pkg-2	438c2725ea326202d7fc1eb31af76813
-_md5_=9b21d30ab93bf501bd405e0003b1a8d0
+_md5_=db4b6825812e441fc786eaaa586209b5
