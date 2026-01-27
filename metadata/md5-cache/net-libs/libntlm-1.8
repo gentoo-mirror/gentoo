@@ -1,10 +1,13 @@
-DEFINED_PHASES=configure install
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-libntlm ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install unpack
 DESCRIPTION=Microsoft's NTLM authentication (libntlm) library
 EAPI=8
 HOMEPAGE=https://www.nongnu.org/libntlm/
-IUSE=static-libs
+INHERIT=verify-sig
+IUSE=static-libs verify-sig
 KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=LGPL-2
 SLOT=0
-SRC_URI=mirror://nongnu/libntlm/libntlm-1.8.tar.gz
-_md5_=2d3d69e44de336e3bb53b2c4109bb043
+SRC_URI=mirror://nongnu/libntlm/libntlm-1.8.tar.gz verify-sig? ( mirror://nongnu/libntlm/libntlm-1.8.tar.gz.sig )
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=d848b2c0fc1e1cf92a01be362390f745

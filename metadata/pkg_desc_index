@@ -2436,7 +2436,7 @@ app-emulation/wine-mono 7.4.0 8.1.0 9.3.1 9.4.0 10.0.0 10.3.0 10.4.0 10.4.1: Rep
 app-emulation/wine-proton 8.0.5c 9.0.4-r2 10.0.3 10.0.4 9999: Valve Software's fork of Wine
 app-emulation/wine-staging 10.20 11.0 11.1 9999: Free implementation of Windows(tm) on Unix, with Wine-Staging patchset
 app-emulation/wine-vanilla 8.0.2 9.0.1-r1 10.0-r2 10.20 11.0 11.1 9999: Free implementation of Windows(tm) on Unix, without external patchsets
-app-emulation/winetricks 20250102 20250102-r1 99999999: Easy way to install DLLs needed to work around problems in Wine
+app-emulation/winetricks 20250102-r1 20260125 99999999: Easy way to install DLLs needed to work around problems in Wine
 app-emulation/x48 0.6.4-r3: HP48 Calculator Emulator
 app-emulation/xcpc 0.37.0-r1: XCPC is a portable Amstrad CPC 464/664/6128 emulator written in C
 app-emulation/xe-guest-utilities 6.2.0_p1120-r1: XenServer Virtual Machine Tools
@@ -14978,7 +14978,7 @@ net-libs/libflowmanager 3.0.0-r1: A library that measures and reports on packet 
 net-libs/libgadu 1.11.4 1.12.2-r1: Client-side library for the Gadu-Gadu protocol
 net-libs/libgrss 0.7.0-r2: Library for easy management of RSS/Atom/Pie feeds
 net-libs/libgsasl 1.10.0: The GNU SASL library
-net-libs/libgssglue 0.9: Exports a gssapi interface which calls other random gssapi libraries
+net-libs/libgssglue 0.9 0.9-r1: Exports a gssapi interface which calls other random gssapi libraries
 net-libs/libhackrf 2023.01.1 2024.02.1 2024.02.1-r1 2026.01.1 2026.01.2 9999: library for communicating with HackRF SDR platform
 net-libs/libhtp 0.5.49: Security-aware parser for the HTTP protocol and the related bits and pieces
 net-libs/libhubbub 0.3.8: HTML5 compliant parsing library, written in C
@@ -16630,6 +16630,7 @@ sec-keys/openpgp-keys-gnutls 20220320 20221017 20231129 20240415 20240415-r1 202
 sec-keys/openpgp-keys-gocryptfs 20250728 20250916: OpenPGP keys used to sign gocryptfs
 sec-keys/openpgp-keys-grep 20220407: OpenPGP keys used by GNU Grep
 sec-keys/openpgp-keys-grub 20251028: OpenPGP keys used for GRUB releases
+sec-keys/openpgp-keys-gsasl 20260127: OpenPGP keys used by the GNU SASL Library
 sec-keys/openpgp-keys-guillemjover 20220331: OpenPGP keys used by Guillem Jover
 sec-keys/openpgp-keys-gzip 20220406: OpenPGP keys used by GNU Gzip
 sec-keys/openpgp-keys-hughsie 20260124: OpenPGP key used by Richard Hughes (hughsie)
@@ -16657,9 +16658,11 @@ sec-keys/openpgp-keys-less 20260115: OpenPGP keys used by less
 sec-keys/openpgp-keys-libarchive 20221209 20251118: OpenPGP keys used by the libarchive project
 sec-keys/openpgp-keys-libass 20220515 20250608: OpenPGP keys used to sign libass releases
 sec-keys/openpgp-keys-libevent 0: OpenPGP keys used by the libevent project
+sec-keys/openpgp-keys-libgssglue 20260127: OpenPGP keys used by net-libs/libgssglue
 sec-keys/openpgp-keys-libidn 20250414: OpenPGP keys used to sign libidn releases
 sec-keys/openpgp-keys-libjpeg-turbo 20260124: OpenPGP key used by media-libs/libjpeg-turbo
 sec-keys/openpgp-keys-libmicrohttpd 201906 999999: OpenPGP keys used to sign GNU libmicrohttpd releases
+sec-keys/openpgp-keys-libntlm 20260127: OpenPGP keys used by net-libs/libntlm
 sec-keys/openpgp-keys-libseccomp 20260122: OpenPGP key used for sys-libs/libseccomp
 sec-keys/openpgp-keys-libssh 20260121: OpenPGP key used by net-libs/libssh
 sec-keys/openpgp-keys-libtasn1 20220824 20250209 20260112: OpenPGP keys used by GNU Libtasn1
