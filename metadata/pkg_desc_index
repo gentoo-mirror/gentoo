@@ -1923,7 +1923,7 @@ app-emacs/bui 1.2.1_p20210108: Buffer interface library for Emacs
 app-emacs/burly 0.2 0.3: Save and restore frames and windows with their buffers in Emacs
 app-emacs/buttercup 1.38 9999: Behaviour-driven Elisp testing
 app-emacs/calfw 1.6-r1 2.0: A calendar framework for Emacs
-app-emacs/cape 2.3 2.4 2.5 9999: Completion At Point Extensions
+app-emacs/cape 2.3 2.4 2.5 2.6 9999: Completion At Point Extensions
 app-emacs/cask 0.9.0: Project management for Emacs package development
 app-emacs/cask-mode 0.1: Major mode for editing Cask files for Emacs
 app-emacs/cdlatex 4.18.5: Fast input methods for LaTeX environments and math
@@ -1985,7 +1985,7 @@ app-emacs/dircolors 1.0-r2: Provide the same facility of ls --color inside Emacs
 app-emacs/dired-hacks 0.0.1_p20230621: Collection of useful dired additions for GNU Emacs
 app-emacs/dired-sort-menu 1.26-r1: Sort entries in Dired mode
 app-emacs/distel 4.1.1-r2: Distributed Emacs Lisp for Erlang
-app-emacs/docker 2.4.0: Emacs integration for Docker
+app-emacs/docker 2.4.0 2.5.0: Emacs integration for Docker
 app-emacs/docker-tramp 0.1.1: Emacs TRAMP integration for docker containers
 app-emacs/dockerfile-mode 1.8-r1 1.9: GNU Emacs mode for handling Dockerfiles
 app-emacs/doctest-mode 0.4: An Emacs major mode for editing Python source
@@ -2151,7 +2151,7 @@ app-emacs/macrostep-geiser 0.2.0_p20210717: Emacs macrostep back-end powered by 
 app-emacs/magit 4.4.2 4.5.0 9999: A Git porcelain inside Emacs
 app-emacs/magit-popup 2.13.3-r1: Define prefix-infix-suffix command combos
 app-emacs/mailcrypt 3.5.9-r3: Provides a simple interface to public key cryptography with OpenPGP
-app-emacs/marginalia 2.5 2.6 2.7 2.8: Marginalia in the minibuffer
+app-emacs/marginalia 2.5 2.7 2.8: Marginalia in the minibuffer
 app-emacs/markdown-mode 2.7: Major mode for editing Markdown-formatted text files
 app-emacs/mastodon 2.0.5 2.0.7 9999: Emacs client for Mastodon, federated microblogging social network
 app-emacs/math-symbol-lists 1.3: Lists of Unicode mathematical symbols and latex commands
@@ -2186,7 +2186,7 @@ app-emacs/nxml-libvirt-schemas 11.10.0 12.0.0: Extension for nxml-mode with libv
 app-emacs/nxml-svg-schemas 1.1.20081123-r2: Extension for nxml-mode with SVG 1.1 schemas
 app-emacs/oauth2 0.18.3: OAuth 2.0 authorization protocol
 app-emacs/ocaml-mode 4.05.0-r1: Emacs mode for OCaml
-app-emacs/orderless 1.4 1.5: Completion style that matches multiple regexps in any order
+app-emacs/orderless 1.4 1.5 1.6: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.1: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.7: Contributed packages to Org
 app-emacs/org-mode 9.7.39 9999: An Emacs mode for notes and project planning
@@ -2194,7 +2194,7 @@ app-emacs/org-modern 1.10 1.11 1.12 9999: Modern style for your GNU Emacs Org bu
 app-emacs/org-roam 2.2.2-r3 2.3.0 2.3.1 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.6.0 1.7.0 9999: Static site generator using Emacs's org-mode
 app-emacs/org-superstar-mode 1.5.0: Prettify headings and plain lists in Org mode (use UTF8 bullets)
-app-emacs/osm 1.9 1.12 2.0 2.1 9999: OpenStreetMap tile-based viewer for GNU Emacs
+app-emacs/osm 1.9 2.0 2.1 2.2 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
 app-emacs/package-build 4.0.0: Tools for assembling a package archive
 app-emacs/package-lint 0.26: Linting library for Emacs Lisp package metadata
@@ -2221,7 +2221,7 @@ app-emacs/polymode 0.2.2_p20220322: Framework for Multiple Major Modes in Emacs
 app-emacs/popup 0.5.9: Visual popup interface library for Emacs
 app-emacs/popwin 1.0.0 1.0.2: Popup window manager for Emacs
 app-emacs/pos-tip 0.4.7: Show tooltip at point
-app-emacs/posframe 1.4.4 1.5.0: Pop up a frame at point
+app-emacs/posframe 1.5.0 1.5.1: Pop up a frame at point
 app-emacs/pov-mode 3.3-r1: Major mode for Povray scene files
 app-emacs/powerline 2.5_p20221110: GNU Emacs version of the Vim powerline
 app-emacs/powershell 0.3_pre20220402 0.3_pre20220805: GNU Emacs mode for editing and running PowerShell code
@@ -2295,7 +2295,7 @@ app-emacs/system-packages 1.1.1 1.1.2: Manage your installed packages with Emacs
 app-emacs/systemd-mode 1.6: Major mode for editing systemd units in GNU Emacs
 app-emacs/tablist 1.1: Extended tabulated-list mode fro Emacs
 app-emacs/teco 7-r2: TECO interpreter for GNU Emacs
-app-emacs/tempel 1.9 1.10 9999: Templates with in-buffer field editing for GNU Emacs
+app-emacs/tempel 1.9 1.10 1.11 9999: Templates with in-buffer field editing for GNU Emacs
 app-emacs/template 3.3b: Use templates, decorate comments, auto-update buffers
 app-emacs/tempo-snippets 0.1.5-r1: Visual insertion of tempo templates
 app-emacs/thinks 1.12: Insert text in a think bubble
@@ -16334,7 +16334,7 @@ sci-mathematics/alt-ergo 2.4.3-r3: Automatic theorem prover
 sci-mathematics/arb 2.23.0: C library for arbitrary-precision interval arithmetic
 sci-mathematics/bertini 1.4 1.6: Software for Numerical Algebraic Geometry
 sci-mathematics/btor2tools 1.0.0_pre20220518-r1: Generic parser and tools for the BTOR2 format
-sci-mathematics/cadabra 2.4.5.7: Field-theory motivated approach to computer algebra
+sci-mathematics/cadabra 2.4.5.7 2.5.14_p1: Field-theory motivated approach to computer algebra
 sci-mathematics/cadical 1.9.5 2.0.0: Simplified Satisfiability Solver
 sci-mathematics/calc 2.13.0.1: Arbitrary precision C-like arithmetic system
 sci-mathematics/cgal 5.6 5.6.1 6.0 6.0.1 6.1: C++ library for geometric algorithms and data structures

@@ -1,0 +1,13 @@
+BDEPEND=app-emacs/dash app-emacs/emacs-aio app-emacs/s app-emacs/tablist app-emacs/transient >=app-editors/emacs-28.1:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Emacs integration for Docker
+EAPI=9
+HOMEPAGE=https://github.com/Silex/docker.el/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/dash app-emacs/emacs-aio app-emacs/s app-emacs/tablist app-emacs/transient >=app-editors/emacs-28.1:*
+SLOT=0
+SRC_URI=https://github.com/Silex/docker.el/archive/2.5.0.tar.gz -> docker.el-2.5.0.gh.tar.gz
+_eclasses_=elisp-common	ce20c7e2fc0c52b58ddabcd536b7310b	elisp	a37bfc35b86403c770beebbd71661c30
+_md5_=2cfca8f7a712b8fa31b04142d4bc6b02
