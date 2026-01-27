@@ -1,0 +1,16 @@
+BDEPEND=dev-build/gtk-doc-am test? ( dev-libs/libxml2 ) verify-sig? ( sec-keys/openpgp-keys-oath-toolkit ) >=app-portage/elt-patches-20250306 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install prepare test unpack
+DEPEND=dev-libs/libxml2:= dev-libs/xmlsec:= pam? ( sys-libs/pam )
+DESCRIPTION=Toolkit for using one-time password authentication with HOTP/TOTP algorithms
+EAPI=8
+HOMEPAGE=https://oath-toolkit.codeberg.page/
+INHERIT=libtool pam verify-sig
+IUSE=pam static-libs test verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=GPL-3 LGPL-2.1
+RDEPEND=dev-libs/libxml2:= dev-libs/xmlsec:= pam? ( sys-libs/pam )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://codeberg.org/oath-toolkit/oath-toolkit/releases/download/v2.6.14/oath-toolkit-2.6.14.tar.gz mirror://nongnu/oath-toolkit/oath-toolkit-2.6.14.tar.gz verify-sig? ( https://codeberg.org/oath-toolkit/oath-toolkit/releases/download/v2.6.14/oath-toolkit-2.6.14.tar.gz.sig mirror://nongnu/oath-toolkit/oath-toolkit-2.6.14.tar.gz.sig )
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=a8ec34310fbb75985880a47a38e33e26
