@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/pytest-qt[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) test? ( media-fonts/fontawesome dev-python/qtpy[gui,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/pytest-7.4.4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) doc? ( || ( ( dev-lang/python:3.13 >=dev-python/sphinx-8.1.3[python_targets_python3_13(-)] dev-python/sphinx-rtd-theme[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-python/sphinx-8.1.3[python_targets_python3_12(-)] dev-python/sphinx-rtd-theme[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/sphinx-8.1.3[python_targets_python3_11(-)] dev-python/sphinx-rtd-theme[python_targets_python3_11(-)] ) ) ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Enables iconic fonts such as Font Awesome in PyQt
+EAPI=8
+HOMEPAGE=https://github.com/spyder-ide/qtawesome/ https://pypi.org/project/QtAwesome/
+INHERIT=distutils-r1 pypi virtualx
+IUSE=test doc python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=MIT Apache-2.0 CC-BY-4.0 MIT OFL-1.1
+RDEPEND=media-fonts/fontawesome dev-python/qtpy[gui,python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/q/qtawesome/qtawesome-1.4.1.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701	pypi	d2befa41d10011e03e2158e065d5d6da	virtualx	9741d451eb64ea8bb9faee90d68a9b68
+_md5_=792d60a56096aa4559eebb7c64d41ab3
