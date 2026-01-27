@@ -43,6 +43,7 @@ python_test() {
 		# some of them require playwright, others break subsequent tests
 		src/polymorphic/tests/examples
 		# require django-test-migrations
+		src/polymorphic/tests/test_migration_managers.py
 		src/polymorphic/tests/test_migrations
 		src/polymorphic/tests/test_serialization.py
 	)

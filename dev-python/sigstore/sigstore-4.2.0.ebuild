@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,7 +23,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64 ~ppc ~ppc64"
 
 RDEPEND="
 	>=dev-python/cryptography-42[${PYTHON_USEDEP}]
@@ -37,7 +37,7 @@ RDEPEND="
 	~dev-python/rfc3161-client-1.0.3[${PYTHON_USEDEP}]
 	>=dev-python/rfc8785-0.1.2[${PYTHON_USEDEP}]
 	>=dev-python/rich-13[${PYTHON_USEDEP}]
-	~dev-python/sigstore-protobuf-specs-0.3.2[${PYTHON_USEDEP}]
+	~dev-python/sigstore-models-0.0.6[${PYTHON_USEDEP}]
 	~dev-python/sigstore-rekor-types-0.0.18[${PYTHON_USEDEP}]
 	>=dev-python/tuf-6.0[${PYTHON_USEDEP}]
 "
