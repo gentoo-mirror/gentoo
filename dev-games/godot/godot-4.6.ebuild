@@ -131,6 +131,11 @@ src_compile() {
 		dev_build=$(usex debug)
 		tests=$(usex tools $(usex test)) # bakes in --test in final binary
 
+		# TODO?: libgodot requires a separate build given the executable
+		# the library are mutally exculsive and so, unless we really need
+		# it, skipping support to ease maintenance at least for now
+		#library_type=$(usex libgodot shared_library executable)
+
 		accesskit=$(usex accessibility)
 		alsa=$(usex alsa)
 		dbus=$(usex dbus)
