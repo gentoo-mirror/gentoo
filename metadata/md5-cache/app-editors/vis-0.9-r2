@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig test? ( lua_single_target_lua5-3? ( dev-lua/lpeg[lua_targets_lua5-3(-)] ) lua_single_target_lua5-4? ( dev-lua/lpeg[lua_targets_lua5-4(-)] ) lua_single_target_lua5-3? ( dev-lua/busted[lua_targets_lua5-3(-)] ) lua_single_target_lua5-4? ( dev-lua/busted[lua_targets_lua5-4(-)] ) )
 DEFINED_PHASES=configure postinst postrm prepare setup
-DEPEND=dev-libs/libtermkey acl? ( sys-apps/acl ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) ncurses? ( sys-libs/ncurses:0= ) tre? ( dev-libs/tre )
+DEPEND=dev-libs/libtermkey acl? ( sys-apps/acl ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) ncurses? ( sys-libs/ncurses:0= ) selinux? ( sys-libs/libselinux ) tre? ( dev-libs/tre )
 DESCRIPTION=Modern, legacy free, simple yet efficient vim-like editor
 EAPI=8
 HOMEPAGE=https://github.com/martanne/vis
@@ -8,10 +8,10 @@ INHERIT=lua-single
 IUSE=+acl +lua +ncurses selinux test tre lua_single_target_lua5-3 lua_single_target_lua5-4
 KEYWORDS=amd64 arm ~arm64 ~riscv x86
 LICENSE=ISC MIT
-RDEPEND=dev-libs/libtermkey acl? ( sys-apps/acl ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) ncurses? ( sys-libs/ncurses:0= ) tre? ( dev-libs/tre ) app-eselect/eselect-vi lua? ( lua_single_target_lua5-3? ( dev-lua/lpeg[lua_targets_lua5-3(-)] ) lua_single_target_lua5-4? ( dev-lua/lpeg[lua_targets_lua5-4(-)] ) )
+RDEPEND=dev-libs/libtermkey acl? ( sys-apps/acl ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) ncurses? ( sys-libs/ncurses:0= ) selinux? ( sys-libs/libselinux ) tre? ( dev-libs/tre ) app-eselect/eselect-vi lua? ( lua_single_target_lua5-3? ( dev-lua/lpeg[lua_targets_lua5-3(-)] ) lua_single_target_lua5-4? ( dev-lua/lpeg[lua_targets_lua5-4(-)] ) )
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/martanne/vis/archive/refs/tags/v0.9.tar.gz -> vis-0.9.tar.gz test? ( https://github.com/martanne/vis-test/archive/783b7ef67aa360f0b9bd44fa5ea47e644bc49d69.tar.gz -> vis-test-783b7ef67aa360f0b9bd44fa5ea47e644bc49d69.tar.gz )
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
-_md5_=b7171f268e9b46e888f408b10d259aba
+_md5_=068640ef62d7dc963b15ac543fe01114
