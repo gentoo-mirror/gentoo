@@ -74,7 +74,6 @@ RDEPEND="
 		|| (
 			dev-lang/ruby:3.3
 			dev-lang/ruby:3.2
-			dev-lang/ruby:3.1
 		)
 	)
 	selinux? ( sec-policy/selinux-irc )
@@ -99,6 +98,10 @@ BDEPEND+="
 DOCS="AUTHORS.md CHANGELOG.md CONTRIBUTING.md UPGRADING.md README.md"
 
 RESTRICT="!test? ( test )"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-python-fix-broken-usage-of-FindPython.cmake-breaking.patch
+)
 
 maint_pkg_create() {
 	pushd "${S}" > /dev/null
