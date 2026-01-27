@@ -1,0 +1,17 @@
+BDEPEND=app-arch/rpm2targz virtual/pkgconfig
+DEFINED_PHASES=install postinst postrm preinst unpack
+DEPEND=dev-libs/glib dev-libs/nspr dev-libs/nss net-firewall/nftables net-libs/libpcap sys-apps/dbus x11-libs/cairo gui? ( x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango )
+DESCRIPTION=Cloudflare Warp Client
+EAPI=8
+HOMEPAGE=https://1.1.1.1
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=rpm systemd xdg desktop
+IUSE=+gui
+KEYWORDS=-* ~amd64
+LICENSE=all-rights-reserved
+RDEPEND=dev-libs/glib dev-libs/nspr dev-libs/nss net-firewall/nftables net-libs/libpcap sys-apps/dbus x11-libs/cairo gui? ( x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango )
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://downloads.cloudflareclient.com/v1/download/fedora35-intel/version/2025.10.186.0 -> cloudflare-warp-2025.10.186.0.x86_64.rpm
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	a07e59be6cf48ed85e624a41e8a7a832	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	systemd	a964c0cbe818b5729da1dbfcee5be861	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	desktop	7b6f6e9d65093966fbc8475399c5dd4e
+_md5_=8791908ce99abc3e7d67531c01baa5fc
