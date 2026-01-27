@@ -9,5 +9,5 @@ LICENSE=metapackage
 RDEPEND=compiler-rt? ( ~llvm-runtimes/compiler-rt-18.1.8:18[abi_x86_32(+)?,abi_x86_64(+)?] sanitize? ( ~llvm-runtimes/compiler-rt-sanitizers-18.1.8:18[abi_x86_32(+)?,abi_x86_64(+)?] ) ) libcxx? ( >=llvm-runtimes/libcxx-18.1.8[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) openmp? ( >=llvm-runtimes/openmp-18.1.8[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
 REQUIRED_USE=sanitize? ( compiler-rt )
 SLOT=18
-_eclasses_=out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	multilib	404b65bd5212cff83b3935c685419d08	multilib-build	9ac26ea006828266d235e2f0135429b5
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	multilib	404b65bd5212cff83b3935c685419d08	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib-build	d7802b3638ffc661375c0021cdd19efd
 _md5_=94d3f9bf0c44fbe0ec13b4137c6ef256
