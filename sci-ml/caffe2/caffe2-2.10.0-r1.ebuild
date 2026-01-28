@@ -200,6 +200,7 @@ src_prepare() {
 
 	# Change libaotriton path
 	sed -i \
+		-e "/set(__AOTRITON_LIB/s|lib/|$(get_libdir)/|g" \
 		-e "s|}/lib|}/$(get_libdir)|g" \
 		cmake/External/aotriton.cmake \
 		|| die
@@ -251,11 +252,8 @@ src_prepare() {
 		# Workaround for libc++ issue https://github.com/llvm/llvm-project/issues/100802
 		sed -e 's/std::memcpy/memcpy/g' -i torch/headeronly/util/Half.h || die
 
-		# Typo: https://github.com/pytorch/pytorch/pull/166502
-		sed -e 's/gloo_hiop/gloo_hip/' -i cmake/Modules/FindGloo.cmake || die
-
 		ebegin "HIPifying cuda sources"
-		${EPYTHON} tools/amd_build/build_amd.py || die
+		FBCODE_BUILD_TOOL="buck" ${EPYTHON} tools/amd_build/build_amd.py || die
 		eend $?
 	fi
 }
@@ -316,7 +314,7 @@ src_configure() {
 		-DUSE_SYSTEM_PYBIND11=ON
 		-DUSE_SYSTEM_SLEEF=ON
 		-DUSE_SYSTEM_XNNPACK=$(usex xnnpack)
-		-DUSE_TENSORPIPE=$(use distributed && use !rocm && echo ON || echo OFF)
+		-DUSE_TENSORPIPE=$(usex distributed $(usex !rocm))
 		-DUSE_UCC=OFF
 		-DUSE_VALGRIND=OFF
 		-DUSE_XNNPACK=$(usex xnnpack)
@@ -333,9 +331,9 @@ src_configure() {
 	fi
 
 	if use cuda; then
-		addpredict "/dev/nvidiactl" # bug 867706
-		addpredict "/dev/char"
-		addpredict "/proc/self/task" # bug 926116
+		# bug 867706 926116
+		cuda_add_sandbox
+		addpredict "/dev/char/"
 
 		mycmakeargs+=(
 			-DUSE_CUDNN=ON
@@ -344,6 +342,14 @@ src_configure() {
 			-DCMAKE_CUDA_FLAGS="$(cuda_gccdir -f | tr -d \")"
 			-DUSE_CUSPARSELT=$(usex cusparselt)
 		)
+
+		[[ -v CUDACXX ]] && export PYTORCH_NVCC="${CUDACXX}"
+
+		if use flash; then
+			export FLASH_ATTENTION_FORCE_BUILD="TRUE"
+			export FLASH_ATTN_CUDA_ARCHS="${CUDAARCHS:-${TORCH_CUDA_ARCH_LIST:-3.5 7.0}}"
+		fi
+
 	elif use rocm; then
 		export PYTORCH_ROCM_ARCH="$(get_amdgpu_flags)"
 
@@ -355,7 +361,7 @@ src_configure() {
 			-DUSE_NCCL=$(usex nccl)
 			-DUSE_SYSTEM_NCCL=ON
 			-DCMAKE_REQUIRE_FIND_PACKAGE_HIP=ON
-	        -DUSE_ROCM_CK_SDPA=OFF # requires flash + aiter, works only on gfx90a/gfx942/gfx950
+			-DUSE_ROCM_CK_SDPA=OFF # requires flash + aiter, works only on gfx90a/gfx942/gfx950
 		)
 
 		# ROCm libraries produce too much warnings
