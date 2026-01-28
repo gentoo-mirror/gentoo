@@ -7,11 +7,11 @@ HOMEPAGE=https://kde.org/plasma-desktop
 IDEPEND=filecaps? ( sys-libs/libcap )
 INHERIT=ecm fcaps plasma.kde.org
 IUSE=networkmanager debug +handbook test +filecaps
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+
 RDEPEND=dev-libs/libnl:3 >=dev-qt/qtbase-6.10.1:6[dbus,network] >=kde-frameworks/kcoreaddons-6.18.0:6 >=kde-frameworks/kcrash-6.18.0:6 >=kde-frameworks/kdbusaddons-6.18.0:6 >=kde-frameworks/ki18n-6.18.0:6 >=kde-frameworks/kio-6.18.0:6 >=kde-frameworks/solid-6.18.0:6 >=kde-plasma/libksysguard-6.5.5:6 net-libs/libpcap sys-apps/lm-sensors:= sys-libs/libcap virtual/libudev:= networkmanager? ( >=kde-frameworks/networkmanager-qt-6.18.0:6 ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-plasma/ksystemstats:5
 RESTRICT=!test? ( test )
 SLOT=6
 SRC_URI=mirror://kde/stable/plasma/6.5.5/ksystemstats-6.5.5.tar.xz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	a5537691c00fd7549c8b90300f679185	fcaps	c94316d02a37fb5cbe79b7d41c729119	kde.org	2eea56ed41440913be4caa3d255d2db3	plasma.kde.org	15a44935d99523f1f30863a3fbb1c2b0
-_md5_=2f5f24704ebb415d6c7299f846addbcb
+_md5_=16388937739869ea9c481d2f10760d0c

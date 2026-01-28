@@ -7,10 +7,10 @@ HOMEPAGE=https://apps.kde.org/ https://userbase.kde.org/KMail/Import_Options
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=ecm gear.kde.org xdg
 IUSE=debug +handbook
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 arm64
 LICENSE=GPL-2+ handbook? ( FDL-1.2+ )
 RDEPEND=>=dev-libs/qtkeychain-0.14.2:=[qt6(+)] >=dev-qt/qtbase-6.10.1:6[gui,widgets,xml] >=kde-apps/akonadi-25.12.1:6= >=kde-apps/kidentitymanagement-25.12.1:6= >=kde-apps/kmailtransport-25.12.1:6= >=kde-apps/mailcommon-25.12.1:6= >=kde-apps/mailimporter-25.12.1:6= >=kde-apps/messagelib-25.12.1:6= >=kde-apps/pimcommon-25.12.1:6= >=kde-frameworks/karchive-6.22.0:6 >=kde-frameworks/kcompletion-6.22.0:6 >=kde-frameworks/kconfig-6.22.0:6 >=kde-frameworks/kcontacts-6.22.0:6 >=kde-frameworks/kcoreaddons-6.22.0:6 >=kde-frameworks/kcrash-6.22.0:6 >=kde-frameworks/kdbusaddons-6.22.0:6 >=kde-frameworks/ki18n-6.22.0:6 >=kde-frameworks/kiconthemes-6.22.0:6 >=kde-frameworks/kwidgetsaddons-6.22.0:6 >=kde-frameworks/kxmlgui-6.22.0:6 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-apps/akonadi-import-wizard:5
 SLOT=6/25.12
 SRC_URI=mirror://kde/stable/release-service/25.12.1/src/akonadi-import-wizard-25.12.1.tar.xz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	a5537691c00fd7549c8b90300f679185	kde.org	2eea56ed41440913be4caa3d255d2db3	gear.kde.org	cacda432108ae84761ff73c038078bb6	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=5b538002de7ebbcd07c4166b3355d961
+_md5_=3941ab2105027fb0ffe132171e056465

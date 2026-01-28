@@ -7,11 +7,11 @@ HOMEPAGE=https://apps.kde.org/kontact/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=ecm gear.kde.org xdg
 IUSE=debug doc test
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 arm64
 LICENSE=LGPL-2.1+
 RDEPEND=>=app-text/poppler-23.12.0:=[qt6] dev-libs/libphonenumber dev-libs/libxml2:2= dev-libs/openssl:= >=dev-qt/qtbase-6.10.1:6[gui] >=dev-qt/qtdeclarative-6.10.1:6 >=kde-apps/kmime-25.12.1:6= >=kde-apps/kpkpass-25.12.1:6= >=kde-frameworks/karchive-6.22.0:6 >=kde-frameworks/kcalendarcore-6.22.0:6 >=kde-frameworks/kcontacts-6.22.0:6 >=kde-frameworks/ki18n-6.22.0:6 >=media-libs/zxing-cpp-1.1.1:= virtual/zlib:= || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6 !kde-apps/kitinerary:5
 RESTRICT=test !test? ( test )
 SLOT=6/25.12
 SRC_URI=mirror://kde/stable/release-service/25.12.1/src/kitinerary-25.12.1.tar.xz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	a5537691c00fd7549c8b90300f679185	kde.org	2eea56ed41440913be4caa3d255d2db3	gear.kde.org	cacda432108ae84761ff73c038078bb6	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=c2f1d7f898fd3300db150e7dc2edd723
+_md5_=b372582f8a25c78a825d2e5a75b9b320

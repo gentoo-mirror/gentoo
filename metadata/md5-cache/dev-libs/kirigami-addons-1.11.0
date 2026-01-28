@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://invent.kde.org/libraries/kirigami-addons
 INHERIT=ecm kde.org
 IUSE=debug test
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) LGPL-2.1+
 RDEPEND=>=dev-qt/qtbase-6.8.1:6[gui] >=dev-qt/qtdeclarative-6.8.1:6 >=kde-frameworks/kcolorscheme-6.16.0:6 >=kde-frameworks/kconfig-6.16.0:6 >=kde-frameworks/kcoreaddons-6.16.0:6 >=kde-frameworks/kcrash-6.16.0:6 >=kde-frameworks/kglobalaccel-6.16.0:6 >=kde-frameworks/kguiaddons-6.16.0:6 >=kde-frameworks/ki18n-6.16.0:6 >=kde-frameworks/kiconthemes-6.16.0:6 >=kde-frameworks/kirigami-6.16.0:6 >=dev-qt/qtmultimedia-6.8.1:6[qml] >=kde-frameworks/qqc2-desktop-style-6.16.0:6 kde-plasma/libplasma:6 || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
 RESTRICT=test !test? ( test )
 SLOT=6
 SRC_URI=mirror://kde/stable/kirigami-addons/kirigami-addons-1.11.0.tar.xz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	a5537691c00fd7549c8b90300f679185	kde.org	2eea56ed41440913be4caa3d255d2db3
-_md5_=da562875f2545dc5e6b2445bc951ac74
+_md5_=1a1e19ad5c82ec72444429f52cbcf164
