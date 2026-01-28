@@ -1,4 +1,4 @@
-# Copyright 2019-2025 Gentoo Authors
+# Copyright 2019-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 RDEPEND="
 	>=app-misc/tmux-3.2
-	=dev-python/libtmux-0.52.1*[${PYTHON_USEDEP}]
+	=dev-python/libtmux-0.53.0*[${PYTHON_USEDEP}]
 	>=dev-python/colorama-0.3.9[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
 "
@@ -26,19 +26,8 @@ BDEPEND="
 		>=dev-python/pytest-6.2.5[${PYTHON_USEDEP}]
 		>=dev-python/pytest-mock-3.14.0[${PYTHON_USEDEP}]
 		>=dev-python/pytest-rerunfailures-4.2[${PYTHON_USEDEP}]
-		!!dev-python/flaky
 	)
 "
-
-EPYTEST_DESELECT=(
-	# test doesn't get along with sandbox
-	"tests/cli/test_load.py::test_load_zsh_autotitle_warning"
-)
-
-EPYTEST_IGNORE=(
-	# not actually tests, but throws off test collection
-	"tests/fixtures/"
-)
 
 distutils_enable_tests pytest
 
@@ -50,5 +39,24 @@ python_prepare_all() {
 }
 
 python_test() {
+	local -a EPYTEST_DESELECT=(
+		# test doesn't get along with sandbox
+		"tests/cli/test_load.py::test_load_zsh_autotitle_warning"
+	)
+
+	local -a EPYTEST_IGNORE=(
+		# not actually tests, but throws off test collection
+		"tests/fixtures/"
+	)
+
+	local -a EPYTEST_PLUGINS=(
+		anyio
+		pytest-mock
+		pytest-rerunfailures
+	)
+
+	# don't run doc tests as they need a bunch of extra sphinx stuff
+	rm -rf tests/docs || die
+
 	SHELL="/bin/bash" epytest tests
 }
