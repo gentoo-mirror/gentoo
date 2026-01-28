@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) dev-cpp/cli11 dev-cpp/expected dev-cpp/ms-gsl test? ( dev-cpp/gtest dev-db/postgresql:*[server,threads(+)] dev-db/mariadb:*[server] ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile config configure install postinst prepare pretend setup test
+DEPEND=!app-backup/bacula acct-group/bareos !x86? ( ceph? ( sys-cluster/ceph ) ) dev-libs/libfmt dev-libs/utfcpp glusterfs? ( sys-cluster/glusterfs ) lmdb? ( dev-db/lmdb ) dev-libs/gmp:0 !clientonly? ( acct-user/bareos dev-db/postgresql:*[server,threads(+)] director? ( virtual/mta ) ) logwatch? ( sys-apps/logwatch ) ndmp? ( net-libs/rpcsvc-proto ) tcpd? ( sys-apps/tcp-wrappers ) readline? ( sys-libs/readline:0 ) static? ( acl? ( virtual/acl[static-libs] ) dev-libs/jansson:=[static-libs] dev-libs/lzo[static-libs] dev-libs/openssl:0=[static-libs] sys-libs/ncurses:=[static-libs] virtual/zlib:=[static-libs] ) !static? ( acl? ( virtual/acl ) dev-libs/jansson:= dev-libs/lzo dev-libs/openssl:0= sys-libs/ncurses:= virtual/zlib:= ) X? ( dev-qt/qtbase:6[widgets] )
+DESCRIPTION=Featureful client/server network backup suite
+EAPI=8
+HOMEPAGE=https://www.bareos.org/
+INHERIT=python-any-r1 systemd cmake tmpfiles flag-o-matic
+IUSE=X acl ceph clientonly cpu_flags_x86_avx +director glusterfs ipv6 lmdb logwatch ndmp readline scsi-crypto split-usr static +storage-daemon systemd tcpd test vim-syntax vmware xattr
+KEYWORDS=~amd64 ~x86
+LICENSE=AGPL-3
+RDEPEND=!app-backup/bacula acct-group/bareos !x86? ( ceph? ( sys-cluster/ceph ) ) dev-libs/libfmt dev-libs/utfcpp glusterfs? ( sys-cluster/glusterfs ) lmdb? ( dev-db/lmdb ) dev-libs/gmp:0 !clientonly? ( acct-user/bareos dev-db/postgresql:*[server,threads(+)] director? ( virtual/mta ) ) logwatch? ( sys-apps/logwatch ) ndmp? ( net-libs/rpcsvc-proto ) tcpd? ( sys-apps/tcp-wrappers ) readline? ( sys-libs/readline:0 ) static? ( acl? ( virtual/acl[static-libs] ) dev-libs/jansson:=[static-libs] dev-libs/lzo[static-libs] dev-libs/openssl:0=[static-libs] sys-libs/ncurses:=[static-libs] virtual/zlib:=[static-libs] ) !static? ( acl? ( virtual/acl ) dev-libs/jansson:= dev-libs/lzo dev-libs/openssl:0= sys-libs/ncurses:= virtual/zlib:= ) X? ( dev-qt/qtbase:6[widgets] ) !clientonly? ( storage-daemon? ( sys-block/mtx app-arch/mt-st ) ) sys-libs/libcap vim-syntax? ( || ( app-editors/vim app-editors/gvim ) ) virtual/tmpfiles
+REQUIRED_USE=static? ( clientonly ) clientonly? ( !director !storage-daemon !ceph !glusterfs !lmdb !ndmp !scsi-crypto ) x86? ( !ceph )
+RESTRICT=mirror test
+SLOT=0
+SRC_URI=https://github.com/bareos/bareos/archive/Release/25.0.1.tar.gz -> bareos-25.0.1.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_md5_=ae7e4dadb3ebd57e30ddc6c53d1bb866
