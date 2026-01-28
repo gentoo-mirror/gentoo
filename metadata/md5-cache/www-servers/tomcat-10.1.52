@@ -1,0 +1,16 @@
+BDEPEND=verify-sig? ( ~sec-keys/openpgp-keys-apache-tomcat-10 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile install postinst preinst prepare setup test unpack
+DEPEND=>=dev-java/ant-1.10.15:0 dev-java/bnd-annotation:0 dev-java/eclipse-ecj:4.26 dev-java/jax-rpc-api:0 >=dev-java/jakartaee-migration-1.0.9:0 dev-java/wsdl4j:0 app-admin/pwgen dev-java/bnd:0 dev-java/bnd-ant:0 dev-java/bnd-util:0 dev-java/bndlib:0 dev-java/libg:0 dev-java/osgi-cmpn:8 dev-java/osgi-core:0 dev-java/slf4j-api:0 || ( virtual/jdk:21 virtual/jdk:17 ) test? ( >=dev-java/ant-1.10.15:0[junit] dev-java/easymock:3.2 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=Tomcat Servlet-6.0/JSP-3.1/EL-5.0/WebSocket-2.1/JASPIC-3.0 Container
+EAPI=8
+HOMEPAGE=https://tomcat.apache.org/
+INHERIT=java-pkg-2 prefix verify-sig
+IUSE=extra-webapps doc source test verify-sig
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0
+RDEPEND=>=dev-java/ant-1.10.15:0 dev-java/bnd-annotation:0 dev-java/eclipse-ecj:4.26 dev-java/jax-rpc-api:0 >=dev-java/jakartaee-migration-1.0.9:0 dev-java/wsdl4j:0 acct-group/tomcat acct-user/tomcat >=virtual/jre-11:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+RESTRICT=test !test? ( test )
+SLOT=10.1
+SRC_URI=mirror://apache/tomcat/tomcat-10/v10.1.52/src/apache-tomcat-10.1.52-src.tar.gz verify-sig? ( https://downloads.apache.org/tomcat/tomcat-10/v10.1.52/src/apache-tomcat-10.1.52-src.tar.gz.asc )
+_eclasses_=java-utils-2	b41327d85d12ce816943cf4d344add19	java-pkg-2	438c2725ea326202d7fc1eb31af76813	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=67ce1a0f673020eaeafef24f7393e4bc
