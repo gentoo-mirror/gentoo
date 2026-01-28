@@ -1,0 +1,16 @@
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) ~dev-qt/qtshadertools-6.10.2:6 app-alternatives/ninja >=dev-build/cmake-3.28.5 dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=~dev-qt/qtbase-6.10.2:6[accessibility=,gui,network=,opengl=,sql?,ssl?,vulkan=,widgets=] qmlls? ( ~dev-qt/qtlanguageserver-6.10.2:6 ) svg? ( ~dev-qt/qtsvg-6.10.2:6 ) vulkan? ( dev-util/vulkan-headers )
+DESCRIPTION=Qt Declarative (Quick 2)
+EAPI=8
+HOMEPAGE=https://www.qt.io/
+INHERIT=python-any-r1 qt6-build
+IUSE=accessibility +jit +network opengl qmlls +sql +ssl svg vulkan +widgets custom-cflags
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
+RDEPEND=~dev-qt/qtbase-6.10.2:6[accessibility=,gui,network=,opengl=,sql?,ssl?,vulkan=,widgets=] qmlls? ( ~dev-qt/qtlanguageserver-6.10.2:6 ) svg? ( ~dev-qt/qtsvg-6.10.2:6 )
+RESTRICT=test
+SLOT=6/6.10.2
+SRC_URI=https://download.qt.io/official_releases/qt/6.10/6.10.2/submodules/qtdeclarative-everywhere-src-6.10.2.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	dot-a	e5200fe17cfd2ed6fa66edd80201763a	qt6-build	93d9caaa4eebf52e5fb7deb316f2fc9d
+_md5_=79ba2ba3429e25fcfc5cd872ab7edce0

@@ -1,0 +1,16 @@
+BDEPEND=~dev-qt/qtshadertools-6.10.2:6 app-alternatives/ninja >=dev-build/cmake-3.28.5 dev-lang/perl virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=~dev-qt/qtbase-6.10.2:6[concurrent,gui,opengl=,vulkan=,widgets] ~dev-qt/qtdeclarative-6.10.2:6 ~dev-qt/qtquicktimeline-6.10.2:6 ~dev-qt/qtshadertools-6.10.2:6 media-libs/assimp:= virtual/zlib:= test? ( ~dev-qt/qtbase-6.10.2:6[network] ) vulkan? ( dev-util/vulkan-headers )
+DESCRIPTION=Qt module and API for defining 3D content in Qt QuickTools
+EAPI=8
+HOMEPAGE=https://www.qt.io/
+INHERIT=qt6-build
+IUSE=opengl vulkan custom-cflags test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
+RDEPEND=~dev-qt/qtbase-6.10.2:6[concurrent,gui,opengl=,vulkan=,widgets] ~dev-qt/qtdeclarative-6.10.2:6 ~dev-qt/qtquicktimeline-6.10.2:6 ~dev-qt/qtshadertools-6.10.2:6 media-libs/assimp:= virtual/zlib:=
+RESTRICT=!test? ( test )
+SLOT=6/6.10.2
+SRC_URI=https://download.qt.io/official_releases/qt/6.10/6.10.2/submodules/qtquick3d-everywhere-src-6.10.2.tar.xz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	dot-a	e5200fe17cfd2ed6fa66edd80201763a	qt6-build	93d9caaa4eebf52e5fb7deb316f2fc9d
+_md5_=943e27ce33c59cb1a3d8c86f26776f69
