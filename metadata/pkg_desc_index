@@ -1242,7 +1242,7 @@ app-backup/backuppc 3.3.1-r6 4.4.0-r1 4.4.0-r2 4.4.0-r3: High-performance backup
 app-backup/bacula 15.0.3-r3: Featureful client/server network backup suite
 app-backup/bareos 21.1.11 22.1.7 22.1.8 23.1.3-r1 23.1.4 23.1.5 24.0.5 24.0.7 9999: Featureful client/server network backup suite
 app-backup/borgbackup 1.4.1-r1 1.4.2-r1 1.4.3: Deduplicating backup program with compression and authenticated encryption
-app-backup/borgmatic 2.0.7 2.0.13 2.1.0: Automatically create, prune and verify backups with borgbackup
+app-backup/borgmatic 2.0.7 2.0.13 2.1.0 2.1.1: Automatically create, prune and verify backups with borgbackup
 app-backup/btrbk 0.32.6-r1 0.32.6-r2 9999: Tool for creating snapshots and remote backups of btrfs subvolumes
 app-backup/burp 3.1.4 3.1.4-r1: Network backup and restore client and server for Unix and Windows
 app-backup/ccollect 0.8-r2 2.10: Pseudo incremental backup with different exclude lists using hardlinks and rsync
@@ -5460,7 +5460,7 @@ dev-libs/input-pad 1.0.99_pre20140916-r1: On-screen input pad to send characters
 dev-libs/intel-compute-runtime 24.35.30872.32-r2 24.35.30872.36 25.31.34666.3 25.35.35096.9 25.40.35563.4: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
 dev-libs/intel-metrics-discovery 1.14.182 1.14.183: A user mode library that provides access to GPU performance data
 dev-libs/intel-metrics-library 1.0.200 1.0.209: User mode driver helper library that provides access to GPU performance counters
-dev-libs/intel-vc-intrinsics 0.23.4 0.24.1: A set of new intrinsics on top of core LLVM IR instructions
+dev-libs/intel-vc-intrinsics 0.24.1 0.24.3: A set of new intrinsics on top of core LLVM IR instructions
 dev-libs/isa-l 2.31.1-r2: Intelligent Storage Acceleration Library
 dev-libs/isa-l_crypto 2.25.0: Intelligent Storage Acceleration Library - cryptographic components
 dev-libs/isl 0.26 0.27: A library for manipulating integer points bounded by linear constraints
@@ -11879,7 +11879,7 @@ games-simulation/gl117 1.3.2-r1: Action flight simulator
 games-simulation/lincity 1.13.1-r4: City simulation game for X
 games-simulation/lincity-ng 2.9_beta-r1 2.13.1 9999: City simulation game
 games-simulation/micropolis 1.0_p20250628: Free version of the well-known city building simulation
-games-simulation/openrct2 0.4.27 0.4.28 0.4.29: An open source re-implementation of Chris Sawyer's RollerCoaster Tycoon 2
+games-simulation/openrct2 0.4.27 0.4.28 0.4.29 0.4.30: An open source re-implementation of Chris Sawyer's RollerCoaster Tycoon 2
 games-simulation/openttd 14.1 15.0 15.1 9999: A clone of Transport Tycoon Deluxe
 games-simulation/pmars-sdl 0.9.2e-r1 0.9.2e-r2: Portable redcode simulator's sdl port for core war
 games-simulation/searchandrescue 1.7.0-r1: Helicopter based air rescue flight simulator
@@ -11892,7 +11892,7 @@ games-simulation/slime-rancher 1.4.1c_p34605: Cute game where you cultivate slim
 games-simulation/train-valley 1.3.31403: Build railroads in order to connect cities, tunnels, and bridges
 games-sports/billardgl 1.75-r2: An OpenGL billards game
 games-sports/bygfoot 2.3.2-r2: GTK+2 Soccer Management Game
-games-sports/dustrac 2.1.1_p20250924: Tile-based, cross-platform 2D racing game
+games-sports/dustrac 2.2.0: Tile-based, cross-platform 2D racing game
 games-sports/foobillard 3.0a-r2: 8ball, 9ball, snooker and carambol game
 games-sports/skatebird 14: Skateboarding game where you play as a bird
 games-sports/speed-dreams 2.3.0-r1: Fork of the famous open racing car simulator TORCS
@@ -14111,7 +14111,6 @@ media-sound/mp3blaster 3.2.6-r2: Text console based program for playing audio fi
 media-sound/mp3c 0.31-r1 0.31-r2: console based mp3 ripper, with cddb support
 media-sound/mp3cat 0.5: Reads and writes MP3 files
 media-sound/mp3check 0.8.7: Checks mp3 files for consistency and prints several errors and warnings
-media-sound/mp3diags 1.5.03: Qt-based MP3 diagnosis and repair tool
 media-sound/mp3gain 1.6.2: Analyze and adjust MP3 files to same volume
 media-sound/mp3info 0.8.5a-r1: An MP3 technical info viewer and ID3 1.x tag editor
 media-sound/mp3report 1.0.2: Perl script to create an HTML report of MP3 files in a directory
@@ -14162,7 +14161,7 @@ media-sound/pavucontrol-qt 2.2.0 2.3.0: Qt GUI Pulseaudio Mixer
 media-sound/pavumeter 0.9.3-r2: PulseAudio Volume Meter, simple GTK volume meter for PulseAudio
 media-sound/peercast 0.1218-r2: A client and server for Peercast P2P-radio network
 media-sound/pianobar 2022.04.01 2022.04.01-r1 9999: A console-based replacement for Pandora's flash player
-media-sound/picard 2.13.3-r1 3.0_pre20260126 9999: Cross-platform music tagger
+media-sound/picard 2.13.3-r1 3.0.0_alpha1 9999: Cross-platform music tagger
 media-sound/picoxine 0.0.7: Very small xine frontend for playing audio events
 media-sound/pithos 1.6.2: Pandora.com client for the GNOME desktop
 media-sound/playerctl 2.3.1 2.4.1-r1: A CLI utility to control media players over MPRIS
@@ -17246,7 +17245,7 @@ sys-apps/progress 0.15-r1 0.17: Coreutils Viewer: show progress for cp, rm, dd, 
 sys-apps/proot 5.3.0 5.4.0: User-space implementation of chroot, mount --bind, and binfmt_misc
 sys-apps/pv 1.9.42 1.10.2 1.10.3 9999: Pipe Viewer: a tool for monitoring the progress of data through a pipe
 sys-apps/qcontrol 0.4.2-r101: Send commands to some microcontrollers, e.g., to change LEDs or sound a buzzer
-sys-apps/qdirstat 1.9_p20250726-r1: Qt-based directory statistics
+sys-apps/qdirstat 1.9_p20250726-r1 2.0: Qt-based directory statistics
 sys-apps/qingy 1.0.0-r6: A DirectFB getty replacement
 sys-apps/radeontool 1.6.3_p20181127-r1: Utility to get/set registers and controlling backlight on radeon based GPUs
 sys-apps/razer-cli 2.3.0: Command line interface for controlling Razer devices on Linux
@@ -18578,7 +18577,7 @@ x11-misc/devilspie 0.23-r2: Window matching utility similar to Sawfish's Matched
 x11-misc/devilspie2 0.45-r1: Window matching utility with Lua scripting
 x11-misc/dex 0.9.0 0.10.1: DesktopEntry eXecution - tool to manage and launch autostart entries
 x11-misc/dmenu 5.4 9999: a generic, highly customizable, and efficient menu for the X Window System
-x11-misc/dunst 1.13.0-r1 9999: Lightweight replacement for common notification daemons
+x11-misc/dunst 1.13.0-r1 1.13.1 9999: Lightweight replacement for common notification daemons
 x11-misc/dxpc 3.9.2-r3: Differential X Protocol Compressor
 x11-misc/dzen 0.9.5_p2: General purpose messaging, notification, and menu utility
 x11-misc/e16-keyedit 0.10: Key binding editor for Enlightenment DR16

@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
+DEPEND=dev-libs/icu:= dev-libs/jansson:= dev-libs/libzip:= media-libs/libpng:= net-misc/curl[ssl] virtual/zlib:= !dedicated? ( media-libs/libsdl2 media-libs/speexdsp flac? ( media-libs/flac:= ) opengl? ( virtual/opengl ) vorbis? ( media-libs/libvorbis ) ) dev-libs/openssl:0= scripting? ( dev-lang/duktape:= ) truetype? ( media-libs/fontconfig:1.0 media-libs/freetype:2 ) dev-cpp/nlohmann_json test? ( dev-cpp/gtest )
+DESCRIPTION=An open source re-implementation of Chris Sawyer's RollerCoaster Tycoon 2
+EAPI=8
+HOMEPAGE=https://openrct2.org/
+INHERIT=cmake readme.gentoo-r1 xdg-utils
+IUSE=dedicated +flac +opengl scripting test +truetype +vorbis
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/icu:= dev-libs/jansson:= dev-libs/libzip:= media-libs/libpng:= net-misc/curl[ssl] virtual/zlib:= !dedicated? ( media-libs/libsdl2 media-libs/speexdsp flac? ( media-libs/flac:= ) opengl? ( virtual/opengl ) vorbis? ( media-libs/libvorbis ) ) dev-libs/openssl:0= scripting? ( dev-lang/duktape:= ) truetype? ( media-libs/fontconfig:1.0 media-libs/freetype:2 ) dedicated? ( acct-group/openrct2 acct-user/openrct2 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/OpenRCT2/OpenRCT2/archive/v0.4.30.tar.gz -> openrct2-0.4.30.tar.gz https://github.com/OpenRCT2/openmusic/releases/download/v1.6.1/openmusic.zip -> openrct2-openmusic-1.6.1.zip https://github.com/OpenRCT2/objects/releases/download/v1.7.5/objects.zip -> openrct2-objects-1.7.5.zip https://github.com/OpenRCT2/OpenSoundEffects/releases/download/v1.0.6/opensound.zip -> openrct2-opensound-1.0.6.zip https://github.com/OpenRCT2/title-sequences/releases/download/v0.4.26/title-sequences.zip -> openrct2-title-sequences-0.4.26.zip test? ( https://github.com/OpenRCT2/replays/releases/download/v0.0.92/replays.zip -> openrct2-replays-0.0.92.zip )
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
+_md5_=74c7af12857ef740ef1759e7b087496a
