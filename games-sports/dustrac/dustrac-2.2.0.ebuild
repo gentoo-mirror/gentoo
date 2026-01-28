@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,9 +8,8 @@ inherit cmake xdg
 
 DESCRIPTION="Tile-based, cross-platform 2D racing game"
 HOMEPAGE="https://juzzlin.github.io/DustRacing2D/"
-# SRC_URI="https://github.com/juzzlin/DustRacing2D/archive/${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI="https://github.com/juzzlin/DustRacing2D/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
-S="${WORKDIR}/DustRacing2D-${COMMIT}"
+SRC_URI="https://github.com/juzzlin/DustRacing2D/archive/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/DustRacing2D-${PV}"
 
 LICENSE="GPL-3+ CC-BY-SA-3.0"
 SLOT="0"
@@ -32,7 +31,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}"/${P}-cmake.patch ) # downstream patch
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.1.1_p20250924-cmake.patch # downstream patch
+	"${FILESDIR}"/${P}-missing-header.patch # in git master
+)
 
 src_configure() {
 	# -DGLES=ON didn't build for me but maybe just need use flags on some Qt package?

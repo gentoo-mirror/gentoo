@@ -18,6 +18,9 @@ else
 		COMMIT="8e2cdc4a020b6db03006df8551eb3415511d6a13"
 		SRC_URI="https://github.com/metabrainz/${PN}/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		S="${WORKDIR}/${PN}-${COMMIT}"
+	elif [[ ${PV} == *alpha* ]]; then
+		SRC_URI="https://github.com/metabrainz/${PN}/releases/download/release-${PV/_alpha/a}/${PN}-${PV/_alpha/a}.tar.gz"
+		S="${WORKDIR}/${PN}-${PV/_alpha/a}"
 	else
 		SRC_URI="https://data.musicbrainz.org/pub/musicbrainz/${PN}/${P}.tar.gz"
 	fi
