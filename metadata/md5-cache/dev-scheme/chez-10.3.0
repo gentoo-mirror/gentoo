@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://cisco.github.io/ChezScheme/ https://github.com/cisco/ChezScheme/
 INHERIT=dot-a edo toolchain-funcs
 IUSE=X +ncurses +threads
-KEYWORDS=~amd64 ~arm ~x86
+KEYWORDS=amd64 ~arm ~x86
 LICENSE=Apache-2.0 MIT
 RDEPEND=app-arch/lz4:= sys-apps/util-linux virtual/zlib:= X? ( x11-libs/libX11 ) ncurses? ( sys-libs/ncurses:= )
 RESTRICT=test
 SLOT=0/10.3.0
 SRC_URI=https://github.com/cisco/ChezScheme/releases/download/v10.3.0/csv10.3.0.tar.gz -> chez-10.3.0.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	dot-a	e5200fe17cfd2ed6fa66edd80201763a	edo	a5e294016aa84979fcb2459749eb80b2
-_md5_=2f661da486de816c254e3ebb960c1887
+_md5_=40dac2d3e9a11cae1dabcc12947c9c06
