@@ -2,14 +2,14 @@ BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/
 DEFINED_PHASES=configure install prepare
 DEPEND=dev-db/mysql-connector-c:=
 DESCRIPTION=NSS MySQL Library
-EAPI=7
-HOMEPAGE=http://libnss-mysql.sourceforge.net/
+EAPI=8
+HOMEPAGE=https://github.com/saknopper/libnss-mysql
 INHERIT=autotools
 IUSE=debug
-KEYWORDS=amd64 ~ppc ~sparc x86
+KEYWORDS=~amd64 ~ppc ~sparc ~x86
 LICENSE=GPL-2
 RDEPEND=dev-db/mysql-connector-c:=
 SLOT=0
-SRC_URI=http://libnss-mysql.sourceforge.net/snapshot/libnss-mysql-20060915.tgz
+SRC_URI=https://github.com/saknopper/libnss-mysql/releases/download/v1.7.1/libnss-mysql-1.7.1.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=1232564f8e98b94489c8a65659113ed1
+_md5_=707aa07db6430c2acb1ba646497ff4df
