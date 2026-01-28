@@ -16,11 +16,11 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~mips ~ppc64 ~riscv ~s390 x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~mips ~ppc64 ~riscv ~s390 ~x86"
 
 RDEPEND="
 	>=dev-python/pyperclip-1.8.2[${PYTHON_USEDEP}]
-	>=dev-python/rich-14.1.0[${PYTHON_USEDEP}]
+	>=dev-python/rich-14.3.0[${PYTHON_USEDEP}]
 	>=dev-python/rich-argparse-1.7.1[${PYTHON_USEDEP}]
 "
 # pyperclip uses clipboard backends in the following preference order:
@@ -38,7 +38,8 @@ BDEPEND="
 	)
 "
 
-EPYTEST_PLUGINS=( pytest-{mock,rerunfailures} )
+EPYTEST_PLUGINS=( pytest-mock )
+EPYTEST_RERUNS=5
 distutils_enable_tests pytest
 
 src_test() {
@@ -49,7 +50,7 @@ src_test() {
 
 python_test() {
 	# TODO: tests_isolated?
-	nonfatal epytest -o addopts= --reruns=5 tests || die
+	nonfatal epytest -o addopts= tests || die
 }
 
 pkg_postinst() {

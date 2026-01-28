@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,6 +6,7 @@ EAPI=8
 CARGO_OPTIONAL=yes
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
+PYPI_VERIFY_REPO=https://github.com/pyca/cryptography
 PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 PYTHON_REQ_USE="threads(+)"
 
@@ -27,8 +28,8 @@ CRATES="
 	memoffset@0.9.1
 	once_cell@1.21.3
 	openssl-macros@0.1.1
-	openssl-sys@0.9.109
-	openssl@0.10.73
+	openssl-sys@0.9.110
+	openssl@0.10.74
 	pem@3.0.5
 	pkg-config@0.3.32
 	portable-atomic@1.11.1
@@ -60,6 +61,8 @@ SRC_URI+="
 	${CARGO_CRATE_URIS}
 	test? (
 		$(pypi_sdist_url cryptography_vectors "$(ver_cut 1-3)")
+		$(pypi_provenance_url "${VEC_P}.tar.gz" cryptography_vectors "$(ver_cut 1-3)")
+			-> ${VEC_P}.tar.gz.provenance
 	)
 "
 
@@ -69,7 +72,7 @@ LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT Unicode-3.0
 "
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-libs/openssl-1.0.2o-r6:0=
@@ -102,6 +105,11 @@ EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 src_unpack() {
+	if use verify-provenance; then
+		pypi_verify_provenance "${DISTDIR}/${P}.tar.gz"{,.provenance}
+		use test && pypi_verify_provenance "${DISTDIR}/${VEC_P}.tar.gz"{,.provenance}
+	fi
+
 	cargo_src_unpack
 }
 
@@ -126,7 +134,7 @@ python_configure_all() {
 }
 
 python_test() {
-	local -x PYTHONPATH="${PYTHONPATH}:${WORKDIR}/cryptography_vectors-${PV}"
+	local -x PYTHONPATH="${PYTHONPATH}:${WORKDIR}/${VEC_P}"
 	local EPYTEST_IGNORE=(
 		tests/bench
 	)
