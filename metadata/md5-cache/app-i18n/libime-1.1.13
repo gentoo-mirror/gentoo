@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://fcitx-im.org/
 INHERIT=cmake unpacker
 IUSE=+data doc test
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv x86
+KEYWORDS=amd64 arm64 ~loong ppc64 ~riscv x86
 LICENSE=LGPL-2+
 RDEPEND=>=app-i18n/fcitx-5.1.13:5 app-arch/zstd:= dev-libs/boost:=
 RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=https://download.fcitx-im.org/fcitx5/libime/libime-1.1.13_dict.tar.zst
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627
-_md5_=0d47741d71293c10df522c3fdd69a914
+_md5_=27af056e37ac1ffa458d6c3709cf56a1

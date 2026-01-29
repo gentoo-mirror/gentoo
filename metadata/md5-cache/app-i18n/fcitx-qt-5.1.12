@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/fcitx/fcitx5-qt
 INHERIT=cmake unpacker
 IUSE=qt5 onlyplugin staticplugin +qt6 +X wayland
-KEYWORDS=~amd64 ~arm64 ~loong ~riscv x86
+KEYWORDS=amd64 ~arm64 ~loong ~riscv x86
 LICENSE=BSD LGPL-2.1+
 RDEPEND=!onlyplugin? ( >=app-i18n/fcitx-5.1.13:5 qt5? ( dev-qt/qtconcurrent:5 ) ) qt5? ( dev-qt/qtcore:5 dev-qt/qtdbus:5 dev-qt/qtgui:5= dev-qt/qtwidgets:5 wayland? ( dev-qt/qtwayland:5 ) ) qt6? ( dev-qt/qtbase:6=[dbus,gui,widgets,wayland?] wayland? ( dev-qt/qtwayland:6 ) ) X? ( x11-libs/libX11 x11-libs/libxcb x11-libs/libxkbcommon )
 REQUIRED_USE=|| ( qt5 qt6 ) qt5? ( X ) staticplugin? ( onlyplugin )
 SLOT=5
 SRC_URI=https://download.fcitx-im.org/fcitx5/fcitx5-qt/fcitx5-qt-5.1.12.tar.zst -> fcitx-qt-5.1.12.tar.zst
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627
-_md5_=f19d5ca2d32cbb329a7efaf73d68f84a
+_md5_=80882baa7e37aff76fa54d532320316c

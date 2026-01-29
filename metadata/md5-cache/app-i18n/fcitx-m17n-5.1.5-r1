@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/fcitx/fcitx5-m17n
 INHERIT=cmake unpacker
 IUSE=test
-KEYWORDS=~amd64 ~arm64 ~loong ~riscv x86
+KEYWORDS=amd64 ~arm64 ~loong ~riscv x86
 LICENSE=LGPL-2.1+
 RDEPEND=>=app-i18n/fcitx-5.1.13:5 dev-db/m17n-db >=dev-libs/m17n-lib-1.6.3[X]
 RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=https://download.fcitx-im.org/fcitx5/fcitx5-m17n/fcitx5-m17n-5.1.5.tar.zst -> fcitx-m17n-5.1.5.tar.zst
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627
-_md5_=6be28683c6f63d388d26884abcd682ca
+_md5_=9b023f67671fa41e70117be05a570301
