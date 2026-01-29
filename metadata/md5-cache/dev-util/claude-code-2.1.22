@@ -1,0 +1,11 @@
+DEFINED_PHASES=compile install postinst
+DESCRIPTION=Claude Code - an agentic coding tool by Anthropic
+EAPI=8
+HOMEPAGE=https://claude.com/product/claude-code
+KEYWORDS=~amd64 ~arm64
+LICENSE=all-rights-reserved
+RDEPEND=>=net-libs/nodejs-18 sys-apps/ripgrep
+RESTRICT=bindist mirror strip
+SLOT=0
+SRC_URI=amd64? ( elibc_glibc? ( https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.22/linux-x64/claude -> claude-amd64-glibc-2.1.22 ) elibc_musl? ( https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.22/linux-x64-musl/claude -> claude-amd64-musl-2.1.22 ) ) arm64? ( elibc_glibc? ( https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.22/linux-arm64/claude -> claude-arm64-glibc-2.1.22 ) elibc_musl? ( https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.22/linux-arm64-musl/claude -> claude-arm64-musl-2.1.22 ) )
+_md5_=920d0a2df750094f44d8219917bf8c71
