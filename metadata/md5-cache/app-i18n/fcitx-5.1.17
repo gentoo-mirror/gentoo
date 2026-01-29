@@ -7,7 +7,7 @@ HOMEPAGE=https://fcitx-im.org/ https://github.com/fcitx/fcitx5
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake flag-o-matic toolchain-funcs unpacker xdg
 IUSE=+autostart doc +emoji +enchant +keyboard presage +server systemd test wayland +X
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc ~ppc64 ~riscv x86
 LICENSE=LGPL-2+ Unicode-DFS-2016
 RDEPEND=!app-i18n/fcitx:4 dev-libs/libfmt sys-devel/gettext virtual/libintl x11-libs/cairo[X?] x11-libs/gdk-pixbuf:2 x11-libs/pango[X?] doc? ( app-text/doxygen dev-texlive/texlive-fontutils ) emoji? ( virtual/zlib:= ) enchant? ( app-text/enchant:2 ) keyboard? ( app-text/iso-codes dev-libs/expat dev-cpp/nlohmann_json x11-misc/xkeyboard-config x11-libs/libxkbcommon[X?,wayland?] ) systemd? ( sys-apps/systemd ) !systemd? ( dev-libs/libuv sys-apps/dbus ) wayland? ( dev-libs/glib:2 dev-libs/wayland dev-libs/wayland-protocols dev-util/wayland-scanner ) X? ( dev-libs/glib:2 >=x11-libs/xcb-imdkit-1.0.3:5 x11-libs/libX11 x11-libs/libxkbfile x11-libs/xcb-util x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm )
 REQUIRED_USE=|| ( wayland X ) X? ( keyboard ) wayland? ( keyboard )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=https://download.fcitx-im.org/fcitx5/fcitx5/fcitx5-5.1.17_dict.tar.zst -> fcitx-5.1.17.tar.zst
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=0fd1ae8f2e69bd11a3d0238e8a165aad
+_md5_=c79cab0cc06e662eb90e5fb7ac241603
