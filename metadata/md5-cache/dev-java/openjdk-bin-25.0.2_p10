@@ -1,0 +1,17 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=install postinst postrm prerm pretend setup unpack
+DEPEND=dev-java/java-config app-eselect/eselect-java
+DESCRIPTION=Prebuilt Java JDK binaries provided by Eclipse Temurin
+EAPI=8
+HOMEPAGE=https://adoptium.net
+IDEPEND=app-eselect/eselect-java
+INHERIT=java-vm-2 toolchain-funcs
+IUSE=alsa cups headless-awt selinux source
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+LICENSE=GPL-2-with-classpath-exception
+RDEPEND=>=sys-apps/baselayout-java-0.1.0-r1 kernel_linux? ( media-libs/fontconfig:1.0 media-libs/freetype:2 media-libs/harfbuzz elibc_glibc? ( >=sys-libs/glibc-2.2.5:* ) elibc_musl? ( sys-libs/musl ) virtual/zlib:= alsa? ( media-libs/alsa-lib ) cups? ( net-print/cups ) selinux? ( sec-policy/selinux-java ) !headless-awt? ( x11-libs/libX11 x11-libs/libXext x11-libs/libXi x11-libs/libXrender x11-libs/libXtst ) ) dev-java/java-config app-eselect/eselect-java
+RESTRICT=preserve-libs splitdebug
+SLOT=25
+SRC_URI=arm64? ( https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.2+10//OpenJDK25U-jdk_aarch64_linux_hotspot_25.0.2_10.tar.gz ) arm64? ( elibc_musl? ( https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.2+10//OpenJDK25U-jdk_aarch64_alpine-linux_hotspot_25.0.2_10.tar.gz ) ) ppc64? ( https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.2+10//OpenJDK25U-jdk_ppc64le_linux_hotspot_25.0.2_10.tar.gz ) amd64? ( https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.2+10//OpenJDK25U-jdk_x64_linux_hotspot_25.0.2_10.tar.gz ) amd64? ( elibc_musl? ( https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.2+10//OpenJDK25U-jdk_x64_alpine-linux_hotspot_25.0.2_10.tar.gz ) ) riscv? ( https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.2+10//OpenJDK25U-jdk_riscv64_linux_hotspot_25.0.2_10.tar.gz )
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	multilib	404b65bd5212cff83b3935c685419d08	pax-utils	5555f2e75744739fe100ee62c22d28fe	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	java-vm-2	6c7243f2269a7c9b5c177579e49f89ab
+_md5_=6e93ecf022d54d16fb3aa786662a10dd
