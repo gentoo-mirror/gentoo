@@ -1,0 +1,16 @@
+BDEPEND=dev-qt/qttools:6[linguist] verify-sig? ( sec-keys/openpgp-keys-annejan ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install prepare test unpack
+DEPEND=|| ( app-admin/pass app-admin/gopass ) dev-qt/qtbase:6[gui,network,widgets] net-misc/x11-ssh-askpass dev-qt/qtsvg:6
+DESCRIPTION=Multi-platform GUI for pass, the standard unix password manager
+EAPI=8
+HOMEPAGE=https://qtpass.org https://github.com/IJHack/qtpass
+INHERIT=desktop qmake-utils verify-sig
+IUSE=test verify-sig
+KEYWORDS=~amd64 ~ppc64 ~x86
+LICENSE=GPL-3
+RDEPEND=|| ( app-admin/pass app-admin/gopass ) dev-qt/qtbase:6[gui,network,widgets] net-misc/x11-ssh-askpass
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/IJHack/QtPass/releases/download/v1.4.0/QtPass-1.4.0.tar.gz verify-sig? ( https://github.com/IJHack/QtPass/releases/download/v1.4.0/QtPass-1.4.0.tar.gz.asc )
+_eclasses_=desktop	7b6f6e9d65093966fbc8475399c5dd4e	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	qmake-utils	28f99dba9219112f4785f46ed426a021	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=95e0d6dc531a0a2988b4f25c916d16af
