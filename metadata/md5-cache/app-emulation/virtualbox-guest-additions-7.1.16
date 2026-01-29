@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/yasm-0.6.2 >=dev-build/kbuild-0.1.9998.3127 sys-devel/bin86 sys-power/iasl virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare
+DEPEND=acct-group/vboxguest acct-group/vboxsf acct-user/vboxguest sys-libs/pam virtual/zlib:= ~app-emulation/virtualbox-guest-modules-7.1.16 dbus? ( sys-apps/dbus ) gui? ( x11-apps/xrandr x11-apps/xrefresh x11-libs/libX11 x11-libs/libXext x11-libs/libXmu x11-libs/libXt ) gui? ( x11-libs/libICE x11-libs/libSM x11-libs/libXau x11-libs/libXdmcp x11-base/xorg-proto )
+DESCRIPTION=VirtualBox kernel modules and user-space tools for Gentoo guests
+EAPI=8
+HOMEPAGE=https://www.virtualbox.org/
+INHERIT=edo readme.gentoo-r1 systemd toolchain-funcs udev
+IUSE=+dbus gui
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3 LGPL-2.1+ MIT || ( GPL-3 CDDL )
+RDEPEND=acct-group/vboxguest acct-group/vboxsf acct-user/vboxguest sys-libs/pam virtual/zlib:= ~app-emulation/virtualbox-guest-modules-7.1.16 dbus? ( sys-apps/dbus ) gui? ( x11-apps/xrandr x11-apps/xrefresh x11-libs/libX11 x11-libs/libXext x11-libs/libXmu x11-libs/libXt )
+SLOT=0/7.1
+SRC_URI=https://download.virtualbox.org/virtualbox/7.1.16/VirtualBox-7.1.16.tar.bz2 https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-7.1.16.tar.bz2
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	f3d9a4376ebd22131726a68e1a0a058f
+_md5_=6e1e2630f71aa854a945d9d229296f97

@@ -1,0 +1,16 @@
+BDEPEND=dev-util/pahole sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig )
+DEFINED_PHASES=compile install postinst setup
+DEPEND=virtual/linux-sources
+DESCRIPTION=Kernel Modules for Virtualbox Guest Additions
+EAPI=8
+HOMEPAGE=https://www.virtualbox.org/
+IDEPEND=sys-apps/kmod[tools]
+INHERIT=linux-mod-r1
+IUSE=dist-kernel modules-compress modules-sign +strip
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3
+RDEPEND=sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= )
+SLOT=0/7.1
+SRC_URI=https://dev.gentoo.org/~ceamac/app-emulation/virtualbox-guest-modules/vbox-guest-kernel-module-src-7.1.16.tar.xz
+_eclasses_=mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	dist-kernel-utils	a40de3638d3f7a89f4c45d1a62b90e20	edo	a5e294016aa84979fcb2459749eb80b2	linux-info	efd923656513c879204fec6638eadee5	multiprocessing	1e32df7deee68372153dca65f4a7c21f	linux-mod-r1	2b1749a4ea9e1aea780b1b54dd2f65f1
+_md5_=ff1415383fd66c04496fe9db095cbcb9
