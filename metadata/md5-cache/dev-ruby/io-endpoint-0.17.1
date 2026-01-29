@@ -1,0 +1,17 @@
+BDEPEND=ruby_targets_ruby32? ( test? ( dev-ruby/sus-fixtures-async[ruby_targets_ruby32(-)] dev-ruby/sus-fixtures-openssl[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( dev-ruby/sus-fixtures-async[ruby_targets_ruby33(-)] dev-ruby/sus-fixtures-openssl[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( test? ( dev-ruby/sus-fixtures-async[ruby_targets_ruby34(-)] dev-ruby/sus-fixtures-openssl[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/sus[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( dev-ruby/sus[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( test? ( dev-ruby/sus[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) test? ( ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
+DESCRIPTION=Provides a separation of concerns interface for IO endpoints
+EAPI=8
+HOMEPAGE=https://github.com/socketry/io-endpoint
+INHERIT=ruby-fakegem
+IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 doc test test
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=MIT
+RDEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/socketry/io-endpoint/archive/refs/tags/v0.17.1.tar.gz -> io-endpoint-0.17.1.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	multilib	404b65bd5212cff83b3935c685419d08	ruby-utils	a3a0978ae7e8a40e253821da24a24782	ruby-ng	019f1856057ee80f3bb4b0ad0498fcef	ruby-fakegem	bc37b1e2fa23e795fae856dd70a23846
+_md5_=9ddbe530940bfb99fcd39420c7105feb
