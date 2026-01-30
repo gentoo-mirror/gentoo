@@ -1,11 +1,11 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 pypi
 
@@ -17,7 +17,9 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+if [[ ${PV} != *_beta* ]]; then
+	KEYWORDS="~amd64 ~x86"
+fi
 
 RDEPEND="
 	<dev-python/ply-4[${PYTHON_USEDEP}]
@@ -26,20 +28,14 @@ RDEPEND="
 BDEPEND="
 	>=dev-python/cython-3.0.10[${PYTHON_USEDEP}]
 	test? (
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/pytest-reraise[${PYTHON_USEDEP}]
 		dev-python/tornado[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-{asyncio,reraise} )
 distutils_enable_tests pytest
 
 python_test() {
-	local EPYTEST_DESELECT=(
-		tests/test_tornado.py::TornadoRPCTestCase::test_asynchronous_exception
-		tests/test_tornado.py::TornadoRPCTestCase::test_asynchronous_result
-	)
-
 	cd tests || die
 	epytest
 }

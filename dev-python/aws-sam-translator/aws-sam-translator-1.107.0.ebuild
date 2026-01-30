@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,9 +28,9 @@ KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 RDEPEND="
 	<dev-python/boto3-2[${PYTHON_USEDEP}]
 	>=dev-python/boto3-1.34.0[${PYTHON_USEDEP}]
-	>=dev-python/jsonschema-3.2[${PYTHON_USEDEP}]
+	>=dev-python/jsonschema-4.23[${PYTHON_USEDEP}]
 	<dev-python/pydantic-3[${PYTHON_USEDEP}]
-	>=dev-python/pydantic-1.8[${PYTHON_USEDEP}]
+	>=dev-python/pydantic-2.12.5[${PYTHON_USEDEP}]
 	<dev-python/typing-extensions-5[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.4[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]

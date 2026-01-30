@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 # see src/pdm/backend/_vendor/vendor.txt
 RDEPEND="
@@ -28,10 +28,6 @@ RDEPEND="
 	>=dev-python/packaging-24.0[${PYTHON_USEDEP}]
 	>=dev-python/pyproject-metadata-0.9.0_beta7[${PYTHON_USEDEP}]
 	>=dev-python/tomli-w-1.0.0[${PYTHON_USEDEP}]
-
-	$(python_gen_cond_dep '
-		>=dev-python/tomli-2.0.1[${PYTHON_USEDEP}]
-	' 3.10)
 "
 BDEPEND="
 	${RDEPEND}
