@@ -1,0 +1,16 @@
+DEFINED_PHASES=compile config configure install postinst prepare test
+DEPEND=>=net-libs/courier-authlib-0.72.7 >=net-libs/courier-unicode-2.5.0:= net-dns/libidn2:= gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) >=sys-libs/gdbm-1.8.0:= dev-libs/libpcre2 app-misc/mime-types dev-lang/perl:= fax? ( >=media-libs/netpbm-9.12 app-text/ghostscript-gpl >=net-dialup/mgetty-1.1.28 ) pam? ( sys-libs/pam ) mysql? ( dev-db/mysql-connector-c ) ldap? ( >=net-nds/openldap-1.2.11:= ) postgres? ( dev-db/postgresql:= ) spell? ( app-text/aspell ) fam? ( virtual/fam ) !mail-filter/maildrop !mail-mta/esmtp !mail-mta/exim !mail-mta/msmtp[mta] !mail-mta/netqmail !mail-mta/nullmailer !mail-mta/postfix !mail-mta/sendmail !mail-mta/ssmtp[mta] !mail-mta/opensmtpd !net-mail/dot-forward !sys-apps/ucspi-tcp test? ( dev-debug/valgrind )
+DESCRIPTION=An MTA designed specifically for maildirs
+EAPI=8
+HOMEPAGE=https://www.courier-mta.org/
+INHERIT=flag-o-matic
+IUSE=postgres ldap mysql pam nls ipv6 spell fax crypt norewrite fam web webmail gnutls split-usr test
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-3
+PDEPEND=pam? ( net-mail/mailbase ) crypt? ( >=app-crypt/gnupg-1.0.4 )
+RDEPEND=>=net-libs/courier-authlib-0.72.7 >=net-libs/courier-unicode-2.5.0:= net-dns/libidn2:= gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) >=sys-libs/gdbm-1.8.0:= dev-libs/libpcre2 app-misc/mime-types dev-lang/perl:= fax? ( >=media-libs/netpbm-9.12 app-text/ghostscript-gpl >=net-dialup/mgetty-1.1.28 ) pam? ( sys-libs/pam ) mysql? ( dev-db/mysql-connector-c ) ldap? ( >=net-nds/openldap-1.2.11:= ) postgres? ( dev-db/postgresql:= ) spell? ( app-text/aspell ) fam? ( virtual/fam ) !mail-filter/maildrop !mail-mta/esmtp !mail-mta/exim !mail-mta/msmtp[mta] !mail-mta/netqmail !mail-mta/nullmailer !mail-mta/postfix !mail-mta/sendmail !mail-mta/ssmtp[mta] !mail-mta/opensmtpd !net-mail/dot-forward !sys-apps/ucspi-tcp test? ( dev-debug/valgrind ) sys-process/procps !net-mail/courier-imap !net-mail/cyrus-imapd
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/courier/courier-1.6.0.tar.bz2
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672
+_md5_=4ee86a201a46213ea6a8038b8e587b11
