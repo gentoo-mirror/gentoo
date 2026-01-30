@@ -11,6 +11,6 @@ LICENSE=|| ( IBM EPL-2.0 )
 RDEPEND=acct-group/postfix acct-group/postdrop acct-user/postfix dev-libs/libpcre2:0 dev-lang/perl berkdb? ( >=sys-libs/db-3.2:* ) cdb? ( || ( >=dev-db/tinycdb-0.76 >=dev-db/cdb-0.75-r4 ) ) eai? ( dev-libs/icu:= ) ldap? ( net-nds/openldap:= ) ldap-bind? ( net-nds/openldap:=[sasl] ) lmdb? ( >=dev-db/lmdb-0.9.11:= ) mongodb? ( >=dev-libs/mongo-c-driver-1.23.0 >=dev-libs/libbson-1.23.0 ) mysql? ( dev-db/mysql-connector-c:0= ) nis? ( net-libs/libnsl:= ) pam? ( sys-libs/pam ) postgres? ( dev-db/postgresql:* ) sasl? ( >=dev-libs/cyrus-sasl-2 ) sqlite? ( dev-db/sqlite:3 ) ssl? ( >=dev-libs/openssl-1.1.1:0= ) tlsrpt? ( net-libs/libtlsrpt ) memcached? ( net-misc/memcached ) net-mail/mailbase !mail-mta/courier !mail-mta/esmtp !mail-mta/exim !mail-mta/msmtp[mta] !mail-mta/netqmail !mail-mta/nullmailer !mail-mta/sendmail !mail-mta/opensmtpd !mail-mta/ssmtp[mta] selinux? ( sec-policy/selinux-postfix )
 REQUIRED_USE=ldap-bind? ( ldap sasl ) tlsrpt? ( ssl )
 SLOT=0
-SRC_URI=http://ftp.porcupine.org/mirrors/postfix-release/experimental/postfix-3.12-20260111.tar.gz
+SRC_URI=http://ftp.porcupine.org/mirrors/postfix-release/experimental/postfix-3.12-20260127.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	a964c0cbe818b5729da1dbfcee5be861
 _md5_=44bb97ab93326c96fd77f66dc48dde7a

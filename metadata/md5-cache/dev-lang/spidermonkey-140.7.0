@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.14[ncurses,ssl,xml(+)] dev-lang/python:3.13[ncurses,ssl,xml(+)] dev-lang/python:3.12[ncurses,ssl,xml(+)] dev-lang/python:3.11[ncurses,ssl,xml(+)] ) llvm_slot_19? ( clang? ( llvm-core/clang:19 llvm-core/lld:19 llvm-core/llvm:19 ) ) llvm_slot_20? ( clang? ( llvm-core/clang:20 llvm-core/lld:20 llvm-core/llvm:20 ) ) llvm_slot_21? ( clang? ( llvm-core/clang:21 llvm-core/lld:21 llvm-core/llvm:21 ) ) >=dev-util/cbindgen-0.27.0 virtual/pkgconfig test? ( || ( ( dev-lang/python:3.14[ncurses,ssl,xml(+)] dev-python/six[python_targets_python3_14(-)] ) ( dev-lang/python:3.13[ncurses,ssl,xml(+)] dev-python/six[python_targets_python3_13(-)] ) ( dev-lang/python:3.12[ncurses,ssl,xml(+)] dev-python/six[python_targets_python3_12(-)] ) ( dev-lang/python:3.11[ncurses,ssl,xml(+)] dev-python/six[python_targets_python3_11(-)] ) ) ) llvm_slot_19? ( || ( dev-lang/rust-bin:1.86.0[llvm_slot_19] dev-lang/rust:1.86.0[llvm_slot_19] dev-lang/rust-bin:1.85.1[llvm_slot_19] dev-lang/rust:1.85.1[llvm_slot_19] dev-lang/rust-bin:1.85.0[llvm_slot_19] dev-lang/rust:1.85.0[llvm_slot_19] dev-lang/rust-bin:1.84.1[llvm_slot_19] dev-lang/rust:1.84.1[llvm_slot_19] dev-lang/rust-bin:1.84.0[llvm_slot_19] dev-lang/rust:1.84.0[llvm_slot_19] dev-lang/rust-bin:1.83.0[llvm_slot_19] dev-lang/rust:1.83.0[llvm_slot_19] dev-lang/rust-bin:1.82.0[llvm_slot_19] dev-lang/rust:1.82.0[llvm_slot_19] ) ) llvm_slot_20? ( || ( dev-lang/rust-bin:1.90.0[llvm_slot_20] dev-lang/rust:1.90.0[llvm_slot_20] dev-lang/rust-bin:1.89.0[llvm_slot_20] dev-lang/rust:1.89.0[llvm_slot_20] dev-lang/rust-bin:1.88.0[llvm_slot_20] dev-lang/rust:1.88.0[llvm_slot_20] dev-lang/rust-bin:1.87.0[llvm_slot_20] dev-lang/rust:1.87.0[llvm_slot_20] ) ) llvm_slot_21? ( || ( dev-lang/rust-bin:9999[llvm_slot_21] dev-lang/rust:9999[llvm_slot_21] dev-lang/rust-bin:1.92.0[llvm_slot_21] dev-lang/rust:1.92.0[llvm_slot_21] dev-lang/rust-bin:1.91.0[llvm_slot_21] dev-lang/rust:1.91.0[llvm_slot_21] ) )
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=>=dev-libs/icu-76.1:= >=dev-libs/nspr-4.36 sys-libs/readline:0= virtual/zlib:=
+DESCRIPTION=Mozilla's JavaScript engine written in C and C++
+EAPI=8
+HOMEPAGE=https://spidermonkey.dev https://firefox-source-docs.mozilla.org/js/index.html
+INHERIT=check-reqs flag-o-matic llvm-r1 multiprocessing python-any-r1 rust toolchain-funcs
+IUSE=clang cpu_flags_arm_neon debug +jit test +llvm_slot_21 llvm_slot_19 llvm_slot_20
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=MPL-2.0
+RDEPEND=>=dev-libs/icu-76.1:= >=dev-libs/nspr-4.36 sys-libs/readline:0= virtual/zlib:=
+REQUIRED_USE=^^ ( llvm_slot_19 llvm_slot_20 llvm_slot_21 )
+RESTRICT=!test? ( test )
+SLOT=140
+SRC_URI=https://archive.mozilla.org/pub/firefox/releases/140.7.0esr/source/firefox-140.7.0esr.source.tar.xz -> firefox-140.7.0esr.source.tar.xz https://dev.gentoo.org/~juippis/mozilla/patchsets/firefox-140esr-patches-03.tar.xz https://dev.gentoo.org/~juippis/mozilla/patchsets/spidermonkey-140-patches-02.tar.xz
+_eclasses_=check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	59c52dab9ddf3ca54e79003177507e97	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	rust	20da14430886f3de143eb101684fcf62
+_md5_=bafc160022844a9246a2959ec9372f33
