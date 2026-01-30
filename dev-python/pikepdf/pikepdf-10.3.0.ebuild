@@ -18,13 +18,13 @@ HOMEPAGE="
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="big-endian"
 
 # Check QPDF_MIN_VERSION in pyproject.toml on bumps, as well as
 # https://qpdf.readthedocs.io/en/stable/release-notes.html.
 DEPEND="
-	>=app-text/qpdf-11.5.0:0=
+	>=app-text/qpdf-12.2.0:0=
 "
 RDEPEND="
 	${DEPEND}
@@ -57,4 +57,19 @@ src_prepare() {
 	distutils-r1_src_prepare
 
 	sed -e '/-n auto/d' -i pyproject.toml || die
+}
+
+python_test() {
+	local EPYTEST_DESELECT=()
+
+	case ${EPYTHON} in
+		pypy3.11)
+			EPYTEST_DESELECT+=(
+				# mismatched exception message
+				tests/test_scalar_types.py::TestIntIntConversions::test_index_on_non_integer_raises
+			)
+			;;
+	esac
+
+	epytest
 }

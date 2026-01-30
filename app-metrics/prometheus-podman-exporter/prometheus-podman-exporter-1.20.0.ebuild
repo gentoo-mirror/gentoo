@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,7 +28,7 @@ IUSE="btrfs systemd"
 RESTRICT="test"
 
 DEPEND="
-	app-crypt/gpgme
+	app-crypt/gpgme:1=
 	btrfs? ( sys-fs/btrfs-progs )
 "
 RDEPEND="${DEPEND}"
@@ -38,8 +38,8 @@ PATCHES=(
 )
 
 src_compile() {
-	export BUILDTAGS="exclude_graphdriver_devicemapper"
-	use !btrfs && BUILDTAGS+=",exclude_graphdriver_btrfs,btrfs_noversion"
+	export BUILDTAGS=""
+	use !btrfs && BUILDTAGS+=",exclude_graphdriver_btrfs"
 	use systemd && BUILDTAGS+=",systemd"
 	default
 }
