@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/cbeust/jcommander
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 ppc64
+KEYWORDS=amd64 arm64 ppc64
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/cbeust/jcommander/archive/1.83.tar.gz -> jcommander-1.83.tar.gz
 _eclasses_=java-utils-2	b41327d85d12ce816943cf4d344add19	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	df1fc43a5017ec8f5d23007b23731474
-_md5_=705584a463565f6cab8225d07cf26571
+_md5_=f97e2fb0403652c37f9928f17c7872f3
