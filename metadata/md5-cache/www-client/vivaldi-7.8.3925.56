@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst postrm preinst prepare setup unpack
+DESCRIPTION=A browser for our friends
+EAPI=8
+HOMEPAGE=https://vivaldi.com/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=chromium-2 desktop linux-info toolchain-funcs unpacker xdg
+IUSE=ffmpeg-chromium gtk proprietary-codecs qt6 widevine +l10n_af +l10n_am +l10n_ar +l10n_az +l10n_be +l10n_bg +l10n_bn +l10n_ca +l10n_ca-valencia +l10n_cs +l10n_da +l10n_de +l10n_de-CH +l10n_el +l10n_en-GB +l10n_en-US +l10n_eo +l10n_es +l10n_es-419 +l10n_es-PE +l10n_et +l10n_eu +l10n_fa +l10n_fi +l10n_fil +l10n_fr +l10n_fy +l10n_gd +l10n_gl +l10n_gu +l10n_he +l10n_hi +l10n_hr +l10n_hu +l10n_hy +l10n_id +l10n_io +l10n_is +l10n_it +l10n_ja +l10n_jbo +l10n_ka +l10n_kab +l10n_kmr +l10n_kn +l10n_ko +l10n_lt +l10n_lv +l10n_mk +l10n_ml +l10n_mr +l10n_ms +l10n_nb +l10n_nl +l10n_nn +l10n_pa +l10n_pl +l10n_pt-BR +l10n_pt-PT +l10n_ro +l10n_ru +l10n_sc +l10n_sk +l10n_sl +l10n_sq +l10n_sr +l10n_sr-Latn +l10n_sv +l10n_sw +l10n_ta +l10n_te +l10n_th +l10n_tr +l10n_uk +l10n_ur +l10n_vi +l10n_zh-CN +l10n_zh-TW
+KEYWORDS=-* ~amd64 ~arm64
+LICENSE=Vivaldi
+RDEPEND=>=app-accessibility/at-spi2-core-2.46.0:2 dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss media-libs/alsa-lib media-libs/mesa[gbm(+)] net-print/cups sys-apps/dbus x11-libs/cairo x11-libs/libdrm x11-libs/libX11 x11-libs/libxcb x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libxkbcommon x11-libs/libXrandr x11-libs/pango gtk? ( gui-libs/gtk:4 x11-libs/gtk+:3 ) proprietary-codecs? ( !ffmpeg-chromium? ( >=media-video/ffmpeg-6.1-r1:0/58.60.60[chromium] ) ffmpeg-chromium? ( media-video/ffmpeg-chromium:144 ) ) qt6? ( dev-qt/qtbase:6[gui,widgets] ) widevine? ( www-plugins/chrome-binary-plugins )
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=amd64? ( https://downloads.vivaldi.com/stable/vivaldi-stable_7.8.3925.56-1_amd64.deb ) arm64? ( https://downloads.vivaldi.com/stable/vivaldi-stable_7.8.3925.56-1_arm64.deb )
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	linux-info	efd923656513c879204fec6638eadee5	chromium-2	6be3cf193def84c82ddae5c1f21ddbe5	desktop	7b6f6e9d65093966fbc8475399c5dd4e	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=7ab0ba1f475afd30574c3816b942b691
