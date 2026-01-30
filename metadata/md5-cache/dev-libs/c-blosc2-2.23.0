@@ -3,15 +3,15 @@ DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=app-arch/lz4-1.7.5:= zlib? ( virtual/zlib:= ) zstd? ( app-arch/zstd:= )
 DESCRIPTION=Blocking, shuffling and lossless compression library
 EAPI=8
-HOMEPAGE=https://www.blosc.org/c-blosc2/c-blosc2.html https://github.com/Blosc/c-blosc2/
+HOMEPAGE=https://blosc.org/c-blosc2/c-blosc2.html https://github.com/Blosc/c-blosc2/
 INHERIT=cmake
 IUSE=test +zlib +zstd
-KEYWORDS=amd64 arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~s390 ~sparc x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=BSD
 RDEPEND=>=app-arch/lz4-1.7.5:= zlib? ( virtual/zlib:= ) zstd? ( app-arch/zstd:= )
 REQUIRED_USE=test? ( zlib zstd )
 RESTRICT=!test? ( test )
-SLOT=0/5
-SRC_URI=https://github.com/Blosc/c-blosc2/archive/v2.21.3.tar.gz -> c-blosc2-2.21.3.gh.tar.gz
+SLOT=0/7
+SRC_URI=https://github.com/Blosc/c-blosc2/archive/v2.23.0.tar.gz -> c-blosc2-2.23.0.gh.tar.gz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c
-_md5_=5c04231dc251f475e53da3c49e0712a7
+_md5_=435c7ae39401d51724de709cb73f0aed
