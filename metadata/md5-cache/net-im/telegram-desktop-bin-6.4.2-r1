@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm preinst prepare
+DESCRIPTION=Official desktop client for Telegram (binary package)
+EAPI=8
+HOMEPAGE=https://desktop.telegram.org
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop optfeature xdg
+KEYWORDS=-* ~amd64
+LICENSE=GPL-3-with-openssl-exception
+RDEPEND=!net-im/telegram-desktop sys-libs/glibc dev-libs/glib:2 >=media-libs/fontconfig-2.13 media-libs/freetype:2 virtual/opengl x11-libs/gtk+:3[X,wayland] x11-libs/libX11 >=x11-libs/libxcb-1.10
+SLOT=0
+SRC_URI=https://github.com/telegramdesktop/tdesktop/archive/v6.4.2.tar.gz -> tdesktop-6.4.2.tar.gz amd64? ( https://updates.tdesktop.com/tlinux/tsetup.6.4.2.tar.xz )
+_eclasses_=desktop	7b6f6e9d65093966fbc8475399c5dd4e	optfeature	538bce96e5589935b57e178e8635f301	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=84a87609092e75997b4bdd2dc709d32e
