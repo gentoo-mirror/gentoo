@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,6 +17,9 @@ else
 		https://dev.gentoo.org/~ionen/distfiles/${P}-vendor.tar.xz
 		verify-sig? ( https://github.com/kovidgoyal/kitty/releases/download/v${PV}/${P}.tar.xz.sig )
 	"
+	# backport for less-691 search issue wrt bug #969467
+	# (not a patch due to binary files, albeit could've re-generated with tic)
+	SRC_URI+=" https://dev.gentoo.org/~ionen/distfiles/${P}-less691-fix-backport.tar.xz"
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kovidgoyal.gpg
 	KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv x86"
 fi
@@ -25,7 +28,7 @@ DESCRIPTION="Fast, feature-rich, GPU-based terminal"
 HOMEPAGE="https://sw.kovidgoyal.net/kitty/"
 
 LICENSE="GPL-3 ZLIB"
-LICENSE+=" Apache-2.0 BSD BSD-2 MIT MPL-2.0" # go
+LICENSE+=" Apache-2.0 BSD BSD-2 MIT" # go
 SLOT="0"
 IUSE="+X test wayland"
 REQUIRED_USE="
