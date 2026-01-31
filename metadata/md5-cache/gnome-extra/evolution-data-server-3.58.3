@@ -1,0 +1,18 @@
+BDEPEND=>=dev-util/gdbus-codegen-2.80.5-r1 dev-util/glib-utils dev-util/gperf gtk-doc? ( >=dev-util/gtk-doc-1.14 dev-util/gi-docgen app-text/docbook-xml-dtd:4.1.2 ) >=dev-util/intltool-0.35.5 >=sys-devel/gettext-0.18.3 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 >=app-portage/elt-patches-20250306 app-arch/xz-utils test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend test
+DEPEND=>=app-crypt/libsecret-0.5[crypt] >=dev-db/sqlite-3.7.17:3 >=dev-libs/glib-2.70:2 >=dev-libs/libical-3.0.8:=[glib,introspection?] >=dev-libs/libxml2-2:= >=dev-libs/nspr-4.4 >=dev-libs/nss-3.9 >=net-libs/libsoup-3.1.1:3.0 >=dev-libs/json-glib-1.0.4[introspection] dev-libs/icu:= virtual/zlib:= virtual/libiconv berkdb? ( >=sys-libs/db-4:= ) gtk? ( >=x11-libs/gtk+-3.20:3 >=gui-libs/gtk-4.4:4 sound? ( || ( media-libs/libcanberra-gtk3 >=media-libs/libcanberra-0.25[gtk3(-)] ) ) oauth-gtk3? ( >=net-libs/webkit-gtk-2.34.0:4.1 ) oauth-gtk4? ( >=net-libs/webkit-gtk-2.39.90:6 ) ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.8:= ) introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= ) kerberos? ( virtual/krb5:= ) ldap? ( >=net-nds/openldap-2:= ) weather? ( >=dev-libs/libgweather-4.2.0:4= ) vala? ( || ( dev-lang/vala:0.56 ) >=net-libs/libsoup-3.1.1:3.0[vala] dev-libs/libical[vala] )
+DESCRIPTION=Evolution groupware backend
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/evolution/-/wikis/home https://gitlab.gnome.org/GNOME/evolution-data-server
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake db-use flag-o-matic gnome2 vala virtualx
+IUSE=berkdb +gnome-online-accounts +gtk gtk-doc +introspection ldap kerberos oauth-gtk3 oauth-gtk4 sound vala +weather test
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=|| ( LGPL-2 LGPL-3 ) BSD Sleepycat
+RDEPEND=>=app-crypt/libsecret-0.5[crypt] >=dev-db/sqlite-3.7.17:3 >=dev-libs/glib-2.70:2 >=dev-libs/libical-3.0.8:=[glib,introspection?] >=dev-libs/libxml2-2:= >=dev-libs/nspr-4.4 >=dev-libs/nss-3.9 >=net-libs/libsoup-3.1.1:3.0 >=dev-libs/json-glib-1.0.4[introspection] dev-libs/icu:= virtual/zlib:= virtual/libiconv berkdb? ( >=sys-libs/db-4:= ) gtk? ( >=x11-libs/gtk+-3.20:3 >=gui-libs/gtk-4.4:4 sound? ( || ( media-libs/libcanberra-gtk3 >=media-libs/libcanberra-0.25[gtk3(-)] ) ) oauth-gtk3? ( >=net-libs/webkit-gtk-2.34.0:4.1 ) oauth-gtk4? ( >=net-libs/webkit-gtk-2.39.90:6 ) ) gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.8:= ) introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= ) kerberos? ( virtual/krb5:= ) ldap? ( >=net-nds/openldap-2:= ) weather? ( >=dev-libs/libgweather-4.2.0:4= )
+REQUIRED_USE=oauth-gtk3? ( gtk ) oauth-gtk4? ( gtk ) vala? ( introspection )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0/66-11-21-4-3-27-2-27-4-0
+SRC_URI=mirror://gnome/sources/evolution-data-server/3.58/evolution-data-server-3.58.3.tar.xz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	multilib	404b65bd5212cff83b3935c685419d08	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	libtool	c81bd096be5f4c82f4e8f156ef112402	gnome.org	e1b4f392dbfedfb8974b71b017937f08	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	xdg	3ef49a87c52c8b77c476351195dfe575	gnome2	26fd01914b36038dc8e964ff4bd03a95	vala	b2f2aa400d77b841d952dda847e24d53	virtualx	9741d451eb64ea8bb9faee90d68a9b68
+_md5_=47cfae7d6d0642a5b890b40881407603
