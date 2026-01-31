@@ -2,7 +2,7 @@ BDEPEND=test? ( >=dev-python/pytest-7.4.4[python_targets_python3_11(-)?,python_t
 DEFINED_PHASES=compile configure install prepare test unpack
 DESCRIPTION=Produce ansi color output and colored highlighting and diffing
 EAPI=8
-HOMEPAGE=https://github.com/numerodix/ansicolor https://pypi.org/project/ansicolor/
+HOMEPAGE=https://github.com/numerodix/ansicolor/ https://pypi.org/project/ansicolor/
 INHERIT=distutils-r1 git-r3
 IUSE=test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
 LICENSE=Apache-2.0
@@ -12,4 +12,4 @@ REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_tar
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=f08aebc02a3d96c7c5d805c02372d6f9
+_md5_=3bd896d1f3195181b9126b105c57b212
