@@ -1,0 +1,15 @@
+BDEPEND=python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Simple app to get songs from youtube in mp3 format
+EAPI=8
+HOMEPAGE=https://ytmdl.deepjyoti30.dev/ https://github.com/deepjyoti30/ytmdl/
+INHERIT=bash-completion-r1 distutils-r1 edo
+IUSE=python_targets_python3_12 python_targets_python3_13
+KEYWORDS=amd64 ~x86
+LICENSE=MIT
+RDEPEND=>=net-misc/yt-dlp-2022.3.8.2[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/pysocks[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/beautifulsoup4[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/colorama[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/ffmpeg-python[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/itunespy[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/musicbrainzngs[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/pydes[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/pyxdg[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/requests[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/rich[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/simber[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/spotipy[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/unidecode[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/urllib3[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/youtube-search-python[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/ytmusicapi[python_targets_python3_12(-)?,python_targets_python3_13(-)?] media-libs/mutagen[python_targets_python3_12(-)?,python_targets_python3_13(-)?] net-misc/downloader-cli[python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_12 python_targets_python3_13 )
+SLOT=0
+SRC_URI=https://github.com/deepjyoti30/ytmdl/archive/2024.08.15.1.tar.gz -> ytmdl-2024.08.15.1.gh.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	bash-completion-r1	767861f3744f589ee5291c1698b1c082	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701	edo	a5e294016aa84979fcb2459749eb80b2
+_md5_=b8106e7d56d78528bfc5d3394ed4d5f0
