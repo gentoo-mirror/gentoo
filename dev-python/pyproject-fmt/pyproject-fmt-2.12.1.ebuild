@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ PYTHON_COMPAT=( python3_{11..14} )
 RUST_MIN_VER="1.77.0"
 CRATES="
 	ahash@0.8.12
-	aho-corasick@1.1.3
+	aho-corasick@1.1.4
 	any_ascii@0.1.7
 	arc-swap@1.7.1
 	autocfg@1.4.0
@@ -35,7 +35,7 @@ CRATES="
 	hashbrown@0.15.3
 	heck@0.5.0
 	indexmap@2.9.0
-	indoc@2.0.6
+	indoc@2.0.7
 	itertools@0.10.5
 	itoa@1.0.15
 	lexical-sort@0.3.1
@@ -43,7 +43,7 @@ CRATES="
 	log@0.4.27
 	logos-derive@0.12.1
 	logos@0.12.1
-	memchr@2.7.4
+	memchr@2.7.6
 	memoffset@0.9.1
 	num-conv@0.1.0
 	once_cell@1.21.3
@@ -60,16 +60,17 @@ CRATES="
 	pyo3@0.26.0
 	quote@1.0.40
 	r-efi@5.2.0
-	regex-automata@0.4.9
+	regex-automata@0.4.13
 	regex-syntax@0.6.29
-	regex-syntax@0.8.5
-	regex@1.11.1
+	regex-syntax@0.8.8
+	regex@1.12.2
 	relative-path@1.9.3
 	rowan@0.15.16
 	rstest@0.26.1
 	rstest_macros@0.26.1
 	rustc-hash@1.1.0
 	rustc_version@0.4.1
+	rustversion@1.0.22
 	ryu@1.0.20
 	semver@1.0.26
 	serde@1.0.219
@@ -119,10 +120,10 @@ LICENSE+="
 	|| ( Apache-2.0 Boost-1.0 )
 "
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
-	~dev-python/toml-fmt-common-1.0.1[${PYTHON_USEDEP}]
+	~dev-python/toml-fmt-common-1.2.0[${PYTHON_USEDEP}]
 "
 # tox is called as a subprocess, to get targets from tox.ini
 BDEPEND="
