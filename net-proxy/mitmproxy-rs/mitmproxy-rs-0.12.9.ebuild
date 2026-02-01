@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,8 +12,8 @@ declare -A GIT_CRATES=(
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
 PYTHON_COMPAT=( python3_{12..14} )
-RUST_MIN_VER=1.88.0
-RUST_MAX_VER=1.89.0
+RUST_MIN_VER=1.89.0
+RUST_MAX_VER=1.90.0
 
 inherit cargo distutils-r1 pypi
 
@@ -34,7 +34,7 @@ LICENSE+="
 	LGPL-3+ MIT Unicode-3.0 WTFPL-2 ZLIB
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	~net-proxy/mitmproxy-linux-${PV}[${PYTHON_USEDEP}]
