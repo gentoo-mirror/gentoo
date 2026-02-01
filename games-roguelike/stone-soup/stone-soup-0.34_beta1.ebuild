@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # There are many slots for this package because people in the community
@@ -14,7 +14,7 @@
 
 EAPI=8
 
-LUA_COMPAT=( lua5-1 )
+LUA_COMPAT=( lua5-4 )
 LUA_REQ_USE="deprecated"
 PYTHON_COMPAT=( python3_{12..14} )
 VIRTUALX_REQUIRED="manual"
@@ -24,7 +24,7 @@ DESCRIPTION="Role-playing roguelike game of exploration and treasure-hunting in 
 HOMEPAGE="https://crawl.develz.org"
 
 # Leave empty string if not a _pre release
-COMMITSHA=""
+COMMITSHA="da2984106b1596fdc341ab775e21956818689923"
 if [ -z "${COMMITSHA}" ]; then
 	# This is a tagged release
 	# Note the archive URI and file layout changed upstream between 0.29.0 and 0.29.1
@@ -40,7 +40,7 @@ else
 	MY_P="crawl-${COMMITSHA}/crawl-ref"
 fi
 # MY_SLOT to satisfy pkgcheck variable order checking
-MY_SLOT="0.33"
+MY_SLOT="0.34"
 SRC_URI="
 	${SRC_URI}
 	https://dev.gentoo.org/~stasibear/distfiles/${PN}.png -> ${PN}-${MY_SLOT}.png
@@ -54,7 +54,7 @@ S=${WORKDIR}/${MY_P}/source
 # MIT: json.cc/json.h, some .js files in webserver/static/scripts/contrib/
 LICENSE="GPL-2 BSD BSD-2 public-domain CC0-1.0 MIT"
 SLOT="${MY_SLOT}"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="advpng debug ncurses sound test +tiles"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
