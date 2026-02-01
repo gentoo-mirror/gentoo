@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://crawl.develz.org
 INHERIT=desktop python-any-r1 lua-single xdg-utils toolchain-funcs
 IUSE=advpng debug ncurses sound test +tiles +lua_single_target_lua5-1
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2 BSD BSD-2 public-domain CC0-1.0 MIT
 RDEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1[deprecated] ) dev-db/sqlite:3 virtual/zlib:= !ncurses? ( !tiles? ( sys-libs/ncurses:0 ) ) ncurses? ( sys-libs/ncurses:0 ) tiles? ( media-fonts/dejavu media-libs/freetype:2 media-libs/libpng:0 sound? ( media-libs/libsdl2[X,opengl,sound,video] media-libs/sdl2-mixer ) !sound? ( media-libs/libsdl2[X,opengl,video] ) media-libs/sdl2-image[png] virtual/glu virtual/opengl )
 REQUIRED_USE=^^ ( lua_single_target_lua5-1 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0.33
 SRC_URI=https://github.com/crawl/crawl/archive/refs/tags/0.33.1.tar.gz -> stone-soup-0.33.1.tar.gz https://dev.gentoo.org/~stasibear/distfiles/stone-soup.png -> stone-soup-0.33.png https://dev.gentoo.org/~stasibear/distfiles/stone-soup.svg -> stone-soup-0.33.svg
 _eclasses_=desktop	7b6f6e9d65093966fbc8475399c5dd4e	multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=bae75d6e47e42916ef922032e126c57c
+_md5_=6c768578939a203f2f07cb11825e00bf
