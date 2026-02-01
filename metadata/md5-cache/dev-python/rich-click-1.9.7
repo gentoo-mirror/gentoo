@@ -1,0 +1,16 @@
+BDEPEND=test? ( >=dev-python/packaging-25[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/typer-0.15[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) test? ( >=dev-python/click-8[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/rich-12[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/pytest-7.4.4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/inline-snapshot[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Format click help output nicely with rich
+EAPI=8
+HOMEPAGE=https://pypi.org/project/rich-click/ https://github.com/ewels/rich-click/
+INHERIT=distutils-r1
+IUSE=test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
+KEYWORDS=~amd64 ~arm ~arm64
+LICENSE=MIT
+RDEPEND=>=dev-python/click-8[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/rich-12[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ewels/rich-click/archive/refs/tags/v1.9.7.tar.gz -> rich-click-1.9.7.gh.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701
+_md5_=e021fc49abaa58f9fdb585099d46e396
