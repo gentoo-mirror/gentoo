@@ -80,7 +80,21 @@ sysroot_make_run_prefixed() {
 		fi
 	fi
 
-	if [[ ${QEMU_ARCH} == $(qemu_arch "${CBUILD}") ]]; then
+	if [[ ${CHOST} = *-mingw32 ]]; then
+		if ! type -P wine >/dev/null; then
+			einfo "Wine not found. Continuing without ${SCRIPT##*/} wrapper."
+			return 1
+		fi
+
+		# UNIX paths can work, but programs will not expect this in %PATH%.
+		local winepath="Z:${LIBGCC};Z:${MYEROOT}/bin;Z:${MYEROOT}/usr/bin;Z:${MYEROOT}/$(get_libdir);Z:${MYEROOT}/usr/$(get_libdir)"
+
+		# Assume that Wine can do its own CPU emulation.
+		install -m0755 /dev/stdin "${SCRIPT}" <<-EOF || die
+			#!/bin/sh
+			SANDBOX_ON=0 LD_PRELOAD= WINEPATH="\${WINEPATH}\${WINEPATH+;};${winepath//\//\\}" exec wine "\${@}"
+		EOF
+	elif [[ ${QEMU_ARCH} == $(qemu_arch "${CBUILD}") ]]; then
 		# glibc: ld.so is a symlink, ldd is a binary.
 		# musl: ld.so doesn't exist, ldd is a symlink.
 		local DLINKER candidate
@@ -109,6 +123,19 @@ sysroot_make_run_prefixed() {
 			#!/bin/sh
 			QEMU_SET_ENV="\${QEMU_SET_ENV}\${QEMU_SET_ENV+,}LD_LIBRARY_PATH=\${LD_LIBRARY_PATH}\${LD_LIBRARY_PATH+:}${LIBGCC}" QEMU_LD_PREFIX="${MYROOT}" exec $(type -P "qemu-${QEMU_ARCH}") "\${@}"
 		EOF
+
+		# Meson will fail if the given exe_wrapper does not work, regardless of
+		# whether one is actually needed. This is bad if QEMU is not installed
+		# and worse if QEMU does not support the architecture. We therefore need
+		# to perform our own test up front.
+		local test="${SCRIPT}-test"
+		echo 'int main(void) { return 0; }' > "${test}.c" || die "failed to write ${test##*/}"
+		$(tc-getCC) ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} "${test}.c" -o "${test}" || die "failed to build ${test##*/}"
+
+		if ! "${SCRIPT}" "${test}" &>/dev/null; then
+			einfo "Failed to run ${test##*/}. Continuing without ${SCRIPT##*/} wrapper."
+			return 1
+		fi
 	fi
 
 	echo "${SCRIPT}"
