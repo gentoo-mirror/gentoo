@@ -1,0 +1,13 @@
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) llvm_slot_23? ( llvm-core/clang:23 ) spirv? ( >=dev-util/spirv-llvm-translator-22:* ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DESCRIPTION=OpenCL C library
+EAPI=8
+HOMEPAGE=https://libclc.llvm.org/
+INHERIT=cmake llvm.org llvm-r1 python-any-r1
+IUSE=+spirv video_cards_nvidia video_cards_r600 video_cards_radeonsi +llvm_slot_23
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( MIT BSD )
+REQUIRED_USE=^^ ( llvm_slot_23 )
+SLOT=0
+SRC_URI=https://github.com/llvm/llvm-project/archive/424bebd9c784b8490e63290feeeceb42dfdaeb49.tar.gz -> llvm-project-424bebd9c784b8490e63290feeeceb42dfdaeb49.tar.gz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	llvm.org	b857d7e7a1d84a88e7a3f10dc1dbe664	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	59c52dab9ddf3ca54e79003177507e97	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=0a3719966b141466b1b3605a8926000e
