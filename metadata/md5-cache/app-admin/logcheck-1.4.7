@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst prepare
+DEPEND=acct-group/logcheck acct-user/logcheck[systemd?]
+DESCRIPTION=Mails anomalies in the system logfiles to the administrator
+EAPI=8
+HOMEPAGE=https://logcheck.org/
+INHERIT=readme.gentoo-r1 systemd tmpfiles
+IUSE=cron systemd
+KEYWORDS=~amd64 ~ppc ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=acct-group/logcheck acct-user/logcheck[systemd?] !app-admin/logsentry app-misc/lockfile-progs dev-lang/perl dev-perl/mime-construct sys-apps/debianutils virtual/mailx cron? ( sys-apps/util-linux ) virtual/tmpfiles
+RESTRICT=test
+SLOT=0
+SRC_URI=https://salsa.debian.org/debian/logcheck/-/archive/debian/1.4.7/logcheck-debian-1.4.7.tar.gz -> logcheck-1.4.7.tar.gz
+_eclasses_=readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_md5_=2716c8cd41f5e4d9ce28747b12383f82
