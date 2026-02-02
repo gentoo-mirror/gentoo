@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 inherit eapi9-ver go-module systemd tmpfiles
 
 # make sure this gets updated for every bump
-GIT_COMMIT=bda84871
+GIT_COMMIT=9ffb4aa0
 
 DESCRIPTION="The official GitLab Runner, written in Go"
 HOMEPAGE="https://gitlab.com/gitlab-org/gitlab-runner"
