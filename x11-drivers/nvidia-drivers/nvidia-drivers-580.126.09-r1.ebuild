@@ -29,7 +29,7 @@ LICENSE="
 SLOT="0/${PV%%.*}"
 KEYWORDS="-* ~amd64 ~arm64"
 IUSE="
-	+X abi_x86_32 abi_x86_64 +kernel-open persistenced powerd
+	+X abi_x86_32 abi_x86_64 kernel-open persistenced powerd
 	+static-libs +tools wayland
 "
 
@@ -54,9 +54,6 @@ COMMON_DEPEND="
 		x11-libs/pango
 	)
 "
-# egl-wayland2: nvidia currently ships both versions so, to ensure
-# everything works properly, depend on both at same time for now
-# (may use one or the other depending on setup)
 RDEPEND="
 	${COMMON_DEPEND}
 	dev-libs/openssl:0/3
@@ -69,8 +66,10 @@ RDEPEND="
 	powerd? ( sys-apps/dbus[abi_x86_32(-)?] )
 	wayland? (
 		>=gui-libs/egl-gbm-1.1.1-r2[abi_x86_32(-)?]
-		>=gui-libs/egl-wayland-1.1.13.1[abi_x86_32(-)?]
-		gui-libs/egl-wayland2[abi_x86_32(-)?]
+		|| (
+			>=gui-libs/egl-wayland-1.1.13.1[abi_x86_32(-)?]
+			gui-libs/egl-wayland2[abi_x86_32(-)?]
+		)
 		X? ( gui-libs/egl-x11[abi_x86_32(-)?] )
 	)
 "
@@ -166,6 +165,10 @@ src_prepare() {
 	mv NVIDIA-kernel-module-source-${PV} kernel-module-source || die
 
 	default
+
+	# prevent detection of incomplete kernel DRM support (bug #603818)
+	sed 's/defined(CONFIG_DRM/defined(CONFIG_DRM_KMS_HELPER/g' \
+		-i kernel{,-module-source/kernel-open}/conftest.sh || die
 
 	sed 's/__USER__/nvpd/' \
 		nvidia-persistenced/init/systemd/nvidia-persistenced.service.template \
@@ -275,7 +278,6 @@ src_install() {
 		libnvidia-{gtk,wayland-client} nvidia-{settings,xconfig} # from source
 		libnvidia-egl-gbm 15_nvidia_gbm # gui-libs/egl-gbm
 		libnvidia-egl-wayland 10_nvidia_wayland # gui-libs/egl-wayland
-		libnvidia-egl-wayland2 99_nvidia_wayland2 # gui-libs/egl-wayland2
 		libnvidia-egl-xcb 20_nvidia_xcb.json # gui-libs/egl-x11
 		libnvidia-egl-xlib 20_nvidia_xlib.json # gui-libs/egl-x11
 		libnvidia-pkcs11.so # using the openssl3 version instead
@@ -322,6 +324,12 @@ $(use amd64 && usev !abi_x86_32 "
 
 Note that without USE=abi_x86_32 on ${PN}, 32bit applications
 (typically using wine / steam) will not be able to use GPU acceleration.")
+
+Be warned that USE=kernel-open may need to be either enabled or
+disabled for certain cards to function:
+- GTX 50xx (blackwell) and higher require it to be enabled
+- GTX 1650 and higher (pre-blackwell) should work either way
+- Older cards require it to be disabled
 
 For additional information or for troubleshooting issues, please see
 https://wiki.gentoo.org/wiki/NVIDIA/nvidia-drivers and NVIDIA's own
@@ -501,6 +509,8 @@ documentation that is installed alongside this README."
 }
 
 pkg_preinst() {
+	has_version "${CATEGORY}/${PN}[kernel-open]" && NV_HAD_KERNEL_OPEN=
+
 	use modules || return
 
 	# set video group id based on live system (bug #491414)
@@ -561,14 +571,17 @@ pkg_postinst() {
 		ewarn "[2] https://wiki.gentoo.org/wiki/Nouveau"
 	fi
 
-	if ver_replacing -lt 590; then
-		elog "\n>=${PN}-590 has changes that may or may not need attention:"
-		elog "1. support for Pascal, Maxwell, and Volta cards has been dropped"
-		elog "  (if affected, there should be a another message about this above)"
-		elog "2. USE=kernel-open is now enabled by default"
-		elog "  (generally safe and recommended, but some setups may hit regressions)"
-		elog "3. nvidia-drm.modeset=1 is now default regardless of USE=wayland"
-		elog "4. nvidia-drm.fbdev=1 is now also tentatively default to match upstream"
+	if use kernel-open && use modules && [[ ! -v NV_HAD_KERNEL_OPEN ]]; then
+		ewarn "\nOpen source variant of ${PN} was selected, note that it requires"
+		ewarn "Turing/Ampere+ GPUs (aka GTX 1650+). Try disabling if run into issues."
+		ewarn "Also see: ${EROOT}/usr/share/doc/${PF}/html/kernel_open.html"
+	fi
+
+	if ver_replacing -lt 580.126.09-r1; then
+		elog "\n>=nvidia-drivers-580.126.09-r1 changes some defaults that may or may"
+		elog "not need attention:"
+		elog "1. nvidia-drm.modeset=1 is now default regardless of USE=wayland"
+		elog "2. nvidia-drm.fbdev=1 is now also tentatively default to match upstream"
 		elog "See ${EROOT}/etc/modprobe.d/nvidia.conf to modify settings if needed,"
 		elog "fbdev=1 *could* cause issues for the console display with some setups."
 	fi
