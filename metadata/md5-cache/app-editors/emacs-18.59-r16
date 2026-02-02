@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
-DEPEND=sys-libs/ncurses:0= amd64? ( abi_x86_x32? ( >=sys-libs/ncurses-5.9-r3:0=[abi_x86_x32(-)?] ) !abi_x86_x32? ( >=sys-libs/ncurses-5.9-r3:0=[abi_x86_32(-)] ) ) gui? ( x11-libs/libX11 ) gui? ( x11-base/xorg-proto x11-misc/xbitmaps )
+DEPEND=sys-libs/ncurses:0= gui? ( x11-libs/libX11 ) amd64? ( abi_x86_x32? ( sys-libs/ncurses:0=[abi_x86_x32(-)] gui? ( x11-libs/libX11[abi_x86_x32(-)] ) ) !abi_x86_x32? ( sys-libs/ncurses:0=[abi_x86_32(-)] gui? ( x11-libs/libX11[abi_x86_32(-)] ) ) ) gui? ( x11-base/xorg-proto x11-misc/xbitmaps )
 DESCRIPTION=The extensible self-documenting text editor
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/emacs/
@@ -9,8 +9,8 @@ INHERIT=toolchain-funcs flag-o-matic multilib
 IUSE=abi_x86_x32 gui
 KEYWORDS=amd64 x86
 LICENSE=GPL-1+ GPL-2+ BSD HPND
-RDEPEND=sys-libs/ncurses:0= amd64? ( abi_x86_x32? ( >=sys-libs/ncurses-5.9-r3:0=[abi_x86_x32(-)?] ) !abi_x86_x32? ( >=sys-libs/ncurses-5.9-r3:0=[abi_x86_32(-)] ) ) gui? ( x11-libs/libX11 ) app-eselect/eselect-emacs
+RDEPEND=sys-libs/ncurses:0= gui? ( x11-libs/libX11 ) amd64? ( abi_x86_x32? ( sys-libs/ncurses:0=[abi_x86_x32(-)] gui? ( x11-libs/libX11[abi_x86_x32(-)] ) ) !abi_x86_x32? ( sys-libs/ncurses:0=[abi_x86_32(-)] gui? ( x11-libs/libX11[abi_x86_32(-)] ) ) ) app-eselect/eselect-emacs
 SLOT=18
 SRC_URI=https://ftp.gnu.org/old-gnu/emacs/emacs-18.59.tar.gz https://dev.gentoo.org/~ulm/emacs/emacs-18.59-patches-16.tar.xz
 _eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multilib	404b65bd5212cff83b3935c685419d08
-_md5_=6186860d2b18f3c00d7f7604db372731
+_md5_=04efa459e3b34c1e3f2e9b5357c6334a
