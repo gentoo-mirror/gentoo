@@ -9,5 +9,5 @@ LICENSE=MIT
 RDEPEND=app-accessibility/at-spi2-core:2 dev-libs/expat dev-libs/glib:2 dev-libs/nspr dev-libs/nss media-libs/alsa-lib media-libs/mesa[opengl] net-print/cups sys-apps/dbus sys-apps/util-linux x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/libX11 x11-libs/libxcb x11-libs/libXcomposite x11-libs/libXcursor x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libxkbcommon x11-libs/libXrandr x11-libs/pango virtual/libudev || ( gui-libs/gtk:4 x11-libs/gtk+:3 ) !<games-rpg/crosscode-1.4.2.2-r1 !ffmpeg-chromium? ( >=media-video/ffmpeg-7.1:0/59.61.61[chromium] ) ffmpeg-chromium? ( media-video/ffmpeg-chromium:143 )
 SLOT=0
 SRC_URI=sdk? ( amd64? ( https://dl.nwjs.io/v0.106.0/nwjs-sdk-v0.106.0-linux-x64.tar.gz ) x86? ( https://dl.nwjs.io/v0.106.0/nwjs-sdk-v0.106.0-linux-ia32.tar.gz ) ) !sdk? ( amd64? ( https://dl.nwjs.io/v0.106.0/nwjs-v0.106.0-linux-x64.tar.gz ) x86? ( https://dl.nwjs.io/v0.106.0/nwjs-v0.106.0-linux-ia32.tar.gz ) )
-_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	linux-info	efd923656513c879204fec6638eadee5	chromium-2	6be3cf193def84c82ddae5c1f21ddbe5
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	linux-info	efd923656513c879204fec6638eadee5	chromium-2	6be3cf193def84c82ddae5c1f21ddbe5
 _md5_=a0751039cdc20a4837564dd04a022165

@@ -10,5 +10,5 @@ PROPERTIES=live
 RDEPEND=!<=sys-kernel/installkernel-systemd-3 dracut? ( >=sys-kernel/dracut-110 uki? ( || ( sys-apps/systemd[boot(-)] sys-apps/systemd-utils[boot(-)] ) ) ) efistub? ( systemd? ( >=app-emulation/virt-firmware-24.7 ) !systemd? ( sys-boot/uefi-mkconfig ) ) grub? ( sys-boot/grub ) refind? ( sys-boot/refind ) systemd? ( || ( >=sys-apps/systemd-255[kernel-install(-)] >=sys-apps/systemd-utils-255[kernel-install(-)] ) ) systemd-boot? ( || ( sys-apps/systemd[boot(-)] sys-apps/systemd-utils[boot(-)] ) ) ukify? ( || ( >=sys-apps/systemd-256[boot(-),ukify(-)] >=sys-apps/systemd-utils-256[boot(-),ukify(-)] ) ) ugrd? ( >=sys-kernel/ugrd-1.31.2 ) !=sys-apps/systemd-255.2-r1 !=sys-apps/systemd-255.2-r0 !~sys-apps/systemd-255.1 !~sys-apps/systemd-255.0 !=sys-apps/systemd-254.8-r0 !=sys-apps/systemd-254.7-r0 !~sys-apps/systemd-254.6 !<=sys-apps/systemd-254.5-r1
 REQUIRED_USE=systemd-boot? ( systemd ) ukify? ( uki ) ?? ( dracut ugrd )
 SLOT=0
-_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	linux-info	efd923656513c879204fec6638eadee5	git-r3	875eb471682d3e1f18da124be97dcc81
+_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	linux-info	efd923656513c879204fec6638eadee5	git-r3	875eb471682d3e1f18da124be97dcc81
 _md5_=67be0ef7aee8133753e863f26750283d

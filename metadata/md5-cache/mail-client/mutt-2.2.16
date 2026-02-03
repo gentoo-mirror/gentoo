@@ -12,5 +12,5 @@ RDEPEND=app-misc/mime-types virtual/libiconv berkdb? ( >=sys-libs/db-4:= ) gdbm?
 REQUIRED_USE=gsasl? ( sasl ) hcache? ( || ( berkdb gdbm lmdb qdbm tokyocabinet ) ) imap? ( ssl ) pop? ( ssl ) smtp? ( ssl sasl ) sasl? ( || ( imap pop smtp ) ) kerberos? ( || ( imap pop smtp ) ) autocrypt? ( gpgme )
 SLOT=0
 SRC_URI=http://ftp.mutt.org/pub/mutt/mutt-2.2.16.tar.gz https://bitbucket.org/mutt/mutt/downloads/mutt-2.2.16.tar.gz https://dev.gentoo.org/~grobian/distfiles/mutt-gentoo-2.2.16-patches-r0.tar.xz
-_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	branding	7bcece3faa73dd0fc3e597013510d53a
+_eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	branding	7bcece3faa73dd0fc3e597013510d53a
 _md5_=6b8fbe54401173b546bed7818fb0c24d
