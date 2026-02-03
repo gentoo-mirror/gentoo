@@ -5,9 +5,9 @@ EAPI=8
 HOMEPAGE=https://www.greenbone.net
 INHERIT=optfeature systemd
 IUSE=cli doc +gsa ldap ospd snmp radius
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=AGPL-3+
 RDEPEND=>=net-analyzer/gvm-libs-22.22.0[doc?,ldap?,radius?] >=net-analyzer/gvmd-26.0.0[doc?] >=net-analyzer/openvas-scanner-23.20.1[doc?,snmp?] >=net-analyzer/greenbone-feed-sync-23.6.0 cli? ( >=net-analyzer/gvm-tools-25.3.0 ) gsa? ( >=net-analyzer/gsad-24.3.0[doc?] >=net-analyzer/gsa-25.0.0 ) ospd? ( >=net-analyzer/ospd-openvas-22.9.0[doc?] )
 SLOT=0
 _eclasses_=optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=45cd18104f872d2cb0366ba5c2317aa1
+_md5_=a1b23e6d4cad72165fd75a27b8559737
