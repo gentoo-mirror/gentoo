@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=app-arch/zstd:= virtual/zlib:=
+DESCRIPTION=Library intended to simplify reading (and writing) applications using DWARF
+EAPI=8
+HOMEPAGE=https://www.prevanders.net/dwarf.html https://github.com/davea42/libdwarf-code
+INHERIT=cmake
+IUSE=test dwarfexample dwarfgen
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=GPL-2 LGPL-2.1 BSD
+RDEPEND=app-arch/zstd:= virtual/zlib:=
+RESTRICT=!test? ( test )
+SLOT=0/2
+SRC_URI=https://www.prevanders.net/libdwarf-2.3.0.tar.xz
+_eclasses_=toolchain-funcs	30214924c0c3b92ec7dbf24fc70d60d3	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c
+_md5_=cb0b7252c7a5aeca0f62bd6ba7c62e74
