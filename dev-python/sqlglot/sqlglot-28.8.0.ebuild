@@ -3,14 +3,13 @@
 
 EAPI=8
 
-CRATES="
-"
-
+CRATES=""
 CARGO_OPTIONAL=1
+RUST_MIN_VER="1.81.0"
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..14} )
-CRATE_PV=27.24.2
+CRATE_PV=28.7.0
 
 inherit cargo distutils-r1 pypi optfeature
 
