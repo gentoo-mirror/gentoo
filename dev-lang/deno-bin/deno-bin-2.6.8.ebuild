@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,7 +25,7 @@ LICENSE+="
 	MPL-2.0 openssl Unicode-3.0 Unicode-DFS-2016 ZLIB
 " # crates
 SLOT="0"
-KEYWORDS="-* amd64 arm64"
+KEYWORDS="-* ~amd64 ~arm64"
 
 RDEPEND="
 	|| (
