@@ -904,7 +904,7 @@ app-accessibility/orca 47.5 49.5: Extensible screen reader that provides access 
 app-accessibility/sound-icons 0.1: Collection of Sound Icons for speech-dispatcher
 app-accessibility/speech-dispatcher 0.11.5 0.12.0-r1 0.12.1: Speech synthesis interface
 app-accessibility/speech-tools 2.5.0-r1 2.5.0-r2: Speech tools for Festival Text to Speech engine
-app-accessibility/speechd-el 2.11: Emacs speech support
+app-accessibility/speechd-el 2.11 2.12: Emacs speech support
 app-accessibility/sphinx2 0.6-r1 0.6-r2: CMU Speech Recognition-engine
 app-accessibility/yasr 0.6.9-r1: General-purpose console screen reader
 app-admin/aerospike-amc-community 4.0.19-r2 5.0.0: Web UI based monitoring tool for Aerospike Community Edition Server
@@ -1533,7 +1533,7 @@ app-crypt/sequoia-sq 1.3.1-r1: CLI of the Sequoia OpenPGP implementation
 app-crypt/sequoia-sqv 1.3.0-r1: A simple OpenPGP signature verification program
 app-crypt/shash 0.2.6-r4: Generate or check digests or MACs of files
 app-crypt/signify 31: Cryptographically sign and verify files
-app-crypt/signing-party 2.11: A collection of several tools related to OpenPGP
+app-crypt/signing-party 2.11-r1: A collection of several tools related to OpenPGP
 app-crypt/simple-tpm-pk11 0.06-r2: Simple PKCS11 provider for TPM chips
 app-crypt/ssdeep 2.14.1-r1: Computes context triggered piecewise hashes (fuzzy hashes)
 app-crypt/ssss 0.5.7-r3: Shamir's Secret Sharing Scheme
@@ -1843,7 +1843,7 @@ app-editors/mg 20230501 20240709: MicroGnuEmacs, a port from the BSDs
 app-editors/micro 2.0.13-r1: Modern and intuitive terminal-based text editor
 app-editors/moe 1.15: Powerful and user-friendly console text editor
 app-editors/mousepad 0.6.5-r2: GTK+-based editor for the Xfce Desktop Environment
-app-editors/nano 8.6 8.7 8.7-r1 9999: GNU GPL'd Pico clone with more functionality
+app-editors/nano 8.6 8.7 8.7-r1 8.7.1 9999: GNU GPL'd Pico clone with more functionality
 app-editors/ne 3.3.3: The nice editor, easy to use for the beginner and powerful for the wizard
 app-editors/nedit 5.7: Multi-purpose text editor for the X Window System
 app-editors/neovim 0.11.2 0.11.3-r1 0.11.4-r1 0.11.5 9999: Vim-fork focused on extensibility and agility
@@ -1926,7 +1926,7 @@ app-emacs/burly 0.2 0.3: Save and restore frames and windows with their buffers 
 app-emacs/buttercup 1.38 9999: Behaviour-driven Elisp testing
 app-emacs/calfw 1.6-r1 2.0: A calendar framework for Emacs
 app-emacs/cape 2.3 2.4 2.5 2.6 9999: Completion At Point Extensions
-app-emacs/cask 0.9.0: Project management for Emacs package development
+app-emacs/cask 0.9.0 0.9.1: Project management for Emacs package development
 app-emacs/cask-mode 0.1: Major mode for editing Cask files for Emacs
 app-emacs/cdlatex 4.18.5: Fast input methods for LaTeX environments and math
 app-emacs/centaur-tabs 3.2: Customizable tabs plugin for GNU Emacs
@@ -1952,7 +1952,7 @@ app-emacs/company-math 1.5.1: Completion back-ends for for math unicode symbols 
 app-emacs/company-mode 1.0.2: In-buffer completion front-end
 app-emacs/company-quickhelp 2.3.0: Company documentation popups for completion candidates
 app-emacs/compat 30.1.0.1: Compatibility libraries for Emacs
-app-emacs/cond-let 0.2.0 0.2.1: Additional and improved binding conditionals for GNU Emacs
+app-emacs/cond-let 0.2.0 0.2.1 0.2.2: Additional and improved binding conditionals for GNU Emacs
 app-emacs/consult 3.1 3.2 3.3 9999: Consulting complete-read for GNU Emacs
 app-emacs/consult-flycheck 1.0 1.1: Consult integration for Flycheck
 app-emacs/corfu 2.6 2.7 2.8 9999: Completion Overlay Region FUnction
@@ -1967,7 +1967,7 @@ app-emacs/ctable 0.1.3: Table Component for Emacs Lisp
 app-emacs/cycle-buffer 2.16-r1: Select buffer by cycling through
 app-emacs/d-mode 2.0.12: Emacs major mode for editing D code
 app-emacs/dap-mode 0.8-r1: Debug Adapter Protocol mode
-app-emacs/dape 0.24.0 0.24.1 0.25.0: Debug Adapter Protocol for Emacs
+app-emacs/dape 0.25.0 0.26.0: Debug Adapter Protocol for Emacs
 app-emacs/dash 2.19.1 2.20.0: A modern list library for Emacs
 app-emacs/dashboard 1.8.0 9999: Extensible Emacs dashboard, with sections like bookmarks, agenda and more
 app-emacs/ddskk 17.1-r1: One Japanese input methods on Emacs
@@ -2021,7 +2021,7 @@ app-emacs/elpa-mirror 2.2.2 2.3.0: Create local package repository from installe
 app-emacs/elpher 3.6.6 9999: Practical and friendly Gopher and Gemini client for GNU Emacs
 app-emacs/elpy 1.35.0_p20240719: Emacs Python Development Environment
 app-emacs/elscreen 20180321: Frame configuration management for GNU Emacs modelled after GNU Screen
-app-emacs/emacs-aio 1.0_p20200610: Async and await functions for Emacs Lisp
+app-emacs/emacs-aio 1.0_p20200610 1.1: Async and await functions for Emacs Lisp
 app-emacs/emacs-ansilove 2.0.0 9999: Display buffers as PNG images using ansilove in GNU Emacs
 app-emacs/emacs-bazel-mode 0_p20230919: Emacs major modes for the Bazel build system support
 app-emacs/emacs-ccls 0_pre20250825: Emacs client for ccls, a C/C++ language server
@@ -2106,7 +2106,7 @@ app-emacs/helm-system-packages 1.10.2: A Helm interface to the package manager o
 app-emacs/hexrgb 0_p1019: Functions to manipulate colors, including RGB hex strings
 app-emacs/highlight-indentation 0.7.0_p20210221: Minor modes to highlight indentation guides in Emacs
 app-emacs/highline 7.2.2: Minor mode to highlight current line in buffer
-app-emacs/hl-todo 3.9.0 3.9.1: Highlight TODO and similar keywords in comments and strings
+app-emacs/hl-todo 3.9.0 3.9.1 3.9.3: Highlight TODO and similar keywords in comments and strings
 app-emacs/howm 1.5.0: Note-taking tool on Emacs
 app-emacs/ht 2.3: The missing hash table library for Emacs
 app-emacs/htmlize 1.59: HTML-ize font-lock buffers in Emacs
@@ -2180,7 +2180,7 @@ app-emacs/nginx-mode 1.1.10: Emacs editing mode for Nginx config files
 app-emacs/nim-mode 0.4.2_p20231101: Emacs major mode for the Nim programming language support
 app-emacs/ninja-mode 1.11.1-r2 1.12.0 1.12.1: GNU Emacs mode for handling Ninja build files
 app-emacs/nix-mode 1.5.0: GNU Emacs major mode for editing Nix expressions
-app-emacs/no-littering 1.8.2 1.8.3: ELisp library that helps keeping Emacs configuration directory clean
+app-emacs/no-littering 1.8.2 1.8.3 1.8.4: ELisp library that helps keeping Emacs configuration directory clean
 app-emacs/noflet 0.0.15_p20141102-r1: Dynamic, local advice for Emacs-Lisp code
 app-emacs/nxml-docbook5-schemas 5.1: Add support for DocBook 5 schemas to NXML
 app-emacs/nxml-gentoo-schemas 20241116: Extension for nxml-mode with Gentoo-specific schemas
@@ -2345,7 +2345,7 @@ app-emacs/xclip 1.11-r1 1.11.1: Emacs Interface to XClip
 app-emacs/xelb 0.21 0.22: X protocol Emacs Lisp Binding
 app-emacs/xrdb-mode 3.0-r1: An Emacs major mode for editing X resource database files
 app-emacs/xslide 0.2.2-r1: An Emacs major mode for editing XSL stylesheets and running XSL processes
-app-emacs/yaml 1.2.0: YAML parser in Emacs Lisp
+app-emacs/yaml 1.2.0 1.2.3: YAML parser in Emacs Lisp
 app-emacs/yaml-mode 0.0.16-r1: A major mode for GNU Emacs for editing YAML files
 app-emacs/yasnippet 0.14.3_p20250604: Yet another snippet extension for Emacs
 app-emacs/yasnippet-snippets 1.1: A collection of yasnippet snippets for many languages
@@ -3343,7 +3343,7 @@ app-text/openpaperwork-core 2.2.5: Core part of Paperwork (plugin management)
 app-text/openpaperwork-gtk 2.2.5: Paperwork plugins
 app-text/opensp 1.5.2-r10: A free, object-oriented toolkit for SGML parsing and entity management
 app-text/pandoc 2.18-r2 3: Metapackage for pandoc version 3
-app-text/pandoc-bin 3.8.2.1 3.8.3: Conversion between markup formats (binary package)
+app-text/pandoc-bin 3.8.3 3.9: Conversion between markup formats (binary package)
 app-text/pandoc-cli 0.1.1-r1: Conversion between documentation formats
 app-text/paper-clip 5.5.2 9999: Edit the title, author, keywords and more details of PDF documents
 app-text/papers 48.5 49.2: A document viewer for the GNOME desktop
@@ -5261,7 +5261,7 @@ dev-lang/nasm 2.16.03 3.01: groovy little assembler
 dev-lang/neko 2.4.0-r2 2.4.1: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
 dev-lang/nim 2.2.4 2.2.6: Compiled, garbage-collected systems programming language
-dev-lang/nprolog 4.76 4.78 4.79: Interpreter and compiler to be compatible with Arity/Prolog32
+dev-lang/nprolog 4.76 4.78 4.79 4.81: Interpreter and compiler to be compatible with Arity/Prolog32
 dev-lang/nqp 2025.10 2025.11 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.14.2 5.3.0-r1 5.4.0: Programming language supporting functional, imperative & object-oriented styles
 dev-lang/oorexx 5.1.0_beta12932: Open source implementation of Object Rexx
@@ -17082,7 +17082,7 @@ sys-apps/colorized-logs 2.6 2.7: Tools for logs with ANSI color
 sys-apps/config-site 0 99999999: config.site to load dropins from config.site.d
 sys-apps/consolation 0.0.7: libinput based console mouse daemon
 sys-apps/conspy 1.16: Remote control for Linux virtual consoles
-sys-apps/coreutils 9.7 9.8-r1 9.9 9.9-r1 9.9-r11 9.9-r12 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
+sys-apps/coreutils 9.7 9.8-r1 9.9 9.9-r1 9.9-r11 9.9-r12 9.10 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 sys-apps/cpint 2.5.3: Linux/390 Interface to z/VM's Control Program
 sys-apps/cpu-x 5.3.1 5.4.0: A Free software that gathers information on CPU, motherboard and more
 sys-apps/cpuid 20250513: Linux tool to dump x86 CPUID information about the CPUs

@@ -1,0 +1,13 @@
+BDEPEND=>=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Emacs speech support
+EAPI=8
+HOMEPAGE=https://www.freebsoft.org/speechd-el/ https://github.com/brailcom/speechd-el/
+INHERIT=elisp optfeature readme.gentoo-r1
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-accessibility/speech-dispatcher-0.7 >=app-editors/emacs-25.3:*
+SLOT=0
+SRC_URI=https://github.com/brailcom/speechd-el/archive/refs/tags/speechd-el-2.12.tar.gz -> speechd-el-2.12.gh.tar.gz
+_eclasses_=elisp-common	ce20c7e2fc0c52b58ddabcd536b7310b	elisp	a37bfc35b86403c770beebbd71661c30	optfeature	538bce96e5589935b57e178e8635f301	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
+_md5_=b65d987d217732dc228d762e5de6cc23
