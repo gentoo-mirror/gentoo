@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/libfuse/libfuse
 INHERIT=flag-o-matic meson-multilib toolchain-funcs udev python-any-r1
 IUSE=io-uring +suid systemtap test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=GPL-2 LGPL-2.1
 PROPERTIES=test_privileged
 RDEPEND=io-uring? ( sys-libs/liburing:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] sys-process/numactl ) >=sys-fs/fuse-common-3.3.0-r1
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=3/4
 SRC_URI=https://github.com/libfuse/libfuse/releases/download/fuse-3.18.1/fuse-3.18.1.tar.gz
 _eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	sysroot	c04c5ad99aee3e5b1404af749523ca96	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	ee14b47f310c323b82e6655787cd65ed	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multilib-build	d7802b3638ffc661375c0021cdd19efd	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	meson-multilib	8989922d980e5e870cc3de949d1b2586	udev	f3d9a4376ebd22131726a68e1a0a058f	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=8bfd2f4860922a01da5a14d47738fcb6
+_md5_=a9a4ab4353fe9b72180bac7722d8159e
