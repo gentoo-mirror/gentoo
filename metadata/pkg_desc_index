@@ -1114,7 +1114,7 @@ app-alternatives/awk 4: /bin/awk and /usr/bin/awk symlinks
 app-alternatives/bc 0: bc symlink
 app-alternatives/bzip2 1: bzip2 symlink
 app-alternatives/cpio 0: CPIO symlink
-app-alternatives/gpg 0-r2 0-r3 1-r2 1-r3: gpg symlink
+app-alternatives/gpg 1-r3: gpg symlink
 app-alternatives/gzip 0 1: gzip symlinks
 app-alternatives/lex 0-r1: lex symlinks
 app-alternatives/lzip 0: lzip symlinks
@@ -1454,7 +1454,7 @@ app-crypt/freepg 2.5.14 2.5.16 2.5.16-r1 2.5.17: Cross-distro GnuPG fork focused
 app-crypt/gcr 3.41.2-r2 4.2.1 4.3.0 4.3.1 4.4.0.1-r1: Libraries for cryptographic UIs and accessing PKCS#11 modules
 app-crypt/gifshuffle 2.0-r1: GIF colourmap steganography
 app-crypt/glep63-check 11-r1: GLEP 63 compliance checker for OpenPGP keys
-app-crypt/gnupg 2.4.9 2.5.16 2.5.16-r1 2.5.17: The GNU Privacy Guard, a GPL OpenPGP implementation
+app-crypt/gnupg 2.4.9 2.5.17: The GNU Privacy Guard, a GPL OpenPGP implementation
 app-crypt/gnupg-pkcs11-scd 0.11.0 9999: PKCS#11 support for GnuPG
 app-crypt/gocryptfs 2.6.1 2.6.1-r1: Encrypted overlay filesystem written in Go
 app-crypt/gorilla 1.4-r2: Password Safe in secure way with GUI interface
@@ -12884,6 +12884,7 @@ media-fonts/jomolhari 0.003c-r1: Bhutanese style dbu-can font for Tibetan/Dzongk
 media-fonts/joypixels 6.6.0: A font for better emoji and unicode support
 media-fonts/jsmath 1.0: Raster fonts for jsmath
 media-fonts/jsmath-extra-dark 1.0: Extra raster fonts for jsmath, dark version
+media-fonts/juliamono 0.062: JuliaMono - a monospaced font for scientific and technical computing
 media-fonts/kacst-fonts 2.01: KACST Arabic TrueType Fonts
 media-fonts/kanjistrokeorders 4.004 4.005: Font for viewing stroke order diagrams for kanji, kana and other characters
 media-fonts/khmer 5.0-r1: Fonts for the Khmer language of Cambodia
@@ -17043,7 +17044,7 @@ sys-apps/apmd 3.2.2_p14-r3: Advanced Power Management Daemon
 sys-apps/apparmor 3.1.4-r2 4.0.3: Userspace utils and init scripts for the AppArmor application security system
 sys-apps/apparmor-utils 3.1.4-r1 4.0.3-r1: Additional userspace utils to assist with AppArmor profile management
 sys-apps/apply-default-acl 0.4.4: Apply default POSIX ACLs to files and directories
-sys-apps/arch-chroot 28 29: Wraps the chroot command while ensuring that important filesystems are mounted
+sys-apps/arch-chroot 29 31: Wraps the chroot command while ensuring that important filesystems are mounted
 sys-apps/arrayprobe 2.0-r3: Utility to report status of an HP (Compaq) array controller (both IDA & CCISS)
 sys-apps/asahi-bless 0.3.0-r1 0.4.1: CLI boot disk selector for Apple Silicon Macs
 sys-apps/asahi-configs 1.0 2: Asahi Linux configurations
@@ -17650,7 +17651,7 @@ sys-fs/copyfs 1.0.1-r1: fuse-based filesystem for maintaining configuration file
 sys-fs/cramfs 2.1: Linux filesystem designed to be simple, small, and to compress things well
 sys-fs/cryfs 1.0.1-r1 1.0.3: Encrypted FUSE filesystem that conceals metadata
 sys-fs/cryptmount 6.3.0: A utility for management and user-mode mounting of encrypted filesystems
-sys-fs/cryptsetup 2.8.3-r1: Tool to setup encrypted devices with dm-crypt
+sys-fs/cryptsetup 2.8.3-r1 2.8.4: Tool to setup encrypted devices with dm-crypt
 sys-fs/ctmg 1.2: Simple wrapper around cryptsetup for encrypted containers
 sys-fs/davl 1.2.4-r2: Visualizes the fragmentation status of ext2/3 filesystems
 sys-fs/dd-rescue 1.99.13-r1 1.99.17 1.99.20 1.99.21 1.99.22 9999: Similar to dd but can copy from source with errors
@@ -17687,7 +17688,7 @@ sys-fs/fuse-overlayfs 1.14-r1 1.15 1.16: FUSE implementation for overlayfs
 sys-fs/fuse-zip 0.7.2: FUSE file system to navigate, extract, create and modify ZIP archives
 sys-fs/fuseiso 20070708-r3: Fuse module to mount ISO9660
 sys-fs/genext2fs 1.5.0 1.5.0-r1: generate ext2 file systems
-sys-fs/genfstab 28-r1 29: Genfstab - generate output suitable for addition to an fstab file
+sys-fs/genfstab 29 31: Genfstab - generate output suitable for addition to an fstab file
 sys-fs/genimage 19 9999: Tool to generate multiple filesystem and flash images from a tree
 sys-fs/go-mtpfs 1.0.0 1.0.0-r1: a simple FUSE filesystem for mounting Android devices as a MTP device
 sys-fs/google-drive-ocamlfuse 0.7.32: FUSE filesystem over Google Drive
