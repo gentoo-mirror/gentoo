@@ -1425,7 +1425,7 @@ app-crypt/bcwipe 1.9.13: Secure file removal utility
 app-crypt/bsign 0.4.5-r1: embed secure hashes (SHA1) and digital signatures (GNU Privacy Guard) into files
 app-crypt/ccid 1.6.1 1.7.0: CCID free software driver
 app-crypt/ccrypt 1.11-r4: Encryption and decryption
-app-crypt/certbot 4.0.0-r2 4.1.1 4.2.0 5.0.0 5.1.0 5.2.2 9999: Let's Encrypt client to automate deployment of X.509 certificates
+app-crypt/certbot 4.0.0-r2 4.1.1 4.2.0 5.0.0 5.1.0 5.2.2 5.3.0 9999: Let's Encrypt client to automate deployment of X.509 certificates
 app-crypt/certbot-apache 3.2.0-r100: Apache plugin for Certbot (Let's Encrypt client)
 app-crypt/certbot-dns-dnsimple 3.2.0-r100: DNSimple Authenticator plugin for Certbot (Let's Encrypt Client)
 app-crypt/certbot-dns-nsone 3.2.0-r100: NS1 DNS Authenticator plugin for Certbot (Let's Encrypt Client)
@@ -5895,7 +5895,7 @@ dev-libs/unibilium 2.1.1-r1 2.1.2: A very basic terminfo library
 dev-libs/unittest++ 2.0.0-r3 2.0.0-r4: A lightweight unit testing framework for C++
 dev-libs/univalue 1.0.5 9999: C++ universal value object and JSON library
 dev-libs/uriparser 0.9.8-r1 0.9.9 0.9.9-r1 1.0.0: Strictly RFC 3986 compliant URI parsing library in C
-dev-libs/userspace-rcu 0.15.3 0.15.5: Userspace RCU (read-copy-update) library
+dev-libs/userspace-rcu 0.15.5 0.15.6: Userspace RCU (read-copy-update) library
 dev-libs/utfcpp 3.2.1 4.0.6 9999: UTF-8 C++ library
 dev-libs/uthash 2.3.0-r1: An easy-to-use hash implementation for C programmers
 dev-libs/uulib 0.5.20-r3: Library that supports Base64 (MIME), uuencode, xxencode and binhex coding
@@ -14780,7 +14780,7 @@ net-dns/valtz 0.8: Validation tool for tinydns-data zone files
 net-firewall/arno-iptables-firewall 2.1.1a 2.1.2a: Arno's iptables firewall script
 net-firewall/arptables 0.0.5-r2: Set up, maintain, and inspect the tables of ARP rules in the Linux kernel
 net-firewall/bpfilter 0.5.2 0.6.0: BPF-based packet filtering framework
-net-firewall/conntrack-tools 1.4.7-r1 1.4.8 1.4.8-r1: Connection tracking userspace tools
+net-firewall/conntrack-tools 1.4.8-r1 1.4.9: Connection tracking userspace tools
 net-firewall/ebtables 2.0.11-r3: Controls Ethernet frame filtering on a Linux bridge, MAC NAT and brouting
 net-firewall/ferm 2.7: Command line util for managing firewall rules
 net-firewall/firehol 3.1.7-r2 3.1.8: iptables firewall generator
@@ -15005,7 +15005,7 @@ net-libs/libndp 1.8 1.9 1.9-r1: Library for Neighbor Discovery Protocol
 net-libs/libnet 1.3-r1: Library for commonly used low-level network functions
 net-libs/libnetconf2 3.7.1: C library for building NETCONF servers and clients
 net-libs/libnetfilter_acct 1.0.3 1.0.3-r1: Library providing interface to extended accounting infrastructure
-net-libs/libnetfilter_conntrack 1.0.9-r1 1.1.0: Programming interface (API) to the in-kernel connection tracking state table
+net-libs/libnetfilter_conntrack 1.1.0 1.1.1: Programming interface (API) to the in-kernel connection tracking state table
 net-libs/libnetfilter_cthelper 1.0.1-r1: Userspace library for interface to user-space helper for conntrack
 net-libs/libnetfilter_cttimeout 1.0.1: netlink interface for conntrack timeout infrastructure in kernel's packet filter
 net-libs/libnetfilter_log 1.0.2-r1: Interface to packets that have been logged by the kernel packet filter
@@ -16642,6 +16642,7 @@ sec-keys/openpgp-keys-grub 20251028: OpenPGP keys used for GRUB releases
 sec-keys/openpgp-keys-gsasl 20260127: OpenPGP keys used by the GNU SASL Library
 sec-keys/openpgp-keys-guillemjover 20220331: OpenPGP keys used by Guillem Jover
 sec-keys/openpgp-keys-gzip 20220406: OpenPGP keys used by GNU Gzip
+sec-keys/openpgp-keys-hclee 20260204: OpenPGP key used by Hyunchul Lee (hclee)
 sec-keys/openpgp-keys-hughsie 20260124: OpenPGP key used by Richard Hughes (hughsie)
 sec-keys/openpgp-keys-icu 20220408 20221020 20241110: OpenPGP keys used by ICU
 sec-keys/openpgp-keys-inetutils 20260120: OpenPGP keys used for net-misc/inetutils
@@ -16681,6 +16682,7 @@ sec-keys/openpgp-keys-libvirt 20210401 20250830: OpenPGP keys used by libvirt
 sec-keys/openpgp-keys-lighttpd 20231008 20250325: OpenPGP keys used to sign lighttpd
 sec-keys/openpgp-keys-linuxcontainers 20201014: OpenPGP keys used to sign LXC-related packages
 sec-keys/openpgp-keys-llvm 21.1.4: OpenPGP keys used to sign LLVM releases
+sec-keys/openpgp-keys-ludovicrousseau 20260204: OpenPGP key used by Ludovic Rousseau
 sec-keys/openpgp-keys-m4 20220407: OpenPGP keys used by GNU m4
 sec-keys/openpgp-keys-madler 20220328: OpenPGP keys used by Mark Adler
 sec-keys/openpgp-keys-make 20220407: OpenPGP keys used by GNU make
@@ -17234,7 +17236,7 @@ sys-apps/paxctl 0.9: Manages various PaX related program header flags for Elf32,
 sys-apps/paxctld 1.2.5-r1: PaX flags maintenance daemon
 sys-apps/pciutils 3.13.0 3.14.0: Various utilities dealing with the PCI bus
 sys-apps/pcmciautils 018_p18: PCMCIA userspace utilities for Linux
-sys-apps/pcsc-lite 2.3.3 2.4.0-r1: PC/SC Architecture smartcard middleware library
+sys-apps/pcsc-lite 2.4.0-r1 2.4.1: PC/SC Architecture smartcard middleware library
 sys-apps/pcsc-slb-rf72-drv 1.1.0-r2: Schlumberger Reflex 72 Serial Smartcard Reader
 sys-apps/pcsc-tools 1.7.3-r1: PC/SC Architecture smartcard tools
 sys-apps/pick 4.0.0-r1: A fuzzy search tool for the command-line
@@ -17669,7 +17671,7 @@ sys-fs/ecryptfs-utils 111_p20170609-r1: eCryptfs userspace utilities
 sys-fs/encfs 1.9.5-r2: An implementation of encrypted filesystem in user-space using FUSE
 sys-fs/erofs-utils 1.8.4 1.8.10-r1: Userspace tools for EROFS
 sys-fs/exfat-utils 1.4.0: exFAT filesystem utilities
-sys-fs/exfatprogs 1.2.8 1.2.9 1.3.0 9999: Userspace utilities for the exFAT filesystem
+sys-fs/exfatprogs 1.3.0 1.3.1 9999: Userspace utilities for the exFAT filesystem
 sys-fs/ext3grep 0.10.2-r2: Recover deleted files on an ext3 file system
 sys-fs/ext4magic 0.3.2-r2: Tool for recovery of deleted or overwritten files on ext3/ext4 filesystems
 sys-fs/extundelete 0.2.4-r2: A utility to undelete files from an ext3 or ext4 partition
