@@ -1,21 +1,24 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
-
-inherit meson-multilib python-single-r1 tmpfiles udev
+PYTHON_COMPAT=( python3_{11..13} )
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/ludovicrousseau.asc
+inherit meson-multilib python-single-r1 tmpfiles udev verify-sig
 
 DESCRIPTION="PC/SC Architecture smartcard middleware library"
 HOMEPAGE="https://pcsclite.apdu.fr https://github.com/LudovicRousseau/PCSC"
-SRC_URI="https://pcsclite.apdu.fr/files/${P}.tar.xz"
+SRC_URI="
+	https://pcsclite.apdu.fr/files/${P}.tar.xz
+	verify-sig? ( https://pcsclite.apdu.fr/files/${P}.tar.xz.asc )
+"
 
 # GPL-2 is there for the init script; everything else comes from
 # upstream.
 LICENSE="BSD GPL-3+ BSD-2 ISC GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 # This is called libusb so that it doesn't fool people in thinking that
 # it is _required_ for USB support. Otherwise they'll disable udev and
 # that's going to be worse.
@@ -31,17 +34,21 @@ DEPEND="
 	acct-group/openct
 	acct-group/pcscd
 	acct-user/pcscd
-	${PYTHON_DEPS}"
-RDEPEND="${DEPEND}
-	selinux? ( sec-policy/selinux-pcscd )"
+	${PYTHON_DEPS}
+"
+RDEPEND="
+	${DEPEND}
+	selinux? ( sec-policy/selinux-pcscd )
+"
 BDEPEND="
 	app-alternatives/lex
-	virtual/pkgconfig"
+	virtual/pkgconfig
+	verify-sig? ( sec-keys/openpgp-keys-ludovicrousseau )
+"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.8.11-polkit-pcscd.patch
-	"${FILESDIR}"/${PN}-1.9.8-systemd-user.patch
-	"${FILESDIR}"/${PN}-2.2.3-change-setup-spy-script-location.patch
+	"${FILESDIR}"/${PN}-2.4.0-change-setup-spy-script-location.patch
+	"${FILESDIR}"/${PN}-2.4.0-systemd-sysusers-fixup.patch
 )
 
 multilib_src_configure() {

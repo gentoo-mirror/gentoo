@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,14 +13,14 @@ SRC_URI="
 	verify-sig? ( https://www.netfilter.org/projects/conntrack-tools/files/${P}.tar.xz.sig )
 "
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm64 ~hppa ppc ppc64 ~riscv x86"
+KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86"
 IUSE="doc +cthelper +cttimeout systemd"
 
 RDEPEND="
 	>=net-libs/libmnl-1.0.3
-	>=net-libs/libnetfilter_conntrack-1.0.9
+	>=net-libs/libnetfilter_conntrack-1.1.1
 	>=net-libs/libnetfilter_queue-1.0.2
 	>=net-libs/libnfnetlink-1.0.1
 	net-libs/libtirpc
@@ -104,4 +104,6 @@ src_install() {
 
 	dodoc -r doc/sync doc/stats AUTHORS TODO
 	use doc && dodoc doc/manual/${PN}.html
+
+	find "${ED}" -name '*.la' -delete || die
 }

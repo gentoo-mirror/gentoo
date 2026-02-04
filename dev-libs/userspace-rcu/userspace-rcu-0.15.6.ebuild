@@ -1,25 +1,31 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit autotools
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/mathieudesnoyers.asc
+inherit autotools verify-sig
 
 DESCRIPTION="Userspace RCU (read-copy-update) library"
 HOMEPAGE="https://liburcu.org/"
-SRC_URI="https://lttng.org/files/urcu/${P}.tar.bz2"
+SRC_URI="
+	https://lttng.org/files/urcu/${P}.tar.bz2
+	verify-sig? ( https://lttng.org/files/urcu/${P}.tar.bz2.asc )
+"
 
 LICENSE="LGPL-2.1"
 SLOT="0/8" # subslot = soname version
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="static-libs test"
 RESTRICT="!test? ( test )"
 
-BDEPEND="test? ( sys-process/time )"
+BDEPEND="
+	test? ( sys-process/time )
+	verify-sig? ( sec-keys/openpgp-keys-mathieudesnoyers )
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.13.1-tests-no-benchmark.patch
-	"${FILESDIR}"/${PN}-0.14.1-replace-assert-by-urcu_posix_assert.patch
 )
 
 src_prepare() {
