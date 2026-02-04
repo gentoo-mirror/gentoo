@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ JAVA_TESTING_FRAMEWORKS="junit-4"
 
 inherit java-pkg-2 java-pkg-simple systemd toolchain-funcs verify-sig
 
-DESCRIPTION="An encrypted network without censorship"
+DESCRIPTION="Freenet REference Daemon"
 HOMEPAGE="https://www.hyphanet.org"
 FEV="29"
 SRC_URI="https://github.com/hyphanet/fred/releases/download/build0${PV#*p}/freenet-build0${PV#*p}-source.tar.bz2
@@ -73,6 +73,7 @@ DOCS=(
 
 PATCHES=( "${FILESDIR}/freenet-0.7.5_p1503-ignore-failing-tests.patch" )
 
+JAVADOC_ARGS="-source 8" # bug #967404
 JAVA_CLASSPATH_EXTRA="java-service-wrapper,unbescape"
 JAVA_RESOURCE_DIRS="res"
 JAVA_SRC_DIR="src"
@@ -124,7 +125,7 @@ src_prepare() {
 	EOF
 
 	cat "${WORKDIR}"/seedrefs-build01480/* > "${S}"/seednodes.fref
-	cp "${FILESDIR}"/freenet-0.7.5_p1497-wrapper.conf freenet-wrapper.conf || die
+	cp "${FILESDIR}"/freenet-0.7.5_p1503-wrapper.conf freenet-wrapper.conf || die
 	cp "${FILESDIR}"/run.sh-20090501 run.sh || die
 
 	sed -i -e "s:=/usr/lib:=/usr/$(get_libdir):g" \
