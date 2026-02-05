@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=kdenetwork - merge this to pull in all kdenetwork-derived packages
+EAPI=8
+HOMEPAGE=https://apps.kde.org/
+IUSE=+bittorrent dropbox samba +screencast +webengine
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=metapackage
+RDEPEND=>=kde-apps/kget-25.12.2:* >=kde-apps/krdc-25.12.2:* >=kde-misc/kdeconnect-25.12.2:* >=net-im/tokodon-25.12.2 >=net-irc/konversation-25.12.2:* >=net-misc/kio-zeroconf-25.12.2:* >=net-news/alligator-25.12.2 bittorrent? ( >=net-libs/libktorrent-25.12.2:* >=net-p2p/ktorrent-25.12.2:* ) dropbox? ( >=kde-apps/dolphin-plugins-dropbox-25.12.2:* ) samba? ( >=kde-apps/kdenetwork-filesharing-25.12.2:* ) screencast? ( >=kde-apps/krfb-25.12.2:* ) webengine? ( >=kde-apps/kaccounts-integration-25.12.2:* >=kde-apps/kaccounts-providers-25.12.2:* >=kde-apps/signon-kwallet-extension-25.12.2:* >=kde-misc/kio-gdrive-25.12.2:* >=net-im/neochat-25.12.2 )
+SLOT=0
+_md5_=8b063819668e6c6eeba3b83e9ba87c0a
