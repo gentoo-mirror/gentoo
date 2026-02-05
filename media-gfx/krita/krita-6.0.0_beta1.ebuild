@@ -4,16 +4,28 @@
 EAPI=8
 
 ECM_TEST="forceoptional"
-COMMIT=8dd13df957af49cc793aed500f3a2a75c2c11548
-PYTHON_COMPAT=( python3_{11..13} )
-KFMIN=6.9.0
-QTMIN=6.8.0
+PYTHON_COMPAT=( python3_{11..14} )
+KFMIN=6.16.0
+QTMIN=6.10.1
 inherit ecm kde.org python-single-r1 xdg
 
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
 HOMEPAGE="https://apps.kde.org/krita/ https://krita.org/en/"
-SRC_URI="https://dev.gentoo.org/~asturm/distfiles/kde/${P}-${COMMIT:0:8}.tar.xz"
-S="${WORKDIR}/${PN}"
+
+COMMIT=
+MY_PV="${PV/_/-}"
+MY_P="${PN}-${MY_PV}"
+if [[ -n ${COMMIT} ]] ; then
+	SRC_URI="https://dev.gentoo.org/~asturm/distfiles/kde/${P}-${COMMIT:0:8}.tar.xz"
+	S="${WORKDIR}/${PN}"
+else
+	if [[ ${MY_P} == ${P} ]] ; then
+		SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+	else
+		SRC_URI="mirror://kde/unstable/${PN}/${MY_PV}/${MY_P}.tar.xz"
+	fi
+	S="${WORKDIR}/${MY_P}"
+fi
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -72,12 +84,10 @@ COMMON_DEPEND="${PYTHON_DEPS}
 	pdf? ( app-text/poppler[qt6(-)] )
 	raw? ( kde-apps/libkdcraw:6 )
 	webp? ( >=media-libs/libwebp-1.2.0:= )
-
 "
 RDEPEND="${COMMON_DEPEND}
 	!${CATEGORY}/${PN}:5
 "
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
 DEPEND="${COMMON_DEPEND}
 	dev-libs/immer
 	dev-libs/lager
