@@ -1,11 +1,9 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-CRATES=" "
-
-
+CRATES=""
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
