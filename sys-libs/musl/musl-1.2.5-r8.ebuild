@@ -17,7 +17,7 @@ else
 
 	SRC_URI="https://musl.libc.org/releases/${P}.tar.gz"
 	SRC_URI+=" verify-sig? ( https://musl.libc.org/releases/${P}.tar.gz.asc )"
-	KEYWORDS="-* amd64 arm arm64 ~m68k ~mips ppc ppc64 ~riscv x86"
+	KEYWORDS="-* ~amd64 ~arm ~arm64 ~m68k ~mips ~ppc ~ppc64 ~riscv ~x86"
 
 	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-musl )"
 fi
@@ -59,6 +59,9 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-dns-union.patch
 	"${FILESDIR}"/${PN}-getauxval.patch
 	"${FILESDIR}"/${PN}-getifaddrs-qemu-workaround.patch
+	"${FILESDIR}"/${PN}-page-size.patch
+	"${FILESDIR}"/${PN}-isatty.patch
+	"${FILESDIR}"/${PN}-printf-empty-iovec.patch
 )
 
 just_headers() {
