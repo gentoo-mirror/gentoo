@@ -1,10 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3 pypy3_11 python3_{10..13} )
+PYPI_VERIFY_REPO=https://github.com/jd/tenacity
+PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1 pypi
 
@@ -16,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~m68k ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
@@ -26,14 +27,10 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
-python_test() {
-	local EPYTEST_DESELECT=(
-		# fragile to timing
-		tests/test_asyncio.py::TestContextManager::test_sleeps
-	)
-
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest
-}
+EPYTEST_DESELECT=(
+	# fragile to timing
+	tests/test_asyncio.py::TestContextManager::test_sleeps
+)

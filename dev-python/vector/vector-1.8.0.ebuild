@@ -1,16 +1,17 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
+PYPI_VERIFY_REPO=https://github.com/scikit-hep/vector
 DISTUTILS_USE_PEP517=hatchling
 
 inherit distutils-r1 pypi optfeature
 
 DESCRIPTION="Vector classes and utilities"
 HOMEPAGE="
-	https://github.com/scikit-hep/vector
+	https://github.com/scikit-hep/vector/
 	https://pypi.org/project/vector/
 	https://vector.readthedocs.io/
 	https://doi.org/10.5281/zenodo.7054478
@@ -21,8 +22,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>=dev-python/numpy-1.13.3[${PYTHON_USEDEP}]
-	>=dev-python/packaging-19[${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.19.3[${PYTHON_USEDEP}]
+	>=dev-python/packaging-20[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
@@ -41,7 +42,6 @@ EPYTEST_IGNORE=(
 )
 
 EPYTEST_PLUGINS=()
-
 distutils_enable_tests pytest
 
 pkg_postinst() {
