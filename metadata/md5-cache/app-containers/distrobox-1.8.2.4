@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst postrm
+DESCRIPTION=Use any Linux distribution inside your terminal (powered by docker/podman)
+EAPI=8
+HOMEPAGE=https://distrobox.it/ https://github.com/89luca89/distrobox/
+INHERIT=xdg-utils
+IUSE=gui
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=|| ( app-containers/docker app-containers/podman )
+SLOT=0
+SRC_URI=https://github.com/89luca89/distrobox/archive/1.8.2.4.tar.gz -> distrobox-1.8.2.4.gh.tar.gz
+_eclasses_=xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_md5_=0a8f05e560bacc6544e66809a19049dc
