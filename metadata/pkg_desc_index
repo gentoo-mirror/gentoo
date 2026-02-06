@@ -922,7 +922,7 @@ app-admin/apg 2.3.0b_p20150129-r1 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.707.0 1.2.764.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.44.7 1.44.11 1.44.15 1.44.20 1.44.24 1.44.29 1.44.30 1.44.31 1.44.32: Universal Command Line Environment for AWS
+app-admin/awscli 1.44.7 1.44.11 1.44.15 1.44.20 1.44.24 1.44.29 1.44.30 1.44.31 1.44.32 1.44.33: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.10.0 2025.12.0: Bitwarden password manager desktop client
@@ -8228,8 +8228,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.42.17 1.42.21 1.42.25 1.42.30 1.42.34 1.42.39 1.42.40 1.42.41 1.42.42: The AWS SDK for Python
-dev-python/botocore 1.42.17 1.42.21 1.42.25 1.42.30 1.42.34 1.42.39 1.42.40 1.42.41 1.42.42: Low-level, data-driven core of boto 3
+dev-python/boto3 1.42.17 1.42.21 1.42.25 1.42.30 1.42.34 1.42.39 1.42.40 1.42.41 1.42.42 1.42.43: The AWS SDK for Python
+dev-python/botocore 1.42.17 1.42.21 1.42.25 1.42.30 1.42.34 1.42.39 1.42.40 1.42.41 1.42.42 1.42.43: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8255,7 +8255,7 @@ dev-python/cerberus 1.3.7 1.3.8: A lightweight and extensible data-validation li
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 1.17.1 2.0.0: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.4.0 3.5.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.39.1 1.40.4 1.41.0 1.42.1 1.43.2 1.43.3 1.43.4: CloudFormation Linter
+dev-python/cfn-lint 1.39.1 1.40.4 1.41.0 1.42.1 1.43.4 1.44.0: CloudFormation Linter
 dev-python/cftime 1.6.4_p1 1.6.5: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1 1.0.2: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.6.0: Fast HTML/XML template compiler for Python
@@ -8286,7 +8286,7 @@ dev-python/clint 0.5.1-r4: Python Command-line Application Tools
 dev-python/cloudpickle 3.1.1 3.1.2: Extended pickling support for Python objects
 dev-python/cloudscraper 1.2.69-r1: A Python module to bypass Cloudflare's anti-bot page
 dev-python/clr-loader 0.2.7_p0 0.2.9: Generic pure Python loader for .NET runtimes
-dev-python/cmd2 2.6.2 3.1.0 3.1.2 3.1.3: Extra features for standard library's cmd module
+dev-python/cmd2 2.6.2 3.1.0 3.1.2 3.1.3 3.2.0: Extra features for standard library's cmd module
 dev-python/colorama 0.4.6: ANSI escape character sequences for colored terminal text & cursor positioning
 dev-python/colorclass 2.2.2-r1: Colorful worry-free console applications for multiple platforms
 dev-python/colored-traceback 0.4.2: Automatically color Python's uncaught exception tracebacks
@@ -8353,7 +8353,7 @@ dev-python/decorator 5.2.1: Simplifies the usage of decorators for the average p
 dev-python/deepdiff 8.6.1: A library for comparing dictionaries, iterables, strings and other objects
 dev-python/deepmerge 2.0: Tools to handle merging of nested data structures in python
 dev-python/defusedxml 0.7.1-r1 0.8.0_rc2: XML bomb protection for Python stdlib modules, an xml serialiser
-dev-python/denonavr 1.2.0 1.3.1: Automation Library for Denon AVR receivers
+dev-python/denonavr 1.3.1 1.3.2: Automation Library for Denon AVR receivers
 dev-python/dep-logic 0.5.1 0.5.2: Python dependency specifications supporting logical operations
 dev-python/dependency-groups 1.3.1: A tool for resolving PEP 735 Dependency Group data
 dev-python/deprecated 1.2.18-r1 1.3.1: Python @deprecated decorator to deprecate old API
@@ -8436,7 +8436,7 @@ dev-python/ephemeral-port-reserve 1.1.4: Bind to an ephemeral port, force it int
 dev-python/eradicate 3.0.0 3.0.1: Removes commented-out code from Python files
 dev-python/et-xmlfile 2.0.0: An implementation of lxml.xmlfile for the standard library
 dev-python/etuples 0.3.10: Python S-expression emulation using tuple-like objects
-dev-python/evdev 1.9.2: Python library for evdev bindings
+dev-python/evdev 1.9.2 1.9.3: Python library for evdev bindings
 dev-python/events 0.5: Bringing the elegance of C# EventHandler to Python
 dev-python/ewmh 0.1.6: An implementation of Extended Window Manager Hints, based on Xlib
 dev-python/exceptiongroup 1.3.0 1.3.1: Backport of PEP 654 (exception groups)
@@ -8503,7 +8503,7 @@ dev-python/fritzconnection 1.15.0 1.15.1: Lib/tool to communicate with AVM FRITZ
 dev-python/frozen-flask 1.0.2: Freezes a Flask application into a set of static files
 dev-python/frozenlist 1.7.0 1.8.0: A list-like structure which implements collections.abc.MutableSequence
 dev-python/fs 2.4.16-r1: Filesystem abstraction layer
-dev-python/fsspec 2025.10.0 2025.12.0 2026.1.0: A specification that python filesystems should adhere to
+dev-python/fsspec 2025.12.0 2026.1.0 2026.2.0: A specification that python filesystems should adhere to
 dev-python/ftfy 6.3.1: Fixes mojibake and other problems with Unicode, after the fact
 dev-python/fullmoon 1.0.2: Determine full moon occurences
 dev-python/funcparserlib 1.0.1: Recursive descent parsing library based on functional combinators
@@ -8566,7 +8566,7 @@ dev-python/hcloud 2.13.0 2.14.0 2.15.0 2.16.0: Official Hetzner Cloud python lib
 dev-python/helpdev 0.7.1-r1: Helping users and developers to get information about the environment
 dev-python/hidapi 0.14.0_p4 0.15.0: A Cython interface to HIDAPI library
 dev-python/hiredis 3.2.1 3.3.0: Python extension that wraps hiredis
-dev-python/hishel 1.1.7 1.1.8: An elegant HTTP Cache implementation for HTTPX and HTTP Core
+dev-python/hishel 1.1.8 1.1.9: An elegant HTTP Cache implementation for HTTPX and HTTP Core
 dev-python/housekeeping 1.1: Reusable deprecation helpers for Python projects
 dev-python/hpack 4.1.0: Pure-Python HPACK header compression
 dev-python/html2text 2025.4.15-r1: Turn HTML into equivalent Markdown-structured text
@@ -8893,7 +8893,7 @@ dev-python/notebook-shim 0.2.4: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nox 2025.10.16 2025.11.12: Flexible test automation for Python
 dev-python/ntplib 0.4.0-r1: Python NTP library
-dev-python/nuitka 2.8.9 2.8.10: Python to native compiler
+dev-python/nuitka 2.8.10 4.0: Python to native compiler
 dev-python/numexpr 2.14.1: Fast numerical array expression evaluator for Python and NumPy
 dev-python/numpy 1.26.4 2.2.6 2.3.1 2.3.2 2.3.2-r1 2.3.3 2.3.4 2.3.5 2.4.0_rc1 2.4.0 2.4.1 2.4.2: Fast array and numerical python library
 dev-python/numpydoc 1.9.0-r1 1.10.0: Sphinx extension to support docstrings in Numpy format
@@ -9118,7 +9118,7 @@ dev-python/pygresql 6.2.0 6.2.1 6.2.2 6.2.3: A Python interface for the PostgreS
 dev-python/pyh2o 1-r1: Python API for sci-libs/libh2o
 dev-python/pyhamcrest 2.1.0: Hamcrest framework for matcher objects
 dev-python/pyhcl 0.4.5: HCL configuration parser for python
-dev-python/pyicu 2.15.3 2.16: Python bindings for dev-libs/icu
+dev-python/pyicu 2.16 2.16.1: Python bindings for dev-libs/icu
 dev-python/pyinotify 0.9.6-r1: Python module used for monitoring filesystems events
 dev-python/pyjsparser 2.7.1_p20190421-r3: Fast javascript parser based on esprima.js
 dev-python/pyjwt 2.10.1 2.11.0: JSON Web Token implementation in Python
@@ -9297,7 +9297,7 @@ dev-python/python-distutils-extra 2.47: Gettext support, themed icons and scroll
 dev-python/python-dotenv 1.1.1 1.2.1: Manage .env files
 dev-python/python-editor 1.0.4-r2: Programmatically open an editor, capture the result
 dev-python/python-engineio 4.12.3 4.13.0: Python implementation of the Engine.IO realtime server
-dev-python/python-gammu 3.2.4-r1: Python bindings for Gammu
+dev-python/python-gammu 3.2.4-r1 3.2.5: Python bindings for Gammu
 dev-python/python-gflags 3.1.2-r2: Google's Python argument parsing library
 dev-python/python-glanceclient 4.9.0 4.10.0: A client for the OpenStack Glance API
 dev-python/python-gnupg 0.5.5-r2 0.5.6: A Python wrapper for GnuPG
@@ -9727,8 +9727,8 @@ dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10 1.0.0: TidyLib Python wrapper
 dev-python/uuid6 2025.0.1: New time-based UUID formats which are suited for use as a database key
-dev-python/uv 0.9.15 0.9.17 0.9.18 0.9.20 0.9.21 0.9.22 0.9.24 0.9.25 0.9.27 0.9.28 0.9.29 0.9.30 9999: A Python package installer and resolver, written in Rust
-dev-python/uv-build 0.9.15 0.9.17 0.9.18 0.9.20 0.9.21 0.9.22 0.9.24 0.9.25 0.9.27 0.9.28 0.9.29 0.9.30: PEP517 uv build backend
+dev-python/uv 0.9.15 0.9.21 0.9.25 0.9.28 0.9.30 0.10.0 9999: A Python package installer and resolver, written in Rust
+dev-python/uv-build 0.9.15 0.9.21 0.9.25 0.9.28 0.9.30 0.10.0: PEP517 uv build backend
 dev-python/uvicorn 0.38.0 0.40.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.21.0 0.22.1: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.35.0: Python Data Validation for Humans
@@ -14848,7 +14848,7 @@ net-im/cpop 0.0.4-r2: GTK+ network popup message client. Compatible with the jpo
 net-im/dino 0.5.0 0.5.1 9999: Modern Jabber/XMPP Client using GTK+/Vala
 net-im/discord 0.0.119-r1 0.0.120 0.0.122: All-in-one voice and text chat for gamers
 net-im/ejabberd 24.02-r1 24.07 24.10 25.04 25.10: Robust, scalable and extensible XMPP server
-net-im/element-desktop-bin 1.12.7: A glossy Matrix collaboration client for desktop (binary package)
+net-im/element-desktop-bin 1.12.9: A glossy Matrix collaboration client for desktop (binary package)
 net-im/err 6.1.9: Multiprotocol chatbot designed to be easily deployable and maintainable
 net-im/fractal 12.1-r1 13: Matrix messaging app for GNOME written in Rust
 net-im/gajim 2.2.0 2.4.1 2.4.2: GTK XMPP Client
