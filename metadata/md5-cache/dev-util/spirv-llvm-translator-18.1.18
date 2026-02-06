@@ -10,8 +10,8 @@ KEYWORDS=amd64 ~arm ~arm64 ~loong ~riscv x86
 LICENSE=UoI-NCSA
 RDEPEND=dev-util/spirv-tools[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] llvm-core/llvm:18=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
 REQUIRED_USE=^^ ( llvm_slot_18 )
-RESTRICT=!test? ( test )
+RESTRICT=!test? ( test ) arm? ( test ) arm64? ( test ) loong? ( test ) riscv? ( test )
 SLOT=18
 SRC_URI=https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v18.1.18.tar.gz -> spirv-llvm-translator-18.1.18.tar.gz
 _eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multilib-build	d7802b3638ffc661375c0021cdd19efd	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	cmake-multilib	3f19d8d5fccba52076cdeb2281ad349f	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r2	d6b14d3bbccc5ab5b4182c606245dbd3
-_md5_=cf364868ee0d9e7e76ee2e768947fda0
+_md5_=3a37fc3e82146676d1d785a0e65dd97c
