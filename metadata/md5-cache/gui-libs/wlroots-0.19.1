@@ -1,16 +1,16 @@
-BDEPEND=>=dev-libs/wayland-protocols-1.41 dev-util/wayland-scanner virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
-DEFINED_PHASES=compile configure install postinst test
+BDEPEND=>=dev-libs/wayland-protocols-1.41 dev-util/wayland-scanner virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-emersion ) verify-sig? ( sec-keys/openpgp-keys-emersion ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install postinst test unpack
 DEPEND=>=dev-libs/wayland-1.23.1 media-libs/libglvnd >=media-libs/mesa-24.1.0_rc1[opengl] >=x11-libs/libdrm-2.4.122 >=x11-libs/libxkbcommon-1.8.0 >=x11-libs/pixman-0.43.0 drm? ( media-libs/libdisplay-info:= sys-apps/hwdata liftoff? ( >=dev-libs/libliftoff-0.4 ) ) lcms? ( media-libs/lcms:2 ) libinput? ( >=dev-libs/libinput-1.19.0:= ) session? ( sys-auth/seatd:= virtual/libudev ) vulkan? ( dev-util/glslang:= dev-util/vulkan-headers media-libs/vulkan-loader ) xcb-errors? ( x11-libs/xcb-util-errors ) x11-backend? ( x11-libs/libxcb:= x11-libs/xcb-util-renderutil ) X? ( x11-libs/libxcb:= x11-libs/xcb-util-wm x11-base/xwayland )
 DESCRIPTION=Pluggable, composable, unopinionated modules for building a Wayland compositor
 EAPI=8
 HOMEPAGE=https://gitlab.freedesktop.org/wlroots/wlroots
-INHERIT=meson
-IUSE=liftoff +libinput +drm +session lcms vulkan x11-backend xcb-errors X
+INHERIT=meson verify-sig
+IUSE=liftoff +libinput +drm +session lcms vulkan x11-backend xcb-errors X verify-sig
 KEYWORDS=amd64 ~arm arm64 ~loong ppc64 ~riscv x86
 LICENSE=MIT
 RDEPEND=>=dev-libs/wayland-1.23.1 media-libs/libglvnd >=media-libs/mesa-24.1.0_rc1[opengl] >=x11-libs/libdrm-2.4.122 >=x11-libs/libxkbcommon-1.8.0 >=x11-libs/pixman-0.43.0 drm? ( media-libs/libdisplay-info:= sys-apps/hwdata liftoff? ( >=dev-libs/libliftoff-0.4 ) ) lcms? ( media-libs/lcms:2 ) libinput? ( >=dev-libs/libinput-1.19.0:= ) session? ( sys-auth/seatd:= virtual/libudev ) vulkan? ( dev-util/glslang:= dev-util/vulkan-headers media-libs/vulkan-loader ) xcb-errors? ( x11-libs/xcb-util-errors ) x11-backend? ( x11-libs/libxcb:= x11-libs/xcb-util-renderutil ) X? ( x11-libs/libxcb:= x11-libs/xcb-util-wm x11-base/xwayland )
 REQUIRED_USE=drm? ( session ) libinput? ( session ) liftoff? ( drm ) xcb-errors? ( || ( x11-backend X ) )
 SLOT=0.19
-SRC_URI=https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.19.1/downloads/wlroots-0.19.1.tar.gz
-_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	sysroot	c04c5ad99aee3e5b1404af749523ca96	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	ee14b47f310c323b82e6655787cd65ed
-_md5_=2726a5f0e4deedcc6a854cdaa3afbbe3
+SRC_URI=https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.19.1/downloads/wlroots-0.19.1.tar.gz https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.19.1/downloads/wlroots-0.19.1.tar.gz.sig
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	sysroot	c04c5ad99aee3e5b1404af749523ca96	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	ee14b47f310c323b82e6655787cd65ed	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=463ae2bd0b34b5c19b70b18121fe024c
