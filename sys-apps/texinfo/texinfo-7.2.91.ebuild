@@ -37,14 +37,15 @@ else
 			mirror://gnu/${PN}/${P}.tar.xz
 			verify-sig? ( mirror://gnu/${PN}/${P}.tar.xz.sig )
 		"
-		KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
+		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 		REGEN_BDEPEND="verify-sig? ( sec-keys/openpgp-keys-texinfo )"
 	fi
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-IUSE="nls +standalone static"
+IUSE="nls +standalone static test"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	|| ( app-doc/info-manual >=app-editors/emacs-26:* )
@@ -61,10 +62,6 @@ BDEPEND="
 	${REGEN_BDEPEND}
 	nls? ( >=sys-devel/gettext-0.19.6 )
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-7.2-perl-5.42.patch
-)
 
 src_prepare() {
 	default
@@ -93,7 +90,10 @@ src_configure() {
 	# TODO:
 	# --with-external-Unicode-EastAsianWidth
 	# --with-external-Text-Unidecode
+	# --with-external-libintl-perl
+	# --enable-perl-xs
 	# --enable-xs-perl-libintl for musl (7.2)?
+	# --with-swig
 	#
 	# Also, 7.0.91 seemed to introduce a included-libunistring w/ USE=-standalone
 	# but it doesn't seem to do anything?
@@ -101,6 +101,7 @@ src_configure() {
 		--cache-file="${S}"/config.cache
 		$(use_enable nls)
 		$(use_enable !standalone perl-xs)
+		$(use_enable test t2a-tests)
 	)
 
 	econf "${myeconfargs[@]}"
