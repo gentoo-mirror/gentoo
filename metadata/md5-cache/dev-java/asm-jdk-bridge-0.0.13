@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/raphw/asm-jdk-bridge
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=amd64 ~arm64 ppc64
+KEYWORDS=amd64 arm64 ppc64
 LICENSE=Apache-2.0
 RDEPEND=>=dev-java/asm-9.9.1:0 >=virtual/jre-17:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/raphw/asm-jdk-bridge/archive/asm-jdk-bridge-parent-0.0.13.tar.gz
 _eclasses_=java-utils-2	b41327d85d12ce816943cf4d344add19	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	df1fc43a5017ec8f5d23007b23731474
-_md5_=f043018cd6f1890f47464907ac93edc9
+_md5_=07cdcc522b0138f130233b3643f4f097
