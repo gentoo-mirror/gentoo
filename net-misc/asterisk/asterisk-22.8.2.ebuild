@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -335,7 +335,7 @@ pkg_postinst() {
 			[[ "${my_replacing}" = *", "* ]] &&
 				my_replacing="${my_replacing%, *} or ${my_replacing##*, }"
 			elog "You are updating from Asterisk ${my_replacing}, you should reference the upgrade document:"
-			elog "https://wiki.asterisk.org/wiki/display/AST/Upgrading+to+Asterisk+$(ver_cut 1)"
+			elog "https://docs.asterisk.org/Asterisk_$(ver_cut 1)_Documentation/Upgrading/"
 			elog "Assistance also available on Gentoo VoIP IRC Channel: #gentoo-voip @ irc.libera.chat"
 		fi
 	fi
