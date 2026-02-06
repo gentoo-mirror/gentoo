@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} python3_13t )
+PYTHON_COMPAT=( python3_{11..14} python3_13t )
 AUTOTOOLS_DEPEND=">=dev-build/autoconf-2.69"
 inherit autotools pam python-single-r1 systemd
 
@@ -18,11 +18,11 @@ S="${WORKDIR}"/${MY_P}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86"
 
 IUSE="
-	debug iodbc kerberos ldap memcached mysql mongodb odbc oracle pam
-	postgres python readline redis samba selinux sqlite ssl systemd
+	debug iodbc kafka kerberos ldap memcached mysql mongodb odbc oracle pam
+	postgres python readline redis samba selinux sqlite ssl systemd yubikey
 "
 
 # NOTE: Temporary freeradius doesn't support linking with mariadb client
@@ -49,9 +49,15 @@ DEPEND="
 	sys-libs/talloc
 	virtual/libcrypt:=
 	iodbc? ( dev-db/libiodbc )
+	kafka? ( dev-libs/librdkafka:= )
 	kerberos? ( virtual/krb5 )
 	ldap? ( net-nds/openldap:= )
-	memcached? ( dev-libs/libmemcached )
+	memcached? (
+		|| (
+			dev-libs/libmemcached-awesome
+			dev-libs/libmemcached
+		)
+	)
 	mysql? ( dev-db/mysql-connector-c:= )
 	mongodb? ( >=dev-libs/mongo-c-driver-1.13.0-r1 )
 	odbc? ( dev-db/unixODBC )
@@ -65,6 +71,7 @@ DEPEND="
 	sqlite? ( dev-db/sqlite:3 )
 	ssl? ( >=dev-libs/openssl-1.0.2:=[-bindist(-)] )
 	systemd? ( sys-apps/systemd:= )
+	yubikey? ( sys-auth/libyubikey )
 "
 RDEPEND="
 	${DEPEND}
@@ -83,7 +90,7 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-3.0.20-systemd-service.patch
+#	"${FILESDIR}"/${PN}-3.0.20-systemd-service.patch
 	"${FILESDIR}"/${PN}-3.2.3-configure-c99.patch
 )
 
@@ -212,12 +219,14 @@ src_configure() {
 		--with-logdir=/var/log/radius
 
 		$(use_enable debug developer)
+		$(use_with kafka rlm_kafka)
 		$(use_with ldap edir)
 		$(use_with redis rlm_cache_redis)
 		$(use_with redis rlm_redis)
 		$(use_with redis rlm_rediswho)
 		$(use_with ssl openssl)
 		$(use_with systemd systemd)
+		$(use_with yubikey rlm_yubikey)
 	)
 
 	# bug #77613
