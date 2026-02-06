@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,7 +22,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos"
 
 DEPEND="
 	dev-libs/icu:=
