@@ -1,6 +1,6 @@
 BDEPEND=app-arch/rpm2targz virtual/pkgconfig
 DEFINED_PHASES=install postinst unpack
-DESCRIPTION=A remote security scanner for Linux
+DESCRIPTION=A remote security scanner for Linux - agent component
 EAPI=8
 HOMEPAGE=https://www.tenable.com/
 INHERIT=rpm systemd
@@ -8,6 +8,6 @@ KEYWORDS=-* ~amd64 ~arm64
 LICENSE=GPL-2 Tenable-Master-Agreement
 RESTRICT=mirror strip
 SLOT=0
-SRC_URI=amd64? ( https://www.tenable.com/downloads/api/v2/pages/nessus/files/Nessus-10.10.1-el8.x86_64.rpm ) arm64? ( https://www.tenable.com/downloads/api/v2/pages/nessus/files/Nessus-10.10.1-el8.aarch64.rpm )
+SRC_URI=amd64? ( https://www.tenable.com/downloads/api/v2/pages/nessus-agents/files/NessusAgent-11.1.1-el8.x86_64.rpm ) arm64? ( https://www.tenable.com/downloads/api/v2/pages/nessus-agents/files/NessusAgent-11.1.1-el8.aarch64.rpm )
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	a07e59be6cf48ed85e624a41e8a7a832	toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=670f4ff20eb1765935e1ec0f786f5bdd
+_md5_=927eff707f74b8b523457b3931ab7325
