@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP key used by Pedram Pourang
+EAPI=8
+HOMEPAGE=https://github.com/tsujan
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://github.com/tsujan.gpg -> openpgp-keys-tsujan-github-20260206.asc https://keys.openpgp.org/vks/v1/by-fingerprint/19DFDF3A579BD509DBB572D8BE793007AD22DF7E -> openpgp-keys-tsujan-openpgp-20260206.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x19DFDF3A579BD509DBB572D8BE793007AD22DF7E -> openpgp-keys-tsujan-ubuntu-20260206.asc
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	6e52a21003eb40a5b499aa23f711dd09
+_md5_=45afc73cd1bb5698d45013fb18b995f1
