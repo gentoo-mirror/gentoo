@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=dev-cpp/cpp-httplib:= dev-cpp/nlohmann_json dev-libs/hidapi dev-libs/libev media-libs/libjpeg-turbo:= net-misc/curl sci-libs/cfitsio:= sci-libs/fftw:3.0= sci-libs/gsl:= sci-libs/libnova:= virtual/zlib:= virtual/libusb:1 ogg? ( media-libs/libogg media-libs/libtheora:= ) rtlsdr? ( net-wireless/rtl-sdr:= ) kernel_linux? ( sys-kernel/linux-headers ) test? ( >=dev-cpp/gtest-1.8.0 )
+DESCRIPTION=INDI Astronomical Control Protocol library
+EAPI=8
+HOMEPAGE=https://www.indilib.org/
+INHERIT=cmake dot-a udev
+IUSE=ogg rtlsdr test
+KEYWORDS=~amd64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=BSD GPL-2+ LGPL-2+ LGPL-2.1+
+RDEPEND=dev-cpp/cpp-httplib:= dev-cpp/nlohmann_json dev-libs/hidapi dev-libs/libev media-libs/libjpeg-turbo:= net-misc/curl sci-libs/cfitsio:= sci-libs/fftw:3.0= sci-libs/gsl:= sci-libs/libnova:= virtual/zlib:= virtual/libusb:1 ogg? ( media-libs/libogg media-libs/libtheora:= ) rtlsdr? ( net-wireless/rtl-sdr:= )
+RESTRICT=!test? ( test )
+SLOT=0/1
+SRC_URI=https://github.com/indilib/indi/archive/v2.1.8.tar.gz -> indilib-2.1.8.tar.gz
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	dot-a	e5200fe17cfd2ed6fa66edd80201763a	udev	f3d9a4376ebd22131726a68e1a0a058f
+_md5_=3bd83d384e9282a81fbde6659e62642f
