@@ -1,10 +1,11 @@
+BDEPEND=l10n_de? ( dev-lang/ruby ) l10n_fr? ( dev-lang/ruby ) l10n_it? ( dev-lang/ruby ) l10n_tr? ( dev-lang/ruby )
 DEFINED_PHASES=compile configure install postinst
 DEPEND=acct-user/iroffer virtual/libcrypt:= curl? ( net-misc/curl[ssl?] ssl? ( gnutls? ( net-misc/curl[curl_ssl_gnutls] ) !gnutls? ( net-misc/curl[curl_ssl_openssl] ) ) ) geoip? ( dev-libs/libmaxminddb:= ) ruby? ( dev-lang/ruby:* ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) upnp? ( net-libs/miniupnpc:= )
 DESCRIPTION=IRC fileserver using DCC
 EAPI=8
 HOMEPAGE=https://iroffer.net/
 INHERIT=edo toolchain-funcs
-IUSE=+admin +blowfish curl debug geoip gnutls +http +memsave ruby ssl +telnet upnp l10n_de l10n_fr l10n_en l10n_it l10n_tr
+IUSE=+admin +blowfish curl debug geoip gnutls +http +memsave ruby ssl +telnet upnp l10n_de l10n_en l10n_fr l10n_it l10n_tr
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+-with-openssl-exception MIT blowfish? ( LGPL-2.1+ ) upnp? ( BSD )
 RDEPEND=acct-user/iroffer virtual/libcrypt:= curl? ( net-misc/curl[ssl?] ssl? ( gnutls? ( net-misc/curl[curl_ssl_gnutls] ) !gnutls? ( net-misc/curl[curl_ssl_openssl] ) ) ) geoip? ( dev-libs/libmaxminddb:= ) ruby? ( dev-lang/ruby:* ) ssl? ( gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) ) upnp? ( net-libs/miniupnpc:= )
@@ -12,4 +13,4 @@ REQUIRED_USE=admin? ( http )
 SLOT=0
 SRC_URI=https://iroffer.net/iroffer-dinoex-3.34.tar.gz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	7e440a20ac11dece04e3334622e6e5da
-_md5_=932249460ffc4d16b53f2556038bda69
+_md5_=d878f9ff1ced17fb61f46c98aa82111c
