@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,19 +8,24 @@ inherit systemd perl-module
 DESCRIPTION="High-performance interface between the MTA and content checkers"
 HOMEPAGE="https://gitlab.com/amavis/amavis"
 SRC_URI="https://gitlab.com/amavis/amavis/-/archive/v${PV}/amavis-v${PV}.tar.bz2"
+S="${WORKDIR}/amavis-v${PV}"
 
 LICENSE="GPL-2 BSD-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~ppc ~x86"
+
 IUSE="clamav dkim ldap mysql postgres razor rspamd rspamd-https selinux snmp spamassassin test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="test? ( spamassassin )"
 
-MY_RSPAMD_DEPEND="dev-perl/HTTP-Message
+MY_RSPAMD_DEPEND="
+	dev-perl/HTTP-Message
 	dev-perl/JSON
-	dev-perl/LWP-UserAgent-Determined"
+	dev-perl/LWP-UserAgent-Determined
+"
 DEPEND="acct-user/amavis"
-RDEPEND="${DEPEND}
+RDEPEND="
+	${DEPEND}
 	app-arch/arc
 	app-arch/bzip2
 	app-arch/cabextract
@@ -54,40 +59,44 @@ RDEPEND="${DEPEND}
 	>=sys-apps/coreutils-5.0-r3
 	>=sys-libs/db-4.4.20
 	virtual/mta
-	virtual/perl-Compress-Raw-Zlib
-	virtual/perl-Digest-MD5
-	virtual/perl-File-Temp
-	virtual/perl-IO-Compress
-	virtual/perl-IO-Socket-IP
-	virtual/perl-MIME-Base64
-	virtual/perl-Time-HiRes
 	clamav? ( app-antivirus/clamav )
 	ldap? ( >=dev-perl/perl-ldap-0.33 )
 	mysql? ( dev-perl/DBD-mysql )
 	postgres? ( dev-perl/DBD-Pg )
 	razor? ( mail-filter/razor )
 	rspamd? ( ${MY_RSPAMD_DEPEND} )
-	rspamd-https? ( ${MY_RSPAMD_DEPEND}
+	rspamd-https? (
+		${MY_RSPAMD_DEPEND}
 		dev-perl/LWP-Protocol-https
-		dev-perl/Net-SSLeay )
+		dev-perl/Net-SSLeay
+	)
 	selinux? ( sec-policy/selinux-amavis )
 	snmp? ( net-analyzer/net-snmp[perl] )
-	spamassassin? ( mail-filter/spamassassin dev-perl/Image-Info )"
-
-BDEPEND="${RDEPEND}
+	spamassassin? (
+		mail-filter/spamassassin
+		dev-perl/Image-Info
+	)
+"
+BDEPEND="
+	${RDEPEND}
 	dev-perl/Dist-Zilla
-	virtual/perl-ExtUtils-MakeMaker
 	test? (
-		virtual/perl-Test-Harness
+		dev-perl/File-Slurp
 		dev-perl/Test-Class
 		dev-perl/DBI
 		dev-perl/perl-ldap
 		dev-perl/NetAddr-IP
+		dev-perl/Set-Scalar
+		dev-perl/Test-MockModule
 		dev-perl/Test-Most
-	)"
+	)
+"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.14.0-xz-test.patch
+)
 
 AMAVIS_ROOT="/var/lib/amavishome"
-S="${WORKDIR}/amavis-v${PV}"
 
 dzil_to_distdir() {
 	local dzil_root dest has_missing modname dzil_version
@@ -110,7 +119,7 @@ dzil_to_distdir() {
 			eerror "Missing:"
 		fi
 	S=	eerror "  ${modname}"
-	done < <( dzil authordeps --missing --versions )
+	done < <(dzil authordeps --missing --versions)
 
 	[[ -z "${has_missing}" ]] || die "Satisfy all missing authordeps first"
 
@@ -123,7 +132,7 @@ dzil_to_distdir() {
 			ewarn "Missing:"
 		fi
 		ewarn "  ${modname}"
-	done < <( dzil listdeps --missing --versions --author )
+	done < <(dzil listdeps --missing --versions --author)
 
 	einfo "Generating release"
 	dzil build --notgz --in "${dest}" || die "Unable to build CPAN dist in '${dest}'"
@@ -165,16 +174,15 @@ src_prepare() {
 		rm bin/amavisd-snmp-subagent
 	fi
 
-	eapply_user
+	perl-module_src_prepare
 
 	# prevent distdir-in-distdir
 	mv "${S}" "${T}" || die
 	dzil_to_distdir "${T}/amavis-v${PV}" "${S}"
-
-	perl-module_src_prepare
 }
 
 src_test() {
+	unset XZ_DEFAULTS XZ_OPT
 	prove -lr t || die
 }
 
@@ -245,7 +253,7 @@ pkg_preinst() {
 	# TODO: the following is done as root, but should probably be done
 	# as the amavis user.
 	if use razor ; then
-		if [ ! -d "${ROOT}${AMAVIS_ROOT}/.razor" ] ; then
+		if [[ ! -d "${ROOT}${AMAVIS_ROOT}/.razor" ]] ; then
 			elog "Setting up initial razor config files..."
 
 			razor-admin -create -home="${D}/${AMAVIS_ROOT}/.razor"
@@ -257,7 +265,7 @@ pkg_preinst() {
 
 pkg_postinst() {
 	local d="/var/amavis"
-	if [ -d ${d} ]; then
+	if [[ -d ${d} ]]; then
 		elog "Existing data found. Please make sure to manually copy it to amavis' new"
 		elog "home directory by executing the following command as root from a shell:"
 		elog
