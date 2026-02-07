@@ -1,15 +1,15 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-KDE_ORG_COMMIT=d5035b2540e16d4c94aff601bbceb3f94a82d8cd
+KDE_ORG_COMMIT=7bc1d75f188bebc0f570ae8b6e91dd980988e349
 ECM_DESIGNERPLUGIN="true"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="true"
 EGIT_BRANCH="work/kossebau/kf6"
-KFMIN=6.21.0
-QTMIN=6.8.1
+KFMIN=6.22.0
+QTMIN=6.10.1
 inherit ecm kde.org optfeature xdg
 
 DESCRIPTION="Hex editor by KDE"
