@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://hpjansson.org/chafa/ https://github.com/hpjansson/chafa
 INHERIT=libtool
 IUSE=avif heif jpegxl svg +tools webp
-KEYWORDS=amd64 ~arm arm64 ~loong ~mips ~ppc ppc64 ~riscv ~sparc x86
+KEYWORDS=amd64 ~arm arm64 ~loong ~m68k ~mips ~ppc ppc64 ~riscv ~sparc x86
 LICENSE=LGPL-3+
 RDEPEND=dev-libs/glib:2 tools? ( media-libs/freetype:2 media-libs/libjpeg-turbo:= media-libs/tiff:= avif? ( media-libs/libavif:= ) heif? ( media-libs/libheif:= ) jpegxl? ( media-libs/libjxl:= ) svg? ( gnome-base/librsvg:2 x11-libs/cairo ) webp? ( media-libs/libwebp:= ) )
 SLOT=0
 SRC_URI=https://hpjansson.org/chafa/releases/chafa-1.18.0.tar.xz
 _eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	libtool	c81bd096be5f4c82f4e8f156ef112402
-_md5_=d5f76137b584fc2f9fbe2b9c1409db8c
+_md5_=c2782a772cb7e12c31e4551b6154067a
