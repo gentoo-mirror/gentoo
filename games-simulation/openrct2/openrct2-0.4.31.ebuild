@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,8 +12,8 @@ MY_PN_RPL="replays"
 MY_PN_SFX="opensound"
 MY_PN_TS="title-sequences"
 MY_PV_MSX="1.6.1"
-MY_PV_OBJ="1.7.3"
-MY_PV_RPL="0.0.90"
+MY_PV_OBJ="1.7.6"
+MY_PV_RPL="0.0.92"
 MY_PV_SFX="1.0.6"
 MY_PV_TS="0.4.26"
 
@@ -31,7 +31,7 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="dedicated +flac +opengl scripting test +truetype +vorbis"
 RESTRICT="!test? ( test )"
 
