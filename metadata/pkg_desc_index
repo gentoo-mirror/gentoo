@@ -1246,7 +1246,7 @@ app-backup/bareos 21.1.11 22.1.7 22.1.8 23.1.3-r1 23.1.4 23.1.5 24.0.5 24.0.7 25
 app-backup/borgbackup 1.4.1-r1 1.4.2-r1 1.4.3: Deduplicating backup program with compression and authenticated encryption
 app-backup/borgmatic 2.0.7 2.0.13 2.1.0 2.1.1: Automatically create, prune and verify backups with borgbackup
 app-backup/btrbk 0.32.6-r1 0.32.6-r2 9999: Tool for creating snapshots and remote backups of btrfs subvolumes
-app-backup/burp 3.1.4 3.1.4-r1: Network backup and restore client and server for Unix and Windows
+app-backup/burp 3.1.4 3.1.4-r1 3.2.0: Network backup and restore client and server for Unix and Windows
 app-backup/ccollect 0.8-r2 2.10: Pseudo incremental backup with different exclude lists using hardlinks and rsync
 app-backup/cdbackup 0.7.1-r2: Allows streaming backup utilities to dump/restore from CD-R(W)s or DVD(+/-RW)s
 app-backup/cdbkup 1.0-r5: Performs full/incremental backups of local/remote filesystems onto CD-R(W)s
@@ -5744,7 +5744,7 @@ dev-libs/mxml 3.3.1-r1 4.0.4: A small XML parsing library that you can use to re
 dev-libs/nanomsg 1.2.1-r1 1.2.2: High-performance messaging interface for distributed applications
 dev-libs/nativefiledialog-extended 1.2.1: Cross platform native file dialog library with C and C++ bindings
 dev-libs/ncnn 20250503: High-performance neural network inference framework
-dev-libs/nettle 3.10.1 3.10.2: Low-level cryptographic library
+dev-libs/nettle 3.10.2: Low-level cryptographic library
 dev-libs/newt 0.52.25-r2: Redhat's Newt windowing toolkit development files
 dev-libs/nmeap 0.3-r2: Extensible NMEA-0183 (GPS) data parser in standard C
 dev-libs/nng 1.10.1 1.11: Light-weight brokerless messaging
@@ -12682,7 +12682,7 @@ mail-client/thunderbird 140.6.0 140.7.0 140.7.1 146.0 146.0.1 147.0 147.0.1: Thu
 mail-client/thunderbird-bin 140.6.0 140.7.0 140.7.1 146.0 146.0.1 147.0 147.0.1: Thunderbird Mail Client
 mail-filter/MailScanner 4.84.5.2: Free Anti-Virus and Anti-Spam Filter
 mail-filter/amavisd-milter 1.7.2-r1: sendmail milter for amavisd-new
-mail-filter/amavisd-new 2.12.2 2.13.0 2.13.1: High-performance interface between the MTA and content checkers
+mail-filter/amavisd-new 2.13.1 2.14.0: High-performance interface between the MTA and content checkers
 mail-filter/bmf 0.9.4-r4: Fast and small Bayesian spam filter
 mail-filter/bogofilter 1.2.5-r1: Bayesian spam filter designed with fast algorithms, and tuned for speed
 mail-filter/courier-pythonfilter 3.0.4 3.0.6 3.0.6-r1: Python filtering architecture for the Courier MTA
@@ -16694,6 +16694,7 @@ sec-keys/openpgp-keys-make 20220407: OpenPGP keys used by GNU make
 sec-keys/openpgp-keys-martinlambers 20260120: OpenPGP key used by Martin Lambers
 sec-keys/openpgp-keys-martinmares 20260120: OpenPGP key used by Martin Mareš
 sec-keys/openpgp-keys-mathieudesnoyers 20250909: OpenPGP keys used by Mathieu Desnoyers
+sec-keys/openpgp-keys-maxbaz 20260207: OpenPGP key used by Max Baz
 sec-keys/openpgp-keys-midipix 20250517: OpenPGP keys used to sign midipix releases
 sec-keys/openpgp-keys-milanbroz 20260121: OpenPGP key used by Milan Broz
 sec-keys/openpgp-keys-miniupnp 20201006: OpenPGP keys used to sign miniupnp* packages
@@ -16705,6 +16706,9 @@ sec-keys/openpgp-keys-mysql 20231023 20250120: OpenPGP keys used to sign MySQL r
 sec-keys/openpgp-keys-netfilter 20220326 20240415: OpenPGP keys used by the netfilter project
 sec-keys/openpgp-keys-nettle 20220603 20250628: OpenPGP keys used by Niels Möller (to sign nettle releases)
 sec-keys/openpgp-keys-networkmanager-strongswan 20260119: OpenPGP keys used for networkmanager-strongswan releases
+sec-keys/openpgp-keys-nghttp2 20260127: OpenPGP key used by net-libs/nghttp2
+sec-keys/openpgp-keys-nghttp3 20260127: OpenPGP key used by net-libs/nghttp3
+sec-keys/openpgp-keys-ngtcp2 20260127: OpenPGP key used by net-libs/ngtcp2
 sec-keys/openpgp-keys-nicholaswilson 20250209 20250910: OpenPGP keys used by Nicholas Wilson
 sec-keys/openpgp-keys-nmap 20210416: OpenPGP keys used to sign Nmap releases
 sec-keys/openpgp-keys-notqmail 20210223: OpenPGP keys used to sign notqmail releases
@@ -16761,6 +16765,7 @@ sec-keys/openpgp-keys-terminator 20210306: OpenPGP keys used to sign x11-terms/t
 sec-keys/openpgp-keys-texinfo 20260206: OpenPGP keys used by GNU texinfo
 sec-keys/openpgp-keys-thomasdickey 20240114 20260204: OpenPGP keys used by Thomas Dickey
 sec-keys/openpgp-keys-thomashaller 20260124: OpenPGP key used by Thomas Haller
+sec-keys/openpgp-keys-tinc 20260205: OpenPGP key used by net-vpn/tinc
 sec-keys/openpgp-keys-tor 20230727 20250713: OpenPGP keys used by the Tor project
 sec-keys/openpgp-keys-tsujan 20260206: OpenPGP key used by Pedram Pourang
 sec-keys/openpgp-keys-tytso 20260115: OpenPGP keys used by Theodore Ts'o
@@ -18312,7 +18317,7 @@ www-nginx/ngx-vts 0.2.4: NGINX virtual host traffic status module
 www-nginx/ngx-xss 0.06: Native support for cross-site scripting (XSS) in NGINX
 www-nginx/ngx_devel_kit 0.3.4: An NGINX module that adds generic tools for third-party modules
 www-nginx/njs 0.9.4: A subset of JavaScript language to use in NGINX
-www-plugins/browserpass 3.1.2: WebExtension host binary for app-admin/pass, a UNIX password manager
+www-plugins/browserpass 3.1.2 3.1.2-r1: WebExtension host binary for app-admin/pass, a UNIX password manager
 www-plugins/chrome-binary-plugins 141.0.7390.107 142.0.7444.34_beta 142.0.7444.175 143.0.7499.40_beta 143.0.7499.169 144.0.7559.31_beta 144.0.7559.109 145.0.7632.26_beta 146.0.7647.3_alpha: Binary plugins from Google Chrome for use in Chromium
 www-plugins/lightspark 0.8.7-r1 0.9.0: High performance flash player
 www-plugins/passff-host 1.2.4 1.2.5: Host app for the PassFF WebExtension
