@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.kicad.org
 INHERIT=check-reqs cmake flag-o-matic optfeature python-single-r1 toolchain-funcs wxwidgets xdg-utils
 IUSE=doc examples nls openmp test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=~amd64 ~riscv
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
 LICENSE=GPL-2+ GPL-3+ Boost-1.0 BSD BSD-2 Apache-2.0 ISC MIT ZLIB CC-BY-SA-4.0 CC0-1.0
 RDEPEND=app-crypt/libsecret dev-cpp/abseil-cpp:= dev-db/unixODBC dev-libs/boost:=[context,nls] dev-libs/libgit2:= >=dev-libs/protobuf-27.2:=[protobuf,protoc] >=dev-libs/nng-1.10.0:= media-libs/freeglut media-libs/glew:0= >=media-libs/glm-0.9.9.1 media-libs/mesa[X(+)] net-misc/curl >=sci-libs/opencascade-7.5.0:0= >=x11-libs/cairo-1.8.8:= >=x11-libs/pixman-0.30 >sci-electronics/ngspice-27[shared] virtual/zlib:= x11-libs/wxGTK:3.2-gtk3=[X,opengl] python_single_target_python3_11? ( dev-libs/boost:=[context,nls,python,python_targets_python3_11(-)] >=dev-python/wxpython-4.2.0:*[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-libs/boost:=[context,nls,python,python_targets_python3_12(-)] >=dev-python/wxpython-4.2.0:*[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-libs/boost:=[context,nls,python,python_targets_python3_13(-)] >=dev-python/wxpython-4.2.0:*[python_targets_python3_13(-)] ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) nls? ( sys-devel/gettext ) test? ( media-gfx/cairosvg ) sci-electronics/electronics-menu
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.com/kicad/code/kicad/-/archive/9.0.6/kicad-9.0.6.tar.bz2
 _eclasses_=check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	optfeature	538bce96e5589935b57e178e8635f301	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	wxwidgets	c48bf68858bd3c27c272ff034eb1e14d
-_md5_=d8055a483442bf677ff24331313909c2
+_md5_=d6eb5e93537fb13da9c6d0a4394c9613
