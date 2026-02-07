@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare
+DEPEND=sys-libs/ncurses:0= gui? ( x11-libs/libX11 ) amd64? ( abi_x86_x32? ( sys-libs/ncurses:0=[abi_x86_x32(-)] gui? ( x11-libs/libX11[abi_x86_x32(-)] ) ) !abi_x86_x32? ( sys-libs/ncurses:0=[abi_x86_32(-)] gui? ( x11-libs/libX11[abi_x86_32(-)] ) ) ) gui? ( x11-base/xorg-proto x11-misc/xbitmaps )
+DESCRIPTION=The extensible self-documenting text editor
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/emacs/
+IDEPEND=app-eselect/eselect-emacs
+INHERIT=toolchain-funcs flag-o-matic multilib
+IUSE=abi_x86_x32 gui
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-1+ GPL-2+ BSD HPND
+RDEPEND=sys-libs/ncurses:0= gui? ( x11-libs/libX11 ) amd64? ( abi_x86_x32? ( sys-libs/ncurses:0=[abi_x86_x32(-)] gui? ( x11-libs/libX11[abi_x86_x32(-)] ) ) !abi_x86_x32? ( sys-libs/ncurses:0=[abi_x86_32(-)] gui? ( x11-libs/libX11[abi_x86_32(-)] ) ) ) app-eselect/eselect-emacs
+SLOT=18
+SRC_URI=https://ftp.gnu.org/old-gnu/emacs/emacs-18.59.tar.gz https://dev.gentoo.org/~ulm/emacs/emacs-18.59-patches-17.tar.xz
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	a7afe42e95fb46ce9691605acfb24672	multilib	404b65bd5212cff83b3935c685419d08
+_md5_=2441a846267a45a06304a332bc0d6336

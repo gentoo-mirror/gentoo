@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/httperf/httperf
 INHERIT=autotools
 IUSE=debug idleconn
-KEYWORDS=~amd64 ~mips ~x86 ~x64-macos
+KEYWORDS=amd64 ~mips x86 ~x64-macos
 LICENSE=GPL-2+-with-openssl-exception
 RDEPEND=dev-libs/openssl:= idleconn? ( dev-libs/libevent:= )
 SLOT=0
 SRC_URI=https://github.com/httperf/httperf/archive/de8cd6ad8a79779a0cb74a4aa2175afa9e24df57.tar.gz -> httperf-0.9.1_p20201206.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6
-_md5_=1ed5354bf5f57d53a711cc1699ba71fa
+_md5_=3841e2bd8b27d057967558e0478f43ab
