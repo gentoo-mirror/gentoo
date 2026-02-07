@@ -3,6 +3,8 @@
 
 EAPI=8
 
+[[ ${PV} == *p20260206 ]] && COMMIT=2dd755a5fa11577a9388af88f385d2a8e18f7a8d
+
 inherit elisp
 
 DESCRIPTION="Mode for editing (and running) Haskell programs in Emacs"
@@ -14,8 +16,9 @@ if [[ "${PV}" == *9999* ]] ; then
 
 	EGIT_REPO_URI="https://github.com/haskell/${PN}"
 else
-	SRC_URI="https://github.com/haskell/${PN}/archive/v${PV}.tar.gz
+	SRC_URI="https://github.com/haskell/${PN}/archive/${COMMIT}.tar.gz
 		-> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${COMMIT}"
 
 	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
