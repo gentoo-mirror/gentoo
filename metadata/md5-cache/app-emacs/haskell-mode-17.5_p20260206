@@ -1,0 +1,13 @@
+BDEPEND=>=app-editors/emacs-25.3:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Mode for editing (and running) Haskell programs in Emacs
+EAPI=8
+HOMEPAGE=https://haskell.github.io/haskell-mode/ https://www.haskell.org/haskellwiki/Emacs#Haskell-mode
+INHERIT=elisp
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3+ FDL-1.2+
+RDEPEND=>=app-editors/emacs-25.3:*
+SLOT=0
+SRC_URI=https://github.com/haskell/haskell-mode/archive/2dd755a5fa11577a9388af88f385d2a8e18f7a8d.tar.gz -> haskell-mode-17.5_p20260206.tar.gz
+_eclasses_=elisp-common	ce20c7e2fc0c52b58ddabcd536b7310b	elisp	a37bfc35b86403c770beebbd71661c30
+_md5_=e8ae3e8edcf783285f93787aff516af5
