@@ -1859,6 +1859,7 @@ _distutils-r1_post_python_install() {
 				eqawarn "QA Notice: Python extension modules (*$(get_modname)) found installed. Please set:"
 				eqawarn "  DISTUTILS_EXT=1"
 				eqawarn "in the ebuild."
+				[[ ${EAPI} != [78] ]] && die "DISTUTILS_EXT not set"
 				_DISTUTILS_EXT_WARNED=1
 			fi
 		fi
