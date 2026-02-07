@@ -10,22 +10,22 @@ inherit desktop font optfeature python-single-r1 cmake verify-sig xdg
 DESCRIPTION="WYSIWYM (What You See Is What You Mean) document processor based on LaTeX"
 HOMEPAGE="https://www.lyx.org/"
 SRC_URI="
-	http://ftp.lyx.org/pub/lyx/stable/$(ver_cut 1-2).x/${P}.tar.xz
-	http://ftp.lyx.org/pub/lyx/devel/lyx-$(ver_cut 1-2)/${P}.tar.xz
-	http://ftp.lyx.org/pub/lyx/stable/$(ver_cut 1-2).x/${P}.tar.xz.sig
-	http://ftp.lyx.org/pub/lyx/devel/lyx-$(ver_cut 1-2)/${P}.tar.xz.sig
+	http://ftp.lyx.org/pub/lyx/stable/$(ver_cut 1-2).x/${P/_rc/~RC}.tar.xz
+	http://ftp.lyx.org/pub/lyx/devel/lyx-$(ver_cut 1-2)/${P/_rc/~RC}.tar.xz
+	http://ftp.lyx.org/pub/lyx/stable/$(ver_cut 1-2).x/${P/_rc/~RC}.tar.xz.sig
+	http://ftp.lyx.org/pub/lyx/devel/lyx-$(ver_cut 1-2)/${P/_rc/~RC}.tar.xz.sig
 "
+S=${WORKDIR}/${P/_rc/~RC}
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="aspell cups dia dot enchant gnumeric html +hunspell +latex monolithic-build nls rcs rtf svg l10n_he"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="test"
 
 RDEPEND="${PYTHON_DEPS}
 	app-text/mythes
-	dev-libs/boost:=
 	dev-qt/qt5compat:6
 	dev-qt/qtbase:6[concurrent,dbus,gui,widgets]
 	dev-qt/qtsvg:6
@@ -96,7 +96,6 @@ PATCHES=(
 	# Try first with xdg-open before hardcoded commands
 	# Patch from Debian using a similar approach to Fedora
 	"${FILESDIR}"/lyx-2.4.4-prefer-xdg-open.patch
-	"${FILESDIR}"/${P}-qt-6.10.patch # bug #967230
 )
 
 pkg_setup() {
@@ -129,7 +128,6 @@ src_configure() {
 		-DLYX_EXTERNAL_ICONV=ON
 		-DLYX_EXTERNAL_HUNSPELL=ON
 		-DLYX_EXTERNAL_MYTHES=ON
-		-DLYX_EXTERNAL_BOOST=ON
 		-DLYX_PROGRAM_SUFFIX=OFF
 
 		# debug control
