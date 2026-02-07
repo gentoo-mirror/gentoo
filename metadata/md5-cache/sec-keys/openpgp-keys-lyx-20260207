@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP key used by app-office/lyx
+EAPI=8
+HOMEPAGE=https://www.lyx.org/Download#signing
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=amd64 ~arm64
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://keys.openpgp.org/vks/v1/by-fingerprint/FE66471B43559707AFDAD955DE7A44FAC7FB382D -> openpgp-keys-lyx-openpgp-20260207.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xFE66471B43559707AFDAD955DE7A44FAC7FB382D -> openpgp-keys-lyx-ubuntu-20260207.asc
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	6e52a21003eb40a5b499aa23f711dd09
+_md5_=f60996da9b274d625b56ab9302bf1b4a
