@@ -14,21 +14,20 @@ S="${WORKDIR}/HiGHS"
 LICENSE="MIT"
 SLOT="0/1"  # soname major
 KEYWORDS="~amd64 ~riscv"
-IUSE="examples hipo index64 test +threads zlib"
+
+# USE=hipo was dropped in 1.13.0 because upstream began bundling
+# sci-libs/{amd,metis} and has no plans to unbundle them.
+IUSE="examples index64 test +threads zlib"
 
 # The tests fail for me due to precision issues (gcc) and something
 # worse (clang): https://github.com/ERGO-Code/HiGHS/issues/2690
 RESTRICT="test"
 
-# An old version of dev-cpp/catch (header only) is bundled for tests
-# under extern/catch.hpp.
-RDEPEND="
-	hipo? (
-		sci-libs/metis
-		virtual/cblas
-	)
-"
-DEPEND="${RDEPEND}"
+# There are no external dependencies for a non-HiPO build. An old
+# version of dev-cpp/catch (header only) is bundled for tests under
+# extern/catch.hpp, but we don't use the tests.
+
+PATCHES=( "${FILESDIR}/highs-1.13.0-docs.patch" )
 
 DOCS=(
 	AUTHORS
@@ -39,14 +38,14 @@ DOCS=(
 	README.md
 )
 
-PATCHES=(
-	"${FILESDIR}/highs-1.12.0-hipo-search-paths.patch"
-)
-
 src_prepare() {
 	# Sometimes the .git directory makes it into the release tarballs
 	# and cmake will waste time computing the latest commit.
 	rm -rf .git || die
+
+	# Just a precaution. These should only be used by the HiPO build,
+	# and we disable it.
+	rm -r extern/{amd,metis,rcm} || die
 
 	# Remove docs for stuff we don't install
 	rm -r docs/src/assets || die
@@ -84,7 +83,7 @@ src_configure() {
 		-DHIGHS_COVERAGE=OFF
 		-DHIGHS_NO_DEFAULT_THREADS=$(usex threads OFF ON)
 		-DHIGHSINT64=$(usex index64)
-		-DHIPO=$(usex hipo)
+		-DHIPO=OFF
 		-DPYTHON_BUILD_SETUP=OFF
 		-DUSE_DOTNET_STD_21=OFF
 		-DZLIB=$(usex zlib)
