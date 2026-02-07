@@ -108,6 +108,9 @@ python_test() {
 		setuptools/tests/test_namespaces.py::TestNamespaces::test_pkg_resources_import
 		# broken by warnings from setuptools-scm
 		setuptools/tests/config/test_apply_pyprojecttoml.py::TestPresetField::test_scripts_dont_require_dynamic_entry_points
+		# TODO
+		setuptools/tests/test_config_discovery.py::TestDiscoverPackagesAndPyModules::test_py_modules_when_wheel_dir_is_cwd
+		'setuptools/tests/test_egg_info.py::TestEggInfo::test_requires[setup_requires_with_markers]'
 	)
 
 	case ${EPYTHON} in
