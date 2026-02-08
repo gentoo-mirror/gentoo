@@ -1,36 +1,41 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit xdg
+inherit autotools xdg
 
 DESCRIPTION="GTK+ based algebraic and RPN calculator"
 HOMEPAGE="https://github.com/galculator/galculator"
-SRC_URI="http://galculator.mnim.org/downloads/${P}.tar.bz2"
+COMMIT="ccf6f06602a5cf9d9fc95d767b545b03af6a7f71"
+SRC_URI="https://github.com/galculator/galculator/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~ppc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~x86"
 
 RDEPEND="
 	dev-libs/glib:2
 	x11-libs/gtk+:3
-	x11-libs/pango"
+	x11-libs/pango
+"
 DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-util/intltool
 	app-alternatives/lex
 	sys-devel/gettext
-	virtual/pkgconfig"
+	virtual/pkgconfig
+"
 
-PATCHES=( "${FILESDIR}"/${P}-fno-common.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.1.4-fno-common.patch
+	"${FILESDIR}"/${PN}-2.1.4-c23.patch
+)
 
 src_prepare() {
 	default
-
-	# bug 566290
-	echo "src/flex_parser.c" >> po/POTFILES.skip || die
+	eautoreconf
 }
 
 src_install() {

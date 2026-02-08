@@ -24,11 +24,11 @@ DEPEND="
 	>=app-crypt/gcr-3.90.0:4=[introspection]
 	>=dev-libs/glib-2.68:2
 	>=dev-libs/gobject-introspection-1.82.0-r2:=
-	>=dev-libs/gjs-1.73.1[cairo(+)]
+	>=dev-libs/gjs-1.81.2[cairo(+)]
 	>=gui-libs/gtk-4:4[X?,introspection,wayland?]
-	>=x11-wm/mutter-47.0:0/15[introspection,test?]
+	>=x11-wm/mutter-48.0:0/16[introspection,test?]
 	>=sys-auth/polkit-0.120_p20220509[introspection]
-	>=gnome-base/gsettings-desktop-schemas-47_alpha[introspection]
+	>=gnome-base/gsettings-desktop-schemas-48_beta[introspection]
 	>=app-i18n/ibus-1.5.19
 	dev-python/docutils
 	>=gnome-base/gnome-desktop-40.0:4=
@@ -54,6 +54,7 @@ DEPEND="
 
 	>=media-libs/libpulse-2[glib]
 	dev-libs/libical:=
+	x11-libs/libXext
 	>=x11-libs/libXfixes-5.0
 
 	gui-libs/gtk:4[introspection]
@@ -79,7 +80,7 @@ DEPEND="
 # 5. adwaita-icon-theme needed for various icons & arrows (3.26 for new video-joined-displays-symbolic and co icons; review for 3.28+)
 # 6. mobile-broadband-provider-info, timezone-data for shell-mobile-providers.c  # TODO: Review
 # 7. IBus is needed for nls integration
-# 8. Cantarell font used in gnome-shell global CSS (if removing this for some reason, make sure it's pulled in somehow for non-meta users still too)
+# 8. Adwaita font used in gnome-shell global CSS (if removing this for some reason, make sure it's pulled in somehow for non-meta users still too)
 # 9. xdg-desktop-portal-gtk for various integration, e.g. #764632
 # 10. TODO: semi-optional webkit-gtk[introspection] for captive portal helper
 RDEPEND="${DEPEND}
@@ -87,13 +88,13 @@ RDEPEND="${DEPEND}
 	app-accessibility/at-spi2-core:2[introspection]
 	app-misc/geoclue:2.0[introspection]
 	media-libs/graphene[introspection]
-	x11-libs/pango[introspection]
+	>=x11-libs/pango-1.46.0[introspection]
 	net-libs/libsoup:3.0[introspection]
 	>=sys-power/upower-0.99:=[introspection]
 	gnome-base/librsvg:2[introspection]
 	gui-libs/libadwaita:1[introspection]
 
-	>=gnome-base/gnome-session-2.91.91
+	>=gnome-base/gnome-session-48.0-r2
 	>=gnome-base/gnome-settings-daemon-3.8.3
 
 	x11-misc/xdg-utils
@@ -105,7 +106,7 @@ RDEPEND="${DEPEND}
 		sys-libs/timezone-data
 	)
 	ibus? ( >=app-i18n/ibus-1.5.26[gtk3,gtk4,introspection] )
-	media-fonts/cantarell
+	media-fonts/adwaita-fonts
 
 	sys-apps/xdg-desktop-portal-gnome
 "
@@ -134,8 +135,8 @@ BDEPEND="
 # app-text/asciidoc
 
 PATCHES=(
-	# Change favorites defaults, bug #479918
-	"${FILESDIR}"/46.4-defaults.patch
+	# https://bugs.gentoo.org/959295 gnome-session thinks gnome-shell died when built with USE="-X"
+	"${FILESDIR}"/notify-gnome-session-when-ready.patch
 )
 
 src_prepare() {
