@@ -1,0 +1,17 @@
+BDEPEND=png? ( media-libs/libpng:= ) jpeg? ( media-libs/libjpeg-turbo:= ) gif? ( media-libs/giflib:= ) test? ( dev-perl/Test-NoWarnings ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=png? ( media-libs/libpng:= ) jpeg? ( media-libs/libjpeg-turbo:= ) gif? ( media-libs/giflib:= ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DESCRIPTION=Fast, high-quality fixed-point image resizing
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Image-Scale
+INHERIT=perl-module
+IUSE=+gif jpeg +png test perl_features_debug perl_features_ithreads perl_features_quadmath test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=png? ( media-libs/libpng:= ) jpeg? ( media-libs/libjpeg-turbo:= ) gif? ( media-libs/giflib:= ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
+REQUIRED_USE=|| ( jpeg png )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/A/AG/AGRUNDMA/Image-Scale-0.14.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	perl-module	41920449ca174fe9b9b303dfcbdb37a3
+_md5_=3de5d9036cd4149c97cfd48ffc38f0cd
