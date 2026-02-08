@@ -3,7 +3,6 @@
 
 EAPI=8
 
-EGIT_COMMIT="808a48e92c6cc20103ee81bece60ba7cb426db93"
 PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
@@ -13,8 +12,8 @@ inherit autotools distutils-r1
 
 DESCRIPTION="Simplified, portable interface to several low-level networking routines"
 HOMEPAGE="https://github.com/ofalk/libdnet"
-SRC_URI="https://github.com/ofalk/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.gh.tar.gz"
-S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
+SRC_URI="https://github.com/ofalk/${PN}/archive/${P}.tar.gz"
+S="${WORKDIR}/${PN}-${P}"
 
 LICENSE="LGPL-2"
 SLOT="0"
