@@ -65,6 +65,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.2.1-cmake.patch
 	"${FILESDIR}"/${PN}-2.2.1-cmake-ld-typo.patch
 	"${FILESDIR}"/${PN}-2.2.1-libcommuni-qt6.patch
+	"${FILESDIR}"/${PN}-2.2.1-frotz-C23.patch
+	"${FILESDIR}"/${PN}-2.2.1-findjsoncpp.patch
 )
 
 src_prepare() {
