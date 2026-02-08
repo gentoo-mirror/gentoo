@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/brimworks/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ~ppc ~ppc64 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 RDEPEND="
@@ -22,6 +22,11 @@ RDEPEND="
 
 "
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	sed -i '/CMAKE_MINIMUM_REQUIRED/s/2.6/3.10/' -i CMakeLists.txt || die
+	cmake_src_prepare
+}
 
 lua_src_configure() {
 	local mycmakeargs=(
