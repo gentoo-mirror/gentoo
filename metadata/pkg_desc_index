@@ -1819,7 +1819,7 @@ app-editors/gedit-plugins 46.0-r1 48.1 48.2: Collection of extra plugins for the
 app-editors/ghex 48.1 48.3 9999: GNOME hexadecimal editor
 app-editors/ghostwriter 25.08.3 25.12.2: Cross-platform, aesthetic, distraction-free markdown editor
 app-editors/gnome-latex 3.46.0-r1: Integrated LaTeX environment for GNOME
-app-editors/gnome-text-editor 48.3 49.0: A simple text editor for the GNOME desktop
+app-editors/gnome-text-editor 48.3 49.0 49.1: A simple text editor for the GNOME desktop
 app-editors/gummi 0.8.3: Simple LaTeX editor for GTK+ users
 app-editors/gvim 9.1.0794 9.1.1436 9.1.1436-r1 9.1.1500 9.1.1652 9.1.1652-r2 9999: GUI version of the Vim text editor
 app-editors/helix 25.01.1 25.07.1: A post-modern text editor
@@ -3346,7 +3346,7 @@ app-text/pandoc 2.18-r2 3: Metapackage for pandoc version 3
 app-text/pandoc-bin 3.8.3 3.9: Conversion between markup formats (binary package)
 app-text/pandoc-cli 0.1.1-r1: Conversion between documentation formats
 app-text/paper-clip 5.5.2 9999: Edit the title, author, keywords and more details of PDF documents
-app-text/papers 48.5 49.2: A document viewer for the GNOME desktop
+app-text/papers 48.5-r1 49.2 49.3: A document viewer for the GNOME desktop
 app-text/paperwork 2.2.5: a personal document manager for scanned documents (and PDFs)
 app-text/paperwork-backend 2.2.5: Backend part of Paperwork (Python API, no UI)
 app-text/paps 0.8.0: Unicode-aware text to PostScript converter
@@ -11999,7 +11999,7 @@ gnome-base/gdm 47.0 48.0: GNOME Display Manager for managing graphical display s
 gnome-base/gnome 45.2 48.0: Meta package for GNOME, merge this package to install
 gnome-base/gnome-applets 3.54.0-r1 3.56.0 3.58.0: Applets for the GNOME Flashback Panel
 gnome-base/gnome-common 3.18.0-r2: Common files for development of Gnome packages
-gnome-base/gnome-control-center 47.6-r1 47.7-r1 48.3-r1 48.4-r1: GNOME's main interface to configure various aspects of the desktop
+gnome-base/gnome-control-center 47.6-r1 47.7-r1 48.4-r1 48.6: GNOME's main interface to configure various aspects of the desktop
 gnome-base/gnome-core-apps 45.2 48.0: Sub-meta package for the core applications integrated with GNOME
 gnome-base/gnome-core-libs 45.2 48.0: Sub-meta package for the core libraries of GNOME
 gnome-base/gnome-desktop 44.1-r300 44.1-r400 44.3-r300 44.3-r400 44.4-r300 44.4-r400: Library with common API for various GNOME modules
@@ -12011,7 +12011,7 @@ gnome-base/gnome-menus 3.36.0-r1 3.38.1: Library and layout configuration for th
 gnome-base/gnome-panel 3.54.0 3.56.0 3.58.1: The GNOME Flashback Panel
 gnome-base/gnome-session 47.0.1-r2 48.0 48.0-r1 48.0-r2: Gnome session manager
 gnome-base/gnome-settings-daemon 47.2 48.1: Gnome Settings Daemon
-gnome-base/gnome-shell 47.7-r1 47.8-r1 47.9 48.4 48.5 48.6: Provides core UI functions for the GNOME desktop
+gnome-base/gnome-shell 48.5 48.6 48.7: Provides core UI functions for the GNOME desktop
 gnome-base/gsettings-desktop-schemas 47.1 48.0: Collection of GSettings schemas for GNOME desktop
 gnome-base/gvfs 1.56.1-r3 1.58.0: Virtual filesystem implementation for GIO
 gnome-base/libglade 2.6.4-r5: Library to construct graphical interfaces at runtime
@@ -12019,7 +12019,7 @@ gnome-base/libgnomecanvas 2.30.3-r1: The Gnome 2 Canvas library
 gnome-base/libgnomekbd 3.28.1: Gnome keyboard configuration library
 gnome-base/libgtop 2.40.0-r2 2.41.3: A library that provides top functionality to applications
 gnome-base/librsvg 2.40.21-r1 2.58.5-r1 2.60.0: Scalable Vector Graphics (SVG) rendering library
-gnome-base/nautilus 48.4.1-r1 49.2: Default file manager for the GNOME desktop
+gnome-base/nautilus 48.4.1-r1 49.2-r1 49.4: Default file manager for the GNOME desktop
 gnome-extra/cinnamon 6.4.10-r1 6.4.10-r2 6.4.13 6.4.13-r1: A fork of GNOME Shell with layout similar to GNOME 2
 gnome-extra/cinnamon-control-center 6.4.1 6.4.2: Cinnamons's main interface to configure various aspects of the desktop
 gnome-extra/cinnamon-desktop 6.4.1-r2 6.4.2: A collection of libraries and utilites used by Cinnamon
@@ -12925,7 +12925,7 @@ media-fonts/mplus-fonts 2.2.4-r1: M+ Japanese bitmap fonts
 media-fonts/mplus-outline-fonts 0_pre063_p1: M+ Japanese outline fonts
 media-fonts/nanum 3.0: Korean fonts distributed by Naver
 media-fonts/nanumfont 2.5: Korean monospace font distributed by Naver
-media-fonts/noto 20251101 20251201 20260101: Google's font family that aims to support all the world's languages
+media-fonts/noto 20251101 20260101 20260201: Google's font family that aims to support all the world's languages
 media-fonts/noto-cjk 20190416: Google's CJK font family
 media-fonts/noto-emoji 20241003 20250618 20250912: Google Noto Emoji fonts
 media-fonts/nunito 1.0-r1: Sans Serif font with rounded terminals
@@ -14423,7 +14423,7 @@ media-video/tivodecode 0.2_pre4: TiVo File Decoder
 media-video/totem 43.1 43.2: Media player for GNOME
 media-video/tsmuxer 2.7.0: Utility to create and demux TS and M2TS files
 media-video/ttcut 0.19.6_p2-r1: Tool for cutting MPEG files especially for removing commercials
-media-video/untrunc 0_pre20240814 0_pre20260112: Restore truncated mp4/mov files
+media-video/untrunc 0_pre20260112 0_pre20260204: Restore truncated mp4/mov files
 media-video/ushare 2.1 2.1_p20250817: uShare is a UPnP (TM) A/V & DLNA Media Server
 media-video/v4l2loopback 0.13.1 0.15.0 0.15.1 0.15.3 9999: v4l2 loopback device whose output is its own input
 media-video/vamps 0.99.2-r2: Very fast requantisizing tool for backup DVDs
@@ -15954,7 +15954,7 @@ sci-biology/yass 1.14-r4: Genomic similarity search with multiple transition con
 sci-calculators/bc-gh 6.5.0 6.7.5 7.0.3: Implementation of POSIX bc with GNU extensions
 sci-calculators/calcoo 1.3.18-r2: Scientific calculator designed to provide maximum usability
 sci-calculators/datamash 1.8 1.9: Command-line program for basic numeric, textual and statistical operations
-sci-calculators/galculator 2.1.4-r2: GTK+ based algebraic and RPN calculator
+sci-calculators/galculator 2.1.4-r2 2.1.5_pre20150928: GTK+ based algebraic and RPN calculator
 sci-calculators/hcalc 1.2-r1: DJ's Hex Calculator
 sci-calculators/hexcalc 1.11-r4: Simple hex calculator for X
 sci-calculators/keurocalc 1.3.0_p20241225: Universal currency converter and calculator
@@ -15977,12 +15977,12 @@ sci-chemistry/autodock_vina 1.2.7: Program for drug discovery, molecular docking
 sci-chemistry/avogadro2 1.101.0 1.102.1: Advanced molecule editor and visualizer 2
 sci-chemistry/bodr 10: The Blue Obelisk Data Repository listing element and isotope properties
 sci-chemistry/cara-bin 1.8.4-r2: Analysis of NMR spectra and Computer Aided Resonance Assignment
-sci-chemistry/chemex 2025.4.0 2025.10.0: Program to fit chemical exchange induced shift and relaxation data
+sci-chemistry/chemex 2025.10.0 2026.1.0: Program to fit chemical exchange induced shift and relaxation data
 sci-chemistry/chemical-mime-data 0.1.95_pre20171122: A collection of data files to add support for chemical MIME types
 sci-chemistry/chemtool 1.6.14-r1: A GTK program for drawing organic molecules
 sci-chemistry/clashlist 3.17-r1: Build lists of van der Waals clashes from an input PDB file
 sci-chemistry/cluster 1.3.081231-r1 1.3.081231-r2: Build lists of collections of interacting items
-sci-chemistry/dssp 2.2.1-r3 4.5.3 4.5.5 4.5.6: The protein secondary structure standard
+sci-chemistry/dssp 2.2.1-r3 4.5.6 4.5.8: The protein secondary structure standard
 sci-chemistry/easychem 0.6-r2: Chemical structure drawing program - focused on presentation
 sci-chemistry/elem 1.0.3-r3: periodic table of the elements
 sci-chemistry/gelemental 2.0.0-r1 2.0.2: Periodic table viewer with detailed information on the chemical elements
@@ -16222,7 +16222,7 @@ sci-libs/levmar 2.6-r1: Levenberg-Marquardt nonlinear least squares C library
 sci-libs/libaec 1.1.4: Adaptive Entropy Coding library
 sci-libs/libbraiding 1.3.1: Expose the functionality of cbraid as a shared library
 sci-libs/libcerf 1.17 2.5: Efficient and accurate implementation of complex error functions
-sci-libs/libcifpp 8.0.1 9.0.3 9.0.5: Code to work with mmCIF and PDB files
+sci-libs/libcifpp 9.0.5 9.0.6: Code to work with mmCIF and PDB files
 sci-libs/libdap 3.20.9-r1 3.21.1: Implementation of a C++ SDK for DAP 2.0 and 3.2
 sci-libs/libecpint 1.0.6-r1: Efficient evaluation of integrals over ab initio effective core potentials
 sci-libs/libexcelformat 101016-r1: reading, writing, and editing of XLS (BIFF8 format) files using C++
@@ -16534,7 +16534,7 @@ sci-visualization/ggobi 2.1.11-r1 2.1.12-r1: Visualization program for exploring
 sci-visualization/gle 4.3.8-r1 4.3.9: Graphics Layout Engine
 sci-visualization/gnuplot 5.4.10-r2 6.0.3 6.0.4 6.1.9999: Command-line driven interactive plotting program
 sci-visualization/gr 0.73.6-r1: Universal framework for cross-platform visualization applications
-sci-visualization/grace 5.1.25_p17 5.1.25_p18: Motif based XY-plotting tool
+sci-visualization/grace 5.1.25_p18: Motif based XY-plotting tool
 sci-visualization/gwyddion 2.67-r1 2.69: Framework for Scanning Mode Microscopy data analysis
 sci-visualization/kst 2.1.0_p20260208: Fast real-time large-dataset viewing and plotting tool
 sci-visualization/labplot 2.11.1-r1 9999: Scientific data analysis and visualisation based on KDE Frameworks
@@ -17639,7 +17639,7 @@ sys-firmware/seabios 1.14.0-r2 1.16.0 1.16.3: Open Source implementation of a 16
 sys-firmware/seabios-bin 1.16.0 1.16.3: Open Source implementation of a 16-bit x86 BIOS
 sys-firmware/sgabios 0.1_pre10: serial graphics adapter bios option rom for x86
 sys-firmware/sigrok-firmware-fx2lafw 0.1.7-r2 9999: Firmware for Cypress FX2 chips for use as simple logic analyzer hardware
-sys-firmware/sof-firmware 2025.05.1 2025.12 2025.12.1: Sound Open Firmware (SOF) binary files
+sys-firmware/sof-firmware 2025.12 2025.12.1 2025.12.2: Sound Open Firmware (SOF) binary files
 sys-firmware/tt-s2-6400-firmware 0.5.1: Firmware for the Technotrend S2-6400 DVB Card
 sys-firmware/vgabios 0.7a 0.7a-r1 0.8a 0.8a-r1: VGA BIOS implementation
 sys-firmware/zd1201-firmware 0.14-r1: Firmware for ZyDAS 1201 based USB 802.11b Network WiFi devices
@@ -19160,7 +19160,7 @@ x11-wm/matwm2 0.1.2_pre3-r2 0.1.2_pre3-r3: Simple EWMH compatible window manager
 x11-wm/metacity 3.54.0-r1 3.56.0 3.58.1: GNOME Flashback window manager
 x11-wm/muffin 6.4.1: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
-x11-wm/mutter 47.8.1 47.9 48.4 48.5 48.6 48.6-r1 9999: GNOME compositing window manager based on Clutter
+x11-wm/mutter 48.5 48.6-r1 48.7 9999: GNOME compositing window manager based on Clutter
 x11-wm/notion 4.0.4 9999: Notion is a tiling, tabbed window manager for the X window system
 x11-wm/openbox 3.6.1-r11 9999: Standards compliant, fast, light-weight, extensible window manager
 x11-wm/oroborus 2.0.20-r2: Small and fast window manager
