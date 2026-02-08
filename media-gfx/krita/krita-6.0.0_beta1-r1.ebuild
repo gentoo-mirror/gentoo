@@ -9,27 +9,29 @@ KFMIN=6.16.0
 QTMIN=6.10.1
 inherit ecm kde.org python-single-r1 xdg
 
+if [[ ${KDE_BUILD_TYPE} == release ]]; then
+	COMMIT=
+	MY_PV="${PV/_/-}"
+	MY_P="${PN}-${MY_PV}"
+	if [[ -n ${COMMIT} ]] ; then
+		SRC_URI="https://dev.gentoo.org/~asturm/distfiles/kde/${P}-${COMMIT:0:8}.tar.xz"
+		S="${WORKDIR}/${PN}"
+	else
+		if [[ ${MY_P} == ${P} ]] ; then
+			SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
+		else
+			SRC_URI="mirror://kde/unstable/${PN}/${MY_PV}/${MY_P}.tar.xz"
+		fi
+		S="${WORKDIR}/${MY_P}"
+	fi
+	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+fi
+
 DESCRIPTION="Free digital painting application. Digital Painting, Creative Freedom!"
 HOMEPAGE="https://apps.kde.org/krita/ https://krita.org/en/"
 
-COMMIT=
-MY_PV="${PV/_/-}"
-MY_P="${PN}-${MY_PV}"
-if [[ -n ${COMMIT} ]] ; then
-	SRC_URI="https://dev.gentoo.org/~asturm/distfiles/kde/${P}-${COMMIT:0:8}.tar.xz"
-	S="${WORKDIR}/${PN}"
-else
-	if [[ ${MY_P} == ${P} ]] ; then
-		SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	else
-		SRC_URI="mirror://kde/unstable/${PN}/${MY_PV}/${MY_P}.tar.xz"
-	fi
-	S="${WORKDIR}/${MY_P}"
-fi
-
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="color-management fftw gif +gsl heif jpeg2k jpegxl +mypaint-brush-engine openexr pdf media +raw webp"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -37,12 +39,13 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="test"
 
 COMMON_DEPEND="${PYTHON_DEPS}
+	dev-cpp/eigen:=
 	>=dev-cpp/xsimd-13.0.0
 	dev-libs/boost:=
 	dev-libs/libunibreak:=
 	>=dev-libs/quazip-1.3-r2:0=[qt6(+)]
 	$(python_gen_cond_dep '
-		dev-python/pyqt6[gui,qml,widgets,${PYTHON_USEDEP}]
+		dev-python/pyqt6[gui,qml,widgets,xml,${PYTHON_USEDEP}]
 		dev-python/sip:=[${PYTHON_USEDEP}]
 	')
 	>=dev-qt/qt5compat-${QTMIN}:6
@@ -94,7 +97,6 @@ DEPEND="${COMMON_DEPEND}
 	dev-libs/zug
 "
 BDEPEND="
-	dev-cpp/eigen:3
 	dev-lang/perl
 	sys-devel/gettext
 "
