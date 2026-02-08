@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install prepare
+DEPEND=X? ( x11-libs/libX11 ) X? ( x11-base/xorg-proto )
+DESCRIPTION=A Machine Emulator, Mainly emulates MIPS, but supports other CPU types
+EAPI=8
+HOMEPAGE=http://gxemul.sourceforge.net/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=debug X
+KEYWORDS=~amd64 ~mips ~ppc ~sparc ~x86
+LICENSE=BSD public-domain
+RDEPEND=X? ( x11-libs/libX11 )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/gxemul/GXemul/0.7.0/gxemul-0.7.0.tar.gz
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4
+_md5_=a788c426941f71840615e6f2f78b03da
