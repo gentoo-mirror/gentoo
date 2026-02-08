@@ -203,71 +203,11 @@ app-emacs/docker-tramp
 >=dev-python/autobahn-25.10
 >=dev-python/txaio-25.10
 
-# Michael Orlitzky <mjo@gentoo.org> (2025-12-08)
-# An experimental attempt to avoid the gtk -> librsvg -> rust dependency
-# that is now obsolete because upstream gtk links directly to librsvg.
-# Removal on or after 2026-01-08.
-media-libs/libsvgtiny-pixbuf
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-12-07)
-# IUSE qt5 feature sees no porting effort upstream. 2.4.9-r1 remains
-# available with IUSE qt5 removed. Bug #965503
-# Removal on 2026-01-15
-=media-libs/libffado-2.4.9
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2025-12-05)
-# Depends on Qt5, no signs of porting work upstream. Bug #949881
-# Removal on 2026-01-15
-games-strategy/hedgewars
-
-# Jaco Kroon <jkroon@gentoo.org> (2025-12-02)
-# Dead upstream, limited usefulness.  If you're still using it please reach out
-# so we can discuss options.  Likely not worth the effort to fix the compiler
-# warnings soon to be errors.
-# No revdeps.
-# Open bugs: #929259
-# Removal on 2026-01-02.
-net-proxy/sqtop
-
-# David Seifert <soap@gentoo.org> (2025-12-01)
-# Last release over 20 years ago, ancient codebase, lots of QA warnings, no
-# other distro packages this anymore. Removal on 2025-12-31. Bug #944877.
-sci-biology/rnaview
-
-# David Seifert <soap@gentoo.org> (2025-11-30)
-# Last release over 15 years ago, GTK+2, EAPI 7, broken C constructs, removed
-# by other distros already. Removal on 2025-12-30. Bug #944347.
-sys-apps/gscanbus
-
-# David Seifert <soap@gentoo.org> (2025-11-30)
-# Unmaintained, dead package, last release over 20 years ago, no other distro
-# packages this anymore, EAPI 7. Removal on 2025-12-30. Bug #943810.
-sys-fs/lde
-
-# David Seifert <soap@gentoo.org> (2025-11-30)
-# More than 26 years since release, ancient C code, no revdeps in tree,
-# no other distro still packages this.
-# Removal on 2025-12-30. Bug #881017, #944864, #945018.
-sci-libs/djbfft
-
-# Eli Schwartz <eschwartz@gentoo.org> (2025-11-30)
-# Abandoned and unmaintained. It existed solely as a test dep for
-# dev-python/sphinx-rtd-theme, which no longer uses it, so nobody should
-# have it installed anyway.
-# Removal on 2025-12-30.  Bugs #966396, #963998.
-dev-python/readthedocs-sphinx-ext
-
 # Sam James <sam@gentoo.org> (2025-11-25)
 # Generates session keys with weak (no) randomness. Please re-encrypt
 # any data/messages using this librnp version. <0.18 is fine as is >=0.18.1.
 # See bug #966299.
 =dev-util/librnp-0.18.0
-
-# Michał Górny <mgorny@gentoo.org> (2025-11-22)
-# A NIH replacement for dev-python/faker with a very slow test suite.
-# No reverse dependencies left.
-# Removal on 2025-12-22.  Bug #966327.
-dev-python/fake-py
 
 # Sam James <sam@gentoo.org> (2025-10-13)
 # Crashes in memtodest when handling PATH. Not yet reported upstream.
@@ -291,13 +231,6 @@ dev-python/fake-py
 # not just network. See bug #963106.
 =sys-kernel/linux-firmware-20250917
 =sys-kernel/linux-firmware-20251011
-
-# Viorel Munteanu <ceamac@gentoo.org> (2025-09-16)
-# Unmaintained upstream, last release more than 7 years old.
-# Old data is getting harder to read.
-# Alternatives: sys-fs/gocryptfs or rclone crypt.
-# Removal on 2025-12-16.  Bug #960358.
-sys-fs/encfs
 
 # Andreas K. Hüttel <dilfridge@gentoo.org> (2025-07-04)
 # Obsolete Perl virtuals that will be removed (the list is work in progress).
