@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install test
-DEPEND=dev-qt/qt5compat:6 dev-qt/qtbase:6[network] examples? ( dev-qt/qtbase:6[gui,X] ) qml? ( dev-qt/qt5compat:6[qml] dev-qt/qtdeclarative:6 ) uchardet? ( app-i18n/uchardet ) !uchardet? ( dev-libs/icu:= ) test? ( dev-qt/qttest:5 )
+DEPEND=dev-qt/qt5compat:6 dev-qt/qtbase:6[network] examples? ( dev-qt/qtbase:6[gui,X] ) qml? ( dev-qt/qt5compat:6[qml] dev-qt/qtdeclarative:6 ) uchardet? ( app-i18n/uchardet ) !uchardet? ( dev-libs/icu:= )
 DESCRIPTION=A cross-platform IRC framework written with Qt
 EAPI=8
 HOMEPAGE=https://communi.github.io/
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/communi/libcommuni/archive/refs/tags/v3.7.0.tar.gz -> libcommuni-3.7.0.tar.gz
 _eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	qmake-utils	28f99dba9219112f4785f46ed426a021
-_md5_=35e84d813e38ce0f75bf0cb75090a00a
+_md5_=aaeab88c1633aab024562dfc77fa1ead
