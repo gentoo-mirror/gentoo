@@ -1,16 +1,15 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 DESCRIPTION="Algol 68 Genie compiler-interpreter"
 HOMEPAGE="https://jmvdveer.home.xs4all.nl/en.algol-68-genie.html"
-SRC_URI="https://jmvdveer.home.xs4all.nl/${P}.tar.gz
-	https://dev.gentoo.org/~xgqt/distfiles/mirrored/${P}.tar.gz"
+SRC_URI="https://jmvdveer.home.xs4all.nl/${P}.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+curl +gsl +mpfr +ncurses plotutils postgres +readline"
 
 RDEPEND="
