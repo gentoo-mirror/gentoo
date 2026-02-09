@@ -3467,7 +3467,7 @@ app-text/zathura-pdf-mupdf 0.4.3 0.4.4 9999: PDF support for zathura using the m
 app-text/zathura-pdf-poppler 0.3.3 9999: PDF plug-in for zathura
 app-text/zathura-ps 0.2.7 0.2.8 9999: PostScript plug-in for zathura
 app-text/zeal 0.7.2: Offline documentation browser inspired by Dash
-app-text/zotero-bin 7.0.24 7.0.30: Helps you collect, organize, cite, and share your research sources
+app-text/zotero-bin 7.0.24 7.0.30 7.0.32 8.0.3: Helps you collect, organize, cite, and share your research sources
 app-vim/Vim-Jinja2-Syntax 0.0_pre20210604: vim plugin: Jinja2 syntax highlighting
 app-vim/ackvim 1.0.9-r2: vim plugin: run ack from vim
 app-vim/airline 0.11 9999: vim plugin: lean & mean statusline for vim that's light as air
@@ -9604,7 +9604,7 @@ dev-python/stripe 14.1.0 14.3.0: Stripe Python bindings
 dev-python/structlog 25.4.0 25.5.0: Structured Logging for Python
 dev-python/subprocess-tee 0.4.2: subprocess.run replacement with tee(1)-like output
 dev-python/suds-community 1.2.0: Lightweight SOAP client
-dev-python/superqt 0.7.3 0.7.6: Missing widgets and components for PyQt/PySide
+dev-python/superqt 0.7.3 0.7.6 0.7.8: Missing widgets and components for PyQt/PySide
 dev-python/sure 2.0.1: idiomatic assertion toolkit with human-friendly failure messages
 dev-python/svg-path 7.0: SVG path objects and parser
 dev-python/svglib 1.5.1 1.6.0: Pure-Python library for reading and converting SVG
@@ -12146,7 +12146,7 @@ gui-apps/sddm-gentoo-config 0: Gentoo defaults for SDDM (Simple Desktop Display 
 gui-apps/slurp 1.5.0: Select a region in a Wayland compositor and print it to the standard output
 gui-apps/swappy 1.5.1 9999: A Wayland native snapshot and editor tool, inspired by Snappy on macOS
 gui-apps/swaybg 1.2.0 1.2.1 9999: A wallpaper utility for Wayland
-gui-apps/swayidle 1.8.0 9999: Idle management daemon for Wayland
+gui-apps/swayidle 1.8.0 1.9.0 9999: Idle management daemon for Wayland
 gui-apps/swaylock 1.8.0 1.8.3 1.8.4 9999: Screen locker for Wayland
 gui-apps/tuigreet 0.8.0-r2 0.9.1-r2 9999: TUI greeter for greetd login manager
 gui-apps/uwsm 0.23.2 0.24.2: Universal Wayland Session Manager
@@ -13491,8 +13491,8 @@ media-libs/libvisio 0.1.10 9999-r1: Library parsing the file format of MS Visio 
 media-libs/libvisual 0.4.1 0.4.2-r1: Abstraction library between applications and audio visualisation plugins
 media-libs/libvmaf 2.3.1 3.0.0 9999: C libary for Netflix's Perceptual video quality assessment
 media-libs/libvorbis 1.3.7-r1 1.3.7-r2: The Ogg Vorbis sound file format library
-media-libs/libvpl 2.14.0 2.15.0: Intel Video Processing Library dispatcher
-media-libs/libvpl-tools 1.3.0 1.4.0: Intel Video Processing Library tools
+media-libs/libvpl 2.14.0 2.15.0 2.16.0: Intel Video Processing Library dispatcher
+media-libs/libvpl-tools 1.3.0 1.4.0 1.5.0: Intel Video Processing Library tools
 media-libs/libvpx 1.14.1 1.15.2: WebM VP8 and VP9 Codec SDK
 media-libs/libwebp 1.4.0 1.5.0 1.6.0: A lossy image compression format
 media-libs/libwmf 0.2.13-r2: A library for reading vector images in Microsoft's Windows Metafile Format (WMF)
@@ -13622,7 +13622,7 @@ media-libs/vkroots 0_p20240430: Simple framework for writing Vulkan layers
 media-libs/vo-aacenc 0.1.3 9999: VisualOn AAC encoder library
 media-libs/vo-amrwbenc 0.1.3 9999: VisualOn AMR-WB encoder library
 media-libs/volpack 1.0_p7-r2: Volume rendering library
-media-libs/vpl-gpu-rt 25.2.2 25.4.3: Intel Video Processing Library GPU Runtime
+media-libs/vpl-gpu-rt 25.2.2 25.4.3 26.1.1: Intel Video Processing Library GPU Runtime
 media-libs/vulkan-layers 1.4.321.0 1.4.328.0 1.4.335.0 9999: Vulkan Validation Layers
 media-libs/vulkan-loader 1.4.321.0 1.4.328.0-r1 1.4.335.0 1.4.335.0-r1 9999: Vulkan Installable Client Driver (ICD) Loader
 media-libs/waffle 1.8.1 9999: Library that allows selection of GL API and of window system at runtime
@@ -17765,14 +17765,14 @@ sys-kernel/asahi-sources 6.16.4_p2 6.17.11_p1: Asahi Linux kernel sources
 sys-kernel/bliss-initramfs 9.3.0: Boot your system's rootfs from Encrypted/OpenZFS
 sys-kernel/cryptodev 1.14 9999: device that allows access to Linux kernel cryptographic drivers
 sys-kernel/dkms 3.2.2 3.3.0 9999: Dynamic Kernel Module Support
-sys-kernel/dracut 108-r5 109-r1 9999: Generic initramfs generation tool
+sys-kernel/dracut 108-r5 109-r1 110 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.8-r2: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 4.3.16-r2 4.3.16-r3 4.3.16-r4 4.3.16-r5 4.3.17 4.3.17-r1 4.3.17-r3 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.10.247 5.10.248 5.10.249 5.15.197 5.15.198 5.15.199 6.1.159 6.1.161 6.1.162 6.6.119 6.6.120 6.6.121 6.6.122 6.6.123 6.12.63 6.12.64 6.12.65 6.12.66 6.12.67 6.12.68 6.12.69 6.18.4 6.18.5 6.18.6 6.18.7 6.18.8 6.18.9: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.10.247 5.10.248 5.10.249 5.15.197 5.15.198 5.15.199 6.1.159 6.1.161 6.1.162 6.6.119 6.6.120 6.6.121 6.6.122 6.6.123 6.12.63 6.12.64 6.12.65 6.12.66 6.12.67 6.12.68 6.12.69 6.18.4 6.18.5 6.18.6 6.18.7 6.18.8 6.18.9: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.242 5.10.243 5.10.244 5.10.245 5.10.246 5.10.247 5.10.248 5.15.191 5.15.192 5.15.193 5.15.194 5.15.195 5.15.196 5.15.197 5.15.198 5.15.199 6.1.153 6.1.154 6.1.155 6.1.156 6.1.157 6.1.158 6.1.159 6.1.160 6.1.161 6.1.162 6.6.111 6.6.112 6.6.113 6.6.114 6.6.115 6.6.116 6.6.117 6.6.118 6.6.119 6.6.120 6.6.121 6.6.122 6.6.123 6.12.54 6.12.55 6.12.56 6.12.57 6.12.58 6.12.59 6.12.60 6.12.61 6.12.62 6.12.63 6.12.64 6.12.65 6.12.66 6.12.67 6.12.68 6.12.69 6.17.5-r1 6.17.6 6.17.7 6.17.8 6.17.9 6.17.10 6.17.11 6.17.12 6.17.13 6.18.0 6.18.1 6.18.2 6.18.2-r1 6.18.3 6.18.4 6.18.5 6.18.6 6.18.7 6.18.8 6.18.9: Full sources including the Gentoo patchset for the 6.18 kernel tree
 sys-kernel/git-sources 6.19_rc1 6.19_rc2 6.19_rc3 6.19_rc4 6.19_rc5 6.19_rc6 6.19_rc7 6.19_rc8: The very latest -git version of the Linux kernel
-sys-kernel/installkernel 63 65 9999: Gentoo fork of installkernel script from debianutils
+sys-kernel/installkernel 63 65 66 9999: Gentoo fork of installkernel script from debianutils
 sys-kernel/kci-dev 0.1.6: Stand alone tool to interact with KernelCI
 sys-kernel/kergen 0.1.5-r1: Kernel config generator
 sys-kernel/kpatch 0.9.7 0.9.8 0.9.10 9999: Dynamic kernel patching for Linux
