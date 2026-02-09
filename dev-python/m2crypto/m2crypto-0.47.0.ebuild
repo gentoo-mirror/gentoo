@@ -1,11 +1,11 @@
-# Copyright 2018-2025 Gentoo Authors
+# Copyright 2018-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYPI_PN="M2Crypto"
 PYTHON_REQ_USE="threads(+)"
 
@@ -21,7 +21,7 @@ HOMEPAGE="
 # openssl via src/SWIG/_lib11_compat.i
 LICENSE="BSD-2 openssl"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 IUSE="abi_mips_n32 abi_mips_n64 abi_mips_o32"
 
 DEPEND="
@@ -29,10 +29,13 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
+	dev-python/packaging[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	>=dev-lang/swig-2.0.9
 "
+
+distutils_enable_tests unittest
 
 swig_define() {
 	local x
@@ -63,9 +66,4 @@ python_compile() {
 	swig_define __ARM_PCS_VFP
 
 	distutils-r1_python_compile
-}
-
-python_test() {
-	"${EPYTHON}" -m unittest -b -v tests.alltests.suite ||
-		die "Tests failed for ${EPYTHON}"
 }
