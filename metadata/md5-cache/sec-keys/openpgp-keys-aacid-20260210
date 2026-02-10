@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP keys used by Albert Astals Cid
+EAPI=8
+HOMEPAGE=https://poppler.freedesktop.org/
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xCA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7 -> openpgp-keys-aacid-ubuntu-20260210.asc
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	ceb4d3181e42bf20ca66d74129d9e848
+_md5_=c6eb68d83e478a3bbc25d5cc6e185643
