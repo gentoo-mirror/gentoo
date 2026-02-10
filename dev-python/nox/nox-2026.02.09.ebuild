@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,7 +28,7 @@ RDEPEND="
 	>=dev-python/colorlog-2.6.1[${PYTHON_USEDEP}]
 	>=dev-python/dependency-groups-1.1[${PYTHON_USEDEP}]
 	>=dev-python/humanize-4[${PYTHON_USEDEP}]
-	>=dev-python/packaging-21[${PYTHON_USEDEP}]
+	>=dev-python/packaging-22[${PYTHON_USEDEP}]
 	>=dev-python/virtualenv-20.15[${PYTHON_USEDEP}]
 "
 BDEPEND="
