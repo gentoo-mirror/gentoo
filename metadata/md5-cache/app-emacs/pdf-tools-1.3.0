@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/vedang/pdf-tools/
 INHERIT=autotools elisp
 IUSE=test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=app-text/poppler:=[cairo,png] dev-libs/glib:2= media-libs/freetype:2= media-libs/harfbuzz:= media-libs/libpng:= x11-libs/cairo:= app-emacs/tablist >=app-editors/emacs-25.3:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/vedang/pdf-tools/archive/v1.3.0.tar.gz -> pdf-tools-1.3.0.gh.tar.gz
 _eclasses_=gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	955b29ccd82c1df4755e5f37748d2fa6	elisp-common	ce20c7e2fc0c52b58ddabcd536b7310b	elisp	a37bfc35b86403c770beebbd71661c30
-_md5_=baf16fea8630154c071c3c5ea2751537
+_md5_=2b1b7379a9a2d6027d0e397b7382a922
