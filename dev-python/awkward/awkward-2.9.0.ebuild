@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ inherit distutils-r1 pypi
 
 DESCRIPTION="Manipulate JSON-like data with NumPy-like idioms"
 HOMEPAGE="
-	https://github.com/scikit-hep/awkward
+	https://github.com/scikit-hep/awkward/
 	https://pypi.org/project/awkward/
 	https://doi.org/10.5281/zenodo.4341376
 "
@@ -21,11 +21,11 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	~dev-python/awkward-cpp-51[${PYTHON_USEDEP}]
+	~dev-python/awkward-cpp-52[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/importlib-metadata-4.13.0[${PYTHON_USEDEP}]
 	' 3.11)
-	>=dev-python/numpy-1.18.0[${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.21.3[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	>=dev-python/fsspec-2022.11.0[${PYTHON_USEDEP}]
 "

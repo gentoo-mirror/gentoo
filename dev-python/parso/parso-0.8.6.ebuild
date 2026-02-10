@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,9 +20,12 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos"
 
 distutils_enable_sphinx docs
+
+EPYTEST_PLUGINS=()
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 EPYTEST_DESELECT=(
@@ -32,11 +35,3 @@ EPYTEST_DESELECT=(
 	# but it is not actually a test and thus fails
 	parso/python/token.py::parso.python.token.PythonTokenTypes
 )
-
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# this ain't perfect but that's what upstream has so far
-	# https://github.com/davidhalter/parso/commit/f670e6e7dc01e07576ec5c84cbf9fbce1a02c3eb
-	cp parso/python/grammar{313,314}.txt || die
-}
