@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -79,12 +79,12 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+rust"
 
-RDEPEND="
-	$(python_gen_cond_dep '
-		>=dev-python/typing-extensions-4.6.0[${PYTHON_USEDEP}]
-	' 3.10)
+DEPEND="
+	!rust? ( dev-libs/blake3:= )
 "
+RDEPEND="${DEPEND}"
 BDEPEND="
+	${DEPEND}
 	rust? (
 		${RUST_DEPEND}
 		dev-util/maturin[${PYTHON_USEDEP}]
@@ -113,19 +113,28 @@ src_unpack() {
 	cargo_src_unpack
 }
 
+PATCHES=(
+	# Link against shared blake3 library. Bug 943281.
+	"${FILESDIR}/${P}-use-installed-library.patch"
+)
+
 src_prepare() {
+	distutils-r1_src_prepare
+
 	# sed the package name and version to improve compatibility
 	sed -e 's:blake3_experimental_c:blake3:' \
 		-e "s:0[.]0[.]1:${PV}:" \
 		-i c_impl/setup.py || die
 
-	distutils-r1_src_prepare
+	# remove vendored C sources to ensure we don't use accidentally
+	rm -r c_impl/vendor || die
 }
 
 python_compile() {
 	local DISTUTILS_USE_PEP517=$(usex rust maturin setuptools)
 
 	if ! use rust; then
+		export FORCE_SYSTEM_BLAKE3=1
 		cd c_impl || die
 	fi
 	distutils-r1_python_compile
