@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -59,7 +59,6 @@ src_unpack() {
 	if [[ "${PV}" == *9999* ]]; then
 		git-r3_src_unpack
 		pushd "${S}" > /dev/null || die
-		rm Makefile || die
 		mv composer.json-dist composer.json || die
 		composer install --no-dev || die
 		./bin/install-jsdeps.sh || die
@@ -67,6 +66,7 @@ src_unpack() {
 	else
 		default
 	fi
+	rm "${S}"/Makefile || die
 }
 
 src_install() {
