@@ -1,6 +1,6 @@
 DEFINED_PHASES=install postinst prerm setup
 DEPEND=|| ( virtual/httpd-cgi virtual/httpd-fastcgi ) app-admin/webapp-config
-DESCRIPTION=Web-based administration for MySQL database in PHP
+DESCRIPTION=Web-based administration for MySQL and MariaDB databases, written in PHP
 EAPI=8
 HOMEPAGE=https://www.phpmyadmin.net/
 INHERIT=webapp
@@ -11,4 +11,4 @@ RDEPEND=dev-lang/php[ctype,filter,json(+),session,ssl,unicode] || ( dev-lang/php
 SLOT=5.2.3
 SRC_URI=https://files.phpmyadmin.net/phpMyAdmin/5.2.3/phpMyAdmin-5.2.3-all-languages.tar.xz
 _eclasses_=webapp	5fa840db95fc7348dfd53b8526ed05f5
-_md5_=88303fa8865d6a413c71f694349f28ac
+_md5_=71ed27352145d28b604447470114ba46
