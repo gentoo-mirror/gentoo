@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -37,6 +37,8 @@ BDEPEND="
 	)
 "
 
+PATCHES=( "${FILESDIR}/0001-fix-misindented-early-return.patch" )
+
 distutils_enable_tests pytest
 
 RDIR=/var/lib/"${PN}"
@@ -74,7 +76,7 @@ pkg_postinst() {
 
 	ewarn ""
 	ewarn "Since 3.5.0 the default [auth] type is \"denyall\". You need to"
-	ewarn "change your config if you used the deafult type so far!"
+	ewarn "change your config if you used the default type so far!"
 	ewarn ""
 	einfo "A sample WSGI script has been put into ${EROOT}/usr/share/${PN}."
 	einfo "You will also find there an example FastCGI script."
