@@ -1,0 +1,16 @@
+BDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-libs/libaio sys-apps/util-linux python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+DESCRIPTION=shared storage lock manager
+EAPI=8
+HOMEPAGE=https://pagure.io/sanlock
+INHERIT=flag-o-matic linux-info distutils-r1 systemd
+IUSE=python python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 debug
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=LGPL-2+ GPL-2 GPL-2+
+RDEPEND=acct-user/sanlock acct-group/sanlock dev-libs/libaio sys-apps/util-linux python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) ) || ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+SLOT=0
+SRC_URI=https://releases.pagure.org/sanlock/sanlock-4.2.0.tar.gz
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	linux-info	efd923656513c879204fec6638eadee5	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=a57c49ab25cd2c9aac9753279561f174
