@@ -2612,7 +2612,7 @@ app-i18n/yaskkserv2 0.1.7-r1: Yet Another SKK server
 app-i18n/zinnia 0.06-r3: Zinnia - Online hand recognition system with machine learning
 app-i18n/zinnia-tomoe 0.6.0_p20080911: Handwriting model files trained with Tomoe data
 app-laptop/dispad 0.3.1-r1: Daemon to disable trackpads while typing
-app-laptop/framework-laptop-kmod 0_pre20240506: Kernel module to expose more Framework Laptop stuff
+app-laptop/framework-laptop-kmod 0_pre20240915: Kernel module to expose more Framework Laptop stuff
 app-laptop/framework-tool-tui 0.7.6: TUI for controlling and monitoring Framework Computers hardware built in Rust
 app-laptop/framework_tool 0.4.3 0.4.5 0.5.0: Tool to control Framework Computer systems
 app-laptop/hdaps-gl 0.0.7: OpenGL visualization for HDAPS data
@@ -2703,7 +2703,7 @@ app-misc/blink1 1.98-r3: blink(1) USB RGB LED status light control suite
 app-misc/bottlerocket 0.04c-r2: CLI interface to the X-10 Firecracker Kit
 app-misc/boxes 2.3.1: Draw any kind of boxes around your text
 app-misc/brewtarget 4.0.17-r1: Application to create and manage beer recipes
-app-misc/broot 1.51.0 1.54.0: A new way to see and navigate directory trees
+app-misc/broot 1.51.0 1.54.0 1.55.0: A new way to see and navigate directory trees
 app-misc/btail 0.3-r1: Bayesian logfile filter
 app-misc/byobu 5.133-r1: A set of profiles for the GNU Screen console window manager (app-misc/screen)
 app-misc/c_rehash 1.7-r1: c_rehash script from OpenSSL
@@ -3346,7 +3346,7 @@ app-text/pandoc 2.18-r2 3: Metapackage for pandoc version 3
 app-text/pandoc-bin 3.8.3 3.9: Conversion between markup formats (binary package)
 app-text/pandoc-cli 0.1.1-r1: Conversion between documentation formats
 app-text/paper-clip 5.5.2 9999: Edit the title, author, keywords and more details of PDF documents
-app-text/papers 48.5-r1 49.2 49.3: A document viewer for the GNOME desktop
+app-text/papers 48.5-r1 49.2 49.3 49.4: A document viewer for the GNOME desktop
 app-text/paperwork 2.2.5: a personal document manager for scanned documents (and PDFs)
 app-text/paperwork-backend 2.2.5: Backend part of Paperwork (Python API, no UI)
 app-text/paps 0.8.0: Unicode-aware text to PostScript converter
@@ -4021,7 +4021,7 @@ dev-db/opendbx 1.4.6-r6: OpenDBX - A database abstraction layer
 dev-db/oracle-instantclient 21.3.0.0.0 21.13.0.0.0 21.18.0.0.0: Oracle 21c Instant Client with SDK
 dev-db/percona-toolkit 3.6.0: Advanced command-line tools to perform a variety of MySQL and system tasks
 dev-db/percona-xtrabackup 8.0.30.23-r1 8.3.0.1: Hot backup utility for MySQL based servers
-dev-db/pg-gvm 22.6.9 22.6.11: Greenbone Library for helper functions in PostgreSQL
+dev-db/pg-gvm 22.6.9 22.6.11 22.6.14: Greenbone Library for helper functions in PostgreSQL
 dev-db/pgFormatter 5.0 5.1 5.8: PostgreSQL SQL syntax beautifier
 dev-db/pgLatLon 0.15 0.16: Spatial database extension for the PostgreSQL
 dev-db/pg_activity 3.6.1-r1: Realtime PostgreSQL database server monitoring tool
@@ -4049,7 +4049,7 @@ dev-db/qdbm 1.8.78-r5: Quick Database Manager
 dev-db/qt5-sqlcipher 1.1.0: Qt SQL driver plugin for SQLCipher
 dev-db/recutils 1.9-r1: Tools and libraries to access human-editable, plain text databases
 dev-db/redict 7.3.6: A persistent caching system, key-value, and data structures database
-dev-db/redis 6.2.20 6.2.21 7.2.11 7.2.12 7.4.6 7.4.7 8.0.4 8.0.5 8.2.2 8.2.3: A persistent caching system, key-value, and data structures database
+dev-db/redis 6.2.20 6.2.21 7.2.11 7.2.12 7.4.6 7.4.7 8.0.4 8.0.5 8.2.2 8.2.3 8.2.4 8.4.1 8.6.0: A persistent caching system, key-value, and data structures database
 dev-db/repmgr 5.5.0: PostgreSQL Replication Manager
 dev-db/rqlite 8.36.10 8.43.4: Replicated SQLite using the Raft consensus protocol
 dev-db/slony1 2.2.10-r1: A replication system for the PostgreSQL Database Management System
@@ -5373,7 +5373,7 @@ dev-libs/chmlib 0.40-r2: Library for MS CHM (compressed html) file format
 dev-libs/cjose 0.6.2.2 0.6.2.3: C library implementing the Javascript Object Signing and Encryption (JOSE)
 dev-libs/cl 1.2.4-r2: OpenCL bindings for Erlang
 dev-libs/clog 2023.11.04: C-style (a-la printf) logging library
-dev-libs/collada-dom 2.5.0-r2: COLLADA Document Object Model (DOM) C++ Library
+dev-libs/collada-dom 2.5.0-r2 2.5.0-r3: COLLADA Document Object Model (DOM) C++ Library
 dev-libs/concurrencykit 0.7.2-r1: A library with concurrency related algorithms and data structures in C
 dev-libs/confuse 3.3-r3: a configuration file parser library
 dev-libs/cowsql 1.15.8 1.15.9: Embeddable, replicated and fault tolerant SQL engine (fork of dqlite)
@@ -11519,7 +11519,7 @@ games-emulation/libretro-info 0.0.1_pre20180723 9999: Libretro info files requir
 games-emulation/libretro-nestopia 0.0.1_pre20180723 9999: Nestopia libretro port
 games-emulation/libretro-snes9x 0.0.2_pre20200107 9999: Snes9x libretro port
 games-emulation/libretro-twentyfortyeight 0.0.1_pre20180723 9999: Port of 2048 puzzle game to the libretro API
-games-emulation/lxdream 0.9.1-r4: An emulator for the Sega Dreamcast system
+games-emulation/lxdream 0.9.1-r4 0.9.1-r5: An emulator for the Sega Dreamcast system
 games-emulation/m64py 0.3.0-r1: A frontend for Mupen64Plus
 games-emulation/mamory 0.2.25-r1: ROM management tools and library
 games-emulation/mastergear-bin 4.9-r1: SEGA Master System / Game Gear emulator
@@ -12032,7 +12032,7 @@ gnome-extra/evolution-ews 3.56.2-r1 3.58.2 3.58.3: Evolution module for connecti
 gnome-extra/gnome-boxes 48.0 49.1: Simple GNOME application to access remote or virtual systems
 gnome-extra/gnome-browser-connector 42.1 42.1-r1: OS-native connector counterpart for GNOME Shell browser extension
 gnome-extra/gnome-calculator 48.1 49.2: A calculator application for GNOME
-gnome-extra/gnome-calendar 48.1 49.0.1: Manage your calendars with simple and modern interface
+gnome-extra/gnome-calendar 48.1 49.0.1 49.1: Manage your calendars with simple and modern interface
 gnome-extra/gnome-characters 48.0 49.1: Unicode character map viewer and library
 gnome-extra/gnome-clocks 48.0 49.0: Clocks application for GNOME
 gnome-extra/gnome-color-manager 3.36.0-r1 3.36.2-r1: GNOME color profile tools
@@ -12059,7 +12059,7 @@ gnome-extra/gnome-shell-extension-weather-in-the-clock 20221024-r4: Display the 
 gnome-extra/gnome-shell-extension-weather-oclock 49.0: Display the current weather inside the pill next to the clock
 gnome-extra/gnome-shell-extensions 48.3: JavaScript extensions for GNOME Shell
 gnome-extra/gnome-shell-frippery 47.0 48.0: Unofficial extension pack providing GNOME 2-like features
-gnome-extra/gnome-software 48.4 49.2: Gnome install & update software
+gnome-extra/gnome-software 48.4 49.2 49.3: Gnome install & update software
 gnome-extra/gnome-system-monitor 48.1 49.1: The Gnome System Monitor
 gnome-extra/gnome-tweaks 46.1-r1 49.0: Customize advanced GNOME options
 gnome-extra/gnome-user-docs 48.5 49.1: GNOME end user documentation
@@ -12137,7 +12137,7 @@ gnustep-libs/sqlclient 1.9.0: GNUstep lightweight database abstraction layer
 gui-apps/deskflow 1.21.2 1.24.0 1.25.0 9999: Share a mouse and keyboard between computers (FOSS version of Synergy)
 gui-apps/foot 1.16.2 1.17.0 1.17.1 1.17.2 1.18.0 1.18.1 1.19.0 1.20.0 1.20.1-r1 1.20.2 1.20.2-r2 1.21.0 1.22.0 1.22.3 1.23.0 1.23.1 1.24.0 1.25.0: Fast, lightweight and minimalistic Wayland terminal emulator
 gui-apps/foot-terminfo 1.16.2 1.17.0 1.17.1 1.17.2 1.18.0 1.18.1 1.19.0 1.20.0 1.20.1 1.20.2 1.21.0 1.22.0 1.22.3 1.23.0 1.23.1 1.24.0 1.25.0: Terminfo for foot, a fast, lightweight and minimal Wayland terminal emulator
-gui-apps/gnome-console 48.1 49.1: A simple user-friendly terminal emulator for the GNOME desktop
+gui-apps/gnome-console 48.1 49.1 49.2: A simple user-friendly terminal emulator for the GNOME desktop
 gui-apps/grim 1.5.0 9999: Grab images from a Wayland compositor
 gui-apps/gtkgreet 0.7 0.8 9999: gtk based greeter for greetd
 gui-apps/input-leap 3.0.2-r1 3.0.3 9999: Share a mouse and keyboard between computers (fork of Barrier)
@@ -13447,7 +13447,7 @@ media-libs/libopenaptx 0.2.0-r1 0.2.1-r1 9999: Reverse-engineered aptX and aptX 
 media-libs/libopenglrecorder 0.1.0-r1: Library for asynchronous OpenGL recording with audio
 media-libs/libopenmpt 0.7.13 0.8.3 0.8.4: Library to decode tracked music files (modules)
 media-libs/libopenraw 0.3.7-r3: RAW image formats decoding library
-media-libs/libopusenc 0.2.1-r1: High-level API for encoding .opus files
+media-libs/libopusenc 0.2.1-r1 0.3: High-level API for encoding .opus files
 media-libs/libpagemaker 0.0.4-r1 9999: C++ Library that parses the file format of Aldus/Adobe PageMaker documents
 media-libs/libpano13 2.9.22 2.9.22-r1 2.9.23: Helmut Dersch's panorama toolbox library
 media-libs/libpgf 7.21.7-r2: Library to load, handle and manipulate images in the PGF format
@@ -14494,13 +14494,13 @@ net-analyzer/fwlogwatch 1.5-r1: A packet filter and firewall log analyzer
 net-analyzer/gnome-nettool 42.0 42.0-r1: Graphical front-ends to various networking command-line
 net-analyzer/goaccess 1.8.1 1.9.3 9999: A real-time web log analyzer and interactive viewer in a terminal
 net-analyzer/gr-fosphor 0.0_p20210108-r3 9999: gnuradio fosphor block (GPU spectrum display)
-net-analyzer/greenbone-feed-sync 25.1.0: New script for syncing the Greenbone Community Feed
-net-analyzer/gsa 24.6.1 26.0.0: Greenbone Security Assistant
+net-analyzer/greenbone-feed-sync 25.1.0 25.2.0: New script for syncing the Greenbone Community Feed
+net-analyzer/gsa 24.6.1 26.0.0 26.10.1: Greenbone Security Assistant
 net-analyzer/gsad 24.2.4-r1 24.5.4: Greenbone Security Assistant
 net-analyzer/gspoof 3.2-r3: A simple GTK/command line TCP/IP packet generator
 net-analyzer/gvm 22.4-r1 25.5.0: Greenbone Vulnerability Management, previously named OpenVAS
 net-analyzer/gvm-libs 22.23.0 22.28.0 22.35.4: Greenbone Vulnerability Management (GVM) libraries
-net-analyzer/gvm-tools 25.3.0 25.4.0: Remote control for Greenbone Vulnerability Manager, previously named openvas-cli
+net-analyzer/gvm-tools 25.3.0 25.4.0 25.4.5: Remote control for Greenbone Vulnerability Manager, previously named openvas-cli
 net-analyzer/gvmd 25.2.1 26.3.0: Greenbone vulnerability manager, previously named openvas-manager
 net-analyzer/hexinject 1.6-r2: Network packet sniffer and injector
 net-analyzer/hping 3_pre20141226: A ping-like TCP/IP packet assembler/analyzer
@@ -14619,7 +14619,7 @@ net-analyzer/portmon 2.0-r2: Portmon is a network service monitoring daemon
 net-analyzer/portsentry 1.2-r1: Automated port scan detector and response tool
 net-analyzer/prettyping 1.0.1: Ping wrapper that produces coloured, easily readable output
 net-analyzer/pypacker 5.2: Fast and simple packet creation and parsing library for Python
-net-analyzer/python-gvm 26.1.1 26.4.0: Greenbone Vulnerability Management Python Library
+net-analyzer/python-gvm 26.1.1 26.4.0 26.9.1: Greenbone Vulnerability Management Python Library
 net-analyzer/raddump 0.3.1: RADIUS packet interpreter
 net-analyzer/rain 1.2.9_beta1-r1: powerful tool for testing stability of utilizing IP protocols
 net-analyzer/rrdcollect 0.2.10: Read system statistical data and feed it to RRDtool
@@ -15057,7 +15057,7 @@ net-libs/libyang 3.12.2: YANG data modeling language library
 net-libs/liquid-dsp 1.7.0 9999: digital signal processing library for software-defined radios
 net-libs/llhttp 9.2.1: Port of http_parser to llparse
 net-libs/loudmouth 1.5.4: Lightweight C Jabber library
-net-libs/mbedtls 2.28.9-r1 2.28.10 3.6.4: Cryptographic library for embedded systems
+net-libs/mbedtls 2.28.10 3.6.4 3.6.5: Cryptographic library for embedded systems
 net-libs/meanwhile 1.1.1: Meanwhile (Sametime protocol) library
 net-libs/miniupnpc 2.3.3-r1: UPnP client library and a simple UPnP client
 net-libs/msgraph 0.2.3-r1 0.3.3: GLib-based library for accessing online serive APIs using MS Graph protocol.
@@ -15906,7 +15906,7 @@ sci-biology/mummer 3.23-r1: A rapid whole genome aligner
 sci-biology/muscle 3.8.31 5.1.0: Multiple sequence comparison by log-expectation
 sci-biology/newick-utils 1.6-r3: Tools for processing phylogenetic trees
 sci-biology/pals 1.0-r2: Pairwise Aligner for Long Sequences
-sci-biology/paml 4.9j 4.10.7: Phylogenetic Analysis by Maximum Likelihood
+sci-biology/paml 4.10.7 4.10.10: Phylogenetic Analysis by Maximum Likelihood
 sci-biology/phylip 3.698: The PHYLogeny Inference Package
 sci-biology/phyml 2.4.5-r4: Estimation of large phylogenies by maximum likelihood
 sci-biology/piler 1.0-r2: Analysis of repetitive DNA found in genome sequences
@@ -16062,7 +16062,7 @@ sci-geosciences/geocode-glib 3.26.4-r201: GLib helper library for geocoding serv
 sci-geosciences/geopy 2.4.1-r1: Python client for several popular geocoding web services
 sci-geosciences/gmaptool 08220-r1: Program for splitting and merging maps in Garmin format
 sci-geosciences/gmt 6.4.0-r1: Powerful map generator
-sci-geosciences/gnome-maps 48.7 49.2: A map application for GNOME
+sci-geosciences/gnome-maps 48.7 49.2 49.4: A map application for GNOME
 sci-geosciences/gpsbabel 1.9.0-r1 9999: GPS waypoints, tracks and routes converter
 sci-geosciences/gpscorrelate 2.0-r1 2.3: Tool for adjusting EXIF tags of your photos with a recorded GPS trace
 sci-geosciences/gpsd 3.26.1-r1 9999: GPS daemon and library for USB/serial GPS devices and GPS/mapping clients
@@ -16075,7 +16075,7 @@ sci-geosciences/gshhs 1.13-r1: Global Self-consistent, Hierarchical, High-resolu
 sci-geosciences/gshhs-data 2.2.0: Global Self-consistent, Hierarchical, High-resolution Shoreline programs data
 sci-geosciences/gtk-g-rays2 2.05 2.05-r1: GUI for accessing the Wintec WBT 201 / G-Rays 2 GPS device
 sci-geosciences/harmonics-dwf-free 20241229: Tidal harmonics database for libtcd
-sci-geosciences/josm-bin 19439: Java-based editor for the OpenStreetMap project
+sci-geosciences/josm-bin 19439 19481: Java-based editor for the OpenStreetMap project
 sci-geosciences/laszip 3.4.3: Library for free and lossless compression of the LAS LiDAR format
 sci-geosciences/librttopo 1.1.0: Exposes an API to create and manage standard (ISO 13249 aka SQL/MM) topologies
 sci-geosciences/libtcd 2.2.7_p3: Library for reading and writing Tide Constituent Database (TCD) files

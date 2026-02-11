@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gettext virtual/os-headers virtual/pkgconfig
+DEFINED_PHASES=configure postinst postrm preinst prepare
+DEPEND=app-misc/lirc media-libs/alsa-lib media-libs/libpng:0= virtual/opengl x11-libs/gtk+:2 pulseaudio? ( media-libs/libpulse ) sdl? ( media-libs/libsdl[sound] ) !!gnustep-base/gnustep-gui
+DESCRIPTION=An emulator for the Sega Dreamcast system
+EAPI=8
+HOMEPAGE=https://github.com/lxdream/lxdream
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=flag-o-matic xdg
+IUSE=debug profile pulseaudio sdl
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=app-misc/lirc media-libs/alsa-lib media-libs/libpng:0= virtual/opengl x11-libs/gtk+:2 pulseaudio? ( media-libs/libpulse ) sdl? ( media-libs/libsdl[sound] )
+SLOT=0
+SRC_URI=http://www.lxdream.org/count.php?file=lxdream-0.9.1.tar.gz -> lxdream-0.9.1.tar.gz
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=4da5682cdc69beacdeca71599a356e13
