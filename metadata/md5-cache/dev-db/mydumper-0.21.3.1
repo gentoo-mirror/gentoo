@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig doc? ( || ( ( dev-lang/python:3.14 dev-python/accessible-pygments[python_targets_python3_14(-)] dev-python/furo[python_targets_python3_14(-)] dev-python/sphinx-copybutton[python_targets_python3_14(-)] dev-python/sphinx-inline-tabs[python_targets_python3_14(-)] dev-python/sphinx[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/accessible-pygments[python_targets_python3_13(-)] dev-python/furo[python_targets_python3_13(-)] dev-python/sphinx-copybutton[python_targets_python3_13(-)] dev-python/sphinx-inline-tabs[python_targets_python3_13(-)] dev-python/sphinx[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/accessible-pygments[python_targets_python3_12(-)] dev-python/furo[python_targets_python3_12(-)] dev-python/sphinx-copybutton[python_targets_python3_12(-)] dev-python/sphinx-inline-tabs[python_targets_python3_12(-)] dev-python/sphinx[python_targets_python3_12(-)] ) ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=app-arch/zstd dev-db/mysql-connector-c:= dev-libs/glib:2 dev-libs/libpcre2:=
+DESCRIPTION=A high-performance multi-threaded backup (and restore) toolset for MySQL
+EAPI=8
+HOMEPAGE=https://github.com/mydumper/mydumper
+INHERIT=cmake python-any-r1
+IUSE=doc
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-arch/zstd dev-db/mysql-connector-c:= dev-libs/glib:2 dev-libs/libpcre2:=
+SLOT=0
+SRC_URI=https://github.com/mydumper/mydumper/archive/v0.21.3-1.tar.gz -> mydumper-0.21.3-1.tar.gz https://github.com/mydumper/mydumper_docs/archive/5cc751c3f4383530f472008828a6614b97412abd.tar.gz -> mydumper-0.21.3-1_docs.tar.gz
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=c2be9fad4cb68d8ee209003dd14166f0
