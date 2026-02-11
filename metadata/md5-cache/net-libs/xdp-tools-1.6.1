@@ -1,16 +1,16 @@
 BDEPEND=dev-util/bpftool sys-apps/grep[pcre] llvm-core/clang:*[llvm_targets_BPF] sys-devel/m4
 DEFINED_PHASES=configure install postinst prepare setup
-DEPEND=dev-libs/libbpf:= net-libs/libpcap virtual/zlib:= virtual/libelf
+DEPEND=dev-libs/libbpf:= net-libs/libpcap
 DESCRIPTION=The libxdp library and various tools for use with XDP
 EAPI=8
 HOMEPAGE=https://github.com/xdp-project/xdp-tools
 INHERIT=flag-o-matic linux-info toolchain-funcs
 IUSE=+tools
-KEYWORDS=amd64 ~arm arm64 ~loong ~ppc ppc64 ~riscv x86
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
 LICENSE=GPL-2 LGPL-2.1 BSD-2
-RDEPEND=dev-libs/libbpf:= net-libs/libpcap virtual/zlib:= virtual/libelf
+RDEPEND=dev-libs/libbpf:= net-libs/libpcap
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/xdp-project/xdp-tools/archive/refs/tags/v1.5.7.tar.gz -> xdp-tools-1.5.7.tar.gz
+SRC_URI=https://github.com/xdp-project/xdp-tools/archive/refs/tags/v1.6.1.tar.gz -> xdp-tools-1.6.1.tar.gz
 _eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	linux-info	efd923656513c879204fec6638eadee5
-_md5_=694329559c37e2eb1e6ea8c5bcb712d8
+_md5_=ce4075ab418fb39203790629d2116474
