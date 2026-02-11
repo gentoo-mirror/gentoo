@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,17 +6,19 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{12..14} )
 PYTHON_REQ_USE="ncurses"
-inherit distutils-r1 toolchain-funcs
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/chrislamb.asc
+inherit distutils-r1 toolchain-funcs verify-sig
 
 DESCRIPTION="Will try to get to the bottom of what makes files or directories different"
 HOMEPAGE="https://diffoscope.org/ https://pypi.org/project/diffoscope/"
-# We could use pypi, but upstream provide distribution tarballs, so let's use those.
-# TODO: verify-sig
-SRC_URI="https://diffoscope.org/archive/${P}.tar.bz2"
+SRC_URI="
+	https://diffoscope.org/archive/${P}.tar.bz2
+	verify-sig? ( https://diffoscope.org/archive/${P}.tar.bz2.asc )
+"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 IUSE="acl binutils bzip2 libcaca colord cpio +diff docx dtc e2fsprogs file
 find gettext gif gpg haskell hdf5 hex imagemagick iso java llvm lzma
 mono opendocument pascal pdf postscript R rpm sqlite squashfs
@@ -89,6 +91,7 @@ BDEPEND="
 		media-libs/libcaca
 		virtual/imagemagick-tools[jpeg]
 	)
+	verify-sig? ( sec-keys/openpgp-keys-chrislamb )
 "
 
 EPYTEST_DESELECT=(
