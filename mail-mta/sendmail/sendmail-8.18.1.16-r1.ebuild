@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -72,7 +72,7 @@ RDEPEND="
 BDEPEND="
 	sys-devel/m4
 	virtual/pkgconfig
-	verify-sig? ( ~sec-keys/openpgp-keys-sendmail-20250220 )
+	verify-sig? ( >=sec-keys/openpgp-keys-sendmail-20250220 )
 "
 PDEPEND="
 	!mbox? (
@@ -85,6 +85,7 @@ PDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-8.13.1-delivered_hdr.patch
 	"${FILESDIR}"/${PN}-8.16.1-build-system.patch
+	"${FILESDIR}"/${PN}-8.18.1-cdb.patch
 )
 
 src_prepare() {

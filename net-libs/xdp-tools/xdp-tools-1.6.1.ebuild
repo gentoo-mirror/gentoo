@@ -1,4 +1,4 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,11 +7,11 @@ inherit flag-o-matic linux-info toolchain-funcs
 
 DESCRIPTION="The libxdp library and various tools for use with XDP"
 HOMEPAGE="https://github.com/xdp-project/xdp-tools"
-SRC_URI="https://github.com/xdp-project/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/xdp-project/xdp-tools/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2.1 BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="+tools"
 
 # tests require root privileges
@@ -20,8 +20,6 @@ RESTRICT+=" test"
 DEPEND="
 	dev-libs/libbpf:=
 	net-libs/libpcap
-	virtual/zlib:=
-	virtual/libelf
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -48,11 +46,12 @@ src_prepare() {
 }
 
 src_configure() {
-	# filter LTO: #861587
-	filter-lto
+	# fix building with LTO: #861587
+	tc-is-lto && append-cflags $(test-flags-CC -ffat-lto-objects)
 
 	# filter LDFLAGS some more: #916591
-	filter-ldflags -Wl,--{icf,lto}*
+	# ld.lld: error: -r and --icf may not be used together
+	filter-ldflags -Wl,--icf*
 
 	export CC="$(tc-getCC)"
 	export PREFIX="${EPREFIX}/usr"
@@ -70,9 +69,11 @@ src_install() {
 
 	# To remove the scripts/testing files that are installed.
 	rm -r "${ED}/usr/share/xdp-tools" || die
+
 	# We can't control static archive generation yet.
 	rm "${ED}/usr/$(get_libdir)/libxdp.a" || die
 
+	# Only install tools when requested.
 	use tools || { rm "${ED}/usr/sbin"/* || die; }
 
 	# These are ELF objects but BPF ones.
