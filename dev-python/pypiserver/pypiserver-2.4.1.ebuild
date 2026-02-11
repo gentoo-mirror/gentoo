@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/bottle[${PYTHON_USEDEP}]
@@ -29,6 +29,9 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/importlib-resources[${PYTHON_USEDEP}]
 	' 3.11)
+	$(python_gen_cond_dep '
+		dev-python/legacy-cgi[${PYTHON_USEDEP}]
+	' 3.14)
 "
 # NB: many test deps are optional/specific to tests we skip
 BDEPEND="
@@ -43,17 +46,16 @@ BDEPEND="
 
 DOCS=( CHANGES.rst README.md )
 
-PATCHES=(
-	"${FILESDIR}/${PN}-2.3.1-unbundle-bottle.patch"
-)
-
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_prepare() {
 	distutils-r1_src_prepare
 
-	# remove bundled bottle
-	rm pypiserver/bottle.py || die
+	# unbundle bottle
+	sed -e 's:pypiserver[.]bottle_wrapper[.]::' \
+		-i pypiserver/bottle_wrapper/__init__.py || die
+	rm pypiserver/bottle_wrapper/bottle.py || die
 }
 
 python_test() {
@@ -73,6 +75,5 @@ python_test() {
 		)
 	fi
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest tests
 }
