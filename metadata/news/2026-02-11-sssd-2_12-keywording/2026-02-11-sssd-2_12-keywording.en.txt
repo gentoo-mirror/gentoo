@@ -1,0 +1,36 @@
+Title: sssd to run as a dedicated user
+Author: Christopher Byrne <salah.coronya@gmail.com>
+Posted: 2026-02-11
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sys-auth/sssd
+
+sssd now runs as its own user, rather than root, and uses file
+capabiltites for its helpers. Although it had this functionalilty for
+a while, it wasn't completely usable until 2.10.
+
+sssd-2.12.0 will be the first keyworded version in Gentoo with this
+change, made available shortly.
+
+Because of the user change, the sssd database, logs, and
+configuration files must have their ownership changed.
+
+== Systemd users ==
+After upgrading sssd to >=2.10, stop the sssd service. Then execute the following
+commands:
+
+chown -R sssd:sssd /var/lib/sss
+chown -R sssd:sssd /var/log/sssd
+
+Then restart the sssd service and verify it launched succesfully.
+
+== openrc users ===
+
+After upgrading	sssd, stop the sssd service. Then execute the following
+commands:
+
+chown -R sssd:sssd /var/lib/sss
+chown -R sssd:sssd /var/log/sssd
+chown -R root:sssd /etc/sssd
+
+Then restart the sssd service and verify it launched succesfully.
