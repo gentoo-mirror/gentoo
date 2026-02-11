@@ -1,13 +1,13 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_SINGLE_IMPL=yes
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
-inherit distutils-r1 pypi
+inherit distutils-r1 edo eapi9-ver multiprocessing pypi
 
 DESCRIPTION="CLI for MySQL Database with auto-completion and syntax highlighting"
 HOMEPAGE="
@@ -18,28 +18,34 @@ HOMEPAGE="
 
 LICENSE="BSD MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64"
+
 # optional llm unpackaged
 IUSE="ssh"
 
+# ~paramiko-3.5.1: Pinned due to breakage. Feature soft deprecated for future removal
+# https://github.com/dbcli/mycli/commit/82c7d92a16ad15906c46df14cc6e6ee0249609e6
+# https://github.com/dbcli/mycli/issues/1464
 RDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/cli-helpers-2.7.0[${PYTHON_USEDEP}]
+		>=dev-python/cli-helpers-2.9.0[${PYTHON_USEDEP}]
 		>=dev-python/click-8.3.1[${PYTHON_USEDEP}]
 		>=dev-python/configobj-5.0.5[${PYTHON_USEDEP}]
 		>=dev-python/cryptography-1.0.0[${PYTHON_USEDEP}]
+		>=dev-python/keyring-25.7.0[${PYTHON_USEDEP}]
 		>=dev-python/prompt-toolkit-3.0.6[${PYTHON_USEDEP}]
 		<dev-python/prompt-toolkit-4.0.0[${PYTHON_USEDEP}]
 		dev-python/pycryptodome[${PYTHON_USEDEP}]
 		>=dev-python/pyfzf-0.3.1[${PYTHON_USEDEP}]
-		>=dev-python/pygments-1.6[${PYTHON_USEDEP}]
+		>=dev-python/pygments-2.19.2[${PYTHON_USEDEP}]
 		>=dev-python/pymysql-0.9.2[${PYTHON_USEDEP}]
 		>=dev-python/pyperclip-1.8.1[${PYTHON_USEDEP}]
+		>=dev-python/rapidfuzz-3.14.3[${PYTHON_USEDEP}]
 		=dev-python/sqlglot-27*[${PYTHON_USEDEP}]
 		<dev-python/sqlparse-0.6.0[${PYTHON_USEDEP}]
 		>=dev-python/sqlparse-0.3.0[${PYTHON_USEDEP}]
 		ssh? (
-			dev-python/paramiko[${PYTHON_USEDEP}]
+			~dev-python/paramiko-3.5.1[${PYTHON_USEDEP}]
 			dev-python/sshtunnel[${PYTHON_USEDEP}]
 		)
 	')
@@ -49,7 +55,9 @@ BDEPEND="
 		dev-python/setuptools-scm[${PYTHON_USEDEP}]
 		test? (
 			dev-db/mysql[server]
-			dev-python/paramiko[${PYTHON_USEDEP}]
+			>=dev-python/behave-1.2.6[${PYTHON_USEDEP}]
+			~dev-python/paramiko-3.5.1[${PYTHON_USEDEP}]
+			>=dev-python/pexpect-4.9.0[${PYTHON_USEDEP}]
 			dev-python/sshtunnel[${PYTHON_USEDEP}]
 		)
 	')
@@ -65,9 +73,25 @@ python_prepare_all() {
 	sed -e 's/import coverage ; coverage.process_startup(); //' \
 		-i test/features/environment.py test/features/steps/wrappers.py || die
 
+	# dont pin dependencies
+	sed -e 's/Pygments ~=/Pygments >=/' \
+		-e 's/rapidfuzz ~=/rapidfuzz >=/' \
+		-e 's/keyring ~=/keyring >=/' \
+		-i pyproject.toml || die
+
 	# convert from pycryptodomex to pycryptodome
 	sed -e 's/pycryptodomex/pycryptodome/' -i pyproject.toml || die
 	sed -e 's/from Cryptodome/from Crypto/' -i mycli/config.py || die
+
+	# network-sandbox messes with these
+	sed -e '/run mycli on localhost without port/i  @gentoo_skip' \
+		-e '/run mycli on TCP host without port/i  @gentoo_skip' \
+		-e '/run mycli without host and port/i  @gentoo_skip' \
+		-i test/features/connection.feature || die
+
+	# Requires an old school vi and the symlink for vi itself messes with this
+	sed -e '/edit sql in file with external editor/i  @gentoo_skip' \
+		-i test/features/iocommands.feature || die
 
 	distutils-r1_python_prepare_all
 }
@@ -121,13 +145,17 @@ src_test() {
 	)
 
 	local failures=()
-	nonfatal distutils-r1_src_test
-	[[ ${?} -ne 0 ]] && failures+=( pytest )
+	if ! nonfatal distutils-r1_src_test ; then
+		failures+=( pytest )
+	fi
 
-	# Behave is in a weird situation, last non beta version is 7 years old and doesnt build well with modern setuptools.
-	# Mycli doesnt pass tests with prereleases of updated behave.
-	#behave --jobs=$(get_makeopts_jobs)  --summary --verbose test/features
-	#[[ ${?} -ne 0 ]] && failures+=( behave )
+	if ! nonfatal edo behave \
+		--jobs=$(get_makeopts_jobs)  \
+		--summary --verbose \
+		--tags="not @gentoo_skip" \
+		test/features ; then
+		failures+=( behave )
+	fi
 
 	einfo "Stopping mysql test instance ..."
 	pkill -F "${T}"/mysqld.pid || die
@@ -142,5 +170,22 @@ src_test() {
 
 	if [[ ${#failures[@]} -gt 0 ]]; then
 		die "Tests failed: ${failures}"
+	fi
+}
+
+pkg_postinst() {
+	if use ssh && ver_replacing -lt 1.49; then
+		elog "The built-in SSH functionality has been soft deprecated in mycli."
+		elog "It may be removed upstream in a future release and even sooner"
+		elog "downstream in the ebuild due to the pinned paramiko dependency."
+		elog "See also https://github.com/dbcli/mycli/issues/1464"
+		elog ""
+	fi
+	if ver_replacing -lt 1.50; then
+		elog "Reading configuration from '.my.cnf' has been deprecated."
+		elog "Configuration should be done in '.myclirc' from now on,"
+		elog "and in the future '.my.cnf' will be ignored."
+		elog "See also https://github.com/dbcli/mycli/issues/1490"
+		elog ""
 	fi
 }
