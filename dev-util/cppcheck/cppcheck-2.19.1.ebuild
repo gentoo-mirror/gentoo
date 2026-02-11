@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit cmake python-single-r1 xdg
 
 DESCRIPTION="Static analyzer of C/C++ code"
@@ -12,8 +12,8 @@ SRC_URI="https://github.com/danmar/cppcheck/archive/refs/tags/${PV}.tar.gz -> ${
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86"
-IUSE="charts gui htmlreport pcre test"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+IUSE="charts gui pcre test"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	charts? ( gui )
@@ -33,26 +33,22 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	${PYTHON_DEPS}
-	htmlreport? (
-		$(python_gen_cond_dep '
-			dev-python/pygments[${PYTHON_USEDEP}]
-		')
-	)
+	$(python_gen_cond_dep '
+		dev-python/pygments[${PYTHON_USEDEP}]
+	')
 "
 BDEPEND="
 	${PYTHON_DEPS}
 	app-text/docbook-xsl-stylesheets
 	dev-libs/libxslt
+	dev-util/patchelf
 	virtual/pkgconfig
 	gui? ( dev-qt/qttools:6[assistant,linguist] )
 	test? (
-		htmlreport? (
-			$(python_gen_cond_dep '
-				dev-python/pytest[${PYTHON_USEDEP}]
-				dev-python/pytest-timeout[${PYTHON_USEDEP}]
-				dev-python/pygments[${PYTHON_USEDEP}]
-			')
-		)
+		$(python_gen_cond_dep '
+			dev-python/pytest[${PYTHON_USEDEP}]
+			dev-python/pytest-timeout[${PYTHON_USEDEP}]
+		')
 	)
 "
 
@@ -71,12 +67,13 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DFILESDIR="${EPREFIX}"/usr/share/${PF}/
+		-DBUILD_CLI=ON
+		-DBUILD_SHARED_LIBS=OFF
 		-DBUILD_MANPAGE=ON
 
 		-DHAVE_RULES=$(usex pcre)
 
 		-DBUILD_GUI=$(usex gui)
-		-DUSE_QT6=$(usex gui)
 		-DWITH_QCHART=$(usex charts)
 
 		-DBUILD_TESTS=$(usex test)
@@ -86,6 +83,7 @@ src_configure() {
 		-DUSE_MATCHCOMPILER=ON
 
 		-DDISABLE_DMAKE=ON
+		-DUSE_BOOST=OFF
 		-DUSE_BUNDLED_TINYXML2=OFF
 
 		# Yes, this is necessary to use the correct python version.
@@ -112,23 +110,26 @@ src_test() {
 	rm test/cli/other_test.py || die
 	rm test/cli/lookup_test.py || die
 	rm test/cli/premium_test.py || die
-	if use htmlreport; then
-		PYTHONPATH="${S}/tools" TEST_CPPCHECK_EXE_LOOKUP_PATH="${BUILD_DIR}/bin/" epytest test
-	fi
+	PYTHONPATH="${S}/tools" TEST_CPPCHECK_EXE_LOOKUP_PATH="${BUILD_DIR}/bin/" epytest test
 }
 
 src_install() {
 	cmake_src_install
 
+	# If shared libs are built, they need to be patched
+	# patchelf --set-rpath '$ORIGIN' "${BUILD_DIR}"/lib/*.so || die
+	# dolib.so "${BUILD_DIR}"/lib/*.so
+
 	insinto /usr/share/${PF}/cfg
 	doins cfg/*.cfg
 
 	if use gui ; then
+		patchelf --set-rpath '$ORIGIN' "${WORKDIR}/${P}_build/bin/${PN}-gui" || die
 		dobin "${WORKDIR}/${P}_build/bin/${PN}-gui"
 		dodoc gui/{projectfile.txt,gui.${PN}}
 	fi
 
-	use htmlreport && python_doscript htmlreport/cppcheck-htmlreport
+	python_doscript htmlreport/cppcheck-htmlreport
 	python_fix_shebang "${ED}"/usr/share/${PF}
 	python_optimize "${ED}"/usr/share/${PF}
 
