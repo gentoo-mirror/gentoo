@@ -13,7 +13,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
 IUSE="ipv6 readline ssl tcpd"
 # bug #946404 (and many others), whack-a-mole with timeouts and friends
 # Try again in the future.
@@ -29,7 +29,8 @@ RDEPEND="${DEPEND}"
 DOCS=( BUGREPORTS CHANGES DEVELOPMENT EXAMPLES FAQ FILES PORTING README SECURITY )
 
 PATCHES=(
-	"${FILESDIR}/${PN}-1.8.1.0-musl-fix.patch" # #968110
+	"${FILESDIR}"/${PN}-1.8.1.0-const.patch
+	"${FILESDIR}"/${PN}-1.8.1.0-musl-fix.patch # bug #968110
 )
 
 src_configure() {
