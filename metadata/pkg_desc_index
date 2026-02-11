@@ -1555,7 +1555,7 @@ app-crypt/xca 2.8.0 2.9.0 2.9.0-r1: A GUI to OpenSSL, RSA public keys, certifica
 app-crypt/xor-analyze 0.5-r1: Program for cryptanalyzing xor 'encryption' with variable key length
 app-crypt/yubihsm-connector 3.0.4: Server to expose YubiHSM 2 to network
 app-crypt/yubihsm-shell 2.6.0: Components used to interact with the YubiHSM 2
-app-crypt/yubikey-manager 5.7.2 5.8.0: Python library and command line tool for configuring a YubiKey
+app-crypt/yubikey-manager 5.8.0 5.9.0: Python library and command line tool for configuring a YubiKey
 app-crypt/yubioath-flutter-bin 7.3.0: Yubico Authenticator for TOTP
 app-crypt/zulucrypt 7.0.0: Front end to cryptsetup
 app-dicts/aspell-af 0.50.0-r1: Aspell (Afrikaans) language dictionary
@@ -2507,7 +2507,7 @@ app-forensics/rkhunter 1.4.6-r2: Rootkit Hunter scans for known and unknown root
 app-forensics/scalpel 2.1_pre20210326: A high performance file carver
 app-forensics/sleuthkit 4.12.1-r2: A collection of file system and media management forensic analysis tools
 app-forensics/unhide 20220611: Forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
-app-forensics/volatility3 2.11.0-r1 2.26.2: Framework for analyzing volatile memory
+app-forensics/volatility3 2.26.2 2.27.0: Framework for analyzing volatile memory
 app-forensics/yara 4.5.4 4.5.5 9999: A malware identification and classification tool
 app-forensics/yara-x 1.8.1 1.10.0-r1 1.11.0: A malware identification and classification tool
 app-forensics/zzuf 0.15_p20190208 0.15_p20220529: Transparent application input fuzzer
@@ -2639,7 +2639,7 @@ app-metrics/blackbox_exporter 0.24.0 0.25.0: Prometheus exporter for blackbox pr
 app-metrics/carbonapi-booking 0.3.0-r1 0.3.0_p20250201: High-performance Graphite front-end, Booking.com fork
 app-metrics/carbonapi-web 1.1: graphite-web fork for standalone usage with carbonapi
 app-metrics/ceph_exporter 4.1.1-r1 4.2.5: Prometheus exporter that scrapes metrics from a ceph cluster
-app-metrics/chrony_exporter 0.12.1 0.12.2: Chrony NTP exporter for Prometheus
+app-metrics/chrony_exporter 0.12.2 0.12.3: Chrony NTP exporter for Prometheus
 app-metrics/collectd 5.12.0-r11 5.12.0-r12: Collects system statistics and provides mechanisms to store the values
 app-metrics/consul_exporter 0.13.0: Prometheus exporter for consul metrics
 app-metrics/dnsmasq_exporter 0.3.0: prometheus exporter for dnsmasq
@@ -3995,7 +3995,7 @@ dev-db/libdbi-drivers 0.9.0-r3: The libdbi-drivers project maintains drivers for
 dev-db/libiodbc 3.52.15-r1: ODBC Interface for Linux
 dev-db/libodbc++ 0.2.5-r3: Provides a subset of the well-known JDBC 2.0(tm) and runs on top of ODBC
 dev-db/libzdb 3.2.3 3.4.0 3.4.1 3.5.0: A thread safe high level multi-database connection pool library
-dev-db/litecli 1.15.0 9999: CLI for SQLite with auto-completion and syntax highlighting
+dev-db/litecli 1.15.0 1.17.1 9999: CLI for SQLite with auto-completion and syntax highlighting
 dev-db/litedb 5.0.17-r4 5.0.21: .NET NoSQL Document Store in a single data file
 dev-db/lmdb 0.9.33 0.9.35: An ultra-fast, ultra-compact key-value embedded data store
 dev-db/lmdb++ 1.0.0-r1: C++11 wrapper for the LMDB database library
@@ -5064,7 +5064,7 @@ dev-java/junit-quickcheck 1.0: Property-based testing, JUnit-style
 dev-java/junitparams 1.1.1-r2: Better parameterised tests for JUnit
 dev-java/jzlib 1.1.3-r3: JZlib is a re-implementation of zlib in pure Java
 dev-java/kafka-clients 1.1.1-r2: Apache Kafka distributed event streaming platform
-dev-java/leiningen-bin 2.11.2: Automate Clojure projects without setting your hair on fire
+dev-java/leiningen-bin 2.11.2 2.12.0: Automate Clojure projects without setting your hair on fire
 dev-java/libg 7.1.0-r1: A library to be statically linked. Contains many small utilities
 dev-java/lmax-disruptor 3.4.4: A High Performance Inter-Thread Messaging Library
 dev-java/log4j-12-api 2.19.0 2.25.2: The Apache Log4j 1.x Compatibility API
@@ -5348,7 +5348,7 @@ dev-libs/bglibs 2.04-r4 2.04-r5: Bruce Guenter's Libraries Collection
 dev-libs/bitset 2.8.4-r3: A compressed bitset with supporting data structures and algorithms
 dev-libs/bitshuffle 0.3.5-r1: Bitshuffle C library
 dev-libs/blake3 1.8.2-r1 1.8.3: a fast cryptographic hash function
-dev-libs/blazesym_c 0.1.1 0.1.5: C bindings for blazesym, a library for address symbolization and related tasks
+dev-libs/blazesym_c 0.1.5 0.1.6: C bindings for blazesym, a library for address symbolization and related tasks
 dev-libs/boehm-gc 8.2.8 8.2.10 8.2.10-r1: The Boehm-Demers-Weiser conservative garbage collector
 dev-libs/boost 1.88.0-r1 1.89.0 1.90.0: Boost Libraries for C++
 dev-libs/boron 2.1.0: A scripting language similar to REBOL
@@ -9325,6 +9325,7 @@ dev-python/python-novaclient 18.11.0: A client for the OpenStack Nova API
 dev-python/python-openstackclient 8.2.0 8.3.0: A client for the OpenStack APIs
 dev-python/python-pam 2.0.2-r2: Python PAM module
 dev-python/python-pkcs11 0.9.3: PKCS#11/Cryptoki support for Python
+dev-python/python-pskc 1.4 9999: Python module for handling Portable Symmetric Key Container files
 dev-python/python-ptrace 0.9.9 9999: A Python binding of ptrace library
 dev-python/python-redmine 2.5.0: Python interface to the Redmine REST API
 dev-python/python-rtmidi 1.5.8: Python bindings for media-libs/rtmidi implemented using Cython
@@ -9503,6 +9504,7 @@ dev-python/shellingham 1.5.4: Tool to Detect Surrounding Shell
 dev-python/shtab 1.7.2 1.8.0: Automagic shell tab completion for Python CLI applications
 dev-python/signature-dispatch 1.0.1-r1: Execute the first function that matches the given arguments
 dev-python/signedjson 1.1.4: Signs JSON objects with ED25519 signatures.
+dev-python/signxml 4.2.2 9999: Python XML Signature and XAdES library
 dev-python/sigstore 3.6.6 4.0.0 4.1.0 4.2.0: A tool for signing Python package distributions
 dev-python/sigstore-models 0.0.5 0.0.6: Pydantic based models for Sigstore's protobuf specifications
 dev-python/sigstore-protobuf-specs 0.3.2 0.4.1 0.4.2 0.4.3 0.5.0: A library for serializing and deserializing Sigstore messages
@@ -13932,7 +13934,7 @@ media-radio/grig 0.9.0: A tool for controlling amateur radios
 media-radio/ibp 0.21-r3: Shows currently transmitting beacons of the International Beacon Project (IBP)
 media-radio/js8call 2.3.1-r2 2.5.2: Weak signal ham radio communication
 media-radio/kochmorse 3.5.1_p20250730: Morse-code tutor using the Koch method
-media-radio/qlog 0.46.1-r1 0.47.1 9999: Amateur radio logbook software
+media-radio/qlog 0.46.1-r1 0.47.1 0.48.0 9999: Amateur radio logbook software
 media-radio/qrq 0.3.5-r2: Yet another CW trainer for Linux/Unix
 media-radio/qsstv 9.5.11_pre20250212: Amateur radio SSTV software
 media-radio/svxlink 25.05.1_p20250929-r1: Multi Purpose Voice Services System, including Qtel for EchoLink
@@ -15115,7 +15117,7 @@ net-mail/courier-common 3.1.5: Mail delivery agent/filter
 net-mail/courier-imap 5.2.11-r2 5.3.1 5.3.2: An IMAP daemon designed specifically for maildirs
 net-mail/cyrus-imapd 3.4.5-r3 3.4.9: The Cyrus IMAP Server
 net-mail/dbmail 3.2.3-r5 3.2.5-r2 3.3.1 3.4.1 3.5.4 3.5.5: Fast and scalable sql based email services
-net-mail/dot-forward 0.71-r5: Reads sendmail's .forward files under qmail
+net-mail/dot-forward 0.71-r5 0.71-r6: Reads sendmail's .forward files under qmail
 net-mail/dovecot 2.3.21.1-r1 2.4.2 2.4.2-r1 2.4.2-r2: An IMAP and POP3 server written with security primarily in mind
 net-mail/email 3.1.3-r2: Advanced CLI tool for sending email
 net-mail/eps 1.7-r1: Inter7 Email Processing and mht System library
@@ -15406,7 +15408,7 @@ net-misc/putty 0.81: A Free Telnet/SSH Client
 net-misc/r8125 9.013.02-r1 9.014.01 9.014.01-r1 9.015.00 9.016.00 9.016.01: r8125 vendor driver for Realtek RTL8125 PCI-E NICs
 net-misc/r8152 2.20.1-r1: r8152 driver for Realtek USB FE / GBE / 2.5G Gaming Ethernet Family Controller
 net-misc/r8168 8.055.00: r8168 driver for Realtek 8111/8168 PCI-E NICs
-net-misc/rabbitmq-server 3.13.1 4.1.4 4.1.5 4.1.6 4.2.0 4.2.1: RabbitMQ is a high-performance AMQP-compliant message broker written in Erlang
+net-misc/rabbitmq-server 3.13.1 4.1.6 4.1.8 4.2.1 4.2.3: RabbitMQ is a high-performance AMQP-compliant message broker written in Erlang
 net-misc/radvd 2.20: Linux IPv6 Router Advertisement Daemon
 net-misc/rclone 1.72.1 1.73.0: A program to sync files to and from various cloud storage providers
 net-misc/rdate 1.11: Use TCP or UDP to retrieve the current time of another machine
@@ -16661,6 +16663,7 @@ sec-keys/openpgp-keys-knot 20170710-r1: OpenPGP keys used by the Knot DNS develo
 sec-keys/openpgp-keys-knot-resolver 20240304 20251203: OpenPGP keys used by the Knot Resolver developers
 sec-keys/openpgp-keys-kovidgoyal 20220106: OpenPGP keys used by Kovid Goyal
 sec-keys/openpgp-keys-lassecollin 20230213 20240529 20250313-r1 20260210: OpenPGP keys used by Lasse Collin
+sec-keys/openpgp-keys-leiningen 20260128: OpenPGP keys used to sign Leiningen packages
 sec-keys/openpgp-keys-less 20260115: OpenPGP keys used by less
 sec-keys/openpgp-keys-libarchive 20221209 20251118: OpenPGP keys used by the libarchive project
 sec-keys/openpgp-keys-libass 20220515 20250608: OpenPGP keys used to sign libass releases
@@ -17921,7 +17924,7 @@ sys-process/audit 4.0.1-r1 4.0.2-r1: Userspace utilities for storing and process
 sys-process/bashtop 0.9.25: Resource monitor that shows usage and stats
 sys-process/bcron 0.11: A new cron system designed with secure operations in mind by Bruce Guenter
 sys-process/below 0.8.1-r1 0.11.0-r1: An interactive tool to view and record historical system data
-sys-process/bottom 0.10.2-r1 0.11.1: A graphical process/system monitor with a customizable interface
+sys-process/bottom 0.11.1 0.12.3: A graphical process/system monitor with a customizable interface
 sys-process/bpytop 1.0.68-r1: Linux/OSX/FreeBSD resource monitor
 sys-process/btop 1.4.5 1.4.6: A monitor of resources
 sys-process/criu 3.19 4.1: Utility to checkpoint/restore a process tree
