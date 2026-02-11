@@ -1,0 +1,14 @@
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-testssl-20260210 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=install prepare setup unpack
+DESCRIPTION=Tool to check TLS/SSL cipher support
+EAPI=8
+HOMEPAGE=https://testssl.sh/
+INHERIT=verify-sig
+IUSE=bundled-openssl kerberos verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=GPL-2 bundled-openssl? ( openssl )
+RDEPEND=app-alternatives/awk >=app-shells/bash-3.2[net] sys-apps/coreutils sys-apps/grep sys-apps/util-linux sys-libs/ncurses sys-process/procps || ( net-dns/bind net-libs/ldns ) bundled-openssl? ( kerberos? ( virtual/zlib:= virtual/krb5 ) ) !bundled-openssl? ( dev-libs/openssl:0 )
+SLOT=0
+SRC_URI=https://testssl.sh/testssl.sh-3.0.10.tar.gz verify-sig? ( https://testssl.sh/testssl.sh-3.0.10.tar.gz.asc )
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=223e3becb5a40cbbdc53ee11a5e6f675
