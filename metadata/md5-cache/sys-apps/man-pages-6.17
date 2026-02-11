@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-alejandro-colomar-20260122 ) app-alternatives/bc verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-alejandro-colomar-20260122 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install postinst prepare test unpack
 DESCRIPTION=A somewhat comprehensive collection of Linux man pages
 EAPI=8
@@ -13,4 +13,4 @@ RESTRICT=binchecks
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/docs/man-pages/Archive/man-pages-6.17.tar.xz https://www.kernel.org/pub/linux/docs/man-pages/man-pages-6.17.tar.xz verify-sig? ( https://www.kernel.org/pub/linux/docs/man-pages/Archive/man-pages-6.17.tar.sign https://www.kernel.org/pub/linux/docs/man-pages/man-pages-6.17.tar.sign ) mirror://gentoo/man-pages-gentoo-2.tar.bz2 https://dev.gentoo.org/~cardoe/files/man-pages-gentoo-2.tar.bz2
 _eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=e59be3f8970118edb1f8bee4b3c9ef08
+_md5_=cebdfd1b38b40f2cda49c2a4ff89ea4b
