@@ -1,4 +1,4 @@
-# Copyright 2019-2024 Gentoo Authors
+# Copyright 2019-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,8 +14,8 @@ inherit chromium-2 desktop unpacker xdg
 DESCRIPTION="Unofficial electron-based wrapper around WhatsApp Web"
 HOMEPAGE="https://github.com/oOthkOo/whatsapp-desktop"
 SRC_URI="
-	amd64? ( https://github.com/oOthkOo/whatsapp-desktop/releases/download/v${PV}/whatsapp-desktop-x64.deb -> ${PN}-amd64-${PV}.deb )
-	x86? ( https://github.com/oOthkOo/whatsapp-desktop/releases/download/v${PV}/whatsapp-desktop-x32.deb -> ${PN}-x86-${PV}.deb )
+	amd64? ( https://github.com/oOthkOo/whatsapp-desktop/releases/download/v${PV}/whatsapp-linux-x64.deb -> ${PN}-amd64-${PV}.deb )
+	x86? ( https://github.com/oOthkOo/whatsapp-desktop/releases/download/v${PV}/whatsapp-linux-ia32.deb -> ${PN}-x86-${PV}.deb )
 "
 S="${WORKDIR}"
 
@@ -107,6 +107,6 @@ src_install() {
 	# see https://github.com/electron/electron/issues/17972
 	fperms 4755 "${DESTDIR}"/chrome-sandbox
 
-	dosym "${DESTDIR}"/WhatsApp /opt/bin/WhatsApp
+	dosym ../../"${DESTDIR}"/WhatsApp /opt/bin/WhatsApp
 	popd || die
 }
