@@ -9,9 +9,9 @@ inherit kernel-install toolchain-funcs unpacker verify-sig
 
 BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
-PATCHSET=linux-gentoo-patches-6.12.68
+PATCHSET=linux-gentoo-patches-6.18.4
 BINPKG=${P/-bin}-1
-SHA256SUM_DATE=20260130
+SHA256SUM_DATE=20260211
 
 DESCRIPTION="Pre-built Linux kernel with Gentoo patches"
 HOMEPAGE="
@@ -45,14 +45,14 @@ SRC_URI+="
 "
 S=${WORKDIR}
 
-KEYWORDS="amd64 arm64 ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 IUSE="debug"
 
 RDEPEND="
 	!sys-kernel/gentoo-kernel:${SLOT}
 "
 PDEPEND="
-	>=virtual/dist-kernel-${PV}
+	>=virtual/dist-kernel-${PATCH_PV}
 "
 BDEPEND="
 	app-alternatives/bc

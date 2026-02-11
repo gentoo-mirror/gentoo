@@ -3,18 +3,16 @@
 
 EAPI=8
 
-KERNEL_IUSE_GENERIC_UKI=1
-
 inherit kernel-build toolchain-funcs verify-sig
 
 BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
-PATCHSET=linux-gentoo-patches-6.6.111
+PATCHSET=linux-gentoo-patches-6.1.161
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
 # forked to https://github.com/projg2/fedora-kernel-config-for-gentoo
-CONFIG_VER=6.6.12-gentoo
+CONFIG_VER=6.1.102-gentoo
 GENTOO_CONFIG_VER=g17
-SHA256SUM_DATE=20260130
+SHA256SUM_DATE=20260211
 
 DESCRIPTION="Linux kernel built with Gentoo patches"
 HOMEPAGE="
@@ -50,7 +48,7 @@ SRC_URI+="
 "
 S=${WORKDIR}/${BASE_P}
 
-KEYWORDS="amd64 ~arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="debug experimental hardened"
 REQUIRED_USE="
 	arm? ( savedconfig )
@@ -168,10 +166,7 @@ src_prepare() {
 		merge_configs+=( "${dist_conf_path}/big-endian.config" )
 	fi
 
-	use secureboot && merge_configs+=(
-		"${dist_conf_path}/secureboot.config"
-		"${dist_conf_path}/zboot.config"
-	)
+	use secureboot && merge_configs+=( "${dist_conf_path}/secureboot.config" )
 
 	kernel-build_merge_configs "${merge_configs[@]}"
 }

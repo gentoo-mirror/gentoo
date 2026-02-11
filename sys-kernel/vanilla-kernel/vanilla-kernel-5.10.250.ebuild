@@ -3,28 +3,23 @@
 
 EAPI=8
 
-KERNEL_IUSE_GENERIC_UKI=1
-
 inherit kernel-build toolchain-funcs verify-sig
 
 BASE_P=linux-${PV%.*}
-PATCH_PV=${PV%_p*}
-PATCHSET=linux-gentoo-patches-6.6.111
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
-# forked to https://github.com/projg2/fedora-kernel-config-for-gentoo
-CONFIG_VER=6.6.12-gentoo
+CONFIG_VER=5.10.12
+CONFIG_HASH=836165dd2dff34e4f2c47ca8f9c803002c1e6530
 GENTOO_CONFIG_VER=g17
-SHA256SUM_DATE=20260130
+SHA256SUM_DATE=20260211
 
-DESCRIPTION="Linux kernel built with Gentoo patches"
+DESCRIPTION="Linux kernel built from vanilla upstream sources"
 HOMEPAGE="
 	https://wiki.gentoo.org/wiki/Project:Distribution_Kernel
 	https://www.kernel.org/
 "
 SRC_URI+="
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${BASE_P}.tar.xz
-	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PATCH_PV}.xz
-	https://dev.gentoo.org/~mgorny/dist/linux/${PATCHSET}.tar.xz
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PV}.xz
 	https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
 		-> gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz
 	verify-sig? (
@@ -32,36 +27,32 @@ SRC_URI+="
 			-> linux-$(ver_cut 1).x-sha256sums-${SHA256SUM_DATE}.asc
 	)
 	amd64? (
-		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-x86_64-fedora.config
+		https://src.fedoraproject.org/rpms/kernel/raw/${CONFIG_HASH}/f/kernel-x86_64-fedora.config
 			-> kernel-x86_64-fedora.config.${CONFIG_VER}
 	)
 	arm64? (
-		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-aarch64-fedora.config
+		https://src.fedoraproject.org/rpms/kernel/raw/${CONFIG_HASH}/f/kernel-aarch64-fedora.config
 			-> kernel-aarch64-fedora.config.${CONFIG_VER}
 	)
 	ppc64? (
-		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-ppc64le-fedora.config
+		https://src.fedoraproject.org/rpms/kernel/raw/${CONFIG_HASH}/f/kernel-ppc64le-fedora.config
 			-> kernel-ppc64le-fedora.config.${CONFIG_VER}
 	)
 	x86? (
-		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-i686-fedora.config
+		https://src.fedoraproject.org/rpms/kernel/raw/${CONFIG_HASH}/f/kernel-i686-fedora.config
 			-> kernel-i686-fedora.config.${CONFIG_VER}
 	)
 "
 S=${WORKDIR}/${BASE_P}
 
-KEYWORDS="amd64 ~arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~sparc x86"
-IUSE="debug experimental hardened"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
+IUSE="debug hardened"
 REQUIRED_USE="
 	arm? ( savedconfig )
 	hppa? ( savedconfig )
-	riscv? ( savedconfig )
 	sparc? ( savedconfig )
 "
 
-RDEPEND="
-	!sys-kernel/gentoo-kernel-bin:${SLOT}
-"
 BDEPEND="
 	debug? ( dev-util/pahole )
 	verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 )
@@ -83,7 +74,7 @@ src_unpack() {
 		cd "${DISTDIR}" || die
 		verify-sig_verify_signed_checksums \
 			"linux-$(ver_cut 1).x-sha256sums-${SHA256SUM_DATE}.asc" \
-			sha256 "${BASE_P}.tar.xz patch-${PATCH_PV}.xz"
+			sha256 "${BASE_P}.tar.xz patch-${PV}.xz"
 		cd "${WORKDIR}" || die
 	fi
 
@@ -91,30 +82,14 @@ src_unpack() {
 }
 
 src_prepare() {
-	local patch
-	eapply "${WORKDIR}/patch-${PATCH_PV}"
-	for patch in "${WORKDIR}/${PATCHSET}"/*.patch; do
-		eapply "${patch}"
-		# non-experimental patches always finish with Gentoo Kconfig
-		# when ! use experimental, stop applying after it
-		if [[ ${patch} == *Add-Gentoo-Linux-support-config-settings* ]] &&
-			! use experimental
-		then
-			break
-		fi
-	done
-
+	eapply "${WORKDIR}/patch-${PV}"
 	default
-
-	# add Gentoo patchset version
-	local extraversion=${PV#${PATCH_PV}}
-	sed -i -e "s:^\(EXTRAVERSION =\).*:\1 ${extraversion/_/-}:" Makefile || die
 
 	local biendian=false
 
 	# prepare the default config
 	case ${ARCH} in
-		arm | hppa | loong | riscv | sparc)
+		arm | hppa | sparc)
 			> .config || die
 		;;
 		amd64)
@@ -141,7 +116,7 @@ src_prepare() {
 			;;
 	esac
 
-	local myversion="-gentoo-dist"
+	local myversion="-dist"
 	use hardened && myversion+="-hardened"
 	echo "CONFIG_LOCALVERSION=\"${myversion}\"" > "${T}"/version.config || die
 	local dist_conf_path="${WORKDIR}/gentoo-kernel-config-${GENTOO_CONFIG_VER}"
@@ -168,10 +143,7 @@ src_prepare() {
 		merge_configs+=( "${dist_conf_path}/big-endian.config" )
 	fi
 
-	use secureboot && merge_configs+=(
-		"${dist_conf_path}/secureboot.config"
-		"${dist_conf_path}/zboot.config"
-	)
+	use secureboot && merge_configs+=( "${dist_conf_path}/secureboot.config" )
 
 	kernel-build_merge_configs "${merge_configs[@]}"
 }
