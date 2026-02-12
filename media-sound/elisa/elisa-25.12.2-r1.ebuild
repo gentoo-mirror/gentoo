@@ -14,7 +14,7 @@ HOMEPAGE="https://apps.kde.org/elisa/"
 LICENSE="LGPL-3+"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="+mpris vlc"
+IUSE="+mpris"
 
 RESTRICT="test"
 
@@ -37,8 +37,6 @@ DEPEND="
 		>=dev-qt/qtbase-${QTMIN}:6[dbus]
 		>=kde-frameworks/kdbusaddons-${KFMIN}:6
 	)
-	vlc? ( media-video/vlc:= )
-	!vlc? ( >=dev-qt/qtmultimedia-${QTMIN}:6 )
 "
 RDEPEND="${DEPEND}
 	>=dev-libs/kirigami-addons-0.11.76:6
@@ -51,7 +49,7 @@ BDEPEND="sys-devel/gettext"
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package mpris KF6DBusAddons)
-		$(cmake_use_find_package vlc LIBVLC)
+		-DCMAKE_DISABLE_FIND_PACKAGE_LIBVLC=ON
 	)
 
 	ecm_src_configure

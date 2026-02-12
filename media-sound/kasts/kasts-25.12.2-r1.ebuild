@@ -13,7 +13,7 @@ HOMEPAGE="https://apps.kde.org/kasts/"
 LICENSE="GPL-2 GPL-2+ GPL-3+ BSD LGPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="gstreamer vlc"
+IUSE="gstreamer"
 
 DEPEND="
 	>=dev-libs/kirigami-addons-1.6.0:6
@@ -40,7 +40,6 @@ DEPEND="
 		media-libs/gstreamer:1.0
 		media-libs/gst-plugins-good:1.0
 	)
-	vlc? ( media-video/vlc:= )
 "
 RDEPEND="${DEPEND}"
 BDEPEND="gstreamer? ( virtual/pkgconfig )"
@@ -48,8 +47,8 @@ BDEPEND="gstreamer? ( virtual/pkgconfig )"
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_EXAMPLE_PLAYER=OFF
+		-DCMAKE_DISABLE_FIND_PACKAGE_LIBVLC=ON
 		-DBUILD_GSTREAMER_BACKEND=$(usex gstreamer)
-		$(cmake_use_find_package vlc LIBVLC)
 	)
 	ecm_src_configure
 }
