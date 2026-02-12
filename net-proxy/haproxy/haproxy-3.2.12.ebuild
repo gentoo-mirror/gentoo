@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -193,9 +193,6 @@ src_install() {
 			newbin dev/hpack/gen-enc haproxy_gen-enc
 			newbin dev/hpack/decode haproxy_decode
 		}
-
-		dosbin admin/cli/haproxy-dump-certs
-		dosbin admin/cli/haproxy-reload
 	fi
 
 	if use examples ; then
