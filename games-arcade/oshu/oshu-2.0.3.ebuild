@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake ffmpeg-compat xdg
+inherit cmake xdg
 
 DESCRIPTION="Lightweight osu! port"
 HOMEPAGE="https://github.com/fmang/oshu"
@@ -27,12 +27,10 @@ RDEPEND="
 	media-libs/sdl2-image
 	x11-libs/cairo
 	x11-libs/pango
-	media-video/ffmpeg-compat:6=
+	>media-video/ffmpeg-5:=
 "
 
 DEPEND="${RDEPEND}"
-
-PATCHES=( "${FILESDIR}/oshu-2.0.2-ffmpeg4-compat.patch" )
 
 src_unpack() {
 	default
@@ -52,10 +50,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# TODO: fix with >=ffmpeg-7 then drop compat (bug #948392)
-	ffmpeg_compat_setup 6
-	ffmpeg_compat_add_flags
-
 	local mycmakeargs=(
 		-DOSHU_DEFAULT_SKIN=$(usex osu-skin osu minimal)
 		-DOSHU_SKINS=minimal$(usev osu-skin ';osu')
