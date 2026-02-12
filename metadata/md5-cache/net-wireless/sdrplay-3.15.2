@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=install postinst postrm unpack
+DEPEND=virtual/libusb:1 virtual/udev systemd? ( sys-apps/systemd )
+DESCRIPTION=SDRplay API/HW driver for all RSPs
+EAPI=8
+HOMEPAGE=https://www.sdrplay.com
+INHERIT=unpacker udev systemd
+IUSE=systemd
+KEYWORDS=~amd64
+LICENSE=SDRplay
+RDEPEND=virtual/libusb:1 virtual/udev systemd? ( sys-apps/systemd )
+SLOT=0
+SRC_URI=http://www.sdrplay.com/software/SDRplay_RSP_API-Linux-3.15.2.run
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	udev	f3d9a4376ebd22131726a68e1a0a058f	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=4cc7ae6ec4050654c96588a5fee9505e
