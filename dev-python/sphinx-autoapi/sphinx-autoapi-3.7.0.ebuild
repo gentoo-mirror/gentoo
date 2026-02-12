@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,7 +22,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 RDEPEND="
 	>=dev-python/astroid-3.0.0[${PYTHON_USEDEP}]
@@ -39,15 +39,19 @@ BDEPEND+="
 
 DOCS=( README.rst CHANGELOG.rst )
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
-python_test() {
-	local EPYTEST_DESELECT=(
-		# Internet
-		tests/python/test_pyintegration.py::TestPEP695::test_integration
-		tests/python/test_pyintegration.py::TestPipeUnionModule::test_integration
-		"tests/test_integration.py::TestExtensionErrors::test_extension_setup_errors[dotnetexample"
-	)
+EPYTEST_DESELECT=(
+	# Internet
+	tests/python/test_pyintegration.py::TestPEP695::test_integration
+	tests/python/test_pyintegration.py::TestPipeUnionModule::test_integration
+	"tests/test_integration.py::TestExtensionErrors::test_extension_setup_errors[dotnetexample"
+)
 
-	distutils-r1_python_test
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# remove conflicting pins
+	sed -i -e 's:~=:>=:' pyproject.toml || die
 }
