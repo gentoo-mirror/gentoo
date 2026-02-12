@@ -75,6 +75,7 @@ DOCS=()
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.2.7.4-torrc.sample.patch
+	"${FILESDIR}"/${PN}-0.4.9.5-big-endian.patch
 )
 
 QA_CONFIG_IMPL_DECL_SKIP=(
