@@ -1,0 +1,15 @@
+BDEPEND=nls? ( sys-devel/gettext ) test? ( dev-util/dejagnu ) >=app-portage/elt-patches-20250306
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=virtual/zlib:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?]
+DESCRIPTION=Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
+EAPI=8
+HOMEPAGE=https://sourceware.org/binutils/
+INHERIT=dot-a flag-o-matic libtool toolchain-funcs multilib-minimal
+IUSE=64-bit-bfd cet multitarget nls static-libs test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+LICENSE=|| ( GPL-3 LGPL-3 )
+RDEPEND=virtual/zlib:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=sys-devel/binutils-config-5
+RESTRICT=!test? ( test )
+SLOT=0/2.46.0
+SRC_URI=mirror://gnu/binutils/binutils-2.46.0.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.46.0.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.46.0-patches-1.tar.xz
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	dot-a	e5200fe17cfd2ed6fa66edd80201763a	libtool	c81bd096be5f4c82f4e8f156ef112402	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multilib-build	d7802b3638ffc661375c0021cdd19efd	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
+_md5_=f2c3270c31789b069d3f7fade80b95d6
