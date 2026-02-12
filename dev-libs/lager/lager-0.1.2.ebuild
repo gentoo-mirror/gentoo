@@ -11,10 +11,9 @@ SRC_URI="https://github.com/arximboldi/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
 RDEPEND="
-	dev-libs/boost:=
 	dev-libs/zug
 	dev-libs/immer
 "
@@ -27,7 +26,7 @@ src_configure() {
 		-Dlager_BUILD_DOCS=OFF # Check if docs are more complete on version bumps
 		-Dlager_BUILD_EXAMPLES=OFF
 		-Dlager_BUILD_FAILURE_TESTS=OFF
-		-Dlager_BUILD_TESTS=OFF
+		-Dlager_BUILD_TESTS=OFF # Requires Qt5, same in git master as of 2026-02-11
 	)
 	cmake_src_configure
 }
