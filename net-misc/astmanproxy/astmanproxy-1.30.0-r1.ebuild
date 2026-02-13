@@ -1,7 +1,7 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit toolchain-funcs
 
@@ -14,8 +14,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-gentoo.diff
-	"${FILESDIR}"/${P}-fno-common.patch
+	"${FILESDIR}"/${PN}-1.30.0-gentoo.patch
+	"${FILESDIR}"/${PN}-1.28.2-fno-common.patch
+	"${FILESDIR}"/${PN}-1.30.0-C23.patch
 )
 
 src_prepare() {
@@ -34,7 +35,7 @@ src_install() {
 	dosbin astmanproxy
 
 	dodoc -r samples
-	dodoc README VERSIONS
+	dodoc README.md VERSIONS
 
 	insinto /etc/asterisk
 	doins configs/astmanproxy.{conf,users}
