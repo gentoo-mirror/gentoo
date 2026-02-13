@@ -31,6 +31,8 @@ BUNDLED_CLANG_VER="llvmorg-22-init-17020-gbd1bd178-2"
 BUNDLED_RUST_VER="a4cfac7093a1c1c7fbdb6bc75d6b6dc4d385fc69-2"
 RUST_SHORT_HASH=${BUNDLED_RUST_VER:0:10}-${BUNDLED_RUST_VER##*-}
 NODE_VER="24.11.1"
+ESBUILD_VER="0.25.1" # currently manual
+ROLLUP_VER="4.57.1" # currently manual.
 VIRTUALX_REQUIRED="pgo"
 
 CHROMIUM_LANGS="af am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu he
@@ -53,6 +55,7 @@ PPC64_HASH="a85b64f07b489b8c6fdb13ecf79c16c56c560fc6"
 PATCH_V="${PV%%\.*}"
 COPIUM_COMMIT="fe1caafa06f27542c18a881348f78e984e2d9fe2"
 SRC_URI="https://github.com/chromium-linux-tarballs/chromium-tarballs/releases/download/${PV}/chromium-${PV}-linux.tar.xz
+	https://deps.gentoo.zip/www-client/chromium/rollup-wasm-node-${ROLLUP_VER}.tgz
 	!bundled-toolchain? (
 		https://gitlab.com/Matt.Jolly/chromium-patches/-/archive/${PATCH_V}/chromium-patches-${PATCH_V}.tar.bz2
 		https://codeberg.org/selfisekai/copium/archive/${COPIUM_COMMIT}.tar.gz
@@ -63,9 +66,6 @@ SRC_URI="https://github.com/chromium-linux-tarballs/chromium-tarballs/releases/d
 			-> chromium-clang-${BUNDLED_CLANG_VER}.tar.xz
 		https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-${BUNDLED_RUST_VER}-${BUNDLED_CLANG_VER%-*}.tar.xz
 			-> chromium-rust-toolchain-${RUST_SHORT_HASH}-${BUNDLED_CLANG_VER%-*}.tar.xz
-	)
-	ppc64? (
-		https://gitlab.raptorengineering.com/raptor-engineering-public/chromium/openpower-patches/-/archive/${PPC64_HASH}/openpower-patches-${PPC64_HASH}.tar.bz2 -> chromium-openpower-${PPC64_HASH:0:10}.tar.bz2
 	)
 	pgo? ( https://github.com/elkablo/chromium-profiler/releases/download/v0.2/chromium-profiler-0.2.tar )"
 
@@ -121,7 +121,7 @@ COMMON_SNAPSHOT_DEPEND="
 	system-zstd? ( >=app-arch/zstd-1.5.5:= )
 	>=media-libs/libwebp-0.4.0:=
 	media-libs/mesa:=[gbm(+)]
-	>=media-libs/openh264-1.6.0:=
+	>=media-libs/openh264-2.6.0:=
 	sys-libs/zlib:=
 	!headless? (
 		dev-libs/glib:2
@@ -210,11 +210,12 @@ BDEPEND="
 		>=dev-python/selenium-3.141.0
 		>=dev-util/web_page_replay_go-20220314
 	)
-	>=dev-util/bindgen-0.68.0
+	>=dev-util/bindgen-0.72.1
 	>=dev-build/gn-${GN_MIN_VER}
 	app-alternatives/ninja
 	dev-lang/perl
 	>=dev-util/gperf-3.2
+	dev-util/esbuild:${ESBUILD_VER}
 	dev-vcs/git
 	>=net-libs/nodejs-${NODE_VER}[inspector]
 	sys-apps/hwdata
@@ -408,6 +409,10 @@ src_unpack() {
 	if use ppc64; then
 		unpack chromium-openpower-${PPC64_HASH:0:10}.tar.bz2
 	fi
+
+	# This is a dirty hack, but we need rollup to build successfully and it's proving to be challenging
+	# to build locally due to deps
+	unpack rollup-wasm-node-${ROLLUP_VER}.tgz
 }
 
 remove_compiler_builtins() {
@@ -467,6 +472,38 @@ src_prepare() {
 	# Calling this here supports resumption via FEATURES=keepwork
 	python_setup
 
+	elog "Removing bundled binaries from source tree ..."
+	# Purge bundled ELF files: These are non-portable and will cause issues if used instead of system versions.
+	# Use `--wasm` to also remove WebAssembly binaries, if desired - they're portable so shouldn't break builds.
+	python3 "${FILESDIR}/bin-finder.py" --elf "${S}" | awk '{print $1}' | xargs rm -f ||
+		die "Failed to remove bundled binaries"
+
+	# And now we restore any that we actually need, from the host system
+	local esbuild_path="${S}/third_party/devtools-frontend/src/third_party/esbuild"
+	local -A restore_list=(
+		["/usr/bin/esbuild-${ESBUILD_VER}"]="${esbuild_path}/esbuild"
+		["/usr/bin/node"]="${S}/third_party/node/linux/node-linux-x64/bin/node"
+	)
+
+	for src in "${!restore_list[@]}"; do
+		dst="${restore_list[${src}]}"
+		if [[ -f "${src}" ]]; then
+			einfo "Symlinking ${src} ..."
+			# Make sure the parent dir exists; some tarballs don't include (e.g.) node's bindir
+			mkdir -p "$(dirname "${dst}")" || die "Failed to create directory for ${dst}"
+			ln -s "${src}" "${dst}" || die "Failed to symlink ${dst} from ${src}"
+		else
+			die "Expected to find ${src} to restore ${dst}, but it does not exist."
+		fi
+	done
+
+	# Until we can just symlink in a system rollup, we'll `mv` the wasm version and modify some files.
+	einfo "Moving rollup wasm-node package into place ..."
+	mkdir -p third_party/devtools-frontend/src/node_modules/@rollup/wasm-node ||
+		die "Failed to create node_modules/@rollup/wasm-node"
+	mv "${WORKDIR}"/package/* third_party/devtools-frontend/src/node_modules/@rollup/wasm-node ||
+		die "Failed to move rollup package"
+
 	# To know which patches are safe to drop from files/ after tidying up old ebuilds:
 	# comm -13 \
 	# 	<(grep 'FILESDIR' *.ebuild | grep patch | grep -o '\${FILESDIR}/[^") ]*' \
@@ -480,11 +517,10 @@ src_prepare() {
 		"${FILESDIR}/${PN}-138-nodejs-version-check.patch"
 		"${FILESDIR}/cr144-glibc-2.43.patch"
 		"${FILESDIR}/cr145-oauth2-client-switches.patch"
+		"${FILESDIR}/cr145-revert-to-rollup-wasm.patch"
 	)
-
-	PATCHES+=(
-		"${WORKDIR}/copium/cr143-libsync-__BEGIN_DECLS.patch"
-	)
+	# No copium patches here: they should only need to apply to unbundled toolchain builds
+	# and don't get fetched or unpacked.
 
 	# https://issues.chromium.org/issues/442698344
 	# Unreleased fontconfig changed magic numbers and google have rolled to this version
@@ -513,6 +549,12 @@ src_prepare() {
 			"${WORKDIR}"/rust-toolchain/INSTALLED_VERSION || die "Failed to set rust version"
 	else
 		# We don't need our toolchain patches if we're using the official toolchain
+
+		# Copium patches go here.
+		PATCHES+=(
+			"${WORKDIR}/copium/cr143-libsync-__BEGIN_DECLS.patch"
+		)
+
 		shopt -s globstar nullglob
 		# 130: moved the PPC64 patches into the chromium-patches repo
 		local patch
@@ -555,14 +597,6 @@ src_prepare() {
 	fi
 
 	default
-
-	# Not included in -lite tarballs, but we should check for it anyway.
-	if [[ -f third_party/node/linux/node-linux-x64/bin/node ]]; then
-		rm third_party/node/linux/node-linux-x64/bin/node || die
-	else
-		mkdir -p third_party/node/linux/node-linux-x64/bin || die
-	fi
-	ln -s "${EPREFIX}"/usr/bin/node third_party/node/linux/node-linux-x64/bin/node || die
 
 	# adjust python interpreter version
 	sed -i -e "s|\(^script_executable = \).*|\1\"${EPYTHON}\"|g" .gn || die
@@ -1384,24 +1418,9 @@ src_compile() {
 
 	rm -f out/Release/locales/*.pak.info || die
 
-	# Build manpage; bug #684550
-	sed -e 's|@@PACKAGE@@|chromium-browser|g;
-		s|@@MENUNAME@@|Chromium|g;' \
-		chrome/app/resources/manpage.1.in > \
-		out/Release/chromium-browser.1 || die
-
-	# Build desktop file; bug #706786
-	sed -e 's|@@MENUNAME@@|Chromium|g;
-		s|@@USR_BIN_SYMLINK_NAME@@|chromium-browser|g;
-		s|@@PACKAGE@@|chromium-browser|g;
-		s|\(^Exec=\)/usr/bin/|\1|g;' \
-		chrome/installer/linux/common/desktop.template > \
-		out/Release/chromium-browser-chromium.desktop || die
-
-	# Build vk_swiftshader_icd.json; bug #827861
-	sed -e 's|${ICD_LIBRARY_PATH}|./libvk_swiftshader.so|g' \
-		third_party/swiftshader/src/Vulkan/vk_swiftshader_icd.json.tmpl > \
-		out/Release/vk_swiftshader_icd.json || die
+	# Generate support files (desktop file, manpage, etc.) See: #684550 #706786 #968958
+	python3 "${FILESDIR}/generate-support-files.py" --installdir "/usr/$(get_libdir)/chromium-browser" ||
+		die "Failed to generate support files"
 }
 
 src_test() {
@@ -1510,7 +1529,7 @@ src_install() {
 
 	pushd out/Release/locales > /dev/null || die
 	chromium_remove_language_paks
-	popd
+	popd > /dev/null || die
 
 	insinto "${CHROMIUM_HOME}"
 	doins out/Release/*.bin
@@ -1568,7 +1587,11 @@ src_install() {
 
 	# Install GNOME default application entry (bug #303100).
 	insinto /usr/share/gnome-control-center/default-apps
-	newins "${FILESDIR}"/chromium-browser.xml chromium-browser.xml
+	doins out/Release/chromium-browser.xml
+
+	# Install AppStream metadata
+	insinto /usr/share/appdata
+	doins out/Release/chromium-browser.appdata.xml
 
 	# Install manpage; bug #684550
 	doman out/Release/chromium-browser.1
