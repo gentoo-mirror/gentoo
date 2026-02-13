@@ -1147,6 +1147,7 @@
     <subproject ref="musl@gentoo.org" inherit-members="1"/>
     <subproject ref="rsbac@gentoo.org"/>
     <subproject ref="selinux@gentoo.org" inherit-members="1"/>
+    <subproject ref="musl@gentoo.org" inherit-members="1"/>
     <member>
       <email>blueness@gentoo.org</email>
       <name>Anthony G. Basile</name>
@@ -2851,18 +2852,17 @@
     </member>
   </project>
   <project>
-    <email>dist-kernel@gentoo.org</email>
-    <name>Distribution Kernel</name>
-    <url>https://wiki.gentoo.org/wiki/User:Immolo/Sandbox/Proj_Distribution_Kernel</url>
-    <description>Dist-kernel project maintains packages providing for zero-effort kernel install and upgrades</description>
-    <member is-lead="1">
-      <email>mgorny@gentoo.org</email>
-      <name>Michał Górny</name>
-      <role>Self-appointed lead</role>
-    </member>
+    <email>musl@gentoo.org</email>
+    <name>musl</name>
+    <url>https://wiki.gentoo.org/wiki/User:Bacs/Sandbox/Project:Musl</url>
+    <description>This subproject aims to port the hardened tool chain to musl based systems for a variety of architectures. The project treats musl as an alternative to glibc, and not necessarily as "embedded".</description>
     <member>
-      <email>nowa@gentoo.org</email>
-      <name>Nowa Ammerlaan</name>
+      <email>arkamar@gentoo.org</email>
+      <name>Petr Vaněk</name>
+    </member>
+    <member is-lead="1">
+      <email>blueness@gentoo.org</email>
+      <name>Anthony G. Basile</name>
     </member>
     <member>
       <email>sam@gentoo.org</email>
