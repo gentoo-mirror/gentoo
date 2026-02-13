@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,8 @@ KEYWORDS="~amd64"
 
 src_prepare() {
 	default
-	sed -e '/^build-linux/s/ checkstyle//' -i makefile || die
+	sed -e '/^build-linux/s/ checkstyle//' \
+		-e 's/-s //g' -i makefile || die
 }
 
 src_compile() {
