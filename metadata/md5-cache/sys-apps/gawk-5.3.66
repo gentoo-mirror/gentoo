@@ -1,0 +1,12 @@
+BDEPEND=>=sys-apps/texinfo-7.1 >=sys-devel/bison-3.5.4 nls? ( sys-devel/gettext )
+DEFINED_PHASES=configure install prepare
+DEPEND=mpfr? ( dev-libs/gmp:= dev-libs/mpfr:= ) readline? ( sys-libs/readline:= )
+DESCRIPTION=GNU awk pattern-matching language
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/gawk/gawk.html
+IUSE=+mpfr pma nls readline
+LICENSE=GPL-3+ pma? ( AGPL-3+ )
+RDEPEND=mpfr? ( dev-libs/gmp:= dev-libs/mpfr:= ) readline? ( sys-libs/readline:= )
+SLOT=0
+SRC_URI=https://www.skeeve.com/gawk/gawk-5.3.66.tar.gz
+_md5_=95f062d5c93c429e6a98c9a3878c97db
