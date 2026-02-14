@@ -1,0 +1,15 @@
+BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) virtual/pkgconfig verify-sig? ( >=sec-keys/openpgp-keys-antoniodiazdiaz-20260213 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure unpack
+DEPEND=sys-libs/ncurses:=
+DESCRIPTION=Powerful and user-friendly console text editor
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/moe/
+INHERIT=toolchain-funcs unpacker verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~arm ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=sys-libs/ncurses:=
+SLOT=0
+SRC_URI=mirror://gnu/moe/moe-1.16.tar.lz verify-sig? ( mirror://gnu/moe/moe-1.16.tar.lz.sig )
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	3b4ee72d1e2e0374fd8cd3eddfa00627	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=a90609294d237f227a193801187459cd
