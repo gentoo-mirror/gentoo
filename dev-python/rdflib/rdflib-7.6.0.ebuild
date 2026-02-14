@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="sqlite?,threads(+)"
 
 inherit distutils-r1
@@ -22,7 +22,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="examples sqlite"
 
 RDEPEND="
@@ -63,7 +63,7 @@ python_test() {
 		'test/test_sparql/test_translate_algebra.py::test_roundtrip[test_other__service1]'
 	)
 
-	epytest -m "not webtest"
+	epytest -m "not webtest and not testcontainer"
 }
 
 python_install_all() {

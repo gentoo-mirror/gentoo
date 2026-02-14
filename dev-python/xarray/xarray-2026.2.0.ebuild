@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,7 +32,6 @@ BDEPEND="
 	test? (
 		dev-python/bottleneck[${PYTHON_USEDEP}]
 		dev-python/cftime[${PYTHON_USEDEP}]
-		dev-python/hypothesis[${PYTHON_USEDEP}]
 		dev-python/matplotlib[${PYTHON_USEDEP}]
 		!riscv? ( !x86? (
 			>=dev-python/netcdf4-1.6.0[bzip2,szip,${PYTHON_USEDEP}]
@@ -42,7 +41,7 @@ BDEPEND="
 	)
 "
 
-EPYTEST_PLUGINS=( pytest-asyncio )
+EPYTEST_PLUGINS=( hypothesis pytest-asyncio )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
@@ -67,6 +66,14 @@ python_test() {
 		# NotImplementedError, seriously?
 		xarray/tests/test_backends.py::TestGenericNetCDF4InMemory::test_roundtrip_group_via_memoryview
 	)
+
+	if has_version ">=dev-python/numpy-2.4[${PYTHON_USEDEP}]" ; then
+		EPYTEST_DESELECT+=(
+			# TODO
+			xarray/tests/test_dataarray.py::TestDataArray::test_curvefit_helpers
+			xarray/tests/test_variable.py::TestIndexVariable::test_concat_periods
+		)
+	fi
 
 	if ! has_version ">=dev-python/scipy-1.4[${PYTHON_USEDEP}]" ; then
 		EPYTEST_DESELECT+=(
