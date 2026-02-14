@@ -1,10 +1,11 @@
-# Copyright 2014-2025 Gentoo Authors
+# Copyright 2014-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+LUA_COMPAT=( lua5-4 )
 PYTHON_COMPAT=( python3_{11..14} )
-inherit meson optfeature python-any-r1 udev
+inherit lua-single meson optfeature python-any-r1 udev
 
 DESCRIPTION="Library to handle input devices in Wayland"
 HOMEPAGE="https://www.freedesktop.org/wiki/Software/libinput/ https://gitlab.freedesktop.org/libinput/libinput"
@@ -15,10 +16,12 @@ SLOT="0/10"
 if [[ $(ver_cut 3) -lt 900 ]] ; then
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
-IUSE="doc input_devices_wacom test"
+IUSE="doc input_devices_wacom lua test"
 RESTRICT="!test? ( test )"
+REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 
 RDEPEND="
+	lua? ( ${LUA_DEPS} )
 	input_devices_wacom? ( >=dev-libs/libwacom-2.15:= )
 	>=dev-libs/libevdev-1.9.902
 	>=sys-libs/mtdev-1.1
@@ -67,6 +70,11 @@ python_check_deps() {
 	fi
 }
 
+pkg_setup() {
+	use lua && lua-single_pkg_setup
+	python-any-r1_pkg_setup
+}
+
 src_prepare() {
 	default
 	sed "s@, '-Werror'@@" -i meson.build || die #744250
@@ -79,6 +87,7 @@ src_configure() {
 		$(meson_use doc documentation)
 		$(meson_use input_devices_wacom libwacom)
 		$(meson_use test tests)
+		$(meson_feature lua lua-plugins)
 		-Dudev-dir="${EPREFIX}$(get_udevdir)"
 	)
 	meson_src_configure
