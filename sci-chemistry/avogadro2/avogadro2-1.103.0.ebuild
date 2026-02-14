@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 MY_PN=avogadroapp
-inherit cmake xdg
+inherit cmake optfeature xdg
 
 DESCRIPTION="Advanced molecule editor and visualizer 2"
 HOMEPAGE="https://www.openchemistry.org/ https://two.avogadro.cc/"
@@ -17,16 +17,15 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="BSD GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc vtk"
+IUSE="doc rpc"
 
 RDEPEND="
 	dev-qt/qtbase:6[concurrent,gui,network,opengl,ssl,widgets]
-	~sci-libs/avogadrolibs-${PV}[qt6,vtk?]
-	vtk? ( sci-libs/vtk:= )
+	~sci-libs/avogadrolibs-${PV}[archive,qt6]
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	dev-cpp/eigen:3
-	vtk? ( dev-libs/pegtl )
 "
 BDEPEND="doc? ( app-text/doxygen )"
 
@@ -40,6 +39,10 @@ src_prepare() {
 		doxygen -u docs/doxyfile.in 2>/dev/null || die
 	fi
 
+	# disable automatic update dialog
+	sed -e '\@  checkUpdate()@s:^:  //:' \
+		-i avogadro/mainwindow.cpp || die
+
 	cmake_src_prepare
 }
 
@@ -47,13 +50,13 @@ src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_SKIP_RPATH=ON
 		-DBUILD_DOCUMENTATION=$(usex doc)
-		# rpc/molequeue is abandoned
-		# see https://github.com/OpenChemistry/avogadroapp/issues/561
-		-DAvogadro_ENABLE_RPC=OFF
+		-DAvogadro_ENABLE_RPC=$(usex rpc)
 		# test requires qttesting/paraview
 		-DENABLE_TESTING=OFF
 		-DQT_VERSION=6
-		-DUSE_VTK=$(usex vtk)
+		# skip detection of jkqtplotter
+		# avogadrolibs handles it without the need for rebuilding avogadro2
+		-DUSE_PLOTTER=OFF
 	)
 
 	# Need this to prevent overwriting the documentation OUTDIR
@@ -78,4 +81,11 @@ src_install() {
 
 	# remove CONTRIBUTING, LICENSE and duplicate README
 	rm -r "${ED}"/usr/share/doc/${PF}/avogadro2 || die
+}
+
+pkg_postinst() {
+	optfeature "environments of downloaded plugins" dev-util/pixi
+	optfeature "charts and spectra" sci-libs/avogadrolibs[jkqtplotter]
+
+	xdg_pkg_postinst
 }

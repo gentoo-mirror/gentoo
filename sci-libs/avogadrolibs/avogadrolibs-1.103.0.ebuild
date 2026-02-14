@@ -1,9 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake dot-a flag-o-matic
+PYTHON_COMPAT=( python3_{11..14} )
+inherit cmake dot-a python-single-r1
 
 MY_PV_GENXRD=1.1
 MY_PV_AVOGEN=${PV}
@@ -26,20 +27,23 @@ SRC_URI="
 		https://github.com/OpenChemistry/molecules/archive/refs/tags/${MY_PV_MOLECULES}.tar.gz
 			-> ${PN}-molecules-${MY_PV_MOLECULES}.tar.gz
 	)
+	jkqtplotter? (
+		amd64? ( https://github.com/psavery/genXrdPattern/releases/download/${MY_PV_GENXRD}-linux/linux64-genXrdPattern
+			-> ${PN}-linux64-genXrdPattern-${MY_PV_GENXRD} )
+	)
 	test? ( https://github.com/OpenChemistry/avogadrodata/archive/refs/tags/${PV}.tar.gz
 		-> ${P}-data.tar.gz )
-	vtk? ( https://github.com/psavery/genXrdPattern/releases/download/${MY_PV_GENXRD}-linux/linux64-genXrdPattern
-		-> ${PN}-linux64-genXrdPattern-${MY_PV_GENXRD} )
 "
 
 LICENSE="BSD GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="archive doc hdf5 qt6 spglib static-libs test vtk"
+IUSE="archive doc hdf5 jkqtplotter python qt6 spglib static-libs test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
+	jkqtplotter? ( qt6 )
+	python? ( ${PYTHON_REQUIRED_USE} )
 	test? ( qt6 )
-	vtk? ( qt6 )
 "
 
 # TODO: Not yet packaged:
@@ -48,20 +52,24 @@ RDEPEND="
 	dev-cpp/nlohmann_json
 	dev-libs/pugixml
 	hdf5? ( sci-libs/hdf5:= )
+	python? (
+		${PYTHON_DEPS}
+		$(python_gen_cond_dep 'dev-python/pybind11[${PYTHON_USEDEP}]')
+	)
 	qt6? (
-		>=sci-chemistry/openbabel-3.1.1_p20241221:=[json]
 		dev-qt/qtbase:6[concurrent,gui,network,opengl,widgets]
 		dev-qt/qtsvg:6
 		media-libs/glew:0=
+		>=sci-chemistry/openbabel-3.1.1_p20241221:=[json]
 		virtual/opengl
 		archive? ( app-arch/libarchive:= )
+		jkqtplotter? ( sci-libs/jkqtplotter:= )
 	)
 	spglib? ( >=sci-libs/spglib-2.6.0:= )
-	vtk? ( sci-libs/vtk:=[qt6,views] )
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	dev-cpp/eigen:3
-	vtk? ( dev-libs/pegtl )
 "
 BDEPEND="
 	doc? ( app-text/doxygen )
@@ -75,12 +83,16 @@ PATCHES=(
 # Static binary (requires ObjCryst++ to build otherwise)
 QA_FLAGS_IGNORED="usr/bin/genXrdPattern"
 
+pkg_setup() {
+	use python && python-single-r1_pkg_setup
+}
+
 src_unpack() {
 	default
 
 	rm -rf thirdparty/{nlohmann,pugixml} || die
 
-	if use vtk; then
+	if use jkqtplotter && use amd64; then
 		cp "${DISTDIR}"/${PN}-linux64-genXrdPattern-${MY_PV_GENXRD} "${WORKDIR}/genXrdPattern" || die
 	fi
 
@@ -90,7 +102,7 @@ src_unpack() {
 		mv crystals-${MY_PV_CRYSTALS} crystals || die
 		mv molecules-${MY_PV_MOLECULES} molecules || die
 		# avogadro/qtplugins/quantuminput/CMakeLists.txt
-		mv avogenerators-${MY_PV_AVOGEN} avogadrogenerators || die
+		mv avogenerators-${MY_PV_AVOGEN} avogenerators || die
 		# avogadro/qtplugins/templatetool/CMakeLists.txt
 		mv fragments-${MY_PV_FRAGMENTS} fragments || die
 	fi
@@ -107,8 +119,17 @@ src_prepare() {
 		avogadro/qtplugins/forcefield/obmmenergy.cpp \
 		avogadro/qtplugins/openbabel/obprocess.cpp || die
 
+	# avoid cmake_min warning w/ this unused file
+	rm thirdparty/tinycolormap/CMakeLists.txt || die
+
 	if use doc; then
 		doxygen -u docs/doxyfile.in 2>/dev/null || die
+	fi
+
+	# restore user-LDFLAGS
+	if use python; then
+		sed -e 's:CMAKE_MODULE_LINKER_FLAGS "":CMAKE_MODULE_LINKER_FLAGS "'"${LDFLAGS}"'":' \
+			-i "${S}"/python/CMakeLists.txt || die
 	fi
 
 	cmake_src_prepare
@@ -125,14 +146,21 @@ src_configure() {
 		# https://github.com/OpenChemistry/avogadrolibs/issues/2200
 		-DUSE_MMTF=OFF
 		-DUSE_OPENGL=$(usex qt6)
+		-DUSE_PLOTTER=$(usex jkqtplotter)
+		-DUSE_PYTHON=$(usex python)
 		-DUSE_QT=$(usex qt6)
 		-DUSE_SPGLIB=$(usex spglib)
 		-DENABLE_TESTING=$(usex test)
-		-DUSE_VTK=$(usex vtk)
 		# disabled libraries
-		-DUSE_PYTHON=OFF
 		-DUSE_LIBMSYM=OFF
 	)
+
+	if use jkqtplotter && use amd64; then
+		mycmakeargs+=(
+			-DBUNDLED_GENXRDPATTERN="${WORKDIR}/genXrdPattern"
+			-DUSE_SYSTEM_GENXRDPATTERN=OFF
+		)
+	fi
 
 	if use qt6; then
 		mycmakeargs+=(
@@ -140,20 +168,15 @@ src_configure() {
 			-DBUILD_STATIC_PLUGINS=$(usex static-libs)
 			-DQT_VERSION=6
 		)
+		# use python's abilities to define the interpreter path for qtplugins,
+		# it can also be set with:
+		#   - AVO_PYTHON_INTERPRETER (absolute path)
+		#   - extensions settings
+		#   otherwise default is python
+		use python && mycmakeargs+=( -DPython3_EXECUTABLE="${PYTHON}" )
 
 		# even w/o static-libs due to libgwavi.a, required for avogadro2
 		lto-guarantee-fat
-	fi
-
-	if use vtk; then
-		mycmakeargs+=(
-			-DBUNDLED_GENXRDPATTERN="${WORKDIR}/genXrdPattern"
-			-DUSE_SYSTEM_GENXRDPATTERN=OFF
-		)
-
-		# -Werror=odr -Werror=lto-type-mismatch
-		# https://github.com/OpenChemistry/avogadrolibs/issues/2060
-		filter-lto
 	fi
 
 	cmake_src_configure
@@ -178,6 +201,11 @@ src_install() {
 	fi
 
 	cmake_src_install
+
+	if use python; then
+		python_fix_shebang "${ED}"
+		python_optimize "${ED}"
+	fi
 
 	# always strip due to libgwavi.a
 	use qt6 && strip-lto-bytecode "${ED}"
