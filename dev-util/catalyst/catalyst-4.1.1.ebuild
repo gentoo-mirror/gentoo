@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,7 +25,7 @@ HOMEPAGE="https://wiki.gentoo.org/wiki/Catalyst"
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="doc +iso"
+IUSE="doc +iso qcow2"
 
 BDEPEND="
 	app-text/asciidoc
@@ -72,12 +72,22 @@ RDEPEND="
 			sys-boot/grub[grub_platforms_efi-32]
 		)
 	)
+
+	qcow2? (
+		amd64? (
+			sys-boot/grub[grub_platforms_efi-32,grub_platforms_efi-64]
+			sys-fs/dosfstools
+			sys-fs/xfsprogs
+			sys-block/parted
+			app-emulation/qemu
+		)
+	)
 "
 
 pkg_setup() {
 	CONFIG_CHECK="
 		~UTS_NS ~IPC_NS
-		~SQUASHFS ~SQUASHFS_ZLIB
+		~SQUASHFS ~SQUASHFS_ZLIB ~XFS_FS ~VFAT_FS
 	"
 	linux-info_pkg_setup
 }
