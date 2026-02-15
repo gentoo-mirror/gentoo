@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gnupg.org/
 INHERIT=flag-o-matic out-of-source multiprocessing systemd toolchain-funcs verify-sig
 IUSE=+alternatives bzip2 doc ldap nls readline selinux +smartcard ssl test +tofu tpm tools usb user-socket wks-server verify-sig
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris
 LICENSE=GPL-3+
 PDEPEND=app-crypt/pinentry alternatives? ( app-alternatives/gpg[-freepg(-)] )
 RDEPEND=>=dev-libs/libassuan-3.0.0-r1:= >=dev-libs/libgcrypt-1.11.0:= >=dev-libs/libgpg-error-1.56 >=dev-libs/libksba-1.6.3 >=dev-libs/npth-1.2 virtual/zlib:= bzip2? ( app-arch/bzip2 ) ldap? ( net-nds/openldap:= ) readline? ( sys-libs/readline:0= ) smartcard? ( usb? ( virtual/libusb:1 ) ) tofu? ( >=dev-db/sqlite-3.27 ) tpm? ( >=app-crypt/tpm2-tss-2.4.0:= ) ssl? ( >=net-libs/gnutls-3.2:0= ) nls? ( virtual/libintl ) selinux? ( sec-policy/selinux-gpg ) wks-server? ( virtual/mta )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnupg/gnupg/gnupg-2.5.17.tar.bz2 verify-sig? ( mirror://gnupg/gnupg/gnupg-2.5.17.tar.bz2.sig )
 _eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	out-of-source	6b6854c4199b5eeb2cf123b7530b6b4e	multiprocessing	1e32df7deee68372153dca65f4a7c21f	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=b6325f36fb7401ca956728c77aac9ee6
+_md5_=4fae2aee6f7d9b7211c6e5f46520befa
