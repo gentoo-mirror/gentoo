@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-# Tests fail with pypy3 as of PyPy 7.3.9 / Python 3.9.12
-PYTHON_COMPAT=( python3_{10..12} )
+# Tests fail with pypy3_11 as of PyPy 7.3.20 / Python 3.11.13
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 optfeature
 
@@ -14,7 +14,7 @@ HOMEPAGE="https://github.com/cfv-project/cfv/"
 # Tests aren't included in PyPI tarballs
 SRC_URI="https://github.com/cfv-project/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
 
-LICENSE="GPL-2+"
+LICENSE="GPL-2+ MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="test"
@@ -26,28 +26,10 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	# Backported from https://github.com/cfv-project/cfv/commit/5259bcbe3434c6974f7a65cc435dd0b4cfc3f864
-	"${FILESDIR}/${P}-fix-removed-assertequal.patch"
-	# See https://github.com/cfv-project/cfv/pull/53
-	"${FILESDIR}/${P}-fix-removed-imp.patch"
-)
-
-python_prepare_all() {
-	# Remove upstream's attempt to install the man page
-	sed -i '/\sdata_files=/d' setup.py || die
-	distutils-r1_python_prepare_all
-}
-
 python_test() {
 	# In order to run integration tests in addition to unit tests, we can't
 	# just rely on pytest here, we need to use upstream's runner.
-	"${EPYTHON}" "test/test.py" || die "Tests failed with ${EPYTHON}"
-}
-
-python_install_all() {
-	distutils-r1_python_install_all
-	doman cfv.1
+	"${EPYTHON}" "test/test.py" -e --exit-early || die "Tests failed with ${EPYTHON}"
 }
 
 pkg_postinst() {
