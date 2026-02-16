@@ -105,7 +105,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	default
+	default # bug #780585
 	java-pkg-2_src_prepare
 
 	# Could not get resource : freenet/l10n/freenet.l10n.pt-PT.properties
