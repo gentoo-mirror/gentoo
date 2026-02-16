@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -48,6 +48,8 @@ DOCS=( ChangeLog.md README.md nzbget.conf )
 PATCHES=(
 	# Required to use par2-turbo downloaded into the source directory
 	"${FILESDIR}/${PN}-25.3-build-with-par2-turbo-offline.patch"
+	# Backported from https://github.com/nzbgetcom/nzbget/commit/063e1cd82ee719b18a1dae40f65c0971de44edef
+	"${FILESDIR}/${P}-fix-include-order.patch"
 )
 
 src_prepare() {
