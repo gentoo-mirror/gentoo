@@ -1,4 +1,4 @@
-# Copyright 2020-2025 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,13 +11,7 @@ if [[ ${PV} = 9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/rpm-software-management/createrepo_c.git"
 else
-	SRC_URI="
-		https://github.com/rpm-software-management/createrepo_c/archive/${PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/rpm-software-management/createrepo_c/commit/4e37bc582b1673ff767dbd0b570ef1c8871d3e8c.patch
-			-> ${PN}-1.2.1-r2-rpm6compat.patch
-		https://github.com/rpm-software-management/createrepo_c/commit/89fa02828cdaf1c710c38bde5fcbcf59538a9cce.patch
-			-> ${PN}-1.2.1-r2-cmake4.patch
-	"
+	SRC_URI="https://github.com/rpm-software-management/createrepo_c/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -51,8 +45,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${DISTDIR}/createrepo_c-1.2.1-r2-cmake4.patch"
-	"${DISTDIR}/createrepo_c-1.2.1-r2-rpm6compat.patch"
+	"${FILESDIR}/createrepo_c-1.2.1-r3-cmake-fixes.patch"
 )
 
 src_configure() {
@@ -65,6 +58,7 @@ src_configure() {
 		-DWITH_LEGACY_HASHES=$(usex legacy ON OFF)
 		-DWITH_LIBMODULEMD=ON
 		-DWITH_ZCHUNK=ON
+		-DBUILD_DOC_C=$(usex doc ON OFF)
 	)
 
 	cmake_src_configure
