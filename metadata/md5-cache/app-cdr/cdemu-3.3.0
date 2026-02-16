@@ -1,0 +1,15 @@
+BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) dev-util/desktop-file-utils >=dev-util/intltool-0.21 >=sys-devel/gettext-0.18 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
+DESCRIPTION=Command-line tool for controlling cdemu-daemon
+EAPI=8
+HOMEPAGE=https://cdemu.sourceforge.io
+INHERIT=bash-completion-r1 cmake python-single-r1 xdg-utils
+IUSE=+cdemu-daemon python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygobject:3[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/pygobject:3[python_targets_python3_14(-)] ) cdemu-daemon? ( app-cdr/cdemu-daemon:0/7 )
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
+SLOT=0
+SRC_URI=https://download.sourceforge.net/cdemu/cdemu-client/cdemu-client-3.3.0.tar.xz
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	bash-completion-r1	767861f3744f589ee5291c1698b1c082	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	3a59a39e97af0f7c03f49cf3c22f262b	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=a8d4a69dce44bdfeae475bcae0e1ffad
