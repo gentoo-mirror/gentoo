@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,14 +8,14 @@ PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1
 
-MY_P=${P/_alpha/a}
+MY_P=${P/_beta/b}
 DESCRIPTION="JSONSchema Spec with object-oriented paths"
 HOMEPAGE="
 	https://pypi.org/project/jsonschema-path/
 	https://github.com/p1c2u/jsonschema-path/
 "
 SRC_URI="
-	https://github.com/p1c2u/jsonschema-path/archive/${PV/_alpha/a}.tar.gz
+	https://github.com/p1c2u/jsonschema-path/archive/${PV/_beta/b}.tar.gz
 		-> ${MY_P}.gh.tar.gz
 "
 S=${WORKDIR}/${MY_P}
@@ -24,7 +24,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 
 RDEPEND="
-	>=dev-python/pathable-0.5.0_beta1[${PYTHON_USEDEP}]
+	>=dev-python/pathable-0.5.0_beta6[${PYTHON_USEDEP}]
 	>=dev-python/pyrsistent-0.20.0[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-5.1[${PYTHON_USEDEP}]
 	>=dev-python/referencing-0.28.1[${PYTHON_USEDEP}]
@@ -36,6 +36,7 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_prepare() {

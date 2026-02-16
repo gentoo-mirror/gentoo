@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,6 +27,7 @@ RDEPEND="
 	=dev-python/pyrsistent-0.20*[${PYTHON_USEDEP}]
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_prepare() {
