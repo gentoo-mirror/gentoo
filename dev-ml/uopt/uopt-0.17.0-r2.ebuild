@@ -1,15 +1,15 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit dune
 
-DESCRIPTION="Library for creating runtime representation of OCaml types"
-HOMEPAGE="https://github.com/janestreet/typerep"
-SRC_URI="https://github.com/janestreet/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="An [option]-like type that incurs no allocation"
+HOMEPAGE="https://github.com/janestreet/uopt"
+SRC_URI="https://github.com/janestreet/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="Apache-2.0"
+LICENSE="MIT"
 SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv"
 IUSE="+ocamlopt"
@@ -20,6 +20,6 @@ JSM=$(ver_cut 1-2)
 RDEPEND="
 	>=dev-lang/ocaml-5
 	=dev-ml/base-${JSM}*:=[ocamlopt?]
+	=dev-ml/ppx_jane-${JSM}*:=[ocamlopt?]
 "
 DEPEND="${RDEPEND}"
-BDEPEND=">=dev-ml/dune-3.11"
