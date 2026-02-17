@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,14 +19,14 @@ else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.tar.gz"
 
-	KEYWORDS="amd64 arm arm64 ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-3 LGPL-3 Apache-2.0"
 SLOT="0"
 
 IUSE="clickhouse curl dbi debug doc elasticsearch +gcrypt gnutls imdocker imhttp"
-IUSE+=" impcap jemalloc kafka kerberos kubernetes mdblookup"
+IUSE+=" impcap kafka kerberos kubernetes mdblookup"
 IUSE+=" mongodb mysql normalize omhttp omhttpfs omudpspoof +openssl"
 IUSE+=" postgres rabbitmq redis relp rfc3195 rfc5424hmac snmp +ssl"
 IUSE+=" systemd test usertools +uuid xxhash zeromq"
@@ -46,8 +46,7 @@ BDEPEND="
 	virtual/pkgconfig
 	test? (
 		${PYTHON_DEPS}
-		jemalloc? ( <sys-libs/libfaketime-0.9.7 )
-		!jemalloc? ( sys-libs/libfaketime )
+		sys-libs/libfaketime
 	)
 	doc? (
 		${PYTHON_DEPS}
@@ -72,7 +71,6 @@ RDEPEND="
 		virtual/libcrypt:=
 	)
 	impcap? ( net-libs/libpcap )
-	jemalloc? ( >=dev-libs/jemalloc-3.3.1:= )
 	kafka? ( >=dev-libs/librdkafka-0.9.0.99:= )
 	kerberos? ( virtual/krb5 )
 	kubernetes? ( >=net-misc/curl-7.35.0 )
@@ -145,6 +143,7 @@ src_prepare() {
 		omprog-close-unresponsive
 		omprog-restart-terminated
 		omprog-restart-terminated-outfile
+		uxsock_multiple
 		uxsock_simple
 	)
 	local bad_test=""
@@ -244,7 +243,6 @@ src_configure() {
 		$(use_enable imdocker)
 		$(use_enable imhttp)
 		$(use_enable impcap)
-		$(use_enable jemalloc)
 		$(use_enable kafka imkafka)
 		$(use_enable kafka omkafka)
 		$(use_enable kerberos gssapi-krb5)

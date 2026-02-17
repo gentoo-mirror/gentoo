@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,9 +12,9 @@ HOMEPAGE="https://apps.gnome.org/app/re.sonny.Tangram/
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/sonnyp/${PN^}.git"
+	EGIT_REPO_URI="https://github.com/sonnyp/${PN^}"
 else
-	TROLL_COMMIT="53155a02e06ff66e6c15d470f39d782305c1502f"
+	TROLL_COMMIT="8b0275948eedec9ed0378f9bdda1aa4aac3062ba"
 
 	SRC_URI="
 		https://github.com/sonnyp/${PN^}/archive/refs/tags/v${PV}.tar.gz
@@ -24,7 +24,7 @@ else
 	"
 	S="${WORKDIR}/${P^}"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -32,7 +32,7 @@ SLOT="0"
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-libs/gjs-1.76.0
+	dev-libs/gjs
 	gui-libs/gtk:4
 	gui-libs/libadwaita:1
 	net-libs/webkit-gtk:6
