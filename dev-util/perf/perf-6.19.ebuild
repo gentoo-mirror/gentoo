@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -177,7 +177,6 @@ src_prepare() {
 
 	pushd "${S_K}" >/dev/null || die
 	# Gentoo patches go here
-	eapply "${FILESDIR}/${P}-subcmd.patch"
 	popd || die
 
 	# Drop some upstream too-developer-oriented flags and fix the
