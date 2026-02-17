@@ -1,4 +1,4 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test-rust"
 
 RDEPEND="
@@ -39,7 +39,7 @@ BDEPEND="
 		test-rust? (
 			dev-python/cryptography[${PYTHON_USEDEP}]
 			dev-python/trustme[${PYTHON_USEDEP}]
-			dev-python/watchfiles[${PYTHON_USEDEP}]
+			>=dev-python/watchfiles-0.20[${PYTHON_USEDEP}]
 		)
 	)
 "
@@ -63,14 +63,6 @@ python_test() {
 			# TODO
 			EPYTEST_DESELECT+=(
 				tests/middleware/test_logging.py::test_running_log_using_fd
-			)
-			;;
-		python3.14*)
-			EPYTEST_DESELECT+=(
-				# TODO
-				tests/test_auto_detection.py::test_loop_auto
-				# changed exception type
-				tests/test_compat.py::test_asyncio_run__passing_a_non_awaitable_callback_should_throw_error
 			)
 			;;
 	esac

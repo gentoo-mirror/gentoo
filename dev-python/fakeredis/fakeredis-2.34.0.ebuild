@@ -1,9 +1,10 @@
-# Copyright 2020-2025 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/cunla/fakeredis-py
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1 pypi
@@ -16,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/redis-4.3[${PYTHON_USEDEP}]
@@ -46,6 +47,9 @@ EPYTEST_DESELECT=(
 	# json ext
 	test/test_json/test_json.py
 	test/test_json/test_json_arr_commands.py
+	# unknown command 'evalsha'
+	"test/test_asyncredis.py::test_async_lock[fake_resp2]"
+	"test/test_asyncredis.py::test_async_lock[fake_resp3]"
 	# incompatible with xdist, not worth extra effort
 	test/test_tcp_server/test_connectivity.py
 	# flaky
