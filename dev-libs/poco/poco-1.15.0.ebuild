@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,35 +12,35 @@ S="${WORKDIR}/${PN}-${P}-release"
 
 LICENSE="Boost-1.0"
 # SHARED_LIBRARY_VERSION -> "${S}"/libversion
-SLOT="0/103"
-KEYWORDS="amd64 arm arm64 ppc64 x86"
-IUSE="7z activerecord cppparser +data examples +file2pagecompiler iodbc +json jwt mariadb +mongodb mysql +net odbc +pagecompiler pdf pocodoc postgres prometheus sqlite +ssl test +util +xml +zip"
+SLOT="0/120"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
+IUSE="7z activerecord avahi cppparser +crypt +data examples iodbc mariadb +mongodb mysql +net odbc +pagecompiler pdf pocodoc postgres prometheus sqlite test +util +xml +zip"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	activerecord? ( util xml )
 	7z? ( xml )
-	file2pagecompiler? ( pagecompiler )
 	iodbc? ( odbc )
-	jwt? ( json ssl )
 	mongodb? ( data )
 	mysql? ( data )
 	odbc? ( data )
 	postgres? ( data )
-	pagecompiler? ( json net util xml )
+	pagecompiler? ( net util xml )
 	pocodoc? ( cppparser util xml )
 	sqlite? ( data )
-	ssl? ( util )
-	test? ( data? ( sqlite ) activerecord json jwt pdf util xml )
+	crypt? ( util )
+	test? ( data? ( sqlite ) activerecord cppparser crypt pdf prometheus xml )
 "
 
 BDEPEND="
-	test? ( dev-util/cppunit )
 	virtual/pkgconfig
 "
 
 RDEPEND="
-	>=dev-libs/libpcre2-10.40
+	>=dev-libs/libpcre2-10.40:=
+	dev-libs/libutf8proc:=
+
 	activerecord? ( !app-arch/arc )
+	avahi? ( net-dns/avahi:= )
 	mysql? ( dev-db/mysql-connector-c:= )
 	mariadb? ( dev-db/mariadb-connector-c:= )
 	postgres? ( dev-db/postgresql:= )
@@ -48,8 +48,9 @@ RDEPEND="
 		iodbc? ( dev-db/libiodbc )
 		!iodbc? ( dev-db/unixODBC )
 	)
+	pdf? ( media-libs/libpng:= )
 	sqlite? ( dev-db/sqlite:3 )
-	ssl? (
+	crypt? (
 		dev-libs/openssl:=
 	)
 	xml? ( dev-libs/expat )
@@ -61,28 +62,18 @@ src_prepare() {
 	cmake_src_prepare
 
 	if [[ ${SLOT} != 0/$(< "${S}"/libversion) ]] ; then
-		die "Please update subslot in ebuild to the version in ${S}/libversion!"
+		die "Please update subslot in ebuild to the version in ${S}/libversion"
 	fi
 
 	if use test ; then
 		# ignore missing tests on experimental library
 		# and tests requiring running DB-servers, internet connections, etc.
 		sed -i -e '/testsuite/d' \
-			{Data/{MySQL,ODBC},MongoDB,Net,NetSSL_OpenSSL,Redis}/CMakeLists.txt || die
+			{Data/{,MySQL,ODBC},MongoDB,Net,NetSSL_OpenSSL,Redis}/CMakeLists.txt || die
 
 		# Poco expands ~ using passwd, which does not match $HOME in the build environment
 		sed -i -e '/CppUnit_addTest.*testExpand/d' \
 			Foundation/testsuite/src/PathTest.cpp || die
-	fi
-
-	# Fix MariaDB and MySQL detection
-	sed -i -e 's~/usr/include/mysql~~' \
-		-e 's/mysqlclient_r/mysqlclient/' \
-		-e 's/STATUS "Couldn/FATAL_ERROR "Couldn/' \
-		cmake/FindMySQL.cmake || die
-
-	if ! use iodbc ; then
-		sed -i -e 's|iodbc||' cmake/FindODBC.cmake || die
 	fi
 }
 
@@ -94,20 +85,22 @@ src_configure() {
 		-DENABLE_ACTIVERECORD="$(usex activerecord)"
 		-DENABLE_ACTIVERECORD_COMPILER="$(usex activerecord)"
 		-DENABLE_CPPPARSER="$(usex cppparser)"
-		-DENABLE_CRYPTO="$(usex ssl)"
+		-DENABLE_CRYPTO="$(usex crypt)"
 		-DENABLE_DATA="$(usex data)"
 		-DENABLE_DATA_MYSQL="$(usex mysql)"
 		-DENABLE_DATA_ODBC="$(usex odbc)"
 		-DENABLE_DATA_POSTGRESQL="$(usex postgres)"
 		-DENABLE_DATA_SQLITE="$(usex sqlite)"
+		-DENABLE_DNSSD="$(usex avahi)"
+		-DENABLE_DNSSD_AVAHI="$(usex avahi)"
 		-DENABLE_JSON="$(usex util)"
-		-DENABLE_JWT="$(usex jwt)"
+		-DENABLE_JWT="$(usex crypt)"
 		-DENABLE_MONGODB="$(usex mongodb)"
 		-DENABLE_NET="$(usex net)"
-		-DENABLE_NETSSL="$(usex ssl)"
+		-DENABLE_NETSSL="$(usex crypt)"
 		-DENABLE_NETSSL_WIN=OFF
 		-DENABLE_PAGECOMPILER="$(usex pagecompiler)"
-		-DENABLE_PAGECOMPILER_FILE2PAGE="$(usex file2pagecompiler)"
+		-DENABLE_PAGECOMPILER_FILE2PAGE="$(usex pagecompiler)"
 		-DENABLE_PDF="$(usex pdf)"
 		-DENABLE_POCODOC="$(usex pocodoc)"
 		-DENABLE_PROMETHEUS="$(usex prometheus)"
