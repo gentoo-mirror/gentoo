@@ -8,36 +8,33 @@ PYTHON_COMPAT=( python3_{11..14} )
 inherit autotools systemd python-r1
 
 DESCRIPTION="Varnish is a state-of-the-art, high-performance HTTP accelerator"
-HOMEPAGE="https://varnish-cache.org/"
-SRC_URI="https://varnish-cache.org/_downloads/${P}.tgz"
+HOMEPAGE="https://vinyl-cache.org/"
+SRC_URI="https://vinyl-cache.org/_downloads/${P}.tgz"
 
 LICENSE="BSD-2 GPL-2"
 SLOT="0/2"
-KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86"
-# From Fedora:
-# Default: Use jemalloc, as adviced by upstream project
-IUSE="+jemalloc jit selinux static-libs unwind"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+IUSE="jit selinux static-libs unwind"
 
-CDEPEND="
+COMMON_DEPEND="
 	sys-libs/readline:=
 	dev-libs/libedit
 	dev-libs/libpcre2[jit?]
 	sys-libs/ncurses:=
-	jemalloc? ( dev-libs/jemalloc:= )
 	unwind? ( sys-libs/libunwind:= )
 "
 
 # varnish compiles stuff at run time
 RDEPEND="
 	${PYTHON_DEPS}
-	${CDEPEND}
+	${COMMON_DEPEND}
 	acct-user/varnish
 	acct-group/varnish
 	sys-devel/gcc
 	selinux? ( sec-policy/selinux-varnishd )
 "
 DEPEND="
-	${CDEPEND}
+	${COMMON_DEPEND}
 	dev-python/docutils
 	dev-python/sphinx
 	virtual/pkgconfig
@@ -45,7 +42,10 @@ DEPEND="
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-PATCHES=( "${FILESDIR}/${PN}-7.1.2-disable-tests.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-7.1.2-disable-tests.patch"
+	"${FILESDIR}/${PN}-8.0.0-configure-make-python-output-match-autotools.patch" # Bug: 882725
+)
 
 src_prepare() {
 	default
@@ -66,16 +66,13 @@ src_configure() {
 		--with-contrib
 		$(use_enable static-libs static)
 		$(use_enable jit pcre2-jit)
-		$(use_with jemalloc)
 		$(use_with unwind)
+		--without-jemalloc
 	)
 	econf "${myeconfargs[@]}"
 }
 
 src_test() {
-	# Per Fedora:
-	# "This is a bug in varnishtest making it incompatible with nghttp2 >= 1.65"
-	rm bin/varnishtest/tests/a02022.vtc || die
 	# Times out
 	rm bin/varnishtest/tests/u00021.vtc || die
 
