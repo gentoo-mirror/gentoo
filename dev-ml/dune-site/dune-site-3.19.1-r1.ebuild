@@ -1,40 +1,40 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit dune
 
-DESCRIPTION="Private libraries of Dune"
+DESCRIPTION="Embed locations informations inside executable and libraries"
 HOMEPAGE="https://github.com/ocaml/dune"
 SRC_URI="https://github.com/ocaml/dune/archive/${PV}.tar.gz
 	-> dune-${PV}.tar.gz"
 S="${WORKDIR}/dune-${PV}"
 
-LICENSE="Apache-2.0"
+LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 IUSE="+ocamlopt"
 RESTRICT="test"
 
-BDEPEND=">=dev-ml/dune-3.12"
-DEPEND="
+RDEPEND="
+	>=dev-ml/dune-3.18
 	dev-ml/csexp:=[ocamlopt?]
-"
-RDEPEND="${DEPEND}
+	!dev-ml/dune-private-libs
 	!dev-ml/stdune
 	!dev-ml/dyn
 	!dev-ml/ordering
 "
+DEPEND="${RDEPEND}"
 
 src_configure() {
 	:
 }
 
 src_compile() {
-	dune-compile ordering dyn stdune ${PN}
+	dune-compile ordering dyn stdune dune-private-libs ${PN}
 }
 
 src_install() {
-	dune-install ordering dyn stdune ${PN}
+	dune-install ordering dyn stdune dune-private-libs ${PN}
 }
