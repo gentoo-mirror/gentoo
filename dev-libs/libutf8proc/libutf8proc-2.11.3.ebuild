@@ -21,7 +21,7 @@ RESTRICT="!test? ( test )"
 BDEPEND="test? ( =app-i18n/unicode-data-17.0* )"
 S="${WORKDIR}/${P#lib}"
 
-QA_PKGCONFIG_VERSION="3.2.2"
+QA_PKGCONFIG_VERSION="3.2.3"
 
 src_prepare() {
 	if use cjk; then
