@@ -1,10 +1,11 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
+PYPI_VERIFY_REPO=https://github.com/python-openapi/openapi-core
+PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 inherit distutils-r1 pypi
 
@@ -16,23 +17,25 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv x86"
+if [[ ${PV} != *_beta* ]]; then
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+fi
 
 RDEPEND="
 	<dev-python/asgiref-4[${PYTHON_USEDEP}]
 	>=dev-python/asgiref-3.6.0[${PYTHON_USEDEP}]
 	dev-python/isodate[${PYTHON_USEDEP}]
 	<dev-python/jsonschema-5[${PYTHON_USEDEP}]
-	>=dev-python/jsonschema-4.17.3[${PYTHON_USEDEP}]
-	<dev-python/jsonschema-path-0.4[${PYTHON_USEDEP}]
-	>=dev-python/jsonschema-path-0.3.1[${PYTHON_USEDEP}]
+	>=dev-python/jsonschema-4.23.0[${PYTHON_USEDEP}]
+	<dev-python/jsonschema-path-0.5[${PYTHON_USEDEP}]
+	>=dev-python/jsonschema-path-0.4.0_beta8[${PYTHON_USEDEP}]
 	dev-python/more-itertools[${PYTHON_USEDEP}]
 	dev-python/parse[${PYTHON_USEDEP}]
 	<dev-python/openapi-schema-validator-0.7[${PYTHON_USEDEP}]
 	>=dev-python/openapi-schema-validator-0.6.0[${PYTHON_USEDEP}]
-	<dev-python/openapi-spec-validator-0.8[${PYTHON_USEDEP}]
-	>=dev-python/openapi-spec-validator-0.7.1[${PYTHON_USEDEP}]
-	dev-python/werkzeug[${PYTHON_USEDEP}]
+	<dev-python/openapi-spec-validator-0.9[${PYTHON_USEDEP}]
+	>=dev-python/openapi-spec-validator-0.8.0_beta3[${PYTHON_USEDEP}]
+	>=dev-python/werkzeug-2.1.0[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
@@ -69,6 +72,4 @@ src_prepare() {
 	distutils-r1_src_prepare
 
 	sed -i -e '/--cov/d' pyproject.toml || die
-	# upstream pinned it over typing changes
-	sed -i -e '/werkzeug.*</d' pyproject.toml || die
 }
