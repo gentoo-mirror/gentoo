@@ -8417,6 +8417,7 @@ sys-firmware/alsa-firmware:deduplicate - Remove firmware that is also provided b
 sys-firmware/blisp:tools - Build the blisp command-line utility used to upload firmware to the pinecil
 sys-firmware/broadcom-bt-firmware:compress-xz - Compress firmware using xz (app-arch/xz-utils) before installation
 sys-firmware/broadcom-bt-firmware:compress-zstd - Compress firmware using zstd (app-arch/zstd) before installation
+sys-firmware/intel-microcode:dist-kernel - Delegate microcode initramfs generation to sys-kernel/installkernel
 sys-firmware/intel-microcode:hostonly - Only install ucode(s) supported by currently available (=online) processor(s)
 sys-firmware/intel-microcode:initramfs - Install a small initramfs for use with CONFIG_MICROCODE_EARLY
 sys-firmware/intel-microcode:split-ucode - Install the split binary ucode files (used by the kernel directly)
@@ -8540,6 +8541,7 @@ sys-kernel/kpatch:kpatch-build - Enable tools which convert a source diff patch 
 sys-kernel/linux-firmware:compress-xz - Compress firmware using xz (app-arch/xz-utils) before installation
 sys-kernel/linux-firmware:compress-zstd - Compress firmware using zstd (app-arch/zstd) before installation
 sys-kernel/linux-firmware:deduplicate - Create symlinks for all firmware that is duplicate using rdfind
+sys-kernel/linux-firmware:dist-kernel - Delegate microcode initramfs generation to sys-kernel/installkernel
 sys-kernel/linux-firmware:initramfs - Create and install initramfs for early microcode loading in /boot (only AMD for now)
 sys-kernel/linux-firmware:redistributable - Install also non-free (but redistributable) firmware files
 sys-kernel/linux-firmware:savedconfig - Allows individual selection of firmware files
