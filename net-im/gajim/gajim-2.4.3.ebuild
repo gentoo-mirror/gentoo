@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -41,12 +41,12 @@ RDEPEND="
 	<dev-python/nbxmpp-8.0.0[${PYTHON_USEDEP}]
 	>=dev-python/nbxmpp-7.0.0[${PYTHON_USEDEP}]
 	<dev-python/omemo-dr-2.0.0[${PYTHON_USEDEP}]
-	>=dev-python/omemo-dr-1.1.0[${PYTHON_USEDEP}]
+	>=dev-python/omemo-dr-1.2.0[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	>=dev-python/pillow-9.1.0[${PYTHON_USEDEP}]
 	>=dev-python/precis-i18n-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pycairo-1.16.0[${PYTHON_USEDEP}]
-	>=dev-python/pygobject-3.52.0:3[cairo,${PYTHON_USEDEP}]
+	>=dev-python/pygobject-3.53.0:3[cairo,${PYTHON_USEDEP}]
 	>=dev-python/qrcode-7.3.1[${PYTHON_USEDEP}]
 	>=dev-python/sqlalchemy-2.0.0[${PYTHON_USEDEP}]
 	dev-python/socksio[${PYTHON_USEDEP}]
