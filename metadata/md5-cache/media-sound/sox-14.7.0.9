@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install
+DEPEND=dev-libs/libltdl:0= >=media-sound/gsm-1.0.12-r1 sys-apps/file alsa? ( media-libs/alsa-lib ) amr? ( media-libs/opencore-amr ) ao? ( media-libs/libao:= ) dolbyb? ( media-libs/libdolbyb:= ) encode? ( >=media-sound/lame-3.98.4 ) ffmpeg? ( media-video/ffmpeg ) fftw? ( sci-libs/fftw:3.0= ) flac? ( >=media-libs/flac-1.1.3:= ) id3tag? ( media-libs/libid3tag:= ) ladspa? ( media-libs/ladspa-sdk ) loudness? ( media-libs/libebur128:= ) mad? ( media-libs/libmad ) ogg? ( media-libs/libogg media-libs/libvorbis ) opus? ( media-libs/opus media-libs/opusfile ) png? ( media-libs/libpng:0= virtual/zlib:= ) pulseaudio? ( media-libs/libpulse ) sndfile? ( >=media-libs/libsndfile-1.0.11 ) sndio? ( media-sound/sndio:= ) speexdsp? ( media-libs/speex media-libs/speexdsp ) twolame? ( media-sound/twolame ) wavpack? ( media-sound/wavpack )
+DESCRIPTION=The swiss army knife of sound processing programs
+EAPI=8
+HOMEPAGE=https://codeberg.org/sox_ng/sox_ng
+INHERIT=flag-o-matic
+IUSE=alsa amr ao dolbyb encode +ffmpeg fftw flac id3tag ladspa loudness mad ogg openmp oss opus png pulseaudio sndfile sndio speexdsp twolame wavpack
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=dev-libs/libltdl:0= >=media-sound/gsm-1.0.12-r1 sys-apps/file alsa? ( media-libs/alsa-lib ) amr? ( media-libs/opencore-amr ) ao? ( media-libs/libao:= ) dolbyb? ( media-libs/libdolbyb:= ) encode? ( >=media-sound/lame-3.98.4 ) ffmpeg? ( media-video/ffmpeg ) fftw? ( sci-libs/fftw:3.0= ) flac? ( >=media-libs/flac-1.1.3:= ) id3tag? ( media-libs/libid3tag:= ) ladspa? ( media-libs/ladspa-sdk ) loudness? ( media-libs/libebur128:= ) mad? ( media-libs/libmad ) ogg? ( media-libs/libogg media-libs/libvorbis ) opus? ( media-libs/opus media-libs/opusfile ) png? ( media-libs/libpng:0= virtual/zlib:= ) pulseaudio? ( media-libs/libpulse ) sndfile? ( >=media-libs/libsndfile-1.0.11 ) sndio? ( media-sound/sndio:= ) speexdsp? ( media-libs/speex media-libs/speexdsp ) twolame? ( media-sound/twolame ) wavpack? ( media-sound/wavpack )
+SLOT=0/3
+SRC_URI=https://codeberg.org/sox_ng/sox_ng/releases/download/sox_ng-14.7.0.9/sox_ng-14.7.0.9.tar.gz
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4
+_md5_=995b99525f52ae56a573263a02eaa8e4
