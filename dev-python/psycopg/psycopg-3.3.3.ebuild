@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,9 +20,9 @@ SRC_URI="
 		-> ${P}.gh.tar.gz
 "
 
-LICENSE="LGPL-3+"
+LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 IUSE="+native-extensions"
 
 DEPEND="
@@ -35,7 +35,9 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	>=dev-python/typing-extensions-4.4[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		>=dev-python/typing-extensions-4.4[${PYTHON_USEDEP}]
+	' 3.11 3.12)
 "
 BDEPEND="
 	native-extensions? (
@@ -43,11 +45,11 @@ BDEPEND="
 	)
 	test? (
 		>=dev-db/postgresql-8.1[server]
-		>=dev-python/anyio-4.0[${PYTHON_USEDEP}]
 		>=dev-python/dnspython-2.1[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( anyio )
 distutils_enable_tests pytest
 
 python_compile() {
@@ -90,6 +92,11 @@ python_test() {
 		tests/crdb/test_typing.py
 		# TODO, relying on undefined ordering in Python?
 		tests/test_dns_srv.py::test_srv
+		# requires pproxy?
+		tests/test_waiting.py::test_remote_closed
+		tests/test_waiting.py::test_wait_remote_closed
+		tests/test_waiting_async.py::test_remote_closed
+		tests/test_waiting_async.py::test_wait_remote_closed
 	)
 
 	case ${ARCH} in
@@ -106,12 +113,11 @@ python_test() {
 		impls+=( c )
 	fi
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	local -x PSYCOPG_IMPL
 	for PSYCOPG_IMPL in "${impls[@]}"; do
 		einfo "Testing with ${PSYCOPG_IMPL} implementation ..."
 		# leak and timing tests are fragile whereas slow tests are slow
-		epytest -p anyio -k "not leak" \
+		epytest -k "not leak" \
 			-m "not timing and not slow and not flakey"
 	done
 }

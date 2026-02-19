@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,12 +20,12 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test-rust"
 
 RDEPEND="
-	>=dev-python/attrs-24.3.0[${PYTHON_USEDEP}]
-	>=dev-python/typing-extensions-4.12.2[${PYTHON_USEDEP}]
+	>=dev-python/attrs-25.4.0[${PYTHON_USEDEP}]
+	>=dev-python/typing-extensions-4.14.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
@@ -36,10 +36,11 @@ BDEPEND="
 		>=dev-python/pymongo-4.4.0[${PYTHON_USEDEP}]
 		>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
 		>=dev-python/tomlkit-0.11.8[${PYTHON_USEDEP}]
+		>=dev-python/tomli-w-1.1.0[${PYTHON_USEDEP}]
 		>=dev-python/ujson-5.10.0[${PYTHON_USEDEP}]
 		test-rust? (
 			$(python_gen_cond_dep '
-				>=dev-python/orjson-3.10.7[${PYTHON_USEDEP}]
+				>=dev-python/orjson-3.11.3[${PYTHON_USEDEP}]
 			' 'python*')
 		)
 	)

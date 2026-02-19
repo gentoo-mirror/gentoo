@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -55,6 +55,9 @@ EPYTEST_IGNORE=(
 	# require grpc*
 	tavern/_plugins/grpc
 	tests/unit/tavern_grpc
+	# require gql
+	tavern/_plugins/graphql
+	tests/unit/plugins/graphql
 )
 
 src_prepare() {

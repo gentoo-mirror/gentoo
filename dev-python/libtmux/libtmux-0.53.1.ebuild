@@ -1,22 +1,19 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/tmux-python/libtmux
 PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Typed library that provides an ORM wrapper for tmux, a terminal multiplexer"
 HOMEPAGE="
 	https://libtmux.git-pull.com/
 	https://github.com/tmux-python/libtmux/
 	https://pypi.org/project/libtmux/
-"
-SRC_URI="
-	https://github.com/tmux-python/libtmux/archive/v${PV}.tar.gz
-		-> ${P}.gh.tar.gz
 "
 
 LICENSE="MIT"
