@@ -1,10 +1,10 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 # update based on third_party_release
-OPENTELEMETRY_PROTO="1.7.0"
+OPENTELEMETRY_PROTO="1.8.0"
 
 inherit cmake
 
@@ -24,7 +24,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0/1"
-KEYWORDS="~amd64 ~arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 IUSE="elasticsearch grpc http otlp prometheus test"
 REQUIRED_USE="
@@ -85,10 +85,13 @@ src_configure() {
 		-DOTELCPP_VERSIONED_LIBS=ON
 		-DOTELCPP_MAINTAINER_MODE=OFF
 		-DOPENTELEMETRY_INSTALL=ON
-		-DWITH_STL=ON
+		# Modifies ABI and some project expect the non C++ std reliant ABI specifically
+		-DWITH_STL=OFF
 		-DWITH_GSL=OFF
 
 		-DWITH_API_ONLY=OFF
+
+		-DWITH_CONFIGURATION=OFF # experimental, vendored rapidyaml
 
 		-DWITH_ELASTICSEARCH=$(usex elasticsearch)
 		-DWITH_PROMETHEUS=$(usex prometheus)
