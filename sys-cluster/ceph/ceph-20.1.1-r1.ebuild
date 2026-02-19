@@ -1,8 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+CMAKE_REMOVE_MODULES_LIST=( FindBoost )
 CMAKE_WARN_UNUSED_CLI=no # false positives unless all USE flags are on
 PYTHON_COMPAT=( python3_{10..13} )
 LUA_COMPAT=( lua5-{3..4} )
@@ -46,10 +47,8 @@ REQUIRED_USE="
 	nvmeof? ( spdk )
 "
 
-RESTRICT="!test? ( test )"
-
 # tests need root access, and network access
-RESTRICT+=" test"
+RESTRICT="test !test? ( test )"
 
 DEPEND="
 	${LUA_DEPS}
@@ -67,6 +66,7 @@ DEPEND="
 	dev-db/lmdb:=
 	dev-lang/jsonnet:=
 	dev-libs/libaio:=
+	<dev-libs/libfmt-11.1.5:=
 	dev-libs/libnl:3=
 	dev-libs/libevent:=
 	dev-libs/libutf8proc:=
@@ -227,6 +227,10 @@ PATCHES=(
 	"${FILESDIR}/ceph-19.2.2-silent-unused-variable-warning.patch"
 	"${FILESDIR}/ceph-19.2.2-src-mgr-make-enum-statically-castable.patch"
 	"${FILESDIR}/ceph-20.1.0-nvmeof.patch"
+	"${FILESDIR}/ceph-20.1.1-always-lua.patch" # bug 934599
+	"${FILESDIR}/ceph-20.1.1-boost-url-linking.patch"
+	# https://bugs.gentoo.org/969039
+	"${FILESDIR}"/ceph-20.1.1-boost-1.89-{1,2,3}.patch
 )
 
 check-reqs_export_vars() {
@@ -254,20 +258,20 @@ pkg_setup() {
 }
 
 src_prepare() {
-	cmake_src_prepare
-
 	if use system-boost; then
-		if has_version '>=dev-libs/boost-1.88'; then
-			eapply "${FILESDIR}/ceph-19.2.2-boost188.patch"
-			eapply "${FILESDIR}/ceph-19.2.2-boost-linking.patch"
-		fi
-		find "${S}" -name '*.cmake' -or -name 'CMakeLists.txt' -print0 \
-			| xargs --null sed -r \
-			-e 's|Boost::|boost_|g' \
-			-e 's|Boost_|boost_|g' \
-			-e 's|[Bb]oost_boost|boost_system|g' \
-			-i || die
+		rm -r src/boost || die # ensure use system boost, reduce QA spam
 	fi
+
+	# ensure system-libs, reduce QA spam (FIXME: fails w/o zstd subdir)
+	rm -r src/{c-ares,jaegertracing/opentelemetry-cpp,rocksdb,s3select/rapidjson,utf8proc} || die
+
+	if use parquet; then
+		# hammer in newer version of parquet/arrow
+		rm -r src/arrow/ || die
+		mv "${WORKDIR}/apache-arrow-17.0.0" src/arrow || die
+	fi
+
+	cmake_src_prepare
 
 	if ! use systemd; then
 		find "${S}"/src/ceph-volume/ceph_volume -name '*.py' -print0 \
@@ -296,23 +300,13 @@ src_prepare() {
 
 	# remove tests that need root access
 	rm src/test/cli/ceph-authtool/cap*.t || die
-
-	if use parquet; then
-		# hammer in newer version of parquet/arrow
-		rm -r src/arrow/ || die
-		mv "${WORKDIR}/apache-arrow-17.0.0" src/arrow || die
-	fi
-
-	# everyone forgot to link to boost_url
-	sed -i -e 's~target_link_libraries(ceph-mds mds ${CMAKE_DL_LIBS} global-static ceph-common~target_link_libraries(ceph-mds mds ${CMAKE_DL_LIBS} global-static ceph-common boost_url~' src/CMakeLists.txt || die
-	sed -i -e 's/target_link_libraries(journal cls_journal_client)/target_link_libraries(journal cls_journal_client boost_url)/' src/journal/CMakeLists.txt || die
-	sed -i -e 's/${BLKID_LIBRARIES} ${CMAKE_DL_LIBS})/${BLKID_LIBRARIES} ${CMAKE_DL_LIBS} boost_url)/g' src/tools/cephfs/CMakeLists.txt || die
 }
 
 ceph_src_configure() {
 	local mycmakeargs=(
 		# Don't break installed bundled libraries (bug #942680)
 		-DBUILD_SHARED_LIBS=OFF
+		-DCMAKE_DISABLE_FIND_PACKAGE_Git=ON
 		-DWITH_BABELTRACE:BOOL=$(usex babeltrace)
 		-DWITH_BLUESTORE_PMEM:BOOL=$(usex pmdk)
 		-DWITH_CEPHFS:BOOL=$(usex cephfs)
