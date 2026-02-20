@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 # tomli backend is optional now, with pyyaml being the new default.
 # However, keeping it unconditional here for backwards compatibility.
@@ -29,16 +29,5 @@ RDEPEND="
 	>=dev-python/urllib3-1.25.10[${PYTHON_USEDEP}]
 "
 
-BDEPEND="
-	test? (
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/pytest-httpserver[${PYTHON_USEDEP}]
-	)
-"
-
+EPYTEST_PLUGINS=( pytest-{asyncio,httpserver} )
 distutils_enable_tests pytest
-
-python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -o asyncio_mode=auto -p asyncio -p pytest_httpserver
-}
