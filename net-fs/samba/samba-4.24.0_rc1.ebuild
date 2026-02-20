@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="threads(+),xml(+)"
-inherit python-single-r1 flag-o-matic waf-utils multilib-minimal linux-info systemd pam tmpfiles
+inherit python-single-r1 flag-o-matic waf-utils multilib-minimal linux-info optfeature systemd pam tmpfiles
 
 DESCRIPTION="Samba Suite Version 4"
 HOMEPAGE="https://samba.org/"
@@ -57,8 +57,8 @@ MULTILIB_WRAPPED_HEADERS=(
 	/usr/include/samba-4.0/ctdb_version.h
 )
 
-TALLOC_VERSION="2.4.3"
-TDB_VERSION="1.4.14"
+TALLOC_VERSION="2.4.4"
+TDB_VERSION="1.4.15"
 TEVENT_VERSION="0.17.1"
 
 COMMON_DEPEND="
@@ -393,4 +393,8 @@ multilib_src_install() {
 
 pkg_postinst() {
 	tmpfiles_process samba.conf
+
+	if use addc || use ads ; then
+		optfeature "Hide passwords from command line when using samba-tool or samba-gpupdate" dev-python/setproctitle
+	fi
 }
