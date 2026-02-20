@@ -106,7 +106,7 @@ CRATES="
 
 LLVM_COMPAT=( {17..21} )
 PYTHON_COMPAT=( python3_{11..14} )
-RUST_MIN_VER="1.82"
+RUST_MIN_VER="1.77.0"
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kentoverstreet.asc
 
 inherit cargo flag-o-matic llvm-r1 python-any-r1 shell-completion sysroot toolchain-funcs unpacker verify-sig
@@ -211,6 +211,10 @@ src_compile() {
 	export VERSION=${PV}
 
 	default
+
+	# Recent versions mangle the 'bcachefs' symbolic link, work around it.
+	[[ -e bcachefs ]] && die "bcachefs symlink is valid, please remove workaround"
+	ln -rsf target/release/bcachefs bcachefs || die
 
 	local shell
 	for shell in bash fish zsh; do
