@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install prepare test unpack
+DESCRIPTION=Let's Encrypt/ACME client (like certbot or acme.sh) and library written in Go
+EAPI=8
+HOMEPAGE=https://github.com/go-acme/lego/
+INHERIT=go-module
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT Apache-2.0 BSD-2 BSD ISC MPL-2.0
+PROPERTIES=test_network
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/go-acme/lego/archive/v4.32.0.tar.gz -> lego-4.32.0.tar.gz https://github.com/go-acme/lego/archive/4777ab4f2e3616564bde22de54f856c6041c3fd8.tar.gz -> lego-4.32.0-docs.tar.gz https://dev.gentoo.org/~ceamac/app-crypt/lego/lego-4.32.0-deps.tar.xz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	go-env	0e2babf96e7d0b045fc07ad199eb2399	go-module	2a164b5dbe5ba61e90d7985a433dde70
+_md5_=5fdd97ecc98512cc52501c4ed3753948
