@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare
-DEPEND=dev-lang/ocaml:= dev-ml/pp:= emacs? ( >=app-editors/emacs-23.1:* )
+DEPEND=dev-lang/ocaml:= emacs? ( >=app-editors/emacs-23.1:* )
 DESCRIPTION=A composable build system for OCaml
 EAPI=8
 HOMEPAGE=https://github.com/ocaml/dune
@@ -7,9 +7,9 @@ INHERIT=multiprocessing elisp-common
 IUSE=emacs
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=MIT
-RDEPEND=dev-lang/ocaml:= dev-ml/pp:= emacs? ( >=app-editors/emacs-23.1:* )
+RDEPEND=dev-lang/ocaml:= emacs? ( >=app-editors/emacs-23.1:* )
 RESTRICT=strip test
 SLOT=0/3.21.1
 SRC_URI=https://github.com/ocaml/dune/archive/3.21.1.tar.gz -> dune-3.21.1.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	elisp-common	ce20c7e2fc0c52b58ddabcd536b7310b
-_md5_=5807af5146a14d647fd98a7b07933e3a
+_md5_=180ef0e4437d9555049368023f29216b
