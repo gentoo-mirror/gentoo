@@ -1,4 +1,4 @@
-# Copyright 2006-2025 Gentoo Authors
+# Copyright 2006-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,11 +10,9 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/transmission/transmission"
 else
-	MY_PV="${PV/_beta/-beta.}"
-	MY_P="${PN}-${MY_PV}+rf20fd5e373"
-	S="${WORKDIR}/${MY_P}"
-	SRC_URI="https://github.com/transmission/transmission/releases/download/${MY_PV}/${MY_P}.tar.xz"
-	#KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+	S="${WORKDIR}/${P}"
+	SRC_URI="https://github.com/transmission/transmission/releases/download/${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="A fast, easy, and free BitTorrent client"
@@ -67,10 +65,6 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	${ACCT_DEPEND}
 "
-
-PATCHES=(
-	"${FILESDIR}/transmission-${PV}-mbedtls-3.patch"
-)
 
 src_prepare() {
 	# Avoid <cmake-4 compat in cmake.eclass
