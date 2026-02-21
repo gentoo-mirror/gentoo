@@ -1,16 +1,20 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="7"
 
-inherit autotools
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/netfilter.org.asc
+inherit autotools verify-sig
 
 MY_PV="$(ver_rs 3 '-' )"
 MY_P="${PN}-${MY_PV}"
 
 DESCRIPTION="Controls Ethernet frame filtering on a Linux bridge, MAC NAT and brouting"
 HOMEPAGE="https://ebtables.netfilter.org/"
-SRC_URI="http://ftp.netfilter.org/pub/${PN}/${MY_P}.tar.gz"
+SRC_URI="
+	https://ftp.netfilter.org/pub/${PN}/${MY_P}.tar.gz
+	verify-sig? ( https://ftp.netfilter.org/pub/${PN}/${MY_P}.tar.gz.sig )
+"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
@@ -18,11 +22,16 @@ SLOT="0"
 KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv x86"
 IUSE="+perl static"
 
-BDEPEND=">=app-eselect/eselect-iptables-20200508"
+BDEPEND="
+	>=app-eselect/eselect-iptables-20200508
+	verify-sig? ( sec-keys/openpgp-keys-netfilter )
+"
 # The ebtables-save script is written in perl.
-RDEPEND="${BDEPEND}
+RDEPEND="
+	${BDEPEND}
+	net-misc/ethertypes
 	perl? ( dev-lang/perl )
-	net-misc/ethertypes"
+"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.0.11-makefile.patch"
