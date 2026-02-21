@@ -1,14 +1,15 @@
-BDEPEND=virtual/pkgconfig
-DEFINED_PHASES=install setup
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-netfilter ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=install setup unpack
 DEPEND=net-libs/libmnl:= >=net-libs/libnetfilter_acct-1.0.3
 DESCRIPTION=Command line tool to create/retrieve/delete accounting objects in NetFilter
 EAPI=8
 HOMEPAGE=https://www.netfilter.org/projects/nfacct/
-INHERIT=linux-info
+INHERIT=linux-info verify-sig
+IUSE=verify-sig
 KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=net-libs/libmnl:= >=net-libs/libnetfilter_acct-1.0.3
 SLOT=0
-SRC_URI=https://www.netfilter.org/projects/nfacct/files/nfacct-1.0.2.tar.bz2
-_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	linux-info	efd923656513c879204fec6638eadee5
-_md5_=514c53030bef7130f3409ce74054c45c
+SRC_URI=https://www.netfilter.org/projects/nfacct/files/nfacct-1.0.2.tar.bz2 verify-sig? ( https://www.netfilter.org/projects/nfacct/files/nfacct-1.0.2.tar.bz2.sig )
+_eclasses_=toolchain-funcs	7e440a20ac11dece04e3334622e6e5da	linux-info	efd923656513c879204fec6638eadee5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=2c0f76c849d74fec7631449fcb445098
