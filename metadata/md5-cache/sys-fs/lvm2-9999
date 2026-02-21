@@ -1,0 +1,17 @@
+BDEPEND=dev-build/autoconf-archive virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
+DEPEND=udev? ( virtual/libudev:= ) lvm? ( dev-libs/libaio >=sys-apps/util-linux-2.24 readline? ( sys-libs/readline:= ) sanlock? ( >=sys-cluster/sanlock-4.0.0 ) systemd? ( >=sys-apps/systemd-234:= ) ) static? ( sys-apps/util-linux[static-libs] lvm? ( dev-libs/libaio[static-libs] readline? ( sys-libs/readline[static-libs] ) ) selinux? ( sys-libs/libselinux[static-libs] ) ) valgrind? ( >=dev-debug/valgrind-3.6 ) xfs? ( sys-fs/xfsprogs )
+DESCRIPTION=User-land utilities for LVM2 (device-mapper) software
+EAPI=8
+HOMEPAGE=https://sourceware.org/lvm2/
+INHERIT=autotools linux-info systemd toolchain-funcs tmpfiles udev flag-o-matic git-r3
+IUSE=lvm nvme readline sanlock selinux static static-libs systemd test thin +udev valgrind xfs
+LICENSE=GPL-2 LGPL-2.1
+PDEPEND=lvm? ( thin? ( >=sys-block/thin-provisioning-tools-1.0.6 ) )
+PROPERTIES=live
+RDEPEND=udev? ( virtual/libudev:= ) lvm? ( dev-libs/libaio >=sys-apps/util-linux-2.24 readline? ( sys-libs/readline:= ) sanlock? ( >=sys-cluster/sanlock-4.0.0 ) systemd? ( >=sys-apps/systemd-234:= ) ) >=sys-apps/baselayout-2.2 lvm? ( virtual/tmpfiles ) nvme? ( >=sys-libs/libnvme-1.1 )
+REQUIRED_USE=static? ( !systemd !udev !nvme ) static-libs? ( static !udev ) systemd? ( udev ) test? ( lvm ) thin? ( lvm )
+RESTRICT=!test? ( test )
+SLOT=0
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	linux-info	efd923656513c879204fec6638eadee5	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	udev	f3d9a4376ebd22131726a68e1a0a058f	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	git-r3	875eb471682d3e1f18da124be97dcc81
+_md5_=8e5159a6238780fbd658fe59f870e3f3
