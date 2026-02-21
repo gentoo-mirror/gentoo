@@ -24,12 +24,14 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	>=dev-python/django-4.2[$PYTHON_USEDEP]
+	>=dev-python/typing-extensions-4.12.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
 		$(python_gen_impl_dep sqlite)
 		${RDEPEND}
 		dev-python/dj-database-url[${PYTHON_USEDEP}]
+		>=dev-python/packaging-24.2[${PYTHON_USEDEP}]
 	)
 "
 

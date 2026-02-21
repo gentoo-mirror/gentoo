@@ -22,6 +22,9 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
 SLOT="0"
+if [[ ${PV} != *_beta* ]]; then
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+fi
 
 RDEPEND="
 	=dev-python/pyrsistent-0.20*[${PYTHON_USEDEP}]

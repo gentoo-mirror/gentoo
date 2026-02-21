@@ -22,9 +22,12 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
 SLOT="0"
+if [[ ${PV} != *_beta* ]]; then
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+fi
 
 RDEPEND="
-	>=dev-python/pathable-0.5.0_beta6[${PYTHON_USEDEP}]
+	>=dev-python/pathable-0.5.0[${PYTHON_USEDEP}]
 	>=dev-python/pyrsistent-0.20.0[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-5.1[${PYTHON_USEDEP}]
 	>=dev-python/referencing-0.28.1[${PYTHON_USEDEP}]

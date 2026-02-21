@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,10 +17,11 @@ HOMEPAGE="
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64"
 
+# TODO: replace with griffelib once we split it
 RDEPEND="
-	>=dev-python/griffe-1.13[${PYTHON_USEDEP}]
+	>=dev-python/griffe-2.0.0[${PYTHON_USEDEP}]
 	>=dev-python/mkdocstrings-0.30[${PYTHON_USEDEP}]
 	>=dev-python/mkdocs-autorefs-1.4[${PYTHON_USEDEP}]
 "
