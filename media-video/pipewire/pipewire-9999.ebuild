@@ -312,6 +312,9 @@ multilib_src_configure() {
 
 		# TODO
 		-Dsnap=disabled
+		-Donnxruntime=disabled
+		-Dbluez5-plc-spandsp=disabled
+		-Dbluez5-codec-ldac-dec=disabled
 	)
 
 	# This installs the schema file for pulseaudio-daemon, iff we are replacing

@@ -52,10 +52,8 @@ else
 		PIPEWIRE_DOCS_USEFLAG="man"
 	fi
 
-	KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
-
-SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${PN}-1.4.7-0001-don-t-include-standard-C-headers-inside-of-extern-C.patch.xz"
 
 DESCRIPTION="Multimedia processing graphs"
 HOMEPAGE="https://pipewire.org/"
@@ -63,8 +61,9 @@ HOMEPAGE="https://pipewire.org/"
 LICENSE="MIT LGPL-2.1+ GPL-2"
 # ABI was broken in 0.3.42 for https://gitlab.freedesktop.org/pipewire/wireplumber/-/issues/49
 SLOT="0/0.4"
-IUSE="${PIPEWIRE_DOCS_USEFLAG} bluetooth elogind dbus doc echo-cancel extra ffmpeg fftw flatpak gstreamer gsettings ieee1394 jack-client jack-sdk liblc3 loudness lv2"
-IUSE+=" modemmanager pipewire-alsa readline roc selinux sound-server ssl system-service systemd test v4l X zeroconf"
+IUSE="${PIPEWIRE_DOCS_USEFLAG} bluetooth elogind dbus doc echo-cancel extra ffmpeg fftw flatpak gstreamer gsettings"
+IUSE+=" ieee1394 jack-client jack-sdk libcamera loudness lv2 modemmanager pipewire-alsa readline roc selinux"
+IUSE+=" pulseaudio sound-server ssl system-service systemd test v4l X zeroconf"
 
 # Once replacing system JACK libraries is possible, it's likely that
 # jack-client IUSE will need blocking to avoid users accidentally
@@ -78,6 +77,7 @@ IUSE+=" modemmanager pipewire-alsa readline roc selinux sound-server ssl system-
 #   If that works, pulseaudio defaults are loaded into alsa-lib runtime replacing default PCM and CTL.
 #   When pipewire-alsa will be able to perform similar check, pipewire-alsa can be enabled unconditionally.
 # - ffmpeg is only used for pw-cat. We don't build the spa plugin which receives barely any activity.
+# TODO: should we add "pulseaudio? ( sound-server)"? is libpipewire-module-pulse-tunnel.so useful without sound-server?
 REQUIRED_USE="
 	ffmpeg? ( extra )
 	bluetooth? ( dbus )
@@ -122,6 +122,7 @@ RDEPEND="
 	bluetooth? (
 		dev-libs/glib
 		media-libs/fdk-aac
+		media-sound/liblc3
 		media-libs/libldac
 		media-libs/libfreeaptx
 		media-libs/opus
@@ -154,11 +155,12 @@ RDEPEND="
 		!media-sound/jack-audio-connection-kit
 		!media-sound/jack2
 	)
-	liblc3? ( media-sound/liblc3 )
+	libcamera? ( media-libs/libcamera:= )
 	loudness? ( media-libs/libebur128:=[${MULTILIB_USEDEP}] )
 	lv2? ( media-libs/lilv )
 	modemmanager? ( >=net-misc/modemmanager-1.10.0 )
 	pipewire-alsa? ( >=media-libs/alsa-lib-1.2.10[${MULTILIB_USEDEP}] )
+	pulseaudio? ( media-libs/libpulse )
 	sound-server? ( !media-sound/pulseaudio-daemon )
 	roc? ( >=media-libs/roc-toolkit-0.4.0:= )
 	readline? ( sys-libs/readline:= )
@@ -190,9 +192,6 @@ PDEPEND=">=media-video/wireplumber-0.5.2"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.3.25-enable-failed-mlock-warning.patch
-	"${FILESDIR}"/${PN}-1.4.6-no-automagic-ebur128.patch
-	"${FILESDIR}"/${PN}-1.4.6-no-automagic-fftw.patch
-	"${WORKDIR}"/${PN}-1.4.7-0001-don-t-include-standard-C-headers-inside-of-extern-C.patch
 )
 
 pkg_setup() {
@@ -234,7 +233,7 @@ multilib_src_configure() {
 		$(meson_native_use_feature gstreamer)
 		$(meson_native_use_feature gstreamer gstreamer-device-provider)
 		$(meson_native_use_feature gsettings)
-		$(meson_native_use_feature systemd)
+		$(meson_native_use_feature systemd libsystemd)
 		-Dlogind=${logind}
 		-Dlogind-provider=$(usex systemd 'libsystemd' 'libelogind')
 
@@ -259,6 +258,7 @@ multilib_src_configure() {
 		$(meson_native_use_feature bluetooth bluez5-backend-hsphfpd)
 		$(meson_native_use_feature bluetooth bluez5-codec-aac)
 		$(meson_native_use_feature bluetooth bluez5-codec-aptx)
+		$(meson_native_use_feature bluetooth bluez5-codec-lc3)
 		$(meson_native_use_feature bluetooth bluez5-codec-ldac)
 		$(meson_native_use_feature bluetooth bluez5-codec-g722)
 		$(meson_native_use_feature bluetooth opus)
@@ -278,12 +278,11 @@ multilib_src_configure() {
 		-Devl=disabled # Matches upstream
 		-Dtest=disabled # fakesink and fakesource plugins
 		-Dbluez5-codec-lc3plus=disabled # unpackaged
-		$(meson_native_use_feature liblc3 bluez5-codec-lc3)
 		$(meson_feature loudness ebur128)
 		$(meson_feature fftw)
 		$(meson_native_use_feature lv2)
 		$(meson_native_use_feature v4l v4l2)
-		-Dlibcamera=disabled # libcamera is not in Portage tree
+		$(meson_native_use_feature libcamera)
 		$(meson_native_use_feature roc)
 		$(meson_native_use_feature readline)
 		$(meson_native_use_feature ssl raop)
@@ -309,8 +308,13 @@ multilib_src_configure() {
 		$(meson_native_use_feature X x11-xfixes)
 		$(meson_native_use_feature X libcanberra)
 
+		$(meson_native_use_feature pulseaudio libpulse)
+
 		# TODO
 		-Dsnap=disabled
+		-Donnxruntime=disabled
+		-Dbluez5-plc-spandsp=disabled
+		-Dbluez5-codec-ldac-dec=disabled
 	)
 
 	# This installs the schema file for pulseaudio-daemon, iff we are replacing
