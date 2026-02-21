@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,20 +8,27 @@ EAPI=8
 # dev-util/lttng-tools
 # dev-util/lttng-ust
 
-inherit linux-mod-r1
+inherit linux-mod-r1 verify-sig
 
 MY_P="${P/_rc/-rc}"
 MY_SLOT="$(ver_cut 1-2)"
 
 DESCRIPTION="LTTng Kernel Tracer Modules"
 HOMEPAGE="https://lttng.org"
-SRC_URI="https://lttng.org/files/${PN}/${MY_P}.tar.bz2"
+SRC_URI="
+	https://lttng.org/files/${PN}/${MY_P}.tar.bz2
+	verify-sig? ( https://lttng.org/files/${PN}/${MY_P}.tar.bz2.asc )
+"
 
 S="${WORKDIR}/${MY_P}"
-LICENSE="GPL-2"
+LICENSE="GPL-2 || ( LGPL-2.1 GPL-2 ) MIT CC-BY-SA-4.0 CC0-1.0"
 SLOT="0/${MY_SLOT}"
 
 KEYWORDS="~amd64 ~x86"
+
+BDEPEND="verify-sig? ( sec-keys/openpgp-keys-mathieudesnoyers )"
+
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/mathieudesnoyers.asc
 
 CONFIG_CHECK="MODULES KALLSYMS HIGH_RES_TIMERS TRACEPOINTS
 	~HAVE_SYSCALL_TRACEPOINTS ~PERF_EVENTS ~EVENT_TRACING ~KPROBES KRETPROBES"
