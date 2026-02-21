@@ -554,7 +554,7 @@ ecm_src_configure() {
 		append-cppflags -DQT_NO_DEBUG
 	fi
 
-	local cmakeargs=( -DQT_MAJOR_VERSION=6 )
+	local cmakeargs
 
 	if in_iuse test; then
 		cmakeargs+=( $(usev !test -DBUILD_TESTING=OFF) )
@@ -584,6 +584,7 @@ ecm_src_configure() {
 		set(ECM_DISABLE_APPSTREAMTEST ON CACHE BOOL "") # *-disable-appstreamtest.patch
 		set(ECM_DISABLE_GIT ON CACHE BOOL "") # *-disable-git-commit-hooks.patch
 
+		set(BUILD_WITH_QT6 ON CACHE BOOL "") # QtVersionOption.cmake: Hard-require Qt6
 		# KDEInstallDirs6 section
 		set(KDE_INSTALL_USE_QT_SYS_PATHS ON CACHE BOOL "") # install mkspecs in same dir as Qt stuff
 		# move handbook outside of doc dir, bug #667138
