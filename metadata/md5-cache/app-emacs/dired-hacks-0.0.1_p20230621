@@ -1,4 +1,4 @@
-BDEPEND=app-emacs/dash app-emacs/eimp app-emacs/f app-emacs/s test? ( app-emacs/assess app-emacs/shut-up ) test? ( app-emacs/buttercup ) >=app-editors/emacs-25.3:*
+BDEPEND=app-emacs/dash app-emacs/eimp app-emacs/f app-emacs/s test? ( app-emacs/assess app-emacs/shut-up ) test? ( app-emacs/buttercup ) >=app-editors/emacs-26.3:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Collection of useful dired additions for GNU Emacs
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=elisp
 IUSE=test
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=app-emacs/dash app-emacs/eimp app-emacs/f app-emacs/s >=app-editors/emacs-25.3:*
+RDEPEND=app-emacs/dash app-emacs/eimp app-emacs/f app-emacs/s >=app-editors/emacs-26.3:*
 RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Fuco1/dired-hacks/archive/874449d6fc98aee565e1715ec18acec3c1c2cafb.tar.gz -> dired-hacks-0.0.1_p20230621.tar.gz
-_eclasses_=elisp-common	ce20c7e2fc0c52b58ddabcd536b7310b	elisp	a37bfc35b86403c770beebbd71661c30
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30
 _md5_=28ce03fdde71de7b41487c59cdb5be96

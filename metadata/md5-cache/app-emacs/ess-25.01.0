@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-text/texi2html dev-texlive/texlive-fontsextra dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-mathscience dev-texlive/texlive-plaingeneric virtual/latex-base ) >=app-editors/emacs-25.3:*
+BDEPEND=doc? ( app-text/texi2html dev-texlive/texlive-fontsextra dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-mathscience dev-texlive/texlive-plaingeneric virtual/latex-base ) >=app-editors/emacs-26.3:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Emacs Speaks Statistics
 EAPI=8
@@ -7,8 +7,8 @@ INHERIT=elisp readme.gentoo-r1
 IUSE=doc
 KEYWORDS=amd64 ~arm ppc x86
 LICENSE=GPL-2+ GPL-3+ Texinfo-manual
-RDEPEND=>=app-editors/emacs-25.3:*
+RDEPEND=>=app-editors/emacs-26.3:*
 SLOT=0
 SRC_URI=https://github.com/emacs-ess/ESS/archive/refs/tags/v25.01.0.tar.gz -> ess-25.01.0.tar.gz
-_eclasses_=elisp-common	ce20c7e2fc0c52b58ddabcd536b7310b	elisp	a37bfc35b86403c770beebbd71661c30	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
 _md5_=1e5726a58a61577bdf2ce53fc567228b
