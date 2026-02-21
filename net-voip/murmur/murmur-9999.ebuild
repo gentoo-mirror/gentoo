@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake flag-o-matic systemd readme.gentoo-r1 tmpfiles
 
-DESCRIPTION="Mumble is an open source, low-latency, high quality voice chat software"
+DESCRIPTION="Open source, low-latency, high quality voice chat server"
 HOMEPAGE="https://wiki.mumble.info"
 if [[ "${PV}" == 9999 ]] ; then
 	inherit git-r3
@@ -54,7 +54,7 @@ RDEPEND="
 	>=dev-libs/protobuf-2.2.0:=
 	dev-libs/spdlog:=
 	>=dev-libs/utfcpp-4.0.0
-	dev-qt/qtbase:6[dbus,network,sqlite?,xml]
+	dev-qt/qtbase:6[dbus,network,sqlite?,ssl,xml]
 	sys-apps/lsb-release
 	>=sys-libs/libcap-2.15
 	ice? ( dev-libs/Ice:= )
