@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://www.darkice.org/
 INHERIT=autotools
 IUSE=libsamplerate aac fdk flac mp3 opus twolame +vorbis +alsa jack pulseaudio
-KEYWORDS=amd64 ~hppa ~ppc ~sparc x86
+KEYWORDS=amd64 ~hppa ppc ~sparc x86
 LICENSE=GPL-3
 RDEPEND=aac? ( media-libs/faac ) alsa? ( media-libs/alsa-lib ) fdk? ( media-libs/fdk-aac:= ) flac? ( media-libs/flac:= media-libs/libogg ) jack? ( virtual/jack ) libsamplerate? ( media-libs/libsamplerate ) mp3? ( media-sound/lame ) opus? ( media-libs/libogg media-libs/opus ) pulseaudio? ( media-libs/libpulse ) twolame? ( media-sound/twolame ) vorbis? ( media-libs/libogg media-libs/libvorbis )
 REQUIRED_USE=|| ( aac fdk flac mp3 opus twolame vorbis ) || ( alsa jack pulseaudio ) fdk? ( libsamplerate )
 SLOT=0
 SRC_URI=https://github.com/rafael2k/darkice/archive/v1.6.tar.gz -> darkice-1.6.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa
-_md5_=6cb1f5f5c43d5b7d45d59859933d3ae6
+_md5_=67a6b4ed32b3a5a108fbf8a2b5f156f6
