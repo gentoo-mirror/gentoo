@@ -163,20 +163,10 @@ has ${PV} "${KDE_PV_UNRELEASED[*]}" && KDE_ORG_UNRELEASED=true
 
 HOMEPAGE="https://kde.org/"
 
-if [[ ${CATEGORY} == dev-qt ]]; then
-	KDE_ORG_NAME=${QT5_MODULE:-${PN}}
-	HOMEPAGE="https://community.kde.org/Qt5PatchCollection
-		https://invent.kde.org/qt/qt/ https://www.qt.io/"
-fi
-
 case ${KDE_BUILD_TYPE} in
 	live)
 		EGIT_MIRROR=${EGIT_MIRROR:=https://invent.kde.org/${KDE_ORG_CATEGORY}}
 		EGIT_REPO_URI="${EGIT_MIRROR}/${EGIT_REPONAME:=$KDE_ORG_NAME}.git"
-
-		if [[ ${PV} == 5.15.*.9999 && ${CATEGORY} == dev-qt ]]; then
-			EGIT_BRANCH="kde/$(ver_cut 1-2)"
-		fi
 		;;
 	*)
 		if [[ -n ${KDE_ORG_COMMIT} ]]; then
@@ -185,15 +175,11 @@ case ${KDE_BUILD_TYPE} in
 			SRC_URI+=" https://invent.kde.org/${KDE_ORG_CATEGORY}/${KDE_ORG_NAME}/-/"
 			SRC_URI+="archive/${KDE_ORG_COMMIT}/${KDE_ORG_NAME}-${KDE_ORG_COMMIT}.tar.gz"
 			SRC_URI+=" -> ${_KDE_ORG_TARFILE}"
-		fi
-		[[ ${KDE_ORG_UNRELEASED} == true ]] && RESTRICT+=" fetch"
-		debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
-		if [[ -n ${KDE_ORG_COMMIT} ]]; then
 			S=${WORKDIR}/${KDE_ORG_NAME}-${KDE_ORG_COMMIT}
-			[[ ${CATEGORY} == dev-qt ]] && QT5_BUILD_DIR="${S}_build"
 		else
 			S=${WORKDIR}/${KDE_ORG_TAR_PN}-${PV}
 		fi
+		debug-print "${LINENO} ${ECLASS} ${FUNCNAME}: SRC_URI is ${SRC_URI}"
 		;;
 esac
 
