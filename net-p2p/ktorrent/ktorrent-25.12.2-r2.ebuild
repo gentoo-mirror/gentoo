@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PATCHSET=${P}-qtmultimedia
+PATCHSET=${P}-qtmultimedia-1
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KFMIN=6.19.0
@@ -69,7 +69,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND="sys-devel/gettext"
 
-PATCHES=( "${WORKDIR}"/${PATCHSET} )
+PATCHES=( "${WORKDIR}"/${PATCHSET} ) # in git master / 26.04
 
 src_configure() {
 	local mycmakeargs=(
