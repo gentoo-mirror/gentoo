@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,16 +19,21 @@ elif [[ ${PV} == *_p* ]] ; then
 	PERFPARSER_COMMIT="65472541f74da213583535c8bb4fea831e875109"
 	PREFIXTICKLABELS_COMMIT="7cd6d5a04cf3747cc9327efdbcbf43620efaa0c1"
 	SRC_URI="
-		https://github.com/KDAB/hotspot/archive/${HOTSPOT_COMMIT}.tar.gz -> ${PN}-${HOTSPOT_COMMIT}.gh.tar.gz
-		https://github.com/KDAB/perfparser/archive/${PERFPARSER_COMMIT}.tar.gz -> perfparser-${PERFPARSER_COMMIT}.gh.tar.gz
-		https://github.com/koenpoppe/PrefixTickLabels/archive/${PREFIXTICKLABELS_COMMIT}.tar.gz -> PrefixTickLabels-${PREFIXTICKLABELS_COMMIT}.gh.tar.gz
+		https://github.com/KDAB/hotspot/archive/${HOTSPOT_COMMIT}.tar.gz
+			-> ${PN}-${HOTSPOT_COMMIT}.gh.tar.gz
+		https://github.com/KDAB/perfparser/archive/${PERFPARSER_COMMIT}.tar.gz
+			-> perfparser-${PERFPARSER_COMMIT}.gh.tar.gz
+		https://github.com/koenpoppe/PrefixTickLabels/archive/${PREFIXTICKLABELS_COMMIT}.tar.gz
+			-> PrefixTickLabels-${PREFIXTICKLABELS_COMMIT}.gh.tar.gz
 	"
 	S="${WORKDIR}"/${PN}-${HOTSPOT_COMMIT}
 else
 	SRC_URI="
 		https://github.com/KDAB/hotspot/releases/download/v${PV}/${PN}-v${PV}.tar.gz
-		https://github.com/KDAB/hotspot/releases/download/v${PV}/${PN}-perfparser-v${PV}.tar.gz -> ${PN}-v${PV}-perfparser.tar.gz
-		https://github.com/KDAB/hotspot/releases/download/v${PV}/${PN}-PrefixTickLabels-v${PV}.tar.gz -> ${PN}-v${PV}-PrefixTickLabels.tar.gz
+		https://github.com/KDAB/hotspot/releases/download/v${PV}/${PN}-perfparser-v${PV}.tar.gz
+			-> ${PN}-v${PV}-perfparser.tar.gz
+		https://github.com/KDAB/hotspot/releases/download/v${PV}/${PN}-PrefixTickLabels-v${PV}.tar.gz
+			-> ${PN}-v${PV}-PrefixTickLabels.tar.gz
 	"
 	S="${WORKDIR}"/${PN}
 fi
@@ -82,33 +87,30 @@ src_unpack() {
 		git-r3_src_unpack
 	elif [[ ${PV} == *_p* ]] ; then
 		unpack ${PN}-${HOTSPOT_COMMIT}.gh.tar.gz
-		tar -xf "${DISTDIR}"/perfparser-${PERFPARSER_COMMIT}.gh.tar.gz --strip-components=1 -C "${S}"/3rdparty/perfparser || die
-		tar -xf "${DISTDIR}"/PrefixTickLabels-${PREFIXTICKLABELS_COMMIT}.gh.tar.gz --strip-components=1 -C "${S}"/3rdparty/PrefixTickLabels || die
+		tar -xf "${DISTDIR}"/perfparser-${PERFPARSER_COMMIT}.gh.tar.gz --strip-components=1 \
+			-C "${S}"/3rdparty/perfparser || die
+		tar -xf "${DISTDIR}"/PrefixTickLabels-${PREFIXTICKLABELS_COMMIT}.gh.tar.gz --strip-components=1 \
+			-C "${S}"/3rdparty/PrefixTickLabels || die
 	else
 		unpack ${PN}-v${PV}.tar.gz
-		tar -xf "${DISTDIR}"/${PN}-v${PV}-perfparser.tar.gz --strip-components=1 -C "${S}"/3rdparty/perfparser || die
-		tar -xf "${DISTDIR}"/${PN}-v${PV}-PrefixTickLabels.tar.gz --strip-components=1 -C "${S}"/3rdparty/PrefixTickLabels || die
+		tar -xf "${DISTDIR}"/${PN}-v${PV}-perfparser.tar.gz --strip-components=1 \
+			-C "${S}"/3rdparty/perfparser || die
+		tar -xf "${DISTDIR}"/${PN}-v${PV}-PrefixTickLabels.tar.gz --strip-components=1 \
+			-C "${S}"/3rdparty/PrefixTickLabels || die
 	fi
-}
-
-src_prepare() {
-	if ! use debuginfod ; then
-		sed -i \
-			'/target_link_libraries(libhotspot-perfparser PRIVATE ${LIBDEBUGINFOD_LIBRARIES})/d' \
-			3rdparty/perfparser.cmake || die "sed failed for perfparser"
-
-		sed -i \
-			'/target_compile_definitions(libhotspot-perfparser PRIVATE HAVE_DWFL_GET_DEBUGINFOD_CLIENT=1)/d' \
-			3rdparty/perfparser.cmake || die "sed failed for perfparser"
-	fi
-
-	ecm_src_prepare
 }
 
 src_configure() {
 	local mycmakeargs=(
 		-DQT6_BUILD=true
 	)
+
+	if ! use debuginfod; then
+		mycmakeargs+=(
+			-DHAVE_DWFL_GET_DEBUGINFOD_CLIENT_SYMBOL="no"
+			-DHAVE_DEBUGINFOD_SET_USER_DATA="no"
+		)
+	fi
 
 	ecm_src_configure
 }
