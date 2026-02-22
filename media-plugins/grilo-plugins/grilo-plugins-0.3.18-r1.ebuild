@@ -6,11 +6,11 @@ LUA_COMPAT=( lua5-{3,4} )
 inherit gnome.org lua-single meson xdg
 
 DESCRIPTION="A collection of plugins for the Grilo framework"
-HOMEPAGE="https://wiki.gnome.org/Projects/Grilo"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/grilo-plugins"
 
 LICENSE="LGPL-2.1+"
 SLOT="0.3"
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="daap chromaprint flickr freebox gnome-online-accounts lua test thetvdb tracker upnp-av +youtube"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
@@ -36,11 +36,15 @@ RDEPEND="
 	flickr? ( net-libs/liboauth )
 	dev-db/sqlite:3
 	>=dev-libs/totem-pl-parser-3.4.1:=
-	tracker? ( app-misc/tinysparql:3= )
+	tracker? (
+		app-misc/localsearch:3
+		app-misc/tinysparql:3=
+	)
 	upnp-av? ( net-libs/dleyna:1.0= )
 	lua? (
 		${LUA_DEPS}
 		app-arch/libarchive
+		net-libs/rest:1.0
 		dev-libs/libxml2:2=
 		gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.17.91:= )
 	)
@@ -92,10 +96,8 @@ src_configure() {
 		-Denable-lua-factory=$(usex lua yes no)
 		-Denable-magnatune=yes
 		-Denable-metadata-store=yes
-		-Denable-opensubtitles=no # Requires libsoup-2
 		-Denable-optical-media=yes
 		-Denable-podcasts=yes
-		-Denable-raitv=yes
 		-Denable-shoutcast=yes
 		-Denable-thetvdb=$(usex thetvdb yes no)
 		-Denable-tmdb=yes
