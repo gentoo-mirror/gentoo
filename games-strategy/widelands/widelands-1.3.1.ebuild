@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
-inherit cmake flag-o-matic python-any-r1 xdg
+PYTHON_COMPAT=( python3_{11..14} )
+inherit cmake python-any-r1 xdg
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -34,8 +34,8 @@ RDEPEND="
 	media-libs/sdl2-image[jpeg,png]
 	media-libs/sdl2-mixer[vorbis]
 	media-libs/sdl2-ttf
-	virtual/minizip:=
 	virtual/libintl
+	virtual/minizip:=
 "
 DEPEND="
 	${RDEPEND}
@@ -43,23 +43,16 @@ DEPEND="
 "
 BDEPEND="
 	${PYTHON_DEPS}
-	sys-devel/gettext
 "
 
-PATCHES=(
-	"${FILESDIR}"/${P}-asio1.34.patch
-	"${FILESDIR}"/${P}-cstdint.patch
-)
-
 src_configure() {
-	append-cflags -std=gnu17
-
 	local mycmakeargs=(
+		-DCCACHE_PROGRAM=no
+		-DGTK_UPDATE_ICON_CACHE=no
+		-DOPTION_BUILD_TESTS=$(usex test)
 		-DWL_INSTALL_BASEDIR="${EPREFIX}"/usr/share/doc/${PF}
 		-DWL_INSTALL_BINDIR="${EPREFIX}"/usr/bin
 		-DWL_INSTALL_DATADIR="${EPREFIX}"/usr/share/${PN}
-		-DGTK_UPDATE_ICON_CACHE=OFF
-		-DOPTION_BUILD_TESTS=$(usex test)
 	)
 
 	cmake_src_configure
