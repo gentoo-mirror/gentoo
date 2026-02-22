@@ -23,9 +23,9 @@ KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 RDEPEND="
 	>=dev-python/jupyter-server-2.4.0[${PYTHON_USEDEP}]
 	<dev-python/jupyter-server-3[${PYTHON_USEDEP}]
-	>=dev-python/jupyterlab-4.5.1[${PYTHON_USEDEP}]
-	<dev-python/jupyterlab-4.6[${PYTHON_USEDEP}]
-	>=dev-python/jupyterlab-server-2.28.0[${PYTHON_USEDEP}]
+	>=dev-python/jupyterlab-4.4.9[${PYTHON_USEDEP}]
+	<dev-python/jupyterlab-4.5[${PYTHON_USEDEP}]
+	>=dev-python/jupyterlab-server-2.27.1[${PYTHON_USEDEP}]
 	<dev-python/jupyterlab-server-3[${PYTHON_USEDEP}]
 	>=dev-python/notebook-shim-0.2[${PYTHON_USEDEP}]
 	<dev-python/notebook-shim-0.3[${PYTHON_USEDEP}]
@@ -33,9 +33,9 @@ RDEPEND="
 "
 
 BDEPEND="
-	>=dev-python/hatch-jupyter-builder-0.5[${PYTHON_USEDEP}]
-	>=dev-python/jupyterlab-4.5[${PYTHON_USEDEP}]
-	<dev-python/jupyterlab-4.6[${PYTHON_USEDEP}]
+	dev-python/hatch-jupyter-builder[${PYTHON_USEDEP}]
+	>=dev-python/jupyterlab-4.4[${PYTHON_USEDEP}]
+	<dev-python/jupyterlab-4.5[${PYTHON_USEDEP}]
 	test? (
 		dev-python/ipykernel[${PYTHON_USEDEP}]
 		dev-python/nbval[${PYTHON_USEDEP}]
