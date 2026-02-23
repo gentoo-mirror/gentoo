@@ -192,7 +192,9 @@ DESCRIPTION="An improved, cross-platform, stable Jagged Alliance 2 runtime"
 HOMEPAGE="https://ja2-stracciatella.github.io/"
 SRC_URI="
 	https://github.com/ja2-stracciatella/ja2-stracciatella/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	editor? ( https://github.com/ja2-stracciatella/free-ja2-resources/releases/download/v1/editor.slf -> ${PN}-editor.slf )
+	editor? (
+		https://github.com/ja2-stracciatella/free-ja2-resources/releases/download/v1/editor.slf -> ${PN}-editor.slf
+		)
 	${CARGO_CRATE_URIS}
 "
 
@@ -206,7 +208,7 @@ REQUIRED_USE="${LUA_REQUIRED_USE}"
 
 DEPEND="
 	${LUA_DEPS}
-	>=dev-cpp/magic_enum-0.9.5
+	>=dev-cpp/magic_enum-0.9.7
 	>=dev-cpp/sol2-3.3.0
 	>=dev-cpp/string-theory-3.1
 	>=dev-games/libsmacker-1.2.0_p43-r1
@@ -227,6 +229,7 @@ pkg_setup() {
 src_prepare() {
 	PATCHES=(
 		"${FILESDIR}"/${P}-system-smacker.patch
+		"${FILESDIR}"/${P}-magic_enum.patch
 		"${FILESDIR}"/${PN}-0.20.0-lua-cmake.patch
 	)
 	cmake_src_prepare
@@ -257,7 +260,6 @@ src_configure() {
 		-DINSTALL_LIB_DIR="${EPREFIX}/usr/$(get_libdir)"
 		-DEXTRA_DATA_DIR="${EPREFIX}/usr/share/ja2"
 		-DMINIAUDIO_INCLUDE_DIR="${EPREFIX}/usr/include/miniaudio"
-		-DMAGICENUM_INCLUDE_DIR="${EPREFIX}/usr/include"
 	)
 
 	cargo_gen_config
