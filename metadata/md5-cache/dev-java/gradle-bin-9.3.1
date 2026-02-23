@@ -1,0 +1,15 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup
+DEPEND=app-eselect/eselect-gradle >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=A project automation and build tool with a Groovy based DSL
+EAPI=8
+HOMEPAGE=https://gradle.org
+INHERIT=java-pkg-2
+IUSE=doc source
+KEYWORDS=~amd64
+LICENSE=Apache-2.0
+RDEPEND=app-eselect/eselect-gradle >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=9.3.1
+SRC_URI=https://services.gradle.org/distributions/gradle-9.3.1-all.zip -> gradle-bin-9.3.1.zip
+_eclasses_=java-utils-2	b41327d85d12ce816943cf4d344add19	java-pkg-2	438c2725ea326202d7fc1eb31af76813
+_md5_=b8315618d83335c82b8829e006e8f45f
