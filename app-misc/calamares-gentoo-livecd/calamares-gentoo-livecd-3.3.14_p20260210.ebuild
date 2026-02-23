@@ -7,16 +7,14 @@ inherit xdg
 
 DESCRIPTION="Gentoo Linux Calamares installer configuration for LiveCD"
 HOMEPAGE="https://github.com/StefanCristian/calamares-gentoo-livecd"
-SRC_URI="https://github.com/StefanCristian/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
-		mirror://gentoo/gentoo-artwork-livecd-2007.0.tar.bz2
-		mirror://gentoo/gentoo-artwork-0.2.tar.bz2"
+SRC_URI="https://github.com/StefanCristian/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	>app-admin/calamares-3.3.14-r5[livecd(-)]
+	>app-admin/calamares-3.3.14-r6[livecd(-)]
 	app-admin/sudo
 "
 
