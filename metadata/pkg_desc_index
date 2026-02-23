@@ -1290,7 +1290,7 @@ app-benchmarks/cpuburn 1.4a-r5: CPU testing utilities in optimized assembler for
 app-benchmarks/dbench 4.0: Popular filesystem benchmark
 app-benchmarks/filebench 1.5.0_alpha3_p20200220: Filebench - A Model Based File System Workload Generator
 app-benchmarks/forkbomb 1.4-r2: Controlled fork() bomber for testing heavy system load
-app-benchmarks/geekbench 2.4.2-r1 2.4.3-r2 3.4.4-r1 4.4.4-r1 5.5.1 6.4.0 6.5.0: A Cross-Platform Benchmark for Android, iOS, Linux, MacOS and Windows
+app-benchmarks/geekbench 2.4.2-r1 2.4.3-r2 3.4.4-r1 4.4.4-r1 5.5.1 6.6.0: A Cross-Platform Benchmark for Android, iOS, Linux, MacOS and Windows
 app-benchmarks/geekbench-ml 0.6.0-r1: A Cross-Platform ML workloads Benchmark
 app-benchmarks/hey 0.1.2: HTTP load generator, ApacheBench (ab) replacement, formerly known as rakyll/boom
 app-benchmarks/httperf 0.9.1_p20181111-r1 0.9.1_p20201206-r1: Tool from HP for measuring web server performance
@@ -1306,7 +1306,7 @@ app-benchmarks/pmbw 0.6.3: Parallel Memory Bandwidth Measurement / Benchmark Too
 app-benchmarks/ramspeed 3.5.0-r2: Benchmarking for memory and cache
 app-benchmarks/siege 4.1.7: HTTP regression testing and benchmarking utility
 app-benchmarks/stress 1.0.7: A deliberately simple workload generator for POSIX systems
-app-benchmarks/stress-ng 0.20.00: Stress test for a computer system with various selectable ways
+app-benchmarks/stress-ng 0.20.01: Stress test for a computer system with various selectable ways
 app-benchmarks/sysbench 1.0.20-r101: A scriptable multi-threaded benchmark tool based on LuaJIT
 app-benchmarks/tiobench 0.5.0: Portable, robust, fully-threaded I/O benchmark program
 app-benchmarks/wrk 4.2.0: A HTTP benchmarking tool
@@ -2753,7 +2753,7 @@ app-misc/digitemp 3.7.2-r1: Temperature logging and reporting using Maxim's iBut
 app-misc/dtach 0.9-r1: Emulates the detach feature of screen
 app-misc/dvorak7min 1.6.1-r2: Simple ncurses-based typing tutor for learning the Dvorak keyboard layout
 app-misc/dvtm 0.15-r6 9999: Dynamic virtual terminal manager
-app-misc/ebusd 25.1: Daemon for communication with eBUS heating systems
+app-misc/ebusd 25.1 26.1: Daemon for communication with eBUS heating systems
 app-misc/editor-wrapper 4-r1: Wrapper scripts that will execute EDITOR or PAGER
 app-misc/egads 0.9.5-r2: Entropy Gathering And Distribution System
 app-misc/elasticsearch 7.17.25 8.17.4 8.18.0 9.0.0 9.0.1: Free and Open, Distributed, RESTful Search Engine
@@ -4015,7 +4015,7 @@ dev-db/mysql-connector-c 8.0.36-r1 8.0.41-r1: C client library for MariaDB/MySQL
 dev-db/mysql-connector-c++ 9.4.0 9.6.0: MySQL database connector for C++ (mimics JDBC 4.0 API)
 dev-db/mysql-init-scripts 2.3-r8: Gentoo MySQL init scripts
 dev-db/mysql-workbench 8.0.42-r1 8.0.43 8.0.44: MySQL Workbench
-dev-db/mysqltuner 2.7.0 2.8.35: Makes recommendations for increased performance and stability for MySQL
+dev-db/mysqltuner 2.7.0 2.8.40: Makes recommendations for increased performance and stability for MySQL
 dev-db/mytop 1.9.1-r2: Clone of top for MySQL
 dev-db/ocp 0.3 9999: Oracle copy tool
 dev-db/opendbx 1.4.6-r6: OpenDBX - A database abstraction layer
@@ -5492,7 +5492,7 @@ dev-libs/ktextaddons 1.8.0: Various text handling addons
 dev-libs/kweathercore 25.08.3 25.12.2: Library for retrieval of weather information including forecasts and alerts
 dev-libs/lager 0.1.1-r1 0.1.2: Library to assist value-oriented design
 dev-libs/leancrypto 1.6.0-r1 9999: Lean cryptographic library usable for bare-metal environments
-dev-libs/level-zero 1.24.2 1.24.3 1.26.3 1.28.0: oneAPI Level Zero headers, loader and validation layer
+dev-libs/level-zero 1.26.3 1.28.2: oneAPI Level Zero headers, loader and validation layer
 dev-libs/leveldb 1.23-r6: A fast key-value storage library written at Google
 dev-libs/libIDL 0.8.14-r4: CORBA tree builder
 dev-libs/libaio 0.3.113-r1 0.3.113-r2 0.3.113_p8 9999: Asynchronous input/output library that uses the kernels native interface
@@ -5609,7 +5609,7 @@ dev-libs/libmemcached 1.0.18-r4: a C client library to the memcached server
 dev-libs/libmemcached-awesome 1.1.4: a C/C++ memcached client library
 dev-libs/libmirage 3.2.10 3.3.1: CD and DVD image access library
 dev-libs/libmix 2.05-r7: Programs Crypto/Network/Multipurpose Library
-dev-libs/libmodbus 3.1.11-r1: Modbus library which supports RTU communication over a serial line or a TCP link
+dev-libs/libmodbus 3.1.11-r1 3.1.12: Modbus library which supports RTU communication over a serial line or a TCP link
 dev-libs/libmoe 1.5.8-r3: Multi octet character encoding handling library
 dev-libs/libmowgli 2.1.3-r3 9999: Useful set of performance and usability-oriented extensions to C
 dev-libs/libmpack 1.0.5-r5: Simple implementation of msgpack in C
@@ -5763,7 +5763,7 @@ dev-libs/nwjs 0.86.0-r1 0.100.1-r1 0.104.1-r2 0.106.0: Framework that lets you c
 dev-libs/olm 3.2.16-r1: Implementation of the Double Ratchet cryptographic ratchet in C++
 dev-libs/onigmo 6.2.0-r1: Onigmo is a regular expressions library forked from Oniguruma
 dev-libs/oniguruma 6.9.9 6.9.9-r1 6.9.10 9999: Regular expression library for different character encodings
-dev-libs/opencl-clang 16.0.3 16.0.6 17.0.1 17.0.2 18.1.1 18.1.2 19.1.0 19.1.1 20.1.0-r1 20.1.1: OpenCL-oriented thin wrapper library around clang
+dev-libs/opencl-clang 16.0.3 16.0.6 16.0.8 17.0.1 17.0.2 17.0.3 18.1.1 18.1.2 18.1.3 19.1.0 19.1.1 19.1.2 20.1.0-r1 20.1.1 20.1.2 21.1.2: OpenCL-oriented thin wrapper library around clang
 dev-libs/opencl-icd-loader 2024.10.24: Official Khronos OpenCL ICD Loader
 dev-libs/opencryptoki 3.6.1-r1: PKCS#11 provider cryptographic hardware
 dev-libs/openct 0.6.20-r6: library for accessing smart card terminals
@@ -11112,7 +11112,7 @@ dev-util/smem 1.5-r3: A tool that can give numerous reports on memory usage on L
 dev-util/snakeviz 2.2.0 2.2.2: A web-based viewer for Python profiler output
 dev-util/source-highlight 3.1.9-r2: Generate highlighted source code as an (x)html document
 dev-util/spirv-headers 1.4.321.0 1.4.328.0 1.4.335.0 9999: Machine-readable files for the SPIR-V Registry
-dev-util/spirv-llvm-translator 16.0.18 16.0.19 17.0.18 17.0.19 18.1.18 18.1.19 19.1.13 19.1.14 20.1.8 20.1.9 21.1.3 22.0.0_pre20251123 22.0.0_pre20260112 23.0.0_pre20260223: Bi-directional translator between SPIR-V and LLVM IR
+dev-util/spirv-llvm-translator 16.0.18 16.0.19 16.0.21 17.0.18 17.0.19 17.0.20 18.1.18 18.1.19 18.1.20 19.1.13 19.1.14 19.1.15 20.1.8 20.1.9 20.1.10 21.1.3 21.1.4 22.0.0_pre20251123 22.0.0_pre20260112 23.0.0_pre20260223: Bi-directional translator between SPIR-V and LLVM IR
 dev-util/spirv-tools 1.4.321.0 1.4.328.0 1.4.335.0 9999: Provides an API and commands for processing SPIR-V modules
 dev-util/splint 3.1.2-r3: Check C programs for vulnerabilities and programming mistakes
 dev-util/squashdelta 0.1.2: Efficient (partially uncompressed) SquashFS binary delta tool
@@ -11873,7 +11873,7 @@ games-rpg/wasteland2 1.9.0.13-r2: Sequel to 1988 Wasteland, post-apocalyptic com
 games-rpg/xu4 1.4.3: A remake of the computer game Ultima IV
 games-rpg/zsdx 1.12.3: Free 2D Zelda fangame
 games-rpg/zsxd 1.12.2: Free 2D Zelda fangame parody
-games-server/bedrock-server 1.21.131.1 1.21.132.3: The official bedrock (non-java) based server for the sandbox video game
+games-server/bedrock-server 1.21.131.1 1.26.1.1: The official bedrock (non-java) based server for the sandbox video game
 games-server/crossfire-server 1.71.0-r2 1.75.0-r1: Server for the crossfire clients
 games-server/etqw-ded 1.5-r1: Enemy Territory: Quake Wars dedicated server
 games-server/mednafen-server 0.5.2-r3: Server for Mednafen emulator
@@ -15061,7 +15061,7 @@ net-libs/libtlsrpt 0.5.0 9999: library to implement TLSRPT
 net-libs/libtorrent 0.15.7 0.16.6 9999: BitTorrent library written in C++ for *nix
 net-libs/libtorrent-rasterbar 2.0.10: C++ BitTorrent implementation focusing on efficiency and scalability
 net-libs/libtrace 4.0.21 4.0.22 4.0.26 4.0.28: A library and tools for trace processing
-net-libs/libupnp 1.14.24 1.14.25 1.14.26: An Portable Open Source UPnP Development Kit
+net-libs/libupnp 1.14.24 1.14.25 1.14.30: An Portable Open Source UPnP Development Kit
 net-libs/libupnpp 1.0.2 1.0.3: The libupnpp C++ library wraps libupnp for easier use by upmpdcli and upplay
 net-libs/libvncserver 0.9.15-r1: library for creating vnc servers
 net-libs/libwebsockets 4.4.1-r1 4.5.2 4.5.2-r1: A flexible pure-C library for implementing network protocols
@@ -15785,7 +15785,7 @@ net-wireless/suwidgets 0.3.0_p20251029: graphical library containing all SigDigg
 net-wireless/tempestsdr 0.0_p20250122-r2 9999: Remote video eavesdropping using a software-defined radio platform
 net-wireless/ubertooth 2020.12.1-r1 9999: open source wireless development platform suitable for Bluetooth experimentation
 net-wireless/uhd 4.9.0.1: Universal Software Radio Peripheral (USRP) Hardware Driver
-net-wireless/unifi 9.4.19 9.5.21 10.0.162: A Management Controller for Ubiquiti Networks UniFi APs
+net-wireless/unifi 9.4.19 9.5.21 10.0.162 10.1.85: A Management Controller for Ubiquiti Networks UniFi APs
 net-wireless/urh 2.10.0 9999: Universal Radio Hacker: investigate wireless protocols like a boss
 net-wireless/wavemon 0.9.3-r1 0.9.5 0.9.6: Ncurses based monitor for IEEE 802.11 wireless LAN cards
 net-wireless/wepattack 0.1.3-r6 0.1.3-r7: WLAN tool for breaking 802.11 WEP keys
@@ -17113,7 +17113,7 @@ sys-apps/conspy 1.16: Remote control for Linux virtual consoles
 sys-apps/coreutils 9.7 9.8-r1 9.9 9.9-r1 9.9-r11 9.9-r12 9.10 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 sys-apps/cpint 2.5.3: Linux/390 Interface to z/VM's Control Program
 sys-apps/cpu-x 5.3.1 5.4.0: A Free software that gathers information on CPU, motherboard and more
-sys-apps/cpuid 20250513: Linux tool to dump x86 CPUID information about the CPUs
+sys-apps/cpuid 20250513 20260220: Linux tool to dump x86 CPUID information about the CPUs
 sys-apps/cracklib-words 2.10.2 2.10.3: Large set of crack/cracklib dictionaries
 sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
 sys-apps/cyme 2.2.10 2.2.11: List system USB buses and devices; a modern cross-platform `lsusb`
@@ -17320,7 +17320,7 @@ sys-apps/setserial 2.17-r6: Configure your serial ports with it
 sys-apps/sg3_utils 1.47 1.47-r1 1.47-r2 1.48: Apps for querying the sg SCSI interface
 sys-apps/shadow 4.14.8 4.14.8-r1 4.14.8-r2 4.19.2 4.19.3: Utilities to deal with user accounts
 sys-apps/smartmontools 7.5-r1 9999: Tools to monitor storage systems to provide advanced warning of disk degradation
-sys-apps/smc-sum 2.14.0.20240215: Updates the BIOS and IPMI firmware and system settings on Supermicro mainboards
+sys-apps/smc-sum 2.14.0.20240215 2.15.0.20251104: Updates the BIOS and IPMI firmware and system settings on Supermicro mainboards
 sys-apps/smcipmitool 2.29.0.250214: An out-of-band utility for interfacing with SuperBlade and IPMI devices via CLI
 sys-apps/sparc-utils 1.9-r7: Various sparc utilities from Debian GNU/Linux
 sys-apps/spu-tools 2.3.0.136: CELL spu ps and top alike utilities
@@ -17428,7 +17428,7 @@ sys-auth/ykclient 2.15: Yubico C client library
 sys-auth/ykpers 1.20.0-r1: Library and tool for personalization of Yubico's YubiKey
 sys-auth/yubico-piv-tool 2.7.2 2.7.3: Command-line tool and p11-kit module for the YubiKey PIV application
 sys-block/aoetools 37: tools for ATA over Ethernet (AoE) network storage protocol
-sys-block/arcconf 2.01.22270-r2 3.07.23980 4.23.00.27147 4.26.00.27449: Microsemi Adaptec RAID Controller Command Line Utility
+sys-block/arcconf 2.01.22270-r2 3.07.23980 4.23.00.27147 4.26.00.27449 5.05.00.28200: Microsemi Adaptec RAID Controller Command Line Utility
 sys-block/blktrace 1.3.0-r1: show detailed info about what is happening on a block device io queue
 sys-block/bmap-tools 3.6-r1: Flashing tool using block maps and sparse files
 sys-block/bmaptool 3.9.0: The better dd for embedded projects, based on block maps

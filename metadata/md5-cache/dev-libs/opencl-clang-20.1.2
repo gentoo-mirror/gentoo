@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-util/spirv-llvm-translator:20= llvm_slot_20? ( llvm-core/clang:20=[static-analyzer] llvm-core/llvm:20= )
+DESCRIPTION=OpenCL-oriented thin wrapper library around clang
+EAPI=8
+HOMEPAGE=https://github.com/intel/opencl-clang
+INHERIT=cmake llvm-r1
+IUSE=+llvm_slot_20
+KEYWORDS=~amd64 ~riscv
+LICENSE=UoI-NCSA
+RDEPEND=dev-util/spirv-llvm-translator:20= llvm_slot_20? ( llvm-core/clang:20=[static-analyzer] llvm-core/llvm:20= )
+REQUIRED_USE=^^ ( llvm_slot_20 )
+SLOT=20
+SRC_URI=https://github.com/intel/opencl-clang/archive/refs/tags/v20.1.2.tar.gz -> opencl-clang-20.1.2.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	59c52dab9ddf3ca54e79003177507e97
+_md5_=9f054e1106f35b978e2c4ae1b3ceff3d
