@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 FORTRAN_NEEDED=fortran
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=meson-python
-PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit flag-o-matic fortran-2 distutils-r1
@@ -29,7 +29,7 @@ else
 	inherit pypi
 
 	# Upstream is often behind with doc updates
-	DOC_PV=${PV}
+	DOC_PV=1.16.2
 
 	SRC_URI+="
 		doc? (
@@ -37,8 +37,8 @@ else
 		)
 	"
 
-	if [[ ${PV} != *rc* ]] ; then
-		KEYWORDS="amd64 arm arm64 ~loong ~ppc ppc64 ~riscv ~s390 ~sparc x86"
+	if [[ ${PV} != *rc* ]]; then
+		KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 	fi
 fi
 
@@ -59,7 +59,7 @@ COMMON_DEPEND="
 # Only boost.math is used, and meson.build doesn't even look up specific boost modules.
 DEPEND="
 	${COMMON_DEPEND}
-	>=dev-libs/boost-1.88.0
+	>=dev-libs/boost-1.89.0
 "
 RDEPEND="
 	${COMMON_DEPEND}
@@ -161,15 +161,13 @@ python_test() {
 		)
 	fi
 
-	case ${EPYTHON} in
-		pypy3*)
-			EPYTEST_DESELECT+=(
-				# TODO
-				scipy/special/tests/test_data.py::test_boost
-				scipy/_lib/tests/test_ccallback.py::test_callbacks
-			)
-			;;
-	esac
+	if has_version -b "sys-libs/zlib-ng[compat]"; then
+		EPYTEST_DESELECT+=(
+			# https://github.com/scipy/scipy/issues/23185
+			scipy/io/matlab/tests/test_streams.py::TestZlibInputStream::test_all_data_read_bad_checksum
+			scipy/io/matlab/tests/test_streams.py::TestZlibInputStream::test_all_data_read_overlap
+		)
+	fi
 
 	# avoid other stuff being multithreaded when using xdist
 	local -x PYTHON_CPU_COUNT=1

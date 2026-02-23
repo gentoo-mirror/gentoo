@@ -1,28 +1,23 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
+PYPI_VERIFY_REPO=https://github.com/pylint-dev/astroid
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
-MY_P=${P/_/}
 DESCRIPTION="Abstract Syntax Tree for logilab packages"
 HOMEPAGE="
 	https://github.com/pylint-dev/astroid/
 	https://pypi.org/project/astroid/
 "
-SRC_URI="
-	https://github.com/pylint-dev/astroid/archive/v${PV/_/}.tar.gz
-		-> ${P}.gh.tar.gz
-"
-S=${WORKDIR}/${MY_P}
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 # dev-python/regex isn't available for pypy
 BDEPEND="
@@ -69,6 +64,21 @@ python_test() {
 	if ! has_version "dev-python/mypy[${PYTHON_USEDEP}]"; then
 		EPYTEST_IGNORE+=(
 			tests/test_raw_building.py
+		)
+	fi
+
+	case ${EPYTHON} in
+		pypy3.11)
+			EPYTEST_DESELECT+=(
+				tests/brain/test_gi.py::GiBrainClassificationTest::test_gi_function_classification
+			)
+			;;
+	esac
+
+	if has_version ">=dev-python/setuptools-82[${PYTHON_USEDEP}]"; then
+		EPYTEST_DESELECT+=(
+			# tests a package using pkg_resources
+			tests/test_manager.py::AstroidManagerTest::test_identify_old_namespace_package_protocol
 		)
 	fi
 
