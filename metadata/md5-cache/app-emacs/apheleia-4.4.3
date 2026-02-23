@@ -1,0 +1,15 @@
+BDEPEND=test? ( app-emacs/buttercup ) >=app-editors/emacs-27:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Reformat GNU Emacs buffers stably without moving point
+EAPI=8
+HOMEPAGE=https://github.com/radian-software/apheleia/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=>=app-editors/emacs-27:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/radian-software/apheleia/archive/v4.4.3.tar.gz -> apheleia-4.4.3.gh.tar.gz
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30
+_md5_=f25360404fb6b616788855a63f442f03
