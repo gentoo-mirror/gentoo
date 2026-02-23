@@ -943,7 +943,7 @@ app-admin/clog 1.3.0-r1: clog is a colorized log tail utility
 app-admin/clsync 0.4.5 9999: Live sync tool based on inotify, written in GNU C
 app-admin/clustershell 1.9.3: Python framework for efficient cluster administration
 app-admin/conky 1.22.2: An advanced, highly configurable system monitor for X
-app-admin/conserver 8.2.6-r3 8.2.7_p20250129: Serial Console Manager
+app-admin/conserver 8.2.6-r3 8.2.7_p20250129 8.3.0: Serial Console Manager
 app-admin/consul 1.20.4 1.22.1: A tool for service discovery, monitoring and configuration
 app-admin/consul-replicate 0.4.0_p20211027: Consul cross-DC KV replication daemon
 app-admin/consul-template 0.37.4: Generic template rendering and notifications with Consul
@@ -1800,7 +1800,7 @@ app-doc/tldp-howto 20120707: The Linux Documentation Project HOWTOs
 app-doc/vilearn 1.0: An interactive vi tutorial comprised of 5 tutorials for the vi-impaired
 app-doc/zsh-lovers 0.11.0: Tips, tricks and examples for the Z shell
 app-editors/aee 2.2.22: An easy to use text editor
-app-editors/bluefish 2.2.17 2.2.17-r1 2.2.19: GTK HTML editor for the experienced web designer or programmer
+app-editors/bluefish 2.2.19 2.4.0: GTK HTML editor for the experienced web designer or programmer
 app-editors/bvi 1.4.2 1.5.0: Display-oriented editor for binary files, based on the vi texteditor
 app-editors/curses-hexedit 0.9.7-r1: full screen curses hex editor (with insert/delete support)
 app-editors/cursor 2.4.28: Cursor App - AI-first coding environment
@@ -2573,7 +2573,7 @@ app-i18n/man-pages-l10n 4.28.0 4.29.1: A somewhat comprehensive collection of ma
 app-i18n/man-pages-ru 5.03.2390.2390.20191017-r1: A collection of Russian translations of Linux manual pages
 app-i18n/man-pages-zh_CN 1.6.4.2-r1: A somewhat comprehensive collection of Chinese Linux man pages
 app-i18n/mecab-skkserv 0.03-r1: mecab-skkserv is a Kana-Kanji conversion server using MeCab
-app-i18n/mozc 2.31.5851.102 2.32.5994.102-r1: Mozc - Japanese input method editor.
+app-i18n/mozc 2.31.5851.102 2.32.5994.102-r1 3.33.6089: Mozc - Japanese input method editor.
 app-i18n/multiskkserv 20100128: SKK server that handles multiple dictionaries
 app-i18n/nabi 1.0.1: Simple Hanguk X Input Method
 app-i18n/nkf 2.1.5-r1 2.1.5-r2: Network Kanji code conversion Filter with UTF-8/16 support
@@ -2743,7 +2743,7 @@ app-misc/ddate 0.2.2_p20160627-r1: Perpetual date converter from gregorian to po
 app-misc/ddccontrol 1.0.3-r1: Control monitor parameters, like brightness, contrast, RGB color levels via DDC
 app-misc/ddccontrol-db 20240920: DDCControl monitor database
 app-misc/ddcui 0.5.4-r1 0.6.0: Graphical user interface for ddcutil - control monitor settings
-app-misc/ddcutil 1.3.0 1.4.5 2.1.4 2.2.0 2.2.5: Program for querying and changing monitor settings
+app-misc/ddcutil 1.3.0 1.4.5 2.1.4 2.2.0 2.2.5 2.2.5-r1: Program for querying and changing monitor settings
 app-misc/delay 1.6-r6: Sleeplike program that counts down the number of seconds specified
 app-misc/detachtty 11.0.0-r1: Attach/detach from interactive processes across the network
 app-misc/detox 1.4.5-r1 3.0.1: Safely remove spaces and strange characters from filenames
@@ -3029,7 +3029,7 @@ app-office/sc-im 0.8.3-r2 0.8.5: Ncurses based, vim-like spreadsheet calculator
 app-office/scribus 1.7.1_pre20251119 1.7.1 1.7.2 9999: Desktop publishing (DTP) and layout program
 app-office/skrooge 25.10.0 26.1.20: Personal finances manager, aiming at being simple and intuitive
 app-office/texmaker 6.0.1: Powerful LaTeX-IDE
-app-office/texstudio 4.8.9-r1 4.9.0 4.9.1: Free cross-platform LaTeX editor (fork from texmakerX)
+app-office/texstudio 4.8.9-r1 4.9.0 4.9.1 4.9.2: Free cross-platform LaTeX editor (fork from texmakerX)
 app-office/unoconv 0.9.0-r1: Convert between document formats supported by LibreOffice
 app-office/worklog-assistant-bin 2.3.3900: Hassle-free time tracking for JIRA self-hosted and OnDemand
 app-office/wps-office 11.1.0.11723 11.1.0.11723-r1: WPS Office is an office productivity suite
@@ -12723,7 +12723,7 @@ mail-filter/postforward 1.1.1-r1: Postfix Sender Rewriting Scheme forwarding age
 mail-filter/postfwd 2.02-r1 2.03: Versatile Postfix policy server with a flexible ruleset based configuration
 mail-filter/postgrey 1.37_p20220122 1.37_p20230714: Postgrey is a Postfix policy server implementing greylisting
 mail-filter/postsrsd 1.12 2.0.11-r5: Postfix Sender Rewriting Scheme daemon
-mail-filter/procmail 3.24 3.24-r1: Mail delivery agent/filter
+mail-filter/procmail 3.24-r1: Mail delivery agent/filter
 mail-filter/pyzor 1.1.2: A distributed, collaborative spam detection and filtering network
 mail-filter/razor 2.85-r5: Distributed, collaborative spam detection and filtering network
 mail-filter/rblcheck 1.5-r3: Perform lookups in RBL-styles services
@@ -16603,6 +16603,7 @@ sec-keys/openpgp-keys-chetramey 20220406: OpenPGP keys used by Chet Ramey
 sec-keys/openpgp-keys-chrislamb 20260211: OpenPGP key used by Chris Lamb
 sec-keys/openpgp-keys-cjwatson 20260124 20260210: OpenPGP key used by Colin Watson
 sec-keys/openpgp-keys-colordiff 20260118: OpenPGP keys used to sign colordiff releases
+sec-keys/openpgp-keys-conserver 20180324: OpenPGP keys used by the conserver developer
 sec-keys/openpgp-keys-coreutils 20220407 20250806 20260210: OpenPGP keys used by GNU coreutils
 sec-keys/openpgp-keys-craigsmall 20260203: OpenPGP key used by Craig Small
 sec-keys/openpgp-keys-crypto++ 20210416: OpenPGP keys used to sign crypto++ releases
