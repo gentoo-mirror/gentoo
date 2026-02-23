@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,6 +18,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
 IUSE="test-full"
 
 BDEPEND="
@@ -27,7 +28,7 @@ BDEPEND="
 		dev-python/packaging[${PYTHON_USEDEP}]
 		dev-python/pexpect[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep '
-			>=dev-python/gmpy2-2.3.0_alpha1[${PYTHON_USEDEP}]
+			>=dev-python/gmpy2-2.3[${PYTHON_USEDEP}]
 		' 'python3*')
 		test-full? (
 			$(python_gen_cond_dep '
