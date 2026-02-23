@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/gnutls.asc
 inherit libtool multilib-minimal verify-sig
 
-DESCRIPTION="A secure communications library implementing the SSL, TLS and DTLS protocols"
+DESCRIPTION="Secure communications library implementing the SSL, TLS and DTLS protocols"
 HOMEPAGE="https://www.gnutls.org/"
 SRC_URI="mirror://gnupg/gnutls/v$(ver_cut 1-2)/${P}.tar.xz"
 SRC_URI+=" verify-sig? ( mirror://gnupg/gnutls/v$(ver_cut 1-2)/${P}.tar.xz.sig )"
@@ -17,12 +17,12 @@ LICENSE="GPL-3 LGPL-2.1+"
 # Subslot format:
 # <libgnutls.so number>.<libgnutlsxx.so number>
 SLOT="0/30.30"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
-IUSE="brotli +cxx dane doc examples +idn nls +openssl pkcs11 sslv2 sslv3 static-libs test test-full +tls-heartbeat tools zlib zstd"
+KEYWORDS="~amd64"
+IUSE="brotli +cxx dane doc examples +idn nls +openssl pkcs11 +post-quantum sslv2 sslv3"
+IUSE+=" systemtap static-libs test test-full +tls-heartbeat tools zlib zstd"
 REQUIRED_USE="test-full? ( cxx dane doc examples idn nls openssl pkcs11 tls-heartbeat tools )"
 RESTRICT="!test? ( test )"
 
-# >=nettle-3.10 as a workaround for bug #936011
 RDEPEND="
 	>=dev-libs/libtasn1-4.9:=[${MULTILIB_USEDEP}]
 	dev-libs/libunistring:=[${MULTILIB_USEDEP}]
@@ -32,6 +32,7 @@ RDEPEND="
 	dane? ( >=net-dns/unbound-1.4.20:=[${MULTILIB_USEDEP}] )
 	nls? ( >=virtual/libintl-0-r1:=[${MULTILIB_USEDEP}] )
 	pkcs11? ( >=app-crypt/p11-kit-0.23.1[${MULTILIB_USEDEP}] )
+	post-quantum? ( >=dev-libs/leancrypto-1.2.0:=[${MULTILIB_USEDEP}] )
 	idn? ( >=net-dns/libidn2-0.16-r1:=[${MULTILIB_USEDEP}] )
 	zlib? ( virtual/zlib:=[${MULTILIB_USEDEP}] )
 	zstd? ( >=app-arch/zstd-1.3.0:=[${MULTILIB_USEDEP}] )
@@ -39,6 +40,7 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	test-full? ( sys-libs/libseccomp )
+	systemtap? ( dev-debug/systemtap )
 "
 BDEPEND="
 	dev-build/gtk-doc-am
@@ -64,10 +66,6 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 	MIN
 	alignof
 	static_assert
-)
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-3.8.10-tests.patch
 )
 
 src_prepare() {
@@ -133,10 +131,12 @@ multilib_src_configure() {
 		$(use_enable sslv2 ssl2-support)
 		$(use_enable sslv3 ssl3-support)
 		$(use_enable static-libs static)
+		$(use_enable systemtap crypto-auditing)
 		$(use_enable tls-heartbeat heartbeat-support)
 		$(use_with brotli '' link)
 		$(use_with idn)
 		$(use_with pkcs11 p11-kit)
+		$(use_with post-quantum leancrypto)
 		$(use_with zlib '' link)
 		$(use_with zstd '' link)
 		--disable-rpath
