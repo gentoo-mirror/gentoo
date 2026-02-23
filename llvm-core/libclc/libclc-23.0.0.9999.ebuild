@@ -12,7 +12,7 @@ HOMEPAGE="https://libclc.llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( MIT BSD )"
 SLOT="0"
-IUSE="+spirv video_cards_nvidia video_cards_r600 video_cards_radeonsi"
+IUSE="+spirv video_cards_nvidia video_cards_radeonsi"
 
 BDEPEND="
 	${PYTHON_DEPS}
@@ -20,7 +20,7 @@ BDEPEND="
 		llvm-core/clang:${LLVM_SLOT}
 	')
 	spirv? (
-		>=dev-util/spirv-llvm-translator-22:*
+		>=dev-util/spirv-llvm-translator-23:*
 	)
 "
 
@@ -46,9 +46,6 @@ src_configure() {
 		"nvptx64--"
 		"nvptx64--nvidiacl"
 		"nvptx64-nvidia-cuda"
-	)
-	use video_cards_r600 && libclc_targets+=(
-		"r600--"
 	)
 	use video_cards_radeonsi && libclc_targets+=(
 		"amdgcn--"
