@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit go-module optfeature shell-completion
 
 # git rev-parse HEAD
-MY_GIT_COMMIT="d53baa7f84687d156bd8a3a80d7ea2fbd8e0a993"
+MY_GIT_COMMIT="50b9b4d0cf1caaf56147411a1e6765134e0e82b9"
 
 MY_PN="kubevirt"
 MY_P="${MY_PN}-${PV}"

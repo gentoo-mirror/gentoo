@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,6 +31,8 @@ src_configure() {
 	local emesonargs=(
 		-Duuctl=enabled
 		-Dfumon=enabled
+		-Dttyautolock=enabled
+		-Dwait-tray=enabled
 		-Duwsm-app=enabled
 		$(meson_feature man man-pages)
 		-Ddocdir=/usr/share/doc/"${PF}"
