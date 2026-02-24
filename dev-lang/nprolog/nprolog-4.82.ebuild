@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,12 +16,13 @@ else
 	SRC_URI="https://github.com/sasagawa888/${PN}/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="BSD-2"
 SLOT="0"
 IUSE="doc"
+RESTRICT="test"  # Tests run cppcheck, see #969634.
 
 DOCS=( README{,-ja}.md )
 
@@ -35,6 +36,11 @@ src_prepare() {
 
 src_compile() {
 	emake CC="$(tc-getCC)" CFLAGS="${CFLAGS} ${LDFLAGS}"
+}
+
+src_test() {
+	# No real tests. See above.
+	:
 }
 
 src_install() {

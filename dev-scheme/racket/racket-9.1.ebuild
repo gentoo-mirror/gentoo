@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -74,12 +74,10 @@ PKGDB=(
 src_prepare() {
 	# Prepare the environment.
 	unset PLTADDONDIR PLTCOLLECTS PLTCONFIGDIR PLTUSERHOME
+	# Remove bundled libffi.
+	rm -r "${S}/bc/foreign/libffi" || die "failed to remove bundled libffi"
 
 	default
-
-	# Remove bundled libffi.
-	rm -r "${S}/bc/foreign/libffi" \
-		|| die "failed to remove bundled libffi"
 }
 
 src_configure() {

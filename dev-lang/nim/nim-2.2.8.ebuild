@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,13 +19,12 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~x86"
+KEYWORDS="~amd64 ~arm ~x86"
 
 IUSE="test-js test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
-	sys-process/parallel
 	test? (
 		dev-db/sqlite:3
 		dev-libs/boehm-gc
@@ -40,7 +39,7 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/${PN}-2.2.0-makefile.patch" )
+PATCHES=( "${FILESDIR}/nim-2.2.6-makefile.patch" )
 
 src_configure() {
 	xdg_environment_reset  # bug #667182
@@ -70,7 +69,6 @@ src_configure() {
 
 		$([[ "${NOCOLOR}" == true || "${NOCOLOR}" == yes ]] && echo '--colors:"off"')
 		-d:"release"
-		--parallelBuild:"$(makeopts_jobs)"
 
 		# some tests don't work with processing hints
 		--processing:"off"
@@ -139,17 +137,13 @@ src_test() {
 			testdata )
 				:
 				;;
-
-			arc | async | coroutines | errmsgs | exception | gc | \
-			ic | int | js | msgs | objects | overflow | \
-			stdlib | stylecheck | system | testament | untestable | \
-			valgrind )
+			arc | async | coroutines | errmsgs | exception | generics | gc | \
+			ic | int | js | lent | msgs | objects | overflow | stdlib | \
+			stylecheck | system | testament | untestable | valgrind )
 				einfo "Skipped nim test category: ${tcat}"
 				;;
-
 			* )
 				einfo "Running tests in category '${tcat}'..."
-
 				nonfatal \
 					edo ./bin/testament "${testament_args[@]}" \
 					category "${tcat}" "${nimflags[@]}" \
