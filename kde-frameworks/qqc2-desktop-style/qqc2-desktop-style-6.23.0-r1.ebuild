@@ -29,6 +29,8 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
+PATCHES=( "${FILESDIR}/${P}-fix-menu-width-height.patch" )
+
 CMAKE_SKIP_TESTS=(
 	# bug 926509
 	animationspeedmodifiertest
