@@ -15,7 +15,7 @@ HOMEPAGE="https://marble.kde.org/"
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6/$(ver_cut 1-2)"
 KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
-IUSE="aprs +dbus designer +geolocation gps +kde +pbf phonon shapefile +webengine"
+IUSE="aprs +dbus designer +geolocation gps +kde +pbf shapefile +webengine"
 
 # bug 588320
 RESTRICT="test"
@@ -46,7 +46,6 @@ DEPEND="
 		dev-cpp/abseil-cpp:=
 		dev-libs/protobuf:=
 	)
-	phonon? ( >=media-libs/phonon-4.12.0[qt6(+)] )
 	shapefile? ( sci-libs/shapelib:= )
 	webengine? (
 		>=dev-qt/qtwebchannel-${QTMIN}:6
@@ -79,7 +78,7 @@ src_configure() {
 		-DWITH_DESIGNER_PLUGIN=$(usex designer)
 		-DWITH_libgps=$(usex gps)
 		$(cmake_use_find_package pbf Protobuf)
-		-DWITH_Phonon4Qt6=$(usex phonon)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Phonon4Qt6=ON
 		-DWITH_libshp=$(usex shapefile)
 		$(cmake_use_find_package webengine Qt6WebEngineWidgets)
 		-DWITH_libwlocate=OFF
