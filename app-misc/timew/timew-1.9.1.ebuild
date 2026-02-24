@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit cmake shell-completion
 
 DESCRIPTION="Tracks your time from the command line, and generates reports"
-HOMEPAGE="https://timewarrior.net"
+HOMEPAGE="https://timewarrior.net/"
 SRC_URI="https://github.com/GothenburgBitFactory/timewarrior/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="MIT"
