@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit python-single-r1 xdg
 
@@ -13,16 +13,15 @@ SRC_URI="https://github.com/JFreegman/toxic/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+audio-notify debug experimental games llvm notification png python qrcode +sound +video +X"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )
 	video? ( sound X ) "
 
-BDEPEND="dev-libs/libconfig:=
-	virtual/pkgconfig"
+BDEPEND="virtual/pkgconfig"
 
-RDEPEND="
-	>=net-libs/tox-0.2.19:=[experimental?]
+RDEPEND="dev-libs/libconfig:=
+	>=net-libs/tox-0.2.22:=
 	net-misc/curl
 	sys-kernel/linux-headers
 	sys-libs/ncurses:=
@@ -31,6 +30,7 @@ RDEPEND="
 		media-libs/openal
 	)
 	debug? ( llvm? ( llvm-core/llvm:* ) )
+	experimental? ( net-libs/tox[experimental] )
 	notification? ( x11-libs/libnotify )
 	python? ( ${PYTHON_DEPS} )
 	qrcode? (
@@ -39,6 +39,10 @@ RDEPEND="
 	)
 	sound? (
 		media-libs/openal
+		net-libs/tox:=[av]
+	)
+	video? (
+		media-libs/libvpx:=
 		net-libs/tox:=[av]
 	)
 	X? (
@@ -117,4 +121,10 @@ src_install() {
 	if ! use audio-notify; then
 		rm -r "${ED}"/usr/share/${PN}/sounds || die "Could not remove sounds directory"
 	fi
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+	einfo	"An example config file has been installed at /usr/share/toxic/toxic.conf.example"
+	einfo	"Feel free to copy it to ~/.config/tox/toxic.conf and modify as desired"
 }
