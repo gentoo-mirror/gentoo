@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_SINGLE_IMPL=yes
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{12..14} )
-
+PYPI_VERIFY_REPO=https://github.com/dbcli/mycli
 inherit distutils-r1 edo eapi9-ver multiprocessing pypi
 
 DESCRIPTION="CLI for MySQL Database with auto-completion and syntax highlighting"
@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="BSD MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 
 # optional llm unpackaged
 IUSE="ssh"
@@ -28,7 +28,7 @@ IUSE="ssh"
 # https://github.com/dbcli/mycli/issues/1464
 RDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/cli-helpers-2.10.0[${PYTHON_USEDEP}]
+		>=dev-python/cli-helpers-2.10.1[${PYTHON_USEDEP}]
 		>=dev-python/click-8.3.1[${PYTHON_USEDEP}]
 		>=dev-python/configobj-5.0.9[${PYTHON_USEDEP}]
 		>=dev-python/cryptography-46.0.5[${PYTHON_USEDEP}]
