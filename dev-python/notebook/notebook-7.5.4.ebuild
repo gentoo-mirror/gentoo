@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit distutils-r1 pypi xdg-utils
@@ -18,12 +18,12 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/jupyter-server-2.4.0[${PYTHON_USEDEP}]
 	<dev-python/jupyter-server-3[${PYTHON_USEDEP}]
-	>=dev-python/jupyterlab-4.5.1[${PYTHON_USEDEP}]
+	>=dev-python/jupyterlab-4.5.5[${PYTHON_USEDEP}]
 	<dev-python/jupyterlab-4.6[${PYTHON_USEDEP}]
 	>=dev-python/jupyterlab-server-2.28.0[${PYTHON_USEDEP}]
 	<dev-python/jupyterlab-server-3[${PYTHON_USEDEP}]
