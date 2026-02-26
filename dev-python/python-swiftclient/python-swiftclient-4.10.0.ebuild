@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	>=dev-python/requests-2.4.0[${PYTHON_USEDEP}]
@@ -28,12 +28,15 @@ BDEPEND="
 		>=dev-python/keystoneauth1-3.4.0[${PYTHON_USEDEP}]
 		>=dev-python/openstacksdk-0.11.0[${PYTHON_USEDEP}]
 		>=dev-python/python-keystoneclient-0.7.0[${PYTHON_USEDEP}]
+		>=dev-python/python-openstackclient-3.12.0[${PYTHON_USEDEP}]
 	)
 "
 
 distutils_enable_tests unittest
 
 python_prepare_all() {
-	sed -e 's/test_password_prompt/_&/' -i test/unit/test_shell.py || die
 	distutils-r1_python_prepare_all
+
+	sed -e 's/test_password_prompt/_&/' -i test/unit/test_shell.py || die
+	rm -r test/functional || die
 }

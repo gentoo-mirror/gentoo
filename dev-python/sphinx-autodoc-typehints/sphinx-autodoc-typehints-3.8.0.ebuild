@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/sphinx-9.0.4[${PYTHON_USEDEP}]
@@ -27,6 +27,8 @@ RDEPEND="
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
+		>=dev-python/attrs-22[${PYTHON_USEDEP}]
+		>=dev-python/numpydoc-1.8[${PYTHON_USEDEP}]
 		>=dev-python/sphobjinv-2.3.1[${PYTHON_USEDEP}]
 		>=dev-python/typing-extensions-4.5[${PYTHON_USEDEP}]
 	)
@@ -37,5 +39,5 @@ distutils_enable_tests pytest
 
 EPYTEST_DESELECT=(
 	# Internet
-	tests/test_sphinx_autodoc_typehints.py::test_format_annotation
+	tests/test_annotations.py::test_format_annotation
 )

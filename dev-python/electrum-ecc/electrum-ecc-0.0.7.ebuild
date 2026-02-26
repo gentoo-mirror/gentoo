@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,11 +16,12 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
-# check ecc_fast.py for supported SOVERSIONS
+# ecc_fast.py KNOWN_COMPATIBLE_ABI_VERSIONS
 RDEPEND="
 	|| (
+		dev-libs/libsecp256k1:0/6
 		dev-libs/libsecp256k1:0/5
 		dev-libs/libsecp256k1:0/2
 	)
