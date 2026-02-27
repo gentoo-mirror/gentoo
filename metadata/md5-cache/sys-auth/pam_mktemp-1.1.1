@@ -1,4 +1,4 @@
-DEFINED_PHASES=compile install prepare
+DEFINED_PHASES=compile install
 DEPEND=sys-libs/pam selinux? ( sys-libs/libselinux ) prevent-removal? ( sys-kernel/linux-headers )
 DESCRIPTION=Create per-user private temporary directories during login
 EAPI=8
@@ -11,4 +11,4 @@ RDEPEND=sys-libs/pam selinux? ( sys-libs/libselinux )
 SLOT=0
 SRC_URI=https://www.openwall.com/pam/modules/pam_mktemp/pam_mktemp-1.1.1.tar.gz
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	pam	b56d0c9c20fc5b553f13c8ae165a10a5
-_md5_=6865a53a6d563324c19003307e514983
+_md5_=3c95b6ad381219198d1c3f333fecc464
