@@ -21,6 +21,11 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	x11-base/xorg-server[xvfb]
 "
+BDEPEND="
+	test? (
+		dev-python/psutil[${PYTHON_USEDEP}]
+	)
+"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
