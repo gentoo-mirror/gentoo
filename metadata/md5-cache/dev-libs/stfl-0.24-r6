@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=http://www.clifford.at/stfl/
 INHERIT=edo perl-module python-r1 toolchain-funcs
 IUSE=examples perl python ruby static-libs perl_features_debug perl_features_ithreads perl_features_quadmath python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
-KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 x86
+KEYWORDS=amd64 ~arm ~arm64 ppc ~ppc64 x86
 LICENSE=LGPL-3
 RDEPEND=sys-libs/ncurses:=[unicode(+)] perl? ( >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:= ) ruby? ( dev-lang/ruby:* ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) )
 REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 ) )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=http://www.clifford.at/stfl/stfl-0.24.tar.gz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	readme.gentoo-r1	b045f3acf546393ab6b3170781875358	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	perl-module	41920449ca174fe9b9b303dfcbdb37a3	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38
-_md5_=f8c3ff8031dddf1c5c49973e8613034d
+_md5_=e3fb7bc7b6c356c781ca2892bf716045
