@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-CHROMIUM_VERSION="137"
+CHROMIUM_VERSION="145"
 CHROMIUM_LANGS="
 	af
 	am
@@ -107,8 +107,7 @@ RDEPEND="
 	x11-libs/pango
 	virtual/libudev
 	|| ( gui-libs/gtk:4 x11-libs/gtk+:3 )
-	!<games-rpg/crosscode-1.4.2.2-r1
-	!ffmpeg-chromium? ( >=media-video/ffmpeg-7.1:0/59.61.61[chromium] )
+	!ffmpeg-chromium? ( media-video/ffmpeg:0/60.62.62[chromium] )
 	ffmpeg-chromium? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
 "
 
