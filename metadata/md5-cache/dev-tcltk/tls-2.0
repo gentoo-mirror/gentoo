@@ -1,0 +1,13 @@
+DEFINED_PHASES=configure install
+DEPEND=dev-lang/tcl:0= dev-libs/openssl:0= tk? ( dev-lang/tk:0= )
+DESCRIPTION=TLS OpenSSL extension to Tcl
+EAPI=8
+HOMEPAGE=http://tls.sourceforge.net/
+IUSE=tk
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=BSD
+RDEPEND=dev-lang/tcl:0= dev-libs/openssl:0= tk? ( dev-lang/tk:0= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://core.tcl.tk/tcltls/uv/tcltls-2.0-src.tar.gz
+_md5_=e21ec33afcbe581b4a34c3caa56a5af0
