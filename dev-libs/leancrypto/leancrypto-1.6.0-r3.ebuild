@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit dot-a meson-multilib
+inherit dot-a meson-multilib toolchain-funcs
 
 DESCRIPTION="Lean cryptographic library usable for bare-metal environments "
 HOMEPAGE="https://leancrypto.org/"
@@ -20,7 +20,7 @@ else
 		verify-sig? ( https://leancrypto.org/leancrypto/releases/${P}/${P}.tar.xz.asc )
 	"
 
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~riscv ~s390 ~x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~m68k ~riscv ~s390 ~x86"
 
 	BDEPEND="
 		verify-sig? ( sec-keys/openpgp-keys-leancrypto )
@@ -46,6 +46,8 @@ src_configure() {
 }
 
 multilib_src_configure() {
+	tc-ld-is-mold && tc-ld-force-bfd
+
 	local native_file="${T}"/meson.${CHOST}.${ABI}.ini.local
 	cat >> ${native_file} <<-EOF || die
 	[binaries]
