@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,27 +17,27 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
-	>dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/debtcollector-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/keystoneauth1-3.4.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-config-5.2.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-i18n-3.15.3[${PYTHON_USEDEP}]
-	>dev-python/oslo-serialization-2.19.1[${PYTHON_USEDEP}]
+	>=dev-python/oslo-serialization-2.19.1[${PYTHON_USEDEP}]
 	>=dev-python/oslo-utils-3.33.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.14.2[${PYTHON_USEDEP}]
 	>=dev-python/six-1.10.0[${PYTHON_USEDEP}]
 	>=dev-python/stevedore-1.20.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/lxml-4.5.0[${PYTHON_USEDEP}]
 		>=dev-python/oauthlib-0.6.2[${PYTHON_USEDEP}]
-		>=dev-python/os-client-config-1.28.0[${PYTHON_USEDEP}]
+		>=dev-python/openstacksdk-0.10.0[${PYTHON_USEDEP}]
 		>=dev-python/oslotest-3.2.0[${PYTHON_USEDEP}]
 		>=dev-python/requests-mock-1.2.0[${PYTHON_USEDEP}]
 		>=dev-python/tempest-17.1.0[${PYTHON_USEDEP}]

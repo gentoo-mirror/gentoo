@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,13 +17,13 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/keystoneauth1-3.6.2[${PYTHON_USEDEP}]
 	>=dev-python/oslo-utils-3.33.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-i18n-3.15.3[${PYTHON_USEDEP}]
-	>dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/prettytable-0.7.1[${PYTHON_USEDEP}]
 	>=dev-python/pyopenssl-17.1.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.14.2[${PYTHON_USEDEP}]
@@ -31,10 +31,11 @@ RDEPEND="
 	>=dev-python/wrapt-1.7.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/pbr-2.1.0[${PYTHON_USEDEP}]
 	test? (
 		dev-python/ddt[${PYTHON_USEDEP}]
 		dev-python/fixtures[${PYTHON_USEDEP}]
+		>=dev-python/openstacksdk-0.10.0[${PYTHON_USEDEP}]
 		dev-python/requests-mock[${PYTHON_USEDEP}]
 		dev-python/tempest[${PYTHON_USEDEP}]
 		dev-python/testscenarios[${PYTHON_USEDEP}]
@@ -49,10 +50,6 @@ PATCHES=(
 	# https://bugs.launchpad.net/python-glanceclient/+bug/2069684
 	# https://bugs.launchpad.net/python-glanceclient/+bug/2069682
 	"${FILESDIR}/${PN}-4.6.0-test.patch"
-
-	# py3.13 added close() to mock_open calls
-	# https://review.opendev.org/c/openstack/python-glanceclient/+/923628
-	"${FILESDIR}/${PN}-4.6.0-test-py3.13.patch"
 )
 
 python_test() {

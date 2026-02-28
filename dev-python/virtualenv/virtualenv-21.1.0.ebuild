@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~riscv ~s390"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -27,6 +27,7 @@ RDEPEND="
 	>=dev-python/distlib-0.3.7[${PYTHON_USEDEP}]
 	>=dev-python/filelock-3.24.2[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-3.9.1[${PYTHON_USEDEP}]
+	>=dev-python/python-discovery-1[${PYTHON_USEDEP}]
 
 	dev-python/ensurepip-pip
 	>=dev-python/ensurepip-setuptools-70.1
@@ -61,7 +62,7 @@ BDEPEND="
 src_prepare() {
 	local PATCHES=(
 		# use wheels from ensurepip bundle
-		"${FILESDIR}/${PN}-20.31.1-ensurepip.patch"
+		"${FILESDIR}/${PN}-21.1.0-ensurepip.patch"
 	)
 
 	distutils-r1_src_prepare
