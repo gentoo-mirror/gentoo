@@ -1,9 +1,12 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit libtool
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{11..14} )
+
+inherit distutils-r1 libtool
 
 DESCRIPTION="An Embeddable Fulltext Search Engine"
 HOMEPAGE="https://groonga.org/"
@@ -12,10 +15,7 @@ SRC_URI="https://packages.groonga.org/source/${PN}/${P}.tar.gz"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="benchmark debug doc +exact-alloc-count examples futex jemalloc libedit libevent lzo +mecab msgpack +nfkc sphinx static-libs uyield zeromq zlib zstd"
-REQUIRED_USE="
-	sphinx? ( doc )
-"
+IUSE="benchmark debug doc +exact-alloc-count examples futex libedit libevent lzo +mecab msgpack +nfkc sphinx static-libs uyield zeromq zlib zstd"
 
 DEPEND="
 	acct-group/groonga
@@ -24,7 +24,6 @@ DEPEND="
 	dev-libs/rapidjson
 	dev-libs/xxhash
 	benchmark? ( >=dev-libs/glib-2.8 )
-	jemalloc? ( dev-libs/jemalloc:0= )
 	libedit? ( >=dev-libs/libedit-3 )
 	libevent? ( dev-libs/libevent:0= )
 	lzo? ( dev-libs/lzo )
@@ -38,8 +37,11 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	sphinx? ( dev-python/sphinx )
 "
+
+distutils_enable_sphinx doc/source \
+	dev-python/myst-parser \
+	dev-python/pydata-sphinx-theme
 
 src_prepare() {
 	default
@@ -64,12 +66,12 @@ src_configure() {
 		--with-shared-onigmo
 		--with-onigmo=system
 		--with-xxhash
+		--without-jemalloc
 		$(use_enable benchmark)
 		$(use_enable debug memory-debug)
 		$(use_enable doc document)
 		$(use_enable exact-alloc-count)
 		$(use_enable futex)
-		$(use_with jemalloc)
 		$(use_enable libedit)
 		$(use_with libevent)
 		$(use_with lzo)
@@ -86,6 +88,10 @@ src_configure() {
 	)
 
 	econf "${econfopts[@]}"
+}
+
+src_compile() {
+	use doc && MAKEOPTS+=" -j1" # docs fail with parallel build. Bug: 904135
 }
 
 src_install() {
