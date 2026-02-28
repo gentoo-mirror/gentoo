@@ -119,6 +119,7 @@ fi
 
 PATCHES=(
 	"${FILESDIR}/4.4.6-lto.patch"
+	"${FILESDIR}/4.6.2-gnutls-pkcs11.patch"
 )
 
 python_check_deps() {

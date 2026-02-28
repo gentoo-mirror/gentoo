@@ -1,16 +1,18 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=(python3_{10,11,12})
+PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1
 
 DESCRIPTION="SSH server auditing (banner, key exchange, encryption, mac, compression, etc)"
 HOMEPAGE="https://github.com/jtesta/ssh-audit"
-SRC_URI="https://github.com/jtesta/ssh-audit/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+COMMIT="4f9a630de4292663bd50fff4dfa347c53316ca37"
+SRC_URI="https://github.com/jtesta/ssh-audit/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="MIT"
 SLOT="0"

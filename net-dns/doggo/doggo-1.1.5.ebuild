@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,12 +8,13 @@ inherit go-module shell-completion
 DESCRIPTION="Command-line DNS Client for Humans"
 HOMEPAGE="https://github.com/mr-karan/doggo"
 
-SRC_URI="https://github.com/mr-karan/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://www.applied-asynchrony.com/distfiles/${P}-deps.tar.xz"
+SRC_URI="https://github.com/mr-karan/doggo/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/gentoo-golang-dist/doggo/releases/download/v${PV}/${P}-vendor.tar.xz
+"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 src_compile() {
 	emake build-cli VERSION=${PV}
