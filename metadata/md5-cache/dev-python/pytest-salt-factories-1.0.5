@@ -1,0 +1,16 @@
+BDEPEND=dev-python/setuptools-scm[python_targets_python3_12(-)?] test? ( dev-python/importlib-metadata[python_targets_python3_12(-)?] dev-python/pyfakefs[python_targets_python3_12(-)?] dev-python/pytest-subtests[python_targets_python3_12(-)?] ) test? ( dev-python/attrs[python_targets_python3_12(-)?] dev-python/docker[python_targets_python3_12(-)?] dev-python/psutil[python_targets_python3_12(-)?] >=dev-python/pytest-7.0.0[python_targets_python3_12(-)?] dev-python/pytest-helpers-namespace[python_targets_python3_12(-)?] dev-python/pytest-skip-markers[python_targets_python3_12(-)?] dev-python/pytest-system-statistics[python_targets_python3_12(-)?] >=dev-python/pytest-shell-utilities-1.4.0[python_targets_python3_12(-)?] dev-python/pyzmq[python_targets_python3_12(-)?] dev-python/msgpack[python_targets_python3_12(-)?] dev-python/virtualenv[python_targets_python3_12(-)?] >=app-admin/salt-3005.1[python_targets_python3_12(-)?] >=dev-python/pytest-7.4.4[python_targets_python3_12(-)?] ) python_targets_python3_12? ( dev-lang/python:3.12 ) >=dev-python/gpep517-16[python_targets_python3_12(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_12(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=The new generation of the pytest-salt Plugin
+EAPI=8
+HOMEPAGE=https://github.com/saltstack/pytest-salt-factories/ https://pypi.org/project/pytest-salt-factories/
+INHERIT=distutils-r1
+IUSE=test python_targets_python3_12
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-python/attrs[python_targets_python3_12(-)?] dev-python/docker[python_targets_python3_12(-)?] dev-python/psutil[python_targets_python3_12(-)?] >=dev-python/pytest-7.0.0[python_targets_python3_12(-)?] dev-python/pytest-helpers-namespace[python_targets_python3_12(-)?] dev-python/pytest-skip-markers[python_targets_python3_12(-)?] dev-python/pytest-system-statistics[python_targets_python3_12(-)?] >=dev-python/pytest-shell-utilities-1.4.0[python_targets_python3_12(-)?] dev-python/pyzmq[python_targets_python3_12(-)?] dev-python/msgpack[python_targets_python3_12(-)?] dev-python/virtualenv[python_targets_python3_12(-)?] >=app-admin/salt-3005.1[python_targets_python3_12(-)?] python_targets_python3_12? ( dev-lang/python:3.12 )
+REQUIRED_USE=|| ( python_targets_python3_12 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/saltstack/pytest-salt-factories/archive/1.0.5.tar.gz -> pytest-salt-factories-1.0.5.gh.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701
+_md5_=6e837a6bf63544b1c5a9886438a8be90
