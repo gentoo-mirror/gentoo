@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,8 +12,8 @@ SRC_URI="https://downloads.sourceforge.net/project/${PN}/${PN}/${PV}/${P}.tar.bz
 LICENSE="qwt"
 SLOT="6/2.0"
 KEYWORDS="amd64 ~arm ppc ppc64 ~riscv ~sparc x86"
-IUSE="designer doc examples opengl polar +qt5 qt6 svg"
-REQUIRED_USE="|| ( qt5 qt6 )"
+IUSE="designer doc examples opengl polar qt5 +qt6 svg"
+REQUIRED_USE="designer? ( qt6 ) || ( qt5 qt6 )"
 
 # tests require package to be already installed
 RESTRICT="test"
@@ -25,7 +25,6 @@ DEPEND="
 		dev-qt/qtgui:5
 		dev-qt/qtprintsupport:5
 		dev-qt/qtwidgets:5
-		designer? ( dev-qt/designer:5 )
 		opengl? (
 				dev-qt/qtopengl:5
 				virtual/opengl
@@ -67,7 +66,7 @@ src_prepare() {
 			QWT_VERSION = ${PV/_*}
 		EOF
 
-		use designer && echo "QWT_CONFIG += QwtDesigner" >> qwtconfig.pri
+		use qt6 && use designer && echo "QWT_CONFIG += QwtDesigner" >> qwtconfig.pri
 		use opengl && echo "QWT_CONFIG += QwtOpenGL" >> qwtconfig.pri
 		use polar && echo "QWT_CONFIG += QwtPolar" >> qwtconfig.pri
 		use svg && echo "QWT_CONFIG += QwtSvg" >> qwtconfig.pri
