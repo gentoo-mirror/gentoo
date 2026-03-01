@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install postinst test
+DEPEND=>=sys-fs/e2fsprogs-1.27:= sys-apps/util-linux bzip2? ( app-arch/bzip2:= ) zlib? ( >=virtual/zlib-1.1.4:= ) lzo? ( dev-libs/lzo:2= ) sqlite? ( dev-db/sqlite:3= ) ermt? ( dev-libs/openssl:0= ) ssl? ( dev-libs/openssl:0= ) readline? ( sys-libs/readline:0= sys-libs/ncurses:= ) test? ( dev-cpp/catch:= ) virtual/os-headers
+DESCRIPTION=Dump/restore ext2fs backup utilities
+EAPI=8
+HOMEPAGE=https://dump.sourceforge.io/
+INHERIT=edo readme.gentoo-r1
+IUSE=bzip2 debug ermt lzo readline selinux sqlite ssl test +uuid zlib
+KEYWORDS=~alpha ~amd64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=BSD
+RDEPEND=>=sys-fs/e2fsprogs-1.27:= sys-apps/util-linux bzip2? ( app-arch/bzip2:= ) zlib? ( >=virtual/zlib-1.1.4:= ) lzo? ( dev-libs/lzo:2= ) sqlite? ( dev-db/sqlite:3= ) ermt? ( dev-libs/openssl:0= ) ssl? ( dev-libs/openssl:0= ) readline? ( sys-libs/readline:0= sys-libs/ncurses:= ) test? ( dev-cpp/catch:= )
+REQUIRED_USE=ermt? ( ssl ) ssl? ( zlib ) test? ( lzo sqlite? ( uuid ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/dump/dump-0.4b54.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
+_md5_=c79529c5f77414da59b0cc66cfff85a2
