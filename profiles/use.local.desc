@@ -3560,7 +3560,6 @@ kde-apps/kdemultimedia-meta:cdrom - Include packages for optical discs
 kde-apps/kdenetwork-meta:bittorrent - Pull in net-p2p/ktorrent for BitTorrent protocol support
 kde-apps/kdenetwork-meta:dropbox - Enable support for Dropbox in kde-apps/dolphin via kde-apps/dolphin-plugins-dropbox
 kde-apps/kdenetwork-meta:samba - Enable support for net-fs/samba file sharing plugin from within file properties
-kde-apps/kdenetwork-meta:screencast - Pull in kde-apps/krfb for Plasma desktop sharing support
 kde-apps/kdenetwork-meta:webengine - Enable support for Google Drive integration via kde-misc/kio-gdrive
 kde-apps/kdenetwork-meta:zeroconf - Pull in packages using kde-frameworks/kdnssd
 kde-apps/kdenlive:designer - Build plugins for dev-qt/designer
@@ -3590,7 +3589,6 @@ kde-apps/kio-extras:ios - Enable AFC (Apple File Conduit) KIO worker for iOS dev
 kde-apps/kio-extras:libproxy - Enable support for WPAD problem detection via net-libs/libproxy
 kde-apps/kio-extras:man - Enable manpages KIO worker
 kde-apps/kio-extras:nfs - Enable NFS support using net-libs/libtirpc
-kde-apps/kio-extras:phonon - Enable file audio preview plugin using media-libs/phonon
 kde-apps/kio-extras:sftp - Enable SFTP protocol support using net-libs/libssh
 kde-apps/kio-extras:taglib - Enable audio thumbnails via media-libs/taglib
 kde-apps/kleopatra:pim - Enable WKS publishing support using kde-apps/kmail
@@ -3598,7 +3596,6 @@ kde-apps/kmag:keyboardfocus - Enable keyboard focus tracking
 kde-apps/kmail:activities - Enable Plasma Activities support via kde-plasma/plasma-activities
 kde-apps/konqueror:activities - Enable kactivities support
 kde-apps/korganizer:activities - Enable Plasma Activities support via kde-plasma/plasma-activities
-kde-apps/krdc:activities - Enable Plasma Activities support via kde-plasma/plasma-activities
 kde-apps/krdc:ssh - Enable VNC/RDP SSH tunnel support via net-libs/libssh
 kde-apps/ksystemlog:kdesu - Run as root using kdesu from kde-plasma/kde-cli-tools
 kde-apps/ktouch:X - Enable support for X11 Keyboard Layout Detection
@@ -3611,14 +3608,12 @@ kde-apps/marble:aprs - Enable support for APRS data sources
 kde-apps/marble:designer - Install plugin for dev-qt/designer
 kde-apps/marble:geolocation - Enable position information via dev-qt/qtpositioning
 kde-apps/marble:pbf - Enable OpenStreetMap PBF file support via dev-libs/protobuf
-kde-apps/marble:phonon - Enable sound support via media-libs/phonon
 kde-apps/marble:shapefile - Enable support for ESRI shapefiles
 kde-apps/marble:webengine - Use dev-qt/qtwebengine for embedded web browser
 kde-apps/okular:crypt - Enable support for password-encrypted documents via kde-frameworks/kwallet
 kde-apps/okular:epub - Enable E-Book support via app-text/ebook-tools
 kde-apps/okular:markdown - Enable Markdown support via app-text/discount
 kde-apps/okular:mobi - Enable mobipocket support via kde-apps/kdegraphics-mobipocket
-kde-apps/okular:phonon - Enable sound support via media-libs/phonon
 kde-apps/okular:qml - Install Okular Qml components
 kde-apps/okular:share - Enable support for a share menu using kde-frameworks/purpose
 kde-apps/parley:webengine - Build browser integration for the editor, requires dev-qt/qtwebengine
@@ -4814,7 +4809,6 @@ media-sound/easyeffects:zamaudio - Enable use of media-plugins/zam-plugins for t
 media-sound/ecasound:lv2 - Add support for Ladspa V2
 media-sound/ecasound:oil - Use dev-libs/liboil for inner loop optimizations
 media-sound/elisa:mpris - Enable MPRIS support
-media-sound/elisa:vlc - Use media-video/vlc for output rather than dev-qt/qtmultimedia
 media-sound/fapg:xspf - Enable support for saving XSPF playlists.
 media-sound/fluidsynth:network - enable network support (requires BSD sockets)
 media-sound/fluidsynth:pipewire - enable media-video/pipewire support
@@ -4837,7 +4831,6 @@ media-sound/jack2:classic - Enable building of jackd
 media-sound/jack2:metadata - Enable metadata API
 media-sound/jack2:pam - Add basic realtime configuration via sys-auth/realtime-base
 media-sound/jack2:tools - Pull basic tools (e.g. jack_lsp/connect) from media-sound/jack-example-tools
-media-sound/kasts:vlc - Enable media-video/vlc backend
 media-sound/kid3:acoustid - Build acoustic fingerprinting plugin using media-libs/chromaprint
 media-sound/kid3:mpris - Enable support for MPRIS2 interface using dev-qt/qtdbus
 media-sound/klick:rubberband - Enable rubberband support
@@ -6831,7 +6824,6 @@ net-p2p/ktorrent:ipfilter - Filter IP addresses through a blocklist
 net-p2p/ktorrent:logviewer - Displays the logging output
 net-p2p/ktorrent:magnetgenerator - Generates magnet URI's
 net-p2p/ktorrent:mediaplayer - Enable dev-qt/qtmultimedia based media player
-net-p2p/ktorrent:phonon - Enable media-libs/phonon based media player
 net-p2p/ktorrent:rss - Syndication plugin for KTorrent, supporting RSS and Atom feeds
 net-p2p/ktorrent:scanfolder - Scan folders for torrent files and load them
 net-p2p/ktorrent:shutdown - Shutdown when done
