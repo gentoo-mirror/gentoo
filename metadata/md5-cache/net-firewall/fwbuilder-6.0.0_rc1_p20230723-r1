@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=dev-libs/libxml2:= dev-libs/libxslt dev-libs/openssl:= dev-qt/qtbase:6[gui,network,widgets] net-analyzer/net-snmp
+DEPEND=dev-libs/libxml2:= dev-libs/libxslt dev-libs/openssl:= dev-qt/qtbase:6[gui,network,widgets] net-analyzer/net-snmp:=
 DESCRIPTION=Firewall management GUI for iptables, PF, Cisco routers and more
 EAPI=8
 HOMEPAGE=https://github.com/fwbuilder/fwbuilder
@@ -9,9 +9,9 @@ INHERIT=cmake xdg
 IUSE=test
 KEYWORDS=amd64 ~ppc ppc64 x86
 LICENSE=GPL-2+
-RDEPEND=dev-libs/libxml2:= dev-libs/libxslt dev-libs/openssl:= dev-qt/qtbase:6[gui,network,widgets] net-analyzer/net-snmp
+RDEPEND=dev-libs/libxml2:= dev-libs/libxslt dev-libs/openssl:= dev-qt/qtbase:6[gui,network,widgets] net-analyzer/net-snmp:=
 RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://github.com/fwbuilder/fwbuilder/archive/8013c00e1f29350d96926768290e8c7f91cda424.tar.gz -> fwbuilder-6.0.0_rc1_p20230723-8013c00e.tar.gz
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=bfb978303ee9c8a46480883a7e5baa69
+_md5_=353b5dd3418ec409cfe2de0ff047de56
