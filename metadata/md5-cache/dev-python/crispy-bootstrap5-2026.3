@@ -1,0 +1,16 @@
+BDEPEND=test? ( >=dev-python/django-4.2[python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/django-crispy-forms-2.3[python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/pytest-7.4.4[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/pytest-django[python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Bootstrap5 template pack for django-crispy-forms
+EAPI=8
+HOMEPAGE=https://github.com/django-crispy-forms/crispy-bootstrap5/ https://pypi.org/project/crispy-bootstrap5/
+INHERIT=distutils-r1
+IUSE=test python_targets_python3_12 python_targets_python3_13
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-python/django-4.2[python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/django-crispy-forms-2.3[python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_12 python_targets_python3_13 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/django-crispy-forms/crispy-bootstrap5/archive/2026.3.tar.gz -> crispy-bootstrap5-2026.3.gh.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701
+_md5_=b3e4c39556c76c1a7ad2f96a974d877f
