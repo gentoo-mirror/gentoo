@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,10 +21,13 @@ S=${WORKDIR}/gherkin-${PV}/python
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	>=dev-python/uv-build-0.10[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()
