@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,10 +27,11 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
-		dev-python/pytest-django[${PYTHON_USEDEP}]
 		dev-python/crispy-bootstrap3[${PYTHON_USEDEP}]
 		dev-python/crispy-bootstrap4[${PYTHON_USEDEP}]
+		>=dev-python/sh-2[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-django )
 distutils_enable_tests pytest
