@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=x11-libs/libXt jpeg? ( media-libs/libjpeg-turbo:= ) tiff? ( media-libs/tiff:= ) png? ( >=media-libs/libpng-1.2:= virtual/zlib:= ) webp? ( media-libs/libwebp:= )
+DESCRIPTION=Interactive image manipulation program supporting a wide variety of formats
+EAPI=8
+HOMEPAGE=https://github.com/jasper-software/xv/
+INHERIT=cmake desktop xdg-utils
+IUSE=jpeg tiff png webp
+KEYWORDS=~alpha ~amd64 ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86
+LICENSE=xv
+RDEPEND=x11-libs/libXt jpeg? ( media-libs/libjpeg-turbo:= ) tiff? ( media-libs/tiff:= ) png? ( >=media-libs/libpng-1.2:= virtual/zlib:= ) webp? ( media-libs/libwebp:= )
+SLOT=0
+SRC_URI=https://github.com/jasper-software/xv/archive/refs/tags/v6.2.0.tar.gz -> xv-6.2.0.tar.gz https://dev.gentoo.org/~bkohler/dist/xv-3.10a.png.bz2
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	desktop	26d57169ca094c04be416993844ec8bc
+_md5_=15a20928818dda6cfc3be71abe33525c

@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gitweb.gentoo.org/proj/steve.git/
 INHERIT=linux-info meson python-any-r1 systemd udev
 IUSE=debug test
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~s390 ~x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ppc ~ppc64 ~riscv ~s390 x86
 LICENSE=GPL-2+
 PROPERTIES=test? ( test_privileged )
 RDEPEND=dev-libs/libevent:= sys-fs/fuse:3= acct-group/jobserver acct-user/steve >=sys-fs/fuse-common-3.10.4-r2
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~mgorny/dist/steve-1.5.0.tar.xz
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	linux-info	efd923656513c879204fec6638eadee5	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	sysroot	b9348e4d36f160f6d2556bea5b59f99c	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	ee14b47f310c323b82e6655787cd65ed	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	f3d9a4376ebd22131726a68e1a0a058f
-_md5_=c1efe421c2023b61ff416a9eedc130fd
+_md5_=1c42da4b7ab9e5859581e304614f9add

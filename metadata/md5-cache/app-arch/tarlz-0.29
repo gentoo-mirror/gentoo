@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.nongnu.org/lzip/tarlz.html
 INHERIT=toolchain-funcs unpacker verify-sig
 IUSE=test verify-sig
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=GPL-2+
 RDEPEND=>=app-arch/lzlib-1.12
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.29.tar.lz verify-sig? ( https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.29.tar.lz.sig )
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	multiprocessing	1e32df7deee68372153dca65f4a7c21f	unpacker	767e064ac3c6192d69d112d11dd05ba6	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=fc93f56677f99a1923919634da2ff73b
+_md5_=7698579b78e3c92e6f5cbc9ce8978e3f
