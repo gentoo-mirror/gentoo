@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=http://snapper.io/
 INHERIT=autotools systemd
 IUSE=lvm pam test systemd xattr
-KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+KEYWORDS=amd64 ~arm64 ~riscv x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/boost:= dev-libs/json-c:= dev-libs/libxml2:= dev-libs/icu:= sys-apps/acl sys-apps/dbus sys-apps/util-linux >=sys-fs/btrfs-progs-3.17.1 virtual/zlib:= virtual/libintl lvm? ( sys-fs/lvm2 ) pam? ( sys-libs/pam ) xattr? ( sys-apps/attr )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/openSUSE/snapper/archive/v0.13.0.tar.gz -> snapper-0.13.0.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=9a4c222de0b8c309e68c63362605c06e
+_md5_=a85d16dffb5243d13a826133bc2ba473
