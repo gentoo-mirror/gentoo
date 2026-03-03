@@ -4,7 +4,6 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
-PYPI_VERIFY_REPO=https://github.com/python-poetry/poetry
 PYTHON_COMPAT=( python3_{11..13} )
 
 inherit distutils-r1 pypi
@@ -12,27 +11,27 @@ inherit distutils-r1 pypi
 DESCRIPTION="A frontend for poetry - a python dependency management and packaging tool"
 HOMEPAGE="
 	https://python-poetry.org/
-	https://github.com/python-poetry/poetry/
+	https://github.com/python-poetry/poetry
 	https://pypi.org/project/poetry/
 "
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 ~arm64 ~x86"
 
 RDEPEND="
-	=dev-python/poetry-core-2.3.1[${PYTHON_USEDEP}]
+	=dev-python/poetry-core-$(ver_cut 1-2)*[${PYTHON_USEDEP}]
 	>=dev-python/poetry-plugin-export-1.6.0[${PYTHON_USEDEP}]
 	>=dev-python/build-1.2.1[${PYTHON_USEDEP}]
 	>=dev-python/cachecontrol-0.14.0[${PYTHON_USEDEP}]
 	>=dev-python/cleo-2.1.0[${PYTHON_USEDEP}]
-	>=dev-python/dulwich-0.25.0[${PYTHON_USEDEP}]
+	<dev-python/dulwich-0.25.0[${PYTHON_USEDEP}]
 	>=dev-python/fastjsonschema-2.18.0[${PYTHON_USEDEP}]
 	>=dev-python/findpython-0.6.2[${PYTHON_USEDEP}]
 	>=dev-python/installer-0.7.0[${PYTHON_USEDEP}]
 	>=dev-python/keyring-25.1.0[${PYTHON_USEDEP}]
 	>=dev-python/packaging-24.2[${PYTHON_USEDEP}]
-	>=dev-python/pbs-installer-2025.06.10[${PYTHON_USEDEP}]
+	>=dev-python/pbs-installer-2025.01.06[${PYTHON_USEDEP}]
 	>=dev-python/pkginfo-1.12[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-3.0.0[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.26[${PYTHON_USEDEP}]
@@ -73,7 +72,6 @@ EPYTEST_DESELECT=(
 	tests/utils/env/test_env_manager.py::test_create_venv_finds_no_python_executable
 	tests/utils/test_python_manager.py::test_python_get_preferred_default
 	'tests/inspection/test_info.py::test_info_setup_missing_mandatory_should_trigger_pep517[name]'
-	'tests/console/commands/python/test_python_list.py::test_list_poetry_managed[False]'
 )
 
 src_prepare() {
