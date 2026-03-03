@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=configure install prepare test
+DEPEND=dev-lang/tk:= dev-tcltk/tcllib media-libs/tiff:= media-libs/libpng:0= virtual/zlib:= x11-libs/libX11 media-libs/libjpeg-turbo:= test? ( x11-apps/xhost media-fonts/font-misc-misc media-fonts/font-cursor-misc )
+DESCRIPTION=Adds a lot of image formats to Tcl/Tk
+EAPI=8
+HOMEPAGE=http://tkimg.sourceforge.net/
+INHERIT=autotools edos2unix prefix toolchain-funcs virtualx
+IUSE=doc test static-libs test
+KEYWORDS=~amd64 ~arm64 ~ppc ~x86
+LICENSE=BSD
+RDEPEND=dev-lang/tk:= dev-tcltk/tcllib media-libs/tiff:= media-libs/libpng:0= virtual/zlib:= x11-libs/libX11 media-libs/libjpeg-turbo:=
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/tkimg/tkimg/2.0/tkimg%202.0.1/Img-2.0.1.tar.gz https://dev.gentoo.org/~tupone/distfiles/tkimg-1.4.14-patchset-1.tar.gz
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	edos2unix	33e347e171066657f91f8b0c72ec8773	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	virtualx	9741d451eb64ea8bb9faee90d68a9b68
+_md5_=07fc3882a86bd88e5387dc3eab83f6cf
