@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..13} )
+DISTUTILS_USE_PEP517=pbr
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/keystoneauth1-5.9.0[${PYTHON_USEDEP}]
@@ -29,7 +29,6 @@ RDEPEND="
 	>=dev-python/stevedore-3.3.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	dev-python/pbr[${PYTHON_USEDEP}]
 	test? (
 		dev-python/ddt[${PYTHON_USEDEP}]
 		dev-python/fixtures[${PYTHON_USEDEP}]
@@ -40,11 +39,6 @@ BDEPEND="
 "
 
 distutils_enable_tests unittest
-
-PATCHES=(
-	# https://review.opendev.org/c/openstack/python-cinderclient/+/930218/1
-	"${FILESDIR}/${P}-py313.patch"
-)
 
 python_test() {
 	# functional tests require cloud instance access

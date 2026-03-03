@@ -1,9 +1,9 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=pdm-backend
+DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
@@ -29,7 +29,9 @@ RDEPEND="
 	>=dev-python/tenacity-9.1.2[${PYTHON_USEDEP}]
 "
 BDEPEND="
+	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
+		dev-python/responses[${PYTHON_USEDEP}]
 		>=dev-python/tqdm-4.5.0[${PYTHON_USEDEP}]
 	)
 "
@@ -42,23 +44,9 @@ EPYTEST_IGNORE=(
 	test/integration/test_sync.py
 	test/integration/test_upload.py
 	test/integration/test_raw_api.py
-	# ... and they fail to import w/ pytest-8.4.1 anyway because of
-	# pytest_plugins at non-top-level.
-	test/integration
 )
 
 EPYTEST_PLUGINS=( pytest-{lazy-fixtures,mock,timeout} )
 distutils_enable_tests pytest
 
-export PDM_BUILD_SCM_VERSION=${PV}
-
-python_test() {
-	if [[ ${EPYTHON} == python3.14 ]] ; then
-		local EPYTEST_DESELECT=(
-			# Error message differs w/ 3.14
-			test/unit/scan/test_folder_traversal.py::TestFolderTraversal::test_dir_without_exec_permission
-		)
-	fi
-
-	epytest
-}
+export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
