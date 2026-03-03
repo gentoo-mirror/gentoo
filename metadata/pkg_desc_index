@@ -3111,7 +3111,7 @@ app-shells/ccsh 0.0.4-r5: UNIX Shell for people already familiar with the C lang
 app-shells/ctypes-sh 1.2_p20240626: Foreign function interface for bash
 app-shells/dash 0.5.12-r1 0.5.13.1 9999: Debian Almquist Shell
 app-shells/dsh 0.25.10-r2: Distributed Shell
-app-shells/fish 4.3.3 4.4.0 4.5.0-r1 9999: Friendly Interactive SHell
+app-shells/fish 4.3.3 4.4.0 4.5.0-r1 4.5.0-r2 9999: Friendly Interactive SHell
 app-shells/fsh 1.0.0_p20220816-r2: F# Shell with integrated F# scripting
 app-shells/fzf 0.67.0 0.68.0: General-purpose command-line fuzzy finder, written in Golang
 app-shells/gash 0.3.0-r100: POSIX-compatible shell written in Guile Scheme
@@ -3350,7 +3350,7 @@ app-text/pdf2html 1.4: Converts pdf files to html files
 app-text/pdfarranger 1.11.1-r1 1.12.1: Merge or split pdfs; rearrange, rotate, crop pages
 app-text/pdfgrep 2.1.2 2.2.0: A tool similar to grep which searches text in PDFs
 app-text/pdfjam 3.12 4.1: Tool for manipulatiing PDF files
-app-text/pdfminer 20240706: Python tool for extracting information from PDF documents
+app-text/pdfminer 20240706 20260107: Python tool for extracting information from PDF documents
 app-text/pdfpc 4.7.0-r2: Presenter console with multi-monitor support for PDF files
 app-text/pdfsandwich 0.1.7-r1: generator of sandwich OCR pdf files
 app-text/pdftk 3.3.3_p20231025 9999: A port of pdftk into java
@@ -3443,7 +3443,7 @@ app-text/xlsx2csv 0.8.4: Convert MS Office xlsx files to CSV
 app-text/xml2 0.5-r1: These tools are used to convert XML and HTML to and from a line-oriented format
 app-text/xml2doc 20030510-r4: Tool to convert simple XML to a variety of formats (pdf, html, txt, manpage)
 app-text/xml2rfc 3.26.0: Generates RFCs and IETF drafts from document source in XML
-app-text/xmldiff 2.6.3-r1: Tool that figures out the differences between two similar XML files
+app-text/xmldiff 2.6.3-r1 2.7.0: Tool that figures out the differences between two similar XML files
 app-text/xmlformat 1.04: Reformat XML documents to your custom style
 app-text/xmlstarlet 1.6.1-r3 1.6.1-r4 1.6.1-r5: A set of tools to transform, query, validate, and edit XML documents
 app-text/xmlto 0.0.28-r11: Script for converting XML and DocBook documents to a variety of output formats
@@ -3999,7 +3999,7 @@ dev-db/mariadb-connector-c 3.3.8 3.3.15 3.3.17 3.4.5-r1 3.4.7 9999: C client lib
 dev-db/mariadb-connector-odbc 3.1.18 3.2.7-r1 3.2.8: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.30 5.0.31 5.0.32 6.0.22 6.0.25 6.0.27 7.0.18 7.0.23 7.0.28 8.0.8 8.0.12: A high-performance, open source, schema-free document-oriented database
 dev-db/mongodb-compass-bin 1.49.0 1.49.1: GUI for MongoDB
-dev-db/mycli 1.44.0 1.55.0 1.56.0 1.57.0: CLI for MySQL Database with auto-completion and syntax highlighting
+dev-db/mycli 1.44.0 1.57.0 1.59.0: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.20.1.2 0.21.2.2 0.21.3.1: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
 dev-db/mysql 8.0.43 8.0.44 8.0.45 8.4.7 8.4.8: Fast, multi-threaded, multi-user SQL database server
@@ -10147,7 +10147,7 @@ dev-ruby/io-event 1.1.7 1.10.0 1.11.2 1.12.1 1.14.0 1.14.2: An event loop
 dev-ruby/io-wait 0.3.1 0.3.2 0.3.6 0.4.0: Waits until IO is readable or writable without blocking
 dev-ruby/ipaddr 1.2.7 1.2.8: IPAddr provides a set of methods to manipulate an IPv4 or IPv6 address
 dev-ruby/irb 1.15.2 1.15.3 1.16.0: Interactive Ruby command-line tool for REPL (Read Eval Print Loop)
-dev-ruby/itextomml 1.6.1: Native Ruby bindings to itex2MML, which converts itex equations to MathML
+dev-ruby/itextomml 1.6.1 1.6.1-r1: Native Ruby bindings to itex2MML, which converts itex equations to MathML
 dev-ruby/jbuilder 2.13.0-r1 2.14.0 2.14.1: Create JSON structures via a Builder-style DSL
 dev-ruby/jmespath 1.6.2: Implements JMESPath for Ruby
 dev-ruby/jquery-rails 4.6.0 4.6.1: jQuery! For Rails! So great
@@ -10669,7 +10669,7 @@ dev-tcltk/thread 2.8.5 2.8.8 2.8.9 2.8.10: Tcl Thread extension
 dev-tcltk/tix 8.4.3-r4: A widget library for Tcl/Tk
 dev-tcltk/tkcon 2.7.10 2.7.11: Tk GUI console
 dev-tcltk/tkdnd 2.9.2-r1 2.9.4-r1: Adds native drag & drop capabilities to tk toolkit
-dev-tcltk/tkimg 1.4.16 1.4.17 2.0.1 2.1.0: Adds a lot of image formats to Tcl/Tk
+dev-tcltk/tkimg 1.4.16 1.4.17 2.0.1 2.1.0-r1: Adds a lot of image formats to Tcl/Tk
 dev-tcltk/tklib 0.7 0.8 0.9: Collection of utility modules for Tk, and a companion to Tcllib
 dev-tcltk/tkpiechart 6.5-r2: create and update 2D or 3D pie charts in a Tcl/Tk application
 dev-tcltk/tkpng 0.9-r2: Implements support for loading and using PNG images with Tcl/Tk
@@ -10787,7 +10787,7 @@ dev-util/bbe 0.2.2-r1: Sed-like editor for binary files
 dev-util/bcc 0.31.0-r3 0.32.0-r1 0.34.0-r1 0.35.0-r1 0.35.0-r2 0.36.0 0.36.1: Tools for BPF-based Linux IO analysis, networking, monitoring, and more
 dev-util/bcpp 20240917: Indents C/C++ source code
 dev-util/bdelta 0.3.1-r1: Binary Delta - Efficient difference algorithm and format
-dev-util/bear 3.1.6 4.0.0: Build EAR generates a compilation database for clang tooling
+dev-util/bear 3.1.6 4.0.4: Bear is a tool that generates a compilation database for clang tooling.
 dev-util/bindgen 0.72.0 0.72.1: Automatically generates Rust FFI bindings to C and C++ libraries.
 dev-util/bingrep 0.11.0-r1: Binary file analysis tool
 dev-util/bloaty 1.1-r1 1.1-r2 9999: A size profiler for binaries
@@ -11181,7 +11181,7 @@ dev-vcs/git-absorb 0.7.0 0.8.0: Automatically absorb staged changes into git cur
 dev-vcs/git-annex 10.20220624 10.20230802: manage files with git, without checking their contents into git
 dev-vcs/git-big-picture 1.3.0 1.3.0-r1: Visualization tool for Git repositories
 dev-vcs/git-cliff 2.10.1 2.11.0: A highly customizable changelog generator
-dev-vcs/git-cola 4.14.0 4.15.0 4.16.1: The highly caffeinated git GUI
+dev-vcs/git-cola 4.16.1 4.17.1: The highly caffeinated git GUI
 dev-vcs/git-credential-manager 2.6.1 2.7.0: Secure Git credential storage supporing GitHub, Azure Repos, and other services
 dev-vcs/git-crypt 0.7.0 0.8.0: Transparent file encryption in git
 dev-vcs/git-delete-merged-branches 7.4.2 7.5.0 7.5.0-r1 7.5.1: Command-line tool to delete merged Git branches
@@ -13067,7 +13067,7 @@ media-gfx/frogr 1.8.1-r1: flickr applications for GNOME
 media-gfx/geeqie 2.5-r2 2.6-r3 2.6.1-r1 9999: A lightweight GTK image viewer forked from GQview
 media-gfx/gif2png 2.5.14: Converts images from gif format to png format
 media-gfx/gifsicle 1.93 1.94 1.95: Create, manipulate, and optimize GIF images and animations
-media-gfx/gimp 2.10.38-r3 2.10.38-r4 3.0.6 3.0.8-r1 3.2.0_rc2 9999: GNU Image Manipulation Program
+media-gfx/gimp 2.10.38-r4 3.0.8-r1 3.2.0_rc2 3.2.0_rc3 9999: GNU Image Manipulation Program
 media-gfx/gimp-arrow-brushes 20190407: Brushes for GIMP with the styles arrow, handpointer, button arrow and cursor
 media-gfx/gnofract4d 4.4: A program for drawing beautiful mathematically-based images known as fractals
 media-gfx/gnome-font-viewer 48.0 49.0: Font viewer utility for GNOME
@@ -13246,7 +13246,7 @@ media-libs/aubio 0.4.9-r4 0.4.9-r5: Library for audio labelling
 media-libs/audiofile 0.3.6-r6: An elegant API for accessing audio files
 media-libs/avidemux-core 2.8.1_p20251019: Core libraries for simple video cutting, filtering and encoding tasks
 media-libs/avidemux-plugins 2.8.1_p20251019: Plugins for Avidemux video editor
-media-libs/babl 0.1.116 0.1.118 0.1.120 0.1.122 9999: A dynamic, any to any, pixel format conversion library
+media-libs/babl 0.1.118 0.1.122 9999: A dynamic, any to any, pixel format conversion library
 media-libs/bcg729 1.1.1-r1: Encoder and decoder of the ITU G729 Annex A/B speech codec
 media-libs/bio2jack 0.9-r2: Library for porting blocked I/O OSS/ALSA audio applications to JACK
 media-libs/blib 1.1.7-r3 1.1.7-r4: Library full of useful things to hack the Blinkenlights
@@ -13293,7 +13293,7 @@ media-libs/game-music-emu 0.6.4: Video game music file emulators
 media-libs/ganv 1.8.2: A GTK+ widget for interactive graph-like environments
 media-libs/gavl 1.4.0-r3: Library for handling uncompressed audio and video data
 media-libs/gd 2.3.3-r4: Graphics library for fast image creation
-media-libs/gegl 0.4.64-r1 0.4.66 9999: A graph based image processing framework
+media-libs/gegl 0.4.66 9999: A graph based image processing framework
 media-libs/gexiv2 0.14.5 0.14.6: GObject-based wrapper around the Exiv2 library
 media-libs/giblib 1.2.4-r2: A graphics library built on top of imlib2
 media-libs/giflib 5.2.2: Library to handle, display and manipulate GIF images
@@ -15318,7 +15318,7 @@ net-misc/jlj 2.12-r1: Simple console LiveJournal entry system
 net-misc/jwhois 4.0-r2: Advanced Internet Whois client capable of recursive queries
 net-misc/kafka-bin 3.9.1 4.0.1 4.1.1 4.2.0: A high-throughput distributed messaging system
 net-misc/kafkacat 1.7.1: Generic command line non-JVM Apache Kafka producer and consumer
-net-misc/kea 3.0.2-r1 3.0.2-r2 9999: High-performance production grade DHCPv4 & DHCPv6 server
+net-misc/kea 3.0.2-r1 3.0.2-r2 3.0.2-r3 9999: High-performance production grade DHCPv4 & DHCPv6 server
 net-misc/keychain 2.8.5-r2: Agent manager for OpenSSH, ssh.com, Sun SSH, and GnuPG
 net-misc/kio-zeroconf 25.12.2: KIO worker to discover file systems by DNS-SD (DNS Service Discovery)
 net-misc/knock 0.8: Simple port-knocking daemon
@@ -19089,7 +19089,7 @@ x11-themes/human-icon-theme 0.36: A nice and well polished icon theme
 x11-themes/iceicons 0.10.0-r2: IceWM Icons is a set of XPM 16x16, 32x32, and 48x48 XPM and PNG icons for IceWM
 x11-themes/icewm-extra-themes 1.2: Extra themes for IceWM
 x11-themes/kfaenza 0.8.9-r3: Faenza-Cupertino icon theme for KDE Plasma
-x11-themes/kvantum 1.1.5: SVG-based theme engine for Qt, KDE Plasma and LXQt
+x11-themes/kvantum 1.1.5 1.1.6: SVG-based theme engine for Qt, KDE Plasma and LXQt
 x11-themes/larry-backgrounds 20110822-r2: Wallpapers featuring Gentoo mascot Larry the cow
 x11-themes/laughlin-backgrounds 14.1.0.3-r2: Fedora 14 official background artwork
 x11-themes/leonidas-backgrounds 11.0.0.2-r2: Fedora 11 official background artwork
