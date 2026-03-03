@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install setup
+DEPEND=test? ( >=dev-libs/glib-2.50 >=sys-apps/kmod-18 >=sys-apps/util-linux-2.33.1 >=virtual/libudev-215 )
+DESCRIPTION=C library and tools for interacting with the linux GPIO character device
+EAPI=8
+HOMEPAGE=https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/
+INHERIT=linux-info
+IUSE=+tools cxx python test
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RESTRICT=!test? ( test )
+SLOT=0/2
+SRC_URI=https://mirrors.edge.kernel.org/pub/software/libs/libgpiod/libgpiod-1.6.5.tar.xz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	linux-info	efd923656513c879204fec6638eadee5
+_md5_=fd09b8f10e764a9c876b6d2b4f63d6dc
