@@ -1,10 +1,10 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+DISTUTILS_USE_PEP517="setuptools"
+PYTHON_COMPAT=( python3_{13..14} )
 
 inherit distutils-r1
 
@@ -21,7 +21,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="examples"
 
 RDEPEND="
@@ -30,20 +30,18 @@ RDEPEND="
 	dev-python/urllib3[${PYTHON_USEDEP}]
 "
 
-distutils_enable_sphinx docs \
-	dev-python/redis \
-	dev-python/sphinx-rtd-theme
-
-EPYTEST_PLUGINS=()
-distutils_enable_tests pytest
-
 EPYTEST_DESELECT=(
 	# Internet
 	tests/unit/test_oauth.py::TestSpotifyClientCredentials::test_spotify_client_credentials_get_access_token
 )
+EPYTEST_PLUGINS=()
+distutils_enable_tests pytest
+
+distutils_enable_sphinx docs \
+	dev-python/redis \
+	dev-python/sphinx-rtd-theme
 
 python_install_all() {
 	distutils-r1_python_install_all
-
 	use examples && dodoc -r examples
 }

@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ else
 	SRC_URI="https://github.com/tarsius/${PN}/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -31,7 +31,7 @@ BDEPEND="
 
 SITEFILE="50${PN}-gentoo.el"
 
-elisp-enable-tests ert "${S}" -l "./${PN}-tests.el"
+elisp-enable-tests ert . -l "${PN}-tests.el"
 
 src_install() {
 	rm "./${PN}-tests.el"* || die

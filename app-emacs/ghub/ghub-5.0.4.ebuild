@@ -3,11 +3,13 @@
 
 EAPI=8
 
+NEED_EMACS="29.1"
+
 inherit elisp
 
-DESCRIPTION="Use the Emacsclient as the \$EDITOR of child processes"
-HOMEPAGE="https://magit.vc/manual/with-editor/
-	https://github.com/magit/with-editor/"
+DESCRIPTION="Minuscule client library for the Git forge APIs"
+HOMEPAGE="https://magit.vc/manual/ghub/
+	https://github.com/magit/ghub/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -17,22 +19,28 @@ else
 	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 arm arm64 ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~x86"
 fi
-
-S="${WORKDIR}/${P}/lisp"
 
 LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
 	app-emacs/compat
+	app-emacs/llama
+	app-emacs/treepy
 "
 BDEPEND="
 	${RDEPEND}
 	sys-apps/texinfo
 "
 
-DOCS=( ../README.org "../docs/${PN}.org" )
-ELISP_TEXINFO="../docs/*.texi"
+DOCS=( README.org )
+ELISP_TEXINFO="docs/ghub.texi"
 SITEFILE="50${PN}-gentoo.el"
+
+src_prepare() {
+	mv ./lisp/*.el . || die
+
+	elisp_src_prepare
+}
