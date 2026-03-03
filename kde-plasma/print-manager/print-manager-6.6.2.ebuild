@@ -30,7 +30,7 @@ DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	>=net-print/cups-2.4
 "
 RDEPEND="${DEPEND}

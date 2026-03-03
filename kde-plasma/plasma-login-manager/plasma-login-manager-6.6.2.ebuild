@@ -29,7 +29,7 @@ DEPEND="
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/plasma-workspace-${KDE_CATV}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	sys-apps/systemd:=[pam]
 	sys-libs/pam
 	x11-libs/libXau

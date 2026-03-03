@@ -40,7 +40,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/modemmanager-qt-${KFMIN}:6
 	>=kde-frameworks/networkmanager-qt-${KFMIN}:6[teamd=]
 	>=kde-frameworks/solid-${KFMIN}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	net-misc/mobile-broadband-provider-info
 	net-misc/networkmanager[teamd=]
 	openconnect? (

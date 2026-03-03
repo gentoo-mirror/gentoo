@@ -10,7 +10,7 @@ QTMIN=6.10.1
 inherit ecm plasma.kde.org optfeature xdg
 
 DESCRIPTION="KDE Plasma desktop"
-XORGHDRS="${PN}-override-include-dirs-4"
+XORGHDRS="${PN}-override-include-dirs-5"
 SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
@@ -65,7 +65,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/sonnet-${KFMIN}:6
 	>=kde-plasma/kwin-${KDE_CATV}:6
 	>=kde-plasma/libksysguard-${KDE_CATV}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
 	>=kde-plasma/plasma-activities-stats-${KDE_CATV}:6
 	>=kde-plasma/plasma-workspace-${KDE_CATV}:6[screencast?,X]
@@ -125,7 +125,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-6.1.80-override-include-dirs.patch" # downstream patch
+	"${WORKDIR}/${XORGHDRS}/${PN}-6.1.80-override-include-dirs.patch" # downstream patch
 )
 
 src_prepare() {

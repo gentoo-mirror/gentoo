@@ -39,8 +39,8 @@ COMMON_DEPEND="
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/layer-shell-qt-${KDE_CATV}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6
 	>=kde-plasma/libkscreen-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	sys-libs/pam
 	x11-libs/libX11
 	x11-libs/libXi
@@ -53,7 +53,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	>=kde-frameworks/kdeclarative-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6=
 "
 BDEPEND="
 	dev-util/wayland-scanner

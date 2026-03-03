@@ -42,7 +42,7 @@ DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/sonnet-${KFMIN}:6
-	>=kde-plasma/libplasma-${KDE_CATV}:6
+	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	alternate-calendar? ( dev-libs/icu:= )
 	share? ( >=kde-frameworks/purpose-${KFMIN}:6 )
 	webengine? ( >=dev-qt/qtwebengine-${QTMIN}:6 )

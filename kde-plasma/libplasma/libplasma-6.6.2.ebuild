@@ -12,7 +12,7 @@ inherit ecm plasma.kde.org
 DESCRIPTION="Plasma library and runtime components based upon KF6 and Qt6"
 
 LICENSE="LGPL-2+"
-SLOT="6"
+SLOT="6/7"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="gles2-only"
 

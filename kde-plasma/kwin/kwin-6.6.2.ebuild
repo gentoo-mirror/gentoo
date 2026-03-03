@@ -29,7 +29,6 @@ COMMON_DEPEND="
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
 	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,wayland,widgets,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
-	>=dev-qt/qtsensors-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=kde-frameworks/kauth-${KFMIN}:6
