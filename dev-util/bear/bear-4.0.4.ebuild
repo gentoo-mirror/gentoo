@@ -5,21 +5,21 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.91.0"
 CRATES="
 	aho-corasick@1.1.4
 	anstyle@1.0.13
-	anyhow@1.0.100
-	assert_cmd@2.1.1
+	anyhow@1.0.102
+	assert_cmd@2.1.2
 	assert_fs@1.1.3
 	autocfg@1.5.0
-	bitflags@2.10.0
+	bitflags@2.11.0
 	bstr@1.12.1
-	cc@1.2.51
+	cc@1.2.56
 	cfg-if@1.0.4
-	clap@4.5.54
-	clap_builder@4.5.54
-	clap_lex@0.7.6
+	clap@4.5.60
+	clap_builder@4.5.60
+	clap_lex@1.0.0
 	crossbeam-channel@0.5.15
 	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
@@ -34,85 +34,102 @@ CRATES="
 	dtor-proc-macro@0.0.5
 	dtor@0.0.6
 	encoding_rs@0.8.35
-	env_filter@0.1.4
+	env_filter@1.0.0
 	env_home@0.1.0
-	env_logger@0.11.8
+	env_logger@0.11.9
 	equivalent@1.0.2
 	errno@0.3.14
 	fastrand@2.3.0
-	find-msvc-tools@0.1.6
+	find-msvc-tools@0.1.9
 	float-cmp@0.10.0
+	foldhash@0.1.5
 	fragile@2.0.1
-	getrandom@0.2.16
-	getrandom@0.3.4
+	getrandom@0.2.17
+	getrandom@0.4.1
 	globset@0.4.18
 	globwalk@0.9.1
+	hashbrown@0.15.5
 	hashbrown@0.16.1
+	heck@0.5.0
+	id-arena@2.3.0
 	ignore@0.4.25
-	indexmap@2.12.1
+	indexmap@2.13.0
 	itoa@1.0.17
-	jiff-static@0.2.17
-	jiff@0.2.17
-	libc@0.2.178
+	jiff-static@0.2.21
+	jiff@0.2.21
+	leb128fmt@0.1.0
+	libc@0.2.182
 	libredox@0.1.12
 	libyml@0.0.5
-	linux-raw-sys@0.11.0
+	linux-raw-sys@0.12.1
 	log@0.4.29
-	memchr@2.7.6
+	memchr@2.8.0
 	mockall@0.14.0
 	mockall_derive@0.14.0
 	normalize-line-endings@0.3.0
 	num-traits@0.2.19
 	once_cell@1.21.3
 	option-ext@0.2.0
-	portable-atomic-util@0.2.4
-	portable-atomic@1.13.0
-	predicates-core@1.0.9
-	predicates-tree@1.0.12
-	predicates@3.1.3
-	proc-macro2@1.0.104
-	quote@1.0.42
+	portable-atomic-util@0.2.5
+	portable-atomic@1.13.1
+	predicates-core@1.0.10
+	predicates-tree@1.0.13
+	predicates@3.1.4
+	prettyplease@0.2.37
+	proc-macro2@1.0.106
+	quote@1.0.44
 	r-efi@5.3.0
 	redox_users@0.5.2
-	regex-automata@0.4.13
-	regex-syntax@0.8.8
-	regex@1.12.2
-	rustix@1.1.3
-	ryu@1.0.22
+	regex-automata@0.4.14
+	regex-syntax@0.8.10
+	regex@1.12.3
+	rustix@1.1.4
+	ryu@1.0.23
 	same-file@1.0.6
+	semver@1.0.27
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
-	serde_json@1.0.148
+	serde_json@1.0.149
 	serde_yml@0.0.12
 	shell-words@1.1.1
 	shlex@1.3.0
 	signal-hook-registry@1.4.8
 	signal-hook@0.3.18
 	strsim@0.11.1
-	syn@2.0.112
-	tempfile@3.24.0
+	syn@2.0.117
+	tempfile@3.26.0
 	termtree@0.5.1
-	thiserror-impl@2.0.17
-	thiserror@2.0.17
-	unicode-ident@1.0.22
+	thiserror-impl@2.0.18
+	thiserror@2.0.18
+	unicode-ident@1.0.24
+	unicode-xid@0.2.6
 	version_check@0.9.5
 	wait-timeout@0.2.1
 	walkdir@2.5.0
 	wasi@0.11.1+wasi-snapshot-preview1
-	wasip2@1.0.1+wasi-0.2.4
+	wasip2@1.0.2+wasi-0.2.9
+	wasip3@0.4.0+wasi-0.3.0-rc-2026-01-06
+	wasm-encoder@0.244.0
+	wasm-metadata@0.244.0
+	wasmparser@0.244.0
 	which@8.0.0
 	winapi-util@0.1.11
 	windows-link@0.2.1
 	windows-sys@0.61.2
 	winsafe@0.0.19
-	wit-bindgen@0.46.0
-	zmij@1.0.8
+	wit-bindgen-core@0.51.0
+	wit-bindgen-rust-macro@0.51.0
+	wit-bindgen-rust@0.51.0
+	wit-bindgen@0.51.0
+	wit-component@0.244.0
+	wit-parser@0.244.0
+	zmij@1.0.21
 "
 
 inherit cargo
 
-DESCRIPTION="Build EAR generates a compilation database for clang tooling"
+DESCRIPTION="Bear is a tool that generates a compilation database for clang tooling."
 HOMEPAGE="https://github.com/rizsotto/Bear"
 SRC_URI="
 	https://github.com/rizsotto/Bear/archive/${PV}.tar.gz -> ${P}.tar.gz
@@ -122,11 +139,13 @@ S="${WORKDIR}/${P^}"
 
 LICENSE="GPL-3+"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 BSD MIT MPL-2.0 Unicode-3.0"
+LICENSE+=" Apache-2.0 BSD MIT MPL-2.0 Unicode-3.0 ZLIB"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
+
+BDEPEND="llvm-core/lld"
 
 QA_FLAGS_IGNORED="
 	usr/bin/bear
@@ -147,7 +166,13 @@ src_test() {
 		-F allow-integration-tests
 	)
 	cargo_src_compile "${args[@]}"
-	cargo_src_test "${args[@]}"
+	# https://github.com/rizsotto/Bear/issues/675
+	cargo_src_test "${args[@]}" -- \
+		--skip cases::intercept_posix::execv_interception \
+		--skip cases::intercept_posix::execve_interception \
+		--skip cases::intercept_posix::execvp_interception \
+		--skip cases::intercept_posix::execvpe_interception \
+		--skip cases::intercept_posix::execle_interception
 }
 
 src_install() {

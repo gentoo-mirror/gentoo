@@ -1,16 +1,18 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_SINGLE_IMPL=true
 DISTUTILS_USE_PEP517=setuptools
 inherit desktop distutils-r1 optfeature readme.gentoo-r1 virtualx xdg
 
 DESCRIPTION="The highly caffeinated git GUI"
 HOMEPAGE="https://git-cola.github.io/"
-SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://gitlab.com/${PN}/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2 -> ${P}.tar.bz2"
+
+S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -36,9 +38,10 @@ BDEPEND="
 	")
 "
 
+EPYTEST_PLUGINS=()
+distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	'dev-python/rst-linker'
-distutils_enable_tests pytest
 
 src_prepare() {
 	# remove bundled qtpy and polib

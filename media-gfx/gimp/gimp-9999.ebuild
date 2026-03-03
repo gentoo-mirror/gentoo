@@ -70,7 +70,7 @@ COMMON_DEPEND="
 	>=media-libs/fontconfig-2.12.4
 	>=media-libs/freetype-2.1.7
 	<media-libs/gexiv2-0.15.0[introspection]
-	>=media-libs/gexiv2-0.14.0[introspection]
+	>=media-libs/gexiv2-0.14.0:=[introspection]
 	>=media-libs/harfbuzz-2.8.2:=
 	>=media-libs/lcms-2.8:2
 	media-libs/libjpeg-turbo:=
@@ -169,7 +169,8 @@ pkg_setup() {
 		if ! has "en_US.utf8" ${locales} && ! has "en_US.UTF-8" ${locales}; then
 			# portage splits and unset LC_ALL. Cannot rely on that
 			if [[ "${LANG}" != "C" ]] && [[ "${LANG}" != "POSIX" ]] && [[ "${LANG}" == "${LANG#C\.}" ]]; then
-				# Set LC_ALL to avoid locales breaking due to the profile setting LC_MESSAGES=C and portage itself setting LC_COLLATE=C
+				# Set LC_ALL to avoid locales breaking due to the profile setting LC_MESSAGES=C
+				# and portage itself setting LC_COLLATE=C
 				einfo "Setting LC_ALL=${LANG} based on LANG because en_US.UTF-8 isn't available, bug #968468"
 				export LC_ALL="${LANG}"
 			else
@@ -302,12 +303,11 @@ src_install() {
 	# gimp-$(ver_cut 1-2) -> gimp-$(ver_cut 1) -> gimp
 	dosym "${ESYSROOT}"/usr/bin/gimp-${MAJOR_VERSION} /usr/bin/gimp
 	dosym "${ESYSROOT}"/usr/bin/gimp-console-${MAJOR_VERSION} /usr/bin/gimp-console
-	dosym "${ESYSROOT}"/usr/bin/gimp-script-fu-interpreter-${MAJOR_VERSION} /usr/bin/gimp-script-fu-interpreter
 	dosym "${ESYSROOT}"/usr/bin/gimp-test-clipboard-${MAJOR_VERSION} /usr/bin/gimp-test-clipboard
 	dosym "${ESYSROOT}"/usr/bin/gimptool-${MAJOR_VERSION} /usr/bin/gimptool
 
 	if use bash-completion; then
-		bashcomp_alias gimp-3.0 gimp{,-3} gimp-console{,-3,-3.0}
+		bashcomp_alias gimp-3.2 gimp{,-3} gimp-console{,-3,-3.2}
 	fi
 
 	_rename_plugins || die
