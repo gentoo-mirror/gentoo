@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,7 +29,6 @@ RDEPEND="
 	virtual/libintl
 	X? (
 		x11-libs/libX11
-		x11-libs/libxkbfile
 		x11-misc/xkeyboard-config
 	)
 	config-qt? ( kde-frameworks/kitemviews:6 )
@@ -43,7 +42,7 @@ RDEPEND="
 		kde-frameworks/kpackage:6
 		kde-frameworks/ksvg:6
 		kde-frameworks/kcmutils:6
-		kde-plasma/libplasma:6
+		kde-plasma/libplasma:6=
 		x11-libs/libxkbcommon
 	)
 "
@@ -55,7 +54,9 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-make-x11-dependencies-optional.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-make-x11-dependencies-optional.patch
+)
 
 src_configure() {
 	local mycmakeargs=(
