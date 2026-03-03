@@ -1,7 +1,7 @@
-BDEPEND=app-emacs/clojure-mode test? ( app-emacs/assess app-emacs/buttercup ) >=app-editors/emacs-26.3:*
+BDEPEND=app-emacs/clojure-mode test? ( app-emacs/assess ) test? ( app-emacs/buttercup ) >=app-editors/emacs-26.3:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Major mode for Clojure code
-EAPI=8
+EAPI=9
 HOMEPAGE=https://github.com/clojure-emacs/inf-clojure/
 INHERIT=elisp
 IUSE=test
@@ -10,6 +10,6 @@ LICENSE=GPL-3+
 RDEPEND=app-emacs/clojure-mode >=app-editors/emacs-26.3:*
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/clojure-emacs/inf-clojure/archive/v3.2.1.tar.gz -> inf-clojure-3.2.1.tar.gz
+SRC_URI=https://github.com/clojure-emacs/inf-clojure/archive/v3.4.0.tar.gz -> inf-clojure-3.4.0.tar.gz
 _eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30
-_md5_=996235640079fae09b47ff1e53e06074
+_md5_=f730140d8021ac40da5e7bfc7673bc27
