@@ -1,0 +1,16 @@
+BDEPEND=dev-python/docutils >=dev-build/cmake-3.25.0 >=dev-qt/qttools-6.10.0[linguist] kde-frameworks/extra-cmake-modules:0 virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.22.0:*
+DEFINED_PHASES=compile configure info install nofetch postinst prepare setup test unpack
+DEPEND=>=dev-qt/qtbase-6.10.0:6[dbus,gui,network] >=dev-qt/qtdeclarative-6.10.0:6 >=kde-frameworks/kauth-6.22.0:6 >=kde-frameworks/kcmutils-6.22.0:6 >=kde-frameworks/kconfig-6.22.0:6 >=kde-frameworks/kdbusaddons-6.22.0:6 >=kde-frameworks/ki18n-6.22.0:6 >=kde-frameworks/kio-6.22.1:6 >=kde-frameworks/kpackage-6.22.0:6 >=kde-frameworks/kwindowsystem-6.22.0:6 >=kde-plasma/plasma-workspace-6.6.2:6 >=kde-plasma/layer-shell-qt-6.6.2:6 >=kde-plasma/libplasma-6.6.2:6= sys-apps/systemd:=[pam] sys-libs/pam x11-libs/libXau dev-qt/qtbase:6
+DESCRIPTION=Plasma Login Manager
+EAPI=8
+HOMEPAGE=https://invent.kde.org/plasma/plasma-login-manager
+INHERIT=ecm plasma.kde.org linux-info pam tmpfiles
+IUSE=test debug
+KEYWORDS=~amd64
+LICENSE=GPL-2+ MIT CC-BY-3.0 CC-BY-SA-3.0 public-domain
+RDEPEND=>=dev-qt/qtbase-6.10.0:6[dbus,gui,network] >=dev-qt/qtdeclarative-6.10.0:6 >=kde-frameworks/kauth-6.22.0:6 >=kde-frameworks/kcmutils-6.22.0:6 >=kde-frameworks/kconfig-6.22.0:6 >=kde-frameworks/kdbusaddons-6.22.0:6 >=kde-frameworks/ki18n-6.22.0:6 >=kde-frameworks/kio-6.22.1:6 >=kde-frameworks/kpackage-6.22.0:6 >=kde-frameworks/kwindowsystem-6.22.0:6 >=kde-plasma/plasma-workspace-6.6.2:6 >=kde-plasma/layer-shell-qt-6.6.2:6 >=kde-plasma/libplasma-6.6.2:6= sys-apps/systemd:=[pam] sys-libs/pam x11-libs/libXau acct-user/plasmalogin || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-plasma/plasma-login-manager:5 virtual/tmpfiles
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://kde/stable/plasma/6.6.2/plasma-login-manager-6.6.2.tar.xz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	c3772d432284de03db6df21d71be747a	kde.org	2eea56ed41440913be4caa3d255d2db3	plasma.kde.org	15a44935d99523f1f30863a3fbb1c2b0	linux-info	efd923656513c879204fec6638eadee5	pam	b56d0c9c20fc5b553f13c8ae165a10a5	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_md5_=594549f8d6f0daf3891b3846973a4477

@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-build/cmake-3.31.9-r1 >=kde-frameworks/extra-cmake-modules-6.0.0:* dev-qt/qtbase:6
+DEFINED_PHASES=compile configure info install nofetch prepare setup test unpack
+DESCRIPTION=KDE Plasma login sessions
+EAPI=8
+HOMEPAGE=https://kde.org/plasma-desktop
+INHERIT=ecm-common plasma.kde.org
+IUSE=+wayland X
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=!<kde-plasma/plasma-workspace-6.2.1 >=kde-plasma/plasma-workspace-6.6.2:6[X?] wayland? ( kde-plasma/kwin:6 ) X? ( kde-plasma/kwin-x11:6 ) !kde-plasma/plasma-login-sessions:5
+REQUIRED_USE=|| ( wayland X )
+SLOT=6
+SRC_URI=mirror://kde/stable/plasma/6.6.2/plasma-workspace-6.6.2.tar.xz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	ecm-common	122d09819aca88cb2f06edf45d93ed2b	kde.org	2eea56ed41440913be4caa3d255d2db3	plasma.kde.org	15a44935d99523f1f30863a3fbb1c2b0
+_md5_=dfc27b9c38b85b461a29743133f24401
