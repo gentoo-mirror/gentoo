@@ -119,7 +119,7 @@ nom@7.1.3
 num-conv@0.1.0
 num-traits@0.2.19
 num_cpus@1.12.0
-octets@0.3.4
+octets@0.3.5
 openssl-macros@0.1.1
 peeking_take_while@0.1.2
 pin-project-lite@0.2.16
