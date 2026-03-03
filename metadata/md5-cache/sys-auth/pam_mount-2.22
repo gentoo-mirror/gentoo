@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://inai.de/projects/pam_mount/
 INHERIT=unpacker
 IUSE=crypt ssl selinux
-KEYWORDS=~amd64 ~ppc ~x86
+KEYWORDS=amd64 ppc x86
 LICENSE=GPL-3
 RDEPEND=>=sys-libs/pam-0.99 >=sys-libs/libhx-5.0:= >=sys-apps/util-linux-2.20:= >=dev-libs/libxml2-2.6:= dev-libs/libpcre2 crypt? ( >=sys-fs/cryptsetup-1.1.0:= ) ssl? ( dev-libs/openssl:0= ) selinux? ( sys-libs/libselinux )
 SLOT=0
 SRC_URI=https://inai.de/files/pam_mount/pam_mount-2.22.tar.zst
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	unpacker	767e064ac3c6192d69d112d11dd05ba6
-_md5_=887c16abb201a06be721c2cead789ca6
+_md5_=8f85eb401cf0e01d0f08dbe1e8f32268
