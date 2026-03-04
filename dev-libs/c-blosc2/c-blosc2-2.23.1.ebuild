@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="Blocking, shuffling and lossless compression library"
 HOMEPAGE="
-	https://www.blosc.org/c-blosc2/c-blosc2.html
+	https://blosc.org/c-blosc2/c-blosc2.html
 	https://github.com/Blosc/c-blosc2/
 "
 SRC_URI="
@@ -16,8 +16,8 @@ SRC_URI="
 "
 
 LICENSE="BSD"
-SLOT="0/6"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~s390 ~sparc x86"
+SLOT="0/7"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test +zlib +zstd"
 REQUIRED_USE="test? ( zlib zstd )"
 RESTRICT="!test? ( test )"
