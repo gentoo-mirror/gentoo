@@ -2,11 +2,12 @@ BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=install postinst
 DESCRIPTION=Gentoo Asterisk init scripts
 EAPI=8
-HOMEPAGE=https://www.gentoo.org/wiki/No_homepage
+HOMEPAGE=https://github.com/jkroonza/asterisk-base
 INHERIT=systemd tmpfiles
-KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=GPL-2
-RDEPEND=net-misc/asterisk !<=net-misc/asterisk-16.30.0:0/16 !<=net-misc/asterisk-18.18.0:0/18 !<=net-misc/asterisk-20.3.0:0/20 virtual/tmpfiles
+RDEPEND=net-misc/asterisk virtual/tmpfiles
 SLOT=0
+SRC_URI=https://github.com/jkroonza/asterisk-base/archive/refs/tags/v4.tar.gz -> asterisk-base-4.tar.gz
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
-_md5_=f77d3591ab95d153473b3d2f81be2dd5
+_md5_=4e58d29463aac92b18880e7cb78440fe
