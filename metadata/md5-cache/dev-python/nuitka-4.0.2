@@ -1,0 +1,16 @@
+BDEPEND=dev-build/scons[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/ordered-set-4.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/zstandard-0.15[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] test? ( dev-util/ccache ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+DEFINED_PHASES=compile configure install postinst prepare test
+DESCRIPTION=Python to native compiler
+EAPI=8
+HOMEPAGE=https://nuitka.net/ https://github.com/Nuitka/Nuitka/ https://pypi.org/project/Nuitka/
+INHERIT=distutils-r1 flag-o-matic optfeature pypi
+IUSE=test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+KEYWORDS=~amd64 ~loong ~x86
+LICENSE=Apache-2.0
+RDEPEND=dev-build/scons[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/ordered-set-4.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/zstandard-0.15[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/N/Nuitka/nuitka-4.0.2.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701	optfeature	538bce96e5589935b57e178e8635f301	pypi	a451be5a08e8eb46f927fc6dd163583f
+_md5_=6f3ace6d956e3875313d4f9b35dcf09b
