@@ -2634,7 +2634,7 @@ app-metrics/blackbox_exporter 0.24.0 0.25.0: Prometheus exporter for blackbox pr
 app-metrics/carbonapi-booking 0.3.0-r1 0.3.0_p20250201: High-performance Graphite front-end, Booking.com fork
 app-metrics/carbonapi-web 1.1: graphite-web fork for standalone usage with carbonapi
 app-metrics/ceph_exporter 4.1.1-r1 4.2.5: Prometheus exporter that scrapes metrics from a ceph cluster
-app-metrics/chrony_exporter 0.12.2 0.12.3 0.13.2: Chrony NTP exporter for Prometheus
+app-metrics/chrony_exporter 0.12.2 0.12.3 0.13.3: Chrony NTP exporter for Prometheus
 app-metrics/collectd 5.12.0-r11 5.12.0-r12: Collects system statistics and provides mechanisms to store the values
 app-metrics/consul_exporter 0.13.0: Prometheus exporter for consul metrics
 app-metrics/dnsmasq_exporter 0.3.0: prometheus exporter for dnsmasq
@@ -3883,7 +3883,7 @@ dev-cpp/cli11 2.6.1 2.6.2: Command line parser for C++11
 dev-cpp/clucene 2.3.3.4-r9 2.3.3.4-r10 2.3.3.4-r11: High-performance, full-featured text search engine based off of lucene in C++
 dev-cpp/cpp-httplib 0.26.0 0.27.0 0.28.0 0.32.0: C++ HTTP/HTTPS server and client library
 dev-cpp/cppdap 0_pre20230605-r1 0_pre20240802: C++ library for the Debug Adapter Protocol
-dev-cpp/cppgir 2.0_p20250629 2.0_p20260109: GObject-Introspection C++ binding wrapper generator
+dev-cpp/cppgir 2.0_p20250629 2.0_p20260109 2.0_p20260226: GObject-Introspection C++ binding wrapper generator
 dev-cpp/cpptoml 0.1.1-r1: Header-only library for parsing TOML
 dev-cpp/cpptrace 1.0.4: Simple, portable, and self-contained stacktrace library for C++11 and newer
 dev-cpp/ctemplate 2.4: A simple but powerful template language for C++
@@ -5085,7 +5085,7 @@ dev-java/objenesis 3.4: A library for instantiating Java objects
 dev-java/ognl 3.1.24: Object Graph Navigation Library
 dev-java/open-test-reporting-events 0.1.0_pre1 0.2.0_pre1: Language-agnostic test reporting format and tooling
 dev-java/open-test-reporting-schema 0.1.0_pre1: Language-agnostic test reporting format and tooling
-dev-java/openjdk 8.482_p08 11.0.30_p7 17.0.18_p8 21.0.10_p7 25.0.2_p10 26_beta34 27_alpha8: Open source implementation of the Java programming language
+dev-java/openjdk 8.482_p08 11.0.30_p7 17.0.18_p8 21.0.10_p7 25.0.2_p10 26_beta35 27_alpha12: Open source implementation of the Java programming language
 dev-java/openjdk-bin 8.472_p08 8.482_p08 11.0.29_p7 11.0.30_p7 17.0.17_p10 17.0.18_p8 21.0.9_p10 21.0.10_p7 25.0.1_p8 25.0.2_p10 26_beta35 27_alpha9: Prebuilt Java JDK binaries provided by Eclipse Temurin
 dev-java/openjdk-jre-bin 8.462_p08 11.0.28_p6 17.0.16_p8 21.0.8_p9: Prebuilt Java JRE binaries provided by Eclipse Temurin
 dev-java/openjfx 8.1000-r2 11.0.11_p1-r5: Java OpenJFX client application platform
@@ -5528,7 +5528,7 @@ dev-libs/libdivsufsort 2.0.1-r2: Suffix-sorting library (for BWT)
 dev-libs/libdnet 1.18.0-r1 1.18.0-r2 1.18.0-r3 1.18.2: Simplified, portable interface to several low-level networking routines
 dev-libs/libdnsres 0.1a-r4 0.1a-r5: A non-blocking DNS resolver library
 dev-libs/libdshconfig 0.20.13: Library for parsing dsh.style configuration files
-dev-libs/libdwarf 2.1.0 2.2.0 2.3.0: Library intended to simplify reading (and writing) applications using DWARF
+dev-libs/libdwarf 2.2.0 2.3.0 2.3.1: Library intended to simplify reading (and writing) applications using DWARF
 dev-libs/libebml 1.4.5 1.4.5-r1: Extensible binary format library (kinda like XML)
 dev-libs/libedit 20240808.3.1: BSD replacement for libreadline
 dev-libs/libee 0.4.1-r1: An Event Expression Library inspired by CEE
@@ -11082,7 +11082,7 @@ dev-util/roctracer 6.3.3 6.4.3 7.0.2 7.1.0: Callback/Activity Library for Perfor
 dev-util/ropper 1.13.10 1.13.13 9999: Use to display information about binary files in different file formats
 dev-util/rpmdevtools 9.6: Collection of rpm packaging related utilities
 dev-util/rt-tests 2.8 2.9: A collection of latency testing tools for the linux(-rt) kernel
-dev-util/ruff 0.13.1 0.14.9 0.14.14 0.15.1 0.15.4: An extremely fast Python linter, written in Rust
+dev-util/ruff 0.13.1 0.14.9 0.14.14 0.15.1 0.15.4 0.15.5: An extremely fast Python linter, written in Rust
 dev-util/runme 2.0.5 3.15.0: Execute your runbooks, docs and READMEs
 dev-util/rustup 1.28.2-r2 9999: Rust toolchain installer
 dev-util/scanmem 0.17: Locate and modify variables in executing processes
@@ -14874,7 +14874,7 @@ net-im/rocketchat-desktop-bin 3.9.10-r1 4.1.1-r1: The Ultimate Open Source Web C
 net-im/sendxmpp 1.24: A perl-script to send xmpp (jabber), similar to what mail(1) does for mail
 net-im/sendxmpp-scala 1.2.0 1.2.1 9999: Send XMPP (Jabber) messages via command line
 net-im/signal-cli-bin 0.13.9 0.13.19: Send and receive messages of Signal Messenger over a command line interface
-net-im/signal-desktop-bin 8.0.0: Allows you to send and receive messages of Signal Messenger on your computer
+net-im/signal-desktop-bin 8.1.0: Allows you to send and receive messages of Signal Messenger on your computer
 net-im/slack 4.47.59 4.47.72 4.48.95: Team collaboration tool
 net-im/spectrum2 2.2.1-r1: An open source instant messaging transport
 net-im/swift 4.0.3-r3: An elegant, secure, adaptable and intuitive XMPP Client
@@ -15054,7 +15054,7 @@ net-libs/libssh2 1.11.1 9999: Library implementing the SSH2 protocol
 net-libs/libtelnet 0.23-r2: Simple RFC-compliant TELNET implementation as a C library
 net-libs/libtirpc 1.3.6 1.3.7 1.3.7-r2: Transport Independent RPC library (SunRPC replacement)
 net-libs/libtlsrpt 0.5.0 9999: library to implement TLSRPT
-net-libs/libtorrent 0.15.7 0.16.6 9999: BitTorrent library written in C++ for *nix
+net-libs/libtorrent 0.15.7 0.16.7 9999: BitTorrent library written in C++ for *nix
 net-libs/libtorrent-rasterbar 2.0.10: C++ BitTorrent implementation focusing on efficiency and scalability
 net-libs/libtrace 4.0.21 4.0.22 4.0.26 4.0.28: A library and tools for trace processing
 net-libs/libupnp 1.14.24 1.14.25 1.14.30: An Portable Open Source UPnP Development Kit
@@ -15575,7 +15575,7 @@ net-p2p/nicotine+ 3.3.7 3.3.10: Graphical client for the Soulseek peer to peer n
 net-p2p/qbittorrent 5.0.5-r1 5.1.2-r1 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.8.1.1390 3.1.1.1075 9999: Resilient, fast and scalable file synchronization tool
 net-p2p/retroshare 0.6.7-r4: Friend to Friend secure communication and sharing application
-net-p2p/rtorrent 0.15.7 0.16.6 9999: BitTorrent Client using libtorrent
+net-p2p/rtorrent 0.15.7 0.16.7 9999: BitTorrent Client using libtorrent
 net-p2p/stig 0.14.0a_p0 0.14.2a_p0: TUI and CLI for the BitTorrent client Transmission
 net-p2p/syncthing 1.29.5 2.0.10 2.0.14 2.0.15: Open Source Continuous File Synchronization
 net-p2p/torrentinfo 1.8.7: A torrent file parser
@@ -17408,7 +17408,7 @@ sys-auth/pam_ssh_agent_auth 0.10.4-r1 9999: Simple module to authenticate users 
 sys-auth/pam_u2f 1.4.0: PAM module for FIDO2 and U2F keys
 sys-auth/pam_yubico 2.27: Library for authenticating against PAM with a Yubikey
 sys-auth/pambase 20250826 20250906 20251013 20251104 20251104-r1 999999999: PAM base configuration files
-sys-auth/passwdqc 2.0.3-r1: Password strength checking library (and PAM module)
+sys-auth/passwdqc 2.0.3-r1 2.1.0: Password strength checking library (and PAM module)
 sys-auth/polkit 126-r2 9999: Policy framework for controlling privileges for system-wide services
 sys-auth/polkit-pkla-compat 0.1-r2: Rules for polkit to add compatibility with pklocalauthority
 sys-auth/polkit-qt 0.200.0-r1: Qt wrapper around polkit-1 client libraries
@@ -17819,7 +17819,7 @@ sys-kernel/ugrd 1.27.2 1.28.2 1.29.0-r1 1.31.2 2.0.2 9999: Python based POSIX in
 sys-kernel/vanilla-kernel 5.10.250 5.10.251 5.10.252 5.10.9999 5.15.200 5.15.201 5.15.202 5.15.9999 6.1.163 6.1.164 6.1.9999 6.6.126 6.6.127 6.6.9999 6.12.74 6.12.9999 6.18.12 6.18.13 6.18.15 6.18.16 6.19.3 6.19.5 6.19.6: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 5.10.252 5.15.202 6.1.166 6.6.129 6.12.76 6.18.16 6.19.6: Full sources for the Linux kernel
 sys-kernel/virtme-ng 1.36 1.38 1.40: Quickly build and run kernels inside a virtualized snapshot of your live system
-sys-kernel/zen-sources 6.18.8 6.18.9: The Zen Kernel Live Sources
+sys-kernel/zen-sources 6.19.6: The Zen Kernel Live Sources
 sys-libs/argp-standalone 1.5.0: Standalone argp library for use with musl
 sys-libs/basu 0.2.1: The sd-bus library, extracted from systemd
 sys-libs/binutils-libs 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r2 2.43-r3 2.44-r2 2.45 2.45-r1 2.45.1 2.46.0 9999: Core binutils libraries (libbfd, libopcodes, libiberty) for external packages
