@@ -1,4 +1,4 @@
-BDEPEND=dev-lang/perl virtual/pkgconfig clang? ( llvm-core/clang ) llvm_targets_AMDGPU? ( llvm-core/clang[llvm_targets_AMDGPU] ) llvm_targets_NVPTX? ( llvm-core/clang[llvm_targets_NVPTX] ) test? ( || ( ( dev-lang/python:3.14 dev-python/lit[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/lit[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/lit[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/lit[python_targets_python3_11(-)] ) ) llvm-core/clang ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+BDEPEND=dev-lang/perl virtual/pkgconfig clang? ( llvm-core/clang ) llvm_targets_AMDGPU? ( llvm-core/clang[llvm_targets_AMDGPU] ) llvm_targets_NVPTX? ( llvm-core/clang[llvm_targets_NVPTX] ) test? ( || ( ( dev-lang/python:3.14 dev-python/lit[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/lit[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/lit[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/lit[python_targets_python3_11(-)] ) ) llvm-core/clang:23 ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare pretend setup test unpack
 DEPEND=dev-libs/libffi:= ~llvm-core/llvm-23.0.0_pre20260223 ~llvm-runtimes/openmp-23.0.0_pre20260223[ompt?] llvm_targets_AMDGPU? ( dev-libs/rocr-runtime:= )
 DESCRIPTION=OpenMP offloading support
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0/23.0.0_pre20260223
 SRC_URI=https://github.com/llvm/llvm-project/archive/0b95a494c90cb77a50415fb85196e1eb80f96a5d.tar.gz -> llvm-project-0b95a494c90cb77a50415fb85196e1eb80f96a5d.tar.gz
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	crossdev	d618c699554f72b98f8ceeeeb361dc9e	llvm.org	e0298240975bae732c04d5206b634783	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=adbb154a06ba24e3ba986ca449e1906e
+_md5_=df26d3a7cf1197af00f0feba10729a0c
