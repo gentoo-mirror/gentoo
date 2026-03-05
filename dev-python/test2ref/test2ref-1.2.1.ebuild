@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,7 +18,9 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="dev-python/binaryornot[${PYTHON_USEDEP}]"
+RDEPEND="
+	dev-python/binaryornot[${PYTHON_USEDEP}]
+"
 
 EPYTEST_DESELECT=(
 	# Whitespace differences
@@ -26,6 +28,7 @@ EPYTEST_DESELECT=(
 	'tests/test_main.py::test_caplog[True]'
 )
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 python_test() {
