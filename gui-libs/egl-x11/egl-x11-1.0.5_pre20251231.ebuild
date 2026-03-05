@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/NVIDIA/egl-x11/"
 if [[ ${PV} == *_pre* ]]; then
 	# happens often that nvidia-drivers ships with a (yet) unreleased
 	# version and we need to ship a snapshot to provide the same fixes
-	HASH_EGLX11=
+	HASH_EGLX11=ee7617fdf119d81dd5d0211e4e14c6d283e780dc
 	SRC_URI="
 		https://github.com/NVIDIA/egl-x11/archive/${HASH_EGLX11}.tar.gz
 			-> ${P}.tar.gz
@@ -26,7 +26,7 @@ fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 # wrt blocker, may or may not cause problems if present with <560
 # drivers, and collides with <565.57.01-r2

@@ -27,11 +27,9 @@ LICENSE="
 	curl openssl public-domain
 "
 SLOT="0/${PV%%.*}"
-KEYWORDS="-* amd64 ~arm64"
-IUSE="
-	+X abi_x86_32 abi_x86_64 kernel-open persistenced powerd
-	+static-libs +tools wayland
-"
+# unkeyworded due to being a beta, feel free to opt-in if want to test
+#KEYWORDS="-* ~amd64 ~arm64"
+IUSE="+X abi_x86_32 abi_x86_64 persistenced powerd +static-libs +tools wayland"
 
 COMMON_DEPEND="
 	acct-group/video
@@ -54,6 +52,9 @@ COMMON_DEPEND="
 		x11-libs/pango
 	)
 "
+# egl-wayland2: nvidia currently ships both versions so, to ensure
+# everything works properly, depend on both at same time for now
+# (may use one or the other depending on setup)
 RDEPEND="
 	${COMMON_DEPEND}
 	dev-libs/openssl:0/3
@@ -67,6 +68,7 @@ RDEPEND="
 	wayland? (
 		>=gui-libs/egl-gbm-1.1.1-r2[abi_x86_32(-)?]
 		>=gui-libs/egl-wayland-1.1.13.1[abi_x86_32(-)?]
+		gui-libs/egl-wayland2[abi_x86_32(-)?]
 		X? ( gui-libs/egl-x11[abi_x86_32(-)?] )
 	)
 "
@@ -99,7 +101,6 @@ QA_PREBUILT="lib/firmware/* usr/bin/* usr/lib*"
 PATCHES=(
 	"${FILESDIR}"/nvidia-modprobe-390.141-uvm-perms.patch
 	"${FILESDIR}"/nvidia-settings-530.30.02-desktop.patch
-	"${FILESDIR}"/nvidia-kernel-module-source-${PV}-kernel6.19.patch
 )
 
 pkg_setup() {
@@ -128,15 +129,12 @@ pkg_setup() {
 
 	use amd64 && kernel_is -ge 5 8 && CONFIG_CHECK+=" X86_PAT" #817764
 
-	use kernel-open && CONFIG_CHECK+=" MMU_NOTIFIER" #843827
-
 	local drm_helper_msg="Cannot be directly selected in the kernel's config menus, and may need
 	selection of a DRM device even if unused, e.g. CONFIG_DRM_QXL=m or
 	DRM_AMDGPU=m (among others, consult the kernel config's help), can
 	also use DRM_NOUVEAU=m as long as built as module *not* built-in."
-	local ERROR_DRM_KMS_HELPER="CONFIG_DRM_KMS_HELPER: is not set but is needed for nvidia-drm.modeset=1
-	support (see ${EPREFIX}/etc/modprobe.d/nvidia.conf) which is needed for wayland
-	and for config-less Xorg auto-detection.
+	local ERROR_DRM_KMS_HELPER="CONFIG_DRM_KMS_HELPER: is not set but is needed for wayland support,
+	tty takeover (e.g. for simpledrm), and config-less Xorg auto-detection.
 	${drm_helper_msg}"
 	local ERROR_DRM_TTM_HELPER="CONFIG_DRM_TTM_HELPER: is not set but is needed to compile when using
 	kernel version 6.11.x or newer while DRM_FBDEV_EMULATION is set.
@@ -144,10 +142,6 @@ pkg_setup() {
 	local ERROR_DRM_FBDEV_EMULATION="CONFIG_DRM_FBDEV_EMULATION: is not set but is needed for
 	nvidia-drm.fbdev=1 support (see ${EPREFIX}/etc/modprobe.d/nvidia.conf), may
 	result in a blank console/tty."
-	local ERROR_MMU_NOTIFIER="CONFIG_MMU_NOTIFIER: is not set but needed to build with USE=kernel-open.
-	Cannot be directly selected in the kernel's menuconfig, and may need
-	selection of another option that requires it such as CONFIG_AMD_IOMMU=y,
-	or DRM_I915=m (among others, consult the kernel config's help)."
 	local ERROR_PREEMPT_RT="CONFIG_PREEMPT_RT: is set but is unsupported by NVIDIA upstream and
 	will fail to build unless the env var IGNORE_PREEMPT_RT_PRESENCE=1 is
 	set. Please do not report issues if run into e.g. kernel panics while
@@ -172,10 +166,6 @@ src_prepare() {
 	mv NVIDIA-kernel-module-source-${PV} kernel-module-source || die
 
 	default
-
-	# prevent detection of incomplete kernel DRM support (bug #603818)
-	sed 's/defined(CONFIG_DRM/defined(CONFIG_DRM_KMS_HELPER/g' \
-		-i kernel{,-module-source/kernel-open}/conftest.sh || die
 
 	sed 's/__USER__/nvpd/' \
 		nvidia-persistenced/init/systemd/nvidia-persistenced.service.template \
@@ -219,20 +209,15 @@ src_compile() {
 	if use modules; then
 		local o_cflags=${CFLAGS} o_cxxflags=${CXXFLAGS} o_ldflags=${LDFLAGS}
 
-		local modlistargs=video:kernel
-		if use kernel-open; then
-			modlistargs+=-module-source:kernel-module-source/kernel-open
+		# environment flags are normally unused for modules, but nvidia uses
+		# them for building the formerly closed "blob" and it is a bit fragile
+		filter-flags -fno-plt #912949
+		filter-lto
+		CC=${KERNEL_CC} CXX=${KERNEL_CXX} strip-unsupported-flags
+		LDFLAGS=$(raw-ldflags)
 
-			# environment flags are normally unused for modules, but nvidia
-			# uses it for building the "blob" and it is a bit fragile
-			filter-flags -fno-plt #912949
-			filter-lto
-			CC=${KERNEL_CC} CXX=${KERNEL_CXX} strip-unsupported-flags
-
-			LDFLAGS=$(raw-ldflags)
-		fi
-
-		local modlist=( nvidia{,-drm,-modeset,-peermem,-uvm}=${modlistargs} )
+		: video:kernel-module-source:kernel-module-source/kernel-open
+		local modlist=( nvidia{,-drm,-modeset,-peermem,-uvm}=${_} )
 		local modargs=(
 			IGNORE_CC_MISMATCH=yes NV_VERBOSE=1
 			SYSOUT="${KV_OUT_DIR}" SYSSRC="${KV_DIR}"
@@ -295,6 +280,7 @@ src_install() {
 		libnvidia-{gtk,wayland-client} nvidia-{settings,xconfig} # from source
 		libnvidia-egl-gbm 15_nvidia_gbm # gui-libs/egl-gbm
 		libnvidia-egl-wayland 10_nvidia_wayland # gui-libs/egl-wayland
+		libnvidia-egl-wayland2 09_nvidia_wayland2 # gui-libs/egl-wayland2
 		libnvidia-egl-xcb 20_nvidia_xcb.json # gui-libs/egl-x11
 		libnvidia-egl-xlib 20_nvidia_xlib.json # gui-libs/egl-x11
 		libnvidia-pkcs11.so # using the openssl3 version instead
@@ -342,12 +328,6 @@ $(use amd64 && usev !abi_x86_32 "
 Note that without USE=abi_x86_32 on ${PN}, 32bit applications
 (typically using wine / steam) will not be able to use GPU acceleration.")
 
-Be warned that USE=kernel-open may need to be either enabled or
-disabled for certain cards to function:
-- GTX 50xx (blackwell) and higher require it to be enabled
-- GTX 1650 and higher (pre-blackwell) should work either way
-- Older cards require it to be disabled
-
 For additional information or for troubleshooting issues, please see
 https://wiki.gentoo.org/wiki/NVIDIA/nvidia-drivers and NVIDIA's own
 documentation that is installed alongside this README."
@@ -357,7 +337,7 @@ documentation that is installed alongside this README."
 		linux-mod-r1_src_install
 
 		insinto /etc/modprobe.d
-		newins "${FILESDIR}"/nvidia-580.conf nvidia.conf
+		newins "${FILESDIR}"/nvidia-595.conf nvidia.conf
 
 		# used for gpu verification with binpkgs (not kept, see pkg_preinst)
 		insinto /usr/share/nvidia
@@ -448,16 +428,26 @@ documentation that is installed alongside this README."
 	insopts -m0644 # reset
 
 	# MODULE:installer non-skipped extras
-	: "$(systemd_get_sleepdir)"
-	exeinto "${_#"${EPREFIX}"}"
-	doexe systemd/system-sleep/nvidia
-	dobin systemd/nvidia-sleep.sh
-	systemd_dounit systemd/system/nvidia-{hibernate,resume,suspend,suspend-then-hibernate}.service
-
+	# (sleep services skipped, obsoleted by NVreg_UseKernelSuspendNotifiers=1)
 	dobin nvidia-bug-report.sh
 
 	insinto /usr/share/nvidia/files.d
 	doins sandboxutils-filelist.json
+
+	# needed with >=systemd-256 or may fail to resume with some setups
+	# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1072722
+	: "$(systemd_get_systemunitdir)"
+	local unitdir=${_#"${EPREFIX}"}
+	insinto "${unitdir}"/systemd-homed.service.d
+	newins - 10-nvidia.conf <<-EOF
+		[Service]
+		Environment=SYSTEMD_HOME_LOCK_FREEZE_SESSION=false
+	EOF
+	insinto "${unitdir}"/systemd-suspend.service.d
+	newins systemd/system/systemd-suspend.service.d/nvidia-suspend-nofreeze.conf 10-nvidia.conf
+	dosym -r "${unitdir}"/systemd-{suspend,hibernate}.service.d/10-nvidia.conf
+	dosym -r "${unitdir}"/systemd-{suspend,hybrid-sleep}.service.d/10-nvidia.conf
+	dosym -r "${unitdir}"/systemd-{suspend,suspend-then-hibernate}.service.d/10-nvidia.conf
 
 	# MODULE:powerd extras
 	if use powerd; then
@@ -467,40 +457,6 @@ documentation that is installed alongside this README."
 		insinto /usr/share/dbus-1/system.d
 		doins nvidia-dbus.conf
 	fi
-
-	# enabling is needed for sleep to work properly and little reason not to do
-	# it unconditionally for a better user experience
-	: "$(systemd_get_systemunitdir)"
-	local unitdir=${_#"${EPREFIX}"}
-	# not using relative symlinks to match systemd's own links
-	dosym {"${unitdir}",/etc/systemd/system/systemd-hibernate.service.wants}/nvidia-hibernate.service
-	dosym {"${unitdir}",/etc/systemd/system/systemd-hibernate.service.wants}/nvidia-resume.service
-	dosym {"${unitdir}",/etc/systemd/system/systemd-suspend.service.wants}/nvidia-suspend.service
-	dosym {"${unitdir}",/etc/systemd/system/systemd-suspend.service.wants}/nvidia-resume.service
-	dosym {"${unitdir}",/etc/systemd/system/systemd-suspend-then-hibernate.service.wants}/nvidia-suspend-then-hibernate.service
-	dosym {"${unitdir}",/etc/systemd/system/systemd-suspend-then-hibernate.service.wants}/nvidia-resume.service
-	# also add a custom elogind hook to do the equivalent of the above
-	exeinto /usr/lib/elogind/system-sleep
-	newexe "${FILESDIR}"/system-sleep.elogind nvidia
-	# <elogind-255.5 used a different path (bug #939216), keep a compat symlink
-	# TODO: cleanup after 255.5 been stable for a few months
-	dosym {/usr/lib,/"${libdir}"}/elogind/system-sleep/nvidia
-
-	# needed with >=systemd-256 or may fail to resume with some setups
-	# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1072722
-	insinto "${unitdir}"/systemd-homed.service.d
-	newins - 10-nvidia.conf <<-EOF
-		[Service]
-		Environment=SYSTEMD_HOME_LOCK_FREEZE_SESSION=false
-	EOF
-	insinto "${unitdir}"/systemd-suspend.service.d
-	newins - 10-nvidia.conf <<-EOF
-		[Service]
-		Environment=SYSTEMD_SLEEP_FREEZE_USER_SESSIONS=false
-	EOF
-	dosym -r "${unitdir}"/systemd-{suspend,hibernate}.service.d/10-nvidia.conf
-	dosym -r "${unitdir}"/systemd-{suspend,hybrid-sleep}.service.d/10-nvidia.conf
-	dosym -r "${unitdir}"/systemd-{suspend,suspend-then-hibernate}.service.d/10-nvidia.conf
 
 	# symlink non-versioned so nvidia-settings can use it even if misdetected
 	dosym nvidia-application-profiles-${PV}-key-documentation \
@@ -526,8 +482,6 @@ documentation that is installed alongside this README."
 }
 
 pkg_preinst() {
-	has_version "${CATEGORY}/${PN}[kernel-open]" && NV_HAD_KERNEL_OPEN=
-
 	use modules || return
 
 	# set video group id based on live system (bug #491414)
@@ -588,18 +542,28 @@ pkg_postinst() {
 		ewarn "[2] https://wiki.gentoo.org/wiki/Nouveau"
 	fi
 
-	if use kernel-open && use modules && [[ ! -v NV_HAD_KERNEL_OPEN ]]; then
-		ewarn "\nOpen source variant of ${PN} was selected, note that it requires"
-		ewarn "Turing/Ampere+ GPUs (aka GTX 1650+). Try disabling if run into issues."
-		ewarn "Also see: ${EROOT}/usr/share/doc/${PF}/html/kernel_open.html"
-	fi
-
-	if ver_replacing -lt 580.126.09-r1; then
-		elog "\n>=nvidia-drivers-580.126.09-r1 changes some defaults that may or may"
-		elog "not need attention:"
-		elog "1. nvidia-drm.modeset=1 is now default regardless of USE=wayland"
-		elog "2. nvidia-drm.fbdev=1 is now also tentatively default to match upstream"
+	if ver_replacing -lt 590; then
+		elog "\n>=${PN}-590 has changes that may or may not need attention:"
+		elog "1. support for Pascal, Maxwell, and Volta cards has been dropped"
+		elog "  (if affected, there should be a another message about this above)"
+		elog "2. nvidia-drm.modeset=1 is now default regardless of USE=wayland"
+		elog "3. nvidia-drm.fbdev=1 is now also tentatively default to match upstream"
+		elog "(2+3 were also later changed in >=580.126.09-r1, may already be in-use)"
 		elog "See ${EROOT}/etc/modprobe.d/nvidia.conf to modify settings if needed,"
 		elog "fbdev=1 *could* cause issues for the console display with some setups."
+	fi
+
+	if ver_replacing -lt 595; then
+		elog "\n>=${PN}-595 has changes that may or may not need attention:"
+		elog "1. USE=kernel-open was removed and is now always enabled. If for some"
+		elog "   reason you really need the closed variant (e.g. Runtime D3 on Turing"
+		elog "   GPUs), please use LTS 580.xx instead as Gentoo has no intention to"
+		elog "   support both variants anymore going forward"
+		elog "2. systemd/elogind sleep services (nvidia-sleep.sh) were tentatively"
+		elog "   removed and replaced by setting NVreg_UseKernelSuspendNotifiers=1 in"
+		elog "   ${EROOT}/etc/modprobe.d/nvidia.conf. If using a non-default custom"
+		elog "   nvidia.conf, please ensure the option is set."
+		elog "3. nvidia-drm.modeset=1 was removed from nvidia.conf because it is now"
+		elog "   default enabled regardless (new NVIDIA default)"
 	fi
 }
