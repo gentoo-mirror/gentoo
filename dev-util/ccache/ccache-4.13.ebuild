@@ -31,16 +31,15 @@ if [[ ${MY_DOCS_PREBUILT} == 1 ]] ; then
 fi
 
 # https://ccache.dev/license.html
-# ccache, blake3, NonstdSpan, tl-expected
-LICENSE="GPL-3+ || ( CC0-1.0 Apache-2.0 ) Boost-1.0 CC0-1.0"
+# ccache, blake3
+LICENSE="GPL-3+ || ( CC0-1.0 Apache-2.0 )"
 LICENSE+=" elibc_mingw? ( LGPL-3 ISC PSF-2 )"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~x86"
 # Enable 'static-c++' by default to make 'gcc' ebuild Just Work: bug #761220
 IUSE="${MY_DOCS_USEFLAG} redis +static-c++ test"
 RESTRICT="!test? ( test )"
 
-# TODO: package NonstdSpan, TlExpected
 DEPEND="
 	>=app-arch/zstd-1.3.4:=
 	!static-c++? (
@@ -56,6 +55,7 @@ RDEPEND="
 	dev-util/shadowman
 	sys-apps/gentoo-functions
 "
+DEPEND+=" dev-cpp/expected"
 # Needed for eselect calls in pkg_*
 IDEPEND="dev-util/shadowman"
 
@@ -70,13 +70,12 @@ BDEPEND="
 	verify-sig? ( sec-keys/minisig-keys-ccache )
 "
 
-DOCS=( doc/{AUTHORS,MANUAL,NEWS}.adoc CONTRIBUTING.md README.md )
+DOCS=( doc/{authors,manual,news}.adoc CONTRIBUTING.md README.md )
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.5-nvcc-test.patch
 	"${FILESDIR}"/${PN}-4.0-objdump.patch
-	"${FILESDIR}"/${PN}-4.11-avoid-run-user.patch
-	"${FILESDIR}"/${PN}-4.11.3-libfmt-libcxx-21.patch
+	"${FILESDIR}"/${PN}-4.13-avoid-run-user.patch
 )
 
 src_unpack() {
