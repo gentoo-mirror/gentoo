@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
 PYPI_VERIFY_REPO=https://github.com/ipython/ipython
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 PYTHON_REQ_USE='readline(+),sqlite,threads(+)'
 
 inherit distutils-r1 optfeature toolchain-funcs pypi virtualx
@@ -24,34 +24,31 @@ IUSE="examples gui notebook nbconvert +smp test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-python/decorator-4.3.2[${PYTHON_USEDEP}]
+	>=dev-python/decorator-5.1.0[${PYTHON_USEDEP}]
 	>=dev-python/ipython-pygments-lexers-1.0.0[${PYTHON_USEDEP}]
-	>=dev-python/jedi-0.18.1[${PYTHON_USEDEP}]
-	>=dev-python/matplotlib-inline-0.1.5[${PYTHON_USEDEP}]
-	>=dev-python/pexpect-4.3[${PYTHON_USEDEP}]
+	>=dev-python/jedi-0.18.2[${PYTHON_USEDEP}]
+	>=dev-python/matplotlib-inline-0.1.6[${PYTHON_USEDEP}]
+	>=dev-python/pexpect-4.7[${PYTHON_USEDEP}]
 	>=dev-python/prompt-toolkit-3.0.41[${PYTHON_USEDEP}]
 	<dev-python/prompt-toolkit-3.1[${PYTHON_USEDEP}]
-	>=dev-python/pygments-2.11.0[${PYTHON_USEDEP}]
+	>=dev-python/pygments-2.14.0[${PYTHON_USEDEP}]
 	>=dev-python/stack-data-0.6.0[${PYTHON_USEDEP}]
 	>=dev-python/traitlets-5.13.0[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '
-		dev-python/typing-extensions[${PYTHON_USEDEP}]
-	' 3.11)
 "
 
 BDEPEND="
-	dev-python/setuptools[${PYTHON_USEDEP}]
+	>=dev-python/setuptools-80[${PYTHON_USEDEP}]
 	test? (
 		app-text/dvipng[truetype]
 		>=dev-python/ipykernel-5.1.0[${PYTHON_USEDEP}]
 		>=dev-python/matplotlib-3.9[${PYTHON_USEDEP}]
 		dev-python/nbformat[${PYTHON_USEDEP}]
-		>=dev-python/numpy-1.23[${PYTHON_USEDEP}]
+		>=dev-python/numpy-2.0[${PYTHON_USEDEP}]
 		dev-python/matplotlib-inline[${PYTHON_USEDEP}]
-		dev-python/packaging[${PYTHON_USEDEP}]
+		>=dev-python/packaging-23.0.0[${PYTHON_USEDEP}]
 		dev-python/pickleshare[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
-		dev-python/testpath[${PYTHON_USEDEP}]
+		>=dev-python/testpath-0.2[${PYTHON_USEDEP}]
 	)
 "
 
@@ -73,7 +70,7 @@ PDEPEND="
 			dev-python/ipywidgets[${PYTHON_USEDEP}]
 			dev-python/widgetsnbextension[${PYTHON_USEDEP}]
 		)
-	' 3.{11..13})
+	' 3.{12..14})
 	smp? (
 		>=dev-python/ipykernel-5.1.0[${PYTHON_USEDEP}]
 		>=dev-python/ipyparallel-6.2.3[${PYTHON_USEDEP}]
