@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # please keep this ebuild at EAPI 8 -- sys-apps/portage dep
@@ -6,7 +6,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
+PYTHON_COMPAT=( python3_{11..14} python3_14t pypy3_11 )
 
 inherit distutils-r1
 
@@ -24,27 +24,28 @@ SRC_URI="
 	test? (
 		https://github.com/google/brotli/archive/${BROTLI_BUNDLED_COMMIT}.tar.gz
 			-> brotli-${BROTLI_BUNDLED_COMMIT}.tar.gz
-		https://github.com/google/brotli/raw/ed738e842d2fbdf2d6459e39267a633c4a9b2f5d/tests/testdata/alice29.txt
+		https://github.com/google/brotli/raw/${BROTLI_BUNDLED_COMMIT}/tests/testdata/alice29.txt
 	)
 "
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
 
-RDEPEND="
+DEPEND="
 	app-arch/brotli:=
+"
+BDEPEND="
 	$(python_gen_cond_dep '
-		dev-python/cffi[${PYTHON_USEDEP}]
+		>=dev-python/cffi-1.17.0[${PYTHON_USEDEP}]
 	' 'python*')
 "
-DEPEND="
-	${RDEPEND}
-	test? (
-		dev-python/hypothesis[${PYTHON_USEDEP}]
-	)
+RDEPEND="
+	${DEPEND}
+	${BDEPEND}
 "
 
+EPYTEST_PLUGINS=( hypothesis )
 distutils_enable_tests pytest
 
 EPYTEST_DESELECT=(

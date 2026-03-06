@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,11 +20,12 @@ SRC_URI="
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 RDEPEND="
-	>=dev-python/sphinx-3.0.0[${PYTHON_USEDEP}]
+	dev-python/jinja2[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-6.0.0[${PYTHON_USEDEP}]
+	>=dev-python/sphinx-3.0.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -35,11 +36,6 @@ BDEPEND="
 
 EPYTEST_PLUGINS=( pytest-asyncio )
 distutils_enable_tests pytest
-
-python_compile() {
-	distutils-r1_python_compile
-	find "${BUILD_DIR}" -name '*.pth' -delete || die
-}
 
 python_test() {
 	distutils_write_namespace sphinxcontrib
