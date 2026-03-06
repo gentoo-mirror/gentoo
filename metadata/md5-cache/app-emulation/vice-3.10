@@ -7,11 +7,11 @@ HOMEPAGE=https://vice-emu.sourceforge.io/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=autotools multibuild toolchain-funcs xdg
 IUSE=alsa curl debug doc ethernet flac gif +gtk headless lame mpg123 ogg openmp oss parport pci png portaudio pulseaudio sdl usb
-KEYWORDS=~amd64 ~arm ~arm64 ~x86
+KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=GPL-2+
 RDEPEND=virtual/zlib:= virtual/libintl alsa? ( media-libs/alsa-lib ) curl? ( net-misc/curl ) ethernet? ( net-libs/libpcap sys-libs/libcap ) flac? ( media-libs/flac:= ) gif? ( media-libs/giflib:= ) gtk? ( >=app-accessibility/at-spi2-core-2.46:2 dev-libs/glib:2 dev-libs/libevdev media-libs/fontconfig:1.0 media-libs/glew:0=[-egl-only(-)] media-libs/libglvnd[X] x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/pango ) lame? ( media-sound/lame ) mpg123? ( media-sound/mpg123-base ) ogg? ( media-libs/libogg media-libs/libvorbis ) parport? ( sys-libs/libieee1284 ) pci? ( sys-apps/pciutils ) png? ( media-libs/libpng:= ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) sdl? ( media-libs/libsdl2[video] media-libs/sdl2-image ) usb? ( dev-libs/libusb:1 )
 REQUIRED_USE=|| ( gtk headless sdl )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/vice-emu/releases/vice-3.10.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=b044622b7c7ff633b981191fabc34c7c
+_md5_=c081b04f69a74c68acb25e3b1e5d60a1
