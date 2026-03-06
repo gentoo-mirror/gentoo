@@ -1,0 +1,15 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=install postinst postrm preinst prepare
+DEPEND=dev-libs/glib:2 dev-libs/gobject-introspection:0= dev-libs/json-glib net-libs/libsoup:3.0 x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3
+DESCRIPTION=GTK+3 timezone map widget
+EAPI=8
+HOMEPAGE=https://launchpad.net/timezonemap https://salsa.debian.org/cinnamon-team/libtimezonemap
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=autotools xdg
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/glib:2 dev-libs/gobject-introspection:0= dev-libs/json-glib net-libs/libsoup:3.0 x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3
+SLOT=0
+SRC_URI=mirror://debian/pool/main/libt/libtimezonemap/libtimezonemap_0.4.6.orig.tar.gz mirror://debian/pool/main/libt/libtimezonemap/libtimezonemap_0.4.6-7.debian.tar.xz
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=158b363c2cca77c4446dcdb96fc9fffe
