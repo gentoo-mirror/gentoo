@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/swig || ( app-arch/7zip app-arch/p7zip ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=<dev-lang/tcl-9:= dev-lang/tk:0= x11-libs/libX11 x11-libs/libXrandr virtual/opengl virtual/glu truetype? ( media-libs/ftgl ) sdl? ( media-libs/libsdl )
+DESCRIPTION=Tcl bindings to OpenGL and other 3D libraries
+EAPI=8
+HOMEPAGE=http://www.tcl3d.org
+INHERIT=flag-o-matic cmake unpacker
+IUSE=sdl truetype
+KEYWORDS=amd64 x86
+LICENSE=BSD
+RDEPEND=<dev-lang/tcl-9:= dev-lang/tk:0= x11-libs/libX11 x11-libs/libXrandr virtual/opengl virtual/glu truetype? ( media-libs/ftgl ) sdl? ( media-libs/libsdl )
+SLOT=0
+SRC_URI=https://www.tcl3d.org/download/distributions/tcl3d-0.9.5.7z
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	unpacker	767e064ac3c6192d69d112d11dd05ba6
+_md5_=3496f5b3b7d089667987f10c3fe1552b
