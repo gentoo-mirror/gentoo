@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 DOCS_BUILDER="doxygen"
 DOCS_DEPEND="
 	dev-texlive/texlive-bibtexextra
@@ -31,7 +31,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="examples +python"
+IUSE="examples static-libs +python"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="
@@ -54,7 +54,7 @@ pkg_setup() {
 src_configure() {
 	local -x CONFIG_SHELL="${BROOT}/bin/bash"
 	econf \
-		--disable-static \
+		$(use_enable static-libs static) \
 		--with-yaml-cpp="${ESYSROOT}/usr" \
 		$(use_enable python) \
 		$(use_enable doc doxygen)
