@@ -1,0 +1,17 @@
+BDEPEND=test? ( dev-cpp/gtest sci-libs/rocBLAS:0/7.2 ) dev-build/rocm-cmake app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-util/hip:0/7.2 dev-util/rocm-smi:0/7.2
+DESCRIPTION=library for accelerating mixed precision matrix multiply-accumulate operations
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/rocm-libraries/tree/develop/projects/rocwmma
+INHERIT=cmake rocm
+IUSE=+amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx950 +amdgpu_targets_gfx1100 +amdgpu_targets_gfx1101 +amdgpu_targets_gfx1102 +amdgpu_targets_gfx1150 +amdgpu_targets_gfx1151 +amdgpu_targets_gfx1152 +amdgpu_targets_gfx1153 +amdgpu_targets_gfx1200 +amdgpu_targets_gfx1201 test
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip:0/7.2 dev-util/rocm-smi:0/7.2
+REQUIRED_USE=test? ( || ( amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx942 amdgpu_targets_gfx950 amdgpu_targets_gfx1100 amdgpu_targets_gfx1101 amdgpu_targets_gfx1102 amdgpu_targets_gfx1150 amdgpu_targets_gfx1151 amdgpu_targets_gfx1152 amdgpu_targets_gfx1153 amdgpu_targets_gfx1200 amdgpu_targets_gfx1201 ) )
+RESTRICT=!test? ( test )
+SLOT=0/7.2
+SRC_URI=https://github.com/ROCm/rocm-libraries/releases/download/rocm-7.2.0/rocwmma.tar.gz -> rocwmma-7.2.0.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	rocm	b406b041c5b107f8d8600865210e24e2
+_md5_=017e3cea8a2ded2cf391e6cc92687994

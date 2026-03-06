@@ -1,0 +1,17 @@
+BDEPEND=video_cards_amdgpu? ( dev-util/hipcc:0/7.2 ) test? ( media-libs/freeglut llvm_slot_22? ( dev-util/spirv-llvm-translator:22 ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5 doc? ( app-text/doxygen media-gfx/graphviz )
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=video_cards_amdgpu? ( dev-util/rocminfo:0/7.2 dev-libs/rocm-comgr:0/7.2 dev-libs/rocr-runtime:0/7.2 ) video_cards_nvidia? ( dev-libs/hipother:0/7.2 ) x11-base/xorg-proto virtual/opengl[X]
+DESCRIPTION=C++ Heterogeneous-Compute Interface for Portability
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/rocm-systems/tree/develop/projects/clr
+INHERIT=cmake docs flag-o-matic llvm-r2 rocm
+IUSE=debug +hip opencl test video_cards_amdgpu video_cards_nvidia doc +llvm_slot_22
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=video_cards_amdgpu? ( dev-util/rocminfo:0/7.2 dev-libs/rocm-comgr:0/7.2 dev-libs/rocr-runtime:0/7.2 ) video_cards_nvidia? ( dev-libs/hipother:0/7.2 ) x11-base/xorg-proto virtual/opengl[X] ~dev-libs/rocm-core-7.2.0 opencl? ( !dev-libs/opencl-icd-loader !dev-libs/rocm-opencl-runtime !dev-util/clinfo !dev-util/opencl-headers ) video_cards_amdgpu? ( dev-util/hipcc:0/7.2 dev-libs/rocm-device-libs:0/7.2 dev-libs/roct-thunk-interface:0/7.2 )
+REQUIRED_USE=|| ( hip opencl ) ^^ ( video_cards_amdgpu video_cards_nvidia ) ^^ ( llvm_slot_22 )
+RESTRICT=test
+SLOT=0/7.2
+SRC_URI=https://github.com/ROCm/rocm-systems/releases/download/rocm-7.2.0/clr.tar.gz -> rocm-clr-7.2.0.tar.gz https://github.com/ROCm/rocm-systems/releases/download/rocm-7.2.0/hip.tar.gz -> hip-7.2.0.tar.gz test? ( https://github.com/ROCm/rocm-systems/releases/download/rocm-7.2.0/hip-tests.tar.gz -> hip-tests-7.2.0.tar.gz )
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	docs	006125f2158d2f16904ebd9114336058	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	404b65bd5212cff83b3935c685419d08	llvm-r2	8bc46809768366b4239eab39335419bc	rocm	b406b041c5b107f8d8600865210e24e2
+_md5_=db8f34ec79dd727e222f0f737ad40e98

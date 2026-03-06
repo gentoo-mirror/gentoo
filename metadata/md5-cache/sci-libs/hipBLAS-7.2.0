@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/fortran
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-util/hip:0/7.2 sci-libs/hipBLAS-common:0/7.2 sci-libs/rocBLAS:0/7.2 rocsolver? ( sci-libs/rocSOLVER:0/7.2 ) virtual/fortran
+DESCRIPTION=ROCm BLAS marshalling library
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/rocm-libraries/tree/develop/projects/hipblas
+INHERIT=cmake fortran-2 rocm
+IUSE=rocsolver +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx950 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 +amdgpu_targets_gfx1101 +amdgpu_targets_gfx1200 +amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1102 amdgpu_targets_gfx1103 amdgpu_targets_gfx1150 amdgpu_targets_gfx1151
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=sci-libs/rocBLAS:0/7.2 rocsolver? ( sci-libs/rocSOLVER:0/7.2 ) virtual/fortran
+REQUIRED_USE=|| ( amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx942 amdgpu_targets_gfx950 amdgpu_targets_gfx1030 amdgpu_targets_gfx1100 amdgpu_targets_gfx1101 amdgpu_targets_gfx1200 amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1102 amdgpu_targets_gfx1103 amdgpu_targets_gfx1150 amdgpu_targets_gfx1151 )
+SLOT=0/7.2
+SRC_URI=https://github.com/ROCm/rocm-libraries/releases/download/rocm-7.2.0/hipblas.tar.gz -> hipBLAS-7.2.0.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	fortran-2	ae6d43513003405bd4a48698fc20370a	rocm	b406b041c5b107f8d8600865210e24e2
+_md5_=8b8f8e7305a0baa9184aa51068d37820

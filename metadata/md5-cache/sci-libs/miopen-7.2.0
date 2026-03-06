@@ -1,0 +1,17 @@
+BDEPEND=dev-build/rocm-cmake app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-util/hip:0/7.2 dev-db/sqlite:3 app-arch/bzip2 sci-libs/rocRAND:0/7.2 dev-libs/boost:= dev-libs/rocm-comgr:0/7.2 composable-kernel? ( sci-libs/composable-kernel:0/7.2 ) hipblaslt? ( sci-libs/hipBLASLt:0/7.2 ) rocblas? ( sci-libs/rocBLAS:0/7.2 ) roctracer? ( dev-util/roctracer:0/7.2 ) dev-cpp/nlohmann_json >=dev-libs/half-1.12.0-r1 test? ( dev-cpp/gtest ) amdgpu_targets_gfx908? ( =dev-cpp/frugally-deep-0.15* ) amdgpu_targets_gfx940? ( =dev-cpp/frugally-deep-0.15* ) amdgpu_targets_gfx941? ( =dev-cpp/frugally-deep-0.15* ) amdgpu_targets_gfx942? ( =dev-cpp/frugally-deep-0.15* )
+DESCRIPTION=AMD's Machine Intelligence Library
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/rocm-libraries/tree/develop/projects/miopen
+INHERIT=cmake flag-o-matic llvm-r2 rocm
+IUSE=composable-kernel debug +hipblaslt +rocblas roctracer test +llvm_slot_22 +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx950 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 +amdgpu_targets_gfx1101 +amdgpu_targets_gfx1200 +amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1102 amdgpu_targets_gfx1103 amdgpu_targets_gfx1150 amdgpu_targets_gfx1151
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip:0/7.2 dev-db/sqlite:3 app-arch/bzip2 sci-libs/rocRAND:0/7.2 dev-libs/boost:= dev-libs/rocm-comgr:0/7.2 composable-kernel? ( sci-libs/composable-kernel:0/7.2 ) hipblaslt? ( sci-libs/hipBLASLt:0/7.2 ) rocblas? ( sci-libs/rocBLAS:0/7.2 ) roctracer? ( dev-util/roctracer:0/7.2 )
+REQUIRED_USE=|| ( amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx942 amdgpu_targets_gfx950 amdgpu_targets_gfx1030 amdgpu_targets_gfx1100 amdgpu_targets_gfx1101 amdgpu_targets_gfx1200 amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1102 amdgpu_targets_gfx1103 amdgpu_targets_gfx1150 amdgpu_targets_gfx1151 ) composable-kernel? ( || ( amdgpu_targets_gfx908 amdgpu_targets_gfx90a amdgpu_targets_gfx942 amdgpu_targets_gfx950 ) ) ^^ ( llvm_slot_22 )
+RESTRICT=test
+SLOT=0/7.2
+SRC_URI=https://github.com/ROCm/rocm-libraries/releases/download/rocm-7.2.0/miopen.tar.gz -> miopen-7.2.0.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	404b65bd5212cff83b3935c685419d08	llvm-r2	8bc46809768366b4239eab39335419bc	rocm	b406b041c5b107f8d8600865210e24e2
+_md5_=8901dd864cb00372a6c2c57ee332288c

@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) dev-build/rocm-cmake:0/7.2 dev-util/hipcc:0/7.2 || ( ( dev-lang/python:3.14 dev-python/msgpack[python_targets_python3_14(-)] dev-python/pyyaml[python_targets_python3_14(-)] dev-python/joblib[python_targets_python3_14(-)] dev-python/nanobind[python_targets_python3_14(-)] dev-python/setuptools[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/msgpack[python_targets_python3_13(-)] dev-python/pyyaml[python_targets_python3_13(-)] dev-python/joblib[python_targets_python3_13(-)] dev-python/nanobind[python_targets_python3_13(-)] dev-python/setuptools[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/msgpack[python_targets_python3_12(-)] dev-python/pyyaml[python_targets_python3_12(-)] dev-python/joblib[python_targets_python3_12(-)] dev-python/nanobind[python_targets_python3_12(-)] dev-python/setuptools[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/msgpack[python_targets_python3_11(-)] dev-python/pyyaml[python_targets_python3_11(-)] dev-python/joblib[python_targets_python3_11(-)] dev-python/nanobind[python_targets_python3_11(-)] dev-python/setuptools[python_targets_python3_11(-)] ) ) llvm_slot_22? ( llvm-core/clang:22 ) test? ( dev-cpp/gtest sci-libs/flexiblas ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=dev-util/hip:0/7.2 roctracer? ( dev-util/roctracer:0/7.2 ) benchmark? ( sci-libs/flexiblas ) dev-cpp/msgpack-cxx dev-libs/rocm-comgr:0/7.2 dev-libs/rocr-runtime:0/7.2 sci-libs/hipSPARSE:0/7.2 dev-util/rocm-smi:0/7.2 llvm-runtimes/openmp
+DESCRIPTION=Sparse GEMM operations library for AMD Instinct accelerators
+EAPI=8
+HOMEPAGE=https://github.com/ROCm/rocm-libraries/tree/develop/projects/hipsparselt
+INHERIT=cmake flag-o-matic multiprocessing llvm-r2 python-any-r1 rocm
+IUSE=+amdgpu_targets_gfx942 +amdgpu_targets_gfx950 benchmark roctracer test +llvm_slot_22
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=dev-util/hip:0/7.2 roctracer? ( dev-util/roctracer:0/7.2 ) benchmark? ( sci-libs/flexiblas )
+REQUIRED_USE=^^ ( llvm_slot_22 )
+RESTRICT=!test? ( test )
+SLOT=0/7.2
+SRC_URI=https://github.com/ROCm/rocm-libraries/releases/download/rocm-7.2.0/hipsparselt.tar.gz -> hipsparselt-7.2.0.tar.gz https://github.com/ROCm/rocm-libraries/releases/download/rocm-7.2.0/origami.tar.gz -> origami-7.2.0.tar.gz https://github.com/ROCm/rocm-libraries/releases/download/rocm-7.2.0/hipblaslt.tar.gz -> hipblaslt-7.2.0.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	404b65bd5212cff83b3935c685419d08	llvm-r2	8bc46809768366b4239eab39335419bc	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-any-r1	891415dfe39ad9b41b461f2b86354af0	rocm	b406b041c5b107f8d8600865210e24e2
+_md5_=c7485ba6e330d70d468501a475e57362
