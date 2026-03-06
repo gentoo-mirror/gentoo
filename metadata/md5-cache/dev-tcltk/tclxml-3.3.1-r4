@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install
-DEPEND=>=dev-lang/tcl-8.2:= >=dev-libs/libxml2-2.6.9:= dev-libs/libxslt >=dev-tcltk/tcllib-1.2 dev-libs/expat
+DEPEND=>=dev-lang/tcl-8.2:= <dev-lang/tcl-9 >=dev-libs/libxml2-2.6.9:= dev-libs/libxslt >=dev-tcltk/tcllib-1.2 dev-libs/expat
 DESCRIPTION=Pure Tcl implementation of an XML parser
 EAPI=8
 HOMEPAGE=https://github.com/flightaware/TclXML
@@ -7,9 +7,9 @@ INHERIT=dot-a
 IUSE=debug threads
 KEYWORDS=~alpha amd64 ppc ~sparc x86
 LICENSE=BSD
-RDEPEND=>=dev-lang/tcl-8.2:= >=dev-libs/libxml2-2.6.9:= dev-libs/libxslt >=dev-tcltk/tcllib-1.2 dev-libs/expat
+RDEPEND=>=dev-lang/tcl-8.2:= <dev-lang/tcl-9 >=dev-libs/libxml2-2.6.9:= dev-libs/libxslt >=dev-tcltk/tcllib-1.2 dev-libs/expat
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/flightaware/TclXML/archive/refs/tags/v3.3.1.tar.gz -> TclXML-3.3.1.tar.gz
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	dot-a	e5200fe17cfd2ed6fa66edd80201763a
-_md5_=b3edf2e86f26e536f63f636ee917debc
+_md5_=c639b44b1a8f2d3d2f8a76fc24ec0321
