@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,15 +7,26 @@ inherit meson-multilib
 
 DESCRIPTION="NVIDIA wayland EGL external platform library, version 2"
 HOMEPAGE="https://github.com/NVIDIA/egl-wayland2/"
-SRC_URI="
-	https://github.com/NVIDIA/egl-wayland2/archive/refs/tags/v${PV/_/-}.tar.gz
-		-> ${P}.tar.gz
-"
-S=${WORKDIR}/${PN}-${PV/_/-}
+
+if [[ ${PV} == *_pre* ]]; then
+	# happens often that nvidia-drivers ships with a (yet) unreleased
+	# version and we need to ship a snapshot to provide the same fixes
+	HASH_EGLWAYLAND2=
+	SRC_URI="
+		https://github.com/NVIDIA/egl-wayland2/archive/${HASH_EGLWAYLAND2}.tar.gz
+			-> ${P}.tar.gz
+	"
+	S=${WORKDIR}/${PN}-${HASH_EGLWAYLAND2}
+else
+	SRC_URI="
+		https://github.com/NVIDIA/egl-wayland2/archive/refs/tags/v${PV}.tar.gz
+			-> ${P}.tar.gz
+	"
+fi
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="amd64 ~arm64"
 
 RDEPEND="
 	dev-libs/wayland[${MULTILIB_USEDEP}]
@@ -31,9 +42,3 @@ DEPEND="
 BDEPEND="
 	dev-util/wayland-scanner
 "
-
-pkg_postinst() {
-	ewarn "gui-libs/egl-wayland2 is still experimental and will be used over"
-	ewarn "gui-libs/egl-wayland(aka v1) if both are installed, please remember"
-	ewarn "to try uninstalling v2 if experience issues."
-}
