@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-libs/boost:= dev-libs/openssl:0=[-bindist(-)] virtual/zlib:= upnp? ( net-libs/miniupnpc:= ) test? ( dev-libs/check )
+DESCRIPTION=A C++ daemon for accessing the I2P anonymous network
+EAPI=8
+HOMEPAGE=https://github.com/PurpleI2P/i2pd
+INHERIT=cmake systemd
+IUSE=test +upnp
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/boost:= dev-libs/openssl:0=[-bindist(-)] virtual/zlib:= upnp? ( net-libs/miniupnpc:= ) acct-user/i2pd acct-group/i2pd
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/PurpleI2P/i2pd/archive/2.59.0.tar.gz -> i2pd-2.59.0.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=9fddcc67a3e9e7dbb0b26aee62a27e9c
