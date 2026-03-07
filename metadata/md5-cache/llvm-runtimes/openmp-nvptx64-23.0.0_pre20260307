@@ -1,0 +1,12 @@
+BDEPEND=llvm-core/clang:23[llvm_targets_NVPTX] llvm-core/lld:23[llvm_targets_NVPTX] app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DESCRIPTION=OpenMP target library for nvptx64 devices
+EAPI=8
+HOMEPAGE=https://openmp.llvm.org
+INHERIT=cmake flag-o-matic llvm.org
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+RDEPEND=!<llvm-runtimes/offload-22[llvm_targets_NVPTX(-)]
+SLOT=0/23.0.0_pre20260307
+SRC_URI=https://github.com/llvm/llvm-project/archive/704c87bb948aff1bec718d56ad52b9b5d9c49cfb.tar.gz -> llvm-project-704c87bb948aff1bec718d56ad52b9b5d9c49cfb.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	llvm.org	a88674b278b64788ed31eb69fa2ddd58
+_md5_=1e9f0cbb3ec5d1d44b6889f54daa2d3c
