@@ -22,7 +22,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 BDEPEND="
 	test? (
@@ -72,6 +72,7 @@ python_test() {
 		tests/test_observability/test_recorder.py::TestInitConnectionCount
 		tests/test_observability/test_recorder.py::TestInitCSCItems
 		tests/test_observability/test_recorder.py::TestObservableGaugeIntegration
+		tests/test_asyncio/test_observability/test_recorder.py::TestObservableGaugeIntegration
 	)
 	local EPYTEST_IGNORE=(
 		# fails over missing certs, we don't do cluster anyway
