@@ -13,13 +13,13 @@ S="${WORKDIR}/package"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	net-libs/nodejs
 "
 BDEPEND="
-	>=net-libs/nodejs-16[npm]
+	net-libs/nodejs[npm]
 "
 
 DOCS=( CHANGELOG.md README.md )

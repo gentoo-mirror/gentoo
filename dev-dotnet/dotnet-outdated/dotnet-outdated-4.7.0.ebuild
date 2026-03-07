@@ -1,24 +1,24 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DOTNET_PKG_COMPAT="9.0"
+DOTNET_PKG_COMPAT="10.0"
 NUGETS="
 castle.core@5.1.1
-csvhelper@30.0.1
+csvhelper@33.0.1
 dotnet-xunit@2.3.1
 libuv@1.9.0
-mcmaster.extensions.commandlineutils@4.0.2
+mcmaster.extensions.commandlineutils@4.1.1
 microsoft.codeanalysis.analyzers@1.1.0
 microsoft.codeanalysis.common@1.3.0
 microsoft.codeanalysis.csharp@1.3.0
 microsoft.codeanalysis.visualbasic@1.3.0
-microsoft.codecoverage@17.9.0
+microsoft.codecoverage@17.12.0
 microsoft.csharp@4.0.1
-microsoft.extensions.dependencyinjection.abstractions@7.0.0
-microsoft.extensions.dependencyinjection@7.0.0
-microsoft.net.test.sdk@17.9.0
+microsoft.extensions.dependencyinjection.abstractions@9.0.3
+microsoft.extensions.dependencyinjection@9.0.3
+microsoft.net.test.sdk@17.12.0
 microsoft.netcore.app@1.0.0
 microsoft.netcore.dotnethost@1.0.1
 microsoft.netcore.dotnethostpolicy@1.0.1
@@ -28,25 +28,26 @@ microsoft.netcore.platforms@1.0.1
 microsoft.netcore.runtime.coreclr@1.0.2
 microsoft.netcore.targets@1.0.1
 microsoft.netcore.windows.apisets@1.0.1
-microsoft.testplatform.objectmodel@17.9.0
-microsoft.testplatform.testhost@17.9.0
+microsoft.testplatform.objectmodel@17.12.0
+microsoft.testplatform.testhost@17.12.0
 microsoft.visualbasic@10.0.1
 microsoft.win32.primitives@4.0.1
 microsoft.win32.registry@4.0.0
 netstandard.library@1.6.0
 newtonsoft.json@13.0.1
 newtonsoft.json@13.0.3
-nsubstitute@5.1.0
-nuget.common@6.8.0
-nuget.configuration@6.8.0
-nuget.credentials@6.8.0
-nuget.dependencyresolver.core@6.8.0
-nuget.frameworks@6.8.0
-nuget.librarymodel@6.8.0
-nuget.packaging@6.8.0
-nuget.projectmodel@6.8.0
-nuget.protocol@6.8.0
-nuget.versioning@6.8.0
+nsubstitute@5.3.0
+nuget.common@6.12.1
+nuget.configuration@6.12.1
+nuget.credentials@6.12.1
+nuget.dependencyresolver.core@6.12.1
+nuget.frameworks@6.12.1
+nuget.librarymodel@6.12.1
+nuget.packaging@6.12.1
+nuget.projectmodel@6.12.1
+nuget.protocol@6.12.1
+nuget.versioning@6.12.1
+nuget.versioning@6.13.2
 runtime.native.system.io.compression@4.1.0
 runtime.native.system.net.http@4.0.1
 runtime.native.system.net.security@4.0.1
@@ -71,11 +72,13 @@ system.diagnostics.tools@4.0.1
 system.diagnostics.tracing@4.1.0
 system.dynamic.runtime@4.0.11
 system.formats.asn1@6.0.0
+system.formats.asn1@8.0.1
+system.formats.asn1@9.0.3
 system.globalization.calendars@4.0.1
 system.globalization.extensions@4.0.1
 system.globalization@4.0.11
-system.io.abstractions.testinghelpers@19.2.64
-system.io.abstractions@19.2.64
+system.io.abstractions.testinghelpers@22.0.12
+system.io.abstractions@22.0.12
 system.io.compression.zipfile@4.0.1
 system.io.compression@4.1.0
 system.io.filesystem.primitives@4.0.1
@@ -146,17 +149,18 @@ system.xml.xdocument@4.0.11
 system.xml.xmldocument@4.0.1
 system.xml.xpath.xdocument@4.0.1
 system.xml.xpath@4.0.1
-testableio.system.io.abstractions.testinghelpers@19.2.64
-testableio.system.io.abstractions.wrappers@19.2.64
-testableio.system.io.abstractions@19.2.64
+testableio.system.io.abstractions.testinghelpers@22.0.12
+testableio.system.io.abstractions.wrappers@22.0.12
+testableio.system.io.abstractions@22.0.12
+testably.abstractions.filesystem.interface@9.0.0
 xunit.abstractions@2.0.3
-xunit.analyzers@1.12.0
-xunit.assert@2.7.1
-xunit.core@2.7.1
-xunit.extensibility.core@2.7.1
-xunit.extensibility.execution@2.7.1
-xunit.runner.visualstudio@2.5.8
-xunit@2.7.1
+xunit.analyzers@1.18.0
+xunit.assert@2.9.3
+xunit.core@2.9.3
+xunit.extensibility.core@2.9.3
+xunit.extensibility.execution@2.9.3
+xunit.runner.visualstudio@3.0.2
+xunit@2.9.3
 "
 
 inherit check-reqs dotnet-pkg
@@ -170,9 +174,9 @@ if [[ "${PV}" == *9999* ]] ; then
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}"
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
