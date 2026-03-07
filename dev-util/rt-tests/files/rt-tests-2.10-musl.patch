@@ -76,7 +76,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  #include "rt_numa.h"
  
  #include "rt-utils.h"
-@@ -634,12 +635,8 @@ static void *timerthread(void *param)
+@@ -633,12 +634,8 @@ static void *timerthread(void *param)
  {
  	struct thread_param *par = param;
  	struct sched_param schedp;
@@ -89,7 +89,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  	struct thread_stat *stat = par->stats;
  	int stopped = 0;
  	cpu_set_t mask;
-@@ -668,14 +665,6 @@ static void *timerthread(void *param)
+@@ -667,14 +664,6 @@ static void *timerthread(void *param)
  	sigaddset(&sigset, par->signal);
  	sigprocmask(SIG_BLOCK, &sigset, NULL);
  
@@ -104,7 +104,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  	memset(&schedp, 0, sizeof(schedp));
  	schedp.sched_priority = par->prio;
  	if (setscheduler(0, par->policy, &schedp))
-@@ -729,20 +718,6 @@ static void *timerthread(void *param)
+@@ -728,20 +717,6 @@ static void *timerthread(void *param)
  		stop = now;
  		stop.tv_sec += duration;
  	}
@@ -125,7 +125,7 @@ Signed-off-by: Kurt Kanzenbach <kurt@kmk-computers.de>
  
  	stat->threadstarted++;
  
-@@ -750,16 +725,10 @@ static void *timerthread(void *param)
+@@ -749,16 +724,10 @@ static void *timerthread(void *param)
  
  		uint64_t diff;
  		unsigned long diff_smi = 0;
