@@ -25,7 +25,7 @@ LICENSE+="
 	MPL-2.0 openssl Unicode-3.0 Unicode-DFS-2016 ZLIB
 " # crates
 SLOT="0"
-KEYWORDS="-* ~amd64 ~arm64"
+KEYWORDS="-* amd64 arm64"
 
 RDEPEND="
 	|| (
@@ -52,6 +52,8 @@ src_compile() {
 
 src_install() {
 	dobin deno
+
+	newenvd - 50deno <<<"DENO_NO_UPDATE_CHECK=1"
 
 	if ! tc-is-cross-compiler; then
 		dobashcomp "${T}"/deno
