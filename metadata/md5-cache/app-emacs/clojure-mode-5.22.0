@@ -1,0 +1,15 @@
+BDEPEND=test? ( app-emacs/s app-emacs/paredit ) test? ( app-emacs/buttercup ) >=app-editors/emacs-26.3:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Major mode for Clojure code
+EAPI=8
+HOMEPAGE=https://github.com/clojure-emacs/clojure-mode/
+INHERIT=elisp
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-26.3:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/clojure-emacs/clojure-mode/archive/v5.22.0.tar.gz -> clojure-mode-5.22.0.gh.tar.gz
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30
+_md5_=5ebdadb24c40954d73542a1de5e203b1

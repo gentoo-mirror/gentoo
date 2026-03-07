@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure
+DEPEND=curl? ( net-misc/curl ) gsl? ( sci-libs/gsl:= ) mpfr? ( dev-libs/mpfr:= ) plotutils? ( media-libs/plotutils ) postgres? ( dev-db/postgresql:* ) readline? ( sys-libs/readline:= )
+DESCRIPTION=Algol 68 Genie compiler-interpreter
+EAPI=9
+HOMEPAGE=https://jmvdveer.home.xs4all.nl/en.algol-68-genie.html
+IUSE=+curl +gsl +mpfr +ncurses plotutils postgres +readline
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=curl? ( net-misc/curl ) gsl? ( sci-libs/gsl:= ) mpfr? ( dev-libs/mpfr:= ) plotutils? ( media-libs/plotutils ) postgres? ( dev-db/postgresql:* ) readline? ( sys-libs/readline:= )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~xgqt/distfiles/mirrored/algol68g-3.10.13.tar.gz https://jmvdveer.home.xs4all.nl/algol68g-3.10.13.tar.gz
+_md5_=f73118c85b65c74db11443166e34477e
