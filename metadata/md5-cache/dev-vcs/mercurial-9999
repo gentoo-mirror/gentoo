@@ -1,16 +1,16 @@
 BDEPEND=dev-python/docutils[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] rust? ( || ( >=dev-lang/rust-bin-1.74.1:* >=dev-lang/rust-1.74.1:* ) ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[threads(+)] ) python_targets_python3_14? ( dev-lang/python:3.14[threads(+)] ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-vcs/mercurial
 DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
-DEPEND=emacs? ( >=app-editors/emacs-23.1:* ) test? ( app-arch/unzip dev-python/pygments[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[threads(+)] ) python_targets_python3_14? ( dev-lang/python:3.14[threads(+)] )
+DEPEND=emacs? ( >=app-editors/emacs-23.1:* ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[threads(+)] ) python_targets_python3_14? ( dev-lang/python:3.14[threads(+)] )
 DESCRIPTION=Scalable distributed SCM
 EAPI=8
 HOMEPAGE=https://www.mercurial-scm.org/
 INHERIT=shell-completion cargo elisp-common distutils-r1 mercurial flag-o-matic multiprocessing
-IUSE=+chg emacs gpg test tk rust debug python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 debug
+IUSE=+chg emacs gpg tk rust debug python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 debug
 LICENSE=GPL-2+
 PROPERTIES=live
-RDEPEND=app-misc/ca-certificates gpg? ( app-alternatives/gpg ) tk? ( dev-lang/tk ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[threads(+)] ) python_targets_python3_14? ( dev-lang/python:3.14[threads(+)] )
+RDEPEND=dev-python/zstandard[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] app-misc/ca-certificates gpg? ( app-alternatives/gpg ) tk? ( dev-lang/tk ) python_targets_python3_11? ( dev-lang/python:3.11[threads(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[threads(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[threads(+)] ) python_targets_python3_14? ( dev-lang/python:3.14[threads(+)] )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
-RESTRICT=!test? ( test )
+RESTRICT=test
 SLOT=0
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	bash-completion-r1	767861f3744f589ee5291c1698b1c082	shell-completion	0b655d0d825e157a5e99c463bddaac16	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	d879c305333cf4d043e1ade99d08d018	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	7fa26aa78643f4b76bcc1985ec2cb49b	elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	dbb8c4d794033ad7e7221eaf567a6c90	python-r1	0e15b2ab9cfc87d7474678201d6bca38	distutils-r1	776bbaa25e9fa0dc9ac6f039ca37f701	mercurial	74061a7620da41b2cb72b135cc6431c7
-_md5_=04acd9380cccd8f70c1ac7719b227cd5
+_md5_=f3e593d81fae87439ef70b0c082c0489
