@@ -1,0 +1,16 @@
+BDEPEND=test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=configure install test
+DEPEND=>=dev-lang/tk-8.4:0=
+DESCRIPTION=Flexible listbox widget for Tk
+EAPI=8
+HOMEPAGE=https://tktreectrl.sourceforge.net/
+INHERIT=virtualx
+IUSE=debug shellicon threads test
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=tcltk
+RDEPEND=>=dev-lang/tk-8.4:0=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/tcltk-depot/tktreectrl/archive/refs/tags/v2.5.1.tar.gz -> tktreectrl-2.5.1.tar.gz
+_eclasses_=virtualx	9741d451eb64ea8bb9faee90d68a9b68
+_md5_=a2b84fb8eb6309a66307f65ab5a8852f
