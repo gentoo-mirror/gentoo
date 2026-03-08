@@ -1,0 +1,16 @@
+BDEPEND=dev-build/cmake virtual/pkgconfig virtual/fortran
+DEFINED_PHASES=configure install setup
+DEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boost? ( dev-libs/boost ) cuda? ( >=dev-util/nvidia-cuda-toolkit-3.2 ) fftw? ( sci-libs/fftw:3.0[mpi?] ) hdf5? ( sci-libs/hdf5:=[mpi?] ) hypre? ( >=sci-libs/hypre-2.18.0[int64?,mpi?] ) metis? ( >=sci-libs/parmetis-4 ) mpi? ( virtual/mpi[fortran?] ) mumps? ( sci-libs/mumps[mpi?] sci-libs/scalapack ) scotch? ( sci-libs/scotch[int64?,mpi?] ) superlu? ( >=sci-libs/superlu-5 ) X? ( x11-libs/libX11 ) || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 dev-lang/pypy:3.11 ) virtual/fortran
+DESCRIPTION=Portable, Extensible Toolkit for Scientific Computation
+EAPI=8
+HOMEPAGE=https://petsc.org/release/
+INHERIT=flag-o-matic fortran-2 python-any-r1 toolchain-funcs
+IUSE=afterimage boost complex-scalars cuda debug +examples fftw fortran hdf5 hypre int64 mpi metis mumps scotch superlu threads X
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RDEPEND=virtual/blas virtual/lapack afterimage? ( media-libs/libafterimage ) boost? ( dev-libs/boost ) cuda? ( >=dev-util/nvidia-cuda-toolkit-3.2 ) fftw? ( sci-libs/fftw:3.0[mpi?] ) hdf5? ( sci-libs/hdf5:=[mpi?] ) hypre? ( >=sci-libs/hypre-2.18.0[int64?,mpi?] ) metis? ( >=sci-libs/parmetis-4 ) mpi? ( virtual/mpi[fortran?] ) mumps? ( sci-libs/mumps[mpi?] sci-libs/scalapack ) scotch? ( sci-libs/scotch[int64?,mpi?] ) superlu? ( >=sci-libs/superlu-5 ) X? ( x11-libs/libX11 ) virtual/fortran
+REQUIRED_USE=afterimage? ( X ) complex-scalars? ( !hypre !superlu ) fftw? ( mpi ) hdf5? ( mpi ) hypre? ( mpi !superlu ) mumps? ( mpi scotch ) scotch? ( mpi ) superlu? ( !hypre )
+SLOT=0
+SRC_URI=https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc-3.24.5.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	fortran-2	ae6d43513003405bd4a48698fc20370a	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	34399ddcee37dc83c6735c2c46e244bc	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=14694b30be035e180bbd7b3cdb0140fe

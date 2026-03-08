@@ -1,0 +1,15 @@
+DEFINED_PHASES=configure install setup unpack
+DEPEND==sci-mathematics/petsc-3.24*:=[examples,mpi=,complex-scalars=] arpack? ( sci-libs/arpack[mpi=] ) mpi? ( virtual/mpi ) || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) virtual/pkgconfig dev-build/cmake
+DESCRIPTION=Scalable Library for Eigenvalue Problem Computations
+EAPI=8
+HOMEPAGE=https://slepc.upv.es/
+INHERIT=python-any-r1
+IUSE=arpack complex-scalars doc +examples mpi
+KEYWORDS=~amd64 ~x86
+LICENSE=LGPL-3
+RDEPEND==sci-mathematics/petsc-3.24*:=[examples,mpi=,complex-scalars=] arpack? ( sci-libs/arpack[mpi=] ) mpi? ( virtual/mpi )
+REQUIRED_USE=arpack? ( mpi )
+SLOT=0
+SRC_URI=!doc? ( https://slepc.upv.es/download/distrib/slepc-3.24.2.tar.gz ) doc? ( https://slepc.upv.es/download/distrib/slepc-with-docs-3.24.2.tar.gz )
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	python-utils-r1	34399ddcee37dc83c6735c2c46e244bc	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=90693e543e314f8f57c877ef7c75b617
