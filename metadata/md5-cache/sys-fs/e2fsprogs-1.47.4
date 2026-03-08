@@ -1,0 +1,16 @@
+BDEPEND=sys-apps/texinfo virtual/pkgconfig nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-tytso ) virtual/pkgconfig virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
+DEPEND=!sys-libs/e2fsprogs-libs archive? ( app-arch/libarchive:= ) cron? ( sys-fs/lvm2[lvm] ) fuse? ( sys-fs/fuse:3= ) nls? ( virtual/libintl ) tools? ( sys-apps/util-linux ) test? ( sys-apps/util-linux[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] )
+DESCRIPTION=Standard EXT2/EXT3/EXT4 filesystem utilities
+EAPI=8
+HOMEPAGE=http://e2fsprogs.sourceforge.net/
+INHERIT=multilib-minimal systemd toolchain-funcs udev verify-sig
+IUSE=archive cron fuse nls static-libs test +tools abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64 verify-sig
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=GPL-2 BSD
+RDEPEND=!sys-libs/e2fsprogs-libs archive? ( app-arch/libarchive:= ) cron? ( sys-fs/lvm2[lvm] ) fuse? ( sys-fs/fuse:3= ) nls? ( virtual/libintl ) tools? ( sys-apps/util-linux )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v1.47.4/e2fsprogs-1.47.4.tar.xz verify-sig? ( https://www.kernel.org/pub/linux/kernel/people/tytso/e2fsprogs/v1.47.4/e2fsprogs-1.47.4.tar.sign )
+_eclasses_=out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	multilib	404b65bd5212cff83b3935c685419d08	multilib-build	d7802b3638ffc661375c0021cdd19efd	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	20c370aff0d0c108f3605c84b3f47084	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=137b51616fd43d3abd18e78125dcfad8
