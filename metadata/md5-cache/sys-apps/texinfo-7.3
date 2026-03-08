@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-texinfo ) nls? ( >=sys-devel/gettext-0.19.6 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-texinfo ) nls? ( >=sys-devel/gettext-0.19.6 ) test? ( dev-perl/Test-Deep ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure prepare unpack
 DEPEND=|| ( app-doc/info-manual >=app-editors/emacs-26:* ) >=sys-libs/ncurses-5.2-r2:= standalone? ( >=dev-lang/perl-5.8.1 ) !standalone? ( >=dev-lang/perl-5.8.1:= dev-libs/libunistring:= ) nls? ( virtual/libintl )
 DESCRIPTION=The GNU info program and utilities
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/texinfo/texinfo-7.3.tar.xz verify-sig? ( mirror://gnu/texinfo/texinfo-7.3.tar.xz.sig )
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=b49c9842038b63d299d3dd4f92e1926c
+_md5_=3754c9688f09ed34934291582236a198
