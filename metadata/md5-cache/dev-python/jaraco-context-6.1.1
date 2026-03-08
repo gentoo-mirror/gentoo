@@ -5,12 +5,12 @@ EAPI=8
 HOMEPAGE=https://github.com/jaraco/jaraco.context/ https://pypi.org/project/jaraco.context/
 INHERIT=distutils-r1 pypi
 IUSE=test python_targets_pypy3_11 python_targets_python3_13t python_targets_python3_14t python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris
 LICENSE=MIT
 RDEPEND=python_targets_pypy3_11? ( dev-python/backports-tarfile[python_targets_pypy3_11(-)?,python_targets_python3_11(-)?] ) python_targets_python3_11? ( dev-python/backports-tarfile[python_targets_pypy3_11(-)?,python_targets_python3_11(-)?] ) python_targets_pypy3_11? ( dev-lang/pypy:3.11= ) python_targets_python3_13t? ( dev-lang/python:3.13t ) python_targets_python3_14t? ( dev-lang/python:3.14t ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
 REQUIRED_USE=|| ( python_targets_pypy3_11 python_targets_python3_13t python_targets_python3_14t python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://files.pythonhosted.org/packages/source/j/jaraco.context/jaraco_context-6.0.2.tar.gz
+SRC_URI=https://files.pythonhosted.org/packages/source/j/jaraco.context/jaraco_context-6.1.1.tar.gz
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	34399ddcee37dc83c6735c2c46e244bc	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	44f31ede921d604a84caf05ca3e3d4dc	pypi	a451be5a08e8eb46f927fc6dd163583f
-_md5_=f40d246dfeccc615cd995c78d13338a9
+_md5_=266af995359fdb6ab3b23a3ad976f676
