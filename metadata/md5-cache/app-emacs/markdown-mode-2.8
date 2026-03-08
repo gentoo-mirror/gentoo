@@ -1,0 +1,15 @@
+BDEPEND=test? ( virtual/pandoc || ( app-text/aspell[l10n_en] app-text/hunspell[l10n_en] ) ) >=app-editors/emacs-26.3:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Major mode for editing Markdown-formatted text files
+EAPI=8
+HOMEPAGE=https://jblevins.org/projects/markdown-mode/ https://github.com/jrblevin/markdown-mode/
+INHERIT=elisp optfeature
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-3+
+RDEPEND=|| ( dev-python/markdown2 dev-python/markdown virtual/pandoc ) >=app-editors/emacs-26.3:*
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/jrblevin/markdown-mode/archive/v2.8.tar.gz -> markdown-mode-2.8.gh.tar.gz
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30	optfeature	538bce96e5589935b57e178e8635f301
+_md5_=679341b3fbccd38fc403c5d5c55911ef
