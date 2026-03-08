@@ -7,10 +7,10 @@ HOMEPAGE=https://www.tim-mann.org/xtrs.html
 INHERIT=eapi9-ver toolchain-funcs readme.gentoo-r1
 IUSE=ls-dos
 KEYWORDS=~amd64 ~x86
-LICENSE=xtrs ls-dos? ( freedist )
+LICENSE=xtrs MIT ls-dos? ( freedist )
 RDEPEND=sys-libs/ncurses:0= sys-libs/readline:0= x11-libs/libX11
 RESTRICT=ls-dos? ( bindist )
 SLOT=0
 SRC_URI=https://github.com/TimothyPMann/xtrs/archive/3a2180c063811a715faa28d39a94739c33e0abd0.tar.gz -> xtrs-4.9d_p20250819.tar.gz ls-dos? ( https://www.tim-mann.org/trs80/ld4-631.zip https://dev.gentoo.org/~ulm/distfiles/ld4-631l.xd3 )
 _eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
-_md5_=97436f2a0d247f417f481b44ba64df3f
+_md5_=bbf1e8b401b8d23288f6d68bd7812448
