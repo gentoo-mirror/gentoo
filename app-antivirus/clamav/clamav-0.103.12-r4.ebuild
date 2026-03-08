@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ SRC_URI="https://www.clamav.net/downloads/production/${P}.tar.gz"
 
 LICENSE="GPL-2 unRAR"
 SLOT="0/lts"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="bzip2 doc clamonacc clamdtop clamsubmit iconv libclamav-only milter metadata-analysis-api selinux systemd test xml"
 
 REQUIRED_USE="libclamav-only? ( !clamonacc !clamdtop !clamsubmit !milter !metadata-analysis-api )"
@@ -25,7 +25,7 @@ CDEPEND="acct-group/clamav
 	acct-user/clamav
 	dev-libs/libltdl
 	dev-libs/libmspack
-	|| ( dev-libs/libpcre2 >dev-libs/libpcre-6 )
+	|| ( dev-libs/libpcre2 dev-libs/libpcre )
 	dev-libs/tomsfastmath
 	>=virtual/zlib-1.2.2:=
 	bzip2? ( app-arch/bzip2 )
@@ -55,6 +55,13 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.103.0-system-tomsfastmath.patch" # 649394
 	"${FILESDIR}/${PN}-0.103.1-upstream-openrc.patch"
 	"${FILESDIR}/${PN}-0.103.12-missing-const.patch"
+	"${FILESDIR}/${PN}-0.103.12-fix-lzma-uaf.patch"
+	"${FILESDIR}/${PN}-0.103.12-cve-2025-20260.patch"
+	"${FILESDIR}/${PN}-0.103.12-impersonate-user-agent.patch"
+	"${FILESDIR}/${PN}-0.103.12-impersonate-user-agent-r1.patch"
+	"${FILESDIR}/${PN}-0.103.12-pointer-misalignment.patch"
+	"${FILESDIR}/${PN}-0.103.12-c23-has-alignof.patch"
+	"${FILESDIR}/${PN}-0.103.12-fix-configure-implicit-memset.patch"
 )
 
 src_prepare() {
