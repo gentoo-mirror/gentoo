@@ -12,7 +12,8 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/rui314/mold/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
-	# -alpha: https://github.com/rui314/mold/commit/3711ddb95e23c12991f6b8c7bfeba4f1421d19d4
+	# -alpha: alpha support was dropped upstream:
+	# https://github.com/rui314/mold/commit/3711ddb95e23c12991f6b8c7bfeba4f1421d19d4
 	KEYWORDS="-alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~riscv ~sparc ~x86"
 fi
 
@@ -21,17 +22,17 @@ fi
 #  - siphash ( MIT CC0-1.0 )
 LICENSE="MIT BSD-2 CC0-1.0"
 SLOT="0"
-IUSE="debug test"
+IUSE="debug mimalloc test"
+
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	app-arch/zstd:=
 	>=dev-cpp/tbb-2021.7.0-r1:=
 	dev-libs/blake3:=
+	dev-libs/xxhash:=
 	virtual/zlib:=
-	!kernel_Darwin? (
-		>=dev-libs/mimalloc-2:=
-	)
+	mimalloc? ( >=dev-libs/mimalloc-2:= )
 "
 DEPEND="${RDEPEND}"
 
@@ -51,7 +52,16 @@ pkg_pretend() {
 }
 
 src_prepare() {
+	# remove unused vendored deps to be sure we don't use them
+	# do this before running cmake_src_prepare to avoid warnings
+	# being picked up by tinderbox etc. (#964723)
+	# we keep rust-demangle for now as this isn't packaged in gentoo
+	rm -rf third-party/{blake3,mimalloc,tbb,xxhash,zlib,zstd} || die
+
 	cmake_src_prepare
+
+	# use dev-libs/xxhash instead of vendored lib
+	sed -i 's#../third-party/xxhash/##' lib/lib.h || die
 
 	# Needs unpackaged dwarfdump
 	rm test/{{dead,compress}-debug-sections,compressed-debug-info}.sh || die
@@ -85,8 +95,8 @@ src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test)
 		-DMOLD_LTO=OFF # Should be up to the user to decide this with CXXFLAGS.
-		-DMOLD_USE_MIMALLOC=$(usex !kernel_Darwin)
-		-DMOLD_USE_SYSTEM_MIMALLOC=ON
+		-DMOLD_USE_MIMALLOC=$(usex mimalloc)
+		-DMOLD_USE_SYSTEM_MIMALLOC=$(usex mimalloc)
 		-DMOLD_USE_SYSTEM_TBB=ON
 	)
 
