@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://www.gromacs.org/
 INHERIT=bash-completion-r1 cmake cuda distutils-r1 flag-o-matic readme.gentoo-r1 toolchain-funcs xdg-utils
 IUSE=blas clang clang-cuda cuda +custom-cflags +doc build-manual double-precision +fftw +gmxapi +gmxapi-legacy hdf5 +hwloc lapack mkl mpi nnpot +offensive opencl openmp +python +single-precision test +threads +tng cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 cpu_flags_x86_fma4 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_x86_avx512f cpu_flags_arm_neon python_single_target_python3_12 python_single_target_python3_13
-KEYWORDS=amd64 -arm ~arm64 ~riscv -x86 ~x64-macos
+KEYWORDS=amd64 -arm arm64 ~riscv -x86 ~x64-macos
 LICENSE=LGPL-2.1 UoI-NCSA !mkl? ( !fftw? ( BSD ) !blas? ( BSD ) !lapack? ( BSD ) ) cuda? ( LGPL-3 ) threads? ( BSD )
 RDEPEND=blas? ( virtual/blas ) cuda? ( >=dev-util/nvidia-cuda-toolkit-11:=[profiler] ) opencl? ( virtual/opencl ) openmp? ( || ( sys-devel/gcc[openmp] llvm-runtimes/clang-runtime[openmp] ) ) fftw? ( sci-libs/fftw:3.0= ) hdf5? ( sci-libs/hdf5 ) hwloc? ( sys-apps/hwloc:= ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) mpi? ( virtual/mpi[cxx] ) nnpot? ( sci-ml/caffe2[cuda=,opencl=] ) sci-libs/lmfit:= >=dev-cpp/muParser-2.3:= python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=|| ( single-precision double-precision ) doc? ( !build-manual ) cuda? ( single-precision ) opencl? ( single-precision ) cuda? ( !opencl ) clang-cuda? ( clang cuda ) mkl? ( !blas !fftw !lapack ) ^^ ( python_single_target_python3_12 python_single_target_python3_13 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0/2026.0
 SRC_URI=https://ftp.gromacs.org/gromacs/gromacs-2026.0.tar.gz doc? ( https://ftp.gromacs.org/manual/manual-2026.0.pdf ) test? ( https://ftp.gromacs.org/regressiontests/regressiontests-2026.0.tar.gz )
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	bash-completion-r1	9e91505e030725688d1e953321a47501	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	cuda	8b660e223a1695e3884ee4c7dc2c5059	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	python-utils-r1	34399ddcee37dc83c6735c2c46e244bc	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	distutils-r1	44f31ede921d604a84caf05ca3e3d4dc	readme.gentoo-r1	b045f3acf546393ab6b3170781875358
-_md5_=3aade26e446d3abe079a7787b7965680
+_md5_=766ef3821721b76ece9e37369cecb206
