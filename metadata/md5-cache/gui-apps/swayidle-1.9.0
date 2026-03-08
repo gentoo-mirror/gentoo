@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/swaywm/swayidle
 INHERIT=meson verify-sig
 IUSE=elogind systemd verify-sig
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=MIT
 RDEPEND=dev-libs/wayland elogind? ( >=sys-auth/elogind-237[policykit] ) systemd? ( >=sys-apps/systemd-237[policykit] )
 REQUIRED_USE=?? ( elogind systemd )
 SLOT=0
 SRC_URI=https://github.com/swaywm/swayidle/releases/download/v1.9.0/swayidle-1.9.0.tar.gz https://github.com/swaywm/swayidle/releases/download/v1.9.0/swayidle-1.9.0.tar.gz.sig
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	34399ddcee37dc83c6735c2c46e244bc	sysroot	b9348e4d36f160f6d2556bea5b59f99c	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	ee14b47f310c323b82e6655787cd65ed	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=2f4ca1aadd2d8362ec785254af7fdf36
+_md5_=8b9e921d49a9398925c1f3820f6d3911
