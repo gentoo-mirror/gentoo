@@ -1,13 +1,15 @@
-# Copyright 2019-2025 Gentoo Authors
+# Copyright 2019-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="Handy scripts for ebuild development and more"
-HOMEPAGE="https://github.com/projg2/mgorny-dev-scripts/"
+HOMEPAGE="
+	https://gitweb.gentoo.org/proj/mgorny-dev-scripts.git
+	https://github.com/gentoo/mgorny-dev-scripts/
+"
 SRC_URI="
-	https://github.com/projg2/mgorny-dev-scripts/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz
+	https://gitweb.gentoo.org/proj/mgorny-dev-scripts.git/snapshot/${P}.tar.bz2
 "
 
 LICENSE="GPL-2+"
