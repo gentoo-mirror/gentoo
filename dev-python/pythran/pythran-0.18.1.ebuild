@@ -41,7 +41,6 @@ DEPEND="
 "
 BDEPEND="
 	test? (
-		dev-python/ipython[${PYTHON_USEDEP}]
 		dev-python/pip[${PYTHON_USEDEP}]
 		dev-python/packaging[${PYTHON_USEDEP}]
 		dev-python/scipy[${PYTHON_USEDEP}]
@@ -75,10 +74,18 @@ python_test() {
 		# multiple extra deps (meson, openblas)
 		# also broken on pypy3*
 		pythran/tests/test_distutils.py::TestMeson::test_meson_build
+		# numpy.distutils is dead and broken
+		pythran/tests/test_distutils.py::TestDistutils
 	)
 	local EPYTEST_IGNORE=(
 		pythran/benchmarks
 	)
+
+	if ! has_version "dev-python/ipython[${PYTHON_USEDEP}]"; then
+		EPYTEST_IGNORE+=(
+			pythran/tests/test_ipython.py
+		)
+	fi
 
 	case ${ARCH} in
 		arm)
