@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202603-01">
+    <title>Exiv2: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Exiv2, the worst of which can lead to a crash via Denial of Service.</synopsis>
+    <product type="ebuild">exiv2</product>
+    <announced>2026-03-09</announced>
+    <revised count="1">2026-03-09</revised>
+    <bug>942164</bug>
+    <bug>970828</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-gfx/exiv2" auto="yes" arch="*">
+            <unaffected range="ge">0.28.8</unaffected>
+            <vulnerable range="lt">0.28.8</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Exiv2 is a C++ library and set of tools for parsing, editing and saving Exif and IPTC metadata from images.</p>
+    </background>
+    <description>
+        <p>The following vulnerabilities have been discovered in Exiv2: 2 out of bounds reads, an integer overflow, and an uncaught exception. The worst of which can lead to a Denial of Service via a crash of the program. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>The following is a possible outcome: data leakage via an out-of-bounds read or a Denial of Service via a crash of the program.</p>
+    </impact>
+    <workaround>
+        <p>Avoid using the CLI tool, exiv2, with untrusted files.</p>
+    </workaround>
+    <resolution>
+        <p>All Exiv2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-gfx/exiv2-0.28.8"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-39695">CVE-2024-39695</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-25884">CVE-2026-25884</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-27596">CVE-2026-27596</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-27631">CVE-2026-27631</uri>
+        <uri>GHSA-3wgv-fg4w-75x7</uri>
+        <uri>GHSA-9mxq-4j5g-5wrp</uri>
+        <uri>GHSA-p2pw-7935-c73j</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-03-09T04:10:31.620785Z">csfore</metadata>
+    <metadata tag="submitter" timestamp="2026-03-09T04:10:31.624902Z">csfore</metadata>
+</glsa>
