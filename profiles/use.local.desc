@@ -7949,12 +7949,9 @@ sys-apps/hwloc:X - use the X Window System
 sys-apps/hwloc:cairo - Enable the Cairo back-end of hwloc's lstopo command
 sys-apps/hwloc:cpuid - Enable the cpuid-based architecture specific support (x86 component)
 sys-apps/hwloc:cuda - Enable CUDA device discovery using libcudart
-sys-apps/hwloc:gl - Enable GL display device discovery (NVCtrl)
 sys-apps/hwloc:l0 - Enable oneAPI Level Zero device discovery
-sys-apps/hwloc:numa - Add support for numa memory allocation
 sys-apps/hwloc:nvml - Enable the NVML device discovery
 sys-apps/hwloc:pci - Enable PCI device discovery using libpci
-sys-apps/hwloc:plugins - Build hwloc components as plugins so that the hwloc core library does not directly depend on their dependencies (for instance the libpci library)
 sys-apps/hwloc:rocm - Enable AMD RSMI device discovery
 sys-apps/hwloc:video_cards_nvidia - Enable GL display device discovery (NVCtrl)
 sys-apps/hwloc:xml - use libxml2 for XML support, instead of a custom minimalistic support
@@ -8279,7 +8276,6 @@ sys-cluster/kronosnet:lzo2 - Add support for lzo2 compression
 sys-cluster/kronosnet:nss - Add support for tls via nss
 sys-cluster/kronosnet:openssl - Add support for tls via openssl
 sys-cluster/legion:gasnet - Enable GASNet lib support
-sys-cluster/legion:hwloc - Enable HWLoc lib support
 sys-cluster/lmod:auto-swap - enable auto swapping of compiler
 sys-cluster/lmod:cache - enable caching of modules
 sys-cluster/lmod:duplicate-paths - allow duplicate entries in path
