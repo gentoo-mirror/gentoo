@@ -46,7 +46,7 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="-* amd64 ~arm64 ~loong"
-IUSE="egl kerberos wayland"
+IUSE="egl kerberos wayland webkit"
 RESTRICT="strip bindist"
 
 RDEPEND="
@@ -81,6 +81,10 @@ RDEPEND="
 	x11-libs/pango
 	x11-misc/xdg-utils
 	kerberos? ( app-crypt/mit-krb5 )
+	webkit? (
+		net-libs/libsoup:3.0
+		net-libs/webkit-gtk:4.1
+	)
 "
 
 QA_PREBUILT="*"
@@ -103,6 +107,10 @@ src_install() {
 
 	if ! use kerberos; then
 		rm -rf "${S}/resources/app/node_modules.asar.unpacked/kerberos" || die
+	fi
+
+	if ! use webkit; then
+		rm -r ./resources/app/extensions/microsoft-authentication || die
 	fi
 
 	# Install
