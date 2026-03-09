@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-libs/heatshrink-0.4.1 >=virtual/zlib-1.0:= dev-libs/boost test? ( =dev-cpp/catch-3.8*:0 )
+DEPEND=>=dev-libs/heatshrink-0.4.1 >=virtual/zlib-1.0:= dev-libs/boost test? ( >=dev-cpp/catch-3 )
 DESCRIPTION=Prusa Block & Binary G-code reader / writer / converter
 EAPI=8
 HOMEPAGE=https://github.com/prusa3d/libbgcode
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/prusa3d/libbgcode/archive/0773cea1717ff92780830f1914f5159b50288d98.tar.gz -> libbgcode-0.0.20251210.tar.gz
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c
-_md5_=f77dd76951315889b8544907c076fc40
+_md5_=a13aefb1500adc0e044d96da780ad42b
