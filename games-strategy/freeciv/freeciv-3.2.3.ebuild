@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ else
 	MY_PV="R${PV//./_}"
 	SRC_URI="https://github.com/freeciv/freeciv/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
 	if [[ ${PV} != *_beta* ]]; then
-		KEYWORDS="~amd64 ~ppc64 ~x86"
+		KEYWORDS="~amd64"
 	fi
 	MY_P="${PN}-${MY_PV}"
 	S="${WORKDIR}/${MY_P}"
@@ -26,12 +26,12 @@ fi
 LICENSE="GPL-2+"
 SLOT="0"
 IUSE="dedicated gtk3 gtk4 json mapimg modpack nls qt6"
-IUSE+=" readline rule-editor sdl +sdl3 +server +sound svg +system-lua web-server"
+IUSE+=" readline rule-editor +sdl3 +server +sound svg +system-lua web-server"
 
 REQUIRED_USE="
-	!dedicated? ( || ( gtk3 gtk4 qt6 sdl sdl3 ) )
-	dedicated? ( !gtk3 !gtk4 !mapimg !nls !qt6 !sdl !sdl3 !sound )
-	sound? ( || ( sdl3 sdl ) )
+	!dedicated? ( || ( gtk3 gtk4 qt6 sdl3 ) )
+	dedicated? ( !gtk3 !gtk4 !mapimg !nls !qt6 !sdl3 !sound )
+	sound? ( sdl3 )
 	system-lua? ( ${LUA_REQUIRED_USE} )
 "
 
@@ -51,26 +51,14 @@ RDEPEND="
 		mapimg? ( media-gfx/imagemagick:= )
 		nls? ( virtual/libintl )
 		qt6? ( dev-qt/qtbase:6[gui,widgets] )
-		sdl? (
-			media-libs/libsdl2[video]
-			media-libs/sdl2-gfx
-			media-libs/sdl2-image[png]
-			media-libs/sdl2-ttf
-		)
 		sdl3? (
 			media-libs/libsdl3
 			media-libs/sdl3-ttf
 			media-libs/sdl3-image[png]
 		)
 		sound? (
-			sdl? (
-				media-libs/libsdl2[sound]
-				media-libs/sdl2-mixer[vorbis]
-			)
-			sdl3? (
-				media-libs/libsdl3
-				media-libs/sdl3-mixer[vorbis]
-			)
+			media-libs/libsdl3
+			>=media-libs/sdl3-mixer-3.1.2_rc1[vorbis]
 		)
 	)
 	json? ( dev-libs/jansson:= )
@@ -93,6 +81,10 @@ pkg_setup() {
 	use system-lua && lua-single_pkg_setup
 	use svg && use !qt6 && einfo "SVG flags only supported in qt6 client, ignoring"
 }
+
+PATCHES=(
+	"${FILESDIR}/${P}-widget_id-truncation.patch"
+)
 
 src_prepare() {
 	# Upstream's meson.build is not very friendly to our needs
@@ -133,7 +125,6 @@ src_configure() {
 	if ! use dedicated ; then
 		# there's no SDL modpack backend; rather than incidentally pull in GTK3 (as is default)
 		# let's explicitly set the backend to CLI
-		freeciv_enable_ui sdl sdl2 cli
 		freeciv_enable_ui sdl3 sdl3 cli
 		freeciv_enable_ui gtk3 gtk3.22 gtk3
 		freeciv_enable_ui gtk4
@@ -153,12 +144,7 @@ src_configure() {
 	)
 
 	if use sound; then
-		# We can only select one, prefer the newer SDL3
-		if use sdl3 ; then
-			emesonargs+=( -Daudio=sdl3 )
-		elif use sdl ; then
-			emesonargs+=( -Daudio=sdl2 )
-		fi
+		emesonargs+=( -Daudio=sdl3 )
 	else
 		# We don't want any audio support; probably a dedicated server
 		emesonargs+=( -Daudio=none )
@@ -212,11 +198,6 @@ src_install() {
 		find "${ED}"/usr/share/man/man6/ \
 			-not \( -name 'freeciv.6' -o -name 'freeciv-ruledit.6' \
 			-o -name 'freeciv-ruleup.6' -o -name 'freeciv-server.6' \) -mindepth 1 -delete || die
-	else
-		# sdl client needs some special handling
-		if ! use sdl ; then
-			rm "${ED}"/usr/share/man/man6/freeciv-sdl2.6 || die
-		fi
 	fi
 
 }
