@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://commons.apache.org/proper/commons-daemon/
 INHERIT=java-pkg-2 java-pkg-simple junit5 toolchain-funcs verify-sig
 IUSE=doc source test verify-sig
-KEYWORDS=amd64 ~ppc64
+KEYWORDS=amd64 ppc64
 LICENSE=Apache-2.0
 RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/commons/daemon/source/commons-daemon-1.5.1-src.tar.gz verify-sig? ( mirror://apache/commons/daemon/source/commons-daemon-1.5.1-src.tar.gz.asc )
 _eclasses_=java-utils-2	b41327d85d12ce816943cf4d344add19	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	df1fc43a5017ec8f5d23007b23731474	junit5	88b77cfefed338e1227e1cf761caef5e	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=1f6b18f64ac8403f6a64b0584638ba06
+_md5_=82134a92f5a535a0f10754464c09864c
