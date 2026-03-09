@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -39,7 +39,8 @@ src_prepare() {
 	default
 
 	rm -rf jdk || die
-	sed -i -e "s:logs/:${EPREFIX}/var/log/${PN}/:g" config/jvm.options || die "Unable to set Elasticsearch log location"
+	sed -i -e "s|#\(path.logs:\).*|\1 ${EPREFIX}/var/log/${PN}/|g" config/elasticsearch.yml ||
+		die "Unable to set Elasticsearch log location"
 	# elasticsearch-env sets the envvar for the config location if not specified elsewhere;
 	# certain utilities try and source this. Although we patch ES_JAVA_HOME for Gentoo slightly earlier,
 	# it's easier to respect EPREFIX for the config location using sed.
