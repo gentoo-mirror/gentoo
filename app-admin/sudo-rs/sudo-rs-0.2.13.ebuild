@@ -7,8 +7,10 @@ EAPI=8
 
 CRATES="
 	glob@0.3.3
-	libc@0.2.178
+	libc@0.2.183
 "
+
+RUST_MIN_VER="1.85.0"
 
 inherit pam cargo
 
