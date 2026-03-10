@@ -1,4 +1,4 @@
-BDEPEND=sec-keys/openpgp-keys-inetutils virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-inetutils ) virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install unpack
 DEPEND=sys-libs/readline:0= ftpd? ( virtual/libcrypt:0= ) idn? ( net-dns/libidn2:= ) kerberos? ( virtual/krb5 ) pam? ( sys-libs/pam ) tcpd? ( sys-apps/tcp-wrappers ) uucpd? ( virtual/libcrypt:0= )
 DESCRIPTION=Collection of common network programs
@@ -12,4 +12,4 @@ RDEPEND=sys-libs/readline:0= ftpd? ( virtual/libcrypt:0= ) idn? ( net-dns/libidn
 SLOT=0
 SRC_URI=mirror://gnu/inetutils/inetutils-2.7.tar.gz verify-sig? ( mirror://gnu/inetutils/inetutils-2.7.tar.gz.sig )
 _eclasses_=branding	7bcece3faa73dd0fc3e597013510d53a	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=0ae22cf183794f80f116d205c0bfe722
+_md5_=40609dc3e8b5314a91b76718e4469c94
