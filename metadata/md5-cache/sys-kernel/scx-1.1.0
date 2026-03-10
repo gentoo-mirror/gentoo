@@ -1,0 +1,17 @@
+BDEPEND=app-misc/jq dev-libs/protobuf[protoc(+)] >=dev-util/bpftool-7.5.0 llvm_slot_16? ( llvm-core/clang:16=[llvm_targets_BPF(-)] ) llvm_slot_17? ( llvm-core/clang:17=[llvm_targets_BPF(-)] ) llvm_slot_18? ( llvm-core/clang:18=[llvm_targets_BPF(-)] ) llvm_slot_19? ( llvm-core/clang:19=[llvm_targets_BPF(-)] ) llvm_slot_20? ( llvm-core/clang:20=[llvm_targets_BPF(-)] ) llvm_slot_21? ( llvm-core/clang:21=[llvm_targets_BPF(-)] ) || ( >=dev-lang/rust-bin-1.88.0:* >=dev-lang/rust-1.88.0:* )
+DEFINED_PHASES=compile configure install setup test unpack
+DEPEND=>=dev-libs/libbpf-1.6:= sys-libs/libseccomp virtual/libelf:= virtual/zlib:=
+DESCRIPTION=sched_ext schedulers and tools
+EAPI=8
+HOMEPAGE=https://github.com/sched-ext/scx
+INHERIT=cargo llvm-r2 linux-info
+IUSE=debug +llvm_slot_21 llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20
+KEYWORDS=~amd64
+LICENSE=GPL-2 Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0 ZLIB
+PDEPEND=~sys-kernel/scx-loader-1.1.0
+RDEPEND=>=dev-libs/libbpf-1.6:= sys-libs/libseccomp virtual/libelf:= virtual/zlib:=
+REQUIRED_USE=^^ ( llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 )
+SLOT=0
+SRC_URI=https://github.com/sched-ext/scx/archive/refs/tags/v1.1.0.tar.gz -> scx-1.1.0.tar.gz https://github.com/gentoo-crate-dist/scx/releases/download/v1.1.0/scx-1.1.0-crates.tar.xz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	0d1cc00e0e91a021b50b0491e361ad41	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	7fa26aa78643f4b76bcc1985ec2cb49b	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	404b65bd5212cff83b3935c685419d08	llvm-r2	8bc46809768366b4239eab39335419bc	linux-info	efd923656513c879204fec6638eadee5
+_md5_=0e8d6d403e31a06d093f4e0d65874a59
