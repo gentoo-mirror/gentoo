@@ -144,9 +144,11 @@ RDEPEND="${COMMON_DEPEND}
 		!sys-apps/openrc[sysv-utils(-)]
 		!sys-apps/sysvinit
 	)
-	!sysv-utils? ( sys-apps/sysvinit )
+	!sysv-utils? (
+		sys-apps/systemd-initctl
+		sys-apps/sysvinit
+	)
 	resolvconf? ( !net-dns/openresolv )
-	!sys-apps/hwids[udev]
 	!sys-auth/nss-myhostname
 	!sys-fs/eudev
 	!sys-fs/udev
