@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,6 +21,9 @@ HOMEPAGE="
 
 LICENSE="BSD 0BSD MIT ZLIB CC0-1.0"
 SLOT="0/2"
+if [[ ${PV} != *_rc* ]]; then
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+fi
 # +lapack because the internal fallbacks are pretty slow. Building without blas
 # is barely supported anyway, see bug #914358.
 IUSE="big-endian +cpudetection index64 +lapack"
@@ -203,6 +206,12 @@ python_test() {
 		numpy/f2py/tests/test_data.py::TestData{,F77}::test_crackedlines
 		numpy/f2py/tests/test_f2py2e.py::test_gen_pyf
 		numpy/f2py/tests/test_f2py2e.py::test_gh22819_cli
+
+		# Broken by new setuptools
+		numpy/distutils/tests/test_fcompiler.py
+		numpy/distutils/tests/test_fcompiler_gnu.py
+		numpy/distutils/tests/test_fcompiler_intel.py
+		numpy/distutils/tests/test_fcompiler_nagfor.py
 	)
 
 	if [[ $(uname -m) == armv8l ]]; then

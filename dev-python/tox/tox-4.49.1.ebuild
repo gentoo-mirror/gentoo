@@ -28,6 +28,7 @@ RDEPEND="
 	dev-python/platformdirs[${PYTHON_USEDEP}]
 	dev-python/pluggy[${PYTHON_USEDEP}]
 	dev-python/pyproject-api[${PYTHON_USEDEP}]
+	dev-python/tomli-w[${PYTHON_USEDEP}]
 	dev-python/virtualenv[${PYTHON_USEDEP}]
 "
 BDEPEND="

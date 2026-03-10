@@ -3,7 +3,8 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/simplistix/testfixtures
 PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
@@ -11,12 +12,12 @@ inherit distutils-r1 pypi
 DESCRIPTION="A collection of helpers and mock objects for unit tests and doc tests"
 HOMEPAGE="
 	https://pypi.org/project/testfixtures/
-	https://github.com/Simplistix/testfixtures/
+	https://github.com/simplistix/testfixtures/
 "
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 BDEPEND="
 	test? (
@@ -33,17 +34,17 @@ distutils_enable_tests pytest
 
 python_test() {
 	local -x PYTHONPATH="."
-	local -x DJANGO_SETTINGS_MODULE=testfixtures.tests.test_django.settings
+	local -x DJANGO_SETTINGS_MODULE=tests.test_django.settings
 
 	local EPYTEST_DESELECT=(
 		# TODO
-		testfixtures/tests/test_shouldwarn.py::ShouldWarnTests::test_filter_missing
-		testfixtures/tests/test_shouldwarn.py::ShouldWarnTests::test_filter_present
+		tests/test_shouldwarn.py::ShouldWarnTests::test_filter_missing
+		tests/test_shouldwarn.py::ShouldWarnTests::test_filter_present
 	)
 	local EPYTEST_IGNORE=()
 	if ! has_version "dev-python/twisted[${PYTHON_USEDEP}]"; then
 		EPYTEST_IGNORE+=(
-			testfixtures/tests/test_twisted.py
+			tests/test_twisted.py
 		)
 	fi
 

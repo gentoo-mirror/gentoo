@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1
 
@@ -14,7 +14,7 @@ DESCRIPTION="Python library for reading and writing image data"
 HOMEPAGE="
 	https://imageio.readthedocs.io/en/stable/
 	https://github.com/imageio/imageio/
-	https://pypi.org/project/imageio/
+	https://pypi.org/project/ImageIO/
 "
 SRC_URI="
 	https://github.com/imageio/imageio/archive/v${PV}.tar.gz
@@ -30,7 +30,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
-	>=dev-python/numpy-1.20.0[${PYTHON_USEDEP}]
+	dev-python/numpy[${PYTHON_USEDEP}]
 	>=dev-python/pillow-8.3.2[${PYTHON_USEDEP}]
 	media-libs/freeimage
 "
@@ -46,6 +46,7 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_prepare() {
@@ -99,6 +100,5 @@ python_test() {
 		tests/test_core.py::test_findlib2
 	)
 
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 	epytest
 }
