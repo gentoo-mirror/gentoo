@@ -4,7 +4,8 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{12..13} )
+PYPI_VERIFY_REPO=https://github.com/ipython/ipyparallel
+PYTHON_COMPAT=( python3_{12..14} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit distutils-r1 optfeature pypi
@@ -18,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/decorator[${PYTHON_USEDEP}]
@@ -37,51 +38,33 @@ RDEPEND="
 BDEPEND="
 	dev-python/flit-core[${PYTHON_USEDEP}]
 	test? (
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		dev-python/testpath[${PYTHON_USEDEP}]
 	)
 "
 
 # TODO: package myst_parser
 # distutils_enable_sphinx docs/source
+EPYTEST_PLUGINS=( pytest-asyncio )
 distutils_enable_tests pytest
 
-PATCHES=(
-	# https://github.com/ipython/ipyparallel/pull/934
-	"${FILESDIR}/${P}-pypy3_11.patch"
+EPYTEST_DESELECT=(
+	# we don't run a mongo instance for tests
+	ipyparallel/tests/test_mongodb.py::TestMongoBackend
+	# TODO
+	ipyparallel/tests/test_util.py::test_disambiguate_ip
+	# Gets upset that a timeout _doesn't_ occur, presumably because
+	# we're cranking up too many test timeouts. Oh well.
+	# bug #823458#c3
+	ipyparallel/tests/test_asyncresult.py::AsyncResultTest::test_wait_for_send
+	# We could patch the timeout for these too but they're going to be inherently
+	# fragile anyway based on what they do.
+	ipyparallel/tests/test_client.py::TestClient::test_activate
+	ipyparallel/tests/test_client.py::TestClient::test_lazy_all_targets
+	ipyparallel/tests/test_client.py::TestClient::test_wait_for_engines
 )
 
 src_configure() {
 	export IPP_DISABLE_JS=1
-}
-
-python_test() {
-	local EPYTEST_DESELECT=(
-		# we don't run a mongo instance for tests
-		ipyparallel/tests/test_mongodb.py::TestMongoBackend
-		# TODO
-		ipyparallel/tests/test_util.py::test_disambiguate_ip
-		# Gets upset that a timeout _doesn't_ occur, presumably because
-		# we're cranking up too many test timeouts. Oh well.
-		# bug #823458#c3
-		ipyparallel/tests/test_asyncresult.py::AsyncResultTest::test_wait_for_send
-		# We could patch the timeout for these too but they're going to be inherently
-		# fragile anyway based on what they do.
-		ipyparallel/tests/test_client.py::TestClient::test_activate
-		ipyparallel/tests/test_client.py::TestClient::test_lazy_all_targets
-		ipyparallel/tests/test_client.py::TestClient::test_wait_for_engines
-	)
-	case ${EPYTHON} in
-		pypy3)
-			EPYTEST_DESELECT+=(
-				# pure Python datetime incompatibility?  TODO
-				ipyparallel/tests/test_asyncresult.py::TestAsyncResult::test_elapsed_multi
-			)
-			;;
-	esac
-
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -p asyncio
 }
 
 python_install_all() {

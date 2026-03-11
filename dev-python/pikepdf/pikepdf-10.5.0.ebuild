@@ -1,10 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
+PYPI_VERIFY_REPO=https://github.com/pikepdf/pikepdf
 PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
 inherit distutils-r1 pypi
@@ -17,13 +18,13 @@ HOMEPAGE="
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="big-endian"
 
 # Check QPDF_MIN_VERSION in pyproject.toml on bumps, as well as
 # https://qpdf.readthedocs.io/en/stable/release-notes.html.
 DEPEND="
-	>=app-text/qpdf-11.5.0:0=
+	>=app-text/qpdf-12.2.0:0=
 "
 RDEPEND="
 	${DEPEND}
@@ -52,13 +53,23 @@ BDEPEND="
 EPYTEST_PLUGINS=( hypothesis pytest-timeout )
 distutils_enable_tests pytest
 
-EPYTEST_DESELECT=(
-	# https://github.com/pypy/pypy/issues/5351
-	tests/test_metadata.py::test_truncated_xml
-)
-
 src_prepare() {
 	distutils-r1_src_prepare
 
 	sed -e '/-n auto/d' -i pyproject.toml || die
+}
+
+python_test() {
+	local EPYTEST_DESELECT=()
+
+	case ${EPYTHON} in
+		pypy3.11)
+			EPYTEST_DESELECT+=(
+				# mismatched exception message
+				tests/test_scalar_types.py::TestIntIntConversions::test_index_on_non_integer_raises
+			)
+			;;
+	esac
+
+	epytest
 }
