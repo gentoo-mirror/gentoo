@@ -1,9 +1,9 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit desktop
+inherit autotools desktop
 
 DESCRIPTION="Free Awale - The game of all Africa"
 HOMEPAGE="https://www.nongnu.org/awale/"
@@ -15,6 +15,16 @@ KEYWORDS="~amd64 ~x86"
 IUSE="gui"
 
 RDEPEND="gui? ( dev-lang/tk )"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.6-getopt.patch
+)
+
+src_prepare() {
+	# requires too old automake otherwise
+	default
+	eautoreconf
+}
 
 src_install() {
 	if use gui; then

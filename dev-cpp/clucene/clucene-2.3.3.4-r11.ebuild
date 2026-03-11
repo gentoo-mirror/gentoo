@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 MY_PN="${PN}"-core
 MY_P="${MY_PN}"-"${PV}"
-inherit cmake
+inherit cmake dot-a toolchain-funcs
 
 DESCRIPTION="High-performance, full-featured text search engine based off of lucene in C++"
 HOMEPAGE="https://clucene.sourceforge.net"
@@ -46,9 +46,19 @@ src_prepare() {
 		-e 's%\(:\| -I\)${prefix}/include/CLucene/ext%%g' \
 		./src/core/libclucene-core.pc.cmake || die
 	rm -rf src/ext || die
+
+	# do compile-only tests while cross-compiling
+	# the EXITCODE for each test can be overrided otherwise
+	if tc-is-cross-compiler; then
+		sed -i \
+			-e '/CHECK_CXX_SOURCE_/s/_RUNS/_COMPILES/' \
+			src/shared/cmake/*.cmake || die
+	fi
 }
 
 src_configure() {
+	use static-libs && lto-guarantee-fat
+
 	# Disabled threads: see upstream bug
 	# https://sourceforge.net/p/clucene/bugs/197/
 	local mycmakeargs=(
@@ -63,4 +73,10 @@ src_configure() {
 	)
 
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+
+	use static-libs && strip-lto-bytecode
 }
