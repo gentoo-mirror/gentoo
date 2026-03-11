@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install
+DEPEND=gkrellm? ( >=app-admin/gkrellm-2[X] ) x11-libs/gtk+:2 x11-libs/libX11 x11-libs/libXext
+DESCRIPTION=Dockapp and gkrellm plug-in combining timecop's bubblemon and wmfishtime
+EAPI=8
+HOMEPAGE=https://github.com/JNRowe/bfm
+INHERIT=toolchain-funcs flag-o-matic
+IUSE=gkrellm
+KEYWORDS=~amd64 ~ppc ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=gkrellm? ( >=app-admin/gkrellm-2[X] ) x11-libs/gtk+:2 x11-libs/libX11 x11-libs/libXext
+SLOT=0
+SRC_URI=https://github.com/JNRowe/bfm/archive/0.6.4.tar.gz -> bfm-0.6.4.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4
+_md5_=55d43d58590b9304e5ee30a3692e0fcc
