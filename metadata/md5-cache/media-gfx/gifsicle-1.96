@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure
+DEPEND=gui? ( x11-libs/libX11 x11-libs/libXt ) gui? ( x11-base/xorg-proto )
+DESCRIPTION=Create, manipulate, and optimize GIF images and animations
+EAPI=9
+HOMEPAGE=https://www.lcdf.org/~eddietwo/gifsicle/ https://github.com/kohler/gifsicle
+IUSE=gui
+KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=GPL-2 MIT
+RDEPEND=gui? ( x11-libs/libX11 x11-libs/libXt )
+SLOT=0
+SRC_URI=https://www.lcdf.org/~eddietwo/gifsicle/gifsicle-1.96.tar.gz
+_md5_=b4b61e0d4147680ce25301131a292a33
