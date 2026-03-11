@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..14} )
 
 inherit distutils-r1 toolchain-funcs
 
@@ -69,16 +69,14 @@ BDEPEND="
 # Also discard the previous related packages
 # except their transition step
 RDEPEND="
-	dev-python/chardet[${PYTHON_USEDEP}]
 	>=dev-python/configargparse-1.5.3[${PYTHON_USEDEP}]
 	>=dev-python/configobj-5.0.6[${PYTHON_USEDEP}]
 	>=dev-python/cryptography-43.0.0[${PYTHON_USEDEP}]
 	>=dev-python/distro-1.0.1[${PYTHON_USEDEP}]
 	>=dev-python/josepy-2.0.0[${PYTHON_USEDEP}]
-	>=dev-python/parsedatetime-2.4[${PYTHON_USEDEP}]
+	>=dev-python/parsedatetime-2.6[${PYTHON_USEDEP}]
 	>=dev-python/pyopenssl-25.0.0[${PYTHON_USEDEP}]
 	dev-python/pyrfc3339[${PYTHON_USEDEP}]
-	>=dev-python/pytz-2019.3[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.20.0[${PYTHON_USEDEP}]
 	certbot-apache? (
 		dev-python/python-augeas[${PYTHON_USEDEP}]
@@ -119,7 +117,7 @@ RDEPEND="
 	)
 	certbot-nginx? (
 		>=dev-python/pyopenssl-25.0.0[${PYTHON_USEDEP}]
-		>=dev-python/pyparsing-2.4.7[${PYTHON_USEDEP}]
+		>=dev-python/pyparsing-3.0.0[${PYTHON_USEDEP}]
 	)
 	selinux? ( sec-policy/selinux-certbot )
 "
@@ -134,7 +132,7 @@ RDEPEND="
 # 	)
 # 	certbot-dns-digitalocean? (
 # 		# Available in GURU
-# 		>=dev-python/digitalocean-1.11[${PYTHON_USEDEP}]
+# 		>=dev-python/digitalocean-1.15.0[${PYTHON_USEDEP}]
 # 	)
 # "
 

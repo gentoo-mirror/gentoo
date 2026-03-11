@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -117,7 +117,7 @@ RDEPEND="
 	)
 	certbot-nginx? (
 		>=dev-python/pyopenssl-25.0.0[${PYTHON_USEDEP}]
-		>=dev-python/pyparsing-2.4.7[${PYTHON_USEDEP}]
+		>=dev-python/pyparsing-3.0.0[${PYTHON_USEDEP}]
 	)
 	selinux? ( sec-policy/selinux-certbot )
 "
