@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	>=dev-python/attrs-19.2.0[${PYTHON_USEDEP}]
@@ -43,20 +43,15 @@ BDEPEND="
 	test? (
 		dev-python/magic-wormhole-mailbox-server[${PYTHON_USEDEP}]
 		dev-python/magic-wormhole-transit-relay[${PYTHON_USEDEP}]
-		dev-python/pytest-twisted[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( hypothesis pytest-twisted )
 distutils_enable_tests pytest
 
 src_prepare() {
 	distutils-r1_src_prepare
 	rm versioneer.py || die
-}
-
-python_test() {
-	local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
-	epytest -p pytest_twisted
 }
 
 src_install() {
