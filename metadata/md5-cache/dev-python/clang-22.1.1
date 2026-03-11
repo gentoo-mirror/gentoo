@@ -1,0 +1,17 @@
+BDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) test? ( llvm-core/clang:22 ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-21.1.4 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=install prepare test unpack
+DEPEND=>=llvm-core/clang-22.1.1:* !llvm-core/llvm:0[clang(-),python(-)] !llvm-core/clang:0[python(-)]
+DESCRIPTION=Python bindings for llvm-core/clang
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=llvm.org python-r1
+IUSE=test verify-sig python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=Apache-2.0-with-LLVM-exceptions UoI-NCSA
+RDEPEND=>=llvm-core/clang-22.1.1:* !llvm-core/llvm:0[clang(-),python(-)] !llvm-core/clang:0[python(-)] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.1/llvm-project-22.1.1.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.1/llvm-project-22.1.1.src.tar.xz.sig )
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8	llvm.org	a88674b278b64788ed31eb69fa2ddd58	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	python-utils-r1	34399ddcee37dc83c6735c2c46e244bc	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf
+_md5_=246c47430082307ef0ae1dc0ed1ae2d6

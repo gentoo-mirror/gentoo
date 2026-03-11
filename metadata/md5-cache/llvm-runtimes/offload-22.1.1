@@ -1,0 +1,17 @@
+BDEPEND=dev-lang/perl virtual/pkgconfig clang? ( llvm-core/clang ) llvm_targets_AMDGPU? ( llvm-core/clang[llvm_targets_AMDGPU] ) llvm_targets_NVPTX? ( llvm-core/clang[llvm_targets_NVPTX] ) test? ( || ( ( dev-lang/python:3.14 dev-python/lit[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/lit[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/lit[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/lit[python_targets_python3_11(-)] ) ) llvm-core/clang:22 ) verify-sig? ( >=sec-keys/openpgp-keys-llvm-21.1.4 ) app-alternatives/ninja >=dev-build/cmake-3.28.5 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install prepare pretend setup test unpack
+DEPEND=dev-libs/libffi:= ~llvm-core/llvm-22.1.1 ~llvm-runtimes/openmp-22.1.1[ompt?] llvm_targets_AMDGPU? ( dev-libs/rocr-runtime:= )
+DESCRIPTION=OpenMP offloading support
+EAPI=8
+HOMEPAGE=https://openmp.llvm.org
+INHERIT=cmake crossdev flag-o-matic llvm.org python-any-r1 toolchain-funcs
+IUSE=+clang debug ompt test llvm_targets_AMDGPU llvm_targets_NVPTX test verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+RDEPEND=dev-libs/libffi:= ~llvm-core/llvm-22.1.1 ~llvm-runtimes/openmp-22.1.1[ompt?] llvm_targets_AMDGPU? ( dev-libs/rocr-runtime:= )
+REQUIRED_USE=llvm_targets_AMDGPU? ( clang ) llvm_targets_NVPTX? ( clang )
+RESTRICT=!test? ( test ) !test? ( test )
+SLOT=0/22.1
+SRC_URI=https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.1/llvm-project-22.1.1.src.tar.xz verify-sig? ( https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.1/llvm-project-22.1.1.src.tar.xz.sig )
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	crossdev	d618c699554f72b98f8ceeeeb361dc9e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8	llvm.org	a88674b278b64788ed31eb69fa2ddd58	python-utils-r1	34399ddcee37dc83c6735c2c46e244bc	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=e70ef483a7ac4616fe6f7245106044fb
