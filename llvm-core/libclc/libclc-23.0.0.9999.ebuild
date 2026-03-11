@@ -48,13 +48,12 @@ src_configure() {
 		"nvptx64-nvidia-cuda"
 	)
 	use video_cards_radeonsi && libclc_targets+=(
-		"amdgcn--"
 		"amdgcn-amd-amdhsa-llvm"
-		"amdgcn-mesa-mesa3d"
 	)
 
 	libclc_targets=${libclc_targets[*]}
 	local mycmakeargs=(
+		-DCMAKE_CLC_COMPILER="$(type -P clang-${LLVM_MAJOR})"
 		-DLIBCLC_TARGETS_TO_BUILD="${libclc_targets// /;}"
 	)
 	cmake_src_configure
