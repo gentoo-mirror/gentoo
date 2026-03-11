@@ -6,7 +6,7 @@
 # Flatcar Linux Maintainers <infra@flatcar-linux.org>
 # @AUTHOR:
 # Flatcar Linux Maintainers <infra@flatcar-linux.org>
-# @SUPPORTED_EAPIS: 7 8
+# @SUPPORTED_EAPIS: 7 8 9
 # @BLURB: Helper eclass for setting up the Go build environment.
 # @DESCRIPTION:
 # This eclass includes helper functions for setting up the build environment for
@@ -77,7 +77,7 @@
 # Optimisation setting for riscv when building for CBUILD.
 
 case ${EAPI} in
-	7|8) ;;
+	7|8|9) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
