@@ -1,0 +1,15 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=AMD's closed source Advanced Media Framework (AMF) driver for AMD GPUs
+EAPI=8
+HOMEPAGE=https://www.amd.com/en/support
+INHERIT=unpacker
+IUSE=video_cards_amdgpu
+KEYWORDS=-* amd64
+LICENSE=AMD-GPU-PRO-EULA
+RDEPEND=x11-libs/libdrm media-libs/mesa[proprietary-codecs,vulkan]
+REQUIRED_USE=video_cards_amdgpu
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://repo.radeon.com/amf/25.20/ubuntu/pool/main/noble//amf-amdgpu-pro_25.20-399_amd64.deb -> amdgpu-pro-amf-25.20.399.deb https://repo.radeon.com/amf/25.20/ubuntu/pool/main/noble//libamdenc-amdgpu-pro_25.20-399_amd64.deb -> amdgpu-pro-amf-25.20.399-enc.deb
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	unpacker	767e064ac3c6192d69d112d11dd05ba6
+_md5_=355aa10544f9093045f8a183e29dd3e0
