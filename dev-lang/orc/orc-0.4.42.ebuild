@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,38 +6,28 @@ EAPI=8
 inherit meson-multilib
 
 DESCRIPTION="The Oil Runtime Compiler, a just-in-time compiler for array operations"
-HOMEPAGE="https://gstreamer.freedesktop.org/"
+HOMEPAGE="https://gstreamer.freedesktop.org/ https://gitlab.freedesktop.org/gstreamer/orc"
 SRC_URI="https://gstreamer.freedesktop.org/src/${PN}/${P}.tar.xz"
 
 LICENSE="BSD BSD-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv x86 ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86 ~x64-macos ~x64-solaris"
+IUSE="static-libs test"
 RESTRICT="!test? ( test )"
-IUSE="gtk-doc static-libs test"
 
-BDEPEND="
-	gtk-doc? (
-		dev-util/gtk-doc
-		app-text/docbook-xml-dtd:4.1.2
-		app-text/docbook-xml-dtd:4.3
-	)
-"
+# in orc-0.4.42 upstream dropped gtk-doc in favour of hotdoc, which isn't widely
+# packaged yet. This means we have no docs, presently.
 
 DOCS=( CONTRIBUTING.md README RELEASE )
-
-PATCHES=(
-	"${FILESDIR}"/${P}-avx.patch
-)
 
 multilib_src_configure() {
 	# FIXME: handle backends per arch? What about cross-compiling for the other arches?
 	local emesonargs=(
 		-Ddefault_library=$(usex static-libs both shared)
-		-Dorc-backend=all
+		-Dorc-target=all
 		-Dorc-test=enabled
 		-Dbenchmarks=disabled
 		-Dexamples=disabled
-		$(meson_native_use_feature gtk-doc gtk_doc)
 		$(meson_feature test tests)
 		-Dtools=enabled # requires orc-test
 	)

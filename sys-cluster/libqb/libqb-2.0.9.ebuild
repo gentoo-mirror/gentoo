@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=9
 
 inherit autotools
 
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ClusterLabs/${PN}/releases/download/v${PV}/${P}.tar.
 
 LICENSE="LGPL-2.1"
 SLOT="0/100"
-KEYWORDS="amd64 ~arm ~arm64 ~hppa ~ppc ppc64 x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 IUSE="debug doc examples systemd test"
 RESTRICT="!test? ( test )"
 
@@ -26,9 +26,7 @@ BDEPEND="app-arch/xz-utils
 
 DOCS=( ChangeLog README.markdown )
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.0.1-slibtool.patch
-)
+PATCHES=()
 
 src_prepare() {
 	default
