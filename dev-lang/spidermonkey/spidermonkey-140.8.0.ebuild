@@ -1,12 +1,12 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
 
-FIREFOX_PATCHSET="firefox-140esr-patches-03.tar.xz"
+FIREFOX_PATCHSET="firefox-140esr-patches-07.tar.xz"
 SPIDERMONKEY_PATCHSET="spidermonkey-140-patches-02.tar.xz"
 
-LLVM_COMPAT=( 19 20 )
+LLVM_COMPAT=( 19 20 21 )
 RUST_NEEDS_LLVM=1
 RUST_MIN_VER=1.82.0
 
@@ -84,7 +84,7 @@ BDEPEND="${PYTHON_DEPS}
 		$(python_gen_any_dep 'dev-python/six[${PYTHON_USEDEP}]')
 	)"
 DEPEND=">=dev-libs/icu-76.1:=
-	>=dev-libs/nspr-4.35
+	>=dev-libs/nspr-4.36
 	sys-libs/readline:0=
 	virtual/zlib:="
 RDEPEND="${DEPEND}"
