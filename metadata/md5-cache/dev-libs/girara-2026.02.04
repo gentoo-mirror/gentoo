@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig doc? ( app-text/doxygen ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=app-accessibility/at-spi2-core >=dev-libs/glib-2.72:2 media-libs/harfbuzz:= x11-libs/cairo[glib] x11-libs/gdk-pixbuf >=x11-libs/gtk+-3.24:3[X?] x11-libs/pango test? ( x11-base/xorg-proto x11-libs/gtk+:3[X] x11-misc/xvfb-run )
+DESCRIPTION=UI library that focuses on simplicity and minimalism
+EAPI=8
+HOMEPAGE=https://pwmt.org/projects/girara/
+INHERIT=flag-o-matic meson
+IUSE=doc test X
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+LICENSE=ZLIB
+RDEPEND=app-accessibility/at-spi2-core >=dev-libs/glib-2.72:2 media-libs/harfbuzz:= x11-libs/cairo[glib] x11-libs/gdk-pixbuf >=x11-libs/gtk+-3.24:3[X?] x11-libs/pango
+RESTRICT=!test? ( test )
+SLOT=0/9999
+SRC_URI=https://github.com/pwmt/girara/archive/2026.02.04.tar.gz -> girara-2026.02.04.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	34399ddcee37dc83c6735c2c46e244bc	sysroot	b9348e4d36f160f6d2556bea5b59f99c	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	ee14b47f310c323b82e6655787cd65ed
+_md5_=9c8c399a4558c3abf0bf9f954950430f
