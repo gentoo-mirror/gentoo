@@ -915,7 +915,7 @@ app-admin/analog 6.0.18 6.0.18-r1: Multi-purpose, multi-platform log file analys
 app-admin/ananicy 2.2.1-r1: ANother Auto NICe daemon
 app-admin/ansible 12.0.0 12.1.0 12.2.0 13.0.0 13.2.0: Model-driven deployment, config management, and command execution framework
 app-admin/ansible-core 2.19.2 2.19.3 2.20.0-r1 2.20.3 9999: Model-driven deployment, config management, and command execution framework
-app-admin/ansible-lint 25.9.0 25.11.0: Checks ansible playbooks for practices and behaviour that can be improved
+app-admin/ansible-lint 25.9.0 25.11.0 26.3.0: Checks ansible playbooks for practices and behaviour that can be improved
 app-admin/ansible-modules-hashivault 5.2.1-r1: Ansible module for hashicorp vault
 app-admin/ansible-molecule 25.9.0 25.11.0: A toolkit designed to aid in the development and testing of Ansible roles
 app-admin/apache-tools 2.4.65 2.4.66: Useful Apache tools - htdigest, htpasswd, ab, htdbm
@@ -2902,7 +2902,7 @@ app-misc/rox-filer 2.11-r1: ROX-Filer a drag and drop spatial file manager
 app-misc/rpick 0.9.1-r1: Helps you pick items from a list by various algorithms
 app-misc/rtlamr 0.9.3: software defined radio receiver for utility smart meters
 app-misc/rundeck-cli-bin 2.0.8: Command line tool for rundeck
-app-misc/screen 4.9.1-r1 4.9.1-r2 5.0.1 9999: screen manager with VT100/ANSI terminal emulation
+app-misc/screen 4.9.1-r2 5.0.1 9999: screen manager with VT100/ANSI terminal emulation
 app-misc/screenfetch 3.9.9: Bash Screenshot Information Tool
 app-misc/screenie 20120406: A small and lightweight screen wrapper
 app-misc/scrub 2.6.1-r2: Overwrite files with iterative patterns
@@ -4029,7 +4029,7 @@ dev-db/pglogical 2.4.4: Logical replication for PostgreSQL
 dev-db/pgmemcache 2.3.0 2.3.0-r1: A PostgreSQL API based on libmemcached to interface with memcached
 dev-db/pgmodeler 1.2.1 1.2.2: PostgreSQL Database Modeler
 dev-db/pgpool2 4.4.7 4.4.7-r1: Connection pool server for PostgreSQL
-dev-db/pgrouting 3.6.2 3.7.0 3.7.3 3.8.0: pgRouting extends PostGIS and PostgreSQL with geospatial routing functionality
+dev-db/pgrouting 3.6.2 3.7.0 3.7.3 3.8.0 4.0.1: pgRouting extends PostGIS and PostgreSQL with geospatial routing functionality
 dev-db/pgtap 1.3.3: Unit testing for PostgreSQL
 dev-db/pgxnclient 1.3.2-r1: PostgreSQL Extension Network Client
 dev-db/phpmyadmin 5.2.3: Web-based administration for MySQL and MariaDB databases, written in PHP
@@ -5652,7 +5652,7 @@ dev-libs/libserialport 0.1.1-r1 0.1.2-r1 9999: Cross platform serial port access
 dev-libs/libsigc++ 2.12.1 3.6.0 3.8.0: Typesafe callback system for standard C++
 dev-libs/libsigsegv 2.14-r1 2.15: Library for handling page faults in user mode
 dev-libs/libslz 1.2.0-r1: Stateless, zlib-compatible, and very fast compression library
-dev-libs/libsodium 1.0.20 1.0.20_p20250606 1.0.21 1.0.21_p20260122: Portable fork of NaCl, a higher-level cryptographic library
+dev-libs/libsodium 1.0.21_p20260122: Portable fork of NaCl, a higher-level cryptographic library
 dev-libs/libspnav 1.1 1.2: libspnav is a replacement for the magellan library with a cleaner API
 dev-libs/libspt 1.1-r4 1.1-r5: Library for handling root privilege
 dev-libs/libstroke 0.5.1-r2: Stroke and Gesture recognition Library
@@ -11888,7 +11888,7 @@ games-simulation/lincity 1.13.1-r4: City simulation game for X
 games-simulation/lincity-ng 2.9_beta-r1 2.13.1 9999: City simulation game
 games-simulation/micropolis 1.0_p20250628: Free version of the well-known city building simulation
 games-simulation/openrct2 0.4.30 0.4.31: An open source re-implementation of Chris Sawyer's RollerCoaster Tycoon 2
-games-simulation/openttd 14.1 15.0 15.1 9999: A clone of Transport Tycoon Deluxe
+games-simulation/openttd 15.1 9999: A clone of Transport Tycoon Deluxe
 games-simulation/pmars-sdl 0.9.2e-r2: Portable redcode simulator's sdl port for core war
 games-simulation/searchandrescue 1.7.0-r1: Helicopter based air rescue flight simulator
 games-simulation/senken 0.3.0-r2: City simulation game
@@ -13460,7 +13460,7 @@ media-libs/libpagemaker 0.0.4-r1 9999: C++ Library that parses the file format o
 media-libs/libpano13 2.9.22 2.9.22-r1 2.9.23: Helmut Dersch's panorama toolbox library
 media-libs/libpgf 7.21.7-r2: Library to load, handle and manipulate images in the PGF format
 media-libs/libplacebo 7.360.0-r1 9999: Reusable library for GPU-accelerated image processing primitives
-media-libs/libpng 1.6.47 1.6.50-r1 1.6.51 1.6.52 1.6.53 1.6.54 1.6.55: Portable Network Graphics library
+media-libs/libpng 1.6.55: Portable Network Graphics library
 media-libs/libpng-compat 1.2.59-r1 1.5.30-r1: Portable Network Graphics library
 media-libs/libpqstego 0.0.1-r2: Library for Perturbed Quantization Steganography
 media-libs/libprojectm 3.1.12-r4 4.1.2 4.1.4 9999: A graphical music visualization plugin similar to milkdrop
@@ -14745,7 +14745,7 @@ net-dns/djbdns 1.05-r40 1.05-r42: Collection of DNS client/server software
 net-dns/dnrd 2.20.3-r3: A caching DNS proxy server
 net-dns/dnscap 2.5.0 2.5.1: Network capture utility designed specifically for DNS traffic
 net-dns/dnscrypt-proxy 2.1.12 2.1.13 2.1.14 2.1.15 9999: Flexible DNS proxy, with support for encrypted DNS protocols
-net-dns/dnsdist 1.9.10 1.9.11 2.0.1 2.0.2 9999: A highly DNS-, DoS- and abuse-aware loadbalancer
+net-dns/dnsdist 2.0.2 9999: A highly DNS-, DoS- and abuse-aware loadbalancer
 net-dns/dnsmasq 2.91: Small forwarding DNS server
 net-dns/dnssec-root 20210902: The DNSSEC root key(s)
 net-dns/dnssec-tools 2.2.3-r3: Tools to ease the deployment of DNSSEC related technologies
@@ -15459,7 +15459,7 @@ net-misc/spiped 1.6.4: secure pipe daemon
 net-misc/ssh-askpass-fullscreen 1.2: A small SSH Askpass replacement written with GTK2
 net-misc/sshpass 1.10: Tool for non-interactively performing password authentication with ssh
 net-misc/sshrc 0.6.2: Bring your .bashrc, .vimrc, etc. from your local machine when you ssh
-net-misc/sslh 2.1.4 2.3.0 2.3.1 9999: Port multiplexer - accept both HTTPS and SSH connections on the same port
+net-misc/sslh 2.3.0 2.3.1-r1 9999: Port multiplexer - accept both HTTPS and SSH connections on the same port
 net-misc/sstp-client 1.0.18-r2: Client implementation of Secure Socket Tunneling Protocol (SSTP)
 net-misc/streamlink 7.6.0 8.1.0 8.1.2 9999: CLI for extracting streams from websites to a video player of your choice
 net-misc/streamtuner 0.99.99-r8: Stream directory browser for browsing internet radio streams
@@ -15641,7 +15641,7 @@ net-proxy/privoxy 3.0.34-r1 4.0.0: A web proxy with advanced filtering capabilit
 net-proxy/redsocks 0.5-r2 9999: Transparent redirector of any TCP connection to proxy
 net-proxy/rejik 3.2.11: A squid redirector used for blocking unwanted content
 net-proxy/shadowsocks-libev 3.3.5-r2: A lightweight secured SOCKS5 proxy for embedded devices and low end boxes
-net-proxy/squid 6.13 6.14 6.14-r1: Full-featured web proxy cache
+net-proxy/squid 6.14-r1: Full-featured web proxy cache
 net-proxy/squidguard 1.6.0-r1 1.6.0-r2: Combined filter, redirector and access controller plugin for Squid
 net-proxy/squirm 1.26-r1: A redirector for Squid
 net-proxy/sshuttle 1.3.1: Transparent proxy server that works as a poor man's VPN using ssh
@@ -15698,7 +15698,7 @@ net-vpn/riseup-vpn 0.24.5 0.24.8 0.24.10 0.25.8: Anonymous encrypted VPN client 
 net-vpn/strongswan 6.0.3 6.0.4: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
 net-vpn/tailscale 1.82.5 1.84.3 1.86.5 1.90.6 1.92.1 1.92.4: Tailscale vpn client
 net-vpn/tinc 1.0.36-r1 1.1_pre18-r2: tinc is an easy to configure VPN implementation
-net-vpn/tor 0.4.8.21 0.4.8.21-r1 0.4.8.22 0.4.9.5 0.4.9.5-r1 9999: Anonymizing overlay network for TCP
+net-vpn/tor 0.4.8.22 0.4.9.5 0.4.9.5-r1 9999: Anonymizing overlay network for TCP
 net-vpn/vopono 0.10.13 0.10.14 0.10.15: Launch applications via VPN tunnels using temporary network namespaces
 net-vpn/vpnc 0.5.3_p20240129 9999: IPsec (Cisco/Juniper) VPN concentrator client
 net-vpn/vpnc-scripts 20220510 99999999: Connect scripts for use with vpnc and openconnect (and similar clients)
@@ -17108,7 +17108,7 @@ sys-apps/colorized-logs 2.6 2.7: Tools for logs with ANSI color
 sys-apps/config-site 0 99999999: config.site to load dropins from config.site.d
 sys-apps/consolation 0.0.7: libinput based console mouse daemon
 sys-apps/conspy 1.16: Remote control for Linux virtual consoles
-sys-apps/coreutils 9.7 9.8-r1 9.9 9.9-r1 9.9-r11 9.9-r12 9.10 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
+sys-apps/coreutils 9.9-r1 9.10 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 sys-apps/cpint 2.5.3: Linux/390 Interface to z/VM's Control Program
 sys-apps/cpu-x 5.3.1 5.4.0: A Free software that gathers information on CPU, motherboard and more
 sys-apps/cpuid 20250513 20260220: Linux tool to dump x86 CPUID information about the CPUs

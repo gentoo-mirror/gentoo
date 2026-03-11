@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=postgres_targets_postgres18? ( dev-db/postgresql:18=[server] ) postgres_targets_postgres17? ( dev-db/postgresql:17=[server] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) >=dev-db/postgis-2.0 dev-libs/boost sci-mathematics/cgal
+DESCRIPTION=pgRouting extends PostGIS and PostgreSQL with geospatial routing functionality
+EAPI=8
+HOMEPAGE=https://pgrouting.org/
+INHERIT=cmake postgres-multi
+IUSE=postgres_targets_postgres18 postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2 MIT Boost-1.0
+RDEPEND=postgres_targets_postgres18? ( dev-db/postgresql:18=[server] ) postgres_targets_postgres17? ( dev-db/postgresql:17=[server] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[server] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server] ) >=dev-db/postgis-2.0 dev-libs/boost sci-mathematics/cgal
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/pgRouting/pgrouting/archive/v4.0.1.tar.gz -> pgrouting-4.0.1.tar.gz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	postgres	3671a84f95eadcaa836aefe3fd51b6a1	postgres-multi	ccad35d745ce66b41837db8a6ee94601
+_md5_=e61bd2f457bbb0c4bdf0daa785363c66
