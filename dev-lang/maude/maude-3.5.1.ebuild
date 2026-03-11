@@ -1,19 +1,22 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit autotools
 
-MY_P="${P^}"
+MY_PN=${PN^}
+MY_P=${MY_PN}${PV}
+GIO_DL="https://github.com/maude-lang/maude-lang.github.io/releases/download/maude"
+MANUAL=${MY_P}-manual.pdf
 
 DESCRIPTION="High-level specification language for equational and logic programming"
 HOMEPAGE="https://maude.cs.uiuc.edu/"
-SRC_URI="
-	https://maude.cs.illinois.edu/w/images/d/d3/${MY_P}.tar.gz
-	https://maude.cs.illinois.edu/w/images/0/0a/Full-${MY_P}.zip
-	doc? ( https://maude.cs.illinois.edu/w/images/6/62/${MY_P}-manual.pdf )
-	examples? ( https://maude.cs.illinois.edu/w/images/4/4f/${MY_P}-manual-book-examples.zip )"
+SRC_URI="https://github.com/maude-lang/Maude/archive/refs/tags/${MY_P}.tar.gz
+	doc? ( ${GIO_DL}/${MANUAL} )
+	examples? ( ${GIO_DL}/${P^}-manual-book-examples.zip )"
+
+S="${WORKDIR}"/${MY_PN}-${MY_P}
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -34,13 +37,21 @@ BDEPEND="app-arch/unzip
 	app-alternatives/lex"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.6-search-datadir.patch"
+	"${FILESDIR}/${PN}-3.4-search-datadir.patch"
 	"${FILESDIR}/${PN}-2.7-AR.patch"
-	"${FILESDIR}/${PN}-3.1-prll.patch"
-	"${FILESDIR}/${PN}-3.1-curses.patch"
+	"${FILESDIR}/${PN}-3.2.2-prll.patch"
+	"${FILESDIR}/${PN}-3.2.2-fileTest.patch" # Drop a test
 )
 
 src_prepare() {
+	if use examples; then
+		pushd .. >/dev/null || die
+		mkdir examples || die
+		mv *maude examples/ || die
+		mv *.txt maude.sty only-book README.md string_extract.py \
+			examples/ || die
+		popd >/dev/null || die
+	fi
 	default
 	eautoreconf
 }
@@ -60,10 +71,9 @@ src_install() {
 
 	# install full maude
 	insinto /usr/share/${PN}
-	newins "${WORKDIR}"/full-maude${PV//./}.maude full-maude.maude
 
 	# install docs and examples
-	use doc && dodoc "${DISTDIR}"/${MY_P}-manual.pdf
+	use doc && dodoc "${DISTDIR}"/${MANUAL}
 	if use examples; then
 		dodoc -r "${WORKDIR}"/examples
 		docompress -x /usr/share/doc/${PF}/examples
