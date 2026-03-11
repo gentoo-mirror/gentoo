@@ -11,7 +11,7 @@
 # @DESCRIPTION:
 # This eclass includes helper functions for setting up the build environment for
 # Go ebuilds. Intended to be called by other Go eclasses in an early build
-# stage, e.g. src_unpack.
+# stage, e.g. src_configure.
 
 # @ECLASS_VARIABLE: GOMAXPROCS
 # @USER_VARIABLE
