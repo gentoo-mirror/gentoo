@@ -1,7 +1,7 @@
 BDEPEND=test? ( net-libs/librsync app-crypt/gnupg dev-python/fasteners[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/paramiko[python_targets_python3_12(-)?,python_targets_python3_13(-)?] s3? ( dev-python/boto3[python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) >=dev-python/pytest-7.4.4[python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=dev-python/gpep517-16[python_targets_python3_12(-)?,python_targets_python3_13(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_12(-)?,python_targets_python3_13(-)?]
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=net-libs/librsync app-crypt/gnupg dev-python/fasteners[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/setuptools[python_targets_python3_12(-)?,python_targets_python3_13(-)?] dev-python/setuptools-scm[python_targets_python3_12(-)?,python_targets_python3_13(-)?] test? ( || ( app-arch/par2cmdline app-arch/par2cmdline-turbo ) dev-python/pexpect[python_targets_python3_12(-)?,python_targets_python3_13(-)?] ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 )
-DESCRIPTION=Secure backup system using gnupg to encrypt data
+DESCRIPTION=Secure backup system using GnuPG to encrypt data
 EAPI=8
 HOMEPAGE=https://duplicity.gitlab.io/
 INHERIT=distutils-r1
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.com/duplicity/duplicity/-/archive/rel.3.0.5/duplicity-rel.3.0.5.tar.bz2
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	34399ddcee37dc83c6735c2c46e244bc	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	44f31ede921d604a84caf05ca3e3d4dc
-_md5_=9393d67b8c3081a21bc83ccbe6902b1f
+_md5_=0af9f68240bff00b83a67d65fb22ea4f

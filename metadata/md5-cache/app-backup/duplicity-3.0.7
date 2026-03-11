@@ -1,7 +1,7 @@
 BDEPEND=test? ( app-alternatives/gpg net-libs/librsync:= dev-python/fasteners[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/pexpect[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/paramiko[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] s3? ( dev-python/boto3[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) >=dev-python/pytest-7.4.4[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=dev-python/gpep517-16[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?]
 DEFINED_PHASES=compile configure install postinst prepare test
 DEPEND=app-alternatives/gpg net-libs/librsync:= dev-python/fasteners[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/pexpect[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/setuptools[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/setuptools-scm[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] test? ( || ( app-arch/par2cmdline app-arch/par2cmdline-turbo ) ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
-DESCRIPTION=Secure backup system using gnupg to encrypt data
+DESCRIPTION=Secure backup system using GnuPG to encrypt data
 EAPI=8
 HOMEPAGE=https://duplicity.gitlab.io/
 INHERIT=distutils-r1
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.com/duplicity/duplicity/-/archive/rel.3.0.7/duplicity-rel.3.0.7.tar.bz2
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	34399ddcee37dc83c6735c2c46e244bc	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	44f31ede921d604a84caf05ca3e3d4dc
-_md5_=a5438b24b3a15e3507732b75a46d2c2f
+_md5_=bb139a1ece10b612d8b39a22fd0c9833
