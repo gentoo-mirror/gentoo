@@ -1,0 +1,16 @@
+BDEPEND=nls? ( sys-devel/gettext ) test? ( sys-apps/ed )
+DEFINED_PHASES=configure
+DEPEND=sys-libs/ncurses:= nls? ( virtual/libintl )
+DESCRIPTION=Yash is a POSIX-compliant command line shell
+EAPI=8
+HOMEPAGE=https://magicant.github.io/yash/
+INHERIT=flag-o-matic plocale toolchain-funcs
+IUSE=nls test
+KEYWORDS=~amd64 ~mips ~x86
+LICENSE=GPL-2+
+RDEPEND=sys-libs/ncurses:= nls? ( virtual/libintl )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/magicant/yash/releases/download/2.61/yash-2.61.tar.xz
+_eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	plocale	980baab6fd56db6149d0a9396e0b21c9
+_md5_=d5d48dd302d63942bef0c7883e15565b
