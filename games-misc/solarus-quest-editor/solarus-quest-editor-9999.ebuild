@@ -1,4 +1,4 @@
-# Copyright 2022 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,17 +7,16 @@ LUA_COMPAT=( lua5-1 luajit )
 
 inherit cmake lua-single
 
-DESCRIPTION="A graphical user interface to create and modify quests for the Solarus engine"
-HOMEPAGE="https://www.solarus-games.org"
+DESCRIPTION="Quest editor for Solarus game engine"
+HOMEPAGE="https://www.solarus-games.org/"
 
 if [[ ${PV} == 9999 ]]; then
-	EGIT_REPO_URI="https://gitlab.com/solarus-games/solarus-quest-editor.git"
+	EGIT_REPO_URI="https://gitlab.com/solarus-games/solarus.git"
 	EGIT_BRANCH="dev"
 	inherit git-r3
 else
-	SRC_URI="https://gitlab.com/solarus-games/solarus-quest-editor/-/archive/v${PV}/solarus-quest-editor-v${PV}.tar.gz"
+	SRC_URI="https://gitlab.com/solarus-games/solarus/-/archive/v${PV}/solarus-v${PV}.tar.bz2"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}/solarus-quest-editor-v${PV}"
 fi
 
 LICENSE="GPL-3+"
@@ -25,31 +24,41 @@ SLOT="0"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
-# Upstream (and their CMake) claim that all of these are required deps
 RDEPEND="
 	${LUA_DEPS}
 	dev-games/physfs
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	dev-qt/qtbase[gui,widgets]
 	media-libs/libmodplug
 	>=media-libs/libsdl2-2.0.1[X,joystick,video]
 	media-libs/libvorbis
 	media-libs/openal
 	media-libs/sdl2-image[png]
-	>=media-libs/sdl2-ttf-2.0.12
+	>=dev-qt/qlementine-1.4.0
+	~games-engines/solarus-${PV}
 "
 
 DEPEND="
 	${RDEPEND}
-	~games-engines/solarus-${PV}
 "
 
-PATCHES=(
-	"${FILESDIR}/${P}-fix-segfault.patch"
-)
+if ! [[ ${PV} == 9999 ]]; then
+	S="${WORKDIR}/solarus-v${PV}"
+fi
+
+CMAKE_USE_DIR=${S}/editor
 
 src_configure() {
-	local mycmakeargs=( -DSOLARUS_USE_LUAJIT="$(usex lua_single_target_luajit)" )
+	local mycmakeargs=(
+		-DSOLARUS_USE_SYSTEM_QLEMENTINE=ON
+		-DSOLARUS_USE_LOCAL_QLEMENTINE=OFF
+	)
 	cmake_src_configure
+}
+
+src_compile() {
+	cmake_src_compile
+}
+
+src_install() {
+	cmake_src_install
 }
