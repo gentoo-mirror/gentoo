@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP keys used by maven.apache.org
+EAPI=8
+HOMEPAGE=https://maven.apache.org/download.cgi
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=amd64
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x88BE34F94BDB2B5357044E2E3A387D43964143E3 -> openpgp-keys-maven-bin-ubuntu-20250309.asc
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	ceb4d3181e42bf20ca66d74129d9e848
+_md5_=15bdb4f11be2991c16f70a96cb5f37eb
