@@ -1,0 +1,13 @@
+BDEPEND=app-emacs/f app-emacs/reformatter app-emacs/s >=app-editors/emacs-26.3:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Major mode for the Elm programming language
+EAPI=8
+HOMEPAGE=https://github.com/jcollard/elm-mode/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=app-emacs/f app-emacs/reformatter app-emacs/s >=app-editors/emacs-26.3:*
+SLOT=0
+SRC_URI=https://github.com/jcollard/elm-mode/archive/90b72cd2c9bc4506f531bcdcd73fa2530d9f4f7c.tar.gz -> elm-mode-0.22.0_p20250401.gh.tar.gz
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30
+_md5_=f76bcd1bc6f6505968207f56c9b25379

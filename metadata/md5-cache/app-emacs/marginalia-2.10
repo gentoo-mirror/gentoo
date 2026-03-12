@@ -1,13 +1,13 @@
-BDEPEND=app-emacs/compat >=app-editors/emacs-28.1:*
+BDEPEND=>=app-emacs/compat-30 >=app-editors/emacs-29.1:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Marginalia in the minibuffer
-EAPI=8
+EAPI=9
 HOMEPAGE=https://github.com/minad/marginalia/
 INHERIT=elisp
-KEYWORDS=amd64 ~x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=app-emacs/compat >=app-editors/emacs-28.1:*
+RDEPEND=>=app-emacs/compat-30 >=app-editors/emacs-29.1:*
 SLOT=0
-SRC_URI=https://github.com/minad/marginalia/archive/refs/tags/2.7.tar.gz -> marginalia-2.7.gh.tar.gz
+SRC_URI=https://github.com/minad/marginalia/archive/refs/tags/2.10.tar.gz -> marginalia-2.10.gh.tar.gz
 _eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30
-_md5_=15e5f98e5d41ad8dd230d860f641fada
+_md5_=e11014da62e60b174a83d5d666479e32
