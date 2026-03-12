@@ -79,7 +79,7 @@ COMMON_DEPEND="
 	gui-libs/libadwaita:1=
 	>=media-libs/fontconfig-2.14.2:=
 	>=media-libs/freetype-2.13.2:=[bzip2,harfbuzz,png]
-	>=media-libs/harfbuzz-12.2.0:=[truetype]
+	>=media-libs/harfbuzz-12.2.0:=[truetype,introspection]
 	>=dev-cpp/highway-1.3.0:=
 	X? ( x11-libs/libX11 )
 	wayland? (
@@ -94,7 +94,10 @@ RDEPEND="
 	~x11-terms/ghostty-terminfo-${PV}
 "
 BDEPEND="
-	>=dev-lang/zig-0.15.2
+	|| (
+		>=dev-lang/zig-bin-0.15.2
+		>=dev-lang/zig-0.15.2
+	)
 	man? ( virtual/pandoc )
 	nls? ( sys-devel/gettext )
 "
