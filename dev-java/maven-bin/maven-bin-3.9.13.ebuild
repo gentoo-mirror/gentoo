@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
-inherit java-pkg-2
+inherit java-pkg-2 verify-sig
 
 MY_PN=apache-${PN%%-bin}
 MY_PV=${PV/_alpha/-alpha-}
@@ -12,19 +12,22 @@ MY_MV="${PV%%.*}"
 
 DESCRIPTION="Project Management and Comprehension Tool for Java"
 HOMEPAGE="https://maven.apache.org/"
-SRC_URI="mirror://apache/maven/maven-${MY_MV}/${PV}/binaries/${MY_P}-bin.tar.gz"
+SRC_URI="mirror://apache/maven/maven-${MY_MV}/${PV}/binaries/${MY_P}-bin.tar.gz
+	verify-sig? ( mirror://apache/maven/maven-${MY_MV}/${PV}/binaries/${MY_P}-bin.tar.gz.asc )"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="Apache-2.0"
-SLOT="3.8"
-KEYWORDS="amd64"
+SLOT="3.9"
+KEYWORDS="~amd64"
+
+BDEPEND="verify-sig? ( sec-keys/openpgp-keys-apache-maven )"
 
 DEPEND="
 	>=virtual/jdk-1.8:*
-	app-eselect/eselect-java
-"
+	app-eselect/eselect-java"
 
-RDEPEND=">=virtual/jre-1.8:*"
+RDEPEND="
+	>=virtual/jre-1.8:*"
 
 MAVEN="${PN}-${SLOT}"
 MAVEN_SHARE="/usr/share/${MAVEN}"
@@ -33,6 +36,7 @@ QA_FLAGS_IGNORED=(
 	"${MAVEN_SHARE}/lib/jansi-native/linux32/libjansi.so"
 	"${MAVEN_SHARE}/lib/jansi-native/linux64/libjansi.so"
 )
+VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/apache-maven.asc"
 
 # TODO:
 # We should use jars from packages, instead of what is bundled.
