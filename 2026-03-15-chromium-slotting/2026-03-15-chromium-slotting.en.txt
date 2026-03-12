@@ -1,0 +1,45 @@
+Title: www-client/chromium slotted installation
+Author: Matt Jolly <kangie@gentoo.org>
+Posted: 2026-03-15
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: www-client/chromium
+
+www-client/chromium is now available as a slotted package, allowing multiple
+versions to be installed simultaneously.
+
+The new slots are:
+
+* www-client/chromium:stable - the latest 'stable' channel release
+* www-client/chromium:beta - the latest 'beta' channel release
+* www-client/chromium:unstable - the latest 'dev' channel release
+
+Upstream are inconsistent with `dev` channel naming, so we've gone with
+'unstable' to match www-client/google-chrome* packaging.
+
+The biggest change to end-users is that various Chromium versions will no longer
+share a single profile directory, instead each slot (channel) will have its own
+profile directory as e.g. the various www-client/google-chrome packages work
+now.
+
+This change is particularly useful for developers who need to test their
+applications against different versions of Chromium, and protects against
+incompatible profile downgrades when switching between versions.
+
+Users on stable should not expect to see any major change, however any
+Progressive Web Applications (PWAs) may need to be "reinstalled" after the
+upgrade to update the desktop files.
+
+Users on ~arch may wish to select a specific slot to use, as due to the nature
+of Chromium releases, the latest ~arch version will switch between the stable
+and beta slots depending on where we are in the release cycle.
+
+The same advice applies to users of the dev/unstable channel (unkeyworded) as
+well - they may end up unexpectedly upgraded to beta if the dev channel is
+delayed during a promotion.
+
+Impacted users should explicitly select the appropriate slot(s) to use, e.g. by
+selecting www-client/chromium:stable or www-client/chromium:beta:
+
+    emerge --deselect www-client/chromium
+    emerge --noreplace www-client/chromium:stable
