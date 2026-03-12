@@ -1,4 +1,4 @@
-BDEPEND=app-arch/rpm2targz secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
+BDEPEND=|| ( app-arch/rpm2targz >=app-arch/rpm-4.19.0 ) secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
 DEFINED_PHASES=install postinst postrm preinst prerm pretend setup unpack
 DESCRIPTION=LINUX PERCCLI Utility For All Dell HBA/PERC Controllers
 EAPI=7
@@ -10,5 +10,5 @@ LICENSE=Avago BSD
 RESTRICT=strip
 SLOT=0
 SRC_URI=https://downloads.dell.com/FOLDER05235308M/1/perccli_linux_NF8G9_A07_7.529.00.tar.gz doc? ( https://topics-cdn.dell.com/pdf/dell-sas-hba-12gbps_reference-guide_en-us.pdf )
-_eclasses_=mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	mount-boot	03b0280b48caf6e18472fa7272cfcda8	estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	a07e59be6cf48ed85e624a41e8a7a832	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	linux-info	efd923656513c879204fec6638eadee5	secureboot	d98b63e30a9468e1f1c06d3d7c66e760
+_eclasses_=mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	mount-boot	03b0280b48caf6e18472fa7272cfcda8	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	7f6c39764471c4b515dd9cc5b7754c9c	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	linux-info	efd923656513c879204fec6638eadee5	secureboot	d98b63e30a9468e1f1c06d3d7c66e760
 _md5_=767cc0fa802b7a0d3c31d1a9136fd9ea

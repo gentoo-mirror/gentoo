@@ -1,4 +1,4 @@
-BDEPEND=app-arch/rpm2targz
+BDEPEND=|| ( app-arch/rpm2targz >=app-arch/rpm-4.19.0 )
 DEFINED_PHASES=compile configure install postinst prerm unpack
 DEPEND=minimal? ( <media-gfx/iscan-3 >=media-gfx/iscan-2.21.0 )
 DESCRIPTION=Epson Perfection 2480/2580 PHOTO scanner plugin for SANE 'epkowa' backend
@@ -11,5 +11,5 @@ LICENSE=EPSON EAPL
 RDEPEND=minimal? ( <media-gfx/iscan-3 >=media-gfx/iscan-2.21.0 )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~flameeyes/avasys/iscan-plugin-gt-f500-1.0.0-1.c2.i386.rpm
-_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	a07e59be6cf48ed85e624a41e8a7a832
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	7f6c39764471c4b515dd9cc5b7754c9c
 _md5_=fc03f538858a714f333ae443a4da5aeb

@@ -1,4 +1,4 @@
-BDEPEND=app-arch/rpm2targz secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
+BDEPEND=|| ( app-arch/rpm2targz >=app-arch/rpm-4.19.0 ) secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
 DEFINED_PHASES=install setup unpack
 DESCRIPTION=Fedora's signed UEFI shim
 EAPI=8
@@ -9,5 +9,5 @@ KEYWORDS=amd64 arm64 x86
 LICENSE=BSD
 SLOT=0
 SRC_URI=amd64? ( https://kojipkgs.fedoraproject.org/packages/shim/15.8/3/x86_64/shim-x64-15.8-3.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/shim/15.8/3/x86_64/shim-ia32-15.8-3.x86_64.rpm ) x86? ( https://kojipkgs.fedoraproject.org/packages/shim/15.8/3/x86_64/shim-x64-15.8-3.x86_64.rpm https://kojipkgs.fedoraproject.org/packages/shim/15.8/3/x86_64/shim-ia32-15.8-3.x86_64.rpm ) arm64? ( https://kojipkgs.fedoraproject.org/packages/shim/15.8/3/aarch64/shim-aa64-15.8-3.aarch64.rpm )
-_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	a07e59be6cf48ed85e624a41e8a7a832	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	linux-info	efd923656513c879204fec6638eadee5	secureboot	d98b63e30a9468e1f1c06d3d7c66e760
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	7f6c39764471c4b515dd9cc5b7754c9c	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	linux-info	efd923656513c879204fec6638eadee5	secureboot	d98b63e30a9468e1f1c06d3d7c66e760
 _md5_=517d6ba638fa2c4f8013f55f7425a565

@@ -1,4 +1,4 @@
-BDEPEND=app-arch/rpm2targz
+BDEPEND=|| ( app-arch/rpm2targz >=app-arch/rpm-4.19.0 )
 DEFINED_PHASES=prepare unpack
 DESCRIPTION=Print out increasing, decreasing, random, or redundant data
 EAPI=8
@@ -8,5 +8,5 @@ KEYWORDS=amd64 ppc x86
 LICENSE=BSD
 SLOT=0
 SRC_URI=http://www.mit.edu/afs/athena/system/rhlinux/athena-9.0/free/SRPMS/athena-jot-9.0-3.src.rpm
-_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	a07e59be6cf48ed85e624a41e8a7a832	toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	7f6c39764471c4b515dd9cc5b7754c9c	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac
 _md5_=81ad2c981be4d0eefa0b141a5c4bd61a
