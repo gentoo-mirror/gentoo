@@ -1,15 +1,15 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-libs/libmodplug >=media-libs/libsdl2-2.0.1[X,joystick,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image[png] >=media-libs/sdl2-ttf-2.0.12 ~games-engines/solarus-9999
-DESCRIPTION=A graphical user interface to create and modify quests for the Solarus engine
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-qt/qtbase[gui,widgets] media-libs/libmodplug >=media-libs/libsdl2-2.0.1[X,joystick,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image[png] >=dev-qt/qlementine-1.4.0 ~games-engines/solarus-9999
+DESCRIPTION=Quest editor for Solarus game engine
 EAPI=8
-HOMEPAGE=https://www.solarus-games.org
+HOMEPAGE=https://www.solarus-games.org/
 INHERIT=cmake lua-single git-r3
 IUSE=lua_single_target_luajit lua_single_target_lua5-1
 LICENSE=GPL-3+
 PROPERTIES=live
-RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 media-libs/libmodplug >=media-libs/libsdl2-2.0.1[X,joystick,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image[png] >=media-libs/sdl2-ttf-2.0.12
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-qt/qtbase[gui,widgets] media-libs/libmodplug >=media-libs/libsdl2-2.0.1[X,joystick,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image[png] >=dev-qt/qlementine-1.4.0 ~games-engines/solarus-9999
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 )
 SLOT=0
 _eclasses_=toolchain-funcs	8a2c298bde71ecf3f452dd9e67c94369	flag-o-matic	ed1eda86c8f746a2a75f7f9f7478f5f4	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	git-r3	875eb471682d3e1f18da124be97dcc81
-_md5_=251530b672fe3681af232f8a52090497
+_md5_=6a4c8b20ebd7ffd9e47968229e182dad
