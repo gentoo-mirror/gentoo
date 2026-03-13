@@ -1,36 +1,45 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit desktop flag-o-matic multilib toolchain-funcs
+PYTHON_COMPAT=( python3_{11..14} )
+inherit flag-o-matic multilib python-any-r1 toolchain-funcs xdg
 
 DESCRIPTION="Fork of the classic Super Nintendo emulator"
 HOMEPAGE="https://github.com/xyproto/zsnes/ https://www.zsnes.com/"
-SRC_URI="https://github.com/xyproto/zsnes/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="
+	https://github.com/xyproto/zsnes/archive/refs/tags/${PV}.tar.gz
+		-> ${P}.tar.gz
+"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
-IUSE="custom-cflags"
+IUSE="ao custom-cflags pipewire"
 
 RDEPEND="
 	media-libs/libglvnd[X,abi_x86_32(-)]
 	media-libs/libpng:=[abi_x86_32(-)]
-	media-libs/libsdl[abi_x86_32(-),joystick,opengl,sound,video]
+	media-libs/libsdl3[abi_x86_32(-),opengl]
 	virtual/zlib:=[abi_x86_32(-)]
-	x11-libs/libX11[abi_x86_32(-)]"
+	x11-libs/libX11[abi_x86_32(-)]
+	ao? ( media-libs/libao[abi_x86_32(-)] )
+	pipewire? (  media-video/pipewire:=[abi_x86_32(-)] )
+"
 DEPEND="
 	${RDEPEND}
-	x11-base/xorg-proto"
+	x11-base/xorg-proto
+"
 BDEPEND="
+	${PYTHON_DEPS}
 	dev-lang/nasm
+	virtual/pkgconfig
 	virtual/zlib:=
-	virtual/pkgconfig"
+"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.0.9-cc-quotes.patch
-	"${FILESDIR}"/${PN}-2.0.9-gentoo-zlib.patch
+	"${FILESDIR}"/${PN}-2.1.0-cc-quotes.patch
 )
 
 src_compile() {
@@ -43,23 +52,22 @@ src_compile() {
 		append-cppflags -U_FORTIFY_SOURCE # to disable =3, Makefile enables =2
 	fi
 
-	# used to build and run parsegen at build time (uses zlib wrt BDEPEND)
-	tc-export_build_env BUILD_CXX
-	local buildcxx="${BUILD_CXX} ${BUILD_CXXFLAGS} ${BUILD_CPPFLAGS} ${BUILD_LDFLAGS}"
-
 	use amd64 && multilib_toolchain_setup x86
 	tc-export CC CXX
-	append-cflags "${CPPFLAGS}"
-	append-cxxflags "${CPPFLAGS}"
+	append-cflags ${CPPFLAGS}
+	append-cxxflags ${CPPFLAGS}
 
-	emake CXX_HOST="${buildcxx}"
+	ZSNES_MAKEARGS=(
+		ARCH=LINUX
+		PREFIX="${EPREFIX}"/usr
+		WITH_AO=$(usex ao)
+		WITH_PIPEWIRE=$(usex pipewire)
+	)
+
+	emake "${ZSNES_MAKEARGS[@]}"
 }
 
 src_install() {
-	emake DESTDIR="${D}" PREFIX="${EPREFIX}"/usr install
-
-	dodoc README.md TODO.md
-
-	newicon icons/64x64x32.png ${PN}.png
-	make_desktop_entry ${PN} ${PN^^}
+	emake "${ZSNES_MAKEARGS[@]}" DESTDIR="${D}" install
+	einstalldocs
 }
