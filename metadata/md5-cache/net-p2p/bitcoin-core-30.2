@@ -7,7 +7,7 @@ HOMEPAGE=https://bitcoincore.org/
 IDEPEND=gui? ( dev-util/desktop-file-utils )
 INHERIT=bash-completion-r1 check-reqs cmake desktop edo multiprocessing python-any-r1 systemd toolchain-funcs xdg-utils
 IUSE=asm +cli +daemon dbus examples +external-signer gui qrcode +system-libsecp256k1 systemtap test test-full +wallet zeromq
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 ~x86
 LICENSE=MIT
 RDEPEND=>=dev-libs/boost-1.81.0:= >=dev-libs/libevent-2.1.12:= daemon? ( acct-group/bitcoin acct-user/bitcoin ) gui? ( >=dev-qt/qtbase-6.2:6[dbus?,gui,network,widgets] ) qrcode? ( >=media-gfx/qrencode-4.1.1:= ) system-libsecp256k1? ( >=dev-libs/libsecp256k1-0.6.0:=[asm=,ellswift,extrakeys,musig,recovery,schnorr] ) wallet? ( >=dev-db/sqlite-3.38.5:= ) zeromq? ( >=net-libs/zeromq-4.3.4:= ) !dev-util/bitcoin-tx cli? ( !net-p2p/bitcoin-cli ) daemon? ( !net-p2p/bitcoind ) gui? ( !net-p2p/bitcoin-qt )
 REQUIRED_USE=dbus? ( gui ) qrcode? ( gui ) test-full? ( test )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bitcoin/bitcoin/archive/v30.2.tar.gz -> bitcoin-core-30.2.tar.gz
 _eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	bash-completion-r1	9e91505e030725688d1e953321a47501	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	desktop	26d57169ca094c04be416993844ec8bc	edo	a5e294016aa84979fcb2459749eb80b2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=c8f43dfe4b818bba1cf7ffca10ef5e1a
+_md5_=ef6968fb5ac6919ade679a015828a077
