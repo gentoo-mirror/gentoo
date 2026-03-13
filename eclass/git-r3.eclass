@@ -1,10 +1,10 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: git-r3.eclass
 # @MAINTAINER:
 # Michał Górny <mgorny@gentoo.org>
-# @SUPPORTED_EAPIS: 7 8
+# @SUPPORTED_EAPIS: 7 8 9
 # @BLURB: Eclass for fetching and unpacking git repositories.
 # @DESCRIPTION:
 # Third generation eclass for easing maintenance of live ebuilds using
@@ -25,13 +25,13 @@
 # defined but EGIT_LFS is not turned on and vice versa.
 # If non-empty, then the repo likely needs EGIT_LFS to clone properly.
 
-case ${EAPI} in
-	7|8) ;;
-	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
-esac
-
 if [[ -z ${_GIT_R3_ECLASS} ]]; then
 _GIT_R3_ECLASS=1
+
+case ${EAPI} in
+	7|8|9) ;;
+	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
+esac
 
 PROPERTIES+=" live"
 
@@ -247,8 +247,8 @@ EVCS_STORE_DIRS=()
 # @FUNCTION: _git-r3_env_setup
 # @INTERNAL
 # @DESCRIPTION:
-# Set the eclass variables as necessary for operation. This can involve
-# setting EGIT_* to defaults or ${PN}_LIVE_* variables.
+# Set the eclass variables as necessary for operation.  This can involve
+# setting EGIT_* to defaults.
 _git-r3_env_setup() {
 	debug-print-function ${FUNCNAME} "$@"
 
@@ -293,26 +293,29 @@ _git-r3_env_setup() {
 	esc_pn=${PN//[-+]/_}
 	[[ ${esc_pn} == [0-9]* ]] && esc_pn=_${esc_pn}
 
+	_git-r3_livevar_warn_or_die() {
+		case ${EAPI} in
+			7|8) ewarn "Using ${livevar}, no support will be provided" ;;
+			*) die "${livevar} is no longer supported in EAPI ${EAPI}" ;;
+		esac
+	}
+
 	# note: deprecated, use EGIT_OVERRIDE_* instead
 	livevar=${esc_pn}_LIVE_REPO
 	EGIT_REPO_URI=${!livevar-${EGIT_REPO_URI}}
-	[[ ${!livevar} ]] \
-		&& ewarn "Using ${livevar}, no support will be provided"
+	[[ ${!livevar} ]] && _git-r3_livevar_warn_or_die
 
 	livevar=${esc_pn}_LIVE_BRANCH
 	EGIT_BRANCH=${!livevar-${EGIT_BRANCH}}
-	[[ ${!livevar} ]] \
-		&& ewarn "Using ${livevar}, no support will be provided"
+	[[ ${!livevar} ]] && _git-r3_livevar_warn_or_die
 
 	livevar=${esc_pn}_LIVE_COMMIT
 	EGIT_COMMIT=${!livevar-${EGIT_COMMIT}}
-	[[ ${!livevar} ]] \
-		&& ewarn "Using ${livevar}, no support will be provided"
+	[[ ${!livevar} ]] && _git-r3_livevar_warn_or_die
 
 	livevar=${esc_pn}_LIVE_COMMIT_DATE
 	EGIT_COMMIT_DATE=${!livevar-${EGIT_COMMIT_DATE}}
-	[[ ${!livevar} ]] \
-		&& ewarn "Using ${livevar}, no support will be provided"
+	[[ ${!livevar} ]] && _git-r3_livevar_warn_or_die
 
 	if [[ ${EGIT_COMMIT} && ${EGIT_COMMIT_DATE} ]]; then
 		die "EGIT_COMMIT and EGIT_COMMIT_DATE can not be specified simultaneously"
