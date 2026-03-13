@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=virtual/zlib:= virtual/libcrypt:= gcrypt? ( dev-libs/libgcrypt:= ) ldap? ( >=net-nds/openldap-2.1.30-r1:= sasl? ( dev-libs/cyrus-sasl net-nds/openldap:=[sasl] ) ) pam? ( sys-libs/pam ) sasl? ( dev-libs/cyrus-sasl ) selinux? ( sys-libs/libselinux ) skey? ( >=sys-auth/skey-1.1.5-r1 ) ssl? ( dev-libs/openssl:= ) sssd? ( sys-auth/sssd[sudo(+)] ) >=app-misc/editor-wrapper-3 virtual/editor ldap? ( dev-lang/perl ) pam? ( sys-auth/pambase ) selinux? ( sec-policy/selinux-sudo ) sendmail? ( virtual/mta ) virtual/tmpfiles
 REQUIRED_USE=?? ( pam skey ) ?? ( gcrypt ssl )
 SLOT=0
-_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	flag-o-matic	fd3558f73f6503093adee69adf41020d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	git-r3	875eb471682d3e1f18da124be97dcc81
+_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	flag-o-matic	fd3558f73f6503093adee69adf41020d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
 _md5_=10e4a4e0792711e06b75c2480d538b00
