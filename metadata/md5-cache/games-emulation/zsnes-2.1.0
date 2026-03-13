@@ -1,0 +1,16 @@
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) dev-lang/nasm virtual/pkgconfig virtual/zlib:=
+DEFINED_PHASES=compile install postinst postrm preinst setup
+DEPEND=media-libs/libglvnd[X,abi_x86_32(-)] media-libs/libpng:=[abi_x86_32(-)] media-libs/libsdl3[abi_x86_32(-),opengl] virtual/zlib:=[abi_x86_32(-)] x11-libs/libX11[abi_x86_32(-)] ao? ( media-libs/libao[abi_x86_32(-)] ) pipewire? ( media-video/pipewire:=[abi_x86_32(-)] ) x11-base/xorg-proto
+DESCRIPTION=Fork of the classic Super Nintendo emulator
+EAPI=8
+HOMEPAGE=https://github.com/xyproto/zsnes/ https://www.zsnes.com/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=flag-o-matic multilib python-any-r1 toolchain-funcs xdg
+IUSE=ao custom-cflags pipewire
+KEYWORDS=-* ~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=media-libs/libglvnd[X,abi_x86_32(-)] media-libs/libpng:=[abi_x86_32(-)] media-libs/libsdl3[abi_x86_32(-),opengl] virtual/zlib:=[abi_x86_32(-)] x11-libs/libX11[abi_x86_32(-)] ao? ( media-libs/libao[abi_x86_32(-)] ) pipewire? ( media-video/pipewire:=[abi_x86_32(-)] )
+SLOT=0
+SRC_URI=https://github.com/xyproto/zsnes/archive/refs/tags/2.1.0.tar.gz -> zsnes-2.1.0.tar.gz
+_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	flag-o-matic	fd3558f73f6503093adee69adf41020d	multilib	404b65bd5212cff83b3935c685419d08	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	1e32df7deee68372153dca65f4a7c21f	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-any-r1	891415dfe39ad9b41b461f2b86354af0	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=6365030928afff2e35c6e29b569fd2c3
