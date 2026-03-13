@@ -11,7 +11,7 @@ else
 	MY_PV="${PV/_pre/-}"
 fi
 MY_SRC="${PN}-${MY_PV}"
-MY_URI="http://ftp.porcupine.org/mirrors/postfix-release/official"
+MY_URI="http://ftp.porcupine.org/mirrors/postfix-release/experimental"
 RC_VER="2.7"
 
 DESCRIPTION="A fast and secure drop-in replacement for sendmail"
@@ -24,7 +24,7 @@ LICENSE="|| ( IBM EPL-2.0 )"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
-IUSE="+berkdb cdb dovecot-sasl +eai ldap ldap-bind +lmdb mbox memcached mongodb mysql nis pam postgres sasl selinux sqlite ssl tlsrpt"
+IUSE="berkdb cdb dovecot-sasl +eai ldap ldap-bind +lmdb mbox memcached mongodb mysql nis pam postgres sasl selinux sqlite ssl tlsrpt"
 
 DEPEND="
 	acct-group/postfix
@@ -127,6 +127,7 @@ src_configure() {
 	fi
 
 	if use lmdb; then
+		mycc="${mycc} -DHAS_LMDB"
 		AUXLIBS_LMDB="-llmdb -lpthread"
 	fi
 
