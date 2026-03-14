@@ -28,7 +28,7 @@ IUSE="ssh"
 # https://github.com/dbcli/mycli/issues/1464
 RDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/cli-helpers-2.10.1[${PYTHON_USEDEP}]
+		>=dev-python/cli-helpers-2.11.0[${PYTHON_USEDEP}]
 		>=dev-python/click-8.3.1[${PYTHON_USEDEP}]
 		>=dev-python/configobj-5.0.9[${PYTHON_USEDEP}]
 		>=dev-python/cryptography-46.0.5[${PYTHON_USEDEP}]
@@ -41,9 +41,10 @@ RDEPEND="
 		>=dev-python/pymysql-1.1.2[${PYTHON_USEDEP}]
 		>=dev-python/pyperclip-1.11.0[${PYTHON_USEDEP}]
 		>=dev-python/rapidfuzz-3.14.3[${PYTHON_USEDEP}]
-		=dev-python/sqlglot-27*[${PYTHON_USEDEP}]
+		>=dev-python/sqlglot-29.0.1[${PYTHON_USEDEP}]
 		<dev-python/sqlparse-0.6.0[${PYTHON_USEDEP}]
 		>=dev-python/sqlparse-0.3.0[${PYTHON_USEDEP}]
+		>=dev-python/wcwidth-0.6.0[${PYTHON_USEDEP}]
 		ssh? (
 			~dev-python/paramiko-3.5.1[${PYTHON_USEDEP}]
 			dev-python/sshtunnel[${PYTHON_USEDEP}]

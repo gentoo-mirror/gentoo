@@ -1,12 +1,12 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 # This is the commit that the CI for the release commit used
-BINS_COMMIT="ced304a8d886b2ba189027a86b2e9d949ab311dd"
+BINS_COMMIT="71482f7194847b4ece45a9e53f28085b6bab40a4"
 
 inherit meson python-any-r1
 
@@ -19,17 +19,17 @@ S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="Apache-2.0 BSD LGPL-3 MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="test"
 
 # Need to audit licenses of the binaries used for testing
 RESTRICT="test? ( fetch ) !test? ( test )"
 
-# TODO: unbundle dev-libs/blake3
 RDEPEND="
 	app-arch/lz4:0=
 	app-arch/xz-utils
 	app-arch/zstd:=
+	dev-libs/blake3:=
 	>=dev-libs/capstone-5:0=
 	dev-libs/libmspack
 	dev-libs/libzip:0=
@@ -45,8 +45,7 @@ BDEPEND="${PYTHON_DEPS}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.4.0-never-rebuild-parser.patch"
-	"${FILESDIR}/${PN}-0.7.3-force-local-tree-sitter-c.patch"
-	"${FILESDIR}/${PN}-0.7.3-tree-sitter-underlinking.patch"
+	"${FILESDIR}/${PN}-0.8.2-use_sys_blake3.patch"
 )
 
 src_prepare() {
@@ -73,6 +72,7 @@ src_prepare() {
 src_configure() {
 	local emesonargs=(
 		-Dcli=enabled
+		-Duse_sys_blake3=enabled
 		-Duse_sys_capstone=enabled
 		-Duse_sys_libmspack=enabled
 		-Duse_sys_libzip=enabled
