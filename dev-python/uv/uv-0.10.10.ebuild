@@ -5,7 +5,7 @@ EAPI=8
 
 CRATES="
 "
-RUST_MIN_VER="1.89.0"
+RUST_MIN_VER="1.92.0"
 
 inherit cargo check-reqs
 
@@ -34,12 +34,12 @@ LICENSE="|| ( Apache-2.0 MIT )"
 LICENSE+="
 	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0
 	CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016
-	ZLIB
+	ZLIB BZIP2
 "
 # ring crate
 LICENSE+=" openssl"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86"
 IUSE="test"
 RESTRICT="test"
 PROPERTIES="test_network"
@@ -105,13 +105,16 @@ src_prepare() {
 		Description:
 		Libs: -lbz2
 	EOF
+
+	# uv is now forcing bundled liblzma, sigh
+	sed -i -e '/xz/s:"static"::' Cargo.toml || die
 }
 
 src_configure() {
 	local myfeatures=(
-		git
-		pypi
-		python
+		test-git
+		test-pypi
+		test-python
 	)
 
 	cargo_src_configure --no-default-features
@@ -123,13 +126,6 @@ src_compile() {
 }
 
 src_test() {
-	# work around https://github.com/astral-sh/uv/issues/4376
-	local -x PATH=${BROOT}/usr/lib/python-exec/python3.12:${PATH}
-	local -x COLUMNS=100
-	local -x PYTHONDONTWRITEBYTECODE=
-	# fix tests failing because of our config
-	local -x XDG_CONFIG_DIRS=${T}
-
 	cd crates/uv || die
 	cargo_src_test --no-fail-fast
 }
