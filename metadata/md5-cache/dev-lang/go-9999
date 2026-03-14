@@ -1,13 +1,13 @@
-BDEPEND=|| ( >=dev-lang/go-1.22.12 >=dev-lang/go-bootstrap-1.22.12 ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=|| ( >=dev-lang/go-1.24.6 >=dev-lang/go-bootstrap-1.24.6 ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install test unpack
 DESCRIPTION=A concurrent garbage collected and typesafe programming language
 EAPI=8
 HOMEPAGE=https://go.dev
-INHERIT=go-env toolchain-funcs git-r3
+INHERIT=flag-o-matic go-env toolchain-funcs git-r3
 IUSE=cpu_flags_x86_sse2
 LICENSE=BSD
 PROPERTIES=live
 RESTRICT=strip
 SLOT=0/9999
 _eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	flag-o-matic	fd3558f73f6503093adee69adf41020d	go-env	0e2babf96e7d0b045fc07ad199eb2399	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=7fc9ed30cb84806df64352b09d8ec937
+_md5_=6ee3e31bf8574397faa4b7a7b7c93d4d
