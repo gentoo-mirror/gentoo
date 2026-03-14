@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile configure install prepare
+DEPEND=x11-libs/libX11 x11-libs/libXext
+DESCRIPTION=X Window block dropping game in 3 Dimension
+EAPI=8
+HOMEPAGE=https://perso.univ-lyon1.fr/thierry.excoffier/XBL/
+INHERIT=autotools desktop flag-o-matic toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-1+
+RDEPEND=x11-libs/libX11 x11-libs/libXext
+SLOT=0
+SRC_URI=https://perso.univ-lyon1.fr/thierry.excoffier/XBL/xbl-1.1.6.tar.gz
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	desktop	26d57169ca094c04be416993844ec8bc	flag-o-matic	fd3558f73f6503093adee69adf41020d
+_md5_=e25d844869ac406382499a7aa0ce88f9
