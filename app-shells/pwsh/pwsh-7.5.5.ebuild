@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # NOTICE: Before packaging we have to run "ResGen" and "GetDependencies".
@@ -7,7 +7,7 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT="9.0"
+DOTNET_PKG_COMPAT="10.0"
 NUGET_APIS=(
 	"https://api.nuget.org/v3-flatcontainer"
 	"https://www.powershellgallery.com/api/v2"
@@ -25,14 +25,14 @@ markdig.signed@0.31.0
 markdig.signed@0.38.0
 microsoft.applicationinsights@2.22.0
 microsoft.bcl.asyncinterfaces@5.0.0
-microsoft.bcl.asyncinterfaces@8.0.0
+microsoft.bcl.asyncinterfaces@9.0.14
 microsoft.codeanalysis.analyzers@3.11.0
 microsoft.codeanalysis.analyzers@3.3.4
 microsoft.codeanalysis.common@4.11.0
 microsoft.codeanalysis.csharp@4.11.0
 microsoft.codecoverage@17.11.1
 microsoft.extensions.objectpool@5.0.10
-microsoft.extensions.objectpool@8.0.21
+microsoft.extensions.objectpool@9.0.14
 microsoft.management.infrastructure.runtime.unix@3.0.0
 microsoft.management.infrastructure.runtime.win@3.0.0
 microsoft.management.infrastructure@3.0.0
@@ -44,96 +44,94 @@ microsoft.powershell.native@7.4.0
 microsoft.security.extensions@1.4.0
 microsoft.testplatform.objectmodel@17.11.1
 microsoft.testplatform.testhost@17.11.1
-microsoft.win32.registry.accesscontrol@9.0.10
-microsoft.win32.systemevents@9.0.10
-microsoft.windows.compatibility@9.0.10
+microsoft.win32.registry.accesscontrol@9.0.14
+microsoft.win32.systemevents@9.0.14
+microsoft.windows.compatibility@9.0.14
 netstandard.library@2.0.3
 newtonsoft.json@13.0.1
 newtonsoft.json@13.0.4
-packagemanagement@1.4.4
-packagemanagement@1.4.8.1
 powershellget@2.2.5
-psreadline@2.3.6
-runtime.android-arm.runtime.native.system.io.ports@9.0.10
-runtime.android-arm64.runtime.native.system.io.ports@9.0.10
-runtime.android-x64.runtime.native.system.io.ports@9.0.10
-runtime.android-x86.runtime.native.system.io.ports@9.0.10
-runtime.linux-arm.runtime.native.system.io.ports@9.0.10
-runtime.linux-arm64.runtime.native.system.io.ports@9.0.10
-runtime.linux-bionic-arm64.runtime.native.system.io.ports@9.0.10
-runtime.linux-bionic-x64.runtime.native.system.io.ports@9.0.10
-runtime.linux-musl-arm.runtime.native.system.io.ports@9.0.10
-runtime.linux-musl-arm64.runtime.native.system.io.ports@9.0.10
-runtime.linux-musl-x64.runtime.native.system.io.ports@9.0.10
-runtime.linux-x64.runtime.native.system.io.ports@9.0.10
-runtime.maccatalyst-arm64.runtime.native.system.io.ports@9.0.10
-runtime.maccatalyst-x64.runtime.native.system.io.ports@9.0.10
+runtime.android-arm.runtime.native.system.io.ports@9.0.14
+runtime.android-arm64.runtime.native.system.io.ports@9.0.14
+runtime.android-x64.runtime.native.system.io.ports@9.0.14
+runtime.android-x86.runtime.native.system.io.ports@9.0.14
+runtime.linux-arm.runtime.native.system.io.ports@9.0.14
+runtime.linux-arm64.runtime.native.system.io.ports@9.0.14
+runtime.linux-bionic-arm64.runtime.native.system.io.ports@9.0.14
+runtime.linux-bionic-x64.runtime.native.system.io.ports@9.0.14
+runtime.linux-musl-arm.runtime.native.system.io.ports@9.0.14
+runtime.linux-musl-arm64.runtime.native.system.io.ports@9.0.14
+runtime.linux-musl-x64.runtime.native.system.io.ports@9.0.14
+runtime.linux-x64.runtime.native.system.io.ports@9.0.14
+runtime.maccatalyst-arm64.runtime.native.system.io.ports@9.0.14
+runtime.maccatalyst-x64.runtime.native.system.io.ports@9.0.14
 runtime.native.system.data.sqlclient.sni@4.4.0
-runtime.native.system.io.ports@9.0.10
-runtime.osx-arm64.runtime.native.system.io.ports@9.0.10
-runtime.osx-x64.runtime.native.system.io.ports@9.0.10
+runtime.native.system.io.ports@9.0.14
+runtime.osx-arm64.runtime.native.system.io.ports@9.0.14
+runtime.osx-x64.runtime.native.system.io.ports@9.0.14
 runtime.win-arm64.runtime.native.system.data.sqlclient.sni@4.4.0
 runtime.win-x64.runtime.native.system.data.sqlclient.sni@4.4.0
 runtime.win-x86.runtime.native.system.data.sqlclient.sni@4.4.0
 stylecop.analyzers.unstable@1.2.0.556
 stylecop.analyzers@1.2.0-beta.556
 system.buffers@4.5.1
-system.codedom@9.0.10
+system.codedom@9.0.14
 system.collections.immutable@8.0.0
-system.componentmodel.composition.registration@9.0.10
-system.componentmodel.composition@9.0.10
-system.configuration.configurationmanager@9.0.10
-system.data.odbc@9.0.10
-system.data.oledb@9.0.10
+system.collections.immutable@9.0.14
+system.componentmodel.composition.registration@9.0.14
+system.componentmodel.composition@9.0.14
+system.configuration.configurationmanager@9.0.14
+system.data.odbc@9.0.14
+system.data.oledb@9.0.14
 system.data.sqlclient@4.9.0
+system.data.sqlclient@4.9.1
 system.diagnostics.diagnosticsource@5.0.0
-system.diagnostics.diagnosticsource@9.0.10
-system.diagnostics.eventlog@9.0.10
-system.diagnostics.performancecounter@9.0.10
-system.directoryservices.accountmanagement@9.0.10
-system.directoryservices.protocols@9.0.10
-system.directoryservices@9.0.10
-system.drawing.common@9.0.10
-system.io.packaging@9.0.10
-system.io.ports@9.0.10
-system.management@9.0.10
+system.diagnostics.diagnosticsource@9.0.14
+system.diagnostics.eventlog@9.0.14
+system.diagnostics.performancecounter@9.0.14
+system.directoryservices.accountmanagement@9.0.14
+system.directoryservices.protocols@9.0.14
+system.directoryservices@9.0.14
+system.drawing.common@9.0.14
+system.io.packaging@9.0.14
+system.io.ports@9.0.14
+system.management@9.0.14
 system.memory@4.5.5
-system.net.http.winhttphandler@9.0.10
+system.net.http.winhttphandler@9.0.14
 system.numerics.vectors@4.4.0
 system.numerics.vectors@4.5.0
 system.private.servicemodel@4.10.3
-system.reflection.context@9.0.10
+system.reflection.context@9.0.14
 system.reflection.dispatchproxy@4.7.1
 system.reflection.metadata@1.6.0
 system.reflection.metadata@8.0.0
-system.reflection.metadata@8.0.1
-system.runtime.caching@9.0.10
+system.reflection.metadata@9.0.14
+system.runtime.caching@9.0.14
 system.runtime.compilerservices.unsafe@4.5.3
 system.runtime.compilerservices.unsafe@6.0.0
 system.security.accesscontrol@6.0.1
-system.security.cryptography.pkcs@9.0.10
-system.security.cryptography.protecteddata@9.0.10
+system.security.cryptography.pkcs@9.0.14
+system.security.cryptography.protecteddata@9.0.14
 system.security.cryptography.xml@6.0.1
-system.security.cryptography.xml@9.0.10
-system.security.permissions@9.0.10
+system.security.cryptography.xml@9.0.14
+system.security.permissions@9.0.14
 system.security.principal.windows@5.0.0
 system.servicemodel.duplex@4.10.3
 system.servicemodel.http@4.10.3
 system.servicemodel.nettcp@4.10.3
 system.servicemodel.primitives@4.10.3
 system.servicemodel.security@4.10.3
-system.servicemodel.syndication@9.0.10
-system.serviceprocess.servicecontroller@9.0.10
-system.speech@9.0.10
+system.servicemodel.syndication@9.0.14
+system.serviceprocess.servicecontroller@9.0.14
+system.speech@9.0.14
 system.text.encoding.codepages@7.0.0
-system.text.encoding.codepages@8.0.0
-system.text.encoding.codepages@9.0.10
-system.text.encodings.web@9.0.10
-system.threading.accesscontrol@9.0.10
+system.text.encoding.codepages@9.0.14
+system.text.encodings.web@9.0.14
+system.threading.accesscontrol@9.0.14
 system.threading.tasks.extensions@4.5.4
 system.web.services.description@4.10.3
 system.web.services.description@8.0.0
-system.windows.extensions@9.0.10
+system.windows.extensions@9.0.14
 validation@2.4.18
 validation@2.5.51
 xunit.abstractions@2.0.3
@@ -172,17 +170,13 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="amd64 arm arm64"
+KEYWORDS="~amd64 ~arm ~arm64"
 IUSE="gui vanilla"
-RESTRICT="test"
 
 RDEPEND="
 	>=dev-libs/libpsl-native-7.4.0:=
+	dev-libs/openssl-compat:1.0.0
 	sys-libs/pam:0/0
-	|| (
-		dev-libs/openssl-compat:1.0.0
-		=dev-libs/openssl-1.0*:0/0
-	)
 	gui? (
 		dev-util/desktop-file-utils
 		x11-misc/shared-mime-info
@@ -200,12 +194,17 @@ DOTNET_PKG_PROJECTS=(
 	src/powershell-unix/powershell-unix.csproj
 	src/Modules/PSGalleryModules.csproj
 )
-DOTNET_PKG_BAD_PROJECTS=(
-	test/xUnit/xUnit.tests.csproj  # Fails to restore.
+DOTNET_PKG_RESTORE_EXTRA_ARGS=(
+	-p:"RollForward=Major"
+	-p:"RuntimeIdentifiers="
+	-p:"TreatWarningsAsErrors=false"
 )
-
-PATCHES=( "${FILESDIR}/pwsh-7.3.3-disable-update-check.patch" )
-
+DOTNET_PKG_BUILD_EXTRA_ARGS=(
+	"${DOTNET_PKG_RESTORE_EXTRA_ARGS[@]}"
+)
+PATCHES=(
+	"${FILESDIR}/pwsh-7.3.3-disable-update-check.patch"
+)
 DOCS=( CHANGELOG CHANGELOG.md CODE_OF_CONDUCT.md README.md docs )
 
 check_requirements_locale() {
@@ -214,9 +213,9 @@ check_requirements_locale() {
 			local locales="$(locale -a)"
 
 			if has en_US.utf8 ${locales} ; then
-				LC_ALL=en_US.utf8
+				LC_ALL="en_US.utf8"
 			elif has en_US.UTF-8 ${locales} ; then
-				LC_ALL=en_US.UTF-8
+				LC_ALL="en_US.UTF-8"
 			else
 				eerror "The locale en_US.utf8 or en_US.UTF-8 is not available."
 				eerror "Please generate en_US.UTF-8 before building ${CATEGORY}/${P}."
@@ -224,18 +223,11 @@ check_requirements_locale() {
 				die "Could not switch to the en_US.UTF-8 locale."
 			fi
 		else
-			LC_ALL=en_US.UTF-8
+			LC_ALL="en_US.UTF-8"
 		fi
 
 		export LC_ALL
 		einfo "Successfully switched to the ${LC_ALL} locale."
-	fi
-}
-
-gui_cache_update() {
-	if use gui ; then
-		xdg_icon_cache_update
-		xdg_desktop_database_update
 	fi
 }
 
@@ -276,6 +268,16 @@ src_compile() {
 	dotnet-pkg_src_compile
 }
 
+src_test() {
+	local -a test_args=(
+		"${DOTNET_PKG_RESTORE_EXTRA_ARGS[@]}"
+		-p:"RuntimeIdentifier=${DOTNET_PKG_RUNTIME}"
+		"${S}/test/xUnit/xUnit.tests.csproj"
+	)
+	dotnet-pkg-base_restore "${test_args[@]}"
+	dotnet-pkg-base_test "${test_args[@]}"
+}
+
 src_install() {
 	local dest_root="/usr/share/${PN}-${SLOT}"
 
@@ -294,13 +296,18 @@ src_install() {
 		doins -r "${NUGET_PACKAGES}/${psg_module,,}"/*
 	done
 
-	dotnet-pkg-base_append_launchervar \
-		'PSModulePath="${PSModulePath}:${EPREFIX}/usr/share/GentooPowerShell/Modules:"'
+	dotnet-pkg-base_append_launchervar 'DOTNET_ROLL_FORWARD="Major"'
+	dotnet-pkg-base_append_launchervar 'PSModulePath="${PSModulePath}:${EPREFIX}/usr/share/GentooPowerShell/Modules:"'
 	dotnet-pkg-base_install "${dest_root}"
-	dotnet-pkg-base_dolauncher "${dest_root}/pwsh" "pwsh-${SLOT}"
+	dotnet-pkg-base_dolauncher-portable "${dest_root}/pwsh.dll" "pwsh-${SLOT}"
 
 	insinto "${dest_root}/ref"
 	doins "${WORKDIR}/${P}_ref"/*
+
+	# Fix runtime config because we roll forward from .NET 9.0 into .NET >-10.0.
+	sed -i "${ED}/${dest_root}/pwsh.runtimeconfig.json" \
+		-e "s|.*rollForwardOnNoCandidateFx.*||g" \
+		|| die "sed failed"
 
 	# Replace "libpsl-native.so" provided by "microsoft.powershell.native".
 	rm "${ED}/${dest_root}/libpsl-native.so" || die
@@ -323,13 +330,19 @@ src_install() {
 }
 
 pkg_postinst() {
-	gui_cache_update
+	if use gui ; then
+		xdg_icon_cache_update
+		xdg_desktop_database_update
+	fi
 
 	eselect pwsh update ifunset
 }
 
 pkg_postrm() {
-	gui_cache_update
+	if use gui ; then
+		xdg_icon_cache_update
+		xdg_desktop_database_update
+	fi
 
 	eselect pwsh update ifunset
 }

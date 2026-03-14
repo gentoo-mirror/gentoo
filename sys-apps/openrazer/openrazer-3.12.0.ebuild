@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} )
+DISTUTILS_USE_PEP517="setuptools"
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit readme.gentoo-r1 systemd udev xdg-utils distutils-r1 linux-mod-r1
 
@@ -15,12 +15,12 @@ HOMEPAGE="https://openrazer.github.io/
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
+	EGIT_REPO_URI="https://github.com/${PN}/${PN}"
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2+"
@@ -141,7 +141,7 @@ src_install() {
 		doins daemon/org.razer.service
 
 		# systemd unit
-		systemd_douserunit "daemon/${PN}-daemon.service"
+		systemd_douserunit daemon/${PN}-daemon.service
 
 		# xdg autostart example file
 		insinto /usr/share/${PN}
