@@ -7,7 +7,7 @@ export CBUILD=${CBUILD:-${CHOST}}
 export CTARGET=${CTARGET:-${CHOST}}
 
 # See "Bootstrap" in release notes
-GO_BOOTSTRAP_MIN=1.24.6
+GO_BOOTSTRAP_MIN=1.22.12
 MY_PV=${PV/_/}
 
 inherit flag-o-matic go-env toolchain-funcs
@@ -72,6 +72,7 @@ PATCHES=(
 	"${FILESDIR}"/go-1.24-skip-gdb-tests.patch
 	"${FILESDIR}"/go-1.24-dont-force-gold-arm.patch
 	"${FILESDIR}"/go-1.25-no-dwarf5.patch
+	"${FILESDIR}"/go-1.25-strip-top-level-const.patch
 	"${FILESDIR}"/go-never-download-newer-toolchains.patch
 )
 
