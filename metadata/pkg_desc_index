@@ -6378,7 +6378,7 @@ dev-perl/CPAN-Changes 0.500.3 0.500.5: Read and write Changes files
 dev-perl/CPAN-Checksums 2.140.0: Write a CHECKSUMS file for a directory as on CPAN
 dev-perl/CPAN-DistnameInfo 0.120.0-r3: Extract distribution name and version from a distribution filename
 dev-perl/CPAN-Meta-Check 0.18.0: Verify requirements in a CPAN::Meta object
-dev-perl/CPAN-Meta-Requirements 2.143.0: Set of version requirements for a CPAN dist
+dev-perl/CPAN-Meta-Requirements 2.143.0 2.145.0: Set of version requirements for a CPAN dist
 dev-perl/CPAN-Mini 1.111.17: Create a minimal mirror of CPAN
 dev-perl/CPAN-Mini-Inject 1.12.0: Inject modules into a CPAN::Mini mirror
 dev-perl/CPAN-Perl-Releases 5.202.411.200 5.202.505.280 5.202.506.250 5.202.507.30 5.202.507.210: Mapping Perl releases on CPAN to the location of the tarballs
@@ -6465,7 +6465,7 @@ dev-perl/Color-Library 0.21.0-r2: An easy-to-use and comprehensive named-color l
 dev-perl/Compiler-Lexer 0.230.0: Lexical Analyzer for Perl5
 dev-perl/Compress-Bzip2 2.280.0-r1: Interface to Bzip2 compression library
 dev-perl/Compress-LZF 3.800.0-r1: Extremely light-weight Lempel-Ziv-Free compression
-dev-perl/Compress-Raw-Lzma 2.213.0: Perl interface for reading and writing lzma, lzip, and xz files/buffers
+dev-perl/Compress-Raw-Lzma 2.213.0 2.221.0: Perl interface for reading and writing lzma, lzip, and xz files/buffers
 dev-perl/Conf-Libconfig 1.0.3: Perl extension for libconfig
 dev-perl/Config-Any 0.330.0: Load configuration from different file formats, transparently
 dev-perl/Config-ApacheFormat 1.200.0-r2: Use Apache format config files
@@ -6493,7 +6493,7 @@ dev-perl/Convert-BER 1.320.0-r2: Class for encoding/decoding BER messages
 dev-perl/Convert-Base32 0.60.0: Encoding and decoding of base32 strings
 dev-perl/Convert-BinHex 1.125.0-r1: Extract data from Macintosh BinHex files
 dev-perl/Convert-Binary-C 0.850.0 0.860.0: Binary Data Conversion using C Types
-dev-perl/Convert-Color 0.170.0-r1: Color space conversions and named lookups
+dev-perl/Convert-Color 0.170.0-r1 0.180.0: Color space conversions and named lookups
 dev-perl/Convert-PEM 0.130.0: Read/write encrypted ASN.1 PEM files
 dev-perl/Convert-TNEF 0.180.0-r3: Perl module for reading TNEF files
 dev-perl/Convert-UU 0.520.100: Perl replacement for uuencode
@@ -7994,6 +7994,7 @@ dev-perl/libxml-perl 0.80.0-r3: Collection of Perl modules for working with XML
 dev-perl/local-lib 2.0.29-r1: Create and use a local lib/ for perl modules with PERL5LIB
 dev-perl/maybe 0.20.200-r2: Use a Perl module and ignore error if can't be loaded
 dev-perl/mecab-perl 0.996-r1: Perl binding for MeCab
+dev-perl/meta 0.15.0: meta-programming API
 dev-perl/mime-construct 1.1100.0-r2: construct and optionally mail MIME messages
 dev-perl/multidimensional 0.14.0: disables multidimensional array emulation
 dev-perl/namespace-autoclean 0.310.0: Keep imports out of your namespace
@@ -9856,7 +9857,6 @@ dev-qt/qthttpserver 6.10.1 6.10.2 6.10.9999 6.11.0_rc 6.11.9999 6.9999: HTTP ser
 dev-qt/qtimageformats 6.10.1 6.10.2 6.10.9999 6.11.0_rc 6.11.9999 6.9999: Additional format plugins for the Qt image I/O system
 dev-qt/qtlanguageserver 6.10.1 6.10.2 6.10.9999 6.11.0_rc 6.11.9999 6.9999: Implementation of the Language Server Protocol for Qt
 dev-qt/qtlocation 6.10.1 6.10.2 6.10.9999 6.11.0_rc 6.11.9999 6.9999: Location (places, maps, navigation) library for the Qt6 framework
-dev-qt/qtlockedfile 2.4.1_p20171024: QFile extension with advisory locking functions
 dev-qt/qtmultimedia 5.15.18 6.10.1-r1 6.10.2 6.10.9999 6.11.0_rc 6.11.9999 6.9999: Multimedia (audio, video, radio, camera) library for the Qt6 framework
 dev-qt/qtnetwork 5.15.18: Network abstraction library for the Qt5 framework
 dev-qt/qtnetworkauth 6.10.1 6.10.2 6.10.9999 6.11.0_rc 6.11.9999 6.9999: Network authorization library for the Qt6 framework
@@ -9874,7 +9874,6 @@ dev-qt/qtsensors 6.10.1 6.10.2 6.10.9999 6.11.0_rc 6.11.9999 6.9999: Hardware se
 dev-qt/qtserialbus 6.10.1 6.10.2 6.10.9999 6.11.0_rc 6.11.9999 6.9999: Qt module to access CAN, ModBus, and other industrial serial buses and protocols
 dev-qt/qtserialport 6.10.1 6.10.2 6.10.9999 6.11.0_rc 6.11.9999 6.9999: Serial port abstraction library for the Qt6 framework
 dev-qt/qtshadertools 6.10.1 6.10.2 6.10.9999 6.11.0_rc 6.11.9999 6.9999: Qt APIs and Tools for Graphics Pipelines
-dev-qt/qtsingleapplication 2.6.1_p20171024: Qt library to start applications only once per user
 dev-qt/qtspeech 6.10.1 6.10.2 6.10.9999 6.11.0_rc 6.11.9999 6.9999: Text-to-speech library for the Qt6 framework
 dev-qt/qtsql 5.15.18: SQL abstraction library for the Qt5 framework
 dev-qt/qtsvg 5.15.18 6.10.1 6.10.2 6.10.9999 6.11.0_rc 6.11.9999 6.9999: SVG rendering library for the Qt6 framework
