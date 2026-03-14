@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.24:*
+DEFINED_PHASES=compile configure info install nofetch prepare test unpack
+DEPEND=>=dev-qt/qtbase-6.10.1:6[gui,widgets,xml] =kde-frameworks/kconfig-6.24*:6 =kde-frameworks/kcoreaddons-6.24*:6 =kde-frameworks/ki18n-6.24*:6 =kde-frameworks/kiconthemes-6.24*:6 =kde-frameworks/kio-6.24*:6 =kde-frameworks/kjobwidgets-6.24*:6 =kde-frameworks/kservice-6.24*:6 =kde-frameworks/kwidgetsaddons-6.24*:6 =kde-frameworks/kxmlgui-6.24*:6 dev-qt/qtbase:6
+DESCRIPTION=Framework providing elaborate user-interface components
+EAPI=8
+HOMEPAGE=https://develop.kde.org/products/frameworks/
+INHERIT=ecm frameworks.kde.org
+IUSE=debug test
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2+
+RDEPEND=>=dev-qt/qtbase-6.10.1:6[gui,widgets,xml] =kde-frameworks/kconfig-6.24*:6 =kde-frameworks/kcoreaddons-6.24*:6 =kde-frameworks/ki18n-6.24*:6 =kde-frameworks/kiconthemes-6.24*:6 =kde-frameworks/kio-6.24*:6 =kde-frameworks/kjobwidgets-6.24*:6 =kde-frameworks/kservice-6.24*:6 =kde-frameworks/kwidgetsaddons-6.24*:6 =kde-frameworks/kxmlgui-6.24*:6 >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
+RESTRICT=!test? ( test )
+SLOT=6/6.24
+SRC_URI=mirror://kde/stable/frameworks/6.24/kparts-6.24.0.tar.xz
+_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	c3772d432284de03db6df21d71be747a	kde.org	2eea56ed41440913be4caa3d255d2db3	frameworks.kde.org	c3e97d56f2422e7f729ed13f859352f1
+_md5_=f2a61287923e849f602551bb8faf86da
