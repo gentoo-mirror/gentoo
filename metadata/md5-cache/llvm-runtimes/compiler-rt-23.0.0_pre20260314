@@ -1,0 +1,15 @@
+BDEPEND=clang? ( llvm-core/clang:23 llvm-core/clang-linker-config:23 ) test? ( || ( ( dev-lang/python:3.14 >=dev-python/lit-15[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 >=dev-python/lit-15[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-python/lit-15[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/lit-15[python_targets_python3_11(-)] ) ) =llvm-core/clang-23.0.0*:23 ) !test? ( || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare pretend setup test unpack
+DEPEND=llvm-core/llvm:23
+DESCRIPTION=Compiler runtime library for clang (built-in part)
+EAPI=8
+HOMEPAGE=https://llvm.org/
+INHERIT=cmake crossdev flag-o-matic llvm.org llvm-utils python-any-r1 toolchain-funcs
+IUSE=+abi_x86_32 abi_x86_64 +atomic-builtins +clang +debug test test
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+REQUIRED_USE=atomic-builtins? ( clang )
+RESTRICT=!test? ( test ) !clang? ( test ) !test? ( test )
+SLOT=23
+SRC_URI=https://github.com/llvm/llvm-project/archive/1f9b32ba061e7d5f7173a6a7150faf31964c2974.tar.gz -> llvm-project-1f9b32ba061e7d5f7173a6a7150faf31964c2974.tar.gz
+_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	crossdev	d618c699554f72b98f8ceeeeb361dc9e	llvm.org	2e85cb3f95a61974eb1224991dd2ef65	llvm-utils	e7edb4086e31c8537574b263d899f826	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=78ce995381a0d4cea9b872e7e1848800
