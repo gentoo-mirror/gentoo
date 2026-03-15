@@ -1,16 +1,16 @@
-BDEPEND=test? ( >=virtual/perl-Test-Simple-0.470.0 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
+BDEPEND=>=dev-perl/File-ShareDir-Install-0.60.0 test? ( dev-perl/Test-MockTime ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
-DESCRIPTION=Mapping Perl releases on CPAN to the location of the tarballs
+DESCRIPTION=Module used to generate random data
 EAPI=8
-HOMEPAGE=https://metacpan.org/release/CPAN-Perl-Releases
+HOMEPAGE=https://metacpan.org/release/Data-Random
 INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
-KEYWORDS=amd64 x86
+KEYWORDS=~amd64 ~sparc ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=mirror://cpan/authors/id/B/BI/BINGOS/CPAN-Perl-Releases-5.20250528.tar.gz
+SRC_URI=mirror://cpan/authors/id/B/BA/BAREFOOT/Data-Random-0.15.tar.gz
 _eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	perl-functions	1863acf0982afafc67797e3ce7275b4c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	99434859b0e81bc0f8cb192525e873e8	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	perl-module	41920449ca174fe9b9b303dfcbdb37a3
-_md5_=b46254683f67c2c5fd62894edb74bc20
+_md5_=41278732d5da2fef71f97dcc4c3c7da4
