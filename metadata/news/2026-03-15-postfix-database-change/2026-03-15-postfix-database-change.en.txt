@@ -1,0 +1,71 @@
+Title: mail-mta/postfix-3.11.0: Default database change
+Author: Eray Aslan <eras@gentoo.org>
+Posted: 2026-03-15
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: mail-mta/postfix
+
+The default local database type in mail-mta/postfix has been hash for local
+files and btree for caches and both file types depend on sys-libs/db.  However,
+BerkeleyDB has not been developed sufficiently in recent years and the
+licensing change in 2013 made using the latest versions of BerkeleyDB
+problematic. Consequently, we are stuck with using ancient versions of
+BerkeleyDB and there is a general tendency in the Linux ecosystem to sunset
+BerkeleyDB support.
+
+Postfix made switching database types easier with its latest release. We will
+be changing the default database type in postfix for both local databases and
+caches to lmdb starting with mail-mta/postfix-3.11.0.
+
+# Timeline:
+
+ - mail-mta/postfix-3.11.0: March 2026. Both lmdb and berkdb USE flags are on
+   by default. BerkeleyDB is still supported but the default database and cache
+   type changes to lmdb.
+
+ - mail-mta/postfix-3.12.0: Expected Q1 2027. BerkeleyDB support will be off by
+   default. You will need to turn it on manually if still needed.
+   mail-mta/postfix will continue supporting BerkeleyDB until it is sunsetted
+   in Gentoo.
+
+Changing the default database and cache types in postfix-3.11.0 requires
+migration for the entries in main.cf and master.cf that do not specify a
+database type.
+
+It is almost always a good idea to specify database type in main.cf and
+master.cf and in your postmap commands. As you are always specifying the
+database type, the default database and cache type settings do not come into
+play.
+
+Option 1: Accept the new defaults and migrate to lmdb. The default USE flags
+take effect and lmdb becomes the new default when
+>=mail-mta/postfix-3.11.0 is installed. All local database files without
+a specified type and, optionally, caches need to be migrated to lmdb.
+
+If your configuration is simple or if you are familiar with Postfix
+configuration, a few "grep" commands will find all the problems, and a few
+edits will be easy to make.
+
+Read https://www.postfix.org/NON_BERKELEYDB_README.html#manual for a complete
+walk through and the commands you can run to find instances of BerkeleyDB usage
+in your postfix configuration.
+
+Option 2: If your configuration is too complex for the manual migration step
+above or if you are not familiar with the details of your postfix
+configuration, postfix provides enable-redirect[1] and enable-reindex[2]
+options. Read the documentation for the details and their caveats. They provide
+valuable help in migration, especially for an operating system that do not have
+BerkeleyDB support anymore - which is NOT the case for Gentoo. However, these
+options still help in complex configuration cases.
+
+Option 3: Turning off lmdb USE flag is not recommended but is possible. The
+default stays the same as previous versions of postfix, namely hash for local
+files and btree for caches.  No further action is necessary until BerkeleyDB
+support is sunsetted in Gentoo when you will have to do the above migration.
+
+For more details, please read:
+https://www.postfix.org/NON_BERKELEYDB_README.html
+
+
+[1] https://www.postfix.org/NON_BERKELEYDB_README.html#enable-redirect
+[2] https://www.postfix.org/NON_BERKELEYDB_README.html#enable-reindex
