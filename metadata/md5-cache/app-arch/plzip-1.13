@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-antoniodiazdiaz ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure unpack
+DEPEND=app-arch/lzlib:0=
+DESCRIPTION=Parallel lzip compressor
+EAPI=9
+HOMEPAGE=https://www.nongnu.org/lzip/plzip.html
+INHERIT=toolchain-funcs verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=GPL-3
+RDEPEND=app-arch/lzlib:0=
+SLOT=0
+SRC_URI=https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.13.tar.gz verify-sig? ( https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.13.tar.gz.sig )
+_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=c722bc06b7016137d7cfead3c2179b09

@@ -1,0 +1,13 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-antoniodiazdiaz ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure unpack
+DESCRIPTION=Public-domain version of lzip compressor
+EAPI=9
+HOMEPAGE=https://www.nongnu.org/lzip/pdlzip.html
+INHERIT=toolchain-funcs verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~mips ~x86
+LICENSE=public-domain
+SLOT=0
+SRC_URI=https://download.savannah.gnu.org/releases/lzip/pdlzip/pdlzip-1.15.tar.gz verify-sig? ( https://download.savannah.gnu.org/releases/lzip/pdlzip/pdlzip-1.15.tar.gz.sig )
+_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=cace7aeee4c16fb2ebd774312ec264ed
