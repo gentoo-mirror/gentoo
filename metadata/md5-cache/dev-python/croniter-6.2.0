@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-python/pytz[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) test? ( dev-python/python-dateutil[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/pytest-7.4.4[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/flit-core-3.11.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] verify-provenance? ( dev-python/pypi-attestations )
+DEFINED_PHASES=compile configure install prepare test unpack
+DESCRIPTION=Python module to provide iteration for datetime object
+EAPI=8
+HOMEPAGE=https://github.com/pallets-eco/croniter/ https://pypi.org/project/croniter/
+INHERIT=distutils-r1 pypi
+IUSE=test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 verify-provenance
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=dev-python/python-dateutil[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://files.pythonhosted.org/packages/source/c/croniter/croniter-6.2.0.tar.gz verify-provenance? ( https://pypi.org/integrity/croniter/v6.2.0/croniter-6.2.0.tar.gz/provenance -> croniter-6.2.0.tar.gz.provenance )
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	62add15ed646bfe511af53e282621b39	pypi	a451be5a08e8eb46f927fc6dd163583f
+_md5_=11d8afa5f3ca01ec70b6935754211e73
