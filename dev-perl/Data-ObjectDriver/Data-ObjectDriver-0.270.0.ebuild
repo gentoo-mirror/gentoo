@@ -1,23 +1,22 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DIST_AUTHOR=SIXAPART
-DIST_VERSION=0.23
+DIST_VERSION=0.27
 inherit perl-module
 
 DESCRIPTION="Simple, transparent data interface, with caching"
 
 SLOT="0"
-KEYWORDS="amd64 ppc ppc64 x86"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 
 RDEPEND="
 	dev-perl/Class-Accessor
 	dev-perl/Class-Data-Inheritable
 	dev-perl/Class-Trigger
 	dev-perl/DBI
-	virtual/perl-Scalar-List-Utils
 "
 BDEPEND="
 	${RDEPEND}
@@ -26,6 +25,5 @@ BDEPEND="
 	test? (
 		dev-perl/Test-Exception
 		>=dev-perl/DBD-SQLite-1.110.0
-		virtual/perl-version
 	)
 "
