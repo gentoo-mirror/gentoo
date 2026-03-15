@@ -11019,6 +11019,7 @@ dev-util/mdds 2.1.1-r1 3.0.0 9999: Collection of multi-dimensional data structur
 dev-util/meld 3.22.2-r1 3.22.3: A graphical diff and merge tool
 dev-util/memprof 0.6.2-r2: Profiling and leak detection tool
 dev-util/mesa_clc 25.0.7 25.2.8 25.3.3 25.3.4 25.3.5 25.3.6 26.0.0 26.0.1 26.0.2 9999: mesa_clc tool used for building OpenCL C to SPIR-V
+dev-util/mig 1.8 1.8_p20231217 9999: GNU Mach 3.0 interface generator (IDL compiler)
 dev-util/min-cscope 16.1.0-r2: Interactively examine a C program
 dev-util/mingw64-runtime 13.0.0: Free Win64 runtime and import library definitions
 dev-util/mingw64-toolchain 13.0.0_p1: All-in-one mingw64 toolchain intended for building Wine without crossdev
@@ -17612,7 +17613,7 @@ sys-devel/distcc 3.4-r4 3.4-r6 3.4-r9: Distribute compilation of C code across s
 sys-devel/dwz 0.16 9999: DWARF optimization and duplicate removal tool
 sys-devel/elftoolchain 0.7.1_p20210319: Libraries/utilities to handle ELF objects (BSD drop in replacement for libelf)
 sys-devel/flex 2.6.4-r6: The Fast Lexical Analyzer
-sys-devel/gcc 8.5.0-r2 9.5.0 10.5.0 11.5.0 12.5.0 13.2.0 13.4.1_p20250807 13.4.1_p20251016 13.4.1_p20260122 13.4.1_p20260129 13.4.1_p20260205 13.4.1_p20260212 13.4.1_p20260219 13.4.1_p20260226 13.4.1_p20260305 13.4.1_p20260312 13.5.9999 14.3.1_p20250801 14.3.1_p20251017 14.3.1_p20260123 14.3.1_p20260130 14.3.1_p20260206 14.3.1_p20260213 14.3.1_p20260220 14.3.1_p20260227 14.3.1_p20260306 14.3.1_p20260313 14.4.9999 15.2.1_p20251108-r1 15.2.1_p20251115 15.2.1_p20251122 15.2.1_p20260124 15.2.1_p20260131 15.2.1_p20260207 15.2.1_p20260214 15.2.1_p20260221 15.2.1_p20260228 15.2.1_p20260307 15.2.1_p20260314 15.3.9999 16.0.1_p20260125 16.0.1_p20260201 16.0.1_p20260208-r1 16.0.1_p20260215 16.0.1_p20260222 16.0.1_p20260301 16.0.1_p20260308 16.0.9999: The GNU Compiler Collection
+sys-devel/gcc 8.5.0-r2 9.5.0 10.5.0 11.5.0 12.5.0 13.2.0 13.4.1_p20250807 13.4.1_p20251016 13.4.1_p20260122 13.4.1_p20260129 13.4.1_p20260205 13.4.1_p20260212 13.4.1_p20260219 13.4.1_p20260226 13.4.1_p20260305 13.4.1_p20260312 13.5.9999 14.3.1_p20250801 14.3.1_p20251017 14.3.1_p20260123 14.3.1_p20260130 14.3.1_p20260206 14.3.1_p20260213 14.3.1_p20260220 14.3.1_p20260227 14.3.1_p20260306 14.3.1_p20260313 14.4.9999 15.2.1_p20251108-r1 15.2.1_p20251115 15.2.1_p20251122 15.2.1_p20260124 15.2.1_p20260131 15.2.1_p20260207 15.2.1_p20260214 15.2.1_p20260221 15.2.1_p20260228 15.2.1_p20260307 15.2.1_p20260314 15.3.9999 16.0.1_p20260125 16.0.1_p20260201 16.0.1_p20260208-r1 16.0.1_p20260215 16.0.1_p20260222 16.0.1_p20260301 16.0.1_p20260308 16.0.1_p20260315 16.0.9999: The GNU Compiler Collection
 sys-devel/gcc-config 2.12.1 2.12.2 9999: Utility to manage compilers
 sys-devel/gettext 0.21.1 0.22.5-r2 0.23.1-r1 0.23.2 0.25.1 0.26: GNU locale utilities
 sys-devel/gnuconfig 20240728 20250710 99999999: Updated config.sub and config.guess file from GNU
@@ -17802,8 +17803,10 @@ sys-kernel/dracut-crypt-ssh 1.0.8-r2: Early unlocking of encrypted systems via s
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 4.3.16-r2 4.3.16-r3 4.3.16-r4 4.3.16-r5 4.3.17 4.3.17-r1 4.3.17-r3 4.3.17-r4 4.3.18 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.10.250 5.10.252 5.15.200 5.15.202 6.1.163 6.1.166 6.6.126 6.6.129 6.12.74 6.12.77 6.18.12 6.18.18 6.19.8: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.10.250 5.10.252 5.15.200 5.15.202 6.1.163 6.1.166 6.6.126 6.6.129 6.12.74 6.12.77 6.18.12 6.18.18 6.19.8: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 5.10.250-r1 5.10.251 5.10.252 5.15.200 5.15.201 5.15.202 6.1.163 6.1.165 6.1.166 6.6.126 6.6.128 6.6.129 6.12.74 6.12.76 6.12.77 6.18.12 6.18.18 6.19.8: Full sources including the Gentoo patchset for the 6.19 kernel tree
+sys-kernel/gentoo-sources 5.10.250-r1 5.10.251 5.10.252 5.15.200 5.15.201 5.15.202 6.1.163 6.1.165 6.1.166 6.6.126 6.6.128 6.6.129 6.12.77 6.18.12 6.18.18 6.19.8: Full sources including the Gentoo patchset for the 6.19 kernel tree
 sys-kernel/git-sources 7.0_rc1 7.0_rc2 7.0_rc3 7.0_rc4: The very latest -git version of the Linux kernel
+sys-kernel/gnumach 1.8 1.8_p20260224 9999: GNU Mach Kernel
+sys-kernel/hurd 0.9 0.9_p20251029 9999: GNU Hurd is the GNU project's replacement for UNIX
 sys-kernel/installkernel 63 65 66 9999: Gentoo fork of installkernel script from debianutils
 sys-kernel/kci-dev 0.1.6: Stand alone tool to interact with KernelCI
 sys-kernel/kergen 0.1.5-r1: Kernel config generator

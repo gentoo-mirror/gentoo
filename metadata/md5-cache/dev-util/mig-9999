@@ -1,0 +1,11 @@
+BDEPEND=sys-devel/bison sys-devel/flex sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure install prepare unpack
+DESCRIPTION=GNU Mach 3.0 interface generator (IDL compiler)
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/hurd/microkernel/mach/mig/gnu_mig.html
+INHERIT=crossdev autotools git-r3
+LICENSE=GPL-2 BSD-2
+PROPERTIES=live
+SLOT=0
+_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	crossdev	d618c699554f72b98f8ceeeeb361dc9e	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
+_md5_=0c7dec381811c64c91c82ee71ee84bc1
