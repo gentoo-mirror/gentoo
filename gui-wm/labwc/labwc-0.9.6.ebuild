@@ -25,7 +25,7 @@ RDEPEND="
 	>=dev-libs/wayland-1.19
 	dev-libs/glib:2
 	dev-libs/libinput:=
-	dev-libs/libxml2:2
+	dev-libs/libxml2:=
 	gui-libs/wlroots:0.19[X?,libinput]
 	media-libs/libpng:=
 	x11-libs/cairo[X?]
