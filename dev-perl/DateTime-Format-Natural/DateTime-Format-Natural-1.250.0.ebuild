@@ -1,16 +1,16 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DIST_AUTHOR=SCHUBIGER
-DIST_VERSION=1.18
+DIST_VERSION=1.25
 inherit perl-module
 
 DESCRIPTION="Parse informal natural language date/time strings"
 
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	dev-perl/Clone
@@ -18,7 +18,6 @@ RDEPEND="
 	dev-perl/DateTime
 	dev-perl/DateTime-HiRes
 	dev-perl/DateTime-TimeZone
-	dev-perl/List-MoreUtils
 	>=dev-perl/Params-Validate-1.150.0
 	dev-perl/boolean
 "
