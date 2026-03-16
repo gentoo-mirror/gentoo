@@ -5,14 +5,14 @@ EAPI=8
 
 VALA_USE_DEPEND=vapigen
 
-inherit meson gnome2-utils vala toolchain-funcs
+inherit meson gnome2-utils toolchain-funcs vala
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/babl.git"
 else
 	SRC_URI="https://download.gimp.org/pub/${PN}/${PV:0:3}/${P}.tar.xz"
-	KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~loong ~mips ~ppc ppc64 ~riscv -sparc x86 ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv -sparc ~x86 ~x64-macos ~x64-solaris"
 fi
 
 DESCRIPTION="A dynamic, any to any, pixel format conversion library"
@@ -34,8 +34,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/babl-0.1.118-respect-NM.patch
-	"${FILESDIR}"/babl-0.1.118-no-git.patch
+	"${FILESDIR}"/babl-0.1.124-respect-NM.patch
 )
 
 src_prepare() {

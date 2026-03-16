@@ -1,46 +1,46 @@
 https://bugs.gentoo.org/968162
-https://gitlab.gnome.org/GNOME/gimp/-/commit/4828b2d3f7950efe1d3b72be60ad33dd896f433d
-https://gitlab.gnome.org/GNOME/gimp/-/commit/21851685364e0dde80df1d42d3c97495ef8ee1d8
+https://gitlab.gnome.org/GNOME/gegl/-/commit/8b609d02a76a59ab39e5901b765c1e197d285112
+https://gitlab.gnome.org/GNOME/gegl/-/commit/f8366fd5963b31b31bd02ebd2e97ad2652608046
 
-From 4828b2d3f7950efe1d3b72be60ad33dd896f433d Mon Sep 17 00:00:00 2001
+From 8b609d02a76a59ab39e5901b765c1e197d285112 Mon Sep 17 00:00:00 2001
 From: Alfred Wingate <parona@protonmail.com>
-Date: Sun, 15 Mar 2026 20:13:06 +0200
+Date: Sun, 15 Mar 2026 20:05:50 +0200
 Subject: [PATCH 1/2] tools: allow use of NM env variable
 
 Bug: https://bugs.gentoo.org/968162
 Signed-off-by: Alfred Wingate <parona@protonmail.com>
---- a/libgimp/meson.build
-+++ b/libgimp/meson.build
-@@ -628,6 +628,8 @@ else
- endif
+--- a/meson.build
++++ b/meson.build
+@@ -662,6 +662,8 @@ subdir('docs')
  
- if not platform_osx and host_cpu_family != 'x86'
+ 
+ if not os_osx and host_cpu_family != 'x86'
 +  nm = find_program('nm', required: false)
 +
    # Verify .def files for Windows linking.
-   # We check this on non-Windows platform (Debian) on CI, and on Windows itself.
+   # We check this on non-Windows platform on CI, and on Windows itself.
    custom_target('check-def-files',
-@@ -653,6 +655,7 @@ if not platform_osx and host_cpu_family != 'x86'
-       libgimpthumb,
-       libgimpwidgets
+@@ -675,6 +677,7 @@ if not os_osx and host_cpu_family != 'x86'
+       gegl_npd_lib,
+       seamlessclone_lib
      ],
 +    env: nm.found() ? { 'NM': nm.full_path() } : {},
      output: [ 'check-def-files', ],
      command: [
-       python, meson.project_source_root() / 'tools' / 'defcheck.py', meson.project_source_root(),
+       python, meson.project_source_root() / 'tools' / 'defcheck.py', '@INPUT@',
 --- a/tools/defcheck.py
 +++ b/tools/defcheck.py
-@@ -31,7 +31,7 @@ Needs the tool "nm", "objdump" or "dumpbin" to work
+@@ -30,7 +30,7 @@ Needs the tool "nm", "objdump" or "dumpbin" to work
  
  import os, sys, subprocess, shutil
  
 -from os import path
 +from os import getenv, path
  
- def_files = (
-    "libgimpbase/gimpbase.def",
-@@ -55,7 +55,7 @@ if len(sys.argv) > 1:
-       sys.exit (-1)
+ def_files = sys.argv[1:]
+ 
+@@ -56,7 +56,7 @@ ignore_sorting_errors = [
+ have_errors = 0
  
  libextension   = ".so"
 -command        = "nm --defined-only --extern-only "
@@ -52,15 +52,15 @@ Signed-off-by: Alfred Wingate <parona@protonmail.com>
 GitLab
 
 
-From 21851685364e0dde80df1d42d3c97495ef8ee1d8 Mon Sep 17 00:00:00 2001
+From f8366fd5963b31b31bd02ebd2e97ad2652608046 Mon Sep 17 00:00:00 2001
 From: Alfred Wingate <parona@protonmail.com>
-Date: Sun, 15 Mar 2026 20:13:49 +0200
+Date: Sun, 15 Mar 2026 20:07:41 +0200
 Subject: [PATCH 2/2] tools: include error message to ease debugging
 
 Signed-off-by: Alfred Wingate <parona@protonmail.com>
 --- a/tools/defcheck.py
 +++ b/tools/defcheck.py
-@@ -102,6 +102,7 @@ for df in def_files:
+@@ -100,6 +100,7 @@ for df in def_files:
     status, nm = subprocess.getstatusoutput (command + libname)
     if status != 0:
        print("trouble reading {} - has it been compiled?".format(libname))
