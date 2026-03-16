@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -192,4 +192,8 @@ KEYWORDS="~amd64"
 
 DOTNET_PKG_PROJECTS=(
 	"${S}"/src/shared/Git-Credential-Manager
+)
+
+PATCHES=(
+	"${FILESDIR}"/gcm-linux-config-parser-ambiguity.patch
 )
