@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/pytorch/vision
 INHERIT=cuda distutils-r1 multiprocessing rocm
 IUSE=cuda +ffmpeg +jpeg +png rocm +webp test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 debug
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=BSD
 RDEPEND=python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] dev-python/pillow[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] dev-python/pillow[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/numpy[python_targets_python3_13(-)] dev-python/pillow[python_targets_python3_13(-)] ) jpeg? ( media-libs/libjpeg-turbo:= ) png? ( media-libs/libpng:= ) webp? ( media-libs/libwebp ) ffmpeg? ( media-video/ffmpeg ) sci-ml/caffe2[cuda?,rocm?,python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] =sci-ml/pytorch-2.10*[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
 REQUIRED_USE=?? ( cuda rocm ) ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pytorch/vision/archive/refs/tags/v0.25.0.tar.gz -> torchvision-0.25.0.tar.gz
 _eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	flag-o-matic	fd3558f73f6503093adee69adf41020d	cuda	8b660e223a1695e3884ee4c7dc2c5059	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	404b65bd5212cff83b3935c685419d08	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	distutils-r1	62add15ed646bfe511af53e282621b39	rocm	b406b041c5b107f8d8600865210e24e2
-_md5_=651bf8ee4544a99d5a21bde1bcf036de
+_md5_=4d7d4aeb904ebea8d774bef632740cab
