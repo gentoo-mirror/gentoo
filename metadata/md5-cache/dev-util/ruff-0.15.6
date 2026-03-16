@@ -1,0 +1,15 @@
+BDEPEND=|| ( >=dev-lang/rust-bin-1.91.0:* >=dev-lang/rust-1.91.0:* )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=!elibc_musl? ( !elibc_Darwin? ( !elibc_bionic? ( dev-libs/jemalloc:= ) ) ) app-arch/zstd
+DESCRIPTION=An extremely fast Python linter, written in Rust
+EAPI=8
+HOMEPAGE=https://docs.astral.sh/ruff/ https://github.com/astral-sh/ruff
+INHERIT=shell-completion cargo
+IUSE=debug
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv
+LICENSE=MIT Apache-2.0 BSD CC0-1.0 ISC MIT MPL-2.0 PSF-2 Unicode-3.0 Unicode-DFS-2016 WTFPL-2 ZLIB
+RDEPEND=!elibc_musl? ( !elibc_Darwin? ( !elibc_bionic? ( dev-libs/jemalloc:= ) ) ) app-arch/zstd
+SLOT=0
+SRC_URI=https://github.com/astral-sh/lsp-types/archive/e15db0593f0ecbbd80599c3f5880e4bf5da1ca0c.tar.gz -> lsp-types-e15db0593f0ecbbd80599c3f5880e4bf5da1ca0c.gh.tar.gz https://github.com/salsa-rs/salsa/archive/53421c2fff87426fa0bb51cab06632b87646de13.tar.gz -> salsa-53421c2fff87426fa0bb51cab06632b87646de13.gh.tar.gz https://github.com/salsa-rs/salsa/archive/53421c2fff87426fa0bb51cab06632b87646de13.tar.gz -> salsa-53421c2fff87426fa0bb51cab06632b87646de13.gh.tar.gz https://github.com/salsa-rs/salsa/archive/53421c2fff87426fa0bb51cab06632b87646de13.tar.gz -> salsa-53421c2fff87426fa0bb51cab06632b87646de13.gh.tar.gz https://github.com/astral-sh/ruff/archive/refs/tags/0.15.6.tar.gz -> ruff-0.15.6.gh.tar.gz https://github.com/gentoo-crate-dist/ruff/releases/download/0.15.6/ruff-0.15.6-crates.tar.xz
+_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	bash-completion-r1	9e91505e030725688d1e953321a47501	shell-completion	0b655d0d825e157a5e99c463bddaac16	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	0d1cc00e0e91a021b50b0491e361ad41	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	be19d4b6a17dac5249b9273866e3b66b
+_md5_=86321362c579b8ac1b4265588fdfa62b
