@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig doc? ( graph? ( app-text/doxygen[dot,doc] ) !graph? ( app-text/doxygen ) ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=acct-group/lldpd acct-user/lldpd dev-libs/libbsd >=dev-libs/libevent-2.1.11:= sys-libs/readline:0= seccomp? ( sys-libs/libseccomp:= ) snmp? ( net-analyzer/net-snmp:=[extensible(+)] ) xml? ( dev-libs/libxml2:= ) test? ( dev-libs/check ) valgrind? ( dev-debug/valgrind )
+DESCRIPTION=Implementation of IEEE 802.1ab (LLDP)
+EAPI=8
+HOMEPAGE=https://lldpd.github.io/
+INHERIT=systemd bash-completion-r1 autotools tmpfiles
+IUSE=cdp doc +dot1 +dot3 edp fdp graph +lldpmed old-kernel sanitizers seccomp sonmp snmp static-libs test readline valgrind xml
+KEYWORDS=~amd64 ~x86
+LICENSE=ISC
+RDEPEND=acct-group/lldpd acct-user/lldpd dev-libs/libbsd >=dev-libs/libevent-2.1.11:= sys-libs/readline:0= seccomp? ( sys-libs/libseccomp:= ) snmp? ( net-analyzer/net-snmp:=[extensible(+)] ) xml? ( dev-libs/libxml2:= ) virtual/tmpfiles
+REQUIRED_USE=graph? ( doc ) test? ( snmp sanitizers )
+RESTRICT=!test? ( test ) test
+SLOT=0/4
+SRC_URI=https://github.com/lldpd/lldpd/releases/download/1.0.21/lldpd-1.0.21.tar.gz
+_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	systemd	a964c0cbe818b5729da1dbfcee5be861	bash-completion-r1	9e91505e030725688d1e953321a47501	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735
+_md5_=b5e09fc35d5b4b8aef2f0b9c986cf3b8
