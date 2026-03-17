@@ -38,7 +38,6 @@ DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	plasma? (
 		>=dev-qt/qtbase-${QTMIN}:6[dbus]
-		>=kde-frameworks/krunner-${KFMIN}:6
 		>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	)
 "
@@ -46,8 +45,7 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/qqc2-desktop-style-${KFMIN}:6
 "
 
-# https://invent.kde.org/office/marknote/-/merge_requests/213
-PATCHES=( "${FILESDIR}/${P}-with_krunner.patch" )
+PATCHES=( "${FILESDIR}/${P}-with_krunner.patch" ) # in git master
 
 src_configure() {
 	local mycmakeargs=(
