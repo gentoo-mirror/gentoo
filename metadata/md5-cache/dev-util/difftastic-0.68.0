@@ -1,0 +1,13 @@
+BDEPEND=|| ( >=dev-lang/rust-bin-1.85.0:* >=dev-lang/rust-1.85.0:* )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DESCRIPTION=A structural diff that understands syntax.
+EAPI=8
+HOMEPAGE=http://difftastic.wilfred.me.uk/
+INHERIT=cargo flag-o-matic
+IUSE=debug
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT Apache-2.0 BSD MIT Unicode-DFS-2016 CeCILL-C
+SLOT=0
+SRC_URI=https://github.com/Wilfred/difftastic/archive/refs/tags/0.68.0.tar.gz -> difftastic-0.68.0.gh.tar.gz https://github.com/gentoo-crate-dist/difftastic/releases/download/0.68.0/difftastic-0.68.0-crates.tar.xz
+_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	1e32df7deee68372153dca65f4a7c21f	rust	0d1cc00e0e91a021b50b0491e361ad41	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	be19d4b6a17dac5249b9273866e3b66b
+_md5_=f38e94cb6b9c3a53c4d59174460461f9
