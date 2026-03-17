@@ -16,7 +16,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~loong"
+KEYWORDS="~amd64 ~loong"
 IUSE="dbus enchant +fonts +libdispatch screencast wayland webkit +X"
 
 CDEPEND="
@@ -68,7 +68,7 @@ DEPEND="${CDEPEND}
 BDEPEND="
 	${PYTHON_DEPS}
 	>=dev-build/cmake-3.16
-	>=dev-cpp/cppgir-2.0_p20240315
+	>=dev-cpp/cppgir-2.0_p20260226
 	>=dev-libs/gobject-introspection-1.82.0-r2
 	>=dev-util/gdbus-codegen-2.80.5-r1
 	virtual/pkgconfig
@@ -77,7 +77,7 @@ BDEPEND="
 # NOTE: dev-cpp/expected-lite used indirectly by a dev-cpp/cppgir header file
 
 PATCHES=(
-	"${FILESDIR}"/tdesktop-5.2.2-qt6-no-wayland.patch
+	"${FILESDIR}"/tdesktop-6.6.2-qt6-no-wayland.patch
 	"${FILESDIR}"/tdesktop-5.2.2-libdispatch.patch
 	"${FILESDIR}"/tdesktop-5.7.2-cstring.patch
 	"${FILESDIR}"/tdesktop-5.8.3-cstdint.patch
@@ -112,6 +112,17 @@ src_prepare() {
 	sed -e '/find_package(Opus /d' -i cmake/external/opus/CMakeLists.txt || die
 	sed -e '/find_package(xxHash /d' -i cmake/external/xxhash/CMakeLists.txt || die
 
+	# Greedily remove ThirdParty directories, keep only ones that interest us
+	local keep=(
+		rlottie  # Patched, not recommended to unbundle by upstream
+		libprisma  # Telegram-specific library, no stable releases
+		tgcalls  # Telegram-specific library, no stable releases
+		xdg-desktop-portal  # Only a few xml files are used with gdbus-codegen
+	)
+	for x in Telegram/ThirdParty/*; do
+		has "${x##*/}" "${keep[@]}" || rm -r "${x}" || die
+	done
+
 	# Control QtDBus dependency from here, to avoid messing with QtGui.
 	# QtGui will use find_package to find QtDbus as well, which
 	# conflicts with the -DCMAKE_DISABLE_FIND_PACKAGE method.
@@ -126,6 +137,12 @@ src_prepare() {
 			-i Telegram/lib_webview/webview/platform/linux/webview_linux_compositor.h || die
 	fi
 
+	# Shut the CMake 4 QA checker up by removing unused CMakeLists files
+	rm Telegram/ThirdParty/rlottie/CMakeLists.txt || die
+	rm cmake/external/glib/cppgir/expected-lite/example/CMakeLists.txt || die
+	rm cmake/external/glib/cppgir/expected-lite/test/CMakeLists.txt || die
+	rm cmake/external/glib/cppgir/expected-lite/CMakeLists.txt || die
+
 	cmake_src_prepare
 }
 
@@ -136,7 +153,7 @@ src_configure() {
 	# - bug 920819: system-wide directories ignored when variable is set
 	export XDG_DATA_DIRS="${ESYSROOT}/usr/share"
 
-	# Evil flag (bug #919201)
+	# Evil flag (See https://bugs.gentoo.org/919201)
 	filter-flags -fno-delete-null-pointer-checks
 
 	# The ABI of media-libs/tg_owt breaks if the -DNDEBUG flag doesn't keep
@@ -208,10 +225,15 @@ src_configure() {
 }
 
 src_compile() {
-	# There's a bug where sometimes, it will rebuild/relink during src_install
-	# Make sure that happens here, instead.
+	# The cppgir program causes the gen/gio/_types.hpp file to be updated.
+	# Since this program can usually be invoked anywhere in the build process,
+	# running it *after* some files depending on the header have been compiled
+	# causes Telegram to be linked again during src_install().  This is a slow
+	# process (especially with LTO), so we try to avoid it by running all
+	# cppgir targets upfront.
+	cmake_build $("${CMAKE_BINARY}" --build "${BUILD_DIR}" -t help | sed -n '/^[^/]*_cppgir:/s/:.*//p')
 	cmake_build
-	cmake_build
+	cmake_build  # Just in case, should say "no work to do"
 }
 
 pkg_postinst() {

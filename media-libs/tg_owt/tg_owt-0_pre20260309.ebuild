@@ -8,7 +8,7 @@ inherit cmake flag-o-matic
 DESCRIPTION="WebRTC build for Telegram"
 HOMEPAGE="https://github.com/desktop-app/tg_owt"
 
-TG_OWT_COMMIT="d067233a845e387e63d480d0d846da5fcb6a40cb"
+TG_OWT_COMMIT="26068e29bfa8d74a9dc9c8f7f94172fafbc262b8"
 LIBYUV_COMMIT="04821d1e7d60845525e8db55c7bcd41ef5be9406"
 LIBSRTP_COMMIT="a566a9cfcd619e8327784aa7cff4a1276dc1e895"
 SRC_URI="https://github.com/desktop-app/tg_owt/archive/${TG_OWT_COMMIT}.tar.gz -> ${P}.tar.gz
@@ -71,7 +71,6 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/tg_owt-0_pre20250515-fix-gcc16.patch"
 	"${FILESDIR}/tg_owt-0_pre20250515-fix-clang20.patch"
-	"${FILESDIR}/tg_owt-0_pre20251117-pipewire.patch"
 )
 
 src_unpack() {
