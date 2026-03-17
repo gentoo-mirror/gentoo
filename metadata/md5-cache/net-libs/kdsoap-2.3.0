@@ -1,0 +1,14 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-qt/qtbase:6[network,xml] dev-libs/boost
+DESCRIPTION=Qt-based client-side and server-side SOAP component
+EAPI=8
+HOMEPAGE=https://www.kdab.com/development-resources/qt-tools/kd-soap/
+INHERIT=cmake
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=GPL-3 AGPL-3
+RDEPEND=dev-qt/qtbase:6[network,xml]
+SLOT=0/2
+SRC_URI=https://github.com/KDAB/KDSoap/releases/download/kdsoap-2.3.0/kdsoap-2.3.0.tar.gz
+_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c
+_md5_=a9f0ab49703bc6319e73844faa59d46b
