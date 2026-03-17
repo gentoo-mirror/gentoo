@@ -1,10 +1,10 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
-DEFINED_PHASES=compile configure install prepare setup test
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test
 DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-qt/qtbase[gui,widgets] media-libs/libmodplug >=media-libs/libsdl2-2.0.1[X,joystick,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image[png] >=dev-qt/qlementine-1.4.0 ~games-engines/solarus-2.0.3
 DESCRIPTION=Quest editor for Solarus game engine
 EAPI=8
 HOMEPAGE=https://www.solarus-games.org/
-INHERIT=cmake lua-single
+INHERIT=cmake lua-single xdg-utils
 IUSE=lua_single_target_luajit lua_single_target_lua5-1
 KEYWORDS=~amd64
 LICENSE=GPL-3+
@@ -13,4 +13,4 @@ REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 )
 SLOT=0
 SRC_URI=https://gitlab.com/solarus-games/solarus/-/archive/v2.0.3/solarus-v2.0.3.tar.bz2
 _eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
-_md5_=e566a2507821336ef11efb2f6cd8d20a
+_md5_=6cd650743e034df428cfb31321437843
