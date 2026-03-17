@@ -924,7 +924,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.764.0 1.2.779.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.44.24 1.44.29 1.44.34 1.44.39 1.44.44 1.44.49 1.44.53 1.44.58: Universal Command Line Environment for AWS
+app-admin/awscli 1.44.24 1.44.29 1.44.34 1.44.39 1.44.44 1.44.49 1.44.53 1.44.58 1.44.59: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37 2.33.21: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.12.0 2026.1.0: Bitwarden password manager desktop client
@@ -4003,7 +4003,7 @@ dev-db/mariadb-connector-c 3.3.8 3.3.15 3.3.17 3.4.5-r1 3.4.7 9999: C client lib
 dev-db/mariadb-connector-odbc 3.1.18 3.2.7-r1 3.2.8: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.32 6.0.27 7.0.28 8.0.8 8.0.12: A high-performance, open source, schema-free document-oriented database
 dev-db/mongodb-compass-bin 1.49.1 1.49.2: GUI for MongoDB
-dev-db/mycli 1.44.0 1.62.0 1.64.0: CLI for MySQL Database with auto-completion and syntax highlighting
+dev-db/mycli 1.64.0: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.20.1.2 0.21.2.2 0.21.3.1: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
 dev-db/mysql 8.0.43 8.0.44 8.0.45 8.4.7 8.4.8: Fast, multi-threaded, multi-user SQL database server
@@ -8143,7 +8143,7 @@ dev-python/ansi 0.3.7: ANSI cursor movement and graphics in Python
 dev-python/ansi2html 1.9.2: Convert text with ANSI color codes to HTML
 dev-python/ansible-compat 25.12.0 25.12.1: Contains functions that facilitate working with various versions of Ansible
 dev-python/ansible-pygments 0.1.2: Pygments lexer and style Ansible snippets
-dev-python/ansible-pylibssh 1.3.0: Python bindings for libssh client specific to Ansible use case
+dev-python/ansible-pylibssh 1.3.0 1.4.0: Python bindings for libssh client specific to Ansible use case
 dev-python/ansicolor 0.3.2-r1 0.3.3 9999: Produce ansi color output and colored highlighting and diffing
 dev-python/antlr4-python3-runtime 4.13.2: Python 3 runtime for ANTLR
 dev-python/anyascii 0.3.3: Unicode to ASCII transliteration
@@ -8230,8 +8230,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.42.34 1.42.39 1.42.44 1.42.49 1.42.54 1.42.59 1.42.63 1.42.68: The AWS SDK for Python
-dev-python/botocore 1.42.34 1.42.39 1.42.44 1.42.49 1.42.54 1.42.59 1.42.63 1.42.68: Low-level, data-driven core of boto 3
+dev-python/boto3 1.42.34 1.42.39 1.42.44 1.42.49 1.42.54 1.42.59 1.42.63 1.42.68 1.42.69: The AWS SDK for Python
+dev-python/botocore 1.42.34 1.42.39 1.42.44 1.42.49 1.42.54 1.42.59 1.42.63 1.42.68 1.42.69: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8568,7 +8568,7 @@ dev-python/hatchling 1.27.0 1.28.0 1.29.0: Modern, extensible Python build backe
 dev-python/hcloud 2.16.0 2.17.0: Official Hetzner Cloud python library
 dev-python/helpdev 0.7.1-r1: Helping users and developers to get information about the environment
 dev-python/hidapi 0.14.0_p4 0.15.0: A Cython interface to HIDAPI library
-dev-python/hiredis 3.2.1 3.3.0: Python extension that wraps hiredis
+dev-python/hiredis 3.3.0 3.3.1: Python extension that wraps hiredis
 dev-python/hishel 1.1.8 1.1.9: An elegant HTTP Cache implementation for HTTPX and HTTP Core
 dev-python/housekeeping 1.1: Reusable deprecation helpers for Python projects
 dev-python/hpack 4.1.0: Pure-Python HPACK header compression
@@ -8824,7 +8824,7 @@ dev-python/mkdocs 1.6.0 1.6.1: Project documentation with Markdown
 dev-python/mkdocs-autorefs 1.4.3 1.4.4: Automatically link across pages in MkDoc
 dev-python/mkdocs-bootstrap 1.1.1-r1: Bootstrap theme for MkDocs
 dev-python/mkdocs-bootswatch 1.1-r3: Bootswatch themes for MkDocs
-dev-python/mkdocs-gen-files 0.5.0 0.6.0: MkDocs plugin to programmatically generate documentation pages during the build
+dev-python/mkdocs-gen-files 0.6.0: MkDocs plugin to programmatically generate documentation pages during the build
 dev-python/mkdocs-get-deps 0.2.0 0.2.1 0.2.2: extension that lists all dependencies according to a mkdocs.yml file
 dev-python/mkdocs-git-authors-plugin 0.10.0: Mkdocs plugin to display git authors of a page
 dev-python/mkdocs-git-revision-date-localized-plugin 1.5.0 1.5.1: Display the localized date of the last git modification of a markdown file
@@ -8996,7 +8996,7 @@ dev-python/pillow 11.3.0 12.0.0 12.1.0 12.1.1: Python Imaging Library (fork)
 dev-python/pip 25.3 26.0 26.0.1: The PyPA recommended tool for installing Python packages
 dev-python/pipdeptree 2.23.4 2.29.0 2.30.0 2.31.0: Utility for displaying installed packages in a dependency tree
 dev-python/pipenv 2024.0.2-r1: Python Development Workflow for Humans
-dev-python/pipx 1.8.0: Install and Run Python Applications in Isolated Environments
+dev-python/pipx 1.8.0 1.9.0: Install and Run Python Applications in Isolated Environments
 dev-python/pivy 0.6.10: Coin3D bindings for Python
 dev-python/pixelmatch 0.3.0 0.4.0: A fast pixel-level image comparison library
 dev-python/pkgconfig 1.5.5-r1: Interface Python with pkg-config
@@ -9057,7 +9057,7 @@ dev-python/pyalsa 1.2.14: Python bindings for ALSA library
 dev-python/pyamg 5.2.1 5.3.0: Algebraic multigrid solvers in Python
 dev-python/pyaml 25.7.0 26.2.1: PyYAML-based module to produce pretty and readable YAML-serialized data
 dev-python/pyarrow 20.0.0 21.0.0 22.0.0 23.0.0 23.0.1 9999: Python library for Apache Arrow
-dev-python/pyasn1 0.6.1 0.6.2: ASN.1 library for Python
+dev-python/pyasn1 0.6.2 0.6.3: ASN.1 library for Python
 dev-python/pyasn1-modules 0.4.2: pyasn1 modules
 dev-python/pyasynchat 1.0.4 1.0.5: Make asynchat available for Python 3.12 onwards
 dev-python/pyasyncore 1.0.4 1.0.5: Make asyncore available for Python 3.12 onwards
@@ -9175,7 +9175,7 @@ dev-python/pypresence 4.3.0 4.6.1: Complete Discord IPC and Rich Presence wrappe
 dev-python/pyprof2calltree 1.4.5-r1: Convert python profile data to kcachegrind calltree form
 dev-python/pyproj 3.7.1 3.7.2: Python interface to the PROJ library
 dev-python/pyproject-api 1.9.1 1.10.0: API to interact with the python pyproject.toml based projects
-dev-python/pyproject-fmt 2.11.1 2.12.1 2.14.1 2.15.3 2.16.0 2.16.1 2.16.2 2.17.0 2.18.1: Format your pyproject.toml file
+dev-python/pyproject-fmt 2.11.1 2.12.1 2.14.1 2.15.3 2.16.2 2.18.1 2.19.0: Format your pyproject.toml file
 dev-python/pyproject-hooks 1.2.0: Wrappers to build Python packages using PEP 517 hooks
 dev-python/pyproject-metadata 0.10.0 0.11.0: PEP 621 metadata parsing
 dev-python/pypugjs 5.12.0 6.0.1: Pug (Jade) syntax adapter for Django, Jinja2 and Mako templates
@@ -9595,7 +9595,7 @@ dev-python/spyder-terminal 1.3.0: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.7.1: Plugin for Spyder to run tests and view the results
 dev-python/sqlalchemy 1.4.54 2.0.45 2.0.46 2.0.47 2.0.48 2.1.0_beta1: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 27.29.0 28.10.1 29.0.1: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 29.0.1 30.0.1: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.3 0.5.4 0.5.5: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9735,8 +9735,8 @@ dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 0.10 1.0.0: TidyLib Python wrapper
 dev-python/uuid6 2025.0.1: New time-based UUID formats which are suited for use as a database key
-dev-python/uv 0.9.15 0.10.2 0.10.4 0.10.6 0.10.7 0.10.8 0.10.10 9999: A Python package installer and resolver, written in Rust
-dev-python/uv-build 0.9.15 0.10.2 0.10.4 0.10.6 0.10.7 0.10.8 0.10.10: PEP517 uv build backend
+dev-python/uv 0.9.15 0.10.2 0.10.4 0.10.6 0.10.7 0.10.8 0.10.10 0.10.11 9999: A Python package installer and resolver, written in Rust
+dev-python/uv-build 0.9.15 0.10.2 0.10.4 0.10.6 0.10.7 0.10.8 0.10.10 0.10.11: PEP517 uv build backend
 dev-python/uv-dynamic-versioning 0.13.0: Dynamic versioning based on VCS tags for uv/hatch project
 dev-python/uvicorn 0.40.0 0.41.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.21.0 0.22.1: Ultra-fast implementation of asyncio event loop on top of libuv
