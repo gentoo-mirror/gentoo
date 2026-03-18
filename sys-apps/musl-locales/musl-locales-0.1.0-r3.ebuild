@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,4 +20,14 @@ src_configure() {
 		-DLOCALE_PROFILE=OFF
 	)
 	cmake_src_configure
+}
+
+src_install() {
+	cmake_src_install
+	echo 'MUSL_LOCPATH="/usr/share/i18n/locales/musl"' | newenvd - 00musl-locales
+}
+
+pkg_postinst() {
+	elog "Run . /etc/profile and then eselect locale list"
+	elog "to see available locales to use with musl. "
 }
