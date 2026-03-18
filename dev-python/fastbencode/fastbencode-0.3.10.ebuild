@@ -1,35 +1,32 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-CRATES="
-	autocfg@1.5.0
-	heck@0.5.0
-	indoc@2.0.7
-	libc@0.2.177
-	memoffset@0.9.1
-	once_cell@1.21.3
-	portable-atomic@1.11.1
-	proc-macro2@1.0.103
-	pyo3-build-config@0.26.0
-	pyo3-ffi@0.26.0
-	pyo3-macros-backend@0.26.0
-	pyo3-macros@0.26.0
-	pyo3@0.26.0
-	quote@1.0.41
-	rustversion@1.0.22
-	syn@2.0.108
-	target-lexicon@0.13.3
-	unicode-ident@1.0.22
-	unindent@0.2.4
-"
-
 CARGO_OPTIONAL=1
+RUST_MIN_VER=1.83.0
+
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYPI_VERIFY_REPO=https://github.com/breezy-team/fastbencode
 PYTHON_COMPAT=( python3_{11..14} )
+
+CRATES="
+	heck@0.5.0
+	libc@0.2.183
+	once_cell@1.21.4
+	portable-atomic@1.13.1
+	proc-macro2@1.0.106
+	pyo3-build-config@0.28.2
+	pyo3-ffi@0.28.2
+	pyo3-macros-backend@0.28.2
+	pyo3-macros@0.28.2
+	pyo3@0.28.2
+	quote@1.0.45
+	syn@2.0.117
+	target-lexicon@0.13.5
+	unicode-ident@1.0.24
+"
 
 inherit cargo distutils-r1 pypi
 
@@ -47,7 +44,10 @@ SRC_URI+="
 LICENSE="Apache-2.0"
 LICENSE+=" native-extensions? ("
 # Dependent crate licenses
-LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
+LICENSE+="
+	Apache-2.0-with-LLVM-exceptions Unicode-3.0
+	|| ( Apache-2.0 MIT )
+"
 LICENSE+=" )"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
