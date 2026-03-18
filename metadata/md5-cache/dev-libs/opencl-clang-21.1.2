@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/intel/opencl-clang
 INHERIT=cmake llvm-r1
 IUSE=+llvm_slot_21
-KEYWORDS=~amd64 ~riscv
+KEYWORDS=amd64 ~riscv
 LICENSE=UoI-NCSA
 RDEPEND=dev-util/spirv-llvm-translator:21= llvm_slot_21? ( llvm-core/clang:21=[static-analyzer] llvm-core/llvm:21= )
 REQUIRED_USE=^^ ( llvm_slot_21 )
 SLOT=21
 SRC_URI=https://github.com/intel/opencl-clang/archive/refs/tags/v21.1.2.tar.gz -> opencl-clang-21.1.2.tar.gz
 _eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	77771a412c60b32ce3205d377edd7b83
-_md5_=a951f94f9a05cc4deda86fe01025af0f
+_md5_=946fbbfbf898392573a9ab091b05467d
