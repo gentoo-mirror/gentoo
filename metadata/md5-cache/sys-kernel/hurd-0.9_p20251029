@@ -5,11 +5,11 @@ DESCRIPTION=GNU Hurd is the GNU project's replacement for UNIX
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/hurd/hurd.html
 INHERIT=crossdev flag-o-matic autotools
-IUSE=headers-only ncurses xkb
+IUSE=custom-cflags headers-only ncurses xkb
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2 BSD-2
 RDEPEND=app-arch/bzip2:=[static-libs] dev-libs/libdaemon:= >=dev-libs/libgcrypt-1.8.0:= dev-util/mig sys-apps/util-linux[static-libs] x11-libs/libpciaccess[static-libs] virtual/libcrypt:=[static-libs] virtual/zlib:=[static-libs] ncurses? ( sys-libs/ncurses:= ) xkb? ( x11-libs/libxkbcommon )
 SLOT=0
 SRC_URI=mirror://debian/pool/main/h/hurd/hurd_0.9.git20251029.orig.tar.bz2
 _eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	crossdev	d618c699554f72b98f8ceeeeb361dc9e	flag-o-matic	fd3558f73f6503093adee69adf41020d	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa
-_md5_=be027596e3fa072645f6df06601057a4
+_md5_=411e5ee6fa45016911d5f07acff9181a
