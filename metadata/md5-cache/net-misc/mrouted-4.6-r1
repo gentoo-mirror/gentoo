@@ -1,5 +1,5 @@
 BDEPEND=app-alternatives/yacc virtual/pkgconfig virtual/pkgconfig
-DEFINED_PHASES=compile configure install
+DEFINED_PHASES=compile configure install postinst
 DESCRIPTION=IP multicast routing daemon
 EAPI=8
 HOMEPAGE=https://troglobit.com/projects/mrouted/
@@ -11,4 +11,4 @@ RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://github.com/troglobit/mrouted/releases/download/4.6/mrouted-4.6.tar.gz
 _eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=0bdce85d7c544112597bb3398c52ba95
+_md5_=af69b64d19d785cd7d09a9c2852aaaae
