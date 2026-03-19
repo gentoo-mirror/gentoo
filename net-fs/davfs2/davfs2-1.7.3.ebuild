@@ -7,7 +7,7 @@ VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/alisarctl.asc
 inherit autotools verify-sig
 
 DESCRIPTION="Linux FUSE (or coda) driver that allows you to mount a WebDAV resource"
-HOMEPAGE="https://savannah.nongnu.org/projects/davfs2"
+HOMEPAGE="https://github.com/alisarctl/davfs2"
 SRC_URI="
 	mirror://nongnu/${PN}/${P}.tar.gz
 	verify-sig? ( mirror://nongnu/${PN}/${P}.tar.gz.sig )
@@ -15,7 +15,7 @@ SRC_URI="
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ppc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~x86"
 IUSE="nls verify-sig"
 RESTRICT="test"
 
@@ -34,13 +34,17 @@ BDEPEND="
 	verify-sig? ( sec-keys/openpgp-keys-alisarctl )
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-1.7.1-man-page-compression.patch # backport
-	"${FILESDIR}"/${PN}-1.7.1-neon-version-support.patch
-)
-
 src_prepare() {
 	default
+
+	# apply the patch by sed, upstream uses meson now
+	# see https://github.com/alisarctl/davfs2/pull/28
+	sed -i -E '/AC_CHECK_HEADERS\(\[error.h/{
+		s/error\.h[[:space:]]*//g
+		a\
+		AC_CHECK_HEADER([error.h], [AC_CHECK_FUNC([error], AC_DEFINE([HAVE_ERROR_H], [1], [Define if error.h is usable]))])
+}' configure.ac || die
+
 	eautoreconf
 }
 

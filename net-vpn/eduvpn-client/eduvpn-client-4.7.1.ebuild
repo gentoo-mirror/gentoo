@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,7 +29,7 @@ else
 		https://codeberg.org/eduVPN/linux-app/releases/download/${PV}/${MY_P}.tar.xz -> ${P}.tar.xz
 		verify-sig? ( https://codeberg.org/eduVPN/linux-app/releases/download/${PV}/${MY_P}.tar.xz.asc -> ${P}.tar.xz.asc )
 	"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 	S="${WORKDIR}/${MY_P}"
 fi
 
@@ -47,8 +47,8 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	net-misc/networkmanager
-	>=net-vpn/eduvpn-common-3[${PYTHON_USEDEP}]
-	<net-vpn/eduvpn-common-4[${PYTHON_USEDEP}]
+	>=net-vpn/eduvpn-common-5[${PYTHON_USEDEP}]
+	<net-vpn/eduvpn-common-6[${PYTHON_USEDEP}]
 	x11-libs/libnotify
 "
 

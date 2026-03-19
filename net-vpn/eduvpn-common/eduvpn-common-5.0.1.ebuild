@@ -1,9 +1,9 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..13} )
 
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
@@ -28,7 +28,7 @@ else
 		verify-sig? ( https://codeberg.org/eduVPN/eduvpn-common/releases/download/${PV}/${P}.tar.xz.asc )
 		https://www-user.tu-chemnitz.de/~hamari/eduvpn/${P}-deps.tar.xz
 	"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
