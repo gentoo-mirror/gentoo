@@ -3,14 +3,14 @@ DEFINED_PHASES=configure postinst prepare unpack
 DEPEND=net-libs/neon:=
 DESCRIPTION=Linux FUSE (or coda) driver that allows you to mount a WebDAV resource
 EAPI=8
-HOMEPAGE=https://savannah.nongnu.org/projects/davfs2
+HOMEPAGE=https://github.com/alisarctl/davfs2
 INHERIT=autotools verify-sig
 IUSE=nls verify-sig verify-sig
-KEYWORDS=amd64 ~arm ~arm64 ppc x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
 LICENSE=GPL-3+
 RDEPEND=net-libs/neon:= acct-group/davfs2 acct-user/davfs2 nls? ( virtual/libintl virtual/libiconv )
 RESTRICT=test
 SLOT=0
-SRC_URI=mirror://nongnu/davfs2/davfs2-1.7.1.tar.gz verify-sig? ( mirror://nongnu/davfs2/davfs2-1.7.1.tar.gz.sig )
+SRC_URI=mirror://nongnu/davfs2/davfs2-1.7.3.tar.gz verify-sig? ( mirror://nongnu/davfs2/davfs2-1.7.3.tar.gz.sig )
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=5b84886f519fc04f4f96c773a09661c1
+_md5_=c80194fb0d0447296223a6b247132723

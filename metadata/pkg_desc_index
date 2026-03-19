@@ -1666,7 +1666,7 @@ app-dicts/freedict-ita-eng 1.0: Freedict for language translation from Italian t
 app-dicts/gnome-dictionary 40.0-r1: Dictionary utility for GNOME
 app-dicts/gwaei 3.6.2-r1: Japanese-English Dictionary for GNOME
 app-dicts/ipadic 2.7.0-r2: Japanese dictionary for ChaSen
-app-dicts/kasumi 2.5-r1: Anthy dictionary maintenance tool
+app-dicts/kasumi 2.5-r1 2.7: Anthy-unicode dictionary maintenance tool
 app-dicts/libydpdict 1.0.4: Library for handling the Collins Dictionary database
 app-dicts/mecab-ipadic 2.7.0.20070801-r1: IPA dictionary for MeCab
 app-dicts/mecab-naist-jdic 0.6.3b_p20111013-r1: NAIST Japanese Dictionary
@@ -2511,13 +2511,14 @@ app-forensics/yara 4.5.4 4.5.5 9999: A malware identification and classification
 app-forensics/yara-x 1.8.1 1.10.0-r1 1.11.0 1.14.0: A malware identification and classification tool
 app-forensics/zzuf 0.15_p20190208 0.15_p20220529: Transparent application input fuzzer
 app-i18n/anthy 9100h-r3: Anthy -- free and secure Japanese input system
+app-i18n/anthy-unicode 1.0.0.20260213: Another Anthy - Japanese character set input library for Unicode
 app-i18n/bidiv 1.5_p4: A commandline tool displaying logical Hebrew/Arabic
 app-i18n/cstools 3.44: A charset conversion tool cstocs and two Perl modules for Czech language
 app-i18n/dbskkd-cdb 3.00-r1: SKK dictionary server based on cdb
 app-i18n/enca 1.19-r3 1.19-r4: Detect and convert encoding of text files
 app-i18n/fbterm 1.7_p20190503: Fast terminal emulator for the Linux framebuffer
 app-i18n/fcitx 5.1.17: Fcitx 5 is a generic input method framework
-app-i18n/fcitx-anthy 5.1.6 5.1.8: Japanese Anthy input methods for Fcitx5
+app-i18n/fcitx-anthy 5.1.6 5.1.8 5.1.10: Japanese Anthy input methods for Fcitx5
 app-i18n/fcitx-chewing 5.1.10: Chewing Wrapper for Fcitx.
 app-i18n/fcitx-chinese-addons 5.1.11: Addons related to Chinese, including IME previous bundled inside fcitx4
 app-i18n/fcitx-configtool 5.1.12-r1: Configuration module for Fcitx
@@ -2533,7 +2534,7 @@ app-i18n/fcitx-table-other 5.1.4 5.1.5: Provides some other tables for Fcitx, fo
 app-i18n/fcitx-unikey 5.1.6-r1 5.1.8: Unikey (Vietnamese Input Method) engine support for Fcitx
 app-i18n/gnulib-l10n 20241231: Localization for gnulib
 app-i18n/ibus 1.5.29 1.5.29-r1 1.5.30-r1 1.5.31-r1: Intelligent Input Bus for Linux / Unix OS
-app-i18n/ibus-anthy 1.5.16 1.5.17: Japanese Anthy engine for IBus
+app-i18n/ibus-anthy 1.5.16 1.5.18: Japanese Anthy engine for IBus
 app-i18n/ibus-cangjie 2.5.0-r1: Chinese Cangjie and Quick engines for IBus
 app-i18n/ibus-chewing 2.1.7: Chinese Chewing engine for IBus
 app-i18n/ibus-fbterm 1.0.1: IBus client for FbTerm
@@ -2581,7 +2582,7 @@ app-i18n/pyzy 0.1.0-r3: The Chinese PinYin and Bopomofo conversion library
 app-i18n/qkc 1.00: Quick KANJI code Converter
 app-i18n/rime-data 1.0.20250124 1.0.20251206: Data resources for Rime Input Method Engine
 app-i18n/scim 1.4.18-r1: Smart Common Input Method (SCIM) is an Input Method (IM) development platform
-app-i18n/scim-anthy 1.2.7-r2: Japanese input method Anthy IMEngine for SCIM
+app-i18n/scim-anthy 1.2.7-r2 1.4.0: Japanese input method Anthy IMEngine for SCIM
 app-i18n/scim-bridge 0.4.16-r3: Yet another IM-client of SCIM
 app-i18n/scim-hangul 0.4.0-r1: Hangul IMEngine for SCIM ported from imhangul
 app-i18n/scim-input-pad 0.1.3.1: Input pad for SCIM used to input symbols and special characters
@@ -2600,7 +2601,7 @@ app-i18n/tomoe-gtk 0.6.0-r7: Tomoe GTK+ interface widget library
 app-i18n/transifex-client 1.6.14 1.6.17: The Transifex command-line client
 app-i18n/translate-shell 0.9.7.1: Online command-line translator
 app-i18n/uchardet 0.0.8: Encoding detector library
-app-i18n/uim 1.8.9-r2: A multilingual input method framework
+app-i18n/uim 1.8.9-r2 1.9.6: Multilingual input method framework
 app-i18n/uim-tomoe-gtk 0.6.0: Japanese input method Tomoe IMEngine for uim
 app-i18n/unicode-cldr 47.0 48.0: Unicode Common Locale Data Repository
 app-i18n/unicode-data 15.1.0 16.0.0 17.0.0: Unicode data from unicode.org
@@ -5361,7 +5362,7 @@ dev-libs/cJSON 1.7.18 1.7.19: Ultralightweight JSON parser in ANSI C
 dev-libs/capnproto 0.9.1 0.10.2 0.10.4-r1 1.0.2 1.1.0: RPC/Serialization system with capabilities support
 dev-libs/capstone 5.0.6-r1 5.0.7 6.0.0_alpha4-r1 6.0.0_alpha5-r1 6.0.0_alpha6 6.0.0_alpha7 9999: disassembly/disassembler framework + bindings
 dev-libs/castxml 0.6.13 0.7.0: C-family abstract syntax tree XML output tool
-dev-libs/cdk 5.0.20230201 5.0.20230201-r2 5.0.20240331-r1 5.0.20240619-r2 5.0.20250116-r1 5.0.20251014: A library of curses widgets
+dev-libs/cdk 5.0.20230201 5.0.20230201-r2 5.0.20240331-r1 5.0.20240619-r2 5.0.20250116-r1 5.0.20251014 5.0.20260119: A library of curses widgets
 dev-libs/cereal 1.3.2-r2: Header-only C++11 serialization library
 dev-libs/cgilib 0.7-r2: Simple and lightweight interface to the CGI for C and C++ programs
 dev-libs/cglm 0.9.6: OpenGL Mathematics (glm) for C
@@ -5721,7 +5722,7 @@ dev-libs/log4sh 1.4.2: A flexible logging framework for shell scripts
 dev-libs/ls-qpack 2.6.1: QPACK compression library for use with HTTP/3
 dev-libs/luise 0.1.1-r2: Programming interface for the Wallbraun LCD-USB-Interface
 dev-libs/lzo 2.10: An extremely fast compression and decompression library
-dev-libs/m17n-lib 1.8.6: Multilingual Library for Unix/Linux
+dev-libs/m17n-lib 1.8.6 1.8.6-r1: Multilingual Library for Unix/Linux
 dev-libs/maloc 1.5-r1: Minimal Abstraction Layer for Object-oriented C/C++ programs
 dev-libs/marisa 0.2.6 0.2.7 9999: Matching Algorithm with Recursively Implemented StorAge
 dev-libs/mathjax 2.7.7-r1 3.2.2-r2: JavaScript display engine for LaTeX, MathML and AsciiMath
@@ -13948,7 +13949,7 @@ media-radio/grig 0.9.0: A tool for controlling amateur radios
 media-radio/ibp 0.21-r3: Shows currently transmitting beacons of the International Beacon Project (IBP)
 media-radio/js8call 2.3.1-r2 2.5.2: Weak signal ham radio communication
 media-radio/kochmorse 3.5.1_p20250730: Morse-code tutor using the Koch method
-media-radio/qlog 0.46.1-r1 0.47.1 0.48.0 9999: Amateur radio logbook software
+media-radio/qlog 0.48.0 0.49.0 9999: Amateur radio logbook software
 media-radio/qrq 0.3.5-r2: Yet another CW trainer for Linux/Unix
 media-radio/qsstv 9.5.11_pre20250212: Amateur radio SSTV software
 media-radio/svxlink 25.05.1_p20250929-r1: Multi Purpose Voice Services System, including Qtel for EchoLink
@@ -14816,7 +14817,7 @@ net-fs/btfs 2.24: Bittorrent filesystem based on FUSE
 net-fs/cifs-utils 7.0-r1 7.3 7.4 7.5: Tools for Managing Linux CIFS Client Filesystems
 net-fs/curlftpfs 0.9.2-r5: File system for accessing ftp hosts based on FUSE
 net-fs/cvmfs 2.12.7 2.13.1 2.13.3: HTTP read-only file system for distributing software
-net-fs/davfs2 1.6.1-r4 1.7.0-r2 1.7.1: Linux FUSE (or coda) driver that allows you to mount a WebDAV resource
+net-fs/davfs2 1.7.1 1.7.3: Linux FUSE (or coda) driver that allows you to mount a WebDAV resource
 net-fs/ksmbd-tools 3.5.3: cifsd/ksmbd kernel server userspace utilities
 net-fs/libnfs 5.0.2 5.0.3 9999: Client library for accessing NFS shares over a network
 net-fs/mc 2025.07.21.05.28.08 2025.08.13.08.35.41: Minio client provides alternatives for ls, cat on cloud storage and filesystems
@@ -15668,8 +15669,8 @@ net-vpn/cloudflare-warp 2026.1.150.0-r1: Cloudflare Warp Client
 net-vpn/cloudflared 2025.10.1 2026.1.2 2026.3.0: A command-line client and tunneling daemon for Cloudflare Tunnel
 net-vpn/corkscrew 2.0-r1: a tool for tunneling SSH through HTTP proxies
 net-vpn/derper 1.92.4: DERP server for tailscale network
-net-vpn/eduvpn-client 4.5.1 4.6.0 9999: Linux client and Python client API for eduVPN
-net-vpn/eduvpn-common 2.1.0 3.0.0 4.0.0: Linux client and Python client API for eduVPN
+net-vpn/eduvpn-client 4.6.0 4.7.1 9999: Linux client and Python client API for eduVPN
+net-vpn/eduvpn-common 4.0.0 5.0.1: Linux client and Python client API for eduVPN
 net-vpn/fp-multiuser 0.0.2: A frp server plugin to support multiple users for frp
 net-vpn/frp 0.56.0 0.58.1 0.60.0 0.61.1 0.65.0: A reverse proxy that exposes a server behind a NAT or firewall to the internet
 net-vpn/gsocket 1.4.43 1.4.43-r1 9999: Allow firewalled/NATed host to establish a secure connection
@@ -16562,6 +16563,7 @@ sec-keys/openpgp-keys-alejandro-colomar 20231031 20260122: OpenPGP keys used by 
 sec-keys/openpgp-keys-alekseysanin 20231021: Aleksey Sanin OpenPGP Key
 sec-keys/openpgp-keys-alexanderneumann 20241028: OpenPGP keys used by Alexander Neumann
 sec-keys/openpgp-keys-alexbarton 20241211: OpenPGP keys used by Alex Barton
+sec-keys/openpgp-keys-alisarctl 20200302: OpenPGP keys used by Ali Abdallah
 sec-keys/openpgp-keys-alsa 20260116: OpenPGP keys used by the Alsa Project
 sec-keys/openpgp-keys-andreasschneider 20260218: OpenPGP key used by Andreas Schneider
 sec-keys/openpgp-keys-andresimon 20240906 20250911: OpenPGP keys used by Andre Simon
@@ -17311,7 +17313,7 @@ sys-apps/s6-frontend 0.0.1.1-r1: Frontend to the s6 init system
 sys-apps/s6-linux-init 1.1.3.0-r1 1.2.0.0-r1: Generates an init binary for s6-based init systems
 sys-apps/s6-linux-utils 2.6.3.0 2.6.4.0: Set of tiny linux utilities
 sys-apps/s6-portable-utils 2.3.1.0 2.3.1.1: Set of tiny portable unix utilities
-sys-apps/s6-rc 0.5.6.0 0.6.0.0: Service manager for the s6 supervision suite
+sys-apps/s6-rc 0.5.6.0 0.5.6.0-r1 0.6.0.0 0.6.0.0-r1: Service manager for the s6 supervision suite
 sys-apps/sandbox 2.39 2.46 9999: sandbox'd LD_PRELOAD hack
 sys-apps/sdparm 1.12 1.12-r1: Utility to output and modify parameters on a SCSI device, like hdparm
 sys-apps/secilc 3.8.1 9999: SELinux Common Intermediate Language (CIL) Compiler
@@ -17980,7 +17982,7 @@ sys-process/minit 0.10-r2: a small yet feature-complete init
 sys-process/nmon 16q: Nigel's performance MONitor for CPU, memory, network, disks, etc
 sys-process/numactl 2.0.19 9999: Utilities and libraries for NUMA systems
 sys-process/numad 0.5-r4 0.5_p20180531-r2 9999: The NUMA daemon that manages application locality
-sys-process/nvtop 3.1.0 3.2.0 9999: (h)top like task monitor for AMD, NVIDIA, Intel and other GPUs
+sys-process/nvtop 3.1.0 3.2.0 3.3.2 9999: (h)top like task monitor for AMD, NVIDIA, Intel and other GPUs
 sys-process/parallel 20250722 20250722-r1: Shell tool for executing jobs in parallel locally or on remote machines
 sys-process/pkill-darwin 1.0-r1: pgrep(1) and pkill(1) for Darwin
 sys-process/prll 0.6.4: Utility for parallelizing execution of shell functions
@@ -17990,7 +17992,7 @@ sys-process/procs 0.14.6-r1 0.14.9: Modern replacement for ps
 sys-process/psinfo 0.12-r1 0.12-r2: Process information and statistics using the kernel /proc interface
 sys-process/psmisc 23.6 23.7: A set of tools that use the proc filesystem
 sys-process/rtirq 20240220 20240905: Modify realtime scheduling policy and priority of IRQ handlers
-sys-process/runit 2.1.2-r6 2.1.2-r7 2.2.0-r1 2.2.0-r2: A UNIX init scheme with service supervision
+sys-process/runit 2.2.0-r2 2.2.0-r3: A UNIX init scheme with service supervision
 sys-process/schedtool 1.3.0-r2: A tool to query or alter a process' scheduling policy
 sys-process/supervise-scripts 4.0-r2: Starting and stopping daemontools managed services
 sys-process/systemd-cron 2.4.0 2.4.1 2.5.1: systemd units to create timers for cron directories and crontab
@@ -18139,7 +18141,7 @@ virtual/resolvconf 2: Virtual to select between different resolvconf providers
 virtual/ruby-ssl 13 14 15 16: Virtual ebuild for the Ruby OpenSSL bindings
 virtual/rubygems 19 20 21-r1 22: Virtual ebuild for rubygems
 virtual/secret-service 0 0-r1: Virtual for a freedesktop.org Secret Service API provider
-virtual/service-manager 2: Virtual for various service managers
+virtual/service-manager 2 2-r1: Virtual for various service managers
 virtual/skkserv 0-r1: Virtual for SKK server
 virtual/ssh 0-r2: Virtual for SSH client and server
 virtual/szip 2.1: Virtual for szip compression drop-in replacements

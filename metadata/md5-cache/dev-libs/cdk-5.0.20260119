@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-thomasdickey ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install unpack
+DEPEND=sys-libs/ncurses:=[unicode(+)?]
+DESCRIPTION=A library of curses widgets
+EAPI=8
+HOMEPAGE=https://dickey.his.com/cdk/cdk.html https://github.com/ThomasDickey/cdk-snapshots
+INHERIT=verify-sig
+IUSE=examples unicode verify-sig
+KEYWORDS=~alpha ~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=MIT GPL-3
+RDEPEND=sys-libs/ncurses:=[unicode(+)?]
+SLOT=0/6.3.5
+SRC_URI=https://invisible-island.net/archives/cdk/cdk-5.0-20260119.tgz verify-sig? ( https://invisible-island.net/archives/cdk/cdk-5.0-20260119.tgz.asc )
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=6361f20548efe1794b4954f9e94edfe2
