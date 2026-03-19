@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ SRC_URI="
 
 LICENSE="|| ( GPL-2 GPL-3 ) LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~hppa ~loong ~sparc ~x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~amd64 ~arm64 ~hppa ~loong ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="cairo doc icu java jpeg +libdeflate lto minimal nls openmp perl png prefix profile readline test tiff tk X"
 
 REQUIRED_USE="
@@ -34,6 +34,7 @@ DEPEND="
 	app-arch/bzip2
 	app-arch/xz-utils
 	app-text/ghostscript-gpl
+	app-arch/zstd:=
 	dev-libs/libpcre2:=
 	>=dev-libs/tre-0.8.0_p20210321[approx]
 	net-misc/curl
@@ -54,7 +55,10 @@ DEPEND="
 	png? ( media-libs/libpng:= )
 	readline? ( sys-libs/readline:= )
 	tiff? ( media-libs/tiff:= )
-	tk? ( dev-lang/tk:= )
+	tk? (
+		dev-lang/tcl:=
+		dev-lang/tk:=
+	)
 	X? (
 		x11-libs/libX11
 		x11-libs/libXmu
@@ -210,9 +214,17 @@ src_install() {
 		pushd "${ED}"/usr/$(get_libdir)/R >/dev/null || die
 		for mod in $(find . -name "*.dylib") ; do
 			mod=${mod#./}
-			install_name_tool -id "${EPREFIX}/usr/$(get_libdir)/R/${mod}" "${mod}"
+			install_name_tool \
+				-id "${EPREFIX}/usr/$(get_libdir)/R/${mod}" \
+				"${mod}" || die
 		done
 		popd >/dev/null || die
+		# 911553
+		if [[ -f "${ED}/usr/$(get_libdir)/libRmath.dylib" ]] ; then
+			install_name_tool \
+				-id "${EPREFIX}/usr/$(get_libdir)/libRmath.dylib" \
+				"${ED}/usr/$(get_libdir)/libRmath.dylib" || die
+		fi
 	fi
 
 	# Users are encouraged to access some of the the R documentation
