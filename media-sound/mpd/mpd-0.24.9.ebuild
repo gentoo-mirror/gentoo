@@ -1,9 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit flag-o-matic linux-info meson systemd xdg
+PYTHON_COMPAT=( python3_{11..14} )
+inherit eapi9-ver flag-o-matic linux-info meson python-any-r1 systemd xdg
 
 DESCRIPTION="The Music Player Daemon (mpd)"
 HOMEPAGE="https://www.musicpd.org https://github.com/MusicPlayerDaemon/MPD"
@@ -11,19 +12,19 @@ SRC_URI="https://www.musicpd.org/download/${PN}/$(ver_cut 1-2)/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 ~riscv x86"
-IUSE="+alsa ao +audiofile bzip2 cdio chromaprint +curl doc +dbus
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+IUSE="+alsa ao audiofile bzip2 cdio chromaprint +curl doc +dbus
 	+eventfd expat faad +ffmpeg flac fluidsynth gme httpd +icu +id3tag +inotify
-	+io-uring jack lame libmpdclient libsamplerate libsoxr +mad mikmod mms
+	+io-uring jack lame libmpdclient libsamplerate libsoxr mad mikmod mms
 	modplug +mpg123 musepack nfs openal openmpt opus oss pipewire pulseaudio qobuz
 	recorder samba selinux shout sid signalfd snapcast sndfile sndio sqlite
-	systemd test tremor twolame upnp vorbis wavpack webdav wildmidi
+	systemd test tremor twolame upnp vorbis wav wavpack webdav wildmidi
 	zeroconf zip zlib"
 
 OUTPUT_PLUGINS="alsa ao jack httpd openal oss pipewire pulseaudio shout snapcast sndio recorder"
 DECODER_PLUGINS="audiofile faad ffmpeg flac fluidsynth mad mikmod
 	modplug mpg123 musepack opus openmpt flac sid tremor vorbis wavpack wildmidi"
-ENCODER_PLUGINS="audiofile flac lame twolame vorbis"
+ENCODER_PLUGINS="flac lame opus twolame vorbis wav"
 
 REQUIRED_USE="
 	|| ( ${OUTPUT_PLUGINS} )
@@ -32,6 +33,7 @@ REQUIRED_USE="
 	httpd? ( || ( ${ENCODER_PLUGINS} ) )
 	recorder? ( || ( ${ENCODER_PLUGINS} ) )
 	shout? ( || ( ${ENCODER_PLUGINS} ) )
+	snapcast? ( wav )
 	qobuz? ( curl )
 	upnp? ( curl expat )
 	webdav? ( curl expat )
@@ -61,10 +63,6 @@ RDEPEND="
 	chromaprint? ( media-libs/chromaprint:= )
 	curl? ( net-misc/curl )
 	dbus? ( sys-apps/dbus )
-	doc? (
-		dev-python/sphinx
-		dev-python/sphinx-rtd-theme
-	)
 	expat? ( dev-libs/expat )
 	faad? ( media-libs/faad2 )
 	ffmpeg? ( media-video/ffmpeg:= )
@@ -117,7 +115,7 @@ RDEPEND="
 		media-libs/libogg
 		media-libs/tremor
 	)
-	upnp? ( net-libs/libupnp:= )
+	upnp? ( <net-libs/libupnp-1.18.0 )
 	vorbis? (
 		media-libs/libogg
 		media-libs/libvorbis
@@ -134,9 +132,30 @@ DEPEND="
 	snapcast? ( >=dev-cpp/nlohmann_json-3.11.3 )
 	test? ( dev-cpp/gtest )
 "
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	doc? (
+		$(python_gen_any_dep '
+			dev-python/sphinx[${PYTHON_USEDEP}]
+			dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]
+		')
+	)
+	virtual/pkgconfig
+"
+
+PATCHES=(
+	# PR merged
+	"${FILESDIR}"/${P}-upnp_abi.patch
+)
+
+python_check_deps() {
+	use doc || return 0
+	python_has_version "dev-python/sphinx[${PYTHON_USEDEP}]" &&
+	python_has_version "dev-python/sphinx-rtd-theme[${PYTHON_USEDEP}]"
+}
 
 pkg_setup() {
+	use doc && python_setup
+
 	if use eventfd; then
 		CONFIG_CHECK+=" ~EVENTFD"
 		ERROR_EVENTFD="${P} requires eventfd in-kernel support."
@@ -224,6 +243,7 @@ src_configure() {
 		-Dupnp=$(usex upnp pupnp disabled)
 		$(meson_feature tremor)
 		$(meson_feature vorbis)
+		$(meson_use wav wave_encoder)
 		$(meson_feature wavpack)
 		$(meson_feature wildmidi)
 		$(meson_feature webdav)
@@ -260,7 +280,6 @@ src_configure() {
 			$(meson_feature lame)
 			$(meson_feature twolame)
 			$(meson_feature vorbis vorbisenc)
-			$(meson_use audiofile wave_encoder)
 		)
 	else
 		# avoid links even w/o encoder
@@ -285,7 +304,7 @@ src_install() {
 		local HTML_DOCS=( "${BUILD_DIR}"/doc/html/. )
 	else
 		newman "${FILESDIR}"/${PN}.1-0.24.2 ${PN}.1
-		newman "${FILESDIR}"/${PN}.conf.5-0.24.2 ${PN}.conf.5
+		newman "${FILESDIR}"/${PN}.conf.5-0.24.9 ${PN}.conf.5
 	fi
 
 	meson_src_install
@@ -296,7 +315,6 @@ src_install() {
 	# When running MPD as system service, better switch to the user we provide
 	sed -i \
 		-e 's:^#user.*$:user "mpd":' \
-		-e 's:^#group.*$:group "audio":' \
 		"${ED}/etc/mpd.conf" || die
 
 	if ! use systemd; then
@@ -311,7 +329,7 @@ src_install() {
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/${PN}-0.23.15.logrotate" "${PN}"
 
-	newinitd "${FILESDIR}/${PN}-0.24.2.init" "${PN}"
+	newinitd "${FILESDIR}/${PN}-0.24.8.init" "${PN}"
 
 	keepdir /var/lib/mpd
 	keepdir /var/lib/mpd/music
@@ -322,4 +340,15 @@ src_install() {
 
 	fowners mpd:audio -R /var/lib/mpd
 	fowners mpd:audio -R /var/log/mpd
+}
+
+pkg_postinst() {
+	xdg_pkg_postinst
+
+	if ver_replacing -lt 0.24.8-r1; then
+		ewarn "The 'group' parameter is no longer used by default, because it"
+		ewarn "overrides the group(s) defined in the user database."
+		ewarn "Since the user 'mpd' is already part of the 'audio' group, please"
+		ewarn "consider removing 'group' parameter in ${EROOT}/etc/mpd.conf ."
+	fi
 }

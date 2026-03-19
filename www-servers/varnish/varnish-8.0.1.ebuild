@@ -9,7 +9,7 @@ inherit autotools systemd python-r1
 
 DESCRIPTION="Varnish is a state-of-the-art, high-performance HTTP accelerator"
 HOMEPAGE="https://vinyl-cache.org/"
-SRC_URI="https://vinyl-cache.org/_downloads/${P}.tgz"
+SRC_URI="https://vinyl-cache.org/downloads/${P}.tgz"
 
 LICENSE="BSD-2 GPL-2"
 SLOT="0/2"
