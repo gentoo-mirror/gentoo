@@ -19,6 +19,9 @@ HOMEPAGE="
 
 LICENSE="LGPL-3+"
 SLOT="2"
+if [[ ${PV} != *_[ab]* ]]; then
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
+fi
 
 DEPEND="
 	>=dev-libs/mpc-1.0.2:=
