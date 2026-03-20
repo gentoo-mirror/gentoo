@@ -1388,10 +1388,10 @@ app-containers/earthly 0.8.16: Build automation tool that executes in containers
 app-containers/flannel 0.26.3: An etcd backed network fabric for containers
 app-containers/grype 0.59.1 0.61.0 0.72.0 0.73.0 0.79.3 0.86.1: A vulnerability scanner for container images and filesystems
 app-containers/img 0.5.11: Standalone daemon-less unprivileged Dockerfile and OCI container image builder
-app-containers/incus 6.0.5 6.0.5-r1 6.0.6 6.21 6.22 9999: Modern, secure and powerful system container and virtual machine manager
+app-containers/incus 6.0.5-r1 6.0.6 6.21 6.22 9999: Modern, secure and powerful system container and virtual machine manager
 app-containers/k3d 5.8.3: k3d creates k3s clusters in docker
 app-containers/kompose 1.35.0: Tool to move from docker-compose to Kubernetes
-app-containers/lxc 5.0.3 6.0.3 6.0.4-r1 6.0.5 6.0.6: A userspace interface for the Linux kernel containment features
+app-containers/lxc 5.0.3 6.0.5 6.0.6: A userspace interface for the Linux kernel containment features
 app-containers/lxc-templates 3.0.4_p20240917: Old style template scripts for LXC
 app-containers/lxd 5.21.1-r1 5.21.4 6.3 6.5: Modern, secure and powerful system container and virtual machine manager
 app-containers/nerdctl 2.0.2 2.0.3 2.2.1: Docker-compatible CLI for containerd, with support for Compose
@@ -5375,7 +5375,7 @@ dev-libs/clog 2023.11.04: C-style (a-la printf) logging library
 dev-libs/collada-dom 2.5.0-r2 2.5.0-r3: COLLADA Document Object Model (DOM) C++ Library
 dev-libs/concurrencykit 0.7.2-r1: A library with concurrency related algorithms and data structures in C
 dev-libs/confuse 3.3-r3: a configuration file parser library
-dev-libs/cowsql 1.15.8 1.15.9: Embeddable, replicated and fault tolerant SQL engine (fork of dqlite)
+dev-libs/cowsql 1.15.9: Embeddable, replicated and fault tolerant SQL engine (fork of dqlite)
 dev-libs/cpuinfo 2025.03.21 2025.11.14: CPU INFOrmation library
 dev-libs/crc32c 1.1.2-r2: CRC32C implementation with support for CPU-specific acceleration instructions
 dev-libs/criterion 2.4.1-r1 2.4.3: Cross platform unit testing framework for C and C++
@@ -5751,8 +5751,8 @@ dev-libs/nng 1.10.1 1.11: Light-weight brokerless messaging
 dev-libs/npth 1.7-r1 1.8: New GNU Portable Threads Library
 dev-libs/nsgenbind 0.9: Generate Javascript-to-DOM bindings from w3c webidl files
 dev-libs/nspr 4.36 4.37 4.38 4.38.2: Netscape Portable Runtime
-dev-libs/nss 3.112.2 3.112.3 3.119 3.120 3.120.1 3.121: Mozilla's Network Security Services library that implements PKI support
-dev-libs/nss-pem 1.1.0 1.1.1: PEM file reader for Network Security Services (NSS)
+dev-libs/nss 3.112.3 3.121: Mozilla's Network Security Services library that implements PKI support
+dev-libs/nss-pem 1.1.1: PEM file reader for Network Security Services (NSS)
 dev-libs/nsync 1.25.0 1.26.0: C library that exports various synchronization primitives, such as mutexes
 dev-libs/ntl 11.5.1-r4 11.6.0: High-performance and portable C++ number theory library
 dev-libs/nwjs 0.108.0: Framework that lets you call all Node.js modules directly from the DOM
@@ -10829,7 +10829,7 @@ dev-util/cargo-tarpaulin 0.35.0 0.35.1: Cargo-Tarpaulin is a tool to determine c
 dev-util/cargo-vendor-filterer 0.5.18: Tool to 'cargo vendor' with filtering
 dev-util/catalyst 4.1.0 4.1.1 9999: Release metatool used for creating releases based on Gentoo Linux
 dev-util/catfish 4.20.0 4.20.1-r1: A frontend for find, (s)locate, doodle, tracker, beagle, strigi and pinot
-dev-util/cbindgen 0.29.0 0.29.2: A tool for generating C bindings to Rust code
+dev-util/cbindgen 0.29.2: A tool for generating C bindings to Rust code
 dev-util/ccache 4.11.3 4.12.3 4.13: Fast compiler cache
 dev-util/cccc 3.1.6-r1 3.2.0: Source metrics (line counts, complexity, etc) for Java and C++
 dev-util/ccls 0.20241108-r1 0.20250815 0.20250815.1 9999: C/C++/ObjC language server
@@ -10996,7 +10996,7 @@ dev-util/kup 0.3.6-r2 0.3.6-r4 0.3.6-r5 0.3.6-r6: kernel.org uploader tool
 dev-util/kyua 0.13-r3 0.14 0.14.1: Testing framework for infrastructure software
 dev-util/lcov 2.0-r3 2.0-r4 2.3-r1 2.3.1-r1 2.3.2 2.4 9999: A graphical front-end for GCC's coverage testing tool gcov
 dev-util/libabigail 2.8 2.9 9999: Suite of tools for checking ABI differences between ELF objects
-dev-util/librnp 0.17.1-r2 0.18.0 0.18.1: High performance C++ OpenPGP library
+dev-util/librnp 0.18.1: High performance C++ OpenPGP library
 dev-util/libtree 3.1.1: ldd as a tree with an option to bundle dependencies into a single folder
 dev-util/linklint 2.3.5: A Perl program that checks links on web sites
 dev-util/llvm-mingw64 12.0.0 13.0.0 13.0.0-r1 13.0.0-r2 13.0.0-r3 13.0.0-r4: Clang/LLVM based mingw64 toolchain
@@ -12691,8 +12691,8 @@ mail-client/mutt-wizard 3.3.1 9999: A system for automatically configuring neomu
 mail-client/neomutt 20240201 20250510 20251211-r1 20260105 99999999: A small but very powerful text-based mail client
 mail-client/roundcube 1.6.11 1.6.14 1.7_rc5 9999: Browser-based multilingual IMAP client with an application-like user interface
 mail-client/s-nail 14.9.24 14.9.25: Enhanced mailx-compatible mail client based on Heirloom mailx (nail)
-mail-client/thunderbird 140.7.2 140.8.0 140.8.1 147.0.2 148.0 148.0.1: Thunderbird Mail Client
-mail-client/thunderbird-bin 140.7.2 140.8.0 140.8.1 147.0.2 148.0 148.0.1: Thunderbird Mail Client
+mail-client/thunderbird 140.8.1 148.0.1: Thunderbird Mail Client
+mail-client/thunderbird-bin 140.8.1 148.0.1: Thunderbird Mail Client
 mail-filter/MailScanner 4.84.5.2: Free Anti-Virus and Anti-Spam Filter
 mail-filter/amavisd-milter 1.7.2-r1: sendmail milter for amavisd-new
 mail-filter/amavisd-new 2.13.1 2.14.0: High-performance interface between the MTA and content checkers
@@ -14161,7 +14161,7 @@ media-sound/musique 1.12.1_p20240628: Qt music player
 media-sound/ncmpc 0.51 0.52: Ncurses client for the Music Player Daemon (MPD)
 media-sound/ncmpcpp 0.10.1-r1 9999: Featureful ncurses based MPD client inspired by ncmpc
 media-sound/ncpamixer 1.3.8: ncurses PulseAudio Mixer
-media-sound/ncspot 1.3.2 1.3.3: ncurses Spotify client written in Rust using librespot
+media-sound/ncspot 1.3.3: ncurses Spotify client written in Rust using librespot
 media-sound/nickvision-tagger 2024.6.0: An easy-to-use music tag (metadata) editor
 media-sound/normalize 0.7.7-r1 0.7.7-r2: Audio file volume normalizer
 media-sound/ogg2mp3 0.6.1-r1: Perl script to convert Ogg Vorbis files to MP3 files
@@ -14212,7 +14212,7 @@ media-sound/rawrec 0.9.991: CLI program to play and record audiofiles
 media-sound/rcenter 0.6.2-r1: Rcenter - A program to control the EMU10K Remote Control
 media-sound/reaper-bin 7.61: Digital audio workstation
 media-sound/redoflacs 1.1.0: Bash commandline flac compressor, verifier, organizer, analyzer, retagger
-media-sound/rescrobbled 0.7.2 0.8.0: MPRIS music scrobbler daemon
+media-sound/rescrobbled 0.8.0: MPRIS music scrobbler daemon
 media-sound/rexima 1.4-r2: A curses-based interactive mixer which can also be used from the command-line
 media-sound/rhythmbox 3.4.8-r2 3.4.9: Music management and playback software for GNOME
 media-sound/rip 1.07-r3: Command-line based audio CD ripper and mp3 encoder
@@ -14453,7 +14453,7 @@ media-video/x264-encoder 0.0.20240513-r1 9999: A free commandline encoder for X2
 media-video/xine-ui 0.99.13-r1 0.99.14: Xine movie player
 media-video/xvattr 1.3-r4: X11 XVideo Querying/Setting Tool from Ogle project
 media-video/xvid4conf 1.12-r1: GTK2-configuration dialog for xvid4
-media-video/yle-dl 20250614 20250730: Download media files from Yle Areena
+media-video/yle-dl 20250730: Download media files from Yle Areena
 net-analyzer/2ping 4.5.1-r1: A bi-directional ping utility
 net-analyzer/alive 2.0.5-r100: Periodic ping program
 net-analyzer/apinger 0.6.1: Alarm Pinger
@@ -15706,7 +15706,7 @@ net-vpn/strongswan 6.0.3 6.0.4: IPsec-based VPN solution, supporting IKEv1/IKEv2
 net-vpn/tailscale 1.82.5 1.84.3 1.86.5 1.90.6 1.92.1 1.92.4: Tailscale vpn client
 net-vpn/tinc 1.0.36-r1 1.1_pre18-r2: tinc is an easy to configure VPN implementation
 net-vpn/tor 0.4.8.22 0.4.9.5 0.4.9.5-r1 9999: Anonymizing overlay network for TCP
-net-vpn/vopono 0.10.13 0.10.14 0.10.15: Launch applications via VPN tunnels using temporary network namespaces
+net-vpn/vopono 0.10.15: Launch applications via VPN tunnels using temporary network namespaces
 net-vpn/vpnc 0.5.3_p20240129 9999: IPsec (Cisco/Juniper) VPN concentrator client
 net-vpn/vpnc-scripts 20220510 99999999: Connect scripts for use with vpnc and openconnect (and similar clients)
 net-vpn/vpncloud 2.3.0-r2: High performance peer-to-peer mesh VPN
@@ -17748,7 +17748,7 @@ sys-fs/lsscsi 0.32-r1: SCSI sysfs query tool
 sys-fs/lufis 0.3-r1: Wrapper to use lufs modules with fuse kernel support
 sys-fs/lufs 0.9.7-r4: User-mode filesystem implementation
 sys-fs/lvm2 2.03.22-r7 2.03.37 2.03.38 9999: User-land utilities for LVM2 (device-mapper) software
-sys-fs/lxcfs 5.0.4-r2 6.0.4 6.0.5 6.0.6: FUSE filesystem for LXC
+sys-fs/lxcfs 5.0.4-r2 6.0.5 6.0.6: FUSE filesystem for LXC
 sys-fs/mac-fdisk 0.1_p18-r1 0.1_p18-r2: Mac/PowerMac disk partitioning utility
 sys-fs/mdadm 4.4-r1 4.5-r1: Tool for running RAID systems - replacement for the raidtools
 sys-fs/mergerfs 2.40.2 2.41.1: A featureful union filesystem
@@ -18272,7 +18272,7 @@ www-client/elinks 0.18.0 0.19.0 0.19.1 9999: Advanced and well-established text-
 www-client/epiphany 48.5 49.3: GNOME webbrowser based on Webkit
 www-client/falkon 25.12.2 25.12.3: Cross-platform web browser using QtWebEngine
 www-client/fetch 1.0-r4: HTTP download tool built atop the HTTP fetcher library
-www-client/firefox 140.6.0 140.7.0 140.7.1 140.8.0 146.0 146.0.1 147.0 147.0.1 147.0.2 147.0.3 147.0.4 148.0 148.0.2: Firefox Web Browser
+www-client/firefox 140.8.0 148.0.2: Firefox Web Browser
 www-client/firefox-bin 140.7.1 140.8.0 147.0.4 148.0 148.0.2: Firefox Web Browser
 www-client/google-chrome 146.0.7680.80: The web browser from Google
 www-client/google-chrome-beta 147.0.7727.3: The web browser from Google
