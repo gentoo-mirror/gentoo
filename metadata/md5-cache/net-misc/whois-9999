@@ -1,14 +1,14 @@
-BDEPEND=app-arch/xz-utils >=dev-lang/perl-5 virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-lang/perl-5 virtual/pkgconfig nls? ( sys-devel/gettext ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare unpack
-DEPEND=iconv? ( virtual/libiconv ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) xcrypt? ( >=sys-libs/libxcrypt-4.1:= ) !xcrypt? ( virtual/libcrypt:= )
+DEPEND=virtual/libcrypt:= iconv? ( virtual/libiconv ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl )
 DESCRIPTION=Improved Whois Client
 EAPI=8
 HOMEPAGE=https://github.com/rfc1036/whois
 INHERIT=bash-completion-r1 toolchain-funcs git-r3
-IUSE=iconv idn nls xcrypt
+IUSE=iconv idn nls
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=iconv? ( virtual/libiconv ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) xcrypt? ( >=sys-libs/libxcrypt-4.1:= ) !xcrypt? ( virtual/libcrypt:= )
+RDEPEND=virtual/libcrypt:= iconv? ( virtual/libiconv ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl )
 SLOT=0
 _eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	bash-completion-r1	9e91505e030725688d1e953321a47501	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=1637514ad60dac2679279cf0ebef94c1
+_md5_=2213ce82dd018a3e8c929bb4f0060c28
