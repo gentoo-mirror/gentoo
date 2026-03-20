@@ -5,6 +5,7 @@ EAPI=8
 
 LUA_COMPAT=( lua5-1 luajit )
 PYTHON_COMPAT=( python3_{11..14} )
+RUST_MIN_VER="1.63.0"
 
 inherit autotools flag-o-matic linux-info lua-single python-single-r1 rust systemd tmpfiles verify-sig
 
@@ -39,7 +40,7 @@ RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 	')
-	>=net-libs/libhtp-0.5.48
+	>=net-libs/libhtp-0.5.53
 	net-libs/libpcap
 	sys-apps/file
 	sys-libs/libcap-ng
@@ -56,7 +57,7 @@ RDEPEND="${PYTHON_DEPS}
 DEPEND="${RDEPEND}
 	>=dev-build/autoconf-2.69-r5
 "
-BDEPEND="verify-sig? ( >=sec-keys/openpgp-keys-oisf-20200807 )"
+BDEPEND="verify-sig? ( >=sec-keys/openpgp-keys-oisf-20260319 )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-5.0.1_configure-no-lz4-automagic.patch"
@@ -64,7 +65,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-6.0.0_default-config.patch"
 	"${FILESDIR}/${PN}-7.0.2_configure-no-sphinx-pdflatex-automagic.patch"
 	"${FILESDIR}/${PN}-7.0.5_configure-fortify_source.patch"
-	"${FILESDIR}/${PN}-7.0.5-cbindgen-0.27.patch"
 )
 
 pkg_pretend() {
