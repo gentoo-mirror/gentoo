@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: autotools.eclass
@@ -72,7 +72,7 @@ inherit gnuconfig libtool
 # Do NOT change this variable in your ebuilds!
 # If you want to force a newer minor version, you can specify the correct
 # WANT value by using a colon:  <PV>:<WANT_AUTOCONF>
-_LATEST_AUTOCONF=( 2.72-r1:2.72 )
+_LATEST_AUTOCONF=( 2.73:2.73 2.72-r1:2.72 )
 
 # @ECLASS_VARIABLE: _LATEST_AUTOMAKE
 # @INTERNAL
@@ -93,7 +93,7 @@ _LATEST_AUTOCONF=( 2.72-r1:2.72 )
 # Do NOT change this variable in your ebuilds!
 # If you want to force a newer minor version, you can specify the correct
 # WANT value by using a colon:  <PV>:<WANT_AUTOMAKE>
-_LATEST_AUTOMAKE=( 1.18:1.18 1.17-r1:1.17 )
+_LATEST_AUTOMAKE=( 1.18.1:1.18 )
 
 _automake_atom="dev-build/automake"
 _autoconf_atom="dev-build/autoconf"
