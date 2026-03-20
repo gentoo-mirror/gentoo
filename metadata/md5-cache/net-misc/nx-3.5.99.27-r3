@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig x11-misc/gccmakedep x11-misc/imake sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+BDEPEND=virtual/pkgconfig x11-misc/gccmakedep x11-misc/imake sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare
 DEPEND=dev-libs/libxml2:= media-libs/libjpeg-turbo:* >=media-libs/libpng-1.2.8:0= >=virtual/zlib-1.2.3:= x11-apps/xkbcomp x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXdmcp x11-libs/libXext x11-libs/libXfixes x11-libs/libXfont2 x11-libs/libXinerama x11-libs/libXpm x11-libs/libXrandr x11-libs/libXrender x11-libs/libXtst x11-libs/pixman x11-base/xorg-proto x11-libs/libfontenc
 DESCRIPTION=NX compression technology core libraries
@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RDEPEND=dev-libs/libxml2:= media-libs/libjpeg-turbo:* >=media-libs/libpng-1.2.8:0= >=virtual/zlib-1.2.3:= x11-apps/xkbcomp x11-libs/libX11 x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXdmcp x11-libs/libXext x11-libs/libXfixes x11-libs/libXfont2 x11-libs/libXinerama x11-libs/libXpm x11-libs/libXrandr x11-libs/libXrender x11-libs/libXtst x11-libs/pixman
 SLOT=0
 SRC_URI=https://github.com/ArcticaProject/nx-libs/archive/3.5.99.27.tar.gz -> nx-libs-3.5.99.27.tar.gz
-_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	flag-o-matic	fd3558f73f6503093adee69adf41020d
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	flag-o-matic	fd3558f73f6503093adee69adf41020d
 _md5_=12a3299b350ddcb16f7a6f32bad13d8f

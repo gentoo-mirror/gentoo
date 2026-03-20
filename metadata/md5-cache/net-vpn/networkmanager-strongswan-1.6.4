@@ -1,4 +1,4 @@
-BDEPEND=dev-util/intltool virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-networkmanager-strongswan ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=dev-util/intltool virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-networkmanager-strongswan ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=configure install prepare unpack
 DEPEND=app-crypt/libsecret >=net-libs/libnma-1.1.0 net-misc/networkmanager >=net-vpn/strongswan-5.8.3[networkmanager] !gtk4? ( x11-libs/gtk+:3 ) gtk4? ( net-libs/libnma gui-libs/gtk:4 )
 DESCRIPTION=NetworkManager StrongSwan plugin
@@ -11,5 +11,5 @@ LICENSE=GPL-2+
 RDEPEND=app-crypt/libsecret >=net-libs/libnma-1.1.0 net-misc/networkmanager >=net-vpn/strongswan-5.8.3[networkmanager] !gtk4? ( x11-libs/gtk+:3 ) gtk4? ( net-libs/libnma gui-libs/gtk:4 )
 SLOT=0
 SRC_URI=https://download.strongswan.org/NetworkManager/NetworkManager-strongswan-1.6.4.tar.bz2 verify-sig? ( https://download.strongswan.org/NetworkManager/NetworkManager-strongswan-1.6.4.tar.bz2.sig )
-_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
 _md5_=803101686f57ec1e671675b8f66c0861

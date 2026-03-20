@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils virtual/pkgconfig nls? ( >=app-text/po4a-0.45 sys-devel/gettext virtual/libiconv virtual/libintl ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-arch/xz-utils virtual/pkgconfig nls? ( >=app-text/po4a-0.45 sys-devel/gettext virtual/libiconv virtual/libintl ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst preinst prepare unpack
 DEPEND=>=dev-libs/libpipeline-1.5.0 >=sys-apps/groff-1.20.0 sys-libs/gdbm:= seccomp? ( sys-libs/libseccomp ) zlib? ( virtual/zlib:= )
 DESCRIPTION=A man replacement that utilizes dbm instead of flat files
@@ -11,5 +11,5 @@ PDEPEND=manpager? ( app-text/manpager )
 PROPERTIES=live
 RDEPEND=>=dev-libs/libpipeline-1.5.0 >=sys-apps/groff-1.20.0 sys-libs/gdbm:= seccomp? ( sys-libs/libseccomp ) zlib? ( virtual/zlib:= ) acct-group/man acct-user/man selinux? ( sec-policy/selinux-mandb ) virtual/tmpfiles
 SLOT=0
-_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	systemd	a964c0cbe818b5729da1dbfcee5be861	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
+_eclasses_=toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	systemd	a964c0cbe818b5729da1dbfcee5be861	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	tmpfiles	9a9814db5a3fbd4f1e921c05297e7735	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
 _md5_=8a68bee493135957278100f51f1ef29b

@@ -1,4 +1,4 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18:1.18 >=dev-build/automake-1.17-r1:1.17 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl] sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=x11-misc/util-macros-1.18 >=media-fonts/font-util-1.2.0 virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
 DEPEND=x11-libs/libX11 x11-libs/libXrandr x11-base/xorg-proto
 DESCRIPTION=Tool to determine whether the X server in use is Xwayland
@@ -9,5 +9,5 @@ LICENSE=MIT
 PROPERTIES=live
 RDEPEND=x11-libs/libX11 x11-libs/libXrandr
 SLOT=0
-_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	3a740b2e55e60a60e8c0c411f3996dfa	multilib	404b65bd5212cff83b3935c685419d08	flag-o-matic	fd3558f73f6503093adee69adf41020d	git-r3	7b584b5dc33e3bc66ff5b9271bf41764	xorg-3	94f60a83e0ddddb4b1d3a3882fae4ec3	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	cfead8a5a62527583e4f5ffb82aae2fb	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	76c5dcd585ba0bb875a92ce2ce5ad9f5
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	da0a71e3a72194ca0b88d5b045d721ac	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	multilib	404b65bd5212cff83b3935c685419d08	flag-o-matic	fd3558f73f6503093adee69adf41020d	git-r3	7b584b5dc33e3bc66ff5b9271bf41764	xorg-3	94f60a83e0ddddb4b1d3a3882fae4ec3	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	cfead8a5a62527583e4f5ffb82aae2fb	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	76c5dcd585ba0bb875a92ce2ce5ad9f5
 _md5_=e889d7b6c508f861923ee9dce47604c0
