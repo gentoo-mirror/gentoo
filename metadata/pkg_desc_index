@@ -924,7 +924,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.764.0 1.2.779.0 1.2.792.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.44.24 1.44.29 1.44.34 1.44.39 1.44.44 1.44.49 1.44.53 1.44.58 1.44.59 1.44.60 1.44.61 1.44.62: Universal Command Line Environment for AWS
+app-admin/awscli 1.44.24 1.44.29 1.44.34 1.44.39 1.44.44 1.44.49 1.44.53 1.44.58 1.44.59 1.44.60 1.44.61 1.44.62 1.44.63: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37 2.33.21: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.12.0 2026.1.0: Bitwarden password manager desktop client
@@ -8179,7 +8179,7 @@ dev-python/asttokens 3.0.0-r1 3.0.1: Annotate Python AST trees with source text 
 dev-python/async-lru 2.1.0 2.2.0 2.3.0: Simple lru_cache for asyncio
 dev-python/async-timeout 4.0.3 5.0.1: Timeout context manager for asyncio programs
 dev-python/asyncssh 2.21.1 2.22.0: Asynchronous SSHv2 client and server library
-dev-python/asyncstdlib 3.13.1 3.13.3: The missing async toolbox
+dev-python/asyncstdlib 3.13.3 3.14.0: The missing async toolbox
 dev-python/atomicwrites 1.4.1: Atomic file writes
 dev-python/atpublic 6.0.2 7.0.0: A decorator to populate __all__ and the module globals
 dev-python/attrs 25.4.0 26.1.0: Attributes without boilerplate
@@ -8232,8 +8232,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.42.34 1.42.39 1.42.44 1.42.49 1.42.54 1.42.59 1.42.63 1.42.68 1.42.69 1.42.70 1.42.71 1.42.72: The AWS SDK for Python
-dev-python/botocore 1.42.34 1.42.39 1.42.44 1.42.49 1.42.54 1.42.59 1.42.63 1.42.68 1.42.69 1.42.70 1.42.71 1.42.72: Low-level, data-driven core of boto 3
+dev-python/boto3 1.42.34 1.42.39 1.42.44 1.42.49 1.42.54 1.42.59 1.42.63 1.42.68 1.42.69 1.42.70 1.42.71 1.42.72 1.42.73: The AWS SDK for Python
+dev-python/botocore 1.42.34 1.42.39 1.42.44 1.42.49 1.42.54 1.42.59 1.42.63 1.42.68 1.42.69 1.42.70 1.42.71 1.42.72 1.42.73: Low-level, data-driven core of boto 3
 dev-python/bottle 0.12.25-r1 0.13.3 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.5.0 1.6.0_rc1 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.25 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8608,7 +8608,7 @@ dev-python/imapclient 3.0.1 3.1.0: easy-to-use, pythonic, and complete IMAP clie
 dev-python/iminuit 2.32.0: Minuit numerical function minimization in Python
 dev-python/immutabledict 4.2.2 4.3.0 4.3.1: An immutable wrapper around dictionaries
 dev-python/immutables 0.21: A high-performance immutable mapping type for Python
-dev-python/importlib-metadata 8.7.1 8.8.0: Read metadata from Python packages
+dev-python/importlib-metadata 8.7.1 8.8.0 8.9.0 9.0.0: Read metadata from Python packages
 dev-python/importlib-resources 6.5.2: Read resources from Python packages
 dev-python/incremental 24.7.2 24.11.0: Incremental is a small library that versions your Python projects
 dev-python/indexed-gzip 1.10.1 1.10.3: Fast random access of gzip files in Python
@@ -8647,7 +8647,7 @@ dev-python/jack-client 0.5.5: JACK Audio Connection Kit client for Python
 dev-python/jaconv 0.4.1 0.5.0: Pure-Python Japanese character interconverter
 dev-python/jaraco-classes 3.4.0: Classes used by other projects by developer jaraco
 dev-python/jaraco-collections 5.2.1: Models and classes to supplement the stdlib collections module
-dev-python/jaraco-context 6.1.0 6.1.1: Context managers by jaraco
+dev-python/jaraco-context 6.1.0 6.1.1 6.1.2: Context managers by jaraco
 dev-python/jaraco-envs 2.6.0: Classes for orchestrating Python (virtual) environments
 dev-python/jaraco-functools 4.3.0 4.4.0: Additional functions used by other projects by developer jaraco
 dev-python/jaraco-itertools 6.4.3: Tools for working with iterables. Complements itertools and more_itertools
@@ -8681,7 +8681,7 @@ dev-python/jsonmerge 1.9.2: Merge a series of JSON documents
 dev-python/jsonpatch 1.33: Apply JSON-Patches like http://tools.ietf.org/html/draft-pbryan-json-patch-04
 dev-python/jsonpath-ng 1.7.0 1.8.0: Python JSONPath Next-Generation
 dev-python/jsonpickle 4.1.1: Python library for serializing any arbitrary object graph into JSON
-dev-python/jsonpointer 2.4 3.0.0: Identify specific nodes in a JSON document (according to draft 08)
+dev-python/jsonpointer 3.0.0 3.1.0: Identify specific nodes in a JSON document (according to draft 08)
 dev-python/jsonref 1.1.0: An implementation of JSON Reference for Python
 dev-python/jsonrpclib 0.4.3.2 9999: python implementation of the JSON-RPC spec (1.0 and 2.0)
 dev-python/jsonschema 4.24.0 4.25.1 4.26.0: An implementation of JSON-Schema validation for Python
@@ -8972,7 +8972,7 @@ dev-python/patiencediff 0.2.15 0.2.18: Python implementation of the patiencediff
 dev-python/patsy 1.0.1 1.0.1-r1 1.0.2: Python module to describe statistical models and design matrices
 dev-python/pbkdf2 1.3-r2: Implementation of PBKDF2, specified in RSA PKCS#5 v2.0
 dev-python/pbr 7.0.1 7.0.2 7.0.3: Inject some useful and sensible default behaviors into setuptools
-dev-python/pbs-installer 2025.12.17 2026.1.14 2026.1.27 2026.2.3 2026.2.11 2026.3.3 2026.3.10: Installer for Python Build Standalone
+dev-python/pbs-installer 2025.12.17 2026.1.14 2026.1.27 2026.2.3 2026.2.11 2026.3.3 2026.3.10 2026.3.20: Installer for Python Build Standalone
 dev-python/pdfrw 0.4_p1-r1: PDF file reader/writer library
 dev-python/pdm 2.26.4 2.26.6: Python package and dependency manager supporting the latest PEP standards
 dev-python/pdm-backend 2.4.6 2.4.7: A PEP 517 backend for PDM that supports PEP 621 metadata
@@ -8996,7 +8996,7 @@ dev-python/pika 1.3.2: Pure-Python implementation of the AMQP
 dev-python/pikepdf 10.0.2 10.0.3 10.1.0 10.2.0 10.3.0 10.5.0 10.5.1: Python library to work with pdf files based on qpdf
 dev-python/pillow 11.3.0 12.0.0 12.1.0 12.1.1: Python Imaging Library (fork)
 dev-python/pip 25.3 26.0 26.0.1: The PyPA recommended tool for installing Python packages
-dev-python/pipdeptree 2.23.4 2.29.0 2.30.0 2.31.0 2.32.0: Utility for displaying installed packages in a dependency tree
+dev-python/pipdeptree 2.23.4 2.29.0 2.30.0 2.31.0 2.32.0 2.33.0: Utility for displaying installed packages in a dependency tree
 dev-python/pipenv 2024.0.2-r1: Python Development Workflow for Humans
 dev-python/pipx 1.8.0 1.9.0: Install and Run Python Applications in Isolated Environments
 dev-python/pivy 0.6.10: Coin3D bindings for Python
@@ -9039,7 +9039,7 @@ dev-python/prometheus-client 0.23.1 0.24.0 0.24.1: Python client for the Prometh
 dev-python/prompt-toolkit 3.0.51 3.0.52: Building powerful interactive command lines in Python
 dev-python/propcache 0.3.2 0.4.0 0.4.1: Accelerated property cache
 dev-python/proto-plus 1.27.0 1.27.1: Beautiful, Pythonic protocol buffers
-dev-python/protobuf 5.29.5-r1 5.29.6 6.30.2-r1 6.30.2-r2 6.31.1 6.32.0 6.32.1-r1 6.33.2 6.33.3 6.33.4 6.33.5 6.33.6 7.34.0: Google's Protocol Buffers - Python bindings
+dev-python/protobuf 5.29.5-r1 5.29.6 6.30.2-r1 6.30.2-r2 6.31.1 6.32.0 6.32.1-r1 6.33.2 6.33.3 6.33.4 6.33.5 6.33.6 7.34.0 7.34.1: Google's Protocol Buffers - Python bindings
 dev-python/psutil 7.1.3 7.2.0 7.2.1 7.2.2: Retrieve information on running processes and system utilization
 dev-python/psycopg 2.9.11 3.3.2 3.3.3: PostgreSQL database adapter for Python
 dev-python/ptyprocess 0.7.0-r1: Run a subprocess in a pseudo terminal
@@ -9124,7 +9124,7 @@ dev-python/pygresql 6.2.0 6.2.1 6.2.2 6.2.3: A Python interface for the PostgreS
 dev-python/pyh2o 1-r1: Python API for sci-libs/libh2o
 dev-python/pyhamcrest 2.1.0: Hamcrest framework for matcher objects
 dev-python/pyhcl 0.4.5: HCL configuration parser for python
-dev-python/pyicu 2.16 2.16.1: Python bindings for dev-libs/icu
+dev-python/pyicu 2.16 2.16.1 2.16.2: Python bindings for dev-libs/icu
 dev-python/pyinotify 0.9.6-r1: Python module used for monitoring filesystems events
 dev-python/pyjsparser 2.7.1_p20190421-r3: Fast javascript parser based on esprima.js
 dev-python/pyjwt 2.10.1 2.11.0 2.12.0 2.12.1: JSON Web Token implementation in Python
@@ -9225,7 +9225,7 @@ dev-python/pytest 8.4.2 9.0.1 9.0.2: Simple powerful testing with Python
 dev-python/pytest-aiohttp 1.1.0: pytest plugin for aiohttp support
 dev-python/pytest-asyncio 0.26.0 1.1.0 1.1.1 1.2.0-r1 1.3.0: Library for testing asyncio code with pytest
 dev-python/pytest-bdd 8.1.0-r1: BDD library for the pytest runner
-dev-python/pytest-check 2.6.2 2.7.0 2.7.2 2.7.3 2.7.4 2.7.6: pytest plugin that allows multiple failures per test
+dev-python/pytest-check 2.6.2 2.7.0 2.7.2 2.7.3 2.7.4 2.7.6 2.7.7: pytest plugin that allows multiple failures per test
 dev-python/pytest-click 1.1.0: Pytest plugin for Click
 dev-python/pytest-codeblocks 0.17.0: Extract code blocks from markdown
 dev-python/pytest-console-scripts 1.4.1: Pytest plugin for testing console scripts
@@ -9546,7 +9546,7 @@ dev-python/speg 0.3_p20180819-r2: A PEG-based parser interpreter with memoizatio
 dev-python/sphinx 8.2.3-r2 9.0.4-r1 9.1.0: Python documentation generator
 dev-python/sphinx-argparse 0.5.2: Sphinx extension that automatically documents argparse commands and options
 dev-python/sphinx-autoapi 3.6.1 3.7.0 3.8.0: A new approach to API documentation in Sphinx
-dev-python/sphinx-autodoc-typehints 3.6.2 3.6.3 3.7.0 3.8.0 3.9.2 3.9.5 3.9.6 3.9.7 3.9.8: Type hints support for the Sphinx autodoc extension
+dev-python/sphinx-autodoc-typehints 3.6.2 3.6.3 3.7.0 3.8.0 3.9.2 3.9.5 3.9.6 3.9.7 3.9.8 3.9.9: Type hints support for the Sphinx autodoc extension
 dev-python/sphinx-basic-ng 1.0.0_beta2: A modern skeleton for Sphinx themes
 dev-python/sphinx-bootstrap-theme 0.8.1: Sphinx theme integrates the Bootstrap CSS / JavaScript framework
 dev-python/sphinx-celery 2.1.3: Celery Sphinx Theme and Utilities
@@ -9666,7 +9666,7 @@ dev-python/tinycss2 1.4.0 1.5.0 1.5.1: A complete yet simple CSS parser for Pyth
 dev-python/tinyhtml5 2.0.0 2.1.0: HTML parser based on the WHATWG HTML specification
 dev-python/tldextract 5.3.0 5.3.1: Accurately separate the TLD from the registered domain and subdomains of a URL
 dev-python/tokenize-rt 6.2.0: A wrapper around the stdlib 'tokenize' which roundtrips
-dev-python/toml-fmt-common 1.1.0 1.2.0 1.3.1: Common logic to the TOML formatter
+dev-python/toml-fmt-common 1.1.0 1.2.0 1.3.1 1.3.2: Common logic to the TOML formatter
 dev-python/tomli 2.3.0 2.4.0: A lil' TOML parser
 dev-python/tomli-w 1.2.0: A lil' TOML writer
 dev-python/tomlkit 0.13.3 0.14.0: Style preserving TOML library
@@ -9781,7 +9781,7 @@ dev-python/werkzeug 3.1.4 3.1.5 3.1.6: Collection of various utilities for WSGI 
 dev-python/whatever 0.7: Easy anonymous functions by partial application of operators
 dev-python/whatthepatch 1.0.7: A patch parsing and application library.
 dev-python/wheel 0.45.1 0.46.2 0.46.3: A built-package format for Python
-dev-python/whenever 0.9.5 0.10.0_alpha1: Modern datetime library for Python
+dev-python/whenever 0.9.5 0.10.0_alpha1 0.10.0_beta1: Modern datetime library for Python
 dev-python/whisper 1.1.10: Fixed size round-robin style database
 dev-python/whoosh 2.7.4-r2: Fast, pure-Python full text indexing, search and spell checking library
 dev-python/widgetsnbextension 4.0.14 4.0.14-r1 4.0.15: IPython HTML widgets for Jupyter
@@ -13067,7 +13067,7 @@ media-gfx/flam3 3.1.1-r1: Tools and a library for creating flame fractal images
 media-gfx/flameshot 13.1.0-r1 13.3.0: Powerful yet simple to use screenshot software
 media-gfx/fondu 20060102-r1: Utilities for converting between and manipulating mac fonts and unix fonts
 media-gfx/fontforge 20230101-r2: postscript font editor and converter
-media-gfx/fotema 2.4.0 2.4.1: Photo gallery for Linux
+media-gfx/fotema 2.4.1: Photo gallery for Linux
 media-gfx/fotocx 25.0 25.1 25.2 25.3 25.4 25.5 26.1 26.2: Program for improving image files made with a digital camera
 media-gfx/fotowall 1.0_p20241107: Qt tool for creating wallpapers
 media-gfx/freecad 1.0.2-r2 9999: Qt based Computer Aided Design application
@@ -19193,7 +19193,7 @@ x11-wm/openbox 3.6.1-r11 9999: Standards compliant, fast, light-weight, extensib
 x11-wm/oroborus 2.0.20-r2: Small and fast window manager
 x11-wm/page 1.9.10 1.9.10-r1: A mouse friendly tiling window manager
 x11-wm/pekwm 0.3.2 0.4.2: Lightweight window manager initially based on aewm++
-x11-wm/qtile 0.33.0 0.34.0-r1 0.34.1: A full-featured, hackable tiling window manager written in Python
+x11-wm/qtile 0.33.0 0.34.0-r1 0.34.1 0.35.0: A full-featured, hackable tiling window manager written in Python
 x11-wm/ratpoison 1.4.9-r3 9999: window manager without mouse dependency
 x11-wm/selectwm 0.4.1-r2: window manager selector tool
 x11-wm/sithwm 1.2.3: Minimalist Window Manager for X
