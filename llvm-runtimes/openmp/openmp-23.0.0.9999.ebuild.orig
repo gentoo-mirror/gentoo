@@ -26,6 +26,10 @@ DEPEND="
 	offload? (
 		dev-libs/libffi:=
 		~llvm-core/llvm-${PV}
+<<<<<<< HEAD
+		!llvm-runtimes/offload
+=======
+>>>>>>> 5e2e276073939 (llvm-runtimes/openmp: Include device runtime dependencies)
 		level-zero? ( dev-libs/level-zero:= )
 		rocm? ( dev-libs/rocr-runtime:= )
 	)
@@ -66,11 +70,6 @@ LLVM_COMPONENTS=(
 	third-party/unittest
 )
 llvm.org_set_globals
-
-MULTILIB_WRAPPED_HEADERS=(
-	/usr/include/offload/OffloadPrint.hpp
-	/usr/include/offload/OffloadAPI.h
-)
 
 pkg_pretend() {
 	if [[ ${LLVM_ALLOW_GPU_TESTING} ]]; then
@@ -173,5 +172,5 @@ multilib_src_test() {
 		targets+=( check-offload check-offload-unit )
 	fi
 
-	cmake_build "${targets[@]}"
+	cmake_build check-openmp
 }

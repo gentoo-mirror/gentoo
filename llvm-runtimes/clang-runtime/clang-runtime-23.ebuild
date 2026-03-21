@@ -33,10 +33,10 @@ RDEPEND="
 		offload? (
 			>=llvm-runtimes/offload-${PV}
 			llvm_targets_AMDGPU? (
-				>=llvm-runtimes/openmp-amdgcn-${PV}
+				>=llvm-runtimes/openmp-amdgcn-amd-amdhsa-${PV}
 			)
 			llvm_targets_NVPTX? (
-				>=llvm-runtimes/openmp-nvptx64-${PV}
+				>=llvm-runtimes/openmp-nvptx64-nvidia-cuda-${PV}
 			)
 		)
 	)
