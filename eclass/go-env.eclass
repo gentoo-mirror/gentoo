@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: go-env.eclass
@@ -7,10 +7,74 @@
 # @AUTHOR:
 # Flatcar Linux Maintainers <infra@flatcar-linux.org>
 # @SUPPORTED_EAPIS: 7 8
-# @BLURB: Helper eclass for setting the Go compile environment. Required for cross-compiling.
+# @BLURB: Helper eclass for setting up the Go build environment.
 # @DESCRIPTION:
-# This eclass includes helper functions for setting the compile environment for Go ebuilds.
-# Intended to be called by other Go eclasses in an early build stage, e.g. src_unpack.
+# This eclass includes helper functions for setting up the build environment for
+# Go ebuilds. Intended to be called by other Go eclasses in an early build
+# stage, e.g. src_unpack.
+
+# @ECLASS_VARIABLE: GOMAXPROCS
+# @USER_VARIABLE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# The maximum number of processes for the Go runtime to run in parallel. See
+# https://pkg.go.dev/runtime#GOMAXPROCS. If unset, this defaults to the
+# configured number of Make jobs. Unfortunately, Go does not currently support
+# the GNU Make jobserver, so this may not play nicely alongside other build
+# processes. However, Go code is often built without a supporting build system
+# or without other non-Go code, so this should be sufficient in most cases.
+
+# @ECLASS_VARIABLE: GOAMD64
+# @USER_VARIABLE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Optimisation setting for amd64 when building for CHOST. See
+# https://golang.org/wiki/MinimumRequirements#amd64.
+
+# @ECLASS_VARIABLE: GOARM64
+# @USER_VARIABLE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Optimisation setting for arm64 when building for CHOST. See
+# https://pkg.go.dev/cmd/go/internal/help#pkg-variables.
+
+# @ECLASS_VARIABLE: GOPPC64
+# @USER_VARIABLE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Optimisation setting for ppc64 when building for CHOST. See
+# https://pkg.go.dev/cmd/go/internal/help#pkg-variables.
+
+# @ECLASS_VARIABLE: GORISCV64
+# @USER_VARIABLE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Optimisation setting for riscv when building for CHOST. See
+# https://pkg.go.dev/cmd/go/internal/help#pkg-variables.
+
+# @ECLASS_VARIABLE: BUILD_GOAMD64
+# @USER_VARIABLE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Optimisation setting for amd64 when building for CBUILD.
+
+# @ECLASS_VARIABLE: BUILD_GOARM64
+# @USER_VARIABLE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Optimisation setting for arm64 when building for CBUILD.
+
+# @ECLASS_VARIABLE: BUILD_GOPPC64
+# @USER_VARIABLE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Optimisation setting for ppc64 when building for CBUILD.
+
+# @ECLASS_VARIABLE: BUILD_GORISCV64
+# @USER_VARIABLE
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# Optimisation setting for riscv when building for CBUILD.
 
 case ${EAPI} in
 	7|8) ;;
@@ -20,48 +84,87 @@ esac
 if [[ -z ${_GO_ENV_ECLASS} ]]; then
 _GO_ENV_ECLASS=1
 
-inherit flag-o-matic toolchain-funcs
+inherit flag-o-matic multiprocessing sysroot toolchain-funcs
 
 # @FUNCTION: go-env_set_compile_environment
 # @DESCRIPTION:
-# Set up basic compile environment: CC, CXX, and GOARCH.
-# Necessary platform-specific settings such as GOARM or GO386 are also set
-# according to the Portage configuration when building for those architectures.
-# Also carry over CFLAGS, LDFLAGS and friends.
-# Required for cross-compiling with crossdev.
-# If not set, host defaults will be used and the resulting binaries are host arch.
-# (e.g. "emerge-aarch64-cross-linux-gnu foo" run on x86_64 will emerge "foo" for x86_64
-#  instead of aarch64)
+# Sets up the environment to build Go code for CHOST. This includes variables
+# required for cross-compiling, cgo-related variables, and architecture-specific
+# variables. GO386, GOARM, GOMIPS, and GOMIPS64 are set based on the tuple.
+# Variables for other architectures need to be set manually by users. This
+# function must be called (implicitly or otherwise) before building any Go code
+# whether cross-compiling or not. Make any build flag changes (e.g. CFLAGS)
+# before calling this function.
 go-env_set_compile_environment() {
-	tc-export CC CXX PKG_CONFIG
+	tc-export AR CC CXX FC PKG_CONFIG
 
-	export GOARCH="$(go-env_goarch)"
-	use arm && export GOARM=$(go-env_goarm)
-	use x86 && export GO386=$(go-env_go386)
+	# Go uses all cores by default. Use the configured number of Make jobs, but
+	# respect the user value, as described above.
+	: "${GOMAXPROCS=$(get_makeopts_jobs)}"
+	export GOMAXPROCS
 
-	# XXX: Hack for checking ICE (bug #912152, gcc PR113204)
+	# The following GOFLAGS should be used for all builds.
+	# -x prints commands as they are executed
+	# -v prints the names of packages as they are compiled
+	# -modcacherw makes the build cache read/write
+	# -buildvcs=false omits version control information
+	# -buildmode=pie builds position independent executables
+	export \
+		GOFLAGS="-x -v -modcacherw -buildvcs=false" \
+		GOARCH=$(go-env_goarch) \
+		GOOS=$(go-env_goos)
+
+	case ${GOARCH} in
+		386|amd64|arm*|ppc64le|s390*) GOFLAGS+=" -buildmode=pie" ;;
+	esac
+
+	case ${GOARCH} in
+		386) export GO386=$(go-env_go386) ;;
+		arm|armbe) export GOARM=$(go-env_goarm) ;;
+		mips64*) export GOMIPS64=$(go-env_gomips) ;;
+		mips*) export GOMIPS=$(go-env_gomips) ;;
+	esac
+
+	# Don't modify the non-Go variables outside this function.
+	local -I $(all-flag-vars)
+
 	if tc-is-gcc ; then
+		# XXX: Hack for checking ICE (bug #912152, gcc PR113204)
 		# For either USE=debug or an unreleased compiler, non-default
 		# checking will trigger.
-		if has_version -b "sys-devel/gcc[debug]" || [[ $(gcc-minor-version) -eq 0 ]] ; then
-			filter-lto
-		fi
+		$(tc-getCC) -v 2>&1 | grep -Eqe "--enable-checking=\S*\byes\b" && filter-lto
+
+		# bug #929219
+		replace-flags -g3 -g
+		replace-flags -ggdb3 -ggdb
 	fi
 
-	export CGO_CFLAGS="${CGO_CFLAGS:-$CFLAGS}"
-	export CGO_CPPFLAGS="${CGO_CPPFLAGS:-$CPPFLAGS}"
-	export CGO_CXXFLAGS="${CGO_CXXFLAGS:-$CXXFLAGS}"
-	export CGO_LDFLAGS="${CGO_LDFLAGS:-$LDFLAGS}"
+	export \
+		CGO_CFLAGS=${CFLAGS} \
+		CGO_CPPFLAGS=${CPPFLAGS} \
+		CGO_CXXFLAGS=${CXXFLAGS} \
+		CGO_LDFLAGS=${LDFLAGS}
 
-	# bug #929219
-	if tc-is-gcc ; then
-		CGO_CFLAGS=$(
-			CFLAGS=${CGO_CFLAGS}
-			replace-flags -g3 -g
-			replace-flags -ggdb3 -ggdb
-			printf %s "${CFLAGS}"
-		)
+	# go run will build binaries for the target system and try to execute them.
+	# This will fail when cross-compiling unless you provide a wrapper.
+	local script
+	if script=$(sysroot_make_run_prefixed); then
+		GOFLAGS+=" -exec=${script}" "${@}"
 	fi
+}
+
+# @FUNCTION: go-env_run
+# @DESCRIPTION:
+# Runs the given command under a localised environment configured by
+# go-env_set_compile_environment. It is not usually necessary to call this, but
+# it is useful when combined with tc-env_build.
+go-env_run() {
+	local -I AR CC CXX FC PKG_CONFIG \
+		GO{FLAGS,MAXPROCS,ARCH,OS,386,ARM,MIPS,MIPS64} \
+		CGO_{CFLAGS,CPPFLAGS,CXXFLAGS,LDFLAGS}
+
+	go-env_set_compile_environment
+	"${@}"
 }
 
 # @FUNCTION: go-env_goos
@@ -129,19 +232,38 @@ go-env_go386() {
 }
 
 # @FUNCTION: go-env_goarm
-# @USAGE: [CHOST-value]
+# @USAGE: [tuple]
 # @DESCRIPTION:
-# Returns the appropriate GOARM setting for the CHOST given, or the default
-# CHOST.
+# Returns the appropriate GOARM setting for given target or CHOST.
 go-env_goarm() {
-	case "${1:-${CHOST}}" in
-		armv5*)	echo 5;;
-		armv6*)	echo 6;;
-		armv7*)	echo 7;;
-		*)
-			die "unknown GOARM for ${1:-${CHOST}}"
-			;;
+	local CTARGET=${1:-${CHOST}}
+
+	case ${CTARGET} in
+		armv5*)	echo -n 5 ;;
+		armv6*)	echo -n 6 ;;
+		armv7*)	echo -n 7 ;;
+		*) die "unknown GOARM for ${CTARGET}" ;;
 	esac
+
+	if [[ $(tc-is-softfloat) == no ]]; then
+		echo ,hardfloat
+	else
+		echo ,softfloat
+	fi
+}
+
+# @FUNCTION: go-env_gomips
+# @USAGE: [tuple]
+# @DESCRIPTION:
+# Returns the appropriate GOMIPS or GOMIPS64 setting for given target or CHOST.
+go-env_gomips() {
+	local CTARGET=${1:-${CHOST}}
+
+	if [[ $(tc-is-softfloat) == no ]]; then
+		echo hardfloat
+	else
+		echo softfloat
+	fi
 }
 
 fi
