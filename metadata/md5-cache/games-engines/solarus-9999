@@ -1,7 +1,7 @@
 BDEPEND=doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-build/cmake-3.28.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst prepare setup test unpack
-DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-qt/qtbase[gui,widgets] media-libs/libmodplug >=media-libs/libsdl2-2.0.1[X,joystick,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image[png] >=media-libs/sdl2-ttf-2.0.12
-DESCRIPTION=An open-source Zelda-like 2D game engine
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) dev-games/physfs dev-qt/qtbase[gui,widgets] media-libs/libmodplug >=media-libs/libsdl2-2.0.1[X,joystick,video] media-libs/libvorbis media-libs/openal media-libs/sdl2-image[png] >=media-libs/sdl2-ttf-2.0.12 media-libs/glm
+DESCRIPTION=Open-source Zelda-like 2D game engine
 EAPI=8
 HOMEPAGE=https://www.solarus-games.org/
 INHERIT=cmake lua-single optfeature virtualx git-r3
@@ -13,4 +13,4 @@ REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	740535f4f83ae6f0f22c4f045321d850	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	5691a3da96eac88f135cf3596b8c2c3c	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	optfeature	538bce96e5589935b57e178e8635f301	virtualx	9741d451eb64ea8bb9faee90d68a9b68	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=a5b6583e7d4c34b76811a8ce5028f117
+_md5_=047df60a25955bee22e469a5e04581ed
