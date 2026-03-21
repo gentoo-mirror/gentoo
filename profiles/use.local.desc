@@ -3794,10 +3794,13 @@ llvm-runtimes/libcxxabi:clang - Force building using installed clang (rather tha
 llvm-runtimes/libunwind:clang - Force building using installed clang (rather than the default CC/CXX; required for testing).
 llvm-runtimes/offload:clang - Force building using installed clang (rather than the default CC/CXX).
 llvm-runtimes/offload:ompt - Enable OpenMP Tools Interface support
+llvm-runtimes/openmp:clang - Force building using installed clang (rather than the default CC/CXX).
 llvm-runtimes/openmp:gdb-plugin - Build OMPD GDB plugin
 llvm-runtimes/openmp:hwloc - Enable CPU affinity support via hwloc
+llvm-runtimes/openmp:level-zero - Build dev-libs/level-zero offloading support for Intel GPUs.
 llvm-runtimes/openmp:offload - Support offloading OpenMP using libomptarget
 llvm-runtimes/openmp:ompt - Enable OpenMP Tools Interface support
+llvm-runtimes/openmp:rocm - Build dev-libs/rocr-runtime offloading support for AMD GPUs.
 lxqt-base/liblxqt:backlight - Enable backlight control features.
 lxqt-base/lxqt-config:monitor - Build monitor settings tool
 lxqt-base/lxqt-config:touchpad - Build touchpad settings tool
