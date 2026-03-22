@@ -1004,7 +1004,7 @@ app-admin/kpcli 4.1: Command line interface to KeePass database files
 app-admin/kube-bench 0.6.8: Kubernetes Bench for Security runs the CIS Kubernetes Benchmark
 app-admin/kubectx 0.9.5: Fast way to switch between clusters and namespaces in kubectl
 app-admin/lib_users 0.15-r2: Check for mapped libs and open files that are marked as deleted
-app-admin/linode-cli 5.64.0 5.65.0 5.65.1: Official command-line interface for interacting with the Linode API
+app-admin/linode-cli 5.65.1 5.66.0: Official command-line interface for interacting with the Linode API
 app-admin/lnav 0.11.2: A curses-based tool for viewing and analyzing log files
 app-admin/logcheck 1.4.3-r2 1.4.3-r5 1.4.7: Mails anomalies in the system logfiles to the administrator
 app-admin/logmon 0.4.4-r2: Split-screen terminal/ncurses based log viewer
@@ -1254,7 +1254,7 @@ app-backup/cdbackup 0.7.1-r2: Allows streaming backup utilities to dump/restore 
 app-backup/cdbkup 1.0-r5: Performs full/incremental backups of local/remote filesystems onto CD-R(W)s
 app-backup/consul-backinator 1.6.6: consul backup and restore utility
 app-backup/cpdup 1.18-r1: Comprehensive filesystem mirroring program
-app-backup/dar 2.8.3: A full featured backup tool, aimed for disks
+app-backup/dar 2.8.3 2.8.4: A full featured backup tool, aimed for disks
 app-backup/deja-dup 44.2 48.4: Simple backup tool using duplicity back-end
 app-backup/dirvish 1.2.1-r1: Dirvish is a fast, disk based, rotating network backup system
 app-backup/duplicati 2.2.0.0.2025.10.23 2.2.0.1.2025.11.09: Backup client that securely stores encrypted, incremental, compressed backups
@@ -1481,7 +1481,7 @@ app-crypt/keybase 6.0.2 6.2.4 9999: Keybase client
 app-crypt/keylookup 2.2-r1: A tool to fetch PGP keys from keyservers
 app-crypt/keysmith 25.12.2 25.12.3: OTP client for Plasma Mobile and Desktop
 app-crypt/kstart 4.3: Modified versions of kinit for refreshing kerberos tickets automatically
-app-crypt/lego 4.30.1 4.31.0 4.32.0 9999: Let's Encrypt/ACME client (like certbot or acme.sh) and library written in Go
+app-crypt/lego 4.32.0 4.33.0 9999: Let's Encrypt/ACME client (like certbot or acme.sh) and library written in Go
 app-crypt/libb2 0.98.1-r3: C library providing BLAKE2b, BLAKE2s, BLAKE2bp, BLAKE2sp
 app-crypt/libmd 1.0.4 1.1.0: Message Digest functions from BSD systems
 app-crypt/libscrypt 1.22-r3: Shared library to implement the scrypt algorithm
@@ -14446,7 +14446,7 @@ media-video/vdr 2.2.0-r7 2.7.7 2.7.9: Video Disk Recorder - turns a pc into a po
 media-video/vdrsync 0.1.3_pre050322-r2: converting vdr-recordings to mpeg2, dvd or other similar formats
 media-video/vdrtools-genindex 0.1.3-r2: VDR: genindex Script
 media-video/videotrans 1.6.1-r2: A package to convert movies to DVD format and to build DVDs with
-media-video/vlc 3.0.23 3.0.9999 4.0.0_pre20260215 9999: Media player and framework with support for most multimedia files and streaming
+media-video/vlc 3.0.23 3.0.9999 4.0.0_pre20260320 9999: Media player and framework with support for most multimedia files and streaming
 media-video/vobcopy 1.2.1: Copies DVD .vob files to harddisk, decrypting them on the way
 media-video/webcamoid 9.2.3 9999: Full featured webcam capture application
 media-video/wireplumber 0.5.12 0.5.13 0.5.13_p20260216 9999: Replacement for pipewire-media-session
@@ -17499,6 +17499,7 @@ sys-block/tgt 1.0.91 1.0.92: Linux SCSI target framework (tgt)
 sys-block/thin-provisioning-tools 1.1.0-r3 1.3.0 1.3.1: A suite of tools for thin provisioning on Linux
 sys-block/tw_cli 10.2.2.1-r2: 3ware SATA/PATA/SAS RAID controller Command Line Interface tool
 sys-block/vblade 25: vblade exports a block device using AoE
+sys-block/vdo 8.3.2.1: Userspace tools for managing VDO volumes.
 sys-block/viaideinfo 0.5-r1: Query VIA IDE controllers for various information
 sys-block/wait-for-dri-devices-rules 1: Udev and systemd rules to wait for dri devices
 sys-block/whdd 3.1: Diagnostic and recovery tool for block devices
@@ -17749,7 +17750,7 @@ sys-fs/loop-aes 3.8e 3.8g: Linux kernel module to encrypt disk partitions with A
 sys-fs/lsscsi 0.32-r1: SCSI sysfs query tool
 sys-fs/lufis 0.3-r1: Wrapper to use lufs modules with fuse kernel support
 sys-fs/lufs 0.9.7-r4: User-mode filesystem implementation
-sys-fs/lvm2 2.03.22-r7 2.03.37 2.03.38 9999: User-land utilities for LVM2 (device-mapper) software
+sys-fs/lvm2 2.03.22-r7 2.03.37 2.03.38 2.03.39 9999: User-land utilities for LVM2 (device-mapper) software
 sys-fs/lxcfs 5.0.4-r2 6.0.5 6.0.6: FUSE filesystem for LXC
 sys-fs/mac-fdisk 0.1_p18-r1 0.1_p18-r2: Mac/PowerMac disk partitioning utility
 sys-fs/mdadm 4.4-r1 4.5-r1: Tool for running RAID systems - replacement for the raidtools
