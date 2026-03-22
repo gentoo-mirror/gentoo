@@ -1,16 +1,16 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-arch/zstd:= dev-libs/libdwarf:= test? ( dev-cpp/gtest )
+DEPEND=app-arch/zstd:= dev-libs/libdwarf:= unwind? ( sys-libs/libunwind:= ) test? ( dev-cpp/gtest )
 DESCRIPTION=Simple, portable, and self-contained stacktrace library for C++11 and newer
 EAPI=8
 HOMEPAGE=https://github.com/jeremy-rifkin/cpptrace
 INHERIT=cmake
-IUSE=test
+IUSE=unwind test
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=MIT
-RDEPEND=app-arch/zstd:= dev-libs/libdwarf:=
+RDEPEND=app-arch/zstd:= dev-libs/libdwarf:= unwind? ( sys-libs/libunwind:= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jeremy-rifkin/cpptrace/archive/refs/tags/v1.0.4.tar.gz -> cpptrace-1.0.4.tar.gz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	1e32df7deee68372153dca65f4a7c21f	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
-_md5_=659999f43669b7dd38fee37a43b96664
+_md5_=2cbf8dd9f4349e975bbd42bf089b1365
