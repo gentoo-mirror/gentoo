@@ -1,9 +1,12 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 MK_VER=20210330
+LUA_COMPAT=( lua5-{1..4} luajit )
+
+inherit lua-single
 
 DESCRIPTION="NetBSD's portable make"
 HOMEPAGE="http://www.crufty.net/help/sjg/bmake.html"
@@ -14,12 +17,27 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="test"
+RESTRICT="!test? ( test )"
+
+REQUIRED_USE="test? ( ${LUA_REQUIRED_USE} )"
+
+BDEPEND="
+	test? (
+		${LUA_DEPS}
+		app-alternatives/bc
+	)"
 
 # Skip failing test (sandbox and csh)
 PATCHES=(
 	"${FILESDIR}"/${PN}-20210206-tests.patch
+	"${FILESDIR}"/${PN}-20250618-lua-test.patch
 )
+
+pkg_setup() {
+	use test && lua-single_pkg_setup
+}
 
 src_prepare() {
 	default
