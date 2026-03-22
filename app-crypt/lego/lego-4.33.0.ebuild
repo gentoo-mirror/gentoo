@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ inherit go-module
 DESCRIPTION="Let's Encrypt/ACME client (like certbot or acme.sh) and library written in Go"
 HOMEPAGE="https://github.com/go-acme/lego/"
 
-DOCUMENTATION_COMMIT=093311eaa03c9f9f4cfdd9ef6bbc24547abfea4f
+DOCUMENTATION_COMMIT=f3c9ebffd6a1fc24b117776d606b1a5c83f2d954
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
@@ -17,7 +17,7 @@ else
 	SRC_URI="
 	https://github.com/go-acme/lego/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/go-acme/lego/archive/${DOCUMENTATION_COMMIT}.tar.gz -> ${P}-docs.tar.gz
-	https://github.com/rahilarious/gentoo-distfiles/releases/download/${P}/deps.tar.xz -> ${P}-deps.tar.xz
+	https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${PN}-4.32.0-deps.tar.xz
 "
 	KEYWORDS="~amd64 ~arm64"
 fi
@@ -49,6 +49,9 @@ src_unpack() {
 src_prepare() {
 	default
 	find ../"${PN}"-"${DOCUMENTATION_COMMIT}"/ -type f -not -name '*.html' -delete || die
+
+	# lego 4.33.0 uses the same vendored deps as lego 4.32.0, let's reuse the tarball
+	mv "${WORKDIR}"/lego-4.32.0/vendor . || die
 }
 
 src_compile() {

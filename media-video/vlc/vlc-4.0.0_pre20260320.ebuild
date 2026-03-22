@@ -15,7 +15,7 @@ if [[ ${PV} == *9999* ]] ; then
 	EGIT_REPO_URI="https://code.videolan.org/videolan/vlc.git"
 	inherit git-r3
 else
-	COMMIT=50fca9d25c78dffc00cef24cae467fc202d19466
+	COMMIT=d854b1239b697859d6b21206feb7c66d64f3737a
 	if [[ -n ${COMMIT} ]] ; then
 		SRC_URI="https://code.videolan.org/videolan/vlc/-/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		S="${WORKDIR}/${PN}-${COMMIT}"
@@ -235,17 +235,17 @@ DEPEND="${COMMON_DEPEND}
 	X? ( x11-base/xorg-proto )
 "
 RDEPEND="${COMMON_DEPEND}
-	kde-frameworks/qqc2-desktop-style:6
+	gui? ( kde-frameworks/qqc2-desktop-style:6 )
 "
 
 DOCS=( AUTHORS THANKS NEWS README.md doc/fortunes.txt )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-9999-gettext-version.patch # bug 766549
-	"${FILESDIR}"/${PN}-9999-no-vlc-cache-gen.patch # bugs 564842, 608256
-	"${FILESDIR}"/${PN}-9999-fix-libtremor-libs.patch # build system
-	"${FILESDIR}"/${PN}-9999-configure-lua-version.patch
-	"${FILESDIR}"/${P}-force-x11.patch # crashes w/ wayland platform plugin
+	"${FILESDIR}"/${P}-gettext-version.patch # bug 766549
+	"${FILESDIR}"/${P}-no-vlc-cache-gen.patch # bugs 564842, 608256
+	"${FILESDIR}"/${P}-fix-libtremor-libs.patch # build system
+	"${FILESDIR}"/${P}-configure-lua-version.patch
+	"${FILESDIR}"/${PN}-4.0.0_pre20260215-force-x11.patch # crashes w/ wayland platform plugin
 )
 
 pkg_setup() {
@@ -479,6 +479,10 @@ src_test() {
 src_install() {
 	default
 	find "${ED}" -name '*.la' -delete || die
+
+	if ! use gui; then
+		rm "${ED}"/usr/share/applications/*desktop || die
+	fi
 }
 
 pkg_postinst() {
@@ -491,7 +495,7 @@ pkg_postinst() {
 		ewarn "If you do not do it, vlc will take a long time to load."
 	fi
 
-	xdg_pkg_postinst
+	use gui && xdg_pkg_postinst
 }
 
 pkg_postrm() {
@@ -499,5 +503,5 @@ pkg_postrm() {
 		rm "${EROOT}"/usr/$(get_libdir)/vlc/plugins/plugins.dat || die "Failed to rm plugins.dat"
 	fi
 
-	xdg_pkg_postrm
+	use gui && xdg_pkg_postrm
 }

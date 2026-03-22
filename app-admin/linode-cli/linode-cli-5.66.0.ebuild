@@ -1,10 +1,11 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{12..13} )
 DISTUTILS_USE_PEP517=setuptools
+PYPI_VERIFY_REPO=https://github.com/linode/linode-cli
 inherit distutils-r1 pypi shell-completion
 
 DESCRIPTION="Official command-line interface for interacting with the Linode API"
@@ -23,6 +24,7 @@ RDEPEND="
 	>=dev-python/linode-metadata-0.3[${PYTHON_USEDEP}]
 	dev-python/openapi3[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
+	dev-python/pytimeparse[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]
