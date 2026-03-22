@@ -7,28 +7,27 @@ EAPI=8
 # official. Don't keyword the pre-releases!
 # Check https://github.com/shadow-maint/shadow/releases.
 
-inherit libtool pam verify-sig
+inherit libtool pam user-info verify-sig
 
 DESCRIPTION="Utilities to deal with user accounts"
 HOMEPAGE="https://github.com/shadow-maint/shadow"
-SRC_URI="https://github.com/shadow-maint/shadow/releases/download/${PV}/${P}.tar.xz"
-SRC_URI+=" verify-sig? ( https://github.com/shadow-maint/shadow/releases/download/${PV}/${P}.tar.xz.asc )"
+MY_PV="${PV/_/-}"
+MY_P="${PN}-${MY_PV}"
+SRC_URI="https://github.com/shadow-maint/shadow/releases/download/${MY_PV}/${MY_P}.tar.xz"
+SRC_URI+=" verify-sig? ( https://github.com/shadow-maint/shadow/releases/download/${MY_PV}/${MY_P}.tar.xz.asc )"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD GPL-2"
 # Subslot is for libsubid's SONAME.
-SLOT="0/4"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
-IUSE="acl audit cracklib nls pam selinux skey split-usr su systemd xattr"
-# Taken from the man/Makefile.am file.
-LANGS=( cs da de es fi fr hu id it ja ko pl pt_BR ru sv tr zh_CN zh_TW )
-
-REQUIRED_USE="?? ( cracklib pam )"
+SLOT="0/5"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="acl audit nls pam selinux skey split-usr su systemd test xattr"
+RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
 	virtual/libcrypt:=
 	acl? ( sys-apps/acl:= )
 	audit? ( >=sys-process/audit-2.6:= )
-	cracklib? ( >=sys-libs/cracklib-2.7-r3:= )
 	nls? ( virtual/libintl )
 	pam? ( sys-libs/pam:= )
 	skey? ( sys-auth/skey:= )
@@ -46,25 +45,39 @@ DEPEND="
 "
 RDEPEND="
 	${COMMON_DEPEND}
+	acct-group/shadow
 	pam? ( >=sys-auth/pambase-20150213 )
 	su? ( !sys-apps/util-linux[su(-)] )
 "
 BDEPEND="
+	acct-group/shadow
 	app-arch/xz-utils
 	sys-devel/gettext
+	test? ( dev-util/cmocka )
 "
 
-if [[ ${PV} == *.0 ]]; then
-	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-sergehallyn )"
-	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/sergehallyn.asc
-else
-	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-alejandro-colomar )"
-	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/alejandro-colomar.asc
-fi
+BDEPEND+=" verify-sig? ( >=sec-keys/openpgp-keys-alejandro-colomar-20260122 )"
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/alejandro-colomar.asc
 
 src_prepare() {
 	default
 	elibtoolize
+}
+
+set_login_opt() {
+	local comment="" opt=${1} val=${2}
+	if [[ -z ${val} ]]; then
+		comment="#"
+		sed -i \
+			-e "/^${opt}\>/s:^:#:" \
+			etc/login.defs || die
+	else
+		sed -i -r \
+			-e "/^#?${opt}\>/s:.*:${opt} ${val}:" \
+			etc/login.defs || die
+	fi
+	local res=$(grep "^${comment}${opt}\>" etc/login.defs)
+	einfo "${res:-Unable to find ${opt} in etc/login.defs}"
 }
 
 src_configure() {
@@ -73,7 +86,7 @@ src_configure() {
 		--enable-lastlog
 		--disable-account-tools-setuid
 		--disable-static
-		--with-btrfs
+		$(use_with kernel_linux btrfs)
 		# Use bundled replacements for readpassphrase and freezero
 		--without-libbsd
 		--without-group-name-max-length
@@ -85,7 +98,6 @@ src_configure() {
 		$(use_enable systemd logind)
 		$(use_with acl)
 		$(use_with audit)
-		$(use_with cracklib libcrack)
 		$(use_with elibc_glibc nscd)
 		$(use_with pam libpam)
 		$(use_with selinux)
@@ -96,33 +108,53 @@ src_configure() {
 
 	econf "${myeconfargs[@]}"
 
-	if use nls ; then
-		local l langs="po" # These are the pot files.
-		for l in ${LANGS[*]} ; do
-			has ${l} ${LINGUAS-${l}} && langs+=" ${l}"
+	set_login_opt CREATE_HOME yes
+	if use pam; then
+		# Comment out login.defs options that pam hates
+		local opts=(
+			CHFN_AUTH
+			CONSOLE
+			ENV_HZ
+			ENVIRON_FILE
+			FAILLOG_ENAB
+			FTMP_FILE
+			LASTLOG_ENAB
+			MAIL_CHECK_ENAB
+			MOTD_FILE
+			NOLOGINS_FILE
+			OBSCURE_CHECKS_ENAB
+			PASS_ALWAYS_WARN
+			PASS_CHANGE_TRIES
+			PASS_MIN_LEN
+			PORTTIME_CHECKS_ENAB
+			QUOTAS_ENAB
+			SU_WHEEL_ONLY
+		)
+		local opt sed_args=()
+		for opt in "${opts[@]}"; do
+			set_login_opt ${opt}
+			sed_args+=( -e "/^#${opt}\>/b pamnote" )
 		done
-		sed -i "/^SUBDIRS = /s:=.*:= ${langs}:" man/Makefile || die
-	fi
-}
-
-set_login_opt() {
-	local comment="" opt=${1} val=${2}
-	if [[ -z ${val} ]]; then
-		comment="#"
-		sed -i \
-			-e "/^${opt}\>/s:^:#:" \
-			"${ED}"/etc/login.defs || die
+		sed_args+=(
+			-e 'b exit'
+			-e ': pamnote; i# NOTE: This setting should be configured via /etc/pam.d/ and not in this file.'
+			-e ': exit'
+		)
+		sed -i "${sed_args[@]}" etc/login.defs || die
 	else
-		sed -i -r \
-			-e "/^#?${opt}\>/s:.*:${opt} ${val}:" \
-			"${ED}"/etc/login.defs
+		set_login_opt MAIL_CHECK_ENAB no
+		set_login_opt SU_WHEEL_ONLY yes
+		set_login_opt LOGIN_RETRIES 3
+		set_login_opt ENCRYPT_METHOD YESCRYPT
+		set_login_opt CONSOLE
 	fi
-	local res=$(grep "^${comment}${opt}\>" "${ED}"/etc/login.defs)
-	einfo "${res:-Unable to find ${opt} in /etc/login.defs}"
 }
 
 src_install() {
 	emake DESTDIR="${D}" suidperms=4755 install
+
+	fowners :shadow /usr/bin/{chage,expiry}
+	fperms u-s,g+s /usr/bin/{chage,expiry}
 
 	# 4.9 regression: https://github.com/shadow-maint/shadow/issues/389
 	emake DESTDIR="${D}" -C man install
@@ -130,15 +162,16 @@ src_install() {
 	find "${ED}" -name '*.la' -type f -delete || die
 
 	insinto /etc
-	if ! use pam ; then
-		insopts -m0600
-		doins etc/login.access etc/limits
-	fi
+	doins etc/login.defs
 
 	# needed for 'useradd -D'
-	insinto /etc/default
 	insopts -m0600
+	insinto /etc/default
 	doins "${FILESDIR}"/default/useradd
+
+	if ! use pam ; then
+		doins etc/login.access etc/limits
+	fi
 
 	if use split-usr ; then
 		# move passwd to / to help recover broke systems #64441
@@ -150,20 +183,7 @@ src_install() {
 		dosym ../../bin/passwd /usr/bin/passwd
 	fi
 
-	cd "${S}" || die
-	insinto /etc
-	insopts -m0644
-	newins etc/login.defs login.defs
-
-	set_login_opt CREATE_HOME yes
-	if ! use pam ; then
-		set_login_opt MAIL_CHECK_ENAB no
-		set_login_opt SU_WHEEL_ONLY yes
-		set_login_opt CRACKLIB_DICTPATH /usr/lib/cracklib_dict
-		set_login_opt LOGIN_RETRIES 3
-		set_login_opt ENCRYPT_METHOD SHA512
-		set_login_opt CONSOLE
-	else
+	if use pam; then
 		dopamd "${FILESDIR}"/pam.d-include/shadow
 
 		for x in chsh chfn ; do
@@ -175,37 +195,6 @@ src_install() {
 		done
 
 		newpamd "${FILESDIR}"/pam.d-include/shadow-r1 groupmems
-
-		# Comment out login.defs options that pam hates
-		local opt sed_args=()
-		for opt in \
-			CHFN_AUTH \
-			CONSOLE \
-			CRACKLIB_DICTPATH \
-			ENV_HZ \
-			ENVIRON_FILE \
-			FAILLOG_ENAB \
-			FTMP_FILE \
-			LASTLOG_ENAB \
-			MAIL_CHECK_ENAB \
-			MOTD_FILE \
-			NOLOGINS_FILE \
-			OBSCURE_CHECKS_ENAB \
-			PASS_ALWAYS_WARN \
-			PASS_CHANGE_TRIES \
-			PASS_MIN_LEN \
-			PORTTIME_CHECKS_ENAB \
-			QUOTAS_ENAB \
-			SU_WHEEL_ONLY
-		do
-			set_login_opt ${opt}
-			sed_args+=( -e "/^#${opt}\>/b pamnote" )
-		done
-		sed -i "${sed_args[@]}" \
-			-e 'b exit' \
-			-e ': pamnote; i# NOTE: This setting should be configured via /etc/pam.d/ and not in this file.' \
-			-e ': exit' \
-			"${ED}"/etc/login.defs || die
 
 		# Remove manpages that pam will install for us
 		# and/or don't apply when using pam
@@ -221,28 +210,22 @@ src_install() {
 	fi
 
 	# Remove manpages that are handled by other packages
-	find "${ED}"/usr/share/man -type f \
-		'(' -name id.1 -o -name getspnam.3 ')' \
-		-delete || die
+	find "${ED}"/usr/share/man -type f -name getspnam.3 -delete || die
 
 	if ! use su ; then
 		find "${ED}"/usr/share/man -type f -name su.1 -delete || die
 	fi
 
-	cd "${S}" || die
-	dodoc ChangeLog NEWS TODO
-	newdoc README README.download
-	cd doc || die
-	dodoc HOWTO README* WISHLIST *.txt
+	dodoc README doc/HOWTO doc/README.limits
 
 	if use elibc_musl; then
 		QA_CONFIG_IMPL_DECL_SKIP+=( sgetsgent )
 	fi
-}
 
-pkg_preinst() {
-	rm -f "${EROOT}"/etc/pam.d/system-auth.new \
-		"${EROOT}/etc/login.defs.new"
+	if use kernel_Hurd ; then
+		# sys-kernel/hurd provides this instead
+		rm "${ED}"/bin/login || die
+	fi
 }
 
 pkg_postinst() {
@@ -252,10 +235,25 @@ pkg_postinst() {
 		ewarn "Running 'pwck' returned errors. Please run it manually to fix any errors."
 	fi
 
+	local group=shadow
+
+	if [[ -n ${ROOT} ]]; then
+		# Resolve to a group id using ${ROOT}/etc/passwd
+		group=$(egetent group shadow | cut -d: -f3)
+		if [[ -n ${group} ]]; then
+			chgrp "${group}" "${EROOT}"/usr/bin/{chage,expiry} &&
+			chmod g+s "${EROOT}"/usr/bin/{chage,expiry}
+		fi
+	fi
+
 	# Enable shadow groups.
 	if [[ ! -f "${EROOT}"/etc/gshadow ]] ; then
 		if grpck -r -R "${EROOT:-/}" 2>/dev/null ; then
 			grpconv -R "${EROOT:-/}"
+			if [[ -n ${group} ]]; then
+				chgrp "${group}" "${EROOT}"/etc/gshadow &&
+				chmod g+r "${EROOT}"/etc/gshadow
+			fi
 		else
 			ewarn "Running 'grpck' returned errors. Please run it by hand, and then"
 			ewarn "run 'grpconv' afterwards!"
@@ -266,6 +264,4 @@ pkg_postinst() {
 		touch "${EROOT}"/etc/subgid
 	[[ ! -f "${EROOT}"/etc/subuid ]] &&
 		touch "${EROOT}"/etc/subuid
-
-	einfo "The 'adduser' symlink to 'useradd' has been dropped."
 }
