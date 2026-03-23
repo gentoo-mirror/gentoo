@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst setup test
+DESCRIPTION=Dynamic Kernel Module Support
+EAPI=8
+HOMEPAGE=https://github.com/dkms-project/dkms
+INHERIT=linux-info optfeature
+IUSE=systemd
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=GPL-2
+RDEPEND=sys-apps/kmod virtual/linux-sources systemd? ( sys-apps/systemd )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/dkms-project/dkms/archive/v3.4.0.tar.gz -> dkms-3.4.0.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	linux-info	efd923656513c879204fec6638eadee5	optfeature	538bce96e5589935b57e178e8635f301
+_md5_=26547ac2931e6dbad796d98e470b56d5

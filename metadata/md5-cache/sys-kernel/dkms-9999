@@ -2,7 +2,7 @@ BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst setup test unpack
 DESCRIPTION=Dynamic Kernel Module Support
 EAPI=8
-HOMEPAGE=https://github.com/dell/dkms
+HOMEPAGE=https://github.com/dkms-project/dkms
 INHERIT=linux-info optfeature git-r3
 IUSE=systemd
 LICENSE=GPL-2
@@ -11,4 +11,4 @@ RDEPEND=sys-apps/kmod virtual/linux-sources systemd? ( sys-apps/systemd )
 RESTRICT=test
 SLOT=0
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	linux-info	efd923656513c879204fec6638eadee5	optfeature	538bce96e5589935b57e178e8635f301	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=d3dc53e703dbeb7a5d19fc114af9a38c
+_md5_=ed3a470f4b9cb194fdbc7d1cb126a77f
