@@ -39,7 +39,7 @@ RDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/charset-normalizer[${PYTHON_USEDEP}]
 		dev-python/fasteners[${PYTHON_USEDEP}]
-		>=dev-python/pyjwt-2.12[${PYTHON_USEDEP}]
+		dev-python/pyjwt[${PYTHON_USEDEP}]
 		dev-python/pyqt6[gui,multimedia?,network,qml,widgets,${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		media-libs/mutagen[${PYTHON_USEDEP}]
@@ -50,6 +50,8 @@ RDEPEND="
 "
 DEPEND="test? ( $(python_gen_cond_dep 'dev-python/pyqt6[testlib,${PYTHON_USEDEP}]') )"
 BDEPEND="nls? ( dev-qt/qttools:6[linguist] )"
+
+PATCHES=( "${FILESDIR}/${P}-pyjwt-version.patch" )
 
 distutils_enable_tests pytest
 
