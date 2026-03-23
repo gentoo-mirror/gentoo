@@ -1,9 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=poetry
+DISTUTILS_USE_PEP517=hatchling
+PYPI_VERIFY_REPO=https://github.com/vutran1710/PyrateLimiter
 PYTHON_COMPAT=( pypy3_11 python3_{11..13} )
 
 inherit distutils-r1 pypi
@@ -34,6 +35,7 @@ EPYTEST_DESELECT=(
 	# Optional dependency redis-py-cluster not packaged
 	"tests/test_02.py::test_redis_cluster"
 )
+
 EPYTEST_PLUGINS=( pytest-{asyncio,rerunfailures} )
 EPYTEST_RERUNS=5
 : "${EPYTEST_TIMEOUT:=60}"
