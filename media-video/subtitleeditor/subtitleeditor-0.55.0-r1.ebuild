@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 GNOME2_EAUTORECONF="yes"
 GNOME2_LA_PUNT="yes"
-
 inherit flag-o-matic gnome2
 
 DESCRIPTION="GTK+3 subtitle editing tool"
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.t
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug nls"
+IUSE="debug nls wayland"
 # opengl would mix gtk+:2 and :3 which is not possible
 
 RDEPEND="
@@ -31,13 +31,15 @@ RDEPEND="
 	media-libs/gst-plugins-good:1.0
 	media-libs/gstreamer:1.0
 	media-plugins/gst-plugins-meta:1.0
-	x11-libs/gtk+:3[X]
+	x11-libs/gtk+:3[wayland?,X]
 	nls? ( virtual/libintl )
 "
 #	opengl? (
 #		>=dev-cpp/gtkglextmm-1.2.0-r2:1.0
 #		virtual/opengl )
 # X needed for video output and pango needed for text overlay
+# wayland video is effectively broken in 0.55.0, see also:
+#   https://github.com/subtitleeditor/subtitleeditor/issues/88
 DEPEND="${RDEPEND}"
 BDEPEND="
 	>=dev-util/intltool-0.40
@@ -47,6 +49,9 @@ BDEPEND="
 src_configure() {
 	# Avoid using --enable-debug as it mocks with CXXFLAGS and LDFLAGS
 	use debug && append-cxxflags -DDEBUG
+
+	use wayland || append-flags -DGENTOO_GTK_HIDE_WAYLAND
+	# use X || append-flags -DGENTOO_GTK_HIDE_X11
 
 	gnome2_src_configure \
 		--disable-debug \
