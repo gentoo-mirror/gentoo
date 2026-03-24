@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 fortran? ( virtual/fortran )
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=hdf5? ( sci-libs/hdf5:=[mpi=,szip=] ) tools? ( dev-lang/tcl:= dev-lang/tk:= x11-libs/libXmu:= virtual/glu virtual/opengl ) fortran? ( virtual/fortran )
+DESCRIPTION=CFD General Notation System standard library
+EAPI=8
+HOMEPAGE=https://cgns.github.io/ https://github.com/CGNS/CGNS
+INHERIT=cmake flag-o-matic fortran-2
+IUSE=base-scope debug examples fortran +hdf5 legacy mpi scoping szip test tools
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=ZLIB
+RDEPEND=hdf5? ( sci-libs/hdf5:=[mpi=,szip=] ) tools? ( dev-lang/tcl:= dev-lang/tk:= x11-libs/libXmu:= virtual/glu virtual/opengl ) fortran? ( virtual/fortran )
+REQUIRED_USE=mpi? ( hdf5 ) szip? ( hdf5 )
+RESTRICT=fortran? ( test ) !test? ( test )
+SLOT=0/4.5
+SRC_URI=https://github.com/CGNS/CGNS/archive/v4.5.1.tar.gz -> cgnslib-4.5.1.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	c4ce7cd4e666b59ad4165ec2de032d09	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	fortran-2	ae6d43513003405bd4a48698fc20370a
+_md5_=d35c107848f16e4e7465305d773d8cb2
