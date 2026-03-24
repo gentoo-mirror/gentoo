@@ -3,7 +3,7 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.91.0"
+RUST_MIN_VER="1.92.0"
 
 inherit cargo check-reqs git-r3
 
@@ -73,6 +73,9 @@ src_prepare() {
 	export ZSTD_SYS_USE_PKG_CONFIG=1
 	# TODO: unbundle libz-ng-sys, tikv-jemalloc-sys?
 
+	# remove unbundled sources, just in case
+	find "${ECARGO_VENDOR}"/{bzip2,lzma,zstd}-sys-*/ -name '*.c' -delete || die
+
 	# bzip2-sys requires a pkg-config file
 	# https://github.com/alexcrichton/bzip2-rs/issues/104
 	mkdir "${T}/pkg-config" || die
@@ -83,13 +86,16 @@ src_prepare() {
 		Description:
 		Libs: -lbz2
 	EOF
+
+	# uv is now forcing bundled liblzma, sigh
+	sed -i -e '/xz/s:"static"::' Cargo.toml || die
 }
 
 src_configure() {
 	local myfeatures=(
-		git
-		pypi
-		python
+		test-git
+		test-pypi
+		test-python
 	)
 
 	cargo_src_configure --no-default-features
