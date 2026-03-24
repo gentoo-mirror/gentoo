@@ -1,0 +1,16 @@
+BDEPEND=test? ( >=dev-ml/ounit2-2.0.8 ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-ml/batteries-2.10:= >=dev-ml/tyxml-4.3:= dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Markdown parser and printer in OCaml
+EAPI=8
+HOMEPAGE=https://github.com/gildor478/ocaml-markdown/
+INHERIT=dune
+IUSE=+ocamlopt test
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-ml/batteries-2.10:= >=dev-ml/tyxml-4.3:= dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=!test? ( test )
+SLOT=0/0.2.1
+SRC_URI=https://github.com/gildor478/ocaml-markdown/archive/v0.2.1.tar.gz -> ocaml-markdown-0.2.1.gh.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	c4ce7cd4e666b59ad4165ec2de032d09	dune	4304f35da0fafecd98eb149d0b7ed4d4
+_md5_=cc49ad6573bcae47b84f2d2cb1b8f982

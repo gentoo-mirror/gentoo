@@ -3004,7 +3004,7 @@ app-office/gnumeric 1.12.59-r1 1.12.60: The GNOME Spreadsheet
 app-office/grisbi 3.0.4-r1: Grisbi is a personal accounting application for Linux
 app-office/homebank 5.9.5 5.9.7: Free, easy, personal accounting for everyone
 app-office/impressive 0.13.2: Stylish way of giving presentations with Python
-app-office/joplin-desktop 3.6.2 3.6.4: Secure note taking and to-do app with synchronization capabilities
+app-office/joplin-desktop 3.6.2 3.6.4 3.6.6: Secure note taking and to-do app with synchronization capabilities
 app-office/kmymoney 5.2.2: Personal finance manager based on KDE Frameworks
 app-office/kraft 2.0.0: Quotes and invoices manager for small enterprises
 app-office/ktimetracker 6.0.0: Todo management and time tracker
@@ -5180,7 +5180,7 @@ dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.5.0 4.5.2 4.5.3: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
 dev-lang/ada-bootstrap 0_p2021-r1 11 12 13 14: Binary bootstrap compiler for GNAT (Ada compiler)
-dev-lang/algol68g 3.10.9 3.10.10 3.10.13: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.10.9 3.10.10 3.10.13 3.11.0: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.11 3.0.0 3.0.2: Scala language-based scripting and REPL
 dev-lang/arc 3.2-r1: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2-r1: Functional programming language with dependent types
@@ -5236,7 +5236,7 @@ dev-lang/jint 3.1.2 4.5.0: Javascript Interpreter for .NET
 dev-lang/jsonnet 0.21.0: A data templating language for app and tool developers
 dev-lang/julia-bin 1.8.3-r1 1.8.5-r1 1.9.4-r1 1.10.0-r1 1.10.9 1.11.5-r1 1.12.1 9999: High-performance programming language for technical computing
 dev-lang/jwasm 2.19: MASM-compatible TASM-similar assembler (fork of Wasm)
-dev-lang/kotlin-bin 2.2.21 2.3.0 2.3.10: Statically typed language that targets the JVM and JavaScript
+dev-lang/kotlin-bin 2.3.10 2.3.20: Statically typed language that targets the JVM and JavaScript
 dev-lang/lazarus 3.4-r1: feature rich visual programming environment emulating Delphi
 dev-lang/lfe 2.2.0-r1: Lisp-flavoured Erlang, a lisp syntax front-end to the Erlang compiler
 dev-lang/lisaac 0.13.1-r2: An object prototype based language
@@ -5295,14 +5295,14 @@ dev-lang/souffle 2.5: Datalog compiler, synthesizes C++ program from logic speci
 dev-lang/spark 2024.01.11-r2: Software development for high-reliability applications
 dev-lang/spidermonkey 115.24.0 128.10.1 128.13.0 128.14.0 140.7.0 140.8.0: Mozilla's JavaScript engine written in C and C++
 dev-lang/squirrel 3.2: A interpreted language mainly used for games
-dev-lang/swi-prolog 10.0.0-r1 10.0.1: Versatile implementation of the Prolog programming language
+dev-lang/swi-prolog 10.0.0-r1 10.0.1 10.0.2: Versatile implementation of the Prolog programming language
 dev-lang/swig 4.1.1-r1 4.2.1 4.3.1: Simplified Wrapper and Interface Generator
 dev-lang/tcc 0.9.27_p20211022 0.9.27_p20230223 0.9.27_p20250608 9999: A very small C compiler for ix86/amd64
 dev-lang/tcl 8.6.16 8.6.17 9.0.3-r2: Tool Command Language
 dev-lang/teyjus 2.1-r2: Higher-order logic programming language Lambda Prolog
 dev-lang/tk 8.6.16 8.6.17 9.0.3-r2: Tk Widget Set
 dev-lang/tuprolog 3.2.0-r3: tuProlog is a light-weight Prolog for Internet applications and infrastructures
-dev-lang/typescript 5.9.2 5.9.3: Superset of JavaScript with optional static typing, classes and interfaces
+dev-lang/typescript 5.9.3: Superset of JavaScript with optional static typing, classes and interfaces
 dev-lang/uasm 2.57: UASM is a free MASM-compatible assembler
 dev-lang/vala 0.56.16 0.56.17 0.56.18: Compiler for the GObject type system
 dev-lang/whitespace 0.4: Whitespace, an esoteric programming language
@@ -6115,6 +6115,7 @@ dev-ml/ocaml-gettext-camomile 0.4.2-r1: Support for internationalization of OCam
 dev-ml/ocaml-gettext-stub 0.4.2-r2 0.4.2.1: Support for internationalization of OCaml programs using native gettext library
 dev-ml/ocaml-hashcons 1.3: OCaml hash-consing library
 dev-ml/ocaml-inifiles 1.2: A small OCaml library to read and write .ini files
+dev-ml/ocaml-markdown 0.2.1: Markdown parser and printer in OCaml
 dev-ml/ocaml-migrate-parsetree 2.1.0 2.2.0 2.3.0-r1 2.4.0-r1: Convert OCaml parsetrees between different major versions
 dev-ml/ocaml-process 0.2.1-r1: Easy process control for OCaml
 dev-ml/ocaml-sha 1.15.1 1.15.2 1.15.4: Binding to the SHA cryptographic functions
@@ -15424,7 +15425,7 @@ net-misc/r8152 2.20.1-r1: r8152 driver for Realtek USB FE / GBE / 2.5G Gaming Et
 net-misc/r8168 8.055.00 8.056.02: r8168 driver for Realtek 8111/8168 PCI-E NICs
 net-misc/rabbitmq-server 3.13.1 4.1.6 4.1.8 4.2.1 4.2.3 4.2.4: RabbitMQ is a high-performance AMQP-compliant message broker written in Erlang
 net-misc/radvd 2.20: Linux IPv6 Router Advertisement Daemon
-net-misc/rclone 1.72.1 1.73.0 1.73.1 1.73.2: A program to sync files to and from various cloud storage providers
+net-misc/rclone 1.72.1 1.73.0 1.73.1 1.73.2 1.73.3: A program to sync files to and from various cloud storage providers
 net-misc/rdate 1.11: Use TCP or UDP to retrieve the current time of another machine
 net-misc/rdesktop 1.9.0-r4: A Remote Desktop Protocol Client
 net-misc/redir 3.3-r1: Redir is a port redirector
@@ -16366,7 +16367,7 @@ sci-mathematics/cvc4 1.8-r7: Automatic theorem prover for satisfiability modulo 
 sci-mathematics/dataplot 20131220: Program for scientific visualization and statistical analyis
 sci-mathematics/dsfmt 2.2.4: Double precision SIMD-oriented Fast Mersenne Twister library
 sci-mathematics/dunshire 0.1.3-r2: Python library to solve linear games over symmetric cones
-sci-mathematics/easycrypt 2025.10 2025.11: Computer-Aided Cryptographic Proofs
+sci-mathematics/easycrypt 2025.10 2025.11 2026.03: Computer-Aided Cryptographic Proofs
 sci-mathematics/eclib 20250627: Programs for elliptic curves defined over the rational numbers
 sci-mathematics/ent 101202: Random number sequence test and entropy calculation
 sci-mathematics/eprover 3.0.03 3.2.5: Automated theorem prover for full first-order logic with equality
