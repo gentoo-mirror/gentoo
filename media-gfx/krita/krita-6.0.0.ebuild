@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PATCHSET="${P}-patchset" # krita/6.0 branch @6c2a7d12
+PATCHSET=
 ECM_TEST="forceoptional"
 PYTHON_COMPAT=( python3_{11..14} )
 KFMIN=6.16.0
@@ -110,8 +110,10 @@ PATCHES=(
 	# downstream
 	"${FILESDIR}"/${PN}-5.3.0-tests-optional.patch
 	"${FILESDIR}"/${PN}-5.2.2-fftw.patch # bug 913518
-	"${WORKDIR}/${PATCHSET}"
 )
+if [[ -n ${PATCHSET} ]]; then
+	PATCHES+=( "${WORKDIR}/${PATCHSET}" )
+fi
 
 src_prepare() {
 	rm -r packaging || die # unused and too low CMake minimum
@@ -125,6 +127,7 @@ src_configure() {
 
 	local mycmakeargs=(
 		-DBUILD_WITH_QT6=ON
+		-DALLOW_UNSTABLE=QT6
 		-DENABLE_UPDATERS=OFF
 		-DKRITA_ENABLE_PCH=OFF # big mess.
 		-DCMAKE_DISABLE_FIND_PACKAGE_KSeExpr=ON # not packaged
