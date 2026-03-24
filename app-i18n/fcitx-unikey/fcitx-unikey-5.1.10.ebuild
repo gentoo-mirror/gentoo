@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,7 +18,7 @@ IUSE="+gui test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=app-i18n/fcitx-5.1.12:5
+	>=app-i18n/fcitx-5.1.13:5
 	>=app-i18n/fcitx-qt-5.1.4:5[qt6(+),-onlyplugin]
 	gui? ( dev-qt/qtbase:6[dbus,gui,widgets] )
 "
@@ -32,7 +32,6 @@ src_configure() {
 	local mycmakeargs=(
 		-DENABLE_QT=$(usex gui)
 		-DENABLE_TEST=$(usex test)
-		-DUSE_QT6=ON
 	)
 	cmake_src_configure
 }
