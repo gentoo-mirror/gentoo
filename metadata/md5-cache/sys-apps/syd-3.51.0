@@ -1,0 +1,16 @@
+BDEPEND=|| ( >=dev-lang/rust-bin-1.88.0:* >=dev-lang/rust-1.88.0:* )
+DEFINED_PHASES=compile configure install setup test unpack
+DEPEND=static? ( sys-libs/libseccomp[static-libs] ) sys-libs/libseccomp app-text/scdoc
+DESCRIPTION=seccomp and landlock based application sandbox with support for namespaces
+EAPI=8
+HOMEPAGE=https://sydbox.exherbolinux.org
+INHERIT=cargo
+IUSE=static debug
+KEYWORDS=~amd64
+LICENSE=GPL-3 0BSD Apache-2.0 BSD-2 BSD CC0-1.0 GPL-3+ ISC MIT MPL-2.0 Unicode-3.0 WTFPL-2 ZLIB
+RDEPEND=sys-apps/pandora_box static? ( sys-libs/libseccomp[static-libs] ) sys-libs/libseccomp app-text/scdoc
+RESTRICT=test
+SLOT=0
+SRC_URI=https://git.sr.ht/~alip/syd/archive/v3.51.0.tar.gz -> syd-3.51.0.tar.gz https://dev.gentoo.org/~patrick/syd-3.51.0-crates.tar.xz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	c4ce7cd4e666b59ad4165ec2de032d09	rust	0d1cc00e0e91a021b50b0491e361ad41	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	be19d4b6a17dac5249b9273866e3b66b
+_md5_=7f98ad7b88e72e8c83a089ffd52f3d0d

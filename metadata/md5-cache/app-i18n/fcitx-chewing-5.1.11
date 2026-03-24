@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=!app-i18n/fcitx-chewing:4 >=app-i18n/fcitx-5.1.13:5 >=app-i18n/libchewing-0.5.0
+DESCRIPTION=Chewing Wrapper for Fcitx.
+EAPI=8
+HOMEPAGE=https://github.com/fcitx/fcitx5-chewing
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake unpacker xdg
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=!app-i18n/fcitx-chewing:4 >=app-i18n/fcitx-5.1.13:5 >=app-i18n/libchewing-0.5.0
+RESTRICT=!test? ( test )
+SLOT=5
+SRC_URI=https://download.fcitx-im.org/fcitx5/fcitx5-chewing/fcitx5-chewing-5.1.11.tar.zst -> fcitx-chewing-5.1.11.tar.zst
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	c4ce7cd4e666b59ad4165ec2de032d09	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=d03e9ada9115e54fdb94c99dd60aac1b
