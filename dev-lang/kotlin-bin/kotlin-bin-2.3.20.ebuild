@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,6 +8,7 @@ inherit java-pkg-2 wrapper
 DESCRIPTION="Statically typed language that targets the JVM and JavaScript"
 HOMEPAGE="https://kotlinlang.org/
 	https://github.com/JetBrains/kotlin/"
+
 SRC_URI="https://github.com/JetBrains/kotlin/releases/download/v${PV}/kotlin-compiler-${PV}.zip"
 S="${WORKDIR}/kotlinc"
 
