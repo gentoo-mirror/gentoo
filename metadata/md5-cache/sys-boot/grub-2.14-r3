@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.gnu.org/software/grub/
 INHERIT=autotools bash-completion-r1 eapi9-ver flag-o-matic multibuild optfeature python-any-r1 secureboot toolchain-funcs verify-sig
 IUSE=+branding +device-mapper doc efiemu +fonts mount nls protect sdl test +themes truetype libzfs grub_platforms_coreboot grub_platforms_efi-32 grub_platforms_efi-64 grub_platforms_emu grub_platforms_ieee1275 grub_platforms_loongson grub_platforms_multiboot grub_platforms_qemu grub_platforms_qemu-mips grub_platforms_pc grub_platforms_uboot grub_platforms_xen grub_platforms_xen-32 grub_platforms_xen-pvh secureboot verify-sig
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+KEYWORDS=amd64 arm arm64 ~loong ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=GPL-3+ BSD MIT fonts? ( GPL-2-with-font-exception ) themes? ( CC-BY-SA-3.0 BitstreamVera )
 RDEPEND=app-arch/xz-utils >=sys-libs/ncurses-5.2-r5:0= grub_platforms_emu? ( sdl? ( media-libs/libsdl2 ) ) device-mapper? ( >=sys-fs/lvm2-2.02.45 ) libzfs? ( sys-fs/zfs:= ) mount? ( sys-fs/fuse:3= ) truetype? ( media-libs/freetype:2= ) ppc? ( >=sys-apps/ibm-powerpc-utils-1.3.5 ) ppc64? ( >=sys-apps/ibm-powerpc-utils-1.3.5 ) protect? ( dev-libs/libtasn1:= ) branding? ( themes? ( >=sys-boot/grub-themes-gentoo-1.0-r1 ) ) kernel_linux? ( grub_platforms_efi-32? ( sys-boot/efibootmgr ) grub_platforms_efi-64? ( sys-boot/efibootmgr ) ) !sys-boot/grub:0 nls? ( sys-devel/gettext )
 REQUIRED_USE=grub_platforms_coreboot? ( fonts ) grub_platforms_qemu? ( fonts ) grub_platforms_ieee1275? ( fonts ) grub_platforms_loongson? ( fonts )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test ) test? ( userpriv )
 SLOT=2/2.14-r3
 SRC_URI=mirror://gnu/grub/grub-2.14.tar.xz verify-sig? ( mirror://gnu/grub/grub-2.14.tar.xz.sig ) https://dev.gentoo.org/~floppym/dist/grub-2.14-patches.tar.xz fonts? ( mirror://gnu/unifont/unifont-17.0.02/unifont-17.0.02.pcf.gz verify-sig? ( mirror://gnu/unifont/unifont-17.0.02/unifont-17.0.02.pcf.gz.sig ) ) themes? ( https://downloads.sourceforge.net/project/dejavu/dejavu/2.37/dejavu-fonts-ttf-2.37.tar.bz2 )
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	bash-completion-r1	9e91505e030725688d1e953321a47501	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	optfeature	538bce96e5589935b57e178e8635f301	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	c4ce7cd4e666b59ad4165ec2de032d09	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-any-r1	891415dfe39ad9b41b461f2b86354af0	linux-info	efd923656513c879204fec6638eadee5	secureboot	d98b63e30a9468e1f1c06d3d7c66e760	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=cf01701541ece0f2b414c67a485a88a1
+_md5_=af530d2e8d01d9a68163c7ccf62088ce
