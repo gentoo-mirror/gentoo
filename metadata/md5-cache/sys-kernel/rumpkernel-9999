@@ -1,0 +1,12 @@
+BDEPEND=virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare unpack
+DEPEND=dev-util/mig
+DESCRIPTION=NetBSD's rumpkernel for the Hurd
+EAPI=8
+HOMEPAGE=https://salsa.debian.org/hurd-team/rumpkernel https://darnassus.sceen.net/~hurd-web/hurd/rump/ https://rumpkernel.github.io/
+INHERIT=flag-o-matic multiprocessing toolchain-funcs git-r3
+LICENSE=Apache-2.0 Boost-1.0 BSD BSD-2 BSD-4 CDDL GPL-1 GPL-2+ GPL-3+ ISC LGPL-2.1+ MIT public-domain ZLIB
+PROPERTIES=live
+SLOT=0
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	d4511f019dc17ec44bfe46b9e672ca64	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
+_md5_=903f344540a6beb1c010ebb1020936b6
