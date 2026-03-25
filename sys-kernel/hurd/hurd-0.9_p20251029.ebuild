@@ -31,7 +31,7 @@ SLOT="0"
 if is_crosspkg ; then
 	IUSE="custom-cflags headers-only"
 else
-	IUSE="custom-cflags headers-only ncurses xkb"
+	IUSE="custom-cflags headers-only ncurses rumpkernel xkb"
 fi
 [[ ${PV} != 9999 ]] && KEYWORDS="~amd64 ~x86"
 
@@ -47,10 +47,12 @@ else
 		>=dev-libs/libgcrypt-1.8.0:=
 		dev-util/mig
 		sys-apps/util-linux[static-libs]
+		sys-block/parted[static-libs]
 		x11-libs/libpciaccess[static-libs]
 		virtual/libcrypt:=[static-libs]
 		virtual/zlib:=[static-libs]
 		ncurses? ( sys-libs/ncurses:= )
+		rumpkernel? ( sys-kernel/rumpkernel )
 		xkb? ( x11-libs/libxkbcommon )
 	"
 	RDEPEND="${DEPEND}"
@@ -59,6 +61,7 @@ fi
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.9_p20251029-glibc-2.43.patch
+	"${FILESDIR}"/${PN}-0.9_p20251029-rump-link.patch
 )
 
 src_prepare() {
@@ -114,18 +117,18 @@ src_configure() {
 
 			# Unpackaged
 			--without-acpica
-			--without-rump
 
-			# TODO (configure really wants parted)
-			--without-parted
 			# TODO (nfs)
 			--without-libtirpc
 
 			--with-libcrypt
 			--with-libbz2
 			--with-libz
+			# configure really wants parted (may be needed for rump too)
+			--with-parted
 
 			$(use_enable ncurses ncursesw)
+			$(use_with rumpkernel rump)
 		)
 	fi
 
