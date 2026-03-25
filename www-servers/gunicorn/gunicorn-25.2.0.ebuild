@@ -27,8 +27,12 @@ RDEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]
 	dev-python/setproctitle[${PYTHON_USEDEP}]
 "
-
-DOCS=( README.rst )
+BDEPEND="
+	test? (
+		>=dev-python/h2-4.1.0[${PYTHON_USEDEP}]
+		dev-python/httpx[${PYTHON_USEDEP}]
+	)
+"
 
 EPYTEST_PLUGINS=( pytest-asyncio )
 distutils_enable_tests pytest
