@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=postgres_targets_postgres18? ( dev-db/postgresql:18=[ssl] ) postgres_targets_postgres17? ( dev-db/postgresql:17=[ssl] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[ssl] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[ssl] )
+DESCRIPTION=Open-source time-series SQL database
+EAPI=8
+HOMEPAGE=https://www.timescale.com/
+INHERIT=postgres-multi cmake
+IUSE=proprietary-extensions postgres_targets_postgres18 postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15
+KEYWORDS=~amd64
+LICENSE=POSTGRESQL Apache-2.0 proprietary-extensions? ( timescale )
+RDEPEND=postgres_targets_postgres18? ( dev-db/postgresql:18=[ssl] ) postgres_targets_postgres17? ( dev-db/postgresql:17=[ssl] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[ssl] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[ssl] )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/timescale/timescaledb/archive/2.26.0.tar.gz -> timescaledb-2.26.0.tar.gz
+_eclasses_=out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	postgres	3671a84f95eadcaa836aefe3fd51b6a1	postgres-multi	ccad35d745ce66b41837db8a6ee94601	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	d4511f019dc17ec44bfe46b9e672ca64	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
+_md5_=c760f7b0b370e8a6728e462b52316541
