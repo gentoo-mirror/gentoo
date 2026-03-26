@@ -1,0 +1,18 @@
+BDEPEND=app-arch/xz-utils[extra-filters(+)] gui? ( media-gfx/imagemagick[png] ) journal? ( dev-util/pahole sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig ) ) || ( app-arch/rpm2targz >=app-arch/rpm-4.19.0 )
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup unpack
+DEPEND=acct-group/tsm journal? ( virtual/linux-sources )
+DESCRIPTION=IBM Storage Protect (former Tivoli Storage Manager) Backup/Archive Client, API
+EAPI=8
+HOMEPAGE=https://www.ibm.com/products/storage-protect
+IDEPEND=journal? ( sys-apps/kmod[tools] ) dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop linux-mod-r1 rpm toolchain-funcs pax-utils xdg
+IUSE=gpfs gui l10n_cs l10n_de l10n_es l10n_fr l10n_hu l10n_it l10n_ja l10n_ko l10n_pl l10n_pt-BR l10n_ru l10n_zh-CN l10n_zh-TW dist-kernel modules-compress modules-sign +strip journal
+KEYWORDS=~amd64
+LICENSE=Apache-1.1 Apache-2.0 JDOM BSD-2 CC-PD Boost-1.0 MIT CPL-1.0 HPND Exolab dom4j EPL-1.0 FTL icu unicode IBM Info-ZIP LGPL-2 LGPL-2.1 openafs-krb5-a ZLIB MPL-1.0 MPL-1.1 NPL-1.1 openssl OPENLDAP RSA public-domain W3C gSOAP libpng tsm || ( BSD GPL-2+ )
+RDEPEND=acct-group/tsm dev-libs/expat dev-libs/json-c:0/5.1 >=dev-libs/openssl-3.3.0:0/3 dev-libs/libxml2:2 net-misc/curl[openssl] sys-apps/acl sys-fs/fuse:0 virtual/zlib:0/1 || ( sys-libs/libxcrypt:0/1[compat] sys-libs/glibc:2.2[crypt(-)] ) gpfs? ( || ( app-shells/ksh app-shells/loksh ) ) gui? ( media-libs/alsa-lib virtual/jre x11-libs/libXft ) journal? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
+REQUIRED_USE=journal? ( !gpfs )
+RESTRICT=strip bindist mirror
+SLOT=0
+SRC_URI=amd64? ( !gpfs? ( https://public.dhe.ibm.com/storage/tivoli-storage-management/maintenance/client/v8r2/Linux/LinuxX86/BA/v821/8.2.1.0-TIV-TSMBAC-LinuxX86.tar ) gpfs? ( https://public.dhe.ibm.com/storage/tivoli-storage-management/maintenance/client/v8r2/Linux/LinuxX86/HSMGPFS/v821/8.2.1.0-TIV-TSMHSM-LinuxX86GPFS.tar ) ) ppc64? ( !gpfs? ( https://public.dhe.ibm.com/storage/tivoli-storage-management/maintenance/client/v8r2/Linux/LinuxPPC/v821/8.2.1.0-TIV-TSMBAC-LinuxPPC.tar https://public.dhe.ibm.com/storage/tivoli-storage-management/maintenance/client/v8r2/Linux/LinuxPLE/BA/v821/8.2.1.0-TIV-TSMBAC-LinuxPLE.tar ) gpfs? ( https://public.dhe.ibm.com/storage/tivoli-storage-management/maintenance/client/v8r2/Linux/LinuxPLE/HSMGPFS/v821/8.2.1.0-TIV-TSMHSM-LinuxPLEGPFS.tar ) ) s390? ( https://public.dhe.ibm.com/storage/tivoli-storage-management/maintenance/client/v8r2/Linux/LinuxzSeries/BA/v821/8.2.1.0-TIV-TSMBAC-LinuxS390.tar )
+_eclasses_=desktop	26d57169ca094c04be416993844ec8bc	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	dist-kernel-utils	6b5bab4e35c9a263b3f102ee53d96c65	edo	a5e294016aa84979fcb2459749eb80b2	linux-info	efd923656513c879204fec6638eadee5	multiprocessing	d4511f019dc17ec44bfe46b9e672ca64	linux-mod-r1	c07d9d48506ae94ea189c64f2f78a94a	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	rpm	7f6c39764471c4b515dd9cc5b7754c9c	pax-utils	5555f2e75744739fe100ee62c22d28fe	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=475c674388a96cc94b25edf42caa6d23
