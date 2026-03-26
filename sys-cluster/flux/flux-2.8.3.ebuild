@@ -10,7 +10,7 @@ MY_P="${MY_PN}-${PV}"
 DESCRIPTION="Flux is a tool for keeping Kubernetes clusters in sync"
 HOMEPAGE="https://fluxcd.io https://github.com/fluxcd/flux2"
 SRC_URI="https://github.com/fluxcd/${MY_PN}/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
-SRC_URI+=" https://github.com/fluxcd/${MY_PN}/releases/download/v${PV}/manifests.tar.gz -> ${P}-manifests.tar.gz"
+SRC_URI+=" https://github.com/fluxcd/${MY_PN}/releases/download/v${PV}/manifests.tar.gz -> ${MY_P}-manifests.tar.gz"
 SRC_URI+=" https://dev.gentoo.org/~concord/distfiles/${MY_P}-deps.tar.xz"
 S="${WORKDIR}/${MY_P}"
 
@@ -21,6 +21,8 @@ KEYWORDS="~amd64"
 BDEPEND=">=dev-lang/go-1.19"
 
 RESTRICT+=" test"
+
+QA_PRESTRIPPED="usr/bin/flux"
 
 src_unpack() {
 	default
