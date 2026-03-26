@@ -4,7 +4,6 @@
 EAPI=8
 
 # TODO: check for any automagic dependencies, possible USE flags
-# TODO: make building for x86_64 work (don't hardcode i386)
 # TODO: make building natively work
 
 inherit flag-o-matic multiprocessing toolchain-funcs
@@ -39,11 +38,15 @@ if [[ ${PV} != *9999* ]] ; then
 	KEYWORDS="~amd64 ~x86"
 fi
 
-DEPEND="
-	dev-util/mig
+RDEPEND="
+	x11-libs/libpciaccess
+	virtual/zlib:=
 "
-# XXX
-BDEPEND="virtual/pkgconfig"
+DEPEND="
+	${RDEPEND}
+	dev-util/mig
+	sys-kernel/gnumach
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0_p20250111_p6-bsd-own-mk-no-sysroot.patch
@@ -75,7 +78,18 @@ src_configure() {
 	cd buildrump.sh/src/lib/librumpuser || die "Couldn't change to the build directory"
 	econf
 
-	NBMAKE="${S}"/buildrump.sh/src/obj/tooldir/bin/nbmake-i386
+	case ${CHOST} in
+		i[3-7]86*)
+			NBARCH=i386
+			;;
+		x86_64*)
+			NBARCH=amd64
+			;;
+		*)
+			die "Unknown NetBSD arch for this CHOST"
+			;;
+	esac
+	NBMAKE="${S}"/buildrump.sh/src/obj/tooldir/bin/nbmake-${NBARCH}
 }
 
 src_compile() {
@@ -83,7 +97,7 @@ src_compile() {
 	mkdir -p obj || die "Couldn't make obj dir"
 
 	local buildrump_cppflags=(
-		-I"${S}"/buildrump.sh/src/obj/destdir.i386/usr/include
+		-I"${S}"/buildrump.sh/src/obj/destdir.${NBARCH}/usr/include
 
 		-D_FILE_OFFSET_BITS=64
 		-DRUMP_REGISTER_T=int
@@ -137,8 +151,7 @@ src_compile() {
 		-V _GCC_CRTI="" -V _GCC_CRTN=""
 		-V MIG=${CHOST}-mig
 
-		# XXX
-		-m i386
+		-m ${NBARCH}
 		-U -u
 		-j $(get_makeopts_jobs)
 		-T ./obj/tooldir
@@ -170,6 +183,7 @@ src_compile() {
 src_install() {
 	dodir /usr/include /usr/lib
 
+	# Install logic copied from Debian
 	cp -a "${S}"/buildrump.sh/src/sys/rump/include/rump "${ED}"/usr/include/ || die
 	# Kept "${S}"/buildrump.sh/src/obj separate here as may change to
 	# another builddir.
@@ -180,6 +194,6 @@ src_install() {
 
 	# rempve non lib files
 	rm -f "${ED}"/usr/lib/*.map || die
-	# Remove it to make lintian happy
+	#
 	rm -f "${ED}"/usr/lib/librumpkern_z.* || die
 }
