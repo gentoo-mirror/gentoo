@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -37,14 +37,10 @@ EPYTEST_PLUGINS=( "${PN}" )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
-PATCHES=(
-	# https://github.com/Erotemic/xdoctest/pull/168
-	# + parts of https://github.com/Erotemic/xdoctest/pull/177
-	"${FILESDIR}/${P}-py314.patch"
-)
-
 python_test() {
 	local EPYTEST_DESELECT=(
+		# broken by PYTEST_PLUGINS
+		tests/test_plugin.py::TestXDoctestActivation::test_xdoctest_explicit_suppression
 		tests/test_pytest_cli.py::test_simple_pytest_import_error_cli
 	)
 

@@ -1,10 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # please keep this ebuild at EAPI 8 -- sys-apps/portage dep
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
+PYPI_VERIFY_REPO=https://github.com/psf/requests
 PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 PYTHON_REQ_USE="threads(+)"
 
@@ -19,7 +20,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="socks5 test-rust"
 
 RDEPEND="
@@ -32,8 +33,6 @@ RDEPEND="
 
 BDEPEND="
 	test? (
-		>=dev-python/pytest-httpbin-2.0.0[${PYTHON_USEDEP}]
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		>=dev-python/pysocks-1.5.6[${PYTHON_USEDEP}]
 		test-rust? (
 			dev-python/trustme[${PYTHON_USEDEP}]
@@ -41,7 +40,17 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-{httpbin,mock} )
+EPYTEST_XDIST=1
 distutils_enable_tests pytest
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# remove useless dependency check spam
+	sed -i -e '/def check_compatibility/a\
+    return' src/requests/__init__.py || die
+}
 
 python_test() {
 	local EPYTEST_DESELECT=(
