@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,20 +10,19 @@ HOMEPAGE="https://github.com/nextcloud/desktop"
 SRC_URI="
 	https://github.com/nextcloud/desktop/archive/v${PV/_/-}.tar.gz
 		-> ${P}.tar.gz
-	https://github.com/nextcloud/desktop/commit/49a7c8d7874643da2550793877115c7f3dbd2d05.patch
-		-> ${PN}-3.15.2-fix-macosvfs-file-sharing.png.patch
 "
 S="${WORKDIR}/desktop-${PV/_/-}"
 
 LICENSE="CC-BY-3.0 GPL-2"
 SLOT="0"
 KEYWORDS="amd64 arm64 ~ppc64 ~x86"
-IUSE="doc dolphin nautilus test webengine"
+IUSE="dolphin nautilus test webengine"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-db/sqlite-3.34:3
 	dev-libs/glib:2
+	dev-libs/kdsingleapplication
 	dev-libs/libp11
 	>=dev-libs/openssl-1.1.0:0=
 	>=dev-libs/qtkeychain-0.14.2:=[qt6(+)]
@@ -50,12 +49,6 @@ DEPEND="
 		gnome-base/librsvg
 		media-gfx/inkscape
 	)
-	doc? (
-		dev-python/sphinx
-		dev-tex/latexmk
-		dev-texlive/texlive-latexextra
-		virtual/latex-base
-	)
 	test? (
 		dev-util/cmocka
 	)
@@ -67,8 +60,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.6.6-no-redefine-fortify-source.patch
-	# https://github.com/nextcloud/desktop/pull/7691
-	"${DISTDIR}"/${PN}-3.15.2-fix-macosvfs-file-sharing.png.patch
 )
 
 src_prepare() {
@@ -89,8 +80,6 @@ src_configure() {
 		-DPLUGINDIR=$(qt6_get_plugindir)
 		-DCMAKE_INSTALL_DOCDIR=/usr/share/doc/${PF}
 		-DBUILD_UPDATER=OFF
-		$(cmake_use_find_package doc Sphinx)
-		$(cmake_use_find_package doc PdfLatex)
 		-DBUILD_WITH_WEBENGINE=$(usex webengine)
 		-DBUILD_SHELL_INTEGRATION_DOLPHIN=$(usex dolphin)
 		-DBUILD_SHELL_INTEGRATION_NAUTILUS=$(usex nautilus)
@@ -102,14 +91,6 @@ src_configure() {
 
 src_test() {
 	TEST_VERBOSE=1 virtx cmake_src_test
-}
-
-src_compile() {
-	local compile_targets=(all)
-	if use doc; then
-		compile_targets+=(doc doc-man)
-	fi
-	cmake_src_compile ${compile_targets[@]}
 }
 
 pkg_postinst() {
