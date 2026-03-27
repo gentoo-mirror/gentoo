@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=dev-libs/gmp:0= dev-libs/libffi:= dev-libs/libatomic_ops >=dev-libs/boehm-gc-7.1[threads?] >=dev-lisp/asdf-2.33-r3:= app-text/texi2html emacs? ( >=app-editors/emacs-23.1:* >=app-eselect/eselect-emacs-1.12 )
+DESCRIPTION=ECL is an embeddable Common Lisp implementation
+EAPI=8
+HOMEPAGE=https://common-lisp.net/project/ecl/
+INHERIT=flag-o-matic readme.gentoo-r1
+IUSE=cxx debug emacs gengc precisegc cpu_flags_x86_sse +threads +unicode X
+KEYWORDS=~amd64 ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=BSD-2 LGPL-2.1+
+RDEPEND=dev-libs/gmp:0= dev-libs/libffi:= dev-libs/libatomic_ops >=dev-libs/boehm-gc-7.1[threads?] >=dev-lisp/asdf-2.33-r3:=
+RESTRICT=test
+SLOT=0/26.3.27
+SRC_URI=https://common-lisp.net/project/ecl/static/files/release/ecl-26.3.27.tgz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327
+_md5_=dceb15c0c1f1356778bb05d0a2e82689
