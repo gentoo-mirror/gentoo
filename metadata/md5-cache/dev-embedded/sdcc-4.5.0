@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://sdcc.sourceforge.net/
 INHERIT=autotools toolchain-funcs
 IUSE=mcs51 z80 z180 r2k r2ka r3ka sm83 tlcs90 ez80-z80 z80n r800 ds390 ds400 pic14 pic16 hc08 s08 stm8 pdk13 pdk14 pdk15 pdk16 mos6502 mos65c02 f8 +boehm-gc device-lib doc non-free packihx sdcdb +sdcpp ucsim
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 x86
 LICENSE=GPL-2 ZLIB non-free? ( MicroChip-SDCC ) packihx? ( public-domain )
 RDEPEND=dev-libs/boost:= virtual/zlib:= pic14? ( >=dev-embedded/gputils-0.13.7 ) pic16? ( >=dev-embedded/gputils-0.13.7 ) boehm-gc? ( dev-libs/boehm-gc:= ) sdcdb? ( sys-libs/readline:0= ) ucsim? ( sys-libs/ncurses:= )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/project/sdcc/sdcc/4.5.0/sdcc-src-4.5.0.tar.bz2 doc? ( https://downloads.sourceforge.net/project/sdcc/sdcc-doc/4.5.0/sdcc-doc-4.5.0.tar.bz2 ) mirror://gnu/binutils/binutils-2.45.1.tar.xz https://sourceware.org/pub/binutils/releases/binutils-2.45.1.tar.xz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112
-_md5_=6cf7b0086d2c26685fcdc6b248af6536
+_md5_=f7f885760356db4e30b025eeebd2d4e0
