@@ -9,7 +9,7 @@ NGINX_MODULES=(
 	+http_{split_clients,referer,rewrite,proxy,fastcgi,uwsgi,scgi,grpc}
 	+http_{memcached,limit_conn,limit_req,empty_gif,browser,upstream_hash}
 	+http_{upstream_ip_hash,upstream_least_conn,upstream_random}
-	+http_{upstream_keepalive,upstream_zone}
+	+http_{upstream_keepalive,upstream_zone,upstream_sticky}
 	http_{ssl,v2,v3,realip,addition,xslt,image_filter,geoip,sub,dav,flv,mp4}
 	http_{gunzip,gzip_static,auth_request,random_index,secure_link,degradation}
 	http_{slice,stub_status,perl}
@@ -20,10 +20,11 @@ NGINX_MODULES=(
 	stream_{ssl,realip,geoip,ssl_preread}
 )
 NGINX_UPDATE_STREAM=mainline
-NGINX_TESTS_COMMIT=51e17e709ede6d4a75737e98d12e775fb4fc424a
+NGINX_TESTS_COMMIT=cf90a22921652731302e8a4dc2a88049c723377d
 NGINX_MISC_FILES=(
-	nginx-{r2.logrotate,r2.service,r4.conf,r6.initd,r1.confd,r1.tmpfiles}
+	nginx-{r2.logrotate,r2.service,r5.conf,r6.initd,r1.confd,r1.tmpfiles}
 )
+NGINX_SUPPORT_MODULE_STUBS=1
 
 inherit nginx
 
