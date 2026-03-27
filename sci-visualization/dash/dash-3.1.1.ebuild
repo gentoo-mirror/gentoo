@@ -31,6 +31,7 @@ DEPEND="${RDEPEND}"
 
 src_prepare() {
 	mkdir dash/labextension/dist || die
+	# These are the step to build dash-jupyterlab:
 	# cd @plotly/dash-jupyterlab
 	# jlpm install
 	# jlpm build:pack
