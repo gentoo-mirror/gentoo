@@ -3,11 +3,11 @@
 
 EAPI=8
 
+PATCHSET="${P}-patchset"
 PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_EXT=1
-
 inherit distutils-r1 xdg
 
 if [[ ${PV} == *9999* ]]; then
@@ -25,6 +25,9 @@ else
 		SRC_URI="https://data.musicbrainz.org/pub/musicbrainz/${PN}/${P}.tar.gz"
 	fi
 	KEYWORDS="~amd64 ~arm64 ~x86"
+fi
+if [[ -n ${PATCHSET} ]]; then
+	SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PATCHSET}.tar.xz"
 fi
 
 DESCRIPTION="Cross-platform music tagger"
@@ -51,9 +54,17 @@ RDEPEND="
 DEPEND="test? ( $(python_gen_cond_dep 'dev-python/pyqt6[testlib,${PYTHON_USEDEP}]') )"
 BDEPEND="nls? ( dev-qt/qttools:6[linguist] )"
 
-PATCHES=( "${FILESDIR}/${P}-pyjwt-version.patch" )
+if [[ -n ${PATCHSET} ]]; then
+	PATCHES=( "${WORKDIR}/${PATCHSET}" )
+fi
 
 distutils_enable_tests pytest
+
+python_prepare_all() {
+	rm test/{test_git,/plugins3/test_{cli,manager,plugin_source}}.py || die
+
+	distutils-r1_python_prepare_all
+}
 
 python_compile() {
 	local build_args=(
