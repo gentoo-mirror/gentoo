@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,88 +7,71 @@ CARGO_OPTIONAL=yes
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
+RUST_MIN_VER=1.83.0
 CRATES="
 	autocfg@1.3.0
-	bitflags@1.3.2
 	bitflags@2.5.0
-	byteorder@1.5.0
 	cfg-if@1.0.0
-	convert_case@0.4.0
 	cssparser-macros@0.6.1
-	cssparser@0.27.2
-	derive_more@0.99.17
+	cssparser@0.36.0
+	derive_more-impl@2.1.1
+	derive_more@2.1.1
 	dtoa-short@0.3.4
 	dtoa@1.0.9
+	ego-tree@0.10.0
+	fastrand@2.3.0
 	futf@0.1.5
-	fxhash@0.2.1
-	getrandom@0.1.16
-	getrandom@0.2.15
+	getopts@0.2.24
 	heck@0.5.0
-	html5ever@0.25.2
-	indoc@2.0.5
-	itoa@0.4.8
-	kuchiki@0.8.1
+	html5ever@0.36.1
+	itoa@1.0.17
 	libc@0.2.154
 	lock_api@0.4.12
 	log@0.4.21
 	mac@0.1.1
-	markup5ever@0.10.1
-	matches@0.1.10
-	memoffset@0.9.1
+	markup5ever@0.36.1
 	new_debug_unreachable@1.0.6
-	nodrop@0.1.14
-	once_cell@1.19.0
+	once_cell@1.21.3
 	parking_lot@0.12.2
 	parking_lot_core@0.9.10
-	phf@0.8.0
-	phf_codegen@0.8.0
-	phf_generator@0.10.0
-	phf_generator@0.8.0
-	phf_macros@0.8.0
-	phf_shared@0.10.0
-	phf_shared@0.8.0
+	phf@0.13.1
+	phf_codegen@0.13.1
+	phf_generator@0.13.1
+	phf_macros@0.13.1
+	phf_shared@0.13.1
 	portable-atomic@1.6.0
-	ppv-lite86@0.2.17
 	precomputed-hash@0.1.1
-	proc-macro-hack@0.5.20+deprecated
+	proc-macro2@1.0.106
 	proc-macro2@1.0.82
-	pyo3-build-config@0.24.1
-	pyo3-ffi@0.24.1
-	pyo3-macros-backend@0.24.1
-	pyo3-macros@0.24.1
-	pyo3@0.24.1
-	quote@1.0.36
-	rand@0.7.3
-	rand@0.8.5
-	rand_chacha@0.2.2
-	rand_chacha@0.3.1
-	rand_core@0.5.1
-	rand_core@0.6.4
-	rand_hc@0.2.0
-	rand_pcg@0.2.1
+	pyo3-build-config@0.28.2
+	pyo3-ffi@0.28.2
+	pyo3-macros-backend@0.28.2
+	pyo3-macros@0.28.2
+	pyo3@0.28.2
+	quote@1.0.44
 	redox_syscall@0.5.1
-	rustc_version@0.4.0
+	rustc-hash@2.1.1
+	rustc_version@0.4.1
 	scopeguard@1.2.0
-	selectors@0.22.0
-	semver@1.0.23
+	scraper@0.25.0
+	selectors@0.33.0
+	semver@1.0.27
 	serde@1.0.200
 	serde_derive@1.0.200
-	servo_arc@0.1.1
-	siphasher@0.3.11
+	servo_arc@0.4.3
+	siphasher@1.0.2
 	smallvec@1.13.2
 	stable_deref_trait@1.2.0
-	string_cache@0.8.7
-	string_cache_codegen@0.5.2
-	syn@1.0.109
+	string_cache@0.9.0
+	string_cache_codegen@0.6.1
 	syn@2.0.61
-	target-lexicon@0.13.2
+	target-lexicon@0.13.4
+	target-lexicon@0.13.5
 	tendril@0.4.3
-	thin-slice@0.1.1
 	unicode-ident@1.0.12
-	unindent@0.2.3
+	unicode-width@0.2.2
 	utf-8@0.7.6
-	wasi@0.11.0+wasi-snapshot-preview1
-	wasi@0.9.0+wasi-snapshot-preview1
+	web_atoms@0.2.3
 	windows-targets@0.52.5
 	windows_aarch64_gnullvm@0.52.5
 	windows_aarch64_msvc@0.52.5
@@ -118,7 +101,7 @@ SRC_URI="
 # crates are used at test time only, update via pycargoebuild -L -i ...
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
