@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 # For required dependencies read doc/README, for required tools read
 # data/userguide [INSTALLATION]. xdg-open (x11-misc/xdg-utils) is an
@@ -24,6 +24,7 @@ DEPEND="
 	media-libs/clutter-gtk
 	media-libs/lcms:2
 	media-libs/libjpeg-turbo:=
+	media-libs/libjxl:=
 	media-libs/libpng:=
 	media-libs/tiff:=
 	media-libs/libchamplain[gtk]
@@ -35,7 +36,7 @@ RDEPEND="
 	x11-misc/xdg-utils
 "
 
-PATCHES=( "${FILESDIR}/${PN}-24.20-documentation.patch" )
+PATCHES=( "${FILESDIR}/${PN}-26.1-documentation.patch" )
 
 DOCS=()
 HTML_DOCS=()
