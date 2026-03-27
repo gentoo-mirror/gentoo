@@ -245,33 +245,6 @@ dev-qt/qtscxml:5
 dev-qt/qtspeech:5
 dev-qt/qtwebsockets:5
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-26)
-# Depends on Qt5 and does not appear to be ported to Qt6 any time soon.
-# Possible alternatives are app-text/xournalpp or media-gfx/pdf4qt (only in
-# guru overlay right now). Many bugs: #965497, #935693, #935692, #935694,
-# #900162, #850064, #935695.
-# Removal on 2026-03-28.
-app-text/master-pdf-editor
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-26)
-# Depends on Qt5 and does not appear to be ported to Qt6. Upstream's main
-# problem is reliance on QtXMLPatterns which is not available in Qt6.
-# Bug #955183
-# Removal on 2026-03-28.
-app-editors/qxmledit
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-26)
-# Current release depends on Qt5, painful to package which may explain why not
-# many other distributions care to do so.  Upstream AppImage available.
-# Many bugs: #909069, #937133, #945721, #947403, #956111, #956112, #956113,
-# #956451, #967186.
-# Removal on 2026-03-28.
-net-p2p/retroshare
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-26)
-# Qt binaries-to-path symlinking tool obsolete with Qt6. Removal on 2026-03-28.
-dev-qt/qtchooser
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-02-24)
 # Phonon is effectively dead upstream, its only remaining backend depends
 # on VLC-3. Bug #935797  Removal on 2026-03-26.
