@@ -522,7 +522,7 @@ app-editors/nano:justify - Enable justify/unjustify functions for text formattin
 app-editors/nano:magic - Add magic file support (sys-apps/file) to automatically detect appropriate syntax highlighting
 app-editors/nano:minimal - Disable all fancy features, including ones that otherwise have a dedicated USE flag (such as spelling).
 app-editors/neovim:nvimpager - Install nvimpager symlink to less.sh macro
-app-editors/okteta:designer - Build plugins for dev-qt/designer
+app-editors/okteta:designer - Build plugins for dev-qt/qttools[designer]
 app-editors/qhexedit2:gui - Install Qt5 hex editor
 app-editors/tea:aspell - Enable spellchecking using app-text/aspell
 app-editors/vim:X - Link console vim against X11 libraries to enable title and clipboard features in xterm
@@ -2069,7 +2069,7 @@ dev-libs/jemalloc:prof - Enable allocation profiling
 dev-libs/jemalloc:stats - Enable statistics calculation/reporting
 dev-libs/jemalloc:xmalloc - Add support for xmalloc (abort-on-out-of-memory)
 dev-libs/json-glib:nls - Enable native language support (translations)
-dev-libs/ktextaddons:designer - Build plugins for dev-qt/designer
+dev-libs/ktextaddons:designer - Build plugins for dev-qt/qttools[designer]
 dev-libs/leancrypto:tools - Install sha*sum tools to /usr/libexec/leancrypto/.
 dev-libs/libbase58:tools - Build command line base58 tool
 dev-libs/libbytesize:tools - Build bscalc python CLI tool
@@ -2738,7 +2738,7 @@ dev-qt/qtwayland:gnome - Build the GNOME-like decoration plugin (loaded by defau
 dev-qt/qtwayland:qml - Build QML/QtQuick bindings and imports
 dev-qt/qtwayland:vulkan - Enable support for Vulkan-based server buffer integration
 dev-qt/qtwebchannel:qml - Build QML/QtQuick bindings and imports
-dev-qt/qtwebengine:designer - Install the QWebEngineView plugin used to add widgets in dev-qt/designer forms that display web pages.
+dev-qt/qtwebengine:designer - Install the QWebEngineView plugin used to add widgets in dev-qt/qttools[designer] forms that display web pages.
 dev-qt/qtwebengine:jumbo-build - Combine source files to speed up build process.
 dev-qt/qtwebengine:pdfium - Build the QtPdf module based on chromium's PDFium library
 dev-qt/qtwebengine:qml - Build QML/QtQuick bindings and imports
@@ -3518,7 +3518,7 @@ gui-wm/sway:tray - Enable support for StatusNotifierItem tray specification
 gui-wm/sway:wallpapers - Install sway's default wallpaper image
 gui-wm/wayfire:X - Enable support for X11 applications (XWayland).
 gui-wm/wayfire:gles3 - Enable OpenGL ES 3.x Features.
-kde-apps/akonadi:designer - Install plugin for dev-qt/designer
+kde-apps/akonadi:designer - Install plugin for dev-qt/qttools[designer]
 kde-apps/akonadi:tools - Install tools for developers and testing
 kde-apps/akonadi:webengine - Enable support for system-wide defined KAccounts
 kde-apps/akregator:activities - Enable Plasma Activities support via kde-plasma/plasma-activities
@@ -3565,7 +3565,7 @@ kde-apps/kdenetwork-meta:dropbox - Enable support for Dropbox in kde-apps/dolphi
 kde-apps/kdenetwork-meta:samba - Enable support for net-fs/samba file sharing plugin from within file properties
 kde-apps/kdenetwork-meta:webengine - Enable support for Google Drive integration via kde-misc/kio-gdrive
 kde-apps/kdenetwork-meta:zeroconf - Pull in packages using kde-frameworks/kdnssd
-kde-apps/kdenlive:designer - Build plugins for dev-qt/designer
+kde-apps/kdenlive:designer - Build plugins for dev-qt/qttools[designer]
 kde-apps/kdepim-addons:activities - Enable Plasma Activities support via kde-plasma/plasma-activities
 kde-apps/kdepim-addons:importwizard - Enable additional import plugins for kde-apps/akonadi-import-wizard
 kde-apps/kdepim-addons:markdown - Enable Markdown support via app-text/discount
@@ -3603,12 +3603,12 @@ kde-apps/krdc:ssh - Enable VNC/RDP SSH tunnel support via net-libs/libssh
 kde-apps/ksystemlog:kdesu - Run as root using kdesu from kde-plasma/kde-cli-tools
 kde-apps/ktouch:X - Enable support for X11 Keyboard Layout Detection
 kde-apps/kwave:qtmedia - Enable playback via dev-qt/qtmultimedia
-kde-apps/libkdepim:designer - Build plugins for dev-qt/designer
+kde-apps/libkdepim:designer - Build plugins for dev-qt/qttools[designer]
 kde-apps/libksane:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 kde-apps/mailcommon:activities - Enable Plasma Activities support via kde-plasma/plasma-activities
-kde-apps/mailcommon:designer - Build plugins for dev-qt/designer
+kde-apps/mailcommon:designer - Build plugins for dev-qt/qttools[designer]
 kde-apps/marble:aprs - Enable support for APRS data sources
-kde-apps/marble:designer - Install plugin for dev-qt/designer
+kde-apps/marble:designer - Install plugin for dev-qt/qttools[designer]
 kde-apps/marble:geolocation - Enable position information via dev-qt/qtpositioning
 kde-apps/marble:pbf - Enable OpenStreetMap PBF file support via dev-libs/protobuf
 kde-apps/marble:shapefile - Enable support for ESRI shapefiles
@@ -3621,39 +3621,39 @@ kde-apps/okular:qml - Install Okular Qml components
 kde-apps/okular:share - Enable support for a share menu using kde-frameworks/purpose
 kde-apps/parley:webengine - Build browser integration for the editor, requires dev-qt/qtwebengine
 kde-apps/pimcommon:activities - Enable Plasma Activities support via kde-plasma/plasma-activities
-kde-apps/pimcommon:designer - Build plugins for dev-qt/designer
+kde-apps/pimcommon:designer - Build plugins for dev-qt/qttools[designer]
 kde-apps/step:qalculate - Enable the libqalculate library for unit conversion
 kde-apps/thumbnailers:blender - Enable blender thumbnail generation using kde-frameworks/karchive
 kde-apps/thumbnailers:gettext - Enable PO file thumbnail generation using kde-apps/kdesdk-thumbnailers
 kde-apps/thumbnailers:mobi - Enable mobipocket thumbnail generation using kde-apps/kdegraphics-mobipocket
 kde-apps/thumbnailers:video - Enable video thumbnail generation using kde-apps/ffmpegthumbs
 kde-apps/yakuake:absolute-position - Use kde-plasma/kwayland for absolute window positioning in KWin
-kde-frameworks/kcompletion:designer - Build plugins for dev-qt/designer
+kde-frameworks/kcompletion:designer - Build plugins for dev-qt/qttools[designer]
 kde-frameworks/kconfig:qml - Enable QML/QtQuick support via dev-qt/qtdeclarative
-kde-frameworks/kconfigwidgets:designer - Build plugins for dev-qt/designer
+kde-frameworks/kconfigwidgets:designer - Build plugins for dev-qt/qttools[designer]
 kde-frameworks/kfilemetadata:epub - Enable support for reading EPUB ebook metadata
 kde-frameworks/kfilemetadata:mobi - Enable mobipocket support via kde-apps/kdegraphics-mobipocket
-kde-frameworks/kiconthemes:designer - Build plugins for dev-qt/designer
+kde-frameworks/kiconthemes:designer - Build plugins for dev-qt/qttools[designer]
 kde-frameworks/kimageformats:eps - Support the EPS graphics file format
-kde-frameworks/kio:designer - Build plugins for dev-qt/designer
+kde-frameworks/kio:designer - Build plugins for dev-qt/qttools[designer]
 kde-frameworks/kio:kwallet - Enable permanent storage of passwords for kpasswdserver with kde-frameworks/kwallet
-kde-frameworks/kitemviews:designer - Build plugins for dev-qt/designer
-kde-frameworks/knewstuff:designer - Build plugins for dev-qt/designer
+kde-frameworks/kitemviews:designer - Build plugins for dev-qt/qttools[designer]
+kde-frameworks/knewstuff:designer - Build plugins for dev-qt/qttools[designer]
 kde-frameworks/knewstuff:opds - Enable support for the Open Publication Distribution System via kde-frameworks/syndication
-kde-frameworks/kplotting:designer - Build plugins for dev-qt/designer
+kde-frameworks/kplotting:designer - Build plugins for dev-qt/qttools[designer]
 kde-frameworks/ktexteditor:editorconfig - Enable support for EditorConfig configuration files
-kde-frameworks/ktextwidgets:designer - Build plugins for dev-qt/designer
+kde-frameworks/ktextwidgets:designer - Build plugins for dev-qt/qttools[designer]
 kde-frameworks/kuserfeedback:tools - Build application console and CLI binary
 kde-frameworks/kwallet:minimal - Do not pull in kde-frameworks/kwallet-runtime runtime components
 kde-frameworks/kwallet-runtime:gpg - Support wallets with GnuPG encryption in addition to the default blowfish-encrypted file
 kde-frameworks/kwallet-runtime:legacy-kwallet - Support KWallet D-Bus API for applications still using it
-kde-frameworks/kwidgetsaddons:designer - Build plugins for dev-qt/designer
-kde-frameworks/kxmlgui:designer - Build plugins for dev-qt/designer
+kde-frameworks/kwidgetsaddons:designer - Build plugins for dev-qt/qttools[designer]
+kde-frameworks/kxmlgui:designer - Build plugins for dev-qt/qttools[designer]
 kde-frameworks/networkmanager-qt:teamd - Enable Teamd control support
 kde-frameworks/prison:qml - Enable QML/QtQuick support via dev-qt/qtdeclarative
 kde-frameworks/purpose:webengine - Enable support for system-wide defined KAccounts
 kde-frameworks/sonnet:aspell - Enable the app-text/aspell spell-checking backend
-kde-frameworks/sonnet:designer - Build plugins for dev-qt/designer
+kde-frameworks/sonnet:designer - Build plugins for dev-qt/qttools[designer]
 kde-frameworks/sonnet:hunspell - Enable the app-text/hunspell spell-checking backend
 kde-frameworks/sonnet:qml - Enable QML/QtQuick support via dev-qt/qtdeclarative
 kde-misc/kdeconnect:X - Enable remote input mousepad plugin using x11-libs/libfakekey
@@ -4554,11 +4554,10 @@ media-libs/osl:libcxx - Build against llvm-runtimes/libcxx when using clang
 media-libs/osl:nofma - Do not use Fuse-Multiply-Add operations
 media-libs/osl:optix - Add support for NVIDIA's OptiX Raytracing Engine
 media-libs/osl:partio - Use media-libs/partio
-media-libs/phonon:designer - Install plugin for dev-qt/designer
 media-libs/plutosvg:freetype - Enable media-libs/freetype integration
 media-libs/portmidi:test-programs - Install various example programs
 media-libs/qhull:tools - Build applications
-media-libs/quarter:designer - Install plugin for dev-qt/designer
+media-libs/quarter:designer - Install plugin for dev-qt/qttools[designer]
 media-libs/quarter:qch - Install API documentation in QCH format
 media-libs/quirc:opencv - Build tools requiring media-libs/opencv (inspect-opencv,quirc-demo-opencv)
 media-libs/quirc:sdl - Build tools requiring media-libs/sdl-gfx (inspect, quirc-demo)
@@ -8946,7 +8945,7 @@ x11-libs/gtkdatabox:glade - Build with libglade and glade-3 supports, which incl
 x11-libs/gtkmathview:mathml - Install additional fonts for proper mathml support.
 x11-libs/gtkmathview:t1lib - Enable media-libs/t1lib support
 x11-libs/gtksourceview:glade - Install a glade catalog file
-x11-libs/libQGLViewer:designer - Installs dev-qt/designer plugin.
+x11-libs/libQGLViewer:designer - Installs dev-qt/qttools[designer] plugin.
 x11-libs/libSM:uuid - Use UUID for session identification instead of IP address and system time.
 x11-libs/libXaw:deprecated - Install deprecated Xaw6 library.
 x11-libs/libXfont2:bzip2 - Support bzip2 compressed PCF fonts.
@@ -8965,7 +8964,7 @@ x11-libs/pango:examples - Install source code examples
 x11-libs/pango:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
 x11-libs/pixman:loongson2f - Enable Loongson2f MMI optimizations.
 x11-libs/qscintilla:designer - Build plugin for Qt Designer
-x11-libs/qwt:designer - Installs dev-qt/designer plugin.
+x11-libs/qwt:designer - Installs dev-qt/qttools[designer] plugin.
 x11-libs/qwt:polar - Install the QwtPolar headers
 x11-libs/tslib:evdev - Build experimental input module
 x11-libs/tslib:uinput - Provide alternative ts_uinput evdev device
