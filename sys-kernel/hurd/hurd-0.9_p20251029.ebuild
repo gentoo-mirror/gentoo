@@ -62,6 +62,7 @@ fi
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.9_p20251029-glibc-2.43.patch
 	"${FILESDIR}"/${PN}-0.9_p20251029-rump-link.patch
+	"${FILESDIR}"/${PN}-0.9_p20251029-libports-iterate-refcount.patch
 )
 
 src_prepare() {
@@ -152,6 +153,9 @@ src_compile() {
 	if use headers-only ; then
 		return
 	elif is_crosspkg ; then
+		# For the crossdev-built Hurd, we need to build enough s.t.
+		# for the sysroot cross-built Hurd, its deps can be compiled
+		# first (e.g. sys-block/parted, sys-kernel/rumpkernel).
 		emake \
 			lib-subdirs="libshouldbeinlibc libihash libstore libirqhelp" \
 			prog-subdirs= \

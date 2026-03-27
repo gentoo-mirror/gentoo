@@ -64,7 +64,11 @@ DEPEND="
 	zip? ( dev-libs/libzip:= )
 "
 
-RDEPEND="${DEPEND}"
+RDEPEND="
+	!media-sound/deadbeef-mpris2-plugin
+	${DEPEND}
+"
+
 BDEPEND="
 	dev-util/intltool
 	llvm-core/clang
