@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=!dev-libs/intel-compute-runtime:legacy >=dev-util/intel-graphics-compiler-2.31.2:0 !dev-util/intel-graphics-compiler:legacy >=media-libs/gmmlib-22.9.0:= dev-libs/intel-metrics-discovery:= >=dev-libs/intel-metrics-library-1.0.209.1:= dev-libs/libnl:3 dev-libs/libxml2:2 >=dev-util/intel-graphics-system-controller-1.0.2:= media-libs/mesa >=virtual/opencl-3 l0? ( >=dev-libs/level-zero-1.28.2:= ) vaapi? ( x11-libs/libdrm[video_cards_intel] media-libs/libva )
+DESCRIPTION=Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
+EAPI=8
+HOMEPAGE=https://github.com/intel/compute-runtime
+INHERIT=cmake flag-o-matic
+IUSE=disable-mitigations +l0 +vaapi
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=!dev-libs/intel-compute-runtime:legacy >=dev-util/intel-graphics-compiler-2.31.2:0 !dev-util/intel-graphics-compiler:legacy >=media-libs/gmmlib-22.9.0:=
+SLOT=0/1.6.37435
+SRC_URI=https://github.com/intel/compute-runtime/archive/refs/tags/26.09.37435.10.tar.gz -> intel-compute-runtime-26.09.37435.10.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
+_md5_=ad6576c712a8db3fc092d8aa42298d9e
