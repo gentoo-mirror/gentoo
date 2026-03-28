@@ -303,6 +303,17 @@ _ecm_handbook_optional() {
 	fi
 }
 
+# @FUNCTION: _ecm_buildqch_optional
+# @DESCRIPTION:
+# Used with ECM_QTHELP; ticks -DBUILD_QCH only if available.
+_ecm_buildqch_optional() {
+	if use doc; then
+		echo "-DBUILD_QCH=ON"
+	elif grep -Eq "option.*BUILD_QCH" CMakeLists.txt; then
+		echo "-DBUILD_QCH=OFF"
+	fi
+}
+
 # @FUNCTION: _ecm_strip_handbook_translations
 # @INTERNAL
 # @DESCRIPTION:
@@ -564,16 +575,16 @@ ecm_src_configure() {
 		cmakeargs+=( $(_ecm_handbook_optional) )
 	fi
 
+	if [[ ${ECM_QTHELP} = true ]]; then
+		cmakeargs+=( $(_ecm_buildqch_optional) )
+	fi
+
 	if in_iuse designer && [[ ${ECM_DESIGNERPLUGIN} = true ]]; then
 		cmakeargs+=( -DBUILD_DESIGNERPLUGIN=$(usex designer) )
 	fi
 
 	if [[ ${ECM_PYTHON_BINDINGS} == off ]]; then
 		cmakeargs+=( -DBUILD_PYTHON_BINDINGS=OFF )
-	fi
-
-	if [[ ${ECM_QTHELP} = true ]]; then
-		cmakeargs+=( -DBUILD_QCH=$(usex doc) )
 	fi
 
 	# Common ECM configure parameters (invariants)
