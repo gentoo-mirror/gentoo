@@ -1,9 +1,8 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..13} )
-inherit dist-kernel-utils eapi9-ver linux-info mount-boot python-any-r1 savedconfig
+inherit dist-kernel-utils eapi9-ver linux-info mount-boot savedconfig
 
 # In case this is a real snapshot, fill in commit below.
 # For normal, tagged releases, leave blank
@@ -14,13 +13,13 @@ if [[ ${PV} == 99999999* ]]; then
 	EGIT_REPO_URI="https://git.kernel.org/pub/scm/linux/kernel/git/firmware/${PN}.git"
 else
 	if [[ -n "${MY_COMMIT}" ]]; then
-		SRC_URI="https://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/snapshot/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
-		S="${WORKDIR}/${MY_COMMIT}"
+		SRC_URI="https://gitlab.com/kernel-firmware/linux-firmware/-/archive/${MY_COMMIT}/linux-firmware-${MY_COMMIT}.tar.bz2 -> ${P}.tar.bz2"
+		S="${WORKDIR}/${PN}-${MY_COMMIT}"
 	else
 		SRC_URI="https://mirrors.edge.kernel.org/pub/linux/kernel/firmware/${P}.tar.xz"
 	fi
 
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 DESCRIPTION="Linux firmware files"
@@ -48,15 +47,15 @@ BDEPEND="initramfs? ( app-alternatives/cpio )
 #add anything else that collides to this
 RDEPEND="!savedconfig? (
 		redistributable? (
-			!sys-firmware/alsa-firmware[alsa_cards_ca0132]
+			!sys-firmware/alsa-firmware[alsa_cards_ca0132,-deduplicate(-)]
 			!sys-block/qla-fc-firmware
 			!sys-firmware/raspberrypi-wifi-ucode
 		)
 		unknown-license? (
-			!sys-firmware/alsa-firmware[alsa_cards_korg1212]
-			!sys-firmware/alsa-firmware[alsa_cards_maestro3]
-			!sys-firmware/alsa-firmware[alsa_cards_sb16]
-			!sys-firmware/alsa-firmware[alsa_cards_ymfpci]
+			!sys-firmware/alsa-firmware[alsa_cards_korg1212,-deduplicate(-)]
+			!sys-firmware/alsa-firmware[alsa_cards_maestro3,-deduplicate(-)]
+			!sys-firmware/alsa-firmware[alsa_cards_sb16,-deduplicate(-)]
+			!sys-firmware/alsa-firmware[alsa_cards_ymfpci,-deduplicate(-)]
 		)
 	)
 	dist-kernel? (
@@ -74,7 +73,7 @@ IDEPEND="
 
 QA_PREBUILT="*"
 PATCHES=(
-	"${FILESDIR}"/${PN}-copy-firmware-r8.patch
+	"${FILESDIR}"/${PN}-copy-firmware-r9.patch
 )
 
 pkg_pretend() {
@@ -120,6 +119,12 @@ src_unpack() {
 
 src_prepare() {
 	default
+
+	# Stub out this script to avoid errors in the live ebuild
+	cat >check_whence.py<<-EOF
+	#!/bin/sh
+	exit 0
+	EOF
 
 	cp "${FILESDIR}/${PN}-make-amd-ucode-img.bash" "${T}/make-amd-ucode-img" || die
 	chmod +x "${T}/make-amd-ucode-img" || die
@@ -284,7 +289,6 @@ src_prepare() {
 }
 
 src_install() {
-
 	local FW_OPTIONS=( "-v" "-j1" )
 	local files_to_keep=
 
@@ -312,8 +316,9 @@ src_install() {
 	einfo "Removing broken symlinks ..."
 	find * -xtype l -print -delete || die
 
-	# remove empty directories, bug #396073
-	find -type d -empty -delete || die
+	# remove empty files and directories, bug #396073
+	# Copy-firmware.sh may have made empty copies of files we removed
+	find -empty -delete || die
 
 	# sanity check
 	if ! ( shopt -s failglob; : * ) 2>/dev/null; then
@@ -364,6 +369,11 @@ pkg_preinst() {
 	# Fix 'symlink is blocked by a directory' Bug #871315
 	if has_version "<${CATEGORY}/${PN}-20220913-r2" ; then
 		rm -rf "${EROOT}"/lib/firmware/qcom/LENOVO/21BX
+	fi
+
+	# Fix 'symlink is blocked by a directory' https://bugs.gentoo.org/958268#c3
+	if has_version "<${CATEGORY}/${PN}-20250613" ; then
+		rm -rf "${EROOT}"/lib/firmware/nvidia/{ad103,ad104,ad106,ad107}
 	fi
 
 	# Make sure /boot is available if needed.
