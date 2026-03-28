@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install
+DEPEND=net-dns/c-ares sys-libs/readline
+DESCRIPTION=c-ares tools: host, nslookup
+EAPI=8
+HOMEPAGE=https://gitlab.com/grobian/cares-tools
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~arm64-macos ~x64-macos ~x64-solaris
+LICENSE=BSD
+RDEPEND=net-dns/c-ares sys-libs/readline !net-dns/ldns-tools !net-dns/bind-tools !net-dns/bind
+SLOT=0
+SRC_URI=https://gitlab.com/grobian/cares-tools/-/archive/0.3/cares-tools-0.3.tar.bz2
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9
+_md5_=c185a3105f0ed9db91daad6dcea51e25
