@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,12 +11,12 @@ inherit cmake
 
 DESCRIPTION="User mode driver helper library that provides access to GPU performance counters"
 HOMEPAGE="https://github.com/intel/metrics-library"
-SRC_URI="https://github.com/intel/${MY_PN}/archive/refs/tags/${MY_P}.tar.gz"
-S="${WORKDIR}/${MY_PN}-${MY_P}"
+SRC_URI="https://github.com/intel/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DEPEND="x11-libs/libdrm"
 RDEPEND="${DEPEND}"
