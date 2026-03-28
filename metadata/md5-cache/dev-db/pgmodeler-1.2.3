@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure install prepare setup test
+DEPEND=postgres_targets_postgres18? ( dev-db/postgresql:18= ) postgres_targets_postgres17? ( dev-db/postgresql:17= ) postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) dev-libs/libxml2:= dev-qt/qtbase:6[gui,network,opengl,widgets,X] dev-qt/qtsvg:6
+DESCRIPTION=PostgreSQL Database Modeler
+EAPI=8
+HOMEPAGE=https://pgmodeler.io
+INHERIT=desktop postgres qmake-utils
+IUSE=postgres_targets_postgres18 postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=postgres_targets_postgres18? ( dev-db/postgresql:18= ) postgres_targets_postgres17? ( dev-db/postgresql:17= ) postgres_targets_postgres16? ( dev-db/postgresql:16= ) postgres_targets_postgres15? ( dev-db/postgresql:15= ) postgres_targets_postgres14? ( dev-db/postgresql:14= ) dev-libs/libxml2:= dev-qt/qtbase:6[gui,network,opengl,widgets,X] dev-qt/qtsvg:6
+SLOT=0
+SRC_URI=https://github.com/nullptrlabs/pgmodeler/archive/v1.2.3.tar.gz -> pgmodeler-1.2.3.tar.gz
+_eclasses_=desktop	26d57169ca094c04be416993844ec8bc	postgres	3671a84f95eadcaa836aefe3fd51b6a1	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	qmake-utils	28f99dba9219112f4785f46ed426a021
+_md5_=9f9e137932d3f8b45a611d7a28ac056d
