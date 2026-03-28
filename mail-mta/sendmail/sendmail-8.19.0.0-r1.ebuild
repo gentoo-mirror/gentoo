@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -72,7 +72,7 @@ RDEPEND="
 BDEPEND="
 	sys-devel/m4
 	virtual/pkgconfig
-	verify-sig? ( ~sec-keys/openpgp-keys-sendmail-20250220 )
+	verify-sig? ( >=sec-keys/openpgp-keys-sendmail-20251229 )
 "
 PDEPEND="
 	!mbox? (
@@ -85,9 +85,7 @@ PDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-8.13.1-delivered_hdr.patch
 	"${FILESDIR}"/${PN}-8.16.1-build-system.patch
-	"${FILESDIR}"/${PN}-8.18.1-c23.patch
-	"${FILESDIR}"/${PN}-8.18.1-tcpwrappers.patch
-	"${FILESDIR}"/${PN}-8.18.1-more-c23.patch
+	"${FILESDIR}"/${PN}-8.19.0.0-newdb.patch
 )
 
 src_prepare() {
@@ -102,6 +100,9 @@ src_prepare() {
 
 	# Always enable ipv6 and sockets
 	confENVDEF+=" -DNETINET6 -DSOCKETMAP"
+
+	# Enable same domain/one domain features
+	confENVDEV+=" -D_FFR_SAMEDOMAIN -D_FFR_MF_ONEDOMAIN"
 
 	if use berkdb; then
 		# See bug #808954 for FLOCK
