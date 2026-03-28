@@ -534,6 +534,13 @@ ecm_src_prepare() {
 	if [[ -n ${_FRAMEWORKS_KDE_ORG_ECLASS} ]] && [[ ${PN} != extra-cmake-modules ]]; then
 		cmake_comment_add_subdirectory tests
 	fi
+
+	# disable upstream git hooks (program detection, hook installation ...)
+	if [[ -d .git ]]; then
+		if grep -Eq "\s*set.*GIT_SOURCE_TARBALL TRUE" CMakeLists.txt; then
+			sed -e "/\s*set.*GIT_SOURCE_TARBALL/s/TRUE/FALSE/" -i CMakeLists.txt || die
+		fi
+	fi
 }
 
 # @FUNCTION: ecm_src_configure
