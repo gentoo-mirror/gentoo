@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,31 +9,26 @@ PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
 RUST_MIN_VER="1.85.0"
 CRATES="
-	autocfg@1.5.0
-	cc@1.2.48
-	find-msvc-tools@0.1.5
+	cc@1.2.57
+	find-msvc-tools@0.1.9
 	heck@0.5.0
-	indoc@2.0.7
-	libc@0.2.177
-	memoffset@0.9.1
-	once_cell@1.21.3
-	portable-atomic@1.11.1
-	proc-macro2@1.0.103
-	pyo3-build-config@0.27.1
-	pyo3-ffi@0.27.1
-	pyo3-macros-backend@0.27.1
-	pyo3-macros@0.27.1
-	pyo3@0.27.1
+	libc@0.2.183
+	once_cell@1.21.4
+	portable-atomic@1.13.1
+	proc-macro2@1.0.106
+	pyo3-build-config@0.28.2
+	pyo3-ffi@0.28.2
+	pyo3-macros-backend@0.28.2
+	pyo3-macros@0.28.2
+	pyo3@0.28.2
 	python3-dll-a@0.2.14
-	quote@1.0.42
-	rustversion@1.0.22
+	quote@1.0.45
 	shlex@1.3.0
-	syn@2.0.111
-	target-lexicon@0.13.3
-	unicode-ident@1.0.22
-	unicode-segmentation@1.12.0
+	syn@2.0.117
+	target-lexicon@0.13.5
+	unicode-ident@1.0.24
+	unicode-segmentation@1.13.2
 	unicode-width@0.2.2
-	unindent@0.2.4
 "
 
 inherit cargo distutils-r1 pypi
@@ -51,7 +46,7 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 
 QA_FLAGS_IGNORED="
 	usr/lib/py.*/site-packages/unicode_segmentation_rs/unicode_segmentation_rs.*
