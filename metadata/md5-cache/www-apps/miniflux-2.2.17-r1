@@ -1,15 +1,15 @@
-BDEPEND=>=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+BDEPEND=>=dev-lang/go-1.26:= >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
 DEFINED_PHASES=compile config install postinst unpack
 DEPEND=acct-user/miniflux
 DESCRIPTION=Minimalist and opinionated feed reader
 EAPI=8
 HOMEPAGE=https://miniflux.app https://github.com/miniflux/v2
 INHERIT=go-module systemd
-KEYWORDS=amd64 ppc64 ~riscv
+KEYWORDS=~amd64 ~ppc64 ~riscv
 LICENSE=Apache-2.0 BSD BSD-2 MIT
 RDEPEND=acct-user/miniflux >=dev-db/postgresql-9.5
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/miniflux/v2/archive/2.2.14.tar.gz -> miniflux-2.2.14.tar.gz https://dev.gentoo.org/~concord/distfiles/miniflux-2.2.14-deps.tar.xz
+SRC_URI=https://github.com/miniflux/v2/archive/2.2.17.tar.gz -> miniflux-2.2.17.tar.gz https://dev.gentoo.org/~concord/distfiles/miniflux-2.2.17-deps.tar.xz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	go-env	f7f56c1e72a626b159373a2c2b89af39	go-module	1333f0eba2be11d0afeadce17a07af4d	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=f79939a5ceadddd6d7ea292488c5155b
+_md5_=1d2e746f0ec371c529c206edba776b94
