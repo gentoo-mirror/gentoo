@@ -1,0 +1,14 @@
+BDEPEND=|| ( >=dev-lang/rust-bin-1.87.0:* >=dev-lang/rust-1.87.0:* ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst setup test unpack
+DESCRIPTION=MPRIS music scrobbler daemon
+EAPI=8
+HOMEPAGE=https://github.com/InputUsername/rescrobbled
+INHERIT=cargo systemd
+IUSE=debug
+KEYWORDS=~amd64
+LICENSE=GPL-3 Apache-2.0 MIT MPL-2.0 Unicode-3.0
+RDEPEND=dev-libs/openssl:= sys-apps/dbus
+SLOT=0
+SRC_URI=https://github.com/InputUsername/rescrobbled/archive/refs/tags/v0.9.0.tar.gz -> rescrobbled-0.9.0.tar.gz https://github.com/gentoo-crate-dist/rescrobbled/releases/download/v0.9.0/rescrobbled-0.9.0-crates.tar.xz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	d4511f019dc17ec44bfe46b9e672ca64	rust	0d1cc00e0e91a021b50b0491e361ad41	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	be19d4b6a17dac5249b9273866e3b66b	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=70e0ce5f91ec8a3a9ca2bd31b2cd86d5
