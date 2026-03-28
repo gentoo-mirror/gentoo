@@ -257,12 +257,6 @@ dev-qt/qtwebsockets:5
 media-libs/phonon
 media-libs/phonon-vlc
 
-# Michael Orlitzky <mjo@gentoo.org> (2026-02-24)
-# Haskell package (hard to maintain) that never evolved. Easy to
-# replace with a SQL query. Removal on or after 2026-03-24.
-net-mail/list-remote-forwards
-net-mail/mailbox-count
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-02-15)
 # Masked for testing and possible libvlc revdeps breakage.
 ~media-video/vlc-4.0.0_pre20260320
@@ -278,51 +272,6 @@ net-mail/mailbox-count
 # Removal on 2026-03-14.
 dev-qt/qtlockedfile
 dev-qt/qtsingleapplication
-
-# David Seifert <soap@gentoo.org> (2026-02-11)
-# No other distro packages this, last release over 12 years ago, C23 issues.
-# Removal on 2026-03-13. Bug #944878.
-sci-biology/qrna
-
-# David Seifert <soap@gentoo.org> (2026-02-11)
-# Obscure package, no revdeps, unmaintained, EAPI 7, lots of build issues.
-# Removal on 2026-03-13. Bug #944918.
-sci-biology/mcl
-
-# David Seifert <soap@gentoo.org> (2026-02-10)
-# Abandoned, sguil-sensor already removed, blocks bug #868468.
-# Removal on 2026-03-12.
-net-analyzer/sguil-client
-
-# David Seifert <soap@gentoo.org> (2026-02-10)
-# Noone packages this anymore, dead upstream, C23 and QA issues.
-# Removal on 2026-03-12. Bug #945039.
-net-misc/lanmap
-
-# David Seifert <soap@gentoo.org> (2026-02-10)
-# Noone packages this anymore, dead upstream, fails tests on newer GCC.
-# Removal on 2026-03-12. Bug #963013.
-net-libs/libpcapnav
-
-# David Seifert <soap@gentoo.org> (2026-02-10)
-# Noone packages this anymore, dead upstream, lots of C23 and QA issues.
-# Removal on 2026-03-12. Bug #945187.
-net-analyzer/trafshow
-
-# David Seifert <soap@gentoo.org> (2026-02-10)
-# Removed by most distros, upstream disappeared, lots of QA and packaging
-# issues. Removal on 2026-03-12. Bug #945190.
-net-analyzer/tcptrace
-
-# David Seifert <soap@gentoo.org> (2026-02-10)
-# Removed by most distros, last release over 20 years ago, C23 issues.
-# Removal on 2026-03-12. Bug #945193.
-net-analyzer/labrea
-
-# David Seifert <soap@gentoo.org> (2026-02-10)
-# Removed by most distros, upstream disappeared, lots of QA and packaging
-# issues. Removal on 2026-03-12. Bug #943786.
-net-analyzer/echoping
 
 # Sam James <sam@gentoo.org> (2026-02-09)
 # This suite of packages is currently best placed in an overlay/external
