@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,7 +25,7 @@ REQUIRED_USE="?? ( alsa ao backend-sdl pulseaudio )
 	png? ( zlib )"
 
 RDEPEND="
-	>=app-emulation/libspectrum-1.5.0[zlib?]
+	>=app-emulation/libspectrum-1.6.0:=[zlib?]
 	dev-libs/glib:2
 	alsa? ( media-libs/alsa-lib )
 	ao? ( media-libs/libao )
@@ -56,7 +56,6 @@ DOCS=( AUTHORS ChangeLog README THANKS )
 
 PATCHES=(
 	"${FILESDIR}"/remove-local-prefix.patch
-	"${FILESDIR}"/${P}-fix-joystick.patch
 )
 
 _fuse_audio_driver() {
