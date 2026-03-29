@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # There are many slots for this package because people in the community
@@ -14,19 +14,35 @@
 
 EAPI=8
 
-LUA_COMPAT=( lua5-1 )
+LUA_COMPAT=( lua5-4 )
 LUA_REQ_USE="deprecated"
 PYTHON_COMPAT=( python3_{12..14} )
 VIRTUALX_REQUIRED="manual"
 inherit desktop python-any-r1 lua-single xdg-utils toolchain-funcs
 
-MY_P="stone_soup-${PV}"
 DESCRIPTION="Role-playing roguelike game of exploration and treasure-hunting in dungeons"
 HOMEPAGE="https://crawl.develz.org"
+
+# Leave empty string if not a _pre release
+COMMITSHA=""
+if [ -z "${COMMITSHA}" ]; then
+	# This is a tagged release
+	# Note the archive URI and file layout changed upstream between 0.29.0 and 0.29.1
+	SRC_URI="
+		https://github.com/crawl/crawl/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	"
+	MY_P="crawl-${PV}/crawl-ref"
+else
+	# This is a _pre release
+	SRC_URI="
+		https://github.com/crawl/crawl/archive/${COMMITSHA}.tar.gz -> ${P}.tar.gz
+	"
+	MY_P="crawl-${COMMITSHA}/crawl-ref"
+fi
 # MY_SLOT to satisfy pkgcheck variable order checking
-MY_SLOT="0.26"
+MY_SLOT="0.34"
 SRC_URI="
-	https://github.com/crawl/crawl/releases/download/${PV}/${PN/-/_}-${PV}.zip
+	${SRC_URI}
 	https://dev.gentoo.org/~stasibear/distfiles/${PN}.png -> ${PN}-${MY_SLOT}.png
 	https://dev.gentoo.org/~stasibear/distfiles/${PN}.svg -> ${PN}-${MY_SLOT}.svg
 "
@@ -38,7 +54,7 @@ S=${WORKDIR}/${MY_P}/source
 # MIT: json.cc/json.h, some .js files in webserver/static/scripts/contrib/
 LICENSE="GPL-2 BSD BSD-2 public-domain CC0-1.0 MIT"
 SLOT="${MY_SLOT}"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="advpng debug ncurses sound test +tiles"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
@@ -87,7 +103,7 @@ BDEPEND="
 	"
 
 PATCHES=(
-	"${FILESDIR}"/make.patch
+	"${FILESDIR}"/make-v3.patch
 	"${FILESDIR}"/rltiles-make.patch
 	"${FILESDIR}"/avoid-musl-execinfo.patch
 )
@@ -120,6 +136,11 @@ src_prepare() {
 
 	sed -i -e "s/GAME = crawl$/GAME = crawl-${SLOT}/" "${S}/Makefile" \
 		|| die "Couldn't append slot to executable name"
+
+	# File required for a _pre build
+	if ! [ -f "${S}/util/release_ver" ]; then
+		echo "${SLOT}" >"${S}/util/release_ver" || die "Couldn't write release_ver"
+	fi
 
 	# Replace bundled catch2 package with system implementation
 	# https://bugs.gentoo.org/829950
@@ -196,20 +217,16 @@ src_install() {
 	if use tiles ; then
 		doicon -s 48 "${DISTDIR}"/${PN}-${SLOT}.png
 		doicon -s scalable "${DISTDIR}"/${PN}-${SLOT}.svg
-		make_desktop_entry "crawl-${SLOT}" "crawl-${SLOT}" "crawl-${SLOT}"
+		make_desktop_entry "crawl-${SLOT}" "Dungeon Crawl Stone Soup (DCSS) ${SLOT}" "${PN}-${SLOT}"
 	fi
 }
 
 pkg_postinst() {
 	xdg_icon_cache_update
 
-	elog "Since version 0.25.1-r101, crawl is a slotted install"
-	elog "that supports having multiple versions installed.  The"
-	elog "binary has the slot appended, e.g. 'crawl-"${SLOT}"'."
-	elog
-	elog "The local save directory also has the slot appended."
-	elog "If you have saved games from 0.25 but before 0.25.1-r101"
-	elog "you can 'mv ~/.crawl ~/.crawl-0.25' to fix it"
+	elog "crawl is a slotted install that supports having"
+	elog "multiple versions installed.  The binary has the"
+	elog "slot appended, e.g. 'crawl-"${SLOT}"'."
 
 	if use tiles && use ncurses ; then
 		elog

@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # There are many slots for this package because people in the community
@@ -40,7 +40,7 @@ else
 	MY_P="crawl-${COMMITSHA}/crawl-ref"
 fi
 # MY_SLOT to satisfy pkgcheck variable order checking
-MY_SLOT="0.31"
+MY_SLOT="0.32"
 SRC_URI="
 	${SRC_URI}
 	https://dev.gentoo.org/~stasibear/distfiles/${PN}.png -> ${PN}-${MY_SLOT}.png
@@ -217,7 +217,7 @@ src_install() {
 	if use tiles ; then
 		doicon -s 48 "${DISTDIR}"/${PN}-${SLOT}.png
 		doicon -s scalable "${DISTDIR}"/${PN}-${SLOT}.svg
-		make_desktop_entry "crawl-${SLOT}" "crawl-${SLOT}" "crawl-${SLOT}"
+		make_desktop_entry "crawl-${SLOT}" "Dungeon Crawl Stone Soup (DCSS) ${SLOT}" "${PN}-${SLOT}"
 	fi
 }
 

@@ -14,7 +14,7 @@
 
 EAPI=8
 
-LUA_COMPAT=( lua5-4 )
+LUA_COMPAT=( lua5-1 )
 LUA_REQ_USE="deprecated"
 PYTHON_COMPAT=( python3_{12..14} )
 VIRTUALX_REQUIRED="manual"
@@ -40,7 +40,7 @@ else
 	MY_P="crawl-${COMMITSHA}/crawl-ref"
 fi
 # MY_SLOT to satisfy pkgcheck variable order checking
-MY_SLOT="0.34"
+MY_SLOT="0.29"
 SRC_URI="
 	${SRC_URI}
 	https://dev.gentoo.org/~stasibear/distfiles/${PN}.png -> ${PN}-${MY_SLOT}.png
@@ -54,7 +54,7 @@ S=${WORKDIR}/${MY_P}/source
 # MIT: json.cc/json.h, some .js files in webserver/static/scripts/contrib/
 LICENSE="GPL-2 BSD BSD-2 public-domain CC0-1.0 MIT"
 SLOT="${MY_SLOT}"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="advpng debug ncurses sound test +tiles"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
@@ -103,7 +103,7 @@ BDEPEND="
 	"
 
 PATCHES=(
-	"${FILESDIR}"/make-v3.patch
+	"${FILESDIR}"/make.patch
 	"${FILESDIR}"/rltiles-make.patch
 	"${FILESDIR}"/avoid-musl-execinfo.patch
 )
@@ -217,7 +217,7 @@ src_install() {
 	if use tiles ; then
 		doicon -s 48 "${DISTDIR}"/${PN}-${SLOT}.png
 		doicon -s scalable "${DISTDIR}"/${PN}-${SLOT}.svg
-		make_desktop_entry "crawl-${SLOT}" "crawl-${SLOT}" "crawl-${SLOT}"
+		make_desktop_entry "crawl-${SLOT}" "Dungeon Crawl Stone Soup (DCSS) ${SLOT}" "${PN}-${SLOT}"
 	fi
 }
 

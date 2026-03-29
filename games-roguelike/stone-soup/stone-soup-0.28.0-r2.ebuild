@@ -25,27 +25,25 @@ HOMEPAGE="https://crawl.develz.org"
 
 # Leave empty string if not a _pre release
 COMMITSHA=""
+# MY_SLOT to satisfy pkgcheck variable order checking
+MY_SLOT="0.28"
 if [ -z "${COMMITSHA}" ]; then
-	# This is a tagged release
-	# Note the archive URI and file layout changed upstream between 0.29.0 and 0.29.1
+	# This is a proper release
 	SRC_URI="
-		https://github.com/crawl/crawl/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+		https://github.com/crawl/crawl/releases/download/${PV}/${PN/-/_}-${PV}.zip
+		https://dev.gentoo.org/~stasibear/distfiles/${PN}.png -> ${PN}-${MY_SLOT}.png
+		https://dev.gentoo.org/~stasibear/distfiles/${PN}.svg -> ${PN}-${MY_SLOT}.svg
 	"
-	MY_P="crawl-${PV}/crawl-ref"
+	MY_P="stone_soup-${PV}"
 else
 	# This is a _pre release
 	SRC_URI="
 		https://github.com/crawl/crawl/archive/${COMMITSHA}.tar.gz -> ${P}.tar.gz
+		https://dev.gentoo.org/~stasibear/distfiles/${PN}.png -> ${PN}-${MY_SLOT}.png
+		https://dev.gentoo.org/~stasibear/distfiles/${PN}.svg -> ${PN}-${MY_SLOT}.svg
 	"
 	MY_P="crawl-${COMMITSHA}/crawl-ref"
 fi
-# MY_SLOT to satisfy pkgcheck variable order checking
-MY_SLOT="0.33"
-SRC_URI="
-	${SRC_URI}
-	https://dev.gentoo.org/~stasibear/distfiles/${PN}.png -> ${PN}-${MY_SLOT}.png
-	https://dev.gentoo.org/~stasibear/distfiles/${PN}.svg -> ${PN}-${MY_SLOT}.svg
-"
 
 S=${WORKDIR}/${MY_P}/source
 # 3-clause BSD: mt19937ar.cc, MSVC/stdint.h
@@ -103,7 +101,7 @@ BDEPEND="
 	"
 
 PATCHES=(
-	"${FILESDIR}"/make-v3.patch
+	"${FILESDIR}"/make.patch
 	"${FILESDIR}"/rltiles-make.patch
 	"${FILESDIR}"/avoid-musl-execinfo.patch
 )
@@ -217,7 +215,7 @@ src_install() {
 	if use tiles ; then
 		doicon -s 48 "${DISTDIR}"/${PN}-${SLOT}.png
 		doicon -s scalable "${DISTDIR}"/${PN}-${SLOT}.svg
-		make_desktop_entry "crawl-${SLOT}" "crawl-${SLOT}" "crawl-${SLOT}"
+		make_desktop_entry "crawl-${SLOT}" "Dungeon Crawl Stone Soup (DCSS) ${SLOT}" "${PN}-${SLOT}"
 	fi
 }
 
