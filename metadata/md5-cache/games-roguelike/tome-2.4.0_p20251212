@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-libs/boost:= >=dev-libs/libfmt-12:= sys-libs/ncurses:= X? ( x11-libs/libX11 ) <dev-cpp/jsoncons-1.5.0 dev-cpp/pcg-cpp
+DEPEND=dev-libs/boost:= >=dev-libs/libfmt-12:= sys-libs/ncurses:= X? ( x11-libs/libX11 ) || ( >=dev-cpp/jsoncons-1.6.0 <dev-cpp/jsoncons-1.5.0 ) dev-cpp/pcg-cpp
 DESCRIPTION=Fantasy adventure game, based on the works of J.R.R. Tolkien
 EAPI=8
 HOMEPAGE=https://github.com/tome2/tome2
@@ -12,4 +12,4 @@ RDEPEND=dev-libs/boost:= >=dev-libs/libfmt-12:= sys-libs/ncurses:= X? ( x11-libs
 SLOT=0
 SRC_URI=https://github.com/tome2/tome2/archive/8e2f6361e1a55b21e7abcf051e47a22761d41471.tar.gz -> tome-2.4.0_p20251212.tar.gz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
-_md5_=fb44cbcd04f397f856add789837845b0
+_md5_=ae4831bbfab2d1db826fda6c089894de
