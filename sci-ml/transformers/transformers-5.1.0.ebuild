@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,12 +19,11 @@ SRC_URI="https://github.com/huggingface/${PN}/archive/refs/tags/v${PV}.tar.gz
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="torch"
-RESTRICT="test" # Need network, too long to execute
+IUSE="test torch"
 
 RDEPEND="
-	>=sci-ml/huggingface_hub-0.34.0[${PYTHON_SINGLE_USEDEP}]
-	<sci-ml/huggingface_hub-1
+	>=sci-ml/huggingface_hub-1.3.0[${PYTHON_SINGLE_USEDEP}]
+	<sci-ml/huggingface_hub-2
 	=sci-ml/tokenizers-0.22*[${PYTHON_SINGLE_USEDEP}]
 	$(python_gen_cond_dep '
 		dev-python/filelock[${PYTHON_USEDEP}]
@@ -32,8 +31,8 @@ RDEPEND="
 		dev-python/packaging[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		dev-python/regex[${PYTHON_USEDEP}]
-		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/tqdm[${PYTHON_USEDEP}]
+		dev-python/typer[${PYTHON_USEDEP}]
 		sci-ml/safetensors[${PYTHON_USEDEP}]
 	')
 	torch? (
@@ -41,6 +40,18 @@ RDEPEND="
 		sci-ml/caffe2[${PYTHON_SINGLE_USEDEP}]
 		sci-ml/pytorch[${PYTHON_SINGLE_USEDEP}]
 	)
+	test? (
+		sci-ml/datasets[${PYTHON_SINGLE_USEDEP}]
+		sci-ml/caffe2[distributed]
+	)
 "
 
-distutils_enable_tests import-check
+EPYTEST_PLUGINS=()
+distutils_enable_tests pytest
+
+python_test() {
+	epytest tests/models/bert \
+		tests/models/gpt2 \
+		tests/models/roberta \
+		tests/models/distilbert
+}
