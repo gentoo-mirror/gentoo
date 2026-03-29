@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/CastXML/CastXML
 INHERIT=cmake llvm-r2
 IUSE=+man test +llvm_slot_21 llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_22
-KEYWORDS=~amd64 ~arm ~riscv ~x86
+KEYWORDS=amd64 ~arm ~riscv ~x86
 LICENSE=Apache-2.0
 RDEPEND=llvm_slot_17? ( llvm-core/clang:17= llvm-core/llvm:17= ) llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/clang:21= llvm-core/llvm:21= ) llvm_slot_22? ( llvm-core/clang:22= llvm-core/llvm:22= )
 REQUIRED_USE=^^ ( llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 llvm_slot_22 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/CastXML/CastXML/archive/v0.7.0.tar.gz -> CastXML-0.7.0.tar.gz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	404b65bd5212cff83b3935c685419d08	llvm-r2	8bc46809768366b4239eab39335419bc
-_md5_=af7cc32a47a63641ca361ff68efbe0b7
+_md5_=6bb0e518dc3b6a4aac6cee4a00feccef
