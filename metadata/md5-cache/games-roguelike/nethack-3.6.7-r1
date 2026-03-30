@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig app-alternatives/lex app-alternatives/yacc X? ( x11-apps/bdftopcf x11-apps/mkfontscale )
+DEFINED_PHASES=compile install postinst preinst prepare
+DEPEND=acct-group/gamestat sys-libs/ncurses:0= X? ( x11-libs/libX11 x11-libs/libXaw x11-libs/libXpm x11-libs/libXt ) X? ( x11-base/xorg-proto )
+DESCRIPTION=The ultimate old-school single player dungeon exploration game
+EAPI=8
+HOMEPAGE=https://www.nethack.org/
+INHERIT=desktop flag-o-matic toolchain-funcs
+IUSE=X
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~x86
+LICENSE=nethack
+RDEPEND=acct-group/gamestat sys-libs/ncurses:0= X? ( x11-libs/libX11 x11-libs/libXaw x11-libs/libXpm x11-libs/libXt )
+SLOT=0
+SRC_URI=https://nethack.org/download/3.6.7/nethack-367-src.tgz -> nethack-3.6.7.tar.gz
+_eclasses_=desktop	26d57169ca094c04be416993844ec8bc	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d
+_md5_=f0bc0a834de9b47407a0923785794394
