@@ -1,9 +1,9 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="sqlite"
 inherit optfeature python-single-r1 xdg
 
@@ -17,7 +17,6 @@ else
 	MY_PV="${PV/_/-}"
 	SRC_URI="
 		https://github.com/exaile/exaile/releases/download/${MY_PV}/exaile-${MY_PV}.tar.gz
-			-> ${P}.tar.gz
 	"
 	S="${WORKDIR}/${PN}-${MY_PV}"
 	KEYWORDS="~amd64"
