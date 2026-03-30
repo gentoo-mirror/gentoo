@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: multilib.eclass
@@ -278,16 +278,40 @@ multilib_env() {
 	local CTARGET=${1:-${CTARGET}}
 	local cpu=${CTARGET%%*-}
 
-	if [[ ${CTARGET} = *-musl* ]]; then
-		# musl has no multilib support and can run only in 'lib':
-		# - https://bugs.gentoo.org/675954
-		# - https://gcc.gnu.org/PR90077
-		# - https://github.com/gentoo/musl/issues/245
-		: "${MULTILIB_ABIS=default}"
-		: "${DEFAULT_ABI=default}"
-		export MULTILIB_ABIS DEFAULT_ABI
-		return
-	fi
+	case ${CTARGET} in
+		*-musl*)
+			# musl has no multilib support and can run only in 'lib':
+			# - https://bugs.gentoo.org/675954
+			# - https://gcc.gnu.org/PR90077
+			# - https://github.com/gentoo/musl/issues/245
+			: "${MULTILIB_ABIS=default}"
+			: "${DEFAULT_ABI=default}"
+			export MULTILIB_ABIS DEFAULT_ABI
+			return
+			;;
+		*-linux*)
+			# Nothing here.
+			;;
+		*-gnu)
+			case ${CTARGET} in
+				x86_64*)
+					# On Hurd, we don't do multilib.
+					MULTILIB_ABIS="amd64"
+					CHOST_amd64="${CTARGET}"
+					LIBDIR_amd64="lib64"
+					;;
+				*)
+					;;
+			esac
+
+			: "${MULTILIB_ABIS=default}"
+			: "${DEFAULT_ABI=default}"
+			export MULTILIB_ABIS DEFAULT_ABI
+			return
+			;;
+		*)
+			;;
+	esac
 
 	case ${cpu} in
 		aarch64*)
