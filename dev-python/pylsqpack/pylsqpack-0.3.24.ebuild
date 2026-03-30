@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,9 +17,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc ppc64 ~riscv x86"
-
-distutils_enable_tests pytest
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~x86"
 
 DEPEND="
 	dev-libs/ls-qpack:=
@@ -27,6 +25,9 @@ DEPEND="
 RDEPEND="
 	${DEPEND}
 "
+
+EPYTEST_PLUGINS=()
+distutils_enable_tests pytest
 
 src_prepare() {
 	local PATCHES=(
