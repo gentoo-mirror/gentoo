@@ -314,6 +314,18 @@ _ecm_buildqch_optional() {
 	fi
 }
 
+# @FUNCTION: _ecm_disable_unwanted
+# @DESCRIPTION:
+# Disable unwanted CMake options if they are present.
+_ecm_disable_unwanted() {
+	if grep -Eq "option.*ENABLE_PCH" CMakeLists.txt; then
+		echo "-DENABLE_PCH=OFF"
+	fi
+	if grep -Eq "option.*WARNINGS_AS_ERRORS" CMakeLists.txt; then
+		echo "-DWARNINGS_AS_ERRORS=OFF"
+	fi
+}
+
 # @FUNCTION: _ecm_strip_handbook_translations
 # @INTERNAL
 # @DESCRIPTION:
@@ -577,6 +589,11 @@ ecm_src_configure() {
 
 	if [[ ${ECM_QTHELP} = true ]]; then
 		cmakeargs+=( $(_ecm_buildqch_optional) )
+	fi
+
+	# disable upstream CMake settings ... currently mostly PIM
+	if [[ -n ${_GEAR_KDE_ORG_ECLASS} ]]; then
+		cmakeargs+=( $(_ecm_disable_unwanted) )
 	fi
 
 	if in_iuse designer && [[ ${ECM_DESIGNERPLUGIN} = true ]]; then
