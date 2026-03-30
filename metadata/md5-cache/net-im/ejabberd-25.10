@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.ejabberd.im/ https://github.com/processone/ejabberd/
 INHERIT=autotools eapi9-ver pam rebar systemd
 IUSE=captcha debug full-xml ldap mssql mysql odbc pam postgres redis roster-gw selinux sip sqlite +stun zlib
-KEYWORDS=~amd64 ~arm ~sparc ~x86
+KEYWORDS=amd64 ~arm ~sparc ~x86
 LICENSE=GPL-2
 RDEPEND=>=dev-lang/erlang-20[odbc?,ssl] >=dev-erlang/cache_tab-1.0.33 >=dev-erlang/eimp-1.0.26 >=dev-erlang/fast_tls-1.1.25 >=dev-erlang/fast_xml-1.1.57 >=dev-erlang/fast_yaml-1.0.39 >=dev-erlang/yconf-1.0.22 >=dev-erlang/jiffy-1.1.1 >=dev-erlang/jose-1.11.10 >=dev-erlang/lager-3.9.1 >=dev-erlang/p1_oauth2-0.6.14 >=dev-erlang/p1_utils-1.0.27 >=dev-erlang/stringprep-1.0.33 >=dev-erlang/xmpp-1.11.2 >=dev-erlang/pkix-1.0.10 >=dev-erlang/mqtree-1.0.19 >=dev-erlang/idna-6.0.0-r1 >=dev-erlang/p1_acme-1.0.29 >=dev-erlang/base64url-1.0.1 ldap? ( =net-nds/openldap-2* ) mysql? ( >=dev-erlang/p1_mysql-1.0.25 ) odbc? ( dev-db/unixODBC ) pam? ( >=dev-erlang/epam-1.0.14 ) postgres? ( >=dev-erlang/p1_pgsql-1.1.32 ) redis? ( >=dev-erlang/eredis-1.2.0 ) sip? ( >=dev-erlang/esip-1.0.59 ) sqlite? ( >=dev-erlang/sqlite3-1.1.15 ) stun? ( >=dev-erlang/stun-1.2.21 ) zlib? ( >=dev-erlang/ezlib-1.0.15 ) >=acct-user/ejabberd-2[pam?] captcha? ( media-gfx/imagemagick[truetype,png] ) selinux? ( sec-policy/selinux-jabber ) dev-lang/erlang:=
 REQUIRED_USE=mssql? ( odbc )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/processone/ejabberd/archive/refs/tags/25.10.tar.gz -> ejabberd-25.10.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	flag-o-matic	fd3558f73f6503093adee69adf41020d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	rebar-utils	6ff3a08a9fb43ffe130089e51bd1cbf0	rebar	4a4d05b95ca1c02f225eba9c931e71de	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=ff593a0876c2cf466559de26b0332da0
+_md5_=78fc6186d51b2703c391365fc42a0b28
