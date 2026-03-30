@@ -7,12 +7,12 @@ inherit desktop
 
 DESCRIPTION="Management Software for MikroTik RouterOS"
 HOMEPAGE="https://mikrotik.com/"
-SRC_URI="https://download.mikrotik.com/routeros/winbox/${PV}/WinBox_Linux.zip -> ${P}.zip"
+SRC_URI="https://download.mikrotik.com/routeros/winbox/${PV/_/}/WinBox_Linux.zip -> ${P}.zip"
 S="${WORKDIR}"
 
 LICENSE="MikroTik"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 
 RDEPEND="
 	media-libs/fontconfig
