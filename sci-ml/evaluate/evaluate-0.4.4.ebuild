@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -42,9 +42,9 @@ RDEPEND="
 		)
 	')
 	sci-ml/datasets[${PYTHON_SINGLE_USEDEP}]
-	sci-ml/huggingface_hub[${PYTHON_SINGLE_USEDEP}]
+	<sci-ml/huggingface_hub-1[${PYTHON_SINGLE_USEDEP}]
 	evaluator? (
-		sci-ml/transformers[${PYTHON_SINGLE_USEDEP}]
+		<sci-ml/transformers-5[${PYTHON_SINGLE_USEDEP}]
 	)
 	torch? (
 		sci-ml/caffe2[${PYTHON_SINGLE_USEDEP},distributed]
@@ -53,6 +53,7 @@ RDEPEND="
 "
 BDEPEND="test? (
 	$(python_gen_cond_dep '
+		dev-python/absl-py[${PYTHON_USEDEP}]
 		sci-ml/jiwer[${PYTHON_USEDEP}]
 		sci-ml/seqeval[${PYTHON_USEDEP}]
 	')
@@ -60,6 +61,7 @@ BDEPEND="test? (
 
 PATCHES=( "${FILESDIR}"/${PN}-0.4.0-tests.patch )
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_test() {
