@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,17 +11,16 @@ inherit toolchain-funcs flag-o-matic plocale verify-sig eapi9-ver
 
 DESCRIPTION="/sbin/init - parent of all processes"
 HOMEPAGE="https://savannah.nongnu.org/projects/sysvinit"
-# https://github.com/slicer69/sysvinit/issues/12
-#SRC_URI="mirror://nongnu/${PN}/${P/_/-}.tar.xz"
-#SRC_URI+=" verify-sig? ( mirror://nongnu/${PN}/${P/_/-}.tar.xz.sig )"
-SRC_URI="https://github.com/slicer69/sysvinit/releases/download/${PV}/${P}.tar.xz"
-SRC_URI+=" verify-sig? ( https://github.com/slicer69/sysvinit/releases/download/${PV}/${P}.tar.xz.sig )"
+SRC_URI="
+	https://codeberg.org/thejessesmith/sysvinit/releases/download/${PV}/${P}.tar.xz
+	verify-sig? ( https://codeberg.org/thejessesmith/sysvinit/releases/download/${PV}/${P}.tar.xz.sig )
+"
 S="${WORKDIR}/${P/_*}"
 
 LICENSE="GPL-2"
 SLOT="0"
 if [[ ${PV} != *beta* ]] ; then
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 IUSE="selinux ibm nls static"
 
@@ -150,6 +149,12 @@ src_install() {
 	find "${ED}" -xtype l -delete || die
 
 	find "${ED}" -type d -empty -delete || die
+
+	if use kernel_Hurd ; then
+		# Avoid clash with sys-kernel/hurd
+		mv "${ED}"/sbin/halt "${ED}"/sbin/sysvinit-halt || die
+		mv "${ED}"/sbin/reboot "${ED}"/sbin/sysvinit-reboot || die
+	fi
 }
 
 pkg_postinst() {
