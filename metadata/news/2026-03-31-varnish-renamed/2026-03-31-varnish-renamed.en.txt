@@ -1,0 +1,78 @@
+Title: Varnish Renamed
+Author: Brett A C Sheffield <bacs@librecast.net>
+Posted: 2026-03-31
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: www-servers/varnish
+
+# Varnish Renamed to Vinyl-Cache
+
+As of version 9.0.0, www-servers/varnish has been renamed to
+www-servers/vinyl-cache in line with upstream's change of name[0]. The name
+change also affects binaries, directories, init scripts, configuration and the
+user and group used by the server daemon.
+
+If you are upgrading from a previous version of www-servers/varnish you will
+need to update your configuration as described in "Upgrading" below.
+
+
+# Changes
+
+All varnish* binaries have been renamed to their vinyl* equivalents:
+
+ varnishd                  -> vinyld
+ varnishlog                -> vinyllog
+ varnishncsa               -> vinylncsa
+ varnishadm                -> vinyladm
+ varnishhist               -> vinylhist
+ varnishstat               -> vinylstat
+ varnishstat_help_gen      -> vinylstat_help_gen
+ varnishstatdiff           -> vinylstatdiff
+ varnishtest               -> vinyltest
+ varnishtop                -> vinyltop
+
+This name change also affects all related conf.d/* files, init scripts,
+systemd service files, logrotate etc.
+
+The api library has been renamed:
+ libvarnishapi.so -> libvinylapi.so
+
+In these conf.d files, all VARNISH* options are now VINYL* and you will need to
+update your configuration accordingly:
+
+ /etc/conf.d/varnishd      -> /etc/conf.d/vinyld
+ /etc/conf.d/varnishlog    -> /etc/conf.d/vinyllog
+ /etc/conf.d/varnishncsa   -> /etc/conf.d/vinylncsa
+
+The configuration directory has been moved:
+ /etc/varnish/ -> /etc/vinyl-cache/
+
+Other varnish directories have also been renamed:
+
+ /usr/include/varnish      -> /usr/include/vinyl-cache
+ /usr/lib/varnish          -> /usr/lib/vinyl-cache
+ /usr/lib64/varnish        -> /usr/lib64/vinyl-cache
+ /usr/share/varnish        -> /usr/share/vinyl-cache
+ /var/lib/varnish          -> /var/lib/vinyl-cache
+ /var/log/varnish          -> /var/log/vinyl-cache
+
+
+# Upgrading
+
+To upgrade from varnish 8.x to 9.x:
+
+0) Take a backup of your existing configuration files
+1) Stop all running varnish services
+2) emerge --oneshot www-servers/vinyl-cache
+3) Update and install your VCL files in /etc/vinyl-cache/
+
+You can now start the new vinyld, vinyllog and vinylncsa services, remembering
+to add them to the appropriate runlevels as usual. Ditto systemd services.
+
+For more details of the changes, you are encouraged to read the upstream
+announcement[0].
+
+
+# Refs
+
+[0] https://vinyl-cache.org/docs/9.0/whats-new/upgrading-9.0.html
