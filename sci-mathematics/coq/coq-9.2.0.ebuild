@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,6 +16,7 @@ if [[ "${PV}" == *9999* ]] ; then
 else
 	SRC_URI="https://github.com/coq/coq/archive/V${PV}.tar.gz
 		-> ${P}.tar.gz"
+	S="${WORKDIR}/rocq-${PV}"
 
 	KEYWORDS="~amd64 ~arm64"
 fi
@@ -31,6 +32,7 @@ RESTRICT="test"
 RDEPEND="
 	dev-ml/camlzip:=
 	dev-ml/num:=
+	dev-ml/yojson:=
 	dev-ml/zarith:=
 	gui? (
 		>=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?]
@@ -64,7 +66,6 @@ src_prepare() {
 		coq-makefile/timing-aggregate
 		coq-makefile/timing-error
 		coq-makefile/timing-per-file
-		coq-makefile/timing-per-line
 		coq-makefile/timing-template
 	)
 	local bad_test=""
@@ -83,10 +84,9 @@ src_configure() {
 	local -x CAML_LD_LIBRARY_PATH="${S}/kernel/byterun/"
 
 	DUNE_PACKAGES=(
-		coq
 		coq-core
 		rocq-core
-		rocq-prover
+		rocq-devtools
 		rocq-runtime
 	)
 
@@ -99,8 +99,7 @@ src_configure() {
 
 	local -a myconf=(
 		-prefix /usr
-		-libdir "/usr/$(get_libdir)/coq"
-		-mandir /usr/share/man
+		-libdir "/usr/$(get_libdir)/ocaml/coq"
 		-docdir "/usr/share/doc/${PF}"
 		-datadir /usr/share/coq
 		-configdir "/etc/xdg/${PN}"

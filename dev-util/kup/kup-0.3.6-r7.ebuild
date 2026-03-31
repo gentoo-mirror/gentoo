@@ -30,10 +30,16 @@ RDEPEND="
 
 DOCS=( README )
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.3.6-path-lookup-compressor.patch
+	"${FILESDIR}"/${PN}-server-putraw.patch
+)
+
 src_prepare() {
 	if use gitolite; then
 		cp -f "${S}/${PN}-server" "${S}/${PN}-server-gitolite" || die
-		patch "${S}/${PN}-server-gitolite" <"${FILESDIR}"/${PN}-server-gitolite-subcmd.patch || die
+		patch "${S}/${PN}-server-gitolite" <"${FILESDIR}"/${PN}-server-gitolite-subcmd-r2.patch || die
+
 	fi
 	default
 }
