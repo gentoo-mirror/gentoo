@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.mongodb.com
 INHERIT=check-reqs eapi9-ver flag-o-matic multiprocessing pax-utils python-any-r1 scons-utils systemd toolchain-funcs
 IUSE=debug kerberos mongosh ssl +tools cpu_flags_x86_avx
-KEYWORDS=~amd64 ~arm64 -riscv
+KEYWORDS=amd64 ~arm64 -riscv
 LICENSE=Apache-2.0 SSPL-1
 PDEPEND=mongosh? ( app-admin/mongosh-bin ) tools? ( >=app-admin/mongo-tools-100 )
 RDEPEND=acct-group/mongodb acct-user/mongodb >=app-arch/snappy-1.1.7:= app-arch/zstd:= >=dev-cpp/yaml-cpp-0.6.2:= dev-libs/boost:=[nls] >=dev-libs/libpcre-8.42[cxx] dev-libs/snowball-stemmer:= net-misc/curl >=virtual/zlib-1.2.12:= kerberos? ( dev-libs/cyrus-sasl[kerberos] ) ssl? ( >=dev-libs/openssl-1.0.1g:0= )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/mongodb/mongo/archive/refs/tags/r6.0.27.tar.gz -> mongodb-6.0.27.gh.tar.gz https://dev.gentoo.org/~sam/distfiles/dev-db/mongodb/mongodb-6.0.22-patches.tar.xz
 _eclasses_=check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	pax-utils	5555f2e75744739fe100ee62c22d28fe	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-any-r1	891415dfe39ad9b41b461f2b86354af0	scons-utils	578ea0f3ec78f687f07728af19d8d002	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=a3a62cc19119fc0fc07d87f46c28377f
+_md5_=729231d2cf036b6fe685372c2e0b7de2
