@@ -1,0 +1,18 @@
+BDEPEND=virtual/pkgconfig doc? ( dev-ruby/asciidoctor ) test? ( || ( ( dev-lang/python:3.14 dev-python/xcffib[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/xcffib[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/xcffib[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/xcffib[python_targets_python3_11(-)] ) ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
+DEFINED_PHASES=compile configure install postinst postrm preinst setup test
+DEPEND=dev-libs/libconfig:= dev-libs/libev dev-libs/uthash x11-libs/libX11 x11-libs/libxcb x11-libs/pixman x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-renderutil dbus? ( sys-apps/dbus ) drm? ( x11-libs/libdrm ) opengl? ( media-libs/libepoxy virtual/opengl ) pcre? ( dev-libs/libpcre2:= ) x11-base/xorg-proto
+DESCRIPTION=A lightweight compositor for X11 (previously a compton fork)
+EAPI=8
+HOMEPAGE=https://github.com/yshui/picom
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=meson python-any-r1 virtualx xdg
+IUSE=dbus +doc +drm opengl pcre test test
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=MPL-2.0 MIT
+RDEPEND=dev-libs/libconfig:= dev-libs/libev dev-libs/uthash x11-libs/libX11 x11-libs/libxcb x11-libs/pixman x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-renderutil dbus? ( sys-apps/dbus ) drm? ( x11-libs/libdrm ) opengl? ( media-libs/libepoxy virtual/opengl ) pcre? ( dev-libs/libpcre2:= )
+REQUIRED_USE=test? ( dbus )
+RESTRICT=test !test? ( test )
+SLOT=0
+SRC_URI=https://github.com/yshui/picom/archive/v13.tar.gz -> picom-13.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	76c5dcd585ba0bb875a92ce2ce5ad9f5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=5aa92d995ab0f37ef0e4cfc920121345

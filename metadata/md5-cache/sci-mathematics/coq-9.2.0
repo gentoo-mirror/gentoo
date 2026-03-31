@@ -1,6 +1,6 @@
 BDEPEND=dev-ml/findlib test? ( dev-ml/ounit2 ) dev-lang/ocaml dev-ml/dune
 DEFINED_PHASES=compile configure install prepare pretend setup test
-DEPEND=dev-ml/camlzip:= dev-ml/num:= dev-ml/zarith:= gui? ( >=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?] >=dev-ml/lablgtk-sourceview-3.1.2:3=[ocamlopt?] ) native-compiler? ( <dev-lang/ocaml-5:= ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DEPEND=dev-ml/camlzip:= dev-ml/num:= dev-ml/yojson:= dev-ml/zarith:= gui? ( >=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?] >=dev-ml/lablgtk-sourceview-3.1.2:3=[ocamlopt?] ) native-compiler? ( <dev-lang/ocaml-5:= ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=Coq/Rocq is a proof assistant written in O'Caml
 EAPI=8
 HOMEPAGE=https://rocq-prover.org https://github.com/rocq-prover/rocq/
@@ -9,9 +9,9 @@ IUSE=debug gui native-compiler +ocamlopt test
 KEYWORDS=~amd64 ~arm64
 LICENSE=LGPL-2.1
 PDEPEND=sci-mathematics/coq-stdlib
-RDEPEND=dev-ml/camlzip:= dev-ml/num:= dev-ml/zarith:= gui? ( >=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?] >=dev-ml/lablgtk-sourceview-3.1.2:3=[ocamlopt?] ) native-compiler? ( <dev-lang/ocaml-5:= ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+RDEPEND=dev-ml/camlzip:= dev-ml/num:= dev-ml/yojson:= dev-ml/zarith:= gui? ( >=dev-ml/lablgtk-3.1.2:3=[sourceview,ocamlopt?] >=dev-ml/lablgtk-sourceview-3.1.2:3=[ocamlopt?] ) native-compiler? ( <dev-lang/ocaml-5:= ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=test
-SLOT=0/9.0.0
-SRC_URI=https://github.com/coq/coq/archive/V9.0.0.tar.gz -> coq-9.0.0.tar.gz
+SLOT=0/9.2.0
+SRC_URI=https://github.com/coq/coq/archive/V9.2.0.tar.gz -> coq-9.2.0.tar.gz
 _eclasses_=check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	desktop	26d57169ca094c04be416993844ec8bc	edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	bca6089ec4118f02802b8cee78a748c5
-_md5_=c16787d314c4bbd1654cea9e496d0240
+_md5_=c1bb6f4655b9bd30e0a7065d3ffc6fe2
