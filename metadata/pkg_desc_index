@@ -1851,7 +1851,7 @@ app-editors/mousepad 0.6.5-r2 0.7.0: GTK+-based editor for the Xfce Desktop Envi
 app-editors/nano 8.6 8.7 8.7-r1 8.7.1 9999: GNU GPL'd Pico clone with more functionality
 app-editors/ne 3.3.3: The nice editor, easy to use for the beginner and powerful for the wizard
 app-editors/nedit 5.7-r1: Multi-purpose text editor for the X Window System
-app-editors/neovim 0.11.4-r2 0.11.5-r1 0.11.6-r2 9999: Vim-fork focused on extensibility and agility
+app-editors/neovim 0.11.5-r1 0.11.6-r2 0.11.7 0.12.0 9999: Vim-fork focused on extensibility and agility
 app-editors/ng 1.5_beta1-r3: Emacs like micro editor Ng -- based on mg2a
 app-editors/okteta 0.26.60_pre20260202: Hex editor by KDE
 app-editors/padre 1.0.0-r4: Perl Application Development and Refactoring Environment
@@ -3842,7 +3842,7 @@ dev-build/gtk-doc-am 1.34.0: Automake files from gtk-doc
 dev-build/guildmaster 0_pre20250712 9999: FIFO-like jobserver node via CUSE
 dev-build/gyp 20200512145953-r1 99999999999999: GYP (Generate Your Projects) meta-build system
 dev-build/icmake 9.03.01-r1: Hybrid between a make utility and a shell scripting language
-dev-build/just 1.46.0 1.48.0: Just a command runner (with syntax inspired by 'make')
+dev-build/just 1.46.0 1.48.0 1.48.1: Just a command runner (with syntax inspired by 'make')
 dev-build/kas 5.1 5.2: Setup tool for bitbake based projects
 dev-build/kbuild 0.1.9998.3499-r4 0.1.9998.3592 0.1.9998.3660-r1 9999: A makefile framework for writing simple makefiles for complex tasks
 dev-build/libtool 2.5.4 2.6.0 9999: A shared library tool for developers
@@ -5347,7 +5347,7 @@ dev-libs/bemenu 0.6.10-r1 0.6.14 0.6.15 0.6.16 0.6.21 0.6.23 9999: dmenu clone f
 dev-libs/bglibs 2.04-r4 2.04-r5: Bruce Guenter's Libraries Collection
 dev-libs/bitset 2.8.4-r3 2.8.4-r4: A compressed bitset with supporting data structures and algorithms
 dev-libs/bitshuffle 0.3.5-r1: Bitshuffle C library
-dev-libs/blake3 1.8.3: a fast cryptographic hash function
+dev-libs/blake3 1.8.3 1.8.4: a fast cryptographic hash function
 dev-libs/blazesym_c 0.1.5 0.1.7: C bindings for blazesym, a library for address symbolization and related tasks
 dev-libs/boehm-gc 8.2.8 8.2.10 8.2.10-r1 8.2.12: The Boehm-Demers-Weiser conservative garbage collector
 dev-libs/boost 1.88.0-r1 1.89.0 1.90.0: Boost Libraries for C++
@@ -5865,8 +5865,8 @@ dev-libs/tree-sitter-javascript 0.23.0 0.23.1 0.25.0: JavaScript grammar for Tre
 dev-libs/tree-sitter-jsdoc 0.19.0 0.25.0: JSDoc grammar for Tree-sitter
 dev-libs/tree-sitter-json 0.23.0 0.24.8: JSON grammar for Tree-sitter
 dev-libs/tree-sitter-julia 0.22.0 0.23.1 0.25.0: Julia grammar for Tree-sitter
-dev-libs/tree-sitter-lua 0.3.0 0.4.0 0.4.1: Lua grammar for Tree-sitter
-dev-libs/tree-sitter-markdown 0.4.1 0.5.0 0.5.1 0.5.2: Markdown grammar for Tree-sitter
+dev-libs/tree-sitter-lua 0.3.0 0.4.0 0.4.1 0.5.0: Lua grammar for Tree-sitter
+dev-libs/tree-sitter-markdown 0.4.1 0.5.0 0.5.1 0.5.2 0.5.3: Markdown grammar for Tree-sitter
 dev-libs/tree-sitter-markdown-inline 0.2.3 0.3.2: Markdown-inline grammar for Tree-sitter
 dev-libs/tree-sitter-meta 1-r5: Metapackage for Tree Sitter packages
 dev-libs/tree-sitter-ocaml 0.20.4 0.23.2 0.24.0: OCaml grammar for Tree-sitter
@@ -5881,7 +5881,7 @@ dev-libs/tree-sitter-scala 0.23.0 0.23.2 0.23.4 0.24.0: Scala grammar for Tree-s
 dev-libs/tree-sitter-tsq 0.19.0: Tree-sitter query language grammar for Tree-sitter
 dev-libs/tree-sitter-tsx 0.23.0 0.23.2: TSX grammar for Tree-sitter
 dev-libs/tree-sitter-typescript 0.23.0 0.23.2: TypeScript grammar for Tree-sitter
-dev-libs/tree-sitter-vim 0.4.0 0.5.0 0.6.0 0.7.0: Vimscript grammar for Tree-sitter
+dev-libs/tree-sitter-vim 0.4.0 0.5.0 0.6.0 0.7.0 0.8.1: Vimscript grammar for Tree-sitter
 dev-libs/tree-sitter-vimdoc 3.0.0 3.0.1 4.0.0 4.1.0: Vimdoc grammar for Tree-sitter
 dev-libs/trio 1.17.1: Portable string functions, focus on the *printf() and *scanf() clones
 dev-libs/tvision 2.2.3: Text User Interface that implements the well known CUA widgets
@@ -5987,7 +5987,7 @@ dev-lua/luasocket 3.1.0: Networking support for the Lua language
 dev-lua/luassert 1.9.0: Assertion library for Lua
 dev-lua/luasystem 0.6.3 0.7.0: Platform independent system calls for Lua
 dev-lua/lutok 0.6: Lightweight C++ API library for Lua
-dev-lua/luv 1.44.2.0 1.45.0.0 1.50.0.1: Bare libuv bindings for lua
+dev-lua/luv 1.44.2.0 1.45.0.0 1.50.0.1 1.52.1.0: Bare libuv bindings for lua
 dev-lua/md5 1.3-r1: Offers basic cryptographic facilities for Lua
 dev-lua/mediator_lua 1.1.2_p0-r1: Mediator pattern implementation for pub-sub management
 dev-lua/messagepack 0.5.4: pure Lua implementation of the MessagePack serialization format
@@ -13060,7 +13060,7 @@ media-gfx/frogr 1.8.1-r1: flickr applications for GNOME
 media-gfx/geeqie 2.6.1-r1 2.6.1-r2 9999: A lightweight GTK image viewer forked from GQview
 media-gfx/gif2png 2.5.14: Converts images from gif format to png format
 media-gfx/gifsicle 1.95 1.96: Create, manipulate, and optimize GIF images and animations
-media-gfx/gimp 2.10.38-r4 2.10.38-r5 3.0.8-r1 3.0.8-r2 3.2.0 3.2.2 9999: GNU Image Manipulation Program
+media-gfx/gimp 2.10.38-r4 2.10.38-r5 3.0.8-r1 3.0.8-r2 3.2.0 3.2.2-r1 9999: GNU Image Manipulation Program
 media-gfx/gimp-arrow-brushes 20190407: Brushes for GIMP with the styles arrow, handpointer, button arrow and cursor
 media-gfx/gnofract4d 4.4: A program for drawing beautiful mathematically-based images known as fractals
 media-gfx/gnome-font-viewer 48.0 49.0: Font viewer utility for GNOME
@@ -15399,7 +15399,7 @@ net-misc/redir 3.3-r1: Redir is a port redirector
 net-misc/remmina 1.4.40-r2 1.4.40-r3 1.4.41 1.4.41-r1 1.4.42 1.4.43: A GTK+ RDP, SPICE, VNC and SSH client
 net-misc/rinetd 0.73-r1: redirects TCP connections from one IP address and port to another
 net-misc/rsync 3.4.1-r2 9999: File transfer program to keep remote files into sync
-net-misc/rsync-bpc 3.1.3.0_p20250706 3.1.3.0_p20251201: Rsync-bpc is a customized version of rsync that is used as part of BackupPC
+net-misc/rsync-bpc 3.1.3.0_p20250706 3.1.3.0_p20251201-r1: Rsync-bpc is a customized version of rsync that is used as part of BackupPC
 net-misc/rwbs 0.27-r2: Roger Wilco base station
 net-misc/rwhoisd 1.5.9.6_p2: ARIN rwhois daemon
 net-misc/rygel 0.42.6-r1 0.44.2 45.0: Rygel is an open source UPnP/DLNA MediaServer
@@ -17586,7 +17586,7 @@ sys-devel/elftoolchain 0.7.1_p20210319: Libraries/utilities to handle ELF object
 sys-devel/flex 2.6.4-r6: The Fast Lexical Analyzer
 sys-devel/gcc 8.5.0-r2 9.5.0 10.5.0 11.5.0 12.5.0 13.2.0 13.4.1_p20250807 13.4.1_p20251016 13.4.1_p20260122 13.4.1_p20260129 13.4.1_p20260205 13.4.1_p20260212 13.4.1_p20260219 13.4.1_p20260226 13.4.1_p20260305 13.4.1_p20260312 13.4.1_p20260319 13.4.1_p20260326 13.5.9999 14.3.1_p20250801 14.3.1_p20251017 14.3.1_p20260123 14.3.1_p20260130 14.3.1_p20260206 14.3.1_p20260213 14.3.1_p20260220 14.3.1_p20260227 14.3.1_p20260306 14.3.1_p20260313 14.3.1_p20260320 14.3.1_p20260327 14.4.9999 15.2.1_p20251108-r1 15.2.1_p20251115 15.2.1_p20251122 15.2.1_p20260124 15.2.1_p20260131 15.2.1_p20260207 15.2.1_p20260214 15.2.1_p20260221 15.2.1_p20260228 15.2.1_p20260307 15.2.1_p20260314 15.2.1_p20260321 15.2.1_p20260328 15.3.9999 16.0.1_p20260125 16.0.1_p20260201 16.0.1_p20260208-r1 16.0.1_p20260215 16.0.1_p20260222 16.0.1_p20260301 16.0.1_p20260308 16.0.1_p20260315 16.0.1_p20260322 16.0.1_p20260329 16.0.9999: The GNU Compiler Collection
 sys-devel/gcc-config 2.12.1 2.12.2 9999: Utility to manage compilers
-sys-devel/gettext 0.21.1 0.22.5-r2 0.23.1-r1 0.23.2 0.25.1 0.26: GNU locale utilities
+sys-devel/gettext 0.21.1 0.22.5-r2 0.23.1-r1 0.23.2 0.25.1 0.26 1.0: GNU locale utilities
 sys-devel/gnuconfig 20240728 20250710 99999999: Updated config.sub and config.guess file from GNU
 sys-devel/icecream 1.4-r1: Distributed compiler with a central scheduler to share build load
 sys-devel/kgcc64 10.5.0 11.5.0 12.5.0 13.4.0 14.3.0 15.2.0: 64bit kernel compiler
