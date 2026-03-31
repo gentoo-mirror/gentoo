@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,8 +17,8 @@ SRC_URI="https://github.com/BestImageViewer/${PN}/releases/download/v${PV}/${P}.
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc ~x86"
-IUSE="debug djvu exif ffmpegthumbnailer heif jpeg jpeg2k jpegxl lcms lua map pdf raw spell tiff webp X xmp zip"
+KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86"
+IUSE="debug djvu exif ffmpegthumbnailer heif jpeg jpeg2k jpegxl lcms lua map openexr pdf raw spell tiff webp X xmp zip"
 
 RDEPEND="gnome-extra/zenity
 	virtual/libintl
@@ -34,6 +34,7 @@ RDEPEND="gnome-extra/zenity
 	lua? ( ${LUA_DEPS} )
 	map? ( media-libs/clutter-gtk
 		media-libs/libchamplain:0.12[gtk] )
+	openexr? ( media-libs/openexr:= )
 	pdf? ( >=app-text/poppler-0.62[cairo] )
 	raw? ( >=media-libs/libraw-0.20:= )
 	spell? ( app-text/gspell:= )
@@ -42,7 +43,6 @@ RDEPEND="gnome-extra/zenity
 	zip? ( >=app-arch/libarchive-3.4.0 )"
 DEPEND="${RDEPEND}"
 BDEPEND="
-	|| ( dev-util/xxd dev-util/xxdi app-editors/vim-core )
 	dev-util/glib-utils
 	sys-devel/gettext
 	virtual/pkgconfig"
@@ -50,8 +50,7 @@ BDEPEND="
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 
 PATCHES=( "${FILESDIR}"/${PN}-2.5-test-ancillary.patch
-	"${FILESDIR}"/${P}-incorrect_init.patch
-	"${FILESDIR}"/${P}-start_thumbnail.patch
+	"${FILESDIR}"/${PN}-2.6-start_thumbnail.patch
 	)
 
 pkg_setup() {
@@ -74,6 +73,7 @@ src_configure() {
 	local emesonargs=(
 		-Dgq_helpdir="share/doc/${PF}"
 		-Dgq_htmldir="share/doc/${PF}/html"
+		-Dextended_stacktrace=disabled
 		$(meson_use debug)
 		$(meson_feature djvu)
 		$(meson_feature exif exiv2)
@@ -85,6 +85,7 @@ src_configure() {
 		$(meson_feature lcms cms)
 		$(meson_feature lua)
 		$(meson_feature map gps-map)
+		$(meson_feature openexr exr)
 		$(meson_feature pdf)
 		$(meson_feature raw libraw)
 		$(meson_feature spell)
