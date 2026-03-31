@@ -276,6 +276,9 @@ src_prepare() {
 		sed -i 's/ --started-from-file//' share/vlc.desktop.in || die
 	fi
 
+	# do not pass -std=c++17 if it's not needed for c++17 features
+	sed -e '/AX_CXX_COMPILE_STDCXX_17/s/\[noext\]/[]/' -i configure.ac || die
+
 	eautoreconf
 }
 
