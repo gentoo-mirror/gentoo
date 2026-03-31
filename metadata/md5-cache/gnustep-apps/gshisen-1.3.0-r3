@@ -1,0 +1,15 @@
+BDEPEND=>=gnustep-base/gnustep-make-2.0
+DEFINED_PHASES=compile configure install postinst prepare setup
+DEPEND=virtual/gnustep-back
+DESCRIPTION=The first GNUstep game, similar to Mahjongg
+EAPI=8
+HOMEPAGE=https://gap.nongnu.org/gshisen/index.html
+INHERIT=gnustep-2 edos2unix
+IUSE=debug doc
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=virtual/gnustep-back
+SLOT=0
+SRC_URI=https://savannah.nongnu.org/download/gap/GShisen-1.3.0.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	gnustep-base	976868a87e3ff809160bc308ec25ee04	gnustep-2	cfafeebb1111f944995a3bb7ae64ce8b	edos2unix	33e347e171066657f91f8b0c72ec8773
+_md5_=ccd8be0480446fc6c9a1134abbcfcf24
