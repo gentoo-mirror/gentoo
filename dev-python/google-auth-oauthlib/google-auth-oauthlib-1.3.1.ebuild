@@ -8,7 +8,6 @@ PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 pypi
 
-MY_P=google-auth-library-python-oauthlib-${PV}
 DESCRIPTION="Google Authentication Library"
 HOMEPAGE="
 	https://github.com/googleapis/google-auth-library-python-oauthlib/
