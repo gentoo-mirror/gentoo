@@ -1,16 +1,16 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig
-DEFINED_PHASES=configure install prepare test
-DEPEND=sys-libs/readline:= dev-libs/libedit dev-libs/libpcre2[jit?] sys-libs/ncurses:= jemalloc? ( dev-libs/jemalloc:= ) unwind? ( sys-libs/libunwind:= ) dev-python/docutils dev-python/sphinx virtual/pkgconfig
+DEFINED_PHASES=configure install prepare
+DEPEND=sys-libs/readline:= dev-libs/libedit dev-libs/libpcre2[jit?] sys-libs/ncurses:= unwind? ( sys-libs/libunwind:= ) dev-python/docutils dev-python/sphinx virtual/pkgconfig
 DESCRIPTION=Varnish is a state-of-the-art, high-performance HTTP accelerator
 EAPI=8
 HOMEPAGE=https://vinyl-cache.org/
 INHERIT=autotools systemd python-r1
-IUSE=+jemalloc jit selinux static-libs unwind python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
-KEYWORDS=amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86
+IUSE=jit selinux static-libs unwind python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=BSD-2 GPL-2
-RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) sys-libs/readline:= dev-libs/libedit dev-libs/libpcre2[jit?] sys-libs/ncurses:= jemalloc? ( dev-libs/jemalloc:= ) unwind? ( sys-libs/libunwind:= ) acct-user/varnish acct-group/varnish sys-devel/gcc selinux? ( sec-policy/selinux-varnishd )
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) sys-libs/readline:= dev-libs/libedit dev-libs/libpcre2[jit?] sys-libs/ncurses:= unwind? ( sys-libs/libunwind:= ) acct-user/varnish acct-group/varnish sys-devel/gcc selinux? ( sec-policy/selinux-varnishd )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
 SLOT=0/2
-SRC_URI=https://vinyl-cache.org/_downloads/varnish-8.0.0.tgz
+SRC_URI=https://vinyl-cache.org/downloads/varnish-8.0.1.tgz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	systemd	a964c0cbe818b5729da1dbfcee5be861	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf
-_md5_=bc662f843492c0739ed9c2c1390ac390
+_md5_=f98dff1d090c8662d738a2ec8538fd11
