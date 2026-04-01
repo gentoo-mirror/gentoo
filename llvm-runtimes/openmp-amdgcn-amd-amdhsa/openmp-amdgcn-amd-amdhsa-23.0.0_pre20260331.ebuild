@@ -6,18 +6,18 @@ EAPI=8
 PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake flag-o-matic llvm.org
 
-DESCRIPTION="OpenMP target library for nvptx64 devices"
+DESCRIPTION="OpenMP target library for amdgcn devices"
 HOMEPAGE="https://openmp.llvm.org"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0/${LLVM_SOABI}"
 
 RDEPEND="
-	!<llvm-runtimes/offload-22[llvm_targets_NVPTX(-)]
+	!<llvm-runtimes/offload-22[llvm_targets_AMDGPU(-)]
 "
 BDEPEND="
-	~llvm-core/clang-${PV}:${LLVM_MAJOR}[llvm_targets_NVPTX]
-	llvm-core/lld:${LLVM_MAJOR}[llvm_targets_NVPTX]
+	~llvm-core/clang-${PV}:${LLVM_MAJOR}[llvm_targets_AMDGPU]
+	llvm-core/lld:${LLVM_MAJOR}[llvm_targets_AMDGPU]
 "
 
 LLVM_COMPONENTS=(
@@ -29,7 +29,7 @@ llvm.org_set_globals
 src_configure() {
 	local -x CC=${CHOST}-clang-${LLVM_MAJOR}
 	local -x CXX=${CHOST}-clang++-${LLVM_MAJOR}
-	local triple=nvptx64-nvidia-cuda
+	local triple=${PN#openmp-}
 	filter-flags '-m*'
 	strip-unsupported-flags
 

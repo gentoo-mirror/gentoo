@@ -12,7 +12,6 @@ HOMEPAGE="https://libcxx.llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="+clang +libcxxabi +static-libs test"
 REQUIRED_USE="test? ( clang )"
 RESTRICT="!test? ( test )"
@@ -145,12 +144,6 @@ multilib_src_configure() {
 		# this is broken with standalone builds, and also meaningless
 		-DLIBCXXABI_USE_LLVM_UNWINDER=OFF
 	)
-	if ! has_version -b sys-devel/gcc; then
-		# Since this package is merged before llvm-runtimes/clang-stdlib-config,
-		# clang will attempt to use libstdc++ for the C++ compiler check, and will
-		# fail if it is missing.
-		mycmakeargs+=( -DCMAKE_CXX_COMPILER_WORKS=1 )
-	fi
 	if is_crosspkg; then
 		# Needed to target built libc headers
 		local -x CFLAGS="${CFLAGS} -isystem ${ESYSROOT}/usr/${CTARGET}/usr/include"
@@ -184,8 +177,6 @@ multilib_src_compile() {
 
 multilib_src_test() {
 	local -x LIT_PRESERVES_TMP=1
-	# https://github.com/llvm/llvm-project/issues/153940
-	local -x LIT_XFAIL="libcxx/gdb/gdb_pretty_printer_test.sh.cpp"
 	cmake_build libcxx-test-suite-install-cxx
 	if [[ ${CHOST} != *-darwin* ]] ; then
 		local libdir=$(get_libdir)
