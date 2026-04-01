@@ -12,18 +12,20 @@ LICENSE="MIT LGPL-2.1 BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="debug doc +drm elogind +fbdev +gles2 +pango systemd test"
+IUSE="debug doc +drm elogind +fbdev freetype +gles2 +pango systemd test"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
-	>=virtual/udev-172
-	x11-libs/libxkbcommon
 	>=dev-libs/libtsm-4.4.0:=
 	media-libs/libglvnd[X(+)]
+	>=virtual/udev-172
+	virtual/zlib:=
+	x11-libs/libxkbcommon
 	drm? ( x11-libs/libdrm
 		>=media-libs/mesa-8.0.3[egl(+),gbm(+)] )
-	systemd? ( sys-apps/systemd )
-	pango? ( x11-libs/pango dev-libs/glib:2 )"
+	freetype? (	media-libs/fontconfig media-libs/freetype )
+	pango? ( x11-libs/pango dev-libs/glib:2 )
+	systemd? ( sys-apps/systemd )"
 RDEPEND="${COMMON_DEPEND}
 	x11-misc/xkeyboard-config"
 DEPEND="${COMMON_DEPEND}
@@ -53,6 +55,7 @@ src_configure() {
 		$(meson_feature drm video_drm2d)
 		$(meson_feature drm video_drm3d)
 		-Dfont_unifont=enabled
+		$(meson_feature freetype font_freetype)
 		$(meson_feature pango font_pango)
 		$(meson_feature gles2 renderer_gltex)
 		$(meson_use test tests)
