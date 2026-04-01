@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,11 +10,12 @@ DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/pydantic/pydantic
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
 
-PYDANTIC_CORE_PV=2.41.5
-RUST_MIN_VER="1.75.0"
+PYDANTIC_CORE_PV=2.45.0
+RUST_MIN_VER="1.88.0"
 CRATES="
 	ahash@0.8.12
 	aho-corasick@1.1.3
+	allocator-api2@0.2.21
 	autocfg@1.3.0
 	base64@0.22.1
 	bitflags@2.9.1
@@ -24,9 +25,12 @@ CRATES="
 	cfg-if@1.0.0
 	displaydoc@0.2.5
 	enum_dispatch@0.3.13
-	form_urlencoded@1.2.1
+	equivalent@1.0.2
+	foldhash@0.2.0
+	form_urlencoded@1.2.2
 	funty@2.0.0
 	getrandom@0.3.3
+	hashbrown@0.16.1
 	heck@0.5.0
 	hex@0.4.3
 	icu_collections@1.5.0
@@ -41,9 +45,8 @@ CRATES="
 	icu_provider_macros@1.5.0
 	idna@1.1.0
 	idna_adapter@1.2.0
-	indoc@2.0.5
 	itoa@1.0.11
-	jiter@0.11.1
+	jiter@0.13.0
 	js-sys@0.3.77
 	lexical-parse-float@1.0.5
 	lexical-parse-integer@1.0.5
@@ -51,8 +54,8 @@ CRATES="
 	libc@0.2.155
 	litemap@0.7.3
 	log@0.4.27
+	lru@0.16.3
 	memchr@2.7.4
-	memoffset@0.9.1
 	num-bigint@0.4.6
 	num-integer@0.1.46
 	num-traits@0.2.19
@@ -60,24 +63,23 @@ CRATES="
 	percent-encoding@2.3.2
 	portable-atomic@1.6.0
 	proc-macro2@1.0.86
-	pyo3-build-config@0.26.0
-	pyo3-ffi@0.26.0
-	pyo3-macros-backend@0.26.0
-	pyo3-macros@0.26.0
-	pyo3@0.26.0
+	pyo3-build-config@0.28.2
+	pyo3-ffi@0.28.2
+	pyo3-macros-backend@0.28.2
+	pyo3-macros@0.28.2
+	pyo3@0.28.2
 	python3-dll-a@0.2.14
-	quote@1.0.36
+	quote@1.0.44
 	r-efi@5.2.0
 	radium@0.7.0
 	regex-automata@0.4.13
 	regex-syntax@0.8.5
-	regex@1.12.2
+	regex@1.12.3
 	rustversion@1.0.17
-	ryu@1.0.18
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
-	serde_json@1.0.145
+	serde_json@1.0.149
 	smallvec@1.15.1
 	speedate@0.17.0
 	stable_deref_trait@1.2.0
@@ -87,14 +89,13 @@ CRATES="
 	syn@2.0.82
 	synstructure@0.13.1
 	tap@1.0.1
-	target-lexicon@0.13.2
+	target-lexicon@0.13.4
 	tinystr@0.7.6
 	unicode-ident@1.0.12
-	unindent@0.2.3
-	url@2.5.4
+	url@2.5.8
 	utf16_iter@1.0.5
 	utf8_iter@1.0.4
-	uuid@1.18.1
+	uuid@1.21.0
 	version_check@0.9.5
 	wasi@0.14.2+wasi-0.2.4
 	wasm-bindgen-backend@0.2.100
@@ -114,6 +115,7 @@ CRATES="
 	zerofrom@0.1.4
 	zerovec-derive@0.10.3
 	zerovec@0.10.4
+	zmij@1.0.6
 "
 
 inherit cargo distutils-r1 pypi
@@ -134,7 +136,7 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0 Unicode-DFS-2016
-	|| ( Apache-2.0 Boost-1.0 )
+	ZLIB
 "
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
