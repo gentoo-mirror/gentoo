@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://pre-commit.com/ https://github.com/pre-commit/pre-commit/
 INHERIT=distutils-r1
 IUSE=test python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
-KEYWORDS=~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~x86
+KEYWORDS=amd64 ~arm64 ~hppa ~ppc ~ppc64 x86
 LICENSE=MIT
 RDEPEND=dev-vcs/git python_single_target_python3_12? ( >=dev-python/cfgv-2.0.0[python_targets_python3_12(-)] >=dev-python/identify-1.0.0[python_targets_python3_12(-)] >=dev-python/nodeenv-0.11.1[python_targets_python3_12(-)] >=dev-python/pyyaml-5.1[python_targets_python3_12(-)] >=dev-python/virtualenv-20.10.0[python_targets_python3_12(-)] ) python_single_target_python3_13? ( >=dev-python/cfgv-2.0.0[python_targets_python3_13(-)] >=dev-python/identify-1.0.0[python_targets_python3_13(-)] >=dev-python/nodeenv-0.11.1[python_targets_python3_13(-)] >=dev-python/pyyaml-5.1[python_targets_python3_13(-)] >=dev-python/virtualenv-20.10.0[python_targets_python3_13(-)] ) python_single_target_python3_14? ( >=dev-python/cfgv-2.0.0[python_targets_python3_14(-)] >=dev-python/identify-1.0.0[python_targets_python3_14(-)] >=dev-python/nodeenv-0.11.1[python_targets_python3_14(-)] >=dev-python/pyyaml-5.1[python_targets_python3_14(-)] >=dev-python/virtualenv-20.10.0[python_targets_python3_14(-)] ) python_single_target_python3_12? ( dev-lang/python:3.12[sqlite] ) python_single_target_python3_13? ( dev-lang/python:3.13[sqlite] ) python_single_target_python3_14? ( dev-lang/python:3.14[sqlite] )
 REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pre-commit/pre-commit/archive/refs/tags/v4.5.1.tar.gz -> pre-commit-4.5.1.gh.tar.gz
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	distutils-r1	62add15ed646bfe511af53e282621b39
-_md5_=873973336b69c65675cfce29a5f7286a
+_md5_=42fd1bd5c17a7bf9fcb3ce7739831e05
