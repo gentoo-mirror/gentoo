@@ -3,7 +3,7 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.85"
+RUST_MIN_VER="1.85.0"
 
 CRATES="
 ${PN}@${PV}
@@ -80,7 +80,7 @@ hashbrown@0.15.5
 hashbrown@0.16.1
 hermit@abi-0.1.19
 hex@0.4.3
-humantime@2.1.0
+humantime@2.3.0
 iana-time-zone-haiku@0.1.2
 iana-time-zone@0.1.63
 icu_collections@2.1.1
@@ -138,7 +138,7 @@ potential_utf@0.1.4
 powerfmt@0.2.0
 proc-macro-crate@3.5.0
 proc-macro2@1.0.106
-qlog@0.16.0
+qlog@0.17.0
 quote@1.0.45
 rayon@1.3.0
 rayon@core-1.7.0
