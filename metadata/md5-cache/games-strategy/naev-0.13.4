@@ -1,0 +1,18 @@
+BDEPEND=|| ( ( dev-lang/python:3.14 dev-python/pyyaml[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/pyyaml[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pyyaml[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pyyaml[python_targets_python3_11(-)] ) ) >=dev-build/meson-1.7.0 >=dev-util/bindgen-0.72.0 sys-devel/gettext doc? ( app-text/doxygen dev-lua/ldoc media-gfx/graphviz ) || ( >=dev-lang/rust-bin-1.89.0:* >=dev-lang/rust-1.89.0:* ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) app-text/cmark:= dev-games/physfs >=dev-libs/libgit2-1.9.2:0/1.9 dev-libs/libpcre2:= dev-libs/libunibreak:= dev-libs/libxml2:= dev-libs/openssl:= media-libs/dav1d:= media-libs/freetype:2 media-libs/libglvnd media-libs/libsdl3[opengl] media-libs/libvorbis media-libs/openal media-libs/opus net-libs/enet:1.3= net-libs/libssh2 sci-libs/cholmod sci-libs/cxsparse sci-libs/openblas sci-libs/suitesparse sci-mathematics/glpk:= virtual/libintl
+DESCRIPTION=2D space trading and combat game, in a similar vein to Escape Velocity
+EAPI=8
+HOMEPAGE=https://naev.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cargo lua-single meson python-any-r1 xdg
+IUSE=doc debug +lua_single_target_luajit
+KEYWORDS=~amd64
+LICENSE=GPL-3+ BSD BSD-2 MIT Apache-2.0 CC-BY-2.0 CC-BY-3.0 CC-BY-4.0 CC-BY-SA-2.0 CC-BY-SA-3.0 CC-BY-SA-4.0 CC0-1.0 FDL-1.2 GPL-2+ OFL-1.1 public-domain Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0 CDLA-Permissive-2.0 IJG ISC MIT MIT-0 MPL-2.0 openssl Unicode-3.0 ZLIB
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) app-text/cmark:= dev-games/physfs >=dev-libs/libgit2-1.9.2:0/1.9 dev-libs/libpcre2:= dev-libs/libunibreak:= dev-libs/libxml2:= dev-libs/openssl:= media-libs/dav1d:= media-libs/freetype:2 media-libs/libglvnd media-libs/libsdl3[opengl] media-libs/libvorbis media-libs/openal media-libs/opus net-libs/enet:1.3= net-libs/libssh2 sci-libs/cholmod sci-libs/cxsparse sci-libs/openblas sci-libs/suitesparse sci-mathematics/glpk:= virtual/libintl
+REQUIRED_USE=^^ ( lua_single_target_luajit )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://codeberg.org/naev/naev/releases/download/v0.13.4/naev-0.13.4-source.tar.xz https://distfiles.gentoo.org/pub/dev/ionen@gentoo.org/naev-0.13.4-vendor.tar.xz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	0d1cc00e0e91a021b50b0491e361ad41	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	ace036f48c4ad5c1938fccedf35ccf45	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	meson	76c5dcd585ba0bb875a92ce2ce5ad9f5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=dd7252c43bf7b1fc23052a77e219d9d1
