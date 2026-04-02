@@ -1,0 +1,16 @@
+BDEPEND=>=dev-libs/wayland-protocols-1.47 dev-util/wayland-scanner virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-emersion ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install postinst test unpack
+DEPEND=>=dev-libs/wayland-1.24.0 media-libs/libglvnd >=media-libs/mesa-24.1.0_rc1[opengl] >=x11-libs/libdrm-2.4.129 >=x11-libs/libxkbcommon-1.8.0 >=x11-libs/pixman-0.43.0 drm? ( media-libs/libdisplay-info:= sys-apps/hwdata liftoff? ( >=dev-libs/libliftoff-0.4 ) ) lcms? ( media-libs/lcms:2 ) libinput? ( >=dev-libs/libinput-1.19.0:= ) session? ( sys-auth/seatd:= virtual/libudev ) vulkan? ( dev-util/glslang:= dev-util/vulkan-headers media-libs/vulkan-loader ) xcb-errors? ( x11-libs/xcb-util-errors ) x11-backend? ( x11-libs/libxcb:= x11-libs/xcb-util-renderutil ) X? ( x11-libs/libxcb:= x11-libs/xcb-util-wm x11-base/xwayland )
+DESCRIPTION=Pluggable, composable, unopinionated modules for building a Wayland compositor
+EAPI=8
+HOMEPAGE=https://gitlab.freedesktop.org/wlroots/wlroots
+INHERIT=meson verify-sig
+IUSE=liftoff +libinput +drm +session lcms vulkan x11-backend xcb-errors X verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=>=dev-libs/wayland-1.24.0 media-libs/libglvnd >=media-libs/mesa-24.1.0_rc1[opengl] >=x11-libs/libdrm-2.4.129 >=x11-libs/libxkbcommon-1.8.0 >=x11-libs/pixman-0.43.0 drm? ( media-libs/libdisplay-info:= sys-apps/hwdata liftoff? ( >=dev-libs/libliftoff-0.4 ) ) lcms? ( media-libs/lcms:2 ) libinput? ( >=dev-libs/libinput-1.19.0:= ) session? ( sys-auth/seatd:= virtual/libudev ) vulkan? ( dev-util/glslang:= dev-util/vulkan-headers media-libs/vulkan-loader ) xcb-errors? ( x11-libs/xcb-util-errors ) x11-backend? ( x11-libs/libxcb:= x11-libs/xcb-util-renderutil ) X? ( x11-libs/libxcb:= x11-libs/xcb-util-wm x11-base/xwayland )
+REQUIRED_USE=drm? ( session ) libinput? ( session ) liftoff? ( drm ) xcb-errors? ( || ( x11-backend X ) )
+SLOT=0.20
+SRC_URI=https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.20.0/downloads/wlroots-0.20.0.tar.gz https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.20.0/downloads/wlroots-0.20.0.tar.gz.sig
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	76c5dcd585ba0bb875a92ce2ce5ad9f5	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=51c177015805c56ddae9773ec8b239d0
