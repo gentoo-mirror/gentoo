@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.ubnt.com
 INHERIT=java-pkg-2 readme.gentoo-r1 systemd
 IUSE=systemd system-mongodb
-KEYWORDS=-* ~amd64 ~arm64
+KEYWORDS=-* amd64 ~arm64
 LICENSE=Apache-1.0 Apache-2.0 BSD-1 BSD-2 BSD CDDL EPL-1.0 GPL-2 LGPL-2.1 LGPL-3 MIT ubiquiti
 RDEPEND=acct-group/unifi acct-user/unifi dev-db/mongodb || ( virtual/jre:21 virtual/jre:17 ) >=dev-java/java-config-2.2.0-r3
 RESTRICT=bindist mirror
 SLOT=0/10.1
 SRC_URI=https://dl.ui.com/unifi/10.1.89/UniFi.unix.zip -> unifi-10.1.89.zip
 _eclasses_=java-utils-2	b41327d85d12ce816943cf4d344add19	java-pkg-2	438c2725ea326202d7fc1eb31af76813	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=866154e4a8628f3505543861cf0bd7ef
+_md5_=3bdd0303e7c5d827639bc6b37788347f
