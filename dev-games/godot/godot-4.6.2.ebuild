@@ -10,7 +10,6 @@ inherit shell-completion toolchain-funcs xdg
 DESCRIPTION="Multi-platform 2D and 3D game engine with a feature-rich editor"
 HOMEPAGE="https://godotengine.org/"
 SRC_URI="
-	https://downloads.tuxfamily.org/godotengine/${PV}/${P}-stable.tar.xz
 	https://github.com/godotengine/godot/releases/download/${PV}-stable/${P}-stable.tar.xz
 "
 S=${WORKDIR}/${P}-stable
@@ -130,6 +129,11 @@ src_compile() {
 		target=$(usex tools editor template_$(usex debug{,} release))
 		dev_build=$(usex debug)
 		tests=$(usex tools $(usex test)) # bakes in --test in final binary
+
+		# TODO?: libgodot requires a separate build given the executable
+		# the library are mutally exculsive and so, unless we really need
+		# it, skipping support to ease maintenance at least for now
+		#library_type=$(usex libgodot shared_library executable)
 
 		accesskit=$(usex accessibility)
 		alsa=$(usex alsa)
