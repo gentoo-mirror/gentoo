@@ -1,21 +1,18 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit
+PYPI_VERIFY_REPO=https://github.com/sloria/environs
 PYTHON_COMPAT=( python3_{12..14} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 DESCRIPTION="Python library for simplified environment variable parsing"
 HOMEPAGE="
 	https://github.com/sloria/environs/
 	https://pypi.org/project/environs/
-"
-SRC_URI="
-	https://github.com/sloria/environs/archive/${PV}.tar.gz
-		-> ${P}.gh.tar.gz
 "
 
 LICENSE="MIT"
@@ -24,7 +21,7 @@ KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-python/python-dotenv[${PYTHON_USEDEP}]
-	>=dev-python/marshmallow-3.18.0[${PYTHON_USEDEP}]
+	>=dev-python/marshmallow-4.0.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
