@@ -1073,7 +1073,7 @@ app-admin/sagan-rules 20210208 99999999: Rules for Sagan log analyzer
 app-admin/salt 3007.0-r1 3007.1-r1 3007.1-r2 3007.12: Salt is a remote execution and configuration manager
 app-admin/selint 1.2.1 9999: Static code analysis of refpolicy style SELinux policy
 app-admin/serf 0.10.1-r1: Service orchestration and management tool
-app-admin/setools 4.5.1 9999: Policy Analysis Tools for SELinux
+app-admin/setools 4.5.1 4.6.0 9999: Policy Analysis Tools for SELinux
 app-admin/socklog 2.1.1 2.1.2: Small secure replacement for syslogd with automatic log rotation
 app-admin/spectre-meltdown-checker 0.45 0.46 26.21.0401891 9999: Spectre & Meltdown vulnerability/mitigation checker for Linux
 app-admin/sshguard 2.5.1 99999: protects hosts from brute force attacks against ssh
@@ -1446,7 +1446,7 @@ app-crypt/cryptopant 1.3.2: C library for IP address anonymization using crypto-
 app-crypt/cryptor 1.1.0: Simple GUI application for gocryptfs
 app-crypt/debian-archive-keyring 2023.4 2025.1: GnuPG archive keys of the Debian archive
 app-crypt/dehydrated 0.7.1-r1 0.7.1-r2 0.7.2: A client for signing certificates with an ACME-server
-app-crypt/dieharder 3.31.1-r4: An advanced suite for testing the randomness of RNGs
+app-crypt/dieharder 3.31.1-r4 3.31.1-r5: An advanced suite for testing the randomness of RNGs
 app-crypt/easy-rsa 3.2.1 3.2.4 3.2.5 3.2.6: Small RSA key management package, based on OpenSSL
 app-crypt/efitools 1.9.2-r1: Tools for manipulating UEFI secure boot platforms
 app-crypt/eid-mw 5.1.28 9999: Electronic Identity Card middleware supplied by the Belgian Federal Government
@@ -3257,7 +3257,7 @@ app-text/flpsed 0.7.3-r1: Pseudo PostScript editor
 app-text/foliate 3.3.0-r1: gtk ebook reader built with gjs
 app-text/fzy 1.1 9999: Fuzzy text selector (interactive grep) for console
 app-text/gentoo-dtd 20230914-r1 99999999: Document Type Definition for Gentoo-related XML files
-app-text/ghostscript-gpl 10.06.0: Interpreter for the PostScript language and PDF
+app-text/ghostscript-gpl 10.06.0 10.06.0-r1: Interpreter for the PostScript language and PDF
 app-text/grip 4.6.2: Preview GitHub Markdown files like Readme locally before committing them
 app-text/groonga 16.0.0-r1: An Embeddable Fulltext Search Engine
 app-text/groonga-normalizer-mysql 1.1.1-r1: Groonga plugin that provides MySQL compatible normalizers
@@ -5848,7 +5848,7 @@ dev-libs/tntnet 3.0: Modular, multithreaded web application server extensible wi
 dev-libs/tomsfastmath 0.13.1-r1: Fast public domain large integer arithmetic library
 dev-libs/totem-pl-parser 3.26.6-r2: Playlist parsing library
 dev-libs/tre 0.8.0_p20210321-r4 0.9.0-r1: Lightweight, robust, and efficient POSIX compliant regexp matching library
-dev-libs/tree-sitter 0.24.3 0.25.6 0.25.8 0.25.10 0.26.3 0.26.5 0.26.6 0.26.7 9999: Tree-sitter is a parser generator tool and an incremental parsing library
+dev-libs/tree-sitter 0.24.3 0.25.6 0.25.8 0.25.10 0.26.3 0.26.5 0.26.6 0.26.7 0.26.8 9999: Tree-sitter is a parser generator tool and an incremental parsing library
 dev-libs/tree-sitter-bash 0.21.0-r1 0.23.3 0.25.0 0.25.1: Bash grammar for Tree-sitter
 dev-libs/tree-sitter-c 0.23.3 0.23.4 0.23.5 0.24.1: C grammar for Tree-sitter
 dev-libs/tree-sitter-c-sharp 0.23.0 0.23.1: C# grammar for Tree-sitter
@@ -11125,7 +11125,7 @@ dev-util/tinlink 1.0.0-r2: Tool to create very small elf binary from pure binary
 dev-util/tkdiff 5.7 6.0: Graphical front end to the diff program
 dev-util/tmake 2.12-r2: Cross platform Makefile tool
 dev-util/trace-cmd 3.3.2 3.3.3 3.4: User-space front-end for Ftrace
-dev-util/tree-sitter-cli 0.24.3-r1 0.25.6 0.25.8 0.25.10 0.26.6 0.26.7: Command-line tool for creating and testing tree-sitter grammars
+dev-util/tree-sitter-cli 0.24.3-r1 0.25.6 0.25.8 0.25.10 0.26.6 0.26.8: Command-line tool for creating and testing tree-sitter grammars
 dev-util/treecc 0.3.10-r2 0.3.10-r3: Compiler-compiler tool for aspect-oriented programming
 dev-util/txt2regex 0.9: A Regular Expression wizard that converts human sentences to regexs
 dev-util/ty 0.0.7: An extremely fast Python type checker and language server, written in Rust
@@ -15454,7 +15454,7 @@ net-misc/throttle 1.2-r1 1.2-r3: Bandwidth limiting pipe
 net-misc/tiers 1.1: Random network topography generator
 net-misc/tigervnc 1.16.2 9999: Remote desktop viewer display system
 net-misc/tigervnc-xorg-module 1.16.2: Metapackage for the xorg module provided by tigervnc
-net-misc/tinyssh 20250501 20260301 99999999: A small SSH server with state-of-the-art cryptography
+net-misc/tinyssh 20260301 20260401 99999999: A small SSH server with state-of-the-art cryptography
 net-misc/tipcutils 3.0.6: Utilities for TIPC (Transparent Inter-Process Communication)
 net-misc/trurl 0.16.1 9999: Command line tool for URL parsing and manipulation
 net-misc/tuba 0.10.2 0.10.3: Browse the Fediverse (GTK client)
@@ -17075,7 +17075,7 @@ sys-apps/busybox 1.36.1-r4 1.37.0 9999: Utilities for rescue and embedded system
 sys-apps/byld 1.0.3-r1: Build a Linux distribution on a single floppy
 sys-apps/cciss_vol_status 1.12a-r1: Shows status of logical drives attached to HP SmartArray controllers
 sys-apps/ccs-tools 1.8.3_p20130214: TOMOYO Linux tools
-sys-apps/checkpolicy 3.8.1 9999: SELinux policy compiler
+sys-apps/checkpolicy 3.8.1 3.9 9999: SELinux policy compiler
 sys-apps/chname 1.1-r1: Run a command with a new system hostname
 sys-apps/cinit 0.2.1-r2: a fast, small and simple init with support for profiles
 sys-apps/ckbcomp 1.230: Compile an XKB keymap for loadkeys
@@ -17203,7 +17203,7 @@ sys-apps/man-pages 6.10 6.16-r2 6.17-r1 9999: A somewhat comprehensive collectio
 sys-apps/man-pages-posix 2013a 2017a-r1: POSIX man-pages (0p, 1p, 3p)
 sys-apps/man2html 1.6g-r2: Standard commands to read man pages
 sys-apps/mawk 1.3.4_p20250131 1.3.4_p20260129 1.3.4_p20260302: An (often faster than gawk) awk-interpreter
-sys-apps/mcstrans 3.6 3.7-r1 3.8.1 9999: SELinux context translation to human readable names
+sys-apps/mcstrans 3.6 3.7-r1 3.8.1 3.9 9999: SELinux context translation to human readable names
 sys-apps/memtest86+ 6.20-r1 7.00 7.20 8.00: Memory tester based on PCMemTest
 sys-apps/memtest86-bin 11.6: Stand alone memory testing software for x86 EFI hardware
 sys-apps/memtester 4.7.1: Userspace utility for testing the memory subsystem for faults
@@ -17248,7 +17248,7 @@ sys-apps/pkgcraft-tools 0.0.31-r2 9999: pkgcraft-based tools for Gentoo
 sys-apps/plocate 1.1.23 1.1.24: Posting locate is a much faster locate
 sys-apps/pmount 0.9.99_alpha-r7 0.9.99_alpha-r8: Policy based mounter that gives the ability to mount removable devices as a user
 sys-apps/pnputils 0.1-r1: Plug and Play BIOS utilities
-sys-apps/policycoreutils 3.8.1 9999: SELinux core utilities
+sys-apps/policycoreutils 3.8.1 3.9 9999: SELinux core utilities
 sys-apps/polychromatic 0.9.5 0.9.6 9999: RGB lighting management software for GNU/Linux powered by OpenRazer
 sys-apps/portage 3.0.72-r1 3.0.77 3.0.77-r1 3.0.77-r3 9999: The package management and distribution system for Gentoo
 sys-apps/powerpc-utils 1.1.3.18-r4: PowerPC utilities and additional OldWorld apps
@@ -17269,7 +17269,7 @@ sys-apps/readahead-list 1.20060421.1016-r4: Preloads files into the page cache t
 sys-apps/rename 1.3-r3: Easily rename files
 sys-apps/renameutils 0.12.0: Use your favorite text editor to rename files
 sys-apps/restartd 0.2.2-r1: A daemon for checking your running and not running processes
-sys-apps/restorecond 3.6 3.7 3.8.1 9999: Daemon to watch for creation and set default SELinux fcontexts
+sys-apps/restorecond 3.6 3.7 3.8.1 3.9 9999: Daemon to watch for creation and set default SELinux fcontexts
 sys-apps/ripgrep 14.1.1-r1 15.0.0 15.1.0: Search tool that combines the usability of ag with the raw speed of grep
 sys-apps/ripgrep-all 0.10.9-r1 0.10.10: Like ripgrep, but also search in PDFs, E-Books, Office documents, archives, etc.
 sys-apps/rkflashtool 6.1: Tool for flashing Rockchip devices
@@ -17285,11 +17285,11 @@ sys-apps/s6-portable-utils 2.3.1.0 2.3.1.1: Set of tiny portable unix utilities
 sys-apps/s6-rc 0.5.6.0 0.5.6.0-r1 0.6.0.0 0.6.0.0-r1: Service manager for the s6 supervision suite
 sys-apps/sandbox 2.46 9999: sandbox'd LD_PRELOAD hack
 sys-apps/sdparm 1.12 1.12-r1: Utility to output and modify parameters on a SCSI device, like hdparm
-sys-apps/secilc 3.8.1 9999: SELinux Common Intermediate Language (CIL) Compiler
+sys-apps/secilc 3.8.1 3.9 9999: SELinux Common Intermediate Language (CIL) Compiler
 sys-apps/sed 4.9-r1: Super-useful stream editor
 sys-apps/seedfiles 1.1-r1 1.2 9999: Portable drop-in reimplementation of systemd-tmpfiles
-sys-apps/selinux-python 3.7-r1 3.8.1 3.8.1-r2 9999: SELinux core utilities
-sys-apps/semodule-utils 3.6 3.7 3.8.1 9999: SELinux policy module utilities
+sys-apps/selinux-python 3.7-r1 3.8.1 3.8.1-r2 3.9 9999: SELinux core utilities
+sys-apps/semodule-utils 3.6 3.7 3.8.1 3.9 9999: SELinux policy module utilities
 sys-apps/sensei-raw-ctl 0.0_pre20180729-r1 0.0_pre20230801: SteelSeries Sensei Raw configuration tool
 sys-apps/servicelog 1.1.15 1.1.16: Provides utilities for logging service-related events
 sys-apps/setserial 2.17-r6: Configure your serial ports with it
@@ -17839,9 +17839,9 @@ sys-libs/libosinfo 1.11.0-r1 1.12.0-r1: GObject library for managing information
 sys-libs/libraw1394 2.1.2-r1: Library that provides direct access to the IEEE 1394 bus
 sys-libs/librtas 2.0.3 2.0.6: A set of libraries for userspace access to RTAS on the PowerPC platform(s)
 sys-libs/libseccomp 2.6.0-r3 9999: High level interface to Linux seccomp filter
-sys-libs/libselinux 3.8.1-r2 3.8.1-r3 9999: SELinux userland library
-sys-libs/libsemanage 3.8.1 9999: SELinux kernel and policy management library
-sys-libs/libsepol 3.8.1 9999: SELinux binary policy representation library
+sys-libs/libselinux 3.8.1-r2 3.8.1-r3 3.9 9999: SELinux userland library
+sys-libs/libsemanage 3.8.1 3.9 9999: SELinux kernel and policy management library
+sys-libs/libsepol 3.8.1 3.9 9999: SELinux binary policy representation library
 sys-libs/libservicelog 1.1.19: Provides a library for logging service-related events
 sys-libs/libsmbios 2.4.3-r3: Provide access to (SM)BIOS information
 sys-libs/libstatgrab 0.92.1: A tool to provide access to statistics about the system on which it's run

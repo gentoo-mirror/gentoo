@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=>=sys-libs/libsepol-3.9:=[static-libs(+)] >=sys-libs/libselinux-3.9:= dev-libs/libpcre2:= >=sys-libs/libcap-1.10-r10:=
+DESCRIPTION=SELinux context translation to human readable names
+EAPI=8
+HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+LICENSE=GPL-2
+RDEPEND=>=sys-libs/libsepol-3.9:=[static-libs(+)] >=sys-libs/libselinux-3.9:= dev-libs/libpcre2:= >=sys-libs/libcap-1.10-r10:=
+SLOT=0
+SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.9/mcstrans-3.9.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9
+_md5_=4d702244e67a34fe94ec0bd85d9262a1

@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
+DEPEND=dev-libs/glib:2 >=sys-libs/libsepol-3.9:= >=sys-libs/libselinux-3.9:=
+DESCRIPTION=Daemon to watch for creation and set default SELinux fcontexts
+EAPI=8
+HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
+INHERIT=systemd toolchain-funcs
+KEYWORDS=~amd64 ~arm ~arm64 ~mips ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/glib:2 >=sys-libs/libsepol-3.9:= >=sys-libs/libselinux-3.9:=
+SLOT=0
+SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.9/restorecond-3.9.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=ea57b8123575531b712a4008d478961d

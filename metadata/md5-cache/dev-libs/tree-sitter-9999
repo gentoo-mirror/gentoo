@@ -1,12 +1,12 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile install postinst prepare unpack
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install postinst prepare test unpack
 DESCRIPTION=Tree-sitter is a parser generator tool and an incremental parsing library
 EAPI=8
-HOMEPAGE=https://github.com/tree-sitter/tree-sitter
-INHERIT=optfeature toolchain-funcs git-r3
+HOMEPAGE=https://tree-sitter.github.io/
+INHERIT=cmake optfeature git-r3
 LICENSE=MIT
 PROPERTIES=live
 RESTRICT=test
 SLOT=0/9999
-_eclasses_=optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=ae9c461d3aba9317c2f25868cc672b2a
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	optfeature	538bce96e5589935b57e178e8635f301	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
+_md5_=698507af04425f14639300387ec36b35
