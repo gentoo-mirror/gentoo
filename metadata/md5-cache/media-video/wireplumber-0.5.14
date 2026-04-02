@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) dev-libs/glib >=dev-util/gdbus-codegen-2.80.5-r1 dev-util/glib-utils sys-devel/gettext doc? ( || ( ( dev-lang/python:3.14 dev-python/breathe[python_targets_python3_14(-)] dev-python/sphinx[python_targets_python3_14(-)] dev-python/sphinx-rtd-theme[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/breathe[python_targets_python3_13(-)] dev-python/sphinx[python_targets_python3_13(-)] dev-python/sphinx-rtd-theme[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/breathe[python_targets_python3_12(-)] dev-python/sphinx[python_targets_python3_12(-)] dev-python/sphinx-rtd-theme[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/breathe[python_targets_python3_11(-)] dev-python/sphinx[python_targets_python3_11(-)] dev-python/sphinx-rtd-theme[python_targets_python3_11(-)] ) ) ) test? ( sys-apps/dbus ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst setup test
+DEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) >=dev-libs/glib-2.68 >=media-video/pipewire-1.0.5-r1:= virtual/libintl elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd )
+DESCRIPTION=Replacement for pipewire-media-session
+EAPI=8
+HOMEPAGE=https://gitlab.freedesktop.org/pipewire/wireplumber
+INHERIT=lua-single meson python-any-r1 systemd
+IUSE=doc doc elogind system-service systemd test lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=MIT
+RDEPEND=lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) >=dev-libs/glib-2.68 >=media-video/pipewire-1.0.5-r1:= virtual/libintl elogind? ( sys-auth/elogind ) systemd? ( sys-apps/systemd ) system-service? ( acct-user/pipewire acct-group/pipewire )
+REQUIRED_USE=^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) ?? ( elogind systemd ) system-service? ( systemd )
+RESTRICT=!test? ( test )
+SLOT=0/0.5
+SRC_URI=https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.14/wireplumber-0.5.14.tar.bz2 !doc? ( https://dev.gentoo.org/~sam/distfiles/media-video/wireplumber/wireplumber-0.5.14-docs.tar.xz )
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	76c5dcd585ba0bb875a92ce2ce5ad9f5	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=178313c1dc400f7a19ac45e853f2d9ae
