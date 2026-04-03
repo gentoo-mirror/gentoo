@@ -8,9 +8,9 @@ EAPI=8
 CRATES="
 "
 
-RUST_MIN_VER="1.85.0"
-LLVM_COMPAT=( {17..21} )
-inherit cargo flag-o-matic llvm-r1 multiprocessing
+RUST_MIN_VER="1.88.0"
+LLVM_COMPAT=( {17..22} )
+inherit cargo flag-o-matic llvm-r2 multiprocessing
 
 DESCRIPTION="GNU coreutils rewritten in Rust"
 HOMEPAGE="https://uutils.github.io/coreutils/ https://github.com/uutils/coreutils"
@@ -60,7 +60,7 @@ BDEPEND="
 QA_FLAGS_IGNORED=".*"
 
 pkg_setup() {
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 	rust_pkg_setup
 }
 
@@ -71,6 +71,9 @@ src_unpack() {
 	else
 		cargo_src_unpack
 	fi
+
+	# This is should be a set of env vars in upstream CI
+	rm -f "${S}/.cargo/config.toml"
 }
 
 src_compile() {
