@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=poetry
 PYPI_VERIFY_REPO=https://github.com/python-openapi/openapi-core
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -28,13 +28,13 @@ RDEPEND="
 	<dev-python/jsonschema-5[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-4.23.0[${PYTHON_USEDEP}]
 	<dev-python/jsonschema-path-0.5[${PYTHON_USEDEP}]
-	>=dev-python/jsonschema-path-0.4.0_beta8[${PYTHON_USEDEP}]
+	>=dev-python/jsonschema-path-0.4.5[${PYTHON_USEDEP}]
 	dev-python/more-itertools[${PYTHON_USEDEP}]
 	dev-python/parse[${PYTHON_USEDEP}]
-	<dev-python/openapi-schema-validator-0.7[${PYTHON_USEDEP}]
-	>=dev-python/openapi-schema-validator-0.6.0[${PYTHON_USEDEP}]
+	<dev-python/openapi-schema-validator-0.9[${PYTHON_USEDEP}]
+	>=dev-python/openapi-schema-validator-0.7.0[${PYTHON_USEDEP}]
 	<dev-python/openapi-spec-validator-0.9[${PYTHON_USEDEP}]
-	>=dev-python/openapi-spec-validator-0.8.0_beta3[${PYTHON_USEDEP}]
+	>=dev-python/openapi-spec-validator-0.8.0[${PYTHON_USEDEP}]
 	>=dev-python/werkzeug-2.1.0[${PYTHON_USEDEP}]
 "
 
@@ -42,10 +42,11 @@ BDEPEND="
 	test? (
 		>=dev-python/aiohttp-3.8.4[${PYTHON_USEDEP}]
 		>=dev-python/aioitertools-0.11.0[${PYTHON_USEDEP}]
-		dev-python/flask[${PYTHON_USEDEP}]
+		>=dev-python/django-4.0[${PYTHON_USEDEP}]
+		>=dev-python/flask-2.0[${PYTHON_USEDEP}]
 		>=dev-python/httpx-0.24.0[${PYTHON_USEDEP}]
 		dev-python/responses[${PYTHON_USEDEP}]
-		>=dev-python/starlette-0.26.1[${PYTHON_USEDEP}]
+		>=dev-python/starlette-0.40.0[${PYTHON_USEDEP}]
 		dev-python/strict-rfc3339[${PYTHON_USEDEP}]
 		dev-python/webob[${PYTHON_USEDEP}]
 	)
@@ -62,10 +63,6 @@ EPYTEST_IGNORE=(
 	# TODO: these tests fail to collect
 	tests/integration/validation/test_security_override.py
 	tests/integration/validation/test_read_only_write_only.py
-
-	# unhappy about modern django
-	tests/integration/contrib/django/test_django_project.py
-	tests/unit/contrib/django/test_django.py
 )
 
 src_prepare() {

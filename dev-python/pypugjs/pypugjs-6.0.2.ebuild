@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,19 +20,19 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
-	>=dev-python/six-1.15.0[${PYTHON_USEDEP}]
-	>=dev-python/charset-normalizer-2.1.0[${PYTHON_USEDEP}]
+	>=dev-python/six-1.17.0[${PYTHON_USEDEP}]
+	>=dev-python/charset-normalizer-3.4.4[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
-		>=dev-python/django-4.0.6[${PYTHON_USEDEP}]
-		>=dev-python/flask-2.1.1[${PYTHON_USEDEP}]
-		>=dev-python/jinja2-3.1.1[${PYTHON_USEDEP}]
-		>=dev-python/mako-1.1.3[${PYTHON_USEDEP}]
-		>=dev-python/tornado-6.0.4[${PYTHON_USEDEP}]
+		>=dev-python/django-4.2.25[${PYTHON_USEDEP}]
+		>=dev-python/flask-2.3.3[${PYTHON_USEDEP}]
+		>=dev-python/jinja2-3.1.6[${PYTHON_USEDEP}]
+		>=dev-python/mako-1.3.10[${PYTHON_USEDEP}]
+		>=dev-python/tornado-6.5.2[${PYTHON_USEDEP}]
 	)
 "
 

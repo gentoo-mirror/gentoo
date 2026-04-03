@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 optfeature pypi
 
@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	dev-python/entrypoints[${PYTHON_USEDEP}]
@@ -58,13 +58,6 @@ EPYTEST_DESELECT=(
 	'jupyter_lsp/tests/test_session.py::test_start_unknown[foo-language-server]'
 	jupyter_lsp/tests/test_session.py::test_substitute_env
 )
-
-python_prepare_all() {
-	# Do not depend on pytest-cov or flake8
-	sed -i -e '/--cov/d' -e '/--flake8/d' setup.cfg || die
-
-	distutils-r1_python_prepare_all
-}
 
 python_install_all() {
 	distutils-r1_python_install_all
