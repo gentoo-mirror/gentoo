@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/openssl:= net-misc/curl[ssl]
+DESCRIPTION=Azure SDK for C++
+EAPI=8
+HOMEPAGE=https://azure.github.io/azure-sdk-for-cpp/
+INHERIT=cmake
+IUSE=doc
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT
+RDEPEND=dev-libs/openssl:= net-misc/curl[ssl]
+RESTRICT=test
+SLOT=0/1.16.3
+SRC_URI=https://github.com/Azure/azure-sdk-for-cpp/archive/3522b7024942ab10212b9f2df072e4473e6399e2.tar.gz -> azure-sdk-for-cpp-3522b7024942ab10212b9f2df072e4473e6399e2.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
+_md5_=0afec349065fdc57b7512326a9e1aae7
