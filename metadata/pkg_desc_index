@@ -890,7 +890,7 @@ acct-user/zookeeper 0-r2: A user for sys-cluster/zookeeper-bin
 app-accessibility/accerciser 3.46.2 3.48.0: Interactive Python accessibility explorer
 app-accessibility/at-spi2-atk 2.46.0: Gtk module for bridging AT-SPI to Atk
 app-accessibility/at-spi2-core 2.56.5 2.58.2: D-Bus accessibility specifications and registration daemon
-app-accessibility/brltty 6.7 6.8: Daemon that provides access to the Linux/Unix console for a blind person
+app-accessibility/brltty 6.7 6.8 6.9: Daemon that provides access to the Linux/Unix console for a blind person
 app-accessibility/caribou 0.4.21-r8 0.4.21-r9: Input assistive technology intended for switch and pointer users
 app-accessibility/edbrowse 3.8.13 3.8.15: Combination editor, browser, and mail client that is 100% text based
 app-accessibility/emacspeak 56.0-r1 60.0-r1 9999: The emacspeak audio desktop
@@ -5911,7 +5911,7 @@ dev-libs/xapian-bindings 1.4.29 1.4.29-r1 1.4.30 1.4.31: SWIG and JNI bindings f
 dev-libs/xbyak 5.73 7.33.3: JIT assembler for x86(IA-32)/x64(AMD64, x86-64)
 dev-libs/xerces-c 3.2.5 3.3.0 9999: Validating XML parser written in a portable subset of C++
 dev-libs/xmlrpc-c 1.54.05-r4 1.54.06-r2 1.59.03 1.59.03-r1 1.59.03-r3: A lightweight RPC library based on XML and HTTP
-dev-libs/xmlsec 1.3.7-r1 1.3.9: Command line tool for signing, verifying, encrypting and decrypting XML
+dev-libs/xmlsec 1.3.7-r1 1.3.9 1.3.10: Command line tool for signing, verifying, encrypting and decrypting XML
 dev-libs/xxhash 0.8.3 0.8.3-r2: Extremely fast non-cryptographic hash algorithm
 dev-libs/yajl 2.1.0-r6: Small event-driven (SAX-style) JSON parser
 dev-libs/yaz 5.35.1-r1 5.37.0: C/C++ toolkit for Z39.50v3 clients and servers
@@ -14741,7 +14741,7 @@ net-dns/hash-slinger 3.4: Various tools to generate DNS records like SSHFP, TLSA
 net-dns/https_dns_proxy 0_pre20200925 9999: Lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3-r2: Toolkit for Internationalized Domain Names (IDN)
 net-dns/inadyn 2.13.0: Dynamic DNS client with multiple SSL/TLS library support
-net-dns/knot 3.4.9-r1 3.5.2-r1 3.5.3: High-performance authoritative-only DNS server
+net-dns/knot 3.4.9-r1 3.4.10 3.5.3 3.5.4: High-performance authoritative-only DNS server
 net-dns/knot-resolver 5.7.6 6.2.0: Scaleable caching DNS resolver
 net-dns/ldns-tools 0.1 0.2: ldns tools: host, nslookup
 net-dns/libidn 1.42 1.43: Internationalized Domain Names (IDN) implementation
@@ -14756,7 +14756,7 @@ net-dns/pdns 5.0.3: The PowerDNS Daemon
 net-dns/pdns-recursor 5.3.5: The PowerDNS Recursor
 net-dns/pdnsd 1.2.9a-r2: Proxy DNS server with permanent caching
 net-dns/rbldnsd 0.998b-r3 0.998b-r4: DNS server designed to serve blacklist zones
-net-dns/redis-knot 3.5.2 3.5.3: Redis module for Knot DNS
+net-dns/redis-knot 3.5.3 3.5.4: Redis module for Knot DNS
 net-dns/resolv_wrapper 1.1.8: Wrapper for DNS name resolving or DNS faking
 net-dns/resolvconf-symlink 0: Make /etc/resolv.conf a symlink to a runtime-writable location
 net-dns/s6-dns 2.4.1.0 2.4.1.1: Suite of DNS client programs and libraries for Unix systems
@@ -15935,8 +15935,8 @@ sci-calculators/hexcalc 1.11-r4: Simple hex calculator for X
 sci-calculators/keurocalc 1.3.0_p20241225: Universal currency converter and calculator
 sci-calculators/orpie 1.6.1: A fullscreen RPN calculator for the console
 sci-calculators/pcalc 4 5: the programmers calculator
-sci-calculators/qalculate-gtk 5.8.2 5.9.0: Modern multi-purpose calculator
-sci-calculators/qalculate-qt 5.8.2 5.9.0: Qt-based UI for libqalculate
+sci-calculators/qalculate-gtk 5.8.2 5.9.0 5.10.0: Modern multi-purpose calculator
+sci-calculators/qalculate-qt 5.8.2 5.9.0 5.10.0: Qt-based UI for libqalculate
 sci-calculators/speedcrunch 0.12.0_p20241202: Fast and usable calculator for power users
 sci-calculators/tiemu 3.03-r2: Texas Instruments hand-helds emulator
 sci-calculators/tilp2 1.18-r1: Communication program for Texas Instruments calculators
@@ -16211,7 +16211,7 @@ sci-libs/libnova 0.16.0: Celestial Mechanics and Astronomical Calculation Librar
 sci-libs/liborigin 3.0.1_p20210828-r1: Library for reading OriginLab OPJ project files
 sci-libs/libpdb 991112-r2: PDB Record I/O Libraries -- c version
 sci-libs/libpdb++ 040728-r2: PDB Record I/O Libraries -- c++ version
-sci-libs/libqalculate 5.8.2 5.9.0: A modern multi-purpose calculator library
+sci-libs/libqalculate 5.8.2 5.9.0 5.10.0: A modern multi-purpose calculator library
 sci-libs/libsc 2.8.6 2.8.7: Support for parallel scientific applications
 sci-libs/libsemigroups 2.7.4 3.0.3: C++ library for semigroups and monoids
 sci-libs/libsigrok 0.6.0_pre20241020 9999: Basic hardware drivers for logic analyzers and input/output file format support
@@ -16649,7 +16649,7 @@ sec-keys/openpgp-keys-karlberry 20250528: OpenPGP keys used by Karl Berry
 sec-keys/openpgp-keys-kentoverstreet 20241012: OpenPGP keys used by Kent Overstreet
 sec-keys/openpgp-keys-kernel 20250702: OpenPGP keys used to sign Linux kernel releases
 sec-keys/openpgp-keys-khali 20260204: OpenPGP key used by Jean Delvare (khali)
-sec-keys/openpgp-keys-knot 20170710-r1: OpenPGP keys used by the Knot DNS developers
+sec-keys/openpgp-keys-knot 20170710-r1 20260304: OpenPGP keys used by the Knot DNS developers
 sec-keys/openpgp-keys-knot-resolver 20251203: OpenPGP keys used by the Knot Resolver developers
 sec-keys/openpgp-keys-kovidgoyal 20220106: OpenPGP keys used by Kovid Goyal
 sec-keys/openpgp-keys-lassecollin 20230213 20240529 20250313-r1 20260210: OpenPGP keys used by Lasse Collin
