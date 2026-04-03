@@ -1,0 +1,17 @@
+BDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) app-alternatives/ninja || ( ( dev-lang/python:3.14 doc? ( dev-python/sphinx[python_targets_python3_14(-)] dev-python/furo[python_targets_python3_14(-)] ) ) ( dev-lang/python:3.13 doc? ( dev-python/sphinx[python_targets_python3_13(-)] dev-python/furo[python_targets_python3_13(-)] ) ) ( dev-lang/python:3.12 doc? ( dev-python/sphinx[python_targets_python3_12(-)] dev-python/furo[python_targets_python3_12(-)] ) ) ( dev-lang/python:3.11 doc? ( dev-python/sphinx[python_targets_python3_11(-)] dev-python/furo[python_targets_python3_11(-)] ) ) ) || ( >=sys-devel/gcc-11:* >=llvm-core/clang-14:* ) verify-sig? ( sec-keys/openpgp-keys-botan ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install pretend test unpack
+DEPEND=boost? ( dev-libs/boost:= ) bzip2? ( >=app-arch/bzip2-1.0.5:= ) lzma? ( app-arch/xz-utils:= ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) ) sqlite? ( dev-db/sqlite:3= ) zlib? ( >=virtual/zlib-1.2.3:= )
+DESCRIPTION=C++ crypto library
+EAPI=8
+HOMEPAGE=https://botan.randombit.net/
+INHERIT=edo dot-a flag-o-matic multiprocessing ninja-utils python-r1 toolchain-funcs verify-sig
+IUSE=doc boost bzip2 lzma python static-libs sqlite test tools zlib python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+LICENSE=BSD-2
+RDEPEND=boost? ( dev-libs/boost:= ) bzip2? ( >=app-arch/bzip2-1.0.5:= ) lzma? ( app-arch/xz-utils:= ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) ) sqlite? ( dev-db/sqlite:3= ) zlib? ( >=virtual/zlib-1.2.3:= ) !<dev-libs/botan-2.19.3-r1:2[tools]
+REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 ) )
+RESTRICT=!test? ( test )
+SLOT=3/3.11
+SRC_URI=https://botan.randombit.net/releases/Botan-3.11.1.tar.xz verify-sig? ( https://botan.randombit.net/releases/Botan-3.11.1.tar.xz.asc )
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	dot-a	e5200fe17cfd2ed6fa66edd80201763a	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=80dbbf03c5cd79d0574e821fb9546255
