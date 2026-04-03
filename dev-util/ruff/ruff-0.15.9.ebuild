@@ -10,12 +10,12 @@ CRATES="
 
 declare -A GIT_CRATES=(
 	[lsp-types]='https://github.com/astral-sh/lsp-types;e15db0593f0ecbbd80599c3f5880e4bf5da1ca0c;lsp-types-%commit%'
-	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;53421c2fff87426fa0bb51cab06632b87646de13;salsa-%commit%/components/salsa-macro-rules'
-	[salsa-macros]='https://github.com/salsa-rs/salsa;53421c2fff87426fa0bb51cab06632b87646de13;salsa-%commit%/components/salsa-macros'
-	[salsa]='https://github.com/salsa-rs/salsa;53421c2fff87426fa0bb51cab06632b87646de13;salsa-%commit%'
+	[salsa-macro-rules]='https://github.com/salsa-rs/salsa;2f687a17ceea8ec7aaa605561ccbde938ccef086;salsa-%commit%/components/salsa-macro-rules'
+	[salsa-macros]='https://github.com/salsa-rs/salsa;2f687a17ceea8ec7aaa605561ccbde938ccef086;salsa-%commit%/components/salsa-macros'
+	[salsa]='https://github.com/salsa-rs/salsa;2f687a17ceea8ec7aaa605561ccbde938ccef086;salsa-%commit%'
 )
 
-RUST_MIN_VER="1.91.0"
+RUST_MIN_VER="1.92"
 
 inherit shell-completion cargo
 
