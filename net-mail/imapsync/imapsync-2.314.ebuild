@@ -1,16 +1,17 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=9
 
 DESCRIPTION="Tool for incremental and recursive IMAP transfers between mailboxes"
-HOMEPAGE="https://ks.lamiral.info/imapsync/ https://github.com/imapsync/imapsync"
-SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://ks.lamiral.info/imapsync/"
+SRC_URI="https://imapsync.lamiral.info/dist/${P}.tgz"
 
 LICENSE="NOLIMIT"
 SLOT="0"
-KEYWORDS="amd64 ppc ~ppc64 x86"
-#IUSE="test" # not fully supported yet
+KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+IUSE="test"
+RESTRICT="test" # not fully supported yet
 
 RDEPEND="
 	dev-perl/App-cpanminus
@@ -18,11 +19,17 @@ RDEPEND="
 	dev-perl/CGI
 	dev-perl/Crypt-OpenSSL-RSA
 	dev-perl/Data-Uniqid
+	dev-perl/DBI
 	dev-perl/Digest-HMAC
 	dev-perl/Dist-CheckConflicts
+	dev-perl/Email-Address
 	dev-perl/Encode-IMAPUTF7
 	dev-perl/File-Copy-Recursive
 	dev-perl/File-Tail
+	dev-perl/HTML-Parser
+	dev-perl/HTTP-Daemon
+	dev-perl/HTTP-Daemon-SSL
+	dev-perl/HTTP-Message
 	dev-perl/IO-Socket-INET6
 	dev-perl/IO-Socket-SSL
 	dev-perl/IO-Tee
@@ -32,11 +39,14 @@ RDEPEND="
 	dev-perl/Module-Implementation
 	dev-perl/Module-Runtime
 	dev-perl/Module-ScanDeps
+	dev-perl/Net-Server
 	dev-perl/Net-SSLeay
+	dev-perl/Net-DNS
 	dev-perl/Package-Stash
 	dev-perl/Package-Stash-XS
 	dev-perl/PAR
 	dev-perl/Parse-RecDescent
+	dev-perl/Proc-ProcessTable
 	dev-perl/Readonly
 	dev-perl/Readonly-XS
 	dev-perl/Regexp-Common
@@ -54,25 +64,20 @@ RDEPEND="
 	virtual/perl-MIME-Base64
 	"
 	# Not yet in tree:
-	# HTML::Entities
-	# JSON::WebToken
-	# JSON::WebToken::Crypt::RSA
-DEPEND="${RDEPEND}"
-BDEPEND="sys-apps/lsb-release"
-	#test? (
-	#	virtual/perl-Test
-	#	dev-perl/Test-Deep
-	#	dev-perl/Test-Fatal
-	#	dev-perl/Test-MockObject
-	#	dev-perl/Test-Pod
-	#	dev-perl/Test-Requires
-	#	dev-perl/Test-Warn
-	#	dev-perl/Test-NoWarnings
-	#)"
-	# Not yet in tree:
-	# test? ( Test::Mock::Guard )
+	#  JSON::WebToken
+	#  JSON::WebToken::Crypt::RSA
+	#  PAR::Packer
 
-RESTRICT="test"
+DEPEND="${RDEPEND}"
+BDEPEND="
+		sys-apps/lsb-release
+		test? (
+			virtual/perl-Test
+			dev-perl/Test-Deep
+			dev-perl/Test-MockObject
+			dev-perl/Test-Pod
+		)
+	"
 
 src_prepare() {
 	sed -e "s/^install: testp/install:/" \
@@ -83,3 +88,12 @@ src_prepare() {
 }
 
 src_compile() { :; }
+
+src_test() {
+	sh tests.sh || die
+}
+
+src_install() {
+	default
+	newdoc FAQ.d/FAQ.General.txt FAQ
+}
