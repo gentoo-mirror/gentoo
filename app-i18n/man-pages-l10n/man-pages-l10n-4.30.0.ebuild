@@ -10,8 +10,8 @@ S="${WORKDIR}/${P/-}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
-# fa omitted because of build failures (patches are welcome!)
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+# fa omitted because of missing rtl support in *roff
 MY_L10N=(cs da de el es fi fr hu id it ko mk nb nl pl pt-BR ro ru sr sv uk vi)
 IUSE="${MY_L10N[@]/#/l10n_}"
 # Require at least one language, otherwise the package would be empty.
@@ -19,7 +19,6 @@ IUSE="${MY_L10N[@]/#/l10n_}"
 REQUIRED_USE="|| ( ${MY_L10N[@]/#/l10n_} )"
 
 RDEPEND="virtual/man
-	l10n_it? ( !app-i18n/man-pages-it )
 	l10n_ru? ( !app-i18n/man-pages-ru )"
 
 BDEPEND="app-text/po4a
