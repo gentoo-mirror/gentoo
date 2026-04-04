@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
 PYPI_NO_NORMALIZE=1
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -24,7 +24,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD-with-disclosure"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/accessible-pygments[${PYTHON_USEDEP}]
@@ -32,27 +32,23 @@ RDEPEND="
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/docutils[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.7[${PYTHON_USEDEP}]
-	>=dev-python/sphinx-6.1[${PYTHON_USEDEP}]
+	<dev-python/sphinx-10[${PYTHON_USEDEP}]
+	>=dev-python/sphinx-7.0[${PYTHON_USEDEP}]
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	test? (
-		dev-python/pytest-regressions[${PYTHON_USEDEP}]
-	)
-"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-0.16.0-tests-ignorecase.patch
-)
-
+EPYTEST_PLUGINS=( pytest-{datadir,regressions} )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 EPYTEST_DESELECT=(
-	# pygments version mismatch?
-	'tests/test_build.py::test_pygments_fallbacks[real]'
 	# Requires sphinx-intl
 	'tests/test_build.py::test_translations'
+	# sphinx mismatch?
+	tests/test_build.py::test_pygments_fallbacks
+	tests/test_build.py::test_render_secondary_sidebar_dict
+	tests/test_build.py::test_render_secondary_sidebar_dict_glob_subdir
+	tests/test_build.py::test_render_secondary_sidebar_dict_multiple_glob_matches
 )
 
 python_compile() {
