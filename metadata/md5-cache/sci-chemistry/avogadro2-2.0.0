@@ -1,16 +1,16 @@
 BDEPEND=doc? ( app-text/doxygen ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
-DEPEND=dev-qt/qtbase:6[concurrent,gui,network,opengl,ssl,widgets] ~sci-libs/avogadrolibs-1.102.1[archive,qt6] dev-cpp/eigen:3 sci-libs/jkqtplotter
+DEPEND=dev-qt/qtbase:6[concurrent,gui,network,opengl,ssl,widgets] ~sci-libs/avogadrolibs-2.0.0[archive,qt6] dev-cpp/eigen:3
 DESCRIPTION=Advanced molecule editor and visualizer 2
 EAPI=8
 HOMEPAGE=https://www.openchemistry.org/ https://two.avogadro.cc/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake optfeature xdg
-IUSE=doc
+IUSE=doc rpc
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD GPL-2+
-RDEPEND=dev-qt/qtbase:6[concurrent,gui,network,opengl,ssl,widgets] ~sci-libs/avogadrolibs-1.102.1[archive,qt6]
+RDEPEND=dev-qt/qtbase:6[concurrent,gui,network,opengl,ssl,widgets] ~sci-libs/avogadrolibs-2.0.0[archive,qt6]
 SLOT=0
-SRC_URI=https://github.com/OpenChemistry/avogadroapp/archive/1.102.1.tar.gz -> avogadro2-1.102.1.tar.gz https://github.com/OpenChemistry/avogadro-i18n/archive/1.102.1.tar.gz -> avogadro2-1.102.1-i18n.tar.gz
+SRC_URI=https://github.com/OpenChemistry/avogadroapp/archive/2.0.0.tar.gz -> avogadro2-2.0.0.tar.gz https://github.com/OpenChemistry/avogadro-i18n/archive/2.0.0.tar.gz -> avogadro2-2.0.0-i18n.tar.gz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	optfeature	538bce96e5589935b57e178e8635f301	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=fa369586ec8568f2d83be8830692e199
+_md5_=0a4d32da5a7a787fa9813d520166b6d6
