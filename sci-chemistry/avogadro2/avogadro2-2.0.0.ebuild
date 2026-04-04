@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -17,7 +17,7 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 LICENSE="BSD GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc"
+IUSE="doc rpc"
 
 RDEPEND="
 	dev-qt/qtbase:6[concurrent,gui,network,opengl,ssl,widgets]
@@ -26,7 +26,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	dev-cpp/eigen:3
-	sci-libs/jkqtplotter
 "
 BDEPEND="doc? ( app-text/doxygen )"
 
@@ -51,12 +50,13 @@ src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_SKIP_RPATH=ON
 		-DBUILD_DOCUMENTATION=$(usex doc)
-		# rpc/molequeue is abandoned
-		# see https://github.com/OpenChemistry/avogadroapp/issues/561
-		-DAvogadro_ENABLE_RPC=OFF
+		-DAvogadro_ENABLE_RPC=$(usex rpc)
 		# test requires qttesting/paraview
 		-DENABLE_TESTING=OFF
 		-DQT_VERSION=6
+		# skip detection of jkqtplotter
+		# avogadrolibs handles it without the need for rebuilding avogadro2
+		-DUSE_PLOTTER=OFF
 	)
 
 	# Need this to prevent overwriting the documentation OUTDIR
@@ -85,6 +85,7 @@ src_install() {
 
 pkg_postinst() {
 	optfeature "environments of downloaded plugins" dev-util/pixi
+	optfeature "charts and spectra" sci-libs/avogadrolibs[jkqtplotter]
 
 	xdg_pkg_postinst
 }

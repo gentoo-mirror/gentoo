@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,6 +6,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake dot-a python-single-r1
 
+MY_PV_GENXRD=1.1
 MY_PV_AVOGEN=${PV}
 MY_PV_CRYSTALS=${PV}
 MY_PV_FRAGMENTS=${PV}
@@ -26,6 +27,10 @@ SRC_URI="
 		https://github.com/OpenChemistry/molecules/archive/refs/tags/${MY_PV_MOLECULES}.tar.gz
 			-> ${PN}-molecules-${MY_PV_MOLECULES}.tar.gz
 	)
+	jkqtplotter? (
+		amd64? ( https://github.com/psavery/genXrdPattern/releases/download/${MY_PV_GENXRD}-linux/linux64-genXrdPattern
+			-> ${PN}-linux64-genXrdPattern-${MY_PV_GENXRD} )
+	)
 	test? ( https://github.com/OpenChemistry/avogadrodata/archive/refs/tags/${PV}.tar.gz
 		-> ${P}-data.tar.gz )
 "
@@ -33,9 +38,10 @@ SRC_URI="
 LICENSE="BSD GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="archive doc hdf5 python qt6 spglib static-libs test"
+IUSE="archive doc hdf5 jkqtplotter python qt6 spglib static-libs test"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
+	jkqtplotter? ( qt6 )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	test? ( qt6 )
 "
@@ -51,13 +57,14 @@ RDEPEND="
 		$(python_gen_cond_dep 'dev-python/pybind11[${PYTHON_USEDEP}]')
 	)
 	qt6? (
+		>=dev-cpp/tomlplusplus-3.4.0
 		dev-qt/qtbase:6[concurrent,gui,network,opengl,widgets]
 		dev-qt/qtsvg:6
 		media-libs/glew:0=
 		>=sci-chemistry/openbabel-3.1.1_p20241221:=[json]
-		sci-libs/jkqtplotter:=
 		virtual/opengl
 		archive? ( app-arch/libarchive:= )
+		jkqtplotter? ( sci-libs/jkqtplotter:= )
 	)
 	spglib? ( >=sci-libs/spglib-2.6.0:= )
 "
@@ -70,6 +77,13 @@ BDEPEND="
 	test? ( dev-cpp/gtest )
 "
 
+PATCHES=(
+	"${FILESDIR}/"${PN}-1.91.0_pre20180406-bundled-genxrdpattern.patch
+)
+
+# Static binary (requires ObjCryst++ to build otherwise)
+QA_FLAGS_IGNORED="usr/bin/genXrdPattern"
+
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
 }
@@ -78,6 +92,10 @@ src_unpack() {
 	default
 
 	rm -rf thirdparty/{nlohmann,pugixml} || die
+
+	if use jkqtplotter && use amd64; then
+		cp "${DISTDIR}"/${PN}-linux64-genXrdPattern-${MY_PV_GENXRD} "${WORKDIR}/genXrdPattern" || die
+	fi
 
 	if use qt6; then
 		# hardcoded assumptions in
@@ -123,12 +141,14 @@ src_configure() {
 		-DCMAKE_SKIP_RPATH=ON
 		-DUSE_EXTERNAL_NLOHMANN=ON
 		-DUSE_EXTERNAL_PUGIXML=ON
+		-DUSE_EXTERNAL_TOMLPLUSPLUS=ON
 		-DUSE_LIBARCHIVE=$(usex archive $(usex qt6))
 		-DBUILD_DOCUMENTATION=$(usex doc)
 		-DUSE_HDF5=$(usex hdf5)
 		# https://github.com/OpenChemistry/avogadrolibs/issues/2200
 		-DUSE_MMTF=OFF
 		-DUSE_OPENGL=$(usex qt6)
+		-DUSE_PLOTTER=$(usex jkqtplotter)
 		-DUSE_PYTHON=$(usex python)
 		-DUSE_QT=$(usex qt6)
 		-DUSE_SPGLIB=$(usex spglib)
@@ -137,14 +157,24 @@ src_configure() {
 		-DUSE_LIBMSYM=OFF
 	)
 
+	if use jkqtplotter && use amd64; then
+		mycmakeargs+=(
+			-DBUNDLED_GENXRDPATTERN="${WORKDIR}/genXrdPattern"
+			-DUSE_SYSTEM_GENXRDPATTERN=OFF
+		)
+	fi
+
 	if use qt6; then
 		mycmakeargs+=(
 			-DBUILD_GPL_PLUGINS=ON
 			-DBUILD_STATIC_PLUGINS=$(usex static-libs)
 			-DQT_VERSION=6
 		)
-		# python interpreter for qtplugins, but it can be changed in settings and pixi may install another version too ...
-		# given that, not added to REQUIRED_USE
+		# use python's abilities to define the interpreter path for qtplugins,
+		# it can also be set with:
+		#   - AVO_PYTHON_INTERPRETER (absolute path)
+		#   - extensions settings
+		#   otherwise default is python
 		use python && mycmakeargs+=( -DPython3_EXECUTABLE="${PYTHON}" )
 
 		# even w/o static-libs due to libgwavi.a, required for avogadro2
