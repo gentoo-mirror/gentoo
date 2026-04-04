@@ -11,14 +11,13 @@ HOMEPAGE="https://www.monkeysaudio.com"
 SRC_URI="https://monkeysaudio.com/files/MAC_${PV/.}_SDK.zip -> ${P}.zip"
 
 LICENSE="BSD"
-SLOT="0/14"
+SLOT="0/15"
 KEYWORDS="~alpha ~amd64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 BDEPEND="app-arch/unzip"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-11.02-output.patch"
-	"${FILESDIR}/${PN}-11.02-linux.patch"
 )
 
 src_unpack() {
