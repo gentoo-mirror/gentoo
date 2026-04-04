@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,16 +12,24 @@ SRC_URI="mirror://gnu/${PN}/${P}.tar.xz"
 LICENSE="|| ( LGPL-3+ GPL-2+ ) || ( FDL-1.2 GPL-3+ )"
 # Check regularly even on "minor" bumps
 SLOT="0/5"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 IUSE="doc static-libs"
 
+QA_CONFIG_IMPL_DECL_SKIP=(
+	# bug #900374
+	unreachable
+	MIN
+	static_assert
+	alignof
+)
+
 PATCHES=(
-	"${FILESDIR}"/${PN}-nodocs.patch
+	"${FILESDIR}"/${PN}-1.4.2-nodocs.patch
 )
 
 src_prepare() {
 	default
-	elibtoolize  # for Solaris shared libraries
+	elibtoolize # for Solaris shared libraries
 }
 
 multilib_src_configure() {
