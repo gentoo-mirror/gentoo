@@ -5,16 +5,26 @@ EAPI=8
 
 inherit optfeature
 
+if [[ ${PV} = 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://anongit.gentoo.org/git/proj/ebuild-mode.git"
+	EGIT_BRANCH="master"
+	EGIT_CHECKOUT_DIR="${WORKDIR}/${PN}"
+	S="${WORKDIR}/${PN}"
+else
+	SRC_URI="https://dev.gentoo.org/~ulm/emacs/${P}.tar.xz"
+	KEYWORDS="~amd64 ~hppa ~x86"
+fi
+
 DESCRIPTION="Emacs modes for editing ebuilds and other Gentoo specific files"
 HOMEPAGE="https://wiki.gentoo.org/wiki/Project:Emacs"
-SRC_URI="https://dev.gentoo.org/~ulm/emacs/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~hppa x86"
 
 RDEPEND=">=app-editors/xemacs-21.5.35
-	app-xemacs/sh-script"
+	app-xemacs/sh-script
+	app-xemacs/tty-format"
 BDEPEND="${RDEPEND}"
 
 EMACS="${EPREFIX}/usr/bin/xemacs"
@@ -40,11 +50,12 @@ src_test() {
 src_install() {
 	insinto /usr/lib/xemacs/site-packages/lisp/${PN}
 	doins ebuild-mode.{el,elc} ebuild-mode-keywords.el \
-		gentoo-newsitem-mode.{el,elc}
-	doins auto-autoloads.el
+		gentoo-newsitem-mode.{el,elc} ebuild-mode-kw-gen.el \
+		auto-autoloads.el
 }
 
 pkg_postinst() {
+	optfeature "directory support" app-xemacs/dired
 	optfeature "ebuild commands support" sys-apps/portage
 	optfeature "additional development tools" dev-util/pkgdev
 	optfeature "ebuild QA utilities" dev-util/pkgcheck
