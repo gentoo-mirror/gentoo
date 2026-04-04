@@ -11,19 +11,18 @@ CHROMIUM_LANGS="
 
 inherit chromium-2 pax-utils unpacker xdg
 
-DESCRIPTION="A fast and secure web browser"
-HOMEPAGE="https://www.opera.com/"
+DESCRIPTION="Opera, but for 'gamers'"
+HOMEPAGE="https://www.opera.com/gx"
 
 SRC_URI_BASE=(
-	"https://download1.operacdn.com/pub/${PN}"
-	"https://download2.operacdn.com/pub/${PN}"
-	"https://download3.operacdn.com/pub/${PN}"
-	"https://download4.operacdn.com/pub/${PN}"
+	"https://download1.operacdn.com/pub/${PN//-/_}"
+	"https://download2.operacdn.com/pub/${PN//-/_}"
+	"https://download3.operacdn.com/pub/${PN//-/_}"
+	"https://download4.operacdn.com/pub/${PN//-/_}"
 )
 
-if [[ ${PN} == opera ]]; then
+if [[ ${PN} == opera-gx ]]; then
 	MY_PN=${PN}-stable
-	SRC_URI_BASE=( "${SRC_URI_BASE[@]/%//desktop}" )
 else
 	MY_PN=${PN}
 fi
@@ -35,9 +34,9 @@ CHROMIUM_VERSION="145"
 SRC_URI="${SRC_URI_BASE[*]/%//${PV}/linux/${MY_PN}_${PV}_amd64.deb}"
 S=${WORKDIR}
 
-LICENSE="OPERA-2018"
+LICENSE="OPERA-2020"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 IUSE="+ffmpeg-chromium +proprietary-codecs +suid qt6"
 RESTRICT="bindist mirror strip"
 
@@ -102,18 +101,13 @@ src_install() {
 	rm -r "usr/lib" || die
 
 	# disable auto update
-	rm "${OPERA_HOME}/${PN%-*}_autoupdate"{,.licenses,.version} || die
+	rm "${OPERA_HOME}/opera_autoupdate"{,.licenses,.version} || die
 
 	rm -r "usr/share/lintian" || die
 
 	# fix docs
 	mv usr/share/doc/${MY_PN} usr/share/doc/${PF} || die
 	gzip -d usr/share/doc/${PF}/changelog.gz || die
-
-	# fix desktop file
-	sed -i \
-		-e 's|^TargetEnvironment|X-&|g' \
-		usr/share/applications/${PN}.desktop || die
 
 	# remove unused language packs
 	pushd "${OPERA_HOME}/localization" > /dev/null || die
@@ -122,7 +116,7 @@ src_install() {
 
 	# setup opera symlink
 	rm "usr/bin/${PN}" || die
-	dosym "../../${OPERA_HOME}/${PN}" "/usr/bin/${PN}"
+	dosym "../../${OPERA_HOME}/opera" "/usr/bin/${PN}"
 
 	# install proprietary codecs
 	rm "${OPERA_HOME}/resources/ffmpeg_preload_config.json" || die
