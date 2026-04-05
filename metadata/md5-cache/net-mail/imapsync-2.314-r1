@@ -1,0 +1,14 @@
+BDEPEND=sys-apps/lsb-release test? ( dev-perl/Test-Deep dev-perl/Test-Fatal dev-perl/Test-MockObject dev-perl/Test-Pod sys-process/time )
+DEFINED_PHASES=compile install prepare test
+DEPEND=dev-perl/App-cpanminus dev-perl/Authen-NTLM dev-perl/CGI dev-perl/Crypt-OpenSSL-RSA dev-perl/Data-Uniqid dev-perl/DBI dev-perl/Digest-HMAC dev-perl/Dist-CheckConflicts dev-perl/Email-Address dev-perl/Encode-IMAPUTF7 dev-perl/File-Copy-Recursive dev-perl/File-Tail dev-perl/HTML-Parser dev-perl/HTTP-Daemon dev-perl/HTTP-Daemon-SSL dev-perl/HTTP-Message dev-perl/IO-Socket-INET6 dev-perl/IO-Socket-SSL dev-perl/IO-Tee dev-perl/JSON dev-perl/libwww-perl dev-perl/Mail-IMAPClient dev-perl/Module-Implementation dev-perl/Module-Runtime dev-perl/Module-ScanDeps dev-perl/Net-Server dev-perl/Net-SSLeay dev-perl/Net-DNS dev-perl/Package-Stash dev-perl/Package-Stash-XS dev-perl/PAR dev-perl/Parse-RecDescent dev-perl/Proc-ProcessTable dev-perl/Readonly dev-perl/Readonly-XS dev-perl/Regexp-Common dev-perl/Sys-MemInfo dev-perl/TermReadKey dev-perl/Try-Tiny dev-perl/Unicode-String dev-perl/URI
+DESCRIPTION=Tool for incremental and recursive IMAP transfers between mailboxes
+EAPI=9
+HOMEPAGE=https://ks.lamiral.info/imapsync/
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=NOLIMIT
+RDEPEND=dev-perl/App-cpanminus dev-perl/Authen-NTLM dev-perl/CGI dev-perl/Crypt-OpenSSL-RSA dev-perl/Data-Uniqid dev-perl/DBI dev-perl/Digest-HMAC dev-perl/Dist-CheckConflicts dev-perl/Email-Address dev-perl/Encode-IMAPUTF7 dev-perl/File-Copy-Recursive dev-perl/File-Tail dev-perl/HTML-Parser dev-perl/HTTP-Daemon dev-perl/HTTP-Daemon-SSL dev-perl/HTTP-Message dev-perl/IO-Socket-INET6 dev-perl/IO-Socket-SSL dev-perl/IO-Tee dev-perl/JSON dev-perl/libwww-perl dev-perl/Mail-IMAPClient dev-perl/Module-Implementation dev-perl/Module-Runtime dev-perl/Module-ScanDeps dev-perl/Net-Server dev-perl/Net-SSLeay dev-perl/Net-DNS dev-perl/Package-Stash dev-perl/Package-Stash-XS dev-perl/PAR dev-perl/Parse-RecDescent dev-perl/Proc-ProcessTable dev-perl/Readonly dev-perl/Readonly-XS dev-perl/Regexp-Common dev-perl/Sys-MemInfo dev-perl/TermReadKey dev-perl/Try-Tiny dev-perl/Unicode-String dev-perl/URI
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://imapsync.lamiral.info/dist/imapsync-2.314.tgz
+_md5_=00d85edd02257a6012b5739d57c71854

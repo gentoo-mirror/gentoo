@@ -1,0 +1,16 @@
+BDEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-perl/Getopt-ArgvFile dev-perl/IPC-Run3 dev-perl/Module-ScanDeps dev-perl/PAR virtual/perl-Digest-SHA >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DESCRIPTION=PAR Packager
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/PAR-Packer
+INHERIT=perl-module
+IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
+KEYWORDS=~amd64
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-perl/Getopt-ArgvFile dev-perl/IPC-Run3 dev-perl/Module-ScanDeps dev-perl/PAR virtual/perl-Digest-SHA >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/R/RS/RSCHUPP/PAR-Packer-1.064.tar.gz
+_eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	perl-functions	1863acf0982afafc67797e3ce7275b4c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	perl-module	41920449ca174fe9b9b303dfcbdb37a3
+_md5_=74e8ef74435f379a9eed470637485218
