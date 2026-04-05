@@ -7,11 +7,11 @@ HOMEPAGE=https://www.freeciv.org/ https://github.com/freeciv/freeciv/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=lua-single meson xdg
 IUSE=dedicated gtk3 gtk4 json mapimg modpack nls qt6 readline rule-editor +sdl3 +server +sound svg +system-lua web-server +lua_single_target_lua5-4
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~arm64
 LICENSE=GPL-2+
 RDEPEND=app-arch/bzip2 app-arch/xz-utils app-arch/zstd:= dev-build/libtool dev-db/sqlite:3 dev-libs/icu:= net-misc/curl virtual/zlib:= !dedicated? ( media-libs/libpng gtk3? ( x11-libs/gtk+:3 ) gtk4? ( gui-libs/gtk:4 ) mapimg? ( media-gfx/imagemagick:= ) nls? ( virtual/libintl ) qt6? ( dev-qt/qtbase:6[gui,widgets] ) sdl3? ( media-libs/libsdl3 media-libs/sdl3-ttf media-libs/sdl3-image[png] ) sound? ( media-libs/libsdl3 >=media-libs/sdl3-mixer-3.1.2_rc1[vorbis] ) ) json? ( dev-libs/jansson:= ) readline? ( sys-libs/readline:= ) system-lua? ( lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) )
 REQUIRED_USE=!dedicated? ( || ( gtk3 gtk4 qt6 sdl3 ) ) dedicated? ( !gtk3 !gtk4 !mapimg !nls !qt6 !sdl3 !sound ) sound? ( sdl3 ) system-lua? ( ^^ ( lua_single_target_lua5-4 ) )
 SLOT=0
 SRC_URI=https://github.com/freeciv/freeciv/archive/refs/tags/R3_2_3.tar.gz -> freeciv-3.2.3.tar.gz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=fefc8d808d75989427603875852cb337
+_md5_=3717379268299d41fd38125d26eae207
