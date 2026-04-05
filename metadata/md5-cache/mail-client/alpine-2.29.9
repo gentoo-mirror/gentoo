@@ -5,11 +5,11 @@ DESCRIPTION=An easy to use text-based based mail and news client
 EAPI=8
 HOMEPAGE=https://alpineapp.email/ https://repo.or.cz/alpine.git/
 INHERIT=autotools flag-o-matic optfeature toolchain-funcs
-IUSE=+chappa ipv6 kerberos ldap nls onlyalpine passfile smime ssl
-KEYWORDS=~alpha amd64 ppc ~ppc64 ~sparc x86
+IUSE=ipv6 kerberos ldap nls onlyalpine passfile smime ssl
+KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86
 LICENSE=Apache-2.0
 RDEPEND=sys-libs/ncurses:= virtual/libcrypt:= kerberos? ( app-crypt/mit-krb5 ) ldap? ( net-nds/openldap:= ) ssl? ( dev-libs/openssl:0= ) app-misc/mime-types
 SLOT=0
-SRC_URI=https://alpineapp.email/alpine/release/src/alpine-2.26.tar.xz chappa? ( https://alpineapp.email/alpine/patches/alpine-2.26/all.patch.gz -> alpine-2.26-chappa-5.patch.gz )
+SRC_URI=https://www.applied-asynchrony.com/distfiles/alpine-2.29.9.tar.xz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	flag-o-matic	fd3558f73f6503093adee69adf41020d	optfeature	538bce96e5589935b57e178e8635f301
-_md5_=ebbd482d2ca13d3655a41afac2d4f1d0
+_md5_=8697b9e52bc99bddbfe9f96c484d02f2
