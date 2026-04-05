@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-libs/expat net-libs/libmicrohttpd:= net-misc/curl
+DESCRIPTION=A C++ base UPnP library, derived from Portable UPnP, a.k.a libupnp
+EAPI=8
+HOMEPAGE=https://framagit.org/medoc92/npupnp
+INHERIT=meson
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD
+RDEPEND=dev-libs/expat net-libs/libmicrohttpd:= net-misc/curl
+SLOT=0
+SRC_URI=https://www.lesbonscomptes.com/upmpdcli/downloads/libnpupnp-6.3.0.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f
+_md5_=dc584e82a06af917cebbc168fbae3973
