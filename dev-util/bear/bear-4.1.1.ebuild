@@ -10,22 +10,25 @@ CRATES="
 	ahash@0.8.12
 	aho-corasick@1.1.4
 	annotate-snippets@0.12.13
-	anstyle@1.0.13
+	anstyle@1.0.14
 	anyhow@1.0.102
 	arraydeque@0.5.1
 	assert_cmd@2.2.0
 	assert_fs@1.1.3
 	autocfg@1.5.0
 	base64@0.22.1
+	bit-set@0.8.0
+	bit-vec@0.8.0
 	bitflags@2.11.0
 	bstr@1.12.1
 	bumpalo@3.20.2
-	cc@1.2.56
+	cc@1.2.58
 	cfg-if@1.0.4
 	clap@4.6.0
 	clap_builder@4.6.0
 	clap_complete@4.6.0
 	clap_lex@1.1.0
+	console@0.16.3
 	crossbeam-channel@0.5.15
 	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
@@ -39,15 +42,17 @@ CRATES="
 	downcast@0.11.0
 	dtor-proc-macro@0.0.5
 	dtor@0.0.6
+	encode_unicode@1.0.0
 	encoding_rs@0.8.35
 	encoding_rs_io@0.1.7
-	env_filter@1.0.0
-	env_logger@0.11.9
+	env_filter@1.0.1
+	env_logger@0.11.10
 	equivalent@1.0.2
 	errno@0.3.14
 	fastrand@2.3.0
 	find-msvc-tools@0.1.9
 	float-cmp@0.10.0
+	fnv@1.0.7
 	foldhash@0.1.5
 	fragile@2.0.1
 	getrandom@0.2.17
@@ -61,13 +66,14 @@ CRATES="
 	id-arena@2.3.0
 	ignore@0.4.25
 	indexmap@2.13.0
-	itoa@1.0.17
+	insta@1.47.2
+	itoa@1.0.18
 	jiff-static@0.2.23
 	jiff@0.2.23
-	js-sys@0.3.91
+	js-sys@0.3.93
 	leb128fmt@0.1.0
 	libc@0.2.183
-	libredox@0.1.14
+	libredox@0.1.15
 	linux-raw-sys@0.12.1
 	log@0.4.29
 	memchr@2.8.0
@@ -78,22 +84,30 @@ CRATES="
 	num-traits@0.2.19
 	once_cell@1.21.4
 	option-ext@0.2.0
-	portable-atomic-util@0.2.5
+	portable-atomic-util@0.2.6
 	portable-atomic@1.13.1
+	ppv-lite86@0.2.21
 	predicates-core@1.0.10
 	predicates-tree@1.0.13
 	predicates@3.1.4
 	prettyplease@0.2.37
 	proc-macro2@1.0.106
+	proptest@1.11.0
+	quick-error@1.2.3
 	quote@1.0.45
 	r-efi@5.3.0
 	r-efi@6.0.0
+	rand@0.9.2
+	rand_chacha@0.9.0
+	rand_core@0.9.5
+	rand_xorshift@0.4.0
 	redox_users@0.5.2
 	regex-automata@0.4.14
 	regex-syntax@0.8.10
 	regex@1.12.3
 	rustix@1.1.4
 	rustversion@1.0.22
+	rusty-fork@0.3.1
 	same-file@1.0.6
 	saphyr-parser-bw@0.0.610
 	semver@1.0.27
@@ -106,6 +120,7 @@ CRATES="
 	shlex@1.3.0
 	signal-hook-registry@1.4.8
 	signal-hook@0.3.18
+	similar@2.7.0
 	smallvec@1.15.1
 	strsim@0.11.1
 	syn@2.0.117
@@ -113,6 +128,7 @@ CRATES="
 	termtree@0.5.1
 	thiserror-impl@2.0.18
 	thiserror@2.0.18
+	unarray@0.1.4
 	unicode-ident@1.0.24
 	unicode-width@0.2.2
 	unicode-xid@0.2.6
@@ -122,10 +138,10 @@ CRATES="
 	wasi@0.11.1+wasi-snapshot-preview1
 	wasip2@1.0.2+wasi-0.2.9
 	wasip3@0.4.0+wasi-0.3.0-rc-2026-01-06
-	wasm-bindgen-macro-support@0.2.114
-	wasm-bindgen-macro@0.2.114
-	wasm-bindgen-shared@0.2.114
-	wasm-bindgen@0.2.114
+	wasm-bindgen-macro-support@0.2.116
+	wasm-bindgen-macro@0.2.116
+	wasm-bindgen-shared@0.2.116
+	wasm-bindgen@0.2.116
 	wasm-encoder@0.244.0
 	wasm-metadata@0.244.0
 	wasmparser@0.244.0
@@ -139,12 +155,12 @@ CRATES="
 	wit-bindgen@0.51.0
 	wit-component@0.244.0
 	wit-parser@0.244.0
-	zerocopy-derive@0.8.47
-	zerocopy@0.8.47
+	zerocopy-derive@0.8.48
+	zerocopy@0.8.48
 	zmij@1.0.21
 "
 
-inherit cargo
+inherit cargo prefix sysroot
 
 DESCRIPTION="Bear is a tool that generates a compilation database for clang tooling."
 HOMEPAGE="https://github.com/rizsotto/Bear"
@@ -171,39 +187,31 @@ QA_FLAGS_IGNORED="
 	usr/libexec/bear/bin/bear-wrapper
 "
 
-src_prepare() {
-	default
-
-	# bear-driver uses path relative to itself to find bear-wrapper and libexec.so
-	cat > bear.sh <<-EOF || die
-	#!${EPREFIX}/usr/bin/env bash
-	exec ${EPREFIX}/usr/libexec/bear/bin/bear-driver "\$@"
-	EOF
-}
+PATCHES=(
+	"${FILESDIR}/bear-4.1.1-libexec.patch"
+)
 
 src_compile() {
-	INTERCEPT_LIBDIR='$LIB' DESTDIR="${EPREFIX}/usr/libexec" cargo_src_compile
-}
+	cargo_src_compile
 
-src_test() {
-	# Test should be run without INTERCEPT_LIBDIR, see
-	# https://github.com/rizsotto/Bear/issues/677
-	cargo_src_compile --target-dir "${PWD}"/tested-target/
-	cargo_src_test --target-dir "${PWD}"/tested-target/
+	sysroot_try_run_prefixed \
+		"$(cargo_target_dir)"/generate-completions \
+		"$(cargo_target_dir)"/completions
 }
 
 src_install() {
+	SRCDIR="$(cargo_target_dir)" \
+		DESTDIR="${D}" \
+		PREFIX="${EPREFIX}/usr" \
+		scripts/install.sh
+
+	rm "${ED}"/usr/share/bear/uninstall.sh || die
+	rmdir "${ED}"/usr/share/bear || die
+
+	rm -r "${ED}"/usr/share/doc || die
 	local DOCS=( *.md )
 	default
 
-	newbin bear.sh bear
-
-	into /usr/libexec/bear
-	dolib.so "$(cargo_target_dir)"/libexec.so
-
-	exeinto /usr/libexec/bear/bin
-	doexe "$(cargo_target_dir)"/bear-driver
-	doexe "$(cargo_target_dir)"/bear-wrapper
-
-	doman man/bear.1
+	# use /bin/sh from prefix
+	hprefixify "${ED}"/usr/bin/bear
 }
