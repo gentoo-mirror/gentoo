@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,14 +7,14 @@ inherit autotools flag-o-matic optfeature toolchain-funcs
 
 DESCRIPTION="An easy to use text-based based mail and news client"
 HOMEPAGE="https://alpineapp.email/ https://repo.or.cz/alpine.git/"
-CHAPPA_PATCH_NAME="${P}-chappa-5.patch"
-SRC_URI="https://alpineapp.email/alpine/release/src/${P}.tar.xz
-	chappa? ( https://alpineapp.email/alpine/patches/${P}/all.patch.gz -> ${CHAPPA_PATCH_NAME}.gz ) "
+
+# no official tarball, so use a recompressed snapshot of the $PV tag
+SRC_URI="https://www.applied-asynchrony.com/distfiles/${P}.tar.xz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 ppc ~ppc64 ~sparc x86"
-IUSE="+chappa ipv6 kerberos ldap nls onlyalpine passfile smime ssl"
+KEYWORDS="~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86"
+IUSE="ipv6 kerberos ldap nls onlyalpine passfile smime ssl"
 
 DEPEND="sys-libs/ncurses:=
 	virtual/libcrypt:=
@@ -28,12 +28,13 @@ RDEPEND="${DEPEND}
 
 src_prepare() {
 	default
-	use chappa && eapply "${WORKDIR}/${CHAPPA_PATCH_NAME}"
-	if use chappa; then
-		eapply "${FILESDIR}/${PN}-2.26-fix-clang16-build.patch"
-	else
-		eapply "${FILESDIR}/${PN}-2.26-fix-clang16-build-no-chappa.patch"
-	fi
+
+	# fix gettext macros to work with >=0.23 (bug #946128)
+	# eautoreconf will call autopoint, which will install any necessary files
+	# from the version we set in configure.ac
+	local gettext_version=$(gettextize --version | awk '/GNU gettext-tools/{print $NF}' || die)
+	sed -i "s/^AM_GNU_GETTEXT_VERSION(.*)/AM_GNU_GETTEXT_VERSION([${gettext_version}])/g" configure.ac || die
+
 	eautoreconf
 	tc-export CC RANLIB AR
 	export CC_FOR_BUILD="$(tc-getBUILD_CC)"
@@ -73,11 +74,12 @@ src_configure() {
 		sed -i "s/IP=4/IP=6/" imap/Makefile || die
 	fi
 
-	# problems with strict prototypes, not easily patched #870766
-	append-cflags -Wno-error=strict-prototypes
+	# dial down warnings about unused results
+	append-cflags -Wno-unused-result
 
-	# problems with incompatible pointer types, not easily patched #920365
-	append-cflags -Wno-error=incompatible-pointer-types
+	# workaround for autoconf-2.73 defaulting to C23:
+	# https://bugs.gentoo.org/972313
+	append-cflags -std=gnu17
 
 	econf "${myconf[@]}"
 }
