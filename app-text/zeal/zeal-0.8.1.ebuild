@@ -33,7 +33,7 @@ RDEPEND="${DEPEND}
 BDEPEND="kde-frameworks/extra-cmake-modules"
 
 PATCHES=(
-	"${FILESDIR}/disable-werror-0.8.0.patch"
+	"${FILESDIR}/disable-werror-${PV}.patch"
 )
 
 src_configure() {
