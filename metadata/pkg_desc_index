@@ -2039,7 +2039,7 @@ app-emacs/emacs-openrc 1.0.0 9999: OpenRC integration for GNU Emacs
 app-emacs/emacs-w3m 1.4.632_p20230801: emacs-w3m is an interface program of w3m on Emacs
 app-emacs/emacs-websearch 2.1.0 9999: Query search engines from Emacs
 app-emacs/emacs-wget 0.5.0-r1: Wget interface for Emacs
-app-emacs/emacsql 4.3.1 4.3.3: A high-level Emacs Lisp RDBMS front-end
+app-emacs/emacsql 4.3.1 4.3.3 4.3.6: A high-level Emacs Lisp RDBMS front-end
 app-emacs/embark 1.1 9999: Conveniently act on minibuffer completions inside GNU Emacs
 app-emacs/embark-consult 1.1 9999: Consult integration for Embark
 app-emacs/emhacks 20070920-r2: Useful Emacs Lisp libraries, including gdiff, jjar, jmaker, swbuff, and tabbar
@@ -2123,7 +2123,7 @@ app-emacs/ivy 0.15.1: Generic completion mechanism for Emacs
 app-emacs/ivy-rich 0.1.7: More friendly interface for ivy
 app-emacs/jam-mode 0.3-r1: An Emacs major mode for editing Jam files
 app-emacs/jasmin 1.2-r2: An Emacs major mode for editing Jasmin Java bytecode assembler files
-app-emacs/jinx 2.5 2.6: Enchanted Spell Checker for GNU Emacs
+app-emacs/jinx 2.5 2.6 2.7: Enchanted Spell Checker for GNU Emacs
 app-emacs/joplin-mode 202401009.2024: GNU Emacs client for accessing Joplin notes
 app-emacs/jq-mode 0.5.0_p20220610: Emacs major mode for editing jq queries
 app-emacs/js-comint 1.2.0: Run a JavaScript interpreter in an Emacs inferior process window
@@ -3167,7 +3167,7 @@ app-shells/thefuck 3.32-r2: Magnificent app which corrects your previous console
 app-shells/tmux-bash-completion 9999: bash-completion scripts for tmux
 app-shells/ugit 0.4.5 0.4.5.1: PowerShell wrapper for git, automate repos and output git as objects
 app-shells/yash 2.60 2.61: Yash is a POSIX-compliant command line shell
-app-shells/zoxide 0.9.4-r1 0.9.6-r1 0.9.7 0.9.8: A smarter cd command for your terminal
+app-shells/zoxide 0.9.4-r1 0.9.6-r1 0.9.7 0.9.8 0.9.9: A smarter cd command for your terminal
 app-shells/zsh 5.9-r6 5.9-r7 5.9.0.3-r2 9999: UNIX Shell similar to the Korn shell
 app-shells/zsh-completions 0.34.0 0.35.0 9999: Additional completion definitions for Zsh
 app-shells/zsh-syntax-highlighting 0.8.0 9999: Fish shell like syntax highlighting for zsh
@@ -10609,7 +10609,7 @@ dev-scheme/gauche-kakasi 0.1-r1: Kakasi binding for Gauche
 dev-scheme/gauche-mecab 1.0.2-r1: MeCab binding for Gauche
 dev-scheme/gauche-qdbm 0.2-r1: QDBM binding for Gauche
 dev-scheme/goosh 1.3-r100: Small process-control library for Guile
-dev-scheme/guile 1.8.8-r103 2.2.7-r103 3.0.10-r103: GNU Ubiquitous Intelligent Language for Extensions
+dev-scheme/guile 1.8.8-r103 2.2.7-r103 3.0.10-r103 3.0.11: GNU Ubiquitous Intelligent Language for Extensions
 dev-scheme/guile-colorized 0.1_p20191205-r100 9999: Colorized REPL for GNU Guile
 dev-scheme/guile-commonmark 0.1.2_pre20240803: Implementation of CommonMark for Guile
 dev-scheme/guile-config 0.5.1-r100: Guile application configuration parsing library
@@ -12139,8 +12139,8 @@ gnustep-libs/renaissance 0.9.0-r2: GNUstep Renaissance allows to describe user i
 gnustep-libs/sope 5.12.4: A set of frameworks forming a complete Web application server environment
 gnustep-libs/sqlclient 1.9.0: GNUstep lightweight database abstraction layer
 gui-apps/deskflow 1.24.0 1.25.0 1.26.0 9999: Share a mouse and keyboard between computers (FOSS version of Synergy)
-gui-apps/foot 1.16.2 1.17.0 1.17.1 1.17.2 1.18.0 1.18.1 1.19.0 1.20.0 1.20.1-r1 1.20.2 1.20.2-r2 1.21.0 1.22.0 1.22.3 1.23.0 1.23.1 1.24.0 1.25.0: Fast, lightweight and minimalistic Wayland terminal emulator
-gui-apps/foot-terminfo 1.16.2 1.17.0 1.17.1 1.17.2 1.18.0 1.18.1 1.19.0 1.20.0 1.20.1 1.20.2 1.21.0 1.22.0 1.22.3 1.23.0 1.23.1 1.24.0 1.25.0: Terminfo for foot, a fast, lightweight and minimal Wayland terminal emulator
+gui-apps/foot 1.16.2 1.17.0 1.17.1 1.17.2 1.18.0 1.18.1 1.19.0 1.20.0 1.20.1-r1 1.20.2 1.20.2-r2 1.21.0 1.22.0 1.22.3 1.23.0 1.23.1 1.24.0 1.25.0 1.26.1: Fast, lightweight and minimalistic Wayland terminal emulator
+gui-apps/foot-terminfo 1.16.2 1.17.0 1.17.1 1.17.2 1.18.0 1.18.1 1.19.0 1.20.0 1.20.1 1.20.2 1.21.0 1.22.0 1.22.3 1.23.0 1.23.1 1.24.0 1.25.0 1.26.1: Terminfo for foot, a fast, lightweight and minimal Wayland terminal emulator
 gui-apps/gnome-console 48.1 49.1 49.2: A simple user-friendly terminal emulator for the GNOME desktop
 gui-apps/grim 1.5.0 9999: Grab images from a Wayland compositor
 gui-apps/gtkgreet 0.8 9999: gtk based greeter for greetd
@@ -12876,7 +12876,7 @@ media-fonts/inconsolata-hellenic 1.19-r1: Hellenisation of the wonderful, monosp
 media-fonts/inconsolata-lgc 1.3.0: Modified version of Inconsolata Hellenic adding the Cyrillic alphabet
 media-fonts/intel-one-mono 1.4.0: Intel One Mono font family
 media-fonts/intlfonts 1.4.2: International X11 fixed fonts
-media-fonts/iosevka 30.1.2 31.8.0 32.0.0 32.2.1 32.3.0 32.3.1 32.4.0 33.0.1 33.2.4 33.2.8 33.3.6 34.1.0: Slender typeface for code, from code
+media-fonts/iosevka 30.1.2 31.8.0 32.0.0 32.2.1 32.3.0 32.3.1 32.4.0 33.0.1 33.2.4 33.2.8 33.3.6 34.1.0 34.3.0: Slender typeface for code, from code
 media-fonts/ipaex 004.01: Japanese IPA extended TrueType fonts
 media-fonts/ipamonafont 1.0.8: Hacked version of IPA fonts, which is suitable for browsing 2ch
 media-fonts/ja-ipafonts 003.03: TrueType fonts developed by Japanese Information-technology Promotion Agency
