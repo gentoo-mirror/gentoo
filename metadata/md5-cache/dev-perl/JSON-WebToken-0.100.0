@@ -1,6 +1,6 @@
 BDEPEND=dev-perl/Module-Build test? ( >=dev-perl/Test-Mock-Guard-0.10 >=dev-perl/Test-Requires-0.06 ) >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=dev-lang/perl-5.08.1 dev-perl/JSON dev-perl/Module-Runtime virtual/perl-Carp virtual/perl-Digest-SHA virtual/perl-Exporter >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DEPEND=>=dev-lang/perl-5.08.1 dev-perl/JSON dev-perl/Module-Runtime >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=JSON Web Token (JWT) implementation
 EAPI=8
 HOMEPAGE=https://metacpan.org/release/JSON-WebToken
@@ -8,9 +8,9 @@ INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
 KEYWORDS=~amd64
 LICENSE=|| ( Artistic GPL-1+ )
-RDEPEND=>=dev-lang/perl-5.08.1 dev-perl/JSON dev-perl/Module-Runtime virtual/perl-Carp virtual/perl-Digest-SHA virtual/perl-Exporter >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
+RDEPEND=>=dev-lang/perl-5.08.1 dev-perl/JSON dev-perl/Module-Runtime >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/X/XA/XAICRON/JSON-WebToken-0.10.tar.gz
 _eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	perl-functions	1863acf0982afafc67797e3ce7275b4c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	perl-module	41920449ca174fe9b9b303dfcbdb37a3
-_md5_=67ff31bd0d1184badaee8de168e38c1a
+_md5_=68154a1f4a6bc489296a466b62dbaecd
