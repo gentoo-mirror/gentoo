@@ -41,6 +41,8 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-cpp/gtest-1.8.0 )
 "
 
+PATCHES=( "${FILESDIR}/${P}-fix-underlinking.patch" )
+
 src_configure() {
 	lto-guarantee-fat
 

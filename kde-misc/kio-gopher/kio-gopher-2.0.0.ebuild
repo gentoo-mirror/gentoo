@@ -1,9 +1,8 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-KDE_ORG_COMMIT=4ed56e64b9921eec474b49e913119449e7a91a0d
 KDE_ORG_CATEGORY="network"
 ECM_HANDBOOK="forceoptional"
 KFMIN=6.16.0
@@ -12,7 +11,7 @@ inherit ecm kde.org
 
 DESCRIPTION="Gopher KIO worker for Konqueror"
 HOMEPAGE="https://userbase.kde.org/Kio_gopher"
-SRC_URI="https://dev.gentoo.org/~asturm/distfiles/kde/${KDE_ORG_NAME}-${PV}-${KDE_ORG_COMMIT:0:8}.tar.gz"
+SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="6"
