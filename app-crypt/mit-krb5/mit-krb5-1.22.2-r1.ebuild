@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -82,6 +82,7 @@ multilib_src_configure() {
 		$(use_with openldap ldap) \
 		$(use_enable nls) \
 		$(use_enable pkinit) \
+		$(use_enable cpu_flags_x86_aes aesni) \
 		$(use_with lmdb) \
 		$(use_with keyutils) \
 		--without-hesiod \
