@@ -84,7 +84,7 @@ _load_daemon_list() {
 	# Create the watchfrr command line.
 	for daemon in \
 		babeld bfdd bgpd eigrpd fabricd isisd ldpd nhrpd ospfd ospf6d pbrd \
-		pimd ripd ripngd sharpd vrrpd \
+		pimd pim6d ripd ripngd sharpd vrrpd \
 	; do
 		# Trick to read variable name with variable.
 		cdaemon=$(eval echo \$$daemon)
@@ -251,7 +251,7 @@ depend() {
 	# We need root to write logs.
 	need localmount
 	# Optionally wait for network to start.
-	need net
+	use net
 	# Expect /run to be ready.
 	after bootmisc
 }
