@@ -7,12 +7,12 @@ HOMEPAGE=https://mkvtoolnix.download/ https://codeberg.org/mbunkus/mkvtoolnix
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=autotools flag-o-matic multiprocessing prefix qmake-utils toolchain-funcs xdg verify-sig
 IUSE=dbus debug dvd gui nls pch test verify-sig
-KEYWORDS=amd64 ~arm ~arm64 ppc ppc64 x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=GPL-2
 RDEPEND=>=dev-libs/boost-1.74.0:= dev-libs/gmp:= >=dev-libs/libebml-1.4.5:= >=dev-libs/libfmt-8.0.1:= >=dev-libs/pugixml-1.11 >=dev-qt/qtbase-6.2:6[dbus?] media-libs/flac:= >=media-libs/libmatroska-1.7.1:= media-libs/libogg media-libs/libvorbis virtual/zlib:= dvd? ( media-libs/libdvdread:= ) gui? ( app-text/cmark:0= >=dev-qt/qtbase-6.2:6[concurrent,gui,network,widgets] >=dev-qt/qtmultimedia-6.2:6 >=dev-qt/qtsvg-6.2:6 )
 REQUIRED_USE=dbus? ( gui )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://mkvtoolnix.download/sources/mkvtoolnix-95.0.tar.xz verify-sig? ( https://mkvtoolnix.download/sources/mkvtoolnix-95.0.tar.xz.sig )
+SRC_URI=https://mkvtoolnix.download/sources/mkvtoolnix-98.0.tar.xz verify-sig? ( https://mkvtoolnix.download/sources/mkvtoolnix-98.0.tar.xz.sig )
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	qmake-utils	28f99dba9219112f4785f46ed426a021	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=d84aea1d87a888d7b9f642d3bbfe9967
+_md5_=5044eb8eb6ec090d635af46b74f182d0
