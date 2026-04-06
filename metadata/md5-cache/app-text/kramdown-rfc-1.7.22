@@ -1,17 +1,17 @@
-BDEPEND=test? ( ruby_targets_ruby32? ( >=dev-ruby/json-2.0.0[ruby_targets_ruby32(-)] >=dev-ruby/kramdown-2.4.0[ruby_targets_ruby32(-)] >=dev-ruby/kramdown-parser-gfm-1.1.0[ruby_targets_ruby32(-)] >=dev-ruby/net-http-persistent-4.0[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) test? ( ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) )
+BDEPEND=test? ( ruby_targets_ruby32? ( >=dev-ruby/json-2.0.0[ruby_targets_ruby32(-)] >=dev-ruby/kramdown-2.4.0[ruby_targets_ruby32(-)] >=dev-ruby/kramdown-parser-gfm-1.1.0[ruby_targets_ruby32(-)] >=dev-ruby/net-http-persistent-4.0[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/json-2.0.0[ruby_targets_ruby33(-)] >=dev-ruby/kramdown-2.4.0[ruby_targets_ruby33(-)] >=dev-ruby/kramdown-parser-gfm-1.1.0[ruby_targets_ruby33(-)] >=dev-ruby/net-http-persistent-4.0[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) test? ( ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+DEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
 DESCRIPTION=An XML2RFC (RFC799x) backend for Thomas Leitner's kramdown markdown parser
 EAPI=8
 HOMEPAGE=https://github.com/cabo/kramdown-rfc
 INHERIT=ruby-fakegem
-IUSE=test ruby_targets_ruby32 doc test
+IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 doc test
 KEYWORDS=amd64
 LICENSE=MIT
-RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/json-2.0.0[ruby_targets_ruby32(-)] >=dev-ruby/kramdown-2.4.0[ruby_targets_ruby32(-)] >=dev-ruby/kramdown-parser-gfm-1.1.0[ruby_targets_ruby32(-)] >=dev-ruby/net-http-persistent-4.0[ruby_targets_ruby32(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
-REQUIRED_USE=|| ( ruby_targets_ruby32 )
+RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/json-2.0.0[ruby_targets_ruby32(-)] >=dev-ruby/kramdown-2.4.0[ruby_targets_ruby32(-)] >=dev-ruby/kramdown-parser-gfm-1.1.0[ruby_targets_ruby32(-)] >=dev-ruby/net-http-persistent-4.0[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/json-2.0.0[ruby_targets_ruby33(-)] >=dev-ruby/kramdown-2.4.0[ruby_targets_ruby33(-)] >=dev-ruby/kramdown-parser-gfm-1.1.0[ruby_targets_ruby33(-)] >=dev-ruby/net-http-persistent-4.0[ruby_targets_ruby33(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 )
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://rubygems.org/gems/kramdown-rfc2629-1.7.22.gem
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	multilib	fc812e8eb2170022c28272d80a1f9e77	ruby-utils	a3a0978ae7e8a40e253821da24a24782	ruby-ng	705ab926556cb5cb4811999dd0c670b0	ruby-fakegem	48f84e242da52518087150e5f863d4e8
-_md5_=b1d9f6bc9e0e466b83779c7366361bec
+_md5_=1f8d650d410c903087964fd2e811ac15
