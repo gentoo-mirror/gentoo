@@ -1,17 +1,21 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit toolchain-funcs multilib-minimal flag-o-matic
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/martinmares.asc
+inherit toolchain-funcs multilib-minimal flag-o-matic verify-sig
 
 DESCRIPTION="Various utilities dealing with the PCI bus"
 HOMEPAGE="https://mj.ucw.cz/sw/pciutils/ https://git.kernel.org/?p=utils/pciutils/pciutils.git"
-SRC_URI="https://mj.ucw.cz/download/linux/pci/${P}.tar.gz"
+SRC_URI="
+	https://mj.ucw.cz/download/linux/pci/${P}.tar.gz
+	verify-sig? ( https://mj.ucw.cz/download/linux/pci/${P}.tar.gz.sign -> ${P}.tar.gz.asc )
+"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="dns +kmod static-libs +udev zlib"
 REQUIRED_USE="static-libs? ( !udev )"
 
@@ -32,6 +36,7 @@ RDEPEND="
 BDEPEND="
 	|| ( >=sys-devel/binutils-2.37:* llvm-core/lld sys-devel/native-cctools )
 	kmod? ( virtual/pkgconfig )
+	verify-sig? ( sec-keys/openpgp-keys-martinmares )
 "
 
 MULTILIB_WRAPPED_HEADERS=( /usr/include/pci/config.h )
