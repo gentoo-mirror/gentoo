@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/GNOME/libxml2/-/wikis/home
 INHERIT=python-r1 meson-multilib gnome.org
 IUSE=doc icu python readline static-libs test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris
 LICENSE=MIT
 RDEPEND=virtual/libiconv >=virtual/zlib-1.2.8-r1:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] icu? ( >=dev-libs/icu-51.2-r1:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) python? ( python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] ) python_targets_python3_13? ( dev-lang/python:3.13[xml(+)] ) python_targets_python3_14? ( dev-lang/python:3.14[xml(+)] ) ) readline? ( sys-libs/readline:= )
 REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=2/16
 SRC_URI=mirror://gnome/sources/libxml2/2.15/libxml2-2.15.2.tar.xz
 _eclasses_=out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	flag-o-matic	fd3558f73f6503093adee69adf41020d	ninja-utils	d063ea1900a793f93eb095010d6d9156	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	multilib	fc812e8eb2170022c28272d80a1f9e77	multilib-build	d7802b3638ffc661375c0021cdd19efd	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	meson-multilib	8989922d980e5e870cc3de949d1b2586	gnome.org	e1b4f392dbfedfb8974b71b017937f08
-_md5_=9da7f5a7e8224837c8ce22d9899ff969
+_md5_=f2f6b8af7523f3687d6c2bac7c063c2f

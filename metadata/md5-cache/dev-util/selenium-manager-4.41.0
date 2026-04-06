@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.selenium.dev/ https://github.com/SeleniumHQ/selenium/
 INHERIT=cargo
 IUSE=telemetry test debug
-KEYWORDS=~amd64 arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ~ppc64 ~riscv ~x86
 LICENSE=Apache-2.0 Apache-2.0 BSD CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0 ZLIB BZIP2
 RDEPEND=app-arch/bzip2:= app-arch/xz-utils:= app-arch/zstd:= virtual/zlib:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/SeleniumHQ/selenium/archive/selenium-4.41.0.tar.gz -> selenium-selenium-4.41.0.gh.tar.gz https://github.com/gentoo-crate-dist/selenium/releases/download/selenium-4.37.0/selenium-4.37.0-crates.tar.xz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	0d1cc00e0e91a021b50b0491e361ad41	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	ace036f48c4ad5c1938fccedf35ccf45
-_md5_=0502ce94be6f7c4555702adf550fffec
+_md5_=e9ed936eed633051915ddcdf55bb7dd0
