@@ -7,12 +7,12 @@ HOMEPAGE=https://fcitx-im.org/ https://github.com/fcitx/fcitx5
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake flag-o-matic toolchain-funcs unpacker xdg
 IUSE=+autostart doc +emoji +enchant +keyboard presage +server systemd system-yoga test wayland +X
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~riscv
 LICENSE=LGPL-2+ Unicode-DFS-2016
 RDEPEND=dev-libs/libfmt sys-devel/gettext virtual/libintl x11-libs/cairo[X?] x11-libs/gdk-pixbuf:2 x11-libs/pango[X?] doc? ( app-text/doxygen dev-texlive/texlive-fontutils ) emoji? ( virtual/zlib:= ) enchant? ( app-text/enchant:2 ) keyboard? ( app-text/iso-codes dev-libs/expat dev-cpp/nlohmann_json x11-misc/xkeyboard-config x11-libs/libxkbcommon[X?,wayland?] ) systemd? ( sys-apps/systemd ) !systemd? ( dev-libs/libuv sys-apps/dbus ) system-yoga? ( dev-libs/yoga ) wayland? ( dev-libs/glib:2 dev-libs/wayland dev-libs/wayland-protocols dev-util/wayland-scanner ) X? ( dev-libs/glib:2 >=x11-libs/xcb-imdkit-1.0.3:5 x11-libs/libX11 x11-libs/libxkbfile x11-libs/xcb-util x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm )
 REQUIRED_USE=|| ( wayland X ) X? ( keyboard ) wayland? ( keyboard )
 RESTRICT=!test? ( test )
 SLOT=5
 SRC_URI=https://download.fcitx-im.org/fcitx5/fcitx5/fcitx5-5.1.19_dict.tar.zst -> fcitx-5.1.19.tar.zst
-_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	xdg	3ef49a87c52c8b77c476351195dfe575	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2
-_md5_=a7e16c36e09fa0f32a3a5a854ab7d7eb
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=afb023c6d5760db93301e3c96947722f
