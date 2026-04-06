@@ -1,15 +1,15 @@
-BDEPEND=net-misc/ipcalc virtual/pkgconfig test? ( net-libs/gnutls[tools(+)] net-libs/socket_wrapper net-vpn/openconnect sys-libs/nss_wrapper sys-libs/uid_wrapper pam? ( sys-libs/pam_wrapper ) ) virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install prepare setup test unpack
+BDEPEND=net-misc/ipcalc virtual/pkgconfig test? ( net-libs/gnutls[tools(+)] net-libs/socket_wrapper net-vpn/openconnect sys-libs/nss_wrapper sys-libs/uid_wrapper pam? ( sys-libs/pam_wrapper ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install setup test unpack
 DEPEND=dev-libs/libnl:3= dev-libs/libev:0= >=dev-libs/nettle-2.7:0= dev-libs/pcl:0= dev-libs/protobuf-c:0= >=net-libs/gnutls-3.3.0:0= sys-libs/readline:0= sys-libs/talloc:0= virtual/libcrypt:= geoip? ( dev-libs/geoip:0= ) kerberos? ( app-crypt/mit-krb5 ) lz4? ( app-arch/lz4:0= ) otp? ( sys-auth/oath-toolkit:0= ) pam? ( sys-libs/pam:0= ) radius? ( net-libs/radcli:0= ) seccomp? ( sys-libs/libseccomp:0= ) systemd? ( sys-apps/systemd:0= ) tcpd? ( sys-apps/tcp-wrappers:0= )
 DESCRIPTION=Openconnect SSL VPN server
 EAPI=8
 HOMEPAGE=https://ocserv.gitlab.io/www/index.html
-INHERIT=linux-info systemd autotools git-r3
-IUSE=geoip kerberos +lz4 otp pam radius +seccomp systemd tcpd test
+INHERIT=linux-info meson systemd git-r3
+IUSE=geoip kerberos +lz4 +nftables otp pam radius +seccomp systemd tcpd test
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=dev-libs/libnl:3= dev-libs/libev:0= >=dev-libs/nettle-2.7:0= dev-libs/pcl:0= dev-libs/protobuf-c:0= >=net-libs/gnutls-3.3.0:0= sys-libs/readline:0= sys-libs/talloc:0= virtual/libcrypt:= geoip? ( dev-libs/geoip:0= ) kerberos? ( app-crypt/mit-krb5 ) lz4? ( app-arch/lz4:0= ) otp? ( sys-auth/oath-toolkit:0= ) pam? ( sys-libs/pam:0= ) radius? ( net-libs/radcli:0= ) seccomp? ( sys-libs/libseccomp:0= ) systemd? ( sys-apps/systemd:0= ) tcpd? ( sys-apps/tcp-wrappers:0= )
+RDEPEND=dev-libs/libnl:3= dev-libs/libev:0= >=dev-libs/nettle-2.7:0= dev-libs/pcl:0= dev-libs/protobuf-c:0= >=net-libs/gnutls-3.3.0:0= sys-libs/readline:0= sys-libs/talloc:0= virtual/libcrypt:= geoip? ( dev-libs/geoip:0= ) kerberos? ( app-crypt/mit-krb5 ) lz4? ( app-arch/lz4:0= ) otp? ( sys-auth/oath-toolkit:0= ) pam? ( sys-libs/pam:0= ) radius? ( net-libs/radcli:0= ) seccomp? ( sys-libs/libseccomp:0= ) systemd? ( sys-apps/systemd:0= ) tcpd? ( sys-apps/tcp-wrappers:0= ) nftables? ( net-firewall/nftables ) !nftables? ( net-firewall/iptables )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	linux-info	efd923656513c879204fec6638eadee5	systemd	a964c0cbe818b5729da1dbfcee5be861	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=250fd1bee56e4f4a5c5a75cc130c8aa1
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	linux-info	efd923656513c879204fec6638eadee5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	systemd	a964c0cbe818b5729da1dbfcee5be861	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
+_md5_=92ea2aebadcd63c5d760320a144b8c5f
