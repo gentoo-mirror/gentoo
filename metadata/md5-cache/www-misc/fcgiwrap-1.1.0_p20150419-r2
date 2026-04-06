@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/gnosek/fcgiwrap
 INHERIT=autotools systemd toolchain-funcs
 IUSE=systemd
-KEYWORDS=amd64 ~arm x86
+KEYWORDS=amd64 ~arm ~arm64 x86
 LICENSE=BSD
 RDEPEND=dev-libs/fcgi systemd? ( sys-apps/systemd:= )
 SLOT=0
 SRC_URI=https://github.com/gnosek/fcgiwrap/archive/99c942c90063c73734e56bacaa65f947772d9186.tar.gz -> fcgiwrap-1.1.0_p20150419.gh.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=d8a9c9b103c0ca67da5f721c16233f87
+_md5_=e052c540f45382d8e2206e4a62cd29ec
