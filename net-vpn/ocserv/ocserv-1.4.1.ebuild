@@ -1,4 +1,4 @@
-# Copyright 2019-2025 Gentoo Authors
+# Copyright 2019-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ else
 	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-ocserv )"
 	SRC_URI="https://www.infradead.org/ocserv/download/${P}.tar.xz
 		verify-sig? ( https://www.infradead.org/ocserv/download/${P}.tar.xz.sig )"
-	KEYWORDS="amd64 arm arm64 ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Openconnect SSL VPN server"
@@ -52,17 +52,12 @@ DEPEND="
 	lz4? ( app-arch/lz4:0= )
 	otp? ( sys-auth/oath-toolkit:0= )
 	pam? ( sys-libs/pam:0= )
-	radius? ( net-dialup/freeradius-client:0= )
+	radius? ( net-libs/radcli:0= )
 	seccomp? ( sys-libs/libseccomp:0= )
 	systemd? ( sys-apps/systemd:0= )
 	tcpd? ( sys-apps/tcp-wrappers:0= )
 "
 RDEPEND="${DEPEND}"
-
-PATCHES=(
-	"${FILESDIR}"/ocserv-1.3.0-seccomp-readlinkat.patch
-	"${FILESDIR}"/ocserv-1.3.0-freeradius-1.1.8.patch
-)
 
 CONFIG_CHECK="~TUN ~UNIX_DIAG"
 
