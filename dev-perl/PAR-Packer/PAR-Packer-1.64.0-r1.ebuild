@@ -17,7 +17,6 @@ RDEPEND="
 		dev-perl/IPC-Run3
 		dev-perl/Module-ScanDeps
 		dev-perl/PAR
-		virtual/perl-Digest-SHA
 "
 DEPEND="${RDEPEND}"
 
@@ -31,6 +30,7 @@ src_prepare() {
 	# fix tests to match
 	sed -i -e 's/blib script pp/blib script parp/' t/utils.pl t/*.t || die
 	sed -i -e 's/pp:/parp:/g' contrib/automated_pp_test/automated_pp_test.pl || die
+	export DEBUG=1 # prevent binary being stripped (Bug 972351)
 	default
 }
 
