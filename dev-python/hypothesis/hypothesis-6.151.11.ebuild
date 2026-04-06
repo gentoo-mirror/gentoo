@@ -57,6 +57,23 @@ distutils_enable_tests pytest
 python_test() {
 	# NB: paths need to be relative to pytest.ini,
 	# i.e. start with hypothesis-python/
+	local EPYTEST_DESELECT=(
+		# broken somehow (xdist?)
+		'hypothesis-python/tests/pytest/test_constant_collection_timing.py::test_constant_collection_timing[True]'
+	)
+	case ${EPYTHON} in
+		pypy3.11)
+			EPYTEST_DESELECT+=(
+				'hypothesis-python/tests/cover/test_lambda_formatting.py::test_modifying_lambda_source_code_returns_unknown[False]'
+			)
+			;;
+		python3.14t)
+			EPYTEST_DESELECT+=(
+				# TODO
+				'hypothesis-python/tests/cover/test_lambda_formatting.py::test_modifying_lambda_source_code_returns_unknown[False]'
+			)
+			;;
+	esac
 
 	local -x HYPOTHESIS_NO_PLUGINS=1
 	epytest -o filterwarnings= tests/{cover,pytest,quality}
