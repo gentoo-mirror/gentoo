@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-ollybetts ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=install unpack
+DEPEND=app-arch/libarchive:= app-office/libreoffice >=app-text/libabw-0.1.2 app-text/libebook >=app-text/libgepub-0.7 app-text/libmwaw app-text/poppler[cairo] app-text/tesseract:= dev-lang/perl dev-libs/gmime:3.0 dev-libs/libpcre2:= ~dev-libs/xapian-2.0.0 media-libs/libcdr sys-apps/file virtual/zlib:=
+DESCRIPTION=An application built on Xapian, consisting of indexers and a CGI search frontend
+EAPI=8
+HOMEPAGE=https://xapian.org/
+INHERIT=verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=app-arch/libarchive:= app-office/libreoffice >=app-text/libabw-0.1.2 app-text/libebook >=app-text/libgepub-0.7 app-text/libmwaw app-text/poppler[cairo] app-text/tesseract:= dev-lang/perl dev-libs/gmime:3.0 dev-libs/libpcre2:= ~dev-libs/xapian-2.0.0 media-libs/libcdr sys-apps/file virtual/zlib:=
+SLOT=0
+SRC_URI=https://oligarchy.co.uk/xapian/2.0.0/xapian-omega-2.0.0.tar.xz verify-sig? ( https://oligarchy.co.uk/xapian/2.0.0/xapian-omega-2.0.0.tar.xz.asc )
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=f7317e0e50a84ca45656469a9b0aab23
