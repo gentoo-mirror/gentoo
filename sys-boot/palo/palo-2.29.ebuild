@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,6 +7,7 @@ inherit toolchain-funcs
 
 DESCRIPTION="PALO: PArisc Linux Loader"
 HOMEPAGE="https://parisc.wiki.kernel.org/ https://git.kernel.org/pub/scm/linux/kernel/git/deller/palo.git/"
+
 if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://git.kernel.org/pub/scm/linux/kernel/git/deller/palo.git"
 	inherit git-r3
@@ -19,8 +20,7 @@ LICENSE="GPL-2"
 SLOT="0"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.00-toolchain.patch
-	"${FILESDIR}"/${PN}-2.27-ipl-c17.patch # bug 961813
+	"${FILESDIR}"/${PN}-2.28-toolchain.patch
 )
 
 src_compile() {
