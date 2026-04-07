@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -76,6 +76,13 @@ if [[ ${PV} == *9999 ]] ; then
 else
 	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-andrewtridgell )"
 fi
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-3.4.1-c23.patch
+	"${FILESDIR}"/${PN}-3.4.1-CVE-2025-10158.patch
+	"${FILESDIR}"/${PN}-3.4.1-fix-uninitialized-mul_one.patch
+	"${FILESDIR}"/${PN}-3.4.1-glibc-2.43.patch
+)
 
 pkg_setup() {
 	# - USE=examples needs Python itself at runtime, but nothing else
