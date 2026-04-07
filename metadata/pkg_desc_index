@@ -926,7 +926,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.792.0 1.2.804.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.44.24 1.44.29 1.44.34 1.44.39 1.44.44 1.44.49 1.44.53 1.44.58 1.44.63 1.44.68 1.44.73: Universal Command Line Environment for AWS
+app-admin/awscli 1.44.24 1.44.29 1.44.34 1.44.39 1.44.44 1.44.49 1.44.53 1.44.58 1.44.63 1.44.68 1.44.73 1.44.74: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37 2.33.21 2.34.24: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2025.12.0 2026.1.0: Bitwarden password manager desktop client
@@ -8234,8 +8234,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.42.34 1.42.39 1.42.44 1.42.49 1.42.54 1.42.59 1.42.63 1.42.68 1.42.73 1.42.78 1.42.83: The AWS SDK for Python
-dev-python/botocore 1.42.34 1.42.39 1.42.44 1.42.49 1.42.54 1.42.59 1.42.63 1.42.68 1.42.73 1.42.78 1.42.83: Low-level, data-driven core of boto 3
+dev-python/boto3 1.42.34 1.42.39 1.42.44 1.42.49 1.42.54 1.42.59 1.42.63 1.42.68 1.42.73 1.42.78 1.42.83 1.42.84: The AWS SDK for Python
+dev-python/botocore 1.42.34 1.42.39 1.42.44 1.42.49 1.42.54 1.42.59 1.42.63 1.42.68 1.42.73 1.42.78 1.42.83 1.42.84: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8395,7 +8395,7 @@ dev-python/django-prometheus 2.4.1: Library to export Django metrics for Prometh
 dev-python/django-redis 6.0.0: Full featured redis cache backend for Django
 dev-python/django-registration 5.2.1: user-registration application for Django
 dev-python/django-sortedm2m 4.0.0: Drop-in replacement for django's many to many field with sorted relations
-dev-python/django-tables2 2.8.0: Table/data-grid framework for Django
+dev-python/django-tables2 2.8.0 2.9.0: Table/data-grid framework for Django
 dev-python/django-taggit 6.1.0-r1: Simple tagging for Django
 dev-python/django-template-partials 25.3: Reusable named inline partials for the Django Template Language
 dev-python/django-timezone-field 7.2.1: A Django app providing database and form fields for timezone objects
@@ -8439,7 +8439,7 @@ dev-python/ensurepip-setuptools 79.0.1 80.9.0-r1 81.0.0 82.0.1: Shared setuptool
 dev-python/ensurepip-wheel 0.46.2 0.46.3: Shared wheel wheel for use in pip tests
 dev-python/entrypoint2 1.1: Easy to use command-line interface for python modules
 dev-python/entrypoints 0.4: Discover and load entry points from installed packages
-dev-python/environs 15.0.0: Python library for simplified environment variable parsing
+dev-python/environs 15.0.0 15.0.1: Python library for simplified environment variable parsing
 dev-python/enzyme 0.5.2: Python video metadata parser
 dev-python/ephemeral-port-reserve 1.1.4: Bind to an ephemeral port, force it into the TIME_WAIT state, and unbind it
 dev-python/eradicate 3.0.1: Removes commented-out code from Python files
@@ -8456,7 +8456,7 @@ dev-python/expects 0.9.0-r1: Expressive and extensible TDD/BDD assertion library
 dev-python/expecttest 0.3.0: golden tests
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyed3 0.9.9: Module for manipulating ID3 (v1 + v2) tags in Python
-dev-python/faker 40.1.2 40.4.0 40.5.1 40.7.0 40.11.0 40.11.1 40.12.0: A Python package that generates fake data for you
+dev-python/faker 40.1.2 40.4.0 40.5.1 40.7.0 40.11.0 40.11.1 40.12.0 40.13.0: A Python package that generates fake data for you
 dev-python/fakeredis 2.33.0 2.34.0 2.34.1: Fake implementation of redis API for testing purposes
 dev-python/fastbencode 0.3.10: Implementation of bencode with Rust implementation
 dev-python/fasteners 0.20: Python package that provides useful locks
@@ -8555,7 +8555,7 @@ dev-python/griffe-inherited-docstrings 1.1.3: Griffe extension for inheriting do
 dev-python/grpcio 1.76.0 1.78.0 1.78.1 1.80.0: HTTP/2-based RPC framework
 dev-python/grpcio-status 1.76.0 1.78.0 1.78.1 1.80.0: Reference package for GRPC Python status proto mapping
 dev-python/grpclib 0.4.9: Pure-Python gRPC implementation for asyncio
-dev-python/gsd 4.2.0: GSD - file format specification and a library to read and write it
+dev-python/gsd 4.2.0 5.0.0: GSD - file format specification and a library to read and write it
 dev-python/gssapi 1.10.1 1.11.1: Low and high level wrappers around the GSSAPI C libraries
 dev-python/gst-python 1.24.11-r1 1.24.13: A Python Interface to GStreamer
 dev-python/guessit 3.8.0: Python library for guessing information from video filenames
@@ -8709,7 +8709,7 @@ dev-python/jupyterlab-lsp 5.1.0: Coding assistance for JupyterLab with Language 
 dev-python/jupyterlab-pygments 0.3.0: Pygments theme making use of JupyterLab CSS variables
 dev-python/jupyterlab-server 2.28.0: Server components for JupyterLab and JupyterLab like applications
 dev-python/jupyterlab-widgets 3.0.16: Jupyter interactive widgets for JupyterLab
-dev-python/jwcrypto 1.5.6: Implements JWK,JWS,JWE specifications using python-cryptography
+dev-python/jwcrypto 1.5.6 1.5.7: Implements JWK,JWS,JWE specifications using python-cryptography
 dev-python/k5test 0.10.4: Library for testing Python applications in Kerberos 5 environments
 dev-python/kaitaistruct 0.10 0.11: Kaitai Struct runtime for Python
 dev-python/kaptan 0.6.0: Configuration manager in your pocket
@@ -8870,7 +8870,7 @@ dev-python/mysqlclient 2.2.7 2.2.8: Python interface to MySQL
 dev-python/myst-parser 4.0.1-r1 5.0.0: Extended commonmark compliant parser, with bridges to Sphinx
 dev-python/nagiosplugin 1.4.0: A class library for writing nagios-compatible plugins
 dev-python/nanobind 2.10.2 2.11.0 2.12.0: Tiny and efficient C++/Python bindings
-dev-python/narwhals 2.18.1: Extremely lightweight compatibility layer between dataframe libraries
+dev-python/narwhals 2.18.1 2.19.0: Extremely lightweight compatibility layer between dataframe libraries
 dev-python/natsort 8.4.0: Natural sorting for Python
 dev-python/nautilus-python 4.0.1 4.1.0: Python bindings for the Nautilus file manager
 dev-python/nbclassic 1.3.3: Jupyter Notebook as a Jupyter Server Extension
@@ -9142,7 +9142,7 @@ dev-python/pylibacl 0.7.3: POSIX ACLs (Access Control Lists) for Python
 dev-python/pylibmc 1.6.3-r2: Libmemcached wrapper written as a Python extension
 dev-python/pylint 4.0.4 4.0.4-r1 4.0.5: Python code static checker
 dev-python/pylint-venv 3.0.4: Init-hook to use the same Pylint with different virtual environments
-dev-python/pylru 1.2.2: A least recently used (LRU) cache for Python
+dev-python/pylru 1.2.2 1.3.1: A least recently used (LRU) cache for Python
 dev-python/pyls-spyder 0.4.0-r3 0.4.0-r4: Spyder extensions for the python language server
 dev-python/pylsqpack 0.3.23 0.3.24: Python wrapper for the ls-qpack QPACK library
 dev-python/pymacaroons 0.13.0-r1: A Python implementation of Macaroons
@@ -9646,7 +9646,7 @@ dev-python/testfixtures 10.0.0 11.0.0: A collection of helpers and mock objects 
 dev-python/testpath 0.6.0: Test utilities for code working with files and commands
 dev-python/testresources 2.0.2: A pyunit extension for managing expensive test resources
 dev-python/testscenarios 0.5.0-r3: A pyunit extension for dependency injection
-dev-python/testtools 2.7.2-r1 2.8.2 2.8.7: Extensions to the Python standard library unit testing framework
+dev-python/testtools 2.7.2-r1 2.8.2 2.8.7 2.9.0: Extensions to the Python standard library unit testing framework
 dev-python/text-unidecode 1.3-r1: The most basic port of the Text::Unidecode Perl library
 dev-python/textdistance 4.6.3: Compute distance between the two texts
 dev-python/textile 4.0.3-r1: A Python port of Textile, A humane web text generator
@@ -9738,7 +9738,7 @@ dev-python/uuid6 2025.0.1: New time-based UUID formats which are suited for use 
 dev-python/uv 0.10.12 0.11.0 0.11.1 0.11.2 0.11.3 9999: A Python package installer and resolver, written in Rust
 dev-python/uv-build 0.10.12 0.11.0 0.11.1 0.11.2 0.11.3: PEP517 uv build backend
 dev-python/uv-dynamic-versioning 0.13.0: Dynamic versioning based on VCS tags for uv/hatch project
-dev-python/uvicorn 0.40.0 0.41.0 0.42.0 0.43.0: Lightning-fast ASGI server implementation
+dev-python/uvicorn 0.40.0 0.41.0 0.42.0 0.43.0 0.44.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.22.1: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.35.0: Python Data Validation for Humans
 dev-python/varlink 31.0.0: Python implementation of the Varlink protocol
@@ -19167,7 +19167,7 @@ x11-wm/openbox 3.6.1-r11 9999: Standards compliant, fast, light-weight, extensib
 x11-wm/oroborus 2.0.20-r2: Small and fast window manager
 x11-wm/page 1.9.10 1.9.10-r1: A mouse friendly tiling window manager
 x11-wm/pekwm 0.3.2 0.4.2: Lightweight window manager initially based on aewm++
-x11-wm/qtile 0.33.0 0.35.0: A full-featured, hackable tiling window manager written in Python
+x11-wm/qtile 0.33.0 0.35.0-r1: A full-featured, hackable tiling window manager written in Python
 x11-wm/ratpoison 1.4.9-r3 9999: window manager without mouse dependency
 x11-wm/selectwm 0.4.1-r2: window manager selector tool
 x11-wm/sithwm 1.2.3: Minimalist Window Manager for X
