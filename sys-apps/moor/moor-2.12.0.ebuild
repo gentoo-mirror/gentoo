@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,10 +12,12 @@ SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/moor/moor-${PV}-dep
 
 LICENSE="BSD-2 BSD MIT"
 # Dependent licenses
-LICENSE+="  Apache-2.0 BSD BSD-2 MIT"
+LICENSE+="  Apache-2.0 BSD BSD-2 ISC MIT"
+# Dependent licenses
+LICENSE+="  Apache-2.0 BSD BSD-2 ISC MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64"
-IUSE="test"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64"
+IUSE="test l10n_ru"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
@@ -51,6 +53,11 @@ src_install() {
 }
 
 pkg_postinst() {
+	if use l10n_ru ; then
+		ewarn "This package does not work out of the box with all Russian locales."
+		ewarn "If using ru_RU.UTF-8, it will not startup. Please see bug #964663."
+	fi
+
 	if ver_replacing -lt 2 ; then
 		ewarn "moar has been renamed to moor, please update any scripts."
 	fi

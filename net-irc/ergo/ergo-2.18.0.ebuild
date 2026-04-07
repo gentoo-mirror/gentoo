@@ -1,12 +1,12 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit go-module python-any-r1 systemd
 
-DESCRIPTION="A modern IRC server written in Go"
+DESCRIPTION="Modern IRC server written in Go"
 HOMEPAGE="https://ergo.chat/ https://github.com/ergochat/ergo"
 SRC_URI="https://github.com/ergochat/ergo/archive/v${PV/_/-}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}"/${P/_/-}
@@ -14,7 +14,7 @@ S="${WORKDIR}"/${P/_/-}
 LICENSE="Apache-2.0 BSD-2 BSD ISC MIT MPL-2.0"
 SLOT="0"
 if [[ ${PV} != *_rc* ]] ; then
-	KEYWORDS="amd64 ~arm ~arm64"
+	KEYWORDS="~amd64 ~arm ~arm64"
 fi
 IUSE="test"
 RESTRICT="!test? ( test )"
