@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DEPEND=alsa? ( media-libs/alsa-lib ) client? ( acct-user/snapclient sdl? ( media-libs/libsdl2[sound] ) tremor? ( media-libs/libogg media-libs/tremor ) ) flac? ( media-libs/flac:= ) jack? ( virtual/jack ) opus? ( media-libs/opus ) pipewire? ( media-video/pipewire:= ) server? ( acct-group/snapserver >=acct-user/snapserver-0-r3 expat? ( dev-libs/expat ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ) ) soxr? ( media-libs/soxr ) ssl? ( dev-libs/openssl:= ) vorbis? ( media-libs/libogg media-libs/libvorbis ) zeroconf? ( net-dns/avahi[dbus] ) dev-cpp/nlohmann_json dev-libs/boost:= jack? ( dev-libs/boost:=[context] ) test? ( >=dev-cpp/catch-3:0 dev-libs/openssl )
+DESCRIPTION=Synchronous multi-room audio player
+EAPI=8
+HOMEPAGE=https://github.com/snapcast/snapcast
+INHERIT=cmake edo optfeature python-single-r1 systemd
+IUSE=alsa +client +expat +flac jack +opus pipewire python sdl +server soxr ssl test tremor +vorbis +zeroconf python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-3+
+RDEPEND=alsa? ( media-libs/alsa-lib ) client? ( acct-user/snapclient sdl? ( media-libs/libsdl2[sound] ) tremor? ( media-libs/libogg media-libs/tremor ) ) flac? ( media-libs/flac:= ) jack? ( virtual/jack ) opus? ( media-libs/opus ) pipewire? ( media-video/pipewire:= ) server? ( acct-group/snapserver >=acct-user/snapserver-0-r3 expat? ( dev-libs/expat ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ) ) soxr? ( media-libs/soxr ) ssl? ( dev-libs/openssl:= ) vorbis? ( media-libs/libogg media-libs/libvorbis ) zeroconf? ( net-dns/avahi[dbus] )
+REQUIRED_USE=|| ( server client ) server? ( python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) ) )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/snapcast/snapcast/archive/v0.35.0.tar.gz -> snapcast-0.35.0.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	edo	a5e294016aa84979fcb2459749eb80b2	optfeature	538bce96e5589935b57e178e8635f301	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=dd6e9a20baecadbe9056f14eba895072

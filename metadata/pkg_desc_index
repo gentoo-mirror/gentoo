@@ -1803,7 +1803,7 @@ app-doc/tldp-howto 20120707: The Linux Documentation Project HOWTOs
 app-doc/vilearn 1.0: An interactive vi tutorial comprised of 5 tutorials for the vi-impaired
 app-doc/zsh-lovers 0.11.0: Tips, tricks and examples for the Z shell
 app-editors/aee 2.2.22: An easy to use text editor
-app-editors/bluefish 2.2.19 2.4.0: GTK HTML editor for the experienced web designer or programmer
+app-editors/bluefish 2.2.19 2.4.0 2.4.1: GTK HTML editor for the experienced web designer or programmer
 app-editors/bvi 1.4.2 1.5.0: Display-oriented editor for binary files, based on the vi texteditor
 app-editors/curses-hexedit 0.9.7-r1: full screen curses hex editor (with insert/delete support)
 app-editors/cursor 2.6.20: Cursor App - AI-first coding environment
@@ -1851,7 +1851,7 @@ app-editors/mousepad 0.6.5-r2 0.7.0: GTK+-based editor for the Xfce Desktop Envi
 app-editors/nano 8.6 8.7 8.7-r1 8.7.1 9999: GNU GPL'd Pico clone with more functionality
 app-editors/ne 3.3.3: The nice editor, easy to use for the beginner and powerful for the wizard
 app-editors/nedit 5.7-r1: Multi-purpose text editor for the X Window System
-app-editors/neovim 0.11.5-r1 0.11.6-r2 0.11.7 0.12.0 9999: Vim-fork focused on extensibility and agility
+app-editors/neovim 0.11.6-r2 0.11.7 0.12.0 0.12.1 9999: Vim-fork focused on extensibility and agility
 app-editors/ng 1.5_beta1-r3: Emacs like micro editor Ng -- based on mg2a
 app-editors/okteta 0.26.60_pre20260202: Hex editor by KDE
 app-editors/padre 1.0.0-r4: Perl Application Development and Refactoring Environment
@@ -3842,7 +3842,7 @@ dev-build/gtk-doc-am 1.34.0: Automake files from gtk-doc
 dev-build/guildmaster 0_pre20250712 9999: FIFO-like jobserver node via CUSE
 dev-build/gyp 20200512145953-r1 99999999999999: GYP (Generate Your Projects) meta-build system
 dev-build/icmake 9.03.01-r1: Hybrid between a make utility and a shell scripting language
-dev-build/just 1.46.0 1.48.0 1.48.1: Just a command runner (with syntax inspired by 'make')
+dev-build/just 1.46.0 1.48.1 1.49.0: Just a command runner (with syntax inspired by 'make')
 dev-build/kas 5.1 5.2: Setup tool for bitbake based projects
 dev-build/kbuild 0.1.9998.3499-r4 0.1.9998.3592 0.1.9998.3660-r1 9999: A makefile framework for writing simple makefiles for complex tasks
 dev-build/libtool 2.5.4 2.6.0 9999: A shared library tool for developers
@@ -13150,7 +13150,7 @@ media-gfx/pdf2svg 0.2.3-r2: Convert PDF to SVG files using poppler and cairo
 media-gfx/pencil 0.7.0 0.7.0_p20260127: 2D animation and drawing program based on Qt
 media-gfx/photopc 3.07: Utility to control digital cameras based on Sierra Imaging firmware
 media-gfx/photoqt 4.9.2 5.0: Simple but powerful Qt-based image viewer
-media-gfx/phototonic 3.0.0 3.1.0: Image viewer and organizer
+media-gfx/phototonic 3.1.0 3.2.0: Image viewer and organizer
 media-gfx/pinta 3.0: Pinta is a free, open source program for drawing and image editing
 media-gfx/pixels2pgf 0.1-r1 9999: Convert pixel images (e.g. QRCode) to PGF/Tikz rectangles
 media-gfx/plantuml 1.2026.1: Draw UML diagrams using a simple and human readable text description
@@ -13405,7 +13405,7 @@ media-libs/libharu 2.4.2-r1 2.4.5 2.4.5-r1: C/C++ library for PDF generation
 media-libs/libhdhomerun 20190621 20200521: SiliconDust HDHomeRun Utilties
 media-libs/libheif 1.20.2 1.21.2 9999: ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 media-libs/libicns 0.8.1-r1: A library for manipulating MacOS X .icns icon format
-media-libs/libid3tag 0.16.3: The MAD id3tag library, Tenacity fork
+media-libs/libid3tag 0.16.3 0.16.4: The MAD id3tag library, Tenacity fork
 media-libs/libiec61883 1.2.0-r2: Library for capturing video (dv or mpeg2) over the IEEE 1394 bus
 media-libs/libifp 1.0.0.2-r2: General-purpose library for iRiver's iFP portable audio players
 media-libs/libilbc 3.0.4: Packaged version of iLBC codec from the WebRTC project
@@ -14217,7 +14217,7 @@ media-sound/shorten 3.6.1-r1: fast, low complexity waveform coder (i.e. audio co
 media-sound/sidplay 2.0.9-r2: C64 SID player
 media-sound/sidplayfp 2.12.0 2.14.1: Sidplay2 fork with resid-fp
 media-sound/smixer 1.0.4: command-line tool for setting and viewing mixer settings
-media-sound/snapcast 0.34.0: Synchronous multi-room audio player
+media-sound/snapcast 0.34.0 0.35.0: Synchronous multi-room audio player
 media-sound/snd 25.6: Sound editor
 media-sound/sndfile-tools 1.5 9999: Small collection of programs that use libsndfile
 media-sound/sndio 1.10.0 9999: Small audio and MIDI framework part of the OpenBSD project
@@ -14802,7 +14802,7 @@ net-fs/mc 2025.07.21.05.28.08 2025.08.13.08.35.41: Minio client provides alterna
 net-fs/netatalk 3.1.18: Open Source AFP server
 net-fs/nfs-utils 2.6.4-r12 2.7.1-r1 2.8.5: NFS client and server daemons
 net-fs/nfs4-acl-tools 0.3.7-r1 0.4.2 0.4.3_rc1: Commandline and GUI tools that deal directly with NFSv4 ACLs
-net-fs/openafs 1.8.13-r1 1.8.13-r2 1.8.13.1 1.8.13.1-r1 1.8.13.2 1.8.13.2-r1 1.8.14: The OpenAFS distributed file system
+net-fs/openafs 1.8.13-r1 1.8.13-r2 1.8.13.1 1.8.13.1-r1 1.8.13.2 1.8.13.2-r1 1.8.14 1.8.15: The OpenAFS distributed file system
 net-fs/s3backer 2.1.3 2.1.6: A filesystem that contains a single file backed by Amazon S3
 net-fs/s3fs 1.95-r1 1.96: Amazon S3 mounting via fuse
 net-fs/samba 4.22.5-r1 4.22.8 4.23.5-r1 4.23.6 4.24.0_rc1 4.24.0_rc3 4.24.0: Samba Suite Version 4
@@ -15037,7 +15037,7 @@ net-libs/libssh2 1.11.1 9999: Library implementing the SSH2 protocol
 net-libs/libtelnet 0.23-r2: Simple RFC-compliant TELNET implementation as a C library
 net-libs/libtirpc 1.3.6 1.3.7 1.3.7-r2: Transport Independent RPC library (SunRPC replacement)
 net-libs/libtlsrpt 0.5.0 9999: library to implement TLSRPT
-net-libs/libtorrent 0.15.7 0.16.8 9999: BitTorrent library written in C++ for *nix
+net-libs/libtorrent 0.15.7 0.16.8 0.16.9 9999: BitTorrent library written in C++ for *nix
 net-libs/libtorrent-rasterbar 2.0.10: C++ BitTorrent implementation focusing on efficiency and scalability
 net-libs/libtrace 4.0.21 4.0.22 4.0.26 4.0.28: A library and tools for trace processing
 net-libs/libupnp 1.14.24 1.14.25 1.14.30 1.18.4: An Portable Open Source UPnP Development Kit
@@ -15554,7 +15554,7 @@ net-p2p/ncdc 1.25: Lightweight direct connect client with a friendly ncurses int
 net-p2p/nicotine+ 3.3.7 3.3.10: Graphical client for the Soulseek peer to peer network written in Python
 net-p2p/qbittorrent 5.0.5-r1 5.1.2-r1 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.8.1.1390 3.1.1.1075 9999: Resilient, fast and scalable file synchronization tool
-net-p2p/rtorrent 0.15.7 0.16.8 9999: BitTorrent Client using libtorrent
+net-p2p/rtorrent 0.15.7 0.16.8 0.16.9 9999: BitTorrent Client using libtorrent
 net-p2p/stig 0.14.0a_p0 0.14.2a_p0: TUI and CLI for the BitTorrent client Transmission
 net-p2p/syncthing 1.29.5 2.0.10 2.0.14 2.0.15: Open Source Continuous File Synchronization
 net-p2p/torrentinfo 1.8.7: A torrent file parser
@@ -17600,7 +17600,7 @@ sys-devel/m4 1.4.19-r2 1.4.20 1.4.21: GNU macro processor
 sys-devel/mold 2.40.4 2.40.4-r2 9999: A Modern Linker
 sys-devel/multilib-gcc-wrapper 0-r2: Wrappers for gcc tools to be used on non-native CHOSTs
 sys-devel/native-cctools 5-r1 5-r2: Host OS native assembler as and static linker ld
-sys-devel/nvptx-tools 0_pre20240809 9999: Collection of tools for use with nvptx-none GCC toolchains
+sys-devel/nvptx-tools 0_pre20240809 0_pre20260402 9999: Collection of tools for use with nvptx-none GCC toolchains
 sys-devel/patch 2.7.6-r6 2.7.6-r8 2.8-r1 9999: Utility to apply diffs to files
 sys-devel/qbe 1.1-r1 1.2-r1 9999: Pure-C embeddable compiler backend
 sys-devel/reflex 20241231 20260131: This is a variant of the flex fast lexical scanner
