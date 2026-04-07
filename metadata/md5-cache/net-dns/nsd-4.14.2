@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.nlnetlabs.nl/projects/nsd/about/
 INHERIT=autotools systemd tmpfiles toolchain-funcs verify-sig
 IUSE=+bind8-stats debug +dnstap +ipv6 libevent memclean minimal-responses mmap munin +nsec3 +radix-tree +ratelimit recvmmsg +simdzone ssl systemd +tfo xdp verify-sig
-KEYWORDS=~amd64 arm64 ~x86
+KEYWORDS=amd64 arm64 x86
 LICENSE=BSD
 RDEPEND=acct-group/nsd acct-user/nsd dnstap? ( >=dev-libs/fstrm-0.4 dev-libs/protobuf-c:= ) libevent? ( dev-libs/libevent ) munin? ( net-analyzer/munin ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd ) xdp? ( dev-libs/libbpf:= net-libs/xdp-tools sys-libs/libcap ) virtual/tmpfiles
 SLOT=0
 SRC_URI=https://www.nlnetlabs.nl/downloads/nsd/nsd-4.14.2.tar.gz verify-sig? ( https://www.nlnetlabs.nl/downloads/nsd/nsd-4.14.2.tar.gz.asc )
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	e0b49bcd7a0daea941c0fbe4cb35ff4e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=0f38654b6076708c80b6c6225d4ddb1b
+_md5_=c4fd731d9fb82d95eed8c25d663abd54
