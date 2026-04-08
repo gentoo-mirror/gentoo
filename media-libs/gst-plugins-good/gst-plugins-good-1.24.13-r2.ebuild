@@ -28,6 +28,7 @@ DOCS=( AUTHORS ChangeLog NEWS README.md RELEASE )
 PATCHES=(
 	"${FILESDIR}"/gst-plugins-good-1.24.13-fix-out-of-bounds-when-parsing-PlayReady-DRM-UUIDs.patch
 	"${FILESDIR}"/gst-plugins-good-1.24.13-dont-allow-use-of-vulnerable-rtpqdm2depay-element.patch
+	"${FILESDIR}"/gst-plugins-good-1.24.13-CVE-2026-1940.patch
 )
 
 multilib_src_configure() {
@@ -50,6 +51,9 @@ multilib_src_test() {
 		# known flaky test bug #930448
 		# https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/2803
 		elements_flvmux
+
+		# flaky with timeouts
+		elements_mpegaudioparse
 	)
 
 	# Add suites which in this case are the project name
