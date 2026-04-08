@@ -1,15 +1,16 @@
 BDEPEND=doc? ( app-text/ghostscript-gpl sys-apps/groff ) test? ( dev-libs/check ) app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare test unpack
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
 DEPEND=app-alternatives/yacc app-alternatives/lex
 DESCRIPTION=Suite for man in the middle attacks
 EAPI=8
 HOMEPAGE=https://github.com/Ettercap/ettercap
-INHERIT=cmake git-r3
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake xdg git-r3
 IUSE=doc geoip gtk ipv6 ncurses +plugins test
 LICENSE=GPL-2+
 PROPERTIES=live
-RDEPEND=dev-libs/libbsd dev-libs/libpcre2 dev-libs/openssl:= net-libs/libnet:1.1 >=net-libs/libpcap-0.8.1 virtual/zlib:= geoip? ( dev-libs/geoip ) gtk? ( >=app-accessibility/at-spi2-core-2.46.0 >=dev-libs/glib-2.2.2:2 media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-2.2.2:2 >=x11-libs/pango-1.2.3 ) ncurses? ( >=sys-libs/ncurses-5.3:= ) plugins? ( >=net-misc/curl-7.26.0 )
+RDEPEND=dev-libs/libbsd dev-libs/libpcre2:= dev-libs/openssl:= net-libs/libnet:1.1 >=net-libs/libpcap-0.8.1 virtual/zlib:= geoip? ( dev-libs/libmaxminddb ) gtk? ( >=app-accessibility/at-spi2-core-2.46.0 >=dev-libs/glib-2.2.2:2 media-libs/freetype x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3.12.0:3 >=x11-libs/pango-1.2.3 ) ipv6? ( >=net-libs/libnet-1.1.5:1.1 ) ncurses? ( >=sys-libs/ncurses-5.3:= ) plugins? ( >=net-misc/curl-7.26.0 )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=e08654fe422b956d40552e23df9e0291
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
+_md5_=f4126b64b4fe5e273ddadd910bd919ad
