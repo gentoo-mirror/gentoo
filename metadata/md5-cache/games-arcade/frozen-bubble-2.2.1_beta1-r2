@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
 DEPEND=dev-lang/perl dev-libs/glib:2 >=dev-perl/Alien-SDL-1.413 dev-perl/Compress-Bzip2 dev-perl/File-ShareDir dev-perl/File-Slurp dev-perl/File-Which dev-perl/IPC-System-Simple >=dev-perl/SDL-2.511 media-libs/sdl-image[gif,png] media-libs/sdl-mixer[vorbis] media-libs/sdl-pango media-libs/sdl-ttf virtual/libiconv virtual/perl-Getopt-Long virtual/perl-IO >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=A Puzzle Bubble clone written in perl (now with network support)
 EAPI=8
-HOMEPAGE=http://www.frozen-bubble.org/
+HOMEPAGE=https://github.com/kthakore/frozen-bubble
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=desktop perl-module toolchain-funcs xdg
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
@@ -12,6 +12,6 @@ LICENSE=GPL-2
 RDEPEND=dev-lang/perl dev-libs/glib:2 >=dev-perl/Alien-SDL-1.413 dev-perl/Compress-Bzip2 dev-perl/File-ShareDir dev-perl/File-Slurp dev-perl/File-Which dev-perl/IPC-System-Simple >=dev-perl/SDL-2.511 media-libs/sdl-image[gif,png] media-libs/sdl-mixer[vorbis] media-libs/sdl-pango media-libs/sdl-ttf virtual/libiconv virtual/perl-Getopt-Long virtual/perl-IO >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=http://www.frozen-bubble.org/data/frozen-bubble-2.2.1-beta1.tar.bz2
+SRC_URI=mirror://gentoo/frozen-bubble-2.2.1-beta1.tar.bz2
 _eclasses_=desktop	26d57169ca094c04be416993844ec8bc	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	perl-functions	1863acf0982afafc67797e3ce7275b4c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	perl-module	41920449ca174fe9b9b303dfcbdb37a3	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=2b26afac84db62376d305b6ef54d5f4b
+_md5_=a2b0be9a94ea862f695a98409553a581
