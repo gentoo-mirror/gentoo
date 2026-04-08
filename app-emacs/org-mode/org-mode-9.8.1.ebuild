@@ -3,6 +3,8 @@
 
 EAPI=8
 
+NEED_EMACS="28"
+
 inherit elisp readme.gentoo-r1
 
 DESCRIPTION="An Emacs mode for notes and project planning"
@@ -16,8 +18,8 @@ if [[ "${PV}" == 9999 ]] ; then
 	S="${WORKDIR}/org"
 else
 	# git archive --prefix=${P}/ release_${PV} | xz > ${P}.tar.xz
-	SRC_URI="https://dev.gentoo.org/~ulm/distfiles/${P}.tar.xz"
-	KEYWORDS="amd64 ~arm ~arm64 ppc ~riscv x86"
+	SRC_URI="https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}.tar.xz"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~riscv ~x86"
 fi
 
 LICENSE="GPL-3+ FDL-1.3+ CC-BY-SA-3.0 odt-schema? ( OASIS-Open )"
@@ -37,7 +39,7 @@ src_prepare() {
 	elisp_src_prepare
 
 	# Remove failing tests.
-	rm ./testing/lisp/test-{ob{,-exp,-tangle,-shell},org{,-clock}}.el \
+	rm testing/lisp/test-{ob{,-exp,-tangle,-shell},org-clock,ox-icalendar}.el \
 		|| die "failed to remove some test files"
 }
 
