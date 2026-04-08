@@ -1,0 +1,14 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst prepare test
+DEPEND=dev-libs/glib:2 >=x11-libs/gtk+-3.5.1:3 >=x11-misc/xdg-user-dirs-0.14
+DESCRIPTION=Integrates xdg-user-dirs into the Gnome desktop and Gtk+ applications
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/GNOME/xdg-user-dirs-gtk
+INHERIT=gnome.org meson readme.gentoo-r1
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/glib:2 >=x11-libs/gtk+-3.5.1:3 >=x11-misc/xdg-user-dirs-0.14
+SLOT=0
+SRC_URI=mirror://gnome/sources/xdg-user-dirs-gtk/0.16/xdg-user-dirs-gtk-0.16.tar.xz
+_eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327
+_md5_=82d26283fafb2923a9f7e78c7ab3254f
