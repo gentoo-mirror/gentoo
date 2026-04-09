@@ -1,4 +1,4 @@
-BDEPEND=dev-util/wayland-scanner virtual/pkgconfig x11-base/xorg-proto gtk-doc? ( dev-util/gtk-doc ) test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) ) vala? ( || ( dev-lang/vala:0.56[vapigen(+)] ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=dev-util/wayland-scanner virtual/pkgconfig x11-base/xorg-proto gtk-doc? ( dev-util/gtk-doc ) test? ( || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) ) vala? ( || ( dev-lang/vala:0.56[vapigen(+)] ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=>=x11-libs/gtk+-3.24.39:3[introspection?,wayland] >=dev-libs/wayland-1.10.0 >=dev-libs/wayland-protocols-1.16
 DESCRIPTION=Library to create desktop components for Wayland using the Layer Shell protocol
@@ -6,12 +6,12 @@ EAPI=8
 HOMEPAGE=https://github.com/wmww/gtk-layer-shell
 INHERIT=vala meson python-any-r1
 IUSE=examples gtk-doc introspection test vala
-KEYWORDS=~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=MIT-with-advertising LGPL-3+
 RDEPEND=>=x11-libs/gtk+-3.24.39:3[introspection?,wayland] >=dev-libs/wayland-1.10.0 >=dev-libs/wayland-protocols-1.16
 REQUIRED_USE=vala? ( introspection )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/wmww/gtk-layer-shell/archive/refs/tags/v0.9.2.tar.gz -> gtk-layer-shell-0.9.2.tar.gz
+SRC_URI=https://github.com/wmww/gtk-layer-shell/archive/refs/tags/v0.10.1.tar.gz -> gtk-layer-shell-0.10.1.tar.gz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	vala	b2f2aa400d77b841d952dda847e24d53	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=011a5ac55f86cca05e1e49c6f58700f8
+_md5_=dba0924ad119965dd69016098b9d87e2
