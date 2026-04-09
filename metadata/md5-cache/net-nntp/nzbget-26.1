@@ -1,0 +1,16 @@
+BDEPEND=test? ( || ( app-arch/rar app-arch/unrar ) ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst preinst prepare test
+DEPEND=dev-libs/boost:= dev-libs/libxml2:= ncurses? ( sys-libs/ncurses:0= ) ssl? ( dev-libs/openssl:0=[-bindist(-)] ) zlib? ( virtual/zlib:= )
+DESCRIPTION=A command-line based binary newsgrabber supporting .nzb files
+EAPI=8
+HOMEPAGE=https://nzbget.com/
+INHERIT=cmake systemd
+IUSE=ncurses +parcheck ssl test zlib
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
+LICENSE=GPL-2+
+RDEPEND=dev-libs/boost:= dev-libs/libxml2:= ncurses? ( sys-libs/ncurses:0= ) ssl? ( dev-libs/openssl:0=[-bindist(-)] ) zlib? ( virtual/zlib:= ) acct-user/nzbget acct-group/nzbget
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=parcheck? ( https://github.com/nzbgetcom/par2cmdline-turbo/archive/v1.4.0-20260323.tar.gz -> nzbgetcom-par2turbo-1.4.0-20260323.tar.gz ) https://github.com/nzbgetcom/rapidyenc/archive/v1.1.1-20260217.tar.gz -> nzbgetcom-rapidyenc-1.1.1-20260217.tar.gz https://github.com/nzbgetcom/nzbget/archive/v26.1.tar.gz -> nzbget-26.1.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=b0c63ebe4f34d7a7425d5d914eda9585
