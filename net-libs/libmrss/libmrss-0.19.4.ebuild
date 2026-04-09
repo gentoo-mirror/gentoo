@@ -1,26 +1,35 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=9
 
-DESCRIPTION="A C-library for parsing and writing XML 1.0/1.1 files or streams"
-HOMEPAGE="https://www.autistici.org/bakunin/libnxml/doc/"
-SRC_URI="https://www.autistici.org/bakunin/${PN}/${P}.tar.gz"
+inherit autotools
+
+DESCRIPTION="A C-library for parsing and writing RSS 0.91/0.92/1.0/2.0 files or streams"
+HOMEPAGE="https://www.autistici.org/bakunin/libmrss/doc/"
+SRC_URI="https://github.com/bakulf/libmrss/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~mips ppc ~ppc64 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~x86"
 IUSE="doc examples"
 
-RDEPEND="net-misc/curl"
+RDEPEND="
+	net-libs/libnxml
+	net-misc/curl"
 DEPEND="${RDEPEND}"
-BDEPEND="doc? ( app-text/doxygen )"
+BDEPEND="
+	virtual/pkgconfig
+	doc? ( app-text/doxygen[dot] )"
+
+# TODO: php-bindings
 
 src_prepare() {
 	default
+	eautoreconf
 
 	# Fix lib dir in installed pkgconfig file
-	sed -i -e "s:\${exec_prefix}/lib:\${exec_prefix}/$(get_libdir):" nxml.pc.in \
+	sed -i -e "s:\${exec_prefix}/lib:\${exec_prefix}/$(get_libdir):" mrss.pc.in \
 		|| die "Failed to correct pkgconfig file"
 }
 

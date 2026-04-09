@@ -10,11 +10,13 @@ inherit desktop distutils-r1 optfeature readme.gentoo-r1 virtualx xdg
 
 DESCRIPTION="The highly caffeinated git GUI"
 HOMEPAGE="https://git-cola.github.io/"
-SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://gitlab.com/${PN}/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.bz2 -> ${P}.tar.bz2"
+
+S="${WORKDIR}/${PN}-v${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	$(python_gen_cond_dep '
@@ -36,9 +38,10 @@ BDEPEND="
 	")
 "
 
+EPYTEST_PLUGINS=()
+distutils_enable_tests pytest
 distutils_enable_sphinx docs \
 	'dev-python/rst-linker'
-distutils_enable_tests pytest
 
 src_prepare() {
 	# remove bundled qtpy and polib
