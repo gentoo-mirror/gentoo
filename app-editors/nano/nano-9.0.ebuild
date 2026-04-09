@@ -45,10 +45,6 @@ REQUIRED_USE="
 # gnulib FPs
 QA_CONFIG_IMPL_DECL_SKIP=( unreachable MIN static_assert )
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-8.7-glibc-2.43-c23.patch
-)
-
 src_prepare() {
 	default
 
