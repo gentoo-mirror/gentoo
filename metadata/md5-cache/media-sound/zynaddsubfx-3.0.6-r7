@@ -1,0 +1,16 @@
+BDEPEND=dev-lang/ruby:* virtual/pkgconfig doc? ( app-text/doxygen[dot] ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/mxml:0 media-libs/liblo sci-libs/fftw:3.0 virtual/zlib:= virtual/opengl alsa? ( media-libs/alsa-lib ) doc? ( dev-texlive/texlive-fontutils ) dssi? ( media-libs/dssi ) jack? ( virtual/jack ) lash? ( media-sound/lash ) portaudio? ( media-libs/portaudio )
+DESCRIPTION=Software synthesizer capable of making a countless number of instruments
+EAPI=8
+HOMEPAGE=https://zynaddsubfx.sourceforge.net/
+INHERIT=cmake flag-o-matic prefix toolchain-funcs
+IUSE=+alsa doc dssi jack lash portaudio
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/mxml:0 media-libs/liblo sci-libs/fftw:3.0 virtual/zlib:= virtual/opengl alsa? ( media-libs/alsa-lib ) doc? ( dev-texlive/texlive-fontutils ) dssi? ( media-libs/dssi ) jack? ( virtual/jack ) lash? ( media-sound/lash ) portaudio? ( media-libs/portaudio ) media-fonts/roboto
+REQUIRED_USE=|| ( alsa jack portaudio )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/zynaddsubfx/zynaddsubfx-3.0.6.tar.bz2 https://downloads.sourceforge.net/zynaddsubfx/zyn-fusion-ui-src-3.0.6.tar.bz2
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
+_md5_=2a9f6891e0f55fc9fa0bbaf006f019b1
