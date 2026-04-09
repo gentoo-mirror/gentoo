@@ -1364,7 +1364,7 @@ app-containers/cadvisor 0.49.2 0.53.0: Analyzes resource usage and performance c
 app-containers/catatonit 0.2.0 0.2.1 9999: A container init that is so simple it's effectively brain-dead
 app-containers/cni-plugins 1.3.0 1.5.1 1.6.1 1.6.2: Standard networking plugins for container networking
 app-containers/conmon 2.1.11 2.1.13 9999: An OCI container runtime monitor
-app-containers/containerd 2.0.2 2.0.3 2.0.4 2.0.5 2.0.7 2.1.0 2.1.1 2.1.4 2.1.5 2.2.0 2.2.1: A daemon to control runC
+app-containers/containerd 2.0.2 2.0.3 2.0.4 2.0.5 2.0.7 2.1.0 2.1.1 2.1.4 2.1.5 2.2.0 2.2.1 2.2.2: A daemon to control runC
 app-containers/containers-common 0.63.0 0.64.2 9999: Common config files and docs for Containers stack
 app-containers/containers-image 5.34.2 5.35.0 5.36.2 9999: Default config and docs related to Containers' images
 app-containers/containers-shortnames 2023.02.20 2025.03.19 9999: Configures default shortnames (aliases) for Containers
@@ -1406,7 +1406,7 @@ app-containers/reg 0.16.1-r1: Docker registry v2 command line client
 app-containers/runc 1.2.4 1.2.5 1.2.6 1.2.8 1.3.0 1.3.1 1.3.3 1.4.0-r1: runc container cli tools
 app-containers/s6-overlay 2.1.0.2-r1: an s6-based init system for containers
 app-containers/sen 0.8.0: Terminal User Interface for docker engine
-app-containers/skopeo 1.18.0-r1 1.19.0 1.21.0 9999: Work with remote container images registries
+app-containers/skopeo 1.18.0-r1 1.19.0 1.21.0 1.22.0 9999: Work with remote container images registries
 app-containers/slirp4netns 1.3.3: User-mode networking for unprivileged network namespaces
 app-containers/snapd 2.63: Service and tools for management of snap packages
 app-containers/syft 0.75.0 0.76.0 0.94.0 0.95.0 1.9.0 1.18.1: Generate a Software Bill of Materials from container images and filesystems
@@ -4307,7 +4307,7 @@ dev-go/go-tools 0.28.0: Tools that support the Go programming language (godoc, e
 dev-go/go-tour 0_pre20200201: A Tour of Go
 dev-go/gocov 1.1.0: Coverage testing tool for The Go Programming Language
 dev-go/gogo-protobuf 1.3.2: Protocol Buffers for Go with Gadgets
-dev-go/golangci-lint 1.64.7 2.5.0 2.6.1 2.6.2 2.7.2: Fast linters runner for Go
+dev-go/golangci-lint 1.64.7 2.5.0 2.6.1 2.6.2 2.7.2 2.11.4: Fast linters runner for Go
 dev-go/gopls 0.18.1 0.19.0 0.19.1 0.20.0 0.21.0 0.21.1: "Go please" is the official Go language server
 dev-go/gotestsum 1.13.0: 'go test' runner with output optimized for humans
 dev-go/goversion 1.2.0-r1: Print version used to build Go executables
@@ -14699,7 +14699,7 @@ net-dialup/linux-atm 2.5.2-r1 2.5.2-r2: Tools for ATM
 net-dialup/lrzsz 0.12.20-r10: Communication package providing the X, Y, and ZMODEM file transfer protocols
 net-dialup/mgetty 1.2.1-r4: A programm for sending and receiving fax and voice
 net-dialup/mingetty 1.08-r3: A compact getty program for virtual consoles only
-net-dialup/minicom 2.10 2.10-r1 2.11.1: Serial Communication Program
+net-dialup/minicom 2.11.1: Serial Communication Program
 net-dialup/moserial 3.0.21: A clean and friendly gtk-based serial terminal
 net-dialup/mwavem 2.0-r3: User level application for IBM Mwave modem
 net-dialup/neocon 20110228-r1: Simple serial console utility that tries to open ttys repeatedly

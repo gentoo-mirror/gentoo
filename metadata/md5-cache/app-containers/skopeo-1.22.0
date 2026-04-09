@@ -1,0 +1,16 @@
+BDEPEND=dev-go/go-md2man >=dev-lang/go-1.20:= app-arch/unzip
+DEFINED_PHASES=compile install setup unpack
+DEPEND=>=app-crypt/gpgme-1.5.5:= dev-db/sqlite:3 btrfs? ( >=sys-fs/btrfs-progs-4.0.1 ) rootless? ( sys-apps/shadow:= )
+DESCRIPTION=Work with remote container images registries
+EAPI=8
+HOMEPAGE=https://github.com/containers/skopeo
+INHERIT=go-module linux-info
+IUSE=btrfs rootless
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT
+RDEPEND=>=app-crypt/gpgme-1.5.5:= dev-db/sqlite:3 btrfs? ( >=sys-fs/btrfs-progs-4.0.1 ) rootless? ( sys-apps/shadow:= ) app-containers/containers-common
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/containers/skopeo/archive/v1.22.0.tar.gz -> skopeo-1.22.0.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	go-env	f7f56c1e72a626b159373a2c2b89af39	go-module	1333f0eba2be11d0afeadce17a07af4d	linux-info	efd923656513c879204fec6638eadee5
+_md5_=cba26dc74bd3551cea4c6cd0632f61ec
