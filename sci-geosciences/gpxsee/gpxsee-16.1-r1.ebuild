@@ -18,6 +18,7 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
 RDEPEND="
 	dev-qt/qtbase:6=[concurrent,gui,network,opengl,sql,widgets]
+	dev-qt/qtmultimedia:6
 	dev-qt/qtpositioning:6
 	dev-qt/qtsvg:6
 "
