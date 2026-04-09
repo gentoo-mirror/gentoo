@@ -459,6 +459,8 @@ app-crypt/tpm2-tss:fapi - Enable feature API (requires openssl as crypto backend
 app-crypt/tpm2-tss:mbedtls - Use net-libs/mbedtls as crypto engine
 app-crypt/tpm2-tss:openssl - Use dev-libs/openssl as crypto engine
 app-crypt/tpm2-tss:policy - Enable policy library (requires openssl as crypto backend)
+app-crypt/uacme:openssl - Use dev-libs/openssl as TLS backend
+app-crypt/uacme:ualpn - Build uapln - lightweight proxying ACMEv2 tls-alpn-01 responder
 app-crypt/zulucrypt:kwallet - Enable encrypted storage of passwords with kde-frameworks/kwallet
 app-crypt/zulucrypt:udev - Whether udev will be consulted when deciding if a volume is system or not
 app-dicts/aspell-be:classic - Support classic spelling by default
@@ -6936,6 +6938,7 @@ net-vpn/networkmanager-sstp:gtk4 - Use gui-libs/gtk for GUI support.
 net-vpn/networkmanager-strongswan:gtk4 - Use GTK4 instead of GTK3.
 net-vpn/ocserv:nftables - Use nftables instead of iptables in ocserv-fw
 net-vpn/ocserv:otp - Enable support for one-time passwords
+net-vpn/ocserv:root-tests - Enable tests requiring root/namespaces
 net-vpn/openconnect:gssapi - Build GSSAPI support
 net-vpn/openconnect:libproxy - Enable proxy support
 net-vpn/openconnect:pskc - Enable PSKC file storage of HOTP/TOTP keys

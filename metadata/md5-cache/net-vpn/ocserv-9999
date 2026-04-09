@@ -1,15 +1,15 @@
-BDEPEND=net-misc/ipcalc-ng virtual/pkgconfig test? ( net-libs/gnutls[tools(+)] net-libs/socket_wrapper net-vpn/openconnect sys-libs/nss_wrapper sys-libs/uid_wrapper pam? ( sys-libs/pam_wrapper ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=net-misc/ipcalc-ng virtual/pkgconfig test? ( dev-libs/libnl:3= dev-libs/libev:0= >=dev-libs/nettle-2.7:0= dev-libs/pcl:0= dev-libs/protobuf-c:0= >=net-libs/gnutls-3.3.0:0= sys-libs/readline:0= sys-libs/talloc:0= virtual/libcrypt:= geoip? ( dev-libs/geoip:0= ) kerberos? ( app-crypt/mit-krb5 ) lz4? ( app-arch/lz4:0= ) otp? ( sys-auth/oath-toolkit:0= ) pam? ( sys-libs/pam:0= ) radius? ( net-libs/radcli:0= ) seccomp? ( sys-libs/libseccomp:0= ) systemd? ( sys-apps/systemd:0= ) tcpd? ( sys-apps/tcp-wrappers:0= ) sys-apps/which nftables? ( net-firewall/nftables ) !nftables? ( net-firewall/iptables ) net-libs/gnutls[tools(+)] net-libs/socket_wrapper net-vpn/openconnect sys-libs/nss_wrapper sys-libs/uid_wrapper pam? ( sys-libs/pam_wrapper ) root-tests? ( net-analyzer/nmap[ncat(+)] net-misc/iperf ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup test unpack
 DEPEND=dev-libs/libnl:3= dev-libs/libev:0= >=dev-libs/nettle-2.7:0= dev-libs/pcl:0= dev-libs/protobuf-c:0= >=net-libs/gnutls-3.3.0:0= sys-libs/readline:0= sys-libs/talloc:0= virtual/libcrypt:= geoip? ( dev-libs/geoip:0= ) kerberos? ( app-crypt/mit-krb5 ) lz4? ( app-arch/lz4:0= ) otp? ( sys-auth/oath-toolkit:0= ) pam? ( sys-libs/pam:0= ) radius? ( net-libs/radcli:0= ) seccomp? ( sys-libs/libseccomp:0= ) systemd? ( sys-apps/systemd:0= ) tcpd? ( sys-apps/tcp-wrappers:0= )
 DESCRIPTION=Openconnect SSL VPN server
 EAPI=8
 HOMEPAGE=https://ocserv.gitlab.io/www/index.html
 INHERIT=linux-info meson systemd git-r3
-IUSE=geoip kerberos +lz4 +nftables otp pam radius +seccomp systemd tcpd test
+IUSE=geoip kerberos +lz4 +nftables otp pam radius +seccomp systemd tcpd root-tests test
 LICENSE=GPL-2
-PROPERTIES=live
-RDEPEND=dev-libs/libnl:3= dev-libs/libev:0= >=dev-libs/nettle-2.7:0= dev-libs/pcl:0= dev-libs/protobuf-c:0= >=net-libs/gnutls-3.3.0:0= sys-libs/readline:0= sys-libs/talloc:0= virtual/libcrypt:= geoip? ( dev-libs/geoip:0= ) kerberos? ( app-crypt/mit-krb5 ) lz4? ( app-arch/lz4:0= ) otp? ( sys-auth/oath-toolkit:0= ) pam? ( sys-libs/pam:0= ) radius? ( net-libs/radcli:0= ) seccomp? ( sys-libs/libseccomp:0= ) systemd? ( sys-apps/systemd:0= ) tcpd? ( sys-apps/tcp-wrappers:0= ) nftables? ( net-firewall/nftables ) !nftables? ( net-firewall/iptables )
-RESTRICT=!test? ( test )
+PROPERTIES=root-tests? ( test_privileged ) live
+RDEPEND=dev-libs/libnl:3= dev-libs/libev:0= >=dev-libs/nettle-2.7:0= dev-libs/pcl:0= dev-libs/protobuf-c:0= >=net-libs/gnutls-3.3.0:0= sys-libs/readline:0= sys-libs/talloc:0= virtual/libcrypt:= geoip? ( dev-libs/geoip:0= ) kerberos? ( app-crypt/mit-krb5 ) lz4? ( app-arch/lz4:0= ) otp? ( sys-auth/oath-toolkit:0= ) pam? ( sys-libs/pam:0= ) radius? ( net-libs/radcli:0= ) seccomp? ( sys-libs/libseccomp:0= ) systemd? ( sys-apps/systemd:0= ) tcpd? ( sys-apps/tcp-wrappers:0= ) sys-apps/which nftables? ( net-firewall/nftables ) !nftables? ( net-firewall/iptables )
+RESTRICT=!test? ( test ) root-tests? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	linux-info	efd923656513c879204fec6638eadee5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	systemd	a964c0cbe818b5729da1dbfcee5be861	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=ef8676686737be9b6ecc563b53f36c98
+_md5_=3b55e3099843c59ee8b177269215c74d

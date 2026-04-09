@@ -1,0 +1,16 @@
+BDEPEND=doc? ( app-text/asciidoc ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install prepare
+DEPEND=net-misc/curl:= openssl? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= )
+DESCRIPTION=uacme is a client for the RFC8555 ACMEv2 protocol.
+EAPI=8
+HOMEPAGE=https://github.com/ndilieto/uacme https://ndilieto.github.io/uacme/uacme.html https://ndilieto.github.io/uacme/ualpn.html
+INHERIT=autotools
+IUSE=doc gnutls +openssl +ualpn
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=net-misc/curl:= openssl? ( dev-libs/openssl:= ) gnutls? ( net-libs/gnutls:= )
+REQUIRED_USE=^^ ( gnutls openssl )
+SLOT=0
+SRC_URI=https://github.com/ndilieto/uacme/archive/refs/tags/v1.8.1.tar.gz -> uacme-1.8.1.tar.gz
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112
+_md5_=727bc22304251831d3ad3d22660526ab
