@@ -1,0 +1,16 @@
+BDEPEND=verify-sig? ( >=sec-keys/openpgp-keys-plexmediaserver-20240120 ) virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=install postinst unpack
+DEPEND=acct-group/plex acct-user/plex
+DESCRIPTION=Free media library that is intended for use with a plex client
+EAPI=8
+HOMEPAGE=https://www.plex.tv/
+INHERIT=eapi9-pipestatus readme.gentoo-r1 systemd unpacker pax-utils verify-sig
+IUSE=verify-sig verify-sig
+KEYWORDS=-* amd64 ~arm arm64 ~x86
+LICENSE=all-rights-reserved
+RDEPEND=acct-group/plex acct-user/plex
+RESTRICT=bindist
+SLOT=0
+SRC_URI=amd64? ( https://downloads.plex.tv/plex-media-server-new/1.43.1.10576-06378bdcd/debian/plexmediaserver_1.43.1.10576-06378bdcd_amd64.deb ) arm? ( https://downloads.plex.tv/plex-media-server-new/1.43.1.10576-06378bdcd/debian/plexmediaserver_1.43.1.10576-06378bdcd_armhf.deb ) arm64? ( https://downloads.plex.tv/plex-media-server-new/1.43.1.10576-06378bdcd/debian/plexmediaserver_1.43.1.10576-06378bdcd_arm64.deb ) x86? ( https://downloads.plex.tv/plex-media-server-new/1.43.1.10576-06378bdcd/debian/plexmediaserver_1.43.1.10576-06378bdcd_i386.deb ) verify-sig? ( https://repo.plex.tv/deb/dists/public/InRelease -> plex-media-server-1.43.1.10576-InRelease amd64? ( https://repo.plex.tv/deb/dists/public/main/binary-amd64/Packages -> plex-media-server-1.43.1.10576-Packages.amd64 ) arm? ( https://repo.plex.tv/deb/dists/public/main/binary-armhf/Packages -> plex-media-server-1.43.1.10576-Packages.arm ) arm64? ( https://repo.plex.tv/deb/dists/public/main/binary-arm64/Packages -> plex-media-server-1.43.1.10576-Packages.arm64 ) x86? ( https://repo.plex.tv/deb/dists/public/main/binary-i386/Packages -> plex-media-server-1.43.1.10576-Packages.x86 ) )
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	systemd	a964c0cbe818b5729da1dbfcee5be861	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	pax-utils	5555f2e75744739fe100ee62c22d28fe	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=32078779cfdafdab1e5d68e62bc48509
