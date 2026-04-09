@@ -1,17 +1,17 @@
-BDEPEND=test? ( ruby_targets_ruby32? ( >=dev-ruby/sassc-2.0.1:2[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby32? ( test? ( >=www-apps/jekyll-2[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) test? ( ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) )
+BDEPEND=test? ( ruby_targets_ruby32? ( >=dev-ruby/sassc-2.0.1:2[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/sassc-2.0.1:2[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( >=dev-ruby/sassc-2.0.1:2[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( test? ( >=www-apps/jekyll-2[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( >=www-apps/jekyll-2[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( test? ( >=www-apps/jekyll-2[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( doc? ( dev-ruby/rdoc[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby32(-)] ) ) ruby_targets_ruby33? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby33(-)] ) ) ruby_targets_ruby34? ( test? ( dev-ruby/rspec:3[ruby_targets_ruby34(-)] ) ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) test? ( ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] ) )
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
+DEPEND=ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
 DESCRIPTION=A basic Sass converter for Jekyll
 EAPI=8
 HOMEPAGE=https://github.com/jekyll/jekyll-sass-converter
 INHERIT=ruby-fakegem
-IUSE=test ruby_targets_ruby32 doc test test
+IUSE=test ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 doc test test
 KEYWORDS=~amd64 ~arm64
 LICENSE=MIT
-RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/sassc-2.0.1:2[ruby_targets_ruby32(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] )
-REQUIRED_USE=|| ( ruby_targets_ruby32 )
+RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/sassc-2.0.1:2[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/sassc-2.0.1:2[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( >=dev-ruby/sassc-2.0.1:2[ruby_targets_ruby34(-)] ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 ) ruby_targets_ruby32? ( virtual/rubygems[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( virtual/rubygems[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( virtual/rubygems[ruby_targets_ruby34(-)] )
+REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 )
 RESTRICT=!test? ( test ) !test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jekyll/jekyll-sass-converter/archive/v2.2.0.tar.gz -> jekyll-sass-converter-2.2.0.tar.gz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	multilib	fc812e8eb2170022c28272d80a1f9e77	ruby-utils	70349884e22849da218b0f0c4a32da54	ruby-ng	705ab926556cb5cb4811999dd0c670b0	ruby-fakegem	48f84e242da52518087150e5f863d4e8
-_md5_=fb6801d31ff5b36acc79bf22853abd80
+_md5_=445233213fdd250d091a7d08c3a217e3
