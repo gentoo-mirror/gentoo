@@ -1,24 +1,23 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
+RUST_MIN_VER="1.75.0"
 
 # for virtme-ng-init
 CRATES="
 	base64@0.22.1
-	bitflags@2.8.0
-	cfg-if@1.0.0
+	bitflags@2.11.0
+	cfg-if@1.0.4
 	cfg_aliases@0.2.1
-	libc@0.2.169
-	log@0.4.21
+	libc@0.2.183
 	nix@0.29.0
-	uzers@0.12.1
 "
 
-inherit bash-completion-r1 cargo distutils-r1
+inherit cargo distutils-r1 shell-completion
 
 DESCRIPTION="Quickly build and run kernels inside a virtualized snapshot of your live system"
 HOMEPAGE="https://github.com/arighi/virtme-ng"
@@ -34,7 +33,7 @@ LICENSE="GPL-2"
 LICENSE+=" MIT"
 SLOT="0"
 
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DEPEND="
 	dev-python/argcomplete[${PYTHON_USEDEP}]
@@ -79,9 +78,9 @@ src_test() {
 
 src_install() {
 	distutils-r1_src_install
-	insinto etc
-	doins cfg/${PN}.conf
-	dobashcomp virtme-ng-prompt vng-prompt
+	newbashcomp virtme-ng-prompt virtme-ng
+	newbashcomp vng-prompt vng
+	dozshcomp virtme-ng-prompt vng-prompt
 
 	cd virtme_ng_init || die
 	cargo_src_install
