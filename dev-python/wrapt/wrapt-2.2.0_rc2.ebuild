@@ -7,7 +7,7 @@ DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 MY_P=${P/_}
 DESCRIPTION="Module for decorators, wrappers and monkey patching"
@@ -15,11 +15,6 @@ HOMEPAGE="
 	https://github.com/GrahamDumpleton/wrapt/
 	https://pypi.org/project/wrapt/
 "
-SRC_URI="
-	https://github.com/GrahamDumpleton/wrapt/archive/${PV/_}.tar.gz
-		-> ${MY_P}.gh.tar.gz
-"
-S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
@@ -30,7 +25,13 @@ IUSE="+native-extensions"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# skip mypy tests, they are fragile
+	rm -r tests/mypy || die
+}
 
 python_compile() {
 	local -x WRAPT_INSTALL_EXTENSIONS=$(usex native-extensions true false)
