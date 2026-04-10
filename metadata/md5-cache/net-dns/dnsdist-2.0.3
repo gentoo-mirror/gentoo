@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.dnsdist.org/index.html
 INHERIT=cargo flag-o-matic lua-single meson python-any-r1 toolchain-funcs
 IUSE=bpf cdb dnscrypt dnstap doh doh3 ipcipher lmdb quic regex snmp +ssl systemd test web xdp yaml debug lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2
 RDEPEND=acct-group/dnsdist acct-user/dnsdist bpf? ( dev-libs/libbpf:= ) cdb? ( dev-db/tinycdb:= ) sys-libs/libcap dev-libs/libedit dev-libs/libsodium:= dnstap? ( dev-libs/fstrm ) doh? ( net-libs/nghttp2:= ) doh3? ( net-libs/quiche:= ) lmdb? ( dev-db/lmdb:= ) quic? ( net-libs/quiche ) regex? ( dev-libs/re2:= ) snmp? ( net-analyzer/net-snmp:= ) ssl? ( dev-libs/openssl:= ) systemd? ( sys-apps/systemd:0= ) xdp? ( net-libs/xdp-tools ) lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 )
 REQUIRED_USE=^^ ( lua_single_target_luajit lua_single_target_lua5-1 lua_single_target_lua5-3 lua_single_target_lua5-4 ) dnscrypt? ( ssl ) doh? ( ssl ) doh3? ( ssl quic ) ipcipher? ( ssl ) quic? ( ssl )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://downloads.powerdns.com/releases/dnsdist-2.0.3.tar.xz yaml? ( https://www.applied-asynchrony.com/distfiles/dnsdist-rust-2.0.3-crates.tar.xz )
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	0d1cc00e0e91a021b50b0491e361ad41	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	ace036f48c4ad5c1938fccedf35ccf45	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	meson	12065b402c6d78a2aec926ed8dfd964f	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=345c15e270e95923819c0d44375fee2b
+_md5_=cc242e61338f1a580d43bfce328587b3
