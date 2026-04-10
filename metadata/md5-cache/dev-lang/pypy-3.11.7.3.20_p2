@@ -11,6 +11,6 @@ PDEPEND=ensurepip? ( dev-python/ensurepip-pip dev-python/ensurepip-setuptools )
 RDEPEND=|| ( dev-lang/pypy3-exe:3.11.7.3.20[bzip2(+),ncurses?] dev-lang/pypy3-exe-bin:3.11.7.3.20 ) dev-lang/python-exec[python_targets_pypy3_11(-)] dev-libs/openssl:0= dev-python/gentoo-common gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) symlink? ( !dev-lang/pypy:3.10[symlink(-)] !<dev-python/pypy3-7.3.17-r100 )
 RESTRICT=test
 SLOT=3.11/pypy311-pp73-416
-SRC_URI=https://downloads.python.org/pypy/pypy3.11-v7.3.20-src.tar.bz2 https://buildbot.pypy.org/pypy/pypy3.11-v7.3.20-src.tar.bz2 https://dev.gentoo.org/~mgorny/dist/python/pypy3.11-gentoo-patches-7.3.20_p2.tar.xz
+SRC_URI=https://downloads.python.org/pypy/pypy3.11-v7.3.20-src.tar.bz2 https://buildbot.pypy.org/pypy/pypy3.11-v7.3.20-src.tar.bz2 https://distfiles.gentoo.org/pub/proj/python/patchsets/pypy3.11/pypy3.11-gentoo-patches-7.3.20_p2.tar.xz
 _eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	pax-utils	5555f2e75744739fe100ee62c22d28fe	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd
-_md5_=4ea0b4df6eed015c91c8e6f4afcf0ee7
+_md5_=c24b68adc96f251181f656cc7407258c
