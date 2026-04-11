@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,7 +19,7 @@ SLOT=$(ver_cut 1-2)
 MY_SUFFIX=$(ver_rs 1 '' ${SLOT})
 RUBYVERSION=${SLOT}.0
 
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 IUSE="berkdb debug doc examples gdbm jemalloc jit socks5 +ssl static-libs systemtap tk valgrind xemacs"
 
 RDEPEND="
@@ -62,7 +62,7 @@ BUNDLED_GEMS="
 	>=dev-ruby/prime-0.1.2[ruby_targets_ruby32(-)]
 	>=dev-ruby/rake-13.0.6-r2[ruby_targets_ruby32(-)]
 	>=dev-ruby/rbs-2.8.2[ruby_targets_ruby32(-)]
-	>=dev-ruby/rexml-3.3.9[ruby_targets_ruby32(-)]
+	>=dev-ruby/rexml-3.4.4[ruby_targets_ruby32(-)]
 	>=dev-ruby/rss-0.3.1[ruby_targets_ruby32(-)]
 	>=dev-ruby/test-unit-3.5.7[ruby_targets_ruby32(-)]
 	>=dev-ruby/typeprof-0.21.3[ruby_targets_ruby32(-)]
@@ -94,7 +94,7 @@ src_prepare() {
 	fi
 
 	einfo "Unbundling gems..."
-	cd "$S"
+	cd "${S}" || die
 	# Remove bundled gems that we will install via PDEPEND, bug
 	# 539700.
 	rm -fr gems/* || die
@@ -144,7 +144,7 @@ src_prepare() {
 }
 
 src_configure() {
-	local modules="win32,win32ole" myconf=
+	local modules="win32,win32ole"
 
 	# Ruby's build system does interesting things with MAKEOPTS and doesn't
 	# handle MAKEOPTS="-Oline" or similar well. Just filter it all out
@@ -180,7 +180,7 @@ src_configure() {
 	fi
 
 	# Increase GC_MALLOC_LIMIT if set (default is 8000000)
-	if [ -n "${RUBY_GC_MALLOC_LIMIT}" ] ; then
+	if [[ -n "${RUBY_GC_MALLOC_LIMIT}" ]] ; then
 		append-flags "-DGC_MALLOC_LIMIT=${RUBY_GC_MALLOC_LIMIT}"
 	fi
 
@@ -203,34 +203,39 @@ src_configure() {
 	# #564272
 	# except on Darwin, where we really need LIBPATHENV to set the right
 	# DYLD_ stuff during the invocation of miniruby for it to work
-	#
-	# --with-setjmp-type=setjmp for bug #949016
 	[[ ${CHOST} == *-darwin* ]] || export LIBPATHENV=""
-	INSTALL="${EPREFIX}/usr/bin/install -c" econf \
-		--program-suffix=${MY_SUFFIX} \
-		--with-soname=ruby${MY_SUFFIX} \
-		--with-readline-dir="${EPREFIX}"/usr \
-		--enable-shared \
-		--enable-pthread \
-		--disable-rpath \
-		--without-baseruby \
-		--with-compress-debug-sections=no \
-		--with-setjmp-type=setjmp \
-		--enable-mkmf-verbose \
-		--with-out-ext="${modules}" \
-		$(use_with jemalloc jemalloc) \
-		$(use_enable jit jit-support) \
-		$(use_enable jit yjit) \
-		$(use_enable socks5 socks) \
-		$(use_enable systemtap dtrace) \
-		$(use_enable doc install-doc) \
-		$(use_enable static-libs static) \
-		$(use_enable static-libs install-static-library) \
-		$(use_with static-libs static-linked-ext) \
-		$(use_enable debug) \
-		${myconf} \
-		$(use_with valgrind) \
+
+	local myeconfargs=(
+		--program-suffix=${MY_SUFFIX}
+		--with-soname=ruby${MY_SUFFIX}
+		--with-readline-dir="${EPREFIX}"/usr
+		--enable-shared
+		--enable-pthread
+		--disable-rpath
+		--without-baseruby
+		--with-compress-debug-sections=no
+		# --with-setjmp-type=setjmp for bug #949016
+		--with-setjmp-type=setjmp
+		--enable-mkmf-verbose
+		--with-out-ext="${modules}"
+		$(use_with jemalloc jemalloc)
+		$(use_enable jit jit-support)
+		$(use_enable jit yjit)
+		$(use_enable socks5 socks)
+		$(use_enable systemtap dtrace)
+		$(use_enable doc install-doc)
+		$(use_enable static-libs static)
+		$(use_enable static-libs install-static-library)
+		$(use_with static-libs static-linked-ext)
+		$(use_enable debug)
+		$(use_with valgrind)
 		--enable-option-checking=no
+	)
+
+	# Fix co-routine selection for x32, bug 933070
+	[[ ${CHOST} == *gnux32 ]] && myeconfargs+=( --with-coroutine=amd64 )
+
+	INSTALL="${EPREFIX}/usr/bin/install -c" econf "${myeconfargs[@]}"
 
 	# Makefile is broken because it lacks -ldl
 	rm -rf ext/-test-/popen_deadlock || die
