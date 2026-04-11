@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..13} )
 
-inherit toolchain-funcs python-single-r1 linux-info
+inherit flag-o-matic toolchain-funcs python-single-r1 linux-info
 
 DESCRIPTION="Security sandbox for any type of processes"
 HOMEPAGE="https://firejail.wordpress.com/"
@@ -16,7 +16,7 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 else
 	SRC_URI="https://github.com/netblue30/${PN}/releases/download/${PV}/${P}.tar.xz"
-	KEYWORDS="amd64 ~arm arm64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 LICENSE="GPL-2"
@@ -41,8 +41,10 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}/${PN}-0.9.70-envlimits.patch"
-	"${FILESDIR}/${PN}-0.9.70-firecfg.config.patch"
+	"${FILESDIR}/${PN}-0.9.80-firecfg.config.patch"
+	"${FILESDIR}/${PN}-0.9.80-manpage-nocompress.patch"
+	"${FILESDIR}/${PN}-0.9.80-arg-env-maxes.patch"
+	"${FILESDIR}/${PN}-0.9.80-profile-man-terminfo.patch"
 )
 
 pkg_setup() {
@@ -72,19 +74,17 @@ src_prepare() {
 		sed -i -r -e "s:/usr/share/doc/firejail([^-]|\$):/usr/share/doc/${PF}\1:" "${file}" || die
 	done
 
-	# remove compression of man pages
-	sed -i -r -e '/rm -f \$\$man.gz; \\/d; /gzip -9n \$\$man; \\/d; s|\*\.([[:digit:]])\) install -m 0644 \$\$man\.gz|\*\.\1\) install -m 0644 \$\$man|g' Makefile || die
-
 	if use contrib; then
 		python_fix_shebang -f contrib/*.py
 	fi
 }
 
 src_configure() {
+	# bug #937374
+	use elibc_musl && append-cppflags -D_LARGEFILE64_SOURCE
+
 	local myeconfargs=(
 		--disable-fatal-warnings
-		--disable-firetunnel
-		--disable-lts
 		--enable-suid
 		$(use_enable apparmor)
 		$(use_enable chroot)

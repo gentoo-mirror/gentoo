@@ -1,7 +1,7 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit flag-o-matic toolchain-funcs
 
@@ -32,9 +32,10 @@ DEPEND="
 	zstd? ( app-arch/zstd )
 "
 
-RDEPEND=${DEPEND}
-
-PATCHES=( "${FILESDIR}/${P}_signal-fix.patch" )
+RDEPEND="
+	!sys-fs/squashfs-tools
+	${DEPEND}
+"
 
 use10() {
 	usex "${1}" 1 0
