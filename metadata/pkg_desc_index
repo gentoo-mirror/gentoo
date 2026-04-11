@@ -5704,7 +5704,7 @@ dev-libs/libxls 1.6.3: Library which can read Excel (xls) files
 dev-libs/libxlsxwriter 1.1.5-r1 1.1.6: C library for creating Excel XLSX files
 dev-libs/libxml2 2.13.9 2.14.6 2.15.0-r1 2.15.1 2.15.2 2.15.2-r1 9999: XML C parser and toolkit
 dev-libs/libxml2-compat 2.13.9: XML C parser and toolkit
-dev-libs/libxmlb 0.3.21 0.3.24 0.3.24-r1: Library to help create and query binary XML blobs
+dev-libs/libxmlb 0.3.21 0.3.24 0.3.24-r1 0.3.25: Library to help create and query binary XML blobs
 dev-libs/libxslt 1.1.45 9999: XSLT libraries and tools
 dev-libs/libyaml 0.2.2 0.2.5: YAML 1.1 parser and emitter written in C
 dev-libs/libzia 4.70 4.71: Platform abstraction code for tucnak package
@@ -15015,7 +15015,7 @@ net-libs/libosmo-dsp 0.5.0 9999: Library with SDR DSP primitives
 net-libs/libotr 4.1.1-r2: (OTR) Messaging allows you to have private conversations over instant messaging
 net-libs/libpcap 1.10.6 9999: A system-independent library for user-level network packet capture
 net-libs/libprotoident 2.0.14_p1 2.0.15_p1 9999: A library that performs application layer protocol identification for flows
-net-libs/libproxy 0.5.9 0.5.11 0.5.12: Library for automatic proxy configuration management
+net-libs/libproxy 0.5.9 0.5.11 0.5.12-r1: Library for automatic proxy configuration management
 net-libs/libpsl 0.21.5: C library for the Public Suffix List
 net-libs/libqmi 1.32.4-r1 1.36.0 9999: Qualcomm MSM (Mobile Station Modem) Interface (QMI) modem protocol library
 net-libs/libqrtr-glib 1.2.2: Qualcomm IPC Router protocol helper library
@@ -17131,8 +17131,8 @@ sys-apps/fix-gnustack 0.1-r1: Utility to report and remove the executable flag f
 sys-apps/flashrom 1.5.1 1.6.0 1.7.0: Utility for reading, writing, erasing and verifying flash ROM chips
 sys-apps/flatpak 1.14.10 1.16.1 1.16.3 1.16.6: Linux application sandboxing and distribution framework
 sys-apps/fwts 22.03.00 23.11.00 24.03.00: Firmware Test Suite
-sys-apps/fwupd 1.9.24 2.0.1 2.0.3-r1 2.0.14 2.0.16 2.0.18: Aims to make updating firmware on Linux automatic, safe and reliable
-sys-apps/fwupd-efi 1.6-r1 1.7 1.8: EFI executable for fwupd
+sys-apps/fwupd 2.0.16 2.0.18 2.0.20: Aims to make updating firmware on Linux automatic, safe and reliable
+sys-apps/fwupd-efi 1.7 1.8: EFI executable for fwupd
 sys-apps/fxload 20081013-r1: USB firmware uploader
 sys-apps/gawk 5.3.2 5.4.0-r1 5.4.0-r2: GNU awk pattern-matching language
 sys-apps/gentoo-functions 0.19 1.7.4 1.7.5 1.7.6 9999: Base functions required by all Gentoo systems
@@ -18252,20 +18252,20 @@ www-client/firefox-bin 140.8.0 140.9.0 140.9.1 148.0.2 149.0 149.0.2: Firefox We
 www-client/firefox-l10n 149.0-r1 149.0.2: Firefox Web Browser's translation files
 www-client/google-chrome 146.0.7680.177 147.0.7727.55: The web browser from Google
 www-client/google-chrome-beta 147.0.7727.49 148.0.7778.5: The web browser from Google
-www-client/google-chrome-unstable 148.0.7766.3: The web browser from Google
+www-client/google-chrome-unstable 149.0.7779.3: The web browser from Google
 www-client/httrack 3.49.5: HTTrack Website Copier, Open Source Offline Browser
 www-client/jd 2.8.9_p150226-r2: gtk2 based 2ch browser written in C++
 www-client/links 2.30-r2 2.30-r3: A fast and lightweight web browser running in both graphics and text mode
 www-client/luakit 2.3.6 2.4.0: A fast, extensible, and customizable web browser
 www-client/lynx 2.9.0 2.9.2: An excellent console-based web browser with ssl support
-www-client/microsoft-edge 146.0.3856.97: The web browser from Microsoft
-www-client/microsoft-edge-beta 147.0.3912.37 147.0.3912.51 147.0.3912.55: The web browser from Microsoft
+www-client/microsoft-edge 147.0.3912.60: The web browser from Microsoft
+www-client/microsoft-edge-beta 147.0.3912.51 147.0.3912.55 147.0.3912.60: The web browser from Microsoft
 www-client/microsoft-edge-dev 148.0.3928.0 148.0.3943.0 148.0.3956.0: The web browser from Microsoft
 www-client/netrik 1.16.1-r3: A text based web browser with no ssl support
 www-client/netsurf 3.11-r1 9999: A free, open source web browser
 www-client/opera 130.0.5847.12: A fast and secure web browser
 www-client/opera-beta 124.0.5705.51 126.0.5750.11 126.0.5750.30: A fast and secure web browser
-www-client/opera-developer 130.0.5846.0 131.0.5853.0 131.0.5856.0: A fast and secure web browser
+www-client/opera-developer 131.0.5853.0 131.0.5856.0 131.0.5863.0: A fast and secure web browser
 www-client/opera-gx 129.0.5823.49 129.0.5823.64: Opera, but for 'gamers'
 www-client/pybugz 0.14 9999: Command line interface to (Gentoo) Bugzilla
 www-client/qutebrowser 3.6.3 3.7.0 9999: Keyboard-driven, vim-like browser based on Python and Qt
@@ -18274,8 +18274,8 @@ www-client/surf 2.1-r3 9999: A simple web browser based on WebKit/GTK+
 www-client/surfraw 2.3.0-r3 99999: A fast unix command line interface to WWW
 www-client/tangram 3.4 3.5: Web browser designed to organize and run Web applications
 www-client/uget 2.2.3 2.2.3-r1 9999: Download manager using gtk+ and libcurl
-www-client/vivaldi 7.9.3970.45 7.9.3970.47: A browser for our friends
-www-client/vivaldi-snapshot 7.10.3989.3 7.10.3995.3: A browser for our friends
+www-client/vivaldi 7.9.3970.47 7.9.3970.50: A browser for our friends
+www-client/vivaldi-snapshot 7.10.3995.3 7.10.4001.3: A browser for our friends
 www-client/w3m 0.5.3_p20240916 0.5.6: Text based WWW browser, supports tables and frames
 www-client/w3mmee 0.3.2_p24-r13: A variant of w3m with support for multiple character encodings
 www-misc/awstats 7.8-r1: AWStats is short for Advanced Web Statistics
@@ -18321,7 +18321,7 @@ www-nginx/ngx-xss 0.06: Native support for cross-site scripting (XSS) in NGINX
 www-nginx/ngx_devel_kit 0.3.4: An NGINX module that adds generic tools for third-party modules
 www-nginx/njs 0.9.4: A subset of JavaScript language to use in NGINX
 www-plugins/browserpass 3.1.2 3.1.2-r1: WebExtension host binary for app-admin/pass, a UNIX password manager
-www-plugins/chrome-binary-plugins 146.0.7680.177 147.0.7727.49_beta 147.0.7727.55 148.0.7766.3_alpha 148.0.7778.5_beta: Binary plugins from Google Chrome for use in Chromium
+www-plugins/chrome-binary-plugins 146.0.7680.177 147.0.7727.49_beta 147.0.7727.55 148.0.7778.5_beta 149.0.7779.3_alpha: Binary plugins from Google Chrome for use in Chromium
 www-plugins/lightspark 0.9.0: High performance flash player
 www-plugins/passff-host 1.2.4 1.2.5: Host app for the PassFF WebExtension
 www-plugins/pdfjs 4.5.136 4.9.155 4.10.38 5.0.375: A PDF reader in JavaScript

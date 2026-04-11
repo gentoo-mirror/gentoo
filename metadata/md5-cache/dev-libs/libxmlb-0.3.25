@@ -1,0 +1,16 @@
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) virtual/pkgconfig introspection? ( || ( ( dev-lang/python:3.14 dev-python/setuptools[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/setuptools[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/setuptools[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/setuptools[python_targets_python3_11(-)] ) ) ) verify-sig? ( sec-keys/openpgp-keys-hughsie ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install setup test unpack
+DEPEND=dev-libs/glib:2 lzma? ( app-arch/xz-utils ) stemmer? ( dev-libs/snowball-stemmer:= ) zstd? ( app-arch/zstd:= ) doc? ( dev-util/gtk-doc ) introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2 )
+DESCRIPTION=Library to help create and query binary XML blobs
+EAPI=8
+HOMEPAGE=https://github.com/hughsie/libxmlb
+INHERIT=meson python-any-r1 verify-sig
+IUSE=doc introspection +lzma stemmer test +zstd verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=dev-libs/glib:2 lzma? ( app-arch/xz-utils ) stemmer? ( dev-libs/snowball-stemmer:= ) zstd? ( app-arch/zstd:= )
+RESTRICT=!test? ( test )
+SLOT=0/2
+SRC_URI=https://github.com/hughsie/libxmlb/releases/download/0.3.25/libxmlb-0.3.25.tar.xz verify-sig? ( https://github.com/hughsie/libxmlb/releases/download/0.3.25/libxmlb-0.3.25.tar.xz.asc )
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	python-any-r1	891415dfe39ad9b41b461f2b86354af0	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=bfb509d542531bca1444c71f6c6e5fe9
