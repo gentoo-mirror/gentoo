@@ -1,29 +1,32 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 GCONF_DEBUG="no"
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="sqlite"
 
 ANTLR_VERSION=4.13.2
 
-inherit gnome2 flag-o-matic python-single-r1 cmake
+inherit flag-o-matic gnome2 cmake python-single-r1 verify-sig
 
 MY_P="${PN}-community-${PV}-src"
 
 DESCRIPTION="MySQL Workbench"
 HOMEPAGE="https://www.mysql.com/products/workbench/"
-SRC_URI="https://cdn.mysql.com/Downloads/MySQLGUITools/${MY_P}.tar.gz
-	https://www.antlr.org/download/antlr-${ANTLR_VERSION}-complete.jar"
+SRC_URI="
+	https://cdn.mysql.com/Downloads/MySQLGUITools/${MY_P}.tar.gz
+	https://www.antlr.org/download/antlr-${ANTLR_VERSION}-complete.jar
+	verify-sig? ( https://cdn.mysql.com/Downloads/MySQLGUITools/${MY_P}.tar.gz.asc )
+"
 S="${WORKDIR}"/"${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug doc"
+IUSE="debug doc wayland"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # glibc: deprecated mutex functions, removed in 2.36.0
@@ -35,9 +38,9 @@ CDEPEND="${PYTHON_DEPS}
 		dev-cpp/pangomm:1.4
 		>=dev-cpp/glibmm-2.14:2
 		dev-cpp/gtkmm:3.0
-		>=net-libs/libssh-0.9.5:=[server]
+		>=net-libs/libssh-0.9.5:=[server,sftp]
 		x11-libs/pango
-		x11-libs/gtk+:3
+		x11-libs/gtk+:3[X,wayland?]
 		>=x11-libs/cairo-1.5.12[glib,svg(+)]
 		>=dev-libs/rapidjson-1.1.0
 		dev-libs/libsigc++:2
@@ -57,15 +60,19 @@ CDEPEND="${PYTHON_DEPS}
 		dev-python/pexpect
 		>=dev-python/paramiko-1.7.4
 "
-
 RDEPEND="${CDEPEND}
 		app-admin/sudo
-		>=sys-apps/net-tools-1.60_p20120127084908"
+		>=sys-apps/net-tools-1.60_p20120127084908
+"
+DEPEND="${CDEPEND}"
+BDEPEND="
+	dev-lang/swig
+	>=virtual/jre-11
+	virtual/pkgconfig
+	verify-sig? ( >=sec-keys/openpgp-keys-mysql-20250120 )
+"
 
-DEPEND="${CDEPEND}
-		dev-lang/swig
-		>=virtual/jre-11
-		virtual/pkgconfig"
+VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/mysql.asc"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-6.2.5-wbcopytables.patch"
@@ -75,7 +82,11 @@ PATCHES=(
 )
 
 src_unpack() {
-	unpack ${PN}-community-${PV}-src.tar.gz
+	if use verify-sig; then
+		verify-sig_verify_detached "${DISTDIR}/${MY_P}.tar.gz" "${DISTDIR}/${MY_P}.tar.gz.asc"
+	fi
+
+	unpack ${MY_P}.tar.gz
 }
 
 src_prepare() {
@@ -95,6 +106,8 @@ src_configure() {
 	# https://bugs.gentoo.org/924671
 	# https://bugs.mysql.com/bug.php?id=115735
 	filter-lto
+
+	use wayland || append-cppflags -DGENTOO_GTK_HIDE_WAYLAND
 
 	if has_version dev-db/libiodbc ; then
 		IODBC="-DIODBC_CONFIG_PATH=/usr/bin/iodbc-config"

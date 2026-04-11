@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -11,14 +11,16 @@ SRC_URI="https://github.com/jemalloc/jemalloc/releases/download/${PV}/${P}.tar.b
 
 LICENSE="BSD"
 SLOT="0/2"
-#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~x86 ~x64-macos ~x64-solaris"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="debug lazy-lock prof stats xmalloc"
 HTML_DOCS=( doc/jemalloc.html )
 PATCHES=(
 	"${FILESDIR}/${PN}-5.3.0-gentoo-fixups.patch"
 	"${FILESDIR}/${PN}-5.3.0-backport-pr-2312.patch"
 	"${FILESDIR}/${PN}-5.3.0-backport-pr-2338.patch"
+	"${FILESDIR}/${PN}-5.3.0-aarch64-64kib-page-size.patch" # users can override by passing `--with-lg-pagesize=foo`
+	"${FILESDIR}/${PN}-5.3.0-dont-call-libstdcxx-internals.patch"
+	"${FILESDIR}/${PN}-5.3.0-gcc15-make-check.patch"
 )
 
 MULTILIB_WRAPPED_HEADERS=( /usr/include/jemalloc/jemalloc.h )
