@@ -13,20 +13,20 @@ SRC_URI="
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc ~ppc64 x86"
-IUSE="argon2 debug gnutls ldap maxminddb mbedtls mysql pcre pcre2 postgres re2 regex-posix regex-stdlib sqlite ssl sslrehashsignal tre"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
+IUSE="argon2 debug gnutls ldap log-json maxminddb mysql pcre2 postgres re2 regex-posix sqlite ssl sslrehashsignal syslog tre"
 
 RDEPEND="
 	acct-group/inspircd
 	acct-user/inspircd
 	dev-lang/perl
+	net-libs/libpsl
 	argon2? ( app-crypt/argon2 )
 	gnutls? ( net-libs/gnutls:= dev-libs/libgcrypt:0 )
 	ldap? ( net-nds/openldap:= )
+	log-json? ( dev-libs/yyjson )
 	maxminddb? ( dev-libs/libmaxminddb:= )
-	mbedtls? ( net-libs/mbedtls:0= )
 	mysql? ( dev-db/mysql-connector-c:= )
-	pcre? ( dev-libs/libpcre )
 	pcre2? ( dev-libs/libpcre2 )
 	postgres? ( dev-db/postgresql:= )
 	re2? ( dev-libs/re2:= )
@@ -47,18 +47,17 @@ src_configure() {
 	use argon2 && extras+="argon2,"
 	use gnutls && extras+="ssl_gnutls,"
 	use ldap && extras+="ldap,"
+	use log-json && extras+="log_json,"
 	use maxminddb && extras+="geo_maxmind,"
-	use mbedtls && extras+="ssl_mbedtls,"
 	use mysql && extras+="mysql,"
-	use pcre && extras+="regex_pcre,"
 	use pcre2 && extras+="regex_pcre2,"
 	use postgres && extras+="pgsql,"
 	use re2 && extras+="regex_re2,"
 	use regex-posix && extras+="regex_posix,"
-	use regex-stdlib && extras+="regex_stdlib,"
 	use sqlite && extras+="sqlite3,"
 	use ssl && extras+="ssl_openssl,"
 	use sslrehashsignal && extras+="sslrehashsignal,"
+	use syslog && extras+="log_syslog,"
 	use tre && extras+="regex_tre,"
 
 	# The first configuration run enables certain "extra" InspIRCd
@@ -109,4 +108,8 @@ src_install() {
 
 pkg_postinst() {
 	readme.gentoo_print_elog
+	if has_version "net-irc/atheme-services"; then
+		ewarn "Atheme does not work with InspIRCd version 4"
+		ewarn "See: https://github.com/atheme/atheme/issues/904"
+	fi
 }

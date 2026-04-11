@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,17 +8,17 @@ inherit flag-o-matic ninja-utils toolchain-funcs
 DESCRIPTION="A wine emulation dll for running x86 application on an arm64 host"
 HOMEPAGE="https://fex-emu.com"
 
-JEMALLOC_HASH="ce24593018ca5d5af7e5661ceda9744e02b59f8f"
+RPMALLOC_HASH="1f6fb494f2a4237c35494786a3c8f1eba048b217"
 CPP_OPTPARSE_HASH="9f94388a339fcbb0bc95c17768eb786c85988f6e"
-ROBIN_MAP_HASH="d5683d9f1891e5b04e3e3b2192b5349dc8d814ea"
+UNORDERED_DENSE_HASH="3234af2c03549bc85656bfd3a86993bf1cd8aef1"
 FMT_HASH="407c905e45ad75fc29bf0f9bb7c5c2fd3475976f"
 XXHASH_HASH="e626a72bc2321cd320e953a0ccf1584cad60f363"
 RANGE_V3_HASH="ca1388fb9da8e69314dda222dc7b139ca84e092f"
 
 SRC_URI="
-	https://github.com/FEX-Emu/jemalloc/archive/${JEMALLOC_HASH}.tar.gz -> jemalloc-${JEMALLOC_HASH}.tar.gz
+	https://github.com/FEX-Emu/rpmalloc/archive/${RPMALLOC_HASH}.tar.gz -> rpmalloc-${RPMALLOC_HASH}.tar.gz
 	https://github.com/Sonicadvance1/cpp-optparse/archive/${CPP_OPTPARSE_HASH}.tar.gz -> cpp-optparse-${CPP_OPTPARSE_HASH}.tar.gz
-	https://github.com/FEX-Emu/robin-map/archive/${ROBIN_MAP_HASH}.tar.gz -> robin-map-${ROBIN_MAP_HASH}.tar.gz
+	https://github.com/martinus/unordered_dense/archive/${UNORDERED_DENSE_HASH}.tar.gz -> unordered_dense-${UNORDERED_DENSE_HASH}.tar.gz
 	https://github.com/Cyan4973/xxHash/archive/${XXHASH_HASH}.tar.gz -> xxhash-${XXHASH_HASH}.tar.gz
 	https://github.com/fmtlib/fmt/archive/${FMT_HASH}.tar.gz -> fmt-${FMT_HASH}.tar.gz
 	https://github.com/ericniebler/range-v3/archive/${RANGE_V3_HASH}.tar.gz -> range-v3-${RANGE_V3_HASH}.tar.gz
@@ -51,8 +51,8 @@ pkg_setup() {
 src_unpack() {
 	default
 	local -A deps=(
-		jemalloc "jemalloc-${JEMALLOC_HASH}"
-		robin-map "robin-map-${ROBIN_MAP_HASH}"
+		rpmalloc "rpmalloc-${RPMALLOC_HASH}"
+		unordered_dense "unordered_dense-${UNORDERED_DENSE_HASH}"
 		xxhash "xxHash-${XXHASH_HASH}"
 		fmt "fmt-${FMT_HASH}"
 		range-v3 "range-v3-${RANGE_V3_HASH}"
@@ -109,8 +109,6 @@ per_host_src_configure() {
 		-DCMAKE_INSTALL_PREFIX=/usr \
 		-DENABLE_CCACHE=FALSE \
 		-DBUILD_FEXCONFIG=FALSE \
-		-DMINGW_BUILD=1 \
-		-DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
 		-DCMAKE_DISABLE_FIND_PACKAGE_fmt=true \
 		-DCMAKE_DISABLE_FIND_PACKAGE_range-v3=true \
 		"${S}" || die
