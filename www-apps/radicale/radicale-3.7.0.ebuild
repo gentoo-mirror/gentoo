@@ -4,9 +4,9 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..14} )
+PYTHON_COMPAT=( python3_{11..14} )
 
-inherit distutils-r1 optfeature systemd
+inherit distutils-r1 eapi9-ver optfeature systemd
 
 MY_P=${P^}
 DESCRIPTION="A simple CalDAV calendar server"
@@ -87,10 +87,12 @@ python_install_all() {
 pkg_postinst() {
 	local _erdir="${EROOT}${RDIR}"
 
-	ewarn ""
-	ewarn "Since 3.5.0 the default [auth] type is \"denyall\". You need to"
-	ewarn "change your config if you used the default type so far!"
-	ewarn ""
+	if ver_replacing -lt "3.5.0"; then
+		ewarn ""
+		ewarn "Since 3.5.0 the default [auth] type is \"denyall\". You need to"
+		ewarn "change your config if you used the default type so far!"
+		ewarn ""
+	fi
 	einfo "A sample WSGI script has been put into ${EROOT}/usr/share/${PN}."
 	einfo "You will also find there an example FastCGI script."
 	if [[ $(stat --format="%U:%G:%a" "${_erdir}") != "${PN}:${PN}:750" ]]
