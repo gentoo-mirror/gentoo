@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_PN=Flask-Caching
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 pypi
 
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~loong x86"
+KEYWORDS="~amd64 ~arm64 ~loong ~x86"
 
 RDEPEND="
 	>=dev-python/cachelib-0.9.0[${PYTHON_USEDEP}]
