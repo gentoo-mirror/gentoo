@@ -1205,7 +1205,7 @@ app-arch/rar 7.01 7.20: RAR compressor/uncompressor
 app-arch/rpm 4.20.1-r2 6.0.0-r1 6.0.1: The RPM Package Manager
 app-arch/rpm2targz 2021.03.16: Convert a .rpm file to a .tar.gz archive
 app-arch/rzip 2.1-r5: Compression program for large files
-app-arch/sasquatch 4.5.1.5 4.5.1.5-r1: An extended version of sasquashfs-tools
+app-arch/sasquatch 4.5.1.5-r1 4.5.1.6: An extended version of sasquashfs-tools
 app-arch/sharutils 4.15.2-r3: Tools to deal with shar archives
 app-arch/snappy 1.2.1 1.2.2 1.2.2-r1: A high-speed compression/decompression library by Google
 app-arch/stenc 2.0.0 2.0.1: SCSI Tape Encryption Manager enables AES support for LTO drives
@@ -1884,7 +1884,7 @@ app-editors/xemacs 21.5.36-r6 21.5.9999: highly customizable open source text ed
 app-editors/xmlcopyeditor 1.3.1.0-r4: XML Copy Editor is a fast, free, validating XML editor
 app-editors/xvile 9.8z 9.8z-r1: VI Like Emacs -- yet another full-featured vi clone
 app-editors/yudit 3.1.0: Free (Y)unicode text editor for all unices
-app-editors/zed 0.226.4 0.227.1 0.230.1 0.231.1: The fast, collaborative code editor
+app-editors/zed 0.226.4 0.227.1 0.230.1 0.231.2: The fast, collaborative code editor
 app-editors/zile 2.6.2-r2 2.6.4: Zile is a small Emacs clone
 app-emacs/a 1.0.0: Associative data structure functions for Emacs Lisp
 app-emacs/a68-mode 1.2_p20250524: Algol68 major mode for GNU Emacs
@@ -5884,7 +5884,7 @@ dev-libs/tree-sitter-typescript 0.23.0 0.23.2: TypeScript grammar for Tree-sitte
 dev-libs/tree-sitter-vim 0.4.0 0.5.0 0.6.0 0.7.0 0.8.1: Vimscript grammar for Tree-sitter
 dev-libs/tree-sitter-vimdoc 3.0.0 3.0.1 4.0.0 4.1.0: Vimdoc grammar for Tree-sitter
 dev-libs/trio 1.17.1: Portable string functions, focus on the *printf() and *scanf() clones
-dev-libs/tvision 2.2.3: Text User Interface that implements the well known CUA widgets
+dev-libs/tvision 2.2.3 2.2.3-r1: Text User Interface that implements the well known CUA widgets
 dev-libs/tvmet 1.7.2-r2 1.7.2-r3: Tiny Vector Matrix library using Expression Templates
 dev-libs/ucl 1.03-r1: the UCL Compression Library
 dev-libs/udis86 1.7.2-r1: Disassembler library for the x86/-64 architecture sets
@@ -14053,7 +14053,7 @@ media-sound/gom 0.29.103-r1: Console Mixer Program for OSS
 media-sound/gpodder 3.11.5: A free cross-platform podcast aggregator
 media-sound/gqradio 1.9.2: An FM radio tuner app from the people who brought you GQmpeg
 media-sound/grip 4.2.4-r1: GTK+ based Audio CD Player/Ripper
-media-sound/gsm 1.0.22_p1 1.0.23: Lossy speech compression library and tool
+media-sound/gsm 1.0.23 1.0.24: Lossy speech compression library and tool
 media-sound/gst123 0.3.5 0.4.1: GStreamer based command line media player
 media-sound/gstreamripper 0.2-r2: A GTK+ toolkit based frontend for streamripper
 media-sound/gtick 0.5.5-r1: Metronome application supporting different meters and speeds ranging
@@ -14185,7 +14185,7 @@ media-sound/pwavecat 0.4.5-r1: Concatenates any number of audio files to stdout
 media-sound/qastools 1.4.0: Qt GUI ALSA tools: mixer, configuration browser
 media-sound/qjackctl 1.0.4 9999: Qt GUI to control the JACK Audio Connection Kit and ALSA sequencer connections
 media-sound/qmidiarp 0.7.2: Arpeggiator, sequencer and MIDI LFO for ALSA
-media-sound/qmmp 2.3.0 2.3.1 9999: Qt-based audio player with winamp/xmms skins support
+media-sound/qmmp 2.3.0 2.3.1 2.3.2 9999: Qt-based audio player with winamp/xmms skins support
 media-sound/qpaeq 17.0: Equalizer interface for equalizer sinks of PulseAudio (networked sound server)
 media-sound/qpwgraph 0.9.8 9999: PipeWire Graph Qt GUI Interface
 media-sound/qsampler 1.0.0-r1 9999: Graphical frontend to the LinuxSampler engine
@@ -14297,7 +14297,7 @@ media-tv/kodi 21.2-r5 21.3 21.9999 22.0_alpha2 9999: A free and open source medi
 media-tv/linuxtv-dvb-apps 1.1.1.20140321-r2: Small utils for DVB to scan, zap, view signal strength
 media-tv/mythtv 35.0_p20251230: Open Source DVR and media center hub
 media-tv/mythtv-status 1.1.0: Displays the current status of MythTV at the command prompt
-media-tv/plex-media-server 1.43.1.10576: Free media library that is intended for use with a plex client
+media-tv/plex-media-server 1.43.1.10611: Free media library that is intended for use with a plex client
 media-tv/shoutcast2vdr 0.0.8-r1: VDR script: generate shoutcast playlists
 media-tv/tvbrowser-bin 4.2.7: Themeable and easy to use TV Guide - written in Java
 media-tv/tvheadend 4.3_p20240618 4.3_p20240618-r1 9999: Tvheadend is a TV streaming server and digital video recorder
@@ -14578,7 +14578,7 @@ net-analyzer/netpipe 3.7.2-r1: network protocol independent performance evaluato
 net-analyzer/netselect 0.4-r2 9999: Ultrafast implementation of ping
 net-analyzer/nettop 0.2.3-r2: top-like program for network activity
 net-analyzer/netwatch 1.3.0.1-r5 1.3.0.1-r6: Ethernet/PPP IP Packet Monitor
-net-analyzer/nfdump 1.7.2 1.7.4 1.7.5 1.7.6: A set of tools to collect and process netflow data
+net-analyzer/nfdump 1.7.6 1.7.7: A set of tools to collect and process netflow data
 net-analyzer/ngrep 1.47-r2 1.47_p20241209: A grep for network layers
 net-analyzer/nikto 2.1.6_p20220602 2.5.0: Web server vulnerability scanner
 net-analyzer/nload 0.7.5_pre20180309: Real time network traffic monitor for the command line interface
@@ -17126,7 +17126,7 @@ sys-apps/fbset 2.1: A utility to set the framebuffer videomode
 sys-apps/fd 10.4.2: Alternative to find that provides sensible defaults for 80% of the use cases
 sys-apps/file 5.46-r3 5.47-r1 9999: Identify a file's format by scanning binary data for patterns
 sys-apps/findutils 4.10.0: GNU utilities for finding files
-sys-apps/firejail 0.9.72 0.9.74 0.9.76: Security sandbox for any type of processes
+sys-apps/firejail 0.9.76 0.9.80: Security sandbox for any type of processes
 sys-apps/fix-gnustack 0.1-r1: Utility to report and remove the executable flag from an ELF object's GNU_STACK
 sys-apps/flashrom 1.5.1 1.6.0 1.7.0: Utility for reading, writing, erasing and verifying flash ROM chips
 sys-apps/flatpak 1.14.10 1.16.1 1.16.3 1.16.6: Linux application sandboxing and distribution framework
@@ -18703,7 +18703,7 @@ x11-misc/redshift 1.12-r13 1.12-r14 1.12-r15: A screen color temperature adjusti
 x11-misc/rendercheck 1.6 9999: Tests for compliance with X RENDER extension
 x11-misc/revelation 0.5.5: A password manager for GNOME
 x11-misc/rofi 1.7.9.1 2.0.0 9999: A window switcher, run dialog and dmenu replacement
-x11-misc/rofi-calc 2.4.0 2.5.0: Do live calculations in rofi!
+x11-misc/rofi-calc 2.5.0 2.5.1: Do live calculations in rofi!
 x11-misc/rofi-file-browser-extended 1.3.1-r2: A file browser for rofi
 x11-misc/rss-glx 0.9.1-r4: Really Slick OpenGL Screensavers for XScreenSaver
 x11-misc/safeeyes 3.2.0 3.3.0 3.3.0-r1 3.3.1 3.3.2 3.3.3: Linux alternative to EyeLeo
