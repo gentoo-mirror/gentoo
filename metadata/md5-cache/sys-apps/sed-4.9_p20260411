@@ -1,0 +1,14 @@
+BDEPEND=nls? ( sys-devel/gettext ) verify-sig? ( sec-keys/openpgp-keys-sed ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install test unpack
+DEPEND=!static? ( acl? ( virtual/acl ) nls? ( virtual/libintl ) selinux? ( sys-libs/libselinux ) ) static? ( acl? ( virtual/acl[static-libs(+)] ) nls? ( virtual/libintl[static-libs(+)] ) selinux? ( sys-libs/libselinux[static-libs(+)] ) )
+DESCRIPTION=Super-useful stream editor
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/sed/
+INHERIT=branding flag-o-matic verify-sig
+IUSE=acl nls selinux static test-full verify-sig
+LICENSE=GPL-3+
+RDEPEND=!static? ( acl? ( virtual/acl ) nls? ( virtual/libintl ) selinux? ( sys-libs/libselinux ) )
+SLOT=0
+SRC_URI=https://meyering.net/sed/sed-4.9.72-47838.tar.xz -> sed-4.9_p20260411.tar.xz verify-sig? ( https://meyering.net/sed/sed-4.9.72-47838.tar.xz.sig -> sed-4.9_p20260411.tar.xz.sig )
+_eclasses_=branding	7bcece3faa73dd0fc3e597013510d53a	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=f13f8fb38c8dd2d39ffd6d00f51bdbaa
