@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit meson python-any-r1 systemd
 
@@ -13,8 +13,8 @@ SRC_URI="https://github.com/flatpak/${PN}/releases/download/${PV}/${P}.tar.xz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
-IUSE="geolocation flatpak seccomp systemd test udev"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+IUSE="geolocation flatpak gstreamer seccomp systemd test udev"
 RESTRICT="!test? ( test )"
 # Upstream expect flatpak to be used w/ seccomp and flatpak needs bwrap anyway
 REQUIRED_USE="flatpak? ( seccomp )"
@@ -26,6 +26,7 @@ DEPEND="
 	>=sys-fs/fuse-3.10.0:3=[suid]
 	x11-libs/gdk-pixbuf
 	geolocation? ( >=app-misc/geoclue-2.5.3:2.0 )
+	gstreamer? ( media-libs/gst-plugins-base:1.0 )
 	flatpak? ( sys-apps/flatpak )
 	seccomp? ( sys-apps/bubblewrap )
 	systemd? ( sys-apps/systemd )
@@ -54,8 +55,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	# Needed until gstreamer-rs (for gstreamer-pbutils) is packaged
-	"${FILESDIR}/${PN}-1.20.0-optional-gstreamer.patch"
+	# Make gstreamer use optional
+	"${FILESDIR}/${PN}-1.20.4-optional-gstreamer.patch"
 	# These tests require connections to pipewire, internet, /dev/fuse
 	"${FILESDIR}/${PN}-1.20.0-sandbox-disable-failing-tests.patch"
 )
@@ -78,10 +79,7 @@ src_configure() {
 		$(meson_feature geolocation geoclue)
 		$(meson_feature udev gudev)
 		$(meson_feature seccomp sandboxed-image-validation)
-		# Needs gstreamer-pbutils (part of gstreamer-rs)?
-		# Not yet packaged
-		#$(meson_feature seccomp sandboxed-sound-validation)
-		-Dsandboxed-sound-validation=disabled
+		$(meson_feature gstreamer sandboxed-sound-validation)
 		$(meson_feature systemd)
 		# Requires flatpak
 		-Ddocumentation=disabled

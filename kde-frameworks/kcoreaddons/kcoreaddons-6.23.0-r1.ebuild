@@ -26,6 +26,8 @@ RDEPEND="${COMMON_DEPEND}
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
+PATCHES=( "${FILESDIR}/${P}-remove-ctrl-chars-when-quoting-args.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		-DKCOREADDONS_USE_QML=ON
