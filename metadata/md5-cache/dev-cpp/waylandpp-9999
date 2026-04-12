@@ -1,14 +1,14 @@
-BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-libs/pugixml-1.9-r1 app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=>=dev-libs/wayland-1.11.0 media-libs/mesa[wayland] >=dev-libs/pugixml-1.9-r1 doc? ( app-text/doxygen media-gfx/graphviz )
+DEPEND=>=dev-libs/pugixml-1.9-r1 >=dev-libs/wayland-1.11.0 media-libs/libglvnd doc? ( app-text/doxygen media-gfx/graphviz )
 DESCRIPTION=Wayland C++ bindings
 EAPI=8
 HOMEPAGE=https://github.com/NilsBrause/waylandpp
-INHERIT=cmake git-r3
+INHERIT=cmake toolchain-funcs git-r3
 IUSE=doc
 LICENSE=MIT
 PROPERTIES=live
-RDEPEND=>=dev-libs/wayland-1.11.0 media-libs/mesa[wayland] >=dev-libs/pugixml-1.9-r1
+RDEPEND=>=dev-libs/pugixml-1.9-r1 >=dev-libs/wayland-1.11.0
 SLOT=0/9999
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=6842fa0c811c80525913285c37228f98
+_md5_=c2124b726ef51888990f76f9337e685d
