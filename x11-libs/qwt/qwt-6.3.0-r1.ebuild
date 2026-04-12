@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,6 +27,8 @@ DEPEND="
 	svg? ( dev-qt/qtsvg:6 )
 "
 RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/${P}-fix-pkgconfig.patch" ) # bug 947831
 
 src_prepare() {
 	cat > qwtconfig.pri <<-EOF || die
@@ -89,12 +91,6 @@ src_test() {
 src_install() {
 	emake INSTALL_ROOT="${D}" install
 	einstalldocs
-
-	if use doc; then
-		mkdir -p "${ED}"/usr/share/man/ || die
-		mv "${ED}"/usr/share/doc/${PF}/man/man3 "${ED}"/usr/share/man/ && \
-			rmdir "${ED}"/usr/share/doc/${PF}/man || die
-	fi
 
 	if use examples; then
 		# don't build examples - fix the qt files to build once installed
