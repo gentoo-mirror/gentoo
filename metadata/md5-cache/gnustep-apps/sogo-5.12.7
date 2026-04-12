@@ -1,0 +1,17 @@
+BDEPEND=>=gnustep-base/gnustep-make-2.6.3 >=gnustep-base/gnustep-make-2.0
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DEPEND=acct-user/sogo || ( dev-libs/libmemcached-awesome dev-libs/libmemcached ) dev-libs/libzip:= >=gnustep-libs/sope-5.12.7[ldap] net-mail/ytnef net-misc/curl net-misc/memcached virtual/libcrypt:= activesync? ( dev-libs/libwbxml ) gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) sodium? ( dev-libs/libsodium:= ) virtual/gnustep-back
+DESCRIPTION=Groupware server built around OpenGroupware.org and the SOPE application server
+EAPI=8
+HOMEPAGE=https://www.sogo.nu
+INHERIT=gnustep-2
+IUSE=activesync gnutls +ssl sodium debug doc
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+PROPERTIES=test_network
+RDEPEND=acct-user/sogo || ( dev-libs/libmemcached-awesome dev-libs/libmemcached ) dev-libs/libzip:= >=gnustep-libs/sope-5.12.7[ldap] net-mail/ytnef net-misc/curl net-misc/memcached virtual/libcrypt:= activesync? ( dev-libs/libwbxml ) gnutls? ( net-libs/gnutls:= ) !gnutls? ( dev-libs/openssl:0= ) sodium? ( dev-libs/libsodium:= ) virtual/gnustep-back
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/Alinto/sogo/archive/SOGo-5.12.7.tar.gz -> sogo-5.12.7.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	gnustep-base	976868a87e3ff809160bc308ec25ee04	gnustep-2	cfafeebb1111f944995a3bb7ae64ce8b
+_md5_=2885120b43c8941ea9b2f3f3ffa96f4b
