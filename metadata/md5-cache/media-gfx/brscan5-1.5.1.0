@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst postrm unpack
+DESCRIPTION=SANE driver for Brother scanners (brscan5)
+EAPI=8
+HOMEPAGE=https://support.brother.com/g/b/index.aspx
+INHERIT=unpacker udev
+KEYWORDS=~amd64
+LICENSE=Brother
+RDEPEND=dev-libs/libusb:1 media-gfx/sane-backends net-dns/avahi[dbus] sys-apps/dbus virtual/libudev
+RESTRICT=bindist mirror strip
+SLOT=0
+SRC_URI=https://download.brother.com/welcome/dlf104033/brscan5-1.5.1-0.amd64.deb
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	udev	20c370aff0d0c108f3605c84b3f47084
+_md5_=918b87bb2363df4179bfb49ede309dd9
