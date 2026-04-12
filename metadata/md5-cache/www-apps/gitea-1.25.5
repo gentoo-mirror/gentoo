@@ -1,0 +1,17 @@
+BDEPEND=>=dev-lang/go-1.25.3:= >=dev-lang/go-1.20:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst prepare unpack
+DEPEND=acct? ( acct-group/git acct-user/git[gitea] ) pam? ( sys-libs/pam )
+DESCRIPTION=A painless self-hosted Git service
+EAPI=8
+HOMEPAGE=https://gitea.com https://github.com/go-gitea/gitea
+IDEPEND=filecaps? ( sys-libs/libcap )
+INHERIT=fcaps go-module tmpfiles systemd flag-o-matic user-info
+IUSE=+acct gogit pam sqlite pie +filecaps
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~riscv ~x86
+LICENSE=Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0
+RDEPEND=acct? ( acct-group/git acct-user/git[gitea] ) pam? ( sys-libs/pam ) !gogit? ( dev-vcs/git ) virtual/tmpfiles
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/go-gitea/gitea/releases/download/v1.25.5/gitea-src-1.25.5.tar.gz -> gitea-1.25.5.tar.gz
+_eclasses_=fcaps	c94316d02a37fb5cbe79b7d41c729119	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	go-env	f7f56c1e72a626b159373a2c2b89af39	go-module	1333f0eba2be11d0afeadce17a07af4d	tmpfiles	e0b49bcd7a0daea941c0fbe4cb35ff4e	systemd	a964c0cbe818b5729da1dbfcee5be861	user-info	d7c261c6f7c2392145e8789913f1bf7e
+_md5_=7dbdfcb27b8db9a27a30468b2ed1b25f
