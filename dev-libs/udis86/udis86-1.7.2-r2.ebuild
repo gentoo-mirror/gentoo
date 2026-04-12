@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit autotools multilib-minimal python-any-r1
@@ -21,6 +21,7 @@ RESTRICT="!test? ( test )"
 BDEPEND="
 	${PYTHON_DEPS}
 	test? (
+		app-shells/bash
 		amd64? ( dev-lang/yasm )
 		arm64? ( dev-lang/yasm )
 		x86? ( dev-lang/yasm )
@@ -30,6 +31,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-docdir.patch
 	"${FILESDIR}"/${P}-python3.patch
 	"${FILESDIR}"/${P}-uninitialized-variable.patch
+	"${FILESDIR}"/${P}-bash-test.patch
 )
 
 src_prepare() {
@@ -39,7 +41,6 @@ src_prepare() {
 
 multilib_src_configure() {
 	ECONF_SOURCE="${S}" econf \
-		--disable-static \
 		--enable-shared \
 		--with-pic \
 		--with-python="${PYTHON}"
