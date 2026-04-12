@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/libxslt gnome-base/librsvg media-fonts/open-sans !offline? ( || ( dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] ) ) test? ( >=dev-libs/libxml2-2.9.12 >=app-text/htmltidy-5.8.0 ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=dev-libs/libxslt gnome-base/librsvg media-fonts/open-sans !offline? ( || ( dev-lang/python:3.14[xml(+)] dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] ) ) test? ( >=dev-libs/libxml2-2.9.12 >=app-text/htmltidy-5.8.0 ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst setup unpack
 DESCRIPTION=The Gentoo Development Guide
 EAPI=8
@@ -10,4 +10,4 @@ PROPERTIES=live
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-any-r1	891415dfe39ad9b41b461f2b86354af0	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=5c2625804544466f27a9b8ed52cda252
+_md5_=0a0832454605935f40ab1f058e17a566
