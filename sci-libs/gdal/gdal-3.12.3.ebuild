@@ -7,18 +7,19 @@ DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
 PYTHON_COMPAT=( python3_{11..14} )
-inherit cmake distutils-r1 flag-o-matic java-pkg-opt-2 unpacker
+inherit cmake distutils-r1 flag-o-matic java-pkg-opt-2 unpacker verify-sig
 
 DESCRIPTION="Translator library for raster geospatial data formats (includes OGR support)"
 HOMEPAGE="https://gdal.org/"
 SRC_URI="
 	https://download.osgeo.org/${PN}/${PV}/${P}.tar.xz
 	test? ( https://download.osgeo.org/${PN}/${PV}/${PN}autotest-${PV}.zip )
+	verify-sig? ( https://download.osgeo.org/${PN}/${PV}/${P}.tar.xz.sig )
 "
 
 LICENSE="BSD Info-ZIP MIT"
 SLOT="0/38" # subslot is libgdal.so.<SONAME> (and GDAL_SOVERSION in gdal.cmake)
-KEYWORDS="amd64 ~arm arm64 ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="
 	archive armadillo avif blosc cryptopp +curl cpu_flags_arm_neon cpu_flags_x86_avx
 	cpu_flags_x86_avx2 cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse4_1
@@ -132,7 +133,10 @@ BDEPEND="
 		')
 	)
 	test? ( app-arch/unzip )
+	verify-sig? ( sec-keys/openpgp-keys-gdal )
 "
+
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/gdal.asc
 
 QA_CONFIG_IMPL_DECL_SKIP=(
 	_wstat64 # Windows LFS
@@ -144,11 +148,21 @@ EPYTEST_XDIST=1
 # distutils_enable_tests unconditionally touches BDEPEND
 
 PATCHES=(
-	"${FILESDIR}"/${P}-poppler-26.0{1,2}.patch # in git master
+	"${FILESDIR}"/gdal-3.12.3-fix-completions.patch
 )
 
 pkg_setup() {
 	use java && java-pkg-opt-2_pkg_setup
+}
+
+src_unpack() {
+	if use verify-sig; then
+		verify-sig_verify_detached "${DISTDIR}/${P}.tar.xz" "${DISTDIR}/${P}.tar.xz.sig"
+	fi
+
+	# unpacker mishandles .sig files
+	unpack ${P}.tar.xz
+	use test && unpack_zip gdalautotest-${PV}.zip
 }
 
 src_prepare() {
@@ -427,6 +441,9 @@ python_test() {
 
 		# Fails on new poppler versions due to checksum check
 		"gdrivers/pdf.py::test_pdf_extra_rasters[POPPLER]"
+
+		# flaky
+		"gdrivers/kmlsuperoverlay.py::test_kmlsuperoverlay_8"
 	)
 
 	if use !armadillo; then
