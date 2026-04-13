@@ -1,0 +1,11 @@
+BDEPEND=~llvm-core/clang-23.0.0_pre20260413:23[llvm_targets_SPIRV] llvm-core/lld:23[llvm_targets_SPIRV] app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DESCRIPTION=OpenMP target library for spirv64 Intel devices
+EAPI=8
+HOMEPAGE=https://openmp.llvm.org
+INHERIT=cmake flag-o-matic llvm.org
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+SLOT=0/23.0.0_pre20260413
+SRC_URI=https://github.com/llvm/llvm-project/archive/dd0c5ebe69e580066de100c8c2ba5430a1aeee44.tar.gz -> llvm-project-dd0c5ebe69e580066de100c8c2ba5430a1aeee44.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	llvm.org	692f088698bdb0f517e49d20174f7eb5
+_md5_=f4ffdb200f6e2a78c909aea7ac95de31
