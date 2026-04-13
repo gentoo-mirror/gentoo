@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=media-libs/libpng:= virtual/zlib:=
+DESCRIPTION=C/C++ library for PDF generation
+EAPI=8
+HOMEPAGE=http://www.libharu.org/
+INHERIT=cmake
+IUSE=examples
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=ZLIB examples? ( GPL-2 )
+RDEPEND=media-libs/libpng:= virtual/zlib:=
+SLOT=0/2.4
+SRC_URI=https://github.com/libharu/libharu/archive/v2.4.6.tar.gz -> libharu-2.4.6.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
+_md5_=74c10708d5f98f7d9b99d3a0220a0def
