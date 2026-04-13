@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit meson python-any-r1 udev
 
 DESCRIPTION="Library for identifying Wacom tablets and their model-specific features"
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/linuxwacom/${PN}/releases/download/${P}/${P}.tar.xz"
 
 LICENSE="MIT"
 SLOT="0/9" # libwacom SONAME
-KEYWORDS="~alpha amd64 arm arm64 ~loong ppc ppc64 ~riscv x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
