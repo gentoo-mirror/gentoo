@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP keys used by Michal Babej (franz)
+EAPI=8
+HOMEPAGE=https://github.com/franz
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=~amd64 ~ppc64
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://github.com/franz.gpg -> openpgp-keys-franz-github-20260413.asc
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	ceb4d3181e42bf20ca66d74129d9e848
+_md5_=88e119d28cf9e0c0375a955240d06906
