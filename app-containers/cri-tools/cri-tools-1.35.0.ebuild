@@ -1,9 +1,9 @@
-# Copyright 2021-2023 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit bash-completion-r1 go-module
+inherit go-env go-module shell-completion sysroot
 
 DESCRIPTION="CLI and validation tools for Kubelet Container Runtime (CRI)"
 HOMEPAGE="https://github.com/kubernetes-sigs/cri-tools"
@@ -11,23 +11,29 @@ SRC_URI="https://github.com/kubernetes-sigs/cri-tools/archive/v${PV}.tar.gz -> $
 
 LICENSE="Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT MPL-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 RESTRICT="test"
+
+BDEPEND=">=dev-lang/go-1.26.2"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-goflags.patch
+)
 
 DOCS=( docs {README,RELEASE,CHANGELOG,CONTRIBUTING}.md )
 
 src_compile() {
+	CRICTL="build/bin/${GOOS}/${GOARCH}/crictl"
 	emake VERSION="${PV}"
-	find build/ -name crictl -exec cp {} build/bin/ \; || die
-	./build/bin/crictl completion bash > "crictl.bash" || die
-	./build/bin/crictl completion zsh > "crictl.zsh" || die
+
+	sysroot_try_run_prefixed "${CRICTL}" completion bash > crictl.bash || die
+	sysroot_try_run_prefixed "${CRICTL}" completion zsh > crictl.zsh || die
 }
 
 src_install() {
 	einstalldocs
+	dobin "${CRICTL}"
 
-	dobin ./build/bin/crictl
-	newbashcomp crictl.bash crictl
-	insinto /usr/share/zsh/site-functions
-	newins crictl.zsh _crictl
+	[[ -s crictl.bash ]] && newbashcomp crictl.bash crictl
+	[[ -s crictl.zsh ]] && newzshcomp crictl.zsh _crictl
 }
