@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=pbr
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -37,7 +37,6 @@ BDEPEND="
 		dev-python/openstacksdk[${PYTHON_USEDEP}]
 		dev-python/testscenarios[${PYTHON_USEDEP}]
 		dev-python/testtools[${PYTHON_USEDEP}]
-		dev-python/tempest[${PYTHON_USEDEP}]
 	)
 "
 
