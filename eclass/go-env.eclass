@@ -167,9 +167,12 @@ go-env_set_compile_environment() {
 
 	# go run will build binaries for the target system and try to execute them.
 	# This will fail when cross-compiling unless you provide a wrapper.
-	local script
+	local script go_exec
 	if script=$(sysroot_make_run_prefixed); then
-		GOFLAGS+=" -exec=${script}" "${@}"
+		go_exec="${T}/go-exec"
+		PATH="${go_exec}:${PATH}"
+		mkdir -p "${go_exec}" || die
+		ln -snfr "${script}" "${go_exec}/go_${GOOS}_${GOARCH}_exec" || die
 	fi
 }
 
