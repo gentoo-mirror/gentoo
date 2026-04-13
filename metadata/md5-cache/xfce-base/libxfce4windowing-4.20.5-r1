@@ -1,0 +1,16 @@
+BDEPEND=>=dev-build/xfce4-dev-tools-4.19.2 dev-lang/perl dev-util/glib-utils >=sys-devel/gettext-0.19.8 virtual/pkgconfig vala? ( || ( dev-lang/vala:0.56 ) ) wayland? ( >=dev-util/wayland-scanner-1.15 ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-libs/glib-2.72.0 >=x11-libs/gtk+-3.24.10:3[X?,introspection?,wayland?] >=x11-libs/gdk-pixbuf-2.42.8[introspection?] wayland? ( >=dev-libs/wayland-1.20 ) X? ( >=media-libs/libdisplay-info-0.1.1:= >=x11-libs/libX11-1.6.7 >=x11-libs/libXrandr-1.5.0 >=x11-libs/libwnck-3.14:3 ) wayland? ( >=dev-libs/wayland-protocols-1.39 )
+DESCRIPTION=Unified widget and session management libs for Xfce
+EAPI=8
+HOMEPAGE=https://gitlab.xfce.org/xfce/libxfce4windowing/
+INHERIT=meson vala
+IUSE=+introspection wayland X vala
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=>=dev-libs/glib-2.72.0 >=x11-libs/gtk+-3.24.10:3[X?,introspection?,wayland?] >=x11-libs/gdk-pixbuf-2.42.8[introspection?] wayland? ( >=dev-libs/wayland-1.20 ) X? ( >=media-libs/libdisplay-info-0.1.1:= >=x11-libs/libX11-1.6.7 >=x11-libs/libXrandr-1.5.0 >=x11-libs/libwnck-3.14:3 )
+REQUIRED_USE=|| ( wayland X ) vala? ( introspection )
+SLOT=0/4.19.6
+SRC_URI=https://archive.xfce.org/src/xfce/libxfce4windowing/4.20/libxfce4windowing-4.20.5.tar.bz2
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	vala	b2f2aa400d77b841d952dda847e24d53
+_md5_=1a3b8666a7c79e870b992db403aa5efb
