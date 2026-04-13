@@ -7,11 +7,11 @@ HOMEPAGE=https://www.kphotoalbum.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=ecm kde.org xdg
 IUSE=+map +raw share debug +handbook test
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-2+ FDL-1.2 CC-BY-SA-4.0
 RDEPEND=>=dev-qt/qtbase-6.8.1:6[dbus,gui,sql,sqlite,widgets,xml] >=dev-qt/qtmultimedia-6.8.1:6 >=kde-frameworks/karchive-6.9.0:6 >=kde-frameworks/kcolorscheme-6.9.0:6 >=kde-frameworks/kcompletion-6.9.0:6 >=kde-frameworks/kconfig-6.9.0:6 >=kde-frameworks/kconfigwidgets-6.9.0:6 >=kde-frameworks/kcoreaddons-6.9.0:6 >=kde-frameworks/ki18n-6.9.0:6 >=kde-frameworks/kiconthemes-6.9.0:6 >=kde-frameworks/kio-6.9.0:6 >=kde-frameworks/kjobwidgets-6.9.0:6 >=kde-frameworks/kservice-6.9.0:6 >=kde-frameworks/ktextwidgets-6.9.0:6 >=kde-frameworks/kwidgetsaddons-6.9.0:6 >=kde-frameworks/kxmlgui-6.9.0:6 media-gfx/exiv2:= media-libs/libjpeg-turbo:= map? ( kde-apps/marble:6 ) raw? ( kde-apps/libkdcraw:6 ) share? ( >=kde-frameworks/purpose-6.9.0:6 ) !media-gfx/kphotoalbum:5 media-video/ffmpeg || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://kde/stable/kphotoalbum/6.2.0/kphotoalbum-6.2.0.tar.xz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	c3772d432284de03db6df21d71be747a	kde.org	2eea56ed41440913be4caa3d255d2db3	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=875e765c2676940e8347079adbd1738c
+_md5_=4468c581384ef9a68053169062ec745a
