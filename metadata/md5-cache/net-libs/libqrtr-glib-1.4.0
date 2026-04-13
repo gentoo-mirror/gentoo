@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig gtk-doc? ( >=dev-util/gi-docgen-2021.1 ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/glib-2.56:2 >=dev-libs/gobject-introspection-1.82.0-r2
+DESCRIPTION=Qualcomm IPC Router protocol helper library
+EAPI=8
+HOMEPAGE=https://gitlab.freedesktop.org/mobile-broadband/libqrtr-glib
+INHERIT=meson
+IUSE=gtk-doc
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2
+RDEPEND=>=dev-libs/glib-2.56:2 >=dev-libs/gobject-introspection-1.82.0-r2
+SLOT=0/0
+SRC_URI=https://gitlab.freedesktop.org/mobile-broadband/libqrtr-glib/-/archive/1.4.0/libqrtr-glib-1.4.0.tar.bz2
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f
+_md5_=686d877973000d737072c199e5fcdd2d
