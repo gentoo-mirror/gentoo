@@ -1,15 +1,16 @@
-BDEPEND=doc? ( app-text/doxygen ) test? ( dev-lang/perl ) app-alternatives/ninja >=dev-build/cmake-3.28.5 dev-vcs/subversion[http(+)] net-misc/rsync
-DEFINED_PHASES=compile configure install preinst prepare setup test unpack
+BDEPEND=doc? ( app-text/doxygen ) test? ( dev-lang/perl ) app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare setup test unpack
 DEPEND=curl? ( net-misc/curl ) icu? ( dev-libs/icu:0= ) virtual/libiconv
 DESCRIPTION=Validating XML parser written in a portable subset of C++
 EAPI=8
 HOMEPAGE=https://xerces.apache.org/xerces-c/
-INHERIT=cmake flag-o-matic prefix subversion
-IUSE=cpu_flags_x86_sse2 curl doc examples iconv icu static-libs test threads
+INHERIT=cmake flag-o-matic prefix git-r3
+IUSE=cpu_flags_x86_sse2 curl doc examples iconv icu static-libs test
 LICENSE=Apache-2.0
 PROPERTIES=live
 RDEPEND=curl? ( net-misc/curl ) icu? ( dev-libs/icu:0= ) virtual/libiconv
+REQUIRED_USE=elibc_musl? ( icu )
 RESTRICT=!test? ( test )
 SLOT=0/9999
-_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	estack	c61c368a76fdf3a82fdf8dbaebea3804	subversion	44c6a1cae0381c100a526e3b348622cd
-_md5_=82569a1df7b2afdd178ce13698931ec2
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
+_md5_=ac07326e62af76dc6b089746a227cb0e

@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://libvips.github.io/libvips/
 INHERIT=flag-o-matic meson python-any-r1 toolchain-funcs vala
 IUSE=archive deprecated doc exif fftw fits fontconfig graphicsmagick heif +highway imagemagick imagequant +introspection +jpeg jpeg2k jpegxl lcms matio openexr orc pango pdf +png raw svg test tiff vala webp
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=amd64 ~arm64 ~x86
 LICENSE=LGPL-2.1+ MIT
 RDEPEND=dev-libs/glib:2 dev-libs/expat virtual/libintl archive? ( app-arch/libarchive:= ) exif? ( media-libs/libexif ) fftw? ( sci-libs/fftw:3.0= ) fits? ( sci-libs/cfitsio:= ) fontconfig? ( media-libs/fontconfig ) heif? ( media-libs/libheif:= ) highway? ( >=dev-cpp/highway-1.0.5 ) !highway? ( orc? ( dev-lang/orc ) ) imagemagick? ( graphicsmagick? ( media-gfx/graphicsmagick:= ) !graphicsmagick? ( media-gfx/imagemagick:= ) ) imagequant? ( media-gfx/libimagequant ) introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2 ) jpeg? ( media-libs/libjpeg-turbo:= ) jpeg2k? ( media-libs/openjpeg:= ) jpegxl? ( media-libs/libjxl:= ) lcms? ( media-libs/lcms:2 ) matio? ( sci-libs/matio:= ) openexr? ( media-libs/openexr:= ) pango? ( x11-libs/cairo x11-libs/pango ) pdf? ( app-text/poppler[cairo] x11-libs/cairo ) png? ( media-libs/libpng:= ) raw? ( media-libs/libraw:= ) svg? ( gnome-base/librsvg:2 virtual/zlib:= x11-libs/cairo ) tiff? ( media-libs/tiff:= ) webp? ( media-libs/libwebp:= )
 REQUIRED_USE=doc? ( introspection ) fontconfig? ( pango ) graphicsmagick? ( imagemagick ) test? ( jpeg png webp ) vala? ( introspection )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/42
 SRC_URI=https://github.com/libvips/libvips/releases/download/v8.18.2/vips-8.18.2.tar.xz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	python-any-r1	891415dfe39ad9b41b461f2b86354af0	vala	b2f2aa400d77b841d952dda847e24d53
-_md5_=f7c1b7b8d388cb03269bc356739a6fc5
+_md5_=fc187c70fd3d90ff2efda23cd0438f12
