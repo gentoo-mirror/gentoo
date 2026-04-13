@@ -1,0 +1,14 @@
+DEFINED_PHASES=install
+DESCRIPTION=Cli interface for dropbox (python), part of nautilus-dropbox
+EAPI=8
+HOMEPAGE=https://www.dropbox.com/
+INHERIT=python-r1 bash-completion-r1
+IUSE=+gpg python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) dev-python/pygobject:3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] net-misc/dropbox gpg? ( dev-python/gpgmepy[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] )
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~grozin/dropbox-cli-2026.03.20.py.xz
+_eclasses_=out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	bash-completion-r1	9e91505e030725688d1e953321a47501
+_md5_=6a1e8efd4e457186d8b2dd42110b331b
