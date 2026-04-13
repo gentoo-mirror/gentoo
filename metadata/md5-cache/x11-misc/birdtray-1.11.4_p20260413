@@ -1,0 +1,14 @@
+BDEPEND=dev-qt/qttools:6 app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=dev-db/sqlite:= dev-qt/qtbase:6[gui,network,ssl,widgets] dev-qt/qtsvg:6 x11-libs/libX11
+DESCRIPTION=A new mail system tray notification icon for Thunderbird
+EAPI=8
+HOMEPAGE=https://github.com/gyunaev/birdtray
+INHERIT=cmake xdg-utils
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=dev-db/sqlite:= dev-qt/qtbase:6[gui,network,ssl,widgets] dev-qt/qtsvg:6 x11-libs/libX11
+SLOT=0
+SRC_URI=https://dev.gentoo.org/~ago/distfiles/birdtray-1.11.4_p20260413.tar.xz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
+_md5_=53b1a2c2bdc149c6e47031685e1d6f6d
