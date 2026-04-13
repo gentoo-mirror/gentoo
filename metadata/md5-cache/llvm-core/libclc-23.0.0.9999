@@ -1,13 +1,14 @@
-BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) llvm_slot_23? ( llvm-core/clang:23 ) spirv? ( >=dev-util/spirv-llvm-translator-23:* ) app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) llvm_slot_23? ( llvm-core/clang:23 ) spirv? ( >=dev-util/spirv-llvm-translator-23:* ) test? ( || ( ( dev-lang/python:3.14 dev-python/lit[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/lit[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/lit[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/lit[python_targets_python3_11(-)] ) ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DESCRIPTION=OpenCL C library
 EAPI=8
 HOMEPAGE=https://libclc.llvm.org/
-INHERIT=cmake llvm.org llvm-r1 python-any-r1
-IUSE=+spirv video_cards_nvidia video_cards_radeonsi +llvm_slot_23
+INHERIT=cmake llvm.org llvm-r1 multibuild python-any-r1
+IUSE=+spirv test video_cards_nvidia video_cards_radeonsi +llvm_slot_23
 LICENSE=Apache-2.0-with-LLVM-exceptions || ( MIT BSD )
 PROPERTIES=live
 REQUIRED_USE=^^ ( llvm_slot_23 )
+RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	git-r3	7b584b5dc33e3bc66ff5b9271bf41764	llvm.org	0e81308105fc898950ee3d5544a66d7f	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	77771a412c60b32ce3205d377edd7b83	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=4b348a60a1fd8b48d2bbbd68323de34d
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	git-r3	7b584b5dc33e3bc66ff5b9271bf41764	llvm.org	0e81308105fc898950ee3d5544a66d7f	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	77771a412c60b32ce3205d377edd7b83	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=20ed01ab160b99aeb893f4c6e63e8cb8
