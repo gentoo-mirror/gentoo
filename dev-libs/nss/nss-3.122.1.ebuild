@@ -51,6 +51,7 @@ MULTILIB_CHOST_TOOLS=(
 )
 
 PATCHES=(
+	"${FILESDIR}"/v2-0001-Bug-2027768-Fix-build-failure-due-to-missing-gcm-.patch
 	"${FILESDIR}"/nss-3.103-gentoo-fixes-add-pkgconfig-files.patch
 	"${FILESDIR}"/nss-3.21-gentoo-fixup-warnings.patch
 )
@@ -163,6 +164,9 @@ multilib_src_compile() {
 		export CC_IS_GCC=1
 	elif tc-is-clang; then
 		export CC_IS_CLANG=1
+
+		# bgo#927839
+		export NSS_DISABLE_UNLOAD=1
 	fi
 
 	export NSS_DISABLE_GTESTS=$(usex !test 1 0)
@@ -348,6 +352,7 @@ multilib_src_install() {
 			# https://hg.mozilla.org/projects/nss/rev/df1729d37870
 			# certcgi has been removed in nss-3.36:
 			# https://bugzilla.mozilla.org/show_bug.cgi?id=1426602
+			# conflict removed in 3.122.
 			nssutils+=(
 				addbuiltin
 				atob
@@ -355,7 +360,6 @@ multilib_src_install() {
 				btoa
 				certutil
 				cmsutil
-				conflict
 				crlutil
 				derdump
 				digest
