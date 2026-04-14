@@ -3,7 +3,7 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.89.0"
+RUST_MIN_VER="1.91.1"
 
 inherit cargo
 
@@ -19,7 +19,7 @@ LICENSE+="
 	Unicode-DFS-2016 ZLIB
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
 IUSE="mcp plugins system-clipboard X"
 
 DEPEND="
@@ -52,9 +52,9 @@ src_configure() {
 
 	local myfeatures=(
 		$(usev mcp)
+		native-tls
 		network
 		plugin
-		native-tls
 		sqlite
 		$(usev system-clipboard)
 		trash-support
