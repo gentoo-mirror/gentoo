@@ -1,0 +1,14 @@
+BDEPEND=>=dev-ruby/asciidoctor-2.0.12 >=app-text/po4a-0.45 >=sys-devel/gettext-0.18 dev-perl/Unicode-LineBreak dev-util/source-highlight pdf? ( dev-texlive/texlive-xetex media-fonts/noto-cjk media-fonts/dejavu virtual/pandoc ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DESCRIPTION=Electronic Schematic and PCB design tools manuals
+EAPI=8
+HOMEPAGE=https://docs.kicad.org/
+INHERIT=cmake
+IUSE=+html pdf l10n_ca l10n_de l10n_en l10n_es l10n_fr l10n_id l10n_it l10n_ja l10n_nl l10n_pl l10n_ru l10n_zh
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=|| ( GPL-3+ CC-BY-3.0 ) GPL-2
+REQUIRED_USE=|| ( html pdf ) ^^ ( l10n_ca l10n_de l10n_en l10n_es l10n_fr l10n_id l10n_it l10n_ja l10n_nl l10n_pl l10n_ru l10n_zh )
+SLOT=0
+SRC_URI=https://gitlab.com/kicad/services/kicad-doc/-/archive/10.0.0/kicad-doc-10.0.0.tar.bz2
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
+_md5_=a05dd8cafe835b5903033fe9163470dc
