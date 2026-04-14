@@ -14,7 +14,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND=">=dev-lang/go-1.16:="
+DEPEND=">=dev-lang/go-1.26:="
 RESTRICT="strip"
 
 src_compile() {
