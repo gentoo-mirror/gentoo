@@ -5,12 +5,12 @@ DESCRIPTION=Locate and modify variables in executing processes
 EAPI=8
 HOMEPAGE=https://github.com/scanmem/scanmem
 INHERIT=autotools python-single-r1
-IUSE=gui static-libs python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+IUSE=gui static-libs python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
 KEYWORDS=~amd64 ~riscv ~x86
 LICENSE=GPL-3
-RDEPEND=sys-libs/readline:= gui? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-python/pygobject:3 sys-auth/polkit )
-REQUIRED_USE=gui? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
+RDEPEND=sys-libs/readline:= gui? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) dev-python/pygobject:3 sys-auth/polkit )
+REQUIRED_USE=gui? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) )
 SLOT=0
 SRC_URI=https://github.com/scanmem/scanmem/archive/v0.17.tar.gz -> scanmem-0.17.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=d90b7f306f0684866b9804f5547cdcb5
+_md5_=32cfefdaaed0033d97b7d47fd8c83b4f

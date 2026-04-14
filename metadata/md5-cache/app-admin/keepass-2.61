@@ -1,0 +1,16 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install postinst postrm preinst prepare
+DEPEND=dev-lang/mono
+DESCRIPTION=A free, open source, light-weight and easy-to-use password manager
+EAPI=8
+HOMEPAGE=https://keepass.info/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop optfeature wrapper xdg
+IUSE=aot
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2 || ( CC0-1.0 Apache-2.0 )
+RDEPEND=dev-lang/mono dev-dotnet/libgdiplus[cairo]
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/keepass/KeePass-2.61-Source.zip
+_eclasses_=desktop	26d57169ca094c04be416993844ec8bc	optfeature	538bce96e5589935b57e178e8635f301	wrapper	ebaa3beeb43f7e533872b6c37168c7ad	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=1a80bb4d90bf8b7ac0c7a64e6a10410c
