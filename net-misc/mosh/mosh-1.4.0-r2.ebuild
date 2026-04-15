@@ -26,7 +26,7 @@ REQUIRED_USE="
 # depends on abseil-cpp via protobuf targets
 RDEPEND="
 	dev-cpp/abseil-cpp:=
-	dev-libs/protobuf:=
+	dev-libs/protobuf:=[protobuf(+)]
 	sys-libs/ncurses:=
 	virtual/zlib:=
 	virtual/ssh
@@ -41,7 +41,10 @@ RDEPEND="
 	)"
 
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	dev-libs/protobuf[protobuf(+),protoc(+)]
+	virtual/pkgconfig
+"
 
 QA_CONFIGURE_OPTIONS="--disable-static"
 
