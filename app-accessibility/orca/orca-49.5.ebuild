@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit gnome2 meson python-single-r1
 
@@ -30,7 +30,7 @@ DEPEND="${PYTHON_DEPS}
 	braille? (
 		$(python_gen_cond_dep '
 			>=app-accessibility/brltty-5.0-r3[python,${PYTHON_USEDEP}]
-			dev-libs/liblouis[${PYTHON_SINGLE_USEDEP}]
+			dev-libs/liblouis[tools(+),${PYTHON_SINGLE_USEDEP}]
 		')
 	)
 "
