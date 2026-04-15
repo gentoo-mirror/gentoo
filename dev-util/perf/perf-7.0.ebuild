@@ -3,9 +3,9 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {18..21} )
+LLVM_COMPAT=( {18..22} )
 PYTHON_COMPAT=( python3_{11..14} python3_{13,14}t)
-inherit bash-completion-r1 estack flag-o-matic linux-info llvm-r1 toolchain-funcs python-single-r1
+inherit bash-completion-r1 estack flag-o-matic linux-info llvm-r2 toolchain-funcs python-single-r1
 
 DESCRIPTION="Userland tools for Linux Performance Counters"
 HOMEPAGE="https://perfwiki.github.io/main/"
@@ -35,7 +35,7 @@ S="${S_K}/tools/perf"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
-IUSE="abi_mips_o32 abi_mips_n32 abi_mips_n64 babeltrace capstone big-endian bpf caps crypt debug gtk java libpfm +libtraceevent +libtracefs lzma numa perl +python +slang systemtap tcmalloc unwind"
+IUSE="abi_mips_o32 abi_mips_n32 abi_mips_n64 babeltrace capstone big-endian bpf caps crypt debug gtk java libpfm +libtraceevent +libtracefs lzma numa perl +python +slang systemtap tcmalloc"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -85,7 +85,6 @@ RDEPEND="
 	slang? ( sys-libs/slang )
 	systemtap? ( dev-debug/systemtap )
 	tcmalloc? ( dev-util/google-perftools )
-	unwind? ( sys-libs/libunwind:= )
 	app-arch/zstd:=
 	dev-libs/elfutils
 	virtual/zlib:=
@@ -121,13 +120,13 @@ pkg_setup() {
 		~UPROBE_EVENTS
 	"
 
-	use bpf && llvm-r1_pkg_setup
+	use bpf && llvm-r2_pkg_setup
 	# We enable python unconditionally as libbpf always generates
 	# API headers using python script
 	python_setup
 
 	if use bpf ; then
-		CONFIG_CHECK+="~BPF ~BPF_EVENTS ~BPF_SYSCALL ~DEBUG_INFO_BTF ~HAVE_EBPF_JIT ~UNWINDER_FRAME_POINTER"
+		CONFIG_CHECK+="~BPF ~BPF_EVENTS ~BPF_SYSCALL ~DEBUG_INFO_BTF ~HAVE_EBPF_JIT"
 	fi
 
 	linux-info_pkg_setup
@@ -211,19 +210,6 @@ perf_make() {
 	local java_dir
 	use java && java_dir="${EPREFIX}/etc/java-config-2/current-system-vm"
 
-	# sync this with the whitelist in tools/perf/Makefile.config
-	local disable_libdw
-	if ! use amd64 && ! use x86 && \
-	   ! use arm && \
-	   ! use arm64 && \
-	   ! use ppc && ! use ppc64 \
-	   ! use s390 && \
-	   ! use riscv && \
-	   ! use loong
-	then
-		disable_libdw=1
-	fi
-
 	# perf directly invokes LD for linking without going through CC, on mips
 	# it is required to specify the emulation.  port of below buildroot patch
 	# https://patchwork.ozlabs.org/project/buildroot/patch/20170217105905.32151-1-Vincent.Riera@imgtec.com/
@@ -272,14 +258,13 @@ perf_make() {
 		NO_LIBBPF=$(puse bpf)
 		NO_LIBCAP=$(puse caps)
 		NO_LIBCRYPTO=$(puse crypt)
-		NO_LIBDW_DWARF_UNWIND="${disable_libdw}"
 		NO_LIBELF=
 		NO_LIBLLVM=$(puse bpf)
 		NO_LIBNUMA=$(puse numa)
 		NO_LIBPFM4=$(puse libpfm)
 		NO_LIBPYTHON=$(puse python)
 		NO_LIBTRACEEVENT=$(puse libtraceevent)
-		NO_LIBUNWIND=$(puse unwind)
+		NO_LIBUNWIND=1
 		NO_SDT=$(puse systemtap)
 		NO_SHELLCHECK=1
 		NO_SLANG=$(puse slang)
