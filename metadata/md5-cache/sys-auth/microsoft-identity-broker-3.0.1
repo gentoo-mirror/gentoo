@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst postrm preinst setup unpack
+DESCRIPTION=Microsoft Authentication Broker to access a corporate environment
+EAPI=8
+HOMEPAGE=https://learn.microsoft.com/intune/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop prefix systemd unpacker xdg
+KEYWORDS=-* ~amd64
+LICENSE=microsoft-proprietary Apache-2.0 BSD-2 MIT
+RDEPEND=app-accessibility/at-spi2-core:2 app-crypt/libsecret app-crypt/p11-kit dev-libs/glib:2 dev-libs/openssl:0/3 net-libs/libsoup:3.0 net-libs/webkit-gtk:4.1/0 net-misc/curl sys-apps/bubblewrap sys-apps/dbus sys-apps/util-linux x11-libs/cairo x11-libs/gtk+:3 x11-libs/libX11 x11-libs/pango virtual/zlib
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=https://packages.microsoft.com/ubuntu/24.04/prod/pool/main/m/microsoft-identity-broker/microsoft-identity-broker_3.0.1-noble_amd64.deb
+_eclasses_=desktop	26d57169ca094c04be416993844ec8bc	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=a174842747a21c13bed968df78f96119
