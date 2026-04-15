@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://nexte.st/
 INHERIT=cargo
 IUSE=debug
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+KEYWORDS=amd64 ~arm arm64 ~ppc64 ~x86
 LICENSE=|| ( Apache-2.0 MIT ) Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0 CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016 WTFPL-2 ZLIB
 RDEPEND=>=app-arch/zstd-1.5.7:=
 SLOT=0
 SRC_URI=https://github.com/nextest-rs/nextest/archive/refs/tags/cargo-nextest-0.9.130.tar.gz https://github.com/gentoo-crate-dist/nextest/releases/download/cargo-nextest-0.9.130/nextest-cargo-nextest-0.9.130-crates.tar.xz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	c5ae4c9b5eca97bd7fc77fede663873f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	53bab5a62cfc3526d8ed02c0a38a6033
-_md5_=b40fb826867c5d8e151b0e56e5316446
+_md5_=2da8adbc3590c2d86e02acd494cf876a
