@@ -1,7 +1,7 @@
 BDEPEND=app-arch/xz-utils truetype? ( virtual/pkgconfig ) x86? ( dev-lang/nasm )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare
 DEPEND=>=media-libs/libsdl2-2.0.0[sound,joystick,video] a52? ( media-libs/a52dec ) aac? ( media-libs/faad2 ) alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac:= ) fluidsynth? ( media-sound/fluidsynth:= ) fribidi? ( dev-libs/fribidi ) gif? ( media-libs/giflib ) gtk? ( dev-libs/glib:2 x11-libs/gtk+:3 ) jpeg? ( media-libs/libjpeg-turbo:= ) mp3? ( media-libs/libmad ) mpeg2? ( media-libs/libmpeg2 ) musepack? ( media-sound/musepack-tools:= ) net? ( media-libs/sdl2-net net-misc/curl ) opengl? ( || ( virtual/opengl media-libs/libglvnd ) ) openmpt? ( media-libs/libopenmpt:= ) parport? ( sys-libs/libieee1284:= ) png? ( media-libs/libpng:0 ) readline? ( sys-libs/readline:= ) sndio? ( media-sound/sndio:= ) speech? ( app-accessibility/speech-dispatcher ) truetype? ( media-libs/freetype:2 ) theora? ( media-libs/libtheora:= ) vorbis? ( media-libs/libogg media-libs/libvorbis ) vpx? ( media-libs/libvpx:= ) zlib? ( virtual/zlib:= )
-DESCRIPTION=Reimplementation of the SCUMM game engine used in Lucasarts adventures
+DESCRIPTION=Reimplementation of various game engines for adventures and role-playing games
 EAPI=8
 HOMEPAGE=https://www.scummvm.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://downloads.scummvm.org/frs/scummvm/2026.2.0/scummvm-2026.2.0.tar.xz
 _eclasses_=desktop	26d57169ca094c04be416993844ec8bc	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=b1259580953f37ddbbb9ae49933ce9e2
+_md5_=17f6b734717e1e5e3434bbb6262f8f05
