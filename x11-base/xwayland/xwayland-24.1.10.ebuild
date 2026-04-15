@@ -87,12 +87,13 @@ src_configure() {
 		-Dglamor=true
 		-Dglx=true
 		-Dipv6=true
+		-Dsecure-rpc=false
 		-Dscreensaver=true
 		-Dsha1=libcrypto
 		-Dxace=true
 		-Dxdmcp=true
 		-Dxinerama=true
-		-Dxvfb=true
+#		-Dxvfb=true
 		-Dxv=true
 		-Dxwayland-path="${EPREFIX}"/usr/bin
 		-Dlibdecor=false
