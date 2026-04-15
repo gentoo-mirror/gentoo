@@ -5,7 +5,7 @@ EAPI=8
 
 # Bump notes: https://wiki.gentoo.org/wiki/Project:Rust/Rust_bump
 
-LLVM_COMPAT=( 22 )
+LLVM_COMPAT=( 21 )
 PYTHON_COMPAT=( python3_{11..14} )
 
 # Patches are kept in rust-patches.git, see its README.rst for the versioning
@@ -15,7 +15,7 @@ PYTHON_COMPAT=( python3_{11..14} )
 # in the ebuild for changes that don't require a revbump.
 #
 # Uncomment this line when the ebuild needs a patchset update but no revbump.
-#RUST_PATCH_VER=${PV}-1
+# RUST_PATCH_VER=${PV}-1
 
 RUST_MAX_VER=${PV%%_*}
 RUST_PV=${PV%%_p*}
@@ -24,7 +24,7 @@ RUST_P=${PN}-${RUST_PV}
 
 if [[ ${PV} == *9999* ]]; then
 	# Update this as new `beta` releases come out.
-	RUST_MIN_VER="1.94.0"
+	RUST_MIN_VER="1.93.0"
 elif [[ ${PV} == *beta* ]]; then
 	RUST_MIN_VER="$(ver_cut 1).$(($(ver_cut 2) - 1)).0"
 else
@@ -737,8 +737,8 @@ src_test() {
 
 	# tests for standard and core library
 	local std_tests=(
-		library/std
-		library/core
+		std
+		core
 	)
 
 	# fails if llvm is not built with ALL targets.
@@ -761,7 +761,7 @@ src_test() {
 
 	local i failed=()
 	einfo "rust_src_test: enabled tests ${tests[@]} ${std_tests[@]}"
-	for i in "tests/${tests[@]}" "${std_tests[@]}"; do
+	for i in "tests/${tests[@]}" "library/${std_tests[@]}"; do
 		local t="${i}"
 		einfo "rust_src_test: running ${t}"
 		if ! RUST_BACKTRACE=1 "${EPYTHON}" ./x.py test -vv --config="${S}"/bootstrap.toml \

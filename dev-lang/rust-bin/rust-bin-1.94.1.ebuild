@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( 22 )
+LLVM_COMPAT=( 21 )
 LLVM_OPTIONAL="yes"
 
 inherit edo llvm-r1 multilib prefix rust-toolchain verify-sig multilib-minimal optfeature
@@ -32,7 +32,7 @@ GENTOO_BIN_BASEURI="https://github.com/projg2/rust-bootstrap/releases/download/$
 DESCRIPTION="Systems programming language from Mozilla"
 HOMEPAGE="https://www.rust-lang.org/"
 
-if [[ ${PV} != *9999* && ${PV} != *beta* ]] ; then
+if false; then
 	# Keep this separate to allow easy commenting out if not yet built
 	SRC_URI+=" sparc? ( ${GENTOO_BIN_BASEURI}/rust-${PVR}-sparc64-unknown-linux-gnu.tar.xz ) "
 	SRC_URI+=" mips? (
