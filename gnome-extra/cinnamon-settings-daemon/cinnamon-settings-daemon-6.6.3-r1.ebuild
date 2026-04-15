@@ -74,6 +74,12 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	# Don't install static csd library
+	# https://github.com/linuxmint/cinnamon-settings-daemon/pull/450
+	"${FILESDIR}/${PN}-6.6.0-no-static-install.patch"
+)
+
 src_prepare() {
 	default
 	python_fix_shebang install-scripts plugins/color
