@@ -1,12 +1,13 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit dot-a toolchain-funcs
 
 DESCRIPTION="Simplified Satisfiability Solver"
-HOMEPAGE="https://fmv.jku.at/cadical/"
+HOMEPAGE="https://fmv.jku.at/cadical/
+	https://github.com/arminbiere/cadical/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -24,24 +25,22 @@ LICENSE="MIT"
 SLOT="0/${PV}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-configure.patch"
-	"${FILESDIR}/${PN}-makefile.in-ar.patch"
+	"${FILESDIR}/${PN}-makefile-in-respect-ar-2.0.0.patch"
 )
 
 DOCS=( CONTRIBUTING.md NEWS.md README.md )
 
 src_configure() {
 	tc-export AR
+	lto-guarantee-fat
 	CXX="$(tc-getCXX)" CXXFLAGS="${CXXFLAGS} ${LDFLAGS}" ./configure || die
 }
 
 src_install() {
-	exeinto /usr/bin
-	doexe build/{cadical,mobical}
-
+	dobin build/{cadical,mobical}
 	dolib.a build/libcadical.a
 	doheader src/cadical.hpp
 	doheader src/ccadical.h
-
+	strip-lto-bytecode
 	einstalldocs
 }
