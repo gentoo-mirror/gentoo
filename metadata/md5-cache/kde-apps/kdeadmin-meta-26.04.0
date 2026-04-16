@@ -1,0 +1,10 @@
+DEFINED_PHASES=-
+DESCRIPTION=KDE administration tools - merge this to pull in all kdeadmin-derived packages
+EAPI=9
+HOMEPAGE=https://apps.kde.org/
+IUSE=+cron
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=metapackage
+RDEPEND=>=app-admin/kio-admin-26.04.0:* >=kde-apps/ksystemlog-26.04.0:* cron? ( >=kde-apps/kcron-26.04.0:* )
+SLOT=0
+_md5_=6fff8db213ce65b09115e919a7ee11e6
