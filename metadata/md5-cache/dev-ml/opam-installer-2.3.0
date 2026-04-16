@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/findlib dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile configure install test
+DEPEND=<dev-ml/cmdliner-2.0.0:=[ocamlopt?] dev-ml/jsonm:=[ocamlopt?] dev-ml/ocamlgraph:=[ocamlopt?] dev-ml/ocaml-sha:=[ocamlopt?] ~dev-ml/opam-common-2.3.0:=[ocamlopt?] dev-ml/opam-file-format:=[ocamlopt?] dev-ml/re:=[ocamlopt?] dev-ml/swhid_core:=[ocamlopt?] dev-ml/stdlib-shims:=[ocamlopt?] dev-ml/uchar:=[ocamlopt?] dev-ml/uutf:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Core installer for opam packages
+EAPI=8
+HOMEPAGE=https://opam.ocaml.org/ https://github.com/ocaml/opam
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=<dev-ml/cmdliner-2.0.0:=[ocamlopt?] dev-ml/jsonm:=[ocamlopt?] dev-ml/ocamlgraph:=[ocamlopt?] dev-ml/ocaml-sha:=[ocamlopt?] ~dev-ml/opam-common-2.3.0:=[ocamlopt?] dev-ml/opam-file-format:=[ocamlopt?] dev-ml/re:=[ocamlopt?] dev-ml/swhid_core:=[ocamlopt?] dev-ml/stdlib-shims:=[ocamlopt?] dev-ml/uchar:=[ocamlopt?] dev-ml/uutf:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+RESTRICT=test
+SLOT=0/2.3.0
+SRC_URI=https://github.com/ocaml/opam/releases/download/2.3.0/opam-2.3.0.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	bca6089ec4118f02802b8cee78a748c5
+_md5_=bc394b4dd09a59a1f5e3021b23943391
