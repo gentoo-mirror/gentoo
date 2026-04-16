@@ -21,7 +21,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="apparmor +chroot contrib +dbusproxy +file-transfer +globalcfg +network +private-home selinux test +userns X"
+IUSE="apparmor +chroot contrib +dbusproxy +file-transfer +network +private-home selinux test +userns X"
 REQUIRED_USE="contrib? ( ${PYTHON_REQUIRED_USE} )"
 # Needs a lot of work to function within sandbox/portage. Can look at the alternative
 # test targets in Makefile too, bug #769731
@@ -39,6 +39,7 @@ DEPEND="
 	sys-libs/libseccomp
 	test? ( dev-tcltk/expect )
 "
+BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.9.80-firecfg.config.patch"
@@ -57,14 +58,6 @@ pkg_setup() {
 
 src_prepare() {
 	default
-
-	# Our toolchain already sets SSP by default but forcing it causes problems
-	# on arches which don't support it. As for F_S, we again set it by defualt
-	# in our toolchain, but forcing F_S=2 is actually a downgrade if 3 is set.
-	sed -i \
-		-e 's:-fstack-protector-all::' \
-		-e 's:-D_FORTIFY_SOURCE=2::' \
-		src/so.mk src/prog.mk || die
 
 	find -type f -name Makefile -exec sed -i -r -e '/CFLAGS/s: (-O2|-ggdb) : :g' {} + || die
 
@@ -90,7 +83,6 @@ src_configure() {
 		$(use_enable chroot)
 		$(use_enable dbusproxy)
 		$(use_enable file-transfer)
-		$(use_enable globalcfg)
 		$(use_enable network)
 		$(use_enable private-home)
 		$(use_enable selinux)
