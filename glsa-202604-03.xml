@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202604-03">
+    <title>FUSE: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in FUSE, the worst of which can lead to code execution.</synopsis>
+    <product type="ebuild">fuse</product>
+    <announced>2026-04-17</announced>
+    <revised count="1">2026-04-17</revised>
+    <bug>971552</bug>
+    <access>remote</access>
+    <affected>
+        <package name="sys-fs/fuse" auto="yes" arch="*">
+            <unaffected range="ge" slot="3">3.18.1</unaffected>
+            <vulnerable range="lt" slot="3">3.18.1</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>FUSE (Filesystem in Userspace) is an interface for userspace programs to export a filesystem to the Linux kernel.</p>
+    </background>
+    <description>
+        <p>The following vulnerabilities have been discovered in FUSE: a NULL pointer dereference (when running with the NUMA architecture) and a use-after-free. The worst of which can lead to code execution. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>The following is a possible outcome: denial of service (crash) and potential code execution.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All FUSE users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-fs/fuse-3.18.1:3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-33150">CVE-2026-33150</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-33179">CVE-2026-33179</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-04-17T19:33:25.077082Z">csfore</metadata>
+    <metadata tag="submitter" timestamp="2026-04-17T19:33:25.079638Z">csfore</metadata>
+</glsa>
