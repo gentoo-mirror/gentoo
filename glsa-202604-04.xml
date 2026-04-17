@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202604-04">
+    <title>DTrace: Arbitrary file creation via dtprobed</title>
+    <synopsis>A DTrace component, dtprobed, allows arbitrary file creation through crafted USDT provider names.</synopsis>
+    <product type="ebuild">dtrace</product>
+    <announced>2026-04-17</announced>
+    <revised count="1">2026-04-17</revised>
+    <bug>971491</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-debug/dtrace" auto="yes" arch="*">
+            <unaffected range="ge">2.0.6</unaffected>
+            <vulnerable range="lt">2.0.6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>DTrace is a dynamic tracing tool for analysing or debugging the whole system. Specifically, dtprobed is a component of the DTrace system that keeps track of USDT probes within running processes, parsing and storing the DOF they provide for later consumption by dtrace proper.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been found in dtprobed that allows for arbitrary file creation through specially crafted USDT provider names.</p>
+    </description>
+    <impact type="normal">
+        <p>The worst possible outcome is the ability for an attacker to run arbitrary code via the maliciously created file.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All DTrace users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-debug/dtrace-2.0.6"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-21991">CVE-2026-21991</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-04-17T20:47:15.308512Z">csfore</metadata>
+    <metadata tag="submitter" timestamp="2026-04-17T20:47:15.311877Z">csfore</metadata>
+</glsa>
