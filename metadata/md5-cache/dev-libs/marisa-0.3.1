@@ -1,0 +1,16 @@
+BDEPEND=python? ( python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=dev-python/gpep517-16[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-lang/swig ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=python? ( python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) )
+DESCRIPTION=Matching Algorithm with Recursively Implemented StorAge
+EAPI=8
+HOMEPAGE=https://github.com/s-yata/marisa-trie
+INHERIT=cmake distutils-r1
+IUSE=python tools python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 debug
+KEYWORDS=~amd64 ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=|| ( BSD-2 LGPL-2.1+ )
+RDEPEND=python? ( python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 ) )
+SLOT=0
+SRC_URI=https://github.com/s-yata/marisa-trie/archive/v0.3.1.tar.gz -> marisa-0.3.1.tar.gz
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	62add15ed646bfe511af53e282621b39
+_md5_=2442f4b9735b502752a596d732b9d60c
