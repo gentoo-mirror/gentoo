@@ -1,15 +1,15 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=>=net-wireless/gnuradio-3.9.0.0:0=[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] net-libs/libosmo-dsp:= python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-libs/boost
+DEPEND=>=net-wireless/gnuradio-3.9.0.0:0=[python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] net-libs/libosmo-dsp:= python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-libs/boost
 DESCRIPTION=gnuradio I/Q balancing
 EAPI=8
 HOMEPAGE=http://git.osmocom.org/gr-iqbal/
 INHERIT=cmake python-single-r1 git-r3
-IUSE=doc python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+IUSE=doc python_single_target_python3_12 python_single_target_python3_13
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=>=net-wireless/gnuradio-3.9.0.0:0=[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] net-libs/libosmo-dsp:= python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
-REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+RDEPEND=>=net-wireless/gnuradio-3.9.0.0:0=[python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] net-libs/libosmo-dsp:= python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
+REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=0/9999
-_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=79f47cf4c4bb5b7658ccd15b2d03c65e
+_eclasses_=git-r3	7b584b5dc33e3bc66ff5b9271bf41764	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=2a7e71e923fa1cf2f06e25ce1671bbdc

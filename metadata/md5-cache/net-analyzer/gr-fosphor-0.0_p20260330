@@ -1,16 +1,16 @@
-BDEPEND=python_single_target_python3_11? ( dev-python/pybind11[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pybind11[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pybind11[python_targets_python3_13(-)] ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+BDEPEND=python_single_target_python3_12? ( dev-python/pybind11[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pybind11[python_targets_python3_13(-)] ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-libs/boost:= dev-libs/log4cpp python_single_target_python3_11? ( dev-python/pygccxml[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygccxml[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygccxml[python_targets_python3_13(-)] ) media-libs/freetype >=net-wireless/gnuradio-3.9:0=[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] glfw? ( >=media-libs/glfw-3 ) virtual/opencl virtual/opengl
+DEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-libs/boost:= dev-libs/log4cpp python_single_target_python3_12? ( dev-python/pygccxml[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygccxml[python_targets_python3_13(-)] ) media-libs/freetype >=net-wireless/gnuradio-3.9:0=[python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] glfw? ( >=media-libs/glfw-3 ) virtual/opencl virtual/opengl
 DESCRIPTION=gnuradio fosphor block (GPU spectrum display)
 EAPI=8
 HOMEPAGE=https://sdr.osmocom.org/trac/wiki/fosphor
 INHERIT=cmake python-single-r1
-IUSE=glfw python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+IUSE=glfw python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-libs/boost:= dev-libs/log4cpp python_single_target_python3_11? ( dev-python/pygccxml[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygccxml[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygccxml[python_targets_python3_13(-)] ) media-libs/freetype >=net-wireless/gnuradio-3.9:0=[python_single_target_python3_11(-)?,python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] glfw? ( >=media-libs/glfw-3 ) virtual/opencl virtual/opengl
-REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+RDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) dev-libs/boost:= dev-libs/log4cpp python_single_target_python3_12? ( dev-python/pygccxml[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygccxml[python_targets_python3_13(-)] ) media-libs/freetype >=net-wireless/gnuradio-3.9:0=[python_single_target_python3_12(-)?,python_single_target_python3_13(-)?] glfw? ( >=media-libs/glfw-3 ) virtual/opencl virtual/opengl
+REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 )
 SLOT=0
 SRC_URI=https://github.com/ZeroChaos-/gr-fosphor/archive/d62dde896432b0a807bbbc16d20c8e76b9547f0a.tar.gz -> gr-fosphor-0.0_p20260330.tar.gz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=8cb55456b41355cfcdaa8da4c07b6e76
+_md5_=aa7dbabdc4634070eb871fd83f1aaa8f
