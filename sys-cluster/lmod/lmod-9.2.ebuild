@@ -17,6 +17,7 @@ else
 	S="${WORKDIR}"/Lmod-${PV}
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
+SRC_URI+=" https://dev.gentoo.org/~tupone/distfiles/${PN}-9.1.2-load-err.txt"
 
 LICENSE="MIT"
 SLOT="0"
@@ -33,9 +34,7 @@ RDEPEND="${LUA_DEPS}
 		dev-lua/luaposix[${LUA_USEDEP}]
 		dev-lua/lua-term[${LUA_USEDEP}]
 	')
-	virtual/pkgconfig
 "
-DEPEND="${RDEPEND}"
 BDEPEND="${RDEPEND}
 	app-alternatives/bc
 	test? (
@@ -44,12 +43,12 @@ BDEPEND="${RDEPEND}
 		')
 		app-shells/tcsh
 	)
+	virtual/pkgconfig
 "
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-8.4.19-no-libsandbox.patch
-	"${FILESDIR}"/${PN}-8.6.14-r1-make.patch
-	"${FILESDIR}"/${PN}-8.7.23-mksh.patch
+	"${FILESDIR}"/${PN}-8.7.55-make.patch
 )
 
 pkg_pretend() {
@@ -68,6 +67,27 @@ src_prepare() {
 	rm -r rt/{ck_mtree_syntax,colorize,end2end,help,ifur,settarg} || die
 	hprefixify -w '/#\!\/bin\/tcsh/' rt/csh_swap/csh_swap.tdesc || die
 	eautoreconf
+	sed -i \
+		-e "1s|#!/usr/bin/env lua|#!${LUA}|" \
+		proj_mgmt/joinBase64Results \
+		proj_mgmt/clean_gold_files/regularize \
+		|| die
+	sed -i \
+		-e "s|    lua|    ${LUA}|" \
+		rt/csh_swap/csh_swap.tdesc \
+		|| die
+	sed -i \
+		-e "/prepend_path/d" \
+		rt/changeMPATH/mf/Core/admin/admin-1.0.lua \
+		rt/changeMPATH/mf/Core2/admin/admin-1.0.lua \
+		|| die
+	sed -i \
+		-e "s|/usr/sbin:/sbin:||" \
+		-e 's|/usr/sbin:1\\;/sbin:1\\;||' \
+		rt/changeMPATH/out.txt \
+		|| die
+	cp "${DISTDIR}"/${PN}-9.1.2-load-err.txt \
+		rt/load/err.txt || die
 }
 
 src_configure() {
@@ -116,10 +136,10 @@ src_test() {
 }
 
 src_install() {
-	dosym ../../../usr/share/Lmod/init/profile /etc/bash/bashrc.d/z00_lmod.sh
-	dosym ../../usr/share/Lmod/init/profile /etc/profile.d/z00_lmod.sh
-	dosym ../../usr/share/Lmod/init/cshrc /etc/profile.d/z00_lmod.csh
-	dosym ../../../usr/share/Lmod/init/profile.fish /etc/fish/conf.d/z00_lmod.fish
+	dosym -r /usr/share/Lmod/init/profile /etc/bash/bashrc.d/z00_lmod.sh
+	dosym -r /usr/share/Lmod/init/profile /etc/profile.d/z00_lmod.sh
+	dosym -r /usr/share/Lmod/init/cshrc /etc/profile.d/z00_lmod.csh
+	dosym -r /usr/share/Lmod/init/profile.fish /etc/fish/conf.d/z00_lmod.fish
 	default
 	newman "${FILESDIR}"/module.1-8.4.20 module.1
 	# not a real man page
@@ -127,7 +147,6 @@ src_install() {
 	doenvd "${FILESDIR}"/99lmod
 	keepdir /etc/modulefiles
 	keepdir /etc/lmod_cache
-
 }
 
 pkg_postinst() {
