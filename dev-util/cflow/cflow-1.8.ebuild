@@ -14,12 +14,24 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="debug emacs nls"
 
-RDEPEND="emacs? ( >=app-editors/emacs-23.1:* )
-	nls? ( virtual/libintl virtual/libiconv )"
-DEPEND="nls? ( virtual/libintl virtual/libiconv )"
-BDEPEND="emacs? ( >=app-editors/emacs-23.1:* )
+RDEPEND="
+	emacs? ( >=app-editors/emacs-23.1:* )
+	nls? (
+		virtual/libintl
+		virtual/libiconv
+	)
+"
+DEPEND="
+	nls? (
+		virtual/libintl
+		virtual/libiconv
+	)
+"
+BDEPEND="
 	app-alternatives/lex
-	nls? ( sys-devel/gettext )"
+	emacs? ( >=app-editors/emacs-23.1:* )
+	nls? ( sys-devel/gettext )
+"
 
 SITEFILE="50${PN}-gentoo.el"
 
@@ -27,10 +39,13 @@ src_configure() {
 	# bug #944004
 	append-flags -std=gnu17
 
-	econf \
-		$(use_enable nls) \
-		$(use_enable debug) \
+	local myeconfargs=(
+		$(use_enable nls)
+		$(use_enable debug)
 		EMACS=no
+	)
+
+	econf "${myeconfargs[@]}"
 }
 
 src_compile() {
