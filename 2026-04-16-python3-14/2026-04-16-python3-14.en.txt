@@ -1,7 +1,7 @@
 Title: Python 3.14 to become the default on 2026-06-01
 Author: Michał Górny <mgorny@gentoo.org>
 Posted: 2026-04-16
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 Display-If-Installed: dev-lang/pypy:3.11
 Display-If-Installed: dev-lang/python:3.11
@@ -14,8 +14,11 @@ the values of PYTHON_TARGETS or PYTHON_SINGLE_TARGET, the change will
 have immediate effect on your system and the package manager will try
 to switch automatically on the next upgrade following the change.
 
-If you did change the values, prefer a safer approach or have problems
-with the update, read on.
+Most users do not need to do anything and it is best to wait until the
+switch date, as packages are still being ported.
+
+If you did change the values, prefer to have more control over when
+the switch occurs, or have problems with the update, read on.
 
 Please note that the default upgrade method switches packages to the new
 Python versions as they are rebuilt.  This means that all interdependent
