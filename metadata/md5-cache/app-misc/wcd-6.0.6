@@ -1,15 +1,15 @@
-BDEPEND=app-text/ghostscript-gpl virtual/pkgconfig
-DEFINED_PHASES=compile install prepare
+BDEPEND=app-text/ghostscript-gpl virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-erwinwaterlander ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile install prepare unpack
 DEPEND=sys-libs/ncurses:=[unicode(+)?] unicode? ( dev-libs/libunistring:= )
 DESCRIPTION=Wherever Change Directory
 EAPI=8
 HOMEPAGE=https://waterlan.home.xs4all.nl/wcd.html
-INHERIT=toolchain-funcs
-IUSE=nls unicode
+INHERIT=toolchain-funcs verify-sig
+IUSE=nls unicode verify-sig
 KEYWORDS=~amd64 ~arm ~x86
 LICENSE=GPL-2
 RDEPEND=sys-libs/ncurses:=[unicode(+)?] unicode? ( dev-libs/libunistring:= )
 SLOT=0
-SRC_URI=https://waterlan.home.xs4all.nl/wcd/wcd-6.0.6.tar.gz
-_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9
-_md5_=ebb3a5a17b6b85641e3c82fa072f19b0
+SRC_URI=https://waterlan.home.xs4all.nl/wcd/wcd-6.0.6.tar.gz verify-sig? ( https://waterlan.home.xs4all.nl/wcd/wcd-6.0.6.tar.gz.asc )
+_eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=a910cf99643a5b4e91c562ad2b8d7358
