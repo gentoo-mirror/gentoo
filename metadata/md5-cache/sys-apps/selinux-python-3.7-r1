@@ -1,17 +1,17 @@
-BDEPEND=test? ( >=sys-libs/libselinux-3.7:=[python] >=sys-libs/libsemanage-3.7:=[python(+)] >=sys-libs/libsepol-3.7:=[static-libs(+)] >=app-admin/setools-4.2.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] ) sec-policy/selinux-base >=sys-apps/secilc-3.7 )
+BDEPEND=test? ( >=sys-libs/libselinux-3.7:=[python] >=sys-libs/libsemanage-3.7:=[python(+)] >=sys-libs/libsepol-3.7:=[static-libs(+)] >=app-admin/setools-4.2.0[python_targets_python3_12(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_12(-)?] python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] ) sec-policy/selinux-base >=sys-apps/secilc-3.7 )
 DEFINED_PHASES=compile install prepare test
-DEPEND=>=sys-libs/libselinux-3.7:=[python] >=sys-libs/libsemanage-3.7:=[python(+)] >=sys-libs/libsepol-3.7:=[static-libs(+)] >=app-admin/setools-4.2.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] )
+DEPEND=>=sys-libs/libselinux-3.7:=[python] >=sys-libs/libsemanage-3.7:=[python(+)] >=sys-libs/libsepol-3.7:=[static-libs(+)] >=app-admin/setools-4.2.0[python_targets_python3_12(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_12(-)?] python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] )
 DESCRIPTION=SELinux core utilities
 EAPI=8
 HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
 INHERIT=python-r1 toolchain-funcs
-IUSE=test python_targets_python3_11 python_targets_python3_12
+IUSE=test python_targets_python3_12
 KEYWORDS=amd64 arm arm64 ~riscv x86
 LICENSE=GPL-2
-RDEPEND=>=sys-libs/libselinux-3.7:=[python] >=sys-libs/libsemanage-3.7:=[python(+)] >=sys-libs/libsepol-3.7:=[static-libs(+)] >=app-admin/setools-4.2.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_11(-)?,python_targets_python3_12(-)?] python_targets_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] )
-REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 )
+RDEPEND=>=sys-libs/libselinux-3.7:=[python] >=sys-libs/libsemanage-3.7:=[python(+)] >=sys-libs/libsepol-3.7:=[static-libs(+)] >=app-admin/setools-4.2.0[python_targets_python3_12(-)?] >=sys-process/audit-1.5.1[python,python_targets_python3_12(-)?] python_targets_python3_12? ( dev-lang/python:3.12[xml(+)] )
+REQUIRED_USE=|| ( python_targets_python3_12 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.7/selinux-python-3.7.tar.gz
 _eclasses_=out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf
-_md5_=c96b457435aa3ebf0d5784054012493e
+_md5_=adf124c7d7712a1a59fcfcf42f00c56c
