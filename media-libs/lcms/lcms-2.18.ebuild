@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,9 +14,10 @@ S="${WORKDIR}/lcms2-${PV/_}"
 LICENSE="GPL-3 MIT"
 SLOT="2"
 if [[ ${PV} != *_rc* ]] ; then
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 fi
-IUSE="doc jpeg static-libs tiff"
+IUSE="doc jpeg static-libs test tiff"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	jpeg? ( media-libs/libjpeg-turbo:=[${MULTILIB_USEDEP}] )
@@ -30,6 +31,7 @@ multilib_src_configure() {
 		-Dthreaded=true
 		-Dfastfloat=true
 		$(meson_feature jpeg)
+		$(meson_feature test tests)
 		$(meson_feature tiff)
 		$(meson_native_true utils)
 	)
