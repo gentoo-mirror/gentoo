@@ -28,8 +28,12 @@ BDEPEND="
 	${PYTHON_DEPS}
 "
 
-DOCS=( NEWS README hacking.txt security.txt )
+DOCS=( NEWS README hacking.adoc security.adoc )
 HTML_DOCS=( irkerd.html irkerhook.html )
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-2.24-password-file-typo.patch
+)
 
 src_prepare() {
 	default
