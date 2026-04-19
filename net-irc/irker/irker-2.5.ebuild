@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="ssl"
 
 inherit optfeature python-single-r1 systemd
@@ -14,7 +14,7 @@ SRC_URI="http://www.catb.org/esr/${PN}/${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ppc ppc64 ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~s390 ~sparc ~x86"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # Dependency notes:
@@ -28,7 +28,7 @@ BDEPEND="
 	${PYTHON_DEPS}
 "
 
-DOCS=( NEWS README hacking.adoc security.adoc )
+DOCS=( NEWS README hacking.txt security.txt )
 HTML_DOCS=( irkerd.html irkerhook.html )
 
 src_prepare() {
@@ -48,8 +48,8 @@ src_install() {
 	# Not installed with the default Makefile
 	python_doscript irk irkerhook.py
 
-	newinitd "${FILESDIR}"/irkerd.initd irkerd
-	newconfd "${FILESDIR}"/irkerd.confd irkerd
+	newinitd "${FILESDIR}"/irkerd.initd-r1 irkerd
+	newconfd "${FILESDIR}"/irkerd.confd-r1 irkerd
 
 	systemd_dounit "${WORKDIR}"/irkerd.service
 

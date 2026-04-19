@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{11..14} )
-inherit bash-completion-r1 python-any-r1
+inherit python-any-r1 shell-completion
 
 DESCRIPTION="Git utilities -- repo summary, repl, changelog population, and many more"
 HOMEPAGE="https://github.com/tj/git-extras"
@@ -65,12 +65,7 @@ src_install() {
 
 	# TODO: Unfortunately, none of the completion seems to
 	# actually work for me yet(?)
-
 	newbashcomp "${S}"/etc/bash_completion.sh ${PN}
-
-	insinto /usr/share/zsh/site-functions
-	newins "${S}"/etc/${PN}-completion.zsh _${PN}
-
-	insinto /usr/share/fish/vendor_completions.d
-	doins "${S}"/etc/${PN}.fish
+	newzshcomp "${S}"/etc/${PN}-completion.zsh _${PN}
+	dofishcomp "${S}"/etc/${PN}.fish
 }
