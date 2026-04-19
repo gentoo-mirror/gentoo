@@ -7,7 +7,7 @@ PYTHON_COMPAT=( python3_{11..14} )
 inherit edo optfeature python-any-r1 wine
 
 WINE_GECKO=2.47.4
-WINE_MONO=10.3.0
+WINE_MONO=11.0.0
 WINE_P=wine-$(ver_cut 1-2)
 
 if [[ ${PV} == 9999 ]]; then
@@ -37,11 +37,10 @@ LICENSE="
 "
 SLOT="${PV}"
 IUSE="
-	+X +alsa bluetooth capi cups +dbus dos llvm-libunwind ffmpeg
-	+fontconfig +gecko gphoto2 +gstreamer kerberos +mono netapi
-	nls odbc opencl +opengl pcap perl pulseaudio samba scanner
-	+sdl selinux smartcard +ssl +truetype udev +unwind usb v4l
-	+vulkan wayland +xcomposite xinerama
+	+X +alsa bluetooth capi cups +dbus dos ffmpeg +fontconfig +gecko
+	gphoto2 +gstreamer kerberos +mono netapi nls odbc opencl +opengl
+	pcap perl pulseaudio samba scanner +sdl selinux smartcard +ssl
+	+truetype udev usb v4l +vulkan wayland xinerama
 "
 REQUIRED_USE="
 	X? ( truetype )
@@ -56,13 +55,13 @@ RESTRICT="test"
 # `grep WINE_CHECK_SONAME configure.ac` + if not directly linked
 WINE_DLOPEN_DEPEND="
 	X? (
+		x11-libs/libXcomposite[${WINE_USEDEP}]
 		x11-libs/libXcursor[${WINE_USEDEP}]
 		x11-libs/libXfixes[${WINE_USEDEP}]
 		x11-libs/libXi[${WINE_USEDEP}]
 		x11-libs/libXrandr[${WINE_USEDEP}]
 		x11-libs/libXrender[${WINE_USEDEP}]
 		x11-libs/libXxf86vm[${WINE_USEDEP}]
-		xcomposite? ( x11-libs/libXcomposite[${WINE_USEDEP}] )
 		xinerama? ( x11-libs/libXinerama[${WINE_USEDEP}] )
 	)
 	cups? ( net-print/cups[${WINE_USEDEP}] )
@@ -99,10 +98,6 @@ WINE_COMMON_DEPEND="
 	scanner? ( media-gfx/sane-backends[${WINE_USEDEP}] )
 	smartcard? ( sys-apps/pcsc-lite[${WINE_USEDEP}] )
 	udev? ( virtual/libudev:=[${WINE_USEDEP}] )
-	unwind? (
-		llvm-libunwind? ( llvm-runtimes/libunwind[${WINE_USEDEP}] )
-		!llvm-libunwind? ( sys-libs/libunwind:=[${WINE_USEDEP}] )
-	)
 	usb? ( dev-libs/libusb:1[${WINE_USEDEP}] )
 	wayland? (
 		dev-libs/wayland[${WINE_USEDEP}]
@@ -133,7 +128,7 @@ RDEPEND="
 "
 DEPEND="
 	${WINE_COMMON_DEPEND}
-	sys-kernel/linux-headers
+	>=sys-kernel/linux-headers-6.14
 	X? ( x11-base/xorg-proto )
 	bluetooth? ( net-wireless/bluez )
 	opencl? ( dev-util/opencl-headers )
@@ -158,7 +153,6 @@ QA_FLAGS_IGNORED="usr/lib/.*/wine/.*-unix/wine-preloader"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-7.17-noexecstack.patch
-	"${FILESDIR}"/${PN}-7.20-unwind.patch
 	"${FILESDIR}"/${PN}-8.13-rpath.patch
 )
 
@@ -224,12 +218,10 @@ src_configure() {
 		$(use_with ssl gnutls)
 		$(use_with truetype freetype)
 		$(use_with udev)
-		$(use_with unwind)
 		$(use_with usb)
 		$(use_with v4l v4l2)
 		$(use_with vulkan)
 		$(use_with wayland)
-		$(use_with xcomposite)
 		$(use_with xinerama)
 
 		$(usev !bluetooth '
