@@ -15,7 +15,7 @@ if [[ ${PV} == *9999* ]] ; then
 	EGIT_REPO_URI="https://code.videolan.org/videolan/vlc.git"
 	inherit git-r3
 else
-	COMMIT=
+	COMMIT=436a18f2dbb604feeaffe6a46fc822d1abf7a2fd
 	if [[ -n ${COMMIT} ]] ; then
 		SRC_URI="https://code.videolan.org/videolan/vlc/-/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		S="${WORKDIR}/${PN}-${COMMIT}"
@@ -35,17 +35,17 @@ DESCRIPTION="Media player and framework with support for most multimedia files a
 HOMEPAGE="https://www.videolan.org/vlc/"
 
 LICENSE="LGPL-2.1 GPL-2"
-SLOT="0/5-9" # vlc - vlccore
+SLOT="0/12-9" # vlc - vlccore
 
 IUSE="alsa aom archive aribsub bidi bluray chromaprint chromecast dav1d dbus
 	dc1394 debug directx +dvbpsi dvd +encode faad fdk +ffmpeg flac fluidsynth
-	fontconfig +gcrypt gme keyring gstreamer +gui ieee1394 jack jpeg kate
-	libass libcaca libnotify +libsamplerate libtiger linsys lirc live lua
-	mad matroska modplug mp3 mtp musepack ncurses nfs ogg
-	omxil optimisememory opus png projectm pulseaudio run-as-root samba
-	sftp shout sid skins soxr speex srt ssl svg taglib theora tremor truetype twolame
-	udev upnp vaapi v4l vdpau vnc vpx wayland +X x264 x265 xml zeroconf zvbi
-	cpu_flags_arm_neon cpu_flags_ppc_altivec cpu_flags_x86_mmx cpu_flags_x86_sse
+	fontconfig +gcrypt gme keyring gstreamer +gui ieee1394 jack jpeg kate libass
+	libcaca libdrm libnotify libplacebo +libsamplerate libtiger linsys lirc live
+	loudness lua mad matroska modplug mp3 mtp musepack ncurses
+	nfs ogg omxil optimisememory opus png projectm pulseaudio run-as-root samba
+	sftp shout sid skins soxr speex srt ssl svg taglib theora tremor truetype
+	twolame udev upnp vaapi v4l vdpau vnc vpx wayland +X x264 x265 xml zeroconf
+	zvbi cpu_flags_arm_neon cpu_flags_ppc_altivec cpu_flags_x86_sse
 "
 REQUIRED_USE="
 	chromecast? ( encode )
@@ -54,7 +54,7 @@ REQUIRED_USE="
 	libcaca? ( X )
 	libtiger? ( kate )
 	lua? ( ${LUA_REQUIRED_USE} )
-	skins? ( archive gui truetype X xml )
+	skins? ( gui truetype X xml )
 	ssl? ( gcrypt )
 	vaapi? ( ffmpeg X )
 	vdpau? ( ffmpeg X )
@@ -71,7 +71,7 @@ BDEPEND="
 	x86? ( dev-lang/yasm )
 "
 # depends on abseil-cpp via protobuf targets
-RDEPEND="
+COMMON_DEPEND="
 	media-libs/libvorbis
 	net-dns/libidn:=
 	virtual/zlib:=
@@ -94,7 +94,7 @@ RDEPEND="
 		>=dev-libs/protobuf-2.5.0:=
 		>=net-libs/libmicrodns-0.1.2:=
 	)
-	dav1d? ( media-libs/dav1d:= )
+	dav1d? ( >=media-libs/dav1d-0.5.0:= )
 	dbus? ( sys-apps/dbus )
 	dc1394? (
 		media-libs/libdc1394:2
@@ -122,12 +122,13 @@ RDEPEND="
 	keyring? ( app-crypt/libsecret )
 	gstreamer? ( >=media-libs/gst-plugins-base-1.4.5:1.0 )
 	gui? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtsvg:5
-		dev-qt/qtwidgets:5
+		dev-qt/qt5compat:6[qml]
+		dev-qt/qtbase:6=[gui,widgets]
+		dev-qt/qtdeclarative:6
+		dev-qt/qtsvg:6
+		kde-frameworks/kwindowsystem:6
 		X? (
-			dev-qt/qtx11extras:5
+			dev-qt/qtbase:6[X]
 			x11-libs/libX11
 		)
 	)
@@ -143,17 +144,19 @@ RDEPEND="
 		media-libs/libass:=
 	)
 	libcaca? ( media-libs/libcaca )
+	libdrm? ( x11-libs/libdrm )
 	libnotify? (
 		dev-libs/glib:2
 		x11-libs/gdk-pixbuf:2
-		x11-libs/gtk+:3
 		x11-libs/libnotify
 	)
+	libplacebo? ( media-libs/libplacebo:= )
 	libsamplerate? ( media-libs/libsamplerate )
 	libtiger? ( media-libs/libtiger )
 	linsys? ( media-libs/zvbi )
 	lirc? ( app-misc/lirc )
 	live? ( media-plugins/live:= )
+	loudness? ( >=media-libs/libebur128-1.2.4:= )
 	lua? ( ${LUA_DEPS} )
 	mad? ( media-libs/libmad )
 	matroska? (
@@ -212,11 +215,13 @@ RDEPEND="
 	vpx? ( media-libs/libvpx:= )
 	wayland? (
 		>=dev-libs/wayland-1.15
-		dev-libs/wayland-protocols
+		>=dev-libs/wayland-protocols-1.12
 	)
 	X? (
 		x11-libs/libX11
 		x11-libs/libxcb
+		x11-libs/libXcursor
+		x11-libs/libxkbcommon[X]
 		x11-libs/xcb-util
 		x11-libs/xcb-util-keysyms
 	)
@@ -226,19 +231,22 @@ RDEPEND="
 	zeroconf? ( net-dns/avahi[dbus] )
 	zvbi? ( media-libs/zvbi )
 "
-DEPEND="${RDEPEND}
+DEPEND="${COMMON_DEPEND}
 	X? ( x11-base/xorg-proto )
 "
+RDEPEND="${COMMON_DEPEND}
+	gui? ( kde-frameworks/qqc2-desktop-style:6 )
+"
 
-DOCS=( AUTHORS THANKS NEWS README doc/fortunes.txt )
+DOCS=( AUTHORS THANKS NEWS README.md doc/fortunes.txt )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-3.0.22-gettext-version.patch # bug 766549
-	"${FILESDIR}"/${PN}-3.0.22-no-vlc-cache-gen.patch # bugs 564842, 608256
-	"${FILESDIR}"/${PN}-2.1.0-fix-libtremor-libs.patch # build system
-	"${FILESDIR}"/${PN}-3.0.6-fdk-aac-2.0.0.patch # bug 672290
-	"${FILESDIR}"/${PN}-3.0.11.1-configure_lua_version.patch
-	"${FILESDIR}"/${PN}-3.0.18-drop-minizip-dep.patch
+	"${FILESDIR}"/${PN}-4.0.0_pre20260320-gettext-version.patch # bug 766549
+	"${FILESDIR}"/${PN}-4.0.0_pre20260320-no-vlc-cache-gen.patch # bugs 564842, 608256
+	"${FILESDIR}"/${P}-fix-libtremor-libs.patch # build system
+	"${FILESDIR}"/${PN}-4.0.0_pre20260320-configure-lua-version.patch
+	"${FILESDIR}"/${PN}-4.0.0_pre20260215-force-x11.patch # crashes w/ wayland platform plugin
+	"${FILESDIR}"/${P}-no-libprojectm4.patch
 )
 
 pkg_setup() {
@@ -254,7 +262,7 @@ src_prepare() {
 	xdg_environment_reset
 
 	# Bootstrap when we are on a git checkout.
-	if [[ ${PV} == *9999* || ${PV} == *_p[0-9]* ]] ; then
+	if [[ ${PV} == *9999* || ${PV} == *_p[0-9]* || ${PV} == *_pre[0-9]* ]] ; then
 		./bootstrap
 	fi
 
@@ -279,7 +287,6 @@ src_configure() {
 	local -x BUILDCC="$(tc-getBUILD_CC)"
 
 	local myeconfargs=(
-		--disable-aa
 		--disable-amf-frc # DirectX specific
 		--disable-freerdp # bug 921096
 		--disable-optimizations
@@ -303,7 +310,6 @@ src_configure() {
 		$(use_enable chromecast microdns)
 		$(use_enable cpu_flags_arm_neon neon)
 		$(use_enable cpu_flags_ppc_altivec altivec)
-		$(use_enable cpu_flags_x86_mmx mmx)
 		$(use_enable cpu_flags_x86_sse sse)
 		$(use_enable dav1d)
 		$(use_enable dbus)
@@ -335,14 +341,17 @@ src_configure() {
 		$(use_enable jack)
 		$(use_enable jpeg)
 		$(use_enable kate)
+		$(use_enable libdrm)
 		$(use_enable libass)
 		$(use_enable libcaca caca)
 		$(use_enable libnotify notify)
+		$(use_enable libplacebo)
 		$(use_enable libsamplerate samplerate)
 		$(use_enable libtiger tiger)
 		$(use_enable linsys)
 		$(use_enable lirc)
 		$(use_enable live live555)
+		$(use_enable loudness ebur128)
 		$(use_enable lua)
 		$(use_enable mad)
 		$(use_enable matroska)
@@ -354,7 +363,6 @@ src_configure() {
 		$(use_enable nfs)
 		$(use_enable ogg)
 		$(use_enable omxil)
-		$(use_enable omxil omxil-vout)
 		$(use_enable optimisememory optimize-memory)
 		$(use_enable opus)
 		$(use_enable png)
@@ -386,7 +394,6 @@ src_configure() {
 		$(use_enable wayland)
 		$(use_with X x)
 		$(use_enable X xcb)
-		$(use_enable X xvideo)
 		$(use_enable x264)
 		$(use_enable x264 x26410b)
 		$(use_enable x265)
@@ -395,37 +402,28 @@ src_configure() {
 		$(use_enable zvbi)
 		$(use_enable !zvbi telx)
 		--with-kde-solid="${EPREFIX}"/usr/share/solid/actions
-		--disable-a52 # not officially supported anymore (avcodec takes priority)
 		--disable-asdcp
 		--disable-coverage
 		--disable-cprof
-		--disable-crystalhd
 		--disable-decklink
-		--disable-dca # not officially supported anymore (avcodec takes priority)
 		--disable-gles2
 		--disable-goom
 		--disable-kai
 		--disable-kva
-		--disable-libcddb # not officially supported anymore
-		--disable-libmpeg2 # not officially supported anymore (avcodec takes priority)
-		--disable-libplacebo
 		--disable-maintainer-mode
 		--disable-merge-ffmpeg
-		--disable-mfx
+		--disable-vpl # TODO: packaged, only keyworded amd64
 		--disable-mmal
 		--disable-opencv
 		--disable-opensles
 		--disable-oss
 		--disable-osx-notifications # MacOS only
 		--disable-rpi-omxil
-		--disable-schroedinger
-		--disable-sdl-image # not officially supported anymore
 		--disable-shine
 		--disable-sndio
 		--disable-spatialaudio
 		--disable-vsxu
 		--disable-wasapi
-		--disable-wma-fixed
 	)
 	# ^ We don't have these disabled libraries in the Portage tree yet.
 
@@ -489,16 +487,21 @@ src_install() {
 }
 
 pkg_postinst() {
-	if [[ -z "${ROOT}" ]] && [[ -x "${EROOT}/usr/$(get_libdir)/vlc/vlc-cache-gen" ]] ; then
-		einfo "Running ${EPREFIX}/usr/$(get_libdir)/vlc/vlc-cache-gen on ${EROOT}/usr/$(get_libdir)/vlc/plugins/"
-		"${EPREFIX}/usr/$(get_libdir)/vlc/vlc-cache-gen" "${EROOT}/usr/$(get_libdir)/vlc/plugins/"
+	if [[ -z "${ROOT}" ]] && [[ -x "${EROOT}"/usr/libexec/vlc/vlc-cache-gen ]] ; then
+		einfo "Running ${EPREFIX}/usr/libexec/vlc/vlc-cache-gen on ${EROOT}/usr/$(get_libdir)/vlc/plugins/"
+		"${EPREFIX}"/usr/libexec/vlc/vlc-cache-gen "${EROOT}/usr/$(get_libdir)/vlc/plugins/"
 	else
 		ewarn "We cannot run vlc-cache-gen (most likely ROOT != /)"
-		ewarn "Please run ${EPREFIX}/usr/$(get_libdir)/vlc/vlc-cache-gen manually"
+		ewarn "Please run ${EPREFIX}/usr/libexec/vlc/vlc-cache-gen manually"
 		ewarn "If you do not do it, vlc will take a long time to load."
 	fi
 
-	use gui && xdg_pkg_postinst
+	if use gui; then
+		ewarn "Starting VLC GUI is only supported by using its desktop file."
+		ewarn "Manually calling vlc from command line is known to break in Wayland sessions."
+
+		xdg_pkg_postinst
+	fi
 }
 
 pkg_postrm() {
