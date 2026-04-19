@@ -1,16 +1,16 @@
-BDEPEND=>=app-editors/emacs-26.3[svg] app-emacs/ace-window app-emacs/cfrs app-emacs/dash app-emacs/ht app-emacs/hydra app-emacs/pfuture app-emacs/s test? ( app-emacs/buttercup ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=app-editors/emacs-26.3:*
+BDEPEND=>=app-editors/emacs-26.3[svg] app-emacs/ace-window app-emacs/cfrs app-emacs/dash app-emacs/ht app-emacs/hydra app-emacs/pfuture app-emacs/s test? ( app-emacs/buttercup ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=app-editors/emacs-26.3:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Tree style project file explorer
 EAPI=8
 HOMEPAGE=https://github.com/Alexander-Miller/treemacs/
 INHERIT=distutils-r1 elisp
-IUSE=test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+IUSE=test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
 KEYWORDS=amd64
 LICENSE=GPL-3+
-RDEPEND=>=app-editors/emacs-26.3[svg] app-emacs/ace-window app-emacs/cfrs app-emacs/dash app-emacs/ht app-emacs/hydra app-emacs/pfuture app-emacs/s python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) >=app-editors/emacs-26.3:*
-REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RDEPEND=>=app-editors/emacs-26.3[svg] app-emacs/ace-window app-emacs/cfrs app-emacs/dash app-emacs/ht app-emacs/hydra app-emacs/pfuture app-emacs/s python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) >=app-editors/emacs-26.3:*
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Alexander-Miller/treemacs/archive/3.2.tar.gz -> treemacs-3.2.gh.tar.gz
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	62add15ed646bfe511af53e282621b39	elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30
-_md5_=52a10ab44f2176832e44cfcce1169953
+_md5_=012bb8efba5a16e6450bf0e890eda44c

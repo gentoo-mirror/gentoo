@@ -1,16 +1,16 @@
-BDEPEND=app-alternatives/yacc app-alternatives/lex virtual/pkgconfig python? ( dev-lang/swig python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/setuptools[python_targets_python3_13(-)] ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-alternatives/yacc app-alternatives/lex virtual/pkgconfig python? ( dev-lang/swig python_single_target_python3_11? ( dev-python/setuptools[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/setuptools[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/setuptools[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/setuptools[python_targets_python3_14(-)] ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install setup test unpack
-DEPEND=python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) yaml? ( >=dev-libs/libyaml-0.2.3[static-libs?] )
+DEPEND=python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ) yaml? ( >=dev-libs/libyaml-0.2.3[static-libs?] )
 DESCRIPTION=Open Firmware device tree compiler
 EAPI=8
 HOMEPAGE=https://devicetree.org/ https://git.kernel.org/cgit/utils/dtc/dtc.git/
 INHERIT=dot-a meson python-single-r1 git-r3
-IUSE=python static-libs test yaml python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+IUSE=python static-libs test yaml python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) yaml? ( >=dev-libs/libyaml-0.2.3[static-libs?] )
-REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
+RDEPEND=python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ) yaml? ( >=dev-libs/libyaml-0.2.3[static-libs?] )
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	dot-a	e5200fe17cfd2ed6fa66edd80201763a	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=ee08e0a40f7e3652c705fd5b4f49a10f
+_md5_=10d7f7fa960b5473d2d9db772710751e
