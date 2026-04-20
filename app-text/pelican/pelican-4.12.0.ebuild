@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=pdm-backend
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 optfeature
 
@@ -20,11 +20,11 @@ SRC_URI="
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="doc examples markdown"
 
 RDEPEND="
-	>=dev-python/docutils-0.20.1[${PYTHON_USEDEP}]
+	>=dev-python/docutils-0.22.0[${PYTHON_USEDEP}]
 	>=dev-python/blinker-1.7.0[${PYTHON_USEDEP}]
 	>=dev-python/feedgenerator-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/jinja2-3.1.2[${PYTHON_USEDEP}]
@@ -35,15 +35,18 @@ RDEPEND="
 	>=dev-python/rich-13.6.0[${PYTHON_USEDEP}]
 	>=dev-python/unidecode-1.3.7[${PYTHON_USEDEP}]
 	>=dev-python/watchfiles-0.21.0[${PYTHON_USEDEP}]
-	doc? ( dev-python/sphinx[${PYTHON_USEDEP}] )
-	markdown? ( >=dev-python/markdown-3.1[${PYTHON_USEDEP}] )"
+	doc? ( >=dev-python/sphinx-9.0.0[${PYTHON_USEDEP}] )
+	markdown? ( >=dev-python/markdown-3.1[${PYTHON_USEDEP}] )
+"
 BDEPEND="
 	test? (
 		>=dev-python/markdown-3.1[${PYTHON_USEDEP}]
 		dev-python/typogrify[${PYTHON_USEDEP}]
 		dev-python/lxml[${PYTHON_USEDEP}]
+		>=dev-python/beautifulsoup4-4.13.3[${PYTHON_USEDEP}]
 		dev-python/pytest-xdist[${PYTHON_USEDEP}]
-	)"
+	)
+"
 
 DOCS=( README.rst )
 
