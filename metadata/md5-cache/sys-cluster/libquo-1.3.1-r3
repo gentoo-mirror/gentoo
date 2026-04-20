@@ -4,7 +4,7 @@ DEPEND=virtual/mpi[fortran?] sys-process/numactl sys-apps/hwloc:=[numa(+),xml] f
 DESCRIPTION=Run-time tuning of process binding policies made easy
 EAPI=8
 HOMEPAGE=https://lanl.github.io/libquo/
-INHERIT=fortran-2
+INHERIT=fortran-2 flag-o-matic
 IUSE=fortran static-libs test
 KEYWORDS=~amd64
 LICENSE=BSD
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://lanl.github.io/libquo/dists/libquo-1.3.1.tar.gz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	fortran-2	ae6d43513003405bd4a48698fc20370a
-_md5_=5e99509c9788a4fa61f0fa3056ef1eab
+_md5_=7974240582f38136c8f085f382ce8a26
