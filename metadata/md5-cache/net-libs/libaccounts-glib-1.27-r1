@@ -1,17 +1,17 @@
 BDEPEND=|| ( dev-lang/vala:0.56 ) >=dev-util/gdbus-codegen-2.80.5-r1 dev-util/glib-utils virtual/pkgconfig doc? ( dev-util/gtk-doc ) test? ( dev-libs/check dev-util/dbus-test-runner ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) dev-db/sqlite:3 dev-libs/glib:2 >=dev-libs/gobject-introspection-1.82.0-r2:= dev-libs/libxml2:= dev-python/pygobject:3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
+DEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) dev-db/sqlite:3 dev-libs/glib:2 >=dev-libs/gobject-introspection-1.82.0-r2:= dev-libs/libxml2:= dev-python/pygobject:3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?]
 DESCRIPTION=Accounts SSO (Single Sign-On) management library for GLib applications
 EAPI=8
 HOMEPAGE=https://gitlab.com/accounts-sso/libaccounts-glib
 INHERIT=meson python-r1 vala
-IUSE=doc test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13
+IUSE=doc test python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
 KEYWORDS=amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1
-RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) dev-db/sqlite:3 dev-libs/glib:2 >=dev-libs/gobject-introspection-1.82.0-r2:= dev-libs/libxml2:= dev-python/pygobject:3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?]
-REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 )
+RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) dev-db/sqlite:3 dev-libs/glib:2 >=dev-libs/gobject-introspection-1.82.0-r2:= dev-libs/libxml2:= dev-python/pygobject:3[python_targets_python3_11(-)?,python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?]
+REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/libaccounts-glib/-/archive/VERSION_1.27/libaccounts-glib-VERSION_1.27.tar.bz2 -> libaccounts-glib-1.27.tar.bz2
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	vala	b2f2aa400d77b841d952dda847e24d53
-_md5_=b932f89d5e3ca0067f899e35104bb7f7
+_md5_=f48a292fb7eb2bda91b6b4313fe67bad
