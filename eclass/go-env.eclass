@@ -86,6 +86,26 @@ _GO_ENV_ECLASS=1
 
 inherit flag-o-matic multiprocessing sysroot toolchain-funcs
 
+# @ECLASS_VARIABLE: CGO_ENABLED
+# @DESCRIPTION:
+# Whether to enable the cgo tool that lets Go packages call C code. Upstream Go
+# enables this by default for native builds when a C compiler is found. Some
+# projects will forcibly enable it by necessity. Other projects may disable it
+# by default or even forcibly disable it to make the resulting binaries more
+# portable. When enabled, certain standard library packages will use the libc
+# over their own built-in code for things like DNS resolution, which is
+# generally preferable. It makes sense for a distribution to enable it where
+# possible, even when cross-compiling. Ebuilds may force this setting one way or
+# the other before inheriting this eclass where necessary, although upstream
+# projects will likely do this for you. If you believe that a project should not
+# force it, then please work with upstream to have the variable respected.
+# Ebuilds may also disable it by default if this is more appropriate. See
+# https://pkg.go.dev/cmd/cgo.
+case ${EAPI} in
+	7|8) : ;;
+	*) export CGO_ENABLED="${CGO_ENABLED:-1}" ;;
+esac
+
 # @FUNCTION: go-env_set_compile_environment
 # @DESCRIPTION:
 # Sets up the environment to build Go code for CHOST. This includes variables
