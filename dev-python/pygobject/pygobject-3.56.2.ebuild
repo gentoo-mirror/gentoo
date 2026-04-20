@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -44,11 +44,6 @@ DEPEND="
 BDEPEND="
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}/Skip-test-using-dbus-in-sandbox.patch"
-	"${FILESDIR}/Skip-test-detecting-cycle-among-base-classes-typeerr.patch"
-)
 
 python_configure() {
 	local emesonargs=(
