@@ -133,7 +133,7 @@ sysroot_make_run_prefixed() {
 		fi
 	fi
 
-	if [[ ${CHOST} = *-mingw32 ]]; then
+	if [[ ${CHOST} = *-mingw32 || ${CHOST} = *-cygwin ]]; then
 		if ! type -P wine >/dev/null; then
 			einfo "Wine not found. Continuing without ${SCRIPT##*/} wrapper."
 			return 2
