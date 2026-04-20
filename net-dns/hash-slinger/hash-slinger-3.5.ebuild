@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit python-single-r1
 
@@ -18,18 +18,21 @@ IUSE="ipsec +openpgp +ssh"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-# m2crypto: https://github.com/letoams/hash-slinger/issues/49
 RDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
+		dev-python/cryptography[${PYTHON_USEDEP}]
 		dev-python/dnspython[${PYTHON_USEDEP}]
-		dev-python/m2crypto[${PYTHON_USEDEP}]
 	')
 	net-dns/unbound[python,${PYTHON_SINGLE_USEDEP}]
 	ipsec? ( net-vpn/libreswan[dnssec] )
 	openpgp? ( $(python_gen_cond_dep 'dev-python/python-gnupg[${PYTHON_USEDEP}]') )
 	ssh? ( virtual/openssh )
 "
+
+PATCHES=(
+	"${FILESDIR}"/${P}-exception.patch
+)
 
 src_install() {
 	local tools tool
