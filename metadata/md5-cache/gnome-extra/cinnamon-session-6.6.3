@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://projects.linuxmint.com/cinnamon/ https://github.com/linuxmint/cinnamon-session
 INHERIT=meson gnome2-utils python-single-r1
 IUSE=systemd python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=GPL-2+ LGPL-2+
 RDEPEND=>=dev-libs/glib-2.37.3:2 >=gnome-extra/cinnamon-desktop-6.6:0= media-libs/libcanberra[pulseaudio] virtual/opengl x11-libs/cairo x11-libs/gdk-pixbuf:2 >=x11-libs/gtk+-3:3[introspection,X] x11-libs/libICE x11-libs/libSM x11-libs/libX11 x11-libs/libXau x11-libs/libXcomposite x11-libs/libXext x11-libs/libXrender x11-libs/libXtst x11-libs/pango[X] >=x11-libs/xapp-3.2.2[introspection] systemd? ( >=sys-apps/systemd-183 ) !systemd? ( sys-auth/elogind[policykit] ) python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) >=dev-libs/gobject-introspection-1.82.0-r2 python_single_target_python3_11? ( dev-python/pygobject:3[python_targets_python3_11(-)] dev-python/setproctitle[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] dev-python/setproctitle[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygobject:3[python_targets_python3_13(-)] dev-python/setproctitle[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/pygobject:3[python_targets_python3_14(-)] dev-python/setproctitle[python_targets_python3_14(-)] ) x11-themes/xapp-symbolic-icon-theme
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
 SLOT=0
 SRC_URI=https://github.com/linuxmint/cinnamon-session/archive/6.6.3.tar.gz -> cinnamon-session-6.6.3.tar.gz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=9c92b1b869e8f2b13e09fb5f59de5395
+_md5_=ffaf027c4952325e23ba54d12551cd0b
