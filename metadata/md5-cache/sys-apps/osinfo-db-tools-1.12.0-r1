@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig >=sys-devel/gettext-0.19.8 dev-lang/perl test? ( || ( ( dev-lang/python:3.13 dev-python/pytest[python_targets_python3_13(-)] dev-python/requests[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] dev-python/requests[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pytest[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] ) ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=virtual/pkgconfig >=sys-devel/gettext-0.19.8 dev-lang/perl test? ( || ( ( dev-lang/python:3.14 dev-python/pytest[python_targets_python3_14(-)] dev-python/requests[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/pytest[python_targets_python3_13(-)] dev-python/requests[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] dev-python/requests[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/pytest[python_targets_python3_11(-)] dev-python/requests[python_targets_python3_11(-)] ) ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install setup test
 DEPEND=>=dev-libs/glib-2.44:2 dev-libs/json-glib >=app-arch/libarchive-3.0.0:= net-libs/libsoup:3.0 >=dev-libs/libxml2-2.6.0:=
 DESCRIPTION=Tools for managing the osinfo database
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://releases.pagure.org/libosinfo/osinfo-db-tools-1.12.0.tar.xz
 _eclasses_=toolchain-funcs	5195689ff6a73b0e789acfa09d4fbcb9	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	sysroot	ba2e3d2f7daad91fdef9350dc789d87f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=4b6d6e32bb6b63043d484fdc7bb816fc
+_md5_=f8c2de6ffbcfd874696b6312ec5094cb
