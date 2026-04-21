@@ -35,7 +35,7 @@ QA_PREBUILT="opt/bin/claude"
 RDEPEND="sys-apps/ripgrep"
 
 IUSE="cpu_flags_x86_avx cpu_flags_x86_avx2"
-REQUIRED_USE="cpu_flags_x86_avx cpu_flags_x86_avx2"
+REQUIRED_USE="amd64? ( cpu_flags_x86_avx cpu_flags_x86_avx2 )"
 
 RESTRICT="bindist mirror strip"
 
