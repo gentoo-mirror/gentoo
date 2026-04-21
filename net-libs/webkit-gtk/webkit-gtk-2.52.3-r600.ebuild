@@ -37,11 +37,6 @@ RESTRICT="test"
 # * TODO: gst-plugins-base[X] is only needed when build configuration ends up
 #         with GLX set, but that's a bit automagic too to fix
 #
-# * Softblocking <webkit-gtk-2.38:4 and <webkit-gtk-2.44:4.1 as since
-#   2.44 this SLOT ships the WebKitWebDriver binary; WebKitWebDriver is
-#   an automation tool for web developers, which lets one control the
-#   browser via WebDriver API - only one SLOT can ship it.
-#
 # * at-spi2-core (atspi-2.pc) is checked at build time, but not linked
 #   to in the gtk4 SLOT - is it an upstream check bug and only gtk-4.14
 #   a11y support is used?
@@ -57,6 +52,7 @@ RESTRICT="test"
 RDEPEND="
 	app-accessibility/at-spi2-core:2
 	dev-db/sqlite:3
+	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/hyphen
 	dev-libs/icu:=

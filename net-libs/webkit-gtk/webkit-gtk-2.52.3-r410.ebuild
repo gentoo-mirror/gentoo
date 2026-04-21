@@ -48,6 +48,7 @@ RESTRICT="test"
 RDEPEND="
 	app-accessibility/at-spi2-core:2
 	dev-db/sqlite:3
+	dev-libs/expat
 	dev-libs/glib:2
 	dev-libs/hyphen
 	dev-libs/icu:=
@@ -224,6 +225,10 @@ src_configure() {
 		-DENABLE_VIDEO=$(usex gstreamer)
 		-DENABLE_WEB_AUDIO=$(usex gstreamer)
 		-DENABLE_WEB_CODECS=$(usex gstreamer) # https://bugs.webkit.org/show_bug.cgi?id=269147
+		# Since 2.44 the GTK4(6.0) SLOT also
+		# ships the WebKitWebDriver binary; WebKitWebDriver is an automation
+		# tool for web developers, which lets  one control the browser via
+		# WebDriver API - only one SLOT can ship it
 		-DENABLE_WEBDRIVER=OFF
 		-DENABLE_WEBGL=ON
 		-DUSE_AVIF=$(usex avif)
