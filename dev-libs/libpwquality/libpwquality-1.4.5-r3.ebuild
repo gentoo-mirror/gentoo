@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
 DISTUTILS_USE_PEP517=setuptools
@@ -15,7 +15,7 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${P}/${P}.tar.bz2"
 
 LICENSE="|| ( BSD GPL-2 )"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="pam python static-libs"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -45,10 +45,13 @@ src_prepare() {
 }
 
 src_configure() {
+	use python && python_setup
+
 	# Install library in /lib for pam
 	local myeconfargs=(
 		--libdir="${EPREFIX}/usr/$(get_libdir)"
 		$(use_enable pam)
+		--with-python-binary=$(usex python "${PYTHON}" true)
 		--with-securedir="${EPREFIX}/$(getpam_mod_dir)"
 		--disable-python-bindings
 		$(use_enable static-libs static)
