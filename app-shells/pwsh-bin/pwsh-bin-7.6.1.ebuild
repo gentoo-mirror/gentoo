@@ -19,22 +19,19 @@ S="${WORKDIR}"
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="amd64 arm arm64"
+KEYWORDS="~amd64 ~arm ~arm64"
 REQUIRED_USE="elibc_glibc"
 RESTRICT="splitdebug"
 
 RDEPEND="
 	app-crypt/mit-krb5:0/0
 	dev-libs/icu
-	|| (
-		dev-util/lttng-ust-compat:0/2.12
-		dev-util/lttng-ust:0/2.12
-	)
+	dev-libs/openssl-compat:1.0.0
 	sys-libs/pam:0/0
 	virtual/zlib:0/1
 	|| (
-		dev-libs/openssl-compat:1.0.0
-		=dev-libs/openssl-1.0*:0/0
+		dev-util/lttng-ust-compat:0/2.12
+		dev-util/lttng-ust:0/2.12
 	)
 "
 IDEPEND="

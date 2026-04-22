@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,9 +6,9 @@ EAPI=8
 BV="${PV}-1"
 BV_AMD64="${BV}-linux-x86_64"
 
-LLVM_COMPAT=( {18..20} )
+LLVM_COMPAT=( {19..21} )
 
-inherit llvm-r1 multiprocessing shell-completion toolchain-funcs
+inherit llvm-r2 multiprocessing shell-completion toolchain-funcs
 
 DESCRIPTION="The Crystal Programming Language"
 HOMEPAGE="https://crystal-lang.org/
@@ -23,7 +23,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="doc debug llvm-libunwind"
 RESTRICT="test"  # Upstream test suite not reliable.
 
@@ -55,6 +55,9 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.27.0-gentoo-tests-long-unix-2.patch"
 	"${FILESDIR}/${PN}-1.15.0-remove-enviroment-clearing-tests.patch"
 )
+
+# Do not complain about CFLAGS etc. Crystal rebuilds itself.
+QA_FLAGS_IGNORED='.*'
 
 src_prepare() {
 	default
