@@ -4,8 +4,8 @@
 EAPI=8
 
 LUA_COMPAT=( lua5-{1..4} luajit )
-PYTHON_COMPAT=( python3_{11..14} )
-RUST_MIN_VER="1.85.1"
+PYTHON_COMPAT=( python3_{12..14} )
+RUST_MIN_VER="1.85.0"
 RUST_OPTIONAL=1
 
 inherit cargo flag-o-matic lua-single meson python-any-r1 toolchain-funcs
@@ -23,13 +23,12 @@ else
 fi
 
 SRC_URI+="
-	doc? ( https://www.applied-asynchrony.com/distfiles/${PN}-docs-${PV}.tar.xz )
 	yaml? ( https://www.applied-asynchrony.com/distfiles/${PN}-rust-${PV}-crates.tar.xz )
 "
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="bpf cdb dnscrypt dnstap doc doh doh3 ipcipher lmdb quic regex snmp +ssl systemd test web xdp yaml"
+IUSE="bpf cdb dnscrypt dnstap doh doh3 ipcipher lmdb quic regex snmp +ssl systemd test web xdp yaml"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}
@@ -43,7 +42,6 @@ RDEPEND="acct-group/dnsdist
 	acct-user/dnsdist
 	bpf? ( dev-libs/libbpf:= )
 	cdb? ( dev-db/tinycdb:= )
-	dev-libs/boost:=
 	sys-libs/libcap
 	dev-libs/libedit
 	dev-libs/libsodium:=
@@ -60,7 +58,9 @@ RDEPEND="acct-group/dnsdist
 	${LUA_DEPS}
 "
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-libs/boost:=
+"
 BDEPEND="$(python_gen_any_dep 'dev-python/pyyaml[${PYTHON_USEDEP}]')
 	virtual/pkgconfig
 	yaml? ( ${RUST_DEPEND} )
@@ -75,7 +75,6 @@ fi
 PATCHES=(
 	"${FILESDIR}"/2.0.2-roundrobin-fast-path.patch
 	"${FILESDIR}"/2.0.2-speed-up-cache-hits.patch
-	"${FILESDIR}"/2.0.2-quiche-bbr.patch
 )
 
 pkg_setup() {
@@ -166,8 +165,6 @@ src_test() {
 
 src_install() {
 	meson_src_install
-
-	use doc && dodoc -r "${WORKDIR}"/html
 
 	insinto /etc/dnsdist
 	doins "${FILESDIR}"/dnsdist.conf.example
