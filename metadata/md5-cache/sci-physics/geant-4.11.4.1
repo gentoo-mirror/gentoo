@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/expat >=sci-physics/clhep-2.4.7.1:2=[threads?,static-libs(+)?] data? ( ~sci-physics/geant-data-4.11.4 ) doc? ( app-doc/geant-docs ) gdml? ( dev-libs/xerces-c:= ) hdf5? ( sci-libs/hdf5:=[threads?] ) inventor? ( media-libs/SoXt ) motif? ( x11-libs/motif:0 ) opengl? ( virtual/opengl x11-libs/libX11 x11-libs/libXmu ) qt6? ( dev-qt/qt3d:6 dev-qt/qtbase:6[gui,opengl?,widgets] ) vtk? ( sci-libs/vtk:=[qt6] )
+DESCRIPTION=Toolkit for simulation of passage of particles through matter
+EAPI=8
+HOMEPAGE=https://geant4.web.cern.ch/
+INHERIT=cmake
+IUSE=+data debug doc examples freetype gdml geant3 hdf5 inventor motif opengl qt6 raytracerx static-libs tbb threads trajectories vtk
+KEYWORDS=~amd64 ~x86
+LICENSE=geant4
+RDEPEND=dev-libs/expat >=sci-physics/clhep-2.4.7.1:2=[threads?,static-libs(+)?] data? ( ~sci-physics/geant-data-4.11.4 ) doc? ( app-doc/geant-docs ) gdml? ( dev-libs/xerces-c:= ) hdf5? ( sci-libs/hdf5:=[threads?] ) inventor? ( media-libs/SoXt ) motif? ( x11-libs/motif:0 ) opengl? ( virtual/opengl x11-libs/libX11 x11-libs/libXmu ) qt6? ( dev-qt/qt3d:6 dev-qt/qtbase:6[gui,opengl?,widgets] ) vtk? ( sci-libs/vtk:=[qt6] )
+REQUIRED_USE=inventor? ( opengl ) motif? ( opengl ) qt6? ( opengl ) raytracerx? ( opengl ) tbb? ( threads ) vtk? ( qt6 )
+SLOT=4/4.11.4.1
+SRC_URI=https://geant4-data.web.cern.ch/geant4-data/releases/geant4-v11.4.1.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
+_md5_=d606e25f7d8ef743d6b2c1bcaf683c8a
