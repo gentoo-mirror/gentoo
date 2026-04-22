@@ -1,0 +1,14 @@
+BDEPEND=acct-group/cron
+DEFINED_PHASES=configure install postinst prepare
+DEPEND=acct-group/cron sys-process/cronbase elibc_musl? ( sys-libs/obstack-standalone )
+DESCRIPTION=A periodic command scheduler
+EAPI=8
+HOMEPAGE=https://anacron.sourceforge.net/
+INHERIT=toolchain-funcs flag-o-matic
+KEYWORDS=~amd64 ~arm ~ppc ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=acct-group/cron sys-process/cronbase elibc_musl? ( sys-libs/obstack-standalone ) virtual/mta
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/anacron/anacron-2.3.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d
+_md5_=bdbe3827a595a94cd6df5f433e5c42b6
