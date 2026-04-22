@@ -1065,7 +1065,7 @@ app-admin/rcm 1.3.6: rc file (dotfile) management
 app-admin/redfishtool 1.1.8: Python package and command-line tool for accessing the Redfish API
 app-admin/restart-services 1.3-r1 1.4 1.5 1.6: Tool to manage OpenRC and systemd services that need to be restarted
 app-admin/rex 1.16.0-r1 1.16.1-r1 9999: (R)?ex, the friendly automation framework
-app-admin/rsyslog 8.2506.0-r2 8.2512.0-r1 8.2602.0: An enhanced multi-threaded syslogd with database support and more
+app-admin/rsyslog 8.2506.0-r2 8.2512.0-r1 8.2602.0 8.2604.0: An enhanced multi-threaded syslogd with database support and more
 app-admin/ryzen_monitor 1.0.6_pre20220901: Monitor power information of Ryzen processors via the PM table of the SMU
 app-admin/ryzen_smu 0.1.5: Kernel driver for AMD Ryzen's System Management Unit
 app-admin/sagan 2.0.2: Sagan is a multi-threaded, real time system and event log monitoring system
@@ -1891,7 +1891,7 @@ app-emacs/a68-mode 1.2_p20250524: Algol68 major mode for GNU Emacs
 app-emacs/ace-window 0.10.0: Quickly switch windows in Emacs
 app-emacs/actionscript-mode 7.2.2_p20180527-r1: A major mode for GNU Emacs for editing Actionscript 3 files
 app-emacs/adaptive-wrap 0.8: Smart line-wrapping with wrap-prefix
-app-emacs/agitjo 1.0.0: Manage Forgejo PRs with AGit-Flow in Emacs
+app-emacs/agitjo 1.0.0 2.0.0: Manage Forgejo PRs with AGit-Flow in Emacs
 app-emacs/all-the-icons 5.0.0_p20230316: Various icon fonts propertized for Emacs
 app-emacs/all-the-icons-dired 2.0: Display all-the-icons icon for each file in Emacs' dired buffer
 app-emacs/all-the-icons-ibuffer 1.3.0: Display all-the-icons icons for all buffers in Emacs' ibuffer
@@ -1923,7 +1923,7 @@ app-emacs/bm 202506: Visible bookmarks in buffer
 app-emacs/bnf-mode 0.4.5: GNU Emacs major mode for editing BNF grammars
 app-emacs/bongo 1.1-r1: Buffer-oriented media player for Emacs
 app-emacs/boogie-friends 0.1_p20220922: Emacs tools for interacting with Boogie, Dafny and Z3 (SMT2)
-app-emacs/boxquote 2.3: Quote text with a semi-box
+app-emacs/boxquote 2.3 2.4.1 9999: Quote text with a semi-box
 app-emacs/browse-kill-ring 2.0.0: An improved interface to kill-ring
 app-emacs/bubblet 0.74-r1: A bubble-popping game
 app-emacs/bui 1.2.1_p20210108: Buffer interface library for Emacs
@@ -2021,7 +2021,7 @@ app-emacs/elixir-mode 2.5.0: Emacs major mode for editing Elixir files
 app-emacs/elm-mode 0.22.0_p20250401: Major mode for the Elm programming language
 app-emacs/elpa-mirror 2.2.2 2.3.0: Create local package repository from installed Emacs Lisp packages
 app-emacs/elpher 3.6.6 9999: Practical and friendly Gopher and Gemini client for GNU Emacs
-app-emacs/elpy 1.35.0_p20240719: Emacs Python Development Environment
+app-emacs/elpy 1.35.0_p20240719 1.35.0_p20260415: Emacs Python Development Environment
 app-emacs/elscreen 20180321: Frame configuration management for GNU Emacs modelled after GNU Screen
 app-emacs/emacs-aio 1.1: Async and await functions for Emacs Lisp
 app-emacs/emacs-ansilove 2.0.0 9999: Display buffers as PNG images using ansilove in GNU Emacs
@@ -2144,7 +2144,7 @@ app-emacs/log4e 0.4.1: Logging framework for GNU Emacs Lisp
 app-emacs/lookup 1.99.96_pre20180209: An interface to search CD-ROM books and network dictionaries
 app-emacs/lsp-docker 1.0.0_p20240327: Emacs library to leverage lsp-mode in the Docker environment
 app-emacs/lsp-java 3.1_p20240328-r1: Emacs Java IDE using Eclipse JDT Language Server
-app-emacs/lsp-mode 9.0.0 9999: Emacs client/library for the Language Server Protocol
+app-emacs/lsp-mode 9.0.0 10.0.0 9999: Emacs client/library for the Language Server Protocol
 app-emacs/lsp-treemacs 0.5: Integration between lsp-mode and treemacs
 app-emacs/lsp-ui 8.0.1 9.0.0: UI modules for lsp-mode
 app-emacs/lua-mode 20210802: An Emacs major mode for editing Lua scripts
@@ -2160,7 +2160,7 @@ app-emacs/marginalia 2.10: Marginalia in the minibuffer
 app-emacs/markdown-mode 2.8: Major mode for editing Markdown-formatted text files
 app-emacs/mastodon 2.0.7 9999: Emacs client for Mastodon, federated microblogging social network
 app-emacs/math-symbol-lists 1.3: Lists of Unicode mathematical symbols and latex commands
-app-emacs/matlab 6.1_p20241107 9999: Major modes for MATLAB .m and .tlc files
+app-emacs/matlab 6.1_p20241107 8.2.0 9999: Major modes for MATLAB .m and .tlc files
 app-emacs/mediawiki 2.3.1: MediaWiki client for Emacs
 app-emacs/meson-mode 0.4 9999: A GNU Emacs major mode for Meson build-system files
 app-emacs/metamath-mode 0_p20221005: Major GNU Emacs mode for metamath files
@@ -2194,7 +2194,7 @@ app-emacs/ocaml-mode 4.05.0-r1: Emacs mode for OCaml
 app-emacs/orderless 1.4 1.5 1.6: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.1: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.7: Contributed packages to Org
-app-emacs/org-mode 9.8 9.8.1 9.8.2 9999: An Emacs mode for notes and project planning
+app-emacs/org-mode 9.8 9.8.1 9.8.2 9.8.3 9999: An Emacs mode for notes and project planning
 app-emacs/org-modern 1.13 9999: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r3 2.3.0 2.3.1 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.6.0 1.7.0 9999: Static site generator using Emacs's org-mode
@@ -3151,8 +3151,8 @@ app-shells/posh-z 1.1.12_p20230811 1.1.15: Quickly navigate the file system base
 app-shells/powerline 2.8.4 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 3.4: A POSIX shell function to treat a variable like an array, quoting args
-app-shells/pwsh 7.5.4-r2 7.5.5 7.6.0: Cross-platform automation and configuration tool
-app-shells/pwsh-bin 7.5.4 7.5.5 7.6.0: Cross-platform automation and configuration tool (binary package)
+app-shells/pwsh 7.5.5 7.6.0 7.6.1: Cross-platform automation and configuration tool
+app-shells/pwsh-bin 7.5.5 7.6.0 7.6.1: Cross-platform automation and configuration tool (binary package)
 app-shells/quoter 4.2: Quote arguments or standard input for usage in POSIX shell by eval
 app-shells/rc 1.7.4-r3: A reimplementation of the Plan 9 shell
 app-shells/rrs 1.70-r2: Reverse Remote Shell
@@ -3952,7 +3952,7 @@ dev-cpp/rapidyaml 0.9.0 0.10.0 0.11.1: Library to parse and emit YAML, and do it
 dev-cpp/robin-map 1.3.0 1.4.0-r1 1.4.1 9999: C++ fast hash map and hash set using robin hood hashing
 dev-cpp/scitokens-cpp 1.1.0-r1 1.1.1 1.1.2 1.1.3 1.2.0 1.3.0 1.4.0 1.4.1: C++ implementation of the SciTokens library with a C library interface
 dev-cpp/sdbus-c++ 2.1.0: High-level C++ D-Bus library
-dev-cpp/simdutf 7.3.4 7.7.0 7.7.1: Unicode validation and transcoding at billions of characters per second
+dev-cpp/simdutf 7.7.1 8.2.0 9.0.0: Unicode validation and transcoding at billions of characters per second
 dev-cpp/simpleini 4.25: C++ library providing a simple API to read and write INI-style files
 dev-cpp/sol2 3.5.0-r1: Header-only C++ <-> Lua API wrapper
 dev-cpp/sparsehash 2.0.4-r1 2.0.4-r2: An extremely memory-efficient hash_map implementation
@@ -4102,11 +4102,11 @@ dev-dotnet/csharp-gentoodotnetinfo 2.0.0 2.0.0-r1 2.9999: .NET information tool 
 dev-dotnet/csharp-language-server 0.22.0 0.23.0 0.24.0: Roslyn-based LSP language server for C#
 dev-dotnet/csharprepl 0.6.7: A command line C# REPL with syntax highlighting
 dev-dotnet/dotnet-outdated 4.6.4-r2 4.6.9 4.7.0 4.7.1: Display and update outdated NuGet packages in a project
-dev-dotnet/dotnet-runtime-nugets 6.0.25-r1 6.0.33 6.0.36 7.0.14-r1 7.0.20 8.0.8 8.0.21 8.0.22 8.0.24 9.0.10 9.0.11 9.0.13 10.0.3: .NET runtime nugets
+dev-dotnet/dotnet-runtime-nugets 6.0.25-r1 6.0.33 6.0.36 7.0.14-r1 7.0.20 8.0.8 8.0.21 8.0.22 8.0.24 8.0.26 9.0.10 9.0.11 9.0.13 9.0.15 10.0.3 10.0.7: .NET runtime nugets
 dev-dotnet/dotnet-script 1.6.0 2.0.0: Run C# scripts from the CLI
 dev-dotnet/dotnet-sdk 9.0.111-r1: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/dotnet-sdk-bin 6.0.417-r5 7.0.404-r5 8.0.108-r1 9.0.112 9.0.308 10.0.103: .NET is a free, cross-platform, open-source developer platform
-dev-dotnet/fable 4.28.0 4.29.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
+dev-dotnet/dotnet-sdk-bin 6.0.417-r5 7.0.404-r5 8.0.108-r1 9.0.112 9.0.308 10.0.103 10.0.107 10.0.203: .NET is a free, cross-platform, open-source developer platform
+dev-dotnet/fable 4.29.0 5.0.0: F# to JavaScript, TypeScript, Python, Rust and Dart Compiler
 dev-dotnet/fantomas 7.0.3: FSharp source code formatter
 dev-dotnet/fsautocomplete 0.82.0 0.83.0: F# language server using the Language Server Protocol
 dev-dotnet/gentoo-dotnet-maintainer-tools 3.0.0 3.9999: Gentoo tools for .NET packages maintenance
@@ -5179,7 +5179,7 @@ dev-java/zxing-javase 3.5.1: Core barcode encoding/decoding library
 dev-lang/R 4.5.0 4.5.2 4.5.3: Language and environment for statistical computing and graphics
 dev-lang/abs 2.6.0: The ABS programing language
 dev-lang/ada-bootstrap 0_p2021-r1 11 12 13 14: Binary bootstrap compiler for GNAT (Ada compiler)
-dev-lang/algol68g 3.10.13 3.11.0 3.11.1: Algol 68 Genie compiler-interpreter
+dev-lang/algol68g 3.10.13 3.11.0 3.11.1 3.11.3: Algol 68 Genie compiler-interpreter
 dev-lang/ammonite-repl-bin 2.5.11 3.0.0 3.0.2: Scala language-based scripting and REPL
 dev-lang/arc 3.2-r1: New dialect of Lisp, works well for web applications
 dev-lang/ats2 0.4.2-r1: Functional programming language with dependent types
@@ -5195,7 +5195,7 @@ dev-lang/clojure 1.12.4: General-purpose programming language with an emphasis o
 dev-lang/clojure-clr 1.12.2: Port of the functional programming language Clojure to the CLR and .NET
 dev-lang/closure-compiler-bin 20260304 20260406 20260412: JavaScript optimizing compiler
 dev-lang/coffee-script 2.7.0: A little language that compiles into javascript
-dev-lang/crystal 1.18.2 1.19.1: The Crystal Programming Language
+dev-lang/crystal 1.19.1 1.20.0: The Crystal Programming Language
 dev-lang/cue 0.14.1: open-source data validation language and inference engine
 dev-lang/cxprolog 0.98.2-r3: A WAM based Prolog system
 dev-lang/dafny 4.11.0: Dafny is a verification-aware programming language
@@ -5260,7 +5260,7 @@ dev-lang/nasm 2.16.03 3.01: groovy little assembler
 dev-lang/neko 2.4.0-r2 2.4.1: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
 dev-lang/nim 2.2.6 2.2.8: Compiled, garbage-collected systems programming language
-dev-lang/nprolog 4.84 4.90 4.93 5.00 5.11 5.15: Interpreter and compiler to be compatible with Arity/Prolog32
+dev-lang/nprolog 4.84 4.90 4.93 5.00 5.11 5.15 5.16: Interpreter and compiler to be compatible with Arity/Prolog32
 dev-lang/nqp 2026.02 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.14.2 5.3.0-r1 5.4.0: Programming language supporting functional, imperative & object-oriented styles
 dev-lang/oorexx 5.1.0_beta12932: Open source implementation of Object Rexx
@@ -14726,8 +14726,8 @@ net-dns/ndu 0.4-r4: DNS serial number incrementer and reverse zone builder
 net-dns/nsd 4.12.0 4.14.1 4.14.2 9999: An authoritative only, high performance, open source name server
 net-dns/opendnssec 2.1.13-r2: An open-source turn-key solution for DNSSEC
 net-dns/openresolv 3.16.5 3.17.0 3.17.3 3.17.4: A framework for managing DNS information
-net-dns/pdns 5.0.3: The PowerDNS Daemon
-net-dns/pdns-recursor 5.3.5: The PowerDNS Recursor
+net-dns/pdns 5.0.3 5.0.4: The PowerDNS Daemon
+net-dns/pdns-recursor 5.3.5 5.3.6 5.4.1: The PowerDNS Recursor
 net-dns/pdnsd 1.2.9a-r2: Proxy DNS server with permanent caching
 net-dns/rbldnsd 0.998b-r3 0.998b-r4: DNS server designed to serve blacklist zones
 net-dns/redis-knot 3.5.3 3.5.4: Redis module for Knot DNS
@@ -15369,7 +15369,7 @@ net-misc/r8152 2.20.1-r1: r8152 driver for Realtek USB FE / GBE / 2.5G Gaming Et
 net-misc/r8168 8.055.00 8.056.02: r8168 driver for Realtek 8111/8168 PCI-E NICs
 net-misc/rabbitmq-server 3.13.1 4.1.6 4.1.8 4.2.1 4.2.3 4.2.4: RabbitMQ is a high-performance AMQP-compliant message broker written in Erlang
 net-misc/radvd 2.20: Linux IPv6 Router Advertisement Daemon
-net-misc/rclone 1.73.2 1.73.3: A program to sync files to and from various cloud storage providers
+net-misc/rclone 1.73.2 1.73.3 1.73.5: A program to sync files to and from various cloud storage providers
 net-misc/rdate 1.11: Use TCP or UDP to retrieve the current time of another machine
 net-misc/rdesktop 1.9.0-r4: A Remote Desktop Protocol Client
 net-misc/redir 3.3-r1: Redir is a port redirector
