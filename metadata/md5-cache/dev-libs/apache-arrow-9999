@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2:= ) compute? ( dev-libs/libutf8proc:= ) dataset? ( dev-libs/libutf8proc:= ) elibc_musl? ( sys-libs/timezone-data ) lz4? ( app-arch/lz4:= ) parquet? ( dev-libs/libutf8proc:= dev-libs/thrift:= ssl? ( dev-libs/openssl:= ) ) re2? ( dev-libs/re2:= ) snappy? ( app-arch/snappy:= ) zlib? ( virtual/zlib:= ) zstd? ( app-arch/zstd:= ) dev-cpp/xsimd >=dev-libs/boost-1.81.0 json? ( dev-libs/rapidjson ) test? ( dev-cpp/gflags dev-cpp/gtest )
+DEPEND=brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2:= ) compute? ( dev-libs/libutf8proc:= ) dataset? ( dev-libs/libutf8proc:= ) elibc_musl? ( sys-libs/timezone-data ) lz4? ( app-arch/lz4:= ) parquet? ( dev-libs/libutf8proc:= dev-libs/thrift:= ssl? ( dev-libs/openssl:= ) ) re2? ( dev-libs/re2:= ) snappy? ( app-arch/snappy:= ) zlib? ( virtual/zlib:= ) zstd? ( app-arch/zstd:= ) >=dev-cpp/xsimd-14.0.0 >=dev-libs/boost-1.81.0 json? ( dev-libs/rapidjson ) test? ( dev-cpp/gflags dev-cpp/gtest )
 DESCRIPTION=A cross-language development platform for in-memory data
 EAPI=8
 HOMEPAGE=https://arrow.apache.org/ https://github.com/apache/arrow/
@@ -13,4 +13,4 @@ REQUIRED_USE=test? ( json parquet? ( zstd ) ) ssl? ( json )
 RESTRICT=!test? ( test )
 SLOT=0/9999
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=97fde47dcce1165ce23d43092ebe56bb
+_md5_=0c7eb22d5b6c91d934b15fdd2667adf3

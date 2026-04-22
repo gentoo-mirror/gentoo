@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2:= ) compute? ( dev-libs/libutf8proc:= ) dataset? ( dev-libs/libutf8proc:= ) elibc_musl? ( sys-libs/timezone-data ) lz4? ( app-arch/lz4:= ) parquet? ( dev-libs/libutf8proc:= dev-libs/thrift:= ssl? ( dev-libs/openssl:= ) ) re2? ( dev-libs/re2:= ) snappy? ( app-arch/snappy:= ) zlib? ( virtual/zlib:= ) zstd? ( app-arch/zstd:= ) dev-cpp/xsimd >=dev-libs/boost-1.81.0 json? ( dev-libs/rapidjson ) test? ( dev-cpp/gflags dev-cpp/gtest )
+DEPEND=brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2:= ) compute? ( dev-libs/libutf8proc:= ) dataset? ( dev-libs/libutf8proc:= ) elibc_musl? ( sys-libs/timezone-data ) lz4? ( app-arch/lz4:= ) parquet? ( dev-libs/libutf8proc:= dev-libs/thrift:= ssl? ( dev-libs/openssl:= ) ) re2? ( dev-libs/re2:= ) snappy? ( app-arch/snappy:= ) zlib? ( virtual/zlib:= ) zstd? ( app-arch/zstd:= ) >=dev-cpp/xsimd-14.0.0 >=dev-libs/boost-1.81.0 json? ( dev-libs/rapidjson ) test? ( dev-cpp/gflags dev-cpp/gtest )
 DESCRIPTION=A cross-language development platform for in-memory data
 EAPI=8
 HOMEPAGE=https://arrow.apache.org/ https://github.com/apache/arrow/
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/24
 SRC_URI=mirror://apache/arrow/arrow-24.0.0/apache-arrow-24.0.0.tar.gz test? ( https://github.com/apache/parquet-testing/archive/e74785d85a4ecee829e1e405444d6a1b24b8bc9c.tar.gz -> parquet-testing-e74785d85a4ecee829e1e405444d6a1b24b8bc9c.tar.gz https://github.com/apache/arrow-testing/archive/249079a810caedda6898464003c7ef8a47efeeae.tar.gz -> arrow-testing-249079a810caedda6898464003c7ef8a47efeeae.tar.gz )
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
-_md5_=f0c126adb2a6da3589f151ec2e12d8e4
+_md5_=6ea0a090fe8481c5a97eae0db09ebbff
