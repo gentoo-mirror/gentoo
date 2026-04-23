@@ -15,7 +15,7 @@ EAPI=8
 #  trunk branch but not release branch.
 #
 #  See bug #785835, bug #856121.
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit desktop edo flag-o-matic java-pkg-opt-2 linux-info multilib optfeature pax-utils \
 	python-single-r1 tmpfiles toolchain-funcs udev xdg
@@ -23,7 +23,7 @@ inherit desktop edo flag-o-matic java-pkg-opt-2 linux-info multilib optfeature p
 MY_PN="VirtualBox"
 MY_P=${MY_PN}-${PV^^}
 HELP_PV=${PV}
-PATCHES_PV="7.2.4"
+PATCHES_PV="7.2.6"
 
 DESCRIPTION="Family of powerful x86 virtualization products for enterprise and home use"
 HOMEPAGE="https://www.virtualbox.org/ https://github.com/VirtualBox/virtualbox"
@@ -36,7 +36,7 @@ S="${WORKDIR}/${MY_PN}-${PV^^}"
 
 LICENSE="GPL-2+ GPL-3 LGPL-2.1 MIT dtrace? ( CDDL )"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="alsa dbus debug doc dtrace +gui java lvm nls pam pch pulseaudio +opengl python +sdk +sdl test +udev vboxwebsrv vde vnc"
 RESTRICT="!test? ( test )"
 
@@ -49,7 +49,9 @@ COMMON_DEPEND="
 	dev-libs/libtpms
 	dev-libs/libxml2:=
 	dev-libs/openssl:0=
+	media-libs/libogg
 	media-libs/libpng:0=
+	media-libs/libvorbis
 	media-libs/libvpx:0=
 	net-misc/curl
 	virtual/zlib:=
@@ -194,13 +196,11 @@ QA_PRESTRIPPED="
 REQUIRED_USE="
 	java? ( sdk )
 	python? ( sdk ${PYTHON_REQUIRED_USE} )
+	test? ( !debug )
 	vboxwebsrv? ( java )
 "
 
 PATCHES=(
-	# bug #967656
-	"${FILESDIR}"/${P}-fix-nat-cpu-load-{1,2}.patch
-
 	# Downloaded patchset
 	"${WORKDIR}"/virtualbox-patches-${PATCHES_PV}/patches
 )
@@ -334,7 +334,7 @@ src_prepare() {
 		's/&apos;[^&]*\(vboxdrv setup\|vboxconfig\)&apos;/\&apos;emerge -1 virtualbox-modules\&apos;/' {} \+ || die
 	sed -i "s:'/sbin/vboxconfig':'emerge -1 virtualbox-modules':" \
 		src/VBox/Frontends/VirtualBox/src/main.cpp \
-		src/VBox/VMM/VMMR3/VM.cpp || die
+		src/VBox/VMM/VMMR3/VMR3.cpp || die
 
 	# 890561
 	echo -e "\nVBOX_GTAR=gtar" >> LocalConfig.kmk || die

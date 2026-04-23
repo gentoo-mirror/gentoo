@@ -1,15 +1,15 @@
 # Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-# XXX: the tarball here is just the kernel modules split out of the binary
-#      package that comes from VirtualBox-*.run
-# XXX: update: now it is split from virtualbox-*-Debian~bullseye_amd64.deb
+# XXX: the tarball here is just the kernel modules split out of the sources
+#      using the upstream provided export_modules.sh
+#      https://distfiles.gentoo.org/pub/dev/ceamac@gentoo.org/app-emulation/virtualbox-modules/make-modules-from-source
 
 EAPI=8
 
 inherit linux-mod-r1
 
-MY_P="vbox-guest-kernel-module-src-${PV}"
+MY_P="vbox-guest-kernel-module-src-${PV^^}"
 DESCRIPTION="Kernel Modules for Virtualbox Guest Additions"
 HOMEPAGE="https://www.virtualbox.org/"
 SRC_URI="https://distfiles.gentoo.org/pub/dev/ceamac@gentoo.org/${CATEGORY}/${PN}/${MY_P}.tar.xz"
@@ -17,11 +17,11 @@ S="${WORKDIR}"
 
 LICENSE="GPL-3"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-6.1.36-log-use-c99.patch
-	"${FILESDIR}"/${PN}-7.2.6-no-vboxvideo.patch
+	"${FILESDIR}"/${PN}-7.2.6-log-use-c99.patch
+	"${FILESDIR}"/${PN}-7.2.8-no-vboxvideo.patch
 )
 
 CONFIG_CHECK="~DRM_TTM ~DRM_VMWGFX"

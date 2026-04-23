@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ inherit edo readme.gentoo-r1 systemd toolchain-funcs udev
 MY_PN="VirtualBox"
 MY_PV=${PV^^}
 MY_P=${MY_PN}-${MY_PV}
-PATCHES_PV="7.1.14-r1"
+PATCHES_PV="7.2.6"
 
 DESCRIPTION="VirtualBox kernel modules and user-space tools for Gentoo guests"
 HOMEPAGE="https://www.virtualbox.org/"
@@ -18,7 +18,7 @@ S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
 LICENSE="GPL-3 LGPL-2.1+ MIT || ( GPL-3 CDDL )"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+dbus gui"
 
 RDEPEND="
@@ -52,7 +52,7 @@ DEPEND="
 "
 BDEPEND="
 	>=dev-lang/yasm-0.6.2
-	>=dev-build/kbuild-0.1.9998.3127
+	>=dev-build/kbuild-0.1.9998.3660
 	sys-devel/bin86
 	sys-power/iasl
 "
