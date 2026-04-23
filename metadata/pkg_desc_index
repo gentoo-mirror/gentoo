@@ -1006,7 +1006,7 @@ app-admin/kpcli 4.1: Command line interface to KeePass database files
 app-admin/kube-bench 0.6.8: Kubernetes Bench for Security runs the CIS Kubernetes Benchmark
 app-admin/kubectx 0.9.5: Fast way to switch between clusters and namespaces in kubectl
 app-admin/lib_users 0.15-r2: Check for mapped libs and open files that are marked as deleted
-app-admin/linode-cli 5.65.1 5.66.0: Official command-line interface for interacting with the Linode API
+app-admin/linode-cli 5.65.1 5.66.0 5.67.0: Official command-line interface for interacting with the Linode API
 app-admin/lnav 0.11.2: A curses-based tool for viewing and analyzing log files
 app-admin/logcheck 1.4.3-r2 1.4.3-r5 1.4.7: Mails anomalies in the system logfiles to the administrator
 app-admin/logmon 0.4.4-r2: Split-screen terminal/ncurses based log viewer
@@ -2427,13 +2427,13 @@ app-emulation/virt-viewer 11.0-r1: Graphical console client for connecting to vi
 app-emulation/virt-what 1.25: Detects if the current machine is running in a virtual machine
 app-emulation/virtio-win 0.1.266.1 0.1.271.1 0.1.285.1: VirtIO drivers for Windows virtual machines running on KVM
 app-emulation/virtiofsd 1.13.1 1.13.2 9999: Shared file system for virtual machines
-app-emulation/virtualbox 7.0.26-r1 7.1.14 7.1.16-r1 7.2.4-r1 7.2.6-r1 9999: Family of powerful x86 virtualization products for enterprise and home use
-app-emulation/virtualbox-additions 7.0.26 7.1.14 7.1.16 7.2.4 7.2.6: CD image containing guest additions for VirtualBox
-app-emulation/virtualbox-extpack-oracle 7.0.26 7.1.14 7.1.16 7.2.4 7.2.6: PUEL extensions for VirtualBox
-app-emulation/virtualbox-guest-additions 7.0.26 7.1.14 7.1.16 7.2.4 7.2.6: VirtualBox kernel modules and user-space tools for Gentoo guests
-app-emulation/virtualbox-guest-modules 7.0.26 7.0.26-r1 7.1.14 7.1.16 7.2.4 7.2.6 7.2.6-r1: Kernel Modules for Virtualbox Guest Additions
-app-emulation/virtualbox-kvm 7.1.14_pre20251103 7.1.16_pre20251103-r1 7.2.4_pre20251103 7.2.6_pre20260201-r1: Family of powerful x86 virtualization products for enterprise and home use
-app-emulation/virtualbox-modules 7.0.26 7.0.26-r1 7.1.14 7.1.16 7.2.4 7.2.6 7.2.6-r2: Kernel Modules for Virtualbox
+app-emulation/virtualbox 7.0.26-r1 7.2.6-r1 7.2.8 9999: Family of powerful x86 virtualization products for enterprise and home use
+app-emulation/virtualbox-additions 7.0.26 7.2.6 7.2.8: CD image containing guest additions for VirtualBox
+app-emulation/virtualbox-extpack-oracle 7.0.26 7.2.6 7.2.8: PUEL extensions for VirtualBox
+app-emulation/virtualbox-guest-additions 7.0.26 7.2.6 7.2.8: VirtualBox kernel modules and user-space tools for Gentoo guests
+app-emulation/virtualbox-guest-modules 7.0.26 7.0.26-r1 7.2.6-r1 7.2.8: Kernel Modules for Virtualbox Guest Additions
+app-emulation/virtualbox-kvm 7.2.6_pre20260201-r1 7.2.8_pre20260201: Family of powerful x86 virtualization products for enterprise and home use
+app-emulation/virtualbox-modules 7.0.26 7.0.26-r1 7.2.6-r2 7.2.8: Kernel Modules for Virtualbox
 app-emulation/vkd3d-proton 2.6-r1 2.12 2.13 2.14.1 3.0b 9999: Fork of VKD3D, development branches for Proton's Direct3D 12 implementation
 app-emulation/wine-desktop-common 20150204-r2: Various desktop menu items and icons for wine
 app-emulation/wine-gecko 2.47.3 2.47.4: Mozilla Gecko based version of Internet Explorer for Wine
@@ -2765,7 +2765,7 @@ app-misc/enum 1.1-r1: Replacement for GNU seq and BSD jot
 app-misc/esekeyd 1.2.7-r2: Multimedia key daemon that uses the Linux event interface
 app-misc/evtest 1.35 1.36: Test program for capturing input device events
 app-misc/faq 0.0.7: Format agnostic jQ
-app-misc/fastfetch 0.1.9999 0.2.9999 2.56.1 2.58.0 2.60.0 2.61.0 2.62.0: Fast neofetch-like system information tool
+app-misc/fastfetch 0.1.9999 0.2.9999 2.56.1 2.58.0 2.60.0 2.61.0 2.62.1: Fast neofetch-like system information tool
 app-misc/fdupes 2.3.2 2.4.0 9999: Identify/delete duplicate files residing within specified directories
 app-misc/fdutils 5.6_p2: Utilities for configuring and debugging the Linux floppy driver
 app-misc/fhem 6.3: A GPL'd perl server for house automation
@@ -3844,7 +3844,7 @@ dev-build/gyp 20200512145953-r1 99999999999999: GYP (Generate Your Projects) met
 dev-build/icmake 9.03.01-r1: Hybrid between a make utility and a shell scripting language
 dev-build/just 1.46.0 1.48.1 1.49.0 1.50.0: Just a command runner (with syntax inspired by 'make')
 dev-build/kas 5.1 5.2: Setup tool for bitbake based projects
-dev-build/kbuild 0.1.9998.3499-r4 0.1.9998.3592 0.1.9998.3660-r1 9999: A makefile framework for writing simple makefiles for complex tasks
+dev-build/kbuild 0.1.9998.3660-r1 9999: A makefile framework for writing simple makefiles for complex tasks
 dev-build/libtool 2.5.4 2.6.0 9999: A shared library tool for developers
 dev-build/mage 1.13.0 1.15.0: make/rake like tool using go
 dev-build/make 4.4.1-r100 4.4.1-r101 4.4.1-r102 9999: Standard tool to compile source trees
@@ -10909,7 +10909,7 @@ dev-util/gnome-builder 48.2-r2: An IDE for writing GNOME-based software
 dev-util/gnome-devel-docs 40.3: Documentation for developing for the GNOME desktop environment
 dev-util/gob 2.0.20-r1: Preprocessor for making GTK+ objects with inline C code
 dev-util/godcc 1.0: Full-fledged command-line interface to Compiler Explorer instances
-dev-util/goland 2024.3.5 2025.1.4 2025.2.5 2025.3.1.1: Golang IDE by JetBrains
+dev-util/goland 2024.3.5 2025.1.4 2025.2.5 2025.3.1.1 2025.3.2: Golang IDE by JetBrains
 dev-util/google-perftools 2.15 2.16 2.17.2: Fast, multi-threaded malloc() and nifty performance analysis tools
 dev-util/gource 0.55: A software version control visualization tool
 dev-util/gperf 3.1-r2 3.2.1 3.3: A perfect hash function generator
@@ -14479,7 +14479,7 @@ net-analyzer/httping 2.9-r1: http protocol ping-like program
 net-analyzer/hunt 1.5_p6_p1-r1: Tool for checking well known weaknesses in the TCP/IP protocol
 net-analyzer/hydra 9.6: Parallelized network login hacker
 net-analyzer/ibmonitor 1.4-r1: Interactive bandwidth monitor
-net-analyzer/icinga2 2.15.0-r2 9999: Distributed, general purpose, network monitoring engine
+net-analyzer/icinga2 2.15.0-r2 2.16.0 9999: Distributed, general purpose, network monitoring engine
 net-analyzer/ifmetric 0.3-r4: Set metrics of all IPv4 routes attached to a given network interface at once
 net-analyzer/ifstat 1.1-r2: Network interface bandwidth usage, with support for snmp targets
 net-analyzer/ifstatus 2.0.0: Simple CLI program for displaying network statistics in real time
