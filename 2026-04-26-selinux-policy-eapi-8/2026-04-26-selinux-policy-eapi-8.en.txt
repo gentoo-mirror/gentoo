@@ -1,0 +1,134 @@
+Title: SELinux Policy EAPI 8 Migration
+Author: Rahul Sandhu <nvraxn@posteo.uk>
+Posted: 2026-04-26
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: sec-policy/selinux-base
+Display-If-Profile: default/linux/amd64/17.0/hardened/selinux
+Display-If-Profile: default/linux/amd64/17.0/musl/hardened/selinux
+Display-If-Profile: default/linux/amd64/17.0/no-multilib/hardened/selinux
+Display-If-Profile: default/linux/amd64/17.0/selinux
+Display-If-Profile: default/linux/amd64/17.1/hardened/selinux
+Display-If-Profile: default/linux/amd64/17.1/no-multilib/hardened/selinux
+Display-If-Profile: default/linux/amd64/17.1/no-multilib/systemd/selinux
+Display-If-Profile: default/linux/amd64/17.1/selinux
+Display-If-Profile: default/linux/amd64/17.1/systemd/selinux
+Display-If-Profile: default/linux/amd64/23.0/hardened/selinux
+Display-If-Profile: default/linux/amd64/23.0/musl/hardened/selinux
+Display-If-Profile: default/linux/amd64/23.0/no-multilib/hardened/selinux
+Display-If-Profile: default/linux/amd64/23.0/split-usr/hardened/selinux
+Display-If-Profile: default/linux/amd64/23.0/split-usr/musl/hardened/selinux
+Display-If-Profile: default/linux/amd64/23.0/split-usr/no-multilib/hardened/selinux
+Display-If-Profile: default/linux/amd64/23.0/split-usr/no-multilib/selinux
+Display-If-Profile: default/linux/arm/17.0/armv4t/selinux
+Display-If-Profile: default/linux/arm/17.0/armv5te/selinux
+Display-If-Profile: default/linux/arm/17.0/armv6j/hardened/selinux
+Display-If-Profile: default/linux/arm/17.0/armv6j/selinux
+Display-If-Profile: default/linux/arm/17.0/armv7a/hardened/selinux
+Display-If-Profile: default/linux/arm/17.0/armv7a/selinux
+Display-If-Profile: default/linux/arm/17.0/musl/armv6j/hardened/selinux
+Display-If-Profile: default/linux/arm/17.0/musl/armv7a/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/armv4t/selinux
+Display-If-Profile: default/linux/arm/23.0/armv5te/selinux
+Display-If-Profile: default/linux/arm/23.0/armv6j_hf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/armv6j_hf/musl/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/armv6j_sf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/armv7a_hf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/armv7a_hf/musl/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/armv7a_sf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/split-usr/armv4t/selinux
+Display-If-Profile: default/linux/arm/23.0/split-usr/armv5te/selinux
+Display-If-Profile: default/linux/arm/23.0/split-usr/armv6j_hf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/split-usr/armv6j_hf/musl/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/split-usr/armv6j_sf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/split-usr/armv6j_sf/selinux
+Display-If-Profile: default/linux/arm/23.0/split-usr/armv7a_hf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/split-usr/armv7a_hf/musl/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/split-usr/armv7a_sf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/time64/armv5te/selinux
+Display-If-Profile: default/linux/arm/23.0/time64/armv6j_hf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/time64/armv6j_sf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/time64/armv7a_hf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/time64/armv7a_sf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/time64/split-usr/armv5te/selinux
+Display-If-Profile: default/linux/arm/23.0/time64/split-usr/armv6j_hf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/time64/split-usr/armv6j_sf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/time64/split-usr/armv6j_sf/selinux
+Display-If-Profile: default/linux/arm/23.0/time64/split-usr/armv7a_hf/hardened/selinux
+Display-If-Profile: default/linux/arm/23.0/time64/split-usr/armv7a_sf/hardened/selinux
+Display-If-Profile: default/linux/arm64/17.0/hardened/selinux
+Display-If-Profile: default/linux/arm64/17.0/musl/hardened/selinux
+Display-If-Profile: default/linux/arm64/17.0/selinux
+Display-If-Profile: default/linux/arm64/17.0/systemd/selinux
+Display-If-Profile: default/linux/arm64/23.0/hardened/selinux
+Display-If-Profile: default/linux/arm64/23.0/musl/hardened/selinux
+Display-If-Profile: default/linux/arm64/23.0/split-usr/hardened/selinux
+Display-If-Profile: default/linux/arm64/23.0/split-usr/musl/hardened/selinux
+Display-If-Profile: default/linux/x86/17.0/hardened/selinux
+Display-If-Profile: default/linux/x86/17.0/musl/selinux
+Display-If-Profile: default/linux/x86/17.0/selinux
+Display-If-Profile: default/linux/x86/23.0/i486/hardened/selinux
+Display-If-Profile: default/linux/x86/23.0/i486/musl/selinux
+Display-If-Profile: default/linux/x86/23.0/i486/split-usr/hardened/selinux
+Display-If-Profile: default/linux/x86/23.0/i486/split-usr/musl/selinux
+Display-If-Profile: default/linux/x86/23.0/i486/time64/hardened/selinux
+Display-If-Profile: default/linux/x86/23.0/i486/time64/split-usr/hardened/selinux
+Display-If-Profile: default/linux/x86/23.0/i686/hardened/selinux
+Display-If-Profile: default/linux/x86/23.0/i686/musl/selinux
+Display-If-Profile: default/linux/x86/23.0/i686/split-usr/hardened/selinux
+Display-If-Profile: default/linux/x86/23.0/i686/split-usr/musl/selinux
+Display-If-Profile: default/linux/x86/23.0/i686/time64/hardened/selinux
+Display-If-Profile: default/linux/x86/23.0/i686/time64/split-usr/hardened/selinux
+
+What Changed
+============
+
+The SELinux policy packages have all been bumped to EAPI 8.
+
+POLICY_TYPES, which used to be an environment variable, is now a USE
+expand named SELINUX_POLICY_TYPES. The use of USE_EXPAND fixes some
+longstanding bugs and allows users to switch policy types more easily.
+
+Whilst the POLICY_TYPES environment variable is considered deprecated
+going forward, it is still necessary to keep it set (and in sync with
+SELINUX_POLICY_TYPES) until you are certain that all installed policy
+packages on your system have been updated.
+
+Please read on for further instructions.
+
+For Users
+=========
+Set SELINUX_POLICY_TYPES in your package.use to match what POLICY_TYPES
+is currently set to. To get the current value of POLICY_TYPES:
+
+$ portageq envvar POLICY_TYPES
+
+And to set SELINUX_POLICY_TYPES:
+
+# echo 'SELINUX_POLICY_TYPES="mcs"' >>/etc/portage/make.conf
+
+OR
+
+# echo "sec-policy/* SELINUX_POLICY_TYPES: mcs" >>/etc/portage/package.use/selinux-policy
+
+Then, update the system to install the updated policy packages:
+
+# emerge --verbose --ask --update --deep --newuse @world
+
+DO NOT unset POLICY_TYPES until you are certain that all of the policy
+packages installed have been updated to use EAPI 8 (or above). You can
+use this command to find all outdated installed policy packages that
+have not been updated yet:
+
+$ qgrep -eNJ 'EAPI="\?7"\?' 'sec-policy/*'
+
+If the above command returns an empty list, then it is safe to remove
+the POLICY_TYPES variable.
+
+For Overlay Maintainers
+=======================
+In your SELinux policy packages, bump the EAPI variable to EAPI=8. If
+your packages have any form of dependency on another policy package,
+it is neccessary to constrain their USE flags with the new eclass
+variable SELINUX_POLICY_USEDEP. See selinux-policy-2.eclass(5) for more
+details.
