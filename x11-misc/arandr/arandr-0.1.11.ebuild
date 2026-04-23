@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,4 +23,7 @@ RDEPEND="
 "
 BDEPEND="dev-python/docutils[${PYTHON_USEDEP}]"
 
-PATCHES=( "${FILESDIR}/${PN}-0.1.10-manpages.patch" )
+PATCHES=(
+	"${FILESDIR}/${PN}-0.1.10-manpages.patch"
+	"${FILESDIR}/${PN}-0.1.11-setuptools-81.patch"
+)
