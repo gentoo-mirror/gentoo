@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake desktop flag-o-matic python-any-r1
 
 DESCRIPTION="Online multi-player platform 2D shooter"
@@ -37,6 +37,10 @@ BDEPEND="
 	test? ( dev-cpp/gtest )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${P}-cmake4.patch
+)
+
 src_configure() {
 	append-flags -fno-strict-aliasing #858524
 
@@ -49,7 +53,7 @@ src_configure() {
 }
 
 src_test() {
-	eninja run_tests
+	cmake_build run_tests
 }
 
 src_install() {
