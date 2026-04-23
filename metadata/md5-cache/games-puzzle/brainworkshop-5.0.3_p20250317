@@ -1,15 +1,15 @@
-BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 )
+BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 )
 DEFINED_PHASES=install prepare setup
 DESCRIPTION=Short-term-memory training N-Back game
 EAPI=8
 HOMEPAGE=https://github.com/brain-workshop/brainworkshop/
 INHERIT=desktop python-single-r1
-IUSE=python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+IUSE=python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
 KEYWORDS=~amd64 ~x86
 LICENSE=CC-Sampling-Plus-1.0 GPL-2+
-RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_11? ( >=dev-python/pyglet-2[python_targets_python3_11(-),sound] ) python_single_target_python3_12? ( >=dev-python/pyglet-2[python_targets_python3_12(-),sound] ) python_single_target_python3_13? ( >=dev-python/pyglet-2[python_targets_python3_13(-),sound] )
-REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_11? ( >=dev-python/pyglet-2[python_targets_python3_11(-),sound] ) python_single_target_python3_12? ( >=dev-python/pyglet-2[python_targets_python3_12(-),sound] ) python_single_target_python3_13? ( >=dev-python/pyglet-2[python_targets_python3_13(-),sound] ) python_single_target_python3_14? ( >=dev-python/pyglet-2[python_targets_python3_14(-),sound] )
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
 SLOT=0
 SRC_URI=https://github.com/brain-workshop/brainworkshop/archive/07d2e2fcf5e6cf5264374f08bf7aee29d23b29ff.tar.gz -> brainworkshop-5.0.3_p20250317.tar.gz
 _eclasses_=desktop	26d57169ca094c04be416993844ec8bc	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=264f052b0f56ddcff427281ac69a1936
+_md5_=7c24cad6e64a289700efa3019dabca09

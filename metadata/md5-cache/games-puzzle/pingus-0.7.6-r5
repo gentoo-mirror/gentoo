@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig || ( ( dev-lang/python:3.13 >=dev-build/scons-4.4.0[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-build/scons-4.4.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-build/scons-4.4.0[python_targets_python3_11(-)] ) )
+BDEPEND=virtual/pkgconfig || ( ( dev-lang/python:3.14 >=dev-build/scons-4.4.0[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 >=dev-build/scons-4.4.0[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-build/scons-4.4.0[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-build/scons-4.4.0[python_targets_python3_11(-)] ) )
 DEFINED_PHASES=compile install postinst postrm preinst setup
 DEPEND=dev-libs/boost:= media-libs/libpng:= media-libs/libsdl[joystick,opengl?,video] media-libs/sdl-image[png] media-libs/sdl-mixer music? ( media-libs/sdl-mixer[mod] ) opengl? ( media-libs/libglvnd[X] )
 DESCRIPTION=Free Lemmings clone
@@ -13,4 +13,4 @@ RDEPEND=dev-libs/boost:= media-libs/libpng:= media-libs/libsdl[joystick,opengl?,
 SLOT=0
 SRC_URI=https://pingus.googlecode.com/files/pingus-0.7.6.tar.bz2
 _eclasses_=desktop	26d57169ca094c04be416993844ec8bc	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-any-r1	891415dfe39ad9b41b461f2b86354af0	scons-utils	578ea0f3ec78f687f07728af19d8d002	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=a2c63308ce797fba156ba60c7e514222
+_md5_=4dde9d64d20c87ce290138071c7d34fb

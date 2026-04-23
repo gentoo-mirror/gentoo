@@ -1,17 +1,17 @@
-BDEPEND=app-arch/unzip scripts? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+BDEPEND=app-arch/unzip scripts? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst prepare setup test
 DEPEND=dev-lang/tcl:= dev-lang/tk test? ( dev-cpp/gtest )
 DESCRIPTION=Shane's Chess Information Database
 EAPI=8
 HOMEPAGE=https://scid.sourceforge.net/
 INHERIT=cmake desktop optfeature python-single-r1
-IUSE=scripts test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+IUSE=scripts test python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
 KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-2
-RDEPEND=dev-lang/tcl:= dev-lang/tk dev-tcltk/tkimg scripts? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) )
-REQUIRED_USE=scripts? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
+RDEPEND=dev-lang/tcl:= dev-lang/tk dev-tcltk/tkimg scripts? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) )
+REQUIRED_USE=scripts? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://sourceforge.net/projects/scid/files/Scid/Scid%205.0/scid_src_5.0.2.zip/download -> scid-5.0.2.zip
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	desktop	26d57169ca094c04be416993844ec8bc	optfeature	538bce96e5589935b57e178e8635f301	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=74ba57894b8edd04bbbed75d9ed5d984
+_md5_=307a7b77bd2960baac90cadb74a96d75
