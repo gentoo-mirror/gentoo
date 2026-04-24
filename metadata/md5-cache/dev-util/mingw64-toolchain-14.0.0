@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://www.mingw-w64.org/ https://gcc.gnu.org/ https://sourceware.org/binutils/
 INHERIT=edo flag-o-matic multilib-build toolchain-funcs
 IUSE=+abi_x86_32 +bin-symlinks custom-cflags +strip abi_x86_32 abi_x86_64
-KEYWORDS=-* amd64 ~x86
+KEYWORDS=-* amd64 x86
 LICENSE=GPL-3+ LGPL-3+ || ( GPL-3+ libgcc libstdc++ gcc-runtime-library-exception-3.1 ) ZPL BSD BSD-2 ISC LGPL-2+ LGPL-2.1+ MIT public-domain
 RDEPEND=dev-libs/gmp:= dev-libs/mpc:= dev-libs/mpfr:= virtual/libiconv virtual/zlib:= bin-symlinks? ( abi_x86_64? ( !cross-x86_64-w64-mingw32/binutils !cross-x86_64-w64-mingw32/gcc ) abi_x86_32? ( !cross-i686-w64-mingw32/binutils !cross-i686-w64-mingw32/gcc ) )
 REQUIRED_USE=|| ( abi_x86_32 abi_x86_64 )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v14.0.0.tar.bz2 mirror://gnu/binutils/binutils-2.46.0.tar.xz mirror://gcc/gcc-15.2.0/gcc-15.2.0.tar.xz mirror://gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	multilib-build	d7802b3638ffc661375c0021cdd19efd
-_md5_=3f9bbf878b7f52e728861464503af353
+_md5_=d1ff9f7c3872f94b7d3d687a962cb854
