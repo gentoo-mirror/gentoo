@@ -59,7 +59,7 @@ src_configure() {
 		--without-pcre
 		--without-kytea
 		--without-libstemmer
-		--disable-arrow
+		--disable-apache-arrow
 		--with-log-path="${EPREFIX}"/var/log/${PN}.log
 		--without-luajit
 		--without-ruby
@@ -92,6 +92,7 @@ src_configure() {
 
 src_compile() {
 	use doc && MAKEOPTS+=" -j1" # docs fail with parallel build. Bug: 904135
+	default
 }
 
 src_install() {
