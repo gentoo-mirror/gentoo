@@ -1,4 +1,4 @@
-DEFINED_PHASES=install unpack
+DEFINED_PHASES=install test unpack
 DESCRIPTION=Standalone Gentoo gpg trust anchor generation tool for binpkgs
 EAPI=8
 HOMEPAGE=https://github.com/projg2/getuto
@@ -9,4 +9,4 @@ RDEPEND=|| ( app-alternatives/gpg[reference] app-alternatives/gpg[freepg(-)] ) d
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/projg2/getuto/archive/refs/tags/getuto-1.17.tar.gz test? ( https://mirror.bytemark.co.uk/gentoo/releases/amd64/binpackages/23.0/x86-64/virtual/libc/libc-1-r1-1.gpkg.tar -> getuto-23.0-libc-1-r1-1.gpkg.tar )
-_md5_=ea773677d16d5bd40dd5e214225d05ae
+_md5_=f86bc4010150facac654eefc728b1ded
