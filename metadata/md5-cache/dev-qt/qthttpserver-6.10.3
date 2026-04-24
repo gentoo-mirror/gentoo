@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.qt.io/
 INHERIT=qt6-build
 IUSE=+ssl websockets custom-cflags test
-KEYWORDS=~amd64 arm64 ~loong ~ppc64 x86
+KEYWORDS=amd64 arm64 ~loong ~ppc64 x86
 LICENSE=|| ( GPL-2 GPL-3 LGPL-3 ) FDL-1.3
 RDEPEND=~dev-qt/qtbase-6.10.3:6[network,ssl=] websockets? ( ~dev-qt/qtwebsockets-6.10.3:6 )
 RESTRICT=!test? ( test )
 SLOT=6/6.10.3
 SRC_URI=https://download.qt.io/official_releases/qt/6.10/6.10.3/submodules/qthttpserver-everywhere-src-6.10.3.tar.xz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	qt6-build	932043121dc80a4db51d8e1580ebf801
-_md5_=3ad4bac42d6ea1924e8eafddbe392881
+_md5_=a86407f2399ad21e39517af3350eb1be
