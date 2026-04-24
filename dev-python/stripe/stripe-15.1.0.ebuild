@@ -16,12 +16,12 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="telemetry"
 
 RDEPEND="
 	>=dev-python/requests-2.20[${PYTHON_USEDEP}]
-	>=dev-python/typing-extensions-4.5.0[${PYTHON_USEDEP}]
+	>=dev-python/typing-extensions-4.7.0[${PYTHON_USEDEP}]
 "
 # please bump dev-util/stripe-mock dep to the latest version on every bump
 BDEPEND="

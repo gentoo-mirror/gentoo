@@ -21,7 +21,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	dev-python/charset-normalizer[${PYTHON_USEDEP}]
@@ -49,9 +49,18 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=()
+: ${EPYTEST_TIMEOUT:=300}
+EPYTEST_RERUNS=3
+EPYTEST_XDIST=1
+
+distutils_enable_tests pytest
+
 EPYTEST_DESELECT=(
 	# requires manifold3d
 	tests/test_boolean.py::test_multiple_difference
+	# requires embreex
+	tests/test_ray.py::test_rps
 	# timing nonsense
 	tests/test_bounds.py::BoundsTest::test_obb_mesh_large
 )
@@ -59,13 +68,6 @@ EPYTEST_IGNORE=(
 	# require pyinstrument
 	tests/test_sweep.py
 )
-
-EPYTEST_PLUGINS=()
-: ${EPYTEST_TIMEOUT:=300}
-EPYTEST_RERUNS=3
-EPYTEST_XDIST=1
-
-distutils_enable_tests pytest
 
 python_test() {
 	# We run tests in parallel, so avoid having n^2 threads in lapack
