@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.maturin.rs/
 INHERIT=cargo distutils-r1 flag-o-matic shell-completion toolchain-funcs
 IUSE=doc +ssl test debug python_targets_pypy3_11 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
-KEYWORDS=amd64 arm arm64 ~loong ~mips ~ppc ppc64 ~riscv ~s390 x86
+KEYWORDS=amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 x86
 LICENSE=|| ( Apache-2.0 MIT ) doc? ( Apache-2.0 OFL-1.1 ) 0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD CDLA-Permissive-2.0 MIT MPL-2.0 Unicode-3.0 ZLIB BZIP2
 RDEPEND=app-arch/xz-utils app-arch/zstd:= ssl? ( dev-libs/openssl:= ) python_targets_pypy3_11? ( dev-lang/pypy:3.11= ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
 REQUIRED_USE=|| ( python_targets_pypy3_11 python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/PyO3/maturin/archive/refs/tags/v1.12.6.tar.gz -> maturin-1.12.6.gh.tar.gz https://distfiles.gentoo.org/pub/dev/ionen@gentoo.org/maturin-1.12.6-vendor.tar.xz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	c5ae4c9b5eca97bd7fc77fede663873f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	53bab5a62cfc3526d8ed02c0a38a6033	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	62add15ed646bfe511af53e282621b39	bash-completion-r1	9e91505e030725688d1e953321a47501	shell-completion	0b655d0d825e157a5e99c463bddaac16
-_md5_=43a663b689deb278b7ce9c5a18403b6c
+_md5_=e1d69bb0961192401a1d4f883fa60dc3
