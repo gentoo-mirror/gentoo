@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
-DEPEND=dev-cpp/eigen:3 dev-cpp/tbb:= dev-cpp/nlohmann_json:= dev-libs/boost:=[nls] dev-libs/cereal dev-libs/expat dev-libs/glib:2 dev-libs/gmp:= dev-libs/mpfr:= media-gfx/openvdb:= media-gfx/libbgcode net-misc/curl[adns] media-libs/glew:0= media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/qhull:= net-libs/webkit-gtk:4.1 sci-libs/libigl sci-libs/nlopt sci-libs/opencascade:= sci-mathematics/cgal:= sci-mathematics/z3:= sys-apps/dbus virtual/zlib:= virtual/opengl x11-libs/gtk+:3 x11-libs/wxGTK:3.2-gtk3=[X,opengl,webkit] media-libs/nanosvg:= media-libs/qhull[static-libs] test? ( >=dev-cpp/catch-3.8 )
+DEPEND=dev-cpp/eigen:3 dev-cpp/tbb:= dev-cpp/nlohmann_json:= dev-libs/boost:=[nls] dev-libs/cereal dev-libs/expat dev-libs/glib:2 dev-libs/gmp:= dev-libs/hidapi dev-libs/mpfr:= media-gfx/openvdb:= media-gfx/libbgcode net-misc/curl[adns] media-libs/glew:0= media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/qhull:= net-libs/webkit-gtk:4.1 sci-libs/libigl sci-libs/nlopt sci-libs/opencascade:= sci-mathematics/cgal:= sci-mathematics/z3:= sys-apps/dbus virtual/zlib:= virtual/opengl x11-libs/gtk+:3 x11-libs/wxGTK:3.2-gtk3=[X,opengl,webkit] media-libs/nanosvg:= media-libs/qhull[static-libs] test? ( >=dev-cpp/catch-3.8 )
 DESCRIPTION=A mesh slicer to generate G-code for fused-filament-fabrication (3D printers)
 EAPI=8
 HOMEPAGE=https://www.prusa3d.com/prusaslicer/
@@ -9,8 +9,8 @@ INHERIT=cmake wxwidgets xdg git-r3
 IUSE=test
 LICENSE=AGPL-3 Boost-1.0 GPL-2 LGPL-3 MIT
 PROPERTIES=live
-RDEPEND=dev-cpp/eigen:3 dev-cpp/tbb:= dev-cpp/nlohmann_json:= dev-libs/boost:=[nls] dev-libs/cereal dev-libs/expat dev-libs/glib:2 dev-libs/gmp:= dev-libs/mpfr:= media-gfx/openvdb:= media-gfx/libbgcode net-misc/curl[adns] media-libs/glew:0= media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/qhull:= net-libs/webkit-gtk:4.1 sci-libs/libigl sci-libs/nlopt sci-libs/opencascade:= sci-mathematics/cgal:= sci-mathematics/z3:= sys-apps/dbus virtual/zlib:= virtual/opengl x11-libs/gtk+:3 x11-libs/wxGTK:3.2-gtk3=[X,opengl,webkit] media-libs/nanosvg:=
+RDEPEND=dev-cpp/eigen:3 dev-cpp/tbb:= dev-cpp/nlohmann_json:= dev-libs/boost:=[nls] dev-libs/cereal dev-libs/expat dev-libs/glib:2 dev-libs/gmp:= dev-libs/hidapi dev-libs/mpfr:= media-gfx/openvdb:= media-gfx/libbgcode net-misc/curl[adns] media-libs/glew:0= media-libs/libjpeg-turbo:= media-libs/libpng:0= media-libs/qhull:= net-libs/webkit-gtk:4.1 sci-libs/libigl sci-libs/nlopt sci-libs/opencascade:= sci-mathematics/cgal:= sci-mathematics/z3:= sys-apps/dbus virtual/zlib:= virtual/opengl x11-libs/gtk+:3 x11-libs/wxGTK:3.2-gtk3=[X,opengl,webkit] media-libs/nanosvg:=
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	wxwidgets	c48bf68858bd3c27c272ff034eb1e14d	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=af56a7f250d5ed026a2a3dffd901dcae
+_md5_=220be536bc68a6e808cd5d13b0df534e
