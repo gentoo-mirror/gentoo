@@ -1,7 +1,7 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 NEED_EMACS="27.1"
 
@@ -27,8 +27,8 @@ SLOT="0"
 DOCS=( CHANGELOG.md README.org )
 SITEFILE="50${PN}-gentoo.el"
 
-elisp-enable-tests ert tests \
-	-l shell-maker-history-tests.el -l markdown-overlays-images-tests.el
+elisp-enable-tests ert ./tests/ \
+	-l "${PN}-history-tests.el" -l markdown-overlays-images-tests.el
 
 src_compile() {
 	elisp_src_compile
