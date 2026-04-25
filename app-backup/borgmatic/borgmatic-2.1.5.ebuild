@@ -50,7 +50,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.7.14-systemd_service_bin_path.patch
-	"${FILESDIR}"/${PN}-1.9.3-no_test_coverage.patch
+	"${FILESDIR}"/${PN}-2.1.4-no_test_coverage.patch
 )
 
 EPYTEST_DESELECT=(
