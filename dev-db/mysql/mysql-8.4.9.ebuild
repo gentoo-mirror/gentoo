@@ -65,11 +65,11 @@ COMMON_DEPEND="
 	>=app-arch/lz4-1.9.4:=
 	>=app-arch/zstd-1.2.0:=
 	>=dev-libs/openssl-1.0.0:=
+	net-libs/libtirpc:=
 	sys-libs/ncurses:=
 	>=virtual/zlib-1.2.13:=
 	server? (
 		dev-libs/icu:=
-		net-libs/libtirpc:=
 		cjk? ( app-text/mecab )
 		jemalloc? ( dev-libs/jemalloc:= )
 		kernel_linux? (
@@ -126,7 +126,7 @@ BDEPEND="
 		dev-perl/JSON
 		sys-libs/timezone-data
 	)
-	verify-sig? ( >=sec-keys/openpgp-keys-mysql-20231023 )
+	verify-sig? ( >=sec-keys/openpgp-keys-mysql-20250120 )
 "
 
 PATCHES=(

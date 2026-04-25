@@ -25,7 +25,7 @@ S="${WORKDIR}/mysql"
 LICENSE="GPL-2"
 SLOT="8.0"
 # -ppc for bug #761715
-KEYWORDS="amd64 arm arm64 ~hppa ~mips -ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~mips -ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
 IUSE="cjk cracklib debug jemalloc latin1 numa +perl profiling router selinux +server tcmalloc test test-install"
 RESTRICT="!test? ( test )"
 
@@ -47,12 +47,12 @@ COMMON_DEPEND="
 	>=app-arch/lz4-1.9.4:=
 	>=app-arch/zstd-1.2.0:=
 	>=dev-libs/openssl-1.0.0:=
+	net-libs/libtirpc:=
 	sys-libs/ncurses:=
 	>=virtual/zlib-1.2.13:=
 	server? (
 		dev-libs/icu:=
 		dev-libs/libevent:=[ssl,threads(+)]
-		net-libs/libtirpc:=
 		cjk? ( app-text/mecab )
 		jemalloc? ( dev-libs/jemalloc:= )
 		kernel_linux? (
@@ -119,8 +119,6 @@ PATCHES=(
 	"${FILESDIR}"/mysql-8.0.37-fix-bundled-boost.patch
 	# Needed due to bundled abseil-cpp-20230802, this fix is included in abseil-cpp-20240722
 	"${FILESDIR}"/mysql-8.0.37-fix-bundled-abseil.patch
-	# for 8.0.43 only
-	"${FILESDIR}"/mysql-8.0.43-fix-clang-20-allocator.patch
 )
 
 mysql_init_vars() {
@@ -502,15 +500,6 @@ src_test() {
 
 		"main.keyring_migration_password;0;Known test failure -- no upstream bug yet"
 		"innodb.upgrade_orphan;0;Known test failure -- no upstream bug yet"
-
-		# Updated in newer versions
-		# https://github.com/mysql/mysql-server/commit/269f4ef1e091c7a4404450f97c5ae1845443eb25
-		"auth_sec.admin_channel_tls;0;Certificate expired"
-		"auth_sec.admin_channel_tls_startup;0;Certificate expired"
-		"auth_sec.cert_verify;0;Certificate expired"
-		"auth_sec.cert_verify_openssl;0;Certificate expired"
-		"x.mysqlxtest_mode_ssl;0;Certificate expired"
-		"x.mysqlxtest_mode_ssl_unixsocket;0;Certificate expired"
 	)
 
 	if ! hash zip 1>/dev/null 2>&1 ; then
@@ -595,6 +584,14 @@ src_test() {
 		einfo "Will run test suite with open file limit set to 16500 (best test coverage)."
 	fi
 
+	local test_failures=()
+
+	# bug #823656
+	nonfatal cmake_src_test --test-command "--gtest_death_test_style=threadsafe"
+	if [[ $? -ne 0 ]]; then
+		test_failures+=( cmake_src_test )
+	fi
+
 	# run mysql-test tests
 	# Enable force restart to ensure success when tests don't cleanup sufficiently.
 	# Anything touching gtid_executed is negatively affected if you have unlucky ordering
@@ -606,7 +603,13 @@ src_test() {
 		--retry=3 --retry-failure=2 \
 		--report-unstable-tests \
 		--report-features
-	retstatus_tests=$?
+	if [[ $? -ne 0 ]]; then
+		test_failures+=( mysql-test-run.pl )
+
+		eerror "Tests failed. When you file a bug, please attach the following items:"
+		eerror "The file that is created with this command:"
+		eerror "\t'find ${T}/var-tests -name '*.log' | tar -caf mysql-test-logs.tar.xz --files-from -'"
+	fi
 
 	if [[ "${VARDIR}" != "${T}/var-tests" ]]; then
 		# Move vardir to tempdir.
@@ -615,23 +618,17 @@ src_test() {
 		rm -rf "${VARDIR}" 2>/dev/null
 	fi
 
-	if [[ "${retstatus_tests}" -ne 0 ]]; then
-		eerror "Tests failed. When you file a bug, please attach the following items:"
-		eerror "The file that is created with this command:"
-		eerror "\t'find ${T}/var-tests -name '*.log' | tar -caf mysql-test-logs.tar.xz --files-from -'"
-	fi
-
 	popd &>/dev/null || die
 
 	# Cleanup is important for these testcases.
 	pkill -9 -f "${S}/ndb" 2>/dev/null
 	pkill -9 -f "${S}/sql" 2>/dev/null
 
-	# bug #823656
-	cmake_src_test --test-command "--gtest_death_test_style=threadsafe"
-
-	[[ "${retstatus_tests}" -ne 0 ]] && die "Test failures: mysql-test-run.pl"
-	einfo "Tests successfully completed"
+	if [[ ${#test_failures} -eq 0 ]]; then
+		einfo "Tests successfully completed"
+	else
+		die "Test failures: ${test_failures[@]}"
+	fi
 }
 
 src_install() {

@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="BSD MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64"
 
 # optional llm unpackaged
 IUSE="ssh"
@@ -28,8 +28,9 @@ IUSE="ssh"
 # https://github.com/dbcli/mycli/issues/1464
 RDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/cli-helpers-2.11.0[${PYTHON_USEDEP}]
+		>=dev-python/cli-helpers-2.12.0[${PYTHON_USEDEP}]
 		>=dev-python/click-8.3.1[${PYTHON_USEDEP}]
+		>=dev-python/clickdc-0.1.1[${PYTHON_USEDEP}]
 		>=dev-python/configobj-5.0.9[${PYTHON_USEDEP}]
 		>=dev-python/cryptography-46.0.5[${PYTHON_USEDEP}]
 		>=dev-python/keyring-25.7.0[${PYTHON_USEDEP}]
@@ -41,7 +42,7 @@ RDEPEND="
 		>=dev-python/pymysql-1.1.2[${PYTHON_USEDEP}]
 		>=dev-python/pyperclip-1.11.0[${PYTHON_USEDEP}]
 		>=dev-python/rapidfuzz-3.14.3[${PYTHON_USEDEP}]
-		>=dev-python/sqlglot-29.0.1[${PYTHON_USEDEP}]
+		>=dev-python/sqlglot-30.4.3[${PYTHON_USEDEP}]
 		<dev-python/sqlparse-0.6.0[${PYTHON_USEDEP}]
 		>=dev-python/sqlparse-0.3.0[${PYTHON_USEDEP}]
 		>=dev-python/wcwidth-0.6.0[${PYTHON_USEDEP}]
@@ -92,6 +93,9 @@ python_prepare_all() {
 	sed -e '/edit sql in file with external editor/i  @gentoo_skip' \
 		-i test/features/iocommands.feature || die
 
+	# avoid unpackaged pytest-random-order
+	sed -e "/^addopts =/ s/, '--random-order'//" -i pyproject.toml || die
+
 	distutils-r1_python_prepare_all
 }
 
@@ -136,11 +140,7 @@ src_test() {
 
 	EPYTEST_IGNORE=(
 		# Requires unpackaged llm
-		test/test_llm_special.py
-		# AssertionError: assert 8 in [4, 5, 6, 7]
-		# Per upstream: "...it is a flaky test at best."
-		# https://github.com/dbcli/mycli/commit/3d08910a366d4505a40e8a0fb36c210330723f18
-		test/test_special_iocommands.py::test_watch_query_full
+		test/pytests/test_special_llm.py
 	)
 
 	local failures=()

@@ -32,14 +32,14 @@ IUSE="voice"
 # httpx[http2,socks]: h2, socksio
 # gst-plugins-rs (uses gtk4paintablesink): media-plugins/gst-plugin-gtk4
 RDEPEND="
-	>=dev-python/cryptography-3.4.8[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-43.0.0[${PYTHON_USEDEP}]
 	dev-python/css-parser[${PYTHON_USEDEP}]
 	>=dev-python/emoji-2.6.0[${PYTHON_USEDEP}]
 	dev-python/h2[${PYTHON_USEDEP}]
 	dev-python/httpx[${PYTHON_USEDEP}]
 	dev-python/keyring[${PYTHON_USEDEP}]
 	<dev-python/nbxmpp-8.0.0[${PYTHON_USEDEP}]
-	>=dev-python/nbxmpp-7.1.0[${PYTHON_USEDEP}]
+	>=dev-python/nbxmpp-7.2.0[${PYTHON_USEDEP}]
 	<dev-python/omemo-dr-2.0.0[${PYTHON_USEDEP}]
 	>=dev-python/omemo-dr-1.2.0[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
@@ -109,7 +109,7 @@ pkg_postinst() {
 	#optfeature "better NAT traversing" net-libs/gupnp:1.6[introspection]
 	optfeature "network lose detection" net-misc/networkmanager[introspection]
 	optfeature "sharing your location" app-misc/geoclue:2.0[introspection]
-	optfeature "notifcation sound support" media-libs/gsound[introspection]
+	optfeature "accurate version info about the used operating system" dev-python/distro
 
 	xdg_pkg_postinst
 }
