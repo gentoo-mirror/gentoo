@@ -4,12 +4,12 @@ DEPEND=dev-qt/qtbase:6[gui,network,sql,ssl,widgets,xml] dev-qt/qtmultimedia:6 de
 DESCRIPTION=Viewer and editor for GDS and OASIS integrated circuit layouts
 EAPI=8
 HOMEPAGE=https://www.klayout.de/
-INHERIT=toolchain-funcs python-single-r1 ruby-ng git-r3
+INHERIT=flag-o-matic toolchain-funcs python-single-r1 ruby-ng git-r3
 IUSE=python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ruby_targets_ruby33
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=dev-qt/qtbase:6[gui,network,sql,ssl,widgets,xml] dev-qt/qtmultimedia:6 dev-qt/qtsvg:6 dev-qt/qttools:6[designer] dev-libs/libgit2:= virtual/zlib:= python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 )
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) || ( ruby_targets_ruby33 )
 SLOT=0
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	multilib	fc812e8eb2170022c28272d80a1f9e77	ruby-utils	70349884e22849da218b0f0c4a32da54	ruby-ng	705ab926556cb5cb4811999dd0c670b0	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=15591eeb26862b65368a9735fd03a2b1
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	multilib	fc812e8eb2170022c28272d80a1f9e77	ruby-utils	70349884e22849da218b0f0c4a32da54	ruby-ng	705ab926556cb5cb4811999dd0c670b0	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
+_md5_=40ff355fc5c05aa5ceacf1c6523c4fef
