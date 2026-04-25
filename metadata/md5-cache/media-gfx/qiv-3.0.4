@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install postinst postrm preinst prepare
+DEPEND=dev-libs/glib:2 sys-apps/file x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/libXext x11-libs/pango exif? ( media-libs/libexif ) lcms? ( media-libs/lcms:2 media-libs/libjpeg-turbo:= media-libs/tiff:= )
+DESCRIPTION=Quick Image Viewer
+EAPI=8
+HOMEPAGE=https://spiegl.de/qiv/ https://codeberg.org/ciberandy/qiv
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=optfeature toolchain-funcs xdg
+IUSE=exif lcms
+KEYWORDS=~amd64 ~arm64 ~mips ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/glib:2 sys-apps/file x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3[X] x11-libs/libX11 x11-libs/libXext x11-libs/pango exif? ( media-libs/libexif ) lcms? ( media-libs/lcms:2 media-libs/libjpeg-turbo:= media-libs/tiff:= )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://codeberg.org/ciberandy/qiv/releases/download/v3.0.4/qiv-3.0.4.tar.gz
+_eclasses_=optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=1513dc5b0ab207174f0b18b84065248a
