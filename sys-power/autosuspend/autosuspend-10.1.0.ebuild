@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_12 )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
@@ -20,14 +20,14 @@ SRC_URI="
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64"
-IUSE="dbus mpd test"
-RESTRICT="!test? ( test )"
+KEYWORDS="~amd64"
+IUSE="mpd"
 
 RDEPEND="
+	dev-python/dbus-python[${PYTHON_USEDEP}]
 	dev-python/portalocker[${PYTHON_USEDEP}]
 	dev-python/psutil[${PYTHON_USEDEP}]
-	dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
+	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	mpd? ( dev-python/python-mpd2[${PYTHON_USEDEP}] )
 "
 
@@ -36,10 +36,6 @@ BDEPEND="
 		dev-python/freezegun[${PYTHON_USEDEP}]
 		dev-python/icalendar[${PYTHON_USEDEP}]
 		dev-python/jsonpath-ng[${PYTHON_USEDEP}]
-		dev-python/pygobject[${PYTHON_USEDEP}]
-		dev-python/pytest-datadir[${PYTHON_USEDEP}]
-		dev-python/pytest-httpserver[${PYTHON_USEDEP}]
-		dev-python/pytest-mock[${PYTHON_USEDEP}]
 		dev-python/python-dbusmock[${PYTHON_USEDEP}]
 		dev-python/python-mpd2[${PYTHON_USEDEP}]
 		dev-python/pytz[${PYTHON_USEDEP}]
@@ -47,6 +43,7 @@ BDEPEND="
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-datadir pytest-httpserver pytest-mock )
 EPYTEST_DESELECT=(
 	tests/test_checks_util.py::TestNetworkMixin::test_file_url
 )
