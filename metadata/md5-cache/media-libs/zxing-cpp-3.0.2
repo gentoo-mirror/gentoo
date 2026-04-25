@@ -1,15 +1,15 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=>=media-libs/zint-2.16.0:= test? ( dev-cpp/gtest dev-libs/libfmt dev-libs/stb )
+DEPEND=>=media-libs/zint-2.16.0:= dev-libs/stb test? ( dev-cpp/gtest dev-libs/libfmt )
 DESCRIPTION=C++ Multi-format 1D/2D barcode image processing library
 EAPI=8
 HOMEPAGE=https://github.com/zxing-cpp/zxing-cpp
 INHERIT=cmake
-IUSE=test
+IUSE=test tools
 LICENSE=Apache-2.0
 RDEPEND=>=media-libs/zint-2.16.0:=
 RESTRICT=!test? ( test )
 SLOT=0/4
 SRC_URI=https://github.com/zxing-cpp/zxing-cpp/releases/download/v3.0.2/zxing-cpp-3.0.2.tar.gz test? ( https://github.com/zxing-cpp/zxing-cpp/releases/download/v3.0.2/test_samples.tar.gz -> zxing-cpp-3.0.2-test-samples.tar.gz )
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
-_md5_=0890889b5e35ed76fdca189a5238ed17
+_md5_=29bcfcf31836f7675f2f3196d7a93423
