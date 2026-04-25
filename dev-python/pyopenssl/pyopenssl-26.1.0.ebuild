@@ -20,11 +20,11 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
-	<dev-python/cryptography-47[${PYTHON_USEDEP}]
-	>=dev-python/cryptography-45.0.7[${PYTHON_USEDEP}]
+	<dev-python/cryptography-48[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-46.0.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		>=dev-python/typing-extensions-4.9[${PYTHON_USEDEP}]
 	' 3.{11..12})
