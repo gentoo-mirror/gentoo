@@ -26,6 +26,11 @@ RDEPEND="
 	>=dev-python/platformdirs-4.4.0[${PYTHON_USEDEP}]
 	!<dev-python/setuptools-82
 "
+BDEPEND="
+	test? (
+		dev-python/setuptools[${PYTHON_USEDEP}]
+	)
+"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
@@ -36,7 +41,9 @@ EPYTEST_IGNORE=(
 )
 
 python_test() {
-	epytest pkg_resources
+	# needed only by setuptools
+	rm -f conftest.py || die
+	epytest -o filterwarnings= pkg_resources
 }
 
 python_install() {
