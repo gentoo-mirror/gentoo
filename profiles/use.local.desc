@@ -8560,7 +8560,7 @@ sys-libs/libunwind:libatomic - Use libatomic instead of builtin atomic operation
 sys-libs/libxcrypt:compat - Build with compatibility interfaces for other crypt implementations
 sys-libs/libxcrypt:headers-only - Build and install only the headers. This is mostly useful for toolchain bootstrapping, to avoid circular deps.
 sys-libs/libxcrypt:system - Install as system libcrypt.so rather than to an alternate directory (will collide with sys-libs/glibc's version)
-sys-libs/minizip-ng:compat - Enable compatibility with sys-libs/zlib's USE=minizip
+sys-libs/minizip-ng:compat - Enable compatibility with sys-libs/zlib's USE=minizip, allowing minizip-ng to replace it. Only enable if you want to replace reference minizip with minizip-ng.
 sys-libs/minizip-ng:openssl - Use dev-libs/openssl for further encryption capabilities
 sys-libs/musl-nscd:minimal - Only installs the header files
 sys-libs/ncurses:ada - Add bindings for the Ada programming language

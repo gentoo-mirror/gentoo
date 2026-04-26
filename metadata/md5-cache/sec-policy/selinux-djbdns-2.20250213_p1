@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/m4 >=sys-apps/checkpolicy-2.0.21
+DEFINED_PHASES=compile install postinst postrm prepare unpack
+DEPEND=sec-policy/selinux-daemontools[selinux_policy_types_targeted(-)?,selinux_policy_types_strict(-)?,selinux_policy_types_mcs(-)?,selinux_policy_types_mls(-)?] sec-policy/selinux-ucspitcp[selinux_policy_types_targeted(-)?,selinux_policy_types_strict(-)?,selinux_policy_types_mcs(-)?,selinux_policy_types_mls(-)?] >=sys-apps/policycoreutils-2.5 >=sec-policy/selinux-base-policy-2.20250213-r1[selinux_policy_types_targeted(-)?,selinux_policy_types_strict(-)?,selinux_policy_types_mcs(-)?,selinux_policy_types_mls(-)?]
+DESCRIPTION=SELinux policy for djbdns
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
+INHERIT=selinux-policy-2
+IUSE=+selinux_policy_types_targeted +selinux_policy_types_strict +selinux_policy_types_mcs +selinux_policy_types_mls
+KEYWORDS=amd64 arm arm64 x86
+LICENSE=GPL-2
+RDEPEND=sec-policy/selinux-daemontools[selinux_policy_types_targeted(-)?,selinux_policy_types_strict(-)?,selinux_policy_types_mcs(-)?,selinux_policy_types_mls(-)?] sec-policy/selinux-ucspitcp[selinux_policy_types_targeted(-)?,selinux_policy_types_strict(-)?,selinux_policy_types_mcs(-)?,selinux_policy_types_mls(-)?] >=sys-apps/policycoreutils-2.5 >=sec-policy/selinux-base-policy-2.20250213-r1[selinux_policy_types_targeted(-)?,selinux_policy_types_strict(-)?,selinux_policy_types_mcs(-)?,selinux_policy_types_mls(-)?]
+REQUIRED_USE=|| ( selinux_policy_types_targeted selinux_policy_types_strict selinux_policy_types_mcs selinux_policy_types_mls )
+SLOT=0
+SRC_URI=https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_2_20250213/refpolicy-2.20250213.tar.bz2 https://dev.gentoo.org/~perfinion/patches/selinux-base-policy/patchbundle-selinux-base-policy-2.20250213-r1.tar.bz2
+_eclasses_=selinux-policy-2	4c518479c5a29283196f44b6a96b2fe0
+_md5_=011e00ab1cb3e4a02960e51828bdbcfb

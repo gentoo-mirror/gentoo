@@ -1,13 +1,15 @@
 BDEPEND=>=dev-vcs/git-1.8.2.1[curl] sys-devel/m4 >=sys-apps/checkpolicy-2.0.21
 DEFINED_PHASES=compile install postinst postrm prepare unpack
-DEPEND=>=sys-apps/policycoreutils-2.5 >=sec-policy/selinux-base-policy-9999
+DEPEND=>=sys-apps/policycoreutils-2.5 >=sec-policy/selinux-base-policy-9999[selinux_policy_types_targeted(-)?,selinux_policy_types_strict(-)?,selinux_policy_types_mcs(-)?,selinux_policy_types_mls(-)?]
 DESCRIPTION=SELinux policy for snort
-EAPI=7
+EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
 INHERIT=selinux-policy-2
+IUSE=+selinux_policy_types_targeted +selinux_policy_types_strict +selinux_policy_types_mcs +selinux_policy_types_mls
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=>=sys-apps/policycoreutils-2.5 >=sec-policy/selinux-base-policy-9999
+RDEPEND=>=sys-apps/policycoreutils-2.5 >=sec-policy/selinux-base-policy-9999[selinux_policy_types_targeted(-)?,selinux_policy_types_strict(-)?,selinux_policy_types_mcs(-)?,selinux_policy_types_mls(-)?]
+REQUIRED_USE=|| ( selinux_policy_types_targeted selinux_policy_types_strict selinux_policy_types_mcs selinux_policy_types_mls )
 SLOT=0
-_eclasses_=git-r3	7b584b5dc33e3bc66ff5b9271bf41764	selinux-policy-2	47a43df0d54b15467a810fb860c4cd58
-_md5_=e245e9b710f1faae16d5ed4823ae1676
+_eclasses_=git-r3	7b584b5dc33e3bc66ff5b9271bf41764	selinux-policy-2	4c518479c5a29283196f44b6a96b2fe0
+_md5_=69d7de28450e27896bfc0c6c32c687b3

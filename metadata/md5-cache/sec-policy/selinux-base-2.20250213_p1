@@ -1,0 +1,16 @@
+BDEPEND=|| ( dev-lang/python:3.14[xml(+)] dev-lang/python:3.13[xml(+)] dev-lang/python:3.12[xml(+)] dev-lang/python:3.11[xml(+)] ) >=sys-apps/checkpolicy-2.8 sys-devel/m4
+DEFINED_PHASES=compile configure install prepare setup
+DEPEND=>=sys-apps/policycoreutils-2.8
+DESCRIPTION=Gentoo base policy for SELinux
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
+INHERIT=python-any-r1
+IUSE=doc +unknown-perms systemd +ubac +unconfined +selinux_policy_types_targeted +selinux_policy_types_strict +selinux_policy_types_mcs +selinux_policy_types_mls
+KEYWORDS=amd64 arm arm64 ~riscv x86
+LICENSE=GPL-2
+RDEPEND=>=sys-apps/policycoreutils-2.8
+REQUIRED_USE=|| ( selinux_policy_types_targeted selinux_policy_types_strict selinux_policy_types_mcs selinux_policy_types_mls )
+SLOT=0
+SRC_URI=https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_2_20250213/refpolicy-2.20250213.tar.bz2 https://dev.gentoo.org/~perfinion/patches/selinux-base-policy/patchbundle-selinux-base-policy-2.20250213-r1.tar.bz2
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=27e41b1ad997a4ba6f1adb9732a8099b
