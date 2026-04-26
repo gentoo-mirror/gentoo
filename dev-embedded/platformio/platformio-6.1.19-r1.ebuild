@@ -37,7 +37,7 @@ RDEPEND="
 		<dev-python/pyelftools-1[${PYTHON_USEDEP}]
 		=dev-python/marshmallow-4*[${PYTHON_USEDEP}]
 		>=dev-python/starlette-0.21[${PYTHON_USEDEP}]
-		<dev-python/starlette-0.60[${PYTHON_USEDEP}]
+		<dev-python/starlette-1.1[${PYTHON_USEDEP}]
 		>=dev-python/uvicorn-0.19[${PYTHON_USEDEP}]
 		<dev-python/uvicorn-0.50[${PYTHON_USEDEP}]
 		=dev-python/wsproto-1*[${PYTHON_USEDEP}]
@@ -109,15 +109,16 @@ distutils_enable_tests pytest
 
 PATCHES=(
 	"${FILESDIR}"/pio-6.1.19-marshmallow-4.patch
+	"${FILESDIR}"/pio-6.1.19-starlette-1.patch
 )
 
 python_prepare_all() {
 	# Allow marshmallow-4*
-	# Allow starlette-0.5*
+	# Allow starlette-1.0*
 	# Allow uvicorn-0.4*
 	sed \
 		-e '/marshmallow/s/3\.[0-9.*]*/4.*/' \
-		-e '/starlette/s/<0\.5[0-9]*/<0.60/' \
+		-e '/starlette/s/<0\.5[0-9]*/<1.1/' \
 		-e '/uvicorn/s/<0\.4[0-9]*/<0.50/' \
 		-i platformio/dependencies.py || die
 
