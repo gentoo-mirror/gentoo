@@ -8,7 +8,7 @@ inherit llvm-r2
 
 DESCRIPTION="Limine is a modern, advanced, and portable BIOS/UEFI multiprotocol bootloader"
 HOMEPAGE="https://limine-bootloader.org/"
-SRC_URI="https://codeberg.org/Limine/Limine/releases/download/v${PV}/limine-${PV}.tar.gz"
+SRC_URI="https://github.com/Limine-Bootloader/Limine/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"

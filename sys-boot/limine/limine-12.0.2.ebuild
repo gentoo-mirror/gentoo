@@ -8,7 +8,7 @@ inherit llvm-r2
 
 DESCRIPTION="Limine is a modern, advanced, and portable BIOS/UEFI multiprotocol bootloader"
 HOMEPAGE="https://limine-bootloader.org/"
-SRC_URI="https://codeberg.org/Limine/Limine/releases/download/v${PV}/limine-${PV}.tar.gz"
+SRC_URI="https://github.com/Limine-Bootloader/Limine/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
@@ -48,8 +48,9 @@ src_configure() {
 }
 
 pkg_postinst() {
-	ewarn "Limine 11.2.0 makes hash verification mandatory for systems using Secure Boot."
-	ewarn "If you're using Secure Boot and are upgrading from a previous version, make sure"
-	ewarn "the config contains hashes of all files it references, and that the config hash"
-	ewarn "is enrolled into the EFI binary via 'limine enroll-config'."
+	ewarn "Limine 12.0.0 and later forces hash verification for systems with Secure Boot"
+	ewarn "enabled if the config hash has been enrolled into the EFI binary with"
+	ewarn "'limine enroll-config'."
+	ewarn "If you're using Secure Boot, and are enrolling the config file hash, make sure"
+	ewarn "the config contains correct hashes for all files referenced within it."
 }
