@@ -5,13 +5,13 @@ DESCRIPTION=Tools and libraries to configure and manage kernel control groups
 EAPI=8
 HOMEPAGE=https://github.com/libcgroup/libcgroup
 INHERIT=autotools flag-o-matic linux-info pam systemd
-IUSE=+daemon pam static-libs systemd test +tools
+IUSE=+daemon pam selinux static-libs systemd test +tools
 KEYWORDS=amd64 arm arm64 ~ppc ~ppc64 ~riscv x86
 LICENSE=LGPL-2.1
-RDEPEND=elibc_musl? ( sys-libs/fts-standalone ) pam? ( sys-libs/pam ) systemd? ( sys-apps/systemd:= )
+RDEPEND=elibc_musl? ( sys-libs/fts-standalone ) pam? ( sys-libs/pam ) systemd? ( sys-apps/systemd:= ) selinux? ( sec-policy/selinux-cgroup )
 REQUIRED_USE=daemon? ( tools )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/libcgroup/libcgroup/releases/download/v3.2.0/libcgroup-3.2.0.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	flag-o-matic	fd3558f73f6503093adee69adf41020d	linux-info	efd923656513c879204fec6638eadee5	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=d3ea6425368d482feff2537e93eb5cc7
+_md5_=8c2fc29e0b8e9f795a4c9d6943867e70
