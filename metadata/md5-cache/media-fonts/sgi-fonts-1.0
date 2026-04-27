@@ -1,4 +1,4 @@
-BDEPEND=|| ( app-arch/rpm2targz ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+BDEPEND=|| ( app-arch/rpm2targz >=app-arch/rpm-4.19.0[bzip2(+)] ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
 DEFINED_PHASES=install postinst postrm setup unpack
 DESCRIPTION=SGI fonts collection
 EAPI=8
@@ -10,4 +10,4 @@ LICENSE=MIT
 SLOT=0
 SRC_URI=ftp://ftp.suse.com/pub/suse/i386/9.1/suse/noarch/sgi-fonts-1.0-705.noarch.rpm
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	rpm	716d8645cb3f94e78951eda6c33e0546	font	6d0c60c855c05ae2ba808d300440ded2
-_md5_=985ae8dabfdf3ab8cb84a5a4313392ee
+_md5_=0b8a510ec2bee307040305150e02e13f

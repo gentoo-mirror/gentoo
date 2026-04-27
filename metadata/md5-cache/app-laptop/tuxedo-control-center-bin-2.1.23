@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils[extra-filters(+)] || ( app-arch/rpm2targz ) virtual/pkgconfig
+BDEPEND=app-arch/xz-utils[extra-filters(+)] || ( app-arch/rpm2targz >=app-arch/rpm-4.19.0[lzma(+)] ) virtual/pkgconfig
 DEFINED_PHASES=config install postinst postrm prepare unpack
 DEPEND=>=app-laptop/tuxedo-drivers-3.2.14
 DESCRIPTION=Tool to control performance, energy, fan and comfort settings on TUXEDO laptops
@@ -12,4 +12,4 @@ RESTRICT=strip splitdebug
 SLOT=0
 SRC_URI=https://rpm.tuxedocomputers.com/opensuse/16.0/x86_64/tuxedo-control-center_2.1.23.rpm
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	rpm	716d8645cb3f94e78951eda6c33e0546	systemd	a964c0cbe818b5729da1dbfcee5be861	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
-_md5_=9e710f97400614d4e51575b87add955b
+_md5_=d7fc4cabf4adf5b4c842cbe82c53e6fa

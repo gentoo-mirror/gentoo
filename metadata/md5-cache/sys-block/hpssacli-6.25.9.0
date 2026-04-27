@@ -1,4 +1,4 @@
-BDEPEND=|| ( app-arch/rpm2targz )
+BDEPEND=|| ( app-arch/rpm2targz >=app-arch/rpm-4.19.0 )
 DEFINED_PHASES=install unpack
 DESCRIPTION=HPE Smart Storage Administrator (HPE SSA) CLI (HPSSACLI, formerly HPACUCLI)
 EAPI=8
@@ -11,4 +11,4 @@ RESTRICT=mirror bindist
 SLOT=0
 SRC_URI=https://downloads.hpe.com/pub/softlib2/software1/pubsw-linux/p1736097809/v224097/ssacli-6.25-9.0.x86_64.rpm
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	rpm	716d8645cb3f94e78951eda6c33e0546
-_md5_=be26ed9c62810df577aceebe7d78fc6f
+_md5_=72f8c1760ad32890af3b55076e29dd6d

@@ -1,4 +1,4 @@
-BDEPEND=|| ( app-arch/rpm2targz )
+BDEPEND=|| ( app-arch/rpm2targz >=app-arch/rpm-4.19.0 )
 DEFINED_PHASES=install unpack
 DESCRIPTION=Intel's implementation of the OpenCL standard
 EAPI=8
@@ -11,4 +11,4 @@ RESTRICT=bindist mirror
 SLOT=0
 SRC_URI=https://registrationcenter-download.intel.com/akdlm/irc_nas/vcp/15532/l_opencl_p_18.1.0.015.tgz
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	rpm	716d8645cb3f94e78951eda6c33e0546
-_md5_=907768d6cbe1b59068a1b60949e5afa5
+_md5_=634747557937e02777b11bcc60015b2d
