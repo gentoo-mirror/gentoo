@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: kernel-2.eclass
@@ -373,7 +373,7 @@ handle_genpatches() {
 			UNIPATCH_LIST_GENPATCHES+=" ${DISTDIR}/${tarball}"
 			debug-print "genpatches tarball: ${tarball}"
 		fi
-		GENPATCHES_URI+=" ${use_cond_start}$(echo https://dev.gentoo.org/~{alicef,mpagano}/dist/genpatches/${tarball})${use_cond_end}"
+		GENPATCHES_URI+=" ${use_cond_start}$(echo https://distfiles.gentoo.org/pub/proj/kernel/genpatches/${tarball} https://dev.gentoo.org/~{alicef,mpagano}/dist/genpatches/${tarball})${use_cond_end}"
 	done
 }
 
