@@ -17,7 +17,7 @@ else
 		https://github.com/PCSX2/pcsx2/archive/refs/tags/v${PV}.tar.gz
 			-> ${P}.tar.gz
 	"
-	KEYWORDS="-* ~amd64"
+	KEYWORDS="-* amd64"
 fi
 
 DESCRIPTION="PlayStation 2 emulator"
@@ -90,6 +90,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.7.5913-musl-cache.patch
 	"${FILESDIR}"/${PN}-2.5.317-flags.patch
 	"${FILESDIR}"/${PN}-2.6.3-climits.patch
+	"${FILESDIR}"/${PN}-2.6.3-cubeb-alsa.patch
 )
 
 CMAKE_QA_COMPAT_SKIP=1 #957976
