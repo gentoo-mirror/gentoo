@@ -1,4 +1,4 @@
-BDEPEND=|| ( app-arch/rpm2targz ) secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
+BDEPEND=|| ( app-arch/rpm2targz >=app-arch/rpm-4.19.0[lzma(+)] ) secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
 DEFINED_PHASES=install nofetch postinst postrm preinst prerm pretend setup unpack
 DESCRIPTION=LINUX PERCCLI Utility For All Dell HBA/PERC Controllers
 EAPI=8
@@ -11,4 +11,4 @@ RESTRICT=bindist fetch mirror strip
 SLOT=0
 SRC_URI=https://dl.dell.com/FOLDER09770976M/1/PERCCLI_7.2313.0_A14_Linux.tar.gz uefi? ( https://dl.dell.com/FOLDER09770794M/1/perccli.efi -> perccli-7.2313.0.efi )
 _eclasses_=mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	mount-boot	03b0280b48caf6e18472fa7272cfcda8	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	rpm	716d8645cb3f94e78951eda6c33e0546	linux-info	efd923656513c879204fec6638eadee5	secureboot	d98b63e30a9468e1f1c06d3d7c66e760
-_md5_=6d0a88fcffa3b71ed3c1456346ea7d82
+_md5_=6ed85790a52c892a3d1d261d25dc19e5
