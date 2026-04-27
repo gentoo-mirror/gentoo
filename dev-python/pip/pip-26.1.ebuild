@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,7 +28,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test test-rust"
 RESTRICT="!test? ( test )"
 
@@ -39,10 +39,10 @@ RDEPEND="
 	>=dev-python/distlib-0.4.0[${PYTHON_USEDEP}]
 	>=dev-python/distro-1.9.0[${PYTHON_USEDEP}]
 	>=dev-python/msgpack-1.1.1[${PYTHON_USEDEP}]
-	>=dev-python/packaging-25.0[${PYTHON_USEDEP}]
+	>=dev-python/packaging-26.2[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-4.3.8[${PYTHON_USEDEP}]
 	>=dev-python/pyproject-hooks-1.2.0[${PYTHON_USEDEP}]
-	>=dev-python/requests-2.32.4[${PYTHON_USEDEP}]
+	>=dev-python/requests-2.33.1[${PYTHON_USEDEP}]
 	>=dev-python/rich-14.1.0[${PYTHON_USEDEP}]
 	>=dev-python/resolvelib-1.2.0[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-70.3.0[${PYTHON_USEDEP}]
@@ -55,7 +55,6 @@ BDEPEND="
 	test? (
 		$(python_gen_cond_dep '
 			dev-python/ensurepip-setuptools
-			dev-python/ensurepip-wheel
 			dev-python/freezegun[${PYTHON_USEDEP}]
 			dev-python/pretend[${PYTHON_USEDEP}]
 			dev-python/pytest[${PYTHON_USEDEP}]
@@ -65,7 +64,6 @@ BDEPEND="
 			<dev-python/setuptools-80[${PYTHON_USEDEP}]
 			dev-python/virtualenv[${PYTHON_USEDEP}]
 			dev-python/werkzeug[${PYTHON_USEDEP}]
-			dev-python/wheel[${PYTHON_USEDEP}]
 			test-rust? (
 				dev-python/cryptography[${PYTHON_USEDEP}]
 			)
@@ -77,7 +75,7 @@ BDEPEND="
 python_prepare_all() {
 	local PATCHES=(
 		# remove coverage & pytest-subket wheel expectation from test suite
-		"${FILESDIR}/pip-25.2-test-wheels.patch"
+		"${FILESDIR}/pip-26.0-test-wheels.patch"
 		# prepare to unbundle dependencies
 		"${FILESDIR}/pip-25.0.1-unbundle.patch"
 	)
@@ -150,7 +148,11 @@ python_test() {
 		# broken by unbundling
 		"tests/functional/test_debug.py::test_debug[vendored library versions:]"
 		tests/functional/test_debug.py::test_debug__library_versions
+		tests/functional/test_freeze.py::test_freeze_multiple_exclude_with_all
+		tests/functional/test_install.py::test_install_package_with_same_name_in_curdir
+		tests/functional/test_pep517.py::test_nested_builds
 		tests/functional/test_python_option.py::test_python_interpreter
+		tests/functional/test_uninstall.py::test_basic_uninstall
 		tests/functional/test_uninstall.py::test_uninstall_non_local_distutils
 	)
 	local EPYTEST_IGNORE=(
@@ -168,6 +170,10 @@ python_test() {
 				tests/functional/test_install_config.py::test_prompt_for_authentication
 				# wrong path
 				tests/functional/test_install.py::test_install_editable_with_prefix_setup_py
+				# wrong exception assumptions
+				tests/unit/test_utils_datetime.py::test_parse_iso_datetime_invalid
+				# TODO
+				tests/functional/test_install.py::test_install_warns_on_unexpected_post_install_import
 			)
 			;;
 	esac

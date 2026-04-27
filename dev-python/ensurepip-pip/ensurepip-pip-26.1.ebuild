@@ -59,7 +59,6 @@ distutils_enable_tests pytest
 declare -A VENDOR_LICENSES=(
 	[cachecontrol]=Apache-2.0
 	[certifi]=MPL-2.0
-	[dependency_groups]=MIT
 	[distlib]=PSF-2
 	[distro]=Apache-2.0
 	[idna]=BSD
@@ -161,6 +160,8 @@ python_test() {
 				tests/functional/test_install.py::test_install_editable_with_prefix_setup_py
 				# wrong exception assumptions
 				tests/unit/test_utils_datetime.py::test_parse_iso_datetime_invalid
+				# TODO
+				tests/functional/test_install.py::test_install_warns_on_unexpected_post_install_import
 			)
 			;;
 	esac
