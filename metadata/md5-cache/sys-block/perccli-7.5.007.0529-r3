@@ -1,7 +1,7 @@
 BDEPEND=|| ( app-arch/rpm2targz >=app-arch/rpm-4.19.0 ) secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
 DEFINED_PHASES=install postinst postrm preinst prerm pretend setup unpack
 DESCRIPTION=LINUX PERCCLI Utility For All Dell HBA/PERC Controllers
-EAPI=7
+EAPI=8
 HOMEPAGE=https://www.dell.com/support/home/us/en/19/drivers/driversdetails?driverId=NF8G9
 INHERIT=mount-boot rpm secureboot
 IUSE=doc uefi secureboot
@@ -11,4 +11,4 @@ RESTRICT=strip
 SLOT=0
 SRC_URI=https://downloads.dell.com/FOLDER05235308M/1/perccli_linux_NF8G9_A07_7.529.00.tar.gz doc? ( https://topics-cdn.dell.com/pdf/dell-sas-hba-12gbps_reference-guide_en-us.pdf )
 _eclasses_=mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	mount-boot	03b0280b48caf6e18472fa7272cfcda8	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	rpm	716d8645cb3f94e78951eda6c33e0546	linux-info	efd923656513c879204fec6638eadee5	secureboot	d98b63e30a9468e1f1c06d3d7c66e760
-_md5_=5690c1cd919007eedcb7ade327fc0a20
+_md5_=8af0aa3369e328363b6af9d38f15817d
