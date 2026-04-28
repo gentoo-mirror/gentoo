@@ -12,7 +12,7 @@ HOMEPAGE="https://gnome.pages.gitlab.gnome.org/localsearch"
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="3"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE="cue exif gif gsf +gstreamer iptc +iso +jpeg +pdf +playlist raw seccomp test +tiff upower +xml xmp xps"
+IUSE="cue exif gif gsf +gstreamer iptc +iso +jpeg +pdf +playlist raw seccomp test +tiff upower webp +xml xmp xps"
 
 REQUIRED_USE="cue? ( gstreamer )" # cue is currently only supported via gstreamer, not ffmpeg
 RESTRICT="!test? ( test )"
@@ -23,8 +23,8 @@ RDEPEND="
 	>=app-misc/tinysparql-3.8:3
 	>=sys-apps/dbus-1.3.1
 	xmp? ( >=media-libs/exempi-2.1.0:= )
-	raw? ( media-libs/gexiv2 )
-	>=dev-libs/glib-2.70:2
+	raw? ( media-libs/gexiv2:= )
+	>=dev-libs/glib-2.76:2
 	dev-libs/libgudev
 	>=dev-libs/gobject-introspection-1.82.0-r2
 	cue? ( media-libs/libcue:= )
@@ -40,6 +40,7 @@ RDEPEND="
 	xml? ( >=dev-libs/libxml2-2.6:= )
 	pdf? ( >=app-text/poppler-0.16.0:=[cairo] )
 	playlist? ( >=dev-libs/totem-pl-parser-3:= )
+	webp? ( media-libs/libwebp )
 
 	gif? ( media-libs/giflib:= )
 
@@ -83,6 +84,11 @@ python_check_deps() {
 		"dev-python/pygobject[${PYTHON_USEDEP}]" \
 		"dev-python/tap-py[${PYTHON_USEDEP}]"
 }
+
+PATCHES=(
+	# CVE-2026-1764, CVE-2026-1765, CVE-2026-1766, CVE-2026-1767
+	"${FILESDIR}/${PN}-3.10.2-CVE-2026-176x.patch"
+)
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
@@ -134,6 +140,8 @@ src_configure() {
 		$(meson_feature jpeg)
 		$(meson_feature pdf)
 		$(meson_feature playlist)
+		$(meson_feature webp)
+		-Dbash_completion=true
 		-Dpng=enabled
 		$(meson_feature raw)
 		$(meson_feature tiff)
