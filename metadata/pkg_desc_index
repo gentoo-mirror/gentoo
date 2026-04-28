@@ -926,7 +926,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.792.0 1.2.804.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.44.58 1.44.63 1.44.68 1.44.73 1.44.78 1.44.81 1.44.86: Universal Command Line Environment for AWS
+app-admin/awscli 1.44.58 1.44.63 1.44.68 1.44.73 1.44.78 1.44.81 1.44.86 1.44.87: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37 2.33.21 2.34.24: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.1.0 2026.2.1: Bitwarden password manager desktop client
@@ -8235,8 +8235,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.42.68 1.42.73 1.42.78 1.42.83 1.42.88 1.42.91 1.42.96: The AWS SDK for Python
-dev-python/botocore 1.42.68 1.42.73 1.42.78 1.42.83 1.42.88 1.42.91 1.42.96: Low-level, data-driven core of boto 3
+dev-python/boto3 1.42.68 1.42.73 1.42.78 1.42.83 1.42.88 1.42.91 1.42.96 1.42.97: The AWS SDK for Python
+dev-python/botocore 1.42.68 1.42.73 1.42.78 1.42.83 1.42.88 1.42.91 1.42.96 1.42.97: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8262,7 +8262,7 @@ dev-python/cerberus 1.3.8: A lightweight and extensible data-validation library 
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 2.0.0: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.5.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.46.0 1.47.0 1.47.1 1.48.0 1.48.1 1.49.0 1.49.1 1.49.3: CloudFormation Linter
+dev-python/cfn-lint 1.47.1 1.48.1 1.49.3 1.50.0: CloudFormation Linter
 dev-python/cftime 1.6.5: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.1 1.0.2: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.6.0: Fast HTML/XML template compiler for Python
@@ -8403,7 +8403,7 @@ dev-python/django-timezone-field 7.2.1: A Django app providing database and form
 dev-python/djangorestframework 3.17.1: Web APIs with django made easy
 dev-python/dkimpy 1.1.8: DKIM and ARC email signing and verification library
 dev-python/dkimpy-milter 1.2.3: Domain Keys Identified Mail (DKIM) signing/verifying milter for Postfix/Sendmail
-dev-python/dns-lexicon 3.23.2: Manipulate DNS records on various DNS providers in a standardized/agnostic way
+dev-python/dns-lexicon 3.23.2 3.25.1: Manipulate DNS records on various DNS providers in a standardized/agnostic way
 dev-python/dnspython 2.7.0 2.8.0: DNS toolkit for Python
 dev-python/doc8 2.0.0: Style checker for Sphinx (or other) RST documentation
 dev-python/docker 7.1.0: Python client for Docker
@@ -8500,7 +8500,7 @@ dev-python/flexmock 0.13.0: Testing library to create mocks, stubs and fakes
 dev-python/flit 3.12.0: Simplified packaging of Python modules
 dev-python/flit-core 3.12.0: Simplified packaging of Python modules (core module)
 dev-python/flit-scm 1.7.0: A PEP 518 build backend combining flit with setuptools_scm
-dev-python/flufl-lock 9.0.0: NFS-safe file locking with timeouts for POSIX systems
+dev-python/flufl-lock 9.0.0 9.1.0: NFS-safe file locking with timeouts for POSIX systems
 dev-python/fonttools 4.61.1 4.62.0 4.62.1: Library for manipulating TrueType, OpenType, AFM and Type1 fonts
 dev-python/forbiddenfruit 0.1.4: Patch built-in Python objects
 dev-python/fpylll 0.6.4-r1: Python bindings for sci-libs/fplll
@@ -8546,7 +8546,7 @@ dev-python/gpgmepy 2.0.0-r1: GnuPG Made Easy is a library for making GnuPG easie
 dev-python/gpt-image 0.9.1: Tool to create GPT disk image files
 dev-python/graph-tool 2.75 9999: An efficient python module for manipulation and statistical analysis of graphs
 dev-python/graphviz 0.21: Simple Python interface for Graphviz
-dev-python/greenlet 3.3.2 3.4.0: Lightweight in-process concurrent programming
+dev-python/greenlet 3.3.2 3.4.0 3.5.0: Lightweight in-process concurrent programming
 dev-python/greenstalk 2.1.1: Python 3 client for the beanstalkd work queue
 dev-python/griddataformats 1.1.0: Reading and writing of data on regular grids in Python
 dev-python/grpcio 1.78.1 1.80.0: HTTP/2-based RPC framework
@@ -8569,7 +8569,7 @@ dev-python/hcloud 2.16.0 2.17.0 2.17.1 2.18.0: Official Hetzner Cloud python lib
 dev-python/helpdev 0.7.1-r1: Helping users and developers to get information about the environment
 dev-python/hidapi 0.15.0: A Cython interface to HIDAPI library
 dev-python/hiredis 3.3.0 3.3.1: Python extension that wraps hiredis
-dev-python/hishel 1.1.10: An elegant HTTP Cache implementation for HTTPX and HTTP Core
+dev-python/hishel 1.1.10 1.2.1: An elegant HTTP Cache implementation for HTTPX and HTTP Core
 dev-python/housekeeping 1.1: Reusable deprecation helpers for Python projects
 dev-python/hpack 4.1.0: Pure-Python HPACK header compression
 dev-python/html2text 2025.4.15-r1: Turn HTML into equivalent Markdown-structured text
@@ -8591,7 +8591,7 @@ dev-python/hvac 2.4.0: HashiCorp Vault API client
 dev-python/hypercorn 0.18.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.151.9 6.151.10 6.151.11 6.151.12 6.151.14 6.152.1 6.152.2 6.152.3: A library for property based testing
+dev-python/hypothesis 6.151.9 6.151.10 6.151.11 6.151.12 6.151.14 6.152.1 6.152.2 6.152.3 6.152.4: A library for property based testing
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 6.3.2 7.0.3: RFC 5545 compatible parser and generator of iCalendar files
 dev-python/id 1.6.1: A tool for generating OIDC identities
@@ -8683,7 +8683,7 @@ dev-python/jsonpointer 3.0.0 3.1.0 3.1.1: Identify specific nodes in a JSON docu
 dev-python/jsonref 1.1.0: An implementation of JSON Reference for Python
 dev-python/jsonrpclib 0.4.3.2 9999: python implementation of the JSON-RPC spec (1.0 and 2.0)
 dev-python/jsonschema 4.24.0 4.26.0: An implementation of JSON-Schema validation for Python
-dev-python/jsonschema-path 0.3.4-r1 0.4.5: JSONSchema Spec with object-oriented paths
+dev-python/jsonschema-path 0.3.4-r1 0.4.5 0.4.6: JSONSchema Spec with object-oriented paths
 dev-python/jsonschema-spec 0.2.4-r1: JSONSchema Spec with object-oriented paths
 dev-python/jsonschema-specifications 2025.9.1: The JSON Schema meta-schemas and vocabularies, exposed as a Registry
 dev-python/jsonxs 0.6-r1: Get/set values in JSON and Python datastructures
@@ -8889,13 +8889,13 @@ dev-python/olefile 0.47: Python package to parse, read and write Microsoft OLE2 
 dev-python/omemo-dr 1.2.0: OMEMO Crypto Library
 dev-python/opcodes 0.3.14-r3: Opcodes Project
 dev-python/openapi-core 0.22.0 0.23.0 0.23.1: Client-side and server-side support for the OpenAPI Specification v3
-dev-python/openapi-schema-validator 0.6.3 0.7.2 0.8.1: OpenAPI schema validation for Python
+dev-python/openapi-schema-validator 0.6.3 0.7.2 0.8.1 0.9.0: OpenAPI schema validation for Python
 dev-python/openapi-spec-validator 0.7.2 0.8.0 0.8.4 0.8.5: OpenAPI 2.0 (aka Swagger) and OpenAPI 3.0 spec validator
 dev-python/openapi3 1.8.2: Python OpenAPI 3 Specification client and validator
 dev-python/openpyxl 3.1.5: Pure python reader and writer of Excel OpenXML files
 dev-python/opensearch-py 3.0.0: Python client for OpenSearch
 dev-python/openstackdocstheme 3.5.0-r1 3.6.0: Theme and extension support for Sphinx documentation
-dev-python/openstacksdk 4.10.0 4.11.0: A collection of libraries for building applications to work with OpenStack
+dev-python/openstacksdk 4.10.0 4.11.0 4.12.0: A collection of libraries for building applications to work with OpenStack
 dev-python/opentelemetry-api 1.40.0 1.41.1: OpenTelemetry Python API
 dev-python/opentelemetry-sdk 1.40.0 1.41.1: OpenTelemetry Python SDK
 dev-python/opentelemetry-semantic-conventions 1.40.0 1.41.1: OpenTelemetry Semantic Conventions
@@ -8942,7 +8942,7 @@ dev-python/patch-ng 1.19.0 1.19.1: Library to parse and apply unified diffs, for
 dev-python/path 17.1.1: A module wrapper for os.path
 dev-python/path-and-address 2.0.1-r2: Functions for server CLI applications used by humans
 dev-python/pathable 0.4.4 0.5.0_beta6 0.5.0: Object-oriented paths
-dev-python/pathspec 1.0.4 1.1.0: Utility library for gitignore style pattern matching of file paths
+dev-python/pathspec 1.0.4 1.1.0 1.1.1: Utility library for gitignore style pattern matching of file paths
 dev-python/pathvalidate 3.3.1: A Python library to sanitize/validate a string such as filenames/file-paths/etc
 dev-python/patiencediff 0.2.18: Python implementation of the patiencediff algorithm
 dev-python/patsy 1.0.2: Python module to describe statistical models and design matrices
@@ -9299,7 +9299,7 @@ dev-python/python-memcached 1.62: Pure python memcached client
 dev-python/python-mimeparse 2.0.0: Basic functions for handling mime-types in python
 dev-python/python-mpd2 3.1.1: Python MPD client library
 dev-python/python-mpv 1.0.8: Python interface to the mpv media player
-dev-python/python-multipart 0.0.22 0.0.24 0.0.25: A streaming multipart parser for Python
+dev-python/python-multipart 0.0.22 0.0.24 0.0.25 0.0.27: A streaming multipart parser for Python
 dev-python/python-neutronclient 11.8.0: A client for the OpenStack Quantum API
 dev-python/python-novaclient 18.12.0: A client for the OpenStack Nova API
 dev-python/python-openstackclient 9.0.0: A client for the OpenStack APIs
@@ -9705,8 +9705,8 @@ dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 1.0.0: TidyLib Python wrapper
 dev-python/uuid6 2025.0.1: New time-based UUID formats which are suited for use as a database key
-dev-python/uv 0.10.12 0.11.0 0.11.1 0.11.2 0.11.3 0.11.5 0.11.6 0.11.7 9999: A Python package installer and resolver, written in Rust
-dev-python/uv-build 0.10.12 0.11.0 0.11.1 0.11.2 0.11.3 0.11.5 0.11.6 0.11.7: PEP517 uv build backend
+dev-python/uv 0.10.12 0.11.0 0.11.1 0.11.2 0.11.3 0.11.5 0.11.6 0.11.7 0.11.8 9999: A Python package installer and resolver, written in Rust
+dev-python/uv-build 0.10.12 0.11.0 0.11.1 0.11.2 0.11.3 0.11.5 0.11.6 0.11.7 0.11.8: PEP517 uv build backend
 dev-python/uvicorn 0.42.0 0.43.0 0.44.0 0.45.0 0.46.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.22.1: Ultra-fast implementation of asyncio event loop on top of libuv
 dev-python/validators 0.35.0: Python Data Validation for Humans
@@ -9721,7 +9721,7 @@ dev-python/verboselogs 1.7-r1: Verbose logging for Python's logging module
 dev-python/versioneer 0.29-r1: Easy VCS-based management of project version strings
 dev-python/versioningit 3.3.0: A setuptools plugin for versioning based on git tags
 dev-python/vine 5.1.0: Python Promises
-dev-python/virtualenv 20.39.1 21.2.0 21.2.1 21.2.3 21.2.4: Virtual Python Environment builder
+dev-python/virtualenv 20.39.1 21.2.4 21.3.0: Virtual Python Environment builder
 dev-python/virtualenv-clone 0.5.7: A script for cloning a non-relocatable virtualenv
 dev-python/virtualenvwrapper 6.1.1: Set of extensions to Ian Bicking's virtualenv tool
 dev-python/visitor 0.1.3-r2: A tiny pythonic visitor implementation
@@ -17765,8 +17765,8 @@ sys-kernel/dkms 3.2.2 3.3.0 3.4.0 9999: Dynamic Kernel Module Support
 sys-kernel/dracut 108-r6 110-r4 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.8-r2: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.10 4.3.11 4.3.12 4.3.12-r1 4.3.14 4.3.15 4.3.16 4.3.16-r2 4.3.16-r3 4.3.16-r4 4.3.16-r5 4.3.17 4.3.17-r1 4.3.17-r3 4.3.17-r4 4.3.18 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.250 5.10.253 5.15.200 5.15.203 6.1.168 6.1.169 6.6.134 6.6.135 6.12.81 6.12.83 6.18.22 6.18.24 6.19.14 7.0.1: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.250 5.10.253 5.15.200 5.15.203 6.1.168 6.1.169 6.6.134 6.6.135 6.12.81 6.12.83 6.18.22 6.18.24 6.19.14 7.0.1: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.250 5.10.253 5.15.200 5.15.203 6.1.168 6.1.169 6.6.134 6.6.135 6.6.136 6.12.81 6.12.83 6.12.84 6.18.22 6.18.24 6.18.25 6.19.14 7.0.1 7.0.2: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.250 5.10.253 5.15.200 5.15.203 6.1.168 6.1.169 6.6.134 6.6.135 6.6.136 6.12.81 6.12.83 6.12.84 6.18.22 6.18.24 6.18.25 6.19.14 7.0.1 7.0.2: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.250-r1 5.10.252 5.10.253 5.15.200 5.15.201 5.15.202 5.15.203 6.1.163 6.1.167 6.1.168 6.1.169 6.6.126 6.6.135 6.12.77 6.12.81 6.12.82 6.12.83 6.18.18 6.18.21 6.18.22 6.18.23 6.18.24 6.19.11 6.19.12 6.19.13 6.19.14 7.0.0 7.0.1: Full sources including the Gentoo patchset for the 7.0 kernel tree
 sys-kernel/git-sources 7.1_rc1: The very latest -git version of the Linux kernel
 sys-kernel/gnumach 1.8_p20260224 1.8_p20260330 9999: GNU Mach microkernel, for the Hurd
@@ -17790,7 +17790,7 @@ sys-kernel/scx 1.0.16 1.0.19 1.0.20 1.1.0: sched_ext schedulers and tools
 sys-kernel/scx-loader 1.0.19 1.0.20 1.1.0: DBUS on-demand loader of sched-ext schedulers
 sys-kernel/udev-hid-bpf 2.2.0_p20251121: Automatic HID-BPF loader based on udev events for device workarounds
 sys-kernel/ugrd 1.27.2 1.28.2 1.29.0-r1 1.31.2 2.0.2 2.2.0 9999: Python based POSIX initramfs generator with TOML definitions
-sys-kernel/vanilla-kernel 5.10.250 5.10.253 5.10.9999 5.15.200 5.15.203 5.15.9999 6.1.168 6.1.169 6.1.9999 6.6.134 6.6.135 6.6.9999 6.12.81 6.12.83 6.12.9999 6.18.22 6.18.24 6.19.14 7.0.1: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.250 5.10.253 5.10.9999 5.15.200 5.15.203 5.15.9999 6.1.168 6.1.169 6.1.9999 6.6.134 6.6.135 6.6.136 6.6.9999 6.12.81 6.12.83 6.12.84 6.12.9999 6.18.22 6.18.24 6.18.25 6.19.14 7.0.1 7.0.2: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 5.10.253 5.15.203 6.1.169 6.6.136 6.12.84 6.18.25 6.19.14 7.0.2: Full sources for the Linux kernel
 sys-kernel/virtme-ng 1.38 1.40 1.41: Quickly build and run kernels inside a virtualized snapshot of your live system
 sys-kernel/zen-sources 6.19.13: The Zen Kernel Live Sources
@@ -17977,7 +17977,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.250 5.10.253 5.15.200 5.15.203 6.1.168 6.1.169 6.6.134 6.6.135 6.12.81 6.12.83 6.18.22 6.18.24 6.19.14 7.0.1: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.250 5.10.253 5.15.200 5.15.203 6.1.168 6.1.169 6.6.134 6.6.135 6.6.136 6.12.81 6.12.83 6.12.84 6.18.22 6.18.24 6.18.25 6.19.14 7.0.1 7.0.2: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0 9.0 10.0-r1: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
