@@ -93,7 +93,6 @@ DEPEND="
 	)
 "
 BDEPEND="
-	app-alternatives/awk
 	sys-devel/m4
 	virtual/pkgconfig
 "
@@ -120,17 +119,14 @@ pkg_setup() {
 		~SYSVIPC
 		~!LOCKDEP
 		~!PREEMPT_RT
-		~!RANDSTRUCT_FULL
-		~!RANDSTRUCT_PERFORMANCE
 		~!SLUB_DEBUG_ON
 		!DEBUG_MUTEXES
+		$(usev amd64 'X86_PAT')
 		$(usev powerd '~CPU_FREQ')
 	"
 
 	kernel_is -ge 6 11 && linux_chkconfig_present DRM_FBDEV_EMULATION &&
 		CONFIG_CHECK+=" DRM_TTM_HELPER"
-
-	use amd64 && kernel_is -ge 5 8 && CONFIG_CHECK+=" X86_PAT" #817764
 
 	local drm_helper_msg="Cannot be directly selected in the kernel's config menus, and may need
 	selection of a DRM device even if unused, e.g. CONFIG_DRM_QXL=m or
@@ -149,13 +145,6 @@ pkg_setup() {
 	will fail to build unless the env var IGNORE_PREEMPT_RT_PRESENCE=1 is
 	set. Please do not report issues if run into e.g. kernel panics while
 	ignoring this."
-	local randstruct_msg="is set but NVIDIA may be unstable with
-	it such as causing a kernel panic on shutdown, it is recommended to
-	disable with CONFIG_RANDSTRUCT_NONE=y (https://bugs.gentoo.org/969413
-	-- please report if this appears fixed on NVIDIA's side so can remove
-	this warning)."
-	local ERROR_RANDSTRUCT_FULL="CONFIG_RANDSTRUCT_FULL: ${randstruct_msg}"
-	local ERROR_RANDSTRUCT_PERFORMANCE="CONFIG_RANDSTRUCT_PERFORMANCE: ${randstruct_msg}"
 
 	linux-mod-r1_pkg_setup
 }
@@ -189,12 +178,12 @@ src_compile() {
 	local xnvflags=-fPIC #840389
 	tc-is-lto && xnvflags+=" $(test-flags-CC -ffat-lto-objects)"
 
-	# Same as uname -m.
+	# same as uname -m
 	local target_arch
 	case ${ARCH} in
-		amd64) target_arch=x86_64 ;;
-		arm64) target_arch=aarch64 ;;
-		*) die "Unrecognised architecture: ${ARCH}" ;;
+		amd64) target_arch=x86_64;;
+		arm64) target_arch=aarch64;;
+		*) die "Unrecognised architecture: ${ARCH}";;
 	esac
 
 	NV_ARGS=(
@@ -219,6 +208,11 @@ src_compile() {
 		CC=${KERNEL_CC} CXX=${KERNEL_CXX} strip-unsupported-flags
 		LDFLAGS=$(raw-ldflags)
 
+		# the "blob" uses C++ which is an issue if there is debug symbols
+		# when running pahole, there is a pahole.sh wrapper that tries to
+		# exclude C++ but it did not seem to be enough last time tried
+		linux_chkconfig_present DEBUG_INFO_BTF_MODULES && append-flags -g0
+
 		: video:kernel-module-source:kernel-module-source/kernel-open
 		local modlist=( nvidia{,-drm,-modeset,-peermem,-uvm}=${_} )
 		local modargs=(
@@ -232,13 +226,11 @@ src_compile() {
 			$(usev amd64 ARCH=x86_64)
 		)
 
-		# pahole wrapper is broken with >=7.0, and without the wrapper it will
-		# fail if the "blob" has debug symbols (temporary, check again on bump)
-		# https://github.com/NVIDIA/open-gpu-kernel-modules/issues/1041
-		if kernel_is -ge 7 && linux_chkconfig_present DEBUG_INFO_BTF_MODULES; then
-			append-flags -g0
+		# the awk-based pahole wrapper is broken with >=7.0, and is thankfully
+		# not needed given we pass -g0 above -- skip until this branch gets the
+		# new shell-based pahole.sh
+		kernel_is -ge 7 && linux_chkconfig_present DEBUG_INFO_BTF_MODULES &&
 			modargs+=( PAHOLE_VARIABLES= )
-		fi
 
 		# temporary workaround for bug #914468
 		addpredict "${KV_OUT_DIR}"
