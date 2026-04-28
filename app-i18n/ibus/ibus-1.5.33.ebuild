@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit autotools bash-completion-r1 flag-o-matic gnome2-utils python-r1 toolchain-funcs vala virtualx
 
@@ -19,8 +19,8 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${MY_PV}/${PN}-${MY_PV
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
-IUSE="X appindicator +emoji gtk2 +gtk3 +gtk4 +gui +introspection libnotify nls +python systemd test +unicode vala wayland"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="X appindicator +emoji +gtk3 +gtk4 +gui +introspection libnotify nls +python systemd test +unicode vala wayland"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	appindicator? ( gtk3 )
@@ -28,7 +28,7 @@ REQUIRED_USE="
 		${PYTHON_REQUIRED_USE}
 		introspection
 	)
-	test? ( gtk3 )
+	test? ( gtk3 X )
 	vala? ( gtk3 introspection )
 	X? ( gtk3 )
 "
@@ -44,7 +44,6 @@ DEPEND="
 		>=x11-libs/libXfixes-6.0.0
 	)
 	appindicator? ( dev-libs/libdbusmenu[gtk3?] )
-	gtk2? ( x11-libs/gtk+:2 )
 	gtk3? ( x11-libs/gtk+:3[X,wayland?] )
 	gtk4? ( gui-libs/gtk:4[X,wayland?] )
 	gui? (
@@ -116,6 +115,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# bug #944071
+	append-flags -std=gnu17
+
 	local unicodedir="${EPREFIX}"/usr/share/unicode
 	local python_conf=()
 	if use python; then
@@ -149,7 +151,7 @@ src_configure() {
 		$(use_enable emoji emoji-dict)
 		$(use_with emoji unicode-emoji-dir "${unicodedir}"/emoji)
 		$(use_with emoji emoji-annotation-dir "${unicodedir}"/cldr/common/annotations)
-		$(use_enable gtk2)
+		--disable-gtk2
 		$(use_enable gtk3)
 		$(use_enable gtk4)
 		$(use_enable gui ui)
@@ -218,7 +220,6 @@ src_install() {
 }
 
 pkg_postinst() {
-	use gtk2 && gnome2_query_immodules_gtk2
 	use gtk3 && gnome2_query_immodules_gtk3
 	xdg_icon_cache_update
 	gnome2_schemas_update
@@ -226,7 +227,6 @@ pkg_postinst() {
 }
 
 pkg_postrm() {
-	use gtk2 && gnome2_query_immodules_gtk2
 	use gtk3 && gnome2_query_immodules_gtk3
 	xdg_icon_cache_update
 	gnome2_schemas_update
