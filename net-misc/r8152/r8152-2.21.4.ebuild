@@ -13,7 +13,7 @@ S="${WORKDIR}/realtek-r8152-unchanged-${PV}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="virtual/udev"
 DEPEND="${RDEPEND}"
@@ -27,7 +27,6 @@ IUSE="+center-tap-short"
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.16.3-kernel-6.4.10-fix.patch
 	"${FILESDIR}"/${PN}-2.16.3-asus-c5000-support.patch
-	"${FILESDIR}"/${PN}-2.20.1-6.16-fix.patch
 	"${FILESDIR}"/${PN}-2.21.4-7.0-fix.patch
 )
 

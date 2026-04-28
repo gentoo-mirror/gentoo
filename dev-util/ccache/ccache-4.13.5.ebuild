@@ -37,14 +37,14 @@ LICENSE+=" elibc_mingw? ( LGPL-3 ISC PSF-2 )"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~riscv ~s390 ~sparc ~x86"
 # Enable 'static-c++' by default to make 'gcc' ebuild Just Work: bug #761220
-IUSE="${MY_DOCS_USEFLAG} redis +static-c++ test"
+IUSE="${MY_DOCS_USEFLAG} http redis +static-c++ test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	>=app-arch/zstd-1.3.4:=
 	!static-c++? (
-		>=dev-cpp/cpp-httplib-0.20.0:=
 		>=dev-libs/libfmt-8.0.0:=
+		http? ( >=dev-cpp/cpp-httplib-0.20.0:= )
 	)
 	>=dev-libs/blake3-1.8.2:=
 	>=dev-libs/xxhash-0.8.3
@@ -102,6 +102,7 @@ src_configure() {
 		-DENABLE_DOCUMENTATION=$(usex doc)
 		-DENABLE_TESTING=$(usex test)
 		-DDEPS=LOCAL
+		-DHTTP_STORAGE_BACKEND=$(usex http)
 		-DREDIS_STORAGE_BACKEND=$(usex redis)
 	)
 
@@ -113,10 +114,9 @@ src_configure() {
 	# Ideally gcc should not use LD_PRELOAD to avoid this type of failure.
 	if use static-c++ ; then
 		append-ldflags -static-libstdc++
-		mycmakeargs+=(
-			-DDEP_CPPHTTPLIB=BUNDLED
-			-DDEP_FMT=BUNDLED
-		)
+
+		mycmakeargs+=( -DDEP_FMT=BUNDLED )
+		use http && mycmakeargs+=( -DDEP_CPPHTTPLIB=BUNDLED )
 	fi
 
 	cmake_src_configure
