@@ -100,6 +100,8 @@ PATCHES=(
 	# such support.
 	# https://bugs.gentoo.org/624960
 	"${FILESDIR}"/0001-gdk-add-a-poison-macro-to-hide-GDK_WINDOWING_.patch
+
+	"${FILESDIR}"/${P}-test-tree-relationships.patch
 )
 
 src_prepare() {
