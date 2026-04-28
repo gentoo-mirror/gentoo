@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~riscv ~s390 ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~riscv ~s390 ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -62,7 +62,7 @@ BDEPEND="
 src_prepare() {
 	local PATCHES=(
 		# use wheels from ensurepip bundle
-		"${FILESDIR}/${PN}-21.1.0-ensurepip.patch"
+		"${FILESDIR}/${PN}-21.2.4-ensurepip.patch"
 	)
 
 	distutils-r1_src_prepare
@@ -101,6 +101,8 @@ python_test() {
 		tests/unit/test_file_limit.py::test_too_many_open_files
 		# Internet
 		tests/unit/create/test_creator.py::test_create_distutils_cfg
+		# we do not use bundled wheels
+		tests/unit/seed/wheels/test_bundle.py::test_every_wheel_on_disk_has_sha256
 	)
 	case ${EPYTHON} in
 		pypy3.11)

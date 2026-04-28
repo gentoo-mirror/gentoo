@@ -4,7 +4,8 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..13} )
+PYPI_VERIFY_REPO=https://github.com/aws-cloudformation/cfn-lint
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -19,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
-	>=dev-python/aws-sam-translator-1.97.0[${PYTHON_USEDEP}]
+	>=dev-python/aws-sam-translator-1.109.0[${PYTHON_USEDEP}]
 	dev-python/jsonpatch[${PYTHON_USEDEP}]
 	>=dev-python/jschema-to-python-1.2.3[${PYTHON_USEDEP}]
 	<dev-python/jsonschema-5[${PYTHON_USEDEP}]
@@ -29,7 +30,7 @@ RDEPEND="
 	>=dev-python/pyyaml-5.4[${PYTHON_USEDEP}]
 	>=dev-python/regex-2021.7.1[${PYTHON_USEDEP}]
 	>=dev-python/sarif-om-1.0.4[${PYTHON_USEDEP}]
-	>=dev-python/sympy-1.0.0[${PYTHON_USEDEP}]
+	>=dev-python/sympy-1.14.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	>=dev-python/setuptools-77.0.3[${PYTHON_USEDEP}]
@@ -53,6 +54,8 @@ python_test() {
 		test/unit/module/override/test_exclude.py::TestExclude::test_success_run
 		test/unit/module/test_api.py::TestLintFile::test_good_template
 		test/unit/module/test_rules_collections.py::TestRulesCollection::test_success_run
+		# crashes on 3.12+, probably pygraphviz
+		test/unit/module/test_api.py::TestLintByConfig::test_graph
 	)
 
 	# from tox.ini
