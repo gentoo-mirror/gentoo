@@ -63,6 +63,10 @@ QA_FLAGS_IGNORED="
 	usr/lib.*/libglycin-gtk4-2.so.0
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-pkgconfig-thumbnailer.patch" #973052
+)
+
 src_prepare() {
 	default
 	use vala && vala_setup
