@@ -21,7 +21,7 @@ else
 		verify-sig? ( mirror://nongnu/${PN}/${P}.tar.xz.sig )
 	"
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
-
+	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-garyemiller ) "
 fi
 
 DESCRIPTION="GPS daemon and library for USB/serial GPS devices and GPS/mapping clients"
@@ -65,7 +65,7 @@ RDEPEND="
 	usb? ( virtual/libusb:1 )
 	X? ( dev-python/pygobject:3[cairo,${PYTHON_USEDEP}] )"
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig
+BDEPEND+="virtual/pkgconfig
 	$(python_gen_any_dep 'dev-build/scons[${PYTHON_USEDEP}]')
 	${DISTUTILS_DEPS}
 	test? ( app-alternatives/bc )"
