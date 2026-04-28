@@ -6,7 +6,7 @@ EAPI=8
 RPM_COMPRESS_TYPE=zstd
 inherit rpm xdg
 
-DESCRIPTION="Spanish government certificate request generator"
+DESCRIPTION="Spanish government certificate and digital signature manager"
 HOMEPAGE="https://administracionelectronica.gob.es/ctt/verPestanaGeneral.htm?idIniciativa=clienteafirma
 	https://github.com/ctt-gob-es/clienteafirma"
 
