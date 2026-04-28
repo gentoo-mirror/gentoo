@@ -59,6 +59,7 @@ RDEPEND="
 		~dev-qt/qtdeclarative-${PV}:6
 		~dev-qt/qtquick3d-${PV}:6
 	)
+	vaapi? ( media-libs/libva:= )
 "
 DEPEND="
 	${RDEPEND}
