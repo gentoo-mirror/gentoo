@@ -7,7 +7,7 @@ HOMEPAGE=https://sw.kovidgoyal.net/kitty/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=edo go-env optfeature multiprocessing python-single-r1 shell-completion toolchain-funcs xdg verify-sig
 IUSE=+X test wayland python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 verify-sig
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-3 ZLIB Apache-2.0 BSD BSD-2 MIT
 RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) dev-libs/openssl:= dev-libs/xxhash media-fonts/symbols-nerd-font media-libs/freetype media-libs/harfbuzz:=[truetype] media-libs/lcms:2 media-libs/libglvnd[X?] media-libs/libpng:= sys-apps/dbus virtual/zlib:= x11-libs/cairo x11-libs/libxkbcommon[X?] x11-misc/xkeyboard-config ~x11-terms/kitty-shell-integration-0.46.2 ~x11-terms/kitty-terminfo-0.46.2 X? ( x11-libs/libX11 x11-libs/libXcursor ) wayland? ( dev-libs/wayland ) !sci-mathematics/kissat
 REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) || ( X wayland ) test? ( X wayland )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/kovidgoyal/kitty/releases/download/v0.46.2/kitty-0.46.2.tar.xz https://distfiles.gentoo.org/pub/dev/ionen@gentoo.org/kitty-0.46.2-vendor.tar.xz verify-sig? ( https://github.com/kovidgoyal/kitty/releases/download/v0.46.2/kitty-0.46.2.tar.xz.sig )
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	optfeature	538bce96e5589935b57e178e8635f301	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	bash-completion-r1	9e91505e030725688d1e953321a47501	shell-completion	0b655d0d825e157a5e99c463bddaac16	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=ac48f2c16a018706e54fb90dc920262b
+_md5_=a84ff853854b7a8a4d7cb996a210f0b7
