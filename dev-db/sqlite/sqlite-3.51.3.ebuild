@@ -372,7 +372,11 @@ multilib_src_test() {
 	addpredict "/ÿ.db"
 
 	emake tclextension
-	emake -Onone $(usex test-full 'xdevtest' 'test')
+	if multilib_is_native_abi; then
+		emake -Onone $(usex test-full 'xdevtest' 'test')
+	else
+		emake  srctree-check fuzztest sourcetest $TESTPROGS testrunner
+	fi
 }
 
 multilib_src_install() {
