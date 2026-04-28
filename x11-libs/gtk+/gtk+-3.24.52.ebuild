@@ -11,7 +11,7 @@ HOMEPAGE="https://www.gtk.org/"
 
 LICENSE="LGPL-2+"
 SLOT="3"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-solaris"
 IUSE="aqua broadway cloudproviders colord cups examples gtk-doc +introspection sysprof test vim-syntax wayland +X xinerama"
 REQUIRED_USE="
 	|| ( aqua wayland X )
@@ -33,6 +33,7 @@ COMMON_DEPEND="
 	>=x11-libs/pango-1.44.0[introspection?,${MULTILIB_USEDEP}]
 	x11-misc/shared-mime-info
 
+	broadway? ( virtual/zlib:=[${MULTILIB_USEDEP}] )
 	cloudproviders? ( net-libs/libcloudproviders[${MULTILIB_USEDEP}] )
 	colord? ( >=x11-misc/colord-0.1.9:0=[${MULTILIB_USEDEP}] )
 	cups? ( >=net-print/cups-2.0[${MULTILIB_USEDEP}] )
@@ -99,6 +100,8 @@ PATCHES=(
 	# such support.
 	# https://bugs.gentoo.org/624960
 	"${FILESDIR}"/0001-gdk-add-a-poison-macro-to-hide-GDK_WINDOWING_.patch
+
+	"${FILESDIR}"/${P}-test-tree-relationships.patch
 )
 
 src_prepare() {
@@ -151,6 +154,7 @@ multilib_src_compile() {
 }
 
 multilib_src_test() {
+	xdg_environment_reset
 	virtx dbus-run-session meson test -C "${BUILD_DIR}" --timeout-multiplier 4 || die
 }
 
