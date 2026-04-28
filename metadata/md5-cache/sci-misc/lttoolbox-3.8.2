@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-libs/icu:= dev-libs/libxml2:2= dev-libs/utfcpp
+DESCRIPTION=Toolbox for lexical processing, morphological analysis and generation of words
+EAPI=8
+HOMEPAGE=https://www.apertium.org
+INHERIT=cmake
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/icu:= dev-libs/libxml2:2=
+RESTRICT=!test? ( test )
+SLOT=0/3
+SRC_URI=https://github.com/apertium/lttoolbox/releases/download/v3.8.2/lttoolbox-3.8.2.tar.bz2
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
+_md5_=48d98296b8e81329f4063feae96aa786
