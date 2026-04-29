@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
 RDEPEND="
-	<dev-python/protobuf-7[${PYTHON_USEDEP}]
+	<dev-python/protobuf-8[${PYTHON_USEDEP}]
 	>=dev-python/protobuf-3.15.0[${PYTHON_USEDEP}]
 "
 
