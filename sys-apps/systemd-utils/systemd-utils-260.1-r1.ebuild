@@ -413,9 +413,7 @@ pkg_postinst() {
 		add_service systemd-tmpfiles-setup boot
 	fi
 	if use udev; then
-		ebegin "Updating hwdb"
-		systemd-hwdb --root="${ROOT}" update
-		eend $?
+		udev_hwdb_update
 		udev_reload
 	fi
 }
