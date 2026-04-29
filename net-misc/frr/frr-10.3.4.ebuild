@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{10..14} )
 inherit out-of-source autotools pam python-single-r1 systemd
 
 DESCRIPTION="The FRRouting Protocol Suite"
@@ -55,7 +55,6 @@ RDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-7.5-ipctl-forwarding.patch
-	"${FILESDIR}"/${PN}-8.4.1-logrotate.patch
 	"${FILESDIR}"/${PN}-9.1-mimic-gnu-basename-api-for-non-glibc.patch
 	"${FILESDIR}"/${PN}-tests-abs_srcdir.patch
 	"${FILESDIR}"/${PN}-tests-grpc.patch
@@ -136,14 +135,14 @@ my_src_install() {
 
 	# Install logrotate configuration
 	insinto /etc/logrotate.d
-	newins "${S}"/redhat/frr.logrotate frr
+	newins "${FILESDIR}/logrotate-v1" frr
 
 	# Install PAM configuration file
 	use pam && newpamd "${FILESDIR}"/frr.pam frr
 
 	# Install init scripts
 	systemd_dounit tools/frr.service
-	newinitd "${FILESDIR}"/frr-openrc-v2 frr
+	newinitd "${FILESDIR}/frr-openrc-v4" frr
 
 	# Conflict files, installed by net-libs/libsmi, bug #758383
 	# Files from frr seems to be newer.
