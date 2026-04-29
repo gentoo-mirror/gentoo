@@ -1,0 +1,15 @@
+BDEPEND=all-sfx? ( app-arch/unrar )
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=RAR compressor/uncompressor
+EAPI=8
+HOMEPAGE=https://www.rarlab.com/
+INHERIT=unpacker
+IUSE=all-sfx
+KEYWORDS=-* ~amd64
+LICENSE=BSD BSD-2 RAR
+RDEPEND=sys-libs/glibc
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=all-sfx? ( https://www.rarlab.com/rar/rarlinux-x64-721.tar.gz https://www.rarlab.com/rar/winrar-x64-721.exe ) amd64? ( https://www.rarlab.com/rar/rarlinux-x64-721.tar.gz )
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2
+_md5_=e13683db820dd260ddc9338d8bb6e834

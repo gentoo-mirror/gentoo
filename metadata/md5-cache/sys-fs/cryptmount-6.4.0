@@ -1,0 +1,16 @@
+BDEPEND=nls? ( sys-devel/gettext ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure prepare setup
+DEPEND=sys-fs/lvm2 virtual/libiconv virtual/libintl gcrypt? ( dev-libs/libgcrypt:0= ) luks? ( sys-fs/cryptsetup ) openssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd ) sys-kernel/linux-headers
+DESCRIPTION=A utility for management and user-mode mounting of encrypted filesystems
+EAPI=8
+HOMEPAGE=http://cryptmount.sourceforge.net/
+INHERIT=autotools linux-info
+IUSE=argv0switch cswap fsck +gcrypt +largefile mount +nls +luks +openssl systemd
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2+
+RDEPEND=sys-fs/lvm2 virtual/libiconv virtual/libintl gcrypt? ( dev-libs/libgcrypt:0= ) luks? ( sys-fs/cryptsetup ) openssl? ( dev-libs/openssl:0= ) systemd? ( sys-apps/systemd )
+REQUIRED_USE=luks? ( gcrypt ) openssl? ( gcrypt )
+SLOT=0
+SRC_URI=https://github.com/rwpenney/cryptmount/archive/refs/tags/v6.4.0.tar.gz -> cryptmount-6.4.0.tar.gz
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	linux-info	efd923656513c879204fec6638eadee5
+_md5_=337238b8860f95d6fa9a03e54440bda0
