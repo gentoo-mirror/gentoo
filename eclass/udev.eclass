@@ -137,10 +137,7 @@ fi
 # property lookups.  Should be called from pkg_postinst and pkg_postrm
 # in packages installing hwdb files.
 udev_hwdb_update() {
-	if [[ -n ${ROOT} ]]; then
-		return 0
-	fi
-
+	type systemd-hwdb &>/dev/null || return 0
 	ebegin "Running systemd-hwdb update to regenerate binary udev hardware database"
 	systemd-hwdb update --root "${ROOT}"
 	eend $?
