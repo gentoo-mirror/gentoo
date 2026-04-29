@@ -54,6 +54,7 @@ src_install() {
 
 	domove runtime /usr/share/openhab/runtime
 	domove conf /etc/openhab
+	fowners -R openhab:openhab /etc/openhab
 
 	domove userdata /var/lib/openhab
 	fowners -R openhab:openhab /var/lib/openhab
