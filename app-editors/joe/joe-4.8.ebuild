@@ -20,8 +20,7 @@ RDEPEND="${DEPEND}
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.3-tinfo.patch"
-	"${FILESDIR}/${P}-db.patch"
-	"${FILESDIR}/${P}-signal-check.patch"
+	"${FILESDIR}/${PN}-4.7-db.patch"
 )
 
 DOCS=( README.md NEWS.md docs/hacking.md docs/man.md )
