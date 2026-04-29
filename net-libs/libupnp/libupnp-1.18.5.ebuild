@@ -21,7 +21,7 @@ RDEPEND="ssl? ( dev-libs/openssl:0= )"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/${PN}-1.14.12-disable-network-tests.patch" )
+PATCHES=( "${FILESDIR}/${PN}-1.14.31-disable-network-tests.patch" )
 
 src_prepare() {
 	default
