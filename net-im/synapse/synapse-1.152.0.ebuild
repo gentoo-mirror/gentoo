@@ -10,7 +10,7 @@ PYTHON_COMPAT=( python3_{11..14} )
 RUST_MIN_VER="1.82.0"
 CRATES="
 	aho-corasick@1.1.3
-	anyhow@1.0.100
+	anyhow@1.0.102
 	arc-swap@1.7.1
 	atomic-waker@1.1.2
 	autocfg@1.5.0
@@ -33,15 +33,15 @@ CRATES="
 	equivalent@1.0.2
 	fnv@1.0.7
 	form_urlencoded@1.2.1
-	futures-channel@0.3.31
-	futures-core@0.3.31
-	futures-executor@0.3.31
-	futures-io@0.3.31
-	futures-macro@0.3.31
-	futures-sink@0.3.31
-	futures-task@0.3.31
-	futures-util@0.3.31
-	futures@0.3.31
+	futures-channel@0.3.32
+	futures-core@0.3.32
+	futures-executor@0.3.32
+	futures-io@0.3.32
+	futures-macro@0.3.32
+	futures-sink@0.3.32
+	futures-task@0.3.32
+	futures-util@0.3.32
+	futures@0.3.32
 	generic-array@0.14.7
 	getrandom@0.2.16
 	getrandom@0.3.3
@@ -88,23 +88,22 @@ CRATES="
 	memoffset@0.9.1
 	mime@0.3.17
 	mio@1.0.4
-	once_cell@1.21.3
+	once_cell@1.21.4
 	openssl-probe@0.1.6
 	percent-encoding@2.3.1
 	pin-project-lite@0.2.16
-	pin-utils@0.1.0
 	portable-atomic@1.11.1
 	potential_utf@0.1.2
 	ppv-lite86@0.2.21
 	proc-macro2@1.0.95
 	pyo3-build-config@0.27.2
 	pyo3-ffi@0.27.2
-	pyo3-log@0.13.2
+	pyo3-log@0.13.3
 	pyo3-macros-backend@0.27.2
 	pyo3-macros@0.27.2
 	pyo3@0.27.2
 	pythonize@0.27.0
-	quinn-proto@0.11.12
+	quinn-proto@0.11.14
 	quinn-udp@0.5.13
 	quinn@0.11.8
 	quote@1.0.40
@@ -114,19 +113,21 @@ CRATES="
 	rand_core@0.9.3
 	regex-automata@0.4.13
 	regex-syntax@0.8.5
-	regex@1.12.2
+	regex@1.12.3
 	reqwest@0.12.28
 	ring@0.17.14
 	rustc-hash@2.1.1
+	rustc_version@0.4.1
 	rustls-native-certs@0.8.1
 	rustls-pki-types@1.12.0
-	rustls-webpki@0.103.4
+	rustls-webpki@0.103.10
 	rustls@0.23.31
 	rustversion@1.0.21
 	ryu@1.0.20
 	schannel@0.1.27
 	security-framework-sys@2.14.0
 	security-framework@3.2.0
+	semver@1.0.27
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
@@ -152,7 +153,7 @@ CRATES="
 	tinyvec_macros@0.1.1
 	tokio-rustls@0.26.2
 	tokio-util@0.7.15
-	tokio@1.49.0
+	tokio@1.50.0
 	tower-http@0.6.8
 	tower-layer@0.3.3
 	tower-service@0.3.3
@@ -227,7 +228,7 @@ LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT Unicode-3.0
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="postgres selinux systemd test"
 RESTRICT="!test? ( test )"
 
