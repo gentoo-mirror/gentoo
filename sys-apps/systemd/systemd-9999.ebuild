@@ -547,8 +547,7 @@ pkg_postinst() {
 
 	# Keep this here in case the database format changes so it gets updated
 	# when required.
-	systemd-hwdb --root="${ROOT}" update
-
+	udev_hwdb_update || FAIL=1
 	udev_reload || FAIL=1
 
 	# Bug 465468, make sure locales are respected, and ensure consistency
