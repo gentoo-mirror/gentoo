@@ -185,6 +185,8 @@ qt6-build_src_configure() {
 		-DINSTALL_PUBLICBINDIR="${QT6_PREFIX}"/bin
 		# note that if qtbase was built with tests, this is default ON
 		-DQT_BUILD_TESTS=$(in_iuse test && use test && echo ON || echo OFF)
+		# generally unwated on Gentoo, portage handles tracking licenses
+		-DQT_GENERATE_SBOM=OFF
 		# avoid appending -O2 after user's C(XX)FLAGS (bug #911822)
 		-DQT_USE_DEFAULT_CMAKE_OPTIMIZATION_FLAGS=ON
 	)
