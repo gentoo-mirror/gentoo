@@ -106,7 +106,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.8.2-krb5_pw_locked.patch"
 	"${FILESDIR}/${PN}-2.9.6-conditional-python-install.patch"
 	"${FILESDIR}/${PN}-2.9.7-kerberos-1-22.patch"
-        "${FILESDIR}/${PN}-2.9.8-r1-pam_fix_out-of-bounds_read_in_pam_passkey_child_read_data.patch"
+	"${FILESDIR}/${PN}-2.9.8-r1-pam_fix_out-of-bounds_read_in_pam_passkey_child_read_data.patch"
 )
 
 MULTILIB_WRAPPED_HEADERS=(
