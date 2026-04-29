@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,12 +6,11 @@ EAPI=8
 inherit gnome.org gnome2-utils meson vala xdg
 
 DESCRIPTION="Slide blocks to solve the puzzle"
-HOMEPAGE="https://wiki.gnome.org/Apps/Klotski"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-klotski"
 
 LICENSE="GPL-3+ FDL-1.1+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~riscv ~x86"
-IUSE=""
 
 RDEPEND="
 	dev-libs/libgee:0.8=
@@ -32,9 +31,8 @@ BDEPEND="
 "
 
 src_prepare() {
-	xdg_environment_reset
 	default
-	vala_src_prepare
+	vala_setup
 }
 
 pkg_postinst() {
