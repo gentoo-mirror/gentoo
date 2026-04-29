@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -21,6 +21,9 @@ DEPEND="
 	hdf? (
 		sci-libs/hdf:0=
 		virtual/jpeg:0
+	)
+	octave? (
+		sci-mathematics/octave
 	)"
 RDEPEND="${DEPEND}"
 
