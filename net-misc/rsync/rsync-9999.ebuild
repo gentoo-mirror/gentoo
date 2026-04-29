@@ -130,10 +130,6 @@ src_configure() {
 		append-flags -DCAREFUL_ALIGNMENT
 	fi
 
-	# workaround for autoconf-2.73 using C23:
-	# https://bugs.gentoo.org/972320
-	append-cflags -std=gnu17
-
 	econf "${myeconfargs[@]}"
 }
 
