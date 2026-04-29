@@ -43,6 +43,7 @@ BDEPEND="virtual/pkgconfig"
 DOCS=( ChangeLog README.md )
 
 CONFIG_CHECK="~TASKSTATS ~TASK_XACCT ~TASK_IO_ACCOUNTING ~CGROUPS"
+WARNING_CGROUPS="CONFIG_CGROUPS is required for the cgroups column in htop"
 
 QA_CONFIG_IMPL_DECL_SKIP=(
 	typeof # backtrace check triggers this as noise from a failure
