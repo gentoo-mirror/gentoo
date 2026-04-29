@@ -31,7 +31,9 @@ DEPEND="
 	dev-lang/cfortran
 "
 
-PATCHES=( "${FILESDIR}/${P}-system-fortran.patch" ) # bug #803350
+PATCHES=(
+	"${FILESDIR}/${PN}-4.6.3-system-fortran.patch" # bug #803350
+)
 
 pkg_setup() {
 	fortran-2_pkg_setup
