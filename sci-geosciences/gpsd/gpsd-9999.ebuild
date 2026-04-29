@@ -21,7 +21,7 @@ else
 		verify-sig? ( mirror://nongnu/${PN}/${P}.tar.xz.sig )
 	"
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
-
+	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-garyemiller ) "
 fi
 
 DESCRIPTION="GPS daemon and library for USB/serial GPS devices and GPS/mapping clients"
@@ -65,7 +65,7 @@ RDEPEND="
 	usb? ( virtual/libusb:1 )
 	X? ( dev-python/pygobject:3[cairo,${PYTHON_USEDEP}] )"
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig
+BDEPEND+="virtual/pkgconfig
 	$(python_gen_any_dep 'dev-build/scons[${PYTHON_USEDEP}]')
 	${DISTUTILS_DEPS}
 	test? ( app-alternatives/bc )"
@@ -75,6 +75,11 @@ RDEPEND+=" selinux? ( sec-policy/selinux-gpsd )"
 if [[ ${PV} == *9999* ]] ; then
 	BDEPEND+=" dev-ruby/asciidoctor"
 fi
+
+PATCHES=(
+	"${FILESDIR}/${PN}-drop-dia.patch" # bugs 836730, 967742
+	"${FILESDIR}/${PN}-no-class.patch" # from Portage
+)
 
 python_check_deps() {
 	python_has_version -b "dev-build/scons[${PYTHON_USEDEP}]" || return 1
