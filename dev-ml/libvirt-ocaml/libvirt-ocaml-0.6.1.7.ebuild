@@ -21,7 +21,6 @@ BDEPEND="dev-lang/perl
 	 dev-ml/findlib[ocamlopt]
 	 virtual/pkgconfig"
 
-
 src_configure() {
 	lto-guarantee-fat
 	default
