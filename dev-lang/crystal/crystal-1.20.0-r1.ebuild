@@ -86,11 +86,13 @@ src_configure() {
 		CRYSTAL_CONFIG_PATH="lib:${EPREFIX}/usr/$(get_libdir)/crystal"
 
 		$(usex debug "" release=1)
-		progress=true
-		stats=1
+		interpreter="true"
+
 		threads="$(makeopts_jobs)"
-		verbose=1
-		check_lld= # disable opportunistic lld
+		check_lld="" # disable opportunistic lld
+		progress="true"
+		stats="true"
+		verbose="true"
 
 		AR="$(tc-getAR)"
 		CC="$(tc-getCC)"
