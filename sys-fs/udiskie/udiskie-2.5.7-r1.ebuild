@@ -26,6 +26,7 @@ EPYTEST_IGNORE=(
 	# bug #972714
 	test/test_cache.py
 )
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_prepare() {
