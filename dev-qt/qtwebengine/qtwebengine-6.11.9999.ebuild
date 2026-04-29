@@ -230,9 +230,6 @@ src_configure() {
 		# TODO: fixup gn cross, or package dev-qt/qtwebengine-gn with =ON
 		# (see also BUILD_ONLY_GN option added in 6.8+ for the latter)
 		-DINSTALL_GN=OFF
-
-		# TODO: drop this if no longer errors out early during cmake generation
-		-DQT_GENERATE_SBOM=OFF
 	)
 
 	local mygnargs=(
@@ -275,15 +272,6 @@ src_configure() {
 	einfo "Extra Gn args: ${EXTRA_GN}"
 
 	qt6-build_src_configure
-}
-
-src_compile() {
-	cmake_src_compile
-
-	# exact cause unknown, but >=qtwebengine-6.9.2 started to act as if
-	# QtWebEngineProcess is marked USER_FACING despite not set anywhere
-	# and this creates a user_facing_tool_links.txt with a broken symlink
-	:> "${BUILD_DIR}"/user_facing_tool_links.txt || die
 }
 
 src_test() {
@@ -331,6 +319,18 @@ src_install() {
 
 	[[ -e ${D}${QT6_LIBDIR}/libQt6WebEngineCore.so ]] || #601472
 		die "${CATEGORY}/${PF} failed to build anything. Please report to https://bugs.gentoo.org/"
+
+	# exact cause unknown, but >=qtwebengine-6.9.2 started to act as if
+	# QtWebEngineProcess is marked USER_FACING despite not set anywhere
+	# and this creates a user_facing_tool_links.txt with a broken symlink
+	if [[ -L ${ED}/usr/bin/QtWebEngineProcess6 ]] &&
+		[[ ! -e ${ED}/usr/bin/QtWebEngineProcess6 ]]
+	then
+		rm -- "${ED}"/usr/bin/QtWebEngineProcess6 || die
+	else
+		# eqawarn rather than die to avoid failing a long build over this
+		eqawarn "QA Notice: symlink workaround may be obsolete"
+	fi
 
 	if use test; then
 		local delete=( # sigh
