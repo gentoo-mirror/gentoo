@@ -49,8 +49,6 @@ src_configure() {
 		"spirv64-mesa3d-"
 	)
 	use video_cards_nvidia && MULTIBUILD_VARIANTS+=(
-		"nvptx64--"
-		"nvptx64--nvidiacl"
 		"nvptx64-nvidia-cuda"
 	)
 	use video_cards_radeonsi && MULTIBUILD_VARIANTS+=(
