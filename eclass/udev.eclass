@@ -130,3 +130,18 @@ udev_reload() {
 }
 
 fi
+
+# @FUNCTION: udev_hwdb_update
+# @DESCRIPTION:
+# Rebuild the systemd hwdb binary database used by udev for hardware
+# property lookups.  Should be called from pkg_postinst and pkg_postrm
+# in packages installing hwdb files.
+udev_hwdb_update() {
+	if [[ -n ${ROOT} ]]; then
+		return 0
+	fi
+
+	ebegin "Running systemd-hwdb update to regenerate binary udev hardware database"
+	systemd-hwdb update --root "${ROOT}"
+	eend $?
+}
