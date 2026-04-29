@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,9 +20,12 @@ RDEPEND="dev-python/docopt[${PYTHON_USEDEP}]
 	sys-fs/udisks:2[daemon]
 	libnotify? ( x11-libs/libnotify[introspection] )"
 DEPEND="app-text/asciidoc
-	test? ( dev-python/keyutils[${PYTHON_USEDEP}]
-		dev-python/pyyaml[${PYTHON_USEDEP}] )"
+	test? ( dev-python/pyyaml[${PYTHON_USEDEP}] )"
 
+EPYTEST_IGNORE=(
+	# bug #972714
+	test/test_cache.py
+)
 distutils_enable_tests pytest
 
 src_prepare() {
