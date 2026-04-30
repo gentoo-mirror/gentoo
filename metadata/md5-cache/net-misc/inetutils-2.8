@@ -1,0 +1,15 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-inetutils ) virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install unpack
+DEPEND=sys-libs/readline:0= ftpd? ( virtual/libcrypt:0= ) idn? ( net-dns/libidn2:= ) kerberos? ( virtual/krb5 ) pam? ( sys-libs/pam ) tcpd? ( sys-apps/tcp-wrappers ) uucpd? ( virtual/libcrypt:0= )
+DESCRIPTION=Collection of common network programs
+EAPI=8
+HOMEPAGE=https://www.gnu.org/software/inetutils/
+INHERIT=branding pam systemd verify-sig
+IUSE=idn kerberos pam tcpd ftpd inetd rexecd rlogind rshd syslogd talkd telnetd tftpd uucpd ftp dnsdomainname hostname ping ping6 rcp rexec rlogin rsh logger telnet tftp whois ifconfig traceroute verify-sig
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=sys-libs/readline:0= ftpd? ( virtual/libcrypt:0= ) idn? ( net-dns/libidn2:= ) kerberos? ( virtual/krb5 ) pam? ( sys-libs/pam ) tcpd? ( sys-apps/tcp-wrappers ) uucpd? ( virtual/libcrypt:0= ) ftpd? ( net-ftp/ftpbase[pam?] ) ftp? ( !net-ftp/ftp ) dnsdomainname? ( !sys-apps/net-tools ) hostname? ( !sys-apps/coreutils[hostname(-)] !sys-apps/net-tools[hostname(+)] ) inetd? ( !sys-apps/netkit-base ) ping? ( !net-misc/iputils ) ping6? ( !net-misc/iputils[ipv6(+)] ) rcp? ( !net-misc/netkit-rsh ) rexec? ( !net-misc/netkit-rsh ) rexecd? ( !net-misc/netkit-rsh ) rlogin? ( !net-misc/netkit-rsh ) rlogind? ( !net-misc/netkit-rsh ) rsh? ( !net-misc/netkit-rsh ) rshd? ( !net-misc/netkit-rsh ) logger? ( !sys-apps/util-linux[logger(+)] ) syslogd? ( !app-admin/sysklogd ) talkd? ( !net-misc/netkit-talk ) telnet? ( !net-misc/telnet-bsd !net-misc/netkit-telnetd ) telnetd? ( !net-misc/telnet-bsd !net-misc/netkit-telnetd ) tftp? ( !net-ftp/tftp-hpa[client(+)] ) tftpd? ( !net-ftp/tftp-hpa[server(+)] ) whois? ( !net-misc/whois ) ifconfig? ( !sys-apps/net-tools ) traceroute? ( !net-analyzer/traceroute )
+SLOT=0
+SRC_URI=mirror://gnu/inetutils/inetutils-2.8.tar.gz verify-sig? ( mirror://gnu/inetutils/inetutils-2.8.tar.gz.sig )
+_eclasses_=branding	7bcece3faa73dd0fc3e597013510d53a	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=0decd0f0c6b87a7dd5658a02b12a52b4
