@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.cantera.org
 INHERIT=flag-o-matic fortran-2 python-single-r1 scons-utils toolchain-funcs
 IUSE=fortran hdf5 lapack +python test python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=BSD
 RDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) dev-cpp/yaml-cpp hdf5? ( sci-libs/highfive ) !lapack? ( sci-libs/sundials:0= ) lapack? ( >=sci-libs/sundials-6.5.0:0=[lapack?] virtual/lapack ) python? ( python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] dev-python/ruamel-yaml[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/numpy[python_targets_python3_13(-)] dev-python/ruamel-yaml[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/numpy[python_targets_python3_14(-)] dev-python/ruamel-yaml[python_targets_python3_14(-)] ) ) fortran? ( virtual/fortran )
 REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/Cantera/cantera/archive/refs/tags/v3.2.0.tar.gz -> cantera-3.2.0.tar.gz https://github.com/Cantera/cantera-example-data/archive/refs/tags/v3.2.0.tar.gz -> cantera-3.2.0_example_data.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	fortran-2	ae6d43513003405bd4a48698fc20370a	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	9c4180f103a0e8340bc993fc85dbdadd	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	scons-utils	578ea0f3ec78f687f07728af19d8d002
-_md5_=5689e8e39caaf5019b294427f939c462
+_md5_=71f9b3aef79fb1de99f5d20c265c63ca
