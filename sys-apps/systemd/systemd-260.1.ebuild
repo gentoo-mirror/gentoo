@@ -257,6 +257,7 @@ src_unpack() {
 src_prepare() {
 	local PATCHES=(
 		"${FILESDIR}/systemd-260.1-fuzz-journald.patch"
+		"${FILESDIR}/systemd-260.1-openssl-4.patch"
 	)
 
 	if ! use vanilla; then
