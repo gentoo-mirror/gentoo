@@ -97,6 +97,13 @@ EPYTEST_DESELECT=(
 	tests/test_optional/test_utils/test_utils.py::TestJSONEncoder::test_numpy_datetime64
 )
 
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# stop installing junk "js" package
+	sed -i -e '/used by Jupyter extension/d' pyproject.toml || die
+}
+
 src_configure() {
 	# Do not try to fetch stuff with npm
 	export SKIP_NPM=1
