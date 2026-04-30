@@ -11,7 +11,7 @@ SRC_URI="https://hpjansson.org/chafa/releases/${P}.tar.xz"
 
 LICENSE="LGPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~m68k ~mips ~ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="avif heif jpegxl svg +tools webp"
 
 RDEPEND="
@@ -45,11 +45,10 @@ src_prepare() {
 
 src_configure() {
 	if ! use tools; then
-		use avif && ewarn "USE=avif is ignored if USE=tools is not set"
-		use heif && ewarn "USE=heif is ignored if USE=tools is not set"
-		use jpegxl && ewarn "USE=jpegxl is ignored if USE=tools is not set"
-		use svg && ewarn "USE=svg is ignored if USE=tools is not set"
-		use webp && ewarn "USE=webp is ignored if USE=tools is not set"
+		local i
+		for i in ${IUSE/+/}; do
+			use ${i} && ewarn "USE=${i} is ignored if USE=tools is not set"
+		done
 	fi
 
 	local myconf=(
