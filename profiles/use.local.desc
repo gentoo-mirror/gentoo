@@ -3392,6 +3392,7 @@ gnome-base/gnome-light:gnome-shell - Install gnome-base/gnome-shell and x11-wm/m
 gnome-base/gnome-settings-daemon:elogind - Rely on sys-auth/elogind as runtime logind provider
 gnome-base/gnome-settings-daemon:modemmanager - Enable WWAN support via net-misc/modemmanager
 gnome-base/gnome-settings-daemon:systemd - Rely on sys-apps/systemd as runtime logind provider
+gnome-base/gnome-settings-daemon:xwayland - Enable Xwayland integration
 gnome-base/gnome-shell:elogind - Use sys-auth/elogind for session tracking and suspend support.
 gnome-base/gnome-shell:ibus - Enable support for enhanced input methods through app-i18n/ibus
 gnome-base/gnome-shell:pipewire - Use pipewire to enable the camera monitor
@@ -9164,6 +9165,7 @@ x11-wm/metacity:vulkan - Enable Vulkan based compositor support via META_COMPOSI
 x11-wm/muffin:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
 x11-wm/musca:apis - Optionally install the experimental `apis' window manager
 x11-wm/musca:xlisten - Optionally install the xlisten utility
+x11-wm/mutter:devkit - Enable support for running a nested wayland session
 x11-wm/mutter:elogind - Rely on sys-auth/elogind as logind provider for Wayland sessions
 x11-wm/mutter:sysprof - Enable profiling data capture support using dev-util/sysprof-capture
 x11-wm/mutter:xwayland - Enable X11 application support in Wayland sessions

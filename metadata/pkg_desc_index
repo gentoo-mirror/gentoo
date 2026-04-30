@@ -576,6 +576,7 @@ acct-user/ftpproxy 0-r2: A user for net-ftp/frox
 acct-user/gatling 0-r3: System user: gatling
 acct-user/gauth 0-r2: A user for sys-auth/google-authenticator-wrappers
 acct-user/gdm 0-r2: User for running GDM
+acct-user/gdm-greeter 0: User for GDM greeter specialized for elogind
 acct-user/geneweb 0-r3: user id for geneweb daemon
 acct-user/geoclue 0-r2: User for running the GeoClue D-Bus geolocation service
 acct-user/gerbera 0-r3: Gerbera UPnP Media Server user
@@ -1488,7 +1489,7 @@ app-crypt/lego 4.34.0 4.35.2 9999: Let's Encrypt/ACME client (like certbot or ac
 app-crypt/libb2 0.98.1-r3: C library providing BLAKE2b, BLAKE2s, BLAKE2bp, BLAKE2sp
 app-crypt/libmd 1.1.0: Message Digest functions from BSD systems
 app-crypt/libscrypt 1.22-r3: Shared library to implement the scrypt algorithm
-app-crypt/libsecret 0.21.4-r2 0.21.7 0.21.7-r1: GObject library for accessing the freedesktop.org Secret Service API
+app-crypt/libsecret 0.21.7 0.21.7-r1: GObject library for accessing the freedesktop.org Secret Service API
 app-crypt/libu2f-host 1.1.10-r1: Yubico Universal 2nd Factor (U2F) Host C Library
 app-crypt/libu2f-server 1.1.0-r2: Yubico Universal 2nd Factor (U2F) server C Library
 app-crypt/loop-aes-losetup 2.40.2 2.41.1: Loop-AES losetup utility
@@ -3350,7 +3351,7 @@ app-text/pandoc-cli 0.1.1-r1: Conversion between documentation formats
 app-text/paper-clip 5.5.2 9999: Edit the title, author, keywords and more details of PDF documents
 app-text/papers 48.5-r1 49.4 49.5: A document viewer for the GNOME desktop
 app-text/paperwork 2.2.5: a personal document manager for scanned documents (and PDFs)
-app-text/paperwork-backend 2.2.5: Backend part of Paperwork (Python API, no UI)
+app-text/paperwork-backend 2.2.5 2.2.5-r1: Backend part of Paperwork (Python API, no UI)
 app-text/paps 0.8.0: Unicode-aware text to PostScript converter
 app-text/par 1.53.0: a paragraph reformatter, vaguely similar to fmt, but better
 app-text/pastebinit 1.7.0: Software that lets you send anything you want directly to a pastebin
@@ -5426,7 +5427,7 @@ dev-libs/geoip 1.6.12 1.6.12-r1: GeoIP Legacy C API
 dev-libs/gf-complete 2.0.0_p20170410: Comprehensive Open Source Library for Galois Field Arithmetic
 dev-libs/gf2x 1.3.0-r1: C/C++ routines for fast arithmetic in GF(2)[x]
 dev-libs/girara 0.4.5 0.4.5-r1 9999: UI library that focuses on simplicity and minimalism
-dev-libs/gjs 1.80.2-r1 1.82.3-r1 1.84.2-r1: Javascript bindings for GNOME
+dev-libs/gjs 1.80.2-r1 1.84.2-r1 1.88.0: Javascript bindings for GNOME
 dev-libs/glib 2.84.4 2.84.4-r5 2.86.4-r1 2.86.5-r1 2.88.0-r1: The GLib library of C routines
 dev-libs/gmime 2.6.23-r2 3.2.15-r1 3.2.15-r2: Library for creating and parsing MIME messages
 dev-libs/gmp 6.3.0-r1: Library for arbitrary-precision arithmetic on different type of numbers
@@ -11962,11 +11963,11 @@ games-util/xpadneo 0.9.8 0.10.1 0.10.2 9999: Advanced Linux Driver for Xbox One 
 games-util/xqf 1.0.6.2: A server browser for many FPS games (frontend for qstat)
 gnome-base/dconf 0.40.0: Simple low-level configuration system
 gnome-base/dconf-editor 45.0.1 49.0: Graphical tool for editing the dconf configuration database
-gnome-base/gdm 47.0 48.0 48.0-r1: GNOME Display Manager for managing graphical display servers and user logins
+gnome-base/gdm 48.0-r1 49.2: GNOME Display Manager for managing graphical display servers and user logins
 gnome-base/gnome 45.2 48.0: Meta package for GNOME, merge this package to install
 gnome-base/gnome-applets 3.54.0-r1 3.56.0 3.58.0: Applets for the GNOME Flashback Panel
 gnome-base/gnome-common 3.18.0-r2: Common files for development of Gnome packages
-gnome-base/gnome-control-center 47.6-r1 47.7-r1 48.4-r1 48.6 48.7: GNOME's main interface to configure various aspects of the desktop
+gnome-base/gnome-control-center 47.7-r1 48.4-r1 48.7 49.7: GNOME's main interface to configure various aspects of the desktop
 gnome-base/gnome-core-apps 45.2 48.0: Sub-meta package for the core applications integrated with GNOME
 gnome-base/gnome-core-libs 45.2 48.0: Sub-meta package for the core libraries of GNOME
 gnome-base/gnome-desktop 44.1-r300 44.1-r400 44.3-r300 44.3-r400 44.4-r300 44.4-r400: Library with common API for various GNOME modules
@@ -11976,10 +11977,11 @@ gnome-base/gnome-keyring 48.0-r1: Password and keyring managing daemon
 gnome-base/gnome-light 45.2 48.0: Meta package for GNOME-Light, merge this package to install
 gnome-base/gnome-menus 3.36.0-r1 3.38.1: Library and layout configuration for the Desktop Menu fd.o specification
 gnome-base/gnome-panel 3.54.0 3.56.0 3.58.1: The GNOME Flashback Panel
-gnome-base/gnome-session 47.0.1-r2 48.0 48.0-r1 48.0-r2: Gnome session manager
-gnome-base/gnome-settings-daemon 47.2 48.1: Gnome Settings Daemon
-gnome-base/gnome-shell 48.5 48.6 48.7 48.8: Provides core UI functions for the GNOME desktop
-gnome-base/gsettings-desktop-schemas 47.1 48.0: Collection of GSettings schemas for GNOME desktop
+gnome-base/gnome-session 48.0-r2 49.2: Gnome session manager
+gnome-base/gnome-session-openrc 49.0: Gnome session leader for OpenRC
+gnome-base/gnome-settings-daemon 48.1 49.1: Gnome Settings Daemon
+gnome-base/gnome-shell 48.5 48.7 48.8 49.6: Provides core UI functions for the GNOME desktop
+gnome-base/gsettings-desktop-schemas 48.0 49.1: Collection of GSettings schemas for GNOME desktop
 gnome-base/gvfs 1.56.1-r3 1.58.0 1.58.4: Virtual filesystem implementation for GIO
 gnome-base/libglade 2.6.4-r5: Library to construct graphical interfaces at runtime
 gnome-base/libgnomecanvas 2.30.3-r1: The Gnome 2 Canvas library
@@ -12018,16 +12020,16 @@ gnome-extra/gnome-power-manager 43.0: GNOME power statistics
 gnome-extra/gnome-shell-extension-alphabetical-grid 43.0 44.0: Restore the alphabetical ordering of the app grid
 gnome-extra/gnome-shell-extension-appindicator 61 63 64: Support legacy, AppIndicators and KStatusNotifierItems in Gnome
 gnome-extra/gnome-shell-extension-applications-overview-tooltip 23 24: Show tooltip with full name and description
-gnome-extra/gnome-shell-extension-bing-wallpaper 51 52: Change your wallpaper daily to the bing.com background image
+gnome-extra/gnome-shell-extension-bing-wallpaper 52 53: Change your wallpaper daily to the bing.com background image
 gnome-extra/gnome-shell-extension-bluetooth-quick-connect 45: Allow to connect bluetooth paired devices from gnome control panel
 gnome-extra/gnome-shell-extension-control-blur-effect-on-lock-screen 20241110: Control the blur effect on gnome-shell lock screen
 gnome-extra/gnome-shell-extension-dash-to-panel 72 73: An icon taskbar for the Gnome Shell
 gnome-extra/gnome-shell-extension-desktop-icons-ng 49.0.5 50.0.0: Desktop icon support for GNOME Shell
 gnome-extra/gnome-shell-extension-gsconnect 71: KDE Connect implementation for GNOME
-gnome-extra/gnome-shell-extension-pop-shell 1.2.0_p20250301 1.2.0_p20250710: Keyboard-driven layer for GNOME Shell with tiling support
+gnome-extra/gnome-shell-extension-pop-shell 1.2.0_p20250710 1.2.0_p20260331: Keyboard-driven layer for GNOME Shell with tiling support
 gnome-extra/gnome-shell-extension-weather-in-the-clock 20221024-r4: Display the current weather in the clock
 gnome-extra/gnome-shell-extension-weather-oclock 49.0 50.0 50.1 50.2: Display the current weather inside the pill next to the clock
-gnome-extra/gnome-shell-extensions 48.3: JavaScript extensions for GNOME Shell
+gnome-extra/gnome-shell-extensions 48.3 49.0: JavaScript extensions for GNOME Shell
 gnome-extra/gnome-shell-frippery 47.0 48.0: Unofficial extension pack providing GNOME 2-like features
 gnome-extra/gnome-software 48.4 49.2 49.3: Gnome install & update software
 gnome-extra/gnome-system-monitor 48.1 49.1: The Gnome System Monitor
@@ -12046,7 +12048,7 @@ gnome-extra/nemo 6.4.5 6.6.4: A file manager for Cinnamon, forked from Nautilus
 gnome-extra/nemo-fileroller 6.4.0 6.6.0: Nemo file-roller integration
 gnome-extra/nm-applet 1.36.0: NetworkManager connection editor and applet
 gnome-extra/office-runner 1.0.3: Lighthearted tool to temporarily inhibit GNOME's suspend on lid close behavior
-gnome-extra/pch-session 47.1-r1 48.0-r1: Unofficial gnome based session with different default settings and extensions
+gnome-extra/pch-session 48.0-r1 49.0: Unofficial gnome based session with different default settings and extensions
 gnome-extra/polkit-gnome 0.105-r2: A dbus session bus service that is used to bring up authentication dialogs
 gnome-extra/sushi 46.0: A quick previewer for Nautilus, the GNOME file manager
 gnome-extra/tecla 48.0.2 49.0: Tecla is a keyboard layout viewer
@@ -13266,7 +13268,7 @@ media-libs/glfw 3.3.8 3.3.9 3.4: Portable OpenGL FrameWork
 media-libs/glm 1.0.1 1.0.2 1.0.3: OpenGL Mathematics
 media-libs/glpng 1.47: OpenGL PNG image library
 media-libs/glu 9.0.3 9999: The OpenGL Utility Library
-media-libs/glycin 2.1.1: Sandboxed and extendable image loading library
+media-libs/glycin 2.1.1 2.1.1-r1: Sandboxed and extendable image loading library
 media-libs/glycin-loaders 1.2.4 2.0.7 2.0.8 2.1.1: Loaders for glycin clients (glycin crate or libglycin)
 media-libs/glyr 1.0.10-r1: Music related metadata searchengine, both with commandline interface and C API
 media-libs/gmmlib 22.8.2 22.9.0 22.10.0 9999: Intel Graphics Memory Management Library
@@ -19140,7 +19142,7 @@ x11-wm/matwm2 0.1.2_pre3-r2 0.1.2_pre3-r3: Simple EWMH compatible window manager
 x11-wm/metacity 3.54.0-r1 3.56.0 3.58.1: GNOME Flashback window manager
 x11-wm/muffin 6.4.1 6.6.3: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
-x11-wm/mutter 48.5 48.6-r1 48.7 48.8 9999: GNOME compositing window manager based on Clutter
+x11-wm/mutter 48.5 48.7 48.8 49.5 9999: GNOME compositing window manager based on Clutter
 x11-wm/notion 4.0.4 9999: Notion is a tiling, tabbed window manager for the X window system
 x11-wm/openbox 3.6.1-r11 9999: Standards compliant, fast, light-weight, extensible window manager
 x11-wm/oroborus 2.0.20-r2: Small and fast window manager
