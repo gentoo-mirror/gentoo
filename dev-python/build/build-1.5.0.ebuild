@@ -37,6 +37,7 @@ BDEPEND="
 		${RDEPEND}
 		$(python_gen_cond_dep '
 			>=dev-python/filelock-3[${PYTHON_USEDEP}]
+			>=dev-python/pip-22.3[${PYTHON_USEDEP}]
 			dev-python/pytest[${PYTHON_USEDEP}]
 			>=dev-python/pytest-mock-2[${PYTHON_USEDEP}]
 			>=dev-python/pytest-rerunfailures-9.1[${PYTHON_USEDEP}]
