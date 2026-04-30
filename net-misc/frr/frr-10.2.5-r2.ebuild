@@ -135,14 +135,14 @@ my_src_install() {
 
 	# Install logrotate configuration
 	insinto /etc/logrotate.d
-	newins "${FILESDIR}/logrotate-v1" frr
+	newins "${FILESDIR}/logrotate-v2" frr
 
 	# Install PAM configuration file
 	use pam && newpamd "${FILESDIR}"/frr.pam frr
 
 	# Install init scripts
 	systemd_dounit tools/frr.service
-	newinitd "${FILESDIR}/frr-openrc-v4" frr
+	newinitd "${FILESDIR}"/frr-openrc-v4 frr
 
 	# Conflict files, installed by net-libs/libsmi, bug #758383
 	# Files from frr seems to be newer.
