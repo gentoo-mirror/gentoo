@@ -74,14 +74,14 @@ src_install() {
 	tr -d "\r" < usr/share/applications/${PN}.desktop | newmenu - ${PN}.desktop
 	doicon -s 256 usr/share/icons/hicolor/256x256/apps/${PN}.png
 
-	dodoc usr/share/doc/${PN}/CHANGELOG.md
-
 	keepdir /etc/microsoft/identity-broker/{certs,private}
 	fperms 0700 /etc/microsoft/identity-broker/{certs,private}
 
 	insinto /etc/microsoft/identity-broker/etc
 	newins "${FILESDIR}/lsb-release-${FAKE_OS}" lsb-release
 	newins "${FILESDIR}/os-release-${FAKE_OS}" os-release
+
+	dodoc usr/share/doc/${PN}/CHANGELOG.md
 }
 
 pkg_postinst() {
