@@ -7,10 +7,8 @@ EAPI=8
 # https://wiki.gentoo.org/wiki/Project:Toolchain/sys-devel/gcc
 
 TOOLCHAIN_HAS_TESTS=1
-PATCH_GCC_VER="16.0.0"
-PATCH_VER="45"
-MUSL_VER="1"
-MUSL_GCC_VER="16.0.0"
+PATCH_GCC_VER="16.1.0"
+MUSL_GCC_VER="16.1.0"
 PYTHON_COMPAT=( python3_{11..14} )
 
 if [[ -n ${TOOLCHAIN_GCC_RC} ]] ; then
@@ -26,7 +24,7 @@ inherit toolchain
 
 if tc_is_live ; then
 	# Needs to be after inherit (for now?), bug #830908
-	EGIT_BRANCH=master
+	EGIT_BRANCH=releases/gcc-$(ver_cut 1)
 elif [[ -z ${TOOLCHAIN_USE_GIT_PATCHES} ]] ; then
 	# Don't keyword live ebuilds
 	#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
