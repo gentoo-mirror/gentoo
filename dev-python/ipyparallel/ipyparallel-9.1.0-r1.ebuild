@@ -28,7 +28,6 @@ RDEPEND="
 	>=dev-python/ipython-5[${PYTHON_USEDEP}]
 	>=dev-python/jupyter-client-7[${PYTHON_USEDEP}]
 	dev-python/jupyter-server[${PYTHON_USEDEP}]
-	<dev-python/ipykernel-7[${PYTHON_USEDEP}]
 	>=dev-python/ipykernel-6.9.1[${PYTHON_USEDEP}]
 	dev-python/psutil[${PYTHON_USEDEP}]
 	>=dev-python/python-dateutil-2.1[${PYTHON_USEDEP}]
