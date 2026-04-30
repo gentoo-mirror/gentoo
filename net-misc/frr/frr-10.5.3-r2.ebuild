@@ -135,7 +135,7 @@ my_src_install() {
 
 	# Install logrotate configuration
 	insinto /etc/logrotate.d
-	newins "${FILESDIR}/logrotate-v1" frr
+	newins "${FILESDIR}/logrotate-v2" frr
 
 	# Install PAM configuration file
 	use pam && newpamd "${FILESDIR}"/frr.pam frr
