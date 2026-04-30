@@ -19,17 +19,17 @@ LICENSE="
 
 SLOT="0"
 
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
-IUSE="accessibility audit bluetooth-sound branding elogind fprint plymouth selinux systemd tcpd test wayland +X"
+IUSE="audit debug bluetooth-sound branding elogind fprint plymouth selinux systemd tcpd test +X"
 
 RESTRICT="!test? ( test )"
-REQUIRED_USE="^^ ( elogind systemd ) || ( wayland X )"
+REQUIRED_USE="^^ ( elogind systemd )"
 
 # dconf, dbus and g-s-d are needed at install time for dconf update
 # keyutils is automagic dep that makes autologin unlock login keyring
 # when all the passwords match (disk encryption, user pw and login keyring)
-# dbus-run-session used at runtime
+# dbus-run-session used at runtime.
 COMMON_DEPEND="
 	virtual/udev
 	>=dev-libs/libgudev-232:=
@@ -49,7 +49,7 @@ COMMON_DEPEND="
 	)
 	tcpd? ( >=sys-apps/tcp-wrappers-7.6 )
 
-	systemd? ( >=sys-apps/systemd-186:0=[pam] )
+	systemd? ( >=sys-apps/systemd-257:0=[pam] )
 	elogind? ( >=sys-auth/elogind-239.3[pam] )
 
 	plymouth? ( sys-boot/plymouth )
@@ -72,21 +72,20 @@ COMMON_DEPEND="
 RDEPEND="${COMMON_DEPEND}
 	acct-group/gdm
 	acct-user/gdm
-	>=gnome-base/gnome-session-3.6
-	>=gnome-base/gnome-shell-3.1.90
+	>=gnome-base/gnome-shell-49
 	x11-apps/xhost
 
-	accessibility? (
-		>=app-accessibility/orca-3.10
-		gnome-extra/mousetweaks
-	)
 	fprint? ( sys-auth/fprintd[pam] )
 "
+# This is a 'workaround' built into gdm 49, as elogind does not yet have
+# 'working' userdb support in stable or testing.
+# https://github.com/elogind/elogind/issues/323
+RDEPEND+="elogind? ( acct-user/gdm-greeter )"
 DEPEND="${COMMON_DEPEND}
 	x11-base/xorg-proto
 "
 BDEPEND="
-	>=dev-util/gdbus-codegen-2.80.5-r1
+	dev-util/gdbus-codegen
 	dev-util/glib-utils
 	dev-util/itstool
 	>=gnome-base/dconf-0.20
@@ -116,8 +115,7 @@ src_prepare() {
 
 	# Show logo when branding is enabled
 	use branding && eapply "${FILESDIR}/${PN}-3.30.3-logo.patch"
-
-	eapply "${FILESDIR}/47.0-c23.patch"
+	eapply "${FILESDIR}/gdm-pam-openrc.patch"
 }
 
 src_configure() {
@@ -145,7 +143,6 @@ src_configure() {
 		-Dudev-dir=$(get_udevdir)/rules.d
 		-Duser=gdm
 		-Duser-display-server=true
-		$(meson_use wayland wayland-support)
 		$(meson_use X x11-support)
 		$(meson_feature X xdmcp)
 	)
@@ -169,10 +166,6 @@ src_configure() {
 
 src_install() {
 	meson_src_install
-
-	if ! use accessibility ; then
-		rm "${ED}"/usr/share/gdm/greeter/autostart/orca-autostart.desktop || die
-	fi
 
 	if ! use bluetooth-sound ; then
 		# Workaround https://gitlab.freedesktop.org/pulseaudio/pulseaudio/merge_requests/10

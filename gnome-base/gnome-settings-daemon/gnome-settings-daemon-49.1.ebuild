@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit gnome.org gnome2-utils python-any-r1 meson udev virtualx xdg
 
@@ -12,55 +12,50 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-settings-daemon"
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
 
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
-IUSE="+colord +cups debug elogind input_devices_wacom modemmanager networkmanager smartcard systemd test wayland"
+IUSE="+colord +cups debug elogind modemmanager networkmanager smartcard systemd test +xwayland X"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="^^ ( elogind systemd )"
 
 COMMON_DEPEND="
 	>=sci-geosciences/geocode-glib-3.10:2
 	>=dev-libs/glib-2.70:2
-	>=gnome-base/gnome-desktop-3.37.1:3=
+	gnome-base/gnome-desktop:4=
 	>=gnome-base/gsettings-desktop-schemas-46.0
-	>=x11-libs/gtk+-3.15.3:3[X,wayland?]
 	>=dev-libs/libgweather-4.2.0:4=
 	colord? ( >=x11-misc/colord-1.4.5:= )
-	|| (
-		media-libs/libcanberra-gtk3
-		>=media-libs/libcanberra-0.25[gtk3(-)]
-	)
+	>=media-libs/libcanberra-0.25
 	>=app-misc/geoclue-2.3.1:2.0
-	>=x11-libs/libnotify-0.7.3
 	>=media-libs/libpulse-16.1[glib]
 	>=sys-auth/polkit-0.114
 	>=sys-power/upower-0.99.12:=
-	x11-libs/libX11
-	>=x11-libs/libXfixes-6.0.0
 	dev-libs/libgudev:=
-	wayland? ( dev-libs/wayland )
-	input_devices_wacom? (
-		>=dev-libs/libwacom-0.7:=
-		>=x11-libs/pango-1.20.0
-		x11-libs/gdk-pixbuf:2
-	)
+	dev-libs/wayland
 	smartcard? ( app-crypt/gcr:4= )
 	cups? ( >=net-print/cups-1.4[dbus] )
 	modemmanager? (
 		>=app-crypt/gcr-3.90.0:4=
-		>=net-misc/modemmanager-1.0:=
+		>=net-misc/modemmanager-1.18:=
 	)
 	networkmanager? ( >=net-misc/networkmanager-1.0 )
 	media-libs/alsa-lib
-	x11-libs/libXi
-	x11-libs/libXext
 	media-libs/fontconfig
 	elogind? ( >=sys-auth/elogind-209 )
 	systemd? ( >=sys-apps/systemd-243 )
+	>=x11-libs/libnotify-0.7.3
+	xwayland? (
+		x11-libs/libXext
+		x11-libs/libX11
+		>=x11-libs/libXfixes-6.0.0
+	)
+	X? (
+		x11-libs/libXext
+		x11-libs/libX11
+		>=x11-libs/libXfixes-6.0.0
+	)
 "
-DEPEND="${COMMON_DEPEND}
-	x11-base/xorg-proto
-"
+DEPEND="${COMMON_DEPEND}"
 # logind needed for power and session management, bug #464944
 RDEPEND="${COMMON_DEPEND}
 	gnome-base/dconf
@@ -70,7 +65,7 @@ RDEPEND="${COMMON_DEPEND}
 BDEPEND="
 	sys-kernel/linux-headers
 	dev-util/glib-utils
-	>=dev-util/gdbus-codegen-2.80.5-r1
+	dev-util/gdbus-codegen
 	${PYTHON_DEPS}
 	test? (
 		dev-util/umockdev
@@ -85,7 +80,6 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/42.1-build-Make-wacom-optional-and-controllable-via-meson.patch
 	"${FILESDIR}"/${PN}-3.38.1-build-Allow-NM-optional-on-Linux.patch
 )
 
@@ -113,8 +107,8 @@ src_configure() {
 		$(meson_use networkmanager network_manager)
 		-Drfkill=true
 		$(meson_use smartcard)
-		$(meson_use input_devices_wacom wacom)
-		$(meson_use wayland)
+		$(meson_use X x11)
+		$(meson_use xwayland)
 		$(meson_use modemmanager wwan)
 	)
 	meson_src_configure

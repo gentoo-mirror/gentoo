@@ -13,19 +13,21 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/mutter.git"
 	SRC_URI=""
-	SLOT="0/16" # This can get easily out of date, but better than 9967
+	SLOT="0/17" # This can get easily out of date, but better than 9967
 else
-	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 	SLOT="0/$(($(ver_cut 1) - 32))" # 0/libmutter_api_version - ONLY gnome-shell (or anything using mutter-clutter-<api_version>.pc) should use the subslot
 fi
 
-IUSE="bash-completion debug elogind gnome gtk-doc input_devices_wacom +introspection screencast sysprof systemd test udev wayland X +xwayland video_cards_nvidia"
+IUSE="bash-completion debug devkit elogind gnome gtk-doc input_devices_wacom +introspection screencast sysprof systemd test udev +wayland X +xwayland video_cards_nvidia"
 # native backend requires gles3 for hybrid graphics blitting support, udev and a logind provider
 REQUIRED_USE="
 	|| ( X wayland )
+	devkit? ( screencast wayland )
 	gtk-doc? ( introspection )
 	wayland? ( ^^ ( elogind systemd ) udev )
-	test? ( screencast wayland )"
+	test? ( screencast wayland )
+	xwayland? ( wayland )"
 RESTRICT="!test? ( test )"
 
 # gnome-settings-daemon is build checked, but used at runtime only for org.gnome.settings-daemon.peripherals.keyboard gschema
@@ -38,10 +40,10 @@ RESTRICT="!test? ( test )"
 # dev-libs/wayland is always needed at build time due to https://bugs.gentoo.org/937632
 RDEPEND="
 	>=media-libs/graphene-1.10.2[introspection?]
-	x11-libs/gdk-pixbuf:2
 	>=x11-libs/pango-1.46[introspection?]
 	>=x11-libs/cairo-1.14[X]
 	>=x11-libs/pixman-0.42
+	>=gui-libs/gtk-4.14.0:4[introspection?]
 	>=dev-libs/fribidi-1.0.0
 	>=gnome-base/gsettings-desktop-schemas-47_beta[introspection?]
 	>=dev-libs/glib-2.81.1:2
@@ -54,16 +56,20 @@ RDEPEND="
 	>=media-libs/harfbuzz-2.6.0:=
 	>=dev-libs/libei-1.3.901
 	>=media-libs/libdisplay-info-0.2:=
+	>=media-libs/glycin-2.0_beta_p2:=
 
+	devkit? (
+		gui-libs/libadwaita
+	)
 	gnome? ( gnome-base/gnome-desktop:4= )
 
 	>=media-libs/libcanberra-0.26
 
 	media-libs/libglvnd
 
-	>=dev-libs/wayland-1.23.0
+	>=dev-libs/wayland-1.24.0
 	wayland? (
-		>=dev-libs/wayland-protocols-1.41
+		>=dev-libs/wayland-protocols-1.45
 
 		>=x11-libs/libdrm-2.4.118
 		media-libs/mesa[gbm(+)]
@@ -79,16 +85,17 @@ RDEPEND="
 	)
 	systemd? ( sys-apps/systemd )
 	input_devices_wacom? ( >=dev-libs/libwacom-0.13:= )
-	screencast? ( >=media-video/pipewire-1.2.0:= )
+	screencast? ( >=media-video/pipewire-1.2.7:= )
 	introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= )
 	test? (
 		>=x11-libs/gtk+-3.19.8:3[X,introspection?]
+		>=dev-util/umockdev-0.3.0
 	)
 	sysprof? ( >=dev-util/sysprof-capture-3.40.1:4 >=dev-util/sysprof-3.46.0 )
 "
 
 X11_CLIENT_DEPS="
-	>=gui-libs/gtk-4.0.0:4[X,introspection?]
+	>=gui-libs/gtk-4.14.0:4[X,introspection?]
 	media-libs/libglvnd[X]
 	>=x11-libs/libX11-1.7.0
 	>=x11-libs/libXcomposite-0.4
@@ -108,10 +115,8 @@ X11_CLIENT_DEPS="
 RDEPEND+="
 	X? (
 		${X11_CLIENT_DEPS}
-		x11-libs/libICE
 		x11-libs/libxkbfile
 		x11-libs/libXtst
-		x11-libs/libSM
 	)
 	wayland? ( xwayland? ( ${X11_CLIENT_DEPS} ) )
 "
@@ -120,9 +125,11 @@ DEPEND="${RDEPEND}
 	sysprof? ( >=dev-util/sysprof-common-3.38.0 )
 "
 BDEPEND="
+	>=dev-build/meson-1.5.0
 	dev-util/wayland-scanner
-	>=dev-util/gdbus-codegen-2.80.5-r1
+	dev-util/gdbus-codegen
 	dev-util/glib-utils
+	dev-python/docutils
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 	gtk-doc? ( >=dev-util/gi-docgen-2021.1 )
@@ -150,16 +157,12 @@ BDEPEND="
 	)
 "
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-43.0-Disable-anonymous-file-test.patch
-)
-
 python_check_deps() {
 	if use test; then
-		python_has_version ">=dev-python/python-dbusmock-0.28[${PYTHON_USEDEP}]" || return 1
+		python_has_version ">=dev-python/python-dbusmock-0.28[${PYTHON_USEDEP}]"
 	fi
 	if use bash-completion; then
-		python_has_version "dev-python/argcomplete[${PYTHON_USEDEP}]" || return 1
+		python_has_version dev-python/argcomplete[${PYTHON_USEDEP}]
 	fi
 }
 
@@ -213,8 +216,8 @@ src_configure() {
 		$(meson_use input_devices_wacom libwacom)
 		-Dsound_player=true
 		-Dstartup_notification=true
-		$(meson_use X sm)
 		$(meson_use introspection)
+		$(meson_feature devkit)
 		$(meson_use gtk-doc docs)
 		$(meson_use test cogl_tests)
 		$(meson_use test clutter_tests)

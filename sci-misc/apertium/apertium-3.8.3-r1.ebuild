@@ -36,6 +36,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-3.8.3-bashism.patch
+	"${FILESDIR}"/${P}-unary.patch
 	"${FILESDIR}"/${P}-utf8cpp.patch
 )
 

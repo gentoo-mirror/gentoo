@@ -11,7 +11,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-shell"
 
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 IUSE="X elogind gtk-doc +ibus +networkmanager pipewire systemd test wayland"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
@@ -22,13 +22,18 @@ RESTRICT="!test? ( test )"
 DEPEND="
 	>=gnome-extra/evolution-data-server-3.46.0:=
 	>=app-crypt/gcr-3.90.0:4=[introspection]
-	>=dev-libs/glib-2.68:2
-	>=dev-libs/gobject-introspection-1.82.0-r2:=
-	>=dev-libs/gjs-1.73.1[cairo(+)]
+	>=dev-libs/glib-2.86.0:2
+	>=dev-libs/gobject-introspection-1.86.0:=
+	>=dev-libs/gjs-1.85.90[cairo(+)]
 	>=gui-libs/gtk-4:4[X?,introspection,wayland?]
-	>=x11-wm/mutter-48.0:0/16[introspection,test?]
+	>=x11-wm/mutter-49.0:0/17[introspection,test?]
 	>=sys-auth/polkit-0.120_p20220509[introspection]
-	>=gnome-base/gsettings-desktop-schemas-48_beta[introspection]
+	>=gnome-base/gsettings-desktop-schemas-49_alpha[introspection]
+	X? (
+	   x11-libs/libX11
+	   x11-libs/libXext
+	   >=x11-libs/libXfixes-5.0
+	)
 	>=app-i18n/ibus-1.5.19
 	dev-python/docutils
 	>=gnome-base/gnome-desktop-40.0:4=
@@ -46,18 +51,14 @@ DEPEND="
 
 	app-arch/gnome-autoar
 	dev-libs/json-glib
+	net-libs/libsoup:3.0
 
 	>=app-accessibility/at-spi2-core-2.46:2[introspection]
 	x11-libs/gdk-pixbuf:2[introspection]
 	dev-libs/libxml2:2=
-	x11-libs/libX11
 
 	>=media-libs/libpulse-2[glib]
 	dev-libs/libical:=
-	x11-libs/libXext
-	>=x11-libs/libXfixes-5.0
-
-	gui-libs/gtk:4[introspection]
 
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
@@ -94,7 +95,7 @@ RDEPEND="${DEPEND}
 	gnome-base/librsvg:2[introspection]
 	gui-libs/libadwaita:1[introspection]
 
-	>=gnome-base/gnome-session-48.0-r2
+	>=gnome-base/gnome-session-49
 	>=gnome-base/gnome-settings-daemon-3.8.3
 
 	x11-misc/xdg-utils
@@ -110,9 +111,10 @@ RDEPEND="${DEPEND}
 
 	sys-apps/xdg-desktop-portal-gnome
 "
+
 # avoid circular dependency, see bug #546134
 PDEPEND="
-	>=gnome-base/gdm-3.5[introspection(+)]
+	>=gnome-base/gdm-49[introspection(+)]
 	>=gnome-base/gnome-control-center-3.26[networkmanager(+)?]
 "
 BDEPEND="
@@ -120,9 +122,11 @@ BDEPEND="
 	dev-libs/libxslt
 	>=dev-util/gdbus-codegen-2.80.5-r1
 	dev-util/glib-utils
-	gtk-doc? ( >=dev-util/gtk-doc-1.17
+	gtk-doc? (
+		>=dev-util/gtk-doc-1.17
 		>=dev-util/gi-docgen-2021.1
-		app-text/docbook-xml-dtd:4.5 )
+		app-text/docbook-xml-dtd:4.5
+	)
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 	test? (
@@ -133,11 +137,6 @@ BDEPEND="
 # These are not needed from tarballs, unless stylesheets or manpage get patched with patchset:
 # dev-lang/sassc
 # app-text/asciidoc
-
-PATCHES=(
-	# https://bugs.gentoo.org/959295 gnome-session thinks gnome-shell died when built with USE="-X"
-	"${FILESDIR}"/notify-gnome-session-when-ready.patch
-)
 
 src_prepare() {
 	default

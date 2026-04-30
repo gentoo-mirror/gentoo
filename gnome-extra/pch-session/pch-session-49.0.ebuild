@@ -1,4 +1,4 @@
-# Copyright 2019-2025 Gentoo Authors
+# Copyright 2019-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,23 +10,23 @@ SRC_URI="https://gitlab.com/pachoramos/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="breeze qt6 wayland webp"
 
 RDEPEND="
-	>=gnome-base/gnome-shell-47
-	>=gnome-extra/gnome-shell-extensions-47
-	>=gnome-extra/gnome-shell-extension-alphabetical-grid-41.0
-	>=gnome-extra/gnome-shell-extension-appindicator-59
-	>=gnome-extra/gnome-shell-extension-applications-overview-tooltip-22
-	>=gnome-extra/gnome-shell-extension-bing-wallpaper-50
-	>=gnome-extra/gnome-shell-extension-dash-to-panel-65
-	>=gnome-extra/gnome-shell-extension-desktop-icons-ng-47.0.13
-	>=gnome-extra/gnome-shell-extension-gsconnect-62
-	>=gnome-extra/gnome-shell-extension-weather-oclock-47
-	>=gnome-extra/gnome-tweaks-46
+	>=gnome-base/gnome-shell-${PV}
+	>=gnome-extra/gnome-shell-extensions-${PV}
+	>=gnome-extra/gnome-shell-extension-alphabetical-grid-44.0
+	>=gnome-extra/gnome-shell-extension-appindicator-64
+	>=gnome-extra/gnome-shell-extension-applications-overview-tooltip-24
+	>=gnome-extra/gnome-shell-extension-bing-wallpaper-52
+	>=gnome-extra/gnome-shell-extension-dash-to-panel-73
+	>=gnome-extra/gnome-shell-extension-desktop-icons-ng-50.0.0
+	>=gnome-extra/gnome-shell-extension-gsconnect-71
+	>=gnome-extra/gnome-shell-extension-weather-oclock-50.2
+	>=gnome-extra/gnome-tweaks-${PV}
 
-	>=gnome-extra/gnome-clocks-47
+	>=gnome-extra/gnome-clocks-${PV}
 	>=media-fonts/fonts-meta-2
 	|| (
 		sys-apps/tuned[ppd]
@@ -47,8 +47,8 @@ pkg_preinst() {
 }
 
 src_install() {
-	insinto /usr
-	doins -r usr/.
+	insinto /
+	doins -r usr/ etc/
 	einstalldocs
 }
 

@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,17 +10,15 @@ HOMEPAGE="https://gjs.guide"
 
 LICENSE="MIT || ( MPL-1.1 LGPL-2+ GPL-2+ )"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="examples readline sysprof test"
 RESTRICT="!test? ( test )"
 
-# <glib-2.86.0 for bug #963815
 RDEPEND="
-	>=dev-libs/glib-2.66.0:2
-	<dev-libs/glib-2.86.0:2
+	>=dev-libs/glib-2.86.0:2
 	dev-libs/libffi:=
-	>=dev-libs/gobject-introspection-1.82.0-r2:=
-	dev-lang/spidermonkey:128
+	>=dev-libs/gobject-introspection-1.86.0:=
+	dev-lang/spidermonkey:140
 	x11-libs/cairo[X,glib]
 	readline? ( sys-libs/readline:0= )
 "
@@ -29,6 +27,7 @@ DEPEND="${RDEPEND}
 	test? (
 		sys-apps/dbus
 		>=x11-libs/gtk+-3.20:3[introspection]
+		gui-libs/gtk:4[introspection]
 	)
 "
 BDEPEND="
