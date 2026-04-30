@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,15 +10,15 @@ HOMEPAGE="https://gitlab.gnome.org/chergert/ptyxis"
 
 LICENSE="LGPL-3+"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="X test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-libs/glib-2.80:2
 	>=gui-libs/gtk-4.12.2:4[X?]
-	>=gui-libs/libadwaita-1.6:1
-	>=gui-libs/vte-0.78.0:2.91-gtk4
+	>=gui-libs/libadwaita-1.8:1
+	>=gui-libs/vte-0.79:2.91-gtk4
 	dev-libs/libportal[gtk]
 	gnome-base/libgtop:2=
 	>=dev-libs/libpcre2-10.32:0=
@@ -40,8 +40,7 @@ PATCHES=(
 )
 
 src_configure() {
-	use X || append-cppflags -DGENTOO_GTK_HIDE_X11
-
+	use X || append-cflags -DGENTOO_GTK_HIDE_X11
 	local emesonargs=(
 		-Ddevelopment=false
 		-Dgeneric=terminal
