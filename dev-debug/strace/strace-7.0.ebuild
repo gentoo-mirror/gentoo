@@ -16,14 +16,14 @@ else
 		https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.xz
 		verify-sig? ( https://github.com/${PN}/${PN}/releases/download/v${PV}/${P}.tar.xz.asc )
 	"
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/strace.asc
 
 LICENSE="LGPL-2.1+ test? ( GPL-2+ )"
 SLOT="0"
-IUSE="aio perl selinux static test unwind elfutils"
+IUSE="aio ncurses perl selinux static test unwind elfutils"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="?? ( unwind elfutils )"
 
@@ -34,6 +34,7 @@ BDEPEND="
 LIB_DEPEND="
 	unwind? ( sys-libs/libunwind[static-libs(+)] )
 	elfutils? ( dev-libs/elfutils[static-libs(+)] )
+	ncurses? ( sys-libs/ncurses[static-libs(+)] )
 	selinux? ( sys-libs/libselinux[static-libs(+)] )
 "
 # strace only uses the header from libaio to decode structs
@@ -78,6 +79,7 @@ src_configure() {
 	filter-lfs-flags # configure handles this sanely
 
 	export ac_cv_header_libaio_h=$(usex aio)
+	export ac_cv_header_termcap_h=$(usex ncurses)
 	use elibc_musl && export ac_cv_header_stdc=no
 
 	local myeconfargs=(
