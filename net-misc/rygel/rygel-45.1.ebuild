@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ HOMEPAGE="https://gnome.pages.gitlab.gnome.org/rygel/"
 
 LICENSE="LGPL-2.1+ CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="gtk gtk-doc +introspection +sqlite tracker test transcode"
 RESTRICT="!test? ( test )"
 
@@ -43,7 +43,7 @@ DEPEND="
 		media-plugins/gst-plugins-twolame:1.0
 		media-plugins/gst-plugins-libav:1.0
 	)
-	gtk? ( >=x11-libs/gtk+-3.22:3 )
+	gtk? ( >=gui-libs/gtk-4.14:4 )
 
 	x11-libs/libX11
 "
@@ -75,7 +75,7 @@ src_configure() {
 		$(meson_use gtk-doc api-docs)
 		-Dman_pages=true
 		-Dsystemd-user-units-dir=$(systemd_get_userunitdir)
-		-Dplugins=gst-launch$(use sqlite && echo ",media-export")$(use tracker && echo ",tracker3")
+		-Dplugins=gst-launch$(use sqlite && echo ",media-export")$(use tracker && echo ",localsearch")
 		-Dengines=gstreamer
 		-Dexamples=false
 		$(meson_use test tests)
