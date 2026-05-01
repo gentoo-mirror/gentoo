@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 GNOME2_LA_PUNT="yes"
 GNOME2_EAUTORECONF="yes"
 
-inherit gnome2
+inherit gnome2 autotools
 
 DESCRIPTION="Genius Mathematics Tool and the GEL Language"
 HOMEPAGE="https://www.jirka.org/genius.html"
@@ -23,9 +23,14 @@ RDEPEND="
 	dev-libs/mpfr:0=
 	sys-libs/ncurses:0=
 	sys-libs/readline:0=
-	>=x11-libs/gtk+-3.21.4:3
-	>=x11-libs/vte-0.50.0:2.91
-	gui? ( >=x11-libs/gtk+-3.21.4:3 )
+	gui? (
+		x11-libs/cairo
+		x11-libs/gdk-pixbuf:2
+		>=x11-libs/gtk+-3.21.4:3
+		x11-libs/gtksourceview:4
+		x11-libs/pango
+		>=x11-libs/vte-0.50.0:2.91
+	)
 "
 DEPEND="${RDEPEND}
 	dev-util/gtk-update-icon-cache
@@ -39,7 +44,13 @@ DEPEND="${RDEPEND}
 PATCHES=(
 	# Unrecognized --disable-scrollkeeper warning comes from gnome2.eclass adding it based on grep, but upstream has them commented out in .ac with "#" instead of "dnl"
 	"${FILESDIR}/${PN}-1.0.24-no_scrollkeeper.patch"
+	"${FILESDIR}/${P}-disableGnomeIf.patch"
 )
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_configure() {
 	gnome2_src_configure \
