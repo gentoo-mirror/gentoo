@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake xdg
+inherit cmake eapi9-ver xdg
 
 DESCRIPTION="Simple (yet powerful) news feed reader"
 HOMEPAGE="https://github.com/martinrotter/rssguard/"
@@ -12,7 +12,7 @@ SRC_URI="
 "
 
 LICENSE="|| ( LGPL-3 GPL-2+ ) AGPL-3+ BSD GPL-3+ MIT"
-SLOT="0"
+SLOT="0/101"
 KEYWORDS="~amd64"
 IUSE="icu libmpv mysql qtmultimedia +sqlite webengine"
 REQUIRED_USE="
@@ -49,7 +49,19 @@ RDEPEND="${DEPEND}"
 # go
 QA_FLAGS_IGNORED="/usr/bin/rssguard-article-extractor"
 
+pkg_pretend() {
+	if ver_replacing -lt 5.1.0; then
+		ewarn "RSSGuard 5.1.0 changed its database schema.  Once you start the new"
+		ewarn "version, the database will be upgraded in place and it will"
+		ewarn "no longer be possible to run an older version of RSSGuard with it."
+	fi
+}
+
 src_configure() {
+	grep -q "^#define APP_DB_SCHEMA_VERSION\s*\"${SLOT#0/}\"$" \
+		src/librssguard/definitions/definitions.h ||
+		die "APP_DB_SCHEMA_VERSION changed, update SLOT"
+
 	local mycmakeargs=(
 		-DBUILD_WITH_QT6=ON
 		-DREVISION_FROM_GIT=OFF
