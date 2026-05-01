@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://mednafen.github.io/
 INHERIT=autotools flag-o-matic pax-utils toolchain-funcs
 IUSE=alsa cpu_flags_ppc_altivec flac jack
-KEYWORDS=amd64 ~x86
+KEYWORDS=amd64 ~ppc64 ~x86
 LICENSE=GPL-2
 RDEPEND=app-arch/zstd:= dev-libs/lzo:2 dev-libs/trio media-libs/libsdl2[joystick,opengl,video] media-libs/tremor media-sound/musepack-tools virtual/libintl virtual/zlib:= alsa? ( media-libs/alsa-lib ) flac? ( media-libs/flac:= ) jack? ( virtual/jack )
 REQUIRED_USE=ppc64? ( cpu_flags_ppc_altivec )
 SLOT=0
 SRC_URI=https://mednafen.github.io/releases/files/mednafen-1.32.1.tar.xz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	flag-o-matic	fd3558f73f6503093adee69adf41020d	pax-utils	5555f2e75744739fe100ee62c22d28fe
-_md5_=086ce4b2abb1a6b65c859f59565ccc02
+_md5_=148404e5ba83fbbc9269ef7653202538
