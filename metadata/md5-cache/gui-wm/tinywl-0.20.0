@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-emersion ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile install prepare unpack
+DEPEND=dev-libs/wayland x11-libs/libxkbcommon =gui-libs/wlroots-0.20*:= dev-libs/wayland-protocols
+DESCRIPTION="minimum viable product" Wayland compositor based on wlroots
+EAPI=8
+HOMEPAGE=https://gitlab.freedesktop.org/wlroots/wlroots/-/tree/master/tinywl
+INHERIT=toolchain-funcs verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=CC0-1.0
+RDEPEND=dev-libs/wayland x11-libs/libxkbcommon =gui-libs/wlroots-0.20*:= !gui-libs/wlroots[tinywl(-)]
+SLOT=0
+SRC_URI=https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.20.0/downloads/wlroots-0.20.0.tar.gz https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.20.0/downloads/wlroots-0.20.0.tar.gz.sig
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=55ffd311be1ce6fe154b635bdb2c7d31
