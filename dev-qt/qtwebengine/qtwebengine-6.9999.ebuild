@@ -132,10 +132,12 @@ qtwebengine_check-reqs() {
 	local CHECKREQS_DISK_USR=400M
 
 	if ! has distcc ${FEATURES}; then #830661
-		# assume ~2GB per job or 1.5GB if clang, possible with less
-		# depending on free memory and *FLAGS, but prefer being safe as
-		# users having OOM issues with qtwebengine been rather common
-		tc-is-clang && : 15 || : 20
+		# on average this does not use *that* much ram but then poor
+		# luck may lead to several 3.9+GB jobs happening at same time
+		# (less of an issue for users with 32+GB ram given they have
+		# room to handle a few spikes), try to find a balance but it
+		# won't be right for everyone (CHECKREQS_DONOTHING=1 to ignore)
+		tc-is-clang && : 17 || : 25 # clang:1.7GB/job, gcc:2.5GB/job
 		local CHECKREQS_MEMORY=$(($(makeopts_jobs)*_/10))G
 	fi
 
