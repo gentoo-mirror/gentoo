@@ -201,6 +201,8 @@ REQUIRED_USE="
 "
 
 PATCHES=(
+	"${FILESDIR}"/${P}-parallel-make.patch
+
 	# Downloaded patchset
 	"${WORKDIR}"/virtualbox-patches-${PATCHES_PV}/patches
 )
