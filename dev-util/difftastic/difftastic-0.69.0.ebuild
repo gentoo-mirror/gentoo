@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 CRATES=""
 RUST_MIN_VER="1.85.0"
 
-inherit cargo flag-o-matic
+inherit cargo
 
 DESCRIPTION="A structural diff that understands syntax."
 HOMEPAGE="http://difftastic.wilfred.me.uk/"
@@ -23,22 +23,30 @@ LICENSE+=" CeCILL-C"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
+DEPEND="dev-libs/jemalloc"
+RDEPEND="${DEPEND}"
+
 QA_FLAGS_IGNORED="usr/bin/difft"
 
 DOCS=( CHANGELOG.md README.md manual/ )
 
+pkg_setup() {
+	rust_pkg_setup
+
+	export JEMALLOC_OVERRIDE="${EPREFIX}/usr/$(get_libdir)/libjemalloc.so"
+}
+
 src_prepare() {
 	rm manual/.gitignore || die
 
-	default
-}
+	sed -e '/^lto = /d' -i Cargo.toml || die
 
-src_configure() {
-	# Workaround for old bundled mimalloc in mimalloc crate, see
-	# bug #944110, but updating it should be done with caution, see
-	# https://github.com/purpleprotocol/mimalloc_rust/issues/109.
-	append-cflags -std=gnu17
-	cargo_src_configure
+	# Enable feature required to use system jemalloc.
+	sed \
+		-e 's/^tikv-jemallocator = "\(.*\)"/tikv-jemallocator = { version = "\1", features = ["unprefixed_malloc_on_supported_platforms"] }/' \
+		-i Cargo.toml || die
+
+	default
 }
 
 src_install() {

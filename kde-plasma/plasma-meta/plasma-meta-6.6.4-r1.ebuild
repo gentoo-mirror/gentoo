@@ -1,7 +1,7 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit toolchain-funcs
 
@@ -10,11 +10,12 @@ HOMEPAGE="https://kde.org/plasma-desktop/"
 
 LICENSE="metapackage"
 SLOT="6"
-KEYWORDS="~loong ~ppc64 ~riscv"
-IUSE="accessibility bluetooth +browser-integration +crash-handler cups
+KEYWORDS="amd64 arm64 ~ppc64 ~riscv ~x86"
+IUSE="accessibility bluetooth +browser-integration +crash-handler crypt cups
 discover +display-manager +elogind +firewall flatpak grub gtk +kwallet
-+networkmanager oxygen-theme plymouth pulseaudio rdp +sddm sdk +smart
-systemd thunderbolt unsupported wacom +wallpapers webengine X"
++networkmanager ocr oxygen-theme plymouth pulseaudio rdp +sddm sdk +smart
+systemd thunderbolt unsupported virtualkeyboard wacom +wallpapers webengine X
++xwayland"
 
 REQUIRED_USE="^^ ( elogind systemd ) firewall? ( systemd )"
 
@@ -70,6 +71,7 @@ RDEPEND="
 		!systemd? ( >=kde-plasma/drkonqi-legacy-6.3.80_p20250417:${SLOT} )
 		systemd? ( >=kde-plasma/drkonqi-${PV}:${SLOT} )
 	)
+	crypt? ( >=kde-plasma/plasma-vault-${PV}:${SLOT} )
 	cups? (
 		>=kde-plasma/print-manager-${PV}:${SLOT}
 		net-print/cups-meta
@@ -115,6 +117,7 @@ RDEPEND="
 	)
 	thunderbolt? ( >=kde-plasma/plasma-thunderbolt-${PV}:${SLOT} )
 	!unsupported? ( !gui-apps/qt6ct )
+	virtualkeyboard? ( >=kde-plasma/plasma-keyboard-${PV}:${SLOT} )
 	wacom? ( >=kde-plasma/plasma-desktop-${PV}:${SLOT}[input_devices_wacom] )
 	wallpapers? ( >=kde-plasma/plasma-workspace-wallpapers-${PV}:${SLOT} )
 	webengine? ( kde-apps/khelpcenter:6 )
@@ -123,6 +126,7 @@ RDEPEND="
 		>=kde-plasma/kwin-x11-${PV}:${SLOT}[lock]
 		wacom? ( >=kde-plasma/wacomtablet-${PV}:${SLOT} )
 	)
+	xwayland? ( >=gui-apps/xwaylandvideobridge-0.4.0_p20250215-r1 )
 "
 # NOTE spectacle moved from KDE Gear (yy.mm) to KDE Plasma version scheme
 # TODO drop after 2027-04-26
@@ -138,6 +142,7 @@ esac
 # Optional runtime deps: kde-plasma/plasma-desktop, kde-plasma/spectacle
 RDEPEND="${RDEPEND}
 	accessibility? ( app-accessibility/orca )
+	ocr? ( app-text/tesseract )
 "
 
 pkg_postinst() {
@@ -152,7 +157,6 @@ pkg_postinst() {
 		ewarn " MYCMAKEARGS=\"-DLIBCXX_TYPEINFO_COMPARISON_IMPLEMENTATION=2\""
 		ewarn "You may then need to rebuild dev-qt/* and kde-*/*."
 	fi
-
 	if has_version dev-qt/qtgui; then
 		ewarn "KF5 and Qt5 support was removed in Gentoo. Such applications will exhibit"
 		ewarn "various integration bugs and generally look out of place in Plasma 6."

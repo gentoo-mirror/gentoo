@@ -139,17 +139,6 @@ dev-python/tempest
 # Removal on 2026-05-11.
 net-misc/x2goclient
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-04-12)
-# Depending on Qt5 with solarus-1.6.5 being broken by missing deps and at
-# least GCC-15. Bugs #953383 (+ linked see-also bugs), #961916, #962015
-# Both games-rpg/zsdx and games-rpg/zsxd are potentially fixed for Solarus 2.0
-# in git master, but that requires someone motivated enough to try it out.
-# Removal on 2026-05-11.
-<games-engines/solarus-2.0.3
-<games-misc/solarus-quest-editor-2.0.3
-<games-rpg/zsdx-1.12.9999
-<games-rpg/zsxd-1.12.9999
-
 # Michał Górny <mgorny@gentoo.org> (2026-04-11)
 # NIH general purpose library.  Tests are failing.  No revdeps.
 # Removal on 2026-05-11.  Bug #942586.
@@ -307,38 +296,11 @@ dev-python/calver
 >=dev-lang/tcl-9
 >=dev-lang/tk-9
 
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-27)
-# Obsolete Qt5 non-qtbase modules without revdeps.
-# Removal on 2026-03-29.
-dev-qt/designer:5
-dev-qt/qthelp:5
-dev-qt/qtwaylandscanner:5
-dev-qt/qtxmlpatterns:5
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-27)
-# Obsolete Qt5 non-qtbase modules without revdeps.
-dev-qt/qtimageformats:5
-dev-qt/qtscxml:5
-dev-qt/qtspeech:5
-dev-qt/qtwebsockets:5
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-24)
-# Phonon is effectively dead upstream, its only remaining backend depends
-# on VLC-3. Bug #935797  Removal on 2026-03-26.
-media-libs/phonon
-media-libs/phonon-vlc
-
 # Thomas Beierlein <tomjbe@gentoo.org> (2026-02-14)
 # Move ebuild versioning to classical x.y.z number scheme
 # Should be kept until net-wireless/sdrplay-3.15.2 (dep for coming
 # new version) gets stable.
 >=net-wireless/soapysdrplay-20000000
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-12)
-# Misc Qt5-based libraries without any revdeps left.
-# Removal on 2026-03-14.
-dev-qt/qtlockedfile
-dev-qt/qtsingleapplication
 
 # Sam James <sam@gentoo.org> (2026-02-09)
 # This suite of packages is currently best placed in an overlay/external
@@ -371,31 +333,6 @@ dev-qt/qtsingleapplication
 <=dev-libs/hyprland-protocols-0.6.4
 <=dev-libs/hyprgraphics-0.1.5
 <=gui-wm/hyprland-0.51.1
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-08)
-# Deprecated since Qt 5.5, no more revdeps. Bug #915779
-# Removal on 2026-02-28.
-dev-qt/qtscript:5
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-08)
-# Stuck on Qt5Script in the foreseeable future.  Until a Qt6 release is
-# ready, app-editors/okteta-0.26.60_pre* snapshots will be provided for
-# ~arch, main limitation being the structures tool disabled from build
-# (it requires the biggest, remaining porting effort).  Double-check to
-# backup your data before modifying files with okteta snapshots.
-# If you rely on the structures tool or are affected by a critical bug in
-# our okteta snapshots, the alternative is using the Flatpak version.
-# Bug #962280. Removal some time after 2026-02-15.
-app-editors/okteta:5
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-02-08)
-# Stuck on Qt5/PyQt5 in the foreseeable future.  Until a Qt6 release is
-# ready, krita-6.0.0 pre-releases will be provided for ~arch.
-# If you rely on krita for professional work or plugins only available in
-# krita-5, your options are Flatpak or snap, or downloading upstream's own
-# 64-bit AppImage - see also: https://krita.org/download/
-# Bug #955168. Removal some time after 2026-02-15.
-media-gfx/krita:5
 
 # Arthur Zamarin <arthurzam@gentoo.org> (2026-02-06)
 # Marked as pre-release post release itself. Released without
