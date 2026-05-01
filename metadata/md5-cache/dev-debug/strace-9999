@@ -1,16 +1,16 @@
 BDEPEND=virtual/pkgconfig verify-sig? ( >=sec-keys/openpgp-keys-strace-20251130 ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare test unpack
-DEPEND=static? ( unwind? ( sys-libs/libunwind[static-libs(+)] ) elfutils? ( dev-libs/elfutils[static-libs(+)] ) selinux? ( sys-libs/libselinux[static-libs(+)] ) ) aio? ( >=dev-libs/libaio-0.3.106 )
+DEPEND=static? ( unwind? ( sys-libs/libunwind[static-libs(+)] ) elfutils? ( dev-libs/elfutils[static-libs(+)] ) ncurses? ( sys-libs/ncurses[static-libs(+)] ) selinux? ( sys-libs/libselinux[static-libs(+)] ) ) aio? ( >=dev-libs/libaio-0.3.106 )
 DESCRIPTION=Useful diagnostic, instructional, and debugging tool
 EAPI=8
 HOMEPAGE=https://strace.io/
 INHERIT=autotools edo flag-o-matic toolchain-funcs verify-sig git-r3
-IUSE=aio perl selinux static test unwind elfutils verify-sig
+IUSE=aio ncurses perl selinux static test unwind elfutils verify-sig
 LICENSE=LGPL-2.1+ test? ( GPL-2+ )
 PROPERTIES=live
-RDEPEND=!static? ( unwind? ( sys-libs/libunwind ) elfutils? ( dev-libs/elfutils ) selinux? ( sys-libs/libselinux ) ) perl? ( dev-lang/perl )
+RDEPEND=!static? ( unwind? ( sys-libs/libunwind ) elfutils? ( dev-libs/elfutils ) ncurses? ( sys-libs/ncurses ) selinux? ( sys-libs/libselinux ) ) perl? ( dev-lang/perl )
 REQUIRED_USE=?? ( unwind elfutils )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	edo	a5e294016aa84979fcb2459749eb80b2	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=437acee3d79417002557853371409b4d
+_md5_=a62cf567886c6b70c8990d1b707a1e3f
