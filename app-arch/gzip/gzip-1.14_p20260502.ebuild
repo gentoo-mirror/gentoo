@@ -12,7 +12,8 @@ HOMEPAGE="https://www.gnu.org/software/gzip/"
 if [[ ${PV} == *_p* ]] ; then
 	# Note: could put this in devspace, but if it's gone, we don't want
 	# it in tree anyway. It's just for testing.
-	MY_SNAPSHOT="$(ver_cut 1-2).52-05ea"
+	MY_SNAPSHOT="$(ver_cut 1-2).70-cb0ee"
+
 	SRC_URI="
 		https://meyering.net/gzip/gzip-${MY_SNAPSHOT}.tar.xz -> ${P}.tar.xz
 		verify-sig? (
