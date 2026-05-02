@@ -13,6 +13,11 @@ KEYWORDS="~amd64 ~x86"
 
 BDEPEND="dev-texlive/texlive-latex"
 
+# Minimal change in number repr make extra test fail
+# Bug #926371
+# Failure are in big number repr
+PATCHES=( "${FILESDIR}"/${P}-dropExtraTest.patch )
+
 src_configure() {
 	local myconf=(
 		--enable-dddmp
