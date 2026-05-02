@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit gnome.org gnome2-utils meson xdg
 
 DESCRIPTION="Personal task manager"
-HOMEPAGE="https://wiki.gnome.org/Apps/Todo https://gitlab.gnome.org/World/Endeavour"
+HOMEPAGE="https://gitlab.gnome.org/World/Endeavour"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -27,7 +27,7 @@ RDEPEND="
 	>=gui-libs/gtk-3.92.0:4[introspection?]
 	>=gui-libs/libadwaita-1.2.0:1
 	>=net-libs/gnome-online-accounts-3.2.0:=
-	>=dev-libs/libpeas-1.17:0
+	>=dev-libs/libpeas-1.38:0=
 	>=gnome-extra/evolution-data-server-3.33.2:=[gtk]
 	introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= )
 "
@@ -38,6 +38,11 @@ BDEPEND="
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	"${FILESDIR}/${P}-libpeas-1.38.patch"
+	"${FILESDIR}/${P}-zero-division.patch"
+)
 
 src_configure() {
 	# TODO: There aren't any consumers of the introspection outside gnome-todo's own plugins, so maybe we
