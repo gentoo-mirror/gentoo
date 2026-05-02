@@ -1,17 +1,17 @@
 BDEPEND=dev-build/autoconf-archive virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 virtual/pkgconfig virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
-DEPEND=udev? ( virtual/libudev:= ) lvm? ( dev-libs/libaio >=sys-apps/util-linux-2.24 readline? ( sys-libs/readline:= ) sanlock? ( >=sys-cluster/sanlock-4.0.0 ) systemd? ( >=sys-apps/systemd-234:= ) ) static? ( sys-apps/util-linux[static-libs] lvm? ( dev-libs/libaio[static-libs] readline? ( sys-libs/readline[static-libs] ) ) selinux? ( sys-libs/libselinux[static-libs] ) ) valgrind? ( >=dev-debug/valgrind-3.6 ) xfs? ( sys-fs/xfsprogs )
+DEPEND=udev? ( virtual/libudev:= ) lvm? ( dev-libs/libaio >=sys-apps/util-linux-2.24 readline? ( sys-libs/readline:= ) sanlock? ( >=sys-cluster/sanlock-4.0.0 ) systemd? ( >=sys-apps/systemd-234:= ) vdo? ( >=sys-block/vdo-8.3.2.1 ) ) nvme? ( >=sys-libs/libnvme-1.1 ) static? ( sys-apps/util-linux[static-libs] lvm? ( dev-libs/libaio[static-libs] readline? ( sys-libs/readline[static-libs] ) ) selinux? ( sys-libs/libselinux[static-libs] ) ) valgrind? ( >=dev-debug/valgrind-3.6 ) xfs? ( sys-fs/xfsprogs )
 DESCRIPTION=User-land utilities for LVM2 (device-mapper) software
 EAPI=8
 HOMEPAGE=https://sourceware.org/lvm2/
 INHERIT=autotools linux-info systemd toolchain-funcs tmpfiles udev flag-o-matic git-r3
-IUSE=lvm nvme readline sanlock selinux static static-libs systemd test thin +udev valgrind xfs
+IUSE=lvm nvme readline sanlock selinux static static-libs systemd test thin +udev valgrind vdo xfs
 LICENSE=GPL-2 LGPL-2.1
 PDEPEND=lvm? ( thin? ( >=sys-block/thin-provisioning-tools-1.0.6 ) )
 PROPERTIES=live
-RDEPEND=udev? ( virtual/libudev:= ) lvm? ( dev-libs/libaio >=sys-apps/util-linux-2.24 readline? ( sys-libs/readline:= ) sanlock? ( >=sys-cluster/sanlock-4.0.0 ) systemd? ( >=sys-apps/systemd-234:= ) ) >=sys-apps/baselayout-2.2 lvm? ( virtual/tmpfiles ) nvme? ( >=sys-libs/libnvme-1.1 )
-REQUIRED_USE=static? ( !systemd !udev !nvme ) static-libs? ( static !udev ) systemd? ( udev ) test? ( lvm ) thin? ( lvm )
+RDEPEND=udev? ( virtual/libudev:= ) lvm? ( dev-libs/libaio >=sys-apps/util-linux-2.24 readline? ( sys-libs/readline:= ) sanlock? ( >=sys-cluster/sanlock-4.0.0 ) systemd? ( >=sys-apps/systemd-234:= ) vdo? ( >=sys-block/vdo-8.3.2.1 ) ) nvme? ( >=sys-libs/libnvme-1.1 ) >=sys-apps/baselayout-2.2 lvm? ( virtual/tmpfiles )
+REQUIRED_USE=static? ( !systemd !udev !nvme ) static-libs? ( static !udev ) systemd? ( udev ) test? ( lvm ) thin? ( lvm ) sanlock? ( lvm ) vdo? ( lvm )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	linux-info	efd923656513c879204fec6638eadee5	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	e0b49bcd7a0daea941c0fbe4cb35ff4e	udev	1a23882bb73bc31c64a6f00a5e515f34	flag-o-matic	fd3558f73f6503093adee69adf41020d	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=8e5159a6238780fbd658fe59f870e3f3
+_md5_=516643ef19bf32c79b9c61ac7d4d8eca
