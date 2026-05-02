@@ -31,19 +31,26 @@ BDEPEND="
 	virtual/pkgconfig
 	verify-sig? ( >=sec-keys/openpgp-keys-strace-20251130 )
 "
-LIB_DEPEND="
-	unwind? ( sys-libs/libunwind[static-libs(+)] )
+STATIC_DEPEND="
 	elfutils? ( dev-libs/elfutils[static-libs(+)] )
 	ncurses? ( sys-libs/ncurses[static-libs(+)] )
 	selinux? ( sys-libs/libselinux[static-libs(+)] )
+	unwind? ( sys-libs/libunwind[static-libs(+)] )
+"
+LIB_DEPEND="
+	elfutils? ( dev-libs/elfutils )
+	ncurses? ( sys-libs/ncurses:= )
+	selinux? ( sys-libs/libselinux )
+	unwind? ( sys-libs/libunwind:= )
 "
 # strace only uses the header from libaio to decode structs
 DEPEND="
-	static? ( ${LIB_DEPEND} )
+	static? ( ${STATIC_DEPEND} )
+	!static? ( ${LIB_DEPEND} )
 	aio? ( >=dev-libs/libaio-0.3.106 )
 "
 RDEPEND="
-	!static? ( ${LIB_DEPEND//\[static-libs(+)]} )
+	!static? ( ${LIB_DEPEND} )
 	perl? ( dev-lang/perl )
 "
 
