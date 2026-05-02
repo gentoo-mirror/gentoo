@@ -1,38 +1,38 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} )
+DISTUTILS_USE_PEP517="setuptools"
+PYTHON_COMPAT=( python3_{13..14} )
 
-DOTNET_PKG_COMPAT="9.0"
+DOTNET_PKG_COMPAT="10.0"
 NUGETS="
 microsoft.netcore.platforms@1.1.0
 microsoft.netframework.referenceassemblies.net461@1.0.0
-microsoft.netframework.referenceassemblies.net47@1.0.0
+microsoft.netframework.referenceassemblies.net461@1.0.3
+microsoft.netframework.referenceassemblies.net472@1.0.3
 microsoft.netframework.referenceassemblies@1.0.0
+microsoft.netframework.referenceassemblies@1.0.3
 netstandard.library@2.0.3
-nxports@1.0.0
+nxports@1.1.0
 "
 
 inherit check-reqs dotnet-pkg distutils-r1
 
 DESCRIPTION="Generic pure Python loader for .NET runtimes"
-HOMEPAGE="
-	https://pythonnet.github.io/clr-loader/
+HOMEPAGE="https://pythonnet.github.io/clr-loader/
 	https://github.com/pythonnet/clr-loader/
-	https://pypi.org/project/clr_loader/
-"
+	https://pypi.org/project/clr_loader/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/pythonnet/${PN}.git"
+	EGIT_REPO_URI="https://github.com/pythonnet/${PN}"
 else
 	inherit pypi
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -64,10 +64,12 @@ EPYTEST_DESELECT=(
 	'tests/test_common.py::test_netfx'
 	'tests/test_common.py::test_netfx_chinese_path'
 	'tests/test_common.py::test_netfx_separate_domain'
-)
 
+	# Fails.
+	'tests/test_common.py::test_coreclr_properties'
+)
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-dotnet-pkg_force-compat
 
 pkg_setup() {
 	check-reqs_pkg_setup

@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,17 +26,18 @@ IUSE="+ocamlopt"
 
 RDEPEND="
 	>=sci-mathematics/why3-1.8.0:=
-
-	dev-ml/batteries:=
-	dev-ml/camlp-streams:=
+	>=dev-ml/batteries-3:=
+	>=dev-ml/camlp-streams-5:=
+	>=dev-ml/pcre2-ocaml-8:=
+	>=dev-ml/zarith-1.10:=
 	dev-ml/camlzip:=
 	dev-ml/dune-build-info:=
 	dev-ml/dune-site:=
 	dev-ml/num:=
 	dev-ml/ocaml-inifiles:=
-	dev-ml/pcre2-ocaml:=
+	dev-ml/ocaml-markdown:=
+	dev-ml/tyxml:=
 	dev-ml/yojson:=
-	dev-ml/zarith:=
 "
 DEPEND="
 	${RDEPEND}
