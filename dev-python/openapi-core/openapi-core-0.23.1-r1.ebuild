@@ -18,7 +18,7 @@ HOMEPAGE="
 LICENSE="BSD"
 SLOT="0"
 if [[ ${PV} != *_beta* ]]; then
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 RDEPEND="
@@ -43,6 +43,7 @@ BDEPEND="
 		>=dev-python/aiohttp-3.8.4[${PYTHON_USEDEP}]
 		>=dev-python/aioitertools-0.11.0[${PYTHON_USEDEP}]
 		>=dev-python/django-4.0[${PYTHON_USEDEP}]
+		dev-python/djangorestframework[${PYTHON_USEDEP}]
 		>=dev-python/flask-2.0[${PYTHON_USEDEP}]
 		>=dev-python/httpx-0.24.0[${PYTHON_USEDEP}]
 		dev-python/responses[${PYTHON_USEDEP}]
@@ -59,10 +60,6 @@ EPYTEST_IGNORE=(
 	# missing dependencies
 	tests/integration/contrib/falcon
 	tests/integration/contrib/fastapi
-
-	# these require djangorestframework
-	tests/integration/contrib/django
-	tests/unit/contrib/django
 
 	# TODO: these tests fail to collect
 	tests/integration/validation/test_security_override.py
