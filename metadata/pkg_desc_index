@@ -927,7 +927,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.792.0 1.2.804.0 1.2.814.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.44.58 1.44.63 1.44.68 1.44.73 1.44.78 1.44.81 1.44.86 1.44.87 1.45.0 1.45.1: Universal Command Line Environment for AWS
+app-admin/awscli 1.44.58 1.44.63 1.44.68 1.44.73 1.44.78 1.44.81 1.44.86 1.44.87 1.45.0 1.45.1 1.45.2: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.23.2 2.31.37 2.33.21 2.34.24 2.34.40: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.1.0 2026.2.1: Bitwarden password manager desktop client
@@ -8235,8 +8235,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.42.68 1.42.73 1.42.78 1.42.83 1.42.88 1.42.91 1.42.96 1.42.97 1.43.0 1.43.1: The AWS SDK for Python
-dev-python/botocore 1.42.68 1.42.73 1.42.78 1.42.83 1.42.88 1.42.91 1.42.96 1.42.97 1.43.0 1.43.1: Low-level, data-driven core of boto 3
+dev-python/boto3 1.42.68 1.42.73 1.42.78 1.42.83 1.42.88 1.42.91 1.42.96 1.42.97 1.43.0 1.43.1 1.43.2: The AWS SDK for Python
+dev-python/botocore 1.42.68 1.42.73 1.42.78 1.42.83 1.42.88 1.42.91 1.42.96 1.42.97 1.43.0 1.43.1 1.43.2: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8249,7 +8249,7 @@ dev-python/btrfsutil 6.19.1: Library for managing Btrfs filesystems
 dev-python/build 1.3.0 1.4.4 1.5.0: A simple, correct PEP517 package builder
 dev-python/cachecontrol 0.14.3: httplib2 caching for requests
 dev-python/cachelib 0.13.0 0.13.0-r1: Collection of cache libraries in the same API interface. Extracted from werkzeug
-dev-python/cachetools 7.0.5 7.0.6: Extensible memoizing collections and decorators
+dev-python/cachetools 7.0.5 7.0.6 7.1.0: Extensible memoizing collections and decorators
 dev-python/cairocffi 1.7.1-r1: CFFI-based drop-in replacement for Pycairo
 dev-python/calver 2025.10.20: Setuptools extension for CalVer package versions
 dev-python/cangjie 1.5.0: Python wrapper for libcangjie
@@ -8390,7 +8390,7 @@ dev-python/django-debug-toolbar 6.3.0: A configurable set of panels that display
 dev-python/django-filter 25.2: Django app allowing declarative dynamic QuerySet filtering from URL parameters
 dev-python/django-js-asset 3.1.2: Script tag with additional attributes for django.forms.Media
 dev-python/django-otp 1.7.0: Django framework adding two-factor authentication using one-time passwords
-dev-python/django-polymorphic 4.11.2: Seamless Polymorphic Inheritance for Django Models
+dev-python/django-polymorphic 4.11.2 4.11.3: Seamless Polymorphic Inheritance for Django Models
 dev-python/django-prometheus 2.4.1: Library to export Django metrics for Prometheus
 dev-python/django-redis 6.0.0: Full featured redis cache backend for Django
 dev-python/django-registration 5.2.1: user-registration application for Django
@@ -8656,7 +8656,7 @@ dev-python/jaraco-vcs 2.4.1: Facilities for working with VCS repositories
 dev-python/jaraco-versioning 1.1.0: More sophisticated version manipulation (than packaging)
 dev-python/jc 1.25.6: Converts the output of popular command-line tools and file-types to JSON
 dev-python/jdcal 1.4.1-r1: Julian dates from proleptic Gregorian and Julian calendars
-dev-python/jedi 0.19.2: Autocompletion library for Python
+dev-python/jedi 0.19.2 0.20.0: Autocompletion library for Python
 dev-python/jeepney 0.9.0: Low-level, pure Python DBus protocol wrapper
 dev-python/jellyfish 1.2.1: Python module for doing approximate and phonetic matching of strings
 dev-python/jinja2 3.1.6: A full-featured template engine for Python
@@ -8929,7 +8929,7 @@ dev-python/paramiko 3.5.1 4.0.0-r1: SSH2 protocol library
 dev-python/parse 1.21.1 1.22.0: Parse strings using a specification based on the Python format() syntax
 dev-python/parse-type 0.6.6: Extension to the parse module
 dev-python/parsedatetime 2.6-r1: Parse human-readable date/time strings
-dev-python/parso 0.8.6: A python parser that supports error recovery and round-trip parsing
+dev-python/parso 0.8.6 0.8.7: A python parser that supports error recovery and round-trip parsing
 dev-python/parver 0.5: Parse and manipulate version numbers
 dev-python/passlib 1.7.4-r5 1.9.3: Fork of passlib, a password hashing framework
 dev-python/paste 3.10.1: Tools for using a Web Server Gateway Interface stack
@@ -8997,7 +8997,7 @@ dev-python/pooch 1.8.2 1.9.0: Manage your Python library's sample data files
 dev-python/portalocker 3.2.0: A library for Python file locking
 dev-python/portend 3.2.1: TCP port monitoring utilities
 dev-python/poyo 0.5.0-r1: A lightweight YAML Parser for Python
-dev-python/pplpy 0.8.10-r1: Python bindings for the Parma Polyhedra Library (PPL)
+dev-python/pplpy 0.8.10-r1 0.9.0: Python bindings for the Parma Polyhedra Library (PPL)
 dev-python/precis-i18n 1.1.2: Internationalized Usernames and Passwords
 dev-python/pretend 1.0.9-r2: A library for stubbing in Python
 dev-python/prettytable 3.17.0: Easily displaying tabular data in a visually appealing ASCII table format
@@ -9012,7 +9012,7 @@ dev-python/propcache 0.4.1: Accelerated property cache
 dev-python/proto-plus 1.27.1 1.27.2-r1: Beautiful, Pythonic protocol buffers
 dev-python/protobuf 5.29.5-r1 5.29.6 6.30.2-r1 6.30.2-r2 6.31.1 6.32.0 6.32.1-r1 6.33.2 6.33.3 6.33.4 6.33.5 6.33.6 7.34.0 7.34.1: Google's Protocol Buffers - Python bindings
 dev-python/psutil 7.2.2: Retrieve information on running processes and system utilization
-dev-python/psycopg 2.9.11 2.9.12 3.3.3: PostgreSQL database adapter for Python
+dev-python/psycopg 2.9.11 2.9.12 3.3.3 3.3.4: PostgreSQL database adapter for Python
 dev-python/ptyprocess 0.7.0-r1: Run a subprocess in a pseudo terminal
 dev-python/publicsuffix2 2.20191221-r2: Get a public suffix for a domain name using the Public Suffix List
 dev-python/pudb 2025.1.5: A full-screen, console-based Python debugger
@@ -9122,7 +9122,7 @@ dev-python/pymetar 1.4-r2: Downloads and decodes to the weather report for a giv
 dev-python/pymilter 1.0.7_pre20251111 9999: module to enable python scripts to attach to Sendmail's libmilter API
 dev-python/pymongo 4.13.2 4.16.0 4.17.0: Python driver for MongoDB
 dev-python/pymountboot 0.2.3-r2: Python extension module to (re)mount /boot
-dev-python/pymysql 1.1.2: Pure-Python MySQL Driver
+dev-python/pymysql 1.1.2 1.1.3: Pure-Python MySQL Driver
 dev-python/pynacl 1.6.2: Python binding to the Networking and Cryptography (NaCl) library
 dev-python/pynvim 0.6.0: Python client for Neovim
 dev-python/pyocr 0.8.5: An optical character recognition (OCR) tool wrapper
@@ -9411,7 +9411,7 @@ dev-python/rfc3986-validator 0.1.1-r2: Pure python RFC3986 validator
 dev-python/rfc3987 1.3.8-r3: Parsing and validation of URIs (RFC 3986) and IRIs (RFC 3987)
 dev-python/rfc8785 0.1.4: Pure-Python impl. of RFC 8785 (JSON Canonicalization Scheme)
 dev-python/rich 14.3.3 14.3.4 15.0.0: Python library for rendering rich text, tables, etc. to the terminal
-dev-python/rich-argparse 1.7.2: Rich help formatters for argparse and optparse
+dev-python/rich-argparse 1.7.2 1.8.0: Rich help formatters for argparse and optparse
 dev-python/rich-click 1.9.7: Format click help output nicely with rich
 dev-python/roman 5.2: An Integer to Roman numerals converter
 dev-python/roman-numerals 4.0.0 4.1.0: Manipulate roman numerals
@@ -9489,7 +9489,7 @@ dev-python/simsimd 6.5.16: Fastest SIMD-Accelerated Vector Similarity Functions 
 dev-python/sip 6.15.1 6.15.2 6.15.3: Python bindings generator for C/C++ libraries
 dev-python/siphash24 1.8: Streaming-capable SipHash-1-3 and SipHash-2-4 Implementation
 dev-python/six 1.17.0: Python 2 and 3 compatibility library
-dev-python/slixmpp 1.14.1: Python 3 library for XMPP
+dev-python/slixmpp 1.14.1 1.15.0: Python 3 library for XMPP
 dev-python/smartypants 2.0.2: ASCII quote-dot-dash to HTML entity converter
 dev-python/smbus2 0.6.1: A drop-in replacement for smbus-cffi/smbus-python in pure Python
 dev-python/smmap 6.0.0: A pure Python implementation of a sliding window memory map manager
@@ -15015,7 +15015,7 @@ net-libs/libvncserver 0.9.15-r1: library for creating vnc servers
 net-libs/libwebsockets 4.4.1-r1 4.5.8: A flexible pure-C library for implementing network protocols
 net-libs/libyang 3.12.2: YANG data modeling language library
 net-libs/liquid-dsp 1.7.0 9999: digital signal processing library for software-defined radios
-net-libs/llhttp 9.2.1: Port of http_parser to llparse
+net-libs/llhttp 9.2.1 9.4.1: Port of http_parser to llparse
 net-libs/loudmouth 1.5.4 1.5.4-r1: Lightweight & easy-to-use Jabber library written in C
 net-libs/mbedtls 2.28.10 3.6.4 3.6.5: Cryptographic library for embedded systems
 net-libs/meanwhile 1.1.1: Meanwhile (Sametime protocol) library
@@ -17351,7 +17351,7 @@ sys-auth/libnss-pgsql 1.5.0_beta-r1: Name Service Switch module for use with Pos
 sys-auth/libyubikey 1.13-r1: Yubico C low-level library
 sys-auth/microsoft-identity-broker 3.0.1 3.0.2: Microsoft Authentication Broker to access a corporate environment
 sys-auth/munge 0.5.18: An authentication service for creating and validating credentials
-sys-auth/nss-docker-ng 1.0.7 1.1.3 1.2.0: NSS plugin for finding Docker containers by their ID or name
+sys-auth/nss-docker-ng 1.0.7 1.1.3 1.2.1: NSS plugin for finding Docker containers by their ID or name
 sys-auth/nss-mdns 0.15.1 9999: Name Service Switch module for Multicast DNS
 sys-auth/nss-myhostname 0.3-r1: Name Service Switch module for resolving the local hostname
 sys-auth/nss-pam-ldapd 0.9.13: NSS module for name lookups using LDAP
