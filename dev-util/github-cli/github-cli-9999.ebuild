@@ -25,6 +25,7 @@ SLOT="0"
 RESTRICT="test"
 
 RDEPEND=">=dev-vcs/git-1.7.3"
+BDEPEND=">=dev-lang/go-1.26.1"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-2.92.0-disable-telemetry.patch"
