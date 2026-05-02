@@ -70,7 +70,10 @@ RDEPEND="
 	policykit? ( sys-auth/polkit )
 "
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+REQUIRED_USE="
+	${PYTHON_REQUIRED_USE}
+	|| ( hpcups hpijs )
+"
 
 PATCHES=(
 	"${WORKDIR}/patches"
@@ -95,15 +98,9 @@ pkg_setup() {
 
 	if use minimal ; then
 		ewarn "Installing driver portions only, make sure you know what you are doing."
-		ewarn "Depending on the USE flags set for hpcups or hpijs the appropiate driver"
+		ewarn "Depending on the USE flags set for hpcups or hpijs the appropriate driver"
 		ewarn "is installed. If both USE flags are set hpijs overrides hpcups."
 		ewarn "This also disables fax, network and scanner support!"
-	fi
-
-	if ! use hpcups && ! use hpijs ; then
-		ewarn "Installing neither hpcups (USE=-hpcups) nor hpijs (USE=-hpijs) driver,"
-		ewarn "which is probably not what you want."
-		ewarn "You will almost certainly not be able to print."
 	fi
 
 	if has_version "<=net-print/hplip-3.25.8[qt5]" ; then
