@@ -35,6 +35,10 @@ REQUIRED_USE="
 "
 RESTRICT="!test? ( test )"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-vectorcall-assert.patch
+)
+
 # dlopen: fontconfig,libglvnd
 RDEPEND="
 	${PYTHON_DEPS}
