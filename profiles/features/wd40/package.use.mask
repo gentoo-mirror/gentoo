@@ -1,6 +1,11 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Michał Górny <mgorny@gentoo.org> (2025-05-02)
+# dev-python/cbor2 has been RIIR-ed, and the fallback Python
+# implementation was removed at the same time.  Cover its revdeps.
+sys-apps/fwupd uefi
+
 # Ionen Wolkens <ionen@gentoo.org> (2026-03-22)
 # app-text/mdbook is written in rust
 >=dev-libs/wayland-1.25.0 doc
