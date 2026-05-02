@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
 
 inherit distutils-r1 pypi
 
-DESCRIPTION="A patch parsing and application library."
+DESCRIPTION="A patch parsing and application library"
 HOMEPAGE="
 	https://github.com/cscorley/whatthepatch/
 	https://pypi.org/project/whatthepatch/

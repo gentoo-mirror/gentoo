@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="WebM is an open, royalty-free, media file format designed for the web."
+DESCRIPTION="WebM is an open, royalty-free, media file format designed for the web"
 HOMEPAGE="https://chromium.googlesource.com/webm/libwebm"
 
 PATCHES=(

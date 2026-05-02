@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
-DESCRIPTION="Mapbox Vector Tile encoding and decoding."
+DESCRIPTION="Mapbox Vector Tile encoding and decoding"
 HOMEPAGE="
 	https://github.com/tilezen/mapbox-vector-tile/
 	https://pypi.org/project/mapbox-vector-tile/

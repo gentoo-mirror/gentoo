@@ -162,7 +162,7 @@ CRATES="
 
 inherit cargo prefix sysroot
 
-DESCRIPTION="Bear is a tool that generates a compilation database for clang tooling."
+DESCRIPTION="A tool that generates a compilation database for clang tooling"
 HOMEPAGE="https://github.com/rizsotto/Bear"
 SRC_URI="
 	https://github.com/rizsotto/Bear/archive/${PV}.tar.gz -> ${P}.tar.gz

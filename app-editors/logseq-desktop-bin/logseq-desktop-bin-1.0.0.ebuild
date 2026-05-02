@@ -11,7 +11,7 @@ CHROMIUM_LANGS="
 
 inherit chromium-2 desktop unpacker xdg
 
-DESCRIPTION="A privacy-first, open-source platform for knowledge sharing and management."
+DESCRIPTION="A privacy-first, open-source platform for knowledge sharing and management"
 HOMEPAGE="https://github.com/logseq"
 SRC_URI="https://github.com/logseq/og/releases/download/${PV}/Logseq-OG-linux-x64-${PV}.zip -> ${P}.zip"
 S="${WORKDIR}/Logseq-OG-linux-x64"

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="Userspace tools for managing VDO volumes."
+DESCRIPTION="Userspace tools for managing VDO volumes"
 HOMEPAGE="https://github.com/dm-vdo/vdo"
 SRC_URI="https://github.com/dm-vdo/vdo/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 

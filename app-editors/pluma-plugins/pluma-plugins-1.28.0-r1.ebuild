@@ -13,7 +13,7 @@ if [[ ${PV} != 9999 ]]; then
 	KEYWORDS="~amd64 ~x86"
 fi
 
-DESCRIPTION="A set of plugins for Pluma, the MATE text editor."
+DESCRIPTION="A set of plugins for Pluma, the MATE text editor"
 LICENSE="FDL-1.1+ GPL-2+ LGPL-2+"
 SLOT="0"
 

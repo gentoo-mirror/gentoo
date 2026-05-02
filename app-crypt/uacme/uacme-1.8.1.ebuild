@@ -4,7 +4,7 @@
 EAPI=8
 inherit autotools
 
-DESCRIPTION="uacme is a client for the RFC8555 ACMEv2 protocol."
+DESCRIPTION="A client for the RFC8555 ACMEv2 protocol"
 HOMEPAGE="
 	https://github.com/ndilieto/uacme
 	https://ndilieto.github.io/uacme/uacme.html
