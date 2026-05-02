@@ -1,7 +1,7 @@
 BDEPEND=test? ( dev-gap/gapdoc dev-gap/primgrp dev-gap/smallgrp dev-gap/transgrp )
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=dev-libs/gmp:= virtual/zlib:= valgrind? ( dev-debug/valgrind ) readline? ( sys-libs/readline:= )
-DESCRIPTION=System for computational discrete algebra. Core functionality.
+DESCRIPTION=System for computational discrete algebra. Core functionality
 EAPI=8
 HOMEPAGE=https://www.gap-system.org/
 INHERIT=estack
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0/9voidptr
 SRC_URI=https://github.com/gap-system/gap/releases/download/v4.14.0/gap-4.14.0-core.tar.gz
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804
-_md5_=f99ba4677960a3cdb97a2154f9e75495
+_md5_=344d1ad6c0156931f440ebd858977cbe
