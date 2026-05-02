@@ -1,9 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit systemd tmpfiles toolchain-funcs
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/proftpd.asc
+inherit flag-o-matic systemd tmpfiles toolchain-funcs verify-sig
 
 MOD_CASE="0.9.1"
 MOD_CLAMAV="0.14rc2"
@@ -21,18 +22,24 @@ HOMEPAGE="
 "
 SRC_URI="
 	ftp://ftp.proftpd.org/distrib/source/${P/_/}.tar.gz
-	case? ( https://github.com/Castaglia/${PN}-mod_case/archive/v${MOD_CASE}.tar.gz -> mod_case-${MOD_CASE}.tar.gz )
-	clamav? ( https://github.com/jbenden/mod_clamav/archive/v${MOD_CLAMAV}.tar.gz -> ${PN}-mod_clamav-${MOD_CLAMAV}.tar.gz )
-	diskuse? ( https://github.com/Castaglia/${PN}-mod_diskuse/archive/v${MOD_DISKUSE}.tar.gz -> mod_diskuse-${MOD_DISKUSE}.tar.gz )
+	case? ( https://github.com/Castaglia/${PN}-mod_case/archive/v${MOD_CASE}.tar.gz
+			-> mod_case-${MOD_CASE}.tar.gz )
+	clamav? ( https://github.com/jbenden/mod_clamav/archive/v${MOD_CLAMAV}.tar.gz
+			-> ${PN}-mod_clamav-${MOD_CLAMAV}.tar.gz )
+	diskuse? ( https://github.com/Castaglia/${PN}-mod_diskuse/archive/v${MOD_DISKUSE}.tar.gz
+			-> mod_diskuse-${MOD_DISKUSE}.tar.gz )
 	kerberos? ( https://downloads.sourceforge.net/gssmod/mod_gss-${MOD_GSS}.tar.gz )
-	msg? ( https://github.com/Castaglia/${PN}-mod_msg/archive/v${MOD_MSG}.tar.gz -> mod_msg-${MOD_MSG}.tar.gz )
-	vroot? ( https://github.com/Castaglia/${PN}-mod_vroot/archive/v${MOD_VROOT}.tar.gz -> mod_vroot-${MOD_VROOT}.tar.gz )
+	msg? ( https://github.com/Castaglia/${PN}-mod_msg/archive/v${MOD_MSG}.tar.gz
+			-> mod_msg-${MOD_MSG}.tar.gz )
+	vroot? ( https://github.com/Castaglia/${PN}-mod_vroot/archive/v${MOD_VROOT}.tar.gz
+			-> mod_vroot-${MOD_VROOT}.tar.gz )
+	verify-sig? ( ftp://ftp.proftpd.org/distrib/source/${P/_/}.tar.gz.asc )
 "
 S="${WORKDIR}/${P/_/}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="acl authfile ban +caps case clamav copy ctrls deflate diskuse dso dynmasq exec ifsession ifversion ident
 	kerberos ldap log-forensic memcache msg mysql ncurses nls pam +pcre postgres qos radius
 	ratio readme rewrite selinux sftp shaper sitemisc snmp sodium softquota sqlite ssl tcpd test unique-id vroot"
@@ -42,32 +49,50 @@ RESTRICT="test"
 REQUIRED_USE="
 	ban? ( ctrls )
 	msg? ( ctrls )
-	sftp? ( ssl )
 	shaper? ( ctrls )
 
 	mysql? ( ssl )
 	postgres? ( ssl )
+	radius? ( ssl )
+	sftp? ( ssl )
 	sqlite? ( ssl )
 "
 
 COMMON_DEPEND="
 	virtual/libcrypt:=
-	net-dns/libidn:0=
 	acl? ( virtual/acl )
 	caps? ( sys-libs/libcap )
-	clamav? ( app-antivirus/clamav )
-	kerberos? ( virtual/krb5 )
+	deflate? ( virtual/zlib:= )
+	kerberos? (
+		sys-fs/e2fsprogs
+		virtual/krb5
+	)
 	ldap? ( net-nds/openldap:= )
-	memcache? ( >=dev-libs/libmemcached-0.41 )
-	mysql? ( dev-db/mysql-connector-c:0= )
+	memcache? (
+		|| (
+			dev-libs/libmemcached-awesome
+			>=dev-libs/libmemcached-0.41
+		)
+	)
+	mysql? (
+		dev-db/mysql-connector-c:0=
+		sodium? ( dev-libs/libsodium:0= )
+	)
 	nls? ( virtual/libiconv )
 	ncurses? ( sys-libs/ncurses:0= )
 	ssl? ( dev-libs/openssl:0= )
 	pam? ( sys-libs/pam )
-	pcre? ( dev-libs/libpcre )
-	postgres? ( dev-db/postgresql:= )
-	sodium? ( dev-libs/libsodium:0= )
-	sqlite? ( dev-db/sqlite:3 )
+	pcre? ( dev-libs/libpcre2:= )
+	postgres? (
+		dev-db/postgresql:=
+		sodium? ( dev-libs/libsodium:0= )
+	)
+	rewrite? ( net-dns/libidn2:= )
+	sftp? ( virtual/zlib:= )
+	sqlite? (
+		dev-db/sqlite:3
+		sodium? ( dev-libs/libsodium:0= )
+	)
 "
 DEPEND="
 	${COMMON_DEPEND}
@@ -76,11 +101,18 @@ DEPEND="
 RDEPEND="
 	${COMMON_DEPEND}
 	net-ftp/ftpbase
+	clamav? ( app-antivirus/clamav )
 	selinux? ( sec-policy/selinux-ftp )
+"
+BDEPEND="
+	verify-sig? ( sec-keys/openpgp-keys-proftpd )
 "
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.3.6-use-trace.patch
+	"${FILESDIR}"/${PN}-1.3.9-sftp_ssl-3.0.patch
+
+	# merged in 1.3.10
 	# https://bugs.gentoo.org/953968
 	"${FILESDIR}"/${PN}-1.3.9-slibtool.patch
 )
@@ -102,6 +134,11 @@ in_dir() {
 	shift
 	"$@"
 	popd
+}
+
+src_unpack() {
+	use verify-sig && verify-sig_verify_detached "${DISTDIR}"/${P/_/}.tar.gz{,.asc}
+	default
 }
 
 src_prepare() {
@@ -142,17 +179,8 @@ src_prepare() {
 	fi
 
 	if use kerberos ; then
-		# in_dir mod_gss-${MOD_GSS} eapply "${FILESDIR}"/${PN}-1.3.6_rc4-gss-refresh-api.patch
 		in_dir mod_gss-${MOD_GSS} eapply "${FILESDIR}"/${PN}-1.3.9-gss-refresh-api.patch
-
-		# Support app-crypt/heimdal / Gentoo Bug #284853
-		sed -i -e "s/krb5_principal2principalname/_\0/" "${WORKDIR}"/mod_gss-${MOD_GSS}/mod_auth_gss.c.in || die
-
-		# Remove obsolete DES / Gentoo Bug #324903
-		# Replace 'rpm' lookups / Gentoo Bug #391021
-		sed -i -e "/ac_gss_libs/s/ -ldes425//" \
-			-e "s/ac_libdir=\`rpm -q -l.*$/ac_libdir=\/usr\/$(get_libdir)\//" \
-			-e "s/ac_includedir=\`rpm -q -l.*$/ac_includedir=\/usr\/include\//" "${WORKDIR}"/mod_gss-${MOD_GSS}/configure{,.ac}  || die
+		in_dir mod_gss-${MOD_GSS} eapply "${FILESDIR}"/${PN}-1.3.9-fix_heimdal.patch
 
 		# ./configure will modify files. Symlink them instead of copying
 		ln -sv "${WORKDIR}"/mod_gss-${MOD_GSS}/mod_auth_gss.c "${S}"/contrib || die
@@ -170,6 +198,10 @@ src_prepare() {
 }
 
 src_configure() {
+	# -Werror=lto-type-mismatch #969611
+	# https://github.com/proftpd/proftpd/issues/2032
+	use dso && filter-lto
+
 	local c m
 
 	use acl && m="${m}:mod_facl"
@@ -188,7 +220,7 @@ src_configure() {
 	use ifsession && m="${m}:mod_ifsession"
 	use ifversion && m="${m}:mod_ifversion"
 	if use kerberos ; then
-		in_dir mod_gss-${MOD_GSS} econf
+		in_dir mod_gss-${MOD_GSS} econf --with-krb5-config="${EPREFIX}/usr/bin/krb5-config"
 		m="${m}:mod_gss:mod_auth_gss"
 	fi
 	use ldap && m="${m}:mod_ldap"
@@ -253,7 +285,7 @@ src_configure() {
 		$(use_enable nls)
 		$(use_enable ssl openssl)
 		$(use_enable pam auth-pam)
-		$(use_enable pcre)
+		$(use_enable pcre pcre2)
 		$(use_enable sodium)
 		$(use_enable test tests)
 		--enable-trace

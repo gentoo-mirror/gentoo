@@ -6,7 +6,7 @@ EAPI=8
 inherit acct-user
 
 DESCRIPTION="User for GDM greeter specialized for elogind"
-ACCT_USER_ID=558
+ACCT_USER_ID=272
 ACCT_USER_GROUPS=( gdm )
 ACCT_USER_HOME=/var/lib/gdm-greeter
 
