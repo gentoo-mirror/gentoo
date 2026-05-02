@@ -1,4 +1,4 @@
-Title: Python 3.13 stanie się domyślną wersją począwszy od 2026-06-01
+Title: Python 3.14 stanie się domyślną wersją począwszy od 2026-06-01
 Author: Michał Górny <mgorny@gentoo.org>
 Translator: Michał Górny <mgorny@gentoo.org>
 Posted: 2026-04-16
@@ -9,7 +9,7 @@ Display-If-Installed: dev-lang/python:3.11
 Display-If-Installed: dev-lang/python:3.12
 Display-If-Installed: dev-lang/python:3.13
 
-Gentoo planuje zmienić domyślną wersję Pythona z 3.13 na 3.13 w dniu
+Gentoo planuje zmienić domyślną wersję Pythona z 3.13 na 3.14 w dniu
 1. czerwca 2026 r.  Użytkownicy, którzy nie zmieniali wartości flag
 PYTHON_TARGETS oraz PYTHON_SINGLE_TARGET nie muszą nic robić.  Menadżer
 pakietów automatycznie zaktualizuje wsparcie Pythona do nowej wersji
@@ -78,7 +78,7 @@ konieczna.
 
 Wymuszenie aktualizacji
 =======================
-Aby wymusić aktualizację wcześniej, należy wybrać Pythona 3.13:
+Aby wymusić aktualizację wcześniej, należy wybrać Pythona 3.14:
 
     */* PYTHON_TARGETS: -* python3_14
     */* PYTHON_SINGLE_TARGET: -* python3_14
@@ -91,7 +91,7 @@ Pythona.
 Bezpieczna procedura aktualizacji
 =================================
 Bezpieczniejszą alternatywą do standardowego procesu jest wprowadzenie
-wsparcia Pythona 3.13 w pierwszym kroku, a następnie usunięcie Pythona
+wsparcia Pythona 3.14 w pierwszym kroku, a następnie usunięcie Pythona
 3.13.  Należy jednak pamiętać, że będzie wymagało to dwukrotnego
 przebudowania wszystkich pakietów używających Pythona, tak więc łączny
 czas aktualizacji zostanie wydłużony.
