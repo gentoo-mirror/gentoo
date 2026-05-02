@@ -576,7 +576,7 @@ acct-user/ftpproxy 0-r2: A user for net-ftp/frox
 acct-user/gatling 0-r3: System user: gatling
 acct-user/gauth 0-r2: A user for sys-auth/google-authenticator-wrappers
 acct-user/gdm 0-r2: User for running GDM
-acct-user/gdm-greeter 0: User for GDM greeter specialized for elogind
+acct-user/gdm-greeter 1: User for GDM greeter specialized for elogind
 acct-user/geneweb 0-r3: user id for geneweb daemon
 acct-user/geoclue 0-r2: User for running the GeoClue D-Bus geolocation service
 acct-user/gerbera 0-r3: Gerbera UPnP Media Server user
@@ -1034,7 +1034,7 @@ app-admin/ocsinventory-agent 2.10.0: Hardware and software inventory tool (clien
 app-admin/op-cli-bin 2.23.0: command line interface for the 1password password manager
 app-admin/openrc-settingsd 1.4.0-r1 1.5.0: System settings D-Bus service for OpenRC
 app-admin/opentofu 1.8.8 1.9.0 1.9.1 1.10.6: The open source infrastructure as code tool
-app-admin/pass 1.7.4-r2 1.7.4-r4 1.7.4-r5 9999: Stores, retrieves, generates, and synchronizes passwords securely
+app-admin/pass 1.7.4-r5 9999: Stores, retrieves, generates, and synchronizes passwords securely
 app-admin/pass-import 3.5-r1: pass extension for importing data from most existing password managers
 app-admin/pass-otp 1.2.0-r3: A pass extension for managing one-time-password (OTP) tokens
 app-admin/pass-update 2.2.1-r1: pass extension that provides an easy flow for updating passwords
@@ -2923,7 +2923,7 @@ app-misc/siegfried 1.11.4: Signature-based file format identification
 app-misc/skim 0.20.5 1.5.1 1.9.1 2.0.2 4.6.0: Command-line fuzzy finder
 app-misc/sl 5.02-r1: Sophisticated graphical program which corrects your miss typing
 app-misc/smtm 1.6.10-r2: Stock ticker, profit/loss calculator and chart tool
-app-misc/socnetv 3.2: Qt Social Network Visualizer
+app-misc/socnetv 3.2 3.4: Qt Social Network Visualizer
 app-misc/solaar 1.1.14-r1 1.1.16 1.1.18 1.1.19 9999: Linux Device Manager for Logitech Unifying Receivers and Paired Devices
 app-misc/sonypid 1.9.1: Tool to use the Sony Vaios jog-dial as a mouse-wheel
 app-misc/spacenavd 1.2 1.3 1.3-r1 1.3.1: The spacenavd daemon provides free alternative to the 3dxserv daemon
@@ -4007,7 +4007,7 @@ dev-db/mariadb-connector-c 3.3.8 3.3.15 3.3.17 3.4.5-r1 3.4.7 9999: C client lib
 dev-db/mariadb-connector-odbc 3.1.18 3.2.7-r1 3.2.8: MariaDB Connector/ODBC
 dev-db/mongodb 5.0.32 6.0.27 7.0.28 8.0.8 8.0.12: A high-performance, open source, schema-free document-oriented database
 dev-db/mongodb-compass-bin 1.49.2 1.49.4: GUI for MongoDB
-dev-db/mycli 1.65.0 1.70.0: CLI for MySQL Database with auto-completion and syntax highlighting
+dev-db/mycli 1.65.0 1.70.0 1.71.0: CLI for MySQL Database with auto-completion and syntax highlighting
 dev-db/mydumper 0.20.1.2 0.21.2.2 0.21.3.1: A high-performance multi-threaded backup (and restore) toolset for MySQL
 dev-db/myodbc 8.0.32: ODBC driver for MySQL
 dev-db/mysql 8.0.44 8.0.45 8.0.46 8.4.8 8.4.9: Fast, multi-threaded, multi-user SQL database server
@@ -13514,7 +13514,7 @@ media-libs/openfec 1.4.2.12: Library of various AL-FEC codecs
 media-libs/openglide 0.09_rc9_p20191120: Glide to OpenGL wrapper
 media-libs/openh264 2.3.1-r3 2.6.0: Cisco OpenH264 library and Gecko Media Plugin for Mozilla packages
 media-libs/openimageio 2.5.18.0 2.5.19.0 2.5.19.1 3.0.6.1 3.0.8.1 3.0.8.1-r1 3.0.8.1-r2 3.0.11.0 3.1.7.0-r1 9999: A library for reading and writing images
-media-libs/openjpeg 2.5.3-r1 2.5.4 2.5.4-r1: Open-source JPEG 2000 library
+media-libs/openjpeg 2.5.4-r1: Open-source JPEG 2000 library
 media-libs/openpgl 0.5.0-r1 0.6.0 0.7.0: Intel Open Path Guiding Library
 media-libs/opensubdiv 3.6.0-r4 3.6.1: An Open-Source subdivision surface library
 media-libs/opentimelineio 0.17.0 0.18.1: Open Source API and interchange format for editorial timeline information
@@ -14788,7 +14788,7 @@ net-ftp/gftp 2.9.1b 2.9.1b-r1: a free multithreaded file transfer client
 net-ftp/lftp 4.9.3 9999: A sophisticated ftp/sftp/http/https/torrent client and file transfer program
 net-ftp/linksys-tftp 1.2.1-r4: TFTP client suitable for uploading to the Linksys WRT54G Wireless Router
 net-ftp/ncftp 3.3.0: An extremely configurable ftp client
-net-ftp/proftpd 1.3.8b-r1 1.3.9-r1 1.3.9-r2 1.3.9-r3: An advanced and very configurable FTP server
+net-ftp/proftpd 1.3.9-r3 1.3.9a: An advanced and very configurable FTP server
 net-ftp/pure-ftpd 1.0.53 1.0.54 9999: Fast, production-quality, standard-conformant FTP server
 net-ftp/pureadmin 0.4-r3: GUI tool used to make the management of Pure-FTPd a little easier
 net-ftp/tftp-hpa 5.2-r4: Port of the OpenBSD TFTP server
@@ -15006,7 +15006,7 @@ net-libs/libssh2 1.11.1 9999: Library implementing the SSH2 protocol
 net-libs/libtelnet 0.23-r2: Simple RFC-compliant TELNET implementation as a C library
 net-libs/libtirpc 1.3.6 1.3.7 1.3.7-r2: Transport Independent RPC library (SunRPC replacement)
 net-libs/libtlsrpt 0.5.0 9999: library to implement TLSRPT
-net-libs/libtorrent 0.15.7 0.16.8 0.16.9 9999: BitTorrent library written in C++ for *nix
+net-libs/libtorrent 0.15.7 0.16.8 0.16.9 0.16.11 9999: BitTorrent library written in C++ for *nix
 net-libs/libtorrent-rasterbar 2.0.10: C++ BitTorrent implementation focusing on efficiency and scalability
 net-libs/libtrace 4.0.21 4.0.22 4.0.26 4.0.28: A library and tools for trace processing
 net-libs/libupnp 1.14.24 1.14.25 1.14.30 1.14.31 1.18.5: An Portable Open Source UPnP Development Kit
@@ -15525,7 +15525,7 @@ net-p2p/ncdc 1.25: Lightweight direct connect client with a friendly ncurses int
 net-p2p/nicotine+ 3.3.7 3.3.10: Graphical client for the Soulseek peer to peer network written in Python
 net-p2p/qbittorrent 5.0.5-r1 5.1.2-r1 5.1.4 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.8.1.1390 3.1.1.1075 9999: Resilient, fast and scalable file synchronization tool
-net-p2p/rtorrent 0.15.7 0.16.8 0.16.9 9999: BitTorrent Client using libtorrent
+net-p2p/rtorrent 0.15.7 0.16.8 0.16.9 0.16.11 9999: BitTorrent Client using libtorrent
 net-p2p/stig 0.14.0a_p0 0.14.2a_p0: TUI and CLI for the BitTorrent client Transmission
 net-p2p/syncthing 1.29.5 2.0.10 2.0.14 2.0.15 2.0.16: Open Source Continuous File Synchronization
 net-p2p/torrentinfo 1.8.7: A torrent file parser
@@ -18041,7 +18041,7 @@ virtual/perl-ExtUtils-CBuilder 0.280.240 0.280.242-r2: Virtual for ExtUtils-CBui
 virtual/perl-ExtUtils-MakeMaker 7.700.0-r1 7.760.0: Virtual for ExtUtils-MakeMaker
 virtual/perl-ExtUtils-ParseXS 3.510.0-r1 3.570.0: Virtual for ExtUtils-ParseXS
 virtual/perl-File-Path 2.180.0-r4: Virtual for File-Path
-virtual/perl-File-Spec 3.900.0-r1 3.910.0 3.910.0-r1 3.940.0: Virtual for File-Spec
+virtual/perl-File-Spec 3.910.0-r1 3.940.0: Virtual for File-Spec
 virtual/perl-File-Temp 0.231.100-r1: Virtual for File-Temp
 virtual/perl-Getopt-Long 2.570.0-r1 2.580.0-r1: Virtual for Getopt-Long
 virtual/perl-HTTP-Tiny 0.88.0 0.90.0: Virtual for HTTP-Tiny
@@ -18056,7 +18056,7 @@ virtual/perl-Math-BigInt 2.3.2 2.5.2: Virtual for Math-BigInt
 virtual/perl-Math-BigInt-FastCalc 0.501.800 0.502.0: Virtual for Math-BigInt-FastCalc
 virtual/perl-Math-BigRat 2.3.2 2.5.2: Virtual for Math-BigRat
 virtual/perl-Math-Complex 1.620.0-r1 1.630.0: Virtual for Math-Complex
-virtual/perl-Module-CoreList 5.202.406.90 5.202.501.184_rc-r1 5.202.504.134_rc 5.202.507.20-r2: Virtual for Module-CoreList
+virtual/perl-Module-CoreList 5.202.504.134_rc 5.202.507.20-r2: Virtual for Module-CoreList
 virtual/perl-Module-Load 0.360.0-r5: Virtual for Module-Load
 virtual/perl-Module-Load-Conditional 0.740.0-r4: Virtual for Module-Load-Conditional
 virtual/perl-Module-Metadata 1.0.38-r1: Virtual for Module-Metadata
