@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -159,5 +159,6 @@ src_install() {
 }
 
 pkg_postinst() {
+	xdg_pkg_postinst
 	use server && optfeature "dbus support" sys-apps/dbus
 }
