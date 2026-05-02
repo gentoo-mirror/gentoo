@@ -8,7 +8,7 @@ inherit desktop dot-a eapi9-pipestatus eapi9-ver flag-o-matic linux-mod-r1
 inherit readme.gentoo-r1 systemd toolchain-funcs unpacker user-info
 
 MODULES_KERNEL_MAX=7.0
-NV_PIN=595.58.03
+NV_PIN=595.71.05
 
 DESCRIPTION="NVIDIA Accelerated Graphics Driver"
 HOMEPAGE="https://developer.nvidia.com/vulkan-driver/"
@@ -225,12 +225,6 @@ src_compile() {
 			# TODO?: it should be ok/better for tc-arch-kernel to do x86_64
 			$(usev amd64 ARCH=x86_64)
 		)
-
-		# the awk-based pahole wrapper is broken with >=7.0, and is thankfully
-		# not needed given we pass -g0 above -- skip until this branch gets the
-		# new shell-based pahole.sh
-		kernel_is -ge 7 && linux_chkconfig_present DEBUG_INFO_BTF_MODULES &&
-			modargs+=( PAHOLE_VARIABLES= )
 
 		# temporary workaround for bug #914468
 		addpredict "${KV_OUT_DIR}"
