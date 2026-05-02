@@ -5,7 +5,7 @@ EAPI=8
 GNOME2_LA_PUNT="yes"
 GNOME2_EAUTORECONF="yes"
 
-inherit gnome2 autotools
+inherit gnome2
 
 DESCRIPTION="Genius Mathematics Tool and the GEL Language"
 HOMEPAGE="https://www.jirka.org/genius.html"
@@ -46,11 +46,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-1.0.24-no_scrollkeeper.patch"
 	"${FILESDIR}/${P}-disableGnomeIf.patch"
 )
-
-src_prepare() {
-	default
-	eautoreconf
-}
 
 src_configure() {
 	gnome2_src_configure \
