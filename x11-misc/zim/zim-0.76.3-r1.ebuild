@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,6 +21,7 @@ S=${WORKDIR}/${PN}-desktop-wiki-${PV/_/-}
 LICENSE="BSD GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~riscv ~x86"
+IUSE="ubuntu-mono"
 
 RDEPEND="
 	$(python_gen_cond_dep '
@@ -32,10 +33,14 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=( "${FILESDIR}"/${P}-pygobject.patch )
 DOCS=( CHANGELOG.md CONTRIBUTING.md PLUGIN_WRITING.md README.md )
-PATCHES=( "${FILESDIR}"/${PN}-0.60-remove-ubuntu-theme.patch )
 
 python_prepare_all() {
+	if ! use ubuntu-mono; then
+		PATCHES+=( "${FILESDIR}"/${PN}-0.60-remove-ubuntu-theme.patch )
+	fi
+
 	if [[ ${LINGUAS} ]]; then
 		local lingua
 		for lingua in translations/*.po; do
@@ -51,7 +56,7 @@ python_prepare_all() {
 }
 
 python_compile() {
-	sed -e "s#./build#${BUILD_DIR}/build#" -i setup.py || die
+	sed -e "s#./build#${BUILD_DIR}/build*#" -i setup.py || die
 
 	distutils-r1_python_compile
 }
