@@ -11,7 +11,7 @@ SRC_URI="https://downloads.sourceforge.net/project/dar/dar/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ppc ~sparc x86"
+KEYWORDS="~amd64 ~ppc ~sparc ~x86"
 IUSE="argon2 curl dar32 dar64 doc gcrypt gpg lz4 lzo nls rsync sftp whirlpool xattr"
 
 REQUIRED_USE="
@@ -34,10 +34,7 @@ RDEPEND="
 		dev-libs/libgcrypt:0=
 		dev-libs/libgpg-error
 	)
-	gpg? (
-		app-crypt/gpgme:=
-		dev-libs/libassuan:=
-	)
+	gpg? ( app-crypt/gpgme:= )
 	lz4? ( app-arch/lz4:= )
 	lzo? ( dev-libs/lzo:2 )
 	nls? ( virtual/libintl )
