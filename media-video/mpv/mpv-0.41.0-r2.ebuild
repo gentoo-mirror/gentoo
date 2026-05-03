@@ -46,7 +46,7 @@ RESTRICT="!test? ( test )"
 COMMON_DEPEND="
 	media-libs/libass:=[fontconfig]
 	>=media-libs/libplacebo-7.349.0:=[vulkan?]
-	>=media-video/ffmpeg-6.1:=[encode(+),soc(-)?,threads(+),vaapi?,vdpau?]
+	>=media-video/ffmpeg-6.1:=[encode(+),threads(+),vaapi?,vdpau?]
 	X? (
 		x11-libs/libX11
 		x11-libs/libXScrnSaver
@@ -91,6 +91,7 @@ COMMON_DEPEND="
 	sdl? ( media-libs/libsdl2[sound,threads(+),video] )
 	sixel? ( media-libs/libsixel )
 	sndio? ( media-sound/sndio:= )
+	soc? ( >=media-video/ffmpeg-8.1:=[soc(-)] )
 	vaapi? ( media-libs/libva:=[X?,drm(+)?,wayland?] )
 	vdpau? (
 		media-libs/libglvnd[X]
