@@ -94,7 +94,7 @@ src_configure() {
 	fi
 
 	# Workaround for bug #963337 (gcc PR122058)
-	tc-is-gcc && [[ $(gcc-major-version) -eq 16 ]] && append-cxxflags -fno-devirtualize-speculatively
+	tc-is-gcc && [[ $(gcc-major-version) -ge 16 ]] && append-cxxflags -fno-devirtualize-speculatively
 
 	multilib-minimal_src_configure
 }
