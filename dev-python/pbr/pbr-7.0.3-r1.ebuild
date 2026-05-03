@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -21,7 +21,17 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
 
+# importlib-resources/pkg-resources: _compat/metadata.py
+# packaging/pkg-resources: _compat/packaging.py
 RDEPEND="
+	|| (
+		dev-python/importlib-resources[${PYTHON_USEDEP}]
+		dev-python/pkg-resources[${PYTHON_USEDEP}]
+	)
+	|| (
+		>=dev-python/packaging-20.0[${PYTHON_USEDEP}]
+		dev-python/pkg-resources[${PYTHON_USEDEP}]
+	)
 	>=dev-python/setuptools-64.0.0[${PYTHON_USEDEP}]
 "
 
@@ -35,7 +45,6 @@ BDEPEND="
 		$(python_gen_cond_dep '
 			>=dev-python/wheel-0.32.0[${PYTHON_USEDEP}]
 			>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
-			>=dev-python/packaging-20.0[${PYTHON_USEDEP}]
 			>=dev-python/testresources-2.0.0[${PYTHON_USEDEP}]
 			>=dev-python/testscenarios-0.4[${PYTHON_USEDEP}]
 			>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
