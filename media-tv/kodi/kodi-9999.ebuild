@@ -15,11 +15,11 @@ LIBDVDNAV_VERSION="6.1.1-Next-Nexus-Alpha2-2"
 FFMPEG_VERSION="8.1"
 
 # Java bundles from xbmc/interfaces/swig/CMakeLists.txt
-GROOVY_VERSION="4.0.26"
-APACHE_COMMON_LANG_VERSION="3.17.0"
-APACHE_COMMON_TEXT_VERSION="1.13.0"
+GROOVY_VERSION="4.0.30"
+APACHE_COMMON_LANG_VERSION="3.20.0"
+APACHE_COMMON_TEXT_VERSION="1.15.0"
 
-_JAVA_PKG_WANT_BUILD_VM=( {openjdk{,-jre},icedtea}{,-bin}-{8,11,17,21} )
+_JAVA_PKG_WANT_BUILD_VM=( {openjdk{,-jre},icedtea}{,-bin}-{8,11,17,21,25} )
 JAVA_PKG_WANT_BUILD_VM=${_JAVA_PKG_WANT_BUILD_VM[@]}
 # Required to be set, but not used.
 JAVA_PKG_WANT_SOURCE="21"
@@ -90,7 +90,7 @@ SLOT="0"
 # use flag is called libusb so that it doesn't fool people in thinking that
 # it is _required_ for USB support. Otherwise they'll disable udev and
 # that's going to be worse.
-IUSE="airplay alsa bluetooth bluray caps cec +css dbus doc eventclients gbm gles lcms libusb lirc mariadb mysql nfs +optical pipewire +postproc pulseaudio samba soc +system-ffmpeg test udf udev upnp vaapi vdpau wayland webserver X +xslt zeroconf ${CPU_FLAGS}"
+IUSE="airplay alsa bluetooth bluray caps cec +css dbus doc eventclients gbm gles lcms libusb lirc mariadb mysql nfs +optical pipewire postproc pulseaudio samba soc +system-ffmpeg test udf udev upnp vaapi vdpau wayland webserver X +xslt zeroconf ${CPU_FLAGS}"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	|| ( gbm wayland X )
@@ -214,7 +214,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 		net-libs/gnutls:=
 	)
 	udf? (
-		>=dev-libs/libudfread-1.0.0
+		>=dev-libs/libudfread-1.0.0:=
 	)
 	udev? (
 		virtual/libudev:=
@@ -272,7 +272,7 @@ BDEPEND="
 	dev-build/cmake
 	dev-lang/swig
 	virtual/pkgconfig
-	<=virtual/jre-21-r9999:*
+	<=virtual/jre-25-r9999:*
 	doc? (
 		app-text/doxygen
 	)
@@ -422,17 +422,17 @@ src_configure() {
 
 		#To bundle or not
 		-DENABLE_INTERNAL_ASS=OFF
-		-DENABLE_INTERNAL_CURL=OFF
 		-DENABLE_INTERNAL_CROSSGUID=OFF
-		-DENABLE_INTERNAL_DAV1D=OFF
+		-DENABLE_INTERNAL_CURL=OFF
 		-DENABLE_INTERNAL_EXIV2=OFF
 		-DENABLE_INTERNAL_FFMPEG="$(usex !system-ffmpeg)"
 		-DENABLE_INTERNAL_FLATBUFFERS=OFF
 		-DENABLE_INTERNAL_FMT=OFF
 		-DENABLE_INTERNAL_FSTRCMP=OFF
 		-DENABLE_INTERNAL_GTEST=OFF
-		-DENABLE_INTERNAL_PCRE2=OFF
+		-DENABLE_INTERNAL_LZO2=OFF
 		-DENABLE_INTERNAL_NLOHMANNJSON=OFF
+		-DENABLE_INTERNAL_PCRE2=OFF
 		-DENABLE_INTERNAL_SPDLOG=OFF
 		-DENABLE_INTERNAL_TAGLIB=OFF
 
@@ -445,14 +445,23 @@ src_configure() {
 	)
 
 	# Separated to avoid "Manually-specified variables were not used by the project:"
+	use bluray && mycmakeargs+=( -DENABLE_INTERNAL_BLURAY=OFF )
 	use cec && mycmakeargs+=( -DENABLE_INTERNAL_CEC=OFF )
 	use css && mycmakeargs+=( -Dlibdvdcss_URL="${DISTDIR}/libdvdcss-${LIBDVDCSS_VERSION}.tar.gz" )
+	use mariadb && mycmakeargs+=( -DENABLE_INTERNAL_MARIADBCLIENT=OFF )
 	use !system-ffmpeg && mycmakeargs+=(
+		# Additional find_package on top of core_optional_deps for whatever reason
+		$(cmake_use_find_package vaapi VAAPI)
+		$(cmake_use_find_package vdpau VDPAU)
+		-DENABLE_INTERNAL_DAV1D=OFF
 		-DFFMPEG_URL="${DISTDIR}/ffmpeg-${FFMPEG_VERSION}.tar.xz"
 	)
 	use nfs && mycmakeargs+=( -DENABLE_INTERNAL_NFS=OFF )
 	use !udev && mycmakeargs+=( -DENABLE_LIBUSB=$(usex libusb) )
+	use udf && mycmakeargs+=( -DENABLE_INTERNAL_UDFREAD=OFF )
+	use webserver && mycmakeargs+=( -DENABLE_INTERNAL_LIBMICROHTTPD=OFF )
 	use X && use !gles && mycmakeargs+=( -DENABLE_GLX=ON )
+	use xslt && mycmakeargs+=( -DENABLE_INTERNAL_XSLT=OFF )
 
 	for flag in ${CPU_FLAGS[@]} ; do
 		local name=${flag#cpu_flags_*_}
@@ -544,7 +553,12 @@ src_test() {
 	)
 
 	# Tests assumes bluray support is enabled
-	use !bluray && CMAKE_SKIP_TESTS+=( TestURIUtils.GetBasePath )
+	if use !bluray; then
+		CMAKE_SKIP_TESTS+=(
+			TestStacks.TestMovieFilesStackFolderFilesDiscPart
+			TestURIUtils.GetBasePath
+		)
+	fi
 
 	if use arm || use x86; then
 		# bug #779184
