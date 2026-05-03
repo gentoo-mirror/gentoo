@@ -19,7 +19,7 @@ COMMON_DEPEND="
 "
 RDEPEND="${COMMON_DEPEND}
 	sys-apps/dbus[X?]
-	<gnome-base/gnome-session-49
+	!<gnome-base/gnome-session-49
 "
 DEPEND="${COMMON_DEPEND}"
 BDEPEND="

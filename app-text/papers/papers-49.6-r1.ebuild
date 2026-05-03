@@ -268,17 +268,18 @@ inherit cargo gnome.org gnome2 meson xdg
 DESCRIPTION="A document viewer for the GNOME desktop"
 HOMEPAGE="https://apps.gnome.org/Papers"
 
-# SRC_URI for loupe is set by gnome.org eclass.
+# SRC_URI is set by gnome.org eclass.
 SRC_URI+=" ${CARGO_CRATE_URIS}"
 
 LICENSE="GPL-2+ MIT"
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT Unicode-3.0 ZLIB
+	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD MIT Unicode-3.0
+	ZLIB
 "
 
 # subslot = ppsd4.0.(suffix of libppsdocument-4.0)-ppsv4.0.(suffix of libppsview-4.0)
-SLOT="0/ppsd4.0.5-ppsv4.0.4"
+SLOT="0/ppsd4.0.6-ppsv4.0.5"
 
 KEYWORDS="~amd64 ~arm64 ~x86"
 
@@ -287,6 +288,9 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="
 	virtual/pkgconfig
+	>=dev-build/meson-1.8.0
+	dev-util/blueprint-compiler
+	dev-libs/appstream
 	dev-libs/appstream-glib
 	doc? ( dev-util/gi-docgen )
 "
@@ -303,8 +307,8 @@ DEPEND="
 # meson.build file
 DEPEND+="
 	>=dev-libs/glib-2.75.0:2
-	>=gui-libs/gtk-4.17.1:4[X]
-	>=gui-libs/libadwaita-1.6:1
+	>=gui-libs/gtk-4.17.1:4
+	>=gui-libs/libadwaita-1.8_alpha:1
 	media-libs/exempi:2
 	>=x11-libs/cairo-1.14.0
 	virtual/zlib:=

@@ -47,6 +47,7 @@ PATCHES=(
 	"${WORKDIR}"/debian/patches/fix-implicit-func.patch
 	"${FILESDIR}"/arj-3.10.22-implicit-declarations.patch
 	"${FILESDIR}"/arj-3.10.22-darwin.patch
+	"${FILESDIR}"/arj-3.10.22-aligned-pointers.patch
 )
 
 DOCS=( doc/compile.txt doc/debug.txt doc/glossary.txt doc/rev_hist.txt doc/xlation.txt )
