@@ -24,7 +24,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
-	>=dev-python/numpy-1.19.2[${PYTHON_USEDEP}]
+	>=dev-python/numpy-2.1[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
