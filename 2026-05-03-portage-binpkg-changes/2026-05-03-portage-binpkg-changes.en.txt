@@ -1,7 +1,7 @@
 Title: Portage binpkg changes
 Author: Sam James <sam@gentoo.org>
 Posted: 2026-05-03
-Revision: 1
+Revision: 2
 News-Item-Format: 2.0
 
 Newer versions of Portage are making two changes to how binary packages
@@ -33,7 +33,11 @@ No action is required, for two reasons:
    would fail early.
 
 The only impact is that future binary package installs will need less
-setup.
+setup. Setting FEATURES="binpkg-request-signature" is no longer needed
+for this case.
+
+Users may need to run `eclean-pkg` to cleanup old binary packages
+in the old, mixed location.
 
 Users of just the official binary host can stop reading at this point.
 
@@ -56,6 +60,9 @@ key as trusted. Signing is toggled by FEATURES="binpkg-signing".
 You can opt-in to this change early by setting `verify-signature = true`
 in /etc/portage/binrepos.conf/* for each binary repository configured, or
 under the special '[DEFAULT]' section.
+
+Users may need to run `eclean-pkg` to cleanup old binary packages
+in the old, mixed location.
 
 This does not apply if your binhost uses the old XPAK binary package
 format, but we encourage switching to BINPKG_FORMAT="gpkg" if that is
