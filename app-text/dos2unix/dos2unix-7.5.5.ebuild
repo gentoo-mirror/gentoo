@@ -9,11 +9,11 @@ VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/erwinwaterlander.asc
 inherit plocale toolchain-funcs verify-sig
 
 DESCRIPTION="Convert DOS or MAC text files to UNIX format or vice versa"
-HOMEPAGE="https://www.xs4all.nl/~waterlan/dos2unix.html https://sourceforge.net/projects/dos2unix/"
+HOMEPAGE="https://waterlander.net/dos2unix/ https://sourceforge.net/projects/dos2unix/"
 SRC_URI="
-	https://www.xs4all.nl/~waterlan/${PN}/${P/_/-}.tar.gz
+	https://waterlander.net/${PN}/files/${P/_/-}.tar.gz
 	https://downloads.sourceforge.net/${PN}/${P/_/-}.tar.gz
-	verify-sig? ( https://www.xs4all.nl/~waterlan/${PN}/${P/_/-}.tar.gz.asc )
+	verify-sig? ( https://waterlander.net/${PN}/files/${P/_/-}.tar.gz.asc )
 
 "
 S=${WORKDIR}/${P/_/-}

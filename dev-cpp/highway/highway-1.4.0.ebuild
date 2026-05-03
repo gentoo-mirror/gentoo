@@ -12,8 +12,17 @@ if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/google/highway.git"
 else
-	SRC_URI="https://github.com/google/highway/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/janwassenberg.asc
+	inherit verify-sig
+
+	# XXX: Drop rename after 1.4.0
+	SRC_URI="
+		https://github.com/google/highway/releases/download/${PV}/${P}.tar.gz -> ${P}.tgz
+		verify-sig? ( https://github.com/google/highway/releases/download/${PV}/${P}.tar.gz.asc -> ${P}.tgz.asc )
+	"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+
+	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-janwassenberg )"
 fi
 
 LICENSE="|| ( Apache-2.0 BSD ) CC0-1.0"
@@ -21,7 +30,7 @@ SLOT="0"
 IUSE="cpu_flags_arm_neon test"
 
 DEPEND="test? ( dev-cpp/gtest[${MULTILIB_USEDEP}] )"
-BDEPEND="|| ( >=sys-devel/binutils-2.44:* llvm-core/lld sys-devel/native-cctools )"
+BDEPEND+=" || ( >=sys-devel/binutils-2.44:* llvm-core/lld sys-devel/native-cctools )"
 
 RESTRICT="!test? ( test )"
 
