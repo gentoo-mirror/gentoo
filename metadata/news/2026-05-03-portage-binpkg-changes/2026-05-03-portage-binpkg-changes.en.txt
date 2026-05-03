@@ -1,0 +1,73 @@
+Title: Portage binpkg changes
+Author: Sam James <sam@gentoo.org>
+Posted: 2026-05-03
+Revision: 2
+News-Item-Format: 2.0
+
+Newer versions of Portage are making two changes to how binary packages
+work:
+1) binary package signatures are now verified by default [0];
+2) fetched binary packages are stored separately from locally-built binaries
+   (this change is already in a recent Portage release) [1].
+
+   Remote binary packages are now cached in /var/cache/binhost/NAME where
+   NAME is given by the configuration item in /etc/portage/binrepos.conf. This
+   allows clean separation of locally built binary packages vs. those with
+   remote provenance, and to allow verification of fetched packages without
+   forcing signing to be set up for local binpkgs.
+
+   The cache location can be customised by setting `location` in binrepos.conf.
+   gentoolkit has been updated to handle these cache locations too.
+
+This news item only applies if you use or produce binary packages.
+
+Official binhost users
+======================
+
+Fetched binary packages are now stored at /var/cache/binhost/gentoo (or a
+similar path, depending on contents of /etc/portage/binrepos.conf/*).
+
+No action is required, for two reasons:
+1) all of the documentation included FEATURES="binpkg-request-signature", and
+2) attempts to install a binpkg that is signed without any configuration
+   would fail early.
+
+The only impact is that future binary package installs will need less
+setup. Setting FEATURES="binpkg-request-signature" is no longer needed
+for this case.
+
+Users may need to run `eclean-pkg` to cleanup old binary packages
+in the old, mixed location.
+
+Users of just the official binary host can stop reading at this point.
+
+Custom binhosts
+===============
+
+Users who host their own binary packages and redistribute them to their
+machines will need to either:
+1) start signing their binpkgs [2], or
+2) set `verify-signature = false` in /etc/portage/binrepos.conf/* for
+   the relevant configuration file for your binhost.
+
+Otherwise, fetched binpkgs will fail verification.
+
+To set up signing for binpkgs, a signing keyring must reside (by default)
+at /root/.gnupg and a verification keyring must reside (by default)
+at /etc/portage/gnupg. The verification keyring must mark the signing
+key as trusted. Signing is toggled by FEATURES="binpkg-signing".
+
+You can opt-in to this change early by setting `verify-signature = true`
+in /etc/portage/binrepos.conf/* for each binary repository configured, or
+under the special '[DEFAULT]' section.
+
+Users may need to run `eclean-pkg` to cleanup old binary packages
+in the old, mixed location.
+
+This does not apply if your binhost uses the old XPAK binary package
+format, but we encourage switching to BINPKG_FORMAT="gpkg" if that is
+the case.
+
+[0] https://bugs.gentoo.org/945384
+[1] https://bugs.gentoo.org/945385
+[2] https://wiki.gentoo.org/wiki/Binary_package_guide#Binary_package_OpenPGP_signing
