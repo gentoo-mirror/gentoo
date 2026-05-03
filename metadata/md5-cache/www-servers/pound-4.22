@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/graygnuorg/pound
 INHERIT=lua-single
 IUSE=lua tcmalloc test lua_single_target_lua5-3 lua_single_target_lua5-4
-KEYWORDS=~amd64 ~hppa ~ppc ~x86
+KEYWORDS=amd64 ~hppa ~ppc x86
 LICENSE=GPL-3+
 RDEPEND=dev-libs/libpcre2:= dev-libs/openssl:= lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) tcmalloc? ( dev-util/google-perftools ) virtual/libcrypt:=
 REQUIRED_USE=lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/graygnuorg/pound/releases/download/v4.22/pound-4.22.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
-_md5_=c8c1cc245ec92122b6850a449c197a09
+_md5_=7b8c4404d0fdf2e013cd48908acf9fd6
