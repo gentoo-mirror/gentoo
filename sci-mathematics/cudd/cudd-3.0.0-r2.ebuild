@@ -11,7 +11,11 @@ LICENSE="BSD"
 SLOT="0/${PV}"
 KEYWORDS="~amd64 ~x86"
 
-BDEPEND="dev-texlive/texlive-latex"
+BDEPEND="
+	app-text/doxygen
+	dev-texlive/texlive-latex
+	media-gfx/graphviz
+"
 
 # Minimal change in number repr make extra test fail
 # Bug #926371
