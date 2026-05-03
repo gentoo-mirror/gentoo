@@ -72,7 +72,8 @@ RDEPEND="
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
-	|| ( hpcups hpijs )
+	!minimal? ( || ( hpcups hpijs ) )
+	minimal? ( ^^ ( hpcups hpijs ) )
 "
 
 PATCHES=(
@@ -99,8 +100,7 @@ pkg_setup() {
 	if use minimal ; then
 		ewarn "Installing driver portions only, make sure you know what you are doing."
 		ewarn "Depending on the USE flags set for hpcups or hpijs the appropriate driver"
-		ewarn "is installed. If both USE flags are set hpijs overrides hpcups."
-		ewarn "This also disables fax, network and scanner support!"
+		ewarn "is installed. This also disables fax, network and scanner support!"
 	fi
 
 	if has_version "<=net-print/hplip-3.25.8[qt5]" ; then

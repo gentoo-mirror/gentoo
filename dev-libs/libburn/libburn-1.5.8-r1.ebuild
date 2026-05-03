@@ -11,14 +11,11 @@ SRC_URI="https://files.libburnia-project.org/releases/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
-IUSE="cdio debug static-libs"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="debug static-libs"
 
 BDEPEND="
 	virtual/pkgconfig
-"
-RDEPEND="
-	cdio? ( dev-libs/libcdio )
 "
 DEPEND="
 	${RDEPEND}
@@ -34,7 +31,7 @@ src_prepare() {
 src_configure() {
 	econf \
 		$(use_enable static-libs static) \
-		$(use_enable cdio libcdio) \
+		--disable-libcdio \
 		--disable-ldconfig-at-install \
 		$(use_enable debug)
 }
