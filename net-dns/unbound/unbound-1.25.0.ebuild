@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 PYTHON_COMPAT=( python3_{11..14} )
-VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/unbound.net.asc
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/nlnetlabs.asc
 inherit autotools flag-o-matic python-single-r1 systemd verify-sig multilib-minimal
 
 MY_P=${PN}-${PV/_/}
@@ -19,9 +19,9 @@ S="${WORKDIR}"/${MY_P}
 LICENSE="BSD GPL-2"
 SLOT="0/8" # ABI version of libunbound.so
 if [[ ${PV} != *_rc* ]] ; then
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~mips ppc ppc64 ~riscv ~sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
-IUSE="debug dnscrypt dnstap +ecdsa ecs gost +http2 python redis selinux static-libs systemd test +tfo threads"
+IUSE="debug dnscrypt dnstap +ecdsa ecs gost +http2 python redis selinux static-libs systemd test +tfo"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"
 
@@ -56,7 +56,7 @@ BDEPEND="
 		dev-util/splint
 		app-text/wdiff
 	)
-	verify-sig? ( >=sec-keys/openpgp-keys-unbound-20250515 )
+	verify-sig? ( >=sec-keys/openpgp-keys-nlnetlabs-20260101 )
 "
 RDEPEND="
 	${DEPEND}
@@ -105,7 +105,6 @@ multilib_src_configure() {
 		$(multilib_native_use_enable systemd)
 		$(multilib_native_use_with python pythonmodule)
 		$(multilib_native_use_with python pyunbound)
-		$(multilib_native_use_with threads pthreads)
 		$(multilib_native_use_with http2 libnghttp2)
 		$(multilib_native_use_enable tfo tfo-client)
 		$(multilib_native_use_enable tfo tfo-server)
