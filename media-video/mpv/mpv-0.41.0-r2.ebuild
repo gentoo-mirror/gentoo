@@ -128,6 +128,10 @@ BDEPEND="
 	wayland? ( dev-util/wayland-scanner )
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.41.0-v4l2request.patch
+)
+
 pkg_setup() {
 	use lua && lua-single_pkg_setup
 	python-single-r1_pkg_setup
@@ -204,6 +208,7 @@ src_configure() {
 
 		# hardware decoding
 		$(meson_feature nvenc cuda-hwaccel)
+		$(meson_feature soc v4l2request)
 		$(meson_feature vaapi)
 		$(meson_feature vdpau)
 	)

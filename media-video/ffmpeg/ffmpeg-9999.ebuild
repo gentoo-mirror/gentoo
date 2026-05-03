@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit flag-o-matic multilib-minimal toolchain-funcs
+inherit flag-o-matic multilib-minimal toolchain-funcs udev
 
 FFMPEG_SOC_PATCH=
 FFMPEG_SUBSLOT=60.62.62 # avutil.avcodec.avformat SONAME
@@ -503,7 +503,6 @@ multilib_src_configure() {
 
 	in_iuse soc && use soc &&
 		conf+=(
-			--disable-epoxy
 			--enable-libudev
 			--enable-sand
 			--enable-v4l2-request
@@ -607,4 +606,17 @@ multilib_src_install() {
 	emake V=1 DESTDIR="${D}" install
 	in_iuse chromium && use chromium && multilib_is_native_abi &&
 		emake V=1 DESTDIR="${D}" install-libffmpeg
+}
+
+multilib_src_install_all() {
+	in_iuse soc && use soc && udev_dorules "${FILESDIR}"/60-dma-heap-ffmpeg.rules
+	einstalldocs
+}
+
+pkg_postinst() {
+	in_iuse soc && use soc udev_reload
+}
+
+pkg_postrm() {
+	in_iuse soc && use soc udev_reload
 }
