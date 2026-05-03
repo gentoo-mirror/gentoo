@@ -9,7 +9,7 @@ RUST_MIN_VER="1.91.0"
 CRATES="
 	ahash@0.8.12
 	aho-corasick@1.1.4
-	annotate-snippets@0.12.13
+	annotate-snippets@0.12.15
 	anstyle@1.0.14
 	anyhow@1.0.102
 	arraydeque@0.5.1
@@ -22,26 +22,26 @@ CRATES="
 	bitflags@2.11.0
 	bstr@1.12.1
 	bumpalo@3.20.2
-	cc@1.2.58
+	cc@1.2.60
 	cfg-if@1.0.4
 	clap@4.6.0
 	clap_builder@4.6.0
-	clap_complete@4.6.0
+	clap_complete@4.6.1
 	clap_lex@1.1.0
 	console@0.16.3
 	crossbeam-channel@0.5.15
 	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
 	crossbeam-utils@0.8.21
-	ctor-proc-macro@0.0.6
-	ctor@0.4.3
+	ctor-proc-macro@0.0.7
+	ctor@0.6.3
 	difflib@0.4.0
 	directories@6.0.0
 	dirs-sys@0.5.0
 	doc-comment@0.3.4
 	downcast@0.11.0
-	dtor-proc-macro@0.0.5
-	dtor@0.0.6
+	dtor-proc-macro@0.0.6
+	dtor@0.1.1
 	encode_unicode@1.0.0
 	encoding_rs@0.8.35
 	encoding_rs_io@0.1.7
@@ -49,31 +49,32 @@ CRATES="
 	env_logger@0.11.10
 	equivalent@1.0.2
 	errno@0.3.14
-	fastrand@2.3.0
+	fastrand@2.4.1
 	find-msvc-tools@0.1.9
 	float-cmp@0.10.0
 	fnv@1.0.7
 	foldhash@0.1.5
-	fragile@2.0.1
+	fragile@2.1.0
+	futures-core@0.3.32
 	getrandom@0.2.17
 	getrandom@0.3.4
 	getrandom@0.4.2
 	globset@0.4.18
 	globwalk@0.9.1
 	hashbrown@0.15.5
-	hashbrown@0.16.1
+	hashbrown@0.17.0
 	heck@0.5.0
 	id-arena@2.3.0
 	ignore@0.4.25
-	indexmap@2.13.0
+	indexmap@2.14.0
 	insta@1.47.2
 	itoa@1.0.18
 	jiff-static@0.2.23
 	jiff@0.2.23
-	js-sys@0.3.93
+	js-sys@0.3.95
 	leb128fmt@0.1.0
-	libc@0.2.183
-	libredox@0.1.15
+	libc@0.2.184
+	libredox@0.1.16
 	linux-raw-sys@0.12.1
 	log@0.4.29
 	memchr@2.8.0
@@ -97,7 +98,7 @@ CRATES="
 	quote@1.0.45
 	r-efi@5.3.0
 	r-efi@6.0.0
-	rand@0.9.2
+	rand@0.9.4
 	rand_chacha@0.9.0
 	rand_core@0.9.5
 	rand_xorshift@0.4.0
@@ -109,9 +110,9 @@ CRATES="
 	rustversion@1.0.22
 	rusty-fork@0.3.1
 	same-file@1.0.6
-	saphyr-parser-bw@0.0.610
-	semver@1.0.27
-	serde-saphyr@0.0.22
+	saphyr-parser-bw@0.0.611
+	semver@1.0.28
+	serde-saphyr@0.0.24
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
@@ -119,7 +120,7 @@ CRATES="
 	shell-words@1.1.1
 	shlex@1.3.0
 	signal-hook-registry@1.4.8
-	signal-hook@0.3.18
+	signal-hook@0.4.4
 	similar@2.7.0
 	smallvec@1.15.1
 	strsim@0.11.1
@@ -138,10 +139,10 @@ CRATES="
 	wasi@0.11.1+wasi-snapshot-preview1
 	wasip2@1.0.2+wasi-0.2.9
 	wasip3@0.4.0+wasi-0.3.0-rc-2026-01-06
-	wasm-bindgen-macro-support@0.2.116
-	wasm-bindgen-macro@0.2.116
-	wasm-bindgen-shared@0.2.116
-	wasm-bindgen@0.2.116
+	wasm-bindgen-macro-support@0.2.118
+	wasm-bindgen-macro@0.2.118
+	wasm-bindgen-shared@0.2.118
+	wasm-bindgen@0.2.118
 	wasm-encoder@0.244.0
 	wasm-metadata@0.244.0
 	wasmparser@0.244.0
@@ -175,10 +176,7 @@ LICENSE="GPL-3+"
 LICENSE+=" Apache-2.0 BSD MIT MPL-2.0 Unicode-3.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
-RDEPEND="app-shells/bash"  # for the wrapper in /usr/bin
 BDEPEND="llvm-core/lld"
 
 QA_FLAGS_IGNORED="
@@ -186,10 +184,6 @@ QA_FLAGS_IGNORED="
 	usr/libexec/bear/bin/bear-driver
 	usr/libexec/bear/bin/bear-wrapper
 "
-
-PATCHES=(
-	"${FILESDIR}/bear-4.1.1-libexec.patch"
-)
 
 src_compile() {
 	cargo_src_compile
@@ -204,9 +198,6 @@ src_install() {
 		DESTDIR="${D}" \
 		PREFIX="${EPREFIX}/usr" \
 		scripts/install.sh
-
-	rm "${ED}"/usr/share/bear/uninstall.sh || die
-	rmdir "${ED}"/usr/share/bear || die
 
 	rm -r "${ED}"/usr/share/doc || die
 	local DOCS=( *.md )
