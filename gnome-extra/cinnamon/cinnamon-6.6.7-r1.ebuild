@@ -3,8 +3,7 @@
 
 EAPI=8
 
-# dev-python/pyinotify doesn't have py3.14 yet
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit meson gnome2-utils optfeature pax-utils python-single-r1 xdg

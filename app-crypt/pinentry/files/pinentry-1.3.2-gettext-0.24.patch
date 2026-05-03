@@ -1,0 +1,13 @@
+https://bugs.gentoo.org/959774
+
+--- a/configure.ac
++++ b/configure.ac
+@@ -244,6 +244,8 @@ AM_PATH_GPG_ERROR("$NEED_GPG_ERROR_VERSION",
+ COMMON_CFLAGS="$GPG_ERROR_CFLAGS $COMMON_CFLAGS"
+ COMMON_LIBS="$GPG_ERROR_LIBS $COMMON_LIBS"
+ 
++AM_GNU_GETTEXT([external])
++AM_GNU_GETTEXT_VERSION
+ AC_DEFINE_UNQUOTED(GPG_ERR_ENABLE_GETTEXT_MACROS, 1,
+                    [Under Windows we use the gettext code from libgpg-error])
+ 
