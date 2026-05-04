@@ -3,7 +3,7 @@
 
 EAPI=8
 
-FIREFOX_PATCHSET="firefox-150-patches-03t.tar.xz"
+FIREFOX_PATCHSET="firefox-150-patches-04t.tar.xz"
 
 LLVM_COMPAT=( 21 22 )
 
@@ -481,6 +481,10 @@ src_prepare() {
 	# Enable jpeg-xl only in Firefox.
 	rm -v "${WORKDIR}"/firefox-patches/*bgo-928126-enable-jxl.patch || die
 
+	if ! use llvm_slot_22 ; then
+		rm -v "${WORKDIR}"/firefox-patches/*bmo-2033279-make-rust-simd-work-with-rust-1.95-tb.patch || die
+	fi
+
 	eapply "${WORKDIR}/firefox-patches"
 
 	# Allow user to apply any additional patches without modifing ebuild
@@ -541,11 +545,16 @@ src_prepare() {
 	# moz_clear_vendor_checksums xyz
 	# glslopt: bgo#969412, bgo#969871
 	moz_clear_vendor_checksums glslopt
-	moz_clear_vendor_checksums encoding_rs
+	# moz_clear_vendor_checksums encoding_rs
 	# TB-specific
 	sed -i \
 		-e 's/\("files":{\)[^}]*/\1/' \
 		"${S}"/comm/third_party/rust/glslopt/.cargo-checksum.json || die
+	if use llvm_slot_22 ; then
+		sed -i \
+			-e 's/\("files":{\)[^}]*/\1/' \
+			"${S}"/comm/third_party/rust/encoding_rs/.cargo-checksum.json || die
+	fi
 
 	# Create build dir
 	BUILD_DIR="${WORKDIR}/${PN}_build"
