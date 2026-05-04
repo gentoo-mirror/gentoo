@@ -1,7 +1,7 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit toolchain-funcs
 
@@ -28,7 +28,7 @@ DOCS=( README{,-ja}.md )
 
 src_prepare() {
 	if [[ -f edlog ]] ; then
-		rm edlog || die
+		rm -f edlog || die
 	fi
 
 	default
@@ -51,7 +51,6 @@ src_install() {
 
 	if use doc ; then
 		DOCS+=( document )
-
 		docompress -x "/usr/share/doc/${PF}/document"
 	fi
 
