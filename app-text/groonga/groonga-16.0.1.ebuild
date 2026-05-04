@@ -4,7 +4,7 @@
 EAPI=8
 
 CMAKE_QA_COMPAT_SKIP=1 # unused bundled rapidjson
-inherit cmake flag-o-matic
+inherit cmake
 
 DESCRIPTION="Embeddable Fulltext Search Engine"
 HOMEPAGE="https://groonga.org/"
@@ -49,6 +49,10 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-16.0.1-cmakelists.patch
+	"${FILESDIR}"/${PN}-16.0.1-blosc2_detection.patch
+
+	# PR merged
+	"${FILESDIR}"/${P}-fix_lto.patch
 )
 
 src_prepare() {
@@ -57,10 +61,6 @@ src_prepare() {
 }
 
 src_configure() {
-	# -Werror=odr
-	# https://github.com/groonga/groonga/issues/2787
-	filter-lto
-
 	local mycmakeargs=(
 		-DCMAKE_SKIP_RPATH=TRUE
 		-DCMAKE_INSTALL_DOCDIR="${EPREFIX}/usr/share/doc/${PF}/html"
@@ -75,6 +75,7 @@ src_configure() {
 		-DGRN_WITH_BENCHMARKS=OFF # install nothing
 		-DGRN_WITH_BUNDLED_ONIGMO=OFF
 		-DGRN_WITH_BUNDLED_MESSAGE_PACK=OFF
+		-DGRN_WITH_LTO=OFF # handled by userflags
 		-DGRN_WITH_SIMDJSON=no # prefer rapidjson, unlike upstream
 		-DGRN_WITH_SIMSIMD=OFF # masked, old 3.8.0 bundled
 		-DGRN_WITH_UBSAN=OFF # it requires clang
