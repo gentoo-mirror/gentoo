@@ -611,9 +611,9 @@ multilib_src_install_all() {
 }
 
 pkg_postinst() {
-	in_iuse soc && use soc udev_reload
+	in_iuse soc && use soc && udev_reload
 }
 
 pkg_postrm() {
-	in_iuse soc && use soc udev_reload
+	in_iuse soc && use soc && udev_reload
 }
