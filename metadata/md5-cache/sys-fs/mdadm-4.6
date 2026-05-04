@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/md-raid-utilities/mdadm https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git/
 INHERIT=flag-o-matic systemd toolchain-funcs udev
 IUSE=static systemd +udev corosync
-KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=GPL-2
 RDEPEND=udev? ( virtual/libudev:= ) corosync? ( sys-cluster/corosync ) >=sys-apps/util-linux-2.16
 REQUIRED_USE=static? ( !udev )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://git.kernel.org/pub/scm/utils/mdadm/mdadm.git/snapshot/mdadm-4.6.tar.gz mirror://debian/pool/main/m/mdadm/mdadm_4.6-1.debian.tar.xz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	1a23882bb73bc31c64a6f00a5e515f34
-_md5_=33a6a41a835ae296303963e50461d0f4
+_md5_=4ec7504ee614777ec606ea84df46cc45
