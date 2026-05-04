@@ -110,6 +110,7 @@ PATCHES+=(
 	# add extras as needed here, may merge in set if carries across versions
 	"${FILESDIR}"/${PN}-6.10.2-clang-22.patch
 	"${FILESDIR}"/${PN}-6.10.3-climits.patch
+	"${FILESDIR}"/${PN}-6.11.0-gcc17.patch
 )
 
 python_check_deps() {
