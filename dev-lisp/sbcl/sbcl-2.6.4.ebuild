@@ -6,19 +6,17 @@ EAPI=8
 inherit flag-o-matic pax-utils toolchain-funcs
 
 #same order as http://www.sbcl.org/platform-table.html
+BV_AMD64=2.6.4
 BV_X86=1.4.3
-BV_AMD64=2.6.2
 BV_PPC=1.2.7
 BV_PPC64LE=1.5.8
 BV_SPARC=1.0.28
-BV_ALPHA=1.0.28
 BV_ARM=2.3.3
 BV_ARM64=1.4.2
-BV_X64_MACOS=1.2.11
-BV_PPC_MACOS=1.0.47
-BV_X86_SOLARIS=1.2.7
+BV_X64_MACOS=2.2.9
 BV_X64_SOLARIS=1.2.7
-BV_SPARC_SOLARIS=1.0.23
+BV_X86_SOLARIS=1.2.7
+BV_SPARC_SOLARIS=2.0.4
 
 DESCRIPTION="Steel Bank Common Lisp (SBCL) is an implementation of ANSI Common Lisp"
 HOMEPAGE="https://www.sbcl.org/ https://sbcl.sourceforge.net/"
@@ -26,12 +24,11 @@ BSD_SOCKETS_TEST_PATCH=bsd-sockets-test-2.3.6.patch
 SRC_URI="https://downloads.sourceforge.net/sbcl/${P}-source.tar.bz2
 	https://dev.gentoo.org/~grozin/${BSD_SOCKETS_TEST_PATCH}.gz
 	!system-bootstrap? (
-		x86? ( https://downloads.sourceforge.net/sbcl/${PN}-${BV_X86}-x86-linux-binary.tar.bz2 )
 		amd64? ( https://downloads.sourceforge.net/sbcl/${PN}-${BV_AMD64}-x86-64-linux-binary.tar.bz2 )
+		x86? ( https://downloads.sourceforge.net/sbcl/${PN}-${BV_X86}-x86-linux-binary.tar.bz2 )
 		ppc? ( https://downloads.sourceforge.net/sbcl/${PN}-${BV_PPC}-powerpc-linux-binary.tar.bz2 )
 		ppc64? ( https://downloads.sourceforge.net/sbcl/${PN}-${BV_PPC64LE}-ppc64le-linux-binary.tar.bz2 )
 		sparc? ( https://downloads.sourceforge.net/sbcl/${PN}-${BV_SPARC}-sparc-linux-binary.tar.bz2 )
-		alpha? ( https://downloads.sourceforge.net/sbcl/${PN}-${BV_ALPHA}-alpha-linux-binary.tar.bz2 )
 		arm? ( https://downloads.sourceforge.net/sbcl/${PN}-${BV_ARM}-armhf-linux-binary.tar.bz2 )
 		arm64? ( https://downloads.sourceforge.net/sbcl/${PN}-${BV_ARM64}-arm64-linux-binary.tar.bz2 )
 		x64-macos? ( https://downloads.sourceforge.net/sbcl/${PN}-${BV_X64_MACOS}-x86-64-darwin-binary.tar.bz2 )
