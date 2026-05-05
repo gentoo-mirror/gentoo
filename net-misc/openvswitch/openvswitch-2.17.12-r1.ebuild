@@ -16,7 +16,7 @@ SRC_URI="https://www.openvswitch.org/releases/${P}.tar.gz"
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~arm64 ~ppc64 x86"
-IUSE="debug modules monitor +ssl unwind valgrind"
+IUSE="debug modules monitor selinux +ssl unwind valgrind"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # Check python/ovs/version.py in tarball for dev-python/ovs dep
@@ -29,6 +29,7 @@ RDEPEND="
 	')
 	debug? ( dev-lang/perl )
 	unwind? ( sys-libs/libunwind:= )
+	selinux? ( sec-policy/selinux-openvswitch )
 	ssl? ( dev-libs/openssl:= )
 "
 DEPEND="

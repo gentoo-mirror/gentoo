@@ -3,11 +3,11 @@
 
 EAPI=8
 
-MODS="matrixd"
+MODS="openvswitch"
 
 inherit selinux-policy-2
 
-DESCRIPTION="SELinux policy for matrixd"
+DESCRIPTION="SELinux policy for openvswitch"
 
 if [[ ${PV} != 9999* ]] ; then
 	KEYWORDS="amd64 arm arm64 x86"

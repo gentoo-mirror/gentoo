@@ -13,8 +13,9 @@ if [[ "${PV}" = 9999* ]]; then
 
 	inherit git-r3
 else
-	SRC_URI="https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_${PV/./_}/refpolicy-${PV}.tar.bz2
-		https://dev.gentoo.org/~perfinion/patches/${PN}/patchbundle-${PN}-${PVR}.tar.bz2"
+	MY_PV=$(ver_cut 1-2)
+	SRC_URI="https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_${MY_PV/./_}/refpolicy-${MY_PV}.tar.bz2
+		https://dev.gentoo.org/~perfinion/patches/${PN}/patchbundle-${PN}-${PV/_p/-r}.tar.bz2"
 	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 fi
 
@@ -33,7 +34,7 @@ REQUIRED_USE="
 
 PDEPEND="unconfined? ( sec-policy/selinux-unconfined )"
 DEPEND="
-	=sec-policy/selinux-base-${PVR}[selinux_policy_types_targeted?,selinux_policy_types_strict?,selinux_policy_types_mcs?,selinux_policy_types_mls?,systemd?]
+	~sec-policy/selinux-base-${PV}[selinux_policy_types_targeted?,selinux_policy_types_strict?,selinux_policy_types_mcs?,selinux_policy_types_mls?,systemd?]
 "
 RDEPEND="${DEPEND}"
 BDEPEND="

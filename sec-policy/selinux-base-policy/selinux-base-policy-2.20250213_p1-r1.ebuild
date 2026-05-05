@@ -34,13 +34,17 @@ REQUIRED_USE="
 
 PDEPEND="unconfined? ( sec-policy/selinux-unconfined )"
 DEPEND="
-	=sec-policy/selinux-base-${PVR}[selinux_policy_types_targeted?,selinux_policy_types_strict?,selinux_policy_types_mcs?,selinux_policy_types_mls?,systemd?]
+	~sec-policy/selinux-base-${PV}[selinux_policy_types_targeted?,selinux_policy_types_strict?,selinux_policy_types_mcs?,selinux_policy_types_mls?,systemd?]
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
 	sys-apps/checkpolicy
 	sys-devel/m4
 "
+
+PATCHES=(
+	"${FILESDIR}/0001-newrole_t-run_init_t-call-auth_run_pam.patch"
+)
 
 MODS="application authlogin bootloader clock consoletype cron dmesg fstools getty hostname init iptables libraries locallogin logging lvm miscfiles modutils mount mta netutils nscd portage raid rsync selinuxutil setrans ssh staff storage su sysadm sysnetwork systemd tmpfiles udev userdomain usermanage unprivuser xdg"
 # A previous, old release of refpolicy had the hotplug policy module. However,
@@ -60,7 +64,7 @@ src_prepare() {
 		eapply -p0 "${WORKDIR}/0001-full-patch-against-stable-release.patch"
 	fi
 
-	eapply_user
+	default
 
 	# Collect only those files needed for this particular module
 	for mod in ${MODS}; do
