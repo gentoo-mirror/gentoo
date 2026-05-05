@@ -44,7 +44,6 @@ src_configure() {
 
 src_test() {
 	pushd "${BUILD_DIR}" || die
-	# Uses python internally
-	"${S}"/scripts/run-tests.sh || die
+	"${EPYTHON}" "${S}"/scripts/run-tests.py || die
 	popd
 }
