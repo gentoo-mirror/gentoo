@@ -262,7 +262,7 @@ src_install() {
 	pushd "${S%${PN}}" > /dev/null || die
 	dodoc "${DOCS[@]}"
 
-	dobashcomp completions/bash/${PN}
-	dozshcomp completions/zsh/_${PN}
+	dobashcomp framework_tool/completions/bash/${PN}
+	dozshcomp framework_tool/completions/zsh/_${PN}
 	popd > /dev/null || die
 }
