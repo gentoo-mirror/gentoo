@@ -1,4 +1,4 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 DEPEND="
-	dev-libs/poco:=
+	dev-libs/poco:=[crypt,net,util,xml]
 	dev-libs/openssl:=
 	dev-libs/spdlog:=
 	dev-libs/libfmt:=
