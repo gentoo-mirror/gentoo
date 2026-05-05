@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,11 +23,11 @@ IUSE="test"
 
 RESTRICT="!test? ( test )"
 
-DEPEND=">=app-emulation/libguestfs-1.55.6[ocaml]
+DEPEND=">=app-emulation/libguestfs-1.56.0[ocaml]
 	dev-libs/json-c
 	dev-libs/libpcre2
 	dev-ml/libvirt-ocaml
-	>sys-libs/libnbd-1.14.1-r1[ocaml]
+	sys-libs/libnbd[ocaml]
 	sys-libs/libosinfo
 	>=sys-block/nbdkit-1.42.0[curl,libssh,nbd,python]
 	virtual/libcrypt:="
@@ -35,9 +35,10 @@ RDEPEND="${DEPEND}
 	app-arch/unzip
 	app-emulation/qemu"
 BDEPEND="dev-ml/findlib[ocamlopt]
-	sys-devel/gettext
 	dev-ml/ocaml-gettext[ocamlopt]
 	dev-ml/ocaml-gettext-stub[ocamlopt]
+	dev-perl/IPC-Run3
+	sys-devel/gettext
 	virtual/pkgconfig
 	test? ( dev-ml/ounit2[ocamlopt] )"
 
@@ -50,14 +51,15 @@ src_test() {
 
 	# Can't reach libvirt from the sandbox
 	local -x SKIP_TEST_O_LIBVIRT_SH=1
-	# Needs appliance built with >=libguestfs-1.55.6
-	local -x SKIP_TEST_CUSTOMIZE_SH=1
-	local -x SKIP_TEST_FEDORA_BTRFS_CONVERSION_SH=1
-	local -x SKIP_TEST_FEDORA_CONVERSION_SH=1
-	local -x SKIP_TEST_FEDORA_LUKS_ON_LVM_CONVERSION_SH=1
-	local -x SKIP_TEST_FEDORA_LVM_ON_LUKS_CONVERSION_SH=1
-	local -x SKIP_TEST_FEDORA_MD_CONVERSION_SH=1
-	local -x SKIP_TEST_O_KUBEVIRT_FEDORA_SH=1
+	# Requires libnbd "blkhash" support, which is not in portage and an automagic dependency
+	# of libnbd
+	local -x SKIP_TEST_O_OVIRT_UPLOAD_SH=1
+	local -x SKIP_TEST_VIRTIO_WIN_ISO_SH=1
+	local -x SKIP_TEST_WINDOWS_UEFI_CONVERSION_SH=1
+	# Requires 3rd party Windows binaries: rhsrvany.exe or pvvxsvc.exe
+	local -x SKIP_TEST_I_OVA_AS_ROOT_SH=1
+	# Requires supermin
+	local -x SKIP_TEST_O_OVIRT_SH=1
 	# Must be called explicilty even without above variable because
 	# emake check -n fails due to missing Windows headers.
 	emake check

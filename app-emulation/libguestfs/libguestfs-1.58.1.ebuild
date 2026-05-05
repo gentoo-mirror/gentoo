@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 USE_RUBY=( ruby3{2..3} )
 LUA_COMPAT=( lua5-{1..4} luajit )
 
@@ -29,6 +29,7 @@ IUSE="doc erlang +fuse libvirt lua +ocaml +perl python readline ruby selinux sta
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
 	python? ( ${PYTHON_REQUIRED_USE} )
+	test? ( python )
 "
 
 RESTRICT="!test? ( test )"
@@ -105,17 +106,11 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.52.1-disable-obsolete-lvmetad-in-tests.patch"
+	"${FILESDIR}/${PN}-1.56.2-bash-Remove-vestigial-bash-completions.patch"
+	"${FILESDIR}/${PN}-1.56.2-guestfs-bash-completion.m4-more-control.patch"
 )
 
 src_prepare() {
-	cat <<EOF > "${S}/m4/guestfs-bash-completion.m4" || die
-dnl Unconditionally install Bash completion files
-AC_MSG_CHECKING([for bash-completions directory])
-AC_SUBST([BASH_COMPLETIONS_DIR],[$(get_bashcompdir)])
-AC_MSG_RESULT([\$BASH_COMPLETIONS_DIR])
-AM_CONDITIONAL([HAVE_BASH_COMPLETION],[/bin/true])
-EOF
-
 	default
 	eautoreconf
 }
@@ -157,6 +152,8 @@ src_configure() {
 		--disable-introspection
 		$(use_with libvirt)
 		--with-default-backend=$(usex libvirt libvirt direct)
+		--with-bash-completion
+		--with-bash-completion-dir=$(get_bashcompdir)
 		$(use_enable perl)
 		$(use_enable python)
 		$(use_enable static-libs static)
@@ -180,7 +177,7 @@ src_test() {
 	# Bug #794874
 	local -x SKIP_TEST_COMPLETE_IN_SCRIPT_SH=1
 	# Upstream doesn't ship the test data
-	local -x SKIP_TEST_JOURNAL_PL=1
+	local -x SKIP_TEST_JOURNAL_PY=1
 	local -x SKIP_TEST_MOUNTABLE_INSPECT_SH=1
 	# Sandbox interferes with tests
 	local -x SKIP_TEST_BIG_HEAP=1
