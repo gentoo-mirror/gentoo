@@ -1,0 +1,16 @@
+BDEPEND=dev-ml/findlib[ocamlopt] dev-ml/ocaml-gettext[ocamlopt] dev-ml/ocaml-gettext-stub[ocamlopt] dev-perl/IPC-Run3 sys-devel/gettext virtual/pkgconfig test? ( dev-ml/ounit2[ocamlopt] )
+DEFINED_PHASES=install test
+DEPEND=>=app-emulation/libguestfs-1.56.0[ocaml] dev-libs/json-c dev-libs/libpcre2 dev-ml/libvirt-ocaml sys-libs/libnbd[ocaml] sys-libs/libosinfo >=sys-block/nbdkit-1.42.0[curl,libssh,nbd,python] virtual/libcrypt:=
+DESCRIPTION=Tool to convert guests from foreign hypervisors to run on KVM
+EAPI=8
+HOMEPAGE=https://libguestfs.org/
+INHERIT=bash-completion-r1
+IUSE=test
+KEYWORDS=~amd64
+LICENSE=GPL-2
+RDEPEND=>=app-emulation/libguestfs-1.56.0[ocaml] dev-libs/json-c dev-libs/libpcre2 dev-ml/libvirt-ocaml sys-libs/libnbd[ocaml] sys-libs/libosinfo >=sys-block/nbdkit-1.42.0[curl,libssh,nbd,python] virtual/libcrypt:= app-arch/unzip app-emulation/qemu
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://download.libguestfs.org/virt-v2v/2.10-stable/virt-v2v-2.10.0.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	bash-completion-r1	9e91505e030725688d1e953321a47501
+_md5_=7d8ba63de0cfbde4b73284734d787000
