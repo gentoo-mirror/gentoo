@@ -99,6 +99,8 @@ python_test() {
 		# TODO
 		mypy/test/meta/test_parse_data.py
 		mypy/test/meta/test_update_data.py
+		# Unknown SIGBUS, bug #967850
+		mypyc/test/test_run.py::TestRun::run-classes.test::testBufferRoundTrip_native_libs
 	)
 
 	case ${EPYTHON} in
