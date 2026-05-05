@@ -32,7 +32,7 @@ RDEPEND="
 		dev-python/django[${PYTHON_USEDEP}]
 	)
 	jose? (
-		>=dev-python/pycryptodome-3.10[${PYTHON_USEDEP}]
+		dev-python/joserfc[${PYTHON_USEDEP}]
 	)
 "
 BDEPEND="

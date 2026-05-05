@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 # Git commit SHA is needed at runtime by earthly to pull and bootstrap images.
 if [[ "${PV}" == "0.8.16" ]] ; then
@@ -30,6 +30,9 @@ RDEPEND="
 		app-containers/docker
 		app-containers/podman
 	)
+"
+BDEPEND="
+	>=dev-lang/go-1.21.0
 "
 
 DOCS=( CHANGELOG.md CONTRIBUTING.md README.md )

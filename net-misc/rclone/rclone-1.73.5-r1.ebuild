@@ -22,6 +22,9 @@ KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 RDEPEND="
 	sys-fs/fuse:3=
 "
+BDEPEND="
+	>=dev-lang/go-1.25.0
+"
 
 CHECKREQS_DISK_BUILD="2500M"
 
