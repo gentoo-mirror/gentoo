@@ -51,6 +51,7 @@ declare -A QT_MODULES=(
 	["+core"]="Core"
 	["+dbus"]="DBus"
 	["designer"]="Designer"
+	["graphs"]="Graphs" # plus widgets
 	["+gui"]="Gui"
 	["help"]="Help"
 	["httpserver"]="HttpServer"
@@ -89,14 +90,14 @@ declare -A QT_MODULES=(
 # following one-liner from within "${S}":
 #     $ grep -E '(set|list).*_deps' sources/pyside6/PySide6/Qt*/CMakeLists.txt
 declare -A QT_REQUIREMENTS=(
-	# opengl not unconditionally required but is needed to get the correct build order
-	["3d"]="gui network opengl"
+	["3d"]="gui network"
 	["bluetooth"]="core"
 	["charts"]="core gui widgets"
 	["concurrent"]="core"
 	["dbus"]="core"
 	["designer"]="widgets"
 	["gles2-only"]="gui"
+	["graphs"]="core network gui qml quick quick3d"
 	["gui"]="core"
 	["help"]="widgets"
 	["httpserver"]="core concurrent network websockets"
@@ -110,8 +111,7 @@ declare -A QT_REQUIREMENTS=(
 	["positioning"]="core"
 	["printsupport"]="widgets"
 	["qml"]="network"
-	# opengl not unconditionally required but is needed to get the correct build order
-	["quick"]="gui network qml opengl"
+	["quick"]="gui network qml"
 	["quick3d"]="gui network qml quick"
 	["remoteobjects"]="core network"
 	["scxml"]="core"
@@ -125,12 +125,17 @@ declare -A QT_REQUIREMENTS=(
 	["testlib"]="widgets"
 	["uitools"]="widgets"
 	["webchannel"]="core"
-	# quick not unconditionally required but is needed to get the correct build order
-	["webengine"]="core gui network printsupport quick webchannel"
+	["webengine"]="core gui network printsupport webchannel"
 	["websockets"]="network"
 	["webview"]="gui quick webengine"
 	["widgets"]="gui"
 	["xml"]="core"
+)
+# Manually reextract these requirements on version bumps by running the
+# following one-liner from within "${S}":
+#     $ grep 'check_qt_opengl' sources/pyside6/PySide6/Qt*/CMakeLists.txt
+declare -a CONDITIONAL_OPENGL=(
+	3d graphs quick
 )
 
 IUSE="${!QT_MODULES[*]} debug doc gles2-only numpy test tools"
@@ -149,11 +154,13 @@ done
 # Minimal supported version of Qt.
 QT_PV="$(ver_cut 1-3)*:6"
 
+# USE="tools" is heavily automagic based on what other qt tools are installed at build time.
+
 # WebEngine needs sound support, so enable either pulseaudio or alsa
 RDEPEND="
 	dev-libs/libxml2:=
 	dev-libs/libxslt
-	=dev-qt/qtbase-${QT_PV}[concurrent?,dbus?,gles2-only=,network?,opengl?,sql?,widgets?,xml?]
+	=dev-qt/qtbase-${QT_PV}[concurrent?,dbus?,gles2-only=,network?,opengl=,sql?,widgets?,xml?]
 	$(llvm_gen_dep '
 		llvm-core/clang:${LLVM_SLOT}
 	')
@@ -161,6 +168,7 @@ RDEPEND="
 	bluetooth? ( =dev-qt/qtconnectivity-${QT_PV}[bluetooth] )
 	charts? ( =dev-qt/qtcharts-${QT_PV} )
 	designer? ( =dev-qt/qttools-${QT_PV}[designer,widgets,gles2-only=] )
+	graphs? ( =dev-qt/qtgraphs-${QT_PV}[quick3d] )
 	gui? (
 		=dev-qt/qtbase-${QT_PV}[gui,jpeg(+)]
 		x11-libs/libxkbcommon
@@ -313,6 +321,8 @@ python_prepare_all() {
 			linux
 		[QtCore::qrangemodel_test]
 			linux
+		[QtGraphs::qgraphs_numpy_test]
+			linux
 		EOF
 	fi
 }
@@ -346,6 +356,10 @@ python_configure_all() {
 					die "${depflag} is required but not enabled"
 				fi
 			done
+			if use opengl && [[ ${CONDITIONAL_OPENGL[@]} =~ ${flag//+} ]]; then
+				# match key in QT_MODULES
+				enable_qt_mod "+opengl"
+			fi
 		fi
 		if [[ "${ENABLED_QT_MODULES[*]}" != *${modules}* ]]; then
 			# modules is whitespace separated. We expand implicitly.
@@ -366,6 +380,7 @@ python_configure_all() {
 		use opengl && ENABLED_QT_MODULES+=( OpenGLWidgets )
 		use pdfium && ENABLED_QT_MODULES+=( PdfWidgets )
 		use quick && ENABLED_QT_MODULES+=( QuickWidgets )
+		use graphs && ENABLED_QT_MODULES+=( GraphsWidgets ) # requires QuickWidgets
 		use svg && ENABLED_QT_MODULES+=( SvgWidgets )
 		use webengine && ENABLED_QT_MODULES+=( WebEngineWidgets )
 	fi
@@ -385,7 +400,7 @@ python_configure_all() {
 		--openssl="${ESYSROOT}/usr/bin/openssl"
 		--qt="$(ver_cut 1-3)"
 		--qtpaths="$(qt6_get_bindir)/qtpaths"
-		--verbose-build
+		--log-level=verbose
 		--parallel="$(makeopts_jobs)"
 		"$(usex debug "--debug" "--relwithdebinfo")"
 		"--$(usex doc "build" "skip")-docs"
