@@ -120,6 +120,8 @@ fi
 PATCHES=(
 	"${FILESDIR}/4.4.6-lto.patch"
 	"${FILESDIR}/4.6.2-gnutls-pkcs11.patch"
+	"${FILESDIR}/4.6.5-disable-sidebar.patch"
+	"${FILESDIR}/4.6.5-remove-unused-variable.patch"
 )
 
 python_check_deps() {
@@ -150,6 +152,17 @@ src_unpack() {
 
 		default
 	fi
+}
+
+src_prepare() {
+	# since 4.6.5 the Lua version is found "automatically" and can no longer
+	# be passed in via LUA_FIND_VERSIONS, so we override the search list.
+	if use lua; then
+		sed -i "s/set(LUA_VERSIONS5 5.5 5.4 5.3 5.2 5.1 5.0)/set(LUA_VERSIONS5 ${ELUA#lua})/g" \
+			cmake/modules/FindLua.cmake || die
+	fi
+
+	cmake_src_prepare
 }
 
 src_configure() {
@@ -207,7 +220,6 @@ src_configure() {
 		-DENABLE_ILBC=$(usex ilbc)
 		-DENABLE_KERBEROS=$(usex kerberos)
 		-DENABLE_LUA=$(usex lua)
-		-DLUA_FIND_VERSIONS="${ELUA#lua}"
 		-DENABLE_LZ4=$(usex lz4)
 		-DENABLE_MINIZIP=$(usex minizip)
 		-DENABLE_MINIZIPNG=OFF
@@ -325,4 +337,16 @@ pkg_postinst() {
 	ewarn "NOTE: To capture traffic with wireshark as normal user you have to"
 	ewarn "add yourself to the pcap group. This security measure ensures"
 	ewarn "that only trusted users are allowed to sniff your traffic."
+
+	if use gui; then
+		einfo "Since version 4.6.5 Wireshark's Welcome page shows a sidebar"
+		einfo "with links to documentation, ads, sponsors and various other"
+		einfo "community resources. This feature was merged prematurely and"
+		einfo "cannot (yet) be disabled in Preferences, so we decided to disable"
+		einfo "it by default. If you already started 4.6.5 and see the sidebar,"
+		einfo "you can edit the gui.welcome_page.sidebar.* keys in the"
+		einfo "recent_common file located in ~/.wireshark (old location)"
+		einfo "or ~/.config/wireshark (new location)."
+		einfo "Make sure that Wireshark is not running when editing the file."
+	fi
 }
