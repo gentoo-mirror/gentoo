@@ -5,6 +5,9 @@ EAPI=8
 
 RUST_MIN_VER="1.92.0"
 
+CRATES="
+"
+
 inherit cargo desktop shell-completion xdg
 
 DESCRIPTION="A terminal workspace with batteries included"
