@@ -921,7 +921,7 @@ app-admin/ansible-core 2.19.2 2.19.3 2.19.3-r1 2.20.0-r1 2.20.3 9999: Model-driv
 app-admin/ansible-lint 25.9.0 25.11.0 26.3.0: Checks ansible playbooks for practices and behaviour that can be improved
 app-admin/ansible-modules-hashivault 5.2.1-r1: Ansible module for hashicorp vault
 app-admin/ansible-molecule 25.9.0 25.11.0 26.3.0: A toolkit designed to aid in the development and testing of Ansible roles
-app-admin/apache-tools 2.4.65 2.4.66: Useful Apache tools - htdigest, htpasswd, ab, htdbm
+app-admin/apache-tools 2.4.65 2.4.66 2.4.67: Useful Apache tools - htdigest, htpasswd, ab, htdbm
 app-admin/apachetop 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
@@ -11781,7 +11781,7 @@ games-roguelike/dwarf-fortress 51.13: Single-player fantasy game
 games-roguelike/hengband 2.2.1: An Angband variant, with a Japanese/fantasy theme
 games-roguelike/moria 5.7.15: The Dungeons of Moria, a single player roguelike game, also known as Umoria
 games-roguelike/neon-chrome 1.1.12: A ruthless top-down cyberpunk shooter with rogue-like elements
-games-roguelike/nethack 3.6.7 3.6.7-r1: The ultimate old-school single player dungeon exploration game
+games-roguelike/nethack 3.6.7 3.6.7-r1 5.0.0: The ultimate old-school single player dungeon exploration game
 games-roguelike/powder 118: A game in the genre of Rogue, Nethack, and Diablo with emphasis on tactical play
 games-roguelike/scourge 0.21.1-r2: A graphical rogue-like adventure game
 games-roguelike/stone-soup 0.25.1-r104 0.26.1-r3 0.27.1-r2 0.28.0-r2 0.29.1-r1 0.30.1-r1 0.31.0-r1 0.32.1-r1 0.33.1-r1 0.34.0-r1 0.34.1: Role-playing roguelike game of exploration and treasure-hunting in dungeons
@@ -15340,7 +15340,7 @@ net-misc/openrdap 0.9.1: RDAP command line client
 net-misc/openrsync 0.5.0_p20220508 0.5.0_p20250127: BSD-licensed implementation of rsync
 net-misc/openssh 9.8_p1-r4 9.9_p2-r4 10.0_p1 10.0_p2 10.1_p1-r1 10.2_p1 10.2_p1-r1 10.3_p1: Port of OpenBSD's free SSH release
 net-misc/openssh-contrib 9.7_p1-r4: Port of OpenBSD's free SSH release with HPN/X509 patches
-net-misc/openvswitch 2.17.12 3.3.8: Production quality, multilayer virtual switch
+net-misc/openvswitch 2.17.12-r1 3.3.8-r1: Production quality, multilayer virtual switch
 net-misc/owncloud-client 5.3.2.15463 6.0.2.17506 6.0.3.18040: Synchronize files from ownCloud Server with your computer
 net-misc/packETH 3.0: Packet generator tool for ethernet
 net-misc/passt 2025.04.15 2025.06.11 2025.12.15 9999: User-mode networking daemons for VMs and namespaces, replacement for Slirp
@@ -16791,7 +16791,7 @@ sec-policy/selinux-awstats 2.20250213_p1 2.20250618_p1 9999: SELinux policy for 
 sec-policy/selinux-backup 2.20250213_p1 2.20250618_p1 9999: SELinux policy for generic backup apps
 sec-policy/selinux-bacula 2.20250213_p1 2.20250618_p1 9999: SELinux policy for bacula
 sec-policy/selinux-base 2.20250213_p1 2.20250618_p1 9999: Gentoo base policy for SELinux
-sec-policy/selinux-base-policy 2.20250213_p1 2.20250618_p1 9999: SELinux policy for core modules
+sec-policy/selinux-base-policy 2.20250213_p1-r1 2.20250618_p1-r1 9999: SELinux policy for core modules
 sec-policy/selinux-bind 2.20250213_p1 2.20250618_p1 9999: SELinux policy for bind
 sec-policy/selinux-bitcoin 2.20250213_p1 2.20250618_p1 9999: SELinux policy for bitcoin
 sec-policy/selinux-bitlbee 2.20250213_p1 2.20250618_p1 9999: SELinux policy for bitlbee
@@ -16891,7 +16891,7 @@ sec-policy/selinux-logwatch 2.20250213_p1 2.20250618_p1 9999: SELinux policy for
 sec-policy/selinux-lpd 2.20250213_p1 2.20250618_p1 9999: SELinux policy for lpd
 sec-policy/selinux-makewhatis 2.20250213_p1 2.20250618_p1 9999: SELinux policy for makewhatis
 sec-policy/selinux-mandb 2.20250213_p1 2.20250618_p1 9999: SELinux policy for mandb
-sec-policy/selinux-matrixd 2.20250213_p1 2.20250618_p1 9999: SELinux policy for matrixd
+sec-policy/selinux-matrixd 2.20250213_p1-r1 2.20250618_p1-r1 9999: SELinux policy for matrixd
 sec-policy/selinux-mcelog 2.20250213_p1 2.20250618_p1 9999: SELinux policy for mcelog
 sec-policy/selinux-memcached 2.20250213_p1 2.20250618_p1 9999: SELinux policy for memcached
 sec-policy/selinux-milter 2.20250213_p1 2.20250618_p1 9999: SELinux policy for milter
@@ -16921,6 +16921,7 @@ sec-policy/selinux-openct 2.20250213_p1 2.20250618_p1 9999: SELinux policy for o
 sec-policy/selinux-openrc 2.20250213_p1 2.20250618_p1 9999: SELinux policy for openrc
 sec-policy/selinux-opensm 2.20250213_p1 2.20250618_p1 9999: SELinux policy for opensm
 sec-policy/selinux-openvpn 2.20250213_p1 2.20250618_p1 9999: SELinux policy for openvpn
+sec-policy/selinux-openvswitch 2.20250618_p1 9999: SELinux policy for openvswitch
 sec-policy/selinux-pan 2.20250213_p1 2.20250618_p1 9999: SELinux policy for pan
 sec-policy/selinux-pcscd 2.20250213_p1 2.20250618_p1 9999: SELinux policy for pcscd
 sec-policy/selinux-phpfpm 2.20250213_p1 2.20250618_p1 9999: SELinux policy for phpfpm
@@ -18309,7 +18310,7 @@ www-plugins/lightspark 0.9.0: High performance flash player
 www-plugins/passff-host 1.2.4 1.2.5: Host app for the PassFF WebExtension
 www-plugins/pdfjs 4.5.136 4.9.155 4.10.38 5.0.375: A PDF reader in JavaScript
 www-servers/adsf 1.5.2-r1 1.5.3: A Dead Simple Fileserver is a static file server that can launch in a directory
-www-servers/apache 2.4.66: The Apache Web Server
+www-servers/apache 2.4.66 2.4.67: The Apache Web Server
 www-servers/caddy 2.9.1 2.10.2 2.10.2-r1 9999: Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS
 www-servers/civetweb 1.16: Embedded C/C++ web server
 www-servers/fnord 1.11-r3: Yet another small httpd

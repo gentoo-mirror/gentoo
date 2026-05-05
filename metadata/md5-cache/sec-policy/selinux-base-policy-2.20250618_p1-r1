@@ -1,6 +1,6 @@
 BDEPEND=sys-apps/checkpolicy sys-devel/m4
 DEFINED_PHASES=compile install postinst prepare
-DEPEND==sec-policy/selinux-base-2.20250618_p1[selinux_policy_types_targeted?,selinux_policy_types_strict?,selinux_policy_types_mcs?,selinux_policy_types_mls?,systemd?]
+DEPEND=~sec-policy/selinux-base-2.20250618_p1[selinux_policy_types_targeted?,selinux_policy_types_strict?,selinux_policy_types_mcs?,selinux_policy_types_mls?,systemd?]
 DESCRIPTION=SELinux policy for core modules
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
@@ -8,8 +8,8 @@ IUSE=systemd +unconfined +selinux_policy_types_targeted +selinux_policy_types_st
 KEYWORDS=amd64 arm arm64 ~riscv x86
 LICENSE=GPL-2
 PDEPEND=unconfined? ( sec-policy/selinux-unconfined )
-RDEPEND==sec-policy/selinux-base-2.20250618_p1[selinux_policy_types_targeted?,selinux_policy_types_strict?,selinux_policy_types_mcs?,selinux_policy_types_mls?,systemd?]
+RDEPEND=~sec-policy/selinux-base-2.20250618_p1[selinux_policy_types_targeted?,selinux_policy_types_strict?,selinux_policy_types_mcs?,selinux_policy_types_mls?,systemd?]
 REQUIRED_USE=|| ( selinux_policy_types_targeted selinux_policy_types_strict selinux_policy_types_mcs selinux_policy_types_mls ) selinux_policy_types_targeted? ( unconfined )
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/refpolicy/releases/download/RELEASE_2_20250618/refpolicy-2.20250618.tar.bz2 https://dev.gentoo.org/~perfinion/patches/selinux-base-policy/patchbundle-selinux-base-policy-2.20250618-r1.tar.bz2
-_md5_=8c4c0794b5bb070f66044136f9626d49
+_md5_=1c2576d589c0c3350dcf14c7fa68232b

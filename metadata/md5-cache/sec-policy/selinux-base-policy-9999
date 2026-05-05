@@ -1,6 +1,6 @@
 BDEPEND=sys-apps/checkpolicy sys-devel/m4 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst prepare unpack
-DEPEND==sec-policy/selinux-base-9999[selinux_policy_types_targeted?,selinux_policy_types_strict?,selinux_policy_types_mcs?,selinux_policy_types_mls?,systemd?]
+DEPEND=~sec-policy/selinux-base-9999[selinux_policy_types_targeted?,selinux_policy_types_strict?,selinux_policy_types_mcs?,selinux_policy_types_mls?,systemd?]
 DESCRIPTION=SELinux policy for core modules
 EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/Project:SELinux
@@ -9,8 +9,8 @@ IUSE=systemd +unconfined +selinux_policy_types_targeted +selinux_policy_types_st
 LICENSE=GPL-2
 PDEPEND=unconfined? ( sec-policy/selinux-unconfined )
 PROPERTIES=live
-RDEPEND==sec-policy/selinux-base-9999[selinux_policy_types_targeted?,selinux_policy_types_strict?,selinux_policy_types_mcs?,selinux_policy_types_mls?,systemd?]
+RDEPEND=~sec-policy/selinux-base-9999[selinux_policy_types_targeted?,selinux_policy_types_strict?,selinux_policy_types_mcs?,selinux_policy_types_mls?,systemd?]
 REQUIRED_USE=|| ( selinux_policy_types_targeted selinux_policy_types_strict selinux_policy_types_mcs selinux_policy_types_mls ) selinux_policy_types_targeted? ( unconfined )
 SLOT=0
 _eclasses_=git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=ad91c86584895f76a1c5fa4fc1d6ef76
+_md5_=1744708883c6e8dbcdb975cdb9cffeea
