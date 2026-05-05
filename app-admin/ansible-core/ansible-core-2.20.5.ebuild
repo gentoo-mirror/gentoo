@@ -45,9 +45,6 @@ BDEPEND="
 		dev-python/pytz[${PYTHON_USEDEP}]
 	)"
 
-PATCHES=(
-	"${FILESDIR}/os-release-fix.patch"
-)
 
 distutils_enable_tests pytest
 
