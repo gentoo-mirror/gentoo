@@ -1,35 +1,31 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-OC_COMMIT="119fe41a83bc455a24a11ecc9b78e7b13fcfcc45"
-GT_COMMIT="2ad076167a676e3ed62f90b754b30fac5caa1f88"
-
-PYTHON_COMPAT=( python3_{11..12} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit flag-o-matic python-single-r1 cmake
 
 DESCRIPTION="Simple Theorem Prover, an efficient SMT solver for bitvectors"
 HOMEPAGE="https://stp.github.io/
 	https://github.com/stp/stp/"
-SRC_URI="
-	https://github.com/stp/stp/archive/${PV}.tar.gz
-		-> ${P}.tar.gz
 
-	test? (
-		https://github.com/stp/OutputCheck/archive/${OC_COMMIT}.tar.gz
-			-> ${P}_OutputCheck.tar.gz
-		https://github.com/stp/googletest/archive/${GT_COMMIT}.tar.gz
-			-> ${P}_gtest.tar.gz
-	)
-"
+if [[ "${PV}" == *9999* ]] ; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://github.com/stp/stp"
+else
+	SRC_URI="https://github.com/stp/stp/archive/${PV}.tar.gz
+		-> ${P}.tar.gz"
+
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="GPL-2+ MIT"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~x86"
 IUSE="cryptominisat debug +python test"
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} ) test? ( python )"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -51,41 +47,23 @@ DEPEND="
 BDEPEND="
 	sys-apps/help2man
 	test? (
+		dev-cpp/gtest
+		dev-python/outputcheck
 		dev-python/lit
 	)
 "
 
 PATCHES=(
-	"${FILESDIR}/${P}-CMakeLists.txt-fix_cflags.patch"
-	"${FILESDIR}/${P}-cstdint.patch"
-	"${FILESDIR}/${P}-stp.py-library_path.patch"
+	"${FILESDIR}/${PN}-2.3.3-CMakeLists.txt-fix_cflags.patch"
+	"${FILESDIR}/${PN}-2.3.3-stp.py-library_path.patch"
+	"${FILESDIR}/${PN}-2.3.4-gtest.patch"
+	"${FILESDIR}/${PN}-2.3.4-lit-cfg.patch"
 )
 
 pkg_setup() {
-	use python && python-single-r1_pkg_setup
-}
-
-src_unpack() {
-	unpack "${P}.tar.gz"
-
-	if use test ; then
-		local i
-		for i in OutputCheck gtest ; do
-			tar xf "${DISTDIR}/${P}_${i}.tar.gz" --strip-components=1  \
-				-C "${S}/utils/${i}" \
-				|| die "failed to unpack ${i}"
-		done
+	if use python ; then
+		python-single-r1_pkg_setup
 	fi
-}
-
-src_prepare() {
-	# Replace static lib with get_libdir
-	sed -i "s/set(LIBDIR lib/set(LIBDIR $(get_libdir)/" CMakeLists.txt || die
-
-	# Remove problematic test
-	rm "${S}/tests/query-files/misc-tests/no-query.cvc" || die
-
-	cmake_src_prepare
 }
 
 src_configure() {
@@ -100,7 +78,12 @@ src_configure() {
 	fi
 
 	local -a mycmakeargs=(
+		-DUSE_RISS=OFF
+
+		# Cryptominisat switches
 		-DNOCRYPTOMINISAT=$(usex cryptominisat 'OFF' 'ON')  # double negation
+		-DFORCE_CMS=$(usex cryptominisat)
+
 		-DENABLE_PYTHON_INTERFACE=$(usex python)
 		-DENABLE_ASSERTIONS=$(usex test)
 		-DENABLE_TESTING=$(usex test)
@@ -121,7 +104,9 @@ src_install() {
 	# Because Python files for tests (in BUILD_DIR) and those installed on the
 	# system differ, and are generated upon install, we have to wait for CMake
 	# to install them into the temporary image.
-	use python && python_optimize "${D}/$(python_get_sitedir)/stp"
+	if use python ; then
+		python_optimize "${D}/$(python_get_sitedir)/stp"
+	fi
 
 	mv "${D}/usr/man" "${D}/usr/share/man" || die
 	dodoc -r papers
