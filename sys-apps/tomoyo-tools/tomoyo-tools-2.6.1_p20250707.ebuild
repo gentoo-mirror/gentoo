@@ -6,6 +6,7 @@ EAPI=8
 inherit toolchain-funcs
 
 MY_P="${PN}-${PV/_p/-}"
+
 DESCRIPTION="TOMOYO Linux userspace tools"
 HOMEPAGE="https://tomoyo.sourceforge.net/"
 SRC_URI="https://downloads.sourceforge.net/project/tomoyo/${PN}/$(ver_cut 1-2)/${MY_P}.tar.gz"
@@ -19,10 +20,6 @@ DEPEND="sys-libs/ncurses:="
 RDEPEND="${DEPEND}
 	!sys-apps/ccs-tools"
 BDEPEND="virtual/pkgconfig"
-
-PATCHES=(
-	"${FILESDIR}"/${P}-warnings.patch
-)
 
 src_prepare() {
 	default
@@ -68,5 +65,5 @@ pkg_postinst() {
 }
 
 pkg_config() {
-	/usr/$(get_libdir)/tomoyo/init_policy
+	/usr/"$(get_libdir)"/tomoyo/init_policy
 }
