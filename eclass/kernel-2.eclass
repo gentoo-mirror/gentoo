@@ -208,19 +208,19 @@
 # @DEFAULT_UNSET
 # @OUTPUT_VARIABLE
 # @DESCRIPTION:
-# Kernel major version from <KV_MAJOR>.<KV_MINOR>.<KV_PATCH
+# Kernel major version from <KV_MAJOR>.<KV_MINOR>.<KV_PATCH>
 
 # @ECLASS_VARIABLE: KV_MINOR
 # @DEFAULT_UNSET
 # @OUTPUT_VARIABLE
 # @DESCRIPTION:
-# Kernel minor version from <KV_MAJOR>.<KV_MINOR>.<KV_PATCH
+# Kernel minor version from <KV_MAJOR>.<KV_MINOR>.<KV_PATCH>
 
 # @ECLASS_VARIABLE: KV_PATCH
 # @DEFAULT_UNSET
 # @OUTPUT_VARIABLE
 # @DESCRIPTION:
-# Kernel patch version from <KV_MAJOR>.<KV_MINOR>.<KV_PATCH
+# Kernel patch version from <KV_MAJOR>.<KV_MINOR>.<KV_PATCH>
 
 # @ECLASS_VARIABLE: LINUX_HOSTCFLAGS
 # @DEFAULT_UNSET
@@ -1114,6 +1114,28 @@ unipatch() {
 				fi
 			fi
 		fi
+
+        # If we use genpatches, let's make sure it includes the
+        # kernel patch for the version we are trying to install
+        # This is a sanity check to make sure the genpatches version
+        # in the ebuild is correct
+        #
+        # Iterate through patch and look for OKV
+        if [[ -n "${K_WANT_GENPATCHES}" ]]; then
+            KV_PATCH_FOUND=
+            for file in ${KPATCH_DIR}/*; do
+                filename="${file##*/}"
+                if [[ "$filename" == *"${OKV}"* ]]; then
+                    KV_PATCH_FOUND=yes
+                    break;
+                fi
+            done
+            if [[ -z ${KV_PATCH_FOUND} ]]; then
+                eerror "GENPATCHES does not contain linux patch ${OKV}"
+                eerror "Please check your ebuild for the proper K_GENPATCHES_VER=N"
+                die "GENPATCHES appears to be missing Linux patch ${OKV}"
+            fi
+        fi
 
 		# If experimental was not chosen by the user, drop experimental patches not in K_EXP_GENPATCHES_LIST.
 		if [[ ${i} == *genpatches-*.experimental.* && -n ${K_EXP_GENPATCHES_PULL} ]]; then
