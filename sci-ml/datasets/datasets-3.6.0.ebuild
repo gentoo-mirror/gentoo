@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..13} )
 DISTUTILS_SINGLE_IMPL=1
 inherit distutils-r1
 
@@ -22,7 +22,6 @@ REQUIRES_USE="test? ( torch vision )"
 RDEPEND="
 	sci-ml/huggingface_hub[${PYTHON_SINGLE_USEDEP}]
 	$(python_gen_cond_dep '
-		dev-python/aiohttp[${PYTHON_USEDEP}]
 		dev-python/dill[${PYTHON_USEDEP}]
 		dev-python/filelock[${PYTHON_USEDEP}]
 		dev-python/fsspec[${PYTHON_USEDEP}]
@@ -95,9 +94,9 @@ src_test() {
 
 	local EPYTEST_DESELECT=(
 		tests/commands/test_test.py::test_test_command
-		tests/features/test_video.py::test_dataset_with_video_feature
-		tests/features/test_video.py::test_dataset_with_video_map_and_formatted
-		tests/features/test_video.py::test_video_feature_encode_example
+		#tests/features/test_video.py::test_dataset_with_video_feature
+		#tests/features/test_video.py::test_dataset_with_video_map_and_formatted
+		#tests/features/test_video.py::test_video_feature_encode_example
 		tests/io/test_parquet.py::test_parquet_read_geoparquet
 		tests/packaged_modules/test_cache.py::test_cache_capital_letters
 		tests/packaged_modules/test_cache.py::test_cache_multi_configs
@@ -123,7 +122,7 @@ src_test() {
 		tests/test_hub.py::test_delete_from_hub
 		tests/test_offline_util.py::test_offline_with_connection_error
 		tests/test_offline_util.py::test_offline_with_timeout
-		tests/test_search.py::ElasticSearchIndexTest::test_elasticsearch
+		#tests/test_search.py::ElasticSearchIndexTest::test_elasticsearch
 	)
 	distutils-r1_src_test
 }
