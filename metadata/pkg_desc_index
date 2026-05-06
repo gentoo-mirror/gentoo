@@ -1925,7 +1925,7 @@ app-emacs/bnf-mode 0.4.5: GNU Emacs major mode for editing BNF grammars
 app-emacs/bongo 1.1-r1: Buffer-oriented media player for Emacs
 app-emacs/boogie-friends 0.1_p20220922: Emacs tools for interacting with Boogie, Dafny and Z3 (SMT2)
 app-emacs/boxquote 2.3 2.4.1 9999: Quote text with a semi-box
-app-emacs/browse-kill-ring 2.0.0: An improved interface to kill-ring
+app-emacs/browse-kill-ring 2.0.0 2.1.0: An improved interface to kill-ring
 app-emacs/bubblet 0.74-r1: A bubble-popping game
 app-emacs/bui 1.2.1_p20210108 1.3: Buffer interface library for Emacs
 app-emacs/burly 0.2 0.3: Save and restore frames and windows with their buffers in Emacs
@@ -2195,7 +2195,7 @@ app-emacs/ocaml-mode 4.05.0-r1: Emacs mode for OCaml
 app-emacs/orderless 1.4 1.5 1.6: Completion style that matches multiple regexps in any order
 app-emacs/org-appear 0.3.1: Toggle Org mode element visibility upon entering and leaving
 app-emacs/org-contrib 0.7: Contributed packages to Org
-app-emacs/org-mode 9.8 9.8.1 9.8.2 9.8.3 9999: An Emacs mode for notes and project planning
+app-emacs/org-mode 9.8 9.8.1 9.8.2 9.8.3 9.8.4 9999: An Emacs mode for notes and project planning
 app-emacs/org-modern 1.13 9999: Modern style for your GNU Emacs Org buffers
 app-emacs/org-roam 2.2.2-r3 2.3.0 2.3.1 9999: Rudimentary Roam replica with Org-mode
 app-emacs/org-static-blog 1.6.0 1.7.0 9999: Static site generator using Emacs's org-mode
@@ -2295,7 +2295,7 @@ app-emacs/stripes 0.3.1.1: An Emacs mode that alternates the background color of
 app-emacs/sumibi 0.7.4-r1: Statistical Japanese input method using the Internet as a large corpus
 app-emacs/sunrise-commander 6_p20210927: Twin-pane file manager for Emacs inspired by Midnight Commander
 app-emacs/svg-lib 0.2.8 0.3: SVG tags, progress bars & icons
-app-emacs/swift-mode 9.3.0 9.4.0: Emacs support for Apple's Swift programming language
+app-emacs/swift-mode 9.4.0 10.0.0: Emacs support for Apple's Swift programming language
 app-emacs/swiper 0.15.1: Alternative to isearch that uses ivy to show overview of all matches
 app-emacs/switch-window 1.6.2_p20210808: Offer a customizable visual way to choose a window to switch to
 app-emacs/system-packages 1.1.2: Manage your installed packages with Emacs
@@ -5291,10 +5291,10 @@ dev-lang/rust-bin 1.74.1-r102 1.75.0-r102 1.76.0-r101 1.77.1-r102 1.78.0-r102 1.
 dev-lang/rust-common 1.81.0 1.82.0 1.83.0 1.84.1 1.85.1 1.86.0 1.87.0 1.88.0 1.89.0 1.90.0 1.91.0 1.92.0 1.93.0 1.93.1 1.94.0 1.94.1 1.95.0 9999: Common files shared between multiple slots of Rust
 dev-lang/sassc 3.6.2: A libsass command line driver
 dev-lang/scala-bin 2.13.9-r1: The Scala Programming Language
-dev-lang/scrapscript 0.1.1 9999: Functional, content-addressable programming language
+dev-lang/scrapscript 0.1.1-r1 9999: Functional, content-addressable programming language
 dev-lang/smlnj 110.99.6.1 110.99.9: Standard ML of New Jersey compiler and libraries
 dev-lang/snobol 1.4.1-r1: Phil Budne's port of Macro SNOBOL4 in C, for modern machines
-dev-lang/souffle 2.5: Datalog compiler, synthesizes C++ program from logic specification
+dev-lang/souffle 2.5-r1: Datalog compiler, synthesizes C++ program from logic specification
 dev-lang/spark 2024.01.11-r2: Software development for high-reliability applications
 dev-lang/spidermonkey 115.24.0 128.14.0 140.9.1: Mozilla's JavaScript engine written in C and C++
 dev-lang/squirrel 3.2: A interpreted language mainly used for games
@@ -8639,7 +8639,7 @@ dev-python/isoduration 20.11.0-r1: Operations with ISO 8601 durations
 dev-python/isort 8.0.1: A python utility/library to sort imports
 dev-python/iterable-io 1.0.1: Adapt generators and other iterables to a file-like interface
 dev-python/itsdangerous 2.2.0: Various helpers to pass trusted data to untrusted environments and back
-dev-python/itunespy 1.6.1: A simple library to fetch data from the iTunes Store API
+dev-python/itunespy 1.6.1-r1: A simple library to fetch data from the iTunes Store API
 dev-python/jack-client 0.5.5: JACK Audio Connection Kit client for Python
 dev-python/jaconv 0.5.0: Pure-Python Japanese character interconverter
 dev-python/jaraco-classes 3.4.0: Classes used by other projects by developer jaraco
@@ -9065,7 +9065,7 @@ dev-python/pydantic-settings 2.13.1 2.14.0: Settings management using Pydantic
 dev-python/pydata-sphinx-theme 0.16.1 0.17.0 0.17.1: Bootstrap-based Sphinx theme from the PyData community
 dev-python/pydbus 0.6.0-r1: Pythonic DBus library
 dev-python/pydecomp 0.3-r3 9999: A python library of common (de)compression and contents handling
-dev-python/pydes 2.0.1-r2: Python implementation of DES and TRIPLE DES
+dev-python/pydes 2.0.1-r3: Python implementation of DES and TRIPLE DES
 dev-python/pydevd 3.5.0: PyDev.Debugger (used in PyDev, PyCharm and VSCode Python)
 dev-python/pydiffx 1.1: Python module for reading and writing DiffX files
 dev-python/pydot 4.0.1: Python interface to Graphviz's Dot language
@@ -9774,7 +9774,7 @@ dev-python/yara-python 4.5.4 4.5.5 9999: Python interface for a malware identifi
 dev-python/yarl 1.23.0: Yet another URL library
 dev-python/yattag 1.16.1: Python library to generate HTML or XML in a readable, concise and pythonic way
 dev-python/yaxmldiff 0.2.0: Yet Another XML Differ
-dev-python/youtube-search-python 1.6.6-r2: Get YouTube video information using link WITHOUT YouTube Data API v3
+dev-python/youtube-search-python 1.6.6-r3: Get YouTube video information using link WITHOUT YouTube Data API v3
 dev-python/yt-dlp-ejs 0.5.0 0.7.0 0.8.0: External JavaScript for yt-dlp supporting many runtimes
 dev-python/ytmusicapi 1.11.5 1.12.0: Unofficial API for YouTube Music
 dev-python/zc-lockfile 4.0: Basic inter-process locks
@@ -10723,7 +10723,7 @@ dev-texlive/texlive-plaingeneric 2023_p68675-r1 2024_p72878: TeXLive Plain (La)T
 dev-texlive/texlive-pstricks 2023_p65367 2024_p65367: TeXLive PSTricks
 dev-texlive/texlive-publishers 2023_p69759-r1 2024_p72771: TeXLive Publisher styles, theses, etc.
 dev-texlive/texlive-xetex 2023_p69452-r1 2024_p71515: TeXLive XeTeX and packages
-dev-util/0xtools 2.0.3-r4 9999: Always-on profiling for production systems
+dev-util/0xtools 2.0.3-r5 9999: Always-on profiling for production systems
 dev-util/App-SVN-Bisect 1.1-r2: Binary search through svn revisions
 dev-util/FlameGraph 1.0 1.0_p20210830 1.0_p20220918 9999: Visualization of hierarchical data, especially profiled stack traces
 dev-util/ROPgadget 7.6-r2 7.7-r1 9999: Search for gadgets in binaries to facilitate your ROP exploitation
@@ -11087,7 +11087,7 @@ dev-util/stripe-mock 0.197.0 0.198.0: Mock HTTP server that responds like the re
 dev-util/sysprof 47.2-r1 48.0-r1 48.1 49.0: System-wide Linux Profiler
 dev-util/sysprof-capture 3.36.0-r2 47.2 48.0 48.1 49.0: Static library for sysprof capture data generation
 dev-util/sysprof-common 47.2 48.0 48.1 49.0: Static library for sysprof capture data generation
-dev-util/tbump 6.11.0: tbump helps you bump the version of your project easily
+dev-util/tbump 6.11.0-r1: tbump helps you bump the version of your project easily
 dev-util/tea 0.12.0 0.14.0-r1: Command line tool to interact with Gitea server
 dev-util/tinlink 1.0.0-r2: Tool to create very small elf binary from pure binary files
 dev-util/tkdiff 5.7 6.0: Graphical front end to the diff program
@@ -11516,7 +11516,7 @@ games-emulation/nestopia-jg 1.53.2 9999: Jolly Good Fork of Nestopia
 games-emulation/openmsx 20.0-r2: MSX emulator that aims for perfection
 games-emulation/pcsx2 2.4.0-r1 2.6.3-r1 9999: PlayStation 2 emulator
 games-emulation/pcsx2_patches 0_p20251228 9999: Collection of game patches for use with PCSX2 (e.g. widescreen hacks)
-games-emulation/ppsspp 1.20.2 1.20.3: A PSP emulator written in C++
+games-emulation/ppsspp 1.20.3: A PSP emulator written in C++
 games-emulation/prosystem-jg 1.5.3 9999: Jolly Good Fork of ProSystem
 games-emulation/rmg 0.8.5 0.8.7 0.8.8 0.8.9 9999: Rosalie's Mupen GUI
 games-emulation/sameboy-jg 1.0.2 1.0.3 9999: Jolly Good Port of SameBoy
@@ -11923,7 +11923,7 @@ games-util/antimicrox 3.5.1: Graphical program used to map keyboard buttons and 
 games-util/atlas 0.6.1_beta_pre20181202: Chart Program to use with Flightgear Flight Simulator
 games-util/basis_universal 1.16.4: Basis Universal GPU Texture Codec
 games-util/biounzip 1.1a: Unpacks BioZip archives
-games-util/cartridges 2.12.1 2.13.1 9999: Simple game launcher written in Python using GTK4 and Libadwaita
+games-util/cartridges 2.12.1-r1 2.13.1-r1 9999: Simple game launcher written in Python using GTK4 and Libadwaita
 games-util/catcodec 1.0.5: Decodes and encodes sample catalogues for OpenTTD
 games-util/datutil 2.46: Converter for dat files for Rom Managers
 games-util/deutex 5.2.2: WAD composer for Doom, Heretic, Hexen, and Strife
@@ -15204,7 +15204,7 @@ net-misc/dhcpcd 10.2.4 10.3.0 10.3.1 10.3.2 9999: A fully featured, yet light we
 net-misc/dhcpcd-ui 0.7.9-r1: Desktop notification and configuration for dhcpcd
 net-misc/dhcping 1.2-r1: Utility to send DHCP requests to DHCP servers to see if responding
 net-misc/dibbler 1.0.1-r4: Portable DHCPv6 implementation (server, client and relay)
-net-misc/downloader-cli 0.3.4-r1: Simple downloader with an customizable progressbar
+net-misc/downloader-cli 0.3.4-r2: Simple downloader with an customizable progressbar
 net-misc/dropbear 2025.89 2026.90: Small SSH 2 client/server designed for small memory environments
 net-misc/dropbox 243.4.6956 244.4.6580 246.4.3513 248.4.3576-r1 250.4.3245: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2024.04.17-r1 2026.03.20: Cli interface for dropbox (python), part of nautilus-dropbox
@@ -15467,7 +15467,7 @@ net-misc/yandex-disk 0.1.6.1080_p1: CLI to access Yandex Disk file storage servi
 net-misc/you-get 0.4.1650-r1 0.4.1700: Utility to download media contents from the web
 net-misc/youtube-viewer 3.11.6 9999: A command line utility for viewing youtube-videos in Mplayer
 net-misc/yt-dlp 2026.03.03 2026.03.13 2026.03.17 9999: youtube-dl fork with additional features and fixes
-net-misc/ytmdl 2024.08.15.1-r2: Simple app to get songs from youtube in mp3 format
+net-misc/ytmdl 2024.08.15.1-r3: Simple app to get songs from youtube in mp3 format
 net-misc/zerotier 1.14.2-r2 1.16.0-r2: A software-based managed Ethernet switch for planet Earth
 net-misc/zssh 1.5c-r3: SSH wrapper enabling zmodem up/download in ssh
 net-misc/zsync 0.6.2-r4 0.6.2-r5: Partial/differential file download client over HTTP using the rsync algorithm
@@ -15939,7 +15939,7 @@ sci-chemistry/elem 1.0.3-r3: periodic table of the elements
 sci-chemistry/gelemental 2.0.2 2.0.2-r1: Periodic table viewer with detailed information on the chemical elements
 sci-chemistry/gnome-chemistry-utils 0.14.17_p6-r4: Programs and library containing GTK widgets and C++ classes related to chemistry
 sci-chemistry/gperiodic 3.0.3-r1: Periodic table application for Linux
-sci-chemistry/gromacs 2023.5 2024.6 2025.3 2025.4 2026.0 2026.1 2026.9999 9999: The ultimate molecular dynamics simulation package
+sci-chemistry/gromacs 2023.5 2024.6 2025.3 2025.4 2026.0 2026.1 2026.2 2026.9999 9999: The ultimate molecular dynamics simulation package
 sci-chemistry/ksdssp 040728-r1: An open source implementation of sci-chemistry/dssp
 sci-chemistry/mdtraj 1.10.3: Read, write and analyze MD trajectories with only a few lines of Python code
 sci-chemistry/moldy 2.16e-r2: Molecular dynamics simulations platform
@@ -15996,7 +15996,7 @@ sci-electronics/librepcb 1.2.0 1.3.0: Free EDA software to develop printed circu
 sci-electronics/magic 8.3.365: The VLSI design CAD tool
 sci-electronics/netgen 1.4.52: LVS tool (layout versus schematic comparison)
 sci-electronics/ngspice 43 46: The Next Generation Spice (Electronic Circuit Simulator)
-sci-electronics/nvc 1.19.3 1.20.0: NVC is a VHDL compiler and simulator
+sci-electronics/nvc 1.20.0 1.20.1: NVC is a VHDL compiler and simulator
 sci-electronics/pcb 4.3.0: GPL Electronic Design Automation: Printed Circuit Board editor
 sci-electronics/petrify 4.2-r1: Synthesize Petri nets into asynchronous circuits
 sci-electronics/puff 20181104-r1: microwave CAD software
@@ -17566,7 +17566,7 @@ sys-devel/binutils 2.32-r2 2.33.1-r1 2.34-r2 2.35.2 2.36.1-r2 2.37_p1-r2 2.38-r2
 sys-devel/binutils-config 5.5.2 5.5.3 5.6 9999: Utility to change the binutils version being used
 sys-devel/binutils-hppa64 2.37_p1-r2 2.38-r2 2.39-r5 2.40-r7 2.41-r5 2.42-r2 2.43-r2 2.44-r3 2.45 2.45-r1 2.45.1 2.46.0 9999: Tools necessary to build programs
 sys-devel/bison 3.8.2-r2 3.8.2-r3: A general-purpose (yacc-compatible) parser generator
-sys-devel/bpf-toolchain 15.2.0_p3: All-in-one bpf toolchain for building DTrace and systemd without crossdev
+sys-devel/bpf-toolchain 15.2.0_p3 16.1.0_p1: All-in-one bpf toolchain for building DTrace and systemd without crossdev
 sys-devel/clang-crossdev-wrappers 16 17 18 19 20 21 22 23: Symlinks to a Clang crosscompiler
 sys-devel/cproc 0_pre20240413 0_pre20260113 9999: C11 compiler using QBE as backend
 sys-devel/crossdev 20260326 20260501 99999999: Gentoo Cross-toolchain generator
