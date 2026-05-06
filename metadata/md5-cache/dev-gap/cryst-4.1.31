@@ -1,0 +1,15 @@
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp dev-gap/polenta dev-gap/polycyclic )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=GAP package for computing with crystallographic groups
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/packages/#cryst
+INHERIT=gap-pkg
+IUSE=test
+KEYWORDS=~amd64 ~riscv
+LICENSE=GPL-2+
+RDEPEND=dev-gap/polenta dev-gap/polycyclic sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://www.math.uni-bielefeld.de/~gaehler/gap/Cryst/cryst-4.1.31.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	ceef97f818402a0c996cdb13b9d90c92
+_md5_=5867cb4dc5c0aae0d4810c1579ddab59

@@ -1,0 +1,16 @@
+BDEPEND=test? ( dev-gap/ctbllib dev-gap/tomlib ) test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp sci-mathematics/gap:= sys-libs/ncurses:= )
+DEFINED_PHASES=compile configure install test
+DEPEND=sci-mathematics/gap:= sys-libs/ncurses:=
+DESCRIPTION=GAP ncurses interface for browsing two-dimensional data
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/packages/#browse
+INHERIT=flag-o-matic gap-pkg
+IUSE=test
+KEYWORDS=~amd64 ~riscv
+LICENSE=GPL-3+
+RDEPEND=sci-mathematics/gap:= sys-libs/ncurses:= sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://www.math.rwth-aachen.de/homes/Browse/Browse-1.8.22.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	ceef97f818402a0c996cdb13b9d90c92	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d
+_md5_=1883398a58ccd8f09fc25a55dc8085dc
