@@ -45,7 +45,6 @@ BDEPEND="
 		dev-python/pytz[${PYTHON_USEDEP}]
 	)"
 
-
 distutils_enable_tests pytest
 
 python_compile() {
