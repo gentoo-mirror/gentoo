@@ -15,6 +15,8 @@ LICENSE+=" Apache-2.0 BSD CC0-1.0 MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+BDEPEND=">=dev-lang/go-1.25.5"
+
 src_unpack() {
 	default
 }

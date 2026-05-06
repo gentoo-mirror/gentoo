@@ -34,6 +34,7 @@ RDEPEND="
 	selinux? ( sec-policy/selinux-syncthing )
 "
 BDEPEND="
+	>=dev-lang/go-1.25.0
 	verify-sig? ( sec-keys/openpgp-keys-syncthing )
 "
 

@@ -4,7 +4,7 @@
 EAPI=8
 GO_OPTIONAL=1
 DISTUTILS_OPTIONAL=1
-PYTHON_COMPAT=( python3_{10..14} )
+PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_USE_PEP517=setuptools
 
 inherit go-module distutils-r1 pypi
@@ -24,7 +24,7 @@ RESTRICT="!test? ( test )"
 BDEPEND="${DISTUTILS_DEPS}
 	!python? (
 		app-arch/unzip
-		>=dev-lang/go-1.12
+		>=dev-lang/go-1.17
 	)
 	python? (
 		${PYTHON_DEPS}
