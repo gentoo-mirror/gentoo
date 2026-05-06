@@ -14,12 +14,12 @@ else
 	KEYWORDS="~amd64 ~x86"
 fi
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=yes
 DISTUTILS_EXT=1
 
-inherit cuda xdg distutils-r1 prefix tmpfiles udev
+inherit cuda distutils-r1 prefix tmpfiles toolchain-funcs udev xdg
 
 DESCRIPTION="X Persistent Remote Apps (xpra) and Partitioning WM (parti) based on wimpiggy"
 HOMEPAGE="https://xpra.org/"
@@ -37,6 +37,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	clipboard? ( gtk3 )
 	gtk3? ( client )
 	test? ( client clipboard crypt dbus gstreamer html server sound xdg xinerama )
+	video_cards_nvidia? ( cuda )
 "
 
 TEST_DEPEND="
@@ -61,19 +62,15 @@ DEPEND="
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 		opengl? ( dev-python/pyopengl[${PYTHON_USEDEP}] )
 		sound? ( dev-python/gst-python:1.0[${PYTHON_USEDEP}] )
-		gtk3? (
-			dev-python/pygobject:3[cairo]
-		)
+		gtk3? (	dev-python/pygobject:3[cairo] )
 	')
 	dev-libs/xxhash
-	avif? ( media-libs/libavif )
+	avif? ( >=media-libs/libavif-0.9 )
 	brotli? ( app-arch/brotli )
-	client? (
-			x11-libs/gtk+:3[X?,introspection]
-		)
+	client? ( x11-libs/gtk+:3[X?,introspection] )
 	jpeg? ( media-libs/libjpeg-turbo )
-	mdns? ( dev-libs/mdns )
 	!minimal? ( sys-libs/pam )
+	mdns? ( dev-libs/mdns )
 	openh264? ( media-libs/openh264:= )
 	pulseaudio? (
 		media-plugins/gst-plugins-pulse:1.0
@@ -84,6 +81,7 @@ DEPEND="
 		media-libs/gstreamer:1.0
 		media-libs/gst-plugins-base:1.0
 	)
+	systemd? ( sys-apps/systemd )
 	vpx? ( media-libs/libvpx )
 	webp? ( media-libs/libwebp )
 	X? (
@@ -115,6 +113,7 @@ RDEPEND="
 		)
 	')
 	acct-group/xpra
+	sys-process/procps
 	virtual/ssh
 	x11-apps/xauth
 	x11-apps/xmodmap
@@ -136,12 +135,16 @@ BDEPEND="
 		dev-python/cython[${PYTHON_USEDEP}]
 		dev-python/pip[${PYTHON_USEDEP}]
 	')
-	virtual/pkgconfig
+	cuda? ( dev-util/nvidia-cuda-toolkit )
 	doc? ( virtual/pandoc )
+	virtual/pkgconfig
 "
 
 PATCHES=(
 	"${FILESDIR}/${PN}-9999-pep517.patch"
+
+	# Fedora is updating the gnome extension regularly
+	"${FILESDIR}/${PN}-6.4.4-gnome49-extension.patch"
 )
 
 src_prepare() {
@@ -154,12 +157,11 @@ src_prepare() {
 		-i "${S}/tests/unittests/run" || die
 }
 
-python_prepare_all() {
-	distutils-r1_python_prepare_all
-
+python_configure_all() {
 	hprefixify xpra/scripts/config.py
 
-	sed -r -e "/\bdoc_dir =/s:/${PN}/\":/${PF}/html\":" \
+	sed -r -e "/\bdoc_dir =/s:(/share/doc/)$PN(/):\1$PF/html\2:" \
+		-e "/'pulseaudio'/s:DEFAULT_PULSEAUDIO:$(usex pulseaudio True False):" \
 		-i setup.py || die
 
 	if use minimal; then
@@ -167,11 +169,6 @@ python_prepare_all() {
 			-e 's/^(xdg_open)_ENABLED = .*/\1_ENABLED = False/' \
 			-i setup.py || die
 	fi
-}
-
-python_configure_all() {
-	sed -e "/'pulseaudio'/s:DEFAULT_PULSEAUDIO:$(usex pulseaudio True False):" \
-		-i setup.py || die
 
 	DISTUTILS_ARGS=(
 		--with-PIC
@@ -222,7 +219,7 @@ python_configure_all() {
 		"$(use_with X Xdummy)"
 
 		"$(use_with test tests)"
-		--with-strict
+		--without-strict
 		# --with-verbose
 		# --with-warn
 		# --with-cythonize_more
@@ -286,7 +283,13 @@ python_configure_all() {
 
 python_compile() {
 	if use cuda; then
-		export NVCC_PREPEND_FLAGS="-ccbin $(cuda_gccdir)/g++"
+		if tc-is-gcc ; then
+			export NVCC_PREPEND_FLAGS="-ccbin $(cuda_gccdir)/g++"
+		elif tc-is-clang ; then
+			export NVCC_PREPEND_FLAGS="-ccbin /usr/lib/llvm/$(clang-major-version)/bin/clang++"
+		else
+			die "unsupported compiler: ${CC}"
+		fi
 	fi
 
 	PYTHONPATH="${S}" distutils-r1_python_compile
