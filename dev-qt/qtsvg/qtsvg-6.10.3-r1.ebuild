@@ -17,6 +17,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-6.10.3-CVE-2026-6210.patch
+)
+
 src_test() {
 	# tst_QSvgRenderer::testFeColorMatrix (new in 6.7, likely low impact)
 	# is known failing on BE, could use more looking into (bug #935356)
