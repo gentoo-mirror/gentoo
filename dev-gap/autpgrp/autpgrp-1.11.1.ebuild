@@ -5,14 +5,14 @@ EAPI=8
 
 inherit gap-pkg
 
-DESCRIPTION="GAP Primitive Permutation Groups Library"
+DESCRIPTION="Computing the Automorphism Group of a p-Group"
 SRC_URI="https://github.com/gap-packages/${PN}/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 
-RDEPEND="dev-gap/gapdoc"
+DOCS=( README CHANGES.md )
+
+GAP_PKG_HTML_DOCDIR="htm"
 gap-pkg_enable_tests
-
-GAP_PKG_EXTRA_INSTALL=( data )

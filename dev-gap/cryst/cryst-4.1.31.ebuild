@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,7 +13,8 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~riscv"
 
-RDEPEND="dev-gap/polycyclic"
+RDEPEND="dev-gap/polenta
+	dev-gap/polycyclic"
 
 GAP_PKG_EXTRA_INSTALL=( grp )
 gap-pkg_enable_tests

@@ -1,10 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..14} )
+EPYTEST_PLUGINS=()  # hide pkgcheck warning in EAPI=8
 
 inherit distutils-r1
 
@@ -26,14 +27,3 @@ RDEPEND="dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/rich[${PYTHON_USEDEP}]"
 
 distutils_enable_tests pytest
-
-src_prepare() {
-	default
-	# The gaplint argument parser has workarounds for "pytest" and
-	# "py.test", but we run pytest with "python -m pytest":
-	#
-	#   https://github.com/james-d-mitchell/gaplint/issues/57
-	#
-	sed -e 's/py.test/__main__.py/' -i gaplint.py \
-		|| die "failed to further hack the existing pytest hack"
-}

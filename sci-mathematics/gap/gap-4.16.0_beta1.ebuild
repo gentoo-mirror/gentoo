@@ -5,13 +5,14 @@ EAPI=8
 
 inherit estack
 
-DESCRIPTION="System for computational discrete algebra. Core functionality"
+DESCRIPTION="System for computational discrete algebra. Core functionality."
 HOMEPAGE="https://www.gap-system.org/"
-SRC_URI="https://github.com/gap-system/gap/releases/download/v${PV}/${P}-core.tar.gz"
+SRC_URI="https://github.com/gap-system/gap/releases/download/v${PV/_/-}/${P/_/-}-core.tar.gz"
+S="${WORKDIR}/${P/_/-}"
 
 LICENSE="GPL-2+"
-SLOT="0/9voidptr" # soname
-KEYWORDS="amd64 ~riscv"
+SLOT="0/10" # soname
+KEYWORDS=""
 IUSE="cpu_flags_x86_popcnt debug memcheck minimal readline test valgrind"
 REQUIRED_USE="?? ( memcheck valgrind )"
 
@@ -63,7 +64,7 @@ RDEPEND="${DEPEND}"
 # packages, use package.provided.
 PDEPEND="${REQUIRED_PKGS} !minimal? ( ${AUTOLOADED_PKGS} )"
 
-PATCHES=( "${FILESDIR}/${P}-objfunc-voidptr.patch" )
+PATCHES=( "${FILESDIR}/gap-4.15.0-dont-autoload-packagemanager.patch" )
 
 pkg_setup() {
 	if use valgrind; then

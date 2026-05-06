@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,6 +20,11 @@ RDEPEND="dev-gap/aclib
 	dev-gap/polymaking"
 
 gap-pkg_enable_tests
+
+src_compile() {
+	# the docs aren't pre-built in >= 0.2.0
+	gap -R -A --nointeract --packagedirs . makedoc.g || die
+}
 
 src_install() {
 	gap-pkg_src_install
