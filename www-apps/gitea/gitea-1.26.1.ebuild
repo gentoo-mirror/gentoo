@@ -1,4 +1,4 @@
-# Copyright 2016-2025 Gentoo Authors
+# Copyright 2016-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/go-gitea/gitea/releases/download/v${PV}/gitea-src-${
 S="${WORKDIR}/${PN}-src-${PV}"
 LICENSE="Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 IUSE="+acct gogit pam sqlite pie"
 
 DEPEND="
@@ -22,7 +22,7 @@ DEPEND="
 	pam? ( sys-libs/pam )"
 RDEPEND="${DEPEND}
 	!gogit? ( dev-vcs/git )"
-BDEPEND=">=dev-lang/go-1.25.3:="
+BDEPEND=">=dev-lang/go-1.26.2:="
 
 DOCS=(
 	custom/conf/app.example.ini CHANGELOG.md CONTRIBUTING.md README.md
@@ -32,6 +32,7 @@ FILECAPS=(
 )
 
 RESTRICT="test"
+QA_PRESTRIPPED="/usr/bin/${PN}"
 
 src_prepare() {
 	default
