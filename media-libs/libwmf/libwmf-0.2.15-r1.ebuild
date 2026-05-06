@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit gnome2-utils
+inherit autotools gnome2-utils
 
 DESCRIPTION="Library for reading vector images in Microsoft's Windows Metafile Format (WMF)"
 HOMEPAGE="
@@ -41,14 +41,21 @@ DOCS=( AUTHORS BUILDING ChangeLog CREDITS INSTALL NEWS README TODO )
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.2.8.4-libpng-1.5.patch
 	"${FILESDIR}"/${PN}-0.2.8.4-pngfix.patch
+	"${FILESDIR}"/${PN}-0.2.15-export.patch
+	"${FILESDIR}"/${PN}-0.2.15-underlinked-plugin.patch
 )
+
+src_prepare() {
+	default
+	# For underlinked patch
+	eautoreconf
+}
 
 src_configure() {
 	# Support for GD is disabled, since it's never linked, even, when enabled
 	# See https://bugs.gentoo.org/268161
 	local myeconfargs=(
 		--disable-gd
-		--disable-static
 		$(use_enable debug)
 		$(use_with expat)
 		$(use_with !expat libxml2)
@@ -70,6 +77,9 @@ src_configure() {
 src_install() {
 	default
 	find "${D}" -name '*.la' -delete || die
+
+	# We unbundle the fonts from media-fonts/urw-fonts
+	rm -r "${ED}"/usr/share/fonts/urw-fonts || die
 }
 
 pkg_postinst() {
