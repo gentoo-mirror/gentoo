@@ -72,7 +72,6 @@ RDEPEND="
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
-	!minimal? ( || ( hpcups hpijs ) )
 	minimal? ( ^^ ( hpcups hpijs ) )
 "
 
