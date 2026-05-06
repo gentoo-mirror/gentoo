@@ -63,12 +63,23 @@ LICENSE+="
 	CC0-1.0 CDLA-Permissive-2.0 ISC MIT MPL-2.0 UoI-NCSA Unicode-3.0
 	ZLIB
 "
+# ring crate
+LICENSE+=" openssl"
 SLOT="0"
 KEYWORDS="~amd64"
+
+DEPEND="
+	app-arch/zstd:=
+	x11-libs/libxcb:=
+	x11-libs/libxkbcommon
+"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	default
 	sed -e '/Icon=/s/icon/zedis/' -i assets/zedis.desktop || die
+
+	export ZSTD_SYS_USE_PKG_CONFIG=1
 }
 
 src_install() {
