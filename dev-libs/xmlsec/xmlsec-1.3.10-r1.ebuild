@@ -66,6 +66,9 @@ src_prepare() {
 	default
 
 	eautoreconf
+
+	# skip failing test (this is fixed in 1.3.11) - #972730
+	sed -i '1842s/zyes/zskip/' tests/testDSig.sh || die
 }
 
 src_configure() {

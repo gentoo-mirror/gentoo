@@ -18,7 +18,7 @@ SRC_URI+=" https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv ~x86"
 RESTRICT="test"
 
 CONFIG_CHECK="~TUN"

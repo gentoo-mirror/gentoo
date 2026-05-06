@@ -1,18 +1,26 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit elisp
 
 DESCRIPTION="Emacs support for Apple's Swift programming language"
 HOMEPAGE="https://github.com/swift-emacs/swift-mode/"
-SRC_URI="https://github.com/swift-emacs/${PN}/archive/v${PV}.tar.gz
-	-> ${P}.tar.gz"
+
+if [[ "${PV}" == *9999* ]] ; then
+	inherit git-r3
+
+	EGIT_REPO_URI="https://github.com/swift-emacs/${PN}"
+else
+	SRC_URI="https://github.com/swift-emacs/${PN}/archive/v${PV}.tar.gz
+		-> ${P}.tar.gz"
+
+	KEYWORDS="~amd64 ~arm64 ~x86"
+fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
 
 DOCS=( README.md CONTRIBUTING.md )
 SITEFILE="50${PN}-gentoo.el"

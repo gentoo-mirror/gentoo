@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit bash-completion-r1 cmake java-pkg-opt-2 python-single-r1
 
@@ -14,7 +14,7 @@ HOMEPAGE="http://souffle-lang.github.io/
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/souffle-lang/${PN}.git"
+	EGIT_REPO_URI="https://github.com/souffle-lang/${PN}"
 else
 	SRC_URI="https://github.com/souffle-lang/${PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
@@ -75,7 +75,6 @@ pkg_setup() {
 
 src_prepare() {
 	unset LEX
-
 	cmake_src_prepare
 	java-pkg-opt-2_src_prepare
 }
@@ -118,6 +117,5 @@ src_configure() {
 
 src_install() {
 	cmake_src_install
-
 	doman man/*.1
 }

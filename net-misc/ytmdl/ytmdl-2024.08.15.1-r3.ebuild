@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517="setuptools"
-PYTHON_COMPAT=( python3_13 )
+PYTHON_COMPAT=( python3_{13..14} )
 
 inherit bash-completion-r1 distutils-r1 edo
 
@@ -15,7 +15,7 @@ HOMEPAGE="https://ytmdl.deepjyoti30.dev/
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/deepjyoti30/${PN}.git"
+	EGIT_REPO_URI="https://github.com/deepjyoti30/${PN}"
 else
 	SRC_URI="https://github.com/deepjyoti30/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
