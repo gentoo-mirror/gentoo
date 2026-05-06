@@ -55,7 +55,7 @@ src_configure() {
 		-DRAPIDJSON_BUILD_THIRDPARTY_GTEST=OFF
 	)
 	use test && mycmakeargs+=(
-		-DVALGRIND_EXECUTABLE=
+		-DVALGRIND_FOUND=
 	)
 	cmake_src_configure
 }
