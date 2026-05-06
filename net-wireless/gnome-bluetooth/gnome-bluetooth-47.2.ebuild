@@ -2,24 +2,23 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit gnome.org gnome2-utils meson python-any-r1 xdg
 
 DESCRIPTION="Bluetooth graphical utilities integrated with GNOME"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-bluetooth"
+
 LICENSE="GPL-2+ LGPL-2.1+ FDL-1.1+"
 SLOT="3/13" # subslot = libgnome-bluetooth-3 soname version
-
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
-
-IUSE="gtk-doc +introspection sendto test"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+IUSE="gtk-doc +introspection test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
 	>=dev-libs/glib-2.44:2
-	>=gui-libs/gtk-4.4:4[introspection?]
+	>=gui-libs/gtk-4.15.2:4[introspection?]
 	media-libs/gsound
-	>=gui-libs/libadwaita-1.1:1
+	>=gui-libs/libadwaita-1.6_beta:1
 	>=x11-libs/libnotify-0.7.0
 	virtual/libudev:=
 	>=sys-power/upower-0.99.14:=
@@ -29,7 +28,6 @@ RDEPEND="${DEPEND}
 	acct-group/plugdev
 	virtual/udev
 	>=net-wireless/bluez-5
-	sendto? ( !net-wireless/gnome-bluetooth:2 )
 "
 BDEPEND="
 	${PYTHON_DEPS}
@@ -60,7 +58,7 @@ pkg_setup() {
 
 src_configure() {
 	local emesonargs=(
-		$(meson_use sendto)
+		-Dsendto=true
 		$(meson_use gtk-doc gtk_doc)
 		$(meson_use introspection)
 	)
