@@ -35,7 +35,7 @@ VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/yubico.com.asc"
 RDEPEND="
 	app-crypt/ccid
 	>=dev-python/click-8.0[${PYTHON_USEDEP}]
-	<dev-python/cryptography-48[${PYTHON_USEDEP}]
+	dev-python/cryptography[${PYTHON_USEDEP}]
 	>=dev-python/fido2-2.0.0:0/1.0[${PYTHON_USEDEP}]
 	dev-python/keyring[${PYTHON_USEDEP}]
 	>=dev-python/pyscard-2.0[${PYTHON_USEDEP}]
@@ -45,6 +45,12 @@ BDEPEND="
 	verify-sig? ( >=sec-keys/openpgp-keys-yubico-20250604 )"
 
 distutils_enable_tests pytest
+
+python_prepare_all() {
+	# remove dev-python/cryptography upper version limit
+	sed -i -e 's/, <49//' pyproject.toml || die
+	distutils-r1_python_prepare_all
+}
 
 python_install_all() {
 	distutils-r1_python_install_all
