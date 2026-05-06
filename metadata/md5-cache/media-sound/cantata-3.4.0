@@ -7,11 +7,11 @@ HOMEPAGE=https://github.com/nullobsi/cantata
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=cmake optfeature xdg
 IUSE=cdda cddb http-server mtp musicbrainz replaygain streaming +taglib udisks zeroconf
-KEYWORDS=~amd64 ~ppc64 ~x86
+KEYWORDS=amd64 ~ppc64 ~x86
 LICENSE=GPL-3+
 RDEPEND=dev-qt/qtbase:6[dbus,gui,network,sql,sqlite,widgets,xml] dev-qt/qtsvg:6 kde-frameworks/karchive:6 kde-frameworks/kitemviews:6 virtual/zlib:= cdda? ( dev-libs/libcdio-paranoia:= ) cddb? ( media-libs/libcddb ) mtp? ( media-libs/libmtp:= ) musicbrainz? ( media-libs/musicbrainz:5= ) replaygain? ( media-libs/libebur128:= media-sound/mpg123-base media-video/ffmpeg:0= ) streaming? ( dev-qt/qtmultimedia:6 ) taglib? ( >=media-libs/taglib-2:= ) udisks? ( kde-frameworks/solid:6 ) zeroconf? ( net-dns/avahi ) dev-lang/perl[perl_features_ithreads] media-fonts/fontawesome:0/6
 REQUIRED_USE=cdda? ( taglib udisks || ( cddb musicbrainz ) ) cddb? ( cdda taglib ) mtp? ( taglib udisks ) musicbrainz? ( cdda taglib ) replaygain? ( taglib ) udisks? ( taglib )
 SLOT=0
 SRC_URI=https://github.com/nullobsi/cantata/archive/v3.4.0.tar.gz -> cantata-3.4.0.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	optfeature	538bce96e5589935b57e178e8635f301	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=9c3465d0a9c92d14b1e1bfa3d870aab4
+_md5_=b3f452a5b1e0fddda652a12efe1c5243
