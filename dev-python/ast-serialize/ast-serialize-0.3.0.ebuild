@@ -121,7 +121,7 @@ LICENSE+="
 	Unicode-DFS-2016
 "
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~s390"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
