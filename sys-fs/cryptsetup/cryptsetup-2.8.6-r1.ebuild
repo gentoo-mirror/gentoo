@@ -76,6 +76,14 @@ pkg_setup() {
 	local WARNING_CRYPTO_SHA256="CONFIG_CRYPTO_SHA256:\tis not set (required for cryptsetup)\n"
 	local WARNING_CRYPTO_CBC="CONFIG_CRYPTO_CBC:\tis not set (required for kernel 2.6.19)\n"
 	local WARNING_CRYPTO="CONFIG_CRYPTO:\tis not set (required for cryptsetup)\n"
+
+	# The kernel crypto backend talks to the in-kernel crypto API via AF_ALG
+	if use kernel ; then
+		CONFIG_CHECK+=" ~CRYPTO_USER_API ~CRYPTO_USER_API_HASH ~CRYPTO_USER_API_SKCIPHER"
+		local WARNING_CRYPTO_USER_API="CONFIG_CRYPTO_USER_API:\tis not set (required for the kernel crypto backend)\n"
+		local WARNING_CRYPTO_USER_API_HASH="CONFIG_CRYPTO_USER_API_HASH:\tis not set (required for the kernel crypto backend)\n"
+		local WARNING_CRYPTO_USER_API_SKCIPHER="CONFIG_CRYPTO_USER_API_SKCIPHER:\tis not set (required for the kernel crypto backend)\n"
+	fi
 	check_extra_config
 }
 
