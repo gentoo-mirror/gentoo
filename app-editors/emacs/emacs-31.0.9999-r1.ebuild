@@ -8,7 +8,7 @@ inherit autotools elisp-common flag-o-matic readme.gentoo-r1 toolchain-funcs
 if [[ ${PV##*.} = 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://git.savannah.gnu.org/git/emacs.git"
-	EGIT_BRANCH="emacs-30"
+	EGIT_BRANCH="emacs-31"
 	EGIT_CHECKOUT_DIR="${WORKDIR}/emacs"
 	S="${EGIT_CHECKOUT_DIR}"
 	SLOT="${PV%%.*}-vcs"
@@ -111,7 +111,10 @@ RDEPEND=">=app-emacs/emacs-common-1.11[games?,gui?]
 	sqlite? ( dev-db/sqlite:3 )
 	ssl? ( net-libs/gnutls:0= )
 	systemd? ( sys-apps/systemd )
-	tree-sitter? ( <dev-libs/tree-sitter-0.26:= )
+	tree-sitter? (
+		dev-libs/tree-sitter:=
+		dev-libs/tree-sitter-jsdoc
+	)
 	valgrind? ( dev-debug/valgrind )
 	xattr? ( sys-apps/attr )
 	zlib? ( virtual/zlib:= )
@@ -202,9 +205,6 @@ src_prepare() {
 		fi
 	fi
 
-	# Fix filename reference in redirected man page
-	sed -i -e "/^\\.so/s/etags/&-${EMACS_SUFFIX}/" doc/man/ctags.1 || die
-
 	# libseccomp is detected by configure but doesn't appear to have any
 	# effect on the installed image. Suppress it by supplying pkg-config
 	# with a wrong library name.
@@ -220,8 +220,6 @@ src_prepare() {
 }
 
 src_configure() {
-	replace-flags "-O[3-9]" -O2			#839405
-
 	# We want floating-point arithmetic to be correct #933380
 	replace-flags -Ofast -O2
 	append-flags -fno-fast-math -ffp-contract=off
@@ -241,6 +239,7 @@ src_configure() {
 		--without-compress-install
 		--without-hesiod
 		--without-pop
+		--without-systemduserunitdir
 		--with-file-notification=$(usev inotify || usev gfile || echo no)
 		--with-pdumper
 		$(use_enable acl)
@@ -400,9 +399,9 @@ src_configure() {
 		popd >/dev/null || die
 		# Don't try to execute the binary for dumping during the build
 		myconf+=( --with-dumping=none )
-	elif use m68k; then
-		# Workaround for https://debbugs.gnu.org/44531
-		myconf+=( --with-dumping=unexec )
+	#elif use m68k; then
+	#	# Workaround for https://debbugs.gnu.org/44531
+	#	myconf+=( --with-dumping=unexec )
 	else
 		myconf+=( --with-dumping=pdumper )
 	fi
@@ -433,6 +432,11 @@ src_test() {
 	# subtests which caused failure. Elements should begin with a %.
 	# e.g. %lisp/gnus/mml-sec-tests.el.
 	local exclude_tests=(
+		# Reason: not yet known (we skipped this in the past but finally
+		# dropped it for Emacs 30 as it seemed to be passing again)
+		# mml-secure-select-preferred-keys-4
+		%lisp/gnus/mml-sec-tests.el
+
 		# Reason: permission denied on /nonexistent
 		# (vc-*-bzr only fails if breezy is installed, as they
 		# try to access cache dirs under /nonexistent)
@@ -449,11 +453,15 @@ src_test() {
 		%lisp/vc/vc-tests.el
 		%lisp/vc/vc-bzr-tests.el
 
-		# Reason: malformed html tag in test, https://bugs.gnu.org/79041
-		# shr-test/zoom-image
-		%lisp/net/shr-tests.el
-
 		%lisp/progmodes/eglot-tests.el  #966957
+
+		# Reason: flaky (https://bugs.gnu.org/73441, fails even with the fix)
+		# proced-refine-test
+		%lisp/proced-tests.el
+
+		# Reason: flaky (https://bugs.gnu.org/79056)
+		# tab-bar-tests-quit-restore-window
+		%lisp/tab-bar-tests.el
 
 		# Reason: tries to access network
 		# internet-is-working
@@ -508,7 +516,6 @@ src_install() {
 	rm "${ED}"/usr/share/emacs/site-lisp/subdirs.el || die
 	rm -rf "${ED}"/usr/share/{applications,icons} || die
 	rm -rf "${ED}"/usr/share/glib-2.0 || die #911117
-	rm -rf "${ED}/usr/$(get_libdir)/systemd" || die
 	rm -rf "${ED}"/var || die
 
 	# remove unused <version>/site-lisp dir
