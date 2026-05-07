@@ -187,6 +187,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-6.6.3-gcc14-avx512fp16.patch
 	"${FILESDIR}"/${PN}-6.8.2-cross.patch
 	"${FILESDIR}"/${PN}-6.9.0-no-direct-extern-access.patch
+	"${FILESDIR}"/${PN}-6.10.3-QTBUG-145310.patch
 )
 
 src_prepare() {

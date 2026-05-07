@@ -21,10 +21,3 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 RESTRICT="test"
 
 DOCS=( README.md ROADMAP.md changelog )
-
-src_prepare() {
-	cmake_src_prepare
-
-	sed -E "/set\(_(ARCHIVE|LIBRARY)_INSTALL/s:lib/:$(get_libdir)/:" \
-		-i ext/c4core/cmake/c4Project.cmake || die
-}
