@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.24.11:= app-arch/unzip virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-lang/go-1.25.0 >=dev-lang/go-1.24.11:= app-arch/unzip virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install test unpack
 DEPEND=acct-group/node_exporter acct-user/node_exporter selinux? ( sec-policy/selinux-node_exporter )
 DESCRIPTION=Prometheus exporter for machine metrics
@@ -11,4 +11,4 @@ PROPERTIES=live
 RDEPEND=acct-group/node_exporter acct-user/node_exporter selinux? ( sec-policy/selinux-node_exporter )
 SLOT=0
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	22cfabf3120ed3f7bcd8b4a7697fbfba	systemd	a964c0cbe818b5729da1dbfcee5be861	git-r3	7b584b5dc33e3bc66ff5b9271bf41764
-_md5_=e7eabe6a6fac4c0bf2843c8be8530a78
+_md5_=98d3eb034205facd90b754c2c982fe7b
