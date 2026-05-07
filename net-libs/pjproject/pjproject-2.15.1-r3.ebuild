@@ -58,7 +58,7 @@ src_prepare() {
 	mv aconfigure.ac configure.ac || die "Unable to rename configure script source"
 	eautoreconf
 
-	cp "${FILESDIR}/pjproject-2.13.1-r1-config_site.h" "${S}/pjlib/include/pj/config_site.h" \
+	cp "${FILESDIR}/pjproject-config_site-v2.h" "${S}/pjlib/include/pj/config_site.h" \
 		|| die "Unable to create config_site.h"
 }
 
