@@ -1,4 +1,4 @@
-BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp )
+BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp dev-gap/sonata )
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=sci-mathematics/gap
 DESCRIPTION=GAP package for computing with error-correcting codes
@@ -8,9 +8,9 @@ INHERIT=gap-pkg flag-o-matic toolchain-funcs
 IUSE=test
 KEYWORDS=~amd64 ~riscv
 LICENSE=|| ( GPL-2 GPL-3 )
-RDEPEND=sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
+RDEPEND=dev-gap/sonata sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/gap-packages/guava/releases/download/v3.21/guava-3.21.tar.gz
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	ceef97f818402a0c996cdb13b9d90c92	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d
-_md5_=7163fe333554d23186254719fcd86824
+_md5_=6866af7e73707d93180297620d4d0f79
