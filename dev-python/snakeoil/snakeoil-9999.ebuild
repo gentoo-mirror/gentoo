@@ -28,5 +28,5 @@ HOMEPAGE="
 LICENSE="BSD BSD-2 MIT"
 SLOT="0"
 
-EPYTEST_PLUGINS=( pytest-subtests )
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest

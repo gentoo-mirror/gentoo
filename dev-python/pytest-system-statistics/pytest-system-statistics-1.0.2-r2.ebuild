@@ -37,7 +37,7 @@ PATCHES=(
 	"${FILESDIR}/pytest-system-statistics-1.0.2-loader.patch"
 )
 
-EPYTEST_PLUGINS=( "${PN}" pytest-subtests )
+EPYTEST_PLUGINS=( "${PN}" )
 EPYTEST_PLUGIN_LOAD_VIA_ENV=1
 distutils_enable_tests pytest
 

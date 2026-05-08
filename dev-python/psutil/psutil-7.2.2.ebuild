@@ -19,7 +19,7 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
 
-EPYTEST_PLUGINS=( pytest-subtests )
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 python_test() {

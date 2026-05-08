@@ -37,14 +37,11 @@ BDEPEND="
 			dev-python/mypy[${PYTHON_USEDEP}]
 		' 'python*')
 		>=dev-python/pydantic-2[${PYTHON_USEDEP}]
-		>=dev-python/pytest-freezer-0.4.8[${PYTHON_USEDEP}]
-		>=dev-python/pytest-mock-3.14.0[${PYTHON_USEDEP}]
-		>=dev-python/pytest-subtests-0.11.0[${PYTHON_USEDEP}]
 	)
 "
 
 EPYTEST_PLUGIN_LOAD_VIA_ENV=1
-EPYTEST_PLUGINS=( "${PN}" pytest-{freezer,mock,subtests,xdist} )
+EPYTEST_PLUGINS=( "${PN}" pytest-{freezer,mock,xdist} )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 

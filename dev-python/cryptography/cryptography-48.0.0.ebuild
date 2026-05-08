@@ -97,7 +97,7 @@ BDEPEND="
 # Files built without CFLAGS/LDFLAGS, acceptable for rust
 QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/cryptography/hazmat/bindings/_rust.*.so"
 
-EPYTEST_PLUGINS=( hypothesis pytest-subtests )
+EPYTEST_PLUGINS=( hypothesis )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
