@@ -5,9 +5,7 @@ EAPI=8
 
 DESCRIPTION="OpenPGP keys used by Yubico's developers"
 HOMEPAGE="https://developers.yubico.com/Software_Projects/Software_Signing.html"
-# Current keys. Keys which should also be there but as of 2023-08-25 trigger import failures
-# due to having no user IDs associated with them on the keyserver:
-#  - Jean Paul Galea <jeanpaul@yubico.com> B604 2E2B D1FD BC2B CA85 88B2 FF8D 3B45 B7B8 75A9
+# Current keys. Keys listed on yubico but missing from keyserver as of 2026-05-08
 #  - Trevor Bentley <trevor@yubico.com> 2685 83B6 4786 F50F 8074 56DA 8CED 3A80 D41C 0DCB
 SRC_URI="
 	https://keys.openpgp.org/vks/v1/by-fingerprint/0A3B0262BCA1705307D5FF06BCA00FD4B2168C0A
@@ -16,6 +14,8 @@ SRC_URI="
 		-> yubico-${PV}-20EE325B86A81BCBD3E56798F04367096FBA95E8.asc
 	https://keys.openpgp.org/vks/v1/by-fingerprint/B70D62AA6A31AD6B9E4F9F4BDC8888925D25CA7A
 		-> yubico-${PV}-B70D62AA6A31AD6B9E4F9F4BDC8888925D25CA7A.asc
+	https://keys.openpgp.org/vks/v1/by-fingerprint/B6042E2BD1FDBC2BCA8588B2FF8D3B45B7B875A9
+		-> yubico-${PV}-B6042E2BD1FDBC2BCA8588B2FF8D3B45B7B875A9.asc
 	https://keys.openpgp.org/vks/v1/by-fingerprint/57A9DEED4C6D962A923BB691816F3ED99921835E
 		-> yubico-${PV}-57A9DEED4C6D962A923BB691816F3ED99921835E.asc
 	https://keys.openpgp.org/vks/v1/by-fingerprint/1D7308B0055F5AEF36944A8F27A9C24D9588EA0F
@@ -35,11 +35,12 @@ SRC_URI="
 	https://keys.openpgp.org/vks/v1/by-fingerprint/F475928225229F58460640EAD91777C175533EE5
 		-> yubico-${PV}-F475928225229F58460640EAD91777C175533EE5.asc
 "
-# Old keys. Keys which should also be there but as of 2023-08-25 trigger import failures
-# due to having no user IDs associated with them on the keyserver:
+# Old keys. Keys listed on yubico but missing from keyserver as of 2026-05-08
 #  - Tommaso De Orchi <tom@yubico.com> FF8A F719 AE58 2818 1B89 4D83 1CE3 9268 A097 3948
 #  - Henrik Stråth <henrik@yubico.com> DCB9 04FA B343 CFA7 1907 6EF7 9EA9 0242 958E 0658
 #  - Pedro Martelletto <pedro@yubico.com> EE90 AE0D 1977 4C83 8662 8FAA B428 949E F791 4718
+# Keys which should also be there but as of 2026-05-08 trigger import failures
+# due to having no user IDs associated with them on the keyserver:
 #  - Simon Josefsson <simon@yubico.com> 9AA9 BDB1 1BB1 B99A 2128 5A33 0664 A769 5426 5E8C
 SRC_URI+="
 	https://keys.openpgp.org/vks/v1/by-fingerprint/8D0B4EBA9345254BCEC0E843514F078FF4AB24C3
