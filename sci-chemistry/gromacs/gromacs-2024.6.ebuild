@@ -5,7 +5,7 @@ EAPI=8
 
 CMAKE_MAKEFILE_GENERATOR="ninja"
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 DISTUTILS_OPTIONAL=1
 DISTUTILS_USE_PEP517=no
@@ -94,7 +94,7 @@ DOCS=( AUTHORS README )
 
 RESTRICT="!test? ( test )"
 
-PATCHES=( 
+PATCHES=(
 	"${FILESDIR}/${PN}-gcc-15.patch"
 	"${FILESDIR}/${PN}-musl.patch"
 )
