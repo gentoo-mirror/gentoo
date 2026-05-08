@@ -30,6 +30,10 @@ BDEPEND="
 # tests require root privileges
 RESTRICT="test"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.11.2-no-werror.patch
+)
+
 pkg_setup() {
 	if [[ ${MERGE_TYPE} != buildonly ]]; then
 		CONFIG_CHECK="~UTS_NS ~IPC_NS ~USER_NS ~PID_NS ~NET_NS"
