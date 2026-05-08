@@ -6,10 +6,11 @@ EAPI=8
 HOMEPAGE=https://libguestfs.org/
 INHERIT=autotools bash-completion-r1 perl-functions toolchain-funcs
 IUSE=doc libvirt +ocaml +perl test
+KEYWORDS=~amd64
 LICENSE=GPL-2 LGPL-2
 RDEPEND=app-arch/xz-utils dev-libs/libpcre2:= dev-libs/libxml2:= sys-libs/libxcrypt:= sys-libs/ncurses:= >=app-emulation/libguestfs-1.55.6:=[ocaml,perl?,libvirt=] dev-libs/json-c:= sys-libs/libosinfo || ( dev-libs/libisoburn app-cdr/cdrtools ) dev-db/sqlite sys-apps/hwdata libvirt? ( app-emulation/libvirt[qemu] ) perl? ( app-misc/hivex virtual/perl-Getopt-Long ) app-emulation/libguestfs-appliance
 RESTRICT=!test? ( test )
 SLOT=0/1.54
 SRC_URI=https://download.libguestfs.org/guestfs-tools/1.54-stable/guestfs-tools-1.54.0.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	bash-completion-r1	9e91505e030725688d1e953321a47501	perl-functions	1863acf0982afafc67797e3ce7275b4c
-_md5_=00a104c4b309541195e7b39c1635870f
+_md5_=06ac7892eb55d76f5006b7d7a5ff54d7
