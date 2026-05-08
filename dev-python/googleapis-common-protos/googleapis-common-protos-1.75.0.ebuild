@@ -12,6 +12,7 @@ inherit distutils-r1 pypi
 DESCRIPTION="Python classes generated from the common protos in the googleapis repository"
 HOMEPAGE="
 	https://github.com/googleapis/python-api-common-protos/
+	https://github.com/googleapis/google-cloud-python/tree/main/packages/googleapis-common-protos/
 	https://pypi.org/project/googleapis-common-protos/
 "
 
