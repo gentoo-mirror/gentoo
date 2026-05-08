@@ -82,10 +82,6 @@ src_install() {
 
 	einstalldocs
 
-	# install mdcheck_start.service, needed for systemd units (bug #833000)
-	exeinto /usr/share/mdadm/
-	doexe misc/mdcheck
-
 	insinto /etc
 	newins documentation/mdadm.conf-example mdadm.conf
 	newinitd "${FILESDIR}"/mdadm.rc mdadm
