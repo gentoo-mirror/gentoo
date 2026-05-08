@@ -1,0 +1,320 @@
+Title: Dracut changed default for hostonly_cmdline setting
+Author: Nowa Ammerlaan <nowa@gentoo.org>
+Posted: 2026-05-08
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: >=sys-kernel/dracut-111
+
+Dracut is an initramfs generation tool. It may be invoked via the
+installkernel mechanism or manually after building custom kernels.
+
+What changed?
+=============
+
+In version 111 of sys-kernel/dracut the default for the
+hostonly_cmdline setting changed from enabled to disabled.
+
+When enabled, this setting causes Dracut to attempt to detect which
+parameters are required on the kernel command line to boot the system.
+Examples are the root= parameter or parameters controlling partition
+decryption. These parameters are then included in the generated
+initramfs and appended to the kernel command line during boot.
+
+Why has this setting been changed?
+==================================
+
+When enabled, Dracut's hostonly_cmdline setting may use the kernel
+command line of the running kernel (/proc/cmdline) to construct the
+kernel command line that will be embedded in the initramfs.
+
+This can cause problems when Dracut is being executed from a live or
+rescue environment. In such cases an incorrect root= could be included
+in the embedded kernel command line which could lead to boot failure.
+
+To prevent this behaviour from causing such unpleasant surprises, a
+check was added to sys-kernel/installkernel to detect whether the
+kernel was being installed from chroot and if Dracut was configured
+to include an embedded kernel command line (hostonly_cmdline=yes).
+
+While this check prevents boot failures, it also has the unfortunate
+side effect of creating a hard error that is triggered by default on
+new Gentoo installs. This has proven to be a significant stumbling
+block that new users often trip over. For this reason it was decided
+to disable the hostonly_cmdline setting in Gentoo's default settings
+for Dracut.
+
+User Action Required (all users)
+================================
+
+With >=sys-kernel/dracut-111, users need to perform a sanity check
+described in this news item.
+
+This sanity check will ensure that kernel parameters required to boot
+successfully are still present in the kernel command line. When in
+doubt, ensure system rescue media is close at hand.
+
+More specific instructions for various setups follow below, ordered
+from the specific to the more general as listed here:
+ * Systemd GPT Auto Generator
+ * Generic Unified Kernel Image
+ * Unified Kernel Image with Secure Boot
+ * GRUB
+ * systemd-boot
+ * rEFInd
+ * other/general
+
+For each option a summarised list of relevant files that should be
+double checked is provided first. In general the 'lsinitrd' tool
+provided by sys-kernel/dracut can be used to obtain the current
+embedded kernel command line, these kernel parameters will be absent
+after (re)generating an initramfs with version 111 of dracut.
+
+As always, do not hesitate to use our support channels to ask for
+clarification or assistance.
+
+> User Action Required (Systemd GPT Auto Generator)
+  =================================================
+  Files to double check:
+  - /dev/gpt-auto-root (symlink must be valid)
+    - If absent then the auto generator is not being used.
+
+Systems that utilise the systemd GPT Auto Generator mechanism to
+automatically detect and find the root partition at boot should not
+require any manual intervention. Though, before rebooting, users
+should verify that the auto generator is actually being used and
+is working properly. To do so, check that /dev/gpt-auto-root currently
+exists and points to your root partition. For example:
+
+  $ ls -l /dev/gpt-auto-root
+
+Should produce an output similar to the below if /dev/nvme0n1p1 is the
+root partition:
+
+  """Output:
+  lrwxrwxrwx 1 root root 4 May  2 10:33 /dev/gpt-auto-root -> nvme0n1p1
+  """
+
+If this is not the case then proceed with the instructions below that
+best match the setup to ensure that the root partition is set on the
+kernel command line using an alternative method.
+
+> User Action Required (Generic Unified Kernel Image: "generic-uki")
+  ==================================================================
+  Files to double check:
+  - none
+
+Users booting with the generic Unified Kernel Image (USE=generic-uki)
+functionality provided by the distribution kernels (dist-kernel) do
+not have to take any action as the hostonly_cmdline is already
+disabled in these builds:
+- sys-kernel/vanilla-kernel[generic-uki]
+- sys-kernel/gentoo-kernel[generic-uki]
+- sys-kernel/gentoo-kernel-bin[generic-uki]
+
+> User Action Required (Unified Kernel Image with Secure Boot)
+  ============================================================
+  Files to double check:
+  - /etc/kernel/cmdline and/or /etc/kernel/uki.conf (ukify)
+  - /etc/dracut.conf and/or /etc/dracut.conf.d/*.conf (dracut)
+
+Booting a Unified Kernel Image (UKI) with Secure Boot enabled is a
+special case because in this situation the kernel command line
+supplied by the bootloader or the firmware is ignored and the built-in
+UKI command line, along with the parameters embedded in the initramfs,
+take precedence. The instructions below are also relevant if no
+kernel command line is set by the bootloader or the firmware.
+
+Verify whether Secure Boot is enabled with dmesg, for example:
+
+  $ dmesg | grep -i secure
+  """Output:
+  [    0.012418] Secure boot enabled
+  """
+
+An easy way to check the built-in kernel command line of an UKI is to
+use the lsinitrd tool provided by sys-kernel/dracut. For example:
+
+  $ lsinitrd /efi/EFI/Linux/gentoo-x.y.z-gentoo-dist.efi
+
+This command will produce an output that could contain for example:
+
+  """Output:
+  <snip>
+  Command line:
+  quiet
+  splash
+  root=PARTUUID=7ae430c6-07e8-3b4e-a796-b2a28706b3fb
+  <snip>
+  dracut cmdline:
+  ro
+  """
+
+Showing that the built-in kernel command line for this UKI contains
+"quiet", "splash" and sets the root partition to the partition that
+has the partition UUID "7ae430c6-07e8-3b4e-a796-b2a28706b3fb".
+Additionally, the kernel command line embedded in the initramfs
+contains "ro".
+
+If kernel parameters that are essential for successfully booting
+the system (such as root=) are present in the "dracut cmdline"
+section but not in the "Command line" section then user intervention
+is required. In that case please adjust the configuration of the
+UKI generator to include the appropriate kernel parameters in the
+built-in UKI command line.
+
+If Ukify (sys-apps/systemd[ukify] or sys-apps/systemd-utils[ukify])
+is generating the UKI then adjust the "Cmdline=" setting in
+/etc/kernel/uki.conf. If that setting is not present in the uki.conf
+then adjust the kernel command line in /etc/kernel/cmdline.
+
+If Dracut itself is generating the UKI then please set or adjust the
+"kernel_cmdline=" setting in a dracut configuration file in
+/etc/dracut.conf.d/.
+
+If unsure which tool is generating the UKI then please inspect the
+current value of "uki_generator" in /usr/lib/kernel/install.conf and
+/etc/kernel/cmdline.
+
+> User Action Required (GRUB)
+  ===========================
+  Files to double check:
+  - /etc/default/grub
+
+Users booting with GRUB should compare the GRUB_CMDLINE_LINUX setting
+in /etc/default/grub against the kernel command line embedded in the
+initramfs or Unified Kernel Image (UKI). The lsinitrd utility provided
+by sys-kernel/dracut can be used for this purpose. For example, in the
+case of a plain initramfs:
+
+  $ lsinitrd /boot/initramfs-x.y.z-gentoo-dist.img
+
+Or, in the case of an Unified Kernel Image:
+
+  $ lsinitrd /boot/vmlinuz-x.y.z-gentoo-dist.efi
+
+The final lines of the output of these commands show which kernel
+parameters are embedded in the Dracut initramfs. For example:
+
+  """Output:
+  <snip>
+  dracut cmdline:
+  ro
+  """
+
+If kernel parameters that are essential for successfully booting
+the system (such as root=) are present in the "dracut cmdline"
+section but not in /etc/default/grub then user intervention is
+required. In that case please adjust the GRUB_CMDLINE_LINUX setting in
+/etc/default/grub to include the missing kernel parameters. After
+adjustments don't forget to update the grub.cfg. For example:
+
+  $ grub-mkconfig -o /boot/grub/grub.cfg
+
+Note that when Secure Boot is enabled the grub.cfg might reside in a
+different directory, for example: /efi/EFI/Gentoo/grub.cfg.
+
+> User Action Required (systemd-boot)
+  ===================================
+  Files to double check:
+  - /etc/kernel/cmdline
+
+Users booting with systemd-boot should compare the contents of
+/etc/kernel/cmdline against the kernel command line embedded in the
+initramfs or Unified Kernel Image (UKI).
+
+If Unified Kernel Images are used and the /etc/kernel/cmdline file is
+empty or missing then no kernel command line is set by systemd-boot,
+in this case please refer to the "Unified Kernel Image with Secure
+Boot" section above, even if Secure Boot is not enabled.
+
+The lsinitrd utility provided by sys-kernel/dracut can be used to
+inspect the kernel parameters embedded in an initramfs or UKI. For
+example, in the case of a plain initramfs:
+
+  $ lsinitrd /efi/gentoo/x.y.z-gentoo-dist/initrd
+
+Or, in the case of an Unified Kernel Image:
+
+  $ lsinitrd /efi/EFI/Linux/gentoo-x.y.z-gentoo-dist.efi
+
+The final lines of the output of these commands show which kernel
+parameters are embedded in the Dracut initramfs. For example:
+
+  """Output:
+  <snip>
+  dracut cmdline:
+  ro
+  """
+
+If kernel parameters that are essential for successfully booting
+the system (such as root=) are present in the "dracut cmdline"
+section but not in /etc/kernel/cmdline then user intervention is
+required. In that case please adjust /etc/kernel/cmdline to include
+the missing kernel parameters.
+
+> User Action Required (rEFInd)
+  =============================
+  Files to double check:
+  - refind_linux.conf
+
+Users booting with rEFInd should compare kernel command line set
+in the refind_linux.conf file against the kernel command line embedded
+in the initramfs or Unified Kernel Image (UKI).
+
+The refind_linux.conf configuration file usually resides in /boot but
+may also be found elsewhere.
+
+If Unified Kernel Images are used and the refind_linux.conf
+configuration file is empty or missing then no kernel command line is
+set by rEFInd, in this case please refer to the "Unified Kernel Image
+with Secure Boot" section above, even if Secure Boot is not enabled.
+
+The lsinitrd utility provided by sys-kernel/dracut can be used to
+inspect the kernel parameters embedded in an initramfs or UKI. For
+example, in the case of a plain initramfs:
+
+  $ lsinitrd /boot/initramfs-x.y.z-gentoo-dist.img
+
+Or, in the case of an Unified Kernel Image:
+
+  $ lsinitrd /boot/vmlinuz-x.y.z-gentoo-dist.efi
+
+The final lines of the output of these commands show which kernel
+parameters are embedded in the Dracut initramfs. For example:
+
+  """Output:
+  <snip>
+  dracut cmdline:
+  ro
+  """
+
+If kernel parameters that are essential for successfully booting
+the system (such as root=) are present in the "dracut cmdline"
+section but not in the refind_linux.conf then user intervention is
+required. In that case please adjust refind_linux.conf to include the
+missing kernel parameters.
+
+> User Action Required (other/general)
+  ====================================
+
+For other setups please refer to the wiki page or manual of your
+bootloader and find where the kernel command line is set. Then
+compare this setting with the kernel parameters embedded in the
+initramfs.
+
+If essential parameters are present in the later but not in the
+former, then please move those parameters to your bootloader's
+configuration.
+
+When Unified Kernel Images are used then also consider the built-in
+UKI command line set by the UKI generator. Note that when Secure Boot
+is disabled, the bootloader may override the built-in UKI command
+line. However, when Secure Boot is enabled then any parameters set by
+the bootloader are ignored and the built-in UKI command line is
+always used.
+
+See Also
+========
+
+[1] https://github.com/dracut-ng/dracut-ng/pull/2399
+[2] https://bugs.gentoo.org/971572
