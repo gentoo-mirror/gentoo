@@ -12,7 +12,7 @@ if [[ "${PV}" == "99999999" ]]; then
 	EGIT_REPO_URI="https://github.com/janmojzis/tinyssh.git"
 else
 	SRC_URI="https://github.com/janmojzis/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 LICENSE="|| ( CC0-1.0 0BSD MIT-0 MIT )"
