@@ -2959,7 +2959,7 @@ app-misc/ttyload 0.5.3-r1: color-coded graph of load averages over time
 app-misc/ttyrec 1.0.8-r3 1.1.7.1: ttyrec provides tools to record and replay a terminal session
 app-misc/tzupdate 3.1.0-r1: Set the system timezone based on IP geolocation
 app-misc/unfoo 1.0.8-r2: Simple bash driven frontend to simplify decompression of files
-app-misc/upterm 0.21.1 0.22.0 0.23.0: Instant Terminal Sharing
+app-misc/upterm 0.21.1 0.22.0 0.23.0 0.24.0: Instant Terminal Sharing
 app-misc/uptimed 0.4.7: System uptime record daemon that keeps track of your highest uptimes
 app-misc/vcontrold 0.98.11-r1: Daemon for communication with Viessmann Vito heatings
 app-misc/vcp 2.2-r2: Copy files/directories in a curses interface
@@ -5853,12 +5853,12 @@ dev-libs/totem-pl-parser 3.26.6-r2: Playlist parsing library
 dev-libs/tre 0.8.0_p20210321-r4 0.9.0-r1: Lightweight, robust, and efficient POSIX compliant regexp matching library
 dev-libs/tree-sitter 0.24.3 0.25.6 0.25.8 0.25.10 0.26.3 0.26.5 0.26.6 0.26.7 0.26.8 9999: Tree-sitter is a parser generator tool and an incremental parsing library
 dev-libs/tree-sitter-bash 0.21.0-r1 0.23.3 0.25.0 0.25.1: Bash grammar for Tree-sitter
-dev-libs/tree-sitter-c 0.23.3 0.23.4 0.23.5 0.24.1: C grammar for Tree-sitter
-dev-libs/tree-sitter-c-sharp 0.23.0 0.23.1: C# grammar for Tree-sitter
+dev-libs/tree-sitter-c 0.23.3 0.23.4 0.23.5 0.24.1 0.24.2: C grammar for Tree-sitter
+dev-libs/tree-sitter-c-sharp 0.23.0 0.23.1 0.23.5: C# grammar for Tree-sitter
 dev-libs/tree-sitter-cmake 0.7.1 0.7.2: CMake grammar for tree-sitter
 dev-libs/tree-sitter-cpp 0.23.0 0.23.1 0.23.4: C++ grammar for Tree-sitter
 dev-libs/tree-sitter-css 0.23.0 0.23.2 0.25.0: CSS grammar for Tree-sitter
-dev-libs/tree-sitter-embedded-template 0.20.0 0.23.2: Embedded template languages (like ERB, EJS) grammar for Tree-sitter
+dev-libs/tree-sitter-embedded-template 0.20.0 0.23.2 0.25.0: Embedded template languages (like ERB, EJS) grammar for Tree-sitter
 dev-libs/tree-sitter-gleam 1.0.0 1.1.0: Gleam grammar for Tree-sitter
 dev-libs/tree-sitter-go 0.23.1 0.23.4 0.25.0: Go grammar for Tree-sitter
 dev-libs/tree-sitter-haskell 0.23.0 0.23.1: Haskell grammar for Tree-sitter
@@ -5870,17 +5870,17 @@ dev-libs/tree-sitter-json 0.23.0 0.24.8: JSON grammar for Tree-sitter
 dev-libs/tree-sitter-julia 0.22.0 0.23.1 0.25.0: Julia grammar for Tree-sitter
 dev-libs/tree-sitter-lua 0.3.0 0.4.0 0.4.1 0.5.0: Lua grammar for Tree-sitter
 dev-libs/tree-sitter-markdown 0.4.1 0.5.0 0.5.1 0.5.2 0.5.3: Markdown grammar for Tree-sitter
-dev-libs/tree-sitter-markdown-inline 0.2.3 0.2.3-r1 0.3.2 0.3.2-r1: Markdown-inline grammar for Tree-sitter
+dev-libs/tree-sitter-markdown-inline 0.2.3 0.2.3-r1 0.3.2 0.3.2-r1 0.5.3: Markdown-inline grammar for Tree-sitter
 dev-libs/tree-sitter-meta 1-r5: Metapackage for Tree Sitter packages
-dev-libs/tree-sitter-ocaml 0.20.4 0.23.2 0.24.0: OCaml grammar for Tree-sitter
+dev-libs/tree-sitter-ocaml 0.20.4 0.23.2 0.24.0 0.24.2: OCaml grammar for Tree-sitter
 dev-libs/tree-sitter-php 0.23.2 0.23.12 0.24.2: PHP grammar for Tree-sitter
 dev-libs/tree-sitter-python 0.23.6 0.25.0: Python grammar for Tree-sitter
 dev-libs/tree-sitter-ql 0.19.0 0.23.1: Semmle QL grammar for Tree-sitter
 dev-libs/tree-sitter-query 0.4.0 0.5.0 0.6.2 0.7.0 0.8.0: Tree-sitter query grammar for Tree-sitter
 dev-libs/tree-sitter-regex 0.21.0 1.0.0: Regular Expressions grammar for Tree-sitter
 dev-libs/tree-sitter-ruby 0.23.0 0.23.1: Ruby grammar for Tree-sitter
-dev-libs/tree-sitter-rust 0.23.0 0.23.2 0.24.0: Rust grammar for Tree-sitter
-dev-libs/tree-sitter-scala 0.23.0 0.23.2 0.23.4 0.24.0: Scala grammar for Tree-sitter
+dev-libs/tree-sitter-rust 0.23.0 0.23.2 0.24.0 0.24.2: Rust grammar for Tree-sitter
+dev-libs/tree-sitter-scala 0.23.0 0.23.2 0.23.4 0.24.0 0.26.0: Scala grammar for Tree-sitter
 dev-libs/tree-sitter-tsq 0.19.0: Tree-sitter query language grammar for Tree-sitter
 dev-libs/tree-sitter-tsx 0.23.0 0.23.2: TSX grammar for Tree-sitter
 dev-libs/tree-sitter-typescript 0.23.0 0.23.2: TypeScript grammar for Tree-sitter
@@ -11181,7 +11181,7 @@ dev-vcs/jj 0.36.0 0.37.0 0.38.0 0.39.0 0.40.0: Jujutsu - an experimental version
 dev-vcs/kdesvn 2.1.0_p20250525: Frontend to the subversion vcs
 dev-vcs/lab 0.25.1: Lab wraps Git or Hub, making it simple to interact with repositories on GitLab
 dev-vcs/mercurial 6.7.4-r2 6.7.4-r3 6.8.2 6.9.4 7.0.3 7.1.2-r1 7.2.1 9999: Scalable distributed SCM
-dev-vcs/mergiraf 0.16.1 0.16.3: Syntax-aware git merge driver
+dev-vcs/mergiraf 0.16.1 0.16.3 0.17.0: Syntax-aware git merge driver
 dev-vcs/mr 1.20180726: Multiple Repository management tool
 dev-vcs/pkgcruft-git 0.0.5-r2 9999: QA support for verifying git commits via pkgcruft
 dev-vcs/pre-commit 4.1.0 4.2.0 4.5.1: A framework for managing and maintaining multi-language Git pre-commit hooks
