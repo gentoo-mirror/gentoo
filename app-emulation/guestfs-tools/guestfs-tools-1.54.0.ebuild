@@ -18,7 +18,7 @@ SRC_URI="https://download.libguestfs.org/${PN}/${MY_PV_1}-${SD}/${P}.tar.gz"
 LICENSE="GPL-2 LGPL-2"
 SLOT="0/${MY_PV_1}"
 if [[ ${SD} == "stable" ]] ; then
-	KEYWORDS=""
+	KEYWORDS="~amd64"
 fi
 IUSE="doc libvirt +ocaml +perl test"
 RESTRICT="!test? ( test )"
@@ -85,7 +85,8 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.54.0-guestfs-bash-completion.m4-more-control.patch"
-	"${FILESDIR}/${PN}-1.54.0-guestfs-bash-completion.m4-more-control.patch"
+	"${FILESDIR}/${PN}-1.54.0-bash-Remove-vestigial-bash-completions.patch"
+	"${FILESDIR}/${PN}-1.52.3-common-libguestfs-1.58-compat.patch"
 )
 
 src_prepare() {

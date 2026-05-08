@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -40,13 +40,12 @@ SRC_URI="
 #  - Tommaso De Orchi <tom@yubico.com> FF8A F719 AE58 2818 1B89 4D83 1CE3 9268 A097 3948
 #  - Henrik Stråth <henrik@yubico.com> DCB9 04FA B343 CFA7 1907 6EF7 9EA9 0242 958E 0658
 #  - Pedro Martelletto <pedro@yubico.com> EE90 AE0D 1977 4C83 8662 8FAA B428 949E F791 4718
+#  - Simon Josefsson <simon@yubico.com> 9AA9 BDB1 1BB1 B99A 2128 5A33 0664 A769 5426 5E8C
 SRC_URI+="
 	https://keys.openpgp.org/vks/v1/by-fingerprint/8D0B4EBA9345254BCEC0E843514F078FF4AB24C3
 		-> yubico-${PV}-8D0B4EBA9345254BCEC0E843514F078FF4AB24C3.asc
 	https://keys.openpgp.org/vks/v1/by-fingerprint/1DC4BA2872525B3F2FE8207F5D9C760A3FB51707
 		-> yubico-${PV}-1DC4BA2872525B3F2FE8207F5D9C760A3FB51707.asc
-	https://keys.openpgp.org/vks/v1/by-fingerprint/9AA9BDB11BB1B99A21285A330664A76954265E8C
-		-> yubico-${PV}-9AA9BDB11BB1B99A21285A330664A76954265E8C.asc
 "
 S=${WORKDIR}
 
