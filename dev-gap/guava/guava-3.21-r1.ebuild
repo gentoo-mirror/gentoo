@@ -11,6 +11,7 @@ LICENSE="|| ( GPL-2 GPL-3 )"
 SLOT="0"
 KEYWORDS="~amd64 ~riscv"
 
+RDEPEND="dev-gap/sonata"
 DEPEND="sci-mathematics/gap"
 
 PATCHES=(
