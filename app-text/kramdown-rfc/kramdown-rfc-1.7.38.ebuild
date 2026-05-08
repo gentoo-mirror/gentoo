@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32"
+USE_RUBY="ruby31 ruby32 ruby33"
 
 # The software got renamed from kramdown-rfc2629 to kramdown-rfc,
 # however the gem coordinate is still kramdown-rfc2629.
@@ -22,16 +22,17 @@ HOMEPAGE="https://github.com/cabo/kramdown-rfc"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.6.27-Drop-dependency-on-certified.patch
-	"${FILESDIR}"/${PN}-1.6.35-Remove-bin-echars.patch
+	"${FILESDIR}"/${PN}-1.7.38-remove-bin-echars.patch
+	"${FILESDIR}"/${PN}-1.7.38-do-not-perform-tls-dance.patch
 )
 
 ruby_add_rdepend "
 	>=dev-ruby/json-2.0.0
 	>=dev-ruby/kramdown-2.4.0
+	<dev-ruby/kramdown-2.5
 	>=dev-ruby/kramdown-parser-gfm-1.1.0
 	>=dev-ruby/net-http-persistent-4.0
 "
