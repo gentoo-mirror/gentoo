@@ -81,14 +81,6 @@ EPYTEST_PLUGINS=( pytest-datadir )
 
 distutils_enable_tests pytest
 
-src_prepare() {
-	sed -i \
-		-e "/log(pickler/d" \
-		src/datasets/utils/_dill.py \
-		|| die
-	distutils-r1_src_prepare
-}
-
 python_test() {
 	local EPYTEST_IGNORE=(
 		tests/packaged_modules/test_lance.py
@@ -99,14 +91,10 @@ python_test() {
 		tests/io/test_parquet.py::test_parquet_read_geoparquet
 		tests/packaged_modules/test_folder_based_builder.py::test_data_files_with_different_levels_no_metadata
 		tests/packaged_modules/test_folder_based_builder.py::test_data_files_with_one_label_no_metadata
-		tests/test_arrow_dataset.py::BaseDatasetTest::test_filter_caching_on_disk
-		tests/test_arrow_dataset.py::BaseDatasetTest::test_map_caching_on_disk
-		tests/test_arrow_dataset.py::BaseDatasetTest::test_map_caching_partial_remap_on_disk
-		tests/test_arrow_dataset.py::BaseDatasetTest::test_map_caching_reuses_cache_with_different_num_proc_on_disk
-		tests/test_data_files.py
-		tests/test_fingerprint.py
+		tests/test_data_files.py::test_DataFilesList_from_patterns_locally_with_extra_files
+		tests/test_data_files.py::test_DataFilesDict_from_patterns_locally_or_remote_hashing
 		tests/test_hub.py::test_delete_from_hub
-		tests/test_load.py
+		tests/test_load.py::test_load_dataset_builder
 	)
 
 	epytest -m 'unit'
