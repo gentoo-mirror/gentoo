@@ -20,7 +20,7 @@ if [[ ${PV} == "9999" ]]; then
 	EGIT_REPO_URI="https://arthurdejong.org/git/python-pskc"
 else
 	inherit pypi
-	KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
+	KEYWORDS="amd64 ~arm64 ~ppc64 ~riscv"
 fi
 
 LICENSE="LGPL-2.1+"
