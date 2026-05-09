@@ -1,11 +1,11 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_EXT=1
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake distutils-r1 dot-a
 
 DESCRIPTION="Text tokenizer for Neural Network-based text generation"
@@ -45,9 +45,7 @@ src_prepare() {
 		src/unigram_model.h \
 		src/builder.cc \
 		|| die
-	eapply "${FILESDIR}"/${P}-gcc15.patch \
-		"${FILESDIR}"/${P}-cmake.patch \
-		"${FILESDIR}"/${P}-nostrip.patch
+	eapply "${FILESDIR}"/${P}-nostrip.patch
 	cmake_src_prepare
 	distutils-r1_src_prepare
 	sed \
