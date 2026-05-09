@@ -14,7 +14,7 @@ SRC_URI="
 LICENSE="|| ( LGPL-3 GPL-2+ ) AGPL-3+ BSD GPL-3+ MIT"
 SLOT="0/101"
 KEYWORDS="~amd64"
-IUSE="icu libmpv mysql qtmultimedia +sqlite webengine"
+IUSE="icu libmpv mysql qtmultimedia +sqlite webengine xmpp"
 REQUIRED_USE="
 	|| ( mysql sqlite )
 	?? ( libmpv qtmultimedia )
@@ -41,9 +41,8 @@ DEPEND="
 		dev-qt/qtmultimedia:6
 	)
 	webengine? ( dev-qt/qtwebengine:6 )
+	xmpp? ( >=net-libs/qxmpp-1.15.1:= )
 "
-# xmpp support pending qxmpp bump: https://bugs.gentoo.org/973427
-#	xmpp? ( net-libs/qxmpp:= )
 RDEPEND="${DEPEND}"
 
 # go
@@ -71,7 +70,7 @@ src_configure() {
 		-DENABLE_MEDIAPLAYER_QTMULTIMEDIA=$(usex qtmultimedia)
 		-DENABLE_MEDIAPLAYER_LIBMPV=$(usex libmpv)
 		-DUSE_SYSTEM_QXMPP=ON
-#		-DBUILD_XMPP_PLUGIN=$(usex xmpp)
+		-DBUILD_XMPP_PLUGIN=$(usex xmpp)
 		-DWEB_ARTICLE_VIEWER_WEBENGINE=$(usex webengine)
 		# recommended
 		-DMEDIAPLAYER_FORCE_OPENGL=ON
