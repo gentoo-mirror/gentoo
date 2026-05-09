@@ -6,8 +6,8 @@ EAPI=8
 ECM_TEST="forceoptional"
 KDE_ORG_CATEGORY="kdevelop"
 KDE_ORG_NAME="kdev-python"
-PYTHON_COMPAT=( python3_{11..14} )
-KFMIN=6.22.0
+PYTHON_COMPAT=( python3_{11..13} )
+KFMIN=6.19.0
 QTMIN=6.10.1
 inherit ecm gear.kde.org python-single-r1
 
@@ -16,10 +16,11 @@ HOMEPAGE="https://kdevelop.org/"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="amd64 arm64"
 IUSE=""
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+RESTRICT="test" # bug 965829
 
 COMMON_DEPEND="${PYTHON_DEPS}
 	>=dev-qt/qt5compat-${QTMIN}:6
