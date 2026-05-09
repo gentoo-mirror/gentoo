@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
 PYPI_VERIFY_REPO=https://github.com/pyca/cryptography
-PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
+PYTHON_COMPAT=( python3_{11..15} pypy3_11 )
 PYTHON_REQ_USE="threads(+)"
 
 CARGO_OPTIONAL=yes
