@@ -106,11 +106,15 @@ BDEPEND="
 DOCS=( AUTHORS ChangeLog README.md )
 
 src_unpack() {
-	default
-
-	if [[ -n ${COMMIT} ]]; then
-		mv "${WORKDIR}"/po "${S}"/po || die
-	fi
+	case ${PV} in
+		9999) git-r3_src_unpack ;&
+		*)
+			default
+			if [[ -n ${COMMIT} ]]; then
+				mv "${WORKDIR}"/po "${S}" || die
+			fi
+			;;
+	esac
 }
 
 src_configure() {
