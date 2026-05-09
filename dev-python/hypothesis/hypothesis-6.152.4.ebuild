@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 CLI_COMPAT=( python3_{11..13} )
-PYTHON_COMPAT=( "${CLI_COMPAT[@]}" pypy3_11 python3_14 python3_{13,14}t )
+PYTHON_COMPAT=( "${CLI_COMPAT[@]}" pypy3_11 python3_{14..15} python3_{13..15}t )
 PYTHON_REQ_USE="threads(+),sqlite"
 
 inherit distutils-r1 optfeature
@@ -67,6 +67,15 @@ python_test() {
 		# require syrupy
 		tests/cover/test_custom_reprs.py
 	)
+
+	case ${EPYTHON} in
+		python3.15*)
+			EPYTEST_DESELECT+=(
+				'hypothesis-python/tests/cover/test_lookup.py::test_resolves_forwardrefs_to_builtin_types[sentinel]'
+				'hypothesis-python/tests/cover/test_lookup.py::test_resolves_builtin_types[sentinel]'
+			)
+			;;
+	esac
 
 	local -x HYPOTHESIS_NO_PLUGINS=1
 	epytest -o filterwarnings= tests/{cover,pytest,quality}

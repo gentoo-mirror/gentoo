@@ -84,6 +84,11 @@ BDEPEND="
 		)
 	)
 "
+if [[ ${PV} != *_alpha* ]]; then
+	RDEPEND+="
+		dev-lang/python-exec[python_targets_python${PYVER/./_}(-)]
+	"
+fi
 PDEPEND="
 	ensurepip? ( dev-python/ensurepip-pip )
 "

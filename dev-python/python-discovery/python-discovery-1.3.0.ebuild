@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/tox-dev/python-discovery
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} python3_{13,14}t )
+PYTHON_COMPAT=( pypy3_11 python3_{11..15} python3_{13..15}t )
 
 inherit distutils-r1 pypi
 
@@ -43,6 +43,12 @@ python_test() {
 			EPYTEST_DESELECT+=(
 				# TODO
 				tests/test_py_info_extra.py::test_satisfies_path_not_abs_basename_match
+			)
+			;;
+		python3.15)
+			EPYTEST_DESELECT+=(
+				# TODO
+				tests/test_discovery.py::test_predicate_with_fallback_specs
 			)
 			;;
 	esac

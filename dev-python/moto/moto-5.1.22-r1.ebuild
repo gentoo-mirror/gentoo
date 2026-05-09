@@ -102,6 +102,5 @@ python_test() {
 	local -x TZ=UTC
 	local -x AWS_DEFAULT_REGION=us-east-1
 
-	# -o timeout_func_only=true: bad interaction with pytest-rerunfailures and pytest-timeout leads to a permanent hang otherwise
-	epytest -m 'not network and not requires_docker' -o timeout_func_only=true
+	epytest -m 'not network and not requires_docker'
 }

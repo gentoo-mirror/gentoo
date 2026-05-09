@@ -6,6 +6,12 @@
 
 # New entries go on top.
 
+# Michał Górny <mgorny@gentoo.org> (2026-05-07)
+# Force-enable all PYTHON_TARGETS for python-exec to avoid using private
+# API. Please remember to keep it in sync with python_targets.desc.
+dev-lang/python-exec -python_targets_python3_15
+dev-lang/python-exec -python_targets_python3_15t
+
 # Michael Orlitzky <mjo@gentoo.org> (2026-05-04)
 # This needs an upgrade to >=dev-cpp/eigen-5.0.1 and I don't
 # need the extra headache right now.
