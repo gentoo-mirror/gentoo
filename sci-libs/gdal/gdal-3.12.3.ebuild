@@ -148,7 +148,8 @@ EPYTEST_XDIST=1
 # distutils_enable_tests unconditionally touches BDEPEND
 
 PATCHES=(
-	"${FILESDIR}"/gdal-3.12.3-fix-completions.patch
+	"${FILESDIR}"/${P}-fix-completions.patch
+	"${FILESDIR}"/${P}-poppler-26.04.patch # in git master
 )
 
 pkg_setup() {

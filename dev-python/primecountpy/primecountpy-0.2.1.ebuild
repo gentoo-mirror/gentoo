@@ -21,7 +21,7 @@ HOMEPAGE="
 # LICENSE clarification in README.md
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~riscv"
+KEYWORDS="amd64 ~riscv"
 
 DEPEND="
 	>=sci-mathematics/primecount-8.0:=

@@ -1123,13 +1123,14 @@ unipatch() {
         # Iterate through patch and look for OKV
         if [[ -n "${K_WANT_GENPATCHES}" ]]; then
             KV_PATCH_FOUND=
-            for file in ${KPATCH_DIR}/*; do
+            while IFS= read -r -d '' file; do
                 filename="${file##*/}"
                 if [[ "$filename" == *"${OKV}"* ]]; then
                     KV_PATCH_FOUND=yes
                     break;
                 fi
-            done
+            done < <(find "$KPATCH_DIR" -type f -print0)
+
             if [[ -z ${KV_PATCH_FOUND} ]]; then
                 eerror "GENPATCHES does not contain linux patch ${OKV}"
                 eerror "Please check your ebuild for the proper K_GENPATCHES_VER=N"
