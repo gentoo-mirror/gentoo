@@ -6,7 +6,7 @@ EAPI=8
 inherit cmake optfeature pax-utils systemd xdg-utils
 
 if [[ ${PV} != *9999* ]]; then
-	COMMIT=
+	COMMIT=31d0daa4301ee2af74bfc7fa0955ea0a8b3c31d6 # qt6-migration branch
 	if [[ -n ${COMMIT} ]]; then
 		SRC_URI="https://github.com/johu/quassel/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		# quassel-i18n branch tx-sync (po subdir) @d88d126
@@ -22,7 +22,7 @@ if [[ ${PV} != *9999* ]]; then
 		S="${WORKDIR}/${MY_P}"
 	fi
 	# RCs weren't keyworded in past, but we are past that point
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+	# KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 else
 	EGIT_REPO_URI=( https://github.com/johu/${PN} ) # as long as Qt6 isn't
 	EGIT_BRANCH=( feat/qt6-migration )              # merged upstream ...
@@ -105,6 +105,9 @@ BDEPEND="
 
 DOCS=( AUTHORS ChangeLog README.md )
 
+# https://github.com/johu/quassel/pull/1
+PATCHES=( "${FILESDIR}/${P}-cmake-warnings.patch" )
+
 src_unpack() {
 	default
 
@@ -132,8 +135,6 @@ src_configure() {
 	# bug #830708
 	if use gui || use monolithic ; then
 		mycmakeargs+=(
-			-DCMAKE_DISABLE_FIND_PACKAGE_LibsnoreQt6=ON # not a thing?
-			-DCMAKE_DISABLE_FIND_PACKAGE_dbusmenu-qt6=ON # not a thing?
 			$(cmake_use_find_package dbus Qt6DBus)
 			$(cmake_use_find_package spell KF6Sonnet)
 		)

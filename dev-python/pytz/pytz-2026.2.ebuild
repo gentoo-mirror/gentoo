@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_VERIFY_REPO=https://github.com/stub42/pytz
-PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
+PYTHON_COMPAT=( python3_{11..15} pypy3_11 )
 PYTHON_REQ_USE="threads(+)"
 
 inherit distutils-r1 pypi
