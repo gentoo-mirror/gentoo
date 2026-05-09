@@ -7,7 +7,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/urllib3/urllib3
 PYTHON_TESTED=( python3_{11..14} pypy3_11 )
-PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" )
+PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" python3_15 )
 PYTHON_REQ_USE="ssl(+)"
 
 inherit distutils-r1 pypi

@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=flit
 PYPI_PN=jinja2
 PYPI_VERIFY_REPO=https://github.com/pallets/jinja
-PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
+PYTHON_COMPAT=( python3_{11..15} pypy3_11 )
 PYTHON_REQ_USE="threads(+)"
 
 inherit distutils-r1 pypi
