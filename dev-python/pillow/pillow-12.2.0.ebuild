@@ -101,7 +101,6 @@ python_configure_all() {
 		[build_ext]
 		debug = True
 		disable_platform_guessing = True
-		parallel = $(get_makeopts_jobs)
 		$(usepil avif)_avif = True
 		$(usepil truetype)_freetype = True
 		$(usepil jpeg)_jpeg = True
@@ -124,6 +123,7 @@ python_configure_all() {
 	fi
 
 	tc-export PKG_CONFIG
+	export MAX_CONCURRENCY=$(makeopts_jobs)
 }
 
 src_test() {
