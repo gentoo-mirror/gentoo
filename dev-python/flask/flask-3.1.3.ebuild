@@ -50,6 +50,11 @@ distutils_enable_sphinx docs \
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
+EPYTEST_DESELECT=(
+	# removed in a31e6b73469cb2bf7eb8f70b5ff21f710fd2e23c
+	tests/test_reqctx.py::test_bad_environ_raises_bad_request
+)
+
 python_install_all() {
 	use examples && dodoc -r examples
 	distutils-r1_python_install_all
