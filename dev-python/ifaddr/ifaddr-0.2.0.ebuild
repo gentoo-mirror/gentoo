@@ -16,6 +16,6 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~s390 x86"
+KEYWORDS="amd64 ~arm arm64 ~s390 ~sparc x86"
 
 distutils_enable_tests pytest
