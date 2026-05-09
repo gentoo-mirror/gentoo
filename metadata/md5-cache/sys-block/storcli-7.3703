@@ -1,0 +1,12 @@
+BDEPEND=app-arch/unzip || ( app-arch/rpm2targz >=app-arch/rpm-4.19.0[lzma(+)] )
+DEFINED_PHASES=install prepare unpack
+DESCRIPTION=MegaRAID StorCLI (successor of the MegaCLI)
+EAPI=8
+HOMEPAGE=https://www.broadcom.com/support/download-search?dk=storcli
+INHERIT=rpm
+KEYWORDS=-* ~amd64
+LICENSE=Avago LSI BSD
+SLOT=0
+SRC_URI=https://docs.broadcom.com/docs-and-downloads/host-bus-adapters/host-bus-adapters-common-files/sas_sata_nvme_12g_p38/STORCLI_SAS3.5_P38.zip -> storcli-7.3703.zip
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	estack	c61c368a76fdf3a82fdf8dbaebea3804	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	rpm	716d8645cb3f94e78951eda6c33e0546
+_md5_=0e5922eaa999029a10ac11c0d8c36c52
