@@ -37,7 +37,7 @@ python_test() {
 		'tests/modern_polars/unpivot_test.py::test_unpivot[pyarrow]'
 		# fragile to parallel merges that can cause non-atomic .dist-info
 		# changes
-		tests/system_info_test.py::test_get_sys_info
+		tests/system_info_test.py::test_get_deps_info
 	)
 
 	epytest --runslow --constructors="pandas,pandas[nullable],pandas[pyarrow],pyarrow"
