@@ -10,7 +10,7 @@ if [[ ${PV} != *9999* ]]; then
 	if [[ -n ${COMMIT} ]]; then
 		SRC_URI="https://github.com/johu/quassel/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		# quassel-i18n branch tx-sync (po subdir) @d88d126
-		SRC_URI+="https://dev.gentoo.org/~asturm/distfiles/${PN}-i18n-${PV/29/27}.tar.xz"
+		SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PN}-i18n-${PV/29/27}.tar.xz"
 		S="${WORKDIR}/${PN}-${COMMIT}"
 	else
 		MY_P=${PN}-${PV/_/-}
