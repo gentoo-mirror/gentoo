@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_UPSTREAM_PEP517=standalone
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
-RUST_MIN_VER=1.88.0
+RUST_MIN_VER=1.89.0
 inherit cargo distutils-r1 flag-o-matic shell-completion toolchain-funcs
 
 DESCRIPTION="Build and publish crates with pyo3, rust-cpython and cffi bindings"
