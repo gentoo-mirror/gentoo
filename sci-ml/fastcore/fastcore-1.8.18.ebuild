@@ -6,14 +6,13 @@ PYTHON_COMPAT=( python3_{11..14} )
 DISTUTILS_USE_PEP517=setuptools
 inherit distutils-r1 pypi
 
-DESCRIPTION="Easily download, verify, and extract archives"
-HOMEPAGE="https://fastdownload.fast.ai/"
+DESCRIPTION="Python supercharged for the fastai library"
+HOMEPAGE="https://fastcore.fast.ai/"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RDEPEND="
-	sci-ml/fastcore[${PYTHON_USEDEP}]
-	sci-ml/fastprogress[${PYTHON_USEDEP}]
-"
+RESTRICT="test" # No test available
+
+RDEPEND="dev-python/packaging[${PYTHON_USEDEP}]"
