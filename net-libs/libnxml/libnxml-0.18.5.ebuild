@@ -11,7 +11,7 @@ SRC_URI="https://github.com/bakulf/libnxml/archive/refs/tags/${PV}.tar.gz -> ${P
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="amd64 ~arm ~arm64 ~mips ppc ~ppc64 ~sparc x86"
 IUSE="doc examples"
 
 RDEPEND="net-misc/curl"
