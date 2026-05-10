@@ -57,6 +57,9 @@ BDEPEND="
 PATCHES=(
 	# unbundle KF6Solid
 	"${FILESDIR}"/${PN}-3.4.0-unbundle_solid.patch
+
+	# PR merged
+	"${FILESDIR}"/${P}-rm_werror.patch
 )
 
 src_prepare() {
