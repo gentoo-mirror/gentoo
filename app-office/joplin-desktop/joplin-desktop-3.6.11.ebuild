@@ -15,7 +15,7 @@ SRC_URI="https://github.com/laurent22/joplin/releases/download/v${PV}/${APPIMAGE
 
 LICENSE="AGPL-3+"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 RESTRICT="bindist splitdebug"
 
 RDEPEND="
@@ -99,6 +99,7 @@ src_install() {
 	cp -r . "${ED}/${apphome}" || die
 
 	dosym -r "${apphome}/joplin" "/usr/bin/${PN}"
+
 	make_desktop_entry "${PN}" Joplin joplin "Office;" \
 		"StartupWMClass=Joplin\nMimeType=x-scheme-handler/joplin;"
 }

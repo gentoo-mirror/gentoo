@@ -465,11 +465,6 @@ dev-python/calver
 # See bug #966299.
 =dev-util/librnp-0.18.0
 
-# Michał Górny <mgorny@gentoo.org> (2025-10-12)
-# Requires Rust with RUST_SYSROOTS=bpf, which isn't currently supported
-# by dev-lang/rust-bin.  Also needs net-proxy/mitmproxy-linux updates.
->=dev-util/bpf-linker-0.9.15-r1
-
 # Sam James <sam@gentoo.org> (2025-09-21)
 # Breaks (common) mt7921e WiFi driver with a hang in many cases, affecting
 # not just network. See bug #963106.
