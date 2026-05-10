@@ -55,10 +55,6 @@ distutils_enable_tests pytest
 
 pkg_postinst() {
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		if ! has_version dev-python/chump; then
-			elog "Install 'dev-python/chump' to enable Pushover" \
-				"notifications support"
-		fi
 		if ! has_version dev-python/jq; then
 			elog "Install 'dev-python/jq' to enable jq filtering support"
 		fi
