@@ -22,7 +22,7 @@ if [[ ${PV} != *9999* ]]; then
 		S="${WORKDIR}/${MY_P}"
 	fi
 	# RCs weren't keyworded in past, but we are past that point
-	# KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 else
 	EGIT_REPO_URI=( https://github.com/johu/${PN} ) # as long as Qt6 isn't
 	EGIT_BRANCH=( feat/qt6-migration )              # merged upstream ...
