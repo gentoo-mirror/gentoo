@@ -13,7 +13,7 @@ SRC_URI="https://github.com/onekey-sec/ubi_reader/archive/refs/tags/${PV}.tar.gz
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	>=dev-python/cryptography-44.0.2[${PYTHON_USEDEP}]

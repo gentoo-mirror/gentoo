@@ -119,7 +119,7 @@ LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions MIT Unicode-DFS-2016 ZLIB
 "
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 QA_FLAGS_IGNORED="usr/lib.*/py.*/site-packages/lzallright/_lzallright.*"
 
