@@ -5,15 +5,11 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_VERIFY_REPO=https://github.com/jenisys/parse_type
-PYTHON_COMPAT=( python3_{11..14} )
-
+PYTHON_COMPAT=( python3_{11..15} )
 inherit distutils-r1 pypi
 
 DESCRIPTION="Extension to the parse module"
-HOMEPAGE="
-	https://github.com/jenisys/parse_type/
-	https://pypi.org/project/parse-type/
-"
+HOMEPAGE="https://github.com/jenisys/parse_type/"
 
 LICENSE="MIT"
 SLOT="0"

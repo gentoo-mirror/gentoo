@@ -25,3 +25,8 @@ RDEPEND="
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
+
+src_install() {
+	distutils-r1_src_install
+	rm -r "${ED}/usr/share/doc/jwcrypto" || die
+}

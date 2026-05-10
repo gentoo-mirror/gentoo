@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..15} )
 inherit distutils-r1 pypi
 
 DESCRIPTION="Parse strings using a specification based on the Python format() syntax"

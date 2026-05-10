@@ -5,15 +5,11 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/yt-dlp/ejs
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
-
+PYTHON_COMPAT=( pypy3_11 python3_{11..15} )
 inherit distutils-r1 pypi
 
 DESCRIPTION="External JavaScript for yt-dlp supporting many runtimes"
-HOMEPAGE="
-	https://github.com/yt-dlp/ejs/
-	https://pypi.org/project/yt-dlp-ejs/
-"
+HOMEPAGE="https://github.com/yt-dlp/ejs/"
 # wheel for .js files, github's assets also has them but uncompressed
 SRC_URI+=" $(pypi_wheel_url --unpack)"
 
