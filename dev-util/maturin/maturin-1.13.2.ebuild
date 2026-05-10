@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_UPSTREAM_PEP517=standalone
 PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
-RUST_MIN_VER=1.85.0
+RUST_MIN_VER=1.88.0
 inherit cargo distutils-r1 flag-o-matic shell-completion toolchain-funcs
 
 DESCRIPTION="Build and publish crates with pyo3, rust-cpython and cffi bindings"
@@ -20,11 +20,12 @@ SRC_URI="
 
 LICENSE="|| ( Apache-2.0 MIT ) doc? ( Apache-2.0 OFL-1.1 )"
 LICENSE+="
-	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT MPL-2.0
-	Unicode-3.0 ZLIB BZIP2
+	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD
+	CDLA-Permissive-2.0 ISC MIT MIT-0 MPL-2.0 openssl Unicode-3.0 ZLIB
+	BZIP2
 " # crates
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc +ssl test"
 RESTRICT="!test? ( test )"
 
@@ -69,15 +70,13 @@ src_prepare() {
 		# uv does not work easily w/ network-sandbox, force virtualenv
 		sed -i 's/"uv"/"uv-not-found"/' tests/common/mod.rs || die
 
-		# increase timeouts for tests (bug #950332)
-		sed -i '/^#\[timeout/s/secs(60)/secs(300)/' tests/run.rs || die
-
-		# used by *git_sdist_generator tests
+		# needed by several sdist:: tests
 		git init -q || die
 		git config --global user.email "larry@gentoo.org" || die
 		git config --global user.name "Larry the Cow" || die
 		git add . || die
 		git commit -qm init || die
+
 	fi
 }
 
@@ -125,19 +124,24 @@ python_test() {
 	local CARGO_SKIP_TESTS=(
 		# picky cli output test that easily benignly fail (bug #937992)
 		cli_tests
-		# avoid need for wasm over a single hello world test
-		integration_wasm_hello_world
 		# fragile depending on rust version, also wants libpypy*-c.so for pypy
-		pyo3_no_extension_module
+		errors::pyo3_no_extension_module
+		# fails for unsupported rust targets, non-issue here (bug #973104)
+		errors::pypi_compatibility_linux_tag
 		# unimportant tests that require uv, and not obvious to get it
 		# to work with network-sandbox (not worth the trouble)
-		develop_hello_world::case_2
-		develop_pyo3_ffi_pure::case_2
-		# compliance test using zig requires an old libc to pass (bug #946967)
-		integration_pyo3_mixed_py_subdir
+		develop::develop_uv_cases::case_1_hello_world
+		develop::develop_uv_cases::case_2_pyo3_ffi_pure
+		# compliance tests using zig (if present) need old libc (bug #946967)
+		integration::integration_cases::case_07_cffi_mixed_py_subdir
+		integration::integration_cases::case_16_pyo3_stub_generation_zig
+		# avoid need for wasm over a single hello world test
+		integration::integration_wasm_hello_world
 		# these currently attempt to install tomli regardless of python version
-		pep517_default_profile
-		pep517_editable_profile
+		pep517::pep517_default_profile
+		pep517::pep517_editable_profile
+		# unimportant and simpler to skip, does not work with just `git init`
+		sdist::lib_with_parent_workspace_git_dep_sdist
 	)
 
 	cargo_src_test
