@@ -1,7 +1,7 @@
 Title: Portage binpkg changes
 Author: Sam James <sam@gentoo.org>
 Posted: 2026-05-03
-Revision: 2
+Revision: 3
 News-Item-Format: 2.0
 
 Newer versions of Portage are making two changes to how binary packages
@@ -56,6 +56,8 @@ To set up signing for binpkgs, a signing keyring must reside (by default)
 at /root/.gnupg and a verification keyring must reside (by default)
 at /etc/portage/gnupg. The verification keyring must mark the signing
 key as trusted. Signing is toggled by FEATURES="binpkg-signing".
+
+To sign already-created binpkgs, Portage's `gpkg-sign` tool can be used.
 
 You can opt-in to this change early by setting `verify-signature = true`
 in /etc/portage/binrepos.conf/* for each binary repository configured, or
