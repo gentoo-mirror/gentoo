@@ -31,7 +31,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	app-arch/xz-utils
 	app-arch/zstd:=
-	ssl? ( dev-libs/openssl:= )
+	ssl? ( <dev-libs/openssl-4:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
