@@ -1,17 +1,17 @@
-BDEPEND=llvm_slot_15? ( llvm-core/clang:15= llvm-core/llvm:15= ) llvm_slot_16? ( llvm-core/clang:16= llvm-core/llvm:16= ) llvm_slot_17? ( llvm-core/clang:17= llvm-core/llvm:17= ) llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/clang:21= llvm-core/llvm:21= )
+BDEPEND=llvm_slot_16? ( llvm-core/clang:16= llvm-core/llvm:16= ) llvm_slot_17? ( llvm-core/clang:17= llvm-core/llvm:17= ) llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/clang:21= llvm-core/llvm:21= )
 DEFINED_PHASES=compile setup
 DEPEND=dev-libs/libbpf:= sys-libs/libcap:= dev-util/bpftool dev-libs/libnl:=
 DESCRIPTION=BPF driven auto-tuning
 EAPI=8
 HOMEPAGE=https://github.com/oracle/bpftune
 INHERIT=toolchain-funcs llvm-r2
-IUSE=+llvm_slot_21 llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20
+IUSE=+llvm_slot_21 llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20
 KEYWORDS=~amd64
 LICENSE=GPL-2
 RDEPEND=dev-libs/libbpf:= sys-libs/libcap:= dev-util/bpftool dev-libs/libnl:=
-REQUIRED_USE=^^ ( llvm_slot_15 llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 )
+REQUIRED_USE=^^ ( llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 )
 RESTRICT=test
 SLOT=0/0
 SRC_URI=https://github.com/oracle/bpftune/archive/refs/tags/0.4-2.tar.gz -> bpftune-0.4-2.gh.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	8bc46809768366b4239eab39335419bc
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	d0f9b3164877aa250943c25b016e475e
 _md5_=224556ab27ae5e9cb93a3dd2465a014b
