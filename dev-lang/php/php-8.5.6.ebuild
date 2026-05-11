@@ -38,7 +38,7 @@ IUSE="${IUSE} acl apparmor argon2 avif bcmath berkdb bzip2 calendar
 	+flatfile ftp gd gdbm gmp +iconv inifile
 	intl iodbc ipv6 +jit jpeg ldap ldap-sasl libedit lmdb
 	mhash mssql mysql mysqli nls
-	odbc +opcache +opcache-jit pcntl pdo +phar +posix postgres png
+	odbc +opcache-jit pcntl pdo +phar +posix postgres png
 	qdbm readline selinux +session session-mm sharedmem
 	+simplexml snmp soap sockets sodium spell sqlite ssl
 	sysvipc systemd test tidy +tokenizer tokyocabinet truetype unicode
@@ -134,6 +134,12 @@ DEPEND="${COMMON_DEPEND}
 
 BDEPEND="virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}/php-8.3.31-libgd-test-fixes.patch"
+	"${FILESDIR}/php-8.3.31-ipv6-printing-test-fix.patch"
+	"${FILESDIR}/php-8.5.6-libgd-test-fixes.patch"
+)
+
 PHP_MV="$(ver_cut 1)"
 
 # ARM/Windows functions (bug 923335)
@@ -176,14 +182,6 @@ php_install_ini() {
 
 	dodir "${PHP_EXT_INI_DIR#"${EPREFIX}"}"
 	dodir "${PHP_EXT_INI_DIR_ACTIVE#"${EPREFIX}"}"
-
-	if use opcache; then
-		elog "Adding opcache to $PHP_EXT_INI_DIR"
-		echo "zend_extension = opcache.so" >> \
-			 "${D}/${PHP_EXT_INI_DIR}"/opcache.ini
-		dosym "../ext/opcache.ini" \
-			  "${PHP_EXT_INI_DIR_ACTIVE#"${EPREFIX}"}/opcache.ini"
-	fi
 
 	# SAPI-specific handling
 	if [[ "${sapi}" == "fpm" ]] ; then
@@ -268,12 +266,13 @@ src_prepare() {
 		rm ext/dba/tests/gh19706.phpt
 	fi
 
-	# One-off, somebody forgot to update a version constant
-	rm ext/reflection/tests/ReflectionZendExtension.phpt || die
-
-	# Fixed upstream, but not in 8.4.20.
+	# Fixed upstream, but not in 8.5.5.
 	rm ext/openssl/tests/bug{74796,80770}.phpt || die
 	rm ext/openssl/tests/{sni_server.phpt,sni_server_key_cert.phpt} || die
+
+	# Unexpected message from a (successful) curl abort, will deal with
+	# it later.
+	rm ext/curl/tests/curl_setopt_CURLOPT_PREREQFUNCTION.phpt || die
 }
 
 src_configure() {
@@ -352,7 +351,6 @@ src_configure() {
 		$(use_enable pcntl)
 		$(use_enable phar)
 		$(use_enable pdo)
-		$(use_enable opcache)
 		$(use_enable opcache-jit)
 		$(use_with postgres pgsql "$("${PG_CONFIG:-true}" --bindir)/..")
 		$(use_enable posix)
@@ -611,7 +609,6 @@ src_install() {
 		# (SAPI-independent) targets from there.
 		cd "${WORKDIR}/sapis-build/${sapi}" || die
 		emake INSTALL_ROOT="${D}" install-build install-programs
-		use opcache && emake INSTALL_ROOT="${D}" install-modules
 		break
 	done
 

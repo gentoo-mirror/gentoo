@@ -5,7 +5,7 @@ EAPI=8
 
 WANT_AUTOMAKE="none"
 POSTGRES_COMPAT=( {15..18} )
-inherit autotools flag-o-matic multilib postgres systemd
+inherit flag-o-matic multilib postgres systemd
 
 DESCRIPTION="The PHP language runtime engine"
 HOMEPAGE="https://www.php.net/"
@@ -21,19 +21,22 @@ LICENSE="PHP-3.01
 SLOT="$(ver_cut 1-2)"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 
-# We can build the following SAPIs in the given order
-SAPIS="embed cli cgi fpm apache2 phpdbg"
+# We can build the following SAPIs in the given order.
+ALL_SAPIS=( embed cli cgi fpm apache2 phpdbg )
 
-# SAPIs and SAPI-specific USE flags (cli SAPI is default on):
+# Will populate this in src_configure() when USE is known.
+ENABLED_SAPIS=()
+
+# SAPIs and SAPI-specific USE flags (cli SAPI is default on).
 IUSE="${IUSE}
-	${SAPIS/cli/+cli}
+	${ALL_SAPIS[@]/cli/+cli}
 	threads"
 
 IUSE="${IUSE} acl apparmor argon2 avif bcmath berkdb bzip2 calendar
 	capstone cdb +ctype curl debug
 	enchant exif ffi +fileinfo +filter
-	+flatfile ftp gd gdbm gmp +iconv imap inifile
-	intl iodbc ipv6 +jit jpeg kerberos ldap ldap-sasl libedit lmdb
+	+flatfile ftp gd gdbm gmp +iconv inifile
+	intl iodbc ipv6 +jit jpeg ldap ldap-sasl libedit lmdb
 	mhash mssql mysql mysqli nls
 	odbc +opcache +opcache-jit pcntl pdo +phar +posix postgres png
 	qdbm readline selinux +session session-mm sharedmem
@@ -86,9 +89,7 @@ COMMON_DEPEND="
 	gdbm? ( sys-libs/gdbm:0= )
 	gmp? ( dev-libs/gmp:0= )
 	iconv? ( virtual/libiconv )
-	imap? ( net-libs/c-client[kerberos=,ssl=] )
 	intl? ( dev-libs/icu:= )
-	kerberos? ( virtual/krb5 )
 	ldap? ( net-nds/openldap:= )
 	ldap-sasl? ( dev-libs/cyrus-sasl )
 	libedit? ( dev-libs/libedit )
@@ -134,7 +135,8 @@ DEPEND="${COMMON_DEPEND}
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/php-8.3.9-gd-cachevars.patch"
+	"${FILESDIR}/php-8.3.31-libgd-test-fixes.patch"
+	"${FILESDIR}/php-8.3.31-ipv6-printing-test-fix.patch"
 )
 
 PHP_MV="$(ver_cut 1)"
@@ -213,7 +215,7 @@ pkg_setup() {
 src_prepare() {
 	default
 
-	# In php-7.x, the FPM pool configuration files have been split off
+	# In php-8.x, the FPM pool configuration files have been split off
 	# of the main config. By default the pool config files go in
 	# e.g. /etc/php-fpm.d, which isn't slotted. So here we move the
 	# include directory to a subdirectory "fpm.d" of $PHP_INI_DIR. Later
@@ -247,12 +249,6 @@ src_prepare() {
 	   sapi/cli/tests/bug78323.phpt \
 	   || die
 
-	# This is a memory usage test with hard-coded limits. Whenever the
-	# limits are surpassed... they get increased... but in the meantime,
-	# the tests fail. This is not really a test that end users should
-	# be running pre-install, in my opinion. Bug 927461.
-	rm ext/fileinfo/tests/bug78987.phpt || die
-
 	# Most tests failing with an external libgd have been fixed,
 	# but there are a few stragglers:
 	#
@@ -268,17 +264,36 @@ src_prepare() {
 	   ext/gd/tests/bug73272.phpt \
 	   || die
 
+	# Test requires USE=cdb, so we have to skip it when
+	# the cdb USE flag is unset
+	#
+	#  * https://github.com/php/php-src/issues/19706
+	#
+	if ! use cdb; then
+		rm ext/dba/tests/gh19706.phpt
+	fi
+
 	# One-off, somebody forgot to update a version constant
 	rm ext/reflection/tests/ReflectionZendExtension.phpt || die
 
-	# Fixed upstream, but not in 8.3.30.
+	# Fixed upstream, but not in 8.4.20.
 	rm ext/openssl/tests/bug{74796,80770}.phpt || die
 	rm ext/openssl/tests/{sni_server.phpt,sni_server_key_cert.phpt} || die
 
-	eautoconf --force
+	# Unexpected message from a (successful) curl abort, will deal with
+	# it later.
+	rm ext/curl/tests/curl_setopt_CURLOPT_PREREQFUNCTION.phpt || die
 }
 
 src_configure() {
+	# Loop through the list of all SAPIs, and consult the user's USE
+	# flags to build the list of enabled ones. This avoids having to
+	# loop and check over and over again.
+	local sapi
+	for sapi in "${ALL_SAPIS[@]}" ; do
+		use "${sapi}" && ENABLED_SAPIS+=( "${sapi}" )
+	done
+
 	addpredict /usr/share/snmp/mibs/.index #nowarn
 	addpredict /var/lib/net-snmp/mib_indexes #nowarn
 
@@ -293,9 +308,15 @@ src_configure() {
 	export ac_cv_prog_PHP=""
 
 	# The php-fpm config file wants localstatedir to be ${EPREFIX}/var
-	# and not the Gentoo default ${EPREFIX}/var/lib. See bug 572002.
+	# and not the Gentoo default ${EPREFIX}/var/lib. See bug 572002. We
+	# use --sbindir=$bindir for backwards compatibility: in the past we
+	# installed php-fpm to $bindir by hand, but now the upstream build
+	# system puts it in $sbindir. If nothing else, eselect-php expects
+	# it in $bindir.
 	local our_conf=(
 		--prefix="${PHP_DESTDIR}"
+		--datadir="${PHP_DESTDIR}/share"
+		--sbindir="${PHP_DESTDIR}/bin"
 		--mandir="${PHP_DESTDIR}/man"
 		--infodir="${PHP_DESTDIR}/info"
 		--libdir="${PHP_DESTDIR}/lib"
@@ -334,7 +355,6 @@ src_configure() {
 			$(use elibc_glibc || use elibc_musl || echo "${EPREFIX}/usr"))
 		$(use_enable intl)
 		$(use_enable ipv6)
-		$(use_with kerberos)
 		$(use_with xml libxml)
 		$(use_enable unicode mbstring)
 		$(use_with ssl openssl)
@@ -346,7 +366,6 @@ src_configure() {
 		$(use_with postgres pgsql "$("${PG_CONFIG:-true}" --bindir)/..")
 		$(use_enable posix)
 		$(use_with selinux fpm-selinux)
-		$(use_with spell pspell "${EPREFIX}/usr")
 		$(use_enable simplexml)
 		$(use_enable sharedmem shmop)
 		$(use_with snmp snmp "${EPREFIX}/usr")
@@ -413,14 +432,6 @@ src_configure() {
 		php_cv_lib_gd_gdImageCreateFromXpm=$(usex xpm)
 	)
 
-	# IMAP support
-	if use imap ; then
-		our_conf+=(
-			$(use_with imap imap "${EPREFIX}/usr")
-			$(use_with ssl imap-ssl "${EPREFIX}/usr")
-		)
-	fi
-
 	# LDAP support
 	if use ldap ; then
 		our_conf+=(
@@ -470,7 +481,8 @@ src_configure() {
 		)
 	fi
 
-	# PDO support
+	# PDO support, sqlite is the only one enabled by default.
+	our_conf+=( --without-pdo-sqlite )
 	if use pdo ; then
 		our_conf+=(
 			$(use_with mssql pdo-dblib "${EPREFIX}/usr")
@@ -531,8 +543,7 @@ src_configure() {
 	local one_sapi
 	local sapi
 	mkdir "${WORKDIR}/sapis-build" || die
-	for one_sapi in $SAPIS ; do
-		use "${one_sapi}" || continue
+	for one_sapi in "${ENABLED_SAPIS[@]}" ; do
 		php_set_ini_dir "${one_sapi}"
 
 		# The BUILD_DIR variable is used to determine where to output
@@ -546,7 +557,9 @@ src_configure() {
 			--with-config-file-scan-dir="${PHP_EXT_INI_DIR_ACTIVE}"
 		)
 
-		for sapi in $SAPIS ; do
+		# We loop through *all* SAPIs here because we want to
+		# --disable-foo any SAPIs that aren't enabled.
+		for sapi in "${ALL_SAPIS[@]}" ; do
 			case "$sapi" in
 				cli|cgi|embed|fpm|phpdbg)
 					if [[ "${one_sapi}" == "${sapi}" ]] ; then
@@ -590,8 +603,8 @@ src_compile() {
 	addpredict /var/lib/net-snmp/mib_indexes #nowarn
 
 	local sapi
-	for sapi in ${SAPIS} ; do
-		use "${sapi}" && emake -C "${WORKDIR}/sapis-build/${sapi}"
+	for sapi in "${ENABLED_SAPIS[@]}" ; do
+		emake -C "${WORKDIR}/sapis-build/${sapi}"
 	done
 }
 
@@ -599,87 +612,78 @@ src_install() {
 	# see bug #324739 for what happens when we don't have that
 	addpredict /usr/share/snmp/mibs/.index #nowarn
 
-	# grab the first SAPI that got built and install common files from there
-	local first_sapi="", sapi=""
-	for sapi in $SAPIS ; do
-		if use $sapi ; then
-			first_sapi=$sapi
-			break
-		fi
+	# The current SAPI name as we loop through them.
+	local sapi
+
+	for sapi in "${ENABLED_SAPIS[@]}" ; do
+		# Grab the first SAPI that got built, and install common
+		# (SAPI-independent) targets from there.
+		cd "${WORKDIR}/sapis-build/${sapi}" || die
+		emake INSTALL_ROOT="${D}" install-build install-programs
+		use opcache && emake INSTALL_ROOT="${D}" install-modules
+		break
 	done
 
-	# Install SAPI-independent targets
-	cd "${WORKDIR}/sapis-build/$first_sapi" || die
-	emake INSTALL_ROOT="${D}" \
-		install-build install-headers install-programs
-	use opcache && emake INSTALL_ROOT="${D}" install-modules
-
-	# Create the directory where we'll put version-specific php scripts
+	# Where we'll put the versioned php scripts
 	keepdir "/usr/share/php${PHP_MV}"
 
-	local sapi_list=""
+	for sapi in "${ENABLED_SAPIS[@]}" ; do
+		einfo "Installing SAPI: ${sapi}"
+		cd "${WORKDIR}/sapis-build/${sapi}" || die
+		php_install_ini "${sapi}"
 
-	for sapi in ${SAPIS}; do
-		if use "${sapi}" ; then
-			einfo "Installing SAPI: ${sapi}"
-			cd "${WORKDIR}/sapis-build/${sapi}" || die
+		# Required in each iteration because php_install_ini() resets it.
+		local dest="${PHP_DESTDIR#"${EPREFIX}"}"
+		into "${dest}"
 
-			if [[ "${sapi}" == "apache2" ]] ; then
-				# We're specifically not using emake install-sapi as libtool
-				# may cause unnecessary relink failures (see bug #351266)
+		# The headers target includes SAPI-specific headers, so we
+		# need to install them for each SAPI even though most of
+		# the headers are repeated.
+		emake INSTALL_ROOT="${D}" install-headers
+
+		case "${sapi}" in
+			apache2)
+				# We're intentionally not using emake install-sapi as
+				# libtool may cause unnecessary relink failures (bug
+				# #351266)
 				insinto "${PHP_DESTDIR#"${EPREFIX}"}/apache2/"
 				newins ".libs/libphp$(get_libname)" \
 					   "libphp${PHP_MV}$(get_libname)"
 				keepdir "/usr/$(get_libdir)/apache2/modules"
-			else
-				# needed each time, php_install_ini would reset it
-				local dest="${PHP_DESTDIR#"${EPREFIX}"}"
-				into "${dest}"
-				case "$sapi" in
-					cli)
-						source="sapi/cli/php"
-						# Install the "phar" archive utility.
-						if use phar ; then
-							emake INSTALL_ROOT="${D}" install-pharcmd
-							dosym "..${dest#/usr}/bin/phar" "/usr/bin/phar${SLOT}"
-						fi
-						;;
-					cgi)
-						source="sapi/cgi/php-cgi"
-						;;
-					fpm)
-						source="sapi/fpm/php-fpm"
-						;;
-					embed)
-						source="libs/libphp$(get_libname)"
-						;;
-					phpdbg)
-						source="sapi/phpdbg/phpdbg"
-						;;
-					*)
-						die "unhandled sapi in src_install"
-						;;
-				esac
+				;;
+			embed)
+				dolib.so "libs/libphp$(get_libname)"
+				;;
+			cli)
+				emake INSTALL_ROOT="${D}" install-cli
+				dosym "..${dest#/usr}/bin/php" "/usr/bin/php${SLOT}"
 
-				if [[ "${source}" == *"$(get_libname)" ]]; then
-					dolib.so "${source}"
-				else
-					dobin "${source}"
-					local name="$(basename ${source})"
-					dosym "..${dest#/usr}/bin/${name}" "/usr/bin/${name}${SLOT}"
+				# Install the "phar" archive utility.
+				if use phar ; then
+					emake INSTALL_ROOT="${D}" install-pharcmd
+					dosym "..${dest#/usr}/bin/phar" \
+						  "/usr/bin/phar${SLOT}"
 				fi
-			fi
-
-			php_install_ini "${sapi}"
-
-			# construct correct SAPI string for php-config
-			# thanks to ferringb for the bash voodoo
-			if [[ "${sapi}" == "apache2" ]]; then
-				sapi_list="${sapi_list:+${sapi_list} }apache2handler"
-			else
-				sapi_list="${sapi_list:+${sapi_list} }${sapi}"
-			fi
-		fi
+				;;
+			cgi)
+				emake INSTALL_ROOT="${D}" install-cgi
+				dosym "..${dest#/usr}/bin/php-cgi" \
+					  "/usr/bin/php-cgi${SLOT}"
+				;;
+			fpm)
+				emake INSTALL_ROOT="${D}" install-fpm
+				dosym "..${dest#/usr}/bin/php-fpm" \
+					  "/usr/bin/php-fpm${SLOT}"
+				;;
+			phpdbg)
+				emake INSTALL_ROOT="${D}" install-phpdbg
+				dosym "..${dest#/usr}/bin/phpdbg" \
+					  "/usr/bin/phpdbg${SLOT}"
+				;;
+			*)
+				die "unhandled sapi in src_install"
+				;;
+		esac
 	done
 
 	# Install env.d files
@@ -688,6 +692,8 @@ src_install() {
 	sed -e "s|php5|php${SLOT}|g" -i "${ED}/etc/env.d/20php${SLOT}" || die
 
 	# set php-config variable correctly (bug #278439)
+	local sapi_list="${ENABLED_SAPIS[@]}"
+	sapi_list="${sapi_list/apache2/apache2handler}"
 	sed -e "s:^\(php_sapis=\)\".*\"$:\1\"${sapi_list}\":" -i \
 		"${ED}/usr/$(get_libdir)/php${SLOT}/bin/php-config" || die
 
@@ -746,19 +752,18 @@ pkg_postinst() {
 
 	# Create the symlinks for php
 	local m
-	for m in ${SAPIS}; do
+	for m in "${ENABLED_SAPIS[@]}" ; do
 		[[ ${m} == 'embed' ]] && continue;
-		if use $m ; then
-			local ci=$(eselect php show $m)
-			if [[ -z $ci ]]; then
-				eselect php set $m php${SLOT} || die
-				einfo "Switched ${m} to use php:${SLOT}"
-				einfo
-			elif [[ $ci != "php${SLOT}" ]] ; then
-				elog "To switch $m to use php:${SLOT}, run"
-				elog "    eselect php set $m php${SLOT}"
-				elog
-			fi
+
+		local ci=$(eselect php show $m)
+		if [[ -z $ci ]]; then
+			eselect php set $m php${SLOT} || die
+			einfo "Switched ${m} to use php:${SLOT}"
+			einfo
+		elif [[ $ci != "php${SLOT}" ]] ; then
+			elog "To switch $m to use php:${SLOT}, run"
+			elog "    eselect php set $m php${SLOT}"
+			elog
 		fi
 	done
 

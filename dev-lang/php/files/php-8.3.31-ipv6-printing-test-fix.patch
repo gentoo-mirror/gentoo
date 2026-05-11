@@ -1,0 +1,40 @@
+From 9a3995b838cd27fd8fc27b7ee10ad72fe8679f4b Mon Sep 17 00:00:00 2001
+From: Michael Orlitzky <michael@orlitzky.com>
+Date: Mon, 11 May 2026 08:12:56 -0400
+Subject: [PATCH] sapi/cli/tests/php_cli_server_ipv6_error_message.phpt: lower
+ expectations
+
+This test is checking for brackets around an ipv6 address. On some
+systems, a PHP warning is emitted before printing the expected output;
+for example,
+
+  [Fri May 8 17:24:55 2026] PHP Warning: Unknown:
+  php_network_getaddresses: getaddrinfo for 2001:db8:: failed: Address
+  family for hostname not supported in Unknown on line 0
+  [Fri May 8 17:24:55 2026] Failed to listen on [2001:db8::]:8080
+  (reason: php_network_getaddresses: getaddrinfo for 2001:db8::
+  failed: Address family for hostname not supported)
+
+Only the second of these is expected by the test, causing it to fail
+on those systems. The warning does not seem harmful however, so with a
+small tweak to the expected output, we can ignore everything up to the
+bracketed ipv6 address, which is ultimately the purpose of the test,
+to ensure that the address prints with brackets.
+---
+ sapi/cli/tests/php_cli_server_ipv6_error_message.phpt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/sapi/cli/tests/php_cli_server_ipv6_error_message.phpt b/sapi/cli/tests/php_cli_server_ipv6_error_message.phpt
+index 55432eeec15..f9898d0bec1 100644
+--- a/sapi/cli/tests/php_cli_server_ipv6_error_message.phpt
++++ b/sapi/cli/tests/php_cli_server_ipv6_error_message.phpt
+@@ -36,5 +36,5 @@
+ }
+ ?>
+ --EXPECTF--
+-string(%d) "[%s] Failed to listen on [2001:db8::]:8080 %s
++string(%d) "%A Failed to listen on [2001:db8::]:8080 %s
+ "
+-- 
+2.52.0
+
