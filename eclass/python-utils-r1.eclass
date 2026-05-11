@@ -602,7 +602,7 @@ python_optimize() {
 	# default to sitedir
 	[[ ${#} -eq 0 ]] && set -- "${D}$(python_get_sitedir)"
 
-	local jobs=$(makeopts_jobs)
+	local jobs=$(get_makeopts_jobs)
 	local d
 	for d; do
 		einfo "Optimizing Python modules in ${d#${D}}"
@@ -1573,7 +1573,7 @@ epytest() {
 	fi
 
 	if [[ ${EPYTEST_XDIST} ]]; then
-		local jobs=${EPYTEST_JOBS:-$(makeopts_jobs)}
+		local jobs=${EPYTEST_JOBS:-$(get_makeopts_jobs)}
 		if [[ ${jobs} -gt 1 ]]; then
 			if [[ ${PYTEST_PLUGINS} != *xdist.plugin* ]]; then
 				args+=(
@@ -1588,6 +1588,17 @@ epytest() {
 				# jobs are unevenly distributed
 				--dist=worksteal
 			)
+
+			if [[ ${MAKEFLAGS} == *--jobserver-auth=* ]]; then
+				if has_version "dev-python/pytest-jobserver[${PYTHON_USEDEP}]"
+				then
+					args+=( -p jobserver )
+				elif [[ ! ${_EPYTEST_JOBSERVER_WARNED} ]]; then
+					ewarn "Jobserver found under pytest-xdist, but cannot be used without:"
+					ewarn "  dev-python/pytest-jobserver"
+					_EPYTEST_JOBSERVER_WARNED=1
+				fi
+			fi
 		fi
 	fi
 

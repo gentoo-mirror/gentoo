@@ -1094,7 +1094,7 @@ distutils_pep517_install() {
 			local maturin_args=(
 				"${DISTUTILS_ARGS[@]}"
 				--auditwheel=skip # see bug #831171
-				--jobs="$(makeopts_jobs)"
+				--jobs="$(get_makeopts_jobs)"
 				$(in_iuse debug && usex debug '--profile=dev' '')
 			)
 
