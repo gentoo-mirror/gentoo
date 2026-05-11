@@ -115,6 +115,7 @@ DEPEND="${COMMON_DEPEND}
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.4.3-libcroco-cmake-minreqver-3.12.patch # bug 965915
 	"${FILESDIR}"/${PN}-1.4.4-respect-EPYTHON.patch # bug 924747
+	"${FILESDIR}"/${PN}-1.4.4-poppler-26.05.patch   # bug 974462
 )
 
 pkg_pretend() {
