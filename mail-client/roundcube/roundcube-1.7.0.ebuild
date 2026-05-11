@@ -1,7 +1,7 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit webapp
 
@@ -24,7 +24,7 @@ need_httpd_cgi
 
 RDEPEND="
 	${DEPEND}
-	>=dev-lang/php-7.4.0[exif?,fileinfo?,filter,gd,iconv,intl,json(+),ldap?,pdo,postgres?,session,sqlite?,ssl?,unicode,xml,zip?]
+	>=dev-lang/php-8.1.0[exif?,fileinfo?,filter,gd,iconv,intl,json(+),ldap?,pdo,postgres?,session,sqlite?,ssl?,unicode,xml,zip?]
 	virtual/httpd-php
 	change-password? (
 		dev-lang/php[sockets]
