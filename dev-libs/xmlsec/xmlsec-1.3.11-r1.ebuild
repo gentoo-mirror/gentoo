@@ -96,7 +96,7 @@ src_configure() {
 		--enable-pbkdf2
 		--enable-pkgconfig
 		--enable-sha3
-		--with-man-dir="${EPREFIX}"/usr/share/man
+		--with-man-dir="${EPREFIX}"/usr/share/man/man1
 	)
 	if use doc; then
 		myeconfargs+=(
