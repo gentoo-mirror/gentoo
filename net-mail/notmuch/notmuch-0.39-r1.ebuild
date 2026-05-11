@@ -7,7 +7,6 @@ DISTUTILS_EXT=1
 DISTUTILS_OPTIONAL=1
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{12..14} )
-NEED_EMACS=27.1
 
 inherit bash-completion-r1 desktop distutils-r1 elisp-common flag-o-matic pax-utils toolchain-funcs xdg-utils
 
@@ -22,59 +21,63 @@ LICENSE="GPL-3"
 # Sub-slot corresponds to major wersion of libnotmuch.so.X.Y. Bump of Y is
 # meant to be binary backward compatible.
 SLOT="0/5"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86 ~x64-macos"
-IUSE="apidoc emacs mutt nmbug python test"
+KEYWORDS="~alpha amd64 arm arm64 ~ppc64 ~riscv x86 ~x64-macos"
 REQUIRED_USE="
-	python? ( ${PYTHON_REQUIRED_USE} )
+	${PYTHON_REQUIRED_USE}
 	nmbug? ( python )
-	test? ( emacs python )
+	test? ( crypt emacs python )
 "
+IUSE="apidoc crypt emacs mutt nmbug python test"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
 	app-arch/xz-utils[extra-filters(+)]
+	dev-python/sphinx[${PYTHON_USEDEP}]
 	sys-apps/texinfo
 	virtual/pkgconfig
-	$(python_gen_any_dep '
-		dev-python/roman-numerals[${PYTHON_USEDEP}]
-		dev-python/sphinx[${PYTHON_USEDEP}]
-	')
 	apidoc? (
 		app-text/doxygen
 		dev-lang/perl
 	)
 	python? (
-		${PYTHON_DEPS}
 		${DISTUTILS_DEPS}
 		test? ( dev-python/pytest[${PYTHON_USEDEP}] )
 	)
 	test? (
-		app-misc/dtach
 		app-shells/bash
-		dev-libs/openssl
 		sys-process/parallel
-		debug? ( dev-debug/gdb[python] )
-		emacs? ( >=app-editors/emacs-${NEED_EMACS}:*[libxml2] )
 	)
 "
-DEPEND="
-	|| (
-		app-alternatives/gpg[reference]
-		app-alternatives/gpg[freepg(-)]
-	)
-	dev-libs/glib:2
-	>=dev-libs/gmime-3.2.7:3.0[crypt]
+COMMON_DEPEND="
+	dev-libs/glib
+	dev-libs/gmime:3.0[crypt]
 	>=dev-libs/xapian-1.4.0:=
 	sys-libs/talloc
 	virtual/zlib:=
 	emacs? ( >=app-editors/emacs-${NEED_EMACS}:* )
 	python? (
 		${PYTHON_DEPS}
-		dev-python/cffi[${PYTHON_USEDEP}]
+		$(python_gen_cond_dep '
+			dev-python/cffi[${PYTHON_USEDEP}]
+		' 'python*')
 	)
 "
+DEPEND="
+	${COMMON_DEPEND}
+	test? (
+		>=app-editors/emacs-${NEED_EMACS}:*[libxml2]
+		app-misc/dtach
+		dev-debug/gdb[python]
+		crypt? (
+			app-crypt/gnupg
+			dev-libs/openssl
+		)
+	)
+"
+
 RDEPEND="
-	${DEPEND}
+	${COMMON_DEPEND}
+	crypt? ( app-crypt/gnupg )
 	mutt? (
 		dev-perl/File-Which
 		dev-perl/Mail-Box
@@ -92,22 +95,11 @@ SITEFILE="50${PN}-gentoo.el"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.39-no-compress-man-pages.patch
-	# sent to ML
-	"${FILESDIR}"/${PN}-0.40-fix_pointers.patch
-	# applied in master
-	"${FILESDIR}"/${P}-pkg_config.patch
-	"${FILESDIR}"/${P}-readelf.patch
+	"${FILESDIR}"/${PN}-0.39-test-skip-debug-symbols.patch
 )
-
-python_check_deps() {
-	python_has_version "dev-python/roman-numerals[${PYTHON_USEDEP}]" &&
-	python_has_version "dev-python/sphinx[${PYTHON_USEDEP}]"
-}
 
 pkg_setup() {
 	use emacs && elisp-check-emacs-version
-	# always called for sphinx
-	python_setup
 }
 
 src_unpack() {
@@ -122,12 +114,7 @@ src_unpack() {
 src_prepare() {
 	default
 
-	if use python; then
-		distutils-r1_src_prepare
-	else
-		# prevent automagic python binding, see https://bugs.gentoo.org/971988
-		sed -e '/have_python3_cffi=1/d' -i configure || die
-	fi
+	use python && distutils-r1_src_prepare
 
 	rm bindings/python-cffi/tox.ini || die
 	mv contrib/notmuch-mutt/README contrib/notmuch-mutt/README-mutt || die
@@ -137,7 +124,12 @@ src_prepare() {
 }
 
 src_configure() {
-	tc-export AR CC CXX PKG_CONFIG
+	# https://bugs.gentoo.org/974448
+	append-cflags -std=gnu17
+
+	python_setup # For sphinx
+
+	tc-export CC CXX
 
 	local myconf=(
 		--bashcompletiondir="$(get_bashcompdir)"
@@ -158,6 +150,9 @@ src_configure() {
 	# we pretend to allow it, without actually allowing it to read or write.
 	# https://bugs.gentoo.org/821328
 	addpredict /dev/bus/usb
+	# gnupg tries to create directories and run all of: gpg, gpg-agent,
+	# scdaemon, gpgconf, gpgsm
+	addpredict /run/user/$(id -u)/gnupg
 
 	econf "${myconf[@]}"
 }
@@ -177,42 +172,30 @@ src_compile() {
 python_test() {
 	pushd bindings/python-cffi > /dev/null || die
 	rm -rf notmuch2 || die
-	epytest tests
-	local ret=${?}
+	epytest tests || die -n
 	popd > /dev/null || die
-	return ${ret}
 }
 
 src_test() {
-	local skip_tests=(
-		# 953833, skip test for debugging symbols
-		T000-basic.12
-		# line wrapping in the output
-		T310-emacs.61
-		# make gdb optional
-		$(usev !debug T380-atomicity)
-		# We run pytest via eclass phasefunc, so delete upstream launcher
-		T391-python-cffi
-		# disabled
-		T395-ruby
-	)
-	local mytestargs=(
-		TEST_CC="${CC}"
-		TEST_CFLAGS="${CFLAGS}"
-		TEST_READELF="$(tc-getREADELF)"
-		V=1
-		OPTIONS="--verbose --tee"
-		NOTMUCH_SKIP_TESTS="${skip_tests[*]}"
-	)
 	local test_failures=()
-	local -x LD_LIBRARY_PATH="${S}/lib"
+
+	# We run pytest via eclass phasefunc, so delete upstream launcher
+	rm test/T391-python-cffi.sh || die
+
+	# These both fail because of line wrapping in the output
+	rm test/T315-emacs-tagging.sh test/T310-emacs.sh || die
+
 	pax-mark -m notmuch
-	nonfatal emake test "${mytestargs[@]}" || test_failures+=( "'emake tests'" )
+	LD_LIBRARY_PATH="${S}/lib" nonfatal emake test \
+		V=1 \
+		OPTIONS="--verbose --tee" || test_failures+=( "'emake tests'" )
 	pax-mark -ze notmuch
 
 	# Both lib and bin needed for testsuite
 	if use python; then
-		PATH="${S}:${PATH}" nonfatal distutils-r1_src_test || test_failures+=( "'python tests'" )
+		LD_LIBRARY_PATH="${S}/lib" \
+			PATH="${S}:${PATH}" \
+			nonfatal distutils-r1_src_test || test_failures+=( "'python tests'" )
 	fi
 
 	[[ ${test_failures} ]] && die "Tests failed: ${test_failures[*]}"
@@ -231,7 +214,8 @@ src_install() {
 
 	if use apidoc; then
 		# Rename overly generic manpage to avoid clashes
-		mv doc/_build/man/man3/{,notmuch-}deprecated.3 || die
+		mv doc/_build/man/man3/deprecated.3 \
+			doc/_build/man/man3/notmuch-deprecated.3 || die
 	fi
 
 	if use emacs; then
