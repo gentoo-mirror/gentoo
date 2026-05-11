@@ -76,7 +76,7 @@ SRC_URI="
 
 LICENSE="GPL-3+ LGPL-2.1+"
 SLOT="0"
-IUSE="babeltrace cet +debuginfod guile lzma multitarget nls +python rocm +server sim source-highlight test vanilla +xml xxhash zstd"
+IUSE="cet +debuginfod guile lzma multitarget nls +python rocm +server sim source-highlight test vanilla +xml xxhash zstd"
 if [[ -n ${REGULAR_RELEASE} ]] ; then
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
 fi
@@ -87,14 +87,12 @@ REQUIRED_USE="
 "
 RESTRICT="!test? ( test )"
 
-# <babeltrace-2: bug #951652
 RDEPEND="
 	dev-libs/mpfr:=
 	dev-libs/gmp:=
 	>=sys-libs/ncurses-5.2-r2:=
 	>=sys-libs/readline-7:=
 	virtual/zlib:=
-	babeltrace? ( dev-util/babeltrace:0/1 )
 	debuginfod? (
 		dev-libs/elfutils[debuginfod(-)]
 	)
@@ -198,7 +196,6 @@ src_configure() {
 		# Disable modules that are in a combined binutils/gdb tree. bug #490566
 		--disable-{binutils,etc,gas,gold,gprof,gprofng,ld}
 
-		$(use_with babeltrace)
 		$(use_with debuginfod)
 
 		$(use_enable test unit-tests)
@@ -258,7 +255,7 @@ src_configure() {
 		#
 		# Check which libraries to apply this to with:
 		# "${S}"/gdb/configure --help | grep without-lib | sort
-		--without-lib{babeltrace,expat,gmp,iconv,ipt,lzma,mpfr,xxhash}-prefix
+		--without-lib{expat,gmp,iconv,ipt,lzma,mpfr,xxhash}-prefix
 	)
 
 	# source-highlight is detected with pkg-config: bug #716558
