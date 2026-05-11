@@ -5,7 +5,8 @@ EAPI="8"
 
 LUA_COMPAT=( lua5-4 lua5-3 )
 
-inherit toolchain-funcs lua-single systemd linux-info git-r3 multiprocessing
+[[ ${PV} == *9999 ]] && SCM="git-r3"
+inherit toolchain-funcs lua-single systemd linux-info ${SCM} multiprocessing
 
 MY_P="${PN}-${PV/_beta/-dev}"
 
@@ -13,17 +14,22 @@ DESCRIPTION="A TCP/HTTP reverse proxy for high availability environments"
 HOMEPAGE="http://www.haproxy.org"
 if [[ ${PV} != *9999 ]]; then
 	# This is arbitrary; upstream uses master. Try to update when possible. Only git clones are allowed by VTest upstream.
-	# https://code.vinyl-cache.org/vtest/VTest2
+	# git clone https://code.vinyl-cache.org/vtest/VTest2
+	# cd VTest2
+	# VTEST2_NAME="VTest2-$(git rev-parse --short HEAD)"
+	# git archive --format=tar.gz --prefix="${VTEST2_NAME}/" -o "${VTEST2_NAME}.tar.gz" HEAD
+	# scp ${VTEST2_NAME}.tar.gz dev.gentoo.org:~/public_html/distfiles/
 	VTEST2_COMMIT="3bba149e0c322585c09db2827a2a6cf0d3b15d54"
-	VTEST2_DIR="${WORKDIR}/vtest2"
-	SRC_URI="http://haproxy.1wt.eu/download/$(ver_cut 1-2)/src/${MY_P}.tar.gz"
+	VTEST2_DIR="${WORKDIR}/VTest2-${VTEST2_COMMIT:0:7}"
+	SRC_URI="http://haproxy.1wt.eu/download/$(ver_cut 1-2)/src/${MY_P}.tar.gz
+		test? ( https://dev.gentoo.org/~idl0r/distfiles/VTest2-${VTEST2_COMMIT:0:7}.tar.gz )"
 	KEYWORDS="~amd64 ~arm64 ~ppc ~x86"
 elif [[ ${PV} == 9999 ]]; then
-	VTEST2_DIR="${WORKDIR}/vtest2"
+	VTEST2_DIR="${WORKDIR}/VTest2"
 	EGIT_REPO_URI="https://git.haproxy.org/git/haproxy.git/"
 	EGIT_BRANCH=master
 else
-	VTEST2_DIR="${WORKDIR}/vtest2"
+	VTEST2_DIR="${WORKDIR}/VTest2"
 	EGIT_REPO_URI="https://git.haproxy.org/git/haproxy-$(ver_cut 1-2).git/"
 	EGIT_BRANCH=master
 fi
@@ -83,8 +89,6 @@ pkg_setup() {
 src_unpack() {
 	if [[ ${PV} != *9999 ]]; then
 		default
-		EGIT_REPO_URI="https://code.vinyl-cache.org/vtest/VTest2" EGIT_BRANCH="main" EGIT_COMMIT="${VTEST2_COMMIT}" \
-			EGIT_CHECKOUT_DIR="${VTEST2_DIR}" git-r3_src_unpack
 	else
 		git-r3_src_unpack
 		EGIT_REPO_URI="https://code.vinyl-cache.org/vtest/VTest2" EGIT_BRANCH="main" EGIT_CHECKOUT_DIR="${VTEST2_DIR}" \
