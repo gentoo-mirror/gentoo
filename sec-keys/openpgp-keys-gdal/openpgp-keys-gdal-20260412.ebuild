@@ -16,7 +16,7 @@ inherit sec-keys
 DESCRIPTION="OpenPGP keys used to sign GDAL"
 HOMEPAGE="https://gdal.org"
 
-KEYWORDS="~amd64 ~arm arm64 ~ppc ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86"
 
 src_compile() {
 	# hack
