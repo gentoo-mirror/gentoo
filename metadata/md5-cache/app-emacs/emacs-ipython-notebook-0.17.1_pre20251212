@@ -1,0 +1,16 @@
+BDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) >=app-emacs/anaphora-1.0.4 >=app-emacs/dash-2.13.0 >=app-emacs/deferred-0.5 >=app-emacs/polymode-0.2.2 >=app-emacs/request-0.3.3 >=app-emacs/websocket-1.12 >=app-emacs/with-editor-3.4.9 python_single_target_python3_12? ( dev-python/ipython[python_targets_python3_12(-)] dev-python/notebook[python_targets_python3_12(-)] dev-python/tornado[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/ipython[python_targets_python3_13(-)] dev-python/notebook[python_targets_python3_13(-)] dev-python/tornado[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/ipython[python_targets_python3_14(-)] dev-python/notebook[python_targets_python3_14(-)] dev-python/tornado[python_targets_python3_14(-)] ) test? ( app-emacs/mocker ) test? ( app-emacs/ert-runner ) >=app-editors/emacs-26.3:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Jupyter notebook client in Emacs
+EAPI=8
+HOMEPAGE=https://github.com/millejoh/emacs-ipython-notebook/
+INHERIT=elisp readme.gentoo-r1 python-single-r1
+IUSE=test python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3+
+RDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) >=app-emacs/anaphora-1.0.4 >=app-emacs/dash-2.13.0 >=app-emacs/deferred-0.5 >=app-emacs/polymode-0.2.2 >=app-emacs/request-0.3.3 >=app-emacs/websocket-1.12 >=app-emacs/with-editor-3.4.9 python_single_target_python3_12? ( dev-python/ipython[python_targets_python3_12(-)] dev-python/notebook[python_targets_python3_12(-)] dev-python/tornado[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/ipython[python_targets_python3_13(-)] dev-python/notebook[python_targets_python3_13(-)] dev-python/tornado[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/ipython[python_targets_python3_14(-)] dev-python/notebook[python_targets_python3_14(-)] dev-python/tornado[python_targets_python3_14(-)] ) >=app-editors/emacs-26.3:*
+REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/millejoh/emacs-ipython-notebook/archive/8fa836fcd1c22f45d36249b09590b32a890f2b9e.tar.gz -> emacs-ipython-notebook-0.17.1_pre20251212.gh.tar.gz
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=6277e140dee3c53854a373d023a1d50d
