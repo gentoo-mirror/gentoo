@@ -97,6 +97,16 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-6.7.3-eigen-ppc-no-vsx.patch
 )
 
+src_prepare() {
+	qt6-build_src_prepare
+
+	# test expects GStreamer to report an exact bitrate value, but
+	# this varies depending on version and Qt updates it only now
+	# and then (disabling permanently with a sed to avoid rebases)
+	sed -e '/bool validateBitRates = GST_CHECK_VERSION/s/= .*/= false;/' \
+		-i tests/auto/unit/plugins/multimedia/gstreamer/gstreamer_backend/tst_gstreamer_backend.cpp || die
+}
+
 src_configure() {
 	# eigen + ppc32 seems broken w/ -maltivec (forced by Qt, bug #943402)
 	use ppc && append-cppflags -DEIGEN_DONT_VECTORIZE
