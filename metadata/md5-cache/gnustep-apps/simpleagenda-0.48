@@ -1,0 +1,15 @@
+BDEPEND=>=gnustep-base/gnustep-make-2.0
+DEFINED_PHASES=compile configure install postinst prepare setup
+DEPEND=>=dev-libs/libical-0.27 >=virtual/gnustep-back-0.20.0 dbus? ( gnustep-libs/dbuskit ) virtual/gnustep-back
+DESCRIPTION=a simple calendar and agenda application
+EAPI=8
+HOMEPAGE=https://github.com/poroussel/simpleagenda
+INHERIT=gnustep-2
+IUSE=dbus debug doc
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/libical-0.27 >=virtual/gnustep-back-0.20.0 dbus? ( gnustep-libs/dbuskit ) virtual/gnustep-back
+SLOT=0
+SRC_URI=https://github.com/poroussel/simpleagenda/archive/v0.48.tar.gz -> simpleagenda-0.48.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	gnustep-base	976868a87e3ff809160bc308ec25ee04	gnustep-2	cfafeebb1111f944995a3bb7ae64ce8b
+_md5_=4949501a462388b33fd3ba70178d1b66
