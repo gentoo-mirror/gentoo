@@ -8,7 +8,7 @@ inherit go-module
 DESCRIPTION="Let's Encrypt/ACME client (like certbot or acme.sh) and library written in Go"
 HOMEPAGE="https://github.com/go-acme/lego/"
 
-DOCUMENTATION_COMMIT=e3cfa221b68948891ef9f39ccdd3462566ff99b4
+DOCUMENTATION_COMMIT=ed44ba1e3a6fe157c8894b90edce01d28acbf798
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
@@ -17,7 +17,7 @@ else
 	SRC_URI="
 	https://github.com/go-acme/lego/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/go-acme/lego/archive/${DOCUMENTATION_COMMIT}.tar.gz -> ${P}-docs.tar.gz
-	https://distfiles.gentoo.org/pub/dev/ceamac@gentoo.org/${CATEGORY}/${PN}/${P}-deps.tar.xz
+	https://distfiles.gentoo.org/pub/dev/ceamac@gentoo.org/${CATEGORY}/${PN}/${PN}-5.0.0-deps.tar.xz
 "
 	KEYWORDS="~amd64 ~arm64"
 fi
@@ -51,6 +51,9 @@ src_unpack() {
 src_prepare() {
 	default
 	find ../"${PN}"-"${DOCUMENTATION_COMMIT}"/ -type f -not -name '*.html' -delete || die
+
+	# Use the same dependencies bundle as 5.0.0
+	mv "${WORKDIR}"/${PN}-5.0.0/vendor vendor || die
 }
 
 src_compile() {
