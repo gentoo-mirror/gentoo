@@ -19,7 +19,7 @@ HOMEPAGE="https://github.com/xournalpp/xournalpp"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug sound test wayland X"
+IUSE="debug sound test wayland"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 RESTRICT="!test? ( test )"
 
@@ -32,7 +32,7 @@ COMMON_DEPEND="
 	>=dev-libs/libzip-1.0.1:=
 	>=gnome-base/librsvg-2.40
 	virtual/zlib:=
-	>=x11-libs/gtk+-3.18.9:3[wayland?,X?]
+	>=x11-libs/gtk+-3.18.9:3[wayland?,X]
 	>=x11-libs/gtksourceview-4.0
 	debug? ( dev-cpp/cpptrace )
 	sound? ( >=media-libs/portaudio-12[cxx]
@@ -62,7 +62,6 @@ src_configure() {
 	)
 
 	# bug 957673
-	use X || append-flags -DGENTOO_GTK_HIDE_X11
 	use wayland || append-flags -DGENTOO_GTK_HIDE_WAYLAND
 
 	cmake_src_configure
