@@ -270,8 +270,7 @@ src_prepare() {
 	rm ext/openssl/tests/bug{74796,80770}.phpt || die
 	rm ext/openssl/tests/{sni_server.phpt,sni_server_key_cert.phpt} || die
 
-	# Unexpected message from a (successful) curl abort, will deal with
-	# it later.
+	# curl-8.18 issue, will go away on its own
 	rm ext/curl/tests/curl_setopt_CURLOPT_PREREQFUNCTION.phpt || die
 }
 

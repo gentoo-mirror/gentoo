@@ -35,7 +35,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="HPND"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="avif examples imagequant +jpeg jpeg2k lcms raqm test tiff tk truetype webp xcb zlib"
 REQUIRED_USE="
 	raqm? ( truetype )

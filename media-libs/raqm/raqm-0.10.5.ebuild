@@ -11,7 +11,7 @@ SRC_URI="https://github.com/HOST-Oman/libraqm/releases/download/v${PV}/${P}.tar.
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64"
 IUSE="gtk-doc test"
 RESTRICT="!test? ( test )"
 
