@@ -23,7 +23,7 @@ if [[ ${PV} == 9999 ]] ; then
 elif [[ ${PV} == *_p* ]] ; then
 	# Note: could put this in devspace, but if it's gone, we don't want
 	# it in tree anyway. It's just for testing.
-	MY_SNAPSHOT="$(ver_cut 1-2).289-a8598"
+	MY_SNAPSHOT="$(ver_cut 1-2).299-27a7c"
 	SRC_URI="https://www.pixelbeat.org/cu/coreutils-${MY_SNAPSHOT}.tar.xz -> ${P}.tar.xz"
 	SRC_URI+=" verify-sig? ( https://www.pixelbeat.org/cu/coreutils-${MY_SNAPSHOT}.tar.xz.sig -> ${P}.tar.xz.sig )"
 	S="${WORKDIR}"/${PN}-${MY_SNAPSHOT}
@@ -173,6 +173,11 @@ src_configure() {
 	if use gmp ; then
 		myconf+=( --with-libgmp-prefix="${ESYSROOT}"/usr )
 	fi
+
+	# https://savannah.gnu.org/support/?111394
+	# This can be removed when we patch dev-build/autoconf, though
+	# packages w/o eautoreconf will still need it.
+	[[ ${enable_year2038} == "no" ]] && myconf+=( --disable-year2038 )
 
 	if tc-is-cross-compiler && [[ ${CHOST} == *linux* ]] ; then
 		# bug #311569

@@ -356,6 +356,11 @@ multilib_src_configure() {
 		)
 	fi
 
+	# https://savannah.gnu.org/support/?111394
+	# This can be removed when we patch dev-build/autoconf, though
+	# packages w/o eautoreconf will still need it.
+	[[ ${enable_year2038} == "no" ]] && myeconfargs+=( --disable-year2038 )
+
 	ECONF_SOURCE="${S}" econf "${myeconfargs[@]}"
 
 	if multilib_is_native_abi && use python ; then

@@ -174,6 +174,11 @@ src_configure() {
 		myconf+=( --with-libgmp-prefix="${ESYSROOT}"/usr )
 	fi
 
+	# https://savannah.gnu.org/support/?111394
+	# This can be removed when we patch dev-build/autoconf, though
+	# packages w/o eautoreconf will still need it.
+	[[ ${enable_year2038} == "no" ]] && myconf+=( --disable-year2038 )
+
 	if tc-is-cross-compiler && [[ ${CHOST} == *linux* ]] ; then
 		# bug #311569
 		export fu_cv_sys_stat_statfs2_bsize=yes
