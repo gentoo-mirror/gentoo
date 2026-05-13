@@ -1,0 +1,15 @@
+BDEPEND=>=dev-ml/dune-3.11.0 dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install test
+DEPEND=>=dev-lang/ocaml-5.1.0 >=dev-ml/yojson-1.7.0:= dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+DESCRIPTION=Runtime lib for ppx_yojson_conv
+EAPI=8
+HOMEPAGE=https://github.com/janestreet/ppx_yojson_conv_lib/
+INHERIT=dune
+IUSE=+ocamlopt
+KEYWORDS=~amd64 ~x86
+LICENSE=MIT
+RDEPEND=>=dev-lang/ocaml-5.1.0 >=dev-ml/yojson-1.7.0:= dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
+SLOT=0/0.17.0
+SRC_URI=https://github.com/janestreet/ppx_yojson_conv_lib/archive/refs/tags/v0.17.0.tar.gz -> ppx_yojson_conv_lib-0.17.0.gh.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	bca6089ec4118f02802b8cee78a748c5
+_md5_=5bcb19584b90f4aa504a3f336ba27a93

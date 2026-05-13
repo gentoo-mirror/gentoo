@@ -1971,7 +1971,7 @@ app-emacs/ctable 0.1.3: Table Component for Emacs Lisp
 app-emacs/cycle-buffer 2.16-r1: Select buffer by cycling through
 app-emacs/d-mode 2.0.12: Emacs major mode for editing D code
 app-emacs/dap-mode 0.8-r1: Debug Adapter Protocol mode
-app-emacs/dape 0.26.0: Debug Adapter Protocol for Emacs
+app-emacs/dape 0.26.0 0.27.1: Debug Adapter Protocol for Emacs
 app-emacs/dash 2.19.1 2.20.0: A modern list library for Emacs
 app-emacs/dashboard 1.8.0 9999: Extensible Emacs dashboard, with sections like bookmarks, agenda and more
 app-emacs/ddskk 17.1-r1: One Japanese input methods on Emacs
@@ -2132,7 +2132,7 @@ app-emacs/js-comint 1.2.0: Run a JavaScript interpreter in an Emacs inferior pro
 app-emacs/js2-mode 20230408 20231224: Improved JavaScript editing mode for GNU Emacs
 app-emacs/julia-mode 0.4_p20211023: Emacs major mode for the Julia programming language
 app-emacs/julia-repl 1.3.0_p20220225 1.5.2: Run an inferior Julia REPL in a terminal inside Emacs
-app-emacs/kaolin-themes 1.7.3 1.7.4: Set of eye pleasing themes for GNU Emacs
+app-emacs/kaolin-themes 1.7.3 1.7.4 1.7.5: Set of eye pleasing themes for GNU Emacs
 app-emacs/key-chord 0.8.2: Map pairs of simultaneously pressed keys to commands
 app-emacs/keywiz 1.4: Emacs key sequence quiz
 app-emacs/kind-icon 0.2.2: Completion kind icons
@@ -2144,7 +2144,7 @@ app-emacs/load-relative 1.3.1 1.3.2: Relative loads for Emacs Lisp files
 app-emacs/log4e 0.4.1: Logging framework for GNU Emacs Lisp
 app-emacs/lookup 1.99.96_pre20180209: An interface to search CD-ROM books and network dictionaries
 app-emacs/lsp-docker 1.0.0_p20240327: Emacs library to leverage lsp-mode in the Docker environment
-app-emacs/lsp-java 3.1_p20240328-r1: Emacs Java IDE using Eclipse JDT Language Server
+app-emacs/lsp-java 3.1_p20240328-r1 4.0: Emacs Java IDE using Eclipse JDT Language Server
 app-emacs/lsp-mode 9.0.0 10.0.0 9999: Emacs client/library for the Language Server Protocol
 app-emacs/lsp-treemacs 0.5: Integration between lsp-mode and treemacs
 app-emacs/lsp-ui 8.0.1 9.0.0: UI modules for lsp-mode
@@ -6192,6 +6192,7 @@ dev-ml/ppx_tools 6.6-r1: Tools for authors of ppx rewriters
 dev-ml/ppx_tydi 0.16.0 0.17.0-r2 0.17.1: Let expressions, inferring pattern type from expression
 dev-ml/ppx_typerep_conv 0.16.0 0.17.0-r2 0.17.1: Generation of runtime types from type declarations
 dev-ml/ppx_variants_conv 0.16.0-r1 0.17.0-r2 0.17.1: Generation of accessor and iteration functions for ocaml variant types
+dev-ml/ppx_yojson_conv_lib 0.17.0: Runtime lib for ppx_yojson_conv
 dev-ml/ppxlib 0.22.2-r4 0.24.0-r2 0.30.0-r2 0.33.0-r2 0.36.2-r1 0.37.0-r1: Base library and tools for ppx rewriters
 dev-ml/ppxlib_jane 0.17.2-r2 0.17.4-r1: Utilities for working with Jane Street AST constructs
 dev-ml/protocol_version_header 0.16.0 0.17.0: Protocol aware version negotiation for OCaml
@@ -17722,7 +17723,7 @@ sys-fs/mp3fs 1.1.1-r5: Read-only FUSE filesystem which transcodes FLAC audio fil
 sys-fs/mtd-utils 2.1.6-r2 2.2.1-r1: MTD userspace tools (NFTL, JFFS2, NAND, FTL, UBI)
 sys-fs/mtools 4.0.49: Utilities to access MS-DOS disks from Unix without mounting them
 sys-fs/mtpfs 1.1-r6: A FUSE filesystem providing access to MTP devices
-sys-fs/multipath-tools 0.9.8-r1 0.14.3: Device mapper target autoconfig
+sys-fs/multipath-tools 0.14.3: Device mapper target autoconfig
 sys-fs/ncdu 1.21 1.22 2.9.1 2.9.1-r1 2.9.2: NCurses Disk Usage
 sys-fs/ncdu-bin 2.9.1: NCurses Disk Usage
 sys-fs/nilfs-utils 2.2.9: A New Implementation of a Log-structured File System for Linux
@@ -17770,7 +17771,7 @@ sys-kernel/dracut-crypt-ssh 1.0.8-r2: Early unlocking of encrypted systems via s
 sys-kernel/genkernel 4.3.17-r4 4.3.18 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.10.255 5.15.205 6.1.171 6.6.138 6.12.87 6.18.28 6.18.29 7.0.5 7.0.6: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.10.255 5.15.205 6.1.171 6.6.138 6.12.87 6.18.28 6.18.29 7.0.5 7.0.6: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 5.10.255 5.15.206-r1 6.1.172-r1 6.6.138 6.12.87 6.18.28 6.18.29 7.0.5 7.0.6: Full sources including the Gentoo patchset for the 7.0 kernel tree
+sys-kernel/gentoo-sources 5.10.255 5.10.255-r1 5.15.206-r1 5.15.206-r2 6.1.172-r1 6.1.172-r2 6.6.138 6.6.138-r1 6.12.87 6.12.87-r1 6.18.28 6.18.29 6.18.29-r1 7.0.5 7.0.6 7.0.6-r1: Full sources including the Gentoo patchset for the 7.0 kernel tree
 sys-kernel/git-sources 7.1_rc1 7.1_rc2 7.1_rc3: The very latest -git version of the Linux kernel
 sys-kernel/gnumach 1.8_p20260224 1.8_p20260330 9999: GNU Mach microkernel, for the Hurd
 sys-kernel/hurd 0.9_p20251029 0.9_p20260331 9999: GNU Hurd is the GNU project's replacement for UNIX

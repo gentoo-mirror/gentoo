@@ -1,0 +1,13 @@
+BDEPEND=>=app-editors/emacs-29.1:*[gif] >=app-emacs/dap-mode-0.5 >=app-emacs/dash-2.18.0 >=app-emacs/f-0.20.0 >=app-emacs/ht-2.0 >=app-emacs/lsp-mode-10.0.0 >=app-emacs/markdown-mode-2.3 >=app-emacs/request-0.3.0 >=app-emacs/treemacs-2.5 >=app-editors/emacs-29.1:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Emacs Java IDE using Eclipse JDT Language Server
+EAPI=9
+HOMEPAGE=https://emacs-lsp.github.io/lsp-java/ https://github.com/emacs-lsp/lsp-java/
+INHERIT=elisp
+KEYWORDS=~amd64
+LICENSE=GPL-3+
+RDEPEND=>=app-editors/emacs-29.1:*[gif] >=app-emacs/dap-mode-0.5 >=app-emacs/dash-2.18.0 >=app-emacs/f-0.20.0 >=app-emacs/ht-2.0 >=app-emacs/lsp-mode-10.0.0 >=app-emacs/markdown-mode-2.3 >=app-emacs/request-0.3.0 >=app-emacs/treemacs-2.5 >=app-editors/emacs-29.1:*
+SLOT=0
+SRC_URI=https://github.com/emacs-lsp/lsp-java/archive/refs/tags/4.0.tar.gz -> lsp-java-4.0.gh.tar.gz
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30
+_md5_=511f7ef56cddfd7cebf31e732804ff78
