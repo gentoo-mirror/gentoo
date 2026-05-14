@@ -927,7 +927,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.792.0 1.2.804.0 1.2.814.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.44.78 1.44.81 1.44.86 1.45.2 1.45.6: Universal Command Line Environment for AWS
+app-admin/awscli 1.44.78 1.44.81 1.44.86 1.45.2 1.45.6 1.45.7: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.34.24 2.34.40: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.1.0 2026.2.1: Bitwarden password manager desktop client
@@ -3092,7 +3092,7 @@ app-portage/iwdevtools 0.13.1 9999: Small tools to aid with Gentoo development, 
 app-portage/kuroneko 0.1.5: Vulnerability checker using data scraped from Gentoo Bugzilla
 app-portage/kuroo 1.2.4 9999: Graphical Portage frontend based on KDE Frameworks
 app-portage/metagen 0.7.4 0.7.4-r1 9999: metadata.xml generator for ebuilds
-app-portage/mgorny-dev-scripts 67 68 69 70: Handy scripts for ebuild development and more
+app-portage/mgorny-dev-scripts 67 68 69 70 71: Handy scripts for ebuild development and more
 app-portage/mirrorselect 2.5.1 2.5.4-r1 2.6.1 2.6.2 2.6.3 9999: Tool to help select distfiles mirrors for Gentoo
 app-portage/nattka 0.4.2-r1: A New Arch Tester Toolkit -- open-source stable-bot replacement
 app-portage/no-distcc-env 9999: package.env files to disable distcc on a per-package basis
@@ -8239,8 +8239,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.42.88 1.42.91 1.42.96 1.43.2 1.43.6: The AWS SDK for Python
-dev-python/botocore 1.42.88 1.42.91 1.42.96 1.43.2 1.43.6: Low-level, data-driven core of boto 3
+dev-python/boto3 1.42.88 1.42.91 1.42.96 1.43.2 1.43.6 1.43.7: The AWS SDK for Python
+dev-python/botocore 1.42.88 1.42.91 1.42.96 1.43.2 1.43.6 1.43.7: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8291,7 +8291,7 @@ dev-python/click-option-group 0.5.9: Click-extension package that adds option gr
 dev-python/click-plugins 1.1.1.2: Module for click to enable registering CLI commands via entry points
 dev-python/click-threading 0.5.0-r1: Multithreaded Click apps made easy
 dev-python/clickdc 0.1.1: Define click command line options from a python dataclass
-dev-python/cliff 4.13.3: Command Line Interface Formulation Framework
+dev-python/cliff 4.13.3 4.14.0: Command Line Interface Formulation Framework
 dev-python/clikit 0.6.2-r1: Group of utilities to build beautiful and testable command line interfaces
 dev-python/clint 0.5.1-r4: Python Command-line Application Tools
 dev-python/cloudpickle 3.1.2: Extended pickling support for Python objects
@@ -8593,7 +8593,7 @@ dev-python/hvac 2.4.0: HashiCorp Vault API client
 dev-python/hypercorn 0.18.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.151.9 6.151.14 6.152.4 6.152.5 6.152.6: A library for property based testing
+dev-python/hypothesis 6.151.9 6.151.14 6.152.4 6.152.5 6.152.6 6.152.7: A library for property based testing
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 7.0.3 7.1.0: RFC 5545 compatible parser and generator of iCalendar files
 dev-python/id 1.6.1: A tool for generating OIDC identities
@@ -8716,7 +8716,7 @@ dev-python/keep 2.11: Personal shell command keeper and snippets manager
 dev-python/kerberos 1.3.1-r2: A high-level Python wrapper for Kerberos/GSSAPI operations
 dev-python/keyring 25.7.0: Provides access to the system keyring service
 dev-python/keyrings-alt 5.0.2: Alternate keyring implementations
-dev-python/keystoneauth1 5.13.1: This package contains tools for authenticating to an OpenStack-based cloud
+dev-python/keystoneauth1 5.13.1 5.14.0: This package contains tools for authenticating to an OpenStack-based cloud
 dev-python/keyutils 0.6-r2: A set of python bindings for keyutils
 dev-python/kgb 7.3: Python function spy support for unit tests
 dev-python/kiwisolver 1.5.0: An efficient C++ implementation of the Cassowary constraint solving algorithm
@@ -8797,7 +8797,7 @@ dev-python/matrix-common 1.3.0-r1: Common code for Synapse, Sydent and Sygnal
 dev-python/matterhook 0.2-r2: Interact with Mattermost incoming webhooks easily
 dev-python/mcbootflash 10.1.1: Flash firmware to devices running Microchip's 16-bit bootloader
 dev-python/mccabe 0.7.0: flake8 plugin: McCabe complexity checker
-dev-python/mdit-py-plugins 0.5.0 0.6.0: Collection of plugins for markdown-it-py
+dev-python/mdit-py-plugins 0.5.0 0.6.0 0.6.1: Collection of plugins for markdown-it-py
 dev-python/mdurl 0.1.2: Markdown URL utilities
 dev-python/mdx-gh-links 0.4: An extension which adds links to GitHub users, repositories, issues and commits
 dev-python/mecab-python 1.0.7: Python binding for MeCab
@@ -8845,7 +8845,7 @@ dev-python/mygpoclient 1.10: A gpodder.net client library
 dev-python/mypy 1.18.2-r1 1.20.2 2.0.0 2.1.0: Optional static typing for Python
 dev-python/mypy-extensions 1.1.0: Type system extensions for programs checked with mypy
 dev-python/mysqlclient 2.2.8: Python interface to MySQL
-dev-python/myst-parser 5.0.0: Extended commonmark compliant parser, with bridges to Sphinx
+dev-python/myst-parser 5.0.0 5.1.0: Extended commonmark compliant parser, with bridges to Sphinx
 dev-python/nagiosplugin 1.4.0: A class library for writing nagios-compatible plugins
 dev-python/nanobind 2.12.0: Tiny and efficient C++/Python bindings
 dev-python/narwhals 2.20.0 2.21.0: Extremely lightweight compatibility layer between dataframe libraries
@@ -9119,7 +9119,7 @@ dev-python/pyls-spyder 0.4.0-r3 0.4.0-r4: Spyder extensions for the python langu
 dev-python/pylsqpack 0.3.24: Python wrapper for the ls-qpack QPACK library
 dev-python/pymacaroons 0.13.0-r1: A Python implementation of Macaroons
 dev-python/pymad 0.11.3: Python wrapper for libmad MP3 decoding in python
-dev-python/pymdown-extensions 10.21.2: Extensions for Python Markdown
+dev-python/pymdown-extensions 10.21.2 10.21.3: Extensions for Python Markdown
 dev-python/pymdown-lexers 0_pre20210902: Additional lexers for use in Pygments
 dev-python/pymdstat 0.5.1: Python library to parse Linux /proc/mdstat
 dev-python/pymediainfo 7.0.1: A Python wrapper for the MediaInfo library
@@ -9241,7 +9241,7 @@ dev-python/pytest-recording 0.13.3 0.13.4: A pytest plugin to record network int
 dev-python/pytest-regressions 2.10.0: Easy to use fixtures to write regression tests
 dev-python/pytest-repeat 0.9.4: pytest plugin for repeating tests
 dev-python/pytest-reraise 2.1.2: Make multi-threaded pytest test cases fail when they should
-dev-python/pytest-rerunfailures 16.1: pytest plugin to re-run tests to eliminate flaky failures
+dev-python/pytest-rerunfailures 16.1 16.2: pytest plugin to re-run tests to eliminate flaky failures
 dev-python/pytest-reserial 0.6.1: Pytest plugin for recording and replaying serial port traffic during tests
 dev-python/pytest-salt-factories 1.0.0_rc29 1.0.1 1.0.5: The new generation of the pytest-salt Plugin
 dev-python/pytest-services 2.2.2: Collection of fixtures and utility functions to run service processes for pytest
@@ -9300,8 +9300,8 @@ dev-python/python-mimeparse 2.0.0: Basic functions for handling mime-types in py
 dev-python/python-mpd2 3.1.1: Python MPD client library
 dev-python/python-mpv 1.0.8: Python interface to the mpv media player
 dev-python/python-multipart 0.0.25 0.0.27 0.0.28: A streaming multipart parser for Python
-dev-python/python-neutronclient 11.8.0: A client for the OpenStack Quantum API
-dev-python/python-novaclient 18.12.0: A client for the OpenStack Nova API
+dev-python/python-neutronclient 11.8.0 12.0.0: A client for the OpenStack Quantum API
+dev-python/python-novaclient 18.12.0 18.13.0: A client for the OpenStack Nova API
 dev-python/python-openstackclient 9.0.0: A client for the OpenStack APIs
 dev-python/python-pam 2.0.2-r2: Python PAM module
 dev-python/python-pkcs11 0.9.3 0.9.4: PKCS#11/Cryptoki support for Python
@@ -9389,7 +9389,7 @@ dev-python/rencode 1.0.8-r1: Serialization similar to bencode from the BitTorren
 dev-python/reno 4.1.0: Release notes manager, storing release notes in a git repo and building docs
 dev-python/reportlab 4.4.10 4.5.0 4.5.1: Tools for generating printable PDF documents from any data source
 dev-python/repoze-lru 0.7-r3: A tiny LRU cache implementation and decorator
-dev-python/requests 2.33.1 2.34.0: HTTP library for human beings
+dev-python/requests 2.33.1 2.34.0 2.34.1: HTTP library for human beings
 dev-python/requests-cache 1.3.1 1.3.2: Persistent cache for requests library
 dev-python/requests-credssp 2.0.0: HTTPS CredSSP authentication with the requests library
 dev-python/requests-download 0.1.2-r2: A convenient function to download to a file using requests
@@ -9564,7 +9564,7 @@ dev-python/spyder-terminal 1.3.0: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.7.1: Plugin for Spyder to run tests and view the results
 dev-python/sqlalchemy 2.0.49 2.1.0_beta2: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 30.6.0 30.7.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 30.7.0 30.8.0: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.5: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9720,7 +9720,7 @@ dev-python/verboselogs 1.7-r1: Verbose logging for Python's logging module
 dev-python/versioneer 0.29-r1: Easy VCS-based management of project version strings
 dev-python/versioningit 3.3.0: A setuptools plugin for versioning based on git tags
 dev-python/vine 5.1.0: Python Promises
-dev-python/virtualenv 20.39.1 21.3.0 21.3.1 21.3.2: Virtual Python Environment builder
+dev-python/virtualenv 20.39.1 21.3.0 21.3.1 21.3.2 21.3.3: Virtual Python Environment builder
 dev-python/virtualenv-clone 0.5.7: A script for cloning a non-relocatable virtualenv
 dev-python/virtualenvwrapper 6.1.1: Set of extensions to Ian Bicking's virtualenv tool
 dev-python/visitor 0.1.3-r2: A tiny pythonic visitor implementation
@@ -17769,8 +17769,8 @@ sys-kernel/dkms 3.2.2 3.3.0 3.4.0 3.4.1 9999: Dynamic Kernel Module Support
 sys-kernel/dracut 108-r6 110-r5 111 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.8-r2: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.17-r4 4.3.18 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.255 5.10.255_p1 5.10.255_p2 5.15.205 5.15.206_p1 5.15.206_p2 6.1.171 6.1.172_p1 6.1.172_p2 6.6.138 6.6.138_p1 6.6.138_p2 6.12.87 6.12.87_p1 6.12.87_p2 6.18.28 6.18.29 6.18.29_p1 6.18.29_p2 7.0.5 7.0.6 7.0.6_p1 7.0.6_p2: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.255 5.10.255_p2 5.15.205 5.15.206_p2 6.1.171 6.1.172_p2 6.6.138 6.6.138_p2 6.12.87 6.12.87_p2 6.18.28 6.18.29 6.18.29_p2 7.0.5 7.0.6 7.0.6_p2: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-kernel 5.10.255_p2 5.15.206_p2 6.1.172_p2 6.6.138_p2 6.12.87_p2 6.18.29_p2 7.0.6_p2: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.255_p2 5.15.206_p2 6.1.172_p2 6.6.138_p2 6.12.87_p2 6.18.29_p2 7.0.6_p2: Pre-built Linux kernel with Gentoo patches
 sys-kernel/gentoo-sources 5.10.255 5.10.255-r1 5.15.206-r1 5.15.206-r2 6.1.172-r1 6.1.172-r2 6.6.138 6.6.138-r1 6.12.87 6.12.87-r1 6.18.28 6.18.29 6.18.29-r1 7.0.5 7.0.6 7.0.6-r1: Full sources including the Gentoo patchset for the 7.0 kernel tree
 sys-kernel/git-sources 7.1_rc1 7.1_rc2 7.1_rc3: The very latest -git version of the Linux kernel
 sys-kernel/gnumach 1.8_p20260224 1.8_p20260330 9999: GNU Mach microkernel, for the Hurd
@@ -17794,7 +17794,7 @@ sys-kernel/scx 1.0.16 1.0.19 1.0.20 1.1.0: sched_ext schedulers and tools
 sys-kernel/scx-loader 1.0.19 1.0.20 1.1.0: DBUS on-demand loader of sched-ext schedulers
 sys-kernel/udev-hid-bpf 2.2.0_p20251121: Automatic HID-BPF loader based on udev events for device workarounds
 sys-kernel/ugrd 1.27.2 1.28.2 1.29.0-r1 1.31.2 2.0.2 2.2.0 9999: Python based POSIX initramfs generator with TOML definitions
-sys-kernel/vanilla-kernel 5.10.255 5.10.9999 5.15.205 5.15.206 5.15.9999 6.1.171 6.1.172 6.1.9999 6.6.138 6.6.9999 6.12.87 6.12.9999 6.18.28 6.18.29 7.0.5 7.0.6: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.255 5.10.9999 5.15.206 5.15.9999 6.1.172 6.1.9999 6.6.138 6.6.9999 6.12.87 6.12.9999 6.18.29 7.0.6: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 5.10.255 5.15.206 6.1.172 6.6.138 6.12.87 6.18.29 7.0.6: Full sources for the Linux kernel
 sys-kernel/virtme-ng 1.41: Quickly build and run kernels inside a virtualized snapshot of your live system
 sys-kernel/zen-sources 7.0.6: The Zen Kernel Live Sources
@@ -17981,7 +17981,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.255 5.10.255_p1 5.10.255_p2 5.15.205 5.15.206_p1 5.15.206_p2 6.1.171 6.1.172_p1 6.1.172_p2 6.6.138 6.6.138_p1 6.6.138_p2 6.12.87 6.12.87_p1 6.12.87_p2 6.18.28 6.18.29 6.18.29_p1 6.18.29_p2 7.0.5 7.0.6 7.0.6_p1 7.0.6_p2: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.255_p2 5.15.206_p2 6.1.172_p2 6.6.138_p2 6.12.87_p2 6.18.29_p2 7.0.6_p2: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0 9.0 10.0-r1: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
