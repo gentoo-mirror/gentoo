@@ -15,12 +15,12 @@ if [[ ${PV} == *9999 ]]; then
 	[[ "${EGIT_BRANCH}" == "" ]] && die "Please set a git branch"
 else
 	SRC_URI="https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="X chafa dbus ddcutil drm elf gnome imagemagick opencl opengl pulseaudio sqlite test vulkan wayland xcb xrandr"
+IUSE="X chafa dbus ddcutil drm efl elf gnome imagemagick opencl opengl pulseaudio sqlite test vulkan wayland xcb xrandr"
 RESTRICT="!test? ( test )"
 
 # note - qa-vdb will always report errors because fastfetch loads the libs dynamically
@@ -56,6 +56,7 @@ RDEPEND="
 "
 DEPEND="
 	${RDEPEND}
+	efl? ( dev-libs/efl )
 	opengl? ( X? ( x11-base/xorg-proto ) )
 	xcb? ( x11-base/xorg-proto )
 	xrandr? ( x11-base/xorg-proto )
@@ -98,6 +99,7 @@ src_configure() {
 		-DENABLE_DCONF=$(usex gnome)
 		-DENABLE_DDCUTIL=$(usex ddcutil)
 		-DENABLE_DRM=$(usex drm)
+		-DENABLE_EET=$(usex efl)
 		-DENABLE_ELF=$(usex elf)
 		-DENABLE_EGL=$(usex opengl)
 		-DENABLE_GIO=$(usex gnome)
