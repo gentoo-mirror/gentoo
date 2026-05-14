@@ -1,11 +1,11 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=>=dev-libs/yyjson-0.12.0 sys-apps/hwdata virtual/zlib:= chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) ddcutil? ( app-misc/ddcutil:= ) drm? ( x11-libs/libdrm ) elf? ( virtual/libelf:= ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X?] X? ( x11-libs/libX11 ) ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vulkan? ( media-libs/vulkan-loader sys-apps/pciutils ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xrandr? ( x11-libs/libXrandr ) opengl? ( X? ( x11-base/xorg-proto ) ) xcb? ( x11-base/xorg-proto ) xrandr? ( x11-base/xorg-proto ) vulkan? ( dev-util/vulkan-headers )
+DEPEND=>=dev-libs/yyjson-0.12.0 sys-apps/hwdata virtual/zlib:= chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) ddcutil? ( app-misc/ddcutil:= ) drm? ( x11-libs/libdrm ) elf? ( virtual/libelf:= ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X?] X? ( x11-libs/libX11 ) ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vulkan? ( media-libs/vulkan-loader sys-apps/pciutils ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xrandr? ( x11-libs/libXrandr ) efl? ( dev-libs/efl ) opengl? ( X? ( x11-base/xorg-proto ) ) xcb? ( x11-base/xorg-proto ) xrandr? ( x11-base/xorg-proto ) vulkan? ( dev-util/vulkan-headers )
 DESCRIPTION=Fast neofetch-like system information tool
 EAPI=8
 HOMEPAGE=https://github.com/fastfetch-cli/fastfetch
 INHERIT=cmake flag-o-matic git-r3
-IUSE=X chafa dbus ddcutil drm elf gnome imagemagick opencl opengl pulseaudio sqlite test vulkan wayland xcb xrandr
+IUSE=X chafa dbus ddcutil drm efl elf gnome imagemagick opencl opengl pulseaudio sqlite test vulkan wayland xcb xrandr
 LICENSE=MIT
 PROPERTIES=live
 RDEPEND=>=dev-libs/yyjson-0.12.0 sys-apps/hwdata virtual/zlib:= chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) ddcutil? ( app-misc/ddcutil:= ) drm? ( x11-libs/libdrm ) elf? ( virtual/libelf:= ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X?] X? ( x11-libs/libX11 ) ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vulkan? ( media-libs/vulkan-loader sys-apps/pciutils ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xrandr? ( x11-libs/libXrandr )
@@ -13,4 +13,4 @@ REQUIRED_USE=chafa? ( imagemagick )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	git-r3	2f8cdb10b033f92c3136aa6488a31c98
-_md5_=8cf24d67a9e979e5e04b8d1a8935c24d
+_md5_=88a7f1b7b7d932e03029f487435ea122
