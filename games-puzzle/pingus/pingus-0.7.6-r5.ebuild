@@ -37,6 +37,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-gcc13.patch
 	"${FILESDIR}"/${P}-ar-detection.patch
 	"${FILESDIR}"/${P}-gcc15.patch
+	"${FILESDIR}"/${P}-clang-pointers.patch
 )
 
 src_compile() {
