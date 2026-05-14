@@ -1,0 +1,14 @@
+BDEPEND=|| ( dev-lang/python:3.14[ensurepip(-),ncurses,readline] dev-lang/python:3.13[ensurepip(-),ncurses,readline] dev-lang/python:3.12[ensurepip(-),ncurses,readline] dev-lang/python:3.11[ensurepip(-),ncurses,readline] ) || ( ( dev-lang/python:3.14[ensurepip(-),ncurses,readline] dev-python/distlib[python_targets_python3_14(-)] ) ( dev-lang/python:3.13[ensurepip(-),ncurses,readline] dev-python/distlib[python_targets_python3_13(-)] ) ( dev-lang/python:3.12[ensurepip(-),ncurses,readline] dev-python/distlib[python_targets_python3_12(-)] ) ( dev-lang/python:3.11[ensurepip(-),ncurses,readline] dev-python/distlib[python_targets_python3_11(-)] ) ) dev-lang/perl app-alternatives/ninja virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=configure install postinst postrm setup test
+DEPEND=dev-libs/glib
+DESCRIPTION=QEMU Guest Agent (qemu-ga) for use when running inside a VM
+EAPI=8
+HOMEPAGE=https://wiki.qemu.org/Features/GuestAgent
+INHERIT=edo linux-info python-any-r1 systemd toolchain-funcs udev
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=GPL-2 BSD-2
+RDEPEND=dev-libs/glib
+SLOT=0
+SRC_URI=https://download.qemu.org/qemu-10.2.2.tar.xz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	linux-info	efd923656513c879204fec6638eadee5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	1a23882bb73bc31c64a6f00a5e515f34
+_md5_=6ce6e7b88576e256e1c4b67b901913cc
