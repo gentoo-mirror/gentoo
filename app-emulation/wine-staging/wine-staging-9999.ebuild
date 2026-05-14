@@ -32,7 +32,7 @@ S=${WORKDIR}/${WINE_P}
 
 LICENSE="
 	LGPL-2.1+
-	BSD BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff
+	BSD BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff public-domain
 	|| ( WTFPL-2 public-domain )
 "
 SLOT="${PV}"
