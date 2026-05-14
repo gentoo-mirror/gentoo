@@ -34,7 +34,10 @@ fi
 export KDE_BUILD_TYPE
 
 if [[ ${KDE_BUILD_TYPE} == live ]]; then
-	inherit git-r3
+	case ${EAPI} in
+		8) inherit eapi9-pipestatus ;&
+		*) inherit git-r3 ;;
+	esac
 fi
 
 # @ECLASS_VARIABLE: KDE_ORG_CATEGORIES
@@ -221,6 +224,20 @@ kde.org_pkg_nofetch() {
 	eerror "Please consult the upstream release schedule to see when this "
 	eerror "package is scheduled to be released:"
 	eerror "${KDE_ORG_SCHEDULE_URI}"
+}
+
+# @FUNCTION: _kde.org_live_corrosion_unpack
+# @DESCRIPTION:
+# Handle rust crates for live packages. Iterates S directory with
+# corrosion_import_crate to fetch with cargo_live_src_unpack.
+_kde.org_live_corrosion_unpack() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	# Need to handle every corrosion "project" individually.
+	local path
+	while IFS= read -r -d '' path ; do
+		S="${path%/*}" cargo_live_src_unpack
+	done < <(find "${S}" -type f -iname CMakeLists.txt -print0 | xargs -0 grep -z -Z -l -i corrosion_import_crate; pipestatus || die)
 }
 
 # @FUNCTION: kde.org_src_unpack
