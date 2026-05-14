@@ -121,6 +121,9 @@ src_prepare() {
 			-e "/^xfails =/a 'border-image-excess-size.ui'," \
 			testsuite/reftests/meson.build || die
 	fi
+
+	# Don't use -Werror, bug #974693
+	sed -e '/-Werror=/d' -i meson.build || die
 }
 
 multilib_src_configure() {

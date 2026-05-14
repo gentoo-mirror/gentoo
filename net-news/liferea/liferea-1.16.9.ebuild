@@ -25,7 +25,7 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RDEPEND="${PYTHON_DEPS}
 	>=dev-db/sqlite-3.7.0:3
 	>=dev-libs/fribidi-0.19.7
-	>=dev-libs/glib-2.68.0:2
+	>=dev-libs/glib-2.86.0:2
 	>=dev-libs/gobject-introspection-1.82.0-r2:=
 	dev-libs/json-glib
 	dev-libs/libpeas:2[python,${PYTHON_SINGLE_USEDEP}]
