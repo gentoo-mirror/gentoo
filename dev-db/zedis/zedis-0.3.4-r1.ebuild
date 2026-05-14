@@ -71,7 +71,7 @@ KEYWORDS="~amd64"
 DEPEND="
 	app-arch/zstd:=
 	x11-libs/libxcb:=
-	x11-libs/libxkbcommon
+	x11-libs/libxkbcommon[wayland,X]
 "
 RDEPEND="${DEPEND}"
 
