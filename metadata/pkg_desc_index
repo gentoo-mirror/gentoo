@@ -1202,7 +1202,7 @@ app-arch/plzip 1.12 1.13: Parallel lzip compressor
 app-arch/pure-sfv 0.3-r2: utility to test and create .sfv files and create .par files
 app-arch/pxz 5.0_pre20220509-r1: Parallel implementation of the XZ compression utility
 app-arch/qpress 20220819: A portable file archiver using QuickLZ algorithm
-app-arch/rar 7.01 7.20 7.21: RAR compressor/uncompressor
+app-arch/rar 7.01 7.20 7.21 7.22: RAR compressor/uncompressor
 app-arch/rpm 4.20.1-r2 6.0.1: The RPM Package Manager
 app-arch/rpm2targz 2021.03.16: Convert a .rpm file to a .tar.gz archive
 app-arch/rzip 2.1-r5: Compression program for large files
@@ -1309,7 +1309,7 @@ app-benchmarks/pmbw 0.6.3: Parallel Memory Bandwidth Measurement / Benchmark Too
 app-benchmarks/ramspeed 3.5.0-r2: Benchmarking for memory and cache
 app-benchmarks/siege 4.1.7: HTTP regression testing and benchmarking utility
 app-benchmarks/stress 1.0.7: A deliberately simple workload generator for POSIX systems
-app-benchmarks/stress-ng 0.20.01 0.21.00: Stress test for a computer system with various selectable ways
+app-benchmarks/stress-ng 0.21.00 0.21.01: Stress test for a computer system with various selectable ways
 app-benchmarks/sysbench 1.0.20-r101: A scriptable multi-threaded benchmark tool based on LuaJIT
 app-benchmarks/tiobench 0.5.0: Portable, robust, fully-threaded I/O benchmark program
 app-benchmarks/wrk 4.2.0: A HTTP benchmarking tool
@@ -2368,7 +2368,7 @@ app-emulation/diskimage-builder 3.32.0 3.33.0 3.41.0 9999: Golden Disk Image bui
 app-emulation/dosemu 1.4.1_pre20130107-r7: DOS Emulator
 app-emulation/dxvk 2.3.1-r1 2.4.1 2.5.3 2.6.2 2.7.1 9999: Vulkan-based implementation of D3D9, D3D10 and D3D11 for Linux / Wine
 app-emulation/dynamips 0.2.23: Cisco 7200/3600 Simulator
-app-emulation/faudio 26.03 26.04: Accuracy-focused XAudio reimplementation for open platforms
+app-emulation/faudio 26.04 26.05: Accuracy-focused XAudio reimplementation for open platforms
 app-emulation/fex-xtajit 2601 2603 2604 2605: A wine emulation dll for running x86 application on an arm64 host
 app-emulation/firecracker-bin 1.14.4 1.15.1: Secure and fast microVMs for serverless computing (static build)
 app-emulation/free42 3.1.9 3.3.11 3.3.12: An HP-42S Calculator Simulator
@@ -5459,9 +5459,9 @@ dev-libs/immer 0.8.1-r1: Library of persistent and immutable data structures wri
 dev-libs/inih 57-r1 58 59 60 62: inih (INI not invented here) simple .INI file parser
 dev-libs/iniparser 4.2.6: Free stand-alone ini file parsing library
 dev-libs/input-pad 1.0.99_pre20140916-r1: On-screen input pad to send characters with mouse
-dev-libs/intel-compute-runtime 25.40.35563.4 26.09.37435.10: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
-dev-libs/intel-metrics-discovery 1.14.183 1.14.185: A user mode library that provides access to GPU performance data
-dev-libs/intel-metrics-library 1.0.209 1.0.209.1: User mode driver helper library that provides access to GPU performance counters
+dev-libs/intel-compute-runtime 24.35.30872.32-r3 24.35.30872.36-r1 25.40.35563.4 26.09.37435.10: Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver
+dev-libs/intel-metrics-discovery 1.14.185: A user mode library that provides access to GPU performance data
+dev-libs/intel-metrics-library 1.0.209.1: User mode driver helper library that provides access to GPU performance counters
 dev-libs/intel-vc-intrinsics 0.25.0: A set of new intrinsics on top of core LLVM IR instructions
 dev-libs/isa-l 2.32.0: Intelligent Storage Acceleration Library
 dev-libs/isa-l_crypto 2.25.0: Intelligent Storage Acceleration Library - cryptographic components
@@ -5491,7 +5491,7 @@ dev-libs/ktextaddons 1.8.0 2.0.1-r1 2.0.2: Various text handling addons
 dev-libs/kweathercore 25.12.3 26.04.1: Library for retrieval of weather information including forecasts and alerts
 dev-libs/lager 0.1.1-r1 0.1.2: Library to assist value-oriented design
 dev-libs/leancrypto 1.7.2-r3 9999: Lean cryptographic library usable for bare-metal environments
-dev-libs/level-zero 1.28.2 1.28.3: oneAPI Level Zero headers, loader and validation layer
+dev-libs/level-zero 1.28.3 1.28.6: oneAPI Level Zero headers, loader and validation layer
 dev-libs/leveldb 1.23-r6: A fast key-value storage library written at Google
 dev-libs/libIDL 0.8.14-r4: CORBA tree builder
 dev-libs/libaio 0.3.113-r2 0.3.113_p8 9999: Asynchronous input/output library that uses the kernels native interface
@@ -5730,7 +5730,7 @@ dev-libs/marisa 0.2.7 0.3.1-r2 9999: Matching Algorithm with Recursively Impleme
 dev-libs/mathjax 2.7.7-r1 3.2.2-r2: JavaScript display engine for LaTeX, MathML and AsciiMath
 dev-libs/md4c 0.5.2 0.5.3: C Markdown parser. Fast, SAX-like interface, CommonMark Compliant
 dev-libs/mdns 1.4.3: Public domain mDNS/DNS-SD library in C
-dev-libs/metee 6.2.1: Cross-platform access library for Intel CSME HECI interface
+dev-libs/metee 6.2.1 6.2.3: Cross-platform access library for Intel CSME HECI interface
 dev-libs/mimalloc 2.1.9 2.2.7-r1 3.1.5 3.2.8-r1: A compact general purpose allocator with excellent performance
 dev-libs/mimetic 0.9.8: C++ MIME library designed to be easy to use and integrate, fast and efficient
 dev-libs/miniaudio 0.11.15 0.11.21: Single file library for audio playback and capture
@@ -10937,7 +10937,8 @@ dev-util/imediff 1.1.2.1 3.4.0 3.4.1: 2-way/3-way merge tool (CLI, Ncurses)
 dev-util/include-what-you-use 0.23-r1 0.24 0.25: Find unused include directives in C/C++ programs
 dev-util/indent 2.2.13-r1: Indent program source files
 dev-util/intel-graphics-compiler 2.23.0 2.31.2: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
-dev-util/intel-graphics-system-controller 1.0.2: Intel graphics system controller firmware update library
+dev-util/intel-graphics-compiler-bin 1.0.17791.9: LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
+dev-util/intel-graphics-system-controller 1.0.2 1.2.0: Intel graphics system controller firmware update library
 dev-util/intel-ocl-sdk 18.1.0.015-r1: Intel's implementation of the OpenCL standard
 dev-util/intellij-idea 2026.1.1: A complete toolset for web, mobile and enterprise development
 dev-util/intltool 0.51.0-r3: Internationalization Tool Collection
@@ -11840,7 +11841,7 @@ games-rpg/wasteland2 1.9.0.13-r2: Sequel to 1988 Wasteland, post-apocalyptic com
 games-rpg/xu4 1.4.3: A remake of the computer game Ultima IV
 games-rpg/zsdx 1.13.0_p20240219: Free 2D Zelda fangame
 games-rpg/zsxd 1.13.0_p20251108: Free 2D Zelda fangame parody
-games-server/bedrock-server 1.21.131.1 1.26.1.1 1.26.12.2 1.26.14.1: The official bedrock (non-java) based server for the sandbox video game
+games-server/bedrock-server 1.26.20.5: The official bedrock (non-java) based server for the sandbox video game
 games-server/crossfire-server 1.71.0-r2 1.75.0-r1: Server for the crossfire clients
 games-server/etqw-ded 1.5-r1: Enemy Territory: Quake Wars dedicated server
 games-server/mednafen-server 0.5.2-r3: Server for Mednafen emulator
@@ -17082,7 +17083,7 @@ sys-apps/conspy 1.16: Remote control for Linux virtual consoles
 sys-apps/coreutils 9.9-r12 9.10 9.11 9999: Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
 sys-apps/cpint 2.5.3: Linux/390 Interface to z/VM's Control Program
 sys-apps/cpu-x 5.3.1 5.4.0: A Free software that gathers information on CPU, motherboard and more
-sys-apps/cpuid 20260220: Linux tool to dump x86 CPUID information about the CPUs
+sys-apps/cpuid 20260220 20260503: Linux tool to dump x86 CPUID information about the CPUs
 sys-apps/cracklib-words 2.10.2 2.10.3: Large set of crack/cracklib dictionaries
 sys-apps/crazydiskinfo 1.1.0-r1: Interactive TUI S.M.A.R.T viewer
 sys-apps/cyme 2.3.0: List system USB buses and devices; a modern cross-platform `lsusb`
