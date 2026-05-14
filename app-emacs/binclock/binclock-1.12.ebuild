@@ -18,7 +18,7 @@ else
 		-> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${PN}.el-${PV}"
 
-	KEYWORDS="~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86"
+	KEYWORDS="~alpha amd64 ppc ppc64 ~sparc x86"
 fi
 
 LICENSE="GPL-3+"
