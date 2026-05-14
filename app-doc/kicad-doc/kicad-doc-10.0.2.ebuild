@@ -42,7 +42,7 @@ BDEPEND="
 	)"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-pandoc-pdf-generator.patch
+	"${FILESDIR}"/${PN}-10.0.0-pandoc-pdf-generator.patch
 )
 
 src_configure() {

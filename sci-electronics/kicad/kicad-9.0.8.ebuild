@@ -121,7 +121,7 @@ src_unpack() {
 }
 
 PATCHES=(
-	"${FILESDIR}"/${P}-fix-cmake4-compat.patch # Bug 970924
+	"${FILESDIR}"/${PN}-9.0.6-fix-cmake4-compat.patch # Bug 970924
 )
 
 src_prepare() {
