@@ -39,6 +39,8 @@ BDEPEND="${RDEPEND}
 
 distutils_enable_sphinx doc
 
+PATCHES=( "${FILESDIR}"/${P}-python3_14.patch )
+
 python_compile_all() {
 	build () {
 		rm -f langkit/support/obj/dev/*lexch
