@@ -12,10 +12,10 @@ SRC_URI="https://files.libburnia-project.org/releases/${P}.tar.gz"
 LICENSE="GPL-2 GPL-3"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
-IUSE="acl debug external-filters external-filters-setuid frontend-optional
-	launch-frontend launch-frontend-setuid libedit readline static-libs xattr zlib"
+IUSE="acl debug external-filters frontend-optional launch-frontend libedit
+	readline static-libs xattr zlib"
 
-REQUIRED_USE="frontend-optional? ( || ( launch-frontend launch-frontend-setuid ) )"
+REQUIRED_USE="frontend-optional? ( launch-frontend )"
 
 BDEPEND="
 	virtual/pkgconfig
@@ -43,10 +43,6 @@ RDEPEND="
 		dev-lang/tcl:0
 		dev-lang/tk:0
 	)
-	launch-frontend-setuid? (
-		dev-lang/tcl:0
-		dev-lang/tk:0
-	)
 	frontend-optional? ( dev-tcltk/bwidget )
 "
 DEPEND="
@@ -71,9 +67,11 @@ src_configure() {
 		--disable-libjte \
 		--disable-libcdio \
 		$(use_enable external-filters) \
-		$(use_enable external-filters-setuid) \
+		--disable-external-filters-setuid \
 		$(use_enable launch-frontend) \
-		$(use_enable launch-frontend-setuid) \
+		--disable-launch-frontend-setuid \
+		--disable-dvd-obs-64k \
+		--enable-versioned-libs \
 		--disable-ldconfig-at-install \
 		--enable-pkg-check-modules \
 		$(use_enable debug)
