@@ -1,15 +1,14 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
-DEPEND=acl? ( virtual/acl ) xattr? ( sys-apps/attr ) zlib? ( virtual/zlib:= )
+DEPEND=
 DESCRIPTION=Open-source library for reading, mastering and writing optical discs
 EAPI=9
-HOMEPAGE=https://dev.lovelyhq.com/libburnia/web/wiki/Libisofs https://dev.lovelyhq.com/libburnia/libisofs
+HOMEPAGE=https://dev.lovelyhq.com/libburnia/web/wiki/Libburn https://dev.lovelyhq.com/libburnia/libburn
 INHERIT=autotools
-IUSE=acl debug static-libs verbose-debug xattr zlib
+IUSE=debug static-libs
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=GPL-2
-RDEPEND=acl? ( virtual/acl ) xattr? ( sys-apps/attr ) zlib? ( virtual/zlib:= )
 SLOT=0
-SRC_URI=https://files.libburnia-project.org/releases/libisofs-1.5.8.pl01.tar.gz
+SRC_URI=https://files.libburnia-project.org/releases/libburn-1.5.8.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112
-_md5_=6f470c06d7c5db1e6a50427e133d6c71
+_md5_=4965c0092aad7d4c2cf8091c00335c4b
