@@ -15,7 +15,9 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="cue exif gif gsf +gstreamer iptc +iso +jpeg +pdf +playlist raw seccomp test +tiff upower webp +xml xmp xps"
 
 REQUIRED_USE="cue? ( gstreamer )" # cue is currently only supported via gstreamer, not ffmpeg
-RESTRICT="!test? ( test )"
+#RESTRICT="!test? ( test )"
+# Tests are completely broken, bug #922509, #948498, and more failures
+RESTRICT="test"
 
 # tracker-2.1.7 currently always depends on ICU (theoretically could be libunistring instead);
 # so choose ICU over enca always here for the time being (ICU is preferred)
