@@ -15,7 +15,7 @@ if [[ ${PV} == *9999* ]] ; then
 	EGIT_REPO_URI="https://code.videolan.org/videolan/vlc.git"
 	inherit git-r3
 else
-	COMMIT=
+	COMMIT=2e5dc285c093b84111ea1000bb5dd0810fa315cb
 	if [[ -n ${COMMIT} ]] ; then
 		SRC_URI="https://code.videolan.org/videolan/vlc/-/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		S="${WORKDIR}/${PN}-${COMMIT}"
@@ -245,6 +245,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-4.0.0_pre20260418-fix-libtremor-libs.patch # build system
 	"${FILESDIR}"/${PN}-4.0.0_pre20260320-configure-lua-version.patch
 	"${FILESDIR}"/${PN}-4.0.0_pre20260215-force-x11.patch # crashes w/ wayland platform plugin
+	"${FILESDIR}"/${P}-no-libprojectm4.patch
 )
 
 pkg_setup() {
@@ -493,7 +494,12 @@ pkg_postinst() {
 		ewarn "If you do not do it, vlc will take a long time to load."
 	fi
 
-	use gui && xdg_pkg_postinst
+	if use gui; then
+		ewarn "Starting VLC GUI is only supported by using its desktop file."
+		ewarn "Manually calling vlc from command line is known to break in Wayland sessions."
+
+		xdg_pkg_postinst
+	fi
 }
 
 pkg_postrm() {
