@@ -37,11 +37,15 @@ _SELINUX_POLICY_2_ECLASS=1
 # This variable contains the version string of the selinux-base-policy package
 # that this module build depends on. It is used to patch with the appropriate
 # patch bundle(s) that are part of selinux-base-policy.
-# For EAPI 8 and above, _pN corresponds to -rN in the patch bundle(s).
+# EAPI <=7 packages had -rN and patchbundle named -rN
+# EAPI 8 moved packages to _p, but kept patchbundles unchanged as -rN
+# Releases in 2026 made the patchbundles with _pN to match PV
 if [[ ${EAPI} = 7 ]]; then
 	: "${BASEPOL:="${PVR}"}"
-else
+elif [[ ${EAPI} = 8 ]] && ver_test -lt 2.20260101; then
 	: "${BASEPOL:="${PV/_p/-r}"}"
+else
+	: "${BASEPOL:="${PV}"}"
 fi
 
 # @ECLASS_VARIABLE: POLICY_PATCH
