@@ -6,11 +6,11 @@ EAPI=8
 inherit cmake optfeature pax-utils systemd xdg-utils
 
 if [[ ${PV} != *9999* ]]; then
-	COMMIT=31d0daa4301ee2af74bfc7fa0955ea0a8b3c31d6 # qt6-migration branch
+	COMMIT=562ac3b5e4618275dbf8cfd0eefe89d36b484a46 # qt6-migration branch
 	if [[ -n ${COMMIT} ]]; then
 		SRC_URI="https://github.com/johu/quassel/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		# quassel-i18n branch tx-sync (po subdir) @d88d126
-		SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PN}-i18n-${PV/29/27}.tar.xz"
+		SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PN}-i18n-0.14.50_pre20260427.tar.xz"
 		S="${WORKDIR}/${PN}-${COMMIT}"
 	else
 		MY_P=${PN}-${PV/_/-}
@@ -104,9 +104,6 @@ BDEPEND="
 "
 
 DOCS=( AUTHORS ChangeLog README.md )
-
-# https://github.com/johu/quassel/pull/1
-PATCHES=( "${FILESDIR}/${P}-cmake-warnings.patch" )
 
 src_unpack() {
 	case ${PV} in

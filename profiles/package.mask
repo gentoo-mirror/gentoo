@@ -36,6 +36,13 @@
 
 #--- END OF EXAMPLES ---
 
+# Andreas Sturmlechner <asturm@gentoo.org> (2026-05-15)
+# Depends on Qt5 and does not appear to be ported to Qt6 upstream soon.
+# With net-irc/quassel-0.14.50_pre20260513, we provide an ~arch keyworded
+# snapshot, cut from the so far most promising PR pending upstream.
+# Bug #953029. Removal on or some time after 2026-05-30.
+<=net-irc/quassel-0.14.49
+
 # David Seifert <soap@gentoo.org> (2026-05-12)
 # dev-util/claude-code and dev-util/codex (guru) provide vastly more tokens
 # than relying on cursor as a broker. I don't see a future for cursor-agent.
