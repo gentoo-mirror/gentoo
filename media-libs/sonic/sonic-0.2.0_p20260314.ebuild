@@ -14,7 +14,7 @@ S="${WORKDIR}/${PN}-${COMMIT_HASH}"
 LICENSE="Apache-2.0"
 SONAME="0.3.0" # follow LIB_TAG in Makefile
 SLOT="0/${SONAME}"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="fftw test"
 RESTRICT="!test? ( test )"
 
