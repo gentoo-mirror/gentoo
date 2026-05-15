@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,10 +29,13 @@ PATCHES=(
 )
 
 src_prepare() {
-	cmake_src_prepare
+	# Fix CMake-4 compatibility
+	sed -e '/cmake_minimum_required/s/3\.7\.2/3.10/' -i CMakeLists.txt || die
 
 	# Set proper so file version name
 	sed -e '/VERSION_INFO_PATCH_VERSION/ s/git/0/g' -i CMakeLists.txt || die
+
+	cmake_src_prepare
 }
 
 src_configure() {
