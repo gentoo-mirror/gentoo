@@ -39,6 +39,7 @@ DEPEND="${RDEPEND}"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.7.19-search-path.patch"
+	"${FILESDIR}/${PN}-3.7.20-missing-objects.patch"
 )
 
 pkg_setup() {
