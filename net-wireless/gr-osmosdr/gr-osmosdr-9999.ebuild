@@ -34,7 +34,12 @@ RDEPEND="${PYTHON_DEPS}
 	bladerf? ( >=net-wireless/bladerf-2018.08_rc1:= )
 	hackrf? ( net-libs/libhackrf:= )
 	iqbalance? ( net-wireless/gr-iqbal:=[${PYTHON_SINGLE_USEDEP}] )
-	rtlsdr? ( >=net-wireless/rtl-sdr-0.5.4:= )
+	rtlsdr? (
+		|| (
+			net-wireless/rtl-sdr
+			net-wireless/rtl-sdr-blog
+		)
+	)
 	sdrplay? ( net-wireless/sdrplay )
 	soapy? ( net-wireless/soapysdr:= )
 	uhd? ( net-wireless/uhd:=[${PYTHON_SINGLE_USEDEP}] )
