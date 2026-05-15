@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install prepare setup
 DEPEND=<dev-libs/protobuf-22.5:= sys-apps/util-linux sys-libs/ncurses ftdi? ( dev-embedded/libftdi:1 ) http? ( net-libs/libmicrohttpd:= ) osc? ( media-libs/liblo ) python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_11? ( dev-python/protobuf[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/protobuf[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/protobuf[python_targets_python3_13(-)] ) ) rdm-tests? ( python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/numpy[python_targets_python3_13(-)] ) ) tcmalloc? ( dev-util/google-perftools:= ) usb? ( virtual/libusb:1 ) zeroconf? ( net-dns/avahi ) sys-kernel/linux-headers
 DESCRIPTION=Open Lighting Architecture, a framework for lighting control information
 EAPI=8
-HOMEPAGE=https://www.openlighting.org/ola/
+HOMEPAGE=https://www.openlighting.org/ola/ https://github.com/OpenLightingProject/ola
 INHERIT=autotools python-single-r1
 IUSE=doc examples ftdi http osc python rdm-tests tcmalloc test usb zeroconf python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
 KEYWORDS=amd64
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/OpenLightingProject/ola/releases/download/0.10.9/ola-0.10.9.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=86d88944d5c7165891ff6267ee3ea924
+_md5_=b30a4ce6d4fc31efe517df6b124e9a9b
