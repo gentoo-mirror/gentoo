@@ -6,23 +6,20 @@ EAPI=8
 inherit kernel-build toolchain-funcs verify-sig
 
 BASE_P=linux-${PV%.*}
-PATCH_PV=${PV%_p*}
-PATCHSET=linux-gentoo-patches-${PV}
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
 # forked to https://github.com/projg2/fedora-kernel-config-for-gentoo
 CONFIG_VER=6.1.102-gentoo
 GENTOO_CONFIG_VER=g17
-SHA256SUM_DATE=20260511
+SHA256SUM_DATE=20260515
 
-DESCRIPTION="Linux kernel built with Gentoo patches"
+DESCRIPTION="Linux kernel built from vanilla upstream sources"
 HOMEPAGE="
 	https://wiki.gentoo.org/wiki/Project:Distribution_Kernel
 	https://www.kernel.org/
 "
 SRC_URI+="
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${BASE_P}.tar.xz
-	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PATCH_PV}.xz
-	https://distfiles.gentoo.org/pub/proj/dist-kernel/patchsets/$(ver_cut 1-2)/${PATCHSET}.tar.xz
+	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PV}.xz
 	https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
 		-> gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz
 	verify-sig? (
@@ -48,17 +45,15 @@ SRC_URI+="
 "
 S=${WORKDIR}/${BASE_P}
 
-KEYWORDS="amd64 ~arm arm64 ~hppa ppc ppc64 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="debug hardened"
 REQUIRED_USE="
 	arm? ( savedconfig )
 	hppa? ( savedconfig )
+	riscv? ( savedconfig )
 	sparc? ( savedconfig )
 "
 
-RDEPEND="
-	!sys-kernel/gentoo-kernel-bin:${SLOT}
-"
 BDEPEND="
 	debug? ( dev-util/pahole )
 	verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 )
@@ -80,7 +75,7 @@ src_unpack() {
 		cd "${DISTDIR}" || die
 		verify-sig_verify_signed_checksums \
 			"linux-$(ver_cut 1).x-sha256sums-${SHA256SUM_DATE}.asc" \
-			sha256 "${BASE_P}.tar.xz patch-${PATCH_PV}.xz"
+			sha256 "${BASE_P}.tar.xz patch-${PV}.xz"
 		cd "${WORKDIR}" || die
 	fi
 
@@ -88,21 +83,14 @@ src_unpack() {
 }
 
 src_prepare() {
-	local patch
-	eapply "${WORKDIR}/patch-${PATCH_PV}"
-	eapply "${WORKDIR}/${PATCHSET}"
-
+	eapply "${WORKDIR}/patch-${PV}"
 	default
-
-	# add Gentoo patchset version
-	local extraversion=${PV#${PATCH_PV}}
-	sed -i -e "s:^\(EXTRAVERSION =\).*:\1 ${extraversion/_/-}:" Makefile || die
 
 	local biendian=false
 
 	# prepare the default config
 	case ${ARCH} in
-		arm | hppa | sparc)
+		arm | hppa | loong | riscv | sparc)
 			> .config || die
 		;;
 		amd64)
@@ -129,7 +117,7 @@ src_prepare() {
 			;;
 	esac
 
-	local myversion="-gentoo-dist"
+	local myversion="-dist"
 	use hardened && myversion+="-hardened"
 	echo "CONFIG_LOCALVERSION=\"${myversion}\"" > "${T}"/version.config || die
 	local dist_conf_path="${WORKDIR}/gentoo-kernel-config-${GENTOO_CONFIG_VER}"
