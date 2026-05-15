@@ -19,7 +19,7 @@ else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~arm arm64 ~hppa ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-3 LGPL-3 Apache-2.0"
@@ -60,6 +60,7 @@ RDEPEND="
 	>=dev-libs/libfastjson-1.2304.0-r1:=
 	>=dev-libs/libestr-0.1.9
 	>=virtual/zlib-1.2.5:=
+	dev-libs/libyaml
 	curl? ( >=net-misc/curl-7.35.0 )
 	dbi? ( >=dev-db/libdbi-0.8.3 )
 	elasticsearch? ( >=net-misc/curl-7.35.0 )
@@ -115,10 +116,6 @@ DEPEND="
 
 CONFIG_CHECK="~INOTIFY_USER"
 WARNING_INOTIFY_USER="CONFIG_INOTIFY_USER isn't set. Imfile module on this system will only support polling mode!"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-8.2602.0-omfwd-support-musl-resolver-APIs.patch"
-)
 
 pkg_setup() {
 	linux-info_pkg_setup
