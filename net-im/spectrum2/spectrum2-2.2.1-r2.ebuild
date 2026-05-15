@@ -22,6 +22,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	acct-group/spectrum
 	acct-user/spectrum
+	!dev-cpp/fbthrift
 	dev-libs/boost:=[nls]
 	dev-libs/expat
 	dev-libs/libev:=
