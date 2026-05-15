@@ -4,7 +4,7 @@
 EAPI=8
 
 ADA_COMPAT=( gcc_{14..16} )
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit ada python-any-r1 multiprocessing
 
 DESCRIPTION="Opinionated code formatter for the Ada language"
@@ -55,13 +55,6 @@ src_compile() {
 		-XGNATFORMAT_LIBRARY_TYPE=relocatable -XLIBRARY_TYPE=relocatable \
 		-XGNATFORMAT_BUILD_MODE=dev -v -k -p -j$(get_makeopts_jobs) \
 		-largs ${LDFLAGS} -cargs ${ADAFLAGS} || die "gprbuild failed"
-	if use test; then
-		GPR_PROJECT_PATH=gnat \
-			gprbuild -P testsuite/test_programs/partial_gnatformat.gpr \
-			-XGNATFORMAT_LIBRARY_TYPE=relocatable -XLIBRARY_TYPE=relocatable \
-			-XGNATFORMAT_BUILD_MODE=dev -v -k -p -j$(get_makeopts_jobs) \
-			-largs ${LDFLAGS} -cargs ${ADAFLAGS} || die "gprbuild failed"
-	fi
 	use doc && emake -C user_manual html
 }
 
