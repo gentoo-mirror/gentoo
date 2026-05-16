@@ -19,7 +19,7 @@ SRC_URI="https://github.com/linux-audit/audit-userspace/archive/refs/tags/v${PV}
 S="${WORKDIR}/audit-userspace-${PV}"
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ~ppc ppc64 ~riscv ~s390 ~sparc x86"
 IUSE="gssapi io-uring ldap python static-libs test"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
