@@ -1,8 +1,8 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{9..13} )
+PYTHON_COMPAT=( python3_{9..14} )
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 
@@ -23,7 +23,10 @@ KEYWORDS="~amd64"
 
 RESTRICT="test"
 
-PATCHES="${FILESDIR}/${P}-Fix-build.patch"
+PATCHES="
+	${FILESDIR}/${P}-Fix-build.patch
+	${FILESDIR}/606_gamma_table_type.patch
+	${FILESDIR}/${P}-Python-3-14.patch"
 
 DEPEND="
 	dev-python/build[${PYTHON_USEDEP}]
@@ -53,6 +56,8 @@ src_prepare() {
 	# Remove x-world MIME
 	sed -i 's|x-world/x-vrml;||g' \
 		misc/displaycal-vrml-to-x3d-converter.desktop || die
+
+	echo ${PV} >VERSION || die
 
 	distutils-r1_src_prepare
 }
