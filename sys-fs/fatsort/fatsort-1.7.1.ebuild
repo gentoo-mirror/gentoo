@@ -2,12 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=9
+REV=683
+MY_P=${P}.${REV}
 
 inherit toolchain-funcs
 
 DESCRIPTION="Sorts files on FAT16/32 partitions, ideal for basic audio players"
 HOMEPAGE="https://fatsort.sourceforge.io/"
-SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tar.xz"
+SRC_URI="https://downloads.sourceforge.net/${PN}/${MY_P}.tar.xz"
+
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
 SLOT="0"

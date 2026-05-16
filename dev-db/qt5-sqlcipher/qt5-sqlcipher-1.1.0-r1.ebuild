@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,14 +7,16 @@ inherit cmake
 
 DESCRIPTION="Qt SQL driver plugin for SQLCipher"
 HOMEPAGE="https://github.com/blizzard4591/qt5-sqlcipher"
-SRC_URI="https://github.com/blizzard4591/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+QT6_PV="6.11.1"
+SRC_URI="https://github.com/blizzard4591/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz
+	https://dev.gentoo.org/~ulm/distfiles/${PN}-${PV%_*}-qt-6.11.1.tar.xz"
 
 LICENSE="LGPL-2.1" # version 2.1 only
 SLOT="6"
 KEYWORDS="~amd64"
 
 RDEPEND=">=dev-db/sqlcipher-4.6.1
-	>=dev-qt/qtbase-6.9.3:6=[sql,sqlite] <dev-qt/qtbase-6.11:6=[sql,sqlite]"
+	>=dev-qt/qtbase-6.9.3:6=[sql,sqlite] <dev-qt/qtbase-6.12:6=[sql,sqlite]"
 DEPEND="${RDEPEND}"
 
 DOCS=(README.md)
@@ -31,6 +33,7 @@ src_prepare() {
 		case $(ver_cut 1-2 ${v}) in
 			6.9) vc=6.9.3 ;;
 			6.10) vc=6.10.0 ;;
+			6.11) vc=6.11.1 ;;
 			*) die "qtbase-${v} not supported" ;;
 		esac
 		elog "qtbase-${v} not in cache, using ${vc} instead"
