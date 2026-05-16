@@ -4,7 +4,7 @@
 EAPI="8"
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras"
-K_GENPATCHES_VER="9"
+K_GENPATCHES_VER="10"
 K_SECURITY_UNSUPPORTED="1"
 K_NOSETEXTRAVERSION="1"
 K_NODRYRUN="yes"
@@ -19,14 +19,14 @@ HOMEPAGE="https://github.com/zen-kernel"
 # Needed for zstd compression of the patch
 BDEPEND="$(unpacker_src_uri_depends)"
 
-ZEN_VER=2
+ZEN_VER=1
 ZEN_URI="https://github.com/zen-kernel/zen-kernel/releases/download/v${PV}-zen${ZEN_VER}/linux-v${PV}-zen${ZEN_VER}.patch.zst"
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} ${ZEN_URI}"
 
 KEYWORDS="~amd64 ~arm64 ~x86"
 
 UNIPATCH_LIST="${WORKDIR}/linux-v${PV}-zen${ZEN_VER}.patch"
-UNIPATCH_EXCLUDE="1810 2701"
+UNIPATCH_EXCLUDE="1500 1810 2701"
 
 K_EXTRAEINFO="For more info on zen-sources, and for how to report problems, see: \
 ${HOMEPAGE}, also go to #zen-sources on oftc"
