@@ -21,7 +21,7 @@ if [[ ${PV} == 9999 ]]; then
 else
 	SRC_URI="https://downloads.sourceforge.net/linux-gpib/${P}.tar.gz"
 	S="${WORKDIR}/${PN}-user-${PV}"
-	KEYWORDS="~amd64 ~arm ~x86"
+	KEYWORDS="amd64 ~arm ~x86"
 fi
 
 DESCRIPTION="Driver library for GPIB (IEEE 488.2) hardware"
