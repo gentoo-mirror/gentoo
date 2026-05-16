@@ -771,7 +771,9 @@ cmake_build() {
 			;;
 	esac
 
+	local rc=$? # save build tool's exit code in case of running under nonfatal
 	popd > /dev/null || die
+	return $rc
 }
 
 # @ECLASS_VARIABLE: CTEST_JOBS
