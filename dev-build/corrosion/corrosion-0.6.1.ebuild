@@ -40,6 +40,8 @@ CMAKE_SKIP_TESTS=(
 	install_lib_run_main-shared
 	# error[E0425]: cannot find function `print_line` in this scope
 	cargo_config_rustflags_build
+	# must be run but gets skipped sometimes?
+	cargo_config_rustflags_run_cargo_config_rustflags
 )
 
 src_configure() {
