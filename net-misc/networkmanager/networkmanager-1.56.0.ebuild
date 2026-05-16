@@ -116,6 +116,7 @@ BDEPEND="
 	gtk-doc? (
 		dev-util/gtk-doc
 		app-text/docbook-xml-dtd:4.1.2
+		app-text/docbook-xsl-stylesheets
 	)
 	introspection? (
 		$(python_gen_any_dep 'dev-python/pygobject:3[${PYTHON_USEDEP}]')
