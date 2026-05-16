@@ -5,14 +5,12 @@ EAPI=8
 
 KERNEL_IUSE_GENERIC_UKI=1
 
-inherit kernel-build toolchain-funcs verify-sig
+inherit git-r3 kernel-build toolchain-funcs
 
-BASE_P=linux-${PV%.*}
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
 # forked to git.gentoo.org:fork/fedora/kernel
-CONFIG_VER=7.0.8-gentoo
+CONFIG_VER=6.18.12-gentoo
 GENTOO_CONFIG_P=gentoo-kernel-config-g18
-SHA256SUM_DATE=20260515
 
 DESCRIPTION="Linux kernel built from vanilla upstream sources"
 HOMEPAGE="
@@ -20,18 +18,16 @@ HOMEPAGE="
 	https://www.kernel.org/
 "
 SRC_URI+="
-	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${BASE_P}.tar.xz
-	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PV}.xz
 	https://gitweb.gentoo.org/proj/dist-kernel/gentoo-kernel-config.git/snapshot/${GENTOO_CONFIG_P}.tar.bz2
 	https://gitweb.gentoo.org/fork/fedora/kernel.git/snapshot/kernel-${CONFIG_VER}.tar.bz2
-	verify-sig? (
-		https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/sha256sums.asc
-			-> linux-$(ver_cut 1).x-sha256sums-${SHA256SUM_DATE}.asc
-	)
 "
-S=${WORKDIR}/${BASE_P}
 
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+EGIT_REPO_URI=(
+	https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/
+	https://github.com/gregkh/linux/
+)
+EGIT_BRANCH="linux-${PV/.9999/.y}"
+
 IUSE="debug hardened"
 REQUIRED_USE="
 	arm? ( savedconfig )
@@ -41,13 +37,10 @@ REQUIRED_USE="
 
 BDEPEND="
 	debug? ( dev-util/pahole )
-	verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 )
 "
 PDEPEND="
-	>=virtual/dist-kernel-${PV}
+	>=virtual/dist-kernel-$(ver_cut 1-2)
 "
-
-VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kernel.org.asc
 
 QA_FLAGS_IGNORED="
 	usr/src/linux-.*/scripts/gcc-plugins/.*.so
@@ -56,19 +49,11 @@ QA_FLAGS_IGNORED="
 "
 
 src_unpack() {
-	if use verify-sig; then
-		cd "${DISTDIR}" || die
-		verify-sig_verify_signed_checksums \
-			"linux-$(ver_cut 1).x-sha256sums-${SHA256SUM_DATE}.asc" \
-			sha256 "${BASE_P}.tar.xz patch-${PV}.xz"
-		cd "${WORKDIR}" || die
-	fi
-
+	git-r3_src_unpack
 	default
 }
 
 src_prepare() {
-	eapply "${WORKDIR}/patch-${PV}"
 	default
 
 	local biendian=false
@@ -88,7 +73,7 @@ src_prepare() {
 		ppc)
 			# assume powermac/powerbook defconfig
 			# we still package.use.force savedconfig
-			cp "${WORKDIR}/${BASE_P}/arch/powerpc/configs/pmac32_defconfig" .config || die
+			cp "${WORKDIR}/${P}/arch/powerpc/configs/pmac32_defconfig" .config || die
 			;;
 		ppc64)
 			cp "${WORKDIR}/kernel-${CONFIG_VER}/kernel-ppc64le-fedora.config" .config || die
