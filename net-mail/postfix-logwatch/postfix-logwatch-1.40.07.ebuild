@@ -23,7 +23,7 @@ src_prepare() {
 }
 
 src_install() {
-	dodoc Bugs Changes README ${PN}.conf-topn
+	dodoc Bugs Changes README.rst ${PN}.conf-topn
 	doman ${PN}.1
 	dobin ${PN}
 	insinto /etc
