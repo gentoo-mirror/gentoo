@@ -3,7 +3,7 @@
 
 EAPI=8
 
-MY_PV="$(ver_cut 1-4)$(ver_cut 5).4"
+MY_PV="$(ver_cut 1-4)$(ver_cut 5)"
 
 inherit desktop xdg-utils
 

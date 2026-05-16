@@ -102,7 +102,7 @@ src_prepare() {
 		ppc)
 			# assume powermac/powerbook defconfig
 			# we still package.use.force savedconfig
-			cp "${WORKDIR}/${BASE_P}/arch/powerpc/configs/pmac32_defconfig" .config || die
+			cp "arch/powerpc/configs/pmac32_defconfig" .config || die
 			;;
 		ppc64)
 			cp "${WORKDIR}/kernel-${CONFIG_VER}/kernel-ppc64le-fedora.config" .config || die
