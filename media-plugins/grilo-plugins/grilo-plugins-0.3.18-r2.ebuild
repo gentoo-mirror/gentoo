@@ -10,8 +10,8 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/grilo-plugins"
 
 LICENSE="LGPL-2.1+"
 SLOT="0.3"
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc x86"
-IUSE="daap chromaprint flickr freebox gnome-online-accounts lua test thetvdb tracker upnp-av +youtube"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="daap chromaprint flickr freebox gnome-online-accounts lua test thetvdb tracker upnp-av"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
 
@@ -36,7 +36,10 @@ RDEPEND="
 	flickr? ( net-libs/liboauth )
 	dev-db/sqlite:3
 	>=dev-libs/totem-pl-parser-3.4.1:=
-	tracker? ( app-misc/tinysparql:3= )
+	tracker? (
+		app-misc/localsearch:3
+		app-misc/tinysparql:3=
+	)
 	upnp-av? ( net-libs/dleyna:1.0= )
 	lua? (
 		${LUA_DEPS}
@@ -46,7 +49,6 @@ RDEPEND="
 		gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.17.91:= )
 	)
 	thetvdb? ( app-arch/libarchive )
-	youtube? ( >=dev-libs/libgdata-0.17.0:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -74,7 +76,9 @@ src_prepare() {
 	default
 	xdg_environment_reset
 
-	sed -i -e "s:'GETTEXT_PACKAGE', meson.project_name():'GETTEXT_PACKAGE', 'grilo-plugins-${SLOT%/*}':" meson.build || die
+	sed -i -e \
+		"s:'GETTEXT_PACKAGE', meson.project_name():'GETTEXT_PACKAGE', 'grilo-plugins-${SLOT%/*}':" \
+		meson.build || die
 	sed -i -e "s:meson.project_name():'grilo-plugins-${SLOT%/*}':" po/meson.build || die
 	sed -i -e "s:meson.project_name():'grilo-plugins-${SLOT%/*}':" help/meson.build || die
 }
@@ -100,7 +104,7 @@ src_configure() {
 		-Denable-tmdb=yes
 		-Denable-tracker=no
 		-Denable-tracker3=$(usex tracker yes no)
-		-Denable-youtube=$(usex youtube yes no)
+		-Denable-youtube=no
 		-Dhelp=no
 	)
 	if use lua; then
