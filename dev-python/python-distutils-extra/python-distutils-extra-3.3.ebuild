@@ -36,6 +36,8 @@ BDEPEND="
 	)
 "
 
+PATCHES=( "${FILESDIR}/${PN}-3.3-legacy-entrypoint.patch" )
+
 python_test() {
 	local -x SETUPTOOLS_USE_DISTUTILS=stdlib
 	"${EPYTHON}" test/auto.py -v || die "Tests fail with ${EPYTHON}"
