@@ -58,8 +58,10 @@ src_configure() {
 		-DENABLE_AUDIO=$(usex sound)
 		-DENABLE_GTEST=$(usex test)
 		-DENABLE_CPPTRACE=$(usex debug)
-		-DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
 	)
+
+	# bug 974936
+	use debug && mycmakeargs+=( -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS )
 
 	# bug 957673
 	use wayland || append-flags -DGENTOO_GTK_HIDE_WAYLAND
