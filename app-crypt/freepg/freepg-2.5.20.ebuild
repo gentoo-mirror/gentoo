@@ -15,13 +15,13 @@ HOMEPAGE="
 	https://gitlab.com/freepg/gnupg/
 "
 SRC_URI="
-	https://dev.gentoo.org/~mgorny/dist/${MY_P}.tar.bz2
+	https://distfiles.gentoo.org/pub/dev/mgorny%40gentoo.org/freepg/${MY_P}.tar.bz2
 "
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
 IUSE="bzip2 doc ldap nls readline selinux +smartcard ssl test +tofu tpm tools usb user-socket wks-server"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="test? ( tofu )"
