@@ -2313,8 +2313,10 @@ gcc_do_make() {
 		# We have a very good host compiler but it may be a bit too good, and
 		# know about flags that the version we are compiling does not know
 		# about. In principle we could check e.g. which gnat1 we are using as
-		# a bootstrap. It's simpler to do it unconditionally for now.
-		elif _tc_use_if_iuse ada || _tc_use_if_iuse d ; then
+		# a bootstrap. It's simpler to do it unconditionally for now, with
+		# the exception of when we're bootstrapping the same version we're
+		# building with.
+		elif ! { tc_use_major_version_only && ver_test $(gcc-major-version) -eq ${SLOT} ; } && { _tc_use_if_iuse ada || _tc_use_if_iuse d ; } ; then
 			einfo "Resetting STAGE1_*FLAGS to -O2 for Ada/D bootstrapping"
 			STAGE1_CFLAGS="-O2"
 			STAGE1_CXXFLAGS="-O2"
