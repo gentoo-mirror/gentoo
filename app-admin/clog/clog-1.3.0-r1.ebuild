@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake
 
-DESCRIPTION="clog is a colorized log tail utility"
+DESCRIPTION="Colorized log tail utility"
 HOMEPAGE="https://gothenburgbitfactory.org/clog/"
 SRC_URI="https://github.com/GothenburgBitFactory/clog/releases/download/v${PV}/${P}.tar.gz"
 
@@ -15,11 +15,7 @@ KEYWORDS="~amd64 ~x86 ~x64-macos"
 RESTRICT="test" # No test suite on tar.gz
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.3.0-gcc13.patch
-	"${FILESDIR}"/${PN}-1.3.0-musl.patch
+	"${FILESDIR}"/${P}-doc-path.patch # bug 677188
+	"${FILESDIR}"/${P}-gcc13.patch
+	"${FILESDIR}"/${P}-musl.patch
 )
-
-src_prepare() {
-	sed -i -e 's|share/doc/clog|share/clog|' CMakeLists.txt || die
-	cmake_src_prepare
-}
