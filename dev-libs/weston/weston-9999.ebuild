@@ -22,14 +22,13 @@ fi
 LICENSE="MIT CC-BY-SA-3.0"
 SLOT="0"
 
-IUSE="+desktop +drm editor examples +gles2 headless ivi jpeg kiosk lcms lua pipewire rdp remoting +resize-optimization +suid systemd test vnc vulkan wayland-compositor webp +X xwayland"
+IUSE="+desktop +drm editor examples +gles2 headless ivi jpeg kiosk lcms lua pipewire rdp +resize-optimization +suid systemd test vnc vulkan wayland-compositor webp +X xwayland"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
 	drm? ( gles2 )
 	lua? ( ${LUA_REQUIRED_USE} )
 	pipewire? ( drm )
-	remoting? ( drm gles2 )
 	test? ( headless )
 	wayland-compositor? ( gles2 )
 	|| ( drm headless rdp vnc wayland-compositor X )
@@ -66,11 +65,6 @@ RDEPEND="
 	lua? ( ${LUA_DEPS} )
 	pipewire? ( >=media-video/pipewire-0.3:= )
 	rdp? ( >=net-misc/freerdp-2.3.0:=[server] )
-	remoting? (
-		dev-libs/glib:2
-		media-libs/gstreamer:1.0
-		media-libs/gst-plugins-base:1.0
-	)
 	systemd? ( sys-apps/systemd )
 	vnc? (
 		=dev-libs/aml-0.3*
@@ -125,8 +119,6 @@ src_configure() {
 		$(meson_use gles2 renderer-gl)
 		$(meson_use xwayland)
 		$(meson_use systemd)
-		$(meson_use remoting)
-		$(meson_use pipewire)
 		$(meson_use desktop shell-desktop)
 		$(meson_use ivi shell-ivi)
 		$(meson_use lua shell-lua)
