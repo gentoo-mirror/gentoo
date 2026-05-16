@@ -9,9 +9,9 @@ BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
 PATCHSET=linux-gentoo-patches-${PV}
 # https://koji.fedoraproject.org/koji/packageinfo?packageID=8
-# forked to https://github.com/projg2/fedora-kernel-config-for-gentoo
+# forked to git.gentoo.org:fork/fedora/kernel
 CONFIG_VER=6.1.102-gentoo
-GENTOO_CONFIG_VER=g17
+GENTOO_CONFIG_P=gentoo-kernel-config-g17
 SHA256SUM_DATE=20260515
 
 DESCRIPTION="Linux kernel built with Gentoo patches"
@@ -23,27 +23,11 @@ SRC_URI+="
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${BASE_P}.tar.xz
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PATCH_PV}.xz
 	https://distfiles.gentoo.org/pub/proj/dist-kernel/patchsets/$(ver_cut 1-2)/${PATCHSET}.tar.xz
-	https://github.com/projg2/gentoo-kernel-config/archive/${GENTOO_CONFIG_VER}.tar.gz
-		-> gentoo-kernel-config-${GENTOO_CONFIG_VER}.tar.gz
+	https://gitweb.gentoo.org/proj/dist-kernel/gentoo-kernel-config.git/snapshot/${GENTOO_CONFIG_P}.tar.bz2
+	https://gitweb.gentoo.org/fork/fedora/kernel.git/snapshot/kernel-${CONFIG_VER}.tar.bz2
 	verify-sig? (
 		https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/sha256sums.asc
 			-> linux-$(ver_cut 1).x-sha256sums-${SHA256SUM_DATE}.asc
-	)
-	amd64? (
-		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-x86_64-fedora.config
-			-> kernel-x86_64-fedora.config.${CONFIG_VER}
-	)
-	arm64? (
-		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-aarch64-fedora.config
-			-> kernel-aarch64-fedora.config.${CONFIG_VER}
-	)
-	ppc64? (
-		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-ppc64le-fedora.config
-			-> kernel-ppc64le-fedora.config.${CONFIG_VER}
-	)
-	x86? (
-		https://raw.githubusercontent.com/projg2/fedora-kernel-config-for-gentoo/${CONFIG_VER}/kernel-i686-fedora.config
-			-> kernel-i686-fedora.config.${CONFIG_VER}
 	)
 "
 S=${WORKDIR}/${BASE_P}
@@ -107,10 +91,10 @@ src_prepare() {
 			> .config || die
 		;;
 		amd64)
-			cp "${DISTDIR}/kernel-x86_64-fedora.config.${CONFIG_VER}" .config || die
+			cp "${WORKDIR}/kernel-${CONFIG_VER}/kernel-x86_64-fedora.config" .config || die
 			;;
 		arm64)
-			cp "${DISTDIR}/kernel-aarch64-fedora.config.${CONFIG_VER}" .config || die
+			cp "${WORKDIR}/kernel-${CONFIG_VER}/kernel-aarch64-fedora.config" .config || die
 			biendian=true
 			;;
 		ppc)
@@ -119,11 +103,11 @@ src_prepare() {
 			cp "${WORKDIR}/${BASE_P}/arch/powerpc/configs/pmac32_defconfig" .config || die
 			;;
 		ppc64)
-			cp "${DISTDIR}/kernel-ppc64le-fedora.config.${CONFIG_VER}" .config || die
+			cp "${WORKDIR}/kernel-${CONFIG_VER}/kernel-ppc64le-fedora.config" .config || die
 			biendian=true
 			;;
 		x86)
-			cp "${DISTDIR}/kernel-i686-fedora.config.${CONFIG_VER}" .config || die
+			cp "${WORKDIR}/kernel-${CONFIG_VER}/kernel-i686-fedora.config" .config || die
 			;;
 		*)
 			die "Unsupported arch ${ARCH}"
@@ -133,7 +117,7 @@ src_prepare() {
 	local myversion="-gentoo-dist"
 	use hardened && myversion+="-hardened"
 	echo "CONFIG_LOCALVERSION=\"${myversion}\"" > "${T}"/version.config || die
-	local dist_conf_path="${WORKDIR}/gentoo-kernel-config-${GENTOO_CONFIG_VER}"
+	local dist_conf_path="${WORKDIR}/${GENTOO_CONFIG_P}"
 
 	local merge_configs=(
 		"${T}"/version.config
