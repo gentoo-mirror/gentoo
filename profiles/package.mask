@@ -37,6 +37,48 @@
 #--- END OF EXAMPLES ---
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-05-15)
+# Qt5 qtbase module. Bug #948836
+# Removal on 2026-06-30.
+dev-qt/qtconcurrent:5
+dev-qt/qtcore:5
+dev-qt/qtdbus:5
+dev-qt/qtgui:5
+dev-qt/qtnetwork:5
+dev-qt/qtopengl:5
+dev-qt/qtprintsupport:5
+dev-qt/qtsql:5
+dev-qt/qttest:5
+dev-qt/qtwidgets:5
+dev-qt/qtxml:5
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2026-05-15)
+# Qt5 non-qtbase modules. Bugs #948836, #964253
+# Removal on 2026-06-30.
+dev-qt/linguist-tools:5
+dev-qt/qtdeclarative:5
+dev-qt/qtgraphicaleffects:5
+dev-qt/qtmultimedia:5
+dev-qt/qtquickcontrols:5
+dev-qt/qtquickcontrols2:5
+dev-qt/qtsvg:5
+dev-qt/qttranslations:5
+dev-qt/qtwayland:5
+dev-qt/qtx11extras:5
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2026-05-15)
+# Obsolete 3rd party Qt5 integration package.
+# Removal on 2026-06-14.
+x11-misc/qt5ct
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2026-05-15)
+# USE=gui in this version depends on Qt5 and can no longer be supported.
+# VLC-4 snapshots are provided with a Qt6-based USE=gui.
+# Alternatives for stable users are media-video/mpv, media-video/haruna,
+# media-video/smplayer, media-video/qmplay2 and probably many more.
+# Bug #954006. Removal some time after 2026-05-30.
+=media-video/vlc-3.0.23
+
+# Andreas Sturmlechner <asturm@gentoo.org> (2026-05-15)
 # Depends on Qt5 and does not appear to be ported to Qt6 upstream soon.
 # With net-irc/quassel-0.14.50_pre20260513, we provide an ~arch keyworded
 # snapshot, cut from the so far most promising PR pending upstream.

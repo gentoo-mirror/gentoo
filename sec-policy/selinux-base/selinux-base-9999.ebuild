@@ -24,7 +24,7 @@ else
 	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 fi
 
-S="${WORKDIR}"
+S="${WORKDIR}/refpolicy"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -46,68 +46,68 @@ BDEPEND="
 
 src_prepare() {
 	if [[ "${PV}" != 9999* ]]; then
+		cd "${WORKDIR}" || die
 		einfo "Applying SELinux policy updates... "
 		eapply -p0 "${WORKDIR}/0001-full-patch-against-stable-release.patch"
 	fi
 
+	cd "${S}" || die
 	eapply_user
 
-	cd "${S}/refpolicy" || die
 	emake bare
 }
 
 src_configure() {
 	# Update the SELinux refpolicy capabilities based on the users' USE flags.
 	if use unknown-perms; then
-		sed -i -e '/^UNK_PERMS/s/deny/allow/' "${S}/refpolicy/build.conf" \
+		sed -i -e '/^UNK_PERMS/s/deny/allow/' "${S}/build.conf" \
 			|| die "Failed to allow Unknown Permissions Handling"
-		sed -i -e '/^UNK_PERMS/s/deny/allow/' "${S}/refpolicy/Makefile" \
+		sed -i -e '/^UNK_PERMS/s/deny/allow/' "${S}/Makefile" \
 			|| die "Failed to allow Unknown Permissions Handling"
 	fi
 
 	if ! use ubac; then
-		sed -i -e '/^UBAC/s/y/n/' "${S}/refpolicy/build.conf" \
+		sed -i -e '/^UBAC/s/y/n/' "${S}/build.conf" \
 			|| die "Failed to disable User Based Access Control"
 	fi
 
 	if use systemd; then
-		sed -i -e '/^SYSTEMD/s/n/y/' "${S}/refpolicy/build.conf" \
-			|| die "Failed to enable SystemD"
+		sed -i -e '/^SYSTEMD/s/n/y/' "${S}/build.conf" \
+			|| die "Failed to enable systemd"
 	fi
 
-	echo "DISTRO = gentoo" >> "${S}/refpolicy/build.conf" || die
+	echo "DISTRO = gentoo" >> "${S}/build.conf" || die
 
 	# Prepare initial configuration
-	cd "${S}/refpolicy" || die
 	emake conf
 
 	# Setup the policies based on the types delivered by the end user.
 	# These types can be "targeted", "strict", "mcs" and "mls".
 	for type in targeted strict mcs mls; do
 		if use "selinux_policy_types_${type}"; then
-			cp -a "${S}/refpolicy" "${S}/${type}" || die
-			cd "${S}/${type}" || die
+			cp -a "${S}" "${WORKDIR}/${type}" || die
+			cd "${WORKDIR}/${type}" || die
 
-			sed -i -e "/= module/d" "${S}/${type}/policy/modules.conf" || die
+			sed -i -e "/= module/d" "${WORKDIR}/${type}/policy/modules.conf" || die
 
 			sed -i -e '/^QUIET/s/n/y/' -e "/^NAME/s/refpolicy/${type}/" \
-				"${S}/${type}/build.conf" || die "build.conf setup failed."
+				"${WORKDIR}/${type}/build.conf" || die "build.conf setup failed."
 
 			if [[ "${type}" = "mls" || "${type}" = "mcs" ]]; then
 				# MCS/MLS require additional settings
-				sed -i -e "/^TYPE/s/standard/${type}/" "${S}/${type}/build.conf" \
+				sed -i -e "/^TYPE/s/standard/${type}/" "${WORKDIR}/${type}/build.conf" \
 					|| die "failed to set type to mls"
 			fi
 
 			if [[ "${type}" = "targeted" ]]; then
 				sed -i -e '/root/d' -e 's/user_u/unconfined_u/' \
-					"${S}/${type}/config/appconfig-standard/seusers" \
+					"${WORKDIR}/${type}/config/appconfig-standard/seusers" \
 					|| die "targeted seusers setup failed."
 			fi
 
 			if [[ "${type}" != "targeted" && "${type}" != "strict" ]] && use unconfined; then
 				sed -i -e '/root/d' -e 's/user_u/unconfined_u/' \
-					"${S}/${type}/config/appconfig-${type}/seusers" \
+					"${WORKDIR}/${type}/config/appconfig-${type}/seusers" \
 					|| die "policy seusers setup failed."
 			fi
 		fi
@@ -117,7 +117,7 @@ src_configure() {
 src_compile() {
 	for type in targeted strict mcs mls; do
 		if use "selinux_policy_types_${type}"; then
-			cd "${S}/${type}" || die
+			cd "${WORKDIR}/${type}" || die
 			emake base
 			use doc && emake html
 		fi
@@ -127,7 +127,7 @@ src_compile() {
 src_install() {
 	for type in targeted strict mcs mls; do
 		if use "selinux_policy_types_${type}"; then
-			cd "${S}/${type}" || die
+			cd "${WORKDIR}/${type}" || die
 
 			emake DESTDIR="${D}" install
 			emake DESTDIR="${D}" install-headers
