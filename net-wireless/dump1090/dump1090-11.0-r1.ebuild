@@ -31,7 +31,10 @@ DEPEND="
 		virtual/libusb:1
 	)
 	rtlsdr? (
-		net-wireless/rtl-sdr:=
+		|| (
+			net-wireless/rtl-sdr
+			net-wireless/rtl-sdr-blog
+		)
 		virtual/libusb:1
 	)
 "
