@@ -31,6 +31,11 @@ BDEPEND="
 	app-alternatives/ninja
 "
 
+QA_CONFIG_IMPL_DECL_SKIP=(
+	# FreeBSD & OpenBSD
+	elf_aux_info
+)
+
 PATCHES=(
 	"${FILESDIR}"/qemu-8.1.0-find-sphinx.patch
 )
