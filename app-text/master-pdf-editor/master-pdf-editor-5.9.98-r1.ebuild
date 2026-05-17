@@ -53,7 +53,7 @@ RDEPEND="
 	net-libs/libproxy
 	net-print/cups
 	sys-apps/dbus
-	sys-apps/systemd-utils
+	|| ( sys-apps/systemd sys-apps/systemd-utils )
 	sys-apps/util-linux
 	sys-devel/gcc
 	sys-libs/glibc
@@ -66,6 +66,8 @@ RDEPEND="
 "
 
 QA_PREBUILT="opt/${PN}/masterpdfeditor5"
+QA_FLAGS_IGNORED="${QA_PREBUILT}"
+QA_PRESTRIPPED="${QA_PREBUILT}"
 
 src_install() {
 	insinto /opt/${MyPN}
