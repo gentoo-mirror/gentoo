@@ -1,0 +1,17 @@
+BDEPEND=app-text/scdoc >=kde-frameworks/extra-cmake-modules-6.0.0:* virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=app-arch/libarchive:= app-text/cmark:= dev-cpp/tomlplusplus >=dev-qt/qtbase-6.0.0:6[concurrent,gui,opengl,network,vulkan,widgets,xml(+)] >=dev-qt/qtnetworkauth-6.0.0:6 games-util/gamemode media-gfx/qrencode:= virtual/zlib:= media-libs/libglvnd <virtual/jdk-26:* >=dev-java/java-config-2.2.0-r3
+DESCRIPTION=Custom, open source Minecraft launcher
+EAPI=8
+HOMEPAGE=https://prismlauncher.org/ https://github.com/PrismLauncher/PrismLauncher
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=branding cmake java-pkg-2 optfeature toolchain-funcs xdg
+IUSE=test
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0 BSD BSD-2 GPL-2+ GPL-3 ISC LGPL-2.1+ LGPL-3+
+RDEPEND=app-arch/libarchive:= app-text/cmark:= dev-cpp/tomlplusplus >=dev-qt/qtbase-6.0.0:6[concurrent,gui,opengl,network,vulkan,widgets,xml(+)] >=dev-qt/qtnetworkauth-6.0.0:6 games-util/gamemode media-gfx/qrencode:= virtual/zlib:= >=dev-qt/qtsvg-6.0.0:6 >=virtual/jre-1.8.0:* virtual/opengl >=dev-java/java-config-2.2.0-r3
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/PrismLauncher/PrismLauncher/releases/download/11.0.2/PrismLauncher-11.0.2.tar.gz -> prismlauncher-11.0.2.tar.gz
+_eclasses_=branding	7bcece3faa73dd0fc3e597013510d53a	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	java-utils-2	b41327d85d12ce816943cf4d344add19	java-pkg-2	438c2725ea326202d7fc1eb31af76813	optfeature	538bce96e5589935b57e178e8635f301	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=cd55359cf6e59557d4a661faad8efbac
