@@ -4,7 +4,7 @@
 EAPI="8"
 PYTHON_COMPAT=( python3_{11..14} )
 
-inherit python-r1 toolchain-funcs multilib-minimal
+inherit dot-a python-r1 toolchain-funcs multilib-minimal
 
 MY_PV="${PV//_/-}"
 MY_P="${PN}-${MY_PV}"
@@ -72,6 +72,11 @@ src_prepare() {
 	multilib_copy_sources
 }
 
+src_configure() {
+	lto-guarantee-fat
+	multilib-minimal_src_configure
+}
+
 multilib_src_compile() {
 	local -x CFLAGS="${CFLAGS} -fno-semantic-interposition"
 
@@ -99,6 +104,8 @@ multilib_src_install() {
 	emake \
 		LIBDIR="${EPREFIX}/usr/$(get_libdir)" \
 		DESTDIR="${ED}" install
+
+	strip-lto-bytecode
 
 	if multilib_is_native_abi; then
 		installation_py() {

@@ -30,6 +30,10 @@ BDEPEND="
 	>=dev-build/cmake-3.22
 "
 
+PATCHES=(
+	"${FILESDIR}/corrosion-0.6.1_cxxbridge-cmd_no_locked.patch"
+)
+
 CMAKE_SKIP_TESTS=(
 	# requires extensive rust-src cargo packages
 	custom_target_build
