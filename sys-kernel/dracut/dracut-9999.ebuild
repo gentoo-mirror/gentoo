@@ -8,12 +8,12 @@ inherit cargo flag-o-matic bash-completion-r1 edo optfeature systemd toolchain-f
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/dracut-ng/dracut-ng"
+	EGIT_REPO_URI="https://github.com/dracut-ng/dracut"
 else
 	if [[ "${PV}" != *_rc* ]]; then
 		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 	fi
-	SRC_URI="https://github.com/dracut-ng/dracut-ng/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/dracut-ng/dracut/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
 DESCRIPTION="Generic initramfs generation tool"
