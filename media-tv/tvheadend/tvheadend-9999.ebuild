@@ -1,15 +1,25 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 PYTHON_COMPAT=( python3_{11..13} )
 
-inherit flag-o-matic git-r3 linux-info python-single-r1 systemd toolchain-funcs
+inherit flag-o-matic linux-info python-single-r1 systemd toolchain-funcs
+
+if [[ ${PV} == *9999* ]]; then
+	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
+	inherit git-r3
+else
+	COMMIT=""
+	SRC_URI="https://github.com/tvheadend/tvheadend/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${COMMIT}"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+fi
 
 DESCRIPTION="Tvheadend is a TV streaming server and digital video recorder"
 HOMEPAGE="https://tvheadend.org/"
-EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
+
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="dbus debug +ddci dvbcsa +dvb +ffmpeg hdhomerun +imagecache +inotify iptv opus satip systemd +timeshift uriparser vpx x264 x265 xmltv zeroconf zlib"
