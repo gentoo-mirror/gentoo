@@ -15,7 +15,10 @@ KEYWORDS="~amd64 ~sparc ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="virtual/libiconv"
+RDEPEND="
+	dev-libs/openssl:=
+	virtual/libiconv
+"
 DEPEND="${RDEPEND}"
 
 DOCS=( AUTHORS )
