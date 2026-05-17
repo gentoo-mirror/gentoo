@@ -1,0 +1,15 @@
+BDEPEND=dev-lang/perl sys-apps/which app-alternatives/yacc sys-devel/gettext app-alternatives/lex doc? ( dev-tex/latex2html ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=~sys-libs/libapparmor-4.1.7
+DESCRIPTION=Userspace utils and init scripts for the AppArmor application security system
+EAPI=8
+HOMEPAGE=https://gitlab.com/apparmor/apparmor/wikis/home
+INHERIT=flag-o-matic systemd toolchain-funcs linux-info
+IUSE=doc
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv
+LICENSE=GPL-2
+RDEPEND=~sys-libs/libapparmor-4.1.7
+SLOT=0
+SRC_URI=https://gitlab.com/apparmor/apparmor/-/archive/v4.1.7/apparmor-v4.1.7.tar.bz2
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	systemd	a964c0cbe818b5729da1dbfcee5be861	linux-info	efd923656513c879204fec6638eadee5
+_md5_=b60b40286604cfa8cbda709231827b6e
