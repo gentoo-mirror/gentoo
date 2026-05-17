@@ -4,14 +4,17 @@
 EAPI=8
 
 MATE_LA_PUNT="yes"
-PYTHON_COMPAT=( python3_{11..13} )
+MATE_FORCE_AUTORECONF="true"
+PYTHON_COMPAT=( python3_{11..14} )
 inherit mate python-any-r1 virtualx
 
 DESCRIPTION="Atril document viewer for MATE"
+HOMEPAGE+=" https://github.com/mate-desktop/atril"
+SRC_URI="https://github.com/mate-desktop/${PN}/releases/download/v${PV}/atril-${PV}.tar.xz"
 
 LICENSE="FDL-1.1+ GPL-2+ GPL-3+ LGPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~loong ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~riscv ~x86"
 IUSE="caja dbus debug djvu dvi epub +introspection keyring nls +postscript synctex t1lib test tiff xps"
 
 REQUIRED_USE="t1lib? ( dvi )"
@@ -19,14 +22,14 @@ REQUIRED_USE="t1lib? ( dvi )"
 DEPEND="
 	app-accessibility/at-spi2-core:2
 	app-text/poppler[cairo]
-	dev-libs/glib:2
+	>=dev-libs/glib-2.50.0:2
 	dev-libs/libxml2:2=
 	>=mate-base/mate-desktop-$(ver_cut 1-2)
 	virtual/zlib:=
 	x11-libs/gdk-pixbuf:2
-	x11-libs/gtk+:3[introspection?]
-	x11-libs/libICE
-	x11-libs/libSM:0
+	>=x11-libs/gtk+-3.22.0:3[X(+),introspection?]
+	>=x11-libs/libICE-1.0.0
+	>=x11-libs/libSM-1.0.0:0
 	x11-libs/libX11
 	x11-libs/cairo
 	x11-libs/pango
@@ -37,7 +40,7 @@ DEPEND="
 		t1lib? ( media-libs/t1lib:5 )
 	)
 	epub? (
-		<dev-libs/mathjax-3
+		dev-libs/mathjax:=
 		net-libs/webkit-gtk:4.1
 	)
 	keyring? ( app-crypt/libsecret )

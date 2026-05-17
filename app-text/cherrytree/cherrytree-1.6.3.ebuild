@@ -1,15 +1,13 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit cmake python-any-r1 virtualx xdg
 
 DESCRIPTION="A hierarchical note taking application (C++ version)"
 HOMEPAGE="https://www.giuspen.com/cherrytree/"
-
 SRC_URI="https://github.com/giuspen/${PN}/releases/download/v${PV}/${P/-/_}.tar.xz"
 S="${WORKDIR}"/${P/-/_}
 
@@ -19,12 +17,11 @@ S="${WORKDIR}"/${P/-/_}
 LICENSE="GPL-3 LGPL-2.1 MIT"
 
 SLOT="0"
-
 KEYWORDS="~amd64 ~x86"
-
 IUSE="nls test"
 
-RDEPEND="app-i18n/uchardet
+RDEPEND="
+	app-i18n/uchardet
 	app-text/gspell:=
 	>=dev-cpp/glibmm-2.64.2:2
 	dev-cpp/gtkmm:3.0
@@ -42,15 +39,16 @@ RDEPEND="app-i18n/uchardet
 	net-misc/curl
 	x11-libs/cairo[X]
 	x11-libs/gtk+:3[X]
-	x11-libs/pango[X]"
-
+	x11-libs/pango[X]
+"
 DEPEND="${PYTHON_DEPS}
-	${RDEPEND}"
-
+	${RDEPEND}
+"
 BDEPEND="
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )
-	test? ( dev-cpp/gtest )"
+	test? ( >=dev-cpp/gtest-1.16.0 )
+"
 
 src_prepare() {
 	# disable compress man pages
@@ -58,7 +56,6 @@ src_prepare() {
 		'/install(FILES/s|${MANFILE_FULL_GZ}|${CMAKE_SOURCE_DIR}/data/cherrytree.1|' \
 		CMakeLists.txt || die
 
-	# python_fix_shebang .
 	cmake_src_prepare
 }
 
@@ -81,8 +78,5 @@ src_configure() {
 }
 
 src_test() {
-	# the export test suite fails if more than one job is used for testing, so
-	# we force it to a single job here, for more detail see
-	# https://github.com/giuspen/cherrytree/pull/2663
-	MAKEOPTS="${MAKEOPTS} -j1" virtx cmake_src_test
+	virtx cmake_src_test
 }
