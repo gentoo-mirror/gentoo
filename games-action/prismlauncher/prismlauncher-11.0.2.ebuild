@@ -63,6 +63,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-gcc16.patch"
+)
+
 src_prepare() {
 	cmake_src_prepare
 
