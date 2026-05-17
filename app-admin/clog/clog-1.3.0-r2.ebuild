@@ -15,6 +15,8 @@ KEYWORDS="~amd64 ~x86 ~x64-macos"
 RESTRICT="test" # No test suite on tar.gz
 
 PATCHES=(
+	"${FILESDIR}"/${P}-cmake-version.patch # bug 953761
+	"${FILESDIR}"/${P}-libshared-cmake-version.patch # bug 953761
 	"${FILESDIR}"/${P}-doc-path.patch # bug 677188
 	"${FILESDIR}"/${P}-gcc13.patch
 	"${FILESDIR}"/${P}-musl.patch
