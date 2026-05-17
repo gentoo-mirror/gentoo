@@ -1,4 +1,4 @@
-# Copyright 2020-2025 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,12 +6,12 @@ EAPI=8
 inherit fcaps
 
 DESCRIPTION="A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 & IPv6"
-HOMEPAGE="https://bird.nic.cz"
+HOMEPAGE="https://bird.nic.cz/"
 SRC_URI="https://bird.nic.cz/download/${P}.tar.gz"
 LICENSE="GPL-2"
 
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~loong ~x86 ~x64-macos"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~x86 ~x64-macos"
 IUSE="+client custom-cflags debug libssh"
 
 RDEPEND="
@@ -51,8 +51,6 @@ src_configure() {
 	# optimisations to be fast, as it may very likely be exposed to several
 	# thounsand BGP updates per seconds
 	# Although, we make it possible to deactivate it if wanted
-	# We force the value of the whole cflags var instead of only lto because of
-	# upstream commit 404e8261 (configure.ac: properly evaluate ac_test_CFLAGS)
 	use custom-cflags && myargs+=( bird_cflags_default=no ) || \
 		myargs+=( bird_cflags_default=yes )
 
@@ -67,16 +65,15 @@ src_install() {
 	dobin birdcl
 	dosbin bird
 
-	newinitd "${FILESDIR}/initd-${PN}-2" ${PN}
+	newinitd "${FILESDIR}/initd-${PN}-3" ${PN}
 	newconfd "${FILESDIR}/confd-${PN}-2" ${PN}
 
 	dodoc doc/bird.conf.example
 }
 
 pkg_postinst() {
-	if use filecaps; then
+	use filecaps && \
 		einfo "If you want to run bird as non-root, edit"
 		einfo "'${EROOT}/etc/conf.d/bird' and set BIRD_GROUP and BIRD_USER with"
 		einfo "the wanted username."
-	fi
 }

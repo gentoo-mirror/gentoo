@@ -1,9 +1,9 @@
-# Copyright 2020-2025 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit autotools fcaps
+inherit fcaps
 
 DESCRIPTION="A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 & IPv6"
 HOMEPAGE="https://bird.nic.cz/"
@@ -65,7 +65,7 @@ src_install() {
 	dobin birdcl
 	dosbin bird
 
-	newinitd "${FILESDIR}/initd-${PN}-2" ${PN}
+	newinitd "${FILESDIR}/initd-${PN}-3" ${PN}
 	newconfd "${FILESDIR}/confd-${PN}-2" ${PN}
 
 	dodoc doc/bird.conf.example
