@@ -1,4 +1,4 @@
-# Copyright 2020-2025 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -67,7 +67,7 @@ src_install() {
 	dobin birdcl
 	dosbin bird
 
-	newinitd "${FILESDIR}/initd-${PN}-2" ${PN}
+	newinitd "${FILESDIR}/initd-${PN}-3" ${PN}
 	newconfd "${FILESDIR}/confd-${PN}-2" ${PN}
 
 	dodoc doc/bird.conf.example
