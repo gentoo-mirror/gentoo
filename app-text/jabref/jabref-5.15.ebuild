@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -35,6 +35,7 @@ BDEPEND="
 PATCHES=(
 	"${DISTDIR}/${P}-fix-11517.patch"
 	"${DISTDIR}/${P}-fix-11544.patch"
+	"${FILESDIR}/${P}-gradle9-reporting.patch"
 )
 
 src_unpack() {
@@ -46,6 +47,9 @@ src_unpack() {
 
 src_compile() {
 	local -x JAVA_HOME="$(java-config --jdk-home || die)"
+	local -x HOME="${T}/home"
+	mkdir -p "${HOME}" || die
+	local -x JAVA_TOOL_OPTIONS="-Duser.home=${HOME}"
 	einfo "Using JAVA_HOME: ${JAVA_HOME}"
 
 	local GRADLE_ARGS=(
