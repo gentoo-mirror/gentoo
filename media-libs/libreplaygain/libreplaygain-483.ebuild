@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,15 +11,10 @@ inherit cmake
 DESCRIPTION="Replay Gain library from Musepack"
 HOMEPAGE="https://www.musepack.net/"
 SRC_URI="https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}.tar.xz"
+CMAKE_USE_DIR="${S}/src"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86"
 
-PATCHES=( "${FILESDIR}"/${P}-static-libs.patch )
-
-src_prepare() {
-	cmake_src_prepare
-
-	sed -i -e '/CMAKE_C_FLAGS/d' CMakeLists.txt || die
-}
+PATCHES=( "${FILESDIR}"/${P}-cmake.patch ) # bug 951680
