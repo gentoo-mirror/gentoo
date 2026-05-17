@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ppc ppc64 ~riscv ~s390 x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/click-8.0.0[${PYTHON_USEDEP}]
@@ -26,7 +26,7 @@ RDEPEND="
 	>=dev-python/packaging-22.0[${PYTHON_USEDEP}]
 	>=dev-python/pathspec-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-2[${PYTHON_USEDEP}]
-	>=dev-python/pytokens-0.3.0[${PYTHON_USEDEP}]
+	>=dev-python/pytokens-0.4.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/hatch-fancy-pypi-readme[${PYTHON_USEDEP}]
@@ -40,22 +40,6 @@ BDEPEND="
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-
-python_test() {
-	local EPYTEST_DESELECT=()
-
-	case ${EPYTHON} in
-		pypy3.11)
-			EPYTEST_DESELECT+=(
-				# https://github.com/psf/black/issues/4582
-				'tests/test_format.py::test_simple_format[backslash_before_indent]'
-				'tests/test_format.py::test_simple_format[form_feeds]'
-			)
-			;;
-	esac
-
-	epytest
-}
 
 pkg_postinst() {
 	optfeature "blackd - HTTP API for black" \
