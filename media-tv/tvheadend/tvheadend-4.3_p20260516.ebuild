@@ -1,21 +1,28 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-COMMIT="e855f62e6697cf756ad2eed2ed03b8d06ba2019b"
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit flag-o-matic linux-info python-single-r1 systemd toolchain-funcs
 
+if [[ ${PV} == *9999* ]]; then
+	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
+	inherit git-r3
+else
+	COMMIT="ca9a085a24b2517652e4ff8a91763aba907a6463"
+	SRC_URI="https://github.com/tvheadend/tvheadend/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${COMMIT}"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+fi
+
 DESCRIPTION="Tvheadend is a TV streaming server and digital video recorder"
 HOMEPAGE="https://tvheadend.org/"
-SRC_URI="https://github.com/tvheadend/tvheadend/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${COMMIT}"
+
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 x86"
-IUSE="dbus debug +ddci dvbcsa +dvb +ffmpeg hdhomerun +imagecache +inotify iptv opus satip systemd +timeshift uriparser vpx x264 x265 xmltv zeroconf zlib"
+IUSE="dbus debug +ddci dvbcsa +dvb +ffmpeg hdhomerun +imagecache +inotify iptv opus satip systemd +timeshift uriparser vaapi vpx x264 x265 xmltv zeroconf zlib"
 
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -54,6 +61,7 @@ DEPEND="
 		x264? ( media-libs/x264 )
 		x265? ( media-libs/x265 )
 	)
+	vaapi? ( media-libs/libva:= )
 "
 
 RDEPEND+="
@@ -128,6 +136,7 @@ src_configure() {
 		$(use_enable systemd libsystemd_daemon) \
 		$(use_enable timeshift) \
 		$(use_enable uriparser) \
+		$(use_enable vaapi) \
 		$(use_enable vpx libvpx) \
 		$(use_enable x264 libx264) \
 		$(use_enable x265 libx265) \
