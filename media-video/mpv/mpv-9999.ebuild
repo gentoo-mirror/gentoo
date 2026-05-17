@@ -21,11 +21,11 @@ HOMEPAGE="https://mpv.io/"
 LICENSE="LGPL-2.1+ GPL-2+ BSD ISC MIT" #506946
 SLOT="0/2" # soname
 IUSE="
-	+X +alsa aqua archive bluray cdda +cli coreaudio debug +drm dvb
-	dvd +egl gamepad +iconv jack javascript jpeg lcms libcaca +libmpv
-	+lua nvenc openal pipewire pulseaudio rubberband sdl selinux sixel
-	sndio soc subrandr test tools +uchardet vaapi vdpau +vulkan wayland
-	xv zimg zlib
+	+X +alsa aqua archive bluray cdda +cli coreaudio +curl debug +drm
+	dvb dvd +egl gamepad +iconv jack javascript jpeg lcms libcaca
+	+libmpv +lua nvenc openal pipewire pulseaudio rubberband sdl
+	selinux sixel sndio soc subrandr test tools +uchardet vaapi vdpau
+	+vulkan wayland xv zimg zlib
 "
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -63,6 +63,7 @@ COMMON_DEPEND="
 		dev-libs/libcdio-paranoia:=
 		dev-libs/libcdio:=
 	)
+	curl? ( net-misc/curl )
 	drm? (
 		media-libs/libdisplay-info:=
 		x11-libs/libdrm
@@ -165,6 +166,7 @@ src_configure() {
 		$(meson_feature bluray libbluray)
 		$(meson_feature cdda)
 		-Dcplugins=enabled
+		$(meson_feature curl libcurl)
 		$(meson_feature dvb dvbin)
 		$(meson_feature dvd dvdnav)
 		$(meson_feature gamepad sdl2-gamepad)
