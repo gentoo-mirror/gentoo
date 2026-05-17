@@ -12,6 +12,7 @@ SRC_URI="
 	https://downloads.sourceforge.net/zynaddsubfx/${P}.tar.bz2
 	https://downloads.sourceforge.net/zynaddsubfx/zyn-fusion-ui-src-${PV}.tar.bz2
 "
+S_ZYN_FUSION_UI="${WORKDIR}"/zyn-fusion-ui-src-${PV}
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -46,6 +47,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-docs.patch
 	"${FILESDIR}"/${P}-stdint.patch
 	"${FILESDIR}"/${P}-libzest_location.patch
+	"${FILESDIR}"/${P}-cmake4.patch # bug 957633, in git master
 )
 ZYN_FUSION_UI_PATCHES=(
 	"${FILESDIR}"/zyn-fusion-ui-${PV}-cflags_ldflags.patch
@@ -57,6 +59,19 @@ ZYN_FUSION_UI_PATCHES=(
 DOCS=( AUTHORS.txt NEWS.txt README.adoc )
 
 src_prepare() {
+	pushd DPF > /dev/null || die
+		eapply "${FILESDIR}"/${P}-DPF-cmake4.patch # bug 957633, in git master
+	popd > /dev/null || die
+
+	pushd rtosc > /dev/null || die
+		eapply "${FILESDIR}"/${P}-rtosc-cmake4.patch # bug 957633, in git master
+		eapply "${FILESDIR}"/${P}-fix-Wnonnull-warning.patch # in git master
+	popd > /dev/null || die
+
+	pushd "${S_ZYN_FUSION_UI}" > /dev/null || die
+		eapply "${ZYN_FUSION_UI_PATCHES[@]}"
+	popd > /dev/null || die
+
 	cmake_src_prepare
 
 	if ! use dssi; then
@@ -73,18 +88,15 @@ src_prepare() {
 	fi
 
 	# FIXME upstream: sandbox error
-	sed -i -e '/add_subdirectory(bash-completion)/d' doc/CMakeLists.txt || die
-
-	cd ../zyn-fusion-ui-src-${PV}
-	eapply "${ZYN_FUSION_UI_PATCHES[@]}"
+	cmake_comment_add_subdirectory -f doc bash-completion
 
 	sed -i "s|@GENTOO_LIBDIR@|$(get_libdir)|" \
-		"${S}/src/Plugin/ZynAddSubFX/ZynAddSubFX-UI-Zest.cpp" \
-		test-libversion.c || die
+		src/Plugin/ZynAddSubFX/ZynAddSubFX-UI-Zest.cpp \
+		"${S_ZYN_FUSION_UI}"/test-libversion.c || die
 
 	eprefixify \
-		"${S}/src/Plugin/ZynAddSubFX/ZynAddSubFX-UI-Zest.cpp" \
-		test-libversion.c
+		src/Plugin/ZynAddSubFX/ZynAddSubFX-UI-Zest.cpp \
+		"${S_ZYN_FUSION_UI}"/test-libversion.c
 }
 
 src_configure() {
@@ -106,19 +118,20 @@ src_compile() {
 	use doc && cmake_src_compile doc
 	emake \
 		LD="$(tc-getCC)" \
-		-C ../zyn-fusion-ui-src-${PV}
+		-C "${S_ZYN_FUSION_UI}"
 }
 
 src_install() {
 	use doc && local HTML_DOCS=( "${BUILD_DIR}"/doc/html/. )
 	cmake_src_install
 
-	cd ../zyn-fusion-ui-src-${PV}
-	newbin zest zyn-fusion
-	insinto /usr/$(get_libdir)/${PN}
-	doins libzest.so
-	insinto /usr/share/${PN}/qml
-	doins -r src/mruby-zest/{example,qml}/*.qml
-	insinto /usr/share/${PN}/schema
-	doins src/osc-bridge/schema/test.json
+	pushd "${S_ZYN_FUSION_UI}" > /dev/null || die
+		newbin zest zyn-fusion
+		insinto /usr/$(get_libdir)/${PN}
+		doins libzest.so
+		insinto /usr/share/${PN}/qml
+		doins -r src/mruby-zest/{example,qml}/*.qml
+		insinto /usr/share/${PN}/schema
+		doins src/osc-bridge/schema/test.json
+	popd > /dev/null || die
 }
