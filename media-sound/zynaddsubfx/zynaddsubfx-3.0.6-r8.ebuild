@@ -21,7 +21,7 @@ IUSE="+alsa doc dssi jack lash portaudio"
 REQUIRED_USE="|| ( alsa jack portaudio )"
 
 DEPEND="
-	dev-libs/mxml:0
+	dev-libs/mxml:4
 	media-libs/liblo
 	sci-libs/fftw:3.0
 	virtual/zlib:=
@@ -48,6 +48,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-stdint.patch
 	"${FILESDIR}"/${P}-libzest_location.patch
 	"${FILESDIR}"/${P}-cmake4.patch # bug 957633, in git master
+	"${FILESDIR}"/${P}-mxml4.patch # bug 930526, in git master
 )
 ZYN_FUSION_UI_PATCHES=(
 	"${FILESDIR}"/zyn-fusion-ui-${PV}-cflags_ldflags.patch

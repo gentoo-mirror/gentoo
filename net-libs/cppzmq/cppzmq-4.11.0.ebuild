@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,13 +25,15 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.9.0-disable-static.patch"
 )
 
+src_prepare() {
+	rm -r demo || die # unused directory causing bug 957453
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DCPPZMQ_CMAKECONFIG_INSTALL_DIR="/usr/$(get_libdir)/cmake/${PN}/"
 		-DCPPZMQ_BUILD_TESTS="$(usex test)"
 	)
-	if has_version -d '>=net-libs/zeromq-4.3.1[drafts]'; then
-		mycmakeargs+=( -DENABLE_DRAFTS=on )
-	fi
 	cmake_src_configure
 }
