@@ -4,7 +4,7 @@
 EAPI=8
 
 QTMIN=6.0.0
-inherit cmake java-pkg-2 optfeature toolchain-funcs xdg
+inherit branding cmake java-pkg-2 optfeature toolchain-funcs xdg
 
 DESCRIPTION="Custom, open source Minecraft launcher"
 HOMEPAGE="https://prismlauncher.org/ https://github.com/PrismLauncher/PrismLauncher"
@@ -86,7 +86,7 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX="/usr"
 		# Resulting binary is named prismlauncher
 		-DLauncher_APP_BINARY_NAME="${PN}"
-		-DLauncher_BUILD_PLATFORM="Gentoo"
+		-DLauncher_BUILD_PLATFORM="${BRANDING_OS_PRETTY_NAME}"
 		-DLauncher_QT_VERSION_MAJOR=6
 
 		-DENABLE_LTO=$(tc-is-lto)
