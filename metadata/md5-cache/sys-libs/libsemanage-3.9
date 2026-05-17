@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
 INHERIT=python-r1 toolchain-funcs multilib-minimal
 IUSE=python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~amd64 ~arm arm64 ~mips ~riscv x86
+KEYWORDS=amd64 arm arm64 ~mips ~riscv x86
 LICENSE=GPL-2
 RDEPEND=app-arch/bzip2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=sys-libs/libsepol-3.9:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=sys-libs/libselinux-3.9:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=sys-process/audit-2.2.2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
 REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
@@ -14,4 +14,4 @@ RESTRICT=test
 SLOT=0/2
 SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.9/libsemanage-3.9.tar.gz
 _eclasses_=out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	multilib	fc812e8eb2170022c28272d80a1f9e77	multilib-build	d7802b3638ffc661375c0021cdd19efd	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123
-_md5_=61886177dd7ac6f9e0812b863b3870c9
+_md5_=21d15a27e6fab775472e4a9b3f9fd017
