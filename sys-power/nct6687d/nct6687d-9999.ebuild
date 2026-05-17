@@ -11,6 +11,7 @@ if [[ ${PV} == 9999 ]] ; then
 else
 	COMMIT="cedda8bff09a4083e07414fb80fdc3901e7ab544"
 	SRC_URI="https://github.com/Fred78290/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/${PN}-${COMMIT}"
 	KEYWORDS="~amd64"
 fi
 
