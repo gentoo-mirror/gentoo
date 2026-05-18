@@ -39,7 +39,7 @@ RDEPEND="
 	gui? (
 		dev-libs/boost:=
 		x11-libs/wxGTK:${WX_GTK_VER}=[X]
-		geoip? ( dev-libs/geoip )
+		geoip? ( dev-libs/libmaxminddb )
 	)
 	nls? ( virtual/libintl )
 	remote? (

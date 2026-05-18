@@ -28,13 +28,13 @@ IUSE="ssh"
 # https://github.com/dbcli/mycli/issues/1464
 RDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/cli-helpers-2.12.0[${PYTHON_USEDEP}]
+		>=dev-python/cli-helpers-2.14.0[${PYTHON_USEDEP}]
 		>=dev-python/click-8.3.1[${PYTHON_USEDEP}]
 		>=dev-python/clickdc-0.1.1[${PYTHON_USEDEP}]
 		>=dev-python/configobj-5.0.9[${PYTHON_USEDEP}]
 		>=dev-python/cryptography-46.0.5[${PYTHON_USEDEP}]
 		>=dev-python/keyring-25.7.0[${PYTHON_USEDEP}]
-		>=dev-python/prompt-toolkit-3.0.6[${PYTHON_USEDEP}]
+		>=dev-python/prompt-toolkit-3.0.41[${PYTHON_USEDEP}]
 		<dev-python/prompt-toolkit-4.0.0[${PYTHON_USEDEP}]
 		>=dev-python/pycryptodome-3.23.0[${PYTHON_USEDEP}]
 		>=dev-python/pyfzf-0.3.1[${PYTHON_USEDEP}]

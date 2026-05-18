@@ -92,6 +92,8 @@ src_test() {
 		tests/test_functional_sorting.py
 	)
 	local EPYTEST_DESELECT=(
+		# bug #973599
+		'tests/test_downloader.py::TestConnectionStateMachine::test_failed_connect_allows_retry'
 		# network sandbox
 		'tests/test_cfg.py::TestValidators::test_validate_host'
 		'tests/test_consistency.py::TestWiki'
