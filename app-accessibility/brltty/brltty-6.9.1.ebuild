@@ -226,7 +226,8 @@ src_install() {
 	use ocaml && findlib_src_preinst
 
 	# install-extras for locales, metainfo, polkit rules, systemd-files, udev rules
-	emake INSTALL_ROOT="${D}" OCAML_LDCONF= install install-extras
+	# restrict jobs for #973624
+	emake -j1 INSTALL_ROOT="${D}" OCAML_LDCONF= install install-extras
 
 	use emacs && elisp-install ${PN} Bindings/Emacs/add_directory.el{,c}
 
