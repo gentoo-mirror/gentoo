@@ -31,11 +31,11 @@ index 9ce9aae..a738314 100644
  
 -install(TARGETS replaygain-static replaygain-shared LIBRARY DESTINATION "lib${LIB_SUFFIX}" ARCHIVE DESTINATION "lib${LIB_SUFFIX}" COMPONENT libraries)
 +if(BUILD_SHARED_LIBS)
-+    add_library(replaygain-shared SHARED ../include/replaygain/gain_analysis.h)
++    add_library(replaygain-shared SHARED gain_analysis.c)
 +    set_target_properties(replaygain-shared PROPERTIES OUTPUT_NAME replaygain CLEAN_DIRECT_OUTPUT 1 VERSION 1.0.0 SOVERSION 1 LINKER_LANGUAGE C)
 +    install(TARGETS replaygain-shared LIBRARY DESTINATION "lib${LIB_SUFFIX}" ARCHIVE DESTINATION "lib${LIB_SUFFIX}" COMPONENT libraries)
 +else()
-+    add_library(replaygain-static STATIC ../include/replaygain/gain_analysis.h)
++    add_library(replaygain-static STATIC gain_analysis.c)
 +    set_target_properties(replaygain-static PROPERTIES OUTPUT_NAME replaygain CLEAN_DIRECT_OUTPUT 1 LINKER_LANGUAGE C)
 +    install(TARGETS replaygain-static LIBRARY DESTINATION "lib${LIB_SUFFIX}" ARCHIVE DESTINATION "lib${LIB_SUFFIX}" COMPONENT libraries)
 +endif()
