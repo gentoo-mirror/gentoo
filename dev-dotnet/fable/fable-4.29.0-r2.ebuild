@@ -128,6 +128,10 @@ SRC_URI+="
 LICENSE="Apache-2.0 MIT"
 SLOT="0"
 
+BDEPEND="
+	app-arch/unzip
+"
+
 CHECKREQS_DISK_BUILD="2G"
 DOTNET_PKG_PROJECTS=(
 	src/Fable.Cli/Fable.Cli.fsproj
