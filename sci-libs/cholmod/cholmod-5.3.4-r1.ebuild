@@ -3,22 +3,23 @@
 
 EAPI=8
 
-inherit cmake toolchain-funcs
-
 Sparse_PV="7.12.2"
 Sparse_P="SuiteSparse-${Sparse_PV}"
+inherit cmake toolchain-funcs
+
 DESCRIPTION="Sparse Cholesky factorization and update/downdate library"
 HOMEPAGE="https://people.engr.tamu.edu/davis/suitesparse.html"
 SRC_URI="https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v${Sparse_PV}.tar.gz -> ${Sparse_P}.gh.tar.gz"
-
 S="${WORKDIR}/${Sparse_P}/${PN^^}"
+
 LICENSE="LGPL-2.1+ modify? ( GPL-2+ ) matrixops? ( GPL-2+ )"
 SLOT="0/5"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="+cholesky cuda doc openmp +matrixops +modify +partition +supernodal test"
 RESTRICT="!test? ( test )"
 
-DEPEND=">=sci-libs/suitesparseconfig-${Sparse_PV}
+DEPEND="
+	>=sci-libs/suitesparseconfig-${Sparse_PV}
 	>=sci-libs/amd-3.3.4
 	>=sci-libs/colamd-3.3.5
 	supernodal? ( virtual/lapack )
@@ -36,6 +37,8 @@ BDEPEND="doc? ( virtual/latex-base )"
 REQUIRED_USE="supernodal? ( cholesky )
 	modify? ( cholesky )
 	test? ( cholesky matrixops supernodal )"
+
+PATCHES=( "${FILESDIR}"/${P}-{metis,gklib}-cmake4.patch ) # bug 957609
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
