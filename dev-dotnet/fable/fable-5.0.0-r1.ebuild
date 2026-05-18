@@ -5,12 +5,11 @@ EAPI=8
 
 DOTNET_PKG_COMPAT="10.0"
 NUGETS="
-altcover@5.3.675
 blackfox.commandline@1.0.0
-easybuild.packagereleasenotes.tasks@2.0.0
-easybuild.tools@4.1.0
-expecto@10.2.1
-fable.ast@4.2.1
+easybuild.packagereleasenotes.tasks@2.1.0
+easybuild.tools@7.0.0
+expecto@10.2.3
+fable.ast@5.0.0-rc.3
 fable.browser.blob@1.1.4
 fable.browser.dom@2.4.4
 fable.browser.event@1.4.4
@@ -24,63 +23,70 @@ fable.jester@0.33.0
 fable.jsonprovider@1.1.1
 fable.node@1.0.2
 fable.promise@2.2.2
-fable.python@4.6.1
+fable.python@4.24.0
 fable.react.types@18.3.0
+fable.react.types@18.4.0
 fable.react@9.4.0
 fable.reactdom.types@18.2.0
 fable.reacttestinglibrary@0.33.0
-fake.core.context@6.1.3
-fake.core.environment@6.1.3
-fake.core.fakevar@6.1.3
-fake.core.string@6.1.3
-fake.core.trace@6.1.3
-fake.io.filesystem@6.1.3
-feliz.compilerplugins@2.2.0
-feliz@2.9.0
+fake.core.context@6.1.4
+fake.core.environment@6.1.4
+fake.core.fakevar@6.1.4
+fake.core.string@6.1.4
+fake.core.trace@6.1.4
+fake.io.filesystem@6.1.4
+feliz.compilerplugins@3.1.0
+feliz@3.2.0
 fsharp.analyzers.build@0.5.0
-fsharp.analyzers.sdk@0.34.1
-fsharp.compiler.service@43.10.100
-fsharp.core@10.0.102
+fsharp.analyzers.sdk@0.36.0
+fsharp.compiler.service@43.10.101
+fsharp.core@10.0.107
 fsharp.core@4.7.0
 fsharp.core@4.7.2
 fsharp.core@6.0.2
 fsharp.core@7.0.200
-fsharp.data.adaptive@1.2.18
+fsharp.data.adaptive@1.2.26
 fsharp.systemtextjson@1.4.36
 fsharp.umx@1.1.0
-fstoolkit.errorhandling@4.18.0
-g-research.fsharp.analyzers@0.20.0
-ionide.analyzers@0.14.10
+fstoolkit.errorhandling@5.2.0
+g-research.fsharp.analyzers@0.22.0
+ionide.analyzers@0.15.0
 mcmaster.netcore.plugins@2.0.0
-microsoft.build.tasks.git@8.0.0
-microsoft.codecoverage@18.0.1
-microsoft.extensions.configuration.abstractions@10.0.0
-microsoft.extensions.configuration.binder@10.0.0
-microsoft.extensions.configuration@10.0.0
-microsoft.extensions.dependencyinjection.abstractions@10.0.0
-microsoft.extensions.dependencyinjection@10.0.0
-microsoft.extensions.logging.abstractions@10.0.0
+microsoft.build.tasks.git@10.0.202
+microsoft.codecoverage@18.4.0
+microsoft.extensions.configuration.abstractions@10.0.6
+microsoft.extensions.configuration.binder@10.0.6
+microsoft.extensions.configuration@10.0.6
+microsoft.extensions.dependencyinjection.abstractions@10.0.6
+microsoft.extensions.dependencyinjection@10.0.6
+microsoft.extensions.filesystemglobbing@10.0.6
+microsoft.extensions.logging.abstractions@10.0.6
 microsoft.extensions.logging.abstractions@6.0.0
-microsoft.extensions.logging.configuration@10.0.0
-microsoft.extensions.logging.console@10.0.0
-microsoft.extensions.logging@10.0.0
-microsoft.extensions.options.configurationextensions@10.0.0
-microsoft.extensions.options@10.0.0
-microsoft.extensions.primitives@10.0.0
+microsoft.extensions.logging.configuration@10.0.6
+microsoft.extensions.logging.console@10.0.6
+microsoft.extensions.logging@10.0.6
+microsoft.extensions.options.configurationextensions@10.0.6
+microsoft.extensions.options@10.0.6
+microsoft.extensions.primitives@10.0.6
 microsoft.extensions.primitives@5.0.1
-microsoft.net.test.sdk@18.0.1
+microsoft.net.test.sdk@18.4.0
 microsoft.netcore.platforms@1.1.0
-microsoft.sourcelink.common@8.0.0
-microsoft.sourcelink.github@8.0.0
-microsoft.testplatform.objectmodel@18.0.1
-microsoft.testplatform.testhost@18.0.1
+microsoft.sourcelink.common@10.0.202
+microsoft.sourcelink.github@10.0.202
+microsoft.testplatform.objectmodel@18.4.0
+microsoft.testplatform.testhost@18.4.0
 mono.cecil@0.11.4
 netstandard.library@2.0.3
 newtonsoft.json@13.0.1
 newtonsoft.json@13.0.3
 semver@3.0.0
-simpleexec@12.0.0
+simpleexec@13.0.0
 source-map-sharp@1.0.9
+system.buffers@4.6.1
+system.io.hashing@10.0.6
+system.memory@4.6.3
+system.numerics.vectors@4.6.1
+system.runtime.compilerservices.unsafe@6.1.2
 thoth.json.core@0.7.0
 thoth.json.net@12.0.0
 thoth.json.python@0.5.1
@@ -109,10 +115,21 @@ else
 		-> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${P^}"
 
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
+
+# Fable has support for many languages but it needs to "build" API
+# support files. Those make no sense to compile because they require a
+# lot of effort to "build". We use the ones shipped in the "binary"
+# Nuget package built by upstream. Good to mention that those are
+# actually not real binaries.
+# See also: the "src_install" phase of this package.
+SRC_URI+="
+	https://api.nuget.org/v3-flatcontainer/${PN}/${PV}/${PN}.${PV}.nupkg
+		-> ${P}.nuget.prebuilt.zip
+"
 
 LICENSE="Apache-2.0 MIT"
 SLOT="0"
@@ -141,6 +158,7 @@ src_unpack() {
 }
 
 src_prepare() {
+	find "${WORKDIR}" -type f -iname "*sh" -exec chmod +x {} + || die
 	rm ./Fable.Standalone.sln || die
 
 	if use debug ; then
@@ -151,4 +169,9 @@ src_prepare() {
 	fi
 
 	dotnet-pkg_src_prepare
+}
+
+src_install() {
+	dotnet-pkg_src_install
+	cp -r "${WORKDIR}"/fable-library-* "${ED}/usr/share/${P}" || die
 }

@@ -1,11 +1,12 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 DESCRIPTION="Reference implementation of the Development Containers specification"
 HOMEPAGE="https://containers.dev/
-	https://github.com/devcontainers/cli/"
+	https://github.com/devcontainers/cli/
+	https://registry.npmjs.org/@devcontainers/cli/"
 
 SRC_URI="https://registry.npmjs.org/@devcontainers/cli/-/cli-${PV}.tgz
 	-> ${P}.npm.tgz"
@@ -31,14 +32,14 @@ src_compile() {
 
 src_install() {
 	local -a my_npm_opts=(
-		--audit false
-		--color false
+		--prefix="${ED}/usr"
+		--omit="dev"
+		--audit="false"
+		--color="false"
+		--progress="false"
 		--foreground-scripts
 		--global
 		--offline
-		--omit dev
-		--prefix "${ED}/usr"
-		--progress false
 		--verbose
 	)
 	npm "${my_npm_opts[@]}" install "${DISTDIR}/${P}.npm.tgz" || die "npm install failed"
