@@ -133,6 +133,8 @@ DEPEND="${RDEPEND}
 	zeromq? ( net-libs/cppzmq )
 "
 
+PATCHES=( "${FILESDIR}/${P}-boost-1.89.patch" ) # bug 969063
+
 src_prepare() {
 	xdg_environment_reset #534582
 
@@ -183,6 +185,8 @@ src_configure() {
 		-DGR_PKG_DOC_DIR="${EPREFIX}/usr/share/doc/${PF}"
 		-DMATHJAX2_ROOT="${EPREFIX}/usr/share/mathjax"
 	)
+	# replace -DSYSCONFDIR in 3.10.13.0
+	#-DGR_CONF_DIR="${EPREFIX}"/etc
 	cmake_src_configure
 }
 
