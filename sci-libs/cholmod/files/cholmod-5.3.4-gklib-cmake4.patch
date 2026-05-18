@@ -5,13 +5,13 @@ Subject: [PATCH] Raise minimum CMake version to 3.10
 
 Signed-off-by: Andreas Sturmlechner <asturm@gentoo.org>
 ---
- CHOLMOD/SuiteSparse_metis/GKlib/CMakeLists.txt | 2 +-
+ SuiteSparse_metis/GKlib/CMakeLists.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/CHOLMOD/SuiteSparse_metis/GKlib/CMakeLists.txt b/CHOLMOD/SuiteSparse_metis/GKlib/CMakeLists.txt
+diff --git a/SuiteSparse_metis/GKlib/CMakeLists.txt b/SuiteSparse_metis/GKlib/CMakeLists.txt
 index 9cd1b4b..f15507f 100644
---- a/CHOLMOD/SuiteSparse_metis/GKlib/CMakeLists.txt
-+++ b/CHOLMOD/SuiteSparse_metis/GKlib/CMakeLists.txt
+--- a/SuiteSparse_metis/GKlib/CMakeLists.txt
++++ b/SuiteSparse_metis/GKlib/CMakeLists.txt
 @@ -1,4 +1,4 @@
 -cmake_minimum_required(VERSION 2.8)
 +cmake_minimum_required(VERSION 3.10)
