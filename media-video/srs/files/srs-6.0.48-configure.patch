@@ -1,0 +1,86 @@
+--- a/auto/depends.sh	2026-05-17 23:01:03.161690035 +0200
++++ b/auto/depends.sh	2026-05-17 23:02:36.192627760 +0200
+@@ -286,13 +286,6 @@
+     echo "The state-threads is ok."
+ else
+     echo "Building state-threads." &&
+-    rm -rf ${SRS_OBJS}/${SRS_PLATFORM}/st-srs ${SRS_OBJS}/${SRS_PLATFORM}/3rdpatry/st ${SRS_OBJS}/st &&
+-    cp -rf ${SRS_WORKDIR}/3rdparty/st-srs ${SRS_OBJS}/${SRS_PLATFORM}/ &&
+-    env EXTRA_CFLAGS="${_ST_EXTRA_CFLAGS}" make -C ${SRS_OBJS}/${SRS_PLATFORM}/st-srs ${_ST_MAKE_ARGS} &&
+-    mkdir -p ${SRS_OBJS}/${SRS_PLATFORM}/3rdpatry/st &&
+-    cp -f ${SRS_OBJS}/${SRS_PLATFORM}/st-srs/${_ST_OBJ}/st.h ${SRS_OBJS}/${SRS_PLATFORM}/3rdpatry/st/ &&
+-    cp -f ${SRS_OBJS}/${SRS_PLATFORM}/st-srs/${_ST_OBJ}/libst.a ${SRS_OBJS}/${SRS_PLATFORM}/3rdpatry/st/ &&
+-    cp -rf ${SRS_OBJS}/${SRS_PLATFORM}/3rdpatry/st ${SRS_OBJS}/ &&
+     echo "The state-threads is ok."
+ fi
+ # check status
+@@ -711,33 +704,6 @@
+         SRT_COMPILER_PREFIX=$(echo $TOOL_GCC_REALPATH |sed 's/-gcc.*$/-/')
+         LIBSRT_OPTIONS="$LIBSRT_OPTIONS --with-compiler-prefix=$SRT_COMPILER_PREFIX"
+     fi
+-
+-    if [[ -f ${SRS_OBJS}/${SRS_PLATFORM}/3rdpatry/srt/lib/libsrt.a ]]; then
+-        rm -rf ${SRS_OBJS}/srt && cp -rf ${SRS_OBJS}/${SRS_PLATFORM}/3rdpatry/srt ${SRS_OBJS}/ &&
+-        echo "libsrt-1-fit is ok."
+-    else
+-        if [[ ! -d ${SRS_OBJS}/openssl/lib/pkgconfig ]]; then
+-            echo "OpenSSL pkgconfig no found, build srt-1-fit failed."
+-            exit -1
+-        fi
+-        echo "Build srt-1-fit" &&
+-        rm -rf ${SRS_OBJS}/${SRS_PLATFORM}/srt-1-fit ${SRS_OBJS}/${SRS_PLATFORM}/3rdpatry/srt ${SRS_OBJS}/srt &&
+-        cp -rf ${SRS_WORKDIR}/3rdparty/srt-1-fit ${SRS_OBJS}/${SRS_PLATFORM}/ &&
+-        (
+-            cd ${SRS_OBJS}/${SRS_PLATFORM}/srt-1-fit &&
+-            env PKG_CONFIG_PATH=${SRS_DEPENDS_LIBS}/openssl/lib/pkgconfig \
+-                ./configure --prefix=${SRS_DEPENDS_LIBS}/${SRS_PLATFORM}/3rdpatry/srt $LIBSRT_OPTIONS
+-        ) &&
+-        make -C ${SRS_OBJS}/${SRS_PLATFORM}/srt-1-fit ${SRS_JOBS} &&
+-        make -C ${SRS_OBJS}/${SRS_PLATFORM}/srt-1-fit install &&
+-        # If exists lib64 of libsrt, copy it to lib
+-        if [[ -d ${SRS_OBJS}/${SRS_PLATFORM}/3rdpatry/srt/lib64 ]]; then
+-            cp -rf ${SRS_OBJS}/${SRS_PLATFORM}/3rdpatry/srt/lib64 ${SRS_OBJS}/${SRS_PLATFORM}/3rdpatry/srt/lib
+-        fi &&
+-        cp -rf ${SRS_OBJS}/${SRS_PLATFORM}/3rdpatry/srt ${SRS_OBJS}/ &&
+-        echo "libsrt-1-fit is ok."
+-    fi
+-    ret=$?; if [[ $ret -ne 0 ]]; then echo "Build srt-1-fit failed, ret=$ret"; exit $ret; fi
+ fi
+ 
+ #####################################################################################
+--- a/auto/options.sh	2026-05-18 12:13:34.171025374 +0200
++++ b/auto/options.sh	2026-05-18 12:14:12.528600420 +0200
+@@ -522,13 +522,6 @@
+         SRS_FFMPEG_OPUS=YES
+     fi
+ 
+-    # Enable asan, but disable for Centos
+-    # @see https://github.com/ossrs/srs/issues/3347
+-    if [[ $SRS_SANITIZER == NO && $OS_IS_CENTOS != YES ]]; then
+-        echo "Enable asan by auto options."
+-        SRS_SANITIZER=YES
+-    fi
+-
+     # If enable gperf, disable sanitizer.
+     if [[ $SRS_GPERF == YES && $SRS_SANITIZER == YES ]]; then
+         echo "Disable sanitizer for gperf"
+--- a/3rdparty/st-srs/Makefile	2026-05-18 13:08:03.167341955 +0200
++++ b/3rdparty/st-srs/Makefile	2026-05-18 13:08:29.674043565 +0200
+@@ -135,7 +135,6 @@
+ OTHER_FLAGS += -O2
+ else
+ OTHER_FLAGS += -g -O0
+-DEFINES     += -DDEBUG
+ endif
+ 
+ ##########################
+--- a/configure	2026-05-18 13:08:15.814199594 +0200
++++ b/configure	2026-05-18 13:08:29.675043554 +0200
+@@ -86,7 +86,6 @@
+ #####################################################################################
+ # build tools or compiler args.
+ # enable gdb debug
+-GDBDebug=" -g -O0"
+ # the warning level.
+ WarnLevel=" -Wall"
+ # the compile standard.
