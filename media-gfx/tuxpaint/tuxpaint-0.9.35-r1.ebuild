@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -12,7 +12,7 @@ S="${WORKDIR}"/${P}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 
 RDEPEND="
 	app-text/libpaper:=
@@ -39,24 +39,26 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${P}-Makefile.patch
+	"${FILESDIR}"/${P}-glibc-2.43.patch
+	"${FILESDIR}"/${P}-rgblinear.patch
 )
 
 src_compile() {
-	emake CC="$(tc-getCC)" GENTOO_LIBDIR="$(get_libdir)"
+	emake CC="$(tc-getCC)" GENTOO_LIBDIR="$(get_libdir)" PF="${PF}"
 }
 
 src_install() {
-	emake DESTDIR="${D}" GENTOO_LIBDIR="$(get_libdir)" install
+	emake DESTDIR="${D}" DOC_PREFIX="${ED}/usr/share/doc/${PF}" GENTOO_LIBDIR="$(get_libdir)" install
+
 	local file size
 	for file in data/images/icon[0-9]*x[0-9]*.png; do
 		size=${file##*/icon}
 		size=${size%%x*}
 		newicon -s "${size}" "${file}" tux4kids-tuxpaint.png
 	done
+
 	newmenu src/tuxpaint.desktop tux4kids-tuxpaint.desktop
-	docinto /usr/share/doc/${PF}
-	dodoc docs/*.txt
-	dodoc docs/en/*.txt
+	dodoc docs/*.txt docs/en/*.txt
 }
 
 pkg_postinst() {

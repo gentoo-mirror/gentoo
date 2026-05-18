@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 EPYTEST_XDIST=1
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -14,7 +14,7 @@ HOMEPAGE="https://wummel.github.io/patool/"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
 	test? (
@@ -103,15 +103,6 @@ python_prepare_all() {
 	sed -e 's/setuptools-reproducible/setuptools/' \
 		-e 's/setuptools_reproducible/setuptools.build_meta/' \
 		-i pyproject.toml || die
-
-	# Workaround setuptools-reproducible setting file stamps to invalid dates.
-	# bug #958470
-	#
-	# Test fails because the timestamp of the zip archive is before 1980.
-	# This is due to the timestamps getting reset to the unix epoch in
-	# the unpacked tar archive.
-	# ValueError: ZIP does not support timestamps before 1980
-	find tests/data/ -exec touch {} + || die
 }
 
 python_install_all() {
