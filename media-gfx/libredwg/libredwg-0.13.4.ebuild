@@ -1,9 +1,9 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 DOCS_BUILDER="doxygen"
 # File is hardcoded to be run from ../ so we use this instead of DOCS_DIR
 DOCS_CONFIG_NAME="doc/Doxyfile"
@@ -23,11 +23,11 @@ LICENSE="GPL-3+ MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# https://github.com/LibreDWG/libredwg/issues/342
-RESTRICT="test"
-
 IUSE="debug python perl static-libs"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+
+# https://github.com/LibreDWG/libredwg/issues/342
+RESTRICT="test"
 
 RDEPEND="
 	python? ( ${PYTHON_DEPS} )
@@ -106,9 +106,6 @@ src_install() {
 	use python && python_optimize
 	# remove .la files if static-libs disabled
 	if ! use static-libs; then
-		rm "${ED}/usr/$(get_libdir)/libredwg.la" || die
-		if use python; then
-			rm "${D}/$(python_get_sitedir)/_LibreDWG.la" || die
-		fi
+		find "${ED}" -name '*.la' -delete || die
 	fi
 }
