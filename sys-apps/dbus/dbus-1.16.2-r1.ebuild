@@ -70,7 +70,7 @@ PATCHES=(
 )
 
 pkg_setup() {
-	# Python interpeter required unconditionally (bug #932517)
+	# Python interpreter required unconditionally (bug #932517)
 	python-any-r1_pkg_setup
 
 	if use kernel_linux; then
@@ -151,7 +151,6 @@ multilib_src_test() {
 	# DBUS_TEST_MALLOC_FAILURES=0 to avoid huge test logs
 	# https://gitlab.freedesktop.org/dbus/dbus/-/blob/master/CONTRIBUTING.md#L231
 	DBUS_TEST_MALLOC_FAILURES=0 DBUS_VERBOSE=1 virtx meson_src_test
-
 }
 
 multilib_src_install_all() {
