@@ -1,7 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
+# Looking for Qt 6? It is packaged differently to Qt 5 with different
+# package names: https://wiki.gentoo.org/wiki/Project:Qt/Qt6_migration_notes
 
 if [[ ${PV} != *9999* ]]; then
 	QT5_KDEPATCHSET_REV=1
