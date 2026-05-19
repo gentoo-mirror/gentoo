@@ -3,9 +3,9 @@
 
 EAPI=8
 
-inherit unpacker eapi9-ver
+inherit eapi9-ver unpacker
 
-DESCRIPTION="A collection of tools and scripts"
+DESCRIPTION="Collection of tools and scripts"
 HOMEPAGE="https://inai.de/projects/hxtools/"
 SRC_URI="https://inai.de/files/${PN}/${P}.tar.zst"
 
@@ -14,15 +14,15 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 
 RDEPEND="
+	dev-lang/perl
 	>=sys-apps/pciutils-3
 	>=sys-apps/util-linux-2.19
-	>=sys-libs/libhx-5.1:=
-	dev-lang/perl
 	sys-libs/libcap:=
-	x11-libs/libxcb:0=
+	>=sys-libs/libhx-5.1:=
+	x11-libs/libxcb:=
 "
 DEPEND="${RDEPEND}"
-BDEPEND="${RDEPEND}
+BDEPEND="
 	$(unpacker_src_uri_depends)
 	virtual/pkgconfig
 "
