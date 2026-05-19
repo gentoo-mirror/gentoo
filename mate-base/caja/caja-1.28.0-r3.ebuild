@@ -5,7 +5,7 @@ EAPI=8
 
 MATE_LA_PUNT="yes"
 
-inherit flag-o-matic mate
+inherit flag-o-matic mate virtualx
 
 MINOR=$(($(ver_cut 2) % 2))
 if [[ ${MINOR} -eq 0 ]]; then
@@ -90,7 +90,7 @@ src_test() {
 	unset SESSION_MANAGER
 	unset DBUS_SESSION_BUS_ADDRESS
 
-	Xemake check || die "Test phase failed"
+	virtx emake check || die "Test phase failed"
 }
 
 pkg_postinst() {
