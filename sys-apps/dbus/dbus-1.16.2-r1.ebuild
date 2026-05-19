@@ -70,7 +70,7 @@ PATCHES=(
 )
 
 pkg_setup() {
-	# Python interpeter required unconditionally (bug #932517)
+	# Python interpreter required unconditionally (bug #932517)
 	python-any-r1_pkg_setup
 
 	if use kernel_linux; then
