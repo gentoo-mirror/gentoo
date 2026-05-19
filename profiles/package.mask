@@ -311,66 +311,6 @@ dev-python/tempest
 # Removal on 2026-05-30.
 net-misc/x2goclient
 
-# Michał Górny <mgorny@gentoo.org> (2026-04-11)
-# NIH general purpose library.  Tests are failing.  No revdeps.
-# Removal on 2026-05-11.  Bug #942586.
-dev-python/pockets
-
-# Michał Górny <mgorny@gentoo.org> (2026-04-11)
-# dev-python/flask-sqlalchemy is unmaintained upstream, and has tons
-# of test failures with modern dev-python/sqlalchemy versions.
-# net-mail/automx2 has no Gentoo maintainer, and is its only revdep.
-# Removal on 2026-05-11.  Bug #972541.
-acct-group/automx2
-acct-user/automx2
-dev-python/flask-migrate
-dev-python/flask-sqlalchemy
-net-mail/automx2
-
-# Ulrich Müller <ulm@gentoo.org> (2026-04-09)
-# No longer serves any purpose. The mail desktop files are installed
-# by >=app-emacs/emacs-common-1.14 for all GNU Emacs (USE=gui) users.
-# Removal on 2026-05-09. Bug #972459.
-x11-misc/emacs-desktop-mail
-
-# Michał Górny <mgorny@gentoo.org> (2026-04-07)
-# This version had a mindless runtime dependency check that caused
-# importing requests to print warnings that broke random stuff.
-=dev-python/requests-2.32.5
-
-# Sam James <sam@gentoo.org> (2026-04-06)
-# These versions dropped testtools.tests.* which are used by reverse
-# dependencies like dev-python/python-subunit.
-=dev-python/testtools-2.8.0
-=dev-python/testtools-2.8.2
-=dev-python/testtools-2.8.3
-
-# Michał Górny <mgorny@gentoo.org> (2026-04-05)
-# Needed only by old versions of dev-python/sigstore, along with a bunch
-# of NIH dependencies.
-# Removal on 2026-05-05.  Bug #972007.
-dev-python/betterproto
-dev-python/grpclib
-dev-python/sigstore-protobuf-specs
-
-# Michał Górny <mgorny@gentoo.org> (2026-04-04)
-# Complex high churn package.  It got (incompatibly) renamed
-# to "NumKong" upstream.  No reverse dependencies.
-# Removal on 2026-05-04.  Bug #972000.
-dev-python/simsimd
-
-# Michał Górny <mgorny@gentoo.org> (2026-04-04)
-# NIH dependency for the removed spdx-tools package.  No revdeps.
-# Removal on 2026-05-04.  Bug #971998.
-dev-python/uritools
-
-# Michał Górny <mgorny@gentoo.org> (2026-04-04)
-# Setuptools extension that's not really useful.  The only revdep used
-# to be dev-python/trove-classifiers but we had to workaround it due to
-# cyclic dependencies.
-# Removal on 2026-05-04.  Bug #971991.
-dev-python/calver
-
 # Sam James <sam@gentoo.org> (2026-03-30)
 # >=1.7.0 is an LLM-driven revamp of the project.
 >=sys-fs/quotatool-1.7.0
@@ -403,13 +343,6 @@ dev-python/calver
 >dev-perl/XML-Parser-2.470.1
 >dev-perl/XString-0.5.0
 >dev-perl/YAML-Syck-1.360.0
-
-# Jakov Smolić <jsmolic@gentoo.org> (2026-03-13)
-# sqlite-3.52.0 has been withdrawn shortly after its release due to
-# backwards-compatibility issues
-# https://sqlite.org/releaselog/3_52_0.html
-=dev-db/sqlite-3.52.0-r1
-=dev-python/apsw-3.52.0.0
 
 # Alfredo Tupone <tupone@gentoo.org> (2026-03-05)
 # Need more testing
@@ -534,11 +467,6 @@ virtual/perl-Unicode-Normalize
 # Alfred Wingate <parona@protonmail.com> (2025-05-17)
 # Masked for testing
 dev-db/mysql:8.4
-
-# Michał Górny <mgorny@gentoo.org> (2025-04-19)
-# This package will no longer feature stable keywords, due to unresolved
-# test failures blocking the stabilization request for months.
-<dev-python/mpi4py-4
 
 # Norbert Norbiros <norbiros@protonmail.com> (2025-04-01)
 # Screen v5.0.0 has a lot of regressions
