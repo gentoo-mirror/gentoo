@@ -33,6 +33,7 @@ RDEPEND="
 	lzo? ( dev-libs/lzo:2= )
 	sqlite? ( dev-db/sqlite:3= )
 	ermt? ( dev-libs/openssl:0= )
+	selinux? ( sys-libs/libselinux )
 	ssl? ( dev-libs/openssl:0= )
 	readline? (
 		sys-libs/readline:0=
