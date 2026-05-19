@@ -53,7 +53,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.2.3_p20210128-fix-enable-python.patch"
-	"${FILESDIR}/${PN}-0.2.6-boost-1.89.patch" # bug #969160
+	"${FILESDIR}/${P}-boost-1.89.patch" # bug #969160
 )
 
 src_configure() {
