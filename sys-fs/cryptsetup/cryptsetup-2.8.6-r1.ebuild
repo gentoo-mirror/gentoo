@@ -103,6 +103,8 @@ src_prepare() {
 }
 
 src_configure() {
+	# configure may search for libselinux but it seems to only be for
+	# statically linking lvm2
 	local myeconfargs=(
 		--disable-internal-argon2
 		--disable-asciidoc
