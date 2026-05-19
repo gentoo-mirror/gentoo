@@ -22,7 +22,10 @@ RDEPEND="
 	sys-libs/pam[audit?]
 	virtual/libcrypt:=
 "
-DEPEND="${RDEPEND}"
+DEPEND="
+	${RDEPEND}
+	audit? ( sys-process/audit )
+"
 BDEPEND="verify-sig? ( sec-keys/openpgp-keys-openwall )"
 
 QA_FLAGS_IGNORED="
