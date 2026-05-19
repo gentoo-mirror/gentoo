@@ -3,9 +3,9 @@
 
 EAPI=8
 
-inherit unpacker optfeature
+inherit optfeature unpacker
 
-DESCRIPTION="Set of utilities for manipulating terminal fonts and colors."
+DESCRIPTION="Set of utilities for manipulating terminal fonts and colors"
 HOMEPAGE="https://inai.de/projects/consoleet/"
 SRC_URI="https://inai.de/files/consoleet/${P}.tar.zst"
 
@@ -14,14 +14,14 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	!<dev-util/hxtools-20251011
 	>=media-libs/babl-0.1
 	dev-cpp/eigen:3
-	>=sys-libs/libhx-4.28:=
 	dev-lang/perl
-	!<dev-util/hxtools-20251011
+	>=sys-libs/libhx-4.28:=
 "
 DEPEND="${RDEPEND}"
-BDEPEND="${RDEPEND}
+BDEPEND="
 	$(unpacker_src_uri_depends)
 	virtual/pkgconfig
 "
