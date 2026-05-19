@@ -17,11 +17,8 @@ else
 		https://distfiles.gentoo.org/pub/dev/ionen@gentoo.org/${P}-vendor.tar.xz
 		verify-sig? ( https://github.com/kovidgoyal/kitty/releases/download/v${PV}/${P}.tar.xz.sig )
 	"
-	# backport for less-691 search issue wrt bug #969467
-	# (not a patch due to binary files, albeit could've re-generated with tic)
-	SRC_URI+=" https://distfiles.gentoo.org/pub/dev/ionen@gentoo.org/${P}-less691-fix-backport.tar.xz"
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kovidgoyal.gpg
-	KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Fast, feature-rich, GPU-based terminal"
@@ -79,7 +76,7 @@ DEPEND="
 # bug #919751 wrt go subslot
 BDEPEND="
 	${PYTHON_DEPS}
-	>=dev-lang/go-1.24:=
+	>=dev-lang/go-1.26:=
 	sys-libs/ncurses
 	virtual/pkgconfig
 	test? ( $(python_gen_cond_dep 'dev-python/pillow[zlib,${PYTHON_USEDEP}]') )
@@ -121,6 +118,11 @@ src_prepare() {
 	[[ ${PV} == 9999 ]] && sedargs+=( -e '/exists.*_build/,/docs(ddir)/d' )
 
 	sed -i setup.py "${sedargs[@]}" || die
+
+	# skip flaky font search, file is replaced in src_install (bug #971276),
+	# without this the font + fontconfig would also be needed in BDEPEND
+	mkdir fonts || die
+	:> fonts/SymbolsNerdFontMono-Regular.ttf || die
 
 	local skiptests=(
 		# broken with nspawn defaults, skip for convenience (bug #954176)

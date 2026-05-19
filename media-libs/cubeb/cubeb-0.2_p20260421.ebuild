@@ -49,10 +49,11 @@ CMAKE_SKIP_TESTS=(
 	latency
 	sanity
 	tone
-	# fragile unless all backends are enabled
+	# fragile unless all/specific backends are enabled
 	device_changed_callback
 	duplex
 	record
+	resampler #975466
 )
 
 src_prepare() {
