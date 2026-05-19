@@ -1,7 +1,7 @@
 # Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit go-module
 
@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~arm64"
 RESTRICT="test" # Not safe to run outside a container.
 
 BDEPEND="
-	>=dev-lang/go-1.25:=
+	>=dev-lang/go-1.25.7
 "
 
 src_compile() {
