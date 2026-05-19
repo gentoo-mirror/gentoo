@@ -5,7 +5,7 @@ EAPI=8
 
 MATE_LA_PUNT="yes"
 
-inherit flag-o-matic mate
+inherit flag-o-matic mate virtualx
 
 MINOR=$(($(ver_cut 2) % 2))
 if [[ ${MINOR} -eq 0 ]]; then
@@ -16,7 +16,7 @@ DESCRIPTION="Caja file manager for the MATE desktop"
 LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
 
-IUSE="+introspection +mate nls xmp"
+IUSE="+introspection +mate nls selinux xmp"
 
 COMMON_DEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0:2
@@ -39,6 +39,7 @@ COMMON_DEPEND="
 	x11-libs/libXrender
 	>=x11-libs/pango-1.1.2
 	introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= )
+	selinux? ( sys-libs/libselinux )
 	xmp? ( >=media-libs/exempi-1.99.5:2= )
 "
 
@@ -74,6 +75,10 @@ src_configure() {
 	append-flags -fno-strict-aliasing
 	filter-lto
 
+	# https://bugs.gentoo.org/637414
+	export ac_cv_header_selinux_selinux_h=$(usex selinux yes no)
+	export ac_cv_lib_selinux_is_selinux_enabled=$(usex selinux yes no)
+
 	mate_src_configure \
 		--disable-update-mimedb \
 		$(use_enable introspection) \
@@ -85,7 +90,7 @@ src_test() {
 	unset SESSION_MANAGER
 	unset DBUS_SESSION_BUS_ADDRESS
 
-	Xemake check || die "Test phase failed"
+	virtx emake check || die "Test phase failed"
 }
 
 pkg_postinst() {
