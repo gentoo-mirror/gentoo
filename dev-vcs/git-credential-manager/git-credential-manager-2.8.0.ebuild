@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DOTNET_PKG_COMPAT=8.0
+DOTNET_PKG_COMPAT=10.0
 NUGETS="
 avalonia.angle.windows.natives@2.1.22045.20230930
 avalonia.buildservices@0.0.29
@@ -79,7 +79,6 @@ system.componentmodel@4.0.1
 system.console@4.0.0
 system.diagnostics.debug@4.0.11
 system.diagnostics.diagnosticsource@4.0.0
-system.diagnostics.diagnosticsource@6.0.1
 system.diagnostics.eventlog@6.0.0
 system.diagnostics.fileversioninfo@4.0.0
 system.diagnostics.process@4.1.0
@@ -96,7 +95,6 @@ system.io.filesystem.primitives@4.0.1
 system.io.filesystem.watcher@4.0.0
 system.io.filesystem@4.0.1
 system.io.memorymappedfiles@4.0.0
-system.io.pipelines@6.0.0
 system.io.unmanagedmemorystream@4.0.1
 system.io@4.1.0
 system.linq.expressions@4.1.0
@@ -111,7 +109,6 @@ system.net.security@4.0.0
 system.net.sockets@4.1.0
 system.net.webheadercollection@4.0.1
 system.numerics.vectors@4.1.1
-system.numerics.vectors@4.5.0
 system.objectmodel@4.0.12
 system.reflection.dispatchproxy@4.0.1
 system.reflection.emit.ilgeneration@4.0.1
@@ -119,13 +116,11 @@ system.reflection.emit.lightweight@4.0.1
 system.reflection.emit@4.0.1
 system.reflection.extensions@4.0.1
 system.reflection.metadata@1.3.0
-system.reflection.metadata@1.6.0
 system.reflection.primitives@4.0.1
 system.reflection.typeextensions@4.1.0
 system.reflection@4.1.0
 system.resources.reader@4.0.0
 system.resources.resourcemanager@4.0.1
-system.runtime.compilerservices.unsafe@6.0.0
 system.runtime.extensions@4.1.0
 system.runtime.handles@4.0.1
 system.runtime.interopservices.runtimeinformation@4.0.0
@@ -163,8 +158,8 @@ system.xml.xmldocument@4.0.1
 system.xml.xpath.xdocument@4.0.1
 system.xml.xpath@4.0.1
 tmds.dbus.protocol@0.16.0
+tmds.dbus.protocol@0.21.3
 validation@2.4.18
-xunit.abstractions@2.0.2
 xunit.abstractions@2.0.3
 xunit.analyzers@1.16.0
 xunit.assert@2.9.2
