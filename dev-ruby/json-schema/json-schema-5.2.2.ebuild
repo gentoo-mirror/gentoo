@@ -25,7 +25,10 @@ ruby_add_rdepend "
 	>=dev-ruby/bigdecimal-3.1
 "
 
-ruby_add_bdepend "test? ( dev-ruby/minitest:5 )"
+ruby_add_bdepend "test? (
+	dev-ruby/minitest:5
+	dev-ruby/webmock
+)"
 
 PATCHES=(
 	"${FILESDIR}/${P}-remove-dev-tasks.patch"

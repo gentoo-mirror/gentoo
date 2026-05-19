@@ -212,7 +212,6 @@ src_configure() {
 			--without-lua
 			--without-csharp
 			--without-perl
-			--without-python
 			--without-python3
 			--without-ruby
 			--without-tcl
@@ -261,7 +260,6 @@ src_configure() {
 			--without-csharp
 			--without-perl
 			--without-php
-			--without-python
 			--without-python3
 			--with-ruby
 			--without-tcl
