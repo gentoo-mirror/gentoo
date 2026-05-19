@@ -3,6 +3,9 @@
 
 EAPI=8
 
+# Looking for Qt 6? It is packaged differently to Qt 5 with different
+# package names: https://wiki.gentoo.org/wiki/Project:Qt/Qt6_migration_notes
+
 if [[ ${PV} != *9999* ]]; then
 	QT5_KDEPATCHSET_REV=1
 	KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv x86"
