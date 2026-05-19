@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/cryptography-2.7[${PYTHON_USEDEP}]
@@ -32,7 +32,6 @@ RDEPEND="
 	>=dev-python/platformdirs-3[${PYTHON_USEDEP}]
 	>=dev-python/psutil-3.2.2[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-3.13[${PYTHON_USEDEP}]
-	>=dev-python/requestsexceptions-1.2.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (

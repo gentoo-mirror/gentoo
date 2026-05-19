@@ -5,7 +5,7 @@ EAPI=8
 
 CRATES="
 "
-RUST_MIN_VER="1.92.0"
+RUST_MIN_VER="1.93.0"
 
 inherit cargo check-reqs
 
@@ -33,13 +33,13 @@ LICENSE="|| ( Apache-2.0 MIT )"
 # Dependent crate licenses
 LICENSE+="
 	0BSD Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0
-	CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016
-	ZLIB BZIP2
+	CDLA-Permissive-2.0 ISC MIT MIT-0 MPL-2.0 Unicode-3.0
+	Unicode-DFS-2016 ZLIB
 "
 # ring crate
 LICENSE+=" openssl"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~s390 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86"
 IUSE="test"
 RESTRICT="test"
 PROPERTIES="test_network"

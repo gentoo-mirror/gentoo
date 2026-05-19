@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 CLI_COMPAT=( python3_{11..13} )
-PYTHON_COMPAT=( "${CLI_COMPAT[@]}" pypy3_11 python3_14 python3_{13,14}t )
+PYTHON_COMPAT=( "${CLI_COMPAT[@]}" pypy3_11 python3_{14..15} python3_{13..15}t )
 PYTHON_REQ_USE="threads(+),sqlite"
 
 inherit distutils-r1 optfeature
@@ -25,7 +25,7 @@ S="${WORKDIR}/${MY_P}/hypothesis-python"
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="cli"
 
 RDEPEND="
@@ -60,12 +60,19 @@ python_test() {
 	local EPYTEST_DESELECT=(
 		# broken somehow (xdist?)
 		'hypothesis-python/tests/pytest/test_constant_collection_timing.py::test_constant_collection_timing[True]'
+		# used to fail for a few impls, now fails everywhere
+		'hypothesis-python/tests/cover/test_lambda_formatting.py::test_modifying_lambda_source_code_returns_unknown[False]'
 	)
+	local EPYTEST_IGNORE=(
+		# require syrupy
+		tests/cover/test_custom_reprs.py
+	)
+
 	case ${EPYTHON} in
-		python3.14t)
+		python3.15*)
 			EPYTEST_DESELECT+=(
-				# TODO
-				'hypothesis-python/tests/cover/test_lambda_formatting.py::test_modifying_lambda_source_code_returns_unknown[False]'
+				'hypothesis-python/tests/cover/test_lookup.py::test_resolves_forwardrefs_to_builtin_types[sentinel]'
+				'hypothesis-python/tests/cover/test_lookup.py::test_resolves_builtin_types[sentinel]'
 			)
 			;;
 	esac

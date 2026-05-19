@@ -4,12 +4,12 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{11..15} )
 
 inherit distutils-r1 pypi
 
-DESCRIPTION="Typing stubs for docutils"
-HOMEPAGE="https://pypi.org/project/types-docutils/"
+DESCRIPTION="Typing stubs for gdb"
+HOMEPAGE="https://pypi.org/project/types-gdb/"
 
 LICENSE="Apache-2.0"
 SLOT="0"
