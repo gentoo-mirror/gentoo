@@ -1,6 +1,6 @@
 BDEPEND=verify-sig? ( sec-keys/openpgp-keys-openwall ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install prepare unpack
-DEPEND=sys-libs/pam[audit?] virtual/libcrypt:=
+DEPEND=sys-libs/pam[audit?] virtual/libcrypt:= audit? ( sys-process/audit )
 DESCRIPTION=Password strength checking library (and PAM module)
 EAPI=8
 HOMEPAGE=https://www.openwall.com/passwdqc/
@@ -12,4 +12,4 @@ RDEPEND=sys-libs/pam[audit?] virtual/libcrypt:=
 SLOT=0
 SRC_URI=https://www.openwall.com/passwdqc/passwdqc-2.1.0.tar.gz verify-sig? ( https://www.openwall.com/passwdqc/passwdqc-2.1.0.tar.gz.sign -> passwdqc-2.1.0.tar.gz.asc )
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=08ffd32318f251afbd30099296d8a954
+_md5_=56c7442c3b6fd2d1669c571696d8d0bc
