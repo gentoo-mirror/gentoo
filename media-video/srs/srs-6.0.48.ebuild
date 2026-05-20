@@ -74,7 +74,7 @@ src_install() {
 
 	cd trunk
 	# Install executable
-	dobin objs/srs
+	newbin objs/srs srs-media
 
 	# Install configuration file
 	insinto /usr/share/srs/conf
