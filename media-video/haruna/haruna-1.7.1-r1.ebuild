@@ -45,6 +45,10 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/0001-Don-t-build-with-QML_DEBUG-for-RelWithDebInfo.patch
+)
+
 pkg_postinst() {
 	optfeature "video playback from youtube and other online sources" net-misc/yt-dlp
 	xdg_pkg_postinst
