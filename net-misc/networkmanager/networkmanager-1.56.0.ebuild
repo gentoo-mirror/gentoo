@@ -109,6 +109,7 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=dev-libs/jansson-2.7 )
 "
 BDEPEND="
+	app-text/docbook-xsl-stylesheets
 	>=dev-util/gdbus-codegen-2.80.5-r1
 	dev-util/glib-utils
 	>=sys-devel/gettext-0.17
@@ -116,7 +117,6 @@ BDEPEND="
 	gtk-doc? (
 		dev-util/gtk-doc
 		app-text/docbook-xml-dtd:4.1.2
-		app-text/docbook-xsl-stylesheets
 	)
 	introspection? (
 		$(python_gen_any_dep 'dev-python/pygobject:3[${PYTHON_USEDEP}]')
