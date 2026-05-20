@@ -165,8 +165,14 @@ src_prepare() {
 		# So we make it output to cmake/build as the code expects and run it from there.
 		cat >> "${S}/CMakeLists.txt" <<- EOF || die
 		if(gRPC_BUILD_TESTS)
-		  set_target_properties(httpcli_test httpscli_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY "\${CMAKE_CURRENT_BINARY_DIR}/cmake/build")
-		  set_tests_properties(httpcli_test httpscli_test PROPERTIES WORKING_DIRECTORY "\${CMAKE_CURRENT_BINARY_DIR}/cmake/build")
+		  set_target_properties(httpcli_test httpscli_test
+		    PROPERTIES
+		      RUNTIME_OUTPUT_DIRECTORY "\${CMAKE_CURRENT_BINARY_DIR}/cmake/build"
+		  )
+		  set_tests_properties(httpcli_test httpscli_test
+		   PROPERTIES
+		   WORKING_DIRECTORY "\${CMAKE_CURRENT_BINARY_DIR}/cmake/build"
+		  )
 		endif()
 		EOF
 
