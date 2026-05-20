@@ -1,11 +1,11 @@
-# Copyright 2024-2025 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 CRATES="
 "
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.87.0"
 
 inherit cargo gnome2-utils meson xdg-utils
 
@@ -28,6 +28,7 @@ LICENSE="GPL-3+"
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT Unicode-3.0
+	ZLIB
 	|| ( AGPL-3+ EUPL-1.2 )
 "
 # ring
