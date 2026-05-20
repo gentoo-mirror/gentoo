@@ -1,14 +1,14 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 MY_PN="emacs-${PN}"
 
 inherit elisp
 
 DESCRIPTION="Set of eye pleasing themes for GNU Emacs"
-HOMEPAGE="https://github.com/ogdenwebb/emacs-kaolin-themes"
+HOMEPAGE="https://github.com/ogdenwebb/emacs-kaolin-themes/"
 
 if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
@@ -23,7 +23,7 @@ else
 fi
 
 RDEPEND="
-	app-emacs/autothemer
+	>=app-emacs/autothemer-0.2.2
 "
 BDEPEND="
 	${RDEPEND}
