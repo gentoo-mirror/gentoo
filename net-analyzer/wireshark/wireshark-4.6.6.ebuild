@@ -12,7 +12,7 @@ DESCRIPTION="Network protocol analyzer (sniffer)"
 HOMEPAGE="https://www.wireshark.org/"
 
 if [[ ${PV} == *9999* ]] ; then
-	EGIT_REPO_URI="https://gitlab.com/wireshark/wireshark"
+	EGIT_REPO_URI="https://gitlab.com/wireshark/wireshark.git"
 	inherit git-r3
 else
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/wireshark.asc
@@ -23,7 +23,7 @@ else
 	S="${WORKDIR}/${P/_/}"
 
 	if [[ ${PV} != *_rc* ]] ; then
-		KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc64 ~riscv x86"
+		KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc64 ~riscv ~x86"
 	fi
 fi
 
@@ -152,6 +152,17 @@ src_unpack() {
 	fi
 }
 
+src_prepare() {
+	# since 4.6.5 the Lua version is found "automatically" and can no longer
+	# be passed in via LUA_FIND_VERSIONS, so we override the search list.
+	if use lua; then
+		sed -i "s/set(LUA_VERSIONS5 5.5 5.4 5.3 5.2 5.1 5.0)/set(LUA_VERSIONS5 ${ELUA#lua})/g" \
+			cmake/modules/FindLua.cmake || die
+	fi
+
+	cmake_src_prepare
+}
+
 src_configure() {
 	local mycmakeargs
 
@@ -207,7 +218,6 @@ src_configure() {
 		-DENABLE_ILBC=$(usex ilbc)
 		-DENABLE_KERBEROS=$(usex kerberos)
 		-DENABLE_LUA=$(usex lua)
-		-DLUA_FIND_VERSIONS="${ELUA#lua}"
 		-DENABLE_LZ4=$(usex lz4)
 		-DENABLE_MINIZIP=$(usex minizip)
 		-DENABLE_MINIZIPNG=OFF
@@ -301,7 +311,7 @@ src_install() {
 
 		for s in 16 24 32 48 64 128 256 ; do
 			insinto /usr/share/icons/hicolor/${s}x${s}/mimetypes
-			newins resources/icons//WiresharkDoc-${s}.png application-vnd.tcpdump.pcap.png
+			newins resources/icons/WiresharkDoc-${s}.png application-vnd.tcpdump.pcap.png
 		done
 	fi
 
