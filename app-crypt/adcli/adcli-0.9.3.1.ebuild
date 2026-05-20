@@ -11,7 +11,7 @@ SRC_URI="https://gitlab.freedesktop.org/realmd/adcli/-/archive/${PV}/${P}.tar.bz
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 ~arm64 ~x86"
 IUSE="doc netapi selinux"
 
 DEPEND="
