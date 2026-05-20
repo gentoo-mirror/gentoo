@@ -12,7 +12,7 @@ DESCRIPTION="Network protocol analyzer (sniffer)"
 HOMEPAGE="https://www.wireshark.org/"
 
 if [[ ${PV} == *9999* ]] ; then
-	EGIT_REPO_URI="https://gitlab.com/wireshark/wireshark"
+	EGIT_REPO_URI="https://gitlab.com/wireshark/wireshark.git"
 	inherit git-r3
 else
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/wireshark.asc
