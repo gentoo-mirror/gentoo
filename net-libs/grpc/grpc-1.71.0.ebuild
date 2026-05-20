@@ -42,9 +42,11 @@ RESTRICT="!test? ( test )"
 # look for submodule versions in third_party dir
 RDEPEND="
 	>=dev-cpp/abseil-cpp-20240116:=
+	<dev-cpp/abseil-cpp-20260107
 	>=dev-libs/re2-0.2022.04.01:=
 	>=dev-libs/openssl-1.1.1:0=[-bindist(-)]
 	>=dev-libs/protobuf-27.0:=
+	<dev-libs/protobuf-34
 	dev-libs/xxhash
 	>=net-dns/c-ares-1.19.1:=
 	virtual/zlib:=
