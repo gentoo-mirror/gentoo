@@ -44,8 +44,9 @@ S="${WORKDIR}"/${MYP}
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE="cuda cusparselt distributed fbgemm flash gloo memefficient mimalloc mkl
-	mpi nccl nnpack +numpy onednn openblas opencl openmp qnnpack rocm xnnpack"
+IUSE="cuda cusparselt distributed fbgemm flash gloo kineto memefficient
+	mimalloc mkl mpi nccl nnpack +numpy onednn openblas opencl openmp qnnpack
+	rocm xnnpack"
 RESTRICT="test"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
@@ -69,10 +70,8 @@ RDEPEND="
 	>=dev-cpp/glog-0.5.0:=
 	>=dev-libs/cpuinfo-2025.11.14
 	dev-libs/libfmt:=
-	dev-cpp/opentelemetry-cpp
 	dev-libs/protobuf:=
 	dev-libs/sleef
-	~sci-ml/kineto-0.4.0_p20250617
 	sci-ml/onnx
 	virtual/lapack
 	cuda? (
@@ -83,6 +82,7 @@ RDEPEND="
 	)
 	fbgemm? ( >=sci-ml/FBGEMM-1.4 )
 	gloo? ( >=sci-ml/gloo-2025.06.04[cuda?,rocm?] )
+	kineto? ( ~sci-ml/kineto-0.4.0_p20260323 )
 	mimalloc? ( dev-libs/mimalloc )
 	mpi? ( virtual/mpi )
 	nnpack? (
@@ -159,15 +159,15 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.5.1-cudnn_include_fix.patch
 	"${FILESDIR}"/${PN}-2.4.0-cpp-httplib.patch
 	"${FILESDIR}"/${PN}-2.5.1-glog-0.6.0.patch
-	"${FILESDIR}"/${PN}-2.6.0-rocm-fix-std-cpp17.patch
+	"${FILESDIR}"/${P}-rocm-fix-std-cpp17.patch
 	"${FILESDIR}"/${PN}-2.7.0-glog-0.7.1.patch
-	"${FILESDIR}"/${PN}-2.7.1-aotriton-fixes.patch
+	"${FILESDIR}"/${P}-aotriton-fixes.patch
 	"${FILESDIR}"/${PN}-2.8.0-rocm-minus-flash.patch
-	"${FILESDIR}"/${PN}-2.9.0-cmake.patch
-	"${FILESDIR}"/${PN}-2.9.0-rocm-distributed-link.patch
+	"${FILESDIR}"/${P}-rocm-distributed-link.patch
 	"${FILESDIR}"/${PN}-2.9.1-torch_cpu.patch
-	"${FILESDIR}"/${P}-gentoo.patch
-	"${FILESDIR}"/${P}-mimalloc.patch
+	"${FILESDIR}"/${PN}-2.10.0-gentoo.patch
+	"${FILESDIR}"/${PN}-2.11.0-mimalloc.patch
+	"${FILESDIR}"/${P}-removekineto-pr178960.patch
 )
 
 src_prepare() {
@@ -292,7 +292,7 @@ src_configure() {
 		-DUSE_GLOG=ON
 		-DUSE_GLOO=$(usex gloo)
 		-DUSE_ITT=OFF
-		-DUSE_KINETO=ON
+		-DUSE_KINETO=$(usex kineto)
 		-DUSE_KLEIDIAI=OFF # TODO
 		-DUSE_MAGMA=OFF # TODO: In GURU as sci-libs/magma
 		-DUSE_MEM_EFF_ATTENTION=$(usex memefficient)
