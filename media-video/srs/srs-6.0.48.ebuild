@@ -27,6 +27,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-cmake.patch
 	"${FILESDIR}"/${P}-configure.patch
 	"${FILESDIR}"/${P}-execStack.patch
+	"${FILESDIR}"/${P}-fixAliasing.patch
 )
 
 src_prepare() {
