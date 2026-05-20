@@ -3,6 +3,7 @@
 
 EAPI=8
 
+RPM_COMPRESS_TYPE=none
 inherit autotools edos2unix rpm
 
 DESCRIPTION="Epson Inkjet Printer Driver (ESC/P-R)"
