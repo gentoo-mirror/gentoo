@@ -595,17 +595,15 @@ cmake_src_configure() {
 	local -x ASMFLAGS=${CFLAGS}
 	local -x PKG_CONFIG=$(tc-getPKG_CONFIG)
 
-	if tc-is-cross-compiler; then
-		local sysname
-		case "${KERNEL:-linux}" in
-			Cygwin) sysname="CYGWIN_NT-5.1" ;;
-			HPUX) sysname="HP-UX" ;;
-			Hurd) sysname="GNU" ;;
-			linux) sysname="Linux" ;;
-			Winnt) sysname="Windows" ;;
-			*) sysname="${KERNEL}" ;;
-		esac
-	fi
+	local sysname
+	case "${KERNEL:-linux}" in
+		Cygwin) sysname="CYGWIN_NT-5.1" ;;
+		HPUX) sysname="HP-UX" ;;
+		Hurd) sysname="GNU" ;;
+		linux) sysname="Linux" ;;
+		Winnt) sysname="Windows" ;;
+		*) sysname="${KERNEL}" ;;
+	esac
 
 	# !!! IMPORTANT NOTE !!!
 	# Single slash below is intentional. CMake is weird and wants the
@@ -621,7 +619,13 @@ cmake_src_configure() {
 		set(CMAKE_Fortran_COMPILER "${myFC/ /;}")
 		set(CMAKE_AR $(type -P $(tc-getAR)) CACHE FILEPATH "Archive manager" FORCE)
 		set(CMAKE_RANLIB $(type -P $(tc-getRANLIB)) CACHE FILEPATH "Archive index generator" FORCE)
+		set(CMAKE_SYSTEM_NAME "${sysname}")
+		set(CMAKE_CROSSCOMPILING $(tc-is-cross-compiler && echo TRUE || echo FALSE))
 		set(CMAKE_SYSTEM_PROCESSOR "${CHOST%%-*}")
+
+		if(CMAKE_CROSSCOMPILING AND CMAKE_SYSTEM_NAME STREQUAL "Windows")
+			set(CMAKE_RC_COMPILER $(tc-getRC))
+		endif()
 
 		# When building with a sysroot (e.g. with crossdev's emerge wrappers)
 		# we need to tell cmake to use libs/headers from the sysroot but programs from / only.
@@ -630,13 +634,6 @@ cmake_src_configure() {
 			set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 			set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 			set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
-		endif()
-
-		if($(tc-is-cross-compiler && echo 1 || echo 0)) # if tc-is-cross-compiler
-			set(CMAKE_SYSTEM_NAME "${sysname}")
-			if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
-				set(CMAKE_RC_COMPILER $(tc-getRC))
-			endif()
 		endif()
 	_EOF_
 
