@@ -1,4 +1,4 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ SLOT="6/2"
 IUSE=""
 
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[gui,opengl,wayland,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[gui,opengl,wayland,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
 	media-video/mpv:=[libmpv]
 "
