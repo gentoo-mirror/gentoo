@@ -1,8 +1,8 @@
 diff --git a/cmake/sources.cmake b/cmake/sources.cmake
-index 31e0630..354de9e 100644
+index 1e605de..f3cfeb0 100644
 --- a/cmake/sources.cmake
 +++ b/cmake/sources.cmake
-@@ -257,18 +257,6 @@ set(hipo_util_headers
+@@ -259,18 +259,6 @@ set(hipo_util_headers
      ipm/hipo/auxiliary/VectorOperations.h)
  
  set(hipo_orderings_sources
@@ -21,7 +21,7 @@ index 31e0630..354de9e 100644
      ../extern/metis/GKlib/error.c
      ../extern/metis/GKlib/mcore.c
      ../extern/metis/GKlib/memory.c
-@@ -296,9 +284,6 @@ set(hipo_orderings_sources
+@@ -298,9 +286,6 @@ set(hipo_orderings_sources
      ../extern/rcm/rcm.cpp)
  
  set(hipo_orderings_headers
@@ -32,17 +32,17 @@ index 31e0630..354de9e 100644
      ../extern/metis/GKlib/gk_defs.h
      ../extern/metis/GKlib/gk_macros.h
 diff --git a/highs/CMakeLists.txt b/highs/CMakeLists.txt
-index 7e90ad5..99ae0d1 100644
+index 7e90ad5..c92d997 100644
 --- a/highs/CMakeLists.txt
 +++ b/highs/CMakeLists.txt
-@@ -158,6 +158,7 @@ else()
+@@ -234,6 +234,7 @@ else()
+       $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/highs/hipo/factorhighs>
+       $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/highs/hipo/ipm>
+     )
++    target_link_libraries(highs PRIVATE amd)
  
- 
-   target_sources(highs PRIVATE ${sources} ${headers} ${win_version_file})
-+  target_link_libraries(highs PRIVATE amd)
- 
-   # Optional Cuda
-   if (CUPDLP_GPU)
+     if (NOT USE_CMAKE_FIND_BLAS)
+       if(APPLE)
 diff --git a/highs/ipm/hipo/factorhighs/Analyse.cpp b/highs/ipm/hipo/factorhighs/Analyse.cpp
 index 587c71a..e638240 100644
 --- a/highs/ipm/hipo/factorhighs/Analyse.cpp
@@ -83,6 +83,3 @@ index b0ba1d7..6a11446 100644
                                     permutations[i].data(), control, info);
        log_.printDevInfo("AMD done\n");
  
--- 
-2.53.0
-
