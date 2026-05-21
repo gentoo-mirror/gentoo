@@ -41,7 +41,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
 	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	>=kde-plasma/kwayland-${KDE_CATV}:6
-	>=kde-plasma/plasma-workspace-${KDE_CATV}:6
 	x11-libs/libxkbcommon
 "
 DEPEND="${COMMON_DEPEND}
