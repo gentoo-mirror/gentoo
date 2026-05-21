@@ -28,39 +28,17 @@ RDEPEND=">=virtual/jre-1.8:*"
 ASM_MODULES=( "asm" "asm-tree" "asm-analysis" "asm-commons" "asm-util" )
 JAVADOC_SRC_DIRS=( asm{-analysis,-commons,,-tree,-util}/src/main/java )
 
-src_prepare() {
-	default
-	local module
-	touch asm.module || die
-	for module in "${ASM_MODULES[@]}"; do
-		module=${module/-/.}
-		cat > ${module/./-}/src/main/java/module-info.java <<-EOF || die
-			open module org.objectweb.${module/analysis/tree.analysis} {
-				$(cat asm.module)
-				requires java.base;
-				exports org.objectweb.${module/analysis/tree.analysis};
-			}
-		EOF
-		echo "requires transitive org.objectweb.${module/analysis/tree.analysis};" \
-			>> asm.module || die
-	done
-	sed -e '/^$/d' \
-		-e '/asm;/p;s:\(asm\)\(;\):\1.signature\2:' \
-		-i  asm/src/main/java/module-info.java || die
-	sed -e '/analysis/d' \
-		-i  asm-commons/src/main/java/module-info.java || die
-	sed -e '/commons/d' \
-		-i  asm-util/src/main/java/module-info.java || die
-}
-
 src_compile() {
 	local module
 	for module in "${ASM_MODULES[@]}"; do
 		einfo "Compiling ${module}"
+		JAVA_GENTOO_CLASSPATH_EXTRA+=":${module}.jar"
+		JAVA_INTERMEDIATE_JAR_NAME="org.objectweb.${module/-/.}"
 		JAVA_JAR_FILENAME="${module}.jar"
+		JAVA_MODULE_INFO_OUT="${module}/src/main"
+		JAVA_MODULE_INFO_RELEASE=9
 		JAVA_SRC_DIR="${module}/src/main/java"
 		java-pkg-simple_src_compile
-		JAVA_GENTOO_CLASSPATH_EXTRA+=":${module}.jar"
 		rm -r target || die
 	done
 
