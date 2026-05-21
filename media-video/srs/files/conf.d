@@ -2,6 +2,5 @@
 
 SRS_CONFIG="/etc/srs/srs.conf"
 SRS_PIDFILE="/run/srs.pid"
-SRS_CORE_LIMIT="unlimited"
 
 SRS_EXTRA_OPTS="--background"
