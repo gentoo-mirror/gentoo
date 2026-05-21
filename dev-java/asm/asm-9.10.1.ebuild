@@ -26,13 +26,7 @@ DEPEND=">=virtual/jdk-11:*"
 RDEPEND=">=virtual/jre-1.8:*"
 
 ASM_MODULES=( "asm" "asm-tree" "asm-analysis" "asm-commons" "asm-util" )
-JAVADOC_SRC_DIRS=(
-	asm/src/main/java
-	asm-tree/src/main/java
-	asm-analysis/src/main/java
-	asm-commons/src/main/java
-	asm-util/src/main/java
-)
+JAVADOC_SRC_DIRS=( asm{-analysis,-commons,,-tree,-util}/src/main/java )
 
 src_prepare() {
 	default
@@ -70,14 +64,7 @@ src_compile() {
 		rm -r target || die
 	done
 
-	if use doc; then
-		einfo "Compiling javadocs"
-		for module in "${ASM_MODULES[@]}"; do
-			rm "${module}/src/main/java/module-info.java" || die
-			JAVA_SRC_DIR+=("${module}/src/main/java")
-		done
-		ejavadoc
-	fi
+	use doc && ejavadoc
 }
 
 src_install() {
