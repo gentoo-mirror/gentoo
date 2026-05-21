@@ -63,6 +63,12 @@ src_configure() {
 		append-cppflags '-D__nonnull\(X\)='
 	fi
 
+	if [[ ${CHOST} == *-solaris* ]] ; then
+		# https://bugs.gentoo.org/975237 needs gnulib update, should be
+		# in next release
+		sed -i -e 's/HAVE_GETLOCALENAME_L/DISABLED/' configure || die
+	fi
+
 	local myeconfargs=(
 		$(use_enable nls)
 		$(use_with selinux)
