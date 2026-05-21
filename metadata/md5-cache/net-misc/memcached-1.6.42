@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://memcached.org/
 INHERIT=autotools flag-o-matic systemd
 IUSE=debug sasl seccomp selinux slabs-reassign ssl test
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 x86
 LICENSE=BSD
 RDEPEND=>=dev-libs/libevent-1.4:= dev-lang/perl sasl? ( dev-libs/cyrus-sasl ) seccomp? ( sys-libs/libseccomp ) selinux? ( sec-policy/selinux-memcached ) ssl? ( >=dev-libs/openssl-1.1.0g:= )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://memcached.org/files/memcached-1.6.42.tar.gz https://memcached.org/files/old/memcached-1.6.42.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	flag-o-matic	fd3558f73f6503093adee69adf41020d	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=53e967bf098aa609b4fe3b6b2b44f4bd
+_md5_=2c186a34fc3d4b3eef9b4dbba5e9957b
