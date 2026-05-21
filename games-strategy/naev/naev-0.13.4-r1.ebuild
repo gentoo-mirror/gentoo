@@ -54,10 +54,9 @@ RDEPEND="
 	media-libs/opus
 	net-libs/enet:1.3=
 	net-libs/libssh2
-	sci-libs/cholmod
-	sci-libs/cxsparse
+	sci-libs/cholmod:=
+	sci-libs/cxsparse:=
 	sci-libs/openblas
-	sci-libs/suitesparse
 	sci-mathematics/glpk:=
 	virtual/libintl
 "
