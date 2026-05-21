@@ -1,5 +1,5 @@
 DEFINED_PHASES=compile configure install prepare
-DEPEND=dev-libs/openssl:0= srt? ( net-libs/srt:= )
+DEPEND=dev-libs/openssl:0= media-video/ffmpeg:= srt? ( net-libs/srt:= )
 DESCRIPTION=Simple Realtime media Server
 EAPI=8
 HOMEPAGE=https://ossrs.io/
@@ -7,8 +7,8 @@ INHERIT=toolchain-funcs
 IUSE=srt
 KEYWORDS=~amd64
 LICENSE=Apache-2.0 MIT
-RDEPEND=dev-libs/openssl:0= srt? ( net-libs/srt:= )
+RDEPEND=dev-libs/openssl:0= media-video/ffmpeg:= srt? ( net-libs/srt:= )
 SLOT=0
 SRC_URI=https://github.com/ossrs/srs/archive/refs/tags/v6.0.48.tar.gz -> srs-6.0.48.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
-_md5_=06981edb248d05ca783ddbd2e4a407a3
+_md5_=3a9f6a440633bf1772dc7b344801d8f4
