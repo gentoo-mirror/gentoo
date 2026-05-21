@@ -28,6 +28,7 @@ BDEPEND="
 	>=dev-python/cython-3[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-65.4.1[${PYTHON_USEDEP}]
 	test? (
+		dev-python/blockbuster[${PYTHON_USEDEP}]
 		>=dev-python/pycairo-1.21.0[${PYTHON_USEDEP}]
 		>=dev-python/pygobject-3.50[${PYTHON_USEDEP}]
 	)

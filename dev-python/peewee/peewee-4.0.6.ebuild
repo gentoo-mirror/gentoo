@@ -22,7 +22,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 IUSE="examples +native-extensions test"
 RESTRICT="!test? ( test )"
 
@@ -33,7 +33,9 @@ RDEPEND="
 	${DEPEND}
 "
 BDEPEND="
-	dev-python/cython[${PYTHON_USEDEP}]
+	native-extensions? (
+		dev-python/cython[${PYTHON_USEDEP}]
+	)
 	test? (
 		dev-db/postgresql
 		dev-python/psycopg:0[${PYTHON_USEDEP}]
