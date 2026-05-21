@@ -22,7 +22,7 @@ else
 		verify-sig? ( mirror://imagemagick/${MY_P}.tar.xz.asc )
 	"
 
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~mips ~ppc ~ppc64 ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~mips ppc ppc64 ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
 	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-imagemagick )"
 fi
 
