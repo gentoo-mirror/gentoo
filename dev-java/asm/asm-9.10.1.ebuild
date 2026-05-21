@@ -3,13 +3,13 @@
 
 EAPI=9
 
-# tests not enabled because of missing eclass support of junit-jupiter
-JAVA_PKG_IUSE="doc source"
+JAVA_PKG_IUSE="doc source test"
+JAVA_TESTING_FRAMEWORKS="junit-jupiter"
 
 # Avoid circular dependency
 JAVA_DISABLE_DEPEND_ON_JAVA_DEP_CHECK="true"
 
-inherit java-pkg-2 java-pkg-simple
+inherit java-pkg-2 java-pkg-simple junit5
 
 MY_P="ASM_${PV//./_}"
 
@@ -22,11 +22,31 @@ LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~x64-macos"
 
-DEPEND=">=virtual/jdk-11:*"
+DEPEND="
+	>=virtual/jdk-11:*
+	test? (
+		>=dev-java/janino-3.1.9:0
+		dev-java/junit:5[-vintage]
+		>=dev-java/opentest4j-1.3.0-r1:0
+	)
+"
 RDEPEND=">=virtual/jre-1.8:*"
+
+PATCHES=( "${FILESDIR}"/asm-9.10-gentoo.patch )
 
 ASM_MODULES=( "asm" "asm-tree" "asm-analysis" "asm-commons" "asm-util" )
 JAVADOC_SRC_DIRS=( asm{-analysis,-commons,,-tree,-util}/src/main/java )
+JAVA_TEST_GENTOO_CLASSPATH="janino junit-5 opentest4j"
+JAVA_TEST_RESOURCE_DIRS=( asm{-analysis,-commons,,-tree,-util}/src/test/resources )
+
+# The junit:5 version is too old, compilation of LambdaRemapTest.java fails with:
+# asm-commons/src/test/java/org/objectweb/asm/commons/LambdaRemapTest.java:9: error: cannot find symbol
+# import org.junit.jupiter.params.Parameter;
+#                                ^
+#   symbol:   class Parameter
+
+JAVA_TEST_SRC_DIR=( asm{-analysis,-commons,,-test,-tree,-util}/src/test/java \
+	! -name LambdaRemapTest.java )
 
 src_compile() {
 	local module
@@ -57,6 +77,17 @@ src_compile() {
 	done
 
 	use doc && ejavadoc
+}
+
+src_test() {
+	JAVAC_ARGS="-g"
+	JAVA_CLASSPATH_EXTRA="junit-5"
+	JAVA_GENTOO_CLASSPATH_EXTRA+=":asm-test.jar"
+	JAVA_JAR_FILENAME="asm-test.jar"
+	JAVA_RESOURCE_DIRS=( asm-test/src/main/resources )
+	JAVA_SRC_DIR=( asm-test/src/main/java )
+	java-pkg-simple_src_compile
+	junit5_src_test
 }
 
 src_install() {
