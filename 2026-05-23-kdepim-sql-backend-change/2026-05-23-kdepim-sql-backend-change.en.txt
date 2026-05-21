@@ -1,0 +1,92 @@
+Title: KDE PIM 26.04.1 default backend changes to sqlite
+Author: Andreas Sturmlechner <asturm@gentoo.org>
+Posted: 2026-05-23
+Revision: 1
+News-Item-Format: 2.0
+Display-If-Installed: kde-apps/akonadi
+
+
+KDE PIM's centralised Akonadi subsystem uses a database for cached data.
+Three different database backends have been supported for a long time.
+When multiple USE flags are enabled, kde-apps/akonadi-config ebuild picks
+the one with the highest priority (see the table under Changes below)
+as default DB backend in akonadiserverrc.
+
+This means that prior to KDE PIM 26.04.1 (with kde-apps/akonadi-config-0),
+mysql, when enabled, took precedence for new KDE PIM setups.
+
+
+Changes
+=======
+
+With kde-apps/akonadi-config-1 we are making sqlite the highest priority
+instead. Existing Akonadi instance settings, which are kept in home
+directories, will not be changed automatically.
+
+---------!--------------------------------!-----------!-----------
+ Backend ! kde-apps/akonadi-config[<use>] ! <=26.04.0 ! >=26.04.1
+---------!--------------------------------!-----------!-----------
+         !                                !  (priority, 1 = best)
+ QSQLITE ! sqlite                         !     2     !     1
+ QMYSQL  ! mysql                          !     1     !     2
+ QPSQL   ! postgres                       !     3     !     3
+
+
+Reasons
+=======
+
+Running a daemon brings its own set of problems and switching to the
+QSQLITE backends lets us avoid those. Also, SQLite is unavoidable on
+most systems, while MariaDB, MySQL, or PostgreSQL may often be installed
+purely for Akonadi, so it saves a large package being installed.
+
+Historically[1], the QSQLITE backend was fundamentally broken for KMail's
+workload, which is why QMYSQL was picked as default early on. Over the years
+this has come with its own share of (mostly DB upgrade handling) bugs, but
+QSQLITE has only in recent years become viable again through upstream's
+efforts, which we have been tracking[2]. Recently, the default was finally
+changed upstream[3].
+
+
+User Action Required
+====================
+
+In order to implement any backend change on your users' akonadi DB config,
+a manual migration step is necessary - in this example, from mysql to sqlite.
+It is necessary to have support for both database drivers enabled in
+dev-qt/qtbase for this to succeed.
+
+    1) Find out which backend is currently in use:
+
+        grep "^Driver" ~/.config/akonadi/akonadiserverrc
+
+    2) A quick check that both DB drivers are supported by Qt:
+
+        USE="mysql sqlite" emerge -p1 dev-qt/qtbase
+
+        If this command indicates a USE flag change, you must at least
+        temporarily rebuild dev-qt/qtbase with both old and new enabled.
+
+    3) Migration:
+
+        akonadi-db-migrator --newengine sqlite
+
+    The last command will not just migrate the database but also adapt
+    akonadiserverrc accordingly.
+
+---
+
+In order to keep using QMYSQL backend for users' existing Akonadi instances,
+ensure that USE=mysql is permanently[4] enabled for kde-apps/akonadi-config
+[and dev-qt/qtbase respectively].
+
+---
+
+In order to keep QMYSQL backend as default choice for new Akonadi instances,
+make sure that USE=sqlite is disabled for kde-apps/akonadi-config.
+
+
+[1] https://bugs.gentoo.org/441596
+[2] https://bugs.gentoo.org/936102
+[3] https://invent.kde.org/pim/akonadi/-/merge_requests/311
+[4] https://wiki.gentoo.org/wiki//etc/portage/package.use
