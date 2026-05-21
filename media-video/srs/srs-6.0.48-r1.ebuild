@@ -19,6 +19,7 @@ IUSE="srt"
 
 DEPEND="
 	dev-libs/openssl:0=
+	media-video/ffmpeg:=
 	srt? ( net-libs/srt:= )
 "
 RDEPEND="${DEPEND}"
