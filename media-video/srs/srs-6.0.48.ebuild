@@ -28,6 +28,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-configure.patch
 	"${FILESDIR}"/${P}-execStack.patch
 	"${FILESDIR}"/${P}-fixAliasing.patch
+	"${FILESDIR}"/${P}-LDFLAGS.patch
 )
 
 src_prepare() {
