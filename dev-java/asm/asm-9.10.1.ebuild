@@ -5,14 +5,6 @@ EAPI=9
 
 # tests not enabled because of missing eclass support of junit-jupiter
 JAVA_PKG_IUSE="doc source"
-MAVEN_PROVIDES="
-	org.ow2.asm:asm-bom:${PV}
-	org.ow2.asm:asm:${PV}
-	org.ow2.asm:asm-analysis:${PV}
-	org.ow2.asm:asm-commons:${PV}
-	org.ow2.asm:asm-tree:${PV}
-	org.ow2.asm:asm-util:${PV}
-"
 
 # Avoid circular dependency
 JAVA_DISABLE_DEPEND_ON_JAVA_DEP_CHECK="true"
