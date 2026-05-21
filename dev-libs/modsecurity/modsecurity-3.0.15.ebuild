@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,20 +18,20 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="Apache-2.0"
 SLOT="0/3"
-KEYWORDS="amd64 arm arm64 ~ppc ~ppc64 ~riscv x86"
-IUSE="doc fuzzyhash geoip geoip2 json lmdb lua pcre2"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+IUSE="doc fuzzyhash geoip geoip2 json lmdb lua"
 
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} )"
-RDEPEND="dev-libs/libpcre:=
-	dev-libs/libxml2
+RDEPEND="
+	dev-libs/libpcre2:=
+	dev-libs/libxml2:=
 	net-misc/curl
 	fuzzyhash? ( app-crypt/ssdeep )
 	geoip? ( dev-libs/geoip )
 	geoip2? ( dev-libs/libmaxminddb )
 	json? ( dev-libs/yajl )
 	lmdb? ( dev-db/lmdb )
-	lua? ( ${LUA_DEPS} )
-	pcre2? ( dev-libs/libpcre2:= )"
+	lua? ( ${LUA_DEPS} )"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig
 	doc? ( app-text/doxygen[dot] )"
@@ -50,10 +50,10 @@ src_configure() {
 		$(use_with json yajl)
 		$(use_with lmdb)
 		$(use_with lua)
-		$(use_with pcre2)
+		--with-pcre2
 	)
 
-	econf "${myconf[@]}"
+	CONFIG_SHELL="${BROOT}/bin/bash" econf "${myconf[@]}"
 }
 
 src_compile() {
