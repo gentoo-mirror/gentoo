@@ -42,6 +42,20 @@ src_compile() {
 		rm -r target || die
 	done
 
+	# upstream generates module-info into root of the jars
+	for module in "${ASM_MODULES[@]}"; do
+		einfo "Adjust mudule-info in ${module}"
+		mkdir target || die
+		pushd target >/dev/null || die
+		jar xf ../${module}.jar || die
+		rm -v ../${module}.jar || die
+		mv {META-INF/versions/9/,}module-info.class || die
+		rm -rv META-INF || die
+		popd >/dev/null || die
+		jar cf ${module}.jar -C target . || die
+		rm -r target || die
+	done
+
 	use doc && ejavadoc
 }
 
