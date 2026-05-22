@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=setuptools
 PYPI_PN="PyJWT"
 PYPI_VERIFY_REPO=https://github.com/jpadilla/pyjwt
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{11..15} )
 
 inherit distutils-r1 optfeature pypi
 
