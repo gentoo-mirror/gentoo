@@ -276,7 +276,7 @@ selinux-policy-2_src_compile() {
 	_selinux_compile_modules() {
 		# Support USE flags in builds
 		export M4PARAM="${makeuse}"
-		emake NAME=$1 SHAREDIR="${EPREFIX}"/usr/share/selinux -C "${S}"/${1}
+		emake NAME=$1 SHAREDIR="${ESYSROOT}"/usr/share/selinux -C "${S}"/${1}
 	}
 
 	if [[ ${EAPI} = 7 ]]; then
