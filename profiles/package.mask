@@ -36,6 +36,12 @@
 
 #--- END OF EXAMPLES ---
 
+# Matt Turner <mattst88@gentoo.org> (2026-05-22)
+# Deprecated upstream. Relies on removed XA support in Mesa. Use the built-in
+# modesetting driver instead. Bug #957955.
+# Removal on 2026-06-21.
+x11-drivers/xf86-video-vmware
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-05-18)
 # Almost no one else is packaging net-libs/zmqpp, no more revdeps.
 # Bugs #667060, 951835.  Removal on 2026-06-17.
