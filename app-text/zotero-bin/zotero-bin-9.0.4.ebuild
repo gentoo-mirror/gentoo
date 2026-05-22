@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,14 +8,15 @@ inherit desktop xdg
 DESCRIPTION="Helps you collect, organize, cite, and share your research sources"
 HOMEPAGE="https://www.zotero.org"
 SRC_URI="
-	amd64? ( https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64&version=${PV} -> ${P}-amd64.tar.bz2 )
-	x86? ( https://www.zotero.org/download/client/dl?channel=release&platform=linux-i686&version=${PV} -> ${P}-x86.tar.bz2 )
+	amd64? ( https://www.zotero.org/download/client/dl?channel=release&platform=linux-x86_64&version=${PV} -> ${P}-amd64.tar.xz )
+	arm64? ( https://www.zotero.org/download/client/dl?channel=release&platform=linux-arm64&version=${PV} -> ${P}-arm64.tar.xz )
+	x86? ( https://www.zotero.org/download/client/dl?channel=release&platform=linux-i686&version=${PV} -> ${P}-x86.tar.xz )
 "
 S="${WORKDIR}"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="-* amd64 ~x86"
+KEYWORDS="-* ~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	app-accessibility/at-spi2-core
@@ -50,6 +51,8 @@ QA_PREBUILT="opt/zotero/*"
 src_prepare() {
 	if use amd64; then
 		cd Zotero_linux-x86_64 || die
+	elif use arm64; then
+		cd Zotero_linux-arm64 || die
 	elif use x86; then
 		cd Zotero_linux-i686 || die
 	fi
