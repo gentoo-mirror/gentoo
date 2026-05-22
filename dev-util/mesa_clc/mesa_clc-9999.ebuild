@@ -81,6 +81,7 @@ src_configure() {
 	use debug && EMESON_BUILDTYPE=debug
 
 	local emesonargs=(
+		-Dallow-broken-lto=true
 		-Dllvm=enabled
 		-Dshared-llvm=enabled
 		-Dmesa-clc=enabled
