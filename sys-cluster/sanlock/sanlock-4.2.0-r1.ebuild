@@ -1,16 +1,16 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..15} )
 inherit flag-o-matic linux-info distutils-r1 systemd
 
 DESCRIPTION="shared storage lock manager"
-HOMEPAGE="https://pagure.io/sanlock"
-SRC_URI="https://releases.pagure.org/${PN}/${P}.tar.gz"
+HOMEPAGE="https://codeberg.org/sanlock/sanlock"
+SRC_URI="https://codeberg.org/${PN}/${PN}/releases/download/${P}/${P}.tar.gz"
 
 LICENSE="LGPL-2+ GPL-2 GPL-2+"
 SLOT="0"

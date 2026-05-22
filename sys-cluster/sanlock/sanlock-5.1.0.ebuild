@@ -1,18 +1,20 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..12} )
-inherit flag-o-matic linux-info python-r1 systemd
+DISTUTILS_EXT=1
+DISTUTILS_USE_PEP517=setuptools
+PYTHON_COMPAT=( python3_{11..15} )
+inherit flag-o-matic linux-info distutils-r1 systemd
 
 DESCRIPTION="shared storage lock manager"
-HOMEPAGE="https://pagure.io/sanlock"
-SRC_URI="https://releases.pagure.org/${PN}/${P}.tar.gz"
+HOMEPAGE="https://codeberg.org/sanlock/sanlock"
+SRC_URI="https://codeberg.org/${PN}/${PN}/releases/download/${P}/${P}.tar.gz"
 
 LICENSE="LGPL-2+ GPL-2 GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ~ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="python"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
@@ -27,10 +29,8 @@ RDEPEND="
 	acct-group/${PN}
 	${DEPEND}
 "
-BDEPEND="sys-apps/which"
 
 PATCHES=(
-	"${FILESDIR}/sanlock-fence_sanlock-LDFLAGS.patch"
 	"${FILESDIR}/sanlock-3.8.4-implicit-func-decls.patch"
 )
 
@@ -42,22 +42,24 @@ src_compile() {
 	# https://pagure.io/sanlock/issue/10
 	filter-lto
 
-	for d in wdmd src fence_sanlock reset; do
+	for d in wdmd src; do
 		emake -C ${d}
 	done
 
 	if use python; then
-		python_foreach_impl emake -C python
+		pushd python
+		distutils-r1_src_compile
+		popd
 	fi
 }
 
 src_install() {
-	for d in wdmd src fence_sanlock reset; do
+	for d in wdmd src; do
 		emake -C ${d} DESTDIR="${D}" LIBDIR="${EPREFIX}/usr/$(get_libdir)" install
 	done
 
 	if use python; then
-		python_foreach_impl emake -C python DESTDIR="${D}" install
+		distutils-r1_src_install
 	fi
 
 	# config
@@ -71,13 +73,11 @@ src_install() {
 	newconfd init.d/wdmd.sysconfig wdmd
 	newinitd "${FILESDIR}"/sanlock.initd sanlock
 	newinitd "${FILESDIR}"/wdmd.initd wdmd
-	#doinitd ${FILESDIR}/sanlk-resetd.initd
-	#doinitd ${FILESDIR}/fence_sanlockd.initd
 
 	# systemd
-	systemd_newunit init.d/sanlock.service.native sanlock.service
-	sed -i 's,^ExecStartPre=,#ExecStartPre=,' init.d/wdmd.service.native || die
-	systemd_newunit init.d/wdmd.service.native wdmd.service
-	systemd_dounit init.d/sanlk-resetd.service
-	#systemd_dounit ${FILESDIR}/fence_sanlockd.service
+	local utildir="$(systemd_get_utildir)"
+	exeinto "${utildir#"${EPREFIX}"}"
+	doexe init.d/systemd-wdmd
+	systemd_dounit init.d/sanlock.service
+	systemd_dounit init.d/wdmd.service
 }
