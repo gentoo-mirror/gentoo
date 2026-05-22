@@ -30,7 +30,7 @@ RDEPEND="
 	>=dev-python/httpcore-1.0.6[${PYTHON_USEDEP}]
 	dev-python/httpx[${PYTHON_USEDEP}]
 	>=dev-python/id-1.5.0[${PYTHON_USEDEP}]
-	dev-python/installer[${PYTHON_USEDEP}]
+	>=dev-python/installer-1[${PYTHON_USEDEP}]
 	>=dev-python/packaging-22.1[${PYTHON_USEDEP}]
 	>=dev-python/pbs-installer-2025.10.07[${PYTHON_USEDEP}]
 	dev-python/platformdirs[${PYTHON_USEDEP}]
