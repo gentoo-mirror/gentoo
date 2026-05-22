@@ -1,4 +1,4 @@
-# Copyright 2019-2025 Gentoo Authors
+# Copyright 2019-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,11 +7,11 @@ inherit meson vala
 
 DESCRIPTION="glib library for communicating with snapd"
 HOMEPAGE="https://snapcraft.io/"
-SRC_URI="https://github.com/snapcore/snapd-glib/releases/download/${PV}/${P}.tar.xz"
+SRC_URI="https://github.com/canonical/snapd-glib/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0/1"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 IUSE="doc introspection qml qt6 vala"
 REQUIRED_USE="
@@ -30,7 +30,11 @@ DEPEND="
 	dev-libs/glib:2
 	dev-util/glib-utils
 	net-libs/libsoup:3.0
-	doc? ( dev-util/gtk-doc )
+	doc? (
+		dev-build/gtk-doc-am
+		dev-util/gi-docgen
+		dev-util/gtk-doc
+	)
 	introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2 )
 	qml? (
 		qt6? ( dev-qt/qtdeclarative:6 )
@@ -44,11 +48,6 @@ DEPEND="
 RDEPEND="${DEPEND}
 	app-containers/snapd
 "
-
-PATCHES=(
-	# https://github.com/snapcore/snapd-glib/pull/152
-	"${FILESDIR}/${P}-install-missing-header.patch"
-)
 
 pkg_setup() {
 	vala_setup
@@ -66,4 +65,12 @@ src_configure() {
 	)
 
 	meson_src_configure
+}
+
+src_install() {
+	meson_src_install
+	if use doc; then
+		dodir /usr/share/gtk-doc/html/
+		mv "${ED}/usr/share/doc/${PN}" "${ED}/usr/share/gtk-doc/html/${PF}" || die
+	fi
 }
