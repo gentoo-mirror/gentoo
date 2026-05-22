@@ -12,7 +12,7 @@ else
 	LLVM_COMPAT=( {18..21} )
 fi
 
-inherit cmake llvm-r1 ${GIT_ECLASS}
+inherit cmake llvm-r2 ${GIT_ECLASS}
 
 DESCRIPTION="C/C++/ObjC language server"
 HOMEPAGE="https://github.com/MaskRay/ccls"
