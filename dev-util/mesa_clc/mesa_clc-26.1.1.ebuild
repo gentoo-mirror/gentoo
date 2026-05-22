@@ -6,7 +6,7 @@ EAPI=8
 LLVM_COMPAT=( {18..22} )
 PYTHON_COMPAT=( python3_{11..14} )
 
-inherit llvm-r1 meson python-any-r1
+inherit llvm-r2 meson python-any-r1
 
 MY_PV="${PV/_/-}"
 
@@ -63,7 +63,7 @@ python_check_deps() {
 }
 
 pkg_setup() {
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 	python-any-r1_pkg_setup
 }
 
