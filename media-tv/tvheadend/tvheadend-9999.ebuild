@@ -27,6 +27,7 @@ IUSE="dbus debug +ddci dvbcsa +dvb +ffmpeg hdhomerun +imagecache +inotify iptv o
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	ddci? ( dvb )
+	vaapi? ( ffmpeg )
 "
 
 BDEPEND="
