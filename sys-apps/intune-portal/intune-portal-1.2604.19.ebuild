@@ -7,7 +7,7 @@ inherit desktop pam prefix readme.gentoo-r1 systemd tmpfiles unpacker xdg
 
 DESCRIPTION="Microsoft Intune Company Portal to access a corporate environment"
 HOMEPAGE="https://learn.microsoft.com/mem/intune/"
-SRC_URI="https://packages.microsoft.com/ubuntu/24.04/prod/pool/main/${PN:0:1}/${PN}/${PN}_${PV}-noble_amd64.deb"
+SRC_URI="https://packages.microsoft.com/ubuntu/26.04/prod/pool/main/${PN:0:1}/${PN}/${PN}_${PV}-resolute_amd64.deb"
 S="${WORKDIR}"
 LICENSE="all-rights-reserved"
 SLOT="0"
@@ -37,12 +37,6 @@ RDEPEND="
 	x11-libs/gtk+:3
 	x11-libs/libX11
 	x11-libs/pango
-
-	|| (
-		www-client/microsoft-edge
-		www-client/microsoft-edge-beta
-		www-client/microsoft-edge-dev
-	)
 "
 
 QA_PREBUILT="*"
@@ -55,9 +49,18 @@ src_unpack() {
 	unpack_deb ${A}
 }
 
+src_prepare() {
+	default
+	hprefixify \
+		lib/systemd/*/* \
+		usr/share/applications/*.desktop \
+		usr/lib/tmpfiles.d/intune.conf
+}
+
 src_install() {
 	exeinto "${DIR}"/bin
 	newexe $(prefixify_ro "${FILESDIR}"/wrapper) intune-portal
+	dosym -r "${DIR}"/bin/intune-portal /usr/bin/intune-portal
 	dosym intune-portal "${DIR}"/bin/intune-agent
 	dosym intune-portal "${DIR}"/bin/intune-daemon
 

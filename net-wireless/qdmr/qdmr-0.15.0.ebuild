@@ -24,9 +24,10 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	dev-cpp/yaml-cpp:=
 	dev-qt/qtbase:6[gui,network,widgets]
+	dev-qt/qtmultimedia:6
 	dev-qt/qtpositioning:6
 	dev-qt/qtserialport:6
-	dev-qt/qttools[designer,linguist]
+	dev-qt/qttools:6[designer,linguist]
 	virtual/libusb:1
 "
 DEPEND="${RDEPEND}
