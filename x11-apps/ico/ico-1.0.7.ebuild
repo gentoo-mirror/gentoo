@@ -7,7 +7,7 @@ inherit xorg-meson
 
 DESCRIPTION="animate an icosahedron or other polyhedron"
 
-KEYWORDS="~amd64 arm ~arm64 ~mips ~ppc ppc64 ~s390 ~sparc ~x86"
+KEYWORDS="amd64 arm ~arm64 ~mips ~ppc ppc64 ~s390 ~sparc ~x86"
 
 RDEPEND="x11-libs/libX11"
 DEPEND="${RDEPEND}
