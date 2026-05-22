@@ -5204,7 +5204,7 @@ dev-lang/cue 0.14.1: open-source data validation language and inference engine
 dev-lang/cxprolog 0.98.2-r3: A WAM based Prolog system
 dev-lang/dafny 4.11.0: Dafny is a verification-aware programming language
 dev-lang/dafny-bin 4.11.0-r1: Verification-aware programming language
-dev-lang/deno-bin 2.6.10-r1 2.7.14: Modern runtime for JavaScript and TypeScript
+dev-lang/deno-bin 2.6.10-r1 2.7.14 2.8.0: Modern runtime for JavaScript and TypeScript
 dev-lang/duktape 2.7.0-r3: Embeddable Javascript engine
 dev-lang/dzaima-bqn 0.2.1 0.2.2 9999: A BQN language implementation written in Java, also know as dbqn
 dev-lang/eisl 5.62 5.66: Interpreter and compiler compatible with the ISLisp standard
@@ -5560,7 +5560,7 @@ dev-libs/libgcrypt 1.11.2 1.11.2-r1 1.12.1 1.12.2: General purpose crypto librar
 dev-libs/libgcrypt-compat 1.5.6: Old version of libgcrypt needed by some binaries
 dev-libs/libgdata 0.18.1-r2: GLib-based library for accessing online service APIs using the GData protocol
 dev-libs/libgee 0.20.6-r1 0.20.8: GObject-based interfaces and classes for commonly used data structures
-dev-libs/libgit2 1.9.2 1.9.3: A linkable library for Git
+dev-libs/libgit2 1.9.2 1.9.3 1.9.4: A linkable library for Git
 dev-libs/libgit2-glib 1.2.1-r1: Git library for GLib
 dev-libs/libglib-testing 0.1.1: Libglib-testing is a test library providing test harnesses and mock classes
 dev-libs/libgnome-games-support 1.8.2 2.0.1 2.0.2: Library for code common to GNOME games
@@ -8281,7 +8281,7 @@ dev-python/clang 16.0.6 17.0.6 18.1.8 19.1.7 20.1.8 21.1.8 22.1.5 22.1.6 23.0.0_
 dev-python/cleo 2.1.0: Python tool for building testable command-line interfaces
 dev-python/cli-helpers 2.14.0 2.15.0 9999: Python helpers for common CLI tasks
 dev-python/cli-ui 0.19.0-r1: Python library for better command line interfaces
-dev-python/click 8.3.2 8.3.3 8.4.0: A Python package for creating beautiful command line interfaces
+dev-python/click 8.3.2 8.3.3 8.4.0 8.4.1: A Python package for creating beautiful command line interfaces
 dev-python/click-default-group 1.2.4: Extends click.Group to invoke a command without explicit subcommand name
 dev-python/click-help-colors 0.9.4: Colorization of help messages in Click
 dev-python/click-log 0.4.0: Logging integration for Click
@@ -8456,7 +8456,7 @@ dev-python/expects 0.9.0-r1: Expressive and extensible TDD/BDD assertion library
 dev-python/expecttest 0.3.0: golden tests
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyed3 0.9.9: Module for manipulating ID3 (v1 + v2) tags in Python
-dev-python/faker 40.13.0 40.14.1 40.18.0: A Python package that generates fake data for you
+dev-python/faker 40.13.0 40.14.1 40.18.0 40.19.1: A Python package that generates fake data for you
 dev-python/fakeredis 2.34.1 2.35.0 2.35.1: Fake implementation of redis API for testing purposes
 dev-python/fastbencode 0.3.10: Implementation of bencode with Rust implementation
 dev-python/fasteners 0.20: Python package that provides useful locks
@@ -8590,7 +8590,7 @@ dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
 dev-python/hypothesis 6.151.14 6.152.4 6.152.5 6.152.6 6.152.7 6.152.8 6.152.9: A library for property based testing
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
-dev-python/icalendar 7.0.3 7.1.0 7.1.1: RFC 5545 compatible parser and generator of iCalendar files
+dev-python/icalendar 7.0.3 7.1.0 7.1.1 7.1.2: RFC 5545 compatible parser and generator of iCalendar files
 dev-python/id 1.6.1: A tool for generating OIDC identities
 dev-python/identify 2.6.18 2.6.19: File identification library for Python
 dev-python/idna 3.14 3.15 3.16: Internationalized Domain Names in Applications (IDNA)
@@ -8820,7 +8820,7 @@ dev-python/ml-dtypes 0.5.3 0.5.4: A stand-alone implementation of several NumPy 
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
 dev-python/mock 5.2.0: Rolling backport of unittest.mock for all Pythons
 dev-python/moddb 0.13.0: Python scrapper to access ModDB mods, games and more as objects
-dev-python/more-itertools 10.8.0 11.0.1 11.0.2: More routines for operating on iterables, beyond itertools
+dev-python/more-itertools 11.0.2 11.1.0: More routines for operating on iterables, beyond itertools
 dev-python/moto 4.2.14 5.1.22 5.1.22-r1 5.2.0 5.2.1: Mock library for boto
 dev-python/mpdlcd 0.5.2-r2: A small tool to display the MPD status on a LCDproc server
 dev-python/mpi4py 4.0.1: Message Passing Interface for Python
@@ -9134,7 +9134,7 @@ dev-python/pyotp 2.9.0: PyOTP is a Python library for generating and verifying o
 dev-python/pyparsing 3.3.2: Easy-to-use Python module for text parsing
 dev-python/pyparted 3.13.0: Python bindings for sys-block/parted
 dev-python/pypax 0.9.5-r2 9999: Python module to get or set either PT_PAX and/or XATTR_PAX flags
-dev-python/pypdf 6.10.2 6.11.0 6.12.0: Python library to work with PDF files
+dev-python/pypdf 6.10.2 6.11.0 6.12.0 6.12.1: Python library to work with PDF files
 dev-python/pyperclip 1.11.0: A cross-platform clipboard module for Python
 dev-python/pyphen 0.17.2: Python module for hyphenation using hunspell dictionaries
 dev-python/pypi-attestations 0.0.29: Convert between Sigstore Bundles and PEP-740 Attestation objects
@@ -9233,7 +9233,7 @@ dev-python/pytest-recording 0.13.3 0.13.4: A pytest plugin to record network int
 dev-python/pytest-regressions 2.10.0: Easy to use fixtures to write regression tests
 dev-python/pytest-repeat 0.9.4: pytest plugin for repeating tests
 dev-python/pytest-reraise 2.1.2: Make multi-threaded pytest test cases fail when they should
-dev-python/pytest-rerunfailures 16.1 16.2: pytest plugin to re-run tests to eliminate flaky failures
+dev-python/pytest-rerunfailures 16.1 16.2 16.3: pytest plugin to re-run tests to eliminate flaky failures
 dev-python/pytest-reserial 0.6.1: Pytest plugin for recording and replaying serial port traffic during tests
 dev-python/pytest-salt-factories 1.0.0_rc29 1.0.1 1.0.5: The new generation of the pytest-salt Plugin
 dev-python/pytest-services 2.2.2: Collection of fixtures and utility functions to run service processes for pytest
@@ -9644,7 +9644,7 @@ dev-python/treq 25.5.0: A requests-like API built on top of twisted.web's Agent
 dev-python/trimesh 4.11.5 4.12.1 4.12.2: Python library for loading and using triangular meshes
 dev-python/trio 0.33.0: Python library for async concurrency and I/O
 dev-python/trio-websocket 0.12.2: WebSocket client and server implementation for Python Trio
-dev-python/trove-classifiers 2026.1.14.14 2026.4.28.13 2026.5.7.17 2026.5.20.19: Canonical source for classifiers on PyPI (pypi.org)
+dev-python/trove-classifiers 2026.1.14.14 2026.4.28.13 2026.5.7.17 2026.5.20.19 2026.5.22.10: Canonical source for classifiers on PyPI (pypi.org)
 dev-python/trustme 1.2.1: #1 quality TLS certs while you wait, for the discerning tester
 dev-python/truststore 0.10.4: Verify certificates using native system trust stores
 dev-python/tubes 0.2.1: Flow control and backpressure for event-driven applications
@@ -9741,7 +9741,7 @@ dev-python/whenever 0.9.5 0.10.0: Modern datetime library for Python
 dev-python/whisper 1.1.10: Fixed size round-robin style database
 dev-python/whoosh 2.7.4-r2: Fast, pure-Python full text indexing, search and spell checking library
 dev-python/widgetsnbextension 4.0.15: IPython HTML widgets for Jupyter
-dev-python/wrapt 2.1.2 2.2.0: Module for decorators, wrappers and monkey patching
+dev-python/wrapt 2.1.2 2.2.0 2.2.1: Module for decorators, wrappers and monkey patching
 dev-python/wsaccel 0.6.7: Accelerator for ws4py, autobahn and tornado
 dev-python/wsgiproxy2 0.5.1-r1: HTTP proxying tools for WSGI apps
 dev-python/wsproto 1.3.2: WebSockets state-machine based protocol implementation
@@ -9804,7 +9804,7 @@ dev-qt/qtconcurrent 5.15.18: Multi-threading concurrence support library for the
 dev-qt/qtconnectivity 6.10.1 6.10.2 6.10.3 6.11.1 6.11.9999 6.9999: Bluetooth and NFC support library for the Qt6 framework
 dev-qt/qtcore 5.15.18: Cross-platform application development framework
 dev-qt/qtdbus 5.15.18: Qt5 module for inter-process communication over the D-Bus protocol
-dev-qt/qtdeclarative 5.15.18-r1 6.10.1-r2 6.10.2 6.10.3 6.10.3-r1 6.11.1 6.11.9999 6.9999: Qt Declarative (Quick 2)
+dev-qt/qtdeclarative 5.15.18-r1 6.10.1-r2 6.10.2 6.10.3-r1 6.11.1-r1 6.11.9999 6.9999: Qt Declarative (Quick 2)
 dev-qt/qtgraphicaleffects 5.15.18: Set of QML types for adding visual effects to user interfaces
 dev-qt/qtgraphs 6.10.1 6.10.2 6.10.3 6.11.1 6.11.9999 6.9999: Graphs component library for the Qt6 framework
 dev-qt/qtgui 5.15.18-r1: The GUI module and platform plugins for the Qt5 framework
@@ -11978,7 +11978,7 @@ gnome-base/gnome-menus 3.36.0-r1 3.38.1: Library and layout configuration for th
 gnome-base/gnome-panel 3.54.0 3.56.0 3.58.1: The GNOME Flashback Panel
 gnome-base/gnome-session 48.0-r2 49.2: Gnome session manager
 gnome-base/gnome-session-openrc 49.1-r1: Gnome session leader for OpenRC
-gnome-base/gnome-settings-daemon 48.1 49.1: Gnome Settings Daemon
+gnome-base/gnome-settings-daemon 48.1 49.1 49.1-r1: Gnome Settings Daemon
 gnome-base/gnome-shell 48.5 48.7 48.8 49.6: Provides core UI functions for the GNOME desktop
 gnome-base/gsettings-desktop-schemas 48.0 49.1: Collection of GSettings schemas for GNOME desktop
 gnome-base/gvfs 1.56.1-r3 1.58.4: Virtual filesystem implementation for GIO
@@ -12630,7 +12630,7 @@ mail-client/alot 0.11-r2 9999: Experimental terminal UI for net-mail/notmuch wri
 mail-client/alpine 2.26-r5 2.29.9: An easy to use text-based based mail and news client
 mail-client/balsa 2.6.4-r2 2.6.4-r3 2.6.5: Email client for GNOME
 mail-client/bower 1.0: Curses terminal client for the Notmuch email system
-mail-client/claws-mail 3.21.0-r2 4.3.0-r3 4.3.1-r2 4.4.0 9999: An email client (and news reader) based on GTK+
+mail-client/claws-mail 3.21.0-r2 4.3.1-r2 4.4.0 9999: An email client (and news reader) based on GTK+
 mail-client/clawsker 1.4.0 1.4.1: Applet to edit Claws Mail's hidden preferences
 mail-client/evolution 3.56.2-r1 3.58.2-r1 3.58.3 3.60.1: Integrated mail, addressbook and calendaring functionality
 mail-client/geary 46.0-r1 46.0-r2: A lightweight, easy-to-use, feature-rich email client
@@ -17568,7 +17568,7 @@ sys-devel/bison 3.8.2-r2 3.8.2-r3: A general-purpose (yacc-compatible) parser ge
 sys-devel/bpf-toolchain 15.2.0_p3 16.1.0_p1: All-in-one bpf toolchain for building DTrace and systemd without crossdev
 sys-devel/clang-crossdev-wrappers 16 17 18 19 20 21 22 23: Symlinks to a Clang crosscompiler
 sys-devel/cproc 0_pre20240413 0_pre20260113 9999: C11 compiler using QBE as backend
-sys-devel/crossdev 20260326 20260501 99999999: Gentoo Cross-toolchain generator
+sys-devel/crossdev 20260326 20260501 20260501-r1 99999999: Gentoo Cross-toolchain generator
 sys-devel/crosstool-ng 1.28.0 9999: Versatile (cross-)toolchain generator
 sys-devel/dev86 1.0.1: Bruce's C compiler - Simple C compiler to generate 8086 code
 sys-devel/distcc 3.4-r4 3.4-r6 3.4-r9: Distribute compilation of C code across several machines on a network
@@ -17763,9 +17763,9 @@ sys-kernel/dkms 3.2.2 3.3.0 3.4.0 3.4.1 9999: Dynamic Kernel Module Support
 sys-kernel/dracut 108-r6 110-r5 111 9999: Generic initramfs generation tool
 sys-kernel/dracut-crypt-ssh 1.0.8-r2: Early unlocking of encrypted systems via ssh for dracut
 sys-kernel/genkernel 4.3.17-r4 4.3.18 9999: Gentoo automatic kernel building scripts
-sys-kernel/gentoo-kernel 5.10.256_p1 5.10.256_p2 5.15.207_p1 5.15.207_p2 6.1.173_p1 6.1.173_p2 6.1.173_p3 6.6.140 6.6.140_p1 6.6.140_p2 6.12.90 6.12.90_p1 6.12.90_p2 6.18.32 6.18.32_p1 6.18.32_p2 7.0.9 7.0.9_p1 7.0.9_p2: Linux kernel built with Gentoo patches
-sys-kernel/gentoo-kernel-bin 5.10.256_p1 5.10.256_p2 5.15.207_p1 5.15.207_p2 6.1.173_p1 6.1.173_p2 6.1.173_p3 6.6.140 6.6.140_p1 6.6.140_p2 6.12.90 6.12.90_p1 6.12.90_p2 6.18.32 6.18.32_p1 6.18.32_p2 7.0.9 7.0.9_p1 7.0.9_p2: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-sources 5.10.256-r2 5.15.207-r2 6.1.173-r2 6.1.173-r3 6.6.140-r2 6.6.140-r3 6.12.90-r2 6.12.90-r3 6.18.32-r2 6.18.32-r3 7.0.9-r2 7.0.9-r3 7.0.9-r4: Full sources including the Gentoo patchset for the 7.0 kernel tree
+sys-kernel/gentoo-kernel 5.10.256_p2 5.15.207_p2 6.1.173_p3 6.6.140_p2 6.12.90_p2 6.18.32_p2 7.0.9_p2: Linux kernel built with Gentoo patches
+sys-kernel/gentoo-kernel-bin 5.10.256_p2 5.15.207_p2 6.1.173_p3 6.6.140_p2 6.12.90_p2 6.18.32_p2 7.0.9_p2: Pre-built Linux kernel with Gentoo patches
+sys-kernel/gentoo-sources 5.10.256-r2 5.15.207-r2 6.1.173-r3 6.6.140-r3 6.12.90-r3 6.18.32-r3 7.0.9-r5: Full sources including the Gentoo patchset for the 7.0 kernel tree
 sys-kernel/git-sources 7.1_rc1 7.1_rc2 7.1_rc3 7.1_rc4: The very latest -git version of the Linux kernel
 sys-kernel/gnumach 1.8_p20260224 1.8_p20260330 9999: GNU Mach microkernel, for the Hurd
 sys-kernel/hurd 0.9_p20251029 0.9_p20260331 9999: GNU Hurd is the GNU project's replacement for UNIX
@@ -17788,7 +17788,7 @@ sys-kernel/scx 1.0.16 1.0.19 1.0.20 1.1.0 1.1.1: sched_ext schedulers and tools
 sys-kernel/scx-loader 1.0.19 1.0.20 1.1.0 1.1.1: DBUS on-demand loader of sched-ext schedulers
 sys-kernel/udev-hid-bpf 2.2.0_p20251121: Automatic HID-BPF loader based on udev events for device workarounds
 sys-kernel/ugrd 1.27.2 1.28.2 1.29.0-r1 1.31.2 2.0.2 2.2.0 9999: Python based POSIX initramfs generator with TOML definitions
-sys-kernel/vanilla-kernel 5.10.256 5.10.9999 5.15.207 5.15.9999 6.1.173 6.1.9999 6.6.140 6.6.9999 6.12.90 6.12.9999 6.18.32 6.18.9999 7.0.7 7.0.9: Linux kernel built from vanilla upstream sources
+sys-kernel/vanilla-kernel 5.10.256 5.10.9999 5.15.207 5.15.9999 6.1.173 6.1.9999 6.6.140 6.6.9999 6.12.90 6.12.9999 6.18.32 6.18.9999 7.0.9: Linux kernel built from vanilla upstream sources
 sys-kernel/vanilla-sources 5.10.256 5.15.207 6.1.173 6.6.140 6.12.90 6.18.32 7.0.9: Full sources for the Linux kernel
 sys-kernel/virtme-ng 1.41: Quickly build and run kernels inside a virtualized snapshot of your live system
 sys-kernel/zen-sources 7.0.9: The Zen Kernel Live Sources
@@ -17976,7 +17976,7 @@ virtual/commonlisp 0-r1: Virtual for Common Lisp
 virtual/cron 0-r3: Virtual for cron
 virtual/daemontools 0: Virtual for daemontools
 virtual/dev-manager 0-r2: Virtual for the device filesystem manager
-virtual/dist-kernel 5.10.256_p1 5.10.256_p2 5.15.207_p1 5.15.207_p2 6.1.173_p1 6.1.173_p2 6.1.173_p3 6.6.140 6.6.140_p1 6.6.140_p2 6.12.90 6.12.90_p1 6.12.90_p2 6.18.32 6.18.32_p1 6.18.32_p2 7.0.9 7.0.9_p1 7.0.9_p2: Virtual to depend on any Distribution Kernel
+virtual/dist-kernel 5.10.256_p2 5.15.207_p2 6.1.173_p3 6.6.140_p2 6.12.90_p2 6.18.32_p2 7.0.9_p2: Virtual to depend on any Distribution Kernel
 virtual/dotnet-sdk 6.0-r2 7.0-r1 8.0 9.0 10.0-r1: Virtual for .NET SDK
 virtual/editor 0-r7: Virtual for editor
 virtual/fam 0-r1: A virtual package to choose between gamin and fam
@@ -19151,7 +19151,7 @@ x11-wm/openbox 3.6.1-r11 9999: Standards compliant, fast, light-weight, extensib
 x11-wm/oroborus 2.0.20-r2: Small and fast window manager
 x11-wm/page 1.9.10 1.9.10-r1: A mouse friendly tiling window manager
 x11-wm/pekwm 0.3.2 0.4.2: Lightweight window manager initially based on aewm++
-x11-wm/qtile 0.35.0-r1: A full-featured, hackable tiling window manager written in Python
+x11-wm/qtile 0.35.0-r1 0.36.0: A full-featured, hackable tiling window manager written in Python
 x11-wm/ratpoison 1.4.9-r3 9999: window manager without mouse dependency
 x11-wm/selectwm 0.4.1-r2: window manager selector tool
 x11-wm/sithwm 1.2.3: Minimalist Window Manager for X
