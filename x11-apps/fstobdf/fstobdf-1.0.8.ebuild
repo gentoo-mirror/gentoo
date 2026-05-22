@@ -6,7 +6,7 @@ EAPI=8
 inherit xorg-meson
 
 DESCRIPTION="generate BDF font from X font server"
-KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~mips ~ppc ppc64 ~s390 ~sparc ~x86"
 
 RDEPEND="
 	x11-libs/libX11
