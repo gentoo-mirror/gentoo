@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=pdm-backend
 PYPI_VERIFY_REPO=https://github.com/pdm-project/dep-logic
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} python3_{13,14}t )
+PYTHON_COMPAT=( pypy3_11 python3_{11..15} python3_{13..15}t )
 
 inherit distutils-r1 pypi
 
