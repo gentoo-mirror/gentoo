@@ -153,7 +153,7 @@ pkg_setup() {
 
 	[[ ${MERGE_TYPE} == "binary" ]] && return
 
-	JAVA_PKG_WANT_BUILD_VM="openjdk-25 openjdk-${SLOT} openjdk-bin-${SLOT}"
+	JAVA_PKG_WANT_BUILD_VM="openjdk-${SLOT} openjdk-bin-${SLOT}"
 	JAVA_PKG_WANT_SOURCE="${SLOT}"
 	JAVA_PKG_WANT_TARGET="${SLOT}"
 
