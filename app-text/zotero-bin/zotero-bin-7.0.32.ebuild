@@ -15,7 +15,7 @@ S="${WORKDIR}"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="-* amd64 ~x86"
 
 RDEPEND="
 	app-accessibility/at-spi2-core
