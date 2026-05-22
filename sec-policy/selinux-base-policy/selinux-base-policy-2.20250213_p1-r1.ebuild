@@ -111,7 +111,7 @@ src_compile() {
 		if use "selinux_policy_types_${type}"; then
 			# Support USE flags in builds
 			export M4PARAM="${makeuse}"
-			emake NAME="${type}" SHAREDIR="${EPREFIX}/usr/share/selinux" -C "${S}/${type}"
+			emake NAME="${type}" SHAREDIR="${ESYSROOT}/usr/share/selinux" -C "${S}/${type}"
 		fi
 	done
 }
