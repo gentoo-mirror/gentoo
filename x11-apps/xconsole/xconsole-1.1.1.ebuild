@@ -7,7 +7,7 @@ inherit xorg-meson
 
 DESCRIPTION="monitor system console messages with X"
 
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
 
 RDEPEND="
 	x11-libs/libXaw
