@@ -18,9 +18,8 @@ media-video/ffmpeg opencolorio
 app-emulation/qemu passt
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2025-07-31)
-# dev-python/pyqt5, dev-python/pyqt6 are not stable.
+# dev-python/pyqt6 is not stable.
 dev-python/matplotlib qt6 test
-net-print/hplip qt5
 
 # Hans de Graaff <graaff@gentoo.org> (2025-06-29)
 # Requires large parts of dev-ruby/rails to be keyworded.
@@ -30,7 +29,7 @@ dev-ruby/minitest-hooks test
 # Sam James <sam@gentoo.org> (2025-05-16)
 # gpio: dev-libs/libgpiod not keyworded here
 # modbus: dev-libs/libmodbus not keyworded here
-# monitor: dev-python/pyqt5 not keyworded here
+# monitor: dev-python/pyqt6 not keyworded here
 sys-power/nut gpio modbus monitor
 
 # Sam James <sam@gentoo.org> (2025-02-21)
@@ -150,11 +149,6 @@ dev-util/diffoscope opendocument pascal pdf R
 # Sam James <sam@gentoo.org> (2022-11-19)
 # Fails to compile because of size, bug #829602.
 llvm-core/clang extra
-
-# Nowa Ammerlaan <nowa@gentoo.org> (2022-09-23)
-# The corresponding Qt5 modules are not keyworded on ppc, and we don't want to
-# keyword them solely because of PyQt5 while there are no other in-tree users.
-dev-python/pyqt5 speech
 
 # Arthur Zamarin <arthurzam@gentoo.org> (2022-08-15)
 # deps not keyworded

@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{11..14} )
 
 inherit distutils-r1 optfeature pypi
 
-DESCRIPTION="Page-based viewer widget for Qt5/PyQt5"
+DESCRIPTION="Page-based viewer widget for Qt6/PyQt5"
 HOMEPAGE="
 	https://qpageview.org/
 	https://github.com/frescobaldi/qpageview/
