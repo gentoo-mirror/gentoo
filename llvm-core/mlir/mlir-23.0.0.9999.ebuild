@@ -208,7 +208,6 @@ multilib_src_test() {
 			known_xfail+=(
 				# MLIR is full of 64-bit assumptions, sigh
 				# https://github.com/llvm/llvm-project/issues/124541
-				Conversion/MemRefToLLVM/memref-to-llvm.mlir
 				Dialect/Bufferization/Transforms/one-shot-bufferize-pass-statistics.mlir
 				Dialect/LLVMIR/sroa-statistics.mlir
 				Dialect/Linalg/vectorize-tensor-extract.mlir
