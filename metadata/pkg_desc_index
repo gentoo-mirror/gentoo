@@ -1977,7 +1977,7 @@ app-emacs/ddskk 17.1-r1: One Japanese input methods on Emacs
 app-emacs/deferred 0.5.1: Deferred and Concurrent - simple asynchronous functions for Emacs Lisp
 app-emacs/deft 08_p20210707: Quickly browse, filter and edit directories of plain text notes
 app-emacs/demap 1.4.0: Detachable minimap for Emacs
-app-emacs/denote 4.1.2 4.1.3: Simple notes for Emacs with an efficient file-naming scheme
+app-emacs/denote 4.1.2 4.1.3 4.2.0: Simple notes for Emacs with an efficient file-naming scheme
 app-emacs/desktop+ 0.2-r2: desktop+ extends standard desktop module
 app-emacs/desktop-entry-mode 0.27-r1 0.28: GNU Emacs mode for handling freedesktop.org desktop entry files
 app-emacs/develock 0.47: An Emacs minor mode for highlighting broken formatting rules
@@ -3154,8 +3154,8 @@ app-shells/posh-z 1.1.12_p20230811 1.1.15: Quickly navigate the file system base
 app-shells/powerline 2.8.4 9999: The ultimate statusline/prompt utility
 app-shells/psh 1.8.1-r4: Combines the interactive nature of a Unix shell with the power of Perl
 app-shells/push 3.4: A POSIX shell function to treat a variable like an array, quoting args
-app-shells/pwsh 7.5.5 7.6.0 7.6.1: Cross-platform automation and configuration tool
-app-shells/pwsh-bin 7.5.5 7.6.0 7.6.1: Cross-platform automation and configuration tool (binary package)
+app-shells/pwsh 7.6.0 7.6.1 7.6.2: Cross-platform automation and configuration tool
+app-shells/pwsh-bin 7.6.0 7.6.1 7.6.2: Cross-platform automation and configuration tool (binary package)
 app-shells/quoter 4.2: Quote arguments or standard input for usage in POSIX shell by eval
 app-shells/rc 1.7.4-r3: A reimplementation of the Plan 9 shell
 app-shells/rrs 1.70-r2: Reverse Remote Shell
@@ -3834,7 +3834,7 @@ dev-build/automake-vanilla 1.11.6 1.15.1 1.16.5 1.17 1.18 1.18.1 9999: Used to g
 dev-build/automake-wrapper 20240607 20250528 99999999: Wrapper for automake to manage multiple automake versions
 dev-build/b2 5.4.2: A system for large project software construction, simple to use and powerful
 dev-build/bazel-buildtools 8.2.1 8.5.1: Tools for working with Google's Bazel BUILD files
-dev-build/bazelisk 1.28.1: A user-friendly launcher for Bazel written in Go
+dev-build/bazelisk 1.28.1 1.29.0: A user-friendly launcher for Bazel written in Go
 dev-build/bmake 20251111 20260313 20260406: NetBSD's portable make
 dev-build/boost-m4 0.4_p20221019-r1 0.4_p20250404: Another set of autoconf macros for compiling against boost
 dev-build/cmake 4.1.4 4.1.5 4.2.4 4.3.1 4.3.2 4.3.3 9999: Cross platform Make
@@ -5198,7 +5198,7 @@ dev-lang/clipsjni 6.40-r1: Tool for building Expert Systems (Java version)
 dev-lang/cll1h 0.6-r1: C<<1 programming language system
 dev-lang/clojure 1.12.4 1.12.5: General-purpose programming language with an emphasis on functional programming
 dev-lang/clojure-clr 1.12.2: Port of the functional programming language Clojure to the CLR and .NET
-dev-lang/closure-compiler-bin 20260406 20260412 20260429 20260513: JavaScript optimizing compiler
+dev-lang/closure-compiler-bin 20260412 20260429 20260513 20260520: JavaScript optimizing compiler
 dev-lang/coffee-script 2.7.0: A little language that compiles into javascript
 dev-lang/crystal 1.19.1 1.20.0-r1 1.20.1 1.20.2: The Crystal Programming Language
 dev-lang/cue 0.14.1: open-source data validation language and inference engine
@@ -5264,7 +5264,7 @@ dev-lang/mujs 1.3.6 1.3.7-r1 1.3.8: An embeddable JavaScript interpreter written
 dev-lang/nasm 2.16.03 3.01: groovy little assembler
 dev-lang/neko 2.4.0-r2 2.4.1: Neko is a high-level dynamically typed programming language
 dev-lang/nelua 20240113 99999999: Statically-typed systems programming language inspired by Lua
-dev-lang/nim 2.2.8: Compiled, garbage-collected systems programming language
+dev-lang/nim 2.2.8 2.2.10: Compiled, garbage-collected systems programming language
 dev-lang/nprolog 4.84 4.93 5.16 5.18: Interpreter and compiler to be compatible with Arity/Prolog32
 dev-lang/nqp 2026.02 9999: Not Quite Perl, a Raku bootstrapping compiler
 dev-lang/ocaml 4.14.2 5.3.0-r1 5.4.0: Programming language supporting functional, imperative & object-oriented styles
@@ -6056,7 +6056,7 @@ dev-ml/dune-build-info 3.16.0 3.18.1 3.19.1-r1 3.20.2 3.21.1: Embed locations in
 dev-ml/dune-configurator 3.16.0-r1 3.16.1 3.17.1 3.18.1 3.19.1-r1 3.20.2 3.21.1: Helper library for gathering system configuration
 dev-ml/dune-private-libs 3.16.0-r4 3.18.1 3.19.0-r1: Private libraries of Dune
 dev-ml/dune-site 3.16.0 3.16.1 3.18.1 3.19.1-r1 3.20.2 3.21.1-r1: Embed locations informations inside executable and libraries
-dev-ml/duration 0.1.3 0.2.1: Duration - conversions to various time units
+dev-ml/duration 0.1.3 0.2.1 0.3.1: Duration - conversions to various time units
 dev-ml/easy-format 1.2.0-r1 1.3.4: Pretty-printing library for OCaml
 dev-ml/expect_test_helpers_core 0.16.0 0.17.0-r1: Helpers for writing expectation tests
 dev-ml/extlib 1.7.9-r1 1.8.0: Standard library extensions for O'Caml
@@ -6083,7 +6083,7 @@ dev-ml/lablgl 1.06-r2 1.07-r1: Objective CAML interface for OpenGL
 dev-ml/lablgtk 3.1.5-r2: OCaml bindings to GTK-3
 dev-ml/lablgtk-sourceview 3.1.5: OCaml bindings to GTK-3
 dev-ml/labltk 8.06.12-r2 8.06.15-r1: OCaml interface to the Tcl/Tk GUI framework
-dev-ml/lambda-term 3.3.2 3.3.3: Terminal manipulation library for OCaml
+dev-ml/lambda-term 3.3.2 3.3.3 3.4.0: Terminal manipulation library for OCaml
 dev-ml/libvirt-ocaml 0.6.1.7: OCaml language binding for libvirt native C API
 dev-ml/llvm 16.0.6 17.0.6 18.1.8 19.1.7 20.1.8 21.1.8 22.1.5 22.1.6 23.0.0_pre20260507 23.0.0_pre20260512 23.0.0.9999: OCaml bindings for LLVM
 dev-ml/logs 0.7.0-r1 0.8.0 0.9.0 0.10.0: Logging infrastructure for OCaml
@@ -6204,7 +6204,7 @@ dev-ml/qtest 2.11.2: Inline (Unit) Tests for OCaml
 dev-ml/re 1.11.0-r1 1.12.0 1.13.0-r2 1.13.3-r2 1.14.0: Regular expression library for OCaml
 dev-ml/react 1.2.2-r1: OCaml module for functional reactive programming
 dev-ml/reactiveData 0.2.1: Functional reactive programming with incremental changes in data structures
-dev-ml/reason 3.17.2 3.17.3: Simple, fast & type safe language that leverages JavaScript and OCaml
+dev-ml/reason 3.17.3: Simple, fast & type safe language that leverages JavaScript and OCaml
 dev-ml/record_builder 0.17.0-r2: A library which provides traversal of records with an applicative
 dev-ml/result 1.5: Compat result type
 dev-ml/rresult 0.7.0: Result value combinators for OCaml
@@ -6234,14 +6234,14 @@ dev-ml/uchar 0.0.2-r1: Uchar compatibility library
 dev-ml/unidecode 0.4.0: Convert unicode strings into its ASCII representation
 dev-ml/uopt 0.17.0-r2: An [option]-like type that incurs no allocation
 dev-ml/uri 4.4.0-r1: An RFC3986 URI/URL parsing library
-dev-ml/utop 2.16.0: Universal toplevel for OCaml
+dev-ml/utop 2.16.0 2.17.0: Universal toplevel for OCaml
 dev-ml/uucp 16.0.0 17.0.0: Unicode character properties for OCaml
 dev-ml/uuidm 0.9.7 0.9.8 0.9.9 0.9.10: Universally unique identifiers (UUIDs) for OCaml
 dev-ml/uunf 15.1.0-r1 16.0.0 17.0.0: Unicode text normalization
 dev-ml/uuseg 15.0.0 16.0.0 17.0.0: Unicode text segmentation for OCaml
 dev-ml/uutf 1.0.3-r2 1.0.4-r1: Non-blocking streaming Unicode codec for OCaml
 dev-ml/variantslib 0.16.0 0.17.0-r2: OCaml variants as first class values
-dev-ml/xdg 3.16.1 3.20.2 3.21.1: XDG Base Directory Specification
+dev-ml/xdg 3.20.2 3.21.1: XDG Base Directory Specification
 dev-ml/xml-light 2.5: Minimal Xml parser and printer for OCaml
 dev-ml/xmlm 1.4.0: Streaming XML codec for OCaml
 dev-ml/yojson 2.2.2-r1 3.0.0: JSON parsing and pretty-printing library for OCaml
@@ -11088,7 +11088,7 @@ dev-util/sysprof 47.2-r1 48.0-r1 48.1 49.0: System-wide Linux Profiler
 dev-util/sysprof-capture 3.36.0-r2 47.2 48.0 48.1 49.0: Static library for sysprof capture data generation
 dev-util/sysprof-common 47.2 48.0 48.1 49.0: Static library for sysprof capture data generation
 dev-util/tbump 6.11.0-r1: tbump helps you bump the version of your project easily
-dev-util/tea 0.12.0 0.14.0-r1: Command line tool to interact with Gitea server
+dev-util/tea 0.12.0 0.14.0-r1 0.14.1: Command line tool to interact with Gitea server
 dev-util/tinlink 1.0.0-r2: Tool to create very small elf binary from pure binary files
 dev-util/tkdiff 5.7 6.0: Graphical front end to the diff program
 dev-util/tmake 2.12-r2: Cross platform Makefile tool
@@ -15369,7 +15369,7 @@ net-misc/r8168 8.055.00 8.056.02: r8168 driver for Realtek 8111/8168 PCI-E NICs
 net-misc/rabbitmq-server 3.13.1 4.1.6 4.1.8 4.2.1 4.2.3 4.2.4: RabbitMQ is a high-performance AMQP-compliant message broker written in Erlang
 net-misc/radvd 2.20: Linux IPv6 Router Advertisement Daemon
 net-misc/raggre46 0.6.0: Aggregate IPv4 & IPv6 network addresses
-net-misc/rclone 1.73.2-r1 1.73.3-r1 1.73.5-r1 1.74.0-r1 1.74.1: A program to sync files to and from various cloud storage providers
+net-misc/rclone 1.73.2-r1 1.73.3-r1 1.73.5-r1 1.74.0-r1 1.74.1 1.74.2: A program to sync files to and from various cloud storage providers
 net-misc/rdate 1.11: Use TCP or UDP to retrieve the current time of another machine
 net-misc/rdesktop 1.9.0-r4: A Remote Desktop Protocol Client
 net-misc/redir 3.3-r1: Redir is a port redirector
@@ -15995,7 +15995,7 @@ sci-electronics/librepcb 1.3.0-r1: Free EDA software to develop printed circuit 
 sci-electronics/magic 8.3.365: The VLSI design CAD tool
 sci-electronics/netgen 1.4.52: LVS tool (layout versus schematic comparison)
 sci-electronics/ngspice 43 46: The Next Generation Spice (Electronic Circuit Simulator)
-sci-electronics/nvc 1.20.0 1.20.1: NVC is a VHDL compiler and simulator
+sci-electronics/nvc 1.20.0 1.20.1 1.21.0: NVC is a VHDL compiler and simulator
 sci-electronics/pcb 4.3.0: GPL Electronic Design Automation: Printed Circuit Board editor
 sci-electronics/petrify 4.2-r1: Synthesize Petri nets into asynchronous circuits
 sci-electronics/puff 20181104-r1: microwave CAD software
@@ -17222,7 +17222,7 @@ sys-apps/nosig 2-r1: Block signals before running programs (a generic "nohup")
 sys-apps/nvme-cli 2.11 2.12 2.13 2.14 2.15 2.16: NVM-Express user space tooling for Linux
 sys-apps/onerng 3.7-r1: Software for the Open Hardware Random Number Generator called OneRNG
 sys-apps/opal-utils 7.0: OPAL firmware utilities
-sys-apps/openrazer 3.11.0 3.12.0 3.12.1 3.12.2: Drivers and user-space daemon to control Razer devices on GNU/Linux
+sys-apps/openrazer 3.11.0 3.12.0 3.12.1 3.12.2 3.12.3: Drivers and user-space daemon to control Razer devices on GNU/Linux
 sys-apps/openrc 0.56-r1 0.62.2-r1 0.62.3-r1 0.62.4-r1 0.62.5-r1 0.62.6-r1 0.62.10-r1 0.63-r1 0.63-r2 0.63.1 9999: OpenRC manages the services, startup and shutdown of a host
 sys-apps/osinfo-db 20250606 20251212: Osinfo database for virtualization provisioning tools
 sys-apps/osinfo-db-tools 1.11.0-r1 1.12.0-r1: Tools for managing the osinfo database
