@@ -5,7 +5,7 @@ EAPI=8
 
 inherit cmake verify-sig xdg
 
-DESCRIPTION="Lightweight Qt5 Plain-Text Editor for Linux"
+DESCRIPTION="Lightweight Qt6 Plain-Text Editor for Linux"
 HOMEPAGE="https://github.com/tsujan/FeatherPad"
 SRC_URI="https://github.com/tsujan/FeatherPad/releases/download/V${PV}/FeatherPad-${PV}.tar.xz
 	https://github.com/tsujan/FeatherPad/releases/download/V${PV}/FeatherPad-${PV}.tar.xz.asc"
