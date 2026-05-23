@@ -1,4 +1,4 @@
-# Copyright 2021-2026 Gentoo Authors
+# Copyright 2021-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # this is for now highly experimental -dilfridge
@@ -19,7 +19,7 @@ LDFLAGS="${LDFLAGS} -Wl,--as-needed"
 # use LLVM-provided binutils
 AR="llvm-ar"
 AS="clang -c"
-CPP="clang-cpp -E"
+CPP="clang-cpp"
 NM="llvm-nm"
 STRIP="llvm-strip"
 RANLIB="llvm-ranlib"
