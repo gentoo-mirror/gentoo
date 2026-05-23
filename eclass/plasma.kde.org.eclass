@@ -74,14 +74,11 @@ case ${PN} in
 	breeze | \
 	kglobalacceld | \
 	kwayland | \
-	kwayland-integration | \
 	libplasma | \
-	ocean-sound-theme | \
 	oxygen | \
 	plasma-activities | \
 	plasma-activities-stats | \
 	plasma-integration | \
-	plasma5support | \
 	print-manager) ;;
 	*) RDEPEND+=" !kde-plasma/${PN}:5" ;;
 esac
