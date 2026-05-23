@@ -16,146 +16,135 @@ NUGETS="
 dotnetanalyzers.documentationanalyzers.unstable@1.0.0.59
 dotnetanalyzers.documentationanalyzers@1.0.0-beta.59
 humanizer.core@2.14.1
-json.more.net@2.0.1.2
-json.more.net@2.0.2
-jsonpointer.net@5.0.0
-jsonpointer.net@5.0.2
-jsonschema.net@7.2.3
+json.more.net@2.1.1
+jsonpointer.net@5.3.1
+jsonschema.net@7.4.0
 markdig.signed@0.31.0
-markdig.signed@0.38.0
-microsoft.applicationinsights@2.22.0
-microsoft.bcl.asyncinterfaces@5.0.0
-microsoft.bcl.asyncinterfaces@9.0.14
+markdig.signed@0.44.0
+microsoft.applicationinsights@2.23.0
+microsoft.bcl.asyncinterfaces@10.0.5
 microsoft.codeanalysis.analyzers@3.11.0
-microsoft.codeanalysis.analyzers@3.3.4
-microsoft.codeanalysis.common@4.11.0
-microsoft.codeanalysis.csharp@4.11.0
-microsoft.codecoverage@17.11.1
-microsoft.extensions.objectpool@5.0.10
-microsoft.extensions.objectpool@9.0.14
+microsoft.codeanalysis.analyzers@5.3.0
+microsoft.codeanalysis.common@5.0.0
+microsoft.codeanalysis.csharp@5.0.0
+microsoft.codecoverage@18.0.1
+microsoft.extensions.objectpool@10.0.0
+microsoft.extensions.objectpool@10.0.5
 microsoft.management.infrastructure.runtime.unix@3.0.0
 microsoft.management.infrastructure.runtime.win@3.0.0
 microsoft.management.infrastructure@3.0.0
-microsoft.net.test.sdk@17.11.1
-microsoft.netcore.platforms@1.1.0
-microsoft.netcore.platforms@7.0.4
+microsoft.net.test.sdk@18.0.1
+microsoft.netcore.platforms@1.1.2
 microsoft.powershell.markdownrender@7.2.1
-microsoft.powershell.native@7.4.0
+microsoft.powershell.native@700.0.0
 microsoft.security.extensions@1.4.0
-microsoft.testplatform.objectmodel@17.11.1
-microsoft.testplatform.testhost@17.11.1
-microsoft.win32.registry.accesscontrol@9.0.14
-microsoft.win32.systemevents@9.0.14
-microsoft.windows.compatibility@9.0.14
+microsoft.testplatform.objectmodel@18.0.1
+microsoft.testplatform.testhost@18.0.1
+microsoft.win32.registry.accesscontrol@10.0.5
+microsoft.win32.systemevents@10.0.5
+microsoft.windows.compatibility@10.0.5
 netstandard.library@2.0.3
-newtonsoft.json@13.0.1
+newtonsoft.json@13.0.3
 newtonsoft.json@13.0.4
-powershellget@2.2.5
-runtime.android-arm.runtime.native.system.io.ports@9.0.14
-runtime.android-arm64.runtime.native.system.io.ports@9.0.14
-runtime.android-x64.runtime.native.system.io.ports@9.0.14
-runtime.android-x86.runtime.native.system.io.ports@9.0.14
-runtime.linux-arm.runtime.native.system.io.ports@9.0.14
-runtime.linux-arm64.runtime.native.system.io.ports@9.0.14
-runtime.linux-bionic-arm64.runtime.native.system.io.ports@9.0.14
-runtime.linux-bionic-x64.runtime.native.system.io.ports@9.0.14
-runtime.linux-musl-arm.runtime.native.system.io.ports@9.0.14
-runtime.linux-musl-arm64.runtime.native.system.io.ports@9.0.14
-runtime.linux-musl-x64.runtime.native.system.io.ports@9.0.14
-runtime.linux-x64.runtime.native.system.io.ports@9.0.14
-runtime.maccatalyst-arm64.runtime.native.system.io.ports@9.0.14
-runtime.maccatalyst-x64.runtime.native.system.io.ports@9.0.14
+runtime.android-arm.runtime.native.system.io.ports@10.0.5
+runtime.android-arm64.runtime.native.system.io.ports@10.0.5
+runtime.android-x64.runtime.native.system.io.ports@10.0.5
+runtime.android-x86.runtime.native.system.io.ports@10.0.5
+runtime.linux-arm.runtime.native.system.io.ports@10.0.5
+runtime.linux-arm64.runtime.native.system.io.ports@10.0.5
+runtime.linux-bionic-arm64.runtime.native.system.io.ports@10.0.5
+runtime.linux-bionic-x64.runtime.native.system.io.ports@10.0.5
+runtime.linux-musl-arm.runtime.native.system.io.ports@10.0.5
+runtime.linux-musl-arm64.runtime.native.system.io.ports@10.0.5
+runtime.linux-musl-x64.runtime.native.system.io.ports@10.0.5
+runtime.linux-x64.runtime.native.system.io.ports@10.0.5
+runtime.maccatalyst-arm64.runtime.native.system.io.ports@10.0.5
+runtime.maccatalyst-x64.runtime.native.system.io.ports@10.0.5
 runtime.native.system.data.sqlclient.sni@4.4.0
-runtime.native.system.io.ports@9.0.14
-runtime.osx-arm64.runtime.native.system.io.ports@9.0.14
-runtime.osx-x64.runtime.native.system.io.ports@9.0.14
+runtime.native.system.io.ports@10.0.5
+runtime.osx-arm64.runtime.native.system.io.ports@10.0.5
+runtime.osx-x64.runtime.native.system.io.ports@10.0.5
 runtime.win-arm64.runtime.native.system.data.sqlclient.sni@4.4.0
 runtime.win-x64.runtime.native.system.data.sqlclient.sni@4.4.0
 runtime.win-x86.runtime.native.system.data.sqlclient.sni@4.4.0
 stylecop.analyzers.unstable@1.2.0.556
 stylecop.analyzers@1.2.0-beta.556
-system.buffers@4.5.1
-system.codedom@9.0.14
-system.collections.immutable@8.0.0
+system.buffers@4.6.1
+system.codedom@10.0.5
 system.collections.immutable@9.0.14
-system.componentmodel.composition.registration@9.0.14
-system.componentmodel.composition@9.0.14
-system.configuration.configurationmanager@9.0.14
-system.data.odbc@9.0.14
-system.data.oledb@9.0.14
+system.componentmodel.composition.registration@10.0.5
+system.componentmodel.composition@10.0.5
+system.configuration.configurationmanager@10.0.5
+system.data.odbc@10.0.5
+system.data.oledb@10.0.5
 system.data.sqlclient@4.9.0
 system.data.sqlclient@4.9.1
-system.diagnostics.diagnosticsource@5.0.0
-system.diagnostics.diagnosticsource@9.0.14
-system.diagnostics.eventlog@9.0.14
-system.diagnostics.performancecounter@9.0.14
-system.directoryservices.accountmanagement@9.0.14
-system.directoryservices.protocols@9.0.14
-system.directoryservices@9.0.14
-system.drawing.common@9.0.14
-system.io.packaging@9.0.14
-system.io.ports@9.0.14
-system.management@9.0.14
-system.memory@4.5.5
-system.net.http.winhttphandler@9.0.14
-system.numerics.vectors@4.4.0
-system.numerics.vectors@4.5.0
-system.private.servicemodel@4.10.3
-system.reflection.context@9.0.14
-system.reflection.dispatchproxy@4.7.1
-system.reflection.metadata@1.6.0
-system.reflection.metadata@8.0.0
+system.diagnostics.eventlog@10.0.5
+system.diagnostics.performancecounter@10.0.5
+system.directoryservices.accountmanagement@10.0.5
+system.directoryservices.protocols@10.0.5
+system.directoryservices@10.0.5
+system.drawing.common@10.0.5
+system.io.packaging@10.0.5
+system.io.ports@10.0.5
+system.management@10.0.5
+system.memory@4.6.3
+system.net.http.winhttphandler@10.0.5
+system.numerics.vectors@4.6.1
+system.reflection.context@10.0.5
 system.reflection.metadata@9.0.14
-system.runtime.caching@9.0.14
-system.runtime.compilerservices.unsafe@4.5.3
-system.runtime.compilerservices.unsafe@6.0.0
-system.security.accesscontrol@6.0.1
-system.security.cryptography.pkcs@9.0.14
-system.security.cryptography.protecteddata@9.0.14
-system.security.cryptography.xml@6.0.1
-system.security.cryptography.xml@9.0.14
-system.security.permissions@9.0.14
-system.security.principal.windows@5.0.0
-system.servicemodel.duplex@4.10.3
-system.servicemodel.http@4.10.3
-system.servicemodel.nettcp@4.10.3
-system.servicemodel.primitives@4.10.3
-system.servicemodel.security@4.10.3
-system.servicemodel.syndication@9.0.14
-system.serviceprocess.servicecontroller@9.0.14
-system.speech@9.0.14
-system.text.encoding.codepages@7.0.0
-system.text.encoding.codepages@9.0.14
-system.text.encodings.web@9.0.14
-system.threading.accesscontrol@9.0.14
-system.threading.tasks.extensions@4.5.4
-system.web.services.description@4.10.3
-system.web.services.description@8.0.0
-system.windows.extensions@9.0.14
-validation@2.4.18
-validation@2.5.51
+system.runtime.caching@10.0.5
+system.runtime.compilerservices.unsafe@6.1.2
+system.security.cryptography.pkcs@10.0.5
+system.security.cryptography.pkcs@10.0.6
+system.security.cryptography.protecteddata@10.0.5
+system.security.cryptography.xml@10.0.0
+system.security.cryptography.xml@10.0.5
+system.security.cryptography.xml@10.0.6
+system.security.permissions@10.0.5
+system.servicemodel.http@10.0.652802
+system.servicemodel.http@8.1.2
+system.servicemodel.netframingbase@10.0.652802
+system.servicemodel.nettcp@10.0.652802
+system.servicemodel.nettcp@8.1.2
+system.servicemodel.primitives@10.0.652802
+system.servicemodel.primitives@8.1.2
+system.servicemodel.syndication@10.0.5
+system.serviceprocess.servicecontroller@10.0.5
+system.speech@10.0.5
+system.text.encoding.codepages@8.0.0
+system.threading.tasks.extensions@4.6.3
+system.web.services.description@8.1.2
+system.windows.extensions@10.0.5
+validation@2.6.68
 xunit.abstractions@2.0.3
 xunit.analyzers@1.18.0
 xunit.assert@2.9.3
 xunit.core@2.9.3
+xunit.extensibility.core@2.4.0
 xunit.extensibility.core@2.9.3
 xunit.extensibility.execution@2.4.0
 xunit.extensibility.execution@2.9.3
-xunit.runner.visualstudio@2.8.2
-xunit.skippablefact@1.4.13
+xunit.runner.visualstudio@3.1.5
+xunit.skippablefact@1.5.61
 xunit@2.9.3
-xunitxml.testlogger@4.1.0
+xunitxml.testlogger@8.0.0
 "
 
 # Additional PowerShell Gallery modules.
+NUGETV_MICROSOFT_POWERSHELL_ARCHIVE="1.2.5"
+NUGETV_MICROSOFT_POWERSHELL_PSRESOURCEGET="1.2.0"
+NUGETV_MICROSOFT_POWERSHELL_THREADJOB="2.2.0"
+NUGETV_PACKAGEMANAGEMENT="1.4.8.1"
+NUGETV_POWERSHELLGET="2.2.5"
+NUGETV_PSREADLINE="2.4.5"
 NUGETS+="
-microsoft.powershell.archive@1.2.5
-microsoft.powershell.psresourceget@1.1.1
-packagemanagement@1.4.4
-packagemanagement@1.4.8.1
-powershellget@2.2.5
-psreadline@2.3.6
-threadjob@2.0.3
+microsoft.powershell.archive@${NUGETV_MICROSOFT_POWERSHELL_ARCHIVE}
+microsoft.powershell.psresourceget@${NUGETV_MICROSOFT_POWERSHELL_PSRESOURCEGET}
+microsoft.powershell.threadjob@${NUGETV_MICROSOFT_POWERSHELL_THREADJOB}
+packagemanagement@${NUGETV_PACKAGEMANAGEMENT}
+powershellget@${NUGETV_POWERSHELLGET}
+psreadline@${NUGETV_PSREADLINE}
 "
 
 inherit check-reqs desktop dotnet-pkg xdg-utils
@@ -163,6 +152,7 @@ inherit check-reqs desktop dotnet-pkg xdg-utils
 DESCRIPTION="Cross-platform automation and configuration tool"
 HOMEPAGE="https://microsoft.com/powershell/
 	https://github.com/PowerShell/PowerShell/"
+
 SRC_URI="
 	https://dev.gentoo.org/~xgqt/distfiles/repackaged/${P}.repackaged.tar.xz
 	${NUGET_URIS}
@@ -170,7 +160,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="amd64 arm arm64"
+KEYWORDS="~amd64 ~arm ~arm64"
 IUSE="gui vanilla"
 
 RDEPEND="
@@ -189,7 +179,6 @@ IDEPEND="
 	app-eselect/eselect-pwsh
 "
 
-CHECKREQS_DISK_BUILD="2G"
 DOTNET_PKG_PROJECTS=(
 	src/powershell-unix/powershell-unix.csproj
 	src/Modules/PSGalleryModules.csproj
@@ -202,10 +191,17 @@ DOTNET_PKG_RESTORE_EXTRA_ARGS=(
 DOTNET_PKG_BUILD_EXTRA_ARGS=(
 	"${DOTNET_PKG_RESTORE_EXTRA_ARGS[@]}"
 )
+
+CHECKREQS_DISK_BUILD="2G"
+
 PATCHES=(
 	"${FILESDIR}/pwsh-7.3.3-disable-update-check.patch"
 )
-DOCS=( CHANGELOG CHANGELOG.md CODE_OF_CONDUCT.md README.md docs )
+
+DOCS=(
+	CHANGELOG CHANGELOG.md CODE_OF_CONDUCT.md README.md
+	docs
+)
 
 check_requirements_locale() {
 	if [[ "${MERGE_TYPE}" != binary ]] ; then
@@ -233,14 +229,12 @@ check_requirements_locale() {
 
 pkg_pretend() {
 	check-reqs_pkg_pretend
-
 	check_requirements_locale
 }
 
 pkg_setup() {
 	check-reqs_pkg_setup
 	dotnet-pkg_pkg_setup
-
 	check_requirements_locale
 }
 
@@ -257,14 +251,12 @@ src_prepare() {
 		-i ./PowerShell.Common.props || die
 
 	echo "v${PV}" > ./powershell.version || die
-
 	dotnet-pkg_src_prepare
 }
 
 src_compile() {
 	einfo 'Copying DLL files for the missing "ref" directory'
 	efsi "${FILESDIR}/pwsh-7.3.3-copy-ref.fsx" "${WORKDIR}/${P}_ref"
-
 	dotnet-pkg_src_compile
 }
 
@@ -285,10 +277,10 @@ src_install() {
 	local -a psg_modules=(
 		Microsoft.PowerShell.Archive
 		Microsoft.PowerShell.PSResourceGet
+		Microsoft.PowerShell.ThreadJob
 		PSReadLine
 		PackageManagement
 		PowerShellGet
-		ThreadJob
 	)
 	local psg_module=""
 	for psg_module in "${psg_modules[@]}" ; do
