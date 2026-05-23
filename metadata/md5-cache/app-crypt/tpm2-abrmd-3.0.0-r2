@@ -5,12 +5,12 @@ DESCRIPTION=TPM2 Access Broker & Resource Manager
 EAPI=8
 HOMEPAGE=https://github.com/tpm2-software/tpm2-abrmd
 INHERIT=autotools flag-o-matic systemd
-IUSE=static-libs test
+IUSE=selinux static-libs test
 KEYWORDS=amd64 arm arm64 ppc64 ~riscv x86
 LICENSE=BSD
-RDEPEND=acct-group/tss acct-user/tss sys-apps/dbus dev-libs/glib:= app-crypt/tpm2-tss:=
+RDEPEND=acct-group/tss acct-user/tss sys-apps/dbus dev-libs/glib:= app-crypt/tpm2-tss:= selinux? ( sec-policy/selinux-tpm2 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tpm2-software/tpm2-abrmd/releases/download/3.0.0/tpm2-abrmd-3.0.0.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	flag-o-matic	fd3558f73f6503093adee69adf41020d	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=9a5edc2b07db440acaf453a327623493
+_md5_=2dd71fc0195de9fd18707037b08d5557
