@@ -548,13 +548,13 @@ ecm_src_prepare() {
 
 	# only build unit tests when required
 	if ! { in_iuse test && use test; } ; then
-		if [[ -n ${_KDE_ORG_ECLASS} && ${ECM_TEST} != forceoptional ]]; then
+		if has kde.org ${INHERITED} && [[ ${ECM_TEST} != forceoptional ]]; then
 			cmake_comment_add_subdirectory appiumtests autotests test tests
 		fi
 	fi
 
 	# in frameworks, tests = manual tests so never build them
-	if [[ -n ${_FRAMEWORKS_KDE_ORG_ECLASS} ]] && [[ ${PN} != extra-cmake-modules ]]; then
+	if has frameworks.kde.org ${INHERITED}; then
 		cmake_comment_add_subdirectory tests
 	fi
 
@@ -592,7 +592,7 @@ ecm_src_configure() {
 	fi
 
 	# disable upstream CMake settings ... currently mostly PIM
-	if [[ -n ${_GEAR_KDE_ORG_ECLASS} ]]; then
+	if has gear.kde.org ${INHERITED}; then
 		cmakeargs+=( $(_ecm_disable_unwanted) )
 	fi
 
@@ -710,7 +710,7 @@ ecm_src_install() {
 		fi
 	}
 
-	if [[ -n ${_KDE_ORG_ECLASS} && -d "${ED}"/usr/share/metainfo/ ]]; then
+	if has kde.org ${INHERITED} && [[ -d "${ED}"/usr/share/metainfo/ ]]; then
 		if [[ ${KDE_ORG_NAME} != ${PN} ]]; then
 			local ecm_metainfo mainslot=${SLOT%/*}
 			pushd "${ED}"/usr/share/metainfo/ > /dev/null || die
