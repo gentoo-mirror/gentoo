@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10,12} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit check-reqs python-r1 toolchain-funcs
 
@@ -61,7 +61,6 @@ src_prepare() {
 src_configure() {
 	my_configure() {
 		econf \
-			--disable-static \
 			$(use_enable openmp) \
 			$(use_enable cairo) \
 			--with-boost-python="boost_${EPYTHON/./}"
