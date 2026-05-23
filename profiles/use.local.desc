@@ -526,7 +526,7 @@ app-editors/nano:magic - Add magic file support (sys-apps/file) to automatically
 app-editors/nano:minimal - Disable all fancy features, including ones that otherwise have a dedicated USE flag (such as spelling).
 app-editors/neovim:nvimpager - Install nvimpager symlink to less.sh macro
 app-editors/okteta:designer - Build plugins for dev-qt/qttools[designer]
-app-editors/qhexedit2:gui - Install Qt5 hex editor
+app-editors/qhexedit2:gui - Install Qt6 hex editor
 app-editors/tea:aspell - Enable spellchecking using app-text/aspell
 app-editors/vim:X - Link console vim against X11 libraries to enable title and clipboard features in xterm
 app-editors/vim:crypt - Use dev-libs/libsodium for crypto support
@@ -1266,7 +1266,7 @@ app-text/podofo:tools - Build and install commandline tools.
 app-text/poppler:boost - Use boost::small_vector for a serious performance gain
 app-text/poppler:gpgme - Enable signatures handling with app-crypt/gpgme
 app-text/poppler:nss - Enable signatures handling with dev-libs/nss
-app-text/poppler:utils - Install command-line PDF converters and various utilities.
+app-text/poppler:utils - Install command-line PDF converters and various utilities
 app-text/qpdf:zopfli - Support using app-arch/zopfli for stronger zlib-compatible compression.
 app-text/qpdfview:fitz - Use experimental fitz rendering, provided by app-text/mupdf, instead of poppler
 app-text/qpdfview:synctex - Add support for searching TeX sources
@@ -3153,7 +3153,7 @@ games-emulation/mupen64plus:audio-sdl - Enable SDL audio plugin.
 games-emulation/mupen64plus:input-sdl - Enable SDL input plugin.
 games-emulation/mupen64plus:rsp-hle - Enable HLE RSP plugin.
 games-emulation/mupen64plus:ui-console - Enable default console UI.
-games-emulation/mupen64plus:ui-m64py - Enable PyQt5 UI using games-emulation/m64py.
+games-emulation/mupen64plus:ui-m64py - Enable PyQt6 UI using games-emulation/m64py.
 games-emulation/mupen64plus:video-glide64mk2 - Enable Glide64mk2 video plugin.
 games-emulation/mupen64plus:video-rice - Enable Rice video plugin.
 games-emulation/mupen64plus-core:debugger - Build the debugger
@@ -4524,7 +4524,7 @@ media-libs/openh264:plugin - Install the Gecko Media Plugin (GMP) for use with M
 media-libs/openh264:utils - Install the CLI encoder and decoder utilities
 media-libs/openimageio:dicom - Enable DICOM medical image file support via sci-libs/dcmtk
 media-libs/openimageio:fits - Enable support for NASA's sci-libs/cfitsio library
-media-libs/openimageio:gui - Build iv (with Qt5)
+media-libs/openimageio:gui - Build iv
 media-libs/openimageio:libcxx - Build against llvm-runtimes/libcxx when using clang
 media-libs/openimageio:opencv - Enable OpenCV support via media-libs/opencv
 media-libs/openimageio:openvdb - Enable OpenVDB support via media-gfx/openvdb
@@ -7554,7 +7554,6 @@ sci-libs/vtk:logging - Build the logging module
 sci-libs/vtk:opencascade - Enable OpenCASCADE support
 sci-libs/vtk:openvdb - Build support to handle VDB data files
 sci-libs/vtk:pdal - Build support to handle point cloud data files
-sci-libs/vtk:qt6 - Use Qt6 packages instead of Qt5
 sci-libs/vtk:rendering - Building Redering modules
 sci-libs/vtk:tbb - Use dev-cpp/tbb to handle smp support
 sci-libs/vtk:views - Building Views modules
@@ -8577,7 +8576,7 @@ sys-power/nut:gpio - Includes all UPS drivers that use GPIO.
 sys-power/nut:i2c - Includes all UPS drivers that use I2C.
 sys-power/nut:ipmi - Includes all UPS drivers that use ipmi.
 sys-power/nut:modbus - Includes all UPS drivers that use MODBUS.
-sys-power/nut:monitor - Add a QT5 gui monitor.
+sys-power/nut:monitor - Add a Qt6 gui monitor.
 sys-power/nut:serial - Includes all UPS drivers that use SERIAL.
 sys-power/nut:snmp - Includes all UPS drivers that use SNMP.
 sys-power/nut:usb - Includes all UPS drivers that use USB.
