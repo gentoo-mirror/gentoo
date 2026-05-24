@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,18 +10,16 @@ HOMEPAGE="https://gjs.guide"
 
 LICENSE="MIT || ( MPL-1.1 LGPL-2+ GPL-2+ )"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ~ppc ppc64 ~riscv x86"
-IUSE="+cairo examples readline sysprof test"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
+IUSE="examples readline sysprof test"
 RESTRICT="!test? ( test )"
 
-# <glib-2.86.0 for bug #963815
 RDEPEND="
-	>=dev-libs/glib-2.66.0:2
-	<dev-libs/glib-2.86.0:2
+	>=dev-libs/glib-2.86.0:2
 	dev-libs/libffi:=
-	>=dev-libs/gobject-introspection-1.82.0-r2:=
-	dev-lang/spidermonkey:115
-	cairo? ( x11-libs/cairo[X,glib] )
+	>=dev-libs/gobject-introspection-1.86.0:=
+	dev-lang/spidermonkey:140
+	x11-libs/cairo[X,glib]
 	readline? ( sys-libs/readline:0= )
 "
 DEPEND="${RDEPEND}
@@ -29,6 +27,7 @@ DEPEND="${RDEPEND}
 	test? (
 		sys-apps/dbus
 		>=x11-libs/gtk+-3.20:3[introspection]
+		gui-libs/gtk:4[introspection]
 	)
 "
 BDEPEND="
@@ -54,17 +53,16 @@ src_configure() {
 
 	# FIXME: add systemtap/dtrace support, like in glib:2
 	local emesonargs=(
-		$(meson_feature cairo)
 		$(meson_feature readline)
 		$(meson_feature sysprof profiler)
 		-Dinstalled_tests=false
 		$(meson_use !test skip_dbus_tests)
 		$(meson_use !test skip_gtk_tests)
-		-Db_pch=True # TODO this has to go
 	)
 	meson_src_configure
 }
 
 src_test() {
-	virtx meson_src_test
+	# tests may fail on slow arches
+	virtx meson_src_test --timeout-multiplier 10
 }
