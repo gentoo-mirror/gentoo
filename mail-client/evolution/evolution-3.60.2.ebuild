@@ -3,17 +3,16 @@
 
 EAPI=8
 
-inherit cmake gnome2 readme.gentoo-r1
+inherit cmake gnome2 greadme
 
 DESCRIPTION="Integrated mail, addressbook and calendaring functionality"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/evolution/-/wikis/home https://gitlab.gnome.org/GNOME/evolution"
 
 # Note: explicitly "|| ( LGPL-2 LGPL-3 )", not "LGPL-2+".
 LICENSE="|| ( LGPL-2 LGPL-3 ) CC-BY-SA-3.0 FDL-1.3+ OPENLDAP"
+
 SLOT="2.0"
-
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-
 IUSE="archive +bogofilter geolocation gtk-doc highlight ldap libnotify selinux sound spamassassin spell ssl +weather ytnef"
 
 # glade-3 support is for maintainers only per configure.ac
@@ -44,7 +43,7 @@ DEPEND="
 
 	gnome-base/dconf
 
-	archive? ( >=app-arch/gnome-autoar-0.1.1[gtk] )
+	archive? ( >=app-arch/gnome-autoar-0.1.1 )
 	bogofilter? ( mail-filter/bogofilter )
 	geolocation? (
 		>=media-libs/libchamplain-0.12.21:0.12[gtk]
@@ -80,28 +79,17 @@ BDEPEND="
 	>=dev-util/gdbus-codegen-2.80.5-r1
 	dev-util/glib-utils
 	dev-util/itstool
-	gtk-doc? ( dev-util/gtk-doc
-		app-text/docbook-xml-dtd:4.3 )
+	gtk-doc? (
+		dev-util/gtk-doc
+		app-text/docbook-xml-dtd:4.3
+	)
 	>=dev-util/intltool-0.40.0
 	>=sys-devel/gettext-0.18.3
 	virtual/pkgconfig
 "
 
-DISABLE_AUTOFORMATTING="yes"
-DOC_CONTENTS="To change the default browser if you are not using GNOME, edit
-~/.local/share/applications/mimeapps.list so it includes the
-following content:
-
-[Default Applications]
-x-scheme-handler/http=firefox.desktop
-x-scheme-handler/https=firefox.desktop
-
-(replace firefox.desktop with the name of the appropriate .desktop
-file from /usr/share/applications if you use a different browser)."
-
 # global scope PATCHES or DOCS array mustn't be used due to double default_src_prepare
 # call; if needed, set them after cmake_src_prepare call, if that works
-
 src_prepare() {
 	cmake_src_prepare
 	gnome2_src_prepare
@@ -147,10 +135,26 @@ src_test() {
 
 src_install() {
 	cmake_src_install
-	readme.gentoo_create_doc
+	greadme_stdin <<-EOF
+		To change the default browser if you are not using GNOME, edit
+		~/.local/share/applications/mimeapps.list so it includes the
+		following content:
+
+		[Default Applications]
+		x-scheme-handler/http=firefox.desktop
+		x-scheme-handler/https=firefox.desktop
+
+		(replace firefox.desktop with the name of the appropriate .desktop
+		file from /usr/share/applications if you use a different browser).
+EOF
+}
+
+pkg_preinst() {
+	gnome2_pkg_preinst
+	greadme_pkg_preinst
 }
 
 pkg_postinst() {
 	gnome2_pkg_postinst
-	readme.gentoo_print_elog
+	greadme_pkg_postinst
 }
