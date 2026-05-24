@@ -14,7 +14,7 @@ SRC_URI="https://github.com/redhat-performance/tuned/archive/v${PV}.tar.gz -> ${
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+ppd"
+IUSE="+ppd selinux"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
@@ -35,6 +35,7 @@ RDEPEND="
 			dev-python/pyinotify[${PYTHON_USEDEP}]
 		')
 	)
+	selinux? ( sec-policy/selinux-tuned )
 "
 
 src_compile() { :; }
