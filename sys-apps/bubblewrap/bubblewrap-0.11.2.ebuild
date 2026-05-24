@@ -26,6 +26,7 @@ BDEPEND="
 	dev-libs/libxslt
 	virtual/pkgconfig
 "
+RDEPEND+=" selinux? ( sec-policy/selinux-bubblewrap )"
 
 # tests require root privileges
 RESTRICT="test"
