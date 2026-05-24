@@ -195,14 +195,12 @@ src_prepare() {
 
 	if use test; then
 		# test itself has -Werror=strict-aliasing issues, drop for simplicity
-		sed -e '/add_subdirectory(qsharedpointer)/d' \
-			-i tests/auto/corelib/tools/CMakeLists.txt || die
+		cmake_comment_add_subdirectory -f tests/auto/corelib/tools qsharedpointer
 
 		# workaround for __extendhfxf2 being used for tst_qfloat16.cpp
 		# which is unavailable with compiler-rt (assume used if clang)
 		if tc-is-clang; then
-			sed -e '/add_subdirectory(qfloat16)/d' \
-				-i tests/auto/corelib/global/CMakeLists.txt || die
+			cmake_comment_add_subdirectory -f tests/auto/corelib/global qfloat16
 		fi
 	fi
 }
