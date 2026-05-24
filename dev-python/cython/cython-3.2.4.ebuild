@@ -40,10 +40,12 @@ PATCHES=(
 	"${FILESDIR}/${PN}-0.29.23-pythran-parallel-install.patch"
 )
 
-distutils_enable_sphinx docs \
-	dev-python/jinja2 \
-	dev-python/sphinx-issues \
-	dev-python/sphinx-tabs
+# disabled to workaround pkgcheck performance issue
+# https://github.com/pkgcore/pkgcheck/issues/782
+#distutils_enable_sphinx docs \
+#	dev-python/jinja2 \
+#	dev-python/sphinx-issues \
+#	dev-python/sphinx-tabs
 
 python_compile() {
 	# Python gets confused when it is in sys.path before build.
