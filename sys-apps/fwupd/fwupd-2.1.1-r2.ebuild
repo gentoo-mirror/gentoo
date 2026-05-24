@@ -17,7 +17,7 @@ SRC_URI="
 LICENSE="LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="amdgpu bash-completion bluetooth cbor elogind flashrom gnutls gtk-doc introspection minimal modemmanager policykit seccomp systemd test tpm readline uefi"
+IUSE="amdgpu bash-completion bluetooth cbor elogind flashrom gnutls gtk-doc introspection minimal modemmanager policykit selinux seccomp systemd test tpm readline uefi"
 REQUIRED_USE="
 	${PYTHON_REQUIRED_USE}
 	?? ( elogind systemd )
@@ -69,8 +69,8 @@ COMMON_DEPEND="
 RDEPEND="
 	${COMMON_DEPEND}
 	sys-apps/dbus
+	selinux? ( sec-policy/selinux-fwupd )
 "
-
 DEPEND="
 	${COMMON_DEPEND}
 	x11-libs/pango[introspection]

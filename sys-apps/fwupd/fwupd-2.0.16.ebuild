@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.xz"
 LICENSE="LGPL-2.1+"
 SLOT="0"
 KEYWORDS="amd64 ~arm arm64 ~loong ppc64 ~riscv x86"
-IUSE="amdgpu +archive bash-completion bluetooth cbor elogind flashrom gnutls gtk-doc introspection lzma minimal modemmanager nvme policykit protobuf seccomp spi synaptics systemd test tpm uefi"
+IUSE="amdgpu +archive bash-completion bluetooth cbor elogind flashrom gnutls gtk-doc introspection lzma minimal modemmanager nvme policykit protobuf selinux seccomp spi synaptics systemd test tpm uefi"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	^^ ( elogind minimal systemd )
 	minimal? ( !introspection )
@@ -84,8 +84,8 @@ COMMON_DEPEND="${PYTHON_DEPS}
 RDEPEND="
 	${COMMON_DEPEND}
 	sys-apps/dbus
+	selinux? ( sec-policy/selinux-fwupd )
 "
-
 DEPEND="
 	${COMMON_DEPEND}
 	x11-libs/pango[introspection]
