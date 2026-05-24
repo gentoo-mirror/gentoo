@@ -31,7 +31,6 @@ DEPEND="acct-group/incus
 	>=dev-libs/raft-0.22.1:=[lz4]
 	>=dev-util/xdelta-3.0[lzma(+)]
 	net-dns/dnsmasq[dhcp]
-	selinux? ( sec-policy/selinux-incus )
 	sys-libs/libcap
 	virtual/udev"
 RDEPEND="${DEPEND}
@@ -51,7 +50,8 @@ RDEPEND="${DEPEND}
 		app-cdr/cdrtools
 		app-emulation/qemu[spice,usbredir,virtfs]
 		sys-apps/gptfdisk
-	)"
+	)
+	selinux? ( sec-policy/selinux-incus )"
 BDEPEND=">=dev-lang/go-1.24.7
 	nls? ( sys-devel/gettext )
 	verify-sig? ( sec-keys/openpgp-keys-linuxcontainers )"
