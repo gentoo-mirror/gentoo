@@ -17,7 +17,7 @@ HOMEPAGE="https://wayland.freedesktop.org/ https://gitlab.freedesktop.org/waylan
 
 LICENSE="MIT doc? ( Apache-2.0 OFL-1.1 )"
 SLOT="0"
-IUSE="doc test"
+IUSE="doc test selinux"
 RESTRICT="!test? ( test )"
 
 BDEPEND="
@@ -33,7 +33,10 @@ BDEPEND="
 DEPEND="
 	>=dev-libs/libffi-3.0.13-r1:=[${MULTILIB_USEDEP}]
 "
-RDEPEND="${DEPEND}"
+RDEPEND="
+	${DEPEND}
+	selinux? ( sec-policy/selinux-wayland )
+"
 
 multilib_src_configure() {
 	local emesonargs=(
