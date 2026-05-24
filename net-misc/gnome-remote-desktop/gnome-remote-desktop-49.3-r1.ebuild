@@ -32,6 +32,7 @@ DEPEND="
 		media-libs/libva
 		>=sys-auth/polkit-122
 		>=dev-util/vulkan-headers-1.2.0
+		media-libs/vulkan-loader
 		media-libs/shaderc
 		dev-util/spirv-tools
 		>=x11-libs/libxkbcommon-1.0.0
@@ -70,7 +71,7 @@ src_configure() {
 }
 
 pkg_postinst() {
-	tmpfiles_process "${PN}-tmpfiles.conf"
+	use rdp && tmpfiles_process "${PN}-tmpfiles.conf"
 	xdg_pkg_postinst
 	gnome2_schemas_update
 }
