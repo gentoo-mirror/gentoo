@@ -15,7 +15,7 @@ SRC_URI="https://codeberg.org/${PN}/${PN}/releases/download/${P}/${P}.tar.gz"
 LICENSE="LGPL-2+ GPL-2 GPL-2+"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
-IUSE="python"
+IUSE="python selinux"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -27,6 +27,7 @@ DEPEND="
 RDEPEND="
 	acct-user/${PN}
 	acct-group/${PN}
+	selinux? ( sec-policy/selinux-sanlock )
 	${DEPEND}
 "
 
