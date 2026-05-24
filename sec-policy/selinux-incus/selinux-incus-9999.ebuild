@@ -3,11 +3,11 @@
 
 EAPI=8
 
-MODS="lircd"
+MODS="incus"
 
 inherit selinux-policy-2
 
-DESCRIPTION="SELinux policy for lircd"
+DESCRIPTION="SELinux policy for incus"
 
 if [[ ${PV} != 9999* ]] ; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
