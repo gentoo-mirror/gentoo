@@ -117,6 +117,14 @@ src_configure() {
 	cmake_src_configure
 }
 
+src_compile() {
+	if use fortran; then
+		cmake_src_compile -j1
+	else
+		cmake_src_compile
+	fi
+}
+
 src_install() {
 	cmake_src_install
 	use doc && dodoc doc/*/*.pdf
