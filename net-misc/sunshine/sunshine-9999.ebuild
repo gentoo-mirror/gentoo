@@ -52,7 +52,9 @@ else
 	S="${WORKDIR}/Sunshine-${PV}"
 fi
 
-inherit cmake fcaps flag-o-matic systemd toolchain-funcs udev xdg
+PYTHON_COMPAT=( python3_{12..15} )
+
+inherit cmake fcaps flag-o-matic python-any-r1 systemd toolchain-funcs udev xdg
 
 DESCRIPTION="Self-hosted game stream host for Moonlight"
 HOMEPAGE="https://github.com/LizardByte/Sunshine"
@@ -187,11 +189,15 @@ DEPEND="
 "
 
 BDEPEND="
+	${PYTHON_DEPS}
 	net-libs/nodejs[npm]
 	virtual/pkgconfig
 	cpu_flags_x86_mmx? ( >=dev-lang/nasm-2.13 )
 	cuda? ( llvm-core/clang:*[llvm_targets_NVPTX] )
 	wayland? ( dev-util/wayland-scanner )
+	$(python_gen_any_dep '
+		dev-python/jinja2[${PYTHON_USEDEP}]
+	')
 "
 
 PATCHES=(
@@ -210,6 +216,11 @@ export npm_config_loglevel=verbose
 export npm_config_optional=true # https://github.com/npm/cli/issues/4828
 export npm_config_progress=false
 export npm_config_save=false
+
+python_check_deps() {
+	# needed for glad
+	python_has_version "dev-python/jinja2[${PYTHON_USEDEP}]"
+}
 
 src_unpack() {
 	if [[ ${PV} = 9999* ]]; then
