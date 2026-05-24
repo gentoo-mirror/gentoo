@@ -1,15 +1,16 @@
 BDEPEND=app-alternatives/yacc app-alternatives/lex sys-devel/m4
 DEFINED_PHASES=configure install postinst
+DEPEND=client? ( sys-libs/ncurses:= sys-libs/readline:= ) filecaps? ( acct-group/bird acct-user/bird ) libssh? ( net-libs/libssh:= )
 DESCRIPTION=A routing daemon implementing OSPF, RIPv2 & BGP for IPv4 & IPv6
 EAPI=8
 HOMEPAGE=https://bird.nic.cz/
 IDEPEND=filecaps? ( sys-libs/libcap )
 INHERIT=fcaps
-IUSE=+client custom-cflags debug libssh +filecaps
+IUSE=+client custom-cflags debug libssh selinux +filecaps
 KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~x86 ~x64-macos
 LICENSE=GPL-2
-RDEPEND=client? ( sys-libs/ncurses:= sys-libs/readline:= ) filecaps? ( acct-group/bird acct-user/bird ) libssh? ( net-libs/libssh:= )
+RDEPEND=client? ( sys-libs/ncurses:= sys-libs/readline:= ) filecaps? ( acct-group/bird acct-user/bird ) libssh? ( net-libs/libssh:= ) selinux? ( sec-policy/selinux-bird )
 SLOT=0
 SRC_URI=https://bird.nic.cz/download/bird-3.1.6.tar.gz
 _eclasses_=fcaps	c94316d02a37fb5cbe79b7d41c729119
-_md5_=2bf61e79d3cfa6cc4e46154e12f774fd
+_md5_=8c8c2085df7173a8352028b1ffa1a184
