@@ -68,6 +68,10 @@ multilib_src_configure() {
 	meson_src_configure
 }
 
+multilib_src_test() {
+	meson_src_test --timeout-multiplier 10
+}
+
 multilib_src_install_all() {
 	python_fix_shebang "${ED}"/usr/bin/gupnp-binding-tool-1.6
 	if use gtk-doc ; then
