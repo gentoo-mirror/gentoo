@@ -33,7 +33,7 @@ fi
 LICENSE="BSD"
 SLOT="0"
 IUSE="+bind8-stats debug +dnstap +ipv6 libevent memclean minimal-responses mmap munin"
-IUSE+=" +nsec3 +radix-tree +ratelimit recvmmsg +simdzone ssl systemd +tfo xdp verify-sig"
+IUSE+=" +nsec3 +radix-tree +ratelimit recvmmsg selinux +simdzone ssl systemd +tfo xdp verify-sig"
 
 RDEPEND="
 	acct-group/nsd
@@ -59,6 +59,7 @@ BDEPEND+="
 	systemd? ( virtual/pkgconfig )
 	xdp? ( llvm-core/clang:*[llvm_targets_BPF] )
 "
+RDEPEND+=" selinux? ( sec-policy/selinux-nsd )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-munin-gentoo-paths.patch"

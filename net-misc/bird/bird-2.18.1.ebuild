@@ -12,7 +12,7 @@ LICENSE="GPL-2"
 
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~x86 ~x64-macos"
-IUSE="+client custom-cflags debug libssh"
+IUSE="+client custom-cflags debug libssh selinux"
 
 RDEPEND="
 	client? (
@@ -23,12 +23,15 @@ RDEPEND="
 		acct-group/bird
 		acct-user/bird
 	)
-	libssh? ( net-libs/libssh:= )"
+	libssh? ( net-libs/libssh:= )
+"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	app-alternatives/yacc
 	app-alternatives/lex
 	sys-devel/m4
 "
+RDEPEND+=" selinux? ( sec-policy/selinux-bird )"
 
 FILECAPS=(
 	CAP_NET_ADMIN			usr/sbin/bird
