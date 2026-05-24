@@ -11,12 +11,13 @@ QTMIN=6.10.1
 inherit ecm kde.org python-single-r1 xdg
 
 if [[ ${KDE_BUILD_TYPE} == release ]]; then
-	if [[ ${PV} == *_p* ]] ; then
-		SRC_URI="https://dev.gentoo.org/~asturm/distfiles/kde/${P}.tar.xz"
-		S="${WORKDIR}/${P}"
+	COMMIT=
+	MY_PV="${PV/_/-}"
+	MY_P="${PN}-${MY_PV}"
+	if [[ -n ${COMMIT} ]] ; then
+		SRC_URI="https://dev.gentoo.org/~asturm/distfiles/kde/${P}-${COMMIT:0:8}.tar.xz"
+		S="${WORKDIR}/${PN}"
 	else
-		MY_PV="${PV/_/-}"
-		MY_P="${PN}-${MY_PV}"
 		if [[ ${MY_P} == ${P} ]] ; then
 			SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
 		else
@@ -109,7 +110,6 @@ PATCHES=(
 	# downstream
 	"${FILESDIR}"/${PN}-5.3.0-tests-optional.patch
 	"${FILESDIR}"/${PN}-5.2.2-fftw.patch # bug 913518
-	"${FILESDIR}"/${PN}-6.0.1-pyqt6.11-sip13.8.patch # bug 974789, unfortunately, also downstream
 )
 if [[ -n ${PATCHSET} ]]; then
 	PATCHES+=( "${WORKDIR}/${PATCHSET}" )
