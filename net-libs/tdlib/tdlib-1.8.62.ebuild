@@ -35,8 +35,7 @@ src_prepare() {
 		-i CMakeLists.txt || die
 
 	# Benchmarks take way too long to compile
-	sed -e '/add_subdirectory(benchmark)/d' \
-		-i CMakeLists.txt || die
+	cmake_comment_add_subdirectory benchmark
 
 	# Fix tests linking
 	sed -e 's/target_link_libraries(run_all_tests PRIVATE /&tdmtproto /' \
