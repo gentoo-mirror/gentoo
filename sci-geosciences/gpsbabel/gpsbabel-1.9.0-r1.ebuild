@@ -69,7 +69,7 @@ src_prepare() {
 	rm -r shapelib zlib || die
 
 	use doc && cp "${DISTDIR}/gpsbabel.org-style3.css" "${S}"
-	use gui || sed -i -e '/add_subdirectory(gui)/d' CMakeLists.txt || die
+	use gui || cmake_comment_add_subdirectory gui
 }
 
 src_configure() {
