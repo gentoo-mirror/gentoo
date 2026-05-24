@@ -106,7 +106,7 @@ src_prepare() {
 		-i cmake/QtCreatorAPIInternal.cmake || die
 
 	# avoid building manual tests (aka not ran) for nothing (bug #950010)
-	sed -i '/add_subdirectory(manual)/d' tests/CMakeLists.txt || die
+	cmake_comment_add_subdirectory -f tests/CMakeLists.txt manual
 
 	if use plugin-dev; then #928423
 		# cmake --install --component integrates poorly with the cmake
