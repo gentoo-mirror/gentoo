@@ -15,7 +15,12 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 IUSE="bluetooth eds test utils"
 REQUIRED_USE="bluetooth? ( eds )"
-RESTRICT="!test? ( test )"
+
+# Tests broken since glib-2.80
+# https://gitlab.gnome.org/GNOME/folks/-/work_items/140
+# https://bugs.gentoo.org/947108
+RESTRICT="test"
+#RESTRICT="!test? ( test )"
 
 DEPEND="
 	>=dev-libs/glib-2.80:2
