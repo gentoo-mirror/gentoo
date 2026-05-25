@@ -9,7 +9,7 @@ PYTHON_COMPAT=( python3_{11..14} )
 USE_RUBY="ruby32 ruby33"
 
 # No, I am not calling ruby-ng
-inherit distutils-r1 toolchain-funcs multilib-minimal
+inherit distutils-r1 flag-o-matic toolchain-funcs multilib-minimal
 
 MY_PV="${PV//_/-}"
 MY_P="${PN}-${MY_PV}"
@@ -52,6 +52,15 @@ src_prepare() {
 	eapply_user
 
 	multilib_copy_sources
+}
+
+src_configure() {
+	# bug #926520
+	# https://github.com/SELinuxProject/selinux/issues/461
+	# https://github.com/SELinuxProject/selinux/issues/512
+	append-ldflags $(test-flags-CCLD -Wl,--undefined-version)
+
+	multilib-minimal_src_configure
 }
 
 multilib_src_compile() {
