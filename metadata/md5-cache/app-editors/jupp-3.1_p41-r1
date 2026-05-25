@@ -1,0 +1,12 @@
+DEFINED_PHASES=configure
+DEPEND=ncurses? ( sys-libs/ncurses:0= ) selinux? ( sys-libs/libselinux )
+DESCRIPTION=Portable version of Joe's Own Editor
+EAPI=9
+HOMEPAGE=http://www.mirbsd.org/jupp.htm
+IUSE=ncurses selinux
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-1
+RDEPEND=!app-editors/joe ncurses? ( sys-libs/ncurses:0= ) selinux? ( sys-libs/libselinux )
+SLOT=0
+SRC_URI=http://www.mirbsd.org/MirOS/dist/jupp/joe-3.1jupp41.tgz
+_md5_=61115cfdd0d31194333ac089545409c1
