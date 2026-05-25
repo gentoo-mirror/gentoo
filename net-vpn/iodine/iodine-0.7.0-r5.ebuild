@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,13 +13,20 @@ CONFIG_CHECK="~TUN"
 
 LICENSE="ISC GPL-2" #GPL-2 for init script bug #426060
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="test"
+KEYWORDS="~amd64 ~arm64 ~x86"
+IUSE="selinux systemd test"
 RESTRICT="!test? ( test )"
 
-RDEPEND="virtual/zlib:="
-DEPEND="${RDEPEND}
-	test? ( dev-libs/check )"
+RDEPEND="
+	virtual/zlib:=
+	selinux? ( sys-libs/libselinux )
+	systemd? ( sys-apps/systemd:= )
+"
+DEPEND="
+	${RDEPEND}
+	test? ( dev-libs/check )
+"
+RDEPEND+=" selinux? ( sec-policy/selinux-iodine )"
 
 PATCHES=(
 	"${FILESDIR}"/${P}-TestMessage.patch
@@ -33,6 +40,14 @@ src_prepare() {
 		-e 's:^\(\s\)@:\1:' \
 		-i {,src/}Makefile || die
 
+	if ! use selinux ; then
+		sed -i -e 's:libselinux:idonotexist&:' src/osflags || die
+	fi
+
+	if ! use systemd ; then
+		sed -i -e 's:libsystemd:idonotexist&:' src/osflags || die
+	fi
+
 	tc-export CC
 }
 
@@ -43,8 +58,8 @@ src_install() {
 	emake prefix="${EPREFIX}"/usr DESTDIR="${D}" install
 	einstalldocs
 
-	newinitd "${FILESDIR}"/iodined-1.init iodined
-	newconfd "${FILESDIR}"/iodined.conf iodined
+	newinitd "${FILESDIR}"/iodined-1.init-r1 iodined
+	newconfd "${FILESDIR}"/iodined.conf-r1 iodined
 	keepdir /var/empty
 	fperms 600 /etc/conf.d/iodined
 }

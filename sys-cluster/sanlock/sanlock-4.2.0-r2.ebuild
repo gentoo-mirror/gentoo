@@ -27,7 +27,10 @@ DEPEND="
 RDEPEND="
 	acct-user/${PN}
 	acct-group/${PN}
-	selinux? ( sec-policy/selinux-sanlock )
+	selinux? (
+		sec-policy/selinux-sanlock
+		sec-policy/selinux-wdmd
+	)
 	${DEPEND}
 "
 
