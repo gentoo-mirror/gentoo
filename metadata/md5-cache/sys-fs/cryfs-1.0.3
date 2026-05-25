@@ -5,12 +5,12 @@ DESCRIPTION=Encrypted FUSE filesystem that conceals metadata
 EAPI=8
 HOMEPAGE=https://www.cryfs.org/
 INHERIT=cmake eapi9-ver flag-o-matic linux-info python-any-r1
-IUSE=test
+IUSE=selinux test
 KEYWORDS=amd64 arm64 ~loong ~ppc64 ~riscv x86
 LICENSE=LGPL-3 MIT
-RDEPEND=>=dev-libs/boost-1.84.0:= dev-libs/crypto++:= dev-libs/libfmt:= dev-libs/spdlog:= >=sys-fs/fuse-2.8.6:0
+RDEPEND=>=dev-libs/boost-1.84.0:= dev-libs/crypto++:= dev-libs/libfmt:= dev-libs/spdlog:= >=sys-fs/fuse-2.8.6:0 selinux? ( sec-policy/selinux-cryfs )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/cryfs/cryfs/releases/download/1.0.3/cryfs-1.0.3.tar.xz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	linux-info	efd923656513c879204fec6638eadee5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=86e2a238277998e765713b563e2cb25d
+_md5_=d70917e373459143fc58c2e5d85b7efa
