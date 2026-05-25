@@ -51,9 +51,9 @@ src_prepare() {
 	qt6-build_src_prepare
 
 	use bluetooth ||
-		sed -i '/add_subdirectory(bluetooth)/d' src/CMakeLists.txt || die
+		cmake_comment_add_subdirectory -f src/CMakeLists.txt bluetooth
 	use nfc ||
-		sed -i '/add_subdirectory(nfc)/d' src/CMakeLists.txt || die
+		cmake_comment_add_subdirectory -f src/CMakeLists.txt nfc
 }
 
 src_configure() {
