@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -15,8 +15,7 @@ fi
 DESCRIPTION="Personal file sharing for the MATE desktop"
 LICENSE="GPL-2"
 SLOT="0"
-
-IUSE="X"
+IUSE="X selinux"
 
 COMMON_DEPEND="
 	>=dev-libs/dbus-glib-0.70
@@ -32,7 +31,8 @@ COMMON_DEPEND="
 	x11-libs/libX11
 	x11-libs/pango
 	>=x11-libs/libnotify-0.7
-	virtual/libintl"
+	virtual/libintl
+	selinux? ( sys-libs/libselinux )"
 
 RDEPEND="${COMMON_DEPEND}
 	>=www-apache/mod_dnssd-0.6
@@ -46,6 +46,7 @@ BDEPEND="${COMMON_DEPEND}
 	virtual/pkgconfig:*"
 
 src_configure() {
+	export ac_cv_lib_selinux_is_selinux_enabled=$(usex selinux)
 	mate_src_configure \
 		--with-httpd=apache2 \
 		--with-modules-path=/usr/$(get_libdir)/apache2/modules/ \
