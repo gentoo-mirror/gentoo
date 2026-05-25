@@ -5,7 +5,7 @@ EAPI=8
 
 inherit flag-o-matic toolchain-funcs
 
-MY_COMMIT="16456168430c9e185dd94b8215aa77d02bbb8a2c"
+MY_COMMIT="59aecdb5392dd9c2178af379c35c7d5ebf0762ae"
 DESCRIPTION="A very small C compiler for ix86/amd64"
 HOMEPAGE="https://bellard.org/tcc/ https://repo.or.cz/tinycc.git/"
 
@@ -14,7 +14,7 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 elif [[ ${PV} == *_p* ]] ; then
 	SRC_URI="https://repo.or.cz/tinycc.git/snapshot/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
-	S="${WORKDIR}"/tinycc-1645616
+	S="${WORKDIR}"/tinycc-59aecdb
 else
 	SRC_URI="https://download.savannah.gnu.org/releases/tinycc/${P}.tar.bz2"
 fi

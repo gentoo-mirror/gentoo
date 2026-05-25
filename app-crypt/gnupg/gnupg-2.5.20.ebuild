@@ -104,6 +104,9 @@ src_prepare() {
 
 my_src_configure() {
 	local myconf=(
+		# --enable-selinux controls ENABLE_SELINUX_HACKS which
+		# prohibits import of secret keys, so doesn't seem desirable
+		# to have that forced on with USE=selinux.
 		$(use_enable bzip2)
 		$(use_enable nls)
 		$(use_enable smartcard scdaemon)
