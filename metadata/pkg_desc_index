@@ -15623,7 +15623,7 @@ net-vpn/headscale 0.27.1: An open source, self-hosted implementation of the Tail
 net-vpn/httptunnel 3.3_p20230508: httptunnel can create IP tunnels through firewalls/proxies using HTTP
 net-vpn/i2p 2.11.0 2.12.0: A privacy-centric, anonymous network
 net-vpn/i2pd 2.58.0 2.59.0: A C++ daemon for accessing the I2P anonymous network
-net-vpn/iodine 0.7.0-r3 0.7.0-r4: IP over DNS tunnel
+net-vpn/iodine 0.7.0-r5: IP over DNS tunnel
 net-vpn/isatapd 0.9.7-r2: Creates and maintains an ISATAP tunnel (rfc5214)
 net-vpn/libreswan 4.15 5.1-r1 5.2 5.3: IPsec implementation for Linux, fork of Openswan
 net-vpn/logmein-hamachi 2.1.0.203: LogMeIn Hamachi VPN tunneling engine
@@ -16785,6 +16785,7 @@ sec-policy/selinux-android 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELin
 sec-policy/selinux-apache 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for apache
 sec-policy/selinux-apcupsd 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for apcupsd
 sec-policy/selinux-apm 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for acpi
+sec-policy/selinux-aptcacher 2.20250618_p1 2.20260312_p1 9999: SELinux policy for aptcacher
 sec-policy/selinux-arpwatch 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for arpwatch
 sec-policy/selinux-asterisk 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for asterisk
 sec-policy/selinux-at 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for at
@@ -16799,10 +16800,12 @@ sec-policy/selinux-bind 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux 
 sec-policy/selinux-bird 2.20250618_p1 2.20260312_p1 9999: SELinux policy for bird
 sec-policy/selinux-bitcoin 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for bitcoin
 sec-policy/selinux-bitlbee 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for bitlbee
+sec-policy/selinux-blueman 2.20250618_p1 2.20260312_p1 9999: SELinux policy for blueman
 sec-policy/selinux-bluetooth 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for bluetooth
 sec-policy/selinux-boinc 2.20250618_p1 2.20260312_p1 9999: SELinux policy for boinc
 sec-policy/selinux-brctl 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for brctl
 sec-policy/selinux-bubblewrap 2.20250618_p1 2.20260312_p1 9999: SELinux policy for bubblewrap
+sec-policy/selinux-bugzilla 2.20250618_p1 2.20260312_p1 9999: SELinux policy for bugzilla
 sec-policy/selinux-cachefilesd 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for cachefilesd
 sec-policy/selinux-calamaris 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for calamaris
 sec-policy/selinux-canna 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for canna
@@ -16876,11 +16879,13 @@ sec-policy/selinux-gssproxy 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELi
 sec-policy/selinux-haproxy 2.20250618_p1 2.20260312_p1 9999: SELinux policy for haproxy
 sec-policy/selinux-hddtemp 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for hddtemp
 sec-policy/selinux-hostapd 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for hostapd
+sec-policy/selinux-hwloc 2.20250618_p1 2.20260312_p1 9999: SELinux policy for hwloc
 sec-policy/selinux-icecast 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for icecast
 sec-policy/selinux-ifplugd 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for ifplugd
 sec-policy/selinux-incus 2.20250618_p1 2.20260312_p1 9999: SELinux policy for incus
 sec-policy/selinux-inetd 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for inetd
 sec-policy/selinux-inn 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for inn
+sec-policy/selinux-iodine 2.20250618_p1 2.20260312_p1 9999: SELinux policy for iodine
 sec-policy/selinux-ipmitool 2.20250618_p1 2.20260312_p1 9999: SELinux policy for ipmitool
 sec-policy/selinux-ipsec 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for ipsec
 sec-policy/selinux-irc 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for irc
@@ -16912,6 +16917,7 @@ sec-policy/selinux-man2html 2.20250618_p1 2.20260312_p1 9999: SELinux policy for
 sec-policy/selinux-mandb 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for mandb
 sec-policy/selinux-matrixd 2.20250213_p1-r1 2.20250618_p1-r1 2.20260312_p1 9999: SELinux policy for matrixd
 sec-policy/selinux-mcelog 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for mcelog
+sec-policy/selinux-mediawiki 2.20250618_p1 2.20260312_p1 9999: SELinux policy for mediawiki
 sec-policy/selinux-memcached 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for memcached
 sec-policy/selinux-milter 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for milter
 sec-policy/selinux-minidlna 2.20250618_p1 2.20260312_p1 9999: SELinux policy for minidlna
@@ -16941,6 +16947,7 @@ sec-policy/selinux-nut 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux p
 sec-policy/selinux-nx 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for nx
 sec-policy/selinux-obfs4proxy 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for obfs4proxy
 sec-policy/selinux-oddjob 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for oddjob
+sec-policy/selinux-ofono 2.20260312_p1 9999: SELinux policy for ofono
 sec-policy/selinux-oident 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for oident
 sec-policy/selinux-openct 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for openct
 sec-policy/selinux-openrc 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for openrc
@@ -16965,10 +16972,12 @@ sec-policy/selinux-psad 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux 
 sec-policy/selinux-publicfile 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for publicfile
 sec-policy/selinux-pulseaudio 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for pulseaudio
 sec-policy/selinux-puppet 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for puppet
+sec-policy/selinux-pwauth 2.20250618_p1 2.20260312_p1 9999: SELinux policy for pwauth
 sec-policy/selinux-pyzor 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for pyzor
 sec-policy/selinux-qemu 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for qemu
 sec-policy/selinux-qmail 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for qmail
 sec-policy/selinux-quota 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for quota
+sec-policy/selinux-rabbitmq 2.20250618_p1 2.20260312_p1 9999: SELinux policy for rabbitmq
 sec-policy/selinux-radius 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for radius
 sec-policy/selinux-radvd 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for radvd
 sec-policy/selinux-rasdaemon 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for rasdaemon
@@ -17049,6 +17058,7 @@ sec-policy/selinux-vnstatd 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELin
 sec-policy/selinux-vpn 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for vpn
 sec-policy/selinux-watchdog 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for watchdog
 sec-policy/selinux-wayland 2.20260312_p1 9999: SELinux policy for wayland
+sec-policy/selinux-wdmd 2.20250618_p1 2.20260312_p1 9999: SELinux policy for wdmd
 sec-policy/selinux-webalizer 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for webalizer
 sec-policy/selinux-wine 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for wine
 sec-policy/selinux-wireguard 2.20250213_p1 2.20250618_p1 2.20260312_p1 9999: SELinux policy for wireguard
@@ -17581,7 +17591,7 @@ sys-cluster/prrte 3.0.6 3.0.7 3.0.12: PMIx Reference RunTime Environment
 sys-cluster/rdma-core 53.1 57.0 58.0 59.0 9999: Userspace components for the Linux Kernel's drivers/infiniband subsystem
 sys-cluster/resource-agents 4.12.0 4.15.1: Resources pack for Heartbeat / Pacemaker
 sys-cluster/rocm-k8s-device-plugin 0.3.0 0.5.0: AMD GPU device plugin for kubernetes
-sys-cluster/sanlock 3.8.5-r1 3.8.5-r2 4.2.0 4.2.0-r1 5.1.0: shared storage lock manager
+sys-cluster/sanlock 3.8.5-r1 3.8.5-r3 4.2.0 4.2.0-r2 5.1.0-r1: shared storage lock manager
 sys-cluster/slurm 22.05.11-r1 24.05.3-r1: A Highly Scalable Resource Manager
 sys-cluster/spark-bin 3.1.2-r1: Lightning-fast unified analytics engine
 sys-cluster/torque 6.0.4-r7: Resource manager and queuing system based on OpenPBS

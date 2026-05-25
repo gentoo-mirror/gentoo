@@ -4,11 +4,11 @@ DESCRIPTION=A Unix Web Authenticator
 EAPI=7
 HOMEPAGE=https://github.com/phokz/pwauth/tree/master/pwauth
 INHERIT=flag-o-matic pam toolchain-funcs
-IUSE=faillog pam ignore-case domain-aware
+IUSE=domain-aware faillog ignore-case pam selinux
 KEYWORDS=~amd64 ~ppc ~x86
 LICENSE=Apache-1.1
-RDEPEND=pam? ( sys-libs/pam ) !pam? ( virtual/libcrypt:= )
+RDEPEND=pam? ( sys-libs/pam ) !pam? ( virtual/libcrypt:= ) selinux? ( sec-policy/selinux-pwauth )
 SLOT=0
 SRC_URI=https://pwauth.googlecode.com/files/pwauth-2.3.10.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	pam	b56d0c9c20fc5b553f13c8ae165a10a5
-_md5_=03929c56262787b024ebc7514e82d620
+_md5_=654d714504ff9ea809ce50de6a987a55
