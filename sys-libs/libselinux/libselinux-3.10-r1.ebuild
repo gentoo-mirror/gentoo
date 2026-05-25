@@ -125,6 +125,16 @@ multilib_src_compile() {
 	fi
 }
 
+multilib_src_test() {
+	default
+
+	if multilib_is_native_abi; then
+		if use python; then
+			distutils-r1_src_test
+		fi
+	fi
+}
+
 multilib_src_install() {
 	emake DESTDIR="${D}" \
 		LIBDIR="\$(PREFIX)/$(get_libdir)" \
@@ -179,15 +189,6 @@ python_install() {
 	# install the C extension symlink
 	local pycext="$(python -c 'import importlib.machinery;print(importlib.machinery.EXTENSION_SUFFIXES[0])' || die)"
 	dosym -r "$(python_get_sitedir)/selinux/_selinux${pycext}" "$(python_get_sitedir)/_selinux${pycext}"
-}
-
-multilib_src_test() {
-	default
-	if multilib_is_native_abi; then
-		if use python; then
-			distutils-r1_src_test
-		fi
-	fi
 }
 
 pkg_postinst() {
