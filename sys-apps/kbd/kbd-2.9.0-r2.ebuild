@@ -40,7 +40,10 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	selinux? ( sec-policy/selinux-loadkeys )
+	selinux? (
+		sec-policy/selinux-loadkeys
+		sec-policy/selinux-vlock
+	)
 "
 BDEPEND="
 	sys-devel/flex
