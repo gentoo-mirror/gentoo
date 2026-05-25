@@ -12,3 +12,6 @@ DESCRIPTION="SELinux policy for incus"
 if [[ ${PV} != 9999* ]] ; then
 	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
+
+DEPEND+=" sec-policy/selinux-container[${SELINUX_POLICY_USEDEP}]"
+RDEPEND+=" sec-policy/selinux-container[${SELINUX_POLICY_USEDEP}]"
