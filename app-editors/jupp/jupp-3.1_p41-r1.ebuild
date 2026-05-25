@@ -1,7 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 DESCRIPTION="Portable version of Joe's Own Editor"
 HOMEPAGE="http://www.mirbsd.org/jupp.htm"
@@ -11,11 +11,12 @@ S="${WORKDIR}/${PN}"
 LICENSE="GPL-1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="ncurses"
+IUSE="ncurses selinux"
 
-RDEPEND="ncurses? ( sys-libs/ncurses:0= )
-	!app-editors/joe"
-DEPEND="${RDEPEND}"
+DEPEND="ncurses? ( sys-libs/ncurses:0= )
+	selinux? ( sys-libs/libselinux )"
+RDEPEND="!app-editors/joe
+	${DEPEND}"
 
 DOCS="HINTS INFO LIST NEWS README TODO"
 
@@ -25,5 +26,6 @@ src_configure() {
 		--enable-search_libs \
 		--enable-termcap \
 		$(use_enable ncurses curses) \
+		$(use_enable selinux) \
 		CFLAGS="-std=gnu17 ${CFLAGS}"
 }
