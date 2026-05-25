@@ -21,7 +21,7 @@ SRC_URI+=" branding? ( https://dev.gentoo.org/~hwoarang/distfiles/surreal-gentoo
 
 LICENSE="GPL-2"
 SLOT="3"
-IUSE="branding debug imlib nls session startup-notification svg xdg"
+IUSE="branding debug imlib nls selinux session startup-notification svg xdg"
 REQUIRED_USE="xdg? ( ${PYTHON_REQUIRED_USE} )"
 
 BDEPEND="
@@ -54,6 +54,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto
 "
+RDEPEND+=" selinux? ( sec-policy/selinux-wm )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-3.5.2-gnome-session.patch"

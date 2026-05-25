@@ -13,7 +13,7 @@ LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
 KEYWORDS="amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
-IUSE="X elogind gtk-doc +ibus +networkmanager pipewire systemd test wayland"
+IUSE="X elogind gtk-doc +ibus +networkmanager pipewire selinux systemd test wayland"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	?? ( elogind systemd )"
 RESTRICT="!test? ( test )"
@@ -106,6 +106,7 @@ RDEPEND="${DEPEND}
 		sys-libs/timezone-data
 	)
 	ibus? ( >=app-i18n/ibus-1.5.26[gtk3,gtk4,introspection] )
+	selinux? ( sec-policy/selinux-wm )
 	media-fonts/adwaita-fonts
 
 	sys-apps/xdg-desktop-portal-gnome

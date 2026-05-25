@@ -19,7 +19,7 @@ else
 	SLOT="0/$(($(ver_cut 1) - 32))" # 0/libmutter_api_version - ONLY gnome-shell (or anything using mutter-clutter-<api_version>.pc) should use the subslot
 fi
 
-IUSE="bash-completion debug elogind gnome gtk-doc input_devices_wacom +introspection screencast sysprof systemd test udev wayland X +xwayland video_cards_nvidia"
+IUSE="bash-completion debug elogind gnome gtk-doc input_devices_wacom +introspection screencast selinux sysprof systemd test udev wayland X +xwayland video_cards_nvidia"
 # native backend requires gles3 for hybrid graphics blitting support, udev and a logind provider
 REQUIRED_USE="
 	|| ( X wayland )
@@ -119,6 +119,7 @@ DEPEND="${RDEPEND}
 	x11-base/xorg-proto
 	sysprof? ( >=dev-util/sysprof-common-3.38.0 )
 "
+RDEPEND+=" selinux? ( sec-policy/selinux-wm )"
 BDEPEND="
 	dev-util/wayland-scanner
 	>=dev-util/gdbus-codegen-2.80.5-r1
