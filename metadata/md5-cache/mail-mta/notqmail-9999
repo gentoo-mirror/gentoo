@@ -5,14 +5,14 @@ DESCRIPTION=Collaborative open-source successor to qmail
 EAPI=8
 HOMEPAGE=https://notqmail.org https://cr.yp.to/qmail.html http://qmail.org
 INHERIT=qmail systemd git-r3
-IUSE=gencertdaily highvolume pop3 qmail-spp ssl test vanilla
+IUSE=gencertdaily highvolume pop3 qmail-spp selinux ssl test vanilla
 LICENSE=public-domain
 PDEPEND=virtual/daemontools
 PROPERTIES=live
-RDEPEND=net-dns/libidn2 net-mail/queue-repair sys-apps/gentoo-functions ssl? ( >=dev-libs/openssl-1.1:0= ) test? ( dev-libs/check ) acct-group/nofiles acct-group/qmail acct-user/alias acct-user/qmaild acct-user/qmaill acct-user/qmailp acct-user/qmailq acct-user/qmailr acct-user/qmails sys-apps/ucspi-tcp !mail-mta/courier !mail-mta/esmtp !mail-mta/exim !mail-mta/msmtp[mta] !mail-mta/nullmailer !mail-mta/opensmtpd !mail-mta/postfix !mail-mta/qmail-ldap !mail-mta/netqmail !mail-mta/sendmail !mail-mta/ssmtp[mta]
+RDEPEND=net-dns/libidn2 net-mail/queue-repair sys-apps/gentoo-functions ssl? ( >=dev-libs/openssl-1.1:0= ) test? ( dev-libs/check ) acct-group/nofiles acct-group/qmail acct-user/alias acct-user/qmaild acct-user/qmaill acct-user/qmailp acct-user/qmailq acct-user/qmailr acct-user/qmails sys-apps/ucspi-tcp !mail-mta/courier !mail-mta/esmtp !mail-mta/exim !mail-mta/msmtp[mta] !mail-mta/nullmailer !mail-mta/opensmtpd !mail-mta/postfix !mail-mta/qmail-ldap !mail-mta/netqmail !mail-mta/sendmail !mail-mta/ssmtp[mta] selinux? ( sec-policy/selinux-qmail )
 REQUIRED_USE=vanilla? ( !ssl !qmail-spp !highvolume !gencertdaily ) gencertdaily? ( ssl )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/DerDakon/genqmail/releases/download/genqmail-20200817/genqmail-20200817.tar.bz2 !vanilla? ( highvolume? ( https://github.com/notqmail/notqmail/commit/3a22b45974ddd1230da0dfa21f886c3401bee020.patch -> notqmail-1.08-big-todo.patch ) qmail-spp? ( ssl? ( https://github.com/notqmail/notqmail/commit/c467ba6880aaecfe1d3f592a7738de88cb5ac79a.patch -> notqmail-1.08-auth.patch https://github.com/notqmail/notqmail/commit/d950cc34491afe90432cafcaeda61d1c1a9508e9.patch -> notqmail-1.08-tls-spp.patch ) !ssl? ( https://github.com/notqmail/notqmail/commit/b36d52a0dd7315a969f2a9a7455717466e45be23.patch -> notqmail-1.08-spp.patch ) ) ssl? ( https://github.com/notqmail/notqmail/commit/0dc6a3aa9cb3440fe589ca5384ea27d683f05625.patch -> notqmail-1.08-tls_auth-20200107.patch ) !ssl? ( https://github.com/notqmail/notqmail/commit/c467ba6880aaecfe1d3f592a7738de88cb5ac79a.patch -> notqmail-1.08-auth.patch ) )
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	fixheadtails	1721997ed44d035654efe12da50797ef	qmail	30f39e6819a20ba64005ceeadd3845e0	systemd	a964c0cbe818b5729da1dbfcee5be861	git-r3	2f8cdb10b033f92c3136aa6488a31c98
-_md5_=50cbc0ef9bcecc7a20e78547a20ca51c
+_md5_=50d75e0e0343cf22c90e197dcb35bd3b
