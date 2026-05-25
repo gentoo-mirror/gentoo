@@ -28,7 +28,7 @@ RDEPEND="
 		dev-python/matplotlib[${PYTHON_USEDEP}]
 		dev-python/multiprocess[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
-		dev-python/pandas[${PYTHON_USEDEP}]
+		>=dev-python/pandas-3[${PYTHON_USEDEP}]
 		dev-python/pyarrow[${PYTHON_USEDEP},parquet]
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/tqdm[${PYTHON_USEDEP}]
@@ -59,7 +59,10 @@ BDEPEND="test? (
 	')
 )"
 
-PATCHES=( "${FILESDIR}"/${PN}-0.4.0-tests.patch )
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.4.0-tests.patch
+	"${FILESDIR}"/${P}-pandas3.patch
+)
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
