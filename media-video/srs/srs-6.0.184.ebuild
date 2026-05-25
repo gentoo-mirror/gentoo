@@ -32,6 +32,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-6.0.48-fixAliasing.patch
 	"${FILESDIR}"/${PN}-6.0.181-edgeFix.patch
 	"${FILESDIR}"/${P}-noWhich.patch
+	"${FILESDIR}"/${P}-parallel.patch
 )
 
 src_prepare() {
