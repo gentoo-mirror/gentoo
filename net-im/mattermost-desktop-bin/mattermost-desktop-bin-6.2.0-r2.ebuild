@@ -111,7 +111,7 @@ src_install() {
 		-n Mattermost \
 		-i mattermost-desktop \
 		-c "Network;InstantMessaging;" \
-		-e "MimeType=x-scheme-handler/mattermost;" -e "StartupWMClass=Mattermost.Desktop"
+		-e "MimeType=x-scheme-handler/mattermost;" -e "StartupWMClass=Mattermost"
 
 	einstalldocs
 }
