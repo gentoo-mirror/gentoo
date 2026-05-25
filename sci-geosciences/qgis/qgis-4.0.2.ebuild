@@ -27,7 +27,6 @@ HOMEPAGE="https://www.qgis.org/"
 
 LICENSE="GPL-2+ GPL-3+"
 SLOT="0"
-#IUSE="3d doc examples geographiclib +georeferencer grass hdf5 mapserver netcdf opencl oracle pdal postgres python qml test webengine"
 IUSE="3d doc examples geographiclib +georeferencer grass hdf5 mapserver netcdf opencl oracle pdal postgres python qml test webengine"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
@@ -61,6 +60,7 @@ COMMON_DEPEND="
 	sci-libs/libspatialindex:=
 	>=sci-libs/proj-8.1:=
 	virtual/zlib:=
+	>=dev-python/qscintilla-2.14.1-r1[qt6(+)]
 	>=x11-libs/qwt-6.2.0-r3:=[polar(+),qt6(+),svg(+)]
 	3d? ( dev-qt/qt3d:6 )
 	georeferencer? ( >=sci-libs/gsl-1.8:= )
@@ -97,8 +97,8 @@ COMMON_DEPEND="
 			dev-python/python-dateutil[${PYTHON_USEDEP}]
 			dev-python/pytz[${PYTHON_USEDEP}]
 			dev-python/pyyaml[${PYTHON_USEDEP}]
+			dev-python/qscintilla[${PYTHON_USEDEP}]
 			dev-python/requests[${PYTHON_USEDEP}]
-			>=dev-python/qscintilla-2.14.1-r1[qt6(+),${PYTHON_USEDEP}]
 			dev-python/sip:=[${PYTHON_USEDEP}]
 			postgres? ( dev-python/psycopg:2[${PYTHON_USEDEP}] )
 			webengine? (
