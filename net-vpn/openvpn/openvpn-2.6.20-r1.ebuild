@@ -47,6 +47,7 @@ COMMON_DEPEND="
 	openssl? ( >=dev-libs/openssl-1.0.2:0= )
 	pam? ( sys-libs/pam )
 	pkcs11? ( >=dev-libs/pkcs11-helper-1.11 )
+	selinux? ( sys-libs/libselinux )
 	systemd? ( sys-apps/systemd )
 	dco? ( >=net-vpn/ovpn-dco-0.2 >=dev-libs/libnl-3.2.29:= )
 	sys-libs/libcap-ng:=
@@ -115,6 +116,7 @@ src_configure() {
 		$(use_enable iproute2)
 		$(use_enable pam plugin-auth-pam)
 		$(use_enable down-root plugin-down-root)
+		$(use_enable selinux)
 		$(use_enable systemd)
 		$(use_enable dco)
 	)
