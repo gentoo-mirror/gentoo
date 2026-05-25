@@ -63,6 +63,10 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-11.0.2-fortify-source-redef.patch"
+)
+
 src_prepare() {
 	cmake_src_prepare
 
