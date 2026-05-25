@@ -24,7 +24,7 @@ SLOT="0"
 if [[ ${PV} != *_rc* ]] ; then
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
-IUSE="apache2 berkdb debug doc extras keyring java kwallet nls perl plaintext-password-storage ruby sasl test ${GENTOO_PERL_USESTRING}"
+IUSE="apache2 berkdb debug doc extras keyring java kwallet nls perl plaintext-password-storage ruby sasl selinux test ${GENTOO_PERL_USESTRING}"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
@@ -72,6 +72,7 @@ RDEPEND="
 	java? ( >=virtual/jre-1.8:* )
 	nls? ( virtual/libintl )
 	perl? ( dev-perl/URI )
+	selinux? ( sec-policy/selinux-svnserve  )
 "
 # Note: ctypesgen doesn't need PYTHON_USEDEP, it's used once
 DEPEND="
