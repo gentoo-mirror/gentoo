@@ -6,13 +6,13 @@ EAPI=8
 HOMEPAGE=https://www.cyrusimap.org/
 IDEPEND=ssl? ( dev-libs/openssl )
 INHERIT=autotools eapi9-ver flag-o-matic pam ssl-cert
-IUSE=afs backup calalarm caps clamav http kerberos ldap mysql nntp pam perl postgres replication +server sieve sqlite ssl static-libs tcpd test xapian ssl
+IUSE=afs backup calalarm caps clamav http kerberos ldap mysql nntp pam perl postgres replication +server selinux sieve sqlite ssl static-libs tcpd test xapian ssl
 KEYWORDS=amd64 ~arm ~hppa ~ppc ~ppc64 ~sparc x86
 LICENSE=BSD-with-attribution GPL-2
-RDEPEND=dev-libs/libpcre:3 >=dev-libs/cyrus-sasl-2.1.13:2 dev-libs/jansson:= dev-libs/icu:= sys-apps/util-linux sys-fs/e2fsprogs:= virtual/zlib:= afs? ( net-fs/openafs ) calalarm? ( dev-libs/libical:= ) caps? ( sys-libs/libcap ) clamav? ( app-antivirus/clamav ) http? ( app-arch/brotli:= app-arch/zstd:= dev-libs/libxml2 dev-libs/libical:= net-libs/nghttp2:= sci-libs/shapelib:= ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) mysql? ( dev-db/mysql-connector-c:= ) nntp? ( !net-nntp/leafnode ) pam? ( >=net-mail/mailbase-1 sys-libs/pam ) perl? ( dev-lang/perl:= ) postgres? ( dev-db/postgresql:* ) ssl? ( >=dev-libs/openssl-1.0.1e:=[-bindist(-)] ) sqlite? ( dev-db/sqlite:3 ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 ) xapian? ( >=dev-libs/xapian-1.4.0:= net-misc/rsync ) acct-group/mail acct-user/cyrus !mail-mta/courier !net-mail/courier-imap !app-arch/dump !dev-python/tables ssl? ( dev-libs/openssl )
+RDEPEND=dev-libs/libpcre:3 >=dev-libs/cyrus-sasl-2.1.13:2 dev-libs/jansson:= dev-libs/icu:= sys-apps/util-linux sys-fs/e2fsprogs:= virtual/zlib:= afs? ( net-fs/openafs ) calalarm? ( dev-libs/libical:= ) caps? ( sys-libs/libcap ) clamav? ( app-antivirus/clamav ) http? ( app-arch/brotli:= app-arch/zstd:= dev-libs/libxml2 dev-libs/libical:= net-libs/nghttp2:= sci-libs/shapelib:= ) kerberos? ( virtual/krb5 ) ldap? ( net-nds/openldap:= ) mysql? ( dev-db/mysql-connector-c:= ) nntp? ( !net-nntp/leafnode ) pam? ( >=net-mail/mailbase-1 sys-libs/pam ) perl? ( dev-lang/perl:= ) postgres? ( dev-db/postgresql:* ) ssl? ( >=dev-libs/openssl-1.0.1e:=[-bindist(-)] ) sqlite? ( dev-db/sqlite:3 ) tcpd? ( >=sys-apps/tcp-wrappers-7.6 ) xapian? ( >=dev-libs/xapian-1.4.0:= net-misc/rsync ) acct-group/mail acct-user/cyrus !mail-mta/courier !net-mail/courier-imap !app-arch/dump !dev-python/tables selinux? ( sec-policy/selinux-cyrus ) ssl? ( dev-libs/openssl )
 REQUIRED_USE=afs? ( kerberos ) backup? ( sqlite ) calalarm? ( http ) http? ( sqlite )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/cyrusimap/cyrus-imapd/releases/download/cyrus-imapd-3.4.9/cyrus-imapd-3.4.9.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	flag-o-matic	fd3558f73f6503093adee69adf41020d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	edo	a5e294016aa84979fcb2459749eb80b2	ssl-cert	89fbacafccd672dde4fd51b8e313bf02
-_md5_=cd540f71ef20dce87600d4adb2db2af6
+_md5_=5a1ac2c7aaec9a31e3dd4e70c31eda9c
