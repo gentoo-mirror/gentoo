@@ -2,12 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=9
+MY_PF=${P/_p2/}
+MY_P=${MY_PF}.pl02
 
 inherit autotools
 
 DESCRIPTION="Creation/expansion of ISO-9660 filesystems on CD/DVD media supported by libburn"
 HOMEPAGE="https://dev.lovelyhq.com/libburnia/web/wiki/Libisoburn https://dev.lovelyhq.com/libburnia/libisoburn"
-SRC_URI="https://files.libburnia-project.org/releases/${P}.tar.gz"
+SRC_URI="https://files.libburnia-project.org/releases/${MY_P}.tar.gz"
+
+S="${WORKDIR}/${MY_PF}"
 
 LICENSE="GPL-2 GPL-3"
 SLOT="0"

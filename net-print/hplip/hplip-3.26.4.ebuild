@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 PYTHON_REQ_USE="threads(+),xml(+)"
 
 inherit autotools flag-o-matic linux-info python-single-r1 readme.gentoo-r1 udev
@@ -11,13 +11,13 @@ inherit autotools flag-o-matic linux-info python-single-r1 readme.gentoo-r1 udev
 DESCRIPTION="HP Linux Imaging and Printing - Print, scan, fax drivers and service tools"
 HOMEPAGE="https://developers.hp.com/hp-linux-imaging-and-printing"
 SRC_URI="https://downloads.sourceforge.net/project/${PN}/${PN}/${PV}/${P}.tar.gz
-	https://dev.gentoo.org/~billie/distfiles/${PN}-3.25.8-patches-1.tar.xz"
+	https://dev.gentoo.org/~billie/distfiles/${PN}-3.26.4-patches-1.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 
-IUSE="doc fax +hpcups hpijs kde libnotify libusb0 minimal parport policykit qt5 scanner +snmp static-ppds X"
+IUSE="doc fax +hpcups hpijs kde libusb0 minimal parport policykit scanner +snmp static-ppds X"
 
 COMMON_DEPEND="
 	net-print/cups
@@ -54,10 +54,6 @@ RDEPEND="
 			>=dev-python/dbus-python-1.2.0-r1[${PYTHON_USEDEP}]
 			dev-python/distro[${PYTHON_USEDEP}]
 			fax? ( dev-python/reportlab[${PYTHON_USEDEP}] )
-			qt5? (
-				>=dev-python/pyqt5-5.5.1[dbus,gui,widgets,${PYTHON_USEDEP}]
-				libnotify? ( dev-python/notify2[${PYTHON_USEDEP}] )
-			)
 			scanner? (
 				>=dev-python/reportlab-3.2[${PYTHON_USEDEP}]
 				>=dev-python/pillow-3.1.1[${PYTHON_USEDEP}]
@@ -103,7 +99,12 @@ pkg_setup() {
 	if use minimal ; then
 		ewarn "Installing driver portions only, make sure you know what you are doing."
 		ewarn "Depending on the USE flags set for hpcups or hpijs the appropriate driver"
-		ewarn "is installed. This also disables fax, network, scanner and gui support!"
+		ewarn "is installed. This also disables fax, network and scanner support!"
+	fi
+
+	if has_version "<=net-print/hplip-3.25.8[qt5]" ; then
+		ewarn "Warning: User interface no longer available for hplip (Qt5 is dead)."
+		ewarn "Unfortunately there is no ETA when a Qt6-based GUI will be available."
 	fi
 }
 
@@ -192,7 +193,6 @@ src_configure() {
 		minimal_build="${minimal_build} --disable-fax-build"
 		minimal_build="${minimal_build} --disable-network-build"
 		minimal_build="${minimal_build} --disable-scan-build"
-		minimal_build="${minimal_build} --disable-gui-build"
 	else
 		minimal_build="${minimal_build} --enable-dbus-build"
 		if use fax ; then
@@ -210,13 +210,6 @@ src_configure() {
 		else
 			minimal_build="${minimal_build} --disable-scan-build"
 		fi
-		if use qt5 ; then
-			minimal_build="${minimal_build} --enable-qt5"
-			minimal_build="${minimal_build} --enable-gui-build"
-		else
-			minimal_build="${minimal_build} --disable-gui-build"
-			minimal_build="${minimal_build} --disable-qt5"
-		fi
 	fi
 
 	# disable class driver for now
@@ -229,6 +222,8 @@ src_configure() {
 		--disable-shadow-build \
 		--disable-qt3 \
 		--disable-qt4 \
+		--disable-qt5 \
+		--disable-gui-build \
 		--disable-udev_sysfs_rules \
 		--with-cupsbackenddir=$(cups-config --serverbin)/backend \
 		--with-cupsfilterdir=$(cups-config --serverbin)/filter \
@@ -248,7 +243,7 @@ src_configure() {
 	# The hpcups driver does not use foomatic-rip
 	#local i
 	#for i in ppd/hpijs/*.ppd.gz ; do
-	#	rm -f ${i}.temp || die
+	#	rm ${i}.temp || die
 	#	gunzip -c ${i} | sed 's/foomatic-rip-hplip/foomatic-rip/g' | \
 	#		gzip > ${i}.temp || die
 	#	mv ${i}.temp ${i} || die
@@ -264,19 +259,19 @@ src_install() {
 
 	# Installed by sane-backends
 	# Gentoo Bug: https://bugs.gentoo.org/show_bug.cgi?id=201023
-	rm -f "${ED}"/etc/sane.d/dll.conf || die
+	if ! use minimal ; then
+		if use scanner ; then
+			rm "${ED}"/etc/sane.d/dll.conf || die
+		fi
+	fi
 
-	# Remove desktop and autostart files
-	# Gentoo Bug: https://bugs.gentoo.org/show_bug.cgi?id=638770
-	use qt5 || {
-		rm -Rf "${ED}"/usr/share/applications "${ED}"/etc/xdg
-	}
-
-	rm -f "${ED}"/usr/share/doc/${PF}/{copyright,README_LIBJPG,COPYING} || die
+	rm "${ED}"/usr/share/doc/${PF}/{copyright,README_LIBJPG,COPYING} || die
 	rmdir --ignore-fail-on-non-empty "${ED}"/usr/share/doc/${PF}/ || die
 
 	# Remove hal fdi files
-	rm -rf "${ED}"/usr/share/hal || die
+	if ! use minimal ; then
+		rm -r "${ED}"/usr/share/hal || die
+	fi
 
 	find "${D}" -name '*.la' -delete || die
 
