@@ -12,12 +12,16 @@ SRC_URI="https://pwauth.googlecode.com/files/${P}.tar.gz"
 LICENSE="Apache-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="faillog pam ignore-case domain-aware selinux"
+IUSE="domain-aware faillog ignore-case pam selinux"
 
-DEPEND="pam? ( sys-libs/pam )
-	!pam? ( virtual/libcrypt:= )"
-RDEPEND="${DEPEND}
-	selinux? ( sec-policy/selinux-pwauth )"
+DEPEND="
+	pam? ( sys-libs/pam )
+	!pam? ( virtual/libcrypt:= )
+"
+RDEPEND="
+	${DEPEND}
+	selinux? ( sec-policy/selinux-pwauth )
+"
 
 PATCHES=(
 	"${FILESDIR}/${P}-config.patch"
