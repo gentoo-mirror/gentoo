@@ -10,7 +10,7 @@ PYTHON_COMPAT=( python3_{11..14} )
 USE_RUBY="ruby32 ruby33"
 
 # No, I am not calling ruby-ng
-inherit distutils-r1 flag-o-matic toolchain-funcs multilib-minimal
+inherit distutils-r1 dot-a flag-o-matic toolchain-funcs multilib-minimal
 
 MY_PV="${PV//_/-}"
 MY_P="${PN}-${MY_PV}"
@@ -66,6 +66,8 @@ src_configure() {
 	# https://github.com/SELinuxProject/selinux/issues/461
 	# https://github.com/SELinuxProject/selinux/issues/512
 	append-ldflags $(test-flags-CCLD -Wl,--undefined-version)
+
+	use static-libs && lto-guarantee-fat
 
 	multilib-minimal_src_configure
 }
@@ -159,7 +161,11 @@ multilib_src_install() {
 		fi
 	fi
 
-	use static-libs || rm "${ED}"/usr/$(get_libdir)/*.a || die
+	if use static-libs; then
+		strip-lto-bytecode
+	else
+		rm "${ED}"/usr/$(get_libdir)/*.a || die
+	fi
 }
 
 python_install() {
