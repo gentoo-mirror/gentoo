@@ -25,6 +25,8 @@ LICENSE="GPL-2"
 SLOT="0/2"
 IUSE="+static-libs"
 
+BDEPEND="sys-devel/flex"
+
 # tests are not meant to be run outside of the full SELinux userland repo
 RESTRICT="test"
 
