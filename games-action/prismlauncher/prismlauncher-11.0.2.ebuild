@@ -65,6 +65,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${P}-gcc16.patch"
+	"${FILESDIR}/${PN}-11.0.2-fortify-source-redef.patch"
 )
 
 src_prepare() {
