@@ -35,7 +35,9 @@ DEPEND="
 	selinux? ( >=sys-libs/libselinux-3.2 )
 "
 RDEPEND="${DEPEND}
-	launcher? ( sys-apps/dbus )"
+	launcher? ( sys-apps/dbus )
+	selinux? ( sec-policy/selinux-dbus )
+"
 BDEPEND="
 	doc? ( dev-python/docutils )
 	virtual/pkgconfig

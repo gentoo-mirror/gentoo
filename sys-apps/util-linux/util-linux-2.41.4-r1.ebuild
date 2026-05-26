@@ -87,6 +87,7 @@ RDEPEND+="
 	)
 	uuidd? (
 		acct-user/uuidd
+		selinux? ( sec-policy/selinux-uuidd )
 		systemd? ( virtual/tmpfiles )
 	)
 	!net-wireless/rfkill
