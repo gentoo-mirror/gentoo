@@ -16,7 +16,7 @@ S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="BSD"
 SLOT="0/0.4.1"  # TODO: this is the .so version, PV should match tag version instead.
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 ~arm arm64 ~loong ppc64 ~riscv x86"
 IUSE="doc examples cpu_flags_x86_avx2 cpu_flags_x86_sse4_1"
 
 BDEPEND="
