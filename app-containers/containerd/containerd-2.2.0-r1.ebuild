@@ -27,6 +27,7 @@ ${COMMON_DEPEND}
 RDEPEND="
 	${COMMON_DEPEND}
 	>=app-containers/runc-1.3.0[apparmor?,seccomp?]
+	selinux? ( sec-policy/selinux-docker )
 "
 
 BDEPEND="
