@@ -36,7 +36,7 @@ NTPSEC_REFCLOCK=(
 	shm pps hpgps zyfer arbiter nmea modem local
 )
 
-IUSE="${NTPSEC_REFCLOCK[@]} debug doc early heat libbsd nist ntpviz samba seccomp smear test" #ionice
+IUSE="${NTPSEC_REFCLOCK[@]} debug doc early heat libbsd nist ntpviz samba seccomp selinux smear test" #ionice
 REQUIRED_USE="${PYTHON_REQUIRED_USE} nist? ( local )"
 RESTRICT="!test? ( test )"
 
@@ -61,6 +61,7 @@ RDEPEND="
 		media-fonts/liberation-fonts
 		sci-visualization/gnuplot
 	)
+	selinux? ( sec-policy/selinux-ntp )
 "
 BDEPEND+="
 	>=app-text/asciidoc-8.6.8
