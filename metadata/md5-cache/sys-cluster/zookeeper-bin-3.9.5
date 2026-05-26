@@ -4,11 +4,12 @@ DESCRIPTION=A high-performance coordination service for distributed applications
 EAPI=8
 HOMEPAGE=https://zookeeper.apache.org/
 INHERIT=java-utils-2
+IUSE=selinux
 KEYWORDS=~amd64 ~x86
 LICENSE=Apache-2.0
-RDEPEND=acct-group/zookeeper acct-user/zookeeper >=virtual/jre-1.8
+RDEPEND=acct-group/zookeeper acct-user/zookeeper >=virtual/jre-1.8 selinux? ( sec-policy/selinux-hadoop )
 RESTRICT=mirror binchecks
 SLOT=0
 SRC_URI=mirror://apache/zookeeper/zookeeper-3.9.5/apache-zookeeper-3.9.5-bin.tar.gz -> zookeeper-bin-3.9.5.tar.gz
 _eclasses_=java-utils-2	b41327d85d12ce816943cf4d344add19
-_md5_=28ca9518204532df508123f62b68d1d4
+_md5_=32130a01633c217cc562df7f74213e6f
