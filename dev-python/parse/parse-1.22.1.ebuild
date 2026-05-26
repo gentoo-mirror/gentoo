@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..15} )
 inherit distutils-r1 pypi
 
 DESCRIPTION="Parse strings using a specification based on the Python format() syntax"
@@ -12,7 +12,14 @@ HOMEPAGE="https://github.com/r1chardj0n3s/parse/"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# drop unnecssary extra pytest requirements
+	sed -i '/tool.pytest.ini_options/,/^$/d' pyproject.toml || die
+}
