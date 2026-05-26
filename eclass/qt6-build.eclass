@@ -94,6 +94,9 @@ else
 	RESTRICT="!test? ( test )"
 fi
 
+# workaround for portage bug #921333
+[[ ${PN} != @(qtbase|qttranslations) ]] && RDEPEND="dev-qt/qtbase:="
+
 BDEPEND="
 	dev-lang/perl
 	virtual/pkgconfig
