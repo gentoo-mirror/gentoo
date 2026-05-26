@@ -54,7 +54,10 @@ DEPEND="
 	udev? ( >=virtual/udev-196 )
 "
 RDEPEND="${DEPEND}
-	selinux? ( sec-policy/selinux-bluetooth )
+	selinux? (
+		sec-policy/selinux-bluetooth
+		obex? ( sec-policy/selinux-obex )
+	)
 	test-programs? ( ${TEST_DEPS} )
 "
 
