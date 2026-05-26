@@ -5,10 +5,10 @@ DESCRIPTION=Command-line client for the sigrok logic analyzer software
 EAPI=8
 HOMEPAGE=https://sigrok.org/wiki/Sigrok-cli
 INHERIT=xdg-utils git-r3 autotools
-IUSE=+decode
+IUSE=+decode selinux
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=>=dev-libs/glib-2.32.0 >=sci-libs/libsigrok-0.5.0:= decode? ( >=sci-libs/libsigrokdecode-0.5.0:= )
+RDEPEND=>=dev-libs/glib-2.32.0 >=sci-libs/libsigrok-0.5.0:= decode? ( >=sci-libs/libsigrokdecode-0.5.0:= ) selinux? ( sec-policy/selinux-sigrok )
 SLOT=0
 _eclasses_=xdg-utils	42869b3c8d86a70ef3cf75165a395e09	git-r3	2f8cdb10b033f92c3136aa6488a31c98	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112
-_md5_=7c68addc81e4c387b82871989fe865e3
+_md5_=0dda790d2c1ac3757eac8279f0d7cf25

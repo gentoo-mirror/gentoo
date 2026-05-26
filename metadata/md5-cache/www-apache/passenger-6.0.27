@@ -5,13 +5,13 @@ DESCRIPTION=Passenger makes deployment of Ruby on Rails applications a breeze
 EAPI=8
 HOMEPAGE=https://www.phusionpassenger.com/
 INHERIT=apache-module flag-o-matic ruby-ng toolchain-funcs
-IUSE=apache2 debug test apache2 ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34
+IUSE=apache2 debug selinux test apache2 ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34
 KEYWORDS=amd64 ~arm ~arm64 ~ppc ~ppc64 x86
 LICENSE=Boost-1.0 MIT BSD
-RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby32(-)] dev-ruby/rackup:2[ruby_targets_ruby32(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby33(-)] dev-ruby/rackup:2[ruby_targets_ruby33(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby34(-)] dev-ruby/rackup:2[ruby_targets_ruby34(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby34(-)] ) >=dev-libs/libuv-1.8.0 net-misc/curl[ssl] apache2? ( www-servers/apache[apache2_modules_unixd(+)] ) apache2? ( =www-servers/apache-2* ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 )
+RDEPEND=ruby_targets_ruby32? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby32(-)] dev-ruby/rackup:2[ruby_targets_ruby32(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby32(-)] ) ruby_targets_ruby33? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby33(-)] dev-ruby/rackup:2[ruby_targets_ruby33(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby33(-)] ) ruby_targets_ruby34? ( >=dev-ruby/rack-1.6.13:*[ruby_targets_ruby34(-)] dev-ruby/rackup:2[ruby_targets_ruby34(-)] >=dev-ruby/rake-12.3.3[ruby_targets_ruby34(-)] ) >=dev-libs/libuv-1.8.0 net-misc/curl[ssl] apache2? ( www-servers/apache[apache2_modules_unixd(+)] ) selinux? ( sec-policy/selinux-passenger ) apache2? ( =www-servers/apache-2* ) ruby_targets_ruby32? ( dev-lang/ruby:3.2 ) ruby_targets_ruby33? ( dev-lang/ruby:3.3 ) ruby_targets_ruby34? ( dev-lang/ruby:3.4 )
 REQUIRED_USE=|| ( ruby_targets_ruby32 ruby_targets_ruby33 ruby_targets_ruby34 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://s3.amazonaws.com/phusion-passenger/releases/passenger-6.0.27.tar.gz
 _eclasses_=depend.apache	3b9c533be911d4550c8972e4dfb6434a	apache-module	2778fecd257078e9c921796782f6ede1	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multilib	fc812e8eb2170022c28272d80a1f9e77	ruby-utils	70349884e22849da218b0f0c4a32da54	ruby-ng	705ab926556cb5cb4811999dd0c670b0
-_md5_=c1599daa8193dfa8e698449353a2e04a
+_md5_=03168c94985450f38bc07d816193da3d
