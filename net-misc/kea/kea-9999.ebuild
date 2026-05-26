@@ -24,7 +24,7 @@ fi
 
 LICENSE="MPL-2.0"
 SLOT="0"
-IUSE="debug doc kerberos mysql +openssl postgres shell test"
+IUSE="debug doc kerberos mysql +openssl postgres selinux shell test"
 
 REQUIRED_USE="shell? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT="!test? ( test )"
@@ -50,6 +50,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	acct-group/dhcp
 	acct-user/dhcp
+	selinux? ( sec-policy/selinux-dhcp )
 "
 BDEPEND="
 	${PYTHON_DEPS}
