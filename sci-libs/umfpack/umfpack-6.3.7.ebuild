@@ -46,6 +46,18 @@ src_configure() {
 		-DSUITESPARSE_DEMOS=$(usex test)
 		-DSUITESPARSE_INCLUDEDIR_POSTFIX=""
 	)
+
+	if has_version 'virtual/blas[index64]'; then
+		mycmakeargs+=( -DSUITESPARSE_USE_64BIT_BLAS=ON )
+	fi
+
+	if has_version 'virtual/blas[flexiblas]'; then
+		mycmakeargs+=( -DBLA_VENDOR=FlexiBLAS )
+	else
+		mycmakeargs+=( -DBLA_VENDOR=Generic )
+	fi
+	# TODO: Figure out how to make sci-libs/mkl work. Bug 974246
+
 	cmake_src_configure
 }
 

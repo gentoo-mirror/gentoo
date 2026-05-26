@@ -77,7 +77,7 @@ src_configure() {
 	if has_version 'virtual/blas[flexiblas]'; then
 		mycmakeargs+=( -DBLA_VENDOR=FlexiBLAS )
 	else
-		mycmakeargs+=( BLA_VENDOR=Generic )
+		mycmakeargs+=( -DBLA_VENDOR=Generic )
 	fi
 	# TODO: Figure out how to make sci-libs/mkl work. Bug 974246
 
