@@ -24,7 +24,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 arm ~riscv x86"
 
-IUSE="doc +highlight +lua test"
+IUSE="doc +highlight +lua selinux test"
 REQUIRED_USE="lua? ( ${LUA_REQUIRED_USE} ) ${PYTHON_REQUIRED_USE}"
 
 RESTRICT="!test? ( test )"
@@ -55,6 +55,7 @@ BDEPEND="
 		>=app-text/asciidoc-8.5.1
 	)
 "
+RDEPEND+=" selinux? ( sec-policy/selinux-git )"
 
 PATCHES=( "${FILESDIR}"/${PN}-highlight.patch )
 
