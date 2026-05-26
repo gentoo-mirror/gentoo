@@ -11,7 +11,7 @@ HOMEPAGE="https://apps.gnome.org/Epiphany/"
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="test"
+IUSE="test selinux"
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -38,6 +38,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}
 	x11-themes/adwaita-icon-theme
+	selinux? ( sec-policy/selinux-mozilla )
 "
 # appstream-glib needed for appdata.xml gettext translation
 BDEPEND="
