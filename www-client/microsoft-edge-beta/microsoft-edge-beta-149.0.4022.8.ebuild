@@ -22,7 +22,7 @@ LICENSE="microsoft-edge"
 SLOT="0"
 KEYWORDS="-* ~amd64"
 
-IUSE="+mip qt6"
+IUSE="+mip qt6 selinux"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
@@ -60,6 +60,7 @@ RDEPEND="
 		|| ( dev-libs/libxml2-compat:2/2 dev-libs/libxml2:2/2 )
 	)
 	qt6? ( dev-qt/qtbase:6[gui,widgets] )
+	selinux? ( sec-policy/selinux-chromium )
 "
 
 QA_PREBUILT="*"
