@@ -1154,6 +1154,8 @@ toolchain_setup_d() {
 		die "Did not find any appropriate GDC compiler installed"
 	fi
 
+	export CC=${bootstrap_gcc_bin_dir}/${CHOST}-gcc
+	export CXX=${bootstrap_gcc_bin_dir}/${CHOST}-g++
 	export GDC=${bootstrap_gcc_bin_dir}/${CHOST}-gdc
 }
 
