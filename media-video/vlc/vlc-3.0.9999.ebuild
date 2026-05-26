@@ -42,7 +42,7 @@ IUSE="alsa aom archive aribsub bidi bluray chromaprint chromecast dav1d dbus
 	fontconfig +gcrypt gme keyring gstreamer ieee1394 jack jpeg kate libass
 	libcaca libnotify +libsamplerate libtiger linsys lirc live lua mad matroska
 	modplug mp3 mtp musepack ncurses nfs ogg omxil optimisememory opus png
-	projectm pulseaudio run-as-root samba sftp shout sid soxr speex srt ssl svg
+	projectm pulseaudio run-as-root samba selinux sftp shout sid soxr speex srt ssl svg
 	taglib theora tremor truetype twolame udev upnp vaapi v4l vdpau vnc vpx
 	wayland +X x264 x265 xml zeroconf zvbi
 	cpu_flags_arm_neon cpu_flags_ppc_altivec cpu_flags_x86_mmx cpu_flags_x86_sse
@@ -213,6 +213,7 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	X? ( x11-base/xorg-proto )
 "
+RDEPEND+=" selinux? ( sec-policy/selinux-mplayer )"
 
 DOCS=( AUTHORS THANKS NEWS README doc/fortunes.txt )
 
