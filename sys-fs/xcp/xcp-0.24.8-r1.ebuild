@@ -163,7 +163,7 @@ src_install() {
 	cargo_src_install
 
 	dofishcomp completions/xcp.fish
-	dozshcomp completions/xcp.zsh
+	newzshcomp completions/xcp.zsh _xcp
 	newbashcomp completions/xcp.bash xcp
 
 	dodoc CHANGELOG.md README.md
