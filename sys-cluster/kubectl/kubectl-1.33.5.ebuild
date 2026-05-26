@@ -15,9 +15,11 @@ LICENSE="Apache-2.0"
 LICENSE+=" Apache-2.0 BSD BSD-2 ISC MIT"
 SLOT="0"
 KEYWORDS="amd64 ~arm64"
+IUSE="selinux"
 RESTRICT="test"
 
 BDEPEND=">=dev-lang/go-1.24.0"
+RDEPEND="selinux? ( sec-policy/selinux-kubernetes )"
 
 QA_PRESTRIPPED=usr/bin/kubectl
 
