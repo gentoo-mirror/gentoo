@@ -8,45 +8,52 @@ NUGETS="
 avalonia.angle.windows.natives@2.1.25547.20250602
 avalonia.buildservices@0.0.28
 avalonia.buildservices@11.3.2
-avalonia.controls.colorpicker@11.3.12
-avalonia.controls.datagrid@11.3.12
-avalonia.desktop@11.3.12
-avalonia.diagnostics@11.3.12
-avalonia.fonts.inter@11.3.12
-avalonia.freedesktop@11.3.12
-avalonia.native@11.3.12
+avalonia.controls.colorpicker@11.3.15
+avalonia.controls.datagrid@11.3.13
+avalonia.desktop@11.3.15
+avalonia.diagnostics@11.3.15
+avalonia.fonts.inter@11.3.15
+avalonia.freedesktop@11.3.15
+avalonia.native@11.3.15
 avalonia.remote.protocol@11.0.0
-avalonia.remote.protocol@11.3.12
+avalonia.remote.protocol@11.3.15
 avalonia.skia@11.0.0
-avalonia.skia@11.3.12
-avalonia.themes.fluent@11.3.12
-avalonia.themes.simple@11.3.12
-avalonia.win32@11.3.12
-avalonia.x11@11.3.12
+avalonia.skia@11.3.15
+avalonia.themes.fluent@11.3.15
+avalonia.themes.simple@11.3.15
+avalonia.win32@11.3.15
+avalonia.x11@11.3.15
 avalonia@11.0.0
-avalonia@11.3.12
-azure.ai.openai@2.8.0-beta.1
-azure.core@1.50.0
+avalonia@11.3.15
+azure.ai.openai@2.9.0-beta.1
+azure.core@1.51.1
 bitmiracle.libtiff.net@2.4.660
-communitytoolkit.mvvm@8.4.0
+communitytoolkit.mvvm@8.4.2
 harfbuzzsharp.nativeassets.linux@8.3.1.1
 harfbuzzsharp.nativeassets.macos@8.3.1.1
 harfbuzzsharp.nativeassets.webassembly@8.3.1.1
 harfbuzzsharp.nativeassets.win32@8.3.1.1
 harfbuzzsharp@7.3.0.3
 harfbuzzsharp@8.3.1.1
-livechartscore.skiasharpview.avalonia@2.0.0-rc6.1
-livechartscore.skiasharpview@2.0.0-rc6.1
-livechartscore@2.0.0-rc6.1
+livechartscore.skiasharpview.avalonia@2.0.0
+livechartscore.skiasharpview@2.0.0
+livechartscore@2.0.0
 microcom.runtime@0.11.0
-microsoft.bcl.asyncinterfaces@8.0.0
+microsoft.bcl.asyncinterfaces@10.0.2
 microsoft.build.tasks.git@1.1.1
-microsoft.extensions.dependencyinjection.abstractions@8.0.2
-microsoft.extensions.logging.abstractions@8.0.3
+microsoft.extensions.configuration.abstractions@10.0.3
+microsoft.extensions.dependencyinjection.abstractions@10.0.3
+microsoft.extensions.diagnostics.abstractions@10.0.3
+microsoft.extensions.fileproviders.abstractions@10.0.3
+microsoft.extensions.hosting.abstractions@10.0.3
+microsoft.extensions.logging.abstractions@10.0.3
+microsoft.extensions.options@10.0.3
+microsoft.extensions.primitives@10.0.3
 microsoft.sourcelink.common@1.1.1
 microsoft.sourcelink.github@1.1.1
+microsoft.sourcelink.github@10.0.201
 onigwrap@1.0.10
-openai@2.8.0
+openai@2.10.0
 pfim@0.11.4
 skiasharp.harfbuzz@2.88.9
 skiasharp.nativeassets.linux@2.88.9
@@ -54,13 +61,15 @@ skiasharp.nativeassets.macos@2.88.9
 skiasharp.nativeassets.webassembly@2.88.9
 skiasharp.nativeassets.win32@2.88.9
 skiasharp@2.88.9
-system.clientmodel@1.8.0
-system.clientmodel@1.8.1
+stbimagesharp@2.30.15
+system.clientmodel@1.10.0
+system.clientmodel@1.9.0
 system.componentmodel.annotations@4.5.0
-system.memory.data@8.0.1
+system.memory.data@10.0.1
+system.memory.data@10.0.3
 textmatesharp.grammars@2.0.2
 textmatesharp@2.0.2
-tmds.dbus.protocol@0.21.2
+tmds.dbus.protocol@0.21.3
 "
 
 inherit check-reqs dotnet-pkg desktop xdg
@@ -132,17 +141,14 @@ src_prepare() {
 		|| die
 
 	rm SourceGit.slnx || die
-
 	dotnet-pkg_src_prepare
 }
 
 src_install() {
 	dotnet-pkg-base_install
 	dotnet-pkg-base_dolauncher "/usr/share/${P}/SourceGit" "${PN}"
-
 	doicon "./build/resources/_common/icons/${PN}.png"
 	domenu "./build/resources/_common/applications/${PN}.desktop"
-
 	einstalldocs
 }
 
