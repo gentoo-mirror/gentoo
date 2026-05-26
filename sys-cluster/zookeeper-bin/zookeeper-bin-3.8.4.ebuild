@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,6 +18,7 @@ S="${WORKDIR}/apache-${MY_P}-bin"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 x86"
+IUSE="selinux"
 RESTRICT="mirror binchecks"
 
 BDEPEND="
@@ -27,6 +28,7 @@ BDEPEND="
 RDEPEND="
 	${BDEPEND}
 	>=virtual/jre-1.8
+	selinux? ( sec-policy/selinux-hadoop )
 "
 
 INSTALL_DIR=/opt/"${PN}"
