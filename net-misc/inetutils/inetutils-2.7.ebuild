@@ -17,7 +17,7 @@ KEYWORDS="amd64 ~x86"
 SERVERS="ftpd inetd rexecd rlogind rshd syslogd talkd telnetd tftpd uucpd"
 CLIENTS="ftp dnsdomainname hostname ping ping6 rcp rexec rlogin rsh logger telnet tftp whois ifconfig traceroute"
 PROGRAMS="${SERVERS} ${CLIENTS}"
-IUSE="idn kerberos pam tcpd ${PROGRAMS}"
+IUSE="idn kerberos pam selinux tcpd ${PROGRAMS}"
 
 DEPEND="
 	sys-libs/readline:0=
@@ -29,27 +29,27 @@ DEPEND="
 	uucpd? ( virtual/libcrypt:0= )
 "
 RDEPEND="${DEPEND}
-	ftpd? ( net-ftp/ftpbase[pam?] )
-	ftp? ( !net-ftp/ftp )
+	ftpd? ( net-ftp/ftpbase[pam?] selinux? ( sec-policy/selinux-ftp ) )
+	ftp? ( !net-ftp/ftp selinux? ( sec-policy/selinux-ftp ) )
 	dnsdomainname? ( !sys-apps/net-tools )
 	hostname? ( !sys-apps/coreutils[hostname(-)] !sys-apps/net-tools[hostname(+)] )
-	inetd? ( !sys-apps/netkit-base )
+	inetd? ( !sys-apps/netkit-base selinux? ( sec-policy/selinux-inetd  ) )
 	ping? ( !net-misc/iputils )
 	ping6? ( !net-misc/iputils[ipv6(+)] )
 	rcp? ( !net-misc/netkit-rsh )
 	rexec? ( !net-misc/netkit-rsh )
 	rexecd? ( !net-misc/netkit-rsh )
-	rlogin? ( !net-misc/netkit-rsh )
-	rlogind? ( !net-misc/netkit-rsh )
+	rlogin? ( !net-misc/netkit-rsh selinux? ( sec-policy/selinux-rlogin ) )
+	rlogind? ( !net-misc/netkit-rsh selinux? ( sec-policy/selinux-rlogin ) )
 	rsh? ( !net-misc/netkit-rsh )
 	rshd? ( !net-misc/netkit-rsh )
 	logger? ( !sys-apps/util-linux[logger(+)] )
 	syslogd? ( !app-admin/sysklogd )
 	talkd? ( !net-misc/netkit-talk )
-	telnet? ( !net-misc/telnet-bsd !net-misc/netkit-telnetd )
-	telnetd? ( !net-misc/telnet-bsd !net-misc/netkit-telnetd )
-	tftp? ( !net-ftp/tftp-hpa[client(+)] )
-	tftpd? ( !net-ftp/tftp-hpa[server(+)] )
+	telnet? ( !net-misc/telnet-bsd !net-misc/netkit-telnetd selinux? ( sec-policy/selinux-telnet ) )
+	telnetd? ( !net-misc/telnet-bsd !net-misc/netkit-telnetd selinux? ( sec-policy/selinux-telnet ) )
+	tftp? ( !net-ftp/tftp-hpa[client(+)] selinux? ( sec-policy/selinux-tftp ) )
+	tftpd? ( !net-ftp/tftp-hpa[server(+)] selinux? ( sec-policy/selinux-tftp ) )
 	whois? ( !net-misc/whois )
 	ifconfig? ( !sys-apps/net-tools )
 	traceroute? ( !net-analyzer/traceroute )
