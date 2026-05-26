@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,12 +10,16 @@ SRC_URI="mirror://debian/pool/main/t/${PN}/${PN}_${PV}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~arm ~arm64 ppc ~ppc64 x86"
-IUSE=""
+IUSE="selinux"
 
-DEPEND="sys-apps/util-linux
-	sys-fs/e2fsprogs"
-
-RDEPEND=""
+DEPEND="
+	sys-apps/util-linux
+	sys-fs/e2fsprogs
+"
+RDEPEND="
+	${DEPEND}
+	selinux? ( sec-policy/selinux-tmpreaper )
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.6.13-gentoo.patch

@@ -43,7 +43,7 @@ IUSE="alsa aom archive aribsub bidi bluray chromaprint chromecast dav1d dbus
 	libcaca libdrm libnotify libplacebo +libsamplerate libtiger linsys lirc live
 	loudness lua mad matroska modplug mp3 mtp musepack ncurses
 	nfs ogg omxil optimisememory opus png projectm pulseaudio run-as-root samba
-	sftp shout sid skins soxr speex srt ssl svg taglib theora tremor truetype
+	selinux sftp shout sid skins soxr speex srt ssl svg taglib theora tremor truetype
 	twolame udev upnp vaapi v4l vdpau vnc vpx wayland +X x264 x265 xml zeroconf
 	zvbi cpu_flags_arm_neon cpu_flags_ppc_altivec cpu_flags_x86_sse
 "
@@ -236,6 +236,7 @@ DEPEND="${COMMON_DEPEND}
 "
 RDEPEND="${COMMON_DEPEND}
 	gui? ( kde-frameworks/qqc2-desktop-style:6 )
+	selinux? ( sec-policy/selinux-mplayer )
 "
 
 DOCS=( AUTHORS THANKS NEWS README.md doc/fortunes.txt )
