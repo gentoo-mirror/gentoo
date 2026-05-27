@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=install postinst
+DEPEND=acct-group/grafana acct-user/grafana
+DESCRIPTION=Gorgeous metric viz, dashboards & editors for Graphite, InfluxDB & OpenTSDB
+EAPI=8
+HOMEPAGE=https://grafana.org
+INHERIT=systemd
+KEYWORDS=-* ~amd64 ~arm64
+LICENSE=AGPL-3
+RDEPEND=acct-group/grafana acct-user/grafana media-libs/fontconfig
+RESTRICT=mirror
+SLOT=0
+SRC_URI=amd64? ( https://dl.grafana.com/grafana/release/12.4.3+security-02/grafana_12.4.3+security-02_25720634919_linux_amd64.tar.gz ) arm64? ( https://dl.grafana.com/grafana/release/12.4.3+security-02/grafana_12.4.3+security-02_25720634919_linux_arm64.tar.gz )
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=ecab0ed3e96026c839e286a0ade70519
