@@ -1,9 +1,9 @@
-# Copyright 2021-2024 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="ncurses"
 DISTUTILS_SINGLE_IMPL=1
 DISTUTILS_USE_PEP517=setuptools
@@ -12,14 +12,12 @@ inherit distutils-r1
 
 DESCRIPTION="A frontend for several cd-rippers and mp3 encoders"
 HOMEPAGE="https://github.com/jack-cli-cd-ripper/jack https://www.home.unix-ag.org/arne/jack/"
-GIT_COMMIT_HASH="795fba0ef1859b39b3bb41ca162ab402177808a5" # branch "python3-mb"
+GIT_COMMIT_HASH="181666b7d55d55f2eaa3abdbdfa5f4a46065d389" # branch "python3-mb"
 GIT_DOC_HASH="4303994b67222639ee4c3f55b214020b2f5c75f4"
 SRC_URI="
 	https://github.com/jack-cli-cd-ripper/jack/archive/${GIT_COMMIT_HASH}.tar.gz -> ${P}.tar.gz
 	https://github.com/jack-cli-cd-ripper/jack/raw/${GIT_DOC_HASH}/example.etc.jackrc
 		-> example.etc.jackrc-4.1_pre20230723
-	https://github.com/jack-cli-cd-ripper/jack/raw/${GIT_DOC_HASH}/jack.man
-		-> jack.man-4.1_pre20230723
 "
 S="${WORKDIR}/${PN}-${GIT_COMMIT_HASH}"
 
@@ -52,8 +50,7 @@ python_prepare_all() {
 python_install_all() {
 	insinto /etc
 	newins "${DISTDIR}/example.etc.jackrc-4.1_pre20230723" jackrc
-
-	newman "${DISTDIR}/jack.man-4.1_pre20230723" jack.1
+	doman man/jack.1
 
 	local DOCS=( doc/README.md doc/CHANGELOG )
 	local HTML_DOCS=( doc/*.{html,css,gif} )

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{10..13} )
 
 inherit autotools python-single-r1
 
@@ -26,7 +26,7 @@ RDEPEND="
 	sys-libs/ncurses:=
 	sys-libs/readline:=
 	crypt? ( dev-libs/openssl:= )
-	snmp? ( net-analyzer/net-snmp )
+	snmp? ( net-analyzer/net-snmp:= )
 	perl? ( dev-lang/perl:= )
 	python? ( ${PYTHON_DEPS} )
 	tcl? ( dev-lang/tcl:= )
