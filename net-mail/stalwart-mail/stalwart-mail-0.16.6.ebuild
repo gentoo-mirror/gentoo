@@ -17,7 +17,7 @@ declare -A GIT_CRATES=(
 	[opentelemetry_sdk]='https://github.com/stalwartlabs/opentelemetry-rust;274b4d324794280ce6f4def095a3428197a9e6e3;opentelemetry-rust-%commit%/opentelemetry-sdk'
 )
 
-RUST_MIN_VER="1.88.0"
+RUST_MIN_VER="1.90.0"
 inherit cargo systemd
 
 DESCRIPTION="Stalwart Mail Server"
