@@ -4962,8 +4962,8 @@ media-sound/qmmp:shout - Enable shoutcast plug-in via media-libs/libshout.
 media-sound/qmmp:sndfile - Enable wav playback support via media-libs/libsndfile
 media-sound/qmmp:soxr - Use the SoX resampling library
 media-sound/qsampler:libgig - Enable libgig support for loading Gigasampler files and DLS (Downloadable Sounds) Level 1/2 files
-media-sound/qtractor:aubio - Enable media-libs/aubio support
 media-sound/qtractor:dssi - Enable support for DSSI Soft Synth Interface
+media-sound/qtractor:osc - Enable support for Open Sound Control via media-libs/liblo, deprecated since 1.6.0 (built-in OSC available)
 media-sound/qtractor:rubberband - Enable support for in-place audio clip pitch-shifting through the rubberband library
 media-sound/rhythmbox:daap - Build the local network music sharing plugin which uses the DAAP protocol using net-libs/libdmapsharing
 media-sound/rosegarden:lv2 - Add support for Ladspa V2 plugins
@@ -7944,6 +7944,7 @@ sys-apps/irqbalance:numa - Support balancing IRQs across NUMA nodes
 sys-apps/irqbalance:thermal - Enable support of thermal events via sys-power/thermald
 sys-apps/irqbalance:tui - Enable build of irqbalance terminal user interface
 sys-apps/kbd:pam - Enable 'vlock' program (requires sys-libs/pam)
+sys-apps/kbd:xkb - Allow to generate kernel keymaps based on xkb database from x11-libs/libxkbcommon
 sys-apps/kexec-tools:booke - Include support for Book-E memory management
 sys-apps/kexec-tools:lzma - Enables support for LZMA compressed kernel images
 sys-apps/kexec-tools:xen - Enable extended xen support
