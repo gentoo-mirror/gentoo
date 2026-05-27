@@ -21,6 +21,7 @@ KEYWORDS="amd64 ~riscv ~x86"
 RDEPEND="
 	media-libs/libpulse
 "
+# https://github.com/mk-fg/python-pulse-control/issues/77
 BDEPEND="
 	test? (
 		media-sound/pulseaudio-daemon
