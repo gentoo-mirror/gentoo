@@ -85,15 +85,7 @@ src_prepare() {
 	local patch
 	cd "${BASE_P}" || die
 	eapply "${WORKDIR}/patch-${PATCH_PV}"
-	for patch in "${WORKDIR}/${PATCHSET}"/*.patch; do
-		eapply "${patch}"
-		# non-experimental patches always finish with Gentoo Kconfig
-		# we built -bins without them
-		if [[ ${patch} == *Add-Gentoo-Linux-support-config-settings* ]]
-		then
-			break
-		fi
-	done
+	eapply "${WORKDIR}/${PATCHSET}"
 
 	default
 
