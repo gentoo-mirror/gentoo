@@ -1,0 +1,16 @@
+BDEPEND=sys-devel/gettext virtual/pkgconfig doc? ( app-text/doxygen ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=>=dev-libs/glib-2.72:2 dev-libs/gobject-introspection test? ( x11-base/xorg-proto x11-libs/gtk+:3[X] x11-misc/xvfb-run )
+DESCRIPTION=UI library that focuses on simplicity and minimalism
+EAPI=8
+HOMEPAGE=https://pwmt.org/projects/girara/
+INHERIT=flag-o-matic meson
+IUSE=doc test X
+KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+LICENSE=ZLIB
+RDEPEND=>=dev-libs/glib-2.72:2 dev-libs/gobject-introspection
+RESTRICT=!test? ( test )
+SLOT=0/5.0
+SRC_URI=https://github.com/pwmt/girara/archive/2026.02.04.tar.gz -> girara-2026.02.04.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f
+_md5_=9ba735535ed3f05d2a4c0700973c0090

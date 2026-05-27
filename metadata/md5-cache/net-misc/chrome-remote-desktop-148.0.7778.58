@@ -1,0 +1,15 @@
+DEFINED_PHASES=install postinst prepare setup unpack
+DESCRIPTION=access remote computers via Chrome!
+EAPI=8
+HOMEPAGE=https://support.google.com/chrome/answer/1649523 https://remotedesktop.google.com
+INHERIT=unpacker python-single-r1 chromium-2
+IUSE=gnome systemd python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 +l10n_am +l10n_ar +l10n_bg +l10n_bn +l10n_ca +l10n_cs +l10n_da +l10n_de +l10n_el +l10n_en-GB +l10n_en +l10n_es-419 +l10n_es +l10n_et +l10n_fa +l10n_fil +l10n_fi +l10n_fr +l10n_gu +l10n_he +l10n_hi +l10n_hr +l10n_hu +l10n_id +l10n_it +l10n_ja +l10n_kn +l10n_ko +l10n_lt +l10n_lv +l10n_ml +l10n_mr +l10n_ms +l10n_nb +l10n_nl +l10n_pl +l10n_pt-BR +l10n_pt-PT +l10n_ro +l10n_ru +l10n_sk +l10n_sl +l10n_sr +l10n_sv +l10n_sw +l10n_ta +l10n_te +l10n_th +l10n_tr +l10n_uk +l10n_vi +l10n_zh-CN +l10n_zh-TW
+KEYWORDS=-* ~amd64
+LICENSE=google-chrome
+RDEPEND=app-admin/sudo python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) >=dev-libs/expat-2 dev-libs/glib:2 dev-libs/nspr dev-libs/nss gnome? ( gnome-base/gsettings-desktop-schemas ) python_single_target_python3_11? ( dev-python/dbus-python[python_targets_python3_11(-)] dev-python/packaging[python_targets_python3_11(-)] dev-python/psutil[python_targets_python3_11(-)] dev-python/pyxdg[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/dbus-python[python_targets_python3_12(-)] dev-python/packaging[python_targets_python3_12(-)] dev-python/psutil[python_targets_python3_12(-)] dev-python/pyxdg[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/dbus-python[python_targets_python3_13(-)] dev-python/packaging[python_targets_python3_13(-)] dev-python/psutil[python_targets_python3_13(-)] dev-python/pyxdg[python_targets_python3_13(-)] ) media-libs/fontconfig media-libs/freetype:2 media-libs/mesa sys-apps/dbus systemd? ( sys-apps/systemd ) sys-auth/polkit sys-devel/gcc sys-libs/glibc sys-libs/libutempter sys-libs/pam sys-process/psmisc x11-apps/xdpyinfo x11-apps/setxkbmap x11-libs/cairo x11-libs/gtk+:3 x11-libs/libX11 x11-libs/libxcb x11-libs/libXdamage x11-libs/libXext x11-libs/libXfixes x11-libs/libxkbcommon x11-libs/libXrandr x11-libs/libXtst x11-libs/pango x11-base/xorg-server[xvfb] x11-apps/xrandr
+REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 )
+RESTRICT=bindist mirror
+SLOT=0
+SRC_URI=amd64? ( https://dl.google.com/linux/chrome-remote-desktop/deb/pool/main/c/chrome-remote-desktop/chrome-remote-desktop_148.0.7778.58_amd64.deb )
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	linux-info	efd923656513c879204fec6638eadee5	chromium-2	6be3cf193def84c82ddae5c1f21ddbe5
+_md5_=4a10c62a32031a8ae8ef1cf8a3e0b010

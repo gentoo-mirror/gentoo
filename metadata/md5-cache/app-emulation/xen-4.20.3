@@ -1,0 +1,17 @@
+BDEPEND=secureboot? ( app-crypt/sbsigntools dev-libs/openssl )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare prerm pretend setup
+DEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) uefi? ( >=sys-devel/binutils-2.22[multitarget] ) !uefi? ( >=sys-devel/binutils-2.22 ) flask? ( sys-apps/checkpolicy )
+DESCRIPTION=The Xen virtual machine monitor
+EAPI=8
+HOMEPAGE=https://xenproject.org
+INHERIT=flag-o-matic mount-boot python-any-r1 secureboot toolchain-funcs
+IUSE=+boot-symlinks debug uefi flask secureboot
+KEYWORDS=~amd64 ~arm -x86
+LICENSE=GPL-2
+PDEPEND=~app-emulation/xen-tools-4.20.3
+REQUIRED_USE=arm? ( debug )
+RESTRICT=test splitdebug strip
+SLOT=0
+SRC_URI=https://downloads.xenproject.org/release/xen/4.20.3/xen-4.20.3.tar.gz https://gitweb.gentoo.org/proj/xen-gentoo-patches.git/snapshot/xen-gentoo-patches-4.20.1-gentoo-patchset-0.tar.bz2
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	mount-boot	03b0280b48caf6e18472fa7272cfcda8	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-any-r1	891415dfe39ad9b41b461f2b86354af0	linux-info	efd923656513c879204fec6638eadee5	secureboot	d98b63e30a9468e1f1c06d3d7c66e760
+_md5_=51cf489971ef8cc1dfc1aaba69d0d475
