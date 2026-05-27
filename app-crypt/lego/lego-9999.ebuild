@@ -8,7 +8,7 @@ inherit go-module
 DESCRIPTION="Let's Encrypt/ACME client (like certbot or acme.sh) and library written in Go"
 HOMEPAGE="https://github.com/go-acme/lego/"
 
-DOCUMENTATION_COMMIT=093311eaa03c9f9f4cfdd9ef6bbc24547abfea4f
+DOCUMENTATION_COMMIT=c63fcf074dec8093e443f6e028c82ef3a7c73285
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
@@ -33,6 +33,8 @@ SLOT="0"
 # actual  : "zoneee: could not find zone for domain \"prefix.example.com\" (_acme-challenge.prefix.example.com.): could not find the start of authority for _acme-challenge.prefix.example.com.: read udp 10.0.0.1:54729->10.0.0.1:53: read: connection refused"
 PROPERTIES="test_network"
 RESTRICT="test"
+
+BDEPEND=">=dev-lang/go-1.25.0"
 
 src_unpack() {
 	if [[ ${PV} == 9999* ]]; then
