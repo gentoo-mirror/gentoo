@@ -925,7 +925,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.792.0 1.2.804.0 1.2.814.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.44.86 1.45.2 1.45.6 1.45.9 1.45.14: Universal Command Line Environment for AWS
+app-admin/awscli 1.44.86 1.45.2 1.45.6 1.45.9 1.45.14 1.45.15: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.34.24 2.34.40: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.1.0 2026.2.1: Bitwarden password manager desktop client
@@ -8239,8 +8239,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.42.96 1.43.2 1.43.6 1.43.9 1.43.14: The AWS SDK for Python
-dev-python/botocore 1.42.96 1.43.2 1.43.6 1.43.9 1.43.14: Low-level, data-driven core of boto 3
+dev-python/boto3 1.42.96 1.43.2 1.43.6 1.43.9 1.43.14 1.43.15: The AWS SDK for Python
+dev-python/botocore 1.42.96 1.43.2 1.43.6 1.43.9 1.43.14 1.43.15: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8321,7 +8321,7 @@ dev-python/construct 2.10.70: A powerful declarative parser for binary data
 dev-python/contourpy 1.3.3-r1: Python library for calculating contours in 2D quadrilateral grids
 dev-python/conway-polynomials 0.10: Python interface to Frank Lübeck's Conway polynomial database
 dev-python/cookies 2.2.1-r2: Friendlier RFC 6265-compliant cookie parser/renderer
-dev-python/coverage 7.13.5 7.14.0: Code coverage measurement for Python
+dev-python/coverage 7.13.5 7.14.0 7.14.1: Code coverage measurement for Python
 dev-python/cppheaderparser 2.7.4-r1: Parse C++ header files and generate a data structure
 dev-python/cppy 1.3.1: C++ header library which makes it easier to write Python extension modules
 dev-python/cramjam 2.11.0 2.12.0_rc1: Thin Python bindings to de/compression algorithms in Rust
@@ -8354,7 +8354,7 @@ dev-python/daemonize 2.5.0-r1: Library for writing system daemons in Python
 dev-python/dasbus 1.7: DBus library in Python 3
 dev-python/datastructclass 0.1.1: A dataclass with struct-like semantics
 dev-python/dbfread 2.0.7-r1: Read DBF Files with Python
-dev-python/dbus-fast 4.0.4 4.1.0 4.2.8 4.3.0 5.0.6 5.0.14: A faster version of dbus-next
+dev-python/dbus-fast 4.0.4 4.1.0 4.2.8 4.3.0 5.0.6 5.0.14 5.0.15: A faster version of dbus-next
 dev-python/dbus-next 0.2.3-r1: The next great DBus library for Python with asyncio support
 dev-python/dbus-python 1.4.0: Python bindings for the D-Bus messagebus
 dev-python/dbutils 3.1.2: Database connections for multi-threaded environments
@@ -8394,7 +8394,7 @@ dev-python/django-filter 25.2: Django app allowing declarative dynamic QuerySet 
 dev-python/django-js-asset 3.1.2: Script tag with additional attributes for django.forms.Media
 dev-python/django-otp 1.7.0: Django framework adding two-factor authentication using one-time passwords
 dev-python/django-polymorphic 4.11.2 4.11.3: Seamless Polymorphic Inheritance for Django Models
-dev-python/django-prometheus 2.4.1: Library to export Django metrics for Prometheus
+dev-python/django-prometheus 2.4.1 2.5.0: Library to export Django metrics for Prometheus
 dev-python/django-redis 6.0.0: Full featured redis cache backend for Django
 dev-python/django-registration 5.2.1: user-registration application for Django
 dev-python/django-sortedm2m 4.0.0: Drop-in replacement for django's many to many field with sorted relations
@@ -8427,7 +8427,7 @@ dev-python/ecdsa 0.19.2: ECDSA cryptographic signature library in pure Python
 dev-python/editables 0.5 0.6: A Python library for creating 'editable wheels'
 dev-python/editorconfig 0.17.1: Clone of EditorConfig core written in Python
 dev-python/elastic-transport 9.2.1 9.4.0 9.4.1: Transport classes and utilities shared among Python Elastic client libraries
-dev-python/elasticsearch 9.3.0 9.4.0: Official Elasticsearch client library for Python
+dev-python/elasticsearch 9.3.0 9.4.0 9.4.1: Official Elasticsearch client library for Python
 dev-python/electrum-aionostr 0.1.0: asyncio nostr client
 dev-python/electrum-ecc 0.0.7: Pure python ctypes wrapper for libsecp256k1
 dev-python/elementpath 5.1.1: XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
@@ -8589,7 +8589,7 @@ dev-python/hvac 2.4.0: HashiCorp Vault API client
 dev-python/hypercorn 0.18.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.151.14 6.152.4 6.152.5 6.152.6 6.152.7 6.152.8 6.152.9 6.152.11: A library for property based testing
+dev-python/hypothesis 6.151.14 6.152.4 6.152.5 6.152.6 6.152.7 6.152.8 6.152.9 6.152.11 6.153.2: A library for property based testing
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 7.0.3 7.1.0 7.1.1 7.1.2: RFC 5545 compatible parser and generator of iCalendar files
 dev-python/id 1.6.1: A tool for generating OIDC identities
@@ -9136,7 +9136,7 @@ dev-python/pyotp 2.9.0: PyOTP is a Python library for generating and verifying o
 dev-python/pyparsing 3.3.2: Easy-to-use Python module for text parsing
 dev-python/pyparted 3.13.0: Python bindings for sys-block/parted
 dev-python/pypax 0.9.5-r2 9999: Python module to get or set either PT_PAX and/or XATTR_PAX flags
-dev-python/pypdf 6.10.2 6.11.0 6.12.0 6.12.1: Python library to work with PDF files
+dev-python/pypdf 6.10.2 6.11.0 6.12.0 6.12.1 6.12.2: Python library to work with PDF files
 dev-python/pyperclip 1.11.0: A cross-platform clipboard module for Python
 dev-python/pyphen 0.17.2: Python module for hyphenation using hunspell dictionaries
 dev-python/pypi-attestations 0.0.29: Convert between Sigstore Bundles and PEP-740 Attestation objects
@@ -9191,7 +9191,7 @@ dev-python/pyte 0.8.2: Simple VTXXX-compatible terminal emulator
 dev-python/pytesseract 0.3.13: Optical character recognition (OCR) tool
 dev-python/pytest 9.0.2 9.0.3: Simple powerful testing with Python
 dev-python/pytest-aiohttp 1.1.0: pytest plugin for aiohttp support
-dev-python/pytest-asyncio 1.3.0 1.4.0_alpha2: Library for testing asyncio code with pytest
+dev-python/pytest-asyncio 1.3.0 1.4.0_alpha2 1.4.0: Library for testing asyncio code with pytest
 dev-python/pytest-bdd 8.1.0-r1: BDD library for the pytest runner
 dev-python/pytest-check 2.8.0: pytest plugin that allows multiple failures per test
 dev-python/pytest-click 1.1.0: Pytest plugin for Click
@@ -9434,7 +9434,7 @@ dev-python/rtslib-fb 2.1.76 2.2.4-r1: A Python object API for managing the Linux
 dev-python/ruamel-yaml 0.19.1: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.15: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/ruamel-yaml-clibz 0.3.7: C-based reader/scanner and emitter for dev-python/ruamel-yaml
-dev-python/s3transfer 0.16.1 0.17.0: An Amazon S3 Transfer Manager
+dev-python/s3transfer 0.16.1 0.17.0 0.17.1: An Amazon S3 Transfer Manager
 dev-python/sabctools 8.2.6 9.4.0: Module providing raw yEnc encoding/decoding for SABnzbd
 dev-python/sarge 0.1.8: Wrapper for subprocess which provides command pipeline functionality
 dev-python/sarif-om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
@@ -9690,7 +9690,7 @@ dev-python/uri-template 1.3.0: URI Template expansion in strict adherence to RFC
 dev-python/uritemplate 4.2.0: Python implementation of RFC6570, URI Template
 dev-python/url-normalize 3.0.0: URL normalization for Python
 dev-python/urllib3 2.7.0: HTTP library with thread-safe connection pooling, file post, and more
-dev-python/urwid 4.0.0: Curses-based user interface library for Python
+dev-python/urwid 4.0.0 4.0.1: Curses-based user interface library for Python
 dev-python/urwid-readline 0.15.1: Text input widget for urwid that supports readline shortcuts
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
@@ -9789,7 +9789,7 @@ dev-python/zope-event 6.1 6.2: Event publishing / dispatch, used by Zope Compone
 dev-python/zope-exceptions 6.0: General purpose exceptions for Zope packages
 dev-python/zope-hookable 8.2: Efficient creation of 'hookable' objects
 dev-python/zope-i18nmessageid 8.2: Zope support for i18nmessageid (tagging source of i18n strings)
-dev-python/zope-interface 8.4: Interfaces for Python
+dev-python/zope-interface 8.4 8.5: Interfaces for Python
 dev-python/zope-schema 8.1: Zope schema Architecture
 dev-python/zope-testing 6.1: Zope testing helpers
 dev-python/zstandard 0.25.0: Zstandard Bindings for Python
@@ -11083,7 +11083,7 @@ dev-util/squashmerge 0.1: dev-util/squashdelta delta merge tool
 dev-util/src-cli 4.4.0 4.5.0 5.0.2-r1 5.1.2 5.2.0: command line interface for the Sourcegraph code search tool
 dev-util/statifier 1.7.4-r3: Statifier is a tool for creating portable, self-containing Linux executables
 dev-util/stressapptest 1.0.11: Stressful Application Test
-dev-util/stripe-mock 0.197.0 0.198.0 0.199.0: Mock HTTP server that responds like the real Stripe API
+dev-util/stripe-mock 0.197.0 0.198.0 0.199.0 0.200.0: Mock HTTP server that responds like the real Stripe API
 dev-util/sysprof 47.2-r1 48.0-r1 48.1 49.0: System-wide Linux Profiler
 dev-util/sysprof-capture 3.36.0-r2 47.2 48.0 48.1 49.0: Static library for sysprof capture data generation
 dev-util/sysprof-common 47.2 48.0 48.1 49.0: Static library for sysprof capture data generation
