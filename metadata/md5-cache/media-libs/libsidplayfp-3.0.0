@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=configure install
+DEPEND=>=media-libs/libresidfp-1.0.2:= usb? ( >=virtual/libusb-1-r2:1 )
+DESCRIPTION=Library for the sidplay2 fork with resid-fp
+EAPI=8
+HOMEPAGE=https://github.com/libsidplayfp/libsidplayfp
+IUSE=test usb
+KEYWORDS=~amd64 ~hppa ~ppc ~ppc64 ~riscv ~x86
+LICENSE=GPL-2+
+RDEPEND=>=media-libs/libresidfp-1.0.2:= usb? ( >=virtual/libusb-1-r2:1 )
+RESTRICT=!test? ( test )
+SLOT=0/7
+SRC_URI=https://github.com/libsidplayfp/libsidplayfp/releases/download/v3.0.0/libsidplayfp-3.0.0.tar.gz
+_md5_=a81f99a08e50af60162506f34f27aa21

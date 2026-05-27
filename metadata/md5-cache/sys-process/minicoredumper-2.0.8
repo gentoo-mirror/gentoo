@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-johnogness ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install unpack
+DEPEND=dev-libs/json-c:= virtual/libelf:=
+DESCRIPTION=Core dump file processor
+EAPI=9
+HOMEPAGE=https://linutronix.de/minicoredumper
+INHERIT=verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=BSD BSD-2 LGPL-2.1
+RDEPEND=dev-libs/json-c:= virtual/libelf:=
+SLOT=0
+SRC_URI=https://linutronix.de/minicoredumper/files/minicoredumper-2.0.8.tar.xz verify-sig? ( https://linutronix.de/minicoredumper/files/minicoredumper-2.0.8.tar.xz.asc )
+_eclasses_=verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=785d147630fca6459c51caa0c216f8d1
