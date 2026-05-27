@@ -1415,7 +1415,7 @@ app-crypt/acme 3.2.0-r100: An implementation of the ACME protocol
 app-crypt/acme-sh 3.1.3 9999: A pure Unix shell script implementing ACME client protocol
 app-crypt/acme-tiny 5.0.2 5.0.3: Tiny, auditable script for Let's Encrypt's ACME Protocol
 app-crypt/acr38u 1.7.11-r4: Non CCID driver for ACR38 AC1038-based Smart Card Reader
-app-crypt/adcli 0.9.2 0.9.3.1: Tool for performing actions on an Active Directory domain
+app-crypt/adcli 0.9.3.1: Tool for performing actions on an Active Directory domain
 app-crypt/aescrypt 3.16: Advanced file encryption using AES
 app-crypt/aespipe 2.4f-r1 2.4j: Encrypts data from stdin to stdout
 app-crypt/age 1.3.1 1.3.1-r1: A simple, modern and secure encryption tool (and Go library)
@@ -1464,7 +1464,7 @@ app-crypt/gocryptfs 2.6.1-r1: Encrypted overlay filesystem written in Go
 app-crypt/gorilla 1.4-r2: Password Safe in secure way with GUI interface
 app-crypt/gpa 0.11.0-r2 0.11.1: GNU Privacy Assistant (GPA): a graphical user interface for GnuPG
 app-crypt/gpg-ringmgr 1.12-r1: GPG Keyring Manager to handle large GPG keyrings more easily
-app-crypt/gpgme 2.0.0 2.0.1-r1: GnuPG Made Easy is a library for making GnuPG easier to use
+app-crypt/gpgme 2.0.1-r1 2.1.0: GnuPG Made Easy is a library for making GnuPG easier to use
 app-crypt/gpgstats 0.5-r2: GPGstats calculates statistics on the keys in your key-ring
 app-crypt/hashalot 0.3-r3: Reads a passphrase and prints a hash
 app-crypt/hashcat 6.2.6-r1 7.1.2 7.1.2-r1 9999: World's fastest and most advanced password recovery utility
@@ -3846,7 +3846,7 @@ dev-build/gtk-doc-am 1.34.0: Automake files from gtk-doc
 dev-build/guildmaster 0_pre20250712 9999: FIFO-like jobserver node via CUSE
 dev-build/gyp 20200512145953-r1 99999999999999: GYP (Generate Your Projects) meta-build system
 dev-build/icmake 9.03.01-r1: Hybrid between a make utility and a shell scripting language
-dev-build/just 1.46.0 1.48.1 1.49.0 1.50.0: Just a command runner (with syntax inspired by 'make')
+dev-build/just 1.48.1 1.49.0 1.50.0 1.51.0: Just a command runner (with syntax inspired by 'make')
 dev-build/kas 5.1 5.2: Setup tool for bitbake based projects
 dev-build/kbuild 0.1.9998.3660-r1 9999: A makefile framework for writing simple makefiles for complex tasks
 dev-build/libtool 2.5.4 2.6.0 9999: A shared library tool for developers
@@ -3876,7 +3876,7 @@ dev-cpp/aixlog 1.5.0-r1: Header-only C++ logging library
 dev-cpp/amqp-cpp 4.3.27: AMQP-CPP is a C++ library for communicating with a RabbitMQ message broker
 dev-cpp/antlr-cpp 2.7.7-r2 4.11.1 4.13.2-r1: The ANTLR 4 C++ Runtime
 dev-cpp/argparse 2.9 3.0 3.2: Argument Parser for Modern C++
-dev-cpp/asio 1.30.2 1.34.2 1.36.0: Asynchronous Network Library
+dev-cpp/asio 1.30.2 1.34.2 1.36.0 1.38.0: Asynchronous Network Library
 dev-cpp/atkmm 2.28.4 2.36.3: C++ interface for the ATK library
 dev-cpp/aws-crt-cpp 0.35.2 0.35.4: C++ wrapper around the aws-c-* libraries
 dev-cpp/aws-sdk-cpp 1.11.686 1.11.686-r1 1.11.712: AWS SDK for C++
@@ -3917,7 +3917,7 @@ dev-cpp/gflags 2.2.2-r1 9999: Google's C++ argument parsing library
 dev-cpp/glaze 5.2.1 5.5.4 6.5.1: Extremely fast, in memory, JSON and interface library for modern C++
 dev-cpp/glibmm 2.66.8 2.84.0 2.88.0: C++ interface for glib2
 dev-cpp/glog 0.5.0 0.6.0 0.6.0-r1 0.7.1: Google Logging library
-dev-cpp/gpgmepp 2.0.0-r1: GnuPG Made Easy is a library for making GnuPG easier to use (C++ bindings)
+dev-cpp/gpgmepp 2.0.0-r1 2.1.0: GnuPG Made Easy is a library for making GnuPG easier to use (C++ bindings)
 dev-cpp/gstreamermm 1.10.0-r3: C++ interface for GStreamer
 dev-cpp/gtest 1.14.0-r2 1.17.0 9999: Google C++ Testing Framework
 dev-cpp/gtkmm 2.24.5-r2 3.24.9 3.24.10 4.14.0-r1 4.18.0-r1 4.20.0: C++ interface for GTK+
@@ -5094,9 +5094,9 @@ dev-java/objenesis 3.4: A library for instantiating Java objects
 dev-java/ognl 3.1.24: Object Graph Navigation Library
 dev-java/open-test-reporting-events 0.1.0_pre1 0.2.0_pre1: Language-agnostic test reporting format and tooling
 dev-java/open-test-reporting-schema 0.1.0_pre1: Language-agnostic test reporting format and tooling
-dev-java/openjdk 8.482_p08 8.492_p09 11.0.30_p7 11.0.31_p11 17.0.18_p8 17.0.19_p10 17.0.19_p10-r1 21.0.10_p7 21.0.11_p10 21.0.11_p10-r1 25.0.2_p10 25.0.3_p9 25.0.3_p9-r1 26.0.1_p8 27_alpha21: Open source implementation of the Java programming language
-dev-java/openjdk-bin 8.482_p08 8.492_p09 11.0.30_p7 11.0.31_p11 17.0.18_p8 17.0.19_p10 21.0.10_p7 21.0.11_p10 25.0.2_p10 25.0.3_p9 26.0.1_p8 27_alpha20: Prebuilt Java JDK binaries provided by Eclipse Temurin
-dev-java/openjdk-jre-bin 8.462_p08 8.492_p09 11.0.28_p6 11.0.31_p11 17.0.16_p8 17.0.19_p10 21.0.8_p9 21.0.11_p10 25.0.3_p9: Prebuilt Java JRE binaries provided by Eclipse Temurin
+dev-java/openjdk 8.492_p09 11.0.31_p11 17.0.19_p10 17.0.19_p10-r1 21.0.11_p10 21.0.11_p10-r1 25.0.3_p9 25.0.3_p9-r1 26.0.1_p8 27_alpha21: Open source implementation of the Java programming language
+dev-java/openjdk-bin 8.492_p09 11.0.31_p11 17.0.19_p10 21.0.11_p10 25.0.3_p9 26.0.1_p8 27_alpha20: Prebuilt Java JDK binaries provided by Eclipse Temurin
+dev-java/openjdk-jre-bin 8.492_p09 11.0.31_p11 17.0.19_p10 21.0.11_p10 25.0.3_p9: Prebuilt Java JRE binaries provided by Eclipse Temurin
 dev-java/openjfx 8.1000-r2 11.0.11_p1-r5: Java OpenJFX client application platform
 dev-java/opentelemetry-java 1.49.0: OpenTelemetry Context (Incubator)
 dev-java/opentest4j 1.3.0-r1: Open Test Alliance for the JVM
@@ -5688,8 +5688,8 @@ dev-libs/libunibreak 6.1: Line and word breaking library
 dev-libs/libuninum 2.7-r3: A library for converting unicode strings to numbers and vice versa
 dev-libs/libunique 1.1.6-r3 3.0.2-r2: A library for writing single instance application
 dev-libs/libunistring 0.9.10-r1 1.0 1.3 1.4.2: Library for manipulating Unicode and C strings according to Unicode standard
-dev-libs/libusb 1.0.27-r1 1.0.28 1.0.29: Userspace access to USB devices
-dev-libs/libusb-compat 0.1.8: Userspace access to USB devices (libusb-0.1 compat wrapper)
+dev-libs/libusb 1.0.27-r1 1.0.28 1.0.29 1.0.30: Userspace access to USB devices
+dev-libs/libusb-compat 0.1.8 0.1.9: Userspace access to USB devices (libusb-0.1 compat wrapper)
 dev-libs/libusbhp 1.0.2-r1: USB Hotplug Library
 dev-libs/libutf8proc 2.10.0 2.11.0 2.11.1 2.11.2 2.11.3: A clean C Library for processing UTF-8 Unicode data
 dev-libs/libuv 1.52.1 9999: Cross-platform asychronous I/O
@@ -5797,7 +5797,7 @@ dev-libs/pthreadpool 2023.08.29: Portable and efficient thread pool implementati
 dev-libs/pugixml 1.15 9999: Light-weight, simple, and fast XML parser for C++ with XPath support
 dev-libs/qcoro 0.13.0: C++ Coroutine Library for Qt
 dev-libs/qcustomplot 2.1.1-r10: Qt C++ widget for plotting and data visualization
-dev-libs/qgpgme 2.0.0-r1 2.0.0-r2: GnuPG Made Easy is a library for making GnuPG easier to use (Qt bindings)
+dev-libs/qgpgme 2.0.0-r2 2.1.0: GnuPG Made Easy is a library for making GnuPG easier to use (Qt bindings)
 dev-libs/qhotkey 1.5.0-r1: A global shortcut/hotkey library for desktop Qt applications
 dev-libs/qqwing 1.3.4-r1: Sudoku puzzle generator and solver
 dev-libs/qr-code-generator 1.8.0 1.8.0-r1: QR Code Generator Library in Multiple Languages
@@ -8058,7 +8058,7 @@ dev-php/mmslib 0.97-r1: Encoding, decoding, and sending of MMS:es
 dev-php/myclabs-deepcopy 1.10.2: Create deep copies (clones) of your objects
 dev-php/nikic-php-parser 4.13.2: PHP 5.2 to PHP 8.0 parser written in PHP
 dev-php/pear 1.10.3-r1: PEAR - PHP Extension and Application Repository
-dev-php/pecl-amqp 2.1.2: PHP Bindings for AMQP 0-9-1 compatible brokers
+dev-php/pecl-amqp 2.1.2 2.2.0: PHP Bindings for AMQP 0-9-1 compatible brokers
 dev-php/pecl-apcu 5.1.24 5.1.27: Stripped down version of APC supporting only user cache
 dev-php/pecl-brotli 0.15.0 0.16.0 9999: Brotli compression extension for PHP
 dev-php/pecl-dio 0.2.1: Direct I/O functions for PHP
@@ -10782,7 +10782,7 @@ dev-util/byacc 20241231 20260126: The best variant of the Yacc parser generator
 dev-util/cargo-audit 0.21.1 0.21.2 0.22.0 0.22.1: Audit Cargo.lock for crates with security vulnerabilities
 dev-util/cargo-c 0.10.13-r1 0.10.14 0.10.15 0.10.16 0.10.18 0.10.19 0.10.20 0.10.21 0.10.22-r1: Helper program to build and install c-like libraries
 dev-util/cargo-license 0.6.1-r1 0.7.0: Cargo subcommand to see license of dependencies
-dev-util/cargo-nextest 0.9.126 0.9.130 0.9.132 0.9.133: Next-generation test runner for Rust
+dev-util/cargo-nextest 0.9.132 0.9.133 0.9.135: Next-generation test runner for Rust
 dev-util/cargo-pgrx 0.12.7 0.12.9 0.13.1 0.14.3 0.15.0 0.16.0 0.16.1 0.18.0: pgrx: A Rust framework for creating Postgres extensions
 dev-util/cargo-tarpaulin 0.35.0 0.35.1 0.35.2: Cargo-Tarpaulin is a tool to determine code coverage achieved via tests
 dev-util/cargo-vendor-filterer 0.5.18: Tool to 'cargo vendor' with filtering
@@ -11531,7 +11531,7 @@ games-engines/box2d 2.4.2 2.4.2-r1: C++ engine for simulating rigid bodies in 2D
 games-engines/dMagnetic 0.37: A Magnetic Scrolls Interpreter for playing a collection of old text adventures
 games-engines/devilutionx 1.5.4-r1 1.5.5: Diablo engine for modern operating systems
 games-engines/exult 1.12.0: Ultima 7 game engine that runs on modern operating systems
-games-engines/fheroes2 1.1.15: Recreation of HoMM2 game engine
+games-engines/fheroes2 1.1.16: Recreation of HoMM2 game engine
 games-engines/frotz 2.55-r1: Interpreter for Z-code based text games
 games-engines/gargoyle 2019.1.1: An Interactive Fiction (IF) player supporting all major formats
 games-engines/love 0.7.2-r100 0.8.0-r100 11.4 11.5-r1 9999: A framework for 2D games in Lua
@@ -14829,7 +14829,7 @@ net-im/rocketchat-desktop-bin 3.9.10-r1 4.1.1-r1: The Ultimate Open Source Web C
 net-im/sendxmpp 1.24: A perl-script to send xmpp (jabber), similar to what mail(1) does for mail
 net-im/sendxmpp-scala 1.2.0 1.2.1 9999: Send XMPP (Jabber) messages via command line
 net-im/signal-cli-bin 0.13.9 0.13.19 0.14.1: Send and receive messages of Signal Messenger over a command line interface
-net-im/signal-desktop-bin 8.9.1: Allows you to send and receive messages of Signal Messenger on your computer
+net-im/signal-desktop-bin 8.10.0: Allows you to send and receive messages of Signal Messenger on your computer
 net-im/slack 4.49.89 4.50.121: Team collaboration tool
 net-im/spectrum2 2.2.1-r2: An open source instant messaging transport
 net-im/swift 4.0.3-r3: An elegant, secure, adaptable and intuitive XMPP Client
@@ -15118,7 +15118,7 @@ net-mail/pop2imap 1.21: Synchronize mailboxes between a pop and an imap servers
 net-mail/popa3d 1.0.2-r2: A security oriented POP3 server
 net-mail/poppassd_ceti 1.8.9: Password change daemon with PAM support
 net-mail/postfix-logwatch 1.40.05 1.40.07: A log analyzer for postfix
-net-mail/public-inbox 1.9.0_p20240422 1.9.0_p20250930 1.9.0_p20250930-r1 9999: An archives-first approach to mailing lists
+net-mail/public-inbox 1.9.0_p20240422 1.9.0_p20250930 1.9.0_p20250930-r1 2.1.0 9999: An archives-first approach to mailing lists
 net-mail/qlogtools 3.1-r1: Qmail Log processing tools
 net-mail/qmail-autoresponder 2.0-r1: Rate-limited autoresponder for qmail
 net-mail/qmail-notify 0.93-r2: Delayed delivery notification for qmail
@@ -15647,7 +15647,7 @@ net-vpn/openvpn 2.6.17-r1 2.6.17-r2 2.6.20-r1 9999: Robust and highly flexible t
 net-vpn/ovpn-dco 0.2.20230426 0.2.20231117 0.2.20241216 0.2.20251017 9999: OpenVPN Data Channel Offload in the linux kernel
 net-vpn/pptpd 1.4.0-r5: Linux Point-to-Point Tunnelling Protocol Server
 net-vpn/riseup-vpn 0.24.5 0.24.8 0.24.10 0.25.8: Anonymous encrypted VPN client powered by Bitmask
-net-vpn/strongswan 6.0.3 6.0.4 6.0.4-r1: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
+net-vpn/strongswan 6.0.3 6.0.4 6.0.4-r1 6.0.6: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
 net-vpn/tailscale 1.82.5 1.84.3 1.86.5 1.90.6 1.92.1 1.92.4 1.96.5 1.98.0 1.98.1: Tailscale vpn client
 net-vpn/tinc 1.0.36-r1 1.1_pre18-r2: tinc is an easy to configure VPN implementation
 net-vpn/tor 0.4.9.6 0.4.9.8 9999: Anonymizing overlay network for TCP
@@ -18260,7 +18260,7 @@ www-apps/piwigo 16.3.0 16.4.0: a photo gallery software for the web
 www-apps/postfixadmin 3.3.16: Web Based Management tool for Postfix style virtual domains and users
 www-apps/prowlarr-bin 2.3.7.5365: An indexer manager/proxy to integrate with your various PVR apps
 www-apps/radarr-bin 6.2.0.10390: A fork of Sonarr to work with movies a la Couchpotato
-www-apps/radicale 3.6.1-r1 3.7.1: A simple CalDAV calendar server
+www-apps/radicale 3.6.1-r1 3.7.1 3.7.3: A simple CalDAV calendar server
 www-apps/readarr-bin 0.4.18.2805: An ebook and audiobook collection manager for Usenet and BitTorrent users
 www-apps/redmine 6.0.7: Flexible project management web application using the Ruby on Rails framework
 www-apps/roundup 2.3.0 2.4.0 2.5.0: Issue-tracking system with command-line, web, and e-mail interfaces
@@ -18357,7 +18357,7 @@ www-nginx/ngx-vod 1.33: NGINX-based MP4 Repackager
 www-nginx/ngx-vts 0.2.4: NGINX virtual host traffic status module
 www-nginx/ngx-xss 0.06: Native support for cross-site scripting (XSS) in NGINX
 www-nginx/ngx_devel_kit 0.3.4: An NGINX module that adds generic tools for third-party modules
-www-nginx/njs 0.9.4: A subset of JavaScript language to use in NGINX
+www-nginx/njs 0.9.4 0.9.9: A subset of JavaScript language to use in NGINX
 www-plugins/browserpass 3.1.2 3.1.2-r1: WebExtension host binary for app-admin/pass, a UNIX password manager
 www-plugins/chrome-binary-plugins 147.0.7727.137 148.0.7778.167 148.0.7778.178 149.0.7827.3_beta 149.0.7827.14_beta 149.0.7827.22_beta 150.0.7828.2_alpha 150.0.7838.0_alpha 150.0.7846.4_alpha: Binary plugins from Google Chrome for use in Chromium
 www-plugins/lightspark 0.9.0: High performance flash player
@@ -18375,7 +18375,7 @@ www-servers/kore 4.3.0_rc4: Web application platform for writing scalable, concu
 www-servers/lighttpd 1.4.82 9999: Lightweight high-performance web server
 www-servers/mongrel2 1.11.0-r3: A language agnostic web server focused on web applications
 www-servers/moonbridge 1.1.3-r1: Network Server for Lua Applications
-www-servers/nginx 1.26.3-r2 1.27.5-r1 1.28.2 1.28.3 1.29.5 1.29.7-r1 1.29.8 1.30.0 1.30.1 1.30.2 9999: Robust, small and high performance HTTP and reverse proxy server
+www-servers/nginx 1.26.3-r2 1.27.5-r1 1.29.5 1.29.7-r1 1.30.0 1.30.2 1.31.1 9999: Robust, small and high performance HTTP and reverse proxy server
 www-servers/pound 4.16 4.17 4.22: A http/https reverse-proxy and load-balancer
 www-servers/pshs 0.4.3: Pretty small HTTP server -- a command-line tool to share files
 www-servers/puma 6.6.0 6.6.1 7.1.0 7.2.0: a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack
@@ -18762,7 +18762,7 @@ x11-misc/snixembed 0.3.0 0.3.3: Proxy StatusNotifierItems as XEmbedded systemtra
 x11-misc/spacefm 1.0.6-r5 1.0.6-r6: Multi-panel tabbed file manager
 x11-misc/splatmoji 1.2.0: Quickly look up and input emoji and/or emoticons
 x11-misc/spnavcfg 1.3: Qt-based GUI to configure a space navigator device
-x11-misc/stalonetray 0.8.5 1.0.1 1.3.0: System tray utility including support for KDE system tray icons
+x11-misc/stalonetray 0.8.5 1.0.1 1.3.0-r1: System tray utility including support for KDE system tray icons
 x11-misc/sunflower 0.5-r3: Small and highly customizable twin-panel file manager with plugin-support
 x11-misc/sux 1.0.1: "su" wrapper which transfers X credentials
 x11-misc/svkbd 0.4.2: Simple Virtual Keyboard
