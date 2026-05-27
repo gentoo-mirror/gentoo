@@ -85,6 +85,7 @@ multilib_src_configure() {
 		-Davif=disabled
 		$(meson_native_use_feature introspection)
 		-Dpixbuf=enabled
+		-Dpixbuf-loader=enabled
 		$(meson_native_use_feature gtk-doc docs)
 		$(meson_native_use_feature vala)
 		$(meson_use test tests)
