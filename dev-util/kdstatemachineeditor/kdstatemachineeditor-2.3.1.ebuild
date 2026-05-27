@@ -1,12 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake
+inherit cmake dot-a
 
 MY_PN="KDStateMachineEditor"
-
 DESCRIPTION="Framework for creating Qt State Machine metacode using graphical user interfaces"
 HOMEPAGE="https://github.com/KDAB/KDStateMachineEditor"
 
@@ -22,7 +21,6 @@ fi
 LICENSE="LGPL-2.1"
 SLOT="0"
 IUSE="doc gui test"
-
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -30,14 +28,15 @@ RDEPEND="
 	dev-qt/qtdeclarative:6[widgets]
 	dev-qt/qtremoteobjects:6
 	dev-qt/qtscxml:6
-	media-gfx/graphviz
+	media-gfx/graphviz:=
 	gui? ( dev-qt/qt5compat:6[qml] )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	doc? (
-		app-text/doxygen[dot]
+		app-text/doxygen
 		dev-qt/qttools:6[assistant]
+		media-gfx/graphviz
 	)
 	gui? ( dev-util/patchelf )
 "
@@ -53,6 +52,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# libkdstatemachineeditor_debuginterfacesource-qt6.a used by KSME-qt6Targets-relwithdebinfo.cmake
+	lto-guarantee-fat
+
 	local mycmakeargs=(
 		-DKDSME_DOCS=$(usex doc)
 		-DKDSME_EXAMPLES=OFF
@@ -86,13 +88,13 @@ src_test() {
 src_install() {
 	cmake_src_install
 
-	rm "${ED}"/usr/$(get_libdir)/*.a || die
+	strip-lto-bytecode
 
 	if use gui; then
 		patchelf --remove-rpath "${BUILD_DIR}"/bin/${PN} || die
 		dobin "${BUILD_DIR}"/bin/${PN}
-		mkdir -p "${ED}"/usr/share/${PN} || die
-		cp -R data "${ED}"/usr/share/${PN}/ || die
+		insinto /usr/share/${PN}
+		doins -r data
 	fi
 
 	use doc && docompress -x /usr/share/doc/${PF}/${PN}{-api.qch,.tags}

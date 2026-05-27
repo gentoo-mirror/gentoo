@@ -24,7 +24,7 @@ HOMEPAGE="https://kbd-project.org/"
 
 LICENSE="GPL-2+"
 SLOT="0"
-IUSE="bzip2 lzma nls selinux pam test zlib zstd"
+IUSE="bzip2 lzma nls selinux pam test xkb zlib zstd"
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -35,6 +35,7 @@ DEPEND="
 		!app-misc/vlock
 		sys-libs/pam
 	)
+	xkb? ( x11-libs/libxkbcommon )
 	zlib? ( virtual/zlib:= )
 	zstd? ( app-arch/zstd:= )
 "
@@ -80,6 +81,7 @@ src_configure() {
 		$(use_enable nls)
 		$(use_enable pam vlock)
 		$(use_enable test tests)
+		$(use_enable xkb)
 		$(use_with bzip2)
 		$(use_with lzma)
 		$(use_with zlib)
