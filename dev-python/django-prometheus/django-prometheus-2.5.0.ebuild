@@ -23,6 +23,11 @@ RDEPEND="
 	>=dev-python/django-4.2[${PYTHON_USEDEP}]
 	>=dev-python/prometheus-client-0.7[${PYTHON_USEDEP}]
 "
+BDEPEND="
+	test? (
+		dev-python/psycopg:0[${PYTHON_USEDEP}]
+	)
+"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
