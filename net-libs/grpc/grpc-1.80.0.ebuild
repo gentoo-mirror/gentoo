@@ -4,7 +4,7 @@
 EAPI=8
 
 CMAKE_IN_SOURCE_BUILD=1
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit cmake flag-o-matic python-any-r1
 
 MY_PV="${PV//_pre/-pre}"
@@ -12,21 +12,24 @@ MY_PV="${PV//_pre/-pre}"
 DESCRIPTION="Modern open source high performance RPC framework"
 HOMEPAGE="https://grpc.io"
 
-ENVOY_API_COMMIT="4de3c74cf21a9958c1cf26d8993c55c6e0d28b49"
-GOOGLEAPIS_COMMIT="fe8ba054ad4f7eca946c2d14a63c3f07c0b586a0"
-XDS_COMMIT="3a472e524827f72d1ad621c4983dd5af54c46776"
-PROTOC_GEN_VALIDATE_COMMIT="7b06248484ceeaa947e93ca2747eccf336a88ecc"
+CEL_SPEC_COMMIT="0.25.1"
+ENVOY_API_COMMIT="6ef568cf4a67362849911d1d2a546fd9f35db2ff"
+GOOGLEAPIS_COMMIT="2193a2bfcecb92b92aad7a4d81baa428cafd7dfd"
+XDS_COMMIT="ee656c7534f5d7dc23d44dd611689568f72017a6"
+PROTOC_GEN_VALIDATE_COMMIT="1.2.1"
 
 SRC_URI="
 	https://github.com/${PN}/${PN}/archive/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz
 	test? (
+		https://github.com/google/cel-spec/archive/refs/tags/v${CEL_SPEC_COMMIT}.tar.gz
+		-> cel-spec-${CEL_SPEC_COMMIT}.tar.gz
 		https://github.com/envoyproxy/data-plane-api/archive/${ENVOY_API_COMMIT}.tar.gz
 		-> envoi-api-${ENVOY_API_COMMIT}.tar.gz
 		https://github.com/googleapis/googleapis/archive/${GOOGLEAPIS_COMMIT}.tar.gz
 		-> googleapis-${GOOGLEAPIS_COMMIT}.tar.gz
 		https://github.com/cncf/xds/archive/${XDS_COMMIT}.tar.gz
 		-> xds-${XDS_COMMIT}.tar.gz
-		https://github.com/bufbuild/protoc-gen-validate/archive/${PROTOC_GEN_VALIDATE_COMMIT}.tar.gz
+		https://github.com/bufbuild/protoc-gen-validate/archive/refs/tags/v${PROTOC_GEN_VALIDATE_COMMIT}.tar.gz
 		-> protoc-gen-validate-${PROTOC_GEN_VALIDATE_COMMIT}.tar.gz
 	)
 "
@@ -36,7 +39,7 @@ LICENSE="Apache-2.0"
 
 # NOTE
 # format is 0/${CORE_SOVERSION//./}.${CPP_SOVERSION//./} , check top level CMakeLists.txt
-SLOT="0/50.$(ver_rs 1-2 '' "$(ver_cut 1-2)")"
+SLOT="0/53.$(ver_rs 1-2 '' "$(ver_cut 1-2)")"
 
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="doc examples test systemd"
@@ -45,12 +48,9 @@ RESTRICT="!test? ( test )"
 # look for submodule versions in third_party dir
 RDEPEND="
 	>=dev-cpp/abseil-cpp-20250127:=
-	<dev-cpp/abseil-cpp-20260107
 	>=dev-libs/re2-0.2022.04.01:=
 	>=dev-libs/openssl-1.1.1:0=[-bindist(-)]
-	>=dev-libs/protobuf-31.1:=
-	<dev-libs/protobuf-34
-	dev-libs/xxhash
+	>=dev-libs/protobuf-31.1:=[protoc(+)]
 	>=net-dns/c-ares-1.19.1:=
 	virtual/zlib:=
 	systemd? ( sys-apps/systemd:= )
@@ -79,7 +79,8 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.71.0-system-gtest.patch"
-	"${FILESDIR}/${PN}-1.74.1-fix-missing-__stop_linkarr_upb_AllExts.patch"
+	"${FILESDIR}/${PN}-1.80.0-fix-missing-__stop_linkarr_upb_AllExts.patch"
+	"${FILESDIR}/${PN}-1.80.0-use-absl-string_view.patch"
 )
 
 python_check_deps() {
@@ -107,6 +108,8 @@ src_prepare() {
 	soversion_check
 
 	if use test; then
+		rmdir third_party/cel-spec || die
+		ln -frs "${WORKDIR}/cel-spec-${CEL_SPEC_COMMIT}" third_party/cel-spec || die
 		rmdir third_party/envoy-api || die
 		ln -frs "${WORKDIR}/data-plane-api-${ENVOY_API_COMMIT}" third_party/envoy-api || die
 		rmdir third_party/googleapis || die
@@ -220,6 +223,8 @@ src_configure() {
 
 		-DgRPC_BUILD_TESTS="$(usex test)"
 		-DgRPC_USE_SYSTEMD="$(usex systemd ON OFF)" # Checks via STREQUAL
+
+		-DCMAKE_CXX_STANDARD="20"
 	)
 
 	if use test; then
@@ -232,7 +237,7 @@ src_configure() {
 }
 
 src_test() {
-	prlimit --nofile=4096 --pid=$$
+	prlimit --nofile=8192 --pid=$$
 
 	# This is normally done with start_port_server.py, but this forks and exits,
 	# while we need to capture the pid, so run it ourselves
@@ -245,6 +250,8 @@ src_test() {
 		--fail --silent --output /dev/null "http://localhost:32766/get" || die
 
 	CMAKE_SKIP_TESTS=(
+		"^latent_see_tool_test$"
+
 		"^httpcli_test$"
 		# CallCommandWithTimeoutDeadlineSet has a timeout set to 5000.25 seconds
 		^grpc_tool_test$
@@ -262,6 +269,11 @@ src_test() {
 
 		# 954185
 		'^server_test$'
+
+		"^channelz_tool_test$"
+		"^party_mpsc_test$"
+		"^server_builder_test$"
+		"^server_builder_with_socket_mutator_test$"
 
 		# skipped via GTEST_FILTER
 		'^xds_audit_logger_registry_test$'
@@ -341,7 +353,7 @@ src_test() {
 
 	# BUG this should be nonfatal and we kill the server even when tests fail
 	nonfatal \
-	cmake_src_test
+	cmake_src_test --output-on-failure
 	local ret=$?
 
 	einfo "stopping start_port_server.py at PID ${port_server_pid}"

@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -26,7 +26,7 @@ REQUIRED_USE="
 # depends on abseil-cpp via protobuf targets
 RDEPEND="
 	dev-cpp/abseil-cpp:=
-	dev-libs/protobuf:=
+	dev-libs/protobuf:=[protobuf(+)]
 	sys-libs/ncurses:=
 	virtual/zlib:=
 	virtual/ssh
@@ -41,7 +41,10 @@ RDEPEND="
 	)"
 
 DEPEND="${RDEPEND}"
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	dev-libs/protobuf[protobuf(+),protoc(+)]
+	virtual/pkgconfig
+"
 
 QA_CONFIGURE_OPTIONS="--disable-static"
 
@@ -55,7 +58,11 @@ src_prepare() {
 
 	# abseil-cpp needs >=c++14
 	local CXXSTD="14"
-	if has_version ">=dev-cpp/abseil-cpp-20240722.0"; then
+	if has_version ">=dev-cpp/abseil-cpp-20260107.0"; then
+		# needs >=c++20
+		CXXSTD="20"
+		rm m4/ax_cxx_compile_stdcxx.m4 || die
+	elif has_version ">=dev-cpp/abseil-cpp-20240722.0"; then
 		# needs >=c++17
 		CXXSTD="17"
 	fi

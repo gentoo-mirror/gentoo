@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,7 +28,7 @@ IUSE="
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-cpp/kokkos-4.5.1:=[cuda(-)=,openmp=]
+	>=dev-cpp/kokkos-4.7.4:=[cuda(-)=,openmp=]
 	dev-libs/boost:=
 	sys-libs/binutils-libs:=
 	virtual/blas
@@ -65,7 +65,8 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}/${P}-fix_compilation_gcc15.patch"
+	"${FILESDIR}/${PN}-16.1.0-fix_compilation_gcc15.patch"
+	"${FILESDIR}/${PN}-17.0.0-drop_boost_system.patch"
 )
 
 pkg_pretend() {

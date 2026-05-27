@@ -3,7 +3,7 @@
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33 ruby34"
+USE_RUBY="ruby32 ruby33 ruby34 ruby40"
 
 RUBY_FAKEGEM_EXTENSIONS=(src/ruby/ext/grpc/extconf.rb)
 RUBY_FAKEGEM_EXTRAINSTALL="etc src"
@@ -17,7 +17,6 @@ HOMEPAGE="https://github.com/grpc/grpc"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-IUSE=""
 
 ruby_add_rdepend "
 	dev-ruby/googleapis-common-protos-types:1
