@@ -19,7 +19,7 @@ else
 	RESHADE_COMMIT="696b14cd6006ae9ca174e6164450619ace043283"
 	LIBLIFTOFF_COMMIT="0.5.0" # Upstream points at this release.
 	VKROOTS_COMMIT="5106d8a0df95de66cc58dc1ea37e69c99afc9540"
-	WLROOTS_COMMIT="54e844748029d4874e14d0c086d50092c04c8899"
+	WLROOTS_COMMIT="c08d99437ec8bb56a703f04ad1ef199502c62d10"
 	SRC_URI="
 		https://github.com/ValveSoftware/${PN}/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz
 		https://gitlab.freedesktop.org/emersion/libliftoff/-/releases/v${LIBLIFTOFF_COMMIT}/downloads/libliftoff-${LIBLIFTOFF_COMMIT}.tar.gz
@@ -33,7 +33,8 @@ fi
 S="${WORKDIR}/${PN}-${MY_PV}"
 LICENSE="BSD-2"
 SLOT="0"
-IUSE="avif libei pipewire +sdl +wsi-layer"
+IUSE="avif libei pipewire +sdl test +wsi-layer"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	dev-lang/luajit:2=
@@ -82,6 +83,7 @@ DEPEND="
 	dev-util/vulkan-headers
 	>=media-libs/glm-1.0.1
 	dev-util/spirv-headers
+	test? ( dev-cpp/catch:0 )
 	wsi-layer? ( >=media-libs/vkroots-0_p20240430 )
 "
 BDEPEND="
@@ -134,6 +136,7 @@ src_configure() {
 		$(meson_feature libei input_emulation)
 		$(meson_use wsi-layer enable_gamescope_wsi_layer)
 		-Denable_openvr_support=false
+		$(meson_use test enable_tests)
 		-Dbenchmark=disabled
 
 		-Dwlroots:xcb-errors=disabled
