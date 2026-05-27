@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,8 +14,10 @@ SRC_URI="
 "
 
 LICENSE="GPL-2+ test? ( GPL-2 )"
+# As of 2.1.0, the subslot is wrong, but fixing it would be expensive.
+# It should be '15'.
 SLOT="0/7"
-KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv x86 ~arm64-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 IUSE="test"
 RESTRICT="!test? ( test )"
 

@@ -21,11 +21,11 @@ LICENSE="|| ( Apache-2.0 MIT )"
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD Boost-1.0
-	CDLA-Permissive-2.0 ISC MIT MPL-2.0 Unicode-3.0 Unicode-DFS-2016
-	WTFPL-2 ZLIB
+	CDLA-Permissive-2.0 ISC MIT MIT-0 MPL-2.0 Unicode-3.0
+	Unicode-DFS-2016 WTFPL-2 ZLIB
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 BDEPEND="virtual/pkgconfig"
 DEPEND=">=app-arch/zstd-1.5.7:="

@@ -20,7 +20,7 @@ NGINX_MODULES=(
 	stream_{ssl,realip,geoip,ssl_preread}
 )
 NGINX_UPDATE_STREAM=mainline
-NGINX_TESTS_COMMIT=0f72f59c40de9977bd8f3deff5d200e761b8b683
+NGINX_TESTS_COMMIT=4d1de3f357afeb91865d024b27516d6b67aad86e
 NGINX_MISC_FILES=(
 	nginx-{r2.logrotate,r2.service,r5.conf,r6.initd,r1.confd,r1.tmpfiles}
 )

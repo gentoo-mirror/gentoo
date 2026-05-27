@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -27,12 +27,15 @@ LICENSE="GPL-2 LGPL-2.1"
 # Please check ABI on each bump, even if SONAMEs didn't change: bug #833355
 # Subslot: SONAME of each: <libgpgme.FUDGE>
 SLOT="1/45.0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 IUSE="common-lisp static-libs test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=app-crypt/gnupg-2
+	|| (
+		app-alternatives/gpg[reference]
+		app-alternatives/gpg[freepg(-)]
+	)
 	>=dev-libs/libassuan-2.5.3:=
 	>=dev-libs/libgpg-error-1.46-r1:=
 "
@@ -43,7 +46,7 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.18.0-tests-start-stop-agent-use-command-v.patch
+	"${FILESDIR}"/${PN}-2.1.0-tests-start-stop-agent-use-command-v.patch
 )
 
 src_prepare() {
@@ -75,9 +78,12 @@ my_src_configure() {
 	)
 
 	local myeconfargs=(
-		$(use test || echo "--disable-gpgconf-test --disable-gpg-test --disable-gpgsm-test --disable-g13-test")
 		--enable-languages="${languages[*]}"
 		$(use_enable static-libs static)
+		$(use_enable test gpgconf-test)
+		$(use_enable test gpg-test)
+		$(use_enable test gpgsm-test)
+		$(use_enable test g13-test)
 		GPGRT_CONFIG="${ESYSROOT}/usr/bin/${CHOST}-gpgrt-config"
 	)
 
