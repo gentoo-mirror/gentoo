@@ -72,7 +72,7 @@ if [[ ${PV} == 9999 ]]; then
 	BDEPEND+="man? ( ~app-text/scdoc-9999 )"
 else
 	BDEPEND+="man? ( >=app-text/scdoc-1.11.3 )
-		verify-sig? ( sec-keys/openpgp-keys-emersion )"
+		verify-sig? ( >=sec-keys/openpgp-keys-emersion-20260503 )"
 	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/emersion.asc"
 fi
 
