@@ -106,7 +106,7 @@ RDEPEND="
 		${COMMON_ENCODERS}
 		media-libs/libshout
 	)
-	sid? ( media-libs/libsidplayfp:= )
+	sid? ( <media-libs/libsidplayfp-3.0.0 )
 	sndfile? ( media-libs/libsndfile )
 	sndio? ( media-sound/sndio:= )
 	sqlite? ( dev-db/sqlite:3 )

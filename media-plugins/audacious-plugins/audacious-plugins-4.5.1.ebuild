@@ -143,6 +143,11 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	# backport from 4.6beta1
+	"${FILESDIR}"/${P}-libsidplayfp-3.patch
+)
+
 src_prepare() {
 	default
 	# avoid automagic for glspectrum

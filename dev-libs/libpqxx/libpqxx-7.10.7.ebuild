@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{11..14} )
-inherit python-any-r1
+inherit autotools python-any-r1
 
 DESCRIPTION="Standard front-end for writing C++ programs that use PostgreSQL"
 HOMEPAGE="https://pqxx.org/development/libpqxx/"
@@ -26,6 +26,11 @@ BDEPEND="${PYTHON_DEPS}
 "
 
 DOCS=( AUTHORS NEWS README.md )
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_configure() {
 	econf \

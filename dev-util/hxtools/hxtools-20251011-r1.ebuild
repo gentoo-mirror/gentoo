@@ -30,8 +30,11 @@ BDEPEND="
 src_prepare() {
 	default
 
-	# Don't collide with dev-util/cwdiff
+	# Don't collide with dev-util/cwdiff, sys-fs/xcp
 	sed -i -e 's/cwdiff/cwdiff.hx/' doc/cwdiff.1 || die
+	sed -i -e 's/xcp/xcp.hx/' doc/xcp.1 || die
+	sed -i -e 's/cwdiff/cwdiff.hx/' \
+		-e 's/xcp/xcp.hx/' doc/hxtools.7 || die
 }
 
 src_configure() {
@@ -49,6 +52,11 @@ src_install() {
 	# Don't collide with dev-util/cwdiff
 	mv "${ED}"/usr/bin/cwdiff "${ED}"/usr/bin/cwdiff.hx || die
 	mv "${ED}"/usr/share/man/man1/cwdiff.1 "${ED}"/usr/share/man/man1/cwdiff.hx.1 || die
+	# Don't collide with sys-fs/xcp
+	mv "${ED}"/usr/bin/xcp "${ED}"/usr/bin/xcp.hx || die
+	mv "${ED}"/usr/share/man/man1/xcp.1 "${ED}"/usr/share/man/man1/xcp.hx.1 || die
+	# Don't collide with app-text/xmlformat
+	mv "${ED}"/usr/bin/xmlformat "${ED}"/usr/bin/xmlformat.hx || die
 
 	gzip -r "${ED}"/usr/share/consolefonts || die
 	gzip -r "${ED}"/usr/share/keymaps || die
@@ -57,5 +65,8 @@ src_install() {
 pkg_postinst() {
 	if ver_replacing -lt 20251011; then
 		elog "vfontas has moved to package app-misc/consoleet-utils"
+	fi
+	if ver_replacing -lt 20251011-r1; then
+		elog "xcp and xmlformat have been renamed to xcp.hx and xmlformat.hx to avoid package collisions"
 	fi
 }

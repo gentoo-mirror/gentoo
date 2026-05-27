@@ -92,6 +92,9 @@ BDEPEND="
 PATCHES=(
 	# Avoid using xcb if qmmp is built without X but qtbase has xcb feature.
 	"${FILESDIR}"/${PN}-2.2.8-fix_xcb.patch
+
+	# backport from master
+	"${FILESDIR}"/${PN}-2.3.2-libsidplayfp-3.patch
 )
 
 DOCS=( AUTHORS ChangeLog README )
