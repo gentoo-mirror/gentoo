@@ -12,7 +12,7 @@ SRC_URI="https://gitlab.freedesktop.org/${PN}/${PN}/-/archive/${PV}/${PN}-v${PV}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~mips ppc ppc64 ~sparc x86"
 IUSE="test"
 
 # This ebuild does not install any binaries
