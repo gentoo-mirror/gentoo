@@ -528,13 +528,13 @@ pkg_postinst() {
 		ewarn "\nYou are installing a version of ${PN} known not to work"
 		ewarn "with a GPU of the current system. If unwanted, add the mask:"
 		if [[ -d ${EROOT}/etc/portage/package.mask ]]; then
-			ewarn "  echo '${NV_LEGACY_MASK}' > ${EROOT}/etc/portage/package.mask/${PN}"
+			ewarn "\n  echo '${NV_LEGACY_MASK}' > ${EROOT}/etc/portage/package.mask/${PN}"
 		else
-			ewarn "  echo '${NV_LEGACY_MASK}' >> ${EROOT}/etc/portage/package.mask"
+			ewarn "\n  echo '${NV_LEGACY_MASK}' >> ${EROOT}/etc/portage/package.mask"
 		fi
-		ewarn "...then downgrade to a legacy[1] branch if possible (not all old versions"
+		ewarn "\n...then downgrade to a legacy[1] branch if possible (not all old versions"
 		ewarn "are available or fully functional, may need to consider nouveau[2])."
-		ewarn "[1] https://www.nvidia.com/object/IO_32667.html"
+		ewarn "\n[1] https://www.nvidia.com/object/IO_32667.html"
 		ewarn "[2] https://wiki.gentoo.org/wiki/Nouveau"
 	fi
 
