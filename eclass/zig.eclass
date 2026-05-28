@@ -6,7 +6,7 @@
 # Eric Joldasov <bratishkaerik@landless-city.net>
 # @AUTHOR:
 # Alfred Wingate <parona@protonmail.com>
-# Violet Purcell <vimproved@inventati.org>
+# Violet Purcell <vi@vimproved.dev>
 # Eric Joldasov <bratishkaerik@landless-city.net>
 # @SUPPORTED_EAPIS: 8
 # @PROVIDES: zig-utils
