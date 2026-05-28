@@ -9,7 +9,7 @@ DISTUTILS_USE_PEP517=maturin
 PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_EXT=1
 DISTUTILS_SINGLE_IMPL=1
-RUST_MIN_VER="1.82.0"
+RUST_MIN_VER="1.87.0"
 
 CRATES="
 "
@@ -102,6 +102,7 @@ src_test() {
 		tests/bindings/test_encoding.py::TestEncoding::test_word_to_chars
 		tests/bindings/test_encoding.py::TestEncoding::test_word_to_tokens
 		tests/bindings/test_models.py::TestWordLevel::test_instantiate
+		tests/bindings/test_models.py::TestWordPiece::test_instantiate
 		tests/bindings/test_processors.py::TestByteLevelProcessing::test_processing
 		tests/bindings/test_tokenizer.py::TestAsyncTokenizer::test_async_methods_existence
 		tests/bindings/test_tokenizer.py::TestAsyncTokenizer::test_basic_encoding
