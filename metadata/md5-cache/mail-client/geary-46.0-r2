@@ -7,11 +7,11 @@ HOMEPAGE=https://gitlab.gnome.org/GNOME/geary
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org gnome2-utils meson vala virtualx xdg
 IUSE=test ytnef test
-KEYWORDS=~amd64 ~arm64 ~x86
+KEYWORDS=~amd64 ~arm64 x86
 LICENSE=LGPL-2.1+ CC-BY-3.0 CC-BY-SA-3.0
 RDEPEND=>=dev-libs/glib-2.68:2 >=x11-libs/gtk+-3.24.24:3 >=net-libs/webkit-gtk-2.38:4.1= >=dev-libs/gmime-3.2.4:3.0 >=dev-db/sqlite-3.24:3 x11-libs/cairo[glib] >=app-text/enchant-2.1:2 >=dev-libs/folks-0.11:0= >=app-crypt/gcr-3.10.1:0=[vala] >=dev-libs/libgee-0.8.5:0.8= net-libs/gnome-online-accounts[vala] media-libs/gsound >=app-text/gspell-1.7:= >=dev-libs/icu-60:= app-text/iso-codes >=dev-libs/json-glib-1.0 >=gui-libs/libhandy-1.2.1:1=[vala] >=dev-libs/libpeas-1.24.0:0= >=app-crypt/libsecret-0.11 net-libs/libsoup:3.0 dev-libs/snowball-stemmer:= >=dev-libs/libxml2-2.7.8:2= ytnef? ( >=net-mail/ytnef-1.9.3 ) gnome-base/gsettings-desktop-schemas
 RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=mirror://gnome/sources/geary/46/geary-46.0.tar.xz
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	vala	b2f2aa400d77b841d952dda847e24d53	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=b44f45bac3a8702001088c551aadfa28
+_md5_=453db6fccba7b9933ecee534fcfb036d
