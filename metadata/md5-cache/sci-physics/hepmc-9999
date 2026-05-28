@@ -1,16 +1,16 @@
 BDEPEND=root? ( sci-physics/root:= ) doc? ( app-text/doxygen[dot] dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-latexrecommended ) test? ( virtual/zlib:= app-arch/xz-utils app-arch/bzip2 app-arch/zstd ) examples? ( virtual/zlib:= app-arch/xz-utils app-arch/bzip2 app-arch/zstd ) virtual/fortran app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare setup test unpack
-DEPEND=python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/numpy[python_targets_python3_13(-)] ) ) virtual/fortran
+DEPEND=python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/numpy[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/numpy[python_targets_python3_14(-)] ) ) virtual/fortran
 DESCRIPTION=Event Record for Monte Carlo Generators
 EAPI=8
 HOMEPAGE=https://hepmc.web.cern.ch/hepmc/
 INHERIT=fortran-2 cmake flag-o-matic python-single-r1 git-r3
-IUSE=doc test examples python root static-libs python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13
+IUSE=doc test examples python root static-libs python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
 LICENSE=GPL-3+
 PROPERTIES=live
-RDEPEND=python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/numpy[python_targets_python3_13(-)] ) ) virtual/fortran
-REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 ) )
+RDEPEND=python? ( python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_11? ( dev-python/numpy[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/numpy[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/numpy[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/numpy[python_targets_python3_14(-)] ) ) virtual/fortran
+REQUIRED_USE=python? ( ^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 ) )
 RESTRICT=!test? ( test )
 SLOT=3
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	fortran-2	ae6d43513003405bd4a48698fc20370a	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	git-r3	2f8cdb10b033f92c3136aa6488a31c98
-_md5_=bac7d8cc46e2fcbb1ff0de7158c5abea
+_md5_=d5d86574328e3fac3aadce5ae1b54840
