@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=https://crystal-lang.org/ https://github.com/crystal-lang/crystal/
 INHERIT=llvm-r2 multiprocessing shell-completion toolchain-funcs
 IUSE=doc debug llvm-libunwind +llvm_slot_21 llvm_slot_19 llvm_slot_20
-KEYWORDS=~amd64
+KEYWORDS=amd64
 LICENSE=Apache-2.0
 RDEPEND=dev-libs/boehm-gc:=[threads] dev-libs/gmp:= dev-libs/libatomic_ops:= dev-libs/libevent:= dev-libs/libpcre2:=[unicode] dev-libs/libxml2:= dev-libs/libyaml dev-libs/pcl:= llvm_slot_19? ( llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/llvm:21= ) llvm-libunwind? ( llvm-runtimes/libunwind:= ) !llvm-libunwind? ( sys-libs/libunwind:= )
 REQUIRED_USE=^^ ( llvm_slot_19 llvm_slot_20 llvm_slot_21 )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/crystal-lang/crystal/archive/1.20.1.tar.gz -> crystal-1.20.1.gh.tar.gz amd64? ( https://github.com/crystal-lang/crystal/releases/download/1.20.1/crystal-1.20.1-1-linux-x86_64.tar.gz )
 _eclasses_=llvm-utils	e7edb4086e31c8537574b263d899f826	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	d0f9b3164877aa250943c25b016e475e	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	bash-completion-r1	9e91505e030725688d1e953321a47501	shell-completion	0b655d0d825e157a5e99c463bddaac16
-_md5_=cfc0259d7d8e197d87f8566d26cea5f2
+_md5_=d7934ee4cb0bac588ae53fc4c7b5478f
