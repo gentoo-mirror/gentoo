@@ -7,10 +7,10 @@ HOMEPAGE=https://bird.nic.cz
 IDEPEND=filecaps? ( sys-libs/libcap )
 INHERIT=fcaps
 IUSE=+client custom-cflags debug libssh selinux +filecaps
-KEYWORDS=~amd64 ~arm64 ~loong ~x86 ~x64-macos
+KEYWORDS=amd64 ~arm64 ~loong ~x86 ~x64-macos
 LICENSE=GPL-2
 RDEPEND=client? ( sys-libs/ncurses:= sys-libs/readline:= ) filecaps? ( acct-group/bird acct-user/bird ) libssh? ( net-libs/libssh:= ) selinux? ( sec-policy/selinux-bird )
 SLOT=0
 SRC_URI=https://bird.nic.cz/download/bird-2.18.1.tar.gz
 _eclasses_=fcaps	c94316d02a37fb5cbe79b7d41c729119
-_md5_=2d939d580913e8ebc6761c60602034a8
+_md5_=7f6d2972637d32c2ee546ee844841a16
