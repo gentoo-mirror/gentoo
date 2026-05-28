@@ -32,6 +32,10 @@ RDEPEND="
 	~sys-libs/libnvidia-container-${PV}
 "
 
+PATCHES=(
+	"${FILESDIR}/${PN}-1.19.0-no-prestrip.patch"
+)
+
 src_compile() {
 	emake binaries
 }
