@@ -22,12 +22,13 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~sparc ~x86"
 
 BDEPEND="
 	test? (
 		dev-db/redis
 		dev-python/numpy[${PYTHON_USEDEP}]
+		dev-python/xxhash[${PYTHON_USEDEP}]
 	)
 "
 
@@ -66,6 +67,12 @@ python_test() {
 		# or examples of what this is
 		tests/test_scenario/test_hitless_upgrade.py::TestPushNotifications
 		tests/test_scenario/test_maint_notifications.py::TestPushNotifications
+		# requires opentelemetry (with some unpackaged stuff)
+		tests/test_observability/test_provider.py::TestOTelProviderManagerGetMeterProvider
+		tests/test_asyncio/test_observability/test_recorder.py::TestObservableGaugeIntegration
+		# not marked properly
+		tests/test_cache.py::TestSSLCache
+		tests/test_cache.py::TestSentinelCache
 	)
 	local EPYTEST_IGNORE=(
 		# fails over missing certs, we don't do cluster anyway
@@ -78,6 +85,10 @@ python_test() {
 		tests/test_asyncio/test_scenario
 		tests/test_multidb
 		tests/test_scenario
+		# cluster, not marked properly
+		tests/maint_notifications/test_cluster_maint_notifications_handling.py
+		# opentelemetry
+		tests/test_observability/test_recorder.py
 	)
 
 	# TODO: try to run more servers?
