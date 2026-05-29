@@ -334,7 +334,7 @@ _qt6-build_sanitize_cpu_flags() {
 	# determine and the highest(known) usable x86-64 feature level
 	# so users will not lose *all* CPU-specific optimizations
 	local march=$(
-		$(tc-getCXX) -E -P ${CXXFLAGS} ${CPPFLAGS} - <<-EOF | sed -n '/^-march=/p' | tail -n 1
+		$(tc-getCXX) -x c++ -E -P ${CXXFLAGS} ${CPPFLAGS} - <<-EOF | sed -n '/^-march=/p' | tail -n 1
 			#if !defined(__EVEX512__) && !defined(__clang__) && __GNUC__ >= 16
 			#  define __EVEX512__ 1 /* removed in gcc-16 (bug #956750,#969664) */
 			#endif
