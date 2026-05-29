@@ -44,7 +44,9 @@ CMAKE_SKIP_TESTS=(
 	tst_qbluetoothserver
 	tst_qbluetoothservicediscoveryagent
 	tst_qbluetoothserviceinfo
+	tst_qlowenergycharacteristic #976294
 	tst_qlowenergycontroller
+	tst_qlowenergydescriptor #976294
 )
 
 src_prepare() {
