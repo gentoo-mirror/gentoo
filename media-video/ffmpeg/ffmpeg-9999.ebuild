@@ -541,6 +541,14 @@ multilib_src_configure() {
 	# skipping tests is handled at configure-time
 	local skip_tests=()
 
+	# needs looking into, used to pass with 8.1 but unclear how it was
+	# tested (possibly BE-related, but skip only on ppc for now)
+	use ppc &&
+		skip_tests+=(
+			filter-drawvg-video
+			vsynth{1,2,3}-ffvhuff420p12
+		)
+
 	# zlib-ng is not bitexact w/ zlib producing mismatching md5sum (bug #965737)
 	has_version 'sys-libs/zlib-ng[compat]' &&
 		skip_tests+=(
@@ -548,13 +556,6 @@ multilib_src_configure() {
 			mov-mp4-frag-flush
 			vsynth{1,2,3}-{flashsv,mpng,zlib}
 		)
-
-	# needs looking into, used to pass with 8.1 but unclear how it was
-	# tested (possibly BE-related, but skip only on ppc for now)
-	use ppc && skip_tests+=(
-		filter-drawvg-video
-		vsynth{1,2,3}-ffvhuff420p12
-	)
 
 	(( ${#skip_tests[@]} )) &&
 		conf+=( --ignore-tests=$(IFS=,; echo "${skip_tests[*]}") )
