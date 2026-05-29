@@ -1,0 +1,15 @@
+BDEPEND=dev-go/go-md2man >=dev-lang/go-1.25.0 >=dev-lang/go-1.24.11:= app-arch/unzip
+DEFINED_PHASES=compile install postinst prepare unpack
+DESCRIPTION=the command line binary for docker
+EAPI=8
+HOMEPAGE=https://www.docker.com/
+INHERIT=shell-completion go-env go-module toolchain-funcs
+IUSE=selinux
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=selinux? ( sec-policy/selinux-docker )
+RESTRICT=installsources strip test
+SLOT=0
+SRC_URI=https://github.com/docker/cli/archive/v29.5.2.tar.gz -> docker-cli-29.5.2.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	bash-completion-r1	9e91505e030725688d1e953321a47501	shell-completion	0b655d0d825e157a5e99c463bddaac16	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	22cfabf3120ed3f7bcd8b4a7697fbfba
+_md5_=fb5701590b451e04d855d9dcdecc501e
