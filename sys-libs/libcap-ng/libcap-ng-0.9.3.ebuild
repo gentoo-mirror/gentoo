@@ -6,7 +6,7 @@ EAPI=8
 # Keep an eye on Fedora's packaging (https://src.fedoraproject.org/rpms/libcap-ng/tree/rawhide) for patches
 # Same maintainer in Fedora as upstream
 PYTHON_COMPAT=( python3_{11..14} )
-inherit autotools dot-a flag-o-matic out-of-source-utils python-r1
+inherit autotools dot-a flag-o-matic linux-info out-of-source-utils python-r1
 
 DESCRIPTION="POSIX 1003.1e capabilities"
 HOMEPAGE="https://people.redhat.com/sgrubb/libcap-ng/"
@@ -51,6 +51,25 @@ pkg_pretend() {
 			err+="  without which BPF cannot work. Please build with USE=-bpf or reconfigure your kernel."
 			die "${err}"
 		fi
+
+		# check required kernel flags as documented at:
+		# https://github.com/stevegrubb/libcap-ng/blob/master/README.md
+		local CONFIG_CHECK="
+			~BPF
+			~BPF_SYSCALL
+			~BPF_EVENTS
+			~DEBUG_INFO_BTF
+			~FTRACE_SYSCALLS
+			~KPROBES
+			~KRETPROBES
+			~KPROBE_EVENTS
+			~PERF_EVENTS
+			~STACKTRACE
+			~TRACEPOINTS
+			~TRACING
+		"
+
+		linux-info_pkg_setup
 	fi
 }
 

@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,6 +8,10 @@ EAPI=8
 # TODO: Add hoard as a dependency in order to support the --enable-hoard configure
 #       argument
 
+LUA_COMPAT=( lua5-{3..4} )
+
+inherit elisp-common lua-single
+
 DESCRIPTION="A http/https reverse-proxy and load-balancer"
 HOMEPAGE="https://github.com/graygnuorg/pound"
 SRC_URI="https://github.com/graygnuorg/pound/releases/download/v${PV}/${P}.tar.gz"
@@ -15,13 +19,18 @@ SRC_URI="https://github.com/graygnuorg/pound/releases/download/v${PV}/${P}.tar.g
 LICENSE="GPL-3+"
 SLOT="0"
 KEYWORDS="~amd64 ~hppa ~ppc ~x86"
-IUSE="tcmalloc test"
+IUSE="emacs lua tcmalloc test"
 
 RESTRICT="!test? ( test )"
 
+REQUIRED_USE="
+	lua? ( ${LUA_REQUIRED_USE} )
+"
 DEPEND="
+	emacs? ( >=app-editors/emacs-26.3:* )
 	dev-libs/libpcre2:=
 	dev-libs/openssl:=
+	lua? ( ${LUA_DEPS} )
 	tcmalloc? ( dev-util/google-perftools )
 "
 RDEPEND="
@@ -37,19 +46,27 @@ BDEPEND="
 		dev-perl/Net-SSLeay
 	)
 "
+SITEFILE="50${PN}-gentoo.el"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-test-threads.patch
-)
+pkg_setup() {
+	use lua && lua-single_pkg_setup
+}
 
 src_configure() {
 	local myconf=(
 		--disable-dynamic-backends
 		--disable-hoard
 		--enable-pcre
+		$(use_enable lua)
 		$(use_enable tcmalloc)
 	)
 	econf "${myconf[@]}"
+}
+
+src_compile() {
+	if use emacs; then
+		elisp-compile src/pound-mode.el || die "elisp-compile failed"
+	fi
 }
 
 src_install() {
@@ -57,4 +74,17 @@ src_install() {
 	newinitd "${FILESDIR}/pound.init" pound
 	insinto /etc
 	newins "${FILESDIR}/pound-2.2.cfg" pound.cfg
+
+	if use emacs; then
+		elisp-install ${PN} src/pound-mode.el src/pound-mode.elc || die "elisp-install failed"
+		elisp-site-file-install "${FILESDIR}/${SITEFILE}" || die "elisp-site-file-install failed"
+	fi
+}
+
+pkg_postinst() {
+	use emacs && elisp-site-regen
+}
+
+pkg_postrm() {
+	use emacs && elisp-site-regen
 }

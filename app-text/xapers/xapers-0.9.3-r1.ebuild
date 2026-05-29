@@ -22,7 +22,7 @@ PATCHES=(
 )
 
 RDEPEND="app-text/poppler[utils]
-	dev-libs/xapian-bindings[python,${PYTHON_USEDEP}]
+	<dev-libs/xapian-bindings-2.0.0[python,${PYTHON_USEDEP}]
 	dev-python/pybtex[${PYTHON_USEDEP}]
 	dev-python/pycurl[${PYTHON_USEDEP}]
 	dev-python/urwid[${PYTHON_USEDEP}]
