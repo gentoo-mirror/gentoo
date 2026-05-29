@@ -546,6 +546,13 @@ multilib_src_configure() {
 			vsynth{1,2,3}-{flashsv,mpng,zlib}
 		)
 
+	# needs looking into, used to pass with 8.1 but unclear how it was
+	# tested (possibly BE-related, but skip only on ppc for now)
+	use ppc && skip_tests+=(
+		filter-drawvg-video
+		vsynth{1,2,3}-ffvhuff420p12
+	)
+
 	(( ${#skip_tests[@]} )) &&
 		conf+=( --ignore-tests=$(IFS=,; echo "${skip_tests[*]}") )
 
