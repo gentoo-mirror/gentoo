@@ -1,0 +1,12 @@
+BDEPEND=>=dev-lang/go-1.25.5
+DEFINED_PHASES=compile install postinst test
+DESCRIPTION=Multi-container orchestration for Docker
+EAPI=9
+HOMEPAGE=https://github.com/docker/compose
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0
+RDEPEND=|| ( >=app-containers/docker-cli-29.5.2 app-containers/podman[wrapper(+)] ) app-containers/docker-credential-helpers
+RESTRICT=test
+SLOT=2
+SRC_URI=https://github.com/docker/compose/archive/v5.1.4.tar.gz -> docker-compose-5.1.4.gh.tar.gz https://github.com/gentoo-golang-dist/compose/releases/download/v5.1.4/compose-5.1.4-vendor.tar.xz
+_md5_=6e5b6fd938fe3d08b45bf4a7d63109ee
