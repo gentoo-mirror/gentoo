@@ -593,7 +593,7 @@ multilib_src_configure() {
 
 multilib_src_compile() {
 	mkdir -p fftools/resources/ || die #965687
-	mkdir -p libavfilter/vulkan/ || die #974907
+	mkdir -p libav{codec,filter}/vulkan/ || die #974907
 
 	emake V=1
 
