@@ -538,9 +538,12 @@ multilib_src_configure() {
 	# skipping tests is handled at configure-time
 	local skip_tests=()
 
-	# needs looking into, used to pass with 8.1 but unclear how it was
-	# tested (possibly BE-related, but skip only on ppc for now)
-	use ppc &&
+	# tests known failing on BE arches, skip for now given potential
+	# fixes are complex and would rather wait for fixed release
+	# (shouldn't impact most BE users, scarcely used features)
+	# https://code.ffmpeg.org/FFmpeg/FFmpeg/issues/22564
+	# https://code.ffmpeg.org/FFmpeg/FFmpeg/pulls/22274
+	[[ $(tc-endian) == big ]] &&
 		skip_tests+=(
 			filter-drawvg-video
 			vsynth{1,2,3}-ffvhuff420p12
