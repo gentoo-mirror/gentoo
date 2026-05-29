@@ -1,7 +1,7 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit go-module
 
@@ -23,6 +23,7 @@ LICENSE+=" Apache-2.0 BSD BSD-2 ISC MIT MPL-2.0"
 SLOT="0"
 
 RDEPEND="app-containers/docker-cli"
+BDEPEND=">=dev-lang/go-1.25.5"
 
 src_compile() {
 	local _buildx_r='github.com/docker/buildx'
