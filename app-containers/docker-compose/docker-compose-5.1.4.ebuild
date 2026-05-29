@@ -1,31 +1,27 @@
 # Copyright 2018-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
-inherit eapi9-ver go-module
-MY_PV=${PV/_/-}
+EAPI=9
 
 DESCRIPTION="Multi-container orchestration for Docker"
 HOMEPAGE="https://github.com/docker/compose"
-SRC_URI="https://github.com/docker/compose/archive/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
-
-S="${WORKDIR}/compose-${MY_PV}"
+SRC_URI="https://github.com/docker/compose/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+SRC_URI+=" https://github.com/gentoo-golang-dist/compose/releases/download/v${PV}/compose-${PV}-vendor.tar.xz"
+S="${WORKDIR}/compose-${PV}"
 
 LICENSE="Apache-2.0"
 SLOT="2"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
+RESTRICT="test"
 
 RDEPEND="
-|| (
-	>=app-containers/docker-cli-23.0.0
-	app-containers/podman[wrapper(+)]
-)
-app-containers/docker-credential-helpers
+	|| (
+		>=app-containers/docker-cli-29.5.2
+		app-containers/podman[wrapper(+)]
+	)
+	app-containers/docker-credential-helpers
 "
-BDEPEND=">=dev-lang/go-1.24.7"
-
-RESTRICT="test"
+BDEPEND=">=dev-lang/go-1.25.5"
 
 src_compile() {
 	emake VERSION=v${PV}
