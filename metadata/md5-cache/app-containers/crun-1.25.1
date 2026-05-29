@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://github.com/containers/crun
 INHERIT=autotools libtool python-any-r1
 IUSE=+bpf +caps criu +seccomp selinux systemd static-libs
-KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv
+KEYWORDS=amd64 ~arm arm64 ~loong ppc64 ~riscv
 LICENSE=GPL-2+ LGPL-2.1+
 RDEPEND=dev-libs/yajl:= sys-kernel/linux-headers caps? ( sys-libs/libcap ) criu? ( >=sys-process/criu-3.15 ) seccomp? ( sys-libs/libseccomp ) systemd? ( sys-apps/systemd:= ) selinux? ( sec-policy/selinux-container )
 SLOT=0
 SRC_URI=https://github.com/containers/crun/releases/download/1.25.1/crun-1.25.1.tar.gz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=65c9437b5f668617829a9be610190d8b
+_md5_=941592cf5c86c9d7c415ad37481dbf87
