@@ -1,6 +1,6 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-cpp/eigen:3
+DEPEND=dev-cpp/eigen:=
 DESCRIPTION=C++ header-only library for Nearest Neighbor (NN) search wih KD-trees
 EAPI=8
 HOMEPAGE=https://github.com/jlblancoc/nanoflann
@@ -8,9 +8,9 @@ INHERIT=cmake
 IUSE=examples test
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=dev-cpp/eigen:3
+RDEPEND=dev-cpp/eigen:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/jlblancoc/nanoflann/archive/v1.7.1.tar.gz -> nanoflann-1.7.1.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
-_md5_=def40b75dde324ea4aa75c3e4e21a886
+_md5_=f08befbf91c071b1dca19c647dbdce47

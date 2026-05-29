@@ -1,6 +1,6 @@
 BDEPEND=|| ( dev-lang/python:3.14[threads(+)] dev-lang/python:3.13[threads(+)] dev-lang/python:3.12[threads(+)] dev-lang/python:3.11[threads(+)] ) virtual/pkgconfig standalone? ( dev-lang/sassc dev-util/gperf nls? ( dev-util/intltool sys-devel/gettext ) )
 DEFINED_PHASES=compile configure install postinst postrm preinst setup
-DEPEND=dev-cpp/eigen:3 dev-libs/libsigc++:2 media-libs/libsndfile media-libs/zita-convolver:= media-libs/zita-resampler:= sci-libs/fftw:3.0= lv2? ( media-libs/lv2 x11-libs/cairo[X] x11-libs/libX11 ) standalone? ( dev-libs/boost:= dev-cpp/atkmm:0 dev-cpp/cairomm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/pangomm:1.4 dev-libs/glib:2 media-libs/liblrdf media-libs/lilv net-misc/curl virtual/jack x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango bluetooth? ( net-wireless/bluez:= ) nsm? ( media-libs/liblo ) zeroconf? ( net-dns/avahi ) )
+DEPEND=dev-cpp/eigen:= dev-libs/libsigc++:2 media-libs/libsndfile media-libs/zita-convolver:= media-libs/zita-resampler:= sci-libs/fftw:3.0= lv2? ( media-libs/lv2 x11-libs/cairo[X] x11-libs/libX11 ) standalone? ( dev-libs/boost:= dev-cpp/atkmm:0 dev-cpp/cairomm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/pangomm:1.4 dev-libs/glib:2 media-libs/liblrdf media-libs/lilv net-misc/curl virtual/jack x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango bluetooth? ( net-wireless/bluez:= ) nsm? ( media-libs/liblo ) zeroconf? ( net-dns/avahi ) )
 DESCRIPTION=Virtual guitar amplifier for Linux
 EAPI=8
 HOMEPAGE=https://guitarix.org/
@@ -9,9 +9,9 @@ INHERIT=multiprocessing python-any-r1 waf-utils xdg
 IUSE=bluetooth debug lv2 nls nsm +standalone zeroconf
 KEYWORDS=amd64
 LICENSE=GPL-2
-RDEPEND=dev-cpp/eigen:3 dev-libs/libsigc++:2 media-libs/libsndfile media-libs/zita-convolver:= media-libs/zita-resampler:= sci-libs/fftw:3.0= lv2? ( media-libs/lv2 x11-libs/cairo[X] x11-libs/libX11 ) standalone? ( dev-libs/boost:= dev-cpp/atkmm:0 dev-cpp/cairomm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/pangomm:1.4 dev-libs/glib:2 media-libs/liblrdf media-libs/lilv net-misc/curl virtual/jack x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango bluetooth? ( net-wireless/bluez:= ) nsm? ( media-libs/liblo ) zeroconf? ( net-dns/avahi ) ) standalone? ( media-fonts/roboto )
+RDEPEND=dev-cpp/eigen:= dev-libs/libsigc++:2 media-libs/libsndfile media-libs/zita-convolver:= media-libs/zita-resampler:= sci-libs/fftw:3.0= lv2? ( media-libs/lv2 x11-libs/cairo[X] x11-libs/libX11 ) standalone? ( dev-libs/boost:= dev-cpp/atkmm:0 dev-cpp/cairomm:0 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/pangomm:1.4 dev-libs/glib:2 media-libs/liblrdf media-libs/lilv net-misc/curl virtual/jack x11-libs/cairo x11-libs/gdk-pixbuf:2 x11-libs/gtk+:3 x11-libs/pango bluetooth? ( net-wireless/bluez:= ) nsm? ( media-libs/liblo ) zeroconf? ( net-dns/avahi ) ) standalone? ( media-fonts/roboto )
 REQUIRED_USE=|| ( lv2 standalone )
 SLOT=0
 SRC_URI=https://github.com/brummer10/guitarix/releases/download/V0.47.0/guitarix2-0.47.0.tar.xz
 _eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-any-r1	891415dfe39ad9b41b461f2b86354af0	multilib	fc812e8eb2170022c28272d80a1f9e77	sysroot	4c36abaf94ebd3ab32f8abea9a444121	waf-utils	04842f6fb79b876b079301eff0764e2d	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=4b3a0b42ddb8b22e5e1aea47e1ea738b
+_md5_=d3b8e8012d32e85ad55b1ee1b29c7a14

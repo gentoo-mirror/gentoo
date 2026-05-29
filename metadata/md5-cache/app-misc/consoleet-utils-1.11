@@ -1,14 +1,14 @@
 BDEPEND=app-arch/zstd virtual/pkgconfig
 DEFINED_PHASES=postinst unpack
-DEPEND=!<dev-util/hxtools-20251011 >=media-libs/babl-0.1 dev-cpp/eigen:3 dev-lang/perl >=sys-libs/libhx-4.28:=
+DEPEND=!<dev-util/hxtools-20251011 >=media-libs/babl-0.1 dev-cpp/eigen:3= dev-lang/perl >=sys-libs/libhx-4.28:=
 DESCRIPTION=Set of utilities for manipulating terminal fonts and colors
 EAPI=8
 HOMEPAGE=https://inai.de/projects/consoleet/
 INHERIT=optfeature unpacker
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+ MIT
-RDEPEND=!<dev-util/hxtools-20251011 >=media-libs/babl-0.1 dev-cpp/eigen:3 dev-lang/perl >=sys-libs/libhx-4.28:=
+RDEPEND=!<dev-util/hxtools-20251011 >=media-libs/babl-0.1 dev-cpp/eigen:3= dev-lang/perl >=sys-libs/libhx-4.28:=
 SLOT=0
 SRC_URI=https://inai.de/files/consoleet/consoleet-utils-1.11.tar.zst
 _eclasses_=optfeature	538bce96e5589935b57e178e8635f301	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2
-_md5_=7ff611c8c022ec37d6eeaad61e2808b4
+_md5_=c109a3b0d10d78b6985c42bec7be4591

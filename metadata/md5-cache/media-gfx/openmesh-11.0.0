@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-text/doxygen[dot] dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-latexrecommended ) test? ( dev-cpp/eigen:3 dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+BDEPEND=doc? ( app-text/doxygen[dot] dev-texlive/texlive-latex dev-texlive/texlive-latexextra dev-texlive/texlive-latexrecommended ) test? ( dev-cpp/eigen dev-cpp/gtest ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
 DEPEND=gui? ( dev-qt/qtbase:6[gui,opengl,widgets] media-libs/libglvnd )
 DESCRIPTION=Generic data structure to represent and manipulate polygonal meshes
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=4
 SRC_URI=https://www.graphics.rwth-aachen.de/media/openmesh_static/Releases/11.0/OpenMesh-11.0.0.tar.bz2
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644
-_md5_=d4e48087004d9bdcd909e12490d137e2
+_md5_=22444997cbfaa4e60a2dec988a7c7ca3

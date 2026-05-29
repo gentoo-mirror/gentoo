@@ -1,13 +1,13 @@
 DEFINED_PHASES=compile install prepare
-DEPEND=>dev-lang/erlang-21[wxwidgets] <dev-lang/erlang-28 dev-libs/cl media-libs/glu media-libs/libsdl[opengl] virtual/opengl dev-cpp/eigen sci-libs/libigl
+DEPEND=>dev-lang/erlang-21[wxwidgets] <dev-lang/erlang-28 dev-libs/cl media-libs/glu media-libs/libsdl[opengl] virtual/opengl dev-cpp/eigen:= sci-libs/libigl
 DESCRIPTION=Wings 3D is an advanced subdivision modeler
 EAPI=8
 HOMEPAGE=https://www.wings3d.com/
 INHERIT=toolchain-funcs
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=>dev-lang/erlang-21[wxwidgets] <dev-lang/erlang-28 dev-libs/cl media-libs/glu media-libs/libsdl[opengl] virtual/opengl dev-cpp/eigen sci-libs/libigl
+RDEPEND=>dev-lang/erlang-21[wxwidgets] <dev-lang/erlang-28 dev-libs/cl media-libs/glu media-libs/libsdl[opengl] virtual/opengl dev-cpp/eigen:= sci-libs/libigl
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/wings/wings-2.3.tar.bz2
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
-_md5_=c2f6da138904b18dd4cd6ead634b08b7
+_md5_=34c3df798d89c4ac65ab66be00c682e8
