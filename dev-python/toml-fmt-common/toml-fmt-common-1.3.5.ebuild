@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=uv-build
 PYPI_VERIFY_REPO=https://github.com/tox-dev/toml-fmt
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
+PYTHON_COMPAT=( pypy3_11 python3_{11..15} )
 
 inherit distutils-r1 pypi
 
