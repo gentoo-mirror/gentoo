@@ -38,8 +38,9 @@ DOCS=(
 )
 
 PATCHES=(
-	"${FILESDIR}"/${P}-nostrip.patch
 	"${FILESDIR}"/${P}-cmake.patch
+	"${FILESDIR}"/${P}-noStatic.patch
+	"${FILESDIR}"/${P}-nostrip.patch
 )
 
 src_prepare() {
