@@ -1,17 +1,17 @@
-BDEPEND=app-arch/xz-utils app-alternatives/lex app-alternatives/yacc dev-libs/cereal dev-util/bpftool || ( dev-util/xxd app-editors/vim-core ) test? ( || ( >=dev-lang/rust-bin-1.85.0:* >=dev-lang/rust-1.85.0:* ) dev-lang/go dev-util/pahole ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-arch/xz-utils app-alternatives/lex app-alternatives/yacc dev-libs/cereal dev-util/bpftool || ( dev-util/xxd app-editors/vim-core ) test? ( || ( >=dev-lang/rust-bin-1.85.0:* >=dev-lang/rust-1.85.0:* ) dev-lang/go dev-util/pahole ) virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare pretend setup test unpack
 DEPEND=>=dev-libs/blazesym_c-0.1.1 >=dev-libs/libbpf-1.6:=[static-libs] >=dev-util/bcc-0.25.0 llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18=[llvm_targets_BPF(+)] ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19=[llvm_targets_BPF(+)] ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20=[llvm_targets_BPF(+)] ) llvm_slot_21? ( llvm-core/clang:21= llvm-core/llvm:21=[llvm_targets_BPF(+)] ) llvm_slot_22? ( llvm-core/clang:22= llvm-core/llvm:22=[llvm_targets_BPF(+)] ) sys-libs/binutils-libs:= virtual/libelf:= systemd? ( sys-apps/systemd:= ) pcap? ( net-libs/libpcap:= ) virtual/zlib:= dev-libs/cereal:= test? ( dev-cpp/gtest )
 DESCRIPTION=High-level tracing language for eBPF
 EAPI=8
 HOMEPAGE=https://github.com/bpftrace/bpftrace
-INHERIT=cmake flag-o-matic linux-info llvm-r2 rust git-r3
+INHERIT=cmake flag-o-matic linux-info llvm-r2 rust
 IUSE=pcap systemd test +llvm_slot_21 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_22
+KEYWORDS=~amd64 ~arm64
 LICENSE=Apache-2.0
-PROPERTIES=live
 RDEPEND=>=dev-libs/blazesym_c-0.1.1 >=dev-libs/libbpf-1.6:=[static-libs] >=dev-util/bcc-0.25.0 llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18=[llvm_targets_BPF(+)] ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19=[llvm_targets_BPF(+)] ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20=[llvm_targets_BPF(+)] ) llvm_slot_21? ( llvm-core/clang:21= llvm-core/llvm:21=[llvm_targets_BPF(+)] ) llvm_slot_22? ( llvm-core/clang:22= llvm-core/llvm:22=[llvm_targets_BPF(+)] ) sys-libs/binutils-libs:= virtual/libelf:= systemd? ( sys-apps/systemd:= ) pcap? ( net-libs/libpcap:= ) virtual/zlib:=
 REQUIRED_USE=^^ ( llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 llvm_slot_22 )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/bpftrace/bpftrace/releases/download/v0.25.0/man.tar.xz -> bpftrace-0.25.0-man.tar.xz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	linux-info	efd923656513c879204fec6638eadee5	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	d0f9b3164877aa250943c25b016e475e	rust	c5ae4c9b5eca97bd7fc77fede663873f	git-r3	2f8cdb10b033f92c3136aa6488a31c98
+SRC_URI=https://github.com/bpftrace/bpftrace/archive/v0.26.0.tar.gz -> bpftrace-0.26.0.tar.gz https://github.com/bpftrace/bpftrace/releases/download/v0.26.0/man.tar.xz -> bpftrace-0.26.0-man.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	linux-info	efd923656513c879204fec6638eadee5	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	d0f9b3164877aa250943c25b016e475e	rust	c5ae4c9b5eca97bd7fc77fede663873f
 _md5_=317615decdc998d80f56e842f60d1bd0
