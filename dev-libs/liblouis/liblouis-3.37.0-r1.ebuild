@@ -91,7 +91,7 @@ src_test() {
 
 	if use tools; then
 		pushd python > /dev/null || die
-		LD_PRELOAD+=":${S}/liblouis/.libs/liblouis.so" distutils-r1_src_test
+		LD_LIBRARY_PATH="${S}/liblouis/.libs" distutils-r1_src_test
 		popd > /dev/null || die
 	fi
 }
