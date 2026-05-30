@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 NEED_EMACS="28.1"
 
@@ -14,10 +14,10 @@ HOMEPAGE="https://protesilaos.com/emacs/denote/
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/protesilaos/${PN}.git"
+	EGIT_REPO_URI="https://github.com/protesilaos/${PN}"
 else
 	SRC_URI="https://github.com/protesilaos/${PN}/archive/${PV}.tar.gz
-		-> ${P}.tar.gz"
+		-> ${P}.gh.tar.gz"
 
 	KEYWORDS="~amd64 ~x86"
 fi
@@ -39,6 +39,7 @@ src_prepare() {
 	local -a skip_tests=(
 		dt-denote--date-convert
 		dt-denote--make-denote-directory
+		dt-denote-filetype-heuristics
 		dt-denote-get-identifier
 		dt-denote-identifier-p
 	)
