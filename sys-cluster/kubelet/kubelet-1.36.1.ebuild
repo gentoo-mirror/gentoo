@@ -19,7 +19,7 @@ IUSE="selinux"
 RESTRICT="test"
 
 RDEPEND="selinux? ( sec-policy/selinux-kubernetes )"
-BDEPEND=">=dev-lang/go-1.25.4"
+BDEPEND=">=dev-lang/go-1.26.0"
 
 QA_PRESTRIPPED=usr/bin/kubelet
 
