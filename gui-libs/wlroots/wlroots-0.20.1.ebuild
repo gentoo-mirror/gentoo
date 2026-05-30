@@ -73,7 +73,7 @@ BDEPEND="
 "
 
 if [[ ${PV} != 9999 ]]; then
-	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-emersion )"
+	BDEPEND+=" verify-sig? ( >=sec-keys/openpgp-keys-emersion-20260503 )"
 	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/emersion.asc"
 fi
 
