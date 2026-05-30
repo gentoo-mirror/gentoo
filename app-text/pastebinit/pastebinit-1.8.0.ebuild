@@ -12,7 +12,7 @@ SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.t
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~riscv x86"
+KEYWORDS="~amd64 ~riscv ~x86"
 IUSE="man"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -60,5 +60,5 @@ src_install() {
 
 pkg_postinst() {
 	optfeature "pbput and pbputs scripts" app-arch/xz-utils
-	optfeature "pbget and pbputs scripts" app-crypt/gnupg
+	optfeature "pbget and pbputs scripts" app-alternatives/gpg
 }
