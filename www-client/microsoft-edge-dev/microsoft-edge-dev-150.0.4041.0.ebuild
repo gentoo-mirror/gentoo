@@ -113,7 +113,7 @@ src_install() {
 	done
 
 	if ! use mip; then
-		rm "${EDGE_HOME}"/libmip_{core,protection_sdk}.so || die
+		rm "${EDGE_HOME}"/libmip_core_gn.so || die
 	fi
 
 	rm "${EDGE_HOME}/libqt5_shim.so" || die
