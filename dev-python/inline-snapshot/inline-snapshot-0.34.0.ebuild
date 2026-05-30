@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/asttokens-2.0.5[${PYTHON_USEDEP}]
@@ -37,15 +37,12 @@ BDEPEND="
 			dev-python/mypy[${PYTHON_USEDEP}]
 		' 'python*')
 		>=dev-python/pydantic-2[${PYTHON_USEDEP}]
-		>=dev-python/pytest-freezer-0.4.8[${PYTHON_USEDEP}]
-		>=dev-python/pytest-mock-3.14.0[${PYTHON_USEDEP}]
-		>=dev-python/pytest-subtests-0.11.0[${PYTHON_USEDEP}]
 	)
 "
 
 EPYTEST_PLUGIN_LOAD_VIA_ENV=1
-EPYTEST_PLUGINS=( "${PN}" pytest-{freezer,mock,subtests,xdist} )
-EPYTEST_XDIST=1
+EPYTEST_PLUGINS=( "${PN}" pytest-{freezer,mock,xdist} )
+# TODO: EPYTEST_XDIST=1 gotten flaky with 0.33.0
 distutils_enable_tests pytest
 
 python_test() {
