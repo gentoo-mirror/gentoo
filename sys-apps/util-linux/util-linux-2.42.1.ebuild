@@ -32,7 +32,9 @@ fi
 
 S="${WORKDIR}/${MY_P}"
 
-LICENSE="GPL-2 GPL-3 LGPL-2.1 BSD-4 MIT public-domain"
+# GPL-2+ first per README.licensing ("default license"), then the rest
+# are in order as listed in that file.
+LICENSE="GPL-2+ GPL-1+ GPL-2 GPL-2+ GPL-3+ LGPL-2.1+ MIT BSD-2 BSD BSD-4 EUPL-1.2 public-domain"
 SLOT="0"
 IUSE="audit build caps +cramfs cryptsetup fdformat +hardlink kill +logger magic ncurses nls pam python +readline rtas selinux slang static-libs +su +suid systemd test tty-helpers udev unicode uuidd"
 
