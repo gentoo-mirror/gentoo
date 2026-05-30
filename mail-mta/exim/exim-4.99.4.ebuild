@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -25,7 +25,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 
 IUSE="arc berkdb +dane dcc +dkim dlfunc dmarc +dnsdb doc dovecot-sasl
 	dsn gdbm gnutls gsasl idn ipv6 ldap lmtp maildir mbx
-	mysql nis pam perl pkcs11 postgres +prdr proxy radius redis sasl
+	mysql nis pam perl pkcs11 postgres +prdr proxy redis sasl
 	selinux socks5 spf sqlite srs +ssl syslog +tdb tcpd +tpda"
 REQUIRED_USE="
 	arc? ( dkim spf )
@@ -83,7 +83,6 @@ COMMON_DEPEND=">=sys-apps/sed-4.0.5
 	spf? ( >=mail-filter/libspf2-1.2.5-r1 )
 	dmarc? ( mail-filter/opendmarc:= )
 	sqlite? ( dev-db/sqlite:= )
-	radius? ( net-dialup/freeradius-client )
 	virtual/libcrypt:=
 	virtual/libiconv
 	"
@@ -108,20 +107,11 @@ RDEPEND="${COMMON_DEPEND}
 src_prepare() {
 	# Legacy patches which need a respin for -p1
 	eapply -p0 "${FILESDIR}"/exim-4.14-tail.patch
-	eapply -p0 "${FILESDIR}"/exim-4.74-radius-db-ENV-clash.patch # 287426
-	eapply     "${FILESDIR}"/exim-4.97-as-needed-ldflags.patch # 352265, 391279
+	eapply     "${FILESDIR}"/exim-4.99.3-as-needed-ldflags.patch # 352265, 391279
 	eapply -p0 "${FILESDIR}"/exim-4.76-crosscompile.patch # 266591
 	eapply     "${FILESDIR}"/exim-4.69-r1.27021.patch
 	eapply     "${FILESDIR}"/exim-4.97-localscan_dlopen.patch
 	eapply     "${FILESDIR}"/exim-4.97-no-exim_id_update.patch
-	eapply     "${FILESDIR}"/exim-4.98-tidydb-crash.patch # upstream #3144
-
-	# oddity, they disable berkdb as hack, and then throw an error when
-	# berkdb isn't enabled
-	sed -i \
-		-e 's/_DB_/_DONTMESS_/' \
-		-e 's/define DB void/define DONTMESS void/' \
-		src/auths/call_radius.c || die
 
 	if use maildir ; then
 		eapply "${FILESDIR}"/exim-4.94-maildir.patch
@@ -524,15 +514,6 @@ src_configure() {
 			AUTH_LIBS += -lpam
 		EOC
 	fi
-
-	# Radius
-	if use radius; then
-		cat >> Makefile <<- EOC
-			RADIUS_CONFIG_FILE=${EPREFIX}/etc/radiusclient/radiusclient.conf
-			RADIUS_LIB_TYPE=RADIUSCLIENTNEW
-			AUTH_LIBS += -lfreeradius-client
-		EOC
-	fi
 }
 
 src_compile() {
@@ -554,7 +535,7 @@ src_install() {
 
 	for i in exicyclog exim_dbmbuild exim_dumpdb exim_fixdb exim_lock \
 		exim_tidydb exinext exiwhat exigrep eximstats exiqsumm exiqgrep \
-		convert4r3 convert4r4 exipick
+		exipick
 	do
 		dosbin $i
 	done
