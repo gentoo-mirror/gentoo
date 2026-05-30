@@ -21,7 +21,7 @@ DEPEND="
 	acct-group/kube-apiserver
 	acct-user/kube-apiserver"
 RDEPEND="${DEPEND}"
-BDEPEND=">=dev-lang/go-1.25.4"
+BDEPEND=">=dev-lang/go-1.26.0"
 
 QA_PRESTRIPPED=usr/bin/kube-apiserver
 
