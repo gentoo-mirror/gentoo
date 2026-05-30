@@ -7,7 +7,7 @@ LLVM_COMPAT=( {18..22} )
 RUST_MIN_VER="1.85.0"
 RUST_OPTIONAL=1
 
-inherit cmake flag-o-matic linux-info llvm-r1 rust
+inherit cmake flag-o-matic linux-info llvm-r2 rust
 
 DESCRIPTION="High-level tracing language for eBPF"
 HOMEPAGE="https://github.com/bpftrace/bpftrace"
@@ -100,7 +100,7 @@ pkg_pretend() {
 }
 
 pkg_setup() {
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 	use test && rust_pkg_setup
 }
 
