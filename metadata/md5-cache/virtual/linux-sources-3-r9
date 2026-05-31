@@ -1,0 +1,8 @@
+DEFINED_PHASES=-
+DESCRIPTION=Virtual for Linux kernel sources
+EAPI=9
+IUSE=firmware
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+RDEPEND=firmware? ( sys-kernel/linux-firmware ) || ( sys-kernel/gentoo-sources sys-kernel/vanilla-sources sys-kernel/git-sources sys-kernel/mips-sources sys-kernel/pf-sources sys-kernel/rt-sources sys-kernel/zen-sources sys-kernel/raspberrypi-sources sys-kernel/gentoo-kernel sys-kernel/gentoo-kernel-bin sys-kernel/vanilla-kernel sys-kernel/linux-next sys-kernel/asahi-sources sys-kernel/gentoo-kernel-modprep )
+SLOT=0
+_md5_=905124fef05ba39120ec927df7776fe4
