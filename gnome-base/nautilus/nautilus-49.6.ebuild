@@ -97,7 +97,8 @@ src_install() {
 
 src_test() {
 	# GIO_USE_VOLUME_MONITOR=unix due to https://gitlab.gnome.org/GNOME/gvfs/-/issues/629#note_1467280
-	GIO_USE_VOLUME_MONITOR=unix XDG_SESSION_TYPE=x11 virtx dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs || die
+	GIO_USE_VOLUME_MONITOR=unix XDG_SESSION_TYPE=x11 virtx \
+		dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs || die
 }
 
 pkg_postinst() {
