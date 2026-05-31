@@ -59,6 +59,7 @@ src_prepare() {
 			-e 's/ -DSCOTCH_PTHREAD//' \
 			src/Make.inc/Makefile.inc.i686_pc_linux3 || die
 	fi
+	append-cflags "-D_GNU_SOURCE" # Fix build on musl bug #834726
 
 	# Be careful with replacing here, bug #577272
 	sed -e "s/= gcc$/= $(tc-getCC)/" \
