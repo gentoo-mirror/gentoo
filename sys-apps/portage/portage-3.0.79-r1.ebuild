@@ -92,6 +92,10 @@ PDEPEND="
 	)
 "
 
+PATCHES=(
+	"${FILESDIR}/0001-Workaround-import-problem-after-Python-upgrade.patch"
+)
+
 pkg_pretend() {
 	local CONFIG_CHECK="~IPC_NS ~PID_NS ~NET_NS ~UTS_NS"
 

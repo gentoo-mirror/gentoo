@@ -12,5 +12,6 @@ RDEPEND="
 		~sys-kernel/gentoo-kernel-${PV}
 		~sys-kernel/gentoo-kernel-bin-${PV}
 		~sys-kernel/vanilla-kernel-${PV%_p*}
+		~sys-kernel/gentoo-kernel-modprep-${PV}
 	)
 "
