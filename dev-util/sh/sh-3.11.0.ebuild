@@ -15,7 +15,7 @@ LICENSE="BSD"
 # Dependent licenses
 LICENSE+="  Apache-2.0 BSD"
 SLOT="0"
-KEYWORDS="~amd64 arm64 ~riscv x86"
+KEYWORDS="amd64 arm64 ~riscv x86"
 BDEPEND="app-text/scdoc"
 
 src_compile() {
