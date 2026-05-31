@@ -14,7 +14,7 @@ PATCHSET=linux-gentoo-patches-${PV}
 # forked to git.gentoo.org:fork/fedora/kernel
 CONFIG_VER=6.18.12-gentoo
 GENTOO_CONFIG_P=gentoo-kernel-config-g19
-SHA256SUM_DATE=20260523
+SHA256SUM_DATE=20260530
 
 DESCRIPTION="Linux kernel built with Gentoo patches"
 HOMEPAGE="
