@@ -4,7 +4,7 @@
 EAPI=8
 PYTHON_COMPAT=( python3_{11..14} )
 
-inherit flag-o-matic gnome.org gnome2-utils meson optfeature python-single-r1 virtualx xdg
+inherit flag-o-matic gnome.org gnome2-utils meson optfeature python-single-r1 xdg
 
 DESCRIPTION="Provides core UI functions for the GNOME desktop"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/gnome-shell"
@@ -30,9 +30,9 @@ DEPEND="
 	>=sys-auth/polkit-0.120_p20220509[introspection]
 	>=gnome-base/gsettings-desktop-schemas-49_alpha[introspection]
 	X? (
-	   x11-libs/libX11
-	   x11-libs/libXext
-	   >=x11-libs/libXfixes-5.0
+		x11-libs/libX11
+		x11-libs/libXext
+		>=x11-libs/libXfixes-5.0
 	)
 	>=app-i18n/ibus-1.5.19
 	dev-python/docutils
@@ -70,18 +70,20 @@ DEPEND="
 # Introspection deps generated from inspection of the output of:
 #  for i in `rg -INUo 'const(?s).*imports.gi' |cut -d= -f1 |cut -c7- |sort -u`; do echo $i ;done |cut -d, -f1 |sort -u
 # or
-#  rg -INUo 'const(?s).*imports.gi' |cut -d= -f1 |cut -c7- | sed -e 's:[{}]::g' | awk '{$1=$1; print}' | awk -F',' '{$1=$1;print}' | tr ' ' '\n' | sort -u | sed -e 's/://g'
-# These will give a lot of unnecessary things due to greedy matching (TODO), and `(?s).*?` doesn't seem to work as desired.
+#  rg -INUo 'const(?s).*imports.gi' |cut -d= -f1 |cut -c7- | sed -e 's:[{}]::g' | awk '{$1=$1; print}' | \
+#    awk -F',' '{$1=$1;print}' | tr ' ' '\n' | sort -u | sed -e 's/://g'
+# These will give a lot of unnecessary things due to greedy matching (TODO), and `(?s).*?` doesn't seem to work as
+# desired.
 # Compare with `grep -rhI 'imports.gi.versions' |sort -u` for any SLOT requirements
 # Each block:
 # 1. Introspection stuff needed via imports.gi (those that build time check may be listed above already)
 # 2. gnome-session needed for shutdown/reboot/inhibitors/etc
 # 3. Control shell settings
 # 4. xdg-utils needed for xdg-open, used by extension tool
-# 5. adwaita-icon-theme needed for various icons & arrows (3.26 for new video-joined-displays-symbolic and co icons; review for 3.28+)
+# 5. adwaita-icon-theme needed for various icons & arrows
 # 6. mobile-broadband-provider-info, timezone-data for shell-mobile-providers.c  # TODO: Review
 # 7. IBus is needed for nls integration
-# 8. Adwaita font used in gnome-shell global CSS (if removing this for some reason, make sure it's pulled in somehow for non-meta users still too)
+# 8. Adwaita font used in gnome-shell global CSS (if removing this make sure it's pulled in somehow for non-meta users)
 # 9. xdg-desktop-portal-gtk for various integration, e.g. #764632
 # 10. TODO: semi-optional webkit-gtk[introspection] for captive portal helper
 RDEPEND="${DEPEND}
@@ -139,6 +141,10 @@ BDEPEND="
 # dev-lang/sassc
 # app-text/asciidoc
 
+PATCHES=(
+	"${FILESDIR}"/0001-shell-elogind-support-to-avoid-stubbed-sd_notify.patch
+)
+
 src_prepare() {
 	default
 	xdg_environment_reset
@@ -159,18 +165,28 @@ src_configure() {
 		$(meson_use test tests)
 		$(meson_use networkmanager)
 		$(meson_use networkmanager portal_helper)
-		$(meson_use systemd) # this controls journald integration and desktop file user services related property only as of 3.34.4
-		# (structured logging and having gnome-shell launched apps use its own identifier instead of gnome-session)
-		# suspend support is runtime optional via /run/systemd/seats presence and org.freedesktop.login1.Manager dbus interface; elogind should provide what's necessary
+		$(meson_use systemd)
 	)
 	meson_src_configure
 }
 
 src_test() {
-	# Reset variables to avoid issues from /etc/profile.d/flatpak.sh file modifying XDG_DATA_DIRS
-	gnome2_environment_reset
-	export XDG_DATA_DIRS="${EPREFIX}"/usr/share
-	virtx dbus-run-session meson test -C "${BUILD_DIR}" || die
+	# Some tests fail when /var/tmp/portage is used as PORTAGE_TMPDIR
+	# due to PATH becoming too long: OSError: AF_UNIX path too long
+	# Intercept system mutter_dbusrunner.py to shorten the paths.
+
+	local custom_mutter="${T}/custom-mutter"
+	mkdir -p "${custom_mutter}" || die
+	cp -r "${EPREFIX}"/usr/share/mutter-[0-9]*/tests/* "${custom_mutter}/" || die
+
+	sed -i -e "s/prefix='mutter-testroot-'/prefix='m-'/g" \
+		-e "s/'xdg_runtime_dir'/'run'/g" \
+		"${custom_mutter}/mutter_dbusrunner.py" || die
+
+	sed -i -e "s|/usr/share/mutter-[0-9]*/tests|${custom_mutter}|g" \
+		"${BUILD_DIR}/tests/gnome-shell-dbus-runner.py" || die
+
+	meson_src_test
 }
 
 pkg_postinst() {
@@ -183,9 +199,11 @@ pkg_postinst() {
 		elog "media-libs/mesa if you do not have hardware 3D setup."
 	fi
 
-	optfeature "Bluetooth integration" gnome-base/gnome-control-center[bluetooth] net-wireless/gnome-bluetooth:3[introspection]
+	optfeature "Bluetooth integration" gnome-base/gnome-control-center[bluetooth] \
+		net-wireless/gnome-bluetooth:3[introspection]
 	optfeature "Browser extension integration" gnome-extra/gnome-browser-connector
-	optfeature "Screencast/capture support" media-video/pipewire media-libs/gstreamer[introspection] media-libs/gst-plugins-base[introspection] media-libs/gst-plugins-good media-plugins/gst-plugins-vpx
+	optfeature "Screencast/capture support" media-video/pipewire media-libs/gstreamer[introspection] \
+		media-libs/gst-plugins-base[introspection] media-libs/gst-plugins-good media-plugins/gst-plugins-vpx
 	optfeature "Weather support" dev-libs/libgweather:4[introspection]
 }
 
