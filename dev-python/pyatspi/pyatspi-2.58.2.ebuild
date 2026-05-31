@@ -46,7 +46,7 @@ src_compile() {
 
 src_test() {
 	python_foreach_impl run_in_build_dir \
-		dbus-run-session meson test -C "${BUILD_DIR}" || die
+		dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs || die
 }
 
 src_install() {
