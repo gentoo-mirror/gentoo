@@ -1,15 +1,15 @@
 BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install postinst prepare
-DEPEND=>=media-libs/libggi-2.2.2 svga? ( media-libs/svgalib )
+DEPEND=>=media-libs/libggi-2.2.2
 DESCRIPTION=Adds support for some special graphical target features
 EAPI=8
 HOMEPAGE=https://ibiblio.org/ggicore/packages/libggimisc.html
 INHERIT=autotools
-IUSE=fbcon svga
+IUSE=fbcon
 KEYWORDS=amd64 ~x86
 LICENSE=MIT
-RDEPEND=>=media-libs/libggi-2.2.2 svga? ( media-libs/svgalib )
+RDEPEND=>=media-libs/libggi-2.2.2
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/ggi/libggimisc-2.2.2.src.tar.bz2
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112
-_md5_=92d4110297d47af9669e483e37a655ec
+_md5_=2912e8a0a89c75cc80ee711c8db89263
