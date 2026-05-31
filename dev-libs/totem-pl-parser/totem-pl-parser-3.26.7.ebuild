@@ -65,5 +65,5 @@ src_configure() {
 
 src_test() {
 	# This is required as told by upstream in bgo#629542
-	GVFS_DISABLE_FUSE=1 dbus-run-session meson test -C "${BUILD_DIR}"
+	GVFS_DISABLE_FUSE=1 dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs
 }
