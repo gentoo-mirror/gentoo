@@ -102,7 +102,7 @@ src_test() {
 src_install() {
 	local DOCS=( debian/changelog THANKS TODO )
 	default
-	strip-lto-bytecode usr/$(get_libdir)/libdpkg.a
+	strip-lto-bytecode "${ED}"/usr/$(get_libdir)/libdpkg.a
 
 	# https://bugs.gentoo.org/835520
 	mv -v "${ED}"/usr/share/zsh/{vendor-completions,site-functions} || die
