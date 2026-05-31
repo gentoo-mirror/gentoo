@@ -78,6 +78,14 @@ COMMON_DEPEND="
 	postgres? ( dev-db/postgresql:= )
 	python? (
 		${PYTHON_DEPS}
+		|| (
+			(
+				$(python_gen_cond_dep '
+					sci-libs/gdal[python,${PYTHON_USEDEP}]
+				')
+			)
+			>=sci-libs/gdal-2.2.3[python,${PYTHON_SINGLE_USEDEP}]
+		)
 		$(python_gen_cond_dep '
 			dev-python/httplib2[${PYTHON_USEDEP}]
 			dev-python/markupsafe[${PYTHON_USEDEP}]
@@ -92,7 +100,6 @@ COMMON_DEPEND="
 			dev-python/qscintilla[${PYTHON_USEDEP}]
 			dev-python/requests[${PYTHON_USEDEP}]
 			dev-python/sip:=[${PYTHON_USEDEP}]
-			sci-libs/gdal[python,${PYTHON_USEDEP}]
 			postgres? ( dev-python/psycopg:2[${PYTHON_USEDEP}] )
 			webengine? (
 				dev-python/pyqt6-webengine[${PYTHON_USEDEP}]
@@ -160,6 +167,8 @@ src_configure() {
 	filter-lto
 
 	local mycmakeargs=(
+		-DCMAKE_POLICY_DEFAULT_CMP0175="OLD" # add_custom_command
+
 		-DQGIS_MANUAL_SUBDIR=share/man/
 		-DQGIS_LIB_SUBDIR=$(get_libdir)
 		-DQGIS_PLUGIN_SUBDIR=$(get_libdir)/qgis
