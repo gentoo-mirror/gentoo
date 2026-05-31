@@ -158,7 +158,7 @@ multilib_src_compile() {
 
 multilib_src_test() {
 	xdg_environment_reset
-	virtx dbus-run-session meson test -C "${BUILD_DIR}" --timeout-multiplier 4 || die
+	virtx dbus-run-session meson test -C "${BUILD_DIR}" --timeout-multiplier 4 --print-errorlogs || die
 }
 
 multilib_src_install() {
