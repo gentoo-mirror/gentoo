@@ -1,4 +1,4 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # @ECLASS: linux-mod.eclass
@@ -10,6 +10,7 @@
 # @SUPPORTED_EAPIS: 7 8
 # @PROVIDES: linux-info
 # @BLURB: It provides the functionality required to install external modules against a kernel source tree.
+# @DEAD
 # @DEPRECATED: linux-mod-r1.eclass
 # @DESCRIPTION:
 # This eclass is used to interface with linux-info.eclass in such a way
