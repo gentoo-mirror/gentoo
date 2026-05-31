@@ -16,28 +16,28 @@ SRC_URI="https://github.com/nicolargo/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
 
 RDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/defusedxml[${PYTHON_USEDEP}]
-		dev-python/orjson[${PYTHON_USEDEP}]
+		>=dev-python/jinja2-3.1.6[${PYTHON_USEDEP}]
 		dev-python/packaging[${PYTHON_USEDEP}]
-		>=dev-python/psutil-5.4.3[${PYTHON_USEDEP}]
+		>=dev-python/psutil-7.2.2[${PYTHON_USEDEP}]
 	')
 "
 
 # PYTHON_USEDEP omitted on purpose
-BDEPEND="doc? ( dev-python/sphinx-rtd-theme )"
+BDEPEND="doc? ( dev-python/sphinx-rtd-theme )
+	test? ( $(python_gen_cond_dep 'dev-python/selenium[${PYTHON_USEDEP}]') )"
 
 CONFIG_CHECK="~TASK_IO_ACCOUNTING ~TASK_DELAY_ACCT ~TASKSTATS"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-4.0.6-disable-update-check.patch"
-	"${FILESDIR}/${PN}-4.0.6-doc-install-path.patch"
+	"${FILESDIR}/${PN}-4.3.1-disable-update-check.patch"
 )
 
-distutils_enable_tests unittest
+distutils_enable_tests pytest
 distutils_enable_sphinx docs --no-autodoc
 
 pkg_setup() {
@@ -45,16 +45,15 @@ pkg_setup() {
 	python-single-r1_pkg_setup
 }
 
-src_prepare() {
-	# the version is tagged 4.1.2.1 but upstream seemingly forgot to
-	# update the version, hack around it for now
-	sed -i "/__version__/s/4.1.2/${PV}/" glances/__init__.py || die
-
-	distutils-r1_src_prepare
+python_test() {
+	"${EPYTHON}" -m pytest ./tests/test_core.py || die "tests failed with ${EPYTHON}"
 }
 
-python_test() {
-	"${EPYTHON}" unittest-core.py || die "tests failed with ${EPYTHON}"
+src_install() {
+	distutils-r1_src_install
+
+	mv "${ED}/usr/share/doc/${PN}"/* "${ED}/usr/share/doc/${PF}" || die
+	rmdir "${ED}/usr/share/doc/${PN}" || die
 }
 
 pkg_postinst() {
@@ -66,4 +65,5 @@ pkg_postinst() {
 	optfeature "RAID monitoring" dev-python/pymdstat
 	optfeature "RAID support" dev-python/pymdstat
 	optfeature "SNMP support" dev-python/pysnmp
+	optfeature "Web GUI" dev-python/fastapi dev-python/requests dev-python/uvicorn
 }
