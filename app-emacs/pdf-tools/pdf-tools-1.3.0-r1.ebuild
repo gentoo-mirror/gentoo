@@ -1,7 +1,7 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit autotools elisp
 
@@ -22,9 +22,6 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
-BDEPEND="
-	app-emacs/tablist
-"
 DEPEND="
 	app-text/poppler:=[cairo,png]
 	dev-libs/glib:2=
@@ -35,7 +32,13 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	${BDEPEND}
+	>=app-emacs/tablist-1.0
+"
+BDEPEND="
+	${RDEPEND}
+	test? (
+		>=app-emacs/undercover-0.8.1
+	)
 "
 
 ELISP_REMOVE="

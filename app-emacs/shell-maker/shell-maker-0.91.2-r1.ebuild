@@ -24,6 +24,13 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
+RDEPEND="
+	>=app-editors/emacs-${NEED_EMACS}:*[jpeg,png,svg]
+"
+BDEPEND="
+	${RDEPEND}
+"
+
 DOCS=( CHANGELOG.md README.org )
 SITEFILE="50${PN}-gentoo.el"
 
