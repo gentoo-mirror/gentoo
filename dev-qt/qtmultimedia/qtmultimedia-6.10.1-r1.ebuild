@@ -9,7 +9,7 @@ inherit flag-o-matic qt6-build
 DESCRIPTION="Multimedia (audio, video, radio, camera) library for the Qt6 framework"
 
 if [[ ${QT6_BUILD_TYPE} == release ]]; then
-	KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv x86"
+	KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc64 ~riscv x86"
 fi
 
 IUSE="
@@ -93,14 +93,10 @@ CMAKE_SKIP_TESTS=(
 )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-6.7.3-eigen-ppc-no-vsx.patch
 	"${FILESDIR}"/${PN}-6.10.1-QTBUG-142166.patch
 )
 
 src_configure() {
-	# eigen + ppc32 seems broken w/ -maltivec (forced by Qt, bug #943402)
-	use ppc && append-cppflags -DEIGEN_DONT_VECTORIZE
-
 	# normally passed by the build system, but needed for 32-on-64 chroots
 	use x86 && append-cppflags -DDISABLE_SIMD -DPFFFT_SIMD_DISABLE
 
