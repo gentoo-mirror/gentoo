@@ -439,7 +439,7 @@ src_test() {
 		die "Smoke-test failed: did interpreter initialization fail?"
 	fi
 
-	cp "${FILESDIR}"/spidermonkey-${SLOT}-known-test-failures.txt "${T}"/known_test_failures.list || die
+	cp "${FILESDIR}"/spidermonkey-140-known-test-failures.txt "${T}"/known_test_failures.list || die
 	./mach jstests --exclude-file="${T}"/known_test_failures.list || die
 }
 
