@@ -164,8 +164,8 @@ multilib_src_configure() {
 
 multilib_src_test() {
 	if use tpm; then
-		dbus_run tpm2_run_with_emulator virtx meson test -C "${BUILD_DIR}"
+		dbus_run tpm2_run_with_emulator virtx meson test -C "${BUILD_DIR}" --print-errorlogs
 	else
-		virtx dbus-run-session meson test -C "${BUILD_DIR}"
+		virtx dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs
 	fi
 }

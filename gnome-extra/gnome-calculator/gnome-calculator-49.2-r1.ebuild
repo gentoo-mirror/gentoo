@@ -70,7 +70,7 @@ src_configure() {
 }
 
 src_test() {
-	XDG_SESSION_TYPE=x11 virtx dbus-run-session meson test -C "${BUILD_DIR}" || die 'tests failed'
+	XDG_SESSION_TYPE=x11 virtx dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs || die 'tests failed'
 }
 
 pkg_postinst() {

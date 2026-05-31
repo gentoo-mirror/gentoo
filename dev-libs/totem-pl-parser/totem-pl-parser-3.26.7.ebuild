@@ -1,17 +1,17 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit gnome.org meson xdg flag-o-matic
 
 DESCRIPTION="Playlist parsing library"
-HOMEPAGE="https://developer.gnome.org/totem-pl-parser/stable/"
-
+HOMEPAGE="https://gitlab.gnome.org/GNOME/totem-pl-parser"
 LICENSE="LGPL-2+"
+
 SLOT="0/18"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="archive crypt gtk-doc +introspection test +uchardet"
 RESTRICT="!test? ( test )"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	>=dev-libs/glib-2.56:2
@@ -37,15 +37,12 @@ BDEPEND="
 "
 
 src_prepare() {
-	# Disable tests requiring network access, bug #346127
-	# 3rd test fails on upgrade, not once installed
-	# Leio: I consider network tests important for ensuring full functionality, thus trying with them again */
-	#sed -e 's:\(g_test_add_func.*/parser/resolution.*\):/*\1*/:' \
-	#	-e 's:\(g_test_add_func.*/parser/parsing/itms_link.*\):/*\1*/:' \
-	#	-e 's:\(g_test_add_func.*/parser/parsability.*\):/*\1*/:'\
-	#	-i plparse/tests/parser.c || die "sed failed"
+	if has network-sandbox ${FEATURES}; then
+		einfo "Skipping tests needing network access due to the FEATURE network-sandbox being enabled"
+		sed -i -e "s/, 'podcast'//g" plparse/tests/meson.build || die
+	fi
 
-	xdg_src_prepare
+	default
 }
 
 src_configure() {
@@ -65,5 +62,5 @@ src_configure() {
 
 src_test() {
 	# This is required as told by upstream in bgo#629542
-	GVFS_DISABLE_FUSE=1 dbus-run-session meson test -C "${BUILD_DIR}"
+	GVFS_DISABLE_FUSE=1 dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs || die
 }

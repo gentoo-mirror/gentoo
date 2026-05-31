@@ -50,7 +50,7 @@ src_configure() {
 }
 
 src_test() {
-	virtx dbus-run-session meson test -C "${BUILD_DIR}" || die 'tests failed'
+	virtx dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs || die 'tests failed'
 }
 
 src_install() {

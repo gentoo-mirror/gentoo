@@ -279,5 +279,5 @@ pkg_postrm() {
 }
 
 src_test() {
-	virtx dbus-run-session meson test -C "${BUILD_DIR}"
+	virtx dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs || die
 }

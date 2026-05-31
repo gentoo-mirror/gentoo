@@ -164,7 +164,7 @@ src_test() {
 	export GSETTINGS_BACKEND="dconf" # Tests require dconf and explicitly check for it (env_reset set it to "memory")
 	export PYTHONPATH="${ESYSROOT}"/usr/$(get_libdir)/tinysparql-3.0
 	# Many (extractor) tests fail since version 3.9.0 https://gitlab.gnome.org/GNOME/localsearch/-/issues/405
-	dbus-run-session meson test -C "${BUILD_DIR}" --no-suite examples || die 'tests failed'
+	dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs --no-suite examples || die 'tests failed'
 }
 
 pkg_postinst() {
