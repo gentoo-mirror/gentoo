@@ -36,6 +36,11 @@
 
 #--- END OF EXAMPLES ---
 
+# David Seifert <soap@gentoo.org> (2026-05-30)
+# Last update 25 years ago, stuck on linux-mod.eclass, lots of QA issues,
+# doesn't build on recent kernels. Removal on 2026-06-29. Bug #908712.
+media-libs/svgalib
+
 # Michał Górny <mgorny@gentoo.org> (2026-05-29)
 # Involves a subslot bump which implies rebuilding all packages with
 # pypy3_11 target, which makes little sense now that we're days away
