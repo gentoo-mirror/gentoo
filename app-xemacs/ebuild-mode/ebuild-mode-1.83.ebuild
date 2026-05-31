@@ -12,8 +12,8 @@ if [[ ${PV} = 9999 ]]; then
 	EGIT_CHECKOUT_DIR="${WORKDIR}/${PN}"
 	S="${WORKDIR}/${PN}"
 else
-	SRC_URI="https://dev.gentoo.org/~ulm/emacs/${P}.tar.xz"
-	KEYWORDS="amd64 ~hppa x86"
+	SRC_URI="https://distfiles.gentoo.org/pub/proj/emacs/${P}.tar.xz"
+	KEYWORDS="~amd64 ~hppa ~x86"
 fi
 
 DESCRIPTION="Emacs modes for editing ebuilds and other Gentoo specific files"
