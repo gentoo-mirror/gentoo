@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -89,7 +89,7 @@ src_configure() {
 }
 
 src_test() {
-	dbus-run-session meson test -C "${BUILD_DIR}" || die 'tests failed'
+	dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs || die 'tests failed'
 }
 
 src_install() {
