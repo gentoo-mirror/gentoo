@@ -80,9 +80,7 @@ src_configure() {
 }
 
 src_test() {
-	# Avoid warnings when /etc/profile.d/flatpak.sh from flatpak modified XDG_DATA_DIRS
-	export XDG_DATA_DIRS="${EPREFIX}"/usr/share
-	dbus-run-session meson test -C "${BUILD_DIR}" -t 5 || die "tests failed"
+	dbus-run-session meson test -C "${BUILD_DIR}" -t 5 --print-errorlogs || die "tests failed"
 }
 
 pkg_postinst() {
