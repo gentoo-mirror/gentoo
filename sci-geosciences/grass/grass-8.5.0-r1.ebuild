@@ -77,7 +77,7 @@ RDEPEND="
 			virtual/lapack[flexiblas(-)]
 		)
 	)
-	mysql? ( dev-db/mysql-connector-c:= )
+	mysql? ( dev-db/mariadb-connector-c:= )
 	netcdf? ( sci-libs/netcdf:= )
 	odbc? ( dev-db/unixODBC )
 	opencl? ( virtual/opencl )
@@ -114,6 +114,10 @@ BDEPEND="
 	X? ( dev-lang/swig )"
 
 RESTRICT="test"
+
+PATCHES=(
+	"${FILESDIR}/${P}-mariadb.patch"
+)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -202,6 +206,10 @@ src_configure() {
 }
 
 src_install() {
+	# Install phase fails if file owner doesn't match process user. GRASS
+	# allows to skip this check. See bug #974737.
+	export GRASS_SKIP_MAPSET_OWNER_CHECK=1
+
 	cmake_src_install
 
 	pushd "${ED}"/usr/$(get_libdir)/${MY_PM} >/dev/null || die
