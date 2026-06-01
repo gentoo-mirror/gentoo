@@ -166,7 +166,7 @@ else
 	"
 	SRC_URI+=" verify-sig? ( https://evilpiepirate.org/bcachefs-tools/bcachefs-tools-${PV}.tar.sign )"
 	S="${WORKDIR}/${P}"
-	KEYWORDS="~amd64 ~arm64"
+	KEYWORDS="amd64 ~arm64"
 fi
 
 LICENSE="GPL-2"
