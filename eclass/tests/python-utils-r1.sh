@@ -64,7 +64,7 @@ tmpfile=$(mktemp)
 
 inherit multilib python-utils-r1
 
-for minor in {11..15} {13..15}t; do
+for minor in {12..15} {14..15}t; do
 	ebegin "Testing python3.${minor}"
 	eindent
 	test_var EPYTHON "python3_${minor}" "python3.${minor}"
@@ -116,21 +116,6 @@ for minor in {11..15} {13..15}t; do
 		tend ${?}
 	fi
 
-	eoutdent
-done
-
-for minor in 11; do
-	ebegin "Testing pypy3.${minor}"
-	eindent
-	test_var EPYTHON "pypy3.${minor}" "pypy3.${minor}"
-	test_var PYTHON "pypy3.${minor}" "/usr/bin/pypy3.${minor}"
-	if [[ -x /usr/bin/pypy3.${minor} ]]; then
-		test_var PYTHON_SITEDIR "pypy3.${minor}" "/usr/lib*/pypy3.${minor}/site-packages"
-		test_var PYTHON_INCLUDEDIR "pypy3.${minor}" "/usr/include/pypy3.${minor}"
-	fi
-	test_var PYTHON_PKG_DEP "pypy3.${minor}" '*dev-lang/pypy*:3.11='
-	PYTHON_REQ_USE=sqlite test_var PYTHON_PKG_DEP "pypy3.${minor}" '*dev-lang/pypy*:3.11=\[sqlite\]'
-	test_var PYTHON_SCRIPTDIR "pypy3.${minor}" "/usr/lib/python-exec/pypy3.${minor}"
 	eoutdent
 done
 
