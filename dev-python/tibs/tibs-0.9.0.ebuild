@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{11..15} )
 
 RUST_MIN_VER="1.87.0"
 CRATES="
@@ -109,7 +109,7 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0 ZLIB"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 EPYTEST_PLUGINS=( hypothesis )
 distutils_enable_tests pytest
