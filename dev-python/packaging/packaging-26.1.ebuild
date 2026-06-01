@@ -27,6 +27,7 @@ RDEPEND="
 "
 DEPEND="
 	test? (
+		dev-python/hypothesis[${PYTHON_USEDEP}]
 		dev-python/pretend[${PYTHON_USEDEP}]
 		dev-python/tomli-w[${PYTHON_USEDEP}]
 	)
