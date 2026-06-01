@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install prepare
+DEPEND=dev-libs/openssl:= app-text/asciidoc app-text/xmlto
+DESCRIPTION=Connect stdin and stdout to a server via an HTTPS proxy
+EAPI=7
+HOMEPAGE=https://github.com/proxytunnel/proxytunnel/ https://proxytunnel.sourceforge.net/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=static
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-libs/openssl:=
+SLOT=0
+SRC_URI=https://github.com/proxytunnel/proxytunnel/archive/v1.13.0.tar.gz -> proxytunnel-1.13.0.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d
+_md5_=e8e098b0ce2d91ae094b07b9966851b6
