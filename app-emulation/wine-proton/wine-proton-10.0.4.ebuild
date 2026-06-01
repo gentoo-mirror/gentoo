@@ -240,7 +240,7 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	wine_src_postinst
+	wine_pkg_postinst
 
 	[[ -v WINE_HAD_ANY_SLOT ]] || readme.gentoo_print_elog
 

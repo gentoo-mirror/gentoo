@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -222,7 +222,7 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
-	wine_src_postinst
+	wine_pkg_postinst
 
 	[[ -v WINE_HAD_ANY_SLOT ]] || readme.gentoo_print_elog
 
