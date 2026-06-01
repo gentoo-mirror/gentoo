@@ -1,4 +1,4 @@
-BDEPEND=sys-apps/which virtual/pkgconfig || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 )
+BDEPEND=sys-apps/which virtual/pkgconfig || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 )
 DEFINED_PHASES=configure install prepare setup test
 DEPEND=net-misc/curl !static-libs? ( lz4? ( app-arch/lz4:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? ( dev-libs/openssl:0= ) zstd? ( app-arch/zstd:= ) virtual/zlib:= ) elibc_musl? ( sys-libs/queue-standalone ) static-libs? ( lz4? ( app-arch/lz4:=[static-libs(+)] ) sasl? ( dev-libs/cyrus-sasl:=[static-libs(+)] ) ssl? ( dev-libs/openssl:0=[static-libs(+)] ) zstd? ( app-arch/zstd:=[static-libs(+)] ) virtual/zlib:=[static-libs(+)] )
 DESCRIPTION=Apache Kafka C/C++ client library
@@ -11,5 +11,5 @@ LICENSE=BSD-2
 RDEPEND=net-misc/curl !static-libs? ( lz4? ( app-arch/lz4:= ) sasl? ( dev-libs/cyrus-sasl:= ) ssl? ( dev-libs/openssl:0= ) zstd? ( app-arch/zstd:= ) virtual/zlib:= )
 SLOT=0/1
 SRC_URI=https://github.com/confluentinc/librdkafka/archive/v2.12.1.tar.gz -> librdkafka-2.12.1.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-any-r1	891415dfe39ad9b41b461f2b86354af0
 _md5_=0694251be3de3ddcf0cc09796b1f2890

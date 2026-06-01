@@ -1,17 +1,17 @@
-BDEPEND=>=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?] dev-build/make >=dev-build/cmake-3.28.5 virtual/fortran
+BDEPEND=>=dev-python/gpep517-16[python_targets_python3_12(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_12(-)?] dev-build/make >=dev-build/cmake-3.28.5 virtual/fortran
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=app-arch/gzip dev-cpp/eigen:= media-libs/libpng:0 virtual/zlib:= mpi? ( virtual/mpi sci-libs/hdf5:=[mpi] ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0= sci-libs/netcdf:= cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1:= ) opencl? ( virtual/opencl ) hip? ( dev-util/hip:= sci-libs/hipCUB:= ) test? ( dev-cpp/gtest ) virtual/fortran
+DEPEND=app-arch/gzip dev-cpp/eigen:= media-libs/libpng:0 virtual/zlib:= mpi? ( virtual/mpi sci-libs/hdf5:=[mpi] ) python? ( python_targets_python3_12? ( dev-lang/python:3.12 ) ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0= sci-libs/netcdf:= cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1:= ) opencl? ( virtual/opencl ) hip? ( dev-util/hip:= sci-libs/hipCUB:= ) test? ( dev-cpp/gtest ) virtual/fortran
 DESCRIPTION=Large-scale Atomic/Molecular Massively Parallel Simulator
 EAPI=8
 HOMEPAGE=https://lammps.sandia.gov/
 INHERIT=cmake fortran-2 distutils-r1
-IUSE=cuda examples extra gzip hip lammps-memalign mpi opencl openmp python test python_targets_python3_11 python_targets_python3_12
+IUSE=cuda examples extra gzip hip lammps-memalign mpi opencl openmp python test python_targets_python3_12
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2
-RDEPEND=app-arch/gzip dev-cpp/eigen:= media-libs/libpng:0 virtual/zlib:= mpi? ( virtual/mpi sci-libs/hdf5:=[mpi] ) python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0= sci-libs/netcdf:= cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1:= ) opencl? ( virtual/opencl ) hip? ( dev-util/hip:= sci-libs/hipCUB:= ) virtual/fortran
-REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 ) ) ?? ( cuda opencl hip )
+RDEPEND=app-arch/gzip dev-cpp/eigen:= media-libs/libpng:0 virtual/zlib:= mpi? ( virtual/mpi sci-libs/hdf5:=[mpi] ) python? ( python_targets_python3_12? ( dev-lang/python:3.12 ) ) sci-libs/voro++ virtual/blas virtual/lapack sci-libs/fftw:3.0= sci-libs/netcdf:= cuda? ( >=dev-util/nvidia-cuda-toolkit-4.2.9-r1:= ) opencl? ( virtual/opencl ) hip? ( dev-util/hip:= sci-libs/hipCUB:= ) virtual/fortran
+REQUIRED_USE=python? ( || ( python_targets_python3_12 ) ) ?? ( cuda opencl hip )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://download.lammps.org/tars/lammps-2Aug2023.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	fortran-2	ae6d43513003405bd4a48698fc20370a	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	fa417e51408bf16a2c13f1730b404226
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	fortran-2	ae6d43513003405bd4a48698fc20370a	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	fa417e51408bf16a2c13f1730b404226
 _md5_=c3bfc18ef2b5460798afe66c279291c8

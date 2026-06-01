@@ -1,4 +1,4 @@
-BDEPEND=test? ( || ( ( dev-lang/python:3.14 dev-ada/e3-testsuite[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-ada/e3-testsuite[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-ada/e3-testsuite[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-ada/e3-testsuite[python_targets_python3_11(-)] ) ) dev-ada/gnatmem )
+BDEPEND=test? ( || ( ( dev-lang/python:3.14 dev-ada/e3-testsuite[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-ada/e3-testsuite[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-ada/e3-testsuite[python_targets_python3_12(-)] ) ) dev-ada/gnatmem )
 DEFINED_PHASES=compile install prepare setup test
 DEPEND=ada_target_gcc_14? ( sys-devel/gcc:14[ada] ) ada_target_gcc_15? ( sys-devel/gcc:15[ada] ) ada_target_gcc_16? ( sys-devel/gcc:16[ada] ) dev-ada/xmlada[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,ada_target_gcc_16(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-),shared,static-libs?,static-pic?] >=dev-ada/gnatcoll-core-26[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,ada_target_gcc_16(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-),shared,static-libs?,static-pic?] dev-ada/gnatcoll-bindings[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,ada_target_gcc_16(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-),shared,static-libs?,static-pic?,iconv(+),gmp] dev-ada/gprconfig_kb[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,ada_target_gcc_16(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-)] dev-ada/gprbuild[ada_target_gcc_14(-)?,ada_target_gcc_15(-)?,ada_target_gcc_16(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-)]
 DESCRIPTION=LibGPR2 - Parser for GPR Project files
@@ -13,5 +13,5 @@ REQUIRED_USE=^^ ( ada_target_gcc_14 ada_target_gcc_15 ada_target_gcc_16 )
 RESTRICT=!test? ( test )
 SLOT=0/26.0.0
 SRC_URI=https://github.com/AdaCore/gpr/archive/refs/tags/v26.0.0.tar.gz -> gpr-26.0.0.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	ada	38e5ef8cefdc0d1e5303a1e71014684e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	ada	38e5ef8cefdc0d1e5303a1e71014684e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-any-r1	891415dfe39ad9b41b461f2b86354af0
 _md5_=a698eb847b59c5c32fc68263b1f0fcad

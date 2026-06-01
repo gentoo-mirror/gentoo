@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig test? ( dev-build/libtool || ( ( dev-lang/python:3.13 dev-python/lit[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/lit[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 dev-python/lit[python_targets_python3_11(-)] ) ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+BDEPEND=virtual/pkgconfig test? ( dev-build/libtool || ( ( dev-lang/python:3.13 dev-python/lit[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/lit[python_targets_python3_12(-)] ) ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=>=dev-libs/libfmt-9.1.0:= dev-libs/protobuf:= >=dev-libs/spdlog-1.11.0:= >=net-libs/grpc-1.49.2:= cuda? ( dev-util/nvidia-cuda-toolkit ) >=dev-cpp/nlohmann_json-3.11.2:= test? ( >=dev-cpp/gtest-1.13 )
 DESCRIPTION=Build EAR generates a compilation database for clang tooling
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/libfmt-9.1.0:= dev-libs/protobuf:= >=dev-libs/spdlog-1.11.0:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rizsotto/Bear/archive/3.1.6.tar.gz -> bear-3.1.6.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	cuda	8b660e223a1695e3884ee4c7dc2c5059	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	cuda	8b660e223a1695e3884ee4c7dc2c5059	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-any-r1	891415dfe39ad9b41b461f2b86354af0
 _md5_=7caa2c9d97a50a13578134f9f2c973d5

@@ -1,16 +1,16 @@
-BDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) net-irc/znc:=[ssl] python_single_target_python3_11? ( dev-python/pytest[python_targets_python3_11(-)] dev-python/pytest-asyncio[python_targets_python3_11(-)] dev-python/semantic-version[python_targets_python3_11(-)] ) python_single_target_python3_12? ( dev-python/pytest[python_targets_python3_12(-)] dev-python/pytest-asyncio[python_targets_python3_12(-)] dev-python/semantic-version[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pytest[python_targets_python3_13(-)] dev-python/pytest-asyncio[python_targets_python3_13(-)] dev-python/semantic-version[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/pytest[python_targets_python3_14(-)] dev-python/pytest-asyncio[python_targets_python3_14(-)] dev-python/semantic-version[python_targets_python3_14(-)] )
+BDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) net-irc/znc:=[ssl] python_single_target_python3_12? ( dev-python/pytest[python_targets_python3_12(-)] dev-python/pytest-asyncio[python_targets_python3_12(-)] dev-python/semantic-version[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pytest[python_targets_python3_13(-)] dev-python/pytest-asyncio[python_targets_python3_13(-)] dev-python/semantic-version[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/pytest[python_targets_python3_14(-)] dev-python/pytest-asyncio[python_targets_python3_14(-)] dev-python/semantic-version[python_targets_python3_14(-)] )
 DEFINED_PHASES=compile install setup test
 DESCRIPTION=A ZNC module which provides push notifications to Palaver
 EAPI=8
 HOMEPAGE=https://github.com/cocodelabs/znc-palaver
 INHERIT=python-single-r1 toolchain-funcs
-IUSE=python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+IUSE=python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
 KEYWORDS=amd64 x86
 LICENSE=MIT
-RDEPEND=python_single_target_python3_11? ( dev-lang/python:3.11 ) python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) net-irc/znc:=[ssl]
-REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
+RDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) net-irc/znc:=[ssl]
+REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/cocodelabs/znc-palaver/archive/1.2.2.tar.gz -> znc-palaver-1.2.2.tar.gz
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
 _md5_=11d33418a84bfc1327e2aae31c813ed6

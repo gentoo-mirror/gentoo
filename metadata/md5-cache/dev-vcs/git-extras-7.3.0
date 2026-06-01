@@ -1,4 +1,4 @@
-BDEPEND=test? ( || ( ( dev-lang/python:3.14 >=dev-python/gitpython-3.1.40[python_targets_python3_14(-)] >=dev-python/pytest-7.2[python_targets_python3_14(-)] dev-python/testpath[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 >=dev-python/gitpython-3.1.40[python_targets_python3_13(-)] >=dev-python/pytest-7.2[python_targets_python3_13(-)] dev-python/testpath[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-python/gitpython-3.1.40[python_targets_python3_12(-)] >=dev-python/pytest-7.2[python_targets_python3_12(-)] dev-python/testpath[python_targets_python3_12(-)] ) ( dev-lang/python:3.11 >=dev-python/gitpython-3.1.40[python_targets_python3_11(-)] >=dev-python/pytest-7.2[python_targets_python3_11(-)] dev-python/testpath[python_targets_python3_11(-)] ) ) )
+BDEPEND=test? ( || ( ( dev-lang/python:3.14 >=dev-python/gitpython-3.1.40[python_targets_python3_14(-)] >=dev-python/pytest-7.2[python_targets_python3_14(-)] dev-python/testpath[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 >=dev-python/gitpython-3.1.40[python_targets_python3_13(-)] >=dev-python/pytest-7.2[python_targets_python3_13(-)] dev-python/testpath[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 >=dev-python/gitpython-3.1.40[python_targets_python3_12(-)] >=dev-python/pytest-7.2[python_targets_python3_12(-)] dev-python/testpath[python_targets_python3_12(-)] ) ) )
 DEFINED_PHASES=compile install prepare setup test
 DESCRIPTION=Git utilities -- repo summary, repl, changelog population, and many more
 EAPI=8
@@ -11,5 +11,5 @@ RDEPEND=>=app-shells/bash-4.0:* dev-vcs/git
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tj/git-extras/archive/7.3.0.tar.gz -> git-extras-7.3.0.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	bash-completion-r1	9e91505e030725688d1e953321a47501	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	bash-completion-r1	9e91505e030725688d1e953321a47501	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-any-r1	891415dfe39ad9b41b461f2b86354af0
 _md5_=3ab3c92a71abb9d2217aa4a807e792c4

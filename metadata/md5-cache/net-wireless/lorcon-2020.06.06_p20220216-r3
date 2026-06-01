@@ -1,16 +1,16 @@
-BDEPEND=virtual/pkgconfig python? ( >=dev-python/gpep517-16[python_targets_python3_11(-)?,python_targets_python3_12(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_11(-)?,python_targets_python3_12(-)?] )
+BDEPEND=virtual/pkgconfig python? ( >=dev-python/gpep517-16[python_targets_python3_12(-)?] >=dev-python/setuptools-78.1.0[python_targets_python3_12(-)?] )
 DEFINED_PHASES=compile install prepare test
-DEPEND=dev-libs/libnl:3= net-libs/libpcap python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
+DEPEND=dev-libs/libnl:3= net-libs/libpcap python? ( python_targets_python3_12? ( dev-lang/python:3.12 ) )
 DESCRIPTION=A generic library for injecting 802.11 frames
 EAPI=8
 HOMEPAGE=https://github.com/kismetwireless/lorcon
 INHERIT=distutils-r1 flag-o-matic
-IUSE=python python_targets_python3_11 python_targets_python3_12 debug
+IUSE=python python_targets_python3_12 debug
 KEYWORDS=amd64 arm ~arm64 ppc x86
 LICENSE=GPL-2
-RDEPEND=dev-libs/libnl:3= net-libs/libpcap python? ( python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) )
-REQUIRED_USE=python? ( || ( python_targets_python3_11 python_targets_python3_12 ) )
+RDEPEND=dev-libs/libnl:3= net-libs/libpcap python? ( python_targets_python3_12? ( dev-lang/python:3.12 ) )
+REQUIRED_USE=python? ( || ( python_targets_python3_12 ) )
 SLOT=0
 SRC_URI=https://github.com/kismetwireless/lorcon/archive/4a81d6aaa2c6ac7253ecd182ffe97c6c89411196.tar.gz -> lorcon-2020.06.06_p20220216.tar.gz
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	fa417e51408bf16a2c13f1730b404226
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	fa417e51408bf16a2c13f1730b404226
 _md5_=23d9655329be9886651b5fc9916d7cc7

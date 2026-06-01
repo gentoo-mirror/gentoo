@@ -1,4 +1,4 @@
-BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) app-text/scdoc virtual/pkgconfig examples? ( dev-util/wayland-scanner ) verify-sig? ( sec-keys/openpgp-keys-dnkl ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=|| ( dev-lang/python:3.13 dev-lang/python:3.12 ) app-text/scdoc virtual/pkgconfig examples? ( dev-util/wayland-scanner ) verify-sig? ( sec-keys/openpgp-keys-dnkl ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install prepare setup test unpack
 DEPEND=media-libs/fontconfig media-libs/freetype x11-libs/pixman examples? ( dev-libs/libutf8proc:= dev-libs/wayland ) harfbuzz? ( media-libs/harfbuzz:=[truetype] ) libutf8proc? ( dev-libs/libutf8proc:=[-cjk] ) app-i18n/unicode-data dev-libs/tllist examples? ( dev-libs/wayland-protocols ) test? ( dev-libs/check harfbuzz? ( media-fonts/noto-emoji ) )
 DESCRIPTION=Simple library for font loading and glyph rasterization
@@ -13,5 +13,5 @@ REQUIRED_USE=libutf8proc? ( harfbuzz ) examples? ( libutf8proc )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://codeberg.org/dnkl/fcft/releases/download/3.3.1/fcft-3.3.1.tar.gz verify-sig? ( https://codeberg.org/dnkl/fcft/releases/download/3.3.1/fcft-3.3.1.tar.gz.sig )
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	python-any-r1	891415dfe39ad9b41b461f2b86354af0	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	python-any-r1	891415dfe39ad9b41b461f2b86354af0	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
 _md5_=775bb3999a8431178d437ffa075371f2

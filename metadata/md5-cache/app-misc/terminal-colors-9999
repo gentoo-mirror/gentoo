@@ -1,14 +1,14 @@
-BDEPEND=python_targets_python3_11? ( dev-lang/python:3.11[ncurses] ) python_targets_python3_12? ( dev-lang/python:3.12[ncurses] ) python_targets_python3_13? ( dev-lang/python:3.13[ncurses] ) python_targets_python3_14? ( dev-lang/python:3.14[ncurses] ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=python_targets_python3_12? ( dev-lang/python:3.12[ncurses] ) python_targets_python3_13? ( dev-lang/python:3.13[ncurses] ) python_targets_python3_14? ( dev-lang/python:3.14[ncurses] ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install unpack
 DESCRIPTION=A tool to display color charts for 8, 16, 88, and 256 color terminals
 EAPI=8
 HOMEPAGE=http://zhar.net/projects/shell/terminal-colors
 INHERIT=python-r1 git-r3
-IUSE=python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
+IUSE=python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
 LICENSE=GPL-3+
 PROPERTIES=live
-RDEPEND=python_targets_python3_11? ( dev-lang/python:3.11[ncurses] ) python_targets_python3_12? ( dev-lang/python:3.12[ncurses] ) python_targets_python3_13? ( dev-lang/python:3.13[ncurses] ) python_targets_python3_14? ( dev-lang/python:3.14[ncurses] )
-REQUIRED_USE=|| ( python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+RDEPEND=python_targets_python3_12? ( dev-lang/python:3.12[ncurses] ) python_targets_python3_13? ( dev-lang/python:3.13[ncurses] ) python_targets_python3_14? ( dev-lang/python:3.14[ncurses] )
+REQUIRED_USE=|| ( python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
 SLOT=0
-_eclasses_=out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	git-r3	2f8cdb10b033f92c3136aa6488a31c98
+_eclasses_=out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	git-r3	2f8cdb10b033f92c3136aa6488a31c98
 _md5_=29d245daa09fb7ab0870bbc405bb95ba

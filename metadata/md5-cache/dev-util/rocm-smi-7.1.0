@@ -1,16 +1,16 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst prepare setup test
-DEPEND=python_targets_python3_13t? ( dev-lang/python:3.13t ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) sys-kernel/linux-headers x11-libs/libdrm[video_cards_amdgpu]
+DEPEND=python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) sys-kernel/linux-headers x11-libs/libdrm[video_cards_amdgpu]
 DESCRIPTION=ROCm System Management Interface Library
 EAPI=8
 HOMEPAGE=https://github.com/ROCm/rocm-systems/tree/develop/projects/rocm-smi-lib
 INHERIT=cmake linux-info optfeature python-r1
-IUSE=python_targets_python3_13t python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
+IUSE=python_targets_python3_12 python_targets_python3_13 python_targets_python3_14
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=python_targets_python3_13t? ( dev-lang/python:3.13t ) python_targets_python3_11? ( dev-lang/python:3.11 ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
-REQUIRED_USE=|| ( python_targets_python3_13t python_targets_python3_11 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
+RDEPEND=python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 )
+REQUIRED_USE=|| ( python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 )
 SLOT=0/7.1
 SRC_URI=https://github.com/ROCm/rocm_smi_lib/archive/rocm-7.1.0.tar.gz -> rocm-smi-7.1.0.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	linux-info	efd923656513c879204fec6638eadee5	optfeature	538bce96e5589935b57e178e8635f301	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	linux-info	efd923656513c879204fec6638eadee5	optfeature	538bce96e5589935b57e178e8635f301	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf
 _md5_=dbe6c2e17847312d93cc9b3414edacbb

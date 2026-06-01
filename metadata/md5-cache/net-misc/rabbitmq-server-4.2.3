@@ -5,13 +5,13 @@ DESCRIPTION=RabbitMQ is a high-performance AMQP-compliant message broker written
 EAPI=8
 HOMEPAGE=https://www.rabbitmq.com/
 INHERIT=python-single-r1 systemd
-IUSE=python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+IUSE=python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
 KEYWORDS=amd64 ~arm64 x86
 LICENSE=MPL-2.0
-RDEPEND=acct-group/rabbitmq acct-user/rabbitmq >=dev-lang/erlang-26.0[ssl] <dev-lang/erlang-28 python_single_target_python3_11? ( dev-lang/python:3.11[xml(+)] ) python_single_target_python3_12? ( dev-lang/python:3.12[xml(+)] ) python_single_target_python3_13? ( dev-lang/python:3.13[xml(+)] ) python_single_target_python3_14? ( dev-lang/python:3.14[xml(+)] )
-REQUIRED_USE=^^ ( python_single_target_python3_11 python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
+RDEPEND=acct-group/rabbitmq acct-user/rabbitmq >=dev-lang/erlang-26.0[ssl] <dev-lang/erlang-28 python_single_target_python3_12? ( dev-lang/python:3.12[xml(+)] ) python_single_target_python3_13? ( dev-lang/python:3.13[xml(+)] ) python_single_target_python3_14? ( dev-lang/python:3.14[xml(+)] )
+REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/rabbitmq/rabbitmq-server/releases/download/v4.2.3/rabbitmq-server-4.2.3.tar.xz
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	systemd	a964c0cbe818b5729da1dbfcee5be861
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	systemd	a964c0cbe818b5729da1dbfcee5be861
 _md5_=c83a8c1afbb9314f40888398661773bc

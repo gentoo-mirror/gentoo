@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/gzip sys-apps/help2man test? ( || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 dev-lang/python:3.11 ) dev-util/dejagnu sys-devel/bison sys-devel/flex ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=app-alternatives/gzip sys-apps/help2man test? ( || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) dev-util/dejagnu sys-devel/bison sys-devel/flex ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install prepare setup test unpack
 DEPEND=>=dev-lang/perl-5.6 >=dev-build/automake-wrapper-11 >=dev-build/autoconf-2.69:* sys-devel/gnuconfig
 DESCRIPTION=Used to generate Makefile.in from Makefile.am
@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=>=dev-lang/perl-5.6 >=dev-build/automake-wrapper-11 >=dev-build/autoconf-2.69:* sys-devel/gnuconfig
 RESTRICT=!test? ( test )
 SLOT=9999
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	ae7ca7f9425ab1a1d2c909e225002f98	python-any-r1	891415dfe39ad9b41b461f2b86354af0	git-r3	2f8cdb10b033f92c3136aa6488a31c98
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-any-r1	891415dfe39ad9b41b461f2b86354af0	git-r3	2f8cdb10b033f92c3136aa6488a31c98
 _md5_=154a631a5d5b0bb94ce5260b66361ac8
