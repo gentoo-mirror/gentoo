@@ -27,13 +27,13 @@ BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	test? (
-		dev-python/pytest-timeout[${PYTHON_USEDEP}]
 		dev-python/yaxmldiff[${PYTHON_USEDEP}]
 	)
 "
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 
+EPYTEST_PLUGINS=( pytest-timeout )
 distutils_enable_tests pytest
 
 python_test() {
