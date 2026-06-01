@@ -39,7 +39,6 @@ RDEPEND="
 		dev-lang/pypy3-exe:${PV%_p*}[bzip2(+),ncurses?]
 		dev-lang/pypy3-exe-bin:${PV%_p*}
 	)
-	dev-lang/python-exec[python_targets_pypy${PYVER/./_}(-)]
 	dev-libs/openssl:0=
 	dev-python/gentoo-common
 	gdbm? ( sys-libs/gdbm:0= )
@@ -234,12 +233,5 @@ src_install() {
 
 	if use symlink; then
 		dosym pypy${PYVER} /usr/bin/pypy3
-
-		# install symlinks for python-exec
-		local EPYTHON=pypy${PYVER}
-		local scriptdir=${D}$(python_get_scriptdir)
-		mkdir -p "${scriptdir}" || die
-		ln -s "../../../bin/pypy3" "${scriptdir}/python3" || die
-		ln -s python3 "${scriptdir}/python" || die
 	fi
 }
