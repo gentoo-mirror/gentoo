@@ -20,7 +20,7 @@ RDEPEND="
 	sctp? ( net-misc/lksctp-tools )
 "
 DEPEND="
-	${DEPEND}
+	${RDEPEND}
 	virtual/os-headers
 "
 BDEPEND="virtual/pkgconfig"
