@@ -14,4 +14,4 @@ inherit sec-keys
 DESCRIPTION="OpenPGP keys used by the Knot Resolver developers"
 HOMEPAGE="https://www.knot-resolver.cz/download/"
 
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
