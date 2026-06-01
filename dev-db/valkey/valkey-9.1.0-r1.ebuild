@@ -158,7 +158,7 @@ src_test() {
 src_install() {
 	insinto /etc/valkey
 	doins valkey.conf sentinel.conf
-	use prefix || fowners -R redis:redis /etc/valkey /etc/valkey/{valkey,sentinel}.conf
+	use prefix || fowners -R valkey:valkey /etc/valkey /etc/valkey/{valkey,sentinel}.conf
 	fperms 0750 /etc/valkey
 	fperms 0644 /etc/valkey/{valkey,sentinel}.conf
 
@@ -184,7 +184,7 @@ src_install() {
 	if use prefix; then
 		diropts -m0750
 	else
-		diropts -m0750 -o redis -g redis
+		diropts -m0750 -o valkey -g valkey
 	fi
 	keepdir /var/{log,lib}/valkey
 }
