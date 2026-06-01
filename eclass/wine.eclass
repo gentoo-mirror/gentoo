@@ -478,7 +478,9 @@ wine_pkg_postinst() {
 	fi
 
 	# difficult to tell what is needed from here, but try to warn anyway
-	if use abi_x86_32 && { use opengl || use vulkan; }; then
+	if use abi_x86_32 &&
+		{ ! in_iuse opengl || use opengl || ! in_iuse vulkan || use vulkan; }
+	then
 		if has_version 'x11-drivers/nvidia-drivers'; then
 			if has_version 'x11-drivers/nvidia-drivers[-abi_x86_32]'; then
 				ewarn
