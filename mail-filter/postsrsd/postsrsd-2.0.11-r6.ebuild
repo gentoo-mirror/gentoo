@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -88,9 +88,9 @@ src_install() {
 		\n\nSince postsrsd will create its socket with file mode 0666, it is
 		recommended to place it in a directory with restricted permissions,
 		for example:
-		\n\n\t# mkdir /var/spool/postfix/sock
-		\n\t# chown root:postfix /var/spool/postfix/sock
-		\n\t# chmod 0770 /var/spool/postfix/sock
+		\n\n\t# mkdir /var/spool/postfix/postsrsd
+		\n\t# chown root:postfix /var/spool/postfix/postsrsd
+		\n\t# chmod 0770 /var/spool/postfix/postsrsd
 		\n\nand adjust \"{sender,recipient}_canonical_maps\" in main.cf
 		as well as \"socketmap\" in postsrsd.conf accordingly.
 		\n\nSee README.rst and the comments in postsrsd.conf for more detailed
@@ -112,6 +112,6 @@ pkg_postinst() {
 		eend $? "Installing ${f} failed"
 	fi
 
-	ver_replacing -lt 2.0.11-r5 && local FORCE_PRINT_ELOG=1
+	ver_replacing -lt 2.0.11-r6 && local FORCE_PRINT_ELOG=1
 	readme.gentoo_print_elog
 }
