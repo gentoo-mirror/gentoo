@@ -41,6 +41,11 @@ src_prepare() {
 		-e '/sphinx_reredirects/d' \
 		-i doc/conf.py || die
 
+	# Disable xdist to avoid issues if pytest-xdist is installed.
+	sed \
+		-e 's/from xdist import plugin/raise ImportError()/' \
+		-i tests/conftest.py || die
+
 	distutils-r1_src_prepare
 }
 
