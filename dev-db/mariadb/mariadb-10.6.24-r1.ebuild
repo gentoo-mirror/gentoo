@@ -235,6 +235,7 @@ src_prepare() {
 	eapply "${FILESDIR}"/${PN}-10.6.12-gcc-13.patch
 	eapply "${FILESDIR}"/${PN}-10.6.21-debug.patch
 	eapply "${FILESDIR}"/${PN}-wsrep-gcc-15.patch
+	eapply "${FILESDIR}"/${PN}-10.6.24-fix_boost_system.patch
 
 	eapply_user
 
