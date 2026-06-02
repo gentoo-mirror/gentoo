@@ -7,7 +7,7 @@ MAJOR="$(ver_cut 1)"
 CADABRA="${PN}${MAJOR}"
 BUNDLED_MICROTEX_SUBMODULE_SHA="9dd1fb04884cbb1701806c6ad6f5405b4f01d934"
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit xdg-utils python-single-r1 cmake
 
