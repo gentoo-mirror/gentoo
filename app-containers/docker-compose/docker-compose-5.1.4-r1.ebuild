@@ -1,7 +1,9 @@
 # Copyright 2018-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=9
+EAPI=8
+
+inherit optfeature
 
 DESCRIPTION="Multi-container orchestration for Docker"
 HOMEPAGE="https://github.com/docker/compose"
@@ -19,7 +21,6 @@ RDEPEND="
 		>=app-containers/docker-cli-29.5.2
 		app-containers/podman[wrapper(+)]
 	)
-	app-containers/docker-credential-helpers
 "
 BDEPEND=">=dev-lang/go-1.25.5"
 
@@ -38,6 +39,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	optfeature "credential store support" app-containers/docker-credential-helpers
+
 	if ver_replacing -lt 2; then
 		ewarn
 		ewarn "docker-compose 2.x is a sub command of docker"
