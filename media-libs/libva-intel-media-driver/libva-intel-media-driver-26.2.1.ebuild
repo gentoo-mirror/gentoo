@@ -16,7 +16,7 @@ else
 	SRC_URI="https://github.com/intel/media-driver/archive/intel-media-${MY_PV}.tar.gz"
 	S="${WORKDIR}/media-driver-intel-media-${MY_PV}"
 	if [[ ${PV} != *_pre* ]] ; then
-		KEYWORDS="amd64"
+		KEYWORDS="~amd64"
 	fi
 fi
 
@@ -29,7 +29,7 @@ IUSE="+redistributable test X"
 
 RESTRICT="!test? ( test )"
 
-DEPEND=">=media-libs/gmmlib-22.8.1:=[${MULTILIB_USEDEP}]
+DEPEND=">=media-libs/gmmlib-22.10.0:=[${MULTILIB_USEDEP}]
 	>=media-libs/libva-2.22.0[X?,${MULTILIB_USEDEP}]
 "
 RDEPEND="${DEPEND}"
