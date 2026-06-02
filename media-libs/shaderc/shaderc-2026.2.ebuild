@@ -29,6 +29,7 @@ BDEPEND="doc? ( dev-ruby/asciidoctor )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2020.4-fix-build.patch
+	"${FILESDIR}"/${PN}-2026.2-gcc17.patch
 )
 
 # https://github.com/google/shaderc/issues/470
