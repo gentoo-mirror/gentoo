@@ -1,4 +1,4 @@
-From eca199d9f1c4239caf9817d5db6d1c24459e9410 Mon Sep 17 00:00:00 2001
+From ae7f3d718258cc1e5a2efa192a8af3bb3420231b Mon Sep 17 00:00:00 2001
 From: Matt Turner <mattst88@gmail.com>
 Date: Thu, 18 Apr 2024 13:24:18 -0400
 Subject: [PATCH] Disable things we don't want
@@ -14,18 +14,19 @@ v9: Rebase
 v10: Rebase
 v11: Rebase
 v12: Rebase
+v13: Rebase
 ---
- meson.build                   | 16 ++------------
+ meson.build                   | 17 ++-------------
  src/egl/opengl/meson.build    | 41 -----------------------------------
  src/egl/opengles2/meson.build | 11 ----------
  src/meson.build               |  2 --
  src/util/gl_wrap.h            |  2 --
- src/util/meson.build          | 12 ++--------
+ src/util/meson.build          | 10 ++-------
  src/xdemos/meson.build        | 31 ++------------------------
- 7 files changed, 6 insertions(+), 109 deletions(-)
+ 7 files changed, 6 insertions(+), 108 deletions(-)
 
 diff --git ./meson.build ./meson.build
-index 92d81600..6324ebec 100644
+index c3d3db5a..b7dd4733 100644
 --- ./meson.build
 +++ ./meson.build
 @@ -56,7 +56,7 @@ dep_png = dependency(
@@ -37,7 +38,7 @@ index 92d81600..6324ebec 100644
  dep_wayland = dependency(
    'wayland-client, wayland-egl, xkbcommon',
    required: get_option('wayland'),
-@@ -78,19 +78,7 @@ endif
+@@ -78,20 +78,7 @@ endif
  
  dep_threads = dependency('threads')
  
@@ -52,6 +53,7 @@ index 92d81600..6324ebec 100644
 -    _glu_name,
 -    has_headers: 'GL/glu.h',
 -    required: dep_gl.found() and dep_x11.found(),
+-    disabler: true,
 -  )
 -endif
 +dep_glu = disabler()
@@ -158,25 +160,23 @@ index b2ff9c8f..f482df5e 100644
  
  #ifndef GLAPIENTRY
 diff --git ./src/util/meson.build ./src/util/meson.build
-index 30c7f2c0..abf66afc 100644
+index 9a482a43..abf66afc 100644
 --- ./src/util/meson.build
 +++ ./src/util/meson.build
-@@ -3,17 +3,9 @@
+@@ -3,15 +3,9 @@
  
  inc_util = include_directories('.')
  
--files_libutil = files('glinfo_common.c', 'matrix.c', 'trackball.c')
+-files_libutil = files(
+-  'glinfo_common.c',
+-  'matrix.c',
+-  'shaderutil.c',
+-  'showbuffer.c',
+-  'trackball.c',
+-)
 +files_libutil = files('glinfo_common.c', 'matrix.c')
  
--if dep_glu.found()
--  files_libutil += files('showbuffer.c')
--endif
--
 -_deps = [dep_glu, dep_m]
--if dep_glut.found()
--  files_libutil += files('shaderutil.c')
--  _deps += dep_glut
--endif
 +_deps = [dep_m]
  
  _libutil = static_library(
@@ -239,5 +239,5 @@ index fdb91eb2..ad136c9c 100644
    executable(
      p,
 -- 
-2.51.0
+2.53.0
 
