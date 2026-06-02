@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit cmake perl-functions python-single-r1 udev systemd
 
@@ -17,6 +17,12 @@ else
 	SRC_URI="https://github.com/linux-rdma/rdma-core/releases/download/v${PV}/${P}.tar.gz"
 	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 fi
+
+# https://github.com/linux-rdma/rdma-core/pull/1747
+SRC_URI+="
+	https://github.com/linux-rdma/rdma-core/commit/448ecf97586de63da7d7fac1ea24f0f0fa381336.patch
+		-> ${PN}-63.0-fix-efa-with-lttng.patch
+"
 
 LICENSE="|| ( GPL-2 ( CC0-1.0 MIT BSD BSD-with-attribution ) )"
 SLOT="0"
@@ -65,13 +71,8 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-39.0-RDMA_BuildType.patch
+	"${DISTDIR}"/${PN}-63.0-fix-efa-with-lttng.patch
 )
-
-src_prepare() {
-	# DEFINED is true even if the value is false, which makes lttng unconditional
-	sed -i -e 's/if (DEFINED ENABLE_LTTNG)/if (ENABLE_LTTNG)/' CMakeLists.txt || die
-	cmake_src_prepare
-}
 
 src_configure() {
 	perl_set_version
@@ -84,7 +85,7 @@ src_configure() {
 		-DCMAKE_INSTALL_UDEV_RULESDIR="${EPREFIX}$(get_udevdir)"/rules.d
 		-DCMAKE_INSTALL_SYSTEMD_SERVICEDIR="$(systemd_get_systemunitdir)"
 		-DCMAKE_DISABLE_FIND_PACKAGE_Systemd="$(usex !systemd)"
-		-DENABLE_LTTNG="$(usex lttng)"
+		-DTRACING="$(usex lttng LTTNG None)"
 		-DENABLE_VALGRIND="$(usex valgrind)"
 		-DENABLE_RESOLVE_NEIGH="$(usex neigh)"
 		-DENABLE_STATIC="$(usex static-libs)"
