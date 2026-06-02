@@ -6,11 +6,11 @@ HOMEPAGE=https://gitlab.com/gabmus/razerCommander/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson python-single-r1 xdg
 IUSE=python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
-KEYWORDS=~amd64 ~x86
+KEYWORDS=amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) >=x11-libs/gtk+-3.20:3[introspection] x11-libs/gdk-pixbuf[gif(+),introspection] python_single_target_python3_12? ( dev-python/pygobject:3[python_targets_python3_12(-)] sys-apps/openrazer[client,daemon,python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/pygobject:3[python_targets_python3_13(-)] sys-apps/openrazer[client,daemon,python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/pygobject:3[python_targets_python3_14(-)] sys-apps/openrazer[client,daemon,python_targets_python3_14(-)] )
 REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
 SLOT=0
 SRC_URI=https://gitlab.com/gabmus/razerCommander/-/archive/1.2.1.2/razerCommander-1.2.1.2.tar.bz2
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=65c7f5ed1296da9e6c6796dc7861b39f
+_md5_=6cf342ad4b287abab49b0ef92e53fd5a
