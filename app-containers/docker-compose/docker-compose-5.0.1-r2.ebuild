@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit eapi9-ver go-module
+inherit eapi9-ver go-module optfeature
 MY_PV=${PV/_/-}
 
 DESCRIPTION="Multi-container orchestration for Docker"
@@ -21,7 +21,6 @@ RDEPEND="
 	>=app-containers/docker-cli-23.0.0
 	app-containers/podman[wrapper(+)]
 )
-app-containers/docker-credential-helpers
 "
 BDEPEND=">=dev-lang/go-1.24.7"
 
@@ -42,6 +41,8 @@ src_install() {
 }
 
 pkg_postinst() {
+	optfeature "credential store support" app-containers/docker-credential-helpers
+
 	if ver_replacing -lt 2; then
 		ewarn
 		ewarn "docker-compose 2.x is a sub command of docker"
