@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit optfeature
+inherit eapi9-ver optfeature
 
 DESCRIPTION="Multi-container orchestration for Docker"
 HOMEPAGE="https://github.com/docker/compose"
