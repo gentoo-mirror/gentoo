@@ -44,13 +44,14 @@ BDEPEND="
 		$(python_gen_cond_dep '
 			dev-python/apprise[${PYTHON_USEDEP}]
 			>=dev-python/flexmock-0.10.10[${PYTHON_USEDEP}]
+			dev-python/pytest-asyncio[${PYTHON_USEDEP}]
 		')
 	)
 "
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.7.14-systemd_service_bin_path.patch
-	"${FILESDIR}"/${PN}-2.1.4-no_test_coverage.patch
+	"${FILESDIR}"/${PN}-2.1.6-no_test_coverage.patch
 )
 
 EPYTEST_DESELECT=(
