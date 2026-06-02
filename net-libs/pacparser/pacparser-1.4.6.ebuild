@@ -13,7 +13,7 @@ SRC_URI="https://github.com/manugarg/${PN}/archive/v${PV}/${P}.tar.gz"
 
 LICENSE="LGPL-3"
 SLOT="0/1"
-KEYWORDS="~amd64 x86"
+KEYWORDS="amd64 x86"
 IUSE="doc python"
 
 DEPEND="python? ( ${PYTHON_DEPS} )"
