@@ -12,11 +12,10 @@ LICENSE="GPL-3+ GPL-2+"
 API_VERSION="4"
 SLOT="0/${API_VERSION}"
 KEYWORDS="~amd64 ~arm64 ~loong ~x86"
-IUSE="gtk systemd test"
+IUSE="debuginfod gtk systemd test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-libs/elfutils
 	>=dev-libs/glib-2.76.0:2
 	gtk? (
 		>=gui-libs/gtk-4.15:4
@@ -24,12 +23,13 @@ RDEPEND="
 		x11-libs/cairo
 		x11-libs/pango
 	)
-	systemd? ( sys-apps/systemd )
+	systemd? ( sys-apps/systemd:= )
 	dev-libs/json-glib
-	>=dev-libs/libdex-0.9
-	>=gui-libs/libpanel-1.4
+	>=dev-libs/libdex-0.9:=
+	>=gui-libs/libpanel-1.4:1
 	sys-libs/libunwind:=
 	>=sys-auth/polkit-0.114[daemon(+)]
+	dev-libs/elfutils[debuginfod?]
 	>=dev-util/sysprof-common-${PV}
 	>=dev-util/sysprof-capture-${PV}:${API_VERSION}
 "
@@ -45,10 +45,6 @@ BDEPEND="
 	>=sys-kernel/linux-headers-2.6.32
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-48.0-shadowed-variable.patch
-)
 
 src_prepare() {
 	default
@@ -75,6 +71,9 @@ src_configure() {
 		-Dtools=true
 		$(meson_use test tests)
 		-Dexamples=false
+		$(meson_feature debuginfod)
+		-Dintrospection=disabled
+		-Ddocs=false
 	)
 	meson_src_configure
 }

@@ -11,10 +11,10 @@ HOMEPAGE="https://www.sysprof.com/"
 
 LICENSE="GPL-3+ GPL-2+"
 SLOT="4"
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
-RDEPEND=""
-DEPEND="${RDEPEND}"
+# RDEPEND=""
+# DEPEND=""
 BDEPEND="
 	>=dev-util/gdbus-codegen-2.80.5-r1
 	>=sys-kernel/linux-headers-2.6.32
