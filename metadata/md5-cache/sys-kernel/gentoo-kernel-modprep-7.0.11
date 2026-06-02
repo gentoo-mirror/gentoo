@@ -1,0 +1,14 @@
+BDEPEND=app-alternatives/bc app-alternatives/lex app-alternatives/yacc dev-util/pahole sys-libs/binutils-libs virtual/libelf verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=configure install postinst preinst prepare unpack
+DESCRIPTION=Minimal subset of gentoo-kernel-bin for building modules, for containers
+EAPI=8
+HOMEPAGE=https://wiki.gentoo.org/wiki/Project:Distribution_Kernel https://www.kernel.org/
+INHERIT=dist-kernel-utils toolchain-funcs unpacker verify-sig
+IUSE=verify-sig
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=virtual/libelf !sys-kernel/gentoo-kernel:7.0.11 !sys-kernel/gentoo-kernel-bin:7.0.11
+SLOT=7.0.11
+SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.0.tar.xz https://cdn.kernel.org/pub/linux/kernel/v7.x/patch-7.0.11.xz https://distfiles.gentoo.org/pub/proj/dist-kernel/patchsets/7.0/linux-gentoo-patches-7.0.11.tar.xz verify-sig? ( https://cdn.kernel.org/pub/linux/kernel/v7.x/sha256sums.asc -> linux-7.x-sha256sums-20260601.asc ) amd64? ( https://distfiles.gentoo.org/pub/proj/dist-kernel/binpkg/amd64/7.0/gentoo-kernel-7.0.11-1.amd64.gpkg.tar ) arm64? ( https://distfiles.gentoo.org/pub/proj/dist-kernel/binpkg/arm64/7.0/gentoo-kernel-7.0.11-1.arm64.gpkg.tar ) ppc64? ( https://distfiles.gentoo.org/pub/proj/dist-kernel/binpkg/ppc64le/7.0/gentoo-kernel-7.0.11-1.ppc64le.gpkg.tar ) x86? ( https://distfiles.gentoo.org/pub/proj/dist-kernel/binpkg/x86/7.0/gentoo-kernel-7.0.11-1.x86.gpkg.tar )
+_eclasses_=mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	dist-kernel-utils	bf6d01112ef33aa08cdf8155b96092f9	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=b688f78af3c04bfc2104b1aa18785a3a
