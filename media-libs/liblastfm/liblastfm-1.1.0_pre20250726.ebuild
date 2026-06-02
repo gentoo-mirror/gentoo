@@ -23,7 +23,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="dev-qt/qtbase:6[dbus,network,ssl,xml]"
 DEPEND="${RDEPEND}"
 
-PATCHES=( ${WORKDIR}"/${PATCHSET}" )
+PATCHES=( "${WORKDIR}/${PATCHSET}" )
 
 src_configure() {
 	local mycmakeargs=(

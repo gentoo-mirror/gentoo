@@ -13,7 +13,7 @@ HOMEPAGE="https://apps.kde.org/kstars/ https://kstars.kde.org/"
 
 if [[ ${KDE_BUILD_TYPE} = release ]]; then
 	SRC_URI="mirror://kde/stable/${PN}/${PV}/${P}.tar.xz"
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-2+ GPL-3+"
@@ -76,13 +76,14 @@ CMAKE_SKIP_TESTS=(
 )
 
 PATCHES=(
-	"${FILESDIR}"/${P}-cmake.patch # bug 895892, downstream patch
+	"${FILESDIR}"/${PN}-3.8.1-cmake.patch # bug 895892, downstream patch
 )
 
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_PYKSTARS=OFF
 		-DCMAKE_DISABLE_FIND_PACKAGE_LibXISF=ON # not packaged
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt6DataVisualization=ON # not packaged
 		-DBUILD_WITH_QT6=ON # KF6 please
 		-DENABLE_SENTRY=OFF
 		$(cmake_use_find_package password Qt6Keychain)
