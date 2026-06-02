@@ -7,7 +7,7 @@ SUBSLOT="18"
 JAVA_PKG_OPT_USE="jdbc"
 
 inherit systemd flag-o-matic prefix toolchain-funcs \
-	multiprocessing java-pkg-opt-2 cmake
+	multiprocessing java-pkg-opt-2 cmake pam
 
 DESCRIPTION="An enhanced, drop-in replacement for MySQL"
 HOMEPAGE="https://mariadb.org/"
@@ -314,6 +314,8 @@ src_configure() {
 		-DINSTALL_INCLUDEDIR=include/mysql
 		-DINSTALL_INFODIR=share/info
 		-DINSTALL_LIBDIR=$(get_libdir)
+		-DINSTALL_PAMDIR="$(getpam_mod_dir)"
+		-DINSTALL_PAMDATADIR="${EPREFIX}/etc/security"
 		-DINSTALL_MANDIR=share/man
 		-DINSTALL_MYSQLSHAREDIR=share/mariadb
 		-DINSTALL_PLUGINDIR=$(get_libdir)/mariadb/plugin
@@ -438,7 +440,7 @@ src_configure() {
 		elif ! use latin1 ; then
 			mycmakeargs+=(
 				-DDEFAULT_CHARSET=utf8mb4
-				-DDEFAULT_COLLATION=utf8mb4_unicode_520_ci
+				-DDEFAULT_COLLATION=utf8mb4_uca1400_ai_ci
 			)
 		else
 			mycmakeargs+=(
