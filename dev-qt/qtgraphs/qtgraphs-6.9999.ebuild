@@ -31,6 +31,8 @@ src_configure() {
 	local mycmakeargs=(
 		# simpler than keeping track of and disabling every graphs-3d* features
 		$(cmake_use_find_package quick3d Qt6Quick3D)
+		# not packaged yet, and Qt disables it by default for now
+		-DQT_FEATURE_graphs_2d_high_performance_backend=OFF
 	)
 
 	qt6-build_src_configure
