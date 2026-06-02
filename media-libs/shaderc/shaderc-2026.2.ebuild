@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit cmake-multilib dot-a python-any-r1
 
 DESCRIPTION="Collection of tools, libraries and tests for shader compilation"
@@ -29,6 +29,7 @@ BDEPEND="doc? ( dev-ruby/asciidoctor )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2020.4-fix-build.patch
+	"${FILESDIR}"/${PN}-2026.2-gcc17.patch
 )
 
 # https://github.com/google/shaderc/issues/470
