@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://calcurse.org/
 INHERIT=python-single-r1
 IUSE=caldav doc python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
-KEYWORDS=~amd64 arm64 ppc ppc64 x86
+KEYWORDS=amd64 arm64 ppc ppc64 x86
 LICENSE=BSD-2
 RDEPEND=sys-libs/ncurses:0= sys-libs/timezone-data python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) caldav? ( python_single_target_python3_12? ( dev-python/httplib2[python_targets_python3_12(-)] dev-python/pyparsing[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/httplib2[python_targets_python3_13(-)] dev-python/pyparsing[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/httplib2[python_targets_python3_14(-)] dev-python/pyparsing[python_targets_python3_14(-)] ) )
 REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
 SLOT=0
 SRC_URI=https://calcurse.org/files/calcurse-4.8.2.tar.gz
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=e1f86c21c98e0dab051f24a2bb0679c0
+_md5_=237ca02d8548d06d37faa54280d49631

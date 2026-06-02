@@ -7,7 +7,7 @@ HOMEPAGE=https://github.com/yshui/picom
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=meson python-any-r1 virtualx xdg
 IUSE=dbus +doc +drm opengl pcre test test
-KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv x86
+KEYWORDS=amd64 ~arm64 ~ppc64 ~riscv x86
 LICENSE=MPL-2.0 MIT
 RDEPEND=dev-libs/libconfig:= dev-libs/libev dev-libs/uthash x11-libs/libX11 x11-libs/libxcb x11-libs/pixman x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-renderutil dbus? ( sys-apps/dbus ) drm? ( x11-libs/libdrm ) opengl? ( media-libs/libepoxy virtual/opengl ) pcre? ( dev-libs/libpcre2:= )
 REQUIRED_USE=test? ( dbus )
@@ -15,4 +15,4 @@ RESTRICT=test !test? ( test )
 SLOT=0
 SRC_URI=https://github.com/yshui/picom/archive/v13.tar.gz -> picom-13.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	python-any-r1	891415dfe39ad9b41b461f2b86354af0	virtualx	9741d451eb64ea8bb9faee90d68a9b68	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=9647115ca1374d8354d15e065072302a
+_md5_=b3ac89268510fc0c592c5e1916de47fa

@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://github.com/AdaCore/gprbuild
 INHERIT=ada multiprocessing
 IUSE=static-libs static-pic ada_target_gcc_12 ada_target_gcc_13 ada_target_gcc_14 ada_target_gcc_15 ada_target_gcc_16
-KEYWORDS=~amd64 ~arm64 x86
+KEYWORDS=amd64 ~arm64 x86
 LICENSE=GPL-3
 RDEPEND=dev-ada/xmlada:=[shared,static-libs?,static-pic?,ada_target_gcc_15(-)?,ada_target_gcc_16(-)?,-ada_target_gcc_12(-),-ada_target_gcc_13(-),-ada_target_gcc_14(-)]
 REQUIRED_USE=^^ ( ada_target_gcc_15 ada_target_gcc_16 )
 SLOT=0/26.0.0
 SRC_URI=https://github.com/AdaCore/gprbuild/archive/refs/tags/v26.0.0.tar.gz -> gprbuild-26.0.0.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	ada	38e5ef8cefdc0d1e5303a1e71014684e	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399
-_md5_=dc543eb91544844c412e536e76853a57
+_md5_=994f1d878b49da8d4bcb027e61f69f0e

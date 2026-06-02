@@ -5,10 +5,10 @@ DESCRIPTION=Daemon to watch for creation and set default SELinux fcontexts
 EAPI=8
 HOMEPAGE=https://github.com/SELinuxProject/selinux/wiki
 INHERIT=systemd toolchain-funcs
-KEYWORDS=~amd64 arm ~arm64 ~mips ~x86
+KEYWORDS=amd64 arm ~arm64 ~mips ~x86
 LICENSE=GPL-2
 RDEPEND=dev-libs/glib:2 >=sys-libs/libsepol-3.10:= >=sys-libs/libselinux-3.10:=
 SLOT=0
 SRC_URI=https://github.com/SELinuxProject/selinux/releases/download/3.10/restorecond-3.10.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=ffa47818c4429367d14c80d2e8cff0a8
+_md5_=79d1336dbf628b00b01c47b6adf2a393
