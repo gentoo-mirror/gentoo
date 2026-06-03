@@ -6,7 +6,7 @@ EAPI="8"
 WANT_LIBTOOL="none"
 
 inherit autotools check-reqs flag-o-matic git-r3 linux-info
-inherit multiprocessing pax-utils python-utils-r1 toolchain-funcs
+inherit multiprocessing pax-utils toolchain-funcs
 
 PYVER="$(ver_cut 2-3)t"
 PATCHSET="python-gentoo-patches-3.13.4"
