@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,66 +6,51 @@ EAPI=8
 # Please do not apply any patches which affect the generated output from
 # `automake`, as this package is used to submit patches upstream.
 
-inherit flag-o-matic toolchain-funcs
-
-if [[ ${PV} == 9999 ]] ; then
-	EGIT_REPO_URI="https://git.savannah.gnu.org/r/${MY_PN}.git"
-	inherit git-r3
-else
-	MY_PN=${PN/-vanilla}
-	MY_P=${MY_PN}-${PV}
-
-	SRC_URI="mirror://gnu/${MY_PN}/${MY_P}.tar.xz"
-
-	S="${WORKDIR}/${MY_P}"
-fi
+MY_PN=${PN/-vanilla}
+MY_P=${MY_PN}-${PV}
 
 DESCRIPTION="Used to generate Makefile.in from Makefile.am"
 HOMEPAGE="https://www.gnu.org/software/automake/"
+SRC_URI="mirror://gnu/${MY_PN}/${MY_P}.tar.xz"
+S="${WORKDIR}"/${MY_P}
 
 LICENSE="GPL-2+ FSFAP"
 # Use Gentoo versioning for slotting.
 SLOT="${PV:0:4}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos"
 IUSE="test"
-# Failures w/ newer dejagnu, not worth backporting the fixes
-RESTRICT="!test? ( test ) test"
+RESTRICT="test !test? ( test )"
 
 RDEPEND="
 	>=dev-lang/perl-5.6
-	>=dev-build/automake-wrapper-11
+	>=dev-build/automake-wrapper-10
 	>=dev-build/autoconf-2.69:*
 	sys-devel/gnuconfig
 "
-DEPEND="${RDEPEND}"
-BDEPEND="
-	app-alternatives/gzip
-	dev-build/autoconf-vanilla:2.69
+DEPEND="
+	${RDEPEND}
 	sys-apps/help2man
-	test? (
-		dev-util/dejagnu
-	)
 "
+BDEPEND="
+	app-arch/gzip
+	test? ( dev-util/dejagnu )
+"
+
+PATCHES=(
+	"${FILESDIR}"/${MY_P}-perl-5.16.patch #424453
+	"${FILESDIR}"/${MY_P}-install-sh-avoid-low-risk-race-in-tmp.patch
+	"${FILESDIR}"/${MY_P}-perl-escape-curly-bracket-r1.patch
+)
 
 src_prepare() {
 	default
-
-	export WANT_AUTOCONF=vanilla-2.69
-	# Don't try wrapping the autotools - this thing runs as it tends
-	# to be a bit esoteric, and the script does `set -e` itself.
-	./bootstrap || die
+	export WANT_AUTOCONF=2.5
+	export HELP2MAN=true
 	sed -i -e "/APIVERSION=/s:=.*:=${SLOT}:" configure || die
-
-	# bug #628912
-	if ! has_version -b sys-apps/texinfo ; then
-		touch doc/{stamp-vti,version.texi,automake.info} || die
-	fi
+	export TZ="UTC"  #589138
 }
 
 src_configure() {
-	# Old lex tests fail w/ modern C
-	export CC="$(tc-getCC) $(test-flags-CC -fpermissive)"
-
 	# Also used in install.
 	MY_INFODIR="${EPREFIX}/usr/share/${P}/info"
 	econf \
@@ -74,12 +59,14 @@ src_configure() {
 		--infodir="${MY_INFODIR}"
 }
 
-src_test() {
-	# Can't cope with newer Python versions, so pretend we don't
-	# have it installed.
-	local -x PYTHON=false
+src_compile() {
+	:;
 
-	default
+	# TODO: This was missing a || die originally and fails now...
+	#local x
+	#for x in aclocal automake; do
+	#	help2man "perl -Ilib ${x}" > doc/${x}-${SLOT}.1 || die
+	#done
 }
 
 src_install() {
@@ -87,9 +74,8 @@ src_install() {
 
 	# dissuade Portage from removing our dir file
 	touch "${ED}"/usr/share/${P}/info/.keepinfodir || die
+	docompress -x /usr/share/${P}/info/dir
 
-	#rm "${ED}"/usr/share/aclocal/README || die
-	#rmdir "${ED}"/usr/share/aclocal || die
 	rm \
 		"${ED}"/usr/bin/{aclocal,automake}-vanilla \
 		"${ED}"/usr/share/man/man1/{aclocal,automake}-vanilla.1 || die

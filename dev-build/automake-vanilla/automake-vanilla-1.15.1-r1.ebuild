@@ -1,10 +1,12 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 # Please do not apply any patches which affect the generated output from
 # `automake`, as this package is used to submit patches upstream.
+
+inherit flag-o-matic toolchain-funcs
 
 if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://git.savannah.gnu.org/r/${MY_PN}.git"
@@ -13,10 +15,7 @@ else
 	MY_PN=${PN/-vanilla}
 	MY_P=${MY_PN}-${PV}
 
-	SRC_URI="
-		mirror://gnu/${MY_PN}/${MY_P}.tar.xz
-		https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN/-vanilla}/${PN/-vanilla}-1.16.5-tests-c99.patch.xz
-	"
+	SRC_URI="mirror://gnu/${MY_PN}/${MY_P}.tar.xz"
 
 	S="${WORKDIR}/${MY_P}"
 fi
@@ -41,27 +40,17 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	app-alternatives/gzip
+	dev-build/autoconf-vanilla:2.69
 	sys-apps/help2man
 	test? (
 		dev-util/dejagnu
-		sys-devel/bison
-		sys-devel/flex
 	)
 "
-
-PATCHES=(
-	"${FILESDIR}"/${MY_PN}-1.16.5-py3-compile.patch
-	"${FILESDIR}"/${MY_PN}-1.16.5-fix-instmany-python.sh-test.patch
-	"${FILESDIR}"/${MY_PN}-1.16.5-fix-py-compile-basedir.sh-test.patch
-	# upstreamed
-	"${FILESDIR}"/${MY_PN}-1.16.5-apostrophe-in-tests.patch
-	"${WORKDIR}"/${PN/-vanilla}-1.16.5-tests-c99.patch
-)
 
 src_prepare() {
 	default
 
-	export WANT_AUTOCONF=2.5
+	export WANT_AUTOCONF=vanilla-2.69
 	# Don't try wrapping the autotools - this thing runs as it tends
 	# to be a bit esoteric, and the script does `set -e` itself.
 	./bootstrap || die
@@ -74,6 +63,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# Old lex tests fail w/ modern C
+	export CC="$(tc-getCC) $(test-flags-CC -fpermissive)"
+
 	# Also used in install.
 	MY_INFODIR="${EPREFIX}/usr/share/${P}/info"
 	econf \
@@ -87,9 +79,7 @@ src_test() {
 	# have it installed.
 	local -x PYTHON=false
 
-	# Fails with byacc/flex and t/dist-auxdir-many-subdirs.sh doesn't
-	# like our Python hack.
-	emake YACC="bison -y" LEX="flex" XFAIL_TESTS="t/dist-auxdir-many-subdirs.sh" check
+	default
 }
 
 src_install() {
@@ -97,6 +87,7 @@ src_install() {
 
 	# dissuade Portage from removing our dir file
 	touch "${ED}"/usr/share/${P}/info/.keepinfodir || die
+	docompress -x /usr/share/${P}/info/dir
 
 	#rm "${ED}"/usr/share/aclocal/README || die
 	#rmdir "${ED}"/usr/share/aclocal || die

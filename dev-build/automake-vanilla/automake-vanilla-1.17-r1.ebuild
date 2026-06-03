@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -9,45 +9,55 @@ EAPI=8
 MY_PN=${PN/-vanilla}
 MY_P=${MY_PN}-${PV}
 
+if [[ ${PV} == 9999 ]] ; then
+	EGIT_REPO_URI="https://git.savannah.gnu.org/r/${MY_PN}.git"
+	inherit git-r3
+else
+	SRC_URI="mirror://gnu/${MY_PN}/${MY_P}.tar.xz"
+
+	S="${WORKDIR}/${MY_P}"
+fi
+
 DESCRIPTION="Used to generate Makefile.in from Makefile.am"
 HOMEPAGE="https://www.gnu.org/software/automake/"
-SRC_URI="mirror://gnu/${MY_PN}/${MY_P}.tar.xz"
-S="${WORKDIR}"/${MY_P}
 
 LICENSE="GPL-2+ FSFAP"
 # Use Gentoo versioning for slotting.
 SLOT="${PV:0:4}"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos"
 IUSE="test"
-RESTRICT="test !test? ( test )"
+RESTRICT="!test? ( test )"
 
 RDEPEND="
 	>=dev-lang/perl-5.6
-	>=dev-build/automake-wrapper-10
+	>=dev-build/automake-wrapper-11
 	>=dev-build/autoconf-2.69:*
 	sys-devel/gnuconfig
 "
-DEPEND="
-	${RDEPEND}
-	sys-apps/help2man
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
-	app-arch/gzip
-	test? ( dev-util/dejagnu )
+	app-alternatives/gzip
+	sys-apps/help2man
+	test? (
+		dev-util/dejagnu
+		sys-devel/bison
+		sys-devel/flex
+	)
 "
-
-PATCHES=(
-	"${FILESDIR}"/${MY_P}-perl-5.16.patch #424453
-	"${FILESDIR}"/${MY_P}-install-sh-avoid-low-risk-race-in-tmp.patch
-	"${FILESDIR}"/${MY_P}-perl-escape-curly-bracket-r1.patch
-)
 
 src_prepare() {
 	default
+
 	export WANT_AUTOCONF=2.5
-	export HELP2MAN=true
+	# Don't try wrapping the autotools - this thing runs as it tends
+	# to be a bit esoteric, and the script does `set -e` itself.
+	./bootstrap || die
 	sed -i -e "/APIVERSION=/s:=.*:=${SLOT}:" configure || die
-	export TZ="UTC"  #589138
+
+	# bug #628912
+	if ! has_version -b sys-apps/texinfo ; then
+		touch doc/{stamp-vti,version.texi,automake.info} || die
+	fi
 }
 
 src_configure() {
@@ -59,14 +69,9 @@ src_configure() {
 		--infodir="${MY_INFODIR}"
 }
 
-src_compile() {
-	:;
-
-	# TODO: This was missing a || die originally and fails now...
-	#local x
-	#for x in aclocal automake; do
-	#	help2man "perl -Ilib ${x}" > doc/${x}-${SLOT}.1 || die
-	#done
+src_test() {
+	# Fails with byacc/flex
+	emake YACC="bison -y" LEX="flex" check
 }
 
 src_install() {
@@ -74,7 +79,10 @@ src_install() {
 
 	# dissuade Portage from removing our dir file
 	touch "${ED}"/usr/share/${P}/info/.keepinfodir || die
+	docompress -x /usr/share/${P}/info/dir
 
+	#rm "${ED}"/usr/share/aclocal/README || die
+	#rmdir "${ED}"/usr/share/aclocal || die
 	rm \
 		"${ED}"/usr/bin/{aclocal,automake}-vanilla \
 		"${ED}"/usr/share/man/man1/{aclocal,automake}-vanilla.1 || die
@@ -100,8 +108,13 @@ src_install() {
 	done
 	popd >/dev/null || die
 
-	local major="$(ver_cut 1)"
-	local minor="$(ver_cut 2)"
+	if [[ ${PV} == 9999 ]]; then
+		local major="89"
+		local minor="999"
+	else
+		local major="$(ver_cut 1)"
+		local minor="$(ver_cut 2)"
+	fi
 	local idx="$((99999-(major*1000+minor)))"
 	newenvd - "07automake${idx}" <<-EOF
 	INFOPATH="${MY_INFODIR}"
