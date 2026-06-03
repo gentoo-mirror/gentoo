@@ -36,6 +36,27 @@
 
 #--- END OF EXAMPLES ---
 
+# Michał Górny <mgorny@gentoo.org> (2026-06-03)
+# Mike Pagano <mpagano@gentoo.org> (2026-06-03)
+# Support for 5.10.x and 5.15.x kernels in Gentoo is being discontinued.
+#
+# These kernel branches differ so much from the mainline kernel that
+# security patches are frequently delayed or never backported upstream
+# at all.  The need for proactive downstream backporting creates a lot
+# of maintenance effort for us, and we neither feel confident with
+# correctness, nor with completeness of our backports.
+#
+# Users can still download kernel sources from upstream repositories
+# if necessary.
+#
+# Bug #976694.  Removal on 2026-07-03.
+<sys-kernel/gentoo-sources-6
+<sys-kernel/gentoo-kernel-6
+<sys-kernel/gentoo-kernel-bin-6
+<sys-kernel/vanilla-sources-6
+<sys-kernel/vanilla-kernel-6
+<virtual/dist-kernel-6
+
 # Sam James <sam@gentoo.org> (2026-06-02)
 # Fails to start (bug #976623)
 =sys-auth/elogind-255.26
