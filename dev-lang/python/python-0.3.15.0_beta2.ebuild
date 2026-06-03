@@ -3,13 +3,17 @@
 
 EAPI="8"
 
+VERIFY_SIG_METHOD=sigstore
 WANT_LIBTOOL="none"
 
-inherit autotools check-reqs flag-o-matic git-r3 linux-info
-inherit multiprocessing pax-utils toolchain-funcs
+inherit autotools check-reqs flag-o-matic linux-info
+inherit multiprocessing pax-utils toolchain-funcs verify-sig
 
+REAL_PV=${PV#0.}
+MY_PV=${REAL_PV/_beta/b}
+MY_P="Python-${MY_PV%_p*}"
 PYVER="$(ver_cut 2-3)t"
-PATCHSET="python-gentoo-patches-3.15.0b2"
+PATCHSET="python-gentoo-patches-${MY_PV}"
 
 DESCRIPTION="Freethreading (no-GIL) version of Python programming language"
 HOMEPAGE="
@@ -17,9 +21,13 @@ HOMEPAGE="
 	https://github.com/python/cpython/
 "
 SRC_URI="
+	https://www.python.org/ftp/python/${REAL_PV%%_*}/${MY_P}.tar.xz
 	https://distfiles.gentoo.org/pub/proj/python/patchsets/${PYVER%t}/${PATCHSET}.tar.xz
+	verify-sig? (
+		https://www.python.org/ftp/python/${REAL_PV%%_*}/${MY_P}.tar.xz.sigstore
+	)
 "
-EGIT_REPO_URI="https://github.com/python/cpython.git"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="PSF-2"
 SLOT="${PYVER}"
@@ -93,6 +101,10 @@ PDEPEND="
 	ensurepip? ( dev-python/ensurepip-pip )
 "
 
+# https://www.python.org/downloads/metadata/sigstore/
+VERIFY_SIG_CERT_IDENTITY=hugo@python.org
+VERIFY_SIG_CERT_OIDC_ISSUER=https://github.com/login/oauth
+
 # large file tests involve a 2.5G file being copied (duplicated)
 CHECKREQS_DISK_BUILD=5500M
 
@@ -136,7 +148,9 @@ pkg_setup() {
 }
 
 src_unpack() {
-	git-r3_src_unpack
+	if use verify-sig; then
+		verify-sig_verify_detached "${DISTDIR}"/${MY_P}.tar.xz{,.sigstore}
+	fi
 	default
 }
 
@@ -570,7 +584,7 @@ src_install() {
 
 	ln -s ../python/EXTERNALLY-MANAGED "${libdir}/EXTERNALLY-MANAGED" || die
 
-	dodoc Misc/{ACKS,HISTORY}
+	dodoc Misc/{ACKS,HISTORY,NEWS}
 
 	if use examples; then
 		docinto examples
