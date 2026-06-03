@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -22,7 +22,7 @@ RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[gui,network,sql,sqlite,widgets]
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qtwebsockets-${QTMIN}:6
-	>=app-misc/libdatovka-0.7.0
+	>=app-misc/libdatovka-0.7.3
 "
 DEPEND="${RDEPEND}"
 BDEPEND="

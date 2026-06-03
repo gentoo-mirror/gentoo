@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DESCRIPTION="Client library for accessing ISDS SOAP services"
 HOMEPAGE="https://www.datovka.cz/cs/pages/libdatovka.html"
-SRC_URI="https://secure.nic.cz/files/datove_schranky/${PN}/${P}.tar.xz"
+SRC_URI="https://datovka.nic.cz/${PN}/${P}.tar.xz"
 
 LICENSE="LGPL-3"
 SLOT="0"
