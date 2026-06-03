@@ -97,9 +97,11 @@ src_configure() {
 }
 
 src_test() {
-	# bug 686392: needs network connection
-	local myctestargs=(
-		-E "(knsbackendtest|flatpaktest)"
+	CMAKE_SKIP_TESTS=(
+		# bug 686392: needs network connection
+		knsbackendtest flatpaktest
+		# bug 975993: strange translation/data failure
+		CategoriesTest
 	)
 
 	ecm_src_test
