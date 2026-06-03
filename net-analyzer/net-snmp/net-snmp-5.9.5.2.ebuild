@@ -93,6 +93,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.9.3-0002-Tidy-up-net-snmp-config-output.patch
 	"${FILESDIR}"/${PN}-5.9.3-0003-Prune-Libs.private-entries-in-netsnmp-.pc.in.patch
 	"${FILESDIR}"/${PN}-5.9.3-0004-Search-for-ltinfo-in-configure-if-needed.patch
+	"${FILESDIR}"/${PN}-5.9.5-c23.patch
 )
 
 pkg_setup() {
