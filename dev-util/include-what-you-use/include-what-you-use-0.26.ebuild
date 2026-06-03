@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
-LLVM_COMPAT=( 20 )
+PYTHON_COMPAT=( python3_{12..14} )
+LLVM_COMPAT=( 22 )
 
 inherit cmake llvm-r2 python-single-r1 toolchain-funcs
 
@@ -42,6 +42,13 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
+		# The libiwyu.so library is BUILDTREE_ONLY, i.e., it is not
+		# meant as public library, but enabling shared libs would
+		# result in the include-what-you-use executable to reference
+		# libiwyu.so, which is not going to be installed installed
+		# (because it has no installation rule).
+		-DBUILD_SHARED_LIBS=OFF
+
 		# Note [llvm install path]
 		# Unfortunately all binaries using clang driver
 		# have to reside at the same path depth as
