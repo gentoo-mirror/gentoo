@@ -6,7 +6,7 @@ EAPI="8"
 WANT_LIBTOOL="none"
 
 inherit autotools check-reqs flag-o-matic linux-info
-inherit multiprocessing pax-utils python-utils-r1 toolchain-funcs
+inherit multiprocessing pax-utils toolchain-funcs
 inherit verify-sig
 
 REAL_PV=${PV#0.}
