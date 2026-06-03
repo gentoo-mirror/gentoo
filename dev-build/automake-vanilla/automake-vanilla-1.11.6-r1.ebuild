@@ -1,11 +1,18 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
+# Please do not apply any patches which affect the generated output from
+# `automake`, as this package is used to submit patches upstream.
+
+MY_PN=${PN/-vanilla}
+MY_P=${MY_PN}-${PV}
 
 DESCRIPTION="Used to generate Makefile.in from Makefile.am"
 HOMEPAGE="https://www.gnu.org/software/automake/"
-SRC_URI="mirror://gnu/${PN}/${P}.tar.xz"
+SRC_URI="mirror://gnu/${MY_PN}/${MY_P}.tar.xz"
+S="${WORKDIR}"/${MY_P}
 
 LICENSE="GPL-2+ FSFAP"
 # Use Gentoo versioning for slotting.
@@ -30,9 +37,9 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${P}-perl-5.16.patch #424453
-	"${FILESDIR}"/${P}-install-sh-avoid-low-risk-race-in-tmp.patch
-	"${FILESDIR}"/${P}-perl-escape-curly-bracket-r1.patch
+	"${FILESDIR}"/${MY_P}-perl-5.16.patch #424453
+	"${FILESDIR}"/${MY_P}-install-sh-avoid-low-risk-race-in-tmp.patch
+	"${FILESDIR}"/${MY_P}-perl-escape-curly-bracket-r1.patch
 )
 
 src_prepare() {
@@ -43,15 +50,23 @@ src_prepare() {
 	export TZ="UTC"  #589138
 }
 
-src_compile() {
+src_configure() {
 	# Also used in install.
-	MY_INFODIR="${EPREFIX}/usr/share/automake-${PV}/info"
-	econf --infodir="${MY_INFODIR}"
+	MY_INFODIR="${EPREFIX}/usr/share/${P}/info"
+	econf \
+		--datadir="${EPREFIX}"/usr/share/automake-vanilla-${PV} \
+		--program-suffix="-vanilla" \
+		--infodir="${MY_INFODIR}"
+}
 
-	local x
-	for x in aclocal automake; do
-		help2man "perl -Ilib ${x}" > doc/${x}-${SLOT}.1
-	done
+src_compile() {
+	:;
+
+	# TODO: This was missing a || die originally and fails now...
+	#local x
+	#for x in aclocal automake; do
+	#	help2man "perl -Ilib ${x}" > doc/${x}-${SLOT}.1 || die
+	#done
 }
 
 src_install() {
@@ -59,10 +74,11 @@ src_install() {
 
 	# dissuade Portage from removing our dir file
 	touch "${ED}"/usr/share/${P}/info/.keepinfodir || die
+	docompress -x /usr/share/${P}/info/dir
 
 	rm \
-		"${ED}"/usr/bin/{aclocal,automake} \
-		"${ED}"/usr/share/man/man1/{aclocal,automake}.1 || die
+		"${ED}"/usr/bin/{aclocal,automake}-vanilla \
+		"${ED}"/usr/share/man/man1/{aclocal,automake}-vanilla.1 || die
 
 	# remove all config.guess and config.sub files replacing them
 	# w/a symlink to a specific gnuconfig version
@@ -73,22 +89,22 @@ src_install() {
 	done
 
 	# Avoid QA message about pre-compressed file in docs
-	local tarfile="${ED}/usr/share/doc/${PF}/amhello-1.0.tar.gz"
+	local tarfile="${ED}/usr/share/doc/automake-vanilla-${PVR}/amhello-1.0.tar.gz"
 	if [[ -f "${tarfile}" ]] ; then
-	gunzip "${tarfile}" || die
+		gunzip "${tarfile}" || die
 	fi
 
 	pushd "${D}/${MY_INFODIR}" >/dev/null || die
 	for f in *.info*; do
 		# Install convenience aliases for versioned Automake pages.
-		ln -s "$f" "${f/./-${PV}.}" || die
+		ln -s "$f" "${f/./-vanilla-${PV}.}" || die
 	done
 	popd >/dev/null || die
 
 	local major="$(ver_cut 1)"
 	local minor="$(ver_cut 2)"
 	local idx="$((99999-(major*1000+minor)))"
-	newenvd - "06automake${idx}" <<-EOF
+	newenvd - "07automake${idx}" <<-EOF
 	INFOPATH="${MY_INFODIR}"
 	EOF
 

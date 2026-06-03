@@ -1,14 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 # Please do not apply any patches which affect the generated output from
 # `automake`, as this package is used to submit patches upstream.
-
-PYTHON_COMPAT=( python3_{11..14} )
-
-inherit python-any-r1
 
 MY_PN=${PN/-vanilla}
 MY_P=${MY_PN}-${PV}
@@ -43,17 +39,11 @@ BDEPEND="
 	app-alternatives/gzip
 	sys-apps/help2man
 	test? (
-		${PYTHON_DEPS}
 		dev-util/dejagnu
 		sys-devel/bison
 		sys-devel/flex
 	)
 "
-
-pkg_setup() {
-	# Avoid python-any-r1_pkg_setup
-	:
-}
 
 src_prepare() {
 	default
@@ -71,7 +61,6 @@ src_prepare() {
 }
 
 src_configure() {
-	use test && python_setup
 	# Also used in install.
 	MY_INFODIR="${EPREFIX}/usr/share/${P}/info"
 	econf \
@@ -90,6 +79,7 @@ src_install() {
 
 	# dissuade Portage from removing our dir file
 	touch "${ED}"/usr/share/${P}/info/.keepinfodir || die
+	docompress -x /usr/share/${P}/info/dir
 
 	#rm "${ED}"/usr/share/aclocal/README || die
 	#rmdir "${ED}"/usr/share/aclocal || die

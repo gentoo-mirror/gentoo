@@ -103,6 +103,7 @@ src_install() {
 
 	# dissuade Portage from removing our dir file
 	touch "${ED}"/usr/share/${P}/info/.keepinfodir || die
+	docompress -x /usr/share/${P}/info/dir
 
 	local f
 	for f in config.{guess,sub} ; do
