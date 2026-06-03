@@ -1,15 +1,15 @@
 BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=app-arch/bzip2:=[static-libs] dev-libs/libdaemon:= >=dev-libs/libgcrypt-1.8.0:= dev-util/mig sys-apps/util-linux[static-libs] sys-block/parted[static-libs] sys-power/libacpica x11-libs/libpciaccess[static-libs] virtual/libcrypt:=[static-libs] virtual/zlib:=[static-libs] ncurses? ( sys-libs/ncurses:= ) rumpkernel? ( sys-kernel/rumpkernel ) xkb? ( x11-libs/libxkbcommon )
+DEPEND=app-arch/bzip2:=[static-libs] dev-libs/libdaemon:= >=dev-libs/libgcrypt-1.8.0:= dev-util/mig sys-apps/util-linux[static-libs] sys-block/parted[static-libs] sys-power/libacpica x11-libs/libpciaccess[static-libs] virtual/libcrypt:=[static-libs] virtual/zlib:=[static-libs] lwip? ( net-libs/lwip ) ncurses? ( sys-libs/ncurses:= ) rumpkernel? ( sys-kernel/rumpkernel ) xkb? ( x11-libs/libxkbcommon )
 DESCRIPTION=GNU Hurd is the GNU project's replacement for UNIX
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/hurd/hurd.html
 INHERIT=crossdev multilib flag-o-matic autotools
-IUSE=custom-cflags headers-only ncurses rumpkernel xkb
+IUSE=custom-cflags headers-only lwip ncurses rumpkernel xkb
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2 BSD-2
-RDEPEND=app-arch/bzip2:=[static-libs] dev-libs/libdaemon:= >=dev-libs/libgcrypt-1.8.0:= dev-util/mig sys-apps/util-linux[static-libs] sys-block/parted[static-libs] sys-power/libacpica x11-libs/libpciaccess[static-libs] virtual/libcrypt:=[static-libs] virtual/zlib:=[static-libs] ncurses? ( sys-libs/ncurses:= ) rumpkernel? ( sys-kernel/rumpkernel ) xkb? ( x11-libs/libxkbcommon )
+RDEPEND=app-arch/bzip2:=[static-libs] dev-libs/libdaemon:= >=dev-libs/libgcrypt-1.8.0:= dev-util/mig sys-apps/util-linux[static-libs] sys-block/parted[static-libs] sys-power/libacpica x11-libs/libpciaccess[static-libs] virtual/libcrypt:=[static-libs] virtual/zlib:=[static-libs] lwip? ( net-libs/lwip ) ncurses? ( sys-libs/ncurses:= ) rumpkernel? ( sys-kernel/rumpkernel ) xkb? ( x11-libs/libxkbcommon )
 SLOT=0
 SRC_URI=https://distfiles.gentoo.org/pub/proj/hurd/snapshots/hurd/hurd-0.9_p20260331.tar.xz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	crossdev	d618c699554f72b98f8ceeeeb361dc9e	multilib	fc812e8eb2170022c28272d80a1f9e77	flag-o-matic	fd3558f73f6503093adee69adf41020d	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112
-_md5_=e588072d9d8af5953317dfc1588b7915
+_md5_=1e1bf281253f8b53d64c6d70c7783442
