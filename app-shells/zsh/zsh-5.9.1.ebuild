@@ -52,7 +52,7 @@ fi
 
 PATCHES=(
 	# Add openrc specific options for init.d completion
-	"${FILESDIR}"/${PN}-5.9.1-init.d-gentoo.patch
+	"${FILESDIR}"/zsh-5.9.1-init.d-gentoo.patch
 )
 
 src_prepare() {
@@ -161,9 +161,16 @@ src_test() {
 
 src_install() {
 	emake DESTDIR="${D}" install
+
+	dodoc ChangeLog* META-FAQ NEWS README config.modules
+
 	if use doc; then
-		emake -C Doc DESTDIR="${D}" install.html install.html
+		emake -C Doc DESTDIR="${D}" install.html
+		dodoc Doc/*.dvi Doc/*.pdf
 	fi
+
+	docinto StartupFiles
+	dodoc StartupFiles/z*
 
 	insinto /etc/zsh
 	export PREFIX_QUOTE_CHAR='"' PREFIX_EXTRA_REGEX="/EUID/s,0,${EUID},"
@@ -193,15 +200,6 @@ src_install() {
 			-i "${i}"
 		doins "${i}"
 	done
-
-	dodoc ChangeLog* META-FAQ NEWS README config.modules
-
-	if use doc; then
-		dodoc Doc/intro.{a4,us}.pdf Doc/zsh.{dvi,pdf}
-	fi
-
-	docinto StartupFiles
-	dodoc StartupFiles/z*
 }
 
 pkg_postinst() {
