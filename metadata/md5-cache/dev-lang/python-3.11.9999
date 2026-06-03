@@ -4,7 +4,7 @@ DEPEND=app-arch/bzip2:= app-arch/xz-utils:= app-crypt/libb2 app-misc/mime-types 
 DESCRIPTION=An interpreted, interactive, object-oriented programming language
 EAPI=8
 HOMEPAGE=https://www.python.org/ https://github.com/python/cpython/
-INHERIT=autotools check-reqs flag-o-matic git-r3 multiprocessing pax-utils prefix python-utils-r1 toolchain-funcs
+INHERIT=autotools check-reqs flag-o-matic git-r3 multiprocessing pax-utils prefix toolchain-funcs
 IUSE=bluetooth debug +ensurepip examples gdbm libedit +ncurses pgo +readline +sqlite +ssl test tk valgrind
 LICENSE=PSF-2
 PDEPEND=ensurepip? ( dev-python/ensurepip-pip dev-python/ensurepip-setuptools )
@@ -13,5 +13,5 @@ RDEPEND=app-arch/bzip2:= app-arch/xz-utils:= app-crypt/libb2 app-misc/mime-types
 RESTRICT=!test? ( test )
 SLOT=3.11
 SRC_URI=https://distfiles.gentoo.org/pub/proj/python/patchsets/3.11/python-gentoo-patches-3.11.13.tar.xz
-_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	flag-o-matic	fd3558f73f6503093adee69adf41020d	git-r3	2f8cdb10b033f92c3136aa6488a31c98	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	pax-utils	5555f2e75744739fe100ee62c22d28fe	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707
-_md5_=b163b9730811ac4a45daa169142ba541
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	flag-o-matic	fd3558f73f6503093adee69adf41020d	git-r3	2f8cdb10b033f92c3136aa6488a31c98	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	pax-utils	5555f2e75744739fe100ee62c22d28fe	prefix	c3c4c93ebda319c0fa7ed6f942ba1010
+_md5_=e05b35b2fe2cdd34e2b058b0bc7b6b8c
