@@ -10,11 +10,11 @@ inherit distutils-r1
 
 DESCRIPTION="Seamless Polymorphic Inheritance for Django Models"
 HOMEPAGE="
-	https://github.com/jazzband/django-polymorphic/
+	https://github.com/django-commons/django-polymorphic/
 	https://pypi.org/project/django-polymorphic/
 "
 SRC_URI="
-	https://github.com/jazzband/django-polymorphic/archive/v${PV}.tar.gz
+	https://github.com/django-commons/django-polymorphic/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 "
 
@@ -48,6 +48,10 @@ python_test() {
 		src/polymorphic/tests/test_migration_managers.py
 		src/polymorphic/tests/test_migrations
 		src/polymorphic/tests/test_serialization.py
+	)
+	local EPYTEST_DESELECT=(
+		# require django-extra-views
+		src/polymorphic/tests/test_missing_coverage.py::TestPolymorphicFormSetMixin
 	)
 
 	rm -f conftest.py || die
