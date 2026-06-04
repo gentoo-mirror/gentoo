@@ -83,6 +83,6 @@ src_configure() {
 src_install() {
 	meson_src_install
 
-    mv "${ED}"/usr/share/doc/${PN}/* "${ED}"/usr/share/doc/${PF} || die
-    rmdir "${ED}"/usr/share/doc/${PN} || die
+	mv "${ED}"/usr/share/doc/${PN}/* "${ED}"/usr/share/doc/${PF} || die
+	rmdir "${ED}"/usr/share/doc/${PN} || die
 }
