@@ -293,6 +293,7 @@ acct-group/postfwd 0-r2: A group for mail-filter/postfwd
 acct-group/postgres 0-r3: PostgreSQL program group
 acct-group/postgres_exporter 0-r2: System group: postgres_exporter
 acct-group/postgrey 0-r1: Group for the postgrey mail daemon
+acct-group/powa 0: System group: powa
 acct-group/privoxy 0-r3: A privoxy: privacy oriented web proxy group
 acct-group/prometheus 0-r3: System group: prometheus
 acct-group/prosody 0-r1: A group for net-im/prosody
@@ -738,6 +739,7 @@ acct-user/postgres_exporter 0-r2: user for postgres_exporter
 acct-user/postgrey 0-r1: User for the postgrey mail daemon
 acct-user/postmaster 0-r3: Postmaster user
 acct-user/postsrsd 0: User for mail-filter/postsrsd
+acct-user/powa 0: A user for dev-db/powa-web
 acct-user/privoxy 0-r3: A privoxy: privacy oriented web proxy user
 acct-user/prometheus 0-r3: user for prometheus
 acct-user/prosody 0-r1: A user for net-im/prosody
@@ -3993,6 +3995,7 @@ dev-db/freetds 1.5 1.5.6: Tabular Datastream Library
 dev-db/futuresql 0.1.1: Non-blocking Qt database framework
 dev-db/gqlplus 1.16-r2: a front-end for Oracle program sqlplus with command-line editing
 dev-db/hsqldb 2.7.4-r1: HSQLDB - Lightweight 100% Java SQL Database Engine
+dev-db/hypopg 1.4.2: Hypothetical Indexes for PostgreSQL
 dev-db/influx-cli 2.7.3 2.7.5-r1: The command line for influxdb
 dev-db/influxdb 1.8.10 2.7.10-r1 2.7.11: Scalable datastore for metrics, events, and real-time analytics
 dev-db/innotop 1.13.0: A text-mode MySQL and InnoDB monitor like mytop, but with many more features
@@ -4033,7 +4036,11 @@ dev-db/pgFormatter 5.8: PostgreSQL SQL syntax beautifier
 dev-db/pgLatLon 0.16: Spatial database extension for the PostgreSQL
 dev-db/pg_activity 3.6.2: Realtime PostgreSQL database server monitoring tool
 dev-db/pg_background 1.5: Postgres Background Worker
+dev-db/pg_qualstats 2.1.3: Statistics about predicates for helping finding what indices are missing
+dev-db/pg_stat_kcache 2.3.1: Statistics about physical disk access and CPU consumption done by backends.
 dev-db/pg_top 4.1.3: 'top' for PostgreSQL
+dev-db/pg_track_settings 2.1.2: Keeps track of PostgreSQL settings modification
+dev-db/pg_wait_sampling 1.1.9: Sampling based statistics of wait events
 dev-db/pgagent 4.2.3-r1 4.2.3-r2: pgAgent is a job scheduler for PostgreSQL
 dev-db/pgbadger 12.4 13.1 13.2: pgBadger is a PostgreSQL log analyzer
 dev-db/pgbouncer 1.23.1 1.25.2: Lightweight connection pooler for PostgreSQL
@@ -4050,6 +4057,9 @@ dev-db/phppgadmin 7.14.7: Web-based administration for Postgres database in php
 dev-db/plr 8.4.5 8.4.6: R language extension for postgresql database
 dev-db/postgis 3.3.7-r2 3.3.8-r1 3.3.9 3.4.4-r1 3.4.5 3.5.2-r1 3.5.3-r2 3.5.5 3.6.0 3.6.2: Geographic Objects for PostgreSQL
 dev-db/postgresql 14.23 15.18 16.14 17.10 18.4 9999: PostgreSQL RDBMS
+dev-db/powa-archivist 5.1.1: PostgreSQL Workload Analyzer Archivist
+dev-db/powa-collector 1.3.2: PostgreSQL Workload Analyzer Collector
+dev-db/powa-web 5.1.5: PostgreSQL Workload Analyzer user interface
 dev-db/pspg 5.5.4 5.5.8 5.8.1 5.8.5 5.8.7: A better pager for CLI database clients and can be used in place of psql
 dev-db/psqlodbc 16.00.0000: Official ODBC driver for PostgreSQL
 dev-db/qdbm 1.8.78-r5: Quick Database Manager

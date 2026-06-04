@@ -1,0 +1,13 @@
+DEFINED_PHASES=compile install postinst prepare setup test
+DESCRIPTION=PostgreSQL Workload Analyzer Archivist
+EAPI=8
+HOMEPAGE=https://github.com/powa-team/powa-archivist
+INHERIT=optfeature postgres-multi
+IUSE=postgres_targets_postgres18 postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14
+KEYWORDS=~amd64 ~x86
+LICENSE=POSTGRESQL
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/powa-team/powa-archivist/archive/refs/tags/REL_5_1_1.tar.gz -> powa-archivist-5.1.1.tar.gz
+_eclasses_=optfeature	538bce96e5589935b57e178e8635f301	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	postgres	3671a84f95eadcaa836aefe3fd51b6a1	postgres-multi	ccad35d745ce66b41837db8a6ee94601
+_md5_=764174818f60ec0d9b753e661feb6fa2
