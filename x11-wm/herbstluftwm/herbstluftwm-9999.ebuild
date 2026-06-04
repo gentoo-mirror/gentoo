@@ -107,6 +107,13 @@ src_compile() {
 		distutils-r1_src_compile
 		popd >/dev/null || die
 	fi
+
+	# The following symlinks are required for src_test
+	ln -s "${BUILD_DIR}/herbstclient" || die "Could not symlink herbstclient"
+	ln -s "${BUILD_DIR}/herbstluftwm" || die "Could not symlink herbstluftwm"
+	if [[ -n "${EGIT_REPO_URI}" ]]; then
+		ln -s "${BUILD_DIR}/doc/hlwm-doc.json" "doc/hlwm-doc.json" || die "Could not symlink hlwm-doc.json"
+	fi
 }
 
 src_install() {
@@ -126,7 +133,7 @@ src_install() {
 	# since they are then shipped pre-compiled in herbstluftwm's
 	# release tarbal. Or they exist in live ebuilds if the 'doc' USE
 	# flag is enabled.
-	if [[ "${PV}" != 9999 ]] || use doc; then
+	if [[ -n "${EGIT_REPO_URI}" ]] || use doc; then
 		local man_pages=(
 			herbstluftwm.1
 			herbstclient.1
@@ -147,12 +154,11 @@ src_install() {
 distutils_enable_tests pytest
 
 src_test() {
-	if [[ -n "${EGIT_REPO_URI}" ]]; then
-		ln -s "${BUILD_DIR}/doc/hlwm-doc.json" "doc/hlwm-doc.json" || die "Could not symlink hlwm-doc.json"
-	fi
-
-	ln -s "${BUILD_DIR}/herbstclient" || die "Could not symlink herbstclient"
-	ln -s "${BUILD_DIR}/herbstluftwm" || die "Could not symlink herbstluftwm"
-
+	local EPYTEST_DESELECT=(
+		# Stress test that rapidly creates 50 clients. Prone to
+		# IPC/Xvfb timeouts, especially in parallelized builds
+		# environments.
+		tests/test_rules.py::test_floatplacement_smart_create_many
+	)
 	distutils-r1_src_test
 }
