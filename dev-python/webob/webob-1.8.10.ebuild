@@ -26,7 +26,6 @@ RDEPEND="
 	' 3.{13..14})
 "
 
-distutils_enable_sphinx docs 'dev-python/alabaster'
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
