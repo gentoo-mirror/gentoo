@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=pdm-backend
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 shell-completion pypi
 
@@ -51,6 +51,9 @@ python_test() {
 	local -x TERMINAL_WIDTH=3000
 	local -x _TYPER_FORCE_DISABLE_TERMINAL=1
 	local -x _TYPER_RUN_INSTALL_COMPLETION_TESTS=1
+
+	# needed to import tests.util somewhere deep in tests
+	local -x PYTHONPATH=${S}
 
 	epytest
 }
