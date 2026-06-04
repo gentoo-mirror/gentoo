@@ -7,10 +7,10 @@ HOMEPAGE=https://conserver.com
 IDEPEND=ssl? ( dev-libs/openssl )
 INHERIT=pam ssl-cert verify-sig
 IUSE=freeipmi kerberos pam ssl tcpd ssl verify-sig
-KEYWORDS=~alpha ~amd64 ppc ppc64 ~sparc ~x86
+KEYWORDS=~alpha ~amd64 ppc ppc64 ~sparc x86
 LICENSE=BSD BSD-with-attribution
 RDEPEND=virtual/libcrypt:= freeipmi? ( sys-libs/freeipmi ) kerberos? ( net-libs/libgssglue virtual/krb5 ) pam? ( sys-libs/pam ) ssl? ( dev-libs/openssl:0= ) tcpd? ( sys-apps/tcp-wrappers ) ssl? ( dev-libs/openssl )
 SLOT=0
 SRC_URI=https://github.com/bstansell/conserver/releases/download/v8.3.0/conserver-8.3.0.tar.gz verify-sig? ( https://github.com/bstansell/conserver/releases/download/v8.3.0/conserver-8.3.0.tar.gz.asc )
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	edo	a5e294016aa84979fcb2459749eb80b2	ssl-cert	89fbacafccd672dde4fd51b8e313bf02	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=51e497a47df987916a39603751e4227d
+_md5_=8b46d3c69d2475272ece2c3c47aca693
