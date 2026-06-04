@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -161,6 +161,9 @@ src_prepare() {
 			-e 's:pnmindex.*::' \
 			-i test/Test-Order || die
 	fi
+
+	# fix typo in test
+	sed 's/cmps/cmp/' -i test/pnmhisteq.test
 }
 
 src_configure() {
@@ -226,7 +229,7 @@ src_compile() {
 src_test() {
 	# The code wants to install everything first and then test the result.
 	emake install.{bin,lib,data}
-	emake check
+	LC_ALL=C emake check
 }
 
 src_install() {
