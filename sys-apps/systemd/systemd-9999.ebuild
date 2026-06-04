@@ -131,6 +131,7 @@ RDEPEND="${COMMON_DEPEND}
 	>=acct-group/systemd-journal-0-r1
 	>=acct-user/root-0-r1
 	acct-user/nobody
+	acct-user/systemd-imds
 	>=acct-user/systemd-journal-remote-0-r1
 	>=acct-user/systemd-coredump-0-r1
 	>=acct-user/systemd-network-0-r1
