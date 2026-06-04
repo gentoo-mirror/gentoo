@@ -393,6 +393,7 @@ acct-group/svxlink 0-r2: A group for the svxlink server
 acct-group/synapse 0-r1: A group for net-im/synapse
 acct-group/syncthing 0-r3: Group for the system-wide net-p2p/syncthing server
 acct-group/systemd-coredump 0-r3: System group: systemd-coredump
+acct-group/systemd-imds 0: System group: systemd-imds
 acct-group/systemd-journal 0-r3: System group: systemd-journal
 acct-group/systemd-journal-remote 0-r3: System group: systemd-journal-remote
 acct-group/systemd-network 0-r3: System group: systemd-network
@@ -834,6 +835,7 @@ acct-user/svxlink 0-r2: A user for the svxlink server
 acct-user/synapse 0-r1: A user for net-im/synapse
 acct-user/syncthing 0-r3: User for the system-wide net-p2p/syncthing server
 acct-user/systemd-coredump 0-r3: System user: systemd-coredump
+acct-user/systemd-imds 0: System user: systemd-imds
 acct-user/systemd-journal-remote 0-r3: System user: systemd-journal-remote
 acct-user/systemd-network 0-r3: System user: systemd-network
 acct-user/systemd-oom 0-r2: System user: systemd-oom
@@ -13504,7 +13506,7 @@ media-libs/lsp-plugins 1.2.3-r1 1.2.6 1.2.14 9999: Linux Studio Plugins
 media-libs/lv2 1.18.10-r1 1.18.10-r2: A simple but extensible successor of LADSPA
 media-libs/lvtk 1.2.0-r4: A set of C++ wrappers around the LV2 C API
 media-libs/mesa 25.3.6 26.0.7 26.0.8 26.1.1 26.1.2 9999: OpenGL-like graphic library for Linux
-media-libs/mesa-amber 21.3.9-r2 21.3.9-r3: OpenGL-like graphic library for Linux
+media-libs/mesa-amber 21.3.9-r2 21.3.9-r3 21.3.9-r4: OpenGL-like graphic library for Linux
 media-libs/mlt 7.34.1-r1 7.38.0: Open source multimedia framework for television broadcasting
 media-libs/mpvqt 1.1.1-r3 1.2.0: libmpv wrapper for QtQuick2 and QML
 media-libs/munt-mt32emu 2.7.0 2.7.2 2.7.3: Library for emulating the Roland MT-32, CM-32L, CM-64 and LAPC-I
@@ -17367,7 +17369,7 @@ sys-apps/syscriptor 1.5.15: Display misc information about your hardware
 sys-apps/syslog-notify 0.2: Notifications for syslog entries via libnotify
 sys-apps/system-monitoring-center 3.3.0 3.4.0 3.4.1 9999: Multi-featured system monitor GUI written in Python
 sys-apps/systemctl-tui 0.4.0: A simple TUI for interacting with systemd services and their logs
-sys-apps/systemd 259.4-r2 260.1-r2 260.2 9999: System and service manager for Linux
+sys-apps/systemd 259.4-r2 260.1-r2 260.2 261_rc3 9999: System and service manager for Linux
 sys-apps/systemd-initctl 2 4: initctl Compatibility Daemon
 sys-apps/systemd-readahead 216: Split of readahead systemd implementation
 sys-apps/systemd-utils 255.18 259.3 259.4 260.1-r1: Utilities split out from systemd for OpenRC users
