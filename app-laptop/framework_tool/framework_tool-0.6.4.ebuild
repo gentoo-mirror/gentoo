@@ -209,11 +209,13 @@ CRATES="
 	winreg@0.55.0
 	winresource@0.1.29
 	wit-bindgen@0.51.0
-	wmi@0.18.0
+	wmi@0.17.3
 	wrapcenum-derive@0.4.1
 	writeable@0.6.2
 	yoke-derive@0.8.1
 	yoke@0.8.1
+	zerocopy-derive@0.8.47
+	zerocopy@0.8.47
 	zerofrom-derive@0.1.6
 	zerofrom@0.1.6
 	zerotrie@0.2.3
@@ -260,7 +262,7 @@ src_install() {
 	pushd "${S%${PN}}" > /dev/null || die
 	dodoc "${DOCS[@]}"
 
-	dobashcomp completions/bash/${PN}
-	dozshcomp completions/zsh/_${PN}
+	dobashcomp framework_tool/completions/bash/${PN}
+	dozshcomp framework_tool/completions/zsh/_${PN}
 	popd > /dev/null || die
 }
