@@ -40,6 +40,7 @@ RDEPEND="
 		gnome-base/dconf
 	)
 	imagemagick? ( media-gfx/imagemagick:= )
+	lua? ( ${LUA_DEPS} )
 	opencl? ( virtual/opencl )
 	opengl? (
 		media-libs/libglvnd[X?]
@@ -60,7 +61,6 @@ RDEPEND="
 DEPEND="
 	${RDEPEND}
 	efl? ( dev-libs/efl )
-	lua? ( ${LUA_DEPS} )
 	opengl? ( X? ( x11-base/xorg-proto ) )
 	xcb? ( x11-base/xorg-proto )
 	xrandr? ( x11-base/xorg-proto )
