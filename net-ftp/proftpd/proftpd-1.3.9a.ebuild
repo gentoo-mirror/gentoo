@@ -113,8 +113,8 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.3.9-sftp_ssl-3.0.patch
 
 	# merged in 1.3.10
-	# https://bugs.gentoo.org/953968
-	"${FILESDIR}"/${PN}-1.3.9-slibtool.patch
+	"${FILESDIR}"/${PN}-1.3.9-slibtool.patch #953968
+	"${FILESDIR}"/${PN}-1.3.9-fix_c23.patch #880481
 )
 
 QA_CONFIG_IMPL_DECL_SKIP=(
