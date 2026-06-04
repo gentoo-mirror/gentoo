@@ -60,7 +60,7 @@ DESCRIPTION="Self-hosted game stream host for Moonlight"
 HOMEPAGE="https://github.com/LizardByte/Sunshine"
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="cuda debug libdrm pipewire svt-av1 systemd trayicon vaapi vulkan wayland X x264 x265"
+IUSE="cuda debug +libdrm pipewire svt-av1 systemd trayicon vaapi vulkan wayland X x264 x265"
 
 # Strings for CPU features in the useflag[:configure_option] form
 # if :configure_option isn't set, it will use 'useflag' as configure option
@@ -141,14 +141,12 @@ CDEPEND="
 	media-libs/opus
 	net-libs/miniupnpc:=
 	net-misc/curl
+	sys-libs/libcap
 	|| (
 		media-libs/libpulse
 		media-sound/apulse[sdk]
 	)
-	libdrm? (
-		sys-libs/libcap
-		x11-libs/libdrm
-	)
+	libdrm? ( x11-libs/libdrm )
 	pipewire? ( media-video/pipewire:= )
 	svt-av1? ( media-libs/svt-av1:= )
 	trayicon? (
@@ -184,8 +182,15 @@ DEPEND="
 	>=media-libs/amf-headers-1.4.36-r1
 	=media-libs/nv-codec-headers-13*
 	cuda? ( dev-util/nvidia-cuda-toolkit )
-	vulkan? ( >=dev-util/vulkan-headers-1.4.317 )
-	wayland? ( dev-libs/wayland-protocols )
+	pipewire? ( x11-libs/libdrm )
+	vulkan? (
+		>=dev-util/vulkan-headers-1.4.317
+		x11-libs/libdrm
+	)
+	wayland? (
+		dev-libs/wayland-protocols
+		x11-libs/libdrm
+	)
 "
 
 BDEPEND="
