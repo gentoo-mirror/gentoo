@@ -555,8 +555,11 @@ pkg_postinst() {
 	# between OpenRC & systemd
 	migrate_locale
 
-	# Bug 971385
-	systemd_reenable getty@.service
+	# Bug 971385, 974688
+	local autovt=${EROOT}/etc/systemd/system/autovt@.service
+	if [[ ! -e ${autovt} && ! -L ${autovt} ]]; then
+		ln -s "${EPREFIX}/usr/lib/systemd/system/getty@.service" "${autovt}" || FAIL=1
+	fi
 
 	if [[ -z ${REPLACING_VERSIONS} ]]; then
 		if type systemctl &>/dev/null; then
