@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,6 +23,7 @@ RDEPEND="
 	dev-python/six[${PYTHON_USEDEP}]
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 EPYTEST_IGNORE=(
@@ -31,6 +32,11 @@ EPYTEST_IGNORE=(
 )
 
 src_prepare() {
-	sed -i -e 's:--cov=sure::' setup.cfg || die
 	distutils-r1_src_prepare
+
+	sed -i -e 's:--cov=sure::' setup.cfg || die
+
+	# workaround broken version logic
+	# https://github.com/gabrielfalcao/sure/issues/193
+	sed -i -e "s:version=version:version='${PV}':" setup.py || die
 }
