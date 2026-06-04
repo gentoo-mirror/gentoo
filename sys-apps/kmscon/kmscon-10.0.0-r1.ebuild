@@ -12,7 +12,7 @@ LICENSE="MIT LGPL-2.1 BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="debug doc +drm +fbdev freetype +gles2 +libseat +pango test"
+IUSE="debug doc +drm +fbdev freetype +gles2 libseat +pango test"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND=">=dev-libs/libtsm-4.5.0:=
