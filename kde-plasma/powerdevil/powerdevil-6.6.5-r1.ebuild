@@ -40,7 +40,6 @@ COMMON_DEPEND="
 	>=kde-frameworks/knotifications-${KFMIN}:6
 	>=kde-frameworks/krunner-${KFMIN}:6
 	>=kde-frameworks/kservice-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 	>=kde-frameworks/solid-${KFMIN}:6
 	>=kde-plasma/libkscreen-${KDE_CATV}:6
@@ -57,6 +56,7 @@ DEPEND="${COMMON_DEPEND}
 RDEPEND="${COMMON_DEPEND}
 	!<kde-plasma/plasma-workspace-6.1.90:*
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6
 	|| (
 		sys-apps/tuned[ppd]
 		sys-power/power-profiles-daemon
@@ -72,6 +72,11 @@ BDEPEND="
 
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_wake_alarm=ep usr/libexec/org_kde_powerdevil )
+
+src_prepare() {
+	ecm_src_prepare
+	ecm_punt_kf_module WindowSystem # pending use of ecm_find_qmlmodule upstream in >=6.7
+}
 
 src_configure() {
 	local mycmakeargs=(

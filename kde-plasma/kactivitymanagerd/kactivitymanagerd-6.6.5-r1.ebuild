@@ -14,7 +14,6 @@ SLOT="6"
 KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
-# kde-frameworks/kwindowsystem[X]: Unconditional use of KX11Extras
 RDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,sql,sqlite,widgets]
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -25,7 +24,6 @@ RDEPEND="
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kio-6.22.1:6
 	>=kde-frameworks/kservice-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6[X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
 "
 DEPEND="${RDEPEND}
