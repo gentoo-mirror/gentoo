@@ -34,6 +34,12 @@ SLOT="0"
 
 BDEPEND="dev-build/corrosion"
 
+# bug 976796: necessary kde.org changes are not in ::gentoo yet
+src_unpack() {
+	cargo_src_unpack
+	default
+}
+
 src_configure() {
 	# Rust extensions are incompatible with C/C++ LTO compiler see e.g.
 	# https://bugs.gentoo.org/910220
