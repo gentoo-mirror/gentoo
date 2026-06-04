@@ -1,0 +1,14 @@
+DEFINED_PHASES=install unpack
+DESCRIPTION=Proprietary plugins and firmware for HPLIP
+EAPI=8
+HOMEPAGE=https://developers.hp.com/hp-linux-imaging-and-printing/plugins
+INHERIT=unpacker
+IUSE=orblite
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=hplip-plugin
+RDEPEND=~net-print/hplip-3.26.4 virtual/udev orblite? ( media-gfx/sane-backends >=sys-libs/glibc-2.26 virtual/libusb:0 )
+RESTRICT=mirror
+SLOT=0
+SRC_URI=https://www.openprinting.org/download/printdriver/auxfiles/HP/plugins/hplip-3.26.4-plugin.run
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2
+_md5_=c1a21a78176bd7db61351dd2eadf8c3f
