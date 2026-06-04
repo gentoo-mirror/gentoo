@@ -87,8 +87,8 @@ QA_PREBUILT="*"
 CONFIG_CHECK="~USER_NS"
 
 repackage_node_modules() {
-	brotli -d "${DISTDIR}/${P}"-$1.distro -o "${T}"/$1.tar.xz 2>/dev/null || die
-	unpack "${T}"/$1.tar.xz || die
+	brotli -d "${DISTDIR}/${P}"-$1.distro -o "${T}"/$1.tar 2>/dev/null || die
+	unpack "${T}"/$1.tar || die
 	pushd "${WORKDIR}"/files 2>/dev/null || die
 	zip -rq "${WORKDIR}"/$1.zip . || die
 	popd 2>/dev/null || die
@@ -104,10 +104,10 @@ src_unpack() {
 	# unpacked and installed in ~/.config/discord/${PV}/modules, and luckily the base app
 	# can automatically do this for us on the first launch if we package the Node
 	# modules into a .zip and put them in <base app location>/resources/bootstrap.
-	brotli -d "${DISTDIR}/${P}".distro -o "${T}/${P}.tar.xz" 2>/dev/null || die
-	unpack "${T}/${P}.tar.xz"
+	brotli -d "${DISTDIR}/${P}".distro -o "${T}/${P}.tar" 2>/dev/null || die
+	unpack "${T}/${P}.tar"
 	mv "${WORKDIR}"/files "${S}" || die
-	rm "${T}/${P}.tar.xz" || die
+	rm "${T}/${P}.tar" || die
 	# For any new Node modules, add the Brotli-compressed archive to SRC_URI
 	# following the same pattern, and then add a corressponding call to
 	# repackage_node_modules here. You can find a list of required modules
