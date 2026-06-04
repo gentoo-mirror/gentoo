@@ -1,16 +1,17 @@
-BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare setup test unpack
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
 DEPEND=>=dev-libs/yyjson-0.12.0 sys-apps/hwdata virtual/zlib:= chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) ddcutil? ( app-misc/ddcutil:= ) drm? ( x11-libs/libdrm ) elf? ( virtual/libelf:= ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X?] X? ( x11-libs/libX11 ) ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vaapi? ( media-libs/libva:= ) vdpau? ( x11-libs/libvdpau ) vulkan? ( media-libs/vulkan-loader sys-apps/pciutils ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xrandr? ( x11-libs/libXrandr ) efl? ( dev-libs/efl ) opengl? ( X? ( x11-base/xorg-proto ) ) xcb? ( x11-base/xorg-proto ) xrandr? ( x11-base/xorg-proto ) vulkan? ( dev-util/vulkan-headers )
 DESCRIPTION=Fast neofetch-like system information tool
 EAPI=8
 HOMEPAGE=https://github.com/fastfetch-cli/fastfetch
-INHERIT=cmake flag-o-matic lua-single git-r3
+INHERIT=cmake flag-o-matic lua-single
 IUSE=X chafa dbus ddcutil drm efl elf gnome imagemagick lua opencl opengl pulseaudio sqlite test vaapi vdpau vulkan wayland xcb xrandr lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=MIT
-PROPERTIES=live
 RDEPEND=>=dev-libs/yyjson-0.12.0 sys-apps/hwdata virtual/zlib:= chafa? ( media-gfx/chafa ) dbus? ( sys-apps/dbus ) ddcutil? ( app-misc/ddcutil:= ) drm? ( x11-libs/libdrm ) elf? ( virtual/libelf:= ) gnome? ( dev-libs/glib gnome-base/dconf ) imagemagick? ( media-gfx/imagemagick:= ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) opencl? ( virtual/opencl ) opengl? ( media-libs/libglvnd[X?] X? ( x11-libs/libX11 ) ) pulseaudio? ( media-libs/libpulse ) sqlite? ( dev-db/sqlite:3 ) vaapi? ( media-libs/libva:= ) vdpau? ( x11-libs/libvdpau ) vulkan? ( media-libs/vulkan-loader sys-apps/pciutils ) wayland? ( dev-libs/wayland ) xcb? ( x11-libs/libxcb ) xrandr? ( x11-libs/libXrandr )
 REQUIRED_USE=chafa? ( imagemagick ) lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	git-r3	2f8cdb10b033f92c3136aa6488a31c98
+SRC_URI=https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.64.1.tar.gz -> fastfetch-2.64.1.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
 _md5_=5ebde811312bc379e9786c7c91891bea
