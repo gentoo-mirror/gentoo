@@ -381,7 +381,7 @@ multilib_src_configure() {
 		case $(tc-arch) in
 			amd64|arm|arm64|loong|ppc|ppc64|riscv|s390|x86)
 				# src/vmspawn/vmspawn-util.h: QEMU_MACHINE_TYPE
-				myconf+=( $(meson_native_enabled vmspawn) ) ;;
+				myconf+=( -Dvmspawn=enabled ) ;;
 			*)
 				myconf+=( -Dvmspawn=disabled ) ;;
 		esac
