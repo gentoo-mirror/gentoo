@@ -21,10 +21,10 @@ RESTRICT="!test? ( test )"
 DEPEND=">=sci-libs/suitesparseconfig-${Sparse_PV}
 	>=sci-libs/cholmod-5.3.4
 	virtual/blas
-    cuda? (
-        dev-util/nvidia-cuda-toolkit
-        x11-drivers/nvidia-drivers
-    )"
+	cuda? (
+		dev-util/nvidia-cuda-toolkit
+		x11-drivers/nvidia-drivers
+	)"
 RDEPEND="${DEPEND}"
 BDEPEND="doc? (
 	virtual/latex-base
