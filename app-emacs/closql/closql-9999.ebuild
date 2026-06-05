@@ -28,6 +28,7 @@ RDEPEND="
 	>=app-emacs/compat-31.0
 	>=app-emacs/cond-let-1.1
 	>=app-emacs/emacsql-4.4
+	>=app-emacs/llama-1.0
 "
 BDEPEND="
 	${RDEPEND}
