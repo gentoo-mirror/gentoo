@@ -42,8 +42,8 @@ src_configure() {
 	MULTIBUILD_VARIANTS=()
 
 	use spirv && MULTIBUILD_VARIANTS+=(
-		"spirv-mesa-mesa3d"
-		"spirv64-mesa-mesa3d"
+		"spirv32-unknown-unknown"
+		"spirv64-unknown-unknown"
 		"spirv64-unknown-vulkan"  # formerly clspv
 	)
 	use video_cards_nvidia && MULTIBUILD_VARIANTS+=(
