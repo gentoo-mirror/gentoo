@@ -3,12 +3,12 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_USE_PEP517=setuptools
 ROCM_VERSION=${PV}
-LLVM_COMPAT=( 20 )
+LLVM_COMPAT=( 22 )
 
-inherit cmake distutils-r1 llvm-r1 prefix rocm
+inherit cmake distutils-r1 llvm-r2 prefix rocm
 
 DESCRIPTION="A tool for creating a benchmark-driven GEMMs and tensor contractions code"
 HOMEPAGE="https://rocm.docs.amd.com/projects/Tensile/en/latest/src/index.html"
@@ -18,11 +18,13 @@ if [[ "${PV}" == 9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/ROCm/rocm-libraries.git"
 	EGIT_BRANCH="develop"
 	S="${WORKDIR}/${P}/shared/tensile"
-	SLOT="0/7.0"
+	SLOT="0/9999"
+	SLOT_NOLIVE="0/7.2"
 else
-	SRC_URI="https://github.com/ROCm/Tensile/archive/rocm-${PV}.tar.gz -> rocm-Tensile-${PV}.tar.gz"
-	S="${WORKDIR}/${PN}-rocm-${PV}"
+	SRC_URI="https://github.com/ROCm/rocm-libraries/releases/download/rocm-${PV}/tensile.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}/tensile"
 	SLOT="0/$(ver_cut 1-2)"
+	SLOT_NOLIVE=${SLOT}
 	KEYWORDS="~amd64"
 fi
 
@@ -34,13 +36,13 @@ REQUIRED_USE="client? ( ${ROCM_REQUIRED_USE} )"
 RESTRICT="test"
 
 RDEPEND="${PYTHON_DEPS}
-	client? ( dev-libs/boost )
+	client? ( dev-libs/boost:= )
 	>=dev-cpp/msgpack-cxx-6.0.0
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 	dev-python/msgpack[${PYTHON_USEDEP}]
 	dev-python/joblib[${PYTHON_USEDEP}]
-	dev-util/hip:${SLOT}
-	dev-util/rocm-smi:${SLOT}
+	dev-util/hip:${SLOT_NOLIVE}
+	dev-util/rocm-smi:${SLOT_NOLIVE}
 	$(llvm_gen_dep "
 		llvm-core/clang:\${LLVM_SLOT}
 	")
@@ -48,13 +50,12 @@ RDEPEND="${PYTHON_DEPS}
 DEPEND="${RDEPEND}"
 BDEPEND="
 	test? (
-		dev-python/pytest-forked[${PYTHON_USEDEP}]
-		dev-python/pytest-xdist[${PYTHON_USEDEP}]
 		dev-python/filelock[${PYTHON_USEDEP}]
 		dev-python/joblib[${PYTHON_USEDEP}]
 	)
 "
 
+EPYTEST_PLUGINS=( pytest-{forked,xdist} )
 distutils_enable_tests pytest
 
 PATCHES=(
