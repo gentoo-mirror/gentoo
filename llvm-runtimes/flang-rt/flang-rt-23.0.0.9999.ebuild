@@ -26,7 +26,7 @@ BDEPEND="
 "
 
 LLVM_COMPONENTS=(
-	runtimes flang-rt cmake flang llvm/{cmake,utils}
+	runtimes flang-rt cmake flang libc/shared llvm/{cmake,utils}
 )
 LLVM_TEST_COMPONENTS=( third-party/unittest )
 llvm.org_set_globals
