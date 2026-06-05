@@ -1,4 +1,4 @@
-# Copyright 2017-2025 Gentoo Authors
+# Copyright 2017-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -24,6 +24,10 @@ BDEPEND="
 	virtual/pkgconfig
 	test? ( >=dev-libs/atf-0.22 )
 "
+
+PATCHES=(
+	"${FILESDIR}/kyua-0.14.1-gcc-17.patch"
+)
 
 src_configure() {
 	# bug #948053
