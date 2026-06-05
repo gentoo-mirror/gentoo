@@ -3,8 +3,6 @@
 
 EAPI=8
 
-inherit autotools
-
 DESCRIPTION="Libraries to write tests in C, C++ and shell"
 HOMEPAGE="https://github.com/freebsd/atf"
 SRC_URI="https://github.com/freebsd/atf/releases/download/${P}/${P}.tar.gz"
