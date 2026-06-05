@@ -36,6 +36,12 @@ SLOT="0"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
+DEPEND="
+	test? (
+		dev-libs/check
+		dev-python/python-subunit
+	)
+"
 BDEPEND="app-arch/unzip"
 
 # Patches to be applied at LWIP_BASE_S, not LWIP_POSIX_S
