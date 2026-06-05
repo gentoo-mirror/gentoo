@@ -1,12 +1,13 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+GENTOO_DEPEND_ON_PERL="no"
+PYTHON_COMPAT=( python3_{12..15} )
 WX_GTK_VER=3.2-gtk3
 
-inherit cmake desktop flag-o-matic perl-functions python-r1 toolchain-funcs wxwidgets xdg
+inherit cmake desktop flag-o-matic perl-module python-r1 toolchain-funcs wxwidgets xdg
 
 DESCRIPTION="Interconverts file formats used in molecular modeling"
 HOMEPAGE="https://openbabel.org/ https://github.com/openbabel/openbabel/"
@@ -15,9 +16,9 @@ if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/openbabel/${PN}.git"
 else
-	if [[ "${PV}" == *_p* ]]; then	# eg., openbabel-3.1.1_p20210325
+	if [[ "${PV}" == *_p* ]]; then
 		# Set to commit hash
-		OPENBABEL_COMMIT="889c350feb179b43aa43985799910149d4eaa2bc"
+		OPENBABEL_COMMIT=""
 		SRC_URI="https://github.com/${PN}/${PN}/archive/${OPENBABEL_COMMIT}.tar.gz -> ${P}.tar.gz"
 		S="${WORKDIR}/${PN}-${OPENBABEL_COMMIT}"
 	else
@@ -25,13 +26,13 @@ else
 		SRC_URI="https://github.com/${PN}/${PN}/archive/${MY_P}.tar.gz -> ${P}.tar.gz"
 		S="${WORKDIR}/${PN}-${MY_P}"
 	fi
-	KEYWORDS="amd64 ~arm ~x86"
+	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
 LICENSE="GPL-2"
 # See src/CMakeLists.txt for LIBRARY_VERSION
-SLOT="0/7.0.0"
-IUSE="cpu_flags_arm_neon cpu_flags_x86_sse2 cpu_flags_x86_sse4_2 doc examples +inchi json minimal openmp perl png python test wxwidgets"
+SLOT="0/8.0.0"
+IUSE="cpu_flags_arm_neon cpu_flags_x86_sse2 cpu_flags_x86_sse4_2 doc examples +inchi json minimal openmp perl png python test wxwidgets ${GENTOO_PERL_USESTRING}"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	python? ( ${PYTHON_REQUIRED_USE} )
@@ -47,7 +48,10 @@ RDEPEND="
 		dev-libs/libxml2:2=
 		png? ( x11-libs/cairo )
 	)
-	perl? ( dev-lang/perl:= )
+	perl? (
+		${GENTOO_PERL_DEPSTRING}
+		dev-lang/perl:=
+	)
 	python? ( ${PYTHON_DEPS} )
 	wxwidgets? ( x11-libs/wxGTK:${WX_GTK_VER}=[X] )
 "
@@ -64,12 +68,12 @@ BDEPEND="
 "
 
 PATCHES=(
-	# Set include dir only for global implementation
-	"${FILESDIR}"/${PN}-3.1.1_p2024-fix_pybind.patch
 	# prevent installation of examples in /usr/bin
 	"${FILESDIR}"/${PN}-3.1.1_p2024-fix_examples.patch
-	# cmake4-compat
-	"${FILESDIR}"/${PN}-3.1.1_p2024-cmake4.patch
+	# fix headers for InChi
+	"${FILESDIR}"/${PN}-3.2.0-system_inchi.patch
+	# filter -O2
+	"${FILESDIR}"/${PN}-3.2.0-cflags.patch
 )
 
 pkg_pretend() {
@@ -84,7 +88,7 @@ gen_python_bindings() {
 	mkdir -p scripts/${EPYTHON} || die
 	# Appends to scripts/CMakeLists.txt, substituting the correct tags, for
 	# each valid python implementation,
-	cat "${FILESDIR}"/${PN}-python-r2.cmake | \
+	cat "${FILESDIR}"/${PN}-python-3.2.cmake | \
 		sed -e "s|@@EPYTHON@@|${EPYTHON}|" \
 			-e "s|@@PYTHON_INCLUDE_DIR@@|$(python_get_includedir)|" \
 			-e "s|@@PYTHON_LIBS@@|$(python_get_LIBS)|" \
@@ -132,7 +136,7 @@ src_configure() {
 		-DWITH_INCHI=$(usex inchi)
 		-DOPTIMIZE_NATIVE=OFF
 		-DPERL_BINDINGS=$(usex perl)
-		-DPYTHON_BINDINGS=$(usex python)
+		-DPYTHON_BINDINGS=OFF
 		-DRUN_SWIG=$(use_bindings)
 		-DWITH_COORDGEN=false
 		-DWITH_JSON=$(usex json)
@@ -148,22 +152,32 @@ src_configure() {
 		)
 	fi
 
+	if use python; then
+		mycmakeargs+=(
+			-DPYTHON_GENTOO_BINDINGS=ON
+		)
+	fi
+
 	if use test; then
-		# Help cmake find the python interpreter when dev-lang/python-exec is built
-		# without native-symlinks support.
+		# used for unittest
 		python_setup
 		mycmakeargs+=(
-			-DPYTHON_EXECUTABLE="${PYTHON}"
+			-DPython_EXECUTABLE="${PYTHON}"
 		)
 	fi
 
 	cmake_src_configure
 }
 
+src_compile() {
+	# Avoid perl-module_src_compile (bug #963096)
+	cmake_src_compile
+}
+
 src_test() {
-	local CMAKE_SKIP_TESTS=(
-		# https://github.com/openbabel/openbabel/issues/2766
-		test_align_{4,5}
+	local CMAKE_SKIP_TESTS=()
+	! use json && CMAKE_SKIP_TESTS+=(
+		test_ketformat*
 	)
 	! use wxwidgets && CMAKE_SKIP_TESTS+=(
 		test_tautomer_{22,27}
@@ -232,7 +246,7 @@ src_install() {
 	fi
 
 	if use wxwidgets; then
-		make_desktop_entry obgui "Open Babel" ${PN}
+		make_desktop_entry --eapi9 obgui -n "Open Babel" -i ${PN}
 		newicon "${S}"/src/GUI/babel.xpm ${PN}.xpm
 	fi
 }
