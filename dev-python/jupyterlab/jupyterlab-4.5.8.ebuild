@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="BSD MIT GPL-3 Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/async-lru-1.0.0[${PYTHON_USEDEP}]
@@ -31,7 +31,7 @@ RDEPEND="
 	>=dev-python/jupyterlab-server-2.28.0[${PYTHON_USEDEP}]
 	<dev-python/jupyterlab-server-3[${PYTHON_USEDEP}]
 	>=dev-python/notebook-shim-0.2[${PYTHON_USEDEP}]
-	dev-python/packaging[${PYTHON_USEDEP}]
+	>=dev-python/packaging-23.2[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-41.1.0[${PYTHON_USEDEP}]
 	>=dev-python/tornado-6.2.0[${PYTHON_USEDEP}]
 	dev-python/traitlets[${PYTHON_USEDEP}]
