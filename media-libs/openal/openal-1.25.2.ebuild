@@ -66,6 +66,9 @@ multilib_src_configure() {
 		# We prefer linking for predictable behaviour
 		-DALSOFT_DLOPEN=OFF
 
+		# GCC 15 ICEs (bug #976806)
+		-DALSOFT_ENABLE_MODULES=OFF
+
 		# See bug #809314 for getting both options for backends
 		-DALSOFT_{BACKEND,REQUIRE}_ALSA=$(usex alsa)
 		-DALSOFT_{BACKEND,REQUIRE}_COREAUDIO=$(usex coreaudio)
