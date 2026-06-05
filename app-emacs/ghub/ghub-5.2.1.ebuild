@@ -3,12 +3,13 @@
 
 EAPI=9
 
-NEED_EMACS="28.1"
+NEED_EMACS="29.1"
 
 inherit elisp
 
-DESCRIPTION="Emacs major modes for editing Git configuration files"
-HOMEPAGE="https://github.com/magit/git-modes/"
+DESCRIPTION="Minuscule client library for the Git forge APIs"
+HOMEPAGE="https://magit.vc/manual/ghub/
+	https://github.com/magit/ghub/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -26,15 +27,20 @@ SLOT="0"
 
 RDEPEND="
 	>=app-emacs/compat-31.0
+	>=app-emacs/cond-let-1.1
+	>=app-emacs/llama-1.0
+	>=app-emacs/treepy-0.1.3
 "
 BDEPEND="
 	${RDEPEND}
+	sys-apps/texinfo
 "
 
-DOCS=( README.org )
+DOCS=( CHANGELOG README.org )
+ELISP_TEXINFO="docs/ghub.texi"
 SITEFILE="50${PN}-gentoo.el"
 
-src_compile() {
-	elisp_src_compile
-	elisp-make-autoload-file
+src_prepare() {
+	mv ./lisp/*.el . || die
+	elisp_src_prepare
 }

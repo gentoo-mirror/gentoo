@@ -35,7 +35,9 @@ DOCS=( CHANGELOG.md README.org )
 SITEFILE="50${PN}-gentoo.el"
 
 elisp-enable-tests ert ./tests/ \
-	-l "${PN}-history-tests.el" -l markdown-overlays-images-tests.el
+	-l "./tests/${PN}-history-tests.el" \
+	-l "./tests/markdown-overlays-blocks-tests.el" \
+	-l "./tests/markdown-overlays-images-tests.el"
 
 src_compile() {
 	elisp_src_compile

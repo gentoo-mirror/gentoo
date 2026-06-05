@@ -1,26 +1,24 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
-NEED_EMACS=26.1
+NEED_EMACS="28.1"
 
 inherit elisp
 
 DESCRIPTION="A high-level Emacs Lisp RDBMS front-end"
-HOMEPAGE="https://github.com/magit/emacsql"
+HOMEPAGE="https://github.com/magit/emacsql/"
 
 if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/magit/${PN}.git"
+	EGIT_REPO_URI="https://github.com/magit/${PN}"
 else
-	SRC_URI="
-		https://github.com/magit/${PN}/archive/refs/tags/v${PV}.tar.gz
-			-> ${P}.tar.gz
-	"
+	SRC_URI="https://github.com/magit/${PN}/archive/refs/tags/v${PV}.tar.gz
+		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="~amd64"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="Unlicense"

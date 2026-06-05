@@ -1,15 +1,14 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
-NEED_EMACS="29.1"
+NEED_EMACS="28.1"
 
 inherit elisp
 
-DESCRIPTION="Minuscule client library for the Git forge APIs"
-HOMEPAGE="https://magit.vc/manual/ghub/
-	https://github.com/magit/ghub/"
+DESCRIPTION="Emacs major modes for editing Git configuration files"
+HOMEPAGE="https://github.com/magit/git-modes/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -19,28 +18,23 @@ else
 	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	app-emacs/compat
-	app-emacs/llama
-	app-emacs/treepy
+	>=app-emacs/compat-31.0
 "
 BDEPEND="
 	${RDEPEND}
-	sys-apps/texinfo
 "
 
 DOCS=( README.org )
-ELISP_TEXINFO="docs/ghub.texi"
 SITEFILE="50${PN}-gentoo.el"
 
-src_prepare() {
-	mv ./lisp/*.el . || die
-
-	elisp_src_prepare
+src_compile() {
+	elisp_src_compile
+	elisp-make-autoload-file
 }
