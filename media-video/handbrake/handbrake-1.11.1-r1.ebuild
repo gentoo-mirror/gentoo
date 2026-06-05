@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{11..15} )
 
 inherit edo flag-o-matic multiprocessing python-any-r1 toolchain-funcs xdg
 
@@ -181,12 +181,16 @@ src_configure() {
 		--prefix="${EPREFIX}/usr"
 		--disable-flatpak
 		--no-harden #bug #890279
+		--optimize=none
+		--cpu=none
+		--lto=none
 		$(use_enable amf vce)
 		$(use_enable fdk fdk-aac)
 		$(use_enable gui gtk)
 		$(use_enable libdovi)
 		$(use_enable numa)
 		$(use_enable nvenc)
+		$(use_enable nvenc nvdec)
 		$(use_enable x265)
 		$(use_enable qsv)
 	)

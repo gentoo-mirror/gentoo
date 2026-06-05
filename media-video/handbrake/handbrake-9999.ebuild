@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{11..15} )
 
 inherit edo flag-o-matic multiprocessing python-any-r1 toolchain-funcs xdg
 
@@ -33,12 +33,12 @@ declare -A BUNDLED=(
 	# Heavily patched in an incompatible way.
 	# Issues related to using system ffmpeg historically.
 	# See bug #829595 and #922828
-	[ffmpeg]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/ffmpeg-8.0.1.tar.bz2;"
+	[ffmpeg]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/ffmpeg-8.1.1.tar.bz2;"
 	# Patched in an incompatible way
-	[x265]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20260216-13309.tar.gz;x265"
-	[x265_8bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20260216-13309.tar.gz;x265"
-	[x265_10bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20260216-13309.tar.gz;x265"
-	[x265_12bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20260216-13309.tar.gz;x265"
+	[x265]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265_4.2.tar.gz;x265"
+	[x265_8bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265_4.2.tar.gz;x265"
+	[x265_10bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265_4.2.tar.gz;x265"
+	[x265_12bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265_4.2.tar.gz;x265"
 )
 
 bundle_src_uri() {
@@ -124,7 +124,7 @@ fi
 PATCHES=(
 	"${FILESDIR}"/handbrake-1.9.0-link-libdovi-properly.patch
 	"${FILESDIR}"/handbrake-1.9.0-include-vpl-properly.patch
-	"${FILESDIR}"/handbrake-1.9.2-set-ffmpeg-toolchain-explicitly.patch
+	"${FILESDIR}"/handbrake-1.11.2-set-ffmpeg-toolchain-explicitly.patch
 	"${FILESDIR}"/handbrake-1.9.2-allow-overriding-tools-via-env.patch
 )
 
@@ -181,12 +181,16 @@ src_configure() {
 		--prefix="${EPREFIX}/usr"
 		--disable-flatpak
 		--no-harden #bug #890279
+		--optimize=none
+		--cpu=none
+		--lto=none
 		$(use_enable amf vce)
 		$(use_enable fdk fdk-aac)
 		$(use_enable gui gtk)
 		$(use_enable libdovi)
 		$(use_enable numa)
 		$(use_enable nvenc)
+		$(use_enable nvenc nvdec)
 		$(use_enable x265)
 		$(use_enable qsv)
 	)

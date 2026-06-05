@@ -11,8 +11,12 @@ if [[ "${PV}" == "99999999" ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/janmojzis/tinyssh.git"
 else
-	SRC_URI="https://github.com/janmojzis/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	inherit verify-sig
+	SRC_URI="
+		https://github.com/janmojzis/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
+		verify-sig? ( https://github.com/janmojzis/tinyssh/releases/download/${PV}/${PV}.tar.gz.asc -> ${P}.tar.gz.asc )
+	"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 LICENSE="|| ( CC0-1.0 0BSD MIT-0 MIT )"
@@ -22,6 +26,10 @@ RDEPEND="
 	${DEPEND}
 	sys-apps/ucspi-tcp
 "
+if [[ "${PV}" != "99999999" ]]; then
+	BDEPEND="${BDEPEND} verify-sig? ( sec-keys/openpgp-keys-janmojzis )"
+	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/janmojzis.asc"
+fi
 
 src_prepare() {
 	default
