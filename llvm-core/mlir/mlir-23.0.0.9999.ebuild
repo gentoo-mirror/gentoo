@@ -198,10 +198,7 @@ multilib_src_compile() {
 }
 
 multilib_src_test() {
-	local known_xfail=(
-		# https://github.com/llvm/llvm-project/pull/157885#issuecomment-3288095032
-		mlir-pdll-lsp-server/view-output.test
-	)
+	local known_xfail=()
 
 	case ${ABI} in
 		arm|ppc|x86)
@@ -216,6 +213,8 @@ multilib_src_test() {
 				Dialect/Tensor/tracking-listener.mlir
 				Pass/pipeline-stats-nested.mlir
 				Pass/pipeline-stats.mlir
+				# https://github.com/llvm/llvm-project/pull/157885#issuecomment-3288095032
+				mlir-pdll-lsp-server/view-output.test
 			)
 			;;
 	esac

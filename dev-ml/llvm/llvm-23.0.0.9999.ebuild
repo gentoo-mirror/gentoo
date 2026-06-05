@@ -30,7 +30,7 @@ BDEPEND="
 	dev-ml/findlib
 "
 
-LLVM_COMPONENTS=( llvm cmake third-party )
+LLVM_COMPONENTS=( llvm cmake libc third-party )
 LLVM_USE_TARGETS=llvm
 llvm.org_set_globals
 
