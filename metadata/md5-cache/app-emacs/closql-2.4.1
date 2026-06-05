@@ -1,12 +1,13 @@
-BDEPEND=>=app-emacs/compat-31.0 >=app-emacs/cond-let-1.1 >=app-emacs/emacsql-4.4 >=app-editors/emacs-28.1:* >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=app-emacs/compat-31.0 >=app-emacs/cond-let-1.1 >=app-emacs/emacsql-4.4 >=app-editors/emacs-28.1:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Store EIEIO objects using EmacSQL
 EAPI=9
 HOMEPAGE=https://github.com/magit/closql/
-INHERIT=elisp git-r3
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-PROPERTIES=live
 RDEPEND=>=app-emacs/compat-31.0 >=app-emacs/cond-let-1.1 >=app-emacs/emacsql-4.4 >=app-editors/emacs-28.1:*
 SLOT=0
-_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30	git-r3	2f8cdb10b033f92c3136aa6488a31c98
+SRC_URI=https://github.com/magit/closql/archive/v2.4.1.tar.gz -> closql-2.4.1.gh.tar.gz
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30
 _md5_=2ff3238d2056199fa13fea57a9714c8d
