@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 FORTRAN_NEEDED=fortran
 
-inherit fortran-2
+inherit autotools fortran-2
 
 DESCRIPTION="Quad-double and double-double float arithmetics"
 HOMEPAGE="https://www.davidhbailey.com/dhbsoftware/"
@@ -14,6 +14,11 @@ LICENSE="LBNLBSD"
 SLOT="0"
 KEYWORDS="amd64 ~riscv ~x86"
 IUSE="cpu_flags_x86_fma3 cpu_flags_x86_fma4 doc fortran"
+
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_configure() {
 	econf \
