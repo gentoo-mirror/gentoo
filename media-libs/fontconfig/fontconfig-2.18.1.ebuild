@@ -48,7 +48,7 @@ DEPEND="
 "
 BDEPEND="
 	${PYTHON_DEPS}
-	>=dev-build/meson-1.6.1
+	>=dev-build/meson-1.11.0
 	dev-util/gperf
 	virtual/pkgconfig
 	doc? (
