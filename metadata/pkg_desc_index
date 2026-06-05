@@ -897,7 +897,7 @@ app-accessibility/at-spi2-atk 2.46.0: Gtk module for bridging AT-SPI to Atk
 app-accessibility/at-spi2-core 2.56.5 2.58.6: D-Bus accessibility specifications and registration daemon
 app-accessibility/brltty 6.7 6.8 6.9 6.9.1: Daemon that provides access to the Linux/Unix console for a blind person
 app-accessibility/caribou 0.4.21-r9: Input assistive technology intended for switch and pointer users
-app-accessibility/edbrowse 3.8.13 3.8.15: Combination editor, browser, and mail client that is 100% text based
+app-accessibility/edbrowse 3.8.13 3.8.15 3.8.17: Combination editor, browser, and mail client that is 100% text based
 app-accessibility/emacspeak 56.0-r1 60.0-r1 9999: The emacspeak audio desktop
 app-accessibility/emacspeak-ss 1.9.1-r1 1.9.1-r2: Adds support for several speech synthesizers to emacspeak
 app-accessibility/espeak-ng 1.52.0 9999: Software speech synthesizer for English, and some other languages
@@ -1405,7 +1405,7 @@ app-containers/lxd 5.21.1-r1 5.21.4 6.3 6.5: Modern, secure and powerful system 
 app-containers/nerdctl 2.0.2 2.0.3 2.2.1: Docker-compatible CLI for containerd, with support for Compose
 app-containers/netavark 1.14.1 1.15.2 1.16.1 1.17.0 1.17.1 1.17.2 9999: A container network stack
 app-containers/nvidia-container-toolkit 1.18.0 1.19.0 9999: NVIDIA container runtime toolkit
-app-containers/podman 5.7.1 9999: A tool for managing OCI containers and pods with Docker-compatible CLI
+app-containers/podman 5.7.1 5.8.2 9999: A tool for managing OCI containers and pods with Docker-compatible CLI
 app-containers/podman-compose 1.5.0: A script to run docker-compose.yml using Podman
 app-containers/podman-tui 1.5.0 1.6.1 1.9.0 9999: Terminal UI frontend for Podman
 app-containers/reg 0.16.1-r1: Docker registry v2 command line client
@@ -5611,7 +5611,7 @@ dev-libs/libliftoff 0.5.0: Lightweight KMS plane library
 dev-libs/liblinear 243 246: A Library for Large Linear Classification
 dev-libs/liblogging 1.0.6-r1 1.0.7: Easy to use, portable, open source library for system logging
 dev-libs/liblognorm 2.0.6-r1: Fast samples-based log normalization library
-dev-libs/liblouis 3.30.0 3.37.0-r1: An open-source braille translator and back-translator
+dev-libs/liblouis 3.37.0-r1 3.38.0: An open-source braille translator and back-translator
 dev-libs/libltdl 2.5.4 2.6.0: A shared library tool for developers
 dev-libs/liblzw 0.3-r1: small C library for reading LZW compressed files (.Z)
 dev-libs/libmaa 1.3.2-r1 1.4.7: Library with low-level data structures which are helpful for writing compilers
@@ -5851,7 +5851,7 @@ dev-libs/simdjson 3.13.0-r1 4.2.4 4.3.0 4.4.2 4.5.0 4.6.1 4.6.2: SIMD accelerate
 dev-libs/skalibs 2.14.4.0 2.14.5.0 2.14.5.1: General-purpose libraries from skarnet.org
 dev-libs/sleef 3.8 3.9.0: Implements vectorized versions of C standard math functions
 dev-libs/sltdl 0.5.1 0.5.2 9999: A surrogate ltdl implementation
-dev-libs/snowball-stemmer 2.2.0 3.0.1 3.1.0: Snowball compiler and stemming algorithms
+dev-libs/snowball-stemmer 2.2.0 3.0.1 3.1.0 3.1.1: Snowball compiler and stemming algorithms
 dev-libs/softhsm 2.6.1-r3: A software PKCS#11 implementation
 dev-libs/sord 0.16.16-r1 0.16.18 9999: Library for storing RDF data in memory
 dev-libs/spdlog 1.15.3 1.15.3-r1 1.16.0 1.17.0 9999: Fast C++ logging library
@@ -12699,7 +12699,7 @@ mail-filter/policyd-weight 0.1.15.2-r3: Weighted Policy daemon for Postfix
 mail-filter/popfile 1.1.3-r1: Anti-spam bayesian filter
 mail-filter/postforward 1.1.1-r1: Postfix Sender Rewriting Scheme forwarding agent
 mail-filter/postfwd 2.02-r1 2.03: Versatile Postfix policy server with a flexible ruleset based configuration
-mail-filter/postgrey 1.37_p20220122 1.37_p20230714: Postgrey is a Postfix policy server implementing greylisting
+mail-filter/postgrey 1.37_p20220122 1.37_p20230714 1.37_p20230714-r1: Postgrey is a Postfix policy server implementing greylisting
 mail-filter/postsrsd 1.12 2.0.11-r6: Postfix Sender Rewriting Scheme daemon
 mail-filter/procmail 3.24-r1: Mail delivery agent/filter
 mail-filter/pyzor 1.1.2: A distributed, collaborative spam detection and filtering network
@@ -13645,7 +13645,7 @@ media-plugins/alsa-plugins 1.2.12: ALSA extra plugins
 media-plugins/alsaequal 0.7.1: A real-time adjustable equalizer plugin for ALSA
 media-plugins/amb-plugins 0.8.1-r1: AMB-plugins ladspa plugin package. Filters by Fons Adriaensen
 media-plugins/ams-lv2 1.2.2-r1: A port of the AMS internal modules to LV2 plugins to create modular synthesizers
-media-plugins/audacious-plugins 4.5.1: Lightweight and versatile audio player
+media-plugins/audacious-plugins 4.5.1 4.6: Lightweight and versatile audio player
 media-plugins/calf 0.90.8 9999: Set of open source instruments and effects for digital audio workstations
 media-plugins/caps-plugins 0.9.26: The CAPS Audio Plugin Suite - LADSPA plugin suite
 media-plugins/cmt-plugins 1.17-r2: CMT (computer music toolkit) LADSPA library plugins
@@ -13962,7 +13962,7 @@ media-sound/aseqview 0.2.8-r3: ALSA sequencer event viewer/filter
 media-sound/asunder 3.0.1-r2: Graphical Audio CD ripper and encoder with support for many output formats
 media-sound/aucatctl 0.1: A tool for controlling aucat and/or sndiod volume through MIDI
 media-sound/aucdtect 0.8.2-r1 0.8.2-r2: Commandline FLAC CDDA authenticity verifier
-media-sound/audacious 4.5.1-r1: Lightweight and versatile audio player
+media-sound/audacious 4.5.1-r1 4.6: Lightweight and versatile audio player
 media-sound/audacity 3.3.3-r1 3.4.2-r2 3.7.2-r1 3.7.3-r1 3.7.5-r1 3.7.7 9999: Free crossplatform audio editor
 media-sound/audex 26.04.1 26.04.2: Tool for ripping compact discs
 media-sound/audiocompress 2.0: Very gentle 1-band dynamic range compressor
@@ -15970,7 +15970,7 @@ sci-chemistry/molsketch 0.8.3 0.8.4: Drawing tool for 2D molecular structures
 sci-chemistry/mpqc 2.3.1-r4: The Massively Parallel Quantum Chemistry Program
 sci-chemistry/msms-bin 2.6.1-r1: MSMS very efficiently computes triangulations of Solvent Excluded Surfaces
 sci-chemistry/mustang 3.2.2: MUltiple STructural AligNment AlGorithm
-sci-chemistry/openbabel 3.1.1_p20241221-r2 3.1.1_p20241221-r4 9999: Interconverts file formats used in molecular modeling
+sci-chemistry/openbabel 3.1.1_p20241221-r4 3.2.0: Interconverts file formats used in molecular modeling
 sci-chemistry/pdbcat 1.3-r1: Manipulate and process PDB files using tools such as Perl, awk, etc
 sci-chemistry/pdbcns 2.0.010504: Convert atom names for amino acids/nucleic acid bases between PDB and CNS format
 sci-chemistry/pdbmat 3.89-r1: Calculate Tirion's model from pdb structures
@@ -16179,7 +16179,7 @@ sci-libs/hypre 2.32.0 2.33.0 3.1.0: Parallel matrix preconditioners library
 sci-libs/idlcoyote 20161220-r1 99999999: GDL library from D. Fannings IDL courses
 sci-libs/idlmarkwardt 20160319-r1: Craig Markwardt IDL procedures (MPFIT, CMSVLIB, etc)
 sci-libs/iml 1.0.5-r1: Integer Matrix Library
-sci-libs/inchi 1.06-r1: Program and library for generating standard and non-standard InChI and InChIKeys
+sci-libs/inchi 1.06-r1 1.07.5: Program and library for generating standard and non-standard InChI and InChIKeys
 sci-libs/indilib 2.2.1.1 2.2.2: INDI Astronomical Control Protocol library
 sci-libs/ipopt 3.14.4-r1: Interior-Point Optimizer for large-scale nonlinear optimization
 sci-libs/itpp 4.3.1-r2: C++ library of mathematical, signal processing and communication
