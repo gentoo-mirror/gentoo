@@ -1,5 +1,6 @@
 BDEPEND=app-arch/unzip app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
+DEPEND=test? ( dev-libs/check dev-python/python-subunit )
 DESCRIPTION=Small independent implementation of the TCP/IP protocol suite
 EAPI=8
 HOMEPAGE=https://savannah.nongnu.org/projects/lwip/
@@ -11,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://nongnu/lwip/lwip-2.2.1.zip mirror://debian/pool/main/l/lwip/lwip_2.2.1+dfsg1-5.debian.tar.xz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	edo	a5e294016aa84979fcb2459749eb80b2	edos2unix	33e347e171066657f91f8b0c72ec8773
-_md5_=99185241aefc56b7b21e6ba1c9367447
+_md5_=5b889adc10d2cbec638c79b2e352143b
