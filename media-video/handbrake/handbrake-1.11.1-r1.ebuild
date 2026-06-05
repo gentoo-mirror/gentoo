@@ -181,6 +181,9 @@ src_configure() {
 		--prefix="${EPREFIX}/usr"
 		--disable-flatpak
 		--no-harden #bug #890279
+		--optimize=none
+		--cpu=none
+		--lto=none
 		$(use_enable amf vce)
 		$(use_enable fdk fdk-aac)
 		$(use_enable gui gtk)
