@@ -105,10 +105,13 @@ src_install() {
 
 	dosym -r "/opt/${MY_PN}/${MY_PN}" "/usr/bin/${MY_PN}"
 
-	make_desktop_entry \
-		"${MY_PN} --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto %U" \
-		Mattermost "${MY_PN}" "Network;InstantMessaging;" \
-		"MimeType=x-scheme-handler/mattermost;\nStartupWMClass=Mattermost"
+	make_desktop_entry --eapi9 mattermost-desktop \
+		-a "--enable-features=WaylandWindowDecorations --ozone-platform-hint=auto %U" \
+		-d Mattermost.Desktop \
+		-n Mattermost \
+		-i mattermost-desktop \
+		-c "Network;InstantMessaging;" \
+		-e "MimeType=x-scheme-handler/mattermost;" -e "StartupWMClass=Mattermost"
 
 	einstalldocs
 }
