@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://postgrey.schweikert.ch/
 INHERIT=systemd
 IUSE=selinux
-KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~ppc ppc64 ~x86
 LICENSE=GPL-2
 RDEPEND=acct-group/postgrey acct-user/postgrey >=dev-lang/perl-5.6.0 dev-perl/Net-Server dev-perl/IO-Multiplex dev-perl/BerkeleyDB dev-perl/Net-DNS dev-perl/NetAddr-IP dev-perl/Net-RBLClient dev-perl/Parse-Syslog virtual/perl-Digest-SHA >=sys-libs/db-4.1 selinux? ( sec-policy/selinux-postgrey )
 SLOT=0
 SRC_URI=https://github.com/schweikert/postgrey/archive/5f60afc8e77cc2b12682636de4ad983992d6a1d2.tar.gz -> postgrey-1.37_p20230714.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=d6cc32d8c5751a245f0c50d2afa3e7fc
+_md5_=e1437d0968911e06b80feca7400315e0
