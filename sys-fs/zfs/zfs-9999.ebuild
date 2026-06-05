@@ -199,7 +199,8 @@ libsoversion_check() {
 	local bugurl libzfs_sover
 	bugurl="https://bugs.gentoo.org/enter_bug.cgi?form_name=enter_bug&product=Gentoo+Linux&component=Current+packages"
 
-	libzfs_sover="$(grep 'libzfs_la_LDFLAGS += -version-info' lib/libzfs/Makefile.am \
+	libzfs_sover="$(grep -E 'libzfs_la_LDFLAGS[[:space:]]*\+?=[[:space:]]*-version-info' \
+		lib/libzfs/Makefile.am \
 		| grep -Eo '[0-9]+:[0-9]+:[0-9]+')"
 	libzfs_sover="${libzfs_sover%%:*}"
 
