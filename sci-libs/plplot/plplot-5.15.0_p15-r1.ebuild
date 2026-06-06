@@ -106,8 +106,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	cmake_src_prepare
-
 	# Debian patches
 	for p in $(<"${WORKDIR}"/debian/patches/series) ; do
 		eapply -p1 "${WORKDIR}/debian/patches/${p}"
@@ -115,6 +113,7 @@ src_prepare() {
 	eapply "${FILESDIR}"/${PN}-5.15.0_p6-configure-c99.patch
 	eapply "${FILESDIR}"/${PN}-5.15.0_p15-sighandler_t.patch
 	eapply "${FILESDIR}"/${P}-fixPython.patch
+	eapply "${FILESDIR}"/${P}-cmake.patch
 
 	# avoid installing license
 	sed -i -e '/COPYING.LIB/d' CMakeLists.txt || die
@@ -136,6 +135,8 @@ src_prepare() {
 		-e 's:${VERSION}::g' \
 		-e "s:doc/\${PACKAGE}:doc/${PF}:" \
 		cmake/modules/instdirs.cmake || die
+
+	cmake_src_prepare
 
 	java-utils-2_src_prepare
 }
