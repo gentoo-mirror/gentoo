@@ -8,7 +8,7 @@ RUST_MIN_VER="1.83"
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit cargo distutils-r1 optfeature
 
@@ -38,6 +38,7 @@ RDEPEND="
 		dev-python/urllib3[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		dev-python/tzlocal[${PYTHON_USEDEP}]
+		dev-python/vcsgraph[${PYTHON_USEDEP}]
 	')
 	!dev-vcs/bzr
 "
