@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,9 +7,7 @@ inherit webapp
 
 DESCRIPTION="An open-source PHP-based bulletin board package"
 HOMEPAGE="https://www.phpbb.com/"
-# Cloudflare is currently blocking wget.
-#SRC_URI="https://download.phpbb.com/pub/release/$(ver_cut 1-2)/${PV}/${P}.tar.bz2"
-SRC_URI="https://fossies.org/linux/www/${P}.tar.bz2"
+SRC_URI="https://download.phpbb.com/pub/release/$(ver_cut 1-2)/${PV}/${P}.tar.bz2"
 S="${WORKDIR}/${PN}${PV%%.*}"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~sparc ~x86"
@@ -22,6 +20,7 @@ PHP_RDEPEND="(
 )"
 
 RDEPEND="|| (
+	${PHP_RDEPEND//@SLOT@/8.5}
 	${PHP_RDEPEND//@SLOT@/8.4}
 	${PHP_RDEPEND//@SLOT@/8.3}
 	${PHP_RDEPEND//@SLOT@/8.2}
