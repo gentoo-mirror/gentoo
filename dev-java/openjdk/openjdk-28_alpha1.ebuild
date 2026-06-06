@@ -71,7 +71,7 @@ S="${WORKDIR}/${JDK_REPO}-jdk-${MY_PV//+/-}"
 
 LICENSE="GPL-2-with-classpath-exception"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 arm64 ~ppc64 ~riscv"
+#	KEYWORDS="" # Not an LTS candidate
 
 IUSE="alsa big-endian cups debug doc examples headless-awt +jbootstrap selinux source static-libs +system-bootstrap systemtap"
 
@@ -87,15 +87,6 @@ COMMON_DEPEND="
 	media-libs/libpng:0=
 	media-libs/lcms:2=
 	virtual/zlib:=
-	media-libs/libjpeg-turbo:0=
-	systemtap? ( dev-debug/systemtap )
-"
-
-# Many libs are required to build, but not to run, make is possible to remove
-# by listing conditionally in RDEPEND unconditionally in DEPEND
-RDEPEND="
-	${COMMON_DEPEND}
-	>=sys-apps/baselayout-java-0.1.0-r1
 	!headless-awt? (
 		x11-libs/libX11
 		x11-libs/libXext
@@ -105,6 +96,15 @@ RDEPEND="
 		x11-libs/libXt
 		x11-libs/libXtst
 	)
+	media-libs/libjpeg-turbo:0=
+	systemtap? ( dev-debug/systemtap )
+"
+
+# Many libs are required to build, but not to run, make is possible to remove
+# by listing conditionally in RDEPEND unconditionally in DEPEND
+RDEPEND="
+	${COMMON_DEPEND}
+	>=sys-apps/baselayout-java-0.1.0-r1
 	alsa? ( media-libs/alsa-lib )
 	cups? ( net-print/cups )
 	selinux? ( sec-policy/selinux-java )
@@ -115,16 +115,10 @@ DEPEND="
 	app-arch/zip
 	media-libs/alsa-lib
 	net-print/cups
-	x11-base/xorg-proto
-	x11-libs/libX11
-	x11-libs/libXext
-	x11-libs/libXi
-	x11-libs/libXrandr
-	x11-libs/libXrender
-	x11-libs/libXt
-	x11-libs/libXtst
+	!headless-awt? ( x11-base/xorg-proto )
 	system-bootstrap? (
 		|| (
+			dev-java/openjdk:27
 			dev-java/openjdk-bin:${SLOT}
 			dev-java/openjdk:${SLOT}
 		)
@@ -157,7 +151,7 @@ pkg_setup() {
 
 	[[ ${MERGE_TYPE} == "binary" ]] && return
 
-	JAVA_PKG_WANT_BUILD_VM="openjdk-${SLOT} openjdk-bin-${SLOT}"
+	JAVA_PKG_WANT_BUILD_VM="openjdk-27 openjdk-${SLOT} openjdk-bin-${SLOT}"
 	JAVA_PKG_WANT_SOURCE="${SLOT}"
 	JAVA_PKG_WANT_TARGET="${SLOT}"
 
@@ -188,6 +182,8 @@ src_configure() {
 
 	if has_version dev-java/openjdk:${SLOT}; then
 		export JDK_HOME=${BROOT}/usr/$(get_libdir)/openjdk-${SLOT}
+	elif has_version dev-java/openjdk:26; then
+		export JDK_HOME=${BROOT}/usr/$(get_libdir)/openjdk-26
 	elif use !system-bootstrap ; then
 		local xpakvar="${ARCH^^}_XPAK"
 		export JDK_HOME="${WORKDIR}/openjdk-bootstrap-${!xpakvar}"
