@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit go-module
 
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/docker/docker-credential-helpers/archive/v${PV}.tar.
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 
 IUSE="keyring pass"
 REQUIRED_USE="|| ( keyring pass )"
@@ -21,6 +21,11 @@ DEPEND="keyring? ( app-crypt/libsecret )"
 RDEPEND="${DEPEND}
 	pass? ( app-admin/pass )
 "
+
+src_prepare() {
+	default
+	sed -e '/GO_LDFLAGS/s/ -s / /' -i Makefile || die
+}
 
 src_compile() {
 	local mymakeflags=(
