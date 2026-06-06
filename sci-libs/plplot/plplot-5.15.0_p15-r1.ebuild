@@ -114,6 +114,7 @@ src_prepare() {
 	done
 	eapply "${FILESDIR}"/${PN}-5.15.0_p6-configure-c99.patch
 	eapply "${FILESDIR}"/${PN}-5.15.0_p15-sighandler_t.patch
+	eapply "${FILESDIR}"/${P}-fixPython.patch
 
 	# avoid installing license
 	sed -i -e '/COPYING.LIB/d' CMakeLists.txt || die
