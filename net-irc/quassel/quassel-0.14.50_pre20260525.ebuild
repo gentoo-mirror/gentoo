@@ -6,7 +6,7 @@ EAPI=8
 inherit cmake optfeature pax-utils systemd xdg-utils
 
 if [[ ${PV} != *9999* ]]; then
-	COMMIT=37fc0c22b9c0ad659798e0f30cbf95e94f8f4dfa # qt6-migration branch
+	COMMIT=6b8343eeffa291be941fd18d637210f048495318 # qt6-migration branch
 	if [[ -n ${COMMIT} ]]; then
 		SRC_URI="https://github.com/johu/quassel/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		# quassel-i18n branch tx-sync (po subdir) @d88d126
