@@ -6,7 +6,7 @@ EAPI=8
 WX_GTK_VER=3.2-gtk3
 FORTRAN_NEEDED=fortran
 LUA_COMPAT=( lua5-1 )
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 # fails with ninja, due to USE=java missing swig output dependencies
 CMAKE_MAKEFILE_GENERATOR=emake
 
@@ -106,8 +106,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	cmake_src_prepare
-
 	# Debian patches
 	for p in $(<"${WORKDIR}"/debian/patches/series) ; do
 		eapply -p1 "${WORKDIR}/debian/patches/${p}"
@@ -115,6 +113,7 @@ src_prepare() {
 	eapply "${FILESDIR}"/${PN}-5.15.0_p6-configure-c99.patch
 	eapply "${FILESDIR}"/${PN}-5.15.0_p15-sighandler_t.patch
 	eapply "${FILESDIR}"/${P}-fixPython.patch
+	eapply "${FILESDIR}"/${P}-cmake.patch
 
 	# avoid installing license
 	sed -i -e '/COPYING.LIB/d' CMakeLists.txt || die
@@ -136,6 +135,8 @@ src_prepare() {
 		-e 's:${VERSION}::g' \
 		-e "s:doc/\${PACKAGE}:doc/${PF}:" \
 		cmake/modules/instdirs.cmake || die
+
+	cmake_src_prepare
 
 	java-utils-2_src_prepare
 }
@@ -266,7 +267,7 @@ src_configure() {
 	# clean up bloated pkg-config files (help linking properly on prefix)
 	sed -i \
 		-e "/Cflags/s:-I\(${EPREFIX}\|\)/usr/include[[:space:]]::g" \
-		-e "/Libs/s:-L\(${EPREFIX}\|\)/usr/lib\(64\|\)[[:space:]]::g" \
+		-e '/Libs.private/s: -L"/[^ ]*::g' \
 		-e "s:${LDFLAGS}::g" \
 		"${BUILD_DIR}"/pkgcfg/*pc || die
 }
