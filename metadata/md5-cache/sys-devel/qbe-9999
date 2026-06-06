@@ -1,11 +1,13 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install prepare unpack
+BDEPEND=test? ( elibc_mingw? ( virtual/wine ) ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare test unpack
 DESCRIPTION=Pure-C embeddable compiler backend
-EAPI=8
+EAPI=9
 HOMEPAGE=https://c9x.me/compile/
 INHERIT=toolchain-funcs git-r3
+IUSE=test
 LICENSE=MIT
 PROPERTIES=live
+RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	git-r3	2f8cdb10b033f92c3136aa6488a31c98
-_md5_=0fdd6e5138bcd0405466d39f647ec91f
+_md5_=91623abda06fd3623bbac1fd8f71cfc3
