@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_PN=GitPython
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit distutils-r1 pypi
@@ -29,7 +29,7 @@ SRC_URI+="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
 
 RDEPEND="
 	dev-vcs/git

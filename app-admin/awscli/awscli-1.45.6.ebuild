@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 shell-completion
 
@@ -22,7 +22,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
+KEYWORDS="amd64 arm arm64 ppc ppc64 ~riscv ~sparc x86"
 
 # botocore is x.(y-2).(z+10), sigh
 BOTOCORE_PV="$(ver_cut 1).$(( $(ver_cut 2) - 2)).$(ver_cut 3)"
