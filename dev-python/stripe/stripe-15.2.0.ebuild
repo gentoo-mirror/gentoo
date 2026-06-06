@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -26,7 +26,7 @@ RDEPEND="
 # please bump dev-util/stripe-mock dep to the latest version on every bump
 BDEPEND="
 	test? (
-		>=dev-util/stripe-mock-0.197.0
+		>=dev-util/stripe-mock-0.201.0
 		dev-python/aiohttp[${PYTHON_USEDEP}]
 		dev-python/httpx[${PYTHON_USEDEP}]
 		dev-python/trio[${PYTHON_USEDEP}]
