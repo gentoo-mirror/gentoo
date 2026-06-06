@@ -1115,6 +1115,7 @@ toolchain_setup_ada() {
 	! tc-is-cross-compiler && _toolchain_make_gnat_wrappers
 
 	export CC="$(tc-getCC) -specs=${T}/ada.spec"
+	export CXX="$(tc-getCXX) -specs=${T}/ada.spec"
 
 	if ver_test ${PV} -lt 13 && [[ ${CTARGET#accel-} == hppa* ]] ; then
 		# For HPPA, the ada-bootstrap binaries seem to default
