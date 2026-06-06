@@ -333,7 +333,7 @@ multilib_src_compile() {
 	emake HAVE_TCL="$(usex tcl 1 0)" TCLLIBDIR="${EPREFIX}/usr/$(get_libdir)/${P}"
 
 	if use tools && multilib_is_native_abi; then
-		emake changeset dbdump dbhash dbtotxt index_usage rbu scrub showdb showjournal showshm showstat4 showwal sqldiff sqlite3_analyzer sqlite3_expert sqltclsh
+		emake changeset dbdump dbhash dbtotxt index_usage rbu showdb showjournal showshm showstat4 showwal sqldiff sqlite3_analyzer sqlite3_expert sqltclsh
 	fi
 
 	if [[ ${PV} == 9999 ]] && use doc && multilib_is_native_abi; then
@@ -401,7 +401,6 @@ multilib_src_install() {
 		install_tool dbtotxt sqlite3-db-to-txt
 		install_tool index_usage sqlite3-index-usage
 		install_tool rbu sqlite3-rbu
-		install_tool scrub sqlite3-scrub
 		install_tool showdb sqlite3-show-db
 		install_tool showjournal sqlite3-show-journal
 		install_tool showshm sqlite3-show-shm
