@@ -667,7 +667,7 @@ if [[ ${ETYPE} == sources ]]; then
 
 	SLOT=${SLOT:=${PVR}}
 	DESCRIPTION="Sources based on the Linux Kernel"
-	IUSE="symlink build"
+	IUSE="symlink build vanilla"
 
 	# Bug #266157, deblob for libre support
 	if [[ -z ${K_PREDEBLOBBED} ]]; then
@@ -1234,10 +1234,25 @@ unipatch() {
 	# So now lets get rid of the patch numbers we want to exclude
 	UNIPATCH_DROP="${UNIPATCH_EXCLUDE} ${UNIPATCH_DROP}"
 	for i in ${UNIPATCH_DROP}; do
-		ebegin "Excluding Patch #${i}"
+		ebegin "Excluding Patch ${i}"
 		for x in ${KPATCH_DIR}; do rm -f ${x}/${i}* 2>/dev/null; done
 		eend $?
 	done
+
+	# for USE=vanilla, remove non-upstream patches
+	# which should be labeled as 1000_ through 1499_
+	if in_iuse vanilla && use vanilla; then
+		for patch in ${KPATCH_DIR}/*; do
+			patchname="${patch##*/}" # Extract filename without path
+			numericprefix="${patchname:0:4}" # Get first 4 characters
+			# Check if it's exactly 4 digits and greater than 1499
+			if [[ $numericprefix =~ ^[0-9]{4}$ ]] && (( numericprefix > 1499 )); then
+				ebegin "Excluding Patch ${patchname}"
+				rm ${patch} 2>/dev/null
+				eend $?
+			fi
+		done
+	fi
 
 	# and now, finally, we patch it :)
 	for x in ${KPATCH_DIR}; do
