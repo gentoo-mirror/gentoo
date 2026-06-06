@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install test unpack
+DEPEND=>=dev-lang/erlang-26.0:=[ssl]
+DESCRIPTION=A sophisticated build-tool for Erlang projects that follows OTP principles
+EAPI=8
+HOMEPAGE=https://www.rebar3.org/ https://github.com/erlang/rebar3/
+INHERIT=edo shell-completion
+IUSE=test
+KEYWORDS=~amd64 ~arm ~ppc ~ppc64 ~sparc ~x86
+LICENSE=Apache-2.0 MIT BSD
+RDEPEND=>=dev-lang/erlang-26.0:=[ssl]
+RESTRICT=!test? ( test )
+SLOT=3
+SRC_URI=https://github.com/erlang/rebar3/archive/refs/tags/3.27.0.tar.gz -> rebar-3.27.0.gh.tar.gz test? ( https://repo.hex.pm/tarballs/meck-0.8.13.tar )
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	bash-completion-r1	9e91505e030725688d1e953321a47501	shell-completion	0b655d0d825e157a5e99c463bddaac16
+_md5_=0a1a52a1a68b63aeee9ca8fe72990035
