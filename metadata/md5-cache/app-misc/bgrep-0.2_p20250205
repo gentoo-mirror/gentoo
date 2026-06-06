@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-lang/perl )
+BDEPEND=test? ( dev-lang/perl dev-util/xxd )
 DEFINED_PHASES=compile install prepare test
 DESCRIPTION=Grep-like tool to search for binary strings
 EAPI=8
@@ -11,4 +11,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/tmbinc/bgrep/archive/6eb0e4730c5ae88574bdab83b07d7b25ac544778.tar.gz -> bgrep-0.2_p20250205.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
-_md5_=ab50ff904618127f03fc751331649352
+_md5_=2004da797f2e53ec5e7d9d8731d0ec76

@@ -1569,7 +1569,7 @@ app-crypt/yubihsm-connector 3.0.7: Server to expose YubiHSM 2 to network
 app-crypt/yubihsm-shell 2.7.2: Components used to interact with the YubiHSM 2
 app-crypt/yubikey-manager 5.8.0 5.9.0 5.9.1-r1: Python library and command line tool for configuring a YubiKey
 app-crypt/yubioath-flutter-bin 7.3.3: Yubico Authenticator for TOTP
-app-crypt/zulucrypt 7.0.0 7.1.0: Front end to cryptsetup
+app-crypt/zulucrypt 7.1.0 7.1.1: Front end to cryptsetup
 app-dicts/aspell-af 0.50.0-r1: Aspell (Afrikaans) language dictionary
 app-dicts/aspell-am 0.03.1-r1: Aspell (Amharic) language dictionary
 app-dicts/aspell-ar 1.2.0-r1: Aspell (Arabic) language dictionary
@@ -5264,7 +5264,7 @@ dev-lang/lfe 2.2.0-r1: Lisp-flavoured Erlang, a lisp syntax front-end to the Erl
 dev-lang/lisaac 0.13.1-r2: An object prototype based language
 dev-lang/logtalk 3.47.0-r2: Open source object-oriented logic programming language
 dev-lang/lua 5.1.5-r200 5.3.6-r102 5.4.8: A powerful light-weight programming language designed for extending applications
-dev-lang/luajit 2.1.1716656478-r1 2.1.1731601260 2.1.1770848219 2.1.9999999999: Just-In-Time Compiler for the Lua programming language
+dev-lang/luajit 2.1.1716656478-r1 2.1.1731601260 2.1.1770848219 2.1.1780076327 2.1.9999999999: Just-In-Time Compiler for the Lua programming language
 dev-lang/luau 0.669 0.707: Gradually typed embeddable scripting language derived from Lua
 dev-lang/maude 3.1-r1 3.2.2 3.3.1 3.4 3.5.1: High-level specification language for equational and logic programming
 dev-lang/mercury 22.01.1-r1: Mercury is a modern general-purpose logic/functional programming language
@@ -8312,7 +8312,7 @@ dev-python/clikit 0.6.2-r1: Group of utilities to build beautiful and testable c
 dev-python/clint 0.5.1-r4: Python Command-line Application Tools
 dev-python/cloudpickle 3.1.2: Extended pickling support for Python objects
 dev-python/cloudscraper 1.2.69-r1: A Python module to bypass Cloudflare's anti-bot page
-dev-python/clr-loader 0.2.9 0.3.1: Generic pure Python loader for .NET runtimes
+dev-python/clr-loader 0.3.1: Generic pure Python loader for .NET runtimes
 dev-python/cmd2 2.6.2 3.5.1 4.0.0: Extra features for standard library's cmd module
 dev-python/colorama 0.4.6: ANSI escape character sequences for colored terminal text & cursor positioning
 dev-python/colorclass 2.2.2-r1: Colorful worry-free console applications for multiple platforms
@@ -9338,7 +9338,7 @@ dev-python/python3-lxc 5.0.0: Python bindings for LXC
 dev-python/python3-saml 1.16.0: OneLogin's SAML Python Toolkit
 dev-python/python3-xapp 3.0.2: Python bindings for x11-libs/xapp
 dev-python/pythondialog 3.5.3: A Python module for making simple text/console-mode user interfaces
-dev-python/pythonnet 3.0.5-r1: Nearly seamless integration with the .NET Common Language Runtime
+dev-python/pythonnet 3.0.5-r2: Nearly seamless integration with the .NET Common Language Runtime
 dev-python/pythran 0.18.1: Ahead of Time compiler for numeric kernels
 dev-python/pytidylib 0.3.2-r2: Python wrapper for HTML Tidy (tidylib)
 dev-python/pytimeparse 1.1.8-r1: A small Python module to parse various kinds of time expressions
@@ -10252,7 +10252,7 @@ dev-ruby/octokit 10.0.0: Ruby toolkit for the Github API
 dev-ruby/omniauth 2.1.3 2.1.4: A generalized Rack framework for multiple-provider authentication
 dev-ruby/open4 1.3.4-r1: Open3::popen3 with exit status
 dev-ruby/openfact 5.6.1: OpenFact, a system inventory tool (community implementation of Facter)
-dev-ruby/openssl-ccm 1.2.3 1.3.0: OpenSSL CBC-MAC (CCM) ruby gem
+dev-ruby/openssl-ccm 1.2.3 1.3.0-r1: OpenSSL CBC-MAC (CCM) ruby gem
 dev-ruby/openssl-cmac 2.0.2 2.1.0: Gem for RFC 4493, 4494, 4615 - The AES-CMAC Algorithm
 dev-ruby/optimist 3.2.0 3.2.1: A commandline option parser for Ruby that just gets out of your way
 dev-ruby/optionable 0.2.0-r1: Robust options validation for Ruby methods
@@ -10618,7 +10618,7 @@ dev-scheme/guile-sqlite3 0.1.3-r100: Guile bindings of sqlite3
 dev-scheme/guile-ssh 0.16.4-r100 0.18.0: Library providing access to the SSH protocol for GNU Guile
 dev-scheme/guile-zlib 0.1.0-r100: GNU Guile library providing bindings to zlib
 dev-scheme/guile-zstd 0.1.1-r100: GNU Guile bindings to the zstd compression library
-dev-scheme/jscheme 7.2-r2: A Scheme dialect with a simple Java interface called Javadot notation
+dev-scheme/jscheme 7.2-r3: A Scheme dialect with a simple Java interface called Javadot notation
 dev-scheme/kawa 3.1.1-r3: Java-based Scheme system & Language Framework
 dev-scheme/mit-scheme 12.1-r1: Scheme interpreter, compiler, debugger and runtime library
 dev-scheme/owl-lisp 0.2.1 0.2.2 9999: Purely functional dialect of Scheme
@@ -15029,7 +15029,7 @@ net-libs/libssh2 1.11.1 9999: Library implementing the SSH2 protocol
 net-libs/libtelnet 0.23-r2: Simple RFC-compliant TELNET implementation as a C library
 net-libs/libtirpc 1.3.6 1.3.7 1.3.7-r2: Transport Independent RPC library (SunRPC replacement)
 net-libs/libtlsrpt 0.5.0 9999: library to implement TLSRPT
-net-libs/libtorrent 0.15.7 0.16.8 0.16.9 0.16.11 9999: BitTorrent library written in C++ for *nix
+net-libs/libtorrent 0.15.7 0.16.11 0.16.13 9999: BitTorrent library written in C++ for *nix
 net-libs/libtorrent-rasterbar 2.0.10: C++ BitTorrent implementation focusing on efficiency and scalability
 net-libs/libtrace 4.0.21 4.0.22 4.0.26 4.0.28: A library and tools for trace processing
 net-libs/libupnp 1.14.24 1.14.25 1.14.30 1.14.31 1.18.5: An Portable Open Source UPnP Development Kit
@@ -15549,7 +15549,7 @@ net-p2p/ncdc 1.25: Lightweight direct connect client with a friendly ncurses int
 net-p2p/nicotine+ 3.3.7 3.3.10: Graphical client for the Soulseek peer to peer network written in Python
 net-p2p/qbittorrent 5.1.2-r1 5.1.4 5.2.0 9999: BitTorrent client in C++ and Qt
 net-p2p/resilio-sync 2.8.1.1390 3.1.1.1075 9999: Resilient, fast and scalable file synchronization tool
-net-p2p/rtorrent 0.15.7 0.16.8 0.16.9 0.16.11 9999: BitTorrent Client using libtorrent
+net-p2p/rtorrent 0.15.7 0.16.11 0.16.13 9999: BitTorrent Client using libtorrent
 net-p2p/stig 0.14.0a_p0 0.14.2a_p0: TUI and CLI for the BitTorrent client Transmission
 net-p2p/syncthing 1.29.5 2.0.10 2.0.14 2.0.15 2.0.16 2.1.0 2.1.1: Open Source Continuous File Synchronization
 net-p2p/torrentinfo 1.8.7: A torrent file parser
@@ -16798,6 +16798,7 @@ sec-keys/openpgp-keys-yubico 20260509: OpenPGP keys used by Yubico's developers
 sec-keys/openpgp-keys-zackweinberg 20231223: OpenPGP keys used by Zack Weinberg
 sec-keys/openpgp-keys-zsh 2026.05.31: PGP keys used to sign ZSH releases
 sec-keys/openpgp-keys-zstd 20260121: OpenPGP key used by app-arch/zstd
+sec-keys/openpgp-keys-zulucrypt 20170817: OpenPGP keys used by the zuluCrypt developer
 sec-keys/signify-keys-opensmtpd 20181026: Signify keys used to sign OpenSMTPD portable releases
 sec-keys/signify-keys-signify 30: Signify keys used to sign signify portable releases
 sec-keys/sigstore-trusted-root 0_p20241016: trusted-root.json for dev-python/sigstore

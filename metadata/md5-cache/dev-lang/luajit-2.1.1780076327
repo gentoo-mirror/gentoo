@@ -1,0 +1,12 @@
+DEFINED_PHASES=compile install
+DESCRIPTION=Just-In-Time Compiler for the Lua programming language
+EAPI=8
+HOMEPAGE=https://luajit.org/
+INHERIT=flag-o-matic toolchain-funcs
+IUSE=lua52compat static-libs
+KEYWORDS=~amd64 ~arm ~arm64 -hppa ~mips ~ppc -riscv -sparc ~x86
+LICENSE=MIT
+SLOT=2/2.1.1780076327
+SRC_URI=https://github.com/LuaJIT/LuaJIT/archive/b925b3e3fc6771171602323b45fbe9fb8fc90369.tar.gz -> luajit-2.1.1780076327.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d
+_md5_=4709d2dd682595fd361a27d7788d1c1c

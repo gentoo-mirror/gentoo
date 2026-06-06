@@ -1,0 +1,17 @@
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-zulucrypt ) app-alternatives/ninja >=dev-build/cmake-3.28.5 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
+DEPEND=dev-libs/libgcrypt:0= sys-apps/util-linux sys-fs/cryptsetup:= sys-fs/lvm2 keyring? ( app-crypt/libsecret ) qt6? ( dev-libs/libpwquality dev-qt/qtbase:6[dbus,gui,network,widgets] kwallet? ( kde-frameworks/knotifications:6 kde-frameworks/kwallet:6 ) )
+DESCRIPTION=Front end to cryptsetup
+EAPI=8
+HOMEPAGE=https://mhogomchungu.github.io/zuluCrypt/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake verify-sig xdg
+IUSE=keyring kwallet +qt6 udev verify-sig
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+ BSD-2
+RDEPEND=dev-libs/libgcrypt:0= sys-apps/util-linux sys-fs/cryptsetup:= sys-fs/lvm2 keyring? ( app-crypt/libsecret ) qt6? ( dev-libs/libpwquality dev-qt/qtbase:6[dbus,gui,network,widgets] kwallet? ( kde-frameworks/knotifications:6 kde-frameworks/kwallet:6 ) ) udev? ( virtual/libudev )
+REQUIRED_USE=kwallet? ( qt6 )
+SLOT=0
+SRC_URI=https://github.com/mhogomchungu/zulucrypt/releases/download/7.1.1/zulucrypt-7.1.1.tar.xz verify-sig? ( https://github.com/mhogomchungu/zulucrypt/releases/download/7.1.1/zulucrypt-7.1.1.tar.xz.asc )
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=ecd582a3f73e31ebbb05286c4c3a8007
