@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,7 +11,7 @@ inherit ruby-fakegem
 
 DESCRIPTION="OpenSSL CBC-MAC (CCM) ruby gem"
 HOMEPAGE="https://github.com/SmallLars/openssl-ccm"
-SRC_URI="https://github.com/SmallLars/openssl-ccm/archive/refs/tags/${PV}.tar.gz -> {P}.tar.gz"
+SRC_URI="https://github.com/SmallLars/openssl-ccm/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="${PV}"
