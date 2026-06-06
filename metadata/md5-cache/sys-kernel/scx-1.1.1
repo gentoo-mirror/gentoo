@@ -1,16 +1,17 @@
-BDEPEND=app-misc/jq dev-libs/protobuf[protoc(+)] >=dev-util/bpftool-7.5.0 >=llvm-core/clang-17[llvm_targets_BPF(-)] || ( >=dev-lang/rust-bin-1.88.0:* >=dev-lang/rust-1.88.0:* )
+BDEPEND=app-misc/jq dev-libs/protobuf[protoc(+)] >=dev-util/bpftool-7.5.0 llvm_slot_16? ( llvm-core/clang:16=[llvm_targets_BPF(-)] ) llvm_slot_17? ( llvm-core/clang:17=[llvm_targets_BPF(-)] ) llvm_slot_18? ( llvm-core/clang:18=[llvm_targets_BPF(-)] ) llvm_slot_19? ( llvm-core/clang:19=[llvm_targets_BPF(-)] ) llvm_slot_20? ( llvm-core/clang:20=[llvm_targets_BPF(-)] ) llvm_slot_21? ( llvm-core/clang:21=[llvm_targets_BPF(-)] ) llvm_slot_22? ( llvm-core/clang:22=[llvm_targets_BPF(-)] ) || ( >=dev-lang/rust-bin-1.88.0:* >=dev-lang/rust-1.88.0:* )
 DEFINED_PHASES=compile configure install setup test unpack
 DEPEND=>=dev-libs/libbpf-1.6:= sys-libs/libseccomp virtual/libelf:= virtual/zlib:=
 DESCRIPTION=sched_ext schedulers and tools
 EAPI=8
 HOMEPAGE=https://github.com/sched-ext/scx
-INHERIT=cargo linux-info
-IUSE=debug
+INHERIT=cargo llvm-r2 linux-info
+IUSE=debug +llvm_slot_21 llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_22
 KEYWORDS=~amd64
 LICENSE=GPL-2 Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0 ZLIB
 PDEPEND=~sys-kernel/scx-loader-1.1.1
 RDEPEND=>=dev-libs/libbpf-1.6:= sys-libs/libseccomp virtual/libelf:= virtual/zlib:=
+REQUIRED_USE=^^ ( llvm_slot_16 llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 llvm_slot_22 )
 SLOT=0
 SRC_URI=https://github.com/sched-ext/scx/archive/refs/tags/v1.1.1.tar.gz -> scx-1.1.1.tar.gz https://github.com/gentoo-crate-dist/scx/releases/download/v1.1.1/scx-1.1.1-crates.tar.xz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	c5ae4c9b5eca97bd7fc77fede663873f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	983bdde2432d878045ca2524b9ff935d	linux-info	efd923656513c879204fec6638eadee5
-_md5_=7cce3b0e92aa3c8953e7b7657ecae81f
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	c5ae4c9b5eca97bd7fc77fede663873f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	983bdde2432d878045ca2524b9ff935d	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	d0f9b3164877aa250943c25b016e475e	linux-info	efd923656513c879204fec6638eadee5
+_md5_=31741ecf573fea47e219e60249857f21
