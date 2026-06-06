@@ -221,6 +221,7 @@ XFAIL_NSPAWN_TEST_LIST=(
 	tst-aarch64-pkey
 	tst-bz21269
 	tst-mlock2
+	tst-mseal-pkey
 	tst-ntp_gettime
 	tst-ntp_gettime-time64
 	tst-ntp_gettimex
