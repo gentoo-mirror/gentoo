@@ -18,7 +18,7 @@ SRC_URI+=" https://github.com/gentoo-crate-dist/${PN}/releases/download/v${PV}/$
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 BDEPEND="
 	dev-python/setuptools-rust[${PYTHON_USEDEP}]
