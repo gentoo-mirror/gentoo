@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -115,7 +115,7 @@ BDEPEND="
 		dev-python/pytest-system-statistics[${PYTHON_USEDEP}]
 		dev-python/pytest-custom-exit-code[${PYTHON_USEDEP}]
 		dev-python/flaky[${PYTHON_USEDEP}]
-		net-dns/bind-tools
+		net-dns/bind
 		>=dev-python/virtualenv-20.3.0[${PYTHON_USEDEP}]
 		dev-util/yamllint[${PYTHON_USEDEP}]
 		!x86? ( >=dev-python/boto3-1.21.46[${PYTHON_USEDEP}] )
