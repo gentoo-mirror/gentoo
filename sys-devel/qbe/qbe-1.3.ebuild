@@ -23,9 +23,6 @@ SLOT="0"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
-# For qbe in targets like x86_64-w64-mingw32
-BDEPEND="test? ( elibc_mingw? ( virtual/wine ) )"
-
 DOCS=( README doc )
 
 src_prepare() {
@@ -76,14 +73,6 @@ src_compile() {
 	tc-export CC
 
 	emake CFLAGS="-std=c99 ${CPPFLAGS} ${CFLAGS}"
-}
-
-src_test() {
-	if use elibc_mingw; then
-		TARGET=amd64_win default
-	else
-		default
-	fi
 }
 
 src_install() {
