@@ -19,7 +19,6 @@ IUSE="activities speech"
 
 RESTRICT="test"
 
-# TODO kolab
 RDEPEND="
 	>=app-crypt/qca-2.3.7:2[qt6(+)]
 	dev-libs/cyrus-sasl:2
@@ -76,7 +75,6 @@ src_configure() {
 		$(cmake_use_find_package speech Qt6TextToSpeech)
 		-DKDEPIM_RUN_AKONADI_TEST=$(usex test)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Etebase=ON
-		-DCMAKE_DISABLE_FIND_PACKAGE_Libkolabxml=ON
 	)
 	ecm_src_configure
 }
