@@ -267,7 +267,7 @@ src_configure() {
 	# clean up bloated pkg-config files (help linking properly on prefix)
 	sed -i \
 		-e "/Cflags/s:-I\(${EPREFIX}\|\)/usr/include[[:space:]]::g" \
-		-e "/Libs/s:-L\(${EPREFIX}\|\)/usr/lib\(64\|\)[[:space:]]::g" \
+		-e '/Libs.private/s: -L"/[^ ]*::g' \
 		-e "s:${LDFLAGS}::g" \
 		"${BUILD_DIR}"/pkgcfg/*pc || die
 }
