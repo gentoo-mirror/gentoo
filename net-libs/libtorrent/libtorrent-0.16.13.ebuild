@@ -1,7 +1,7 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit autotools
 
@@ -12,7 +12,7 @@ if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/rakshasa/${PN}.git"
 else
 	SRC_URI="https://github.com/rakshasa/rtorrent/releases/download/v${PV}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86 ~x64-macos ~x64-solaris"
+	KEYWORDS="~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos ~x64-solaris"
 fi
 
 LICENSE="GPL-2"
@@ -30,11 +30,10 @@ RDEPEND="
 	net-misc/curl
 	virtual/zlib:=
 "
-DEPEND="${RDEPEND}"
-BDEPEND="
-	virtual/pkgconfig
+DEPEND="${RDEPEND}
 	test? ( dev-util/cppunit )
 "
+BDEPEND="virtual/pkgconfig"
 
 src_prepare() {
 	default

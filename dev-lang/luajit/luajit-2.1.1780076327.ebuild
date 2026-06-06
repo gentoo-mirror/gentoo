@@ -32,7 +32,7 @@ if [[ ${VER_RELVER} == 9999999999 ]]; then
 	inherit git-r3
 else
 	# Update this commit hash to bump a pinned-commit ebuild.
-	GIT_COMMIT=""
+	GIT_COMMIT=b925b3e3fc6771171602323b45fbe9fb8fc90369
 	SRC_URI="https://github.com/LuaJIT/LuaJIT/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/LuaJIT-${GIT_COMMIT}"
 

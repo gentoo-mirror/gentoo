@@ -15,12 +15,12 @@ if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/rakshasa/${PN}.git"
 else
 	SRC_URI="https://github.com/rakshasa/rtorrent/releases/download/v${PV}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~x86 ~x64-macos ~x64-solaris"
+	KEYWORDS="~amd64 ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos ~x64-solaris"
 fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="debug lua selinux test tinyxml2 xmlrpc"
+IUSE="debug lua +ncurses selinux systemd test tinyxml2 xmlrpc"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	lua? ( ${LUA_REQUIRED_USE} )
@@ -29,20 +29,27 @@ REQUIRED_USE="
 
 COMMON_DEPEND="
 	~net-libs/libtorrent-${PV}
-	sys-libs/ncurses:0=
+	virtual/zlib:=
 	lua? ( ${LUA_DEPS} )
+	ncurses? ( sys-libs/ncurses:0= )
+	systemd? ( sys-apps/systemd:= )
 	xmlrpc? ( dev-libs/xmlrpc-c:=[libxml2] )
 "
 DEPEND="${COMMON_DEPEND}
 	dev-cpp/nlohmann_json
+	test? ( dev-util/cppunit )
 "
 RDEPEND="${COMMON_DEPEND}
 	selinux? ( sec-policy/selinux-rtorrent )
 "
-BDEPEND="
-	virtual/pkgconfig
-	test? ( dev-util/cppunit )
-"
+BDEPEND="virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.16.13-cross_checks.patch
+
+	# merged in master
+	"${FILESDIR}"/${P}-fix_use_after_free.patch
+)
 
 DOCS=( doc/rtorrent.rc )
 
@@ -66,20 +73,17 @@ src_prepare() {
 		sed -i 's/Wl,-syslibroot,/Wl,--sysroot,/' "${S}/scripts/common.m4" || die
 	fi
 
-	# don't test interpreter (fix cross-compile)
-	# vars for AX_LUA_LIBS/AX_LUA_HEADERS are defined in src_configure
-	sed -e '/AX_PROG_LUA/d' -i scripts/checks.m4 || die
-
 	eautoreconf
 }
 
 src_configure() {
-	# used by xmlrpc-c-config
 	tc-export PKG_CONFIG
 	local myeconfargs=(
 		$(use_enable debug)
 		$(use_with lua)
-		$(usev xmlrpc --with-xmlrpc-c)
+		$(usev !ncurses --without-ncurses)
+		$(use_with systemd)
+		$(usev xmlrpc --with-xmlrpc-c="${PKG_CONFIG}")
 		$(usev tinyxml2 --with-xmlrpc-tinyxml2)
 	)
 
@@ -115,4 +119,10 @@ pkg_postinst() {
 	einfo ""
 	einfo "For configuration assistance, see:"
 	einfo "https://github.com/rakshasa/rtorrent/wiki"
+
+	if ! use ncurses; then
+		einfo "${PN} was installed without ncurses support."
+		einfo "It can only be launched using:"
+		einfo "rtorrent -o system.daemon.set=true"
+	fi
 }

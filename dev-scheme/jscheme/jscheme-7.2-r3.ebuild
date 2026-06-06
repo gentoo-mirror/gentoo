@@ -1,7 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit java-pkg-2
 
@@ -11,12 +11,11 @@ SRC_URI="https://downloads.sourceforge.net/${PN}/${P}.tgz"
 
 LICENSE="Apache-1.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="doc"
 
-DEPEND=">=virtual/jdk-1.6:*"
-RDEPEND=">=virtual/jre-1.6
-	${DEPEND}"
+DEPEND="virtual/jdk:25"
+RDEPEND="virtual/jre:25"
 
 src_compile() {
 	sh bin/make || die "make failed"
