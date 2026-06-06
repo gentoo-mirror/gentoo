@@ -8,7 +8,7 @@ DISTUTILS_USE_PEP517=hatchling
 # no provenance for pydantic-core:
 # https://github.com/pydantic/pydantic-core/issues/1842
 PYPI_VERIFY_REPO=https://github.com/pydantic/pydantic
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 PYDANTIC_CORE_PV=2.46.${PV##*.}
 RUST_MIN_VER="1.88.0"
@@ -139,7 +139,7 @@ LICENSE+="
 	ZLIB
 "
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc x86"
 
 RDEPEND="
 	>=dev-python/annotated-types-0.6.0[${PYTHON_USEDEP}]
