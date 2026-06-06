@@ -3,9 +3,11 @@
 
 EAPI=8
 
+LLVM_COMPAT=( {16..22} )
+
 RUST_MIN_VER="1.88.0"
 
-inherit cargo linux-info
+inherit cargo llvm-r2 linux-info
 
 DESCRIPTION="sched_ext schedulers and tools"
 HOMEPAGE="https://github.com/sched-ext/scx"
@@ -40,7 +42,9 @@ BDEPEND="
 	app-misc/jq
 	dev-libs/protobuf[protoc(+)]
 	>=dev-util/bpftool-7.5.0
-	>=llvm-core/clang-17[llvm_targets_BPF(-)]
+	$(llvm_gen_dep '
+		llvm-core/clang:${LLVM_SLOT}=[llvm_targets_BPF(-)]
+	')
 "
 PDEPEND="~sys-kernel/scx-loader-${PV}"
 
@@ -61,7 +65,13 @@ QA_PREBUILT="/usr/bin/vmlinux_docify"
 
 pkg_setup() {
 	linux-info_pkg_setup
+	llvm-r2_pkg_setup
 	rust_pkg_setup
+}
+
+src_compile() {
+	local -x BPF_CLANG=clang-${LLVM_SLOT}
+	cargo_src_compile
 }
 
 src_test() {
