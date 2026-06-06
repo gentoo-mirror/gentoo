@@ -1,7 +1,7 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 EGIT_COMMIT=75a79851f912e67647903fddddcb65ae1bfdabeb
 
