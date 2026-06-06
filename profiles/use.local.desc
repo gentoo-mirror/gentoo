@@ -5486,7 +5486,7 @@ net-analyzer/icinga2:mariadb - Enable support for the mariadb database backend
 net-analyzer/icinga2:plugins - Adds support for nagios plugins
 net-analyzer/ipsumdump:nanotimestamp - Enable timestamps with nano-second resolution
 net-analyzer/linkchecker:sqlite - Mozilla Bookmark parsing
-net-analyzer/monitoring-plugins:dns - Install net-dns/bind-tools required for monitoring DNS servers. Disabling the flag does not remove any plugins.
+net-analyzer/monitoring-plugins:dns - Install net-dns/bind required for monitoring DNS servers. Disabling the flag does not remove any plugins.
 net-analyzer/monitoring-plugins:fping - Install net-analyzer/fping required for fancy ping monitoring. Disabling the flag does not remove any plugins.
 net-analyzer/monitoring-plugins:game - Install games-util/qstat required for monitoring FPS servers. Disabling the flag does not remove any plugins.
 net-analyzer/monitoring-plugins:ipv6 - Enable ipv6 checks.
@@ -6058,7 +6058,7 @@ net-irc/rbot:aspell - Use aspell instead of ispell in the "spell" plugin for rbo
 net-irc/rbot:cal - Add dependency over a package providing the /usr/bin/cal command, which is needed to enable the "cal" plugin for rbot. If the USE flag is disabled the plugin is also disabled by default.
 net-irc/rbot:figlet - Add dependency over app-misc/figlet, which is used by the "figlet" plugin for rbot. If the USE flag is disabled the plugin will be unable to use figlet; if toilet is also disabled, the plugin will be disabled.
 net-irc/rbot:fortune - Add dependency over games-misc/fortune-mod, which is needed to enable the "fortune" plugin for rbot. If the USE flag is disabled the plugin is also disabled by default.
-net-irc/rbot:host - Add dependency over net-dns/bind-tools (providing /usr/bin/host), which is needed to enable the "host" plugin for rbot. If the USE flag is disabled the plugin is also disabled by default.
+net-irc/rbot:host - Add dependency over net-dns/bind (providing /usr/bin/host), which is needed to enable the "host" plugin for rbot. If the USE flag is disabled the plugin is also disabled by default.
 net-irc/rbot:nls - Build and install translation for the messages coming from the bot and its plugins (through dev-ruby/ruby-gettext).
 net-irc/rbot:timezone - Add dependency over dev-ruby/tzinfo to enable the "time" plugin for rbot. If the USE flag is disabled the plugin is also disabled by default.
 net-irc/rbot:toilet - Add dependency over app-misc/toilet, which is used by the "figlet" plugin for rbot. If the USE flag is disabled the plugin will be unable to use toilet; if figlet is also disabled, the plugin will be disabled.
