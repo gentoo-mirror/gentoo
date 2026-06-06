@@ -96,6 +96,13 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.9.5-c23.patch
 )
 
+QA_CONFIG_IMPL_DECL_SKIP=(
+	# only exists on Windows
+	ioctlsocket
+	# removed from Linux since 5.5
+	sysctl
+)
+
 pkg_setup() {
 	use python && python-single-r1_pkg_setup
 }
