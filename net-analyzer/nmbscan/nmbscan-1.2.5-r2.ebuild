@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 DESCRIPTION="Scans the shares of a SMB/NetBIOS network"
 HOMEPAGE="http://nmbscan.g76r.eu/"
@@ -11,11 +11,13 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm ~hppa ~ppc ppc64 ~sparc x86"
 
-RDEPEND="net-dns/bind-tools
+RDEPEND="
+	app-alternatives/awk
+	net-dns/bind
 	net-fs/samba
 	net-misc/iputils
 	sys-apps/net-tools
-	app-alternatives/awk"
+"
 
 S=${WORKDIR}
 PATCHES=( "${FILESDIR}"/${P}-head.diff )

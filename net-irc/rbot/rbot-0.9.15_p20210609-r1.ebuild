@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -36,7 +36,7 @@ RDEPEND+="
 	toilet? ( app-misc/toilet )
 	fortune? ( games-misc/fortune-mod )
 	cal? ( sys-apps/util-linux )
-	host? ( net-dns/bind-tools )"
+	host? ( net-dns/bind )"
 
 DEPEND+="${CDEPEND}"
 

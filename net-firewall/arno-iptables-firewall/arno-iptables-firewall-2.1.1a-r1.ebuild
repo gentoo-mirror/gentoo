@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,8 +10,6 @@ HOMEPAGE="https://rocky.eld.leidenuniv.nl https://github.com/arno-iptables-firew
 
 SRC_URI="https://github.com/${PN}/aif/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
-S="${WORKDIR}/aif-${PV}"
-
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
@@ -22,8 +20,10 @@ RDEPEND="
 	net-firewall/iptables
 	sys-apps/coreutils
 	sys-apps/iproute2
-	plugins? ( net-dns/bind-tools )
+	plugins? ( net-dns/bind )
 "
+
+S="${WORKDIR}/aif-${PV}"
 
 DISABLE_AUTOFORMATTING="yes"
 DOC_CONTENTS="You will need to configure /etc/${PN}/firewall.conf
