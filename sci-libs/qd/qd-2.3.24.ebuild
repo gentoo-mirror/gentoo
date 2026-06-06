@@ -31,6 +31,14 @@ src_configure() {
 		--enable-inline \
 		$(use_enable cpu_flags_x86_fma$(usex cpu_flags_x86_fma3 3 4) fma) \
 		$(use_enable fortran)
+	sed -i \
+		-e '/FCLIBS/s| -L[^ ]*||g' \
+		fortran/Makefile \
+		|| die
+	sed -i \
+		-e '/compiler_lib_search_path/s|=.*$|=""|' \
+		libtool \
+		|| die
 }
 
 src_install() {
