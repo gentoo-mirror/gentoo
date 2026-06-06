@@ -1,7 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 DESCRIPTION="Elixir programming language"
 HOMEPAGE="https://elixir-lang.org"
@@ -9,15 +9,15 @@ SRC_URI="https://github.com/elixir-lang/elixir/archive/v${PV}.tar.gz -> ${P}.tar
 
 LICENSE="Apache-2.0 ErlPL-1.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ppc ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~riscv ~sparc ~x86"
 IUSE="test"
 
 RESTRICT="!test? ( test )"
 
-# https://hexdocs.pm/elixir/compatibility-and-deprecations.html#compatibility-between-elixir-and-erlang-otp
+# https://hexdocs.pm/elixir/compatibility-and-deprecations.html#between-elixir-and-erlang-otp
 DEPEND="
-	>=dev-lang/erlang-24:0=[ssl]
-	<dev-lang/erlang-27
+	>=dev-lang/erlang-27:0=[ssl]
+	<dev-lang/erlang-30
 "
 # 'mix' tool collides with sci-biology/phylip, bug #537514
 RDEPEND="${DEPEND}
@@ -37,3 +37,7 @@ src_install() {
 	emake DESTDIR="${D}" LIBDIR="$(get_libdir)" PREFIX="${EPREFIX}/usr" install
 	dodoc README.md CHANGELOG.md CODE_OF_CONDUCT.md
 }
+
+# Note on tests: Needs to be ran with proper isolation when epmd is already running on the host,
+# say with ebuild launched by root, or emerge
+# See: https://github.com/elixir-lang/elixir/issues/14889#issuecomment-3539477959
