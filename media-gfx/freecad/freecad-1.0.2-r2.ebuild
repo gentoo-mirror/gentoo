@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 # https://github.com/FreeCAD/FreeCAD/issues/19066
 # The added asserts break on mem leaks, so tests fail.
