@@ -3,12 +3,12 @@ DESCRIPTION=Configurable FVWM theme with transparency and freedesktop compatible
 EAPI=8
 HOMEPAGE=https://fvwm-crystal.sourceforge.net/
 INHERIT=readme.gentoo-r1 python-single-r1 optfeature
-IUSE=python_single_target_python3_12 python_single_target_python3_13
+IUSE=python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
 KEYWORDS=~amd64 ~ppc64 ~riscv ~x86
 LICENSE=GPL-3+
-RDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) acct-group/fvwm-crystal app-alternatives/awk app-alternatives/bc media-sound/alsa-utils sys-apps/sed virtual/imagemagick-tools x11-apps/xwd >=x11-wm/fvwm3-1.0.4[go] || ( x11-misc/hsetroot media-gfx/feh ) || ( >=x11-misc/stalonetray-0.6.2-r2 x11-misc/trayer )
-REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 )
+RDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) acct-group/fvwm-crystal app-alternatives/awk app-alternatives/bc media-sound/alsa-utils sys-apps/sed virtual/imagemagick-tools x11-apps/xwd >=x11-wm/fvwm3-1.0.4[go] || ( x11-misc/hsetroot media-gfx/feh ) || ( >=x11-misc/stalonetray-0.6.2-r2 x11-misc/trayer )
+REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/fvwm-crystal/fvwm-crystal-3.7.6.tar.gz
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	optfeature	538bce96e5589935b57e178e8635f301
-_md5_=f47fa240b4f9dceb355b31cf9f5d43c7
+_md5_=744ef8cd4cfdaff57006d5ab3e56897e
