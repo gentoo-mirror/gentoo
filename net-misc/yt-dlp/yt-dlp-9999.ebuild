@@ -47,6 +47,9 @@ BDEPEND="
 "
 
 if [[ ${PV} == 9999 ]]; then
+	# ignoring PG0305 only in live, properly pre-generated in releases
+	# -- manpage tarballs in live would become outdated and pandoc has
+	# limited arch availability to be unconditional
 	IUSE+=" man"
 	BDEPEND+=" man? ( virtual/pandoc )"
 fi
