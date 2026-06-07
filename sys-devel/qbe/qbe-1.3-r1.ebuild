@@ -25,6 +25,10 @@ RESTRICT="!test? ( test )"
 
 DOCS=( README doc )
 
+PATCHES=(
+	"${FILESDIR}/qbe-1.3-fix-strict-aliasing.patch"
+)
+
 src_prepare() {
 	default
 
