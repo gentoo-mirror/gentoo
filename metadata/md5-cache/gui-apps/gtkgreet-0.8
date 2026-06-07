@@ -1,15 +1,15 @@
-BDEPEND=virtual/pkgconfig man? ( app-text/scdoc ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=app-text/scdoc virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install test
 DEPEND=dev-libs/json-c:= layershell? ( gui-libs/gtk-layer-shell ) x11-libs/gtk+:3
 DESCRIPTION=gtk based greeter for greetd
 EAPI=8
 HOMEPAGE=https://git.sr.ht/~kennylevinsen/gtkgreet
 INHERIT=meson
-IUSE=+layershell man
+IUSE=+layershell
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/json-c:= layershell? ( gui-libs/gtk-layer-shell ) x11-libs/gtk+:3 gui-libs/greetd
 SLOT=0
 SRC_URI=https://git.sr.ht/~kennylevinsen/gtkgreet/archive/0.8.tar.gz -> gtkgreet-0.8.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f
-_md5_=29ff4356ace65e568525fad4b913cd41
+_md5_=65fe5d0105f46b186add61f9f9c69f6c
