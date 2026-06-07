@@ -235,12 +235,6 @@ dev-util/buildbot-www-react
 # Removal on 2026-06-07.
 <dev-python/django-5
 
-# Michał Górny <mgorny@gentoo.org> (2026-05-06)
-# Merged into dev-python/pydantic, since it is tightly pinned
-# and involves a tightly pinned cyclic test dependency.
-# Removal on 2026-06-05.
-dev-python/pydantic-core
-
 # Sam James <sam@gentoo.org> (2026-05-05)
 # dev-debug/pwndbg itself needs >=dev-util/unicorn-2.1.4, while
 # pwndbg also depends on dev-util/pwntools which needs <dev-util/unicorn-2.1.4.
@@ -258,21 +252,6 @@ app-containers/docker-compose:0
 # Mask last version with USE qt5 which is about to be last rited.
 # Bugs #950282, #961920. Remove with other Qt5 masks.
 <net-print/hplip-3.25.8-r1
-
-# Sam James <sam@gentoo.org> (2026-04-20)
-# m2crypto is deprecated upstream and in maintenance mode. They recommend
-# using dev-python/cryptography instead. No reverse dependencies left.
-# Often broke with new OpenSSL as well.
-# Removal on 2026-05-20.  Bug #973014.
-dev-python/m2crypto
-
-# Michał Górny <mgorny@gentoo.org> (2026-04-20)
-# Upstream added new 'encutils' dep that uses the nightmarish
-# coherent.build and depends on chardet.  While both are solvable,
-# the last revdep of cssutils was removed in 2020, and has been inactive
-# since 2017.
-# Removal on 2026-05-20.  Bug #972983.
-dev-python/cssutils
 
 # Sam James <sam@gentoo.org> (2026-04-19)
 # Major new release with lots of broken packages expected. Notably, even
@@ -301,21 +280,6 @@ www-apache/mod_gnutls
 # app-misc/tmux fails to open with newer ncurses (bug #972804)
 >=sys-libs/ncurses-6.6_p20260411
 
-# Michał Górny <mgorny@gentoo.org> (2026-04-15)
-# Unmaintained, with failing tests after urllib changes.  The only
-# revdep bundles a fallback anyway.
-# Removal on 2026-05-15.  Bug #972713.
-dev-python/fs
-
-# Michał Górny <mgorny@gentoo.org> (2026-04-13)
-# dev-python/tempest is needed only for OpenStack integration tests.
-# Incompatible with py3.14.  All the revdeps were mistaken.  Includes
-# dependencies without other revdeps.
-# Removal on 2026-05-13.  Bug #972619.
-dev-python/oslo-concurrency
-dev-python/stestr
-dev-python/tempest
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-04-12)
 # Perpetually stuck on Qt5. A Qt6-based snapshot is provided for testing,
 # currently as app-admin/keepassxc-2.8.0_pre20260504, but it is unclear when
@@ -326,13 +290,6 @@ dev-python/tempest
 # also available as last resort.  See bug #949231.
 # Removal on 2026-05-11.
 <=app-admin/keepassxc-2.7.9999
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-04-12)
-# Depends on Qt5 and does not appear to be ported to Qt6. A possible alternative
-# is net-misc/remmina's x2go plugin, but it requires interested parties to look
-# into it. Bugs #538458, #917570, #955192
-# Removal on 2026-05-30.
-net-misc/x2goclient
 
 # Sam James <sam@gentoo.org> (2026-03-30)
 # >=1.7.0 is an LLM-driven revamp of the project.
