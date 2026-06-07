@@ -249,16 +249,22 @@ _kde.org_live_corrosion_unpack() {
 kde.org_src_unpack() {
 	debug-print-function ${FUNCNAME} "$@"
 
+	# cargo detection, but only if rust_pkg_setup was called (CARGO_OPTIONAL support)
+	local isrusty
+	if has cargo ${INHERITED} && [[ -n "${CARGO}" ]]; then
+		isrusty=true
+	fi
+
 	case ${KDE_BUILD_TYPE} in
 		live)
 			git-r3_src_unpack
 			default
-			if has cmake ${INHERITED} && has cargo ${INHERITED}; then
+			if has cmake ${INHERITED} && [[ ${isrusty} ]]; then
 				_kde.org_live_corrosion_unpack
 			fi
 			;;
 		*)
-			if has cargo ${INHERITED}; then
+			if [[ ${isrusty} ]]; then
 				cargo_src_unpack
 			else
 				default
