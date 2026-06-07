@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake toolchain-funcs
+inherit cmake flag-o-matic toolchain-funcs
 
 DESCRIPTION="Modern solver for linear, quadratic, and mixed-integer programs"
 HOMEPAGE="https://highs.dev/
@@ -52,6 +52,10 @@ PATCHES=(
 )
 
 pkg_setup() {
+	# https://github.com/cschwan/sage-on-gentoo/issues/825
+	# https://github.com/ERGO-Code/HiGHS/issues/2993
+	append-cppflags -DNDEBUG
+
 	if tc-is-clang; then
 		ewarn "WARNING: clang builds have known problems:"
 		ewarn
