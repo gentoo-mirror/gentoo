@@ -307,13 +307,6 @@ www-apache/mod_gnutls
 # Removal on 2026-05-15.  Bug #972713.
 dev-python/fs
 
-# Michał Górny <mgorny@gentoo.org> (2026-04-13)
-# dev-python/tempest is needed only for OpenStack integration tests.
-# Incompatible with py3.14.  All the revdeps were mistaken.  Includes
-# dependencies without other revdeps.
-# Removal on 2026-05-13.  Bug #972619.
-dev-python/oslo-concurrency
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-04-12)
 # Perpetually stuck on Qt5. A Qt6-based snapshot is provided for testing,
 # currently as app-admin/keepassxc-2.8.0_pre20260504, but it is unclear when
