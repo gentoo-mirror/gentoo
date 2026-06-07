@@ -45,6 +45,7 @@ distutils_enable_tests unittest
 
 PATCHES=(
 	"${FILESDIR}"/mat2-0.14.0-fix-tests.patch
+	"${FILESDIR}"/mat2-0.14.0-fix-html-test.patch
 )
 
 pkg_postinst() {
