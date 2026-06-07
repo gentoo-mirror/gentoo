@@ -259,13 +259,6 @@ app-containers/docker-compose:0
 # Bugs #950282, #961920. Remove with other Qt5 masks.
 <net-print/hplip-3.25.8-r1
 
-# Sam James <sam@gentoo.org> (2026-04-20)
-# m2crypto is deprecated upstream and in maintenance mode. They recommend
-# using dev-python/cryptography instead. No reverse dependencies left.
-# Often broke with new OpenSSL as well.
-# Removal on 2026-05-20.  Bug #973014.
-dev-python/m2crypto
-
 # Sam James <sam@gentoo.org> (2026-04-19)
 # Major new release with lots of broken packages expected. Notably, even
 # dev-lang/python isn't yet. Please use with caution and file bugs for
