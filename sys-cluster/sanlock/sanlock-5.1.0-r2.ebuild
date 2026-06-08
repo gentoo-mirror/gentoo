@@ -23,6 +23,7 @@ DEPEND="
 	dev-libs/libaio
 	sys-apps/util-linux
 	python? ( ${PYTHON_DEPS} )
+	sys-fs/lvm2
 "
 RDEPEND="
 	acct-user/${PN}
