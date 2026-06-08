@@ -143,6 +143,8 @@ src_compile() {
 		SBINDIR=/usr/sbin
 
 	if use tools ; then
+		emake CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" EXTRA_OBJS="${EXTRA_OBJS}" \
+			TARGET_LDFLAGS="${TARGET_LDFLAGS}" PCRE_LIB="${ESYSROOT}"/usr/$(get_libdir) ${args[@]} haterm
 		for extra in ${EXTRAS[@]} ; do
 			if [ "${extra}" = "admin/halog" ]; then
 				emake CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" \
@@ -208,6 +210,9 @@ src_install() {
 
 		dosbin admin/cli/haproxy-dump-certs
 		dosbin admin/cli/haproxy-reload
+
+		dobin haterm
+		use doc && dodoc doc/haterm.txt
 	fi
 
 	if use examples ; then
