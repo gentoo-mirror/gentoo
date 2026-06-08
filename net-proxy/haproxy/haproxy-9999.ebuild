@@ -38,8 +38,8 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0/$(ver_cut 1-2)"
-IUSE="+crypt doc ech examples +slz +net_ns +pcre pcre-jit prometheus-exporter quic
-selinux ssl systemd test +threads tools zlib lua 51degrees wurfl"
+IUSE="+crypt +doc ech examples +slz +net_ns +pcre pcre-jit prometheus-exporter quic
+selinux +ssl systemd test +threads tools zlib lua 51degrees wurfl"
 REQUIRED_USE="pcre-jit? ( pcre )
 	lua? ( ${LUA_REQUIRED_USE} )
 	ech? ( ssl )
