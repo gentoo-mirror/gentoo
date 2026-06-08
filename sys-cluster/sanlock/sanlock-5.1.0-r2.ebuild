@@ -66,6 +66,7 @@ src_install() {
 	if use python; then
 		distutils-r1_src_install
 	fi
+	keepdir /var/lib/sanlock
 
 	# config
 	dodir /etc/wdmd.d
