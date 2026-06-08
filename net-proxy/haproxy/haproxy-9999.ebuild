@@ -38,10 +38,11 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0/$(ver_cut 1-2)"
-IUSE="+crypt doc examples +slz +net_ns +pcre pcre-jit prometheus-exporter quic
+IUSE="+crypt doc ech examples +slz +net_ns +pcre pcre-jit prometheus-exporter quic
 selinux ssl systemd test +threads tools zlib lua 51degrees wurfl"
 REQUIRED_USE="pcre-jit? ( pcre )
 	lua? ( ${LUA_REQUIRED_USE} )
+	ech? ( ssl )
 	?? ( slz zlib )"
 RESTRICT="!test? ( test )"
 
@@ -64,7 +65,8 @@ DEPEND="
 	test? (
 		dev-libs/libpcre2
 		virtual/zlib:=
-	)"
+	)
+	ech? ( >=dev-libs/openssl-4.0.0:0/4 )"
 RDEPEND="${DEPEND}
 	acct-group/haproxy
 	acct-user/haproxy
@@ -114,6 +116,7 @@ src_compile() {
 	fi
 
 	# TODO: PCRE2_WIDTH?
+	args+=( $(haproxy_use ech ECH) )
 	args+=( $(haproxy_use threads THREAD) )
 	args+=( $(haproxy_use crypt LIBCRYPT) )
 	args+=( $(haproxy_use net_ns NS) )
