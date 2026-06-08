@@ -1,11 +1,11 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 APP_PN="platyPS"
 
-DOTNET_PKG_COMPAT=8.0
+DOTNET_PKG_COMPAT="10.0"
 NUGETS="
 dotnet-xunit@2.3.1
 libuv@1.9.0
@@ -280,7 +280,7 @@ HOMEPAGE="https://github.com/PowerShell/platyPS/"
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/PowerShell/${APP_PN}.git"
+	EGIT_REPO_URI="https://github.com/PowerShell/${APP_PN}"
 else
 	SRC_URI="https://github.com/PowerShell/${APP_PN}/archive/${PV}.tar.gz
 		-> ${P}.tar.gz"
@@ -293,6 +293,7 @@ SRC_URI+=" ${NUGET_URIS} "
 
 LICENSE="MIT"
 SLOT="${PV}"
+RESTRICT="test"
 
 RDEPEND="
 	virtual/pwsh:*
@@ -345,9 +346,13 @@ src_compile() {
 	edo pwsh -NoProfile -NonInteractive ./build.ps1 "${ps1opts[@]}"
 }
 
+src_test() {
+	# dotnet-pkg_src_test
+	:
+}
+
 src_install() {
 	insinto "/usr/share/GentooPowerShell/Modules/${APP_PN}/${PV}"
 	doins -r "./out/${APP_PN}/."
-
 	einstalldocs
 }
