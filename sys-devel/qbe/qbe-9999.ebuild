@@ -20,8 +20,6 @@ HOMEPAGE="https://c9x.me/compile/"
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="test"
-RESTRICT="!test? ( test )"
 
 DOCS=( README doc )
 
