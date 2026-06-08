@@ -25,4 +25,4 @@ RDEPEND="
 	dev-python/requests[${PYTHON_USEDEP}]
 "
 
-distutils_enable_sphinx docs/source dev-python/sphinx-rtd-theme
+distutils_enable_sphinx docs/source dev-python/sphinx-autodoc-typehints dev-python/sphinx-rtd-theme
