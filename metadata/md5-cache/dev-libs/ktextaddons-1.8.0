@@ -1,4 +1,4 @@
-BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 designer? ( dev-qt/qttools:6[designer] ) doc? ( >=app-text/doxygen-1.8.13-r1 ) doc? ( dev-qt/qttools:6[assistant] ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.15.0:*
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 designer? ( dev-qt/qttools:6[designer] ) doc? ( >=app-text/doxygen-1.8.13-r1 dev-qt/qttools:6[assistant] ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.15.0:*
 DEFINED_PHASES=compile configure info install nofetch prepare test unpack
 DEPEND=>=dev-libs/qtkeychain-0.14.2:=[qt6(+)] >=dev-qt/qtbase-6.8.1:6[dbus,gui,network,widgets] >=dev-qt/qtmultimedia-6.8.1:6 >=kde-frameworks/karchive-6.15.0:6 >=kde-frameworks/kconfig-6.15.0:6 >=kde-frameworks/kcolorscheme-6.15.0:6 >=kde-frameworks/kcoreaddons-6.15.0:6 >=kde-frameworks/ki18n-6.15.0:6 >=kde-frameworks/kio-6.15.0:6 >=kde-frameworks/kitemviews-6.15.0:6 >=kde-frameworks/ktextwidgets-6.15.0:6 >=kde-frameworks/kwidgetsaddons-6.15.0:6 >=kde-frameworks/sonnet-6.15.0:6 >=kde-frameworks/syntax-highlighting-6.15.0:6 speech? ( >=dev-qt/qtspeech-6.8.1:6 ) doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6
 DESCRIPTION=Various text handling addons
@@ -12,5 +12,5 @@ RDEPEND=>=dev-libs/qtkeychain-0.14.2:=[qt6(+)] >=dev-qt/qtbase-6.8.1:6[dbus,gui,
 RESTRICT=test !test? ( test )
 SLOT=6
 SRC_URI=mirror://kde/stable/ktextaddons/ktextaddons-1.8.0.tar.xz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3395ce6618fc5c7af03335471b896644	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	c3772d432284de03db6df21d71be747a	kde.org	2eea56ed41440913be4caa3d255d2db3
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	4bfef8c61189e3120b9795526b340097	kde.org	1f7bc603f9be1867fd5571e634f541e7
 _md5_=f130e7578d6d4fe8f0f784dc397a8ccd
