@@ -15,7 +15,9 @@ SLOT="0"
 KEYWORDS="amd64 ~riscv ~x86"
 IUSE="cpu_flags_x86_fma3 cpu_flags_x86_fma4 doc fortran"
 
-PATCHES=( "${FILESDIR}"/${P}-pkgconfig.patch )
+PATCHES=(
+	"${FILESDIR}"/${P}-pkgconfig.patch
+)
 
 src_prepare() {
 	default
@@ -34,10 +36,6 @@ src_configure() {
 	sed -i \
 		-e '/FCLIBS/s| -L[^ ]*||g' \
 		fortran/Makefile \
-		|| die
-	sed -i \
-		-e '/compiler_lib_search_path/s|=.*$|=""|' \
-		libtool \
 		|| die
 }
 
