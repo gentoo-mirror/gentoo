@@ -133,6 +133,8 @@ src_prepare() {
 		kitty_tests/{shell_integration,ssh}.py
 		# relies on /proc/self/fd and gets confused when ran from here
 		tools/utils/tpmfile_test.go
+		# seems to randomly fail depending on timing (bug #977046)
+		tools/watch/api_test.go
 	)
 	use !test || rm "${skiptests[@]}" || die
 }
