@@ -3,10 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_EXT=1
-DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..15} )
-inherit flag-o-matic linux-info distutils-r1 systemd
+inherit flag-o-matic linux-info systemd
 
 DESCRIPTION="shared storage lock manager"
 HOMEPAGE="https://codeberg.org/sanlock/sanlock"
@@ -15,14 +12,11 @@ SRC_URI="https://codeberg.org/${PN}/${PN}/releases/download/${P}/${P}.tar.gz"
 LICENSE="LGPL-2+ GPL-2 GPL-2+"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ~ppc ppc64 ~riscv ~s390 ~sparc x86"
-IUSE="python selinux"
-
-REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
+IUSE="selinux"
 
 DEPEND="
 	dev-libs/libaio
 	sys-apps/util-linux
-	python? ( ${PYTHON_DEPS} )
 	sys-fs/lvm2
 "
 RDEPEND="
@@ -50,12 +44,6 @@ src_compile() {
 	for d in wdmd src; do
 		emake -C ${d}
 	done
-
-	if use python; then
-		pushd python
-		distutils-r1_src_compile
-		popd
-	fi
 }
 
 src_install() {
@@ -63,9 +51,6 @@ src_install() {
 		emake -C ${d} DESTDIR="${D}" LIBDIR="${EPREFIX}/usr/$(get_libdir)" install
 	done
 
-	if use python; then
-		distutils-r1_src_install
-	fi
 	keepdir /var/lib/sanlock
 
 	# config
