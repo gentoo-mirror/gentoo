@@ -19,15 +19,13 @@ Bug: https://bugs.gentoo.org/948671
 Signed-off-by: Sam James <sam@gentoo.org>
 --- a/src/hwtime.h
 +++ b/src/hwtime.h
-@@ -24,7 +24,7 @@
- */
- #if !defined(__STRICT_ANSI__) && \
-     (defined(__GNUC__) || defined(_MSC_VER)) && \
+@@ -28,7 +28,7 @@
+   }
+
+ #elif !defined(__STRICT_ANSI__) && defined(__GNUC__) && \
 -    (defined(i386) || defined(__i386__) || defined(_M_IX86))
-+    (defined(i586) || defined(__i586__) || defined(_M_IX86))
- 
-   #if defined(__GNUC__)
- 
--- 
-2.48.1
++    (defined(i586) || defined(__i386__) || defined(_M_IX86))
+
+   __inline__ sqlite_uint64 sqlite3Hwtime(void){
+      unsigned int lo, hi;
 
