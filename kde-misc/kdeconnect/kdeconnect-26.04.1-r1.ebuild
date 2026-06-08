@@ -23,6 +23,7 @@ RESTRICT="test"
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 # TODO: make conditional on X upstream
 COMMON_DEPEND="
+	dev-libs/libei
 	dev-libs/openssl:=
 	>=dev-libs/wayland-1.15.0
 	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,network,wayland,widgets]
