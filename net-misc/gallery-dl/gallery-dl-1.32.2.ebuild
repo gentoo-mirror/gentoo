@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="sqlite,ssl,xml(+)"
 DISTUTILS_USE_PEP517="setuptools"
 
@@ -15,7 +15,7 @@ HOMEPAGE="https://github.com/mikf/gallery-dl/"
 if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 
-	EGIT_REPO_URI="https://github.com/mikf/${PN}.git"
+	EGIT_REPO_URI="https://github.com/mikf/${PN}"
 else
 	SRC_URI="https://github.com/mikf/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
