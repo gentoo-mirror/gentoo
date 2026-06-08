@@ -1,16 +1,17 @@
-BDEPEND=virtual/pkgconfig virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig virtual/pkgconfig
 DEFINED_PHASES=compile install postinst setup test unpack
 DEPEND=crypt? ( virtual/libcrypt:= ) pcre? ( dev-libs/libpcre2:= pcre-jit? ( dev-libs/libpcre2:=[jit] ) ) ssl? ( dev-libs/openssl:0= ) quic? ( >=dev-libs/openssl-3.5.0:0= ) systemd? ( sys-apps/systemd ) zlib? ( virtual/zlib:= ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) test? ( dev-libs/libpcre2 virtual/zlib:= ) ech? ( >=dev-libs/openssl-4.0.0:0/4 )
 DESCRIPTION=A TCP/HTTP reverse proxy for high availability environments
 EAPI=8
 HOMEPAGE=http://www.haproxy.org
-INHERIT=toolchain-funcs lua-single systemd linux-info git-r3 multiprocessing
+INHERIT=toolchain-funcs lua-single systemd linux-info multiprocessing
 IUSE=+crypt +doc ech examples +slz +net_ns +pcre pcre-jit prometheus-exporter quic selinux +ssl systemd test +threads tools zlib lua 51degrees wurfl lua_single_target_lua5-3 lua_single_target_lua5-4
+KEYWORDS=~amd64 ~arm64 ~ppc ~x86
 LICENSE=GPL-2 LGPL-2.1
-PROPERTIES=live
 RDEPEND=crypt? ( virtual/libcrypt:= ) pcre? ( dev-libs/libpcre2:= pcre-jit? ( dev-libs/libpcre2:=[jit] ) ) ssl? ( dev-libs/openssl:0= ) quic? ( >=dev-libs/openssl-3.5.0:0= ) systemd? ( sys-apps/systemd ) zlib? ( virtual/zlib:= ) lua? ( lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) lua_single_target_lua5-4? ( dev-lang/lua:5.4 ) ) test? ( dev-libs/libpcre2 virtual/zlib:= ) ech? ( >=dev-libs/openssl-4.0.0:0/4 ) acct-group/haproxy acct-user/haproxy selinux? ( sec-policy/selinux-haproxy )
 REQUIRED_USE=pcre-jit? ( pcre ) lua? ( ^^ ( lua_single_target_lua5-3 lua_single_target_lua5-4 ) ) ech? ( ssl ) ?? ( slz zlib )
 RESTRICT=!test? ( test )
-SLOT=0/9999
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	systemd	a964c0cbe818b5729da1dbfcee5be861	linux-info	efd923656513c879204fec6638eadee5	git-r3	2f8cdb10b033f92c3136aa6488a31c98	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399
+SLOT=0/3.4
+SRC_URI=http://haproxy.1wt.eu/download/3.4/src/haproxy-3.4.0.tar.gz test? ( https://dev.gentoo.org/~idl0r/distfiles/VTest2-3bba149.tar.gz )
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	systemd	a964c0cbe818b5729da1dbfcee5be861	linux-info	efd923656513c879204fec6638eadee5	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399
 _md5_=5777ed3aaf765755956554c1b62efca1
