@@ -1,0 +1,13 @@
+BDEPEND=net-misc/curl[ssl] >=app-emacs/compat-31.0.0.1 >=app-editors/emacs-28.1:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Emacs web feeds client
+EAPI=9
+HOMEPAGE=https://github.com/emacs-elfeed/elfeed/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=Unlicense
+RDEPEND=net-misc/curl[ssl] >=app-emacs/compat-31.0.0.1 >=app-editors/emacs-28.1:*
+SLOT=0
+SRC_URI=https://github.com/emacs-elfeed/elfeed/archive/4.0.0.tar.gz -> elfeed-4.0.0.gh.tar.gz
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	a37bfc35b86403c770beebbd71661c30
+_md5_=421a5afb0a8c40e6872501b5969aeb64
