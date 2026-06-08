@@ -3,8 +3,8 @@
 
 EAPI=8
 
-CRATES=""
 RUST_MIN_VER="1.93"
+CRATES=""
 
 declare -A GIT_CRATES=(
 	[collections]='https://github.com/zed-industries/zed;abec0efce8de9388506ea92341ded605c1e37e03;zed-%commit%/crates/collections'
@@ -48,6 +48,7 @@ declare -A GIT_CRATES=(
 	[ztracing]='https://github.com/zed-industries/zed;abec0efce8de9388506ea92341ded605c1e37e03;zed-%commit%/crates/ztracing'
 	[ztracing_macro]='https://github.com/zed-industries/zed;abec0efce8de9388506ea92341ded605c1e37e03;zed-%commit%/crates/ztracing_macro'
 )
+
 inherit desktop cargo xdg
 
 DESCRIPTION="Blazing-fast native Redis GUI built with Rust and GPUI"
