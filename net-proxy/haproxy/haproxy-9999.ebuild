@@ -73,6 +73,8 @@ RDEPEND="${DEPEND}
 DOCS=( CHANGELOG CONTRIBUTING MAINTAINERS )
 EXTRAS=( admin/halog admin/iprange dev/tcploop dev/hpack )
 
+CONFIG_CHECK="~TCP_MD5SIG"
+
 haproxy_use() {
 	(( $# != 2 )) && die "${FUNCNAME} <USE flag> <make option>"
 
