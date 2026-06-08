@@ -21,6 +21,7 @@ KEYWORDS="amd64 arm arm64 ~loong ~riscv x86"
 RDEPEND="
 	dev-python/cryptography[${PYTHON_USEDEP}]
 	dev-python/pefile[${PYTHON_USEDEP}]
+	dev-python/pkg-resources[${PYTHON_USEDEP}]
 "
 
 # Need systemd-detect-virt
