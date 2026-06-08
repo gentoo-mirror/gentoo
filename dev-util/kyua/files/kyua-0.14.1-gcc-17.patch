@@ -20,3 +20,25 @@ index ca91a6a3..6c6f259f 100644
  
  #include "utils/fs/path_fwd.hpp"
  #include "utils/optional_fwd.hpp"
+From 818175ab163161caca7b03af1723261c9d19a3e2 Mon Sep 17 00:00:00 2001
+From: Mike Gilbert <floppym@gentoo.org>
+Date: Mon, 8 Jun 2026 14:30:30 -0400
+Subject: [PATCH] utils/text/regex.hpp: #include <string> for std::string
+
+Bug: https://bugs.gentoo.org/976938
+---
+ utils/text/regex.hpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/utils/text/regex.hpp b/utils/text/regex.hpp
+index b3d20c24..d4981dfc 100644
+--- a/utils/text/regex.hpp
++++ b/utils/text/regex.hpp
+@@ -36,6 +36,7 @@
+ 
+ #include <cstddef>
+ #include <memory>
++#include <string>
+ 
+ 
+ namespace utils {
