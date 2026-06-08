@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,11 +11,11 @@ SRC_URI="https://download.sourceforge.net/cdemu/cdemu-daemon/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0/7" # subslot = CDEMU_DAEMON_INTERFACE_VERSION_MAJOR in CMakeLists.txt
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-	>=dev-libs/glib-2.38:2
-	>=dev-libs/libmirage-3.2.0:=
+	>=dev-libs/glib-2.64:2
+	>=dev-libs/libmirage-3.3.2:=
 	>=media-libs/libao-0.8.0:=
 "
 RDEPEND="
@@ -24,6 +24,7 @@ RDEPEND="
 	>=sys-fs/vhba-20130607
 "
 BDEPEND="
+	dev-util/gdbus-codegen
 	dev-util/intltool
 	sys-devel/gettext
 	virtual/pkgconfig
