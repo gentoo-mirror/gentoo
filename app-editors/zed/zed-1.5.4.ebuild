@@ -17,6 +17,8 @@ declare -A GIT_CRATES=(
 	[candle-nn]='https://github.com/zed-industries/candle;724d75eb3deebefe83f2a7381a45d4fac6eda383;candle-%commit%/candle-nn'
 	[candle-onnx]='https://github.com/zed-industries/candle;724d75eb3deebefe83f2a7381a45d4fac6eda383;candle-%commit%/candle-onnx'
 	[dap-types]='https://github.com/zed-industries/dap-types;1b461b310481d01e02b2603c16d7144b926339f8;dap-types-%commit%/dap-types'
+	[dugong-graphlib]='https://github.com/zed-industries/merman;06094471f97acb10d0eebf8b92bac19ba2928eea;merman-%commit%/crates/dugong-graphlib'
+	[dugong]='https://github.com/zed-industries/merman;06094471f97acb10d0eebf8b92bac19ba2928eea;merman-%commit%/crates/dugong'
 	[gh-workflow-macros]='https://github.com/zed-industries/gh-workflow;37f3c0575d379c218a9c455ee67585184e40d43f;gh-workflow-%commit%/crates/gh-workflow-macros'
 	[gh-workflow]='https://github.com/zed-industries/gh-workflow;37f3c0575d379c218a9c455ee67585184e40d43f;gh-workflow-%commit%/crates/gh-workflow'
 	[libwebrtc]='https://github.com/zed-industries/livekit-rust-sdks;147fbca3d4b592d96d33f5e6a84b59fc0b5d9bf1;livekit-rust-sdks-%commit%/libwebrtc'
@@ -24,9 +26,12 @@ declare -A GIT_CRATES=(
 	[livekit-protocol]='https://github.com/zed-industries/livekit-rust-sdks;147fbca3d4b592d96d33f5e6a84b59fc0b5d9bf1;livekit-rust-sdks-%commit%/livekit-protocol'
 	[livekit-runtime]='https://github.com/zed-industries/livekit-rust-sdks;147fbca3d4b592d96d33f5e6a84b59fc0b5d9bf1;livekit-rust-sdks-%commit%/livekit-runtime'
 	[livekit]='https://github.com/zed-industries/livekit-rust-sdks;147fbca3d4b592d96d33f5e6a84b59fc0b5d9bf1;livekit-rust-sdks-%commit%/livekit'
-	[lsp-types]='https://github.com/zed-industries/lsp-types;c7396459fefc7886b4adfa3b596832405ae1e880;lsp-types-%commit%'
-	[mermaid-rs-renderer]='https://github.com/zed-industries/mermaid-rs-renderer;374db9ead5426697c6c2111151d9f246899bc638;mermaid-rs-renderer-%commit%'
-	[naga]='https://github.com/zed-industries/wgpu;a466bc382ea747f8e1ac810efdb6dcd49a514575;wgpu-%commit%/naga'
+	[lsp-types]='https://github.com/zed-industries/lsp-types;f4dfa89a21ca35cd929b70354b1583fabae325f8;lsp-types-%commit%'
+	[manatee]='https://github.com/zed-industries/merman;06094471f97acb10d0eebf8b92bac19ba2928eea;merman-%commit%/crates/manatee'
+	[merman-core]='https://github.com/zed-industries/merman;06094471f97acb10d0eebf8b92bac19ba2928eea;merman-%commit%/crates/merman-core'
+	[merman-render]='https://github.com/zed-industries/merman;06094471f97acb10d0eebf8b92bac19ba2928eea;merman-%commit%/crates/merman-render'
+	[merman]='https://github.com/zed-industries/merman;06094471f97acb10d0eebf8b92bac19ba2928eea;merman-%commit%/crates/merman'
+	[naga]='https://github.com/zed-industries/wgpu;357a0c56e0070480ad9daea5d2eaa83150b79e88;wgpu-%commit%/naga'
 	[notify-types]='https://github.com/zed-industries/notify;ce58c24cad542c28e04ced02e20325a4ec28a31d;notify-%commit%/notify-types'
 	[notify]='https://github.com/zed-industries/notify;ce58c24cad542c28e04ced02e20325a4ec28a31d;notify-%commit%/notify'
 	[nvim-rs]='https://github.com/KillTheMule/nvim-rs;764dd270c642f77f10f3e19d05cc178a6cbe69f3;nvim-rs-%commit%'
@@ -59,7 +64,8 @@ declare -A GIT_CRATES=(
 	[proptest-macro]='https://github.com/proptest-rs/proptest;3dca198a8fef1b32e3a66f1e1897c955b4dc5b5b;proptest-%commit%/proptest-macro'
 	[proptest]='https://github.com/proptest-rs/proptest;3dca198a8fef1b32e3a66f1e1897c955b4dc5b5b;proptest-%commit%/proptest'
 	[rodio]='https://github.com/RustAudio/rodio;e50e726ddd0292f6ef9de0dda6b90af4ed1fb66a;rodio-%commit%'
-	[tiktoken-rs]='https://github.com/zed-industries/tiktoken-rs;2570c4387a8505fb8f1d3f3557454b474f1e8271;tiktoken-rs-%commit%/tiktoken-rs'
+	[roughr-merman]='https://github.com/zed-industries/merman;06094471f97acb10d0eebf8b92bac19ba2928eea;merman-%commit%/crates/roughr'
+	[trash]='https://github.com/zed-industries/trash-rs;3bf27effd4eb8699f2e484d3326b852fe3e53af7;trash-rs-%commit%'
 	[tree-sitter-cpp]='https://github.com/tree-sitter/tree-sitter-cpp;5cb9b693cfd7bfacab1d9ff4acac1a4150700609;tree-sitter-cpp-%commit%'
 	[tree-sitter-gitcommit]='https://github.com/zed-industries/tree-sitter-git-commit;88309716a69dd13ab83443721ba6e0b491d37ee9;tree-sitter-git-commit-%commit%'
 	[tree-sitter-gomod]='https://github.com/camdencheek/tree-sitter-go-mod;2e886870578eeba1927a2dc4bd2e2b3f598c5f9a;tree-sitter-go-mod-%commit%'
@@ -70,30 +76,30 @@ declare -A GIT_CRATES=(
 	[tree-sitter-yaml]='https://github.com/zed-industries/tree-sitter-yaml;baff0b51c64ef6a1fb1f8390f3ad6015b83ec13a;tree-sitter-yaml-%commit%'
 	[webrtc-sys-build]='https://github.com/zed-industries/livekit-rust-sdks;147fbca3d4b592d96d33f5e6a84b59fc0b5d9bf1;livekit-rust-sdks-%commit%/webrtc-sys/build'
 	[webrtc-sys]='https://github.com/zed-industries/livekit-rust-sdks;147fbca3d4b592d96d33f5e6a84b59fc0b5d9bf1;livekit-rust-sdks-%commit%/webrtc-sys'
-	[wgpu-core-deps-apple]='https://github.com/zed-industries/wgpu;a466bc382ea747f8e1ac810efdb6dcd49a514575;wgpu-%commit%/wgpu-core/platform-deps/apple'
-	[wgpu-core-deps-emscripten]='https://github.com/zed-industries/wgpu;a466bc382ea747f8e1ac810efdb6dcd49a514575;wgpu-%commit%/wgpu-core/platform-deps/emscripten'
-	[wgpu-core-deps-windows-linux-android]='https://github.com/zed-industries/wgpu;a466bc382ea747f8e1ac810efdb6dcd49a514575;wgpu-%commit%/wgpu-core/platform-deps/windows-linux-android'
-	[wgpu-core]='https://github.com/zed-industries/wgpu;a466bc382ea747f8e1ac810efdb6dcd49a514575;wgpu-%commit%/wgpu-core'
-	[wgpu-hal]='https://github.com/zed-industries/wgpu;a466bc382ea747f8e1ac810efdb6dcd49a514575;wgpu-%commit%/wgpu-hal'
-	[wgpu-naga-bridge]='https://github.com/zed-industries/wgpu;a466bc382ea747f8e1ac810efdb6dcd49a514575;wgpu-%commit%/wgpu-naga-bridge'
-	[wgpu-types]='https://github.com/zed-industries/wgpu;a466bc382ea747f8e1ac810efdb6dcd49a514575;wgpu-%commit%/wgpu-types'
-	[wgpu]='https://github.com/zed-industries/wgpu;a466bc382ea747f8e1ac810efdb6dcd49a514575;wgpu-%commit%/wgpu'
+	[wgpu-core-deps-apple]='https://github.com/zed-industries/wgpu;357a0c56e0070480ad9daea5d2eaa83150b79e88;wgpu-%commit%/wgpu-core/platform-deps/apple'
+	[wgpu-core-deps-emscripten]='https://github.com/zed-industries/wgpu;357a0c56e0070480ad9daea5d2eaa83150b79e88;wgpu-%commit%/wgpu-core/platform-deps/emscripten'
+	[wgpu-core-deps-windows-linux-android]='https://github.com/zed-industries/wgpu;357a0c56e0070480ad9daea5d2eaa83150b79e88;wgpu-%commit%/wgpu-core/platform-deps/windows-linux-android'
+	[wgpu-core]='https://github.com/zed-industries/wgpu;357a0c56e0070480ad9daea5d2eaa83150b79e88;wgpu-%commit%/wgpu-core'
+	[wgpu-hal]='https://github.com/zed-industries/wgpu;357a0c56e0070480ad9daea5d2eaa83150b79e88;wgpu-%commit%/wgpu-hal'
+	[wgpu-naga-bridge]='https://github.com/zed-industries/wgpu;357a0c56e0070480ad9daea5d2eaa83150b79e88;wgpu-%commit%/wgpu-naga-bridge'
+	[wgpu-types]='https://github.com/zed-industries/wgpu;357a0c56e0070480ad9daea5d2eaa83150b79e88;wgpu-%commit%/wgpu-types'
+	[wgpu]='https://github.com/zed-industries/wgpu;357a0c56e0070480ad9daea5d2eaa83150b79e88;wgpu-%commit%/wgpu'
 	[windows-capture]='https://github.com/zed-industries/windows-capture;f0d6c1b6691db75461b732f6d5ff56eed002eeb9;windows-capture-%commit%'
 	[wprcontrol]='https://github.com/zed-industries/wprcontrol;cd811f7d744f65291e13131b1d907fda63ed91a1;wprcontrol-%commit%'
 	[xim-ctext]='https://github.com/zed-industries/xim-rs;16f35a2c881b815a2b6cdfd6687988e84f8447d8;xim-rs-%commit%/xim-ctext'
 	[xim-parser]='https://github.com/zed-industries/xim-rs;16f35a2c881b815a2b6cdfd6687988e84f8447d8;xim-rs-%commit%/xim-parser'
-	[zed-font-kit]='https://github.com/zed-industries/font-kit;110523127440aefb11ce0cf280ae7c5071337ec5;font-kit-%commit%'
+	[zed-font-kit]='https://github.com/zed-industries/font-kit;94b0f28166665e8fd2f53ff6d268a14955c82269;font-kit-%commit%'
 	[zed-reqwest]='https://github.com/zed-industries/reqwest;c15662463bda39148ba154100dd44d3fba5873a4;reqwest-%commit%'
 	[zed-scap]='https://github.com/zed-industries/scap;4afea48c3b002197176fb19cd0f9b180dd36eaac;scap-%commit%'
 	[zed-xim]='https://github.com/zed-industries/xim-rs;16f35a2c881b815a2b6cdfd6687988e84f8447d8;xim-rs-%commit%'
 )
 
-LLVM_COMPAT=( 21 )
-RUST_MIN_VER="1.94.0"
+LLVM_COMPAT=( 22 )
+RUST_MIN_VER="1.95.0"
 RUST_NEEDS_LLVM=1
 WEBRTC_COMMIT="0001d84-2"
 
-inherit cargo check-reqs desktop flag-o-matic llvm-r1 toolchain-funcs xdg
+inherit cargo check-reqs desktop flag-o-matic toolchain-funcs xdg
 
 DESCRIPTION="The fast, collaborative code editor"
 HOMEPAGE="https://zed.dev https://github.com/zed-industries/zed"
@@ -117,11 +123,11 @@ LICENSE+=" BSD"
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD-2 BSD CC0-1.0 ISC
-	LGPL-3 MIT MIT-0 MPL-2.0 UoI-NCSA openssl Unicode-3.0 ZLIB BZIP2
+	LGPL-3 MIT MIT-0 MPL-2.0 UoI-NCSA Unicode-3.0 ZLIB BZIP2
 "
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
-CHECKREQS_DISK_BUILD="18G"
+CHECKREQS_DISK_BUILD="20G"
 CHECKREQS_MEMORY="8G"
 
 DEPEND="
