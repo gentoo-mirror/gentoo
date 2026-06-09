@@ -20,7 +20,7 @@ else
 		examples? ( https://qgis.org/downloads/data/qgis_sample_data.tar.gz -> qgis_sample_data-2.8.14.tar.gz )"
 	KEYWORDS="~amd64"
 fi
-inherit cmake flag-o-matic optfeature python-single-r1 xdg
+inherit cmake desktop flag-o-matic optfeature python-single-r1 xdg
 
 DESCRIPTION="User friendly Geographic Information System"
 HOMEPAGE="https://www.qgis.org/"
@@ -78,14 +78,6 @@ COMMON_DEPEND="
 	postgres? ( dev-db/postgresql:= )
 	python? (
 		${PYTHON_DEPS}
-		|| (
-			(
-				$(python_gen_cond_dep '
-					sci-libs/gdal[python,${PYTHON_USEDEP}]
-				')
-			)
-			>=sci-libs/gdal-2.2.3[python,${PYTHON_SINGLE_USEDEP}]
-		)
 		$(python_gen_cond_dep '
 			dev-python/httplib2[${PYTHON_USEDEP}]
 			dev-python/markupsafe[${PYTHON_USEDEP}]
@@ -100,6 +92,7 @@ COMMON_DEPEND="
 			dev-python/qscintilla[${PYTHON_USEDEP}]
 			dev-python/requests[${PYTHON_USEDEP}]
 			dev-python/sip:=[${PYTHON_USEDEP}]
+			sci-libs/gdal[python,${PYTHON_USEDEP}]
 			postgres? ( dev-python/psycopg:2[${PYTHON_USEDEP}] )
 			webengine? (
 				dev-python/pyqt6-webengine[${PYTHON_USEDEP}]
@@ -167,8 +160,6 @@ src_configure() {
 	filter-lto
 
 	local mycmakeargs=(
-		-DCMAKE_POLICY_DEFAULT_CMP0175="OLD" # add_custom_command
-
 		-DQGIS_MANUAL_SUBDIR=share/man/
 		-DQGIS_LIB_SUBDIR=$(get_libdir)
 		-DQGIS_PLUGIN_SUBDIR=$(get_libdir)/qgis
@@ -490,6 +481,9 @@ src_install() {
 			git config unset --all --global --value="${S}" safe.directory || die
 		fi
 	fi
+
+	# generated from 4.0.3 build w/ USE=python
+	newmenu "${FILESDIR}"/${PN}-4.0.3-org.qgis.qgis.desktop org.qgis.qgis.desktop
 }
 
 pkg_postinst() {

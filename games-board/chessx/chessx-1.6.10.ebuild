@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,7 +19,6 @@ RDEPEND="
 	dev-qt/qt5compat:6
 	dev-qt/qtbase:6[gui,network,widgets,xml]
 	dev-qt/qtmultimedia:6
-	dev-qt/qtspeech:6
 	dev-qt/qtsvg:6
 	virtual/zlib:=
 "
@@ -32,9 +31,15 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${P}-system-quazip-zlib.patch
-	"${FILESDIR}"/${P}-install.patch
+	"${FILESDIR}"/${PN}-1.6.2-system-quazip-zlib.patch
+	"${FILESDIR}"/${PN}-1.6.2-install.patch
+	"${FILESDIR}"/${P}-lupdate-path.patch
 )
+
+src_prepare() {
+	default
+	rm -r src/quazip || die # bundled quazip
+}
 
 src_configure() {
 	eqmake6 PREFIX="${EPREFIX}/usr"
