@@ -124,7 +124,7 @@ fi
 PATCHES=(
 	"${FILESDIR}"/handbrake-1.9.0-link-libdovi-properly.patch
 	"${FILESDIR}"/handbrake-1.9.0-include-vpl-properly.patch
-	"${FILESDIR}"/handbrake-1.11.2-set-ffmpeg-toolchain-explicitly.patch
+	"${FILESDIR}"/handbrake-1.12.0-set-ffmpeg-toolchain-explicitly.patch
 	"${FILESDIR}"/handbrake-1.9.2-allow-overriding-tools-via-env.patch
 )
 
