@@ -18,6 +18,7 @@ DEPEND="
 	>=app-arch/bzip2-1:=
 	>=app-arch/xz-utils-5:=
 	>=dev-libs/glib-2.38:2
+	>=media-libs/libchdr-0.2:=
 	>=media-libs/libsamplerate-0.1:=
 	>=media-libs/libsndfile-1.0:=
 	virtual/zlib:=
