@@ -199,11 +199,6 @@ dev-python/js2py
 dev-python/pyjsparser
 
 # Michał Górny <mgorny@gentoo.org> (2026-05-09)
-# Discontinued upstream, no support for Python 3.14, no revdeps left.
-# Removal on 2026-06-08.  Bug #974029.
-net-im/telepathy-logger
-
-# Michał Górny <mgorny@gentoo.org> (2026-05-09)
 # Discontinued split compression library from app-arch/upx.  It was
 # replaced by a vendored version, and has no reverse dependencies.
 # Removal on 2026-06-08.  Bug #921202.
@@ -264,17 +259,6 @@ dev-util/rpmdevtools
 # Sam James <sam@gentoo.org> (2026-04-17)
 # app-misc/tmux fails to open with newer ncurses (bug #972804)
 >=sys-libs/ncurses-6.6_p20260411
-
-# Andreas Sturmlechner <asturm@gentoo.org> (2026-04-12)
-# Perpetually stuck on Qt5. A Qt6-based snapshot is provided for testing,
-# currently as app-admin/keepassxc-2.8.0_pre20260504, but it is unclear when
-# (or even if) it will be stabilised.  Alternatives are app-admin/keepass,
-# app-admin/pass which can import kbdx files via app-admin/pass-import,
-# app-admin/vaultwarden, app-admin/bitwarden-desktop-bin,
-# app-admin/passwordsafe, and probably many more.  AppImage or Flatpak versions
-# also available as last resort.  See bug #949231.
-# Removal on 2026-05-11.
-<=app-admin/keepassxc-2.7.9999
 
 # Sam James <sam@gentoo.org> (2026-03-30)
 # >=1.7.0 is an LLM-driven revamp of the project.
