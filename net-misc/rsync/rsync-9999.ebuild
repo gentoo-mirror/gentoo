@@ -37,9 +37,12 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="acl examples iconv lz4 rrsync ssl stunnel system-zlib xattr +xxhash zstd"
-REQUIRED_USE+=" examples? ( ${PYTHON_REQUIRED_USE} )"
-REQUIRED_USE+=" rrsync? ( ${PYTHON_REQUIRED_USE} )"
+IUSE="acl examples iconv lz4 rrsync ssl stunnel system-zlib test xattr +xxhash zstd"
+RESTRICT="!test? ( test )"
+REQUIRED_USE+="
+	examples? ( ${PYTHON_REQUIRED_USE} )
+	rrsync? ( ${PYTHON_REQUIRED_USE} )
+"
 
 RDEPEND="
 	>=dev-libs/popt-1.19
@@ -64,13 +67,16 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	examples? ( ${PYTHON_DEPS} )
 	rrsync? ( ${PYTHON_DEPS} )
+	test? ( ${PYTHON_DEPS} )
 "
 
 if [[ ${PV} == *9999 ]] ; then
-	BDEPEND+=" ${PYTHON_DEPS}
+	BDEPEND+="
+		${PYTHON_DEPS}
 		$(python_gen_cond_dep '
 			dev-python/commonmark[${PYTHON_USEDEP}]
-		')"
+		')
+	"
 else
 	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-andrewtridgell )"
 fi
@@ -78,7 +84,7 @@ fi
 pkg_setup() {
 	# - USE=examples needs Python itself at runtime, but nothing else
 	# - 9999 needs commonmark at build time
-	if [[ ${PV} == *9999 ]] || use examples || use rrsync; then
+	if [[ ${PV} == *9999 ]] || use examples || use rrsync || use test ; then
 		python-single-r1_pkg_setup
 	fi
 }
