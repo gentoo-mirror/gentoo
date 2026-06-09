@@ -33,6 +33,12 @@ SRC_URI="
 		-> ${P}-${MY_PN}_voice.distro
 	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_zstd/1/full.distro
 		-> ${P}-${MY_PN}_zstd.distro
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_rpc/1/full.distro
+		-> ${P}-${MY_PN}_rpc.distro
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_game_utils/1/full.distro
+		-> ${P}-${MY_PN}_game_utils.distro
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_krisp/1/full.distro
+		-> ${P}-${MY_PN}_krisp.distro
 	https://github.com/flathub/com.discordapp.Discord/raw/${UPDATE_DISABLER_COMMIT}/disable-breaking-updates.py
 		-> discord-disable-breaking-updates-${UPDATE_DISABLER_COMMIT}.py
 "
@@ -93,6 +99,7 @@ repackage_node_modules() {
 	zip -rq "${WORKDIR}"/$1.zip . || die
 	popd 2>/dev/null || die
 	mv $1.zip "${S}"/resources/bootstrap/ || die
+	rm -r "${WORKDIR}"/files || die
 }
 
 src_unpack() {
@@ -104,6 +111,9 @@ src_unpack() {
 	# unpacked and installed in ~/.config/discord/${PV}/modules, and luckily the base app
 	# can automatically do this for us on the first launch if we package the Node
 	# modules into a .zip and put them in <base app location>/resources/bootstrap.
+	# Some modules are installed at runtime, but we want to bootstrap those too,
+	# so we use a custom <base app location>/resources/bootstrap/manifest.json
+	# copied over from $FILESDIR.
 	brotli -d "${DISTDIR}/${P}".distro -o "${T}/${P}.tar" 2>/dev/null || die
 	unpack "${T}/${P}.tar"
 	mv "${WORKDIR}"/files "${S}" || die
@@ -111,13 +121,19 @@ src_unpack() {
 	# For any new Node modules, add the Brotli-compressed archive to SRC_URI
 	# following the same pattern, and then add a corressponding call to
 	# repackage_node_modules here. You can find a list of required modules
-	# at <base app location>/resources/bootstrap/manifest.json
+	# at <base app location>/resources/bootstrap/manifest.json, as well as
+	# running the application and looking for lines in the output about "modules".
+	# If checking manifest.json, make sure to check the one directly from upstream,
+	# as the one installed on the system is copied over from $FILESDIR.
 	repackage_node_modules "discord_desktop_core"
 	repackage_node_modules "discord_erlpack"
 	repackage_node_modules "discord_spellcheck"
 	repackage_node_modules "discord_utils"
 	repackage_node_modules "discord_voice"
 	repackage_node_modules "discord_zstd"
+	repackage_node_modules "discord_rpc"
+	repackage_node_modules "discord_game_utils"
+	repackage_node_modules "discord_krisp"
 }
 
 src_configure() {
@@ -147,6 +163,7 @@ src_prepare() {
 		sed --in-place --expression '/^EBUILD_WAYLAND=/s/false/true/' \
 			"${T}/launcher.sh" || die "sed failed for wayland"
 	fi
+	cp "${FILESDIR}/manifest.json" resources/bootstrap/manifest.json || die "Failed copying manifest.json"
 }
 
 src_install() {
@@ -187,6 +204,7 @@ src_install() {
 	if use appindicator; then
 		dosym ../../usr/lib64/libayatana-appindicator3.so /opt/discord/libappindicator3.so
 	fi
+
 }
 
 pkg_postinst() {
