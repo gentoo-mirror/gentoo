@@ -11,7 +11,7 @@ inherit flag-o-matic prefix python-single-r1 systemd
 DESCRIPTION="File transfer program to keep remote files into sync"
 HOMEPAGE="https://rsync.samba.org/"
 if [[ ${PV} == *9999 ]] ; then
-	EGIT_REPO_URI="https://github.com/WayneD/rsync.git"
+	EGIT_REPO_URI="https://github.com/RsyncProject/rsync.git"
 	inherit autotools git-r3
 
 	REQUIRED_USE="${PYTHON_REQUIRED_USE}"
@@ -128,7 +128,7 @@ src_configure() {
 		$(use_enable zstd)
 	)
 
-	# https://github.com/WayneD/rsync/pull/428
+	# https://github.com/RsyncProject/rsync/pull/428
 	if is-flagq -fsanitize=undefined ; then
 		sed -E -i \
 			-e 's:#define CAREFUL_ALIGNMENT (0|1):#define CAREFUL_ALIGNMENT 1:' \
