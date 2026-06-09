@@ -1,0 +1,14 @@
+BDEPEND=|| ( >=dev-lang/rust-bin-1.88.0:* >=dev-lang/rust-1.88.0:* )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DESCRIPTION=Proxy for using WebDriver clients to interact with Gecko-based browsers
+EAPI=8
+HOMEPAGE=https://firefox-source-docs.mozilla.org/testing/geckodriver/ https://github.com/mozilla/geckodriver
+INHERIT=cargo
+IUSE=unchained debug
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
+LICENSE=MPL-2.0 MIT MPL-2.0 Unicode-3.0 || ( Apache-2.0 Boost-1.0 )
+RDEPEND=!www-client/firefox[geckodriver(-)]
+SLOT=0
+SRC_URI=https://github.com/mozilla/geckodriver/archive/refs/tags/v0.37.0.tar.gz -> geckodriver-0.37.0.tar.gz https://github.com/gentoo-crate-dist/geckodriver/releases/download/v0.37.0/geckodriver-0.37.0-crates.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	c5ae4c9b5eca97bd7fc77fede663873f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	983bdde2432d878045ca2524b9ff935d
+_md5_=65d9d40dffd8c81a257d142cc6d30dc0
