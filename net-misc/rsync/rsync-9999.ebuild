@@ -6,7 +6,7 @@ EAPI=8
 # Uncomment when introducing a patch which touches configure
 RSYNC_NEEDS_AUTOCONF=1
 PYTHON_COMPAT=( python3_{12..14} )
-inherit flag-o-matic prefix python-single-r1 systemd
+inherit prefix python-single-r1 systemd
 
 DESCRIPTION="File transfer program to keep remote files into sync"
 HOMEPAGE="https://rsync.samba.org/"
@@ -127,14 +127,6 @@ src_configure() {
 		$(use_enable xxhash)
 		$(use_enable zstd)
 	)
-
-	# https://github.com/RsyncProject/rsync/pull/428
-	if is-flagq -fsanitize=undefined ; then
-		sed -E -i \
-			-e 's:#define CAREFUL_ALIGNMENT (0|1):#define CAREFUL_ALIGNMENT 1:' \
-			byteorder.h || die
-		append-flags -DCAREFUL_ALIGNMENT
-	fi
 
 	econf "${myeconfargs[@]}"
 }
