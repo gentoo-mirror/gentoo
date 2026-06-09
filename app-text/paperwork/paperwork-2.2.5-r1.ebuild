@@ -14,7 +14,7 @@ HOMEPAGE="https://gitlab.gnome.org/World/OpenPaperwork"
 # https://gitlab.gnome.org/World/OpenPaperwork/paperwork/-/tags
 REL_HASH="29881b6f"
 SRC_URI="https://gitlab.gnome.org/World/OpenPaperwork/paperwork/-/archive/${PV}/paperwork-${PV}.tar.bz2
-	https://download.openpaper.work/data/paperwork/master_${REL_HASH}/data.tar.gz -> paperwork-data-${PV}.tar.gz"
+	https://download.openpaper.work/data/paperwork/master_${REL_HASH}/data.tar.gz -> paperwork-data-${PV}-${REL_HASH}.tar.gz"
 S=${WORKDIR}/paperwork-${PV}/${PN}-gtk
 
 LICENSE="GPL-3"
