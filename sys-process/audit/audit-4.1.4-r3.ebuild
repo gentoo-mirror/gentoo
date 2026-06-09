@@ -8,6 +8,7 @@ EAPI=8
 # on bumps (or if hitting a bug) to see what they've done there.
 
 PYTHON_COMPAT=( python3_{11..14} )
+TMPFILES_OPTIONAL=1
 
 inherit autotools multilib-minimal toolchain-funcs python-r1 linux-info systemd tmpfiles usr-ldscript
 
@@ -20,7 +21,7 @@ S="${WORKDIR}/audit-userspace-${PV}"
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
-IUSE="gssapi io-uring ldap python static-libs"
+IUSE="build gssapi io-uring ldap python static-libs"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -42,6 +43,7 @@ BDEPEND="
 		' python3_12)
 	)
 "
+IDEPEND="!build? ( virtual/tmpfiles )"
 
 CONFIG_CHECK="~AUDIT"
 
@@ -181,7 +183,7 @@ multilib_src_install_all() {
 
 pkg_postinst() {
 	lockdown_perms "${EROOT}"
-	tmpfiles_process audit.conf
+	! use build && tmpfiles_process audit.conf
 }
 
 lockdown_perms() {
