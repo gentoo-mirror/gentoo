@@ -20,7 +20,7 @@ else
 		examples? ( https://qgis.org/downloads/data/qgis_sample_data.tar.gz -> qgis_sample_data-2.8.14.tar.gz )"
 	KEYWORDS="~amd64"
 fi
-inherit cmake flag-o-matic optfeature python-single-r1 xdg
+inherit cmake desktop flag-o-matic optfeature python-single-r1 xdg
 
 DESCRIPTION="User friendly Geographic Information System"
 HOMEPAGE="https://www.qgis.org/"
@@ -481,6 +481,9 @@ src_install() {
 			git config unset --all --global --value="${S}" safe.directory || die
 		fi
 	fi
+
+	# generated from 4.0.3 build w/ USE=python
+	newmenu "${FILESDIR}"/${PN}-4.0.3-org.qgis.qgis.desktop org.qgis.qgis.desktop
 }
 
 pkg_postinst() {
