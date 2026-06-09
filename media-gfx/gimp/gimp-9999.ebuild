@@ -234,7 +234,6 @@ src_configure() {
 		-Dbug-report-url="${BRANDING_OS_BUG_REPORT_URL}"
 		-Dilbm=disabled
 		-Dlibbacktrace=false
-		-Dwebkit-unmaintained=false
 		$(meson_feature aalib aa)
 		$(meson_feature alsa)
 		$(meson_feature bash-completion)
