@@ -30,13 +30,20 @@ elif [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	SLOT=$(ver_cut 1-2)
 else
+	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/binutils.asc
+	inherit verify-sig
 	PATCH_BINUTILS_VER=${PATCH_BINUTILS_VER:-${PV}}
 	PATCH_DEV=${PATCH_DEV:-dilfridge}
-	SRC_URI="mirror://gnu/binutils/binutils-${PV}.tar.xz https://sourceware.org/pub/binutils/releases/binutils-${PV}.tar.xz https://dev.gentoo.org/~${PATCH_DEV}/distfiles/binutils-${PV}.tar.xz"
-	[[ -z ${PATCH_VER} ]] || SRC_URI="${SRC_URI}
-		https://distfiles.gentoo.org/pub/proj/toolchain/binutils/patches/binutils-${PATCH_BINUTILS_VER}-patches-${PATCH_VER}.tar.xz"
+	SRC_URI="
+		mirror://gnu/binutils/binutils-${PV}.tar.xz
+		https://sourceware.org/pub/binutils/releases/binutils-${PV}.tar.xz
+		verify-sig? ( mirror://gnu/binutils/binutils-${PV}.tar.xz.sig )
+	"
+	[[ -z ${PATCH_VER} ]] || SRC_URI+=" https://distfiles.gentoo.org/pub/proj/toolchain/binutils/patches/binutils-${PATCH_BINUTILS_VER}-patches-${PATCH_VER}.tar.xz"
 	SLOT=$(ver_cut 1-2)
 	KEYWORDS="-* ~hppa"
+
+	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-binutils )"
 fi
 
 #
@@ -65,7 +72,7 @@ DEPEND="
 	${RDEPEND}
 	xxhash? ( dev-libs/xxhash )
 "
-BDEPEND="
+BDEPEND+="
 	doc? ( sys-apps/texinfo )
 	pgo? (
 		dev-util/dejagnu
@@ -108,6 +115,7 @@ src_unpack() {
 		EGIT_CHECKOUT_DIR=${S}
 		git-r3_src_unpack
 	else
+		use verify-sig && verify-sig_verify_detached "${DISTDIR}"/${P/-hppa64/}.tar.xz{,.sig}
 		unpack ${P/-hppa64/}.tar.xz
 
 		cd "${WORKDIR}" || die
