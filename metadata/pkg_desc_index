@@ -931,7 +931,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.792.0 1.2.804.0 1.2.814.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.45.6 1.45.9 1.45.14 1.45.18 1.45.24: Universal Command Line Environment for AWS
+app-admin/awscli 1.45.6 1.45.9 1.45.14 1.45.18 1.45.24 1.45.25: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.34.24 2.34.40: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.1.0 2026.2.1: Bitwarden password manager desktop client
@@ -8258,8 +8258,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.43.6 1.43.9 1.43.14 1.43.18 1.43.24: The AWS SDK for Python
-dev-python/botocore 1.43.6 1.43.9 1.43.14 1.43.18 1.43.24: Low-level, data-driven core of boto 3
+dev-python/boto3 1.43.6 1.43.9 1.43.14 1.43.18 1.43.24 1.43.25: The AWS SDK for Python
+dev-python/botocore 1.43.6 1.43.9 1.43.14 1.43.18 1.43.24 1.43.25: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8503,7 +8503,7 @@ dev-python/flask-api 3.1-r2: Browsable web APIs for Flask
 dev-python/flask-babel 4.0.0: i18n and l10n support for Flask based on Babel and pytz
 dev-python/flask-caching 2.3.1 2.3.1-r1 2.4.0: Adds caching support to Flask applications
 dev-python/flask-compress 1.23 1.24: Compress responses in your Flask app with gzip
-dev-python/flask-cors 6.0.2 6.0.3 6.0.4: A Flask extension for Cross Origin Resource Sharing (CORS)
+dev-python/flask-cors 6.0.2 6.0.3 6.0.4 6.0.5: A Flask extension for Cross Origin Resource Sharing (CORS)
 dev-python/flask-debug 0.4.3-r2: Flask extension that displays various debugging insights during development
 dev-python/flask-htmlmin 3.0.0: Minimize your flask rendered html
 dev-python/flask-login 0.6.3: Login session support for Flask
@@ -8983,7 +8983,7 @@ dev-python/picobox 4.0.0: Dependency injection framework designed with Python in
 dev-python/pid 3.0.4-r1: Pidfile featuring stale detection and file-locking
 dev-python/piexif 1.1.3-r4: Exif manipulation with pure Python
 dev-python/pika 1.3.2 1.4.1: Pure-Python implementation of the AMQP
-dev-python/pikepdf 10.5.1 10.6.0 10.7.1 10.7.2 10.7.3: Python library to work with pdf files based on qpdf
+dev-python/pikepdf 10.5.1 10.6.0 10.7.1 10.7.2 10.7.3 10.8.0: Python library to work with pdf files based on qpdf
 dev-python/pillow 12.2.0 12.2.0-r1: Python Imaging Library (fork)
 dev-python/pip 26.1.2: The PyPA recommended tool for installing Python packages
 dev-python/pivy 0.6.10: Coin3D bindings for Python
@@ -8997,7 +8997,7 @@ dev-python/plotly 6.7.0-r1 6.8.0: Browser-based graphing library for Python
 dev-python/plotly-geo 1.0.0-r2: Browser-based graphing library for Python
 dev-python/pluggy 1.6.0: Plugin and hook calling mechanisms for Python
 dev-python/pluginbase 1.0.1-r1: Support library for building plugins systems in Python
-dev-python/plumbum 1.10.0 2.0.0: A library for shell script-like programs in python
+dev-python/plumbum 1.10.0 2.0.0 2.0.1: A library for shell script-like programs in python
 dev-python/ply 3.11-r2: Python Lex-Yacc library
 dev-python/plyvel 1.5.1: Python interface to LevelDB
 dev-python/pmw 2.1.1: Toolkit for building high-level compound Python widgets using the Tkinter module
@@ -9359,7 +9359,7 @@ dev-python/pyxdg 0.28-r2: A Python module to deal with freedesktop.org specifica
 dev-python/pyyaml 6.0.3: YAML parser and emitter for Python
 dev-python/pyzbar 0.1.9: Read one-dimensional barcodes and QR codes from Python
 dev-python/pyzmq 27.1.0: Lightweight and super-fast messaging library built on top of the ZeroMQ library
-dev-python/pyzotero 1.12.0 1.13.0: A Python client for the Zotero API
+dev-python/pyzotero 1.13.0 1.13.1: A Python client for the Zotero API
 dev-python/pyzstd 0.19.1: Support for Zstandard (zstd) compression
 dev-python/qdarkstyle 3.2.3: A dark style sheet for QtWidgets application
 dev-python/qpageview 1.0.4: Page-based viewer widget for Qt6/PyQt5
@@ -9499,7 +9499,7 @@ dev-python/simpy 4.1.1 4.1.2: Object-oriented, process-based discrete-event simu
 dev-python/sip 6.15.1 6.15.2 6.15.3: Python bindings generator for C/C++ libraries
 dev-python/siphash24 1.8: Streaming-capable SipHash-1-3 and SipHash-2-4 Implementation
 dev-python/six 1.17.0: Python 2 and 3 compatibility library
-dev-python/slixmpp 1.14.1 1.15.0: Python 3 library for XMPP
+dev-python/slixmpp 1.15.0 1.16.0: Python 3 library for XMPP
 dev-python/smartypants 2.0.2: ASCII quote-dot-dash to HTML entity converter
 dev-python/smbus2 0.6.1: A drop-in replacement for smbus-cffi/smbus-python in pure Python
 dev-python/smmap 6.0.0: A pure Python implementation of a sliding window memory map manager
@@ -9642,7 +9642,7 @@ dev-python/tomli-w 1.2.0: A lil' TOML writer
 dev-python/tomlkit 0.14.0 0.15.0: Style preserving TOML library
 dev-python/toolz 1.1.0: List processing tools and functional utilities
 dev-python/toposort 1.10: Implements a topological sort algorithm
-dev-python/tornado 6.5.5 6.5.6: Python web framework and asynchronous networking library
+dev-python/tornado 6.5.5 6.5.6 6.5.7: Python web framework and asynchronous networking library
 dev-python/towncrier 25.8.0: Building newsfiles for your project
 dev-python/tox 4.50.3 4.53.1 4.54.0 4.55.0 4.55.1: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.3.0-r2: Python bindings for TSS
