@@ -1,16 +1,16 @@
-BDEPEND=doc? ( sys-apps/texinfo ) pgo? ( dev-util/dejagnu app-alternatives/bc ) test? ( dev-util/dejagnu app-alternatives/bc ) nls? ( sys-devel/gettext ) zstd? ( virtual/pkgconfig ) app-alternatives/lex app-alternatives/yacc >=app-portage/elt-patches-20250306 sys-devel/gnuconfig
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-binutils ) doc? ( sys-apps/texinfo ) pgo? ( dev-util/dejagnu app-alternatives/bc ) test? ( dev-util/dejagnu app-alternatives/bc ) nls? ( sys-devel/gettext ) zstd? ( virtual/pkgconfig ) app-alternatives/lex app-alternatives/yacc >=app-portage/elt-patches-20250306 sys-devel/gnuconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test unpack
 DEPEND=>=sys-devel/binutils-config-3 virtual/zlib:= debuginfod? ( dev-libs/elfutils[debuginfod(-)] ) zstd? ( app-arch/zstd:= ) xxhash? ( dev-libs/xxhash )
 DESCRIPTION=Tools necessary to build programs
 EAPI=8
 HOMEPAGE=https://sourceware.org/binutils/
-INHERIT=dot-a libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs
-IUSE=cet +debuginfod doc gprofng hardened multitarget +nls pgo +plugins static-libs test vanilla xxhash zstd
+INHERIT=dot-a libtool flag-o-matic gnuconfig strip-linguas toolchain-funcs verify-sig
+IUSE=cet +debuginfod doc gprofng hardened multitarget +nls pgo +plugins static-libs test vanilla xxhash zstd verify-sig
 KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
 LICENSE=GPL-3+
 RDEPEND=>=sys-devel/binutils-config-3 virtual/zlib:= debuginfod? ( dev-libs/elfutils[debuginfod(-)] ) zstd? ( app-arch/zstd:= )
 RESTRICT=!test? ( test )
 SLOT=2.46
-SRC_URI=mirror://gnu/binutils/binutils-2.46.1.tar.xz https://sourceware.org/pub/binutils/releases/binutils-2.46.1.tar.xz https://dev.gentoo.org/~dilfridge/distfiles/binutils-2.46.1.tar.xz https://distfiles.gentoo.org/pub/proj/toolchain/binutils/patches/binutils-2.46.1-patches-1.tar.xz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	dot-a	e5200fe17cfd2ed6fa66edd80201763a	libtool	6a96cd90e5da8c7c615015479f46f1a4	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	strip-linguas	3480f49d8ea2640d0398e69d20a2f45f
-_md5_=fb7ac0d8585ad21d250da2b514c8a30b
+SRC_URI=mirror://gnu/binutils/binutils-2.46.1.tar.xz https://sourceware.org/pub/binutils/releases/binutils-2.46.1.tar.xz verify-sig? ( mirror://gnu/binutils/binutils-2.46.1.tar.xz.sig ) https://distfiles.gentoo.org/pub/proj/toolchain/binutils/patches/binutils-2.46.1-patches-1.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	dot-a	e5200fe17cfd2ed6fa66edd80201763a	libtool	6a96cd90e5da8c7c615015479f46f1a4	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	strip-linguas	3480f49d8ea2640d0398e69d20a2f45f	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=fc340c4d0546266f02eebebe2c5b45b6
