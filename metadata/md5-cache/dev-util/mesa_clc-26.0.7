@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://mesa3d.org/
 INHERIT=llvm-r1 meson python-any-r1
 IUSE=video_cards_asahi video_cards_panfrost debug +llvm_slot_21 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_22
-KEYWORDS=amd64 ~arm arm64 x86
+KEYWORDS=amd64 arm arm64 x86
 LICENSE=MIT
 RDEPEND=dev-util/spirv-tools llvm_slot_18? ( dev-util/spirv-llvm-translator:18 llvm-core/clang:18= =llvm-core/libclc-18* llvm-core/llvm:18= ) llvm_slot_19? ( dev-util/spirv-llvm-translator:19 llvm-core/clang:19= =llvm-core/libclc-19* llvm-core/llvm:19= ) llvm_slot_20? ( dev-util/spirv-llvm-translator:20 llvm-core/clang:20= =llvm-core/libclc-20* llvm-core/llvm:20= ) llvm_slot_21? ( dev-util/spirv-llvm-translator:21 llvm-core/clang:21= =llvm-core/libclc-21* llvm-core/llvm:21= ) llvm_slot_22? ( dev-util/spirv-llvm-translator:22 llvm-core/clang:22= =llvm-core/libclc-22* llvm-core/llvm:22= )
 REQUIRED_USE=^^ ( llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 llvm_slot_22 )
 SLOT=0
 SRC_URI=https://archive.mesa3d.org/mesa-26.0.7.tar.xz
 _eclasses_=llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	7fb804a45baeadb298e57882952251f4	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=ea8c72e3530af890e444147b0f2f99fe
+_md5_=36d78d22736c15410550869dd6219285
