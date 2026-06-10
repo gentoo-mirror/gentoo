@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{11..15} )
 inherit cmake flag-o-matic python-any-r1 toolchain-funcs xdg-utils
 
 if [[ ${PV} == *9999* ]] ; then
@@ -14,7 +14,7 @@ else
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/aacid.asc
 	inherit verify-sig
 
-	TEST_COMMIT="9d5011815a14c157ba25bb160187842fb81579a5"
+	TEST_COMMIT="b85e4d1ce75636b3e727555a9d31da34ad771c1c"
 	SRC_URI="https://poppler.freedesktop.org/${P}.tar.xz"
 	SRC_URI+=" test? ( https://gitlab.freedesktop.org/poppler/test/-/archive/${TEST_COMMIT}/test-${TEST_COMMIT}.tar.bz2 -> ${PN}-test-${TEST_COMMIT}.tar.bz2 )"
 	SRC_URI+=" verify-sig? ( https://poppler.freedesktop.org/${P}.tar.xz.sig )"
@@ -55,8 +55,7 @@ DEPEND="${COMMON_DEPEND}
 	boost? ( >=dev-libs/boost-1.83 )
 	test? ( qt6? ( dev-qt/qtbase:6[widgets] ) )
 "
-BDEPEND="
-	${PYTHON_DEPS}
+BDEPEND="${PYTHON_DEPS}
 	>=dev-util/glib-utils-2.80
 	virtual/pkgconfig
 "
