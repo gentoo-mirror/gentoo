@@ -63,7 +63,7 @@ src_configure() {
 	use debug || local -x CPPFLAGS="${CPPFLAGS} -DNDEBUG"
 
 	# https://gcc.gnu.org/PR121495 (bug #958469)
-	tc-is-gcc && [[ $(gcc-major-version) -ge 14 ]] && append-flags -mearly-ra=none
+	use arm64 && tc-is-gcc && [[ $(gcc-major-version) -ge 14 ]] && append-flags -mearly-ra=none
 
 	use elibc_musl && append-ldflags -Wl,-z,stack-size=2097152
 
