@@ -26,7 +26,7 @@ DESCRIPTION="PDF rendering library based on the xpdf-3.0 code base"
 HOMEPAGE="https://poppler.freedesktop.org/"
 
 LICENSE="GPL-2"
-IUSE="boost cairo cjk curl +cxx debug doc gpgme +introspection +jpeg +jpeg2k +lcms nss png qt6 test tiff +utils"
+IUSE="boost cairo cjk curl +cxx debug doc gpg +introspection +jpeg +jpeg2k +lcms nss png qt6 test tiff +utils"
 RESTRICT="!test? ( test )"
 
 COMMON_DEPEND="
@@ -39,7 +39,7 @@ COMMON_DEPEND="
 		introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= )
 	)
 	curl? ( net-misc/curl )
-	gpgme? ( dev-cpp/gpgmepp:= )
+	gpg? ( dev-cpp/gpgmepp:= )
 	jpeg? ( >=media-libs/libjpeg-turbo-1.1.0:= )
 	jpeg2k? ( >=media-libs/openjpeg-2.3.0-r1:2= )
 	lcms? ( media-libs/lcms:2 )
@@ -115,7 +115,7 @@ src_configure() {
 		-DWITH_Cairo=$(usex cairo)
 		-DENABLE_LIBCURL=$(usex curl)
 		-DENABLE_CPP=$(usex cxx)
-		-DENABLE_GPGME=$(usex gpgme)
+		-DENABLE_GPGME=$(usex gpg)
 		-DWITH_JPEG=$(usex jpeg)
 		-DENABLE_DCTDECODER=$(usex jpeg libjpeg none)
 		-DENABLE_LIBOPENJPEG=$(usex jpeg2k openjpeg2 none)
