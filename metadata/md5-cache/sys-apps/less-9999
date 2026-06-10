@@ -1,15 +1,15 @@
 BDEPEND=test? ( virtual/pkgconfig ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 dev-build/automake || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=compile configure install preinst prepare test unpack
+DEFINED_PHASES=configure install preinst prepare test unpack
 DEPEND=>=app-misc/editor-wrapper-3 >=sys-libs/ncurses-5.2:= pcre? ( dev-libs/libpcre2 )
 DESCRIPTION=Excellent text file viewer
 EAPI=8
 HOMEPAGE=https://www.greenwoodsoftware.com/less/
-INHERIT=autotools flag-o-matic multibuild optfeature toolchain-funcs git-r3
+INHERIT=autotools flag-o-matic optfeature toolchain-funcs git-r3
 IUSE=pcre test
 LICENSE=|| ( GPL-3 BSD-2 )
 PROPERTIES=live
 RDEPEND=>=app-misc/editor-wrapper-3 >=sys-libs/ncurses-5.2:= pcre? ( dev-libs/libpcre2 )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	optfeature	538bce96e5589935b57e178e8635f301	git-r3	2f8cdb10b033f92c3136aa6488a31c98
-_md5_=e29acb4c556988bbb068474d0a62db1d
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	flag-o-matic	fd3558f73f6503093adee69adf41020d	optfeature	538bce96e5589935b57e178e8635f301	git-r3	2f8cdb10b033f92c3136aa6488a31c98
+_md5_=701ad9607bd69224901e6d51e575306a
