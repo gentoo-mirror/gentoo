@@ -5138,7 +5138,7 @@ media-video/ffmpeg:cdio - Enable audio CDs reading via dev-libs/libcdio-paranoia
 media-video/ffmpeg:chromaprint - Enable audio fingerprinting support via media-libs/chromaprint
 media-video/ffmpeg:chromium - Builds libffmpeg.so to enable media playback in Chromium-based browsers like Opera and Vivaldi.
 media-video/ffmpeg:codec2 - Enable codec2 low bit rate speech codec support via media-libs/codec2
-media-video/ffmpeg:cuda - Enable support for various GPU-accelerated filters using NVIDIA PTX compiled with llvm-core/clang
+media-video/ffmpeg:cuda-clang - Enable support for various GPU-accelerated filters using NVIDIA PTX compiled with llvm-core/clang
 media-video/ffmpeg:dav1d - Enable AV1 decoding support via media-libs/dav1d
 media-video/ffmpeg:drm - Enable use of x11-libs/libdrm for various hardware accelerated functions and Kernel Mode Setting screen capture
 media-video/ffmpeg:fdk - Enable AAC (Advanced Audio Coding) encoding support via media-libs/fdk-aac in addition to FFmpeg's own implementation (warning: if USE=gpl is enabled, this produces a non-redistributable build)
@@ -5202,7 +5202,7 @@ media-video/ffmpeg-compat:bs2b - Enable Bauer Stereo-to-Binaural filter support 
 media-video/ffmpeg-compat:cdio - Enable audio CDs reading via dev-libs/libcdio-paranoia
 media-video/ffmpeg-compat:chromaprint - Enable audio fingerprinting support via media-libs/chromaprint
 media-video/ffmpeg-compat:codec2 - Enable codec2 low bit rate speech codec support via media-libs/codec2
-media-video/ffmpeg-compat:cuda - Enable support for various GPU-accelerated filters using NVIDIA PTX compiled with llvm-core/clang
+media-video/ffmpeg-compat:cuda-clang - Enable support for various GPU-accelerated filters using NVIDIA PTX compiled with llvm-core/clang
 media-video/ffmpeg-compat:dav1d - Enable AV1 decoding support via media-libs/dav1d
 media-video/ffmpeg-compat:drm - Enable use of x11-libs/libdrm for various hardware accelerated functions and Kernel Mode Setting screen capture
 media-video/ffmpeg-compat:fdk - Enable AAC (Advanced Audio Coding) encoding support via media-libs/fdk-aac in addition to FFmpeg's own implementation (warning: if USE=gpl is enabled, this produces a non-redistributable build)
@@ -6548,7 +6548,7 @@ net-misc/miniupnpd:strict - Be more strict regarding compliance with UPnP specif
 net-misc/modemmanager:mbim - Enable MBIM modem protocol
 net-misc/modemmanager:qmi - Enable support for the QMI modem protocol used by devices with Qualcomm chipsets
 net-misc/modemmanager:qrtr - Enable support for the QMI over IPC Router bus (QRTR) protocol
-net-misc/moonlight:cuda - Enable accelerated video rendering on NVIDIA hardware
+net-misc/moonlight:cuda-clang - Enable accelerated video rendering on NVIDIA hardware
 net-misc/moonlight:drm - Enable video rendering via x11-libs/libdrm
 net-misc/moonlight:embedded - Optimize UI for fullscreen non-desktop usage
 net-misc/moonlight:glslow - Prefer direct KMS/DRM rendering over EGL/GLES rendering for better performance on some weaker GPUs

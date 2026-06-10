@@ -1,15 +1,15 @@
 BDEPEND=dev-qt/qtbase:6 virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install postinst postrm preinst prepare unpack
-DEPEND=dev-libs/openssl:= dev-qt/qtbase:6[gui,network] dev-qt/qtdeclarative:6[svg] media-libs/libglvnd media-libs/libsdl2[gles2,haptic,joystick,kms,sound,video] media-libs/opus media-libs/sdl2-ttf >=media-video/ffmpeg-6:=[cuda?,drm?,vaapi?,vdpau?,vulkan?] drm? ( x11-libs/libdrm ) vaapi? ( media-libs/libva:=[wayland?,X?] ) vdpau? ( x11-libs/libvdpau media-libs/libsdl2[X] ) vulkan? ( media-libs/libplacebo:= ) wayland? ( dev-libs/wayland ) X? ( x11-libs/libX11 )
+DEPEND=dev-libs/openssl:= dev-qt/qtbase:6[gui,network] dev-qt/qtdeclarative:6[svg] media-libs/libglvnd media-libs/libsdl2[gles2,haptic,joystick,kms,sound,video] media-libs/opus media-libs/sdl2-ttf >=media-video/ffmpeg-6:=[cuda-clang?,drm?,vaapi?,vdpau?,vulkan?] drm? ( x11-libs/libdrm ) vaapi? ( media-libs/libva:=[wayland?,X?] ) vdpau? ( x11-libs/libvdpau media-libs/libsdl2[X] ) vulkan? ( media-libs/libplacebo:= ) wayland? ( dev-libs/wayland ) X? ( x11-libs/libX11 )
 DESCRIPTION=NVIDIA GameStream (and Sunshine) client
 EAPI=8
 HOMEPAGE=https://github.com/moonlight-stream/moonlight-qt
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=git-r3 qmake-utils xdg
-IUSE=cuda +drm embedded glslow +vaapi vdpau vkslow vulkan wayland X
+IUSE=cuda-clang +drm embedded glslow +vaapi vdpau vkslow vulkan wayland X
 LICENSE=GPL-3
 PROPERTIES=live
-RDEPEND=dev-libs/openssl:= dev-qt/qtbase:6[gui,network] dev-qt/qtdeclarative:6[svg] media-libs/libglvnd media-libs/libsdl2[gles2,haptic,joystick,kms,sound,video] media-libs/opus media-libs/sdl2-ttf >=media-video/ffmpeg-6:=[cuda?,drm?,vaapi?,vdpau?,vulkan?] drm? ( x11-libs/libdrm ) vaapi? ( media-libs/libva:=[wayland?,X?] ) vdpau? ( x11-libs/libvdpau media-libs/libsdl2[X] ) vulkan? ( media-libs/libplacebo:= ) wayland? ( dev-libs/wayland ) X? ( x11-libs/libX11 )
+RDEPEND=dev-libs/openssl:= dev-qt/qtbase:6[gui,network] dev-qt/qtdeclarative:6[svg] media-libs/libglvnd media-libs/libsdl2[gles2,haptic,joystick,kms,sound,video] media-libs/opus media-libs/sdl2-ttf >=media-video/ffmpeg-6:=[cuda-clang?,drm?,vaapi?,vdpau?,vulkan?] drm? ( x11-libs/libdrm ) vaapi? ( media-libs/libva:=[wayland?,X?] ) vdpau? ( x11-libs/libvdpau media-libs/libsdl2[X] ) vulkan? ( media-libs/libplacebo:= ) wayland? ( dev-libs/wayland ) X? ( x11-libs/libX11 )
 SLOT=0
 _eclasses_=git-r3	2f8cdb10b033f92c3136aa6488a31c98	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	qmake-utils	28f99dba9219112f4785f46ed426a021	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=b034bd7af8870566124cdb1c8e6897c0
+_md5_=b4f7087c31a0636a4bc816b60edf99a2
