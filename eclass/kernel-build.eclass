@@ -482,6 +482,9 @@ kernel-build_src_install() {
 	# add a dist-kernel identifier file
 	echo "${CATEGORY}/${PF}:${SLOT}" > "${ED}${kernel_dir}/dist-kernel" || die
 
+	# Clean up dead symlinks
+	find -L "${ED}${kernel_dir}/" -type l -delete || die
+
 	# fix source tree and build dir symlinks
 	dosym "../../../${kernel_dir}" "/lib/modules/${KV_FULL}/build"
 	dosym "../../../${kernel_dir}" "/lib/modules/${KV_FULL}/source"
