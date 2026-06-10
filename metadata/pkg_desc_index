@@ -925,13 +925,13 @@ app-admin/ansible-core 2.19.2 2.19.3 2.19.3-r1 2.20.0-r1 2.20.3 2.20.5 9999: Mod
 app-admin/ansible-lint 25.9.0 25.11.0 26.3.0: Checks ansible playbooks for practices and behaviour that can be improved
 app-admin/ansible-modules-hashivault 5.2.1-r1: Ansible module for hashicorp vault
 app-admin/ansible-molecule 25.9.0 25.11.0 26.3.0: A toolkit designed to aid in the development and testing of Ansible roles
-app-admin/apache-tools 2.4.65 2.4.66 2.4.67: Useful Apache tools - htdigest, htpasswd, ab, htdbm
+app-admin/apache-tools 2.4.65 2.4.66 2.4.67 2.4.68: Useful Apache tools - htdigest, htpasswd, ab, htdbm
 app-admin/apachetop 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.792.0 1.2.804.0 1.2.814.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.45.6 1.45.9 1.45.14 1.45.18 1.45.24 1.45.25: Universal Command Line Environment for AWS
+app-admin/awscli 1.45.6 1.45.9 1.45.14 1.45.18 1.45.24 1.45.25 1.45.26: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.34.24 2.34.40: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.1.0 2026.2.1: Bitwarden password manager desktop client
@@ -8258,8 +8258,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.43.6 1.43.9 1.43.14 1.43.18 1.43.24 1.43.25: The AWS SDK for Python
-dev-python/botocore 1.43.6 1.43.9 1.43.14 1.43.18 1.43.24 1.43.25: Low-level, data-driven core of boto 3
+dev-python/boto3 1.43.6 1.43.9 1.43.14 1.43.18 1.43.24 1.43.25 1.43.26: The AWS SDK for Python
+dev-python/botocore 1.43.6 1.43.9 1.43.14 1.43.18 1.43.24 1.43.25 1.43.26: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8351,7 +8351,7 @@ dev-python/crispy-bootstrap3 2024.1: Bootstrap3 template pack for django-crispy-
 dev-python/crispy-bootstrap4 2026.2: Bootstrap4 template pack for django-crispy-forms
 dev-python/crispy-bootstrap5 2026.3: Bootstrap5 template pack for django-crispy-forms
 dev-python/croniter 6.2.2: Python module to provide iteration for datetime object
-dev-python/cryptography 47.0.0 48.0.0: Library providing cryptographic recipes and primitives
+dev-python/cryptography 47.0.0 48.0.0 48.0.1: Library providing cryptographic recipes and primitives
 dev-python/cson 0.8-r4: A python parser for the Coffeescript Object Notation (CSON)
 dev-python/css-parser 1.0.10: A CSS Cascading Style Sheets library (fork of cssutils)
 dev-python/cssselect 1.4.0: Parse CSS3 Selectors and translate them to XPath 1.0
@@ -8475,7 +8475,7 @@ dev-python/expects 0.9.0-r1: Expressive and extensible TDD/BDD assertion library
 dev-python/expecttest 0.3.0: golden tests
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyed3 0.9.9: Module for manipulating ID3 (v1 + v2) tags in Python
-dev-python/faker 40.14.1 40.18.0 40.19.1 40.20.0 40.21.0: A Python package that generates fake data for you
+dev-python/faker 40.14.1 40.18.0 40.19.1 40.20.0 40.21.0 40.22.0: A Python package that generates fake data for you
 dev-python/fakeredis 2.35.1 2.36.0 2.36.1: Fake implementation of redis API for testing purposes
 dev-python/fastapi 0.136.3: High performance framework, easy to learn, fast to code, ready for production
 dev-python/fastbencode 0.3.10: Implementation of bencode with Rust implementation
@@ -8705,7 +8705,7 @@ dev-python/jsonschema-specifications 2025.9.1: The JSON Schema meta-schemas and 
 dev-python/jsonxs 0.6-r1: Get/set values in JSON and Python datastructures
 dev-python/junit-xml 1.9-r1: Create JUnit XML test result documents
 dev-python/jupyter 1.1.1-r1: Jupyter metapackage. Install all the Jupyter components in one go
-dev-python/jupyter-client 8.8.0 8.9.0: Jupyter protocol implementation and client libraries
+dev-python/jupyter-client 8.8.0 8.9.0 8.9.1: Jupyter protocol implementation and client libraries
 dev-python/jupyter-console 6.6.3-r1: A terminal-based console frontend for Jupyter kernels
 dev-python/jupyter-core 5.9.1: Core common functionality of Jupyter projects
 dev-python/jupyter-events 0.12.0 0.12.1: Jupyter Event System library
@@ -8910,7 +8910,7 @@ dev-python/openapi3 1.8.2: Python OpenAPI 3 Specification client and validator
 dev-python/openpyxl 3.1.5: Pure python reader and writer of Excel OpenXML files
 dev-python/opensearch-py 3.0.0: Python client for OpenSearch
 dev-python/openstackdocstheme 3.6.0: Theme and extension support for Sphinx documentation
-dev-python/openstacksdk 4.12.0 4.13.0 4.14.0: A collection of libraries for building applications to work with OpenStack
+dev-python/openstacksdk 4.12.0 4.13.0 4.14.0 4.15.0: A collection of libraries for building applications to work with OpenStack
 dev-python/opentelemetry-api 1.41.1 1.42.1: OpenTelemetry Python API
 dev-python/opentelemetry-sdk 1.41.1 1.42.1: OpenTelemetry Python SDK
 dev-python/opentelemetry-semantic-conventions 1.41.1 1.42.1: OpenTelemetry Semantic Conventions
@@ -8927,7 +8927,7 @@ dev-python/oslo-context 6.3.0 6.4.0: Helpers to maintain useful information abou
 dev-python/oslo-i18n 6.7.2 6.8.0: Oslo i18n library
 dev-python/oslo-log 8.1.0 8.2.0: OpenStack logging config library, configuration for all openstack projects
 dev-python/oslo-serialization 5.9.1 5.10.0: Oslo Serialization library
-dev-python/oslo-utils 10.0.1 10.1.0: Oslo Utility library
+dev-python/oslo-utils 10.0.1 10.1.0 10.1.1: Oslo Utility library
 dev-python/oslotest 6.0.0 6.1.0 6.1.1: Oslo test framework
 dev-python/outcome 1.3.0_p0: Capture the outcome of Python function calls
 dev-python/outputcheck 0.4.2-r2: A tool for checking the output of console programs inspired by LLVM's FileCheck
@@ -9381,7 +9381,7 @@ dev-python/rarfile 4.2: Module for RAR archive reading
 dev-python/ratelimit 2.2.1-r1: An API rate limit decorator for Python
 dev-python/rdflib 7.6.0: RDF library containing a triple store and parser/serializer
 dev-python/re-assert 1.1.0-r3: Show where your regex match assertion failed
-dev-python/readme-renderer 44.0: A library for rendering 'readme' descriptions for Warehouse
+dev-python/readme-renderer 44.0 45.0: A library for rendering 'readme' descriptions for Warehouse
 dev-python/rebulk 3.2.0: Python library that performs advanced searches in strings
 dev-python/recommonmark 0.7.1-r1: Python docutils-compatibility bridge to CommonMark
 dev-python/recurring-ical-events 3.8.1-r1 3.8.2: Repeat ICalendar events by RRULE, RDATE and EXDATE
@@ -9569,7 +9569,7 @@ dev-python/spyder-terminal 1.3.0 1.3.1: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.7.1: Plugin for Spyder to run tests and view the results
 dev-python/sqlalchemy 2.0.49 2.0.50 2.1.0_beta2: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 30.8.0 30.9.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 30.8.0 30.9.0 30.10.0: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.5: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9646,7 +9646,7 @@ dev-python/tornado 6.5.5 6.5.6 6.5.7: Python web framework and asynchronous netw
 dev-python/towncrier 25.8.0: Building newsfiles for your project
 dev-python/tox 4.50.3 4.53.1 4.54.0 4.55.0 4.55.1: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.3.0-r2: Python bindings for TSS
-dev-python/tqdm 4.67.3 4.68.1: Add a progress meter to your loops in a second
+dev-python/tqdm 4.67.3 4.68.1 4.68.2: Add a progress meter to your loops in a second
 dev-python/traitlets 5.14.3 5.15.0 5.15.1: A configuration system for Python applications
 dev-python/trakit 0.2.5: Guess additional information from titles in media tracks
 dev-python/transitions 0.9.3: A lightweight, object-oriented state machine implementation in Python
@@ -18379,7 +18379,7 @@ www-plugins/lightspark 0.9.0: High performance flash player
 www-plugins/passff-host 1.2.4 1.2.5: Host app for the PassFF WebExtension
 www-plugins/pdfjs 4.5.136 4.9.155 4.10.38 5.0.375: A PDF reader in JavaScript
 www-servers/adsf 1.5.2-r1 1.5.3: A Dead Simple Fileserver is a static file server that can launch in a directory
-www-servers/apache 2.4.66 2.4.67: The Apache Web Server
+www-servers/apache 2.4.66 2.4.67 2.4.68: The Apache Web Server
 www-servers/caddy 2.10.2-r1 2.11.4 9999: Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS
 www-servers/civetweb 1.16: Embedded C/C++ web server
 www-servers/fnord 1.11-r3: Yet another small httpd

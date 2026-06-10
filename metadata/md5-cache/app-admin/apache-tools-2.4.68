@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile configure install prepare
+DEPEND=>=dev-libs/apr-1.5.0:1= dev-libs/apr-util:1= dev-libs/expat dev-libs/libpcre2 virtual/libcrypt:= kernel_linux? ( sys-apps/util-linux ) ssl? ( dev-libs/openssl:0= ) dev-build/libtool
+DESCRIPTION=Useful Apache tools - htdigest, htpasswd, ab, htdbm
+EAPI=8
+HOMEPAGE=https://httpd.apache.org/
+INHERIT=autotools toolchain-funcs
+IUSE=ssl
+KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris
+LICENSE=Apache-2.0
+RDEPEND=>=dev-libs/apr-1.5.0:1= dev-libs/apr-util:1= dev-libs/expat dev-libs/libpcre2 virtual/libcrypt:= kernel_linux? ( sys-apps/util-linux ) ssl? ( dev-libs/openssl:0= )
+RESTRICT=test
+SLOT=0
+SRC_URI=mirror://apache/httpd/httpd-2.4.68.tar.bz2
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112
+_md5_=ba988bdd577a64e72ccf211d825b48c2
