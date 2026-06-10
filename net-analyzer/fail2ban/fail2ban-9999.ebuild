@@ -56,7 +56,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-0.11.2-adjust-apache-logs-paths.patch
 	"${FILESDIR}"/${PN}-1.0.2-umask-tests.patch
 	"${FILESDIR}"/${PN}-1.1.0-systemd-order.patch
-	"${FILESDIR}"/${PN}-1.1.0-openrc-use-supervise-daemon.patch
 )
 
 src_prepare() {

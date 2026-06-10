@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit distutils-r1 optfeature shell-completion wrapper
 
 if [[ ${PV} == 9999 ]]; then
@@ -47,6 +47,9 @@ BDEPEND="
 "
 
 if [[ ${PV} == 9999 ]]; then
+	# ignoring PG0305 only in live, properly pre-generated in releases
+	# -- manpage tarballs in live would become outdated and pandoc has
+	# limited arch availability to be unconditional
 	IUSE+=" man"
 	BDEPEND+=" man? ( virtual/pandoc )"
 fi
