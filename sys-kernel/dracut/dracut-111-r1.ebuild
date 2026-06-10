@@ -103,6 +103,7 @@ QA_MULTILIB_PATHS="usr/lib/dracut/.*"
 
 PATCHES=(
 	"${FILESDIR}"/gentoo-ldconfig-paths-r1.patch
+	"${FILESDIR}"/${PN}-111-dash-printf.patch
 )
 
 pkg_setup() {
