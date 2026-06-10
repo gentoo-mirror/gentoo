@@ -10,7 +10,7 @@ EAPI=8
 
 WANT_AUTOMAKE=none
 WANT_LIBTOOL=none
-inherit autotools flag-o-matic multibuild optfeature toolchain-funcs
+inherit autotools flag-o-matic optfeature toolchain-funcs
 
 DESCRIPTION="Excellent text file viewer"
 HOMEPAGE="https://www.greenwoodsoftware.com/less/"
@@ -56,70 +56,35 @@ BDEPEND+=" test? ( virtual/pkgconfig )"
 
 src_prepare() {
 	default
-
 	# Per upstream README to prepare live build
 	[[ ${PV} == 9999 ]] && emake -f Makefile.aut distfiles
 	# Upstream uses unpatched autoconf-2.69, which breaks with clang-16.
 	# https://bugs.gentoo.org/870412
 	eautoreconf
-
-	MULTIBUILD_VARIANTS=(
-		base
-		$(usev test)
-	)
-
-	multibuild_copy_sources
 }
 
-less_configure() {
-	cd "${BUILD_DIR}" || die
+src_configure() {
 	append-lfs-flags # bug #896316
 
 	local myeconfargs=(
 		--with-regex=$(usex pcre pcre2 posix)
 		--with-editor="${EPREFIX}"/usr/libexec/editor
 	)
-
-	ECONF_SOURCE=${PWD} econf "${myeconfargs[@]}"
-}
-
-src_configure() {
-	multibuild_foreach_variant less_configure
-}
-
-less_compile() {
-	emake -C "${BUILD_DIR}"
-}
-
-src_compile() {
-	multibuild_foreach_variant less_compile
-}
-
-less_test() {
-	# https://github.com/gwsw/less/issues/791
-	[[ ${MULTIBUILD_VARIANT} == "test" ]] || return
-	emake -C "${BUILD_DIR}" check VERBOSE=1 CC="$(tc-getCC)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
+	econf "${myeconfargs[@]}"
 }
 
 src_test() {
-	multibuild_foreach_variant less_test
+	emake check VERBOSE=1 CC="$(tc-getCC)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
 }
 
-less_install() {
-	[[ ${MULTIBUILD_VARIANT} == "base" ]] || return
-
-	emake -C "${BUILD_DIR}" DESTDIR="${D}" install
-	einstalldocs
+src_install() {
+	default
 
 	keepdir /usr/lib/lessfilter.d
 	keepdir /etc/lessfilter.d
 
 	newbin "${FILESDIR}"/lesspipe-r4.sh lesspipe
 	newenvd "${FILESDIR}"/less.envd 70less
-}
-
-src_install() {
-	multibuild_foreach_variant less_install
 }
 
 pkg_preinst() {
