@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,6 +13,11 @@ LICENSE="DCC GPL-2"
 SLOT="0"
 KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ppc ppc64 ~sparc x86"
 IUSE="cgi ipv6 rrdtool milter"
+# https://www.rhyolite.com/dcc/ says
+# "You can redistribute unchanged copies of the DCC source, but you may not redistribute modified,
+# "fixed," or "improved" versions of the source or binaries. You also can't call it your own or
+# blame anyone for the results of using it."
+RESTRICT="bindist"
 
 RDEPEND="
 	dev-lang/perl
