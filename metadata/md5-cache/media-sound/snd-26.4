@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile configure install postinst prepare
+DEPEND=media-libs/alsa-lib fftw? ( sci-libs/fftw:3.0= ) gmp? ( dev-libs/gmp:= dev-libs/mpc:= dev-libs/mpfr:= ) gsl? ( sci-libs/gsl:= ) gui? ( x11-libs/motif:0= x11-libs/libX11 x11-libs/libXext x11-libs/libXft x11-libs/libXpm x11-libs/libXt opengl? ( media-libs/glu media-libs/libglvnd[X] ) ) jack? ( media-libs/libsamplerate virtual/jack ) ladspa? ( media-libs/ladspa-sdk ) notcurses? ( dev-cpp/notcurses ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) ruby? ( dev-lang/ruby:* )
+DESCRIPTION=Sound editor
+EAPI=8
+HOMEPAGE=https://ccrma.stanford.edu/software/snd/
+INHERIT=autotools desktop flag-o-matic optfeature toolchain-funcs
+IUSE=fftw gmp gsl gui jack ladspa notcurses opengl oss portaudio pulseaudio ruby +s7
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=Snd 0BSD BSD-2 HPND GPL-2+ LGPL-2.1+ LGPL-3+
+RDEPEND=media-libs/alsa-lib fftw? ( sci-libs/fftw:3.0= ) gmp? ( dev-libs/gmp:= dev-libs/mpc:= dev-libs/mpfr:= ) gsl? ( sci-libs/gsl:= ) gui? ( x11-libs/motif:0= x11-libs/libX11 x11-libs/libXext x11-libs/libXft x11-libs/libXpm x11-libs/libXt opengl? ( media-libs/glu media-libs/libglvnd[X] ) ) jack? ( media-libs/libsamplerate virtual/jack ) ladspa? ( media-libs/ladspa-sdk ) notcurses? ( dev-cpp/notcurses ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) ruby? ( dev-lang/ruby:* )
+REQUIRED_USE=?? ( jack oss pulseaudio portaudio ) ?? ( gui notcurses ) ?? ( ruby s7 ) notcurses? ( s7 )
+SLOT=0
+SRC_URI=https://ccrma.stanford.edu/software/snd/snd-26.4.tar.gz
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	desktop	26d57169ca094c04be416993844ec8bc	flag-o-matic	fd3558f73f6503093adee69adf41020d	optfeature	538bce96e5589935b57e178e8635f301
+_md5_=3c8d01425a009440c5534fd872eca742
