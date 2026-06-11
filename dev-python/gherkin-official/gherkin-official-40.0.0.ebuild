@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=uv-build
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
@@ -21,13 +21,13 @@ S=${WORKDIR}/gherkin-${PV}/python
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	>=dev-python/uv-build-0.10[${PYTHON_USEDEP}]
+	>=dev-python/uv-build-0.11[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=()
