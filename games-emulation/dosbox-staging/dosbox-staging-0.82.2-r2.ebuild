@@ -1,8 +1,8 @@
-# Copyright 2020-2025 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit flag-o-matic meson xdg
+inherit meson xdg
 
 DESCRIPTION="Modernized DOSBox soft-fork"
 HOMEPAGE="https://dosbox-staging.github.io/"
@@ -11,12 +11,11 @@ SRC_URI="https://github.com/dosbox-staging/dosbox-staging/archive/v${PV}.tar.gz 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="+alsa debug dynrec +fluidsynth mt-32 network opengl slirp test"
+IUSE="debug dynrec +fluidsynth mt-32 network opengl slirp test"
 
 RESTRICT="!test? ( test )"
 
-RDEPEND="alsa? ( media-libs/alsa-lib )
-	debug? ( sys-libs/ncurses:0= )
+RDEPEND="debug? ( sys-libs/ncurses:0= )
 	fluidsynth? (
 		media-sound/fluid-soundfont
 		media-sound/fluidsynth
@@ -25,12 +24,14 @@ RDEPEND="alsa? ( media-libs/alsa-lib )
 	network? ( media-libs/sdl2-net )
 	opengl? ( virtual/opengl )
 	slirp? ( net-libs/libslirp )
+	media-libs/alsa-lib
 	media-libs/iir1
 	media-libs/libpng:0=
-	media-libs/libsdl2[joystick,opengl?,video,X]
+	media-libs/libsdl2[alsa,joystick,opengl?,sound,video,X]
 	media-libs/opusfile
 	media-libs/speexdsp
 	virtual/zlib:=
+	sys-libs/zlib-ng:=
 	!games-emulation/dosbox"
 DEPEND="${RDEPEND}"
 BDEPEND="test? ( dev-cpp/gtest )"
@@ -49,15 +50,12 @@ src_prepare() {
 }
 
 src_configure() {
-	# -Werror=odr
-	# https://bugs.gentoo.org/926078
-	# https://github.com/dosbox-staging/dosbox-staging/issues/3519
-	filter-lto
-
+	# alsa is needed already by libsdl2[alsa,sound]
 	# xinput2 comes with libsdl2[X]
 	local emesonargs=(
+		-Duse_alsa=true
 		-Duse_xinput2=true
-		$(meson_use alsa use_alsa)
+		-Duse_zlib_ng=native
 		$(meson_use debug)
 		-Ddynamic_core=$(usex dynrec dynrec dyn-x86)
 		$(meson_use fluidsynth use_fluidsynth)
