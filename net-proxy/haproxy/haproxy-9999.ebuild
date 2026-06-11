@@ -181,6 +181,8 @@ src_install() {
 	doman doc/haproxy.1
 
 	systemd_dounit admin/systemd/haproxy.service
+	# conf.d is mandatory in recent systemd units
+	keepdir /etc/haproxy/conf.d
 
 	einstalldocs
 
