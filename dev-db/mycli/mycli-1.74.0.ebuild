@@ -23,12 +23,15 @@ KEYWORDS="~amd64"
 # optional llm unpackaged
 IUSE="ssh"
 
+# <pymysql-1.2: Upstream pins per version and test failures with
+# test_ssl_mode_off and test_ssl_mode_overrides_ssl
+
 # ~paramiko-3.5.1: Pinned due to breakage. Feature soft deprecated for future removal
 # https://github.com/dbcli/mycli/commit/82c7d92a16ad15906c46df14cc6e6ee0249609e6
 # https://github.com/dbcli/mycli/issues/1464
 RDEPEND="
 	$(python_gen_cond_dep '
-		>=dev-python/cli-helpers-2.14.0[${PYTHON_USEDEP}]
+		>=dev-python/cli-helpers-2.15.0[${PYTHON_USEDEP}]
 		>=dev-python/click-8.3.1[${PYTHON_USEDEP}]
 		>=dev-python/clickdc-0.1.1[${PYTHON_USEDEP}]
 		>=dev-python/configobj-5.0.9[${PYTHON_USEDEP}]
@@ -39,10 +42,11 @@ RDEPEND="
 		>=dev-python/pycryptodome-3.23.0[${PYTHON_USEDEP}]
 		>=dev-python/pyfzf-0.3.1[${PYTHON_USEDEP}]
 		>=dev-python/pygments-2.19.2[${PYTHON_USEDEP}]
+		<dev-python/pymysql-1.2[${PYTHON_USEDEP}]
 		>=dev-python/pymysql-1.1.2[${PYTHON_USEDEP}]
 		>=dev-python/pyperclip-1.11.0[${PYTHON_USEDEP}]
 		>=dev-python/rapidfuzz-3.14.3[${PYTHON_USEDEP}]
-		>=dev-python/sqlglot-30.4.3[${PYTHON_USEDEP}]
+		>=dev-python/sqlglot-30.8.0[${PYTHON_USEDEP}]
 		<dev-python/sqlparse-0.6.0[${PYTHON_USEDEP}]
 		>=dev-python/sqlparse-0.3.0[${PYTHON_USEDEP}]
 		>=dev-python/wcwidth-0.6.0[${PYTHON_USEDEP}]
@@ -168,7 +172,7 @@ src_test() {
 	rm -rf "${T}"/mysql || die
 
 	if [[ ${#failures[@]} -gt 0 ]]; then
-		die "Tests failed: ${failures}"
+		die "Tests failed with ${EPYTHON}: ${failures}"
 	fi
 }
 
