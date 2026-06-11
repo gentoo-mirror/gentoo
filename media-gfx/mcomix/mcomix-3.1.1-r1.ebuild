@@ -26,6 +26,10 @@ BDEPEND="sys-devel/gettext"
 # Most tests are quite old and do not run
 RESTRICT="test"
 
+PATCHES=(
+	"${FILESDIR}"/mcomix-3.1.1-fix-keybindings-py3.14.patch # bug #977206
+)
+
 src_prepare() {
 	default
 
