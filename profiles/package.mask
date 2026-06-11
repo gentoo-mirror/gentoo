@@ -36,6 +36,17 @@
 
 #--- END OF EXAMPLES ---
 
+# Ionen Wolkens <ionen@gentoo.org> (2026-06-11)
+# Not used by maintainer anymore and, upon consideration, would rather
+# not handle the new rust rewrite using GTK4 and /dev/uinput (notably
+# needs permissions for uinput but we do not have global rules to handle
+# that yet and having this package arbitrarily set this up is
+# questionable and could break current usage). Seems better to last-rite
+# rather than leave it outdated as maintainer-needed with this old
+# version that is known to occasionally segfault.
+# Removal on 2026-07-11.
+x11-misc/mygestures
+
 # Ulrich Müller <ulm@gentoo.org> (2026-06-05)
 # Pretest versions, masked for testing.
 <app-editors/emacs-31.0.9999:31-vcs
