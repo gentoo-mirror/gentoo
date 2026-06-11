@@ -38,6 +38,11 @@ dcc_libexec=usr/sbin
 dcc_man=usr/share/man
 dcc_rundir=var/run/dcc
 
+QA_CONFIG_IMPL_DECL_SKIP=(
+	# bug #899776
+	dcc_error_msg ERROR_STR fstatfs
+)
+
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.3.158-clang16.patch
 	"${FILESDIR}"/${PN}-1.3.158-c2x.patch
