@@ -18,7 +18,7 @@ fi
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm64 ~ppc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm64 ~hppa ~ppc ~x86"
 
 QA_CONFIG_IMPL_DECL_SKIP=(
 	# OpenBSD
