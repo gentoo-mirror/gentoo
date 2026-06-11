@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,8 +11,13 @@ SRC_URI="https://www.rhyolite.com/dcc/source/old/${P}.tar.Z"
 
 LICENSE="DCC GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~arm64 ~hppa ppc ppc64 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
 IUSE="cgi ipv6 rrdtool milter"
+# https://www.rhyolite.com/dcc/ says
+# "You can redistribute unchanged copies of the DCC source, but you may not redistribute modified,
+# "fixed," or "improved" versions of the source or binaries. You also can't call it your own or
+# blame anyone for the results of using it."
+RESTRICT="bindist"
 
 RDEPEND="
 	dev-lang/perl
@@ -33,8 +38,12 @@ dcc_libexec=usr/sbin
 dcc_man=usr/share/man
 dcc_rundir=var/run/dcc
 
+QA_CONFIG_IMPL_DECL_SKIP=(
+	# bug #899776
+	dcc_error_msg ERROR_STR fstatfs
+)
+
 PATCHES=(
-	"${FILESDIR}"/${PN}-1.3.158-clang16.patch
 	"${FILESDIR}"/${PN}-1.3.158-c2x.patch
 	"${FILESDIR}"/${PN}-2.3.168-no-compress-man.patch
 )
