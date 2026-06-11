@@ -1387,7 +1387,7 @@ app-containers/docker 28.0.1 28.0.4 28.1.1 28.2.2 28.4.0 29.1.3-r1 29.5.2: The c
 app-containers/docker-bench-security 1.6.0 1.6.1: Test for best practices around deploying docker containers
 app-containers/docker-buildx 0.11.2 0.14.0 0.19.1 0.20.1 0.21.2 0.34.1 9999: Docker CLI plugin for extended build capabilities with BuildKit
 app-containers/docker-cli 28.0.1 28.0.4 28.1.1 28.2.2 28.4.0 29.1.3 29.5.2: the command line binary for docker
-app-containers/docker-compose 1.29.2-r8 2.34.0-r1 2.39.3 2.40.3 5.0.1-r2 5.1.4-r1: Multi-container orchestration for Docker
+app-containers/docker-compose 2.34.0-r1 2.39.3 2.40.3 5.0.1-r2 5.1.4-r1: Multi-container orchestration for Docker
 app-containers/docker-credential-helpers 0.9.3 0.9.7: Suite of programs to use native stores to keep Docker credentials safe
 app-containers/docker-pushrm 1.9.0: Docker CLI plugin to update container repository documentation
 app-containers/docker-registry 3.0.0_rc2 3.0.0_rc3: Docker Registry 2.0
@@ -1813,7 +1813,6 @@ app-editors/aee 2.2.22: An easy to use text editor
 app-editors/bluefish 2.2.19 2.4.0 2.4.1: GTK HTML editor for the experienced web designer or programmer
 app-editors/bvi 1.4.2 1.5.0: Display-oriented editor for binary files, based on the vi texteditor
 app-editors/curses-hexedit 0.9.7-r1: full screen curses hex editor (with insert/delete support)
-app-editors/cursor 2.6.20: Cursor App - AI-first coding environment
 app-editors/dav 0.9.0: Minimal console text editor
 app-editors/dhex 0.69: ncurses-based hex-editor with diff mode
 app-editors/diakonos 0.9.12: A Linux editor for the masses
@@ -5911,7 +5910,6 @@ dev-libs/tree-sitter-vimdoc 3.0.0 3.0.1 4.0.0 4.1.0: Vimdoc grammar for Tree-sit
 dev-libs/trio 1.17.1: Portable string functions, focus on the *printf() and *scanf() clones
 dev-libs/tvision 2.2.3 2.2.3-r1: Text User Interface that implements the well known CUA widgets
 dev-libs/tvmet 1.7.2-r2 1.7.2-r3: Tiny Vector Matrix library using Expression Templates
-dev-libs/ucl 1.03-r1: the UCL Compression Library
 dev-libs/udis86 1.7.2-r2: Disassembler library for the x86/-64 architecture sets
 dev-libs/unibilium 2.1.1-r1 2.1.2: A very basic terminfo library
 dev-libs/unittest++ 2.0.0-r4: A lightweight unit testing framework for C++
@@ -8295,7 +8293,6 @@ dev-python/chart-studio 1.1.0-r2: Browser-based graphing library for Python
 dev-python/cheetah3 3.4.0: Python-powered template engine and code generator
 dev-python/cheroot 11.1.2: High-performance, pure-Python HTTP server used by CherryPy
 dev-python/cherrypy 18.10.0: CherryPy is a pythonic, object-oriented HTTP framework
-dev-python/chump 1.6.0-r2: API wrapper for Pushover
 dev-python/cjkwrap 2.2-r2: A library for wrapping and filling UTF-8 CJK text
 dev-python/clang 16.0.6 17.0.6 18.1.8 19.1.7 20.1.8 21.1.8 22.1.6 22.1.7 23.0.0_pre20260512 23.0.0_pre20260605 23.0.0.9999: Python bindings for llvm-core/clang
 dev-python/cleo 2.1.0: Python tool for building testable command-line interfaces
@@ -8427,7 +8424,6 @@ dev-python/dns-lexicon 3.25.1 3.25.2: Manipulate DNS records on various DNS prov
 dev-python/dnspython 2.8.0: DNS toolkit for Python
 dev-python/doc8 2.0.0: Style checker for Sphinx (or other) RST documentation
 dev-python/docker 7.1.0: Python client for Docker
-dev-python/dockerpty 0.4.1-r3: Python library to use the pseudo-tty of a docker container
 dev-python/docopt 0.6.2-r5: Pythonic argument parser, that will make you smile
 dev-python/docstring-to-markdown 0.17: On the fly conversion of Python docstrings to markdown
 dev-python/docutils 0.22.4 0.23_rc1 0.23: Python Documentation Utilities (reference reStructuredText impl.)
@@ -8437,7 +8433,6 @@ dev-python/doit 0.36.0-r2 0.37.0: Automation tool
 dev-python/doit-py 0.5.0-r1: doit tasks for python stuff
 dev-python/dominate 2.9.1: Library for creating and manipulating HTML documents using an elegant DOM API
 dev-python/doublex 1.9.6.1: Python test doubles
-dev-python/doublex-expects 0.7.1-r1: Expects matchers for Doublex test doubles assertions
 dev-python/dulwich 1.1.0 1.2.4 1.2.5 1.2.6: Pure-Python implementation of the Git file formats and protocols
 dev-python/easy-thumbnails 2.10.1: Easy thumbnails for Django
 dev-python/easyprocess 1.1-r1: Easy to use Python subprocess interface
@@ -8471,7 +8466,6 @@ dev-python/exceptiongroup 1.3.1: Backport of PEP 654 (exception groups)
 dev-python/execnet 2.1.2: Rapid multi-Python deployment
 dev-python/executing 2.2.1: Get information about what a Python frame is currently doing
 dev-python/expandvars 1.1.2: Expand system variables Unix style
-dev-python/expects 0.9.0-r1: Expressive and extensible TDD/BDD assertion library for Python
 dev-python/expecttest 0.3.0: golden tests
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyed3 0.9.9: Module for manipulating ID3 (v1 + v2) tags in Python
@@ -8504,10 +8498,8 @@ dev-python/flask-babel 4.0.0: i18n and l10n support for Flask based on Babel and
 dev-python/flask-caching 2.3.1 2.3.1-r1 2.4.0: Adds caching support to Flask applications
 dev-python/flask-compress 1.23 1.24: Compress responses in your Flask app with gzip
 dev-python/flask-cors 6.0.2 6.0.3 6.0.4 6.0.5: A Flask extension for Cross Origin Resource Sharing (CORS)
-dev-python/flask-debug 0.4.3-r2: Flask extension that displays various debugging insights during development
 dev-python/flask-htmlmin 3.0.0: Minimize your flask rendered html
 dev-python/flask-login 0.6.3: Login session support for Flask
-dev-python/flask-nav 0.6-r5: Easily create navigation for Flask applications
 dev-python/flask-paginate 2024.4.12: Pagination support for flask
 dev-python/flask-paranoid 0.3.0: Simple user session protection extension for Flask
 dev-python/flask-sphinx-themes 1.0.2-r1: Sphinx Themes for Flask related projects and Flask itself
@@ -8638,7 +8630,6 @@ dev-python/intervaltree 3.2.1: Editable interval tree data structure for Python 
 dev-python/iocapture 0.1.2-r3: Capture stdout, stderr easily
 dev-python/ioctl-opt 1.3: Linux's ioctl.h for Python
 dev-python/ioflo 2.0.3: Automated Reasoning Engine and Flow Based Programming Framework
-dev-python/ipdb 0.13.13: IPython-enabled pdb
 dev-python/ipy 1.01-r1 1.01-r2: Class and tools for handling of IPv4 and IPv6 addresses and networks
 dev-python/ipykernel 6.31.0 7.1.0 7.2.0 7.3.0: IPython Kernel for Jupyter
 dev-python/ipyparallel 9.1.0-r1 9.2.0: Interactive Parallel Computing with IPython
@@ -8685,7 +8676,6 @@ dev-python/joblib 1.5.3: Tools to provide lightweight pipelining in Python
 dev-python/josepy 2.2.0: JOSE protocol implementation in Python
 dev-python/joserfc 1.6.4: A Python library for JOSE RFCs: JWS, JWE, JWK, JWA, JWT
 dev-python/jq 1.8.0 1.10.0 1.11.0: Python bindings for jq
-dev-python/js2py 0.74-r2: JavaScript to Python Translator & JavaScript interpreter in Python
 dev-python/jschema-to-python 1.2.3-r1: Generate source code for Python classes from a JSON schema
 dev-python/json-rpc 1.15.0: JSON-RPC transport implementation for python
 dev-python/json5 0.14.0: A Python implementation of the JSON5 data format
@@ -8791,7 +8781,6 @@ dev-python/magic-wormhole-mailbox-server 0.6.0 0.7.0 0.8.0: Mailbox server for m
 dev-python/magic-wormhole-transit-relay 0.5.0: Transit relay server for magic-wormhole
 dev-python/makefun 1.16.0: Small library to dynamically create Python functions
 dev-python/mako 1.3.10 1.3.11 1.3.12: A Python templating language
-dev-python/mamba 0.11.3: Python test runner born under the banner of Behavior Driven Development
 dev-python/mando 0.8.2: Create Python CLI apps with little to no effort at all!
 dev-python/manuel 1.13.0: Lets you mix and match traditional doctests with custom test syntax
 dev-python/mapbox-earcut 2.0.0: Python bindings to the mapbox earcut C++ library
@@ -9111,7 +9100,6 @@ dev-python/pyhamcrest 2.1.0: Hamcrest framework for matcher objects
 dev-python/pyhcl 0.4.5: HCL configuration parser for python
 dev-python/pyicu 2.16.2: Python bindings for dev-libs/icu
 dev-python/pyinotify 0.9.6-r1: Python module used for monitoring filesystems events
-dev-python/pyjsparser 2.7.1_p20190421-r3: Fast javascript parser based on esprima.js
 dev-python/pyjwt 2.12.1 2.13.0: JSON Web Token implementation in Python
 dev-python/pykakasi 2.3.0: Kana kanji simple inversion library
 dev-python/pykeepass 4.1.1_p1: Python library to interact with keepass databases (supports KDBX3 and KDBX4)
@@ -10854,7 +10842,6 @@ dev-util/cucumber-messages 18.0.0 22.0.0 27.2.0: Protocol Buffer messages for Cu
 dev-util/cucumber-rails 3.1.1 4.0.0: Executable feature scenarios for Rails
 dev-util/cucumber-tag-expressions 4.1.0 5.0.6 6.1.2: Cucumber tag expressions for ruby
 dev-util/cunit 2.1_p3-r1: C Unit Test Framework
-dev-util/cursor-agent 2026.02.27: Cursor CLI - interact with AI agents directly from your terminal
 dev-util/cutils 1.6-r5: C language utilities
 dev-util/cutter 2.4.1 2.4.1-r1: A Qt and C++ GUI for rizin reverse engineering framework
 dev-util/cvise 2.12.0 9999: Super-parallel Python port of the C-Reduce
@@ -11061,7 +11048,6 @@ dev-util/rocm_bandwidth_test 6.3.3 6.4.3 7.0.2 7.1.0-r2 7.2.0: Bandwidth test fo
 dev-util/rocminfo 6.3.3 6.4.3 7.0.2 7.1.0 7.2.0: ROCm Application for Reporting System Info
 dev-util/roctracer 6.3.3 6.4.3 7.0.2 7.1.0 7.2.0: Callback/Activity Library for Performance tracing AMD GPU's
 dev-util/ropper 1.13.13 9999: Use to display information about binary files in different file formats
-dev-util/rpmdevtools 9.6: Collection of rpm packaging related utilities
 dev-util/rt-tests 2.9 2.10: A collection of latency testing tools for the linux(-rt) kernel
 dev-util/ruff 0.14.9 0.14.14 0.15.15 0.15.16: An extremely fast Python linter, written in Rust
 dev-util/runme 2.0.5 3.15.0: Execute your runbooks, docs and READMEs
@@ -12035,13 +12021,11 @@ gnome-extra/gnome-shell-extension-alphabetical-grid 43.0 44.0: Restore the alpha
 gnome-extra/gnome-shell-extension-appindicator 61 63 64: Support legacy, AppIndicators and KStatusNotifierItems in Gnome
 gnome-extra/gnome-shell-extension-applications-overview-tooltip 24: Show tooltip with full name and description
 gnome-extra/gnome-shell-extension-bing-wallpaper 52 53: Change your wallpaper daily to the bing.com background image
-gnome-extra/gnome-shell-extension-bluetooth-quick-connect 45: Allow to connect bluetooth paired devices from gnome control panel
 gnome-extra/gnome-shell-extension-control-blur-effect-on-lock-screen 20241110: Control the blur effect on gnome-shell lock screen
 gnome-extra/gnome-shell-extension-dash-to-panel 72 73: An icon taskbar for the Gnome Shell
 gnome-extra/gnome-shell-extension-desktop-icons-ng 49.0.5 50.0.0 50.2.0: Desktop icon support for GNOME Shell
 gnome-extra/gnome-shell-extension-gsconnect 71 72: KDE Connect implementation for GNOME
 gnome-extra/gnome-shell-extension-pop-shell 1.2.0_p20250710 1.2.0_p20260331: Keyboard-driven layer for GNOME Shell with tiling support
-gnome-extra/gnome-shell-extension-weather-in-the-clock 20221024-r4: Display the current weather in the clock
 gnome-extra/gnome-shell-extension-weather-oclock 50.2 50.3: Display the current weather inside the pill next to the clock
 gnome-extra/gnome-shell-extensions 48.3 49.0: JavaScript extensions for GNOME Shell
 gnome-extra/gnome-shell-frippery 47.0 48.0: Unofficial extension pack providing GNOME 2-like features
