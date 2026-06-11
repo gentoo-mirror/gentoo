@@ -138,7 +138,9 @@ src_configure() {
 		$(use_with selinux)
 	)
 
-	PYTHON3="${PYTHON}" econf "${myeconfargs[@]}"
+	# Use bash because of bashisms with brace expansion in Makefile.am
+	# https://sourceware.org/PR32105
+	CONFIG_SHELL="${BROOT}"/bin/bash PYTHON3="${PYTHON}" econf "${myeconfargs[@]}"
 }
 
 src_test() {
