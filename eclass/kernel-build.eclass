@@ -106,6 +106,7 @@ REQUIRED_USE="secureboot? ( modules-sign )"
 # Valid values: sha512,sha384,sha256,sha224,sha1
 #
 # Default if unset: sha512
+: "${MODULES_SIGN_HASH:=sha512}"
 
 # @ECLASS_VARIABLE: MODULES_SIGN_KEY
 # @USER_VARIABLE
@@ -790,7 +791,6 @@ kernel-build_merge_configs() {
 	local merge_configs=( "${@}" )
 
 	if use modules-sign; then
-		: "${MODULES_SIGN_HASH:=sha512}"
 		cat <<-EOF > "${WORKDIR}/modules-sign.config" || die
 			## Enable module signing
 			CONFIG_MODULE_SIG=y
@@ -798,8 +798,16 @@ kernel-build_merge_configs() {
 			CONFIG_MODULE_SIG_FORCE=y
 			CONFIG_MODULE_SIG_${MODULES_SIGN_HASH^^}=y
 		EOF
-		merge_configs+=( "${WORKDIR}/modules-sign.config" )
+	else
+		cat <<-EOF > "${WORKDIR}/modules-sign.config" || die
+			## Disable module signing
+			# CONFIG_MODULE_SIG is not set
+			# CONFIG_MODULE_SIG_ALL is not set
+			# CONFIG_MODULE_SIG_FORCE is not set
+			# CONFIG_MODULE_SIG_KEY is not set
+		EOF
 	fi
+	merge_configs+=( "${WORKDIR}/modules-sign.config" )
 
 	# Only semi-related but let's use that to avoid changing stable ebuilds.
 	if [[ ${KERNEL_IUSE_GENERIC_UKI} ]]; then
