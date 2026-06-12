@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,12 +8,12 @@ LUA_COMPAT=( lua5-1 )
 WX_GTK_VER="3.2-gtk3"
 inherit cmake flag-o-matic lua-single toolchain-funcs wxwidgets
 
-MY_COMMIT="aa66653fde55365671eb9038b9392cf952ec7a05"
+COMMIT="8aa8d91747ff414ab0de19aae1e0dbd739acea2c"
 
 DESCRIPTION="OpenMW-specific fork of OpenSceneGraph"
 HOMEPAGE="https://github.com/OpenMW/osg"
-SRC_URI="https://github.com/OpenMW/osg/archive/${MY_COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/osg-${MY_COMMIT}"
+SRC_URI="https://github.com/OpenMW/osg/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/osg-${COMMIT}"
 
 LICENSE="wxWinLL-3 LGPL-2.1"
 SLOT="0/162" # NOTE: CHECK WHEN BUMPING! Subslot is SOVERSION
@@ -85,8 +85,6 @@ DEPEND="${RDEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}"/openscenegraph-openmw-3.6_p20221115-cmake4.patch # bug 960858
-	"${FILESDIR}"/openscenegraph-openmw-3.6_p20221115-cmake.patch # GNUInstalldirs, paths
 	"${FILESDIR}"/openscenegraph-openmw-3.6_p20221115-cmake-lua_version.patch # downstream patch
 	"${FILESDIR}"/openscenegraph-3.6-openexr3.patch
 )

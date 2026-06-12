@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -78,12 +78,9 @@ BDEPEND="
 	)
 "
 
-src_prepare() {
-	cmake_src_prepare
-
-	# Use the system tinyxml headers
-	rm -v extern/oics/tiny{str,xml}* || die
-}
+PATCHES=(
+	"${FILESDIR}/openmw-0.51.0-gcc17.patch"
+)
 
 src_configure() {
 	use devtools && ! use gui &&
@@ -106,6 +103,7 @@ src_configure() {
 		-DUSE_SYSTEM_TINYXML=ON
 		-DOPENMW_USE_SYSTEM_GOOGLETEST=ON
 		-DOPENMW_USE_SYSTEM_RECASTNAVIGATION=ON
+		-DOPENMW_USE_SYSTEM_SQLITE3=ON
 
 		-DQT_DIR="${ESYSROOT}/usr/lib64/cmake/Qt6"
 	)
