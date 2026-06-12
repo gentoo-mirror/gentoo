@@ -1,17 +1,18 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 inherit go-module linux-info
 
 DESCRIPTION="Work with remote container images registries"
-HOMEPAGE="https://github.com/containers/skopeo"
+HOMEPAGE="https://github.com/podman-container-tools/skopeo"
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/containers/skopeo.git"
+	EGIT_REPO_URI="https://github.com/podman-container-tools/skopeo.git"
 else
-	SRC_URI="https://github.com/containers/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/podman-container-tools/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm64"
 fi
 
