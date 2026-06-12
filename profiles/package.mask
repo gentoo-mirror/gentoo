@@ -36,6 +36,13 @@
 
 #--- END OF EXAMPLES ---
 
+# Joonas Niilola <juippis@gentoo.org> (2026-06-12)
+# Pre-bump. The next release cycle of Mozilla products (152.0 stable,
+#  140.12.0esr) will require cbindgen-0.29.4 to build. However <152.0
+# and <140.12.0 will not build with cbindgen-0.29.4. Upstream
+# bmo#2046162.
+=dev-util/cbindgen-0.29.4
+
 # Ionen Wolkens <ionen@gentoo.org> (2026-06-11)
 # Not used by maintainer anymore and, upon consideration, would rather
 # not handle the new rust rewrite using GTK4 and /dev/uinput (notably
