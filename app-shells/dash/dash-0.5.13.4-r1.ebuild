@@ -26,6 +26,11 @@ DEPEND="
 	libedit? ( static? ( dev-libs/libedit[static-libs] ) )
 "
 
+PATCHES=(
+	"${FILESDIR}"/0001-builtin-Fix-octal-escapes-in-dollar-single-quotes.patch
+	"${FILESDIR}"/0002-builtin-Fix-unaligned-access-in-conv_escape.patch
+)
+
 src_prepare() {
 	default
 
