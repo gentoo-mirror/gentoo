@@ -7,7 +7,7 @@ DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
 DISTUTILS_UPSTREAM_PEP517=standalone
 PYPI_VERIFY_REPO=https://github.com/tox-dev/toml-fmt
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 RUST_MIN_VER="1.87.0"
 CRATES="
