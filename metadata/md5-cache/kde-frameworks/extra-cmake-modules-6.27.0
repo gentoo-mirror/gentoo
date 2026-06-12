@@ -1,0 +1,16 @@
+BDEPEND=doc? ( || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) || ( ( dev-lang/python:3.14 dev-python/sphinx[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/sphinx[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/sphinx[python_targets_python3_12(-)] ) ) >=dev-qt/qttools-6.10.1:6[assistant] ) test? ( >=dev-qt/qtbase-6.10.1:6 >=dev-qt/qttools-6.10.1:6[linguist] ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure info install nofetch prepare setup test unpack
+DEPEND=test? ( >=dev-qt/qtbase-6.10.1:6[dbus,gui] >=dev-qt/qtdeclarative-6.10.1:6 )
+DESCRIPTION=Extra modules and scripts for CMake
+EAPI=8
+HOMEPAGE=https://invent.kde.org/frameworks/extra-cmake-modules
+INHERIT=cmake frameworks.kde.org python-any-r1
+IUSE=doc test
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=BSD
+RDEPEND=app-arch/libarchive[bzip2]
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://kde/stable/frameworks/6.27/extra-cmake-modules-6.27.0.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	kde.org	83d81f56e21d7fcdb6319ad4cf7cec16	frameworks.kde.org	c2ab67557534dbb3fdd7ab7c0b2c348f	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	3ce55b5ac9c0a92cc4aeb1f88010d707	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=6859ef66128e16f5666f1792c6760d52

@@ -1,0 +1,16 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.22.0:*
+DEFINED_PHASES=compile configure info install nofetch prepare test unpack
+DEPEND=>=kde-frameworks/kcodecs-6.22.0:6 dev-qt/qtbase:6
+DESCRIPTION=Library for handling mail messages and newsgroup articles
+EAPI=8
+HOMEPAGE=https://apps.kde.org/
+INHERIT=ecm gear.kde.org
+IUSE=debug test
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=GPL-2+
+RDEPEND=>=kde-frameworks/kcodecs-6.22.0:6 || ( >=kde-frameworks/kmime-6.27.0:6 >=kde-apps/kmime-common-26.04.2:6 ) || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6 !kde-apps/kmime:5
+RESTRICT=!test? ( test )
+SLOT=6/26.04
+SRC_URI=mirror://kde/stable/release-service/26.04.2/src/kmime-26.04.2.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	03a053449c50724fc93f867926f113f1	kde.org	83d81f56e21d7fcdb6319ad4cf7cec16	gear.kde.org	0f4ff7399310fcbffc647c13485a391c
+_md5_=5c59acffe63d982c1ec6dbdcf758a19e

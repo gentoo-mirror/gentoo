@@ -1,0 +1,13 @@
+BDEPEND=dev-qt/qttools:6[linguist] app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-build/cmake-3.31.9-r1 dev-qt/qtbase:6 >=kde-frameworks/extra-cmake-modules-6.22.0:*
+DEFINED_PHASES=compile configure info install nofetch prepare setup test unpack
+DESCRIPTION=Common files for kmime
+EAPI=8
+HOMEPAGE=https://apps.kde.org/
+INHERIT=ecm-common gear.kde.org
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=LGPL-2+
+RDEPEND=!<kde-apps/kmime-26.04.1-r1:* !=kde-apps/kmime-26.04.2-r0:*
+SLOT=6
+SRC_URI=mirror://kde/stable/release-service/26.04.2/src/kmime-26.04.2.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	ecm-common	16c232bb1317033d1259a3043082c37e	kde.org	83d81f56e21d7fcdb6319ad4cf7cec16	gear.kde.org	0f4ff7399310fcbffc647c13485a391c
+_md5_=8859704fa67ccc68090e13d5816fcf14

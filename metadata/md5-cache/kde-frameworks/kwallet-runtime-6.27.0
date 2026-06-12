@@ -1,0 +1,16 @@
+BDEPEND=man? ( >=kde-frameworks/kdoctools-6.27:6 ) app-alternatives/ninja >=dev-build/cmake-3.28.5 dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.27:*
+DEFINED_PHASES=compile configure info install nofetch postinst prepare test unpack
+DEPEND=dev-libs/libgcrypt:0= >=dev-qt/qtbase-6.10.1:6[dbus,gui,widgets] =kde-frameworks/kcolorscheme-6.27*:6 =kde-frameworks/kconfig-6.27*:6 =kde-frameworks/kcoreaddons-6.27*:6 =kde-frameworks/kcrash-6.27*:6 =kde-frameworks/kdbusaddons-6.27*:6 =kde-frameworks/ki18n-6.27*:6 =kde-frameworks/knotifications-6.27*:6 =kde-frameworks/kservice-6.27*:6 =kde-frameworks/kwallet-6.27*:6 =kde-frameworks/kwidgetsaddons-6.27*:6 =kde-frameworks/kwindowsystem-6.27*:6[X?] gpg? ( dev-libs/qgpgme:= ) keyring? ( >=app-crypt/qca-2.3.9:2[qt6(+)] ) legacy-kwallet? ( app-crypt/libsecret ) dev-qt/qtbase:6
+DESCRIPTION=Framework providing desktop-wide storage for passwords
+EAPI=8
+HOMEPAGE=https://develop.kde.org/products/frameworks/
+INHERIT=ecm frameworks.kde.org optfeature
+IUSE=gpg +man +keyring +legacy-kwallet X debug test
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2+
+RDEPEND=dev-libs/libgcrypt:0= >=dev-qt/qtbase-6.10.1:6[dbus,gui,widgets] =kde-frameworks/kcolorscheme-6.27*:6 =kde-frameworks/kconfig-6.27*:6 =kde-frameworks/kcoreaddons-6.27*:6 =kde-frameworks/kcrash-6.27*:6 =kde-frameworks/kdbusaddons-6.27*:6 =kde-frameworks/ki18n-6.27*:6 =kde-frameworks/knotifications-6.27*:6 =kde-frameworks/kservice-6.27*:6 =kde-frameworks/kwallet-6.27*:6 =kde-frameworks/kwidgetsaddons-6.27*:6 =kde-frameworks/kwindowsystem-6.27*:6[X?] gpg? ( dev-libs/qgpgme:= ) keyring? ( >=app-crypt/qca-2.3.9:2[qt6(+)] ) legacy-kwallet? ( app-crypt/libsecret ) !<kde-frameworks/kwallet-5.116.0-r2:5[-kf6compat(-)] !<kde-frameworks/kwallet-6.14.0:6 keyring? ( =kde-frameworks/ksecretd-services-6.27* ) >=kde-frameworks/kf-env-6 dev-qt/qtbase:6
+RESTRICT=!test? ( test )
+SLOT=6/6.27
+SRC_URI=mirror://kde/stable/frameworks/6.27/kwallet-6.27.0.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	03a053449c50724fc93f867926f113f1	kde.org	83d81f56e21d7fcdb6319ad4cf7cec16	frameworks.kde.org	c2ab67557534dbb3fdd7ab7c0b2c348f	optfeature	538bce96e5589935b57e178e8635f301
+_md5_=f5c51991f3290b957d768f3f9dbb450e
