@@ -304,6 +304,7 @@ _ecm_handbook_optional() {
 }
 
 # @FUNCTION: _ecm_buildqch_optional
+# @INTERNAL
 # @DESCRIPTION:
 # Used with ECM_QTHELP; ticks -DBUILD_QCH only if available.
 _ecm_buildqch_optional() {
@@ -315,6 +316,7 @@ _ecm_buildqch_optional() {
 }
 
 # @FUNCTION: _ecm_disable_unwanted
+# @INTERNAL
 # @DESCRIPTION:
 # Disable unwanted CMake options if they are present.
 _ecm_disable_unwanted() {
