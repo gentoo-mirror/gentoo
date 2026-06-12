@@ -213,6 +213,7 @@ kde.org_pkg_nofetch() {
 }
 
 # @FUNCTION: _kde.org_live_corrosion_unpack
+# @INTERNAL
 # @DESCRIPTION:
 # Handle rust crates for live packages. Iterates S directory with
 # corrosion_import_crate to fetch with cargo_live_src_unpack.
