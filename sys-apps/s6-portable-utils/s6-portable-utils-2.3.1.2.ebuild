@@ -3,15 +3,18 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit optfeature toolchain-funcs
 
-DESCRIPTION="General-purpose libraries from skarnet.org"
-HOMEPAGE="https://www.skarnet.org/software/skalibs/"
+DESCRIPTION="Set of tiny portable unix utilities"
+HOMEPAGE="https://www.skarnet.org/software/s6-portable-utils/"
 SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
-SLOT="0/$(ver_cut 1-2).5"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~mips ~ppc ~ppc64 ~riscv x86"
+SLOT="0"
+KEYWORDS="~amd64 ~arm ~x86"
+
+RDEPEND=">=dev-libs/skalibs-2.15.0.0:="
+DEPEND="${RDEPEND}"
 
 HTML_DOCS=( doc/. )
 
@@ -28,19 +31,20 @@ src_configure() {
 	tc-export AR CC RANLIB
 
 	local myconf=(
+		--bindir=/bin
 		--dynlibdir="/$(get_libdir)"
 		--libdir="/usr/$(get_libdir)/${PN}"
-		--sysdepdir="/usr/$(get_libdir)/${PN}"
-		--sysconfdir=/etc
-
-		--enable-pkgconfig
-		--pkgconfdir="/usr/$(get_libdir)/pkgconfig"
-
+		--with-dynlib="/$(get_libdir)"
+		--with-lib="/usr/$(get_libdir)/skalibs"
+		--with-sysdeps="/usr/$(get_libdir)/skalibs"
+		--disable-allstatic
 		--disable-static
-		--enable-clock
-		--enable-ipv6
-		--enable-shared
+		--disable-static-libc
 	)
 
 	econf "${myconf[@]}"
+}
+
+pkg_postinst() {
+	optfeature "man pages" app-doc/s6-portable-utils-man-pages
 }

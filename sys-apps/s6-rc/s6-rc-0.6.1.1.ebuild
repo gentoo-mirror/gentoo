@@ -5,24 +5,20 @@ EAPI=8
 
 inherit optfeature toolchain-funcs
 
-DESCRIPTION="Generates an init binary for s6-based init systems"
-HOMEPAGE="https://www.skarnet.org/software/s6-linux-init/"
+DESCRIPTION="Service manager for the s6 supervision suite"
+HOMEPAGE="https://www.skarnet.org/software/s6-rc/"
 SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 ~arm ~mips x86"
-IUSE="+sysv-utils"
+KEYWORDS="~amd64 ~arm ~x86"
+IUSE="system-init"
 
 RDEPEND="
 	dev-lang/execline:=
-	>=dev-libs/skalibs-2.14.5.0:=
-	sys-apps/s6:=[execline]
-	sysv-utils? (
-		!sys-apps/openrc[sysv-utils(-)]
-		!sys-apps/systemd[sysv-utils(+)]
-		!sys-apps/sysvinit
-	)
+	>=dev-libs/skalibs-2.15.0.0:=
+	>=sys-apps/s6-2.15.0.0:=[execline]
+	system-init? ( || ( sys-apps/s6-linux-init sys-apps/sysvinit ) )
 "
 DEPEND="${RDEPEND}"
 
@@ -43,10 +39,10 @@ src_configure() {
 	local myconf=(
 		--bindir=/bin
 		--dynlibdir="/$(get_libdir)"
-		--skeldir=/etc/s6-linux-init/skel
 		--libdir="/usr/$(get_libdir)/${PN}"
 		--libexecdir=/lib/s6
 		--with-dynlib="/$(get_libdir)"
+		--with-lib="/usr/$(get_libdir)/execline"
 		--with-lib="/usr/$(get_libdir)/s6"
 		--with-lib="/usr/$(get_libdir)/skalibs"
 		--with-sysdeps="/usr/$(get_libdir)/skalibs"
@@ -63,21 +59,6 @@ src_configure() {
 	econf "${myconf[@]}"
 }
 
-src_install() {
-	default
-
-	if use sysv-utils ; then
-		"${D}/bin/s6-linux-init-maker" -f "${D}/etc/s6-linux-init/skel" "${T}/dir" || die
-		into /
-		dosbin "${T}/dir/bin"/{halt,poweroff,reboot,shutdown,telinit}
-	fi
-}
-
 pkg_postinst() {
-	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		elog "Read ${EROOT}/usr/share/doc/${PF}/html/quickstart.html"
-		elog "for usage instructions."
-	fi
-
-	optfeature "man pages" app-doc/s6-linux-init-man-pages
+	optfeature "man pages" app-doc/s6-rc-man-pages
 }

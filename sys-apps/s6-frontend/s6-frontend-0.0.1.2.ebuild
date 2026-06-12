@@ -1,26 +1,27 @@
-# Copyright 1999-2026 Gentoo Authors
+# Copyright 2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
-inherit optfeature toolchain-funcs
+inherit toolchain-funcs
 
-DESCRIPTION="Service manager for the s6 supervision suite"
-HOMEPAGE="https://www.skarnet.org/software/s6-rc/"
+DESCRIPTION="Frontend to the s6 init system"
+HOMEPAGE="https://skarnet.org/software/s6-frontend/"
 SRC_URI="https://www.skarnet.org/software/${PN}/${P}.tar.gz"
 
 LICENSE="ISC"
-SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 ~arm x86"
-IUSE="system-init"
+SLOT="0"
+KEYWORDS="~amd64"
 
 RDEPEND="
 	dev-lang/execline:=
-	>=dev-libs/skalibs-2.14.5.0:=
-	>=sys-apps/s6-2.13.2.0:=[execline]
-	system-init? ( || ( sys-apps/s6-linux-init sys-apps/sysvinit ) )
+	>=dev-libs/skalibs-2.15.0.0:=
+	sys-apps/s6:=[execline]
+	>=sys-apps/s6-rc-0.6.1.1:=
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	sys-apps/s6-linux-init:=
+"
 
 HTML_DOCS=( doc/. )
 
@@ -44,11 +45,9 @@ src_configure() {
 		--with-dynlib="/$(get_libdir)"
 		--with-lib="/usr/$(get_libdir)/execline"
 		--with-lib="/usr/$(get_libdir)/s6"
+		--with-lib="/usr/$(get_libdir)/s6-rc"
 		--with-lib="/usr/$(get_libdir)/skalibs"
 		--with-sysdeps="/usr/$(get_libdir)/skalibs"
-
-		--enable-pkgconfig
-		--pkgconfdir="/usr/$(get_libdir)/pkgconfig"
 
 		--enable-shared
 		--disable-allstatic
@@ -57,8 +56,4 @@ src_configure() {
 	)
 
 	econf "${myconf[@]}"
-}
-
-pkg_postinst() {
-	optfeature "man pages" app-doc/s6-rc-man-pages
 }
