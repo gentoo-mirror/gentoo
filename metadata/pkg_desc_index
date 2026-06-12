@@ -2020,10 +2020,10 @@ app-emacs/editorconfig-emacs 0.11.0: EditorConfig plugin for emacs
 app-emacs/ef-themes 2.0.0 2.0.1 2.1.0 9999: Colourful and legible themes for GNU Emacs
 app-emacs/eimp 1.4.0-r1: Emacs Image Manipulation Package
 app-emacs/el-mock 1.25.1: Mocking library for Emacs
-app-emacs/eldev 1.11.1 9999: Emacs Lisp Development Tool
+app-emacs/eldev 1.11.1 1.11.2 9999: Emacs Lisp Development Tool
 app-emacs/eldoc-box 1.11.1 1.12.1 1.13.2 1.14.1 9999: Child frame doc for Eglot and anything that uses ElDoc
-app-emacs/elfeed 3.4.2-r1 4.0.0: Emacs web feeds client
-app-emacs/elfeed-protocol 0.9.0 0.9.1: Provide extra news client subscription protocols for elfeed
+app-emacs/elfeed 3.4.2-r1 4.0.0 4.0.1: Emacs web feeds client
+app-emacs/elfeed-protocol 0.9.1 1.0.0: Provide extra news client subscription protocols for elfeed
 app-emacs/elixir-mode 2.5.0: Emacs major mode for editing Elixir files
 app-emacs/elm-mode 0.22.0_p20250401: Major mode for the Elm programming language
 app-emacs/elpa-mirror 2.2.2 2.3.0: Create local package repository from installed Emacs Lisp packages
@@ -2284,7 +2284,7 @@ app-emacs/session 2.4b-r1: When you start Emacs, Session restores various variab
 app-emacs/setnu 1.06: Display line numbers in Emacs buffers
 app-emacs/setup 1.4.0 1.5.0: Macro to simplify repetitive configuration patterns
 app-emacs/sharper 1.0_p20230129-r1: .NET SDK CLI wrapper for GNU Emacs using Transient
-app-emacs/shell-maker 0.91.2-r1 0.92.2 9999: Interaction mode for making comint shells for GNU Emacs
+app-emacs/shell-maker 0.91.2-r1 0.92.2 0.93.1 9999: Interaction mode for making comint shells for GNU Emacs
 app-emacs/shell-split-string 0.1: Split Strings Using Shell-Like Syntax
 app-emacs/shrink-path 0.3.1: Fish-style path truncation for GNU Emacs
 app-emacs/shut-up 0.3.3: Reduce Emacs output of messages
@@ -2358,7 +2358,7 @@ app-emacs/xclip 1.11-r1 1.11.1: Emacs Interface to XClip
 app-emacs/xelb 0.21 0.22: X protocol Emacs Lisp Binding
 app-emacs/xrdb-mode 3.0-r1: An Emacs major mode for editing X resource database files
 app-emacs/xslide 0.2.2-r1: An Emacs major mode for editing XSL stylesheets and running XSL processes
-app-emacs/yaml 1.2.3: YAML parser in Emacs Lisp
+app-emacs/yaml 1.2.3 1.2.4: YAML parser in Emacs Lisp
 app-emacs/yaml-mode 0.0.16-r1: A major mode for GNU Emacs for editing YAML files
 app-emacs/yasnippet 0.14.3_p20250604: Yet another snippet extension for Emacs
 app-emacs/yasnippet-snippets 1.1: A collection of yasnippet snippets for many languages
@@ -3155,7 +3155,7 @@ app-shells/nushell 0.110.0 0.111.0 0.112.1 0.113.0: A new type of shell, written
 app-shells/pdmenu 1.3.6 1.3.6-r1 1.3.6-r2: A simple console menu program
 app-shells/pdsh 2.34-r2 2.35: A high-performance, parallel remote shell utility
 app-shells/peco 0.5.10 9999: Simplistic interactive filtering tool
-app-shells/platyps 0.14.2-r1: Generate PowerShell external help files from Markdown
+app-shells/platyps 0.14.2-r1 1.0.1: Generate PowerShell external help files from Markdown
 app-shells/posh 0.14.5: Reimplementation of Bourne shell based on pdksh
 app-shells/posh-dotnet 1.2.3: PowerShell tab completion and tooltip support for the dotnet CLI
 app-shells/posh-git 1.1.0: A PowerShell environment for Git
@@ -17821,7 +17821,7 @@ sys-kernel/dracut-crypt-ssh 1.0.8-r2: Early unlocking of encrypted systems via s
 sys-kernel/genkernel 4.3.17-r4 4.3.18 9999: Gentoo automatic kernel building scripts
 sys-kernel/gentoo-kernel 5.10.257_p1 5.10.258 5.15.208_p1 5.15.209 6.1.174_p1 6.1.175 6.6.141_p1 6.6.142 6.12.91_p1 6.12.92 6.12.93 6.18.33_p1 6.18.34 6.18.35 7.0.10_p1 7.0.11 7.0.12: Linux kernel built with Gentoo patches
 sys-kernel/gentoo-kernel-bin 5.10.257_p1 5.10.258 5.15.208_p1 5.15.209 6.1.174_p1 6.1.175 6.6.141_p1 6.6.142 6.12.91_p1 6.12.92 6.12.93 6.18.33_p1 6.18.34 6.18.35 7.0.10_p1 7.0.11 7.0.12: Pre-built Linux kernel with Gentoo patches
-sys-kernel/gentoo-kernel-modprep 7.0.10_p1 7.0.11: Minimal subset of gentoo-kernel-bin for building modules, for containers
+sys-kernel/gentoo-kernel-modprep 7.0.10_p1 7.0.11 7.0.12: Minimal subset of gentoo-kernel-bin for building modules, for containers
 sys-kernel/gentoo-sources 5.10.258 5.15.209 6.1.174-r1 6.1.175 6.6.141-r1 6.6.142 6.12.93-r1 6.18.35-r1 7.0.12-r1: Full sources including the Gentoo patchset for the 7.0 kernel tree
 sys-kernel/git-sources 7.1_rc1 7.1_rc2 7.1_rc3 7.1_rc4 7.1_rc5 7.1_rc6 7.1_rc7: The very latest -git version of the Linux kernel
 sys-kernel/gnumach 1.8_p20260224 1.8_p20260330 9999: GNU Mach microkernel, for the Hurd

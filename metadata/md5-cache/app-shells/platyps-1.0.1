@@ -1,0 +1,15 @@
+BDEPEND=virtual/pwsh:* virtual/dotnet-sdk:10.0 dev-dotnet/csharp-gentoodotnetinfo
+DEFINED_PHASES=compile configure install postinst prepare pretend setup test unpack
+DESCRIPTION=Generate PowerShell external help files from Markdown
+EAPI=8
+HOMEPAGE=https://github.com/PowerShell/platyPS/
+INHERIT=dotnet-pkg check-reqs edo readme.gentoo-r1
+IUSE=debug
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=virtual/pwsh:* virtual/dotnet-sdk:10.0
+RESTRICT=strip
+SLOT=1.0.1
+SRC_URI=https://github.com/PowerShell/platyPS/archive/refs/tags/v1.0.1.tar.gz -> platyps-1.0.1.gh.tar.gz https://api.nuget.org/v3-flatcontainer/markdig.signed/0.33.0/markdig.signed.0.33.0.nupkg https://api.nuget.org/v3-flatcontainer/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg https://api.nuget.org/v3-flatcontainer/microsoft.netframework.referenceassemblies.net472/1.0.3/microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg https://api.nuget.org/v3-flatcontainer/microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg https://api.nuget.org/v3-flatcontainer/powershellstandard.library/5.1.1/powershellstandard.library.5.1.1.nupkg https://api.nuget.org/v3-flatcontainer/system.buffers/4.5.1/system.buffers.4.5.1.nupkg https://api.nuget.org/v3-flatcontainer/system.memory/4.5.4/system.memory.4.5.4.nupkg https://api.nuget.org/v3-flatcontainer/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg https://api.nuget.org/v3-flatcontainer/system.runtime.compilerservices.unsafe/4.5.3/system.runtime.compilerservices.unsafe.4.5.3.nupkg https://api.nuget.org/v3-flatcontainer/yamldotnet/15.1.6/yamldotnet.15.1.6.nupkg
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	nuget	a7033f7321d93b6b38dc9aed53c83bb8	dotnet-pkg-base	6c5f563c6f9f99038ac0ddf7403e3b55	dotnet-pkg	149be926006315896e1a57f36db1b772	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327
+_md5_=fa39f4f1150eac339e2fecf145fd4f34
