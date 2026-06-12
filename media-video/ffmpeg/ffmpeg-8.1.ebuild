@@ -403,8 +403,10 @@ src_prepare() {
 	fi
 	filter-lto
 
-	# workaround ICEs with >=gcc-16, (bug #973641 and bug #973622)
-	tc-is-gcc && [[ $(gcc-major-version) -ge 16 ]] &&
+	# workaround ICE with <gcc-16.1.1_p20260606:16 (bug #973641)
+	# TODO: kept to let people update, cleanup after a few months
+	tc-is-gcc && [[ $(gcc-major-version) -eq 16 ]] &&
+		has_version -b '<sys-devel/gcc-16.1.1_p20260606:16' &&
 		append-flags -fno-tree-vectorize
 }
 
