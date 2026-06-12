@@ -1,18 +1,19 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 inherit go-module linux-info
 
 DESCRIPTION="Work with remote container images registries"
-HOMEPAGE="https://github.com/containers/skopeo"
+HOMEPAGE="https://github.com/podman-container-tools/skopeo"
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/containers/skopeo.git"
+	EGIT_REPO_URI="https://github.com/podman-container-tools/skopeo.git"
 else
-	SRC_URI="https://github.com/containers/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 arm64"
+	SRC_URI="https://github.com/podman-container-tools/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~arm64"
 fi
 
 # main
@@ -23,13 +24,17 @@ RESTRICT="test"
 
 DEPEND="
 	>=app-crypt/gpgme-1.5.5:=
+	dev-db/sqlite:3
 	btrfs? ( >=sys-fs/btrfs-progs-4.0.1 )
 	rootless? ( sys-apps/shadow:= )
 "
 RDEPEND="${DEPEND}
 	app-containers/containers-common
 "
-BDEPEND="dev-go/go-md2man"
+BDEPEND="
+	dev-go/go-md2man
+	>=dev-lang/go-1.25.6
+"
 
 pkg_setup() {
 	use btrfs && CONFIG_CHECK+=" ~BTRFS_FS"
@@ -38,7 +43,7 @@ pkg_setup() {
 
 run_make() {
 	local emakeflags=(
-		BTRFS_BUILD_TAG="$(usex btrfs '' 'btrfs_noversion exclude_graphdriver_btrfs')"
+		BTRFS_BUILD_TAG="$(usex btrfs '' 'exclude_graphdriver_btrfs')"
 		CONTAINERSCONFDIR="${EPREFIX}/etc/containers"
 		LIBSUBID_BUILD_TAG="$(usex rootless 'libsubid' '')"
 		PREFIX="${EPREFIX}/usr"
