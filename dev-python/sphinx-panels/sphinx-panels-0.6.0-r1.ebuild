@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -35,6 +35,8 @@ BDEPEND="
 PATCHES=(
 	# https://github.com/executablebooks/sphinx-panels/pull/84
 	"${FILESDIR}/${P}-sphinx-7.patch"
+	# rebased https://github.com/executablebooks/sphinx-panels/pull/86
+	"${FILESDIR}/${P}-docutils-0.22.patch"
 )
 
 distutils_enable_tests pytest
