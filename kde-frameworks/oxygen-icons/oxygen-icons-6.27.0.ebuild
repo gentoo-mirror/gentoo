@@ -1,22 +1,17 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-KFMIN=6.3.0
-QTMIN=6.6.2
-inherit cmake kde.org xdg-utils
+QTMIN=6.9.0
+inherit cmake frameworks.kde.org xdg-utils
 
 DESCRIPTION="Oxygen SVG icon theme"
 HOMEPAGE="https://develop.kde.org/frameworks/oxygen-icons/"
 
-if [[ ${KDE_BUILD_TYPE} != live ]]; then
-	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
-	KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ppc64 ~riscv ~x86"
-fi
-
 LICENSE="LGPL-3"
 SLOT="6"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="test"
 
 RESTRICT="!test? ( test )"
@@ -25,7 +20,7 @@ RDEPEND="!kde-frameworks/${PN}:5"
 DEPEND="test? ( >=dev-qt/qtbase-${QTMIN}:6 )"
 BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6
-	>=kde-frameworks/extra-cmake-modules-${KFMIN}:0
+	>=kde-frameworks/extra-cmake-modules-${KDE_CATV}:0
 	test? ( app-misc/fdupes )
 "
 
