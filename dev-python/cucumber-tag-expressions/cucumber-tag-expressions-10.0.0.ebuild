@@ -4,21 +4,21 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=uv-build
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
-DESCRIPTION="Human friendly alternative to Regular Expressions"
+DESCRIPTION="Cucumber tag expression parser"
 HOMEPAGE="
-	https://github.com/cucumber/cucumber-expressions/
-	https://pypi.org/project/cucumber-expressions/
+	https://github.com/cucumber/tag-expressions/
+	https://pypi.org/project/cucumber-tag-expressions/
 "
 # no tests in sdist
 SRC_URI="
-	https://github.com/cucumber/cucumber-expressions/archive/refs/tags/v${PV}.tar.gz
+	https://github.com/cucumber/tag-expressions/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 "
-S="${WORKDIR}/${P}/python"
+S="${WORKDIR}/tag-expressions-${PV}/python"
 
 LICENSE="MIT"
 SLOT="0"

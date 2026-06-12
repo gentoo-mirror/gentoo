@@ -8,7 +8,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -67,7 +67,9 @@ python_test() {
 	local EPYTEST_DESELECT=()
 	local EPYTEST_IGNORE=(
 		# TODO: figure out how to build the pybind11 test extension
+		# (NB: upstream actually ignores these tests...)
 		google/protobuf/internal/recursive_message_pybind11_test.py
+		google/protobuf/internal/proto_api_test.py
 	)
 
 	case ${EPYTHON} in
@@ -137,6 +139,7 @@ python_test() {
 		internal/more_extensions.proto
 		internal/more_messages.proto
 		internal/no_package.proto
+		internal/packed_field_test.proto
 		internal/packed_field_test.proto
 		internal/self_recursive.proto
 		internal/test_bad_identifiers.proto
