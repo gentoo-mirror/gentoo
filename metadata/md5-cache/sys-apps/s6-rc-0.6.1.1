@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure postinst prepare
+DEPEND=dev-lang/execline:= >=dev-libs/skalibs-2.15.0.0:= >=sys-apps/s6-2.15.0.0:=[execline] system-init? ( || ( sys-apps/s6-linux-init sys-apps/sysvinit ) )
+DESCRIPTION=Service manager for the s6 supervision suite
+EAPI=8
+HOMEPAGE=https://www.skarnet.org/software/s6-rc/
+INHERIT=optfeature toolchain-funcs
+IUSE=system-init
+KEYWORDS=~amd64 ~arm ~x86
+LICENSE=ISC
+RDEPEND=dev-lang/execline:= >=dev-libs/skalibs-2.15.0.0:= >=sys-apps/s6-2.15.0.0:=[execline] system-init? ( || ( sys-apps/s6-linux-init sys-apps/sysvinit ) )
+SLOT=0/0.6
+SRC_URI=https://www.skarnet.org/software/s6-rc/s6-rc-0.6.1.1.tar.gz
+_eclasses_=optfeature	538bce96e5589935b57e178e8635f301	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
+_md5_=cc9a566fbd395474533a20d4706ef324
