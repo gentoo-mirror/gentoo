@@ -686,9 +686,14 @@ kernel-build_src_install() {
 						--signing-engine="pkcs11"
 					)
 				fi
+				# systemd-sbsign does not support --sign-kernel.
+				# Disable unconditionally since we know the kernel
+				# image is already signed always.
 				ukify_args+=(
 					--secureboot-private-key="${SECUREBOOT_SIGN_KEY}"
 					--secureboot-certificate="${SECUREBOOT_SIGN_CERT}"
+					--signtool="${SECUREBOOT_SIGN_TOOL}"
+					--no-sign-kernel
 				)
 			fi
 			if [[ -n ${MEASUREDBOOT_SIGN_KEY} ]]; then
