@@ -310,6 +310,10 @@ src_compile() {
 	cargo_env emake bcachefs || die
 	use modules && linux-mod-r1_src_compile
 
+	# Recent versions mangle the 'bcachefs' symbolic link, work around it.
+	[[ -e bcachefs ]] && die "bcachefs symlink is valid, please remove workaround"
+	ln -rsf target/release/bcachefs bcachefs || die
+
 	local shell
 	for shell in bash fish zsh; do
 		sysroot_try_run_prefixed ./bcachefs completions ${shell} > ${shell}.completion || die
