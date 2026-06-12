@@ -1,0 +1,13 @@
+BDEPEND=|| ( >=dev-lang/rust-bin-1.88.0:* >=dev-lang/rust-1.88.0:* )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DESCRIPTION=A container-focused DNS server
+EAPI=8
+HOMEPAGE=https://github.com/containers/aardvark-dns
+INHERIT=cargo
+IUSE=debug
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv
+LICENSE=Apache-2.0 0BSD Apache-2.0-with-LLVM-exceptions MIT Unlicense Unicode-DFS-2016 ZLIB
+SLOT=0
+SRC_URI=https://static.crates.io/crates/aardvark-dns/aardvark-dns-2.0.0.crate https://github.com/containers/aardvark-dns/releases/download/v2.0.0/aardvark-dns-v2.0.0-vendor.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	c5ae4c9b5eca97bd7fc77fede663873f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	983bdde2432d878045ca2524b9ff935d
+_md5_=26a9f1fbec2a226fdede6ef53d246f95
