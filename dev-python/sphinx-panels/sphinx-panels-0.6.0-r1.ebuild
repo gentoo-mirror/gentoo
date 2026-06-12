@@ -26,11 +26,6 @@ RDEPEND="
 	dev-python/docutils[${PYTHON_USEDEP}]
 	dev-python/sphinx[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	test? (
-		dev-python/pytest-regressions[${PYTHON_USEDEP}]
-	)
-"
 
 PATCHES=(
 	# https://github.com/executablebooks/sphinx-panels/pull/84
@@ -39,6 +34,7 @@ PATCHES=(
 	"${FILESDIR}/${P}-docutils-0.22.patch"
 )
 
+EPYTEST_PLUGINS=( pytest-{datadir,regressions} )
 distutils_enable_tests pytest
 distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
 
