@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ueno/${PN}/releases/download/${P}/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="nls"
 
 DEPEND="app-i18n/ibus
@@ -24,8 +24,6 @@ BDEPEND="$(vala_depend)
 	dev-util/intltool
 	virtual/pkgconfig
 	nls? ( sys-devel/gettext )"
-
-PATCHES=( "${FILESDIR}"/${PN}-libskk-1.1.1.patch )
 
 src_prepare() {
 	vala_setup
