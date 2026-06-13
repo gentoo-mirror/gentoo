@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/aiohttp-3.3.0[${PYTHON_USEDEP}]
@@ -29,7 +29,13 @@ BDEPEND="
 "
 
 distutils_enable_sphinx docs
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
+
+PATCHES=(
+	# https://github.com/pnuckowski/aioresponses/pull/292
+	"${FILESDIR}/${P}-aiohttp-3.14.patch"
+)
 
 EPYTEST_DESELECT=(
 	# These tests require Internet access
