@@ -16,14 +16,14 @@ S="${WORKDIR}/${P/_p*}"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 ~ppc ~ppc64 ~x86"
 IUSE="fftw fortran jpeg netcdf png"
 
 DEPEND="
 	media-libs/t1lib
 	media-libs/tiff:=
 	virtual/zlib:=
-	>=x11-libs/motif-2.3:0
+	>=x11-libs/motif-2.3:0=
 	x11-libs/xbae
 	fftw? ( sci-libs/fftw:3.0= )
 	jpeg? ( media-libs/libjpeg-turbo:= )
