@@ -50,8 +50,13 @@ RDEPEND="
 	wks-server? ( virtual/mta )
 	!app-crypt/gnupg
 "
+# The first branch of || is to help Portage/tatt figure out a solution.
+# The second branch permits non-freepg/non-reference setup.
 PDEPEND="
-	app-alternatives/gpg[-reference]
+	|| (
+		app-alternatives/gpg[freepg,-reference]
+		app-alternatives/gpg[-reference]
+	)
 	app-crypt/pinentry
 "
 BDEPEND="
