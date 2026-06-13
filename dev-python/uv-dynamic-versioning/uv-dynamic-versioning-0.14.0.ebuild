@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc ~riscv"
+KEYWORDS="~amd64 ~arm64 ~ppc ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/dunamai-1.26[${PYTHON_USEDEP}]
