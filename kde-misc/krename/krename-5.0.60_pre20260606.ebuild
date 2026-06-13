@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_TEST="true"
 QTMIN=6.6.2
-inherit ecm kde.org
+inherit ecm kde.org xdg
 
 DESCRIPTION="Powerful batch file renamer"
 HOMEPAGE="https://apps.kde.org/krename/ https://userbase.kde.org/KRename"
