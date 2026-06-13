@@ -10,7 +10,7 @@ HOMEPAGE="https://gtkmm.gnome.org/en/index.html"
 
 LICENSE="LGPL-2.1+"
 SLOT="3.0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 IUSE="aqua gtk-doc test wayland X"
 REQUIRED_USE="|| ( aqua wayland X )"
@@ -50,4 +50,13 @@ multilib_src_configure() {
 
 multilib_src_test() {
 	virtx meson_src_test
+}
+
+multilib_src_install_all() {
+	einstalldocs
+
+	if use gtk-doc; then
+		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
+		mv "${ED}"/usr/share/doc/${PN}-${SLOT} "${ED}"/usr/share/gtk-doc/html/ || die
+	fi
 }
