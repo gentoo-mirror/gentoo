@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -20,7 +20,7 @@ IUSE="doc examples"
 RESTRICT="test"
 
 RDEPEND="
-	x11-libs/motif:0
+	x11-libs/motif:0=
 	x11-libs/libXau
 	x11-libs/libXdmcp
 	x11-libs/libXext
