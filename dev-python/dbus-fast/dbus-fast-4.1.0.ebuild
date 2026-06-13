@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=poetry
 # TODO: freethreading compatible
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 virtualx
 
@@ -22,7 +22,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~riscv"
+KEYWORDS="amd64 ~riscv"
 
 BDEPEND="
 	>=dev-python/cython-3[${PYTHON_USEDEP}]
