@@ -1,26 +1,26 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit go-module
 
 # update this on every bump
-GIT_COMMIT=13cb55bb
+GIT_COMMIT=558caafe7
 
 DESCRIPTION="terminal based UI to manage kubernetes clusters"
 HOMEPAGE="https://k9scli.io"
 SRC_URI="https://github.com/derailed/k9s/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://github.com/gentoo-golang-dist/k9s/releases/download/v${PV}/k9s-${PV}-deps.tar.xz"
+SRC_URI+=" https://github.com/gentoo-golang-dist/k9s/releases/download/v${PV}/k9s-${PV}-vendor.tar.xz"
 S=${WORKDIR}/k9s-${PV}
 
 LICENSE="Apache-2.0"
 # Dependent licenses
-LICENSE+=" Apache-2.0 BSD BSD-2 CC0-1.0 ISC MIT MPL-2.0 Unlicense"
+LICENSE+=" Apache-2.0 BSD BSD-2 CC0-1.0 GPL-2 ISC MIT MPL-2.0 Unicode-DFS-2016 Unlicense"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
-BDEPEND=">=dev-lang/go-1.24.1"
+BDEPEND=">=dev-lang/go-1.25.8"
 
 src_prepare() {
 	default
