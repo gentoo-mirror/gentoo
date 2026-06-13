@@ -31,8 +31,7 @@ DOCS=( README README-BG AUTHORS CHANGES )
 REQUIRED_USE="X? ( || ( otf pcf-8bit pcf-unicode ) )"
 
 pkg_setup() {
-	python_setup
-
+	python-any-r1_pkg_setup
 	font_pkg_setup
 }
 
