@@ -6,7 +6,7 @@ EAPI=8
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
 QTMIN=6.7.2
-inherit ecm kde.org
+inherit ecm kde.org xdg
 
 DESCRIPTION="Stopwatch application"
 HOMEPAGE="https://apps.kde.org/kronometer https://userbase.kde.org/Kronometer"
