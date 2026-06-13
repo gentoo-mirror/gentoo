@@ -21,14 +21,14 @@ if [[ ${PV} == *9999 ]]; then
 else
 	SRC_URI="
 		https://nodejs.org/dist/v${PV}/node-v${PV}.tar.xz
-		https://deps.gentoo.zip/net-libs/nodejs/nodejs-24.16.0-nghttp2-1.69.0.patch
+		https://deps.gentoo.zip/net-libs/nodejs/${P}-nghttp2-1.69.0.patch
 	"
 	SLOT="0/$(ver_cut 1)"
 	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86 ~x64-macos"
 	S="${WORKDIR}/node-v${PV}"
 fi
 
-IUSE="cpu_flags_x86_sse2 debug doc +icu +inspector lto +npm pax-kernel +snapshot +ssl system-icu +system-ssl test"
+IUSE="corepack cpu_flags_x86_sse2 debug doc +icu +inspector lto +npm pax-kernel +snapshot +ssl +system-icu +system-ssl test"
 REQUIRED_USE="inspector? ( icu ssl )
 	npm? ( ssl )
 	system-icu? ( icu )
@@ -47,9 +47,10 @@ COMMON_DEPEND=">=app-arch/brotli-1.1.0:=
 	>=net-libs/nghttp2-1.69.0:=
 	>=net-libs/nghttp3-1.14.0:=
 	virtual/zlib:=
+	corepack? ( !sys-apps/yarn )
 	system-icu? ( >=dev-libs/icu-73:= )
 	system-ssl? (
-		>=net-libs/ngtcp2-1.22.1:=
+		>=net-libs/ngtcp2-1.14.0:=
 		>=dev-libs/openssl-3.5.6:0=
 	)
 	!system-ssl? ( >=net-libs/ngtcp2-1.14.0:=[-gnutls] )
@@ -76,6 +77,11 @@ RDEPEND="${COMMON_DEPEND}"
 CHECKREQS_MEMORY="8G"
 CHECKREQS_DISK_BUILD="22G"
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-24.14.0-32-bit.patch
+	"${DISTDIR}"/${P}-nghttp2-1.69.0.patch
+)
+
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != "binary" ]]; then
 		if is-flagq "-g*" && ! is-flagq "-g*0" ; then
@@ -88,12 +94,6 @@ pkg_pretend() {
 pkg_setup() {
 	python-any-r1_pkg_setup
 	linux-info_pkg_setup
-	# https://github.com/nodejs/node/issues/62676 - Can't build Temporal with system ICU.
-	if use system-icu; then
-		ewarn "The ES2026 'Temporal' datetime feature/object is not available when using system-icu."
-		ewarn "Please consider whether this is desirable for your use case."
-		ewarn "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal"
-	fi
 }
 
 src_prepare() {
@@ -103,7 +103,7 @@ src_prepare() {
 
 	# fix compilation on Darwin
 	# https://code.google.com/p/gyp/issues/detail?id=260
-	sed -i -e '/append("-arch")/{N;d;}' tools/gyp/pylib/gyp/xcode_emulation.py || die
+	sed -i -e "/append('-arch/d" tools/gyp/pylib/gyp/xcode_emulation.py || die
 
 	# proper libdir, hat tip @ryanpcmcquen https://github.com/iojs/io.js/issues/504
 	local LIBDIR=$(get_libdir)
@@ -158,15 +158,13 @@ src_configure() {
 	use debug && myconf+=( --debug )
 	use lto && myconf+=( --enable-lto )
 	if use system-icu; then
-		# No Temporal support: https://github.com/nodejs/node/issues/62676
 		myconf+=( --with-intl=system-icu )
 	elif use icu; then
-		# Full embedded ICU (Temporal works)
 		myconf+=( --with-intl=full-icu )
 	else
-		# Default embedded subset (Temporal works, saves space over full-icu)
-		myconf+=( --with-intl=small-icu )
+		myconf+=( --with-intl=none )
 	fi
+	use corepack || myconf+=( --without-corepack )
 	use inspector || myconf+=( --without-inspector )
 	use npm || myconf+=( --without-npm )
 	use snapshot || myconf+=( --without-node-snapshot )
@@ -200,8 +198,6 @@ src_configure() {
 
 src_compile() {
 	eninja -C out/Release
-	# There's just a plain make target for the FFI tests, and it doesn't support ninja.
-	use test && emake build-ffi-tests
 }
 
 src_install() {
@@ -241,14 +237,15 @@ src_install() {
 
 		# Remove various development and/or inappropriate files and
 		# useless docs of dependend packages.
-		# Strict match for LICENSE files to avoid purging actual logic (e.g. license.js)
-		# which breaks npm.
 		find "${LIBDIR}"/node_modules \
 			\( -type d -name examples \) -or \( -type f \( \
-				\( -iname "LICEN?E*" -not -name "*.js" -not -name "*.json" \) \
+				-iname "LICEN?E*" \
 				"${find_name[@]}" \
 			\) \) -exec rm -rf "{}" \;
 	fi
+
+	use corepack &&
+		"${D}"/usr/bin/corepack enable --install-directory "${D}"/usr/bin
 
 	mv "${ED}"/usr/share/doc/node "${ED}"/usr/share/doc/${PF} || die
 }
@@ -271,11 +268,6 @@ src_test() {
 		test/parallel/test-process-setgroups.js
 		test/parallel/test-process-uid-gid.js
 		test/parallel/test-release-npm.js
-		# Unreliable when using system libraries and ASLR.
-		# The variations between snapshot generation passes appear limited to memory
-		# allocation pointers leaking into the serialised V8 blob array; the actual
-		# bytecode and engine structures remain consistently... consistent.
-		test/parallel/test-snapshot-reproducible.js
 		test/parallel/test-socket-write-after-fin-error.js
 		test/parallel/test-strace-openat-openssl.js
 		test/sequential/test-tls-session-timeout.js
@@ -300,13 +292,5 @@ pkg_postinst() {
 	if use npm; then
 		ewarn "remember to run: source /etc/profile if you plan to use nodejs"
 		ewarn " in your current shell"
-	fi
-
-	if use system-icu; then
-		ewarn ""
-		ewarn "Node.js was built with USE='system-icu'."
-		ewarn "The JavaScript 'Temporal' API has been disabled."
-		ewarn "If you need full ES2026+ compliance, rebuild with USE='-system-icu'."
-		ewarn ""
 	fi
 }
