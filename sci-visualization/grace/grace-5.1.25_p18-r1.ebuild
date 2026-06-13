@@ -23,7 +23,7 @@ DEPEND="
 	media-libs/t1lib
 	media-libs/tiff:=
 	virtual/zlib:=
-	>=x11-libs/motif-2.3:0
+	>=x11-libs/motif-2.3:0=
 	x11-libs/xbae
 	fftw? ( sci-libs/fftw:3.0= )
 	jpeg? ( media-libs/libjpeg-turbo:= )
