@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,6 +19,7 @@ SLOT="0"
 KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
 
 RDEPEND="
+	<dev-python/aiohttp-3.14[${PYTHON_USEDEP}]
 	>=dev-python/aiohttp-3.3.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
