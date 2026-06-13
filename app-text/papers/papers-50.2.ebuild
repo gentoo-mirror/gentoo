@@ -303,6 +303,8 @@ SLOT="0/ppsd4.0.6-ppsv4.0.5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
 IUSE="+comics djvu doc gnome-keyring introspection nautilus +spell sysprof test tiff"
+REQUIRED_USE="doc? ( introspection )"
+
 RESTRICT="!test? ( test )"
 
 BDEPEND="
