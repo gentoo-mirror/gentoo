@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,7 +7,7 @@ EAPI=8
 
 inherit multilib-minimal
 
-SDL_MIXER_COMMIT="7804621c533dddfe970e97c94c4ea72d48ed7f48"
+SDL_MIXER_COMMIT="50517740a3916e5ffd719c053c6e7b65f933e23a"
 
 MY_PN=${PN/sdl-/SDL_}
 DESCRIPTION="Simple Direct Media Layer Mixer Library"
@@ -17,11 +17,11 @@ S="${WORKDIR}"/${MY_PN}-${SDL_MIXER_COMMIT}
 
 LICENSE="ZLIB"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~mips ppc ppc64 ~sparc x86"
-IUSE="flac fluidsynth mad midi mikmod mod modplug mp3 playtools smpeg static-libs timidity vorbis +wav"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~sparc ~x86"
+IUSE="flac +fluidsynth mad +midi mikmod mod modplug mp3 playtools smpeg static-libs timidity vorbis +wav"
 
 REQUIRED_USE="
-	midi? ( || ( timidity fluidsynth ) )
+	midi? ( || ( fluidsynth timidity ) )
 	timidity? ( midi )
 	fluidsynth? ( midi )
 	mp3? ( || ( smpeg mad ) )
@@ -93,22 +93,4 @@ multilib_src_install() {
 multilib_src_install_all() {
 	dodoc CHANGES README
 	find "${ED}" -name '*.la' -delete || die
-}
-
-pkg_postinst() {
-	# bug 412035
-	# https://bugs.gentoo.org/show_bug.cgi?id=412035
-	if use midi ; then
-		if use fluidsynth; then
-			ewarn "FluidSynth support requires you to set the SDL_SOUNDFONTS"
-			ewarn "environment variable to the location of a SoundFont file"
-			ewarn "unless the game or application happens to do this for you."
-
-			if use timidity; then
-				ewarn "Failing to do so will result in Timidity being used instead."
-			else
-				ewarn "Failing to do so will result in silence."
-			fi
-		fi
-	fi
 }

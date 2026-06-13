@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -44,18 +44,13 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="
 	media-libs/libmodplug
 	media-libs/libsdl2[joystick,video]
-	media-libs/sdl2-mixer[mod,mp3,timidity]
+	media-libs/sdl2-mixer[midi,mod,mp3]
 	media-libs/sdl2-net
 	media-libs/sdl2-image[gif]
 	media-libs/smpeg
 "
 DEPEND="${RDEPEND}"
 BDEPEND="$(unpacker_src_uri_depends)"
-
-PATCHES=(
-	# From Fedora:
-	"${FILESDIR}"/${PN}-4.1.0.0-CVE-2011-4606.patch
-)
 
 src_unpack() {
 	unpack ${P}-linux.tar.gz
