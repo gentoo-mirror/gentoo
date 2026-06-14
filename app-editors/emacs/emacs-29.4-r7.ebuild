@@ -465,6 +465,9 @@ src_test() {
 		# Reason: test is not skipped if tree-sitter-tsx is not installed
 		# Bug #922525
 		%lisp/progmodes/typescript-ts-mode-tests.el
+
+		# eglot-test-lsp-abiding-column #977411
+		%lisp/progmodes/eglot-tests.el
 	)
 	use elibc_musl && exclude_tests+=(
 			# Reason: newlocale(3) lenient locale validation #906012
