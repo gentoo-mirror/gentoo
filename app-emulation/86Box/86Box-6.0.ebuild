@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -46,8 +46,6 @@ BDEPEND="
 	virtual/pkgconfig
 	qt6? ( kde-frameworks/extra-cmake-modules )
 "
-
-PATCHES=( "${FILESDIR}/${PN}-5.3-fallthrough-define-available-in-C-code.patch" )
 
 src_configure() {
 	# LTO needs to be filtered
