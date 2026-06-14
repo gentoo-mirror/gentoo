@@ -42,6 +42,9 @@ BDEPEND="
 	$(python_gen_any_dep "
 		dev-python/pyyaml[\${PYTHON_USEDEP}]
 	")
+	test? (
+		dev-libs/check
+	)
 "
 
 PATCHES=(
