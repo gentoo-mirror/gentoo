@@ -240,7 +240,7 @@ _distutils_set_globals() {
 			;&
 		poetry-core|scikit-build-core|setuptools|sip|uv-build)
 			bdep+="
-				dev-python/${DISTUTILS_USE_PEP517}[${PYTHON_USEDEP}]
+				dev-python/${DISTUTILS_USE_PEP517}[\${PYTHON_USEDEP}]
 			"
 			;;
 		flit-scm)
