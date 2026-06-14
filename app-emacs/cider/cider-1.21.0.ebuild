@@ -58,7 +58,7 @@ src_prepare() {
 	mv lisp/*.el ./ || die
 	echo "" > test/integration/integration-tests.el || die
 
-	default
+	elisp_src_prepare
 }
 
 src_install() {
