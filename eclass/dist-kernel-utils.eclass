@@ -405,6 +405,20 @@ dist-kernel_update_src_symlink() {
 		ebegin "Updating ${target} symlink"
 		ln -f -n -s "${target##*/}-${version}" "${target}"
 		eend ${?}
+	# If we're upgrading from older versions of g-k-bin that did not
+	# use the "-bin" suffix in KV_LOCALVERSION, we need to override
+	# the check in the eclass to successfully migrate the symlink.
+	# Since sys-kernel/gentoo-kernel was not co-installable with g-k-bin
+	# then, let's use its non-presence as a good heuristic whether to
+	# trigger the migration path.
+	elif [[ ${CATEGORY}/${PN} == sys-kernel/gentoo-kernel-bin ]] &&
+		! has_version sys-kernel/gentoo-kernel &&
+		KV_LOCALVERSION=${KV_LOCALVERSION%-bin} \
+		dist-kernel_can_update_src_symlink "${target}"
+	then
+		ebegin "Updating ${target} symlink"
+		ln -f -n -s "${target##*/}-${version}" "${target}"
+		eend ${?}
 	else
 		elog "${target} points at another kernel, leaving it as-is."
 		elog "Please use 'eselect kernel' to update it when desired."
