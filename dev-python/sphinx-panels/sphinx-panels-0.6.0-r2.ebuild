@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
@@ -26,17 +26,15 @@ RDEPEND="
 	dev-python/docutils[${PYTHON_USEDEP}]
 	dev-python/sphinx[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	test? (
-		dev-python/pytest-regressions[${PYTHON_USEDEP}]
-	)
-"
 
 PATCHES=(
 	# https://github.com/executablebooks/sphinx-panels/pull/84
 	"${FILESDIR}/${P}-sphinx-7.patch"
+	# rebased https://github.com/executablebooks/sphinx-panels/pull/86
+	"${FILESDIR}/${P}-docutils-0.22.patch"
 )
 
+EPYTEST_PLUGINS=( pytest-{datadir,regressions} )
 distutils_enable_tests pytest
 distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
 
