@@ -51,6 +51,7 @@ BDEPEND="
 		dev-python/antlr4-python3-runtime[${PYTHON_USEDEP}]
 		dev-python/freezegun[${PYTHON_USEDEP}]
 		dev-python/joserfc[${PYTHON_USEDEP}]
+		dev-python/pyotp[${PYTHON_USEDEP}]
 	)
 "
 
