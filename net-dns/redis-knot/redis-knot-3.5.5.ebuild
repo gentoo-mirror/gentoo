@@ -1,7 +1,7 @@
 # Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit verify-sig
 
@@ -17,7 +17,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 # no test, it requires a Redis instance and RLTest (not packaged)
 BDEPEND="verify-sig? ( sec-keys/openpgp-keys-knot )"
