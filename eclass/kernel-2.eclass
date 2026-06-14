@@ -181,6 +181,15 @@
 # this is useful for things like wolk. IE:
 # EXTRAVERSION would be something like : -wolk-4.19-r1
 
+# @ECLASS_VARIABLE: K_NO_VERSION_CHECK
+# @DEFAULT_UNSET
+# @DESCRIPTION:
+# If this is set, skip the sanity check that make sure 
+# a kernel version patch number is present that 
+# matches the kernel version indicated by the build name
+# This should be used in X.Y.0 kernels as the initial
+# ebuild does not contain a separate point release
+
 # @ECLASS_VARIABLE: K_WANT_GENPATCHES
 # @DEFAULT_UNSET
 # @DESCRIPTION:
@@ -1131,7 +1140,7 @@ unipatch() {
                 fi
             done < <(find "$KPATCH_DIR" -type f -print0)
 
-            if [[ -z ${KV_PATCH_FOUND} ]]; then
+            if [[ -z ${K_NO_VERSION_CHECK} && -z ${KV_PATCH_FOUND} ]]; then
                 eerror "GENPATCHES does not contain linux patch ${OKV}"
                 eerror "Please check your ebuild for the proper K_GENPATCHES_VER=N"
                 die "GENPATCHES appears to be missing Linux patch ${OKV}"
