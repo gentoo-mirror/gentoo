@@ -27,7 +27,7 @@ RDEPEND="
 	>=dev-python/distlib-0.3.7[${PYTHON_USEDEP}]
 	>=dev-python/filelock-3.24.2[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-3.9.1[${PYTHON_USEDEP}]
-	>=dev-python/python-discovery-1.4[${PYTHON_USEDEP}]
+	>=dev-python/python-discovery-1.4.2[${PYTHON_USEDEP}]
 
 	dev-python/ensurepip-pip
 	>=dev-python/ensurepip-setuptools-70.1
