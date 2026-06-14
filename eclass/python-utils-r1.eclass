@@ -1605,7 +1605,8 @@ epytest() {
 			)
 
 			if [[ ${MAKEFLAGS} == *--jobserver-auth=* ]]; then
-				if has_version "dev-python/pytest-jobserver[${PYTHON_USEDEP}]"
+				local usedep="python_targets_${EPYTHON/./_}(-)"
+				if has_version "dev-python/pytest-jobserver[${usedep}]"
 				then
 					args+=( -p jobserver )
 				elif [[ ! ${_EPYTEST_JOBSERVER_WARNED} ]]; then
