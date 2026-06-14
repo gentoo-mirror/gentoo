@@ -24,6 +24,10 @@ RDEPEND="
 	>=app-misc/tmux-3.0a
 "
 
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.53.1-tests-fixture.patch
+)
+
 EPYTEST_PLUGIN_LOAD_VIA_ENV=1
 EPYTEST_PLUGINS=( "${PN}" pytest-mock )
 EPYTEST_RERUNS=5
