@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-DOWNLOAD_ID="897"
+DOWNLOAD_ID="965"
 MY_DATE="$(ver_cut 4)"
 MY_PN="${PN^^}"
 MY_PV="$(ver_cut 1-3)"

@@ -3,7 +3,7 @@
 
 EAPI=8
 
-LLVM_COMPAT=( 18 )
+LLVM_COMPAT=( 19 )
 
 inherit cmake llvm-r2
 
@@ -26,10 +26,7 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-17.0.0-clang_library_dir.patch
-	"${FILESDIR}"/${PN}-17.0.3-LLVMSPIRVLib_dir.patch
-)
+PATCHES=( "${FILESDIR}"/${PN}-17.0.0-clang_library_dir.patch )
 
 src_configure() {
 	local mycmakeargs=(

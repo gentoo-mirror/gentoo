@@ -13,7 +13,7 @@ MY_PN_SFX="opensound"
 MY_PN_TS="title-sequences"
 MY_PV_MSX="1.6.1"
 MY_PV_OBJ="1.7.9"
-MY_PV_RPL="0.0.92"
+MY_PV_RPL="0.0.93"
 MY_PV_SFX="1.0.6"
 MY_PV_TS="0.4.26"
 
@@ -31,7 +31,7 @@ S="${WORKDIR}/${MY_PN}-${PV}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="dedicated +flac +opengl scripting test +truetype +vorbis"
 RESTRICT="!test? ( test )"
 
@@ -153,7 +153,7 @@ src_test() {
 }
 
 src_install() {
-	use scripting && DOCS+=( "distribution/scripting.md" "distribution/openrct2.d.ts" )
+	use scripting && DOCS+=( "distribution/scripting/scripting.md" "distribution/scripting/openrct2.d.ts" )
 
 	cmake_src_install
 

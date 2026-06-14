@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit java-pkg-2 prefix
 
-DOWNLOAD_ID="890"
+DOWNLOAD_ID="996"
 MY_DATE="$(ver_cut 4)"
 MY_PN="SMCIPMITool"
 MY_PN_SRC_URI="SMCIPMItool"

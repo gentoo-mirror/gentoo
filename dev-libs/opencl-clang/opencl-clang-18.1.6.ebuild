@@ -3,9 +3,9 @@
 
 EAPI=8
 
-LLVM_COMPAT=( 19 )
+LLVM_COMPAT=( 18 )
 
-inherit cmake llvm-r1
+inherit cmake llvm-r2
 
 DESCRIPTION="OpenCL-oriented thin wrapper library around clang"
 HOMEPAGE="https://github.com/intel/opencl-clang"
@@ -14,7 +14,7 @@ S="${WORKDIR}/${PN}-${PV}"
 
 LICENSE="UoI-NCSA"
 SLOT="$(ver_cut 1)"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 
 RDEPEND="
 	dev-util/spirv-llvm-translator:${SLOT}=
@@ -26,10 +26,7 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-17.0.0-clang_library_dir.patch
-	"${FILESDIR}"/${PN}-19.1.2-LLVMSPIRVLib_dir.patch
-)
+PATCHES=( "${FILESDIR}"/${PN}-17.0.0-clang_library_dir.patch )
 
 src_configure() {
 	local mycmakeargs=(

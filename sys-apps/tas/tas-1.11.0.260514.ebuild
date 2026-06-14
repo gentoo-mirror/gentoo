@@ -1,17 +1,18 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit linux-info optfeature systemd
 
+DOWNLOAD_ID="1122"
 MY_DATE="$(ver_cut 4)"
 MY_PN="${PN^^}"
 MY_PV="$(ver_cut 1-3)"
 
 DESCRIPTION="Supermicro Thin-Agent Service for monitoring through the BMC/IPMI"
 HOMEPAGE="https://www.supermicro.com"
-SRC_URI="https://www.supermicro.com/Bios/sw_download/817/${MY_PN}_${MY_PV}_build.${MY_DATE}.zip"
+SRC_URI="https://www.supermicro.com/Bios/sw_download/${DOWNLOAD_ID}/${MY_PN}_${MY_PV}_build.${MY_DATE}.zip"
 S="${WORKDIR}"
 
 LICENSE="BSD supermicro"

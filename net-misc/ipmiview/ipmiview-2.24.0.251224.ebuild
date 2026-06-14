@@ -1,17 +1,18 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit desktop java-pkg-2 prefix
 
+DOWNLOAD_ID="1052"
 MY_DATE="$(ver_cut 4)"
 MY_PN="IPMIView"
 MY_PV="$(ver_cut 1-3)"
 
 DESCRIPTION="A GUI application that allows to manage multiple target systems through BMC"
 HOMEPAGE="https://www.supermicro.com/"
-SRC_URI="https://www.supermicro.com/Bios/sw_download/960/${MY_PN}_${MY_PV}_build.${MY_DATE}_bundleJRE_Linux_x64.tar.gz"
+SRC_URI="https://www.supermicro.com/Bios/sw_download/${DOWNLOAD_ID}/${MY_PN}_${MY_PV}_build.${MY_DATE}_bundleJRE_Linux_x64.tar.gz"
 
 LICENSE="supermicro"
 SLOT="0"
