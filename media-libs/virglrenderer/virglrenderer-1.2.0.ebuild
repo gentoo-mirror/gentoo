@@ -50,6 +50,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.2.0-c23-glibc-2.43.patch
 	"${FILESDIR}"/${PN}-1.2.0-c23-glibc-2.43-deux.patch
+	"${FILESDIR}"/${PN}-1.2.0-x86-format.patch
 )
 
 python_check_deps() {
