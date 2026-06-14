@@ -40,7 +40,7 @@ src_unpack() {
 
 src_install() {
 	insinto /usr/share/superdiag
-	doins startup.nsh ${MY_PN}.efi usb/EFI/BOOT/BOOTX64.EFI
+	doins startup.nsh ${MY_PN}.efi
 
 	local DOCS=(
 		"Supermicro Super Diagnostics Offline readme.txt"
@@ -57,7 +57,7 @@ src_install() {
 
 	if use usb; then
 		insinto /usr/share/superdiag/USB
-		doins usb/startup.nsh
+		doins usb/startup.nsh usb/EFI/BOOT/BOOTX64.EFI
 
 		dosym ../../../BOOTX64.EFI /usr/share/superdiag/USB/EFI/BOOT/BOOTX64.EFI
 		dosym ../${MY_PN}.efi /usr/share/superdiag/USB/${MY_PN}.efi
