@@ -46,7 +46,8 @@ distutils_enable_sphinx docs \
 	dev-python/sphinx-copybutton \
 	dev-python/furo \
 	dev-python/myst-parser \
-	dev-python/sphinxcontrib-apidoc
+	dev-python/sphinxcontrib-apidoc \
+	dev-python/sphinxcontrib-mermaid
 distutils_enable_tests pytest
 
 src_test() {
