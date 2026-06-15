@@ -1,0 +1,16 @@
+BDEPEND=dev-build/cmake dev-vcs/git virtual/pkgconfig || ( >=dev-lang/rust-bin-1.93:* >=dev-lang/rust-1.93:* )
+DEFINED_PHASES=compile configure install postinst postrm prepare setup test unpack
+DEPEND=dev-libs/libgit2 dev-libs/openssl wayland? ( dev-libs/wayland ) media-fonts/jetbrains-mono media-fonts/noto media-fonts/noto-emoji media-fonts/roboto media-libs/fontconfig media-libs/libpng media-libs/mesa sys-apps/dbus x11-libs/cairo[X] x11-libs/libX11 x11-libs/libxkbcommon[X,wayland?] x11-libs/xcb-imdkit x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-themes/hicolor-icon-theme x11-themes/xcursor-themes virtual/zlib
+DESCRIPTION=A GPU-accelerated cross-platform terminal emulator and multiplexer
+EAPI=8
+HOMEPAGE=https://wezfurlong.org/wezterm/
+INHERIT=cargo desktop shell-completion xdg-utils
+IUSE=wayland debug
+KEYWORDS=~amd64 ~arm64
+LICENSE=MIT OFL-1.1 Apache-2.0 BSD-2 BSD CC0-1.0 ISC LGPL-2.1 MIT MPL-2.0 UoI-NCSA Unicode-3.0 Unicode-DFS-2016 WTFPL-2 ZLIB
+RDEPEND=dev-libs/libgit2 dev-libs/openssl wayland? ( dev-libs/wayland ) media-fonts/jetbrains-mono media-fonts/noto media-fonts/noto-emoji media-fonts/roboto media-libs/fontconfig media-libs/libpng media-libs/mesa sys-apps/dbus x11-libs/cairo[X] x11-libs/libX11 x11-libs/libxkbcommon[X,wayland?] x11-libs/xcb-imdkit x11-libs/xcb-util x11-libs/xcb-util-image x11-libs/xcb-util-keysyms x11-libs/xcb-util-wm x11-themes/hicolor-icon-theme x11-themes/xcursor-themes virtual/zlib
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/wez/wezterm/archive/891bed31b75f7a71b78e8f42ad07ae89bf99a7de.tar.gz -> wezterm-20260610-150805-891bed3-src.tar.gz https://dev.gentoo.org/~gienah/snapshots/wezterm-20260610-150805-891bed3-crates.tar.xz https://static.crates.io/crates/unicode_categories/unicode_categories-0.1.1.crate https://github.com/freetype/freetype/archive/42608f77f20749dd6ddc9e0536788eaad70ea4b5.tar.gz -> freetype-42608f77f20749dd6ddc9e0536788eaad70ea4b5.tar.gz https://github.com/glennrp/libpng/archive/f5e92d76973a7a53f517579bc95d61483bf108c0.tar.gz -> libpng-f5e92d76973a7a53f517579bc95d61483bf108c0.tar.gz https://github.com/madler/zlib/archive/51b7f2abdade71cd9bb0e7a373ef2610ec6f9daf.tar.gz -> zlib-51b7f2abdade71cd9bb0e7a373ef2610ec6f9daf.tar.gz https://github.com/harfbuzz/harfbuzz/archive/33a3f8de60dcad7535f14f07d6710144548853ac.tar.gz -> harfbuzz-33a3f8de60dcad7535f14f07d6710144548853ac.tar.gz https://github.com/dahosek/finl_unicode/archive/09feefabe28777095de9db2c7b776dc6b6a10475.tar.gz -> finl_unicode-09feefabe28777095de9db2c7b776dc6b6a10475.tar.gz https://github.com/wezterm/xcb-imdkit-rs/archive/212330f7c6c37794d78061a773e8f4f9e4785bbb.tar.gz -> xcb-imdkit-rs-212330f7c6c37794d78061a773e8f4f9e4785bbb.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	c5ae4c9b5eca97bd7fc77fede663873f	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	983bdde2432d878045ca2524b9ff935d	desktop	26d57169ca094c04be416993844ec8bc	bash-completion-r1	9e91505e030725688d1e953321a47501	shell-completion	0b655d0d825e157a5e99c463bddaac16	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_md5_=af1a3cfc7de55ff84f041acfd53fd851
