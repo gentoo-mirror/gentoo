@@ -1,11 +1,11 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 CRATES=""
-RUST_MIN_VER="1.89.0"
-inherit cargo optfeature shell-completion
+RUST_MIN_VER="1.91.0"
+inherit cargo optfeature shell-completion sysroot
 
 DESCRIPTION="The minimal, blazing-fast, and infinitely customizable prompt for any shell"
 HOMEPAGE="https://starship.rs/"
@@ -19,11 +19,9 @@ LICENSE+="
 	ZLIB
 "
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 
-BDEPEND="
-	dev-build/cmake
-"
+BDEPEND="dev-build/cmake"
 
 QA_FLAGS_IGNORED="usr/bin/starship"
 
@@ -45,10 +43,11 @@ src_compile() {
 	local STARSHIP_BIN="$(cargo_target_dir)/${PN}"
 
 	# Prepare shell completion generation
+	einfo "generating shell completion files"
 	mkdir "${T}/completions" || die
 	local shell
 	for shell in bash fish zsh; do
-		"${STARSHIP_BIN}" completions ${shell} > "${T}/completions/${shell}" || die
+		sysroot_try_run_prefixed "${STARSHIP_BIN}" completions ${shell} > "${T}/completions/${shell}" || die
 	done
 }
 
@@ -56,9 +55,9 @@ src_install() {
 	dobin "$(cargo_target_dir)/${PN}"
 	dodoc README.md
 
-	newbashcomp "${T}/completions/bash" "${PN}"
-	newzshcomp "${T}/completions/zsh" "${PN}"
-	newfishcomp "${T}/completions/fish" "${PN}.fish"
+	[[ -s "${T}/completions/bash" ]] && newbashcomp "${T}/completions/bash" "${PN}"
+	[[ -s "${T}/completions/zsh" ]] && newzshcomp "${T}/completions/zsh" "${PN}"
+	[[ -s "${T}/completions/fish" ]] && newfishcomp "${T}/completions/fish" "${PN}.fish"
 }
 
 pkg_postinst() {
