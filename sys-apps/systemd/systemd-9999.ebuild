@@ -72,6 +72,7 @@ COMMON_DEPEND="
 	)
 	elibc_musl? (
 		>=sys-libs/musl-1.2.6
+		sys-libs/libucontext
 		virtual/libcrypt
 	)
 	fido2? (
