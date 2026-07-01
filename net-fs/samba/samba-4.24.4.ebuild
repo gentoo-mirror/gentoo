@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 PYTHON_REQ_USE="threads(+),xml(+)"
 inherit python-single-r1 flag-o-matic waf-utils multilib-minimal linux-info optfeature systemd pam tmpfiles
 
@@ -16,12 +16,12 @@ if [[ ${PV} == *_rc* ]]; then
 	SRC_URI="https://download.samba.org/pub/samba/rc/${MY_P}.tar.gz"
 else
 	SRC_URI="https://download.samba.org/pub/samba/stable/${MY_P}.tar.gz"
-	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-3"
-SLOT="0/2.10.0"
+SLOT="0/2.11.0"
 IUSE="acl addc ads ceph client cluster cups debug fam glusterfs gpg"
 IUSE+=" iprint json ldap llvm-libunwind lmdb pam profiling-data python quota"
 IUSE+=" +regedit selinux snapper spotlight syslog system-heimdal +system-mitkrb5"
@@ -57,9 +57,9 @@ MULTILIB_WRAPPED_HEADERS=(
 	/usr/include/samba-4.0/ctdb_version.h
 )
 
-TALLOC_VERSION="2.4.3"
-TDB_VERSION="1.4.13"
-TEVENT_VERSION="0.16.2"
+TALLOC_VERSION="2.4.4"
+TDB_VERSION="1.4.15"
+TEVENT_VERSION="0.17.1"
 
 COMMON_DEPEND="
 	>=app-arch/libarchive-3.1.2:=[${MULTILIB_USEDEP}]
@@ -70,6 +70,7 @@ COMMON_DEPEND="
 	dev-libs/popt[${MULTILIB_USEDEP}]
 	dev-perl/Parse-Yapp
 	>=net-libs/gnutls-3.4.7:=[${MULTILIB_USEDEP}]
+	>=net-libs/ngtcp2-1.12.0[gnutls,${MULTILIB_USEDEP}]
 	>=sys-fs/e2fsprogs-1.46.4-r51[${MULTILIB_USEDEP}]
 	!sys-libs/ldb
 	sys-libs/libcap[${MULTILIB_USEDEP}]
@@ -253,6 +254,8 @@ multilib_src_configure() {
 		EOF
 	fi
 
+	bundled_libs="libquic,${bundled_libs}"
+
 	local myconf=(
 		--enable-fhs
 		--sysconfdir="${EPREFIX}/etc"
@@ -291,7 +294,7 @@ multilib_src_configure() {
 		$(multilib_native_usex python '' '--disable-python')
 		$(multilib_native_use_enable zeroconf avahi)
 		$(multilib_native_usex test '--enable-selftest' '')
-		$(usev system-mitkrb5 "--with-system-mitkrb5 ${ESYSROOT}/usr $(multilib_native_usex addc --with-experimental-mit-ad-dc '')")
+		$(usev system-mitkrb5 "--with-system-mitkrb5 $(multilib_native_usex addc --with-experimental-mit-ad-dc '')")
 		$(use_with ads)
 		$(use_with debug lttng)
 		$(use_with ldap)
