@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure prepare
+DEPEND=>=dev-libs/libfmt-11.0.0:= media-libs/libsidplayfp:=
+DESCRIPTION=Sidplay2 fork with resid-fp
+EAPI=8
+HOMEPAGE=https://github.com/libsidplayfp/sidplayfp
+INHERIT=autotools
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=>=dev-libs/libfmt-11.0.0:= media-libs/libsidplayfp:=
+SLOT=0
+SRC_URI=https://github.com/libsidplayfp/sidplayfp/releases/download/v3.1.0/sidplayfp-3.1.0.tar.gz
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112
+_md5_=0ba92f00a248df1bc5d3d29455e4f18b

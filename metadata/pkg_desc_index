@@ -2590,7 +2590,7 @@ app-i18n/man-pages-l10n 4.29.1 4.30.0-r1 4.30.2: A somewhat comprehensive collec
 app-i18n/man-pages-ru 5.03.2390.2390.20191017-r1: A collection of Russian translations of Linux manual pages
 app-i18n/man-pages-zh_CN 1.6.4.2-r1: A somewhat comprehensive collection of Chinese Linux man pages
 app-i18n/mecab-skkserv 0.03-r1: mecab-skkserv is a Kana-Kanji conversion server using MeCab
-app-i18n/mozc 2.31.5851.102 2.32.5994.102-r1 3.33.6089 3.33.6133: Japanese input method editor
+app-i18n/mozc 2.31.5851.102 2.32.5994.102-r1 3.33.6089 3.33.6133 3.34.6239: Japanese input method editor
 app-i18n/multiskkserv 20100128: SKK server that handles multiple dictionaries
 app-i18n/nabi 1.0.1: Simple Hanguk X Input Method
 app-i18n/nkf 2.1.5-r1 2.1.5-r2: Network Kanji code conversion Filter with UTF-8/16 support
@@ -13432,7 +13432,7 @@ media-libs/libchamplain 0.12.21: Clutter based world map renderer
 media-libs/libchdr 0.3.0 9999: Standalone library for reading MAME's CHDv1-v5 formats
 media-libs/libclastfm 0.5: C API library to the last.fm web service (unofficial)
 media-libs/libcue 2.3.0: CUE Sheet Parser Library
-media-libs/libcuefile 477-r3: Cue File library from Musepack
+media-libs/libcuefile 477-r3 477-r4: Cue File library from Musepack
 media-libs/libdc1394 2.2.6: Library to interface with IEEE 1394 cameras following the IIDC specification
 media-libs/libdca 0.0.7-r1: Library for decoding DTS Coherent Acoustics streams used in DVD
 media-libs/libde265 1.0.15 1.0.16 9999: Open h.265 video codec implementation
@@ -13537,7 +13537,7 @@ media-libs/libquvi 0.9.4-r100 0.9.4-r101: Library for parsing video download lin
 media-libs/libquvi-scripts 0.9.20131130-r100 0.9.20131130-r101: Embedded lua scripts for libquvi
 media-libs/libraw 0.22.1-r1: LibRaw is a library for reading RAW files obtained from digital photo cameras
 media-libs/libreplaygain 483-r1: Replay Gain library from Musepack
-media-libs/libresidfp 1.0.2: Library to software emulation of the MOS 6581/8580 SID chip
+media-libs/libresidfp 1.0.2 1.1.1: Library to software emulation of the MOS 6581/8580 SID chip
 media-libs/librosprite 0.1.3-r2: Framebuffer abstraction library, written in C
 media-libs/librtprocess 0.12.0-r1: Algorithms for RAW processing from RawTherapee
 media-libs/libsamplerate 0.2.2 9999: Secret Rabbit Code (aka libsamplerate) is a Sample Rate Converter for audio
@@ -13549,7 +13549,7 @@ media-libs/libsfml 2.6.2 3.0.1: Simple and Fast Multimedia Library (SFML)
 media-libs/libshout 2.4.6-r1: library for connecting and sending data to icecast servers
 media-libs/libshumate 1.4.0 1.6.1: Shumate is a GTK toolkit providing widgets for embedded maps
 media-libs/libsidplay 1.36.59-r3 2.1.1-r7: C64 SID player library
-media-libs/libsidplayfp 2.11.0 2.14.0 3.0.0: Library for the sidplay2 fork with resid-fp
+media-libs/libsidplayfp 2.11.0 2.14.0 3.0.0 3.0.2: Library for the sidplay2 fork with resid-fp
 media-libs/libsixel 1.10.5: A lightweight, fast implementation of DEC SIXEL graphics codec
 media-libs/libsmf 1.3: Standard MIDI File format library
 media-libs/libsndfile 1.2.2-r2 9999: C library for reading and writing files containing sampled sound
@@ -14263,7 +14263,7 @@ media-sound/qpaeq 17.0: Equalizer interface for equalizer sinks of PulseAudio (n
 media-sound/qpwgraph 0.9.8 9999: PipeWire Graph Qt GUI Interface
 media-sound/qsampler 1.0.0-r1 9999: Graphical frontend to the LinuxSampler engine
 media-sound/qsynth 1.0.2-r1 9999: Qt application to control FluidSynth
-media-sound/qtractor 1.5.11 1.6.0: Audio/MIDI multi-track sequencer written in C++ with the Qt framework
+media-sound/qtractor 1.5.11 1.6.0 1.6.1: Audio/MIDI multi-track sequencer written in C++ with the Qt framework
 media-sound/quimup 2.1.1-r1 2.1.2: Qt client for the music player daemon (MPD)
 media-sound/quodlibet 4.6.0-r2 4.6.0-r3 4.7.1 4.7.1-r1 4.7.1-r2: audio library tagger, manager, and player for GTK+
 media-sound/rawrec 0.9.991: CLI program to play and record audiofiles
@@ -14287,7 +14287,7 @@ media-sound/shnflacverify 0.3-r1: Manage the verification of checksums related t
 media-sound/shntool 3.0.10-r3 3.0.10_p1: Multi-purpose WAVE data processing and reporting utility
 media-sound/shorten 3.6.1-r1: fast, low complexity waveform coder (i.e. audio compressor)
 media-sound/sidplay 2.0.9-r2: C64 SID player
-media-sound/sidplayfp 2.12.0 2.14.1 3.0.0: Sidplay2 fork with resid-fp
+media-sound/sidplayfp 2.12.0 2.14.1 3.0.0 3.1.0: Sidplay2 fork with resid-fp
 media-sound/smixer 1.0.4: command-line tool for setting and viewing mixer settings
 media-sound/snapcast 0.34.0 0.35.0: Synchronous multi-room audio player
 media-sound/snd 25.6 26.4: Sound editor
@@ -14818,8 +14818,8 @@ net-dns/hash-slinger 3.5: Various tools to generate DNS records like SSHFP, TLSA
 net-dns/https_dns_proxy 0_pre20200925 9999: Lightweight DNS-over-HTTPS proxy
 net-dns/idnkit 2.3-r2: Toolkit for Internationalized Domain Names (IDN)
 net-dns/inadyn 2.13.0: Dynamic DNS client with multiple SSL/TLS library support
-net-dns/knot 3.4.10 3.5.4 3.5.5: High-performance authoritative-only DNS server
-net-dns/knot-resolver 5.7.6 6.3.0 6.4.0: Scaleable caching DNS resolver
+net-dns/knot 3.4.10 3.5.4 3.5.5-r1: High-performance authoritative-only DNS server
+net-dns/knot-resolver 5.7.6 6.3.0 6.4.0-r1: Scaleable caching DNS resolver
 net-dns/libidn 1.43 1.44: Internationalized Domain Names (IDN) implementation
 net-dns/libidn2 2.3.8: An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892, 5893)
 net-dns/maradns 3.5.0036: A security-aware DNS server
@@ -17485,7 +17485,7 @@ sys-apps/usermode-utilities 20070815-r6: Tools for use with Usermode Linux virtu
 sys-apps/uswid 0.4.7 0.6.0: Pure-Python library and CLI tool for processing SBoM metadata
 sys-apps/utempter 0.5.5.6-r2: App that allows non-privileged apps to write utmp (login) info
 sys-apps/util-linux 2.41.3-r1 2.41.4-r1 2.41.5 2.42.1 2.42.2 9999: Various useful Linux utilities
-sys-apps/uutils-coreutils 0.7.0 0.8.0 9999: GNU coreutils rewritten in Rust
+sys-apps/uutils-coreutils 0.7.0 0.8.0-r1 0.9.0 9999: GNU coreutils rewritten in Rust
 sys-apps/uutils-findutils 0.8.0 9999: GNU findutils rewritten in Rust
 sys-apps/vbetool 1.2.2: Run real-mode video BIOS code to alter hw state (i.e. reinitialize video card)
 sys-apps/watchdog 5.16-r1: A software watchdog and /dev/watchdog daemon
