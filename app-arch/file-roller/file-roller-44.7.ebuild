@@ -1,16 +1,16 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit gnome.org gnome2-utils meson readme.gentoo-r1 xdg
+inherit gnome.org gnome2-utils meson optfeature xdg
 
 DESCRIPTION="Archive manager for GNOME"
 HOMEPAGE="https://gitlab.gnome.org/GNOME/file-roller"
 
 LICENSE="GPL-2+ CC-BY-SA-3.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 IUSE="gtk-doc +introspection nautilus"
 REQUIRED_USE="gtk-doc? ( introspection )"
 
@@ -37,28 +37,6 @@ BDEPEND="
 	virtual/pkgconfig
 	gtk-doc? ( dev-util/gi-docgen )
 "
-
-DISABLE_AUTOFORMATTING="yes"
-DOC_CONTENTS="
-${PN} is a frontend for several archiving utilities. If you want a
-particular archive format support, see ${HOMEPAGE}
-and install the relevant package. For example:
-7-zip   - app-arch/7zip or app-arch/p7zip
-ace     - app-arch/unace
-arj     - app-arch/arj
-brotli  - app-arch/brotli
-cpio    - app-alternatives/cpio
-deb     - app-arch/dpkg
-iso     - app-cdr/cdrtools
-jar,zip - app-arch/zip and app-arch/unzip
-lha     - app-arch/lha
-lzop    - app-arch/lzop
-lz4     - app-arch/lz4
-rar     - app-arch/unrar or app-arch/unar
-rpm     - app-arch/rpm
-unstuff - app-arch/stuffit
-zstd    - app-arch/zstd
-zoo     - app-arch/zoo"
 
 src_prepare() {
 	# File providing Gentoo package names for various archivers
@@ -88,13 +66,30 @@ src_install() {
 		mkdir -p "${ED}"/usr/share/gtk-doc/ || die
 		mv "${ED}"/usr/share/doc/file-roller "${ED}"/usr/share/gtk-doc/file-roller || die
 	fi
-	readme.gentoo_create_doc
 }
 
 pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
-	readme.gentoo_print_elog
+	if [[ -z "${REPLACING_VERSIONS}" ]]; then
+		optfeature "7-zip archive support" "app-arch/7zip" "app-arch/p7zip"
+		optfeature "ace archive support" "app-arch/unace"
+		optfeature "arj archive support" "app-arch/arj"
+		optfeature "brotli archive support" "app-arch/brotli"
+		optfeature "cabinet archive support" "app-arch/cabextract"
+		optfeature "cpio archive support" "app-alternatives/cpio"
+		optfeature "deb archive support" "app-arch/dpkg"
+		optfeature "iso image support" "app-cdr/cdrtools"
+		optfeature "jar,zip archive support" "app-arch/zip" "app-arch/unzip"
+		optfeature "lha archive support" "app-arch/lha"
+		optfeature "lzop archive support" "app-arch/lzop"
+		optfeature "lz4 archive support" "app-arch/lz4"
+		optfeature "rar archive support" "app-arch/unrar" "app-arch/unar"
+		optfeature "rpm archive support" "app-arch/rpm"
+		optfeature "unstuff archive support" "app-arch/stuffit"
+		optfeature "zstd archive support" "app-arch/zstd"
+		optfeature "zoo archive support" "app-arch/zoo"
+	fi
 }
 
 pkg_postrm() {
