@@ -13,15 +13,15 @@ SRC_URI="https://github.com/${MY_PN}/${MY_PN}/archive/release-${PV}.tar.gz -> ${
 S="${WORKDIR}/${MY_PN}-release-${PV}"
 
 LICENSE="BSD"
-SLOT="0/17"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+SLOT="0/22"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="blocking-tcp debug doc +reuseaddr samples +ssl static-libs"
 
 RDEPEND="ssl? ( dev-libs/openssl:0= )"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/${PN}-1.14.12-disable-network-tests.patch" )
+PATCHES=( "${FILESDIR}/${PN}-1.14.31-disable-network-tests.patch" )
 
 src_prepare() {
 	default
