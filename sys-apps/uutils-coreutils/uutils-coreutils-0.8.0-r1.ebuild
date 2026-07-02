@@ -71,9 +71,15 @@ src_unpack() {
 	else
 		cargo_src_unpack
 	fi
+}
 
+src_prepare() {
+	default
 	# This is should be a set of env vars in upstream CI
 	rm -f "${S}/.cargo/config.toml"
+
+	# Upstream convention for bash-completions clashes with our own
+	sed -i -e 's:\.bash::' "${S}/GNUmakefile" || die
 }
 
 src_compile() {
