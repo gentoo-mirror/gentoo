@@ -150,6 +150,7 @@ src_unpack() {
 	# create symlinks for distdir with the name wanted by bazel
 	mkdir bazel_dist || die
 	pushd "${DISTDIR}" >/dev/null || die
+	local dep
 	for dep in *.{tar.gz,zip,png,svg}; do
 		ln -sfT "${DISTDIR}/${dep}" "${WORKDIR}/bazel_dist/${dep#*__}" || die
 	done
@@ -384,6 +385,7 @@ src_install() {
 		newicon -s 128 data/images/product_icon_32bpp-128.png fcitx_mozc.png
 		newicon -s 32 data/images/unix/ime_product_icon_opensource-32.png ${orgfcitx5}.png
 		newicon -s 32 data/images/unix/ime_product_icon_opensource-32.png fcitx_mozc.png
+		local dimg uiimg
 		for uiimg in ../scripts/icons/ui-*.png; do
 			dimg="${uiimg#*ui-}"
 			newicon -s 48 "${uiimg}" "${orgfcitx5}_${dimg}"
