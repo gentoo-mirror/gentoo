@@ -45,6 +45,7 @@ BDEPEND="
 	test? (
 		dev-python/flask[${PYTHON_USEDEP}]
 		dev-python/numpy[${PYTHON_USEDEP}]
+		>=dev-python/websockets-12[${PYTHON_USEDEP}]
 		net-misc/curl[curl_ssl_gnutls(-)=,curl_ssl_openssl(-)=,-curl_ssl_axtls(-),-curl_ssl_cyassl(-),http2]
 	)
 "
