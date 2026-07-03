@@ -14,9 +14,9 @@ SRC_URI="https://github.com/mr-karan/doggo/archive/refs/tags/v${PV}.tar.gz -> ${
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
-BDEPEND=">=dev-lang/go-1.25.5"
+BDEPEND=">=dev-lang/go-1.26.4"
 
 src_compile() {
 	emake build-cli VERSION=${PV}

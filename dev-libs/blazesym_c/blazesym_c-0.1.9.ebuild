@@ -8,7 +8,7 @@ EAPI=8
 CRATES="
 "
 
-RUST_MIN_VER="1.87.0"
+RUST_MIN_VER="1.88.0"
 
 declare -A GIT_CRATES=(
 	[vmlinux]='https://github.com/libbpf/vmlinux.h;a9c092aa771310bf8b00b5018f7d40a1fdb6ec82;vmlinux.h-%commit%'
@@ -36,7 +36,7 @@ LICENSE+="
 "
 
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 # Currently suffers from (at least):
 # - problems with crate tarball

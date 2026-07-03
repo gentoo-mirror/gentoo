@@ -7,7 +7,7 @@ DISTUTILS_SINGLE_IMPL=yes
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{12..14} )
 PYPI_VERIFY_REPO=https://github.com/dbcli/mycli
-inherit distutils-r1 edo eapi9-ver multiprocessing pypi
+inherit distutils-r1 edo multiprocessing pypi
 
 DESCRIPTION="CLI for MySQL Database with auto-completion and syntax highlighting"
 HOMEPAGE="
@@ -21,14 +21,10 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 # optional llm unpackaged
-IUSE="ssh"
 
 # <pymysql-1.2: Upstream pins per version and test failures with
 # test_ssl_mode_off and test_ssl_mode_overrides_ssl
 
-# ~paramiko-3.5.1: Pinned due to breakage. Feature soft deprecated for future removal
-# https://github.com/dbcli/mycli/commit/82c7d92a16ad15906c46df14cc6e6ee0249609e6
-# https://github.com/dbcli/mycli/issues/1464
 RDEPEND="
 	$(python_gen_cond_dep '
 		>=dev-python/cli-helpers-2.15.0[${PYTHON_USEDEP}]
@@ -49,11 +45,8 @@ RDEPEND="
 		>=dev-python/sqlglot-30.8.0[${PYTHON_USEDEP}]
 		<dev-python/sqlparse-0.6.0[${PYTHON_USEDEP}]
 		>=dev-python/sqlparse-0.3.0[${PYTHON_USEDEP}]
+		>=dev-python/yaspin-3.4.0[${PYTHON_USEDEP}]
 		>=dev-python/wcwidth-0.6.0[${PYTHON_USEDEP}]
-		ssh? (
-			~dev-python/paramiko-3.5.1[${PYTHON_USEDEP}]
-			dev-python/sshtunnel[${PYTHON_USEDEP}]
-		)
 	')
 "
 BDEPEND="
@@ -62,9 +55,7 @@ BDEPEND="
 		test? (
 			dev-db/mysql[server]
 			>=dev-python/behave-1.3.3[${PYTHON_USEDEP}]
-			~dev-python/paramiko-3.5.1[${PYTHON_USEDEP}]
 			>=dev-python/pexpect-4.9.0[${PYTHON_USEDEP}]
-			dev-python/sshtunnel[${PYTHON_USEDEP}]
 		)
 	')
 "
@@ -96,9 +87,6 @@ python_prepare_all() {
 	# Requires an old school vi and the symlink for vi itself messes with this
 	sed -e '/edit sql in file with external editor/i  @gentoo_skip' \
 		-i test/features/iocommands.feature || die
-
-	# avoid unpackaged pytest-random-order
-	sed -e "/^addopts =/ s/, '--random-order'//" -i pyproject.toml || die
 
 	distutils-r1_python_prepare_all
 }
@@ -148,7 +136,7 @@ src_test() {
 	)
 
 	local failures=()
-	if ! nonfatal distutils-r1_src_test ; then
+	if ! nonfatal epytest -o addopts= ; then
 		failures+=( pytest )
 	fi
 
@@ -173,22 +161,5 @@ src_test() {
 
 	if [[ ${#failures[@]} -gt 0 ]]; then
 		die "Tests failed with ${EPYTHON}: ${failures}"
-	fi
-}
-
-pkg_postinst() {
-	if use ssh && ver_replacing -lt 1.49; then
-		elog "The built-in SSH functionality has been soft deprecated in mycli."
-		elog "It may be removed upstream in a future release and even sooner"
-		elog "downstream in the ebuild due to the pinned paramiko dependency."
-		elog "See also https://github.com/dbcli/mycli/issues/1464"
-		elog ""
-	fi
-	if ver_replacing -lt 1.50; then
-		elog "Reading configuration from '.my.cnf' has been deprecated."
-		elog "Configuration should be done in '.myclirc' from now on,"
-		elog "and in the future '.my.cnf' will be ignored."
-		elog "See also https://github.com/dbcli/mycli/issues/1490"
-		elog ""
 	fi
 }
