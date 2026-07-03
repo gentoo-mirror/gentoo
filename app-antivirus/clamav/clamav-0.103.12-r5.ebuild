@@ -7,7 +7,8 @@ inherit autotools flag-o-matic systemd tmpfiles
 
 DESCRIPTION="Clam Anti-Virus Scanner"
 HOMEPAGE="https://www.clamav.net/"
-SRC_URI="https://www.clamav.net/downloads/production/${P}.tar.gz"
+SRC_URI="https://www.clamav.net/downloads/production/${P}.tar.gz
+	https://dev.gentoo.org/~mjo/distfiles/clamav-0.103-patches-20260702.tar.xz"
 
 LICENSE="GPL-2 unRAR"
 SLOT="0/lts"
@@ -49,22 +50,9 @@ DEPEND="${CDEPEND}
 RDEPEND="${CDEPEND}
 	selinux? ( sec-policy/selinux-clamav )"
 
-PATCHES=(
-	"${FILESDIR}/${PN}-0.102.1-libxml2_pkgconfig.patch" #661328
-	"${FILESDIR}/${PN}-0.102.2-fix-curl-detection.patch" #709616
-	"${FILESDIR}/${PN}-0.103.0-system-tomsfastmath.patch" # 649394
-	"${FILESDIR}/${PN}-0.103.1-upstream-openrc.patch"
-	"${FILESDIR}/${PN}-0.103.12-missing-const.patch"
-	"${FILESDIR}/${PN}-0.103.12-fix-lzma-uaf.patch"
-	"${FILESDIR}/${PN}-0.103.12-cve-2025-20260.patch"
-	"${FILESDIR}/${PN}-0.103.12-impersonate-user-agent.patch"
-	"${FILESDIR}/${PN}-0.103.12-impersonate-user-agent-r1.patch"
-	"${FILESDIR}/${PN}-0.103.12-pointer-misalignment.patch"
-	"${FILESDIR}/${PN}-0.103.12-c23-has-alignof.patch"
-	"${FILESDIR}/${PN}-0.103.12-fix-configure-implicit-memset.patch"
-)
-
 src_prepare() {
+	eapply "${WORKDIR}"/clamav-0.103-patches-20260702/*.patch
+
 	default
 
 	# Be extra sure that we're using the system copy of tomsfastmath
