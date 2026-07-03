@@ -1,0 +1,14 @@
+DEFINED_PHASES=configure test
+DEPEND=zstd? ( app-arch/zstd:= )
+DESCRIPTION=ttyrec provides tools to record and replay a terminal session
+EAPI=8
+HOMEPAGE=https://github.com/ovh/ovh-ttyrec
+INHERIT=toolchain-funcs
+IUSE=+zstd
+KEYWORDS=~alpha ~amd64 ~ppc ~ppc64 ~sparc ~x86
+LICENSE=BSD
+RDEPEND=zstd? ( app-arch/zstd:= )
+SLOT=0
+SRC_URI=https://github.com/ovh/ovh-ttyrec/archive/v1.2.0.0.tar.gz -> ttyrec-1.2.0.0.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
+_md5_=b4a20ba2b37ec8e48cc6c609c97376e1
