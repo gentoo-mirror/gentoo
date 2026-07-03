@@ -5,16 +5,16 @@ EAPI=8
 inherit go-module linux-info systemd
 
 # share same source with net-vpn/tailscale
-VERSION_MINOR="92"
-VERSION_SHORT="1.92.4"
-VERSION_LONG="1.92.4-t5065307fb"
-VERSION_GIT_HASH="5065307fb87479c975d513a49a7faf1cf4d4c38d"
+VERSION_GIT_HASH="c811bb19bf3b0c89061ac7b7a073f6cd23b504d0"
+VERSION_MINOR=$(ver_cut 2)
+VERSION_SHORT=${PV}
+VERSION_LONG=${PV}-t${VERSION_GIT_HASH::9}
 
 MY_P="tailscale-${PV}"
 DESCRIPTION="DERP server for tailscale network"
 HOMEPAGE="https://tailscale.com"
 SRC_URI="https://github.com/tailscale/tailscale/archive/v${PV}.tar.gz -> ${MY_P}.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${MY_P}-deps.tar.xz"
+SRC_URI+=" https://github.com/gentoo-golang-dist/tailscale/releases/download/v${PV}/${MY_P}-vendor.tar.xz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
@@ -26,7 +26,7 @@ CONFIG_CHECK="~TUN"
 BDEPEND="
 	acct-group/derper
 	acct-user/derper
-	>=dev-lang/go-1.24
+	>=dev-lang/go-1.26.4
 "
 
 RESTRICT="test"
