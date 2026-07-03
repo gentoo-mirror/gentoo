@@ -36,7 +36,9 @@ SRC_URI="
 	https://gitweb.gentoo.org/proj/virtualbox-patches.git/snapshot/virtualbox-patches-${PATCHES_PV}.tar.bz2
 	https://github.com/cyberus-technology/virtualbox-kvm/archive/dev-${MY_PV}.tar.gz -> ${PN}-${MY_PV}.tar.gz
 	https://download.virtualbox.org/virtualbox/${ORIGIN_PV%*a}/${MY_P}.tar.bz2
-	gui? ( !doc? ( https://dev.gentoo.org/~ceamac/${CATEGORY}/${MY_PN}/${MY_PN}-help-${ORIGIN_PV}.tar.xz ) )
+	gui? ( !doc? (
+		https://distfiles.gentoo.org/pub/dev/ceamac@gentoo.org/${CATEGORY}/${MY_PN}/${MY_PN}-help-${ORIGIN_PV}.tar.xz
+	) )
 "
 S="${WORKDIR}/${ORIGIN_PN}-${ORIGIN_PV%*a}"
 
