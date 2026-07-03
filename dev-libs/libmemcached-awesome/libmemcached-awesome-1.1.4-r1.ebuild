@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -25,6 +25,10 @@ DEPEND="${RDEPEND}
 BDEPEND="app-alternatives/yacc
 	app-alternatives/lex
 	virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-1.1.4-memcached-1.6.40.patch
+)
 
 src_configure() {
 	lto-guarantee-fat
