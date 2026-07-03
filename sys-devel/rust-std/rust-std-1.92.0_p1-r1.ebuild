@@ -3,12 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
-inherit edo flag-o-matic multiprocessing python-any-r1 rust-toolchain toolchain-funcs verify-sig
+inherit edo flag-o-matic multiprocessing python-any-r1 rust-toolchain toolchain-funcs verify-sig crossdev
 
 DESCRIPTION="Rust standard library, standalone (for crossdev)"
 HOMEPAGE="https://www.rust-lang.org"
+
+RUST_PV=${PV%%_p*}
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
@@ -29,7 +31,7 @@ elif [[ ${PV} == *beta* ]]; then
 	"
 	S="${WORKDIR}/${MY_P}-src"
 else
-	MY_P="rustc-${PV}"
+	MY_P="rustc-${RUST_PV}"
 	SRC_URI="https://static.rust-lang.org/dist/${MY_P}-src.tar.xz
 			verify-sig? ( https://static.rust-lang.org/dist/${MY_P}-src.tar.xz.asc )
 	"
@@ -40,7 +42,7 @@ LICENSE="|| ( MIT Apache-2.0 ) BSD-1 BSD-2 BSD-4"
 SLOT="stable/$(ver_cut 1-2)"
 # please do not keyword
 #KEYWORDS="" #nowarn
-IUSE="debug"
+IUSE="debug llvm-libunwind"
 
 BDEPEND="
 	${PYTHON_DEPS}
@@ -62,26 +64,12 @@ VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/rust.asc
 
 QA_FLAGS_IGNORED="usr/lib/rust/${PV}/rustlib/.*/lib/lib.*.so"
 
-#
-# The cross magic
-#
-export CTARGET=${CTARGET:-${CHOST}}
-if [[ ${CTARGET} == ${CHOST} ]] ; then
-	if [[ ${CATEGORY} == cross-* ]] ; then
-		export CTARGET=${CATEGORY#cross-}
-	fi
-fi
-
-is_cross() {
-	[[ ${CHOST} != ${CTARGET} ]]
-}
-
 toml_usex() {
 	usex "$1" true false
 }
 
 pkg_pretend() {
-	is_cross || die "${PN} should only be used for cross"
+	is_crosspkg || die "${PN} should only be used for cross"
 }
 
 pkg_setup() {
@@ -154,8 +142,14 @@ src_configure() {
 		cxx = "$(tc-getCXX ${CTARGET})"
 		linker = "$(tc-getCC ${CTARGET})"
 		ranlib = "$(tc-getRANLIB ${CTARGET})"
-		$(usev elibc_musl 'crt-static = false')
+		llvm-libunwind = "$(usex llvm-libunwind in-tree no)"
 	EOF
+	if use elibc_musl; then
+		cat <<- _EOF_ >> "${S}"/bootstrap.toml
+			crt-static = false
+			musl-root = "/usr/${CTARGET}/usr"
+		_EOF_
+	fi
 
 	einfo "${PN^} configured with the following settings:"
 	cat "${S}"/bootstrap.toml || die

@@ -3,12 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit edo flag-o-matic multiprocessing python-any-r1 rust-toolchain toolchain-funcs verify-sig crossdev
 
 DESCRIPTION="Rust standard library, standalone (for crossdev)"
-HOMEPAGE="https://www.rust-lang.org"
+HOMEPAGE="https://rust-lang.org/"
+
+RUST_PV=${PV%%_p*}
 
 if [[ ${PV} = *9999* ]]; then
 	inherit git-r3
@@ -29,7 +31,7 @@ elif [[ ${PV} == *beta* ]]; then
 	"
 	S="${WORKDIR}/${MY_P}-src"
 else
-	MY_P="rustc-${PV}"
+	MY_P="rustc-${RUST_PV}"
 	SRC_URI="https://static.rust-lang.org/dist/${MY_P}-src.tar.xz
 			verify-sig? ( https://static.rust-lang.org/dist/${MY_P}-src.tar.xz.asc )
 	"
@@ -61,10 +63,6 @@ RESTRICT="test"
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/rust.asc
 
 QA_FLAGS_IGNORED="usr/lib/rust/${PV}/rustlib/.*/lib/lib.*.so"
-
-PATCHES=(
-	"${FILESDIR}"/1.90.0-enable-stage-0-build.patch  # remove for >=1.91.0
-)
 
 toml_usex() {
 	usex "$1" true false
@@ -108,6 +106,7 @@ src_configure() {
 		cargo = "${rust_root}/bin/cargo"
 		rustc = "${rust_root}/bin/rustc"
 		submodules = false
+		local-rebuild = true
 		python = "${EPYTHON}"
 		locked-deps = true
 		vendor = true
