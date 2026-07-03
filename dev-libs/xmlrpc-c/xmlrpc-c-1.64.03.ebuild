@@ -73,7 +73,8 @@ src_configure() {
 }
 
 src_compile() {
-	default
+	# bug #978431
+	emake -j1
 
 	# Tools building is broken in this release
 	#use tools && emake -rC "${S}"/tools
