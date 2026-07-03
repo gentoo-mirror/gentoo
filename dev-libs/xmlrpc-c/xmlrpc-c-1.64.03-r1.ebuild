@@ -40,6 +40,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.64.03-use-stdbool.patch
 	"${FILESDIR}"/${PN}-1.64.03-use-system-expat.patch
+	"${FILESDIR}"/${PN}-1.64.03-fix-pkgconfig.patch
 )
 
 pkg_setup() {
