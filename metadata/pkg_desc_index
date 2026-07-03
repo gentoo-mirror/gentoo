@@ -931,7 +931,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.814.0 1.2.835.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.45.14 1.45.18 1.45.24 1.45.29 1.45.34 1.45.35 1.45.36 1.45.37 1.45.38 1.45.39: Universal Command Line Environment for AWS
+app-admin/awscli 1.45.14 1.45.18 1.45.24 1.45.29 1.45.34 1.45.35 1.45.36 1.45.37 1.45.38 1.45.39 1.45.40: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.34.24 2.34.40: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.6.1 2025.7.0 2025.12.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.1.0 2026.2.1 2026.6.0: Bitwarden password manager desktop client
@@ -8327,8 +8327,8 @@ dev-python/automat 25.4.16: Self-service finite-state machines for the programme
 dev-python/autopage 0.6.0: A library to provide automatic paging for console output
 dev-python/autopep8 2.3.2: Automatically formats Python code to conform to the PEP 8 style guide
 dev-python/autoprop 4.1.0: Infer properties from accessor methods
-dev-python/awkward 2.9.1: Manipulate JSON-like data with NumPy-like idioms
-dev-python/awkward-cpp 53: CPU kernels and compiled extensions for Awkward Array
+dev-python/awkward 2.9.1 2.10.0: Manipulate JSON-like data with NumPy-like idioms
+dev-python/awkward-cpp 53 54: CPU kernels and compiled extensions for Awkward Array
 dev-python/aws-sam-translator 1.110.0 1.111.0: A library that transform SAM templates into AWS CloudFormation templates
 dev-python/aws-xray-sdk 2.15.0: AWS X-Ray SDK for Python
 dev-python/b2sdk 2.12.0: Library to access Backblaze B2 cloud storage
@@ -8365,8 +8365,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 25.0.0 26.0.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.43.14 1.43.18 1.43.24 1.43.29 1.43.34 1.43.35 1.43.36 1.43.37 1.43.38 1.43.39: The AWS SDK for Python
-dev-python/botocore 1.43.14 1.43.18 1.43.24 1.43.29 1.43.34 1.43.35 1.43.36 1.43.37 1.43.38 1.43.39: Low-level, data-driven core of boto 3
+dev-python/boto3 1.43.14 1.43.18 1.43.24 1.43.29 1.43.34 1.43.35 1.43.36 1.43.37 1.43.38 1.43.39 1.43.40: The AWS SDK for Python
+dev-python/botocore 1.43.14 1.43.18 1.43.24 1.43.29 1.43.34 1.43.35 1.43.36 1.43.37 1.43.38 1.43.39 1.43.40: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8446,7 +8446,7 @@ dev-python/construct 2.10.70: A powerful declarative parser for binary data
 dev-python/contourpy 1.3.3-r1: Python library for calculating contours in 2D quadrilateral grids
 dev-python/conway-polynomials 0.10: Python interface to Frank Lübeck's Conway polynomial database
 dev-python/cookies 2.2.1-r2: Friendlier RFC 6265-compliant cookie parser/renderer
-dev-python/coverage 7.13.5 7.14.0 7.14.1 7.14.2 7.14.3: Code coverage measurement for Python
+dev-python/coverage 7.13.5 7.14.0 7.14.1 7.14.2 7.14.3 7.15.0: Code coverage measurement for Python
 dev-python/cppheaderparser 2.7.4-r1: Parse C++ header files and generate a data structure
 dev-python/cppy 1.3.1: C++ header library which makes it easier to write Python extension modules
 dev-python/cramjam 2.11.0 2.12.0_rc1: Thin Python bindings to de/compression algorithms in Rust
@@ -8456,7 +8456,7 @@ dev-python/crcmod 1.7-r5: Python CRC Generator module
 dev-python/crispy-bootstrap3 2024.1: Bootstrap3 template pack for django-crispy-forms
 dev-python/crispy-bootstrap4 2026.2: Bootstrap4 template pack for django-crispy-forms
 dev-python/crispy-bootstrap5 2026.3: Bootstrap5 template pack for django-crispy-forms
-dev-python/croniter 6.2.2: Python module to provide iteration for datetime object
+dev-python/croniter 6.2.2 6.2.3: Python module to provide iteration for datetime object
 dev-python/cryptography 47.0.0 48.0.0 48.0.1 49.0.0: Library providing cryptographic recipes and primitives
 dev-python/cson 0.8-r4: A python parser for the Coffeescript Object Notation (CSON)
 dev-python/css-parser 1.0.10 1.1.1: A CSS Cascading Style Sheets library (fork of cssutils)
@@ -8597,7 +8597,7 @@ dev-python/filelock 3.28.0 3.29.0 3.29.1 3.29.3 3.29.4: A platform independent f
 dev-python/filetype 1.2.0: Small, dependency-free, fast Python package to infer binary file types checking
 dev-python/findimports 3.0.0: Python module import analysis tool
 dev-python/findpython 0.8.0: A utility to find python versions on your system
-dev-python/fitsio 1.3.0: Python library to read from and write to FITS files
+dev-python/fitsio 1.3.0 1.4.0: Python library to read from and write to FITS files
 dev-python/fixtures 4.3.2: Fixtures, reusable state for writing clean tests and more
 dev-python/flake8 7.3.0: A wrapper around PyFlakes, pep8 & mccabe
 dev-python/flaky 3.8.1: Plugin for pytest that automatically reruns flaky tests
@@ -9228,7 +9228,7 @@ dev-python/pyls-spyder 0.4.0-r3 0.4.0-r4: Spyder extensions for the python langu
 dev-python/pylsqpack 0.3.24: Python wrapper for the ls-qpack QPACK library
 dev-python/pymacaroons 0.13.0-r1: A Python implementation of Macaroons
 dev-python/pymad 0.11.3: Python wrapper for libmad MP3 decoding in python
-dev-python/pymdown-extensions 10.21.3 11.0: Extensions for Python Markdown
+dev-python/pymdown-extensions 10.21.3 11.0 11.0.1: Extensions for Python Markdown
 dev-python/pymdown-lexers 0_pre20210902: Additional lexers for use in Pygments
 dev-python/pymdstat 0.5.1: Python library to parse Linux /proc/mdstat
 dev-python/pymediainfo 7.0.1: A Python wrapper for the MediaInfo library
@@ -9387,7 +9387,7 @@ dev-python/python-gammu 3.2.5: Python bindings for Gammu
 dev-python/python-gflags 3.1.2-r2: Google's Python argument parsing library
 dev-python/python-glanceclient 4.12.0: A client for the OpenStack Glance API
 dev-python/python-gnupg 0.5.6: A Python wrapper for GnuPG
-dev-python/python-ironicclient 6.1.0: Python bindings for the Ironic API
+dev-python/python-ironicclient 6.1.0 6.2.0: Python bindings for the Ironic API
 dev-python/python-jose 3.5.0: A JavaScript Object Signing and Encryption (JOSE) implementation in Python
 dev-python/python-json-logger 4.1.0: Standard python logging to output log data as json objects
 dev-python/python-keystoneclient 5.8.0: Client Library for OpenStack Identity
@@ -9424,7 +9424,7 @@ dev-python/python-swiftclient 4.10.0: Python bindings to the OpenStack Object St
 dev-python/python-systemd 235: Python module for native access to the systemd facilities
 dev-python/python-tests 0.3.14.6 0.3.14.6_p1 0.3.14.9999 0.3.15.0_beta2 0.3.15.0_beta3 0.3.15.9999 3.12.13_p1 3.12.9999 3.13.14 3.13.9999 3.14.6 3.14.6_p1 3.14.9999 3.15.0_beta2 3.15.0_beta3 3.15.9999: Test modules from dev-lang/python
 dev-python/python-tlsh 4.12.1: Fuzzy matching library - C++ extension for Python
-dev-python/python-utils 3.9.1: Collection of small Python functions & classes
+dev-python/python-utils 3.9.1 4.0.0: Collection of small Python functions & classes
 dev-python/python-vlc 3.0.21203: Python ctypes-based bindings for libvlc
 dev-python/python-xlib 0.33: A fully functional X client library for Python, written in Python
 dev-python/python-xmp-toolkit 2.1.0: Library for working with XMP metadata
@@ -9681,7 +9681,7 @@ dev-python/starlette 1.0.1 1.1.0 1.2.1 1.3.1: The little ASGI framework that shi
 dev-python/statsd 4.0.1: A simple statsd client
 dev-python/statsmodels 0.14.6: Statistical computations and models for use with SciPy
 dev-python/stdio-mgr 1.0.1.1: Context manager for mocking/wrapping stdin/stdout/stderr
-dev-python/stevedore 5.8.0: Manage dynamic plugins for Python applications
+dev-python/stevedore 5.8.0 5.9.0: Manage dynamic plugins for Python applications
 dev-python/strict-rfc3339 0.7-r2: Strict, simple, lightweight RFC3339 functions
 dev-python/stripe 15.1.0 15.2.0 15.2.1 15.3.0: Stripe Python bindings
 dev-python/structlog 25.5.0 26.1.0: Structured Logging for Python
@@ -9776,7 +9776,7 @@ dev-python/types-gdb 16.3.0.20260518: Typing stubs for gdb
 dev-python/types-psutil 7.2.2.20260408 7.2.2.20260508 7.2.2.20260518: Typing stubs for psutil
 dev-python/types-python-dateutil 2.9.0.20260518: Typing stubs for python-dateutil
 dev-python/types-setuptools 82.0.0.20260408 82.0.0.20260508 82.0.0.20260518: Typing stubs for setuptools
-dev-python/typing-extensions 4.15.0: Backported and Experimental Type Hints for Python 3.7+
+dev-python/typing-extensions 4.15.0 4.16.0: Backported and Experimental Type Hints for Python 3.7+
 dev-python/typing-inspection 0.4.2: Runtime typing introspection tools
 dev-python/typogrify 2.1.0: Filters for web typography, supporting Django & Jinja templates
 dev-python/tzdata 10001: tzdata shim to satisfy requirements (while using system tzdata)
@@ -9838,7 +9838,7 @@ dev-python/warlock 2.1.0: Python object model built on JSON schema and JSON patc
 dev-python/watchdog 6.0.0: Python API and shell utilities to monitor file system events
 dev-python/watchfiles 1.2.0: Simple, modern file watching and code reload in Python
 dev-python/wcag-contrast-ratio 0.9-r1: A library for computing contrast ratios, as required by WCAG 2.0
-dev-python/wcmatch 10.1 10.2: Wildcard/glob file name matcher
+dev-python/wcmatch 10.1 10.2 10.2.1: Wildcard/glob file name matcher
 dev-python/wcwidth 0.7.0 0.8.0 0.8.1 0.8.2: Measures number of Terminal column cells of wide-character codes
 dev-python/weasyprint 68.1 69.0: Visual rendering engine for HTML and CSS that can export to PDF
 dev-python/webcolors 25.10.0: Color names and value formats defined by the HTML and CSS specifications
@@ -15310,7 +15310,7 @@ net-misc/dropbear 2025.89 2026.91: Small SSH 2 client/server designed for small 
 net-misc/dropbox 250.4.3245 252.4.3485 254.4.2518 256.4.3790 258.4.3749: Dropbox daemon (pretends to be GUI-less)
 net-misc/dropbox-cli 2026.03.20: Cli interface for dropbox (python), part of nautilus-dropbox
 net-misc/efax 0.9a_p19_p1: A simple fax program for single-user systems
-net-misc/electrum 4.7.1 4.7.2: User friendly Bitcoin client
+net-misc/electrum 4.7.2: User friendly Bitcoin client
 net-misc/email-validator 1.1.0: Basic syntax and deliverability checks on email addresses
 net-misc/ena-driver 2.16.1 2.17.0: Amazon EC2 Elastic Network Adapter (ENA) kernel driver
 net-misc/endlessh 1.1-r2: SSH tarpit that slowly sends and endless banner
