@@ -1,0 +1,16 @@
+BDEPEND=test? ( app-misc/jq dev-debug/strace >=dev-lang/ocaml-5.4.0 dev-ml/csexp dev-ml/lwt dev-ml/pp dev-ml/ppx_expect dev-ml/re dev-ml/spawn dev-ml/uutf dev-vcs/git )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=dev-lang/ocaml:= emacs? ( >=app-editors/emacs-23.1:* )
+DESCRIPTION=A composable build system for OCaml
+EAPI=9
+HOMEPAGE=https://github.com/ocaml/dune
+INHERIT=multiprocessing elisp-common
+IUSE=emacs test
+KEYWORDS=~amd64 ~arm64 ~ppc ~ppc64
+LICENSE=MIT
+RDEPEND=dev-lang/ocaml:= emacs? ( >=app-editors/emacs-23.1:* )
+RESTRICT=strip !test? ( test )
+SLOT=0/3.23.1
+SRC_URI=https://github.com/ocaml/dune/archive/3.23.1.tar.gz -> dune-3.23.1.tar.gz
+_eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	elisp-common	0ea9a0d3bc26353e1642c73560a24fdf
+_md5_=8a59fafe7ea021a53e290a485b97060f
