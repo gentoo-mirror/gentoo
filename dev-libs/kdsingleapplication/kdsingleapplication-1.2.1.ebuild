@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake qmake-utils
+inherit cmake qt-utils
 
 DESCRIPTION="KDAB's helper class for single-instance policy applications"
 HOMEPAGE="https://github.com/KDAB/KDSingleApplication"
