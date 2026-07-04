@@ -40,6 +40,12 @@ BDEPEND="
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
+src_prepare() {
+	distutils-r1_src_prepare
+
+	sed -i -e '/greenlet/d' pyproject.toml || die
+}
+
 pkg_postinst() {
 	optfeature "Fancy index" dev-python/flasgger
 }
