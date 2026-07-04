@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install unpack
-DEPEND=media-libs/speexdsp examples? ( media-libs/libsdl3 ) jgmodule? ( media-libs/jg:1= )
+DEPEND=media-libs/speexdsp examples? ( media-libs/libsdl3 ) jgmodule? ( >=media-libs/jg-2.0.0 )
 DESCRIPTION=Jolly Good ColecoVision, CreatiVision and My Vision Emulator
 EAPI=8
 HOMEPAGE=https://gitlab.com/jgemu/jollycv
@@ -8,8 +8,8 @@ INHERIT=docs toolchain-funcs git-r3
 IUSE=examples +jgmodule shared doc
 LICENSE=BSD MIT examples? ( 0BSD )
 PROPERTIES=live
-RDEPEND=media-libs/speexdsp examples? ( media-libs/libsdl3 ) jgmodule? ( media-libs/jg:1= ) jgmodule? ( games-emulation/jgrf )
+RDEPEND=media-libs/speexdsp examples? ( media-libs/libsdl3 ) jgmodule? ( >=media-libs/jg-2.0.0 ) jgmodule? ( games-emulation/jgrf )
 REQUIRED_USE=|| ( examples jgmodule shared ) doc? ( shared )
 SLOT=1
 _eclasses_=docs	006125f2158d2f16904ebd9114336058	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	git-r3	2f8cdb10b033f92c3136aa6488a31c98
-_md5_=119a93864a4413e0a41af87757920cc1
+_md5_=c9d80dc9330d121419ec96bf920acc5a

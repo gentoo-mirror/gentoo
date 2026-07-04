@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig doc? ( app-text/doxygen ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install unpack
-DEPEND=media-libs/libsamplerate examples? ( media-libs/libsdl3 ) jgmodule? ( media-libs/jg:1= )
+DEPEND=media-libs/libsamplerate examples? ( media-libs/libsdl3 ) jgmodule? ( >=media-libs/jg-2.0.0 )
 DESCRIPTION=Jolly Good Fork of bsnes
 EAPI=8
 HOMEPAGE=https://gitlab.com/jgemu/bsnes
@@ -8,8 +8,8 @@ INHERIT=docs toolchain-funcs git-r3
 IUSE=examples +jgmodule shared doc
 LICENSE=ISC GPL-3+ LGPL-2.1+ MIT ZLIB examples? ( 0BSD )
 PROPERTIES=live
-RDEPEND=media-libs/libsamplerate examples? ( media-libs/libsdl3 ) jgmodule? ( media-libs/jg:1= ) jgmodule? ( games-emulation/jgrf )
+RDEPEND=media-libs/libsamplerate examples? ( media-libs/libsdl3 ) jgmodule? ( >=media-libs/jg-2.0.0 ) jgmodule? ( games-emulation/jgrf )
 REQUIRED_USE=|| ( examples jgmodule shared ) doc? ( shared )
 SLOT=1
 _eclasses_=docs	006125f2158d2f16904ebd9114336058	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	git-r3	2f8cdb10b033f92c3136aa6488a31c98
-_md5_=a5d658b7c04012f20fdd01586056cbca
+_md5_=471589b0aeccaeb5cbfd62ec9045c3d3
