@@ -3,8 +3,10 @@
 
 EAPI=8
 
+PYTHON_COMPAT=( python3_{12..14} )
 WX_GTK_VER="3.2-gtk3"
-inherit cmake desktop prefix wxwidgets xdg
+
+inherit cmake desktop prefix python-any-r1 wxwidgets xdg
 
 DESCRIPTION="Online multiplayer free software engine for DOOM"
 HOMEPAGE="https://odamex.net/"
@@ -13,8 +15,9 @@ S="${WORKDIR}/${PN}-src-${PV}"
 LICENSE="GPL-2+ MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86"
-IUSE="+client master +odalaunch portmidi server upnp"
+IUSE="+client master +odalaunch portmidi server test upnp"
 REQUIRED_USE="|| ( client master server )"
+RESTRICT="!test? ( test )"
 
 # protobuf is still bundled. Unfortunately an old version is required for C++98
 # compatibility. We could use C++11, but upstream is concerned about using a
@@ -41,12 +44,22 @@ RDEPEND="
 		upnp? ( net-libs/miniupnpc:= )
 	)
 "
-DEPEND="${RDEPEND}"
-BDEPEND="games-util/deutex"
+DEPEND="
+	${RDEPEND}
+	test? (
+		dev-cpp/cpptrace
+		dev-libs/jsoncpp
+		net-misc/curl
+		virtual/zlib
+	)
+"
+BDEPEND="
+	${PYTHON_DEPS}
+"
 
 src_prepare() {
 	# All this is unneeded and includes old CMake declarations.
-	rm -r libraries/{cpptrace,curl,fltk,jsoncpp,libadlmidi/android,libpng,miniupnp,portmidi,protobuf/{examples,third_party},zlib}/ || die
+	rm -r libraries/{cpptrace,curl,fltk,googletest,jsoncpp,libadlmidi/android,libpng,miniupnp,portmidi,protobuf/{examples,third_party},zlib}/ || die
 
 	cmake_src_prepare
 	hprefixify common/d_main.cpp
@@ -58,6 +71,7 @@ src_configure() {
 	local mycmakeargs=(
 		-DUSE_INTERNAL_CPPTRACE=0
 		-DUSE_INTERNAL_FLTK=0
+		-DUSE_INTERNAL_GTEST=0
 		-DUSE_INTERNAL_JSONCPP=0
 		-DUSE_INTERNAL_LIBS=0
 		-DUSE_INTERNAL_MINIUPNP=0
@@ -65,6 +79,7 @@ src_configure() {
 		-DBUILD_LAUNCHER=$(usex odalaunch)
 		-DBUILD_MASTER=$(usex master)
 		-DBUILD_SERVER=$(usex server)
+		-DBUILD_TESTS=$(usex test)
 		-DBUILD_OR_FAIL=1
 		-DENABLE_PORTMIDI=$(usex portmidi)
 		-DUSE_MINIUPNP=$(usex upnp)
@@ -89,4 +104,8 @@ src_install() {
 	fi
 
 	cmake_src_install
+}
+
+src_test() {
+	"${BUILD_DIR}"/tests/unit-tests/odagtest || die
 }
