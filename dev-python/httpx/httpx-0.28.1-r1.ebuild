@@ -45,13 +45,11 @@ BDEPEND="
 		dev-python/cryptography[${PYTHON_USEDEP}]
 		dev-python/h2[${PYTHON_USEDEP}]
 		dev-python/socksio[${PYTHON_USEDEP}]
+		dev-python/trio[${PYTHON_USEDEP}]
 		dev-python/trustme[${PYTHON_USEDEP}]
 		dev-python/typing-extensions[${PYTHON_USEDEP}]
 		dev-python/uvicorn[${PYTHON_USEDEP}]
 		>=dev-python/zstandard-0.18.0[${PYTHON_USEDEP}]
-		$(python_gen_cond_dep '
-			dev-python/trio[${PYTHON_USEDEP}]
-		' 3.{12..14})
 	)
 "
 
@@ -60,7 +58,6 @@ distutils_enable_tests pytest
 
 src_prepare() {
 	local PATCHES=(
-		"${FILESDIR}/${PN}-0.27.0-opt-trio.patch"
 		# fix test failures when httptools are installed
 		# https://github.com/encode/httpx/discussions/3429
 		# https://gitlab.archlinux.org/archlinux/packaging/packages/python-httpx/-/blob/main/uvicorn-test-server-use-h11.diff
@@ -76,7 +73,6 @@ src_prepare() {
 }
 
 python_test() {
-	local args=()
 	local EPYTEST_DESELECT=(
 		# Internet
 		tests/client/test_proxies.py::test_async_proxy_close
@@ -94,11 +90,7 @@ python_test() {
 		tests/test_main.py
 	)
 
-	if ! has_version "dev-python/trio[${PYTHON_USEDEP}]"; then
-		args+=( -o filterwarnings= -k "not trio" )
-	fi
-
-	epytest "${args[@]}"
+	epytest
 }
 
 pkg_postinst() {

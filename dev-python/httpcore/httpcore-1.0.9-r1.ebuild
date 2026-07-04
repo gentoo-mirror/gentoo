@@ -34,36 +34,13 @@ BDEPEND="
 	dev-python/hatch-fancy-pypi-readme[${PYTHON_USEDEP}]
 	test? (
 		dev-python/socksio[${PYTHON_USEDEP}]
+		dev-python/trio[${PYTHON_USEDEP}]
 		dev-python/trustme[${PYTHON_USEDEP}]
-		$(python_gen_cond_dep '
-			dev-python/pytest-trio[${PYTHON_USEDEP}]
-			dev-python/trio[${PYTHON_USEDEP}]
-		' 3.{12..14})
 	)
 "
 
-EPYTEST_PLUGINS=( anyio pytest-{asyncio,httpbin} )
+EPYTEST_PLUGINS=( anyio pytest-{asyncio,httpbin,trio} )
 distutils_enable_tests pytest
-
-python_test() {
-	local opts=()
-	local EPYTEST_IGNORE=()
-
-	if ! has_version "dev-python/trio[${PYTHON_USEDEP}]"; then
-		opts+=( -k "not trio" )
-		EPYTEST_IGNORE+=(
-			tests/_async/test_connection_pool.py
-		)
-	fi
-
-	if has_version "dev-python/pytest-trio[${PYTHON_USEDEP}]"; then
-		local EPYTEST_PLUGINS=( "${EPYTEST_PLUGINS[@]}" pytest-trio )
-	else
-		opts+=( -m "not trio" -o addopts= )
-	fi
-
-	epytest "${opts[@]}"
-}
 
 pkg_postinst() {
 	optfeature "SOCKS support" dev-python/socksio
