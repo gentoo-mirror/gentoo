@@ -1,18 +1,19 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit flag-o-matic
+inherit fcaps flag-o-matic
 
 DESCRIPTION="50+ standard plugins for Icinga, Naemon, Nagios, Shinken, Sensu"
-HOMEPAGE="https://www.monitoring-plugins.org/"
+HOMEPAGE="https://www.monitoring-plugins.org/
+	https://github.com/monitoring-plugins/monitoring-plugins/"
 SRC_URI="https://www.monitoring-plugins.org/download/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~sparc ~x86"
-IUSE="curl gnutls ipv6 ldap mysql dns fping game postgres radius rpc samba snmp ssh +ssl"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~sparc ~x86"
+IUSE="curl gnutls ipv6 ldap mysql dns fping game postgres radius rpc samba snmp ssh +ssl suid"
 
 # Most of the plugins use automagic dependencies, i.e. the plugin will
 # get built if the binary it uses is installed. For example, check_snmp
@@ -51,8 +52,6 @@ DEPEND="${REAL_DEPEND}
 
 # Basically everything collides with nagios-plugins.
 RDEPEND="${DEPEND}
-	acct-group/nagios
-	acct-user/nagios
 	!net-analyzer/nagios-plugins"
 
 # At least one test is interactive.
@@ -68,7 +67,13 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 	alignof
 )
 
+PATCHES=( "${FILESDIR}/${P}-check-ntp-buildfix.patch" )
+
+DOCS=( ACKNOWLEDGEMENTS AUTHORS CODING ChangeLog FAQ \
+		NEWS README REQUIREMENTS SUPPORT THANKS )
+
 src_configure() {
+	# https://github.com/monitoring-plugins/monitoring-plugins/issues/2295
 	append-flags -fno-strict-aliasing
 
 	# Use an array to prevent econf from mangling the ping args.
@@ -104,8 +109,34 @@ src_configure() {
 		--sysconfdir="/etc/nagios"
 }
 
-DOCS=( ACKNOWLEDGEMENTS AUTHORS CODING ChangeLog FAQ \
-		NEWS README REQUIREMENTS SUPPORT THANKS )
+src_install() {
+	default
+
+	# Prefer capabilities to suid. Beware that fcaps and fperms require
+	# two different kinds of paths; fperms always prepends ${ED}, but
+	# fcaps only does so it if the path does not already start with a
+	# slash. Anyway, begin by removing suid unconditionally.
+	local pd="usr/$(get_libdir)/nagios/plugins"
+
+	if use filecaps; then
+		local flags msg
+		if use suid; then
+			# use suid if setcap fails
+			flags="-m u+s"
+			msg=" (with suid fallback)"
+		fi
+		einfo "replacing suid bits with filecaps${msg}"
+		fperms ug-s /"${pd}"/check_{dhcp,icmp}
+		fcaps ${flags} cap_net_bind_service "${pd}"/check_dhcp
+		fcaps ${flags} cap_net_bind_service,cap_net_raw "${pd}"/check_icmp
+	else
+		# no filecaps, just suid (or not)
+		if ! use suid; then
+			einfo "stripping suid bits"
+			fperms ug-s /"${pd}"/check_{dhcp,icmp}
+		fi
+	fi
+}
 
 pkg_postinst() {
 	elog "This ebuild has a number of USE flags that determine what you"
