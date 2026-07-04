@@ -13,7 +13,7 @@ SRC_URI="https://www.monitoring-plugins.org/download/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~sparc ~x86"
-IUSE="curl gnutls ipv6 ldap mysql dns fping game postgres radius rpc samba snmp ssh +ssl suid"
+IUSE="curl ipv6 ldap mysql dns fping game postgres radius rpc samba snmp ssh suid"
 
 # Most of the plugins use automagic dependencies, i.e. the plugin will
 # get built if the binary it uses is installed. For example, check_snmp
@@ -24,6 +24,11 @@ IUSE="curl gnutls ipv6 ldap mysql dns fping game postgres radius rpc samba snmp 
 # REAL_DEPEND contains the dependencies that are actually needed to
 # build. DEPEND contains those plus the automagic dependencies.
 #
+# Note: openssl is required unconditionally because the build fails
+# without it:
+#
+#   * https://github.com/monitoring-plugins/monitoring-plugins/issues/2135
+#
 REAL_DEPEND="dev-lang/perl
 	curl? (
 		dev-libs/uriparser
@@ -32,12 +37,7 @@ REAL_DEPEND="dev-lang/perl
 	ldap? ( net-nds/openldap:= )
 	mysql? ( || ( dev-db/mysql-connector-c dev-db/mariadb-connector-c ) )
 	postgres? ( dev-db/postgresql:= )
-	ssl? (
-		!gnutls? (
-			dev-libs/openssl:0=
-		)
-		gnutls? ( net-libs/gnutls )
-	)
+	dev-libs/openssl:0=
 	radius? ( net-dialup/freeradius-client )"
 
 DEPEND="${REAL_DEPEND}
@@ -79,14 +79,6 @@ src_configure() {
 	# Use an array to prevent econf from mangling the ping args.
 	local myconf=()
 
-	if use ssl; then
-		myconf+=( $(use_with !gnutls openssl /usr)
-				  $(use_with gnutls gnutls /usr) )
-	else
-		myconf+=( --without-openssl )
-		myconf+=( --without-gnutls )
-	fi
-
 	# The autodetection for these two commands can hang if localhost is
 	# down or ICMP traffic is filtered (bug #468296). But also the path
 	# likes to move around on us (bug #883729).
@@ -104,6 +96,8 @@ src_configure() {
 		$(use_with ldap) \
 		$(use_with postgres pgsql /usr) \
 		$(use_with radius) \
+		--with-openssl=/usr \
+		--without-gnutls \
 		"${myconf[@]}" \
 		--libexecdir="/usr/$(get_libdir)/nagios/plugins" \
 		--sysconfdir="/etc/nagios"
