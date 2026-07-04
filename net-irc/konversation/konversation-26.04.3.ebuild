@@ -54,6 +54,8 @@ RDEPEND="${DEPEND}
 "
 BDEPEND="sys-devel/gettext"
 
+PATCHES=( "${FILESDIR}/${P}-missing-include.patch" )
+
 src_configure() {
 	local mycmakeargs=(
 		$(cmake_use_find_package crypt Qca-qt6)
