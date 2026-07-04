@@ -1,0 +1,18 @@
+BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
+DEPEND=client? ( dev-cpp/cpptrace dev-libs/jsoncpp:= media-libs/libpng:0= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer net-misc/curl >=x11-libs/fltk-1.4.3-r1:1= x11-libs/libX11 portmidi? ( media-libs/portmidi ) ) odalaunch? ( x11-libs/wxGTK:3.2-gtk3= ) server? ( dev-libs/jsoncpp:= virtual/zlib:= upnp? ( net-libs/miniupnpc:= ) ) test? ( dev-cpp/cpptrace dev-libs/jsoncpp net-misc/curl virtual/zlib )
+DESCRIPTION=Online multiplayer free software engine for DOOM
+EAPI=8
+HOMEPAGE=https://odamex.net/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake desktop prefix python-any-r1 wxwidgets xdg
+IUSE=+client master +odalaunch portmidi server test upnp
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
+LICENSE=GPL-2+ MIT
+RDEPEND=client? ( dev-cpp/cpptrace dev-libs/jsoncpp:= media-libs/libpng:0= media-libs/libsdl2[joystick,sound,video] media-libs/sdl2-mixer net-misc/curl >=x11-libs/fltk-1.4.3-r1:1= x11-libs/libX11 portmidi? ( media-libs/portmidi ) ) odalaunch? ( x11-libs/wxGTK:3.2-gtk3= ) server? ( dev-libs/jsoncpp:= virtual/zlib:= upnp? ( net-libs/miniupnpc:= ) )
+REQUIRED_USE=|| ( client master server )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/odamex/odamex/releases/download/12.2.1/odamex-src-12.2.1.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	desktop	e447b5f77146d69797e9f03ff177f3f1	prefix	c3c4c93ebda319c0fa7ed6f942ba1010	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	18a01bee4e486884d7457cfacde74099	python-any-r1	891415dfe39ad9b41b461f2b86354af0	wxwidgets	c48bf68858bd3c27c272ff034eb1e14d	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=7c6b0be7922b09a43cff7ab3d1b8f6d1
