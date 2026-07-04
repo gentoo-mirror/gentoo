@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYPI_VERIFY_REPO=https://github.com/tornadoweb/tornado
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="threads(+)"
 
 inherit distutils-r1 pypi
@@ -44,6 +44,9 @@ src_prepare() {
 	# network-sandbox? ipv6?
 	sed -i -e 's:test_localhost:_&:' \
 		tornado/test/netutil_test.py || die
+	# https://github.com/tornadoweb/tornado/issues/3674
+	sed -i -e '/credentials in URL/d' \
+		tornado/test/httpclient_test.py || die
 
 	distutils-r1_src_prepare
 }
