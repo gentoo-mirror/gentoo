@@ -13,7 +13,6 @@ HOMEPAGE="https://www.nickg.me.uk/nvc/
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/nickg/nvc"
 
 	NVC_SOURCEDIR="${WORKDIR}/${PN}-${PV}"
@@ -75,16 +74,13 @@ pkg_setup() {
 
 src_unpack() {
 	default
-
 	mkdir -p "${S}" || die
 }
 
 src_prepare() {
 	pushd "${NVC_SOURCEDIR}" >/dev/null || die
-
 	default
 	eautoreconf
-
 	popd >/dev/null || die
 }
 
@@ -112,13 +108,11 @@ src_compile() {
 src_test() {
 	local -x ASAN_OPTIONS="detect_leaks=0"
 	local -x PATH="${S}/bin:${PATH}"
-
 	nonfatal emake -j1 check-TESTS
 }
 
 src_install() {
 	default
-
 	mv "${D}/$(get_bashcompdir)"/nvc{.bash,} || die
 	dostrip -x "/usr/$(get_libdir)/nvc"
 }

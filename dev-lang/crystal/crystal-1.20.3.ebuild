@@ -6,18 +6,19 @@ EAPI=8
 BV="${PV}-1"
 BV_AMD64="${BV}-linux-x86_64"
 
-LLVM_COMPAT=( {19..21} )
+LLVM_COMPAT=( {20..22} )
 
 inherit llvm-r2 multiprocessing shell-completion toolchain-funcs
 
 DESCRIPTION="The Crystal Programming Language"
 HOMEPAGE="https://crystal-lang.org/
 	https://github.com/crystal-lang/crystal/"
+
 SRC_URI="
-	https://github.com/crystal-lang/crystal/archive/${PV}.tar.gz
+	https://github.com/crystal-lang/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 	amd64? (
-		https://github.com/crystal-lang/crystal/releases/download/${BV/-*}/crystal-${BV_AMD64}.tar.gz
+		https://github.com/crystal-lang/${PN}/releases/download/${BV/-*}/${PN}-${BV_AMD64}.tar.gz
 	)
 "
 
@@ -120,12 +121,12 @@ src_install() {
 	exeinto /usr/bin
 	doexe .build/crystal
 
-	newzshcomp etc/completion.zsh _crystal
+	newbashcomp etc/completion.bash "${PN}"
 	newfishcomp etc/completion.fish crystal.fish
+	newzshcomp etc/completion.zsh _crystal
 
 	dodoc -r samples
 	doman "man/${PN}.1"
-	newbashcomp etc/completion.bash "${PN}"
 
 	if use doc ; then
 		docinto api

@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
+PYTHON_COMPAT=( python3_{13..15} )
 
 inherit gnome2-utils meson python-single-r1 xdg
 
@@ -12,20 +12,19 @@ HOMEPAGE="https://github.com/Huluti/Curtail/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/Huluti/${PN^}"
 else
 	SRC_URI="https://github.com/Huluti/${PN^}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 	S="${WORKDIR}/${P^}"
 
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-RESTRICT="test"  # Just desktop / schema / appstream file validation, fails.
+RESTRICT="test"     # Just desktop / schema / appstream file validation.
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -51,7 +50,6 @@ DOCS=( CHANGELOG.md README.md )
 
 src_prepare() {
 	sed -i "s|@PYTHON@|${PYTHON}|" "${S}/src/${PN}.in" || die
-
 	default
 }
 

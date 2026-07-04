@@ -3,45 +3,43 @@
 
 EAPI=9
 
-NEED_EMACS="28.1"
+NEED_EMACS="29.1"
 
 inherit elisp
 
-DESCRIPTION="Transient commands abstraction for GNU Emacs"
-HOMEPAGE="https://magit.vc/manual/transient/
-	https://github.com/magit/transient/"
+DESCRIPTION="Minuscule client library for the Git forge APIs"
+HOMEPAGE="https://magit.vc/manual/ghub/
+	https://github.com/magit/ghub/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/magit/${PN}"
 else
 	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-30.1.0.1
-	>=app-emacs/cond-let-1.0.0
+	>=app-emacs/compat-31.0
+	>=app-emacs/cond-let-1.1
+	>=app-emacs/llama-1.0
+	>=app-emacs/treepy-0.1.3
 "
 BDEPEND="
 	${RDEPEND}
 	sys-apps/texinfo
 "
 
-DOCS=( CHANGELOG README.org "docs/${PN}.org" )
-ELISP_TEXINFO="docs/${PN}.texi"
+DOCS=( CHANGELOG README.org )
+ELISP_TEXINFO="docs/ghub.texi"
 SITEFILE="50${PN}-gentoo.el"
-
-elisp-enable-tests ert ./test/ -l "./test/${PN}-tests.el"
 
 src_prepare() {
 	mv ./lisp/*.el . || die
-
 	elisp_src_prepare
 }

@@ -13,13 +13,12 @@ HOMEPAGE="https://github.com/tarsius/cond-let/
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/tarsius/${PN}"
 else
 	SRC_URI="https://github.com/tarsius/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -31,7 +30,6 @@ SITEFILE="50${PN}-gentoo.el"
 elisp-enable-tests ert . -l "${PN}-tests.el"
 
 src_install() {
-	rm -f "${PN}-tests.el"*
-
+	rm -f "${PN}-tests.el"* || die
 	elisp_src_install
 }

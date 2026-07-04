@@ -1,9 +1,9 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
-NEED_EMACS="29.2"
+NEED_EMACS="28.1"
 
 inherit elisp
 
@@ -13,13 +13,12 @@ HOMEPAGE="https://magit.vc/
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
-	EGIT_REPO_URI="https://github.com/${PN}/${PN}"
+	EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
 else
 	SRC_URI="https://github.com/${PN}/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
 
-	KEYWORDS="amd64 ~arm ~arm64 ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 fi
 
 S="${WORKDIR}/${P}/lisp"
@@ -28,12 +27,11 @@ LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	app-emacs/compat
-	app-emacs/cond-let
-	app-emacs/dash
-	app-emacs/llama
-	app-emacs/transient
-	app-emacs/with-editor
+	>=app-emacs/compat-31.0
+	>=app-emacs/cond-let-1.1
+	>=app-emacs/llama-1.0
+	>=app-emacs/transient-0.13
+	>=app-emacs/with-editor-3.5
 "
 BDEPEND="
 	${RDEPEND}
@@ -43,12 +41,12 @@ RDEPEND+="
 	>=dev-vcs/git-2.44.2
 "
 
-DOCS=( ../README.md ../docs/AUTHORS.md ../docs/RelNotes )
+DOCS=( ../README.md ../docs/{AUTHORS.md,magit{,-section}.org} )
 ELISP_TEXINFO="../docs/*.texi"
 SITEFILE="50${PN}-gentoo.el"
 
 src_prepare() {
-	default
-
-	echo "(setq ${PN}-version \"${PV}\")" > "./${PN}-version.el" || die
+	elisp_src_prepare
+	echo "" > ../default.mk || die
+	emake magit-version.el PKG="${PN}" VERSION="${PV}"
 }

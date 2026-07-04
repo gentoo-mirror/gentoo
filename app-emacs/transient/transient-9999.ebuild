@@ -26,8 +26,9 @@ LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	app-emacs/compat
-	app-emacs/cond-let
+	>=app-emacs/compat-30.1.0.1
+	>=app-emacs/cond-let-1.0.0
+	>=app-emacs/llama-1.0
 "
 BDEPEND="
 	${RDEPEND}
@@ -38,7 +39,7 @@ DOCS=( CHANGELOG README.org "docs/${PN}.org" )
 ELISP_TEXINFO="docs/${PN}.texi"
 SITEFILE="50${PN}-gentoo.el"
 
-elisp-enable-tests ert ./test/ -l "${PN}-tests"
+elisp-enable-tests ert ./test/ -l "./test/${PN}-tests.el"
 
 src_prepare() {
 	mv ./lisp/*.el . || die
