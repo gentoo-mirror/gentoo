@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 optfeature
 
@@ -33,17 +33,16 @@ RDEPEND="
 BDEPEND="
 	dev-python/hatch-fancy-pypi-readme[${PYTHON_USEDEP}]
 	test? (
-		dev-python/pytest-asyncio[${PYTHON_USEDEP}]
-		dev-python/pytest-httpbin[${PYTHON_USEDEP}]
 		dev-python/socksio[${PYTHON_USEDEP}]
 		dev-python/trustme[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep '
 			dev-python/pytest-trio[${PYTHON_USEDEP}]
 			dev-python/trio[${PYTHON_USEDEP}]
-		' 3.{11..13})
+		' 3.{12..14})
 	)
 "
 
+EPYTEST_PLUGINS=( anyio pytest-{asyncio,httpbin} )
 distutils_enable_tests pytest
 
 python_test() {
@@ -57,7 +56,9 @@ python_test() {
 		)
 	fi
 
-	if ! has_version "dev-python/pytest-trio[${PYTHON_USEDEP}]"; then
+	if has_version "dev-python/pytest-trio[${PYTHON_USEDEP}]"; then
+		local EPYTEST_PLUGINS=( "${EPYTEST_PLUGINS[@]}" pytest-trio )
+	else
 		opts+=( -m "not trio" -o addopts= )
 	fi
 
