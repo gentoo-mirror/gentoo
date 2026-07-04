@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/twisted/twisted
-PYTHON_TESTED=( python3_{11..14} pypy3_11 )
+PYTHON_TESTED=( python3_{12..15} )
 PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" )
 PYTHON_REQ_USE="threads(+)"
 
@@ -96,6 +96,10 @@ python_prepare_all() {
 	local PATCHES=(
 		# https://github.com/twisted/twisted/pull/12637
 		"${FILESDIR}/${P}-py314.patch"
+		# https://github.com/twisted/twisted/pull/12661
+		"${FILESDIR}/${P}-pyopenssl.patch"
+		# https://github.com/twisted/twisted/pull/12602
+		"${FILESDIR}/${P}-py315.patch"
 	)
 
 	distutils-r1_python_prepare_all
