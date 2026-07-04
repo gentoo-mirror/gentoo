@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,12 +10,12 @@ S="${WORKDIR}/.local/share/gnome-shell"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	app-eselect/eselect-gnome-shell-extensions
 	gnome-base/gnome-menus:3[introspection]
-	>=gnome-base/gnome-shell-47
+	>=gnome-base/gnome-shell-46
 "
 
 src_install() {
