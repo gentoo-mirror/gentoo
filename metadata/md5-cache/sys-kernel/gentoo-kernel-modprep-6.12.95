@@ -7,8 +7,9 @@ INHERIT=dist-kernel-utils toolchain-funcs verify-sig
 IUSE=verify-sig
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
 LICENSE=GPL-2
+PDEPEND=>=virtual/dist-kernel-6.12.95
 RDEPEND=virtual/libelf !sys-kernel/gentoo-kernel-bin:6.12.95
 SLOT=6.12.95
 SRC_URI=https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.tar.xz https://cdn.kernel.org/pub/linux/kernel/v6.x/patch-6.12.95.xz https://distfiles.gentoo.org/pub/proj/dist-kernel/patchsets/6.12/linux-gentoo-patches-6.12.95.tar.xz https://distfiles.gentoo.org/pub/proj/dist-kernel/binpkg/modprep/6.12/gentoo-kernel-modprep-6.12.95.tar.xz verify-sig? ( https://cdn.kernel.org/pub/linux/kernel/v6.x/sha256sums.asc -> linux-6.x-sha256sums-20260705.asc )
 _eclasses_=mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	dist-kernel-utils	8df0d36d9be6b29df11da25bfa7a9e60	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=a328952e89ec4b726ddb23ab3cdbfce8
+_md5_=cbcf4232e2e45b8ccdf728920e29a130
