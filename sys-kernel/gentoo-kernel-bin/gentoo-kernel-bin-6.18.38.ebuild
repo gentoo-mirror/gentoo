@@ -9,9 +9,9 @@ inherit kernel-install toolchain-funcs unpacker verify-sig
 
 BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
-PATCHSET=linux-gentoo-patches-7.0.13
+PATCHSET=linux-gentoo-patches-${PV}
 BINPKG=${P/-bin}-1
-SHA256SUM_DATE=20260627
+SHA256SUM_DATE=20260705
 
 DESCRIPTION="Pre-built Linux kernel with Gentoo patches"
 HOMEPAGE="
@@ -52,7 +52,6 @@ BDEPEND="
 	app-alternatives/lex
 	app-alternatives/yacc
 	dev-util/pahole
-	sys-libs/binutils-libs
 	virtual/libelf
 	amd64? ( app-crypt/sbsigntools )
 	arm64? ( app-crypt/sbsigntools )

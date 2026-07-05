@@ -8,7 +8,7 @@ inherit dist-kernel-utils toolchain-funcs verify-sig
 BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
 PATCHSET=linux-gentoo-patches-${PV}
-SHA256SUM_DATE=20260609
+SHA256SUM_DATE=20260705
 
 DESCRIPTION="Minimal subset of gentoo-kernel-bin for building modules, for containers"
 HOMEPAGE="
@@ -40,7 +40,6 @@ BDEPEND="
 	app-alternatives/lex
 	app-alternatives/yacc
 	dev-util/pahole
-	sys-libs/binutils-libs
 	virtual/libelf
 	verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 )
 "

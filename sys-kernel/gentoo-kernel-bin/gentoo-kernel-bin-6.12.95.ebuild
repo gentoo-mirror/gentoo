@@ -11,7 +11,7 @@ BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
 PATCHSET=linux-gentoo-patches-${PV}
 BINPKG=${P/-bin}-1
-SHA256SUM_DATE=20260627
+SHA256SUM_DATE=20260705
 
 DESCRIPTION="Pre-built Linux kernel with Gentoo patches"
 HOMEPAGE="
@@ -50,10 +50,9 @@ PDEPEND="
 BDEPEND="
 	app-alternatives/bc
 	app-alternatives/lex
-	app-alternatives/yacc
 	dev-util/pahole
-	sys-libs/binutils-libs
 	virtual/libelf
+	app-alternatives/yacc
 	amd64? ( app-crypt/sbsigntools )
 	arm64? ( app-crypt/sbsigntools )
 	verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 )
