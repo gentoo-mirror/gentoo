@@ -131,6 +131,7 @@ CPU_REQUIRED_USE="
 REQUIRED_USE="
 	${CPU_REQUIRED_USE}
 	|| ( cuda libdrm wayland X )
+	pipewire? ( wayland )
 "
 
 CDEPEND="

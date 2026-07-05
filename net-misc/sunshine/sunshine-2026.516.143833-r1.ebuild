@@ -131,6 +131,7 @@ CPU_REQUIRED_USE="
 REQUIRED_USE="
 	${CPU_REQUIRED_USE}
 	|| ( cuda libdrm wayland X )
+	pipewire? ( wayland )
 "
 
 CDEPEND="
@@ -208,6 +209,7 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/${PN}-2026.516.143833-git-if-needed.patch
 	"${FILESDIR}"/${PN}-2026.516.143833-no-drm.patch
+	"${FILESDIR}"/${PN}-2026.516.143833-no-wayland.patch
 	"${FILESDIR}"/${PN}-new-boost.patch
 	"${FILESDIR}"/${PN}-new-cuda.patch
 )
