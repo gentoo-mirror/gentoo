@@ -1,11 +1,11 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_NO_NORMALIZE=1
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -27,13 +27,22 @@ BDEPEND="
 	test? ( ${PDEPEND} )
 "
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_prepare() {
+	local PATCHES=(
+		# 98f7b308148f3670b0c1bd45c0a9a62e781d782b upstream
+		"${FILESDIR}/${P}-test.patch"
+		# https://github.com/sphinx-doc/sphinxcontrib-jsmath/pull/32 (rebased)
+		"${FILESDIR}/${P}-sphinx-8.2.patch"
+	)
+
+	distutils-r1_src_prepare
+
 	# This is already fixed in upstream, remove it on next version bump,
 	# see https://github.com/sphinx-doc/sphinxcontrib-jsmath/pull/10
 	sed -i 's/.text()/.read_text()/' tests/test_jsmath.py || die
-	distutils-r1_src_prepare
 }
 
 python_compile() {
