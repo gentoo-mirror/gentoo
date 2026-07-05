@@ -1,0 +1,17 @@
+BDEPEND=dev-build/cmake sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile install postinst prepare pretend setup
+DEPEND=llvm-core/clang:22 llvm-core/llvm:22 llvm-core/lld:22
+DESCRIPTION=Clang/LLVM based mingw64 toolchain
+EAPI=8
+HOMEPAGE=https://www.mingw-w64.org/
+INHERIT=autotools edo ninja-utils flag-o-matic toolchain-funcs
+IUSE=+arm64-pe +arm64ec-pe custom-cflags i686-pe +strip x86-64-pe
+KEYWORDS=~amd64 ~arm64
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT ) ZPL BSD BSD-2 ISC LGPL-2+ LGPL-2.1+ MIT public-domain
+RDEPEND=llvm-core/clang:22 llvm-core/llvm:22 llvm-core/lld:22
+REQUIRED_USE=arm64ec-pe? ( arm64-pe ) || ( arm64-pe arm64ec-pe i686-pe x86-64-pe )
+RESTRICT=strip
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v13.0.0.tar.bz2 https://github.com/llvm/llvm-project/releases/download/llvmorg-22.1.4/llvm-project-22.1.4.src.tar.xz
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	flag-o-matic	fd3558f73f6503093adee69adf41020d
+_md5_=bf7cfb3fdff1b80accfd1dd7f8d96a06

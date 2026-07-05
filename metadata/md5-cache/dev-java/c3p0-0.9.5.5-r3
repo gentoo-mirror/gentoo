@@ -1,0 +1,15 @@
+BDEPEND=>=dev-java/ant-1.10.15-r1:0
+DEFINED_PHASES=compile install preinst prepare setup
+DEPEND=>=dev-java/log4j-12-api-2.25.2:0 >=virtual/jdk-1.8:* >=dev-java/mchange-commons-0.2.20-r1:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+DESCRIPTION=JDBC drivers with JNDI-bindable DataSources
+EAPI=9
+HOMEPAGE=https://www.mchange.com/projects/c3p0/
+INHERIT=java-pkg-2
+IUSE=doc examples source
+KEYWORDS=~amd64 ~ppc64
+LICENSE=|| ( EPL-1.0 LGPL-2.1 )
+RDEPEND=!<app-forensics/sleuthkit-4.12.1-r3:0 >=virtual/jre-1.8:* >=dev-java/mchange-commons-0.2.20-r1:0 >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/c3p0/c3p0-src/c3p0-0.9.5.5/c3p0-0.9.5.5.src.tgz
+_eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813
+_md5_=4c3c37d5e79998c30457ab481e02dbd4
