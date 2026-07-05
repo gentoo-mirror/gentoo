@@ -45,7 +45,6 @@ DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig
 	python? (
 		>=dev-lang/swig-2.0.9
-		dev-python/pip[${PYTHON_USEDEP}]
 		${PYTHON_DEPS}
 		${DISTUTILS_DEPS}
 	)

@@ -8,10 +8,10 @@ inherit toolchain-funcs
 MY_PV="${PV//_/-}"
 MY_P="${PN}-${MY_PV}"
 
-DESCRIPTION="SELinux policy module utilities"
+DESCRIPTION="SELinux policy compiler"
 HOMEPAGE="https://github.com/SELinuxProject/selinux/wiki"
 
-if [[ ${PV} == *9999 ]] ; then
+if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/SELinuxProject/selinux.git"
 	S="${WORKDIR}/${P}/${PN}"
@@ -23,20 +23,31 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="debug"
 
-DEPEND=">=sys-libs/libsepol-${PV}:="
-RDEPEND="${DEPEND}"
-
-src_prepare() {
-	default
-
-	sed -i 's/-Werror//g' "${S}"/*/Makefile || die "Failed to remove Werror"
-}
+RDEPEND=">=sys-libs/libsepol-${PV}:=[static-libs(+)]"
+DEPEND="${RDEPEND}"
+BDEPEND="sys-devel/flex
+	sys-devel/bison"
 
 src_compile() {
-	emake CC="$(tc-getCC)"
+	emake \
+		CC="$(tc-getCC)" \
+		YACC="bison -y" \
+		LIBDIR="\$(PREFIX)/$(get_libdir)"
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
+	default
+
+	if use debug; then
+		dobin "${S}/test/dismod"
+		dobin "${S}/test/dispol"
+	fi
+}
+
+pkg_postinst() {
+	if ! tc-is-cross-compiler; then
+		einfo "This checkpolicy can compile version `checkpolicy -V | cut -f 1 -d ' '` policy."
+	fi
 }
