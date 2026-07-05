@@ -35,6 +35,9 @@ RDEPEND="
 	virtual/libelf
 	!sys-kernel/gentoo-kernel-bin:${SLOT}
 "
+PDEPEND="
+	>=virtual/dist-kernel-${PV}
+"
 BDEPEND="
 	app-alternatives/bc
 	app-alternatives/lex
