@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit elisp-common distutils-r1 optfeature
 
 if [[ ${PV} == *9999 ]] ; then
@@ -55,6 +55,10 @@ BDEPEND="${RDEPEND}
 "
 
 SITEFILE="50${PN}-gentoo.el"
+
+PATCHES=(
+	"${FILESDIR}"/${P}-py315.patch
+)
 
 EPYTEST_PLUGINS=( pkgcore )
 distutils_enable_tests pytest
