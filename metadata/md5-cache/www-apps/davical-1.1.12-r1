@@ -11,5 +11,5 @@ LICENSE=GPL-2 GPL-2+ GPL-3+ LGPL-2.1+ LGPL-3+
 RDEPEND=app-admin/pwgen || ( ( dev-lang/php:8.2[calendar,curl,iconv,imap,nls,pdo,postgres,xml] virtual/httpd-php:8.2 ) ( dev-lang/php:8.3[calendar,curl,iconv,imap,nls,pdo,postgres,xml] virtual/httpd-php:8.3 ) ) dev-perl/DBD-Pg dev-perl/DBI dev-perl/YAML >=dev-php/awl-0.64 app-admin/webapp-config
 SLOT=1.1.12-r1
 SRC_URI=https://www.davical.org/downloads/davical_1.1.12.orig.tar.xz -> davical-1.1.12.tar.xz
-_eclasses_=optfeature	538bce96e5589935b57e178e8635f301	webapp	5fa840db95fc7348dfd53b8526ed05f5
+_eclasses_=webapp	5fa840db95fc7348dfd53b8526ed05f5	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988
 _md5_=9a1ac79d9f9832ebb1e9527afaeca9d8
