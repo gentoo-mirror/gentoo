@@ -38,15 +38,14 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-6.3.2-ignore-deprecationwarning.patch"
+	# https://github.com/tornadoweb/tornado/pull/3678
+	"${FILESDIR}/${P}-pycurl-7.47.0.patch"
 )
 
 src_prepare() {
 	# network-sandbox? ipv6?
 	sed -i -e 's:test_localhost:_&:' \
 		tornado/test/netutil_test.py || die
-	# https://github.com/tornadoweb/tornado/issues/3674
-	sed -i -e '/credentials in URL/d' \
-		tornado/test/httpclient_test.py || die
 
 	distutils-r1_src_prepare
 }

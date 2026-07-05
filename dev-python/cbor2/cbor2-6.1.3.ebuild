@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYPI_VERIFY_REPO=https://github.com/agronholm/cbor2
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 RUST_MIN_VER="1.85.0"
 CRATES="
@@ -25,10 +25,11 @@ CRATES="
 	portable-atomic@1.13.1
 	proc-macro2@1.0.106
 	pyo3-build-config@0.28.2
-	pyo3-ffi@0.28.2
-	pyo3-macros-backend@0.28.2
-	pyo3-macros@0.28.2
-	pyo3@0.28.2
+	pyo3-build-config@0.29.0
+	pyo3-ffi@0.29.0
+	pyo3-macros-backend@0.29.0
+	pyo3-macros@0.29.0
+	pyo3@0.29.0
 	quote@1.0.44
 	syn@2.0.117
 	target-lexicon@0.13.5
@@ -52,7 +53,7 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~loong ~mips ~ppc ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 BDEPEND="
 	>=dev-python/setuptools-61[${PYTHON_USEDEP}]
