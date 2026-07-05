@@ -7,7 +7,7 @@ EAPI=8
 # check Fedora's packaging (https://src.fedoraproject.org/rpms/audit/tree/rawhide)
 # on bumps (or if hitting a bug) to see what they've done there.
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 TMPFILES_OPTIONAL=1
 
 inherit autotools multilib-minimal toolchain-funcs python-r1 linux-info systemd tmpfiles usr-ldscript
@@ -38,9 +38,7 @@ DEPEND="
 BDEPEND="
 	python? (
 		dev-lang/swig
-		$(python_gen_cond_dep '
-			dev-python/setuptools[${PYTHON_USEDEP}]
-		' python3_12)
+		dev-python/setuptools[${PYTHON_USEDEP}]
 	)
 "
 IDEPEND="!build? ( virtual/tmpfiles )"
@@ -118,6 +116,8 @@ src_configure() {
 multilib_src_compile() {
 	default
 
+	# We could copy this for tests but the only thing the bindings do
+	# in check-local is rebuild (!) with -Wl,--no-undefined.
 	if multilib_is_native_abi; then
 		local native_build="${BUILD_DIR}"
 
