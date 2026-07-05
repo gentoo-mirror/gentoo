@@ -203,6 +203,13 @@ src_configure() {
 	econf "${myconf[@]}"
 }
 
+src_test() {
+	# the only tests run by Mutt are source-code checks: security
+	# pattens, tabs and shellchecks -- none test the actual product
+	# bug 978743
+	:
+}
+
 src_install() {
 	emake DESTDIR="${D}" install
 	insinto /etc/${PN}
