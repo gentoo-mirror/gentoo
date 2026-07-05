@@ -82,6 +82,7 @@ python_test() {
 	# PYTHONPATH, so they get actually found and used. In
 	# particular, already installed versions on the system are not
 	# used.
+	local dir
 	for dir in audit2allow chcat semanage sepolgen/src sepolicy ; do
 		PYTHONPATH="${S}/${dir}:${PYTHONPATH}"
 	done
