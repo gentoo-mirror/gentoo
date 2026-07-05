@@ -1,11 +1,11 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 JAVA_PKG_IUSE="doc source test"
-MAVEN_ID="commons-beanutils:commons-beanutils:1.11.0"
 JAVA_TESTING_FRAMEWORKS="junit-vintage"
+MAVEN_ID="commons-beanutils:commons-beanutils:1.11.0"
 
 inherit java-pkg-2 java-pkg-simple junit5 verify-sig
 
@@ -21,16 +21,18 @@ S="${WORKDIR}/${P}-src"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 ppc64 ~x64-macos"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x64-macos"
 IUSE="log4j"
 
-BDEPEND="verify-sig? ( sec-keys/openpgp-keys-ggregory )"
+BDEPEND="verify-sig? ( sec-keys/openpgp-keys-apache-commons )"
 COMMON_DEPEND="
 	dev-java/commons-collections:0
-	>=dev-java/commons-logging-1.3.5:0[log4j=]
+	>=dev-java/commons-logging-1.3.5-r1:0[log4j=]
 	log4j? (
-		dev-java/log4j-12-api:2
-		dev-java/log4j-api:2
+		>=dev-java/jakarta-activation-api-1.2.2-r1:1
+		>=dev-java/jnacl-1.0-r1:0
+		>=dev-java/log4j-12-api-2.25.2:0
+		>=dev-java/snakeyaml-2.5:0
 	)
 "
 
@@ -61,7 +63,7 @@ JAVA_SRC_DIR="src/main/java"
 JAVA_TEST_GENTOO_CLASSPATH="junit-4 junit-5 opentest4j"
 JAVA_TEST_RESOURCE_DIRS="data"
 JAVA_TEST_SRC_DIR=( src/test/java )
-VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/ggregory.asc"
+VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/commons.apache.org.asc"
 
 src_unpack() {
 	if use verify-sig; then
@@ -71,14 +73,11 @@ src_unpack() {
 }
 
 src_prepare() {
-	default #780585
 	java-pkg-2_src_prepare
 
 	if use log4j; then
-		JAVA_GENTOO_CLASSPATH+="
-			log4j-12-api-2
-			log4j-api-2
-		"
+		JAVA_GENTOO_CLASSPATH_EXTRA="$(java-pkg_getjars --build-only --with-dependencies \
+			jakarta-activation-api-1,jnacl,log4j-12-api,snakeyaml)"
 	fi
 }
 
@@ -103,6 +102,10 @@ src_test() {
 		JAVA_TEST_EXTRA_ARGS+=( --add-opens=java.base/java.{io,lang,util,time,time.chrono}=ALL-UNNAMED )
 	fi
 
+	# JAVA_TEST_RUN_ONLY=(
+	# 	org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase
+	# 	org.apache.commons.beanutils.locale.converters.FloatLocaleConverterTestCase
+	# )
 	junit5_src_test
 }
 

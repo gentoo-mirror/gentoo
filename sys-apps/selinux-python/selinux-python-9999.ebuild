@@ -39,6 +39,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
+	dev-python/build[${PYTHON_USEDEP}]
 	test? (
 		${RDEPEND}
 		sec-policy/selinux-base
