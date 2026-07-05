@@ -15,19 +15,20 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 X86_CPU_FLAGS=(
-	sse4_2
 	avx
-	f16c
+	avx_vnni
 	avx2
-	bmi2
-	fma3
+	avx512bw
 	avx512f
 	avx512vbmi
 	avx512_vnni
-	avx_vnni
+	bmi2
+	fma3
+	f16c
+	sse4_2
 )
 CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
-IUSE="${CPU_FLAGS[*]} +openmp test"
+IUSE="${CPU_FLAGS[*]} openmp test"
 
 RESTRICT="!test? ( test )"
 
