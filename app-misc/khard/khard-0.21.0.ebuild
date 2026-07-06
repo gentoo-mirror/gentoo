@@ -1,47 +1,33 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{10..13} )
-inherit distutils-r1
+PYTHON_COMPAT=( python3_{11..14} )
+inherit distutils-r1 pypi shell-completion
 
-DESCRIPTION="Console CardDAV client"
+DESCRIPTION="Console vCard address book"
 HOMEPAGE="
 	https://github.com/lucc/khard
 	https://pypi.org/project/khard/
 "
-
 LICENSE="GPL-3"
 SLOT="0"
-
-if [[ "${PV}" == *9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/lucc/khard"
-else
-	inherit pypi
-	KEYWORDS="amd64 arm arm64 x86"
-fi
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
-	dev-python/atomicwrites[${PYTHON_USEDEP}]
-	dev-python/configobj[${PYTHON_USEDEP}]
-	dev-python/ruamel-yaml[${PYTHON_USEDEP}]
-	dev-python/ruamel-yaml-clib[${PYTHON_USEDEP}]
-	dev-python/unidecode[${PYTHON_USEDEP}]
+	>=dev-python/configobj-5.0.6[${PYTHON_USEDEP}]
+	>=dev-python/ruamel-yaml-0.17.0[${PYTHON_USEDEP}]
 	dev-python/vobject[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
 		dev-python/setuptools-scm[${PYTHON_USEDEP}]
 	)
-	doc? (
-		dev-python/sphinx-autoapi
-		dev-python/sphinx-rtd-theme
-		dev-python/sphinx-autodoc-typehints
-	)
 "
+
+PATCHES=( "${FILESDIR}/khard-0.21.0-musl-testfix.patch" )
 
 DOCS=(
 	CHANGES
@@ -52,8 +38,10 @@ DOCS=(
 
 distutils_enable_tests unittest
 distutils_enable_sphinx docs \
+	dev-python/sphinx-argparse \
 	dev-python/sphinx-autoapi \
-	dev-python/sphinx-autodoc-typehints
+	dev-python/sphinx-autodoc-typehints \
+	dev-python/sphinx-rtd-theme
 
 python_compile_all() {
 	if use doc; then
@@ -79,8 +67,7 @@ python_install_all() {
 		doinfo doc/build/texinfo/*.info
 	fi
 
-	insinto /usr/share/zsh/site-functions
-	doins misc/zsh/_khard
+	dozshcomp misc/zsh/_khard
 
 	distutils-r1_python_install_all
 }
