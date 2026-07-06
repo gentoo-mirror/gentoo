@@ -38,6 +38,7 @@ PATCHES=(
 	"${FILESDIR}"/${P}-ggml.patch
 	"${FILESDIR}"/${P}-llamaDL.patch
 	"${FILESDIR}"/${P}-cmake.patch
+	"${FILESDIR}"/${P}-nostrip.patch
 )
 
 src_prepare() {
