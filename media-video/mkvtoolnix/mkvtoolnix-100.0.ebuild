@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools flag-o-matic multiprocessing prefix qmake-utils toolchain-funcs xdg
+inherit autotools flag-o-matic multiprocessing prefix qt-utils toolchain-funcs xdg
 
 if [[ ${PV} == *9999 ]] ; then
 	inherit git-r3
@@ -17,9 +17,7 @@ else
 		https://mkvtoolnix.download/sources/${P}.tar.xz
 		verify-sig? ( https://mkvtoolnix.download/sources/${P}.tar.xz.sig )
 	"
-	KEYWORDS="amd64 ~arm ~arm64 ppc ppc64 x86"
-
-	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/mkvtoolnix.asc"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 fi
 
 DESCRIPTION="Tools to create, alter, and inspect Matroska files"
@@ -71,7 +69,8 @@ BDEPEND="
 "
 
 if [[ ${PV} != *9999 ]] ; then
-	BDEPEND+="verify-sig? ( sec-keys/openpgp-keys-mkvtoolnix )"
+	BDEPEND+="verify-sig? ( sec-keys/openpgp-keys-moritzbunkus )"
+	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/moritzbunkus.asc"
 fi
 
 pkg_setup() {
@@ -103,7 +102,11 @@ src_prepare() {
 	fi
 
 	# bug #692018
-	sed -i -e 's/pandoc/diSaBlEd/' ac/pandoc.m4 || die
+	sed -e 's/pandoc/diSaBlEd/' \
+		-e 's/convert/diSaBlEd/' \
+		-e 's/inkscape/diSaBlEd/' \
+		-e 's/magick/diSaBlEd/' \
+		-i ac/tools.m4 || die
 
 	# bug #928463
 	hprefixify "${S}/ac/ax_docbook.m4"

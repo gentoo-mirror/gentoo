@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/hughsie.asc
 inherit meson python-any-r1 verify-sig
 
@@ -21,7 +21,7 @@ IUSE="doc introspection +lzma stemmer test +zstd"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	dev-libs/glib:2
+	>=dev-libs/glib-2.56.0:2
 	lzma? ( app-arch/xz-utils )
 	stemmer? ( dev-libs/snowball-stemmer:= )
 	zstd? ( app-arch/zstd:= )

@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit autotools flag-o-matic java-pkg-opt-2 multilib-minimal python-single-r1 virtualx
 
 DESCRIPTION="Library and tools for reading barcodes from images or video"
@@ -31,7 +31,7 @@ COMMON_DEPEND="
 	gtk? (
 		dev-libs/glib:2[${MULTILIB_USEDEP}]
 		x11-libs/gdk-pixbuf:2[introspection?]
-		x11-libs/gtk+:3[${MULTILIB_USEDEP},introspection?]
+		x11-libs/gtk+:3[${MULTILIB_USEDEP},introspection?,X?]
 		introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2 )
 	)
 	imagemagick? (
@@ -123,6 +123,9 @@ src_prepare() {
 
 multilib_src_configure() {
 	append-cppflags -DNDEBUG
+
+	# bug #957827
+	use X || append-cppflags -DGENTOO_GTK_HIDE_X11
 
 	local myeconfargs=(
 		--without-qt # bug 947629

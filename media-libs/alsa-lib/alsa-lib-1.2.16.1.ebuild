@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..13} )
-inherit autotools multilib-minimal flag-o-matic python-single-r1
+PYTHON_COMPAT=( python3_{12..15} )
+inherit autotools multilib-minimal flag-o-matic toolchain-funcs python-single-r1
 
 DESCRIPTION="Advanced Linux Sound Architecture Library"
 HOMEPAGE="https://alsa-project.org/wiki/Main_Page"
@@ -14,13 +14,20 @@ if [[ ${PV} == *_p* ]] ; then
 	SRC_URI="https://git.alsa-project.org/?p=${PN}.git;a=snapshot;h=${COMMIT};sf=tgz -> ${P}.tar.gz"
 	S="${WORKDIR}"/${PN}-${COMMIT:0:7}
 else
-	# TODO: Upstream does publish .sig files, so someone could implement verify-sig ;)
-	SRC_URI="https://www.alsa-project.org/files/pub/lib/${P}.tar.bz2"
+	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/alsa.asc
+	inherit verify-sig
+
+	SRC_URI="
+		https://www.alsa-project.org/files/pub/lib/${P}.tar.bz2
+		verify-sig? ( https://www.alsa-project.org/files/pub/lib/${P}.tar.bz2.sig )
+	"
+
+	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-alsa )"
 fi
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="debug doc python"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -30,7 +37,7 @@ RDEPEND="
 	python? ( ${PYTHON_DEPS} )
 "
 DEPEND="${RDEPEND}"
-BDEPEND="doc? ( >=app-text/doxygen-1.2.6 )"
+BDEPEND+=" doc? ( >=app-text/doxygen-1.2.6 )"
 
 PATCHES=(
 	"${FILESDIR}/${PN}-1.1.6-missing_files.patch" # bug #652422
@@ -51,15 +58,8 @@ src_prepare() {
 }
 
 multilib_src_configure() {
-	# Tests fail to build w/ C23 (bug #944447)
-	append-cflags -std=gnu17
-
-	# Broken upstream. Could in theory work with -flto-partitions=none
-	# but it's a hack to workaround the real problem and not strictly safe.
 	# bug #616108, bug #669086, and https://github.com/alsa-project/alsa-lib/issues/6.
-	# (This bug is closed as of 1.2.9 but there's been no clear actual fix to it.
-	# Let us know if you can identify one.)
-	filter-lto
+	tc-is-clang && filter-lto
 
 	local myeconfargs=(
 		--disable-maintainer-mode

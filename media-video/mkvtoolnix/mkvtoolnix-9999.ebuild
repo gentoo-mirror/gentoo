@@ -102,7 +102,11 @@ src_prepare() {
 	fi
 
 	# bug #692018
-	sed -i -e 's/pandoc/diSaBlEd/' ac/pandoc.m4 || die
+	sed -e 's/pandoc/diSaBlEd/' \
+		-e 's/convert/diSaBlEd/' \
+		-e 's/inkscape/diSaBlEd/' \
+		-e 's/magick/diSaBlEd/' \
+		-i ac/tools.m4 || die
 
 	# bug #928463
 	hprefixify "${S}/ac/ax_docbook.m4"
