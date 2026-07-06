@@ -81,7 +81,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.5.8-cmake.patch # bug 886251
 	"${FILESDIR}"/${PN}-1.5.3-fpic.patch
 	"${FILESDIR}"/${PN}-1.7.0-findhyphen.patch
-	"${FILESDIR}"/${PN}-1.7.0-dont-install-qtadvanceddocking.patch # bugs 961290, 960017
+	"${FILESDIR}"/${PN}-1.7.4-dont-install-qtadvanceddocking.patch # bugs 961290, 960017
 	"${FILESDIR}"/${PN}-1.7.0-fix-icon-version.patch
 )
 
