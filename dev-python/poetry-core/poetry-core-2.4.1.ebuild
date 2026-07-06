@@ -5,8 +5,8 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
 PYPI_VERIFY_REPO=https://github.com/python-poetry/poetry-core
-PYTHON_TESTED=( pypy3_11 python3_{11..14} )
-PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" python3_15 )
+PYTHON_TESTED=( python3_{12..15} )
+PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" )
 
 inherit distutils-r1 pypi
 
