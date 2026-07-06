@@ -33,7 +33,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0/$(ver_cut 1-2)"
-IUSE="+crypt doc examples +slz +net_ns +pcre pcre-jit prometheus-exporter
+IUSE="+crypt doc examples +slz +net_ns +pcre pcre-jit prometheus-exporter quic
 selinux ssl systemd test +threads tools zlib lua 51degrees wurfl"
 REQUIRED_USE="pcre-jit? ( pcre )
 	lua? ( ${LUA_REQUIRED_USE} )
@@ -50,6 +50,9 @@ DEPEND="
 	ssl? (
 		dev-libs/openssl:0=
 	)
+	quic? (
+		>=dev-libs/openssl-3.5.0:0=
+	)
 	systemd? ( sys-apps/systemd )
 	zlib? ( virtual/zlib:= )
 	lua? ( ${LUA_DEPS} )
@@ -62,7 +65,7 @@ RDEPEND="${DEPEND}
 	acct-user/haproxy
 	selinux? ( sec-policy/selinux-haproxy )"
 
-DOCS=( CHANGELOG CONTRIBUTING MAINTAINERS README )
+DOCS=( CHANGELOG CONTRIBUTING MAINTAINERS )
 EXTRAS=( admin/halog admin/iprange dev/tcploop dev/hpack )
 
 haproxy_use() {
@@ -114,29 +117,28 @@ src_compile() {
 	args+=( $(haproxy_use lua LUA) )
 	args+=( $(haproxy_use 51degrees 51DEGREES) )
 	args+=( $(haproxy_use wurfl WURFL) )
-	args+=( $(haproxy_use systemd SYSTEMD) )
 	args+=( $(haproxy_use prometheus-exporter PROMEX) )
+	args+=( $(haproxy_use quic QUIC) )
 
 	# Bug #668002
 	if use ppc || use arm || use hppa; then
 		TARGET_LDFLAGS=-latomic
 	fi
 
-	# HAProxy really needs some of those "SPEC_CFLAGS", like -fno-strict-aliasing
-	emake CFLAGS="${CFLAGS} \$(SPEC_CFLAGS)" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" EXTRA_OBJS="${EXTRA_OBJS}" \
+	emake CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" EXTRA_OBJS="${EXTRA_OBJS}" \
 		TARGET_LDFLAGS="${TARGET_LDFLAGS}" PCRE_LIB="${ESYSROOT}"/usr/$(get_libdir) ${args[@]}
-	emake -C admin/systemd CFLAGS="${CFLAGS} \$(SPEC_CFLAGS)" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" \
+	emake -C admin/systemd CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" \
 		EXTRA_OBJS="${EXTRA_OBJS}" TARGET_LDFLAGS="${TARGET_LDFLAGS}" PCRE_LIB="${ESYSROOT}"/usr/$(get_libdir) \
 		SBINDIR=/usr/sbin
 
 	if use tools ; then
 		for extra in ${EXTRAS[@]} ; do
 			if [ "${extra}" = "admin/halog" ]; then
-				emake CFLAGS="${CFLAGS} \$(SPEC_CFLAGS)" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" \
+				emake CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" \
 					EXTRA_OBJS="${EXTRA_OBJS}" TARGET_LDFLAGS="${TARGET_LDFLAGS}" \
 					PCRE_LIB="${ESYSROOT}"/usr/$(get_libdir) ${args[@]} admin/halog/halog
 			elif [ "${extra}" = "dev/hpack" ]; then
-				emake CFLAGS="${CFLAGS} \$(SPEC_CFLAGS)" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" \
+				emake CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" \
 					EXTRA_OBJS="${EXTRA_OBJS}" TARGET_LDFLAGS="${TARGET_LDFLAGS}" \
 					PCRE_LIB="${ESYSROOT}"/usr/$(get_libdir) ${args[@]} dev/hpack/{decode,gen-enc,gen-rht}
 			else
