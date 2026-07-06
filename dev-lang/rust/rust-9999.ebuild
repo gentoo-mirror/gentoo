@@ -6,7 +6,7 @@ EAPI=8
 # Bump notes: https://wiki.gentoo.org/wiki/Project:Rust/Rust_bump
 
 LLVM_COMPAT=( 22 )
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 # Patches are kept in rust-patches.git, see its README.rst for the versioning
 # scheme.
@@ -24,7 +24,7 @@ RUST_P=${PN}-${RUST_PV}
 
 if [[ ${PV} == *9999* ]]; then
 	# Update this as new `beta` releases come out.
-	RUST_MIN_VER="1.94.0"
+	RUST_MIN_VER="1.96.0"
 elif [[ ${PV} == *beta* ]]; then
 	RUST_MIN_VER="$(ver_cut 1).$(($(ver_cut 2) - 1)).0"
 else
@@ -367,11 +367,12 @@ src_configure() {
 	if tc-is-cross-compiler; then
 		export PKG_CONFIG_ALLOW_CROSS=1
 
+		local rust_host_triple="$(rust_abi "${CHOST}")"
+
 		# https://docs.rs/pkg-config/latest/pkg_config/#cross-compilation
 		local pcvar
 		for pcvar in PKG_CONFIG_{PATH,LIBDIR} ; do
-			pcvar="${pcvar}_${CHOST//./_}"
-			pcvar="${pcvar//-/_}"
+			pcvar="${pcvar}_${rust_host_triple//-/_}"
 
 			[[ -n ${!pcvar} ]] && continue
 
@@ -393,7 +394,7 @@ src_configure() {
 		# https://docs.rs/openssl/latest/openssl/#manual
 		local osslvar
 		for osslvar in OPENSSL_{INCLUDE_,LIB_,}DIR ; do
-			osslvar="${CHOST}_${osslvar}"
+			osslvar="${rust_host_triple}_${osslvar}"
 			osslvar="${osslvar^^}"
 			osslvar="${osslvar//-/_}"
 
