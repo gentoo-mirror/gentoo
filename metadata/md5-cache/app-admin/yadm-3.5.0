@@ -1,4 +1,4 @@
-BDEPEND=test? ( app-crypt/gnupg app-shells/bash dev-vcs/git || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) || ( ( dev-lang/python:3.14 dev-python/pytest[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/pytest[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] ) ) dev-tcltk/expect )
+BDEPEND=test? ( app-crypt/gnupg app-shells/bash dev-vcs/git || ( dev-lang/python:3.15 dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) || ( ( dev-lang/python:3.15 dev-python/pytest[python_targets_python3_15(-)] ) ( dev-lang/python:3.14 dev-python/pytest[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/pytest[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pytest[python_targets_python3_12(-)] ) ) dev-tcltk/expect )
 DEFINED_PHASES=compile install setup test
 DESCRIPTION=Git based tool for managing dotfiles
 EAPI=8
@@ -12,4 +12,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/yadm-dev/yadm/archive/3.5.0.tar.gz -> yadm-3.5.0.tar.gz
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	18a01bee4e486884d7457cfacde74099	python-any-r1	891415dfe39ad9b41b461f2b86354af0	shell-completion	63a62de3ca49c798ee6e89f190e45d0e
-_md5_=a809d69505b4def9ef127ff28901e1fd
+_md5_=162f0166a3fbd9a10c5dcf89a1e85160
