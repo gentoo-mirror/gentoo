@@ -28,9 +28,15 @@ X86_CPU_FLAGS=(
 	sse4_2
 )
 CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
-IUSE="${CPU_FLAGS[*]} openmp test"
+IUSE="${CPU_FLAGS[*]} openmp test vulkan"
 
 RESTRICT="!test? ( test )"
+
+RDEPEND="vulkan? ( media-libs/vulkan-loader )"
+DEPEND="${RDEPEND}
+	vulkan? ( dev-util/vulkan-headers )
+"
+BDEPEND="vulkan? ( media-libs/shaderc )"
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -58,6 +64,7 @@ src_configure() {
 		-DGGML_SSE42=$(usex cpu_flags_x86_sse4_2)
 
 		-DGGML_OPENMP=$(usex openmp)
+		-DGGML_VULKAN=$(usex vulkan)
 
 		-DGGML_BUILD_TESTS=$(usex test)
 	)
