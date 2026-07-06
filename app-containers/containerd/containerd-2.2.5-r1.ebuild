@@ -2,8 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit go-module systemd
-GIT_REVISION=fb4c30d4ede3531652d86197bf3fc9515e5276d9
+
+inherit go-env go-module systemd toolchain-funcs
+
+GIT_REVISION=e53c7c1516c3b2bff98eb76f1f4117477e6f4e66
 
 DESCRIPTION="A daemon to control runC"
 HOMEPAGE="https://containerd.io/"
@@ -13,36 +15,28 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="amd64 ~arm arm64 ppc64 ~riscv ~x86"
 IUSE="apparmor btrfs device-mapper +cri +seccomp selinux test"
+# tests require root or docker
+RESTRICT="test"
 
-COMMON_DEPEND="
+DEPEND="
 	btrfs? ( sys-fs/btrfs-progs )
 	seccomp? ( sys-libs/libseccomp )
 "
-
-DEPEND="
-${COMMON_DEPEND}
-"
-
 # recommended minimum version of runc is found in script/setup/runc-version
-RDEPEND="
-	${COMMON_DEPEND}
-	>=app-containers/runc-1.2.6[apparmor?,seccomp?]
+RDEPEND="${DEPEND}
+	>=app-containers/runc-1.3.6[apparmor?,seccomp?]
 	selinux? ( sec-policy/selinux-docker )
 "
-
 BDEPEND="
 	dev-go/go-md2man
+	>=dev-lang/go-1.25.0
 	virtual/pkgconfig
 "
-
-# tests require root or docker
-RESTRICT+="test"
 
 src_prepare() {
 	default
 	sed -i \
 		-e "s/-s -w//" \
-		-e "s/-mod=readonly//" \
 		Makefile || die
 	sed -i \
 		-e "s:/usr/local:/usr:" \
@@ -59,17 +53,16 @@ src_compile() {
 		$(usev selinux)
 	)
 
-	myemakeargs=(
+	local myemakeargs=(
 		BUILDTAGS="${options[*]}"
 		REVISION="${GIT_REVISION}"
 		VERSION=v${PV}
 	)
 
-	# race condition in man target https://bugs.gentoo.org/765100
-	# we need to explicitly specify GOFLAGS for "go run" to use vendor source
-	emake "${myemakeargs[@]}" man -j1 #nowarn
 	emake "${myemakeargs[@]}" all
 
+	# race condition in man target https://bugs.gentoo.org/765100
+	tc-env_build go-env_run emake "${myemakeargs[@]}" man -j1 #nowarn
 }
 
 src_install() {

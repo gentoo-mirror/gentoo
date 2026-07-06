@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_USE_PEP517=standalone
 PYPI_PN=${PN#ensurepip-}
 # PYTHON_COMPAT used only for testing
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="xml(+)"
 
 inherit distutils-r1 pypi
