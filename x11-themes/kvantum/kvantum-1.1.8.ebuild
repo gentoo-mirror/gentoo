@@ -19,7 +19,7 @@ S="${WORKDIR}/${PN^}-${PV}/${PN^}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="kde"
 
 RESTRICT="test" # no tests
