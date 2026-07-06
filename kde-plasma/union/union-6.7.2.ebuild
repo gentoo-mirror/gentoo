@@ -15,7 +15,7 @@ https://files.quantumproductions.info/union/overview.html"
 
 LICENSE="|| ( LGPL-2.1 LGPL-3 ) GPL-3 BSD-2"
 SLOT="6"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~riscv ~x86"
 IUSE="tools widgets"
 
 # IUSE="svg"
