@@ -1,17 +1,17 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile install postinst postrm preinst prepare
-DEPEND=sys-libs/ncurses:= pcre? ( dev-libs/libpcre ) readline? ( sys-libs/readline:= ) elibc_musl? ( sys-libs/fts-standalone )
+DEPEND=sys-libs/ncurses:= pcre? ( dev-libs/libpcre2:= ) readline? ( sys-libs/readline:= ) elibc_musl? ( sys-libs/fts-standalone )
 DESCRIPTION=The missing terminal file browser for X
 EAPI=8
 HOMEPAGE=https://github.com/jarun/nnn
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=flag-o-matic shell-completion toolchain-funcs xdg
-IUSE=8contexts colemak emoji gitstatus icons namefirst nerdfonts pcre qsort +readline restorepreview
-KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~x86
+IUSE=colemak emoji gitstatus icons namefirst nerdfonts pcre qsort +readline restorepreview
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=BSD-2
-RDEPEND=sys-libs/ncurses:= pcre? ( dev-libs/libpcre ) readline? ( sys-libs/readline:= ) elibc_musl? ( sys-libs/fts-standalone )
+RDEPEND=sys-libs/ncurses:= pcre? ( dev-libs/libpcre2:= ) readline? ( sys-libs/readline:= ) elibc_musl? ( sys-libs/fts-standalone )
 REQUIRED_USE=?? ( icons nerdfonts emoji )
 SLOT=0
-SRC_URI=https://github.com/jarun/nnn/archive/v5.0.tar.gz -> nnn-5.0.tar.gz
+SRC_URI=https://github.com/jarun/nnn/archive/v5.2.tar.gz -> nnn-5.2.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	shell-completion	63a62de3ca49c798ee6e89f190e45d0e	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=0b8aedb679ead4dfbb3d3f649602741f
+_md5_=7c44dc3fbcb63c96cc3c2f51bb785c8b
