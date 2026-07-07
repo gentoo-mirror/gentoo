@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=standalone
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -30,10 +30,7 @@ BDEPEND="
 	dev-python/cython[${PYTHON_USEDEP}]
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-scm-8.0[${PYTHON_USEDEP}]
-	test? (
-		dev-python/pytest-trio[${PYTHON_USEDEP}]
-	)
 "
 
-EPYTEST_PLUGINS=()
+EPYTEST_PLUGINS=( pytest-trio )
 distutils_enable_tests pytest
