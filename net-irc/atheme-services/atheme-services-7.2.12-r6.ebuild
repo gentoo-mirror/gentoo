@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -32,8 +32,9 @@ BDEPEND="
 	virtual/pkgconfig"
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-7.2.10_p2-configure-logdir.patch
-	"${FILESDIR}"/${PN}-7.2.12-libathemecore-account-fix-assertion-macro-return-type.patch)
+	"${FILESDIR}"/${P}-configure-logdir.patch
+	"${FILESDIR}"/${P}-libathemecore-account-fix-assertion-macro-return-type.patch
+	"${FILESDIR}"/${P}-fix-compilation-with-recent-ExtUtils-ParseXS.patch)
 
 src_configure() {
 	# perl scriping module support is also broken in 7.0.0. Yay for QA failures.
