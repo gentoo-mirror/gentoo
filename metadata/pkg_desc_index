@@ -1868,7 +1868,7 @@ app-editors/pluma 1.28.0-r1 1.28.1: Pluma text editor for the MATE desktop
 app-editors/pluma-plugins 1.28.0 1.28.0-r1: A set of plugins for Pluma, the MATE text editor
 app-editors/pyvim 3.0.3: An implementation of Vim in Python
 app-editors/qemacs 0.4.1_pre20170225-r1: QEmacs is a very small but powerful UNIX editor
-app-editors/qhexedit2 0.9.0-r1: Hex editor library, Qt application written in C++ with Python bindings
+app-editors/qhexedit2 0.8.10-r2 0.9.0-r1: Hex editor library, Qt application written in C++ with Python bindings
 app-editors/remarkable 1.9.0_pre20210320-r3: Fully featured markdown editor, supports github markdown dialect
 app-editors/retext 8.0.2-r1 8.1.0 9999: Simple editor for Markdown and reStructuredText
 app-editors/sandy 0.4-r1: an ncurses text editor with an easy-to-read, hackable C source
@@ -3140,7 +3140,7 @@ app-shells/dash 0.5.12-r1 0.5.13.4 0.5.13.4-r1 0.5.13.4-r2 9999: Debian Almquist
 app-shells/dsh 0.25.10-r2: Distributed Shell
 app-shells/fish 4.5.0-r2 4.6.0 4.7.1 9999: Friendly Interactive SHell
 app-shells/fsh 1.0.0_p20220816-r2: F# Shell with integrated F# scripting
-app-shells/fzf 0.67.0 0.68.0 0.70.0 0.71.0 0.72.0 0.73.1: General-purpose command-line fuzzy finder, written in Golang
+app-shells/fzf 0.72.0 0.73.1 0.74.0: General-purpose command-line fuzzy finder, written in Golang
 app-shells/gash 0.3.0-r100: POSIX-compatible shell written in Guile Scheme
 app-shells/gentoo-bashcomp 20240625 20250620: Gentoo-specific bash command-line completions (emerge, ebuild, equery, etc)
 app-shells/gentoo-zsh-completions 20220112 20230117 20260628.1 99999999: Gentoo specific zsh completion support (includes emerge and ebuild commands)
@@ -3151,7 +3151,7 @@ app-shells/irregular 0.7.8: PowerShell module that helps to understand, use, and
 app-shells/ksh 1.0.4 1.0.8 1.0.9 1.0.10 9999: The Original ATT Korn Shell
 app-shells/kshdb 1.1.0: Korn Shell Debugger
 app-shells/linuxinfo 1.1.0: Get useful linux system information using PowerShell
-app-shells/liquidprompt 2.2.0 2.2.1: Full-featured & carefully designed adaptive prompt for Bash & Zsh
+app-shells/liquidprompt 2.2.1 2.3.0: Full-featured & carefully designed adaptive prompt for Bash & Zsh
 app-shells/localshell 1.3.4-r1: Localshell allows per-user/group local control of shell execution
 app-shells/loksh 7.8: Linux port of OpenBSD's ksh
 app-shells/mcfly 0.5.13-r1 0.9.0-r1 0.9.3: Context-aware bash history search replacement (ctrl-r)
@@ -3410,7 +3410,7 @@ app-text/ronn-ng 0.10.1: Builds manuals in HTML and Unix man page format from Ma
 app-text/rpl 1.15.5 1.18 2.0.4: Intelligent recursive search/replace utility
 app-text/rtf2html 0.2.0-r2: RTF to HTML converter
 app-text/sablotron 1.0.3-r3: An XSLT Parser in C++
-app-text/scdoc 1.11.4 9999: Standalone tool for generating man pages with a simple syntax
+app-text/scdoc 1.11.4 1.11.5 9999: Standalone tool for generating man pages with a simple syntax
 app-text/scrollkeeper-dtd 1.0-r2: DTD from the Scrollkeeper package
 app-text/sdcv 0.5.5: Console version of Stardict program
 app-text/sgml-common 0.6.3-r7: Base ISO character entities and utilities for SGML
@@ -4000,7 +4000,7 @@ dev-db/cdb 0.75-r4 0.75-r5: Fast, reliable, simple package for creating and read
 dev-db/citus 12.1.13 13.2.1 13.2.2 13.3.0 14.0.0 14.0.1 14.1.0 9999: Open-source postgresql extension for clustering/multi-node setups
 dev-db/cockroach 2.1.5-r1 19.1.1-r1: open source database for building cloud services
 dev-db/datadraw 3.1.1 3.1.1-r1: feature rich database generator for high performance C applications
-dev-db/dbeaver-bin 26.0.4 26.1.0: Free universal database tool (community edition)
+dev-db/dbeaver-bin 26.1.0 26.1.2: Free universal database tool (community edition)
 dev-db/duckdb 1.5.3 1.5.4: high-performance analytical database system
 dev-db/etcd 3.4.31 3.5.18 3.5.26 3.6.7 3.6.11: Highly-available key value store for shared configuration and service discovery
 dev-db/freetds 1.5 1.5.6: Tabular Datastream Library
@@ -4186,7 +4186,7 @@ dev-embedded/picprog 1.9.1: A PIC16, PIC18 and dsPIC microcontroller programmer 
 dev-embedded/pista 0.70: Commandline-driven interface to PICSTART+ PIC programmer
 dev-embedded/pk2cmd 1.20-r1: An application for working with the Microchip PicKit2 PIC programmer
 dev-embedded/platformio 6.1.19-r2: An open source ecosystem for IoT development
-dev-embedded/ponyprog 3.1.4_p20250501: EEPROM and microcontroller programmer/flasher
+dev-embedded/ponyprog 3.1.4_p20250501-r1: EEPROM and microcontroller programmer/flasher
 dev-embedded/powersoftplus-libftdi 0.1.8-r1: Library which includes a table of VIDs and PIDs of Ever UPS devices
 dev-embedded/raspberrypi-utils 0_p20240903 0_p20260527: Raspberry Pi userspace utilities
 dev-embedded/rpi-eeprom 28.10_p1-r1 28.12_p1 28.14_p1 28.15_p1 28.17_p1 28.24_p1 28.27_p1 28.28: Updater for Raspberry Pi 4/5 bootloader and the VL805 USB controller
@@ -8399,7 +8399,7 @@ dev-python/chainstream 1.0.2: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.6.0: Fast HTML/XML template compiler for Python
 dev-python/characteristic 14.3.0-r4: Python attributes without the boilerplate
 dev-python/chardet 6.0.0_p1: Universal encoding detector
-dev-python/charset-normalizer 3.4.7 3.4.8: The Real First Universal Charset Detector
+dev-python/charset-normalizer 3.4.7 3.4.9: The Real First Universal Charset Detector
 dev-python/chart-studio 1.1.0-r2: Browser-based graphing library for Python
 dev-python/cheetah3 3.4.0: Python-powered template engine and code generator
 dev-python/cheroot 11.1.2: High-performance, pure-Python HTTP server used by CherryPy
@@ -8508,7 +8508,7 @@ dev-python/distro 1.9.0: Reliable machine-readable Linux distribution informatio
 dev-python/dj-database-url 3.0.1 3.1.2: Use Database URLs in your Django Application
 dev-python/dj-email-url 1.0.6: Use an URL to configure email backend settings in your Django Application
 dev-python/dj-search-url 0.1-r1: Use Search URLs in your Django Haystack Application
-dev-python/django 5.2.15 6.0.6: High-level Python web framework
+dev-python/django 5.2.15 5.2.16 6.0.6 6.0.7: High-level Python web framework
 dev-python/django-auth-ldap 5.3.0: Django LDAP authentication backend
 dev-python/django-cache-url 3.4.6: Use Cache URLs in your Django application
 dev-python/django-cacheops 7.2: ORM cache with automatic granular event-driven invalidation for Django
@@ -9746,9 +9746,9 @@ dev-python/toolz 1.1.0: List processing tools and functional utilities
 dev-python/toposort 1.10: Implements a topological sort algorithm
 dev-python/tornado 6.5.6 6.5.7: Python web framework and asynchronous networking library
 dev-python/towncrier 25.8.0: Building newsfiles for your project
-dev-python/tox 4.55.1 4.56.1: virtualenv-based automation of test activities
+dev-python/tox 4.55.1 4.56.1 4.56.2: virtualenv-based automation of test activities
 dev-python/tpm2-pytss 2.3.0-r2: Python bindings for TSS
-dev-python/tqdm 4.67.3 4.68.1 4.68.2 4.68.3: Add a progress meter to your loops in a second
+dev-python/tqdm 4.67.3 4.68.1 4.68.2 4.68.3 4.68.4: Add a progress meter to your loops in a second
 dev-python/traitlets 5.15.1: A configuration system for Python applications
 dev-python/trakit 0.2.5: Guess additional information from titles in media tracks
 dev-python/transitions 0.9.3: A lightweight, object-oriented state machine implementation in Python
@@ -11106,7 +11106,7 @@ dev-util/patchutils 0.4.2 0.4.4-r1 0.4.4-r2 0.4.5-r1: Collection of tools that o
 dev-util/patdiff 0.16.0 0.17.0: Colored patience diffs with word-level refinement
 dev-util/peg 0.1.19 0.1.20: Recursive-descent parser generators for C
 dev-util/perf 6.19.12 7.0 7.1: Userland tools for Linux Performance Counters
-dev-util/pixi 0.71.3 0.72.0: A package management and workflow tool
+dev-util/pixi 0.71.3 0.72.0 0.72.1: A package management and workflow tool
 dev-util/pkgcheck 0.10.39-r1 0.10.40-r1 9999: pkgcore-based QA utility for ebuild repos
 dev-util/pkgconf 2.5.1 2.9.94 9999: pkg-config compatible replacement with no dependencies other than C99
 dev-util/pkgcruft 0.0.18-r1 9999: QA library and tools based on pkgcraft
