@@ -26,8 +26,8 @@ BDEPEND="
 "
 
 CMAKE_SKIP_TESTS=(
-	# bug 948899
-	karchivetest
+	karchivetest # bug 948899
+	kfiltertest # bug 978879
 )
 
 src_prepare() {
