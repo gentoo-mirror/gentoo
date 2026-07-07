@@ -3,7 +3,6 @@
 
 EAPI=8
 
-PATCHSET="${P}-patchset"
 ECM_HANDBOOK="optional"
 ECM_TEST="true"
 KFMIN=6.22.0
@@ -12,8 +11,7 @@ inherit ecm plasma.kde.org optfeature xdg
 
 DESCRIPTION="KDE Plasma desktop"
 XORGHDRS="${PN}-override-include-dirs-5"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz
-	https://dev.gentoo.org/~asturm/distfiles/kde/${PATCHSET}.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${XORGHDRS}.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
@@ -128,8 +126,7 @@ BDEPEND="
 
 PATCHES=(
 	"${WORKDIR}/${XORGHDRS}/${PN}-6.1.80-override-include-dirs.patch" # downstream patch
-	"${WORKDIR}/${PATCHSET}" # in 6.6.6
-	"${FILESDIR}/${P}-canberra-optional.patch" # in 6.7.0
+	"${FILESDIR}/${PN}-6.6.5-canberra-optional.patch"
 )
 
 src_prepare() {

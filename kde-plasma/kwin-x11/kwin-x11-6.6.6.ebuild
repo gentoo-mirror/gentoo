@@ -3,40 +3,36 @@
 
 EAPI=8
 
-PATCHSET="${P}-patchset-1"
 ECM_HANDBOOK="optional"
-# TODO: ECMGenerateQDoc
 ECM_TEST="true"
-PYTHON_COMPAT=( python3_{11..14} )
 KFMIN=6.22.0
 QTMIN=6.10.1
-inherit ecm fcaps plasma.kde.org python-any-r1 toolchain-funcs xdg
+inherit ecm plasma.kde.org xdg
 
-DESCRIPTION="Flexible, composited Window Manager for windowing systems on Linux"
-SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/kde/${PATCHSET}.tar.xz"
+DESCRIPTION="Flexible, composited X window manager"
 
 LICENSE="GPL-2+"
 SLOT="6"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
-IUSE="accessibility gamepad gles2-only lock screencast selinux +shortcuts systemd"
+IUSE="accessibility gles2-only lock selinux +shortcuts systemd"
 
 RESTRICT="test"
 
-# qtbase slot op: GuiPrivate use in tabbox, Qt6WaylandClientPrivate for xx-pip-v1
-# qtbase[X]: private/qtx11extras_p.h in src/helpers/killer
+# qtbase slot op: GuiPrivate use in tabbox
 COMMON_DEPEND="
-	>=dev-libs/libei-1.4
-	>=dev-libs/libinput-1.28:=
 	>=dev-libs/wayland-1.24.0
 	>=dev-qt/qt5compat-${QTMIN}:6[qml]
-	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,libinput,opengl,wayland,widgets,X]
+	>=dev-qt/qtbase-${QTMIN}:6=[accessibility=,gles2-only=,gui,opengl,wayland,widgets,X]
 	>=dev-qt/qtdeclarative-${QTMIN}:6
+	>=dev-qt/qtsensors-${QTMIN}:6
+	>=dev-qt/qtshadertools-${QTMIN}:6
 	>=dev-qt/qtsvg-${QTMIN}:6
 	>=dev-qt/qttools-${QTMIN}:6[widgets]
 	>=kde-frameworks/kauth-${KFMIN}:6
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kcolorscheme-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6[qml]
+	>=kde-frameworks/kconfigwidgets-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6
 	>=kde-frameworks/kdbusaddons-${KFMIN}:6
@@ -51,97 +47,60 @@ COMMON_DEPEND="
 	>=kde-frameworks/kservice-${KFMIN}:6
 	>=kde-frameworks/ksvg-${KFMIN}:6
 	>=kde-frameworks/kwidgetsaddons-${KFMIN}:6
-	>=kde-frameworks/kwindowsystem-${KFMIN}:6=[wayland]
+	>=kde-frameworks/kwindowsystem-${KFMIN}:6=[wayland,X]
 	>=kde-frameworks/kxmlgui-${KFMIN}:6
+	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
 	>=kde-plasma/knighttime-${KDE_CATV}:6
-	>=kde-plasma/kwayland-${KDE_CATV}:6
 	>=kde-plasma/plasma-activities-${KDE_CATV}:6=
+	media-libs/fontconfig
+	media-libs/freetype
 	media-libs/lcms:2
 	media-libs/libcanberra
 	>=media-libs/libdisplay-info-0.2.0:=
 	media-libs/libepoxy
 	media-libs/libglvnd
-	>=media-libs/mesa-24.1.0_rc1[opengl,wayland]
+	>=media-libs/mesa-24.1.0_rc1[opengl,X]
 	virtual/libudev:=
-	>=x11-libs/libdrm-2.4.127
 	x11-libs/libX11
 	x11-libs/libXi
-	x11-libs/libXres
-	>=x11-libs/libxcvt-0.1.1
+	>=x11-libs/libdrm-2.4.116
 	>=x11-libs/libxcb-1.10:=
 	>=x11-libs/libxkbcommon-1.5.0
 	x11-libs/xcb-util-cursor
 	x11-libs/xcb-util-keysyms
 	x11-libs/xcb-util-wm
 	accessibility? ( media-libs/libqaccessibilityclient:6 )
-	gamepad? ( dev-libs/libevdev )
 	lock? ( >=kde-plasma/kscreenlocker-${KDE_CATV}:6 )
-	screencast? ( >=media-video/pipewire-1.2.0:= )
 	shortcuts? ( >=kde-plasma/kglobalacceld-${KDE_CATV}:6 )
-	systemd? ( sys-apps/systemd:= )
 "
 RDEPEND="${COMMON_DEPEND}
 	!kde-plasma/kdeplasma-addons:5
+	!<kde-plasma/kwin-6.3.80
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-plasma/aurorae-${KDE_CATV}:6
-	>=kde-plasma/breeze-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6
-	>=kde-plasma/milou-${KDE_CATV}:6
 	sys-apps/hwdata
-	>=x11-base/xwayland-23.1.0[libei]
+	>=x11-base/xwayland-23.1.0
 	selinux? ( sec-policy/selinux-wm )
 "
 DEPEND="${COMMON_DEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.20.0
-	>=dev-libs/wayland-protocols-1.47
+	>=dev-libs/plasma-wayland-protocols-1.16.0
+	>=dev-libs/wayland-protocols-1.38
 	>=dev-qt/qtbase-${QTMIN}:6[concurrent]
 	x11-base/xorg-proto
-	test? ( screencast? ( >=kde-plasma/kpipewire-${KDE_CATV}:6 ) )
+	x11-libs/xcb-util-image
+	test? ( >=kde-plasma/kwayland-${KDE_CATV}:6 )
 "
-BDEPEND="${PYTHON_DEPS}
+BDEPEND="
 	>=dev-qt/qtbase-${QTMIN}:6[wayland]
 	dev-util/wayland-scanner
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 "
 
-case ${PV} in
-	6.?.[6-9][0-5]* )
-		# src/core/renderdevice.cpp enables Vulkan validation layers
-		# for pre-releases to get better crashes.
-		RDEPEND+=" media-libs/vulkan-layers"
-		;;
-	*)
-		;;
-esac
-
-# https://bugs.gentoo.org/941628
-# -m 0755 to avoid suid with USE="-filecaps"
-FILECAPS=( -m 0755 cap_sys_nice=ep usr/bin/kwin_wayland )
-
-PATCHES=( "${WORKDIR}/${PATCHSET}" )
-
-pkg_pretend() {
-	[[ ${MERGE_TYPE} != binary ]] && tc-check-min_ver gcc 14
-}
-
-pkg_setup() {
-	[[ ${MERGE_TYPE} != binary ]] && tc-check-min_ver gcc 14
-}
-
 src_prepare() {
 	ecm_src_prepare
-
-	# TODO: try to get a build switch upstreamed
-	if ! use gamepad; then
-		sed -e "s/^pkg_check_modules.*libevdev/#&/" -i CMakeLists.txt || die
-	fi
-
-	# TODO: try to get a build switch upstreamed
-	if ! use screencast; then
-		sed -e "s/^pkg_check_modules.*PipeWire/#&/" -i CMakeLists.txt || die
-	fi
 
 	# TODO: try to get a build switch upstreamed
 	if ! use systemd; then
@@ -151,18 +110,11 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		# KWIN_BUILD_DECORATIONS exists, drops aurorae, breeze
 		# KWIN_BUILD_NOTIFICATIONS exists, but kdeclarative still hard-depends on it
 		$(cmake_use_find_package accessibility QAccessibilityClient6)
 		-DKWIN_BUILD_SCREENLOCKER=$(usex lock)
 		-DKWIN_BUILD_GLOBALSHORTCUTS=$(usex shortcuts)
-		-DKWIN_BUILD_X11=ON # bug #965053
 	)
 
 	ecm_src_configure
-}
-
-pkg_postinst() {
-	xdg_pkg_postinst
-	fcaps_pkg_postinst
 }
