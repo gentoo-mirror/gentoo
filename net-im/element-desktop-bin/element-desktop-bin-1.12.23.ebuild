@@ -32,7 +32,7 @@ RDEPEND="
 	dev-libs/nspr
 	dev-libs/nss
 	media-libs/alsa-lib
-	media-libs/mesa
+	media-libs/mesa[gbm(+)]
 	net-print/cups
 	sys-apps/dbus
 	virtual/udev
@@ -40,15 +40,19 @@ RDEPEND="
 	x11-libs/gdk-pixbuf:2
 	x11-libs/gtk+:3
 	x11-libs/libX11
+	x11-libs/libXScrnSaver
 	x11-libs/libXcomposite
 	x11-libs/libXdamage
 	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libXrandr
+	x11-libs/libXtst
 	x11-libs/libdrm
+	x11-libs/libnotify
 	x11-libs/libxcb
 	x11-libs/libxkbcommon
-	x11-libs/pango"
+	x11-libs/pango
+	x11-misc/xdg-utils"
 
 QA_PREBUILT="opt/Element/chrome-sandbox
 	opt/Element/chrome_crashpad_handler
