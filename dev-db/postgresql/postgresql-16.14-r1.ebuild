@@ -84,6 +84,8 @@ RDEPEND="${CDEPEND}
 selinux? ( sec-policy/selinux-postgresql )
 "
 
+PATCHES=( "${FILESDIR}/${P}-replicadeadlock.patch" )
+
 pkg_setup() {
 	use llvm && llvm-r1_pkg_setup
 
