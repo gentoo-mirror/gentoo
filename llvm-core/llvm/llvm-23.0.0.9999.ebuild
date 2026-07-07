@@ -427,6 +427,7 @@ multilib_src_configure() {
 		-DLLVM_ENABLE_ZSTD=$(usex zstd FORCE_ON OFF)
 		-DLLVM_ENABLE_CURL=$(usex debuginfod)
 		-DLLVM_ENABLE_HTTPLIB=$(usex debuginfod)
+		-DLLVM_UNREACHABLE_OPTIMIZE=OFF
 
 		-DLLVM_HOST_TRIPLE="${CHOST}"
 

@@ -15,6 +15,7 @@ inherit distutils-r1 toolchain-funcs pypi
 DESCRIPTION="Foreign Function Interface for Python calling C code"
 HOMEPAGE="
 	https://cffi.readthedocs.io/
+	https://github.com/python-cffi/cffi/
 	https://pypi.org/project/cffi/
 "
 
@@ -65,6 +66,10 @@ python_test() {
 	local EPYTEST_IGNORE=(
 		# these tests call pip
 		testing/cffi0/test_zintegration.py
+	)
+	local EPYTEST_DESELECT=(
+		# Internet, https://github.com/python-cffi/cffi/issues/255
+		testing/cffi1/test_cffi_gen_src_meson.py::test_meson_python_build
 	)
 
 	"${EPYTHON}" -c "import _cffi_backend as backend" || die
