@@ -3,14 +3,14 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 QTMIN=6.10.1
 inherit ecm frameworks.kde.org optfeature python-any-r1
 
 DESCRIPTION="Library for extracting file metadata"
 
 LICENSE="LGPL-2+"
-KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE="epub exif ffmpeg mobi pdf taglib"
 
 RESTRICT="test"
