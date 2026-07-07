@@ -1,20 +1,19 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
+COMMIT="5a4ef795b297ed1eaf6b4d4e71b3ce7a1bb63481"
 inherit cmake udev
-
-EGIT_COMMIT="5a4ef795b297ed1eaf6b4d4e71b3ce7a1bb63481"
 
 DESCRIPTION="EEPROM and microcontroller programmer/flasher"
 HOMEPAGE="https://github.com/lancos/ponyprog/"
-SRC_URI="https://github.com/lancos/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-${EGIT_COMMIT}"
+SRC_URI="https://github.com/lancos/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${COMMIT}"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	>=app-editors/qhexedit2-0.8.10
@@ -24,7 +23,6 @@ DEPEND="
 	dev-qt/qtmultimedia:6
 	virtual/libusb:1
 "
-
 RDEPEND="${DEPEND}"
 
 PATCHES=(

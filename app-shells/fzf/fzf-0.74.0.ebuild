@@ -1,4 +1,4 @@
-# Copyright 2019-2025 Gentoo Authors
+# Copyright 2019-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,15 +8,16 @@ inherit go-module readme.gentoo-r1 shell-completion
 DESCRIPTION="General-purpose command-line fuzzy finder, written in Golang"
 HOMEPAGE="https://github.com/junegunn/fzf"
 
-MY_GIT_REV=2ab923f3ae04d5e915e5ff4a9cd3bd515bfd1ea5
+MY_GIT_REV=6765f464a60e39afc20775f54f7ba40896bf1b81
 
 SRC_URI="https://github.com/junegunn/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 SRC_URI+=" https://github.com/gentoo-golang-dist/${PN}/releases/download/v${PV}/${P}-vendor.tar.xz"
 
 LICENSE="MIT BSD-with-disclosure"
 # Dependent licenses
+LICENSE+=" BSD MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 src_compile() {
 	local go_ldflags=(
