@@ -18,8 +18,8 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	>=dev-libs/glib-2.76.0:2
 	gtk? (
-		>=gui-libs/gtk-4.15:4
-		>=gui-libs/libadwaita-1.6.0:1
+		>=gui-libs/gtk-4.19.4:4
+		>=gui-libs/libadwaita-1.8.0:1
 		x11-libs/cairo
 		x11-libs/pango
 	)
