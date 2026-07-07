@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -31,6 +31,9 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.9.1-disable-network-tests.patch
 	"${FILESDIR}"/${PN}-1.10.3-no-Q.patch
 	"${FILESDIR}"/${PN}-1.10.3-epmd-daemon.patch
+	"${FILESDIR}"/${PN}-1.18.4-Cap-width-in-strftime-to-1024-characters.patch
+	"${FILESDIR}"/${PN}-1.18.4-Limit-version-numbers-to-14-bytes.patch
+	"${FILESDIR}"/${PN}-1.18.4-Validate-paths-and-files-when-extracting-archives.patch
 )
 
 src_install() {

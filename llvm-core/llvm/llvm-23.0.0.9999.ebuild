@@ -63,7 +63,7 @@ PDEPEND="
 	binutils-plugin? ( >=llvm-core/llvmgold-${LLVM_MAJOR} )
 "
 
-LLVM_COMPONENTS=( llvm cmake libc third-party utils/docs )
+LLVM_COMPONENTS=( llvm cmake libc mlir/utils/pygments third-party utils/docs )
 LLVM_MANPAGES=1
 LLVM_USE_TARGETS=provide
 llvm.org_set_globals

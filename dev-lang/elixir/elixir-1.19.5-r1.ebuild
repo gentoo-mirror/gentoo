@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,8 +16,8 @@ RESTRICT="!test? ( test )"
 
 # https://hexdocs.pm/elixir/compatibility-and-deprecations.html#between-elixir-and-erlang-otp
 DEPEND="
-	>=dev-lang/erlang-24:0=[ssl]
-	<dev-lang/erlang-27
+	>=dev-lang/erlang-26:0=[ssl]
+	<dev-lang/erlang-29
 "
 # 'mix' tool collides with sci-biology/phylip, bug #537514
 RDEPEND="${DEPEND}
@@ -31,9 +31,16 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.9.1-disable-network-tests.patch
 	"${FILESDIR}"/${PN}-1.10.3-no-Q.patch
 	"${FILESDIR}"/${PN}-1.10.3-epmd-daemon.patch
+	"${FILESDIR}"/${PN}-1.19.5-Cap-width-in-strftime-to-1024-characters.patch
+	"${FILESDIR}"/${PN}-1.19.5-Limit-version-numbers-to-14-bytes.patch
+	"${FILESDIR}"/${PN}-1.19.5-Validate-paths-and-files-when-extracting-archives.patch
 )
 
 src_install() {
 	emake DESTDIR="${D}" LIBDIR="$(get_libdir)" PREFIX="${EPREFIX}/usr" install
 	dodoc README.md CHANGELOG.md CODE_OF_CONDUCT.md
 }
+
+# Note on tests: Needs to be ran with proper isolation when epmd is already running on the host,
+# say with ebuild launched by root, or emerge
+# See: https://github.com/elixir-lang/elixir/issues/14889#issuecomment-3539477959
