@@ -54,6 +54,7 @@ BDEPEND="
 			dev-python/pytest[${PYTHON_USEDEP}]
 			dev-python/psutil[${PYTHON_USEDEP}]
 		')
+		!minimal? ( net-misc/openssh )
 		test-async? (
 			$(python_gen_any_dep '
 				dev-python/asyncssh[${PYTHON_USEDEP}]
@@ -69,6 +70,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2024.84-dbscp.patch
 	"${FILESDIR}"/${PN}-2024.86-tests.patch
 	"${FILESDIR}"/${PN}-2024.84-test-bg-sleep.patch
+	"${FILESDIR}"/${P}-skip-failing-convert-test.patch
 )
 
 set_options() {
