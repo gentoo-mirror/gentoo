@@ -7,11 +7,11 @@ HOMEPAGE=https://launchpad.net/qpdfview
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=plocale qmake-utils xdg
 IUSE=cups +dbus djvu fitz +pdf postscript +sqlite +svg synctex
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv x86
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+
 RDEPEND=dev-qt/qtbase:6[concurrent,dbus?,gui,widgets] cups? ( net-print/cups ) djvu? ( app-text/djvu ) fitz? ( >=app-text/mupdf-1.7:= ) pdf? ( app-text/poppler[qt6] ) postscript? ( app-text/libspectre ) sqlite? ( dev-qt/qtbase:6[sql,sqlite] ) svg? ( dev-qt/qtsvg:6 ) !svg? ( virtual/freedesktop-icon-theme ) synctex? ( app-text/texlive-core )
 REQUIRED_USE=?? ( fitz pdf )
 SLOT=0
 SRC_URI=https://dev.gentoo.org/~grozin/qpdfview-0.5_p20260701.tar.bz2
 _eclasses_=plocale	980baab6fd56db6149d0a9396e0b21c9	qt-utils	1dd132daf534f02545dcdf62050e3c87	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	qmake-utils	f7cfc8bbf7f3f3b27725c9cdfecd2476	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=477740986d2883a6087ef8f4bcf83814
+_md5_=c539a30d96610da2a8bbfee84e3b6726
