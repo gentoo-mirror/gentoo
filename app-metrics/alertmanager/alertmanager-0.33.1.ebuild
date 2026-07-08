@@ -1,32 +1,39 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 inherit go-module systemd
-GIT_COMMIT=d7b4f0c7
-MY_PV="${PV/_rc/-rc.}"
 
 DESCRIPTION="Alertmanager for alerts sent by client applications such as Prometheus"
 HOMEPAGE="https://github.com/prometheus/alertmanager"
-SRC_URI="https://github.com/prometheus/alertmanager/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~williamh/dist/${P}-deps.tar.xz"
-
+SRC_URI="
+	https://github.com/prometheus/alertmanager/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/prometheus/alertmanager/releases/download/v${PV}/${PN}-web-ui-${PV}.tar.gz
+	https://github.com/gentoo-golang-dist/alertmanager/releases/download/v${PV}/${P}-vendor.tar.xz
+"
 LICENSE="Apache-2.0 BSD BSD-2 MIT MPL-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
+# tests don't work due to "missing files"
 RESTRICT+=" test"
 
 BDEPEND="dev-util/promu"
 
 DEPEND="
 	acct-group/alertmanager
-	acct-user/alertmanager"
-	RDEPEND="${DEPEND}"
+	acct-user/alertmanager
+"
+RDEPEND="${DEPEND}"
+
+PATCHES=( "${FILESDIR}/0.33.0-promu-config.patch" )
 
 src_prepare() {
 	default
-	sed -i -e "s/{{.Revision}}/${GIT_COMMIT}/" .promu.yml || die
+
+	# put UI assets in place
+	cp -a "${WORKDIR}"/dist ui/app || die
 }
 
 src_compile() {

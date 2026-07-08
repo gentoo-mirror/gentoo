@@ -206,8 +206,13 @@ src_configure() {
 		$(use_with selinux)
 		$(use_with security-key security-key-builtin)
 		$(use_with ssl openssl)
-		$(use_with ssl ssl-engine)
 	)
+
+	if has_version "<dev-libs/openssl-4" ; then
+		# bug #973058
+		myconf+=( $(use_with ssl ssl-engine) )
+	fi
+
 
 	if use elibc_musl; then
 		# musl defines bogus values for UTMP_FILE and WTMP_FILE (bug #753230)
