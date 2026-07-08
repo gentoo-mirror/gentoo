@@ -1,0 +1,13 @@
+BDEPEND=doc? ( app-text/doxygen )
+DEFINED_PHASES=configure install prepare
+DEPEND=dev-libs/librevenge zlib? ( virtual/zlib:= )
+DESCRIPTION=Import filter for old StarOffice documents
+EAPI=9
+HOMEPAGE=https://github.com/fosnola/libstaroffice
+IUSE=debug doc tools +zlib
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=|| ( LGPL-2.1+ MPL-2.0 )
+RDEPEND=dev-libs/librevenge zlib? ( virtual/zlib:= )
+SLOT=0
+SRC_URI=http://dev-www.libreoffice.org/src/libstaroffice-0.0.8.tar.xz https://github.com/fosnola/libstaroffice/releases/download/0.0.8/libstaroffice-0.0.8.tar.xz
+_md5_=8185780cdac91536c3c511837f30fd36
