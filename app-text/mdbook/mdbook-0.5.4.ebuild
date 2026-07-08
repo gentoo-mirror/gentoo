@@ -3,7 +3,7 @@
 
 EAPI=8
 
-RUST_MIN_VER=1.85.0
+RUST_MIN_VER=1.87.0
 inherit cargo toolchain-funcs
 
 DESCRIPTION="Create a book from markdown files"
@@ -21,7 +21,7 @@ LICENSE+="
 	Apache-2.0 BSD CC-BY-4.0 CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0
 " # crates
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
