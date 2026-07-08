@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://kernel.org/
 INHERIT=autotools flag-o-matic linux-info
 IUSE=static-libs tcpd usbip
-KEYWORDS=~amd64 ~ppc ~x86
+KEYWORDS=amd64 ~ppc ~x86
 LICENSE=GPL-2
 RDEPEND=!sys-power/pmtools >=dev-libs/glib-2.6 sys-apps/hwdata >=sys-kernel/linux-headers-6.16 usbip? ( !net-misc/usbip virtual/libudev tcpd? ( sys-apps/tcp-wrappers ) )
 SLOT=0
 SRC_URI=https://www.kernel.org/pub/linux/kernel/v6.x/linux-6.16.tar.xz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	flag-o-matic	fd3558f73f6503093adee69adf41020d	linux-info	efd923656513c879204fec6638eadee5
-_md5_=60f4101f997307e4b7f14394e84daa25
+_md5_=4f82e22ea74a35f12e56ac10e80385ef
