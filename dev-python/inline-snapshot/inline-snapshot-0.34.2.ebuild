@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/15r10nk/inline-snapshot
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -34,9 +34,7 @@ BDEPEND="
 		>=dev-python/dirty-equals-0.7.0[${PYTHON_USEDEP}]
 		>=dev-python/hypothesis-6.75.5[${PYTHON_USEDEP}]
 		dev-python/isort[${PYTHON_USEDEP}]
-		$(python_gen_cond_dep '
-			dev-python/mypy[${PYTHON_USEDEP}]
-		' 'python*')
+		dev-python/mypy[${PYTHON_USEDEP}]
 		>=dev-python/pydantic-2[${PYTHON_USEDEP}]
 	)
 "
@@ -57,6 +55,15 @@ python_test() {
 		'tests/test_docs.py::test_docs[code_generation.md]'
 		'tests/test_docs.py::test_docs[testing.md]'
 	)
+
+	case ${EPYTHON} in
+		python3.15*)
+			EPYTEST_DESELECT+=(
+				# deprecation warnings
+				tests/test_config.py::test_config_env
+			)
+			;;
+	esac
 
 	local -x PYTHONPATH=${S}/src
 	epytest
