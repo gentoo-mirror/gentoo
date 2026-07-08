@@ -5,15 +5,14 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
-RUST_MIN_VER="1.82.0"
+RUST_MIN_VER="1.83"
 CRATES="
 	aho-corasick@1.1.3
 	anyhow@1.0.102
 	arc-swap@1.7.1
 	atomic-waker@1.1.2
-	autocfg@1.5.0
 	base64@0.22.1
 	bitflags@2.9.1
 	blake2@0.10.6
@@ -30,6 +29,7 @@ CRATES="
 	crypto-common@0.1.6
 	digest@0.10.7
 	displaydoc@0.2.5
+	either@1.15.0
 	equivalent@1.0.2
 	fnv@1.0.7
 	form_urlencoded@1.2.1
@@ -53,7 +53,7 @@ CRATES="
 	hex@0.4.3
 	http-body-util@0.1.3
 	http-body@1.0.1
-	http@1.4.0
+	http@1.4.2
 	httparse@1.10.1
 	httpdate@1.0.3
 	hyper-rustls@0.27.7
@@ -73,19 +73,18 @@ CRATES="
 	idna@1.0.3
 	idna_adapter@1.2.1
 	indexmap@2.10.0
-	indoc@2.0.6
 	ipnet@2.11.0
 	iri-string@0.7.8
+	itertools@0.14.0
 	itoa@1.0.15
 	js-sys@0.3.77
 	lazy_static@1.5.0
 	libc@0.2.174
 	libm@0.2.15
 	litemap@0.8.0
-	log@0.4.29
+	log@0.4.32
 	lru-slab@0.1.2
 	memchr@2.7.5
-	memoffset@0.9.1
 	mime@0.3.17
 	mio@1.0.4
 	once_cell@1.21.4
@@ -96,19 +95,19 @@ CRATES="
 	potential_utf@0.1.2
 	ppv-lite86@0.2.21
 	proc-macro2@1.0.95
-	pyo3-build-config@0.27.2
-	pyo3-ffi@0.27.2
+	pyo3-build-config@0.28.3
+	pyo3-ffi@0.28.3
 	pyo3-log@0.13.3
-	pyo3-macros-backend@0.27.2
-	pyo3-macros@0.27.2
-	pyo3@0.27.2
-	pythonize@0.27.0
+	pyo3-macros-backend@0.28.3
+	pyo3-macros@0.28.3
+	pyo3@0.28.3
+	pythonize@0.28.0
 	quinn-proto@0.11.14
 	quinn-udp@0.5.13
 	quinn@0.11.8
 	quote@1.0.40
 	r-efi@5.3.0
-	rand@0.9.2
+	rand@0.9.4
 	rand_chacha@0.9.0
 	rand_core@0.9.3
 	regex-automata@0.4.13
@@ -117,19 +116,21 @@ CRATES="
 	reqwest@0.12.28
 	ring@0.17.14
 	rustc-hash@2.1.1
+	rustc_version@0.4.1
 	rustls-native-certs@0.8.1
 	rustls-pki-types@1.12.0
-	rustls-webpki@0.103.10
+	rustls-webpki@0.103.13
 	rustls@0.23.31
 	rustversion@1.0.21
 	ryu@1.0.20
 	schannel@0.1.27
 	security-framework-sys@2.14.0
 	security-framework@3.2.0
+	semver@1.0.27
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
-	serde_json@1.0.149
+	serde_json@1.0.150
 	serde_urlencoded@0.7.1
 	sha1@0.10.6
 	sha2@0.10.9
@@ -143,7 +144,7 @@ CRATES="
 	syn@2.0.104
 	sync_wrapper@1.0.2
 	synstructure@0.13.2
-	target-lexicon@0.13.2
+	target-lexicon@0.13.5
 	thiserror-impl@2.0.12
 	thiserror@2.0.12
 	tinystr@0.8.1
@@ -162,7 +163,6 @@ CRATES="
 	typenum@1.18.0
 	ulid@1.2.1
 	unicode-ident@1.0.18
-	unindent@0.2.4
 	untrusted@0.9.0
 	url@2.5.4
 	utf8_iter@1.0.4
@@ -226,7 +226,7 @@ LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD ISC MIT Unicode-3.0
 "
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64"
+KEYWORDS="~amd64 ~arm64 ~ppc64"
 IUSE="postgres selinux systemd test"
 RESTRICT="!test? ( test )"
 
