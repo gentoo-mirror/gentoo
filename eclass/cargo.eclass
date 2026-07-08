@@ -310,7 +310,7 @@ _cargo_set_crate_uris() {
 			local crate commit crate_uri crate_dir host repo_ext feat_expr
 
 			for crate in "${!GIT_CRATES[@]}"; do
-				IFS=';' read -r crate_uri commit crate_dir host <<< "${GIT_CRATES[${crate}]}"
+				IFS=';' read -r crate_uri commit crate_dir host <<< "${GIT_CRATES[${crate}]}" || die "${ECLASS}: could not create heredoc"
 
 				if [[ -z ${host} ]]; then
 					case "${crate_uri}" in
