@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 PYPI_VERIFY_REPO=https://github.com/SeleniumHQ/selenium
-PYTHON_TESTED=( python3_{12..14} )
+PYTHON_TESTED=( python3_{12..15} )
 PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" )
 
 inherit distutils-r1 pypi
