@@ -1,0 +1,14 @@
+BDEPEND=|| ( >=dev-lang/rust-bin-1.85.0:* >=dev-lang/rust-1.85.0:* )
+DEFINED_PHASES=compile configure install setup test unpack
+DESCRIPTION=Fast command line app to run commands in parallel
+EAPI=8
+HOMEPAGE=https://github.com/aaronriekenberg/rust-parallel
+INHERIT=cargo
+IUSE=symlink debug
+KEYWORDS=~amd64
+LICENSE=MIT Apache-2.0 BSD MIT Unicode-DFS-2016
+RDEPEND=symlink? ( !sys-process/parallel )
+SLOT=0
+SRC_URI=https://github.com/aaronriekenberg/rust-parallel/archive/refs/tags/v1.23.0.tar.gz -> rust-parallel-1.23.0.tar.gz https://github.com/gentoo-crate-dist/rust-parallel/releases/download/v1.23.0/rust-parallel-1.23.0-crates.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	e2200a3d90348a53accc2f8c2e80f10c	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	e8d502f9388bb6e5d374cbaf1f29a56f
+_md5_=667b3aaf29c5d7334bd343d9c662707e

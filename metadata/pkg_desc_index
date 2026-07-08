@@ -927,7 +927,7 @@ app-admin/ansible-core 2.19.2 2.19.3 2.19.3-r1 2.20.0-r1 2.20.3 2.20.5 9999: Mod
 app-admin/ansible-lint 25.9.0 25.11.0 26.3.0: Checks ansible playbooks for practices and behaviour that can be improved
 app-admin/ansible-modules-hashivault 5.2.1-r1: Ansible module for hashicorp vault
 app-admin/ansible-molecule 25.9.0 25.11.0 26.3.0: A toolkit designed to aid in the development and testing of Ansible roles
-app-admin/apache-tools 2.4.65 2.4.66 2.4.67 2.4.68: Useful Apache tools - htdigest, htpasswd, ab, htdbm
+app-admin/apache-tools 2.4.67 2.4.68: Useful Apache tools - htdigest, htpasswd, ab, htdbm
 app-admin/apachetop 0.23.2: A realtime Apache log analyzer
 app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
@@ -1138,7 +1138,7 @@ app-antivirus/clamav 0.103.12-r5 1.0.7-r2 1.4.1-r3 1.4.2-r1 1.4.3 1.4.4 1.5.1 1.
 app-antivirus/clamtk 6.18-r1 6.18-r2: A graphical front-end for ClamAV
 app-antivirus/fangfrisch 1.9.2 1.9.2-r1: Update and verify unofficial Clam Anti-Virus signatures
 app-antivirus/lkrg 0.9.8 0.9.9 9999: Linux Kernel Runtime Guard
-app-arch/7zip 25.01 26.00 26.01 26.02: Free file archiver for extremely high compression
+app-arch/7zip 26.01 26.02: Free file archiver for extremely high compression
 app-arch/advancecomp 2.6-r1: Recompress ZIP, PNG and MNG, considerably improving compression
 app-arch/afio 2.5.2: CPIO-Archiver & backup program with fault tolerant compression
 app-arch/alien 8.95.6 8.95.9: Converts between the rpm, dpkg, stampede slp, and slackware tgz file formats
@@ -2653,9 +2653,9 @@ app-laptop/tpacpi-bat 3.1-r1 9999: Control battery thresholds of recent ThinkPad
 app-laptop/tpb 0.6.4-r1: IBM ThinkPad buttons utility
 app-laptop/tuxedo-control-center-bin 2.1.16 2.1.22 2.1.23: Tool to control performance, energy, fan and comfort settings on TUXEDO laptops
 app-laptop/tuxedo-drivers 4.15.4 4.18.2 4.21.0 4.22.1: Kernel modules for TUXEDO laptops
-app-metrics/alertmanager 0.24.0 0.26.0 0.28.0: Alertmanager for alerts sent by client applications such as Prometheus
+app-metrics/alertmanager 0.28.0 0.33.1: Alertmanager for alerts sent by client applications such as Prometheus
 app-metrics/bind_exporter 0.8.0: Prometheus exporter for BIND
-app-metrics/blackbox_exporter 0.24.0 0.25.0: Prometheus exporter for blackbox probing via HTTP, HTTPS, DNS, TCP and ICMP
+app-metrics/blackbox_exporter 0.25.0 0.28.0: Prometheus exporter for blackbox probing via HTTP, HTTPS, DNS, TCP and ICMP
 app-metrics/carbonapi-booking 0.3.0-r1 0.3.0_p20250201: High-performance Graphite front-end, Booking.com fork
 app-metrics/carbonapi-web 1.1: graphite-web fork for standalone usage with carbonapi
 app-metrics/ceph_exporter 4.1.1-r1 4.2.5: Prometheus exporter that scrapes metrics from a ceph cluster
@@ -4108,7 +4108,7 @@ dev-debug/d-feet 0.3.16-r1: D-Feet is a powerful D-Bus debugger
 dev-debug/d-spy 48.0 49.2: D-Spy is a simple tool to explore D-Bus connections
 dev-debug/ddd 3.3.12-r5 3.4.1: Graphical front-end for command-line debuggers
 dev-debug/drgn 0.0.33 0.1.0: Programmable debugger
-dev-debug/dtrace 2.0.6 2.0.7 9999: Dynamic BPF-based system-wide tracing tool
+dev-debug/dtrace 2.0.7 9999: Dynamic BPF-based system-wide tracing tool
 dev-debug/duma 2.5.15-r3: DUMA (Detect Unintended Memory Access) is a memory debugging library
 dev-debug/gdb 16.3 17.1 17.2 9999: GNU debugger
 dev-debug/gef 2023.08 2025.01 2026.01 9999: GDB Enhanced Features for exploit devs & reversers
@@ -5537,7 +5537,7 @@ dev-libs/eekboard 1.0.8_p20121001-r2: An easy to use virtual keyboard toolkit
 dev-libs/efl 1.27.0-r1 1.28.1: Enlightenment Foundation Libraries all-in-one package
 dev-libs/elfutils 0.193-r2 0.194-r1 0.194-r3 0.195 9999: Libraries/utilities to handle ELF objects (drop in replacement for libelf)
 dev-libs/ell 0.77 0.78 0.79 0.80 0.81 0.82 0.83 9999: Embedded Linux Library provides core, low-level functionality for system daemons
-dev-libs/expat 2.8.1 2.8.2: Stream-oriented XML parser library
+dev-libs/expat 2.8.2: Stream-oriented XML parser library
 dev-libs/faxpp 0.4-r2: Small, fast and conformant XML pull parser written in C
 dev-libs/fcgi 2.4.1_pre0910052249-r2: FastCGI Developer's Kit
 dev-libs/fddl 20111124-r2: Free Decision Diagram Library
@@ -5682,7 +5682,7 @@ dev-libs/libfmt 9.1.0-r1 9.1.0-r2 10.1.1-r1 10.2.1-r2 11.0.2 11.1.3 11.1.4 11.2.
 dev-libs/libfstrcmp 0.7-r3: Make fuzzy comparisons of strings and byte arrays
 dev-libs/libgamin 0.1.10-r7: Library providing the FAM File Alteration Monitor API
 dev-libs/libgaminggear 0.15.1: Provides functionality for gaming input devices
-dev-libs/libgcrypt 1.11.2 1.11.2-r1 1.12.1 1.12.2: General purpose crypto library based on the code used in GnuPG
+dev-libs/libgcrypt 1.12.2: General purpose crypto library based on the code used in GnuPG
 dev-libs/libgcrypt-compat 1.5.6: Old version of libgcrypt needed by some binaries
 dev-libs/libgdata 0.18.1-r2: GLib-based library for accessing online service APIs using the GData protocol
 dev-libs/libgee 0.20.6-r1 0.20.8: GObject-based interfaces and classes for commonly used data structures
@@ -5863,7 +5863,7 @@ dev-libs/miniaudio 0.11.15 0.11.21: Single file library for audio playback and c
 dev-libs/miniz 3.0.2 3.1.1: Lossless, high performance data compression library
 dev-libs/mm 1.4.2-r2: Shared Memory Abstraction Library
 dev-libs/mmtf-cpp 1.0.0-r1 1.1.0-r1: The pure C++ implementation of the MMTF API, decoder and encoder
-dev-libs/modsecurity 3.0.14-r2 3.0.15: Application firewall and intrusion detection
+dev-libs/modsecurity 3.0.15: Application firewall and intrusion detection
 dev-libs/mongo-c-driver 1.24.4-r1: Client library written in C for MongoDB
 dev-libs/mpc 1.3.1 1.4.0 1.4.1: A library for multiprecision complex arithmetic with exact rounding
 dev-libs/mpdecimal 4.0.1: Correctly-rounded arbitrary precision decimal floating point arithmetic
@@ -6025,7 +6025,7 @@ dev-libs/udis86 1.7.2-r2: Disassembler library for the x86/-64 architecture sets
 dev-libs/unibilium 2.1.1-r1 2.1.2: A very basic terminfo library
 dev-libs/unittest++ 2.0.0-r4: A lightweight unit testing framework for C++
 dev-libs/univalue 1.0.5 9999: C++ universal value object and JSON library
-dev-libs/uriparser 1.0.1 1.0.2: Strictly RFC 3986 compliant URI parsing library in C
+dev-libs/uriparser 1.0.2: Strictly RFC 3986 compliant URI parsing library in C
 dev-libs/userspace-rcu 0.15.5 0.15.6: Userspace RCU (read-copy-update) library
 dev-libs/utfcpp 3.2.1 4.0.6 9999: UTF-8 C++ library
 dev-libs/uthash 2.3.0-r1: An easy-to-use hash implementation for C programmers
@@ -6636,7 +6636,7 @@ dev-perl/Convert-UUlib 1.800.0: decode uu/xx/b64/mime/yenc/etc-encoded data
 dev-perl/Cookie-Baker 0.120.0: Cookie string generator / parser
 dev-perl/Cookie-Baker-XS 0.120.0: Accelerate Cookie::Baker's crush_cookie
 dev-perl/Coro 6.570.0: The only real threads in perl
-dev-perl/Cpanel-JSON-XS 4.390.0-r2 4.400.0 4.410.0: cPanel fork of JSON::XS, fast and correct serializing
+dev-perl/Cpanel-JSON-XS 4.400.0 4.410.0: cPanel fork of JSON::XS, fast and correct serializing
 dev-perl/Crypt-Blowfish 2.140.0-r2: Perl Blowfish encryption module
 dev-perl/Crypt-CAST5_PP 1.40.0-r2: CAST5 block cipher in pure Perl
 dev-perl/Crypt-CBC 2.330.0-r3 3.40.0-r1 3.70.0: Encrypt Data with Cipher Block Chaining Mode
@@ -13008,7 +13008,7 @@ media-fonts/oto 0.5: Open Type Organizer
 media-fonts/oxygen-fonts 5.4.3-r1: Desktop/GUI font family for integrated use with the KDE Plasma desktop
 media-fonts/paratype 2.5: ParaType font collection for languages of Russia
 media-fonts/paratype-astra 1001: ParaType Astra Sans/Serif fonts metrically compatible with Times New Roman
-media-fonts/pcf2bdf 1.04-r1 1.07: Converts PCF fonts to BDF fonts
+media-fonts/pcf2bdf 1.07: Converts PCF fonts to BDF fonts
 media-fonts/pigiarniq 2: Nunavut's official Inuktitut font
 media-fonts/polarsys-b612-fonts 1.008-r1: Font designed for aircraft cockpit displays
 media-fonts/pothana2k 2006-r1: Pothana 2000 and Vemana fonts for the Telugu script
@@ -13406,7 +13406,7 @@ media-libs/ksanecore 26.04.3: Qt-based interface for SANE library to control sca
 media-libs/kvazaar 2.2.0 2.3.0-r1 2.3.2 9999: Open-source HEVC encoder
 media-libs/ladspa-sdk 1.17-r2: The Linux Audio Developer's Simple Plugin API
 media-libs/lasi 1.1.3-r1: C++ library for postscript stream output
-media-libs/lcms 2.17 2.18 2.19.1: A lightweight, speed optimized color management engine
+media-libs/lcms 2.19.1: A lightweight, speed optimized color management engine
 media-libs/lensfun 0.3.4-r1: Library for rectifying and simulating photographic lens distortions
 media-libs/leptonica 1.87.0: C library for image processing and analysis
 media-libs/lerc 4.0.0: Limited Error Raster Compression
@@ -13454,7 +13454,7 @@ media-libs/libebur128 1.2.6-r1: Library implementing the EBU R128 loudness stand
 media-libs/libemf 1.0.13: Library implementation of ECMA-234 API for the generation of enhanced metafiles
 media-libs/libeot 0.01-r1 9999: Library for parsing Embedded OpenType files (Microsoft embedded font 'standard')
 media-libs/libepoxy 1.5.10-r3 9999: Library for handling OpenGL function pointer management
-media-libs/libexif 0.6.25 0.6.26: Library for parsing, editing, and saving EXIF data
+media-libs/libexif 0.6.26: Library for parsing, editing, and saving EXIF data
 media-libs/libfame 0.9.1-r4: MPEG-1 and MPEG-4 video encoding library
 media-libs/libffado 2.4.9-r1: Driver for IEEE1394 (Firewire) audio interfaces
 media-libs/libfishsound 1.0.1 1.0.1-r1: Simple programming interface to decode and encode audio with vorbis or speex
@@ -14213,7 +14213,7 @@ media-sound/munt-mt32emu-alsadrv 2.6.1: ALSA MIDI driver for emulating the Rolan
 media-sound/mup 6.9-r1: Program for printing music scores
 media-sound/muse 0.9.2_p20161002-r1: Multiple Streaming Engine, an icecast source streamer
 media-sound/musepack-tools 495 495-r1: Musepack SV8 libraries and utilities
-media-sound/musescore 4.6.5 4.7.3 9999: WYSIWYG Music Score Typesetter
+media-sound/musescore 4.6.5 4.7.3 4.7.4 9999: WYSIWYG Music Score Typesetter
 media-sound/music-file-organizer 1.0.3-r1: Organizes audio files into directories based on metadata tags
 media-sound/musique 1.12.1_p20240628: Qt music player
 media-sound/ncmpc 0.51 0.52: Ncurses client for the Music Player Daemon (MPD)
@@ -14804,7 +14804,7 @@ net-dns/djbdns 1.05-r40 1.05-r42: Collection of DNS client/server software
 net-dns/dnrd 2.20.3-r3: A caching DNS proxy server
 net-dns/dnscap 2.5.0 2.5.1: Network capture utility designed specifically for DNS traffic
 net-dns/dnscrypt-proxy 2.1.15 2.1.16 2.1.16-r1 9999: Flexible DNS proxy, with support for encrypted DNS protocols
-net-dns/dnsdist 2.0.5 2.0.6 2.0.7 2.1.0 9999: A highly DNS-, DoS- and abuse-aware loadbalancer
+net-dns/dnsdist 2.0.7 2.1.0 9999: A highly DNS-, DoS- and abuse-aware loadbalancer
 net-dns/dnsmasq 2.92_p2: Small forwarding DNS server
 net-dns/dnssec-root 20210902: The DNSSEC root key(s)
 net-dns/dnssec-tools 2.2.3-r3: Tools to ease the deployment of DNSSEC related technologies
@@ -15466,7 +15466,7 @@ net-misc/ps3mediaserver 1.90.1-r2: DLNA compliant UPNP server for streaming medi
 net-misc/pssh 2.3.5: PSSH provides parallel versions of OpenSSH and related tools
 net-misc/ptpd 2.3.1-r2: Precision Time Protocol daemon
 net-misc/puf 1.0.0-r2: Download tool for UNIX-like systems
-net-misc/putty 0.81 0.83 0.84 9999: A Free Telnet/SSH Client
+net-misc/putty 0.84 9999: A Free Telnet/SSH Client
 net-misc/r8125 9.013.02-r1 9.014.01 9.014.01-r1 9.015.00 9.016.00 9.016.01: r8125 vendor driver for Realtek RTL8125 PCI-E NICs
 net-misc/r8152 2.20.1-r1 2.21.4: r8152 driver for Realtek USB FE / GBE / 2.5G Gaming Ethernet Family Controller
 net-misc/r8168 8.055.00 8.056.02: r8168 driver for Realtek 8111/8168 PCI-E NICs
@@ -15694,7 +15694,7 @@ net-proxy/privoxy 3.0.34-r1 4.0.0 4.2.0: A web proxy with advanced filtering cap
 net-proxy/redsocks 0.5-r2 9999: Transparent redirector of any TCP connection to proxy
 net-proxy/rejik 3.2.11: A squid redirector used for blocking unwanted content
 net-proxy/shadowsocks-libev 3.3.5-r2: A lightweight secured SOCKS5 proxy for embedded devices and low end boxes
-net-proxy/squid 6.14-r1 7.5 7.6: Full-featured web proxy cache
+net-proxy/squid 7.6: Full-featured web proxy cache
 net-proxy/squidguard 1.6.0-r1 1.6.0-r2: Combined filter, redirector and access controller plugin for Squid
 net-proxy/squirm 1.26-r1: A redirector for Squid
 net-proxy/sshuttle 1.3.1: Transparent proxy server that works as a poor man's VPN using ssh
@@ -15751,7 +15751,7 @@ net-vpn/riseup-vpn 0.24.5 0.24.8 0.24.10 0.25.8: Anonymous encrypted VPN client 
 net-vpn/strongswan 6.0.3 6.0.4 6.0.4-r1 6.0.6 6.0.7: IPsec-based VPN solution, supporting IKEv1/IKEv2 and MOBIKE
 net-vpn/tailscale 1.82.5 1.84.3 1.86.5 1.90.6 1.92.1 1.92.4 1.96.5 1.98.0 1.98.1 1.98.4 1.100.0: Tailscale vpn client
 net-vpn/tinc 1.0.36-r1 1.0.37 1.1_pre18-r2: tinc is an easy to configure VPN implementation
-net-vpn/tor 0.4.9.8 0.4.9.9 0.4.9.10 0.4.9.11 9999: Anonymizing overlay network for TCP
+net-vpn/tor 0.4.9.11 9999: Anonymizing overlay network for TCP
 net-vpn/vopono 0.10.15 0.10.16 0.10.17 0.10.18: Launch applications via VPN tunnels using temporary network namespaces
 net-vpn/vpnc 0.5.3_p20240129 9999: IPsec (Cisco/Juniper) VPN concentrator client
 net-vpn/vpnc-scripts 20220510 99999999: Connect scripts for use with vpnc and openconnect (and similar clients)
@@ -17438,7 +17438,7 @@ sys-apps/s6-rc 0.5.6.0 0.5.6.0-r1 0.6.0.0 0.6.0.0-r1 0.6.1.1: Service manager fo
 sys-apps/sandbox 2.46 2.47 2.48 2.49 9999: sandbox'd LD_PRELOAD hack
 sys-apps/sdparm 1.12 1.12-r1: Utility to output and modify parameters on a SCSI device, like hdparm
 sys-apps/secilc 3.8.1 3.9 3.10 3.11 9999: SELinux Common Intermediate Language (CIL) Compiler
-sys-apps/sed 4.9-r1 4.10: Super-useful stream editor
+sys-apps/sed 4.10: Super-useful stream editor
 sys-apps/seedfiles 1.5 1.5.1 1.6 1.7 9999: Portable drop-in reimplementation of systemd-tmpfiles
 sys-apps/selinux-python 3.7-r1 3.8.1 3.8.1-r2 3.9 3.10-r1 3.11-r1 9999: SELinux core utilities
 sys-apps/semodule-utils 3.6 3.7 3.8.1 3.9 3.10 3.11 9999: SELinux policy module utilities
@@ -17886,7 +17886,7 @@ sys-fs/multipath-tools 0.14.3: Device mapper target autoconfig
 sys-fs/ncdu 1.22 2.9.1 2.9.2: NCurses Disk Usage
 sys-fs/ncdu-bin 2.9.1: NCurses Disk Usage
 sys-fs/nilfs-utils 2.2.9: A New Implementation of a Log-structured File System for Linux
-sys-fs/ntfs3g 2022.10.3 2026.2.25: Open source read-write NTFS driver that runs under FUSE
+sys-fs/ntfs3g 2026.2.25: Open source read-write NTFS driver that runs under FUSE
 sys-fs/progsreiserfs 0.3.1_rc8-r1: Library for accessing and manipulating reiserfs partitions
 sys-fs/quota 4.09-r1 4.10 4.11: Linux quota tools
 sys-fs/quotatool 1.6.5: Command-line utility for filesystem quotas
@@ -18119,6 +18119,7 @@ sys-process/psinfo 0.12-r1 0.12-r2: Process information and statistics using the
 sys-process/psmisc 23.6 23.7: A set of tools that use the proc filesystem
 sys-process/rtirq 20240220 20240905: Modify realtime scheduling policy and priority of IRQ handlers
 sys-process/runit 2.2.0-r2 2.2.0-r3 2.3.1: A UNIX init scheme with service supervision
+sys-process/rust-parallel 1.23.0: Fast command line app to run commands in parallel
 sys-process/schedtool 1.3.0-r2: A tool to query or alter a process' scheduling policy
 sys-process/supervise-scripts 4.0-r2: Starting and stopping daemontools managed services
 sys-process/systemd-cron 2.5.1: systemd units to create timers for cron directories and crontab
@@ -18455,14 +18456,14 @@ www-nginx/ngx-vod 1.33: NGINX-based MP4 Repackager
 www-nginx/ngx-vts 0.2.4: NGINX virtual host traffic status module
 www-nginx/ngx-xss 0.06: Native support for cross-site scripting (XSS) in NGINX
 www-nginx/ngx_devel_kit 0.3.4: An NGINX module that adds generic tools for third-party modules
-www-nginx/njs 0.9.4 0.9.9: A subset of JavaScript language to use in NGINX
+www-nginx/njs 0.9.9: A subset of JavaScript language to use in NGINX
 www-plugins/browserpass 3.1.2 3.1.2-r1: WebExtension host binary for app-admin/pass, a UNIX password manager
 www-plugins/chrome-binary-plugins 148.0.7778.215 149.0.7827.53_beta 149.0.7827.114 149.0.7827.155 150.0.7846.4_alpha 150.0.7871.13_beta 150.0.7871.24_beta 151.0.7872.0_alpha 151.0.7886.2_alpha: Binary plugins from Google Chrome for use in Chromium
 www-plugins/lightspark 0.9.0: High performance flash player
 www-plugins/passff-host 1.2.4 1.2.5: Host app for the PassFF WebExtension
 www-plugins/pdfjs 4.5.136 4.9.155 4.10.38 5.0.375: A PDF reader in JavaScript
 www-servers/adsf 1.5.2-r1 1.5.3: A Dead Simple Fileserver is a static file server that can launch in a directory
-www-servers/apache 2.4.66 2.4.67 2.4.68: The Apache Web Server
+www-servers/apache 2.4.67 2.4.68: The Apache Web Server
 www-servers/caddy 2.10.2-r1 2.11.4 9999: Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS
 www-servers/civetweb 1.16: Embedded C/C++ web server
 www-servers/fnord 1.11-r3: Yet another small httpd
