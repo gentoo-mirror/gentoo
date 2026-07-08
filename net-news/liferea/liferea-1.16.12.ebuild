@@ -1,42 +1,55 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..12} )
+PYTHON_COMPAT=( python3_{12..14} )
+MY_PV="${PV/_/-}"
+MY_PV="${MY_PV^^}"
+MY_P="${PN}-${MY_PV}"
 
 inherit autotools gnome2-utils optfeature python-single-r1 xdg
 
 DESCRIPTION="News Aggregator for RDF/RSS/CDF/Atom/Echo feeds"
 HOMEPAGE="https://lzone.de/liferea/"
-SRC_URI="https://github.com/lwindolf/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/lwindolf/${PN}/archive/refs/tags/v${MY_PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~ppc64"
+if [[ ${PV} != *_rc* ]] ; then
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64"
+fi
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
-	dev-db/sqlite:3
-	dev-libs/fribidi
-	dev-libs/glib:2
-	>=dev-libs/gobject-introspection-1.82.0-r2
+	>=dev-db/sqlite-3.7.0:3
+	>=dev-libs/fribidi-0.19.7
+	>=dev-libs/glib-2.86.0:2
+	>=dev-libs/gobject-introspection-1.82.0-r2:=
 	dev-libs/json-glib
-	dev-libs/libpeas:0[gtk,python,${PYTHON_SINGLE_USEDEP}]
-	dev-libs/libxml2:2=
-	dev-libs/libxslt
+	dev-libs/libpeas:2[python,${PYTHON_SINGLE_USEDEP}]
+	>=dev-libs/libxml2-2.6.27:2
+	>=dev-libs/libxslt-1.1.19
 	gnome-base/gsettings-desktop-schemas
-	net-libs/libsoup:3.0
+	>=net-libs/libsoup-3.0.7:3.0
 	net-libs/webkit-gtk:4.1=
 	x11-libs/gdk-pixbuf:2
-	x11-libs/gtk+:3
-	x11-libs/pango"
-DEPEND="${RDEPEND}"
-BDEPEND="dev-util/intltool
-	virtual/pkgconfig"
+	>=x11-libs/gtk+-3.24.0:3[X]
+	>=x11-libs/pango-1.4.0
+"
+DEPEND="${RDEPEND}
+	>=dev-python/pygobject-3.52.3:3=
+"
+BDEPEND="
+	dev-util/intltool
+	virtual/pkgconfig
+"
 
 PATCHES=(
-	"${FILESDIR}/${P}-libxml2.patch"
+	# From master:
+	# https://github.com/lwindolf/liferea/commit/c2169c49f897fe41da97d500f7e3595a14a6e932
+	"${FILESDIR}/${PN}-1.16.12-fix-node-source-assertion.patch"
 )
 
 src_prepare() {

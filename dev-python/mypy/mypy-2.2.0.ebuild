@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="sqlite"
 
 inherit distutils-r1 optfeature
@@ -112,7 +112,7 @@ python_test() {
 	)
 
 	case ${EPYTHON} in
-		python3.14*)
+		python3.1[45]*)
 			EPYTEST_DESELECT+=(
 				mypyc/test/test_run.py::TestRun::run-async.test::testRunAsyncRefCounting
 				mypyc/test/test_run.py::TestRun::run-tuples.test::testNamedTupleClassSyntax
