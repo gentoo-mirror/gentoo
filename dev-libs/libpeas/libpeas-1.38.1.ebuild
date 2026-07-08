@@ -4,7 +4,7 @@
 EAPI=8
 
 LUA_COMPAT=( lua5-1 luajit )
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit gnome.org lua-single meson python-single-r1 vala virtualx xdg
 
@@ -52,6 +52,9 @@ PATCHES=(
 	# Gentoo-specific lua tweak hack
 	"${FILESDIR}"/1.26.0-lua.patch
 	"${FILESDIR}"/${PN}-1.38.1-test-extension.patch
+
+	# https://gitlab.gnome.org/GNOME/libpeas/-/work_items/62
+	"${FILESDIR}"/${PN}-1.38.1-disable-lua-test.patch
 )
 
 pkg_setup() {
