@@ -59,6 +59,8 @@ src_test() {
 		sensortreemodeltest
 		# bugs 727844, 949883: flaky test
 		processtest
+		# bug 950312: flaky test
+		formattertest
 	)
 	LC_NUMERIC="C" ecm_src_test # bug 695514
 }

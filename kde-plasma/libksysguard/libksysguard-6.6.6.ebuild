@@ -12,7 +12,7 @@ DESCRIPTION="Task management and system monitoring library"
 
 LICENSE="LGPL-2+"
 SLOT="6/10"
-KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
 DEPEND="
@@ -58,6 +58,8 @@ src_test() {
 		sensortreemodeltest
 		# bugs 727844, 949883: flaky test
 		processtest
+		# bug 950312: flaky test
+		formattertest
 	)
 	LC_NUMERIC="C" ecm_src_test # bug 695514
 }
