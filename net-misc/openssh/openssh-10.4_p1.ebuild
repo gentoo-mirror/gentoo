@@ -213,7 +213,6 @@ src_configure() {
 		myconf+=( $(use_with ssl ssl-engine) )
 	fi
 
-
 	if use elibc_musl; then
 		# musl defines bogus values for UTMP_FILE and WTMP_FILE (bug #753230)
 		myconf+=( --disable-utmp --disable-wtmp )
