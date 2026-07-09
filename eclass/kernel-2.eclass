@@ -350,7 +350,7 @@ handle_genpatches() {
 
 	debug-print "Inside handle_genpatches"
 	local OKV_ARRAY
-	IFS="." read -r -a OKV_ARRAY <<<"${OKV}"
+	local IFS=.; OKV_ARRAY=(${OKV}); unset IFS
 
 	# for > 3.0 kernels, handle genpatches tarball name
 	# genpatches for 3.0 and 3.0.1 might be named
@@ -411,7 +411,7 @@ detect_version() {
 	KV_MAJOR=$(ver_cut 1 ${OKV})
 	# handle if OKV is X.Y or X.Y.Z (e.g. 3.0 or 3.0.1)
 	local OKV_ARRAY
-	IFS="." read -r -a OKV_ARRAY <<<"${OKV}"
+	local IFS=.; OKV_ARRAY=(${OKV}); unset IFS
 
 	# if KV_MAJOR >= 3, then we have no more KV_MINOR
 	#if [[ ${KV_MAJOR} -lt 3 ]]; then
@@ -792,7 +792,7 @@ universal_unpack() {
 	debug-print "Inside universal_unpack"
 
 	local OKV_ARRAY
-	IFS="." read -r -a OKV_ARRAY <<<"${OKV}"
+	local IFS=.; OKV_ARRAY=(${OKV}); unset IFS
 
 	cd "${WORKDIR}" || die
 	if [[ ${#OKV_ARRAY[@]} -ge 3 && ${KV_MAJOR} -ge 3 ]]; then
