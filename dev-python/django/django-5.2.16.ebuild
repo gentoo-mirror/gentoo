@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE='sqlite?,threads(+)'
 
 inherit distutils-r1 multiprocessing optfeature shell-completion verify-sig
@@ -56,6 +56,12 @@ PATCHES=(
 	"${FILESDIR}"/django-4.0-bashcomp.patch
 	# d55979334dcefdb11626220000bec97ade09df07
 	"${FILESDIR}"/django-5.2.7-py314.patch
+	# based on upstream commits:
+	# b1a65eac7c09250d36e12464fc8fff2a401246b6
+	# ed13a58bf63df94508c8a0fe779da0b6a2bc26bb
+	# e7f539f813bd56a71ca3c1fbf379f47691002086
+	# plus my own fixes
+	"${FILESDIR}"/django-6.0.7-py315.patch
 )
 
 distutils_enable_sphinx docs --no-autodoc
