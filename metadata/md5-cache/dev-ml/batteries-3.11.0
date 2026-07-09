@@ -1,16 +1,16 @@
-BDEPEND=dev-lang/ocaml dev-ml/dune
-DEFINED_PHASES=compile install test
+BDEPEND=test? ( dev-ml/qcheck dev-ml/qtest ) dev-lang/ocaml dev-ml/dune
+DEFINED_PHASES=compile install prepare test
 DEPEND=dev-ml/camlp-streams:=[ocamlopt?] dev-ml/num:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 DESCRIPTION=A community-maintained standard library extension
 EAPI=8
 HOMEPAGE=https://github.com/ocaml-batteries-team/batteries-included/
 INHERIT=dune
-IUSE=+ocamlopt
+IUSE=+ocamlopt test
 KEYWORDS=~amd64 ~x86
 LICENSE=LGPL-2.1-with-linking-exception
 RDEPEND=dev-ml/camlp-streams:=[ocamlopt?] dev-ml/num:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
-RESTRICT=test
-SLOT=0/3.9.0
-SRC_URI=https://github.com/ocaml-batteries-team/batteries-included/archive/v3.9.0.tar.gz -> batteries-3.9.0.tar.gz
+RESTRICT=!test? ( test )
+SLOT=0/3.11.0
+SRC_URI=https://github.com/ocaml-batteries-team/batteries-included/archive/v3.11.0.tar.gz -> batteries-3.11.0.tar.gz
 _eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	bca6089ec4118f02802b8cee78a748c5
-_md5_=f080026d6b58358f9dff63f6cae38041
+_md5_=4ec587460592ce4e0fca38fc20a3fabf
