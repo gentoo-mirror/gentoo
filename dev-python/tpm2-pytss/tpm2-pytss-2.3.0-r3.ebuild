@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -29,7 +29,7 @@ DEPEND="
 RDEPEND="${DEPEND}
 	dev-python/cffi[${PYTHON_USEDEP}]
 	dev-python/asn1crypto[${PYTHON_USEDEP}]
-	dev-python/cryptography[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-47[${PYTHON_USEDEP}]
 	dev-python/pycparser[${PYTHON_USEDEP}]
 	dev-python/pyyaml[${PYTHON_USEDEP}]
 "
@@ -41,12 +41,17 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-2.3.0-preprocess-as-C99.patch"
 	"${FILESDIR}/${PN}-2.3.0-use-CC-enviromental-variable.patch"
-	# https://github.com/tpm2-software/tpm2-pytss/pull/643
-	"${FILESDIR}/${P}-cryptography-45.patch"
+	"${FILESDIR}/${PN}-2.3.0-cryptography-45.patch"
+	"${FILESDIR}/${PN}-2.3.0-cryptography-fix-support-for-cryptography-47.patch"
 )
+RESTRICT="!test? ( test )"
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 
-EPYTEST_PLUGINS=()
-EPYTEST_XDIST=1
-distutils_enable_tests pytest
+python_test() {
+	local EPYTEST_DESELECT=(
+		# Current tpm2-tss specified a newer revision that the one tested for
+		test/test_encoding.py::ToolsTest::test_tools_decode_tpml_tagged_tpm_property
+	)
+	epytest
+}

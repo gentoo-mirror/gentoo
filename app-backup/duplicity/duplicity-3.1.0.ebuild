@@ -49,6 +49,10 @@ RDEPEND="
 EPYTEST_DESELECT=(
 	# boto3
 	testing/unit/test_cli_main.py::CommandlineTest::test_intermixed_args
+
+	# fixed on master, but the patch has a binary diff, and it's
+	# test-only, so skipping is fine for now.
+	testing/functional/test_regression.py::RegressionTest::test_issue908
 )
 
 PATCHES=(
