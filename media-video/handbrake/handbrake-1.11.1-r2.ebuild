@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..15} )
+PYTHON_COMPAT=( python3_{11..15} )
 
 inherit edo flag-o-matic multiprocessing python-any-r1 toolchain-funcs xdg
 
@@ -25,7 +25,7 @@ else
 		)
 	"
 	S="${WORKDIR}/${MY_P}"
-	KEYWORDS="~amd64 ~arm64 ~x86"
+	KEYWORDS="amd64 ~arm64 ~x86"
 fi
 
 # contrib/<project>/module.defs
@@ -33,7 +33,7 @@ declare -A BUNDLED=(
 	# Heavily patched in an incompatible way.
 	# Issues related to using system ffmpeg historically.
 	# See bug #829595 and #922828
-	[ffmpeg]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/ffmpeg-8.0.2.tar.bz2;"
+	[ffmpeg]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/ffmpeg-8.0.1.tar.bz2;"
 	# Patched in an incompatible way
 	[x265]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20260216-13309.tar.gz;x265"
 	[x265_8bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265-snapshot-20260216-13309.tar.gz;x265"
@@ -42,9 +42,14 @@ declare -A BUNDLED=(
 )
 
 bundle_src_uri() {
+	local name
 	for name in "${!BUNDLED[@]}"; do
-		IFS=$';' read -r uri use <<< ${BUNDLED[${name}]}
-		local tarball=${uri##*/}
+		local OLDIFS splitted tarball uri use
+		OLDIFS=$IFS; IFS=';'; splitted=( ${BUNDLED[${name}]} ); IFS=$OLDIFS
+		uri=${splitted[0]}
+		use=${splitted[1]}
+
+		tarball=${uri##*/}
 		if [[ -n ${use} ]]; then
 			SRC_URI+=" ${use}? ( ${uri} -> handbrake-${tarball} )"
 		else
@@ -57,9 +62,12 @@ bundle_src_uri
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="amf +fdk gui libdovi numa nvenc qsv x265"
+IUSE="amf +fdk gui libdovi numa nvdec nvenc qsv x265"
 
-REQUIRED_USE="numa? ( x265 )"
+REQUIRED_USE="
+	numa? ( x265 )
+	nvdec? ( nvenc )
+"
 
 # >=media-libs/libvpl-1.13.0: bug #957811 (check libhb/qsvcommon.h for new platform codenames)
 COMMON_DEPEND="
@@ -115,6 +123,7 @@ BDEPEND="
 		dev-build/meson
 		sys-devel/gettext
 	)
+	nvdec? ( llvm-core/clang:*[llvm_targets_NVPTX] )
 "
 if [[ ${PV} != 9999 ]]; then
 	BDEPEND+=" verify-sig? ( >=sec-keys/openpgp-keys-handbrake-20260311 )"
@@ -189,8 +198,8 @@ src_configure() {
 		$(use_enable gui gtk)
 		$(use_enable libdovi)
 		$(use_enable numa)
+		$(use_enable nvdec)
 		$(use_enable nvenc)
-		$(use_enable nvenc nvdec)
 		$(use_enable x265)
 		$(use_enable qsv)
 	)

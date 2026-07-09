@@ -42,9 +42,14 @@ declare -A BUNDLED=(
 )
 
 bundle_src_uri() {
+	local name
 	for name in "${!BUNDLED[@]}"; do
-		IFS=$';' read -r uri use <<< ${BUNDLED[${name}]}
-		local tarball=${uri##*/}
+		local OLDIFS splitted tarball uri use
+		OLDIFS=$IFS; IFS=';'; splitted=( ${BUNDLED[${name}]} ); IFS=$OLDIFS
+		uri=${splitted[0]}
+		use=${splitted[1]}
+
+		tarball=${uri##*/}
 		if [[ -n ${use} ]]; then
 			SRC_URI+=" ${use}? ( ${uri} -> handbrake-${tarball} )"
 		else
