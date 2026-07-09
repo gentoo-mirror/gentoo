@@ -35,11 +35,13 @@ REQUIRED_USE="rocm? ( ${ROCM_REQUIRED_USE} )"
 
 RESTRICT="!test? ( test )"
 
+# Should be >=sci-libs/hipBLAS-${ROCM_VERSION}[${ROCM_USEDEP}]
+# But pkgcheck can't elaborate that
 RDEPEND="
 	vulkan? ( media-libs/vulkan-loader )
 	rocm? (
 		>=dev-util/hip-${ROCM_VERSION}
-		>=sci-libs/hipBLAS-${ROCM_VERSION}[${ROCM_USEDEP}]
+		>=sci-libs/hipBLAS-${ROCM_VERSION}
 	)
 "
 DEPEND="${RDEPEND}
