@@ -3,9 +3,9 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=setuptools
+DISTUTILS_USE_PEP517=flit-core
 PYPI_PN=Flask-Caching
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -17,11 +17,11 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	>=dev-python/cachelib-0.9.0[${PYTHON_USEDEP}]
-	dev-python/flask[${PYTHON_USEDEP}]
+	>=dev-python/flask-2.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -38,10 +38,3 @@ EPYTEST_DESELECT=(
 	# broken with new redis
 	tests/test_backend_cache.py::TestRedisCache::test_generic_inc_dec
 )
-
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# fix check for obsolete package name
-	sed -i -e '/pytest_xprocess/d' tests/conftest.py || die
-}

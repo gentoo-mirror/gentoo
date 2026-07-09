@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=pdm-backend
-PYTHON_COMPAT=( python3_14 )
+PYTHON_COMPAT=( python3_{14..15} )
 #may be not stricly required
 PYTHON_REQ_USE="threads(+)"
 
@@ -37,6 +37,7 @@ BDEPEND="
 		dev-python/flask[${PYTHON_USEDEP}]
 		dev-python/httpx[${PYTHON_USEDEP}]
 		dev-python/httpx2[${PYTHON_USEDEP}]
+		dev-python/pydantic-settings[${PYTHON_USEDEP}]
 		dev-python/python-multipart[${PYTHON_USEDEP}]
 		dev-python/sqlalchemy[${PYTHON_USEDEP}]
 		dev-python/typer[${PYTHON_USEDEP}]
