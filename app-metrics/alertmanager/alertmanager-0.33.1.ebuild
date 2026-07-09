@@ -19,8 +19,10 @@ KEYWORDS="~amd64 ~arm64"
 # tests don't work due to "missing files"
 RESTRICT+=" test"
 
-BDEPEND="dev-util/promu"
-
+BDEPEND="
+	>=dev-lang/go-1.25.0
+	dev-util/promu
+"
 DEPEND="
 	acct-group/alertmanager
 	acct-user/alertmanager

@@ -29,6 +29,8 @@ IUSE="symlink"
 
 RDEPEND="symlink? ( !sys-process/parallel )"
 
+QA_FLAGS_IGNORED="usr/bin/${PN}"
+
 src_install() {
 	dobin $(cargo_target_dir)/rust-parallel
 
