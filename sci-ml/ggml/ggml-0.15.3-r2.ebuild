@@ -3,7 +3,8 @@
 
 EAPI=8
 
-inherit cmake toolchain-funcs
+ROCM_VERSION=7.2
+inherit cmake rocm toolchain-funcs
 
 DESCRIPTION="Tensor library for machine learning"
 HOMEPAGE="https://ggml.ai/"
@@ -28,11 +29,19 @@ X86_CPU_FLAGS=(
 	sse4_2
 )
 CPU_FLAGS=( "${X86_CPU_FLAGS[@]/#/cpu_flags_x86_}" )
-IUSE="${CPU_FLAGS[*]} openmp test vulkan"
+IUSE="${CPU_FLAGS[*]} openmp rocm test vulkan"
+
+REQUIRED_USE="rocm? ( ${ROCM_REQUIRED_USE} )"
 
 RESTRICT="!test? ( test )"
 
-RDEPEND="vulkan? ( media-libs/vulkan-loader )"
+RDEPEND="
+	vulkan? ( media-libs/vulkan-loader )
+	rocm? (
+		>=dev-util/hip-${ROCM_VERSION}
+		>=sci-libs/hipBLAS-${ROCM_VERSION}[${ROCM_USEDEP}]
+	)
+"
 DEPEND="${RDEPEND}
 	vulkan? ( dev-util/vulkan-headers )
 "
@@ -51,6 +60,7 @@ src_configure() {
 		-DGGML_BACKEND_DL=OFF
 		-DGGML_BUILD_EXAMPLES=OFF
 		-DGGML_NATIVE=OFF
+		-DGGML_HIP_MMQ_MFMA=OFF
 
 		# CPU Flags
 		-DGGML_AVX=$(usex cpu_flags_x86_avx)
@@ -64,6 +74,7 @@ src_configure() {
 		-DGGML_SSE42=$(usex cpu_flags_x86_sse4_2)
 
 		-DGGML_OPENMP=$(usex openmp)
+		-DGGML_HIP=$(usex rocm)
 		-DGGML_VULKAN=$(usex vulkan)
 
 		-DGGML_BUILD_TESTS=$(usex test)
@@ -75,5 +86,6 @@ src_configure() {
 	else
 		mycmakeargs+=( -DGGML_AVX512=OFF )
 	fi
+
 	cmake_src_configure
 }
