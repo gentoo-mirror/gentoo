@@ -23,7 +23,7 @@ RDEPEND="
 	!dev-libs/intel-compute-runtime:legacy
 	>=dev-util/intel-graphics-compiler-2.37.1:0
 	!dev-util/intel-graphics-compiler:legacy
-	>=media-libs/gmmlib-22.9.0:=
+	>=media-libs/gmmlib-22.10.0:=
 "
 
 DEPEND="

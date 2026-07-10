@@ -1,4 +1,4 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -50,10 +50,15 @@ EOF
 }
 
 pkg_postinst() {
+	udev_reload
 	greadme_pkg_postinst
 
 	if has_version dev-util/android-sdk-update-manager; then
 		ewarn "This package (${P}) superseeds dev-util/android-sdk-update-manager"
 		ewarn "Consider uninstalling dev-util/android-sdk-update-manager"
 	fi
+}
+
+pkg_postrm() {
+	udev_reload
 }
