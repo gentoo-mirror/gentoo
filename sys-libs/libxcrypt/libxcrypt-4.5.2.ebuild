@@ -16,7 +16,7 @@ if [[ ${NEED_BOOTSTRAP} == "yes" ]] ; then
 	inherit autotools
 	SRC_URI="https://github.com/besser82/libxcrypt/releases/download/v${PV}/${P}.tar.xz"
 else
-	SRC_URI="https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${P}-autotools.tar.xz"
+	SRC_URI="https://distfiles.gentoo.org/pub/proj/toolchain/libxcrypt/${P}-autotools.tar.xz"
 fi
 
 LICENSE="LGPL-2.1+ public-domain BSD BSD-2"
