@@ -1,6 +1,10 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Christian Ruppert <idl0r@gentoo.org> (2026-07-10)
+# Make SLZ default, disable zlib, for better performance, ratio and security
+net-proxy/haproxy slz -zlib
+
 # Michał Górny <mgorny@gentoo.org> (2025-10-25)
 # Use FlexiBLAS by default.  Default-enable OpenBLAS backend for better
 # performance.
