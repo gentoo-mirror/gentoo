@@ -376,7 +376,8 @@ _ngx_set_mod_required_use() {
 		if has "${mod}" "${_NGX_MODULES[@]#+}"; then
 			result=''
 			# Feed comma-delimited dependencies into the dep_list array.
-			IFS=, read -ra dep_list <<< "${_NGX_DEP_TABLE[${mod}]}"
+			mapfile -td ',' dep_list < <(printf %s "${_NGX_DEP_TABLE[${mod}]}")
+
 			for dep in "${dep_list[@]}"; do
 				has "${dep}" "${_NGX_MODULES[@]#+}" &&
 					result+=" nginx_modules_${dep}"

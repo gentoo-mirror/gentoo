@@ -91,7 +91,7 @@ QA_FLAGS_IGNORED="
 
 submodule_uris() {
 	for line in "${SUBMODULES[@]}"; do
-		read -r name hoster dep url commit <<< "${line}" || die
+		read -rd '' name hoster dep url commit < <(printf %s "${line}")
 
 		if [ ${hoster} == "github" ];
 		then
