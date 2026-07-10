@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,11 +6,11 @@ EAPI=8
 inherit gnome.org meson-multilib vala xdg
 
 DESCRIPTION="GObject-based API for handling resource discovery and announcement over SSDP"
-HOMEPAGE="https://wiki.gnome.org/Projects/GUPnP https://gitlab.gnome.org/GNOME/gssdp"
+HOMEPAGE="https://gitlab.gnome.org/GNOME/gssdp"
 
 LICENSE="LGPL-2+"
 SLOT="1.6/1.6-0" # <API version>-<soname>
-KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~loong ~ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="gtk gtk-doc +introspection man +vala"
 REQUIRED_USE="
 	gtk-doc? ( introspection )
