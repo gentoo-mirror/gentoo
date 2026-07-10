@@ -54,7 +54,7 @@ pkg_postinst() {
 	greadme_pkg_postinst
 
 	if has_version dev-util/android-sdk-update-manager; then
-		ewarn "This package (${P}) superseeds dev-util/android-sdk-update-manager"
+		ewarn "This package (${P}) supersedes dev-util/android-sdk-update-manager"
 		ewarn "Consider uninstalling dev-util/android-sdk-update-manager"
 	fi
 }
