@@ -6,7 +6,7 @@ EAPI=8
 inherit optfeature wine
 
 WINE_GECKO=2.47.4
-WINE_MONO=11.1.0
+WINE_MONO=11.2.0
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -26,8 +26,7 @@ HOMEPAGE="
 
 LICENSE="
 	LGPL-2.1+
-	BSD BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff
-	|| ( WTFPL-2 public-domain )
+	BSD BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff public-domain
 "
 SLOT="${PV}"
 IUSE="
@@ -130,8 +129,10 @@ BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
+	amd64? ( dev-lang/nasm )
 	nls? ( sys-devel/gettext )
 	wayland? ( dev-util/wayland-scanner )
+	x86? ( dev-lang/nasm )
 "
 
 QA_CONFIG_IMPL_DECL_SKIP=(
