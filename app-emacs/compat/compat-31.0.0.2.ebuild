@@ -11,12 +11,10 @@ HOMEPAGE="https://github.com/emacs-compat/compat/
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/emacs-compat/${PN}"
 else
 	SRC_URI="https://github.com/emacs-compat/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
-
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 fi
 
@@ -62,6 +60,5 @@ src_test() {
 
 src_install() {
 	rm ./compat-tests.el || die
-
 	elisp_src_install
 }

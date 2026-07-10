@@ -22,13 +22,16 @@ fi
 LICENSE="GPL-3+"
 SLOT="0"
 
-DOCS=( CONTRIBUTING.org README.org blog-post.org )
-SITEFILE="50${PN}-gentoo.el"
-
 RDEPEND="
 	>=app-emacs/acp-0.12.2
 	>=app-emacs/shell-maker-0.93.3
 "
+BDEPEND="
+	${RDEPEND}
+"
+
+DOCS=( CONTRIBUTING.org README.org blog-post.org )
+SITEFILE="50${PN}-gentoo.el"
 
 src_compile() {
 	elisp_src_compile
