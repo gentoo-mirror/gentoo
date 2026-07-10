@@ -55,6 +55,8 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}"/django-4.0-bashcomp.patch
 	# d55979334dcefdb11626220000bec97ade09df07
+	# 2026-07-10: force "fork" method in tests anyway, as we're hitting
+	# random failures anyway
 	"${FILESDIR}"/django-5.2.7-py314.patch
 	# based on upstream commits:
 	# b1a65eac7c09250d36e12464fc8fff2a401246b6
