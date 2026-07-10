@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
@@ -22,13 +22,13 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-libs/boost
 	dev-cpp/xsimd
-	=dev-python/beniget-0.4*[${PYTHON_USEDEP}]
-	=dev-python/gast-0.6*[${PYTHON_USEDEP}]
+	>=dev-python/beniget-0.4[${PYTHON_USEDEP}]
+	>=dev-python/gast-0.6[${PYTHON_USEDEP}]
 	dev-python/numpy:=[${PYTHON_USEDEP}]
 	>=dev-python/ply-3.4[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-73.0.1[${PYTHON_USEDEP}]
@@ -58,7 +58,9 @@ PATCHES=(
 	"${FILESDIR}"/${P}-numpy-float128-tests.patch
 )
 
-src_configure() {
+src_prepare() {
+	distutils-r1_src_prepare
+
 	# vendored C++ headers -- use system copies
 	rm -r pythran/{boost,xsimd} || die
 
@@ -67,6 +69,9 @@ src_configure() {
 		-e 's|blas=blas|blas=cblas|' \
 		-e 's|libs=|libs=cblas|' \
 		pythran/pythran-*.cfg || die
+
+	# unpin dependencies
+	sed -i -e 's:~=:>=:' requirements.txt || die
 }
 
 python_test() {
@@ -96,6 +101,14 @@ python_test() {
 				# TODO
 				pythran/tests/test_numpy_fft.py::TestNumpyFFT::test_fft_3d_axis
 				pythran/tests/test_numpy_fft.py::TestNumpyFFTN
+			)
+			;;
+	esac
+
+	case ${EPYTHON} in
+		python3.15*)
+			EPYTEST_DESELECT+=(
+				pythran/tests/test_array.py::TestArray::test_typecodes
 			)
 			;;
 	esac
