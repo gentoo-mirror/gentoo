@@ -3,11 +3,9 @@
 
 EAPI=8
 
-MODULES_OPTIONAL_IUSE="modules"
-PYTHON_COMPAT=( python3_{12..13} )
-
-inherit autotools dot-a flag-o-matic linux-mod-r1 multiprocessing
-inherit python-single-r1 systemd tmpfiles
+PYTHON_COMPAT=( python3_{12..14} )
+inherit autotools dot-a linux-info multiprocessing python-single-r1
+inherit systemd tmpfiles
 
 DESCRIPTION="Production quality, multilayer virtual switch"
 HOMEPAGE="https://www.openvswitch.org"
@@ -15,26 +13,33 @@ SRC_URI="https://www.openvswitch.org/releases/${P}.tar.gz"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 x86"
-IUSE="debug modules monitor selinux +ssl unwind valgrind"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
+IUSE="debug monitor selinux +ssl unwind valgrind xdp"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # Check python/ovs/version.py in tarball for dev-python/ovs dep
 RDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
-		~dev-python/ovs-2.17.12[${PYTHON_USEDEP}]
+		~dev-python/ovs-3.3.9[${PYTHON_USEDEP}]
 		dev-python/twisted[${PYTHON_USEDEP}]
 		dev-python/zope-interface[${PYTHON_USEDEP}]
 	')
+	sys-apps/lsb-release
 	debug? ( dev-lang/perl )
 	unwind? ( sys-libs/libunwind:= )
 	selinux? ( sec-policy/selinux-openvswitch )
 	ssl? ( dev-libs/openssl:= )
+	xdp? (
+		dev-libs/libbpf:=
+		net-libs/xdp-tools
+		sys-process/numactl
+	)
 "
 DEPEND="
 	${RDEPEND}
 	sys-apps/util-linux[caps]
+	virtual/os-headers
 	valgrind? ( dev-debug/valgrind )
 "
 BDEPEND="
@@ -45,46 +50,27 @@ BDEPEND="
 	')
 "
 
-PATCHES=(
-	"${FILESDIR}/xcp-interface-reconfigure-2.3.2.patch"
-)
-
-CONFIG_CHECK="~NET_CLS_ACT ~NET_CLS_U32 ~NET_SCH_INGRESS ~NET_ACT_POLICE ~IPV6 ~TUN"
-MODULE_NAMES="openvswitch(net:${S}/datapath/linux)"
-BUILD_TARGETS="all"
+CONFIG_CHECK="~NET_CLS_ACT ~NET_CLS_U32 ~NET_SCH_INGRESS ~NET_ACT_POLICE ~IPV6 ~TUN ~OPENVSWITCH"
 
 pkg_setup() {
-	if use modules ; then
-		CONFIG_CHECK+=" ~!OPENVSWITCH"
-		kernel_is ge 3 10 0 || die "Linux >= 3.10.0 and <= 5.8 required for userspace modules"
-		kernel_is le 5 8 999 || die "Linux >= 3.10.0 and <= 5.8 required for userspace modules"
-		linux-mod-r1_pkg_setup
-	else
-		CONFIG_CHECK+=" ~OPENVSWITCH"
-		linux-info_pkg_setup
+	if use xdp ; then
+		CONFIG_CHECK+=" ~BPF ~BPF_JIT ~BPF_SYSCALL ~HAVE_BPF_JIT ~XDP_SOCKETS"
 	fi
+
+	linux-info_pkg_setup
+	python-single-r1_pkg_setup
 }
 
 src_prepare() {
 	default
-
-	# Never build kernelmodules, doing this manually
-	sed -i \
-		-e '/^SUBDIRS/d' \
-		datapath/Makefile.in || die "sed failed"
-
 	eautoreconf
 }
 
 src_configure() {
-	set_arch_to_kernel
-	python_setup
 	lto-guarantee-fat
 
 	# monitor is statically enabled for bug #596206
 	# use monitor || export ovs_cv_python="no"
-	# pyside is staticly disabled
-	export ovs_cv_pyuic4="no"
 
 	# flake8 is primarily a style guide tool, running it as part of the tests
 	# in Gentoo does not make much sense, only breaks them: bug #607280
@@ -95,29 +81,23 @@ src_configure() {
 	export ovs_cv_dot="no"
 
 	export ac_cv_header_valgrind_valgrind_h=$(usex valgrind)
+	export ac_cv_lib_unwind_unw_backtrace=$(usex unwind)
 
-	local linux_config
-	use modules && linux_config="--with-linux=${KV_OUT_DIR}"
-
-	export ac_cv_lib_unwind_unw_backtrace="$(usex unwind)"
-
-	# bug #955429
-	append-cflags -std=gnu17
+	local myeconfargs=(
+		--with-rundir=/run/openvswitch
+		--with-logdir=/var/log/openvswitch
+		--with-pkidir=/etc/ssl/openvswitch
+		--with-dbdir=/var/lib/openvswitch
+		$(use_enable ssl)
+		$(use_enable !debug ndebug)
+		$(use_enable xdp afxdp)
+	)
 
 	# Need PYTHON3 variable for bug #860240
-	PYTHON3="${PYTHON}" CONFIG_SHELL="${BROOT}"/bin/bash SHELL="${BROOT}"/bin/bash econf ${linux_config} \
-		--with-rundir=/run/openvswitch \
-		--with-logdir=/var/log/openvswitch \
-		--with-pkidir=/etc/ssl/openvswitch \
-		--with-dbdir=/var/lib/openvswitch \
-		$(use_enable ssl) \
-		$(use_enable !debug ndebug)
-}
+	export PYTHON3="${PYTHON}"
+	export CONFIG_SHELL="${BROOT}"/bin/bash SHELL="${BROOT}"/bin/bash
 
-src_compile() {
-	default
-
-	use modules && linux-mod-r1_src_compile
+	econf "${myeconfargs[@]}"
 }
 
 src_test() {
@@ -146,6 +126,8 @@ src_install() {
 	fi
 
 	keepdir /var/{lib,log}/openvswitch
+	# Used for system-id.conf
+	keepdir /etc/openvswitch
 	keepdir /etc/ssl/openvswitch
 	fperms 0750 /etc/ssl/openvswitch
 
@@ -163,19 +145,15 @@ src_install() {
 
 	insinto /etc/logrotate.d
 	newins rhel/etc_logrotate.d_openvswitch openvswitch
-
-	use modules && linux-mod-r1_src_install
 }
 
 pkg_postinst() {
-	use modules && linux-mod-r1_pkg_postinst
-
 	tmpfiles_process openvswitch.conf
 
 	# Only needed on non-systemd, but helps anyway
 	elog "Use the following command to create an initial database for ovsdb-server:"
 	elog "   emerge --config =${CATEGORY}/${PF}"
-	elog "(will create a database in /var/lib/openvswitch/conf.db)"
+	elog "(will create a database in ${EPREFIX}/var/lib/openvswitch/conf.db)"
 	elog "or to convert the database to the current schema after upgrading."
 }
 
