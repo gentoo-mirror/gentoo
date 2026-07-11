@@ -7,7 +7,7 @@ MY_PN="NetworkManager"
 PYTHON_COMPAT=( python3_{11..14} )
 
 inherit linux-info meson-multilib flag-o-matic python-any-r1 \
-		readme.gentoo-r1 systemd toolchain-funcs udev vala virtualx
+	readme.gentoo-r1 systemd toolchain-funcs udev vala virtualx
 
 DESCRIPTION="A set of co-operative tools that make networking simple and straightforward"
 HOMEPAGE="
@@ -109,6 +109,7 @@ DEPEND="${COMMON_DEPEND}
 	test? ( >=dev-libs/jansson-2.7 )
 "
 BDEPEND="
+	app-text/docbook-xsl-stylesheets
 	>=dev-util/gdbus-codegen-2.80.5-r1
 	dev-util/glib-utils
 	>=sys-devel/gettext-0.17
@@ -226,8 +227,6 @@ multilib_src_configure() {
 		$(meson_native_use_bool tools nmtui)
 		$(meson_native_use_bool tools nm_cloud_setup)
 		$(meson_native_use_bool bluetooth bluez5_dun)
-		# ebpf is problematic in at least v1.46.0, bug #926943
-		-Debpf=false
 		$(meson_native_use_bool nbft)
 
 		# configuration plugins
@@ -351,6 +350,15 @@ multilib_src_install_all() {
 
 	insinto /usr/lib/NetworkManager/conf.d #702476
 	doins "${S}"/examples/nm-conf.d/31-mac-addr-change.conf
+
+	if use concheck; then
+		# Needed to let the "connect" pop up to show up in captive portals
+		cat <<-EOF > "${ED}"/usr/lib/NetworkManager/conf.d/20-connectivity.conf || die
+		[connectivity]
+		uri=http://nmcheck.gnome.org/check_network_status.txt
+		interval=300
+		EOF
+	fi
 
 	if use iwd; then
 		# This goes to $nmlibdir/conf.d/ and $nmlibdir is '${prefix}'/lib/$PACKAGE, thus always lib, not get_libdir
