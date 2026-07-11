@@ -46,6 +46,7 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.16.13-cross_checks.patch
+	"${FILESDIR}"/${P}-fix_riscv.patch #979046
 )
 
 DOCS=( doc/rtorrent.rc )
