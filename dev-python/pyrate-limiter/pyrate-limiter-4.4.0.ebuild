@@ -27,6 +27,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		dev-db/redis
+		dev-python/aiohttp[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 	)
 "
