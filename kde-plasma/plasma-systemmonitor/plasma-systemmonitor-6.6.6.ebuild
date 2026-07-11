@@ -41,3 +41,8 @@ RDEPEND="${DEPEND}
 	>=kde-frameworks/kquickcharts-${KFMIN}:6
 	>=kde-plasma/ksystemstats-${KDE_CATV}:6
 "
+
+CMAKE_SKIP_TESTS=(
+	# bug 977514, problem when running with translations available
+	TestPageManager
+)

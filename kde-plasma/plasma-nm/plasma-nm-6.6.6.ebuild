@@ -62,6 +62,11 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+CMAKE_SKIP_TESTS=(
+	# https://bugs.kde.org/show_bug.cgi?id=506217
+	mobileproviderstest
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_OPENCONNECT=$(usex openconnect)
