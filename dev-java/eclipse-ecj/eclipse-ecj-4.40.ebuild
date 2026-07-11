@@ -1,13 +1,13 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 JAVA_PKG_IUSE="doc source"
 
 inherit java-pkg-2 java-pkg-simple
 
-DMF="R-${PV/_rc/RC}-202512010920"
+DMF="R-${PV/_rc/RC}-202606010713"
 
 DESCRIPTION="Eclipse Compiler for Java"
 HOMEPAGE="https://projects.eclipse.org/projects/eclipse.jdt"
@@ -15,14 +15,14 @@ SRC_URI="https://download.eclipse.org/eclipse/downloads/drops4/${DMF}/ecjsrc-${P
 S="${WORKDIR}"
 
 LICENSE="EPL-1.0"
-SLOT="4.38"
+SLOT="4.40"
 KEYWORDS="amd64 ~arm64"
 
 BDEPEND="app-arch/unzip"
 
 # jdk-25 because of compilation errors with jdk-21
 DEPEND="
-	>=dev-java/ant-1.10.15:0
+	>=dev-java/ant-1.10.15-r1:0
 	>=virtual/jdk-25:*
 "
 
