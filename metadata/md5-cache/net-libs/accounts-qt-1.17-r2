@@ -2,7 +2,7 @@ BDEPEND=doc? ( app-text/doxygen[dot] dev-qt/qttools:6[assistant] )
 DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/glib:2 dev-qt/qtbase:6[xml] >=net-libs/libaccounts-glib-1.23:=
 DESCRIPTION=Qt bindings for libaccounts-glib
-EAPI=8
+EAPI=9
 HOMEPAGE=https://accounts-sso.gitlab.io
 INHERIT=qmake-utils
 IUSE=doc test
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/glib:2 dev-qt/qtbase:6[xml] >=net-libs/libaccounts-glib-1.23:=
 RESTRICT=test
 SLOT=0
 SRC_URI=https://gitlab.com/accounts-sso/libaccounts-qt/-/archive/VERSION_1.17/libaccounts-qt-VERSION_1.17.tar.bz2 -> accounts-qt-1.17.tar.bz2
-_eclasses_=qt-utils	1dd132daf534f02545dcdf62050e3c87	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	qmake-utils	f7cfc8bbf7f3f3b27725c9cdfecd2476
-_md5_=78c2ceba62424ab48ae82899bd7c97f8
+_eclasses_=qt-utils	a15e9c428f931676601b77120f69038d	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	qmake-utils	cc0baf4385fb880725ae334ce289b70f
+_md5_=a4c2de7e871f3896f30c35229778bd24
