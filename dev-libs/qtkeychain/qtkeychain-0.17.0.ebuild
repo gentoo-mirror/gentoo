@@ -37,7 +37,7 @@ DOCS=( ChangeLog ReadMe.md )
 
 src_configure() {
 	local mycmakeargs=(
-		-DECM_MKSPECS_INSTALL_DIR="${EPREFIX}"$(qt6_get_mkspecsdir)
+		-DECM_MKSPECS_INSTALL_DIR="${EPREFIX}"$(qt_get_mkspecsdir 6)
 		-DBUILD_QTQUICK_DEMO=OFF
 		-DBUILD_TEST_APPLICATION=OFF
 		-DBUILD_TRANSLATIONS=ON

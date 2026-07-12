@@ -62,7 +62,7 @@ src_configure() {
 		$(usex pdf "CONFIG+=pdf PKGCONFIG+=poppler-qt6" "") \
 		engauge.pro
 	pushd help >/dev/null || die
-	$(qt6_get_libexecdir)/qhelpgenerator engauge.qhp || die
+	$(qt_get_broot_binary 6 qhelpgenerator) engauge.qhp || die
 	popd >/dev/null || die
 }
 

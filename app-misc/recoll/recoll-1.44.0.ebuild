@@ -74,7 +74,7 @@ src_prepare() {
 }
 
 src_configure() {
-	use qt6 && export QMAKE="$(qt6_get_bindir)/qmake"
+	use qt6 && export QMAKE="$(qt_get_broot_binary 6 qmake)"
 
 	local emesonargs=(
 		$(meson_use camelcase)
