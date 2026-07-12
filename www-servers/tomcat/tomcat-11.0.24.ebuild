@@ -24,7 +24,7 @@ IUSE="extra-webapps"
 RESTRICT="test" # can we run them on a production system?
 
 BND_MIN="7.2.3"
-ECJ_SLOT="4.39"
+ECJ_SLOT="4.40"
 
 COMMON_DEP="
 	>=dev-java/ant-1.10.15-r1:0
