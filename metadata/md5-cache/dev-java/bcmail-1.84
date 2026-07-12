@@ -5,11 +5,11 @@ EAPI=9
 HOMEPAGE=https://www.bouncycastle.org/download/bouncy-castle-java/
 INHERIT=java-pkg-2 java-pkg-simple
 IUSE=doc source test
-KEYWORDS=~amd64 ~arm64 ~ppc64
+KEYWORDS=~amd64 arm64 ~ppc64
 LICENSE=BSD
 RDEPEND=~dev-java/bcpkix-1.84:0 ~dev-java/bcprov-1.84:0 ~dev-java/bcutil-1.84:0 dev-java/javax-mail:0 dev-java/jakarta-activation-api:1 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bcgit/bc-java/archive/r1rv84.tar.gz -> bc-java-r1rv84.tar.gz
 _eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	df1fc43a5017ec8f5d23007b23731474
-_md5_=fd02b20002fa79704a8c0d7e11e7f1b5
+_md5_=6cb869e4331529795f8b4eaa26ac41c7
