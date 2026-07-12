@@ -4,7 +4,7 @@ DEPEND=test? ( >=dev-cpp/gtest-1.8.1 )
 DESCRIPTION=Strictly RFC 3986 compliant URI parsing library in C
 EAPI=8
 HOMEPAGE=https://uriparser.github.io/
-INHERIT=cmake qmake-utils
+INHERIT=cmake qt-utils
 IUSE=+doc qt6 test unicode
 KEYWORDS=amd64 arm arm64 ppc ~ppc64 ~riscv ~sparc x86
 LICENSE=test? ( LGPL-2.1+ ) BSD
@@ -12,5 +12,5 @@ REQUIRED_USE=qt6? ( doc ) test? ( unicode )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/uriparser/uriparser/releases/download/uriparser-1.0.2/uriparser-1.0.2.tar.bz2
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	qt-utils	a15e9c428f931676601b77120f69038d	qmake-utils	cc0baf4385fb880725ae334ce289b70f
-_md5_=d949bc082a8b584d5d25fd416974ec84
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	qt-utils	a15e9c428f931676601b77120f69038d
+_md5_=86c3c374d1ff787d28d604e48c6609bb
