@@ -28,6 +28,7 @@ DEPEND="
 	>=kde-frameworks/kirigami-${KFMIN}:6
 "
 RDEPEND="${DEPEND}
+	dev-libs/kirigami-addons:6
 	kde-plasma/xdg-desktop-portal-kde:*
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"

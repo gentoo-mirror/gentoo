@@ -12,7 +12,7 @@ DESCRIPTION="Network protocol analyzer (sniffer)"
 HOMEPAGE="https://www.wireshark.org/"
 
 if [[ ${PV} == *9999* ]] ; then
-	EGIT_REPO_URI="https://gitlab.com/wireshark/wireshark"
+	EGIT_REPO_URI="https://gitlab.com/wireshark/wireshark.git"
 	inherit git-r3
 else
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/wireshark.asc
@@ -23,7 +23,7 @@ else
 	S="${WORKDIR}/${P/_/}"
 
 	if [[ ${PV} != *_rc* ]] ; then
-		KEYWORDS="amd64 arm arm64 ~hppa ~loong ppc64 ~riscv x86"
+		KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~ppc64 ~riscv ~x86"
 	fi
 fi
 
@@ -120,8 +120,6 @@ fi
 PATCHES=(
 	"${FILESDIR}/4.4.6-lto.patch"
 	"${FILESDIR}/4.6.2-gnutls-pkcs11.patch"
-	"${FILESDIR}/4.6.5-disable-sidebar.patch"
-	"${FILESDIR}/4.6.5-remove-unused-variable.patch"
 )
 
 python_check_deps() {
@@ -313,7 +311,7 @@ src_install() {
 
 		for s in 16 24 32 48 64 128 256 ; do
 			insinto /usr/share/icons/hicolor/${s}x${s}/mimetypes
-			newins resources/icons//WiresharkDoc-${s}.png application-vnd.tcpdump.pcap.png
+			newins resources/icons/WiresharkDoc-${s}.png application-vnd.tcpdump.pcap.png
 		done
 	fi
 
@@ -337,16 +335,4 @@ pkg_postinst() {
 	ewarn "NOTE: To capture traffic with wireshark as normal user you have to"
 	ewarn "add yourself to the pcap group. This security measure ensures"
 	ewarn "that only trusted users are allowed to sniff your traffic."
-
-	if use gui; then
-		einfo "Since version 4.6.5 Wireshark's Welcome page shows a sidebar"
-		einfo "with links to documentation, ads, sponsors and various other"
-		einfo "community resources. This feature was merged prematurely and"
-		einfo "cannot (yet) be disabled in Preferences, so we decided to disable"
-		einfo "it by default. If you already started 4.6.5 and see the sidebar,"
-		einfo "you can edit the gui.welcome_page.sidebar.* keys in the"
-		einfo "recent_common file located in ~/.wireshark (old location)"
-		einfo "or ~/.config/wireshark (new location)."
-		einfo "Make sure that Wireshark is not running when editing the file."
-	fi
 }
