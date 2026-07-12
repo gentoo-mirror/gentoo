@@ -1,14 +1,14 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit desktop toolchain-funcs wrapper
 
-CTF_V="1.12"
-ROGUE_V="2.14"
-XATRIX_V="2.15"
-REF_VK_V="1.0.10"
+CTF_V="1.13"
+ROGUE_V="2.16"
+XATRIX_V="2.17"
+REF_VK_V="1.0.12"
 
 DESCRIPTION="Quake 2 engine focused on single player"
 HOMEPAGE="https://www.yamagi.org/quake2/"
@@ -33,22 +33,19 @@ REQUIRED_USE="
 
 RDEPEND="
 	client? (
-		media-libs/libsdl2[opengl?,video,vulkan?]
+		media-libs/libsdl3[opengl?,vulkan?]
 		net-misc/curl
 		gles? (
 			media-libs/libglvnd
-			media-libs/libsdl2[gles2]
+			media-libs/libsdl3[opengl]
 		)
 		openal? ( media-libs/openal )
-		!openal? ( media-libs/libsdl2[sound] )
 		opengl? ( media-libs/libglvnd )
 	)
 "
 DEPEND="${RDEPEND}
 	client? ( vulkan? ( dev-util/vulkan-headers ) )
 "
-
-PATCHES=( "${FILESDIR}"/${PN}-8.01-execinfo.patch )
 
 DOCS=( CHANGELOG README.md doc )
 
@@ -144,7 +141,7 @@ pkg_postinst() {
 		elog
 		elog "In order to play, you should do one of the following things:"
 		elog " - install games-fps/quake2-data or games-fps/quake2-demodata;"
-		elog " - manually copy game data files into ~/.yq2/ or"
+		elog " - manually copy game data files into ~/.local/share/YamagiQ2 or"
 		elog "   ${EROOT}/usr/share/quake2/."
 		elog "Read ${EROOT}/usr/share/doc/${PF}/README.md* for more information."
 		elog
