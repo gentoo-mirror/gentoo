@@ -197,7 +197,7 @@ src_configure() {
 		-DBUILD_MYSQL=$(usex mysql)
 		-DBUILD_NCURSES=$(usex ncurses)
 		-DBUILD_NVIDIA=$(usex nvidia)
-		-BUILD_NVIDIA_NVML=no
+		-DBUILD_NVIDIA_NVML=no
 		-DBUILD_OLD_CONFIG=yes
 		-DBUILD_PORT_MONITORS=$(usex portmon)
 		-DBUILD_PULSEAUDIO=$(usex pulseaudio)
