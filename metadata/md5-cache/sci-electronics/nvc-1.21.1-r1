@@ -4,14 +4,14 @@ DEPEND=app-arch/bzip2:= app-arch/zstd:= dev-libs/capstone:= dev-libs/elfutils de
 DESCRIPTION=NVC is a VHDL compiler and simulator
 EAPI=8
 HOMEPAGE=https://www.nickg.me.uk/nvc/ https://github.com/nickg/nvc/
-INHERIT=autotools bash-completion-r1 llvm-r2
-IUSE=debug llvm test +llvm_slot_22 llvm_slot_20 llvm_slot_21
+INHERIT=autotools llvm-r2 shell-completion
+IUSE=llvm test +llvm_slot_22 llvm_slot_20 llvm_slot_21
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
 RDEPEND=app-arch/bzip2:= app-arch/zstd:= dev-libs/capstone:= dev-libs/elfutils dev-libs/icu:= dev-libs/libffi:= dev-libs/libxml2:= sys-libs/ncurses:= virtual/zlib:= llvm? ( llvm_slot_20? ( llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/llvm:21= ) llvm_slot_22? ( llvm-core/llvm:22= ) )
 REQUIRED_USE=^^ ( llvm_slot_20 llvm_slot_21 llvm_slot_22 )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/nickg/nvc/archive/r1.20.1.tar.gz -> nvc-1.20.1.tar.gz
-_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	shell-completion	63a62de3ca49c798ee6e89f190e45d0e	bash-completion-r1	4386cfb12ede6cd8f0c1987d2e88da5f	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	6dfe5b52eedf1a8ebd3e0aa9b83c8a75
-_md5_=b4b7d751f256d8d6ee981201549e70b0
+SRC_URI=https://github.com/nickg/nvc/archive/r1.21.1.tar.gz -> nvc-1.21.1.tar.gz
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	6dfe5b52eedf1a8ebd3e0aa9b83c8a75	shell-completion	63a62de3ca49c798ee6e89f190e45d0e
+_md5_=6fd6c3eb777645c16b737ba7c8a5e591
