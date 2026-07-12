@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake qmake-utils
+inherit cmake qt-utils
 
 DESCRIPTION="Strictly RFC 3986 compliant URI parsing library in C"
 HOMEPAGE="https://uriparser.github.io/"
@@ -42,7 +42,7 @@ src_configure() {
 		# The usev wrapper is here to address this warning:
 		#   One or more CMake variables were not used by the project:
 		#   CMAKE_DISABLE_FIND_PACKAGE_Qt5Help
-		$(usev doc $(usex qt6 -DQHG_LOCATION=$(qt6_get_libexecdir)/qhelpgenerator -DCMAKE_DISABLE_FIND_PACKAGE_Qt5Help=ON))
+		$(usev doc $(usex qt6 -DQHG_LOCATION=$(qt_get_broot_binary 6 qhelpgenerator) -DCMAKE_DISABLE_FIND_PACKAGE_Qt5Help=ON))
 	)
 	cmake_src_configure
 }

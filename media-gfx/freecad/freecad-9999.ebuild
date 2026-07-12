@@ -410,8 +410,8 @@ src_configure() {
 			-DFREECAD_QT_MAJOR_VERSION=6
 			-DFREECAD_QT_VERSION=6
 			-DQT_DEFAULT_MAJOR_VERSION=6
-			-DQt6Core_MOC_EXECUTABLE="$(qt6_get_bindir)/moc"
-			-DQt6Core_RCC_EXECUTABLE="$(qt6_get_bindir)/rcc"
+			-DQt6Core_MOC_EXECUTABLE="$(qt_get_broot_binary 6 moc)"
+			-DQt6Core_RCC_EXECUTABLE="$(qt_get_broot_binary 6 rcc)"
 			-DBUILD_QT5=OFF
 			# Drawing module unmaintained and not ported to qt6
 			-DBUILD_DRAWING=OFF
