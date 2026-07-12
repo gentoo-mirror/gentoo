@@ -16,8 +16,10 @@ IUSE="X"
 COMMON_DEPEND="
 	>=dev-libs/glib-2.82.0:2
 	>=sys-auth/elogind-242
+	sys-apps/openrc
 "
-RDEPEND="${COMMON_DEPEND}
+RDEPEND="
+	${COMMON_DEPEND}
 	sys-apps/dbus[X?]
 	!<gnome-base/gnome-session-49
 "
