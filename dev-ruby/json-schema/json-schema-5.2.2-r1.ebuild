@@ -32,6 +32,7 @@ ruby_add_bdepend "test? (
 
 PATCHES=(
 	"${FILESDIR}/${P}-remove-dev-tasks.patch"
+	"${FILESDIR}/${P}-allow-bigdecimal-4.patch"
 )
 
 all_ruby_prepare() {
