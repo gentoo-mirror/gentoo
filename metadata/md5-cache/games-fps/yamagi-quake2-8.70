@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install postinst
+DEPEND=client? ( media-libs/libsdl3[opengl?,vulkan?] net-misc/curl gles? ( media-libs/libglvnd media-libs/libsdl3[opengl] ) openal? ( media-libs/openal ) opengl? ( media-libs/libglvnd ) ) client? ( vulkan? ( dev-util/vulkan-headers ) )
+DESCRIPTION=Quake 2 engine focused on single player
+EAPI=8
+HOMEPAGE=https://www.yamagi.org/quake2/
+INHERIT=desktop toolchain-funcs wrapper
+IUSE=+client ctf dedicated gles openal +opengl rogue softrender vulkan xatrix
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=GPL-2
+RDEPEND=client? ( media-libs/libsdl3[opengl?,vulkan?] net-misc/curl gles? ( media-libs/libglvnd media-libs/libsdl3[opengl] ) openal? ( media-libs/openal ) opengl? ( media-libs/libglvnd ) )
+REQUIRED_USE=|| ( client dedicated ) client? ( || ( opengl gles softrender vulkan ) )
+SLOT=0
+SRC_URI=https://deponie.yamagi.org/quake2/quake2-8.70.tar.xz ctf? ( https://deponie.yamagi.org/quake2/quake2-ctf-1.13.tar.xz ) rogue? ( https://deponie.yamagi.org/quake2/quake2-rogue-2.16.tar.xz ) xatrix? ( https://deponie.yamagi.org/quake2/quake2-xatrix-2.17.tar.xz ) vulkan? ( https://github.com/yquake2/ref_vk/archive/refs/tags/v1.0.12.tar.gz -> quake2-ref_vk-1.0.12.tar.gz )
+_eclasses_=desktop	e447b5f77146d69797e9f03ff177f3f1	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	wrapper	ebaa3beeb43f7e533872b6c37168c7ad
+_md5_=f6bc6e6ff239a01bb3067335997d71ea
