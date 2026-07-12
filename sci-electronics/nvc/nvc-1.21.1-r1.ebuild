@@ -5,7 +5,7 @@ EAPI=8
 
 LLVM_COMPAT=( {20..22} )
 
-inherit autotools bash-completion-r1 llvm-r2
+inherit autotools llvm-r2 shell-completion
 
 DESCRIPTION="NVC is a VHDL compiler and simulator"
 HOMEPAGE="https://www.nickg.me.uk/nvc/
@@ -13,7 +13,6 @@ HOMEPAGE="https://www.nickg.me.uk/nvc/
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/nickg/nvc"
 
 	NVC_SOURCEDIR="${WORKDIR}/${PN}-${PV}"
@@ -30,7 +29,7 @@ S="${NVC_BUILDDIR}"
 
 LICENSE="GPL-3+"
 SLOT="0"
-IUSE="debug llvm test"
+IUSE="llvm test"
 RESTRICT="test"         # Some tests fail.
 
 RDEPEND="
@@ -62,7 +61,10 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}/nvc-1.9.2-jit-code-capstone.patch" )
+PATCHES=(
+	"${FILESDIR}/nvc-1.9.2-jit-code-capstone.patch"
+	"${FILESDIR}/nvc-1.21.1-fpurge.patch"
+)
 
 # Special libraries for NVC.
 QA_FLAGS_IGNORED="usr/lib[0-9]*/nvc/preload[0-9]*.so"
@@ -75,16 +77,13 @@ pkg_setup() {
 
 src_unpack() {
 	default
-
 	mkdir -p "${S}" || die
 }
 
 src_prepare() {
 	pushd "${NVC_SOURCEDIR}" >/dev/null || die
-
 	default
 	eautoreconf
-
 	popd >/dev/null || die
 }
 
@@ -97,7 +96,6 @@ src_configure() {
 	local -a myconf=(
 		--enable-vital
 		--with-bash-completion="$(get_bashcompdir)"
-		$(use_enable debug)
 		$(use_enable llvm)
 	)
 	econf "${myconf[@]}"
@@ -112,13 +110,11 @@ src_compile() {
 src_test() {
 	local -x ASAN_OPTIONS="detect_leaks=0"
 	local -x PATH="${S}/bin:${PATH}"
-
 	nonfatal emake -j1 check-TESTS
 }
 
 src_install() {
 	default
-
 	mv "${D}/$(get_bashcompdir)"/nvc{.bash,} || die
 	dostrip -x "/usr/$(get_libdir)/nvc"
 }
