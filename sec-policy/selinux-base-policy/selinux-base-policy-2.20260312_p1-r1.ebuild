@@ -42,6 +42,12 @@ BDEPEND="
 	sys-devel/m4
 "
 
+PATCHES=(
+	"${FILESDIR}/0002-authlogin-allow-pam_domain-to-read-usr-share-pam.patch"
+	"${FILESDIR}/0003-su-use-auth_use_pam.patch"
+	"${FILESDIR}/0004-authlogin-guard-auth_use_pam_systemd-dbus_system_bus.patch"
+)
+
 MODS="application authlogin bootloader clock consoletype cron dmesg fstools getty hostname init iptables libraries locallogin logging lvm miscfiles modutils mount mta netutils nscd portage raid rsync selinuxutil setrans ssh staff storage su sysadm sysnetwork systemd tmpfiles udev userdomain usermanage unprivuser xdg"
 # A previous, old release of refpolicy had the hotplug policy module. However,
 # it has since been removed[1]. As such, remove it if we see it installed.
@@ -62,7 +68,7 @@ src_prepare() {
 	fi
 
 	cd "${S}" || die
-	eapply_user
+	default
 
 	# Collect only those files needed for this particular module
 	for mod in ${MODS}; do
