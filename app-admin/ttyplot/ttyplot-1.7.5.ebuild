@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="8"
+EAPI="9"
 
 inherit toolchain-funcs
 
@@ -18,7 +18,7 @@ DEPEND="${RDEPEND}
 	sys-libs/ncurses[tinfo]"
 
 src_compile() {
-	emake CC="$(tc-getCC)"
+	emake CC="$(tc-getCC)" VERSION="${PV}"
 }
 
 src_install() {
