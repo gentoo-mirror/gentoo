@@ -7,7 +7,7 @@ inherit desktop pam prefix readme.gentoo-r1 systemd tmpfiles unpacker xdg
 
 DESCRIPTION="Microsoft Intune Company Portal to access a corporate environment"
 HOMEPAGE="https://learn.microsoft.com/mem/intune/"
-SRC_URI="https://packages.microsoft.com/ubuntu/24.04/prod/pool/main/${PN:0:1}/${PN}/${PN}_${PV}-noble_amd64.deb"
+SRC_URI="https://packages.microsoft.com/ubuntu/26.04/prod/pool/main/${PN:0:1}/${PN}/${PN}_${PV}-resolute_amd64.deb"
 S="${WORKDIR}"
 LICENSE="all-rights-reserved"
 SLOT="0"
