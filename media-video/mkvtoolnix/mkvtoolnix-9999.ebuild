@@ -137,7 +137,7 @@ src_configure() {
 		# Qt (of some version) is always needed, even for non-GUI builds,
 		# to do e.g. MIME detection. See e.g. bug #844097.
 		# But most of the Qt deps are conditional on a GUI build.
-		--with-qmake6="$(qt6_get_bindir)"/qmake
+		--with-qmake6="$(qt_get_broot_binary 6 qmake)"
 	)
 
 	# Work around bug #904710.
