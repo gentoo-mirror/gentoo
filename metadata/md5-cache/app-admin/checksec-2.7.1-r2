@@ -1,0 +1,12 @@
+DEFINED_PHASES=install prepare
+DESCRIPTION=Tool to check properties of executables (e.g. ASLR/PIE, RELRO, PaX, Canaries)
+EAPI=8
+HOMEPAGE=https://github.com/slimm609/checksec
+INHERIT=shell-completion
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=BSD
+RDEPEND=sys-apps/grep[pcre] !<dev-util/pwntools-4.10.0_beta0-r2
+SLOT=0
+SRC_URI=https://github.com/slimm609/checksec/archive/2.7.1.tar.gz -> checksec-2.7.1.gh.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	shell-completion	63a62de3ca49c798ee6e89f190e45d0e
+_md5_=b7aa7c0230a3ee0776583943094f5142
