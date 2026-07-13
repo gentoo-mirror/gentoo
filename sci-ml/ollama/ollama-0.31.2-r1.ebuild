@@ -32,7 +32,10 @@ RDEPEND="
 	${DEPEND}
 	net-misc/curl:=
 "
-BDEPEND=">=dev-lang/go-1.26.0"
+BDEPEND="
+	>=dev-lang/go-1.26.0
+	dev-libs/stb
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.31.1-ggml.patch
@@ -45,6 +48,7 @@ src_prepare() {
 	cmake_src_prepare
 	cd ../llama.cpp-${LLAMA_CPP_tag}
 	eapply "${FILESDIR}"/${PN}-0.31.1-gcc17.patch
+	rm -r vendor/stb || die
 }
 
 src_configure() {
