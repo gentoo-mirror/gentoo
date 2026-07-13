@@ -105,8 +105,7 @@ qt_get_bindir() {
 qt_get_broot_binary() {
 	_qt_get_check_func_call "$@"
 	PATH=${BROOT}$(qt_get_libexecdir ${1}):${BROOT}$(qt_get_bindir ${1}) \
-		type -P "${2}" | head -n 1
-	pipestatus || die "${FUNCNAME[0]}: failed trying to detect binary: ${2}"
+		type -P "${2}" || die "${FUNCNAME[0]}: failed trying to detect binary: ${2}"
 }
 
 # @FUNCTION: qt_get_headerdir
@@ -155,7 +154,7 @@ qt_get_qmldir() {
 }
 
 # @FUNCTION: qt6_get_bindir
-# @DEPRECATED
+# @DEPRECATED: qt_get_broot_binary 6 <bin>, qt_get_bindir 6 (no EPREFIX)
 # @DESCRIPTION:
 # Echoes the directory where Qt6 binaries are installed.
 # EPREFIX is always prepended to the returned path.
@@ -165,7 +164,7 @@ qt6_get_bindir() {
 }
 
 # @FUNCTION: qt6_get_headerdir
-# @DEPRECATED
+# @DEPRECATED: qt_get_headerdir 6
 # @DESCRIPTION:
 # Echoes the directory where Qt6 headers are installed.
 qt6_get_headerdir() {
@@ -174,7 +173,7 @@ qt6_get_headerdir() {
 }
 
 # @FUNCTION: qt6_get_libdir
-# @DEPRECATED
+# @DEPRECATED: qt_get_archdatadir 6 (serves $(qt6_get_libdir)/qt6)
 # @DESCRIPTION:
 # Echoes the directory where Qt6 libraries are installed.
 qt6_get_libdir() {
@@ -183,7 +182,7 @@ qt6_get_libdir() {
 }
 
 # @FUNCTION: qt6_get_libexecdir
-# @DEPRECATED
+# @DEPRECATED: qt_get_broot_binary 6 <bin>, qt_get_libexecdir 6
 # @DESCRIPTION:
 # Echoes the directory where Qt6 libexec bins are installed.
 qt6_get_libexecdir() {
@@ -192,7 +191,7 @@ qt6_get_libexecdir() {
 }
 
 # @FUNCTION: qt6_get_mkspecsdir
-# @DEPRECATED
+# @DEPRECATED: qt_get_mkspecsdir 6
 # @DESCRIPTION:
 # Echoes the directory where Qt6 mkspecs are installed.
 qt6_get_mkspecsdir() {
@@ -201,7 +200,7 @@ qt6_get_mkspecsdir() {
 }
 
 # @FUNCTION: qt6_get_plugindir
-# @DEPRECATED
+# @DEPRECATED: qt_get_plugindir 6
 # @DESCRIPTION:
 # Echoes the directory where Qt6 plugins are installed.
 qt6_get_plugindir() {
