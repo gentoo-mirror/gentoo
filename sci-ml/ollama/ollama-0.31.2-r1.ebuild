@@ -39,32 +39,85 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.31.1-ggml.patch
-	"${FILESDIR}"/${PN}-0.31.1-llamaDL.patch
 	"${FILESDIR}"/${PN}-0.31.1-cmake.patch
-	"${FILESDIR}"/${PN}-0.31.1-nostrip.patch
 )
 
 src_prepare() {
 	cmake_src_prepare
-	cd ../llama.cpp-${LLAMA_CPP_tag}
-	eapply "${FILESDIR}"/${PN}-0.31.1-gcc17.patch
+
+	local llama_src="${BUILD_DIR}/_deps/llama_cpp-src"
+	local llama_patch_dir="${WORKDIR}/${P}/llama/compat"
+
+	mkdir -p "${BUILD_DIR}"/_deps || die
+
+	ln -s "${WORKDIR}"/llama.cpp-${LLAMA_CPP_tag} "${llama_src}" || die
+
+	# Switch to the llama.cpp source directory
+	pushd "${llama_src}" > /dev/null || die
+	eapply "${llama_patch_dir}"/*.patch \
+		"${llama_patch_dir}"/models/*.patch \
+		"${FILESDIR}"/${PN}-0.31.1-gcc17.patch
+
+	# Remove vendored
 	rm -r vendor/stb || die
+	popd > /dev/null || die
 }
 
 src_configure() {
+	# Configure Embedded local Server
+	local llama_src="${BUILD_DIR}/_deps/llama_cpp-src"
 	local mycmakeargs=(
+		-DCMAKE_INSTALL_PREFIX="${BUILD_DIR}"
+		-DOLLAMA_RUNNER_DIR=""
+		-DFETCHCONTENT_SOURCE_DIR_LLAMA_CPP="${llama_src}"
+		-DOLLAMA_LLAMA_CPP_SKIP_COMPAT_PATCH=ON
+		-DBUILD_SHARED_LIBS=ON
 		-DLLAMA_USE_SYSTEM_GGML=ON
 	)
-
+	local CMAKE_USE_DIR="${S}/llama/server"
+	local BUILD_DIR="${BUILD_DIR}/llama-server-local"
 	cmake_src_configure
-	rm -rf "${BUILD_DIR}"/_deps/llama_cpp-src || die
-	ln -s "${WORKDIR}"/llama.cpp-${LLAMA_CPP_tag} \
-		"${BUILD_DIR}"/_deps/llama_cpp-src || die
+}
+
+src_compile() {
+	local SAVE_BUILD_DIR="${BUILD_DIR}"
+
+	# Compile Embedded Local Server
+	local BUILD_DIR="${BUILD_DIR}"/llama-server-local
+	local cmake_src_compile_opts=(
+		--target llama-server
+		--target llama-quantize
+	)
+	cmake_src_compile
+
+	# Install/Stage Local Server Component
+	"${CMAKE_BINARY}" \
+		--install "${BUILD_DIR}" \
+		--prefix "${SAVE_BUILD_DIR}" \
+		--component llama-server \
+		|| die "Failed to stage server component"
+
+	# Expose CGO to Go and establish compiler optimization paths
+	export CGO_ENABLED=1
+
+	# Replicate the linker flags dynamically from your ebuild version
+	local mygoldflags="-X github.com/ollama/ollama/version.Version=${PV} \
+		-X github.com/ollama/ollama/server.mode=release"
+
+	# Call the Go build engine natively with standard Gentoo flags
+	ego build \
+		-trimpath \
+		-ldflags "${mygoldflags}" \
+		-o "${BUILD_DIR}/ollama" \
+		. || die "Go build failed"
 }
 
 src_install() {
-	cmake_src_install
-	rm -rf "${D}"/var || die
+	dobin "${BUILD_DIR}"/llama-server-local/ollama
+	insinto usr
+	doins -r "${BUILD_DIR}"/lib
+
+	einstalldocs
 
 	newinitd "${FILESDIR}/ollama.init" "${PN}"
 	newconfd "${FILESDIR}/ollama.confd" "${PN}"
