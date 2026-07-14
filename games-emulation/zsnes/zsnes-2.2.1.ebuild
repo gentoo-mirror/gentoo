@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit flag-o-matic multilib python-any-r1 toolchain-funcs xdg
 
 DESCRIPTION="Fork of the classic Super Nintendo emulator"
@@ -23,14 +23,10 @@ RDEPEND="
 	media-libs/libpng:=[abi_x86_32(-)]
 	media-libs/libsdl3[abi_x86_32(-),opengl]
 	virtual/zlib:=[abi_x86_32(-)]
-	x11-libs/libX11[abi_x86_32(-)]
 	ao? ( media-libs/libao[abi_x86_32(-)] )
 	pipewire? (  media-video/pipewire:=[abi_x86_32(-)] )
 "
-DEPEND="
-	${RDEPEND}
-	x11-base/xorg-proto
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-lang/nasm
@@ -50,12 +46,15 @@ src_compile() {
 	if use !custom-cflags; then
 		strip-flags
 		append-cppflags -U_FORTIFY_SOURCE # to disable =3, Makefile enables =2
+
+		# furthermore fails with -Werror=strict-aliasing+lto-type-mismatch
+		append-cflags -fno-strict-aliasing
+		filter-lto
 	fi
 
 	use amd64 && multilib_toolchain_setup x86
-	tc-export CC CXX
+	tc-export CC
 	append-cflags ${CPPFLAGS}
-	append-cxxflags ${CPPFLAGS}
 
 	ZSNES_MAKEARGS=(
 		ARCH=LINUX
