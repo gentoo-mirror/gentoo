@@ -3867,8 +3867,8 @@ dev-build/gtk-doc-am 1.34.0: Automake files from gtk-doc
 dev-build/guildmaster 0_pre20250712 9999: FIFO-like jobserver node via CUSE
 dev-build/gyp 20200512145953-r1 99999999999999: GYP (Generate Your Projects) meta-build system
 dev-build/icmake 9.03.01-r1: Hybrid between a make utility and a shell scripting language
-dev-build/just 1.51.0 1.52.0 1.54.0: Just a command runner (with syntax inspired by 'make')
-dev-build/kas 5.1 5.2: Setup tool for bitbake based projects
+dev-build/just 1.51.0 1.52.0 1.54.0 1.55.1: Just a command runner (with syntax inspired by 'make')
+dev-build/kas 5.1 5.2 5.4: Setup tool for bitbake based projects
 dev-build/kbuild 0.1.9998.3660-r1 9999: A makefile framework for writing simple makefiles for complex tasks
 dev-build/libtool 2.5.4 2.6.0 9999: A shared library tool for developers
 dev-build/mage 1.13.0 1.15.0: make/rake like tool using go
@@ -5483,7 +5483,7 @@ dev-libs/bitshuffle 0.3.5-r1: Bitshuffle C library
 dev-libs/blake3 1.8.3 1.8.4 1.8.5: a fast cryptographic hash function
 dev-libs/blazesym_c 0.1.8 0.1.9: C bindings for blazesym, a library for address symbolization and related tasks
 dev-libs/boehm-gc 8.2.8 8.2.10 8.2.10-r1 8.2.12: The Boehm-Demers-Weiser conservative garbage collector
-dev-libs/boost 1.90.0-r2 1.91.0-r1: Boost Libraries for C++
+dev-libs/boost 1.90.0-r2 1.91.0-r2: Boost Libraries for C++
 dev-libs/boron 2.1.0: A scripting language similar to REBOL
 dev-libs/botan 3.11.1 3.12.0: C++ crypto library
 dev-libs/boxfort 0.1.4-r1 0.1.4-r2 0.1.5: Convenient & cross-platform sandboxing C library
@@ -10858,7 +10858,7 @@ dev-util/bbe 0.2.2-r1: Sed-like editor for binary files
 dev-util/bcc 0.31.0-r3 0.32.0-r1 0.34.0-r1 0.35.0-r1 0.35.0-r2 0.36.0 0.36.1 0.36.1-r1: Tools for BPF-based Linux IO analysis, networking, monitoring, and more
 dev-util/bcpp 20240917: Indents C/C++ source code
 dev-util/bdelta 0.3.1-r1: Binary Delta - Efficient difference algorithm and format
-dev-util/bear 3.1.6 4.1.4: A tool that generates a compilation database for clang tooling
+dev-util/bear 3.1.6 4.1.5: A tool that generates a compilation database for clang tooling
 dev-util/bindgen 0.72.0 0.72.1: Automatically generate Rust FFI bindings to C and C++ libraries
 dev-util/bingrep 0.11.0-r1: Binary file analysis tool
 dev-util/bloaty 1.1-r1 1.1-r2 9999: A size profiler for binaries
@@ -11114,7 +11114,7 @@ dev-util/peg 0.1.19 0.1.20: Recursive-descent parser generators for C
 dev-util/perf 6.19.12 7.0 7.1: Userland tools for Linux Performance Counters
 dev-util/pixi 0.71.3 0.72.0 0.72.1 0.72.2: A package management and workflow tool
 dev-util/pkgcheck 0.10.39-r1 0.10.40-r1 9999: pkgcore-based QA utility for ebuild repos
-dev-util/pkgconf 2.5.1 3.0.1 9999: pkg-config compatible replacement with no dependencies other than C99
+dev-util/pkgconf 2.5.1 3.0.2 9999: pkg-config compatible replacement with no dependencies other than C99
 dev-util/pkgcruft 0.0.18-r1 9999: QA library and tools based on pkgcraft
 dev-util/pkgdev 0.2.15 9999: Collection of tools for Gentoo development
 dev-util/pkgdiff 1.8 9999: Package Changes Analyzer (pkgdiff)
@@ -12070,7 +12070,7 @@ games-util/xpadneo 0.9.8 0.10.1 0.10.2 0.10.4 9999: Advanced Linux Driver for Xb
 games-util/xqf 1.0.6.2: A server browser for many FPS games (frontend for qstat)
 gnome-base/dconf 0.40.0: Simple low-level configuration system
 gnome-base/dconf-editor 45.0.1 49.0: Graphical tool for editing the dconf configuration database
-gnome-base/gdm 48.0-r1 49.2 49.2-r1 49.2-r2: GNOME Display Manager for managing graphical display servers and user logins
+gnome-base/gdm 48.0-r1 49.2 49.2-r1 49.2-r2 49.3: GNOME Display Manager for managing graphical display servers and user logins
 gnome-base/gnome 45.2 48.0: Meta package for GNOME, merge this package to install
 gnome-base/gnome-applets 3.54.0-r1 3.56.0 3.58.0: Applets for the GNOME Flashback Panel
 gnome-base/gnome-common 3.18.0-r2: Common files for development of Gnome packages
@@ -15605,7 +15605,7 @@ net-news/yydecode 0.2.10-r3 0.2.10-r4: A decoder for yENC format, popular on Use
 net-nntp/leafnode 1.11.11-r2 1.12.0-r1: A USENET software package designed for small sites
 net-nntp/newspost 2.1.1-r3: usenet binary autoposter for unix
 net-nntp/nzbget 25.0 25.4 26.1 26.2: A command-line based binary newsgrabber supporting .nzb files
-net-nntp/sabnzbd 4.5.5 5.0.1 5.0.3: Binary newsgrabber with web-interface
+net-nntp/sabnzbd 4.5.5 5.0.3 5.0.4: Binary newsgrabber with web-interface
 net-nntp/slrn 1.0.3-r2: A s-lang based newsreader
 net-nntp/suck 4.3.5: Grab news from a remote NNTP server and feed them to another
 net-nntp/tin 2.6.4: A threaded NNTP and spool based UseNet newsreader
@@ -15679,7 +15679,7 @@ net-print/pnm2ppa 1.13-r2: Print driver for Hp Deskjet 710, 712, 720, 722, 820, 
 net-print/poster 20060221-r4: Small utility for making a poster from an EPS file or a one-page PS document
 net-print/splix 2.0.0_p20130826-r1 2.0.1: A set of CUPS printer drivers for SPL (Samsung Printer Language) printers
 net-print/sshlpr 1-r2: ssh-lpr backend for cups -- print to remote systems over ssh
-net-proxy/3proxy 0.9.4 0.9.5: Really tiny cross-platform proxy servers set
+net-proxy/3proxy 0.9.5 0.9.7: Really tiny cross-platform proxy servers set
 net-proxy/adzapper 20110915-r2: Redirector for squid to intercept advertising, page counters and web bugs
 net-proxy/cntlm 0.93_beta5-r4: Cntlm is an NTLM/NTLMv2 authenticating HTTP proxy
 net-proxy/dante 1.4.1-r6 1.4.3 1.4.4: A free socks4,5 and msproxy implementation
@@ -17444,7 +17444,7 @@ sys-apps/s6-rc 0.5.6.0 0.5.6.0-r1 0.6.0.0 0.6.0.0-r1 0.6.1.1: Service manager fo
 sys-apps/sandbox 2.46 2.47 2.48 2.49 9999: sandbox'd LD_PRELOAD hack
 sys-apps/sdparm 1.12 1.12-r1: Utility to output and modify parameters on a SCSI device, like hdparm
 sys-apps/secilc 3.8.1 3.9 3.10 3.11 9999: SELinux Common Intermediate Language (CIL) Compiler
-sys-apps/sed 4.10: Super-useful stream editor
+sys-apps/sed 4.10-r1: Super-useful stream editor
 sys-apps/seedfiles 1.5 1.5.1 1.6 1.7 9999: Portable drop-in reimplementation of systemd-tmpfiles
 sys-apps/selinux-python 3.7-r1 3.8.1 3.8.1-r2 3.9 3.10-r1 3.11-r1 9999: SELinux core utilities
 sys-apps/semodule-utils 3.6 3.7 3.8.1 3.9 3.10 3.11 9999: SELinux policy module utilities
@@ -18370,7 +18370,7 @@ www-apps/readarr-bin 0.4.18.2805: An ebook and audiobook collection manager for 
 www-apps/redmine 6.0.7: Flexible project management web application using the Ruby on Rails framework
 www-apps/roundup 2.3.0 2.4.0 2.5.0: Issue-tracking system with command-line, web, and e-mail interfaces
 www-apps/rt 5.0.6-r1: RT is an enterprise-grade ticketing system
-www-apps/rutorrent 5.3.4 5.3.5 9999: ruTorrent is a front-end for the popular Bittorrent client rTorrent
+www-apps/rutorrent 5.3.5 5.3.7 9999: ruTorrent is a front-end for the popular Bittorrent client rTorrent
 www-apps/selfoss 2.20_pre20230730: The multipurpose rss reader, live stream, mashup, aggregation web application
 www-apps/sfpg 4.11.0: A web gallery in one single PHP file
 www-apps/sonarr-bin 4.0.19.2979: Sonarr is a Smart PVR for newsgroup and bittorrent users
