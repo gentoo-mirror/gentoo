@@ -74,7 +74,7 @@ RDEPEND="
 if [[ ${PV} = "9999" ]]; then
 	BDEPEND+=" dev-python/docutils"
 else
-	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-openvpn )"
+	BDEPEND+=" verify-sig? ( >=sec-keys/openpgp-keys-openvpn-202600704 )"
 fi
 
 pkg_setup() {
