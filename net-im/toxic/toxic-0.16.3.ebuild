@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..13} )
+PYTHON_COMPAT=( python3_{11..14} )
 
 inherit python-single-r1 xdg
 
@@ -13,7 +13,7 @@ SRC_URI="https://github.com/JFreegman/toxic/archive/v${PV}.tar.gz -> ${P}.tar.gz
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="+audio-notify debug experimental games llvm notification png python qrcode +sound +video +X"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )
 	video? ( sound X ) "
@@ -21,7 +21,7 @@ REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )
 BDEPEND="virtual/pkgconfig"
 
 RDEPEND="dev-libs/libconfig:=
-	>=net-libs/tox-0.2.19:=
+	>=net-libs/tox-0.2.23:=
 	net-misc/curl
 	sys-kernel/linux-headers
 	sys-libs/ncurses:=
