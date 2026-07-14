@@ -137,6 +137,11 @@ BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}/php-8.3.31-ipv6-printing-test-fix.patch"
+	"${FILESDIR}/php-8.4-libgd-test-fixes.patch"
+	"${FILESDIR}/php-8.3-iconv-testfix-01.patch"
+	"${FILESDIR}/php-8.3-iconv-testfix-02.patch"
+	"${FILESDIR}/php-8.3-iconv-testfix-03.patch"
+	"${FILESDIR}/php-8.3-iconv-testfix-04.patch"
 )
 
 PHP_MV="$(ver_cut 1)"
@@ -706,6 +711,12 @@ src_install() {
 			systemd_newunit "${FILESDIR}/php-fpm_at-simple.service" \
 							"php-fpm@${SLOT}.service"
 		fi
+	fi
+
+	# Delete empty /var/run and /var/log directories.
+	# See bug #977105
+	if use fpm ; then
+		rmdir "${D}/var/log" "${D}/var/run" || die
 	fi
 }
 
