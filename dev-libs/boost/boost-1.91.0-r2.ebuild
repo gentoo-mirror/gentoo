@@ -57,6 +57,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.90.0-cobalt.patch
 	"${FILESDIR}"/${PN}-1.90.0-msm-std.patch
 	"${FILESDIR}"/${PN}-1.90.0-unsigned-char-EOF.patch
+	"${FILESDIR}"/${PN}-1.91.0-optional-bool-copy-ctor.patch
 	"${FILESDIR}"/${PN}-1.91.0-spirit-test.patch
 	"${FILESDIR}"/${PN}-1.91.0-uninitialised-buffer.patch
 	"${FILESDIR}"/${PN}-1.91.0-wave-test-cfg.patch

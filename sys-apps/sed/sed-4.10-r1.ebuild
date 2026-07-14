@@ -29,20 +29,23 @@ fi
 
 LICENSE="GPL-3+"
 SLOT="0"
-IUSE="acl nls selinux static test-full"
+IUSE="acl nls selinux static test-full xattr"
 
 RDEPEND="
 	!static? (
 		acl? ( virtual/acl )
 		nls? ( virtual/libintl )
 		selinux? ( sys-libs/libselinux )
+		xattr? ( sys-apps/attr )
 	)
 "
-DEPEND="${RDEPEND}
+DEPEND="
+	${RDEPEND}
 	static? (
 		acl? ( virtual/acl[static-libs(+)] )
 		nls? ( virtual/libintl[static-libs(+)] )
 		selinux? ( sys-libs/libselinux[static-libs(+)] )
+		xattr? ( sys-apps/attr[static-libs(+)] )
 	)
 "
 BDEPEND="
@@ -57,6 +60,7 @@ src_configure() {
 		--exec-prefix="${EPREFIX}"
 		$(use_enable acl)
 		$(use_enable nls)
+		$(use_enable xattr)
 		$(use_with selinux)
 		# rename to gsed for better BSD compatibility
 		--program-prefix=g

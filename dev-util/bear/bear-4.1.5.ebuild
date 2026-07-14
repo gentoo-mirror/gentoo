@@ -11,7 +11,7 @@ CRATES="
 	aho-corasick@1.1.4
 	annotate-snippets@0.12.16
 	anstyle@1.0.14
-	anyhow@1.0.102
+	anyhow@1.0.103
 	arraydeque@0.5.1
 	assert_cmd@2.2.2
 	assert_fs@1.1.4
@@ -19,61 +19,54 @@ CRATES="
 	base64@0.22.1
 	bit-set@0.8.0
 	bit-vec@0.8.0
-	bitflags@2.12.1
-	bstr@1.12.1
+	bitflags@2.13.0
+	bstr@1.12.3
 	bumpalo@3.20.3
-	cc@1.2.63
+	cc@1.2.65
 	cfg-if@1.0.4
 	clap@4.6.1
 	clap_builder@4.6.0
-	clap_complete@4.6.5
+	clap_complete@4.6.7
+	clap_derive@4.6.1
 	clap_lex@1.1.0
-	console@0.16.3
+	console@0.16.4
 	crossbeam-channel@0.5.15
 	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
 	crossbeam-utils@0.8.21
-	ctor-proc-macro@0.0.7
-	ctor@0.6.3
+	ctor@1.0.7
 	difflib@0.4.0
 	downcast@0.11.0
-	dtor-proc-macro@0.0.6
-	dtor@0.1.1
 	encode_unicode@1.0.0
 	encoding_rs@0.8.35
 	encoding_rs_io@0.1.7
-	env_filter@1.0.1
-	env_logger@0.11.10
-	equivalent@1.0.2
+	env_filter@2.0.0
+	env_logger@0.11.11
 	errno@0.3.14
 	fastrand@2.4.1
 	find-msvc-tools@0.1.9
 	float-cmp@0.10.0
 	fnv@1.0.7
-	foldhash@0.1.5
 	fragile@2.1.0
 	futures-core@0.3.32
 	getrandom@0.3.4
-	getrandom@0.4.2
+	getrandom@0.4.3
 	globset@0.4.18
 	globwalk@0.9.1
-	granit-parser@0.0.3
-	hashbrown@0.15.5
-	hashbrown@0.17.1
+	granit-parser@0.0.6
 	heck@0.5.0
-	id-arena@2.3.0
-	ignore@0.4.25
-	indexmap@2.14.0
-	insta@1.47.2
+	ignore@0.4.27
+	insta@1.48.0
 	itoa@1.0.18
-	js-sys@0.3.99
-	leb128fmt@0.1.0
+	js-sys@0.3.103
 	libc@0.2.186
+	link-section@0.18.3
+	linktime-proc-macro@0.2.0
 	linux-raw-sys@0.12.1
-	log@0.4.31
-	memchr@2.8.1
-	mockall@0.14.0
-	mockall_derive@0.14.0
+	log@0.4.33
+	memchr@2.8.2
+	mockall@0.15.0
+	mockall_derive@0.15.0
 	nohash-hasher@0.2.0
 	normalize-line-endings@0.3.0
 	num-traits@0.2.19
@@ -82,11 +75,10 @@ CRATES="
 	predicates-core@1.0.10
 	predicates-tree@1.0.13
 	predicates@3.1.4
-	prettyplease@0.2.37
 	proc-macro2@1.0.106
 	proptest@1.11.0
 	quick-error@1.2.3
-	quote@1.0.45
+	quote@1.0.46
 	r-efi@5.3.0
 	r-efi@6.0.0
 	rand@0.9.4
@@ -95,14 +87,13 @@ CRATES="
 	rand_xorshift@0.4.0
 	regex-automata@0.4.14
 	regex-lite@0.1.9
-	regex-syntax@0.8.10
-	regex@1.12.3
+	regex-syntax@0.8.11
+	regex@1.12.4
 	rustix@1.1.4
 	rustversion@1.0.22
 	rusty-fork@0.3.1
 	same-file@1.0.6
-	semver@1.0.28
-	serde-saphyr@0.0.27
+	serde-saphyr@0.0.28
 	serde@1.0.228
 	serde_core@1.0.228
 	serde_derive@1.0.228
@@ -112,9 +103,9 @@ CRATES="
 	signal-hook-registry@1.4.8
 	signal-hook@0.4.4
 	similar@2.7.0
-	smallvec@1.15.1
+	smallvec@1.15.2
 	strsim@0.11.1
-	syn@2.0.117
+	syn@2.0.118
 	tempfile@3.27.0
 	termtree@0.5.1
 	thiserror-impl@2.0.18
@@ -122,32 +113,21 @@ CRATES="
 	unarray@0.1.4
 	unicode-ident@1.0.24
 	unicode-width@0.2.2
-	unicode-xid@0.2.6
 	version_check@0.9.5
 	wait-timeout@0.2.1
 	walkdir@2.5.0
-	wasip2@1.0.3+wasi-0.2.9
-	wasip3@0.4.0+wasi-0.3.0-rc-2026-01-06
-	wasm-bindgen-macro-support@0.2.122
-	wasm-bindgen-macro@0.2.122
-	wasm-bindgen-shared@0.2.122
-	wasm-bindgen@0.2.122
-	wasm-encoder@0.244.0
-	wasm-metadata@0.244.0
-	wasmparser@0.244.0
-	which@8.0.2
+	wasip2@1.0.4+wasi-0.2.12
+	wasm-bindgen-macro-support@0.2.126
+	wasm-bindgen-macro@0.2.126
+	wasm-bindgen-shared@0.2.126
+	wasm-bindgen@0.2.126
+	which@8.0.4
 	winapi-util@0.1.11
 	windows-link@0.2.1
 	windows-sys@0.61.2
-	wit-bindgen-core@0.51.0
-	wit-bindgen-rust-macro@0.51.0
-	wit-bindgen-rust@0.51.0
-	wit-bindgen@0.51.0
 	wit-bindgen@0.57.1
-	wit-component@0.244.0
-	wit-parser@0.244.0
-	zerocopy-derive@0.8.50
-	zerocopy@0.8.50
+	zerocopy-derive@0.8.52
+	zerocopy@0.8.52
 	zmij@1.0.21
 "
 
@@ -163,7 +143,7 @@ S="${WORKDIR}/${P^}"
 
 LICENSE="GPL-3+"
 # Dependent crate licenses
-LICENSE+=" Apache-2.0 BSD MIT MPL-2.0 Unicode-3.0 ZLIB"
+LICENSE+=" Apache-2.0 BSD MIT Unicode-3.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 RESTRICT="test"  # https://bugs.gentoo.org/973619
