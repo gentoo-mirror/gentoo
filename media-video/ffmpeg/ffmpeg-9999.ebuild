@@ -125,10 +125,8 @@ FFMPEG_IUSE_MAP=(
 	vmaf:libvmaf
 	vorbis:libvorbis
 	vpx:libvpx
-	# libshaderc: merged here given shaderc is needed at build-time
-	# either way and many vulkan features depend on spirv_library
 	# vulkan-static: it still uses shared, only means no dlopen()
-	vulkan:libshaderc,vulkan,vulkan-static
+	vulkan:vulkan,vulkan-static
 	webp:libwebp
 	x264:libx264
 	x265:libx265
@@ -291,10 +289,7 @@ COMMON_DEPEND="
 	vmaf? ( media-libs/libvmaf:=[${MULTILIB_USEDEP}] )
 	vorbis? ( media-libs/libvorbis[${MULTILIB_USEDEP}] )
 	vpx? ( media-libs/libvpx:=[${MULTILIB_USEDEP}] )
-	vulkan? (
-		media-libs/shaderc[${MULTILIB_USEDEP}]
-		media-libs/vulkan-loader[${MULTILIB_USEDEP}]
-	)
+	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )
 	webp? ( media-libs/libwebp:=[${MULTILIB_USEDEP}] )
 	x264? ( media-libs/x264:=[${MULTILIB_USEDEP}] )
 	x265? ( media-libs/x265:=[${MULTILIB_USEDEP}] )
@@ -488,7 +483,6 @@ multilib_src_configure() {
 
 		# disabled for other or additional reasons
 		--disable-cuda-nvcc # prefer cuda-llvm for less issues
-		--disable-libglslang # prefer shaderc (bug #918989,#920283,#922333)
 		--disable-liblensfun # https://trac.ffmpeg.org/ticket/9112 (abandoned?)
 		--disable-libmfx # prefer libvpl for USE=qsv
 		--disable-libopencv # leaving for later due to circular opencv[ffmpeg]
