@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -11,11 +11,11 @@ HOMEPAGE="
 	https://github.com/marcoagpinto/aoo-mozilla-en-dict
 	https://proofingtoolgui.org
 "
-SRC_URI="https://extensions.libreoffice.org/assets/downloads/41/1743477350/dict-en-20250401_lo.oxt"
+SRC_URI="https://extensions.libreoffice.org/assets/downloads/41/1756695874/dict-en-20250901_lo.oxt"
 
 LICENSE="BSD MIT LGPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 
 PLOCALES=( "en-AU" "en-CA" "en-GB" "en-US" "en-ZA" )
 IUSE="${PLOCALES[*]/#/+l10n_}"
