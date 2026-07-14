@@ -198,7 +198,7 @@ multilib_src_install() {
 		fi
 
 		# Not installed by default after being built, bug #666756
-		use btpclient && dobin tools/btpclient
+		use btpclient && dobin client/btpclient/btpclient
 
 		# Unittests are not that useful once installed, so make them optional
 		if use test-programs; then
