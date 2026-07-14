@@ -18,8 +18,7 @@ if [[ -z ${_QT_UTILS_ECLASS} ]]; then
 _QT_UTILS_ECLASS=1
 
 case ${EAPI} in
-	8) inherit eapi9-pipestatus ;;
-	9) ;;
+	8|9) ;;
 	*) die "${ECLASS}: EAPI ${EAPI:-0} not supported" ;;
 esac
 
