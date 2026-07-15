@@ -1,9 +1,9 @@
-DEFINED_PHASES=compile install prepare setup test
+DEFINED_PHASES=compile install postinst prepare setup test
 DEPEND=postgres_targets_postgres18? ( dev-db/postgresql:18=[server(+)] ) postgres_targets_postgres17? ( dev-db/postgresql:17=[server(+)] ) postgres_targets_postgres16? ( dev-db/postgresql:16=[server(+)] ) postgres_targets_postgres15? ( dev-db/postgresql:15=[server(+)] ) postgres_targets_postgres14? ( dev-db/postgresql:14=[server(+)] )
-DESCRIPTION=Sampling based statistics of wait events
+DESCRIPTION=PostgreSQL Workload Analyzer Archivist
 EAPI=8
-HOMEPAGE=https://github.com/postgrespro/pg_wait_sampling
-INHERIT=postgres-multi
+HOMEPAGE=https://github.com/powa-team/powa-archivist
+INHERIT=optfeature postgres-multi
 IUSE=postgres_targets_postgres18 postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14
 KEYWORDS=~amd64 ~x86
 LICENSE=POSTGRESQL
@@ -11,6 +11,6 @@ RDEPEND=postgres_targets_postgres18? ( dev-db/postgresql:18=[server(+)] ) postgr
 REQUIRED_USE=|| ( postgres_targets_postgres18 postgres_targets_postgres17 postgres_targets_postgres16 postgres_targets_postgres15 postgres_targets_postgres14 )
 RESTRICT=test
 SLOT=0
-SRC_URI=https://github.com/postgrespro/pg_wait_sampling/archive/refs/tags/v1.1.9.tar.gz -> pg_wait_sampling-1.1.9.tar.gz
-_eclasses_=out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	postgres	3671a84f95eadcaa836aefe3fd51b6a1	postgres-multi	ccad35d745ce66b41837db8a6ee94601
-_md5_=9ff92ac4b3b0ae36a901bf07694f6a46
+SRC_URI=https://github.com/powa-team/powa-archivist/archive/refs/tags/REL_5_2_0.tar.gz -> powa-archivist-5.2.0.tar.gz
+_eclasses_=optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	postgres	3671a84f95eadcaa836aefe3fd51b6a1	postgres-multi	ccad35d745ce66b41837db8a6ee94601
+_md5_=e3b5da2888032ab49adf3491c906c058
