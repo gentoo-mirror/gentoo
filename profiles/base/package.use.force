@@ -198,11 +198,6 @@ games-engines/openmw lua_single_target_luajit
 # [1] https://github.com/mpv-player/mpv/wiki/FAQ#why-does-mpv-not-support-lua-53-or-newer
 media-video/mpv lua_single_target_luajit
 
-# Andreas K. Hüttel <dilfridge@gentoo.org> (2023-07-08)
-# Uses attr even if disabling is requested, bug 910070
-# Workaround that should fix some stage builds
->=sys-devel/gettext-0.22-r1 xattr
-
 # Patrick McLean <chutzpah@gentoo.org> (2022-06-27)
 # Doesn't build with boost installed on the system, some deps require boost
 # so force the flag on until problem fixed upstream
