@@ -41,6 +41,7 @@ BDEPEND="
 		dev-python/pandas[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP}]
 		dev-python/psutil[${PYTHON_USEDEP}]
+		dev-python/pyarrow[${PYTHON_USEDEP}]
 		dev-python/pytz[${PYTHON_USEDEP}]
 		dev-python/requests[${PYTHON_USEDEP}]
 		dev-python/scikit-image[${PYTHON_USEDEP}]

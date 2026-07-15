@@ -27,7 +27,10 @@ RDEPEND="
 	${DEPEND}
 "
 
-distutils_enable_tests unittest
+EPYTEST_PLUGINS=()
+distutils_enable_tests pytest
+
+EPYTEST_IGNORE=( tests/test_benchmark.py )
 
 python_configure_all() {
 	export XXHASH_LINK_SO=1

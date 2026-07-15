@@ -29,6 +29,7 @@ RDEPEND="
 BDEPEND="
 	test? (
 		>=dev-python/packaging-25[${PYTHON_USEDEP}]
+		dev-python/typer[${PYTHON_USEDEP}]
 	)
 "
 

@@ -31,6 +31,12 @@ RDEPEND="
 	~dev-python/opentelemetry-semantic-conventions-${PV}[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.5.0[${PYTHON_USEDEP}]
 "
+BDEPEND="
+	test? (
+		>=dev-python/jsonschema-4.0[${PYTHON_USEDEP}]
+		>=dev-python/pyyaml-6.0[${PYTHON_USEDEP}]
+	)
+"
 
 EPYTEST_PLUGINS=( pytest-rerunfailures )
 # Tests cannot handle xdist with high makeopts

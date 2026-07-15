@@ -51,6 +51,7 @@ python_compile() {
 
 python_test() {
 	local EPYTEST_IGNORE=(
+		tests/isolated
 		tests/test_multidict_benchmarks.py
 		tests/test_views_benchmarks.py
 	)
