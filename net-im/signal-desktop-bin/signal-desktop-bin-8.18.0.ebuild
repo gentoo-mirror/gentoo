@@ -88,6 +88,4 @@ src_install() {
 
 pkg_postinst() {
 	xdg_pkg_postinst
-	elog "For using the tray icon on compatible desktop environments, start Signal with"
-	elog " '--start-in-tray' or '--use-tray-icon'."
 }
