@@ -243,7 +243,7 @@ pkg_preinst() {
 			touch "${ED}${cache}" || die
 		fi
 	}
-	multilib_parallel_foreach_abi multilib_pkg_preinst
+	multilib_foreach_abi multilib_pkg_preinst
 }
 
 pkg_postinst() {
@@ -253,7 +253,7 @@ pkg_postinst() {
 		gnome2_query_immodules_gtk2 \
 			|| die "Update immodules cache failed (for ${ABI})"
 	}
-	multilib_parallel_foreach_abi multilib_pkg_postinst
+	multilib_foreach_abi multilib_pkg_postinst
 
 	set_gtk2_confdir
 

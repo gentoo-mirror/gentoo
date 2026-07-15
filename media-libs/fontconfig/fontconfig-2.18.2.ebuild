@@ -245,6 +245,6 @@ pkg_postinst() {
 			eend $?
 		}
 
-		multilib_parallel_foreach_abi multilib_pkg_postinst
+		multilib_foreach_abi multilib_pkg_postinst
 	fi
 }
