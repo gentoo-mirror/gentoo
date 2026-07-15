@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-# ideally only stabilize versions that work for all non-masked nvidia-drivers
-NV_MIN_VERSION=550.54.14 # see README
+# only stabilize versions that work for all widely used nvidia-drivers branches
+NV_MIN_VERSION=610 # see README
 
 DESCRIPTION="FFmpeg version of headers required to interface with Nvidias codec APIs"
 HOMEPAGE="https://git.videolan.org/?p=ffmpeg/nv-codec-headers.git"
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/FFmpeg/nv-codec-headers/releases/download/n${PV}/${P
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64 ~loong"
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}"/usr LIBDIR=share install

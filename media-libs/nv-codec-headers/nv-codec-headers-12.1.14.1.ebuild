@@ -4,7 +4,7 @@
 EAPI=8
 
 # only stabilize versions that work for all widely used nvidia-drivers branches
-NV_MIN_VERSION=570 # see README
+NV_MIN_VERSION=530.41.03 # see README
 
 DESCRIPTION="FFmpeg version of headers required to interface with Nvidias codec APIs"
 HOMEPAGE="https://git.videolan.org/?p=ffmpeg/nv-codec-headers.git"
@@ -12,7 +12,7 @@ SRC_URI="https://github.com/FFmpeg/nv-codec-headers/releases/download/n${PV}/${P
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~loong"
+KEYWORDS="~amd64 ~arm64"
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="${EPREFIX}"/usr LIBDIR=share install
