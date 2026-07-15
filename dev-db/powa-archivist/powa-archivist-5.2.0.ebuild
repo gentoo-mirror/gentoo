@@ -3,6 +3,7 @@
 
 EAPI=8
 
+MY_PV="REL_${PV//./_}"
 POSTGRES_COMPAT=( 14 15 16 17 18 )
 POSTGRES_USEDEP="server(+)"
 
@@ -10,8 +11,8 @@ inherit optfeature postgres-multi
 
 DESCRIPTION="PostgreSQL Workload Analyzer Archivist"
 HOMEPAGE="https://github.com/powa-team/powa-archivist"
-SRC_URI="https://github.com/powa-team/${PN}/archive/refs/tags/${PV//./_}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}/${PN}-REL_${PV//./_}"
+SRC_URI="https://github.com/powa-team/${PN}/archive/refs/tags/${MY_PV}.tar.gz -> ${P}.tar.gz"
+S="${WORKDIR}/${PN}-${MY_PV}"
 
 LICENSE="POSTGRESQL"
 SLOT="0"
