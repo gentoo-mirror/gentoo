@@ -1,13 +1,12 @@
 diff --git a/src/inline_snapshot/testing/_example.py b/src/inline_snapshot/testing/_example.py
-index 608b707..b511acf 100644
+index b511acf..82b268d 100644
 --- a/src/inline_snapshot/testing/_example.py
 +++ b/src/inline_snapshot/testing/_example.py
-@@ -132,6 +132,8 @@ def _subprocess_env() -> dict[str, str]:
-         "TOP",
-         "COVERAGE_PROCESS_START",
+@@ -134,6 +134,7 @@ def _subprocess_env() -> dict[str, str]:
          "PYTHONIOENCODING",
-+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD",
-+        "PYTEST_PLUGINS",
+         "PYTEST_DISABLE_PLUGIN_AUTOLOAD",
+         "PYTEST_PLUGINS",
++        "PYTHONWARNINGS",
      ]
      if platform.system() == "Windows":  # pragma: no cover
          env_keys.extend(

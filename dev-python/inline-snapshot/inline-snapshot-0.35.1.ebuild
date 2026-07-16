@@ -5,8 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/15r10nk/inline-snapshot
-# 3.15 is broken via tons of deprecation warnings
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -46,7 +45,6 @@ EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 PATCHES=(
-	# https://github.com/15r10nk/inline-snapshot/pull/378
 	"${FILESDIR}/${P}-test.patch"
 )
 
@@ -56,13 +54,12 @@ python_test() {
 		'tests/test_typing.py::test_typing_args[pyright]'
 		'tests/test_typing.py::test_typing_call[pyright]'
 		# TODO
-		tests/test_formating.py::test_format_command_fail
 		'tests/test_docs.py::test_docs[categories.md]'
 		'tests/test_docs.py::test_docs[code_generation.md]'
-		'tests/test_docs.py::test_docs[testing.md]'
 		'tests/test_docs.py::test_docs[README.md]'
 	)
 
 	local -x PYTHONPATH=${S}/src
+	local -x PYTHONWARNINGS=ignore
 	epytest
 }
