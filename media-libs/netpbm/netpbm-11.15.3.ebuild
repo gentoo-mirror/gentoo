@@ -15,7 +15,10 @@ inherit flag-o-matic multilib toolchain-funcs
 
 DESCRIPTION="A set of utilities for converting to/from the netpbm (and related) formats"
 HOMEPAGE="https://netpbm.sourceforge.net/"
-SRC_URI="https://distfiles.gentoo.org/pub/dev/ceamac@gentoo.org/${CATEGORY}/${PN}/${P}.tar.xz"
+SRC_URI="
+	https://distfiles.gentoo.org/pub/dev/ceamac@gentoo.org/${CATEGORY}/${PN}/${P}.tar.xz
+	https://dev.gentoo.org/~ceamac/${CATEGORY}/${PN}/${P}.tar.xz
+"
 
 LICENSE="Artistic BSD GPL-2 IJG LGPL-2.1 MIT public-domain"
 SLOT="0/advanced"
@@ -168,9 +171,6 @@ src_prepare() {
 			-e 's:pnmindex.*::' \
 			-i test/Test-Order || die
 	fi
-
-	# fix typo in test
-	sed 's/cmps/cmp/' -i test/pnmhisteq.test
 }
 
 src_configure() {
