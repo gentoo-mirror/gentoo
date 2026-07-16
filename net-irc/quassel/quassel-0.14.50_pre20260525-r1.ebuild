@@ -6,11 +6,11 @@ EAPI=8
 inherit cmake optfeature pax-utils systemd xdg-utils
 
 if [[ ${PV} != *9999* ]]; then
-	COMMIT=
+	COMMIT=6b8343eeffa291be941fd18d637210f048495318 # qt6-migration branch
 	if [[ -n ${COMMIT} ]]; then
 		SRC_URI="https://github.com/johu/quassel/archive/${COMMIT}.tar.gz -> ${P}-${COMMIT:0:8}.tar.gz"
 		# quassel-i18n branch tx-sync (po subdir) @d88d126
-		SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PN}-i18n-${PV/29/27}.tar.xz"
+		SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/${PN}-i18n-0.14.50_pre20260427.tar.xz"
 		S="${WORKDIR}/${PN}-${COMMIT}"
 	else
 		MY_P=${PN}-${PV/_/-}
@@ -136,8 +136,6 @@ src_configure() {
 	# bug #830708
 	if use gui || use monolithic ; then
 		mycmakeargs+=(
-			-DCMAKE_DISABLE_FIND_PACKAGE_LibsnoreQt6=ON # not a thing?
-			-DCMAKE_DISABLE_FIND_PACKAGE_dbusmenu-qt6=ON # not a thing?
 			$(cmake_use_find_package dbus Qt6DBus)
 			$(cmake_use_find_package spell KF6Sonnet)
 		)
