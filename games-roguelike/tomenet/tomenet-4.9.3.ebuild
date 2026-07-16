@@ -1,12 +1,14 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
+
 inherit desktop toolchain-funcs xdg
 
-DESCRIPTION="A MMORPG based on the works of J.R.R. Tolkien"
+DESCRIPTION="MMORPG based on the works of J.R.R. Tolkien"
 HOMEPAGE="https://www.tomenet.eu"
 SRC_URI="https://www.tomenet.eu/downloads/${P}.tar.bz2"
+S="${WORKDIR}"/${P}/src
 
 LICENSE="Moria"
 SLOT="0"
@@ -14,7 +16,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+client server +sound X"
 REQUIRED_USE="|| ( client server )"
 
-RDEPEND="sys-libs/ncurses:0
+RDEPEND="
+	sys-libs/ncurses:=
 	client? (
 		X? (
 			x11-libs/libX11
@@ -23,20 +26,32 @@ RDEPEND="sys-libs/ncurses:0
 			media-libs/libsdl2[sound]
 			media-libs/sdl2-mixer[vorbis,mp3]
 		)
-	)"
-DEPEND="${RDEPEND}
-	client? ( sound? ( app-arch/p7zip ) )"
+	)
+	server? (
+		virtual/libcrypt:=
+	)
+"
+DEPEND="${RDEPEND}"
+RDEPEND+="
+	client? (
+		sound? (
+			|| (
+				>=app-arch/7zip-24.09[symlink(+)]
+				app-arch/p7zip
+			)
+		)
+	)
+"
 BDEPEND="virtual/pkgconfig"
 
-S=${WORKDIR}/${P}/src
-
 PATCHES=(
-	"${FILESDIR}"/${P}-makefile.patch
+	"${FILESDIR}"/${PN}-4.9.3-makefile.patch
 	"${FILESDIR}"/${PN}-4.9.1-disable-experimental.patch
 )
 
 src_prepare() {
 	default
+
 	if ! use server; then
 		rm -r ../lib/{config,data,save} || die
 	fi
@@ -55,15 +70,20 @@ src_prepare() {
 }
 
 src_compile() {
-	local mytargets="$(usex client "tomenet" "") $(usex server "accedit tomenet.server" "")"
-	emake \
-		$(usex client "$(usex X "USE_X=1" "")" "") \
-		$(usex client "$(usex sound "USE_SDL=1" "")" "") \
+	# TODO: Is libsdl2 really only needed with sound / is the patch to the
+	# Makefile correct?
+	local mytargets=(
+		$(usev client 'tomenet')
+		$(usev server 'accedit tomenet.server')
+	)
+
+	emake -f makefile \
+		$(usev client $(usev X 'USE_X=1')) \
+		$(usev client $(usev sound 'USE_SDL=1')) \
 		CC="$(tc-getCC)" \
 		CPP="$(tc-getCPP)" \
 		GENTOO_CPPFLAGS="${CPPFLAGS}" \
-		-f makefile \
-		${mytargets[@]}
+		"${mytargets[@]}"
 }
 
 src_install() {
@@ -82,7 +102,7 @@ src_install() {
 		dobin "${T}"/${PN}.server accedit
 	fi
 
-	insinto "/usr/share/${PN}"
+	insinto /usr/share/${PN}
 	doins -r ../lib/*
 	doins ../.tomenetrc
 }
