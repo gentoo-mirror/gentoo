@@ -10,9 +10,7 @@ HOMEPAGE="https://claude.com/product/claude-code"
 #             the script is simple: it fetches the latest version,
 #             downloads a manifest of files for that version, and
 #             downloads a single binary claude executable matching.
-#             All this from an unbranded GCS bucket (yikes).
-# https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/bootstrap.sh
-GCS_BUCKET="https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases"
+GCS_BUCKET="https://downloads.claude.ai/claude-code-releases"
 SRC_URI="
 	amd64? (
 		elibc_glibc? ( ${GCS_BUCKET}/${PV}/linux-x64/claude -> claude-amd64-glibc-${PV} )
