@@ -72,7 +72,7 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	gnome2_schemas_update
 	if [[ -z "${REPLACING_VERSIONS}" ]]; then
-		optfeature "7-zip archive support" "app-arch/7zip" "app-arch/p7zip"
+		optfeature "7-zip archive support" "app-arch/7zip"
 		optfeature "ace archive support" "app-arch/unace"
 		optfeature "arj archive support" "app-arch/arj"
 		optfeature "brotli archive support" "app-arch/brotli"
