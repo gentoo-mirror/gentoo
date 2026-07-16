@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools
+inherit cmake
 
 MY_PN="pupnp"
 
@@ -21,29 +21,24 @@ RDEPEND="ssl? ( dev-libs/openssl:0= )"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=( "${FILESDIR}/${PN}-1.14.31-disable-network-tests.patch" )
-
-src_prepare() {
-	default
-	eautoreconf
-}
+PATCHES=( "${FILESDIR}/${PN}-22.0.4-disable-network-tests.patch" )
 
 src_configure() {
-	local myeconfargs=(
-		$(use_enable blocking-tcp blocking-tcp-connections)
-		$(use_enable debug)
-		--enable-ipv6
-		$(use_enable reuseaddr)
-		$(use_enable samples)
-		$(use_enable ssl open_ssl)
-		$(use_enable static-libs static)
+	local mycmakeargs=(
+		-DUPNP_BUILD_SAMPLES="$(usex samples ON OFF)"
+		-DUPNP_BUILD_STATIC="$(usex static-libs ON OFF)"
+		-DUPNP_ENABLE_BLOCKING_TCP_CONNECTIONS="$(usex blocking-tcp ON OFF)"
+		-DUPNP_ENABLE_DEBUG="$(usex debug ON OFF)"
+		-DUPNP_ENABLE_IPV6="ON"
+		-DUPNP_ENABLE_OPEN_SSL="$(usex ssl ON OFF)"
+		-DUPNP_MINISERVER_REUSEADDR="$(usex reuseaddr ON OFF)"
 	)
 
-	econf ${myeconfargs[@]}
+	cmake_src_configure
 }
 
 src_install() {
-	default
-
-	find "${D}" -name '*.la' -delete || die
+	cmake_src_install
+	use doc && dodoc docs/UPnP_Programming_Guide.pdf
+	find "${ED}" -name '*.la' -delete || die
 }
