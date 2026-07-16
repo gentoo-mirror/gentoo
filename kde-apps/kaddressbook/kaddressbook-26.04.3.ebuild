@@ -3,6 +3,7 @@
 
 EAPI=8
 
+PATCHSET="kdepim-26.04.3-ki18n-6.28-findpkg"
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 PVCUT=$(ver_cut 1-3)
@@ -12,6 +13,7 @@ inherit ecm gear.kde.org optfeature xdg
 
 DESCRIPTION="Address book application based on KDE Frameworks"
 HOMEPAGE="https://apps.kde.org/kaddressbook/"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/kde/${PATCHSET}.tar.xz"
 
 LICENSE="GPL-2+ handbook? ( FDL-1.2+ )"
 SLOT="6"
@@ -54,6 +56,8 @@ DEPEND="
 RDEPEND="${DEPEND}
 	=kde-apps/kdepim-runtime-${PVCUT}*:6
 "
+
+PATCHES=( "${WORKDIR}/${PATCHSET}/${PN}.patch" ) # bug #979240
 
 src_configure() {
 	local mycmakeargs=(
