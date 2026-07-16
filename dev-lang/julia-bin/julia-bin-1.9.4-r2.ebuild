@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -28,7 +28,12 @@ KEYWORDS="-* ~amd64 ~arm64 ~x86"
 
 RESTRICT="strip"
 
-RDEPEND="app-arch/p7zip"
+RDEPEND="
+	|| (
+		>=app-arch/7zip-24.09[symlink(+)]
+		app-arch/p7zip
+	)
+"
 BDEPEND="dev-util/patchelf"
 
 QA_PREBUILT="*"
