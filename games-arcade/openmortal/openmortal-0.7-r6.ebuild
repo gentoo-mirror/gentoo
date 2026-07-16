@@ -1,7 +1,7 @@
-# Copyright 1999-2024 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools desktop
 
@@ -13,13 +13,14 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="media-libs/libsdl[joystick,video]
+RDEPEND="
+	dev-lang/perl:=
+	media-libs/libsdl[joystick,video]
 	media-libs/sdl-image
 	media-libs/sdl-mixer
 	media-libs/sdl-ttf
 	media-libs/sdl-net
 	>=media-libs/freetype-2.4.0:2
-	dev-lang/perl
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
@@ -28,6 +29,7 @@ PATCHES=(
 	"${FILESDIR}/${P}"-gcc41.patch
 	"${FILESDIR}/${P}"-freetype.patch
 	"${FILESDIR}/${P}"-freetype_pkgconfig.patch
+	"${FILESDIR}/${P}"-perl-inc.patch
 )
 
 src_prepare() {

@@ -1,6 +1,13 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Sam James <sam@gentoo.org> (2026-07-16)
+# Fails to build GCC otherwise:
+# https://lists.gnu.org/archive/html/bug-gawk/2026-07/msg00026.html
+# https://lists.gnu.org/archive/html/bug-gawk/2026-07/msg00013.html
+# A fix is available but the git repo isn't synced properly right now.
+=sys-apps/gawk-5.4.1 mpfr
+
 # Conrad Kostecki <conikost@gentoo.org> (2026-06-27)
 # We need to force GCC for older releases, which is needed
 # for dev-util/intel-graphics-compiler in the end, as long
