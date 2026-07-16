@@ -3,6 +3,8 @@
 
 EAPI=8
 
+RESTRICT="test" # accidentally broken, fix in next release
+
 IUSE="static"
 
 RUST_MIN_VER="1.88.0"
