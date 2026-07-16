@@ -38,8 +38,6 @@ PATCHES=(
 )
 
 # TODO(NRK): also build and install the library
-# TODO(NRK): make it so this package can be used as a drop-in replacement
-# for app-arch/p7zip ??
 
 pkg_setup() {
 	# instructions in DOC/readme.txt, Compiling 7-Zip for Unix/Linux
