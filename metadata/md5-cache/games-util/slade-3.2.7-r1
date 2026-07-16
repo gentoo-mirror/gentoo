@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig || ( app-arch/zip app-arch/p7zip app-arch/7zip ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+BDEPEND=virtual/pkgconfig || ( app-arch/zip >=app-arch/7zip-24.09[symlink(+)] app-arch/p7zip ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test
 DEPEND=lua_single_target_lua5-1? ( dev-lang/lua:5.1 ) lua_single_target_lua5-3? ( dev-lang/lua:5.3 ) app-arch/bzip2:= dev-libs/libfmt:= >=media-libs/dumb-2:= media-libs/freeimage[jpeg,png,tiff] media-libs/freetype:2 media-libs/ftgl media-libs/libsfml:= media-sound/mpg123 virtual/zlib:= x11-libs/wxGTK:3.2-gtk3=[curl(+),opengl,webkit?,X] virtual/glu fluidsynth? ( media-sound/fluidsynth:= )
 DESCRIPTION=Modern editor for Doom-engine based games and source ports
@@ -14,4 +14,4 @@ REQUIRED_USE=^^ ( lua_single_target_lua5-1 lua_single_target_lua5-3 )
 SLOT=0
 SRC_URI=https://github.com/sirjuddington/SLADE/archive/3.2.7.tar.gz -> slade-3.2.7.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb	wxwidgets	c48bf68858bd3c27c272ff034eb1e14d	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=4455a3a0f6f3668e0bc8907046d0e0c5
+_md5_=ac96ce9b8c03340575d3e3ae0e3479d9
