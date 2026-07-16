@@ -152,7 +152,6 @@ src_configure() {
 		$(use_enable emoji emoji-dict)
 		$(use_with emoji unicode-emoji-dir "${unicodedir}"/emoji)
 		$(use_with emoji emoji-annotation-dir "${unicodedir}"/cldr/common/annotations)
-		--disable-gtk2
 		$(use_enable gtk2)
 		$(use_enable gtk3)
 		$(use_enable gtk4)
