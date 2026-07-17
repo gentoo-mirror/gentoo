@@ -119,6 +119,7 @@ RDEPEND=">=app-emacs/emacs-common-1.11[games?,gui?]
 	systemd? ( sys-apps/systemd )
 	tree-sitter? (
 		dev-libs/tree-sitter:=
+		dev-libs/tree-sitter-cpp
 		dev-libs/tree-sitter-jsdoc
 	)
 	valgrind? ( dev-debug/valgrind )
