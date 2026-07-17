@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit xorg-meson
+inherit toolchain-funcs xorg-meson
 
 DESCRIPTION="X server resource database utility"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-solaris"
@@ -14,3 +14,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	x11-base/xorg-proto"
+
+src_configure() {
+	local XORG_CONFIGURE_OPTIONS=(
+		-Dcpp="$(tc-getCPP)" # bug #979049
+	)
+	xorg-meson_src_configure
+}
