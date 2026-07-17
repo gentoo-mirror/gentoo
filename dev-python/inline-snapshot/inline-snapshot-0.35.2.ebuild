@@ -44,10 +44,6 @@ EPYTEST_PLUGINS=( "${PN}" pytest-{freezer,mock,xdist} )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
-PATCHES=(
-	"${FILESDIR}/${P}-test.patch"
-)
-
 python_test() {
 	local EPYTEST_DESELECT=(
 		# requires pyright
