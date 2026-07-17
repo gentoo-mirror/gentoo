@@ -715,7 +715,7 @@ src_install() {
 
 	# Delete empty /var/run and /var/log directories.
 	# See bug #977105
-	if use fpm ; then
+	if use fpm || use phpdbg ; then
 		rmdir "${D}/var/log" "${D}/var/run" || die
 	fi
 }
