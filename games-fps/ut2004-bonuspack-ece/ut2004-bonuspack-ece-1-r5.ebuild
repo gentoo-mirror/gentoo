@@ -1,15 +1,17 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=9
 
 MY_P="ut2004megapack-linux.tar.bz2"
 
 DESCRIPTION="UT2004 Editor's Choice Edition - Editor's Choice Edition bonus pack"
-HOMEPAGE="http://www.unrealtournament2004.com/"
+HOMEPAGE="https://liandri.beyondunreal.com/Unreal_Tournament_2004"
 SRC_URI="
-	http://ut2004.ut-files.com/BonusPacks/${MY_P}
-	http://unrealmassdestruction.com/downloads/ut2k4/essentials/UT2004-ONSBonusMapPack.zip"
+	https://unreal-archive-files-na.s3.ca-east-tor.io.cloud.ovh.net/managed/Unreal%20Tournament%202004/patches-updates/bonus-packs/${MY_P}
+	http://unrealmassdestruction.com/downloads/ut2k4/essentials/UT2004-ONSBonusMapPack.zip
+"
+S="${WORKDIR}"
 
 LICENSE="ut2003"
 SLOT="0"
@@ -17,8 +19,6 @@ KEYWORDS="~amd64 ~x86"
 RESTRICT="bindist mirror"
 
 BDEPEND="app-arch/unzip"
-
-S="${WORKDIR}"
 
 src_unpack() {
 	unpack "${MY_P}"

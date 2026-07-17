@@ -9,6 +9,7 @@ PATCH_P="${PN}-lnxpatch${PV%.*}-2.tar.bz2"
 DESCRIPTION="Editor's Choice Edition plus Mega Pack for the well-known first-person shooter"
 HOMEPAGE="https://liandri.beyondunreal.com/Unreal_Tournament_2004"
 SRC_URI="
+	https://unrealmassdestruction.com/downloads/ut2k4/essentials/${PATCH_P}
 	https://unreal-archive-files-na.s3.ca-east-tor.io.cloud.ovh.net/managed/Unreal%20Tournament%202004/patches-updates/patches/${PATCH_P}
 	https://dev.gentoo.org/~chewi/distfiles/ut2004-v${PV/./-}-linux-dedicated.7z
 "

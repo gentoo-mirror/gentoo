@@ -1,11 +1,11 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=9
 
 DESCRIPTION="UT2004 Megapack - Megapack bonus pack"
-HOMEPAGE="http://www.unrealtournament2004.com/"
-SRC_URI="http://ut2004.ut-files.com/BonusPacks/ut2004megapack-linux.tar.bz2"
+HOMEPAGE="https://liandri.beyondunreal.com/Unreal_Tournament_2004"
+SRC_URI="https://unreal-archive-files-na.s3.ca-east-tor.io.cloud.ovh.net/managed/Unreal%20Tournament%202004/patches-updates/bonus-packs/ut2004megapack-linux.tar.bz2"
 S="${WORKDIR}"
 
 LICENSE="ut2003"
