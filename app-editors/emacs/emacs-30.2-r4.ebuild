@@ -36,7 +36,7 @@ else
 	PATCHES=("${WORKDIR}/patch")
 	SLOT="${PV%%.*}"
 	[[ ${PV} == *.*.* ]] && SLOT+="-vcs"
-	KEYWORDS="~amd64 ~arm ~arm64 ~m68k ~ppc ~ppc64 ~x64-macos"
+	KEYWORDS="~amd64 ~arm ~arm64 ~m68k ~ppc ~ppc64 ~riscv ~x64-macos"
 fi
 
 DESCRIPTION="The advanced, extensible, customizable, self-documenting editor"
