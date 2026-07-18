@@ -4,7 +4,7 @@
 EAPI=8
 inherit check-reqs desktop wrapper
 
-MY_PV=idea-$(ver_cut 1-3)
+MY_PV=idea-$(ver_cut 1-2)
 
 DESCRIPTION="A complete toolset for web, mobile and enterprise development"
 HOMEPAGE="https://www.jetbrains.com/idea"
@@ -142,9 +142,9 @@ src_prepare() {
 		-e "\$a#-----------------------------------------------------------------------" \
 		-e "\$aide.no.platform.update=Gentoo"  bin/idea.properties
 
-	patchelf --set-rpath '$ORIGIN' "jbr/lib/libjcef.so" || die
-	patchelf --set-rpath '$ORIGIN' "jbr/lib/libcef.so" || die
-	patchelf --set-rpath '$ORIGIN' "jbr/lib/jcef_helper" || die
+	patchelf --set-rpath '$ORIGIN' "plugins/jcef-plugin/jcef/libjcef.so" || die
+	patchelf --set-rpath '$ORIGIN' "plugins/jcef-plugin/jcef/libcef.so" || die
+	patchelf --set-rpath '$ORIGIN' "plugins/jcef-plugin/jcef/jcef_helper" || die
 
 	if use bundled-xvfb; then
 		patchelf --set-rpath '$ORIGIN/../lib' "${S}"/plugins/remote-dev-server/selfcontained/bin/{Xvfb,xkbcomp} || die
@@ -174,7 +174,8 @@ src_install() {
 		fperms 755 "${dir}"/jbr/bin/{java,javac,javadoc,jcmd,jdb,jfr,jhsdb,jinfo,jmap,jps,jrunscript,jstack,jstat,jwebserver,keytool,rmiregistry,serialver}
 
 		# Fix #763582
-		fperms 755 "${dir}"/jbr/lib/{chrome-sandbox,jcef_helper,jexec,jspawnhelper}
+		fperms 755 "${dir}"/plugins/jcef-plugin/jcef/{chrome-sandbox,jcef_helper}
+		fperms 755 "${dir}"/jbr/lib/{jexec,jspawnhelper}
 	fi
 
 	if use amd64; then
