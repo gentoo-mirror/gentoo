@@ -1559,9 +1559,9 @@ app-crypt/tpm-tools 1.3.9.2-r1: TrouSerS' support tools for the Trusted Platform
 app-crypt/tpm2-abrmd 3.0.0-r2: TPM2 Access Broker & Resource Manager
 app-crypt/tpm2-openssl 1.3.0: OpenSSL Provider for TPM2 integration
 app-crypt/tpm2-pkcs11 1.10.0: A PKCS#11 interface for TPM2 hardware
-app-crypt/tpm2-tools 5.7: Tools for the TPM 2.0 TSS
+app-crypt/tpm2-tools 5.7 5.7.1 5.8: Tools for the TPM 2.0 TSS
 app-crypt/tpm2-totp 0.3.0-r1: Attest the trustworthiness of a device against a human using time-based OTP
-app-crypt/tpm2-tss 4.1.3-r2: TCG Trusted Platform Module 2.0 Software Stack
+app-crypt/tpm2-tss 4.1.3-r2 4.1.4 4.2.0: TCG Trusted Platform Module 2.0 Software Stack
 app-crypt/trousers 0.3.15-r1: An open-source TCG Software Stack (TSS) v1.1 implementation
 app-crypt/uacme 1.8.1: A client for the RFC8555 ACMEv2 protocol
 app-crypt/ubuntu-keyring 2023.11.28.1: GnuPG archive keys of the Ubuntu archive
@@ -4159,7 +4159,7 @@ dev-embedded/arduino-listserialportsc 1.4.0-r1: Arduino helper library to list s
 dev-embedded/avarice 2.14-r1: Interface for GDB to Atmel AVR JTAGICE in circuit emulator
 dev-embedded/avr-libc 2.1.0: C library for Atmel AVR microcontrollers
 dev-embedded/avra 1.4.2-r1: Atmel AVR Assembler
-dev-embedded/avrdude 7.2: AVR Downloader/UploaDEr
+dev-embedded/avrdude 7.2 8.2: AVR Downloader/UploaDEr
 dev-embedded/cpik 0.7.4_p4-r1: C compiler for PIC18 devices
 dev-embedded/dc-tool-ip 1.0.4-r1: Ethernet program loader for the Dreamcast
 dev-embedded/dfu-programmer 1.1.0: A Device Firmware Update based USB programmer for Atmel chips
@@ -11311,7 +11311,7 @@ dev-vcs/svneverever 1.7.2-r1 1.7.2-r2: Tool collecting path entries across SVN h
 dev-vcs/tig 2.5.8 2.5.10 2.5.12 2.6.0 2.6.0-r1 2.6.1 9999: text mode interface for git
 dev-vcs/tkcvs 9.4.9: Tcl/Tk-based graphical interface to CVS with Subversion support
 dev-vcs/topgit 0.19.13 0.19.14: A different patch queue manager
-dev-vcs/tortoisehg 6.9-r1 7.0.1 7.0.1-r1 9999: Set of graphical tools for Mercurial
+dev-vcs/tortoisehg 6.9-r1 7.0.1 7.0.1-r1 7.2.2 9999: Set of graphical tools for Mercurial
 dev-vcs/vcsh 1.20190621.4 2.0.4 2.0.8: Manage config files in $HOME via fake bare git repositories
 games-action/0verkill 0.16-r4: A bloody 2D action deathmatch-like game in ASCII-ART
 games-action/a-story-about-my-uncle 5188: First person platforming adventure about a boy who searches for his lost uncle
@@ -14021,7 +14021,7 @@ media-radio/grig 0.9.0: A tool for controlling amateur radios
 media-radio/ibp 0.21-r3: Shows currently transmitting beacons of the International Beacon Project (IBP)
 media-radio/js8call 3.0.1 3.0.2 3.0.3: Weak signal ham radio communication
 media-radio/kochmorse 3.5.1_p20250730: Morse-code tutor using the Koch method
-media-radio/qlog 0.48.0 0.49.0 0.50.0 9999: Amateur radio logbook software
+media-radio/qlog 0.50.0 0.51.1 9999: Amateur radio logbook software
 media-radio/qrq 0.3.5-r2: Yet another CW trainer for Linux/Unix
 media-radio/qsstv 9.5.11_pre20250212: Amateur radio SSTV software
 media-radio/svxlink 25.05.1_p20250929-r1 26.05: Multi Purpose Voice Services System, including Qtel for EchoLink
@@ -14272,7 +14272,7 @@ media-sound/qjackctl 1.0.4 9999: Qt GUI to control the JACK Audio Connection Kit
 media-sound/qmidiarp 0.7.2: Arpeggiator, sequencer and MIDI LFO for ALSA
 media-sound/qmmp 2.3.0 2.3.1 2.3.2 2.3.3 9999: Qt-based audio player with winamp/xmms skins support
 media-sound/qpaeq 17.0: Equalizer interface for equalizer sinks of PulseAudio (networked sound server)
-media-sound/qpwgraph 0.9.8 9999: PipeWire Graph Qt GUI Interface
+media-sound/qpwgraph 1.0.2 9999: PipeWire Graph Qt GUI Interface
 media-sound/qsampler 1.0.0-r1 9999: Graphical frontend to the LinuxSampler engine
 media-sound/qsynth 1.0.2-r1 9999: Qt application to control FluidSynth
 media-sound/qtractor 1.5.11 1.6.0 1.6.1: Audio/MIDI multi-track sequencer written in C++ with the Qt framework
@@ -17308,7 +17308,7 @@ sys-apps/grep 3.11-r1 3.12: GNU regular expression matcher
 sys-apps/grepcidr 2.0: Filter IPv4 and IPv6 addresses matching CIDR patterns
 sys-apps/groff 1.23.0-r1 1.23.0-r2: Text formatter used for man pages
 sys-apps/gsmartcontrol 2.0.1: Hard Disk Drive and SSD Health Inspection Tool
-sys-apps/haveged 1.9.21: A simple entropy daemon using the HAVEGE algorithm
+sys-apps/haveged 1.9.21 1.9.26: A simple entropy daemon using the HAVEGE algorithm
 sys-apps/hd-idle 1.05-r2 1.05-r3 1.05-r4 1.05-r5: Utility for spinning down hard disks after a period of idle time
 sys-apps/hdparm 9.65-r2: Utility to change hard drive performance parameters
 sys-apps/heirloom-tools 070715-r6 070715-r7: Heirloom toolchest - original Unix tools
@@ -17437,7 +17437,7 @@ sys-apps/restorecond 3.6 3.7 3.8.1 3.9 3.10 3.11 9999: Daemon to watch for creat
 sys-apps/ripgrep 15.1.0 15.2.0: Search tool that combines the usability of ag with the raw speed of grep
 sys-apps/ripgrep-all 0.10.9-r1 0.10.10: Like ripgrep, but also search in PDFs, E-Books, Office documents, archives, etc.
 sys-apps/rkflashtool 6.1: Tool for flashing Rockchip devices
-sys-apps/rng-tools 6.16-r2 6.17-r1: Daemon to use hardware random number generators
+sys-apps/rng-tools 6.17-r1: Daemon to use hardware random number generators
 sys-apps/roccat-tools 5.9.0-r102: Utility for advanced configuration of Roccat devices
 sys-apps/rootlesskit 2.0.2: Linux-native "fake root" for implementing rootless containers
 sys-apps/s390-tools 2.12.0-r1 2.27.0-r1 2.40.0-r1: User space utilities for the zSeries (s390) Linux kernel and device drivers
