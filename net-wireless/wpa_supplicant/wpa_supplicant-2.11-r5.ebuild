@@ -79,6 +79,8 @@ PATCHES=(
 	"${FILESDIR}/${PN}-2.11-broadcom-wl-scanning.patch"
 	# bug #971605
 	"${FILESDIR}/${PN}-2.11-Send-CTRL-EVENT-SIGNAL-CHANGE-message-to-control-interfaces-only.patch"
+	# bug #979431
+	"${FILESDIR}/${PN}-2.11-openssl-4.patch"
 )
 
 Kconfig_style_config() {

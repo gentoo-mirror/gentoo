@@ -1,4 +1,4 @@
-# Copyright 2025 Gentoo Authors
+# Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -74,7 +74,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-14.4.0-avx512-nan.patch
+	"${FILESDIR}"/ogre-14.5.2-fix-tests.patch
+	"${FILESDIR}"/ogre-14.5.2-clang22.patch
 )
 
 src_prepare() {
