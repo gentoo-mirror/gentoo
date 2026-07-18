@@ -36,7 +36,7 @@ else
 	PATCHES=("${WORKDIR}/patch")
 	SLOT="${PV%%.*}"
 	[[ ${PV} == *.*.* ]] && SLOT+="-vcs"
-	KEYWORDS="~amd64 ~arm ~arm64 ~m68k ~ppc ~ppc64 ~riscv ~x64-macos"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
 fi
 
 DESCRIPTION="The advanced, extensible, customizable, self-documenting editor"
@@ -114,10 +114,7 @@ RDEPEND=">=app-emacs/emacs-common-1.11[games?,gui?]
 	sqlite? ( dev-db/sqlite:3 )
 	ssl? ( net-libs/gnutls:0= )
 	systemd? ( sys-apps/systemd )
-	tree-sitter? (
-		dev-libs/tree-sitter:=
-		dev-libs/tree-sitter-cpp
-	)
+	tree-sitter? ( dev-libs/tree-sitter:= )
 	valgrind? ( dev-debug/valgrind )
 	xattr? ( sys-apps/attr )
 	zlib? ( virtual/zlib:= )
@@ -460,6 +457,10 @@ src_test() {
 		%lisp/net/shr-tests.el
 
 		%lisp/progmodes/eglot-tests.el  #966957
+
+		# Reason: test not skipped if tree-sitter-cpp is missing #979386
+		# c-ts-mode-test-filling
+		%lisp/progmodes/c-ts-mode-tests.el
 
 		# Reason: tries to access network
 		# internet-is-working
