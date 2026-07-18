@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,13 +7,13 @@ inherit linux-info
 
 MY_P="wireless-regdb-${PV:0:4}.${PV:4:2}.${PV:6:2}"
 DESCRIPTION="Wireless Regulatory database for Linux"
-HOMEPAGE="https://wireless.wiki.kernel.org/en/developers/regulatory/wireless-regdb"
+HOMEPAGE="https://wireless.docs.kernel.org/en/latest/en/developers/regulatory/wireless-regdb.html"
 SRC_URI="https://mirrors.edge.kernel.org/pub/software/network/${PN}/${MY_P}.tar.xz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 REQUIRED_USE="kernel_linux"
 
 pkg_pretend() {
@@ -55,7 +55,8 @@ src_install() {
 	insinto /lib/firmware
 	doins regulatory.db regulatory.db.p7s
 
-	# regulatory.db.5 is a reference to regulatory.bin.5 so you need both unconditionally
+	echo '.so man5/regulatory.bin.5' > regulatory.db.5 || die
+	# without -i18n= workaround regulatory.db.5 is installed as db/man5/regulatory.5
 	doman -i18n= regulatory.db.5 regulatory.bin.5
 	dodoc README db.txt
 }
