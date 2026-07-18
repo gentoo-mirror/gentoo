@@ -1,37 +1,31 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DIST_AUTHOR=NLNETLABS
-DIST_VERSION=1.50
+DIST_VERSION=1.56
 DIST_EXAMPLES=( "contrib" "demo" )
-inherit toolchain-funcs perl-module
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/nlnetlabs.asc
+inherit toolchain-funcs perl-module verify-sig
 
 DESCRIPTION="Perl Interface to the Domain Name System"
+HOMEPAGE="https://www.net-dns.org/"
+SRC_URI="
+	https://www.net-dns.org/download/${PN}-${DIST_VERSION}.tar.gz
+	verify-sig? ( https://www.net-dns.org/download/${PN}-${DIST_VERSION}.tar.gz.asc )
+"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
 IUSE="minimal"
 
 PDEPEND="
 	!minimal? ( >=dev-perl/Net-DNS-SEC-1.30.0 )
 "
 RDEPEND="
-	>=virtual/perl-Carp-1.100.0
 	>=dev-perl/Digest-HMAC-1.30.0
-	>=virtual/perl-Digest-MD5-2.370.0
-	>=virtual/perl-Digest-SHA-5.230.0
-	>=virtual/perl-Encode-2.260.0
-	>=virtual/perl-Exporter-5.630.0
-	>=virtual/perl-File-Spec-3.290.0
-	>=virtual/perl-MIME-Base64-3.70.0
-	>=virtual/perl-Scalar-List-Utils-1.190.0
-	>=virtual/perl-Socket-1.810.0
-	>=virtual/perl-Time-Local-1.190.0
-	>=virtual/perl-IO-Socket-IP-0.380.0
-	>=virtual/perl-IO-1.140.0
 	!minimal? (
 		>=dev-perl/Digest-BubbleBabble-0.20.0
 		>=dev-perl/Net-LibIDN2-1.0.0
@@ -39,11 +33,7 @@ RDEPEND="
 "
 BDEPEND="
 	${RDEPEND}
-	>=virtual/perl-ExtUtils-MakeMaker-6.480.0
-	>=virtual/perl-Getopt-Long-2.430.0
-	test? (
-		>=virtual/perl-Test-Simple-0.520.0
-	)
+	verify-sig? ( >=sec-keys/openpgp-keys-nlnetlabs-20260101 )
 "
 
 src_prepare() {
