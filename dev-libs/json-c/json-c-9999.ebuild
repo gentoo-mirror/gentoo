@@ -36,6 +36,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-0.19-meson-conditionally-build-tests-with-an-option-not-b.patch
 	"${FILESDIR}"/${PN}-0.19-meson-wire-up-disable_extra_libs-option.patch
 	"${FILESDIR}"/${PN}-0.19-meson-fix-version-numbers.patch
+	"${FILESDIR}"/${PN}-0.19-meson-fix-pkgconfig-file.patch
 )
 
 multilib_src_configure() {
