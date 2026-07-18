@@ -45,12 +45,11 @@ dev-cpp/eigen:3/3.4 test
 ~sci-libs/adolc-9999 -mpi
 
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-05-15)
-# Various integration packages. Preparing Qt5 last-rites.
-# Removal some time after 2026-05-30.
-app-i18n/fcitx-qt qt5
-app-i18n/uim qt5
-x11-themes/QGnomePlatform qt5
-x11-themes/adwaita-qt qt5
+# Various integration packages. Maintainers, you must drop Qt5 support.
+<=app-i18n/fcitx-qt-5.1.14-r0 qt5
+<=app-i18n/uim-1.9.6-r0 qt5
+<=x11-themes/QGnomePlatform-0.9.2-r7 qt5
+<=x11-themes/adwaita-qt-1.4.2-r1 qt5
 
 # Michał Górny <mgorny@gentoo.org> (2026-05-07)
 # Force-enable all PYTHON_TARGETS for python-exec to avoid using private
@@ -66,7 +65,7 @@ dev-lang/python-exec -python_targets_python3_15t
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-04-12)
 # net-wireless/gnuradio and dependencies. Preparing Qt5 last-rites.
 # Bugs #948049, #954887.  Removal some time after 2026-04-30.
-dev-python/pyqtgraph qt5
+<=dev-python/pyqtgraph-0.14.0-r0 qt5
 net-wireless/gnuradio qt5
 <=net-wireless/gnuradio-3.10.99 channels
 
