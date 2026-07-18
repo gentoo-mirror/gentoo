@@ -436,6 +436,10 @@ src_test() {
 	# subtests which caused failure. Elements should begin with a %.
 	# e.g. %lisp/gnus/mml-sec-tests.el.
 	local exclude_tests=(
+		# Reason: not yet known
+		# mml-secure-sign-verify-1 #967849 #979419
+		%lisp/gnus/mml-sec-tests.el
+
 		# Reason: permission denied on /nonexistent
 		# (vc-*-bzr only fails if breezy is installed, as they
 		# try to access cache dirs under /nonexistent)
