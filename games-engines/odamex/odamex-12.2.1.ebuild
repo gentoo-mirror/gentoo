@@ -36,7 +36,7 @@ RDEPEND="
 		portmidi? ( media-libs/portmidi )
 	)
 	odalaunch? (
-		x11-libs/wxGTK:${WX_GTK_VER}=
+		x11-libs/wxGTK:${WX_GTK_VER}=[curl]
 	)
 	server? (
 		dev-libs/jsoncpp:=
