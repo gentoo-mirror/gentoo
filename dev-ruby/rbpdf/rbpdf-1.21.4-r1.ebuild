@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -23,12 +23,18 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
-ruby_add_bdepend "test? ( >=dev-ruby/test-unit-3 dev-ruby/webrick )"
+ruby_add_bdepend "test? ( >=dev-ruby/test-unit-3 )"
 ruby_add_rdepend "
 	dev-ruby/actionview
 	dev-ruby/htmlentities
 	=dev-ruby/rbpdf-font-1.19*
-	|| ( dev-ruby/mini_magick:0 dev-ruby/rmagick )
+	|| (
+		(
+			dev-ruby/marcel
+			dev-ruby/mini_magick:5
+		)
+		dev-ruby/rmagick
+	)
 "
 
 # Two of the tests require png/jpeg support in "magick identify",
@@ -38,19 +44,32 @@ BDEPEND+=" test? ( virtual/imagemagick-tools[jpeg,png] )"
 all_ruby_prepare() {
 	default
 
-	# This test is enabled automagically in the presence of rmagick, and
-	# then fails.
+	# Not worth the additional webrick dependency
+	rm -f test/rbpdf_http_test.rb \
+		|| die "failed to remove http tests"
+
+	# This test is enabled automagically in the presence of rmagick and
+	# fails.
 	rm -f test/rbpdf_image_rmagick_test.rb \
 		|| die "failed to remove rmagick tests"
 }
 
 each_ruby_test() {
-	local cmd='gem "test-unit", ">= 3.0"'
-	cmd+=' and '
-	cmd+='gem "mini_magick", "~>4.0"'
-	cmd+=' and '
-	cmd+='require "test/unit"'
-	cmd+=' and '
-	cmd+='Dir["test/rbpdf_*.rb"].each{|f| require("./" +  f)}'
-	${RUBY} -Ilib:.:test -e "${cmd}" || die "test suite failed"
+	# WARNING: The "gem" statements in this script may need to be
+	# updated along with [BR]DEPEND.
+	cat <<- EOF > "${T}/run-tests.rb" || die "test script cat failed"
+	require "rubygems/errors"
+
+	gem "test-unit", ">= 3.0"
+	begin
+	  gem "mini_magick", "~> 5.0"
+	rescue LoadError
+	  gem "rmagick"
+	end
+
+	require "test/unit"
+
+	Dir["test/rbpdf_*.rb"].each{|f| require("./" +  f)}
+	EOF
+	${RUBY} -Ilib:.:test "${T}/run-tests.rb" || die "test suite failed"
 }
