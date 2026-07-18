@@ -1445,9 +1445,11 @@ epytest() {
 		-ra
 		# print local variables in tracebacks, useful for debugging
 		-l
-		# override filterwarnings=error, we do not really want -Werror
-		# for end users, as it tends to fail on new warnings from deps
-		-Wdefault
+		# override filterwarnings=:
+		# 1. we do not really want -Werror for end users, as it tends
+		#    to fail on new warnings from deps
+		# 2. ignore: lines for optional dependencies trigger ImportError
+		-o filterwarnings=
 		# override color output
 		"--color=${color}"
 		# count is more precise when we're dealing with a large number

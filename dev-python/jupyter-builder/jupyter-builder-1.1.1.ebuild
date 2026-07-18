@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi xdg
 
@@ -34,10 +34,5 @@ EPYTEST_IGNORE=(
 	tests/test_tpl.py
 )
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-
-python_prepare_all() {
-	distutils-r1_python_prepare_all
-	# Disable the copier filterwarning
-	sed -e '/copier/d' -i pyproject.toml || die
-}
