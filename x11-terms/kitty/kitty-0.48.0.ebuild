@@ -18,7 +18,7 @@ else
 		verify-sig? ( https://github.com/kovidgoyal/kitty/releases/download/v${PV}/${P}.tar.xz.sig )
 	"
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kovidgoyal.gpg
-	KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Fast, feature-rich, GPU-based terminal"
@@ -34,10 +34,6 @@ REQUIRED_USE="
 	test? ( X wayland )
 "
 RESTRICT="!test? ( test )"
-
-PATCHES=(
-	"${FILESDIR}"/${P}-vectorcall-assert.patch
-)
 
 # dlopen: fontconfig,libglvnd
 RDEPEND="
@@ -123,7 +119,8 @@ src_prepare() {
 
 	sed -i setup.py "${sedargs[@]}" || die
 
-	# skip flaky font search, file is replaced in src_install (bug #971276)
+	# skip flaky font search, file is replaced in src_install (bug #971276),
+	# without this the font + fontconfig would also be needed in BDEPEND
 	mkdir fonts || die
 	:> fonts/SymbolsNerdFontMono-Regular.ttf || die
 
@@ -136,6 +133,8 @@ src_prepare() {
 		kitty_tests/{shell_integration,ssh}.py
 		# relies on /proc/self/fd and gets confused when ran from here
 		tools/utils/tpmfile_test.go
+		# seems to randomly fail depending on timing (bug #977046)
+		tools/watch/api_test.go
 	)
 	use !test || rm "${skiptests[@]}" || die
 }
