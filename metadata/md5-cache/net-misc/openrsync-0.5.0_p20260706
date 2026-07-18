@@ -1,0 +1,14 @@
+BDEPEND=dev-build/bmake test? ( app-misc/jot dev-util/cunit net-misc/rsync )
+DEFINED_PHASES=compile configure test
+DESCRIPTION=BSD-licensed implementation of rsync
+EAPI=9
+HOMEPAGE=https://www.openrsync.org/
+INHERIT=multiprocessing toolchain-funcs
+IUSE=test
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=ISC
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/kristapsdz/openrsync/archive/1878c030a784de38903afe422119ac0a84e0c4f1.tar.gz -> openrsync-0.5.0_p20260706.tar.gz
+_eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
+_md5_=0ca340cf38e9f770dd97505cfd6ee3ac
