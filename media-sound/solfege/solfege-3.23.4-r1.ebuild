@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="sqlite"
-inherit autotools python-single-r1 toolchain-funcs
+inherit autotools python-single-r1 toolchain-funcs virtualx
 
 DESCRIPTION="GNU program to help practicing ear training"
 HOMEPAGE="https://www.gnu.org/software/solfege/"
@@ -32,14 +32,12 @@ RDEPEND="${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/pycairo[${PYTHON_USEDEP}]
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
+		alsa? ( dev-python/pyalsa[${PYTHON_USEDEP}] )
 	')
 	x11-libs/gtk+:3
-	alsa? ( dev-python/pyalsa )
 	!oss? ( media-sound/timidity++ )
 "
 DEPEND="${RDEPEND}"
-
-RESTRICT="test"
 
 PATCHES=(
 	"${FILESDIR}/${P}-no-xmllint.patch"
@@ -48,6 +46,7 @@ PATCHES=(
 	"${FILESDIR}/${P}-topdocs-encodings.patch"
 	"${FILESDIR}/${P}-fix-webbrowser-module.patch"
 	"${FILESDIR}/${P}-python3.13.patch"
+	"${FILESDIR}/${P}-fix-tests.patch"
 )
 
 src_prepare() {
@@ -61,6 +60,11 @@ src_prepare() {
 	sed -E "s|(PYTHON_INCLUDES=).+|\1"$($(tc-getPKG_CONFIG) --cflags-only-I python3)"|g" \
 		-i acinclude.m4 || die
 
+	# Fix tests against newer python and pygobject
+	sed -e 's|makeSuite|defaultTestLoader.loadTestsFromTestCase|' \
+		-e '/import unittest/afrom solfege import presetup' \
+		-i $(find "${S}" -name 'test_*.py') || die
+
 	eautoreconf
 }
 
@@ -70,6 +74,10 @@ src_configure() {
 
 src_compile() {
 	emake skipmanual=yes
+}
+
+src_test() {
+	virtx emake test
 }
 
 src_install() {
