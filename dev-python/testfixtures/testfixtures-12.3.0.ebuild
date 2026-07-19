@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/simplistix/testfixtures
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -36,6 +36,10 @@ BDEPEND="
 
 EPYTEST_PLUGINS=( pytest-django )
 distutils_enable_tests pytest
+
+PATCHES=(
+	"${FILESDIR}"/testfixtures-12.3.0-py3.15.patch
+)
 
 python_test() {
 	local -x PYTHONPATH="."
