@@ -14,7 +14,7 @@ LICENSE="
 	!gpl? ( LGPL-2.1 )
 	gpl? ( GPL-2 )
 "
-SLOT="${PV}"
+SLOT="${PV%%.*}"
 
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64"
 
