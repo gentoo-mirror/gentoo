@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit xdg cmake python-any-r1 optfeature flag-o-matic
 
@@ -16,24 +16,27 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="BSD GPL-3-with-openssl-exception LGPL-2+"
 SLOT="0"
-KEYWORDS="~amd64 ~loong"
-IUSE="dbus enchant +fonts +libdispatch screencast wayland webkit +X"
+KEYWORDS="~amd64"
+IUSE="dbus enchant +fonts screencast wayland webkit +X"
 
 CDEPEND="
 	!net-im/telegram-desktop-bin
 	app-arch/lz4:=
+	app-text/cmark-gfm:=
 	dev-cpp/abseil-cpp:=
 	dev-cpp/ada:=
 	dev-cpp/cld3:=
 	>=dev-cpp/glibmm-2.77:2.68
+	dev-cpp/toomanycooks
 	dev-libs/glib:2
 	dev-libs/openssl:=
 	>=dev-libs/protobuf-21.12
 	dev-libs/qr-code-generator:=
 	dev-libs/xxhash
-	>=dev-qt/qtbase-6.5:6=[dbus?,gui,network,opengl,ssl,wayland?,widgets,X?]
+	>=dev-qt/qtbase-6.5:6=[dbus?,gui,network,opengl,ssl,wayland?,widgets]
 	>=dev-qt/qtimageformats-6.5:6
 	>=dev-qt/qtsvg-6.5:6
+	kde-frameworks/kcoreaddons:6
 	media-libs/libjpeg-turbo:=
 	media-libs/openal
 	media-libs/opus
@@ -41,28 +44,23 @@ CDEPEND="
 	>=media-libs/tg_owt-0_pre20241202:=[screencast=,X=]
 	>=media-video/ffmpeg-6:=[opus,vpx]
 	net-libs/tdlib:=[tde2e]
+	sys-apps/hwloc:=
 	virtual/minizip:=
-	kde-frameworks/kcoreaddons:6
 	!enchant? ( >=app-text/hunspell-1.7:= )
 	enchant? ( app-text/enchant:= )
-	libdispatch? ( dev-libs/libdispatch )
 	webkit? ( wayland? (
 		>=dev-qt/qtdeclarative-6.5:6
 		>=dev-qt/qtwayland-6.5:6[compositor(+),qml]
 	) )
-	X? (
-		x11-libs/libxcb:=
-		x11-libs/xcb-util-keysyms
-	)
 "
 RDEPEND="${CDEPEND}
 	webkit? ( || ( net-libs/webkit-gtk:4.1 net-libs/webkit-gtk:6 ) )
 "
 DEPEND="${CDEPEND}
 	>=dev-cpp/cppgir-2.0_p20240315
-	>=dev-cpp/ms-gsl-4.1.0
 	dev-cpp/expected
 	dev-cpp/expected-lite
+	>=dev-cpp/ms-gsl-4.1.0
 	dev-cpp/range-v3
 "
 BDEPEND="
@@ -70,19 +68,19 @@ BDEPEND="
 	>=dev-build/cmake-3.16
 	>=dev-cpp/cppgir-2.0_p20260226
 	>=dev-libs/gobject-introspection-1.82.0-r2
+	dev-qt/qtshadertools
 	>=dev-util/gdbus-codegen-2.80.5-r1
 	virtual/pkgconfig
 	wayland? ( dev-util/wayland-scanner )
 "
 # NOTE: dev-cpp/expected-lite used indirectly by a dev-cpp/cppgir header file
+# NOTE: sys-apps/hwloc is depended upon by dev-cpp/toomanycooks, but needs to
+#       cause SLOT rebuilds here, as dev-cpp/toomanycooks is header-only
 
 PATCHES=(
-	"${FILESDIR}"/tdesktop-6.6.2-qt6-no-wayland.patch
-	"${FILESDIR}"/tdesktop-5.2.2-libdispatch.patch
 	"${FILESDIR}"/tdesktop-5.7.2-cstring.patch
 	"${FILESDIR}"/tdesktop-5.8.3-cstdint.patch
 	"${FILESDIR}"/tdesktop-5.14.3-system-cppgir.patch
-	"${FILESDIR}"/tdesktop-6.5.1-zlib-1.3.2.patch
 )
 
 pkg_pretend() {
@@ -103,14 +101,21 @@ src_prepare() {
 		-print0 | xargs -0 sed -i \
 		-e '/pkg_check_modules(/s/[^ ]*)/REQUIRED &/' \
 		-e '/find_package(/s/)/ REQUIRED)/' \
-		-e '/find_library(/s/)/ REQUIRED)/' || die
+		-e '/find_library(/s/)/ REQUIRED)/' \
+		-e '/find_path(/s/)/ REQUIRED)/' || die
 	# Make sure to check the excluded files for new
-	# CMAKE_DISABLE_FIND_PACKAGE entries.
+	# CMAKE_DISABLE_FIND_PACKAGE/CMAKE_REQUIRE_FIND_PACKAGE entries.
 
 	# Some packages are found through pkg_check_modules, rather than find_package
 	sed -e '/find_package(lz4 /d' -i cmake/external/lz4/CMakeLists.txt || die
 	sed -e '/find_package(Opus /d' -i cmake/external/opus/CMakeLists.txt || die
 	sed -e '/find_package(xxHash /d' -i cmake/external/xxhash/CMakeLists.txt || die
+	sed -e '/find_package(cmark-gfm\(-extensions\)\? /d' \
+		-i cmake/external/cmark_gfm/CMakeLists.txt || die
+
+	# Temporary workaround for https://bugs.gentoo.org/977603
+	sed -e '/find_package(minizip /d' \
+		-i cmake/external/minizip/CMakeLists.txt || die
 
 	# Greedily remove ThirdParty directories, keep only ones that interest us
 	local keep=(
@@ -118,10 +123,15 @@ src_prepare() {
 		libprisma  # Telegram-specific library, no stable releases
 		tgcalls  # Telegram-specific library, no stable releases
 		xdg-desktop-portal  # Only a few xml files are used with gdbus-codegen
+		MicroTeX  # Telegram-specific fork, no stable releases
 	)
 	for x in Telegram/ThirdParty/*; do
 		has "${x##*/}" "${keep[@]}" || rm -r "${x}" || die
 	done
+
+	# Control libdispatch dependency from here, as there's no
+	# CMAKE_DISABLE_FIND_PACKAGE for find_library
+	: > cmake/external/dispatch/CMakeLists.txt || die
 
 	# Control QtDBus dependency from here, to avoid messing with QtGui.
 	# QtGui will use find_package to find QtDbus as well, which
@@ -161,9 +171,6 @@ src_configure() {
 	# See https://bugs.gentoo.org/866055
 	append-cppflags -DNDEBUG
 
-	# https://github.com/telegramdesktop/tdesktop/issues/17437#issuecomment-1001160398
-	use !libdispatch && append-cppflags -DCRL_FORCE_QT
-
 	local no_webkit_wayland=$(use webkit && use wayland && echo no || echo yes)
 	local use_webkit_wayland=$(use webkit && use wayland && echo yes || echo no)
 	local mycmakeargs=(
@@ -189,13 +196,10 @@ src_configure() {
 		-DCMAKE_REQUIRE_FIND_PACKAGE_Qt6WaylandCompositor=${use_webkit_wayland}
 
 		-DDESKTOP_APP_DISABLE_QT_PLUGINS=ON
-		-DDESKTOP_APP_DISABLE_X11_INTEGRATION=$(usex !X)
 		## Enables enchant and disables hunspell
 		-DDESKTOP_APP_USE_ENCHANT=$(usex enchant)
 		## Use system fonts instead of bundled ones
 		-DDESKTOP_APP_USE_PACKAGED_FONTS=$(usex !fonts)
-		## See tdesktop-*-libdispatch.patch
-		-DDESKTOP_APP_USE_LIBDISPATCH=$(usex libdispatch)
 	)
 
 	if [[ -n ${MY_TDESKTOP_API_ID} && -n ${MY_TDESKTOP_API_HASH} ]]; then
@@ -240,12 +244,6 @@ pkg_postinst() {
 	xdg_pkg_postinst
 	if ! use X && ! use screencast; then
 		ewarn "both the 'X' and 'screencast' USE flags are disabled, screen sharing won't work!"
-		ewarn
-	fi
-	if ! use libdispatch; then
-		ewarn "Disabling USE=libdispatch may cause performance degradation"
-		ewarn "due to fallback to poor QThreadPool! Please see"
-		ewarn "https://github.com/telegramdesktop/tdesktop/wiki/The-Packaged-Building-Mode"
 		ewarn
 	fi
 	optfeature_header
