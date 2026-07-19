@@ -1,9 +1,8 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-
-USE_RUBY="ruby32 ruby33 ruby34"
+USE_RUBY="ruby32 ruby33 ruby34 ruby40"
 
 RUBY_FAKEGEM_RECIPE_TEST="rspec3"
 
@@ -17,15 +16,19 @@ HOMEPAGE="https://github.com/jwt/ruby-jwt"
 SRC_URI="https://github.com/jwt/ruby-jwt/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
-SLOT="$(ver_cut 1)"
+SLOT="2"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
-IUSE="test"
+IUSE="eddsa test"
 
 RUBY_S="ruby-jwt-${PV}"
 
-ruby_add_rdepend "dev-ruby/base64"
+ruby_add_rdepend "dev-ruby/base64 eddsa? ( dev-ruby/rbnacl )"
 
-ruby_add_bdepend "test? ( dev-ruby/logger )"
+ruby_add_bdepend "test? ( dev-ruby/rbnacl )"
+
+PATCHES=(
+	"${FILESDIR}"/jwt-2.10.3-ruby40.patch
+)
 
 all_ruby_prepare() {
 	sed -i -e "/simplecov/ s:^:#:" \

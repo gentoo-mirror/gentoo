@@ -1,10 +1,9 @@
 # Copyright 2025-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 JAVA_PKG_IUSE="doc source"
-MAVEN_ID="jakarta.json.bind:jakarta.json.bind-api:${PV}"
 
 inherit java-pkg-2 java-pkg-simple
 
@@ -21,7 +20,7 @@ CP_DEPEND="~dev-java/jsonp-api-2.0.2:0"
 
 DEPEND="
 	${CP_DEPEND}
-	>=virtual/jdk-1.8:*
+	>=virtual/jdk-11:*
 "
 
 RDEPEND="

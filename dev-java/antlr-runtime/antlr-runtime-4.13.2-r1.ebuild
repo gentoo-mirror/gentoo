@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 JAVA_PKG_IUSE="doc source test"
 MAVEN_ID="org.antlr:antlr4-runtime:4.13.2"
@@ -21,16 +21,18 @@ LICENSE="BSD"
 SLOT="4"
 KEYWORDS="amd64 arm64 ppc64"
 
+# min jdk 11 for bug #970833
 DEPEND="
-	>=virtual/jdk-1.8:*
+	>=virtual/jdk-11:*
 	test? (
 		~dev-java/antlr-tool-${PV}:${SLOT}
 		dev-java/jol-core:0
 	)
 "
 
+# min jre 11 for bug #970833
 RDEPEND="
-	>=virtual/jre-1.8:*
+	>=virtual/jre-11:*
 "
 
 JAVA_AUTOMATIC_MODULE_NAME="org.antlr.antlr4.runtiime"

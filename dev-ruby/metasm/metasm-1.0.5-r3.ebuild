@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-USE_RUBY="ruby31 ruby32 ruby33 ruby34"
+USE_RUBY="ruby32 ruby33 ruby34 ruby40"
 
 RUBY_FAKEGEM_RECIPE_DOC="none"
 RUBY_FAKEGEM_EXTRADOC="BUGS README TODO"
@@ -17,6 +17,9 @@ HOMEPAGE="https://metasm.cr0.org/"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~x86"
+
+# hackily created
+QA_PREBUILT="usr/lib*/ruby/gems/*/gems/${P}/${PN}/dynldr-*.so"
 
 PATCHES=( "${FILESDIR}/${P}-ruby33.patch" )
 
@@ -33,4 +36,7 @@ all_ruby_install() {
 	all_fakegem_install
 
 	ruby_fakegem_binwrapper disassemble
+
+	# The library isn't created normally. Upstream creates it by hand. As such debugedit can fail to handle it.
+	dostrip -x $(find "${ED}" -name "dynldr-*.so" -printf '%P\n')
 }

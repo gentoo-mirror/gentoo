@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
-inherit eapi9-ver java-pkg-2
+inherit java-pkg-2
 
 DESCRIPTION="A parser generator for many languages"
 HOMEPAGE="https://www.antlr.org/"
@@ -20,13 +20,15 @@ CP_DEPEND="
 	~dev-java/antlr-tool-${PV}:${SLOT}
 "
 
+# min jdk for bug #970833
 DEPEND="
-	>=virtual/jdk-1.8:*
+	>=virtual/jdk-11:*
 	${CP_DEPEND}
 "
 
+# min jre for bug #970833
 RDEPEND="
-	>=virtual/jre-1.8:*
+	>=virtual/jre-11:*
 	${CP_DEPEND}
 "
 

@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 # Artifact ID for antlr-tool is 'antlr4'
 # https://github.com/antlr/antlr4/blob/4.13.2/tool/pom.xml#L14
@@ -37,8 +37,9 @@ CP_DEPEND="
 	dev-java/treelayout:0
 "
 
+# min jdk 11 for bug #970833
 DEPEND="
-	>=virtual/jdk-1.8:*
+	>=virtual/jdk-11:*
 	${CP_DEPEND}
 	dev-java/antlr-tool:3.5
 	test? (
@@ -46,8 +47,9 @@ DEPEND="
 	)
 "
 
+# min jre 11 for bug #970833
 RDEPEND="
-	>=virtual/jre-1.8:*
+	>=virtual/jre-11:*
 	${CP_DEPEND}
 "
 
