@@ -6,7 +6,7 @@ EAPI="8"
 VERIFY_SIG_METHOD=sigstore
 WANT_LIBTOOL="none"
 
-inherit autotools check-reqs flag-o-matic linux-info
+inherit autotools check-reqs eapi9-ver flag-o-matic linux-info
 inherit multiprocessing pax-utils toolchain-funcs verify-sig
 
 REAL_PV=${PV#0.}
@@ -606,4 +606,17 @@ src_install() {
 		-e "s:@PYDOC@:pydoc${PYVER}:" \
 		-i "${ED}/etc/conf.d/pydoc-${PYVER}" \
 		"${ED}/etc/init.d/pydoc-${PYVER}" || die "sed failed"
+}
+
+pkg_postinst() {
+	if ver_replacing -lt 3.15.0_beta4; then
+		ewarn "Python 3.15.0b4 has broken its extension ABI.  The extensions built"
+		ewarn "with older versions may crash at runtime or worse.  To prevent this,"
+		ewarn "please rebuild all extensions using the versoned ABI, e.g. using:"
+		ewarn
+		ewarn "  emerge -1v \$(find /usr/lib/python3.15t/site-packages -name '*.cpython-315t-*.so')"
+		ewarn
+		ewarn "Note that if you enabled both python3_15 and python3_15t, then"
+		ewarn "the 3.15 rebuild should cover all 3.15t packages already."
+	fi
 }
