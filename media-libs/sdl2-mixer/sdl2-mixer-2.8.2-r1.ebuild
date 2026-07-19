@@ -47,7 +47,6 @@ RDEPEND="
 		!media-libs/sdl3-mixer[playtools]
 	)
 	vorbis? (
-		stb? ( dev-libs/stb )
 		tremor? ( media-libs/tremor[${MULTILIB_USEDEP}] )
 		!stb? ( !tremor? ( media-libs/libvorbis[${MULTILIB_USEDEP}] ) )
 	)

@@ -21,7 +21,7 @@ src_prepare() {
 
 	# Move the header files in a folder so they don't pollute the include dir
 	mkdir stb || die
-	mv *.h stb/ || die
+	mv *.c *.h stb/ || die
 	mv deprecated stb/ || die
 }
 

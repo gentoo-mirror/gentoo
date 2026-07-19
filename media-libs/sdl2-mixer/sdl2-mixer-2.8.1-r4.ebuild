@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -47,7 +47,6 @@ RDEPEND="
 		!media-libs/sdl3-mixer[playtools]
 	)
 	vorbis? (
-		stb? ( dev-libs/stb )
 		tremor? ( media-libs/tremor[${MULTILIB_USEDEP}] )
 		!stb? ( !tremor? ( media-libs/libvorbis[${MULTILIB_USEDEP}] ) )
 	)
