@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst preinst prepare setup
+DEPEND=>=virtual/jdk-11:* ~dev-java/antlr-runtime-4.13.2:4 ~dev-java/antlr-tool-4.13.2:4 >=dev-java/java-config-2.2.0-r3
+DESCRIPTION=A parser generator for many languages
+EAPI=9
+HOMEPAGE=https://www.antlr.org/
+INHERIT=java-pkg-2
+KEYWORDS=amd64 arm64 ppc64 ~x64-macos ~x64-solaris
+LICENSE=BSD
+RDEPEND=>=virtual/jre-11:* ~dev-java/antlr-runtime-4.13.2:4 ~dev-java/antlr-tool-4.13.2:4 >=dev-java/java-config-2.2.0-r3
+SLOT=4
+SRC_URI=https://github.com/antlr/antlr4/archive/4.13.2.tar.gz -> antlr-4.13.2.tar.gz
+_eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813
+_md5_=d8cbc919071bd354dc10cd908fea020f
