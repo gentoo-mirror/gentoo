@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit toolchain-funcs
 
@@ -11,7 +11,7 @@ SRC_URI="https://github.com/hboetes/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="public-domain"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ~ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="livecd"
 
 RDEPEND="
@@ -19,10 +19,6 @@ RDEPEND="
 	>=dev-libs/libbsd-0.7.0"
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
-
-PATCHES=(
-	"${FILESDIR}/${PN}-20230501-type-mismatch.patch" #940566
-)
 
 src_prepare() {
 	default
@@ -39,7 +35,7 @@ src_compile() {
 src_install() {
 	dobin mg
 	doman mg.1
-	dodoc README tutorial
+	dodoc README README.md tutorial
 	# don't compress the tutorial, otherwise mg cannot open it
 	docompress -x /usr/share/doc/${PF}/tutorial
 }
