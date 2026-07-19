@@ -1,0 +1,33 @@
+https://bugs.gentoo.org/979518
+https://bugs.kde.org/523105
+https://invent.kde.org/frameworks/kimageformats/-/merge_requests/525
+https://invent.kde.org/frameworks/kimageformats/-/commit/ad0fb9dde4ffb1977a3ea800d90a26665de687b8
+
+From ad0fb9dde4ffb1977a3ea800d90a26665de687b8 Mon Sep 17 00:00:00 2001
+From: Kyle Alexander Buan <me@kylxbn.com>
+Date: Thu, 16 Jul 2026 15:33:49 +0800
+Subject: [PATCH] HEIF: keep reader callback table alive
+
+libheif retains the heif_reader pointer after
+heif_context_read_from_reader returns. The callback table was scoped
+to the non-sequential branch and could be destroyed before
+tiled image decoding used it from worker threads.
+
+Give the callback table static storage duration.
+
+BUG: 523105
+--- a/src/imageformats/heif.cpp
++++ b/src/imageformats/heif.cpp
+@@ -845,7 +845,8 @@ bool HEIFHandler::ensureDecoder()
+         buffer = deviceRead(dev, kMaxQVectorSize);
+         err = heif_context_read_from_memory(ctx, static_cast<const void *>(buffer.constData()), buffer.size(), nullptr);
+     } else {
+-        heif_reader reader = create_heif_reader_for_qiodevice();
++        // Must not be destroyed until decoding ends
++        static const heif_reader reader = create_heif_reader_for_qiodevice();
+         err = heif_context_read_from_reader(ctx, &reader, dev, nullptr);
+     }
+     if (err.code) {
+-- 
+GitLab
+

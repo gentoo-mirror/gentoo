@@ -33,7 +33,7 @@ declare -A BUNDLED=(
 	# Heavily patched in an incompatible way.
 	# Issues related to using system ffmpeg historically.
 	# See bug #829595 and #922828
-	[ffmpeg]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/ffmpeg-8.1.1.tar.bz2;"
+	[ffmpeg]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/ffmpeg-8.1.2.tar.bz2;"
 	# Patched in an incompatible way
 	[x265]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265_4.2.tar.gz;x265"
 	[x265_8bit]="https://github.com/HandBrake/HandBrake-contribs/releases/download/contribs2/x265_4.2.tar.gz;x265"
@@ -62,7 +62,7 @@ bundle_src_uri
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="amf +fdk gui libdovi numa nvdec nvenc qsv x265"
+IUSE="amf +fdk gui libdovi numa nvdec nvenc qsv vaapi x265"
 
 REQUIRED_USE="
 	numa? ( x265 )
@@ -105,6 +105,7 @@ COMMON_DEPEND="
 		media-libs/libva:=
 		>=media-libs/libvpl-1.13.0:=
 	)
+	vaapi? ( media-libs/libva:=[X] )
 "
 RDEPEND="
 	${COMMON_DEPEND}
@@ -200,8 +201,9 @@ src_configure() {
 		$(use_enable numa)
 		$(use_enable nvdec)
 		$(use_enable nvenc)
-		$(use_enable x265)
 		$(use_enable qsv)
+		$(use_enable vaapi)
+		$(use_enable x265)
 	)
 
 	edo ./configure ${myconfargs[@]}

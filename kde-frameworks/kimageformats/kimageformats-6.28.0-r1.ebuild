@@ -33,6 +33,10 @@ DEPEND="${RDEPEND}
 
 DOCS=( src/imageformats/AUTHORS )
 
+PATCHES=(
+	"${FILESDIR}"/kimageformats-6.28.0-fix-occasional-HEIF-plug-in-crash.patch # bug #979518
+)
+
 src_configure() {
 	local mycmakeargs=(
 		-DKIMAGEFORMATS_WITH_KNOWN_CRASHES_JXR=OFF # TODO: check if ready upstream
