@@ -1,0 +1,13 @@
+BDEPEND=dev-build/bmake test? ( app-misc/jot dev-util/cunit net-misc/rsync ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure test unpack
+DESCRIPTION=BSD-licensed implementation of rsync
+EAPI=9
+HOMEPAGE=https://www.openrsync.org/
+INHERIT=multiprocessing toolchain-funcs git-r3
+IUSE=test
+LICENSE=ISC
+PROPERTIES=live
+RESTRICT=!test? ( test )
+SLOT=0
+_eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	git-r3	2f8cdb10b033f92c3136aa6488a31c98
+_md5_=40bbd9546cda7d60554ae49a2c3a324b
