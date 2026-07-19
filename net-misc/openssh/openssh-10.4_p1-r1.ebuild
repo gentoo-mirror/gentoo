@@ -77,7 +77,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-9.4_p1-Allow-MAP_NORESERVE-in-sandbox-seccomp-filter-maps.patch"
 	"${FILESDIR}/${PN}-9.7_p1-config-tweaks.patch"
 	# Backports from upstream release branch
-	#"${FILESDIR}/${PV}"
+	"${FILESDIR}/${PV}"
 	# Our own backports
 )
 

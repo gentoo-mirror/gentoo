@@ -41,9 +41,11 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.11.0-mansyntax_sh.patch
-	"${FILESDIR}"/${PN}-1.11.1-CVE-2025-15661-sftp.patch
-	"${FILESDIR}"/${PN}-1.11.1-CVE-2026-55200-transport.patch
-	"${FILESDIR}"/${PN}-1.11.1-CVE-2026-7598.patch
+	"${FILESDIR}"/${P}-CVE-2026-55200-transport.patch
+	"${FILESDIR}"/${P}-CVE-2026-55199-packet.patch
+	"${FILESDIR}"/${P}-CVE-2025-15661-sftp.patch
+	"${FILESDIR}"/${P}-CVE-2026-7598-userauth.patch
+	"${FILESDIR}"/${PN}-1.11.1-tests-without-static.patch
 )
 
 multilib_src_configure() {
