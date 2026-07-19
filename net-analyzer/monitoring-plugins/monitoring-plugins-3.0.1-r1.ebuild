@@ -72,6 +72,16 @@ PATCHES=( "${FILESDIR}/${P}-check-ntp-buildfix.patch" )
 DOCS=( ACKNOWLEDGEMENTS AUTHORS CODING ChangeLog FAQ \
 		NEWS README REQUIREMENTS SUPPORT THANKS )
 
+src_prepare() {
+	if ! use snmp; then
+		# automagic detection becomes a much bigger problem when the
+		# feature breaks the build
+		sed -i configure -e '/EXTRAS="\$EXTRAS check_snmp"/d' \
+			|| die "failed to disable check_snmp"
+	fi
+	default
+}
+
 src_configure() {
 	# https://github.com/monitoring-plugins/monitoring-plugins/issues/2295
 	append-flags -fno-strict-aliasing
