@@ -11,7 +11,7 @@ LICENSE=!gpl? ( LGPL-2.1 ) gpl? ( GPL-2 )
 RDEPEND=>=media-libs/opus-1.0.2-r2 vaapi? ( >=media-libs/libva-1.2.1-r1:0= ) nvenc? ( >=media-libs/nv-codec-headers-11.1.5.3 ) vdpau? ( >=x11-libs/libvdpau-0.7 ) vulkan? ( >=media-libs/vulkan-loader-1.3.277:= )
 REQUIRED_USE=vulkan? ( threads ) arm64? ( cpu_flags_arm_v8 ) cpu_flags_arm_v8? ( cpu_flags_arm_vfpv3 cpu_flags_arm_neon ) cpu_flags_arm_neon? ( cpu_flags_arm_vfp arm? ( cpu_flags_arm_thumb2 ) ) cpu_flags_arm_vfpv3? ( cpu_flags_arm_vfp ) cpu_flags_arm_thumb2? ( cpu_flags_arm_v6 ) cpu_flags_arm_v6? ( arm? ( cpu_flags_arm_thumb ) ) cpu_flags_x86_avx2? ( cpu_flags_x86_avx ) cpu_flags_x86_fma4? ( cpu_flags_x86_avx ) cpu_flags_x86_fma3? ( cpu_flags_x86_avx ) cpu_flags_x86_xop? ( cpu_flags_x86_avx ) cpu_flags_x86_avx? ( cpu_flags_x86_sse4_2 ) cpu_flags_x86_aes? ( cpu_flags_x86_sse4_2 ) cpu_flags_x86_sse4_2? ( cpu_flags_x86_sse4_1 ) cpu_flags_x86_sse4_1? ( cpu_flags_x86_ssse3 ) cpu_flags_x86_ssse3? ( cpu_flags_x86_sse3 ) cpu_flags_x86_sse3? ( cpu_flags_x86_sse2 ) cpu_flags_x86_sse2? ( cpu_flags_x86_sse ) cpu_flags_x86_sse? ( cpu_flags_x86_mmxext ) cpu_flags_x86_mmxext? ( cpu_flags_x86_mmx ) cpu_flags_x86_3dnowext? ( cpu_flags_x86_3dnow ) cpu_flags_x86_3dnow? ( cpu_flags_x86_mmx )
 RESTRICT=test
-SLOT=150.0.7871.12
-SRC_URI=https://distfiles.gentoo.org/pub/proj/chromium/ffmpeg/ffmpeg-chromium-150.0.7871.12.tar.xz
+SLOT=150
+SRC_URI=https://distfiles.gentoo.org/pub/proj/chromium/ffmpeg/ffmpeg-chromium-150.0.7871.124.tar.xz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d
-_md5_=8a566a090c92c12a796ab9285abb55f2
+_md5_=3c20a4d29d1605da065e726799bfb3a2
