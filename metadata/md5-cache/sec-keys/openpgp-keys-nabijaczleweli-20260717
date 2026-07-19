@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP keys used by наб (nabijaczleweli)
+EAPI=8
+HOMEPAGE=https://nabijaczleweli.xyz/
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=~alpha ~amd64 ~arm ~hppa ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~x64-macos
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://github.com/nabijaczleweli.gpg -> openpgp-keys-nabijaczleweli-github-20260717.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x7D69474E84028C5CC0C44163BCFD0B018D2658F1 -> openpgp-keys-nabijaczleweli-ubuntu-20260717.asc https://keys.openpgp.org/vks/v1/by-fingerprint/7D69474E84028C5CC0C44163BCFD0B018D2658F1 -> openpgp-keys-nabijaczleweli-openpgp-20260717.asc https://nabijaczleweli.xyz/pgp.txt -> openpgp-keys-nabijaczleweli-20260717-pgp.txt
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	34ef28a3b98035f0f44e7292c0b2501c
+_md5_=48f40145352529f6111b4ccd8ae9d07c
