@@ -1,4 +1,4 @@
-BDEPEND=>=dev-lang/go-1.24.11:= app-arch/unzip >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=dev-lang/go-1.25.0 >=dev-lang/go-1.24.11:= app-arch/unzip >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install unpack
 DESCRIPTION=Terminal UI frontend for Podman
 EAPI=9
@@ -6,7 +6,8 @@ HOMEPAGE=https://github.com/containers/podman-tui
 INHERIT=go-module git-r3
 LICENSE=Apache-2.0 BSD-2 BSD MIT MPL-2.0
 PROPERTIES=live
+RDEPEND=>=app-containers/podman-6.0.0
 RESTRICT=test
 SLOT=0
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b	git-r3	2f8cdb10b033f92c3136aa6488a31c98
-_md5_=810f37503b937c71c3d09422762cab7b
+_md5_=784ac873e47403548560f4606dde4fab

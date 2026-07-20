@@ -1,12 +1,10 @@
-BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=install unpack
+DEFINED_PHASES=install
 DESCRIPTION=Configures default shortnames (aliases) for Containers
 EAPI=8
 HOMEPAGE=https://github.com/containers/shortnames
-INHERIT=git-r3
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv
 LICENSE=Apache-2.0
-PROPERTIES=live
 RDEPEND=!<app-containers/buildah-1.44.0 !<app-containers/podman-6.0.0 !<app-containers/skopeo-1.23
 SLOT=0
-_eclasses_=git-r3	2f8cdb10b033f92c3136aa6488a31c98
+SRC_URI=https://github.com/containers/shortnames/archive/e893043ee00c29ac1083b2151d4fb287d939a9fc.tar.gz -> containers-shortnames-2025.03.19_p20260615.tar.gz
 _md5_=560bb2a6a17c5e714c9a6c066b26a3b7
