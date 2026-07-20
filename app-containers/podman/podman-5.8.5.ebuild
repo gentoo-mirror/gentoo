@@ -31,7 +31,7 @@ RESTRICT="test"
 RDEPEND="
 	app-containers/catatonit
 	>=app-containers/conmon-2.1.10
-	>=app-containers/container-libs-0.68.0[extra]
+	>=app-containers/containers-common-0.58.0-r1
 	app-crypt/gpgme:=
 	dev-db/sqlite:3
 	dev-libs/libassuan:=
@@ -48,8 +48,8 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
+	>=dev-lang/go-1.25.0
 	dev-go/go-md2man
-	>=dev-lang/go-1.25.7
 "
 
 PATCHES=(
@@ -125,7 +125,6 @@ src_install() {
 		exeinto /etc/cron.daily
 		newexe "${FILESDIR}"/podman-auto-update-5.0.0.cron podman-auto-update
 	fi
-
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/podman.logrotated" podman
 
