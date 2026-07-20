@@ -29,6 +29,7 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
+		>=dev-python/click-7.0.0[${PYTHON_USEDEP}]
 		dev-python/html5lib[${PYTHON_USEDEP}]
 	)
 "

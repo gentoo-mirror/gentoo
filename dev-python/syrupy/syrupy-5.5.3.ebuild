@@ -24,6 +24,7 @@ RDEPEND="
 "
 BDEPEND="
 	test? (
+		>=dev-python/attrs-26.1.0[${PYTHON_USEDEP}]
 		>=dev-python/pydantic-2.13.4[${PYTHON_USEDEP}]
 	)
 "

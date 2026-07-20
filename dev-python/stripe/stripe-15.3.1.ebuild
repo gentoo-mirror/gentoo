@@ -56,7 +56,7 @@ python_test() {
 		tests/test_integration.py::TestIntegration::test_passes_client_telemetry_when_enabled
 	)
 
-	epytest tests
+	epytest -o addopts= tests
 }
 
 src_test() {

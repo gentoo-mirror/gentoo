@@ -28,6 +28,7 @@ RDEPEND="
 BDEPEND="
 	>=dev-python/cython-3.0.10[${PYTHON_USEDEP}]
 	test? (
+		>=dev-python/aiohttp-3.8.0[${PYTHON_USEDEP}]
 		dev-python/tornado[${PYTHON_USEDEP}]
 	)
 "
