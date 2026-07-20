@@ -18,11 +18,9 @@ S=${WORKDIR}/${P/open/}
 
 LICENSE="BSD MIT"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 
 BDEPEND=">=dev-lang/go-1.25.0"
-
-PATCHES=( "${FILESDIR}/${PN}-0.10.0-fix-version.patch" )
 
 src_compile() {
 	ego build ./cmd/rdap
