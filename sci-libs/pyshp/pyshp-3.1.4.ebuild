@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="8"
@@ -15,9 +15,11 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
+BDEPEND="test? ( dev-python/hypothesis[${PYTHON_USEDEP}] )"
+
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 python_test() {
-	epytest test_shapefile.py -m "not network"
+	epytest tests -m "not network"
 }
