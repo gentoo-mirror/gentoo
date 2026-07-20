@@ -21,6 +21,8 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	!<dev-python/jupyterlab-4.6.0
+	dev-python/jupyter-core[${PYTHON_USEDEP}]
+	dev-python/traitlets[${PYTHON_USEDEP}]
 "
 
 BDEPEND="
