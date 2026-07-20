@@ -1,0 +1,14 @@
+BDEPEND=llvm-core/clang virtual/pkgconfig || ( >=dev-lang/rust-bin-1.85.0:*[rustfmt] >=dev-lang/rust-1.85.0:*[rustfmt] ) virtual/pkgconfig >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=app-arch/zstd:= virtual/zlib:= virtual/libelf:= sys-libs/ncurses
+DESCRIPTION=An interactive tool to view and record historical system data
+EAPI=8
+HOMEPAGE=https://github.com/facebookincubator/below
+INHERIT=cargo systemd git-r3
+IUSE=debug
+LICENSE=Apache-2.0 BSD-2 BSD ISC MIT Unicode-DFS-2016 Unlicense
+PROPERTIES=live
+RDEPEND=app-arch/zstd:= virtual/zlib:= virtual/libelf:=
+SLOT=0
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	e2200a3d90348a53accc2f8c2e80f10c	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	c18ade5e10cfd39155908ca389968d65	systemd	a964c0cbe818b5729da1dbfcee5be861	git-r3	2f8cdb10b033f92c3136aa6488a31c98
+_md5_=e0ddaa7f6e115db15362eeeb217aa269
