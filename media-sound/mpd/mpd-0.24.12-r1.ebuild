@@ -149,7 +149,7 @@ python_check_deps() {
 }
 
 pkg_setup() {
-	use doc && python_setup
+	use doc && python-any-r1_pkg_setup
 
 	if use eventfd; then
 		CONFIG_CHECK+=" ~EVENTFD"
