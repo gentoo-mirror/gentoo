@@ -3,25 +3,27 @@
 
 EAPI=8
 
-DESCRIPTION="AWS C CAL: AWS Crypto Abstraction Layer"
-HOMEPAGE="https://github.com/awslabs/aws-c-cal"
-SRC_URI="https://github.com/awslabs/aws-c-cal/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+DESCRIPTION="AWS C MQTT: C99 implementation"
+HOMEPAGE="https://github.com/awslabs/aws-c-mqtt"
+SRC_URI="https://github.com/awslabs/aws-c-mqtt/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 inherit cmake
 
 LICENSE="Apache-2.0"
 SLOT="0/1"
 KEYWORDS="~amd64"
+IUSE="test"
+
+RESTRICT="!test? ( test )"
 
 DEPEND="dev-libs/aws-c-common:=
-	dev-libs/openssl:="
+	dev-libs/aws-c-http:="
 RDEPEND="${DEPEND}"
 BDEPEND="dev-libs/aws-c-common"
 
-src_configure()
-{
+src_configure() {
 	local mycmakeargs=(
-		-DUSE_OPENSSL=ON
+		-DBUILD_TESTING=$(usex test)
 	)
 	cmake_src_configure
 }
