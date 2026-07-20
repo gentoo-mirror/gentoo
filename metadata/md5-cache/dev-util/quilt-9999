@@ -3,11 +3,11 @@ DEFINED_PHASES=compile configure install prepare unpack
 DESCRIPTION=quilt patch manager
 EAPI=8
 HOMEPAGE=https://savannah.nongnu.org/projects/quilt
-INHERIT=git-r3 autotools bash-completion-r1 elisp-common
+INHERIT=git-r3 autotools elisp-common shell-completion
 IUSE=emacs graphviz
 LICENSE=GPL-2 GPL-1+
 PROPERTIES=live
 RDEPEND=dev-util/diffstat mail-mta/sendmail sys-apps/ed elibc_Darwin? ( app-misc/getopt ) elibc_SunOS? ( app-misc/getopt ) >=sys-apps/coreutils-8.32-r1 graphviz? ( media-gfx/graphviz ) app-arch/zstd:=
 SLOT=0
-_eclasses_=git-r3	2f8cdb10b033f92c3136aa6488a31c98	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	shell-completion	63a62de3ca49c798ee6e89f190e45d0e	bash-completion-r1	4386cfb12ede6cd8f0c1987d2e88da5f	elisp-common	0ea9a0d3bc26353e1642c73560a24fdf
-_md5_=857eebd8b2cac8cdf2e71d64442c27d0
+_eclasses_=git-r3	2f8cdb10b033f92c3136aa6488a31c98	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	shell-completion	63a62de3ca49c798ee6e89f190e45d0e
+_md5_=3622fdfcdb8610bf39dd650f7da226a7
