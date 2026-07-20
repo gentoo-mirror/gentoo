@@ -26,7 +26,7 @@ else
 fi
 
 RDEPEND="
-	>=app-containers/container-libs-0.68.0[extra]
+	>=app-containers/container-libs-0.68.0[extra(-)]
 	app-crypt/gpgme:=
 	dev-db/sqlite:3=
 	dev-libs/libgpg-error:=

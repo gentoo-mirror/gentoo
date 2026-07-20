@@ -31,7 +31,7 @@ RESTRICT="test"
 RDEPEND="
 	app-containers/catatonit
 	>=app-containers/conmon-2.1.10
-	>=app-containers/container-libs-0.68.0[extra]
+	>=app-containers/container-libs-0.68.0[extra(-)]
 	app-crypt/gpgme:=
 	dev-db/sqlite:3
 	dev-libs/libassuan:=
