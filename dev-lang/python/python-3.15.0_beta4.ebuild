@@ -137,6 +137,21 @@ pkg_pretend() {
 		ewarn "you can reproduce the problem with dev-lang/python[-jit].  Instead,"
 		ewarn "please consider reporting JIT problems upstream."
 	fi
+
+	if [[ ${MERGE_TYPE} != buildonly ]] && ver_replacing -lt 3.15.0_beta4; then
+		ewarn
+		ewarn "Python 3.15.0b4 has broken its extension ABI.  The extensions built"
+		ewarn "with older versions may crash at runtime or worse after upgrading."
+		ewarn "A rebuild is recommended after the merge is complete, e.g. using:"
+		ewarn
+		ewarn "  emerge -1v \$(find /usr/lib/python3.15/site-packages -name '*.cpython-315-*.so')"
+		ewarn
+		ewarn "Note that if you enabled both python3_15 and python3_15t, then"
+		ewarn "the 3.15 rebuild should cover all 3.15t packages already."
+		ewarn "If you do not wish to perform the rebuild at the time, it is"
+		ewarn "recommended to abort the upgrade."
+		ewarn
+	fi
 }
 
 pkg_setup() {

@@ -23,7 +23,7 @@ DEPEND="app-eselect/eselect-gradle"
 BDEPEND="app-arch/unzip"
 RDEPEND="
 	${DEPEND}
-	>=virtual/jre-1.8:*
+	>=virtual/jre-17:*
 "
 
 src_compile() {

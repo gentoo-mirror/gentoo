@@ -20,7 +20,7 @@ RESTRICT="test" # requires installed instance
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
 DEPEND="
-	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6[dbus,gui,widgets,X?]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	>=kde-frameworks/kcoreaddons-${KFMIN}:6
 	>=kde-frameworks/kcrash-${KFMIN}:6

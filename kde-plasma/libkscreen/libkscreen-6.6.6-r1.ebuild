@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_QTHELP="true"
 ECM_TEST="forceoptional"
-KFMIN=6.26.0
+KFMIN=6.22.0
 QTMIN=6.10.1
 inherit ecm plasma.kde.org toolchain-funcs
 
@@ -13,7 +13,7 @@ DESCRIPTION="Plasma screen management library"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6/8"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv ~x86"
 IUSE=""
 
 # requires running session
@@ -21,13 +21,13 @@ RESTRICT="test"
 
 # slot op: Uses Qt::GuiPrivate for qtx11extras_p.h
 RDEPEND="
-	>=dev-libs/wayland-1.24
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland]
+	dev-libs/wayland
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,X]
 	>=kde-frameworks/kconfig-${KFMIN}:6
 	x11-libs/libxcb:=
 "
 DEPEND="${RDEPEND}
-	>=dev-libs/plasma-wayland-protocols-1.21.0
+	>=dev-libs/plasma-wayland-protocols-1.20.0
 "
 BDEPEND="
 	>=dev-qt/qttools-${QTMIN}:6[linguist]

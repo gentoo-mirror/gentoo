@@ -3,7 +3,7 @@
 
 EAPI=8
 
-KFMIN=6.22.0
+KFMIN=6.26.0
 QTMIN=6.10.1
 inherit ecm plasma.kde.org xdg
 
@@ -12,7 +12,7 @@ HOMEPAGE="https://invent.kde.org/plasma/oxygen"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
-KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="X"
 
 # slot op: Uses Qt6::GuiPrivate for qtx11extras_p.h
@@ -32,7 +32,7 @@ COMMON_DEPEND="
 	>=kde-plasma/kdecoration-${KDE_CATV}:6
 	>=kde-plasma/libplasma-${KDE_CATV}:6=
 	X? (
-		>=dev-qt/qtbase-${QTMIN}:6=[gui]
+		>=dev-qt/qtbase-${QTMIN}:6=[gui,X]
 		x11-libs/libxcb
 	)
 "

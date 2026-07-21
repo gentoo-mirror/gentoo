@@ -5,7 +5,7 @@ EAPI=8
 
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
-KFMIN=6.22.0
+KFMIN=6.26.0
 QTMIN=6.10.1
 inherit ecm fcaps plasma.kde.org xdg
 
@@ -14,7 +14,7 @@ HOMEPAGE="https://invent.kde.org/plasma/powerdevil"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
-KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="brightness-control"
 
 RESTRICT="test" # bug 926513
@@ -23,7 +23,7 @@ RESTRICT="test" # bug 926513
 COMMON_DEPEND="
 	dev-libs/qcoro[dbus]
 	dev-libs/wayland
-	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets]
+	>=dev-qt/qtbase-${QTMIN}:6=[dbus,gui,wayland,widgets,X]
 	>=kde-frameworks/kauth-${KFMIN}:6[policykit]
 	>=kde-frameworks/kcmutils-${KFMIN}:6
 	>=kde-frameworks/kconfig-${KFMIN}:6
@@ -34,7 +34,7 @@ COMMON_DEPEND="
 	>=kde-frameworks/kglobalaccel-${KFMIN}:6
 	>=kde-frameworks/ki18n-${KFMIN}:6
 	>=kde-frameworks/kidletime-${KFMIN}:6
-	>=kde-frameworks/kio-6.22.1:6
+	>=kde-frameworks/kio-${KFMIN}:6
 	>=kde-frameworks/kirigami-${KFMIN}:6
 	>=kde-frameworks/kitemmodels-${KFMIN}:6
 	>=kde-frameworks/knotifications-${KFMIN}:6
@@ -72,11 +72,6 @@ BDEPEND="
 
 # -m 0755 to avoid suid with USE="-filecaps"
 FILECAPS=( -m 0755 cap_wake_alarm=ep usr/libexec/org_kde_powerdevil )
-
-src_prepare() {
-	ecm_src_prepare
-	ecm_punt_kf_module WindowSystem # pending use of ecm_find_qmlmodule upstream in >=6.7
-}
 
 src_configure() {
 	local mycmakeargs=(
