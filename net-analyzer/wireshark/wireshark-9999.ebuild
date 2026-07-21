@@ -167,13 +167,6 @@ src_configure() {
 
 	python_setup
 
-	if use gui; then
-		LRELEASE=$(qt_get_broot_binary 6 lrelease)
-		MOC=$(qt_get_broot_binary 6 moc)
-		RCC=$(qt_get_broot_binary 6 rcc)
-		UIC=$(qt_get_broot_binary 6 uic)
-	fi
-
 	mycmakeargs+=(
 		-DPython3_EXECUTABLE="${PYTHON}"
 		-DCMAKE_DISABLE_FIND_PACKAGE_{Asciidoctor,DOXYGEN}=$(usex !doc)
