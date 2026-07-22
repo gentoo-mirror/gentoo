@@ -27,3 +27,12 @@ src_configure() {
 
 	cmake_src_configure
 }
+
+src_install()
+{
+	cmake_src_install
+
+	if use test; then
+		rm "${D}/usr/bin/checksum-profile" || die "Error deleting /usr/bin/checksum-profile from install image"
+	fi
+}

@@ -32,3 +32,13 @@ src_configure() {
 
 	cmake_src_configure
 }
+
+src_install()
+{
+	cmake_src_install
+
+	if use test; then
+		rm "${D}/usr/bin/elasticurl" || die "Error deleting /usr/bin/elasticurl from install image"
+		rm "${D}/usr/bin/h2benchmark" || die "Error deleting /usr/bin/h2benchmark from install image"
+	fi
+}
