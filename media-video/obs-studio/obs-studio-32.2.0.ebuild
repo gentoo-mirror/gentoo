@@ -13,8 +13,8 @@ inherit cmake flag-o-matic lua-single optfeature python-single-r1 xdg
 
 CEF_AMD64="cef_binary_6533_linux_x86_64_v6"
 CEF_ARM64="cef_binary_6533_linux_aarch64_v6"
-OBS_BROWSER_COMMIT="ea04212e4bbadd077f9e6038758c4e4779c24fa3"
-OBS_WEBSOCKET_COMMIT="68bebc28be57a8ca371404182113e16eeac74cbf"
+OBS_BROWSER_COMMIT="3f0a2cdf378939ebe3c6f9ab36d4ea100c25aac2"
+OBS_WEBSOCKET_COMMIT="1ef34bf48110c2a18184e50e41cd0b1a855e2147"
 
 DESCRIPTION="Software for Recording and Streaming Live Video Content"
 HOMEPAGE="https://obsproject.com"
@@ -48,8 +48,8 @@ SRC_URI+="
 LICENSE="Boost-1.0 GPL-2+ MIT Unlicense"
 SLOT="0"
 IUSE="
-	+alsa browser decklink fdk jack lua mpegts nvenc pipewire pulseaudio
-	python qsv sndio speex test-input truetype v4l vlc wayland websocket
+	+alsa browser decklink fdk jack lua mpegts nvenc pulseaudio python
+	qsv screencast sndio speex test-input truetype v4l vlc wayland websocket
 "
 REQUIRED_USE="
 	browser? ( || ( alsa pulseaudio ) )
@@ -69,7 +69,7 @@ DEPEND="
 	dev-libs/jansson:=
 	dev-libs/simde
 	dev-libs/uthash
-	dev-qt/qtbase:6=[network,widgets,X,xml(+)]
+	dev-qt/qtbase:6=[dbus,network,widgets,X,xml(+)]
 	dev-qt/qtsvg:6
 	media-libs/libglvnd[X]
 	media-libs/libva
@@ -120,10 +120,10 @@ DEPEND="
 		net-libs/srt
 	)
 	nvenc? ( >=media-libs/nv-codec-headers-12 )
-	pipewire? ( media-video/pipewire:= )
 	pulseaudio? ( media-libs/libpulse )
 	python? ( ${PYTHON_DEPS} )
 	qsv? ( media-libs/libvpl )
+	screencast? ( media-video/pipewire:= )
 	sndio? ( media-sound/sndio )
 	speex? ( media-libs/speexdsp )
 	truetype? (
@@ -204,7 +204,7 @@ src_configure() {
 		-DENABLE_LIBFDK=$(usex fdk)
 		-DENABLE_NEW_MPEGTS_OUTPUT=$(usex mpegts)
 		-DENABLE_NVENC=$(usex nvenc)
-		-DENABLE_PIPEWIRE=$(usex pipewire)
+		-DENABLE_PIPEWIRE=$(usex screencast)
 		-DENABLE_PULSEAUDIO=$(usex pulseaudio)
 		-DENABLE_QSV11=$(usex qsv)
 		-DENABLE_RNNOISE=ON
@@ -273,6 +273,7 @@ pkg_postinst() {
 		elog
 	fi
 
+	optfeature "PipeWire audio capture" media-plugins/obs-pipewire-audio-capture
 	optfeature "VA-API hardware encoding" media-video/ffmpeg[vaapi]
 	optfeature "virtual camera support" media-video/v4l2loopback
 }

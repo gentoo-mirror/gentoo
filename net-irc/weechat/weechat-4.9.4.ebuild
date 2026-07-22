@@ -23,7 +23,7 @@ else
 	SRC_URI="
 		https://weechat.org/files/src/${P}.tar.xz
 		verify-sig? ( https://weechat.org/files/src/${P}.tar.xz.asc )
-		https://dev.gentoo.org/~eschwartz/distfiles/${CATEGORY}/${PN}/${P}-manpages.tar.xz
+		https://github.com/ingenarel/gentoo/releases/download/${P}-manpages.tar.xz/${P}-manpages.tar.xz
 	"
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/weechat.org.asc
 	BDEPEND+="verify-sig? ( sec-keys/openpgp-keys-weechat )"
