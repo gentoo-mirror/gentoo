@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -19,7 +19,7 @@ KEYWORDS="~amd64 ~ppc64 ~x86"
 IUSE="X wayland"
 
 DEPEND="
-	media-libs/libsdl2[X?,wayland?]
+	media-libs/libsdl3[X?,wayland?]
 	media-video/ffmpeg:=
 	virtual/libusb:1
 "
