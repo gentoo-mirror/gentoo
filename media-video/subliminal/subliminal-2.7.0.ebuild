@@ -18,7 +18,7 @@ if [[ ${PV} == 9999 ]] ; then
 	EGIT_BRANCH="develop"
 else
 	SRC_URI="https://github.com/Diaoul/${PN}/archive/${PV}.tar.gz -> ${P}.gh.tar.gz"
-	KEYWORDS="amd64 ~arm ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 fi
 
 SRC_URI+=" test? ( https://downloads.sourceforge.net/matroska/test_files/matroska_test_w1_1.zip )"
@@ -70,6 +70,9 @@ EPYTEST_DESELECT=(
 
 	# TODO
 	tests/test_core.py::test_refine_video_metadata
+
+	# https://github.com/guessit-io/guessit/issues/796 (fixed in guessit-4.0.0)
+	tests/test_video.py::test_episode_fromname_guessit_bug
 )
 
 EPYTEST_IGNORE=(
@@ -81,6 +84,7 @@ EPYTEST_IGNORE=(
 
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 
+EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 src_unpack() {
