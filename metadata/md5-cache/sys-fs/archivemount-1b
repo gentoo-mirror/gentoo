@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install test
+DEPEND=app-arch/libarchive:= sys-fs/fuse:3=
+DESCRIPTION=Mount archives using libarchive and FUSE
+EAPI=9
+HOMEPAGE=https://git.sr.ht/~nabijaczleweli/archivemount-ng
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+PROPERTIES=test_privileged
+RDEPEND=app-arch/libarchive:= sys-fs/fuse:3=
+RESTRICT=test
+SLOT=0
+SRC_URI=https://git.sr.ht/~nabijaczleweli/archivemount-ng/archive/1b.tar.gz -> archivemount-ng-1b.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
+_md5_=2d475eaac131f757431da42ace58dd2c
