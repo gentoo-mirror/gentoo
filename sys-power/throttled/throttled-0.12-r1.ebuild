@@ -19,12 +19,14 @@ RESTRICT="!test? ( test )"
 
 CONFIG_CHECK="~X86_MSR ~DEVMEM"
 
+# sys-power/upower: dependency via dbus
 RDEPEND="
 	${PYTHON_DEPS}
 	$(python_gen_cond_dep '
 		dev-python/dbus-next[${PYTHON_USEDEP}]
 	')
 	sys-apps/pciutils
+	sys-power/upower
 	test? ( dev-python/pytest-import-check )
 "
 
