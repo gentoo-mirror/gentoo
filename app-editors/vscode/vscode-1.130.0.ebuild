@@ -39,7 +39,7 @@ LICENSE="
 "
 SLOT="0"
 KEYWORDS="-* amd64 ~arm arm64"
-IUSE="egl kerberos wayland webkit"
+IUSE="egl wayland webkit"
 RESTRICT="mirror strip bindist"
 
 RDEPEND="
@@ -76,7 +76,6 @@ RDEPEND="
 	x11-libs/libXScrnSaver
 	x11-libs/pango
 	x11-misc/xdg-utils
-	kerberos? ( app-crypt/mit-krb5 )
 	webkit? (
 		net-libs/libsoup:3.0
 		net-libs/webkit-gtk:4.1
@@ -105,15 +104,8 @@ src_prepare() {
 src_install() {
 	cd vscode || die
 
-	# Cleanup
-	rm -r ./resources/app/ThirdPartyNotices.txt || die
-
 	# Disable update server
 	sed -e "/updateUrl/d" -i ./resources/app/product.json || die
-
-	if ! use kerberos; then
-		rm -r ./resources/app/node_modules/kerberos || die
-	fi
 
 	if ! use webkit; then
 		rm -r ./resources/app/extensions/microsoft-authentication || die

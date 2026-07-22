@@ -37,8 +37,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-24.05-respect-build-env.patch"
 )
 
-# TODO(NRK): also build and install the library
-
 pkg_setup() {
 	# instructions in DOC/readme.txt, Compiling 7-Zip for Unix/Linux
 	# TLDR; every combination of options (clang|gcc)+(asm/noasm)
@@ -73,8 +71,6 @@ src_prepare() {
 }
 
 src_compile() {
-	pushd "./CPP/7zip/Bundles/Alone2" || die "Unable to switch directory"
-
 	# avoid executable stack when using uasm/jwasm, harmless otherwise
 	append-ldflags -Wl,-z,noexecstack
 	export G_CFLAGS=${CFLAGS}
@@ -100,13 +96,18 @@ src_compile() {
 		args+=( MY_ASM=uasm )
 	fi
 
-	mkdir -p "${bdir}" || die  # Bug: https://bugs.gentoo.org/933619
-	emake ${args[@]}
-	popd > /dev/null || die "Unable to switch directory"
+	# Build executable and library
+	for i in "./CPP/7zip/Bundles/Alone2" "./CPP/7zip/Bundles/Format7zF" ; do
+		pushd "${i}" || die "Unable to switch directory"
+		mkdir -p "${bdir}" || die  # Bug: https://bugs.gentoo.org/933619
+		emake ${args[@]}
+		popd > /dev/null || die "Unable to switch directory"
+	done
 }
 
 src_install() {
 	dobin "./CPP/7zip/Bundles/Alone2/b/${bdir}/7zz"
+	dolib.so "./CPP/7zip/Bundles/Format7zF/b/${bdir}/7z.so"
 	if use symlink; then
 		dosym 7zz /usr/bin/7z
 		dosym 7zz /usr/bin/7za
