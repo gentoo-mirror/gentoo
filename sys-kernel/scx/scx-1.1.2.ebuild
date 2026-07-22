@@ -3,9 +3,9 @@
 
 EAPI=8
 
-LLVM_COMPAT=( {16..21} )
+LLVM_COMPAT=( {16..22} )
 
-RUST_MIN_VER="1.86.0"
+RUST_MIN_VER="1.94.1"
 
 inherit cargo llvm-r2 linux-info
 
@@ -27,7 +27,7 @@ LICENSE+="
 	Apache-2.0 BSD-2 BSD CC0-1.0 ISC MIT MPL-2.0 Unicode-3.0 ZLIB
 "
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DEPEND="
 	>=dev-libs/libbpf-1.6:=
@@ -52,6 +52,8 @@ CONFIG_CHECK="
 	~BPF
 	~BPF_EVENTS
 	~BPF_JIT
+	~BPF_JIT_ALWAYS_ON
+	~BPF_JIT_DEFAULT_ON
 	~BPF_SYSCALL
 	~DEBUG_INFO_BTF
 	~FTRACE
@@ -68,34 +70,38 @@ pkg_setup() {
 }
 
 src_compile() {
-	einfo "Building rust schedulers"
+	local -x BPF_CLANG=clang-${LLVM_SLOT}
 	cargo_src_compile
+}
 
-	einfo "Building C schedulers"
-	emake BPF_CLANG="$(get_llvm_prefix)/bin/clang"
+src_test() {
+	# Skip broken tests in scx_mitosis and scx_utils
+	# Upstream: https://github.com/sched-ext/scx/issues/3418
+	cargo_src_test -- \
+		--skip cell_manager::tests::test_borrowable_cpumasks_respects_cpuset \
+		--skip cell_manager::tests::test_cpuset_parsing_from_file \
+		--skip cell_manager::tests::test_deficit_all_cells_exceed_target \
+		--skip cell_manager::tests::test_symmetric_pairwise_overlap_produces_equal_cells \
+		--skip cpumask::tests::test_to_cpulist_roundtrip
 }
 
 src_install() {
-	einfo "Installing rust schedulers"
+	einfo "Installing schedulers"
 	local sched
 	for sched in scheds/rust/scx_*; do
 		einfo "Installing ${sched#scheds/rust/}"
 		dobin "target/$(usex debug debug release)/${sched#scheds/rust}"
 	done
 
-	einfo "Installing C schedulers"
-	emake INSTALL_DIR="${ED}/usr/bin" install
-
 	einfo "Installing tools"
-	dobin target/$(usex debug debug release)/{scx{cash,top},vmlinux_docify}
+	dobin target/$(usex debug debug release)/{scxtop,vmlinux_docify}
 
 	dodoc README.md
 
 	local readme readme_name
-	for readme in scheds/{rust,c}/*/README.md ./rust/*/README.md; do
+	for readme in scheds/rust/*/README.md ./rust/*/README.md; do
 		[[ -e ${readme} ]] || continue
 		readme_name="${readme#*/rust/}"
-		readme_name="${readme_name#*/c/}"
 		readme_name="${readme_name%/README.md}"
 		newdoc "${readme}" "${readme_name}.md"
 	done
