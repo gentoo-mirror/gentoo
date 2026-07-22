@@ -92,7 +92,7 @@ src_configure() {
 		$(use_with threads)
 	)
 
-	econf "${myconf[@]}"
+	econf "${myconf[@]}" EMACS=no  #979652
 }
 
 # Akin to (and taken from) toolchain-autoconfs eclass
