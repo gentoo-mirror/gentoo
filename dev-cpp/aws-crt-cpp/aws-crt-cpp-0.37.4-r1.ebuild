@@ -30,6 +30,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="dev-libs/aws-c-common"
 
+PATCHES=(
+	"${FILESDIR}/aws-crt-cpp-0.37.4-warnins_are_errors.patch"
+)
+
 src_configure()
 {
 	local mycmakeargs=(

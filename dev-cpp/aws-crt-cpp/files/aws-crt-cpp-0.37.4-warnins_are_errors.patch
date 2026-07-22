@@ -1,0 +1,29 @@
+From d97699793a71880c70f948faa42d2a03913d5ecd Mon Sep 17 00:00:00 2001
+From: Jaco Kroon <jaco@uls.co.za>
+Date: Thu, 23 Jul 2026 00:46:43 +0200
+Subject: [PATCH] Use AWS_WARNINGS_ARE_ERRORS to restrict -Werror in
+ elasticurl_cpp.
+
+Found by Gentoo tinderbox: https://bugs.gentoo.org/977183
+
+Signed-off-by: Jaco Kroon <jaco@uls.co.za>
+---
+ bin/elasticurl_cpp/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/bin/elasticurl_cpp/CMakeLists.txt b/bin/elasticurl_cpp/CMakeLists.txt
+index a96f94e..b0c5482 100644
+--- a/bin/elasticurl_cpp/CMakeLists.txt
++++ b/bin/elasticurl_cpp/CMakeLists.txt
+@@ -20,7 +20,7 @@ if (MSVC)
+         target_compile_options(${ELASTICURL_CPP_PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>")
+     endif()
+     target_compile_options(${ELASTICURL_CPP_PROJECT_NAME} PRIVATE /W4 /WX)
+-else ()
++elseif (AWS_WARNINGS_ARE_ERRORS)
+     target_compile_options(${ELASTICURL_CPP_PROJECT_NAME} PRIVATE -Wall -Wno-long-long -pedantic -Werror)
+ endif ()
+ 
+-- 
+2.54.0
+
