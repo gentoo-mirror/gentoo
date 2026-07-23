@@ -1,0 +1,15 @@
+BDEPEND=>=dev-lang/go-1.26.0 dev-libs/stb app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-lang/go-1.24.11:= app-arch/unzip virtual/pkgconfig
+DEFINED_PHASES=compile configure install postinst preinst prepare test unpack
+DEPEND=acct-group/ollama acct-user/ollama sci-ml/ggml
+DESCRIPTION=Get up and running with Llama 3, Mistral, Gemma, and other language models
+EAPI=8
+HOMEPAGE=https://ollama.com
+INHERIT=cmake go-module systemd
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=acct-group/ollama acct-user/ollama sci-ml/ggml net-misc/curl:=
+RESTRICT=mirror test
+SLOT=0
+SRC_URI=https://github.com/ollama/ollama/archive/refs/tags/v0.32.2.tar.gz -> ollama-0.32.2.gh.tar.gz https://github.com/gentoo-golang-dist/ollama/releases/download/v0.32.2/ollama-0.32.2-deps.tar.xz https://github.com/ggml-org/llama.cpp/archive/refs/tags/b10069.tar.gz -> llama.cpp-b10069.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b	systemd	a964c0cbe818b5729da1dbfcee5be861
+_md5_=c7dd11be2e9f1549e84c9959c19c76ce
