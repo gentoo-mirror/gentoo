@@ -168,9 +168,6 @@ src_prepare() {
 			-e 's:pnmindex.*::' \
 			-i test/Test-Order || die
 	fi
-
-	# fix typo in test
-	sed 's/cmps/cmp/' -i test/pnmhisteq.test
 }
 
 src_configure() {
