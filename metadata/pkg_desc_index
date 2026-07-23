@@ -933,7 +933,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.814.0 1.2.835.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.45.29 1.45.36 1.45.40 1.45.46 1.45.47 1.45.48 1.45.49 1.45.50 1.45.51 1.45.52 1.45.53: Universal Command Line Environment for AWS
+app-admin/awscli 1.45.29 1.45.36 1.45.40 1.45.46 1.45.47 1.45.48 1.45.49 1.45.50 1.45.51 1.45.52 1.45.53 1.45.54: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.34.24 2.34.40 2.36.4: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.12.0 2026.6.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.6.0 2026.6.1: Bitwarden password manager desktop client
@@ -8376,8 +8376,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 26.0.0 26.1.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.43.29 1.43.36 1.43.40 1.43.46 1.43.47 1.43.48 1.43.49 1.43.50 1.43.51 1.43.52 1.43.53: The AWS SDK for Python
-dev-python/botocore 1.43.29 1.43.36 1.43.40 1.43.46 1.43.47 1.43.48 1.43.49 1.43.50 1.43.51 1.43.52 1.43.53: Low-level, data-driven core of boto 3
+dev-python/boto3 1.43.29 1.43.36 1.43.40 1.43.46 1.43.47 1.43.48 1.43.49 1.43.50 1.43.51 1.43.52 1.43.53 1.43.54: The AWS SDK for Python
+dev-python/botocore 1.43.29 1.43.36 1.43.40 1.43.46 1.43.47 1.43.48 1.43.49 1.43.50 1.43.51 1.43.52 1.43.53 1.43.54: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8390,7 +8390,7 @@ dev-python/btrfsutil 7.0: Library for managing Btrfs filesystems
 dev-python/build 1.4.4 1.5.0 1.5.1: A simple, correct PEP517 package builder
 dev-python/cachecontrol 0.14.3: httplib2 caching for requests
 dev-python/cachelib 0.14.0: Collection of cache libraries in the same API interface. Extracted from werkzeug
-dev-python/cachetools 7.1.4: Extensible memoizing collections and decorators
+dev-python/cachetools 7.1.4 7.1.5: Extensible memoizing collections and decorators
 dev-python/cairocffi 1.7.1-r1: CFFI-based drop-in replacement for Pycairo
 dev-python/cangjie 1.5.0: Python wrapper for libcangjie
 dev-python/canonicaljson 2.0.0: Canonical JSON
@@ -8590,8 +8590,8 @@ dev-python/expandvars 1.1.2: Expand system variables Unix style
 dev-python/expecttest 0.3.0: golden tests
 dev-python/extras 1.0.0-r2: Useful extra bits for Python that should be in the standard library
 dev-python/eyed3 0.9.9: Module for manipulating ID3 (v1 + v2) tags in Python
-dev-python/faker 40.23.0 40.27.0 40.28.1 40.31.0 40.32.0: A Python package that generates fake data for you
-dev-python/fakeredis 2.35.1 2.36.2: Fake implementation of redis API for testing purposes
+dev-python/faker 40.23.0 40.27.0 40.28.1 40.31.0 40.32.0 40.35.0: A Python package that generates fake data for you
+dev-python/fakeredis 2.35.1 2.36.2 2.37.0: Fake implementation of redis API for testing purposes
 dev-python/fastapi 0.139.0 0.139.2: High performance framework, easy to learn, fast to code, ready for production
 dev-python/fastbencode 0.3.10: Implementation of bencode with Rust implementation
 dev-python/fasteners 0.20: Python package that provides useful locks
@@ -8661,9 +8661,9 @@ dev-python/gherkin-official 41.0.0 42.0.0: Gherkin parser/compiler for Python
 dev-python/git-review 2.4.0 2.5.0 9999: Tool to submit code to Gerrit
 dev-python/gitdb 4.0.12: GitDB is a pure-Python git object database
 dev-python/github3-py 4.0.1: A wrapper for the GitHub API written in python
-dev-python/gitpython 3.1.50 3.1.51 3.1.52 3.1.53: Library used to interact with Git repositories
+dev-python/gitpython 3.1.52 3.1.53 3.1.54: Library used to interact with Git repositories
 dev-python/gmpy2 2.3.0 2.3.1 2.4.0_alpha0: Python bindings for GMP, MPC, MPFR and MPIR libraries
-dev-python/google-api-core 2.31.0 2.32.0: Core Library for Google Client Libraries
+dev-python/google-api-core 2.31.0 2.32.0 2.33.0: Core Library for Google Client Libraries
 dev-python/google-api-python-client 2.197.0 2.198.0: Google API Client for Python
 dev-python/google-auth 2.54.0 2.55.2 2.56.0 2.56.2: Google Authentication Library
 dev-python/google-auth-httplib2 0.4.0: httplib2 Transport for Google Auth
@@ -8676,7 +8676,7 @@ dev-python/gpgmepy 2.0.0-r1: GnuPG Made Easy is a library for making GnuPG easie
 dev-python/gpt-image 0.9.1: Tool to create GPT disk image files
 dev-python/graph-tool 2.98 9999: An efficient python module for manipulation and statistical analysis of graphs
 dev-python/graphviz 0.21: Simple Python interface for Graphviz
-dev-python/greenlet 3.4.0 3.5.0 3.5.1 3.5.2 3.5.3: Lightweight in-process concurrent programming
+dev-python/greenlet 3.5.2 3.5.3 3.5.4: Lightweight in-process concurrent programming
 dev-python/greenstalk 2.1.1: Python 3 client for the beanstalkd work queue
 dev-python/griddataformats 1.2.0: Reading and writing of data on regular grids in Python
 dev-python/grpcio 1.80.0 1.81.0 1.81.1 1.82.0 1.82.1: HTTP/2-based RPC framework
@@ -8721,7 +8721,7 @@ dev-python/hvac 2.4.0: HashiCorp Vault API client
 dev-python/hypercorn 0.18.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.155.7 6.156.1 6.156.2 6.156.4 6.156.6 6.156.9 6.157.0 6.157.2: A library for property based testing
+dev-python/hypothesis 6.155.7 6.156.1 6.156.2 6.156.4 6.156.6 6.156.9 6.157.0 6.157.2 6.160.0: A library for property based testing
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 7.1.3 7.2.0 7.2.2: RFC 5545 compatible parser and generator of iCalendar files
 dev-python/id 1.6.1: A tool for generating OIDC identities
@@ -8945,7 +8945,7 @@ dev-python/minikanren 1.0.5: Relational programming in Python
 dev-python/minimock 1.3.0-r1: The simplest possible mock library
 dev-python/miniupnpc 2.3.3: Python bindings for UPnP client library
 dev-python/mistletoe 1.5.1 1.6.0: A fast, extensible Markdown parser in pure Python
-dev-python/mistune 3.2.1 3.3.1 3.3.2 3.3.3: The fastest markdown parser in pure Python
+dev-python/mistune 3.2.1 3.3.3 3.3.4: The fastest markdown parser in pure Python
 dev-python/mkautodoc 0.2.0: Auto documentation for MkDocs
 dev-python/ml-dtypes 0.5.4: A stand-alone implementation of several NumPy dtype extensions
 dev-python/mmtf-python 1.1.3: The python implementation of the MMTF API, decoder and encoder
@@ -9000,14 +9000,14 @@ dev-python/node-semver 0.9.0 0.9.1: Python version of node-semver, the semantic 
 dev-python/nodeenv 1.10.0: Node.js virtual environment builder
 dev-python/noiseprotocol 0.3.1: Implementation of Noise Protocol Framework. Compatible with revisions 32 and 33
 dev-python/nose2 0.16.0: Unittest with plugins
-dev-python/notebook 7.4.7-r1 7.5.7: Jupyter Interactive Notebook
+dev-python/notebook 7.4.7-r1 7.5.7 7.6.1: Jupyter Interactive Notebook
 dev-python/notebook-shim 0.2.4: A shim layer for notebook traits and config
 dev-python/notify2 0.3.1-r3: Python interface to DBus notifications
 dev-python/nox 2026.04.10 2026.07.11: Flexible test automation for Python
 dev-python/ntplib 0.4.0-r1: Python NTP library
 dev-python/nuitka 4.1.3: Python to native compiler
 dev-python/numexpr 2.14.1 2.14.2: Fast numerical array expression evaluator for Python and NumPy
-dev-python/numpy 2.2.6 2.4.4 2.4.5 2.4.6 2.5.0_rc1 2.5.0 2.5.1: Fast array and numerical python library
+dev-python/numpy 2.2.6 2.4.4 2.4.6 2.5.1: Fast array and numerical python library
 dev-python/numpydoc 1.10.0: Sphinx extension to support docstrings in Numpy format
 dev-python/nvidia-ml-py 12.575.51 13.590.44: Python bindings to the NVIDIA Management Library
 dev-python/oauthlib 3.3.1: Spec-compliant and thorough implementation of the OAuth request-signing logic
@@ -9052,7 +9052,7 @@ dev-python/owslib 0.35.0 0.36.0: Library for client programming with Open Geospa
 dev-python/packaging 26.1 26.2: Core utilities for Python packages
 dev-python/paho-mqtt 2.1.0: MQTT version 5.0/3.1.1 client class
 dev-python/pallets-sphinx-themes 2.5.0: Sphinx themes for Pallets and related projects
-dev-python/pandas 2.3.3 3.0.2 3.0.3 3.0.4: Powerful data structures for data analysis and statistics
+dev-python/pandas 2.3.3 3.0.2 3.0.3 3.0.4 3.0.5: Powerful data structures for data analysis and statistics
 dev-python/pandocfilters 1.5.1: Utilities for writing pandoc filters in python
 dev-python/parallax 1.0.8: Execute commands and copy files over SSH to multiple machines at once
 dev-python/parameterized 0.9.0: Parameterized testing with any Python test framework
@@ -9111,7 +9111,7 @@ dev-python/plotly 6.8.0 6.9.0: Browser-based graphing library for Python
 dev-python/plotly-geo 1.0.0-r2: Browser-based graphing library for Python
 dev-python/pluggy 1.6.0: Plugin and hook calling mechanisms for Python
 dev-python/pluginbase 1.0.1-r1: Support library for building plugins systems in Python
-dev-python/plumbum 2.0.1: A library for shell script-like programs in python
+dev-python/plumbum 2.0.1 2.0.2: A library for shell script-like programs in python
 dev-python/ply 3.11-r2: Python Lex-Yacc library
 dev-python/plyvel 1.5.1: Python interface to LevelDB
 dev-python/pmw 2.1.1: Toolkit for building high-level compound Python widgets using the Tkinter module
@@ -9138,7 +9138,7 @@ dev-python/progressbar2 4.5.0: Text progressbar library for python
 dev-python/prometheus-client 0.25.0: Python client for the Prometheus monitoring system
 dev-python/prompt-toolkit 3.0.52: Building powerful interactive command lines in Python
 dev-python/propcache 0.5.2: Accelerated property cache
-dev-python/proto-plus 1.28.0 1.28.1: Beautiful, Pythonic protocol buffers
+dev-python/proto-plus 1.28.0 1.28.1 1.28.2: Beautiful, Pythonic protocol buffers
 dev-python/protobuf 5.29.6 6.31.1 6.33.6 7.34.1 7.34.2 7.35.0 7.35.1: Google's Protocol Buffers - Python bindings
 dev-python/psutil 7.2.2: Retrieve information on running processes and system utilization
 dev-python/psycopg 2.9.12 3.3.4: PostgreSQL database adapter for Python
@@ -9492,7 +9492,7 @@ dev-python/radon 6.0.1-r2: Code Metrics in Python
 dev-python/raet 0.6.8-r6: Reliable Asynchronous Event Transport Protocol
 dev-python/random2 1.0.2: Python 2.7 random module ported to Python 3
 dev-python/rapidfuzz 3.14.5: Rapid fuzzy string matching in Python using various string metrics
-dev-python/rarfile 4.2 4.3: Module for RAR archive reading
+dev-python/rarfile 4.2 4.3 4.4: Module for RAR archive reading
 dev-python/ratelimit 2.2.1-r1: An API rate limit decorator for Python
 dev-python/rdflib 7.6.0: RDF library containing a triple store and parser/serializer
 dev-python/re-assert 1.1.0-r3 1.1.0-r4: Show where your regex match assertion failed
@@ -9562,7 +9562,7 @@ dev-python/rtslib-fb 2.1.76 2.2.4-r1: A Python object API for managing the Linux
 dev-python/ruamel-yaml 0.19.1: YAML parser/emitter that supports roundtrip comment preservation
 dev-python/ruamel-yaml-clib 0.2.15: C-based reader/scanner and emitter for dev-python/ruamel-yaml
 dev-python/ruamel-yaml-clibz 0.3.7: C-based reader/scanner and emitter for dev-python/ruamel-yaml
-dev-python/s3transfer 0.18.0 0.19.0 0.19.1: An Amazon S3 Transfer Manager
+dev-python/s3transfer 0.18.0 0.19.0 0.19.1 0.19.2: An Amazon S3 Transfer Manager
 dev-python/sabctools 8.2.6 9.4.0 9.4.1 9.5.0 9.5.1 9.6.0 9.6.1 9.6.2: Module providing raw yEnc encoding/decoding for SABnzbd
 dev-python/sarge 0.1.8: Wrapper for subprocess which provides command pipeline functionality
 dev-python/sarif-om 1.0.4-r1: Classes implementing the SARIF 2.1.0 object model
