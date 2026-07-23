@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/dropbear.asc
 inherit autotools pam python-any-r1 savedconfig verify-sig
 
@@ -70,7 +70,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2024.84-dbscp.patch
 	"${FILESDIR}"/${PN}-2024.86-tests.patch
 	"${FILESDIR}"/${PN}-2024.84-test-bg-sleep.patch
-	"${FILESDIR}"/${P}-skip-failing-convert-test.patch
 )
 
 set_options() {
