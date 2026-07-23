@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 # Note: greenlet is built-in in pypy
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="MIT PSF-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 -hppa ~m68k ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 -hppa ~m68k ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
