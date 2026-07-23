@@ -31,7 +31,7 @@ RDEPEND="${DEPEND}"
 BDEPEND="dev-libs/aws-c-common"
 
 PATCHES=(
-	"${FILESDIR}/aws-crt-cpp-0.37.4-warnins_are_errors.patch"
+	"${FILESDIR}/aws-crt-cpp-0.37.4-r2-warnins_are_errors.patch"
 )
 
 src_configure()
@@ -46,4 +46,13 @@ src_configure()
 	)
 
 	cmake_src_configure
+}
+
+src_install()
+{
+	cmake_src_install
+
+	if use test; then
+		rm -r "${D}/usr/bin" || die "Error removing testbinaries from /usr/bin"
+	fi
 }
