@@ -6,11 +6,11 @@ EAPI=9
 HOMEPAGE=https://tomcat.apache.org
 INHERIT=java-pkg-2 java-pkg-simple verify-sig
 IUSE=doc source test verify-sig
-KEYWORDS=~amd64 ~arm64
+KEYWORDS=amd64 ~arm64
 LICENSE=Apache-2.0
 RDEPEND=>=dev-java/ant-1.10.15:0 >=dev-java/bcel-6.11.0:0 >=dev-java/commons-compress-1.28.0:0 >=dev-java/commons-io-2.21.0:0 >=dev-java/eclipse-osgi-4.31:0 >=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/tomcat/jakartaee-migration/v1.0.12/source/jakartaee-migration-1.0.12-src.tar.gz verify-sig? ( mirror://apache/tomcat/jakartaee-migration/v1.0.12/source/jakartaee-migration-1.0.12-src.tar.gz.asc )
 _eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	df1fc43a5017ec8f5d23007b23731474	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=591c2773af88034da567c930b7dda2ce
+_md5_=cef45bd3c28750ac1558f1451523eb9b
