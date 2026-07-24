@@ -12,7 +12,7 @@ CODENAME="Piers"
 LIBDVDCSS_VERSION="1.4.3-Next-Nexus-Alpha2-2"
 LIBDVDREAD_VERSION="6.1.3-Next-Nexus-Alpha2-2"
 LIBDVDNAV_VERSION="6.1.1-Next-Nexus-Alpha2-2"
-FFMPEG_VERSION="8.1"
+FFMPEG_VERSION="8.1.2"
 
 # Java bundles from xbmc/interfaces/swig/CMakeLists.txt
 GROOVY_VERSION="4.0.30"
@@ -26,7 +26,7 @@ JAVA_PKG_WANT_SOURCE="21"
 JAVA_PKG_WANT_TARGET="21"
 
 PYTHON_REQ_USE="sqlite,ssl"
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 # See cmake/scripts/common/ArchSetup.cmake for available options
 CPU_FLAGS="cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse3 cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2 cpu_flags_x86_avx cpu_flags_x86_avx2 cpu_flags_arm_neon"
@@ -389,6 +389,7 @@ src_configure() {
 		-DENABLE_AVAHI=$(usex zeroconf)
 		-DENABLE_BLUETOOTH=$(usex bluetooth)
 		-DENABLE_BLURAY=$(usex bluray)
+		-DENABLE_BLURAY_JAR=OFF # applies to internal bluray build
 		-DENABLE_CAP=$(usex caps)
 		-DENABLE_CEC=$(usex cec)
 		-DENABLE_DBUS=$(usex dbus)
@@ -430,6 +431,7 @@ src_configure() {
 		-DENABLE_INTERNAL_FMT=OFF
 		-DENABLE_INTERNAL_FSTRCMP=OFF
 		-DENABLE_INTERNAL_GTEST=OFF
+		-DENABLE_INTERNAL_LCMS2=OFF
 		-DENABLE_INTERNAL_LZO2=OFF
 		-DENABLE_INTERNAL_NLOHMANNJSON=OFF
 		-DENABLE_INTERNAL_PCRE2=OFF
