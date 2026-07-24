@@ -933,7 +933,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.814.0 1.2.835.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.45.29 1.45.36 1.45.40 1.45.46 1.45.47 1.45.48 1.45.49 1.45.50 1.45.51 1.45.52 1.45.53 1.45.54: Universal Command Line Environment for AWS
+app-admin/awscli 1.45.29 1.45.36 1.45.40 1.45.46 1.45.47 1.45.48 1.45.49 1.45.50 1.45.51 1.45.52 1.45.53 1.45.54 1.45.55: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.34.24 2.34.40 2.36.4: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.12.0 2026.6.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.6.0 2026.6.1: Bitwarden password manager desktop client
@@ -8285,7 +8285,7 @@ dev-python/allpairspy 2.5.1: Pairwise test combinations generator
 dev-python/amqp 5.3.1: Low-level AMQP client for Python (fork of amqplib)
 dev-python/aniso8601 10.0.1: A library for parsing ISO 8601 strings
 dev-python/annotated-doc 0.0.4: Document parameters, variables inline, with Annotated
-dev-python/annotated-types 0.7.0: Reusable constraint types to use with typing.Annotated
+dev-python/annotated-types 0.7.0 0.8.0: Reusable constraint types to use with typing.Annotated
 dev-python/ansi 0.3.7: ANSI cursor movement and graphics in Python
 dev-python/ansi2html 1.9.2: Convert text with ANSI color codes to HTML
 dev-python/ansible-compat 26.3.0 26.6.0: Contains functions that facilitate working with various versions of Ansible
@@ -8376,8 +8376,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 26.0.0 26.1.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.43.29 1.43.36 1.43.40 1.43.46 1.43.47 1.43.48 1.43.49 1.43.50 1.43.51 1.43.52 1.43.53 1.43.54: The AWS SDK for Python
-dev-python/botocore 1.43.29 1.43.36 1.43.40 1.43.46 1.43.47 1.43.48 1.43.49 1.43.50 1.43.51 1.43.52 1.43.53 1.43.54: Low-level, data-driven core of boto 3
+dev-python/boto3 1.43.29 1.43.36 1.43.40 1.43.46 1.43.47 1.43.48 1.43.49 1.43.50 1.43.51 1.43.52 1.43.53 1.43.54 1.43.55: The AWS SDK for Python
+dev-python/botocore 1.43.29 1.43.36 1.43.40 1.43.46 1.43.47 1.43.48 1.43.49 1.43.50 1.43.51 1.43.52 1.43.53 1.43.54 1.43.55: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8390,7 +8390,7 @@ dev-python/btrfsutil 7.0: Library for managing Btrfs filesystems
 dev-python/build 1.4.4 1.5.0 1.5.1: A simple, correct PEP517 package builder
 dev-python/cachecontrol 0.14.3: httplib2 caching for requests
 dev-python/cachelib 0.14.0: Collection of cache libraries in the same API interface. Extracted from werkzeug
-dev-python/cachetools 7.1.4 7.1.5: Extensible memoizing collections and decorators
+dev-python/cachetools 7.1.4 7.1.5 7.1.6: Extensible memoizing collections and decorators
 dev-python/cairocffi 1.7.1-r1: CFFI-based drop-in replacement for Pycairo
 dev-python/cangjie 1.5.0: Python wrapper for libcangjie
 dev-python/canonicaljson 2.0.0: Canonical JSON
@@ -8402,7 +8402,7 @@ dev-python/cerberus 1.3.8: A lightweight and extensible data-validation library 
 dev-python/certifi 3024.7.22: A certifi hack to use system trust store on Linux/FreeBSD
 dev-python/cffi 2.0.0 2.1.0: Foreign Function Interface for Python calling C code
 dev-python/cfgv 3.5.0: Validate configuration and produce human-readable error messages
-dev-python/cfn-lint 1.51.5 1.52.1 1.53.0 1.53.1: CloudFormation Linter
+dev-python/cfn-lint 1.51.5 1.52.1 1.53.0 1.53.1 1.53.2: CloudFormation Linter
 dev-python/cftime 1.6.5: Time-handling functionality from netcdf4-python
 dev-python/chainstream 1.0.2: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.6.0: Fast HTML/XML template compiler for Python
@@ -8679,14 +8679,14 @@ dev-python/graphviz 0.21: Simple Python interface for Graphviz
 dev-python/greenlet 3.5.2 3.5.3 3.5.4: Lightweight in-process concurrent programming
 dev-python/greenstalk 2.1.1: Python 3 client for the beanstalkd work queue
 dev-python/griddataformats 1.2.0: Reading and writing of data on regular grids in Python
-dev-python/grpcio 1.80.0 1.81.0 1.81.1 1.82.0 1.82.1: HTTP/2-based RPC framework
-dev-python/grpcio-status 1.80.0 1.81.0 1.81.1 1.82.0 1.82.1: Reference package for GRPC Python status proto mapping
+dev-python/grpcio 1.80.0 1.81.0 1.81.1 1.82.0 1.82.1 1.83.0: HTTP/2-based RPC framework
+dev-python/grpcio-status 1.80.0 1.81.0 1.81.1 1.82.0 1.82.1 1.83.0: Reference package for GRPC Python status proto mapping
 dev-python/gsd 5.0.1: GSD - file format specification and a library to read and write it
 dev-python/gssapi 1.11.1: Low and high level wrappers around the GSSAPI C libraries
 dev-python/gst-python 1.24.13 1.26.11: A Python Interface to GStreamer
 dev-python/guessit 3.8.0 4.0.2 4.1.0: Python library for guessing information from video filenames
 dev-python/h11 0.16.0: A pure-Python implementation of HTTP/1.1 inspired by hyper-h2
-dev-python/h2 4.3.0: HTTP/2 State-Machine based protocol implementation
+dev-python/h2 4.3.0 4.4.0: HTTP/2 State-Machine based protocol implementation
 dev-python/h5py 3.16.0: Simple Python interface to HDF5 files
 dev-python/hashin 1.0.5: Adds hashed entries for packages to requirements.txt
 dev-python/hatch-fancy-pypi-readme 25.1.0: Fancy PyPI READMEs with Hatch
@@ -8713,7 +8713,7 @@ dev-python/httpretty 1.1.4-r4: HTTP client mock for Python
 dev-python/httptools 0.8.0: A collection of framework independent HTTP protocol utils
 dev-python/httpx 0.28.1-r1: Fully-featured HTTP client which provides sync and async APIs
 dev-python/httpx-socks 0.11.0: Proxy (HTTP, SOCKS) transports for httpx
-dev-python/httpx2 2.4.0 2.5.0 2.7.0 2.8.0: The next generation HTTP client (Pydantic fork)
+dev-python/httpx2 2.4.0 2.5.0 2.7.0 2.8.0 2.9.0: The next generation HTTP client (Pydantic fork)
 dev-python/huawei-lte-api 1.11.0: API For huawei LAN/WAN LTE Modems
 dev-python/humanfriendly 10.0-r2: Human friendly output for text interfaces using Python
 dev-python/humanize 4.15.0 4.16.0: Common humanization utilities
@@ -8721,7 +8721,7 @@ dev-python/hvac 2.4.0: HashiCorp Vault API client
 dev-python/hypercorn 0.18.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.155.7 6.156.1 6.156.2 6.156.4 6.156.6 6.156.9 6.157.0 6.157.2 6.160.0 6.161.0: A library for property based testing
+dev-python/hypothesis 6.155.7 6.156.1 6.156.2 6.156.4 6.156.6 6.156.9 6.157.0 6.157.2 6.160.0 6.161.0 6.161.1: A library for property based testing
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 7.1.3 7.2.0 7.2.2: RFC 5545 compatible parser and generator of iCalendar files
 dev-python/id 1.6.1: A tool for generating OIDC identities
@@ -9486,7 +9486,7 @@ dev-python/qtconsole 5.7.2: Qt-based console for Jupyter with support for rich m
 dev-python/qtpy 2.4.3-r3: Abstraction layer on top of PyQt and PySide with additional custom QWidgets
 dev-python/qtsass 0.4.0: Compile SASS files to Qt stylesheets
 dev-python/quantities 0.16.4: Support for physical quantities with units, based on numpy
-dev-python/quart 0.20.0: A Python ASGI web microframework with the same API as Flask
+dev-python/quart 0.20.0 0.21.0: A Python ASGI web microframework with the same API as Flask
 dev-python/quart-trio 0.12.0: A Quart extension to provide trio support
 dev-python/radon 6.0.1-r2: Code Metrics in Python
 dev-python/raet 0.6.8-r6: Reliable Asynchronous Event Transport Protocol
@@ -9816,14 +9816,14 @@ dev-python/uri-template 1.3.0: URI Template expansion in strict adherence to RFC
 dev-python/uritemplate 4.2.0: Python implementation of RFC6570, URI Template
 dev-python/url-normalize 3.0.0: URL normalization for Python
 dev-python/urllib3 2.7.0: HTTP library with thread-safe connection pooling, file post, and more
-dev-python/urwid 4.0.2 4.0.3 4.0.4 4.0.5: Curses-based user interface library for Python
+dev-python/urwid 4.0.2 4.0.3 4.0.4 4.0.5 4.0.6: Curses-based user interface library for Python
 dev-python/urwid-readline 0.15.1: Text input widget for urwid that supports readline shortcuts
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
 dev-python/utidylib 1.0.0: TidyLib Python wrapper
 dev-python/uuid6 2025.0.1: New time-based UUID formats which are suited for use as a database key
-dev-python/uv 0.11.16 0.11.19 0.11.21 0.11.23 0.11.24 0.11.25 0.11.26 0.11.27 0.11.28 0.11.29 0.11.30 0.11.31 9999: A Python package installer and resolver, written in Rust
-dev-python/uv-build 0.11.16 0.11.19 0.11.21 0.11.23 0.11.24 0.11.25 0.11.26 0.11.27 0.11.28 0.11.29 0.11.30 0.11.31: PEP517 uv build backend
+dev-python/uv 0.11.16 0.11.19 0.11.21 0.11.23 0.11.24 0.11.25 0.11.26 0.11.27 0.11.28 0.11.29 0.11.30 0.11.31 0.11.32 9999: A Python package installer and resolver, written in Rust
+dev-python/uv-build 0.11.16 0.11.19 0.11.21 0.11.23 0.11.24 0.11.25 0.11.26 0.11.27 0.11.28 0.11.29 0.11.30 0.11.31 0.11.32: PEP517 uv build backend
 dev-python/uv-dynamic-versioning 0.14.0: Dynamic versioning based on VCS tags for uv/hatch project
 dev-python/uvicorn 0.49.0 0.50.0 0.50.2 0.51.0: Lightning-fast ASGI server implementation
 dev-python/uvloop 0.22.1: Ultra-fast implementation of asyncio event loop on top of libuv
@@ -9890,7 +9890,7 @@ dev-python/xlwt 1.3.0-r2: Python library to create spreadsheet files compatible 
 dev-python/xmlschema 4.3.1 4.3.2: An XML Schema validator and decoder
 dev-python/xmlsec 1.3.17: Python bindings for the XML Security Library
 dev-python/xmltodict 1.0.4: Makes working with XML feel like you are working with JSON
-dev-python/xvfbwrapper 0.2.23 0.2.25 0.2.27 0.2.28: Python wrapper for running a display inside X virtual framebuffer
+dev-python/xvfbwrapper 0.2.23 0.2.25 0.2.27 0.2.28 0.2.29: Python wrapper for running a display inside X virtual framebuffer
 dev-python/xxhash 3.7.0 3.7.1 3.8.0 3.8.1: Python binding for the xxHash library
 dev-python/yapf 0.43.0-r1: A formatter for Python files
 dev-python/yappi 1.7.6: Yet Another Python Profiler
