@@ -11,6 +11,7 @@ CRATES="
 CRATES+="
 	addr2line@0.25.1
 	dlmalloc@0.2.11
+	dlmalloc@0.2.13
 	foldhash@0.2.0
 	fortanix-sgx-abi@0.6.1
 	getopts@0.2.24
@@ -19,6 +20,7 @@ CRATES+="
 	hermit-abi@0.5.2
 	libc@0.2.178
 	libc@0.2.183
+	libc@0.2.185
 	memchr@2.7.6
 	moto-rt@0.16.0
 	object@0.37.3
@@ -29,6 +31,9 @@ CRATES+="
 	unwinding@0.2.8
 	vex-sdk@0.27.1
 	wasi@0.14.4+wasi-0.2.4
+	wasip1@1.0.0
+	wasip2@1.0.3+wasi-0.2.9
+	wasip3@0.6.0+wasi-0.3.0-rc-2026-03-15
 	windows-sys@0.60.2
 	windows-targets@0.53.5
 	windows_aarch64_gnullvm@0.53.1
@@ -39,12 +44,13 @@ CRATES+="
 	windows_x86_64_gnu@0.53.1
 	windows_x86_64_gnullvm@0.53.1
 	windows_x86_64_msvc@0.53.1
+	wit-bindgen@0.57.1
 	wit-bindgen@0.45.1
 "
 
 # Implied by crates above.
 RUST_MIN_VER=1.95.0
-RUST_MAX_VER=1.96.1
+RUST_MAX_VER=1.97.1
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=maturin
