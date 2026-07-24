@@ -277,8 +277,8 @@ src_prepare_perlcross() {
 	eapply "${FILESDIR}/perl-5.34.0-crossfit.patch"
 	# fix cross-compilation configure tests w/ lto
 	eapply "${FILESDIR}/perl-5.42.0-cross-no-lto.patch"
-	# https://github.com/arsv/perl-cross/pull/174
-	eapply "${FILESDIR}/perl-5.42.2-cross.patch"
+	# https://github.com/arsv/perl-cross/pull/178
+	eapply "${FILESDIR}/perl-5.44.0-cross.patch"
 
 	# bug 604072
 	MAKEOPTS+=" -j1"
