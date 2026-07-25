@@ -85,7 +85,3 @@ src_install() {
 
 	dosym ../../opt/Signal/${MY_PN} /usr/bin/${MY_PN}
 }
-
-pkg_postinst() {
-	xdg_pkg_postinst
-}
