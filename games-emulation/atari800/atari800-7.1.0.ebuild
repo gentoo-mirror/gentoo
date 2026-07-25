@@ -18,13 +18,16 @@ SRC_URI="
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="encode-mp3 opengl readline +sdl +sound"
+IUSE="download encode-mp3 opengl readline +sdl +sound"
 REQUIRED_USE="
 	encode-mp3? ( sound )
 	opengl? ( sdl )
 "
 
 DEPEND="
+	download? (
+		net-misc/curl
+	)
 	encode-mp3? (
 		media-sound/lame
 	)
@@ -69,6 +72,7 @@ src_configure() {
 	fi
 
 	local myconf=(
+		$(use_enable download)
 		$(use_with opengl)
 		$(use_with readline)
 		$(use_with encode-mp3 mp3)

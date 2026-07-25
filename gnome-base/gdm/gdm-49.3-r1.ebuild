@@ -21,7 +21,7 @@ SLOT="0"
 
 KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
-IUSE="audit debug bluetooth-sound branding elogind fprint plymouth selinux systemd tcpd test +X"
+IUSE="audit debug bluetooth-sound branding elogind fprint plymouth selinux systemd tcpd test video_cards_nvidia +X"
 
 RESTRICT="!test? ( test )"
 REQUIRED_USE="^^ ( elogind systemd )"
@@ -45,7 +45,7 @@ COMMON_DEPEND="
 		x11-libs/libXau
 		x11-base/xorg-server[-minimal]
 		x11-libs/libXdmcp
-		>=x11-libs/gtk+-2.91.1:3
+		>=x11-libs/gtk+-2.91.1:3[X]
 	)
 	tcpd? ( >=sys-apps/tcp-wrappers-7.6 )
 
@@ -73,9 +73,15 @@ RDEPEND="${COMMON_DEPEND}
 	acct-group/gdm
 	acct-user/gdm
 	>=gnome-base/gnome-shell-49
-	x11-apps/xhost
 
 	fprint? ( sys-auth/fprintd[pam] )
+	systemd? (
+		video_cards_nvidia? (
+			x11-drivers/nvidia-drivers
+			sys-apps/acl
+		)
+	)
+	X? ( x11-apps/xhost )
 "
 # This is a 'workaround' built into gdm 49, as elogind does not yet have
 # 'working' userdb support in stable or testing.
@@ -109,6 +115,13 @@ DOC_CONTENTS="
 	You may need to install app-crypt/coolkey and sys-auth/pam_pkcs11
 	for smartcard support
 "
+
+PATCHES=(
+	# Multiple upstream fixes from 49.x and 50.x branches
+	"${FILESDIR}"/gdm-49.2-display-reference.patch
+	"${FILESDIR}"/gdm-49.2-boot_display-sysfs.patch
+	"${FILESDIR}"/gdm-49.2-XDG_SESSION_EXTRA_DEVICE_ACCESS.patch
+)
 
 src_prepare() {
 	default
@@ -172,6 +185,13 @@ src_install() {
 		# bug #679526
 		insinto /var/lib/gdm/.config/pulse
 		doins "${FILESDIR}"/default.pa
+	fi
+
+	# Ensure that gdm-greeter-XXX dynamic users have the needed
+	# permissions on nvidia systems, bug #973590
+	if use systemd && use video_cards_nvidia; then
+		insinto /usr/lib/systemd/system/gdm.service.d
+		doins "${FILESDIR}/90-nvidia-acl.conf"
 	fi
 
 	# install XDG_DATA_DIRS gdm changes
