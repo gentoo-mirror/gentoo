@@ -41,7 +41,7 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-RUST_MIN_VER="1.94.0"
+RUST_MIN_VER="1.95.0"
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 QA_PRESTRIPPED="usr/bin/${PN}"
 
@@ -71,14 +71,7 @@ pkg_setup() {
 
 src_unpack() {
 	if [[ ${PV} == 9999* ]]; then
-		# clone vaultwarden
 		git-r3_src_unpack
-
-		# clone vaultwarden.wiki
-		EGIT_REPO_URI="https://github.com/dani-garcia/vaultwarden.wiki.git"
-		EGIT_CHECKOUT_DIR="${WORKDIR}/${PN}.wiki"
-		git-r3_src_unpack
-
 		cargo_live_src_unpack
 	else
 		cargo_src_unpack
@@ -100,7 +93,7 @@ src_prepare() {
 				mysqld.service
 			)
 		use postgres && DB_UNIT+=(
-				postgresql-{13..17}.service
+				postgresql-{14..19}.service
 			)
 		cat <<-EOF > "${T}/${PN}-db.conf"
 			[Unit]
@@ -113,7 +106,7 @@ src_prepare() {
 
 src_configure() {
 	local myfeatures=(
-		$(usev sqlite)
+		$(usev sqlite sqlite_system)
 		$(usev mysql)
 		$(usev postgres postgresql )
 	)
@@ -123,7 +116,7 @@ src_configure() {
 src_compile() {
 	# https://github.com/dani-garcia/vaultwarden/blob/main/build.rs
 	[[ ${PV} != 9999* ]] && export VW_VERSION="${PV}"
-	cargo_src_compile --offline
+	cargo_src_compile
 }
 
 src_install() {
