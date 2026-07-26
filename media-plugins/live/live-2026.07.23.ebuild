@@ -1,7 +1,7 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit flag-o-matic toolchain-funcs
 
@@ -9,7 +9,7 @@ DESCRIPTION="Libraries for standards-based RTP/RTCP/RTSP multimedia streaming"
 HOMEPAGE="http://www.live555.com/"
 # bug #719336
 SRC_URI="
-	http://www.live555.com/liveMedia/public/${P/-/.}.tar.gz
+	https://download.live555.com/${P/-/.}.tar.gz
 	https://download.videolan.org/contrib/live555/${P/-/.}.tar.gz
 "
 S="${WORKDIR}/live"
@@ -17,8 +17,8 @@ S="${WORKDIR}/live"
 LICENSE="LGPL-2.1"
 # follow versioning in config.linux-with-shared-libraries
 # SLOT="0/${libliveMedia_VERSION_CURRENT}.${libBasicUsageEnvironment_VERSION_CURRENT}.${libUsageEnvironment_VERSION_CURRENT}.${libgroupsock_VERSION_CURRENT}"
-SLOT="0/115.3.5.32"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+SLOT="0/120.3.5.33"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 IUSE="ssl tools"
 
@@ -68,8 +68,6 @@ src_configure() {
 }
 
 src_install() {
-	# Makefiles don't create directories before installing in them
-	mkdir -p "${ED}/usr/$(get_libdir)" || die
 	emake PREFIX="${ED}/usr" LIBDIR="${ED}/usr/$(get_libdir)" install
 
 	einstalldocs
