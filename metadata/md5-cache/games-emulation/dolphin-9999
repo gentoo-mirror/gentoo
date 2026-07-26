@@ -5,7 +5,7 @@ DESCRIPTION=Gamecube and Wii game emulator
 EAPI=8
 HOMEPAGE=https://dolphin-emu.org/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
-INHERIT=cmake llvm-r2 pax-utils xdg git-r3
+INHERIT=branding cmake llvm-r2 pax-utils xdg git-r3
 IUSE=alsa bluetooth discord doc egl +evdev ffmpeg +gui llvm log mgba pulseaudio retro-achievements sdl systemd telemetry test upnp vulkan +llvm_slot_22 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21
 LICENSE=GPL-2+ BSD BSD-2 LGPL-2.1+ MIT ZLIB MIT ZLIB MIT MIT MIT MIT BSD-2 GPL-2+ FatFs || ( Apache-2.0 MIT ) MIT MIT LGPL-2.1+ MIT MIT LGPL-2.1+ MIT
 PROPERTIES=live
@@ -13,5 +13,5 @@ RDEPEND=app-arch/bzip2:= >=app-arch/lz4-1.8:= app-arch/xz-utils >=app-arch/zstd-
 REQUIRED_USE=mgba? ( gui ) llvm? ( ^^ ( llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 llvm_slot_22 ) )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	56f5637f85225a4b5312d9055a7727d8	pax-utils	5555f2e75744739fe100ee62c22d28fe	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	2f8cdb10b033f92c3136aa6488a31c98
-_md5_=d322180501de96aa9fd0b90903b04b90
+_eclasses_=branding	7bcece3faa73dd0fc3e597013510d53a	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	56f5637f85225a4b5312d9055a7727d8	pax-utils	5555f2e75744739fe100ee62c22d28fe	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	2f8cdb10b033f92c3136aa6488a31c98
+_md5_=f154e625f3175440ee322b875e0904c2

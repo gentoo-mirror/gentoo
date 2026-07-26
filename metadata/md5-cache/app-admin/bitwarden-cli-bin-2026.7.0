@@ -1,0 +1,13 @@
+BDEPEND=app-arch/unzip
+DEFINED_PHASES=compile install
+DESCRIPTION=CLI client for Bitwarden compatible servers
+EAPI=9
+HOMEPAGE=https://github.com/bitwarden/clients/tree/main/apps/cli
+INHERIT=shell-completion
+KEYWORDS=-* ~amd64 ~arm64
+LICENSE=GPL-3
+RESTRICT=strip
+SLOT=0
+SRC_URI=amd64? ( https://github.com/bitwarden/clients/releases/download/cli-v2026.7.0/bw-oss-linux-2026.7.0.zip ) arm64? ( https://github.com/bitwarden/clients/releases/download/cli-v2026.7.0/bw-oss-linux-arm64-2026.7.0.zip )
+_eclasses_=shell-completion	63a62de3ca49c798ee6e89f190e45d0e
+_md5_=f772a11f7d5967e61d632f2bb01ab995

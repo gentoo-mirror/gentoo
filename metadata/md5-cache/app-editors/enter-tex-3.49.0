@@ -1,0 +1,17 @@
+BDEPEND=|| ( dev-lang/vala:0.56 ) >=dev-util/gdbus-codegen-2.80 dev-util/glib-utils dev-util/itstool dev-libs/gobject-introspection sys-devel/gettext virtual/pkgconfig gtk-doc? ( dev-util/gtk-doc ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=>=dev-libs/glib-2.80:2[introspection] >=app-text/gspell-1.8:=[introspection] >=dev-libs/libgee-0.10:0.8=[introspection] gnome-base/dconf gnome-base/gsettings-desktop-schemas gui-libs/libgedit-amtk:5 gui-libs/libgedit-gtksourceview:300 >=gui-libs/libgedit-tepl-6.14.0:6= >=x11-libs/gtk+-3.22:3[introspection]
+DESCRIPTION=TeX/LaTeX text editor
+EAPI=8
+HOMEPAGE=https://gitlab.gnome.org/World/gedit/enter-tex
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=gnome2-utils meson vala xdg
+IUSE=gtk-doc +latexmk test
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=GPL-3+
+RDEPEND=>=dev-libs/glib-2.80:2[introspection] >=app-text/gspell-1.8:=[introspection] >=dev-libs/libgee-0.10:0.8=[introspection] gnome-base/dconf gnome-base/gsettings-desktop-schemas gui-libs/libgedit-amtk:5 gui-libs/libgedit-gtksourceview:300 >=gui-libs/libgedit-tepl-6.14.0:6= >=x11-libs/gtk+-3.22:3[introspection] virtual/latex-base x11-themes/hicolor-icon-theme latexmk? ( >=dev-tex/latexmk-4.31 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.gnome.org/World/gedit/enter-tex/-/archive/3.49.0/enter-tex-3.49.0.tar.bz2
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	vala	b2f2aa400d77b841d952dda847e24d53	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=7ae59ca9c7d9bd667b957e6973d09208
