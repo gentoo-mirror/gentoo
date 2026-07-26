@@ -11,15 +11,34 @@ CHROMIUM_LANGS="
 	hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv
 	sw ta te th tr uk ur vi zh-CN zh-TW
 "
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{11..15} )
 UPDATE_DISABLER_COMMIT="2f26748a667045d26bc19841f1a731b4be7a7514"
 
 inherit chromium-2 desktop linux-info optfeature python-single-r1 unpacker xdg
 
 DESCRIPTION="All-in-one voice and text chat for gamers"
 HOMEPAGE="https://discord.com/"
+
 SRC_URI="
-	https://dl.discordapp.net/apps/linux/${MY_PV}/${MY_PN}-${MY_PV}.tar.gz
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/full.distro -> ${P}.distro
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_desktop_core/1/full.distro
+		-> ${P}-${MY_PN}_desktop_core.distro
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_erlpack/1/full.distro
+		-> ${P}-${MY_PN}_erlpack.distro
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_spellcheck/1/full.distro
+		-> ${P}-${MY_PN}_spellcheck.distro
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_utils/1/full.distro
+		-> ${P}-${MY_PN}_utils.distro
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_voice/1/full.distro
+		-> ${P}-${MY_PN}_voice.distro
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_zstd/1/full.distro
+		-> ${P}-${MY_PN}_zstd.distro
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_rpc/1/full.distro
+		-> ${P}-${MY_PN}_rpc.distro
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_game_utils/1/full.distro
+		-> ${P}-${MY_PN}_game_utils.distro
+	https://stable.dl2.discordapp.net/distro/app/stable/linux/x64/${MY_PV}/discord_krisp/1/full.distro
+		-> ${P}-${MY_PN}_krisp.distro
 	https://github.com/flathub/com.discordapp.Discord/raw/${UPDATE_DISABLER_COMMIT}/disable-breaking-updates.py
 		-> discord-disable-breaking-updates-${UPDATE_DISABLER_COMMIT}.py
 "
@@ -32,7 +51,8 @@ KEYWORDS="amd64"
 IUSE="appindicator +seccomp wayland"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 RESTRICT="bindist mirror strip test"
-
+BDEPEND="app-arch/brotli
+	app-arch/zip"
 RDEPEND="
 	${PYTHON_DEPS}
 	>=app-accessibility/at-spi2-core-2.46.0:2
@@ -72,8 +92,48 @@ QA_PREBUILT="*"
 
 CONFIG_CHECK="~USER_NS"
 
+repackage_node_modules() {
+	brotli -d "${DISTDIR}/${P}"-$1.distro -o "${T}"/$1.tar 2>/dev/null || die
+	unpack "${T}"/$1.tar || die
+	pushd "${WORKDIR}"/files 2>/dev/null || die
+	zip -rq "${WORKDIR}"/$1.zip . || die
+	popd 2>/dev/null || die
+	mv $1.zip "${S}"/resources/bootstrap/ || die
+	rm -r "${WORKDIR}"/files || die
+}
+
 src_unpack() {
-	unpack ${MY_PN}-${MY_PV}.tar.gz
+	# Upstream now only ships an autoupdater, where the binaries downloaded from the
+	# upstream package do not contain the app, but instead contain software that
+	# downloads and installs the app. To work around this, we manually download
+	# the same Brotli-compressed tar archives that the autoupdater would, for both
+	# the base app itself and the required Node modules. The Node modules need to be
+	# unpacked and installed in ~/.config/discord/${PV}/modules, and luckily the base app
+	# can automatically do this for us on the first launch if we package the Node
+	# modules into a .zip and put them in <base app location>/resources/bootstrap.
+	# Some modules are installed at runtime, but we want to bootstrap those too,
+	# so we use a custom <base app location>/resources/bootstrap/manifest.json
+	# copied over from $FILESDIR.
+	brotli -d "${DISTDIR}/${P}".distro -o "${T}/${P}.tar" 2>/dev/null || die
+	unpack "${T}/${P}.tar"
+	mv "${WORKDIR}"/files "${S}" || die
+	rm "${T}/${P}.tar" || die
+	# For any new Node modules, add the Brotli-compressed archive to SRC_URI
+	# following the same pattern, and then add a corressponding call to
+	# repackage_node_modules here. You can find a list of required modules
+	# at <base app location>/resources/bootstrap/manifest.json, as well as
+	# running the application and looking for lines in the output about "modules".
+	# If checking manifest.json, make sure to check the one directly from upstream,
+	# as the one installed on the system is copied over from $FILESDIR.
+	repackage_node_modules "discord_desktop_core"
+	repackage_node_modules "discord_erlpack"
+	repackage_node_modules "discord_spellcheck"
+	repackage_node_modules "discord_utils"
+	repackage_node_modules "discord_voice"
+	repackage_node_modules "discord_zstd"
+	repackage_node_modules "discord_rpc"
+	repackage_node_modules "discord_game_utils"
+	repackage_node_modules "discord_krisp"
 }
 
 src_configure() {
@@ -83,17 +143,10 @@ src_configure() {
 
 src_prepare() {
 	default
-	# remove post-install script
-	rm postinst.sh || die "the removal of the unneeded post-install script failed"
 	# cleanup languages
 	pushd "locales/" >/dev/null || die "location change for language cleanup failed"
 	chromium_remove_language_paks
 	popd >/dev/null || die "location reset for language cleanup failed"
-
-	# fix .desktop exec location
-	sed --in-place --expression "/^Exec=/s:/usr/share/discord/Discord:/usr/bin/${MY_PN}:" \
-		"${MY_PN}.desktop" ||
-		die "fixing of exec location on .desktop failed"
 
 	# Update exec location in launcher
 	sed --expression "s:@@DESTDIR@@:${DESTDIR}:" \
@@ -110,13 +163,17 @@ src_prepare() {
 		sed --in-place --expression '/^EBUILD_WAYLAND=/s/false/true/' \
 			"${T}/launcher.sh" || die "sed failed for wayland"
 	fi
+	cp "${FILESDIR}/manifest.json" resources/bootstrap/manifest.json || die "Failed copying manifest.json"
 }
 
 src_install() {
 	doicon -s 256 "${MY_PN}.png"
 
 	# install .desktop file
-	domenu "${MY_PN}.desktop"
+	make_desktop_entry "${EPREFIX}/usr/bin/discord" Discord "${PN}" \
+	"Network;InstantMessaging;" \
+	"StartupWMClass=discord" \
+	"Path=${EPREFIX}/usr/bin"
 
 	exeinto "${DESTDIR}"
 
@@ -147,6 +204,7 @@ src_install() {
 	if use appindicator; then
 		dosym ../../usr/lib64/libayatana-appindicator3.so /opt/discord/libappindicator3.so
 	fi
+
 }
 
 pkg_postinst() {
