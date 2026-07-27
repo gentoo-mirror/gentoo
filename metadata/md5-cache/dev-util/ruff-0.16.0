@@ -1,0 +1,15 @@
+BDEPEND=|| ( >=dev-lang/rust-bin-1.95:* >=dev-lang/rust-1.95:* )
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DEPEND=!elibc_musl? ( !elibc_Darwin? ( !elibc_bionic? ( dev-libs/jemalloc:= ) ) ) app-arch/zstd
+DESCRIPTION=An extremely fast Python linter, written in Rust
+EAPI=8
+HOMEPAGE=https://docs.astral.sh/ruff/ https://github.com/astral-sh/ruff
+INHERIT=shell-completion cargo
+IUSE=debug
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv
+LICENSE=MIT Apache-2.0 BSD CC0-1.0 ISC MIT MPL-2.0 PSF-2 Unicode-3.0 Unicode-DFS-2016 WTFPL-2 ZLIB
+RDEPEND=!elibc_musl? ( !elibc_Darwin? ( !elibc_bionic? ( dev-libs/jemalloc:= ) ) ) app-arch/zstd
+SLOT=0
+SRC_URI=https://github.com/astral-sh/ruff/archive/refs/tags/0.16.0.tar.gz -> ruff-0.16.0.gh.tar.gz https://github.com/gentoo-crate-dist/ruff/releases/download/0.16.0/ruff-0.16.0-crates.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	shell-completion	63a62de3ca49c798ee6e89f190e45d0e	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	0e6dcc60973be397aa943d9efae0e2bf	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	c18ade5e10cfd39155908ca389968d65
+_md5_=da4bdb363801a71dfd6ef0828ac22baa
