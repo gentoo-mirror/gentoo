@@ -1,13 +1,13 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=configure install
-DEPEND=x11-libs/libX11 x11-libs/libXt x11-libs/motif:0 virtual/opengl
+DEPEND=x11-libs/libX11 x11-libs/libXt x11-libs/motif:0= virtual/opengl
 DESCRIPTION=Mesa GLw library
 EAPI=7
 HOMEPAGE=https://mesa3d.sourceforge.net/
 IUSE=+motif
 KEYWORDS=amd64 ppc ~ppc64 x86
 LICENSE=MIT
-RDEPEND=x11-libs/libX11 x11-libs/libXt x11-libs/motif:0 virtual/opengl
+RDEPEND=x11-libs/libX11 x11-libs/libXt x11-libs/motif:0= virtual/opengl
 SLOT=0
 SRC_URI=ftp://ftp.freedesktop.org/pub/mesa/glw/glw-8.0.0.tar.bz2
-_md5_=4d6953a0bde25b5e62f0446024ef20ca
+_md5_=6d0eff0b6dd45336d6df30dbe024320b
