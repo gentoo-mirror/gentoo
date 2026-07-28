@@ -14,41 +14,34 @@ SRC_URI+=" verify-sig? ( https://www.unrealircd.org/downloads/${P}.tar.gz.asc )"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ppc ~ppc64 ~riscv x86"
-IUSE="class-nofakelag curl geoip +operoverride operoverride-verify"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
+IUSE="class-nofakelag curl geoip geoip-classic +operoverride operoverride-verify"
+REQUIRED_USE="?? ( geoip geoip-classic )"
 
 RDEPEND="
 	acct-group/unrealircd
 	acct-user/unrealircd
 	>=app-crypt/argon2-20171227-r1:=
-	dev-libs/libpcre2
-	dev-libs/libsodium:=
+	>=dev-libs/libpcre2-10.47
+	>=dev-libs/libsodium-1.0.22:=
 	dev-libs/openssl:=
-	dev-libs/jansson:=
+	>=dev-libs/jansson-2.15.0:=
 	>=net-dns/c-ares-1.7:=
 	virtual/libcrypt:=
 	curl? ( net-misc/curl[adns] )
-	geoip? ( dev-libs/libmaxminddb )
+	geoip-classic? ( dev-libs/geoip )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	virtual/pkgconfig
-	verify-sig? ( ~sec-keys/openpgp-keys-unrealircd-20220407 )
+	verify-sig? ( >=sec-keys/openpgp-keys-unrealircd-20241118 )
 "
 
-DOCS=( doc/{Authors,Donation,RELEASE-NOTES.md,tao.of.irc,technical/,translations.txt} )
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-6.0.4.2-configure-clang16.patch
-)
+DOCS=( doc/{Authors,RELEASE-NOTES.md,tao.of.irc,technical/,translations.txt} )
 
 src_prepare() {
 	# QA check against bundled pkgs
 	rm -r extras || die
-
-	# building third-party modules (which we don't do) cause a sandbox violation
-	# bug 704444
-	echo "" > src/buildmod || die
 
 	sed -e 's/$(MODULEFLAGS)/$(LDFLAGS) &/' -i src/modules/{,*/}Makefile.in || die
 
@@ -56,7 +49,7 @@ src_prepare() {
 		sed -i -e 's:^//#undef\( FAKELAG_CONFIGURABLE\):#define\1:' include/config.h || die
 	fi
 
-	# File is missing from the 5.0.9.1 tarball
+	# unrealircd-upgrade-script lives in extras/ which we remove
 	sed -i -e '/unrealircd-upgrade-script/d' configure.ac || die
 
 	default
@@ -64,33 +57,36 @@ src_prepare() {
 }
 
 src_configure() {
-	# Default value for privatelibdir adds a build path to -Wl,-rpath.
-	econf \
-		--with-bindir="${EPREFIX}"/usr/bin \
-		--with-cachedir="${EPREFIX}"/var/lib/${PN} \
-		--with-confdir="${EPREFIX}"/etc/${PN} \
-		--with-datadir="${EPREFIX}"/var/lib/${PN} \
-		--with-docdir="${EPREFIX}"/usr/share/doc/${PF} \
-		--with-logdir="${EPREFIX}"/var/log/${PN} \
-		--with-modulesdir="${EPREFIX}/usr/$(get_libdir)"/${PN}/modules \
-		--without-privatelibdir \
-		--with-pidfile="${EPREFIX}"/run/${PN}/ircd.pid \
-		--with-tmpdir="${EPREFIX}"/var/lib/${PN}/tmp \
-		--with-maxconnections=1024 \
-		--with-nick-history=2000 \
-		--with-permissions=0640 \
-		--with-system-argon2 \
-		--with-system-cares \
-		--with-system-pcre2 \
-		--with-system-sodium \
-		--with-system-jansson \
-		--enable-dynamic-linking \
-		--with-controlfile="${EPREFIX}"/run/${PN}/unrealircd.ctl \
-		--enable-ssl="${EPREFIX}"/usr \
-		$(use_enable curl libcurl "${EPREFIX}"/usr) \
-		$(use_with !operoverride no-operoverride) \
-		$(use_with operoverride-verify) \
-		$(use_enable geoip libmaxminddb)
+	local myeconfargs=(
+		--with-bindir="${EPREFIX}"/usr/bin
+		--with-cachedir="${EPREFIX}"/var/lib/${PN}
+		--with-confdir="${EPREFIX}"/etc/${PN}
+		--with-datadir="${EPREFIX}"/var/lib/${PN}
+		--with-docdir="${EPREFIX}"/usr/share/doc/${PF}
+		--with-logdir="${EPREFIX}"/var/log/${PN}
+		--with-modulesdir="${EPREFIX}/usr/$(get_libdir)"/${PN}/modules
+		--without-privatelibdir
+		--with-pidfile="${EPREFIX}"/run/${PN}.pid
+		--with-tmpdir="${EPREFIX}"/var/lib/${PN}/tmp
+		--with-maxconnections=1024
+		--with-nick-history=2000
+		--with-permissions=0640
+		--with-system-argon2
+		--with-system-cares
+		--with-system-pcre2
+		--with-system-sodium
+		--with-system-jansson
+		--enable-dynamic-linking
+		--disable-hardening
+		--with-controlfile="${EPREFIX}"/run/${PN}/${PN}.ctl
+		--enable-ssl="${EPREFIX}"/usr
+		$(use_enable curl libcurl "${EPREFIX}"/usr)
+		$(use_with !operoverride no-operoverride)
+		$(use_with operoverride-verify)
+		$(use_enable geoip mmdb)
+		$(use_enable geoip-classic geoip-classic)
+	)
+	econf "${myeconfargs[@]}"
 }
 
 src_install() {
@@ -120,6 +116,9 @@ src_install() {
 	doins doc/conf/*.conf
 	newins doc/conf/examples/example.conf ${PN}.conf
 	keepdir /etc/${PN}/tls
+
+	insinto /etc/${PN}/tls
+	doins doc/conf/tls/tls.cnf
 
 	einstalldocs
 

@@ -1,9 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit autotools
 
 DESCRIPTION="C library for encoding, decoding and manipulating JSON data"
 HOMEPAGE="https://www.digip.org/jansson/"
@@ -11,17 +11,22 @@ SRC_URI="https://github.com/akheron/jansson/releases/download/v${PV}/${P}.tar.bz
 
 LICENSE="MIT"
 SLOT="0/4"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 IUSE="doc static-libs"
 
 BDEPEND="
-	sys-devel/binutils
-	doc? ( dev-python/sphinx )"
+	dev-build/autoconf-archive
+	doc? ( dev-python/sphinx )
+"
 
-PATCHES=( "${FILESDIR}/${P}-test-symbols.patch" )
+src_prepare() {
+	default
+	eautoreconf
+}
 
 src_configure() {
-	tc-ld-force-bfd
+	# Don't run lint tests
+	export CLANG_FORMAT=false
 
 	econf $(use_enable static-libs static)
 }
