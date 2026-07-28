@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit meson
+
 DESCRIPTION="Tool to build flatpaks from source"
 HOMEPAGE="https://flatpak.org/"
 SRC_URI="https://github.com/flatpak/${PN}/releases/download/${PV}/${P}.tar.xz"
@@ -29,7 +31,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 BDEPEND="
 	>=sys-devel/gettext-0.18.2
-	virtual/pkgconfig
 	doc? (
 		app-text/xmlto
 		dev-libs/libxslt
@@ -39,8 +40,9 @@ BDEPEND="
 PATCHES=("${FILESDIR}/flatpak-builder-1.2.2-musl.patch")
 
 src_configure() {
-	econf \
-		$(use_enable doc documentation) \
-		$(use_enable doc docbook-docs) \
-		$(use_with yaml)
+	local emesonargs=(
+		$(meson_feature doc docs)
+		$(meson_feature yaml)
+	)
+	meson_src_configure
 }
