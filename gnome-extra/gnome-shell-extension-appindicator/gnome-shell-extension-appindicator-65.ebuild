@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,7 +10,7 @@ SRC_URI="https://github.com/ubuntu/gnome-shell-extension-appindicator/archive/v$
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
 RDEPEND="
 	app-eselect/eselect-gnome-shell-extensions
@@ -22,7 +22,7 @@ BDEPEND="
 
 src_install() {
 	meson_src_install
-	rm "${ED}"/usr/share/glib-2.0/schemas/gschemas.compiled || die
+	rm -v "${ED}"/usr/share/glib-2.0/schemas/gschemas.compiled || die
 }
 
 pkg_preinst() {
