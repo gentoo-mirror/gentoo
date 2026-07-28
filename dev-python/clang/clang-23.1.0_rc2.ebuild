@@ -3,9 +3,8 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{11..14} )
-inherit distutils-r1 llvm.org
+PYTHON_COMPAT=( python3_{12..14} )
+inherit llvm.org python-r1
 
 DESCRIPTION="Python bindings for llvm-core/clang"
 HOMEPAGE="https://llvm.org/"
@@ -29,7 +28,6 @@ RDEPEND="
 "
 BDEPEND="
 	${PYTHON_DEPS}
-	dev-python/hatch-vcs[${PYTHON_USEDEP}]
 	test? (
 		llvm-core/clang:${LLVM_MAJOR}
 	)
@@ -38,12 +36,18 @@ BDEPEND="
 LLVM_COMPONENTS=( clang/{bindings/python,include} )
 llvm.org_set_globals
 
-distutils_enable_tests unittest
-
 python_test() {
 	# tests rely on results from a specific clang version, so override
 	# the search path
 	local -x CLANG_LIBRARY_PATH=${BROOT}/usr/lib/llvm/${LLVM_MAJOR}/$(get_libdir)
 	local -x CLANG_NO_DEFAULT_CONFIG=1
 	eunittest
+}
+
+src_test() {
+	python_foreach_impl python_test
+}
+
+src_install() {
+	python_foreach_impl python_domodule clang
 }
