@@ -6,13 +6,20 @@ EAPI=8
 inherit cmake eapi9-ver systemd tmpfiles
 
 DESCRIPTION="An open source instant messaging transport"
-HOMEPAGE="https://www.spectrum.im"
-SRC_URI="https://github.com/SpectrumIM/spectrum2/archive/${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://spectrum.im"
+if [[ ${PV} == *_p* ]]; then
+	COMMIT="e77233cd1c6dc93b52b88be1b6ebe2b77713d1db"
+	COMMIT_DATE="2026-07-27"
+	SRC_URI="https://github.com/SpectrumIM/${PN}/archive/${COMMIT}.tar.gz -> ${P}.gh.tar.gz"
+	S="${WORKDIR}/${PN}-${COMMIT}"
+else
+	SRC_URI="https://github.com/SpectrumIM/spectrum2/archive/${PV}.tar.gz -> ${P}.tar.gz"
+fi
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="doc frotz irc mysql postgres purple sms +sqlite test twitter xmpp"
+IUSE="doc frotz irc mysql postgres purple sms +sqlite test xmpp"
 REQUIRED_USE="
 	|| ( mysql postgres sqlite )
 	test? ( irc )
@@ -35,8 +42,11 @@ RDEPEND="
 	>=net-im/swift-4.0.2-r2:=
 	net-misc/curl
 	virtual/zlib:=
-	frotz? ( !games-engines/frotz )
-	irc? ( net-im/libcommuni )
+	frotz? ( games-engines/frotz )
+	irc? (
+		dev-qt/qtbase:6[network]
+		net-im/libcommuni
+	)
 	mysql? (
 		|| (
 			dev-db/mariadb-connector-c
@@ -50,7 +60,7 @@ RDEPEND="
 	)
 	sms? ( app-mobilephone/smstools )
 	sqlite? ( dev-db/sqlite:3 )
-	twitter? ( net-misc/curl )"
+"
 
 DEPEND="
 	${RDEPEND}
@@ -59,14 +69,9 @@ DEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.2.1-boost-1.85.patch
 	"${FILESDIR}"/${PN}-2.2.1-boost-1.87.patch
 	"${FILESDIR}"/${PN}-2.2.1-boost-1.89.patch
-	"${FILESDIR}"/${PN}-2.2.1-use-c++17.patch
 	"${FILESDIR}"/${PN}-2.2.1-cmake.patch
-	"${FILESDIR}"/${PN}-2.2.1-cmake-ld-typo.patch
-	"${FILESDIR}"/${PN}-2.2.1-libcommuni-qt6.patch
-	"${FILESDIR}"/${PN}-2.2.1-frotz-C23.patch
 	"${FILESDIR}"/${PN}-2.2.1-findjsoncpp.patch
 )
 
@@ -84,15 +89,15 @@ src_configure() {
 		-DENABLE_DOCS="$(usex doc)"
 		-DENABLE_FROTZ="$(usex frotz)"
 		-DENABLE_IRC="$(usex irc)"
+		$(usex irc '-DENABLE_QT6=ON' '')
 		-DENABLE_MYSQL="$(usex mysql)"
 		-DENABLE_PQXX="$(usex postgres)"
 		-DENABLE_PURPLE="$(usex purple)"
-		$(usex irc '-DENABLE_QT4=OFF' '')
 		-DENABLE_SMSTOOLS3="$(usex sms)"
 		-DENABLE_SQLITE3="$(usex sqlite)"
 		-DENABLE_TESTS="$(usex test)"
-		-DENABLE_TWITTER="$(usex twitter)"
 		-DENABLE_XMPP="$(usex xmpp)"
+		-DENABLE_SLACK_FRONTEND=OFF
 	)
 
 	cmake_src_configure
