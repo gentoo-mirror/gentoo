@@ -21,10 +21,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	~dev-python/awkward-cpp-53[${PYTHON_USEDEP}]
-	$(python_gen_cond_dep '
-		>=dev-python/importlib-metadata-4.13.0[${PYTHON_USEDEP}]
-	' 3.11)
+	~dev-python/awkward-cpp-55[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.21.3[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	>=dev-python/fsspec-2022.11.0[${PYTHON_USEDEP}]
@@ -35,7 +32,7 @@ BDEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]
 	test? (
 		dev-libs/apache-arrow[zstd]
-		dev-python/pyarrow[${PYTHON_USEDEP}]
+		>=dev-python/pyarrow-17.0.0[${PYTHON_USEDEP}]
 		dev-python/numexpr[${PYTHON_USEDEP}]
 		dev-python/pandas[${PYTHON_USEDEP}]
 	)

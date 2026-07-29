@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 optfeature
 
@@ -23,7 +23,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
@@ -45,12 +45,6 @@ export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 src_test() {
 	git config --global user.email "you@example.com" || die
 	git config --global user.name "Your Name" || die
-
-	# block importing pyarrow, it's causing Python to crash with
-	# the immutability assertion.
-	cat > pyarrow.py <<-EOF || die
-		raise ImportError("thou shalt not import pyarrow")
-	EOF
 
 	distutils-r1_src_test
 }
