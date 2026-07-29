@@ -19,9 +19,9 @@ IUSE="doc +yaml"
 # qa-vdb returns false-positive warnings
 RDEPEND="
 	>=dev-util/ostree-2019.5:=
-	dev-libs/appstream[compose]
+	>=dev-libs/appstream-0.15.0:=[compose]
 	>=dev-libs/elfutils-0.8.12:=
-	>=dev-libs/glib-2.44:2=
+	>=dev-libs/glib-2.66:2=
 	>=dev-libs/libxml2-2.4:=
 	dev-libs/json-glib:=
 	net-misc/curl:=
@@ -30,7 +30,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	>=sys-devel/gettext-0.18.2
 	doc? (
 		app-text/xmlto
 		dev-libs/libxslt
@@ -45,4 +44,16 @@ src_configure() {
 		$(meson_feature yaml)
 	)
 	meson_src_configure
+}
+
+src_install() {
+	# conventional HTML docs location /usr/share/doc/${PN}/html
+	local HTML_DOCS=()
+	use doc && HTML_DOCS=( "${BUILD_DIR}"/doc/flatpak-builder-docs.html "${S}"/doc/docbook.css )
+
+	meson_src_install
+
+	if use doc; then
+		rm -r "${ED}"/usr/share/doc/${PN} || die
+	fi
 }
