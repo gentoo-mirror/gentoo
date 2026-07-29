@@ -21,9 +21,5 @@ EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 python_test() {
-	local EPYTEST_DESELECT=(
-		tests/hypothesis_tests.py::test_dbf_reader_writer_roundtrip
-		tests/hypothesis_tests.py::test_shapefile_reader_writer_roundtrip
-		)
 	epytest tests -m "not network"
 }
