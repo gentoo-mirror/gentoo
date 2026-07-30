@@ -1,3 +1,4 @@
+BDEPEND=cdinstall? ( app-arch/libarchive )
 DEFINED_PHASES=install nofetch postinst prepare unpack
 DEPEND=cdinstall? ( app-arch/unzip ) !cdinstall? ( app-arch/innoextract )
 DESCRIPTION=Data files for Descent 1
@@ -12,5 +13,5 @@ RDEPEND=!games-action/descent1-demodata
 RESTRICT=bindist !cdinstall? ( fetch )
 SLOT=0
 SRC_URI=cdinstall? ( https://www.dxx-rebirth.com/download/dxx/misc/descent-game-content-10to14a-patch.zip ) !cdinstall? ( setup_descent_1.4a_(16596).exe )
-_eclasses_=portability	3c2334cdfbb30bc4b33c85164fe832bf	cdrom	f6bb49ae8e18f58c70756c1901a86d25	estack	c61c368a76fdf3a82fdf8dbaebea3804
+_eclasses_=portability	3c2334cdfbb30bc4b33c85164fe832bf	cdrom	8ce3a6fc3461ad5aac4a91b47b8d83cd	estack	c61c368a76fdf3a82fdf8dbaebea3804
 _md5_=92689a085136a93bc74ba90175c17866
