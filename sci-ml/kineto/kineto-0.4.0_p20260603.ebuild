@@ -1,12 +1,12 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..14} )
+PYTHON_COMPAT=( python3_{10..15} )
 inherit python-any-r1 cmake prefix
 
-CommitId=5e7501833f1021ce6f618572d3baf657b6319658
+CommitId=094d3c1d072362d0a919a77299459eee94f97931
 
 DESCRIPTION="part of the PyTorch Profiler"
 HOMEPAGE="https://github.com/pytorch/kineto"
@@ -32,7 +32,6 @@ RESTRICT="!test? ( test )"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.4.0_p20250418-AppxClock.patch
-	"${FILESDIR}"/${P}-cmake.patch
 )
 
 src_prepare() {
@@ -41,12 +40,11 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DLIBKINETO_THIRDPARTY_DIR="${EPREFIX}"/usr/include/
-		-DKINETO_BUILD_TESTS=OFF # tests require cuda toolkit
 		-DCUDA_SOURCE_DIR=/opt/cuda
-		-DLIBKINETO_NOXPUPTI=Yes
+		-DKINETO_BUILD_TESTS=OFF # tests require cuda toolkit
+		-DLIBKINETO_THIRDPARTY_DIR="${EPREFIX}"/usr/include/
 	)
-	eapply $(prefixify_ro "${FILESDIR}"/${P}-gentoo.patch)
+	eapply $(prefixify_ro "${FILESDIR}"/${PN}-0.4.0_p20260603-gentoo.patch)
 
 	cmake_src_configure
 }
