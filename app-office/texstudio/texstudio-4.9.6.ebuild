@@ -41,14 +41,6 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	# PR merged https://github.com/texstudio-org/texstudio/pull/4393.patch
-	"${FILESDIR}"/${P}-missing_includes.patch
-	# https://bugs.gentoo.org/940747
-	# PR merged https://github.com/texstudio-org/texstudio/pull/4394.patch
-	"${FILESDIR}"/${P}-respect_qtver.patch
-)
-
 src_prepare() {
 	# avoid bundled libs as a fallback
 	local dir
@@ -57,6 +49,10 @@ src_prepare() {
 	done
 
 	cmake_src_prepare
+
+	# fix docdir for the menu 'help'
+	sed -e "s:share/doc/texstudio:share/doc/${PF}:g" \
+		-i src/utilsSystem.cpp || die
 }
 
 src_configure() {
