@@ -11,7 +11,7 @@ SRC_URI="https://ftp.sdaoden.eu/${P}.tar.gz"
 
 LICENSE="ISC"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~ppc ~ppc64"
 
 RDEPEND="sys-libs/pam"
 DEPEND="${RDEPEND}"
@@ -22,7 +22,7 @@ src_compile() {
 	# Do we want to set XDG_CONFIG_DIR for prefix?
 	emake \
 		CFLAGS="${CFLAGS} -DNDEBUG" \
-		LDFLAGS="-shared ${LDFLAGS}" \
+		LDFLAGS="-shared -fPIC ${LDFLAGS}" \
 		PREFIX="${EPREFIX}" \
 		LIBDIR="${EPREFIX}$(getpam_mod_dir)"
 }
