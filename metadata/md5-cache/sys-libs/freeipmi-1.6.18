@@ -1,14 +1,15 @@
-DEFINED_PHASES=configure install
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=configure install prepare
 DEPEND=dev-libs/libgcrypt:= virtual/os-headers
 DESCRIPTION=Provides Remote-Console and System Management Software as per IPMI v1.5/2.0
 EAPI=8
 HOMEPAGE=https://www.gnu.org/software/freeipmi/
-INHERIT=toolchain-funcs
+INHERIT=autotools toolchain-funcs
 IUSE=debug doc nagios without-root
 KEYWORDS=amd64 ~arm64 ~hppa ~ppc64 x86
 LICENSE=GPL-3
 RDEPEND=dev-libs/libgcrypt:= nagios? ( dev-lang/perl net-analyzer/nagios )
 SLOT=0
 SRC_URI=mirror://gnu/freeipmi/freeipmi-1.6.18.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
-_md5_=96d6d68b5ed08c6a58c089610ff3db6c
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112
+_md5_=1cebef8cde2fda7189d3da42583752ee
