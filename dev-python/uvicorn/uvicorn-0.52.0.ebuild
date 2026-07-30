@@ -34,7 +34,7 @@ BDEPEND="
 		dev-python/python-dotenv[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		dev-python/typing-extensions[${PYTHON_USEDEP}]
-		>=dev-python/websockets-11.0[${PYTHON_USEDEP}]
+		>=dev-python/websockets-13.0[${PYTHON_USEDEP}]
 		dev-python/wsproto[${PYTHON_USEDEP}]
 		test-rust? (
 			dev-python/cryptography[${PYTHON_USEDEP}]
