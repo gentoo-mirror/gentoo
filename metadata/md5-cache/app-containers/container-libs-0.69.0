@@ -1,0 +1,16 @@
+BDEPEND=>=dev-go/go-md2man-2.0.7
+DEFINED_PHASES=compile install postinst
+DEPEND=app-containers/containers-shortnames >=sys-fs/fuse-overlayfs-1.16 extra? ( >=app-containers/crun-1.25.1 >=app-containers/netavark-2.0.0 >=net-misc/passt-2026.05.26 ) !app-containers/containers-image !app-containers/containers-common !app-containers/containers-storage !<app-containers/buildah-1.44.0 !<app-containers/podman-6.0.0 !<app-containers/skopeo-1.23
+DESCRIPTION=Several utilities from the containers project
+EAPI=9
+HOMEPAGE=https://github.com/podman-container-tools/container-libs
+INHERIT=readme.gentoo-r1
+IUSE=+extra
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv
+LICENSE=Apache-2.0
+RDEPEND=app-containers/containers-shortnames >=sys-fs/fuse-overlayfs-1.16 extra? ( >=app-containers/crun-1.25.1 >=app-containers/netavark-2.0.0 >=net-misc/passt-2026.05.26 ) !app-containers/containers-image !app-containers/containers-common !app-containers/containers-storage !<app-containers/buildah-1.44.0 !<app-containers/podman-6.0.0 !<app-containers/skopeo-1.23
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/podman-container-tools/container-libs/archive/common/v0.69.0.tar.gz -> container-libs-0.69.0.tar.gz
+_eclasses_=readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327
+_md5_=169fbcf16241c4c3280c36b49fefd2f8
