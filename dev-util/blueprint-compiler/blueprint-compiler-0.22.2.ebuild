@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit edo meson python-single-r1 virtualx
 
@@ -13,12 +13,10 @@ HOMEPAGE="https://gnome.pages.gitlab.gnome.org/blueprint-compiler/
 
 if [[ "${PV}" == *9999 ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://gitlab.gnome.org/GNOME/${PN}.git"
 else
 	inherit gnome.org
-
-	KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 fi
 
 LICENSE="LGPL-3+"
@@ -51,7 +49,6 @@ DOCS=( CONTRIBUTING.md MAINTENANCE.md NEWS.md README.md )
 
 src_prepare() {
 	default
-
 	rm ./tests/test_deprecations.py || die
 	rm ./tests/test_samples.py || die  # Fails on CI, bug #947156
 }
