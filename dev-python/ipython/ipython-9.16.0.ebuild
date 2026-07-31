@@ -19,12 +19,11 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="examples gui notebook nbconvert +smp test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-python/decorator-5.1.0[${PYTHON_USEDEP}]
 	>=dev-python/ipython-pygments-lexers-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/jedi-0.18.2[${PYTHON_USEDEP}]
 	>=dev-python/matplotlib-inline-0.1.6[${PYTHON_USEDEP}]
