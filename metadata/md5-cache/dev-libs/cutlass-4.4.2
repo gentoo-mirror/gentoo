@@ -1,0 +1,17 @@
+BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=dev-util/nvidia-cuda-toolkit:= test? ( || ( dev-lang/python:3.15 dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) dev-cpp/gtest cudnn? ( dev-libs/cudnn:= ) ) tools? ( || ( dev-lang/python:3.15 dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) )
+DESCRIPTION=CUDA Templates for Linear Algebra Subroutines
+EAPI=8
+HOMEPAGE=https://github.com/NVIDIA/cutlass
+INHERIT=cuda cmake python-any-r1 flag-o-matic toolchain-funcs
+IUSE=clang-cuda cublas cudnn doc dot examples +headers-only jumbo-build performance profiler test tools cpu_flags_x86_f16c
+KEYWORDS=~amd64
+LICENSE=BSD
+RDEPEND=dev-util/nvidia-cuda-toolkit:=
+REQUIRED_USE=headers-only? ( !examples !profiler !test ) test? ( tools )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/NVIDIA/cutlass/archive/refs/tags/v4.4.2.tar.gz -> cutlass-4.4.2.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	cuda	8b660e223a1695e3884ee4c7dc2c5059	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=edb59153a175c19ba31bb53a6943eeb5
