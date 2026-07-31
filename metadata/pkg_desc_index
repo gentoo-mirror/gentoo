@@ -935,7 +935,7 @@ app-admin/apg 2.3.0b_p20240821: Another Password Generator
 app-admin/augeas 1.14.1-r1: A library for changing configuration files
 app-admin/authbind 2.1.3: Bind sockets to privileged ports without root
 app-admin/aws-session-manager-plugin 1.2.814.0 1.2.835.0: AWS Session Manager Plugin for aws-cli
-app-admin/awscli 1.45.29 1.45.36 1.45.40 1.45.46 1.45.47 1.45.48 1.45.49 1.45.50 1.45.51 1.45.52 1.45.53 1.45.54 1.45.55 1.45.56 1.45.57 1.45.58 1.45.59: Universal Command Line Environment for AWS
+app-admin/awscli 1.45.29 1.45.36 1.45.40 1.45.46 1.45.47 1.45.48 1.45.49 1.45.50 1.45.51 1.45.52 1.45.53 1.45.54 1.45.55 1.45.56 1.45.57 1.45.58 1.45.59 1.45.60: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.34.24 2.34.40 2.36.4: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.12.0 2026.6.0 2026.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.6.0 2026.6.1: Bitwarden password manager desktop client
@@ -8378,8 +8378,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 26.0.0 26.1.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.43.29 1.43.36 1.43.40 1.43.46 1.43.47 1.43.48 1.43.49 1.43.50 1.43.51 1.43.52 1.43.53 1.43.54 1.43.55 1.43.56 1.43.57 1.43.58 1.43.59: The AWS SDK for Python
-dev-python/botocore 1.43.29 1.43.36 1.43.40 1.43.46 1.43.47 1.43.48 1.43.49 1.43.50 1.43.51 1.43.52 1.43.53 1.43.54 1.43.55 1.43.56 1.43.57 1.43.58 1.43.59: Low-level, data-driven core of boto 3
+dev-python/boto3 1.43.29 1.43.36 1.43.40 1.43.46 1.43.47 1.43.48 1.43.49 1.43.50 1.43.51 1.43.52 1.43.53 1.43.54 1.43.55 1.43.56 1.43.57 1.43.58 1.43.59 1.43.60: The AWS SDK for Python
+dev-python/botocore 1.43.29 1.43.36 1.43.40 1.43.46 1.43.47 1.43.48 1.43.49 1.43.50 1.43.51 1.43.52 1.43.53 1.43.54 1.43.55 1.43.56 1.43.57 1.43.58 1.43.59 1.43.60: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8392,7 +8392,7 @@ dev-python/btrfsutil 7.0 7.1: Library for managing Btrfs filesystems
 dev-python/build 1.4.4 1.5.0 1.5.1: A simple, correct PEP517 package builder
 dev-python/cachebox 6.2.1: The fastest memoizing and caching Python library written in Rust
 dev-python/cachecontrol 0.14.3: httplib2 caching for requests
-dev-python/cachelib 0.14.0: Collection of cache libraries in the same API interface. Extracted from werkzeug
+dev-python/cachelib 0.14.0 0.15.0: Collection of cache libraries in the same API interface. Extracted from werkzeug
 dev-python/cachetools 7.1.4 7.1.5 7.1.6: Extensible memoizing collections and decorators
 dev-python/cairocffi 1.7.1-r1: CFFI-based drop-in replacement for Pycairo
 dev-python/cangjie 1.5.0: Python wrapper for libcangjie
@@ -8602,7 +8602,8 @@ dev-python/fastimport 0.9.16: Library for parsing the fastimport VCS serializati
 dev-python/fastjsonschema 2.21.2 2.22.0 2.22.1: Fast JSON schema validator for Python
 dev-python/faust-cchardet 2.1.19 2.1.20 2.2.1 3.0.0 3.0.0-r1: High speed universal character encoding detector
 dev-python/feedgenerator 2.2.1: Standalone version of django.utils.feedgenerator
-dev-python/feedparser 6.0.12: Parse RSS and Atom feeds in Python
+dev-python/feedparser 6.0.12 6.0.14: Parse RSS and Atom feeds in Python
+dev-python/feedparser-sgmllib 2.0.1: sgmllib from Python 2.7 for feedparser use
 dev-python/ffmpeg-python 0.2.0_p20220711-r1: Python bindings for FFmpeg with complex filtering support
 dev-python/fido2 0.9.3-r1 2.1.1 2.2.0 2.2.1: Python based FIDO 2.0 library
 dev-python/fields 5.0.0-r3: Container class boilerplate killer
@@ -8687,7 +8688,7 @@ dev-python/grpcio-status 1.80.0 1.81.0 1.81.1 1.82.0 1.82.1 1.83.0: Reference pa
 dev-python/gsd 5.0.1: GSD - file format specification and a library to read and write it
 dev-python/gssapi 1.11.1: Low and high level wrappers around the GSSAPI C libraries
 dev-python/gst-python 1.24.13 1.26.11: A Python Interface to GStreamer
-dev-python/guessit 3.8.0 4.0.2 4.1.0: Python library for guessing information from video filenames
+dev-python/guessit 4.0.2 4.1.0 4.3.0: Python library for guessing information from video filenames
 dev-python/h11 0.16.0: A pure-Python implementation of HTTP/1.1 inspired by hyper-h2
 dev-python/h2 4.3.0 4.4.0: HTTP/2 State-Machine based protocol implementation
 dev-python/h5py 3.16.0: Simple Python interface to HDF5 files
@@ -8724,7 +8725,7 @@ dev-python/hvac 2.4.0: HashiCorp Vault API client
 dev-python/hypercorn 0.18.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.155.7 6.156.1 6.156.2 6.156.4 6.156.6 6.156.9 6.157.0 6.157.2 6.160.0 6.161.0 6.161.1 6.161.5 6.161.8 6.163.0: A library for property based testing
+dev-python/hypothesis 6.155.7 6.156.1 6.156.2 6.156.4 6.156.6 6.156.9 6.157.0 6.157.2 6.160.0 6.161.0 6.161.1 6.161.5 6.161.8 6.163.0 6.164.0: A library for property based testing
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 7.1.3 7.2.2: RFC 5545 compatible parser and generator of iCalendar files
 dev-python/id 1.6.1: A tool for generating OIDC identities
@@ -8821,7 +8822,7 @@ dev-python/jsonschema-specifications 2025.9.1: The JSON Schema meta-schemas and 
 dev-python/jsonxs 0.6-r1: Get/set values in JSON and Python datastructures
 dev-python/junit-xml 1.9-r1: Create JUnit XML test result documents
 dev-python/jupyter 1.1.1-r1: Jupyter metapackage. Install all the Jupyter components in one go
-dev-python/jupyter-builder 1.1.1-r1: JupyterLab build tools
+dev-python/jupyter-builder 1.1.1-r1 1.2.0: JupyterLab build tools
 dev-python/jupyter-client 8.9.1: Jupyter protocol implementation and client libraries
 dev-python/jupyter-console 6.6.3-r1: A terminal-based console frontend for Jupyter kernels
 dev-python/jupyter-core 5.9.1: Core common functionality of Jupyter projects
@@ -8865,7 +8866,7 @@ dev-python/ldap3 2.9.1: A strictly RFC 4511 conforming LDAP V3 pure Python clien
 dev-python/leather 0.4.1: Python charting for 80% of humans
 dev-python/leechcorepyc 2.22.3: Python binding for LeechCore Physical Memory Acquisition Library
 dev-python/legacy-cgi 2.6.4: Fork of the standard library cgi and cgitb modules (deprecated)
-dev-python/lesscpy 0.15.1: A compiler written in Python for the LESS language
+dev-python/lesscpy 0.15.1 0.15.2: A compiler written in Python for the LESS language
 dev-python/levenshtein 0.27.1 0.27.3: Functions for fast computation of Levenshtein distance, and edit operations
 dev-python/lhafile 0.3.1: LHA archive support for Python
 dev-python/libarchive-c 5.3: A Python interface to libarchive
@@ -8913,7 +8914,7 @@ dev-python/mando 0.8.2: Create Python CLI apps with little to no effort at all!
 dev-python/manuel 1.13.0: Lets you mix and match traditional doctests with custom test syntax
 dev-python/mapbox-earcut 2.0.0: Python bindings to the mapbox earcut C++ library
 dev-python/mapbox-vector-tile 2.2.0: Mapbox Vector Tile encoding and decoding
-dev-python/markdown 3.10.2: Python implementation of the markdown markup language
+dev-python/markdown 3.10.2 3.10.3: Python implementation of the markdown markup language
 dev-python/markdown-include 0.8.1: Python-Markdown extension providing LaTeX-style 'include' function
 dev-python/markdown-it-py 4.2.0: Python port of markdown-it, Markdown parser
 dev-python/markdown2 2.5.5-r1: Python Markdown language reimplementation
@@ -9064,7 +9065,7 @@ dev-python/parse 1.22.0 1.22.1: Parse strings using a specification based on the
 dev-python/parse-type 0.6.6: Extension to the parse module
 dev-python/parsedatetime 2.6-r1: Parse human-readable date/time strings
 dev-python/parso 0.8.7: A python parser that supports error recovery and round-trip parsing
-dev-python/parver 1.0: Parse and manipulate version numbers
+dev-python/parver 1.0 1.0.1_p0: Parse and manipulate version numbers
 dev-python/paste 3.10.1: Tools for using a Web Server Gateway Interface stack
 dev-python/pastedeploy 3.1: Load, configure, and compose WSGI applications and servers
 dev-python/pastel 0.2.1-r1: Bring colors to your terminal
@@ -9503,7 +9504,7 @@ dev-python/readme-renderer 45.0: A library for rendering 'readme' descriptions f
 dev-python/rebulk 3.2.0 6.0.1: Python library that performs advanced searches in strings
 dev-python/recommonmark 0.7.1-r1: Python docutils-compatibility bridge to CommonMark
 dev-python/recurring-ical-events 3.8.2: Repeat ICalendar events by RRULE, RDATE and EXDATE
-dev-python/redis 7.4.1 8.0.1: Python client for Redis key-value store
+dev-python/redis 7.4.1 8.0.1 8.1.0: Python client for Redis key-value store
 dev-python/reedsolo 2.1.1_beta1-r2: Python Reed Solomon encoder/decoder
 dev-python/referencing 0.37.0: Cross-specification JSON referencing (JSON Schema, OpenAPI...)
 dev-python/reflink 0.2.2: Python wrapper around the reflink system calls
@@ -9601,7 +9602,7 @@ dev-python/sgmllib3k 1.0.0-r1: Py3k port of sgmllib
 dev-python/sh 2.3.0 2.4.0: Python subprocess interface
 dev-python/shapely 2.1.2: Geometric objects, predicates, and operations
 dev-python/shellingham 1.5.4: Tool to Detect Surrounding Shell
-dev-python/shtab 1.8.0 1.8.1: Automagic shell tab completion for Python CLI applications
+dev-python/shtab 1.8.0 1.8.1 1.8.2: Automagic shell tab completion for Python CLI applications
 dev-python/signature-dispatch 1.0.1-r1: Execute the first function that matches the given arguments
 dev-python/signedjson 1.1.4: Signs JSON objects with ED25519 signatures
 dev-python/signxml 4.5.1 5.0.1 5.1.0 9999: Python XML Signature and XAdES library
@@ -9769,7 +9770,7 @@ dev-python/tqdm 4.68.2 4.68.3 4.68.4 4.69.0 4.69.1 4.70.0: Add a progress meter 
 dev-python/traitlets 5.15.1: A configuration system for Python applications
 dev-python/trakit 0.2.5: Guess additional information from titles in media tracks
 dev-python/transitions 0.9.3: A lightweight, object-oriented state machine implementation in Python
-dev-python/translate-toolkit 3.19.11 3.19.12 3.19.13 3.19.14 3.19.15: Toolkit to convert between many translation formats
+dev-python/translate-toolkit 3.19.13 3.19.14 3.19.15 3.19.16: Toolkit to convert between many translation formats
 dev-python/tree-sitter 0.25.2-r1 0.26.0: Python bindings to the Tree-sitter parsing library
 dev-python/treq 25.5.0 26.7.0: A requests-like API built on top of twisted.web's Agent
 dev-python/trimesh 4.12.2: Python library for loading and using triangular meshes
@@ -9844,7 +9845,7 @@ dev-python/verboselogs 1.7-r1: Verbose logging for Python's logging module
 dev-python/versioneer 0.29-r1: Easy VCS-based management of project version strings
 dev-python/versioningit 3.3.0: A setuptools plugin for versioning based on git tags
 dev-python/vine 5.1.0: Python Promises
-dev-python/virtualenv 21.4.3 21.5.1 21.6.1 21.7.0: Virtual Python Environment builder
+dev-python/virtualenv 21.4.3 21.5.1 21.6.1 21.7.0 21.7.1: Virtual Python Environment builder
 dev-python/virtualenv-clone 0.5.7: A script for cloning a non-relocatable virtualenv
 dev-python/virtualenvwrapper 6.1.1: Set of extensions to Ian Bicking's virtualenv tool
 dev-python/visitor 0.1.3-r2: A tiny pythonic visitor implementation
@@ -15141,7 +15142,7 @@ net-libs/libvncserver 0.9.15-r1: library for creating vnc servers
 net-libs/libwebsockets 4.5.8-r1 5.0.0-r1: A flexible pure-C library for implementing network protocols
 net-libs/libyang 3.12.2: YANG data modeling language library
 net-libs/liquid-dsp 1.7.0 9999: digital signal processing library for software-defined radios
-net-libs/llhttp 9.4.1 9.4.2: Port of http_parser to llparse
+net-libs/llhttp 9.4.2 9.4.3: Port of http_parser to llparse
 net-libs/loudmouth 1.5.4 1.5.4-r1: Lightweight & easy-to-use Jabber library written in C
 net-libs/lwip 2.2.1_p5 9999: Small independent implementation of the TCP/IP protocol suite
 net-libs/mbedtls 2.28.10 3.6.4 3.6.5: Cryptographic library for embedded systems
