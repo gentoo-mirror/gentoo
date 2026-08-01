@@ -13,7 +13,9 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/WayfireWM/wcm.git"
 	SLOT="0/0.12"
 else
-	SRC_URI="https://github.com/WayfireWM/wcm/releases/download/v${PV}/${P}.tar.xz"
+	COMMIT=14f2e03fc4bfa3a20d10b913461636363e39240c
+	SRC_URI="https://github.com/WayfireWM/wcm/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}"/${PN}-${COMMIT}
 	KEYWORDS="~amd64"
 	SLOT="0/$(ver_cut 1-2)"
 fi

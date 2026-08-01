@@ -13,7 +13,9 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/WayfireWM/wayfire-plugins-extra.git"
 	SLOT="0/0.12"
 else
-	SRC_URI="https://github.com/WayfireWM/wayfire-plugins-extra/releases/download/v${PV}/${P}.tar.xz"
+	COMMIT=4290ddf13bfadb344d45cb25c47f7825bbdc8a30
+	SRC_URI="https://github.com/WayfireWM/wayfire-plugins-extra/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+	S="${WORKDIR}"/${PN}-${COMMIT}
 	KEYWORDS="~amd64 ~arm64"
 	SLOT="0/$(ver_cut 1-2)"
 fi

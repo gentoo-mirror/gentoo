@@ -13,7 +13,18 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/WayfireWM/wf-shell.git"
 	SLOT="0/0.12"
 else
-	SRC_URI="https://github.com/WayfireWM/wf-shell/releases/download/v${PV}/${P}.tar.xz"
+	COMMIT=77038bdf8a05005ff510e7e1ba3ac2054cc304ce
+	WF_JSON_COMMIT=70039e13cdeaebd8ec498ed30bf5ab91c2e313ec
+	GVC_COMMIT=5f9768a2eac29c1ed56f1fbb449a77a3523683b6
+
+	SRC_URI="
+		https://github.com/WayfireWM/wf-shell/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
+		https://github.com/WayfireWM/wf-json/archive/${WF_JSON_COMMIT}.tar.gz -> ${PN}-wf-json-${PV}.tar.gz
+		pulseaudio? (
+			https://github.com/GNOME/libgnome-volume-control/archive/${GVC_COMMIT}.tar.gz -> ${PN}-gnome-volume-control.tar.gz
+		)
+	"
+	S="${WORKDIR}"/${PN}-${COMMIT}
 	KEYWORDS="~amd64"
 	SLOT="0/$(ver_cut 1-2)"
 fi
@@ -64,6 +75,10 @@ BDEPEND="
 	dev-util/wayland-scanner
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	"${FILESDIR}"/${PN}-0.11-add-missing-include.patch
+)
 
 src_prepare() {
 	default
