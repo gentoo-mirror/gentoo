@@ -23,17 +23,14 @@ RDEPEND="
 	media-libs/libpng:=[abi_x86_32(-)]
 	media-libs/libsdl3[abi_x86_32(-),opengl]
 	virtual/zlib:=[abi_x86_32(-)]
-	x11-libs/libX11[abi_x86_32(-)]
 	ao? ( media-libs/libao[abi_x86_32(-)] )
 	pipewire? (  media-video/pipewire:=[abi_x86_32(-)] )
 "
-DEPEND="
-	${RDEPEND}
-	x11-base/xorg-proto
-"
+DEPEND="${RDEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
 	dev-lang/nasm
+	sys-devel/gcc:*
 	virtual/pkgconfig
 	virtual/zlib:=
 "
@@ -50,12 +47,25 @@ src_compile() {
 	if use !custom-cflags; then
 		strip-flags
 		append-cppflags -U_FORTIFY_SOURCE # to disable =3, Makefile enables =2
+
+		# furthermore fails with -Werror=strict-aliasing
+		append-cflags -fno-strict-aliasing
+	fi
+
+	# zsnes passes -mno-sse while profiles do -mfpmath=sse -- gcc will fallback
+	# to 387, but clang errors out at the combination (bug #884827)
+	append-flags -mfpmath=387
+
+	# asm issues with clang (bug #830491), the asm may never get fixed at this
+	# point but zsnes is slowly porting it to C and so may work eventually
+	if tc-is-clang; then
+		CC=${CHOST}-gcc
+		strip-unsupported-flags
 	fi
 
 	use amd64 && multilib_toolchain_setup x86
-	tc-export CC CXX
+	tc-export CC PKG_CONFIG
 	append-cflags ${CPPFLAGS}
-	append-cxxflags ${CPPFLAGS}
 
 	ZSNES_MAKEARGS=(
 		ARCH=LINUX

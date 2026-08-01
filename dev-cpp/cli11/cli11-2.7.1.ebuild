@@ -15,7 +15,7 @@ S=${WORKDIR}/${PN^^}-${PV}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 IUSE="doc test"
 RESTRICT="!test? ( test )"
 
@@ -51,5 +51,5 @@ src_install() {
 	local DOCS=( CHANGELOG.md README.md book/{chapters,code,*.md} )
 	cmake_src_install
 
-	use doc && dodoc -r "${BUILD_DIR}"/docs/html
+	use doc && dodoc -r html
 }
