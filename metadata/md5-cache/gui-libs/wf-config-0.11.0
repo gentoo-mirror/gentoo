@@ -1,0 +1,16 @@
+BDEPEND=dev-libs/wayland-protocols virtual/pkgconfig test? ( dev-cpp/doctest ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install test
+DEPEND=dev-libs/libevdev dev-libs/libxml2:= media-libs/glm
+DESCRIPTION=library for managing wayfire configuration files
+EAPI=8
+HOMEPAGE=https://github.com/WayfireWM/wf-config
+INHERIT=meson
+IUSE=test
+KEYWORDS=~amd64 ~arm64 ~riscv ~x86
+LICENSE=MIT
+RDEPEND=dev-libs/libevdev dev-libs/libxml2:= media-libs/glm !gui-wm/wayfire:0/0.9
+RESTRICT=!test? ( test )
+SLOT=0/0.11
+SRC_URI=https://github.com/WayfireWM/wf-config/releases/download/v0.11.0/wf-config-0.11.0.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f
+_md5_=a7f82738011f47c0661b947578f36c3b

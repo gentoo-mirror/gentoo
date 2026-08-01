@@ -1,0 +1,16 @@
+BDEPEND=dev-util/wayland-scanner virtual/pkgconfig openmp? ( || ( sys-devel/gcc[openmp] llvm-runtimes/clang-runtime[openmp] ) ) nls? ( sys-devel/gettext ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install prepare pretend setup test
+DEPEND=gui-libs/wlroots:0.20[drm(+),libinput(+),x11-backend,X?] dev-cpp/nlohmann_json dev-libs/glib:2 dev-libs/libevdev dev-libs/libinput:= dev-libs/wayland dev-libs/yyjson >=dev-libs/wayland-protocols-1.12 gui-libs/wf-config:0/0.11 media-libs/glm media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libpng:= virtual/libudev:= x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman dbus? ( sys-apps/dbus ) X? ( x11-libs/libxcb:= ) test? ( dev-cpp/doctest )
+DESCRIPTION=compiz like 3D wayland compositor
+EAPI=8
+HOMEPAGE=https://github.com/WayfireWM/wayfire
+INHERIT=dot-a meson toolchain-funcs
+IUSE=X +dbus +gles3 nls openmp test
+KEYWORDS=~amd64 ~arm64 ~riscv
+LICENSE=MIT
+RDEPEND=gui-libs/wlroots:0.20[drm(+),libinput(+),x11-backend,X?] dev-cpp/nlohmann_json dev-libs/glib:2 dev-libs/libevdev dev-libs/libinput:= dev-libs/wayland dev-libs/yyjson >=dev-libs/wayland-protocols-1.12 gui-libs/wf-config:0/0.11 media-libs/glm media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libpng:= virtual/libudev:= x11-libs/cairo x11-libs/libxkbcommon x11-libs/pango x11-libs/pixman dbus? ( sys-apps/dbus ) X? ( x11-libs/libxcb:= ) x11-misc/xkeyboard-config
+RESTRICT=!test? ( test )
+SLOT=0/0.11
+SRC_URI=https://github.com/WayfireWM/wayfire/releases/download/v0.11.0/wayfire-0.11.0.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	dot-a	e5200fe17cfd2ed6fa66edd80201763a	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f
+_md5_=98c76413f99dc8138bc949cfa5d92049
