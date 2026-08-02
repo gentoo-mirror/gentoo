@@ -110,6 +110,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-5.3.0-tests-optional.patch
 	"${FILESDIR}"/${PN}-5.2.2-fftw.patch # bug 913518
 	"${FILESDIR}"/${PN}-6.0.1-pyqt6.11-sip13.8.patch # bug 974789, unfortunately, also downstream
+	"${FILESDIR}"/${P}-fix-change-font-family.patch # KDE-bug 520971
 )
 if [[ -n ${PATCHSET} ]]; then
 	PATCHES+=( "${WORKDIR}/${PATCHSET}" )
