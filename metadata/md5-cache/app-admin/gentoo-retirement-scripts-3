@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install setup
+DESCRIPTION=Scripts to help retiring Gentoo developers
+EAPI=8
+HOMEPAGE=https://gitweb.gentoo.org/proj/gentoo-retirement-scripts.git/
+INHERIT=python-single-r1
+IUSE=python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=BSD-2
+RDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_12? ( dev-python/jinja2[python_targets_python3_12(-)] dev-python/lxml[python_targets_python3_12(-)] dev-python/python-bugzilla[python_targets_python3_12(-)] ) python_single_target_python3_13? ( dev-python/jinja2[python_targets_python3_13(-)] dev-python/lxml[python_targets_python3_13(-)] dev-python/python-bugzilla[python_targets_python3_13(-)] ) python_single_target_python3_14? ( dev-python/jinja2[python_targets_python3_14(-)] dev-python/lxml[python_targets_python3_14(-)] dev-python/python-bugzilla[python_targets_python3_14(-)] )
+REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
+SLOT=0
+SRC_URI=https://gitweb.gentoo.org/proj/gentoo-retirement-scripts.git/snapshot/gentoo-retirement-scripts-3.tar.bz2
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=3b54b1fffd2d8ea85a4543a60b348fd9
