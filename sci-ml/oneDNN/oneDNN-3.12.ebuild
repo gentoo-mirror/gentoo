@@ -39,8 +39,6 @@ BDEPEND="
 	)
 "
 
-PATCHES=( "${FILESDIR}"/${P}-cmake.patch )
-
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 }
@@ -57,33 +55,31 @@ src_configure() {
 	fi
 
 	local mycmakeargs=(
-		-DDNNL_LIBRARY_TYPE=$(usex static-libs STATIC SHARED)
-		-DDNNL_CPU_RUNTIME=$(usex openmp OMP SEQ)
-		-DDNNL_GPU_RUNTIME=NONE
-		-DDNNL_BUILD_EXAMPLES=OFF
-		-DDNNL_BUILD_TESTS="$(usex test)"
-		-DDNNL_ENABLE_CONCURRENT_EXEC=OFF
-		-DDNNL_ENABLE_JIT_PROFILING=ON
-		-DDNNL_ENABLE_ITT_TASKS=ON
-		-DDNNL_ENABLE_PRIMITIVE_CACHE=ON
-		-DDNNL_ENABLE_MAX_CPU_ISA=ON
-		-DDNNL_ENABLE_CPU_ISA_HINTS=ON
-		-DDNNL_ENABLE_WORKLOAD=TRAINING
-		-DDNNL_ENABLE_PRIMITIVE=ALL
-		-DDNNL_ENABLE_PRIMITIVE_GPU_ISA=ALL
-		-DDNNL_EXPERIMENTAL=OFF
-		-DDNNL_VERBOSE=ON
-		-DDNNL_DEV_MODE=OFF
-		-DDNNL_AARCH64_USE_ACL=OFF
-		-DDNNL_EXPERIMENTAL_UKERNEL=ON
-		-DDNNL_GPU_VENDOR=INTEL
-		-DDNNL_LIBRARY_NAME=dnnl
+		-DONEDNN_LIBRARY_TYPE=$(usex static-libs STATIC SHARED)
+		-DONEDNN_CPU_RUNTIME=$(usex openmp OMP SEQ)
+		-DONEDNN_GPU_RUNTIME=NONE
+		-DONEDNN_BUILD_EXAMPLES=OFF
+		-DONEDNN_BUILD_TESTS="$(usex test)"
+		-DONEDNN_ENABLE_CONCURRENT_EXEC=OFF
+		-DONEDNN_ENABLE_JIT_PROFILING=ON
+		-DONEDNN_ENABLE_ITT_TASKS=ON
+		-DONEDNN_ENABLE_PRIMITIVE_CACHE=ON
+		-DONEDNN_ENABLE_MAX_CPU_ISA=ON
+		-DONEDNN_ENABLE_CPU_ISA_HINTS=ON
+		-DONEDNN_ENABLE_WORKLOAD=TRAINING
+		-DONEDNN_ENABLE_PRIMITIVE=ALL
+		-DONEDNN_ENABLE_PRIMITIVE_GPU_ISA=ALL
+		-DONEDNN_EXPERIMENTAL=OFF
+		-DONEDNN_VERBOSE=ON
+		-DONEDNN_DEV_MODE=OFF
+		-DONEDNN_AARCH64_USE_ACL=OFF
+		-DONEDNN_EXPERIMENTAL_UKERNEL=ON
+		-DONEDNN_GPU_VENDOR=INTEL
+		-DONEDNN_LIBRARY_NAME=dnnl
 		-DONEDNN_BUILD_GRAPH=ON
 		-DONEDNN_ENABLE_GRAPH_DUMP=OFF
-		-DONEDNN_EXPERIMENTAL_GRAPH_COMPILER_BACKEND=OFF
-		-DDNNL_ENABLE_PRIMITIVE_CPU_ISA=ALL
+		-DONEDNN_ENABLE_PRIMITIVE_CPU_ISA=ALL
 		-DONEDNN_ENABLE_GEMM_KERNELS_ISA=ALL
-		-Wno-dev
 	)
 
 	if use mkl ; then
@@ -95,11 +91,11 @@ src_configure() {
 			export MKLROOT="${EPREFIX}"/usr
 		fi
 
-		mycmakeargs+=( -DDNNL_BLAS_VENDOR=MKL )
+		mycmakeargs+=( -DONEDNN_BLAS_VENDOR=MKL )
 	elif use cblas; then
-		mycmakeargs+=( -DDNNL_BLAS_VENDOR=ANY -DBLA_VENDOR=Generic -DBLAS_LIBRARIES=-lcblas )
+		mycmakeargs+=( -DONEDNN_BLAS_VENDOR=ANY -DBLA_VENDOR=Generic -DBLAS_LIBRARIES=-lcblas )
 	else
-		mycmakeargs+=( -DDNNL_BLAS_VENDOR=NONE )
+		mycmakeargs+=( -DONEDNN_BLAS_VENDOR=NONE )
 	fi
 
 	cmake_src_configure
@@ -110,27 +106,18 @@ src_compile() {
 	docs_compile
 }
 
-src_install() {
-	cmake_src_install
-
-	# Correct docdir
-	mv "${ED}/usr/share/doc/dnnl"* "${ED}/usr/share/doc/${PF}" || die
-}
-
 src_test() {
-	local CMAKE_SKIP_TESTS=(
-		# Crashes in sandbox (see #922886 and #923013);
-		# waits for sys-apps/sandbox-2.39 release and stabilization.
-		test_graph_unit_interface
-		test_graph_unit_dnnl_layout_propagator
-		test_graph_unit_dnnl_op_executable
-		test_graph_unit_utils
-	)
-
 	if use openmp ; then
 		# Don't run tests in parallel, each test is already parallelized
 		OMP_NUM_THREADS=$(get_makeopts_jobs) cmake_src_test -j1
 	else
 		cmake_src_test
 	fi
+}
+
+src_install() {
+	cmake_src_install
+
+	# Correct docdir
+	mv "${ED}/usr/share/doc/dnnl"* "${ED}/usr/share/doc/${PF}" || die
 }
