@@ -1,9 +1,9 @@
-BDEPEND=>=games-fps/ut2004-3374_pre23 cdinstall? ( app-arch/unshield ) gog? ( app-arch/innoextract ) !cdinstall? ( !gog? ( app-arch/libarchive app-arch/unshield ) ) cdinstall? ( app-arch/libarchive )
+BDEPEND=>=games-fps/ut2004-3374_pre23 gog? ( app-arch/innoextract ) !gog? ( app-arch/libarchive app-arch/unshield ) cdinstall? ( app-arch/libarchive )
 DEFINED_PHASES=install nofetch pretend setup unpack
 DESCRIPTION=Data files for Unreal Tournament 2004
 EAPI=8
 HOMEPAGE=https://liandri.beyondunreal.com/Unreal_Tournament_2004
-INHERIT=cdrom check-reqs portability
+INHERIT=cdrom check-reqs multiprocessing portability
 IUSE=megapack doc gog l10n_de l10n_es l10n_fr l10n_it l10n_ko cdinstall
 KEYWORDS=~amd64 ~arm64
 LICENSE=Epic-TOS
@@ -13,5 +13,5 @@ REQUIRED_USE=?? ( cdinstall gog ) !cdinstall? ( !megapack )
 RESTRICT=bindist gog? ( fetch ) mirror
 SLOT=0
 SRC_URI=!cdinstall? ( !gog? ( fetch+https://files.oldunreal.net/UT2004.ISO -> UT2004.iso ) ) gog? ( setup_unreal_tournament_2004_1.0_(18947).exe setup_unreal_tournament_2004_1.0_(18947)-1.bin ) megapack? ( fetch+https://unreal-archive-files-na.s3.ca-east-tor.io.cloud.ovh.net/managed/Unreal%20Tournament%202004/patches-updates/bonus-packs/ut2004megapack-linux.tar.bz2 )
-_eclasses_=portability	3c2334cdfbb30bc4b33c85164fe832bf	cdrom	8ce3a6fc3461ad5aac4a91b47b8d83cd	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c
-_md5_=c6854fbe7a6405e242655403add120d5
+_eclasses_=portability	3c2334cdfbb30bc4b33c85164fe832bf	cdrom	8ce3a6fc3461ad5aac4a91b47b8d83cd	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399
+_md5_=738d0558d34b657791c4355bb7c160fc

@@ -1,0 +1,17 @@
+BDEPEND=dev-util/patchelf
+DEFINED_PHASES=configure install postinst postrm preinst prepare
+DESCRIPTION=Modern build of the Unreal Tournament (99) engine
+EAPI=8
+HOMEPAGE=https://www.oldunreal.com/downloads/unrealtournament/oldunreal-patches-for-unrealtournament-version-469/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=desktop xdg
+IUSE=dedicated l10n_ca l10n_de l10n_el l10n_es l10n_fr l10n_it l10n_nl l10n_pt l10n_ru opengl vulkan
+KEYWORDS=-* ~amd64 ~arm64 ~x86
+LICENSE=Epic-TOS Apache-2.0 BSD BSD-2 libpng2 MIT OFL-1.1 ZLIB
+PDEPEND=>=games-fps/unreal-tournament-data-436_p4
+RDEPEND=media-libs/libsdl2[opengl,video] media-libs/libsndfile media-libs/libxmp media-libs/openal media-sound/mpg123-base dedicated? ( acct-user/unreal ) opengl? ( media-libs/libglvnd ) vulkan? ( media-libs/vulkan-loader )
+RESTRICT=bindist mirror strip
+SLOT=0
+SRC_URI=amd64? ( https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e/OldUnreal-UTPatch469e-Linux-amd64.tar.bz2 ) arm64? ( https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e/OldUnreal-UTPatch469e-Linux-arm64.tar.bz2 ) x86? ( https://github.com/OldUnreal/UnrealTournamentPatches/releases/download/v469e/OldUnreal-UTPatch469e-Linux-x86.tar.bz2 ) mirror+https://dev.gentoo.org/~chewi/distfiles/unreal-tournament.png
+_eclasses_=desktop	e447b5f77146d69797e9f03ff177f3f1	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=d789637ea85c847bf00bab6f50bc4f76

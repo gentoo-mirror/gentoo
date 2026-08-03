@@ -1,0 +1,17 @@
+BDEPEND=>=games-fps/unreal-tournament-469e app-arch/libarchive cdinstall? ( app-arch/unshield ) gog? ( app-arch/innoextract ) cdinstall? ( app-arch/libarchive )
+DEFINED_PHASES=install nofetch postinst pretend setup unpack
+DESCRIPTION=Data files for Unreal Tournament (99)
+EAPI=8
+HOMEPAGE=https://liandri.beyondunreal.com/Unreal_Tournament
+INHERIT=cdrom check-reqs multiprocessing
+IUSE=bonuspacks doc gog l10n_es l10n_fr l10n_it cdinstall
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=Epic-TOS
+PROPERTIES=cdinstall? ( interactive )
+RDEPEND=>=games-fps/unreal-tournament-469e
+REQUIRED_USE=?? ( cdinstall gog ) !cdinstall? ( !bonuspacks )
+RESTRICT=bindist gog? ( fetch ) mirror
+SLOT=0
+SRC_URI=fetch+https://files.oldunreal.net/utbonuspack4-zip.7z !cdinstall? ( !gog? ( fetch+https://files.oldunreal.net/UT_GOTY_CD1.ISO -> UT_GOTY_CD1.iso ) ) gog? ( setup_ut_goty_2.0.0.5.exe ) bonuspacks? ( fetch+https://unreal-archive-files-na.s3.ca-east-tor.io.cloud.ovh.net/managed/Unreal%20Tournament/patches-updates/bonus-packs/utbonuspack-zip.zip fetch+https://unreal-archive-files-na.s3.ca-east-tor.io.cloud.ovh.net/managed/Unreal%20Tournament/patches-updates/bonus-packs/utbonuspack2.zip fetch+https://unreal-archive-files-na.s3.ca-east-tor.io.cloud.ovh.net/managed/Unreal%20Tournament/patches-updates/bonus-packs/utbonuspack3-zip.zip )
+_eclasses_=portability	3c2334cdfbb30bc4b33c85164fe832bf	cdrom	8ce3a6fc3461ad5aac4a91b47b8d83cd	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399
+_md5_=0a6cd474e3263d80b3bfafd77c2a90ce
