@@ -7,9 +7,9 @@ NEED_EMACS="28.1"
 
 inherit elisp
 
-DESCRIPTION="Transient commands abstraction for GNU Emacs"
-HOMEPAGE="https://magit.vc/manual/transient/
-	https://github.com/magit/transient/"
+DESCRIPTION="Use the Emacsclient as the \$EDITOR of child processes"
+HOMEPAGE="https://magit.vc/manual/with-editor/
+	https://github.com/magit/with-editor/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
@@ -17,8 +17,10 @@ if [[ "${PV}" == *9999* ]] ; then
 else
 	SRC_URI="https://github.com/magit/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 fi
+
+S="${WORKDIR}/${P}/lisp"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -33,13 +35,6 @@ BDEPEND="
 	sys-apps/texinfo
 "
 
-DOCS=( CHANGELOG README.org "docs/${PN}.org" )
-ELISP_TEXINFO="docs/${PN}.texi"
+DOCS=( ../CHANGELOG ../README.org "../docs/${PN}.org" )
+ELISP_TEXINFO="../docs/*.texi"
 SITEFILE="50${PN}-gentoo.el"
-
-elisp-enable-tests ert ./test/ -l "./test/${PN}-tests.el"
-
-src_prepare() {
-	mv ./lisp/*.el . || die
-	elisp_src_prepare
-}
