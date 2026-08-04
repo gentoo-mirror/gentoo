@@ -3,12 +3,12 @@
 
 EAPI=8
 inherit go-module systemd tmpfiles
-GIT_COMMIT=e838ef116
+GIT_COMMIT=fc04cf702
 
 DESCRIPTION="Highly-available key value store for shared configuration and service discovery"
 HOMEPAGE="https://github.com/etcd-io/etcd"
 SRC_URI="https://github.com/etcd-io/etcd/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~chewi/distfiles/${P}-deps.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~chewi/distfiles/${P}-deps.tar.xz" # Vendor tarball doesn't work.
 
 LICENSE="Apache-2.0"
 LICENSE+=" BSD BSD-2 MIT"
@@ -22,6 +22,7 @@ COMMON_DEPEND="server? (
 	)"
 DEPEND="${COMMON_DEPEND}"
 RDEPEND="${COMMON_DEPEND}"
+BDEPEND=">=dev-lang/go-1.25.12"
 
 # Unit tests attempt to download go modules.
 PROPERTIES="test_network"
