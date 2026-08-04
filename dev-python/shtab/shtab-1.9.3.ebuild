@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYPI_VERIFY_REPO=https://github.com/iterative/shtab
+PYPI_VERIFY_REPO=https://github.com/tqdm/shtab
 PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc64 ~riscv ~x86"
 
 BDEPEND="
 	dev-python/setuptools-scm[${PYTHON_USEDEP}]
@@ -27,6 +27,5 @@ EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
 python_test() {
-	# Disable pytest-cov
 	epytest -o addopts=
 }
