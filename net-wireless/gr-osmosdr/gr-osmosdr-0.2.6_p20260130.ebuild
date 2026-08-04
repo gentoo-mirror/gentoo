@@ -3,8 +3,8 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
-inherit cmake python-single-r1
+PYTHON_COMPAT=( python3_{12..14} )
+inherit cmake python-single-r1 unpacker
 
 DESCRIPTION="GNU Radio source block for OsmoSDR and rtlsdr and hackrf"
 HOMEPAGE="
@@ -16,9 +16,8 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitea.osmocom.org/sdr/gr-osmosdr.git"
 else
-	SRC_URI="https://gitea.osmocom.org/sdr/gr-osmosdr/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm ~riscv ~x86"
-	S="${WORKDIR}/${PN}"
+	SRC_URI="https://dev.gentoo.org/~zerochaos/distfiles/${P}.tar.zst"
+	KEYWORDS="~amd64 ~arm ~riscv ~x86"
 fi
 
 LICENSE="GPL-3"
@@ -28,7 +27,6 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="${PYTHON_DEPS}
 	dev-libs/boost:=
-	dev-libs/log4cpp
 	net-wireless/gnuradio:0=[${PYTHON_SINGLE_USEDEP}]
 	sci-libs/volk:=
 	airspy? ( net-wireless/airspy )
@@ -46,7 +44,8 @@ RDEPEND="${PYTHON_DEPS}
 	uhd? ( net-wireless/uhd:=[${PYTHON_SINGLE_USEDEP}] )
 	xtrx? ( net-wireless/libxtrx )
 "
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-python/numpy"
 BDEPEND="
 	$(python_gen_cond_dep 'dev-python/pybind11[${PYTHON_USEDEP}]')
 	doc? ( app-text/doxygen )
@@ -54,7 +53,8 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-0.2.3_p20210128-fix-enable-python.patch"
-	"${FILESDIR}/${P}-boost-1.89.patch" # bug #969160
+	"${FILESDIR}/${PN}-0.2.6-boost-1.89.patch" # bug #969160
+	"${FILESDIR}/${PN}-0.2.6-include-numpy.patch"
 )
 
 src_configure() {

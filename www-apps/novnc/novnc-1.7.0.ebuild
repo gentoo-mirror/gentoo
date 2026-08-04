@@ -1,10 +1,10 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 DISTUTILS_USE_PEP517=no
-PYTHON_COMPAT=( python3_{9..13} )
+PYTHON_COMPAT=( python3_{9..15} )
 inherit distutils-r1
 
 DESCRIPTION="noVNC is a VNC client implemented using HTML5 technologies"
@@ -15,7 +15,7 @@ if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/novnc/noVNC"
 else
 	SRC_URI="https://github.com/novnc/noVNC/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="amd64 ~arm64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 	S="${WORKDIR}/noVNC-${PV}"
 fi
 
