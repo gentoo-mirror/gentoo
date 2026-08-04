@@ -7,13 +7,13 @@ inherit go-module shell-completion
 DESCRIPTION="kubectl plugin for Kubernetes OpenID Connect authentication"
 HOMEPAGE="https://github.com/int128/kubelogin"
 SRC_URI="https://github.com/int128/kubelogin/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://dev.gentoo.org/~concord/distfiles/${P}-deps.tar.xz"
+SRC_URI+=" https://distfiles.gentoo.org/pub/dev/concord@gentoo.org/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD BSD-2 ISC MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 
-BDEPEND=">=dev-lang/go-1.25.5:="
+BDEPEND=">=dev-lang/go-1.26.4:="
 
 QA_PRESTRIPPED="usr/bin/kubectl-oidc_login"
 

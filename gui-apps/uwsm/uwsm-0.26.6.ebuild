@@ -30,6 +30,8 @@ src_configure() {
 	local emesonargs=(
 		-Duuctl=enabled
 		-Dfumon=enabled
+		-Dttyautolock=enabled
+		-Dwait-tray=enabled
 		-Duwsm-app=enabled
 		-Dman-pages=enabled
 		-Ddocdir=/usr/share/doc/"${PF}"
