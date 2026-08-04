@@ -1,0 +1,13 @@
+BDEPEND=>=dev-lang/go-1.26.0:= >=dev-lang/go-1.24.11:= app-arch/unzip
+DEFINED_PHASES=compile install postinst unpack
+DESCRIPTION=Control virtual machine related operations on your kubernetes cluster
+EAPI=8
+HOMEPAGE=https://kubevirt.io https://github.com/kubevirt/kubevirt
+INHERIT=go-module optfeature shell-completion
+KEYWORDS=~amd64
+LICENSE=Apache-2.0 BSD-2 BSD ISC MIT
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/kubevirt/kubevirt/archive/v1.9.0.tar.gz -> kubevirt-1.9.0.tar.gz https://distfiles.gentoo.org/pub/dev/concord@gentoo.org/kubevirt-1.9.0-deps.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	shell-completion	63a62de3ca49c798ee6e89f190e45d0e
+_md5_=bd6ac57fec189f273e109b1c30b3cb48
