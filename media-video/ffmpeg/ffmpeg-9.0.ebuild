@@ -5,8 +5,8 @@ EAPI=8
 
 inherit flag-o-matic multilib-minimal toolchain-funcs udev
 
-FFMPEG_SOC_PATCH=ffmpeg-soc-8.1.patch
-FFMPEG_SUBSLOT=60.62.62 # avutil.avcodec.avformat SONAME
+FFMPEG_SOC_PATCH=
+FFMPEG_SUBSLOT=61.63.63 # avutil.avcodec.avformat SONAME
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
@@ -22,10 +22,10 @@ else
 		${FFMPEG_SOC_PATCH:+"
 			soc? ( https://dev.gentoo.org/~chewi/distfiles/${FFMPEG_SOC_PATCH} )
 		"}
-		https://distfiles.gentoo.org/pub/dev/ionen@gentoo.org/ffmpeg-$(ver_cut 1-2)-patchset-1.tar.xz
 	"
 	S=${WORKDIR}/ffmpeg-${PV} # avoid ${P} for ffmpeg-compat
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86 ~arm64-macos ~x64-macos"
+	# unkeyworded for testing
+	#KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~arm64-macos ~x64-macos"
 fi
 
 DESCRIPTION="Complete solution to record/convert/stream audio and video"
@@ -126,10 +126,8 @@ FFMPEG_IUSE_MAP=(
 	vmaf:libvmaf
 	vorbis:libvorbis
 	vpx:libvpx
-	# libshaderc: merged here given shaderc is needed at build-time
-	# either way and many vulkan features depend on spirv_library
 	# vulkan-static: it still uses shared, only means no dlopen()
-	vulkan:libshaderc,vulkan,vulkan-static
+	vulkan:vulkan,vulkan-static
 	webp:libwebp
 	x264:libx264
 	x265:libx265
@@ -292,10 +290,7 @@ COMMON_DEPEND="
 	vmaf? ( media-libs/libvmaf:=[${MULTILIB_USEDEP}] )
 	vorbis? ( media-libs/libvorbis[${MULTILIB_USEDEP}] )
 	vpx? ( media-libs/libvpx:=[${MULTILIB_USEDEP}] )
-	vulkan? (
-		media-libs/shaderc[${MULTILIB_USEDEP}]
-		media-libs/vulkan-loader[${MULTILIB_USEDEP}]
-	)
+	vulkan? ( media-libs/vulkan-loader[${MULTILIB_USEDEP}] )
 	webp? ( media-libs/libwebp:=[${MULTILIB_USEDEP}] )
 	x264? ( media-libs/x264:=[${MULTILIB_USEDEP}] )
 	x265? ( media-libs/x265:=[${MULTILIB_USEDEP}] )
@@ -316,12 +311,15 @@ RDEPEND="
 DEPEND="
 	${COMMON_DEPEND}
 	X? ( x11-base/xorg-proto )
-	amf? ( >=media-libs/amf-headers-1.5.0 )
+	amf? ( >=media-libs/amf-headers-1.5.2 )
 	kernel_linux? ( >=sys-kernel/linux-headers-6 )
 	ladspa? ( media-libs/ladspa-sdk )
 	nvenc? ( >=media-libs/nv-codec-headers-12.1.14.0 )
 	opencl? ( dev-util/opencl-headers )
-	vulkan? ( >=dev-util/vulkan-headers-1.4.317 )
+	vulkan? (
+		dev-util/spirv-headers
+		>=dev-util/vulkan-headers-1.4.317
+	)
 "
 BDEPEND="
 	app-alternatives/awk
@@ -338,14 +336,13 @@ BDEPEND="
 	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-ffmpeg )"
 
 DOCS=( CREDITS Changelog README.md doc/APIchanges )
-[[ ${PV} != 9999 ]] && DOCS+=( RELEASE_NOTES )
 
 MULTILIB_WRAPPED_HEADERS=(
 	/usr/include/libavutil/avconfig.h
 )
 
 PATCHES=(
-	"${WORKDIR}"/patches
+	"${FILESDIR}"/ffmpeg-6.1-opencl-parallel-gmake-fix.patch
 )
 
 pkg_pretend() {
@@ -465,6 +462,7 @@ multilib_src_configure() {
 		--disable-libmpeghdec
 		--disable-libmysofa
 		--disable-liboapv
+		--disable-libonnxruntime
 		--disable-libopenvino
 		--disable-libshine
 		--disable-libsvtjpegxs
@@ -485,18 +483,13 @@ multilib_src_configure() {
 
 		# disabled for other or additional reasons
 		--disable-cuda-nvcc # prefer cuda-llvm for less issues
-		--disable-libcelt # obsolete (bug #664158)
-		--disable-libglslang # prefer shaderc (bug #918989,#920283,#922333)
 		--disable-liblensfun # https://trac.ffmpeg.org/ticket/9112 (abandoned?)
 		--disable-libmfx # prefer libvpl for USE=qsv
-		--disable-libnpp # deprecated and not supported for cuda 13.0+
 		--disable-libopencv # leaving for later due to circular opencv[ffmpeg]
 		--disable-libtensorflow # causes headaches, and is gone
 		--disable-libtorch # support may need special attention (bug #936127)
 		--disable-mbedtls # messy with slots, tests underlinking issues
 		--disable-mmal # prefer USE=soc
-		--disable-omx # unsupported (bug #653386)
-		--disable-omx-rpi # ^
 
 		# to avoid obscure issues like bug #915384 and simplify the ebuild,
 		# not passing the following (use EXTRA_ECONF if really must):
