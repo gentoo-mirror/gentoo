@@ -1,9 +1,9 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
-inherit bash-completion-r1 go-module
+inherit go-module shell-completion
 
 DESCRIPTION="Command line tool to interact with Gitea server"
 HOMEPAGE="https://gitea.com/gitea/tea/"
@@ -17,7 +17,7 @@ S="${WORKDIR}/tea"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
 	>=dev-lang/go-1.26
@@ -35,6 +35,6 @@ src_test() {
 
 src_install() {
 	dobin tea
-	newbashcomp ./contrib/autocomplete.sh tea
+	newbashcomp contrib/autocomplete.sh tea
 	einstalldocs
 }
