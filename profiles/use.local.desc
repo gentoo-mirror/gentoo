@@ -7769,6 +7769,23 @@ sci-ml/huggingface_hub:torch - Support pytorch
 sci-ml/oneDNN:cblas - Use virtual/cblas for sgemm routines
 sci-ml/oneDNN:mkl - Use sci-libs/mkl for sgemm routines
 sci-ml/onnx:disableStaticReg - Disable Static Registration
+sci-ml/pytorch:cusparselt - Use the CUDA/HIP Sparse Matrix Multiplication
+sci-ml/pytorch:distributed - Support distributed applications
+sci-ml/pytorch:fbgemm - Use sci-ml/FBGEMM
+sci-ml/pytorch:flash - Enable flash attention
+sci-ml/pytorch:gloo - Use sci-ml/gloo
+sci-ml/pytorch:kineto - Usesci-ml/kinetoprofiling library
+sci-ml/pytorch:memefficient - Enable mem efficient attention
+sci-ml/pytorch:mimalloc - Use dev-libs/mimalloc as replacement for system malloc
+sci-ml/pytorch:mkl - Use sci-libs/mkl for blas, lapack and sparse blas routines
+sci-ml/pytorch:nccl - Use dev-libs/rccl (NCCL compatible) backend for distributed operations
+sci-ml/pytorch:nnpack - Use sci-ml/NNPACK
+sci-ml/pytorch:numpy - Add support for math operations through numpy
+sci-ml/pytorch:onednn - Use sci-ml/oneDNN
+sci-ml/pytorch:openblas - Use sci-libs/openblas for blas routines
+sci-ml/pytorch:qnnpack - Use QNNPACK
+sci-ml/pytorch:rocm - Enable ROCm gpu computing support
+sci-ml/pytorch:xnnpack - Use sci-ml/XNNPACK
 sci-ml/torchvision:rocm - Enable ROCm gpu computing support
 sci-ml/transformers:torch - Support pytorch
 sci-physics/bullet:double-precision - Build libraries in double precision
