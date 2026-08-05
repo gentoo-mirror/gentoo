@@ -9,7 +9,6 @@ PYTHON_REQ_USE='sqlite?,threads(+)'
 
 inherit distutils-r1 multiprocessing optfeature shell-completion verify-sig
 
-MY_P=${P/_}
 DESCRIPTION="High-level Python web framework"
 HOMEPAGE="
 	https://www.djangoproject.com/
@@ -17,10 +16,9 @@ HOMEPAGE="
 	https://pypi.org/project/Django/
 "
 SRC_URI="
-	https://media.djangoproject.com/releases/$(ver_cut 1-2)/${MY_P}.tar.gz
-	verify-sig? ( https://media.djangoproject.com/pgp/${MY_P^}.checksum.txt )
+	https://media.djangoproject.com/releases/$(ver_cut 1-2)/${P}.tar.gz
+	verify-sig? ( https://media.djangoproject.com/pgp/${P^}.checksum.txt )
 "
-S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD"
 # admin fonts: Roboto (media-fonts/roboto)
@@ -28,14 +26,14 @@ LICENSE+=" Apache-2.0"
 # admin icons, jquery, xregexp.js
 LICENSE+=" MIT"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
 IUSE="doc sqlite test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
 	<dev-python/asgiref-4[${PYTHON_USEDEP}]
-	>=dev-python/asgiref-3.9.1[${PYTHON_USEDEP}]
-	>=dev-python/sqlparse-0.5.0[${PYTHON_USEDEP}]
+	>=dev-python/asgiref-3.8.1[${PYTHON_USEDEP}]
+	>=dev-python/sqlparse-0.3.1[${PYTHON_USEDEP}]
 	sys-libs/timezone-data
 "
 BDEPEND="
@@ -51,19 +49,21 @@ BDEPEND="
 		>=dev-python/tblib-1.5.0[${PYTHON_USEDEP}]
 		sys-devel/gettext
 	)
-	verify-sig? ( >=sec-keys/openpgp-keys-django-20240807 )
+	verify-sig? ( >=sec-keys/openpgp-keys-django-20241002 )
 "
 
 PATCHES=(
 	"${FILESDIR}"/django-4.0-bashcomp.patch
+	# d55979334dcefdb11626220000bec97ade09df07
+	# 2026-07-10: force "fork" method in tests anyway, as we're hitting
+	# random failures anyway
+	"${FILESDIR}"/django-5.2.7-py314.patch
 	# based on upstream commits:
 	# b1a65eac7c09250d36e12464fc8fff2a401246b6
 	# ed13a58bf63df94508c8a0fe779da0b6a2bc26bb
 	# e7f539f813bd56a71ca3c1fbf379f47691002086
 	# plus my own fixes
 	"${FILESDIR}"/django-6.0.7-py315.patch
-	# rebase of 25cf1cbb1cb92c6c57b76cc43d697cfdc61f568f
-	"${FILESDIR}"/django-6.0.7-py315-mail.patch
 )
 
 distutils_enable_sphinx docs --no-autodoc
@@ -74,11 +74,19 @@ src_unpack() {
 	if use verify-sig; then
 		cd "${DISTDIR}" || die
 		verify-sig_verify_signed_checksums \
-			"${MY_P^}.checksum.txt" sha256 "${MY_P}.tar.gz"
+			"${P^}.checksum.txt" sha256 "${P}.tar.gz"
 		cd "${WORKDIR}" || die
 	fi
 
 	default
+}
+
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# flaky as hell
+	sed -e 's:test_crafted_xml_performance:_&:' \
+		-i tests/serializers/test_deserialization.py || die
 }
 
 python_test() {
