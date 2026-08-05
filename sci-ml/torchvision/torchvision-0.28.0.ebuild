@@ -19,7 +19,7 @@ S="${WORKDIR}"/vision-${PV}
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64"
 IUSE="cuda +ffmpeg +jpeg +png rocm +webp"
 
 REQUIRED_USE="
@@ -35,8 +35,7 @@ RDEPEND="
 	png? ( media-libs/libpng:= )
 	webp? ( media-libs/libwebp )
 	ffmpeg? ( media-video/ffmpeg )
-	sci-ml/caffe2[cuda?,rocm?,${PYTHON_SINGLE_USEDEP}]
-	=sci-ml/pytorch-2.11*[${PYTHON_SINGLE_USEDEP}]
+	=sci-ml/pytorch-2.13*[${PYTHON_SINGLE_USEDEP},numpy,cuda?,rocm?]
 "
 
 BDEPEND="
