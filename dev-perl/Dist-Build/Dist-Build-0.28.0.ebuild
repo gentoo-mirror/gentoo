@@ -4,14 +4,19 @@
 EAPI=8
 
 DIST_AUTHOR=LEONT
+DIST_VERSION=0.028
 inherit perl-module
 
-DESCRIPTION="An abstract representation of build processes"
+DESCRIPTION="Modern module builder, author tools not included!"
 
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="
+RDEPEND="
+	dev-perl/ExtUtils-Builder
+	dev-perl/ExtUtils-Builder-Compiler
 	dev-perl/ExtUtils-Config
 	dev-perl/ExtUtils-Helpers
+	dev-perl/ExtUtils-InstallPaths
 "
+BDEPEND="${RDEPEND}"
