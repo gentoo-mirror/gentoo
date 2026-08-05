@@ -1,155 +1,13 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..13} )
-
-CRATES="
-	adler32@1.2.0
-	adler@1.0.2
-	aho-corasick@1.1.3
-	android-tzdata@0.1.1
-	android_system_properties@0.1.5
-	autocfg@1.3.0
-	base64@0.21.7
-	bindgen@0.65.1
-	bit_field@0.10.2
-	bitflags@1.3.2
-	bitflags@2.5.0
-	block-buffer@0.10.4
-	bumpalo@3.16.0
-	bytemuck@1.21.0
-	byteorder@1.5.0
-	bytes@1.9.0
-	bzip2-rs@0.1.2
-	cbindgen@0.25.0
-	cc@1.0.97
-	cexpr@0.6.0
-	cfg-if@1.0.0
-	chrono@0.4.38
-	clang-sys@1.7.0
-	color_quant@1.1.0
-	core-foundation-sys@0.8.6
-	cpufeatures@0.2.12
-	crc32fast@1.4.0
-	crossbeam-deque@0.8.5
-	crossbeam-epoch@0.9.18
-	crossbeam-utils@0.8.19
-	crunchy@0.2.2
-	crypto-common@0.1.6
-	delharc@0.6.1
-	digest@0.10.7
-	either@1.11.0
-	encoding_rs@0.8.34
-	enum-primitive-derive@0.2.2
-	errno@0.3.8
-	exr@1.72.0
-	fastrand@2.1.0
-	fdeflate@0.3.4
-	flate2@1.0.30
-	flume@0.11.0
-	generic-array@0.14.7
-	gif@0.13.1
-	glob@0.3.1
-	half@2.4.1
-	hashbrown@0.12.3
-	heck@0.4.1
-	hex-literal@0.4.1
-	hex@0.4.3
-	home@0.5.9
-	iana-time-zone-haiku@0.1.2
-	iana-time-zone@0.1.60
-	image@0.24.9
-	indexmap@1.9.3
-	inflate@0.4.5
-	itertools@0.10.5
-	itoa@1.0.11
-	jpeg-decoder@0.3.1
-	js-sys@0.3.69
-	lazy_static@1.4.0
-	lazycell@1.3.0
-	lebe@0.5.2
-	libc@0.2.155
-	libloading@0.8.3
-	linux-raw-sys@0.4.13
-	lock_api@0.4.12
-	log@0.4.21
-	memchr@2.7.2
-	minimal-lexical@0.2.1
-	miniz_oxide@0.7.2
-	nom@7.1.3
-	num-complex@0.4.5
-	num-integer@0.1.46
-	num-traits@0.2.19
-	once_cell@1.19.0
-	paste@1.0.14
-	peeking_take_while@0.1.2
-	png@0.17.13
-	prettyplease@0.2.19
-	primal-check@0.3.3
-	proc-macro2@1.0.81
-	qoi@0.4.1
-	quote@1.0.36
-	rayon-core@1.12.1
-	rayon@1.10.0
-	regex-automata@0.4.6
-	regex-syntax@0.8.3
-	regex@1.10.4
-	rustc-hash@1.1.0
-	rustdct@0.7.1
-	rustfft@6.2.0
-	rustix@0.38.34
-	ryu@1.0.17
-	scopeguard@1.2.0
-	serde@1.0.200
-	serde_derive@1.0.200
-	serde_json@1.0.116
-	sha1@0.10.6
-	sha2@0.10.8
-	shlex@1.3.0
-	simd-adler32@0.3.7
-	smallvec@1.13.2
-	spin@0.9.8
-	strength_reduce@0.2.4
-	syn@1.0.109
-	syn@2.0.60
-	tempfile@3.10.1
-	thiserror-impl@1.0.59
-	thiserror@1.0.59
-	tiff@0.9.1
-	tinyvec@1.6.0
-	toml@0.5.11
-	transpose@0.2.3
-	typenum@1.17.0
-	unicode-ident@1.0.12
-	unicode-segmentation@1.11.0
-	uuid@1.8.0
-	version_check@0.9.4
-	wasm-bindgen-backend@0.2.92
-	wasm-bindgen-macro-support@0.2.92
-	wasm-bindgen-macro@0.2.92
-	wasm-bindgen-shared@0.2.92
-	wasm-bindgen@0.2.92
-	weezl@0.1.8
-	which@4.4.2
-	widestring@1.1.0
-	windows-core@0.52.0
-	windows-sys@0.52.0
-	windows-targets@0.52.5
-	windows_aarch64_gnullvm@0.52.5
-	windows_aarch64_msvc@0.52.5
-	windows_i686_gnu@0.52.5
-	windows_i686_gnullvm@0.52.5
-	windows_i686_msvc@0.52.5
-	windows_x86_64_gnu@0.52.5
-	windows_x86_64_gnullvm@0.52.5
-	windows_x86_64_msvc@0.52.5
-	zune-inflate@0.2.54
-"
+PYTHON_COMPAT=( python3_{11..14} )
+RUST_MIN_VER="1.87.0"
 
 # Get the commit from the CLAM-2329-new-from-slice branch
 declare -A GIT_CRATES=(
-	[onenote_parser]="https://github.com/Cisco-Talos/onenote.rs;29c08532252b917543ff268284f926f30876bb79;onenote.rs-%commit%"
+	[onenote_parser]='https://github.com/Cisco-Talos/onenote.rs;8b450447e58143004b68dd21c11b710fdb79be92;onenote.rs-%commit%'
 )
 
 inherit cargo cmake eapi9-ver flag-o-matic python-any-r1 systemd tmpfiles
@@ -159,14 +17,20 @@ MY_P=${P//_/-}
 DESCRIPTION="Clam Anti-Virus Scanner"
 HOMEPAGE="https://www.clamav.net/"
 SRC_URI="https://github.com/Cisco-Talos/clamav/archive/refs/tags/${MY_P}.tar.gz
-	${CARGO_CRATE_URIS}"
+	https://deps.gentoo.zip/app-antivirus/clamav/${P}-crates.tar.xz
+	${CARGO_CRATE_URIS}" # For the GIT_CRATES - use a crate tarball for everything else please.
 S=${WORKDIR}/clamav-${MY_P}
 
 LICENSE="Apache-2.0 BSD GPL-2 ISC MIT MPL-2.0 Unicode-DFS-2016 ZLIB"
-# 0/sts (short term support) if not an LTS release
-SLOT="0/sts"
+# 0/sts (short term support) if not an LTS release (typically odd and even minor versions respectively)
+if [[ $(( $(ver_cut 2) % 2 )) -eq 0 ]] ; then
+	SLOT="0/lts"
+else
+	SLOT="0/sts"
+fi
+
 if [[ ${PV} != *_rc* ]] ; then
-	KEYWORDS="~alpha amd64 arm arm64 ppc ppc64 ~riscv ~sparc x86"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86"
 fi
 
 IUSE="doc clamonacc +clamapp experimental libclamav-only milter rar selinux +system-mspack systemd test"
@@ -185,6 +49,7 @@ COMMON_DEPEND="
 	acct-group/clamav
 	acct-user/clamav
 	app-arch/bzip2
+	dev-libs/check:=
 	dev-libs/json-c:=
 	dev-libs/libltdl
 	dev-libs/libpcre2:=
@@ -278,8 +143,10 @@ src_install() {
 	# init scripts
 	newinitd "${FILESDIR}/clamd.initd" clamd
 	newinitd "${FILESDIR}/freshclam.initd" freshclam
-	use clamonacc && \
-		newinitd "${FILESDIR}/clamonacc.initd" clamonacc
+	if use clamonacc; then
+		newinitd "${FILESDIR}/clamonacc.initd.2" clamonacc
+		newconfd "${FILESDIR}/clamonacc.confd" clamonacc
+	fi
 	use milter && \
 		newinitd "${FILESDIR}/clamav-milter.initd" clamav-milter
 
@@ -293,33 +160,54 @@ src_install() {
 
 		if use clamapp ; then
 			# Modify /etc/{clamd,freshclam}.conf to be usable out of the box
-			sed -e "s:^\(Example\):\# \1:" \
-				-e "s:^#\(PidFile\) .*:\1 ${EPREFIX}/run/clamd.pid:" \
-				-e "s/^#\(LocalSocket .*\)/\1/" \
-				-e "s/^#\(User .*\)/\1/" \
-				-e "s:^\#\(LogFile\) .*:\1 ${EPREFIX}/var/log/clamav/clamd.log:" \
-				-e "s:^\#\(LogTime\).*:\1 yes:" \
-				-e "s/^#\(DatabaseDirectory .*\)/\1/" \
+			local clamd_sed_args=(
+				-e "s:^\(Example\):\# \1:"
+				-e "s:^#\(PidFile\) .*:\1 ${EPREFIX}/run/clamd.pid:"
+				-e "s/^#\(User .*\)/\1/"
+				-e "s:^\#\(LogFile\) .*:\1 ${EPREFIX}/var/log/clamav/clamd.log:"
+				-e "s:^\#\(LogTime\).*:\1 yes:"
+				-e "s/^#\(DatabaseDirectory .*\)/\1/"
+			)
+
+			# 966587 - the systemd unit uses a different socket path
+			if use systemd; then
+				clamd_sed_args+=(
+					-e "s:^#\(LocalSocket \)/run.*:\1${EPREFIX}/run/clamav/clamd.ctl:"
+				)
+			else
+				clamd_sed_args+=(
+					# There's one in /tmp that we don't want to default-enable
+					-e "s:^#\(LocalSocket /run.*\):\1:"
+				)
+			fi
+
+			sed "${clamd_sed_args[@]}" \
 				"${ED}"/etc/clamav/clamd.conf.sample > \
 				"${ED}"/etc/clamav/clamd.conf || die
 
-			sed -e "s:^\(Example\):\# \1:" \
-				-e "s:^#\(PidFile\) .*:\1 ${EPREFIX}/run/freshclam.pid:" \
-				-e "s/^#\(DatabaseOwner .*\)/\1/" \
-				-e "s:^\#\(UpdateLogFile\) .*:\1 ${EPREFIX}/var/log/clamav/freshclam.log:" \
-				-e "s:^\#\(NotifyClamd\).*:\1 ${EPREFIX}/etc/clamav/clamd.conf:" \
-				-e "s:^\#\(ScriptedUpdates\).*:\1 yes:" \
-				-e "s/^#\(DatabaseDirectory .*\)/\1/" \
+			local freshclam_sed_args=(
+				-e "s:^\(Example\):\# \1:"
+				-e "s:^#\(PidFile\) .*:\1 ${EPREFIX}/run/freshclam.pid:"
+				-e "s/^#\(DatabaseOwner .*\)/\1/"
+				-e "s:^\#\(UpdateLogFile\) .*:\1 ${EPREFIX}/var/log/clamav/freshclam.log:"
+				-e "s:^\#\(NotifyClamd\).*:\1 ${EPREFIX}/etc/clamav/clamd.conf:"
+				-e "s:^\#\(ScriptedUpdates\).*:\1 yes:"
+				-e "s/^#\(DatabaseDirectory .*\)/\1/"
+			)
+			sed "${freshclam_sed_args[@]}" \
 				"${ED}"/etc/clamav/freshclam.conf.sample > \
 				"${ED}"/etc/clamav/freshclam.conf || die
 
 			if use milter ; then
 				# Note: only keep the "unix" ClamdSocket and MilterSocket!
-				sed -e "s:^\(Example\):\# \1:" \
-					-e "s:^\#\(PidFile\) .*:\1 ${EPREFIX}/run/clamav-milter.pid:" \
-					-e "s/^#\(ClamdSocket unix:.*\)/\1/" \
-					-e "s/^#\(User .*\)/\1/" \
-					-e "s:^\#\(LogFile\) .*:\1 ${EPREFIX}/var/log/clamav/clamav-milter.log:" \
+				local milter_sed_args=(
+					-e "s:^\(Example\):\# \1:"
+					-e "s:^\#\(PidFile\) .*:\1 ${EPREFIX}/run/clamav-milter.pid:"
+					-e "s/^#\(ClamdSocket unix:.*\)/\1/"
+					-e "s/^#\(User .*\)/\1/"
+					-e "s:^\#\(LogFile\) .*:\1 ${EPREFIX}/var/log/clamav/clamav-milter.log:"
+				)
+				sed "${milter_sed_args[@]}" \
 					"${ED}"/etc/clamav/clamav-milter.conf.sample > \
 					"${ED}"/etc/clamav/clamav-milter.conf || die
 
