@@ -6,12 +6,11 @@ EAPI=8
 DIST_AUTHOR=LEONT
 inherit perl-module
 
-DESCRIPTION="An abstract representation of build processes"
+DESCRIPTION="Perl interface to the Argon2 key derivation functions"
 
+LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 
-BDEPEND="
-	dev-perl/ExtUtils-Config
-	dev-perl/ExtUtils-Helpers
-"
+# TODO: unbundle app-crypt/argon2
+BDEPEND="dev-perl/Dist-Build"
