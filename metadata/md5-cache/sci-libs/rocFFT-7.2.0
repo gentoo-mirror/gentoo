@@ -4,7 +4,7 @@ DEPEND=dev-db/sqlite:3 dev-util/hip:= perfscripts? ( media-gfx/asymptote dev-tex
 DESCRIPTION=Next generation FFT implementation for ROCm
 EAPI=8
 HOMEPAGE=https://github.com/ROCm/rocm-libraries/tree/develop/projects/rocfft
-INHERIT=cmake check-reqs edo multiprocessing python-r1 rocm
+INHERIT=cmake check-reqs edo flag-o-matic multiprocessing python-r1 rocm
 IUSE=benchmark perfscripts test python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 +amdgpu_targets_gfx908 +amdgpu_targets_gfx90a +amdgpu_targets_gfx942 +amdgpu_targets_gfx950 +amdgpu_targets_gfx1030 +amdgpu_targets_gfx1100 +amdgpu_targets_gfx1101 +amdgpu_targets_gfx1200 +amdgpu_targets_gfx1201 amdgpu_targets_gfx803 amdgpu_targets_gfx900 amdgpu_targets_gfx906 amdgpu_targets_gfx940 amdgpu_targets_gfx941 amdgpu_targets_gfx1010 amdgpu_targets_gfx1011 amdgpu_targets_gfx1012 amdgpu_targets_gfx1031 amdgpu_targets_gfx1102 amdgpu_targets_gfx1103 amdgpu_targets_gfx1150 amdgpu_targets_gfx1151
 KEYWORDS=~amd64
 LICENSE=MIT
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/7.2
 SRC_URI=https://github.com/ROCm/rocm-libraries/releases/download/rocm-7.2.0/rocfft.tar.gz -> rocfft-7.2.0.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	edo	a5e294016aa84979fcb2459749eb80b2	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	rocm	b406b041c5b107f8d8600865210e24e2
-_md5_=c8472d504b96aca040150ddc07defdde
+_md5_=bec84006cbce0c7e55f22c711c5b91b6
