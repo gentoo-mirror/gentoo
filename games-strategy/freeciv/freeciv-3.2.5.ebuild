@@ -77,14 +77,14 @@ BDEPEND="
 	nls? ( sys-devel/gettext )
 "
 
+PATCHES=(
+	"${FILESDIR}/${P}-sdl2-include.patch"
+)
+
 pkg_setup() {
 	use system-lua && lua-single_pkg_setup
 	use svg && use !qt6 && einfo "SVG flags only supported in qt6 client, ignoring"
 }
-
-PATCHES=(
-	"${FILESDIR}/${P}-widget_id-truncation.patch"
-)
 
 src_prepare() {
 	# Upstream's meson.build is not very friendly to our needs
@@ -183,7 +183,7 @@ src_install() {
 	# that would require a lot of work to avoid orphan files.
 	# freeciv-manual only supports one ruleset argument at a time.
 	elog "Generating html manual..."
-	for RULESET in alien civ1 civ2 civ2civ3 classic goldkeep multiplayer sandbox
+	for RULESET in alien civ1 civ2 civ2civ3 classic multiplayer sandbox
 	do
 		$(find "${WORKDIR}" -type d -maxdepth 1 -mindepth 1 -iname '*-build')/freeciv-manual -r ${RULESET} ||
 			die "Unable to generate HTML output for ${RULESET}"
