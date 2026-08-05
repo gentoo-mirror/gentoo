@@ -1,0 +1,16 @@
+BDEPEND=dev-perl/ExtUtils-Helpers dev-perl/PkgConfig dev-perl/Module-Build-Tiny >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] test? ( >=virtual/perl-Test-Simple-1 )
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=>=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DESCRIPTION=Dist::Build extension to use pkg-config
+EAPI=8
+HOMEPAGE=https://metacpan.org/release/Dist-Build-XS-PkgConfig
+INHERIT=perl-module
+IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
+KEYWORDS=~amd64
+LICENSE=|| ( Artistic GPL-1+ )
+RDEPEND=dev-perl/ExtUtils-Helpers dev-perl/PkgConfig >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=mirror://cpan/authors/id/L/LE/LEONT/Dist-Build-XS-PkgConfig-0.002.tar.gz
+_eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	perl-functions	1863acf0982afafc67797e3ce7275b4c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	perl-module	2b0cee83b698c857a4657683b87cc3ce
+_md5_=85890e06840f3873bbad3c8d341b707c

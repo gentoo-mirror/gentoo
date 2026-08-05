@@ -1,6 +1,6 @@
 BDEPEND=dev-go/go-md2man >=dev-lang/go-1.25.9 >=dev-lang/go-1.24.11:= app-arch/unzip >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install prepare pretend setup test unpack
-DEPEND=>=app-containers/container-libs-0.68.0[extra(-)] app-crypt/gpgme:= dev-db/sqlite:3= dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:= apparmor? ( sys-libs/libapparmor:= ) btrfs? ( sys-fs/btrfs-progs ) seccomp? ( sys-libs/libseccomp:= ) selinux? ( sec-policy/selinux-podman sys-libs/libselinux:= ) systemd? ( sys-apps/systemd )
+DEPEND=>=app-containers/container-libs-0.68.0[extra(-)] app-crypt/gpgme:= dev-db/sqlite:3= dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:= apparmor? ( sys-libs/libapparmor:= ) btrfs? ( sys-fs/btrfs-progs ) seccomp? ( sys-libs/libseccomp:= ) selinux? ( sec-policy/selinux-podman ) systemd? ( sys-apps/systemd )
 DESCRIPTION=A tool that facilitates building OCI images
 EAPI=8
 HOMEPAGE=https://github.com/containers/buildah
@@ -8,8 +8,8 @@ INHERIT=go-module linux-info toolchain-funcs git-r3
 IUSE=apparmor btrfs +seccomp selinux systemd test
 LICENSE=Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT MPL-2.0
 PROPERTIES=live
-RDEPEND=>=app-containers/container-libs-0.68.0[extra(-)] app-crypt/gpgme:= dev-db/sqlite:3= dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:= apparmor? ( sys-libs/libapparmor:= ) btrfs? ( sys-fs/btrfs-progs ) seccomp? ( sys-libs/libseccomp:= ) selinux? ( sec-policy/selinux-podman sys-libs/libselinux:= ) systemd? ( sys-apps/systemd )
+RDEPEND=>=app-containers/container-libs-0.68.0[extra(-)] app-crypt/gpgme:= dev-db/sqlite:3= dev-libs/libgpg-error:= dev-libs/libassuan:= sys-apps/shadow:= apparmor? ( sys-libs/libapparmor:= ) btrfs? ( sys-fs/btrfs-progs ) seccomp? ( sys-libs/libseccomp:= ) selinux? ( sec-policy/selinux-podman ) systemd? ( sys-apps/systemd )
 RESTRICT=test
 SLOT=0
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b	linux-info	efd923656513c879204fec6638eadee5	git-r3	2f8cdb10b033f92c3136aa6488a31c98
-_md5_=f9e458792a37cb5cc821b5f01ab08e1b
+_md5_=ba787b12c3e8a960b88488b633df7830

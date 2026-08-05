@@ -1,6 +1,6 @@
 BDEPEND=|| ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) dev-go/go-md2man >=dev-lang/go-1.25.7 >=dev-lang/go-1.24.11:= app-arch/unzip >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile install postinst prepare setup unpack
-DEPEND=app-containers/catatonit >=app-containers/conmon-2.1.10 >=app-containers/container-libs-0.68.0[extra(-)] app-crypt/gpgme:= dev-db/sqlite:3 dev-libs/libassuan:= dev-libs/libgpg-error:= sys-apps/shadow:= apparmor? ( sys-libs/libapparmor ) btrfs? ( sys-fs/btrfs-progs ) wrapper? ( !app-containers/docker-cli ) seccomp? ( sys-libs/libseccomp:= ) selinux? ( sec-policy/selinux-podman sys-libs/libselinux:= ) systemd? ( sys-apps/systemd:= )
+DEPEND=app-containers/catatonit >=app-containers/conmon-2.1.10 >=app-containers/container-libs-0.68.0[extra(-)] app-crypt/gpgme:= dev-db/sqlite:3 dev-libs/libassuan:= dev-libs/libgpg-error:= sys-apps/shadow:= apparmor? ( sys-libs/libapparmor ) btrfs? ( sys-fs/btrfs-progs ) wrapper? ( !app-containers/docker-cli ) seccomp? ( sys-libs/libseccomp:= ) selinux? ( sec-policy/selinux-podman ) systemd? ( sys-apps/systemd:= )
 DESCRIPTION=A tool for managing OCI containers and pods with Docker-compatible CLI
 EAPI=8
 HOMEPAGE=https://github.com/podman-container-tools/podman/ https://podman.io/
@@ -8,8 +8,8 @@ INHERIT=go-module python-any-r1 tmpfiles toolchain-funcs linux-info git-r3
 IUSE=apparmor btrfs cron +seccomp selinux systemd wrapper
 LICENSE=Apache-2.0 BSD BSD-2 CC-BY-SA-4.0 ISC MIT MPL-2.0
 PROPERTIES=live
-RDEPEND=app-containers/catatonit >=app-containers/conmon-2.1.10 >=app-containers/container-libs-0.68.0[extra(-)] app-crypt/gpgme:= dev-db/sqlite:3 dev-libs/libassuan:= dev-libs/libgpg-error:= sys-apps/shadow:= apparmor? ( sys-libs/libapparmor ) btrfs? ( sys-fs/btrfs-progs ) wrapper? ( !app-containers/docker-cli ) seccomp? ( sys-libs/libseccomp:= ) selinux? ( sec-policy/selinux-podman sys-libs/libselinux:= ) systemd? ( sys-apps/systemd:= ) virtual/tmpfiles
+RDEPEND=app-containers/catatonit >=app-containers/conmon-2.1.10 >=app-containers/container-libs-0.68.0[extra(-)] app-crypt/gpgme:= dev-db/sqlite:3 dev-libs/libassuan:= dev-libs/libgpg-error:= sys-apps/shadow:= apparmor? ( sys-libs/libapparmor ) btrfs? ( sys-fs/btrfs-progs ) wrapper? ( !app-containers/docker-cli ) seccomp? ( sys-libs/libseccomp:= ) selinux? ( sec-policy/selinux-podman ) systemd? ( sys-apps/systemd:= ) virtual/tmpfiles
 RESTRICT=test
 SLOT=0
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	python-any-r1	891415dfe39ad9b41b461f2b86354af0	tmpfiles	e0b49bcd7a0daea941c0fbe4cb35ff4e	linux-info	efd923656513c879204fec6638eadee5	git-r3	2f8cdb10b033f92c3136aa6488a31c98
-_md5_=eb9c70aa7d388ee9f6b3a79d8e91ea97
+_md5_=07a1c1010fe2bdcc671ae0c4033a7bee
