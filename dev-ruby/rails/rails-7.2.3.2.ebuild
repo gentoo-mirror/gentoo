@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,12 +13,12 @@ RUBY_FAKEGEM_EXTRADOC="README.md"
 
 inherit ruby-fakegem
 
-DESCRIPTION="ruby on rails is a web-application and persistence framework"
+DESCRIPTION="Ruby on Rails is a web-application and persistence framework"
 HOMEPAGE="https://rubyonrails.org"
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64"
 
 ruby_add_rdepend "
 	~dev-ruby/actioncable-${PV}
