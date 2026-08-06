@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://www.clamav.net/
 INHERIT=cargo cmake eapi9-ver flag-o-matic python-any-r1 systemd tmpfiles
 IUSE=doc clamonacc +clamapp experimental libclamav-only milter rar selinux +system-mspack systemd test debug
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ppc ppc64 ~riscv ~sparc ~x86
+KEYWORDS=~alpha amd64 ~arm arm64 ~ppc ppc64 ~riscv ~sparc ~x86
 LICENSE=Apache-2.0 BSD GPL-2 ISC MIT MPL-2.0 Unicode-DFS-2016 ZLIB
 RDEPEND=acct-group/clamav acct-user/clamav app-arch/bzip2 dev-libs/check:= dev-libs/json-c:= dev-libs/libltdl dev-libs/libpcre2:= dev-libs/libxml2:= dev-libs/openssl:= >=virtual/zlib-1.2.2:= virtual/libiconv !libclamav-only? ( net-misc/curl ) clamapp? ( sys-libs/ncurses:= net-misc/curl ) elibc_musl? ( sys-libs/fts-standalone ) milter? ( mail-filter/libmilter:= ) rar? ( app-arch/unrar ) system-mspack? ( dev-libs/libmspack ) test? ( dev-python/pytest ) selinux? ( sec-policy/selinux-clamav ) virtual/tmpfiles
 REQUIRED_USE=libclamav-only? ( !clamonacc !clamapp !milter ) clamonacc? ( clamapp ) milter? ( clamapp ) test? ( !libclamav-only )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/lts
 SRC_URI=https://github.com/Cisco-Talos/clamav/archive/refs/tags/clamav-1.4.5.tar.gz https://deps.gentoo.zip/app-antivirus/clamav/clamav-1.4.5-crates.tar.xz https://github.com/Cisco-Talos/onenote.rs/archive/8b450447e58143004b68dd21c11b710fdb79be92.tar.gz -> onenote.rs-8b450447e58143004b68dd21c11b710fdb79be92.gh.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	0e6dcc60973be397aa943d9efae0e2bf	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	c18ade5e10cfd39155908ca389968d65	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	e0b49bcd7a0daea941c0fbe4cb35ff4e
-_md5_=f03815f3981185ff9601abd9fd1e46d7
+_md5_=ecb43cda23f7e36c53afaf7a15c70b2a
