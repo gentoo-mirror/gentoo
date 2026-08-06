@@ -6,7 +6,7 @@ EAPI=8
 inherit go-module linux-info shell-completion systemd sysroot tmpfiles
 
 # They should be updated on every bump.
-VERSION_GIT_HASH="87ab41993e0aba0965ef887af38c2543572bef3a"
+VERSION_GIT_HASH="eb67e5dcbe145d63e1128b9b4b630f8a82da101f"
 VERSION_MINOR=$(ver_cut 2)
 VERSION_SHORT=${PV}
 VERSION_LONG=${PV}-t${VERSION_GIT_HASH::9}
@@ -26,7 +26,7 @@ RESTRICT="test"
 CONFIG_CHECK="~TUN"
 
 RDEPEND="|| ( net-firewall/iptables net-firewall/nftables )"
-BDEPEND=">=dev-lang/go-1.26.2"
+BDEPEND=">=dev-lang/go-1.26.5"
 
 src_compile() {
 	# This translates the build command from upstream's build_dist.sh to an
