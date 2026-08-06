@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit bash-completion-r1
+inherit shell-completion
 
 DESCRIPTION="command line interface for Amazon Web Services"
 HOMEPAGE="
