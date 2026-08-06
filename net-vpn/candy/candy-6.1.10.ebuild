@@ -16,7 +16,6 @@ KEYWORDS="~amd64 ~arm64"
 DEPEND="
 	dev-libs/poco:=[crypt,net,util,xml]
 	dev-libs/openssl:=
-	dev-libs/spdlog:=
 	dev-libs/libfmt:=
 "
 RDEPEND="
