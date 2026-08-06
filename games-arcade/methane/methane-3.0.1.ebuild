@@ -1,45 +1,36 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit desktop toolchain-funcs
+inherit cmake desktop
 
 DESCRIPTION="Port from an old Amiga game"
-HOMEPAGE="https://methane.sourceforge.net/"
+HOMEPAGE="https://methane.sourceforge.net/ https://github.com/rombust/Methane"
 SRC_URI="https://github.com/rombust/Methane/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
-	https://src.fedoraproject.org/rpms/methane/raw/f37/f/methane.png
+	https://src.fedoraproject.org/rpms/methane/raw/f41/f/methane.png
 "
+S="${WORKDIR}/Methane-${PV}"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-S="${WORKDIR}/Methane-${PV}"
 
 RDEPEND="
-	dev-games/clanlib:4.1[opengl,sound]
-	media-libs/libmikmod
+	dev-util/vulkan-headers
+	media-libs/alsa-lib
+	x11-libs/libXinerama
+	x11-libs/libXrender
 "
 DEPEND="${RDEPEND}"
 BDEPEND="virtual/pkgconfig"
 
-PATCHES=(
-	"${FILESDIR}/${P}-makefile.patch"
-)
-
-src_prepare() {
-	default
-
-	tc-export PKG_CONFIG
-}
-
 src_install() {
-	dobin methane
-
+	dobin "${S}_build"/methane
 	insinto /usr/share/${PN}
 	doins resources/*
 
 	doicon "${DISTDIR}/${PN}.png"
 	make_desktop_entry ${PN} "Super Methane Brothers"
-	HTML_DOCS="docs/*" dodoc authors.txt history.txt readme.txt
+	HTML_DOCS="docs/*" dodoc authors.txt history.txt README.md
 }
