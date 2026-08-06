@@ -1,0 +1,16 @@
+BDEPEND=|| ( dev-lang/python:3.15 dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) >=dev-build/cmake-3.16 >=dev-cpp/cppgir-2.0_p20260226 >=dev-libs/gobject-introspection-1.82.0-r2 dev-qt/qtshadertools >=dev-util/gdbus-codegen-2.80.5-r1 virtual/pkgconfig wayland? ( dev-util/wayland-scanner ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare pretend setup test
+DEPEND=!net-im/telegram-desktop-bin app-arch/lz4:= app-text/cmark-gfm:= dev-cpp/abseil-cpp:= dev-cpp/ada:= dev-cpp/cld3:= >=dev-cpp/glibmm-2.77:2.68 dev-cpp/toomanycooks dev-libs/libfido2:= dev-libs/glib:2 dev-libs/openssl:= >=dev-libs/protobuf-21.12 dev-libs/qr-code-generator:= dev-libs/xxhash >=dev-qt/qtbase-6.5:6=[dbus?,gui,network,opengl,ssl,wayland?,widgets] >=dev-qt/qtimageformats-6.5:6 >=dev-qt/qtsvg-6.5:6 kde-frameworks/kcoreaddons:6 media-libs/libjpeg-turbo:= media-libs/openal media-libs/opus media-libs/rnnoise >=media-libs/tg_owt-0_pre20241202:=[screencast=,X=] >=media-video/ffmpeg-6:=[opus,vpx] net-libs/tdlib:=[tde2e] sys-apps/hwloc:= virtual/minizip:= !enchant? ( >=app-text/hunspell-1.7:= ) enchant? ( app-text/enchant:= ) webkit? ( wayland? ( >=dev-qt/qtdeclarative-6.5:6 >=dev-qt/qtwayland-6.5:6[compositor(+),qml] ) ) >=dev-cpp/cppgir-2.0_p20240315 dev-cpp/expected dev-cpp/expected-lite >=dev-cpp/ms-gsl-4.1.0 dev-cpp/range-v3
+DESCRIPTION=Official desktop client for Telegram
+EAPI=8
+HOMEPAGE=https://desktop.telegram.org https://github.com/telegramdesktop/tdesktop
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=xdg cmake python-any-r1 optfeature flag-o-matic
+IUSE=dbus enchant +fonts screencast wayland webkit +X
+KEYWORDS=~amd64
+LICENSE=BSD GPL-3-with-openssl-exception LGPL-2+
+RDEPEND=!net-im/telegram-desktop-bin app-arch/lz4:= app-text/cmark-gfm:= dev-cpp/abseil-cpp:= dev-cpp/ada:= dev-cpp/cld3:= >=dev-cpp/glibmm-2.77:2.68 dev-cpp/toomanycooks dev-libs/libfido2:= dev-libs/glib:2 dev-libs/openssl:= >=dev-libs/protobuf-21.12 dev-libs/qr-code-generator:= dev-libs/xxhash >=dev-qt/qtbase-6.5:6=[dbus?,gui,network,opengl,ssl,wayland?,widgets] >=dev-qt/qtimageformats-6.5:6 >=dev-qt/qtsvg-6.5:6 kde-frameworks/kcoreaddons:6 media-libs/libjpeg-turbo:= media-libs/openal media-libs/opus media-libs/rnnoise >=media-libs/tg_owt-0_pre20241202:=[screencast=,X=] >=media-video/ffmpeg-6:=[opus,vpx] net-libs/tdlib:=[tde2e] sys-apps/hwloc:= virtual/minizip:= !enchant? ( >=app-text/hunspell-1.7:= ) enchant? ( app-text/enchant:= ) webkit? ( wayland? ( >=dev-qt/qtdeclarative-6.5:6 >=dev-qt/qtwayland-6.5:6[compositor(+),qml] ) ) webkit? ( || ( net-libs/webkit-gtk:4.1 net-libs/webkit-gtk:6 ) )
+SLOT=0
+SRC_URI=https://github.com/telegramdesktop/tdesktop/releases/download/v7.0.8/tdesktop-7.0.8-full.tar.gz
+_eclasses_=xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	cmake	c54f532543a549f7318d6c49aaf8e953	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	python-any-r1	891415dfe39ad9b41b461f2b86354af0	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988
+_md5_=c80833cb02823881bd4b966c6c610bf5
