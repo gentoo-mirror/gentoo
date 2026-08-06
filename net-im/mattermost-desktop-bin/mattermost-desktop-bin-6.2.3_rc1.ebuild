@@ -74,12 +74,6 @@ DOCS=(
 src_prepare() {
 	default
 
-	if use amd64; then
-		find . '(' -name koffi-linux-arm64 -o -name musl_x64 ')' -exec rm -r {} + || die
-	elif use arm64; then
-		find . '(' -name koffi-linux-x64 -o name musl_arm64 ')' -exec rm -r {} + || die
-	fi
-
 	# file collision with FEATURES=splitdebug, see bug #961437
 	tc-export OBJCOPY
 	find . -type f ! -name '*$(*)*' -print0 | while IFS= read -r -d '' file; do
@@ -117,7 +111,7 @@ src_install() {
 		-n Mattermost \
 		-i mattermost-desktop \
 		-c "Network;InstantMessaging;" \
-		-e "MimeType=x-scheme-handler/mattermost;" -e "StartupWMClass=Mattermost.Desktop"
+		-e "MimeType=x-scheme-handler/mattermost;" -e "StartupWMClass=Mattermost"
 
 	einstalldocs
 }
