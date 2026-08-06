@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install prepare setup
+DEPEND=app-arch/zstd dev-libs/expat dev-libs/libutf8proc:= dev-libs/pugixml dev-qt/qtbase:6= media-libs/flac:= media-libs/fontconfig media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libsdl3 media-libs/portmidi media-libs/sdl3-ttf sys-devel/gcc:*[cxx] virtual/zlib:= x11-libs/libX11 x11-libs/libXi pipewire? ( media-video/pipewire ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse ) || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) dev-cpp/asio dev-libs/rapidjson media-libs/glm
+DESCRIPTION=Multiple Arcade Machine Emulator
+EAPI=8
+HOMEPAGE=https://github.com/mamedev/mame
+INHERIT=toolchain-funcs python-any-r1
+IUSE=portaudio pulseaudio pipewire
+KEYWORDS=~amd64
+LICENSE=BSD BSD-2 CC0-1.0 GPL-2+ LGPL-2.1+ MIT public-domain
+RDEPEND=app-arch/zstd dev-libs/expat dev-libs/libutf8proc:= dev-libs/pugixml dev-qt/qtbase:6= media-libs/flac:= media-libs/fontconfig media-libs/libglvnd media-libs/libjpeg-turbo:= media-libs/libsdl3 media-libs/portmidi media-libs/sdl3-ttf sys-devel/gcc:*[cxx] virtual/zlib:= x11-libs/libX11 x11-libs/libXi pipewire? ( media-video/pipewire ) portaudio? ( media-libs/portaudio ) pulseaudio? ( media-libs/libpulse )
+SLOT=0
+SRC_URI=https://github.com/mamedev/mame/archive/refs/tags/mame0289.tar.gz -> mame-0.289.gh.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=85cbbe17a9d1d3cce44ae6504c9b8f35
