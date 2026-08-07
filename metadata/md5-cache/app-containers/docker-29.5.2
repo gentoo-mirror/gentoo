@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://www.docker.com/
 INHERIT=go-module linux-info optfeature systemd toolchain-funcs udev
 IUSE=apparmor btrfs +container-init cuda +overlay2 seccomp selinux systemd
-KEYWORDS=~amd64 ~arm arm64 ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 ~arm arm64 ~ppc64 ~riscv ~x86
 LICENSE=Apache-2.0
 RDEPEND=acct-group/docker >=dev-db/sqlite-3.7.9:3 net-firewall/nftables:= apparmor? ( sys-libs/libapparmor ) btrfs? ( >=sys-fs/btrfs-progs-3.16.1 ) seccomp? ( >=sys-libs/libseccomp-2.2.1 ) systemd? ( sys-apps/systemd ) sys-process/procps >=dev-vcs/git-1.7 >=app-arch/xz-utils-4.9 >=app-containers/containerd-2.2.0[apparmor?,btrfs?,seccomp?] >=app-containers/runc-1.2.6[apparmor?,seccomp?] !app-containers/docker-proxy !<app-containers/docker-cli-29.5.2 container-init? ( >=sys-process/tini-0.19.0[static] ) cuda? ( app-containers/nvidia-container-toolkit ) selinux? ( sec-policy/selinux-docker )
 RESTRICT=installsources strip test
 SLOT=0
 SRC_URI=https://github.com/moby/moby/archive/docker-v29.5.2.tar.gz -> docker-29.5.2.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b	linux-info	efd923656513c879204fec6638eadee5	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	systemd	a964c0cbe818b5729da1dbfcee5be861	udev	1a23882bb73bc31c64a6f00a5e515f34
-_md5_=e393e4fa93157211a75c2d0d04666c39
+_md5_=af93ec3576563e89b71f63f347022f45

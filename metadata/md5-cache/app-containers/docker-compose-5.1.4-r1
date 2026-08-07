@@ -4,11 +4,11 @@ DESCRIPTION=Multi-container orchestration for Docker
 EAPI=8
 HOMEPAGE=https://github.com/docker/compose
 INHERIT=eapi9-ver optfeature
-KEYWORDS=~amd64 arm64
+KEYWORDS=amd64 arm64
 LICENSE=Apache-2.0
 RDEPEND=|| ( >=app-containers/docker-cli-29.5.2 app-containers/podman[wrapper(+)] )
 RESTRICT=test
 SLOT=2
 SRC_URI=https://github.com/docker/compose/archive/v5.1.4.tar.gz -> docker-compose-5.1.4.gh.tar.gz https://github.com/gentoo-golang-dist/compose/releases/download/v5.1.4/compose-5.1.4-vendor.tar.xz
 _eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988
-_md5_=0de91941933c014ef83ad99762a9f616
+_md5_=65795553caa2a7fa97b6bd750e7fae57
