@@ -19,7 +19,7 @@ SRC_URI="
 
 LICENSE="Apache-2.0"
 SLOT="1"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
 IUSE="berkdb doc gdbm ldap mysql nss odbc openssl postgres sqlite static-libs"
 
 RDEPEND="
@@ -56,7 +56,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-1.6.1-my_bool.patch
 	"${FILESDIR}"/${PN}-1.6.1-drop-my_init.patch
 	"${FILESDIR}"/${PN}-1.6.3-fix-pkgconfig-libs.patch
-	"${FILESDIR}"/${PN}-1.6.3-configure-int.patch
 )
 
 QA_CONFIG_IMPL_DECL_SKIP=(
