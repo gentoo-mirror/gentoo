@@ -19,7 +19,7 @@ SLOT="0"
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc64 ~riscv ~s390 ~x86"
 
 RDEPEND="
-	>=dev-python/prompt-toolkit-3.0.52[${PYTHON_USEDEP}]
+	>=dev-python/prompt-toolkit-3.0.53[${PYTHON_USEDEP}]
 	>=dev-python/pyperclip-1.8.2[${PYTHON_USEDEP}]
 	>=dev-python/rich-15.0.0[${PYTHON_USEDEP}]
 	>=dev-python/rich-argparse-1.7.2[${PYTHON_USEDEP}]

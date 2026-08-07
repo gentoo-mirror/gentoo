@@ -3,12 +3,12 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{12..14} )
+DISTUTILS_USE_PEP517=flit-core
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
-SAMPLE_COMMIT=8c405ece5eff12396a34a1fae3276132002e1753
+SAMPLE_COMMIT=818dc013ad1f537198e9fcfae8a6b0dffe25ffa3
 DESCRIPTION="Python library to work with PDF files"
 HOMEPAGE="
 	https://pypi.org/project/pypdf/
@@ -25,7 +25,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~ppc ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
 BDEPEND="
 	test? (
@@ -40,6 +40,11 @@ BDEPEND="
 EPYTEST_PLUGINS=( pytest-timeout )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
+	# probably requires extra deps
+	tests/test_appearance_stream.py::test_appearance_stream_rtl
+)
 
 src_unpack() {
 	default

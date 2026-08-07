@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYPI_VERIFY_REPO=https://github.com/mypyc/librt
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} python3_{14..15}t )
 
 inherit distutils-r1 pypi
 
@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="MIT PSF-2.4"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~m68k ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~m68k ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 BDEPEND="
 	test? (
