@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 inherit distutils-r1
 
 if [[ ${PV} == *9999 ]] ; then
@@ -18,6 +18,8 @@ fi
 
 DESCRIPTION="a framework for package management"
 HOMEPAGE="https://github.com/pkgcore/pkgcore"
+SRC_URI+=" https://github.com/pkgcore/pkgcore/commit/64f1319f0bb147d61cb080f07acd5f416d9c680e.patch
+	-> ${P}-fix-empty-depset.patch"
 
 LICENSE="BSD MIT"
 SLOT="0"
@@ -25,7 +27,7 @@ SLOT="0"
 if [[ ${PV} == *9999 ]]; then
 	RDEPEND="~dev-python/snakeoil-9999[${PYTHON_USEDEP}]"
 else
-	RDEPEND=">=dev-python/snakeoil-0.11.0[${PYTHON_USEDEP}]"
+	RDEPEND=">=dev-python/snakeoil-0.11.3[${PYTHON_USEDEP}]"
 fi
 
 RDEPEND+="
@@ -39,6 +41,11 @@ BDEPEND="${RDEPEND}
 	)
 "
 
+PATCHES=(
+	"${DISTDIR}/${P}-fix-empty-depset.patch"
+)
+
+EPYTEST_PLUGINS=( pkgcore )
 distutils_enable_tests pytest
 
 python_install_all() {
