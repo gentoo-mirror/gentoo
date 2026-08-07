@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install
+DEPEND=sys-libs/ncurses:0= hunspell? ( app-text/hunspell:= )
+DESCRIPTION=uEmacs/PK is an enhanced version of MicroEMACS
+EAPI=9
+HOMEPAGE=https://git.kernel.org/pub/scm/editors/uemacs/uemacs.git
+INHERIT=toolchain-funcs
+IUSE=hunspell
+KEYWORDS=~amd64 ~riscv ~x86
+LICENSE=free-noncomm
+RDEPEND=sys-libs/ncurses:0= hunspell? ( app-text/hunspell:= )
+SLOT=0
+SRC_URI=https://distfiles.gentoo.org/pub/proj/emacs/uemacs-pk-4.0.15_p20260806.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
+_md5_=107a988ef6643c33bc032a894610f2ab
