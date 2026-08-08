@@ -15,7 +15,7 @@ SRC_URI="
 "
 S="${WORKDIR}"
 
-LICENSE="Epic-TOS Apache-2.0 BSD BSD-2 libpng2 MIT OFL-1.1 ZLIB" # See LICENSE.md
+LICENSE="Epic-TOS Apache-2.0 BSD BSD-2 HappyBunny libpng2 MIT OFL-1.1 ZLIB" # See LICENSE.md
 SLOT="0"
 KEYWORDS="-* ~amd64 ~arm64 ~x86"
 IUSE="dedicated l10n_ca l10n_de l10n_el l10n_es l10n_fr l10n_it l10n_nl l10n_pt l10n_ru opengl vulkan"
@@ -27,7 +27,7 @@ BDEPEND="
 	dev-util/patchelf
 "
 RDEPEND="
-	media-libs/libsdl2[opengl,video]
+	media-libs/libsdl2[opengl?,video,vulkan?]
 	media-libs/libsndfile
 	media-libs/libxmp
 	media-libs/openal
@@ -107,7 +107,8 @@ src_install() {
 		-e "s:@GameRenderDevice@:${GameRenderDevice}:g" \
 		"${FILESDIR}/wrapper.sh" | newbin - ${PN}
 
-	dosym ${PN} /usr/bin/${PN}-ucc
+	# ucc does not benefit from the wrapper.
+	dosym -r "${DIR}/${System}"/ucc-bin /usr/bin/${PN}-ucc
 
 	doicon -s 128 "${DISTDIR}/${PN}.png"
 	make_desktop_entry --eapi9 ${PN} -n "Unreal Tournament" \
