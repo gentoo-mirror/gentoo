@@ -9,8 +9,8 @@ inherit edo flag-o-matic multilib-build toolchain-funcs
 # Pick versions known to work for wine+dxvk, and avoid too frequent updates
 # due to slow rebuilds. Do _p1++ rather than revbump on changes (not using
 # Gentoo patchsets for simplicity, their changes are mostly unneeded here).
-BINUTILS_PV=2.45.1
-GCC_PV=15.2.0
+BINUTILS_PV=2.47
+GCC_PV=16.2.0
 MINGW_PV=$(ver_cut 1-3)
 
 DESCRIPTION="All-in-one mingw64 toolchain intended for building Wine without crossdev"
@@ -40,7 +40,7 @@ LICENSE="
 	ZPL BSD BSD-2 ISC LGPL-2+ LGPL-2.1+ MIT public-domain
 "
 SLOT="0"
-KEYWORDS="-* amd64 x86"
+KEYWORDS="-* ~amd64 ~x86"
 IUSE="+abi_x86_32 +bin-symlinks custom-cflags +strip"
 
 RDEPEND="
@@ -362,14 +362,6 @@ pkg_postinst() {
 		elog "Use sys-devel/crossdev if need full toolchain/customization:"
 		elog "    https://wiki.gentoo.org/wiki/Mingw"
 		elog "    https://wiki.gentoo.org/wiki/Crossdev"
-	fi
-
-	local cross_gcc=cross-$(usex x86 i686 x86_64)-w64-mingw32/gcc
-	if has_version ${cross_gcc}; then
-		# encourage cleanup given users may not realize if switch by default
-		ewarn "${cross_gcc} is installed, note that ${PN}"
-		ewarn "is redundant with the *-w64-mingw32/{binutils,gcc,mingw64-runtime}"
-		ewarn "packages and optionally only one needs to be kept."
 	fi
 }
 
