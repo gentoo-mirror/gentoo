@@ -1,0 +1,17 @@
+BDEPEND=>=games-fps/unreal-227k_p14 cdinstall? ( app-arch/unshield ) gog? ( app-arch/innoextract ) !gog? ( app-arch/libarchive ) cdinstall? ( app-arch/libarchive )
+DEFINED_PHASES=install nofetch postinst pretend setup unpack
+DESCRIPTION=Data files for Unreal and Return to Na Pali
+EAPI=8
+HOMEPAGE=https://liandri.beyondunreal.com/Unreal_Gold
+INHERIT=cdrom check-reqs
+IUSE=doc gog l10n_de l10n_es l10n_fr l10n_it cdinstall
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=Epic-TOS
+PROPERTIES=cdinstall? ( interactive )
+RDEPEND=>=games-fps/unreal-227k_p14
+REQUIRED_USE=?? ( cdinstall gog )
+RESTRICT=bindist gog? ( fetch ) mirror
+SLOT=0
+SRC_URI=!cdinstall? ( !gog? ( fetch+https://files.oldunreal.net/UNREAL_GOLD.ISO -> UNREAL_GOLD.iso ) ) gog? ( setup_unreal_gold_2.0.0.6.exe )
+_eclasses_=portability	3c2334cdfbb30bc4b33c85164fe832bf	cdrom	8ce3a6fc3461ad5aac4a91b47b8d83cd	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c
+_md5_=81dc1a3bd9a5bec07a014fde40b15e0c
