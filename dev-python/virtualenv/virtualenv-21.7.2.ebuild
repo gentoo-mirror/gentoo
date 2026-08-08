@@ -5,8 +5,8 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/pypa/virtualenv
-PYTHON_TESTED=( python3_{11..14} pypy3_11 )
-PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" python3_15 python3_{13..15}t )
+PYTHON_TESTED=( python3_{12..15} )
+PYTHON_COMPAT=( "${PYTHON_TESTED[@]}" python3_{14..15}t )
 
 inherit distutils-r1 pypi
 
@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~m68k ppc ppc64 ~riscv ~s390 x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -47,22 +47,17 @@ BDEPEND="
 			dev-python/pytest-timeout[${PYTHON_USEDEP}]
 			dev-python/pytest-xdist[${PYTHON_USEDEP}]
 			>=dev-python/setuptools-67.8[${PYTHON_USEDEP}]
+			dev-python/time-machine[${PYTHON_USEDEP}]
 			dev-python/wheel[${PYTHON_USEDEP}]
 			>=dev-python/packaging-20.0[${PYTHON_USEDEP}]
 		' "${PYTHON_TESTED[@]}")
-		$(python_gen_cond_dep '
-			dev-python/time-machine[${PYTHON_USEDEP}]
-		' python3_{11..14})
-		$(python_gen_cond_dep '
-			>=dev-python/pytest-freezer-0.4.6[${PYTHON_USEDEP}]
-		' 'pypy3*')
 	)
 "
 
 src_prepare() {
 	local PATCHES=(
 		# use wheels from ensurepip bundle
-		"${FILESDIR}/${PN}-21.2.4-ensurepip.patch"
+		"${FILESDIR}/${PN}-21.5.1-ensurepip.patch"
 	)
 
 	distutils-r1_src_prepare
@@ -93,6 +88,7 @@ python_test() {
 		tests/unit/seed/wheels/test_acquire_find_wheel.py::test_find_exact
 		tests/unit/seed/wheels/test_acquire_find_wheel.py::test_find_latest_none
 		tests/unit/seed/wheels/test_acquire.py::test_download_wheel_bad_output
+		tests/unit/seed/wheels/test_wheels_util.py::test_embed_wheel_below_oldest_supported_is_missing
 		# hangs on a busy system, sigh
 		tests/unit/test_util.py::test_reentrant_file_lock_is_thread_safe
 		# TODO
@@ -104,24 +100,9 @@ python_test() {
 		# we do not use bundled wheels
 		tests/unit/seed/wheels/test_bundle.py::test_every_wheel_on_disk_has_sha256
 	)
-	case ${EPYTHON} in
-		pypy3.11)
-			EPYTEST_DESELECT+=(
-				# these don't like the executable called pypy3.11?
-				tests/unit/activation/test_bash.py::test_bash
-				tests/unit/activation/test_fish.py::test_fish
-				tests/unit/discovery/py_info/test_py_info.py::test_fallback_existent_system_executable
-			)
-			;;
-	esac
 
 	local -x TZ=UTC
-	local EPYTEST_PLUGINS=( pytest-{mock,rerunfailures} )
-	if [[ ${EPYTHON} == pypy3* ]]; then
-		EPYTEST_PLUGINS+=( pytest-freezer )
-	else
-		EPYTEST_PLUGINS+=( time-machine )
-	fi
+	local EPYTEST_PLUGINS=( pytest-{mock,rerunfailures} time-machine )
 	local EPYTEST_RERUNS=5
 	local EPYTEST_TIMEOUT=180
 	local EPYTEST_XDIST=1

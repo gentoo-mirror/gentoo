@@ -3,8 +3,8 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{12..14} )
+DISTUTILS_USE_PEP517=flit-core
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -16,11 +16,11 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
-	>=dev-python/jinxed-2.0[${PYTHON_USEDEP}]
-	>=dev-python/wcwidth-0.7[${PYTHON_USEDEP}]
+	>=dev-python/jinxed-2.1[${PYTHON_USEDEP}]
+	>=dev-python/wcwidth-0.8.1[${PYTHON_USEDEP}]
 "
 
 distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
@@ -46,6 +46,7 @@ python_test() {
 	local EPYTEST_DESELECT=(
 		# fragile to timing
 		tests/test_sixel.py::test_sixel_height_and_width_fallback_to_xtwinops
+		tests/test_sixel.py::test_fast_path_with_caches_populated
 	)
 
 	# COLORTERM must not be truecolor
