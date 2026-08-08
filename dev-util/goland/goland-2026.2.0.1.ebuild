@@ -29,7 +29,7 @@ LICENSE="|| ( JetBrains-business JetBrains-classroom JetBrains-educational JetBr
 	OFL-1.1
 	ZLIB
 "
-SLOT="0/2025"
+SLOT="0/2026"
 KEYWORDS="~amd64 ~arm64"
 IUSE="wayland"
 
@@ -71,6 +71,7 @@ src_prepare() {
 	if ! use arm64 ; then
 		local skip_remote_files=(
 			"plugins/platform-ijent-impl/ijent-aarch64-unknown-linux-musl-release"
+			"plugins/platform-ijent-bundledBinaries/ijent-aarch64-unknown-linux-musl-release"
 			"plugins/gateway-plugin/lib/remote-dev-workers/remote-dev-worker-linux-arm64"
 		)
 	elif ! use amd64; then
@@ -93,8 +94,8 @@ src_prepare() {
 		fi
 	done
 
-	patchelf --set-rpath '$ORIGIN' "jbr/lib/libjcef.so" || die
-	patchelf --set-rpath '$ORIGIN' "jbr/lib/jcef_helper" || die
+	patchelf --set-rpath '$ORIGIN' "plugins/jcef-plugin/jcef/libjcef.so" || die
+	patchelf --set-rpath '$ORIGIN' "plugins/jcef-plugin/jcef/jcef_helper" || die
 
 	# As per https://blog.jetbrains.com/platform/2024/07/wayland-support-preview-in-2024-2/ for full wayland support
 	if use wayland; then
@@ -109,7 +110,8 @@ src_install() {
 	doins -r *
 	fperms 755 "${dir}"/bin/{format.sh,goland.sh,inspect.sh,ltedit.sh,remote-dev-server.sh,restarter,fsnotifier}
 	fperms 755 "${dir}"/jbr/bin/{java,javac,javadoc,jcmd,jdb,jfr,jhsdb,jinfo,jmap,jps,jrunscript,jstack,jstat,keytool,rmiregistry,serialver}
-	fperms 755 "${dir}"/jbr/lib/{chrome-sandbox,jcef_helper,jexec,jspawnhelper}
+	fperms 755 "${dir}"/jbr/lib/{jexec,jspawnhelper}
+	fperms 755 "${dir}"/plugins/jcef-plugin/jcef/{libjcef.so,jcef_helper}
 	fperms 755 "${dir}"/plugins/go-plugin/lib/dlv/linux/dlv
 
 	make_wrapper "${PN}" "${dir}/bin/${PN}.sh"

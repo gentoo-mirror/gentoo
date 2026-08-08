@@ -37,7 +37,7 @@ else
 	OFL-1.1 UPL-1.0 ZLIB"
 fi
 
-SLOT="0/2025"
+SLOT="0/2026"
 KEYWORDS="-* ~amd64 ~arm64 ~x86"
 IUSE="+bundled-jdk"
 
@@ -137,7 +137,7 @@ src_prepare() {
 
 	# excepting files from different architectures that should be kept for remote plugins
 	if ! use arm64; then
-		local skip_remote_files=(
+		skip_remote_files=(
 			"plugins/platform-ijent-impl/ijent-aarch64-unknown-linux-musl-release"
 			"plugins/clion-radler/DotFiles/linux-musl-arm64/jb_zip_unarchiver"
 			"plugins/clion-radler/DotFiles/linux-arm/jb_zip_unarchiver"
@@ -145,7 +145,7 @@ src_prepare() {
 			"plugins/gateway-plugin/lib/remote-dev-workers/remote-dev-worker-linux-arm64"
 		)
 	elif ! use amd64 ; then
-		local skip_remote_files=(
+		skip_remote_files=(
 			"plugins/platform-ijent-impl/ijent-x86_64-unknown-linux-musl-release"
 			"plugins/clion-radler/DotFiles/linux-musl-x64/jb_zip_unarchiver"
 			"plugins/clion-radler/DotFiles/linux-x86/jb_zip_unarchiver"
