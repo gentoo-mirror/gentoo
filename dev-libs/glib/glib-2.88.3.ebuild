@@ -3,7 +3,7 @@
 
 EAPI=8
 PYTHON_REQ_USE="xml(+)"
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit dot-a eapi9-ver gnome.org gnome2-utils linux-info meson-multilib multilib python-any-r1 toolchain-funcs xdg
 
@@ -15,6 +15,7 @@ INTROSPECTION_PV="1.86.0"
 INTROSPECTION_P="${INTROSPECTION_PN}-${INTROSPECTION_PV}"
 SRC_URI="
 	${SRC_URI}
+	https://distfiles.gentoo.org/pub/dev/sam%40gentoo.org/${CATEGORY}/${PN}/${PN}-2.88.2-const-whoops.patch.xz
 	introspection? ( mirror://gnome/sources/gobject-introspection/${INTROSPECTION_PV%.*}/gobject-introspection-${INTROSPECTION_PV}.tar.${GNOME_TARBALL_SUFFIX} )
 "
 INTROSPECTION_SOURCE_DIR="${WORKDIR}/${INTROSPECTION_P}"
@@ -36,7 +37,7 @@ RESTRICT="!test? ( test )"
 # them or just put the (build) deps in that rare consumer instead of recursive
 # RDEPEND here (due to lack of recursive DEPEND).
 RDEPEND="
-	!<dev-libs/gobject-introspection-1.80.1
+	!<dev-libs/gobject-introspection-${INTROSPECTION_PV}
 	!<dev-util/gdbus-codegen-${PV}
 	>=virtual/libiconv-0-r1[${MULTILIB_USEDEP}]
 	>=dev-libs/libpcre2-10.32:0=[${MULTILIB_USEDEP},unicode(+),static-libs?]
@@ -59,7 +60,7 @@ BDEPEND="
 	>=dev-build/meson-1.4.0
 	dev-libs/libxslt
 	>=sys-devel/gettext-0.19.8
-	doc? ( >=dev-util/gi-docgen-2023.1 )
+	doc? ( >=dev-util/gi-docgen-2026.1 )
 	dev-python/docutils
 	systemtap? ( >=dev-debug/systemtap-1.3 )
 	${PYTHON_DEPS}
@@ -91,8 +92,6 @@ MULTILIB_CHOST_TOOLS=(
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-2.64.1-mark-gdbus-server-auth-test-flaky.patch
-	"${FILESDIR}"/${PN}-2.84.4-setlocale-glibc-2.43.patch
-	"${FILESDIR}"/${PN}-2.84.4-fix-const-attribute.patch
 )
 
 python_check_deps() {
@@ -262,6 +261,7 @@ multilib_src_configure() {
 
 			# We want as minimal a build as possible here to speed things up
 			# and reduce the risk of failures.
+			-Db_lto=false
 			-Dglib:selinux=disabled
 			-Dglib:xattr=false
 			-Dglib:libmount=disabled
