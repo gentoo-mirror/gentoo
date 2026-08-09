@@ -9,9 +9,9 @@ CODENAME="Piers"
 
 # Versions for the forked projects that are bundled
 # See tools/depends/target/<project>/<project>-VERSION
-LIBDVDCSS_VERSION="1.4.3-Next-Nexus-Alpha2-2"
-LIBDVDREAD_VERSION="6.1.3-Next-Nexus-Alpha2-2"
-LIBDVDNAV_VERSION="6.1.1-Next-Nexus-Alpha2-2"
+LIBDVDCSS_VERSION="1.5.0"
+LIBDVDNAV_VERSION="7.0.0"
+LIBDVDREAD_VERSION="7.0.1"
 FFMPEG_VERSION="8.1.2"
 
 # Java bundles from xbmc/interfaces/swig/CMakeLists.txt
@@ -38,16 +38,13 @@ DESCRIPTION="A free and open source media-player and entertainment hub"
 HOMEPAGE="https://kodi.tv/"
 
 SRC_URI="
-	https://github.com/xbmc/libdvdnav/archive/${LIBDVDNAV_VERSION}.tar.gz
-		-> libdvdnav-${LIBDVDNAV_VERSION}.tar.gz
-	https://github.com/xbmc/libdvdread/archive/${LIBDVDREAD_VERSION}.tar.gz
-		-> libdvdread-${LIBDVDREAD_VERSION}.tar.gz
 	https://mirrors.kodi.tv/build-deps/sources/apache-groovy-binary-${GROOVY_VERSION}.zip
 	https://mirrors.kodi.tv/build-deps/sources/commons-lang3-${APACHE_COMMON_LANG_VERSION}-bin.tar.gz
 	https://mirrors.kodi.tv/build-deps/sources/commons-text-${APACHE_COMMON_TEXT_VERSION}-bin.tar.gz
+	https://mirrors.kodi.tv/build-deps/sources/libdvdnav-${LIBDVDNAV_VERSION}.tar.bz2
+	https://mirrors.kodi.tv/build-deps/sources/libdvdread-${LIBDVDREAD_VERSION}.tar.bz2
 	css? (
-		https://github.com/xbmc/libdvdcss/archive/${LIBDVDCSS_VERSION}.tar.gz
-			-> libdvdcss-${LIBDVDCSS_VERSION}.tar.gz
+		https://mirrors.kodi.tv/build-deps/sources/libdvdcss-${LIBDVDCSS_VERSION}.tar.bz2
 	)
 	!system-ffmpeg? (
 		https://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.xz
@@ -104,7 +101,6 @@ REQUIRED_USE="
 "
 RESTRICT="!test? ( test )"
 
-# dev-libs/libcec[-cubox] bug #818262
 COMMON_DEPEND="
 	>=dev-libs/flatbuffers-23.3.3:=
 	>=dev-libs/lzo-2.04:2
@@ -160,7 +156,7 @@ COMMON_TARGET_DEPEND="${PYTHON_DEPS}
 		sys-libs/libcap
 	)
 	cec? (
-		>=dev-libs/libcec-4.0[-cubox(-)]
+		>=dev-libs/libcec-4.0:=
 	)
 	dbus? (
 		sys-apps/dbus
@@ -280,7 +276,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/kodi-21-optional-ffmpeg-libx11.patch
-	"${FILESDIR}"/kodi-22-silence-libdvdread-git.patch
 )
 
 # bug #544020
@@ -389,7 +384,6 @@ src_configure() {
 		-DENABLE_AVAHI=$(usex zeroconf)
 		-DENABLE_BLUETOOTH=$(usex bluetooth)
 		-DENABLE_BLURAY=$(usex bluray)
-		-DENABLE_BLURAY_JAR=OFF # applies to internal bluray build
 		-DENABLE_CAP=$(usex caps)
 		-DENABLE_CEC=$(usex cec)
 		-DENABLE_DBUS=$(usex dbus)
@@ -439,17 +433,20 @@ src_configure() {
 		-DENABLE_INTERNAL_TAGLIB=OFF
 
 		-DTARBALL_DIR="${DISTDIR}"
-		-Dlibdvdnav_URL="${DISTDIR}/libdvdnav-${LIBDVDNAV_VERSION}.tar.gz"
-		-Dlibdvdread_URL="${DISTDIR}/libdvdread-${LIBDVDREAD_VERSION}.tar.gz"
 		-Dgroovy_SOURCE_DIR="${WORKDIR}/groovy-${GROOVY_VERSION}"
 		-Dapache-commons-lang_SOURCE_DIR="${WORKDIR}/commons-lang3-${APACHE_COMMON_LANG_VERSION}"
 		-Dapache-commons-text_SOURCE_DIR="${WORKDIR}/commons-text-${APACHE_COMMON_TEXT_VERSION}"
+		-DLIBDVDNAV_URL="${DISTDIR}/libdvdnav-${LIBDVDNAV_VERSION}.tar.bz2"
+		-DLIBDVDREAD_URL="${DISTDIR}/libdvdread-${LIBDVDREAD_VERSION}.tar.bz2"
 	)
 
 	# Separated to avoid "Manually-specified variables were not used by the project:"
-	use bluray && mycmakeargs+=( -DENABLE_INTERNAL_BLURAY=OFF )
+	use bluray && mycmakeargs+=(
+		-DENABLE_INTERNAL_BLURAY=OFF
+		-DENABLE_BLURAY_JAR=OFF # applies to internal bluray build
+	)
 	use cec && mycmakeargs+=( -DENABLE_INTERNAL_CEC=OFF )
-	use css && mycmakeargs+=( -Dlibdvdcss_URL="${DISTDIR}/libdvdcss-${LIBDVDCSS_VERSION}.tar.gz" )
+	use css && mycmakeargs+=( -DLIBDVDCSS_URL="${DISTDIR}/libdvdcss-${LIBDVDCSS_VERSION}.tar.bz2" )
 	use mariadb && mycmakeargs+=( -DENABLE_INTERNAL_MARIADBCLIENT=OFF )
 	use !system-ffmpeg && mycmakeargs+=(
 		# Additional find_package on top of core_optional_deps for whatever reason
