@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig virtual/pkgconfig
+DEFINED_PHASES=configure install postinst preinst
+DEPEND=>dev-libs/libevent-2.1.8:=[ssl] dev-libs/openssl:= mongodb? ( dev-libs/libbson dev-libs/mongo-c-driver ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:* ) redis? ( dev-libs/hiredis:= ) sqlite? ( dev-db/sqlite:3 )
+DESCRIPTION=coturn TURN server project
+EAPI=8
+HOMEPAGE=https://github.com/coturn/coturn
+INHERIT=greadme toolchain-funcs systemd tmpfiles
+IUSE=mongodb mysql postgres redis sqlite
+KEYWORDS=~amd64 ~arm64 ~x86
+LICENSE=BSD
+RDEPEND=>dev-libs/libevent-2.1.8:=[ssl] dev-libs/openssl:= mongodb? ( dev-libs/libbson dev-libs/mongo-c-driver ) mysql? ( dev-db/mysql-connector-c:= ) postgres? ( dev-db/postgresql:* ) redis? ( dev-libs/hiredis:= ) sqlite? ( dev-db/sqlite:3 ) acct-user/turnserver virtual/tmpfiles
+SLOT=0
+SRC_URI=https://github.com/coturn/coturn/archive/4.17.2.tar.gz -> coturn-4.17.2.tar.gz
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	greadme	97db08517f5884d208c65bf80a547e93	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	e0b49bcd7a0daea941c0fbe4cb35ff4e
+_md5_=010b386674e3e621c0fb0c4f3dc837b7
