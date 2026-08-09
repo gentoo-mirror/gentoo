@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/libjxl/libjxl/
 INHERIT=cmake-multilib gnome2-utils
 IUSE=+gdk-pixbuf gif jpeg openexr +png test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
-KEYWORDS=~alpha ~amd64 arm arm64 ~hppa ~loong ~ppc64 ~riscv ~sparc x86
+KEYWORDS=~alpha amd64 arm arm64 ~hppa ~loong ppc64 ~riscv ~sparc x86
 LICENSE=BSD
 RDEPEND=app-arch/brotli:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=dev-cpp/highway-1.0.7[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=media-libs/lcms-2.13:2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] gdk-pixbuf? ( dev-libs/glib:2 x11-libs/gdk-pixbuf:2 ) gif? ( media-libs/giflib:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) jpeg? ( media-libs/libjpeg-turbo:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) openexr? ( media-libs/openexr:= ) png? ( media-libs/libpng:=[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] ) >=x11-misc/shared-mime-info-2.2
 REQUIRED_USE=test? ( png )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/0.12
 SRC_URI=https://github.com/libjxl/libjxl/archive/refs/tags/v0.12.0.tar.gz -> libjxl-0.12.0.tar.gz test? ( https://github.com/libjxl/testdata/archive/73695d303670c90e4d506ea89d9901b081385089.tar.gz -> libjxl-testdata-73695d303670c90e4d506ea89d9901b081385089.tar.gz )
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	multilib-build	d7802b3638ffc661375c0021cdd19efd	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	cmake-multilib	3f19d8d5fccba52076cdeb2281ad349f	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88
-_md5_=b8e1e3f263aba9d85b6a43739d5b2c6b
+_md5_=49c9a05c3e27d5d30f01283d25c75ad9
