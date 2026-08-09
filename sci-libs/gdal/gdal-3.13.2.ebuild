@@ -18,8 +18,8 @@ SRC_URI="
 "
 
 LICENSE="BSD Info-ZIP MIT"
-SLOT="0/38" # subslot is libgdal.so.<SONAME> (and GDAL_SOVERSION in gdal.cmake)
-KEYWORDS="amd64 ~arm arm64 ~ppc ppc64 ~riscv x86"
+SLOT="0/39" # subslot is libgdal.so.<SONAME> (and GDAL_SOVERSION in gdal.cmake)
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="
 	archive armadillo avif blosc cryptopp +curl cpu_flags_arm_neon cpu_flags_x86_avx
 	cpu_flags_x86_avx2 cpu_flags_x86_sse cpu_flags_x86_sse2 cpu_flags_x86_sse4_1
@@ -146,11 +146,6 @@ EPYTEST_PLUGINS=( pytest-env )
 EPYTEST_RERUNS=5
 EPYTEST_XDIST=1
 # distutils_enable_tests unconditionally touches BDEPEND
-
-PATCHES=(
-	"${FILESDIR}"/${P}-fix-completions.patch
-	"${FILESDIR}"/${P}-poppler-26.04.patch # in git master
-)
 
 pkg_setup() {
 	use java && java-pkg-opt-2_pkg_setup
@@ -403,12 +398,16 @@ python_test() {
 
 	EPYTEST_DESELECT=(
 		# network-sandbox
+		"gcore/basic_test.py::test_hint_http"
 		"gcore/tiff_read.py::test_tiff_read_strace_check"
 		"gcore/vsioss.py::test_vsioss_6"
 		"gdrivers/gdalhttp.py::test_http_ssl_verifystatus"
+		"gdrivers/hdf5multidim.py::test_hdf5_multimdim_eos_grid_dimension_list"
 		"gdrivers/jp2openjpeg.py::test_jp2openjpeg_45"
 		"gdrivers/vrtrawlink.py::test_vrtrawlink_GDAL_VRT_RAWRASTERBAND_ALLOWED_SOURCE_ONLY_REMOTE_accepted"
 		"gdrivers/wms.py::test_wms_8"
+		"gdrivers/zarr_driver.py::test_zarr_write_error_at_close_on_array"
+		"gdrivers/zarr_driver.py::test_zarr_write_error_at_close_on_group"
 		"ogr/ogr_csv.py::test_ogr_csv_schema_override"
 		"ogr/ogr_geojson.py::test_ogr_geojson_schema_override"
 		"ogr/ogr_gml.py::test_ogr_gml_type_override"
