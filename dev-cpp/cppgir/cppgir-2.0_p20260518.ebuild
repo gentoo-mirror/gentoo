@@ -8,7 +8,7 @@ inherit cmake flag-o-matic
 DESCRIPTION="GObject-Introspection C++ binding wrapper generator"
 HOMEPAGE="https://gitlab.com/mnauw/cppgir"
 
-MY_PV="47cf94f83b54cda59018135601e19d7fb0c77776"
+MY_PV="0bdd2b6a3cb2b17c36f175b78e914a46784c5b86"
 SRC_URI="https://gitlab.com/mnauw/cppgir/-/archive/${MY_PV}/cppgir-${MY_PV}.tar.bz2 -> ${P}.tar.bz2"
 S="${WORKDIR}/${PN}-${MY_PV}"
 

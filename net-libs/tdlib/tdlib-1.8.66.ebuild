@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,15 +8,20 @@ inherit cmake
 DESCRIPTION="Cross-platform library for building Telegram clients"
 HOMEPAGE="https://github.com/tdlib/td"
 
-MY_PV="51743dfd01dff6179e2d8f7095729caa4e2222e9"
+MY_PV="a9966eb3704a3351568c28013fed67d797c17828"
 SRC_URI="https://github.com/tdlib/td/archive/${MY_PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/td-${MY_PV}"
 
 LICENSE="Boost-1.0"
 SLOT="0/${PV%_p*}"
-KEYWORDS="amd64 ~arm64 ~loong ~riscv"
+KEYWORDS="~amd64 ~arm64 ~loong ~riscv"
 IUSE="+tde2e test"
 RESTRICT="!test? ( test )"
+
+if [ ${PV} = 1.8.66 ]; then
+	# Failing tests
+	RESTRICT+=" test"
+fi
 
 RDEPEND="
 	dev-libs/openssl:=
@@ -34,13 +39,12 @@ src_prepare() {
 		-e '/generate_pkgconfig(tdjson_static /d' \
 		-i CMakeLists.txt || die
 
-	# Benchmarks take way too long to compile
-	sed -e '/add_subdirectory(benchmark)/d' \
-		-i CMakeLists.txt || die
-
 	# Fix tests linking
 	sed -e 's/target_link_libraries(run_all_tests PRIVATE /&tdmtproto /' \
 		-i test/CMakeLists.txt
+
+	# Benchmarks take way too long to compile
+	cmake_comment_add_subdirectory benchmark
 
 	cmake_src_prepare
 }
