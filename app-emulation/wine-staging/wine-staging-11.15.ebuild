@@ -3,11 +3,11 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 inherit edo optfeature python-any-r1 wine
 
 WINE_GECKO=2.47.4
-WINE_MONO=11.1.0
+WINE_MONO=11.2.0
 WINE_P=wine-$(ver_cut 1-2)
 
 if [[ ${PV} == 9999 ]]; then
@@ -33,7 +33,6 @@ S=${WORKDIR}/${WINE_P}
 LICENSE="
 	LGPL-2.1+
 	BSD BSD-2 IJG MIT OPENLDAP ZLIB gsm libpng2 libtiff public-domain
-	|| ( WTFPL-2 public-domain )
 "
 SLOT="${PV}"
 IUSE="
@@ -138,8 +137,10 @@ BDEPEND="
 	sys-devel/bison
 	sys-devel/flex
 	virtual/pkgconfig
+	amd64? ( dev-lang/nasm )
 	nls? ( sys-devel/gettext )
 	wayland? ( dev-util/wayland-scanner )
+	x86? ( dev-lang/nasm )
 "
 
 QA_CONFIG_IMPL_DECL_SKIP=(
