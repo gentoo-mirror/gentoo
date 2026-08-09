@@ -7,32 +7,31 @@ NEED_EMACS="29.1"
 
 inherit elisp
 
-DESCRIPTION="An IRCv3-compliant IRC client for GNU Emacs"
-HOMEPAGE="https://github.com/parenworks/clatter.el/"
+DESCRIPTION="Consulting complete-read for GNU Emacs"
+HOMEPAGE="https://github.com/minad/consult/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
-	EGIT_REPO_URI="https://github.com/parenworks/${PN}.el"
+	EGIT_REPO_URI="https://github.com/minad/${PN}"
 else
-	SRC_URI="https://github.com/parenworks/${PN}.el/archive/refs/tags/v${PV}.tar.gz
+	SRC_URI="https://github.com/minad/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
-	S="${WORKDIR}/${PN}.el-${PV}"
-
 	KEYWORDS="~amd64 ~x86"
 fi
 
-LICENSE="MIT"
+LICENSE="GPL-3+"
 SLOT="0"
 
-DOCS=( GUIDE.org README.org )
+RDEPEND="
+	>=app-emacs/compat-31.0
+"
+BDEPEND="
+	${RDEPEND}
+"
+
 SITEFILE="50${PN}-gentoo.el"
 
 src_compile() {
 	elisp_src_compile
 	elisp-make-autoload-file
-}
-
-src_test() {
-	emake test
 }
