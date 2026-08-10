@@ -35,7 +35,7 @@ COMMON_DEPEND="
 	>=dev-libs/libgudev-232:=
 	>=dev-libs/glib-2.68:2
 	>=dev-libs/json-glib-1.2.0
-	>=sys-apps/accountsservice-0.6.35
+	>=sys-apps/accountsservice-0.6.35:=
 	sys-apps/keyutils:=
 	selinux? ( sys-libs/libselinux )
 
@@ -73,7 +73,6 @@ RDEPEND="${COMMON_DEPEND}
 	acct-group/gdm
 	acct-user/gdm
 	>=gnome-base/gnome-shell-49
-	x11-apps/xhost
 
 	fprint? ( sys-auth/fprintd[pam] )
 	systemd? (
@@ -82,6 +81,7 @@ RDEPEND="${COMMON_DEPEND}
 			sys-apps/acl
 		)
 	)
+	X? ( x11-apps/xhost )
 "
 # This is a 'workaround' built into gdm 49, as elogind does not yet have
 # 'working' userdb support in stable or testing.

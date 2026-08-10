@@ -31,6 +31,7 @@ BDEPEND="
 src_configure() {
 	local emesonargs=(
 		$(meson_use X x11)
+		-Dsecuredir=/$(get_libdir)/security
 	)
 	meson_src_configure
 }
