@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst setup
+DESCRIPTION=Ncurses interface for the Transmission BitTorrent client
+EAPI=8
+HOMEPAGE=https://github.com/tremc/tremc
+INHERIT=bash-completion-r1 optfeature python-single-r1
+IUSE=python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=python_single_target_python3_12? ( dev-lang/python:3.12[ncurses] ) python_single_target_python3_13? ( dev-lang/python:3.13[ncurses] ) python_single_target_python3_14? ( dev-lang/python:3.14[ncurses] )
+REQUIRED_USE=^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 )
+SLOT=0
+SRC_URI=https://github.com/tremc/tremc/archive/refs/tags/0.9.6.tar.gz -> tremc-0.9.6.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	shell-completion	63a62de3ca49c798ee6e89f190e45d0e	bash-completion-r1	4386cfb12ede6cd8f0c1987d2e88da5f	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
+_md5_=57a17f1f1a0fd3041d994516bf3d08fd
