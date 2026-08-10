@@ -1,14 +1,14 @@
 BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=dev-util/vulkan-headers media-libs/alsa-lib x11-libs/libXinerama x11-libs/libXrender
+DEPEND=dev-util/vulkan-headers media-libs/vulkan-loader media-libs/alsa-lib x11-libs/libXinerama x11-libs/libXrender
 DESCRIPTION=Port from an old Amiga game
 EAPI=8
 HOMEPAGE=https://methane.sourceforge.net/ https://github.com/rombust/Methane
 INHERIT=cmake desktop
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
-RDEPEND=dev-util/vulkan-headers media-libs/alsa-lib x11-libs/libXinerama x11-libs/libXrender
+RDEPEND=dev-util/vulkan-headers media-libs/vulkan-loader media-libs/alsa-lib x11-libs/libXinerama x11-libs/libXrender
 SLOT=0
 SRC_URI=https://github.com/rombust/Methane/archive/refs/tags/v3.0.1.tar.gz -> methane-3.0.1.tar.gz https://src.fedoraproject.org/rpms/methane/raw/f41/f/methane.png
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	desktop	e447b5f77146d69797e9f03ff177f3f1
-_md5_=85c204c65422a1934a56c6568b3f257b
+_md5_=58bc96d601fb4d53df7b05aa9a35861b
