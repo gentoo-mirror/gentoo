@@ -1,4 +1,4 @@
-# Copyright 2024 Gentoo Authors
+# Copyright 2024-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -6,7 +6,7 @@ EAPI=8
 inherit flag-o-matic libtool
 
 DESCRIPTION="PMIx Reference RunTime Environment"
-HOMEPAGE="https://openpmix.github.io/"
+HOMEPAGE="https://openpmix.org/"
 SRC_URI="https://github.com/openpmix/prrte/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="BSD"
@@ -16,11 +16,12 @@ KEYWORDS="~amd64 ~arm64 ~ppc64"
 DEPEND="
 	dev-libs/libevent:=
 	sys-apps/hwloc:=
-	>=sys-cluster/pmix-4.2.4
+	>=sys-cluster/pmix-6.1.0:=
 "
 RDEPEND="${DEPEND}"
 
-# There is no testsuite at least today.
+# Tests are only in the repo, not in release tarballs
+# They also seem to be just examples
 RESTRICT="test"
 
 src_prepare() {
