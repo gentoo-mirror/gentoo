@@ -1,6 +1,6 @@
 BDEPEND=dev-qt/qttools:6[linguist] doc? ( dev-ruby/asciidoctor ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-libs/libusb:1 dev-libs/zxcvbn-c dev-qt/qtbase:6 dev-qt/qtsvg:6 media-gfx/qrencode:= sys-apps/pcsc-lite sys-apps/keyutils sys-libs/readline:0= virtual/minizip:= virtual/zlib:= X? ( dev-qt/qtbase:6[X] x11-libs/libXext x11-libs/libX11 x11-libs/libXi x11-libs/libXtst )
+DEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-libs/libusb:1 dev-libs/zxcvbn-c dev-qt/qtbase:6 dev-qt/qtsvg:6 media-gfx/qrencode:= sys-apps/pcsc-lite sys-apps/keyutils:= sys-libs/readline:0= virtual/minizip:= virtual/zlib:= X? ( dev-qt/qtbase:6[X] x11-libs/libXext x11-libs/libX11 x11-libs/libXi x11-libs/libXtst )
 DESCRIPTION=KeePassXC - KeePass Cross-platform Community Edition
 EAPI=8
 HOMEPAGE=https://keepassxc.org
@@ -9,9 +9,9 @@ INHERIT=cmake xdg
 IUSE=X browser doc +keyring +network +ssh-agent test
 KEYWORDS=~amd64 ~arm64 ~ppc64 ~riscv ~x86
 LICENSE=|| ( GPL-2 GPL-3 ) BSD LGPL-2.1 MIT LGPL-2 CC0-1.0 Apache-2.0 GPL-2+ BSD-2
-RDEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-libs/libusb:1 dev-libs/zxcvbn-c dev-qt/qtbase:6 dev-qt/qtsvg:6 media-gfx/qrencode:= sys-apps/pcsc-lite sys-apps/keyutils sys-libs/readline:0= virtual/minizip:= virtual/zlib:= X? ( dev-qt/qtbase:6[X] x11-libs/libXext x11-libs/libX11 x11-libs/libXi x11-libs/libXtst )
+RDEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-libs/libusb:1 dev-libs/zxcvbn-c dev-qt/qtbase:6 dev-qt/qtsvg:6 media-gfx/qrencode:= sys-apps/pcsc-lite sys-apps/keyutils:= sys-libs/readline:0= virtual/minizip:= virtual/zlib:= X? ( dev-qt/qtbase:6[X] x11-libs/libXext x11-libs/libX11 x11-libs/libXi x11-libs/libXtst )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/keepassxreboot/keepassxc/archive/ce28e2afb7a59ab5c4b64512b7119eec4a9f2008.tar.gz -> keepassxc-2.8.0_pre20260629.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=33451b11663ff0e8410d9e1ef75121db
+_md5_=12f9b247eeb9d3599c5149f87082843c
