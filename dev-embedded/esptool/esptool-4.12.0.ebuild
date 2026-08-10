@@ -3,29 +3,29 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_SINGLE_IMPL=1
 
 inherit distutils-r1 eapi9-ver
 
-DESCRIPTION="Serial utility for flashing and interacting with Espressif ESP8266 and ESP32"
+DESCRIPTION="Utility to communicate with the ROM bootloader in Espressif ESP8266 and ESP32"
 HOMEPAGE="https://github.com/espressif/esptool"
 SRC_URI="https://github.com/espressif/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 RDEPEND="
 	$(python_gen_cond_dep '
 		dev-python/bitstring[${PYTHON_USEDEP}]
 		dev-python/cryptography[${PYTHON_USEDEP}]
+		dev-python/ecdsa[${PYTHON_USEDEP}]
 		dev-python/intelhex[${PYTHON_USEDEP}]
 		dev-python/pyserial[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		dev-python/reedsolo[${PYTHON_USEDEP}]
-		dev-python/rich-click[${PYTHON_USEDEP}]
 	')
 "
 BDEPEND="
@@ -33,10 +33,12 @@ BDEPEND="
 		dev-python/wheel[${PYTHON_USEDEP}]
 	')
 	test? ( $(python_gen_cond_dep '
+		dev-python/ecdsa[${PYTHON_USEDEP}]
 		dev-python/pyelftools[${PYTHON_USEDEP}]
 		dev-python/pytest[${PYTHON_USEDEP}]
 	') )
 "
+EPYTEST_PLUGINS=( )
 distutils_enable_tests pytest
 EPYTEST_DESELECT=(
 	# need real hardware connected
@@ -60,16 +62,5 @@ pkg_postinst() {
 		ewarn "  - Flash parameters in an image header can now be changed only when no SHA256 digest is appended"
 		ewarn "  - The ESP8684 alias has been removed, ESP32-C2 has to be used"
 		ewarn "  - Megabit flash sizes have been deprecated, use megabyte units from now on"
-	fi
-	if ver_replacing -lt 5; then
-		ewarn "${P} - new 5.x release with breaking changes:"
-		ewarn "  - The .py suffix is deprecated for the following scripts:"
-		ewarn "  - esptool"
-		ewarn "  - espefuse"
-		ewarn "  - espsecure"
-		ewarn "  - esp_rfc2217_server"
-		ewarn "  - execute-scripts command is removed"
-		ewarn ""
-		ewarn "The official announcement of the changes can be found here: https://developer.espressif.com/blog/2025/04/esptool-v5/"
 	fi
 }
