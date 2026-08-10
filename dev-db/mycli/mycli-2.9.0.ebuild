@@ -3,11 +3,10 @@
 
 EAPI=8
 
-DISTUTILS_SINGLE_IMPL=yes
 DISTUTILS_USE_PEP517=setuptools
 PYTHON_COMPAT=( python3_{12..14} )
 PYPI_VERIFY_REPO=https://github.com/dbcli/mycli
-inherit distutils-r1 edo multiprocessing pypi
+inherit distutils-r1 edo multiprocessing pypi shell-completion
 
 DESCRIPTION="CLI for MySQL Database with auto-completion and syntax highlighting"
 HOMEPAGE="
@@ -20,44 +19,37 @@ LICENSE="BSD MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
+# optional dataframe packages (altair and polars) unpackaged
 # optional llm unpackaged
 
-# <pymysql-1.2: Upstream pins per version and test failures with
-# test_ssl_mode_off and test_ssl_mode_overrides_ssl
-
 RDEPEND="
-	$(python_gen_cond_dep '
-		>=dev-python/cli-helpers-2.15.0[${PYTHON_USEDEP}]
-		>=dev-python/click-8.3.1[${PYTHON_USEDEP}]
-		>=dev-python/clickdc-0.1.1[${PYTHON_USEDEP}]
-		>=dev-python/configobj-5.0.9[${PYTHON_USEDEP}]
-		>=dev-python/cryptography-46.0.5[${PYTHON_USEDEP}]
-		>=dev-python/keyring-25.7.0[${PYTHON_USEDEP}]
-		>=dev-python/prompt-toolkit-3.0.41[${PYTHON_USEDEP}]
-		<dev-python/prompt-toolkit-4.0.0[${PYTHON_USEDEP}]
-		>=dev-python/pycryptodome-3.23.0[${PYTHON_USEDEP}]
-		>=dev-python/pyfzf-0.3.1[${PYTHON_USEDEP}]
-		>=dev-python/pygments-2.19.2[${PYTHON_USEDEP}]
-		<dev-python/pymysql-1.2[${PYTHON_USEDEP}]
-		>=dev-python/pymysql-1.1.2[${PYTHON_USEDEP}]
-		>=dev-python/pyperclip-1.11.0[${PYTHON_USEDEP}]
-		>=dev-python/rapidfuzz-3.14.3[${PYTHON_USEDEP}]
-		>=dev-python/sqlglot-30.8.0[${PYTHON_USEDEP}]
-		<dev-python/sqlparse-0.6.0[${PYTHON_USEDEP}]
-		>=dev-python/sqlparse-0.3.0[${PYTHON_USEDEP}]
-		>=dev-python/yaspin-3.4.0[${PYTHON_USEDEP}]
-		>=dev-python/wcwidth-0.6.0[${PYTHON_USEDEP}]
-	')
+	>=dev-python/cli-helpers-2.15.1[${PYTHON_USEDEP}]
+	>=dev-python/click-8.4.2[${PYTHON_USEDEP}]
+	>=dev-python/clickdc-0.1.1[${PYTHON_USEDEP}]
+	>=dev-python/configobj-5.0.9[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-49.0.0[${PYTHON_USEDEP}]
+	>=dev-python/keyring-25.7.0[${PYTHON_USEDEP}]
+	<dev-python/prompt-toolkit-4.0.0[${PYTHON_USEDEP}]
+	>=dev-python/prompt-toolkit-3.0.41[${PYTHON_USEDEP}]
+	>=dev-python/pycryptodome-3.23.0[${PYTHON_USEDEP}]
+	>=dev-python/pyfzf-0.3.1[${PYTHON_USEDEP}]
+	>=dev-python/pygments-2.19.2[${PYTHON_USEDEP}]
+	>=dev-python/pymysql-1.1.2[${PYTHON_USEDEP}]
+	>=dev-python/pyperclip-1.11.0[${PYTHON_USEDEP}]
+	>=dev-python/rapidfuzz-3.14.3[${PYTHON_USEDEP}]
+	>=dev-python/sqlglot-30.12.0[${PYTHON_USEDEP}]
+	<dev-python/sqlparse-0.6.0[${PYTHON_USEDEP}]
+	>=dev-python/sqlparse-0.3.0[${PYTHON_USEDEP}]
+	>=dev-python/yaspin-3.4.0[${PYTHON_USEDEP}]
+	>=dev-python/wcwidth-0.8.2[${PYTHON_USEDEP}]
 "
 BDEPEND="
-	$(python_gen_cond_dep '
-		dev-python/setuptools-scm[${PYTHON_USEDEP}]
-		test? (
-			dev-db/mysql[server]
-			>=dev-python/behave-1.3.3[${PYTHON_USEDEP}]
-			>=dev-python/pexpect-4.9.0[${PYTHON_USEDEP}]
-		)
-	')
+	dev-python/setuptools-scm[${PYTHON_USEDEP}]
+	test? (
+		dev-db/mysql[server]
+		>=dev-python/behave-1.3.3[${PYTHON_USEDEP}]
+		>=dev-python/pexpect-4.9.0[${PYTHON_USEDEP}]
+	)
 "
 
 EPYTEST_PLUGINS=()
@@ -91,7 +83,7 @@ python_prepare_all() {
 	distutils-r1_python_prepare_all
 }
 
-src_test() {
+python_test() {
 	# test/utils.py
 	local -x PYTEST_PASSWORD="notsecure"
 	local -x PYTEST_HOST="127.0.0.1"
@@ -130,9 +122,17 @@ src_test() {
 		-e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${PYTEST_PASSWORD}'" \
 		|| die "Failed to change mysql user password"
 
+	EPYTEST_DESELECT=(
+		# PyMysql 1.2 uses ssl if the server supports it
+		"test/pytests/test_main.py::test_ssl_mode_off"
+		# FIXME
+		"test/pytests/test_zsh_completion.py::test_zsh_completion_lists_dsn_aliases_in_supported_contexts"
+	)
 	EPYTEST_IGNORE=(
 		# Requires unpackaged llm
-		test/pytests/test_special_llm.py
+		"test/pytests/test_special_llm.py"
+		# Requires unpackaged altairs and polars
+		"test/pytests/test_polars_transform.py"
 	)
 
 	local failures=()
@@ -162,4 +162,12 @@ src_test() {
 	if [[ ${#failures[@]} -gt 0 ]]; then
 		die "Tests failed with ${EPYTHON}: ${failures}"
 	fi
+}
+
+python_install_all() {
+	distutils-r1_python_install_all
+
+	dobashcomp mycli/resources/completions/bash/mycli
+	dofishcomp mycli/resources/completions/fish/mycli.fish
+	dozshcomp mycli/resources/completions/zsh/_mycli
 }
