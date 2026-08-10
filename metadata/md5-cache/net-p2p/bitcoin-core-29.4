@@ -7,7 +7,7 @@ HOMEPAGE=https://bitcoincore.org/
 IDEPEND=gui? ( dev-util/desktop-file-utils )
 INHERIT=bash-completion-r1 check-reqs cmake db-use desktop edo multiprocessing python-any-r1 systemd toolchain-funcs xdg-utils
 IUSE=asm +berkdb +cli +daemon dbus examples +external-signer gui qrcode +sqlite +system-libsecp256k1 systemtap test test-full zeromq
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+KEYWORDS=amd64 arm arm64 ~ppc ~ppc64 x86
 LICENSE=MIT
 RDEPEND=>=dev-libs/boost-1.81.0:= >=dev-libs/libevent-2.1.12:= berkdb? ( >=sys-libs/db-4.8.30:4.8=[cxx] ) daemon? ( acct-group/bitcoin acct-user/bitcoin ) gui? ( >=dev-qt/qtbase-6.2:6[dbus?,gui,network,widgets] ) qrcode? ( >=media-gfx/qrencode-4.1.1:= ) sqlite? ( >=dev-db/sqlite-3.38.5:= ) system-libsecp256k1? ( >=dev-libs/libsecp256k1-0.6.0:=[asm=,ellswift,extrakeys,recovery,schnorr] ) zeromq? ( >=net-libs/zeromq-4.3.4:= ) !dev-util/bitcoin-tx cli? ( !net-p2p/bitcoin-cli ) daemon? ( !net-p2p/bitcoind ) gui? ( !net-p2p/bitcoin-qt )
 REQUIRED_USE=dbus? ( gui ) qrcode? ( gui ) test-full? ( test )
@@ -15,4 +15,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/bitcoin/bitcoin/archive/v29.4.tar.gz -> bitcoin-core-29.4.tar.gz https://github.com/bitcoin/bitcoin/commit/6d4214925fadc36d26aa58903db5788c742e68c6.patch?full_index=1 -> bitcoin-core-29.0-qt6.patch
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	shell-completion	63a62de3ca49c798ee6e89f190e45d0e	bash-completion-r1	4386cfb12ede6cd8f0c1987d2e88da5f	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	multilib	fc812e8eb2170022c28272d80a1f9e77	db-use	3807d3e43e20aaa6e4decedd2bb2db4c	desktop	e447b5f77146d69797e9f03ff177f3f1	edo	a5e294016aa84979fcb2459749eb80b2	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	python-any-r1	891415dfe39ad9b41b461f2b86354af0	systemd	a964c0cbe818b5729da1dbfcee5be861
-_md5_=870d381e07577f400595fd676a44cd55
+_md5_=7d5557b4b0de8cc9525a528c28242f87
