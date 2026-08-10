@@ -1,0 +1,15 @@
+BDEPEND=>=app-portage/elt-patches-20250306
+DEFINED_PHASES=configure install prepare
+DEPEND=!net-misc/putty dev-libs/libevent:= sys-apps/hwloc:= >=sys-cluster/pmix-4.2.4:= <sys-cluster/pmix-6.0.0
+DESCRIPTION=PMIx Reference RunTime Environment
+EAPI=8
+HOMEPAGE=https://openpmix.org/
+INHERIT=flag-o-matic libtool
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=BSD
+RDEPEND=!net-misc/putty dev-libs/libevent:= sys-apps/hwloc:= >=sys-cluster/pmix-4.2.4:= <sys-cluster/pmix-6.0.0
+RESTRICT=test
+SLOT=0/3
+SRC_URI=https://github.com/openpmix/prrte/releases/download/v3.0.13/prrte-3.0.13.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	libtool	6a96cd90e5da8c7c615015479f46f1a4
+_md5_=518097db0585cd0ab2066450cb158f24
