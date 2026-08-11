@@ -15,7 +15,7 @@ SRC_URI="https://github.com/laurent22/joplin/releases/download/v${PV}/${APPIMAGE
 
 LICENSE="AGPL-3+"
 SLOT="0"
-KEYWORDS="-* amd64"
+KEYWORDS="-* ~amd64"
 RESTRICT="bindist splitdebug"
 
 RDEPEND="
@@ -56,7 +56,9 @@ RDEPEND="
 	x11-misc/xdg-utils
 "
 
+QA_DT_NEEDED="*"
 QA_PREBUILT="*"
+QA_SONAME="*"
 
 src_unpack() {
 	mkdir -p "${S}" || die

@@ -27,7 +27,6 @@ RESTRICT="!test? ( test )"
 
 BDEPEND="
 	test? (
-		app-emacs/buttercup
 		app-emacs/shut-up
 	)
 "
@@ -35,6 +34,7 @@ BDEPEND="
 ELISP_REMOVE="
 	test/specs/test-checker-api.el
 	test/specs/test-checker-extensions.el
+	test/specs/test-checker-specs.el
 	test/specs/test-configuration.el
 	test/specs/test-customization.el
 	test/specs/test-documentation.el
@@ -47,7 +47,7 @@ ELISP_REMOVE="
 SITEFILE="50${PN}-gentoo-r1.el"
 DOCS=( CHANGELOG.md README.md )
 
-elisp-enable-tests buttercup ./test/specs/ -l ./flycheck.el -L . -L ./test/specs/
+elisp-enable-tests buttercup ./test/specs/ -l ./flycheck.el -L . -L ./test/ -L ./test/specs/
 
 src_prepare() {
 	rm -f -r ./test/specs/languages || die
