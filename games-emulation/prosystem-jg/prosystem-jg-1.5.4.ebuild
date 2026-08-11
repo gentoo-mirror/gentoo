@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,8 +7,8 @@ inherit toolchain-funcs
 
 MY_PN=${PN%-*}
 MY_P=${MY_PN}-${PV}
-DESCRIPTION="Jolly Good Fork of vecx"
-HOMEPAGE="https://gitlab.com/jgemu/vecx"
+DESCRIPTION="Jolly Good Fork of ProSystem"
+HOMEPAGE="https://gitlab.com/jgemu/prosystem"
 if [[ "${PV}" == *9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/jgemu/${MY_PN}.git"
@@ -18,12 +18,11 @@ else
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 fi
 
-LICENSE="MIT"
+LICENSE="BSD GPL-2+"
 SLOT="1"
 
 DEPEND="
-	media-libs/jg:1=
-	media-libs/speexdsp
+	>=media-libs/jg-2.0.0
 "
 RDEPEND="
 	${DEPEND}

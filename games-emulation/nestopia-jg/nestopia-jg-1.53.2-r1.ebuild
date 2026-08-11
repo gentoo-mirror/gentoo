@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -7,8 +7,8 @@ inherit toolchain-funcs
 
 MY_PN=${PN%-*}
 MY_P=${MY_PN}-${PV}
-DESCRIPTION="Jolly Good Port of mGBA"
-HOMEPAGE="https://gitlab.com/jgemu/mgba"
+DESCRIPTION="Jolly Good Fork of Nestopia"
+HOMEPAGE="https://gitlab.com/jgemu/nestopia"
 if [[ "${PV}" == *9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/jgemu/${MY_PN}.git"
@@ -18,11 +18,11 @@ else
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 fi
 
-LICENSE="BSD-2 MPL-2.0"
+LICENSE="GPL-2+"
 SLOT="1"
 
 DEPEND="
-	media-libs/jg:1=
+	<media-libs/jg-2.0.0
 "
 RDEPEND="
 	${DEPEND}
@@ -33,11 +33,11 @@ BDEPEND="
 "
 
 src_compile() {
-	emake -C jollygood CC="$(tc-getCC)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
+	emake CXX="$(tc-getCXX)" PKG_CONFIG="$(tc-getPKG_CONFIG)"
 }
 
 src_install() {
-	emake -C jollygood install \
+	emake install \
 		DESTDIR="${D}" \
 		PREFIX="${EPREFIX}"/usr \
 		DOCDIR="${EPREFIX}"/usr/share/doc/${PF} \

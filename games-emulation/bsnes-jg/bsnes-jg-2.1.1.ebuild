@@ -1,4 +1,4 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,8 +10,8 @@ inherit docs toolchain-funcs
 
 MY_PN=${PN%-*}
 MY_P=${MY_PN}-${PV}
-DESCRIPTION="Jolly Good ColecoVision, CreatiVision and My Vision Emulator"
-HOMEPAGE="https://gitlab.com/jgemu/jollycv"
+DESCRIPTION="Jolly Good Fork of bsnes"
+HOMEPAGE="https://gitlab.com/jgemu/bsnes"
 if [[ "${PV}" == *9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/jgemu/${MY_PN}.git"
@@ -22,7 +22,7 @@ else
 fi
 
 LICENSE="
-	BSD MIT
+	ISC GPL-3+ LGPL-2.1+ MIT ZLIB
 	examples? ( 0BSD )
 "
 SLOT="1"
@@ -33,9 +33,9 @@ REQUIRED_USE="
 "
 
 DEPEND="
-	media-libs/speexdsp
-	examples? ( media-libs/libsdl2[sound,video] )
-	jgmodule? ( media-libs/jg:1= )
+	media-libs/libsamplerate
+	examples? ( media-libs/libsdl3 )
+	jgmodule? ( >=media-libs/jg-2.0.0 )
 "
 RDEPEND="
 	${DEPEND}
@@ -58,6 +58,7 @@ src_configure() {
 src_compile() {
 	local mymakeargs=(
 		CC="$(tc-getCC)"
+		CXX="$(tc-getCXX)"
 		PKG_CONFIG="$(tc-getPKG_CONFIG)"
 		${MY_MAKEOPTS}
 	)

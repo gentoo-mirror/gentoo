@@ -1,14 +1,14 @@
-# Copyright 2022-2025 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit autotools toolchain-funcs
 
 MY_PN=${PN%-*}
 MY_P=${MY_PN}-${PV}
-DESCRIPTION="Jolly Good Neo Geo AES/MVS Emulator"
-HOMEPAGE="https://gitlab.com/jgemu/geolith"
+DESCRIPTION="Jolly Good Port of Mednafen"
+HOMEPAGE="https://gitlab.com/jgemu/mednafen"
 if [[ "${PV}" == *9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://gitlab.com/jgemu/${MY_PN}.git"
@@ -18,13 +18,18 @@ else
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86"
 fi
 
-LICENSE="BSD MIT"
+LICENSE="BSD GPL-2 GPL-2+ LGPL-2.1+ ZLIB"
 SLOT="1"
+IUSE="cpu_flags_x86_avx"
 
 DEPEND="
-	dev-libs/miniz:=
-	media-libs/jg:1=
-	media-libs/speexdsp
+	app-arch/zstd
+	dev-libs/lzo:2
+	>=dev-libs/trio-1.17
+	media-libs/flac
+	>=media-libs/jg-2.0.0
+	virtual/minizip:=
+	virtual/libiconv
 "
 RDEPEND="
 	${DEPEND}
@@ -34,18 +39,31 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+src_prepare() {
+	default
+
+	cd jollygood/conf || die
+	eautoreconf
+}
+
+src_configure() {
+	cd jollygood/conf || die
+	econf $(use_enable cpu_flags_x86_avx avx)
+}
+
 src_compile() {
-	emake \
+	emake -C jollygood \
 		CC="$(tc-getCC)" \
+		CXX="$(tc-getCXX)" \
 		PKG_CONFIG="$(tc-getPKG_CONFIG)" \
-		USE_EXTERNAL_MINIZ=1
+		USE_EXTERNAL_TRIO=1
 }
 
 src_install() {
-	emake install \
+	emake -C jollygood install \
 		DESTDIR="${D}" \
 		PREFIX="${EPREFIX}"/usr \
 		DOCDIR="${EPREFIX}"/usr/share/doc/${PF} \
 		LIBDIR="${EPREFIX}/usr/$(get_libdir)" \
-		USE_EXTERNAL_MINIZ=1
+		USE_EXTERNAL_TRIO=1
 }
