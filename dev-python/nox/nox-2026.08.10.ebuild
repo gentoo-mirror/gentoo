@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
-PYTHON_COMPAT=( pypy3_11 python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
@@ -25,11 +25,13 @@ KEYWORDS="~amd64 ~arm64"
 RDEPEND="
 	>=dev-python/argcomplete-1.9.4[${PYTHON_USEDEP}]
 	>=dev-python/attrs-24.1[${PYTHON_USEDEP}]
-	>=dev-python/colorlog-2.6.1[${PYTHON_USEDEP}]
+	>=dev-python/colorlog-6.6[${PYTHON_USEDEP}]
 	>=dev-python/dependency-groups-1.1[${PYTHON_USEDEP}]
 	>=dev-python/humanize-4[${PYTHON_USEDEP}]
 	>=dev-python/packaging-22[${PYTHON_USEDEP}]
-	>=dev-python/virtualenv-20.15[${PYTHON_USEDEP}]
+	>=dev-python/platformdirs-2[${PYTHON_USEDEP}]
+	>=dev-python/python-discovery-1[${PYTHON_USEDEP}]
+	>=dev-python/virtualenv-21[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
@@ -48,18 +50,6 @@ python_test() {
 		tests/test_virtualenv.py::test_uv_install
 		tests/test_main.py::test_noxfile_script_mode
 	)
-
-	case ${EPYTHON} in
-		pypy3*)
-			EPYTEST_DESELECT+=(
-				# hardcoded CPython assumption
-				tests/test_tox_to_nox.py::test_commands_with_requirements
-				tests/test_tox_to_nox.py::test_skipinstall
-				tests/test_tox_to_nox.py::test_trivial
-				tests/test_tox_to_nox.py::test_usedevelop
-			)
-			;;
-	esac
 
 	epytest -o tmp_path_retention_policy=all
 }

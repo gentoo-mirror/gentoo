@@ -5,13 +5,13 @@ EAPI=8
 
 CRATES="
 "
-RUST_MIN_VER="1.85.0"
+RUST_MIN_VER="1.88.0"
 
 inherit cargo
 
 TAG=selenium-${PV}
 MY_P=selenium-${TAG}
-CRATES_P=selenium-4.37.0
+CRATES_P=selenium-${PV}
 DESCRIPTION="CLI tool that manages the browser/driver infrastructure required by Selenium"
 HOMEPAGE="
 	https://www.selenium.dev/
@@ -35,7 +35,7 @@ LICENSE+="
 	BZIP2
 "
 SLOT="0"
-KEYWORDS="amd64 arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="telemetry test"
 RESTRICT="!test? ( test )"
 
@@ -63,9 +63,6 @@ src_prepare() {
 	default
 
 	sed -i -e '/strip/d' Cargo.toml || die
-	if ! use telemetry; then
-		sed -i -e '/avoid-stats/s:false:true:' src/config.rs || die
-	fi
 
 	# Avoid tests requiring Internet or specific browsers (or trying
 	# to fetch them, whatever).
@@ -103,6 +100,14 @@ src_prepare() {
 	EOF
 }
 
+src_configure() {
+	local myfeatures=(
+		$(usev !telemetry avoid_stats)
+	)
+
+	cargo_src_configure
+}
+
 src_test() {
 	local -x PATH=${T}/bin:${PATH}
 
@@ -116,7 +121,7 @@ src_test() {
 }
 
 src_install() {
-	cargo_src_install
+	dobin "$(cargo_target_dir)"/selenium-manager
 	einstalldocs
 	dodoc README.md
 

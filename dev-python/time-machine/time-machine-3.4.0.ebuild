@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..15} python3_14t )
+PYTHON_COMPAT=( python3_{12..15} python3_{14..15}t )
 
 inherit distutils-r1
 
@@ -32,5 +32,5 @@ BDEPEND="
 "
 
 EPYTEST_PLUGIN_LOAD_VIA_ENV=1
-EPYTEST_PLUGINS=( "${PN}" )
+EPYTEST_PLUGINS=( "${PN}" hypothesis )
 distutils_enable_tests pytest
