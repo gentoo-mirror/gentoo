@@ -1,6 +1,6 @@
 BDEPEND=virtual/pkgconfig
 DEFINED_PHASES=compile configure install
-DEPEND=examples? ( media-libs/libsdl2[sound,video] media-libs/speexdsp ) jgmodule? ( media-libs/jg:1= media-libs/soxr )
+DEPEND=examples? ( media-libs/libsdl2[sound,video] media-libs/speexdsp ) jgmodule? ( <media-libs/jg-2.0.0 media-libs/soxr )
 DESCRIPTION=Jolly Good Fork of Gambatte
 EAPI=8
 HOMEPAGE=https://gitlab.com/jgemu/gambatte
@@ -8,9 +8,9 @@ INHERIT=toolchain-funcs
 IUSE=examples +jgmodule shared
 KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
 LICENSE=GPL-2 examples? ( 0BSD ) jgmodule? ( BSD )
-RDEPEND=examples? ( media-libs/libsdl2[sound,video] media-libs/speexdsp ) jgmodule? ( media-libs/jg:1= media-libs/soxr ) jgmodule? ( games-emulation/jgrf )
+RDEPEND=examples? ( media-libs/libsdl2[sound,video] media-libs/speexdsp ) jgmodule? ( <media-libs/jg-2.0.0 media-libs/soxr ) jgmodule? ( games-emulation/jgrf )
 REQUIRED_USE=|| ( examples jgmodule shared )
 SLOT=1
 SRC_URI=https://gitlab.com/jgemu/gambatte/-/archive/0.6.0/gambatte-0.6.0.tar.bz2
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
-_md5_=6230cccab52c6eccd8259ce3f5cae2d9
+_md5_=7d2803b89c53388c07e444bec17d60a4

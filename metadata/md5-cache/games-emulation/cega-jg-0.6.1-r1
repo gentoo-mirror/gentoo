@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install
+DEPEND=<media-libs/jg-2.0.0 media-libs/speexdsp
+DESCRIPTION=Jolly Good SG-1000, SMS, and Game Gear Emulator
+EAPI=8
+HOMEPAGE=https://gitlab.com/jgemu/cega
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~ppc64 ~x86
+LICENSE=BSD MIT MPL-2.0 ZLIB
+RDEPEND=<media-libs/jg-2.0.0 media-libs/speexdsp games-emulation/jgrf
+SLOT=1
+SRC_URI=https://gitlab.com/jgemu/cega/-/archive/0.6.1/cega-0.6.1.tar.bz2
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
+_md5_=6e4548e191bec3494017b839631c5e43

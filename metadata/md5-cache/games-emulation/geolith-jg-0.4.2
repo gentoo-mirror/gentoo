@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile configure install
+DEPEND=dev-libs/miniz:= >=media-libs/jg-2.0.0 media-libs/speexdsp chdr? ( media-libs/libchdr:= )
+DESCRIPTION=Jolly Good Neo Geo AES/MVS/CD/CDZ Emulator
+EAPI=8
+HOMEPAGE=https://gitlab.com/jgemu/geolith
+INHERIT=toolchain-funcs
+IUSE=chdr
+KEYWORDS=~amd64 ~arm ~arm64 ~x86
+LICENSE=BSD MIT MIT-0
+RDEPEND=dev-libs/miniz:= >=media-libs/jg-2.0.0 media-libs/speexdsp chdr? ( media-libs/libchdr:= ) games-emulation/jgrf
+SLOT=1
+SRC_URI=https://gitlab.com/jgemu/geolith/-/archive/0.4.2/geolith-0.4.2.tar.bz2
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
+_md5_=dae6c360327881f88a2e7a91b768d621
