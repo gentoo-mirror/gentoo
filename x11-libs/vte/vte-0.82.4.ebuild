@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit flag-o-matic gnome.org meson python-any-r1 vala xdg
 
@@ -31,7 +31,7 @@ DEPEND="
 	icu? ( dev-libs/icu:= )
 	>=x11-libs/pango-1.22.0
 	>=dev-libs/libpcre2-10.21:=
-	>=dev-cpp/simdutf-6.2.0
+	>=dev-cpp/simdutf-6.2.0:=
 	systemd? ( >=sys-apps/systemd-220:= )
 	>=app-arch/lz4-1.9
 	introspection? ( >=dev-libs/gobject-introspection-1.82.0-r2:= )

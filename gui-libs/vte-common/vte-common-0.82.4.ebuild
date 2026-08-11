@@ -1,8 +1,8 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 GNOME_ORG_MODULE="vte"
 
 inherit flag-o-matic gnome.org meson python-any-r1
@@ -17,7 +17,7 @@ LICENSE="LGPL-3+ GPL-3+"
 
 SLOT="2.91" # vte_api_version in meson.build
 
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 IUSE="systemd"
 
@@ -40,6 +40,10 @@ BDEPEND="
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 "
+
+PATCHES=(
+	"${FILESDIR}/vte-0.82.2-fix-unknown-variable.patch"
+)
 
 src_prepare() {
 	default
