@@ -41,6 +41,8 @@ DEPEND="${RDEPEND}
 	test? ( >=dev-cpp/gtest-1.8.0 )
 "
 
+PATCHES=( "${FILESDIR}/${P}-httplib-underlinking.patch" ) # bug #980283
+
 src_configure() {
 	lto-guarantee-fat
 
