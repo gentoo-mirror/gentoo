@@ -135,6 +135,7 @@ DEPEND="${COMMON_DEPEND}
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
+	"${FILESDIR}/php-set-fpm-test-executable.patch"
 	"${FILESDIR}/php-8.3.31-ipv6-printing-test-fix.patch"
 )
 
@@ -717,7 +718,7 @@ src_install() {
 }
 
 src_test() {
-	export TEST_PHP_EXECUTABLE="${WORKDIR}/sapis-build/cli/sapi/cli/php"
+	local TEST_PHP_EXECUTABLE="${WORKDIR}/sapis-build/cli/sapi/cli/php"
 
 	# Sometimes when the sub-php launches a sub-sub-php, it uses these.
 	# Without an "-n" in all instances, the *live* php.ini can be loaded,
@@ -726,11 +727,18 @@ src_test() {
 	export TEST_PHP_EXTRA_ARGS="-n"
 
 	if [[ -x "${WORKDIR}/sapis-build/cgi/sapi/cgi/php-cgi" ]] ; then
-		export TEST_PHP_CGI_EXECUTABLE="${WORKDIR}/sapis-build/cgi/sapi/cgi/php-cgi"
+		local TEST_PHP_CGI_EXECUTABLE="${WORKDIR}/sapis-build/cgi/sapi/cgi/php-cgi"
+		export TEST_PHP_CGI_EXECUTABLE
+	fi
+
+	if [[ -x "${WORKDIR}/sapis-build/fpm/sapi/fpm/php-fpm" ]] ; then
+		local TEST_PHP_FPM_EXECUTABLE="${WORKDIR}/sapis-build/fpm/sapi/fpm/php-fpm"
+		export TEST_PHP_FPM_EXECUTABLE
 	fi
 
 	if [[ -x "${WORKDIR}/sapis-build/phpdbg/sapi/phpdbg/phpdbg" ]] ; then
-		export TEST_PHPDBG_EXECUTABLE="${WORKDIR}/sapis-build/phpdbg/sapi/phpdbg/phpdbg"
+		local TEST_PHPDBG_EXECUTABLE="${WORKDIR}/sapis-build/phpdbg/sapi/phpdbg/phpdbg"
+		export TEST_PHPDBG_EXECUTABLE
 	fi
 
 	# The IO capture tests need to be disabled because they fail when
