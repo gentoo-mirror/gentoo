@@ -12,16 +12,8 @@ HOMEPAGE="https://pypi.org/project/sphinx-inline-tabs/"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv ~x86"
-
-BDEPEND="
-	<dev-python/flit-core-4[${PYTHON_USEDEP}]
-"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/sphinx-6.0[${PYTHON_USEDEP}]
 "
-
-PATCHES=(
-	"${FILESDIR}"/${P}-docutils-0.22-compat.patch
-)
