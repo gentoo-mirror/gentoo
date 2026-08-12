@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-02">
+    <title>FreeType: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in FreeType, one of which includes information leak.</synopsis>
+    <product type="ebuild">freetype</product>
+    <announced>2026-08-12</announced>
+    <revised count="1">2026-08-12</revised>
+    <bug>970886</bug>
+    <bug>971490</bug>
+    <access>remote</access>
+    <affected>
+        <package name="media-libs/freetype" auto="yes" arch="*">
+            <unaffected range="ge">2.14.3</unaffected>
+            <vulnerable range="lt">2.14.3</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>FreeType is a software font engine that is designed to be small, efficient, highly customizable, and portable while capable of producing high-quality output (glyph images).</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in FreeType. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="normal">
+        <p>One of the possible outcomes allows for an out-of-bounds read. Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All FreeType users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=media-libs/freetype-2.14.3"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-22007">CVE-2026-22007</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-22008">CVE-2026-22008</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-22013">CVE-2026-22013</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-22016">CVE-2026-22016</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-22018">CVE-2026-22018</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-22021">CVE-2026-22021</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-23865">CVE-2026-23865</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-34268">CVE-2026-34268</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-34282">CVE-2026-34282</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-12T23:54:08.225797Z">csfore</metadata>
+    <metadata tag="submitter" timestamp="2026-08-12T23:54:08.228237Z">sam</metadata>
+</glsa>
