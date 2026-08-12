@@ -69,11 +69,14 @@ RESTRICT="!test? ( test )"
 # The supported (that is, autodetected) versions of BDB are listed in
 # the ./configure script. Other versions *work*, but we need to stick to
 # the ones that can be detected to avoid a repeat of bug #564824.
+#
+# Require at least libcrypt-2-r1 so that on musl systems we pull in
+# sys-libs/libxcrypt (i.e. cannot use the musl crypt implementation).
 COMMON_DEPEND="
 	app-eselect/eselect-php[apache2?,fpm?]
 	dev-libs/libpcre2[jit?,unicode]
 	dev-libs/uriparser
-	virtual/libcrypt:=
+	>=virtual/libcrypt-2-r1:=
 	fpm? ( acl? ( sys-apps/acl ) apparmor? ( sys-libs/libapparmor ) selinux? ( sys-libs/libselinux ) )
 	apache2? ( www-servers/apache[apache2_modules_unixd(+),threads=] )
 	argon2? ( app-crypt/argon2:= )
@@ -96,7 +99,7 @@ COMMON_DEPEND="
 	libedit? ( dev-libs/libedit )
 	lmdb? ( dev-db/lmdb:= )
 	mssql? ( dev-db/freetds[mssql] )
-	nls? ( sys-devel/gettext )
+	nls? ( virtual/libintl )
 	odbc? ( iodbc? ( dev-db/libiodbc ) !iodbc? ( dev-db/unixODBC ) )
 	postgres? ( ${POSTGRES_DEP} )
 	qdbm? ( dev-db/qdbm )
@@ -138,6 +141,8 @@ BDEPEND="virtual/pkgconfig"
 PATCHES=(
 	"${FILESDIR}/php-set-fpm-test-executable.patch"
 	"${FILESDIR}/php-8.3.31-ipv6-printing-test-fix.patch"
+	"${FILESDIR}/php-8.4-musl126-tests.patch"
+	"${FILESDIR}/php-8.5-musl-pathconf.patch"
 )
 
 PHP_MV="$(ver_cut 1)"
@@ -222,6 +227,12 @@ src_prepare() {
 	sed -i "s~^include=.*$~include=${PHP_INI_DIR}/fpm.d/*.conf~" \
 		sapi/fpm/php-fpm.conf.in \
 		|| die 'failed to move the include directory in php-fpm.conf'
+
+	# The ./configure script creates this symlink, but we run the tests
+	# in ${S} rather than in a SAPI-specicific copy where ./configure
+	# was run. Easiest thing to do is recreate it under ${S}. Only
+	# relevant for USE=nls on musl.
+	ln -s en_US.UTF-8 ext/gettext/tests/locale/en_US || die
 
 	# fails in a network sandbox,
 	#
@@ -385,8 +396,11 @@ src_configure() {
 		$(use_with valgrind)
 	)
 
-	# Override autoconf cache variables for libcrypt algorithms.These
-	# otherwise cannot be detected when cross-compiling. Bug 931884.
+	# Override autoconf cache variables for libcrypt. The algorithms
+	# otherwise cannot be detected when cross-compiling (bug 931884),
+	# and on musl systems, AC_SEARCH_LIBS misses that -lcrypt is needed
+	# to use the intended libcrypt (rather than the built in musl crypt
+	# functions whose headers have been deleted -- this is a Gentooism).
 	our_conf+=(
 		ac_cv_crypt_blowfish=yes
 		ac_cv_crypt_des=yes
@@ -394,7 +408,20 @@ src_configure() {
 		ac_cv_crypt_md5=yes
 		ac_cv_crypt_sha512=yes
 		ac_cv_crypt_sha256=yes
+		ac_cv_search_crypt='-lcrypt'
+		ac_cv_search_crypt_r='-lcrypt'
 	)
+
+	if use posix; then
+		# Avoid needing to patch/eautoreconf to enable these functions
+		# on musl. They are perfectly POSIX-compliant, and of course
+		# glibc has them too. Obsolete when
+		#
+		#   https://github.com/php/php-src/pull/22717
+		#
+		# is merged.
+		append-cppflags -DHAVE_PATHCONF=1 -DHAVE_FPATHCONF=1
+	fi
 
 	# DBA support
 	if use cdb || use berkdb || use flatfile || use gdbm || use inifile \
