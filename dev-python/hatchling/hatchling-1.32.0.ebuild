@@ -24,7 +24,7 @@ S=${WORKDIR}/${MY_P}/backend
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -35,6 +35,7 @@ RDEPEND="
 	>=dev-python/packaging-24.2[${PYTHON_USEDEP}]
 	>=dev-python/pathspec-0.10.1[${PYTHON_USEDEP}]
 	>=dev-python/pluggy-1.0.0[${PYTHON_USEDEP}]
+	>=dev-python/tomlkit-0.11.1[${PYTHON_USEDEP}]
 	dev-python/trove-classifiers[${PYTHON_USEDEP}]
 "
 BDEPEND="
