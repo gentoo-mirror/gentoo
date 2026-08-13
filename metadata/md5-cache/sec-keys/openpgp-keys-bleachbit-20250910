@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://www.bleachbit.org/
 INHERIT=sec-keys
 IUSE=test
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86
+KEYWORDS=~alpha amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc x86
 LICENSE=public-domain
 PROPERTIES=test_network
 RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://keys.openpgp.org/vks/v1/by-fingerprint/A9E582E4054A159315EDC943D6D447B02B4D4C9D -> openpgp-keys-andrewziem-openpgp-20250910.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA9E582E4054A159315EDC943D6D447B02B4D4C9D -> openpgp-keys-andrewziem-ubuntu-20250910.asc
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	34ef28a3b98035f0f44e7292c0b2501c
-_md5_=d28147e7ceb2b6ef0fd363fab2f1b519
+_md5_=608ec76e1e526a88f124a4447531eabd
