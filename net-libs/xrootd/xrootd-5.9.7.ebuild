@@ -34,10 +34,10 @@ fi
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
-	http? ( kerberos )
 	macaroons? ( server http )
 	python? ( ${PYTHON_REQUIRED_USE} )
 	scitokens? ( server )
+	test? ( server http )
 "
 
 CDEPEND="acct-group/xrootd
@@ -161,6 +161,7 @@ src_test() {
 			XrdCl::WorkflowTest.CheckpointTest
 			XRootD::authenticated_cluster
 			XRootD::httpnoclient
+			XRootD::macaroons
 			XRootD::xcachewithcsi
 			XRootD::badredir
 			XRootD::posix
