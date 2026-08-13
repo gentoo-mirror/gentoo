@@ -1805,7 +1805,7 @@ app-doc/phrack 01-r2 02-r2 03-r2 04-r2 05-r2 06-r2 07-r2 08-r2 09-r2 10-r2 11-r2
 app-doc/phrack-all 72: Hacker magazine by the community, for the community (all issues)
 app-doc/pms 9_p20260614 9999: Gentoo Package Manager Specification (draft)
 app-doc/pms-bin 9_p20260614: Gentoo Package Manager Specification
-app-doc/python-docs 2.7.18 3.8.20 3.9.25 3.10.20 3.11.15 3.12.13 3.13.14 3.13.15 3.14.6 3.14.7: HTML documentation for Python
+app-doc/python-docs 2.7.18 3.8.20 3.9.25 3.10.20 3.10.21 3.11.15 3.11.16 3.12.13 3.12.14 3.13.14 3.13.15 3.14.6 3.14.7: HTML documentation for Python
 app-doc/s6-linux-init-man-pages 1.1.2.1.1 1.2.0.0.2: mdoc port of the HTML documentation for the s6-linux-init suite
 app-doc/s6-man-pages 2.13.1.0.1 2.14.0.1.4: mdoc port of the HTML documentation for the s6 suite
 app-doc/s6-networking-man-pages 2.7.0.4.1 2.7.2.1.4: mdoc port of the HTML documentation for the s6 suite
@@ -5414,7 +5414,7 @@ dev-lang/polyml 5.9.1 5.9.2-r1: Poly/ML is a full implementation of Standard ML
 dev-lang/pypy 2.7.7.3.23 3.11.7.3.23-r1: A fast, compliant alternative implementation of the Python (3.11) language
 dev-lang/pypy3-exe 3.11.7.3.23: PyPy3.11 executable (build from source)
 dev-lang/pypy3-exe-bin 3.11.7.3.23: PyPy3.11 executable (pre-built version)
-dev-lang/python 0.3.13.14 0.3.13.15 0.3.13.9999 0.3.14.6 0.3.14.6_p1 0.3.14.7 0.3.14.9999 0.3.15.0_beta2 0.3.15.0_beta3 0.3.15.0_beta4 0.3.15.0_rc1 0.3.15.9999 2.7.18_p16-r2 3.8.20_p7-r1 3.9.25 3.10.20 3.10.9999 3.11.15-r1 3.11.9999 3.12.13_p1 3.12.9999 3.13.14 3.13.15 3.13.9999 3.14.6 3.14.6_p1 3.14.7 3.14.9999 3.15.0_beta2 3.15.0_beta3 3.15.0_beta4 3.15.0_rc1 3.15.9999: An interpreted, interactive, object-oriented programming language
+dev-lang/python 0.3.13.14 0.3.13.15 0.3.13.9999 0.3.14.6 0.3.14.6_p1 0.3.14.7 0.3.14.9999 0.3.15.0_beta2 0.3.15.0_beta3 0.3.15.0_beta4 0.3.15.0_rc1 0.3.15.9999 2.7.18_p16-r2 3.8.20_p7-r1 3.9.25 3.10.20 3.10.21 3.10.9999 3.11.15-r1 3.11.16 3.11.9999 3.12.13_p1 3.12.14 3.12.9999 3.13.14 3.13.15 3.13.9999 3.14.6 3.14.6_p1 3.14.7 3.14.9999 3.15.0_beta2 3.15.0_beta3 3.15.0_beta4 3.15.0_rc1 3.15.9999: An interpreted, interactive, object-oriented programming language
 dev-lang/python-exec 2.4.10: Python script wrapper
 dev-lang/python-exec-conf 2.4.6: Configuration file for dev-lang/python-exec
 dev-lang/qore 1.19.2: Qore, the embeddable multithreaded scripting language
@@ -8280,7 +8280,7 @@ dev-python/aiohappyeyeballs 2.6.2 2.7.1: Happy Eyeballs for pre-resolved hosts
 dev-python/aiohttp 3.13.5 3.14.3: HTTP client/server for asyncio
 dev-python/aiohttp-cors 0.8.1: Implements CORS support for aiohttp asyncio-powered asynchronous HTTP server
 dev-python/aiohttp-oauthlib 0.1.0: oauthlib for aiohttp clients
-dev-python/aiohttp-socks 0.11.0 0.11.0-r1: SOCKS proxy connector for aiohttp
+dev-python/aiohttp-socks 0.11.0 0.11.0-r1 0.12.0: SOCKS proxy connector for aiohttp
 dev-python/aiohttp-theme 0.1.7: Sphinx theme for aiohttp
 dev-python/aioitertools 0.13.0: itertools and builtins for AsyncIO and mixed iterables
 dev-python/aiopylgtv 0.4.1-r1: Python library to control webOS-based LG TV devices
@@ -8302,7 +8302,7 @@ dev-python/annotated-doc 0.0.4 0.0.5: Document parameters, variables inline, wit
 dev-python/annotated-types 0.7.0 0.8.0: Reusable constraint types to use with typing.Annotated
 dev-python/ansi 0.3.7: ANSI cursor movement and graphics in Python
 dev-python/ansi2html 1.9.2: Convert text with ANSI color codes to HTML
-dev-python/ansible-compat 26.3.0 26.6.0: Contains functions that facilitate working with various versions of Ansible
+dev-python/ansible-compat 26.6.0 26.8.0: Contains functions that facilitate working with various versions of Ansible
 dev-python/ansible-pygments 0.1.2: Pygments lexer and style Ansible snippets
 dev-python/ansible-pylibssh 1.4.0: Python bindings for libssh client specific to Ansible use case
 dev-python/ansicolor 0.3.2-r1 0.3.3 9999: Produce ansi color output and colored highlighting and diffing
@@ -8392,13 +8392,13 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 26.0.0 26.1.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.43.29 1.43.36 1.43.40 1.43.46 1.43.51 1.43.56 1.43.62 1.43.67 1.43.68 1.43.69: The AWS SDK for Python
-dev-python/botocore 1.43.29 1.43.36 1.43.40 1.43.46 1.43.51 1.43.56 1.43.62 1.43.67 1.43.68 1.43.69: Low-level, data-driven core of boto 3
+dev-python/boto3 1.43.29 1.43.36 1.43.40 1.43.46 1.43.51 1.43.56 1.43.62 1.43.67 1.43.68 1.43.69 1.43.70: The AWS SDK for Python
+dev-python/botocore 1.43.29 1.43.36 1.43.40 1.43.46 1.43.51 1.43.56 1.43.62 1.43.67 1.43.68 1.43.69 1.43.70: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
 dev-python/bracex 2.6 2.7 3.0.1: Bash style brace expansion for Python
-dev-python/braintree 4.45.0: Braintree Python Library
+dev-python/braintree 4.45.0 4.46.0: Braintree Python Library
 dev-python/breathe 4.36.0: Sphinx Doxygen renderer
 dev-python/brotlicffi 1.2.0.1: Python binding to the Brotli library
 dev-python/btrfs 15: Python module to inspect btrfs filesystems
@@ -8426,7 +8426,7 @@ dev-python/chainstream 1.0.2: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.6.0: Fast HTML/XML template compiler for Python
 dev-python/characteristic 14.3.0-r4: Python attributes without the boilerplate
 dev-python/chardet 6.0.0_p1: Universal encoding detector
-dev-python/charset-normalizer 3.4.7 3.4.9: The Real First Universal Charset Detector
+dev-python/charset-normalizer 3.4.7 3.4.9 3.5.0: The Real First Universal Charset Detector
 dev-python/chart-studio 1.1.0-r2: Browser-based graphing library for Python
 dev-python/cheetah3 3.4.0: Python-powered template engine and code generator
 dev-python/cheroot 11.1.2: High-performance, pure-Python HTTP server used by CherryPy
@@ -8732,7 +8732,7 @@ dev-python/httplib2 0.31.1 0.32.0: A comprehensive HTTP client library
 dev-python/httpretty 1.1.4-r4: HTTP client mock for Python
 dev-python/httptools 0.8.0: A collection of framework independent HTTP protocol utils
 dev-python/httpx 0.28.1-r1: Fully-featured HTTP client which provides sync and async APIs
-dev-python/httpx-socks 0.11.0 0.12.0: Proxy (HTTP, SOCKS) transports for httpx
+dev-python/httpx-socks 0.11.0 0.12.0 0.13.0: Proxy (HTTP, SOCKS) transports for httpx
 dev-python/httpx2 2.5.0 2.7.0 2.8.0 2.9.1 2.10.0: The next generation HTTP client (Pydantic fork)
 dev-python/huawei-lte-api 1.11.0: API For huawei LAN/WAN LTE Modems
 dev-python/humanfriendly 10.0-r2: Human friendly output for text interfaces using Python
@@ -8741,7 +8741,7 @@ dev-python/hvac 2.4.0: HashiCorp Vault API client
 dev-python/hypercorn 0.18.0: A ASGI Server based on Hyper libraries and inspired by Gunicorn
 dev-python/hyperframe 6.1.0: HTTP/2 framing layer for Python
 dev-python/hyperlink 21.0.0-r1: A featureful, correct URL for Python
-dev-python/hypothesis 6.155.7 6.156.9 6.157.2 6.161.8 6.164.0 6.165.0 6.165.1 6.165.2 6.165.3: A library for property based testing
+dev-python/hypothesis 6.155.7 6.156.9 6.157.2 6.161.8 6.164.0 6.165.0 6.165.1 6.165.2 6.165.3 6.165.4: A library for property based testing
 dev-python/hypothesis-gentoo 3 4: Plugin to create 'gentoo' hypothesis profile, disabling health checks
 dev-python/icalendar 7.1.3 7.2.2: RFC 5545 compatible parser and generator of iCalendar files
 dev-python/id 1.6.1: A tool for generating OIDC identities
@@ -9294,7 +9294,7 @@ dev-python/pypresence 4.6.1 4.6.2: Complete Discord IPC and Rich Presence wrappe
 dev-python/pyprof2calltree 1.4.5-r1: Convert python profile data to kcachegrind calltree form
 dev-python/pyproj 3.7.2: Python interface to the PROJ library
 dev-python/pyproject-api 1.10.0 1.10.1 1.11.0: API to interact with the python pyproject.toml based projects
-dev-python/pyproject-fmt 2.21.2 2.24.1 2.25.4 2.26.0 2.27.0: Format your pyproject.toml file
+dev-python/pyproject-fmt 2.21.2 2.24.1 2.25.4 2.26.0 2.27.0 2.27.1: Format your pyproject.toml file
 dev-python/pyproject-hooks 1.2.0: Wrappers to build Python packages using PEP 517 hooks
 dev-python/pyproject-metadata 0.11.0 0.12.1: PEP 621 metadata parsing
 dev-python/pypugjs 6.0.3 7.0.0: Pug (Jade) syntax adapter for Django, Jinja2 and Mako templates
@@ -9367,7 +9367,7 @@ dev-python/pytest-httpx 0.36.2: Send responses to HTTPX using pytest
 dev-python/pytest-import-check 0.0.4: pytest plugin to check whether Python modules can be imported
 dev-python/pytest-jobserver 1.1.0: Limit parallel tests with POSIX jobserver
 dev-python/pytest-jupyter 0.11.0: Pytest plugin for testing Jupyter libraries and extensions
-dev-python/pytest-lazy-fixtures 1.4.0: Allows you to use fixtures in @pytest.mark.parametrize
+dev-python/pytest-lazy-fixtures 1.4.0 1.4.1: Allows you to use fixtures in @pytest.mark.parametrize
 dev-python/pytest-localftpserver 1.5.0 1.6.0: A PyTest plugin which provides an FTP fixture for your tests
 dev-python/pytest-localserver 0.10.0: Pytest plugin to test server connections locally
 dev-python/pytest-metadata 3.1.1: A plugin for pytest that provides access to test session metadata
@@ -9414,11 +9414,11 @@ dev-python/python-daemon 3.1.2: Library to implement a well-behaved Unix daemon 
 dev-python/python-dateutil 2.9.0_p0: Extensions to the standard Python datetime module
 dev-python/python-dbusmock 0.38.1: Easily create mock objects on D-Bus for software testing
 dev-python/python-debian 1.1.1: Python modules to work with Debian-related data formats
-dev-python/python-discovery 1.4.2 1.4.3 1.4.4 1.5.0 1.5.1: Python interpreter discovery
+dev-python/python-discovery 1.4.4 1.5.1 1.5.2: Python interpreter discovery
 dev-python/python-distutils-extra 2.47 3.3: Gettext support, themed icons and scrollkeeper-based documentation in distutils
 dev-python/python-dotenv 1.2.2: Manage .env files
 dev-python/python-editor 1.0.4-r2: Programmatically open an editor, capture the result
-dev-python/python-engineio 4.13.3 4.13.4: Python implementation of the Engine.IO realtime server
+dev-python/python-engineio 4.13.4 4.13.5: Python implementation of the Engine.IO realtime server
 dev-python/python-gammu 3.2.5 3.4.0: Python bindings for Gammu
 dev-python/python-gflags 3.1.2-r2: Google's Python argument parsing library
 dev-python/python-glanceclient 4.12.0: A client for the OpenStack Glance API
@@ -9459,7 +9459,7 @@ dev-python/python-stdnum 2.2: A module to handle standardized numbers and codes
 dev-python/python-subunit 1.4.6: A streaming protocol for test results
 dev-python/python-swiftclient 4.10.0: Python bindings to the OpenStack Object Storage API
 dev-python/python-systemd 235: Python module for native access to the systemd facilities
-dev-python/python-tests 0.3.14.6 0.3.14.6_p1 0.3.14.7 0.3.14.9999 0.3.15.0_beta2 0.3.15.0_beta3 0.3.15.0_beta4 0.3.15.0_rc1 0.3.15.9999 3.12.13_p1 3.12.9999 3.13.14 3.13.15 3.13.9999 3.14.6 3.14.6_p1 3.14.7 3.14.9999 3.15.0_beta2 3.15.0_beta3 3.15.0_beta4 3.15.0_rc1 3.15.9999: Test modules from dev-lang/python
+dev-python/python-tests 0.3.14.6 0.3.14.6_p1 0.3.14.7 0.3.14.9999 0.3.15.0_beta2 0.3.15.0_beta3 0.3.15.0_beta4 0.3.15.0_rc1 0.3.15.9999 3.12.13_p1 3.12.14 3.12.9999 3.13.14 3.13.15 3.13.9999 3.14.6 3.14.6_p1 3.14.7 3.14.9999 3.15.0_beta2 3.15.0_beta3 3.15.0_beta4 3.15.0_rc1 3.15.9999: Test modules from dev-lang/python
 dev-python/python-tlsh 4.12.1: Fuzzy matching library - C++ extension for Python
 dev-python/python-utils 3.9.1 4.0.0: Collection of small Python functions & classes
 dev-python/python-vlc 3.0.21203: Python ctypes-based bindings for libvlc
@@ -9496,7 +9496,7 @@ dev-python/pyxdg 0.28-r2: A Python module to deal with freedesktop.org specifica
 dev-python/pyyaml 6.0.3: YAML parser and emitter for Python
 dev-python/pyzbar 0.1.9: Read one-dimensional barcodes and QR codes from Python
 dev-python/pyzmq 27.1.0: Lightweight and super-fast messaging library built on top of the ZeroMQ library
-dev-python/pyzotero 1.13.3 1.13.4: A Python client for the Zotero API
+dev-python/pyzotero 1.13.4 1.13.5: A Python client for the Zotero API
 dev-python/pyzstd 0.19.1: Support for Zstandard (zstd) compression
 dev-python/qdarkstyle 3.2.3: A dark style sheet for QtWidgets application
 dev-python/qpageview 1.0.4: Page-based viewer widget for Qt6/PyQt5
@@ -9707,7 +9707,7 @@ dev-python/spyder-terminal 1.3.1: Run system terminals inside Spyder
 dev-python/spyder-unittest 0.7.1: Plugin for Spyder to run tests and view the results
 dev-python/sqlalchemy 2.0.50 2.0.51 2.0.52 2.1.0_beta2: Python SQL toolkit and Object Relational Mapper
 dev-python/sqlalchemy-rqlite 2.0: A SQLAlchemy dialect for rqlite
-dev-python/sqlglot 30.15.0 30.16.0: An easily customizable SQL parser and transpiler
+dev-python/sqlglot 30.16.0 30.17.0: An easily customizable SQL parser and transpiler
 dev-python/sqlitedict 2.1.0: Persistent dict in Python, backed by SQLite and pickle
 dev-python/sqlparse 0.5.5: A non-validating SQL parser module for Python
 dev-python/srt 3.5.3: Tiny library for parsing, modifying, and composing SRT files
@@ -9814,9 +9814,9 @@ dev-python/types-docutils 0.22.3.20260518 0.22.3.20260712 0.22.3.20260724: Typin
 dev-python/types-gdb 16.3.0.20260518 16.3.0.20260712: Typing stubs for gdb
 dev-python/types-psutil 7.2.2.20260408 7.2.2.20260508 7.2.2.20260518: Typing stubs for psutil
 dev-python/types-python-dateutil 2.9.0.20260716 2.9.0.20260807: Typing stubs for python-dateutil
-dev-python/types-setuptools 82.0.0.20260518 83.0.0.20260706 83.0.0.20260716 83.0.0.20260724 83.0.0.20260807: Typing stubs for setuptools
+dev-python/types-setuptools 83.0.0.20260706 83.0.0.20260716 83.0.0.20260724 83.0.0.20260807 84.0.0.20260812: Typing stubs for setuptools
 dev-python/typing-extensions 4.15.0 4.16.0: Backported and Experimental Type Hints for Python 3.7+
-dev-python/typing-inspection 0.4.2 0.4.3: Runtime typing introspection tools
+dev-python/typing-inspection 0.4.2 0.4.3 0.4.4: Runtime typing introspection tools
 dev-python/typogrify 2.1.0: Filters for web typography, supporting Django & Jinja templates
 dev-python/tzdata 10001: tzdata shim to satisfy requirements (while using system tzdata)
 dev-python/tzlocal 5.4.3 5.4.4: tzinfo object for the local timezone
@@ -9914,7 +9914,7 @@ dev-python/xmlschema 4.3.1 4.3.2: An XML Schema validator and decoder
 dev-python/xmlsec 1.3.17 1.3.17-r1: Python bindings for the XML Security Library
 dev-python/xmltodict 1.0.4: Makes working with XML feel like you are working with JSON
 dev-python/xvfbwrapper 0.2.23 0.2.25 0.2.27 0.2.28 0.2.29: Python wrapper for running a display inside X virtual framebuffer
-dev-python/xxhash 3.7.0 3.7.1 3.8.1: Python binding for the xxHash library
+dev-python/xxhash 3.7.1 3.8.1 4.0.0: Python binding for the xxHash library
 dev-python/yapf 0.43.0-r1: A formatter for Python files
 dev-python/yappi 1.7.6: Yet Another Python Profiler
 dev-python/yapsy 1.12.2-r2: A fat-free DIY Python plugin management toolkit
@@ -10898,7 +10898,7 @@ dev-util/bingrep 0.11.0-r1: Binary file analysis tool
 dev-util/bloaty 1.1-r1 1.1-r2 9999: A size profiler for binaries
 dev-util/blueprint-compiler 0.20.4 0.22.2: Compiler for Blueprint, a markup language for GTK user interfaces
 dev-util/bootconfig 6.6 6.9: Bootconfig tools for kernel command line to support key-value
-dev-util/bpf-linker 0.9.15 0.9.15-r1 0.10.3 0.10.4: Simple BPF static linker
+dev-util/bpf-linker 0.9.15 0.9.15-r1 0.10.3 0.10.4 0.11.0: Simple BPF static linker
 dev-util/bpftool 7.6.0-r1 7.7.0-r1 9999: Tool for inspection and simple manipulation of eBPF programs and maps
 dev-util/bpftop 0.7.1 0.8.0: Dynamic real-time view of running eBPF programs
 dev-util/breakpad 2024.02.16: A set of client and server components which implement a crash-reporting system
