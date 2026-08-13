@@ -21,8 +21,6 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv 
 
 RDEPEND="
 	>=dev-python/filelock-3.15.4[${PYTHON_USEDEP}]
-	<dev-python/platformdirs-5[${PYTHON_USEDEP}]
-	>=dev-python/platformdirs-4.3.6[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	dev-python/hatch-vcs[${PYTHON_USEDEP}]
@@ -36,6 +34,10 @@ EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
 python_test() {
+	local EPYTEST_IGNORE=(
+		# TODO: package vermin?
+		tests/test_py_info_collect.py
+	)
 	local EPYTEST_DESELECT=()
 
 	case ${EPYTHON} in
@@ -43,12 +45,6 @@ python_test() {
 			EPYTEST_DESELECT+=(
 				# TODO
 				tests/test_py_info_extra.py::test_satisfies_path_not_abs_basename_match
-			)
-			;;
-		python3.15)
-			EPYTEST_DESELECT+=(
-				# TODO
-				tests/test_discovery.py::test_predicate_with_fallback_specs
 			)
 			;;
 	esac
