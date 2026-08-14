@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-07">
+    <title>Exim: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Exim, the worst of which allows arbitrary code execution.</synopsis>
+    <product type="ebuild">exim</product>
+    <announced>2026-08-14</announced>
+    <revised count="1">2026-08-14</revised>
+    <bug>938214</bug>
+    <bug>952139</bug>
+    <bug>974785</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="mail-mta/exim" auto="yes" arch="*">
+            <unaffected range="ge">4.99.4</unaffected>
+            <vulnerable range="lt">4.99.4</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Exim is a message transfer agent (MTA) designed to be a a highly configurable, drop-in replacement for sendmail.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Exim. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Exim users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=mail-mta/exim-4.99.4"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-39929">CVE-2024-39929</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-30232">CVE-2025-30232</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-40684">CVE-2026-40684</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-40685">CVE-2026-40685</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-40686">CVE-2026-40686</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-40687">CVE-2026-40687</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-45185">CVE-2026-45185</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-14T00:52:46.064291Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-14T00:52:46.067737Z">sam</metadata>
+</glsa>
