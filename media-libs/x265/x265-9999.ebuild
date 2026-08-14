@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,16 +10,14 @@ HOMEPAGE="https://www.x265.org/ https://bitbucket.org/multicoreware/x265_git/"
 
 if [[ ${PV} = 9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://bitbucket.org/multicoreware/x265_git/"
-	MY_P="${PN}-${PV}"
+	EGIT_REPO_URI="https://github.com/Multicorewareinc/x265.git"
 else
-	SRC_URI="https://bitbucket.org/multicoreware/x265_git/downloads/${PN}_${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
+	SRC_URI="https://github.com/Multicorewareinc/x265/releases/download/${PV}/x265_${PV}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~x86"
-	MY_P="${PN}_${PV}"
+	S="${WORKDIR}/${PN}_${PV}"
 fi
 
-S="${WORKDIR}/${MY_P}/source"
-unset MY_P
+S="${S}/source"
 
 LICENSE="GPL-2"
 # subslot = libx265 soname
