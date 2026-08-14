@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-09">
+    <title>Bubblewrap: Root privilege escalation</title>
+    <synopsis>A vulnerability has been discovered in Bubblewrap that would allow root privilege escalation.</synopsis>
+    <product type="ebuild">bubblewrap</product>
+    <announced>2026-08-14</announced>
+    <revised count="1">2026-08-14</revised>
+    <bug>973131</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-apps/bubblewrap" auto="yes" arch="*">
+            <unaffected range="ge">0.11.2</unaffected>
+            <vulnerable range="lt">0.11.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Bubblewrap is an unprivileged sandboxing tool namespaces-powered chroot-like solution.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Bubblewrap. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>An attacker could achieve root privilege escalation if Bubblewrap is used in its suid mode.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Bubblewrap users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/bubblewrap-0.11.2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-41163">CVE-2026-41163</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-14T01:16:33.794802Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-14T01:16:33.797472Z">sam</metadata>
+</glsa>
