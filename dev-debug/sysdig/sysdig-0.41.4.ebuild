@@ -11,19 +11,25 @@ DESCRIPTION="A system exploration and troubleshooting tool"
 HOMEPAGE="https://www.sysdig.com/"
 
 # The version of falcosecurity-libs required by sysdig as source tree
-LIBS_VERSION="0.20.0"
+LIBS_VERSION="0.21.0"
 LIBS="falcosecurity-libs-${LIBS_VERSION}"
 
-SRC_URI="https://github.com/draios/sysdig/archive/${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/falcosecurity/libs/archive/${LIBS_VERSION}.tar.gz -> ${LIBS}.tar.gz"
+# The version of the container plugin binary
+CONTAINER_VERSION="0.6.0"
+
+SRC_URI="
+	https://github.com/draios/sysdig/archive/${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/falcosecurity/libs/archive/${LIBS_VERSION}.tar.gz -> ${LIBS}.tar.gz
+	https://download.falco.org/plugins/stable/container-${CONTAINER_VERSION}-linux-x86_64.tar.gz
+"
 
 # The driver version as found in cmake/modules/driver.cmake or alternatively
 # as git tag on the $LIBS_VERSION of falcosecurity-libs.
-DRIVER_VERSION="8.0.0+driver"
+DRIVER_VERSION="8.1.0+driver"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="bpf +modules"
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
@@ -33,32 +39,32 @@ RDEPEND="${LUA_DEPS}
 	dev-cpp/yaml-cpp:=
 	dev-libs/jsoncpp:=
 	dev-libs/libb64:=
-	bpf? ( >=dev-libs/libbpf-1.1:= )
-	dev-libs/protobuf:=
 	dev-libs/re2:=
 	dev-libs/uthash
-	net-libs/grpc:=
-	net-misc/curl
 	sys-libs/ncurses:=
+	virtual/libelf:=
 	virtual/zlib:=
-	virtual/libelf:="
+	bpf? ( >=dev-libs/libbpf-1.5:= )
+"
 
 DEPEND="${RDEPEND}
 	dev-cpp/nlohmann_json
 	dev-cpp/valijson
-	virtual/os-headers"
-
-BDEPEND="bpf? (
-			dev-util/bpftool
-			llvm-core/clang:*[llvm_targets_BPF]
-		)"
+	virtual/os-headers
+	bpf? (
+		dev-util/bpftool
+		llvm-core/clang:*[llvm_targets_BPF]
+	)
+"
 
 # pin the driver to the falcosecurity-libs version
 PDEPEND="modules? ( =dev-debug/scap-driver-${LIBS_VERSION}* )"
 
+QA_PREBUILT="usr/share/sysdig/plugins/libcontainer.so"
+QA_PRESTRIPPED=${QA_PREBUILT}
+
 PATCHES=(
 	"${FILESDIR}/0.38.1-scap-loader.patch"
-	"${FILESDIR}/0.40.1-cmake4.patch"
 )
 
 pkg_pretend() {
@@ -78,9 +84,7 @@ pkg_pretend() {
 src_prepare() {
 	# manually apply patches to falcosecurity-libs
 	pushd "${WORKDIR}/libs-${LIBS_VERSION}"
-		eapply "${FILESDIR}/libs-0.20.0-fix-buffer-overrun-reading-sockets-from-procfs.patch" || die
-		eapply "${FILESDIR}/libs-0.20.0-fix-driver-and-bpf-makefile-for-kernel-6.13.patch" || die
-		eapply "${FILESDIR}/libs-0.20.0-fix-INET6_ADDRSTRLEN-buffer-size.patch" || die
+		eapply "${FILESDIR}/libs-0.21.0-fix-INET6_ADDRSTRLEN-buffer-size.patch" || die
 	popd
 
 	# do not build with debugging info
@@ -88,6 +92,9 @@ src_prepare() {
 
 	# fix the driver version
 	sed -i -e 's/0.0.0-local/${DRIVER_VERSION}/g' cmake/modules/driver.cmake || die
+
+	# we download & install the container plugin ourselves
+	sed -i -e '/include(container_plugin)/d' CMakeLists.txt || die
 
 	cmake_src_prepare
 }
@@ -158,6 +165,14 @@ src_install() {
 	# move bashcomp to the proper location
 	dobashcomp "${ED}"/usr/etc/bash_completion.d/sysdig || die
 	rm -r "${ED}"/usr/etc || die
+
+	# users can drop things in here
+	keepdir /usr/share/sysdig/plugins
+
+	# install container plugin
+	insinto /usr/share/sysdig/plugins
+	insopts -m0755
+	doins "${WORKDIR}"/libcontainer.so
 }
 
 pkg_postinst() {
