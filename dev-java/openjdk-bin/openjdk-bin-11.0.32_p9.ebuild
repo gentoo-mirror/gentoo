@@ -6,7 +6,7 @@ EAPI=8
 inherit java-vm-2 toolchain-funcs
 
 abi_uri() {
-	local baseuri="https://github.com/adoptium/temurin$(ver_cut 1)-binaries/releases/download/jdk-${PVB}/"
+	local baseuri="https://github.com/adoptium/temurin$(ver_cut 1)-binaries/releases/download/jdk-${MY_PV}/"
 	local musl=
 	local os=linux
 
@@ -22,46 +22,27 @@ abi_uri() {
 
 	echo "${2-$1}? (
 		${musl:+ elibc_musl? ( }
-			${baseuri}/OpenJDK${JDK_REPO}-jdk_${1}_${os}_hotspot_${PVH}.tar.gz
+			${baseuri}/OpenJDK$(ver_cut 1)U-jdk_${1}_${os}_hotspot_${MY_PV//+/_}.tar.gz
 		${musl:+ ) } )"
 }
 
-# In "early access" versions, SRC_URI is different from released versions
-# and contains strings like 'jdk-25+36-ea-beta' and '_25_36-ea.tar.gz'
-# According to file naming rules, the ebuilds are named like
-# 'openjdk-bin-26_alpha20.ebuild' or 'openjdk-bin-25_beta36.ebuild'.
-if [[ "${PV%_alpha*}" != "${PV}" ]]; then # version string contains "_alpha"
-	MY_PV="${PV/_alpha/+}"
-	JDK_REPO=""
-	PVB="${PV/_alpha/+}-ea-beta"
-	PVH="${PV/_alpha/_}-ea"
-elif [[ "${PV%_beta*}" != "${PV}" ]]; then # version string contains "_beta"
-	MY_PV="${PV/_beta/+}"
-	JDK_REPO="$(ver_cut 1)U"
-	PVB="${PV/_beta/+}-ea-beta"
-	PVH="${PV/_beta/_}-ea"
-else
-	MY_PV="${PV/_p/+}"
-	JDK_REPO="$(ver_cut 1)u"
-	PVB="${MY_PV}"
-	PVH="${MY_PV//+/_}"
-fi
+MY_PV=${PV/_p/+}
 
 DESCRIPTION="Prebuilt Java JDK binaries provided by Eclipse Temurin"
 HOMEPAGE="https://adoptium.net"
 SRC_URI="
 	$(abi_uri aarch64 arm64)
-	$(abi_uri aarch64 arm64 musl)
+	$(abi_uri arm)
 	$(abi_uri ppc64le ppc64)
 	$(abi_uri x64 amd64)
+	$(abi_uri x64 x64-macos)
 	$(abi_uri x64 amd64 musl)
-	$(abi_uri riscv64 riscv)
 "
 S="${WORKDIR}/jdk-${MY_PV}"
 
 LICENSE="GPL-2-with-classpath-exception"
 SLOT=$(ver_cut 1)
-#	KEYWORDS="" # Not an LTS candidate
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x64-macos"
 IUSE="alsa cups headless-awt selinux source"
 
 RDEPEND="
@@ -128,8 +109,7 @@ src_install() {
 		fi
 
 		if use headless-awt ; then
-			# do not die if not available, -f for bug #934974
-			rm -fv lib/lib*{[jx]awt,splashscreen}* || die
+			rm -v lib/lib*{[jx]awt,splashscreen}* || die
 		fi
 	fi
 
