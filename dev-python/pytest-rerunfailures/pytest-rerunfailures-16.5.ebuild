@@ -16,10 +16,11 @@ HOMEPAGE="
 
 LICENSE="MPL-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	>=dev-python/packaging-17.1[${PYTHON_USEDEP}]
+	>=dev-python/pytest-8.2.3[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGIN_LOAD_VIA_ENV=1
