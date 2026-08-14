@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-10">
+    <title>HTTP-Daemon: Improper header handling</title>
+    <synopsis>A vulnerability was found in HTTP-Daemon allowing header manipulation or filter bypass.</synopsis>
+    <product type="ebuild">HTTP-Daemon</product>
+    <announced>2026-08-14</announced>
+    <revised count="1">2026-08-14</revised>
+    <bug>908905</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-perl/HTTP-Daemon" auto="yes" arch="*">
+            <unaffected range="ge">6.160.0</unaffected>
+            <vulnerable range="lt">6.160.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>HTTP-Daemon provides a base class for simple HTTP servers.</p>
+    </background>
+    <description>
+        <p>Inconsistent Interpretation of HTTP Requests.</p>
+    </description>
+    <impact type="normal">
+        <p>The bug could potentially be exploited to gain privileged access to APIs or poison intermediate caches.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All HTTP-Daemon users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-perl/HTTP-Daemon-6.160.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2022-31081">CVE-2022-31081</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-14T23:25:48.437323Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-14T23:25:48.440361Z">sam</metadata>
+</glsa>
