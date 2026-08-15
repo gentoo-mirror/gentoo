@@ -21,7 +21,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 RDEPEND="
-	~dev-python/awkward-cpp-54[${PYTHON_USEDEP}]
+	~dev-python/awkward-cpp-56[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.21.3[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 	>=dev-python/fsspec-2022.11.0[${PYTHON_USEDEP}]

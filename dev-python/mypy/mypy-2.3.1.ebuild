@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} python3_{14,15}t )
 PYTHON_REQ_USE="sqlite"
 
 inherit distutils-r1 optfeature
@@ -23,15 +23,15 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="native-extensions"
 
 # stubgen collides with this package: https://bugs.gentoo.org/585594
 RDEPEND="
 	!dev-util/stubgen
 	<dev-python/ast-serialize-1[${PYTHON_USEDEP}]
-	>=dev-python/ast-serialize-0.3.0[${PYTHON_USEDEP}]
-	>=dev-python/librt-0.11.0[${PYTHON_USEDEP}]
+	>=dev-python/ast-serialize-0.6.0[${PYTHON_USEDEP}]
+	>=dev-python/librt-0.13.0[${PYTHON_USEDEP}]
 	>=dev-python/mypy-extensions-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/pathspec-1.0.0[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.6.0[${PYTHON_USEDEP}]
@@ -95,9 +95,11 @@ python_test() {
 		mypyc/test/test_run.py::TestRun::run-i64.test::testI64ErrorValuesAndUndefined
 		mypyc/test/test_run.py::TestRun::run-i64.test::testI64GlueMethodsAndInheritance
 		mypyc/test/test_run.py::TestRun::run-librt-strings.test::testLibrtStrings_librt
+		mypyc/test/test_run.py::TestRun::run-vecs-i64.test::testVecI64BasicOps_librt
 		mypyc/test/test_run.py::TestRun::run-vecs-i64.test::testVecI64BasicOps_librt_experimental
 		mypyc/test/test_run.py::TestRun::run-vecs-misc.test::testVecMiscBasicOps_librt
 		mypyc/test/test_run.py::TestRun::run-vecs-nested.test::testVecNestedBasicOps_librt
+		mypyc/test/test_run.py::TestRun::run-vecs-t.test::testVecTBasicOps_librt
 		mypyc/test/test_run.py::TestRun::run-vecs-t.test::testVecTBasicOps_librt_experimental
 		mypyc/test/test_run.py::TestRunStrictDunderTyping::run-dunders.test::testDundersContainer_dunder_typing
 		mypyc/test/test_run.py::TestRunStrictDunderTyping::run-floats.test::testFloatOps_dunder_typing
@@ -112,7 +114,7 @@ python_test() {
 	)
 
 	case ${EPYTHON} in
-		python3.14*)
+		python3.1[45]*)
 			EPYTEST_DESELECT+=(
 				mypyc/test/test_run.py::TestRun::run-async.test::testRunAsyncRefCounting
 				mypyc/test/test_run.py::TestRun::run-tuples.test::testNamedTupleClassSyntax
