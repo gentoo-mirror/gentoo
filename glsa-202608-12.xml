@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-12">
+    <title>Portage: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Portage.</synopsis>
+    <product type="ebuild">portage</product>
+    <announced>2026-08-15</announced>
+    <revised count="1">2026-08-15</revised>
+    <bug>978478</bug>
+    <bug>979026</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="sys-apps/portage" auto="yes" arch="*">
+            <unaffected range="ge">3.0.81.2</unaffected>
+            <vulnerable range="lt">3.0.81.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Portage is the default Gentoo package management system.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Portage. Please review the bugs referenced below for details.
+
+The first bug (bug 978478) allows a malicious ebuild (including a build system it uses indirectly) to write outside of the work directory. While malicious artifacts could be installed by a package itself, this is still unexpected if one only ran the configure phrase during development.
+
+The second bug (bug 979026) is regarding insufficient sandboxing in global scope. Untrusted ebuilds, even if not emerged, may have the opportunity to run code in global scope depending on whether the repository has metadata available. Additional sandboxing has been added.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced bugs for details.</p>
+    </impact>
+    <workaround>
+        <p>Avoid using untrusted repositories or ebuilds, even without installing them.</p>
+    </workaround>
+    <resolution>
+        <p>All Portage users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/portage-3.0.81.2"
+        </code>
+        
+        <p>In general, we recommend users add external repositories with caution. If using external repositories, it is good practice to mask all packages by default from that repository, and unmask only needed packages.</p>
+    </resolution>
+    <references>
+        <uri>CAN-2026-2033132</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-15T18:37:10.786731Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-15T18:37:10.794191Z">sam</metadata>
+</glsa>
