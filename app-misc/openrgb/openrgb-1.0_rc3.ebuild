@@ -42,6 +42,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/OpenRGB-0.7-r1-udev.patch
+	"${FILESDIR}"/OpenRGB-0.9-udev-check.patch
 	"${FILESDIR}"/OpenRGB-1.0rc3-mbedtls.patch
 )
 if [[ ${PV} != *9999* ]]; then
