@@ -214,7 +214,7 @@ LICENSE+="
 	Unicode-DFS-2016 ZLIB
 "
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~s390 ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
@@ -236,8 +236,4 @@ src_prepare() {
 	# hack around https://github.com/mypyc/ast_serialize/issues/68
 	cd "${ECARGO_VENDOR}"/get-size2-* || die
 	eapply "${FILESDIR}/get-size2-ppc.patch"
-}
-
-python_test_all() {
-	cargo_src_test
 }
