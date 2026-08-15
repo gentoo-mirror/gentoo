@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-11">
+    <title>haveged: Privilege escalation</title>
+    <synopsis>A vulnerability has been discovered in haveged which could allow local privilege escalation</synopsis>
+    <product type="ebuild">haveged</product>
+    <announced>2026-08-15</announced>
+    <revised count="1">2026-08-15</revised>
+    <bug>975496</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-apps/haveged" auto="yes" arch="*">
+            <unaffected range="ge">1.9.21</unaffected>
+            <vulnerable range="lt">1.9.21</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>haveged is a simple entropy daemon using the HAVEGE algorithm.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in haveged. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Root privilege escalation may be achieved by an attacker.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All haveged users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/haveged-1.9.21"
+        </code>
+        
+        <p>Alternatively, consider not using haveged anymore on modern Linux kernel versions, per https://www.openwall.com/lists/oss-security/2026/05/19/4</p>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-41054">CVE-2026-41054</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-15T00:17:00.810353Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-15T00:17:00.813137Z">sam</metadata>
+</glsa>
