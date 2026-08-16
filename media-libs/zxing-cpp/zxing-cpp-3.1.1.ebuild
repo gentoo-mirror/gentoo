@@ -18,21 +18,43 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/v${MY_PV}/${MY_P}.tar.
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="Apache-2.0"
-SLOT="0/4"
-KEYWORDS=""
+SLOT="0/4" # ZXING_SONAME in CMakeLists.txt
+KEYWORDS="~amd64 ~riscv"
+
 IUSE="test tools"
 RESTRICT="!test? ( test )"
 
-RDEPEND=">=media-libs/zint-2.16.0:="
+RDEPEND="
+	>=media-libs/zint-2.16.0:=
+"
 DEPEND="${RDEPEND}
 	dev-libs/stb
 	test? (
 		dev-cpp/gtest
 		dev-libs/libfmt
+		media-libs/libwebp
 	)
 "
 
 src_prepare() {
+	mkdir "${T}/cmake" || die
+
+	# Generate our own WebPConfig.cmake, bug #937031
+	cat <<-EOF > "${T}/cmake/WebPConfig.cmake" || die
+	find_package(PkgConfig REQUIRED)
+
+	pkg_check_modules(WebP REQUIRED IMPORTED_TARGET libwebp)
+	add_library(WebP::webp ALIAS PkgConfig::WebP)
+	list(APPEND _cmake_import_check_targets WebP::webp )
+
+	set(WEBP_VERSION \${WebP_VERSION})
+	set(WEBP_INCLUDE_DIRS \${WebP_INCLUDE_DIR})
+	set(WEBP_LIBRARIES "\${WebP_LIBRARIES}")
+	EOF
+
+	# automagic doxygen and fetches doxygen-awesome-css
+	cmake_comment_add_subdirectory docs
+
 	if use test ; then
 		ln -s "${WORKDIR}"/test/samples test/samples || die
 	fi
@@ -43,12 +65,14 @@ src_prepare() {
 src_configure() {
 	local mycmakeargs=(
 		-DZXING_DEPENDENCIES=LOCAL # force find_package as REQUIRED
-		# Build and install ZXingReader and ZXingWriter
-		-DZXING_EXAMPLES=$(usex tools)
 		-DZXING_USE_BUNDLED_ZINT=OFF
+
+		-DZXING_EXAMPLES=$(usex tools) # Build and install ZXingReader and ZXingWriter
 		-DZXING_WRITERS=BOTH # should be kept on until revdeps are ported away from OLD
+
 		-DZXING_BLACKBOX_TESTS=$(usex test)
 		-DZXING_UNIT_TESTS=$(usex test)
 	)
+	use test && mycmakeargs+=( -DWebP_DIR="${T}/cmake" )
 	cmake_src_configure
 }
