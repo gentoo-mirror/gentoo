@@ -34,6 +34,10 @@ RDEPEND="${DEPEND}
 "
 BDEPEND=">=dev-qt/qttools-${QTMIN}:6[linguist]"
 
+PATCHES=(
+	"${FILESDIR}/${P}-dont-load-empty-fallback-icons.patch" # KDE-bug #517743, in 6.30
+)
+
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
 }
