@@ -1272,7 +1272,7 @@ app-backup/dar 2.8.4 2.8.5: A full featured backup tool, aimed for disks
 app-backup/deja-dup 44.2 48.4: Simple backup tool using duplicity back-end
 app-backup/dirvish 1.2.1-r1: Dirvish is a fast, disk based, rotating network backup system
 app-backup/duplicati 2.2.0.1.2025.11.09: Backup client that securely stores encrypted, incremental, compressed backups
-app-backup/duplicity 3.0.7 3.1.0 3.2.0 9999: Secure backup system using GnuPG to encrypt data
+app-backup/duplicity 3.0.7 3.1.0 3.2.0 3.2.0.1 9999: Secure backup system using GnuPG to encrypt data
 app-backup/duply 2.5.6: Shell frontend for duplicity
 app-backup/fsarchiver 0.8.9: Flexible filesystem archiver for backup and deployment tool
 app-backup/hdup 2.0.14-r2: Hdup is backup program using tar, find, gzip/bzip2, mcrypt and ssh
@@ -8361,7 +8361,7 @@ dev-python/awscrt 0.36.1 0.36.2: A common runtime for AWS Python projects
 dev-python/b2sdk 2.12.0: Library to access Backblaze B2 cloud storage
 dev-python/babel 2.18.0: Collection of tools for internationalizing Python applications
 dev-python/babelfish 0.6.1: Python library to work with countries and languages
-dev-python/backports-zstd 1.5.0 1.6.0: Backport of PEP-784: adding Zstandard to the standard library
+dev-python/backports-zstd 1.5.0 1.6.0 1.7.0: Backport of PEP-784: adding Zstandard to the standard library
 dev-python/backrefs 7.0 8.0: Wrapper around re or regex that adds additional back references
 dev-python/bandit 1.9.4: A security linter from OpenStack Security
 dev-python/bareos 25.0.1: python bindings for bareos network backup suite
@@ -8426,7 +8426,7 @@ dev-python/chainstream 1.0.2: Chain I/O-Streams together into a single stream
 dev-python/chameleon 4.6.0: Fast HTML/XML template compiler for Python
 dev-python/characteristic 14.3.0-r4: Python attributes without the boilerplate
 dev-python/chardet 6.0.0_p1: Universal encoding detector
-dev-python/charset-normalizer 3.4.7 3.4.9 3.5.0: The Real First Universal Charset Detector
+dev-python/charset-normalizer 3.4.7 3.4.9 3.5.0 3.5.1: The Real First Universal Charset Detector
 dev-python/chart-studio 1.1.0-r2: Browser-based graphing library for Python
 dev-python/cheetah3 3.4.0: Python-powered template engine and code generator
 dev-python/cheroot 11.1.2: High-performance, pure-Python HTTP server used by CherryPy
@@ -8615,7 +8615,7 @@ dev-python/fastapi 0.140.7 0.140.13 0.141.1: High performance framework, easy to
 dev-python/fastbencode 0.3.10 0.3.11: Implementation of bencode with Rust implementation
 dev-python/fasteners 0.20: Python package that provides useful locks
 dev-python/fastimport 0.9.16: Library for parsing the fastimport VCS serialization format
-dev-python/fastjsonschema 2.21.2 2.22.0 2.22.1: Fast JSON schema validator for Python
+dev-python/fastjsonschema 2.21.2 2.22.1 2.22.2: Fast JSON schema validator for Python
 dev-python/faust-cchardet 2.1.19 2.1.20 2.2.1 3.0.0 3.0.0-r1: High speed universal character encoding detector
 dev-python/feedgenerator 2.2.1: Standalone version of django.utils.feedgenerator
 dev-python/feedparser 6.0.12 6.0.14: Parse RSS and Atom feeds in Python
@@ -8994,7 +8994,7 @@ dev-python/mypy-extensions 1.1.0: Type system extensions for programs checked wi
 dev-python/mysqlclient 2.2.8: Python interface to MySQL
 dev-python/myst-parser 5.1.0: Extended commonmark compliant parser, with bridges to Sphinx
 dev-python/nagiosplugin 1.4.0: A class library for writing nagios-compatible plugins
-dev-python/nanobind 2.12.0 2.13.0 2.14.0: Tiny and efficient C++/Python bindings
+dev-python/nanobind 2.12.0 2.13.0 2.14.0 2.15.0: Tiny and efficient C++/Python bindings
 dev-python/narwhals 2.23.0 2.24.0: Extremely lightweight compatibility layer between dataframe libraries
 dev-python/natsort 8.4.0: Natural sorting for Python
 dev-python/nautilus-python 4.0.1 4.1.0: Python bindings for the Nautilus file manager
@@ -9425,7 +9425,7 @@ dev-python/python-glanceclient 4.12.0: A client for the OpenStack Glance API
 dev-python/python-gnupg 0.5.6: A Python wrapper for GnuPG
 dev-python/python-ironicclient 6.1.0 6.2.0: Python bindings for the Ironic API
 dev-python/python-jose 3.5.0: A JavaScript Object Signing and Encryption (JOSE) implementation in Python
-dev-python/python-json-logger 4.1.0: Standard python logging to output log data as json objects
+dev-python/python-json-logger 4.1.0 4.2.0: Standard python logging to output log data as json objects
 dev-python/python-keystoneclient 5.8.0: Client Library for OpenStack Identity
 dev-python/python-ldap 3.4.7: Various LDAP-related Python modules
 dev-python/python-linux-procfs 0.7.4: Python classes to extract information from the Linux kernel /proc files
@@ -9486,7 +9486,7 @@ dev-python/pyupgrade 3.21.2: Tool + pre-commit hook to automatically upgrade syn
 dev-python/pyusb 1.3.1: USB support for Python
 dev-python/pyvirtualdisplay 3.0: Python wrapper for Xvfb, Xephyr and Xvnc
 dev-python/pywavelets 1.9.0: Discrete Wavelet Transforms in Python
-dev-python/pywayland 0.4.18: Python bindings for the libwayland library
+dev-python/pywayland 0.4.18 0.4.19: Python bindings for the libwayland library
 dev-python/pywinrm 0.5.0: Python client for the Windows Remote Management (WinRM) service
 dev-python/pywlroots 0.17.0: Python binding to the wlroots library using cffi
 dev-python/pyx 0.16-r2: Python package for the generation of encapsulated PostScript figures
@@ -9620,7 +9620,7 @@ dev-python/sgmllib3k 1.0.0-r1: Py3k port of sgmllib
 dev-python/sh 2.3.0 2.4.0: Python subprocess interface
 dev-python/shapely 2.1.2: Geometric objects, predicates, and operations
 dev-python/shellingham 1.5.4: Tool to Detect Surrounding Shell
-dev-python/shtab 1.8.1 1.8.2 1.9.3 1.10.0: Automagic shell tab completion for Python CLI applications
+dev-python/shtab 1.8.1 1.8.2 1.9.3 1.10.0 1.11.0: Automagic shell tab completion for Python CLI applications
 dev-python/signature-dispatch 1.0.1-r1: Execute the first function that matches the given arguments
 dev-python/signedjson 1.1.4: Signs JSON objects with ED25519 signatures
 dev-python/signxml 4.5.1 5.0.1 5.1.0 9999: Python XML Signature and XAdES library
@@ -9767,7 +9767,7 @@ dev-python/three-merge 0.1.1-r1: Simple Python library to perform a 3-way merge 
 dev-python/thrift 0.23.0 0.24.0: Python implementation of Thrift
 dev-python/thriftpy2 0.6.0 0.7.0: Pure python approach of Apache Thrift
 dev-python/tibs 0.12.0 1.0.0 1.1.0: A sleek Python library for your binary data
-dev-python/tifffile 2026.6.1 2026.7.14 2026.7.31: Read and write TIFF files
+dev-python/tifffile 2026.7.31 2026.8.16: Read and write TIFF files
 dev-python/time-machine 3.2.0 3.2.0-r1 3.3.1 3.4.0: Travel through time in your tests
 dev-python/tiny-proxy 0.2.1 0.3.0: Simple proxy server (SOCKS4(a), SOCKS5(h), HTTP tunnel)
 dev-python/tinycss2 1.5.1: A complete yet simple CSS parser for Python
@@ -9881,7 +9881,7 @@ dev-python/wcmatch 11.0 11.0.1: Wildcard/glob file name matcher
 dev-python/wcwidth 0.7.0 0.8.2: Measures number of Terminal column cells of wide-character codes
 dev-python/weasyprint 69.0: Visual rendering engine for HTML and CSS that can export to PDF
 dev-python/webcolors 25.10.0: Color names and value formats defined by the HTML and CSS specifications
-dev-python/webencodings 0.5.1-r2: Character encoding aliases for legacy web content
+dev-python/webencodings 0.5.1-r2 0.6.1: Character encoding aliases for legacy web content
 dev-python/webob 1.8.10 1.8.11: WSGI request and response object
 dev-python/websocket-client 1.9.0: WebSocket client for python with hybi13 support
 dev-python/websockets 16.0 16.0-r1 16.1 16.1.1 17.0 17.0.1: Library for building WebSocket servers and clients in Python
@@ -9895,7 +9895,7 @@ dev-python/whenever 0.10.4 0.10.5: Modern datetime library for Python
 dev-python/whisper 1.1.10: Fixed size round-robin style database
 dev-python/whoosh 2.7.4-r2: Fast, pure-Python full text indexing, search and spell checking library
 dev-python/widgetsnbextension 4.0.15: IPython HTML widgets for Jupyter
-dev-python/wrapt 2.2.2 2.3.0 2.4.0_rc1 2.4.0_rc2: Module for decorators, wrappers and monkey patching
+dev-python/wrapt 2.2.2 2.3.0 2.4.0_rc1 2.4.0_rc2 2.4.0_rc4: Module for decorators, wrappers and monkey patching
 dev-python/wsaccel 0.6.7: Accelerator for ws4py, autobahn and tornado
 dev-python/wsgiproxy2 0.5.1-r1: HTTP proxying tools for WSGI apps
 dev-python/wsproto 1.3.2: WebSockets state-machine based protocol implementation
