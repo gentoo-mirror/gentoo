@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig
+DEFINED_PHASES=compile install postinst prepare
+DEPEND=!net-analyzer/netcat !elibc_Darwin? ( dev-libs/libbsd )
+DESCRIPTION=The OpenBSD network swiss army knife
+EAPI=8
+HOMEPAGE=https://cvsweb.openbsd.org/src/usr.bin/nc/ https://salsa.debian.org/debian/netcat-openbsd
+INHERIT=toolchain-funcs
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86 ~arm64-macos ~x64-macos
+LICENSE=BSD
+RDEPEND=!net-analyzer/netcat !elibc_Darwin? ( dev-libs/libbsd )
+SLOT=0
+SRC_URI=mirror://debian/pool/main/n/netcat-openbsd/netcat-openbsd_1.238.orig.tar.gz mirror://debian/pool/main/n/netcat-openbsd/netcat-openbsd_1.238-1.debian.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
+_md5_=5a90b055843b9ebeac17b8790d103d81
