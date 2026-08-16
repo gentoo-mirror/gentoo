@@ -10,7 +10,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://git.code.sf.net/p/zsh/code"
 else
 	inherit verify-sig
-	DIST_SITE="https://www.zsh.org/pub/old"
+	DIST_SITE="https://www.zsh.org/pub"
 	SRC_URI="
 		${DIST_SITE}/${P}.tar.xz
 		verify-sig? ( ${DIST_SITE}/${P}.tar.xz.asc )
