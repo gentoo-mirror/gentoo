@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-13">
+    <title>NTFS-3G: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in NTFS-3G, the worst of which could result in privilege escalation.</synopsis>
+    <product type="ebuild">ntfs3g</product>
+    <announced>2026-08-16</announced>
+    <revised count="1">2026-08-16</revised>
+    <bug>973067</bug>
+    <bug>979306</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-fs/ntfs3g" auto="yes" arch="*">
+            <unaffected range="ge">2026.7.7</unaffected>
+            <vulnerable range="lt">2026.7.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>NTFS-3G is a stable, full-featured, read-write NTFS driver for various operating systems.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in NTFS-3G. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All NTFS-3G users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-fs/ntfs3g-2026.7.7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-40706">CVE-2026-40706</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-42616">CVE-2026-42616</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-42617">CVE-2026-42617</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-42618">CVE-2026-42618</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-46569">CVE-2026-46569</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-46570">CVE-2026-46570</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-46571">CVE-2026-46571</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-46572">CVE-2026-46572</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-56135">CVE-2026-56135</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-56136">CVE-2026-56136</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-16T02:59:54.758527Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-16T02:59:54.762081Z">sam</metadata>
+</glsa>
