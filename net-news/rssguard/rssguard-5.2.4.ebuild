@@ -12,13 +12,14 @@ SRC_URI="
 "
 
 LICENSE="|| ( LGPL-3 GPL-2+ ) AGPL-3+ BSD GPL-3+ MIT"
-SLOT="0/101"
-KEYWORDS="amd64"
-IUSE="icu libmpv mysql qtmultimedia +sqlite webengine xmpp"
+SLOT="0/104"
+KEYWORDS="~amd64"
+IUSE="icu libmpv mysql qtmultimedia +sqlite webengine xmpp"  # test
 REQUIRED_USE="
 	|| ( mysql sqlite )
 	?? ( libmpv qtmultimedia )
 "
+#RESTRICT="!test? ( test )"
 
 # go for article-extractor plugin
 BDEPEND="
@@ -49,8 +50,8 @@ RDEPEND="${DEPEND}"
 QA_FLAGS_IGNORED="/usr/bin/rssguard-article-extractor"
 
 pkg_pretend() {
-	if ver_replacing -lt 5.1.0; then
-		ewarn "RSSGuard 5.1.0 changed its database schema.  Once you start the new"
+	if ver_replacing -lt 5.2.0; then
+		ewarn "RSSGuard 5.2.0 changed its database schema.  Once you start the new"
 		ewarn "version, the database will be upgraded in place and it will"
 		ewarn "no longer be possible to run an older version of RSSGuard with it."
 	fi
@@ -69,6 +70,9 @@ src_configure() {
 		-DENABLE_ICU=$(usex icu)
 		-DENABLE_MEDIAPLAYER_QTMULTIMEDIA=$(usex qtmultimedia)
 		-DENABLE_MEDIAPLAYER_LIBMPV=$(usex libmpv)
+		# implicitly enables benchmarks
+		# https://github.com/martinrotter/rssguard/issues/2409
+		# -DENABLE_TESTING=$(usex test)
 		-DUSE_SYSTEM_QXMPP=ON
 		-DBUILD_XMPP_PLUGIN=$(usex xmpp)
 		-DWEB_ARTICLE_VIEWER_WEBENGINE=$(usex webengine)

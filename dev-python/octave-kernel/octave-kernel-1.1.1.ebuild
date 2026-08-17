@@ -21,7 +21,8 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 RDEPEND="
 	>=dev-python/ipykernel-6.22.0[${PYTHON_USEDEP}]
 	>=dev-python/jupyter-client-8.1.0[${PYTHON_USEDEP}]
-	>=dev-python/metakernel-1.0[${PYTHON_USEDEP}]
+	>=dev-python/metakernel-1.0.6[${PYTHON_USEDEP}]
+	>=dev-python/rpds-py-2026.5.1[${PYTHON_USEDEP}]
 	sci-mathematics/octave
 "
 DEPEND="${RDEPEND}"

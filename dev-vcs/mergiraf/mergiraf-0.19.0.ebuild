@@ -3,7 +3,8 @@
 
 EAPI=8
 
-CRATES=""
+CRATES=" "
+
 RUST_MIN_VER="1.92"
 inherit cargo
 
@@ -18,6 +19,15 @@ LICENSE="GPL-3"
 LICENSE+=" Apache-2.0 MIT Unicode-3.0 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="test"
+RESTRICT="!test? ( test )"
+
+BDEPEND="
+	test? (
+		dev-vcs/git
+		dev-vcs/jj
+	)
+"
 
 QA_FLAGS_IGNORED="usr/bin/${PN}"
 
