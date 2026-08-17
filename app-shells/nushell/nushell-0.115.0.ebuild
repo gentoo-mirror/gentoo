@@ -3,7 +3,7 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.91.1"
+RUST_MIN_VER="1.95.0"
 
 inherit cargo
 
@@ -51,6 +51,8 @@ src_configure() {
 	export PKG_CONFIG_ALLOW_CROSS=1
 
 	local myfeatures=(
+		helix
+		lsp
 		$(usev mcp)
 		native-tls
 		network
@@ -61,10 +63,6 @@ src_configure() {
 	)
 
 	cargo_src_configure --no-default-features
-}
-
-src_compile() {
-	cargo_src_compile --workspace
 }
 
 src_install() {
