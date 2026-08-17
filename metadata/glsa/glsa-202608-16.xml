@@ -5,7 +5,7 @@
     <synopsis>Multiple vulnerabilities have been found in nginx, the worst of which could result in arbitrary code execution.</synopsis>
     <product type="ebuild">nginx</product>
     <announced>2026-08-17</announced>
-    <revised count="1">2026-08-17</revised>
+    <revised count="2">2026-08-17</revised>
     <bug>949354</bug>
     <bug>967910</bug>
     <bug>969626</bug>
@@ -17,8 +17,8 @@
     <access>remote</access>
     <affected>
         <package name="www-servers/nginx" auto="yes" arch="*">
-            <unaffected range="ge">1.31.3-r1</unaffected>
-            <vulnerable range="lt">1.31.3-r1</vulnerable>
+            <unaffected range="ge">1.30.4-r1</unaffected>
+            <vulnerable range="lt">1.30.4-r1</vulnerable>
         </package>
     </affected>
     <background>
@@ -38,7 +38,7 @@
         
         <code>
           # emerge --sync
-          # emerge --ask --oneshot --verbose ">=www-servers/nginx-1.31.3-r1"
+          # emerge --ask --oneshot --verbose ">=www-servers/nginx-1.30.4-r1"
         </code>
     </resolution>
     <references>
