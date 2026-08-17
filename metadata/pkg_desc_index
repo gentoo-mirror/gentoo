@@ -942,7 +942,7 @@ app-admin/awscli-bin 2.36.4 2.36.17: command line interface for Amazon Web Servi
 app-admin/bitwarden-cli-bin 2025.12.0 2026.6.0 2026.7.0: CLI client for Bitwarden compatible servers
 app-admin/bitwarden-desktop-bin 2026.6.0 2026.6.1 2026.7.0: Bitwarden password manager desktop client
 app-admin/bpftune 0.4_p2: BPF driven auto-tuning
-app-admin/btrfs-assistant 2.2: GUI management tool to make managing a Btrfs filesystem easier
+app-admin/btrfs-assistant 2.2 2.3: GUI management tool to make managing a Btrfs filesystem easier
 app-admin/calamares 3.3.14-r1 3.3.14-r4 3.3.14-r8 3.4.2-r1: Distribution-independent installer framework
 app-admin/cancd 0.1.0-r6: CA NetConsole Daemon receives output from the Linux netconsole driver
 app-admin/ccze 0.2.1-r5: A flexible and fast logfile colorizer
@@ -3046,7 +3046,7 @@ app-office/libreoffice 25.2.7.2-r1 9999: A full office productivity suite
 app-office/libreoffice-bin 25.8.4-r1: A full office productivity suite. Binary package
 app-office/libreoffice-l10n 25.2.7.2: Translations for the Libreoffice suite
 app-office/libreoffice-voikko 5.0-r1: Free Finnish spell checking and hyphenation for LibreOffice
-app-office/lyx 2.4.4 2.5.0 2.5.1: WYSIWYM (What You See Is What You Mean) document processor based on LaTeX
+app-office/lyx 2.4.4 2.5.0 2.5.1 2.5.2: WYSIWYM (What You See Is What You Mean) document processor based on LaTeX
 app-office/magicpoint 1.13a_p20121015-r2: X11 based presentation tool
 app-office/mdbtools 1.0.1: Set of libraries and utilities for reading Microsoft Access database (MDB) files
 app-office/merkuro 26.04.3: Calendar application using Akonadi
@@ -5818,7 +5818,7 @@ dev-libs/libtpms 0.10.2: Library providing software emulation of a TPM
 dev-libs/libtracecmd 1.5.2 1.5.3 1.5.5: Linux kernel tracecmd library
 dev-libs/libtraceevent 1.8.3 1.8.4 1.8.6 1.8.7 1.9.0: Linux kernel trace event library
 dev-libs/libtracefs 1.8.1 1.8.2 1.8.3: Linux kernel trace file system library
-dev-libs/libtsm 4.3.0 4.4.3 4.5.0 4.6.0 4.7.0: Terminal Emulator State Machine
+dev-libs/libtsm 4.3.0 4.4.3 4.5.0 4.6.0 4.7.0 4.7.1: Terminal Emulator State Machine
 dev-libs/libucl 0.9.2 9999: Universal configuration library parser
 dev-libs/libudfread 1.1.2 1.2.0-r1 9999: Library for reading UDF from raw devices and image files
 dev-libs/libuev 2.4.1: Lightweight event loop library for Linux epoll() family APIs
@@ -8334,7 +8334,7 @@ dev-python/assertpy 1.1: Simple assertion library for unit testing in python wit
 dev-python/ast-serialize 0.6.0 0.7.0 0.8.0: Python bindings for mypy AST serialization
 dev-python/asteval 1.0.9: Evaluator of Python expression using ast module
 dev-python/astor 0.8.1-r2: Read/rewrite/write Python ASTs
-dev-python/astroid 4.0.4 4.1.2 4.3.0: Abstract Syntax Tree for logilab packages
+dev-python/astroid 4.0.4 4.1.2 4.3.0 4.3.1: Abstract Syntax Tree for logilab packages
 dev-python/asttokens 3.0.1 3.0.2: Annotate Python AST trees with source text and token information
 dev-python/async-lru 2.3.0: Simple lru_cache for asyncio
 dev-python/async-timeout 5.0.1: Timeout context manager for asyncio programs
@@ -8515,7 +8515,7 @@ dev-python/ddt 1.7.2: Data-Driven/Decorated Tests
 dev-python/debtcollector 3.1.0: Python deprecation patterns and strategies that collect technical debt
 dev-python/decorator 5.3.1: Simplifies the usage of decorators for the average programmer
 dev-python/deepdiff 8.6.2 9.1.0: A library for comparing dictionaries, iterables, strings and other objects
-dev-python/deepmerge 2.0 2.1.0: Tools to handle merging of nested data structures in python
+dev-python/deepmerge 2.1.0 3.0: Tools to handle merging of nested data structures in python
 dev-python/defusedxml 0.8.0_rc2: XML bomb protection for Python stdlib modules, an xml serialiser
 dev-python/denonavr 1.3.3: Automation Library for Denon AVR receivers
 dev-python/dep-logic 0.6.0 0.7.1: Python dependency specifications supporting logical operations
@@ -8956,7 +8956,7 @@ dev-python/merge3 0.0.16: Python implementation of 3-way merge
 dev-python/mergedict 1.0.0-r1: A Python 'dict' with a merge() method
 dev-python/meshio 5.3.5-r1: Input/output for many mesh formats
 dev-python/meson-python 0.20.0: Meson PEP 517 Python build backend
-dev-python/metakernel 1.0.0 1.0.6: Metakernel for Jupyter
+dev-python/metakernel 1.0.0 1.0.6 1.0.7: Metakernel for Jupyter
 dev-python/micawber 0.6.2 0.7.0: A small library for extracting rich content from urls
 dev-python/mido 1.3.3: MIDI Objects, a library for working with MIDI messages and ports
 dev-python/mimerender 0.6.0-r1: RESTful HTTP Content Negotiation for Flask, Bottle, web.py and webapp2
@@ -9002,7 +9002,7 @@ dev-python/nbclassic 1.3.3: Jupyter Notebook as a Jupyter Server Extension
 dev-python/nbclient 0.11.0: A client library for executing Jupyter notebooks
 dev-python/nbconvert 7.17.1: Converting Jupyter Notebooks
 dev-python/nbdime 4.0.4: Diff and merge of Jupyter Notebooks
-dev-python/nbformat 5.10.4 5.11.0: Reference implementation of the Jupyter Notebook format
+dev-python/nbformat 5.10.4 5.11.0 5.11.1: Reference implementation of the Jupyter Notebook format
 dev-python/nbsphinx 0.9.8: Jupyter Notebook Tools for Sphinx
 dev-python/nbval 0.11.0: A pytest plugin to validate Jupyter notebooks
 dev-python/nbxmpp 6.4.0 7.2.0 7.3.0: Python library to use Jabber/XMPP networks in a non-blocking way
@@ -9034,7 +9034,7 @@ dev-python/nvidia-ml-py 12.575.51 13.590.44: Python bindings to the NVIDIA Manag
 dev-python/oauthlib 3.3.1: Spec-compliant and thorough implementation of the OAuth request-signing logic
 dev-python/objgraph 3.6.2: Draws Python object reference graphs with graphviz
 dev-python/oct2py 6.0.3: Python to GNU Octave bridge
-dev-python/octave-kernel 1.0.4 1.1.0: Jupyter kernel for octave
+dev-python/octave-kernel 1.1.0 1.1.1: Jupyter kernel for octave
 dev-python/odfpy 1.4.2: Python API and tools to manipulate OpenDocument files
 dev-python/olefile 0.47: Python package to parse, read and write Microsoft OLE2 files
 dev-python/omemo-dr 1.2.0: OMEMO Crypto Library
@@ -9235,7 +9235,7 @@ dev-python/pyghmi 1.6.19: A pure python implementation of IPMI protocol
 dev-python/pygit2 1.19.3 1.20.0: Python bindings for libgit2
 dev-python/pygithub 2.9.1: Python library to access the Github API v3
 dev-python/pyglet 2.1.14 2.1.15 2.1.16: Cross-platform windowing and multimedia library for Python
-dev-python/pygments 2.19.2 2.20.0: Pygments is a syntax highlighting package written in Python
+dev-python/pygments 2.19.2 2.20.0 2.21.0: Pygments is a syntax highlighting package written in Python
 dev-python/pygments-github-lexers 0.0.5-r2: Pygments Github custom lexers
 dev-python/pygobject 3.50.1 3.50.2 3.52.3 3.52.4 3.54.5 3.56.2 3.56.3: Python bindings for GObject Introspection
 dev-python/pygraphviz 1.14-r2 2.0.1: Python wrapper for the Graphviz Agraph data structure
@@ -9382,7 +9382,7 @@ dev-python/pytest-recording 0.13.4: A pytest plugin to record network interactio
 dev-python/pytest-regressions 2.10.0 2.11.0: Easy to use fixtures to write regression tests
 dev-python/pytest-repeat 0.9.4: pytest plugin for repeating tests
 dev-python/pytest-reraise 2.1.2: Make multi-threaded pytest test cases fail when they should
-dev-python/pytest-rerunfailures 16.4 16.5: pytest plugin to re-run tests to eliminate flaky failures
+dev-python/pytest-rerunfailures 16.4 16.5 16.6: pytest plugin to re-run tests to eliminate flaky failures
 dev-python/pytest-reserial 0.6.1: Pytest plugin for recording and replaying serial port traffic during tests
 dev-python/pytest-salt-factories 1.0.0_rc29 1.0.1 1.0.5: The new generation of the pytest-salt Plugin
 dev-python/pytest-services 2.2.2: Collection of fixtures and utility functions to run service processes for pytest
@@ -9839,7 +9839,7 @@ dev-python/uri-template 1.3.0: URI Template expansion in strict adherence to RFC
 dev-python/uritemplate 4.2.0: Python implementation of RFC6570, URI Template
 dev-python/url-normalize 3.0.0: URL normalization for Python
 dev-python/urllib3 2.7.0: HTTP library with thread-safe connection pooling, file post, and more
-dev-python/urwid 4.0.3 4.0.4 4.0.6 4.0.8 4.0.9: Curses-based user interface library for Python
+dev-python/urwid 4.0.4 4.0.8 4.0.9 4.0.10: Curses-based user interface library for Python
 dev-python/urwid-readline 0.15.1: Text input widget for urwid that supports readline shortcuts
 dev-python/urwidtrees 1.0.3-r2: Tree widgets for urwid
 dev-python/userpath 1.9.2: Cross-platform tool for adding locations to the user PATH
@@ -9914,7 +9914,7 @@ dev-python/xmlschema 4.3.1 4.3.2: An XML Schema validator and decoder
 dev-python/xmlsec 1.3.17 1.3.17-r1: Python bindings for the XML Security Library
 dev-python/xmltodict 1.0.4: Makes working with XML feel like you are working with JSON
 dev-python/xvfbwrapper 0.2.23 0.2.25 0.2.27 0.2.28 0.2.29: Python wrapper for running a display inside X virtual framebuffer
-dev-python/xxhash 3.7.1 3.8.1 4.0.0: Python binding for the xxHash library
+dev-python/xxhash 3.8.1 4.0.0 4.0.1: Python binding for the xxHash library
 dev-python/yapf 0.43.0-r1: A formatter for Python files
 dev-python/yappi 1.7.6: Yet Another Python Profiler
 dev-python/yapsy 1.12.2-r2: A fat-free DIY Python plugin management toolkit
@@ -11321,7 +11321,7 @@ dev-vcs/jj 0.40.0 0.41.0 0.42.0 0.44.0: Jujutsu - an experimental version contro
 dev-vcs/kdesvn 2.1.0_p20260608: Frontend to the subversion vcs
 dev-vcs/lab 0.25.1: Lab wraps Git or Hub, making it simple to interact with repositories on GitLab
 dev-vcs/mercurial 6.7.4-r2 6.7.4-r3 6.8.2 6.9.4 7.0.3 7.1.2-r1 7.2.4 9999: Scalable distributed SCM
-dev-vcs/mergiraf 0.16.1 0.16.3 0.17.0 0.18.0: Syntax-aware git merge driver
+dev-vcs/mergiraf 0.18.0 0.19.0: Syntax-aware git merge driver
 dev-vcs/mr 1.20180726: Multiple Repository management tool
 dev-vcs/pkgcruft-git 0.0.5-r2 9999: QA support for verifying git commits via pkgcruft
 dev-vcs/pre-commit 4.5.1: A framework for managing and maintaining multi-language Git pre-commit hooks
@@ -15642,7 +15642,7 @@ net-news/canto-curses 0.9.9-r1: The ncurses client for canto-daemon
 net-news/canto-daemon 0.9.8: Daemon part of Canto-NG RSS reader
 net-news/liferea 1.15.8-r2 1.16.12: News Aggregator for RDF/RSS/CDF/Atom/Echo feeds
 net-news/newsboat 2.43 2.44: An RSS/Atom feed reader for text terminals
-net-news/rssguard 5.1.2 5.2.0 5.2.1 5.2.2 5.2.3: Simple (yet powerful) news feed reader
+net-news/rssguard 5.2.3 5.2.4: Simple (yet powerful) news feed reader
 net-news/rsstail 2.2: A tail-like RSS-reader
 net-news/sfeed 2.2 2.3 2.4: Simple RSS and Atom parser
 net-news/snownews 1.9-r2: Command-line RSS feed reader
