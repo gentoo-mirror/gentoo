@@ -43,9 +43,6 @@ src_prepare() {
 	# create initial changes file
 	touch data/changes.log || die
 
-	# remove stray vcs directory
-	rm -r .git || die
-
 	default
 }
 
