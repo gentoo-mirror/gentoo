@@ -4,7 +4,7 @@ DEPEND=app-arch/bzip2:= app-arch/xz-utils:= app-misc/mime-types >=dev-libs/expat
 DESCRIPTION=Freethreading (no-GIL) version of Python programming language
 EAPI=8
 HOMEPAGE=https://www.python.org/ https://github.com/python/cpython/
-INHERIT=autotools check-reqs eapi9-ver flag-o-matic linux-info multiprocessing pax-utils toolchain-funcs verify-sig
+INHERIT=autotools check-reqs eapi9-ver flag-o-matic linux-info multiprocessing pax-utils python-utils-r1 toolchain-funcs verify-sig
 IUSE=bluetooth build debug +ensurepip examples gdbm libedit +ncurses pgo +readline +sqlite +ssl tail-call-interp test tk valgrind verify-sig
 LICENSE=PSF-2
 PDEPEND=ensurepip? ( dev-python/ensurepip-pip )
@@ -12,5 +12,5 @@ RDEPEND=app-arch/bzip2:= app-arch/xz-utils:= app-misc/mime-types >=dev-libs/expa
 RESTRICT=!test? ( test )
 SLOT=3.15t
 SRC_URI=https://www.python.org/ftp/python/3.15.0/Python-3.15.0rc1.tar.xz https://distfiles.gentoo.org/pub/proj/python/patchsets/3.15/python-gentoo-patches-3.15.0rc1.tar.xz verify-sig? ( https://www.python.org/ftp/python/3.15.0/Python-3.15.0rc1.tar.xz.sigstore )
-_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	flag-o-matic	fd3558f73f6503093adee69adf41020d	linux-info	efd923656513c879204fec6638eadee5	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	pax-utils	5555f2e75744739fe100ee62c22d28fe	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=8b623936c9287130b0a051d9644fd7f9
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	flag-o-matic	fd3558f73f6503093adee69adf41020d	linux-info	efd923656513c879204fec6638eadee5	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	pax-utils	5555f2e75744739fe100ee62c22d28fe	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=75bb1b5bd0b41f99ceb1f68b67a02790
