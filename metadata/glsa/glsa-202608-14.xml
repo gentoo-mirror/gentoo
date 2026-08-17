@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-14">
+    <title>X.Org X server, XWayland: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in X.Org X server, XWayland.</synopsis>
+    <product type="ebuild">xorg-server,xwayland</product>
+    <announced>2026-08-17</announced>
+    <revised count="1">2026-08-17</revised>
+    <bug>958340</bug>
+    <bug>965271</bug>
+    <bug>972712</bug>
+    <bug>976628</bug>
+    <bug>978969</bug>
+    <access>remote</access>
+    <affected>
+        <package name="x11-base/xorg-server" auto="yes" arch="*">
+            <unaffected range="ge">21.1.24</unaffected>
+            <vulnerable range="lt">21.1.24</vulnerable>
+        </package>
+        <package name="x11-base/xwayland" auto="yes" arch="*">
+            <unaffected range="ge">24.1.13</unaffected>
+            <vulnerable range="lt">24.1.13</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>The X Window System is a graphical windowing system based on a client/server model.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in X.Org X server, XWayland. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All X.Org X server, XWayland users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-base/xorg-server-21.1.24"
+        </code>
+        
+        <p>All X.Org X server, XWayland users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=x11-base/xwayland-24.1.13"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-49175">CVE-2025-49175</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-49176">CVE-2025-49176</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-49177">CVE-2025-49177</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-49178">CVE-2025-49178</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-49179">CVE-2025-49179</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-49180">CVE-2025-49180</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-62229">CVE-2025-62229</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-62230">CVE-2025-62230</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-62231">CVE-2025-62231</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-33999">CVE-2026-33999</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-34000">CVE-2026-34000</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-34001">CVE-2026-34001</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-34002">CVE-2026-34002</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-34003">CVE-2026-34003</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-50256">CVE-2026-50256</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-50257">CVE-2026-50257</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-50258">CVE-2026-50258</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-50259">CVE-2026-50259</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-50260">CVE-2026-50260</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-50261">CVE-2026-50261</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-50262">CVE-2026-50262</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-50263">CVE-2026-50263</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-55999">CVE-2026-55999</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-56000">CVE-2026-56000</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-17T06:34:43.387360Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-17T06:34:43.390841Z">sam</metadata>
+</glsa>
