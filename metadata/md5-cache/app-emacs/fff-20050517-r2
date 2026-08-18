@@ -1,0 +1,13 @@
+BDEPEND=>=app-editors/emacs-26.3:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Fast file finder for Emacs
+EAPI=9
+HOMEPAGE=http://www.splode.com/~friedman/software/emacs-lisp/
+INHERIT=elisp
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+
+RDEPEND=|| ( sys-apps/mlocate sys-apps/plocate ) >=app-editors/emacs-26.3:*
+SLOT=0
+SRC_URI=mirror://gentoo/fff-20050517.tar.bz2
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	8e56606e40554fd24928b6bc76ef3c7a
+_md5_=94e85d06555270b06a71acfe49d51933
