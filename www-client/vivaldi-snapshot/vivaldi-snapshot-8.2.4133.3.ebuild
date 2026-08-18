@@ -8,8 +8,6 @@ CHROMIUM_LANGS="
 	af
 	am
 	ar
-	az
-	be
 	bg
 	bn
 	ca
@@ -26,41 +24,34 @@ CHROMIUM_LANGS="
 	es-419
 	es-PE
 	et
-	eu
 	fa
 	fi
 	fil
 	fr
 	fy
 	gd
-	gl
 	gu
 	he
 	hi
 	hr
 	hu
-	hy
 	id
 	io
-	is
 	it
 	ja
 	jbo
-	ka
 	kab
 	kmr
 	kn
 	ko
 	lt
 	lv
-	mk
 	ml
 	mr
 	ms
 	nb
 	nl
 	nn
-	pa
 	pl
 	pt-BR
 	pt-PT
@@ -69,9 +60,7 @@ CHROMIUM_LANGS="
 	sc
 	sk
 	sl
-	sq
 	sr
-	sr-Latn
 	sv
 	sw
 	ta
@@ -135,7 +124,7 @@ RDEPEND="
 	x11-libs/pango
 	gtk? ( gui-libs/gtk:4 x11-libs/gtk+:3 )
 	proprietary-codecs? (
-		!ffmpeg-chromium? ( media-video/ffmpeg:0/60.62.62[chromium] )
+		!ffmpeg-chromium? ( media-video/ffmpeg:0/61.63.63[chromium] )
 		ffmpeg-chromium? ( media-video/ffmpeg-chromium:${CHROMIUM_VERSION} )
 	)
 	qt6? ( dev-qt/qtbase:6[gui,widgets] )
