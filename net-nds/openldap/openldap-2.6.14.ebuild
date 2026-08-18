@@ -1,32 +1,28 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 # Re cleanups:
-# 2.5.x is an LTS release so we want to keep it for a while.
+# 2.6.x and 2.5.x are both maintained streams. We keep the latest of each.
 
 inherit autotools flag-o-matic multilib multilib-minimal preserve-libs
-inherit ssl-cert toolchain-funcs systemd tmpfiles
+inherit ssl-cert toolchain-funcs systemd tmpfiles verify-sig
 
 MY_PV="$(ver_rs 1-2 _)"
-
-BIS_PN=rfc2307bis.schema
-BIS_PV=20140524
-BIS_P="${BIS_PN}-${BIS_PV}"
 
 DESCRIPTION="LDAP suite of application and development tools"
 HOMEPAGE="https://www.openldap.org/"
 SRC_URI="
-	https://gitlab.com/openldap/${PN}/-/archive/OPENLDAP_REL_ENG_${MY_PV}/${PN}-OPENLDAP_REL_ENG_${MY_PV}.tar.bz2
-	mirror://gentoo/${BIS_P}
+	https://openldap.org/software/download/OpenLDAP/${PN}-release/${P}.tgz
+	verify-sig? ( https://openldap.org/software/download/OpenLDAP/${PN}-release/${P}.tgz.asc )
 "
-S="${WORKDIR}"/${PN}-OPENLDAP_REL_ENG_${MY_PV}
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/openldap.asc
 
 LICENSE="OPENLDAP GPL-2"
 # Subslot added for bug #835654
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 IUSE_DAEMON="argon2 +cleartext crypt experimental minimal samba tcpd"
 IUSE_OVERLAY="overlays perl autoca"
@@ -44,7 +40,7 @@ REQUIRED_USE="
 "
 RESTRICT="!test? ( test )"
 
-SYSTEM_LMDB_VER=0.9.33
+SYSTEM_LMDB_VER=0.9.36
 # openssl is needed to generate lanman-passwords required by samba
 COMMON_DEPEND="
 	kernel_linux? ( sys-apps/util-linux )
@@ -86,19 +82,17 @@ DEPEND="
 	${COMMON_DEPEND}
 	sys-apps/groff
 "
-RDEPEND="
-	${COMMON_DEPEND}
-	selinux? ( sec-policy/selinux-ldap )
-"
-
 # The user/group are only used for running daemons which are
 # disabled in minimal builds, so elide the accounts too.
-BDEPEND="
+RDEPEND="
+	${COMMON_DEPEND}
 	!minimal? (
 		acct-group/ldap
 		acct-user/ldap
 	)
+	selinux? ( sec-policy/selinux-ldap )
 "
+BDEPEND="verify-sig? ( >=sec-keys/openpgp-keys-openldap-20201216 )"
 
 # for tracking versions
 OPENLDAP_VERSIONTAG=".version-tag"
@@ -148,7 +142,6 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.6.1-cloak.patch
 	"${FILESDIR}"/${PN}-2.6.1-flags.patch
 	"${FILESDIR}"/${PN}-2.6.1-fix-missing-mapping.v2.patch
-	"${FILESDIR}"/${PN}-2.6.x-gnutls-pointer-error.patch
 	"${FILESDIR}"/${PN}-2.5.19-gcc14-SDWORD-vs-SQLINTEGER.patch
 )
 
@@ -341,6 +334,12 @@ pkg_setup() {
 	fi
 }
 
+src_unpack() {
+	use verify-sig &&
+		verify-sig_verify_detached "${DISTDIR}"/${P}.tgz{,.asc}
+	default
+}
+
 src_prepare() {
 	# The system copy of dev-db/lmdb must match the version that this copy
 	# of OpenLDAP shipped with! See bug #588792.
@@ -472,7 +471,7 @@ multilib_src_configure() {
 			myconf+=( --enable-sql=mod )
 			if use iodbc ; then
 				myconf+=( --with-odbc="iodbc" )
-				append-cflags -I"${EPREFIX}"/usr/include/iodbc
+				append-cflags -I"${ESYSROOT}"/usr/include/iodbc
 			else
 				myconf+=( --with-odbc="unixodbc" )
 			fi
@@ -818,9 +817,6 @@ multilib_src_install() {
 		doins */*.so
 		docinto contrib
 		newdoc addrdnvalues/README addrdnvalues-README
-
-		insinto /etc/openldap/schema
-		newins "${DISTDIR}"/${BIS_P} ${BIS_PN}
 
 		docinto back-sock ; dodoc "${S}"/servers/slapd/back-sock/searchexample*
 		docinto back-perl ; dodoc "${S}"/servers/slapd/back-perl/SampleLDAP.pm
