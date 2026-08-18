@@ -1,17 +1,17 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 inherit toolchain-funcs
 
 DESCRIPTION="A set of CUPS printer drivers for SPL (Samsung Printer Language) printers"
 HOMEPAGE="https://splix.sourceforge.net/"
-SRC_URI="https://dev.gentoo.org/~voyageur/distfiles/${P}.tar.bz2
+SRC_URI="https://github.com/OpenPrinting/splix/releases/download/${PV}/${P}.tar.xz
 	https://dev.gentoo.org/~voyageur/distfiles/samsung-cms-20120312.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="+jbig"
 
 DEPEND=">=app-text/ghostscript-gpl-9.02
@@ -19,19 +19,17 @@ DEPEND=">=app-text/ghostscript-gpl-9.02
 	jbig? ( media-libs/jbigkit )"
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}"/${P}-algo0x11_le.patch )
+PATCHES=( "${FILESDIR}"/${PN}-2.0.0_p20130826-algo0x11_le.patch )
 
 src_prepare() {
 	default
 
 	# Move to correct place
 	mv *.ppd ppd/
-	# Honor LDFLAGS
-	sed -e "/[a-z]_LDFLAGS/s/:=.*/:= $\{LDFLAGS\}/" -i module.mk \
-		|| die
-	# Correct link comand
-	sed -e "s/g++/$\{LINKER\}/" -i rules.mk \
-		|| die
+
+	# Tarball missing PPD localization files for new printers
+	sed -e "s/^LANGUAGES.*:=.*/LANGUAGES :=/" -i ppd/Makefile || die
+	emake -C ppd distclean
 }
 
 src_compile() {
@@ -39,16 +37,20 @@ src_compile() {
 	use jbig || options="${options} DISABLE_JBIG=1"
 	emake ${options} PSTORASTER=gstoraster CXX="$(tc-getCXX)" \
 		OPTIM_CFLAGS="${CFLAGS}" OPTIM_CXXFLAGS="${CXXFLAGS}"
+
+	emake -C ppd ppd ${options}
 }
 
 src_install() {
 	emake DESTDIR="${D}" install
-	gzip "${ED}"/$(cups-config --datadir)/model/*/*.ppd || die
+	gzip "${ED}"/$(pkg-config --variable=cups_datadir cups)/model/*/*.ppd || die
 
 	emake DESTDIR="${D}" CMSDIR="${WORKDIR}"/cms MANUFACTURER=samsung installcms
 	# Add symlinks for xerox and dell models (installed in samsung)
-	dosym $(cups-config --datadir)/profiles/samsung $(cups-config --datadir)/profiles/xerox
-	dosym $(cups-config --datadir)/profiles/samsung $(cups-config --datadir)/profiles/dell
+	dosym $(pkg-config --variable=cups_datadir cups)/profiles/samsung \
+		$(pkg-config --variable=cups_datadir cups)/profiles/xerox
+	dosym $(pkg-config --variable=cups_datadir cups)/profiles/samsung \
+		$(pkg-config --variable=cups_datadir cups)/profiles/dell
 }
 
 pkg_postinst() {
