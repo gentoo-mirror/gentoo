@@ -1,16 +1,16 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare pretend test
-DEPEND=app-arch/zstd:= >=dev-cpp/tbb-2021.7.0-r1:= dev-libs/blake3:= dev-libs/xxhash:= virtual/zlib:= mimalloc? ( >=dev-libs/mimalloc-2:= )
+DEPEND=app-arch/zstd:= >=dev-cpp/tbb-2021.7.0-r1:= dev-libs/blake3:= dev-libs/xxhash:= virtual/zlib:= mimalloc? ( >=dev-libs/mimalloc-3:= )
 DESCRIPTION=A Modern Linker
 EAPI=8
 HOMEPAGE=https://github.com/rui314/mold
 INHERIT=cmake flag-o-matic toolchain-funcs
 IUSE=debug mimalloc test
-KEYWORDS=-alpha amd64 ~arm ~arm64 ~loong ~ppc ~riscv ~sparc ~x86
+KEYWORDS=-alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~riscv ~sparc ~x86
 LICENSE=MIT BSD-2 CC0-1.0
-RDEPEND=app-arch/zstd:= >=dev-cpp/tbb-2021.7.0-r1:= dev-libs/blake3:= dev-libs/xxhash:= virtual/zlib:= mimalloc? ( >=dev-libs/mimalloc-2:= )
+RDEPEND=app-arch/zstd:= >=dev-cpp/tbb-2021.7.0-r1:= dev-libs/blake3:= dev-libs/xxhash:= virtual/zlib:= mimalloc? ( >=dev-libs/mimalloc-3:= )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/rui314/mold/archive/refs/tags/v2.41.0.tar.gz -> mold-2.41.0.tar.gz
+SRC_URI=https://github.com/rui314/mold/archive/refs/tags/v2.42.0.tar.gz -> mold-2.42.0.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953
-_md5_=716f5d244fc8326fedd432040783d68d
+_md5_=835cfd56690c15b14b413122ac8da148
