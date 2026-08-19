@@ -25,11 +25,13 @@ KEYWORDS="~amd64 ~arm64"
 RDEPEND="
 	>=dev-python/argcomplete-1.9.4[${PYTHON_USEDEP}]
 	>=dev-python/attrs-24.1[${PYTHON_USEDEP}]
-	>=dev-python/colorlog-2.6.1[${PYTHON_USEDEP}]
+	>=dev-python/colorlog-6.6[${PYTHON_USEDEP}]
 	>=dev-python/dependency-groups-1.1[${PYTHON_USEDEP}]
 	>=dev-python/humanize-4[${PYTHON_USEDEP}]
 	>=dev-python/packaging-22[${PYTHON_USEDEP}]
-	>=dev-python/virtualenv-20.15[${PYTHON_USEDEP}]
+	>=dev-python/platformdirs-2[${PYTHON_USEDEP}]
+	>=dev-python/python-discovery-1[${PYTHON_USEDEP}]
+	>=dev-python/virtualenv-21[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (

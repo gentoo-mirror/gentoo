@@ -3,8 +3,9 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=flit
-PYTHON_COMPAT=( python3_{12..14} )
+DISTUTILS_USE_PEP517=flit-core
+PYPI_VERIFY_REPO=https://github.com/stripe/stripe-python
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -16,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="telemetry"
 
 RDEPEND="
@@ -55,7 +56,7 @@ python_test() {
 		tests/test_integration.py::TestIntegration::test_passes_client_telemetry_when_enabled
 	)
 
-	epytest tests
+	epytest -o addopts= tests
 }
 
 src_test() {

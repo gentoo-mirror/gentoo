@@ -92,7 +92,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.5-scons.patch
-	"${FILESDIR}"/${P}-no-volk.patch
 )
 
 src_prepare() {
@@ -101,6 +100,13 @@ src_prepare() {
 	# mbedtls normally has mbedtls.pc, but Gentoo's slotted one is mbedtls-3.pc
 	sed -E "/pkg-config/s/(mbedtls|mbedcrypto|mbedx509)/&-3/g" \
 		-i platform/linuxbsd/detect.py || die
+
+	# <harfbuzz-13 is usable but detect.py assumes >=13, keep support given
+	# >=13 is not in-tree as of the writing of this (bug #978085)
+	if has_version '<media-libs/harfbuzz-13'; then
+		sed -e '/pkg-config/s/ harfbuzz-raster harfbuzz-vector//' \
+			-i platform/linuxbsd/detect.py || die
+	fi
 
 	sed -i "s|pkg-config |$(tc-getPKG_CONFIG) |" platform/linuxbsd/detect.py || die
 
