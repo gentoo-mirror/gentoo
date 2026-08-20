@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-17">
+    <title>libssh2: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in libssh2, the worst of which could result in remote code execution.</synopsis>
+    <product type="ebuild">libssh2</product>
+    <announced>2026-08-20</announced>
+    <revised count="1">2026-08-20</revised>
+    <bug>977961</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-libs/libssh2" auto="yes" arch="*">
+            <unaffected range="ge">1.11.1-r2</unaffected>
+            <vulnerable range="lt">1.11.1-r2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>libssh2 is a library implementing the SSH2 protocol.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in libssh2. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All libssh2 users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-libs/libssh2-1.11.1-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-15661">CVE-2025-15661</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-7598">CVE-2026-7598</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-55199">CVE-2026-55199</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-55200">CVE-2026-55200</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-20T01:15:52.011593Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-20T01:15:52.015912Z">sam</metadata>
+</glsa>
