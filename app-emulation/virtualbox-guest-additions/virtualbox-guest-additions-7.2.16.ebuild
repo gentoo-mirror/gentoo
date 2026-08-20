@@ -8,7 +8,7 @@ inherit edo readme.gentoo-r1 systemd toolchain-funcs udev
 MY_PN="VirtualBox"
 MY_PV=${PV^^}
 MY_P=${MY_PN}-${MY_PV}
-PATCHES_PV="7.1.16"
+PATCHES_PV="7.2.14"
 
 DESCRIPTION="VirtualBox kernel modules and user-space tools for Gentoo guests"
 HOMEPAGE="https://www.virtualbox.org/"
@@ -52,7 +52,7 @@ DEPEND="
 "
 BDEPEND="
 	>=dev-lang/yasm-0.6.2
-	>=dev-build/kbuild-0.1.9998.3127
+	>=dev-build/kbuild-0.1.9998.3660
 	sys-devel/bin86
 	sys-power/iasl
 "

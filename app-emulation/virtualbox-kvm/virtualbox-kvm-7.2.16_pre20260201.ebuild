@@ -20,7 +20,7 @@ PYTHON_COMPAT=( python3_{12..14} )
 inherit desktop edo flag-o-matic java-pkg-opt-2 linux-info multilib optfeature pax-utils \
 	python-single-r1 tmpfiles toolchain-funcs udev xdg
 
-PATCHES_PV="7.2.6"
+PATCHES_PV="7.2.14"
 ORIGIN_PN="VirtualBox"
 ORIGIN_PV=${PV%_pre*}
 
@@ -45,7 +45,7 @@ S="${WORKDIR}/${ORIGIN_PN}-${ORIGIN_PV%*a}"
 LICENSE="GPL-2+ GPL-3 LGPL-2.1 MIT dtrace? ( CDDL )"
 SLOT="0/$(ver_cut 1-2)"
 KEYWORDS="~amd64"
-IUSE="alsa dbus debug doc dtrace +gui +hardened java lvm nls pam pch pulseaudio +opengl python +sdk +sdl test +udev vboxwebsrv vde +vmmraw vnc"
+IUSE="X alsa dbus debug doc dtrace +gui +hardened java lvm nls pam pch pulseaudio +opengl python +sdk +sdl test +udev vboxwebsrv vde vnc wayland"
 RESTRICT="!test? ( test )"
 
 unset WATCOM #856769
@@ -64,7 +64,7 @@ COMMON_DEPEND="
 	virtual/zlib:=
 	dbus? ( sys-apps/dbus )
 	gui? (
-		dev-qt/qtbase:6[X,wayland,widgets]
+		dev-qt/qtbase:6[X=,wayland=,widgets]
 		dev-qt/qtscxml:6
 		dev-qt/qttools:6[assistant]
 		x11-libs/libX11
@@ -209,6 +209,8 @@ REQUIRED_USE="
 "
 
 PATCHES=(
+	"${FILESDIR}"/${PN}-7.2.8-parallel-make.patch
+
 	# Downloaded patchset
 	"${WORKDIR}"/virtualbox-patches-${PATCHES_PV}/patches
 	"${PATCHES_DIR}"/patches
@@ -217,6 +219,8 @@ PATCHES=(
 pkg_pretend() {
 	if ! use gui; then
 		einfo "No USE=\"gui\" selected, this build will not include any Qt frontend."
+		use X && einfo "USE=\"X\" has no effect without USE=\"gui\""
+		use wayland && einfo "USE=\"wayland\" has no effect without USE=\"gui\""
 	fi
 
 	if ! use opengl; then
