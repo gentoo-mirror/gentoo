@@ -1,16 +1,16 @@
 BDEPEND=test? ( sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp sci-mathematics/gap:= )
-DEFINED_PHASES=compile configure install test
+DEFINED_PHASES=compile configure install prepare test
 DEPEND=sci-mathematics/gap:=
-DESCRIPTION=Collection of standard data structures for GAP
+DESCRIPTION=Bindings for low level C library I/O routines
 EAPI=8
-HOMEPAGE=https://www.gap-system.org/packages/#datastructures
+HOMEPAGE=https://www.gap-system.org/packages/#io
 INHERIT=gap-pkg
-IUSE=test
+IUSE=examples test
 KEYWORDS=~amd64 ~riscv
-LICENSE=GPL-2+
+LICENSE=GPL-3+
 RDEPEND=sci-mathematics/gap:= sci-mathematics/gap dev-gap/gapdoc dev-gap/smallgrp dev-gap/primgrp dev-gap/transgrp
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/gap-packages/datastructures/releases/download/v0.4.1/datastructures-0.4.1.tar.gz
+SRC_URI=https://github.com/gap-packages/io/releases/download/v4.10.0/io-4.10.0.tar.bz2
 _eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	ceef97f818402a0c996cdb13b9d90c92
-_md5_=15fa2d71b91dac638a2b36675f696a0d
+_md5_=bef798cf2244c6cd2d955cfea749be48

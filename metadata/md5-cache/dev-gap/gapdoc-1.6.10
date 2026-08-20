@@ -1,0 +1,15 @@
+BDEPEND=test? ( dev-gap/browse )
+DEFINED_PHASES=compile configure install test
+DESCRIPTION=GAP documentation structure and tooling
+EAPI=8
+HOMEPAGE=https://www.gap-system.org/packages/#gapdoc
+INHERIT=gap-pkg
+IUSE=examples test
+KEYWORDS=~amd64 ~riscv
+LICENSE=GPL-2+
+RDEPEND=sci-mathematics/gap
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc/GAPDoc-1.6.10.tar.gz
+_eclasses_=estack	c61c368a76fdf3a82fdf8dbaebea3804	gap-pkg	ceef97f818402a0c996cdb13b9d90c92
+_md5_=b8c14b6ce3305c3b66e7e846d239179d
