@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
 <glsa id="202409-19">
-    <title>Emacs, org-mode: Command Execution Vulnerability</title>
-    <synopsis>A vulnerability has been found in Emacs and org-mode which could result in arbitrary code execution.</synopsis>
+    <title>GNU Emacs, org-mode: Command Execution Vulnerability</title>
+    <synopsis>A vulnerability has been found in GNU Emacs and org-mode which could result in arbitrary code execution.</synopsis>
     <product type="ebuild">emacs,org-mode</product>
     <announced>2024-09-22</announced>
-    <revised count="1">2024-09-22</revised>
+    <revised count="2">2026-08-20</revised>
     <bug>934736</bug>
     <access>local</access>
     <affected>
@@ -25,7 +25,7 @@
         </package>
     </affected>
     <background>
-        <p>Emacs is the extensible, customizable, self-documenting real-time display editor. org-mode is an Emacs mode for notes and project planning.</p>
+        <p>GNU Emacs is the extensible, customizable, self-documenting real-time display editor. org-mode is an Emacs mode for notes and project planning.</p>
     </background>
     <description>
         <p>%(...) link abbreviations could specify unsafe functions.</p>
@@ -37,7 +37,7 @@
         <p>There is no known workaround at this time.</p>
     </workaround>
     <resolution>
-        <p>All Emacs users should upgrade to the latest version according to the installed slot, one of:</p>
+        <p>All GNU Emacs users should upgrade to the latest version according to the installed slot, one of:</p>
         
         <code>
           # emerge --sync
