@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
 <glsa id="202608-18">
-    <title>Emacs: Arbitrary code execution</title>
-    <synopsis>A vulnerability has been discovered in Emacs which could lead to arbitrary code execution.</synopsis>
+    <title>GNU Emacs: Arbitrary code execution</title>
+    <synopsis>A vulnerability has been discovered in GNU Emacs which could lead to arbitrary code execution.</synopsis>
     <product type="ebuild">emacs</product>
     <announced>2026-08-20</announced>
-    <revised count="1">2026-08-20</revised>
+    <revised count="3">2026-08-20</revised>
     <bug>980616</bug>
     <access>remote</access>
     <affected>
@@ -20,10 +20,10 @@
         </package>
     </affected>
     <background>
-        <p>Emacs is the extensible, customizable, self-documenting real-time display editor. org-mode is an Emacs mode for notes and project planning.</p>
+        <p>GNU Emacs is the extensible, customizable, self-documenting real-time display editor.</p>
     </background>
     <description>
-        <p>A vulnerability has been discovered in Emacs. Please review the CVE identifier referenced below for details.</p>
+        <p>A vulnerability has been discovered in GNU Emacs. Please review the CVE identifier referenced below for details.</p>
     </description>
     <impact type="high">
         <p>An attacker could achieve arbitrary code execution by tricking a user into opening a file with malicious content. No other action by the user is required.</p>
@@ -32,21 +32,21 @@
         <p>Avoid opening any untrusted files.</p>
     </workaround>
     <resolution>
-        <p>All Emacs 28 users should upgrade to the latest version:</p>
+        <p>All GNU Emacs 28 users should upgrade to the latest version:</p>
         
         <code>
           # emerge --sync
           # emerge --ask --oneshot --verbose ">=app-editors/emacs-28.2-r21:28"
         </code>
         
-        <p>All Emacs 29 users should upgrade to the latest version:</p>
+        <p>All GNU Emacs 29 users should upgrade to the latest version:</p>
         
         <code>
           # emerge --sync
           # emerge --ask --oneshot --verbose ">=app-editors/emacs-29.4-r9:29"
         </code>
         
-        <p>All Emacs 30 users should upgrade to the latest version:</p>
+        <p>All GNU Emacs 30 users should upgrade to the latest version:</p>
         
         <code>
           # emerge --sync

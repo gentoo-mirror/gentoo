@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
 <glsa id="202506-01">
-    <title>Emacs: Multiple Vulnerabilities</title>
-    <synopsis>Multiple vulnerabilities have been discovered in Emacs, the worst of which could lead to arbitrary code execution.</synopsis>
+    <title>GNU Emacs: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in GNU Emacs, the worst of which could lead to arbitrary code execution.</synopsis>
     <product type="ebuild">emacs</product>
     <announced>2025-06-12</announced>
-    <revised count="1">2025-06-12</revised>
+    <revised count="3">2026-08-20</revised>
     <bug>945164</bug>
     <bug>950192</bug>
     <access>local</access>
@@ -22,10 +22,10 @@
         </package>
     </affected>
     <background>
-        <p>Emacs is the extensible, customizable, self-documenting real-time display editor. org-mode is an Emacs mode for notes and project planning.</p>
+        <p>GNU Emacs is the extensible, customizable, self-documenting real-time display editor.</p>
     </background>
     <description>
-        <p>Multiple vulnerabilities have been discovered in Emacs, org-mode. Please review the CVE identifiers referenced below for details.</p>
+        <p>Multiple vulnerabilities have been discovered in GNU Emacs. Please review the CVE identifiers referenced below for details.</p>
     </description>
     <impact type="high">
         <p>Please review the referenced CVE identifiers for details.</p>
@@ -34,7 +34,7 @@
         <p>There is no known workaround at this time.</p>
     </workaround>
     <resolution>
-        <p>All Emacs, org-mode users should upgrade to the latest version:</p>
+        <p>All GNU Emacs users should upgrade to the latest version:</p>
         
         <code>
           # emerge --sync
