@@ -8,7 +8,7 @@ inherit desktop xdg
 DESCRIPTION="A complete solution for viewing and editing PDF files"
 HOMEPAGE="https://code-industry.net/free-pdf-editor/"
 MyPN="${PN}-${PV%%.*}"
-SRC_URI="https://code-industry.net/public/${P}-1-qt6.9.2.x86_64.tar.gz
+SRC_URI="https://code-industry.net/public/${P}-qt6.11.1.x86_64.tar.gz
 	https://dev.gentoo.org/~grozin/${MyPN}.tar.bz2"
 S="${WORKDIR}/${MyPN}"
 
