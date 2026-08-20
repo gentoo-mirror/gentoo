@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
 <glsa id="200502-20">
-  <title>Emacs, XEmacs: Format string vulnerabilities in movemail</title>
+  <title>GNU Emacs, XEmacs: Format string vulnerabilities in movemail</title>
   <synopsis>
-    The movemail utility shipped with Emacs and XEmacs contains several format
+    The movemail utility shipped with GNU Emacs and XEmacs contains several format
     string vulnerabilities, potentially leading to the execution of arbitrary
     code.
   </synopsis>
   <product type="ebuild">Emacs</product>
   <announced>2005-02-15</announced>
-  <revised count="02">2006-07-23</revised>
+  <revised count="03">2026-08-20</revised>
   <bug>79686</bug>
   <access>remote</access>
   <affected>
@@ -50,7 +50,7 @@
   </workaround>
   <resolution>
     <p>
-    All Emacs users should upgrade to the latest version:
+    All GNU Emacs users should upgrade to the latest version:
     </p>
     <code>
     # emerge --sync
