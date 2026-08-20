@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-19">
+    <title>quickjs-ng: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in quickjs-ng, the worst of which could result in arbitrary code execution.</synopsis>
+    <product type="ebuild">quickjs-ng</product>
+    <announced>2026-08-20</announced>
+    <revised count="1">2026-08-20</revised>
+    <bug>969863</bug>
+    <access>remote</access>
+    <affected>
+        <package name="dev-libs/quickjs-ng" auto="yes" arch="*">
+            <unaffected range="ge">0.12.0</unaffected>
+            <vulnerable range="lt">0.12.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>quickjs-ng is a small and embeddable JavaScript engine. It aims to support the latest ECMAScript specification. It is a fork of QuickJS.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in quickjs-ng. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All quickjs-ng users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-libs/quickjs-ng-0.12.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-0821">CVE-2026-0821</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-1144">CVE-2026-1144</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-1145">CVE-2026-1145</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-20T04:11:50.825890Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-20T04:11:50.829273Z">sam</metadata>
+</glsa>

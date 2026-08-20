@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-20">
+    <title>acl, attr: Multiple vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in acl and attr, the worst of which could lead to local privilege escalation.</synopsis>
+    <product type="ebuild">acl,attr</product>
+    <announced>2026-08-20</announced>
+    <revised count="1">2026-08-20</revised>
+    <bug>978280</bug>
+    <access>local</access>
+    <affected>
+        <package name="sys-apps/acl" auto="yes" arch="*">
+            <unaffected range="ge">2.4.0</unaffected>
+            <vulnerable range="lt">2.4.0</vulnerable>
+        </package>
+        <package name="sys-apps/attr" auto="yes" arch="*">
+            <unaffected range="ge">2.6.0</unaffected>
+            <vulnerable range="lt">2.6.0</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>For more information on the packages listed in this GLSA, please see their homepage referenced in the ebuild.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in acl and attr. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All acl users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/acl-2.4.0"
+        </code>
+        
+        <p>All attr users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=sys-apps/attr-2.6.0"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-54369">CVE-2026-54369</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-54370">CVE-2026-54370</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-54371">CVE-2026-54371</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-20T04:17:39.992216Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-20T04:17:39.999258Z">sam</metadata>
+</glsa>
