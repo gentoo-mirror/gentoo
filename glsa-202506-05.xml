@@ -5,13 +5,13 @@
     <synopsis>A vulnerability has been discovered in Gtk+, which can lead to arbitrary code execution.</synopsis>
     <product type="ebuild">gtk+</product>
     <announced>2025-06-12</announced>
-    <revised count="2">2025-06-12</revised>
+    <revised count="3">2026-08-20</revised>
     <bug>949825</bug>
     <access>local</access>
     <affected>
         <package name="x11-libs/gtk+" auto="yes" arch="*">
-            <unaffected range="ge">3.24.48:3</unaffected>
-            <vulnerable range="lt">3.24.48:3</vulnerable>
+            <unaffected range="ge" slot="3">3.24.48</unaffected>
+            <vulnerable range="lt" slot="3">3.24.48</vulnerable>
         </package>
     </affected>
     <background>
