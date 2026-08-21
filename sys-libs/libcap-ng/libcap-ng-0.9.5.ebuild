@@ -5,29 +5,69 @@ EAPI=8
 
 # Keep an eye on Fedora's packaging (https://src.fedoraproject.org/rpms/libcap-ng/tree/rawhide) for patches
 # Same maintainer in Fedora as upstream
-PYTHON_COMPAT=( python3_{11..14} )
-inherit autotools dot-a flag-o-matic out-of-source-utils python-r1
+PYTHON_COMPAT=( python3_{12..14} )
+inherit autotools dot-a flag-o-matic linux-info out-of-source-utils python-r1
 
 DESCRIPTION="POSIX 1003.1e capabilities"
 HOMEPAGE="https://people.redhat.com/sgrubb/libcap-ng/"
-SRC_URI="https://people.redhat.com/sgrubb/${PN}/${P}.tar.gz"
+SRC_URI="https://github.com/stevegrubb/libcap-ng/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+ LGPL-2.1+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
-IUSE="python static-libs"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="bpf deprecated python static-libs"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-RDEPEND="python? ( ${PYTHON_DEPS} )"
+RDEPEND="
+	bpf? (
+		dev-libs/libbpf:=
+		sys-process/audit
+	)
+	python? ( ${PYTHON_DEPS} )
+"
 DEPEND="
 	${RDEPEND}
 	sys-kernel/linux-headers
+	bpf? ( dev-util/bpftool )
 "
-BDEPEND="python? ( >=dev-lang/swig-2 )"
+BDEPEND="
+	bpf? (
+		llvm-core/clang[llvm_targets_BPF(-)]
+		virtual/pkgconfig
+	)
+	python? ( >=dev-lang/swig-2 )
+"
 
-PATCHES=(
-	"${FILESDIR}"/${P}-python.patch
-)
+pkg_pretend() {
+	# bug 972898
+	if use bpf && [[ ${MERGE_TYPE} != binary ]] ; then
+		if [[ ! -f /sys/kernel/btf/vmlinux ]] ; then
+			local err="Cannot read /sys/kernel/btf/vmlinux, which is required by bpftool.\n"
+			err+="  Typically this means that your kernel is missing the DEBUG_INFO_BTF option,\n"
+			err+="  without which BPF cannot work. Please build with USE=-bpf or reconfigure your kernel."
+			die "${err}"
+		fi
+
+		# check required kernel flags as documented at:
+		# https://github.com/stevegrubb/libcap-ng/blob/master/README.md
+		local CONFIG_CHECK="
+			~BPF
+			~BPF_SYSCALL
+			~BPF_EVENTS
+			~DEBUG_INFO_BTF
+			~FTRACE_SYSCALLS
+			~KPROBES
+			~KRETPROBES
+			~KPROBE_EVENTS
+			~PERF_EVENTS
+			~STACKTRACE
+			~TRACEPOINTS
+			~TRACING
+		"
+
+		linux-info_pkg_setup
+	fi
+}
 
 src_prepare() {
 	default
@@ -44,6 +84,8 @@ src_configure() {
 	local ECONF_SOURCE="${S}"
 
 	local myconf=(
+		$(use_enable bpf cap-audit)
+		$(use_enable deprecated)
 		$(use_enable static-libs static)
 		--with-capability_header="${ESYSROOT}"/usr/include/linux/capability.h
 	)
