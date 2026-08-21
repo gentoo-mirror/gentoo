@@ -36,6 +36,17 @@
 
 #--- END OF EXAMPLES ---
 
+# Sam James <sam@gentoo.org> (2026-08-21)
+# Grave security vulnerabilities which either haven't been
+# fixed upstream or fixed insufficiently. Our version is out-of-date as
+# well though the latest version wouldn't fix all of these. Other distributions
+# have removed croc because of its poor security posture already.
+# Use net-misc/wormhole-william or net-misc/magic-wormhole-rust instead.
+# Removal on 2026-09-20.  Bug #980854 and the older bug #918091.
+acct-group/croc
+acct-user/croc
+net-misc/croc
+
 # Arthur Zamarin <arthurzam@gentoo.org> (2026-08-20)
 # Masked for testing. Already detected regressions, so downgrade
 # unless you want to help test.
@@ -206,6 +217,8 @@ dev-python/pyotherside
 # since 2020.  dev-python/autobahn and dev-python/txaio have become
 # complete broken slop, and still depend on it.  Remove these packages,
 # their reverse dependencies and their dependencies without revdeps.
+# For magic-wormhole, use net-misc/wormhole-william or
+# net-misc/magic-wormhole-rust instead.
 # Removal on 2026-07-19.  Bug #967367.
 dev-python/autobahn
 dev-python/magic-wormhole
