@@ -1,7 +1,7 @@
 Title: Python 3.14 to become the default on 2026-06-01
 Author: Michał Górny <mgorny@gentoo.org>
 Posted: 2026-04-16
-Revision: 2
+Revision: 4
 News-Item-Format: 2.0
 Display-If-Installed: dev-lang/pypy:3.11
 Display-If-Installed: dev-lang/python:3.11
@@ -121,8 +121,13 @@ This makes it important that the upgrade is carried via a --deep
 are removed prior to it, e.g.:
 
     emerge --depclean
+    PYTHON_TARGETS="python3_13" PYTHON_SINGLE_TARGET="python3_13" emerge -v1 '>=sys-apps/portage-3.0.81.3'
     emerge -1vUD @world
     emerge --depclean
+
+The Portage step is to upgrade to a version which contains a self-upgrade
+fix to avoid a crash later (bug #976616). The PYTHON_TARGETS and PYTHON_SINGLE_TARGET
+variables on the line are to set the old defaults so it resolves cleanly.
 
 
 Other Python implementations
@@ -131,3 +136,10 @@ At the same time, we are also going to remove the target support
 for Python 3.11 (python3_11) and PyPy 3.11 (pypy3_11).  Since there are
 no plans to release a Python 3.12-compatible PyPy version yet, Gentoo
 will be removing PyPy support for the time being.
+
+Cleanup
+=======
+This is a good opportunity to cleanup any stale python_targets_* or
+python_single_target_* references in /etc/portage:
+
+    grep -rsin python /etc/portage
