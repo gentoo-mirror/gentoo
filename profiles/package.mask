@@ -152,15 +152,6 @@ net-dns/bind-tools
 # Removal on 2026-08-15.  Bug #942397.
 app-arch/p7zip
 
-# Michał Górny <mgorny@gentoo.org> (2026-07-13)
-# dev-python/fields is unmaintained for 5 years.  Broken with pytest-9,
-# we already patch it for earlier pytest versions.  It is the only
-# revdep of dev-python/characteristic which was archived in 2023.
-# No revdeps left.
-# Removal on 2026-08-12.  Bug #978175.
-dev-python/characteristic
-dev-python/fields
-
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-07-07)
 # dev-embedded/ponyprog destabilisation mask, bug #978907
 =dev-embedded/ponyprog-3.1.4_p20250501-r0
@@ -168,49 +159,6 @@ dev-python/fields
 # Eray Aslan <eras@gentoo.org> (2026-07-06)
 # Introduces backwards breaking change. Mask until downstreams adjust
 >=dev-db/lmdb-1.0.0
-
-# Michał Górny <mgorny@gentoo.org> (2026-07-04)
-# Renamed to dev-python/jsonschema-path.  No revdeps left.
-# Removal on 2026-08-03.
-dev-python/jsonschema-spec
-
-# Michał Górny <mgorny@gentoo.org> (2026-06-30)
-# Backwards compatibility wrapper.  No revdeps left.
-# Removal on 2026-07-30.
-dev-python/roman-numerals-py
-
-# Michał Górny <mgorny@gentoo.org> (2026-06-29)
-# Unmaintained.  Requires patching since py3.12.  No revdeps.
-# Removal on 2026-07-29.  Bug #978274.
-dev-python/commentjson
-
-# Michał Górny <mgorny@gentoo.org> (2026-06-20)
-# No py3.14 in compat, tests lost on bump, no revdeps.
-# Removal on 2026-07-20.  Bug #973904.
-dev-python/pyx
-dev-python/sphinx-selective-exclude
-
-# Michał Górny <mgorny@gentoo.org> (2026-06-20)
-# Both packages are completely broken and do not install correctly.
-# Removal on 2026-07-20.  Bug #977003.
-sci-chemistry/GromacsWrapper
-sci-libs/numkit
-
-# Michał Górny <mgorny@gentoo.org> (2026-06-20)
-# No maintainer, no py3.14 compat, broken tests, no revdeps.
-# Removal on 2026-07-20.  Bug #973876.
-dev-python/pdoc3
-
-# Michał Górny <mgorny@gentoo.org> (2026-06-20)
-# No py3.14 compat, broken tests, no revdeps.
-# Removal on 2026-07-20.  Bug #973847.
-dev-python/django-cacheops
-
-# Michał Górny <mgorny@gentoo.org> (2026-06-20)
-# NIH package with little activity.  Last revdeps were removed
-# in Sep 2025.
-# Removal on 2026-07-20.  Bug #977772.
-dev-python/pyotherside
 
 # Michał Górny <mgorny@gentoo.org> (2026-06-19)
 # dev-python/pytrie is broken on Python 3.14 and has not been touched
@@ -220,15 +168,7 @@ dev-python/pyotherside
 # For magic-wormhole, use net-misc/wormhole-william or
 # net-misc/magic-wormhole-rust instead.
 # Removal on 2026-07-19.  Bug #967367.
-dev-python/autobahn
 dev-python/magic-wormhole
-dev-python/magic-wormhole-mailbox-server
-dev-python/magic-wormhole-transit-relay
-dev-python/py-ubjson
-dev-python/pytrie
-dev-python/txaio
-dev-python/vpython
-dev-python/wsaccel
 
 # Michał Górny <mgorny@gentoo.org> (2026-06-03)
 # Mike Pagano <mpagano@gentoo.org> (2026-06-03)
@@ -446,15 +386,6 @@ dev-util/buildbot-www-react
 # requires further consideration to determine the correct course of
 # action. Use at your own risk.
 >=app-text/calibre-8.11.0
-
-# Michał Górny <mgorny@gentoo.org> (2025-12-12)
-# Upstream has switched to LLM-first coding which has already caused
-# a number of suspicious bugs.  At this point, new versions
-# of the packages cannot be trusted to be safe to use.  Furthermore,
-# the maintenance cost of dealing with packaging bugs alone
-# is overwhelming to human maintainers of this package.
->=dev-python/autobahn-25.10
->=dev-python/txaio-25.10
 
 # Sam James <sam@gentoo.org> (2025-11-25)
 # Generates session keys with weak (no) randomness. Please re-encrypt
