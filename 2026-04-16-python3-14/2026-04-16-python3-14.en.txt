@@ -1,7 +1,7 @@
 Title: Python 3.14 to become the default on 2026-06-01
 Author: Michał Górny <mgorny@gentoo.org>
 Posted: 2026-04-16
-Revision: 3
+Revision: 4
 News-Item-Format: 2.0
 Display-If-Installed: dev-lang/pypy:3.11
 Display-If-Installed: dev-lang/python:3.11
@@ -136,3 +136,10 @@ At the same time, we are also going to remove the target support
 for Python 3.11 (python3_11) and PyPy 3.11 (pypy3_11).  Since there are
 no plans to release a Python 3.12-compatible PyPy version yet, Gentoo
 will be removing PyPy support for the time being.
+
+Cleanup
+=======
+This is a good opportunity to cleanup any stale python_targets_* or
+python_single_target_* references in /etc/portage:
+
+    grep -rsin python /etc/portage
