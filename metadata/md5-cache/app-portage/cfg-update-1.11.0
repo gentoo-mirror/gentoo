@@ -1,0 +1,13 @@
+BDEPEND=test? ( app-shells/bash sys-apps/diffutils )
+DEFINED_PHASES=install postinst postrm prerm test
+DESCRIPTION=Easy to use GUI & CLI alternative for etc-update
+EAPI=8
+HOMEPAGE=https://github.com/rich0/cfg-update
+IUSE=test X
+KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-perl/TermReadKey X? ( >=x11-misc/sux-1.0 x11-apps/xhost )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/rich0/cfg-update/archive/1.11.0.tar.gz -> cfg-update-1.11.0.tgz
+_md5_=09667e4afae40069ee6075d81e8536d7
