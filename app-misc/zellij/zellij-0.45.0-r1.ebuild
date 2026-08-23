@@ -3,7 +3,7 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.92.0"
+RUST_MIN_VER="1.95.0"
 
 CRATES="
 "
@@ -26,7 +26,7 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64 ~riscv"
-IUSE="man system-sqlite"
+IUSE="system-sqlite"
 
 # libnghttp2 still bundled
 # https://github.com/alexcrichton/nghttp2-rs/pull/5
@@ -36,7 +36,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-	man? ( dev-go/go-md2man )
 	virtual/pkgconfig
 "
 
@@ -75,10 +74,6 @@ src_compile() {
 	cargo_src_compile
 	popd 2>/dev/null || die
 
-	if use man; then
-		go-md2man -in docs/MANPAGE.md -out ${PN}.1 || die
-	fi
-
 	"$(cargo_target_dir)"/zellij setup --generate-completion bash > zellij.bash || die
 	"$(cargo_target_dir)"/zellij setup --generate-completion fish > zellij.fish || die
 	"$(cargo_target_dir)"/zellij setup --generate-completion zsh > zellij.zsh || die
@@ -92,9 +87,7 @@ src_install() {
 	insinto /usr/share/zellij
 	doins -r example/{themes,layouts}
 	doins -r ${PN}-utils/assets/{layouts,plugins,config,shell} \
-		${PN}-utils/assets/*.wasm ${PN}-utils/assets/README.md
-
-	use man && doman ${PN}.1
+		${PN}-utils/assets/README.md
 
 	domenu assets/zellij.desktop
 	newicon assets/logo.png zellij.png
