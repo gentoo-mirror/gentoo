@@ -3,14 +3,14 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=poetry
+DISTUTILS_USE_PEP517=poetry-core
 PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi virtualx
 
 DESCRIPTION="Python to GNU Octave bridge"
 HOMEPAGE="
-	https://github.com/blink1073/oct2py
+	https://github.com/blink1073/oct2py/
 	https://blink1073.github.io/oct2py/
 "
 
@@ -19,8 +19,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
+	>=dev-python/metakernel-1.0.6[${PYTHON_USEDEP}]
 	>=dev-python/numpy-1.25.0[${PYTHON_USEDEP}]
-	>=dev-python/octave-kernel-1.0[${PYTHON_USEDEP}]
+	>=dev-python/octave-kernel-1.1.1[${PYTHON_USEDEP}]
 	>=dev-python/pydantic-settings-2.0[${PYTHON_USEDEP}]
 	>=dev-python/scipy-0.17.1[${PYTHON_USEDEP}]
 	>=dev-python/tornado-0.5.5[${PYTHON_USEDEP}]
@@ -33,7 +34,7 @@ BDEPEND="
 	)
 "
 
-EPYTEST_PLUGINS=( flaky )
+EPYTEST_PLUGINS=( flaky pytest-timeout )
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
@@ -44,6 +45,8 @@ python_test() {
 		# TODO
 		tests/test_misc.py::TestMisc::test_func_without_docstring
 		tests/test_usage.py::TestUsage::test_pkg_load
+		# apparently we're like flatpak, having "different errors"
+		tests/test_usage.py::TestUsage::test_script_error_like_my_pyeval2
 	)
 
 	virtx epytest
