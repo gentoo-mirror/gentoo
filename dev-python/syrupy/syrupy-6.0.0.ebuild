@@ -17,13 +17,14 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	>=dev-python/pytest-8.0.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	test? (
+		>=dev-python/attrs-26.1.0[${PYTHON_USEDEP}]
 		>=dev-python/pydantic-2.13.4[${PYTHON_USEDEP}]
 	)
 "
