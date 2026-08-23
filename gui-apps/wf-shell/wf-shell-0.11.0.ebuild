@@ -13,18 +13,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/WayfireWM/wf-shell.git"
 	SLOT="0/0.12"
 else
-	COMMIT=77038bdf8a05005ff510e7e1ba3ac2054cc304ce
-	WF_JSON_COMMIT=70039e13cdeaebd8ec498ed30bf5ab91c2e313ec
-	GVC_COMMIT=5f9768a2eac29c1ed56f1fbb449a77a3523683b6
-
-	SRC_URI="
-		https://github.com/WayfireWM/wf-shell/archive/${COMMIT}.tar.gz -> ${P}.tar.gz
-		https://github.com/WayfireWM/wf-json/archive/${WF_JSON_COMMIT}.tar.gz -> ${PN}-wf-json-${PV}.tar.gz
-		pulseaudio? (
-			https://github.com/GNOME/libgnome-volume-control/archive/${GVC_COMMIT}.tar.gz -> ${PN}-gnome-volume-control.tar.gz
-		)
-	"
-	S="${WORKDIR}"/${PN}-${COMMIT}
+	SRC_URI="https://github.com/WayfireWM/wf-shell/releases/download/v${PV}/${P}.tar.xz"
 	KEYWORDS="~amd64 ~arm64"
 	SLOT="0/$(ver_cut 1-2)"
 fi
@@ -77,26 +66,8 @@ BDEPEND="
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-0.11-add-missing-include.patch
+	"${FILESDIR}"/${PN}-0.11-fix-network-crash.patch
 )
-
-src_prepare() {
-	default
-
-	if [[ $PV != *9999* ]]; then
-		# wf-json is bundled as a subproject
-		# no need to unbundle it, it's a static library containing a wrapper to yyjson
-		rmdir subprojects/wf-json || die
-		mv "${WORKDIR}"/wf-json-${WF_JSON_COMMIT} subprojects/wf-json || die
-
-		if use pulseaudio; then
-			# bundled subproject for the volume widget
-			# static, written to be used as a subproject
-			rmdir subprojects/gvc || die
-			mv "${WORKDIR}"/libgnome-volume-control-${GVC_COMMIT} subprojects/gvc || die
-		fi
-	fi
-}
 
 src_configure () {
 	local emesonargs=(
