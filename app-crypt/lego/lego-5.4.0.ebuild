@@ -8,7 +8,7 @@ inherit go-module
 DESCRIPTION="Let's Encrypt/ACME client (like certbot or acme.sh) and library written in Go"
 HOMEPAGE="https://github.com/go-acme/lego/"
 
-DOCUMENTATION_COMMIT=c63fcf074dec8093e443f6e028c82ef3a7c73285
+DOCUMENTATION_COMMIT=8f151de2d2cf724d3d72ed48115673363f3caf9d
 
 if [[ ${PV} == 9999* ]]; then
 	inherit git-r3
@@ -17,7 +17,7 @@ else
 	SRC_URI="
 	https://github.com/go-acme/lego/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/go-acme/lego/archive/${DOCUMENTATION_COMMIT}.tar.gz -> ${P}-docs.tar.gz
-	https://distfiles.gentoo.org/pub/dev/ceamac@gentoo.org/${CATEGORY}/${PN}/${P}-deps.tar.xz
+	https://github.com/gentoo-golang-dist/lego/releases/download/v${PV}/${P}-vendor.tar.xz -> ${P}-deps.tar.xz
 "
 	KEYWORDS="~amd64 ~arm64"
 fi
@@ -44,7 +44,7 @@ src_unpack() {
 		EGIT_CHECKOUT_DIR="${WORKDIR}/${PN}-${DOCUMENTATION_COMMIT}"
 		git-r3_src_unpack
 	else
-		default
+		go-module_src_unpack
 	fi
 }
 

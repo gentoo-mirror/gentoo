@@ -49,6 +49,11 @@ BDEPEND="
 DOCS=( README CHANGES NOTES )
 HTML_DOCS=( "${WORKDIR}/fig2mpdf/doc/." )
 
+PATCHES=(
+	"${FILESDIR}/${P}-prototypes.patch"
+	"${FILESDIR}/${P}-imagemagick.patch"
+)
+
 src_unpack() {
 	if [[ ${PV} == 9999 ]]; then
 		git-r3_src_unpack
