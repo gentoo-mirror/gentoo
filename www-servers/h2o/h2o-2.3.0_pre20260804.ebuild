@@ -5,15 +5,17 @@ EAPI="8"
 SSL_DEPS_SKIP=1
 USE_RUBY="ruby32 ruby33 ruby34"
 
-inherit cmake git-r3 ruby-single ssl-cert systemd toolchain-funcs
+inherit cmake ruby-single ssl-cert systemd toolchain-funcs vcs-snapshot
+
+EGIT_COMMIT="706842c0f8c0d9422efb97a4d8ef7d6ec9df87b7"
 
 DESCRIPTION="H2O - the optimized HTTP/1, HTTP/2 server"
 HOMEPAGE="https://h2o.examp1e.net/"
-EGIT_REPO_URI="https://github.com/${PN}/${PN}.git"
+SRC_URI="https://github.com/${PN}/${PN}/archive/${EGIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="brotli io-uring libh2o +mruby zstd"
 
 RDEPEND="acct-group/h2o
