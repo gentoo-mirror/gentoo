@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-21">
+    <title>GNU Emacs: Arbitrary code execution</title>
+    <synopsis>A vulnerability has been discovered in GNU Emacs allowing arbitrary code execution.</synopsis>
+    <product type="ebuild">emacs</product>
+    <announced>2026-08-24</announced>
+    <revised count="1">2026-08-24</revised>
+    <bug>981157</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="app-editors/emacs" auto="yes" arch="*">
+            <unaffected range="ge" slot="27">27.2-r4</unaffected>
+            <unaffected range="ge" slot="28">28.2-r22</unaffected>
+            <unaffected range="ge" slot="29">29.4-r10</unaffected>
+            <unaffected range="ge" slot="30">30.2-r6</unaffected>
+            <vulnerable range="lt" slot="27">27.2-r4</vulnerable>
+            <vulnerable range="lt" slot="28">28.2-r22</vulnerable>
+            <vulnerable range="lt" slot="29">29.4-r10</vulnerable>
+            <vulnerable range="lt" slot="30">30.2-r6</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GNU Emacs is the extensible, customizable, self-documenting real-time display editor.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in GNU Emacs. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>An attacker could achieve arbitrary code execution by tricking a user into opening a file or directory with a malicious filename via TRAMP.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GNU Emacs 27 users should upgrade to the latest version:</p>
+
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-27.2-r4:27"
+        </code>
+
+        <p>All GNU Emacs 28 users should upgrade to the latest version:</p>
+
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-28.2-r22:28"
+        </code>
+
+        <p>All GNU Emacs 29 users should upgrade to the latest version:</p>
+
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-29.4-r10:29"
+        </code>
+
+        <p>All GNU Emacs 30 users should upgrade to the latest version:</p>
+
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-30.2-r6:30"
+        </code>
+    </resolution>
+    <references>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-24T06:37:23.312467Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-24T06:37:23.324077Z">sam</metadata>
+</glsa>
