@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-22">
+    <title>needrestart: Multiple vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been discovered in needrestart, the worst of which allowing root privilege escalation.</synopsis>
+    <product type="ebuild">needrestart</product>
+    <announced>2026-08-24</announced>
+    <revised count="1">2026-08-24</revised>
+    <bug>944015</bug>
+    <access>local</access>
+    <affected>
+        <package name="app-admin/needrestart" auto="yes" arch="*">
+            <unaffected range="ge">3.8</unaffected>
+            <vulnerable range="lt">3.8</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>needrestart is a tool to restart daemons after library updates.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in needrestart. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>An attacker could achieve root privilege escalation.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All needrestart users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-admin/needrestart-3.8"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-11003">CVE-2024-11003</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-48990">CVE-2024-48990</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-48991">CVE-2024-48991</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2024-48992">CVE-2024-48992</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-24T06:47:56.831467Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-24T06:47:56.835894Z">sam</metadata>
+</glsa>
