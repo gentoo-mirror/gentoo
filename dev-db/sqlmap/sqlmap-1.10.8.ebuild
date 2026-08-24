@@ -16,7 +16,7 @@ if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/sqlmapproject/sqlmap"
 else
 	SRC_URI="https://github.com/sqlmapproject/sqlmap/archive/refs/tags/${PV}.tar.gz -> ${P}.gh.tar.gz"
-	KEYWORDS="amd64 x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 # sqlmap (GPL-2+)
@@ -28,11 +28,7 @@ fi
 # colorama (BSD)
 # fcrypt (BSD-2)
 # identitywaf (MIT)
-# keepalive (LGPL-2.1+)
 # magic (MIT)
-# multipartpost (LGPL-2.1+)
-# ordereddict (MIT)
-# prettyprint (BSD-2)
 # pydes (public-domain)
 # six (MIT)
 # socks (BSD)
