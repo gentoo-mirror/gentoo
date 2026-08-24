@@ -3,7 +3,7 @@
 
 EAPI=9
 
-NEED_EMACS="28.1"
+NEED_EMACS="29.1"
 
 inherit elisp
 
@@ -12,12 +12,10 @@ HOMEPAGE="https://github.com/emacs-elfeed/elfeed/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/emacs-${PN}/${PN}"
 else
 	SRC_URI="https://github.com/emacs-${PN}/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
-
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -32,7 +30,7 @@ BDEPEND="
 	${RDEPEND}
 "
 
-DOCS=( NEWS.org README.org )
 SITEFILE="50${PN}-gentoo.el"
+DOCS=( NEWS.org README.org )
 
-elisp-enable-tests ert ./tests/ -l ./tests/elfeed-tests.el
+elisp-enable-tests ert ./tests/ -l "./tests/${PN}-tests.el"
