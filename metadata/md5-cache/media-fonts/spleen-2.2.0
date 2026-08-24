@@ -1,0 +1,14 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=compile install postinst postrm prepare setup
+DESCRIPTION=Monospaced bitmap fonts for consoles and terminals
+EAPI=8
+HOMEPAGE=https://www.cambus.net/spleen-monospaced-bitmap-fonts/ https://github.com/fcambus/spleen/
+INHERIT=edo font
+IUSE=X
+KEYWORDS=~amd64 ~x86
+LICENSE=BSD-2
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/fcambus/spleen/releases/download/2.2.0/spleen-2.2.0.tar.gz
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	font	6d0c60c855c05ae2ba808d300440ded2
+_md5_=fd42c908efe63c956abbfecd3f454426
