@@ -5,16 +5,19 @@ EAPI=8
 
 JAVA_PKG_IUSE="test"
 
-inherit java-pkg-2 systemd toolchain-funcs
+inherit java-pkg-2 systemd toolchain-funcs verify-sig
 
 DESCRIPTION="A privacy-centric, anonymous network"
 HOMEPAGE="https://i2p.net"
-SRC_URI="https://files.i2p-projekt.de/${PV}/i2psource_${PV}.tar.bz2"
+SRC_URI="
+	https://files.i2p.net/${PV}/i2psource_${PV}.tar.bz2
+	verify-sig? ( https://files.i2p.net/${PV}/i2psource_${PV}.tar.bz2.sig )
+"
 
 LICENSE="Apache-2.0 Artistic BSD CC-BY-2.5 CC-BY-3.0 CC-BY-SA-3.0 EPL-1.0 GPL-2 GPL-3 LGPL-2.1 LGPL-3 MIT public-domain WTFPL-2"
 SLOT="0"
 
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 LANGS=(
 	ar az bg ca cs da de el en es es-AR et fa fi fr gl he hi hr hu id it ja ko ku mg nb nl nn pl pt pt-BR ro ru sk sl sq
 	sr sv tk tr uk vi zh zh-TW
@@ -39,7 +42,6 @@ CP_DEPEND="
 	sys-devel/gettext:0[java]
 	www-servers/tomcat:9
 "
-# jdk-11 for bug #932030
 DEPEND="
 	dev-libs/gmp:0=
 	${CP_DEPEND}
@@ -51,12 +53,11 @@ DEPEND="
 	)
 "
 BDEPEND="
-	>=dev-java/ant-1.10.14-r3:0
+	dev-java/ant:0
 	sys-apps/which
 	sys-devel/gettext
-	test? (
-		>=dev-java/ant-1.10.14-r3:0[junit,junit4]
-	)
+	test? ( dev-java/ant:0[junit,junit4] )
+	verify-sig? ( sec-keys/openpgp-keys-i2p )
 "
 RDEPEND="
 	${CP_DEPEND}
@@ -65,7 +66,7 @@ RDEPEND="
 	>=virtual/jre-17:*
 "
 
-PATCHES=( "${FILESDIR}/2.11.0-force-gentoo-classpath.patch" )
+PATCHES=( "${FILESDIR}/2.13.0-force-gentoo-classpath.patch" )
 
 DOCS=( README.md history.txt )
 
@@ -74,6 +75,8 @@ JAVA_PKG_NO_CLEAN=(
 	'./apps/jetty/jetty-home-*/start.jar'
 	'./apps/jetty/jetty-home-*/lib/jetty-*.jar'
 )
+
+VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/i2p.asc"
 
 src_prepare() {
 	default # apply PATCHES
@@ -258,8 +261,8 @@ src_install() {
 	systemd_dounit "${FILESDIR}/i2p.service"
 
 	# setup dirs
-	keepdir /var/log/i2p /var/lib/i2p
-	fowners i2p:i2p /var/lib/i2p /var/log/i2p
+	keepdir /var/log/i2p /var/lib/i2p /var/lib/i2p/eepsite/logs
+	fowners i2p:i2p /var/lib/i2p /var/log/i2p /var/lib/i2p/eepsite/logs
 
 	# create own launchers
 	java-pkg_dolauncher i2prouter --main net.i2p.router.Router --jar i2p.jar \
