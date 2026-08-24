@@ -33,11 +33,32 @@
         <p>There is no known workaround at this time.</p>
     </workaround>
     <resolution>
-        <p>All GNU Emacs users should upgrade to the latest version:</p>
-        
+        <p>All GNU Emacs 27 users should upgrade to the latest version:</p>
+
         <code>
           # emerge --sync
-          # emerge --ask --oneshot --verbose ">=app-editors/emacs-30.2-r6"
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-27.2-r4:27"
+        </code>
+
+        <p>All GNU Emacs 28 users should upgrade to the latest version:</p>
+
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-28.2-r22:28"
+        </code>
+
+        <p>All GNU Emacs 29 users should upgrade to the latest version:</p>
+
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-29.4-r10:29"
+        </code>
+
+        <p>All GNU Emacs 30 users should upgrade to the latest version:</p>
+
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-editors/emacs-30.2-r6:30"
         </code>
     </resolution>
     <references>
