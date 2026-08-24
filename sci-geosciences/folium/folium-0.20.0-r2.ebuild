@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 DISTUTILS_USE_PEP517=setuptools
 export SETUPTOOLS_SCM_PRETEND_VERSION=${PV}
 inherit distutils-r1
@@ -14,7 +14,7 @@ SRC_URI="https://github.com/python-visualization/${PN}/archive/refs/tags/v${PV}.
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.15.1-gentoo.patch
@@ -29,19 +29,28 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-python/setuptools-scm
 	test? (
+		dev-python/nbconvert[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP}]
 		dev-python/pandas[${PYTHON_USEDEP}]
+		dev-python/pixelmatch[${PYTHON_USEDEP}]
+		dev-python/selenium[${PYTHON_USEDEP}]
+		dev-util/selenium-manager
 	)"
 
+EPYTEST_PLUGINS=( )
 distutils_enable_tests pytest
 
-EPYTEST_IGNORE=(
-	tests/selenium									# require chromedriver
-	tests/test_folium.py							# require geopandas
-	tests/plugins/test_time_slider_choropleth.py	# require geopandas
-	tests/test_repr.py								# require geckodriver
-)
-
 python_test() {
-	epytest -m 'not web'
+	EPYTEST_IGNORE=(
+		tests/test_folium.py							# require geopandas
+		tests/plugins/test_time_slider_choropleth.py	# require geopandas
+	)
+	EPYTEST_DESELECT=(
+		tests/selenium/test_selenium.py::test_notebook                 # require jupytext
+		tests/snapshots/test_snapshots.py::test_screenshot[issue_2109] # require geopandas
+		tests/snapshots/test_snapshots.py::test_screenshot[issue_1989] # require geopandas
+	)
+
+	SE_MANAGER_PATH=/usr/bin/selenium-manager \
+		epytest -m 'not web'
 }
