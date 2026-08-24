@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
 DISTUTILS_UPSTREAM_PEP517=standalone
-PYTHON_COMPAT=( pypy3_11 python3_{11..15} )
+PYTHON_COMPAT=( python3_{12..15} python3_{14..15}t )
 RUST_MIN_VER=1.89.0
 inherit cargo distutils-r1 flag-o-matic shell-completion toolchain-funcs
 
@@ -25,7 +25,7 @@ LICENSE+="
 	BZIP2
 " # crates
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="doc +ssl test"
 RESTRICT="!test? ( test )"
 
@@ -39,8 +39,8 @@ BDEPEND="
 	virtual/pkgconfig
 	doc? ( >=app-text/mdbook-0.5 )
 	test? (
-		$(python_gen_cond_dep 'dev-python/cffi[${PYTHON_USEDEP}]' 'python*')
 		dev-python/boltons[${PYTHON_USEDEP}]
+		dev-python/cffi[${PYTHON_USEDEP}]
 		dev-python/virtualenv[${PYTHON_USEDEP}]
 		dev-vcs/git
 		elibc_musl? ( dev-util/patchelf )
@@ -128,10 +128,12 @@ python_test() {
 		errors::pyo3_no_extension_module
 		# fails for unsupported rust targets, non-issue here (bug #973104)
 		errors::pypi_compatibility_linux_tag
-		# unimportant tests that require uv, and not obvious to get it
-		# to work with network-sandbox (not worth the trouble)
+		# minor tests that require pip or uv, and are a hassle with sandbox
+		develop::develop_pip_cases::case_01_pyo3_pure
+		develop::develop_pip_cases::case_12_pyo3_pure_with_dependency_group
 		develop::develop_uv_cases::case_1_hello_world
 		develop::develop_uv_cases::case_2_pyo3_ffi_pure
+		develop::develop_uv_cases::case_3_pyo3_pure_with_dependency_group
 		# compliance tests using zig (if present) need old libc (bug #946967)
 		integration::integration_cases::case_07_cffi_mixed_py_subdir
 		integration::integration_cases::case_16_pyo3_stub_generation_zig
@@ -140,9 +142,18 @@ python_test() {
 		# these currently attempt to install tomli regardless of python version
 		pep517::pep517_default_profile
 		pep517::pep517_editable_profile
+		# has troublesome requirements and is unimportant for us
+		pgo::pgo_pyo3_mixed
 		# unimportant and simpler to skip, does not work with just `git init`
 		sdist::lib_with_parent_workspace_git_dep_sdist
 	)
+
+	if [[ ${EPYTHON} == *t ]]; then
+		CARGO_SKIP_TESTS+=(
+			# incompatible with free-threaded CPython
+			develop::develop_pip_cases::case_02_pyo3_mixed
+		)
+	fi
 
 	cargo_src_test
 }
