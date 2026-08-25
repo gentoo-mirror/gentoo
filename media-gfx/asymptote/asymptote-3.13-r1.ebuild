@@ -111,15 +111,15 @@ src_compile() {
 	emake doc/version.texi
 	cd doc || die
 	emake asy.1
-	einfo "Making info"
-	emake ${PN}.info
 	if use doc; then
+		export VARTEXFONTS="${T}"/fonts
+		einfo "Making info"
+		emake ${PN}.info
 		cd FAQ || die
 		emake
 		cd .. || die
 		# pdf
 		einfo "Making pdf docs"
-		export VARTEXFONTS="${T}"/fonts
 		# see bug #260606
 		emake -j1 asymptote.pdf
 		emake CAD.pdf asy-latex.pdf asyRefCard.pdf
@@ -145,8 +145,8 @@ src_install() {
 	dodoc README
 	cd doc || die
 	doman asy.1
-	doinfo ${PN}.info
 	if use doc; then
+		doinfo ${PN}.info
 		dodoc CAD.pdf asy-latex.pdf asyRefCard.pdf asymptote.pdf
 	fi
 	cd .. || die
