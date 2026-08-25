@@ -2,7 +2,7 @@ BDEPEND=dev-lang/go net-libs/rpcsvc-proto sys-apps/lsb-release virtual/pkgconfig
 DEFINED_PHASES=compile configure install prepare unpack
 DEPEND=net-libs/libtirpc:= sys-libs/libcap virtual/libelf:= seccomp? ( sys-libs/libseccomp )
 DESCRIPTION=NVIDIA container runtime library
-EAPI=8
+EAPI=9
 HOMEPAGE=https://github.com/NVIDIA/libnvidia-container
 INHERIT=toolchain-funcs git-r3
 IUSE=+seccomp static-libs
@@ -12,4 +12,4 @@ RDEPEND=net-libs/libtirpc:= sys-libs/libcap virtual/libelf:= seccomp? ( sys-libs
 SLOT=0/9999
 SRC_URI=https://github.com/NVIDIA/nvidia-modprobe/archive/550.54.14.tar.gz -> libnvidia-container-nvidia-modprobe-550.54.14.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=37a521775b7e0bc0c2c5badc81913510
+_md5_=a82832f98e7e3921c2051c281a435da6
