@@ -30,7 +30,8 @@ RDEPEND="
 	>=dev-python/pynacl-1.6.2[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.32.5[${PYTHON_USEDEP}]
 	>=dev-python/urllib3-2.6.3[${PYTHON_USEDEP}]
-	>=dev-vcs/git-filter-repo-2.47[${PYTHON_USEDEP}]
+	>=dev-python/pygit2-1.19.3[${PYTHON_USEDEP}]
+
 "
 
 BDEPEND="
