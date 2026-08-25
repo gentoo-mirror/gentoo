@@ -3,11 +3,11 @@ DEFINED_PHASES=configure install postinst postrm prepare pretend setup unpack
 DEPEND=dev-cpp/cpp-httplib:= dev-libs/hidapi dev-qt/qtbase:6[gui,widgets] net-libs/mbedtls:3= virtual/libusb:1 dev-cpp/nlohmann_json dev-libs/mdns dev-libs/stb
 DESCRIPTION=Open source RGB lighting control
 EAPI=8
-HOMEPAGE=https://openrgb.org https://gitlab.com/CalcProgrammer1/OpenRGB/
-INHERIT=check-reqs flag-o-matic qmake-utils udev xdg-utils git-r3
+HOMEPAGE=https://openrgb.org https://gitlab.com/CalcProgrammer1/OpenRGB/ https://codeberg.org/OpenRGB/OpenRGB
+INHERIT=check-reqs flag-o-matic qmake-utils tmpfiles udev xdg-utils git-r3
 LICENSE=GPL-2+
 PROPERTIES=live
-RDEPEND=dev-cpp/cpp-httplib:= dev-libs/hidapi dev-qt/qtbase:6[gui,widgets] net-libs/mbedtls:3= virtual/libusb:1
+RDEPEND=dev-cpp/cpp-httplib:= dev-libs/hidapi dev-qt/qtbase:6[gui,widgets] net-libs/mbedtls:3= virtual/libusb:1 virtual/tmpfiles
 SLOT=0/4
-_eclasses_=check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	qt-utils	5b7ae92788820ab4495683740521513c	qmake-utils	cc0baf4385fb880725ae334ce289b70f	udev	1a23882bb73bc31c64a6f00a5e515f34	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=fdaa9867f95f6a953c75064efa0f8e95
+_eclasses_=check-reqs	12ab9d3fc16bfe1f87c6fb652324b57c	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	qt-utils	5b7ae92788820ab4495683740521513c	qmake-utils	cc0baf4385fb880725ae334ce289b70f	tmpfiles	e0b49bcd7a0daea941c0fbe4cb35ff4e	udev	1a23882bb73bc31c64a6f00a5e515f34	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	git-r3	e6c2f983e006e805160436c75a0c1562
+_md5_=7f1df59e1fd4ed4465b8063d1147e00e
