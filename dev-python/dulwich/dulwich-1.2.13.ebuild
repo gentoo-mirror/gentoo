@@ -14,7 +14,7 @@ CRATES="
 	bstr@1.12.3
 	heck@0.5.0
 	libc@0.2.186
-	memchr@2.8.2
+	memchr@2.8.3
 	once_cell@1.21.4
 	portable-atomic@1.13.1
 	proc-macro2@1.0.106
@@ -55,7 +55,7 @@ LICENSE+="
 LICENSE+=" )"
 
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 x86 ~arm64-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 IUSE="doc examples +native-extensions test"
 RESTRICT="!test? ( test )"
 

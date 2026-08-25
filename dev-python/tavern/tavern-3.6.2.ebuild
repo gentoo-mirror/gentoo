@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=flit
+DISTUTILS_USE_PEP517=flit-core
 PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
@@ -20,7 +20,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64"
+KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	>=dev-python/hypothesis-6[${PYTHON_USEDEP}]
@@ -62,6 +62,8 @@ EPYTEST_IGNORE=(
 	# require gql
 	tavern/_plugins/graphql
 	tests/unit/plugins/graphql
+	# require allure
+	tests/unit/test_allure.py
 )
 
 src_prepare() {

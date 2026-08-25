@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=pbr
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -17,11 +17,11 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~mips ~ppc64 ~riscv ~s390 x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc64 ~riscv ~s390 ~x86"
 
 RDEPEND="
 	>=dev-python/autopage-0.4.0[${PYTHON_USEDEP}]
-	>=dev-python/cmd2-3.0.0[${PYTHON_USEDEP}]
+	>=dev-python/cmd2-4.0.0[${PYTHON_USEDEP}]
 	dev-python/prettytable[${PYTHON_USEDEP}]
 	>=dev-python/pyparsing-2.1.0[${PYTHON_USEDEP}]
 	>=dev-python/pyyaml-3.12.0[${PYTHON_USEDEP}]
@@ -31,7 +31,7 @@ BDEPEND="
 	test? (
 		>=dev-python/fixtures-3.0.0[${PYTHON_USEDEP}]
 		>=dev-python/sphinx-5.0.0[${PYTHON_USEDEP}]
-		>=dev-python/testtools-2.2.0[${PYTHON_USEDEP}]
+		>=dev-python/testtools-2.8.0[${PYTHON_USEDEP}]
 	)
 "
 
