@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-25">
+    <title>UnrealIRCd: Denial of service</title>
+    <synopsis>A vulnerability has been discovered in UnrealIRCd, possibly allowing denial of service.</synopsis>
+    <product type="ebuild">unrealircd</product>
+    <announced>2026-08-26</announced>
+    <revised count="1">2026-08-26</revised>
+    <bug>832272</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-irc/unrealircd" auto="yes" arch="*">
+            <unaffected range="ge">6.0.2</unaffected>
+            <vulnerable range="lt">6.0.2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>UnrealIRCd is an Internet Relay Chat (IRC) daemon.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in UnrealIRCd. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>An attacker may be able to achieve denial of service.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All UnrealIRCd users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-irc/unrealircd-6.0.2"
+        </code>
+    </resolution>
+    <references>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-26T11:51:52.244562Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-26T11:51:52.257769Z">sam</metadata>
+</glsa>
