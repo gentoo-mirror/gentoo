@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-24">
+    <title>DTrace: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in DTrace, the worst of which could allow denial of service.</synopsis>
+    <product type="ebuild">dtrace</product>
+    <announced>2026-08-26</announced>
+    <revised count="1">2026-08-26</revised>
+    <bug>974696</bug>
+    <access>local</access>
+    <affected>
+        <package name="dev-debug/dtrace" auto="yes" arch="*">
+            <unaffected range="ge">2.0.7</unaffected>
+            <vulnerable range="lt">2.0.7</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>DTrace is a dynamic tracing tool for analysing or debugging the whole system. Specifically, dtprobed is a component of the DTrace system that keeps track of USDT probes within running processes, parsing and storing the DOF they provide for later consumption by dtrace proper.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in DTrace. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="low">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All DTrace users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=dev-debug/dtrace-2.0.7"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-21996">CVE-2026-21996</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2026-35233">CVE-2026-35233</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-26T11:32:53.968207Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-26T11:32:53.971023Z">sam</metadata>
+</glsa>
