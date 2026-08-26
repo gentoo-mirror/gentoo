@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=standalone
 PYPI_NO_NORMALIZE=1
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -24,7 +24,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="BSD-with-disclosure"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 RDEPEND="
 	dev-python/accessible-pygments[${PYTHON_USEDEP}]
@@ -32,9 +32,9 @@ RDEPEND="
 	dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 	dev-python/docutils[${PYTHON_USEDEP}]
 	>=dev-python/pygments-2.7[${PYTHON_USEDEP}]
+	dev-python/requests[${PYTHON_USEDEP}]
 	<dev-python/sphinx-10[${PYTHON_USEDEP}]
-	>=dev-python/sphinx-8.0[${PYTHON_USEDEP}]
-	dev-python/typing-extensions[${PYTHON_USEDEP}]
+	>=dev-python/sphinx-8.2[${PYTHON_USEDEP}]
 "
 
 EPYTEST_PLUGINS=( pytest-{datadir,regressions} )
