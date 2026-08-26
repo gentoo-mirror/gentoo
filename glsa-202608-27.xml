@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-27">
+    <title>GNU screen: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in GNU screen.</synopsis>
+    <product type="ebuild">screen</product>
+    <announced>2026-08-26</announced>
+    <revised count="1">2026-08-26</revised>
+    <bug>955907</bug>
+    <access>local and remote</access>
+    <affected>
+        <package name="app-misc/screen" auto="yes" arch="*">
+            <unaffected range="ge">4.9.1-r2</unaffected>
+            <vulnerable range="lt">4.9.1-r2</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>GNU screen is a full-screen window manager that multiplexes a physical terminal between several processes, typically interactive shells.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in GNU screen. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All GNU screen users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=app-misc/screen-4.9.1-r2"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-23395">CVE-2025-23395</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-46802">CVE-2025-46802</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-46803">CVE-2025-46803</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-46804">CVE-2025-46804</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-46805">CVE-2025-46805</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-26T12:36:07.990105Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-26T12:36:07.994447Z">sam</metadata>
+</glsa>
