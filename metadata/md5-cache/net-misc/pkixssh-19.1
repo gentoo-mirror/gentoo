@@ -5,13 +5,13 @@ DESCRIPTION=OpenSSH fork with X.509 v3 certificate support
 EAPI=8
 HOMEPAGE=https://roumenpetrov.info/secsh/
 INHERIT=user-info flag-o-matic autotools optfeature pam systemd toolchain-funcs eapi9-ver
-IUSE=abi_mips_n32 audit debug kerberos ldns libedit livecd pam +pie selinux +ssl-engine static test xmss
+IUSE=abi_mips_n32 audit debug kerberos ldns libedit livecd pam selinux +ssl-engine static test
 KEYWORDS=~amd64
 LICENSE=BSD GPL-2
 RDEPEND=acct-group/sshd acct-user/sshd !static? ( audit? ( sys-process/audit ) ldns? ( net-libs/ldns net-libs/ldns[ecdsa(+),ssl(+)] ) libedit? ( dev-libs/libedit:= ) selinux? ( >=sys-libs/libselinux-1.28 ) >=dev-libs/openssl-1.1.1l-r1:0= virtual/libcrypt:= >=virtual/zlib-1.2.3:= ) pam? ( sys-libs/pam ) kerberos? ( virtual/krb5 ) !net-misc/openssh !net-misc/openssh-contrib !net-misc/openssh-contrib pam? ( >=sys-auth/pambase-20081028 ) !prefix? ( sys-apps/shadow )
-REQUIRED_USE=pie? ( !static ) static? ( !kerberos !pam ) test? ( ssl-engine ) test? ( !xmss )
+REQUIRED_USE=static? ( !kerberos !pam ) test? ( ssl-engine )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://roumenpetrov.info/secsh/src/pkixssh-17.1.1.tar.xz
+SRC_URI=https://roumenpetrov.info/secsh/src/pkixssh-19.1.tar.xz
 _eclasses_=user-info	9bc91a5977c2453c0a861b26f65057ea	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	0698802996fcfe9a604eac3c1f6e7112	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	a964c0cbe818b5729da1dbfcee5be861	eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0
-_md5_=61dbdea27679f9a4bb0f24c2e30f5c80
+_md5_=a7f63783f95893256fa7d48636a2f44a
