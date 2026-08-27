@@ -22,36 +22,32 @@ IUSE="dbus enchant +fonts screencast wayland webkit +X"
 CDEPEND="
 	!net-im/telegram-desktop-bin
 	app-arch/lz4:=
-	app-text/cmark-gfm:=
 	dev-cpp/abseil-cpp:=
 	dev-cpp/ada:=
 	dev-cpp/cld3:=
-	>=dev-cpp/glibmm-2.77:2.68
 	dev-cpp/toomanycooks
-	dev-libs/libfido2:=
 	dev-libs/glib:2
+	dev-libs/libfido2:=
 	dev-libs/openssl:=
-	>=dev-libs/protobuf-21.12
 	dev-libs/qr-code-generator:=
 	dev-libs/xxhash
-	>=dev-qt/qtbase-6.5:6=[dbus?,gui,network,opengl,ssl,wayland?,widgets]
-	>=dev-qt/qtimageformats-6.5:6
-	>=dev-qt/qtsvg-6.5:6
+	>=dev-qt/qtbase-6.11:6=[dbus?,gui,network,opengl,ssl,wayland?,widgets]
+	>=dev-qt/qtimageformats-6.11:6
+	>=dev-qt/qtsvg-6.11:6
 	kde-frameworks/kcoreaddons:6
 	media-libs/libjpeg-turbo:=
 	media-libs/openal
-	media-libs/opus
-	media-libs/rnnoise
+	media-libs/rnnoise:=
 	>=media-libs/tg_owt-0_pre20241202:=[screencast=,X=]
-	>=media-video/ffmpeg-6:=[opus,vpx]
+	>=media-video/ffmpeg-6:=[opus,vpx,x264]
 	net-libs/tdlib:=[tde2e]
 	sys-apps/hwloc:=
 	virtual/minizip:=
 	!enchant? ( >=app-text/hunspell-1.7:= )
 	enchant? ( app-text/enchant:= )
 	webkit? ( wayland? (
-		>=dev-qt/qtdeclarative-6.5:6
-		>=dev-qt/qtwayland-6.5:6[compositor(+),qml]
+		>=dev-qt/qtdeclarative-6.11:6
+		>=dev-qt/qtwayland-6.11:6[compositor(+),qml]
 	) )
 "
 RDEPEND="${CDEPEND}
@@ -63,16 +59,16 @@ DEPEND="${CDEPEND}
 	dev-cpp/expected-lite
 	>=dev-cpp/ms-gsl-4.1.0
 	dev-cpp/range-v3
+	>=dev-libs/protobuf-21.12
 "
 BDEPEND="
 	${PYTHON_DEPS}
 	>=dev-build/cmake-3.16
 	>=dev-cpp/cppgir-2.0_p20260226
-	>=dev-libs/gobject-introspection-1.82.0-r2
 	dev-qt/qtshadertools
 	>=dev-util/gdbus-codegen-2.80.5-r1
 	virtual/pkgconfig
-	wayland? ( dev-util/wayland-scanner )
+	webkit? ( wayland? ( dev-util/wayland-scanner ) )
 "
 # NOTE: dev-cpp/expected-lite used indirectly by a dev-cpp/cppgir header file
 # NOTE: sys-apps/hwloc is depended upon by dev-cpp/toomanycooks, but needs to
@@ -109,18 +105,13 @@ src_prepare() {
 
 	# Some packages are found through pkg_check_modules, rather than find_package
 	sed -e '/find_package(lz4 /d' -i cmake/external/lz4/CMakeLists.txt || die
-	sed -e '/find_package(Opus /d' -i cmake/external/opus/CMakeLists.txt || die
 	sed -e '/find_package(xxHash /d' -i cmake/external/xxhash/CMakeLists.txt || die
-	sed -e '/find_package(cmark-gfm\(-extensions\)\? /d' \
-		-i cmake/external/cmark_gfm/CMakeLists.txt || die
-
-	# Temporary workaround for https://bugs.gentoo.org/977603
-	sed -e '/find_package(minizip /d' \
-		-i cmake/external/minizip/CMakeLists.txt || die
+	sed -e '/find_package(minizip /d' -i cmake/external/minizip/CMakeLists.txt || die
 
 	# Greedily remove ThirdParty directories, keep only ones that interest us
 	local keep=(
 		rlottie  # Patched, not recommended to unbundle by upstream
+		cmark-gfm  # Patched, not maintained by upstream anymore
 		libprisma  # Telegram-specific library, no stable releases
 		tgcalls  # Telegram-specific library, no stable releases
 		xdg-desktop-portal  # Only a few xml files are used with gdbus-codegen
@@ -129,6 +120,12 @@ src_prepare() {
 	for x in Telegram/ThirdParty/*; do
 		has "${x##*/}" "${keep[@]}" || rm -r "${x}" || die
 	done
+
+	# These libraries are used only for bundled ffmpeg, and don't need to be
+	# available during build.
+	: > cmake/external/openh264/CMakeLists.txt || die
+	: > cmake/external/opus/CMakeLists.txt || die
+	: > cmake/external/vpx/CMakeLists.txt || die
 
 	# Control libdispatch dependency from here, as there's no
 	# CMAKE_DISABLE_FIND_PACKAGE for find_library
@@ -153,6 +150,14 @@ src_prepare() {
 	rm cmake/external/glib/cppgir/expected-lite/example/CMakeLists.txt || die
 	rm cmake/external/glib/cppgir/expected-lite/test/CMakeLists.txt || die
 	rm cmake/external/glib/cppgir/expected-lite/CMakeLists.txt || die
+
+	# Patch around CMake 4 requirement in cmark-gfm
+	# (this patch is only valid with -DCMARK_TESTS=OFF, which telegram sets)
+	grep -q '^cmake_minimum_required(VERSION 3.0)$' \
+		Telegram/ThirdParty/cmark-gfm/CMakeLists.txt \
+		|| die 'Stale cmake patch, remove me'
+	sed -e '/^cmake_minimum_required(/s/3.0/4.0/' \
+		-i Telegram/ThirdParty/cmark-gfm/CMakeLists.txt || die
 
 	cmake_src_prepare
 }

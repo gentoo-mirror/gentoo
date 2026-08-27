@@ -1,4 +1,4 @@
-# Copyright 2020-2025 Gentoo Authors
+# Copyright 2020-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -8,7 +8,7 @@ inherit cmake flag-o-matic
 DESCRIPTION="WebRTC build for Telegram"
 HOMEPAGE="https://github.com/desktop-app/tg_owt"
 
-TG_OWT_COMMIT="232ec410502e773024e8d83cfae83a52203306c0"
+TG_OWT_COMMIT="26068e29bfa8d74a9dc9c8f7f94172fafbc262b8"
 LIBYUV_COMMIT="04821d1e7d60845525e8db55c7bcd41ef5be9406"
 LIBSRTP_COMMIT="a566a9cfcd619e8327784aa7cff4a1276dc1e895"
 SRC_URI="https://github.com/desktop-app/tg_owt/archive/${TG_OWT_COMMIT}.tar.gz -> ${P}.tar.gz
@@ -18,7 +18,7 @@ S="${WORKDIR}/${PN}-${TG_OWT_COMMIT}"
 
 LICENSE="BSD"
 SLOT="0/${PV##*pre}"
-KEYWORDS="amd64 ~arm64 ~loong ~ppc64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~loong ~ppc64 ~riscv"
 IUSE="screencast +X"
 
 # This package's USE flags may change the ABI and require a rebuild of
@@ -71,16 +71,10 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/tg_owt-0_pre20250515-fix-gcc16.patch"
 	"${FILESDIR}/tg_owt-0_pre20250515-fix-clang20.patch"
-
-	# Bug 964949. Incomplete, regresses abseil-cpp-2025012.
-	"${FILESDIR}/tg_owt-0_pre20250515-nonnull.patch"
-	# Bug 965838. Fixes regression with abseil-cpp-2025012.
-	"${FILESDIR}/tg_owt-0_pre20250515-scope-nonnull.patch"
 )
 
 src_unpack() {
 	default
-
 	mv -T "libyuv-${LIBYUV_COMMIT}" "${S}/src/third_party/libyuv" || die
 }
 
@@ -91,6 +85,9 @@ src_prepare() {
 
 	# "lol" said the scorpion, "lmao"
 	sed -i '/if (BUILD_SHARED_LIBS)/{n;n;s/WARNING/DEBUG/}' CMakeLists.txt || die
+
+	# Shut the CMake 4 QA checker up by removing unused CMakeLists files
+	rm src/third_party/libyuv/CMakeLists.txt || die
 
 	cmake_src_prepare
 }
