@@ -1,11 +1,9 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 # not sure how to get the signing keys for this yet, but upstream provides a signature
-#VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/pkixssh.org.asc
-#inherit user-info flag-o-matic autotools optfeature pam systemd toolchain-funcs verify-sig eapi9-ver
 inherit user-info flag-o-matic autotools optfeature pam systemd toolchain-funcs eapi9-ver
 
 DESCRIPTION="OpenSSH fork with X.509 v3 certificate support"
@@ -18,18 +16,14 @@ SRC_URI="
 LICENSE="BSD GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="abi_mips_n32 audit debug kerberos ldns libedit livecd pam +pie selinux +ssl-engine static test xmss"
+IUSE="abi_mips_n32 audit debug kerberos ldns libedit livecd pam selinux +ssl-engine static test"
 
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
-	pie? ( !static )
 	static? ( !kerberos !pam )
 	test? ( ssl-engine )
 "
-
-# tests currently fail with XMSS
-REQUIRED_USE+="test? ( !xmss )"
 
 LIB_DEPEND="
 	audit? ( sys-process/audit[static-libs(+)] )
@@ -72,7 +66,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/pkixssh-17.0-no-rundir.patch"
-	"${FILESDIR}/openssh-9.6_p1-fix-xmss-c99.patch"
 	"${FILESDIR}/openssh-9.7_p1-config-tweaks.patch"
 	# Backports from upstream release branch
 	#"${FILESDIR}/${PV}"
@@ -112,7 +105,6 @@ src_configure() {
 
 	use debug && append-cppflags -DSANDBOX_SECCOMP_FILTER_DEBUG
 	use static && append-ldflags -static
-	use xmss && append-cflags -DWITH_XMSS
 
 	if [[ ${CHOST} == *-solaris* ]] ; then
 		# Solaris' glob.h doesn't have things like GLOB_TILDE, configure
@@ -145,14 +137,16 @@ src_configure() {
 		#    Clang (bug #872548), ICEs on m68k (bug #920350, gcc PR113086,
 		#    gcc PR104820, gcc PR104817, gcc PR110934)).
 		#
-		# Furthermore, OSSH_CHECK_CFLAG_COMPILE does not use AC_CACHE_CHECK,
-		# so we cannot just disable -fzero-call-used-regs=used.
+		# Furthermore, OSSH_CHECK_CFLAG_COMPILE did not use AC_CACHE_CHECK
+		# until 10.1_p1, so we couldn't disable -fzero-call-used-regs=used.
 		#
 		# Therefore, just pass --without-hardening, given it doesn't negate
 		# our already hardened toolchain defaults, and avoids adding flags
 		# which are known-broken in both Clang and GCC and haven't been
 		# proven reliable.
 		--without-hardening
+		--without-pie
+		--without-stackprotect
 
 		# wtmpdb not yet packaged
 		--without-wtmpdb
@@ -162,7 +156,6 @@ src_configure() {
 		$(use_with ldns)
 		$(use_with libedit)
 		$(use_with pam)
-		$(use_with pie)
 		$(use_with selinux)
 		$(use_with ssl-engine ssl-engine)
 	)
@@ -262,8 +255,8 @@ src_install() {
 	emake install-nokeys DESTDIR="${D}"
 	fperms 600 /etc/ssh/sshd_config
 	dobin contrib/ssh-copy-id
-	newinitd "${FILESDIR}"/sshd-r1.initd sshd
-	newconfd "${FILESDIR}"/sshd-r1.confd sshd
+	newinitd "${FILESDIR}"/sshd-r2.initd sshd
+	newconfd "${FILESDIR}"/sshd-r2.confd sshd
 	exeinto /etc/user/init.d
 	newexe "${FILESDIR}"/ssh-agent.initd ssh-agent
 
