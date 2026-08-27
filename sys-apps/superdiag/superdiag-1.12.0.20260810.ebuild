@@ -3,14 +3,14 @@
 
 EAPI=8
 
-DOWNLOAD_ID="1035"
+DOWNLOAD_ID="1171"
 MY_DATE="$(ver_cut 4)"
 MY_PN="SuperDiag"
 MY_PV="$(ver_cut 1-3)"
 
 DESCRIPTION="Provides the capability to determine the health of Supermicro servers components"
 HOMEPAGE="https://www.supermicro.com"
-SRC_URI="https://www.supermicro.com/Bios/sw_download/1035/${MY_PN}_${MY_PV}_${MY_DATE}.zip"
+SRC_URI="https://www.supermicro.com/Bios/sw_download/${DOWNLOAD_ID}/${MY_PN}_${MY_PV}_${MY_DATE}.zip"
 S="${WORKDIR}"
 
 LICENSE="supermicro"
