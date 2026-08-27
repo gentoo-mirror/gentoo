@@ -1,12 +1,13 @@
-BDEPEND=>=app-editors/emacs-26.3:* >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=app-editors/emacs-26.3:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=GNU Emacs major mode for editing PHP code
 EAPI=9
 HOMEPAGE=https://elpa.nongnu.org/nongnu/php-mode.html https://github.com/emacs-php/php-mode/
-INHERIT=elisp git-r3
+INHERIT=elisp
+KEYWORDS=~amd64 ~ppc ~ppc64 ~riscv ~x86
 LICENSE=GPL-3+
-PROPERTIES=live
 RDEPEND=>=app-editors/emacs-26.3:*
 SLOT=0
-_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	8e56606e40554fd24928b6bc76ef3c7a	git-r3	e6c2f983e006e805160436c75a0c1562
+SRC_URI=https://github.com/emacs-php/php-mode/archive/refs/tags/v1.28.0.tar.gz -> php-mode-1.28.0.gh.tar.gz
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	8e56606e40554fd24928b6bc76ef3c7a
 _md5_=67e49a70088bfec52f0ca513d53d482a
