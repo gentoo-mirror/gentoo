@@ -2629,7 +2629,7 @@ app-i18n/tomoe-gtk 0.6.0-r7: Tomoe GTK+ interface widget library
 app-i18n/transifex-client 1.6.14 1.6.17: The Transifex command-line client
 app-i18n/translate-shell 0.9.7.1: Online command-line translator
 app-i18n/uchardet 0.0.8: Encoding detector library
-app-i18n/uim 1.9.6: Multilingual input method framework
+app-i18n/uim 1.9.6-r1: Multilingual input method framework
 app-i18n/uim-tomoe-gtk 0.6.0: Japanese input method Tomoe IMEngine for uim
 app-i18n/unicode-cldr 47.0 48.0 48.1: Unicode Common Locale Data Repository
 app-i18n/unicode-data 15.1.0 16.0.0 17.0.0: Unicode data from unicode.org
@@ -3204,7 +3204,7 @@ app-text/a2ps 4.15.5-r1 4.15.6 4.15.7: Any to PostScript filter
 app-text/aha 0.5.1: Converts ANSI escape sequences of a unix terminal to HTML code
 app-text/aiksaurus 1.2.1-r3 1.2.1-r4: A thesaurus lib, tool, and database
 app-text/an 1.2_p6: Very fast anagram generator with dictionary lookup
-app-text/ansifilter 2.22: Handles text files containing ANSI terminal escape codes
+app-text/ansifilter 2.22 2.23: Handles text files containing ANSI terminal escape codes
 app-text/antiword 0.37-r2: free MS Word reader
 app-text/antixls 0.3b: Print out an XLS file with minimal formatting, or extract the data into CSV
 app-text/apvlv 0.4.0-r3: Alf's PDF/DJVU/EPUB Viewer like Vim
@@ -8318,7 +8318,7 @@ dev-python/apispec 6.10.0: A pluggable API specification generator
 dev-python/appdirs 1.4.4-r3: Module for determining appropriate platform-specific dirs
 dev-python/apprise 1.12.0: Push Notifications that work with just about every platform
 dev-python/apscheduler 3.11.2 3.11.3: In-process task scheduler with Cron-like capabilities
-dev-python/apsw 3.51.3.0 3.53.0.0 3.53.1.0 3.53.2.0 3.53.3.0 3.53.3.1: APSW - Another Python SQLite Wrapper
+dev-python/apsw 3.53.3.1 3.53.4.0: APSW - Another Python SQLite Wrapper
 dev-python/argcomplete 3.7.0 3.7.1 3.7.2: Bash tab completion for argparse
 dev-python/argh 0.31.3: A simple argparse wrapper
 dev-python/argon2-cffi 25.1.0: CFFI bindings to the Argon2 password hashing library
@@ -8391,8 +8391,8 @@ dev-python/bluelet 0.2.0-r1: Module for pure Python asynchronous I/O using corou
 dev-python/blurb 2.0.0: Tool to create and manage NEWS blurbs for CPython
 dev-python/boltons 26.0.0 26.1.0: Pure-python utilities in the same spirit as the standard library
 dev-python/boolean-py 5.0: Define boolean algebras, create and parse boolean expressions
-dev-python/boto3 1.43.29 1.43.36 1.43.40 1.43.46 1.43.51 1.43.56 1.43.62 1.43.67 1.43.72 1.43.78 1.43.79 1.43.80: The AWS SDK for Python
-dev-python/botocore 1.43.29 1.43.36 1.43.40 1.43.46 1.43.51 1.43.56 1.43.62 1.43.67 1.43.72 1.43.78 1.43.79 1.43.80: Low-level, data-driven core of boto 3
+dev-python/boto3 1.43.29 1.43.36 1.43.40 1.43.46 1.43.51 1.43.56 1.43.62 1.43.67 1.43.72 1.43.78 1.43.79 1.43.80 1.43.81: The AWS SDK for Python
+dev-python/botocore 1.43.29 1.43.36 1.43.40 1.43.46 1.43.51 1.43.56 1.43.62 1.43.67 1.43.72 1.43.78 1.43.79 1.43.80 1.43.81: Low-level, data-driven core of boto 3
 dev-python/bottle 0.13.4: A fast and simple micro-framework for small web-applications
 dev-python/bottleneck 1.6.0: Fast NumPy array functions written in C
 dev-python/bpython 0.26: Syntax highlighting and autocompletion for the Python interpreter
@@ -8403,7 +8403,7 @@ dev-python/brotlicffi 1.2.0.1 1.2.0.2: Python binding to the Brotli library
 dev-python/btrfs 15: Python module to inspect btrfs filesystems
 dev-python/btrfsutil 7.0 7.1: Library for managing Btrfs filesystems
 dev-python/build 1.4.4 1.5.0 1.5.1: A simple, correct PEP517 package builder
-dev-python/cachebox 6.2.1 6.2.5: The fastest memoizing and caching Python library written in Rust
+dev-python/cachebox 6.2.5 6.2.6: The fastest memoizing and caching Python library written in Rust
 dev-python/cachecontrol 0.14.3: httplib2 caching for requests
 dev-python/cachelib 0.14.0 0.15.4 0.16.1 0.17.0: Collection of cache libraries in the same API interface. Extracted from werkzeug
 dev-python/cachetools 7.1.4 7.1.5 7.1.6 7.1.7: Extensible memoizing collections and decorators
@@ -8435,7 +8435,7 @@ dev-python/clang 17.0.6 18.1.8 19.1.7 20.1.8 21.1.8 22.1.8 23.1.0_pre20260724 23
 dev-python/cleo 2.1.0: Python tool for building testable command-line interfaces
 dev-python/cli-helpers 2.15.0 2.15.1 9999: Python helpers for common CLI tasks
 dev-python/cli-ui 0.19.0-r1: Python library for better command line interfaces
-dev-python/click 8.3.3 8.4.1 8.4.2: A Python package for creating beautiful command line interfaces
+dev-python/click 8.4.2 8.5.0: A Python package for creating beautiful command line interfaces
 dev-python/click-default-group 1.2.4: Extends click.Group to invoke a command without explicit subcommand name
 dev-python/click-help-colors 0.9.4: Colorization of help messages in Click
 dev-python/click-log 0.4.0: Logging integration for Click
@@ -8783,7 +8783,7 @@ dev-python/isal 1.8.0: Faster zlib and gzip via the ISA-L library
 dev-python/iso8601 2.1.0: Simple module to parse ISO 8601 dates
 dev-python/isodate 0.7.2: ISO 8601 date/time/duration parser and formatter
 dev-python/isoduration 20.11.0-r1: Operations with ISO 8601 durations
-dev-python/isort 8.0.1: A python utility/library to sort imports
+dev-python/isort 8.0.1 9.0.0: A python utility/library to sort imports
 dev-python/iterable-io 1.0.4: Adapt generators and other iterables to a file-like interface
 dev-python/itsdangerous 2.2.0 2.2.0-r1: Various helpers to pass trusted data to untrusted environments and back
 dev-python/itunespy 1.6.1-r1: A simple library to fetch data from the iTunes Store API
@@ -8851,7 +8851,7 @@ dev-python/jupyterlab-lsp 5.1.0 5.3.0: Coding assistance for JupyterLab with Lan
 dev-python/jupyterlab-pygments 0.3.0: Pygments theme making use of JupyterLab CSS variables
 dev-python/jupyterlab-server 2.28.0: Server components for JupyterLab and JupyterLab like applications
 dev-python/jupyterlab-widgets 3.0.16 3.0.17: Jupyter interactive widgets for JupyterLab
-dev-python/jwcrypto 1.5.7 1.5.8: Implements JWK,JWS,JWE specifications using python-cryptography
+dev-python/jwcrypto 1.5.8 1.5.9: Implements JWK,JWS,JWE specifications using python-cryptography
 dev-python/k5test 0.10.4: Library for testing Python applications in Kerberos 5 environments
 dev-python/kaitaistruct 0.11: Kaitai Struct runtime for Python
 dev-python/kaptan 0.6.0: Configuration manager in your pocket
@@ -8860,7 +8860,7 @@ dev-python/keep 2.11: Personal shell command keeper and snippets manager
 dev-python/kerberos 1.3.1-r2: A high-level Python wrapper for Kerberos/GSSAPI operations
 dev-python/keyring 25.7.0: Provides access to the system keyring service
 dev-python/keyrings-alt 5.0.2: Alternate keyring implementations
-dev-python/keystoneauth1 5.14.0 5.15.0: This package contains tools for authenticating to an OpenStack-based cloud
+dev-python/keystoneauth1 5.15.0 5.16.0: This package contains tools for authenticating to an OpenStack-based cloud
 dev-python/keyutils 0.6-r2: A set of python bindings for keyutils
 dev-python/kgb 7.3: Python function spy support for unit tests
 dev-python/kiwisolver 1.5.0: An efficient C++ implementation of the Cassowary constraint solving algorithm
@@ -8998,7 +8998,7 @@ dev-python/nbdime 4.0.4: Diff and merge of Jupyter Notebooks
 dev-python/nbformat 5.10.4 5.11.0 5.11.1: Reference implementation of the Jupyter Notebook format
 dev-python/nbsphinx 0.9.8: Jupyter Notebook Tools for Sphinx
 dev-python/nbval 0.11.0: A pytest plugin to validate Jupyter notebooks
-dev-python/nbxmpp 6.4.0 7.2.0 7.3.0: Python library to use Jabber/XMPP networks in a non-blocking way
+dev-python/nbxmpp 6.4.0 7.3.0 7.4.0: Python library to use Jabber/XMPP networks in a non-blocking way
 dev-python/neovim-remote 2.5.1 9999: A tool that helps control neovim processes
 dev-python/nest-asyncio 1.6.0-r1: Patch asyncio to allow nested event loops
 dev-python/nest-asyncio2 1.7.0 1.7.2: Patch asyncio to allow nested event loops
@@ -9039,7 +9039,7 @@ dev-python/openapi3 1.8.2: Python OpenAPI 3 Specification client and validator
 dev-python/openpyxl 3.1.5: Pure python reader and writer of Excel OpenXML files
 dev-python/opensearch-py 3.0.0: Python client for OpenSearch
 dev-python/openstackdocstheme 3.6.0: Theme and extension support for Sphinx documentation
-dev-python/openstacksdk 4.15.0 4.16.0 4.17.0 4.18.0: A collection of libraries for building applications to work with OpenStack
+dev-python/openstacksdk 4.17.0 4.18.0 4.19.0: A collection of libraries for building applications to work with OpenStack
 dev-python/opentelemetry-api 1.43.0 1.44.0: OpenTelemetry Python API
 dev-python/opentelemetry-sdk 1.43.0 1.44.0: OpenTelemetry Python SDK
 dev-python/opentelemetry-semantic-conventions 1.43.0 1.44.0: OpenTelemetry Semantic Conventions
@@ -9320,7 +9320,7 @@ dev-python/pyspectrum2 0.2.0-r2: Implements a protobuf-based interface for Spect
 dev-python/pyspellchecker 0.9.0: Pure python spell checker based on work by Peter Norvig
 dev-python/pyspelling 2.12.1: Spell checker automation tool
 dev-python/pyspf 2.0.14-r3: Python implementation of the Sender Policy Framework (SPF)
-dev-python/pyspnego 0.12.1: Library to handle SPNEGO and CredSSP authentication
+dev-python/pyspnego 0.12.1 0.12.2: Library to handle SPNEGO and CredSSP authentication
 dev-python/pysrt 1.1.2-r1 9999: Python library used to edit or create SubRip files
 dev-python/pystache 0.6.8: Updated Python implementation of Mustache templating framework
 dev-python/pysubs2 1.8.1 1.9.0: Python library for editing subtitle files
@@ -9413,7 +9413,7 @@ dev-python/python-gammu 3.2.5 3.4.0 3.4.1: Python bindings for Gammu
 dev-python/python-gflags 3.1.2-r2: Google's Python argument parsing library
 dev-python/python-glanceclient 4.12.0: A client for the OpenStack Glance API
 dev-python/python-gnupg 0.5.6: A Python wrapper for GnuPG
-dev-python/python-ironicclient 6.1.0 6.2.0: Python bindings for the Ironic API
+dev-python/python-ironicclient 6.2.0 6.3.0: Python bindings for the Ironic API
 dev-python/python-jose 3.5.0: A JavaScript Object Signing and Encryption (JOSE) implementation in Python
 dev-python/python-json-logger 4.1.0 4.2.0: Standard python logging to output log data as json objects
 dev-python/python-keystoneclient 5.8.0: Client Library for OpenStack Identity
@@ -9433,7 +9433,7 @@ dev-python/python-mimeparse 2.0.0: Basic functions for handling mime-types in py
 dev-python/python-mpd2 3.1.1: Python MPD client library
 dev-python/python-mpv 1.0.8: Python interface to the mpv media player
 dev-python/python-multipart 0.0.32: A streaming multipart parser for Python
-dev-python/python-neutronclient 12.0.0 13.0.0: A client for the OpenStack Quantum API
+dev-python/python-neutronclient 13.0.0 14.0.0: A client for the OpenStack Quantum API
 dev-python/python-novaclient 18.13.0: A client for the OpenStack Nova API
 dev-python/python-openstackclient 10.1.0 10.2.1: A client for the OpenStack APIs
 dev-python/python-pam 2.0.2-r2: Python PAM module
@@ -9536,7 +9536,7 @@ dev-python/requests-unixsocket 0.4.1: Use requests to talk HTTP via a UNIX domai
 dev-python/requests-wsgi-adapter 0.4.1: WSGI Transport Adapter for Requests
 dev-python/requestsexceptions 1.4.0-r1: Finds the correct path to exceptions in the requests library
 dev-python/resolvelib 1.2.1: Resolve abstract dependencies into concrete ones
-dev-python/responses 0.26.1 0.26.2: Utility for mocking out the Python Requests library
+dev-python/responses 0.26.2 0.26.3: Utility for mocking out the Python Requests library
 dev-python/respx 0.23.1: Mock HTTPX with awesome request patterns and response side effects
 dev-python/restructuredtext-lint 2.0.2: Checks PyPI validity of reStructuredText
 dev-python/retry-decorator 1.1.1-r1: Decorator for retrying when exceptions occur
@@ -9618,7 +9618,7 @@ dev-python/simber 0.2.6: Simple, minimal and powerful logging library for Python
 dev-python/simpervisor 1.0.0-r1: Simple Python3 Supervisor library
 dev-python/simple-websocket 1.1.0: Simple WebSocket server and client for Python
 dev-python/simpleeval 1.0.7: A simple, safe single expression evaluator library
-dev-python/simplejson 4.1.1: Simple, fast, extensible JSON encoder/decoder for Python
+dev-python/simplejson 4.1.1 4.1.2: Simple, fast, extensible JSON encoder/decoder for Python
 dev-python/simplekml 1.3.6: Enables you to generate KML with as little effort as possible
 dev-python/simpy 4.1.2: Object-oriented, process-based discrete-event simulation language
 dev-python/sip 6.15.3 6.16.0 6.16.1: Python bindings generator for C/C++ libraries
@@ -9686,7 +9686,7 @@ dev-python/sphinxygen 1.0.12: Python module/script that generates Sphinx markup 
 dev-python/sphobjinv 2.4: Sphinx objects.inv Inspection/Manipulation Tool
 dev-python/spotipy 2.26.0: A lightweight Python library for the Spotify Web API
 dev-python/spyder 6.1.6: The Scientific Python Development Environment
-dev-python/spyder-kernels 3.1.5-r1: Kernels used by spyder on its ipython console
+dev-python/spyder-kernels 3.1.5-r1 3.1.6: Kernels used by spyder on its ipython console
 dev-python/spyder-line-profiler 0.4.2: Plugin to run the python line profiler from within the spyder editor
 dev-python/spyder-notebook 0.7.1-r1: Jupyter notebook integration with Spyder
 dev-python/spyder-terminal 1.3.1: Run system terminals inside Spyder
@@ -9868,7 +9868,7 @@ dev-python/webcolors 25.10.0: Color names and value formats defined by the HTML 
 dev-python/webencodings 0.5.1-r2 0.6.1: Character encoding aliases for legacy web content
 dev-python/webob 1.8.10 1.8.11: WSGI request and response object
 dev-python/websocket-client 1.9.0: WebSocket client for python with hybi13 support
-dev-python/websockets 16.0 16.0-r1 16.1 16.1.1 17.0 17.0.1: Library for building WebSocket servers and clients in Python
+dev-python/websockets 16.1.1 17.0.1 17.1: Library for building WebSocket servers and clients in Python
 dev-python/websockify 0.13.0: WebSockets support for any application/server
 dev-python/webtest 3.0.7: Helper to test WSGI applications
 dev-python/werkzeug 3.1.8: Collection of various utilities for WSGI applications
@@ -11193,7 +11193,7 @@ dev-util/squashmerge 0.1: dev-util/squashdelta delta merge tool
 dev-util/src-cli 4.4.0 4.5.0 5.0.2-r1 5.1.2 5.2.0: command line interface for the Sourcegraph code search tool
 dev-util/statifier 1.7.4-r3: Statifier is a tool for creating portable, self-containing Linux executables
 dev-util/stressapptest 1.0.11: Stressful Application Test
-dev-util/stripe-mock 0.201.0 0.202.0: Mock HTTP server that responds like the real Stripe API
+dev-util/stripe-mock 0.202.0 0.203.0: Mock HTTP server that responds like the real Stripe API
 dev-util/sysprof 48.1 49.0 50.0-r1: System-wide Linux Profiler
 dev-util/sysprof-capture 3.36.0-r2 48.1 49.0 50.0: Static library for sysprof capture data generation
 dev-util/sysprof-common 48.1 49.0 50.0: Static library for sysprof capture data generation
@@ -17298,7 +17298,7 @@ sys-apps/eza 0.23.4 0.23.4-r1 0.23.5: A modern, maintained replacement for ls
 sys-apps/fakechroot 2.20.1_p2: Provide a faked chroot environment without requiring root privileges
 sys-apps/fakeroot 1.32.2 1.33: A fake root environment by means of LD_PRELOAD and SysV IPC (or TCP) trickery
 sys-apps/fbset 2.1: A utility to set the framebuffer videomode
-sys-apps/fd 10.4.2: Alternative to find that provides sensible defaults for 80% of the use cases
+sys-apps/fd 10.4.2 10.5.0: Alternative to find that provides sensible defaults for 80% of the use cases
 sys-apps/file 5.46-r3 5.47-r1 5.47-r2 5.47-r3 5.48 9999: Identify a file's format by scanning binary data for patterns
 sys-apps/findutils 4.10.0 4.11.0: GNU utilities for finding files
 sys-apps/firejail 0.9.76 0.9.80: Security sandbox for any type of processes
