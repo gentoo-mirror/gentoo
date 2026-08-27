@@ -3,7 +3,7 @@
 
 EAPI="8"
 
-inherit autotools dot-a elisp-common flag-o-matic gnome2-utils qmake-utils xdg
+inherit autotools dot-a elisp-common flag-o-matic gnome2-utils qt-utils xdg
 
 DESCRIPTION="Multilingual input method framework"
 HOMEPAGE="https://github.com/uim/uim"
@@ -12,12 +12,11 @@ SRC_URI="https://github.com/${PN}/${PN}/releases/download/${PV}/${P}.tar.bz2"
 LICENSE="BSD GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS="amd64 ~arm ~hppa ppc ppc64 ~riscv x86"
-IUSE="X +anthy curl eb emacs expat libffi gtk gtk2 l10n_ja l10n_ko l10n_zh-CN l10n_zh-TW libedit libnotify m17n-lib ncurses qt5 qt6 skk sqlite ssl static-libs"
+IUSE="X +anthy curl eb emacs expat libffi gtk gtk2 l10n_ja l10n_ko l10n_zh-CN l10n_zh-TW libedit libnotify m17n-lib ncurses qt6 skk sqlite ssl static-libs"
 RESTRICT="test"
 REQUIRED_USE="
 	gtk? ( X )
 	gtk2? ( X )
-	qt5? ( X )
 	qt6? ( X )
 "
 GTK_DEPEND="
@@ -54,12 +53,6 @@ COMMON_DEPEND="
 	)
 	m17n-lib? ( dev-libs/m17n-lib )
 	ncurses? ( sys-libs/ncurses:0= )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtx11extras:5
-		dev-qt/qtwidgets:5
-	)
 	qt6? ( dev-qt/qtbase:6[widgets,X] )
 	skk? ( app-i18n/skk-jisyo )
 	sqlite? ( dev-db/sqlite:3 )
@@ -118,6 +111,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-xkb.patch
 	# PR merged https://github.com/uim/uim/pull/275.patch
 	"${FILESDIR}"/${P}-pkg_config.patch
+	"${FILESDIR}"/${P}-volatile.patch
 )
 
 DOCS=( AUTHORS NEWS README RELNOTE doc )
@@ -146,7 +140,6 @@ src_configure() {
 		$(usev gtk gtk3)
 		$(usev qt6)
 		$(usev gtk2 gtk)
-		$(usev qt5)
 	)
 
 	local myconf=(
@@ -164,12 +157,10 @@ src_configure() {
 		$(use_with gtk2)
 		$(use_with m17n-lib m17nlib)
 		$(use_enable ncurses fep)
-		$(use_with qt5)
-		$(use_with qt5 qt5-immodule)
-		_QMAKE5=$(qt5_get_bindir)/qmake
+		--without-qt5
+		--without-qt5-immodule
 		$(use_with qt6)
 		$(use_with qt6 qt6-immodule)
-		_QMAKE6=$(qt6_get_bindir)/qmake
 		$(use_with skk)
 		$(use_with sqlite sqlite3)
 		$(use_enable ssl openssl)
@@ -189,6 +180,10 @@ src_configure() {
 		myconf+=( --enable-dict )
 	else
 		myconf+=( --disable-dict )
+	fi
+
+	if use qt6; then
+		myconf+=( _QMAKE6=$(qt_get_broot_binary 6 qmake) )
 	fi
 
 	if use libnotify; then

@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=pbr
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	>=dev-python/pbr-6.0.0[${PYTHON_USEDEP}]
@@ -25,7 +25,7 @@ RDEPEND="
 	>=dev-python/dogpile-cache-0.8.0[${PYTHON_USEDEP}]
 	>=dev-python/jsonschema-3.2.0[${PYTHON_USEDEP}]
 	>=dev-python/keystoneauth1-3.11.0[${PYTHON_USEDEP}]
-	>=dev-python/openstacksdk-0.18.0[${PYTHON_USEDEP}]
+	>=dev-python/openstacksdk-4.10.0[${PYTHON_USEDEP}]
 	>=dev-python/osc-lib-2.0.0[${PYTHON_USEDEP}]
 	>=dev-python/oslo-utils-3.33.0[${PYTHON_USEDEP}]
 	>=dev-python/platformdirs-3[${PYTHON_USEDEP}]
