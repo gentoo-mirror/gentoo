@@ -23,7 +23,7 @@ S=${WORKDIR}/${MY_P}
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test test-rust"
 RESTRICT="!test? ( test )"
 
@@ -36,14 +36,14 @@ BDEPEND="
 	test? (
 		${RDEPEND}
 		$(python_gen_cond_dep '
-			>=dev-python/filelock-3[${PYTHON_USEDEP}]
+			>=dev-python/filelock-3.20.1[${PYTHON_USEDEP}]
 			>=dev-python/pip-22.3[${PYTHON_USEDEP}]
 			dev-python/pytest[${PYTHON_USEDEP}]
 			>=dev-python/pytest-mock-2[${PYTHON_USEDEP}]
 			>=dev-python/pytest-rerunfailures-9.1[${PYTHON_USEDEP}]
 			>=dev-python/pytest-xdist-1.34[${PYTHON_USEDEP}]
 			>=dev-python/setuptools-56.0.0[${PYTHON_USEDEP}]
-			>=dev-python/virtualenv-20.0.35[${PYTHON_USEDEP}]
+			>=dev-python/virtualenv-20.36.1[${PYTHON_USEDEP}]
 			>=dev-python/wheel-0.36.0[${PYTHON_USEDEP}]
 			test-rust? (
 				!s390? ( !sparc? ( >=dev-python/uv-0.1.18 ) )
@@ -61,6 +61,8 @@ python_test() {
 	local EPYTEST_DESELECT=(
 		# broken by uv being installed outside venv
 		tests/test_env.py::test_external_uv_detection_success
+		# Internet
+		'tests/test_main.py::test_main_sdist_input_end_to_end[False]'
 	)
 
 	if ! has_version "dev-python/uv"; then
