@@ -17,10 +17,10 @@ inherit kernel-2 linux-info
 detect_version
 detect_arch
 
-MY_P=$(ver_cut 4-)
-MY_P="stable_${MY_P/p/}"
-#COMMIT=789af262fb268b2006099a096faf4a383592ce1b
-#MY_P=${COMMIT}
+#MY_P=$(ver_cut 4-)
+#MY_P="stable_${MY_P/p/}"
+COMMIT=66318c5b5cd8145a662303af12ed39ac07eb27cc
+MY_P=${COMMIT}
 
 DESCRIPTION="Raspberry Pi kernel sources"
 HOMEPAGE="https://github.com/raspberrypi/linux"
@@ -29,19 +29,22 @@ SRC_URI="
 	${GENPATCHES_URI}
 "
 
-KEYWORDS="arm arm64"
+KEYWORDS="~arm ~arm64"
 
 PATCHES=("${FILESDIR}"/${PN}-6.1.21-gentoo-kconfig.patch)
 
 UNIPATCH_EXCLUDE="
 	10*
 	15*
+	1600
 	1700
 	1730
 	1740
+	1741
 	1801
 	2000
 	201*
+	2400
 	2700
 	2800
 	29*
