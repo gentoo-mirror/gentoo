@@ -38,6 +38,10 @@ DEPEND="
 	sys-fs/fuse:0
 "
 RDEPEND="${DEPEND}"
+BDEPEND="
+	>=dev-lang/go-1.26.5
+	<dev-lang/go-1.27
+"
 
 DOCS=( CHANGELOG.md CONTRIBUTING.md README.md docs/ )
 
@@ -48,8 +52,7 @@ src_prepare() {
 }
 
 src_compile() {
-	local mygoargs
-	mygoargs=(
+	local mygoargs=(
 		-tags release
 	)
 
