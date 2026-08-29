@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202608-33">
+    <title>Freenet: Deanonymization Vulnerability</title>
+    <synopsis>A vulnerability has been discovered in Freenet, where an XSS vulnerability could lead to deanonymization.</synopsis>
+    <product type="ebuild">freenet</product>
+    <announced>2026-08-29</announced>
+    <revised count="1">2026-08-29</revised>
+    <bug>970477</bug>
+    <access>remote</access>
+    <affected>
+        <package name="net-p2p/freenet" auto="yes" arch="*">
+            <unaffected range="ge">0.7.5_p1505</unaffected>
+            <vulnerable range="lt">0.7.5_p1505</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Freenet is an encrypted network without censorship.</p>
+    </background>
+    <description>
+        <p>A vulnerability has been discovered in Freenet. Please review the CVE identifier referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>This release fixes as an XSS vulnerability that may allow an attacker to deanonymize the user.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Freenet users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=net-p2p/freenet-0.7.5_p1505"
+        </code>
+    </resolution>
+    <references>
+    </references>
+    <metadata tag="requester" timestamp="2026-08-29T08:38:43.928033Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-08-29T08:38:43.937112Z">sam</metadata>
+</glsa>
