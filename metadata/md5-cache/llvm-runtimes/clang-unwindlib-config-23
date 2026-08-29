@@ -3,7 +3,8 @@ DESCRIPTION=Default unwindlib configuration for clang
 EAPI=8
 HOMEPAGE=https://clang.llvm.org/
 IUSE=default-compiler-rt llvm-libunwind
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~arm64-macos ~x64-macos
 LICENSE=public-domain
 RDEPEND=default-compiler-rt? ( llvm-libunwind? ( >=llvm-runtimes/libunwind-23[static-libs] ) !llvm-libunwind? ( sys-libs/libunwind[static-libs] ) ) !default-compiler-rt? ( sys-devel/gcc )
 SLOT=23
-_md5_=a59a908068a9611e5513664f09a7f46c
+_md5_=37dcebe66b120626b463358e011c5d2a
