@@ -9,20 +9,16 @@ MY_P="${MY_PN}-${PV}"
 
 inherit cmake
 
-DESCRIPTION="A user mode library that provides access to GPU performance data"
-HOMEPAGE="https://github.com/intel/metrics-discovery"
+DESCRIPTION="User mode driver helper library that provides access to GPU performance counters"
+HOMEPAGE="https://github.com/intel/metrics-library"
 SRC_URI="https://github.com/intel/${MY_PN}/archive/refs/tags/${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DEPEND="x11-libs/libdrm"
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-1.12.185-revert-definitions.patch" )
-
-src_configure() {
-	cmake_src_configure
-}
+PATCHES=( "${FILESDIR}/${PN}-1.0.238-cmake.patch" )

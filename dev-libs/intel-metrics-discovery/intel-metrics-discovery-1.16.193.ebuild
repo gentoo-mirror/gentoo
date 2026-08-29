@@ -16,12 +16,12 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 
 DEPEND="x11-libs/libdrm"
 RDEPEND="${DEPEND}"
 
-PATCHES=( "${FILESDIR}/${PN}-1.12.185-revert-definitions.patch" )
+PATCHES=( "${FILESDIR}/${PN}-1.12.193-revert-definitions.patch" )
 
 src_configure() {
 	cmake_src_configure
