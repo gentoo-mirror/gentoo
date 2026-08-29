@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module toolchain-funcs shell-completion
+inherit go-env go-module shell-completion sysroot
 
 DESCRIPTION="CLI to Easily bootstrap a secure Kubernetes cluster"
 HOMEPAGE="https://kubernetes.io"
@@ -20,27 +20,27 @@ RESTRICT="test"
 
 RDEPEND="app-containers/cri-tools
 	selinux? ( sec-policy/selinux-kubernetes )"
-BDEPEND=">=dev-lang/go-1.24.0"
+BDEPEND=">=dev-lang/go-1.26.0"
 
 QA_PRESTRIPPED=usr/bin/kubeadm
 
 src_compile() {
-	FORCE_HOST_GO=yes emake -j1 GOFLAGS="${GOFLAGS}" GOLDFLAGS="" LDFLAGS="" WHAT=cmd/${PN}
+	local GOOS=$(go-env_goos)
 
-	if ! tc-is-cross-compiler; then
-		einfo "generating shell completion files"
-		_output/bin/${PN} completion bash > ${PN}.bash || die
-		_output/bin/${PN} completion zsh > ${PN}.zsh || die
-	fi
+	emake -j1 GOFLAGS="${GOFLAGS}" GOLDFLAGS="" LDFLAGS="" FORCE_HOST_GO=yes \
+		KUBE_BUILD_PLATFORMS="${GOOS}/${GOARCH}" KUBE_${GOOS@U}_${GOARCH@U}_CC="${CC}" \
+		WHAT=cmd/${PN}
+
+	bin=_output/local/bin/${GOOS}/${GOARCH}/${PN}
+
+	einfo "generating shell completion files"
+	sysroot_try_run_prefixed ${bin} completion bash > ${PN}.bash || die
+	sysroot_try_run_prefixed ${bin} completion zsh > ${PN}.zsh || die
 }
 
 src_install() {
-	dobin _output/bin/${PN}
+	dobin ${bin}
 
-	if ! tc-is-cross-compiler; then
-		newbashcomp ${PN}.bash ${PN}
-		newzshcomp ${PN}.zsh _${PN}
-	else
-		ewarn "Shell completion files not installed! Install them manually with '${PN} completion --help'"
-	fi
+	[[ -s ${PN}.bash ]] && newbashcomp ${PN}.bash ${PN}
+	[[ -s ${PN}.zsh ]] && newzshcomp ${PN}.zsh _${PN}
 }

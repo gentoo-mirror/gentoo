@@ -3,9 +3,9 @@
 
 EAPI=8
 
-inherit go-module systemd
+inherit go-env go-module shell-completion sysroot systemd
 
-DESCRIPTION="Kubernetes Controller Manager"
+DESCRIPTION="Kubernetes Scheduler"
 HOMEPAGE="https://kubernetes.io"
 SRC_URI="https://github.com/kubernetes/kubernetes/archive/v${PV}.tar.gz -> kubernetes-${PV}.tar.gz"
 S=${WORKDIR}/kubernetes-${PV}
@@ -17,20 +17,35 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 RESTRICT="test"
 
-DEPEND="acct-group/kube-controller-manager
-	acct-user/kube-controller-manager"
+DEPEND="acct-group/kube-scheduler
+	acct-user/kube-scheduler"
 RDEPEND="${DEPEND}"
-BDEPEND=">=dev-lang/go-1.24.0"
+BDEPEND=">=dev-lang/go-1.26.0"
 
-QA_PRESTRIPPED=usr/bin/kube-controller-manager
+QA_PRESTRIPPED=usr/bin/kube-scheduler
 
 src_compile() {
+	local GOOS=$(go-env_goos)
+
 	emake -j1 GOFLAGS="${GOFLAGS}" GOLDFLAGS="" LDFLAGS="" FORCE_HOST_GO=yes \
+		KUBE_BUILD_PLATFORMS="${GOOS}/${GOARCH}" KUBE_${GOOS@U}_${GOARCH@U}_CC="${CC}" \
 		WHAT=cmd/${PN}
+
+	bin=_output/local/bin/${GOOS}/${GOARCH}/${PN}
+
+	einfo "generating shell completion files"
+	sysroot_try_run_prefixed ${bin} completion bash > ${PN}.bash || die
+	sysroot_try_run_prefixed ${bin} completion zsh > ${PN}.zsh || die
+	sysroot_try_run_prefixed ${bin} completion fish > ${PN}.fish || die
 }
 
 src_install() {
-	dobin _output/bin/${PN}
+	dobin ${bin}
+
+	[[ -s ${PN}.bash ]] && newbashcomp ${PN}.bash ${PN}
+	[[ -s ${PN}.zsh ]] && newzshcomp ${PN}.zsh _${PN}
+	[[ -s ${PN}.fish ]] && dofishcomp ${PN}.fish
+
 	newinitd "${FILESDIR}"/${PN}.initd ${PN}
 	newconfd "${FILESDIR}"/${PN}.confd ${PN}
 	systemd_dounit "${FILESDIR}"/${PN}.service

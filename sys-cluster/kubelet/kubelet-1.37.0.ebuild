@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit go-module systemd
+inherit go-env go-module shell-completion sysroot systemd
 
 DESCRIPTION="Kubernetes Node Agent"
 HOMEPAGE="https://kubernetes.io"
@@ -19,17 +19,32 @@ IUSE="selinux"
 RESTRICT="test"
 
 RDEPEND="selinux? ( sec-policy/selinux-kubernetes )"
-BDEPEND=">=dev-lang/go-1.24.0"
+BDEPEND=">=dev-lang/go-1.26.0"
 
 QA_PRESTRIPPED=usr/bin/kubelet
 
 src_compile() {
+	local GOOS=$(go-env_goos)
+
 	emake -j1 GOFLAGS="${GOFLAGS}" GOLDFLAGS="" LDFLAGS="" FORCE_HOST_GO=yes \
+		KUBE_BUILD_PLATFORMS="${GOOS}/${GOARCH}" KUBE_${GOOS@U}_${GOARCH@U}_CC="${CC}" \
 		WHAT=cmd/${PN}
+
+	bin=_output/local/bin/${GOOS}/${GOARCH}/${PN}
+
+	einfo "generating shell completion files"
+	sysroot_try_run_prefixed ${bin} completion bash > ${PN}.bash || die
+	sysroot_try_run_prefixed ${bin} completion zsh > ${PN}.zsh || die
+	sysroot_try_run_prefixed ${bin} completion fish > ${PN}.fish || die
 }
 
 src_install() {
-	dobin _output/bin/${PN}
+	dobin ${bin}
+
+	[[ -s ${PN}.bash ]] && newbashcomp ${PN}.bash ${PN}
+	[[ -s ${PN}.zsh ]] && newzshcomp ${PN}.zsh _${PN}
+	[[ -s ${PN}.fish ]] && dofishcomp ${PN}.fish
+
 	keepdir /etc/kubernetes/manifests /var/log/kubelet /var/lib/kubelet
 	newinitd "${FILESDIR}"/${PN}.initd ${PN}
 	newconfd "${FILESDIR}"/${PN}.confd ${PN}
