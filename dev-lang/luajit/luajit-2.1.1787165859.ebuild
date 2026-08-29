@@ -12,7 +12,7 @@ EAPI=8
 # Regular snapshots should be made from the v2.1 branch. Get the version with
 # `git show -s --format=%ct`
 
-inherit toolchain-funcs
+inherit flag-o-matic toolchain-funcs
 
 # Split release channel (such as "2.1") from relver (such as "1727870382")
 VER_CHANNEL=${PV%.*}
@@ -32,7 +32,7 @@ if [[ ${VER_RELVER} == 9999999999 ]]; then
 	inherit git-r3
 else
 	# Update this commit hash to bump a pinned-commit ebuild.
-	GIT_COMMIT=233ad24035944ece5367157e824e8357df3417d9
+	GIT_COMMIT=1ee778a4e37122d8ca7d5733c590a47dafd6b15c
 	SRC_URI="https://github.com/LuaJIT/LuaJIT/archive/${GIT_COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/LuaJIT-${GIT_COMMIT}"
 
@@ -69,6 +69,9 @@ _emake() {
 }
 
 src_compile() {
+	# https://bugs.gentoo.org/669284
+	filter-flags -fno-asynchronous-unwind-tables
+
 	tc-export_build_env
 	_emake XCFLAGS="$(usex lua52compat "-DLUAJIT_ENABLE_LUA52COMPAT" "")"
 }
