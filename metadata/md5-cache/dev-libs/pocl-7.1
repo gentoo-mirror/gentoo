@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=http://portablecl.org https://github.com/pocl/pocl
 INHERIT=cmake cuda llvm-r1 verify-sig
 IUSE=accel +conformance cuda debug examples +hwloc memmanager server spirv test +llvm_slot_20 llvm_slot_18 llvm_slot_19 verify-sig
-KEYWORDS=~amd64 ~ppc64
+KEYWORDS=amd64 ppc64
 LICENSE=GPL-2
 RDEPEND=llvm_slot_18? ( !cuda? ( llvm-core/clang:18= llvm-core/llvm:18= ) cuda? ( llvm-core/clang:18=[llvm_targets_NVPTX] llvm-core/llvm:18=[llvm_targets_NVPTX] ) spirv? ( dev-util/spirv-tools dev-util/spirv-llvm-translator:18= ) ) llvm_slot_19? ( !cuda? ( llvm-core/clang:19= llvm-core/llvm:19= ) cuda? ( llvm-core/clang:19=[llvm_targets_NVPTX] llvm-core/llvm:19=[llvm_targets_NVPTX] ) spirv? ( dev-util/spirv-tools dev-util/spirv-llvm-translator:19= ) ) llvm_slot_20? ( !cuda? ( llvm-core/clang:20= llvm-core/llvm:20= ) cuda? ( llvm-core/clang:20=[llvm_targets_NVPTX] llvm-core/llvm:20=[llvm_targets_NVPTX] ) spirv? ( dev-util/spirv-tools dev-util/spirv-llvm-translator:20= ) ) dev-libs/libltdl dev-util/opencl-headers virtual/opencl debug? ( dev-util/lttng-ust:= ) cuda? ( dev-util/nvidia-cuda-toolkit:= ) hwloc? ( sys-apps/hwloc:=[cuda?] )
 REQUIRED_USE=^^ ( llvm_slot_18 llvm_slot_19 llvm_slot_20 )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pocl/pocl/archive/v7.1.tar.gz -> pocl-7.1.tar.gz verify-sig? ( https://github.com/pocl/pocl/releases/download/v7.1/pocl-7.1.tar.gz.gpg )
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	c54f532543a549f7318d6c49aaf8e953	cuda	8b660e223a1695e3884ee4c7dc2c5059	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	e558c35fbd4579d7a50dc777145e3af5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=e17548fdb8d4609c286de54ff66cd10e
+_md5_=a80022ba9a16436de215f869c40e492e
