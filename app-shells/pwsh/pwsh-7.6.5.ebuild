@@ -95,12 +95,12 @@ system.reflection.context@10.0.5
 system.reflection.metadata@9.0.14
 system.runtime.caching@10.0.5
 system.runtime.compilerservices.unsafe@6.1.2
+system.security.cryptography.pkcs@10.0.10
 system.security.cryptography.pkcs@10.0.5
-system.security.cryptography.pkcs@10.0.6
 system.security.cryptography.protecteddata@10.0.5
 system.security.cryptography.xml@10.0.0
+system.security.cryptography.xml@10.0.10
 system.security.cryptography.xml@10.0.5
-system.security.cryptography.xml@10.0.6
 system.security.permissions@10.0.5
 system.servicemodel.http@10.0.652802
 system.servicemodel.http@8.1.2
@@ -132,7 +132,7 @@ xunitxml.testlogger@8.0.0
 "
 
 # Additional PowerShell Gallery modules.
-NUGETV_MICROSOFT_POWERSHELL_ARCHIVE="1.2.5"
+NUGETV_MICROSOFT_POWERSHELL_ARCHIVE="1.2.6"
 NUGETV_MICROSOFT_POWERSHELL_PSRESOURCEGET="1.2.0"
 NUGETV_MICROSOFT_POWERSHELL_THREADJOB="2.2.0"
 NUGETV_PACKAGEMANAGEMENT="1.4.8.1"
@@ -160,12 +160,11 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="$(ver_cut 1-2)"
-KEYWORDS="amd64 arm arm64"
+KEYWORDS="~amd64 ~arm ~arm64"
 IUSE="gui vanilla"
 
 RDEPEND="
 	>=dev-libs/libpsl-native-7.4.0:=
-	dev-libs/openssl-compat:1.0.0
 	sys-libs/pam:0/0
 	gui? (
 		dev-util/desktop-file-utils
@@ -179,6 +178,10 @@ IDEPEND="
 	app-eselect/eselect-pwsh
 "
 
+CHECKREQS_DISK_BUILD="2G"
+PATCHES=(
+	"${FILESDIR}/pwsh-7.3.3-disable-update-check.patch"
+)
 DOTNET_PKG_PROJECTS=(
 	src/powershell-unix/powershell-unix.csproj
 	src/Modules/PSGalleryModules.csproj
@@ -191,13 +194,6 @@ DOTNET_PKG_RESTORE_EXTRA_ARGS=(
 DOTNET_PKG_BUILD_EXTRA_ARGS=(
 	"${DOTNET_PKG_RESTORE_EXTRA_ARGS[@]}"
 )
-
-CHECKREQS_DISK_BUILD="2G"
-
-PATCHES=(
-	"${FILESDIR}/pwsh-7.3.3-disable-update-check.patch"
-)
-
 DOCS=(
 	CHANGELOG CHANGELOG.md CODE_OF_CONDUCT.md README.md
 	docs
