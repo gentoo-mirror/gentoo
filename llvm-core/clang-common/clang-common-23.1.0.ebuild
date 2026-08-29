@@ -3,13 +3,14 @@
 
 EAPI=8
 
-inherit bash-completion-r1 elisp-common llvm.org multilib
+inherit elisp-common llvm.org multilib shell-completion
 
 DESCRIPTION="Common files shared between multiple slots of clang"
 HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA"
 SLOT="0"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="
 	default-compiler-rt default-libcxx default-lld
 	bootstrap-prefix cet emacs hardened llvm-libunwind
