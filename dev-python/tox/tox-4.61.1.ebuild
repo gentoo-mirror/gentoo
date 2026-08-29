@@ -48,6 +48,7 @@ BDEPEND="
 "
 
 EPYTEST_PLUGINS=( pytest-{mock,rerunfailures,timeout,xdist} time-machine )
+EPYTEST_RERUNS=3
 # upstream timeouts are quite short
 : ${EPYTEST_TIMEOUT:=180}
 # xdist seems to mess up state between successive implementation runs

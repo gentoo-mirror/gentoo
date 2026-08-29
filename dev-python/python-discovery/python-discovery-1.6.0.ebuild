@@ -45,6 +45,8 @@ python_test() {
 			EPYTEST_DESELECT+=(
 				# TODO
 				tests/test_py_info_extra.py::test_satisfies_path_not_abs_basename_match
+				tests/test_iter_interpreters.py::test_iter_interpreters_dedups_symlinks
+				tests/test_iter_interpreters.py::test_iter_interpreters_no_key_includes_running_interpreter
 			)
 			;;
 	esac

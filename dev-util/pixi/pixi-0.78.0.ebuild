@@ -67,7 +67,7 @@ declare -A GIT_CRATES=(
 	[version-ranges]='https://github.com/astral-sh/pubgrub;d8efd77673c9a90792da9da31b6c0da7ea8a324b;pubgrub-%commit%/version-ranges'
 )
 
-inherit cargo
+inherit cargo multiprocessing
 
 CRATE_P=${P}
 DESCRIPTION="A package management and workflow tool"
@@ -91,9 +91,9 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+rustls"
+IUSE="+rustls test"
 RESTRICT="test"
-PROPERTIES="test_network"
+PROPERTIES="test? ( test_network )"
 
 RDEPEND="
 	app-arch/bzip2:=
@@ -102,6 +102,11 @@ RDEPEND="
 	sys-apps/dbus
 	!rustls? ( dev-libs/openssl:= )
 "
+BDEPEND="
+	test? ( dev-util/cargo-nextest )
+"
+
+QA_PREBUILT="usr/bin/pixi"
 
 src_prepare() {
 	default
@@ -146,7 +151,11 @@ src_test() {
 	# tests use it to test preserving envvars, apparently assuming
 	# it will be always set
 	local -x USER=${USER}
-	cargo_src_test --no-fail-fast
+	local -x NEXTEST_TEST_THREADS="$(makeopts_jobs)"
+	set -- cargo nextest run --verbose --no-fail-fast \
+		"${ECARGO_ARGS[@]}" $(usev !debug '--release')
+	echo "${@@Q}" >&2
+	"${@}" || die "cargo nextest failed"
 }
 
 src_install() {
