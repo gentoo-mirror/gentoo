@@ -7,11 +7,13 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit python-r1 systemd
 
+# always assume _p1 if missing (use a default 1 for ver_cut 4).
 MY_P="${PN}-$(ver_cut 1-2)"
+MY_PATCH_VER="$(ver_cut 4)"
 MY_BASE_URL="https://archive.raspberrypi.org/debian/pool/main/r/${PN}/${PN}_$(ver_cut 1-2)"
 DESCRIPTION="Updater for Raspberry Pi 4/5 bootloader and the VL805 USB controller"
 HOMEPAGE="https://github.com/raspberrypi/rpi-eeprom/"
-SRC_URI="${MY_BASE_URL}-$(ver_cut 4).debian.tar.xz
+SRC_URI="${MY_BASE_URL}-${MY_PATCH_VER:-1}.debian.tar.xz
 	${MY_BASE_URL}.orig.tar.gz"
 S="${WORKDIR}"
 
@@ -28,7 +30,7 @@ BDEPEND="sys-apps/help2man"
 DEPEND="${PYTHON_DEPS}"
 RDEPEND="${PYTHON_DEPS}
 	dev-embedded/raspberrypi-utils
-	sys-apps/flashrom
+	>=sys-apps/flashrom-1.7.0
 	sys-apps/pciutils"
 
 src_prepare() {
