@@ -1,0 +1,16 @@
+BDEPEND=app-text/docbook-xml-dtd:4.3 app-text/docbook-xsl-stylesheets dev-libs/libxslt virtual/pkgconfig test? ( || ( ( dev-lang/python:3.15 sys-libs/libseccomp[python,python_targets_python3_15(-)] ) ( dev-lang/python:3.14 sys-libs/libseccomp[python,python_targets_python3_14(-)] ) ( dev-lang/python:3.13 sys-libs/libseccomp[python,python_targets_python3_13(-)] ) ( dev-lang/python:3.12 sys-libs/libseccomp[python,python_targets_python3_12(-)] ) ) ) >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+DEFINED_PHASES=compile configure install setup test
+DEPEND=sys-libs/libcap selinux? ( >=sys-libs/libselinux-2.3 )
+DESCRIPTION=Unprivileged sandboxing tool, namespaces-powered chroot-like solution
+EAPI=8
+HOMEPAGE=https://github.com/containers/bubblewrap/
+INHERIT=linux-info meson shell-completion python-any-r1
+IUSE=selinux test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1+
+RDEPEND=sys-libs/libcap selinux? ( >=sys-libs/libselinux-2.3 ) selinux? ( sec-policy/selinux-bubblewrap )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/containers/bubblewrap/releases/download/v0.12.0/bubblewrap-0.12.0.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	linux-info	efd923656513c879204fec6638eadee5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	shell-completion	63a62de3ca49c798ee6e89f190e45d0e	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=3cca65012350982c6f3726f89c020104
