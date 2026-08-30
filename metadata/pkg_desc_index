@@ -938,7 +938,7 @@ app-admin/aws-session-manager-plugin 1.2.814.0 1.2.835.0: AWS Session Manager Pl
 app-admin/awscli 1.45.29 1.45.36 1.45.40 1.45.46 1.45.51 1.45.56 1.45.62 1.46.0 1.46.1: Universal Command Line Environment for AWS
 app-admin/awscli-bin 2.36.17 2.36.34: command line interface for Amazon Web Services
 app-admin/bitwarden-cli-bin 2025.12.0 2026.6.0 2026.7.0 2026.8.0: CLI client for Bitwarden compatible servers
-app-admin/bitwarden-desktop-bin 2026.6.0 2026.6.1 2026.7.0: Bitwarden password manager desktop client
+app-admin/bitwarden-desktop-bin 2026.7.0 2026.8.0: Bitwarden password manager desktop client
 app-admin/bpftune 0.4_p2: BPF driven auto-tuning
 app-admin/btrfs-assistant 2.2 2.3 2.3.1: GUI management tool to make managing a Btrfs filesystem easier
 app-admin/calamares 3.3.14-r1 3.3.14-r4 3.3.14-r8 3.4.2-r1: Distribution-independent installer framework
@@ -2532,7 +2532,7 @@ app-forensics/radamsa 0.7 0.7-r1: A general-purpose fuzzer
 app-forensics/rifiuti 20040505_p1-r1: Recycle Bin Analyzer
 app-forensics/rkhunter 1.4.6-r2: Rootkit Hunter scans for known and unknown rootkits, backdoors, and sniffers
 app-forensics/scalpel 2.1_pre20210326: A high performance file carver
-app-forensics/sleuthkit 4.12.1-r2 4.12.1-r3: A collection of file system and media management forensic analysis tools
+app-forensics/sleuthkit 4.12.1-r3: A collection of file system and media management forensic analysis tools
 app-forensics/unhide 20220611: Forensic tool to find hidden processes and TCP/UDP ports by rootkits/LKMs
 app-forensics/volatility3 2.27.0 2.28.0: Framework for analyzing volatile memory
 app-forensics/yara 4.5.5 4.5.8 9999: A malware identification and classification tool
@@ -5048,7 +5048,7 @@ dev-java/felix-gogo-runtime 1.1.6: Apache Felix Gogo Runtime
 dev-java/felix-main 7.0.5-r2: Open source OSGi framework by Apache Software Foundation
 dev-java/felix-resolver 2.0.4-r2: Provide OSGi resolver service
 dev-java/felix-utils 1.11.8-r1: Utility classes for OSGi
-dev-java/findbugs-annotations 3.0.1 4.10.3: Annotations the SpotBugs tool supports
+dev-java/findbugs-annotations 4.10.3: Annotations the SpotBugs tool supports
 dev-java/fishbowl 1.4.1: Use the AAA pattern for writing tests for code that throws an exception
 dev-java/fontbox 2.0.32-r1 3.0.6: An open source Java library for parsing font files
 dev-java/fop 2.10-r2: XML Graphics Format Object Processor All-In-One
@@ -5257,7 +5257,7 @@ dev-java/saxon 9.2.0.6-r6: A XSLT and XQuery Processor
 dev-java/sbt 0.13.18-r1: sbt is a build tool for Scala and Java projects that aims to do the basics well
 dev-java/sbt-bin 1.8.0: sbt, a build tool for Scala
 dev-java/scala-cli-bin 1.10.1 1.12.2 1.13.0: CLI to interact with Scala and Java
-dev-java/scram 3.2 3.4: SCRAM (RFC 5802) Java implementation
+dev-java/scram 3.4: SCRAM (RFC 5802) Java implementation
 dev-java/shrinkwrap-api 1.2.6: Client View of the ShrinkWrap Project
 dev-java/shrinkwrap-impl-base 1.2.6: Common Base for Implementations of the ShrinkWrap Project
 dev-java/shrinkwrap-spi 1.2.6-r1: Generic Service Provider Contract of the ShrinkWrap Project
@@ -5271,7 +5271,7 @@ dev-java/snakeyaml 2.5: YAML 1.1 parser and emitter for Java
 dev-java/snappy-java 1.1.10.8: Snappy compressor/decompressor for Java
 dev-java/sparsebitset 1.3: An efficient sparse bitset implementation for Java
 dev-java/stax2-api 4.2.2: stax2 API is an extension to basic Stax 1.0 API
-dev-java/stringprep 2.2 2.4: Stringprep (RFC 3454) Java implementation
+dev-java/stringprep 2.4: Stringprep (RFC 3454) Java implementation
 dev-java/stringtemplate 3.2.1-r3 4.3.4: A Java template engine
 dev-java/sun-jai-bin 1.1.3-r3: JAI is a class library for managing images
 dev-java/swing-layout 1.0.4-r3: Professional cross platform layouts with Swing
@@ -13137,7 +13137,7 @@ media-gfx/exiv2 0.28.8: EXIF, IPTC and XMP metadata C++ library and command line
 media-gfx/farbfeld 4: Farbfeld simple image format tools
 media-gfx/fbgrab 1.5: Framebuffer screenshot utility
 media-gfx/fbida 2.14_p20241216-r1: Image viewers for the framebuffer console (fbi) and X11 (ida)
-media-gfx/feh 3.11.3 3.12.2 3.12.3: A fast, lightweight imageviewer using imlib2
+media-gfx/feh 3.11.3 3.12.2 3.12.3 3.12.4: A fast, lightweight imageviewer using imlib2
 media-gfx/fig2dev 3.2.9-r5 3.2.9a 3.2.9a-r1 9999: Set of tools for creating TeX documents with graphics
 media-gfx/flam3 3.1.1-r1: Tools and a library for creating flame fractal images
 media-gfx/flameshot 13.1.0-r1 13.3.0: Powerful yet simple to use screenshot software
@@ -14905,7 +14905,7 @@ net-fs/sshfs 3.7.6: Fuse-filesystem utilizing the sftp service
 net-fs/wdfs 1.4.2-r4: WebDAV filesystem with special features for accessing subversion repositories
 net-ftp/atftp 0.8.0: Advanced TFTP implementation client/server
 net-ftp/cmdftp 0.9.8: Light weight, yet robust command line FTP client with shell-likefunctions
-net-ftp/filezilla 3.70.6 3.71.0: FTP client with lots of useful features and an intuitive interface
+net-ftp/filezilla 3.70.6 3.71.0 3.71.1: FTP client with lots of useful features and an intuitive interface
 net-ftp/frox 0.7.18-r9: Transparent ftp proxy
 net-ftp/ftp 0.17.34.0.2.5.1: Standard Linux FTP client
 net-ftp/ftpbase 0.01-r6: File Transfer Protocol (FTP) base layout
@@ -17826,7 +17826,7 @@ sys-fs/autorun 3.17: auto cdrom mounter for the lazy user
 sys-fs/avfs 1.1.5: Virtual filesystem that allows browsing of compressed files
 sys-fs/bashmount 4.3.2-r2: Bash script that uses udisks to mount removable devices without GUI
 sys-fs/bcache-tools 1.1_p20230217-r2 9999: Tools for bcache
-sys-fs/bcachefs-tools 1.25.2 1.37.4-r1 1.38.2-r1 1.38.5 1.38.6 1.38.8 1.39.0 1.39.1 1.39.2 9999: Tools for bcachefs
+sys-fs/bcachefs-tools 1.25.2 1.37.4-r1 1.38.2-r1 1.38.5 1.38.6 1.38.8 1.39.0 1.39.1 1.39.2 1.39.3 9999: Tools for bcachefs
 sys-fs/bees 0.10-r1 0.11 9999: Best-Effort Extent-Same, a btrfs dedup agent
 sys-fs/bindfs 1.17.7 1.18.3 1.18.4: FUSE filesystem for bind mounting with altered permissions
 sys-fs/btrfs-progs 6.19.1 7.0 7.1 9999: Btrfs filesystem utilities
