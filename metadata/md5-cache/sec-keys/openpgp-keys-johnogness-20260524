@@ -5,11 +5,11 @@ EAPI=8
 HOMEPAGE=https://wiki.gentoo.org/wiki/No_homepage
 INHERIT=sec-keys
 IUSE=test
-KEYWORDS=amd64 arm64 ppc64 x86
+KEYWORDS=~alpha amd64 arm64 ppc64 x86
 LICENSE=public-domain
 PROPERTIES=test_network
 RESTRICT=!test? ( test ) test
 SLOT=0
 SRC_URI=https://keys.openpgp.org/vks/v1/by-fingerprint/4CE14D2AAAC6C2E31BF36920F51469ECE1E71FFB -> openpgp-keys-johnogness-openpgp-20260524.asc https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x4CE14D2AAAC6C2E31BF36920F51469ECE1E71FFB -> openpgp-keys-johnogness-ubuntu-20260524.asc https://www.linutronix.de/minicoredumper/files/0x4CE14D2AAAC6C2E31BF36920F51469ECE1E71FFB.asc -> openpgp-keys-johnogness-20260524-key-0x4CE14D2AAAC6C2E31BF36920F51469ECE1E71FFB.asc
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	34ef28a3b98035f0f44e7292c0b2501c
-_md5_=054421949a8b2a3b755a5336f33abfe1
+_md5_=53f0f86d57db873af7570a43c9ed5b90
