@@ -24,7 +24,7 @@ RDEPEND="
 	<dev-python/bibtexparser-2[${PYTHON_USEDEP}]
 	>=dev-python/bibtexparser-1.4.3[${PYTHON_USEDEP}]
 	>=dev-python/feedparser-6.0.12[${PYTHON_USEDEP}]
-	>=dev-python/httpx-0.28.1[${PYTHON_USEDEP}]
+	>=dev-python/httpx2-2.12.0[${PYTHON_USEDEP}]
 	>=dev-python/whenever-0.8.8[${PYTHON_USEDEP}]
 "
 

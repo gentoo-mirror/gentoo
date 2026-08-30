@@ -3,9 +3,9 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=poetry
+DISTUTILS_USE_PEP517=poetry-core
 PYPI_VERIFY_REPO=https://github.com/python-poetry/poetry
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -18,11 +18,10 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	=dev-python/poetry-core-$(ver_cut 1-2)*[${PYTHON_USEDEP}]
-	>=dev-python/poetry-plugin-export-1.6.0[${PYTHON_USEDEP}]
 	>=dev-python/build-1.2.1[${PYTHON_USEDEP}]
 	>=dev-python/cachecontrol-0.14.0[${PYTHON_USEDEP}]
 	>=dev-python/cleo-2.1.0[${PYTHON_USEDEP}]
@@ -47,12 +46,12 @@ BDEPEND="
 	test? (
 		>=dev-python/deepdiff-6.3.1[${PYTHON_USEDEP}]
 		>=dev-python/jaraco-classes-3.3.1[${PYTHON_USEDEP}]
-		>=dev-python/pytest-mock-3.9[${PYTHON_USEDEP}]
+		dev-python/keyring[${PYTHON_USEDEP}]
 		dev-python/responses[${PYTHON_USEDEP}]
 	)
 "
 
-EPYTEST_PLUGINS=( pytest-mock )
+EPYTEST_PLUGINS=( pytest-{mock,xdist} )
 EPYTEST_RERUNS=5
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
@@ -65,9 +64,8 @@ EPYTEST_DESELECT=(
 	# broken if poetry-plugin-export is installed
 	'tests/console/test_application_command_not_found.py::test_application_command_not_found_messages[x-None]'
 
-	# whitespace differences
-	# https://github.com/python-poetry/poetry/issues/10796
-	'tests/console/commands/python/test_python_list.py::test_list_poetry_managed[False]'
+	# unhappy with system Python liking 'linux' tag more?
+	tests/installation/test_chef.py::test_prepare_directory_with_extensions
 )
 
 src_prepare() {

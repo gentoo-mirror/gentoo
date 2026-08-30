@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -16,14 +16,16 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
+RDEPEND="
+	>=dev-python/beautifulsoup4-4.4[${PYTHON_USEDEP}]
+"
 BDEPEND="
 	test? (
 		$(python_gen_impl_dep sqlite)
-		dev-python/beautifulsoup4[${PYTHON_USEDEP}]
 		dev-python/django[${PYTHON_USEDEP}]
 	)
 "
