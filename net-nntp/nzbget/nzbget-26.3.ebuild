@@ -50,12 +50,9 @@ DOCS=( ChangeLog.md README.md nzbget.conf )
 
 PATCHES=(
 	# Required to use par2-turbo downloaded into the source directory
-	"${FILESDIR}/${PN}-26.1-build-with-par2-turbo-offline.patch"
+	"${FILESDIR}/${PN}-26.3-build-with-par2-turbo-offline.patch"
 	# Required to use rapidyenc downloaded into the source directory
-	"${FILESDIR}/${PN}-26.1-build-with-rapidyenc-offline.patch"
-	# Fix include order causing failures without precompiled headers, see
-	# https://github.com/nzbgetcom/nzbget/pull/782
-	"${FILESDIR}/${PN}-26.1-fix-include-order.patch"
+	"${FILESDIR}/${PN}-26.3-build-with-rapidyenc-offline.patch"
 )
 
 src_prepare() {
