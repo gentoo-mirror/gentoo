@@ -1,4 +1,4 @@
-# Copyright 2021-2025 Gentoo Authors
+# Copyright 2021-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -13,13 +13,12 @@ MY_URI="https://dl.teamviewer.com/download/linux/version_${MY_MAJOR}x/${PN}_${PV
 SRC_URI="
 	amd64? ( ${MY_URI}_amd64.tar.xz )
 	arm? ( ${MY_URI}_armhf.tar.xz )
-	arm64? ( ${MY_URI}_arm64.tar.xz )
-	x86? ( ${MY_URI}_i386.tar.xz )"
+	arm64? ( ${MY_URI}_arm64.tar.xz )"
 S="${WORKDIR}"/teamviewer
 
 LICENSE="TeamViewer MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64"
 RESTRICT="bindist mirror strip"
 
 # Unpack will fail without app-arch/xz-utils[extra-filters], bug #798027
@@ -65,6 +64,10 @@ src_prepare() {
 		-e "/^ExecStart/s|${PN}|${MY_P}|" \
 		-e "/^PIDFile/s|/var/run/|/run/|" \
 		tv_bin/script/teamviewerd.service || die
+	sed -i -e "s|/opt/${PN}/|/opt/${MY_P}/|" \
+		tv_bin/script/com.teamviewer.TeamViewer.Desktop.service \
+		tv_bin/script/com.teamviewer.TeamViewer.policy \
+		tv_bin/script/com.teamviewer.TeamViewer.service || die
 }
 
 src_install() {
@@ -89,10 +92,7 @@ src_install() {
 	insinto /usr/share/polkit-1/actions
 	doins tv_bin/script/com.teamviewer.TeamViewer.policy
 
-	local size
-	for size in 16 24 32 48 256; do
-		newicon -s ${size} tv_bin/desktop/teamviewer_${size}.png teamviewer.png
-	done
+	doicon tv_bin/desktop/TeamViewer.svg
 
 	dodoc -r doc
 
