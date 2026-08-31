@@ -21,11 +21,11 @@ CRATES="
 	portable-atomic@1.13.1
 	ppv-lite86@0.2.21
 	proc-macro2@1.0.106
-	pyo3-build-config@0.29.0
-	pyo3-ffi@0.29.0
-	pyo3-macros-backend@0.29.0
-	pyo3-macros@0.29.0
-	pyo3@0.29.0
+	pyo3-build-config@0.29.2
+	pyo3-ffi@0.29.2
+	pyo3-macros-backend@0.29.2
+	pyo3-macros@0.29.2
+	pyo3@0.29.2
 	quote@1.0.46
 	r-efi@5.3.0
 	rand@0.9.4
@@ -58,7 +58,7 @@ LICENSE="MPL-2.0"
 # Dependent crate licenses
 LICENSE+=" Apache-2.0-with-LLVM-exceptions MIT Unicode-3.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="cli"
 
 RDEPEND="
@@ -111,7 +111,7 @@ python_test() {
 	esac
 
 	local -x HYPOTHESIS_NO_PLUGINS=1
-	epytest -o filterwarnings= tests/{cover,pytest,quality}
+	epytest tests/{cover,pytest,quality}
 }
 
 src_install() {

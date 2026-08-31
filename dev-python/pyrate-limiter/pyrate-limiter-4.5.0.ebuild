@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	dev-python/filelock[${PYTHON_USEDEP}]
@@ -41,14 +41,15 @@ EPYTEST_PLUGINS=( pytest-{asyncio,rerunfailures} )
 EPYTEST_RERUNS=5
 : "${EPYTEST_TIMEOUT:=60}"
 EPYTEST_XDIST=1
+distutils_enable_tests pytest
 
 distutils_enable_sphinx docs \
 	dev-python/sphinx-autodoc-typehints \
 	dev-python/sphinx-copybutton \
 	dev-python/furo \
 	dev-python/myst-parser \
-	dev-python/sphinxcontrib-apidoc
-distutils_enable_tests pytest
+	dev-python/sphinxcontrib-apidoc \
+	dev-python/sphinxcontrib-mermaid
 
 src_test() {
 	local redis_pid="${T}"/redis.pid

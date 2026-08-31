@@ -4,9 +4,9 @@
 EAPI=8
 
 DISTUTILS_EXT=1
-DISTUTILS_USE_PEP517=poetry
+DISTUTILS_USE_PEP517=poetry-core
 PYPI_VERIFY_REPO=https://github.com/python-zeroconf/python-zeroconf
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 pypi
 
@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 IUSE="+native-extensions"
 
 RDEPEND="
@@ -28,15 +28,15 @@ RDEPEND="
 # C extensions, sigh
 BDEPEND="
 	native-extensions? (
-		>=dev-python/cython-3.0.8[${PYTHON_USEDEP}]
+		>=dev-python/cython-3.3.0[${PYTHON_USEDEP}]
 	)
 	test? (
-		>=dev-python/blockbuster-1.5.5[${PYTHON_USEDEP}]
+		>=dev-python/blockbuster-1.5.27[${PYTHON_USEDEP}]
 	)
 	>=dev-python/setuptools-65.6.3[${PYTHON_USEDEP}]
 "
 
-EPYTEST_PLUGINS=( pytest-asyncio )
+EPYTEST_PLUGINS=( hypothesis pytest-asyncio )
 distutils_enable_tests pytest
 
 python_compile() {
@@ -53,9 +53,10 @@ python_test() {
 	local -x SKIP_IPV6=1
 	local EPYTEST_DESELECT=(
 		# network
-		tests/test_core.py::Framework::test_close_multiple_times
-		tests/test_core.py::Framework::test_launch_and_close
-		tests/test_core.py::Framework::test_launch_and_close_context_manager
+		tests/test_core.py::test_close_multiple_times
+		'tests/test_core.py::test_open_and_close_cleanly[InterfaceChoice.Default-False]'
+		'tests/test_core.py::test_context_manager_marks_done[InterfaceChoice.Default]'
+		tests/test_core.py::test_default_interface_warns_when_ipv6_requested
 
 		# fragile to timeouts (?)
 		tests/services/test_browser.py::test_service_browser_expire_callbacks
@@ -66,6 +67,8 @@ python_test() {
 	)
 	local EPYTEST_IGNORE=(
 		tests/benchmarks
+		# timing test
+		tests/test_fuzz_incoming.py
 	)
 
 	epytest -o addopts=
