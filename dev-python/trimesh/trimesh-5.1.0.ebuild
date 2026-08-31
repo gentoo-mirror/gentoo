@@ -21,7 +21,7 @@ SRC_URI="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	dev-python/charset-normalizer[${PYTHON_USEDEP}]
@@ -30,7 +30,7 @@ RDEPEND="
 	dev-python/jsonschema[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
 	dev-python/networkx[${PYTHON_USEDEP}]
-	>=dev-python/numpy-1.20[${PYTHON_USEDEP}]
+	>=dev-python/numpy-1.21[${PYTHON_USEDEP}]
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/pycollada[${PYTHON_USEDEP}]
 	dev-python/pyglet[${PYTHON_USEDEP}]
@@ -81,7 +81,6 @@ python_test() {
 
 pkg_postinst() {
 	optfeature_header "${PN} functionality can be extended by installing the following packages:"
-	optfeature "making GUI applications with 3D stuff" dev-python/glooey
 	optfeature "2D triangulations of polygons" dev-python/mapbox-earcut
 	optfeature "loading a number of additional mesh formats" dev-python/meshio
 	optfeature "figuring out how much memory we have" dev-python/psutil

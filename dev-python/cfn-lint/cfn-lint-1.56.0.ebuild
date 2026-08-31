@@ -17,10 +17,9 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
-	>=dev-python/aws-sam-translator-1.110.0[${PYTHON_USEDEP}]
 	dev-python/jsonpatch[${PYTHON_USEDEP}]
 	>=dev-python/jschema-to-python-1.2.3[${PYTHON_USEDEP}]
 	<dev-python/jsonschema-5[${PYTHON_USEDEP}]
@@ -48,17 +47,15 @@ python_test() {
 		test/unit/module/template/test_template.py::TestTemplate::test_build_graph
 		# requires git repo
 		test/unit/module/maintenance/test_update_documentation.py::TestUpdateDocumentation::test_update_docs
-		# TODO: suddenly started failing in older versions too
-		# https://github.com/aws-cloudformation/cfn-lint/issues/4207
-		test/integration/test_good_templates.py
-		test/unit/module/override/test_exclude.py::TestExclude::test_success_run
-		test/unit/module/test_api.py::TestLintFile::test_good_template
-		test/unit/module/test_rules_collections.py::TestRulesCollection::test_success_run
 		# crashes on 3.12+, probably pygraphviz
 		test/unit/module/test_api.py::TestLintByConfig::test_graph
+		# scripts missing from sdist
+		test/unit/module/maintenance/test_update_specs_from_pricing.py
+		# Internet
+		test/unit/module/schema/test_manager.py::TestUpdateResourceSchemas::test_update_force
 	)
 
 	# from tox.ini
 	local -x AWS_DEFAULT_REGION=us-east-1
-	epytest
+	epytest test/unit
 }

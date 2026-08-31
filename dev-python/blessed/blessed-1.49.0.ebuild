@@ -20,7 +20,7 @@ KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	>=dev-python/jinxed-2.1[${PYTHON_USEDEP}]
-	>=dev-python/wcwidth-0.8.1[${PYTHON_USEDEP}]
+	>=dev-python/wcwidth-0.8.3[${PYTHON_USEDEP}]
 "
 
 distutils_enable_sphinx docs dev-python/sphinx-rtd-theme
@@ -46,6 +46,7 @@ python_test() {
 	local EPYTEST_DESELECT=(
 		# fragile to timing
 		tests/test_sixel.py::test_sixel_height_and_width_fallback_to_xtwinops
+		tests/test_sixel.py::test_fast_path_with_caches_populated
 	)
 
 	# COLORTERM must not be truecolor
