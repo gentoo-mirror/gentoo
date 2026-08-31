@@ -92,6 +92,7 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-2.5.317-flags.patch
 	"${FILESDIR}"/${PN}-2.6.3-climits.patch
 	"${FILESDIR}"/${PN}-2.6.3-cubeb-alsa.patch
+	"${FILESDIR}"/${PN}-2.6.3-ffmpeg9.patch
 	"${FILESDIR}"/${PN}-2.8.0-musl-sysconf.patch
 )
 
