@@ -1,0 +1,15 @@
+BDEPEND=app-alternatives/gpg test? ( app-crypt/pgpdump )
+DEFINED_PHASES=compile install test
+DESCRIPTION=OpenPGP key for Leo Sandoval
+EAPI=8
+HOMEPAGE=https://gitlab.freedesktop.org/lsandova
+INHERIT=sec-keys
+IUSE=test
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
+LICENSE=public-domain
+PROPERTIES=test_network
+RESTRICT=!test? ( test ) test
+SLOT=0
+SRC_URI=https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xDFB62CC1A987E6C76EBF8143916EC0708CDFDDFD -> openpgp-keys-lsandova-ubuntu-20260831.asc https://gitlab.freedesktop.org/lsandova.gpg -> openpgp-keys-lsandova-20260831.gpg
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	edo	a5e294016aa84979fcb2459749eb80b2	sec-keys	34ef28a3b98035f0f44e7292c0b2501c
+_md5_=63692ef328a883d785ef7d1bc07e0994
