@@ -16,23 +16,25 @@ else
 	inherit verify-sig
 	SRC_URI="https://github.com/swaywm/${PN}/releases/download/${PV}/${P}.tar.gz -> ${P}.gh.tar.gz
 		https://github.com/swaywm/${PN}/releases/download/${PV}/${P}.tar.gz.sig -> ${P}.gh.tar.gz.sig"
-	KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv x86"
+	KEYWORDS="amd64 ~arm arm64 ~loong ~ppc64 ~riscv x86"
 	S="${WORKDIR}/${PN}-${MY_PV}"
 fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="+swaybar +swaynag tray wallpapers X"
+IUSE="+libinput +drm +session +swaybar +swaynag tray wallpapers x11-backend X"
 REQUIRED_USE="tray? ( swaybar )"
 
 DEPEND="
 	>=dev-libs/json-c-0.13:0=
-	>=dev-libs/libinput-1.21.0:0=
+	>=dev-libs/libinput-1.26.0:0=
 	virtual/libudev
 	sys-auth/seatd:=
+	dev-libs/libevdev
 	dev-libs/libpcre2
-	>=dev-libs/wayland-1.20.0
+	>=dev-libs/wayland-1.21.0
 	x11-libs/cairo
+	x11-libs/libdrm
 	>=x11-libs/libxkbcommon-1.5.0:0=
 	x11-libs/pango
 	x11-libs/pixman
@@ -51,26 +53,27 @@ DEPEND="
 "
 # x11-libs/xcb-util-wm needed for xcb-iccm
 if [[ ${PV} == 9999 ]]; then
-	DEPEND+="~gui-libs/wlroots-9999:=[X?]"
+	DEPEND+="
+		~gui-libs/wlroots-9999:=[drm=,libinput=,session=,X=,x11-backend=]
+	"
 else
 	DEPEND+="
-		>=gui-libs/wlroots-0.17:=[X?]
-		<gui-libs/wlroots-0.18:=[X?]
+		gui-libs/wlroots:0.19[drm=,libinput=,session=,X=,x11-backend=]
 	"
 fi
 RDEPEND="
-	x11-misc/xkeyboard-config
 	${DEPEND}
+	x11-misc/xkeyboard-config
 "
 BDEPEND="
 	>=dev-libs/wayland-protocols-1.24
-	>=dev-build/meson-0.60.0
+	>=dev-build/meson-1.3
 	virtual/pkgconfig
 "
 if [[ ${PV} == 9999 ]]; then
 	BDEPEND+=" ~app-text/scdoc-9999"
 else
-	BDEPEND+=" >=app-text/scdoc-1.9.3
+	BDEPEND+=" >=app-text/scdoc-1.11.3
 		verify-sig? ( sec-keys/openpgp-keys-emersion )"
 	VERIFY_SIG_OPENPGP_KEY_PATH="/usr/share/openpgp-keys/emersion.asc"
 fi
@@ -83,7 +86,6 @@ src_configure() {
 	local emesonargs=(
 		-Dman-pages=enabled
 		$(meson_feature tray)
-		$(meson_feature X xwayland)
 		$(meson_feature swaybar gdk-pixbuf)
 		$(meson_use swaynag)
 		$(meson_use swaybar)
