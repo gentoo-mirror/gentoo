@@ -1,0 +1,13 @@
+BDEPEND=app-text/trang >=app-editors/emacs-26.3:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Extension for nxml-mode with libvirt schemas
+EAPI=9
+HOMEPAGE=https://www.libvirt.org/
+INHERIT=elisp
+KEYWORDS=~amd64 ~arm64 ~ppc64
+LICENSE=LGPL-2.1+
+RDEPEND=>=app-editors/emacs-26.3:*
+SLOT=0
+SRC_URI=https://download.libvirt.org/libvirt-12.6.0.tar.xz
+_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	8e56606e40554fd24928b6bc76ef3c7a
+_md5_=f71396a86e061d1333c107390ce7c793
