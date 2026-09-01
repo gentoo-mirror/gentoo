@@ -4,7 +4,7 @@ DEPEND=app-arch/xz-utils >=sys-libs/ncurses-5.2-r5:0= grub_platforms_emu? ( sdl?
 DESCRIPTION=GNU GRUB boot loader
 EAPI=8
 HOMEPAGE=https://gnu-grub.freedesktop.org/
-INHERIT=eapi9-ver flag-o-matic multibuild optfeature python-any-r1 secureboot shell-completion toolchain-funcs verify-sig
+INHERIT=eapi9-ver flag-o-matic multibuild optfeature python-any-r1 secureboot toolchain-funcs verify-sig
 IUSE=+branding +device-mapper doc efiemu +fonts mount nls protect sdl test +themes truetype libzfs grub_platforms_coreboot grub_platforms_efi-32 grub_platforms_efi-64 grub_platforms_emu grub_platforms_ieee1275 grub_platforms_loongson grub_platforms_multiboot grub_platforms_qemu grub_platforms_qemu-mips grub_platforms_pc grub_platforms_uboot grub_platforms_xen grub_platforms_xen-32 grub_platforms_xen-pvh secureboot verify-sig
 KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86
 LICENSE=GPL-3+ BSD MIT fonts? ( GPL-2-with-font-exception ) themes? ( CC-BY-SA-3.0 BitstreamVera )
@@ -13,5 +13,5 @@ REQUIRED_USE=grub_platforms_coreboot? ( fonts ) grub_platforms_qemu? ( fonts ) g
 RESTRICT=!test? ( test ) test? ( userpriv )
 SLOT=2/2.16_rc2
 SRC_URI=https://gitlab.freedesktop.org/api/v4/projects/26558/packages/generic/source-assets/grub-2.16-rc2/grub-2.16~rc2.tar.xz verify-sig? ( https://gitlab.freedesktop.org/api/v4/projects/26558/packages/generic/source-assets/grub-2.16-rc2/grub-2.16~rc2.tar.xz.sig ) fonts? ( mirror://gnu/unifont/unifont-17.0.05/unifont-17.0.05.pcf.gz verify-sig? ( mirror://gnu/unifont/unifont-17.0.05/unifont-17.0.05.pcf.gz.sig ) ) themes? ( https://downloads.sourceforge.net/project/dejavu/dejavu/2.37/dejavu-fonts-ttf-2.37.tar.bz2 )
-_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	python-any-r1	891415dfe39ad9b41b461f2b86354af0	linux-info	efd923656513c879204fec6638eadee5	secureboot	253de61d538933823742291a43da3aa4	shell-completion	63a62de3ca49c798ee6e89f190e45d0e	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=0761eeb863d62de109301b9395079e8c
+_eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	python-any-r1	891415dfe39ad9b41b461f2b86354af0	linux-info	efd923656513c879204fec6638eadee5	secureboot	253de61d538933823742291a43da3aa4	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_md5_=d3f452dffb5b16f39476e79ddca49c55
