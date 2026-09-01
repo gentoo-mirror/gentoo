@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glsa SYSTEM "http://www.gentoo.org/dtd/glsa.dtd">
+<glsa id="202609-01">
+    <title>Chromium, Google Chrome, Microsoft Edge, Opera, Vivaldi: Multiple Vulnerabilities</title>
+    <synopsis>Multiple vulnerabilities have been found in Chromium, Google Chrome, Microsoft Edge, Opera, and Vivaldi.</synopsis>
+    <product type="ebuild">chromium,google-chrome,microsoft-edge,opera,vivaldi</product>
+    <announced>2026-09-01</announced>
+    <revised count="1">2026-09-01</revised>
+    <bug>955099</bug>
+    <bug>955603</bug>
+    <bug>956400</bug>
+    <bug>956774</bug>
+    <bug>957076</bug>
+    <bug>957812</bug>
+    <bug>958374</bug>
+    <bug>959112</bug>
+    <bug>959355</bug>
+    <access>remote</access>
+    <affected>
+        <package name="www-client/chromium" auto="yes" arch="*">
+            <unaffected range="ge">138.0.7204.92</unaffected>
+            <vulnerable range="lt">138.0.7204.92</vulnerable>
+        </package>
+        <package name="www-client/google-chrome" auto="yes" arch="*">
+            <unaffected range="ge">138.0.7204.92</unaffected>
+            <vulnerable range="lt">138.0.7204.92</vulnerable>
+        </package>
+        <package name="www-client/microsoft-edge" auto="yes" arch="*">
+            <unaffected range="ge">138.0.3351.65</unaffected>
+            <vulnerable range="lt">138.0.3351.65</vulnerable>
+        </package>
+        <package name="www-client/opera" auto="yes" arch="*">
+            <unaffected range="ge">122.0.5643.17</unaffected>
+            <vulnerable range="lt">122.0.5643.17</vulnerable>
+        </package>
+        <package name="www-client/vivaldi" auto="yes" arch="*">
+            <unaffected range="ge">7.5.3735.44</unaffected>
+            <vulnerable range="lt">7.5.3735.44</vulnerable>
+        </package>
+    </affected>
+    <background>
+        <p>Chromium is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web.
+
+Google Chrome is one fast, simple, and secure browser for all your devices.
+
+Microsoft Edge is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.
+
+Opera is a fast and secure web browser.
+
+Vivaldi is a powerful, personal and private browser that adapts to you.</p>
+    </background>
+    <description>
+        <p>Multiple vulnerabilities have been discovered in Chromium, Google Chrome, Microsoft Edge, Opera, and Vivaldi. Please review the CVE identifiers referenced below for details.</p>
+    </description>
+    <impact type="high">
+        <p>Please review the referenced CVE identifiers for details.</p>
+    </impact>
+    <workaround>
+        <p>There is no known workaround at this time.</p>
+    </workaround>
+    <resolution>
+        <p>All Chromium users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/chromium-138.0.7204.92"
+        </code>
+        
+        <p>All Google Chrome users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/google-chrome-138.0.7204.92"
+        </code>
+        
+        <p>All Microsoft Edge users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/microsoft-edge-138.0.3351.65"
+        </code>
+        
+        <p>All Opera users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/opera-122.0.5643.17"
+        </code>
+        
+        <p>All Vivaldi users should upgrade to the latest version:</p>
+        
+        <code>
+          # emerge --sync
+          # emerge --ask --oneshot --verbose ">=www-client/vivaldi-7.5.3735.44"
+        </code>
+    </resolution>
+    <references>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-4050">CVE-2025-4050</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-4051">CVE-2025-4051</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-4052">CVE-2025-4052</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-4096">CVE-2025-4096</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-4372">CVE-2025-4372</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5063">CVE-2025-5063</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5064">CVE-2025-5064</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5065">CVE-2025-5065</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5066">CVE-2025-5066</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5067">CVE-2025-5067</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5068">CVE-2025-5068</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5280">CVE-2025-5280</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5281">CVE-2025-5281</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5283">CVE-2025-5283</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5419">CVE-2025-5419</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5958">CVE-2025-5958</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-5959">CVE-2025-5959</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-6191">CVE-2025-6191</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-6192">CVE-2025-6192</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-6554">CVE-2025-6554</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-6555">CVE-2025-6555</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-6556">CVE-2025-6556</uri>
+        <uri link="https://nvd.nist.gov/vuln/detail/CVE-2025-6557">CVE-2025-6557</uri>
+    </references>
+    <metadata tag="requester" timestamp="2026-09-01T20:38:42.393429Z">sam</metadata>
+    <metadata tag="submitter" timestamp="2026-09-01T20:38:42.397785Z">sam</metadata>
+</glsa>
