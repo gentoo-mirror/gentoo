@@ -32,19 +32,17 @@ DESCRIPTION="Prebuilt Java JDK binaries provided by Eclipse Temurin"
 HOMEPAGE="https://adoptium.net"
 SRC_URI="
 	$(abi_uri aarch64 arm64)
-	$(abi_uri aarch64 arm64-macos)
 	$(abi_uri arm)
 	$(abi_uri ppc64le ppc64)
 	$(abi_uri x64 amd64)
-	$(abi_uri x64 amd64 musl)
-	$(abi_uri riscv64 riscv)
 	$(abi_uri x64 x64-macos)
+	$(abi_uri x64 amd64 musl)
 "
 S="${WORKDIR}/jdk-${MY_PV}"
 
 LICENSE="GPL-2-with-classpath-exception"
 SLOT=$(ver_cut 1)
-KEYWORDS="amd64 ~arm arm64 ppc64 ~x64-macos"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x64-macos"
 IUSE="alsa cups headless-awt selinux source"
 
 RDEPEND="
