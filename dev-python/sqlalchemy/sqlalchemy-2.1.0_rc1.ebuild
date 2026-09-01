@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYPI_PN=SQLAlchemy
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE="sqlite?"
 
 inherit distutils-r1 optfeature pypi
@@ -20,7 +20,9 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+if [[ ${PV} != *_beta* ]]; then
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos ~x64-solaris"
+fi
 IUSE="examples +sqlite test"
 
 RDEPEND="
@@ -38,11 +40,6 @@ EPYTEST_RERUNS=5
 EPYTEST_XDIST=1
 distutils_enable_tests pytest
 
-src_prepare() {
-	sed -i -e '/greenlet/d' setup.cfg || die
-	distutils-r1_src_prepare
-}
-
 python_test() {
 	local EPYTEST_IGNORE=(
 		test/ext/mypy/test_mypy_plugin_py3k.py
@@ -58,9 +55,14 @@ python_test() {
 	)
 	local sqlite_version=$(sqlite3 --version | cut -d' ' -f1)
 	case ${EPYTHON} in
-		pypy3.11)
-			# pypy is broken beyond repair now
-			return
+		python3.15)
+			EPYTEST_DESELECT+=(
+				# repr() changes
+				test/orm/declarative/test_dc_transforms.py::DCTransformsTest::test_basic_constructor_repr_base_cls
+				test/orm/declarative/test_dc_transforms_future_anno_sync.py::DCTransformsTest::test_basic_constructor_repr_base_cls
+				# exception message changes
+				test/engine/test_processors.py::PyDateProcessorTest::test_no_string
+			)
 			;;
 	esac
 	if ! has_version "dev-python/greenlet[${PYTHON_USEDEP}]"; then

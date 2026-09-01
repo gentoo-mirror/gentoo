@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/tox-dev/tox
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~m68k ppc ppc64 ~riscv ~s390 x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~m68k ~ppc ~ppc64 ~riscv ~s390 ~x86"
 
 RDEPEND="
 	dev-python/cachetools[${PYTHON_USEDEP}]
@@ -31,6 +31,9 @@ RDEPEND="
 	dev-python/python-discovery[${PYTHON_USEDEP}]
 	dev-python/tomli-w[${PYTHON_USEDEP}]
 	dev-python/virtualenv[${PYTHON_USEDEP}]
+	$(python_gen_cond_dep '
+		>=dev-python/typing-extensions-4.15[${PYTHON_USEDEP}]
+	' 3.12)
 "
 BDEPEND="
 	dev-python/docutils[${PYTHON_USEDEP}]
@@ -45,6 +48,7 @@ BDEPEND="
 "
 
 EPYTEST_PLUGINS=( pytest-{mock,rerunfailures,timeout,xdist} time-machine )
+EPYTEST_RERUNS=3
 # upstream timeouts are quite short
 : ${EPYTEST_TIMEOUT:=180}
 # xdist seems to mess up state between successive implementation runs
