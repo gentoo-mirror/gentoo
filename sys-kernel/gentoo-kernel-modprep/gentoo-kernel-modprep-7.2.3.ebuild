@@ -8,7 +8,7 @@ inherit dist-kernel-utils toolchain-funcs verify-sig
 BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
 PATCHSET=linux-gentoo-patches-7.1.9
-SHA256SUM_DATE=20260828
+SHA256SUM_DATE=20260902
 
 DESCRIPTION="Minimal subset of gentoo-kernel-bin for building modules, for containers"
 HOMEPAGE="

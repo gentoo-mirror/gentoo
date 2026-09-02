@@ -11,7 +11,7 @@ BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
 PATCHSET=linux-gentoo-patches-7.1.9
 BINPKG=${P/-bin}-1
-SHA256SUM_DATE=20260828
+SHA256SUM_DATE=20260902
 
 DESCRIPTION="Pre-built Linux kernel with Gentoo patches"
 HOMEPAGE="

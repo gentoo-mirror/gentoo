@@ -7,8 +7,8 @@ inherit dist-kernel-utils toolchain-funcs verify-sig
 
 BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
-PATCHSET=linux-gentoo-patches-7.1.9
-SHA256SUM_DATE=20260828
+PATCHSET=linux-gentoo-patches-6.12.97
+SHA256SUM_DATE=20260902
 
 DESCRIPTION="Minimal subset of gentoo-kernel-bin for building modules, for containers"
 HOMEPAGE="
@@ -18,7 +18,7 @@ HOMEPAGE="
 SRC_URI+="
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${BASE_P}.tar.xz
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PATCH_PV}.xz
-	https://distfiles.gentoo.org/pub/proj/dist-kernel/patchsets/7.1/${PATCHSET}.tar.xz
+	https://distfiles.gentoo.org/pub/proj/dist-kernel/patchsets/$(ver_cut 1-2)/${PATCHSET}.tar.xz
 	https://distfiles.gentoo.org/pub/proj/dist-kernel/binpkg/modprep/$(ver_cut 1-2)/${P}.tar.xz
 	verify-sig? (
 		https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/sha256sums.asc
@@ -43,7 +43,6 @@ BDEPEND="
 	app-alternatives/lex
 	app-alternatives/yacc
 	dev-util/pahole
-	sys-libs/binutils-libs
 	virtual/libelf
 	verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 )
 "

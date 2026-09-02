@@ -9,9 +9,9 @@ inherit kernel-install toolchain-funcs unpacker verify-sig
 
 BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
-PATCHSET=linux-gentoo-patches-7.1.9
+PATCHSET=linux-gentoo-patches-6.6.145
 BINPKG=${P/-bin}-1
-SHA256SUM_DATE=20260828
+SHA256SUM_DATE=20260902
 
 DESCRIPTION="Pre-built Linux kernel with Gentoo patches"
 HOMEPAGE="
@@ -21,7 +21,7 @@ HOMEPAGE="
 SRC_URI+="
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${BASE_P}.tar.xz
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PATCH_PV}.xz
-	https://distfiles.gentoo.org/pub/proj/dist-kernel/patchsets/7.1/${PATCHSET}.tar.xz
+	https://distfiles.gentoo.org/pub/proj/dist-kernel/patchsets/$(ver_cut 1-2)/${PATCHSET}.tar.xz
 	verify-sig? (
 		https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/sha256sums.asc
 			-> linux-$(ver_cut 1).x-sha256sums-${SHA256SUM_DATE}.asc
@@ -50,10 +50,9 @@ PDEPEND="
 BDEPEND="
 	app-alternatives/bc
 	app-alternatives/lex
-	app-alternatives/yacc
 	dev-util/pahole
-	sys-libs/binutils-libs
 	virtual/libelf
+	app-alternatives/yacc
 	amd64? ( app-crypt/sbsigntools )
 	arm64? ( app-crypt/sbsigntools )
 	verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 )
