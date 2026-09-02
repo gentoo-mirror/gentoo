@@ -3,10 +3,22 @@
 
 EAPI=8
 
-inherit check-reqs dot-a flag-o-matic java-pkg-2 java-vm-2 multiprocessing toolchain-funcs
+inherit check-reqs flag-o-matic java-pkg-2 java-vm-2 multiprocessing toolchain-funcs
+
+# don't change versioning scheme
+# to find correct _p number, look at
+# https://github.com/openjdk/jdk${SLOT}u/tags
+# you will see, for example, jdk-17.0.4.1-ga and jdk-17.0.4.1+1, both point
+# to exact same commit sha. we should always use the full version.
+# -ga tag is just for humans to easily identify General Availability release tag.
+# we need -ga tag to fetch tarball and unpack it, but exact number everywhere else to
+# set build version properly
+MY_PV="${PV%_p*}-ga"
 
 # variable name format: <UPPERCASE_KEYWORD>_XPAK
-PPC64_XPAK="25_p36" # big-endian bootstrap tarball
+PPC64_XPAK="11.0.13_p8" # big-endian bootstrap tarball
+RISCV_XPAK="11.0.14_p9" # lp64d bootstrap tarball
+X86_XPAK="11.0.13_p8"
 
 # Usage: bootstrap_uri <keyword> <version> [extracond]
 # Example: $(bootstrap_uri ppc64 17.0.1_p12 big-endian)
@@ -17,63 +29,34 @@ bootstrap_uri() {
 	local kw="${1:?${FUNCNAME[0]}: keyword not specified}"
 	local ver="${2:?${FUNCNAME[0]}: version not specified}"
 	local cond="${3-}"
-	[[ ${cond} == elibc_musl* ]] && local musl=yes
 
 	# here be dragons
-	echo "${kw}? ( ${cond:+${cond}? (} ${baseuri}-${ver}-${kw}${musl:+-musl}.${suff} ${cond:+) })"
+	echo "${kw}? ( ${cond:+${cond}? (} ${baseuri}-${ver}-${kw}.${suff} ${cond:+) })"
 }
-
-# don't change versioning scheme
-# to find correct _p number, look at
-# https://github.com/openjdk/jdk${SLOT}u/tags
-# you will see, for example, jdk-17.0.4.1-ga and jdk-17.0.4.1+1, both point
-# to exact same commit sha. we should always use the full version.
-# -ga tag is just for humans to easily identify General Availability release tag.
-# MY_PV="${PV%_p*}-ga"
-
-# Upstream starts new major versions usually in https://github.com/openjdk/jdk.
-# In ebuilds for those early versions, use '_alpha' in the version string.
-# Exapmle: openjdk-26_alpha10.ebuild
-# Later, upstream creates the versioned repository like e.g.
-# https://github.com/openjdk/jdk25u.
-# In ebuilds for those later versions, use '_beta' in the version string.
-# Example: openjdk-25_beta35.ebuild
-if [[ "${PV%_alpha*}" != "${PV}" ]]; then # version string contains "_alpha"
-	MY_PV="${PV/_alpha/+}"
-	JDK_REPO="jdk"
-	MY_VERSION_STRING="${PV%_alpha*}"
-	MY_VERSION_BUILD="${PV#*_alpha}"
-elif [[ "${PV%_beta*}" != "${PV}" ]]; then # version string contains "_beta"
-	MY_PV="${PV/_beta/+}"
-	JDK_REPO="jdk$(ver_cut 1)u"
-	MY_VERSION_STRING="${PV%_beta*}"
-	MY_VERSION_BUILD="${PV#*_beta}"
-else
-	MY_PV="${PV%_p*}-ga"
-	JDK_REPO="jdk$(ver_cut 1)u"
-	MY_VERSION_STRING="${PV%_p*}"
-	MY_VERSION_BUILD="${PV#*_p}"
-fi
 
 DESCRIPTION="Open source implementation of the Java programming language"
 HOMEPAGE="https://openjdk.org"
 SRC_URI="
-	https://github.com/${PN}/${JDK_REPO}/archive/jdk-${MY_PV}.tar.gz
+	https://github.com/${PN}/jdk11u/archive/jdk-${MY_PV}.tar.gz
 		-> ${P}.tar.gz
 	!system-bootstrap? (
 		$(bootstrap_uri ppc64 ${PPC64_XPAK} big-endian)
+		$(bootstrap_uri riscv ${RISCV_XPAK})
+		$(bootstrap_uri x86 ${X86_XPAK})
 	)
+	riscv? ( https://dev.gentoo.org/~arthurzam/distfiles/dev-java/openjdk/openjdk-11.0.18-riscv.patch.xz )
 "
-S="${WORKDIR}/${JDK_REPO}-jdk-${MY_PV//+/-}"
+S="${WORKDIR}/jdk${SLOT}u-jdk-${MY_PV}"
 
 LICENSE="GPL-2-with-classpath-exception"
 SLOT="$(ver_cut 1)"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
-IUSE="alsa big-endian cups debug doc examples headless-awt +jbootstrap selinux source static-libs +system-bootstrap systemtap"
+IUSE="alsa big-endian cups debug doc examples headless-awt javafx +jbootstrap selinux source system-bootstrap systemtap"
 
 REQUIRED_USE="
+	javafx? ( alsa !headless-awt )
 	!system-bootstrap? ( jbootstrap )
-	!system-bootstrap? ( ppc64 )
 "
 
 COMMON_DEPEND="
@@ -114,11 +97,13 @@ DEPEND="
 	!headless-awt? ( x11-base/xorg-proto )
 	system-bootstrap? (
 		|| (
-			dev-java/openjdk-bin:${SLOT}
-			dev-java/openjdk:${SLOT}
+			dev-java/openjdk-bin:${SLOT}[gentoo-vm(+)]
+			dev-java/openjdk:${SLOT}[gentoo-vm(+)]
 		)
 	)
 "
+
+PATCHES=( "${FILESDIR}"/openjdk-11.0.32.1_p1-headless.patch )
 
 # The space required to build varies wildly depending on USE flags,
 # ranging from 2GB to 16GB. This function is certainly not exact but
@@ -150,24 +135,18 @@ pkg_setup() {
 	JAVA_PKG_WANT_SOURCE="${SLOT}"
 	JAVA_PKG_WANT_TARGET="${SLOT}"
 
-	# The nastiness below is necessary while the gentoo-vm USE flag is
-	# masked. First we call java-pkg-2_pkg_setup if it looks like the
-	# flag was unmasked against one of the possible build VMs. If not,
-	# we try finding one of them in their expected locations. This would
-	# have been slightly less messy if openjdk-bin had been installed to
-	# /opt/${PN}-${SLOT} or if there was a mechanism to install a VM env
-	# file but disable it so that it would not normally be selectable.
-
-	local vm
-	for vm in ${JAVA_PKG_WANT_BUILD_VM}; do
-		if [[ -d ${BROOT}/usr/lib/jvm/${vm} ]]; then
-			java-pkg-2_pkg_setup
-			return
-		fi
-	done
+	if use system-bootstrap; then
+		for vm in ${JAVA_PKG_WANT_BUILD_VM}; do
+			if [[ -d ${BROOT}/usr/lib/jvm/${vm} ]]; then
+				java-pkg-2_pkg_setup
+				return
+			fi
+		done
+	fi
 }
 
 src_prepare() {
+	use riscv && eapply "${WORKDIR}"/openjdk-11.0.18-riscv.patch
 	default
 	chmod +x configure || die
 }
@@ -175,18 +154,13 @@ src_prepare() {
 src_configure() {
 	local myconf=()
 
-	if has_version dev-java/openjdk:${SLOT}; then
-		export JDK_HOME=${BROOT}/usr/$(get_libdir)/openjdk-${SLOT}
-	elif use !system-bootstrap ; then
+	if ! use system-bootstrap; then
 		local xpakvar="${ARCH^^}_XPAK"
 		export JDK_HOME="${WORKDIR}/openjdk-bootstrap-${!xpakvar}"
-	else
-		JDK_HOME=$(best_version -b dev-java/openjdk-bin:${SLOT})
-		[[ -n ${JDK_HOME} ]] || die "Build VM not found!"
-		JDK_HOME=${JDK_HOME#*/}
-		JDK_HOME=${BROOT}/opt/${JDK_HOME%-r*}
-		export JDK_HOME
 	fi
+
+	# Work around stack alignment issue, bug #647954.
+	use x86 && append-flags -mincoming-stack-boundary=2
 
 	# bug 906987; append-cppflags doesnt work
 	use elibc_musl && append-flags -D_LARGEFILE64_SOURCE
@@ -196,16 +170,12 @@ src_configure() {
 
 	# Strip lto related flags, we rely on --with-jvm-features=link-time-opt
 	# See bug #833097 and bug #833098.
-	#
-	# .. but because of -Werror=odr (bug #916735), we disable it
-	# entirely for now.
-	#tc-is-lto && myconf+=( --with-jvm-features=link-time-opt )
+	tc-is-lto && myconf+=( --with-jvm-features=link-time-opt )
 	filter-lto
 	filter-flags -fdevirtualize-at-ltrans
 
-	if use static-libs ; then
-		lto-guarantee-fat
-	fi
+	# bug #945282
+	append-cflags -std=gnu17
 
 	# Enabling full docs appears to break doc building. If not
 	# explicitly disabled, the flag will get auto-enabled if pandoc and
@@ -214,7 +184,6 @@ src_configure() {
 	myconf+=(
 		--disable-ccache
 		--disable-precompiled-headers
-		--disable-warnings-as-errors
 		--enable-full-docs=no
 		--with-boot-jdk="${JDK_HOME}"
 		--with-extra-cflags="${CFLAGS}"
@@ -226,7 +195,6 @@ src_configure() {
 		--with-lcms="${XPAK_BOOTSTRAP:-system}"
 		--with-libjpeg="${XPAK_BOOTSTRAP:-system}"
 		--with-libpng="${XPAK_BOOTSTRAP:-system}"
-		--with-stdc++lib=dynamic
 		--with-native-debug-symbols=$(usex debug internal none)
 		--with-vendor-name="Gentoo"
 		--with-vendor-url="https://gentoo.org"
@@ -234,15 +202,28 @@ src_configure() {
 		--with-vendor-vm-bug-url="https://bugs.openjdk.java.net"
 		--with-vendor-version-string="${PVR}"
 		--with-version-pre=""
-		--with-version-string="${MY_VERSION_STRING}"
-		--with-version-build="${MY_VERSION_BUILD}"
+		--with-version-string="${PV%_p*}"
+		--with-version-build="${PV#*_p}"
 		--with-zlib="${XPAK_BOOTSTRAP:-system}"
-		--enable-jvm-feature-dtrace=$(usex systemtap yes no)
+		--enable-dtrace=$(usex systemtap yes no)
 		--enable-headless-only=$(usex headless-awt yes no)
 		$(tc-is-clang && echo "--with-toolchain-type=clang")
 	)
+	! use riscv && myconf+=( --with-jvm-features=shenandoahgc )
 
-	use riscv && myconf+=( --with-boot-jdk-jvmargs="-Djdk.lang.Process.launchMechanism=vfork" )
+	if use javafx; then
+		# this is not useful for users, just for upstream developers
+		# build system compares mesa version in md file
+		# https://bugs.gentoo.org/822612
+		export LEGAL_EXCLUDES=mesa3d.md
+
+		local zip="${EPREFIX}/usr/$(get_libdir)/openjfx-${SLOT}/javafx-exports.zip"
+		if [[ -r ${zip} ]]; then
+			myconf+=( --with-import-modules="${zip}" )
+		else
+			die "${zip} not found or not readable"
+		fi
+	fi
 
 	# Workaround for bug #938302
 	if use systemtap && has_version "dev-debug/systemtap[-dtrace-symlink(+)]" ; then
@@ -271,13 +252,9 @@ src_compile() {
 		JOBS=$(makeopts_jobs)
 		LOG=debug
 		CFLAGS_WARNINGS_ARE_ERRORS= # No -Werror
-		# Respect user -O<value>, bug #969169
-		OPTIMIZATION=
-		JVM_OPTIMIZATION=
 		NICE= # Use PORTAGE_NICENESS, don't adjust further down
 		$(usex doc docs '')
 		$(usex jbootstrap bootcycle-images product-images)
-		$(usev static-libs static-libs-image)
 	)
 	emake "${myemakeargs[@]}" -j1
 }
@@ -330,12 +307,6 @@ src_install() {
 	if use doc ; then
 		docinto html
 		dodoc -r "${S}"/build/*-release/images/docs/*
-	fi
-
-	if use static-libs ; then
-		cd "${S}"/build/*-release/images/static-libs || die
-		cp -pPR * "${ddest}" || die
-		strip-lto-bytecode "${ddest}" || die
 	fi
 }
 

@@ -68,6 +68,7 @@ S="${WORKDIR}/${JDK_REPO}-jdk-${MY_PV//+/-}"
 
 LICENSE="GPL-2-with-classpath-exception"
 SLOT="$(ver_cut 1)"
+#	KEYWORDS="" # Not an LTS candidate
 
 IUSE="alsa big-endian cups debug doc examples headless-awt +jbootstrap selinux source static-libs +system-bootstrap systemtap"
 
@@ -114,6 +115,7 @@ DEPEND="
 	!headless-awt? ( x11-base/xorg-proto )
 	system-bootstrap? (
 		|| (
+			dev-java/openjdk:27
 			dev-java/openjdk-bin:${SLOT}
 			dev-java/openjdk:${SLOT}
 		)
@@ -146,7 +148,7 @@ pkg_setup() {
 
 	[[ ${MERGE_TYPE} == "binary" ]] && return
 
-	JAVA_PKG_WANT_BUILD_VM="openjdk-${SLOT} openjdk-bin-${SLOT}"
+	JAVA_PKG_WANT_BUILD_VM="openjdk-27 openjdk-${SLOT} openjdk-bin-${SLOT}"
 	JAVA_PKG_WANT_SOURCE="${SLOT}"
 	JAVA_PKG_WANT_TARGET="${SLOT}"
 
@@ -177,6 +179,8 @@ src_configure() {
 
 	if has_version dev-java/openjdk:${SLOT}; then
 		export JDK_HOME=${BROOT}/usr/$(get_libdir)/openjdk-${SLOT}
+	elif has_version dev-java/openjdk:27; then
+		export JDK_HOME=${BROOT}/usr/$(get_libdir)/openjdk-27
 	elif use !system-bootstrap ; then
 		local xpakvar="${ARCH^^}_XPAK"
 		export JDK_HOME="${WORKDIR}/openjdk-bootstrap-${!xpakvar}"
