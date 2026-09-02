@@ -15,12 +15,13 @@ HOMEPAGE="
 "
 # pypi does not include test files, so we use the GitHub tarball
 SRC_URI="
-	https://github.com/mgaitan/sphinxcontrib-mermaid/archive/refs/tags/v${PV}.tar.gz -> ${P}.gh.tar.gz
+	https://github.com/mgaitan/sphinxcontrib-mermaid/archive/${PV}.tar.gz
+		-> ${P}.gh.tar.gz
 "
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~hppa ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	dev-python/jinja2[${PYTHON_USEDEP}]
