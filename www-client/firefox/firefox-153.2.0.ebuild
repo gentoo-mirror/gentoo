@@ -3,7 +3,7 @@
 
 EAPI=8
 
-FIREFOX_PATCHSET="firefox-155-patches-04.tar.xz"
+FIREFOX_PATCHSET="firefox-153esr-patches-02.tar.xz"
 
 LLVM_COMPAT=( 22 )
 
@@ -21,7 +21,7 @@ VIRTUALX_REQUIRED="manual"
 WASI_SDK_VER=34.0
 WASI_SDK_LLVM_VER=23
 
-MOZ_ESR=
+MOZ_ESR=yes
 
 MOZ_PV=${PV}
 MOZ_PV_SUFFIX=
@@ -125,7 +125,7 @@ COMMON_DEPEND="${FF_ONLY_DEPEND}
 	>=app-accessibility/at-spi2-core-2.46.0:2
 	dev-libs/glib:2
 	dev-libs/libffi:=
-	>=dev-libs/nss-3.127
+	>=dev-libs/nss-3.126
 	>=dev-libs/nspr-4.39
 	media-libs/alsa-lib
 	media-libs/fontconfig
@@ -817,7 +817,6 @@ src_configure() {
 
 	mozconfig_use_enable dbus
 	mozconfig_use_enable libproxy
-	mozconfig_use_enable jumbo-build unified-build
 
 	use eme-free && mozconfig_add_options_ac '+eme-free' --disable-eme
 
@@ -839,6 +838,8 @@ src_configure() {
 	mozconfig_add_options_ac '--enable-audio-backends' --enable-audio-backends="${myaudiobackends::-1}"
 
 	mozconfig_use_enable wifi necko-wifi
+
+	! use jumbo-build && mozconfig_add_options_ac '--disable-unified-build' --disable-unified-build
 
 	if use X && use wayland ; then
 		mozconfig_add_options_ac '+x11+wayland' --enable-default-toolkit=cairo-gtk3-x11-wayland
@@ -1150,9 +1151,16 @@ src_install() {
 			EOF
 		fi
 
-		# Install the gfxtest binary on supported arches
+		# Install the vaapitest binary on supported arches (122.0 supports all platforms, bmo#1865969)
 		exeinto "${MOZILLA_FIVE_HOME}"
-		doexe "${BUILD_DIR}"/dist/bin/gfxtest
+		doexe "${BUILD_DIR}"/dist/bin/vaapitest
+		doexe "${BUILD_DIR}"/dist/bin/vulkantest
+
+		# Install the v4l2test on supported arches (+ arm, + riscv64 when keyworded)
+		if use arm64 ; then
+			exeinto "${MOZILLA_FIVE_HOME}"
+			doexe "${BUILD_DIR}"/dist/bin/v4l2test
+		fi
 	fi
 
 	if ! use gmp-autoupdate ; then
