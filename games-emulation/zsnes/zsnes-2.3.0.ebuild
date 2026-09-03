@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{12..14} )
-inherit flag-o-matic multilib python-any-r1 toolchain-funcs xdg
+inherit flag-o-matic python-any-r1 toolchain-funcs xdg
 
 DESCRIPTION="Fork of the classic Super Nintendo emulator"
 HOMEPAGE="https://github.com/xyproto/zsnes/ https://www.zsnes.com/"
@@ -15,49 +15,55 @@ SRC_URI="
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-* ~amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="ao custom-cflags pipewire"
 
 RDEPEND="
-	media-libs/libglvnd[X,abi_x86_32(-)]
-	media-libs/libpng:=[abi_x86_32(-)]
-	media-libs/libsdl3[abi_x86_32(-),opengl]
-	virtual/zlib:=[abi_x86_32(-)]
-	ao? ( media-libs/libao[abi_x86_32(-)] )
-	pipewire? (  media-video/pipewire:=[abi_x86_32(-)] )
+	media-libs/libglvnd[X]
+	media-libs/libpng:=
+	media-libs/libsdl3[opengl]
+	virtual/zlib:=
+	ao? ( media-libs/libao )
+	pipewire? (  media-video/pipewire:= )
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
 	${PYTHON_DEPS}
-	dev-lang/nasm
+	sys-devel/gcc:*
 	virtual/pkgconfig
 	virtual/zlib:=
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.1.0-cc-quotes.patch
+	"${FILESDIR}"/${PN}-2.3.0-cc-quotes.patch
 )
 
 src_compile() {
-	# Makefile forces many CFLAGS that are questionable, but zsnes' ancient x86
-	# asm is fragile, not pic safe (bug #427104), broken by F_S=3 (formerly
-	# broken with =2 as well), and can be affected by -march=* and similar.
-	# Stick to upstream's choices, this is non-portable either way.
+	# the old fragile ASM is gone, but the new C code is currently fragile too
 	if use !custom-cflags; then
 		strip-flags
 		append-cppflags -U_FORTIFY_SOURCE # to disable =3, Makefile enables =2
 
 		# furthermore fails with -Werror=strict-aliasing+lto-type-mismatch
+		# https://github.com/xyproto/zsnes/issues/59#issuecomment-5024118435
 		append-cflags -fno-strict-aliasing
 		filter-lto
 	fi
 
-	use amd64 && multilib_toolchain_setup x86
-	tc-export CC
+	# formerly gcc was forced due to asm issues (bug #830491) but, even with it
+	# gone, it currently segfaults if built with clang and needs looking into
+	if tc-is-clang; then
+		CC=${CHOST}-gcc
+		strip-unsupported-flags
+	fi
+
+	tc-export CC PKG_CONFIG
 	append-cflags ${CPPFLAGS}
 
 	ZSNES_MAKEARGS=(
-		ARCH=LINUX
+		{ARCH,HOST_OS}=LINUX
+		HOST_CPU="${CHOST%%-*}"
+		OPT_FLAGS=
 		PREFIX="${EPREFIX}"/usr
 		WITH_AO=$(usex ao)
 		WITH_PIPEWIRE=$(usex pipewire)
