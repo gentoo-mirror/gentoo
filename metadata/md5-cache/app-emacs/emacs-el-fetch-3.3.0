@@ -1,4 +1,4 @@
-BDEPEND=test? ( app-emacs/buttercup ) >=app-editors/emacs-26.3:*
+BDEPEND=test? ( app-emacs/buttercup ) >=app-editors/emacs-27.2:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Show system information in Neofetch-like style inside Emacs
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=elisp
 IUSE=test
 KEYWORDS=amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=>=app-editors/emacs-26.3:*
+RDEPEND=>=app-editors/emacs-27.2:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://gitlab.com/xgqt/emacs-el-fetch/-/archive/3.3.0/emacs-el-fetch-3.3.0.tar.bz2
-_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	46292cd5379143164fb87df42b872e5f
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f
 _md5_=710179a792cb32c01d5a4443c51bdde5

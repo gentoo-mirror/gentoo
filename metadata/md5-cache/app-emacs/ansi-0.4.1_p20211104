@@ -1,4 +1,4 @@
-BDEPEND=test? ( app-emacs/dash app-emacs/el-mock app-emacs/f app-emacs/s app-emacs/undercover ) >=app-editors/emacs-26.3:*
+BDEPEND=test? ( app-emacs/dash app-emacs/el-mock app-emacs/f app-emacs/s app-emacs/undercover ) >=app-editors/emacs-27.2:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Emacs library to convert strings into ansi
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=elisp
 IUSE=test
 KEYWORDS=~alpha amd64 arm arm64 ~loong ppc64 ~riscv ~sparc x86
 LICENSE=GPL-3+
-RDEPEND=>=app-editors/emacs-26.3:*
+RDEPEND=>=app-editors/emacs-27.2:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rejeep/ansi.el/archive/2367fba7b3b2340364a30cd6de7f3eb6bb9898a3.tar.gz -> ansi-0.4.1_p20211104.tar.gz
-_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	46292cd5379143164fb87df42b872e5f
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f
 _md5_=6bdeef33edb3126fc2b9955bb1c73e2e

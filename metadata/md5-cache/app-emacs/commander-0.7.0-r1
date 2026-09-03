@@ -1,4 +1,4 @@
-BDEPEND=app-emacs/dash app-emacs/f app-emacs/s test? ( app-emacs/ecukes app-emacs/el-mock app-emacs/ert-runner app-emacs/espuds ) >=app-editors/emacs-26.3:*
+BDEPEND=app-emacs/dash app-emacs/f app-emacs/s test? ( app-emacs/ecukes app-emacs/el-mock app-emacs/ert-runner app-emacs/espuds ) >=app-editors/emacs-27.2:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Emacs command line parser
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=elisp edo
 IUSE=test
 KEYWORDS=~alpha amd64 arm arm64 ~loong ppc64 ~riscv ~sparc x86
 LICENSE=GPL-3+
-RDEPEND=app-emacs/dash app-emacs/f app-emacs/s >=app-editors/emacs-26.3:*
+RDEPEND=app-emacs/dash app-emacs/f app-emacs/s >=app-editors/emacs-27.2:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rejeep/commander.el/archive/v0.7.0.tar.gz -> commander-0.7.0.tar.gz
-_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	46292cd5379143164fb87df42b872e5f	edo	a5e294016aa84979fcb2459749eb80b2
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f	edo	a5e294016aa84979fcb2459749eb80b2
 _md5_=4490da05f930d9d10536175c749d3ed9

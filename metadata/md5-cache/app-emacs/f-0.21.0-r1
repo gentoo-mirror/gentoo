@@ -1,4 +1,4 @@
-BDEPEND=app-emacs/dash app-emacs/s test? ( app-emacs/ert-async app-emacs/undercover ) test? ( app-emacs/ert-runner ) >=app-editors/emacs-26.3:*
+BDEPEND=app-emacs/dash app-emacs/s test? ( app-emacs/ert-async app-emacs/undercover ) test? ( app-emacs/ert-runner ) >=app-editors/emacs-27.2:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Modern API for working with files and directories in Emacs
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=elisp
 IUSE=test
 KEYWORDS=~alpha amd64 arm arm64 ~loong ppc64 ~riscv ~sparc x86
 LICENSE=GPL-3+
-RDEPEND=app-emacs/dash app-emacs/s >=app-editors/emacs-26.3:*
+RDEPEND=app-emacs/dash app-emacs/s >=app-editors/emacs-27.2:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/rejeep/f.el/archive/v0.21.0.tar.gz -> f-0.21.0.tar.gz
-_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	46292cd5379143164fb87df42b872e5f
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f
 _md5_=2d18ab23ab303126f6077f7e7770bf75

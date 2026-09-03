@@ -1,4 +1,4 @@
-BDEPEND=>=app-editors/emacs-26.3:*
+BDEPEND=>=app-editors/emacs-27.2:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Emacs mode to browse DWARF information
 EAPI=8
@@ -6,8 +6,8 @@ HOMEPAGE=https://sourceware.org/binutils/
 INHERIT=elisp
 KEYWORDS=amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=!sys-devel/binutils[emacs(-)] >=app-editors/emacs-26.3:*
+RDEPEND=!sys-devel/binutils[emacs(-)] >=app-editors/emacs-27.2:*
 SLOT=0
 SRC_URI=mirror://gnu/binutils/binutils-2.40.tar.xz
-_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	46292cd5379143164fb87df42b872e5f
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f
 _md5_=964c6b5cb208e380d2676c76fa799489

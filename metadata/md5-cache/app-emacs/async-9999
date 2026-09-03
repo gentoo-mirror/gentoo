@@ -1,4 +1,4 @@
-BDEPEND=test? ( app-emacs/buttercup ) >=app-editors/emacs-26.3:* >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( app-emacs/buttercup ) >=app-editors/emacs-27.2:* >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Simple library for asynchronous processing in Emacs
 EAPI=8
@@ -7,8 +7,8 @@ INHERIT=elisp git-r3
 IUSE=test
 LICENSE=GPL-3+
 PROPERTIES=live
-RDEPEND=>=app-editors/emacs-26.3:*
+RDEPEND=>=app-editors/emacs-27.2:*
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	46292cd5379143164fb87df42b872e5f	git-r3	e6c2f983e006e805160436c75a0c1562
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f	git-r3	e6c2f983e006e805160436c75a0c1562
 _md5_=513e1f812175206bcce9399439f2814e

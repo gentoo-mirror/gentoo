@@ -1,4 +1,4 @@
-BDEPEND=app-emacs/volume sys-apps/texinfo >=app-editors/emacs-26.3:*
+BDEPEND=app-emacs/volume sys-apps/texinfo >=app-editors/emacs-27.2:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Buffer-oriented media player for Emacs
 EAPI=8
@@ -7,8 +7,8 @@ INHERIT=elisp
 IUSE=mplayer
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+ FDL-1.2+
-RDEPEND=app-emacs/volume >=app-editors/emacs-26.3:*
+RDEPEND=app-emacs/volume >=app-editors/emacs-27.2:*
 SLOT=0
 SRC_URI=https://github.com/dbrock/bongo/archive/1.1.tar.gz -> bongo-1.1.tar.gz mplayer? ( mirror://gentoo/bongo-mplayer-20070204.tar.bz2 )
-_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	46292cd5379143164fb87df42b872e5f
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f
 _md5_=66a0a929b915ad727aa2a89750e1e055

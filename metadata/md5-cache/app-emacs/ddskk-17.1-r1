@@ -1,4 +1,4 @@
-BDEPEND=>=app-editors/emacs-26.3:*
+BDEPEND=>=app-editors/emacs-27.2:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=One Japanese input methods on Emacs
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=elisp ruby-single vcs-snapshot
 IUSE=ruby
 KEYWORDS=amd64 ppc ppc64 x86
 LICENSE=GPL-3+
-RDEPEND=|| ( app-i18n/skk-jisyo virtual/skkserv ) ruby? ( || ( ( dev-lang/ruby:3.3 virtual/rubygems[ruby_targets_ruby33(-)] ) ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ) ) >=app-editors/emacs-26.3:*
+RDEPEND=|| ( app-i18n/skk-jisyo virtual/skkserv ) ruby? ( || ( ( dev-lang/ruby:3.3 virtual/rubygems[ruby_targets_ruby33(-)] ) ( dev-lang/ruby:3.2 virtual/rubygems[ruby_targets_ruby32(-)] ) ) ) >=app-editors/emacs-27.2:*
 RESTRICT=test
 SLOT=0
 SRC_URI=https://github.com/skk-dev/ddskk/archive/ddskk-17.1_Neppu.tar.gz -> ddskk-17.1.tar.gz
-_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	46292cd5379143164fb87df42b872e5f	ruby-utils	70349884e22849da218b0f0c4a32da54	ruby-single	d1b60f2dbb45623756c128d02b2d3497	vcs-snapshot	05efecc60246abc94da28ed8adf74c4d
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f	ruby-utils	70349884e22849da218b0f0c4a32da54	ruby-single	d1b60f2dbb45623756c128d02b2d3497	vcs-snapshot	05efecc60246abc94da28ed8adf74c4d
 _md5_=3a89e4ff4e131d7656a86f118bb9306d

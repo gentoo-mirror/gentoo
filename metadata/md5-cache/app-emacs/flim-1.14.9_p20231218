@@ -1,4 +1,4 @@
-BDEPEND=>=app-emacs/apel-10.8 oauth2? ( app-emacs/oauth2 ) test? ( app-emacs/oauth2 ) >=app-editors/emacs-26.3:*
+BDEPEND=>=app-emacs/apel-10.8 oauth2? ( app-emacs/oauth2 ) test? ( app-emacs/oauth2 ) >=app-editors/emacs-27.2:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=A library to provide basic features about message representation or encoding
 EAPI=8
@@ -7,9 +7,9 @@ INHERIT=elisp
 IUSE=oauth2 test
 KEYWORDS=~alpha amd64 ppc ~ppc64 ~sparc x86
 LICENSE=GPL-2+
-RDEPEND=>=app-emacs/apel-10.8 oauth2? ( app-emacs/oauth2 ) >=app-editors/emacs-26.3:*
+RDEPEND=>=app-emacs/apel-10.8 oauth2? ( app-emacs/oauth2 ) >=app-editors/emacs-27.2:*
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/wanderlust/flim/archive/abdd2315006eb31476249223569808adb1c0f7b2.tar.gz -> flim-1.14.9_p20231218.tar.gz
-_eclasses_=elisp-common	0ea9a0d3bc26353e1642c73560a24fdf	elisp	46292cd5379143164fb87df42b872e5f
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f
 _md5_=659ed514fd3e01af113a7136efeb5dc8
