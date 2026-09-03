@@ -12,34 +12,18 @@ SRC_URI="https://github.com/FedoraQt/QGnomePlatform/archive/${PV}.tar.gz -> ${P}
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="amd64 ~arm64 ~ppc64 x86"
-
-IUSE="qt5 +qt6 wayland X"
-REQUIRED_USE="|| ( qt5 qt6 )"
+IUSE="wayland X"
 
 DEPEND="
-	qt5? (
-		>=dev-qt/qtcore-5.15.2:5
-		>=dev-qt/qtdbus-5.15.2:5
-		>=dev-qt/qtgui-5.15.2:5=
-		>=dev-qt/qtquickcontrols2-5.15.2:5
-		>=dev-qt/qtwidgets-5.15.2:5
-		wayland? ( dev-qt/qtwayland:5= )
-	)
-	qt6? (
-		dev-qt/qtbase:6=[dbus,gui,wayland?,widgets]
-		dev-qt/qtdeclarative:6
-	)
+	>=dev-qt/qtbase-6.10:6=[dbus,gui,wayland?,widgets]
+	>=dev-qt/qtdeclarative-6.10:6
 	gnome-base/gsettings-desktop-schemas
 	sys-apps/xdg-desktop-portal
 	x11-libs/gtk+:3[wayland?,X?]
 	>=x11-themes/adwaita-qt-1.4.2
 "
 RDEPEND="${DEPEND}"
-RDEPEND+=" || ( >=dev-qt/qtbase-6.10:6[wayland] <dev-qt/qtwayland-6.10:6 )"
-BDEPEND="
-	qt5? ( >=dev-qt/qtcore-5.15.2:5 )
-	qt6? ( dev-qt/qtbase:6 )
-"
+BDEPEND="dev-qt/qtbase:6"
 
 PATCHES=(
 	"${FILESDIR}/${P}-cmake4.patch" # bugs #958301, #965856
@@ -51,36 +35,15 @@ src_configure() {
 	use X || append-cppflags -DGENTOO_GTK_HIDE_X11
 	use wayland || append-cppflags -DGENTOO_GTK_HIDE_WAYLAND
 
-	if use qt5; then
-		BUILD_DIR="${WORKDIR}/${PN}_qt5"
-		local mycmakeargs=(
-			-DUSE_QT6=OFF
-			-DDISABLE_DECORATION_SUPPORT="$(usex wayland false true)"
-		)
-		cmake_src_configure
-	fi
-	if use qt6; then
-		BUILD_DIR="${WORKDIR}/${PN}_qt6"
-		local mycmakeargs=(
-			-DUSE_QT6=ON
-			-DDISABLE_DECORATION_SUPPORT="$(usex wayland false true)"
-		)
-		cmake_src_configure
-	fi
-}
-
-src_compile() {
-	local _d
-	for _d in "${WORKDIR}"/${PN}_qt*; do
-		cmake_src_compile -C "${_d}"
-	done
+	local mycmakeargs=(
+		-DUSE_QT6=ON
+		-DDISABLE_DECORATION_SUPPORT="$(usex wayland false true)"
+	)
+	cmake_src_configure
 }
 
 src_install() {
-	local _d
-	for _d in "${WORKDIR}"/${PN}_qt*; do
-		cmake_src_install -C "${_d}"
-	done
+	cmake_src_install
 
 	# https://github.com/FedoraQt/QGnomePlatform/pull/150#issuecomment-1689693729
 	insinto /etc/profile.d
