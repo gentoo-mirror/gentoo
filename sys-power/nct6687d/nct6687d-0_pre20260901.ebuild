@@ -9,7 +9,7 @@ if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Fred78290/nct6687d"
 else
-	COMMIT="cedda8bff09a4083e07414fb80fdc3901e7ab544"
+	COMMIT="5997c92b41081bfb870a9b6167b7e96e3efdd50f"
 	SRC_URI="https://github.com/Fred78290/${PN}/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${COMMIT}"
 	KEYWORDS="~amd64"
@@ -22,7 +22,7 @@ LICENSE="GPL-2"
 SLOT="0"
 
 src_compile() {
-	local modlist=( nct6687=drivers/hwmon::${KV_FULL}:build )
-	local modargs=( kver="${KV_FULL}" )
+	local modlist=( nct6687=kernel/drivers/hwmon:::build )
+	local modargs=( KVER="${KV_FULL}" KDIR="${KV_OUT_DIR}" )
 	linux-mod-r1_src_compile
 }
