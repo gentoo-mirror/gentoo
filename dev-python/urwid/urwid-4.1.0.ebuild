@@ -36,7 +36,7 @@ distutils_enable_tests pytest
 src_prepare() {
 	distutils-r1_src_prepare
 
-	sed -i -e 's:--cov=urwid::' pyproject.toml || die
+	sed -i -e 's:--cov --cov-report=term::' pyproject.toml || die
 }
 
 python_install_all() {
