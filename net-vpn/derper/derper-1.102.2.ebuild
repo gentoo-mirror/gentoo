@@ -5,7 +5,7 @@ EAPI=8
 inherit go-module linux-info systemd
 
 # share same source with net-vpn/tailscale
-VERSION_GIT_HASH="41cb72f27119f95b859335f3ffc3434d6ca55e23"
+VERSION_GIT_HASH="eb67e5dcbe145d63e1128b9b4b630f8a82da101f"
 VERSION_MINOR=$(ver_cut 2)
 VERSION_SHORT=${PV}
 VERSION_LONG=${PV}-t${VERSION_GIT_HASH::9}
@@ -26,7 +26,7 @@ CONFIG_CHECK="~TUN"
 BDEPEND="
 	acct-group/derper
 	acct-user/derper
-	>=dev-lang/go-1.26.1
+	>=dev-lang/go-1.26.4
 "
 
 RESTRICT="test"
