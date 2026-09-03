@@ -1,5 +1,6 @@
 BDEPEND=test? ( >=dev-python/pytest-7.4.4[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?,python_targets_python3_15(-)?] ) python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) python_targets_python3_15? ( dev-lang/python:3.15 ) >=dev-python/gpep517-16[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?,python_targets_python3_15(-)?] dev-python/setuptools[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?,python_targets_python3_15(-)?] >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) python_targets_python3_15? ( dev-lang/python:3.15 )
 DESCRIPTION=Produce ansi color output and colored highlighting and diffing
 EAPI=8
 HOMEPAGE=https://github.com/numerodix/ansicolor/ https://pypi.org/project/ansicolor/
@@ -11,5 +12,5 @@ RDEPEND=python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_pytho
 REQUIRED_USE=|| ( python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 python_targets_python3_15 )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	5fd9a75ca55021d3276ce969f8e28391	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	8b4cb6626db7331e3187d652f4bbf9d4	git-r3	e6c2f983e006e805160436c75a0c1562
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	47151ffc8266d5ec2b602510291bb537	git-r3	e6c2f983e006e805160436c75a0c1562
 _md5_=34dd0fe7013836b70db99c3ce34452b9
