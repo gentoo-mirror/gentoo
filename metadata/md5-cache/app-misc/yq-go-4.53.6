@@ -1,0 +1,14 @@
+BDEPEND=>=dev-lang/go-1.25.0 >=dev-lang/go-1.24.11:= app-arch/unzip
+DEFINED_PHASES=compile configure install test unpack
+DESCRIPTION=yq is a lightweight and portable command-line YAML, JSON and XML processor
+EAPI=9
+HOMEPAGE=https://github.com/mikefarah/yq
+INHERIT=go-module
+IUSE=+yq-symlink
+KEYWORDS=~amd64 ~arm ~arm64 ~loong
+LICENSE=MIT Apache-2.0 BSD BSD-2 MIT MPL-2.0 Unicode-DFS-2016
+RDEPEND=yq-symlink? ( !app-misc/yq[yq-symlink(+)] )
+SLOT=0
+SRC_URI=https://github.com/mikefarah/yq/archive/refs/tags/v4.53.6.tar.gz -> yq-4.53.6.tar.gz https://github.com/gentoo-golang-dist/yq/releases/download/v4.53.6/yq-4.53.6-vendor.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	sysroot	4c36abaf94ebd3ab32f8abea9a444121	go-env	fca4e820393c2eac25a944be8bdf6a3a	go-module	3d4b6f3f29b3ebdeb708785b3cb1743b
+_md5_=7e7811efcdc4fe30846f8ac87b451c84
