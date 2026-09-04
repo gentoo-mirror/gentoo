@@ -11,5 +11,5 @@ PDEPEND=!crypt? ( sys-libs/libxcrypt[system] )
 RDEPEND=crypt? ( !sys-libs/libxcrypt[system] )
 SLOT=0
 SRC_URI=https://musl.libc.org/releases/musl-1.2.6.tar.gz https://distfiles.gentoo.org/pub/proj/musl/musl-1.2.6-patches.tar.xz verify-sig? ( https://musl.libc.org/releases/musl-1.2.6.tar.gz.asc ) https://dev.gentoo.org/~blueness/musl-misc/getconf.c https://gitlab.alpinelinux.org/alpine/aports/-/raw/93a08815f8598db442d8b766b463d0150ed8e2ab/main/musl/getent.c -> musl-getent-93a08815f8598db442d8b766b463d0150ed8e2ab.c https://dev.gentoo.org/~blueness/musl-misc/iconv.c
-_eclasses_=toolchain-funcs	2f41a8be575064b75d9ac9edaa06af9a	crossdev	d618c699554f72b98f8ceeeeb361dc9e	flag-o-matic	fd3558f73f6503093adee69adf41020d	prefix	2765cb74ebcf9f9ac73893d4503c8cb6	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	crossdev	d618c699554f72b98f8ceeeeb361dc9e	flag-o-matic	fd3558f73f6503093adee69adf41020d	prefix	2765cb74ebcf9f9ac73893d4503c8cb6	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
 _md5_=944b3d0109b0a10308d3e7d036b520c9
