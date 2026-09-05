@@ -3,7 +3,7 @@ DEFINED_PHASES=compile configure install postinst postrm test unpack
 DESCRIPTION=Systems programming language from Mozilla
 EAPI=8
 HOMEPAGE=https://www.rust-lang.org/
-INHERIT=edo llvm-r1 multilib prefix rust-toolchain verify-sig multilib-minimal optfeature
+INHERIT=edo llvm-r2 multilib prefix rust-toolchain verify-sig multilib-minimal optfeature
 IUSE=big-endian +clippy cpu_flags_x86_sse2 +doc prefix rust-analyzer rust-src +rustfmt +llvm_slot_22 verify-sig abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
 LICENSE=|| ( MIT Apache-2.0 ) BSD BSD-1 BSD-2 BSD-4
 PROPERTIES=live
@@ -11,5 +11,5 @@ RDEPEND=>=app-eselect/eselect-rust-20190311 dev-libs/openssl net-misc/curl sys-a
 REQUIRED_USE=x86? ( cpu_flags_x86_sse2 )
 RESTRICT=strip
 SLOT=9999
-_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	e558c35fbd4579d7a50dc777145e3af5	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	multilib	fc812e8eb2170022c28272d80a1f9e77	prefix	2765cb74ebcf9f9ac73893d4503c8cb6	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib-build	d7802b3638ffc661375c0021cdd19efd	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988
-_md5_=311c9d9f9d588c09ca04465a65aad768
+_eclasses_=edo	a5e294016aa84979fcb2459749eb80b2	llvm-utils	e7edb4086e31c8537574b263d899f826	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	56f5637f85225a4b5312d9055a7727d8	prefix	2765cb74ebcf9f9ac73893d4503c8cb6	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib-build	d7802b3638ffc661375c0021cdd19efd	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988
+_md5_=eb30d95f0f350fe0d15d553649c96b2d
