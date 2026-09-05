@@ -10,7 +10,7 @@ EAPI=8
 
 CMAKE_REMOVE_MODULES_LIST=( FindBoost )
 CMAKE_WARN_UNUSED_CLI=no # false positives unless all USE flags are on
-PYTHON_COMPAT=( python3_{12..13} )
+PYTHON_COMPAT=( python3_{12..14} )
 LUA_COMPAT=( lua5-{3..4} )
 
 inherit check-reqs bash-completion-r1 cmake flag-o-matic lua-single multiprocessing \
@@ -230,6 +230,8 @@ PATCHES=(
 	# https://bugs.gentoo.org/969039
 	"${FILESDIR}"/ceph-20.1.1-boost-1.89-{1,2,3}.patch
 	"${WORKDIR}/ceph-20.2.0-libarrow-20.0.0.patch"
+	"${FILESDIR}/ceph-20.2.1-boost-1.90-intrusive_ptr_fixes.patch"
+	"${FILESDIR}/ceph-20.2.1-rgw_error_handler.patch"
 )
 
 check-reqs_export_vars() {
