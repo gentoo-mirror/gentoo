@@ -3966,6 +3966,7 @@ mail-client/s-nail:ssl - If network is enabled, this adds support for S/MIME and
 mail-client/thunderbird:clang - Use Clang compiler instead of GCC
 mail-client/thunderbird:eme-free - Disable EME (DRM plugin) capability at build time
 mail-client/thunderbird:hwaccel - Force-enable hardware-accelerated rendering (Mozilla bug 594876)
+mail-client/thunderbird:jumbo-build - Enable unified build - combines source files to speed up build process, but requires more memory
 mail-client/thunderbird:libproxy - Enable libproxy support
 mail-client/thunderbird:pgo - Add support for profile-guided optimization using gcc-4.5, for faster binaries. This option will double the compile time.
 mail-client/thunderbird:pulseaudio - Add sound server support via media-libs/libpulse (may be PulseAudio or Pipewire, or apulse if installed)
