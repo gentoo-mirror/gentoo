@@ -22,7 +22,7 @@ S="${WORKDIR}/freenet-build0${PV#*p}"
 
 LICENSE="GPL-2+ GPL-2 MIT BSD-2 Apache-2.0"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="~amd64"
 IUSE="+nss"
 
 # Since 0.7.5_p1505-r1 we drop dev-java/mersennetwister which was
@@ -49,7 +49,9 @@ DEPEND="
 	${CP_DEPEND}
 	test? (
 		dev-java/hamcrest:0
-		dev-java/mockito:1
+		>=dev-java/jakarta-activation-2.0.1-r1:2
+		>=dev-java/jsoup-1.23.2:0
+		>=dev-java/mockito-2.28.2-r1:2
 		dev-java/objenesis:0
 	)
 "
@@ -81,7 +83,7 @@ JAVADOC_ARGS="-source 8" # bug #967404
 JAVA_CLASSPATH_EXTRA="java-service-wrapper,unbescape"
 JAVA_RESOURCE_DIRS="res"
 JAVA_SRC_DIR="src"
-JAVA_TEST_GENTOO_CLASSPATH="hamcrest,junit-4,mockito-1,objenesis"
+JAVA_TEST_GENTOO_CLASSPATH="hamcrest,jakarta-activation-2,junit-4,jsoup,mockito-2,objenesis"
 
 # Yes, both variables point to the same directory
 # https://github.com/hyphanet/fred/blob/build01497/build.gradle#L169-L173
