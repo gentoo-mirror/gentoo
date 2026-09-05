@@ -8,9 +8,10 @@ JAVA_TESTING_FRAMEWORKS="junit-4"
 
 inherit java-pkg-2 java-pkg-simple systemd toolchain-funcs verify-sig
 
+FEV="29" # NativeThread.c is needed for compilation
+
 DESCRIPTION="Freenet REference Daemon"
 HOMEPAGE="https://www.hyphanet.org"
-FEV="29"
 SRC_URI="https://github.com/hyphanet/fred/releases/download/build0${PV#*p}/freenet-build0${PV#*p}-source.tar.bz2
 	https://github.com/hyphanet/seedrefs/archive/build01480.tar.gz -> seednodes-0.7.5_p1480.tar.gz
 	https://github.com/hyphanet/contrib/archive/v${FEV}.tar.gz -> freenet-ext-${FEV}.tar.gz
