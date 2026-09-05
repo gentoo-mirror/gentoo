@@ -31,28 +31,28 @@ IUSE="+nss"
 # http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html
 # It is now built by using more sources of dev-java/freenet-ext.
 CP_DEPEND="
-	dev-java/bcprov:0
-	dev-java/commons-compress:0
-	>=dev-java/commons-io-2.19.0:0
+	>=dev-java/bcprov-1.84:0
+	>=dev-java/commons-compress-1.18.0:0
+	>=dev-java/commons-io-2.21.0:0
 	>=dev-java/freenet-ext-29-r3:29
 	dev-java/java-service-wrapper:0
 	dev-java/jbitcollider-core:0
-	>=dev-java/jna-5.17.0:0
-	>=dev-java/lzma-24.09:0
+	>=dev-java/jna-5.18.1:0
+	>=dev-java/lzma-26.03:0
 	dev-java/lzmajio:0
-	dev-java/pebble:0
+	>=dev-java/pebble-3.1.6:0
 "
 
 DEPEND="
-	dev-java/unbescape:0
+	>=dev-java/unbescape-1.1.6:0
 	>=virtual/jdk-1.8:*
 	${CP_DEPEND}
 	test? (
-		dev-java/hamcrest:0
+		>=dev-java/hamcrest-3.0:0
 		>=dev-java/jakarta-activation-2.0.1-r1:2
 		>=dev-java/jsoup-1.23.2:0
 		>=dev-java/mockito-2.28.2-r1:2
-		dev-java/objenesis:0
+		>=dev-java/objenesis-3.4:0
 	)
 "
 
