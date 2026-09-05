@@ -1,0 +1,13 @@
+BDEPEND=|| ( app-arch/unzip app-arch/zip )
+DEFINED_PHASES=compile install prepare setup
+DESCRIPTION=Free UCI chess engine, claimed to be the strongest in the world
+EAPI=8
+HOMEPAGE=https://stockfishchess.org/
+INHERIT=toolchain-funcs
+IUSE=cpu_flags_arm_v7 cpu_flags_x86_avx2 cpu_flags_x86_popcnt cpu_flags_x86_sse cpu_flags_x86_avx512f cpu_flags_x86_avx512dq debug general-32 general-64 +optimize
+KEYWORDS=~amd64 ~arm64 ~loong ~riscv ~x86
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://github.com/official-stockfish/Stockfish/archive/sf_19.tar.gz -> stockfish-19.tar.gz https://tests.stockfishchess.org/api/nn/nn-1a298aa575a0.nnue -> stockfish-19-nn-1a298aa575a0.nnue
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5
+_md5_=22e49abbb761920f15fcaf948b51a0fe
