@@ -15,9 +15,9 @@ HOMEPAGE="
 	https://pypi.org/project/jupyter-builder/
 "
 
-LICENSE="BSD MIT ISC"
+LICENSE="Apache-2.0 BSD MIT ISC"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~riscv ~x86"
 
 RDEPEND="
 	!<dev-python/jupyterlab-4.6.0

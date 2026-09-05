@@ -15,22 +15,22 @@ CRATES="
 	autocfg@1.5.1
 	bitflags@2.13.1
 	bumpalo@3.20.3
-	cc@1.4.2
+	cc@1.4.4
 	cfg-if@1.0.4
 	chrono@0.4.45
 	core-foundation-sys@0.8.7
 	fastrand@2.5.0
-	find-msvc-tools@0.1.10
-	futures-core@0.3.33
-	futures-task@0.3.33
-	futures-util@0.3.33
+	find-msvc-tools@0.1.11
+	futures-core@0.3.34
+	futures-task@0.3.34
+	futures-util@0.3.34
 	heck@0.5.0
 	iana-time-zone-haiku@0.1.2
 	iana-time-zone@0.1.65
 	js-sys@0.3.104
 	libc@0.2.189
 	lock_api@0.4.14
-	log@0.4.33
+	log@0.4.34
 	num-traits@0.2.19
 	once_cell@1.21.4
 	parking_lot@0.12.5

@@ -4,9 +4,10 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=flit-core
+PYPI_VERIFY_REPO=https://github.com/py-pdf/pypdf
 PYTHON_COMPAT=( python3_{12..15} )
 
-inherit distutils-r1
+inherit distutils-r1 pypi
 
 SAMPLE_COMMIT=818dc013ad1f537198e9fcfae8a6b0dffe25ffa3
 DESCRIPTION="Python library to work with PDF files"
@@ -14,9 +15,7 @@ HOMEPAGE="
 	https://pypi.org/project/pypdf/
 	https://github.com/py-pdf/pypdf/
 "
-SRC_URI="
-	https://github.com/py-pdf/pypdf/archive/${PV}.tar.gz
-		-> ${P}.gh.tar.gz
+SRC_URI+="
 	test? (
 		https://github.com/py-pdf/sample-files/archive/${SAMPLE_COMMIT}.tar.gz
 			-> ${PN}-sample-files-${SAMPLE_COMMIT}.gh.tar.gz
@@ -44,12 +43,14 @@ distutils_enable_tests pytest
 EPYTEST_DESELECT=(
 	# probably requires extra deps
 	tests/test_appearance_stream.py::test_appearance_stream_rtl
+	# speed test, uses tons of memory
+	tests/test_filters.py::test_flatedecode__decode_png_prediction__speed
 )
 
 src_unpack() {
 	default
 	if use test; then
-		mv "sample-files-${SAMPLE_COMMIT}"/* "${S}"/sample-files/ || die
+		mv "sample-files-${SAMPLE_COMMIT}" "${S}"/sample-files || die
 	fi
 }
 
