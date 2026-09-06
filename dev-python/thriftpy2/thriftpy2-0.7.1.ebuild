@@ -5,6 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
+PYPI_VERIFY_REPO=https://github.com/Thriftpy/thriftpy2
 PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
@@ -22,14 +23,13 @@ if [[ ${PV} != *_beta* ]]; then
 fi
 
 RDEPEND="
+	=dev-python/ijson-3*[${PYTHON_USEDEP}]
 	<dev-python/ply-4[${PYTHON_USEDEP}]
-	<dev-python/six-2[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	>=dev-python/cython-3.0.10[${PYTHON_USEDEP}]
 	test? (
 		>=dev-python/aiohttp-3.8.0[${PYTHON_USEDEP}]
-		dev-python/tornado[${PYTHON_USEDEP}]
 	)
 "
 
