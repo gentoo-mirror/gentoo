@@ -32,11 +32,15 @@ BDEPEND="
 	test? ( dev-util/ccache )
 "
 
-distutils-r1_src_prepare() {
+src_prepare() {
+	local PATCHES=(
+		"${FILESDIR}/${PN}-4.2-disable-update-check.patch"
+	)
+	distutils-r1_src_prepare
+
 	# remove vendored version of SCons that is Python2 only
 	# this should be removed when upstream removes support for Python2
 	rm -vR "nuitka/build/inline_copy/lib/scons-2.3.2/SCons" || die
-	eapply_user
 }
 
 python_install() {
