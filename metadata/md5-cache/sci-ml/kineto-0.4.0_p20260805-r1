@@ -1,6 +1,6 @@
 BDEPEND=test? ( dev-cpp/gtest ) || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/libfmt dev-libs/dynolog
+DEPEND=dev-libs/dynolog dev-libs/libfmt
 DESCRIPTION=part of the PyTorch Profiler
 EAPI=8
 HOMEPAGE=https://github.com/pytorch/kineto
@@ -8,9 +8,9 @@ INHERIT=python-any-r1 cmake prefix
 IUSE=rocm cuda test
 KEYWORDS=~amd64 ~arm64
 LICENSE=BSD
-RDEPEND=dev-libs/libfmt dev-libs/dynolog
+RDEPEND=dev-libs/dynolog
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/pytorch/kineto/archive/15f4784a3471d4db8b31720d528f2f57cd2b1f40.tar.gz -> kineto-0.4.0_p20260805.tar.gz
 _eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc	python-any-r1	891415dfe39ad9b41b461f2b86354af0	flag-o-matic	fd3558f73f6503093adee69adf41020d	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	prefix	2765cb74ebcf9f9ac73893d4503c8cb6
-_md5_=41370f26a279db93217d65d1531abf78
+_md5_=acc91d60d22f24b3b7fecf653937be70
