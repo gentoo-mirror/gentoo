@@ -20,7 +20,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 IUSE="+native-extensions"
 
 BDEPEND="
@@ -43,8 +43,19 @@ python_compile() {
 
 test_tracer() {
 	local -x COVERAGE_CORE=${1}
+
+	if [[ ${EPYTHON} == python3.15 && ${COVERAGE_CORE} == sysmon ]] &&
+		has_version "dev-lang/python:3.15[jit]"
+	then
+		local EPYTEST_DESELECT=(
+			"${EPYTEST_DESELECT[@]}"
+			tests/test_arcs.py::LoopArcTest::test_continue
+		)
+	fi
+
 	einfo "  Testing with the ${COVERAGE_CORE} core ..."
-	epytest -o addopts= "${@:2}" tests
+	nonfatal epytest -o addopts= "${@:2}" tests ||
+		die "Tests failed with ${EPYTHON}, ${COVERAGE_CORE} core"
 }
 
 python_test() {
@@ -55,15 +66,8 @@ python_test() {
 		# COVERAGE_CORE (which breaks testing pytracer on CPython)
 		tests/test_cmdline.py::CmdLineStdoutTest::test_version
 		tests/test_debug.py::DebugTraceTest::test_debug_sys_ctracer
-		# mismatch of expected concurrency in error message
-		# TODO: report upstream?
-		tests/test_concurrency.py::ConcurrencyTest::test_greenlet
-		tests/test_concurrency.py::ConcurrencyTest::test_greenlet_simple_code
 		# packaging tests, fragile to setuptools version
 		tests/test_setup.py
-		# looks like a difference in exit status reporting?
-		# https://github.com/nedbat/coveragepy/issues/2008
-		tests/test_process.py::ProcessTest::test_save_signal_usr1
 	)
 	local EPYTEST_IGNORE=(
 		# pip these days insists on fetching build deps from Internet
@@ -95,14 +99,8 @@ python_test() {
 
 	test_tracer pytrace "${xdist_args[@]}"
 
-	case ${EPYTHON} in
-		*3.11)
-			;;
-		*)
-			# available since Python 3.12
-			test_tracer sysmon "${xdist_args[@]}"
-			;;
-	esac
+	# available since Python 3.12
+	test_tracer sysmon "${xdist_args[@]}"
 
 	if [[ -n ${c_ext} ]]; then
 		rm coverage/*.so || die

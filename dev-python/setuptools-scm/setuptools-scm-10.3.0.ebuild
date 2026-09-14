@@ -25,11 +25,11 @@ RDEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]
 	>=dev-python/setuptools-64[${PYTHON_USEDEP}]
 	=dev-python/vcs-versioning-2*[${PYTHON_USEDEP}]
-	>=dev-python/vcs-versioning-2.3.2[${PYTHON_USEDEP}]
+	>=dev-python/vcs-versioning-2.4.0[${PYTHON_USEDEP}]
 "
 BDEPEND="
 	=dev-python/vcs-versioning-2*[${PYTHON_USEDEP}]
-	>=dev-python/vcs-versioning-2.3.2[${PYTHON_USEDEP}]
+	>=dev-python/vcs-versioning-2.4.0[${PYTHON_USEDEP}]
 	test? (
 		dev-python/build[${PYTHON_USEDEP}]
 		dev-python/typing-extensions[${PYTHON_USEDEP}]

@@ -80,6 +80,10 @@ python_test() {
 		# TODO
 		tests/test_formats.py::test_export_from_pylock_not_empty
 	)
+	local EPYTEST_IGNORE=(
+		# requires missing tasks file, probably irrelevant to us
+		tests/test_doc_generation.py
+	)
 
 	epytest -m "not network and not integration and not path"
 }
