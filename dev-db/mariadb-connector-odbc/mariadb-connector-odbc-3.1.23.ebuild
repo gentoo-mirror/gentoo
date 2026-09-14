@@ -6,13 +6,13 @@ EAPI=8
 inherit cmake-multilib flag-o-matic
 
 DESCRIPTION="MariaDB Connector/ODBC"
-HOMEPAGE="https://mariadb.org/connector-odbc/all-releases/ https://github.com/mariadb-corporation/mariadb-connector-odbc/"
+HOMEPAGE="https://downloads.mariadb.org/connector-odbc/"
 SRC_URI="mirror://mariadb/connector-odbc-${PV}/${P}-src.tar.gz"
 S="${S}-src"
 
 LICENSE="LGPL-2.1"
-SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="amd64 ~x86"
+SLOT="0/3.1"
+KEYWORDS="~amd64 ~x86"
 IUSE="ssl"
 
 # USE=ssl merely enables the configuration options (seemingly for interactive
