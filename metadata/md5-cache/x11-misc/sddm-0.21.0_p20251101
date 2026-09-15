@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/sddm/sddm
 INHERIT=cmake linux-info pam systemd tmpfiles
 IUSE=+elogind systemd test
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=amd64 arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-2+ MIT CC-BY-3.0 CC-BY-SA-3.0 public-domain
 RDEPEND=acct-group/sddm acct-user/sddm >=dev-qt/qtbase-6.7.2:6[dbus,gui,network] >=dev-qt/qtdeclarative-6.7.2:6 sys-libs/pam x11-libs/libXau x11-libs/libxcb:= elogind? ( sys-auth/elogind[pam] sys-power/upower ) systemd? ( sys-apps/systemd:=[pam] ) gui-apps/sddm-gentoo-config !systemd? ( gui-libs/display-manager-init ) virtual/tmpfiles
 REQUIRED_USE=^^ ( elogind systemd )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/sddm/sddm/archive/dfa5315fd600760f8f3abddf7fb704202ffb07b3.tar.gz -> sddm-0.21.0_p20251101-dfa5315f.tar.gz https://dev.gentoo.org/~asturm/distfiles/sddm-0.21.0-pam.tar.xz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	linux-info	efd923656513c879204fec6638eadee5	pam	b56d0c9c20fc5b553f13c8ae165a10a5	systemd	a964c0cbe818b5729da1dbfcee5be861	tmpfiles	e0b49bcd7a0daea941c0fbe4cb35ff4e
-_md5_=7b75dda7b4e2ab1996b2072a051868ef
+_md5_=1c91e8fdd4f5b16cc37c64f63f097bf7
