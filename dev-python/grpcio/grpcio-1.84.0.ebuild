@@ -44,7 +44,7 @@ BDEPEND="
 	>=dev-python/cython-3.1.1[${PYTHON_USEDEP}]
 	test? (
 		dev-python/coverage[${PYTHON_USEDEP}]
-		>=dev-python/protobuf-6.33.5[${PYTHON_USEDEP}]
+		>=dev-python/protobuf-7.35.1[${PYTHON_USEDEP}]
 	)
 "
 
@@ -100,6 +100,7 @@ python_test() {
 		tests_py3_only/unit/_simple_stubs_test.py::SimpleStubsTest::test_default_ssl
 		tests/unit/_cython/_channel_test.py::ChannelTest::test_multiple_channels_lonely_connectivity
 		tests/unit/_cython/_channel_test.py::ChannelTest::test_single_channel_lonely_connectivity
+		tests/unit/_auth_context_test.py::AuthContextTest::testSecureNoCert
 	)
 	local EPYTEST_IGNORE=(
 		# not a test

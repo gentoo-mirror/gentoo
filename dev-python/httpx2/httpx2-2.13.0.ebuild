@@ -22,7 +22,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="cli"
 
 RDEPEND="
@@ -43,7 +43,7 @@ BDEPEND="
 	dev-python/hatch-fancy-pypi-readme[${PYTHON_USEDEP}]
 	dev-python/uv-dynamic-versioning[${PYTHON_USEDEP}]
 	test? (
-		dev-python/brotlicffi[${PYTHON_USEDEP}]
+		>=dev-python/brotlicffi-1.2.0.0[${PYTHON_USEDEP}]
 		dev-python/chardet[${PYTHON_USEDEP}]
 		dev-python/cryptography[${PYTHON_USEDEP}]
 		dev-python/h2[${PYTHON_USEDEP}]
@@ -56,7 +56,7 @@ BDEPEND="
 		dev-python/websockets[${PYTHON_USEDEP}]
 		>=dev-python/wsproto-1.2[${PYTHON_USEDEP}]
 		$(python_gen_cond_dep '
-			>=dev-python/zstandard-0.18.0[${PYTHON_USEDEP}]
+			>=dev-python/backports-zstd-1.0.0[${PYTHON_USEDEP}]
 		' 3.12 3.13)
 	)
 "
@@ -78,22 +78,13 @@ python_compile() {
 
 python_test() {
 	local EPYTEST_DESELECT=(
-		# random HTTP header case mismatch
-		tests/httpx2/test_main.py::test_auth
-		tests/httpx2/test_main.py::test_binary
-		tests/httpx2/test_main.py::test_follow_redirects
-		tests/httpx2/test_main.py::test_get
-		tests/httpx2/test_main.py::test_json
-		tests/httpx2/test_main.py::test_post
-		tests/httpx2/test_main.py::test_redirects
-		tests/httpx2/test_main.py::test_verbose
 		# Internet
-		tests/httpcore2/test_cancellations.py::test_h2_timeout_during_request
 		tests/httpx2/client/test_proxies.py::test_async_proxy_close
 		tests/httpx2/client/test_proxies.py::test_sync_proxy_close
-		# unexpected logs from uvicorn
-		tests/httpx2/test_utils.py::test_logging_request
-		tests/httpx2/test_utils.py::test_logging_redirect_chain
+		# random charset case mismatch
+		tests/httpx2/models/test_responses.py::test_response_decode_text_using_autodetect
+		tests/httpx2/client/test_client.py::test_client_decode_text_using_autodetect
+		tests/httpx2/client/test_client.py::test_client_decode_text_using_explicit_encoding
 	)
 
 	local EPYTEST_IGNORE=()

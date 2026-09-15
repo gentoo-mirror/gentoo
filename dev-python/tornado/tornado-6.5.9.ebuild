@@ -20,7 +20,7 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="test"
 RESTRICT="!test? ( test )"
 
@@ -38,8 +38,6 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}/${PN}-6.3.2-ignore-deprecationwarning.patch"
-	# https://github.com/tornadoweb/tornado/pull/3678
-	"${FILESDIR}/${P}-pycurl-7.47.0.patch"
 )
 
 src_prepare() {

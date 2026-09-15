@@ -18,7 +18,7 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="test-rust"
 
 RDEPEND="
@@ -30,7 +30,7 @@ BDEPEND="
 	test? (
 		dev-python/a2wsgi[${PYTHON_USEDEP}]
 		>=dev-python/httptools-0.8.0[${PYTHON_USEDEP}]
-		>=dev-python/httpx-0.28[${PYTHON_USEDEP}]
+		dev-python/httpx2[${PYTHON_USEDEP}]
 		dev-python/python-dotenv[${PYTHON_USEDEP}]
 		dev-python/pyyaml[${PYTHON_USEDEP}]
 		dev-python/typing-extensions[${PYTHON_USEDEP}]
