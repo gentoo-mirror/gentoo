@@ -1,16 +1,16 @@
-BDEPEND=virtual/pkgconfig modules? ( dev-util/pahole sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig ) )
-DEFINED_PHASES=compile configure install postinst prepare setup
+BDEPEND=virtual/pkgconfig app-arch/zstd modules? ( dev-util/pahole sys-apps/kmod[tools] modules-sign? ( dev-libs/openssl virtual/pkgconfig ) )
+DEFINED_PHASES=compile configure install postinst prepare setup unpack
 DEPEND=net-firewall/iptables:= modules? ( virtual/linux-sources )
 DESCRIPTION=iptables extensions not yet accepted in the main kernel
 EAPI=8
 HOMEPAGE=https://inai.de/projects/xtables-addons/ https://codeberg.org/jengelh/xtables-addons/
 IDEPEND=modules? ( sys-apps/kmod[tools] )
-INHERIT=flag-o-matic linux-mod-r1 toolchain-funcs
+INHERIT=flag-o-matic linux-mod-r1 toolchain-funcs unpacker
 IUSE=xtables_addons_account xtables_addons_chaos xtables_addons_delude xtables_addons_dhcpmac xtables_addons_dnetmap xtables_addons_echo xtables_addons_ipmark xtables_addons_logmark xtables_addons_proto xtables_addons_sysrq xtables_addons_tarpit xtables_addons_asn xtables_addons_condition xtables_addons_fuzzy xtables_addons_geoip xtables_addons_gradm xtables_addons_iface xtables_addons_ipp2p xtables_addons_ipv4options xtables_addons_length2 xtables_addons_lscan xtables_addons_pknock xtables_addons_psd xtables_addons_quota2 dist-kernel modules-compress modules-sign +strip +modules
 KEYWORDS=~amd64 ~x86
 LICENSE=GPL-2+
 RDEPEND=net-firewall/iptables:= xtables_addons_asn? ( app-arch/unzip dev-perl/Net-CIDR-Lite dev-perl/Text-CSV_XS ) xtables_addons_geoip? ( app-arch/unzip dev-perl/Net-CIDR-Lite dev-perl/Text-CSV_XS ) modules? ( sys-apps/kmod[tools] dist-kernel? ( virtual/dist-kernel:= ) )
 SLOT=0
-SRC_URI=https://inai.de/files/xtables-addons/xtables-addons-3.28.tar.xz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	dist-kernel-utils	8df0d36d9be6b29df11da25bfa7a9e60	edo	a5e294016aa84979fcb2459749eb80b2	linux-info	efd923656513c879204fec6638eadee5	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	linux-mod-r1	c07d9d48506ae94ea189c64f2f78a94a
-_md5_=86f9c7d89fdf3ebf0f90cfedb0be84cb
+SRC_URI=https://inai.de/files/xtables-addons/xtables-addons-3.31.tar.zst
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	mount-boot-utils	2551bac1a772f4b6beacb494a750ae92	dist-kernel-utils	8df0d36d9be6b29df11da25bfa7a9e60	edo	a5e294016aa84979fcb2459749eb80b2	linux-info	efd923656513c879204fec6638eadee5	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	linux-mod-r1	c07d9d48506ae94ea189c64f2f78a94a	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2
+_md5_=0b4ea17aa3c4c75bffc8936f405bfdd9

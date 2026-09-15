@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile install prepare
+DEPEND=mpi? ( virtual/mpi )
+DESCRIPTION=SParse Object Oriented Linear Equations Solver
+EAPI=8
+HOMEPAGE=http://www.netlib.org/linalg/spooles
+INHERIT=toolchain-funcs flag-o-matic
+IUSE=mpi static-libs threads
+KEYWORDS=~amd64
+LICENSE=public-domain
+RDEPEND=mpi? ( virtual/mpi )
+RESTRICT=test
+SLOT=0
+SRC_URI=http://www.netlib.org/linalg/spooles/spooles.2.2.tgz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d
+_md5_=0ee56359ce199aaa2c6698df5db69108

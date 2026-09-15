@@ -4229,6 +4229,7 @@ media-gfx/freecad:robot - Build the robot module and workbench for studying robo
 media-gfx/freecad:smesh - Build Salome SMESH
 media-gfx/freecad:spacenav - Add support for space navigator devices through dev-libs/libspnav
 media-gfx/freecad:surface - Build the surface module and workbench
+media-gfx/freecad:tbb - Enable multithreading with the Intel Threads Building Block dev-cpp/tbb
 media-gfx/freecad:techdraw - Build the techdraw module and workbench, a more advanced and feature-rich successor of the drawing workbench
 media-gfx/geeqie:ffmpegthumbnailer - Enable video thumbnail support with media-video/ffmpegthumbnailer
 media-gfx/geeqie:map - Enable items GPS map display
@@ -7520,6 +7521,7 @@ sci-libs/netcdf:dap - Support for remote data access with the built-in OPeNDAP c
 sci-libs/netcdf:hdf - Build with HDF4 read capability(sci-libs/hdf, sci-libs/hdf5 and virtual/zlib required).
 sci-libs/nlopt:octave - Add plugin for sci-mathematics/octave
 sci-libs/octomap:dynamicEDT3D - Build and install dynamicEDT3D library: A library for incrementally updatable Euclidean distance transforms in 3D.
+sci-libs/ondselsolver:tools - build the standalone OndselSolver executable
 sci-libs/openblas:cpudetection - Build dynamic architecture detection at run time (for multi targets)
 sci-libs/openblas:eselect-ldso - Enable BLAS/LAPACK runtime switching
 sci-libs/openblas:index64 - Compile a separate INTERFACE64 OpenBLAS
@@ -7538,12 +7540,13 @@ sci-libs/pastix:int64 - Use 64- rather than 32-bit integer representation
 sci-libs/pastix:metis - Enable matrix ordering with sci-libs/metis
 sci-libs/pastix:scotch - Enable matrix ordering with sci-libs/scotch
 sci-libs/pastix:starpu - Enable support for ther dev-libs/starpu runtime
-sci-libs/pcl:openni - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI.
-sci-libs/pcl:openni2 - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI2 (should be preferred over openni).
-sci-libs/pcl:pcap - Adds pcap file capabilities in some drivers.
-sci-libs/pcl:qhull - Adds convex-hull operation support via media-libs/qhull.
-sci-libs/pcl:tutorials - Builds and installs tutorials.
-sci-libs/pcl:vtk - Adds support for VTK-Visualizations.
+sci-libs/pcl:apps - Build application examples/samples that show how PCL works
+sci-libs/pcl:openni - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI
+sci-libs/pcl:openni2 - Adds support for Kinect-like 3D sensors devices with dev-libs/OpenNI2 (should be preferred over openni)
+sci-libs/pcl:pcap - Adds pcap file capabilities in some drivers
+sci-libs/pcl:qhull - Adds convex-hull operation support via media-libs/qhull
+sci-libs/pcl:tutorials - Builds and installs tutorials
+sci-libs/pcl:vtk - Adds support for VTK-Visualizations
 sci-libs/plplot:dynamic - Build with dynamic drivers
 sci-libs/plplot:octave - Add bindings for sci-mathematics/octave
 sci-libs/plplot:qhull - Add bindings for media-libs/qhull
@@ -7616,13 +7619,20 @@ sci-libs/vtk:logging - Build the logging module
 sci-libs/vtk:opencascade - Enable OpenCASCADE support
 sci-libs/vtk:openvdb - Build support to handle VDB data files
 sci-libs/vtk:pdal - Build support to handle point cloud data files
+sci-libs/vtk:qt6 - Use Qt6 packages instead of Qt5
 sci-libs/vtk:rendering - Building Redering modules
 sci-libs/vtk:tbb - Use dev-cpp/tbb to handle smp support
+sci-libs/vtk:truetype - Build support for font rendering
+sci-libs/vtk:video_cards_nvidia - Support running on NVIDIA GPUs using x11-drivers/nvidia-drivers
+sci-libs/vtk:video_cards_zink - Run tests using the MESA Zink OpenGL-over-Vulkan driver
 sci-libs/vtk:views - Building Views modules
 sci-libs/vtk:vtkm - Build the viskores accelerations modules
 sci-libs/vtk:web - Install web component
 sci-mathematics/bertini:optimization - Accept upstream's choices for -O option.
 sci-mathematics/cadabra:jupyter - Build the Cadabra Jupyter kernel
+sci-mathematics/cgal:demos - Build demos during test (requires USE=test)
+sci-mathematics/cgal:examples - Build examples during test (requires USE=test)
+sci-mathematics/cgal:test-full - Run demos and examples when testing
 sci-mathematics/coq:native-compiler - Enable "native_compute" and compile the Coq Standard Library
 sci-mathematics/cvc4:cln - Use sci-libs/cln
 sci-mathematics/cvc4:proofs - Support for proof generation

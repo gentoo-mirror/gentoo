@@ -1,15 +1,15 @@
-BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig test? ( dev-cpp/gtest dev-libs/openssl ) app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-cpp/eigen:=
-DESCRIPTION=C++ header-only library for Nearest Neighbor (NN) search wih KD-trees
+DEPEND=dev-cpp/fast_float dev-libs/libzip:= virtual/zlib:=
+DESCRIPTION=Implementation of the 3D Manufacturing Format file standard
 EAPI=8
-HOMEPAGE=https://github.com/jlblancoc/nanoflann
+HOMEPAGE=https://3mf.io/ https://github.com/3MFConsortium/lib3mf
 INHERIT=cmake git-r3
-IUSE=examples test
+IUSE=test
 LICENSE=BSD
 PROPERTIES=live
-RDEPEND=dev-cpp/eigen:=
+RDEPEND=dev-cpp/fast_float dev-libs/libzip:= virtual/zlib:=
 RESTRICT=!test? ( test )
-SLOT=0
+SLOT=0/9999
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=a8269def3f4fc8ec00b5ca73cd254c91
+_md5_=5ca29edaa2cec2b6bed1b1997475d891

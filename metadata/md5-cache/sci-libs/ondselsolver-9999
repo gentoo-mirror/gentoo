@@ -1,15 +1,14 @@
 BDEPEND=app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=dev-cpp/eigen:=
-DESCRIPTION=C++ header-only library for Nearest Neighbor (NN) search wih KD-trees
+DEPEND=test? ( dev-cpp/gtest )
+DESCRIPTION=Assembly Constraints and Multibody Dynamics code
 EAPI=8
-HOMEPAGE=https://github.com/jlblancoc/nanoflann
+HOMEPAGE=https://github.com/FreeCAD/OndselSolve
 INHERIT=cmake git-r3
-IUSE=examples test
-LICENSE=BSD
+IUSE=test tools
+LICENSE=LGPL-2.1
 PROPERTIES=live
-RDEPEND=dev-cpp/eigen:=
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=a8269def3f4fc8ec00b5ca73cd254c91
+_md5_=097a5340caaf4df3374f9760277a934b
