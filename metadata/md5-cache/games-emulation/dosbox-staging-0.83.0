@@ -1,6 +1,6 @@
 BDEPEND=test? ( dev-cpp/gtest ) sc55? ( virtual/pkgconfig ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
-DEPEND=debug? ( sys-libs/ncurses:0= ) mt-32? ( media-libs/munt-mt32emu ) opengl? ( virtual/opengl ) slirp? ( net-libs/libslirp ) dev-cpp/asio media-libs/alsa-lib media-libs/iir1 media-libs/libpng:0= media-libs/libsdl2[alsa,joystick,opengl?,sound,video,X] media-libs/opusfile media-libs/speexdsp media-sound/fluid-soundfont media-sound/fluidsynth virtual/zlib:= sys-libs/zlib-ng:= !games-emulation/dosbox
+DEPEND=debug? ( sys-libs/ncurses:0= ) mt-32? ( media-libs/munt-mt32emu ) opengl? ( virtual/opengl ) slirp? ( net-libs/libslirp ) dev-cpp/asio media-libs/alsa-lib media-libs/iir1 media-libs/libpng:0= media-libs/libsdl2[alsa,joystick,opengl?,sound,video,X] media-libs/opusfile media-libs/sdl2-image media-libs/speexdsp media-sound/fluid-soundfont media-sound/fluidsynth virtual/zlib:= sys-libs/zlib-ng:= !games-emulation/dosbox
 DESCRIPTION=Modernized DOSBox soft-fork
 EAPI=8
 HOMEPAGE=https://dosbox-staging.github.io/
@@ -9,9 +9,9 @@ INHERIT=cmake xdg
 IUSE=debug dynrec mt-32 opengl +sc55 slirp test
 KEYWORDS=~amd64 ~ppc ~ppc64 ~x86
 LICENSE=GPL-2+ sc55? ( XMAME )
-RDEPEND=debug? ( sys-libs/ncurses:0= ) mt-32? ( media-libs/munt-mt32emu ) opengl? ( virtual/opengl ) slirp? ( net-libs/libslirp ) dev-cpp/asio media-libs/alsa-lib media-libs/iir1 media-libs/libpng:0= media-libs/libsdl2[alsa,joystick,opengl?,sound,video,X] media-libs/opusfile media-libs/speexdsp media-sound/fluid-soundfont media-sound/fluidsynth virtual/zlib:= sys-libs/zlib-ng:= !games-emulation/dosbox
+RDEPEND=debug? ( sys-libs/ncurses:0= ) mt-32? ( media-libs/munt-mt32emu ) opengl? ( virtual/opengl ) slirp? ( net-libs/libslirp ) dev-cpp/asio media-libs/alsa-lib media-libs/iir1 media-libs/libpng:0= media-libs/libsdl2[alsa,joystick,opengl?,sound,video,X] media-libs/opusfile media-libs/sdl2-image media-libs/speexdsp media-sound/fluid-soundfont media-sound/fluidsynth virtual/zlib:= sys-libs/zlib-ng:= !games-emulation/dosbox
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/dosbox-staging/dosbox-staging/archive/v0.83.0.tar.gz -> dosbox-staging-0.83.0.tar.gz sc55? ( https://github.com/johnnovak/Nuked-SC55-CLAP/archive/refs/tags/v0.11.0.tar.gz -> Nuked-SC55-CLAP-0.11.0.tar.gz )
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=5aeaf3c4c3adc5d373fe51a4e8b6233a
+_md5_=402d67c82938e52db3a509291fe512b2
