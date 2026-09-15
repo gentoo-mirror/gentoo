@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/coin3d/soxt https://github.com/coin3d/coin/wiki
 INHERIT=cmake
 IUSE=debug doc test
-KEYWORDS=amd64 ~arm ~x86
+KEYWORDS=amd64 ~arm x86
 LICENSE=GPL-2
 RDEPEND=media-libs/coin x11-libs/motif:0= x11-libs/libX11 x11-libs/libXi x11-libs/libXmu x11-libs/libXpm x11-libs/libXt virtual/opengl[X]
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/coin3d/soxt/releases/download/v1.4.2/soxt-1.4.2-src.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6
-_md5_=9e3acdcd5a52bf473bc1d963c25ea496
+_md5_=92ee6b8295845ea9734d1f378bc84fe0
