@@ -16,7 +16,7 @@ if [[ "${PV}" == *9999* ]] ; then
 else
 	SRC_URI="https://github.com/minad/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
-	KEYWORDS="amd64 ~arm64 ~x86"
+	KEYWORDS="~amd64 ~arm64 ~x86"
 fi
 
 LICENSE="GPL-3+"
@@ -29,7 +29,7 @@ BDEPEND="
 	${RDEPEND}
 "
 
-DOCS=( CHANGELOG.org README.org )
+DOCS=( NEWS.org README.org )
 SITEFILE="50${PN}-gentoo.el"
 
 src_prepare() {

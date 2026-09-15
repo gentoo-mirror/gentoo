@@ -12,20 +12,18 @@ HOMEPAGE="https://github.com/minad/consult/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/minad/${PN}"
 else
 	SRC_URI="https://github.com/minad/${PN}/archive/${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
-
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/compat-31.0.0.1
+	>=app-emacs/compat-31.0
 "
 BDEPEND="
 	${RDEPEND}
