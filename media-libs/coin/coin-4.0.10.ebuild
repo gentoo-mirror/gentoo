@@ -1,18 +1,25 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake flag-o-matic
+inherit cmake
 
 DESCRIPTION="High-level 3D graphics toolkit, fully compatible with SGI Open Inventor 2.1"
-HOMEPAGE="https://github.com/coin3d/coin/wiki"
-SRC_URI="https://github.com/coin3d/coin/releases/download/v${PV}/${P}-src.tar.gz"
-S="${WORKDIR}/${PN}"
+HOMEPAGE="https://github.com/coin3d/coin https://github.com/coin3d/coin/wiki"
+
+if [[ ${PV} == *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/coin3d/${PN,,}.git"
+else
+	SRC_URI="https://github.com/coin3d/${PN,,}/releases/download/v${PV}/${P/${PN}/${PN,,}}-src.tar.gz"
+	S="${WORKDIR}/${PN,,}"
+
+	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86"
+fi
 
 LICENSE="|| ( GPL-2 PEL )"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~x86"
 IUSE="debug doc +exceptions openal qch test threads"
 
 REQUIRED_USE="qch? ( doc )"
@@ -24,9 +31,9 @@ RDEPEND="
 	media-libs/fontconfig
 	media-libs/freetype:2
 	media-libs/simage:=
-	virtual/zlib:=
-	virtual/opengl
 	virtual/glu
+	virtual/opengl[X]
+	virtual/zlib:=
 	x11-libs/libICE
 	x11-libs/libSM
 	x11-libs/libX11
@@ -35,34 +42,41 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	dev-libs/boost:0
-	x11-base/xorg-proto
 "
 BDEPEND="
+	x11-base/xorg-proto
 	doc? (
 		app-text/doxygen
 		qch? ( dev-qt/qttools:6[assistant] )
 	)
 "
 
-PATCHES=( "${FILESDIR}"/${PN}-4.0.3-find-qhelpgenerator.patch )
+PATCHES=(
+	"${FILESDIR}/${PN}-4.0.3-find-qhelpgenerator.patch"
+)
 
-DOCS=( AUTHORS FAQ FAQ.legal NEWS THANKS docs/HACKING )
+DOCS=(
+	AUTHORS
+	FAQ
+	FAQ.legal
+	NEWS
+	THANKS
+	docs/HACKING
+)
 
 src_configure() {
-	use debug && append-cppflags -DCOIN_DEBUG=1
+	use debug && CMAKE_BUILD_TYPE="Debug"
 
 	local mycmakeargs=(
-		-DCMAKE_INSTALL_DOCDIR="${EPREFIX}/usr/share/doc/${PF}"
-
 		-DCOIN_BUILD_SHARED_LIBS=ON
 		-DCOIN_BUILD_TESTS=$(usex test)
-		-DCOIN_BUILD_DOCUMENTATION=$(usex doc)
 
-		-DCOIN_BUILD_INTERNAL_DOCUMENTATION=OFF
 		-DCOIN_BUILD_AWESOME_DOCUMENTATION=$(usex doc)
+		-DCOIN_BUILD_DOCUMENTATION=$(usex doc)
 		-DCOIN_BUILD_DOCUMENTATION_MAN=$(usex doc)
 		-DCOIN_BUILD_DOCUMENTATION_QTHELP=$(usex qch)
 		-DCOIN_BUILD_DOCUMENTATION_CHM=OFF
+		-DCOIN_BUILD_INTERNAL_DOCUMENTATION=OFF
 
 		-DCOIN_THREADSAFE=$(usex threads)
 		-DHAVE_VRML97=ON
@@ -90,6 +104,7 @@ src_configure() {
 
 		-DCOIN_BUILD_SINGLE_LIB=ON
 	)
+
 	use doc && mycmakeargs+=( -DCMAKE_DISABLE_FIND_PACKAGE_Git=ON )
 
 	cmake_src_configure

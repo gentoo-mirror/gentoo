@@ -3,22 +3,31 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
-inherit cmake desktop flag-o-matic python-single-r1 xdg
+PYTHON_COMPAT=( python3_{12..14} )
+TCL_SLOT="8.6"
+inherit cmake desktop python-single-r1 xdg flag-o-matic
 
 DESCRIPTION="Automatic 3d tetrahedral mesh generator"
 HOMEPAGE="https://ngsolve.org/ https://github.com/NGSolve/netgen"
-SRC_URI="https://github.com/NGSolve/netgen/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+
+if [[ ${PV} == *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/NGSolve/netgen.git"
+else
+	SRC_URI="
+		https://github.com/NGSolve/netgen/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
 
 IUSE="ffmpeg gui jpeg mpi +opencascade python test"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
-	${PYTHON_REQUIRED_USE}
+	python? ( ${PYTHON_REQUIRED_USE} )
 	ffmpeg? ( gui )
 	jpeg? ( gui )
 	python? ( gui )
@@ -28,8 +37,8 @@ DEPEND="
 	virtual/zlib:=
 	ffmpeg? ( media-video/ffmpeg:= )
 	gui? (
-		dev-lang/tcl:0/8.6
-		dev-lang/tk:0/8.6
+		dev-lang/tcl:0/${TCL_SLOT}
+		dev-lang/tk:0/${TCL_SLOT}
 		media-libs/glu
 		media-libs/libglvnd[X]
 		x11-libs/libX11
@@ -45,6 +54,7 @@ DEPEND="
 	python? (
 		${PYTHON_DEPS}
 		$(python_gen_cond_dep '
+			dev-python/numpy[${PYTHON_USEDEP}]
 			dev-python/pybind11[${PYTHON_USEDEP}]
 			'
 		)
@@ -59,7 +69,7 @@ BDEPEND="
 	virtual/pkgconfig
 	gui? ( virtual/imagemagick-tools[png] )
 	test? (
-		<dev-cpp/catch-3:0
+		dev-cpp/catch
 		python? ( $(python_gen_cond_dep '
 			dev-python/pytest-check[${PYTHON_USEDEP}]
 		') )
@@ -69,24 +79,23 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-6.2.2204-find-Tk-include-directories.patch"
 	"${FILESDIR}/${PN}-6.2.2406-link-against-ffmpeg.patch"
-	"${FILESDIR}/${PN}-6.2.2204-use-system-catch.patch"
 	# "${FILESDIR}/${PN}-6.2.2406-find-libjpeg-turbo-library.patch"
 	"${FILESDIR}/${PN}-6.2.2301-fix-nullptr-deref-in-archive.patch"
 	"${FILESDIR}/${PN}-6.2.2406-encoding_h.patch"
 	"${FILESDIR}/${PN}-6.2.2406-link-against-jpeg.patch"
-	"${FILESDIR}/${PN}-PR202-std_map.patch"
+	"${FILESDIR}/${PN}-PR206-catch2-v3.patch"
 )
 
 pkg_setup() {
 	if use python; then
 			python-single-r1_pkg_setup
 
-			# NOTE This calls find_package(Python3) without specifying Interpreter in COMPONENTS.
-			# Python3_FIND_UNVERSIONED_NAMES=FIRST is thus never checked and we search the highest python version first.
-			pushd "${T}/${EPYTHON}/bin" > /dev/null || die
-			cp "python-config" "${EPYTHON}-config" || die
-			chmod +x "${EPYTHON}-config" || die
-			popd > /dev/null || die
+			# # NOTE This calls find_package(Python3) without specifying Interpreter in COMPONENTS.
+			# # Python3_FIND_UNVERSIONED_NAMES=FIRST is thus never checked and we search the highest python version first.
+			# pushd "${T}/${EPYTHON}/bin" > /dev/null || die
+			# cp "python-config" "${EPYTHON}-config" || die
+			# chmod +x "${EPYTHON}-config" || die
+			# popd > /dev/null || die
 	fi
 }
 
@@ -115,6 +124,15 @@ src_prepare() {
 }
 
 src_configure() {
+	# TODO BUG
+	# /var/tmp/paludis/media-gfx-netgen-6.2.2601/work/netgen-6.2.2601/libsrc/core/simd_sse.hpp:
+	# In member function ‘int64_t ngcore::SIMD<long int, 2>::Lo() const’:
+	# /var/tmp/paludis/media-gfx-netgen-6.2.2601/work/netgen-6.2.2601/libsrc/core/simd_sse.hpp:74:48:
+	# error: dereferencing type-punned pointer will break strict-aliasing rules [-Werror=strict-aliasing]
+	#    74 |     NETGEN_INLINE int64_t Lo() const { return ((int64_t*)(&data))[0]; }
+	append-cflags -fno-strict-aliasing
+	append-cxxflags -fno-strict-aliasing
+
 	local mycmakeargs=(
 		# currently not working in a sandbox, expects netgen to be installed
 		# see https://github.com/NGSolve/netgen/issues/132
@@ -137,14 +155,18 @@ src_configure() {
 		-DUSE_OCC=$(usex opencascade)
 		-DUSE_PYTHON="$(usex python)"
 		-DUSE_SUPERBUILD=OFF
-
-		-DNETGEN_VERSION_GIT="v${PV}-0-gd1a9f7ee"
 	)
+
+	if [[ ${PV} != *9999* ]]; then
+		mycmakeargs+=(
+			-DNETGEN_VERSION_GIT="v${PV}-0-3ee489c7"
+		)
+	fi
 
 	# no need to set this, if we only build the library
 	if use gui; then
 		mycmakeargs+=(
-			-DTK_INCLUDE_PATH="${ESYSROOT}/usr/$(get_libdir)/tk8.6/include"
+			-DTK_INCLUDE_PATH="${ESYSROOT}/usr/$(get_libdir)/tk${TCL_SLOT}/include"
 		)
 	fi
 

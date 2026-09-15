@@ -1,10 +1,10 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 MODULES_OPTIONAL_IUSE="+modules"
-inherit flag-o-matic linux-mod-r1 toolchain-funcs
+inherit flag-o-matic linux-mod-r1 toolchain-funcs unpacker
 
 XTABLES_MODULES=(
 	account chaos delude dhcpmac dnetmap echo ipmark logmark
@@ -19,18 +19,17 @@ HOMEPAGE="
 	https://inai.de/projects/xtables-addons/
 	https://codeberg.org/jengelh/xtables-addons/
 "
-SRC_URI="https://inai.de/files/xtables-addons/${P}.tar.xz"
+SRC_URI="https://inai.de/files/xtables-addons/${P}.tar.zst"
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="${XTABLES_MODULES[*]/#/xtables_addons_}"
 
 XTABLES_SCRIPTS_DEPEND="
 	app-arch/unzip
 	dev-perl/Net-CIDR-Lite
 	dev-perl/Text-CSV_XS
-	virtual/perl-Getopt-Long
 "
 DEPEND="net-firewall/iptables:="
 RDEPEND="
@@ -38,7 +37,10 @@ RDEPEND="
 	xtables_addons_asn? ( ${XTABLES_SCRIPTS_DEPEND} )
 	xtables_addons_geoip? ( ${XTABLES_SCRIPTS_DEPEND} )
 "
-BDEPEND="virtual/pkgconfig"
+BDEPEND="
+	virtual/pkgconfig
+	$(unpacker_src_uri_depends)
+"
 
 pkg_setup() {
 	local CONFIG_CHECK="NF_CONNTRACK NF_CONNTRACK_MARK"

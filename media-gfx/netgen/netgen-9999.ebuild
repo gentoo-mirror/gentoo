@@ -3,22 +3,31 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{12..13} )
-inherit cmake desktop flag-o-matic python-single-r1 xdg
+PYTHON_COMPAT=( python3_{12..14} )
+TCL_SLOT="8.6"
+inherit cmake desktop python-single-r1 xdg flag-o-matic
 
 DESCRIPTION="Automatic 3d tetrahedral mesh generator"
 HOMEPAGE="https://ngsolve.org/ https://github.com/NGSolve/netgen"
-SRC_URI="https://github.com/NGSolve/netgen/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
+
+if [[ ${PV} == *9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/NGSolve/netgen.git"
+else
+	SRC_URI="
+		https://github.com/NGSolve/netgen/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz
+	"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
 
 IUSE="ffmpeg gui jpeg mpi +opencascade python test"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="
-	${PYTHON_REQUIRED_USE}
+	python? ( ${PYTHON_REQUIRED_USE} )
 	ffmpeg? ( gui )
 	jpeg? ( gui )
 	python? ( gui )
@@ -28,8 +37,8 @@ DEPEND="
 	virtual/zlib:=
 	ffmpeg? ( media-video/ffmpeg:= )
 	gui? (
-		dev-lang/tcl:0/8.6
-		dev-lang/tk:0/8.6
+		dev-lang/tcl:0/${TCL_SLOT}
+		dev-lang/tk:0/${TCL_SLOT}
 		media-libs/glu
 		media-libs/libglvnd[X]
 		x11-libs/libX11
@@ -45,6 +54,7 @@ DEPEND="
 	python? (
 		${PYTHON_DEPS}
 		$(python_gen_cond_dep '
+			dev-python/numpy[${PYTHON_USEDEP}]
 			dev-python/pybind11[${PYTHON_USEDEP}]
 			'
 		)
@@ -59,7 +69,7 @@ BDEPEND="
 	virtual/pkgconfig
 	gui? ( virtual/imagemagick-tools[png] )
 	test? (
-		<dev-cpp/catch-3:0
+		dev-cpp/catch
 		python? ( $(python_gen_cond_dep '
 			dev-python/pytest-check[${PYTHON_USEDEP}]
 		') )
@@ -69,32 +79,33 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-6.2.2204-find-Tk-include-directories.patch"
 	"${FILESDIR}/${PN}-6.2.2406-link-against-ffmpeg.patch"
-	"${FILESDIR}/${PN}-6.2.2204-use-system-catch.patch"
-	"${FILESDIR}/${PN}-6.2.2406-find-libjpeg-turbo-library.patch"
+	# "${FILESDIR}/${PN}-6.2.2406-find-libjpeg-turbo-library.patch"
 	"${FILESDIR}/${PN}-6.2.2301-fix-nullptr-deref-in-archive.patch"
 	"${FILESDIR}/${PN}-6.2.2406-encoding_h.patch"
 	"${FILESDIR}/${PN}-6.2.2406-link-against-jpeg.patch"
 	"${FILESDIR}/${PN}-PR202-std_map.patch"
+	"${FILESDIR}/${PN}-PR206-catch2-v3.patch"
 )
 
 pkg_setup() {
 	if use python; then
 			python-single-r1_pkg_setup
 
-			# NOTE This calls find_package(Python3) without specifying Interpreter in COMPONENTS.
-			# Python3_FIND_UNVERSIONED_NAMES=FIRST is thus never checked and we search the highest python version first.
-			pushd "${T}/${EPYTHON}/bin" > /dev/null || die
-			cp "python-config" "${EPYTHON}-config" || die
-			chmod +x "${EPYTHON}-config" || die
-			popd > /dev/null || die
+			# # NOTE This calls find_package(Python3) without specifying Interpreter in COMPONENTS.
+			# # Python3_FIND_UNVERSIONED_NAMES=FIRST is thus never checked and we search the highest python version first.
+			# pushd "${T}/${EPYTHON}/bin" > /dev/null || die
+			# cp "python-config" "${EPYTHON}-config" || die
+			# chmod +x "${EPYTHON}-config" || die
+			# popd > /dev/null || die
 	fi
 }
 
 src_prepare() {
-	# # NOTE: need to manually check and update this string on version bumps!
-	# # git describe --tags --match "v[0-9]*" --long --dirty
+	# NOTE: need to manually check and update this string on version bumps!
+	# git ls-remote --tags https://github.com/NGSolve/netgen.git refs/tags/v${PV} | cut -c-8
+	# git describe --tags --match "v[0-9]*" --long --dirty
 	# cat <<- EOF > "${S}/version.txt" || die
-	# 	v${PV}-0-08eec44
+	# 	v${PV}-0-gd1a9f7ee
 	# EOF
 
 	# 855214 needs git
@@ -102,13 +113,26 @@ src_prepare() {
 		-e '/-DBDIR=${CMAKE_CURRENT_BINARY_DIR}/a -DNETGEN_VERSION_GIT=${NETGEN_VERSION_GIT}' \
 		-i CMakeLists.txt || die
 
-	rm external_dependencies -r || die
+	if use python; then
+		sed \
+			-e "s/Python3_EXECUTABLE/PYTHON_EXECUTABLE/" \
+			-i cmake/NetgenConfig.cmake.in || die
+	fi
+
+	rm -r external_dependencies || die
 
 	cmake_src_prepare
 }
 
 src_configure() {
-	filter-lto
+	# TODO BUG
+	# /var/tmp/paludis/media-gfx-netgen-6.2.2601/work/netgen-6.2.2601/libsrc/core/simd_sse.hpp:
+	# In member function ‘int64_t ngcore::SIMD<long int, 2>::Lo() const’:
+	# /var/tmp/paludis/media-gfx-netgen-6.2.2601/work/netgen-6.2.2601/libsrc/core/simd_sse.hpp:74:48:
+	# error: dereferencing type-punned pointer will break strict-aliasing rules [-Werror=strict-aliasing]
+	#    74 |     NETGEN_INLINE int64_t Lo() const { return ((int64_t*)(&data))[0]; }
+	append-cflags -fno-strict-aliasing
+	append-cxxflags -fno-strict-aliasing
 
 	local mycmakeargs=(
 		# currently not working in a sandbox, expects netgen to be installed
@@ -121,7 +145,7 @@ src_configure() {
 		-DNG_INSTALL_DIR_LIB="$(get_libdir)"
 		-DUSE_CCACHE=OFF
 		# doesn't build with this version
-		-DUSE_CGNS=OFF
+		-DUSE_CGNS=no
 		-DUSE_GUI=$(usex gui)
 		-DUSE_INTERNAL_TCL=OFF
 		-DUSE_JPEG=$(usex jpeg)
@@ -132,26 +156,37 @@ src_configure() {
 		-DUSE_OCC=$(usex opencascade)
 		-DUSE_PYTHON="$(usex python)"
 		-DUSE_SUPERBUILD=OFF
-		-DNETGEN_VERSION_GIT="v${PV}"
 	)
+
+	if [[ ${PV} != *9999* ]]; then
+		mycmakeargs+=(
+			-DNETGEN_VERSION_GIT="v${PV}-0-gentoo"
+		)
+	fi
+
 	# no need to set this, if we only build the library
 	if use gui; then
-		mycmakeargs+=( -DTK_INCLUDE_PATH="/usr/$(get_libdir)/tk8.6/include" )
+		mycmakeargs+=(
+			-DTK_INCLUDE_PATH="${ESYSROOT}/usr/$(get_libdir)/tk${TCL_SLOT}/include"
+		)
 	fi
+
 	if use python; then
 		append-cppflags -DPYBIND11_NO_ASSERT_GIL_HELD_INCREF_DECREF
 
 		mycmakeargs+=(
 			-DPREFER_SYSTEM_PYBIND11=ON
-			# # needed, so the value gets passed to NetgenConfig.cmake instead of ${T}/pythonX.Y
-			# -DPYTHON_EXECUTABLE="${PYTHON}"
+			# needed, so the value gets passed to NetgenConfig.cmake instead of ${T}/pythonX.Y
+			-DPYTHON_EXECUTABLE="${PYTHON}"
 		)
 	fi
+
 	if use mpi && use python; then
 		mycmakeargs+=( -DUSE_MPI4PY=ON )
 	else
 		mycmakeargs+=( -DUSE_MPI4PY=OFF )
 	fi
+
 	cmake_src_configure
 }
 
@@ -161,19 +196,22 @@ src_test() {
 	if use python; then
 		local -x PYTEST_DISABLE_PLUGIN_AUTOLOAD=1
 		local -x NETGENDIR="${T}/usr/bin"
-		export PYTHONPATH="${T}$(python_get_sitedir):${T}/usr/$(get_libdir):${BUILD_DIR}/libsrc/core"
+		local -x PYTHONPATH="${T}$(python_get_sitedir):${T}/usr/$(get_libdir):${BUILD_DIR}/libsrc/core"
 	fi
 
 	CMAKE_SKIP_TESTS=(
 		'^unit_symboltable$'
-		'^pytest$' # SEGFAULT
+		'^pytest$' # floating point errors
 		'^pytest-mpi$' # needs pytest-mpi
 	)
 	cmake_src_test
+
+	rm -r "${T}/usr" || die
 }
 
 src_install() {
 	cmake_src_install
+
 	use python && python_optimize
 
 	local NETGENDIR="/usr/share/${PN}"
@@ -184,13 +222,13 @@ src_install() {
 		mv "${ED}"/usr/bin/{*.tcl,*.ocf} "${ED}${NETGENDIR}" || die
 
 		convert -deconstruct "${S}/windows/${PN}.ico" netgen.png || die
-		newicon -s 32 "${S}"/${PN}-2.png ${PN}.png
-		newicon -s 16 "${S}"/${PN}-3.png ${PN}.png
-		make_desktop_entry ${PN} "Netgen" netgen Graphics
+		newicon -s 32 "${S}/${PN}-2.png" "${PN}.png"
+		newicon -s 16 "${S}/${PN}-3.png" "${PN}.png"
+		make_desktop_entry "${PN}" "Netgen" netgen Graphics
 	fi
 
-	mv "${ED}"/usr/share/${PN}/doc/ng4.pdf "${ED}"/usr/share/doc/${PF} || die
-	dosym -r /usr/share/doc/${PF}/ng4.pdf /usr/share/${PN}/doc/ng4.pdf
+	mv "${ED}/usr/share/${PN}/doc/ng4.pdf" "${ED}/usr/share/doc/${PF}" || die
+	dosym -r "/usr/share/doc/${PF}/ng4.pdf" "/usr/share/${PN}/doc/ng4.pdf"
 
-	use python || rm -r "${ED}${NETGENDIR}"/py_tutorials || die
+	use python || rm -r "${ED}${NETGENDIR}/py_tutorials" || die
 }
