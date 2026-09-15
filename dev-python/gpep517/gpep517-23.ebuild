@@ -5,26 +5,35 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=no
-PYTHON_COMPAT=( pypy3_11 python3_{11..15} python3_{13..15}t )
+PYTHON_COMPAT=( python3_{12..15} python3_{14..15}t )
 
 inherit distutils-r1
 
 DESCRIPTION="A backend script to aid installing Python packages in Gentoo"
 HOMEPAGE="
 	https://pypi.org/project/gpep517/
-	https://github.com/projg2/gpep517/
+	https://github.com/gentoo/gpep517/
 "
 SRC_URI="
-	https://github.com/projg2/gpep517/archive/v${PV}.tar.gz
+	https://github.com/gentoo/gpep517/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz
 "
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 
 RDEPEND="
 	>=dev-python/installer-0.5.0[${PYTHON_USEDEP}]
+"
+# 26.1 for abi3t support
+PDEPEND="
+	>=dev-python/packaging-26.1[${PYTHON_USEDEP}]
+"
+BDEPEND="
+	test? (
+		${PDEPEND}
+	)
 "
 
 EPYTEST_PLUGINS=()
