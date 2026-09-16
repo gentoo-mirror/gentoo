@@ -3,8 +3,6 @@
 
 EAPI=8
 
-inherit edos2unix
-
 DESCRIPTION="Anti-spam bayesian filter"
 HOMEPAGE="https://getpopfile.org"
 SRC_URI="https://getpopfile.org/downloads/${P}.zip"
@@ -33,17 +31,11 @@ RDEPEND="virtual/perl-Digest-MD5
 	xmlrpc? ( dev-perl/PlRPC )"
 BDEPEND="app-arch/unzip"
 
-src_prepare() {
-	default
-	local f
-	for f in $(find ./ -type f || die); do
-		edos2unix "${f}"
-	done
-}
+PATCHES=( "${FILESDIR}"/1.1.3-select-timeout.patch )
 
 src_install() {
 	dodoc *.change*
-	rm -r *.change* license || die
+	rm -r *.change* license popfile.pck || die
 
 	insinto /usr/share/${PN}
 	doins -r *
