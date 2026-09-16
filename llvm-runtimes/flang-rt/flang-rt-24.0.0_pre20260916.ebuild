@@ -11,8 +11,7 @@ HOMEPAGE="https://flang.llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions"
 SLOT="${LLVM_MAJOR}"
-KEYWORDS="~amd64 ~arm64"
-IUSE="debug test"
+IUSE="+debug test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -46,8 +45,14 @@ src_configure() {
 	strip-unsupported-flags
 
 	local mycmakeargs=(
+		# cmake.eclass does not set if it we don't inherit fortran-2
+		# and upstream code relies on it being set before Fortran logic
+		# kicks in and reds envvars
+		-DCMAKE_Fortran_COMPILER="${FC}"
 		# we may not have a runtime yet
 		-DCMAKE_Fortran_COMPILER_WORKS=TRUE
+		# tests require modules now, and we probably want them anyway
+		-DRUNTIMES_FORTRAN_MODULES=ON
 
 		-DLLVM_ENABLE_RUNTIMES="flang-rt"
 		# this package forces NO_DEFAULT_PATHS

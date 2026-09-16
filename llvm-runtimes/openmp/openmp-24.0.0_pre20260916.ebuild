@@ -12,9 +12,8 @@ HOMEPAGE="https://openmp.llvm.org"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0/${LLVM_SOABI}"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc64 ~riscv ~x86 ~x64-macos"
 IUSE="
-	+clang debug gdb-plugin hwloc offload ompt test
+	+clang +debug gdb-plugin hwloc offload ompt test
 	cuda level-zero rocm
 "
 REQUIRED_USE="
@@ -69,8 +68,16 @@ LLVM_COMPONENTS=(
 llvm.org_set_globals
 
 MULTILIB_WRAPPED_HEADERS=(
-	/usr/include/offload/OffloadPrint.hpp
 	/usr/include/offload/OffloadAPI.h
+	/usr/include/offload/OffloadPrint.hpp
+	/usr/include/offload/cuda/cuda_runtime.h
+	/usr/include/offload/hip/hip_runtime.h
+	/usr/include/offload/kernel/DefineLanguageNames.inc
+	/usr/include/offload/kernel/LanguageErrors.h
+	/usr/include/offload/kernel/LanguageLaunch.h
+	/usr/include/offload/kernel/LanguageRuntime.h
+	/usr/include/offload/kernel/Types.h
+	/usr/include/offload/kernel/UndefineLanguageNames.inc
 )
 
 pkg_pretend() {

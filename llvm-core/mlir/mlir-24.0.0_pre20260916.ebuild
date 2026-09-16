@@ -11,8 +11,7 @@ HOMEPAGE="https://mlir.llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions"
 SLOT="${LLVM_MAJOR}/${LLVM_SOABI}"
-KEYWORDS="~amd64 ~arm64"
-IUSE="debug test"
+IUSE="+debug test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -70,7 +69,7 @@ check_distribution_components() {
 					MLIR)
 						;;
 					# installed test libraries
-					MLIRTestAnalysis|MLIRTestDialect|MLIRTestIR)
+					MLIRTestAliasAnalysis|MLIRTestAnalysis|MLIRTestDialect|MLIRTestIR)
 						;;
 					MLIROpenACCTestPasses)
 						;;
@@ -101,9 +100,10 @@ check_distribution_components() {
 		done
 
 		if [[ ${#add[@]} -gt 0 || ${#remove[@]} -gt 0 ]]; then
-			eqawarn "get_distribution_components() is outdated!"
-			eqawarn "   Add: ${add[*]}"
-			eqawarn "Remove: ${remove[*]}"
+			eerror "get_distribution_components() is outdated!"
+			eerror "   Add: ${add[*]}"
+			eerror "Remove: ${remove[*]}"
+			die "Update get_distribution_components()!"
 		fi
 		cd - >/dev/null || die
 	fi
@@ -130,6 +130,7 @@ get_distribution_components() {
 
 		# test libraries required by flang
 		MLIROpenACCTestPasses
+		MLIRTestAliasAnalysis
 		MLIRTestAnalysis
 		MLIRTestDialect
 		MLIRTestIR
@@ -138,6 +139,7 @@ get_distribution_components() {
 	if multilib_is_native_abi; then
 		out+=(
 			# tools
+			mlir-irdl-to-cpp
 			mlir-linalg-ods-yaml-gen
 			mlir-lsp-server
 			mlir-opt
@@ -147,6 +149,7 @@ get_distribution_components() {
 			mlir-reduce
 			mlir-rewrite
 			mlir-runner
+			mlir-src-sharder
 			mlir-tblgen
 			mlir-translate
 			tblgen-lsp-server
@@ -202,29 +205,8 @@ multilib_src_compile() {
 }
 
 multilib_src_test() {
-	local known_xfail=()
-
-	case ${ABI} in
-		arm|ppc|x86)
-			known_xfail+=(
-				# MLIR is full of 64-bit assumptions, sigh
-				# https://github.com/llvm/llvm-project/issues/124541
-				Dialect/Bufferization/Transforms/one-shot-bufferize-pass-statistics.mlir
-				Dialect/LLVMIR/sroa-statistics.mlir
-				Dialect/Linalg/vectorize-tensor-extract.mlir
-				Dialect/MemRef/mem2reg-statistics.mlir
-				Dialect/Tensor/fold-tensor-subset-ops.mlir
-				Dialect/Tensor/tracking-listener.mlir
-				Pass/pipeline-stats-nested.mlir
-				Pass/pipeline-stats.mlir
-			)
-			;;
-	esac
-
 	# respect TMPDIR!
 	local -x LIT_PRESERVES_TMP=1
-	local -x LIT_XFAIL="${known_xfail[*]}"
-	LIT_XFAIL=${LIT_XFAIL// /;}
 	cmake_build check-mlir
 }
 

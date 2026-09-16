@@ -19,9 +19,8 @@ HOMEPAGE="https://llvm.org/"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions UoI-NCSA BSD public-domain rc"
 SLOT="${LLVM_MAJOR}/${LLVM_SOABI}"
-KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~arm64-macos ~x64-macos"
 IUSE="
-	+binutils-plugin debug debuginfod doc exegesis libedit +libffi
+	+binutils-plugin +debug debuginfod doc exegesis libedit +libffi
 	test xml z3 zstd
 "
 RESTRICT="!test? ( test )"
@@ -274,6 +273,7 @@ get_distribution_components() {
 			llvm-bcanalyzer
 			llvm-bitcode-strip
 			llvm-c-test
+			llvm-calc-occupancy
 			llvm-cas
 			llvm-cat
 			llvm-cfi-verify
@@ -332,7 +332,6 @@ get_distribution_components() {
 			llvm-reduce
 			llvm-remarkutil
 			llvm-rtdyld
-			llvm-sim
 			llvm-size
 			llvm-split
 			llvm-stress

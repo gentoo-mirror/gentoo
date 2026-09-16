@@ -6,19 +6,15 @@ EAPI=8
 PYTHON_COMPAT=( python3_{12..14} )
 inherit cmake flag-o-matic llvm.org
 
-DESCRIPTION="OpenMP target library for nvptx64 devices"
+DESCRIPTION="OpenMP target library for spirv64 Intel devices"
 HOMEPAGE="https://openmp.llvm.org"
 
 LICENSE="Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )"
 SLOT="0/${LLVM_SOABI}"
-KEYWORDS="~amd64"
 
-RDEPEND="
-	!<llvm-runtimes/offload-22[llvm_targets_NVPTX(-)]
-"
 BDEPEND="
-	~llvm-core/clang-${PV}:${LLVM_MAJOR}[llvm_targets_NVPTX]
-	llvm-core/lld:${LLVM_MAJOR}[llvm_targets_NVPTX]
+	~llvm-core/clang-${PV}:${LLVM_MAJOR}[llvm_targets_SPIRV]
+	llvm-core/lld:${LLVM_MAJOR}[llvm_targets_SPIRV]
 "
 
 LLVM_COMPONENTS=(
@@ -33,6 +29,11 @@ src_configure() {
 	local triple=${PN#openmp-}
 	filter-flags '-m*'
 	strip-unsupported-flags
+	# incompatible with the spirv target, https://bugs.gentoo.org/981726
+	filter-flags -frecord-gcc-switches
+
+	# https://github.com/llvm/llvm-project/issues/186598
+	filter-ldflags '-Wl,*'
 
 	local mycmakeargs=(
 		-DLLVM_DEFAULT_TARGET_TRIPLE=${triple}
