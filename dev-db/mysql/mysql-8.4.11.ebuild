@@ -497,6 +497,8 @@ src_test() {
 
 		"sys_vars.build_id_basic;0;build_id disabled in build"
 
+		"main.keyring_migration_password;0;Known test failure -- no upstream bug yet"
+
 		"innodb.alter_kill;0;Known test failure -- no upstream bug yet"
 		"main.all_persisted_variables;0;Known failure - no upstream bug yet"
 		"perfschema.idx_compare_mutex_instances;0;Known failure - no upstream bug yet"
