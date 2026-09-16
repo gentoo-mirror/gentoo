@@ -20,18 +20,18 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~riscv"
 
 DEPEND="
-	dev-libs/aws-c-common:=
-	dev-libs/aws-c-auth:=
-	dev-libs/aws-c-sdkutils:=
-	dev-libs/aws-c-cal:=
-	dev-libs/aws-c-io:=
-	dev-libs/aws-c-compression:=
-	dev-libs/aws-c-event-stream:=
-	dev-libs/aws-c-http:=
-	dev-libs/aws-c-auth:=
-	dev-libs/aws-c-mqtt:=
-	dev-libs/aws-c-s3:=
-	dev-libs/aws-checksums:=
+	>=dev-libs/aws-c-common-1.0.0:=
+	>=dev-libs/aws-c-auth-1.0.0:=
+	>=dev-libs/aws-c-sdkutils-1.0.0:=
+	>=dev-libs/aws-c-cal-1.0.0:=
+	>=dev-libs/aws-c-io-1.0.0:=
+	>=dev-libs/aws-c-compression-1.0.0:=
+	>=dev-libs/aws-c-event-stream-1.0.0:=
+	>=dev-libs/aws-c-http-1.0.0:=
+	>=dev-libs/aws-c-auth-1.0.0:=
+	>=dev-libs/aws-c-mqtt-1.0.0:=
+	>=dev-libs/aws-c-s3-1.0.0:=
+	>=dev-libs/aws-checksums-1.0.0:=
 	dev-libs/openssl:=
 	dev-libs/s2n-tls:=
 "

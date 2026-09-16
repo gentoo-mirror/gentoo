@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=poetry
+DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
@@ -16,7 +16,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 RDEPEND="
 	>=dev-python/babelfish-0.6.0[${PYTHON_USEDEP}]
@@ -36,10 +36,3 @@ EPYTEST_DESELECT=(
 
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
-
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# sigh, poetry
-	sed -i -e 's:\^:>=:' pyproject.toml || die
-}
