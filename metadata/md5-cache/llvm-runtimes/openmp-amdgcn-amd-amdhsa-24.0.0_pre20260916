@@ -1,0 +1,12 @@
+BDEPEND=~llvm-core/clang-24.0.0_pre20260916:24[llvm_targets_AMDGPU] llvm-core/lld:24[llvm_targets_AMDGPU] app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test unpack
+DESCRIPTION=OpenMP target library for amdgcn devices
+EAPI=8
+HOMEPAGE=https://openmp.llvm.org
+INHERIT=cmake flag-o-matic llvm.org
+LICENSE=Apache-2.0-with-LLVM-exceptions || ( UoI-NCSA MIT )
+RDEPEND=!<llvm-runtimes/offload-22[llvm_targets_AMDGPU(-)]
+SLOT=0/24.0.0_pre20260916
+SRC_URI=https://github.com/llvm/llvm-project/archive/02bd47db9d3c4313fe1b5054ed8a1a081f1b7f78.tar.gz -> llvm-project-02bd47db9d3c4313fe1b5054ed8a1a081f1b7f78.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	llvm.org	035908b51bd5d92be74458f212a9dd57
+_md5_=f6207995e273e3ac6bb325a1fa79a086
