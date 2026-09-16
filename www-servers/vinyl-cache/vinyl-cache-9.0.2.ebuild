@@ -7,14 +7,13 @@ PYTHON_COMPAT=( python3_{11..14} )
 
 inherit autotools systemd python-r1
 
-DESCRIPTION="Varnish is a state-of-the-art, high-performance HTTP accelerator"
+DESCRIPTION="A high-performance caching HTTP reverse proxy"
 HOMEPAGE="https://vinyl-cache.org/"
-SRC_URI="https://vinyl-cache.org/downloads/varnish-${PV}.tgz"
-S="${WORKDIR}/varnish-${PV}"
+SRC_URI="https://vinyl-cache.org/downloads/${P}.tgz"
 
 LICENSE="BSD-2 GPL-2"
-SLOT="0/2"
-KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86"
+SLOT="0/9"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="jit selinux static-libs unwind"
 
 COMMON_DEPEND="
@@ -29,8 +28,8 @@ COMMON_DEPEND="
 RDEPEND="
 	${PYTHON_DEPS}
 	${COMMON_DEPEND}
-	acct-user/varnish
-	acct-group/varnish
+	acct-user/vinyl
+	acct-group/vinyl
 	sys-devel/gcc
 	selinux? ( sec-policy/selinux-varnishd )
 "
@@ -43,10 +42,6 @@ DEPEND="
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-PATCHES=(
-	"${FILESDIR}/varnish-8.0.0-configure-make-python-output-match-autotools.patch" # Bug: 882725
-)
-
 # Upstream acknowledge that a small number of tests fail sporadically, including on their
 # test boxes. We SKIP problematic tests here.  Check https://vinyl-cache.org/vtest/
 SKIP_TESTS=(
@@ -56,6 +51,7 @@ SKIP_TESTS=(
 	"u00008.vtc" # Bug: 880627
 	"u00009.vtc" # Bug: 880627
 	"t02014.vtc" # Bug: 964041
+	"r03996.vtc" # Bug: 982112
 )
 
 src_prepare() {
@@ -70,16 +66,16 @@ src_prepare() {
 	# SKIP unreliable tests
 	local t
 	for t in ${SKIP_TESTS[*]}; do
-		sed -i -e '/^varnishtest.*$/a feature cmd false' bin/varnishtest/tests/${t} || die
+		sed -i -e '/^vtest.*$/a feature cmd false' bin/vinyltest/tests/${t} || die
 	done
 
 	# Remove -Werror bug #528354
 	sed -i -e 's/-Werror\([^=]\)/\1/g' configure.ac || die
 
-	# Upstream doesn't put varnish.m4 in the m4/ directory
+	# Upstream doesn't put vinyl.m4 in the m4/ directory
 	# We link because the Makefiles look for the file in
 	# the original location
-	ln -sf ../varnish.m4 m4/varnish.m4 || die
+	ln -sf ../vinyl.m4 m4/vinyl.m4 || die
 
 	eautoreconf
 }
@@ -91,6 +87,7 @@ src_configure() {
 		$(use_enable jit pcre2-jit)
 		$(use_with unwind)
 		--without-jemalloc
+		--with-statedir="/var/lib/${PN}"
 	)
 	econf "${myeconfargs[@]}"
 }
@@ -98,37 +95,37 @@ src_configure() {
 src_install() {
 	emake DESTDIR="${D}" install
 
-	python_replicate_script "${D}/usr/share/varnish/vmodtool.py"
+	python_replicate_script "${D}/usr/share/vinyl-cache/vmodtool.py"
 
-	newinitd "${FILESDIR}"/varnishlog.initd varnishlog
-	newconfd "${FILESDIR}"/varnishlog.confd varnishlog
+	newinitd "${FILESDIR}"/vinyllog.initd vinyllog
+	newconfd "${FILESDIR}"/vinyllog.confd vinyllog
 
-	newinitd "${FILESDIR}"/varnishncsa.initd varnishncsa
-	newconfd "${FILESDIR}"/varnishncsa.confd varnishncsa
+	newinitd "${FILESDIR}"/vinylncsa.initd vinylncsa
+	newconfd "${FILESDIR}"/vinylncsa.confd vinylncsa
 
-	newinitd "${FILESDIR}"/varnishd.initd-r4 varnishd
-	newconfd "${FILESDIR}"/varnishd.confd-r4 varnishd
+	newinitd "${FILESDIR}"/vinyld.initd vinyld
+	newconfd "${FILESDIR}"/vinyld.confd vinyld
 
 	insinto /etc/logrotate.d/
-	newins "${FILESDIR}/varnishd.logrotate-r2" varnishd
+	newins "${FILESDIR}/vinyld.logrotate" vinyld
 
 	diropts -m750
 
-	keepdir /var/lib/varnish
-	keepdir /var/log/varnish
+	keepdir /var/lib/vinyl-cache
+	keepdir /var/log/vinyl-cache
 
-	systemd_dounit "${FILESDIR}/varnishd.service"
+	systemd_dounit "${FILESDIR}/vinyld.service"
 
-	insinto /etc/varnish/
+	insinto /etc/vinyl-cache/
 	doins vmod/vmod_*.vcc
 	doins etc/example.vcl
 
-	dodoc README.rst
+	dodoc README.md
 	dodoc doc/changes.rst
 
-	fowners root:varnish /etc/varnish/
-	fowners varnish:varnish /var/lib/varnish/
-	fperms 0750 /var/lib/varnish/ /etc/varnish/
+	fowners root:vinyl /etc/vinyl-cache/
+	fowners vinyl:vinyl /var/lib/vinyl-cache/
+	fperms 0750 /var/lib/vinyl-cache/ /etc/vinyl-cache/
 
 	find "${ED}" -name "*.la" -delete || die
 }

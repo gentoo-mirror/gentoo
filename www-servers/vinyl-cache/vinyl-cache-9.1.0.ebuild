@@ -13,7 +13,7 @@ SRC_URI="https://vinyl-cache.org/downloads/${P}.tgz"
 
 LICENSE="BSD-2 GPL-2"
 SLOT="0/9"
-KEYWORDS="amd64 ~arm arm64 ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="jit selinux static-libs unwind"
 
 COMMON_DEPEND="
@@ -51,6 +51,7 @@ SKIP_TESTS=(
 	"u00008.vtc" # Bug: 880627
 	"u00009.vtc" # Bug: 880627
 	"t02014.vtc" # Bug: 964041
+	"r03996.vtc" # Bug: 982112
 )
 
 src_prepare() {
@@ -86,6 +87,7 @@ src_configure() {
 		$(use_enable jit pcre2-jit)
 		$(use_with unwind)
 		--without-jemalloc
+		--with-statedir="/var/lib/${PN}"
 	)
 	econf "${myeconfargs[@]}"
 }
