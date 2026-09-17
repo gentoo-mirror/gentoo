@@ -33,7 +33,11 @@ BDEPEND="
 "
 
 LLVM_COMPONENTS=( flang cmake )
-LLVM_TEST_COMPONENTS=( clang/test/Driver mlir/test/lib )
+LLVM_TEST_COMPONENTS=(
+	clang/test/Driver mlir/test/lib
+	# for building flang-rt
+	runtimes flang-rt libc/shared llvm/{cmake,utils}
+)
 LLVM_USE_TARGETS=llvm+eq
 llvm.org_set_globals
 
@@ -51,6 +55,14 @@ pkg_pretend() {
 
 pkg_setup() {
 	use test && python-any-r1_pkg_setup
+}
+
+src_prepare() {
+	# create extra parent dir for relative CLANG_RESOURCE_DIR access
+	mkdir -p x/y || die
+	BUILD_DIR=${WORKDIR}/x/y/build
+
+	llvm.org_src_prepare
 }
 
 src_configure() {
@@ -94,8 +106,45 @@ src_configure() {
 	cmake_src_configure
 }
 
+build_flang_rt() {
+	local -x FC=${BUILD_DIR}/bin/flang
+	local -x F77=${FC}
+	local CMAKE_USE_DIR=${WORKDIR}/runtimes
+	local BUILD_DIR=${BUILD_DIR}/flang-rt
+	strip-unsupported-flags
+
+	local mycmakeargs=(
+		# cmake.eclass does not set if it we don't inherit fortran-2
+		# and upstream code relies on it being set before Fortran logic
+		# kicks in and reds envvars
+		-DCMAKE_Fortran_COMPILER="${FC}"
+		# we may not have a runtime yet
+		-DCMAKE_Fortran_COMPILER_WORKS=TRUE
+		# tests rddequire modules now
+		-DRUNTIMES_FORTRAN_MODULES=ON
+
+		-DLLVM_ENABLE_RUNTIMES="flang-rt"
+		# this package forces NO_DEFAULT_PATHS
+		-DLLVM_BINARY_DIR="${ESYSROOT}/usr/lib/llvm/${LLVM_MAJOR}"
+		# install inside the test tree
+		-DRUNTIMES_INSTALL_RESOURCE_PATH="${WORKDIR}/lib/clang/${LLVM_MAJOR}"
+		-DLLVM_DEFAULT_TARGET_TRIPLE="${CHOST}"
+
+		-DLLVM_INSTALL_TOOLCHAIN_ONLY=ON
+		-DFLANG_RT_INCLUDE_TESTS=OFF
+	)
+
+	# LLVM_ENABLE_ASSERTIONS=NO does not guarantee this for us, #614844
+	use debug || local -x CPPFLAGS="${CPPFLAGS} -DNDEBUG"
+	cmake_src_configure
+	cmake_build install
+}
+
 src_test() {
 	# respect TMPDIR!
 	local -x LIT_PRESERVES_TMP=1
+
+	build_flang_rt
+
 	cmake_build check-flang
 }
