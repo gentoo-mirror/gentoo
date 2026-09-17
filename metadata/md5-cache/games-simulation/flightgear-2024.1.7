@@ -1,0 +1,17 @@
+BDEPEND=qt6? ( dev-qt/qttools:6[linguist] ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-db/sqlite:3 >=dev-games/openscenegraph-3.6.0[jpeg,png] ~dev-games/simgear-2024.1.7[gdal=] media-libs/libglvnd[X] media-libs/openal >=media-libs/plib-1.8.5 virtual/zlib:= virtual/glu x11-libs/libX11 dbus? ( >=sys-apps/dbus-1.6.18-r1 ) gdal? ( >=sci-libs/gdal-2.0.0:= ) qt6? ( dev-qt/qtbase:6[gui,network,widgets] dev-qt/qtdeclarative:6 ) udev? ( virtual/udev ) utils? ( media-libs/freeglut media-libs/freetype:2 media-libs/glew:0 media-libs/libpng:0= >=media-libs/speex-1.2.0:0 media-libs/speexdsp:0 media-sound/gsm ) dev-libs/boost x11-base/xorg-proto utils? ( x11-libs/libXi x11-libs/libXmu )
+DESCRIPTION=Open Source Flight Simulator
+EAPI=8
+HOMEPAGE=https://www.flightgear.org/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake flag-o-matic xdg
+IUSE=cpu_flags_x86_sse2 dbus gdal qt6 +udev +utils
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=dev-db/sqlite:3 >=dev-games/openscenegraph-3.6.0[jpeg,png] ~dev-games/simgear-2024.1.7[gdal=] media-libs/libglvnd[X] media-libs/openal >=media-libs/plib-1.8.5 virtual/zlib:= virtual/glu x11-libs/libX11 dbus? ( >=sys-apps/dbus-1.6.18-r1 ) gdal? ( >=sci-libs/gdal-2.0.0:= ) qt6? ( dev-qt/qtbase:6[gui,network,widgets] dev-qt/qtdeclarative:6 ) udev? ( virtual/udev ) utils? ( media-libs/freeglut media-libs/freetype:2 media-libs/glew:0 media-libs/libpng:0= >=media-libs/speex-1.2.0:0 media-libs/speexdsp:0 media-sound/gsm ) ~games-simulation/flightgear-data-2024.1.7 qt6? ( dev-qt/qtsvg:6 )
+RESTRICT=test
+SLOT=0
+SRC_URI=https://gitlab.com/flightgear/flightgear/-/archive/2024.1.7/flightgear-2024.1.7.tar.bz2
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=e7696629e9e2b4f10728940eae981bbd
