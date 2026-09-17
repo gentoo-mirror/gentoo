@@ -1,17 +1,18 @@
-# Copyright 2022-2024 Gentoo Authors
+# Copyright 2022-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit cmake
+inherit cmake unpacker
 
 DESCRIPTION="A tool to handle your cellular phone"
 HOMEPAGE="https://wammu.eu/gammu/"
-SRC_URI="https://dl.cihar.com/${PN}/releases/${P}.tar.xz"
+SRC_URI="https://github.com/gammu/gammu/releases/download/${PV}/${P^}.tar.zst"
+S=${WORKDIR}/${P^}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="bluetooth curl dbi debug irda mysql nls odbc postgres usb"
 
 COMMON_DEPEND="
@@ -35,11 +36,9 @@ RDEPEND="
 	${COMMON_DEPEND}
 	dev-util/dialog
 "
-PATCHES=(
-	"${FILESDIR}/${P}-CMP0110-policy.patch"
-	"${FILESDIR}/${P}-gammu-detect.patch"
-	"${FILESDIR}/${P}-fortify-source-3.patch"
-)
+BDEPEND="
+	app-arch/zstd
+"
 
 src_configure() {
 	local mycmakeargs=(

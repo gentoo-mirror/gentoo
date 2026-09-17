@@ -23,9 +23,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
-	>=dev-python/anyio-4.9.0[${PYTHON_USEDEP}]
-	>=dev-python/anysqlite-0.0.5[${PYTHON_USEDEP}]
-	>=dev-python/httpx-0.28.1[${PYTHON_USEDEP}]
 	>=dev-python/msgpack-1.1.2[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-1.14.1[${PYTHON_USEDEP}]
 "
@@ -35,9 +32,13 @@ BDEPEND="
 	dev-python/hatch-fancy-pypi-readme[${PYTHON_USEDEP}]
 	test? (
 		dev-db/redis
+		>=dev-python/anyio-4.9.0[${PYTHON_USEDEP}]
+		>=dev-python/anysqlite-0.0.5[${PYTHON_USEDEP}]
 		>=dev-python/anysqlite-0.0.5[${PYTHON_USEDEP}]
 		>=dev-python/boto3-1.15.3[${PYTHON_USEDEP}]
 		>=dev-python/fakeredis-2.0[${PYTHON_USEDEP}]
+		>=dev-python/httpx-0.28.1[${PYTHON_USEDEP}]
+		>=dev-python/httpx2-2.9.1[${PYTHON_USEDEP}]
 		>=dev-python/inline-snapshot-0.28.0[${PYTHON_USEDEP}]
 		>=dev-python/redis-6.2.0[${PYTHON_USEDEP}]
 		>=dev-python/time-machine-2.19.0[${PYTHON_USEDEP}]
@@ -51,9 +52,8 @@ distutils_enable_tests pytest
 src_test() {
 	local EPYTEST_DESELECT=(
 		# Internet
-		tests/test_async_httpx.py
 		tests/test_requests.py
-		tests/test_sync_httpx.py
+		tests/test_{,a}sync_httpx{,2}.py::test_simple_caching{,_ignoring_spec}
 	)
 
 	local redis_pid="${T}"/redis.pid

@@ -27,7 +27,7 @@ IUSE="examples test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
-	>=app-mobilephone/gammu-1.34.0
+	>=app-mobilephone/gammu-1.44.1
 "
 RDEPEND="
 	${DEPEND}
@@ -42,11 +42,12 @@ BDEPEND="
 
 DOCS=( AUTHORS NEWS.rst README.rst )
 
-distutils_enable_tests unittest
+EPYTEST_PLUGINS=()
+distutils_enable_tests pytest
 
 python_test() {
 	rm -rf gammu || die
-	eunittest
+	epytest
 }
 
 python_install_all() {
