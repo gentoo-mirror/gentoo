@@ -1,0 +1,16 @@
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 handbook? ( >=kde-frameworks/kdoctools-6.27.0:6 ) doc? ( >=app-text/doxygen-1.8.13-r1 dev-qt/qttools:6[assistant] ) dev-libs/libpcre2:* >=kde-frameworks/extra-cmake-modules-6.27.0:*
+DEFINED_PHASES=compile configure info install nofetch prepare test unpack
+DEPEND=>=dev-qt/qtbase-6.11.2:6[gui,dbus] media-libs/libpulse[glib] test? ( >=dev-qt/qtdeclarative-6.11.2:6 ) doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6
+DESCRIPTION=Qt bindings for libpulse
+EAPI=8
+HOMEPAGE=https://invent.kde.org/libraries/pulseaudio-qt
+INHERIT=ecm kde.org
+IUSE=debug +handbook doc test
+KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+LICENSE=LGPL-2.1
+RDEPEND=>=dev-qt/qtbase-6.11.2:6[gui,dbus] media-libs/libpulse[glib] || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-6 doc? ( dev-qt/qt-docs:6 ) dev-qt/qtbase:6
+RESTRICT=!test? ( test )
+SLOT=0/5
+SRC_URI=mirror://kde/stable/pulseaudio-qt/pulseaudio-qt-1.9.0.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	virtualx	9741d451eb64ea8bb9faee90d68a9b68	ecm	03a053449c50724fc93f867926f113f1	kde.org	83d81f56e21d7fcdb6319ad4cf7cec16
+_md5_=d33a5dee1f2dbd25c58bb169b59fcbcb
