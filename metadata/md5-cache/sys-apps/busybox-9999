@@ -5,7 +5,7 @@ DESCRIPTION=Utilities for rescue and embedded systems
 EAPI=8
 HOMEPAGE=https://www.busybox.net/
 INHERIT=eapi9-ver flag-o-matic readme.gentoo-r1 savedconfig toolchain-funcs git-r3
-IUSE=debug livecd make-symlinks math mdev pam selinux sep-usr static syslog systemd savedconfig
+IUSE=debug livecd make-symlinks math mdev pam selinux sep-usr static syslog savedconfig
 LICENSE=GPL-2
 PROPERTIES=live
 RDEPEND=!static? ( virtual/libc virtual/libcrypt:= selinux? ( sys-libs/libselinux ) ) pam? ( sys-libs/pam )
@@ -13,4 +13,4 @@ REQUIRED_USE=pam? ( !static )
 RESTRICT=test
 SLOT=0
 _eclasses_=eapi9-ver	6a71fa30cdb3fe445114fdeab156c1f0	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	portability	3c2334cdfbb30bc4b33c85164fe832bf	savedconfig	b9131abe556ad2ea96c01b06d658d363	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=fb1c4fc532a71079e81c9c0966b4121b
+_md5_=0582925b5a44e3a8885685c52e7360f3
