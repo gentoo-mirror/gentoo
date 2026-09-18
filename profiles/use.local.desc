@@ -3810,7 +3810,6 @@ llvm-runtimes/clang-runtime:default-compiler-rt - Use compiler-rt + libunwind in
 llvm-runtimes/clang-runtime:default-libcxx - Use libc++ instead of libstdc++ as the default stdlib for clang
 llvm-runtimes/clang-runtime:default-lld - Use lld as the default linker for clang
 llvm-runtimes/clang-runtime:libcxx - Install llvm-runtimes/libcxx for -stdlib=libc++
-llvm-runtimes/clang-runtime:offload - Install llvm-runtimes/offload for -fopenmp GPU offloading
 llvm-runtimes/clang-runtime:openmp - Install llvm-runtimes/openmp for -fopenmp support
 llvm-runtimes/clang-runtime:polly - Load Polly plugin (you still need -mllvm -polly to use it)
 llvm-runtimes/clang-runtime:sanitize - Enable compiler-rt sanitizer (-fsanitize*) support
