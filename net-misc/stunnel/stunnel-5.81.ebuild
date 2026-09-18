@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/stunnel.asc
 inherit autotools python-any-r1 ssl-cert systemd tmpfiles verify-sig
 
@@ -48,7 +48,7 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-5.71-dont-clobber-fortify-source.patch
-	"${FILESDIR}"/${PN}-5.71-respect-EPYTHON-for-tests.patch
+	"${FILESDIR}"/${PN}-5.81-respect-EPYTHON-for-tests.patch
 )
 
 python_check_deps() {
@@ -65,8 +65,6 @@ src_prepare() {
 	# Hack away generation of certificate
 	sed -i -e "s/^install-data-local:/do-not-run-this:/" \
 		tools/Makefile.am || die "sed failed"
-
-	echo "CONFIG_PROTECT=\"/etc/stunnel/stunnel.conf\"" > "${T}"/20stunnel || die
 
 	# We pass --disable-fips to configure, so avoid spurious test failures
 	rm tests/plugins/p10_fips.py tests/plugins/p11_fips_cipher.py || die
@@ -109,8 +107,6 @@ src_install() {
 	insinto /etc/stunnel
 	doins "${FILESDIR}"/stunnel.conf
 	newinitd "${FILESDIR}"/stunnel-r2 stunnel
-
-	doenvd "${T}"/20stunnel
 
 	systemd_dounit "${S}/tools/stunnel.service"
 	newtmpfiles "${FILESDIR}"/stunnel.tmpfiles.conf stunnel.conf
