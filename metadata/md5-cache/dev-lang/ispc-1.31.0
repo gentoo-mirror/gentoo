@@ -1,17 +1,17 @@
-BDEPEND=app-alternatives/yacc app-alternatives/lex || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+BDEPEND=app-alternatives/yacc app-alternatives/lex || ( dev-lang/python:3.15 dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare pretend setup test
-DEPEND=llvm_slot_18? ( llvm-core/clang:18 ) llvm_slot_19? ( llvm-core/clang:19 ) llvm_slot_20? ( llvm-core/clang:20 ) llvm_slot_21? ( llvm-core/clang:21 ) sys-libs/ncurses:= gpu? ( dev-libs/level-zero:= ) !openmp? ( dev-cpp/tbb:= )
+DEPEND=llvm_slot_20? ( llvm-core/clang:20 ) llvm_slot_21? ( llvm-core/clang:21 ) sys-libs/ncurses:= gpu? ( dev-libs/level-zero:= ) !openmp? ( dev-cpp/tbb:= )
 DESCRIPTION=Intel SPMD Program Compiler
 EAPI=8
 HOMEPAGE=https://ispc.github.io/ https://github.com/ispc/ispc/
 INHERIT=cmake dot-a llvm-r1 multiprocessing python-any-r1 toolchain-funcs
-IUSE=examples gpu openmp test +llvm_slot_21 llvm_slot_18 llvm_slot_19 llvm_slot_20
+IUSE=examples gpu openmp test +llvm_slot_21 llvm_slot_20
 KEYWORDS=amd64 ~arm ~arm64 ~ppc64 ~x86
 LICENSE=BSD BSD-2 UoI-NCSA
-RDEPEND=llvm_slot_18? ( llvm-core/clang:18 ) llvm_slot_19? ( llvm-core/clang:19 ) llvm_slot_20? ( llvm-core/clang:20 ) llvm_slot_21? ( llvm-core/clang:21 ) sys-libs/ncurses:= gpu? ( dev-libs/level-zero:= ) !openmp? ( dev-cpp/tbb:= )
-REQUIRED_USE=^^ ( llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 )
+RDEPEND=llvm_slot_20? ( llvm-core/clang:20 ) llvm_slot_21? ( llvm-core/clang:21 ) sys-libs/ncurses:= gpu? ( dev-libs/level-zero:= ) !openmp? ( dev-cpp/tbb:= )
+REQUIRED_USE=^^ ( llvm_slot_20 llvm_slot_21 )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ispc/ispc/archive/v1.31.0.tar.gz -> ispc-1.31.0.gh.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	dot-a	e5200fe17cfd2ed6fa66edd80201763a	llvm-utils	e7edb4086e31c8537574b263d899f826	llvm-r1	e558c35fbd4579d7a50dc777145e3af5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=be9881a10e48b63cee576b2cc51e2200
+_md5_=3c53bd3f76a7a36e137476fb595f6c4a
