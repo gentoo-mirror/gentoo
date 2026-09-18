@@ -11,7 +11,7 @@ if [[ ${PV} == *9999* ]]; then
 else
 	SRC_URI="https://codeberg.org/OpenRGB/OpenRGB/archive/release_${PV}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/openrgb"
-	KEYWORDS="~amd64 ~loong"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="Open source RGB lighting control"
