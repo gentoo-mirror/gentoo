@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~riscv x86"
+KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 
 RDEPEND="
 	dev-python/jsonpatch[${PYTHON_USEDEP}]
@@ -51,6 +51,8 @@ python_test() {
 		test/unit/module/test_api.py::TestLintByConfig::test_graph
 		# scripts missing from sdist
 		test/unit/module/maintenance/test_update_specs_from_pricing.py
+		# Internet
+		test/unit/module/schema/test_manager.py::TestUpdateResourceSchemas::test_update_force
 	)
 
 	# from tox.ini
