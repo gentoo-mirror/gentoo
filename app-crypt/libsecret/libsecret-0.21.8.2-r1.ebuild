@@ -3,9 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
-inherit bash-completion-r1 gnome2 meson-multilib python-any-r1 vala virtualx
+inherit gnome2 meson-multilib python-any-r1 shell-completion vala virtualx
 
 DESCRIPTION="GObject library for accessing the freedesktop.org Secret Service API"
 HOMEPAGE="https://gnome.pages.gitlab.gnome.org/libsecret"
@@ -19,7 +19,7 @@ IUSE="+crypt +gcrypt gnutls gtk-doc +introspection pam test test-rust tpm +vala"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	vala? ( introspection )
-	gtk-doc? ( crypt )
+	gtk-doc? ( crypt introspection )
 	crypt? ( || ( gcrypt gnutls ) )
 "
 
@@ -62,6 +62,8 @@ BDEPEND="
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.21.7-optional-vala-tests.patch
+	"${FILESDIR}"/${P}-musl-fcntl.patch
+
 	# Collides with gnome-base/gnome-keyring and no other distros
 	# seem to install it because of that, so just leave it uninstalled
 	# for now: https://gitlab.gnome.org/GNOME/libsecret/-/work_items/90
@@ -171,5 +173,12 @@ multilib_src_test() {
 		dbus_run tpm2_run_with_emulator virtx meson test -C "${BUILD_DIR}" --print-errorlogs
 	else
 		virtx dbus-run-session meson test -C "${BUILD_DIR}" --print-errorlogs
+	fi
+}
+
+multilib_src_install_all() {
+	if use gtk-doc; then
+		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
+		mv "${ED}"/usr/share/doc/libsecret-1 "${ED}"/usr/share/gtk-doc/html/ || die
 	fi
 }
