@@ -3,15 +3,12 @@
 
 EAPI=8
 
-inherit autotools
-
 DESCRIPTION="Line and word breaking library"
 HOMEPAGE="http://vimgadgets.sourceforge.net/libunibreak/ https://github.com/adah1972/libunibreak"
-SRC_URI="https://github.com/adah1972/${PN}/archive/refs/tags/${PN}_${PV/./_}.tar.gz -> ${P}.tar.gz"
-S="${WORKDIR}"/${PN}-${PN}_${PV/./_}
+SRC_URI="https://github.com/adah1972/libunibreak/releases/download/${PN}_${PV/./_}/${P}.tar.gz"
 
 LICENSE="ZLIB"
-SLOT="0/7"
+SLOT="0/$(ver_cut 1)"
 KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 IUSE="doc +man static-libs test"
 RESTRICT="!test? ( test )"
@@ -26,8 +23,6 @@ BDEPEND="
 
 src_prepare() {
 	default
-
-	eautoreconf
 
 	if use man; then
 		echo 'GENERATE_MAN=YES' >> Doxyfile || die
