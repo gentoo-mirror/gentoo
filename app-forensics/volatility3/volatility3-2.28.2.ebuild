@@ -13,22 +13,22 @@ DESCRIPTION="Framework for analyzing volatile memory"
 HOMEPAGE="https://github.com/volatilityfoundation/volatility3/ https://www.volatilityfoundation.org/"
 SRC_URI="
 	https://github.com/volatilityfoundation/volatility3/archive/v${MY_PV}.tar.gz -> ${P}.gh.tar.gz
-	https://downloads.volatilityfoundation.org/volatility3/symbols/linux.zip -> ${P}-symbols-linux.zip
-	https://downloads.volatilityfoundation.org/volatility3/symbols/mac.zip -> ${P}-symbols-mac.zip
-	https://downloads.volatilityfoundation.org/volatility3/symbols/windows.zip -> ${P}-symbols-windows.zip
+	https://github.com/volatilityfoundation/volatility3-test-data/releases/download/v0.0.1/linux.zip -> ${P}-symbols-linux.zip
+	https://github.com/volatilityfoundation/volatility3-test-data/releases/download/v0.0.1/mac.zip -> ${P}-symbols-mac.zip
+	https://github.com/volatilityfoundation/volatility3-test-data/releases/download/v0.0.1/windows.zip -> ${P}-symbols-windows.zip
 	test?
 	(
-		https://downloads.volatilityfoundation.org/volatility3/images/linux-sample-1.bin.gz -> ${PN}-linux-sample-1.bin.gz
-		https://downloads.volatilityfoundation.org/volatility3/images/win-xp-laptop-2005-06-25.img.gz -> ${PN}-win-xp-laptop-2005-06-25.img.gz
-		https://downloads.volatilityfoundation.org/volatility3/images/win-10_19041-2025_03.dmp.gz -> ${PN}-win-10_19041-2025_03.dmp.gz
-		https://downloads.volatilityfoundation.org/volatility3/symbols/symbols_win-10_19041-2025_03.zip -> ${PN}-symbols-symbols_win-10_19041-2025_03.zip
+		https://github.com/volatilityfoundation/volatility3-test-data/releases/download/v0.0.1/linux-sample-1.bin.gz -> ${PN}-linux-sample-1.bin.gz
+		https://github.com/volatilityfoundation/volatility3-test-data/releases/download/v0.0.1/win-xp-laptop-2005-06-25.img.gz -> ${PN}-win-xp-laptop-2005-06-25.img.gz
+		https://github.com/volatilityfoundation/volatility3-test-data/releases/download/v0.0.1/win-10_19041-2025_03.dmp.gz -> ${PN}-win-10_19041-2025_03.dmp.gz
+		https://github.com/volatilityfoundation/volatility3-test-data/releases/download/v0.0.1/symbols_win-10_19041-2025_03.zip -> ${PN}-symbols-symbols_win-10_19041-2025_03.zip
 	)
 "
 S="${WORKDIR}"/${PN}-${MY_PV}
 
 LICENSE="Volatility-1.0"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="crypt disasm jsonschema leechcore snappy test yara"
 
 # We need to select *all* subslots of app-arch/snappy which select
