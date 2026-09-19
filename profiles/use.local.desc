@@ -515,7 +515,9 @@ app-editors/gedit-plugins:terminal - Embed a terminal in the bottom pane
 app-editors/gnome-text-editor:editorconfig - Use EditorConfig for file settings
 app-editors/gvim:crypt - Use dev-libs/libsodium for crypto support
 app-editors/gvim:cscope - Enable cscope interface
+app-editors/gvim:gtk4 - Build the GTK 4 GUI using gui-libs/gtk:4 instead of the default GTK+ 3 one. The GTK 4 GUI uses no X11 API, so 'session' (X session management) is unavailable with it.
 app-editors/gvim:netbeans - Include netbeans external editor integration support
+app-editors/gvim:pango - Render |:hardcopy| output with x11-libs/pango and x11-libs/cairo rather than Vim's own PostScript generator. Gains full Unicode support and PDF output, at the cost of the 'printencoding', 'printmbcharset' and 'printmbfont' options, which exist only for the built-in generator.
 app-editors/gvim:racket - Enable support for Scheme using dev-scheme/racket
 app-editors/helix:grammar - Build and install grammar language files
 app-editors/jasspa-microemacs:nanoemacs - Build NanoEmacs instead of MicroEmacs
@@ -535,6 +537,7 @@ app-editors/uemacs-pk:hunspell - Enable spell checking support (app-text/hunspel
 app-editors/vim:X - Link console vim against X11 libraries to enable title and clipboard features in xterm
 app-editors/vim:crypt - Use dev-libs/libsodium for crypto support
 app-editors/vim:cscope - Enable cscope interface
+app-editors/vim:pango - Render |:hardcopy| output with x11-libs/pango and x11-libs/cairo rather than Vim's own PostScript generator
 app-editors/vim:racket - Enable support for Scheme using dev-scheme/racket
 app-editors/vim:terminal - Enable terminal emulation support
 app-editors/vim:vim-pager - Install vimpager and vimmanpager links
