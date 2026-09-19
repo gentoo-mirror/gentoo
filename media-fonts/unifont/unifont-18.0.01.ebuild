@@ -3,62 +3,52 @@
 
 EAPI=8
 
-inherit font optfeature toolchain-funcs
+inherit font optfeature toolchain-funcs verify-sig
 
-DESCRIPTION="GNU Unifont - a Pan-Unicode X11 bitmap iso10646 font"
+DESCRIPTION="Unicode bitmap font with full Basic Multilingual Plane coverage"
 HOMEPAGE="https://unifoundry.com/"
-SRC_URI="mirror://gnu/${PN}/${P}/${P}.tar.gz"
+SRC_URI="
+	mirror://gnu/${PN}/${P}/${P}.tar.gz
+	verify-sig? ( mirror://gnu/${PN}/${P}/${P}.tar.gz.sig )
+"
 
 LICENSE="GPL-2+ || ( GPL-2+-with-font-exception OFL-1.1 ) public-domain utils? ( FDL-1.3+ )"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm ~loong ppc ppc64 ~riscv ~s390 ~sparc x86"
-IUSE="fontforge ttf utils"
-REQUIRED_USE="ttf? ( fontforge )"
+KEYWORDS="~alpha ~amd64 ~arm ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
+IUSE="ttf utils"
+REQUIRED_USE="ttf? ( utils )"
 
 BDEPEND="
 	media-libs/fontconfig
-	fontforge? (
-		app-text/bdf2psf
-		dev-lang/perl
-		dev-perl/GD[png(+)]
-		media-gfx/fontforge
-		x11-apps/bdftopcf
-	)
-"
-RDEPEND="
 	utils? (
-		dev-lang/perl
-		dev-perl/GD[png(+)]
-		virtual/perl-Getopt-Long
+		app-text/bdf2psf
+		x11-apps/bdftopcf
+		ttf? ( media-gfx/fontforge )
 	)
+	verify-sig? ( sec-keys/openpgp-keys-paulhardy )
 "
+
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/paulhardy.asc
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-17.0.03-Makefile.patch
+	"${FILESDIR}"/${PN}-17.0.05-Makefile.patch
 )
 
 src_compile() {
-	if use fontforge || use utils; then
-		local buildargs=(
-			CC="$(tc-getCC)"
-			CFLAGS="${CFLAGS}"
-		)
-		emake "${buildargs[@]}" bindir libdir
-	fi
+	if use utils; then
+		tc-export CC
+		emake bindir libdir
 
-	if use fontforge; then
 		local font_targets=(
 			opentype
 			pcf
 			psf
 			$(usev ttf truetype)
-			# compile unifont.bmp
-			$(usev utils bigpic)
 			# compile unifont_all.hex
 			$(usev utils coverage)
 		)
-		# -j1 for bug #843584
-		emake -j1 -C font "${font_targets[@]}"
+		emake -C font "${font_targets[@]}"
 	fi
 }
 
@@ -99,4 +89,5 @@ pkg_postinst() {
 	font_pkg_postinst
 
 	use utils && optfeature "unifont-viewer" dev-perl/Wx
+	use utils && optfeature "unipng2hex"  dev-perl/GD virtual/perl-Getopt-Long
 }

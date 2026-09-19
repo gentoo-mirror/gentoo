@@ -231,6 +231,8 @@ PATCHES=(
 
 	"${DISTDIR}/${P}_p1.patch"
 	"${DISTDIR}/${P}_p2.patch"
+
+	"${FILESDIR}/${P}-fix-Werror-undef.patch" # bug 976285
 )
 
 # TODO should be in cuda.eclass
