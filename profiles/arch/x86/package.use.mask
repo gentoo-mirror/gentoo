@@ -1,6 +1,18 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+# Michał Górny <mgorny@gentoo.org> (2026-09-19)
+# Dekeywording dev-python/pyarrow.
+sci-libs/gdal parquet
+
+# Michał Górny <mgorny@gentoo.org> (2026-09-19)
+# Dekeywording sci-libs/vtk.
+media-libs/opencv vtk
+sci-libs/dealii vtk
+sci-libs/opencascade vtk
+sci-mathematics/maxima vtk
+sci-physics/geant vtk
+
 # Andreas Sturmlechner <asturm@gentoo.org> (2026-08-31)
 # Pulls in kde-apps/kgpg which is not keyworded here.
 kde-apps/kdeutils-meta gpg
@@ -386,10 +398,6 @@ app-admin/syslog-ng test
 # James Le Cuirot <chewi@gentoo.org> (2019-12-10)
 # The JIT feature only works on amd64 and x86.
 app-emulation/aranym -jit
-
-# Thomas Deutschmann <whissi@gentoo.org> (2019-11-11)
-# dev-python/pandas is keyworded for x86
-sys-block/fio -python -gnuplot
 
 # Luke Dashjr <luke-jr+gentoobugs@utopios.org> (2019-09-21)
 # iasl is stable on x86
