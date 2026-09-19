@@ -6,12 +6,12 @@ EAPI=8
 HOMEPAGE=https://www.mltframework.org/
 INHERIT=python-single-r1 cmake flag-o-matic
 IUSE=debug ffmpeg frei0r gtk jack libsamplerate opencv opengl python qt6 rtaudio rnnoise rubberband sdl sox test vdpau vidstab vorbis xine xml python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 python_single_target_python3_15
-KEYWORDS=~amd64 ~arm64 ~loong ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 arm64 ~loong ~ppc64 ~riscv ~x86
 LICENSE=GPL-3
 RDEPEND=>=media-libs/libebur128-1.2.2:= sci-libs/fftw:3.0= ffmpeg? ( media-video/ffmpeg:0=[vdpau?] ) frei0r? ( media-plugins/frei0r-plugins ) gtk? ( media-libs/fontconfig media-libs/libexif x11-libs/gdk-pixbuf:2 x11-libs/pango ) jack? ( dev-libs/glib:2 >=dev-libs/libxml2-2.5:= media-libs/ladspa-sdk virtual/jack ) libsamplerate? ( >=media-libs/libsamplerate-0.1.2 ) opencv? ( >=media-libs/opencv-4.5.1:=[contrib] || ( media-libs/opencv[ffmpeg] media-libs/opencv[gstreamer] ) ) opengl? ( media-libs/libglvnd media-video/movit ) python? ( python_single_target_python3_12? ( dev-lang/python:3.12 ) python_single_target_python3_13? ( dev-lang/python:3.13 ) python_single_target_python3_14? ( dev-lang/python:3.14 ) python_single_target_python3_15? ( dev-lang/python:3.15 ) ) qt6? ( dev-qt/qtbase:6[gui,network,opengl,widgets,xml] dev-qt/qtsvg:6 media-libs/libexif x11-libs/libX11 ) rtaudio? ( >=media-libs/rtaudio-4.1.2:= kernel_linux? ( media-libs/alsa-lib ) ) rnnoise? ( media-libs/rnnoise:= ) rubberband? ( media-libs/rubberband:= ) sdl? ( media-libs/libsdl2[X,opengl,video] media-libs/sdl2-image ) sox? ( media-sound/sox:= ) vidstab? ( media-libs/vidstab ) vorbis? ( media-libs/libvorbis ) xine? ( >=media-libs/xine-lib-1.1.2_pre20060328-r7 ) xml? ( >=dev-libs/libxml2-2.5:= )
 REQUIRED_USE=python? ( ^^ ( python_single_target_python3_12 python_single_target_python3_13 python_single_target_python3_14 python_single_target_python3_15 ) )
 RESTRICT=!test? ( test )
 SLOT=0/7
 SRC_URI=https://github.com/mltframework/mlt/releases/download/v7.40.0/mlt-7.40.0.tar.gz
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57
-_md5_=71a69e4fd8e728d23e9210bd3817465f
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc	python-single-r1	47d8ac9be330c9366112b78fd4f8ce57	flag-o-matic	fd3558f73f6503093adee69adf41020d	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6
+_md5_=444ca4dcdf33e2c17d4a7fadc84848d8
