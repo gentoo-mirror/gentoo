@@ -898,7 +898,7 @@ acct-user/znc 0-r3: User for net-irc/znc
 acct-user/zookeeper 0-r2: A user for sys-cluster/zookeeper-bin
 app-accessibility/accerciser 3.46.2 3.48.0: Interactive Python accessibility explorer
 app-accessibility/at-spi2-atk 2.46.0: Gtk module for bridging AT-SPI to Atk
-app-accessibility/at-spi2-core 2.58.6 2.58.8 2.60.5 2.60.6: D-Bus accessibility specifications and registration daemon
+app-accessibility/at-spi2-core 2.58.8 2.60.6 2.60.7: D-Bus accessibility specifications and registration daemon
 app-accessibility/brltty 6.7 6.8 6.9 6.9.1: Daemon that provides access to the Linux/Unix console for a blind person
 app-accessibility/caribou 0.4.21-r9: Input assistive technology intended for switch and pointer users
 app-accessibility/edbrowse 3.8.13 3.8.15 3.8.17: Combination editor, browser, and mail client that is 100% text based
@@ -1467,7 +1467,7 @@ app-crypt/elettra 1.0: Plausible deniable file cryptography
 app-crypt/envchain 1.0.1: Save environment variables in a secret vault
 app-crypt/fcrackzip 1.0: Zip password cracker
 app-crypt/freepg 2.5.20 2.5.21: Cross-distro GnuPG fork focused on OpenPGP compliance
-app-crypt/gcr 3.41.2-r2 4.4.0.1-r1: Libraries for cryptographic UIs and accessing PKCS#11 modules
+app-crypt/gcr 3.41.2-r2 4.4.0.1-r1 4.4.1: Libraries for cryptographic UIs and accessing PKCS#11 modules
 app-crypt/gifshuffle 2.0-r1: GIF colourmap steganography
 app-crypt/glep63-check 12: GLEP 63 compliance checker for OpenPGP keys
 app-crypt/gnupg 2.5.20-r1 2.5.21 2.5.22: The GNU Privacy Guard, a GPL OpenPGP implementation
@@ -3914,7 +3914,7 @@ dev-cpp/azure-identity 1.13.2 1.13.3: Azure SDK for C++
 dev-cpp/azure-security-keyvault-certificates 4.2.1: Azure SDK for C++
 dev-cpp/azure-security-keyvault-keys 4.4.1: Azure SDK for C++
 dev-cpp/benchmark 1.8.4 1.9.1-r1 1.9.2 1.9.3 1.9.4 1.9.5: A microbenchmark support library
-dev-cpp/cairomm 1.14.5 1.18.0: C++ bindings for the Cairo vector graphics library
+dev-cpp/cairomm 1.14.5 1.18.0 1.18.1: C++ bindings for the Cairo vector graphics library
 dev-cpp/catch 1.12.2-r2 1.12.2-r3 1.9999 2.13.10-r1 3.15.3 9999: Modern C++ header-only framework for unit-tests
 dev-cpp/cctz 2.5: C++ library for dealing with time zones and time conversion
 dev-cpp/cld3 3.0.13_p20220331: Neural network model for language identification
@@ -3949,7 +3949,7 @@ dev-cpp/glog 0.5.0 0.6.0 0.6.0-r1 0.7.1: Google Logging library
 dev-cpp/gpgmepp 2.0.0-r1 2.1.0 2.2.0: GnuPG Made Easy is a library for making GnuPG easier to use (C++ bindings)
 dev-cpp/gstreamermm 1.10.0-r3: C++ interface for GStreamer
 dev-cpp/gtest 1.14.0-r2 1.17.0 9999: Google C++ Testing Framework
-dev-cpp/gtkmm 2.24.5-r2 3.24.11 4.18.0-r1 4.20.0 4.20.0-r1: C++ interface for GTK+
+dev-cpp/gtkmm 2.24.5-r2 3.24.11 4.20.0-r1 4.22.0: C++ interface for GTK+
 dev-cpp/gtksourceviewmm 3.18.0-r2: C++ bindings for gtksourceview
 dev-cpp/gulrak-filesystem 1.5.14 1.5.16: Header-only single-file std::filesystem compatible helper library
 dev-cpp/highway 1.2.0 1.3.0 1.4.0 9999: Performance-portable, length-agnostic SIMD with runtime dispatch
@@ -12084,11 +12084,11 @@ games-util/xpadneo 0.9.8 0.10.4 9999: Advanced Linux Driver for Xbox One Wireles
 games-util/xqf 1.0.6.2: A server browser for many FPS games (frontend for qstat)
 gnome-base/dconf 0.40.0 0.49.0: Simple low-level configuration system
 gnome-base/dconf-editor 45.0.1 49.0: Graphical tool for editing the dconf configuration database
-gnome-base/gdm 48.0-r1 49.2-r3 49.3-r3 49.4: GNOME Display Manager for managing graphical display servers and user logins
+gnome-base/gdm 48.0-r1 49.2-r3 49.4 50.3 50.3-r1: GNOME Display Manager for managing graphical display servers and user logins
 gnome-base/gnome 45.2 48.0: Meta package for GNOME, merge this package to install
 gnome-base/gnome-applets 3.54.0-r1 3.56.0 3.58.0: Applets for the GNOME Flashback Panel
 gnome-base/gnome-common 3.18.0-r2: Common files for development of Gnome packages
-gnome-base/gnome-control-center 49.7 49.8-r1 49.9: GNOME's main interface to configure various aspects of the desktop
+gnome-base/gnome-control-center 49.9 50.4: GNOME's main interface to configure various aspects of the desktop
 gnome-base/gnome-core-apps 45.2 48.0: Sub-meta package for the core applications integrated with GNOME
 gnome-base/gnome-core-libs 45.2 48.0: Sub-meta package for the core libraries of GNOME
 gnome-base/gnome-desktop 44.1-r300 44.1-r400 44.4-r300 44.4-r400 44.5-r300 44.5-r400: Library with common API for various GNOME modules
@@ -12098,18 +12098,18 @@ gnome-base/gnome-keyring 48.0-r1 50.0: Password and keyring managing daemon
 gnome-base/gnome-light 45.2 48.0: Meta package for GNOME-Light, merge this package to install
 gnome-base/gnome-menus 3.36.0-r1 3.38.1: Library and layout configuration for the Desktop Menu fd.o specification
 gnome-base/gnome-panel 3.54.0 3.56.0 3.58.1: The GNOME Flashback Panel
-gnome-base/gnome-session 48.0-r2 49.2 49.3: Gnome session manager
-gnome-base/gnome-session-openrc 49.2-r1 49.3: Gnome session leader for OpenRC
-gnome-base/gnome-settings-daemon 48.1 49.1 49.1-r1: Gnome Settings Daemon
-gnome-base/gnome-shell 48.8 49.7 49.8 49.9: Provides core UI functions for the GNOME desktop
-gnome-base/gsettings-desktop-schemas 48.0 49.1: Collection of GSettings schemas for GNOME desktop
+gnome-base/gnome-session 49.3 50.1: Gnome session manager
+gnome-base/gnome-session-openrc 49.2-r1 49.3 50.0: Gnome session leader for OpenRC
+gnome-base/gnome-settings-daemon 49.1-r1 50.1: Gnome Settings Daemon
+gnome-base/gnome-shell 48.8 49.7 49.9 50.5: Provides core UI functions for the GNOME desktop
+gnome-base/gsettings-desktop-schemas 49.1 50.1: Collection of GSettings schemas for GNOME desktop
 gnome-base/gvfs 1.58.4 1.58.5 1.60.3: Virtual filesystem implementation for GIO
 gnome-base/libglade 2.6.4-r5: Library to construct graphical interfaces at runtime
 gnome-base/libgnomecanvas 2.30.3-r1: The Gnome 2 Canvas library
 gnome-base/libgnomekbd 3.28.1: Gnome keyboard configuration library
 gnome-base/libgtop 2.40.0-r2 2.41.3: A library that provides top functionality to applications
 gnome-base/librsvg 2.40.21-r1 2.58.5-r1 2.60.0 2.62.2-r1 2.62.3: Scalable Vector Graphics (SVG) rendering library
-gnome-base/nautilus 49.6-r1: Default file manager for the GNOME desktop
+gnome-base/nautilus 49.6-r1 50.3.1: Default file manager for the GNOME desktop
 gnome-extra/cinnamon 6.6.7-r1 6.6.9: A fork of GNOME Shell with layout similar to GNOME 2
 gnome-extra/cinnamon-control-center 6.6.0: Cinnamons's main interface to configure various aspects of the desktop
 gnome-extra/cinnamon-desktop 6.6.2: A collection of libraries and utilites used by Cinnamon
@@ -12125,7 +12125,7 @@ gnome-extra/evolution-ews 3.56.2-r1 3.58.3 3.60.1 3.60.2-r1: Evolution module fo
 gnome-extra/gnome-boxes 49.1 50.0: Simple GNOME application to access remote or virtual systems
 gnome-extra/gnome-browser-connector 42.1-r1: OS-native connector counterpart for GNOME Shell browser extension
 gnome-extra/gnome-calculator 49.2-r1 50.0: A calculator application for GNOME
-gnome-extra/gnome-calendar 48.1 49.0.1 49.1: Manage your calendars with simple and modern interface
+gnome-extra/gnome-calendar 49.1 50.0: Manage your calendars with simple and modern interface
 gnome-extra/gnome-characters 49.1 50.0: Unicode character map viewer and library
 gnome-extra/gnome-clocks 49.0 50.0: Clocks application for GNOME
 gnome-extra/gnome-color-manager 3.36.2-r1: GNOME color profile tools
@@ -12140,24 +12140,24 @@ gnome-extra/gnome-network-displays 0.97.0-r1 0.98.0 0.99.0: Stream the desktop t
 gnome-extra/gnome-power-manager 43.0: GNOME power statistics
 gnome-extra/gnome-shell-extension-alphabetical-grid 44.0 46.0: Restore the alphabetical ordering of the app grid
 gnome-extra/gnome-shell-extension-appindicator 64 65: Support legacy, AppIndicators and KStatusNotifierItems in Gnome
-gnome-extra/gnome-shell-extension-applications-overview-tooltip 24: Show tooltip with full name and description
-gnome-extra/gnome-shell-extension-bing-wallpaper 52 53: Change your wallpaper daily to the bing.com background image
+gnome-extra/gnome-shell-extension-applications-overview-tooltip 24 24-r1: Show tooltip with full name and description
+gnome-extra/gnome-shell-extension-bing-wallpaper 53: Change your wallpaper daily to the bing.com background image
 gnome-extra/gnome-shell-extension-control-blur-effect-on-lock-screen 20241110: Control the blur effect on gnome-shell lock screen
-gnome-extra/gnome-shell-extension-dash-to-panel 72 73: An icon taskbar for the Gnome Shell
-gnome-extra/gnome-shell-extension-desktop-icons-ng 50.3.0: Desktop icon support for GNOME Shell
-gnome-extra/gnome-shell-extension-gsconnect 71 72: KDE Connect implementation for GNOME
+gnome-extra/gnome-shell-extension-dash-to-panel 73 74: An icon taskbar for the Gnome Shell
+gnome-extra/gnome-shell-extension-desktop-icons-ng 50.3.0 51.0.8: Desktop icon support for GNOME Shell
+gnome-extra/gnome-shell-extension-gsconnect 72: KDE Connect implementation for GNOME
 gnome-extra/gnome-shell-extension-lockscreen-studio 1.1.2: Customization extension for the gnome-shell lock screen
 gnome-extra/gnome-shell-extension-pop-shell 1.2.0_p20260331: Keyboard-driven layer for GNOME Shell with tiling support
 gnome-extra/gnome-shell-extension-weather-oclock 50.4 50.5: Display the current weather inside the pill next to the clock
-gnome-extra/gnome-shell-extensions 48.3 49.0: JavaScript extensions for GNOME Shell
-gnome-extra/gnome-shell-frippery 48.0 49.1: Unofficial extension pack providing GNOME 2-like features
+gnome-extra/gnome-shell-extensions 48.3 49.0 50.4: JavaScript extensions for GNOME Shell
+gnome-extra/gnome-shell-frippery 49.1 50.0: Unofficial extension pack providing GNOME 2-like features
 gnome-extra/gnome-software 49.4 50.4: Gnome install & update software
 gnome-extra/gnome-system-monitor 49.1 50.0: The Gnome System Monitor
 gnome-extra/gnome-tweaks 46.1-r1 49.0: Customize advanced GNOME options
 gnome-extra/gnome-user-docs 49.9 50.4 50.5: GNOME end user documentation
 gnome-extra/gnome-user-share 47.2 48.2 48.3: Personal file sharing for the GNOME desktop
 gnome-extra/gnome-weather 48.0 49.0 50.0: A weather application for GNOME
-gnome-extra/gucharmap 16.0.1 17.0.1 17.0.2: Unicode character map viewer and library
+gnome-extra/gucharmap 17.0.2: Unicode character map viewer and library
 gnome-extra/krb5-auth-dialog 43.0-r1: An application to acquire and list Kerberos tickets
 gnome-extra/libgda 5.2.9-r3: GNOME database access library
 gnome-extra/libgsf 1.14.53-r1 1.14.56 1.14.58: The GNOME Structured File Library
@@ -12273,7 +12273,7 @@ gui-libs/gtk-layer-shell 0.10.0 0.10.1: Library to create desktop components for
 gui-libs/gtk4-layer-shell 1.1.1-r1 1.3.0: A library for using the Layer Shell Wayland protocol with GTK4
 gui-libs/gtksourceview 5.18.0 5.20.0: A text widget implementing syntax highlighting and other features
 gui-libs/kddockwidgets 2.4.0 2.4.1: KDAB's Dock Widget Framework for Qt
-gui-libs/libadwaita 1.8.7 1.9.3: Building blocks for modern GNOME applications
+gui-libs/libadwaita 1.8.7 1.9.3 1.9.4: Building blocks for modern GNOME applications
 gui-libs/libdecor 0.2.5 9999: A client-side decorations library for Wayland clients
 gui-libs/libgedit-amtk 5.9.0 5.9.2 5.10.0: Actions, Menus and Toolbars Kit for GTK applications
 gui-libs/libgedit-gfls 0.2.1 0.3.1 0.4.1: A module dedicated to file loading and saving
@@ -13277,7 +13277,7 @@ media-gfx/scantailor-advanced 1.0.19: Interactive post-processing tool for scann
 media-gfx/scour 0.38.2-r1: Take an SVG file and produce a cleaner and more concise file
 media-gfx/scrot 1.12.1 2.0.0 9999: Screen capture utility using imlib2 library
 media-gfx/sfftobmp 3.1.4_p20250813: sff to bmp converter
-media-gfx/shotwell 0.32.17: Open source photo manager for GNOME
+media-gfx/shotwell 0.32.17 33.0: Open source photo manager for GNOME
 media-gfx/simple-scan 49.1 50.0: Simple document scanning utility
 media-gfx/skanpage 26.04.3 26.08.1: Multi-page scanning application supporting image and pdf files
 media-gfx/solvespace 3.1-r1: Parametric 2d/3d CAD
@@ -15759,7 +15759,7 @@ net-vpn/microsoft-azurevpnclient 3.0.0: Microsoft Azure VPN client for connectin
 net-vpn/mullvad-netns 0.2-r1 0.3-r1 0.4 9999: Script to run a command within a Mullvad network namespace
 net-vpn/networkmanager-fortisslvpn 1.4.0-r2: NetworkManager Fortinet SSLVPN compatible plugin
 net-vpn/networkmanager-l2tp 1.20.16-r1: NetworkManager L2TP plugin
-net-vpn/networkmanager-libreswan 1.2.24: NetworkManager libreswan plugin
+net-vpn/networkmanager-libreswan 1.2.24 1.2.31: NetworkManager libreswan plugin
 net-vpn/networkmanager-openconnect 1.2.10-r3: NetworkManager OpenConnect plugin
 net-vpn/networkmanager-openvpn 1.12.3: NetworkManager OpenVPN plugin
 net-vpn/networkmanager-pptp 1.2.12-r1: NetworkManager PPTP VPN plugin
@@ -17531,7 +17531,7 @@ sys-apps/which 2.23: Prints out location of specified executables that are in yo
 sys-apps/x86info 1.31: Dave Jones' handy, informative x86 CPU diagnostic utility
 sys-apps/xdg-dbus-proxy 0.1.7 0.1.8: Filtering proxy for D-Bus connections
 sys-apps/xdg-desktop-portal 1.20.4-r1: Desktop integration portal
-sys-apps/xdg-desktop-portal-gnome 48.0 49.0: Backend implementation for xdg-desktop-portal using GNOME
+sys-apps/xdg-desktop-portal-gnome 49.0 50.0: Backend implementation for xdg-desktop-portal using GNOME
 sys-apps/xdg-desktop-portal-gtk 1.14.1 1.15.2 1.15.3: Backend implementation for xdg-desktop-portal using GTK+
 sys-apps/xdg-desktop-portal-xapp 1.1.3: Backend implementation for xdg-desktop-portal using Cinnamon/MATE/Xfce
 sys-apps/xinetd 2.3.15.4-r1: Powerful replacement for inetd
@@ -19188,7 +19188,7 @@ x11-terms/zutty 0.15 0.16: X terminal emulator rendering through OpenGL ES Compu
 x11-themes/QAdwaitaDecorations 0.1.7: Qt decoration plugin implementing Adwaita-like client-side decorations
 x11-themes/QGnomePlatform 0.9.2-r8: Qt Platform Theme aimed to accommodate GNOME settings
 x11-themes/adapta-gtk-theme 3.95.0.11: An adaptive Gtk+ theme based on Material Design Guidelines
-x11-themes/adwaita-icon-theme 3.32.0 48.1 49.0: GNOME default icon theme
+x11-themes/adwaita-icon-theme 3.32.0 49.0 50.0: GNOME default icon theme
 x11-themes/adwaita-icon-theme-legacy 46.2: Adwaita Icon Theme legacy
 x11-themes/adwaita-qt 1.4.2-r2: A style to bend Qt applications to look like they belong into GNOME Shell
 x11-themes/arc-icon-theme 20161122-r1: Vertex icon theme
@@ -19333,7 +19333,7 @@ x11-wm/matwm2 0.1.2_pre3-r2 0.1.2_pre3-r3: Simple EWMH compatible window manager
 x11-wm/metacity 3.54.0-r1 3.56.0 3.58.1: GNOME Flashback window manager
 x11-wm/muffin 6.6.3: Compositing window manager forked from Mutter for use with Cinnamon
 x11-wm/musca 0.9.24_p20100226-r4: A simple dynamic window manager, with features nicked from ratpoison and dwm
-x11-wm/mutter 48.5 48.7 48.8 49.5-r1 49.6 49.7 9999: GNOME compositing window manager based on Clutter
+x11-wm/mutter 48.8 49.6 49.7 50.5 9999: GNOME compositing window manager based on Clutter
 x11-wm/notion 4.0.4 4.0.5 9999: Notion is a tiling, tabbed window manager for the X window system
 x11-wm/openbox 3.6.1-r11 9999: Standards compliant, fast, light-weight, extensible window manager
 x11-wm/oroborus 2.0.20-r2: Small and fast window manager
