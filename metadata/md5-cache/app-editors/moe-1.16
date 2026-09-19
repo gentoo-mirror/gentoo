@@ -6,10 +6,10 @@ EAPI=8
 HOMEPAGE=https://www.gnu.org/software/moe/
 INHERIT=toolchain-funcs unpacker verify-sig
 IUSE=verify-sig
-KEYWORDS=~amd64 ~arm ~riscv ~x86
+KEYWORDS=~amd64 arm ~riscv ~x86
 LICENSE=GPL-2+
 RDEPEND=sys-libs/ncurses:=
 SLOT=0
 SRC_URI=mirror://gnu/moe/moe-1.16.tar.lz verify-sig? ( mirror://gnu/moe/moe-1.16.tar.lz.sig )
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
-_md5_=a90609294d237f227a193801187459cd
+_md5_=e859c87c786a29006ea7b59eaf0d9889
