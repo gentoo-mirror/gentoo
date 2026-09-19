@@ -1,0 +1,12 @@
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-michaelrsweet ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure install prepare test unpack
+DESCRIPTION=Simple C library for using TrueType and OpenType font files
+EAPI=8
+HOMEPAGE=https://www.msweet.org/ttf/
+INHERIT=toolchain-funcs verify-sig git-r3
+IUSE=verify-sig
+LICENSE=Apache-2.0
+PROPERTIES=live
+SLOT=0
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8	git-r3	e6c2f983e006e805160436c75a0c1562
+_md5_=f7efa09295da610f6c4e7f0a68e85a5c

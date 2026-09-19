@@ -1,0 +1,14 @@
+BDEPEND=virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-michaelrsweet ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 ) >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure install prepare unpack
+DEPEND=>=media-libs/ttf-1.2.0 >=virtual/zlib-1.1:= png? ( >=media-libs/libpng-1.6:= )
+DESCRIPTION=Simple C library for reading and writing PDFs
+EAPI=8
+HOMEPAGE=https://www.msweet.org/pdfio/
+INHERIT=toolchain-funcs verify-sig git-r3
+IUSE=png webp verify-sig
+LICENSE=Apache-2.0
+PROPERTIES=live
+RDEPEND=>=media-libs/ttf-1.2.0 >=virtual/zlib-1.1:= png? ( >=media-libs/libpng-1.6:= )
+SLOT=0
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8	git-r3	e6c2f983e006e805160436c75a0c1562
+_md5_=cb2b9d5cd3493588299a8f5c4774e74a
