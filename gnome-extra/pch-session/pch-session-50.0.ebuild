@@ -1,7 +1,8 @@
-# Copyright 2019-2025 Gentoo Authors
+# Copyright 2019-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 inherit gnome2-utils
 
 DESCRIPTION="Unofficial gnome based session with different default settings and extensions"
@@ -10,24 +11,25 @@ SRC_URI="https://gitlab.com/pachoramos/${PN}/-/archive/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="breeze qt6 wayland webp"
 
 RDEPEND="
-	>=gnome-base/gnome-shell-${PV}
-	>=gnome-extra/gnome-shell-extensions-${PV}
-	>=gnome-extra/gnome-shell-extension-alphabetical-grid-42.0
-	>=gnome-extra/gnome-shell-extension-appindicator-60
-	>=gnome-extra/gnome-shell-extension-applications-overview-tooltip-23
-	>=gnome-extra/gnome-shell-extension-bing-wallpaper-51
-	>=gnome-extra/gnome-shell-extension-dash-to-panel-68
-	>=gnome-extra/gnome-shell-extension-desktop-icons-ng-48.0.0
-	>=gnome-extra/gnome-shell-extension-gsconnect-62
-	>=gnome-extra/gnome-shell-extension-weather-oclock-49.0
-	>=gnome-extra/gnome-tweaks-46
+	>=gnome-base/gnome-shell-50
+	>=gnome-extra/gnome-shell-extensions-50
+	>=gnome-extra/gnome-shell-extension-alphabetical-grid-46.0
+	>=gnome-extra/gnome-shell-extension-appindicator-65
+	>=gnome-extra/gnome-shell-extension-applications-overview-tooltip-24-r1
+	>=gnome-extra/gnome-shell-extension-bing-wallpaper-53
+	>=gnome-extra/gnome-shell-extension-dash-to-panel-74
+	>=gnome-extra/gnome-shell-extension-desktop-icons-ng-51
+	>=gnome-extra/gnome-shell-extension-gsconnect-72
+	>=gnome-extra/gnome-shell-extension-lockscreen-studio-1.1.2
+	>=gnome-extra/gnome-shell-extension-weather-oclock-50.5
+	>=gnome-extra/gnome-tweaks-49
 
-	>=gnome-extra/gnome-clocks-${PV}
-	>=media-fonts/fonts-meta-2
+	>=gnome-extra/gnome-clocks-50
+	>=media-fonts/fonts-meta-3
 	|| (
 		sys-apps/tuned[ppd]
 		sys-power/power-profiles-daemon
