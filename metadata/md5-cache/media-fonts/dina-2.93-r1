@@ -1,14 +1,14 @@
-BDEPEND=app-arch/unzip X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings ) X? ( media-gfx/ebdftopcf )
+BDEPEND=app-arch/unzip X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings ) opentype-compat? ( x11-apps/fonttosfnt )
 DEFINED_PHASES=compile install postinst postrm setup
 DESCRIPTION=Monospace bitmap font, primarily aimed at programmers
-EAPI=7
+EAPI=9
 HOMEPAGE=https://www.dcmembers.com/jibsen/download/61/
-INHERIT=font font-ebdftopcf
-IUSE=X X
-KEYWORDS=amd64 ~loong ~riscv x86
+INHERIT=font
+IUSE=X +opentype-compat
+KEYWORDS=~amd64 ~loong ~riscv ~x86
 LICENSE=MIT
 RESTRICT=strip binchecks
 SLOT=0
 SRC_URI=https://www.donationcoder.com/forum/index.php?action=dlattach;topic=36049.0;attach=78562 -> dina-2.93.zip
-_eclasses_=font	9248ee2e9ac35c888e1ae71773a632f4	font-ebdftopcf	bad7712286165c97dd5bf8877e5c1548
-_md5_=a02d844e9e61c92a06467cce8718f9ae
+_eclasses_=font	9248ee2e9ac35c888e1ae71773a632f4
+_md5_=f9c32d9b9ded2336fb2740a6eb600a9a
