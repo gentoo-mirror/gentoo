@@ -11,19 +11,23 @@ HOMEPAGE="https://gtkmm.gnome.org/en/index.html"
 
 LICENSE="LGPL-2.1+"
 SLOT="4.0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86"
-IUSE="gtk-doc test"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="gtk-doc test vulkan"
 
 RESTRICT="!test? ( test )"
 
+PATCHES=(
+	"${FILESDIR}"/MR-101.patch
+)
+
 RDEPEND="
 	>=dev-cpp/glibmm-2.75.0:2.68[gtk-doc?]
-	>=gui-libs/gtk-4.17.5:4
-	<gui-libs/gtk-4.20:4
+	>=gui-libs/gtk-4.22.0:4[vulkan?]
 	>=dev-cpp/cairomm-1.15.4:1.16[gtk-doc?]
 	>=dev-cpp/pangomm-2.50.0:2.48[gtk-doc?]
 	>=x11-libs/gdk-pixbuf-2.35.5:2
 	>=media-libs/libepoxy-1.2
+	vulkan? ( media-libs/vulkan-loader )
 "
 DEPEND="
 	${RDEPEND}
@@ -50,4 +54,12 @@ src_configure() {
 
 src_test() {
 	virtx meson_src_test
+}
+
+src_install() {
+	meson_src_install
+	if use gtk-doc; then
+		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
+		mv "${ED}"/usr/share/doc/gtkmm-4.0 "${ED}"/usr/share/gtk-doc/html/ || die
+	fi
 }

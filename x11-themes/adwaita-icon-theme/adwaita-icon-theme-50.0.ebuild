@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -16,7 +16,7 @@ LICENSE="
 	branding? ( CC-BY-SA-4.0 )
 "
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 
 IUSE="branding"
 
@@ -57,20 +57,4 @@ src_prepare() {
 
 src_test() {
 	:; # No tests
-}
-
-src_install() {
-	meson_src_install
-
-	# Gentoo uses the following location for cursors too, but keep
-	# upstream path to prevent issues like bugs #838451, #834277, #834001
-	dosym ../../../../usr/share/icons/Adwaita/cursors /usr/share/cursors/xorg-x11/Adwaita
-}
-
-pkg_preinst() {
-	# Needed until bug #834600 is solved
-	if [[ -d "${EROOT}"/usr/share/cursors/xorg-x11/Adwaita ]] ; then
-		rm -r "${EROOT}"/usr/share/cursors/xorg-x11/Adwaita || die
-	fi
-	xdg_pkg_preinst
 }

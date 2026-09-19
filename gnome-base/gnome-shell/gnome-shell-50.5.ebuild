@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
+
 PYTHON_COMPAT=( python3_{12..14} )
 
 inherit flag-o-matic gnome.org gnome2-utils meson optfeature python-single-r1 xdg
@@ -13,7 +14,7 @@ LICENSE="GPL-2+ LGPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 
-IUSE="X elogind gtk-doc +ibus +networkmanager pipewire selinux systemd test wayland"
+IUSE="elogind gtk-doc +ibus +networkmanager pipewire selinux systemd test xwayland"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	?? ( elogind systemd )"
 RESTRICT="!test? ( test )"
@@ -24,12 +25,12 @@ DEPEND="
 	>=app-crypt/gcr-3.90.0:4=[introspection]
 	>=dev-libs/glib-2.86.0:2
 	>=dev-libs/gobject-introspection-1.86.0:=
-	>=dev-libs/gjs-1.85.90[cairo(+)]
-	>=gui-libs/gtk-4:4[X?,introspection,wayland?]
-	>=x11-wm/mutter-49.0:0/17[introspection,test?]
+	>=dev-libs/gjs-1.87.1[cairo(+)]
+	>=gui-libs/gtk-4:4[introspection,wayland]
+	>=x11-wm/mutter-50.0:0/18[introspection,test?]
 	>=sys-auth/polkit-0.120_p20220509[introspection]
-	>=gnome-base/gsettings-desktop-schemas-49_alpha[introspection]
-	X? (
+	>=gnome-base/gsettings-desktop-schemas-50_alpha[introspection]
+	xwayland? (
 		x11-libs/libX11
 		x11-libs/libXext
 		>=x11-libs/libXfixes-5.0
@@ -38,7 +39,7 @@ DEPEND="
 	dev-python/docutils
 	>=gnome-base/gnome-desktop-40.0:4=
 	networkmanager? (
-		>=net-misc/networkmanager-1.10.4[introspection]
+		>=net-misc/networkmanager-1.24[introspection]
 		net-libs/libnma[introspection]
 		>=app-crypt/libsecret-0.18
 	)
@@ -64,7 +65,7 @@ DEPEND="
 	$(python_gen_cond_dep '
 		dev-python/pygobject:3[${PYTHON_USEDEP}]
 	')
-	media-libs/libglvnd[X]
+	media-libs/libglvnd
 "
 # Runtime-only deps are probably incomplete and approximate.
 # Introspection deps generated from inspection of the output of:
@@ -97,7 +98,7 @@ RDEPEND="${DEPEND}
 	gnome-base/librsvg:2[introspection]
 	gui-libs/libadwaita:1[introspection]
 
-	>=gnome-base/gnome-session-49
+	>=gnome-base/gnome-session-50
 	>=gnome-base/gnome-settings-daemon-3.8.3
 
 	x11-misc/xdg-utils
@@ -117,7 +118,7 @@ RDEPEND="${DEPEND}
 
 # avoid circular dependency, see bug #546134
 PDEPEND="
-	>=gnome-base/gdm-49[introspection(+)]
+	>=gnome-base/gdm-50[introspection(+)]
 	>=gnome-base/gnome-control-center-3.26[networkmanager(+)?]
 "
 BDEPEND="
@@ -153,8 +154,7 @@ src_prepare() {
 }
 
 src_configure() {
-	use X || append-cppflags -DGENTOO_GTK_HIDE_X11
-	use wayland || append-cppflags -DGENTOO_GTK_HIDE_WAYLAND
+	append-cppflags -DGENTOO_GTK_HIDE_WAYLAND
 
 	local emesonargs=(
 		$(meson_use pipewire camera_monitor)

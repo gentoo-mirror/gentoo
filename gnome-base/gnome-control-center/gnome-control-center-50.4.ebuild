@@ -2,21 +2,22 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-PYTHON_COMPAT=( python3_{11..14} )
+
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit gnome.org gnome2-utils meson python-any-r1 virtualx xdg
 
 DESCRIPTION="GNOME's main interface to configure various aspects of the desktop"
 HOMEPAGE="https://apps.gnome.org/Settings"
-SRC_URI+=" https://dev.gentoo.org/~pacho/${PN}/${PN}-49.5-patchset.tar.xz"
+SRC_URI+=" https://dev.gentoo.org/~pacho/${PN}/${PN}-50.4-patchset.tar.xz"
 SRC_URI+=" https://dev.gentoo.org/~mattst88/distfiles/${PN}-gentoo-logo.svg"
 SRC_URI+=" https://dev.gentoo.org/~mattst88/distfiles/${PN}-gentoo-logo-dark.svg"
 # Logo is CC-BY-SA-2.5
 LICENSE="GPL-2+ CC-BY-SA-2.5"
 SLOT="2"
-KEYWORDS="amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86"
 
-IUSE="+bluetooth +cups debug elogind +gnome-online-accounts +ibus input_devices_wacom kerberos +geolocation networkmanager systemd test X"
+IUSE="+bluetooth +cups debug elogind +gnome-online-accounts +ibus input_devices_wacom kerberos +geolocation networkmanager systemd test"
 REQUIRED_USE="
 	^^ ( elogind systemd )
 " # Theoretically "?? ( elogind systemd )" is fine too, lacking some functionality at runtime,
@@ -30,21 +31,20 @@ RESTRICT="!test? ( test )"
 # printer panel requires cups and smbclient (the latter is not patched yet to be separately optional)
 # First block is toplevel meson.build deps in order of occurrence (plus deeper deps if in same conditional).
 # Second block is dependency() from subdir meson.builds, sorted by directory name occurrence order
+# TODO: add >=gnome-base/gmobile-0.6.0 above the accountsservice dep line
+# when packaged.
 DEPEND="
-	gnome-online-accounts? (
-		x11-libs/gtk+:3
-		>=net-libs/gnome-online-accounts-3.51.0:=
-	)
+	gnome-online-accounts? ( >=net-libs/gnome-online-accounts-3.51.0:= )
 	>=media-libs/libpulse-2.0[glib]
-	>=gui-libs/gtk-4.17.1:4[X?,wayland]
+	>=gui-libs/gtk-4.15.2:4[X,wayland]
 	>=gui-libs/libadwaita-1.8_alpha:1
-	>=sys-apps/accountsservice-23.11.69
+	>=sys-apps/accountsservice-23.11.69:=
 	>=x11-misc/colord-0.1.34:0=
 	>=x11-libs/gdk-pixbuf-2.23.0:2
 	>=dev-libs/glib-2.76.6:2
 	gnome-base/gnome-desktop:4=
-	>=gnome-base/gnome-settings-daemon-49
-	>=gnome-base/gsettings-desktop-schemas-48_alpha
+	>=gnome-base/gnome-settings-daemon-48_rc
+	>=gnome-base/gsettings-desktop-schemas-50_alpha
 	dev-libs/libxml2:2=
 	>=sys-power/upower-1.90.6:=
 	>=dev-libs/libgudev-232
@@ -61,10 +61,6 @@ DEPEND="
 		>=net-libs/libnma-1.10.2
 		>=net-misc/networkmanager-1.52.0[modemmanager]
 		>=net-misc/modemmanager-0.7.990:=
-	)
-	X? (
-		>=x11-libs/libX11-1.8
-		>=x11-libs/libXi-1.2
 	)
 	bluetooth? ( net-wireless/gnome-bluetooth:3= )
 	input_devices_wacom? ( >=dev-libs/libwacom-1.4:= )
@@ -109,10 +105,7 @@ RDEPEND="${DEPEND}
 	)
 	>=gnome-extra/tecla-47.0
 	dev-libs/libinput
-	X? (
-		>=x11-drivers/xf86-input-libinput-0.19.0
-		input_devices_wacom? ( >=x11-drivers/xf86-input-wacom-0.33.0 )
-	)
+	input_devices_wacom? ( >=x11-drivers/xf86-input-wacom-0.33.0 )
 "
 # PDEPEND to avoid circular dependency; gnome-session-check-accelerated called by info panel
 # gnome-session-2.91.6-r1 also needed so that 10-user-dirs-update is run at login
@@ -126,7 +119,7 @@ BDEPEND="${PYTHON_DEPS}
 	app-text/docbook-xml-dtd:4.2
 	x11-base/xorg-proto
 	dev-libs/libxml2:2
-	>=dev-util/blueprint-compiler-0.17
+	>=dev-util/blueprint-compiler-0.19
 	dev-util/gdbus-codegen
 	dev-util/glib-utils
 	>=sys-devel/gettext-0.19.8
@@ -137,6 +130,7 @@ BDEPEND="${PYTHON_DEPS}
 		')
 		x11-apps/setxkbmap
 	)
+	dev-util/wayland-scanner
 "
 
 PATCHES=(
@@ -180,8 +174,7 @@ src_configure() {
 		$(meson_use input_devices_wacom wacom)
 		# bashcompletions installed to $datadir/bash-completion/completions by v3.28.2,
 		# which is the same as $(get_bashcompdir)
-		$(meson_use X x11)
-		-Dmalcontent=false # unpackaged
+		-Dmalcontent=false # unpackaged in the main tree
 		-Ddistributor_logo=/usr/share/pixmaps/gnome-control-center-gentoo-logo.svg
 		-Ddark_mode_distributor_logo=/usr/share/pixmaps/gnome-control-center-gentoo-logo-dark.svg
 	)
