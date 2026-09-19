@@ -21,7 +21,7 @@ KEYWORDS="~amd64 ~arm64"
 
 RDEPEND="
 	=dev-python/termcolor-3*[${PYTHON_USEDEP}]
-	>=dev-python/termcolor-3.2[${PYTHON_USEDEP}]
+	>=dev-python/termcolor-3.3[${PYTHON_USEDEP}]
 "
 
 EPYTEST_XDIST=1
