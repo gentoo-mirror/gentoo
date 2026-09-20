@@ -12,7 +12,7 @@ SRC_URI="https://downloads.sourceforge.net/enlightenment/${P}.tar.xz"
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+alsa audiofile +dbus debug +dialogs doc examples gnome
+IUSE="+alsa audiofile +dbus debug +dialogs gnome
 libhack editline modules nls no-container opengl +pango player
 pulseaudio readline +sndfile sound +themes xcomposite +xft
 xi2 xinerama xpresent +xrandr +xrender +xsm +xsync zoom"
@@ -77,7 +77,6 @@ COMMON_DEPEND="
 	zoom? ( !xrandr? ( x11-libs/libXxf86vm ) )
 "
 RDEPEND="${COMMON_DEPEND}
-	doc? ( app-doc/e16-docs )
 	nls? ( virtual/libintl )
 	themes? ( x11-themes/e16-themes )
 	!x11-wm/enlightenment:0
@@ -106,7 +105,6 @@ src_configure() {
 		$(use_enable dbus)
 		$(use_enable debug libtrip)
 		$(use_enable dialogs)
-		$(use_enable doc docs)
 		$(use_enable libhack)
 		$(use_enable modules)
 		$(use_enable nls)
@@ -127,6 +125,7 @@ src_configure() {
 		$(usev editline --with-lineedit=yes)
 		$(usev readline --with-lineedit=readline)
 		--enable-mans
+		--disable-docs
 		--disable-esdtest
 		--disable-gcc-cpp
 		--disable-werror
@@ -154,7 +153,7 @@ src_install() {
 	default
 	docompress -x /usr/share/doc/${PF}/e16.html
 	dodoc COMPLIANCE docs/e16.html
-	use examples && dodoc -r sample-scripts
+	dodoc -r sample-scripts
 }
 
 pkg_postinst() {
