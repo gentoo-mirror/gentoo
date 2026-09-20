@@ -5,12 +5,12 @@ DESCRIPTION=Enlightenment Window Manager (E16)
 EAPI=8
 HOMEPAGE=https://www.enlightenment.org https://sourceforge.net/projects/enlightenment/
 INHERIT=autotools
-IUSE=+alsa audiofile +dbus debug +dialogs doc examples gnome libhack editline modules nls no-container opengl +pango player pulseaudio readline +sndfile sound +themes xcomposite +xft xi2 xinerama xpresent +xrandr +xrender +xsm +xsync zoom
+IUSE=+alsa audiofile +dbus debug +dialogs gnome libhack editline modules nls no-container opengl +pango player pulseaudio readline +sndfile sound +themes xcomposite +xft xi2 xinerama xpresent +xrandr +xrender +xsm +xsync zoom
 KEYWORDS=~amd64 ~x86
 LICENSE=BSD
-RDEPEND=media-libs/imlib2[X,text] virtual/libiconv x11-libs/libX11 x11-libs/libXext x11-misc/xbitmaps dbus? ( sys-apps/dbus ) editline? ( dev-libs/editline:= ) opengl? ( media-libs/glu media-libs/libglvnd[X] ) pango? ( dev-libs/glib:2 x11-libs/pango[X] ) readline? ( sys-libs/readline:= ) sound? ( alsa? ( media-libs/alsa-lib ) player? ( media-sound/alsa-utils ) pulseaudio? ( || ( media-libs/libpulse media-sound/apulse[sdk] ) ) audiofile? ( media-libs/audiofile:= ) sndfile? ( media-libs/libsndfile ) ) xcomposite? ( x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXfixes ) xft? ( x11-libs/libXft ) xi2? ( x11-libs/libXi ) xinerama? ( x11-libs/libXinerama ) xpresent? ( x11-libs/libXpresent ) xrandr? ( x11-libs/libXrandr ) xrender? ( x11-libs/libXrender ) xsm? ( x11-libs/libICE x11-libs/libSM ) zoom? ( !xrandr? ( x11-libs/libXxf86vm ) ) doc? ( app-doc/e16-docs ) nls? ( virtual/libintl ) themes? ( x11-themes/e16-themes ) !x11-wm/enlightenment:0
+RDEPEND=media-libs/imlib2[X,text] virtual/libiconv x11-libs/libX11 x11-libs/libXext x11-misc/xbitmaps dbus? ( sys-apps/dbus ) editline? ( dev-libs/editline:= ) opengl? ( media-libs/glu media-libs/libglvnd[X] ) pango? ( dev-libs/glib:2 x11-libs/pango[X] ) readline? ( sys-libs/readline:= ) sound? ( alsa? ( media-libs/alsa-lib ) player? ( media-sound/alsa-utils ) pulseaudio? ( || ( media-libs/libpulse media-sound/apulse[sdk] ) ) audiofile? ( media-libs/audiofile:= ) sndfile? ( media-libs/libsndfile ) ) xcomposite? ( x11-libs/libXcomposite x11-libs/libXdamage x11-libs/libXfixes ) xft? ( x11-libs/libXft ) xi2? ( x11-libs/libXi ) xinerama? ( x11-libs/libXinerama ) xpresent? ( x11-libs/libXpresent ) xrandr? ( x11-libs/libXrandr ) xrender? ( x11-libs/libXrender ) xsm? ( x11-libs/libICE x11-libs/libSM ) zoom? ( !xrandr? ( x11-libs/libXxf86vm ) ) nls? ( virtual/libintl ) themes? ( x11-themes/e16-themes ) !x11-wm/enlightenment:0
 REQUIRED_USE=?? ( editline readline ) opengl? ( xcomposite xrender ) pango? ( xft ) sound? ( ^^ ( alsa player pulseaudio ) alsa? ( ^^ ( sndfile audiofile ) ) pulseaudio? ( ^^ ( sndfile audiofile ) ) )
 SLOT=0
 SRC_URI=https://downloads.sourceforge.net/enlightenment/e16-1.0.32.tar.xz
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	8e8dec541e781133e5176ee95a872f17
-_md5_=db550054e19a05e36ea0e4ae9808d980
+_md5_=019a47b5194777e576caa10934615979
