@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://hohnstaedt.de/xca/
 INHERIT=cmake virtualx xdg-utils
 IUSE=doc test
-KEYWORDS=~amd64 ~ppc ~x86
+KEYWORDS=~amd64 ppc x86
 LICENSE=BSD
 RDEPEND=dev-libs/libltdl:0= dev-qt/qtbase:6[sqlite,widgets] dev-qt/qttools:6[assistant] dev-libs/openssl:* doc? ( app-text/linuxdoc-tools )
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/chris2511/xca/archive/refs/tags/RELEASE.2.9.0.tar.gz -> xca-2.9.0.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=d9fbef8156c55a5392f48b578c779cc8
+_md5_=2008335d4dfe17a51703732ac0449e13
