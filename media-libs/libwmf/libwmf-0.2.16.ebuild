@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit autotools gnome2-utils
+inherit gnome2-utils
 
 DESCRIPTION="Library for reading vector images in Microsoft's Windows Metafile Format (WMF)"
 HOMEPAGE="
@@ -14,19 +14,20 @@ SRC_URI="https://github.com/caolanm/libwmf/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="LGPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ~ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
-IUSE="debug doc expat X"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
+IUSE="debug doc expat gd gdk-pixbuf X"
 
 RDEPEND="
 	app-text/ghostscript-gpl
 	media-fonts/urw-fonts
 	media-libs/freetype:2=
 	media-libs/libpng:=
-	media-libs/libjpeg-turbo
+	media-libs/libjpeg-turbo:=
 	virtual/zlib:=
-	x11-libs/gdk-pixbuf:2
 	expat? ( dev-libs/expat )
 	!expat? ( dev-libs/libxml2:2= )
+	gd? ( media-libs/gd:2= )
+	gdk-pixbuf? ( x11-libs/gdk-pixbuf:2 )
 	X? (
 		x11-libs/libX11
 		x11-libs/libXt
@@ -40,23 +41,13 @@ DOCS=( AUTHORS BUILDING ChangeLog CREDITS INSTALL NEWS README TODO )
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-0.2.8.4-libpng-1.5.patch
-	"${FILESDIR}"/${PN}-0.2.8.4-pngfix.patch
-	"${FILESDIR}"/${PN}-0.2.15-export.patch
-	"${FILESDIR}"/${PN}-0.2.15-underlinked-plugin.patch
 )
 
-src_prepare() {
-	default
-	# For underlinked patch
-	eautoreconf
-}
-
 src_configure() {
-	# Support for GD is disabled, since it's never linked, even, when enabled
-	# See https://bugs.gentoo.org/268161
 	local myeconfargs=(
-		--disable-gd
 		$(use_enable debug)
+		$(use_enable gd)
+		$(use_enable gdk-pixbuf pixbuf)
 		$(use_with expat)
 		$(use_with !expat libxml2)
 		$(use_with X x)
@@ -83,9 +74,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	gnome2_gdk_pixbuf_update
+	use gdk-pixbuf && gnome2_gdk_pixbuf_update
 }
 
 pkg_postrm() {
-	gnome2_gdk_pixbuf_update
+	use gdk-pixbuf && gnome2_gdk_pixbuf_update
 }
