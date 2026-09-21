@@ -3,8 +3,8 @@
 
 EAPI=8
 PYTHON_REQ_USE="xml(+)"
-PYTHON_COMPAT=( python3_{11..14} )
-USE_RUBY="ruby31 ruby32 ruby33 ruby34 ruby40"
+PYTHON_COMPAT=( python3_{12..14} )
+USE_RUBY="ruby32 ruby33 ruby34 ruby40"
 
 inherit check-reqs flag-o-matic gnome2 optfeature python-any-r1 ruby-single toolchain-funcs cmake
 
@@ -19,7 +19,7 @@ LICENSE="LGPL-2+ BSD"
 SLOT="4.1/0" # soname version of libwebkit2gtk-4.1
 KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
-IUSE="aqua avif custom-cflags examples gamepad keyring +gstreamer +introspection pdf jpegxl +jumbo-build lcms seccomp spell systemd wayland X"
+IUSE="aqua avif cpu_flags_x86_sse cpu_flags_x86_sse2 custom-cflags examples gamepad keyring +gstreamer +introspection pdf jpegxl +jumbo-build lcms seccomp spell systemd wayland X"
 REQUIRED_USE="|| ( aqua wayland X )"
 
 # Tests do not run when built from tarballs
@@ -64,7 +64,7 @@ RDEPEND="
 	media-libs/libglvnd
 	media-libs/libpng:0=
 	media-libs/libwebp:=
-	media-libs/mesa
+	media-libs/mesa[opengl]
 	media-libs/svt-av1
 	media-libs/woff2
 	net-libs/libsoup:3.0[introspection?]
@@ -121,9 +121,11 @@ PATCHES=(
 	"${FILESDIR}"/2.48.3-fix-ftbfs-riscv64.patch
 	"${FILESDIR}"/2.50.4-disable-native-simd-on-riscv.patch
 	"${FILESDIR}"/2.50.4-prefer-pthread.patch
-	"${FILESDIR}"/2.50.5-DFGBasicBlockInlines-gcc16.patch
-	"${FILESDIR}"/2.50.5-EventTarget-gcc16.patch
 	"${FILESDIR}"/2.52.1-documentloader-eventloop-h.patch
+	"${FILESDIR}"/2.52.3-disable-nvidia-dmabuf.patch
+	"${FILESDIR}"/2.52.6-no-sse2.patch
+	"${FILESDIR}"/2.52.6-no-video.patch
+	"${FILESDIR}"/2.54.0-cstringview.patch
 )
 
 pkg_pretend() {
@@ -235,7 +237,7 @@ src_configure() {
 		# Source/cmake/GStreamerDependencies.cmake
 		-DENABLE_MEDIA_TELEMETRY=OFF
 		-DUSE_GSTREAMER=$(usex gstreamer)
-		-DUSE_GSTREAMER_WEBRTC=$(usex gstreamer)
+		-DUSE_GSTREAMER_WEBRTC=OFF # https://bugs.webkit.org/show_bug.cgi?id=235885
 		# Source/cmake/OptionsGTK.cmake
 		-DENABLE_DOCUMENTATION=OFF
 		-DENABLE_INTROSPECTION=$(usex introspection)
@@ -254,6 +256,26 @@ src_configure() {
 		-DUSE_SYSPROF_CAPTURE=OFF
 		-DUSE_WOFF2=ON
 	)
+
+	# Do our best to support x86 machines lacking SSE,
+	# https://bugs.gentoo.org/730044
+	if use x86; then
+		if use cpu_flags_x86_sse2; then
+			# These are normally added by the build system, but our
+			# patch changes the way an x86 CPU is detected, bypassing
+			# that addition.
+			append-flags "-msse2 -mfpmath=sse"
+		elif use cpu_flags_x86_sse; then
+			# If you have SSE1 but not SSE2, these are needed to
+			# avoid static_assert failures.
+			append-flags "-msse -mfpmath=sse"
+		else
+			# Neither? This is reportedly crashy, but better than
+			# nothing if you really don't have the hardware.
+			mycmakeargs+=( -DENABLE_WEBGL=OFF )
+			append-cppflags -DSKCMS_HAS_MUSTTAIL=0
+		fi
+	fi
 
 	if use riscv || use ppc64; then
 		# https://bugs.gentoo.org/970556
