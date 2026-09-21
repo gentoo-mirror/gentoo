@@ -1,14 +1,13 @@
-BDEPEND=virtual/pkgconfig gui? ( dev-qt/qtbase:6 ) app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=>=app-crypt/rhash-1.3.3-r2:0= app-text/htmltidy:= dev-libs/boost:=[zlib] >=dev-libs/jsoncpp-1.7:0= dev-libs/tinyxml2:0= >=net-misc/curl-7.55:0=[ssl] gui? ( dev-qt/qtbase:6[network,widgets] dev-qt/qtwebengine:6[widgets] )
+DEPEND=>=app-crypt/rhash-1.3.3-r2:0= app-text/htmltidy:= dev-libs/boost:=[zlib] >=dev-libs/jsoncpp-1.7:0= dev-libs/tinyxml2:0= >=net-misc/curl-7.55:0=[ssl]
 DESCRIPTION=Unofficial GOG.com downloader for Linux
 EAPI=8
 HOMEPAGE=https://sites.google.com/site/gogdownloader/
 INHERIT=cmake git-r3
-IUSE=gui
 LICENSE=WTFPL-2
 PROPERTIES=live
-RDEPEND=>=app-crypt/rhash-1.3.3-r2:0= app-text/htmltidy:= dev-libs/boost:=[zlib] >=dev-libs/jsoncpp-1.7:0= dev-libs/tinyxml2:0= >=net-misc/curl-7.55:0=[ssl] gui? ( dev-qt/qtbase:6[network,widgets] dev-qt/qtwebengine:6[widgets] )
+RDEPEND=>=app-crypt/rhash-1.3.3-r2:0= app-text/htmltidy:= dev-libs/boost:=[zlib] >=dev-libs/jsoncpp-1.7:0= dev-libs/tinyxml2:0= >=net-misc/curl-7.55:0=[ssl]
 SLOT=0
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=596566fb95ac5ddf4c7a713d65f6fa94
+_md5_=595fab860cfa5c38f7174d14f77bb490
