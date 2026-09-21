@@ -6,8 +6,8 @@ EAPI=8
 CHECKREQS_DISK_BUILD="4G"
 ECM_HANDBOOK="forceoptional"
 ECM_TEST="forceoptional"
-KFMIN=6.19.0
-QTMIN=6.9.1
+KFMIN=6.29.0
+QTMIN=6.11.2
 inherit check-reqs ecm gear.kde.org xdg
 
 DESCRIPTION="KDE Office Suite"
@@ -94,10 +94,7 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-PATCHES=(
-	"${WORKDIR}"/${PATCHSET}/${PN}-3.1.89-no-arch-detection.patch # downstream
-	"${FILESDIR}"/${P}-poppler-26.04.patch # in git master
-)
+PATCHES=( "${WORKDIR}"/${PATCHSET}/${PN}-3.1.89-no-arch-detection.patch ) # downstream
 
 src_configure() {
 	local cal_ft myproducts
