@@ -18,7 +18,7 @@ else
 		verify-sig? ( https://github.com/kovidgoyal/kitty/releases/download/v${PV}/${P}.tar.xz.sig )
 	"
 	VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kovidgoyal.gpg
-	KEYWORDS="amd64 arm64 ~loong ~ppc64 ~riscv x86"
+	KEYWORDS="~amd64 ~arm64 ~riscv ~x86"
 fi
 
 DESCRIPTION="Fast, feature-rich, GPU-based terminal"
@@ -77,6 +77,7 @@ DEPEND="
 BDEPEND="
 	${PYTHON_DEPS}
 	>=dev-lang/go-1.26:=
+	dev-util/shader-slang
 	sys-libs/ncurses
 	virtual/pkgconfig
 	test? ( $(python_gen_cond_dep 'dev-python/pillow[zlib,${PYTHON_USEDEP}]') )
@@ -125,6 +126,8 @@ src_prepare() {
 	:> fonts/SymbolsNerdFontMono-Regular.ttf || die
 
 	local skiptests=(
+		# needs cgroups and may not work right with portage sandbox
+		kitty_tests/child.py
 		# broken with nspawn defaults, skip for convenience (bug #954176)
 		kitty_tests/crypto.py
 		# relies on 'who' command which doesn't detect users with pid-sandbox
@@ -201,6 +204,7 @@ src_install() {
 pkg_postinst() {
 	xdg_pkg_postinst
 
+	optfeature "custom shaders support" dev-util/shader-slang
 	optfeature "audio-based terminal bell support" media-libs/libcanberra
 	use X && optfeature "X11 startup notification support" x11-libs/startup-notification
 	optfeature "opening links from the terminal" x11-misc/xdg-utils
