@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~riscv"
+KEYWORDS="~amd64 ~riscv"
 IUSE="pulseaudio wayland"
 
 DEPEND="
@@ -28,7 +28,7 @@ DEPEND="
 	wayland? (
 		dev-libs/libinput:=
 		dev-libs/wayland
-		gui-libs/wlroots:0.19
+		gui-libs/wlroots:0.20
 	)
 "
 RDEPEND="
@@ -64,7 +64,7 @@ BDEPEND="
 	)
 "
 
-EPYTEST_PLUGINS=( anyio pytest-{asyncio,httpbin} )
+EPYTEST_PLUGINS=( anyio pytest-{asyncio,httpbin,timeout} )
 EPYTEST_RERUNS=5
 : ${EPYTEST_TIMEOUT:=180}
 distutils_enable_tests pytest
@@ -97,6 +97,7 @@ python_test() {
 		'test/backend/wayland/test_idle_inhibit.py::test_inhibitor_focus[1-x11-InhibitorConfig]'
 		'test/backend/wayland/test_idle_inhibit.py::test_inhibitor_fullscreen[1-x11-InhibitorConfig]'
 		'test/backend/wayland/test_idle_inhibit.py::test_inhibitor_global[1-x11-InhibitorConfig]'
+		test/shell_scripts/test_repl_server.py::test_repl_server_executes_code
 	)
 
 	cd "${BUILD_DIR}/install$(python_get_sitedir)" || die
@@ -116,9 +117,6 @@ python_install_all() {
 
 	insinto /usr/share/xsessions
 	doins resources/qtile.desktop
-
-	insinto /usr/share/wayland-sessions
-	doins resources/qtile-wayland.desktop
 
 	exeinto /etc/X11/Sessions
 	newexe "${FILESDIR}"/${PN}-session-r1 ${PN}

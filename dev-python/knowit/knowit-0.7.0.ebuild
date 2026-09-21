@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=poetry
+DISTUTILS_USE_PEP517=hatchling
 PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
@@ -21,7 +21,7 @@ SRC_URI+="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~x86"
 
 # https://github.com/ratoaq2/knowit/blob/d7135a4797440838bca94e76326fc9d4019d8f9a/README.md?plain=1#L224
 RDEPEND="
@@ -65,7 +65,4 @@ src_prepare() {
 	fi
 
 	distutils-r1_src_prepare
-
-	# poetry, sigh
-	sed -i -e 's:\^:>=:' pyproject.toml || die
 }
