@@ -1,15 +1,15 @@
-BDEPEND=test? ( || ( dev-lang/python:3.13 dev-lang/python:3.12 ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+BDEPEND=test? ( || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
 DESCRIPTION=C Markdown parser. Fast, SAX-like interface, CommonMark Compliant
 EAPI=8
 HOMEPAGE=https://github.com/mity/md4c
 INHERIT=cmake python-any-r1
 IUSE=+md2html test
-KEYWORDS=amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv x86
+KEYWORDS=~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~x86
 LICENSE=MIT test? ( CC-BY-SA-4.0 )
 REQUIRED_USE=test? ( md2html )
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=https://github.com/mity/md4c/archive/refs/tags/release-0.5.2.tar.gz -> md4c-0.5.2.tar.gz
+SRC_URI=https://github.com/mity/md4c/archive/refs/tags/v0.6.0.tar.gz -> md4c-0.6.0.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=d7bcdba8f8b113c435f36b5149fac1be
+_md5_=e1797d1e0041ed59ca6fcc3e9c2dcd06
