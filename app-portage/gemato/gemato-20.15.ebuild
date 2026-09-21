@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DISTUTILS_USE_PEP517=flit
+DISTUTILS_USE_PEP517=flit-core
 PYTHON_COMPAT=( python3_{12..15} )
 PYTHON_REQ_USE='threads(+),ssl(+)'
 
@@ -11,13 +11,14 @@ inherit distutils-r1 pypi
 
 DESCRIPTION="Stand-alone Manifest generation & verification tool"
 HOMEPAGE="
+	https://gitweb.gentoo.org/proj/gemato.git/
 	https://github.com/gentoo/gemato/
 	https://pypi.org/project/gemato/
 "
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="+gpg pretty-log tools"
 
 RDEPEND="
