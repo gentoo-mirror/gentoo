@@ -13,7 +13,7 @@ if [[ ${PV} == 9999 ]] ; then
 else
 	SRC_URI="https://github.com/tmux/tmux/releases/download/${PV}/${P/_/-}.tar.gz"
 	if [[ ${PV} != *_rc* ]] ; then
-		KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ~ppc ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
+		KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 	fi
 	S="${WORKDIR}/${P/_/-}"
 fi
@@ -50,13 +50,6 @@ QA_CONFIG_IMPL_DECL_SKIP=(
 )
 
 DOCS=( CHANGES README )
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.4-flags.patch
-	"${FILESDIR}"/${PN}-3.6a-race-fork.patch
-	"${FILESDIR}"/${PN}-3.6a-pane-color.patch
-	"${FILESDIR}"/${PN}-3.6a-sixel.patch
-)
 
 src_prepare() {
 	default
