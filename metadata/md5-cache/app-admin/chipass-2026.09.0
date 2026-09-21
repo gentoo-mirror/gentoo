@@ -1,6 +1,6 @@
 BDEPEND=dev-libs/appstream dev-qt/qttools:6[linguist] dev-ruby/asciidoctor virtual/pkgconfig test? ( x11-misc/xclip ) app-alternatives/ninja >=dev-build/cmake-3.28.5 test? ( x11-base/xorg-server[xvfb] x11-apps/xhost )
 DEFINED_PHASES=compile configure install postinst postrm prepare test unpack
-DEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-libs/zxcvbn-c dev-qt/qt5compat:6 dev-qt/qtbase:6[concurrent,dbus,gui,network,opengl] dev-qt/qtsvg:6 media-gfx/qrencode:= sys-libs/readline:= virtual/minizip:= virtual/zlib:= yubikey? ( sys-apps/pcsc-lite virtual/libusb:1 ) X? ( x11-libs/libX11 x11-libs/libXtst )
+DEPEND=app-crypt/argon2:= dev-libs/botan:3= dev-libs/zxcvbn-c dev-qt/qt5compat:6 dev-qt/qtbase:6[concurrent,dbus,gui,network,opengl] dev-qt/qtsvg:6 media-gfx/qrencode:= sys-libs/readline:= virtual/minizip:= virtual/zlib:= yubikey? ( sys-apps/pcsc-lite virtual/libusb:1 ) X? ( x11-libs/libX11 x11-libs/libXtst ) dev-qt/qttranslations:6
 DESCRIPTION=A slop-free, Qt6 secure password manager
 EAPI=8
 HOMEPAGE=https://codeberg.org/ChiPass/ChiPass
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test ) !test? ( test )
 SLOT=0
 SRC_URI=https://codeberg.org/ChiPass/ChiPass/releases/download/v2026.09.0/ChiPass-2026.09.0-source.tar.bz2
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	virtualx	9741d451eb64ea8bb9faee90d68a9b68
-_md5_=33350d14c39b36d3fb41a88cc479b033
+_md5_=3fcc2e793368f86567fa12a5d090807b
