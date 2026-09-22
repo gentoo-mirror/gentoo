@@ -1,0 +1,17 @@
+BDEPEND=dev-build/meson-format-array dev-qt/qttools:6[linguist] dev-util/qbs
+DEFINED_PHASES=compile configure install postinst postrm preinst test
+DEPEND=dev-libs/xerces-c:= dev-qt/qtbase:6[concurrent,gui,network,opengl,ssl,widgets,xml] dev-qt/qtsvg:6 !sci-biology/tree-puzzle dev-libs/immer
+DESCRIPTION=Cloth patternmaking software
+EAPI=8
+HOMEPAGE=https://smart-pattern.com.ua/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=edo flag-o-matic multiprocessing optfeature qt-utils toolchain-funcs xdg
+IUSE=test
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=dev-libs/xerces-c:= dev-qt/qtbase:6[concurrent,gui,network,opengl,ssl,widgets,xml] dev-qt/qtsvg:6 !sci-biology/tree-puzzle
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://gitlab.com/smart-pattern/valentina/-/archive/v1.1.1/valentina-v1.1.1.tar.bz2
+_eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	qt-utils	5b7ae92788820ab4495683740521513c	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=1d1f7e0ff85312bf86e823f181861049
