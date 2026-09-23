@@ -19,7 +19,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~riscv"
+KEYWORDS="amd64 ~riscv"
 IUSE="pulseaudio wayland"
 
 DEPEND="
@@ -117,6 +117,9 @@ python_install_all() {
 
 	insinto /usr/share/xsessions
 	doins resources/qtile.desktop
+
+	insinto /usr/share/wayland-sessions
+	doins resources/qtile-wayland.desktop
 
 	exeinto /etc/X11/Sessions
 	newexe "${FILESDIR}"/${PN}-session-r1 ${PN}
