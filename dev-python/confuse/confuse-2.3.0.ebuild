@@ -4,7 +4,7 @@
 EAPI=8
 
 PYTHON_COMPAT=( python3_{12..15} )
-DISTUTILS_USE_PEP517=poetry
+DISTUTILS_USE_PEP517=poetry-core
 
 inherit distutils-r1
 
@@ -17,7 +17,7 @@ SRC_URI="https://github.com/beetbox/confuse/archive/refs/tags/v${PV}.tar.gz -> $
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	dev-python/pyyaml[${PYTHON_USEDEP}]

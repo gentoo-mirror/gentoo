@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~riscv"
+KEYWORDS="~amd64 ~arm64 ~riscv"
 
 RDEPEND="
 	>=app-admin/ansible-core-2.18.6[${PYTHON_USEDEP}]
@@ -32,13 +32,6 @@ BDEPEND="
 
 EPYTEST_PLUGINS=( pytest-mock )
 distutils_enable_tests pytest
-
-src_prepare() {
-	distutils-r1_src_prepare
-
-	# remove stupid upstream version block
-	sed -i -e 's:2.20.0dev0:0:' src/ansible_compat/prerun.py || die
-}
 
 python_test() {
 	local EPYTEST_DESELECT=(
