@@ -2089,6 +2089,7 @@ dev-libs/elfutils:debuginfod - Enable debuginfod support, both the debuginfod se
 dev-libs/elfutils:libarchive - Needed for debuginfod (the server) and also for --zip support in the eu-srcfiles utility. Requires app-arch/libarchive.
 dev-libs/elfutils:libpfm - Enable dev-libs/libpfm support for hardware performance counters with eu-stackprof.
 dev-libs/elfutils:lzma - Support automatic decompression of LZMA-compressed files and kernel images
+dev-libs/elfutils:stackprof - Build eu-stackprof tool: a tool for collecting system-wide stacktrace profiles.
 dev-libs/elfutils:stacktrace - Build experimental eu-stacktrace tool. Relies on integration with dev-util/sysprof. See https://developers.redhat.com/articles/2024/06/11/get-system-wide-profiles-binaries-without-frame-pointers.
 dev-libs/elfutils:utils - Install command-line utilities (all the eu-* programs).
 dev-libs/fcgi:html - Install HTML documentation
