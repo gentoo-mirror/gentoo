@@ -312,24 +312,24 @@ src_install() {
 	insinto /etc
 	newins doc/mpdconf.example mpd.conf
 
-	# When running MPD as system service, better switch to the user we provide
-	sed -i \
-		-e 's:^#user.*$:user "mpd":' \
-		"${ED}/etc/mpd.conf" || die
-
 	if ! use systemd; then
-		# Extra options for running MPD under OpenRC
-		# (options that should not be set when using systemd)
-		sed -i \
-			-e '0,/^#log_file.*$/s::log_file "/var/log/mpd/mpd.log"\n&:' \
-			-e '0,/^#pid_file.*$/s::pid_file "/run/mpd/mpd.pid"\n&:' \
-			"${ED}/etc/mpd.conf" || die
+		# define a log_file that should not be set when using systemd
+		sed -e '0,/^#log_file.*$/s::log_file "/var/log/mpd/mpd.log"\n&:' \
+			-i "${ED}/etc/mpd.conf" || die
 	fi
 
 	insinto /etc/logrotate.d
 	newins "${FILESDIR}/${PN}-0.23.15.logrotate" "${PN}"
 
-	newinitd "${FILESDIR}/${PN}-0.24.8.init" "${PN}"
+	newinitd "${FILESDIR}/${PN}-0.24.15.init" "${PN}"
+	newconfd "${FILESDIR}/${PN}-0.24.15.confd" "${PN}"
+
+	# set memlock limit for io-uring
+	# see https://mpd.readthedocs.io/en/latest/user.html#startup
+	if use io-uring; then
+		sed -e '/#rc_ulimit="${rc_ulimit} -l/s/^#//' \
+			-i "${ED}/etc/conf.d/mpd" || die
+	fi
 
 	keepdir /var/lib/mpd
 	keepdir /var/lib/mpd/music
@@ -350,5 +350,10 @@ pkg_postinst() {
 		ewarn "overrides the group(s) defined in the user database."
 		ewarn "Since the user 'mpd' is already part of the 'audio' group, please"
 		ewarn "consider removing 'group' parameter in ${EROOT}/etc/mpd.conf ."
+	fi
+	if ver_replacing -lt 0.24.15; then
+		ewarn "The daemon is now started directly as an unprivileged user."
+		ewarn "Update MPD_USER in ${EROOT}/etc/conf.d/mpd to override the default user 'mpd'."
+		ewarn "'user' and 'pid_file' must no longer be set in ${EROOT}/etc/mpd.conf ."
 	fi
 }
