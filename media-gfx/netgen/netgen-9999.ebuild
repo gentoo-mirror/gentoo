@@ -43,7 +43,6 @@ DEPEND="
 		media-libs/libglvnd[X]
 		x11-libs/libX11
 		x11-libs/libXmu
-		x11-libs/libxcb:=
 	)
 	jpeg? ( media-libs/libjpeg-turbo:0= )
 	mpi? (
@@ -79,24 +78,24 @@ BDEPEND="
 PATCHES=(
 	"${FILESDIR}/${PN}-6.2.2204-find-Tk-include-directories.patch"
 	"${FILESDIR}/${PN}-6.2.2406-link-against-ffmpeg.patch"
-	# "${FILESDIR}/${PN}-6.2.2406-find-libjpeg-turbo-library.patch"
 	"${FILESDIR}/${PN}-6.2.2301-fix-nullptr-deref-in-archive.patch"
 	"${FILESDIR}/${PN}-6.2.2406-encoding_h.patch"
 	"${FILESDIR}/${PN}-6.2.2406-link-against-jpeg.patch"
-	"${FILESDIR}/${PN}-PR202-std_map.patch"
 	"${FILESDIR}/${PN}-PR206-catch2-v3.patch"
+	"${FILESDIR}/${PN}-6.2.2604-Gentoo-specific-use-system-catch.patch"
+	"${FILESDIR}/${PN}-PR206-catch2-v3_p2.patch"
 )
 
 pkg_setup() {
 	if use python; then
-			python-single-r1_pkg_setup
+		python-single-r1_pkg_setup
 
-			# # NOTE This calls find_package(Python3) without specifying Interpreter in COMPONENTS.
-			# # Python3_FIND_UNVERSIONED_NAMES=FIRST is thus never checked and we search the highest python version first.
-			# pushd "${T}/${EPYTHON}/bin" > /dev/null || die
-			# cp "python-config" "${EPYTHON}-config" || die
-			# chmod +x "${EPYTHON}-config" || die
-			# popd > /dev/null || die
+		# # NOTE This calls find_package(Python3) without specifying Interpreter in COMPONENTS.
+		# # Python3_FIND_UNVERSIONED_NAMES=FIRST is thus never checked and we search the highest python version first.
+		# pushd "${T}/${EPYTHON}/bin" > /dev/null || die
+		# cp "python-config" "${EPYTHON}-config" || die
+		# chmod +x "${EPYTHON}-config" || die
+		# popd > /dev/null || die
 	fi
 }
 
@@ -105,7 +104,7 @@ src_prepare() {
 	# git ls-remote --tags https://github.com/NGSolve/netgen.git refs/tags/v${PV} | cut -c-8
 	# git describe --tags --match "v[0-9]*" --long --dirty
 	# cat <<- EOF > "${S}/version.txt" || die
-	# 	v${PV}-0-gd1a9f7ee
+	# 	v${PV}-0-9642315f
 	# EOF
 
 	# 855214 needs git
@@ -134,6 +133,14 @@ src_configure() {
 	append-cflags -fno-strict-aliasing
 	append-cxxflags -fno-strict-aliasing
 
+	# needs upstream fix
+	# 982708
+	# https://github.com/NGSolve/netgen/issues/226
+	if use arm || use arm64; then
+		append-cflags -flax-vector-conversions
+		append-cxxflags -flax-vector-conversions
+	fi
+
 	local mycmakeargs=(
 		# currently not working in a sandbox, expects netgen to be installed
 		# see https://github.com/NGSolve/netgen/issues/132
@@ -160,7 +167,7 @@ src_configure() {
 
 	if [[ ${PV} != *9999* ]]; then
 		mycmakeargs+=(
-			-DNETGEN_VERSION_GIT="v${PV}-0-gentoo"
+			-DNETGEN_VERSION_GIT="v${PV}-0-9642315f"
 		)
 	fi
 

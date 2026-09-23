@@ -43,7 +43,6 @@ DEPEND="
 		media-libs/libglvnd[X]
 		x11-libs/libX11
 		x11-libs/libXmu
-		x11-libs/libxcb:=
 	)
 	jpeg? ( media-libs/libjpeg-turbo:0= )
 	mpi? (
@@ -84,6 +83,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-6.2.2406-encoding_h.patch"
 	"${FILESDIR}/${PN}-6.2.2406-link-against-jpeg.patch"
 	"${FILESDIR}/${PN}-PR206-catch2-v3.patch"
+	"${FILESDIR}/${PN}-6.2.2604-Gentoo-specific-use-system-catch.patch"
 )
 
 pkg_setup() {
@@ -132,6 +132,14 @@ src_configure() {
 	#    74 |     NETGEN_INLINE int64_t Lo() const { return ((int64_t*)(&data))[0]; }
 	append-cflags -fno-strict-aliasing
 	append-cxxflags -fno-strict-aliasing
+
+	# needs upstream fix
+	# 982708
+	# https://github.com/NGSolve/netgen/issues/226
+	if use arm || use arm64; then
+		append-cflags -flax-vector-conversions
+		append-cxxflags -flax-vector-conversions
+	fi
 
 	local mycmakeargs=(
 		# currently not working in a sandbox, expects netgen to be installed
