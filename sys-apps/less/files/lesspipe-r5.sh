@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2024 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Preprocessor for 'less'. Used when this environment variable is set:
@@ -20,6 +20,7 @@ guesscompress() {
 		*.lzo)      echo "lzop -dc" ;;
 		*.xz)       echo "xzdec" ;;
 		*.zst)      echo "zstdcat" ;;
+		*.br)       echo "brcat" ;;
 		*)          echo "cat" ;;
 	esac
 }
@@ -96,7 +97,7 @@ lesspipe() {
 	# System filters
 	shopt -s nullglob
 	local f
-	for f in "${XDG_CONFIG_HOME:-~/.config}"/lessfilter.d/* /etc/lessfilter.d/* /usr/lib/lessfilter.d/*; do
+	for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/lessfilter.d/* /etc/lessfilter.d/* /usr/lib/lessfilter.d/*; do
 		if [[ -x ${f} ]]; then
 			"${f}" "$1" && exit 0
 		fi
@@ -127,6 +128,7 @@ lesspipe() {
 	*.[0-9n].lzma|*.man.lzma|\
 	*.[0-9n].xz|*.man.xz|\
 	*.[0-9n].zst|*.man.zst|\
+	*.[0-9n].br|*.man.br|\
 	*.[0-9][a-z].gz|*.[0-9][a-z].gz)
 		local out=$(${DECOMPRESSOR} -- "$1" | file -)
 		case ${out} in
@@ -168,10 +170,10 @@ lesspipe() {
 	### Tar files ###
 	*.tar|\
 	*.tar.bz2|*.tar.bz|*.tar.gz|*.tar.z|*.tar.zst|\
-	*.tar.lz|*.tar.tlz|\
+	*.tar.lz|*.tar.tlz|*.tar.br|\
 	*.tar.lzma|*.tar.xz)
 		${DECOMPRESSOR} -- "$1" | tar tvvf -;;
-	*.tbz2|*.tbz|*.tgz|*.tlz|*.txz)
+	*.tbz2|*.tbz|*.tgz|*.tlz|*.txz|*.tbr)
 		lesspipe "$1" "$1.tar.${1##*.t}" ;;
 
 	### Misc archives ###
@@ -179,6 +181,7 @@ lesspipe() {
 	*.gz|*.z|\
 	*.zst|\
 	*.lz|\
+	*.br|\
 	*.lzma|*.xz)  ${DECOMPRESSOR} -- "$1" ;;
 	*.rpm)        rpm -qpivl --changelog -- "$1" || rpm2tar -O "$1" | tar tvvf -;;
 	*.cpi|*.cpio) cpio -itv < "$1" ;;
@@ -281,7 +284,10 @@ lesspipe() {
 			[nN][oO]|[nN]|0|false)    LESSCOLOR=0;;
 			*)                        LESSCOLOR=1;;
 		esac
-		if [[ ${LESSCOLOR} != "0" ]] && [[ -n ${LESSCOLORIZER=pygmentize} ]] ; then
+
+		[[ -n ${NO_COLOR} ]] && LESSCOLOR=0
+
+		if [[ ${LESSCOLOR} != "0" ]] && [[ -n ${LESSCOLORIZER=pygmentize -O style=rrt} ]] ; then
 			# 2: Only colorize if user forces it ...
 			# 1: ... or we know less will handle raw codes -- this will
 			#    not detect -seiRM, so set LESSCOLORIZER yourself
@@ -301,7 +307,7 @@ if [[ $# -eq 0 ]] ; then
 elif [[ $1 == "-V" || $1 == "--version" ]] ; then
 	cat <<-EOF
 		lesspipe (git)
-		Copyright 1999-2023 Gentoo Authors
+		Copyright 1999-2024 Gentoo Authors
 		Mike Frysinger <vapier@gentoo.org>
 		     (with plenty of ideas stolen from other projects/distros)
 
@@ -314,7 +320,7 @@ elif [[ $1 == "-h" || $1 == "--help" ]] ; then
 		Usage: lesspipe <file>
 
 		lesspipe specific settings:
-		  LESSCOLOR env     - toggle colorizing of output (no/yes/always; default: no)
+		  LESSCOLOR env     - toggle colorizing of output (no/yes/always; default: yes)
 		  LESSCOLORIZER env - program used to colorize output (default: pygmentize)
 		  LESSIGNORE        - list of extensions to ignore (don't do anything fancy)
 
