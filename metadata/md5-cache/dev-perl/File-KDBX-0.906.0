@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://metacpan.org/release/File-KDBX
 INHERIT=perl-module
 IUSE=perl_features_debug perl_features_ithreads perl_features_quadmath test
-KEYWORDS=~amd64
+KEYWORDS=~amd64 ~x86
 LICENSE=|| ( Artistic GPL-1+ )
 RDEPEND=dev-perl/Crypt-Argon2 dev-perl/CryptX dev-perl/Devel-GlobalDestruction dev-perl/File-KeePass dev-perl/Iterator-Simple dev-perl/Ref-Util dev-perl/Scope-Guard dev-perl/XML-LibXML dev-perl/boolean dev-perl/namespace-clean >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=] dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/C/CC/CCM/File-KDBX-0.906.tar.gz
 _eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	perl-functions	1863acf0982afafc67797e3ce7275b4c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	perl-module	0ffc14c66aac1d84388ae7b27b10ed9d
-_md5_=1959526d8c6432a074c29fde494d27a1
+_md5_=bbc81dc515d964fddb52c6c8c2a721f1
