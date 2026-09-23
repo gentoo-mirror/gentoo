@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig test? ( || ( dev-lang/python:3.15 dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) test-full? ( dev-lang/mono >=dev-lang/go-1.20 virtual/jdk >=dev-lang/lua-5.1:* dev-lang/ocaml dev-lang/perl:* || ( dev-lang/php:8.3 dev-lang/php:8.2 ) dev-lang/R dev-lang/tcl ) )
+DEFINED_PHASES=compile configure install setup test
+DEPEND=pcre? ( dev-libs/libpcre2:= ) ccache? ( virtual/zlib:= ) test? ( dev-libs/boost )
+DESCRIPTION=Simplified Wrapper and Interface Generator
+EAPI=8
+HOMEPAGE=https://www.swig.org/ https://github.com/swig/swig
+INHERIT=flag-o-matic python-any-r1 toolchain-funcs
+IUSE=ccache doc pcre test test-full
+LICENSE=GPL-3+ BSD BSD-2
+RDEPEND=pcre? ( dev-libs/libpcre2:= ) ccache? ( virtual/zlib:= )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/swig/swig/swig-4.5.1/swig-4.5.1.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc	python-any-r1	891415dfe39ad9b41b461f2b86354af0
+_md5_=591b13e45d6541a88dcc44e8fa5078f0
