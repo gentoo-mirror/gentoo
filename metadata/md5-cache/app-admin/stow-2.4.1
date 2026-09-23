@@ -1,4 +1,4 @@
-BDEPEND=test? ( dev-perl/IO-stringy dev-perl/Test-Output ) verify-sig? ( sec-keys/openpgp-keys-adamspiers ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=test? ( dev-perl/IO-stringy dev-perl/Test-Output ) verify-sig? ( sec-keys/openpgp-keys-adamspiers ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=configure unpack
 DEPEND=dev-lang/perl:=
 DESCRIPTION=GNU Stow is a symlink farm manager
@@ -12,5 +12,5 @@ RDEPEND=dev-lang/perl:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/stow/stow-2.4.1.tar.bz2 verify-sig? ( mirror://gnu/stow/stow-2.4.1.tar.bz2.sig )
-_eclasses_=perl-functions	1863acf0982afafc67797e3ce7275b4c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=perl-functions	1863acf0982afafc67797e3ce7275b4c	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=e939811692c26a3aa36c6e09d0c20e1e

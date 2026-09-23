@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-tarsnap ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-tarsnap ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile configure test unpack
 DEPEND=app-arch/bzip2 dev-libs/openssl:= sys-fs/e2fsprogs virtual/zlib:= acl? ( sys-apps/acl ) lzma? ( app-arch/xz-utils ) xattr? ( sys-apps/attr ) virtual/os-headers
 DESCRIPTION=Online backups for the truly paranoid
@@ -11,5 +11,5 @@ LICENSE=tarsnap BSD BSD-2 MIT
 RDEPEND=app-arch/bzip2 dev-libs/openssl:= sys-fs/e2fsprogs virtual/zlib:= acl? ( sys-apps/acl ) lzma? ( app-arch/xz-utils ) xattr? ( sys-apps/attr )
 SLOT=0
 SRC_URI=https://www.tarsnap.com/download/tarsnap-autoconf-1.0.41.tgz verify-sig? ( https://www.tarsnap.com/download/tarsnap-sigs-1.0.41.asc )
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	shell-completion	63a62de3ca49c798ee6e89f190e45d0e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	shell-completion	63a62de3ca49c798ee6e89f190e45d0e	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=5c3b6b6f96e9d09f1bb6fef1bd975685

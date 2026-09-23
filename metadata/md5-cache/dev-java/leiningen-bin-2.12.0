@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-leiningen ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-leiningen ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile install preinst prepare setup unpack
 DEPEND=>=virtual/jdk-1.8 >=dev-java/java-config-2.2.0-r3
 DESCRIPTION=Automate Clojure projects without setting your hair on fire
@@ -12,5 +12,5 @@ RDEPEND=>=virtual/jre-1.8 >=dev-java/java-config-2.2.0-r3
 RESTRICT=test
 SLOT=0
 SRC_URI=https://codeberg.org/leiningen/leiningen/releases/download/2.12.0/leiningen-2.12.0-standalone.jar verify-sig? ( https://codeberg.org/leiningen/leiningen/releases/download/2.12.0/leiningen-2.12.0-standalone.jar.asc ) https://codeberg.org/leiningen/leiningen/raw/tag/2.12.0/bin/lein-pkg -> leiningen-2.12.0.sh
-_eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=cd4441afd18425ad495cb7da00678655

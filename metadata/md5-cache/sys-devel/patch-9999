@@ -1,4 +1,4 @@
-BDEPEND=test? ( sys-apps/ed ) verify-sig? ( >=sec-keys/openpgp-keys-patch-20250206 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 ) >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=test? ( sys-apps/ed ) verify-sig? ( >=sec-keys/openpgp-keys-patch-20250206 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 ) >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=configure install test unpack
 DEPEND=xattr? ( sys-apps/attr )
 DESCRIPTION=Utility to apply diffs to files
@@ -11,5 +11,5 @@ PROPERTIES=live
 RDEPEND=xattr? ( sys-apps/attr )
 RESTRICT=!test? ( test )
 SLOT=0
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8	git-r3	e6c2f983e006e805160436c75a0c1562
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014	git-r3	e6c2f983e006e805160436c75a0c1562
 _md5_=3d2c47e334645c805303dd2e6cb4777f

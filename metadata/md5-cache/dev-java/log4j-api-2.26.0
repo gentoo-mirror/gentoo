@@ -1,4 +1,4 @@
-BDEPEND=app-arch/unzip verify-sig? ( >=sec-keys/openpgp-keys-apache-logging-20251104 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=app-arch/unzip verify-sig? ( >=sec-keys/openpgp-keys-apache-logging-20251104 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile install preinst prepare setup test unpack
 DEPEND=dev-java/bnd-annotation:0 dev-java/error-prone-annotations:0 dev-java/findbugs-annotations:0 dev-java/jspecify:0 dev-java/osgi-annotation:0 dev-java/osgi-core:0 >=virtual/jdk-11:* test? ( >=dev-java/asm-9.10.1:0 >=dev-java/assertj-core-3.27.6:0 >=dev-java/byte-buddy-1.18.10:0 >=dev-java/commons-lang-3.20.0-r1:0 >=dev-java/hamcrest-3.0:0 >=dev-java/jackson-annotations-2.20:0 >=dev-java/jackson-core-2.20.0:0 >=dev-java/jackson-databind-2.20.0:0 >=dev-java/jna-5.18.1:0 >=dev-java/jsr305-3.0.2-r1:0 dev-java/junit:5[-vintage] >=dev-java/junit-pioneer-1.9.1-r1:0 >=dev-java/mockito-5.21.0:0 >=dev-java/opentest4j-1.3.0-r1:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:5 )
 DESCRIPTION=The Apache Log4j API
@@ -12,5 +12,5 @@ RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/z
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/logging/log4j/2.26.0/apache-log4j-2.26.0-src.zip https://repo1.maven.org/maven2/uk/org/webcompere/system-stubs-core/2.1.8/system-stubs-core-2.1.8.jar https://repo1.maven.org/maven2/uk/org/webcompere/system-stubs-jupiter/2.1.8/system-stubs-jupiter-2.1.8.jar verify-sig? ( mirror://apache/logging/log4j/2.26.0/apache-log4j-2.26.0-src.zip.asc )
-_eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	df1fc43a5017ec8f5d23007b23731474	junit5	e904fee179270025a5f25d755e99ba6d	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	df1fc43a5017ec8f5d23007b23731474	junit5	e904fee179270025a5f25d755e99ba6d	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=cdcfb0b7d6dcf6a63ac28edc186b8b01

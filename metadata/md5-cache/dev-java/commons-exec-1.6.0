@@ -1,4 +1,4 @@
-BDEPEND=test? ( app-admin/sudo ) verify-sig? ( sec-keys/openpgp-keys-apache-commons ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=test? ( app-admin/sudo ) verify-sig? ( sec-keys/openpgp-keys-apache-commons ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile install preinst prepare setup test unpack
 DEPEND=>=virtual/jdk-11:* test? ( >=dev-java/commons-lang-3.20.0:0 dev-java/junit:5[-vintage] ~dev-java/junit-pioneer-1.9.1:0 >=dev-java/opentest4j-1.3.0-r1:0 ) >=dev-java/java-config-2.2.0-r3 source? ( app-arch/zip ) test? ( dev-java/junit:5 )
 DESCRIPTION=Utility classes, stream implementations, file filters, and much more
@@ -12,5 +12,5 @@ RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3 source? ( app-arch/z
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://apache/commons/exec/source/commons-exec-1.6.0-src.tar.gz verify-sig? ( https://downloads.apache.org/commons/exec/source/commons-exec-1.6.0-src.tar.gz.asc )
-_eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	df1fc43a5017ec8f5d23007b23731474	junit5	e904fee179270025a5f25d755e99ba6d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=java-utils-2	4fa0be92748bc228f31bd845d285d7f9	java-pkg-2	438c2725ea326202d7fc1eb31af76813	java-pkg-simple	df1fc43a5017ec8f5d23007b23731474	junit5	e904fee179270025a5f25d755e99ba6d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=8000c836acf4558c0c815ffd4659aa46

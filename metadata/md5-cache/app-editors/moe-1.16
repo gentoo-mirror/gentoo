@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) virtual/pkgconfig verify-sig? ( >=sec-keys/openpgp-keys-antoniodiazdiaz-20260213 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) virtual/pkgconfig verify-sig? ( >=sec-keys/openpgp-keys-antoniodiazdiaz-20260213 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=configure unpack
 DEPEND=sys-libs/ncurses:=
 DESCRIPTION=Powerful and user-friendly console text editor
@@ -11,5 +11,5 @@ LICENSE=GPL-2+
 RDEPEND=sys-libs/ncurses:=
 SLOT=0
 SRC_URI=mirror://gnu/moe/moe-1.16.tar.lz verify-sig? ( mirror://gnu/moe/moe-1.16.tar.lz.sig )
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=acf48cca489759fc2e892f5be2d1df28

@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-sudo ) app-alternatives/yacc virtual/pkgconfig >=app-portage/elt-patches-20250306 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-sudo ) app-alternatives/yacc virtual/pkgconfig >=app-portage/elt-patches-20250306 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=configure install postinst prepare unpack
 DEPEND=virtual/zlib:= virtual/libcrypt:= gcrypt? ( dev-libs/libgcrypt:= ) ldap? ( >=net-nds/openldap-2.1.30-r1:= sasl? ( dev-libs/cyrus-sasl net-nds/openldap:=[sasl] ) ) pam? ( sys-libs/pam ) sasl? ( dev-libs/cyrus-sasl ) selinux? ( sys-libs/libselinux ) skey? ( >=sys-auth/skey-1.1.5-r1 ) ssl? ( dev-libs/openssl:= ) sssd? ( sys-auth/sssd[sudo(+)] )
 DESCRIPTION=Allows users or groups to run commands as other users
@@ -12,5 +12,5 @@ RDEPEND=virtual/zlib:= virtual/libcrypt:= gcrypt? ( dev-libs/libgcrypt:= ) ldap?
 REQUIRED_USE=?? ( pam skey ) ?? ( gcrypt ssl )
 SLOT=0
 SRC_URI=https://www.sudo.ws/sudo/dist/sudo-1.9.17p2.tar.gz verify-sig? ( https://www.sudo.ws/sudo/dist/sudo-1.9.17p2.tar.gz.sig )
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	tmpfiles	e0b49bcd7a0daea941c0fbe4cb35ff4e	libtool	6a96cd90e5da8c7c615015479f46f1a4	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	pam	b56d0c9c20fc5b553f13c8ae165a10a5	tmpfiles	e0b49bcd7a0daea941c0fbe4cb35ff4e	libtool	6a96cd90e5da8c7c615015479f46f1a4	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=a4dde9a13f2a23ca09484c0c604db8e7

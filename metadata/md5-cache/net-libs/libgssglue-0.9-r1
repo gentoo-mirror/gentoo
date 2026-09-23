@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-libgssglue ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-libgssglue ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=install postinst unpack
 DESCRIPTION=Exports a gssapi interface which calls other random gssapi libraries
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=BSD
 RDEPEND=virtual/krb5
 SLOT=0
 SRC_URI=https://gitlab.com/-/project/37744631/uploads/7310f7060cdf240a4b8eaaf80a435986/libgssglue-0.9.tar.gz verify-sig? ( https://gitlab.com/-/project/37744631/uploads/7d3596d0e6fdecc2fb5b5e74edaedb37/libgssglue-0.9.tar.gz.sig )
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	readme.gentoo-r1	9ca94b2d607e7454ca6cfb44ab8ce327	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=71123c7f5b6cf784fe51ecd8b0371be4

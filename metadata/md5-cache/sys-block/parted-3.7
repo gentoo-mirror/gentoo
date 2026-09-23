@@ -1,4 +1,4 @@
-BDEPEND=nls? ( >=sys-devel/gettext-0.12.1-r2 ) verify-sig? ( >=sec-keys/openpgp-keys-bcl-20260418 ) virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=nls? ( >=sys-devel/gettext-0.12.1-r2 ) verify-sig? ( >=sec-keys/openpgp-keys-bcl-20260418 ) virtual/pkgconfig verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=configure install prepare unpack
 DEPEND=>=sys-fs/e2fsprogs-1.27 sys-apps/util-linux device-mapper? ( >=sys-fs/lvm2-2.02.45 ) readline? ( >=sys-libs/ncurses-5.7-r7:0= >=sys-libs/readline-5.2:0= )
 DESCRIPTION=Create, destroy, resize, check, copy partitions and file systems
@@ -11,5 +11,5 @@ LICENSE=GPL-3+
 RDEPEND=>=sys-fs/e2fsprogs-1.27 sys-apps/util-linux device-mapper? ( >=sys-fs/lvm2-2.02.45 ) readline? ( >=sys-libs/ncurses-5.7-r7:0= >=sys-libs/readline-5.2:0= )
 SLOT=0
 SRC_URI=mirror://gnu/parted/parted-3.7.tar.xz verify-sig? ( mirror://gnu/parted/parted-3.7.tar.xz.sig )
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=a4b45d90ebbed72af17beae24797805c

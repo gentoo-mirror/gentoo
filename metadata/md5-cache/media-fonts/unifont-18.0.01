@@ -1,4 +1,4 @@
-BDEPEND=media-libs/fontconfig utils? ( app-text/bdf2psf x11-apps/bdftopcf ttf? ( media-gfx/fontforge ) ) verify-sig? ( sec-keys/openpgp-keys-paulhardy ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=media-libs/fontconfig utils? ( app-text/bdf2psf x11-apps/bdftopcf ttf? ( media-gfx/fontforge ) ) verify-sig? ( sec-keys/openpgp-keys-paulhardy ) X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile install postinst postrm setup unpack
 DESCRIPTION=Unicode bitmap font with full Basic Multilingual Plane coverage
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=GPL-2+ || ( GPL-2+-with-font-exception OFL-1.1 ) public-domain utils? ( 
 REQUIRED_USE=ttf? ( utils )
 SLOT=0
 SRC_URI=mirror://gnu/unifont/unifont-18.0.01/unifont-18.0.01.tar.gz verify-sig? ( mirror://gnu/unifont/unifont-18.0.01/unifont-18.0.01.tar.gz.sig )
-_eclasses_=font	9248ee2e9ac35c888e1ae71773a632f4	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=font	9248ee2e9ac35c888e1ae71773a632f4	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=3829c413ec8ae0afeb7ecc13529defe4

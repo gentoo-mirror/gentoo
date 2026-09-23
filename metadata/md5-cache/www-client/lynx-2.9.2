@@ -1,4 +1,4 @@
-BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) verify-sig? ( >=sec-keys/openpgp-keys-thomasdickey-20240114 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=virtual/pkgconfig nls? ( sys-devel/gettext ) verify-sig? ( >=sec-keys/openpgp-keys-thomasdickey-20240114 ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile configure install unpack
 DEPEND=sys-libs/ncurses:=[unicode(+)] virtual/zlib:= brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2 ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) ssl? ( !gnutls? ( dev-libs/openssl:= ) gnutls? ( dev-libs/libgcrypt:= >=net-libs/gnutls-2.6.4:= ) )
 DESCRIPTION=An excellent console-based web browser with ssl support
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=sys-libs/ncurses:=[unicode(+)] virtual/zlib:= brotli? ( app-arch/brotli:= ) bzip2? ( app-arch/bzip2 ) idn? ( net-dns/libidn2:= ) nls? ( virtual/libintl ) ssl? ( !gnutls? ( dev-libs/openssl:= ) gnutls? ( dev-libs/libgcrypt:= >=net-libs/gnutls-2.6.4:= ) )
 SLOT=0
 SRC_URI=https://invisible-island.net/archives/lynx/tarballs/lynx2.9.2.tar.bz2 verify-sig? ( https://invisible-island.net/archives/lynx/tarballs/lynx2.9.2.tar.bz2.asc )
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=2fb3e143a547d853e2a11ce9cbcad0e8

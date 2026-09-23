@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-hclee ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-hclee ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=prepare unpack
 DESCRIPTION=Userspace utilities for the exFAT filesystem
 EAPI=8
@@ -10,5 +10,5 @@ LICENSE=GPL-2
 RDEPEND=!sys-fs/exfat-utils
 SLOT=0
 SRC_URI=https://github.com/exfatprogs/exfatprogs/releases/download/1.3.2/exfatprogs-1.3.2.tar.xz verify-sig? ( https://github.com/exfatprogs/exfatprogs/releases/download/1.3.2/exfatprogs-1.3.2.tar.xz.asc )
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=9b0a776601225ab093894a2b736bb7c5

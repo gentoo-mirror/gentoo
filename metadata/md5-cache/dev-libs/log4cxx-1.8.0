@@ -1,4 +1,4 @@
-BDEPEND=app-arch/zip test? ( app-alternatives/gzip app-arch/zip ) verify-sig? ( >=sec-keys/openpgp-keys-apache-logging-20251104 ) app-alternatives/ninja >=dev-build/cmake-3.28.5 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=app-arch/zip test? ( app-alternatives/gzip app-arch/zip ) verify-sig? ( >=sec-keys/openpgp-keys-apache-logging-20251104 ) app-alternatives/ninja >=dev-build/cmake-3.28.5 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile configure install prepare test unpack
 DEPEND=dev-libs/apr:1= dev-libs/apr-util:1= dev-libs/libfmt:= odbc? ( dev-db/unixODBC ) smtp? ( net-libs/libesmtp )
 DESCRIPTION=Library of C++ classes for logging to files, syslog and other destinations
@@ -12,5 +12,5 @@ RDEPEND=dev-libs/apr:1= dev-libs/apr-util:1= dev-libs/libfmt:= odbc? ( dev-db/un
 RESTRICT=!test? ( test )
 SLOT=0/15.8
 SRC_URI=mirror://apache/logging/log4cxx/1.8.0/apache-log4cxx-1.8.0.tar.gz verify-sig? ( mirror://apache/logging/log4cxx/1.8.0/apache-log4cxx-1.8.0.tar.gz.asc )
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=1fa756160505002581b0f14d8bc70a5f

@@ -1,4 +1,4 @@
-BDEPEND=doc? ( app-text/doxygen[dot] ) virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-netfilter ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=doc? ( app-text/doxygen[dot] ) virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-netfilter ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=configure install setup unpack
 DEPEND=>=net-libs/libmnl-1.0.3 >=net-libs/libnfnetlink-0.0.41
 DESCRIPTION=API to packets that have been queued by the kernel packet filter
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=>=net-libs/libmnl-1.0.3 >=net-libs/libnfnetlink-0.0.41
 SLOT=0
 SRC_URI=https://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-1.0.5.tar.bz2 verify-sig? ( https://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-1.0.5.tar.bz2.sig )
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	linux-info	efd923656513c879204fec6638eadee5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	linux-info	efd923656513c879204fec6638eadee5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=2ad09dc565a646b5a0e10d5fabe51900

@@ -1,4 +1,4 @@
-BDEPEND=verify-sig? ( sec-keys/openpgp-keys-knot ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=verify-sig? ( sec-keys/openpgp-keys-knot ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile configure install unpack
 DESCRIPTION=Redis module for Knot DNS
 EAPI=9
@@ -9,5 +9,5 @@ KEYWORDS=amd64 ~arm64 ~riscv x86
 LICENSE=LGPL-2.1+
 SLOT=0
 SRC_URI=https://knot-dns.nic.cz/release/knot-3.5.5.tar.xz verify-sig? ( https://knot-dns.nic.cz/release/knot-3.5.5.tar.xz.asc )
-_eclasses_=verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=92f67f6bfd71ccaeb59d52d98eed8f29

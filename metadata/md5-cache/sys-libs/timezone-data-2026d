@@ -1,4 +1,4 @@
-BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) verify-sig? ( sec-keys/openpgp-keys-pauleggert ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=|| ( >=app-arch/xz-utils-5.4.0 app-arch/plzip app-arch/pdlzip app-arch/lzip ) verify-sig? ( sec-keys/openpgp-keys-pauleggert ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile config configure install postinst prepare test unpack
 DEPEND=nls? ( virtual/libintl )
 DESCRIPTION=Timezone data (/usr/share/zoneinfo) and utilities (tzselect/zic/zdump)
@@ -11,5 +11,5 @@ LICENSE=BSD public-domain
 RDEPEND=nls? ( virtual/libintl ) !sys-libs/glibc[vanilla(+)]
 SLOT=0
 SRC_URI=https://data.iana.org/time-zones/releases/tzdb-2026d.tar.lz verify-sig? ( https://data.iana.org/time-zones/releases/tzdb-2026d.tar.lz.asc )
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	unpacker	a89c769f7dcf68bd2a6d23da9ede2ad2	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=dbae9f91e631b9e7816a4d1285998a1b

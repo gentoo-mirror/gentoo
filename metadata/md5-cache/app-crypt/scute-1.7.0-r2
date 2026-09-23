@@ -1,4 +1,4 @@
-BDEPEND=>=app-crypt/pinentry-0.7.0 >=app-crypt/gnupg-2.0.17-r1[smartcard] sys-apps/texinfo verify-sig? ( sec-keys/openpgp-keys-gnupg ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=>=app-crypt/pinentry-0.7.0 >=app-crypt/gnupg-2.0.17-r1[smartcard] sys-apps/texinfo verify-sig? ( sec-keys/openpgp-keys-gnupg ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=configure install unpack
 DEPEND=>=dev-libs/libgpg-error-1.4 >=dev-libs/libassuan-2.0.0:=
 DESCRIPTION=A PKCS #11 module for OpenPGP smartcards
@@ -11,5 +11,5 @@ LICENSE=GPL-2
 RDEPEND=>=dev-libs/libgpg-error-1.4 >=dev-libs/libassuan-2.0.0:= >=app-crypt/pinentry-0.7.0 >=app-crypt/gnupg-2.0.17-r1[smartcard]
 SLOT=0
 SRC_URI=mirror://gnupg/scute/scute-1.7.0.tar.bz2 https://dev.gentoo.org/~soap/distfiles/scute-1.7.0-manual-eps-images.tar.xz verify-sig? ( mirror://gnupg/scute/scute-1.7.0.tar.bz2.sig )
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=9fe08b7f6080c93c359d6c7fdabe5df5

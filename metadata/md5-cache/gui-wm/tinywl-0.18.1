@@ -1,4 +1,4 @@
-BDEPEND=dev-libs/wayland-protocols dev-util/wayland-scanner virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-emersion ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=dev-libs/wayland-protocols dev-util/wayland-scanner virtual/pkgconfig verify-sig? ( sec-keys/openpgp-keys-emersion ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile install prepare unpack
 DEPEND=dev-libs/wayland x11-libs/libxkbcommon =gui-libs/wlroots-0.18*:=
 DESCRIPTION="minimum viable product" Wayland compositor based on wlroots
@@ -11,5 +11,5 @@ LICENSE=CC0-1.0
 RDEPEND=dev-libs/wayland x11-libs/libxkbcommon =gui-libs/wlroots-0.18*:= !gui-libs/wlroots[tinywl(-)]
 SLOT=0
 SRC_URI=https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.18.1/downloads/wlroots-0.18.1.tar.gz https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.18.1/downloads/wlroots-0.18.1.tar.gz.sig
-_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=0d49c562be64fd3dae28ca502768be19

@@ -1,4 +1,4 @@
-BDEPEND=>=app-eselect/eselect-iptables-20211203 verify-sig? ( sec-keys/openpgp-keys-netfilter ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20 )
+BDEPEND=>=app-eselect/eselect-iptables-20211203 verify-sig? ( sec-keys/openpgp-keys-netfilter ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile install postinst prerm unpack
 DESCRIPTION=Set up, maintain, and inspect the tables of ARP rules in the Linux kernel
 EAPI=7
@@ -10,5 +10,5 @@ LICENSE=GPL-2+
 RDEPEND=>=app-eselect/eselect-iptables-20211203 verify-sig? ( sec-keys/openpgp-keys-netfilter )
 SLOT=0
 SRC_URI=https://ftp.netfilter.org/pub/arptables/arptables-0.0.5.tar.gz verify-sig? ( https://ftp.netfilter.org/pub/arptables/arptables-0.0.5.tar.gz.sig )
-_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	ece4c893b6bd62eacbc4d25958e857f8
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
 _md5_=29b4425492dcf664547296a356b0ae01
