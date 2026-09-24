@@ -18,7 +18,7 @@ SRC_URI="
 		https://github.com/vcmi/innoextract/archive/${INNO_SHA}.tar.gz -> ${PN}-innoextract-${INNO_SHA}.tar.gz
 	)
 	discord? (
-		https://github.com/EclipseMenu/discord-presence/archive/${DISCORD_PRESENCE_SHA}.tar.gz
+		https://github.com/vcmi/discord-presence/archive/${DISCORD_PRESENCE_SHA}.tar.gz
 		-> ${PN}-discord-presence-${DISCORD_PRESENCE_SHA}.tar.gz
 	)
 "
