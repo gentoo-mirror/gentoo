@@ -25,8 +25,8 @@ fi
 LICENSE="GPL-2"
 SLOT="0"
 
-IUSE="dco down-root examples inotify iproute2 +lz4 +lzo mbedtls +openssl"
-IUSE+=" pam pkcs11 +plugins selinux systemd test"
+IUSE="dco down-root examples inotify iproute2 kernel-ovpn +lz4 +lzo mbedtls"
+IUSE+=" +openssl pam pkcs11 +plugins selinux systemd test"
 
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
@@ -49,7 +49,10 @@ COMMON_DEPEND="
 	pkcs11? ( >=dev-libs/pkcs11-helper-1.11 )
 	selinux? ( sys-libs/libselinux )
 	systemd? ( sys-apps/systemd )
-	dco? ( >=net-vpn/ovpn-dco-0.2 >=dev-libs/libnl-3.2.29:= )
+	dco? (
+		!kernel-ovpn? ( >=net-vpn/ovpn-dco-0.2 )
+		>=dev-libs/libnl-3.2.29:=
+	)
 	sys-libs/libcap-ng:=
 "
 
@@ -71,15 +74,14 @@ RDEPEND="
 if [[ ${PV} = "9999" ]]; then
 	BDEPEND+=" dev-python/docutils"
 else
-	BDEPEND+=" verify-sig? ( sec-keys/openpgp-keys-openvpn )"
+	BDEPEND+=" verify-sig? ( >=sec-keys/openpgp-keys-openvpn-202600704 )"
 fi
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.6.17-tests-no-lto.patch
-)
 
 pkg_setup() {
 	local CONFIG_CHECK="~TUN"
+	if use kernel-ovpn; then
+		local CONFIG_CHECK+=" ~OVPN"
+	fi
 	linux-info_pkg_setup
 }
 
@@ -144,7 +146,7 @@ src_test() {
 src_install() {
 	default
 
-	find "${ED}/usr" -name '*.la' -delete || die
+	find "${ED}/usr" -type f -name '*.la' -delete || die
 
 	# install documentation
 	dodoc AUTHORS ChangeLog PORTS README
