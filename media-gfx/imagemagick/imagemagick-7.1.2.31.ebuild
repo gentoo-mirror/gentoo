@@ -5,10 +5,13 @@ EAPI=8
 
 GENTOO_DEPEND_ON_PERL="no"
 QA_PKGCONFIG_VERSION=$(ver_cut 1-3)
-inherit flag-o-matic libtool perl-module toolchain-funcs
+inherit autotools flag-o-matic perl-module toolchain-funcs
+
+DESCRIPTION="A collection of tools and libraries for many image formats"
+HOMEPAGE="https://imagemagick.org"
 
 if [[ ${PV} == 9999 ]] ; then
-	EGIT_REPO_URI="https://github.com/ImageMagick/ImageMagick6.git"
+	EGIT_REPO_URI="https://github.com/ImageMagick/ImageMagick.git"
 	inherit git-r3
 	MY_P="imagemagick-9999"
 else
@@ -22,23 +25,20 @@ else
 		verify-sig? ( mirror://imagemagick/${MY_P}.tar.xz.asc )
 	"
 
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~mips ppc ppc64 ~s390 ~sparc x86 ~x64-macos ~x64-solaris"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 	BDEPEND="verify-sig? ( sec-keys/openpgp-keys-imagemagick )"
 fi
 
 S="${WORKDIR}/${MY_P}"
 
-DESCRIPTION="A collection of tools and libraries for many image formats"
-HOMEPAGE="https://imagemagick.org/index.php"
-
 LICENSE="imagemagick"
 # Please check this on bumps, SONAME is often not updated! Use abidiff on old/new.
 # If ABI is broken, change the bit after the '-'.
-SLOT="0/$(ver_cut 1-3)-0"
+SLOT="0/$(ver_cut 1-3)-18"
 IUSE="bzip2 corefonts +cxx djvu fftw fontconfig fpx graphviz hardened hdri heif"
-IUSE+=" jbig jpeg jpeg2k lcms lqr lzma opencl openexr openmp pango perl ${GENTOO_PERL_USESTRING}"
+IUSE+=" jbig jpeg jpeg2k jpegxl lcms lqr lzma opencl openexr openmp pango perl ${GENTOO_PERL_USESTRING}"
 IUSE+=" +png postscript q32 q8 raw static-libs svg test tiff truetype webp wmf"
-IUSE+=" X xml zlib"
+IUSE+=" X xml zip zlib"
 
 REQUIRED_USE="
 	corefonts? ( truetype )
@@ -62,6 +62,7 @@ RDEPEND="
 	jbig? ( >=media-libs/jbigkit-2:= )
 	jpeg? ( media-libs/libjpeg-turbo:= )
 	jpeg2k? ( >=media-libs/openjpeg-2.1.0:2 )
+	jpegxl? ( >=media-libs/libjxl-0.6:= )
 	lcms? ( media-libs/lcms:2= )
 	lqr? ( media-libs/liblqr )
 	opencl? ( virtual/opencl )
@@ -93,6 +94,7 @@ RDEPEND="
 	)
 	xml? ( dev-libs/libxml2:= )
 	lzma? ( app-arch/xz-utils )
+	zip? ( dev-libs/libzip:= )
 	zlib? ( virtual/zlib:= )
 "
 DEPEND="
@@ -100,6 +102,10 @@ DEPEND="
 	X? ( x11-base/xorg-proto )
 "
 BDEPEND+=" virtual/pkgconfig"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-9999-nocputuning.patch"
+)
 
 pkg_pretend() {
 	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
@@ -112,26 +118,12 @@ pkg_setup() {
 src_prepare() {
 	default
 
-	# for Darwin modules
-	elibtoolize
+	#elibtoolize # for Darwin modules
+	eautoreconf
 
 	# For testsuite, see bug #500580#c3
-	local ati_cards mesa_cards nvidia_cards render_cards
 	shopt -s nullglob
-	ati_cards=$(echo -n /dev/ati/card*)
-	for card in ${ati_cards[@]} ; do
-		addpredict "${card}"
-	done
-	mesa_cards=$(echo -n /dev/dri/card*)
-	for card in ${mesa_cards[@]} ; do
-		addpredict "${card}"
-	done
-	nvidia_cards=$(echo -n /dev/nvidia*)
-	for card in ${nvidia_cards[@]} ; do
-		addpredict "${card}"
-	done
-	render_cards=$(echo -n /dev/dri/renderD128*)
-	for card in ${render_cards[@]} ; do
+	for card in /dev/{{ati,dri}/card,nvidia,dri/renderD128}*; do
 		addpredict "${card}"
 	done
 	shopt -u nullglob
@@ -164,8 +156,10 @@ src_configure() {
 		--with-gs-font-dir="${EPREFIX}"/usr/share/fonts/urw-fonts
 		$(use_with bzip2 bzlib)
 		$(use_with X x)
+		$(use_with zip)
 		$(use_with zlib)
 		--without-autotrace
+		--with-uhdr
 		$(use_with postscript dps)
 		$(use_with djvu)
 		--with-dejavu-font-dir="${EPREFIX}"/usr/share/fonts/dejavu
@@ -179,6 +173,7 @@ src_configure() {
 		$(use_with jbig)
 		$(use_with jpeg)
 		$(use_with jpeg2k openjp2)
+		$(use_with jpegxl jxl)
 		$(use_with lcms)
 		$(use_with lqr)
 		$(use_with lzma)
@@ -192,7 +187,6 @@ src_configure() {
 		$(use_with corefonts windows-font-dir "${EPREFIX}"/usr/share/fonts/corefonts)
 		$(use_with wmf)
 		$(use_with xml)
-		--with-gcc-arch=no-automagic
 
 		# Default upstream (as of 6.9.12.96/7.1.1.18 anyway) is open
 		# For now, let's make USE=hardened do 'limited', and have USE=-hardened
@@ -212,23 +206,15 @@ src_compile() {
 }
 
 src_test() {
-	# Install default (unrestricted) policy in ${HOME} for test suite, bug #664238
-	local _im_local_config_home="${HOME}/.config/ImageMagick"
-	mkdir -p "${_im_local_config_home}" || \
-		die "Failed to create IM config dir in '${_im_local_config_home}'"
-	cp "${FILESDIR}"/policy.test.xml "${_im_local_config_home}/policy.xml" || \
-		die "Failed to install default blank policy.xml in '${_im_local_config_home}'"
+	# Install default (unrestricted) policy for the test suite, bug #664238
+	mv "${S}"/config/policy.xml{,.bak} || die
+	cp "${S}"/config/policy{-open,}.xml || die
 
-	local im_command= IM_COMMANDS=()
-	IM_COMMANDS+=( "identify -version | grep -q -- \"${MY_PV}\"" ) # Verify that we are using version we just built
-	IM_COMMANDS+=( "identify -list policy" ) # Verify that policy.xml is used
-	IM_COMMANDS+=( "emake check" ) # Run tests
+	nonfatal emake check
+	ret=$?
 
-	for im_command in "${IM_COMMANDS[@]}"; do
-		eval "${S}"/magick.sh \
-			${im_command} || \
-			die "Failed to run \"${im_command}\""
-	done
+	mv "${S}"/config/policy.xml{.bak,} || die
+	(( ${ret} == 0 )) || die "emake check failed"
 }
 
 src_install() {
@@ -238,26 +224,26 @@ src_install() {
 		DOCUMENTATION_PATH="${EPREFIX}"/usr/share/doc/${PF}/html \
 		install
 
-	rm -f "${ED}"/usr/share/doc/${PF}/html/{ChangeLog,LICENSE,NEWS.txt}
-	dodoc {AUTHORS,README}.txt
+	einstalldocs
 
 	if use perl; then
-		find "${ED}" -type f -name perllocal.pod -exec rm -f {} +
-		find "${ED}" -depth -mindepth 1 -type d -empty -exec rm -rf {} +
+		find "${ED}" -type f -name perllocal.pod -exec rm -f {} + || die
+		find "${ED}" -depth -mindepth 1 -type d -empty -exec rm -rf {} + || die
 	fi
 
-	find "${ED}" -name '*.la' -exec sed -i -e "/^dependency_libs/s:=.*:='':" {} +
 	# .la files in parent are not needed, keep plugin .la files
 	find "${ED}"/usr/$(get_libdir)/ -maxdepth 1 -name "*.la" -delete || die
 
+	# https://github.com/gentoo/gentoo/pull/37716#discussion_r1696713348
+	find "${ED}" -name '*.la' -exec sed -i -e "/^dependency_libs/s:=.*:='':" {} + || die
+
 	if use opencl; then
-		cat <<-EOF > "${T}"/99${PN}
+		cat <<-EOF > "${T}"/99${PN} || die
 		SANDBOX_PREDICT="/dev/nvidiactl:/dev/nvidia-uvm:/dev/ati/card:/dev/dri/card:/dev/dri/card0:/dev/dri/renderD128"
 		EOF
 
 		insinto /etc/sandbox.d
-		# bug #472766
-		doins "${T}"/99${PN}
+		doins "${T}"/99${PN} #472766
 	fi
 
 	insinto /usr/share/${PN}

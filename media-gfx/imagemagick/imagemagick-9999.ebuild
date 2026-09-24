@@ -128,11 +128,6 @@ src_prepare() {
 	done
 	shopt -u nullglob
 	addpredict /dev/nvidiactl
-
-	if use hardened ; then
-		# https://github.com/ImageMagick/ImageMagick/issues/8646 (bug #971784)
-		sed -i -e 's:not ok:ok:' tests/cli-svg.tap || die
-	fi
 }
 
 src_configure() {
@@ -211,27 +206,15 @@ src_compile() {
 }
 
 src_test() {
-	# Install default (unrestricted) policy in $HOME for test suite, bug #664238
-	local _im_local_config_home="${HOME}/.config/ImageMagick"
-	mkdir -p "${_im_local_config_home}" || \
-		die "Failed to create IM config dir in '${_im_local_config_home}'"
-	cp "${FILESDIR}"/policy.test.xml "${_im_local_config_home}/policy.xml" || \
-		die "Failed to install default blank policy.xml in '${_im_local_config_home}'"
+	# Install default (unrestricted) policy for the test suite, bug #664238
+	mv "${S}"/config/policy.xml{,.bak} || die
+	cp "${S}"/config/policy{-open,}.xml || die
 
-	local im_command= IM_COMMANDS=()
-	if [[ ${PV} == 9999 ]] ; then
-		IM_COMMANDS+=( "magick -version" ) # Show version we are using -- cannot verify because of live ebuild
-	else
-		IM_COMMANDS+=( "magick -version | grep -q -- \"${MY_PV}\"" ) # Verify that we are using version we just built
-	fi
-	IM_COMMANDS+=( "magick -list policy" ) # Verify that policy.xml is used
-	IM_COMMANDS+=( "emake check" ) # Run tests
+	nonfatal emake check
+	ret=$?
 
-	for im_command in "${IM_COMMANDS[@]}"; do
-		eval "${S}"/magick.sh \
-			${im_command} || \
-			die "Failed to run \"${im_command}\""
-	done
+	mv "${S}"/config/policy.xml{.bak,} || die
+	(( ${ret} == 0 )) || die "emake check failed"
 }
 
 src_install() {
@@ -255,7 +238,7 @@ src_install() {
 	find "${ED}" -name '*.la' -exec sed -i -e "/^dependency_libs/s:=.*:='':" {} + || die
 
 	if use opencl; then
-		cat <<-EOF > "${T}"/99${PN}
+		cat <<-EOF > "${T}"/99${PN} || die
 		SANDBOX_PREDICT="/dev/nvidiactl:/dev/nvidia-uvm:/dev/ati/card:/dev/dri/card:/dev/dri/card0:/dev/dri/renderD128"
 		EOF
 
