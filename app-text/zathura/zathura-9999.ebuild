@@ -11,14 +11,18 @@ HOMEPAGE="https://pwmt.org/projects/zathura/"
 if [[ ${PV} == *9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/pwmt/zathura.git"
+	BDEPEND="dev-python/sphinx"
 else
-	SRC_URI="https://github.com/pwmt/zathura/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="
+		https://github.com/pwmt/zathura/archive/${PV}.tar.gz -> ${P}.tar.gz
+		https://oss.turretllc.us/manpages/${P}-manpages.tar.xz
+	"
 	KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~x86"
 fi
 
 LICENSE="ZLIB"
 SLOT="0/8.9" # plugin versions api.abi (see meson.build)
-IUSE="+man landlock seccomp synctex test wayland X"
+IUSE="landlock seccomp synctex test wayland X"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
 	|| ( wayland X )
@@ -33,7 +37,6 @@ RDEPEND="
 	x11-libs/cairo
 	>=gui-libs/gtk-4.12[wayland?,X?]
 	x11-libs/pango
-	dev-python/sphinx
 	seccomp? ( sys-libs/libseccomp )
 	synctex? ( app-text/texlive-core )
 "
@@ -41,7 +44,7 @@ DEPEND="
 	${RDEPEND}
 	>=sys-kernel/linux-headers-5.13
 "
-BDEPEND="
+BDEPEND+="
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 	test? (
@@ -79,6 +82,11 @@ src_configure() {
 	meson_src_configure
 }
 
+src_test() {
+	addwrite /dev/dri
+	meson_src_test
+}
+
 src_install() {
 	meson_src_install
 
@@ -86,11 +94,8 @@ src_install() {
 		mv "${ED}"/usr/bin/zathura{,-full} || die
 		dosym zathura-sandbox /usr/bin/zathura
 	fi
-}
 
-src_test() {
-	addwrite /dev/dri
-	meson_src_test
+	[[ ${PV} != *9999 ]] && doman "${WORKDIR}"/man/zathura*
 }
 
 pkg_postinst() {
