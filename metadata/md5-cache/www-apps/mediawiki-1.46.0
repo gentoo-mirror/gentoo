@@ -5,7 +5,7 @@ EAPI=8
 HOMEPAGE=http://www.mediawiki.org
 INHERIT=webapp
 IUSE=imagemagick mysql postgres selinux +sqlite vhosts
-KEYWORDS=~alpha ~amd64 ~arm ~arm64 ~ppc ~x86
+KEYWORDS=~alpha amd64 ~arm ~arm64 ppc x86
 LICENSE=GPL-2
 RDEPEND=>=dev-lang/php-8.3[calendar,ctype,fileinfo,iconv,intl,json(+),postgres?,session,ssl,unicode,xml,xmlreader] imagemagick? ( virtual/imagemagick-tools ) !imagemagick? ( dev-lang/php[gd] ) mysql? ( dev-lang/php[mysql,mysqli] ) selinux? ( sec-policy/selinux-mediawiki ) sqlite? ( dev-db/sqlite[fts3(+)] dev-lang/php[pdo,sqlite] ) virtual/httpd-php app-admin/webapp-config
 REQUIRED_USE=|| ( mysql postgres sqlite )
@@ -13,4 +13,4 @@ RESTRICT=test
 SLOT=1.46.0
 SRC_URI=http://releases.wikimedia.org/mediawiki/1.46/mediawiki-1.46.0.tar.gz
 _eclasses_=webapp	5fa840db95fc7348dfd53b8526ed05f5
-_md5_=205f1ddfc941df8a3d7fe1ed31f7c1a5
+_md5_=cf2b18da4d2fe26d129190e3d1631808
