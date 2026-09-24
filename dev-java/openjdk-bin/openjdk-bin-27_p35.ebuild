@@ -3,12 +3,13 @@
 
 EAPI=8
 
-inherit java-vm-2 toolchain-funcs
+inherit dot-a java-vm-2 toolchain-funcs
 
 abi_uri() {
 	local baseuri="https://github.com/adoptium/temurin$(ver_cut 1)-binaries/releases/download/jdk-${PVB}/"
 	local musl=
 	local os=linux
+	local libc=glibc
 
 	case ${2} in
 		*-macos)    os=mac      ;;
@@ -18,11 +19,19 @@ abi_uri() {
 	if [[ ${3} == musl ]]; then
 		os=alpine-linux
 		musl=true
+		libc=musl
+	fi
+
+	if [[ ${os} == mac ]]; then
+		libc=
 	fi
 
 	echo "${2-$1}? (
 		${musl:+ elibc_musl? ( }
 			${baseuri}/OpenJDK${JDK_REPO}-jdk_${1}_${os}_hotspot_${PVH}.tar.gz
+			static-libs? (
+				${baseuri}/OpenJDK${JDK_REPO}-static-libs${libc:+-$libc}_${1}_${os}_hotspot_${PVH}.tar.gz
+			)
 		${musl:+ ) } )"
 }
 
@@ -57,14 +66,13 @@ SRC_URI="
 	$(abi_uri x64 amd64)
 	$(abi_uri x64 amd64 musl)
 	$(abi_uri riscv64 riscv)
-	$(abi_uri x64 x64-macos)
 "
 S="${WORKDIR}/jdk-${MY_PV}"
 
 LICENSE="GPL-2-with-classpath-exception"
 SLOT=$(ver_cut 1)
-#	KEYWORDS="" # Not an LTS candidate
-IUSE="alsa cups headless-awt selinux source"
+KEYWORDS="~amd64"
+IUSE="alsa cups headless-awt selinux source static-libs"
 
 RDEPEND="
 	>=sys-apps/baselayout-java-0.1.0-r1
@@ -107,6 +115,14 @@ src_unpack() {
 src_install() {
 	local dest="/opt/${P}"
 	local ddest="${ED}/${dest#/}"
+
+	if use static-libs ; then
+		cd "${S}"-static-libs/lib/static/*/* || die
+		cp -pPR * "${S}"/lib || die
+		strip-lto-bytecode "${S}"/lib || die
+	fi
+
+	cd "${S}"
 
 	# https://bugs.gentoo.org/922741
 	docompress "${dest}/man"
