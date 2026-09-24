@@ -1974,11 +1974,11 @@ app-emacs/company-ebuild 0.1.4 9999: Company backend for editing Ebuild files
 app-emacs/company-math 1.5.1: Completion back-ends for for math unicode symbols and latex tags
 app-emacs/company-mode 1.0.2 1.1.0: In-buffer completion front-end
 app-emacs/company-quickhelp 2.3.0: Company documentation popups for completion candidates
-app-emacs/compat 31.0.0.1 31.0.0.2: Compatibility libraries for Emacs
+app-emacs/compat 31.0.0.1 31.0.0.2 31.1.0.0: Compatibility libraries for Emacs
 app-emacs/cond-let 1.1.3 1.1.4: Additional and improved binding conditionals for GNU Emacs
-app-emacs/consult 3.7 3.8 9999: Consulting complete-read for GNU Emacs
+app-emacs/consult 3.7 3.8 3.9 9999: Consulting complete-read for GNU Emacs
 app-emacs/consult-flycheck 1.2: Consult integration for Flycheck
-app-emacs/corfu 2.13 2.14 2.15 9999: Completion Overlay Region FUnction
+app-emacs/corfu 2.13 2.14 2.15 2.16 9999: Completion Overlay Region FUnction
 app-emacs/counsel 0.15.1: Versions of common Emacs commands customized to make the best use of ivy
 app-emacs/crontab-mode 1.20: Mode for editing crontab files
 app-emacs/crux 0.4.0 0.5.0: Collection of Ridiculously Useful eXtensions for GNU Emacs
@@ -2175,7 +2175,7 @@ app-emacs/lyskom-elisp-client 0.48_p20200226: Elisp client for the LysKOM confer
 app-emacs/m-buffer 0.16.1: List Oriented Buffer Operations for Emacs
 app-emacs/macrostep 0.9.5: Interactive macro-expander for Emacs
 app-emacs/macrostep-geiser 0.2.0_p20210717: Emacs macrostep back-end powered by geiser
-app-emacs/magit 4.7.0 9999: A Git porcelain inside Emacs
+app-emacs/magit 4.7.0 4.7.1 9999: A Git porcelain inside Emacs
 app-emacs/magit-popup 2.13.3-r1: Define prefix-infix-suffix command combos
 app-emacs/mailcrypt 3.5.9-r3: Provides a simple interface to public key cryptography with OpenPGP
 app-emacs/marginalia 2.11 2.12: Marginalia in the minibuffer
@@ -2223,7 +2223,7 @@ app-emacs/org-static-blog 1.6.0 1.7.0 9999: Static site generator using Emacs's 
 app-emacs/org-superstar-mode 1.6.0: Prettify headings and plain lists in Org mode (use UTF8 bullets)
 app-emacs/osm 2.5 9999: OpenStreetMap tile-based viewer for GNU Emacs
 app-emacs/outline-magic 0.9: Outline mode extensions for Emacs
-app-emacs/package-build 5.0.1 5.0.2: Tools for assembling a package archive
+app-emacs/package-build 5.0.1 5.0.2 5.0.3: Tools for assembling a package archive
 app-emacs/package-lint 0.26: Linting library for Emacs Lisp package metadata
 app-emacs/pandoc-mode 2.35 2.90.2: GNU Emacs minor mode for interacting with Pandoc
 app-emacs/paredit 26-r2: Minor mode for performing structured editing of S-expressions
@@ -2346,7 +2346,7 @@ app-emacs/undo-tree 0.8.2-r1: Undo trees and visualization
 app-emacs/unison-ts-mode 0.3.0: GNU Emacs major mode for the Unison language that uses Tree-sitter
 app-emacs/uptimes 3.8: Track and display emacs session uptimes
 app-emacs/uxntal-mode 0.3: GNU Emacs major mode for the uxntal assembly language
-app-emacs/vertico 2.12 2.13 2.14 9999: Vertical interactive completion
+app-emacs/vertico 2.12 2.13 2.14 2.15 9999: Vertical interactive completion
 app-emacs/vhdl-mode 3.39.3: VHDL-mode for Emacs
 app-emacs/visual-basic-mode 1.5-r1: A mode for editing Visual Basic programs
 app-emacs/visual-fill-column 2.7.1: GNU Emacs mode for wrapping visual-line-mode buffers at fill-column
@@ -9923,7 +9923,7 @@ dev-python/yattag 1.16.1: Python library to generate HTML or XML in a readable, 
 dev-python/yaxmldiff 0.2.0 0.3.0: Yet Another XML Differ
 dev-python/youtube-search-python 1.6.6-r3: Get YouTube video information using link WITHOUT YouTube Data API v3
 dev-python/yt-dlp-ejs 0.8.0: External JavaScript for yt-dlp supporting many runtimes
-dev-python/ytmusicapi 1.12.1-r1 1.12.2: Unofficial API for YouTube Music
+dev-python/ytmusicapi 1.12.2 1.12.3: Unofficial API for YouTube Music
 dev-python/zc-lockfile 4.0: Basic inter-process locks
 dev-python/zconfig 4.3: Configuration library supporting a hierarchical schema-driven model
 dev-python/zeep 4.3.3: A modern/fast Python SOAP client based on lxml / requests
@@ -14787,7 +14787,7 @@ net-analyzer/wtfis 0.14.0 0.15.0 9999: Passive hostname, domain and IP lookup to
 net-analyzer/xnetload 1.11.3-r1: Displays a count and a graph of the traffic over a specified network connection
 net-analyzer/xprobe 0.3-r1 0.3-r2: Active OS fingerprinting tool - this is Xprobe2
 net-analyzer/yersinia 0.8.2_p20221119: A framework for layer 2 attacks
-net-analyzer/zabbix 6.0.48 7.0.30 7.0.31 7.4.14 7.4.15-r1: ZABBIX is software for monitoring of your applications, network and servers
+net-analyzer/zabbix 6.0.48 7.0.30 7.0.31-r1 7.4.14 7.4.15-r1: ZABBIX is software for monitoring of your applications, network and servers
 net-analyzer/zmap 4.3.2: Fast network scanner designed for Internet-wide network surveys
 net-analyzer/zniper 1.0-r3: Displays and kill active TCP connections seen by the selected interface
 net-dialup/accel-ppp 1.12.0_p20230609 1.14.0 1.14.0-r2 9999: High performance PPTP/L2TP/SSTP/PPPoE/IPoE server
@@ -15350,7 +15350,7 @@ net-misc/exabgp 4.2.23 4.2.25 5.0.8 5.0.12: The BGP swiss army knife of networki
 net-misc/fakeidentd 2.6-r1: A static, secure identd. One source file only!
 net-misc/freerdp 3.31.1 3.32.0 9999: Free implementation of the Remote Desktop Protocol
 net-misc/frr 10.1.4-r2 10.1.5-r1 10.2.5-r2 10.2.6 10.3.3-r2 10.3.4-r1 10.4.3-r2 10.4.4-r1 10.4.5 10.5.3-r2 10.5.4-r1 10.5.5 10.6.1-r1 10.6.2 10.7.0 10.7.1: The FRRouting Protocol Suite
-net-misc/gallery-dl 1.32.9-r1 1.32.10-r1 1.32.11 1.32.12 9999: Download image galleries and collections from several image hosting sites
+net-misc/gallery-dl 1.32.9-r1 1.32.10-r1 1.32.11 1.32.12 1.32.13 9999: Download image galleries and collections from several image hosting sites
 net-misc/geckodriver 0.36.0 0.37.0 0.37.1: Proxy for using WebDriver clients to interact with Gecko-based browsers
 net-misc/gensio 2.8.5: General Stream I/O
 net-misc/geoipupdate 6.1.0 7.1.0: Performs automatic updates of GeoIP2 and GeoIP Legacy binary databases
