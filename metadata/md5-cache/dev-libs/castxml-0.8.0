@@ -1,0 +1,17 @@
+BDEPEND=man? ( dev-python/sphinx ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare setup test
+DEPEND=llvm_slot_17? ( llvm-core/clang:17= llvm-core/llvm:17= ) llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/clang:21= llvm-core/llvm:21= ) llvm_slot_22? ( llvm-core/clang:22= llvm-core/llvm:22= ) llvm_slot_23? ( llvm-core/clang:23= llvm-core/llvm:23= )
+DESCRIPTION=C-family abstract syntax tree XML output tool
+EAPI=8
+HOMEPAGE=https://github.com/CastXML/CastXML
+INHERIT=cmake llvm-r2
+IUSE=+man test +llvm_slot_22 llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 llvm_slot_23
+KEYWORDS=~amd64 ~arm ~riscv ~x86
+LICENSE=Apache-2.0
+RDEPEND=llvm_slot_17? ( llvm-core/clang:17= llvm-core/llvm:17= ) llvm_slot_18? ( llvm-core/clang:18= llvm-core/llvm:18= ) llvm_slot_19? ( llvm-core/clang:19= llvm-core/llvm:19= ) llvm_slot_20? ( llvm-core/clang:20= llvm-core/llvm:20= ) llvm_slot_21? ( llvm-core/clang:21= llvm-core/llvm:21= ) llvm_slot_22? ( llvm-core/clang:22= llvm-core/llvm:22= ) llvm_slot_23? ( llvm-core/clang:23= llvm-core/llvm:23= )
+REQUIRED_USE=^^ ( llvm_slot_17 llvm_slot_18 llvm_slot_19 llvm_slot_20 llvm_slot_21 llvm_slot_22 llvm_slot_23 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/CastXML/CastXML/archive/v0.8.0.tar.gz -> CastXML-0.8.0.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	56f5637f85225a4b5312d9055a7727d8
+_md5_=6f2f49bf3055a6d8e045cc1e7c94fe30
