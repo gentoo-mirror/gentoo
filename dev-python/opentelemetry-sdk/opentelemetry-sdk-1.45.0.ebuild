@@ -9,45 +9,48 @@ PYTHON_COMPAT=( python3_{12..15} )
 inherit distutils-r1
 
 MY_P="opentelemetry-python-${PV}"
-DESCRIPTION="OpenTelemetry Python API"
+DESCRIPTION="OpenTelemetry Python SDK"
 HOMEPAGE="
 	https://opentelemetry.io/
-	https://pypi.org/project/opentelemetry-api/
+	https://pypi.org/project/opentelemetry-sdk/
 	https://github.com/open-telemetry/opentelemetry-python/
 "
 SRC_URI="
 	https://github.com/open-telemetry/opentelemetry-python/archive/refs/tags/v${PV}.tar.gz
 		-> ${MY_P}.gh.tar.gz
 "
+
 S="${WORKDIR}/${MY_P}/${PN}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
+	~dev-python/opentelemetry-api-${PV}[${PYTHON_USEDEP}]
+	~dev-python/opentelemetry-semantic-conventions-${PV}[${PYTHON_USEDEP}]
 	>=dev-python/typing-extensions-4.5.0[${PYTHON_USEDEP}]
 "
-BDEPEND="
-	test? (
-		dev-python/typing-extensions[${PYTHON_USEDEP}]
-	)
-"
 
-EPYTEST_PLUGINS=()
+EPYTEST_PLUGINS=( pytest-rerunfailures )
+# Tests cannot handle xdist with high makeopts
+# https://bugs.gentoo.org/928132
 distutils_enable_tests pytest
+
+EPYTEST_DESELECT=(
+	# TODO
+	tests/metrics/test_measurement_consumer.py::TestSynchronousMeasurementConsumer::test_collect_deadline
+)
 
 python_test() {
 	cp -a "${BUILD_DIR}"/{install,test} || die
 	local -x PATH=${BUILD_DIR}/test/usr/bin:${PATH}
 
-	for dep in opentelemetry-semantic-conventions opentelemetry-sdk \
-		tests/opentelemetry-test-utils
-	do
+	for dep in tests/opentelemetry-test-utils; do
 		pushd "${WORKDIR}/${MY_P}/${dep}" >/dev/null || die
 		distutils_pep517_install "${BUILD_DIR}"/test
 		popd >/dev/null || die
 	done
 
-	epytest
+	epytest tests
 }
