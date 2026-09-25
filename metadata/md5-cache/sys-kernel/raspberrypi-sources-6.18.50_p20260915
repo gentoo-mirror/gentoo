@@ -1,0 +1,14 @@
+DEFINED_PHASES=compile install postinst postrm preinst prepare setup test unpack
+DESCRIPTION=Raspberry Pi kernel sources
+EAPI=8
+HOMEPAGE=https://github.com/raspberrypi/linux
+INHERIT=kernel-2 linux-info
+IUSE=symlink build vanilla
+KEYWORDS=~arm ~arm64
+LICENSE=GPL-2
+RDEPEND=!build? ( app-alternatives/cpio dev-lang/perl app-alternatives/bc dev-build/make sys-devel/bison sys-devel/flex sys-libs/binutils-libs >=sys-libs/ncurses-5.2 virtual/libelf virtual/pkgconfig )
+RESTRICT=binchecks strip
+SLOT=6.18.50_p20260915
+SRC_URI=https://github.com/raspberrypi/linux/archive/cff533aec2fa601846766b32ff57204e0a61bed7.tar.gz -> linux-6.18.50_p20260915-raspberrypi.tar.gz https://distfiles.gentoo.org/pub/proj/kernel/genpatches/genpatches-6.18-57.base.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-6.18-57.base.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.18-57.base.tar.xz https://distfiles.gentoo.org/pub/proj/kernel/genpatches/genpatches-6.18-57.extras.tar.xz https://dev.gentoo.org/~alicef/dist/genpatches/genpatches-6.18-57.extras.tar.xz https://dev.gentoo.org/~mpagano/dist/genpatches/genpatches-6.18-57.extras.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	crossdev	d618c699554f72b98f8ceeeeb361dc9e	estack	c61c368a76fdf3a82fdf8dbaebea3804	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	kernel-2	b64831395b94d39c64bb2c132c117661	linux-info	efd923656513c879204fec6638eadee5
+_md5_=215cb289d8424810c1f27298096a9edd
