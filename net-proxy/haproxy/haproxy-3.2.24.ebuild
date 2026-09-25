@@ -38,11 +38,10 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0/$(ver_cut 1-2)"
-IUSE="+crypt +doc ech examples +slz +net_ns +pcre pcre-jit prometheus-exporter quic
-selinux +ssl systemd test +threads tools zlib lua 51degrees wurfl"
+IUSE="+crypt doc examples +slz +net_ns +pcre pcre-jit prometheus-exporter quic
+selinux ssl systemd test +threads tools zlib lua 51degrees wurfl"
 REQUIRED_USE="pcre-jit? ( pcre )
 	lua? ( ${LUA_REQUIRED_USE} )
-	ech? ( ssl )
 	?? ( slz zlib )"
 RESTRICT="!test? ( test )"
 
@@ -65,8 +64,7 @@ DEPEND="
 	test? (
 		dev-libs/libpcre2
 		virtual/zlib:=
-	)
-	ech? ( >=dev-libs/openssl-4.0.0:0/4 )"
+	)"
 RDEPEND="${DEPEND}
 	acct-group/haproxy
 	acct-user/haproxy
@@ -74,8 +72,6 @@ RDEPEND="${DEPEND}
 
 DOCS=( CHANGELOG CONTRIBUTING MAINTAINERS )
 EXTRAS=( admin/halog admin/iprange dev/tcploop dev/hpack )
-
-CONFIG_CHECK="~TCP_MD5SIG"
 
 haproxy_use() {
 	(( $# != 2 )) && die "${FUNCNAME} <USE flag> <make option>"
@@ -116,7 +112,6 @@ src_compile() {
 	fi
 
 	# TODO: PCRE2_WIDTH?
-	args+=( $(haproxy_use ech ECH) )
 	args+=( $(haproxy_use threads THREAD) )
 	args+=( $(haproxy_use crypt LIBCRYPT) )
 	args+=( $(haproxy_use net_ns NS) )
@@ -143,8 +138,6 @@ src_compile() {
 		SBINDIR=/usr/sbin
 
 	if use tools ; then
-		emake CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" EXTRA_OBJS="${EXTRA_OBJS}" \
-			TARGET_LDFLAGS="${TARGET_LDFLAGS}" PCRE_LIB="${ESYSROOT}"/usr/$(get_libdir) ${args[@]} haterm
 		for extra in ${EXTRAS[@]} ; do
 			if [ "${extra}" = "admin/halog" ]; then
 				emake CFLAGS="${CFLAGS}" LDFLAGS="${LDFLAGS}" CC="$(tc-getCC)" \
@@ -181,8 +174,6 @@ src_install() {
 	doman doc/haproxy.1
 
 	systemd_dounit admin/systemd/haproxy.service
-	# conf.d is mandatory in recent systemd units
-	keepdir /etc/haproxy/conf.d
 
 	einstalldocs
 
@@ -210,11 +201,6 @@ src_install() {
 			newbin dev/hpack/decode haproxy_decode
 		}
 
-		dosbin admin/cli/haproxy-dump-certs
-		dosbin admin/cli/haproxy-reload
-
-		dobin haterm
-		use doc && dodoc doc/haterm.txt
 	fi
 
 	if use examples ; then
