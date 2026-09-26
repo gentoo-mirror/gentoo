@@ -1,0 +1,14 @@
+BDEPEND=X? ( >=x11-apps/mkfontscale-1.2.0 media-fonts/encodings )
+DEFINED_PHASES=compile install postinst postrm setup
+DESCRIPTION=Google Noto Emoji fonts
+EAPI=8
+HOMEPAGE=https://fonts.google.com/noto/specimen/Noto+Color+Emoji https://fonts.google.com/noto/specimen/Noto+Emoji https://github.com/googlefonts/noto-emoji https://github.com/zjaco13/Noto-Emoji-Monochrome
+INHERIT=font xdg-utils
+IUSE=icons X
+KEYWORDS=~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~x86
+LICENSE=Apache-2.0 OFL-1.1
+RESTRICT=binchecks strip
+SLOT=0
+SRC_URI=https://github.com/googlefonts/noto-emoji/archive/e20cbc2bbec1926686be9f9bee7d1d2cfa1fea0e.tar.gz -> noto-emoji-20260924.tar.gz https://github.com/zjaco13/Noto-Emoji-Monochrome/archive/b80db438fe644bd25e0032661ab66fa72f2af0e2.tar.gz -> noto-emoji-20260924-monochrome.tar.gz
+_eclasses_=font	9248ee2e9ac35c888e1ae71773a632f4	xdg-utils	42869b3c8d86a70ef3cf75165a395e09
+_md5_=1afcc3e050f92f94d106bbd04db75eb7

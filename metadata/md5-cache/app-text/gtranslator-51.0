@@ -1,15 +1,15 @@
-BDEPEND=dev-libs/appstream-glib dev-libs/libxml2:2 dev-util/glib-utils dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
+BDEPEND=>=dev-build/meson-1.7 dev-libs/appstream-glib dev-util/glib-utils dev-util/itstool >=sys-devel/gettext-0.19.8 virtual/pkgconfig app-arch/xz-utils >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install postinst postrm preinst test
-DEPEND=>=dev-libs/glib-2.71.3:2 >=gui-libs/gtk-4.12.0:4 >=gui-libs/libadwaita-1.6_alpha gnome-extra/libgda:5= gnome-base/gsettings-desktop-schemas >=gui-libs/gtksourceview-5.4.0:5 >=dev-libs/libxml2-2.4.12:2= net-libs/libsoup:3.0 >=dev-libs/json-glib-1.2.0
+DEPEND=app-text/libspelling:1 dev-db/sqlite:3= >=dev-libs/glib-2.76:2 >=gui-libs/gtk-4.12.0:4 >=gui-libs/libadwaita-1.8_alpha gnome-base/gsettings-desktop-schemas >=gui-libs/gtksourceview-5.4.0:5 net-libs/libsoup:3.0 >=dev-libs/json-glib-1.2.0 sys-devel/gettext
 DESCRIPTION=GNOME Translation Editor
 EAPI=8
 HOMEPAGE=https://gitlab.gnome.org/GNOME/gtranslator/
 IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
 INHERIT=gnome.org gnome2-utils meson xdg
-KEYWORDS=amd64 ~ppc x86
+KEYWORDS=~amd64 ~x86
 LICENSE=GPL-3+
-RDEPEND=>=dev-libs/glib-2.71.3:2 >=gui-libs/gtk-4.12.0:4 >=gui-libs/libadwaita-1.6_alpha gnome-extra/libgda:5= gnome-base/gsettings-desktop-schemas >=gui-libs/gtksourceview-5.4.0:5 >=dev-libs/libxml2-2.4.12:2= net-libs/libsoup:3.0 >=dev-libs/json-glib-1.2.0
+RDEPEND=app-text/libspelling:1 dev-db/sqlite:3= >=dev-libs/glib-2.76:2 >=gui-libs/gtk-4.12.0:4 >=gui-libs/libadwaita-1.8_alpha gnome-base/gsettings-desktop-schemas >=gui-libs/gtksourceview-5.4.0:5 net-libs/libsoup:3.0 >=dev-libs/json-glib-1.2.0 sys-devel/gettext
 SLOT=0
-SRC_URI=mirror://gnome/sources/gtranslator/47/gtranslator-47.1.tar.xz
+SRC_URI=mirror://gnome/sources/gtranslator/51/gtranslator-51.0.tar.xz
 _eclasses_=gnome.org	e1b4f392dbfedfb8974b71b017937f08	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	gnome2-utils	a8cf148ec7f5ae0b1f1d33ae5f7f9e88	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	4d3a148e5931f2930e970884bcb4c77d	xdg	3ef49a87c52c8b77c476351195dfe575
-_md5_=225559adc42442c0f032260e6d1ad273
+_md5_=2e016491dc4d75590631d32b890b1ba9
