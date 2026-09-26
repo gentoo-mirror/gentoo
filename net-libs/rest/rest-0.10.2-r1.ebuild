@@ -1,16 +1,18 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit gnome.org meson vala
+inherit meson vala
 
 DESCRIPTION="Helper library for RESTful services"
-HOMEPAGE="https://wiki.gnome.org/Projects/Librest"
+HOMEPAGE="https://gnome.pages.gitlab.gnome.org/librest/"
+SRC_URI="https://gitlab.gnome.org/GNOME/librest/-/archive/${PV}/lib${P}.tar.bz2"
+S="${WORKDIR}/lib${P}"
 
 LICENSE="LGPL-2.1"
 SLOT="1.0" # librest_soversion
-KEYWORDS="~alpha amd64 ~arm arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 IUSE="gtk-doc +introspection test vala"
 REQUIRED_USE="
 	gtk-doc? ( introspection )
@@ -33,12 +35,7 @@ BDEPEND="
 	vala? ( $(vala_depend) )
 "
 
-PATCHES=(
-	# Fix some crash paths exposed by the libsoup3 port
-	# https://gitlab.gnome.org/GNOME/librest/-/merge_requests/30
-	"${FILESDIR}"/0001-rest_proxy_call_sync-bail-out-if-no-payload.patch
-	"${FILESDIR}"/0002-Handle-some-potential-problems-in-parsing-oauth2-acc.patch
-)
+PATCHES=( "${FILESDIR}/${P}-CVE-2026-16615.patch" )
 
 src_prepare() {
 	default
@@ -63,4 +60,12 @@ src_configure() {
 		$(meson_use test tests)
 	)
 	meson_src_configure
+}
+
+src_install() {
+	meson_src_install
+	if use gtk-doc; then
+		mkdir -p "${ED}"/usr/share/gtk-doc/html/ || die
+		mv "${ED}"/usr/share/doc/librest-1.0 "${ED}"/usr/share/gtk-doc/html/ || die
+	fi
 }
