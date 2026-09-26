@@ -1,0 +1,15 @@
+DEFINED_PHASES=compile configure install prepare
+DEPEND=|| ( dev-lang/pypy3-exe:3.12.8.0.0[bzip2(+),ncurses?] dev-lang/pypy3-exe-bin:3.12.8.0.0 ) dev-libs/openssl:0= dev-python/gentoo-common gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) symlink? ( !dev-lang/pypy:3.10[symlink(-)] !<dev-python/pypy3-7.3.17-r100 )
+DESCRIPTION=A fast, compliant alternative implementation of the Python (3.12) language
+EAPI=8
+HOMEPAGE=https://pypy.org/ https://github.com/pypy/pypy/
+INHERIT=multiprocessing pax-utils python-utils-r1 toolchain-funcs
+IUSE=+ensurepip gdbm +jit ncurses sqlite symlink +test-install tk
+LICENSE=MIT
+PDEPEND=ensurepip? ( dev-python/ensurepip-pip dev-python/ensurepip-setuptools )
+RDEPEND=|| ( dev-lang/pypy3-exe:3.12.8.0.0[bzip2(+),ncurses?] dev-lang/pypy3-exe-bin:3.12.8.0.0 ) dev-libs/openssl:0= dev-python/gentoo-common gdbm? ( sys-libs/gdbm:0= ) sqlite? ( dev-db/sqlite:3= ) tk? ( dev-lang/tk:0= dev-tcltk/tix:0= ) symlink? ( !dev-lang/pypy:3.10[symlink(-)] !<dev-python/pypy3-7.3.17-r100 )
+RESTRICT=test
+SLOT=3.12/pypy312-pp80-448
+SRC_URI=https://downloads.python.org/pypy/pypy3.12-v8.0.0-src.tar.gz https://distfiles.gentoo.org/pub/proj/python/patchsets/pypy3.12/pypy3.12-gentoo-patches-8.0.0.tar.xz
+_eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	pax-utils	5555f2e75744739fe100ee62c22d28fe	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc
+_md5_=b3cfc8e74be58e542291e63ea8ca2583
