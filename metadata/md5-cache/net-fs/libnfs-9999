@@ -1,12 +1,14 @@
 BDEPEND=net-libs/rpcsvc-proto virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.19:1.19 >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
-DEFINED_PHASES=configure install prepare unpack
+DEFINED_PHASES=configure install prepare setup unpack
+DEPEND=gnutls? ( >=net-libs/gnutls-3.4.5:= ) kerberos? ( virtual/krb5 ) sys-kernel/linux-headers
 DESCRIPTION=Client library for accessing NFS shares over a network
 EAPI=8
 HOMEPAGE=https://github.com/sahlberg/libnfs
-INHERIT=autotools git-r3
-IUSE=examples static-libs utils
+INHERIT=autotools dot-a linux-info git-r3
+IUSE=gnutls kerberos static-libs utils
 LICENSE=LGPL-2.1 GPL-3
 PROPERTIES=live
-SLOT=0/14
-_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	8e8dec541e781133e5176ee95a872f17	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=46c270acf5aef48603f5b22abb08f997
+RDEPEND=gnutls? ( >=net-libs/gnutls-3.4.5:= ) kerberos? ( virtual/krb5 )
+SLOT=0/18
+_eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	8e8dec541e781133e5176ee95a872f17	flag-o-matic	fd3558f73f6503093adee69adf41020d	dot-a	e5200fe17cfd2ed6fa66edd80201763a	linux-info	efd923656513c879204fec6638eadee5	git-r3	e6c2f983e006e805160436c75a0c1562
+_md5_=1dedb1bc202c3ff9deee83c594275ad6

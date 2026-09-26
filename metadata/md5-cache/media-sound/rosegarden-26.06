@@ -1,0 +1,17 @@
+BDEPEND=dev-qt/qttools:6[linguist] virtual/pkgconfig app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install postinst postrm preinst prepare test
+DEPEND=dev-qt/qt5compat:6 dev-qt/qtbase:6[gui,network,widgets,xml] media-libs/alsa-lib >=media-libs/dssi-1.0.0:= media-libs/ladspa-sdk media-libs/liblo media-libs/liblrdf media-libs/libsamplerate media-libs/libsndfile sci-libs/fftw:3.0= virtual/jack virtual/zlib:= lirc? ( app-misc/lirc ) lv2? ( media-libs/lilv >=media-libs/lv2-1.18.0 )
+DESCRIPTION=MIDI and audio sequencer and notation editor
+EAPI=8
+HOMEPAGE=https://www.rosegardenmusic.com/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cmake xdg
+IUSE=lirc lv2 test
+KEYWORDS=~amd64 ~ppc ~x86
+LICENSE=GPL-2
+RDEPEND=dev-qt/qt5compat:6 dev-qt/qtbase:6[gui,network,widgets,xml] media-libs/alsa-lib >=media-libs/dssi-1.0.0:= media-libs/ladspa-sdk media-libs/liblo media-libs/liblrdf media-libs/libsamplerate media-libs/libsndfile sci-libs/fftw:3.0= virtual/jack virtual/zlib:= lirc? ( app-misc/lirc ) lv2? ( media-libs/lilv >=media-libs/lv2-1.18.0 )
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://downloads.sourceforge.net/project/rosegarden/rosegarden/26.06/rosegarden-26.06.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=f6038c96d3b90693525c769e6093fe9c
