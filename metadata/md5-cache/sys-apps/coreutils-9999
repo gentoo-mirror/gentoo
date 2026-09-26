@@ -8,9 +8,9 @@ INHERIT=branding flag-o-matic python-any-r1 toolchain-funcs verify-sig git-r3
 IUSE=acl caps gmp hostname kill multicall nls +openssl selinux +split-usr static test test-full vanilla xattr verify-sig
 LICENSE=GPL-3+
 PROPERTIES=live
-RDEPEND=!static? ( acl? ( sys-apps/acl ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:= ) openssl? ( dev-libs/openssl:= ) xattr? ( sys-apps/attr ) ) selinux? ( sys-libs/libselinux ) nls? ( virtual/libintl ) hostname? ( !sys-apps/net-tools[hostname] ) kill? ( !sys-apps/util-linux[kill] !sys-process/procps[kill] ) !<sys-apps/util-linux-2.13 !<sys-apps/sandbox-2.10-r4 !sys-apps/stat !net-mail/base64 !sys-apps/mktemp !<app-forensics/tct-1.18-r1 !<net-fs/netatalk-2.0.3-r4 !<sys-apps/shadow-4.19.0_rc1
+RDEPEND=!static? ( acl? ( sys-apps/acl ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:= ) openssl? ( dev-libs/openssl:= ) xattr? ( sys-apps/attr ) ) selinux? ( sys-libs/libselinux ) nls? ( virtual/libintl ) hostname? ( !sys-apps/net-tools[hostname] ) kill? ( !sys-apps/util-linux[kill] !sys-process/procps[kill] ) !<app-forensics/tct-1.18-r1 !<net-fs/netatalk-2.0.3-r4 !net-mail/base64 !sys-apps/mktemp !<sys-apps/sandbox-2.10-r4 !<sys-apps/shadow-4.19.0_rc1 !sys-apps/stat !<sys-apps/util-linux-2.13
 RESTRICT=!test? ( test )
 SLOT=0
-SRC_URI=!vanilla? ( https://dev.gentoo.org/~sam/distfiles/sys-apps/coreutils/coreutils-9.6-patches.tar.xz )
+SRC_URI=!vanilla? ( https://distfiles.gentoo.org/pub/dev/sam@gentoo.org/sys-apps/coreutils/coreutils-9.12-patches.tar.xz )
 _eclasses_=branding	7bcece3faa73dd0fc3e597013510d53a	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc	python-any-r1	891415dfe39ad9b41b461f2b86354af0	verify-sig	f0b3a8c93ad67e5137bbf53281fed014	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=28cc362b302cbf1e5b6162d74e0e4d8c
+_md5_=1d0c3d5ff39c01aec67e1c28927972c8
