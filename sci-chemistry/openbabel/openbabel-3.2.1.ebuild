@@ -4,7 +4,7 @@
 EAPI=8
 
 GENTOO_DEPEND_ON_PERL="no"
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 WX_GTK_VER=3.2-gtk3
 
 inherit cmake desktop flag-o-matic perl-module python-r1 toolchain-funcs wxwidgets xdg
@@ -16,9 +16,9 @@ if [[ "${PV}" == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/openbabel/${PN}.git"
 else
-	if [[ "${PV}" == *_p* ]]; then	# eg., openbabel-3.1.1_p20210325
+	if [[ "${PV}" == *_p* ]]; then
 		# Set to commit hash
-		OPENBABEL_COMMIT="889c350feb179b43aa43985799910149d4eaa2bc"
+		OPENBABEL_COMMIT=""
 		SRC_URI="https://github.com/${PN}/${PN}/archive/${OPENBABEL_COMMIT}.tar.gz -> ${P}.tar.gz"
 		S="${WORKDIR}/${PN}-${OPENBABEL_COMMIT}"
 	else
@@ -26,12 +26,12 @@ else
 		SRC_URI="https://github.com/${PN}/${PN}/archive/${MY_P}.tar.gz -> ${P}.tar.gz"
 		S="${WORKDIR}/${PN}-${MY_P}"
 	fi
-	KEYWORDS="amd64 ~arm ~x86"
+	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
 LICENSE="GPL-2"
 # See src/CMakeLists.txt for LIBRARY_VERSION
-SLOT="0/7.0.0"
+SLOT="0/8.0.0"
 IUSE="cpu_flags_arm_neon cpu_flags_x86_sse2 cpu_flags_x86_sse4_2 doc examples +inchi json minimal openmp perl png python test wxwidgets ${GENTOO_PERL_USESTRING}"
 RESTRICT="!test? ( test )"
 REQUIRED_USE="
@@ -68,12 +68,12 @@ BDEPEND="
 "
 
 PATCHES=(
-	# Set include dir only for global implementation
-	"${FILESDIR}"/${PN}-3.1.1_p2024-fix_pybind.patch
 	# prevent installation of examples in /usr/bin
 	"${FILESDIR}"/${PN}-3.1.1_p2024-fix_examples.patch
-	# cmake4-compat
-	"${FILESDIR}"/${PN}-3.1.1_p2024-cmake4.patch
+	# filter -O2
+	"${FILESDIR}"/${PN}-3.2.0-cflags.patch
+	# do not build/install the test program 'roundtrip', bug #977020
+	"${FILESDIR}"/${PN}-3.2.1-rm_roundtrip.patch
 )
 
 pkg_pretend() {
@@ -88,7 +88,7 @@ gen_python_bindings() {
 	mkdir -p scripts/${EPYTHON} || die
 	# Appends to scripts/CMakeLists.txt, substituting the correct tags, for
 	# each valid python implementation,
-	cat "${FILESDIR}"/${PN}-python-r2.cmake | \
+	cat "${FILESDIR}"/${PN}-python-3.2.cmake | \
 		sed -e "s|@@EPYTHON@@|${EPYTHON}|" \
 			-e "s|@@PYTHON_INCLUDE_DIR@@|$(python_get_includedir)|" \
 			-e "s|@@PYTHON_LIBS@@|$(python_get_LIBS)|" \
@@ -122,7 +122,6 @@ src_configure() {
 
 	local mycmakeargs=(
 		$(cmake_use_find_package png Cairo)
-		$(cmake_use_find_package wxwidgets wxWidgets)
 		-DCMAKE_SKIP_RPATH=ON
 		-DBUILD_DOCS=$(usex doc)
 		-DBUILD_EXAMPLES=$(usex examples)
@@ -136,7 +135,7 @@ src_configure() {
 		-DWITH_INCHI=$(usex inchi)
 		-DOPTIMIZE_NATIVE=OFF
 		-DPERL_BINDINGS=$(usex perl)
-		-DPYTHON_BINDINGS=$(usex python)
+		-DPYTHON_BINDINGS=OFF
 		-DRUN_SWIG=$(use_bindings)
 		-DWITH_COORDGEN=false
 		-DWITH_JSON=$(usex json)
@@ -152,12 +151,17 @@ src_configure() {
 		)
 	fi
 
+	if use python; then
+		mycmakeargs+=(
+			-DPYTHON_GENTOO_BINDINGS=ON
+		)
+	fi
+
 	if use test; then
-		# Help cmake find the python interpreter when dev-lang/python-exec is built
-		# without native-symlinks support.
+		# used for unittest
 		python_setup
 		mycmakeargs+=(
-			-DPYTHON_EXECUTABLE="${PYTHON}"
+			-DPython_EXECUTABLE="${PYTHON}"
 		)
 	fi
 
@@ -170,9 +174,9 @@ src_compile() {
 }
 
 src_test() {
-	local CMAKE_SKIP_TESTS=(
-		# https://github.com/openbabel/openbabel/issues/2766
-		test_align_{4,5}
+	local CMAKE_SKIP_TESTS=()
+	! use json && CMAKE_SKIP_TESTS+=(
+		test_ketformat*
 	)
 	! use wxwidgets && CMAKE_SKIP_TESTS+=(
 		test_tautomer_{22,27}
