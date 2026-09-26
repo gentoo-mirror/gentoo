@@ -12,7 +12,7 @@ if [[ ${PV} == *9999 ]] ; then
 		https://github.com/pkgcore/pkgcheck.git"
 	inherit git-r3
 else
-	KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+	KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 	inherit pypi
 fi
 
@@ -29,16 +29,16 @@ if [[ ${PV} == *9999 ]]; then
 		~sys-apps/pkgcore-9999[${PYTHON_USEDEP}]"
 else
 	RDEPEND="
-		>=dev-python/snakeoil-0.11.3[${PYTHON_USEDEP}]
-		>=sys-apps/pkgcore-0.12.37[${PYTHON_USEDEP}]"
+		>=dev-python/snakeoil-0.11.6[${PYTHON_USEDEP}]
+		>=sys-apps/pkgcore-0.12.42[${PYTHON_USEDEP}]"
 fi
 RDEPEND+="
 	app-arch/zstd
 	>=dev-libs/tree-sitter-bash-0.25.1[python,${PYTHON_USEDEP}]
 	dev-python/charset-normalizer[${PYTHON_USEDEP}]
 	dev-python/lxml[${PYTHON_USEDEP}]
-	dev-python/pathspec[${PYTHON_USEDEP}]
-	>=dev-python/tree-sitter-0.25.2[${PYTHON_USEDEP}]
+	>=dev-python/pathspec-1.0.0[${PYTHON_USEDEP}]
+	>=dev-python/tree-sitter-0.26.0[${PYTHON_USEDEP}]
 	emacs? (
 		>=app-editors/emacs-24.1:*
 		app-emacs/ebuild-mode
