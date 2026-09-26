@@ -1,6 +1,6 @@
 BDEPEND=app-text/docbook-xsl-stylesheets dev-libs/libxslt dev-ruby/rake virtual/pkgconfig nls? ( sys-devel/gettext app-text/po4a ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.19:1.19 >=dev-build/automake-1.18.1:1.18 ) || ( >=dev-build/autoconf-2.73:2.73 >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
-DEPEND=>=dev-libs/boost-1.74.0:= dev-libs/gmp:= >=dev-libs/libebml-1.4.7:= >=dev-libs/libfmt-8.0.1:= >=dev-libs/pugixml-1.11 >=dev-qt/qtbase-6.2:6[dbus?] media-libs/flac:= >=media-libs/libmatroska-1.7.2:= media-libs/libogg media-libs/libvorbis virtual/zlib:= dvd? ( media-libs/libdvdread:= ) gui? ( app-text/cmark:0= >=dev-qt/qtbase-6.2:6[concurrent,gui,network,widgets] >=dev-qt/qtmultimedia-6.2:6 >=dev-qt/qtsvg-6.2:6 ) >=dev-cpp/nlohmann_json-3.11.3 >=dev-libs/utfcpp-3.1.2 test? ( dev-cpp/gtest )
+DEPEND=>=dev-libs/boost-1.74.0:=[nls] dev-libs/gmp:= >=dev-libs/libebml-1.4.7:= >=dev-libs/libfmt-8.0.1:= >=dev-libs/pugixml-1.11 >=dev-qt/qtbase-6.2:6[dbus?] media-libs/flac:= >=media-libs/libmatroska-1.7.2:= media-libs/libogg media-libs/libvorbis virtual/zlib:= dvd? ( media-libs/libdvdread:= ) gui? ( app-text/cmark:0= >=dev-qt/qtbase-6.2:6[concurrent,gui,network,widgets] >=dev-qt/qtmultimedia-6.2:6 >=dev-qt/qtsvg-6.2:6 ) >=dev-cpp/nlohmann_json-3.11.3 >=dev-libs/utfcpp-3.1.2 test? ( dev-cpp/gtest )
 DESCRIPTION=Tools to create, alter, and inspect Matroska files
 EAPI=8
 HOMEPAGE=https://mkvtoolnix.download/ https://codeberg.org/mbunkus/mkvtoolnix
@@ -9,9 +9,9 @@ INHERIT=autotools flag-o-matic multiprocessing prefix qt-utils toolchain-funcs x
 IUSE=dbus debug dvd gui nls pch test
 LICENSE=GPL-2
 PROPERTIES=live
-RDEPEND=>=dev-libs/boost-1.74.0:= dev-libs/gmp:= >=dev-libs/libebml-1.4.7:= >=dev-libs/libfmt-8.0.1:= >=dev-libs/pugixml-1.11 >=dev-qt/qtbase-6.2:6[dbus?] media-libs/flac:= >=media-libs/libmatroska-1.7.2:= media-libs/libogg media-libs/libvorbis virtual/zlib:= dvd? ( media-libs/libdvdread:= ) gui? ( app-text/cmark:0= >=dev-qt/qtbase-6.2:6[concurrent,gui,network,widgets] >=dev-qt/qtmultimedia-6.2:6 >=dev-qt/qtsvg-6.2:6 )
+RDEPEND=>=dev-libs/boost-1.74.0:=[nls] dev-libs/gmp:= >=dev-libs/libebml-1.4.7:= >=dev-libs/libfmt-8.0.1:= >=dev-libs/pugixml-1.11 >=dev-qt/qtbase-6.2:6[dbus?] media-libs/flac:= >=media-libs/libmatroska-1.7.2:= media-libs/libogg media-libs/libvorbis virtual/zlib:= dvd? ( media-libs/libdvdread:= ) gui? ( app-text/cmark:0= >=dev-qt/qtbase-6.2:6[concurrent,gui,network,widgets] >=dev-qt/qtmultimedia-6.2:6 >=dev-qt/qtsvg-6.2:6 )
 REQUIRED_USE=dbus? ( gui )
 RESTRICT=!test? ( test )
 SLOT=0
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	autotools	8e8dec541e781133e5176ee95a872f17	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	prefix	2765cb74ebcf9f9ac73893d4503c8cb6	qt-utils	5b7ae92788820ab4495683740521513c	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575	git-r3	e6c2f983e006e805160436c75a0c1562
-_md5_=87e2d9dd701ad59c3bb7f4b91f3e3b0d
+_md5_=1939e1493981a5126775b13b517907c7
