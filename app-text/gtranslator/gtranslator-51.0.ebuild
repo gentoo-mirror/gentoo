@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -10,32 +10,29 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/gtranslator/"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-	>=dev-libs/glib-2.71.3:2
+	app-text/libspelling:1
+	dev-db/sqlite:3=
+	>=dev-libs/glib-2.76:2
 	>=gui-libs/gtk-4.12.0:4
-	>=gui-libs/libadwaita-1.6_alpha
-	gnome-extra/libgda:5=
+	>=gui-libs/libadwaita-1.8_alpha
 	gnome-base/gsettings-desktop-schemas
 	>=gui-libs/gtksourceview-5.4.0:5
-	>=dev-libs/libxml2-2.4.12:2=
 	net-libs/libsoup:3.0
 	>=dev-libs/json-glib-1.2.0
+	sys-devel/gettext
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
+	>=dev-build/meson-1.7
 	dev-libs/appstream-glib
-	dev-libs/libxml2:2
 	dev-util/glib-utils
 	dev-util/itstool
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 "
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-45.2-Revert-Add-GDA-6-compatibility.patch
-)
 
 src_configure() {
 	local emesonargs=(

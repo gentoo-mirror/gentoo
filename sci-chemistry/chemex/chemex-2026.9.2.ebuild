@@ -26,7 +26,6 @@ RDEPEND="
 		>=dev-python/annotated-types-0.7.0[${PYTHON_USEDEP}]
 		>=dev-python/cachetools-5.5.1[${PYTHON_USEDEP}]
 		>=dev-python/emcee-3.1.6[${PYTHON_USEDEP}]
-		>=dev-python/lmfit-1.3.2[${PYTHON_USEDEP}]
 		>=dev-python/matplotlib-3.10.0[${PYTHON_USEDEP}]
 		>=dev-python/numpy-2.2.3[${PYTHON_USEDEP}]
 		>=dev-python/pydantic-2.10.6[${PYTHON_USEDEP}]
