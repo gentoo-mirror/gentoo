@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils sys-devel/m4 verify-sig? ( sec-keys/openpgp-keys-gmp ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
+BDEPEND=app-arch/xz-utils sys-devel/bison sys-devel/flex sys-devel/m4 verify-sig? ( sec-keys/openpgp-keys-gmp ) sys-devel/gnuconfig >=app-portage/elt-patches-20250306 verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=compile configure install prepare pretend test unpack
 DESCRIPTION=Library for arbitrary-precision arithmetic on different type of numbers
 EAPI=8
@@ -12,4 +12,4 @@ RESTRICT=!cpudetection? ( bindist )
 SLOT=0/10.4
 SRC_URI=https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz mirror://gnu/gmp/gmp-6.3.0.tar.xz doc? ( https://gmplib.org/gmp-man-6.2.1.pdf ) verify-sig? ( https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz.sig )
 _eclasses_=gnuconfig	b4fa4889c6f586d6b069215a86dd9e53	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	libtool	6a96cd90e5da8c7c615015479f46f1a4	flag-o-matic	fd3558f73f6503093adee69adf41020d	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	multilib-build	d7802b3638ffc661375c0021cdd19efd	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
-_md5_=2f85f8b31bc9b4d1ef1fbe0f9f197916
+_md5_=28aa0f7bbbbc9eb127379b50ade71e65
