@@ -1,4 +1,4 @@
-BDEPEND=app-arch/xz-utils dev-lang/perl test? ( dev-debug/strace dev-lang/perl dev-perl/Expect || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) ) verify-sig? ( sec-keys/openpgp-keys-coreutils ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
+BDEPEND=app-arch/xz-utils dev-lang/perl sys-apps/help2man sys-apps/texinfo test? ( dev-debug/strace dev-lang/perl dev-perl/Expect || ( dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) ) verify-sig? ( sec-keys/openpgp-keys-coreutils ) verify-sig? ( || ( app-alternatives/gpg app-crypt/gnupg[-alternatives(-)] ) >=app-portage/gemato-20.15 )
 DEFINED_PHASES=configure install postinst prepare setup test unpack
 DEPEND=!static? ( acl? ( sys-apps/acl ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:= ) openssl? ( dev-libs/openssl:= ) xattr? ( sys-apps/attr ) ) selinux? ( sys-libs/libselinux ) nls? ( virtual/libintl ) static? ( acl? ( sys-apps/acl[static-libs] ) caps? ( sys-libs/libcap ) gmp? ( dev-libs/gmp:=[static-libs] ) openssl? ( dev-libs/openssl:=[static-libs] ) xattr? ( sys-apps/attr[static-libs] ) )
 DESCRIPTION=Standard GNU utilities (chmod, cp, dd, ls, sort, tr, head, wc, who,...)
@@ -13,4 +13,4 @@ RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=mirror://gnu/coreutils/coreutils-9.12.tar.xz verify-sig? ( mirror://gnu/coreutils/coreutils-9.12.tar.xz.sig ) !vanilla? ( https://distfiles.gentoo.org/pub/dev/sam@gentoo.org/sys-apps/coreutils/coreutils-9.12-patches.tar.xz )
 _eclasses_=branding	7bcece3faa73dd0fc3e597013510d53a	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc	python-any-r1	891415dfe39ad9b41b461f2b86354af0	verify-sig	f0b3a8c93ad67e5137bbf53281fed014
-_md5_=93c6f45ebefdbaa2537b3228f6cbd8c9
+_md5_=f9371c63a1aa51c94bb2dd460ef7f74e
