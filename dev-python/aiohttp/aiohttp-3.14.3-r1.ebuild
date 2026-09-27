@@ -6,7 +6,7 @@ EAPI=8
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYPI_VERIFY_REPO=https://github.com/aio-libs/aiohttp
-PYTHON_COMPAT=( python3_{11..14} pypy3_11 )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -23,9 +23,7 @@ IUSE="+native-extensions test-rust"
 
 DEPEND="
 	native-extensions? (
-		$(python_gen_cond_dep '
-			net-libs/llhttp:=
-		' 'python3*')
+		net-libs/llhttp:=
 	)
 "
 RDEPEND="
@@ -41,11 +39,13 @@ RDEPEND="
 	>=dev-python/yarl-1.17.0[${PYTHON_USEDEP}]
 	$(python_gen_cond_dep '
 		dev-python/backports-zstd[${PYTHON_USEDEP}]
-	' 3.11 3.12 3.13)
+	' 3.12 3.13)
+	$(python_gen_cond_dep '
+		>=dev-python/typing-extensions-4.4[${PYTHON_USEDEP}]
+	' 3.12)
 "
 BDEPEND="
 	>=dev-python/multidict-4.5.0[${PYTHON_USEDEP}]
-	dev-python/pkgconfig[${PYTHON_USEDEP}]
 	native-extensions? (
 		>=dev-python/cython-3.1.1[${PYTHON_USEDEP}]
 		dev-python/pkgconfig[${PYTHON_USEDEP}]
@@ -55,9 +55,7 @@ BDEPEND="
 		dev-python/freezegun[${PYTHON_USEDEP}]
 		dev-python/isal[${PYTHON_USEDEP}]
 		dev-python/re-assert[${PYTHON_USEDEP}]
-		$(python_gen_cond_dep '
-			dev-python/time-machine[${PYTHON_USEDEP}]
-		' 'python3*')
+		dev-python/time-machine[${PYTHON_USEDEP}]
 		dev-python/zlib-ng[${PYTHON_USEDEP}]
 		www-servers/gunicorn[${PYTHON_USEDEP}]
 		test-rust? (
@@ -78,10 +76,10 @@ distutils_enable_tests pytest
 src_prepare() {
 	distutils-r1_src_prepare
 
+	# unpin dependencies
+	sed -i -e 's:, < [0-9.]*::' pyproject.toml || die
 	# increase the timeout a little
 	sed -e '/abs=/s/0.001/0.01/' -i tests/test_helpers.py || die
-	# xfail_strict fails on py3.10
-	sed -i -e '/--cov/d' -e '/pytest_cov/d' -e '/xfail_strict/d' setup.cfg || die
 	sed -i -e 's:-Werror::' Makefile || die
 	# remove vendored llhttp
 	rm -r vendor || die
@@ -101,10 +99,11 @@ python_configure() {
 }
 
 python_compile() {
-	local -x AIOHTTP_USE_SYSTEM_DEPS=1
 	# implicitly disabled for pypy3
 	if [[ ${EPYTHON} == pypy3* ]] || ! use native-extensions; then
 		local -x AIOHTTP_NO_EXTENSIONS=1
+	else
+		local -x AIOHTTP_USE_SYSTEM_DEPS=1
 	fi
 
 	distutils-r1_python_compile
@@ -142,18 +141,9 @@ python_test() {
 		# https://github.com/python/cpython/issues/145599
 		# https://github.com/python/cpython/pull/145600
 		tests/test_cookie_helpers.py::test_parse_set_cookie_headers_uses_unquote_with_octal
+		# some warnings
+		tests/test_multipart.py::TestPartReader::test_read_decode_compressed_exceeds_max_size
 	)
-
-	case ${EPYTHON} in
-		python3.14)
-			EPYTEST_DESELECT+=(
-				# TODO
-				tests/test_cookiejar.py::test_pickle_format
-				# different exception message
-				tests/test_client_functional.py::test_aiohttp_request_coroutine
-			)
-			;;
-	esac
 
 	# upstream unconditionally blocks building C extensions
 	# on PyPy3 but the test suite needs an explicit switch
