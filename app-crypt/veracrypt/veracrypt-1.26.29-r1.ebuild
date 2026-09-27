@@ -24,7 +24,7 @@ RESTRICT="bindist mirror"
 RDEPEND="
 	app-admin/sudo
 	sys-apps/pcsc-lite
-	sys-fs/fuse:0
+	sys-fs/fuse:3=
 	sys-fs/lvm2
 	x11-libs/wxGTK:${WX_GTK_VER}=
 	gui? ( x11-libs/wxGTK:${WX_GTK_VER}=[X] )
@@ -50,6 +50,7 @@ src_compile() {
 		NOSTRIP=1
 		NOTEST=1
 		VERBOSE=1
+		WITHFUSE3=1
 		AR="$(tc-getAR)"
 		CC="$(tc-getCC)"
 		CXX="$(tc-getCXX)"
@@ -58,16 +59,11 @@ src_compile() {
 		TC_EXTRA_CXXFLAGS="${CXXFLAGS}"
 		TC_EXTRA_LFLAGS="${LDFLAGS}"
 		WX_CONFIG="${WX_CONFIG}"
+		$(usex asm "" "NOASM=1")
 		$(usex gui "" "NOGUI=1")
 		$(usex cpu_flags_x86_aes "" "NOAESNI=1")
 		$(usex cpu_flags_x86_sse2 "" "NOSSE2=1")
 	)
-
-	if use amd64 || use x86; then
-		myemakeargs+=( $(usex asm "" "NOASM=1") )
-	else
-		myemakeargs+=( NOASM=1 )
-	fi
 
 	emake "${myemakeargs[@]}"
 }
