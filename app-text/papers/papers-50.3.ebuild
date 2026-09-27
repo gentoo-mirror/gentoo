@@ -8,68 +8,71 @@ EAPI=8
 CRATES="
 	adler2@2.0.1
 	aes@0.8.4
-	aho-corasick@1.1.3
+	aho-corasick@1.1.4
 	allocator-api2@0.2.21
-	anstream@0.6.20
+	anstream@0.6.21
 	anstyle-parse@0.2.7
-	anstyle-query@1.1.4
-	anstyle-wincon@3.0.10
-	anstyle@1.0.11
-	ashpd@0.11.0
+	anstyle-query@1.1.5
+	anstyle-wincon@3.0.11
+	anstyle@1.0.13
+	approx@0.5.1
+	ashpd@0.12.1
 	async-broadcast@0.7.2
 	async-channel@2.5.0
 	async-executor@1.13.3
-	async-fs@2.1.3
-	async-io@2.5.0
-	async-lock@3.4.1
+	async-fs@2.2.0
+	async-io@2.6.0
+	async-lock@3.4.2
 	async-net@2.0.0
-	async-process@2.4.0
+	async-process@2.5.0
 	async-recursion@1.1.1
-	async-signal@0.2.12
+	async-signal@0.2.13
 	async-task@4.7.1
 	async-trait@0.1.89
 	atomic-waker@1.1.2
 	autocfg@1.5.0
-	bitflags@1.3.2
-	bitflags@2.9.3
+	bitflags@2.10.0
 	block-buffer@0.10.4
 	block-padding@0.3.3
 	block@0.1.6
 	blocking@1.6.2
-	bytemuck@1.23.2
+	bumpalo@3.19.1
+	bytemuck@1.24.0
 	byteorder-lite@0.1.0
 	byteorder@1.5.0
-	cairo-rs@0.21.1
-	cairo-sys-rs@0.21.1
+	cairo-rs@0.21.5
+	cairo-sys-rs@0.21.5
 	cbc@0.1.2
-	cc@1.2.34
-	cfg-expr@0.18.0
-	cfg-if@1.0.3
-	cfg_aliases@0.2.1
+	cc@1.2.54
+	cfg-expr@0.20.6
+	cfg-if@1.0.4
 	cipher@0.4.4
 	colorchoice@1.0.4
 	concurrent-queue@2.5.0
 	cpufeatures@0.2.17
 	crc32fast@1.5.0
 	crossbeam-utils@0.8.21
-	crypto-common@0.1.6
+	crypto-common@0.1.7
 	digest@0.10.7
 	displaydoc@0.2.5
-	endi@1.1.0
+	endi@1.1.1
 	enumflags2@0.7.12
 	enumflags2_derive@0.7.12
-	env_filter@0.1.3
+	env_filter@0.1.4
 	env_logger@0.11.8
 	equivalent@1.0.2
-	errno@0.3.13
+	errno@0.3.14
 	event-listener-strategy@0.5.4
 	event-listener@5.4.1
 	fastrand@2.3.0
 	fdeflate@0.3.7
 	field-offset@0.3.6
-	flate2@1.1.2
-	foldhash@0.1.5
+	find-msvc-tools@0.1.8
+	flate2@1.1.8
+	float_next_after@1.0.0
+	foldhash@0.2.0
 	form_urlencoded@1.2.2
+	formatx@0.2.4
 	futures-channel@0.3.31
 	futures-core@0.3.31
 	futures-executor@0.3.31
@@ -80,68 +83,80 @@ CRATES="
 	futures-task@0.3.31
 	futures-util@0.3.31
 	futures@0.3.31
-	gdk-pixbuf-sys@0.21.1
-	gdk-pixbuf@0.21.1
-	gdk4-sys@0.10.0
-	gdk4@0.10.0
+	gdk-pixbuf-sys@0.21.5
+	gdk-pixbuf@0.21.5
+	gdk4-sys@0.10.3
+	gdk4@0.10.3
 	generic-array@0.14.7
-	getrandom@0.2.16
-	getrandom@0.3.3
-	gettext-rs@0.7.2
-	gettext-sys@0.22.5
-	gio-sys@0.21.1
-	gio@0.21.1
+	geo-types@0.7.18
+	geo@0.30.0
+	geographiclib-rs@0.2.5
+	getrandom@0.2.17
+	getrandom@0.3.4
+	gettext-rs@0.7.7
+	gettext-sys@0.26.0
+	gio-sys@0.21.5
+	gio@0.21.5
 	git-version-macro@0.3.9
 	git-version@0.3.9
-	glib-macros@0.21.0
-	glib-sys@0.21.1
-	glib@0.21.1
-	gobject-sys@0.21.1
-	graphene-rs@0.21.1
-	graphene-sys@0.21.1
-	gsk4-sys@0.10.0
-	gsk4@0.10.0
-	gtk4-macros@0.10.0
-	gtk4-sys@0.10.0
-	gtk4@0.10.0
-	hashbrown@0.15.5
+	glib-macros@0.21.5
+	glib-sys@0.21.5
+	glib@0.21.5
+	gobject-sys@0.21.5
+	graphene-rs@0.21.5
+	graphene-sys@0.21.5
+	gsk4-sys@0.10.3
+	gsk4@0.10.3
+	gtk4-macros@0.10.3
+	gtk4-sys@0.10.3
+	gtk4@0.10.3
+	hash32@0.3.1
+	hashbrown@0.16.1
+	heapless@0.8.0
 	heck@0.5.0
 	hermit-abi@0.5.2
 	hex@0.4.3
 	hkdf@0.12.4
 	hmac@0.12.1
-	icu_collections@2.0.0
-	icu_locale_core@2.0.0
-	icu_normalizer@2.0.0
-	icu_normalizer_data@2.0.0
-	icu_properties@2.0.1
-	icu_properties_data@2.0.1
-	icu_provider@2.0.0
+	i_float@1.7.0
+	i_key_sort@0.2.0
+	i_overlay@2.0.5
+	i_shape@1.7.0
+	i_tree@0.8.3
+	icu_collections@2.1.1
+	icu_locale_core@2.1.1
+	icu_normalizer@2.1.1
+	icu_normalizer_data@2.1.1
+	icu_properties@2.1.2
+	icu_properties_data@2.1.2
+	icu_provider@2.1.1
 	idna@1.1.0
 	idna_adapter@1.2.1
-	image@0.25.6
-	indexmap@2.11.0
+	image@0.25.9
+	indexmap@2.13.0
+	ink-stroke-modeler-rs@0.1.0
 	inout@0.1.4
-	is_terminal_polyfill@1.70.1
-	jiff-static@0.2.15
-	jiff@0.2.15
+	is_terminal_polyfill@1.70.2
+	jiff-static@0.2.18
+	jiff@0.2.18
+	js-sys@0.3.85
 	lazy_static@1.5.0
-	libadwaita-sys@0.8.0
-	libadwaita@0.8.0
-	libc@0.2.175
-	libm@0.2.15
-	linux-raw-sys@0.9.4
-	litemap@0.8.0
+	libadwaita-sys@0.8.1
+	libadwaita@0.8.1
+	libc@0.2.180
+	libm@0.2.16
+	linux-raw-sys@0.11.0
+	litemap@0.8.1
 	locale_config@0.3.0
-	log@0.4.27
-	lru@0.16.0
+	log@0.4.29
+	lru@0.16.3
 	malloc_buf@0.0.6
 	md-5@0.10.6
-	memchr@2.7.5
+	memchr@2.7.6
 	memoffset@0.9.1
 	miniz_oxide@0.8.9
-	nix@0.30.1
-	num-bigint-dig@0.8.4
+	moxcms@0.7.11
+	num-bigint-dig@0.8.6
 	num-bigint@0.4.6
 	num-complex@0.4.6
 	num-integer@0.1.46
@@ -153,11 +168,11 @@ CRATES="
 	objc@0.2.7
 	objc_id@0.1.1
 	once_cell@1.21.3
-	once_cell_polyfill@1.70.1
-	oo7@0.4.3
+	once_cell_polyfill@1.70.2
+	oo7@0.5.0
 	ordered-stream@0.2.0
-	pango-sys@0.21.1
-	pango@0.21.1
+	pango-sys@0.21.5
+	pango@0.21.5
 	parking@2.2.1
 	pbkdf2@0.12.2
 	percent-encoding@2.3.2
@@ -165,103 +180,107 @@ CRATES="
 	pin-utils@0.1.0
 	piper@0.2.4
 	pkg-config@0.3.32
-	png@0.17.16
-	polling@3.10.0
+	png@0.18.0
+	polling@3.11.0
 	portable-atomic-util@0.2.4
-	portable-atomic@1.11.1
-	potential_utf@0.1.3
+	portable-atomic@1.13.0
+	potential_utf@0.1.4
 	ppv-lite86@0.2.21
-	proc-macro-crate@3.3.0
-	proc-macro2@1.0.101
-	quote@1.0.40
+	proc-macro-crate@3.4.0
+	proc-macro2@1.0.106
+	pxfm@0.1.27
+	quote@1.0.44
 	r-efi@5.3.0
 	rand@0.8.5
 	rand@0.9.2
 	rand_chacha@0.3.1
 	rand_chacha@0.9.0
 	rand_core@0.6.4
-	rand_core@0.9.3
-	regex-automata@0.4.10
-	regex-syntax@0.8.6
-	regex@1.11.2
+	rand_core@0.9.5
+	regex-automata@0.4.13
+	regex-syntax@0.8.8
+	regex@1.12.2
+	robust@1.2.0
+	rstar@0.12.2
 	rustc_version@0.4.1
-	rustix@1.0.8
-	semver@1.0.26
-	serde@1.0.219
-	serde_derive@1.0.219
+	rustix@1.1.3
+	rustversion@1.0.22
+	semver@1.0.27
+	serde@1.0.228
+	serde_core@1.0.228
+	serde_derive@1.0.228
 	serde_repr@0.1.20
-	serde_spanned@0.6.9
+	serde_spanned@1.0.4
 	sha2@0.10.9
-	shell-words@1.1.0
+	shell-words@1.1.1
 	shlex@1.3.0
-	signal-hook-registry@1.4.6
-	simd-adler32@0.3.7
+	signal-hook-registry@1.4.8
+	simd-adler32@0.3.8
 	slab@0.4.11
 	smallvec@1.15.1
 	spin@0.9.8
-	stable_deref_trait@1.2.0
-	static_assertions@1.1.0
+	stable_deref_trait@1.2.1
 	subtle@2.6.1
-	syn@2.0.106
+	syn@2.0.114
 	synstructure@0.13.2
-	system-deps@7.0.5
-	target-lexicon@0.13.2
+	system-deps@7.0.7
+	target-lexicon@0.13.3
 	temp-dir@0.1.16
-	tempfile@3.21.0
-	tinystr@0.8.1
-	toml@0.8.23
-	toml_datetime@0.6.11
-	toml_edit@0.22.27
-	tracing-attributes@0.1.30
-	tracing-core@0.1.34
-	tracing@0.1.41
-	typenum@1.18.0
+	tempfile@3.24.0
+	thiserror-impl@2.0.18
+	thiserror@2.0.18
+	tinystr@0.8.2
+	toml@0.9.11+spec-1.1.0
+	toml_datetime@0.7.5+spec-1.1.0
+	toml_edit@0.23.10+spec-1.0.0
+	toml_parser@1.0.6+spec-1.1.0
+	toml_writer@1.0.6+spec-1.1.0
+	tracing-attributes@0.1.31
+	tracing-core@0.1.36
+	tracing@0.1.44
+	typenum@1.19.0
 	uds_windows@1.1.0
-	unicode-ident@1.0.18
-	url@2.5.7
+	unicode-ident@1.0.22
+	url@2.5.8
 	utf8_iter@1.0.4
 	utf8parse@0.2.2
-	version-compare@0.2.0
+	uuid@1.20.0
+	version-compare@0.2.1
 	version_check@0.9.5
 	wasi@0.11.1+wasi-snapshot-preview1
-	wasi@0.14.3+wasi-0.2.4
+	wasip2@1.0.1+wasi-0.2.4
+	wasm-bindgen-macro-support@0.2.108
+	wasm-bindgen-macro@0.2.108
+	wasm-bindgen-shared@0.2.108
+	wasm-bindgen@0.2.108
 	winapi-i686-pc-windows-gnu@0.4.0
 	winapi-x86_64-pc-windows-gnu@0.4.0
 	winapi@0.3.9
-	windows-link@0.1.3
-	windows-sys@0.60.2
-	windows-targets@0.53.3
-	windows_aarch64_gnullvm@0.53.0
-	windows_aarch64_msvc@0.53.0
-	windows_i686_gnu@0.53.0
-	windows_i686_gnullvm@0.53.0
-	windows_i686_msvc@0.53.0
-	windows_x86_64_gnu@0.53.0
-	windows_x86_64_gnullvm@0.53.0
-	windows_x86_64_msvc@0.53.0
-	winnow@0.7.13
-	wit-bindgen@0.45.0
-	writeable@0.6.1
-	yoke-derive@0.8.0
-	yoke@0.8.0
-	zbus@5.10.0
-	zbus_macros@5.10.0
-	zbus_names@4.2.0
-	zerocopy-derive@0.8.26
-	zerocopy@0.8.26
+	windows-link@0.2.1
+	windows-sys@0.61.2
+	winnow@0.7.14
+	wit-bindgen@0.46.0
+	writeable@0.6.2
+	yoke-derive@0.8.1
+	yoke@0.8.1
+	zbus@5.13.2
+	zbus_macros@5.13.2
+	zbus_names@4.3.1
+	zerocopy-derive@0.8.35
+	zerocopy@0.8.35
 	zerofrom-derive@0.1.6
 	zerofrom@0.1.6
-	zeroize@1.8.1
-	zeroize_derive@1.4.2
-	zerotrie@0.2.2
-	zerovec-derive@0.11.1
-	zerovec@0.11.4
-	zvariant@5.7.0
-	zvariant_derive@5.7.0
-	zvariant_utils@3.2.1
+	zeroize@1.8.2
+	zeroize_derive@1.4.3
+	zerotrie@0.2.3
+	zerovec-derive@0.11.2
+	zerovec@0.11.5
+	zvariant@5.9.2
+	zvariant_derive@5.9.2
+	zvariant_utils@3.3.0
 "
 
-RUST_MIN_VER="1.83"
+RUST_MIN_VER="1.85.0"
 
 inherit cargo gnome.org gnome2 meson xdg
 
@@ -284,6 +303,8 @@ SLOT="0/ppsd4.0.6-ppsv4.0.5"
 KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
 
 IUSE="+comics djvu doc gnome-keyring introspection nautilus +spell sysprof test tiff"
+REQUIRED_USE="doc? ( introspection )"
+
 RESTRICT="!test? ( test )"
 
 BDEPEND="
@@ -321,7 +342,7 @@ DEPEND+="
 	comics? ( >=app-arch/libarchive-3.6.0 )
 	djvu? ( >=app-text/djvu-3.5.22 )
 
-	>=app-text/poppler-25.01.0[cairo]
+	>=app-text/poppler-25.07.0[cairo]
 	x11-libs/cairo
 
 	tiff? ( >=media-libs/tiff-4 )
