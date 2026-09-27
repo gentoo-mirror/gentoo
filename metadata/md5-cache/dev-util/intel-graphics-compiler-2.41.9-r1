@@ -1,6 +1,6 @@
 BDEPEND=|| ( ( dev-lang/python:3.15 dev-python/mako[python_targets_python3_15(-)] ) ( dev-lang/python:3.14 dev-python/mako[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/mako[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/mako[python_targets_python3_12(-)] ) ) || ( ( dev-lang/python:3.15 dev-python/pyyaml[python_targets_python3_15(-)] ) ( dev-lang/python:3.14 dev-python/pyyaml[python_targets_python3_14(-)] ) ( dev-lang/python:3.13 dev-python/pyyaml[python_targets_python3_13(-)] ) ( dev-lang/python:3.12 dev-python/pyyaml[python_targets_python3_12(-)] ) ) llvm_slot_22? ( llvm-core/lld:22 ) || ( dev-lang/python:3.15 dev-lang/python:3.14 dev-lang/python:3.13 dev-lang/python:3.12 ) app-alternatives/ninja >=dev-build/cmake-3.28.5
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=dev-libs/opencl-clang:22[llvm_slot_22(-)?] dev-util/spirv-tools llvm_slot_22? ( llvm-core/lld:22 llvm-core/llvm:22 ) vc? ( >=dev-libs/intel-vc-intrinsics-0.25.0[llvm_slot_22(-)?] dev-util/spirv-llvm-translator:22= )
+DEPEND=dev-libs/opencl-clang:22[llvm_slot_22(-)?] >=dev-util/spirv-tools-1.4.357.0 llvm_slot_22? ( llvm-core/lld:22 llvm-core/llvm:22 ) vc? ( >=dev-libs/intel-vc-intrinsics-0.25.0[llvm_slot_22(-)?] dev-util/spirv-llvm-translator:22= )
 DESCRIPTION=LLVM-based OpenCL compiler for OpenCL targetting Intel Gen graphics hardware
 EAPI=8
 HOMEPAGE=https://github.com/intel/intel-graphics-compiler
@@ -8,9 +8,9 @@ INHERIT=cmake flag-o-matic llvm-r2 python-any-r1
 IUSE=debug vc +llvm_slot_22
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=!dev-util/intel-graphics-compiler:legacy dev-libs/opencl-clang:22[llvm_slot_22(-)?] dev-util/spirv-tools llvm_slot_22? ( llvm-core/lld:22 llvm-core/llvm:22 ) vc? ( >=dev-libs/intel-vc-intrinsics-0.25.0[llvm_slot_22(-)?] dev-util/spirv-llvm-translator:22= )
+RDEPEND=!dev-util/intel-graphics-compiler:legacy dev-libs/opencl-clang:22[llvm_slot_22(-)?] >=dev-util/spirv-tools-1.4.357.0 llvm_slot_22? ( llvm-core/lld:22 llvm-core/llvm:22 ) vc? ( >=dev-libs/intel-vc-intrinsics-0.25.0[llvm_slot_22(-)?] dev-util/spirv-llvm-translator:22= )
 REQUIRED_USE=^^ ( llvm_slot_22 )
 SLOT=0/2.41.9
 SRC_URI=https://github.com/intel/intel-graphics-compiler/archive/refs/tags/v2.41.9.tar.gz -> intel-graphics-compiler-2.41.9.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	llvm-utils	e7edb4086e31c8537574b263d899f826	multilib	fc812e8eb2170022c28272d80a1f9e77	llvm-r2	56f5637f85225a4b5312d9055a7727d8	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc	python-any-r1	891415dfe39ad9b41b461f2b86354af0
-_md5_=96a191e8e2d53db89910f5054f48082f
+_md5_=7f0d76b6db287b01b0f4a2eb9066f510
