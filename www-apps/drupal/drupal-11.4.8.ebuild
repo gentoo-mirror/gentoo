@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="+mysql postgres sqlite +uploadprogress"
 
 RDEPEND="
-	dev-lang/php[argon2,curl,gd,hash(+),mysql?,pdo,postgres?,simplexml,sqlite?,xml]
+	>=dev-lang/php-8.3[argon2,curl,gd,hash(+),mysql?,pdo,postgres?,simplexml,sqlite?,xml]
 	virtual/httpd-php
 	uploadprogress? ( dev-php/pecl-uploadprogress )
 "
