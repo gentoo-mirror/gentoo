@@ -48,3 +48,9 @@ src_configure() {
 		__version_tuple__ = version_tuple = (${PV//./, })
 	EOF
 }
+
+python_test() {
+	# have to disable removing tmp_paths since upstream mocks are
+	# incomplete and break teardown
+	epytest -p platformdirs.pytest_plugin -o tmp_path_retention_policy=all
+}
