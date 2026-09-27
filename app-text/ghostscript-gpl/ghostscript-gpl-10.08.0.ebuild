@@ -1,7 +1,7 @@
 # Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
 inherit autotools flag-o-matic toolchain-funcs
 
@@ -12,10 +12,10 @@ PVM_S=$(ver_rs 1-2 "")
 
 # Use https://gitweb.gentoo.org/proj/codec/ghostscript-gpl-patches.git/ for patches
 # See 'index' branch for README
-MY_PATCHSET="ghostscript-gpl-10.04.0-patches.tar.xz"
+MY_PATCHSET="ghostscript-gpl-10.08.0-patches.tar.xz"
 
 DESCRIPTION="Interpreter for the PostScript language and PDF"
-HOMEPAGE="https://ghostscript.com/ https://git.ghostscript.com/?p=ghostpdl.git;a=summary"
+HOMEPAGE="https://ghostscript.com/ https://cgit.ghostscript.com/cgi-bin/cgit.cgi/ghostpdl.git/"
 SRC_URI="https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs${PVM_S}/${MY_P}.tar.xz"
 if [[ -n "${MY_PATCHSET}" ]] ; then
 	SRC_URI+=" https://dev.gentoo.org/~sam/distfiles/${CATEGORY}/${PN}/${MY_PATCHSET}"
@@ -24,8 +24,8 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="AGPL-3 CPL-1.0"
 SLOT="0/$(ver_cut 1-2)"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
-IUSE="cups cpu_flags_arm_neon dbus gtk l10n_de static-libs unicode X"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
+IUSE="cups cpu_flags_arm_neon dbus gtk l10n_de openmp static-libs unicode X"
 
 LANGS="ja ko zh-CN zh-TW"
 for X in ${LANGS} ; do
@@ -33,6 +33,7 @@ for X in ${LANGS} ; do
 done
 
 DEPEND="
+	app-arch/brotli:=
 	app-text/libpaper:=
 	media-libs/fontconfig
 	>=media-libs/freetype-2.4.9:2=
@@ -49,7 +50,6 @@ DEPEND="
 	unicode? ( net-dns/libidn:= )
 	X? ( x11-libs/libXt x11-libs/libXext )
 "
-BDEPEND="virtual/pkgconfig"
 # bug #844115 for newer poppler-data dep
 RDEPEND="
 	${DEPEND}
@@ -60,13 +60,21 @@ RDEPEND="
 	l10n_zh-CN? ( media-fonts/arphicfonts )
 	l10n_zh-TW? ( media-fonts/arphicfonts )
 "
+BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-10.03.1-arm64-neon-tesseract.patch
 	"${FILESDIR}"/${PN}-10.06.0-tesseract-fPIC.patch
-	"${FILESDIR}"/${PN}-10.06.0-32-bit.patch
-	"${FILESDIR}"/${PN}-10.06.0-arm-brotli.patch
+	"${FILESDIR}"/${PN}-10.06.0-openmp.patch
 )
+
+pkg_pretend() {
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
+}
+
+pkg_setup() {
+	[[ ${MERGE_TYPE} != binary ]] && use openmp && tc-check-openmp
+}
 
 src_prepare() {
 	if [[ -n ${MY_PATCHSET} ]] ; then
@@ -80,44 +88,42 @@ src_prepare() {
 	default
 
 	# Remove internal copies of various libraries
-	rm -r cups/libs || die
-	rm -r freetype || die
-	rm -r jbig2dec || die
-	rm -r jpeg || die
-	rm -r lcms2mt || die
-	rm -r libpng || die
-	rm -r tiff || die
-	rm -r zlib || die
-	rm -r openjpeg || die
+	local bundled
+	for bundled in cups/libs freetype jbig2dec jpeg lcms2mt libpng \
+			tiff zlib openjpeg ; do
+		rm -r "${bundled}" || die
+	done
 	# Remove internal CMaps (CMaps from poppler-data are used instead)
 	rm -r Resource/CMap || die
 
 	if ! use gtk ; then
-		sed -e "s:\$(GSSOX)::" \
+		sed -i \
+			-e "s:\$(GSSOX)::" \
 			-e "s:.*\$(GSSOX_XENAME)$::" \
-			-i base/unix-dll.mak || die "sed failed"
+			base/unix-dll.mak || die
 	fi
 
 	# Force the include dirs to a neutral location.
-	sed -e "/^ZLIBDIR=/s:=.*:=${T}:" \
-		-i configure.ac || die
+	sed -e "/^ZLIBDIR=/s:=.*:=${T}:" -i configure.ac || die
 	# Some files depend on zlib.h directly.  Redirect them. #573248
 	# Also make sure to not define OPJ_STATIC to avoid linker errors due to
 	# hidden symbols (https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=203327#c1)
-	sed -e '/^zlib_h/s:=.*:=:' \
+	sed -i \
+		-e '/^zlib_h/s:=.*:=:' \
 		-e 's|-DOPJ_STATIC ||' \
-		-i base/lib.mak || die
+		base/lib.mak || die
 
 	# Search path fix
 	# put LDFLAGS after BINDIR, bug #383447
-	sed -e "s:\$\(gsdatadir\)/lib:@datarootdir@/ghostscript/${PV}/$(get_libdir):" \
+	sed -i \
+		-e "s:\$\(gsdatadir\)/lib:@datarootdir@/ghostscript/${PV}/$(get_libdir):" \
 		-e "s:exdir=.*:exdir=@datarootdir@/doc/${PF}/examples:" \
 		-e "s:docdir=.*:docdir=@datarootdir@/doc/${PF}/html:" \
 		-e "s:GS_DOCDIR=.*:GS_DOCDIR=@datarootdir@/doc/${PF}/html:" \
 		-e 's:-L$(BINDIR):& $(LDFLAGS):g' \
-		-i Makefile.in base/*.mak || die "sed failed"
+		Makefile.in base/*.mak || die
 
-	# Remove incorrect symlink, bug 590384
+	# Remove incorrect symlink, bug #590384
 	rm ijs/ltmain.sh || die
 	eautoreconf
 
@@ -129,15 +135,16 @@ src_configure() {
 	# Unsupported upstream, bug #884841
 	filter-lto
 
-	# bug #943857
-	# Build system passes CFLAGS to C++ compiler (bug #945826)
-	tc-export CC
-	CC+=" -std=gnu17"
+	# bug #971940
+	append-flags -fno-strict-aliasing
 
 	# bug #899952
 	append-lfs-flags
 
-	local FONTPATH
+	# bug #973234
+	use openmp && append-flags -fopenmp || filter-flags -fopenmp*
+
+	local FONTPATH path
 	for path in \
 		"${EPREFIX}"/usr/share/fonts/urw-fonts \
 		"${EPREFIX}"/usr/share/fonts/Type1 \
@@ -155,34 +162,34 @@ src_configure() {
 	#
 	# leptonica and tesseract are bundled but modified upstream, like in
 	# mujs/mupdf.
-	#
-	# There is --without-local-brotli but it wants a non-existent -lbrotli.
-	# Fixed in https://bugs.ghostscript.com/show_bug.cgi?id=708832 for next
-	# release.
-	PKGCONFIG=$(type -P $(tc-getPKG_CONFIG)) econf \
-		--enable-freetype \
-		--enable-fontconfig \
-		--enable-openjpeg \
-		--disable-compile-inits \
-		--with-drivers=ALL \
-		--with-fontpath="${FONTPATH}" \
-		--with-ijs \
-		--with-jbig2dec \
-		--with-libpaper \
-		--with-system-libtiff \
-		$(use_enable cups) \
-		$(use_enable dbus) \
-		$(use_enable gtk) \
-		$(use_enable cpu_flags_arm_neon neon) \
-		$(use_with cups pdftoraster) \
-		$(use_with unicode libidn) \
-		$(use_with X x) \
+	local myeconfargs=(
+		--enable-fontconfig
+		--enable-openjpeg
+		--disable-compile-inits
+		--with-drivers=ALL
+		--with-fontpath="${FONTPATH}"
+		--with-ijs
+		--with-jbig2dec
+		--with-libpaper
+		--with-system-libtiff
+		--without-local-brotli
+		--without-local-zlib
+		$(use_enable cups)
+		$(use_enable dbus)
+		$(use_enable gtk)
+		$(use_enable cpu_flags_arm_neon neon)
+		$(use_with cups pdftoraster)
+		$(use_with unicode libidn)
+		$(use_with X x)
 		DARWIN_LDFLAGS_SO_PREFIX="${EPREFIX}/usr/lib/"
+	)
+	PKGCONFIG=$(type -P $(tc-getPKG_CONFIG)) econf "${myeconfargs[@]}"
 
-	cd "${S}/ijs" || die
+	pushd "${S}/ijs" >/dev/null || die
 	econf \
 		--enable-shared \
 		$(use_enable static-libs static)
+	popd >/dev/null || die
 }
 
 src_compile() {
