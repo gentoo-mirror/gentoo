@@ -3,7 +3,7 @@
 
 EAPI=8
 
-RUST_MIN_VER="1.93.1"
+RUST_MIN_VER="1.96.1"
 
 inherit cargo
 
@@ -23,8 +23,9 @@ KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv"
 IUSE="mcp plugins system-clipboard X"
 
 DEPEND="
-	dev-libs/openssl:0=
 	dev-db/sqlite:3=
+	dev-libs/libgit2
+	dev-libs/openssl:0=
 	system-clipboard? (
 		X? (
 			x11-libs/libX11
@@ -46,11 +47,13 @@ src_prepare() {
 
 src_configure() {
 	# high magic to allow system-libs
+	export LIBGIT2_NO_VENDOR=1
 	export LIBSQLITE3_SYS_USE_PKG_CONFIG=1
 	export OPENSSL_NO_VENDOR=true
 	export PKG_CONFIG_ALLOW_CROSS=1
 
 	local myfeatures=(
+		lsp
 		$(usev mcp)
 		native-tls
 		network
@@ -61,10 +64,6 @@ src_configure() {
 	)
 
 	cargo_src_configure --no-default-features
-}
-
-src_compile() {
-	cargo_src_compile --workspace
 }
 
 src_install() {
