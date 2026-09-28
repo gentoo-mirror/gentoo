@@ -1,6 +1,6 @@
 BDEPEND=x11-libs/cairo[glib] >=dev-perl/glib-perl-1.224.0 >=dev-perl/Cairo-1.80.0 virtual/perl-ExtUtils-MakeMaker >=dev-perl/ExtUtils-Depends-0.200.0 >=dev-perl/ExtUtils-PkgConfig-1.0.0 >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DEFINED_PHASES=compile configure install prepare test
-DEPEND=x11-libs/cairo[glib] >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
+DEPEND=x11-libs/cairo[glib] >=dev-perl/glib-perl-1.224.0 >=dev-perl/Cairo-1.80.0 x11-libs/cairo[glib] >=dev-lang/perl-5.38.2-r3[perl_features_debug=,perl_features_ithreads=,perl_features_quadmath=]
 DESCRIPTION=Integrate Cairo into the Glib type system
 EAPI=7
 HOMEPAGE=https://metacpan.org/release/Cairo-GObject
@@ -12,4 +12,4 @@ RDEPEND=x11-libs/cairo[glib] >=dev-perl/glib-perl-1.224.0 >=dev-perl/Cairo-1.80.
 SLOT=0
 SRC_URI=mirror://cpan/authors/id/X/XA/XAOC/Cairo-GObject-1.005.tar.gz
 _eclasses_=multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	perl-functions	1863acf0982afafc67797e3ce7275b4c	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	perl-module	0ffc14c66aac1d84388ae7b27b10ed9d
-_md5_=22a68334dc719f80cdead557274353f2
+_md5_=18173940b1b50a3fb199b9d486fdd8ad
