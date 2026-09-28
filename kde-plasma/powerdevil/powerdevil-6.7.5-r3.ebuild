@@ -3,6 +3,7 @@
 
 EAPI=8
 
+PATCHSET="${P}-patchset-1"
 ECM_HANDBOOK="optional"
 ECM_TEST="forceoptional"
 KFMIN=6.26.0
@@ -11,10 +12,11 @@ inherit ecm fcaps plasma.kde.org xdg
 
 DESCRIPTION="Power management for KDE Plasma Shell"
 HOMEPAGE="https://invent.kde.org/plasma/powerdevil"
+SRC_URI+=" https://dev.gentoo.org/~asturm/distfiles/kde/${PATCHSET}.tar.xz"
 
 LICENSE="GPL-2" # TODO: CHECK
 SLOT="6"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~riscv ~x86"
+KEYWORDS="amd64 arm64 ~ppc64 ~riscv ~x86"
 IUSE="brightness-control"
 
 RESTRICT="test" # bug 926513
@@ -74,7 +76,8 @@ BDEPEND="
 FILECAPS=( -m 0755 cap_wake_alarm=ep usr/libexec/org_kde_powerdevil )
 
 PATCHES=(
-	"${FILESDIR}/${P}-solid-6.30-negative-percentage.patch" # KDE-bug #525589
+	"${WORKDIR}/${PATCHSET}" # in 6.7.6; KDE-bugs #525589, #523281
+	"${FILESDIR}/${P}-fix-brightness-slider.patch" # fixup for above backport; bug #983371
 )
 
 src_configure() {
