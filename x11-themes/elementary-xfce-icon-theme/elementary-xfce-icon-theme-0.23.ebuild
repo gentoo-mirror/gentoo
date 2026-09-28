@@ -1,4 +1,4 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -18,12 +18,12 @@ LICENSE="
 	CC-BY-4.0 CC-BY-SA-4.0
 "
 SLOT="0"
-KEYWORDS="amd64 ~riscv ~x86"
+KEYWORDS="~amd64 ~riscv ~x86"
 
 BDEPEND="
 	media-gfx/optipng
 	x11-libs/gdk-pixbuf:2
-	x11-libs/gtk+:3"
+	gnome-base/librsvg"
 
 src_prepare() {
 	sed -i -e 's:-Werror -O0 -pipe:${CFLAGS} ${CPPFLAGS} ${LDFLAGS}:' \

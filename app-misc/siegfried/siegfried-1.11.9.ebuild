@@ -30,7 +30,7 @@ RDEPEND="
 	!app-misc/dfshow
 "
 BDEPEND="
-	>=dev-lang/go-1.25.0:=
+	>=dev-lang/go-1.26.0:=
 "
 
 src_compile() {
