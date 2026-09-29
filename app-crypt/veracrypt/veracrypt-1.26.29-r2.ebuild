@@ -19,6 +19,7 @@ LICENSE="Apache-2.0 BSD RSA truecrypt-3.0"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+asm cpu_flags_x86_aes cpu_flags_x86_sse2 doc gui"
+REQUIRED_USE="cpu_flags_x86_sse2? ( asm )"
 RESTRICT="bindist mirror"
 
 RDEPEND="
@@ -40,14 +41,20 @@ CONFIG_CHECK="~BLK_DEV_DM ~CRYPTO ~CRYPTO_XTS ~DM_CRYPT ~FUSE_FS"
 PATCHES=(
 	"${FILESDIR}"/${P}-fix-release-date.patch
 	"${FILESDIR}"/${PN}-1.26.29-argon2-avx2-avx512f.patch
+	"${FILESDIR}"/${PN}-1.26.29-fix-nosse2.patch
 )
+
+src_prepare() {
+	default
+
+	# Respect *FLAGS
+	sed -i -e 's/^.* += $(REPRODUCIBLE_/#&/' Makefile || die
+}
 
 src_configure() {
 	setup-wxwidgets
-}
 
-src_compile() {
-	local myemakeargs=(
+	myemakeargs=(
 		NOSTRIP=1
 		NOTEST=1
 		VERBOSE=1
@@ -60,12 +67,20 @@ src_compile() {
 		TC_EXTRA_CXXFLAGS="${CXXFLAGS}"
 		TC_EXTRA_LFLAGS="${LDFLAGS}"
 		WX_CONFIG="${WX_CONFIG}"
-		$(usex asm "" "NOASM=1")
 		$(usex gui "" "NOGUI=1")
-		$(usex cpu_flags_x86_aes "" "NOAESNI=1")
-		$(usex cpu_flags_x86_sse2 "" "NOSSE2=1")
 	)
 
+	# x86-specific options causing build failures on other arches
+	if use x86 || use amd64; then
+		myemakeargs+=(
+			$(usev !asm "NOASM=1")
+			$(usev !cpu_flags_x86_aes "NOAESNI=1")
+			$(usev !cpu_flags_x86_sse2 "NOSSE2=1")
+		)
+	fi
+}
+
+src_compile() {
 	emake "${myemakeargs[@]}"
 }
 
@@ -76,7 +91,31 @@ src_test() {
 src_install() {
 	local DOCS=( Readme.txt )
 
-	dobin Main/veracrypt
+	# TODO: install translations
+	myemakeargs+=(
+		INSTALL_UNINSTALLER=0
+		INSTALL_LICENSE=0
+		INSTALL_DOCS=0
+		INSTALL_LANGUAGES=0
+		INSTALL_APPIMAGE_FILES=0
+	)
+
+	if use gui; then
+		myemakeargs+=(
+			INSTALL_DESKTOP=1
+			INSTALL_MIME=1
+			INSTALL_ICONS=1
+		)
+	else
+		myemakeargs+=(
+			INSTALL_DESKTOP=0
+			INSTALL_MIME=0
+			INSTALL_ICONS=0
+		)
+	fi
+
+	emake DESTDIR="${D}" "${myemakeargs[@]}" install
+
 	if use doc; then
 		DOCS+=( "${S}"/../doc/EFI-DCS )
 		docompress -x /usr/share/doc/${PF}/EFI-DCS
@@ -85,18 +124,6 @@ src_install() {
 	einstalldocs
 
 	newinitd "${FILESDIR}"/veracrypt.init veracrypt
-
-	if use gui; then
-		local s
-		for s in 16 22 24 32 48 64 128 256 512; do
-			newicon -s ${s} Resources/Icons/VeraCrypt-${s}x${s}.png veracrypt.png
-		done
-
-		domenu Setup/Linux/veracrypt.desktop
-
-		insinto /usr/share/mime/packages
-		doins Setup/Linux/veracrypt.xml
-	fi
 
 	pax-mark -m "${ED}"/usr/bin/veracrypt
 }
