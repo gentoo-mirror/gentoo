@@ -7,23 +7,23 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit cmake fcaps linux-info optfeature python-single-r1 systemd
 
-DESCRIPTION="Linux real time system monitoring, done right!"
-HOMEPAGE="https://github.com/netdata/netdata https://my-netdata.io/"
-
 SQLITE_VER="3530400"
 
 if [[ ${PV} == *9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/netdata/${PN}.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/netdata/netdata/releases/download/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="
+		https://github.com/netdata/netdata/releases/download/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz
+		https://www.sqlite.org/2026/sqlite-src-${SQLITE_VER}.zip
+		https://distfiles.gentoo.org/pub/dev/arthurzam@gentoo.org/net-analyzer/${PN}/${PN}-2.11.1-system-libs.patch.xz
+	"
 	S="${WORKDIR}/${PN}-v${PV}"
 	KEYWORDS="~amd64 ~x86"
 fi
-SRC_URI+="
-	https://www.sqlite.org/2026/sqlite-src-${SQLITE_VER}.zip
-	https://distfiles.gentoo.org/pub/dev/arthurzam@gentoo.org/net-analyzer/${PN}/${PN}-2.11.1-system-libs.patch.xz
-"
+
+DESCRIPTION="Linux real time system monitoring, done right!"
+HOMEPAGE="https://github.com/netdata/netdata https://my-netdata.io/"
 
 LICENSE="GPL-3+ MIT BSD"
 SLOT="0"
