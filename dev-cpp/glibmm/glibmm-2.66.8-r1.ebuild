@@ -7,17 +7,17 @@ PYTHON_COMPAT=( python3_{11..14} )
 inherit gnome.org meson-multilib python-any-r1
 
 DESCRIPTION="C++ interface for glib2"
-HOMEPAGE="https://gnome.pages.gitlab.gnome.org/glibmm/"
+HOMEPAGE="https://gtkmm.gnome.org/en/index.html"
 
 LICENSE="LGPL-2.1+"
-SLOT="2.68"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
+SLOT="2"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 IUSE="gtk-doc debug test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
-	>=dev-libs/glib-2.87.3:2[${MULTILIB_USEDEP}]
-	dev-libs/libsigc++:3[gtk-doc?,${MULTILIB_USEDEP}]
+	>=dev-libs/libsigc++-2.9.1:2[${MULTILIB_USEDEP}]
+	>=dev-libs/glib-2.61.2:2[${MULTILIB_USEDEP}]
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -29,11 +29,12 @@ BDEPEND="
 	gtk-doc? (
 		app-text/doxygen[dot]
 		dev-libs/libxslt
+		media-gfx/graphviz
 	)
 "
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.88.1-const-whoops.patch
+	"${FILESDIR}"/glibmm-2.66.8-const-whoops.patch
 )
 
 src_prepare() {
@@ -54,9 +55,7 @@ multilib_src_configure() {
 		$(meson_native_use_bool gtk-doc build-documentation)
 		$(meson_use debug debug-refcounting)
 		-Dbuild-examples=false
-		-Dbuild-mmgir=false
-
-		# XXX: Drop this once https://gitlab.gnome.org/GNOME/glibmm/-/merge_requests/77 is in a release
+		# maintainer-mode is only needed for the const patch
 		-Dmaintainer-mode=true
 	)
 	meson_src_configure
