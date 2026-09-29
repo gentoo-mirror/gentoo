@@ -1,5 +1,5 @@
 DEFINED_PHASES=configure install prepare test
-DEPEND=dev-qt/qtbase:6[concurrent,gui,widgets] designer? ( dev-qt/qttools:6[designer] ) opengl? ( dev-qt/qtbase:6[opengl] virtual/opengl ) svg? ( dev-qt/qtsvg:6 )
+DEPEND=>=dev-qt/qtbase-6.11.2:6[concurrent,gui,widgets] designer? ( >=dev-qt/qttools-6.11.2:6[designer] ) opengl? ( >=dev-qt/qtbase-6.11.2:6[opengl] virtual/opengl ) svg? ( >=dev-qt/qtsvg-6.11.2:6 )
 DESCRIPTION=2D plotting library for Qt
 EAPI=8
 HOMEPAGE=https://qwt.sourceforge.io/
@@ -7,9 +7,9 @@ INHERIT=qmake-utils
 IUSE=designer doc examples opengl polar svg
 KEYWORDS=amd64 ~arm ppc64 ~riscv x86
 LICENSE=qwt
-RDEPEND=dev-qt/qtbase:6[concurrent,gui,widgets] designer? ( dev-qt/qttools:6[designer] ) opengl? ( dev-qt/qtbase:6[opengl] virtual/opengl ) svg? ( dev-qt/qtsvg:6 )
+RDEPEND=>=dev-qt/qtbase-6.11.2:6[concurrent,gui,widgets] designer? ( >=dev-qt/qttools-6.11.2:6[designer] ) opengl? ( >=dev-qt/qtbase-6.11.2:6[opengl] virtual/opengl ) svg? ( >=dev-qt/qtsvg-6.11.2:6 )
 RESTRICT=test
 SLOT=6/3.0
 SRC_URI=https://downloads.sourceforge.net/project/qwt/qwt/6.3.0/qwt-6.3.0.tar.bz2
 _eclasses_=qt-utils	5b7ae92788820ab4495683740521513c	toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	qmake-utils	cc0baf4385fb880725ae334ce289b70f
-_md5_=aa3bfbcee84690cce7edbd97f4cc8c7d
+_md5_=94eb96a9ce6ee7716f078a1f391ed1ab
