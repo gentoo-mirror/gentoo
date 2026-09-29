@@ -8,8 +8,8 @@ PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1
 
-# teh test suite always clones the newest version
-TEST_IMAGES_COMMIT=1121036015c70cdbb3015e5c5ba0aaaf7d3d6021
+# the test suite always clones the newest version
+TEST_IMAGES_COMMIT=f676c96b1af7e04bb1eed1e4551e058eb2f14acd
 DESCRIPTION="Python library for reading and writing image data"
 HOMEPAGE="
 	https://imageio.readthedocs.io/en/stable/

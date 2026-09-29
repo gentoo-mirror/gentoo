@@ -20,13 +20,13 @@ SRC_URI="
 
 LICENSE="BSD-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm arm64 ppc ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~sparc ~x86"
 PROPERTIES="test_network"
 RESTRICT="test"
 
 RDEPEND="
-	>=dev-python/cryptography-43.0.1[${PYTHON_USEDEP}]
-	>=dev-python/pyasn1-0.6.3[${PYTHON_USEDEP}]
+	>=dev-python/cryptography-50.0.1[${PYTHON_USEDEP}]
+	>=dev-python/pyasn1-0.6.4[${PYTHON_USEDEP}]
 	>=dev-python/pysmi-2.0.0[${PYTHON_USEDEP}]
 "
 

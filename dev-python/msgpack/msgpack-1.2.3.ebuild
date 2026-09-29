@@ -19,14 +19,14 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 IUSE="+native-extensions"
 
 # extension code is relying on CPython implementation details
 BDEPEND="
 	native-extensions? (
 		$(python_gen_cond_dep '
-			>=dev-python/cython-3.0.8[${PYTHON_USEDEP}]
+			>=dev-python/cython-3.3.0[${PYTHON_USEDEP}]
 		' 'python*')
 	)
 "

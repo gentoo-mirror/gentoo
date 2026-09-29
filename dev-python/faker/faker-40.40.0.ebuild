@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~s390 ~sparc x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 
 RDEPEND="
 	!dev-ruby/faker
@@ -26,6 +26,7 @@ BDEPEND="
 	test? (
 		dev-python/freezegun[${PYTHON_USEDEP}]
 		dev-python/pillow[${PYTHON_USEDEP},tiff]
+		dev-python/python-stdnum[${PYTHON_USEDEP}]
 		dev-python/validators[${PYTHON_USEDEP}]
 	)
 "
