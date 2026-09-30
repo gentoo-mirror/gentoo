@@ -1,0 +1,17 @@
+BDEPEND=python? ( >=dev-python/gpep517-16[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/setuptools[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] test? ( dev-python/pytest[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] dev-python/pip[python_targets_python3_12(-)?,python_targets_python3_13(-)?,python_targets_python3_14(-)?] ) ) app-alternatives/ninja >=dev-build/cmake-3.28.5
+DEFINED_PHASES=compile configure install prepare test
+DEPEND=cblas? ( virtual/cblas ) cuda? ( dev-libs/cudnn:= ) ffmpeg? ( media-video/ffmpeg:=[X?] ) gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:0= ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) png? ( media-libs/libpng:0= ) python? ( python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) ) sqlite? ( dev-db/sqlite:3 ) webp? ( media-libs/libwebp:= ) X? ( x11-libs/libX11 )
+DESCRIPTION=Numerical and networking C++ library
+EAPI=8
+HOMEPAGE=https://dlib.net/
+INHERIT=cmake cuda distutils-r1
+IUSE=cblas cuda debug examples ffmpeg gif jpeg lapack mkl png python sqlite test webp X cpu_flags_x86_avx cpu_flags_x86_sse2 cpu_flags_x86_sse4_1 python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 debug
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
+LICENSE=Boost-1.0
+RDEPEND=cblas? ( virtual/cblas ) cuda? ( dev-libs/cudnn:= ) ffmpeg? ( media-video/ffmpeg:=[X?] ) gif? ( media-libs/giflib:= ) jpeg? ( media-libs/libjpeg-turbo:0= ) lapack? ( virtual/lapack ) mkl? ( sci-libs/mkl ) png? ( media-libs/libpng:0= ) python? ( python_targets_python3_12? ( dev-lang/python:3.12 ) python_targets_python3_13? ( dev-lang/python:3.13 ) python_targets_python3_14? ( dev-lang/python:3.14 ) ) sqlite? ( dev-db/sqlite:3 ) webp? ( media-libs/libwebp:= ) X? ( x11-libs/libX11 )
+REQUIRED_USE=python? ( png || ( python_targets_python3_12 python_targets_python3_13 python_targets_python3_14 ) )
+RESTRICT=!test? ( test )
+SLOT=0/20.0.1
+SRC_URI=https://github.com/davisking/dlib/archive/v20.0.1.tar.gz -> dlib-20.0.1.tar.gz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	cmake	3530055400d05e64deaba3042af30af6	cuda	8b660e223a1695e3884ee4c7dc2c5059	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	out-of-source-utils	8e5093bd27b7f541a1913271f25d633a	multibuild	83db098a835f71feb71761f72a694aa2	multilib	fc812e8eb2170022c28272d80a1f9e77	python-utils-r1	85d8fb641bb0e79b1ae893556e9c57bc	python-r1	5fdca77e34fc9af7d6eb47689f33f6bf	distutils-r1	e19039519d3638744fa057e656909937
+_md5_=24a0cc40b97160d846c6b295a9e22c27
