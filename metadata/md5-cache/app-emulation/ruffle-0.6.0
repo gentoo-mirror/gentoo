@@ -1,0 +1,17 @@
+BDEPEND=virtual/jre:* virtual/pkgconfig || ( >=dev-lang/rust-bin-1.95.0:* >=dev-lang/rust-1.95.0:* )
+DEFINED_PHASES=compile configure install postinst postrm preinst setup test unpack
+DEPEND=dev-libs/openssl:= media-libs/alsa-lib media-libs/fontconfig media-libs/freetype virtual/libudev:=
+DESCRIPTION=Flash Player emulator written in Rust
+EAPI=8
+HOMEPAGE=https://ruffle.rs/
+IDEPEND=dev-util/desktop-file-utils x11-misc/shared-mime-info
+INHERIT=cargo desktop optfeature xdg
+IUSE=test debug
+KEYWORDS=~amd64
+LICENSE=|| ( Apache-2.0 MIT ) Apache-2.0 BSD-2 BSD ISC MIT MPL-2.0 OFL-1.1 openssl UbuntuFontLicense-1.0 Unicode-3.0 ZLIB BZIP2
+RDEPEND=dev-libs/openssl:= media-libs/alsa-lib media-libs/fontconfig media-libs/freetype virtual/libudev:=
+RESTRICT=!test? ( test )
+SLOT=0
+SRC_URI=https://github.com/ruffle-rs/ruffle/archive/refs/tags/v0.6.0.tar.gz -> ruffle-0.6.0.tar.gz https://distfiles.gentoo.org/pub/dev/ionen@gentoo.org/ruffle-0.6.0-vendor.tar.xz
+_eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	rust	71b6825bd86e342e1540c76cc6fe864b	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	cargo	bff30f59ca59b09857b787ac644b2e4c	desktop	e447b5f77146d69797e9f03ff177f3f1	optfeature	58cc13bdc4e9a204077e1e7c9a1d7988	xdg-utils	42869b3c8d86a70ef3cf75165a395e09	xdg	3ef49a87c52c8b77c476351195dfe575
+_md5_=a68e272420824652f121bc64422faf0b
