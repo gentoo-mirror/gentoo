@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://github.com/ocaml-opam/opam-0install-cudf
 INHERIT=dune
 IUSE=+ocamlopt test
-KEYWORDS=~amd64 ~arm ~arm64 ~riscv ~x86
+KEYWORDS=amd64 arm arm64 ~riscv x86
 LICENSE=ISC
 RDEPEND=dev-ml/0install:=[ocamlopt?] dev-ml/cudf:=[ocamlopt?] dev-ml/extlib:=[ocamlopt?] dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 RESTRICT=!test? ( test )
 SLOT=0
 SRC_URI=https://github.com/ocaml-opam/opam-0install-cudf/releases/download/v0.5.0/opam-0install-cudf-0.5.0.tar.gz
 _eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	bca6089ec4118f02802b8cee78a748c5
-_md5_=24296cf8b65b816a47e20287ee5bad83
+_md5_=ebe5bb5c724fedd1aae0517b1a85fd8a
