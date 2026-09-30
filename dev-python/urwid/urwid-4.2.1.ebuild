@@ -19,8 +19,7 @@ HOMEPAGE="
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~loong ~mips ppc ppc64 ~riscv ~sparc x86"
-IUSE="examples"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	dev-python/typing-extensions[${PYTHON_USEDEP}]
@@ -36,12 +35,7 @@ distutils_enable_tests pytest
 src_prepare() {
 	distutils-r1_src_prepare
 
-	sed -i -e 's:--cov=urwid::' pyproject.toml || die
-}
-
-python_install_all() {
-	use examples && dodoc -r examples
-	distutils-r1_python_install_all
+	sed -i -e 's:--cov --cov-report=term::' pyproject.toml || die
 }
 
 pkg_postinst() {

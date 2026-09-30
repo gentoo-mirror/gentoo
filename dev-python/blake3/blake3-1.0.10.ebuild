@@ -6,44 +6,40 @@ EAPI=8
 CARGO_OPTIONAL=1
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=standalone
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
-RUST_MIN_VER="1.80.0"
+RUST_MIN_VER="1.85.0"
 CRATES="
-	arrayref@0.3.9
-	arrayvec@0.7.6
-	autocfg@1.5.0
-	blake3@1.8.2
-	cc@1.2.39
-	cfg-if@1.0.3
-	constant_time_eq@0.3.1
+	arrayvec@0.7.7
+	blake3@1.8.7
+	cc@1.2.65
+	cfg-if@1.0.4
+	constant_time_eq@0.4.2
+	cpufeatures@0.3.0
 	crossbeam-deque@0.8.6
 	crossbeam-epoch@0.9.18
 	crossbeam-utils@0.8.21
-	either@1.15.0
-	find-msvc-tools@0.1.2
+	either@1.16.0
+	find-msvc-tools@0.1.9
 	heck@0.5.0
 	hex@0.4.3
-	indoc@2.0.6
-	libc@0.2.176
-	memmap2@0.9.8
-	memoffset@0.9.1
-	once_cell@1.21.3
-	portable-atomic@1.11.1
-	proc-macro2@1.0.101
-	pyo3-build-config@0.26.0
-	pyo3-ffi@0.26.0
-	pyo3-macros-backend@0.26.0
-	pyo3-macros@0.26.0
-	pyo3@0.26.0
-	quote@1.0.41
+	libc@0.2.186
+	memmap2@0.9.11
+	once_cell@1.21.4
+	portable-atomic@1.13.1
+	proc-macro2@1.0.106
+	pyo3-build-config@0.29.2
+	pyo3-ffi@0.29.2
+	pyo3-macros-backend@0.29.2
+	pyo3-macros@0.29.2
+	pyo3@0.29.2
+	quote@1.0.46
 	rayon-core@1.13.0
-	rayon@1.11.0
-	shlex@1.3.0
-	syn@2.0.106
-	target-lexicon@0.13.3
-	unicode-ident@1.0.19
-	unindent@0.2.4
+	rayon@1.12.0
+	shlex@2.0.1
+	syn@2.0.118
+	target-lexicon@0.13.5
+	unicode-ident@1.0.24
 "
 
 inherit cargo distutils-r1
@@ -69,8 +65,9 @@ LICENSE="
 "
 # Dependent crate licenses
 LICENSE+="
-	Apache-2.0-with-LLVM-exceptions BSD-2 MIT Unicode-3.0
+	Apache-2.0-with-LLVM-exceptions Unicode-3.0
 	|| ( Apache-2.0 CC0-1.0 MIT-0 )
+	|| ( Apache-2.0 MIT )
 "
 LICENSE+="
 	)
@@ -115,7 +112,7 @@ src_unpack() {
 
 PATCHES=(
 	# Link against shared blake3 library. Bug 943281.
-	"${FILESDIR}/${P}-use-installed-library.patch"
+	"${FILESDIR}/${PN}-1.0.8-use-installed-library.patch"
 )
 
 src_prepare() {

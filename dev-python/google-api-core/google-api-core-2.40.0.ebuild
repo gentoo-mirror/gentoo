@@ -18,12 +18,14 @@ HOMEPAGE="
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="grpc"
 
 RDEPEND="
 	>=dev-python/googleapis-common-protos-1.69.2[${PYTHON_USEDEP}]
 	>=dev-python/google-auth-1.25.0[${PYTHON_USEDEP}]
+	<dev-python/opentelemetry-api-2[${PYTHON_USEDEP}]
+	>=dev-python/opentelemetry-api-1.44.0[${PYTHON_USEDEP}]
 	>=dev-python/proto-plus-1.26.1[${PYTHON_USEDEP}]
 	>=dev-python/protobuf-6.33.5[${PYTHON_USEDEP}]
 	>=dev-python/requests-2.33.0[${PYTHON_USEDEP}]
@@ -37,6 +39,7 @@ BDEPEND="
 	test? (
 		>=dev-python/grpcio-1.75.1[${PYTHON_USEDEP}]
 		>=dev-python/grpcio-status-1.75.1[${PYTHON_USEDEP}]
+		>=dev-python/opentelemetry-sdk-1.44.0[${PYTHON_USEDEP}]
 		dev-python/rsa[${PYTHON_USEDEP}]
 	)
 "

@@ -8,122 +8,117 @@ DISTUTILS_USE_PEP517=maturin
 PYPI_VERIFY_REPO=https://github.com/milesgranger/cramjam
 PYTHON_COMPAT=( python3_{12..15} )
 
+RUST_MIN_VER="1.83.0"
 # Note: you need to use top-level Cargo.lock to generate the crate list.
 CRATES="
-	adler2@2.0.0
+	adler2@2.0.1
 	alloc-no-stdlib@2.0.4
-	alloc-stdlib@0.2.2
-	anstream@0.6.18
-	anstyle-parse@0.2.6
-	anstyle-query@1.1.2
-	anstyle-wincon@3.0.7
-	anstyle@1.0.10
-	autocfg@1.4.0
-	bitflags@2.9.0
+	alloc-stdlib@0.2.4
+	anstream@1.0.0
+	anstyle-parse@1.0.0
+	anstyle-query@1.1.5
+	anstyle-wincon@3.0.11
+	anstyle@1.0.14
+	bitflags@2.13.2
 	blosc2-rs@0.4.0+2.15.2
 	blosc2-sys@0.4.0+2.15.2
-	brotli-decompressor@4.0.2
+	brotli-decompressor@4.0.3
 	brotli@7.0.0
-	bumpalo@3.17.0
+	bumpalo@3.20.3
 	bzip2-sys@0.1.13+1.0.8
-	bzip2@0.4.4
+	bzip2@0.5.2
 	cbindgen@0.27.0
-	cc@1.2.16
-	cfg-if@1.0.0
-	clap@4.5.31
-	clap_builder@4.5.31
-	clap_lex@0.7.4
-	cmake@0.1.54
-	colorchoice@1.0.3
+	cc@1.5.1
+	cfg-if@1.0.5
+	clap@4.5.61
+	clap_builder@4.5.61
+	clap_lex@1.0.1
+	cmake@0.1.58
+	colorchoice@1.0.5
 	copy_dir@0.1.3
-	crc32fast@1.4.2
+	crc32fast@1.5.2
 	equivalent@1.0.2
-	errno@0.3.10
-	fastrand@2.3.0
-	flate2@1.1.0
-	getrandom@0.3.1
-	hashbrown@0.15.2
+	errno@0.3.14
+	fastrand@2.5.0
+	find-msvc-tools@0.1.14
+	flate2@1.1.10
+	getrandom@0.3.4
+	hashbrown@0.16.1
 	heck@0.4.1
 	heck@0.5.0
-	indexmap@2.7.1
-	indoc@2.0.5
-	is_terminal_polyfill@1.70.1
+	indexmap@2.13.1
+	is_terminal_polyfill@1.70.2
 	isal-rs@0.5.3+496255c
 	isal-sys@0.5.3+496255c
-	itoa@1.0.14
-	jobserver@0.1.32
-	libc@0.2.170
+	itoa@1.0.18
+	jobserver@0.1.34
+	libc@0.2.189
 	libcramjam@0.7.0
 	libcramjam@0.8.0
 	libdeflate-sys@1.19.3
-	linux-raw-sys@0.4.15
-	lock_api@0.4.12
-	log@0.4.26
+	linux-raw-sys@0.12.1
+	lock_api@0.4.14
+	log@0.4.34
 	lz4-sys@1.11.1+lz4-1.10.0
 	lz4@1.28.1
 	lzma-sys@0.1.20
-	memchr@2.7.4
-	memoffset@0.9.1
-	miniz_oxide@0.8.5
-	once_cell@1.20.3
-	parking_lot@0.12.3
-	parking_lot_core@0.9.10
-	pkg-config@0.3.31
-	portable-atomic@1.11.0
-	proc-macro2@1.0.93
-	pyo3-build-config@0.25.0
-	pyo3-ffi@0.25.0
-	pyo3-macros-backend@0.25.0
-	pyo3-macros@0.25.0
-	pyo3@0.25.0
-	python3-dll-a@0.2.13
-	quote@1.0.38
-	redox_syscall@0.5.9
-	rustix@0.38.44
-	rustversion@1.0.21
-	ryu@1.0.19
+	memchr@2.8.3
+	miniz_oxide@0.9.1
+	once_cell@1.21.4
+	once_cell_polyfill@1.70.2
+	parking_lot@0.12.5
+	parking_lot_core@0.9.12
+	pkg-config@0.3.34
+	portable-atomic@1.15.0
+	proc-macro2@1.0.107
+	pyo3-build-config@0.29.2
+	pyo3-ffi@0.29.2
+	pyo3-macros-backend@0.29.2
+	pyo3-macros@0.29.2
+	pyo3@0.29.2
+	quote@1.0.47
+	r-efi@5.3.0
+	redox_syscall@0.5.18
+	rustix@1.1.5
+	rustversion@1.0.23
 	same-file@1.0.6
 	scopeguard@1.2.0
-	serde@1.0.218
-	serde_derive@1.0.218
-	serde_json@1.0.139
-	serde_spanned@0.6.8
-	shlex@1.3.0
-	smallvec@1.14.0
-	snap@1.1.1
+	serde@1.0.229
+	serde_core@1.0.229
+	serde_derive@1.0.229
+	serde_json@1.0.151
+	serde_spanned@0.6.9
+	shlex@2.0.1
+	simd-adler32@0.3.10
+	smallvec@1.16.2
+	snap@1.1.2
 	strsim@0.11.1
-	syn@2.0.98
-	target-lexicon@0.13.2
-	tempfile@3.17.1
-	toml@0.8.20
-	toml_datetime@0.6.8
-	toml_edit@0.22.24
-	unicode-ident@1.0.17
-	unindent@0.2.3
+	syn@2.0.119
+	syn@3.0.6
+	target-lexicon@0.13.5
+	tempfile@3.27.0
+	toml@0.8.23
+	toml_datetime@0.6.11
+	toml_edit@0.22.27
+	toml_write@0.1.2
+	unicode-ident@1.0.26
 	utf8parse@0.2.2
 	walkdir@2.5.0
-	wasi@0.13.3+wasi-0.2.2
-	wasm-bindgen-backend@0.2.100
-	wasm-bindgen-macro-support@0.2.100
-	wasm-bindgen-macro@0.2.100
-	wasm-bindgen-shared@0.2.100
-	wasm-bindgen@0.2.100
-	winapi-util@0.1.9
-	windows-sys@0.59.0
-	windows-targets@0.52.6
-	windows_aarch64_gnullvm@0.52.6
-	windows_aarch64_msvc@0.52.6
-	windows_i686_gnu@0.52.6
-	windows_i686_gnullvm@0.52.6
-	windows_i686_msvc@0.52.6
-	windows_x86_64_gnu@0.52.6
-	windows_x86_64_gnullvm@0.52.6
-	windows_x86_64_msvc@0.52.6
-	winnow@0.7.3
-	wit-bindgen-rt@0.33.0
+	wasip2@1.0.1+wasi-0.2.4
+	wasm-bindgen-macro-support@0.2.129
+	wasm-bindgen-macro@0.2.129
+	wasm-bindgen-shared@0.2.129
+	wasm-bindgen@0.2.129
+	winapi-util@0.1.11
+	windows-link@0.2.1
+	windows-sys@0.61.2
+	winnow@0.7.15
+	wit-bindgen@0.46.0
 	xz2@0.1.7
-	zstd-safe@7.2.3
-	zstd-sys@2.0.14+zstd.1.5.7
+	zlib-rs@0.6.8
+	zmij@1.0.23
+	zstd-safe@7.3.0
+	zstd-sys@2.1.0+zstd.1.5.7
 	zstd@0.13.3
 "
 
@@ -142,12 +137,10 @@ LICENSE="MIT"
 # Dependent crate licenses
 LICENSE+="
 	Apache-2.0 Apache-2.0-with-LLVM-exceptions BSD MIT MPL-2.0
-	Unicode-3.0
+	Unicode-3.0 ZLIB
 "
 SLOT="0"
-# This is the same as 2.12.0 final, except upstream never uploaded it
-# to PyPI.
-KEYWORDS="amd64 ~arm arm64 ~riscv ~sparc ~x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~riscv ~sparc ~x86"
 
 DEPEND="
 	app-arch/bzip2:=
@@ -176,7 +169,8 @@ QA_FLAGS_IGNORED="usr/lib/py.*/site-packages/cramjam/cramjam.*.so"
 
 src_unpack() {
 	pypi_src_unpack
-	cargo_src_unpack
+	cargo_crate_unpack
+	cargo_gen_config
 }
 
 src_prepare() {
@@ -231,9 +225,6 @@ src_prepare() {
 		gzip-shared
 		zlib-shared
 		deflate-shared
-		# https://github.com/milesgranger/cramjam/issues/204#issuecomment-2692307708
-		# blosc2-shared
-		# use-system-blosc2-shared
 	)
 	local features_s=${features[*]}
 

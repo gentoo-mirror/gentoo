@@ -17,19 +17,18 @@ HOMEPAGE="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos"
 
 RDEPEND="
 	>=dev-python/comm-0.1.1[${PYTHON_USEDEP}]
 	>=dev-python/ipython-7.23.1[${PYTHON_USEDEP}]
-	>=dev-python/jupyter-client-8.0.0[${PYTHON_USEDEP}]
-	>=dev-python/jupyter-core-4.12[${PYTHON_USEDEP}]
+	>=dev-python/jupyter-client-8.9.0[${PYTHON_USEDEP}]
+	>=dev-python/jupyter-core-5.1[${PYTHON_USEDEP}]
 	>=dev-python/matplotlib-inline-0.1[${PYTHON_USEDEP}]
-	>=dev-python/nest-asyncio-1.4[${PYTHON_USEDEP}]
+	>=dev-python/nest-asyncio2-1.7.0[${PYTHON_USEDEP}]
 	>=dev-python/packaging-22[${PYTHON_USEDEP}]
-	>=dev-python/psutil-5.7[${PYTHON_USEDEP}]
 	>=dev-python/pyzmq-25[${PYTHON_USEDEP}]
-	>=dev-python/tornado-6.2[${PYTHON_USEDEP}]
+	>=dev-python/tornado-6.5.7[${PYTHON_USEDEP}]
 	>=dev-python/traitlets-5.4.0[${PYTHON_USEDEP}]
 "
 # RDEPEND seems specifically needed in BDEPEND, at least jupyter
