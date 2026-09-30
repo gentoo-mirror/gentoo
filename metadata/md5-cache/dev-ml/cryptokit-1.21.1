@@ -6,7 +6,7 @@ EAPI=8
 HOMEPAGE=https://github.com/xavierleroy/cryptokit
 INHERIT=dune
 IUSE=cpu_flags_x86_aes +ocamlopt test zlib
-KEYWORDS=~amd64 ~arm ~arm64 ~ppc ~x86
+KEYWORDS=amd64 ~arm ~arm64 ~ppc ~x86
 LICENSE=LGPL-2
 RDEPEND=dev-ml/dune-configurator dev-ml/zarith:= zlib? ( >=virtual/zlib-1.1:= ) dev-lang/ocaml:=[ocamlopt?] dev-ml/dune:=
 REQUIRED_USE=test? ( ocamlopt )
@@ -14,4 +14,4 @@ RESTRICT=!test? ( test )
 SLOT=0/1.21.1
 SRC_URI=https://github.com/xavierleroy/cryptokit/archive/release1211.tar.gz -> cryptokit-1.21.1.tar.gz
 _eclasses_=edob	357e125b8c5cad0deccb625e537ea831	edo	e472083829a6e7ff43a197cf536728a2	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	dune	bca6089ec4118f02802b8cee78a748c5
-_md5_=b2c089d34e97c367e56d2e8110da835e
+_md5_=684ea5b13d1523191ff0e7534929a114
