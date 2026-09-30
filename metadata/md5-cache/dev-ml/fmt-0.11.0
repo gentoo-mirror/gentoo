@@ -6,11 +6,11 @@ EAPI=8
 HOMEPAGE=https://erratique.ch/software/fmt https://github.com/dbuenzli/fmt
 INHERIT=findlib opam
 IUSE=test +ocamlopt
-KEYWORDS=~amd64 arm arm64 ~ppc ~ppc64 ~riscv ~x86
+KEYWORDS=~amd64 arm arm64 ~ppc ~ppc64 ~riscv x86
 LICENSE=ISC
 RDEPEND=dev-ml/cmdliner:=[ocamlopt] dev-ml/result:=[ocamlopt] dev-ml/stdlib-shims:=[ocamlopt] dev-ml/uchar:=[ocamlopt] dev-lang/ocaml:=[ocamlopt?] dev-lang/ocaml:=
 RESTRICT=test
 SLOT=0/0.11.0
 SRC_URI=https://erratique.ch/software/fmt/releases/fmt-0.11.0.tbz
 _eclasses_=findlib	37a50ff418bcb640d3c5bc89dcdb8a6b	opam	a6a9e96e7c709313e144e2df4b0fe727
-_md5_=78ffc0afaafdcccbfb88fb44e1ccfe86
+_md5_=b656ba25a455ccbf026f7e1e76048ada
