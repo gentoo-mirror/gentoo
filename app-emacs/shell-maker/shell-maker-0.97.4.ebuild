@@ -3,19 +3,21 @@
 
 EAPI=9
 
-NEED_EMACS="29.1"
+NEED_EMACS="27.1"
 
 inherit elisp
 
-DESCRIPTION="Many native agentic integrations inside GNU Emacs"
-HOMEPAGE="https://github.com/xenodium/agent-shell/"
+DESCRIPTION="Interaction mode for making comint shells for GNU Emacs"
+HOMEPAGE="https://github.com/xenodium/shell-maker/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
+
 	EGIT_REPO_URI="https://github.com/xenodium/${PN}"
 else
 	SRC_URI="https://github.com/xenodium/${PN}/archive/refs/tags/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
+
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -23,24 +25,22 @@ LICENSE="GPL-3+"
 SLOT="0"
 
 RDEPEND="
-	>=app-emacs/acp-0.13.1
-	>=app-emacs/shell-maker-0.97.1
+	>=app-editors/emacs-${NEED_EMACS}:*[jpeg,png,svg]
 "
 BDEPEND="
 	${RDEPEND}
 "
 
-DOCS=( CONTRIBUTING.org README.org blog-post.org )
+DOCS=( CHANGELOG.md README.org )
 SITEFILE="50${PN}-gentoo.el"
+
+elisp-enable-tests ert ./tests/ \
+	-l "./tests/${PN}-history-tests.el" \
+	-l "./tests/markdown-overlays-blocks-tests.el" \
+	-l "./tests/markdown-overlays-images-tests.el"
 
 src_compile() {
 	elisp_src_compile
 	elisp-make-autoload-file
-}
-
-src_test() {
-	local test_file=""
-	for test_file in ./tests/*-tests.el ; do
-		elisp-test-ert ./tests/ -l "${test_file}"
-	done
+	elisp-make-site-file "${SITEFILE}"
 }
