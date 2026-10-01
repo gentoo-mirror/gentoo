@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..15} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1
 
@@ -22,11 +22,34 @@ S="${WORKDIR}/${P}/lib/py"
 
 LICENSE="Apache-2.0"
 SLOT="0"
-KEYWORDS="amd64 ~riscv x86"
+KEYWORDS="~amd64 ~riscv ~x86"
+IUSE="+native-extensions test"
+RESTRICT="!test? ( test )"
+
+BDEPEND="
+	test? (
+		>=dev-libs/thrift-0.24.0
+	)
+"
 
 distutils_enable_tests unittest
 
+src_prepare() {
+	distutils-r1_src_prepare
+
+	# upstream tries True, and if it fails, tries False
+	# just subtitute both to get what we want
+	local build_ext=$(usex native-extensions True False)
+	sed -e "/with_binary=/s:False\|True:${build_ext}:" \
+		-i setup.py || die
+}
+
 python_test() {
+	# upstream generates more files, but only these seem to affect
+	# test results
+	thrift --gen py ../../test/Recursive.thrift || die
+	thrift --gen py:dynamic test/test_thrift_file/RecursiveDynamic.thrift || die
+
 	eunittest test
 }
 

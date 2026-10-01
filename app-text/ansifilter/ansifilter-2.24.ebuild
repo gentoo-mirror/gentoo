@@ -18,7 +18,7 @@ SRC_URI="
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~x64-macos"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~x64-macos"
 IUSE="gui"
 
 DEPEND="
@@ -34,10 +34,6 @@ BDEPEND="
 DOCS=( ChangeLog.adoc README.adoc  )
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/andresimon.asc
-
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.22-gcc17.patch
-)
 
 src_unpack() {
 	if use verify-sig ; then
