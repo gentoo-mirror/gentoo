@@ -26,7 +26,7 @@ RDEPEND="app-emacs/tty-format"
 BDEPEND="${RDEPEND}
 	sys-apps/texinfo"
 
-DOCS="ChangeLog"
+DOCS="README.org ChangeLog"
 ELISP_TEXINFO="${PN}.texi"
 SITEFILE="50${PN}-gentoo-1.81.el"
 
