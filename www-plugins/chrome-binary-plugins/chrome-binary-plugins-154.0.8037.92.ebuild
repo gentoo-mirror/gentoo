@@ -35,7 +35,7 @@ SRC_URI="
 S="${WORKDIR}/${CHROMEDIR}"
 
 LICENSE="google-chrome"
-KEYWORDS="amd64 arm64"
+KEYWORDS="-* amd64 arm64"
 RESTRICT="bindist mirror strip"
 
 RDEPEND="
