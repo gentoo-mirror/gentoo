@@ -7,26 +7,26 @@ CARGO_OPTIONAL=1
 DISTUTILS_EXT=1
 DISTUTILS_USE_PEP517=setuptools
 PYPI_VERIFY_REPO=https://github.com/jelmer/dulwich
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 RUST_MIN_VER="1.85.0"
 CRATES="
 	bstr@1.12.3
 	heck@0.5.0
 	libc@0.2.186
-	memchr@2.8.2
+	memchr@2.8.3
 	once_cell@1.21.4
 	portable-atomic@1.13.1
 	proc-macro2@1.0.106
-	pyo3-build-config@0.29.0
-	pyo3-ffi@0.29.0
-	pyo3-macros-backend@0.29.0
-	pyo3-macros@0.29.0
-	pyo3@0.29.0
+	pyo3-build-config@0.29.2
+	pyo3-ffi@0.29.2
+	pyo3-macros-backend@0.29.2
+	pyo3-macros@0.29.2
+	pyo3@0.29.2
 	quote@1.0.46
 	serde_core@1.0.228
 	serde_derive@1.0.228
-	similar@3.1.1
+	similar@3.2.0
 	syn@2.0.118
 	target-lexicon@0.13.5
 	unicode-ident@1.0.24
@@ -55,7 +55,7 @@ LICENSE+="
 LICENSE+=" )"
 
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 x86 ~arm64-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
 IUSE="doc examples +native-extensions test"
 RESTRICT="!test? ( test )"
 
@@ -93,7 +93,8 @@ pkg_setup() {
 
 src_unpack() {
 	pypi_src_unpack
-	cargo_src_unpack
+	cargo_crate_unpack
+	cargo_gen_config
 }
 
 python_compile() {
