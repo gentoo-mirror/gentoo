@@ -1,0 +1,14 @@
+BDEPEND=>=app-emacs/company-mode-0.8.12 >=app-emacs/dash-2.10.0 >=app-emacs/yasnippet-0.9.0.1 app-emacs/flycheck >=app-editors/emacs-27.2:*
+DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
+DESCRIPTION=Emacs tools for interacting with Boogie, Dafny and Z3 (SMT2)
+EAPI=9
+HOMEPAGE=https://github.com/boogie-org/boogie-friends/
+INHERIT=elisp
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=>=app-emacs/company-mode-0.8.12 >=app-emacs/dash-2.10.0 >=app-emacs/yasnippet-0.9.0.1 app-emacs/flycheck >=app-editors/emacs-27.2:*
+RESTRICT=test
+SLOT=0
+SRC_URI=https://github.com/boogie-org/boogie-friends/archive/39bacece3b6a3ee5169b4b76751cf73aaccaa7a9.tar.gz -> boogie-friends-0.1_p20260805.snapshot.gh.tar.gz
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f
+_md5_=d17083a9cc41cd295e1ff4a43e69a969

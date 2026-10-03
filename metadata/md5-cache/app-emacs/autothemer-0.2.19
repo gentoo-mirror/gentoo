@@ -1,12 +1,13 @@
-BDEPEND=>=app-emacs/dash-2.10.0 >=app-editors/emacs-26.1:* >=dev-vcs/git-1.8.2.1[curl]
+BDEPEND=>=app-emacs/dash-2.10.0 >=app-editors/emacs-26.1:*
 DEFINED_PHASES=compile configure info install postinst postrm prepare setup test unpack
 DESCRIPTION=Conveniently define themes for GNU Emacs
 EAPI=9
 HOMEPAGE=https://github.com/jasonm23/autothemer/
-INHERIT=elisp git-r3
+INHERIT=elisp
+KEYWORDS=~amd64 ~arm64 ~x86
 LICENSE=GPL-3+
-PROPERTIES=live
 RDEPEND=>=app-emacs/dash-2.10.0 >=app-editors/emacs-26.1:*
 SLOT=0
-_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f	git-r3	e6c2f983e006e805160436c75a0c1562
+SRC_URI=https://github.com/ocodo/autothemer/archive/refs/tags/0.2.19.tar.gz -> autothemer-0.2.19.gh.tar.gz
+_eclasses_=elisp-common	af0b23d31469d538d402c81481e6343e	elisp	46292cd5379143164fb87df42b872e5f
 _md5_=7f68c01f0cfb64e912916335f5ef487c
