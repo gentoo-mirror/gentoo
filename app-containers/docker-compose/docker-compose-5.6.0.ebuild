@@ -1,9 +1,9 @@
 # Copyright 2018-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
-inherit eapi9-ver optfeature
+inherit optfeature
 
 DESCRIPTION="Multi-container orchestration for Docker"
 HOMEPAGE="https://github.com/docker/compose"
@@ -12,17 +12,19 @@ SRC_URI+=" https://github.com/gentoo-golang-dist/compose/releases/download/v${PV
 S="${WORKDIR}/compose-${PV}"
 
 LICENSE="Apache-2.0"
+# Dependent licenses
+LICENSE+=" Apache-2.0 BSD BSD-2 MIT MPL-2.0"
 SLOT="2"
-KEYWORDS="amd64 arm64"
+KEYWORDS="~amd64 ~arm64"
 RESTRICT="test"
 
 RDEPEND="
 	|| (
-		>=app-containers/docker-cli-29.5.2
+		>=app-containers/docker-cli-29.7.2
 		app-containers/podman[wrapper(+)]
 	)
 "
-BDEPEND=">=dev-lang/go-1.25.5"
+BDEPEND=">=dev-lang/go-1.26.8"
 
 src_compile() {
 	emake VERSION=v${PV}

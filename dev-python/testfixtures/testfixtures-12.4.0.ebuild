@@ -5,7 +5,7 @@ EAPI=8
 
 DISTUTILS_USE_PEP517=hatchling
 PYPI_VERIFY_REPO=https://github.com/simplistix/testfixtures
-PYTHON_COMPAT=( python3_{12..14} )
+PYTHON_COMPAT=( python3_{12..15} )
 
 inherit distutils-r1 pypi
 
@@ -17,7 +17,7 @@ HOMEPAGE="
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	$(python_gen_cond_dep '
@@ -45,6 +45,10 @@ python_test() {
 		# TODO
 		tests/test_shouldwarn.py::ShouldWarnTests::test_filter_missing
 		tests/test_shouldwarn.py::ShouldWarnTests::test_filter_present
+		# need polars
+		docs/pydantic.rst::line:48,column:1
+		docs/pydantic.rst::line:69,column:1
+		docs/pydantic.rst::line:83,column:1
 	)
 	local EPYTEST_IGNORE=()
 	if ! has_version "dev-python/twisted[${PYTHON_USEDEP}]"; then
