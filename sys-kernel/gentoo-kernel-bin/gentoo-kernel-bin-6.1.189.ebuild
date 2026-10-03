@@ -3,14 +3,15 @@
 
 EAPI=8
 
-inherit dist-kernel-utils toolchain-funcs verify-sig
+inherit kernel-install toolchain-funcs unpacker verify-sig
 
 BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
-PATCHSET=linux-gentoo-patches-6.12.97
-SHA256SUM_DATE=20260907
+PATCHSET=linux-gentoo-patches-6.1.178
+BINPKG=${P/-bin}-1
+SHA256SUM_DATE=20261003
 
-DESCRIPTION="Minimal subset of gentoo-kernel-bin for building modules, for containers"
+DESCRIPTION="Pre-built Linux kernel with Gentoo patches"
 HOMEPAGE="
 	https://wiki.gentoo.org/wiki/Project:Distribution_Kernel
 	https://www.kernel.org/
@@ -19,36 +20,42 @@ SRC_URI+="
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${BASE_P}.tar.xz
 	https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/patch-${PATCH_PV}.xz
 	https://distfiles.gentoo.org/pub/proj/dist-kernel/patchsets/$(ver_cut 1-2)/${PATCHSET}.tar.xz
-	https://distfiles.gentoo.org/pub/proj/dist-kernel/binpkg/modprep/$(ver_cut 1-2)/${P}.tar.xz
 	verify-sig? (
 		https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/sha256sums.asc
 			-> linux-$(ver_cut 1).x-sha256sums-${SHA256SUM_DATE}.asc
 	)
+	amd64? (
+		https://distfiles.gentoo.org/pub/proj/dist-kernel/binpkg/amd64/$(ver_cut 1-2)/${BINPKG}.amd64.gpkg.tar
+	)
+	arm64? (
+		https://distfiles.gentoo.org/pub/proj/dist-kernel/binpkg/arm64/$(ver_cut 1-2)/${BINPKG}.arm64.gpkg.tar
+	)
+	ppc64? (
+		https://distfiles.gentoo.org/pub/proj/dist-kernel/binpkg/ppc64le/$(ver_cut 1-2)/${BINPKG}.ppc64le.gpkg.tar
+	)
+	x86? (
+		https://distfiles.gentoo.org/pub/proj/dist-kernel/binpkg/x86/$(ver_cut 1-2)/${BINPKG}.x86.gpkg.tar
+	)
 "
 S=${WORKDIR}
 
-LICENSE="GPL-2"
-SLOT=${PV}
-KEYWORDS="amd64 arm64 ppc64 x86"
+KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
 
-RDEPEND="
-	virtual/libelf
-	!sys-kernel/gentoo-kernel-bin:${SLOT}
-"
 PDEPEND="
 	>=virtual/dist-kernel-${PV}
 "
 BDEPEND="
 	app-alternatives/bc
 	app-alternatives/lex
-	app-alternatives/yacc
-	dev-util/pahole
 	virtual/libelf
+	app-alternatives/yacc
 	verify-sig? ( >=sec-keys/openpgp-keys-kernel-20250702 )
 "
 
 KV_LOCALVERSION='-gentoo-dist-bin'
 KV_FULL=${PV/_p/-p}${KV_LOCALVERSION}
+
+QA_PREBUILT='*'
 
 VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/kernel.org.asc
 
@@ -61,10 +68,7 @@ src_unpack() {
 		cd "${WORKDIR}" || die
 	fi
 
-	unpack "${BASE_P}.tar.xz" "patch-${PATCH_PV}.xz" "${PATCHSET}.tar.xz"
-	local pkg_arch=${ARCH}
-	[[ ${ARCH} == ppc64 ]] && pkg_arch=ppc64le
-	tar -x -f "${DISTDIR}/${P}.tar.xz" "${P}/${pkg_arch}" || die
+	unpacker
 }
 
 src_prepare() {
@@ -119,59 +123,46 @@ src_configure() {
 		O="${WORKDIR}"/modprep
 	)
 
-	local kernel_dir=( "${P}"/*/usr/src/"linux-${KV_FULL}" )
+	local kernel_dir="${BINPKG}/image/usr/src/linux-${KV_FULL}"
+
+	# If this is set it will have an effect on the name of the output
+	# image. Set this variable to track this setting.
+	if grep -q "CONFIG_EFI_ZBOOT=y" "${kernel_dir}/.config"; then
+		KERNEL_EFI_ZBOOT=1
+	fi
 
 	mkdir modprep || die
-	cp "${kernel_dir}/.config" modprep/ || die
+	cp "${BINPKG}/image/usr/src/linux-${KV_FULL}/.config" modprep/ || die
 	emake -C "${BASE_P}" "${makeargs[@]}" modules_prepare
 }
 
+src_test() {
+	kernel-install_test "${KV_FULL}" \
+		"${WORKDIR}/${BINPKG}/image/usr/src/linux-${KV_FULL}/$(dist-kernel_get_image_path)" \
+		"${BINPKG}/image/lib/modules/${KV_FULL}" \
+		"${WORKDIR}/${BINPKG}/image/usr/src/linux-${KV_FULL}/.config"
+}
+
 src_install() {
-	local rel_kernel_dir=/usr/src/linux-${KV_FULL}
-	local pkg_dir=( "${P}"/* )
-	local kernel_dir="${pkg_dir}/usr/src/linux-${KV_FULL}"
-	local image="${kernel_dir}/$(dist-kernel_get_image_path)"
-	local uki="${image%/*}/uki.efi"
+	local kernel_dir="${BINPKG}/image/usr/src/linux-${KV_FULL}"
 
-	mv "${pkg_dir}"/lib "${ED}"/ || die
-	cd "${kernel_dir}" || die
-	insinto "${rel_kernel_dir}"
-	doins System.map Module.symvers
-	doins -r certs include scripts
+	# Overwrite the identifier in the prebuilt package
+	echo "${CATEGORY}/${PF}:${SLOT}" > "${kernel_dir}/dist-kernel" || die
 
-	local kern_arch=$(tc-arch-kernel)
-	insinto "${rel_kernel_dir}/arch/${kern_arch}"
-	doins -r "arch/${kern_arch}/include"
+	mv "${BINPKG}"/image/{lib,usr} "${ED}"/ || die
 
-	# Add the identifier
-	echo "${CATEGORY}/${PF}:${SLOT}" > "${ED}${rel_kernel_dir}/dist-kernel" || die
-
-	cd "${WORKDIR}/${BASE_P}" || die
-	insinto "${rel_kernel_dir}"
-	doins -r include
-
-	# remove everything but Makefile* and Kconfig*
-	find -type f '!' '(' -name 'Makefile*' -o -name 'Kconfig*' ')' \
-		-delete || die
-	find -type l -delete || die
-	cp -p -R * "${ED}${rel_kernel_dir}/" || die
+	# FIXME: requires proper mount-boot
+	if [[ -d ${BINPKG}/image/boot/dtbs ]]; then
+		mv "${BINPKG}"/image/boot "${ED}"/ || die
+	fi
 
 	# strip out-of-source build stuffs from modprep
 	# and then copy built files
-	cd "${WORKDIR}" || die
 	find modprep -type f '(' \
 			-name Makefile -o \
 			-name '*.[ao]' -o \
 			'(' -name '.*' -a -not -name '.config' ')' \
 		')' -delete || die
 	rm modprep/source || die
-	cp -p -R modprep/. "${ED}${rel_kernel_dir}"/ || die
-}
-
-pkg_preinst() {
-	dist-kernel_update_lib_symlinks
-}
-
-pkg_postinst() {
-	dist-kernel_update_src_symlink "${EROOT}/usr/src/linux" "${KV_FULL}"
+	cp -p -R modprep/. "${ED}/usr/src/linux-${KV_FULL}"/ || die
 }

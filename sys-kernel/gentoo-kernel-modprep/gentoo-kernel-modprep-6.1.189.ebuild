@@ -7,8 +7,8 @@ inherit dist-kernel-utils toolchain-funcs verify-sig
 
 BASE_P=linux-${PV%.*}
 PATCH_PV=${PV%_p*}
-PATCHSET=linux-gentoo-patches-6.18.42
-SHA256SUM_DATE=20260921
+PATCHSET=linux-gentoo-patches-6.1.178
+SHA256SUM_DATE=20261003
 
 DESCRIPTION="Minimal subset of gentoo-kernel-bin for building modules, for containers"
 HOMEPAGE="
