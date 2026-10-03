@@ -6,7 +6,7 @@ EAPI=8
 DOCS_BUILDER="doxygen"
 DOCS_DIR=""
 
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit cmake docs python-any-r1
 
@@ -15,9 +15,9 @@ HOMEPAGE="https://simdutf.github.io/simdutf/"
 SRC_URI="https://github.com/${PN}/${PN}/archive/refs/tags/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="|| ( Apache-2.0 MIT )"
-SLOT="0/25"
-KEYWORDS="amd64 arm arm64 ~loong ppc ppc64 ~riscv ~sparc x86"
-IUSE="test"
+SLOT="0/36"
+KEYWORDS="~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
+IUSE="atomic-base64 test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
@@ -32,11 +32,19 @@ BDEPEND="
 	)
 "
 
-src_configure(){
+src_configure() {
+
 	local mycmakeargs+=(
 		-DSIMDUTF_TESTS=$(usex test)
 		-DSIMDUTF_ATOMIC_BASE64_TESTS=$(usex test)
 	)
+
+	if use atomic-base64; then
+		mycmakeargs+=(
+			-DSIMDUTF_CXX_STANDARD=20
+		)
+	fi
+
 	cmake_src_configure
 }
 
