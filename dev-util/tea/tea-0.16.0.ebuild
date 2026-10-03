@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 BDEPEND="
-	>=dev-lang/go-1.26
+	>=dev-lang/go-1.26.0:=
 "
 
 DOCS=( CHANGELOG.md README.md )

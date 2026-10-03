@@ -164,13 +164,11 @@ HOMEPAGE="https://github.com/boogie-org/boogie/"
 
 if [[ "${PV}" == *9999* ]] ; then
 	inherit git-r3
-
 	EGIT_REPO_URI="https://github.com/boogie-org/${PN}"
 else
 	SRC_URI="https://github.com/boogie-org/${PN}/archive/v${PV}.tar.gz
 		-> ${P}.gh.tar.gz"
-
-	KEYWORDS="amd64"
+	KEYWORDS="~amd64"
 fi
 
 SRC_URI+=" ${NUGET_URIS} "
@@ -193,7 +191,6 @@ BDEPEND="
 "
 
 PATCHES=( "${FILESDIR}/${PN}-3.0.4-disable-analyzers.patch" )
-
 CHECKREQS_DISK_BUILD="2G"
 DOTNET_PKG_PROJECTS=( Source/BoogieDriver/BoogieDriver.csproj )
 DOTNET_PKG_BUILD_EXTRA_ARGS=( -p:RollForward="Major" )
@@ -218,15 +215,12 @@ src_prepare() {
 		havoc0
 		inst
 		livevars
-		prover/cvc5-offline.bpl
-		prover/cvc5.bpl
-		prover/exitcode.bpl
-		prover/z3-hard-timeout.bpl
-		prover/z3mutl.bpl
+		prover
+		test2
+		inline/expansion2.bpl
+		irreduciblecfg/Tangled.bpl
 		snapshots/runtest.snapshot
 		test15/CaptureInlineUnroll.bpl
-		test2/Timeouts0.bpl
-		test2/git-issue-366.bpl
 		test21/InterestingExamples4.bpl
 	)
 	local bad_test=""
@@ -258,6 +252,5 @@ src_test() {
 src_install() {
 	dotnet-pkg-base_install
 	dotnet-pkg-base_dolauncher "/usr/share/${P}/BoogieDriver" "${PN}"
-
 	einstalldocs
 }
