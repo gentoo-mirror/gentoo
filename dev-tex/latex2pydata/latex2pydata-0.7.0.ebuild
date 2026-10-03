@@ -4,7 +4,7 @@
 EAPI=8
 
 DISTUTILS_USE_PEP517=setuptools
-PYTHON_COMPAT=( python3_{11..14} )
+PYTHON_COMPAT=( python3_{12..14} )
 
 inherit distutils-r1 latex-package
 
@@ -29,8 +29,8 @@ KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86"
 # fontsextra for fourier.sty
 # latexextra for upquote.sty
 BDEPEND="
-	>=dev-texlive/texlive-fontsextra-2024
-	>=dev-texlive/texlive-latexextra-2024
+	>=dev-texlive/texlive-fontsextra-2026
+	>=dev-texlive/texlive-latexextra-2026
 "
 
 distutils_enable_tests pytest
