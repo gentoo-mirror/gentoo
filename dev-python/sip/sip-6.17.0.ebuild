@@ -16,7 +16,7 @@ SRC_URI="
 
 LICENSE="BSD-2 BSD"
 SLOT="5"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ppc ppc64 ~riscv ~sparc x86"
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~loong ~ppc ~ppc64 ~riscv ~sparc ~x86"
 
 RDEPEND="
 	dev-python/packaging[${PYTHON_USEDEP}]
@@ -33,12 +33,6 @@ distutils_enable_sphinx docs \
 EPYTEST_PLUGINS=()
 distutils_enable_tests pytest
 
-python_test() {
-	# the latest ABI version gets tested by default, but ABI 14
-	# requires python3.15 or higher
-	local epytestargs=()
-	[[ ${EPYTHON} =~ python3.1[2-4]t? ]] &&
-		epytestargs=( --sip-abi-version=13 )
-
-	epytest "${epytestargs[@]}"
-}
+PATCHES=(
+	"${FILESDIR}"/${PN}-6.17.0-abi-int.patch
+)
